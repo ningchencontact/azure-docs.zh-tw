@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 05/23/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5fe16ecb2725cf306b5b57c9d45d8601581a3ece
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 13d81e655b98771d985277974bd3081437e2a3e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578887"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255774"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>補救 Azure Active Directory 入口網站中標幟為有風險的使用者
 
@@ -61,9 +61,9 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 採取下列動作來協助改正受影響的帳戶以及保護您的環境：
 
-1.  [驗證](http://aka.ms/MFAValid)正確的資訊，以進行多重要素驗證和自助式密碼重設。 
-2.  對所有使用者[啟用](http://aka.ms/MFAuth)多重要素驗證。 
-3.  使用此[補救指令碼](http://aka.ms/remediate)，對於每個受影響的帳戶，您可以自動執行下列步驟： 
+1.  [驗證](https://aka.ms/MFAValid)正確的資訊，以進行多重要素驗證和自助式密碼重設。 
+2.  對所有使用者[啟用](https://aka.ms/MFAuth)多重要素驗證。 
+3.  使用此[補救指令碼](https://aka.ms/remediate)，對於每個受影響的帳戶，您可以自動執行下列步驟： 
 
     a. 重設密碼以保護帳戶及刪除作用中的工作階段。
 
@@ -87,10 +87,10 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 此外，您應該：
 
-- 讀取及實作處理異常活動的這個[指引](http://aka.ms/fixaccount)。 
-- [啟用稽核管線](http://aka.ms/improvesecurity)可協助您分析您租用戶的活動。 完成後，您的稽核存放區會開始填入所有的活動記錄。 此時，您也能夠運用[安全和規範中心的搜尋和調查](http://aka.ms/sccsearch)。 
-- 使用此[指令碼](http://aka.ms/mailboxaudit1)來為所有帳戶啟用信箱稽核。 
-- 檢閱您所有信箱的委派權限和郵件轉寄規則。 您可以使用此 [PowerShell 指令碼](http://aka.ms/delegateforwardrules)來執行此工作。 
+- 讀取及實作處理異常活動的這個[指引](https://aka.ms/fixaccount)。 
+- [啟用稽核管線](https://aka.ms/improvesecurity)可協助您分析您租用戶的活動。 完成後，您的稽核存放區會開始填入所有的活動記錄。 此時，您也能夠運用[安全和規範中心的搜尋和調查](https://aka.ms/sccsearch)。 
+- 使用此[指令碼](https://aka.ms/mailboxaudit1)來為所有帳戶啟用信箱稽核。 
+- 檢閱您所有信箱的委派權限和郵件轉寄規則。 您可以使用此 [PowerShell 指令碼](https://aka.ms/delegateforwardrules)來執行此工作。 
 
 
 

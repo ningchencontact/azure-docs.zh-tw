@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0eae4cd9919e555453bfc6d44e2ddee51f30e809
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470892"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257348"
 ---
 # <a name="speech-sdk-api-reference"></a>語音 SDK API 參考
 
-「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，SDK 提供對**語音轉換文字**、**語音翻譯**和**意圖辨識**的存取權。 如需有關功能和所支援平台的一般概觀，請參閱文件[入口頁面](http://aka.ms/csspeech)。
+「語音軟體開發套件」(SDK) 可讓您的應用程式存取「語音服務」的功能，使其能夠更輕鬆地開發支援語音的軟體。 目前，SDK 提供對**語音轉換文字**、**語音翻譯**和**意圖辨識**的存取權。 如需有關功能和所支援平台的一般概觀，請參閱文件[入口頁面](https://aka.ms/csspeech)。
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 10/29/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 8a4c0c1426200e6c2d5041131fd0dd9cde4761cf
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e3d1a79dc7dd775cea71df2f36a5f34d85f3e240
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261803"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>教學課程：使用 Azure 虛擬 WAN 來建立點對站連線 (預覽)
 
@@ -79,7 +79,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="openvwan"></a>2.建立虛擬 WAN
 
-透過瀏覽器瀏覽至 [Azure 入口網站 (預覽)](http://aka.ms/azurevirtualwanpreviewfeatures)，並使用您的 Azure 帳戶登入。
+透過瀏覽器瀏覽至 [Azure 入口網站 (預覽)](https://aka.ms/azurevirtualwanpreviewfeatures)，並使用您的 Azure 帳戶登入。
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
@@ -111,12 +111,13 @@ P2S 設定會定義用於連線遠端用戶端的參數。
 
 ## <a name="hub"></a>5.編輯中樞指派
 
-1. 在虛擬 WAN 的頁面上，按一下 [點對站設定]。
-2. 在 [中樞] 下，您會看到尚未連線至中樞的設定清單。
-3. 選取您想要與之關聯的設定，然後按一下 [編輯中樞指派]
-4. 從下拉式清單中，選取您想要與設定關聯的中樞。
-5. 按一下 [指派]。 
-6. 此作業最多可能需要 30 分鐘的時間才能完成。
+1. 在您的虛擬 WAN 頁面上，按一下 [中樞]。
+2. 選取要將點對站組態指派至的中樞。
+3. 按一下 **"..."**，並挑選 [編輯虛擬中樞]
+4. 請核取 [包含點對站閘道]。
+5. 挑選 [閘道縮放單位] 和 [點對站組態]，以及用戶端的 [位址集區]。
+6. 按一下 [確認]。 
+7. 此作業最多可能需要 30 分鐘的時間才能完成。
 
 ## <a name="vnet"></a>6.將 VNet 連線至中樞
 
@@ -135,9 +136,10 @@ P2S 設定會定義用於連線遠端用戶端的參數。
 
 使用 VPN 設定檔來設定用戶端。
 
-1. 在虛擬 WAN 的頁面上，按一下 [點對站設定]。
-2. 在頁面頂端，按一下 [下載點對站設定檔]。 
-3. 檔案建立完成之後，您可以按一下連結來下載。
+1. 在您的虛擬 WAN 頁面上，按一下 [中樞]。
+2. 選取您想要下載設定檔的中樞。
+3. 按一下 **"..."** 並挑選 [下載設定檔]。 
+4. 檔案建立完成之後，您可以按一下連結來下載。
 4. 使用設定檔檔案來設定點對站用戶端。
 
 ## <a name="device"></a>8.設定點對站用戶端

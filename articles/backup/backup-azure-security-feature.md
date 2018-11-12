@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: 32eba23202eca1c71c4f3b01dcb364281cb2eb60
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 62b2744494fcd4d98bf75892dc95d86130dd04bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246429"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261735"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>利用安全性功能協助保護使用 Azure 備份的混合式備份
 現在越來越重視安全性問題，例如惡意程式碼、勒索軟體和入侵。 這些安全性問題在成本和資料方面付出的代價很高。 為了防範這類攻擊，Azure 備份現在提供安全性功能來協助保護混合式備份。 本文說明如何使用 Azure 復原服務代理程式和 Azure 備份伺服器以啟用及使用這些功能。 這些功能包括：
@@ -114,6 +114,6 @@ ms.locfileid: "40246429"
 
 ## <a name="next-steps"></a>後續步驟
 * [開始使用 Azure 復原服務保存庫](backup-azure-vms-first-look-arm.md)以啟用這些功能。
-* [下載最新的 Azure 復原服務代理程式](http://aka.ms/azurebackup_agent)，以協助保護 Windows 電腦及防護備份資料以免遭受攻擊。
+* [下載最新的 Azure 復原服務代理程式](https://aka.ms/azurebackup_agent)，以協助保護 Windows 電腦及防護備份資料以免遭受攻擊。
 * [下載最新的 Azure 備份伺服器](https://aka.ms/latest_azurebackupserver)，以協助保護工作負載及防護備份資料以免遭受攻擊。
 * [下載適用於 System Center 2012 R2 Data Protection Manager 的 UR12](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager) 或[下載適用於 System Center 2016 Data Protection Manager 的 UR2](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)，以協助保護工作負載及防護備份資料以免遭受攻擊。

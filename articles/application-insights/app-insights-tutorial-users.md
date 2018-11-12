@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: db61c300ad82270e59d315fa3372d9e4390c7a21
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 6d4f96a2c1d288648543a92614cab0f8cf5ee2ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2017
-ms.locfileid: "24099016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255995"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>藉由 Azure Application Insights，以了解客戶如何使用您的應用程式
 
@@ -31,20 +31,20 @@ Azure Application Insights 會收集使用資訊，以協助您了解使用者�
 > * 調查使用者如何瀏覽您的應用程式
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
 - 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
-- 下載並安裝 [Visual Studio 快照集偵錯工具](http://aka.ms/snapshotdebugger) \(英文\)。
+- 下載並安裝 [Visual Studio 快照集偵錯工具](https://aka.ms/snapshotdebugger) \(英文\)。
 - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。 
 - [從您的應用程式傳送遙測](app-insights-usage-overview.md#send-telemetry-from-your-app)以新增自訂事件/頁面檢視
 - 傳送[使用者內容](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)以追蹤使用者過去的活動，並充分運用使用方式功能。
 
 ## <a name="log-in-to-azure"></a>登入 Azure
-登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。
 
 ## <a name="get-information-about-your-users"></a>取得使用者的相關資訊
 [使用者] 面板可透過各種方式讓您了解有關使用者的重要詳細資料。 使用此面板可了解的資訊包括：使用者從何處連線、用戶端的詳細資料，以及他們所存取的應用程式領域等。 

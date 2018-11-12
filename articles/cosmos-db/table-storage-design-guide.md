@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251119"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245812"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 儲存體資料表設計指南：設計可調整且效用佳的資料表
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ ms.locfileid: "50251119"
 </table>
 
 
-到目前為止，此設計看起來類似於關聯式資料庫中的資料表，主要差異在於必要資料行，並在相同資料表中儲存多個實體類型的能力。 此外，每個使用者定義屬性 (例如**名字**或**年齡**) 皆具有資料類型，例如整數或字串，就像關聯式資料庫中的資料行。 雖然不同於關聯式資料庫，但資料表服務的無結構描述本質意味著一個屬性在每個實體上不需要相同的資料類型。 若要將複雜資料類型儲存在單一屬性中，您必須使用序列化格式，例如 JSON 或 XML。 如需表格服務 (例如支援的資料類型、支援的日期範圍、命名規則和大小限制) 的詳細資訊，請參閱 [了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。
+到目前為止，此設計看起來類似於關聯式資料庫中的資料表，主要差異在於必要資料行，並在相同資料表中儲存多個實體類型的能力。 此外，每個使用者定義屬性 (例如**名字**或**年齡**) 皆具有資料類型，例如整數或字串，就像關聯式資料庫中的資料行。 雖然不同於關聯式資料庫，但資料表服務的無結構描述本質意味著一個屬性在每個實體上不需要相同的資料類型。 若要將複雜資料類型儲存在單一屬性中，您必須使用序列化格式，例如 JSON 或 XML。 如需表格服務 (例如支援的資料類型、支援的日期範圍、命名規則和大小限制) 的詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。
 
 您將會發現，您所選擇的 **PartitionKey** 和 **RowKey** 是良好資料表設計不可或缺的元素。 儲存在資料表中的每個實體都必須有一個獨一無二的 **PartitionKey** 和 **RowKey** 組合。 如同關聯式資料庫資料表中的索引鍵，系統會為 **PartitionKey** 和 **RowKey** 的值編製索引以建立叢集索引，此索引可用於快速查閱；不過，表格服務不會建立任何次要索引，因此已編製索引的屬性就只有這兩個 (稍後說明的某些模式將示範如何解決這項表面上的限制)。  
 
@@ -133,7 +133,7 @@ ms.locfileid: "50251119"
 
 在資料表服務中，個別節點可為一或多個完整資料分割提供服務，且服務會透過動態的負載平衡資料分割在節點間進行調整。 如果某節點的負載過大，表格服務可將由該節點提供服務的分割範圍*分割*到不同的節點；當流量變小時，服務可將分割範圍從靜止節點*合併*回單一節點。  
 
-如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
+如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
 
 ### <a name="entity-group-transactions"></a>實體群組交易
 在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 在某些文件中，EGT 也稱為 *批次交易* 。 EGT 只能對儲存在相同資料分割中的實體運作 (共用給定資料表中的相同資料分割索引鍵)，所以每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確保這些實體位於相同的資料分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
@@ -153,7 +153,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 | **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
-如需詳細資訊，請參閱 [了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ### <a name="cost-considerations"></a>成本考量
 資料表儲存體比較便宜，但您在評估任何會使用資料表服務的方案時，均應將容量使用量和交易數目的成本預估同時納入考量。 不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是可以採行的有效措施。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。  
@@ -208,7 +208,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 | **年齡** |整數  |
 | **EmailAddress** |字串 |
 
-先前的章節＜ [Azure 資料表服務概觀](#overview) ＞說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+先前的章節＜ [Azure 資料表服務概觀](#overview) ＞說明了某些對查詢設計有直接影響的重要 Azure 表格服務功能。 這些功能產生了設計資料表服務查詢的一般指導方針。 下列範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 * ***點查詢***是使用上最有效率的查閱，建議用於高容量查閱或只能容許最低延遲的查閱。 這類查詢可使用索引有效率地尋找個別實體，做法是同時指定 **PartitionKey** 和 **RowKey** 值。 例如：$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
 * 次佳的是***範圍查詢***，它使用 **PartitionKey**，並篩選特定範圍的 **RowKey** 值，以傳回多個實體。 **PartitionKey** 值會識別特定的分割，而 **RowKey** 值會識別該分割中實體的子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
@@ -437,7 +437,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 若要在銷售部門中，找出員工識別碼範圍從 000100 至 000199 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * 若要在銷售部門中，找出電子郵件地址開頭為字母 'a' 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+  上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱[查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 #### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
@@ -491,7 +491,7 @@ EGT 也可能讓您必須評估並取捨您的設計：使用多個資料分割�
 * 若要在銷售部門中，找出員工識別碼範圍從 **000100** 至 **000199** 以員工識別碼順序排序的所有員工，請使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')。  
 * 若要在銷售部門中，找出電子郵件地址以 'a' 開頭的所有員工，請使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 #### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
@@ -1002,7 +1002,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 在此類情況下，您務必要完整測試應用程式的效能。  
 
-對資料表服務的查詢一次最多可傳回 1000 個實體，且最長可執行五秒。 如果結果集包含超過 1000 個實體，且查詢未於五秒內完成，或者查詢跨越資料分割界限，則資料表服務會傳回接續權杖，讓用戶端應用程式能夠要求下一組實體。 如需接續權杖如何運作的詳細資訊，請參閱 [查詢逾時和分頁](http://msdn.microsoft.com/library/azure/dd135718.aspx)。  
+對資料表服務的查詢一次最多可傳回 1000 個實體，且最長可執行五秒。 如果結果集包含超過 1000 個實體，且查詢未於五秒內完成，或者查詢跨越資料分割界限，則資料表服務會傳回接續權杖，讓用戶端應用程式能夠要求下一組實體。 如需接續權杖如何運作的詳細資訊，請參閱 [查詢逾時和分頁](https://msdn.microsoft.com/library/azure/dd135718.aspx)。  
 
 如果您使用儲存體用戶端程式庫，它可以在從資料表服務傳回實體時，自動為您處理接續權杖。 下列使用儲存體用戶端程式庫的 C# 程式碼範例會在資料表服務於回應中傳回接續權杖時自動處理接續權杖：  
 

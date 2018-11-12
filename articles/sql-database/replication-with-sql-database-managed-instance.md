@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869307"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240387"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>使用 SQL Database 受控執行個體進行複寫
 
@@ -77,7 +77,7 @@ Azure SQL Database 上的發行者和散發者需要：
 ## <a name="configure-publishing-and-distribution-example"></a>設定發行與散發範例
 
 1. 在入口網站中[建立 Azure SQL Database 受控執行個體](sql-database-managed-instance-create-tutorial-portal.md)。
-2. 針為工作目錄[建立 Azure 儲存體帳戶](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)。
+2. 針為工作目錄[建立 Azure 儲存體帳戶](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account)。
 
    請務必複製儲存體金鑰。 請參閱[檢視並複製儲存體存取金鑰](../storage/common/storage-account-manage.md#access-keys
 )。
@@ -85,11 +85,11 @@ Azure SQL Database 上的發行者和散發者需要：
 
    在下列範例指令碼中，以此資料庫的名稱取代 `<Publishing_DB>`。
 
-4. 使用散發者的 SQL 驗證建立資料庫使用者。 請參閱[建立資料庫使用者](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全的密碼。
+4. 使用散發者的 SQL 驗證建立資料庫使用者。 請參閱[建立資料庫使用者](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users)。 使用安全的密碼。
 
    在下列範例指令碼中，搭配此 SQL Server 帳戶資料庫使用者名稱和密碼使用 `<SQL_USER>` 和 `<PASSWORD>`。
 
-5. [連線到 SQL Database 受控執行個體](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms)。
+5. [連線到 SQL Database 受控執行個體](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms)。
 
 6. 執行下列查詢，以新增散發者和散發資料庫。
 
@@ -197,4 +197,4 @@ Azure SQL Database 上的發行者和散發者需要：
 
 ## <a name="see-also"></a>另請參閱
 
-- [什麼是受控執行個體？](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [什麼是受控執行個體？](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

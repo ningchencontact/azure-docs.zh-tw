@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 13535dae82ef2c8896dad7d6221553d15e4e6a95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e616df772bf11d1247f96c78bea2392252f5e5d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38573806"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259746"
 ---
 # <a name="view-the-monthly-estimated-lab-cost-trend-in-azure-devtest-labs"></a>檢視 Azure DevTest Labs 中的每月估計實驗室成本趨勢
 研測實驗室的成本管理功能可協助您追蹤實驗室成本。 本文會示範如何使用「每月估計成本趨勢」  圖表，來檢視目前日曆月份的到目前為止的估計成本，以及目前日曆月份的預計月底成本。 本文也會說明如何設定費用目標和閾值，並在觸達時觸發 DevTest Labs 向您報告結果，從而更輕鬆管理實驗室成本。
@@ -27,7 +27,7 @@ ms.locfileid: "38573806"
 ## <a name="viewing-the-monthly-estimated-cost-trend-chart"></a>檢視每月估計成本趨勢圖表
 若要檢視「每月估計成本趨勢」圖表，請遵循下列步驟︰ 
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 (您的實驗室可能已顯示在 [所有資源] 下方的儀表板上)。
 1. 從實驗室清單中，選取所需的實驗室。  
 1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。   

@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261854"
 ---
 # <a name="what-is-bing-video-search"></a>什麼是 Bing 影片搜尋？
 
@@ -47,7 +47,7 @@ Host: api.cognitive.microsoft.com
 
 如果這是您第一次呼叫任何的 Bing API，請勿包含用戶端識別碼標頭。 如果您先前已呼叫 Bing API 且 Bing 傳回了使用者和裝置組合的用戶端識別碼，則只要包含用戶端識別碼。
 
-若要從特定網域取得影片，請使用 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
+若要從特定網域取得影片，請使用 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghi
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;依影片長度篩選影片 (例如，長度少於五分鐘的影片)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;依存留期篩選影片 (例如，Bing 在過去一週探索的影片)
 
-若要取得特定網域中的影片，請在查詢字串中加入 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
+若要取得特定網域中的影片，請在查詢字串中加入 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
 > [!NOTE]
 > 視查詢而定，如果您使用 `site:` 查詢運算子，不論 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) 設定為何，回應都有可能包含成人內容。 只有在您了解網站上的內容，而且您的案例支援成人內容的可能性時，才得以使用 `site:`。

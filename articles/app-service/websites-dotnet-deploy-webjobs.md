@@ -15,18 +15,18 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 64fdb6dceb1ca10e68411f95c310fdd9a2e25202
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245715"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 開發和部署 WebJob - Azure App Service
 
 ## <a name="overview"></a>概觀
 
-本主題說明如何使用 Visual Studio 將主控台應用程式專案部署為 [App Service](app-service-web-overview.md)中之 Web 應用程式的 [Azure WebJob](http://go.microsoft.com/fwlink/?LinkId=390226)。 如需如何使用 [Azure 入口網站](https://portal.azure.com)部署 WebJob 的相關資訊，請參閱[使用 WebJob 執行背景工作](web-sites-create-web-jobs.md)。
+本主題說明如何使用 Visual Studio 將主控台應用程式專案部署為 [App Service](app-service-web-overview.md)中之 Web 應用程式的 [Azure WebJob](https://go.microsoft.com/fwlink/?LinkId=390226)。 如需如何使用 [Azure 入口網站](https://portal.azure.com)部署 WebJob 的相關資訊，請參閱[使用 WebJob 執行背景工作](web-sites-create-web-jobs.md)。
 
 當 Visual Studio 部署具有 WebJobs 功能的主控台應用程式專案時，它會執行兩個工作：
 

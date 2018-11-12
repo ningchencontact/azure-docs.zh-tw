@@ -14,22 +14,22 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257202"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>使用 Cloud Partner 入口網站發行 Cortana Intelligence 供應項目
 
 此文章將描述如何使用 Cloud Partner 入口網站來發行 Cortana Intelligence 供應項目。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參與者能夠在發行供應項目上進行共同作業。 如需詳細資訊，請參閱 [Cloud 入口網站管理使用者](./cloud-partner-portal-manage-users.md)。
 
-在代表發行者帳戶發行供應項目之前，必須有一個具有「擁有者」\"\"角色的人同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](http://www.microsoft.com/privacystatement/default.aspx)與 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
+在代表發行者帳戶發行供應項目之前，必須有一個具有「擁有者」\"\"角色的人同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](https://www.microsoft.com/privacystatement/default.aspx)與 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>開始建立 Cortana Inteligence 供應項目
 
@@ -55,7 +55,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 這是在發行者設定檔內供應項目的唯一識別碼。
 此識別碼會顯示於產品 URL 中。 此識別碼只能包含小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 
 >[!Note]
->供應項目上架後，此欄位便會鎖住。
+>供應項目上架後，此欄位便會鎖定。
 
 **範例：**
 
@@ -66,7 +66,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 發行者設定檔的下拉式清單。 用來選擇您想要在哪個發行者設定檔之下發行此供應項目。
 
 >[!Note]
->供應項目上架後，此欄位便會鎖住。
+>供應項目上架後，此欄位便會鎖定。
 
 ### <a name="name"></a>名稱
 
@@ -116,7 +116,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 - 影片長度應該小於 15 分鐘。
 - 此影片應該以最低限度的編輯方式來錄製解決方案的功能。 
 - 此影片會重點摘要使用者互動功能的重要層面，並將焦點放在進階分析的整合上。 
-- 示範影片不會****公開提供給客戶，但要能具體呈現解決方案給潛在客戶。 因此，這些影片應備有腳本，並且能重複播放。
+- 示範影片不會公開提供給客戶，但要能具體呈現解決方案給潛在客戶。 因此，這些影片應備有腳本，並且能重複播放。
 - 使用任一種畫面錄製工具，匯出標準影片格式 (例如 MPEG) 來建立您的影片。 
 
 下列指示會示範如何使用商務用 Skype 來建立影片。 
@@ -183,11 +183,11 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
 ### <a name="industries"></a>產業
 
-選取您應用程式最適合的目標產業。 如果您的應用程式與多個產業有關，請將此欄位保留空白。
+請選取您應用程式最適用的產業。 如果您的應用程式與多個產業有關，請將此欄位保留空白。
 
 ### <a name="categories"></a>類別
 
-選取與您應用程式相關的類別。 最多選取兩個類別。
+選取與您應用程式相相關的類別。 最多選取兩個類別。
 
 ### <a name="app-type"></a>應用程式類型
 
@@ -216,7 +216,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
         - [Neal Analytics Inventory Optimization](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome) \(英文\)
 
-- **要求試用** (**合作夥伴導向的試用 / PLT**) 選項會要求客戶填寫連絡資訊表單，讓合作夥伴可進一步採取動作。 合作夥伴會進行後續動作，並提供應用程式的示範或試用。 如需詳細資訊，請參閱 [AppSource 試用體驗逐步解說](http://aka.ms/trialexperienceforwebapps) \(英文\) 影片以取得高階概述。
+- **要求試用** (**合作夥伴導向的試用 / PLT**) 選項會要求客戶填寫連絡資訊表單，讓合作夥伴可進一步採取動作。 合作夥伴會進行後續動作，並提供應用程式的示範或試用。 如需詳細資訊，請參閱 [AppSource 試用體驗逐步解說](https://aka.ms/trialexperienceforwebapps) \(英文\) 影片以取得高階概述。
 
 >[!Note]
 >資料顯示**客戶導向的試用**的潛在客戶開發可能性高於**合作夥伴導向的試用**。
@@ -230,11 +230,11 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
 此欄位會決定您供應項目將可供試用的國家/地區。
 
-![支援的國家/地區](./media/cloud-partner-portal-publish-cortana-intelligence-app/CISScreenshot3.png)
+![支援的國家/區域](./media/cloud-partner-portal-publish-cortana-intelligence-app/CISScreenshot3.png)
 
 ### <a name="supported-languages"></a>支援的語言
 
-選取應用程式支援的語言。 如果應用程式支援的語言不在此清單上，請發行您的供應項目，並寄送電子郵件給我們：<appsource@microsoft.com>，讓我們能夠了解對其他語言的支援。
+選取您應用程式支援的語言。 如果應用程式支援的語言不在此清單上，請發行您的供應項目，並寄送電子郵件給我們：<appsource@microsoft.com>，讓我們能夠了解對其他語言的支援。
 
 ### <a name="app-version"></a>應用程式版本
 
@@ -258,7 +258,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
 ### <a name="video"></a>影片
 
-您最多可以上傳四段影片。 針對每段您想要上傳的影片：
+最多可上傳四段影片。 針對每段您想要上傳的影片：
 - 提供影片名稱
 - 提供 URL (僅限 YouTube 或 Vimeo)
 - 提供要與影片產生關聯的縮圖。 縮圖必須使用 png 影像格式，而其大小必須是 1280 像素 X 720 像素。 
@@ -283,7 +283,7 @@ Cloud Partner 入口網站支援對該入口網站進行角色型存取，讓參
 
 ### <a name="terms-of-use"></a>使用規定
 
-輸入應用程式的使用條款。 AppSource 客戶必須先接受這些條款，才能試用您的應用程式。
+輸入您應用程式的使用條款。 AppSource 客戶必須先接受這些條款，才能試用您的應用程式。
 
 >[!Note]
 >此欄位會使用 HTML 標記來接受內容，例如 html 內容 <p\>、<h1\> 及 <li\>。 您可以使用這些標記來將內容格式化。 

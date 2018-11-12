@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353861"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230031"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 針對 Azure SQL Database 效能問題進行疑難排解
 
@@ -167,7 +167,7 @@ SQL Database 上有多種可用的閂鎖。 為了簡單起見，系統會使用
 
 其中一個處理閂鎖爭用的方法是使用非循序索引鍵來取代循序索引鍵，以將插入平均分散到整個索引範圍。 通常，在索引中建立前置資料行將可以按比例分配工作負載。 另一個可考慮的方法是資料表分割。 使用資料分割資料表上的計算資料行來建立雜湊分割配置，是一個緩和過多閂鎖爭用的常見方法。 當發生頁面閂鎖 IO 爭用時，導入索引可協助緩和這個效能問題。 
 
-如需詳細資訊，請參閱[診斷和解決 SQL Server 上的閂鎖爭用](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) \(英文\) (PDF 下載)。
+如需詳細資訊，請參閱[診斷和解決 SQL Server 上的閂鎖爭用](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) \(英文\) (PDF 下載)。
 
 ## <a name="missing-index"></a>遺漏索引
 

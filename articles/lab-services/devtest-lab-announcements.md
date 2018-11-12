@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259916"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>將公告張貼到 Azure DevTest Labs 中的實驗室
 
@@ -35,7 +35,7 @@ ms.locfileid: "39049944"
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>在現有實驗室中張貼公告的步驟
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 (您的實驗室可能已顯示在 [所有資源] 下方的儀表板上)。
 1. 從實驗室清單中，選取您想要在其中張貼公告的實驗室。  
 1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。  
@@ -70,7 +70,7 @@ ms.locfileid: "39049944"
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>使用者檢視公告的步驟
 
-1. 從 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)選取一個實驗室。
+1. 從 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)選取一個實驗室。
 
 1. 如果實驗室有為其張貼的公告，則資訊通知會顯示在實驗室的 [概觀] 頁面頂端。 此資訊通知是在建立公告時所指定的公告標題。
 

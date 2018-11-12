@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-ms.openlocfilehash: 49d1a228132cc220b30091481bb542623b1e222d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d201d8848891038355fad01f610070259ad1e42a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259185"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio 中的應用程式生命週期管理
 Azure Machine Learning Studio 是用於開發機器學習實驗的工具，可在 Azure 雲端平台中運作。 它就像是合併到單一平台的 Visual Studio IDE 和可調整的雲端服務。 您可以將標準應用程式生命週期管理 (ALM) 作法 (從控制各種資產的版本，以至自動執行和部署) 合併到 Azure Machine Learning Studio。 本文會討論其中的部分選項和方法。
@@ -43,7 +43,7 @@ Azure Machine Learning Studio 是用於開發機器學習實驗的工具，可�
 如果您刪除此實驗，該實驗的所有快照會遭到刪除。
 
 ### <a name="exportimport-experiment-in-json-format"></a>以 JSON 格式匯出/匯入實驗
-每次將實驗提交執行時，執行歷程記錄快照會在 Azure Machine Learning Studio 中保留實驗的不可變版本。 您也可以在本機儲存實驗的複本，並將其簽入到您最喜愛的原始檔控制系統 (例如 Team Foundation Server)，稍後再從該本機檔案重新建立實驗。 您可以使用 [Azure Machine Learning PowerShell](http://aka.ms/amlps) Cmdlet [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 和 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) 來完成此作業。
+每次將實驗提交執行時，執行歷程記錄快照會在 Azure Machine Learning Studio 中保留實驗的不可變版本。 您也可以在本機儲存實驗的複本，並將其簽入到您最喜愛的原始檔控制系統 (例如 Team Foundation Server)，稍後再從該本機檔案重新建立實驗。 您可以使用 [Azure Machine Learning PowerShell](https://aka.ms/amlps) Cmdlet [*Export-AmlExperimentGraph*](https://github.com/hning86/azuremlps#export-amlexperimentgraph) 和 [*Import-AmlExperimentGraph*](https://github.com/hning86/azuremlps#import-amlexperimentgraph) 來完成此作業。
 
 JSON 檔案是實驗圖形的文字表示法，但可能在工作區中包含資產的參考，例如資料集或定型模型。 它不會包含資產的序列化版本。 如果您嘗試將 JSON 文件匯回工作區中，所參考的資產必須已經存在且具有實驗中所參考的相同資產識別碼。 否則您無法存取匯入的實驗。
 
@@ -80,12 +80,12 @@ Azure Machine Learning 中的定型模型會序列化為一種稱為 .iLearner �
 您也可以建立許多相同的 Web 服務端點，然後將不同版本的 .iLearner 檔案修補至端點，以達到類似的效果。 [本文](create-models-and-endpoints-with-powershell.md)更詳細地說明如何完成此項作業。
 
 ### <a name="new-web-service"></a>新的 Web 服務
-如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 然而，您可以從預測性實驗使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell Cmdlet，或從已經部署的 Resource Manager 型 Web 服務使用 [*Export-AzureRmMlWebservice*](https://msdn.microsoft.com/library/azure/mt767935.aspx) PowerShell Cmdlet 來產生 Web 服務定義 (WSD) 檔案 (採用 JSON 格式)。
+如果您建立以 Azure Resource Manager 為基礎的新 Web 服務，就無法再使用端點建構。 然而，您可以從預測性實驗使用 [Export-AmlWebServiceDefinitionFromExperiment](https://github.com/hning86/azuremlps#export-amlwebservicedefinitionfromexperiment) PowerShell Cmdlet，或從已經部署的 Resource Manager 型 Web 服務使用 [*Export-AzureRmMlWebservice*](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/export-azurermmlwebservice?view=azurermps-6.6.0) PowerShell Cmdlet 來產生 Web 服務定義 (WSD) 檔案 (採用 JSON 格式)。
 
 在擁有匯出的 WSD 檔案並對其進行版本控制後，您也可以將 WSD 部署為不同 Azure 區域中不同 Web 服務方案的新 Web 服務。 只要確定您提供適當的儲存體帳戶組態，以及新的 Web 服務方案識別碼。 若要在不同的 .iLearner 檔案中修補，您可以修改 WSD 檔案和更新定型模型的位置參考，並且部署為新的 Web 服務。
 
 ## <a name="automate-experiment-execution-and-deployment"></a>自動進行實驗執行和部署
-ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序。 在 Azure Machine Learning 中，您可以使用 [PowerShell 模組](http://aka.ms/amlps)來完成此作業。 以下是使用 [Azure Machine Learning Studio PowerShell 模組](http://aka.ms/amlps)之標準 ALM 自動化執行/部署程序相關的端對端步驟範例。 每個步驟都會連結至一或多個 PowerShell Cmdlet，您可以使用它來完成該步驟。
+ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序。 在 Azure Machine Learning 中，您可以使用 [PowerShell 模組](https://aka.ms/amlps)來完成此作業。 以下是使用 [Azure Machine Learning Studio PowerShell 模組](https://aka.ms/amlps)之標準 ALM 自動化執行/部署程序相關的端對端步驟範例。 每個步驟都會連結至一或多個 PowerShell Cmdlet，您可以使用它來完成該步驟。
 
 1. [上傳資料集](https://github.com/hning86/azuremlps#upload-amldataset)。
 2. 將訓練實驗從[工作區](https://github.com/hning86/azuremlps#copy-amlexperiment)或[資源庫](https://github.com/hning86/azuremlps#copy-amlexperimentfromgallery)複製到工作區，或從本機磁碟[匯入](https://github.com/hning86/azuremlps#import-amlexperimentgraph)一個[已匯出的](https://github.com/hning86/azuremlps#export-amlexperimentgraph)實驗。
@@ -99,6 +99,6 @@ ALM 的重要層面就是能夠自動進行應用程式的執行和部署程序�
 10. 測試 Web 服務 [RRS](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) 或 [BES](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint) 端點。
 
 ## <a name="next-steps"></a>後續步驟
-* 下載 [Azure Machine Learning Studio PowerShell](http://aka.ms/amlps) 模組並開始自動執行 ALM 工作。
+* 下載 [Azure Machine Learning Studio PowerShell](https://aka.ms/amlps) 模組並開始自動執行 ALM 工作。
 * 了解如何透過 PowerShell 和重新訓練 API [只使用單一實驗建立和管理大量 ML 模型](create-models-and-endpoints-with-powershell.md)。
 * 深入了解如何[部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。

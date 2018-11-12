@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834350"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261104"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>在 Azure Machine Learning 中撰寫自訂 R 模組
 本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。 接著，詳細說明用於自訂模組定義中的元素和屬性。 此外，也討論如何使用輔助功能和檔案以及多個輸出。 
@@ -41,7 +41,7 @@ ms.locfileid: "34834350"
 其他輔助檔案也可以包含在提供可從自訂模組存取的功能的 .zip 檔案中。 此選項會在快速入門範例之後的參考章節 **XML 定義檔中的元素**的**引數**部分討論。
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>快速入門範例：定義、封裝及註冊自訂 R 模組
-這個範例說明如何建構自訂 R 模組所需的檔案、將檔案封裝成 zip 檔案，然後在您的 Machine Learning 工作區中註冊模組。 您可以從 [下載 CustomAddRows.zip 檔案](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)下載範例 zip 封裝和範例檔案。
+這個範例說明如何建構自訂 R 模組所需的檔案、將檔案封裝成 zip 檔案，然後在您的 Machine Learning 工作區中註冊模組。 您可以從 [下載 CustomAddRows.zip 檔案](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)下載範例 zip 封裝和範例檔案。
 
 ## <a name="the-source-file"></a>來源檔案
 請考慮**自訂新增資料列**模組的範例，這個模組會修改從兩個資料集 (資料框架) 串連資料列 (觀察) 時所使用的**新增資料列**模組標準實作。 標準的**新增資料列**模組使用 `rbind` 演算法，將第二個輸入資料集的資料列附加到第一個輸入資料集的結尾。 自訂的 `CustomAddRows` 函式同樣會接受兩個資料集，但還會接受一個布林交換參數做為額外的輸入。 如果交換參數設為 **FALSE**，它會傳回與標準實作相同的資料集。 但是，如果交換參數為 **TRUE**，函式會將第一個輸入資料集的資料列改為附加到第二個資料集的結尾。 R `CustomAddRows` 函式由 **自訂新增資料列** 模組所公開，包含此函式的 CustomAddRows.R 檔案案包含下列 R 程式碼。

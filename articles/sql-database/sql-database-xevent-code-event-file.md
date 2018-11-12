@@ -2,19 +2,22 @@
 title: SQL Database 的 XEvent 事件檔案程式碼 | Microsoft Docs
 description: 提供 PowerShell 和 Transact-SQL 的兩階段程式碼範例，示範 Azure SQL Database 上擴充事件中的事件檔案目標。 此案例必須要有 Azure 儲存體。
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: b905c921ae967d7f755f084bd6b9b30de34f76b4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649630"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232071"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的事件檔案目標程式碼
 
@@ -22,7 +25,7 @@ ms.locfileid: "34649630"
 
 您想要完整的程式碼範例以穩健方式擷取和報告擴充事件的資訊。
 
-在 Microsoft SQL Server 中， [事件檔案目標](http://msdn.microsoft.com/library/ff878115.aspx) 是用來將事件輸出儲存到本機硬碟機檔案中。 但是這類檔案並不適用於 Azure SQL Database。 我們改為使用 Azure 儲存體服務來支援事件檔案目標。
+在 Microsoft SQL Server 中， [事件檔案目標](https://msdn.microsoft.com/library/ff878115.aspx) 是用來將事件輸出儲存到本機硬碟機檔案中。 但是這類檔案並不適用於 Azure SQL Database。 我們改為使用 Azure 儲存體服務來支援事件檔案目標。
 
 本主題示範一個兩階段的程式碼範例：
 
@@ -32,7 +35,7 @@ ms.locfileid: "34649630"
   * 將 Azure 儲存體容器指定為事件檔案目標。
   * 建立和啟動事件工作階段等等。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -41,9 +44,9 @@ ms.locfileid: "34649630"
 * SQL Server Management Studio (ssms.exe)，最好是最新的每月更新版本。 
   您可以從下列位置下載最新的 ssms.exe：
   
-  * 名稱為 [下載 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)的主題。
-  * [下載的直接連結。](http://go.microsoft.com/fwlink/?linkid=616025)
-* 您必須安裝 [Azure PowerShell 模組](http://go.microsoft.com/?linkid=9811175) 。
+  * 名稱為 [下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)的主題。
+  * [下載的直接連結。](https://go.microsoft.com/fwlink/?linkid=616025)
+* 您必須安裝 [Azure PowerShell 模組](https://go.microsoft.com/?linkid=9811175) 。
   
   * 模組提供 **New-AzureStorageAccount**這類的命令。
 
@@ -503,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 上述 TRANSACT-SQL 指令碼使用下列系統函數讀取 event_file：
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 您可以在下列文章中取得進階選項的說明，這些選項可用來檢視擴充事件的資料：
 
-* [進一步檢視擴充事件的目標資料](http://msdn.microsoft.com/library/mt752502.aspx)
+* [進一步檢視擴充事件的目標資料](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>轉換程式碼範例在 SQL Server 上執行
@@ -525,10 +528,10 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 如需 Azure 儲存體服務中帳戶和容器的詳細資訊，請參閱：
 
 * [如何使用 .NET 的 Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [命名和參考容器、Blob 及中繼資料](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [使用根容器](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [第 1 課：在 Azure 容器上建立預存的存取原則和共用存取簽章](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [第 2 課：使用共用存取簽章建立 SQL Server 認證](http://msdn.microsoft.com/library/dn466435.aspx)
+* [命名和參考容器、Blob 及中繼資料](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [使用根容器](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [第 1 課：在 Azure 容器上建立預存的存取原則和共用存取簽章](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [第 2 課：使用共用存取簽章建立 SQL Server 認證](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Microsoft SQL Server 的擴充事件](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

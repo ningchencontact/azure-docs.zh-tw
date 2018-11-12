@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086670"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246730"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -30,7 +30,7 @@ Azure Migrate 可協助您：
 ## <a name="current-limitations"></a>目前的限制
 
 - 您只能針對那些要移轉到 Azure VM 的內部部署 VMware 虛擬機器 (VM) 進行評估。 VMware VM 必須由 vCenter Server (5.5、6.0 或 6.5 版) 管理。
-- 如果您想要評估 Hyper-V VM 和實體伺服器，請將 [Azure Site Recovery 部署規劃工具](http://aka.ms/asr-dp-hyperv-doc)用於 Hyper-V，對於實體機器則使用我們的[合作夥伴工具](https://azure.microsoft.com/migration/partners/)。
+- 如果您想要評估 Hyper-V VM 和實體伺服器，請將 [Azure Site Recovery 部署規劃工具](https://aka.ms/asr-dp-hyperv-doc)用於 Hyper-V，對於實體機器則使用我們的[合作夥伴工具](https://azure.microsoft.com/migration/partners/)。
 - 您可以在單一探索中探索多達 1500 個 VM，並在單一專案中探索多達 1500 個 VM。 此外，您還可以在單一評估中評估多達 1500 個 VM。
 - 如果您想要探索較大的環境，您可以分割探索並建立多個專案。 [深入了解](how-to-scale-assessment.md)。 Azure Migrate 支援每個訂閱最多 20 個專案。
 - Azure Migrate 只支援將受控磁碟用於進行移轉評估。

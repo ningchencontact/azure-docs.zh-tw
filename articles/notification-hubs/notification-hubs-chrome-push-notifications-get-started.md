@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 0ec2e31ae3127d27e0f494222385e7f6d456aa65
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 248fd094a8655af2a21035267a6b8f69f268683d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262160"
 ---
 # <a name="tutorial-push-notifications-to-chrome-apps-with-azure-notification-hubs"></a>教學課程：使用 Azure 通知中樞將通知推送至 Chrome 應用程式
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -362,7 +362,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
    * **registerWithGCM** 是第一個按鈕點擊處理常式，可向 GCM 進行 `chrome.gcm.register` 呼叫，以註冊目前的 Chrome 應用程式執行個體。
    * **registerCallback** 是回呼函數，會在 GCM 註冊呼叫傳回時受到呼叫。
    * **registerWithNH** 是第二個按鈕點擊處理常式，會向通知中樞進行註冊。 它會取得使用者已指定的 `hubName` 和 `connectionString`，並製作通知中樞註冊 REST API 呼叫。
-   * **splitConnectionString** 和 **generateSaSToken** 是代表 SaS 權杖建立程序之 JavaScript 實作的協助程式，其必須用於所有 REST API 呼叫中。 如需詳細資訊，請參閱 [一般概念](http://msdn.microsoft.com/library/dn495627.aspx)。
+   * **splitConnectionString** 和 **generateSaSToken** 是代表 SaS 權杖建立程序之 JavaScript 實作的協助程式，其必須用於所有 REST API 呼叫中。 如需詳細資訊，請參閱 [一般概念](https://msdn.microsoft.com/library/dn495627.aspx)。
    * **sendNHRegistrationRequest** 是對 Azure 通知中樞發出 HTTP REST 呼叫的函式。
    * **registrationPayload** 會定義註冊 XML 裝載。 如需詳細資訊，請參閱 [建立註冊 NH REST API]。 請以接收自 GCM 的值來更新其中的註冊識別碼。
    * **client** 是應用程式用來發出 HTTP POST 要求的 **XMLHttpRequest** 執行個體。 使用 `sasToken` 更新 `Authorization` 標頭。 成功完成此呼叫後，即會向 Azure 通知中樞註冊此 Chrome 應用程式執行個體。
@@ -390,7 +390,7 @@ Chrome 應用程式是透過 JavaScript 建立的，您可以使用任何慣用�
 為了進行測試，請使用 .NET 主控台應用程式傳送 Chrome 推播通知。 
 
 > [!NOTE]
-> 您可以透過公用 <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送推播通知。 如需其他跨平台範例，請查看[說明文件入口網站](https://azure.microsoft.com/documentation/services/notification-hubs/)。
+> 您可以透過公用 <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST 介面</a>，使用通知中樞從任何後端傳送推播通知。 如需其他跨平台範例，請查看[說明文件入口網站](https://azure.microsoft.com/documentation/services/notification-hubs/)。
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256216"
 ---
 # <a name="azure-operational-security"></a>Azure 作業安全性
 ## <a name="introduction"></a>簡介
@@ -74,7 +74,7 @@ Log Analytics 的核心功能是由在 Azure 中執行的一組服務所提供�
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) 藉由將受控資源中的資料收集到中央存放庫，來提供監視服務。 此資料可能包含事件、效能資料或透過 API 提供的自訂資料。 所收集的資料即可用於警示、分析和匯出。
 
 
 這個方法可讓您合併各種來源的資料，以便結合來自 Azure 服務與現有內部部署環境的資料。 它也可清楚劃分資料的收集與對該資料採取的動作，而讓所有類型的資料可以使用所有的動作。
@@ -92,7 +92,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 
 ### <a name="azure-backup"></a>Azure 備份
 
-[Azure 備份](http://azure.microsoft.com/documentation/services/backup)提供資料備份及還原服務，其為產品和服務之 Log Analytics 套件的一部分。
+[Azure 備份](https://azure.microsoft.com/documentation/services/backup)提供資料備份及還原服務，其為產品和服務之 Log Analytics 套件的一部分。
 它可保護您的應用程式資料並保留數年，而您完全不必投入資本投資，並且只需要最少的營運成本。 它可以備份實體和虛擬 Windows 伺服器中的資料，以及應用程式工作負載 (例如 SQL Server 和 SharePoint)。 [System Center Data Protection Manager (DPM) (英文)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) 也可以使用它，將受保護資料複寫到 Azure 以進行備援與長期儲存。
 
 

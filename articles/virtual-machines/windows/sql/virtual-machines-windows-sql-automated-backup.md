@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 43ce94653197933a13830003dd07e5b21be2a585
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894994"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256607"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 虛擬機器的自動備份 (Resource Manager)
 
@@ -31,7 +31,7 @@ ms.locfileid: "33894994"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要使用自動備份，請考慮下列必要條件︰
 
 **作業系統**：
@@ -101,7 +101,7 @@ ms.locfileid: "33894994"
 
 您可以使用 PowerShell 來設定「自動備份」。 開始進行之前，您必須：
 
-- [下載並安裝最新的 Azure PowerShell](http://aka.ms/webpi-azps)。
+- [下載並安裝最新的 Azure PowerShell](https://aka.ms/webpi-azps)。
 - 開啟 Windows PowerShell，並使用 **Connect-AzureRmAccount** 命令，將其與您的帳戶建立關聯。
 
 ### <a name="install-the-sql-iaas-extension"></a>安裝 SQL IaaS 擴充功能
@@ -280,7 +280,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 
 自動備份會在 Azure VM 上設定受控備份。 因此，請務必 [檢閱 SQL Server 2014 上受控備份的文件](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx)。
 
-您可以在下列文章中找到 Azure VM 上 SQL Server 的其他備份和還原指引： [Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
+您可以在下列文章中找到 Azure VM 上 SQL Server 的其他備份和還原指引：[Azure 虛擬機器中的 SQL Server 備份和還原](virtual-machines-windows-sql-backup-recovery.md)。
 
 如需有關其他可用之自動化工作的資訊，請參閱 [SQL Server IaaS 代理程式擴充功能](virtual-machines-windows-sql-server-agent-extension.md)。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: f1a1c0bd759a88b2e84584f1d52458ac6f56d97f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c54d8b870d6d8c187dcf145b56e3cbae257889a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999684"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259287"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>設定 Application Insights：追蹤相依性
 「相依性」  是由應用程式呼叫的外部元件。 這通常是使用 HTTP 呼叫的服務，或資料庫，或檔案系統。 [Application Insights](app-insights-overview.md) 會測量您應用程式等待相依性所花費的時間，以及相依性呼叫失敗的頻率。 您可以調查特定的呼叫，然後將它們與要求和例外狀況建立關聯。
@@ -44,7 +44,7 @@ ms.locfileid: "46999684"
 
 | 平台 | Install |
 | --- | --- |
-| IIS 伺服器 |[在您的伺服器上安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)或[將您的應用程式升級到 .NET Framework 4.6 或更新版本](http://go.microsoft.com/fwlink/?LinkId=528259)，然後在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。 |
+| IIS 伺服器 |[在您的伺服器上安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)或[將您的應用程式升級到 .NET Framework 4.6 或更新版本](https://go.microsoft.com/fwlink/?LinkId=528259)，然後在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。 |
 | Azure Web 應用程式 |在您的 Web 應用程式控制台中，[開啟 Application Insights 刀鋒視窗](app-insights-azure-web-apps.md)，然後在出現提示時選擇 [安裝]。 |
 | Azure 雲端服務 |[使用啟動工作](app-insights-cloudservices.md)或[安裝 .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 
@@ -207,7 +207,7 @@ ms.locfileid: "46999684"
 
 | 平台 | Install |
 | --- | --- |
-| IIS 伺服器 |[在您的伺服器上安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)， 或[將您的應用程式升級到 .NET Framework 4.6 或更新版本](http://go.microsoft.com/fwlink/?LinkId=528259)，然後在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。 |
+| IIS 伺服器 |[在您的伺服器上安裝狀態監視器](app-insights-monitor-performance-live-website-now.md)， 或[將您的應用程式升級到 .NET Framework 4.6 或更新版本](https://go.microsoft.com/fwlink/?LinkId=528259)，然後在應用程式中安裝 [Application Insights SDK](app-insights-asp-net.md)。 |
 | Azure Web 應用程式 |在您的 Web 應用程式控制台中，[開啟 Application Insights 刀鋒視窗](app-insights-azure-web-apps.md)，然後在出現提示時選擇 [安裝]。 |
 | Azure 雲端服務 |[使用啟動工作](app-insights-cloudservices.md)或[安裝 .NET Framework 4.6+](../cloud-services/cloud-services-dotnet-install-dotnet.md) |
 

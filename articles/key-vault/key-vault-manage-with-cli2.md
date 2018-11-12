@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954327"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256440"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 來管理 Key Vault 
 
@@ -50,7 +50,7 @@ ms.locfileid: "49954327"
 
 * Microsoft Azure 訂用帳戶。 如果您沒有帳戶，您可以註冊[免費試用](https://azure.microsoft.com/pricing/free-trial)。
 * Azure 命令列介面 2.0 版或更新版本。 若要安裝最新版本，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
-* 可將應用程式設定為使用您在本文中所建立的金鑰或密碼。 您可以在 [Microsoft 下載中心](http://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。 如需相關指示，請參閱內含的讀我檔案。
+* 可將應用程式設定為使用您在本文中所建立的金鑰或密碼。 您可以在 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=45343)找到範例應用程式。 如需相關指示，請參閱內含的讀我檔案。
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>取得使用 Azure 跨平台命令列介面的說明
 

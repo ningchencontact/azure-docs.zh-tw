@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: adc9d64c4756e055b3ff9b772feebd80902d2c9f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857868"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254582"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -57,7 +57,7 @@ SAS 會根據授權規則保護對服務匯流排的存取。 這些規則會設
 
 ## <a name="configuration-for-shared-access-signature-authentication"></a>共用存取簽章驗證的設定
 
-您可以在服務匯流排命名空間、佇列或主題上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 規則。 目前不支援在服務匯流排訂用帳戶上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ，但是您可以使用在命名空間或主題上設定的規則來保護訂用帳戶的存取安全。 如需可說明此程序的實用範例，請參閱 [搭配使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳戶](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 範例。
+您可以在服務匯流排命名空間、佇列或主題上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 規則。 目前不支援在服務匯流排訂用帳戶上設定 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) ，但是您可以使用在命名空間或主題上設定的規則來保護訂用帳戶的存取安全。 如需可說明此程序的實用範例，請參閱 [搭配使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳戶](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) 範例。
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -102,7 +102,7 @@ SAS 權杖適用於所有以 `signature-string` 中所使用的 `<resourceURI>` 
 
 下方說明的案例包括授權規則的設定、SAS 權杖的產生以及用戶端授權。
 
-如需服務匯流排應用程式的完整工作範例，以便了解相關設定及使用 SAS 授權，請參閱 [共用存取簽章驗證與服務匯流排](http://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)。 以下提供相關的範例，說明如何使用在命名空間或主題上設定的 SAS 授權規則來保護服務匯流排訂用帳戶︰ [使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳](http://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)。
+如需服務匯流排應用程式的完整工作範例，以便了解相關設定及使用 SAS 授權，請參閱 [共用存取簽章驗證與服務匯流排](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8)。 以下提供相關的範例，說明如何使用在命名空間或主題上設定的 SAS 授權規則來保護服務匯流排訂用帳戶︰ [使用共用存取簽章 (SAS) 驗證與服務匯流排訂用帳](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)。
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>存取實體上的共用存取授權規則
 

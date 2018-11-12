@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421044"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262265"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>車輛遙測分析方案範本 Power BI 儀表板安裝指示
 此功能表連結至此腳本的章節： 
@@ -30,7 +30,7 @@ ms.locfileid: "39421044"
 
 ## <a name="prerequisites"></a>必要條件
 * 部署[車輛遙測分析](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) /(英文/) 解決方案。 
-* [安裝 Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331)。
+* [安裝 Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331)。
 * 取得 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/)。 如果您沒有 Azure 訂用帳戶，請立即取得免費的 Azure 訂用帳戶。
 * 開啟 Power BI 帳戶。
 
@@ -348,7 +348,7 @@ ms.locfileid: "39421044"
 
 ### <a name="configure-power-bi-reports"></a>設定 Power BI 報告
 
-1. 使用 Power BI Desktop，開啟設計工具檔案 **ConnectedCarsPbiReport.pbix**。 如果您還沒有安裝 Power BI Desktop，請從 [Power BI Desktop 安裝](http://www.microsoft.com/download/details.aspx?id=45331)網站進行安裝。
+1. 使用 Power BI Desktop，開啟設計工具檔案 **ConnectedCarsPbiReport.pbix**。 如果您還沒有安裝 Power BI Desktop，請從 [Power BI Desktop 安裝](https://www.microsoft.com/download/details.aspx?id=45331)網站進行安裝。
 
 1. 選取 [編輯查詢]。
 

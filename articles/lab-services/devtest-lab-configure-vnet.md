@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 0141ea8a88c0322e6f56cbea56d3a43c923769af
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8fb3b4ac748fcae2e3aad5b3bfb2a893340dc61a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687783"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256131"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>設定 Azure DevTest Labs 中的虛擬網路
 如[將 VM 加入實驗室](devtest-lab-add-vm.md)一文中所述，當您在實驗室中建立 VM 時，可以指定已設定的虛擬網路。 例如，您可能需要使用以 ExpressRoute 或站台對站台 VPN 設定的虛擬網路從您的 VM 存取公司資源。
@@ -29,7 +29,7 @@ ms.locfileid: "38687783"
 ## <a name="configure-a-virtual-network-for-a-lab-using-the-azure-portal"></a>使用 Azure 入口網站設定適用於實驗室的虛擬網路
 下列步驟會逐步引導您將現有虛擬網路 (和子網路) 加入至實驗室，以便在同一個實驗室中建立 VM 時加以使用。 
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
 1. 從實驗室清單中，選取所需的實驗室。 
 1. 在實驗室的主窗格上，選取 [設定與原則]。

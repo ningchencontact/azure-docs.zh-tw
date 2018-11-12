@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 83ba02aedebe69e15736975fbd73c7c7f221634f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242631"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 建立內容金鑰
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "33785807"
 3. 使用 X.509 憑證的公開金鑰將您的內容金鑰加密。 
    
    媒體服務 .NET SDK 會使用 RSA 和 OAEP 來執行加密作業。  您可以在 [EncryptSymmetricKeyData 函式](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)中查看範例。
-4. 建立使用金鑰識別碼和內容金鑰計算的總和檢查碼值 (根據 PlayReady AES 金鑰總和檢查碼演算法)。 如需詳細資訊，請參閱位於 [這裡](http://www.microsoft.com/playready/documents/)的 PlayReady 標頭物件文件的＜PlayReady AES 金鑰總和檢查碼演算法＞一節。
+4. 建立使用金鑰識別碼和內容金鑰計算的總和檢查碼值 (根據 PlayReady AES 金鑰總和檢查碼演算法)。 如需詳細資訊，請參閱位於 [這裡](https://www.microsoft.com/playready/documents/)的 PlayReady 標頭物件文件的＜PlayReady AES 金鑰總和檢查碼演算法＞一節。
    
    下列 .NET 範例會使用金鑰識別碼和明文內容金鑰的 GUID 部分計算總和檢查碼。
    

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 0833a7ec71a0aea66f8ebfdfff81d88925019309
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262007"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
 
@@ -35,7 +35,7 @@ ms.locfileid: "43701860"
 
 若要完成此教學課程，您需要下列項目：
 
-* [Microsoft Visual Studio 2015 或更高版本](http://visualstudio.com)。 本教學課程使用 Visual Studio 2017。
+* [Microsoft Visual Studio 2015 或更高版本](https://visualstudio.com)。 本教學課程使用 Visual Studio 2017。
 * 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
 
 ## <a name="create-a-service-namespace"></a>建立服務命名空間
@@ -81,7 +81,7 @@ ms.locfileid: "43701860"
     ```
 
    > [!NOTE]
-   > 一般而言，服務合約命名空間包含命名配置 (其中包含版本資訊)。 在服務合約命名空間中包含版本資訊，可讓服務定義具有新命名空間的新服務合約並在新的端點上公開它，藉此區隔重大變更。 如此一來，用戶端可以繼續使用舊服務合約，而不需要更新。 版本資訊可以包含日期或組建編號。 如需詳細資訊，請參閱[服務版本設定](http://go.microsoft.com/fwlink/?LinkID=180498)。 基於本教學課程的目的，服務合約命名空間的命名配置不包含版本資訊。
+   > 一般而言，服務合約命名空間包含命名配置 (其中包含版本資訊)。 在服務合約命名空間中包含版本資訊，可讓服務定義具有新命名空間的新服務合約並在新的端點上公開它，藉此區隔重大變更。 如此一來，用戶端可以繼續使用舊服務合約，而不需要更新。 版本資訊可以包含日期或組建編號。 如需詳細資訊，請參閱[服務版本設定](https://go.microsoft.com/fwlink/?LinkID=180498)。 基於本教學課程的目的，服務合約命名空間的命名配置不包含版本資訊。
    >
    >
 8. 在 `IEchoContract` 介面中，針對 `IEchoContract` 合約在介面中公開的單一作業宣告方法，並將 `OperationContractAttribute` 屬性套用至您想要公開為公用 WCF 轉送合約一部分的方法，如下所示：
@@ -719,7 +719,6 @@ namespace Microsoft.ServiceBus.Samples
 
 若要深入了解 Azure 轉送，請參閱下列主題。
 
-* [Azure 服務匯流排架構概觀](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure 轉送概觀](relay-what-is-it.md)
 * [如何使用 WCF 轉送服務搭配 .NET](relay-wcf-dotnet-get-started.md)
 

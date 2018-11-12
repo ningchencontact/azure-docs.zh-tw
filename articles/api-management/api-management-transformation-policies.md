@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 29e918733cc72010aa6aa5c0f42d613331eec2a2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044717"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242801"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
-此主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](http://go.microsoft.com/fwlink/?LinkID=398186)。
+本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
 
 ##  <a name="TransformationPolicies"></a> 轉換原則
 
@@ -31,13 +31,13 @@ ms.locfileid: "48044717"
 
 -   [在內文中尋找並取代字串](api-management-transformation-policies.md#Findandreplacestringinbody) - 尋找要求或回應子字串，並將它取代為其他子字串。
 
--   [遮罩內容中的 URL](api-management-transformation-policies.md#MaskURLSContent) - 重寫 (遮罩) 回應內文的連結，使其經由閘道
+-   [遮罩內容中的 URL](api-management-transformation-policies.md#MaskURLSContent) - 重寫 (遮罩) 回應內文的連結，使其經由閘道器指向同等的連結。
 
 -   [設定後端服務](api-management-transformation-policies.md#SetBackendService) - 變更傳入要求的後端服務。
 
 -   [設定本文](api-management-transformation-policies.md#SetBody) - 設定傳入和傳出要求的訊息本文。
 
--   [設定 HTTP 標頭](api-management-transformation-policies.md#SetHTTPheader) - 指派值給現有的回應和/或要求標頭，或加入新的回應和/或要求標頭。
+-   [設定 HTTP 標頭](api-management-transformation-policies.md#SetHTTPheader) - 指派值給現有的回應及/或要求標頭，或加入新的回應及/或要求標頭。
 
 -   [設定查詢字串參數](api-management-transformation-policies.md#SetQueryStringParameter) - 新增、取代值或刪除要求查詢字串參數。
 
@@ -83,7 +83,7 @@ ms.locfileid: "48044717"
 |剖析日期|設定為 `false` 時，只會在轉換期間複製日期值|否|true|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、錯誤
 
@@ -127,7 +127,7 @@ ms.locfileid: "48044717"
 |consider-accept-header|此屬性必須設為下列其中一個值。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 XML，才套用轉換。<br />-   false - 一律套用轉換。|否|true|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、錯誤
 
@@ -162,14 +162,14 @@ ms.locfileid: "48044717"
 |to|取代字串。 指定零長度的取代字串可移除搜尋字串。|是|N/A|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、後端、錯誤
 
 -   **原則範圍︰** 全域、產品、API、作業
 
 ##  <a name="MaskURLSContent"></a> 遮罩內容中的 URL
- `redirect-content-urls` 原則會重寫 (遮罩) 回應本文中的連結，使其經由閘道指向同等的連結。 使用在輸出區段中，用以重新撰寫回應本文連結，使其指向閘道。 使用在輸入區段中則效果相反。
+ `redirect-content-urls` 原則會重寫 (遮罩) 回應本文中的連結，使其經由閘道器指向同等的連結。 使用在輸出區段中，用以重新撰寫回應本文連結，使其指向閘道。 使用在輸入區段中則效果相反。
 
 > [!NOTE]
 >  此原則不會變更任何標頭值，如 `Location` 標頭。 若要變更標頭值，請使用 [set-header](api-management-transformation-policies.md#SetHTTPheader) 原則。
@@ -193,7 +193,7 @@ ms.locfileid: "48044717"
 |redirect-content-urls|根元素。|是|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出
 
@@ -269,7 +269,7 @@ ms.locfileid: "48044717"
 |sf-listener-name|僅適用於後端為 Service Fabric 服務並使用 ‘backend-id’ 指定時。 Service Fabric Reliable Services 可讓您在服務中建立多個接聽程式。 後端 Reliable Service 有多個接聽程式時，可使用此屬性來選取特定的接聽程式。 如果未指定此屬性，API 管理會嘗試使用沒有名稱的接聽程式。 沒有名稱的接聽程式通常適用於只有一個接聽程式的 Reliable Services。 |否|N/A|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、後端
 
@@ -279,7 +279,7 @@ ms.locfileid: "48044717"
  使用 `set-body` 原則來設定傳入和傳出要求的訊息本文。 若要存取訊息本文，您可以使用 `context.Request.Body` 屬性或 `context.Response.Body`，取決於原則是在輸入或輸出區段中。
 
 > [!IMPORTANT]
->  請注意，根據預設，當您使用 `context.Request.Body` 或 `context.Response.Body` 存取訊息本文，原始訊息本文會遺失，而且必須在運算式中傳回本文以進行設定。 若要保留本文內容，存取訊息時將 `preserveContent` 參數設為 `true`。 如果 `preserveContent` 設為 `true`，且運算式傳回不同的本文，則會使用傳回的本文。
+>  請注意，根據預設，當您使用 `context.Request.Body` 或 `context.Response.Body` 存取訊息本文，原始訊息本文會遺失，且必須在運算式中傳回本文加以設置。 若要保留本文內容，存取訊息時將 `preserveContent` 參數設為 `true`。 如果 `preserveContent` 設為 `true`，且運算式傳回不同的本文，則會使用傳回的本文。
 >
 >  使用 `set-body` 原則時請注意下列事項。
 >
@@ -308,12 +308,12 @@ ms.locfileid: "48044717"
 
 ```xml
 <set-body>
-@{ 
-    string inBody = context.Request.Body.As<string>(preserveContent: true); 
-    if (inBody[0] =='c') { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody; 
+@{ 
+    string inBody = context.Request.Body.As<string>(preserveContent: true); 
+    if (inBody[0] =='c') { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody; 
 }
 </set-body>
 ```
@@ -321,14 +321,14 @@ ms.locfileid: "48044717"
 #### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>以 JObject 存取本文的範例。 請注意，由於我們不會保留原始要求本文，若在稍後於管線中存取它，將會導致例外狀況。
 
 ```xml
-<set-body> 
-@{ 
-    JObject inBody = context.Request.Body.As<JObject>(); 
-    if (inBody.attribute == <tag>) { 
-        inBody[0] = 'm'; 
-    } 
-    return inBody.ToString(); 
-} 
+<set-body> 
+@{ 
+    JObject inBody = context.Request.Body.As<JObject>(); 
+    if (inBody.attribute == <tag>) { 
+        inBody[0] = 'm'; 
+    } 
+    return inBody.ToString(); 
+} 
 </set-body>
 
 ```
@@ -439,16 +439,16 @@ OriginalUrl.
 
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、後端
 
 -   **原則範圍︰** 全域、產品、API、作業
 
 ##  <a name="SetHTTPheader"></a> 設定 HTTP 標頭
- `set-header` 原則會指派值給現有的回應和/或要求標頭，或加入新的回應和/或要求標頭。
+ `set-header` 原則會指派值給現有的回應及/或要求標頭，或加入新的回應及/或要求標頭。
 
- 將 HTTP 標頭清單插入至 HTTP 訊息中。 放在輸入管線中時，此原則會為傳遞至目標服務的要求設定 HTTP 標頭。 放在輸出管線中時，此原則會為傳送至閘道用戶端的回應設定 HTTP 標頭。
+ 將 HTTP 標頭清單插入至 HTTP 訊息中。 放在輸入管線中時，此原則會為傳遞至目標服務的要求設定 HTTP 標頭。 放在輸出管線中時，此原則會為傳送至閘道器用戶端的回應設定 HTTP 標頭。
 
 ### <a name="policy-statement"></a>原則陳述式
 
@@ -510,7 +510,7 @@ OriginalUrl.
 |name|指定要設定之標頭的名稱。|是|N/A|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出、後端、錯誤
 
@@ -570,7 +570,7 @@ OriginalUrl.
 |name|指定要設定之查詢參數的名稱。|是|N/A|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、後端
 
@@ -583,7 +583,7 @@ OriginalUrl.
 
 -   要求 URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- 應該將一般人和/或瀏覽器可理解的 URL 轉換成 Web 服務所需的 URL 格式時，可使用此原則。 只有在公開替代 URL 格式時需要套用此原則；例如，簡潔 URL、RESTful URL、使用者易記 URL 或符合 SEO 的 URL 等單純的結構式 URL 格式，不含查詢字串，只包含資源的路徑 (在配置和授權後面)。 這樣做通常是基於美觀、實用性或搜尋引擎最佳化 (SEO) 目的。
+ 應該將一般人及/或瀏覽器可理解的 URL 轉換成 Web 服務所需的 URL 格式時，可使用此原則。 只有在公開替代 URL 格式時需要套用此原則；例如，簡潔 URL、RESTful URL、使用者易記 URL 或符合 SEO 的 URL 等單純的結構式 URL 格式，不含查詢字串，只包含資源的路徑 (在配置和授權後面)。 這樣做通常是基於美觀、實用性或搜尋引擎最佳化 (SEO) 目的。
 
 > [!NOTE]
 >  使用此原則只能加入查詢字串參數。 無法在重寫 URL 中加入額外的範本路徑參數。
@@ -648,7 +648,7 @@ OriginalUrl.
 |copy-unmatched-params|指定當連入要求中查詢參數不存在於原始 URL 範本時，是否要將它新增到由重寫範本所定義的 URL|否|true|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** inbound
 
@@ -709,10 +709,10 @@ OriginalUrl.
 |----------|-----------------|--------------|
 |xsl-transform|根元素。|是|
 |參數|用於定義轉換中使用的變數|否|
-|xsl:stylesheet|根樣式表元素。 依照 [XSLT 規格](http://www.w3.org/TR/xslt)標準定義的所有的元素和屬性|是|
+|xsl:stylesheet|根樣式表元素。 遵循 [XSLT 規格](http://www.w3.org/TR/xslt)標準定義的所有的元素和屬性|是|
 
 ### <a name="usage"></a>使用量
- 此原則可用於下列原則[區段](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
+ 此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。
 
 -   **原則區段︰** 輸入、輸出
 

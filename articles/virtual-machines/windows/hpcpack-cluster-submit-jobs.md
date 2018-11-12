@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421129"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258811"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>將 HPC 工作從內部部署電腦提交至在 Azure 中部署的 HPC Pack 叢集
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "39421129"
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>步驟 1：在前端節點上安裝及設定 Web 元件
 若要啟用透過 HTTPS 以 REST 介面將工作提交至叢集的功能，請確定在 HPC Pack 前端節點上設定 HPC Pack Web 元件。 如果尚未安裝，您必須先執行 HpcWebComponents.msi 安裝檔案，以安裝 Web 元件。 然後，請執行 HPC PowerShell 指令碼 **Set-HPCWebComponents.ps1**，以設定元件。
 
-如需詳細程序，請參閱 [安裝 Microsoft HPC Pack Web 元件](http://technet.microsoft.com/library/hh314627.aspx)。
+如需詳細程序，請參閱 [安裝 Microsoft HPC Pack Web 元件](https://technet.microsoft.com/library/hh314627.aspx)。
 
 > [!TIP]
 > HPC Pack 叢集的某些 Azure 快速入門範本會自動安裝和設定 Web 元件。
@@ -169,7 +169,7 @@ ms.locfileid: "39421129"
 1. 若要檢視您所提交之作業的結果，請按一下作業 ID，然後按一下 [檢視工作] 以檢視命令輸出 (在 [輸出] 下)。
 
 ## <a name="next-steps"></a>後續步驟
-* 您也可以使用 [HPC Pack REST API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)將工作提交至 Azure 叢集。
+* 您也可以使用 [HPC Pack REST API](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx)將工作提交至 Azure 叢集。
 * 如果您要從 Linux 用戶端提交叢集工作，請參閱 [HPC Pack 2012 R2 SDK and Sample Code (HPC Pack 2012 R2 SDK 和範例程式碼)](https://www.microsoft.com/download/details.aspx?id=41633)中的 Python 範例。
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706643"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240506"
 ---
 # <a name="biztalk-services-editions-chart"></a>BizTalk 服務：版本圖表
 
@@ -63,7 +63,7 @@ Azure BizTalk 服務提供數個版本。 使用本文決定最適合您的案�
 
 <tr>
 <td><strong>起始價格</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 服務價格</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full">Azure 價格計算機</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 服務價格</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full">Azure 價格計算機</a></td>
 </tr>
 <tr>
 <td><strong>預設最小組態</strong></td>
@@ -153,7 +153,7 @@ Azure BizTalk 服務提供數個版本。 使用本文決定最適合您的案�
 <tr>
 <td><strong>高可用性</strong>
 <br/><br/>
-有關服務等級協定 (SLA)，請參閱 <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 服務價格</a>。
+有關服務等級協定 (SLA)，請參閱 <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011">Azure BizTalk 服務價格</a>。
 </td>
 <td>未包括</td>
 <td>未包括</td>
@@ -242,10 +242,10 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。 BizTalk 配接器服
 對於其餘的版本，使用備份與還原將您的成品從某一層移轉至另一層。 例如，在標準層中備份成品，然後將它們還原至高階層。 [BizTalk 服務：備份與還原](biztalk-backup-restore.md) 說明支援的移轉路徑和備份的成品清單。 請注意，混合式連線無法備份。 備份及還原至新的服務層之後，您會重建混合式連線。  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>服務中是否包括 BizTalk 介面卡服務？ 如何接收軟體？
-是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載](http://www.microsoft.com/download/details.aspx?id=39087)(英文)。
+是，BizTalk 介面卡服務 (含 BizTalk 介面卡套件) 隨附於 Azure BizTalk 服務 SDK [下載](https://www.microsoft.com/download/details.aspx?id=39087)(英文)。
 
 ## <a name="next-steps"></a>後續步驟
-若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
+若要在 Azure 入口網站中建立 Azure BizTalk 服務，請移至 [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
 
 ## <a name="additional-resources"></a>其他資源
 * [BizTalk 服務：使用 Azure 入口網站進行佈建](biztalk-provision-services.md)<br/>
@@ -254,5 +254,5 @@ BizTalk 配接器服務是由 Azure BizTalk 服務使用。 BizTalk 配接器服
 * [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [BizTalk 服務：節流](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk 服務：簽發者名稱和簽發者金鑰](biztalk-issuer-name-issuer-key.md)<br/>
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

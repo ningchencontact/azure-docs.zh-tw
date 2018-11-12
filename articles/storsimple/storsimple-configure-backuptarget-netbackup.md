@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
-ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 361ab36d3029dbc00e8d1e53ef9f9af42be3e1eb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23112836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255831"
 ---
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>使用 StorSimple 做為 NetBackup 的備份目標
 
@@ -536,9 +536,9 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 本文中參考下列文件︰
 
 - [StorSimple 多重路徑 I/O 設定](storsimple-configure-mpio-windows-server.md)
-- [儲存體案例︰精簡佈建 (英文)](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [使用 GPT 磁碟機 (英文)](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [設定共用資料夾的陰影複製](http://technet.microsoft.com/library/cc771893.aspx)
+- [儲存體案例︰精簡佈建 (英文)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [使用 GPT 磁碟機 (英文)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [設定共用資料夾的陰影複製](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>後續步驟
 

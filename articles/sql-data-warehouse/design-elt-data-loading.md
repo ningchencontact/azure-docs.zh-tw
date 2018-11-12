@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d004ad1f24448da0c7404761ca0865826b3000b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301325"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261276"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>設計 Azure SQL 資料倉儲的擷取、載入及轉換 (ELT)
 
@@ -41,7 +41,7 @@ ELT 會先載入，然後轉換資料，而擷取、轉換及載入 (ETL) 則是
 
 如需載入教學課程，請參閱[使用 PolyBase 將資料從 Azure Blob 儲存體載入 SQL 資料倉儲中](load-data-from-azure-blob-storage-using-polybase.md)。
 
-如需詳細資訊，請參閱[載入模式部落格](http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)。 
+如需詳細資訊，請參閱[載入模式部落格](https://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/)。 
 
 ## <a name="options-for-loading-with-polybase"></a>以 PolyBase 載入的選項
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140954"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237820"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何針對 Log Analytics Linux 代理程式的問題進行疑難排解 
 
@@ -32,7 +32,7 @@ ms.locfileid: "50140954"
 * 具有 Azure 支援合約的客戶可以在 [Azure 入口網站](https://manage.windowsazure.com/?getsupport=true)開啟支援要求。
 * 使用 [OMI 疑難排解指南](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)來診斷 OMI 問題。
 * 提出 [GitHub 問題](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)。
-* 造訪「Log Analytics 意見反應」頁面，以檢閱已提交的構想和錯誤[http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback)，或提出新的構想和錯誤。  
+* 造訪「Log Analytics 意見反應」頁面，以檢閱已提交的構想和錯誤[http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback)，或提出新的構想和錯誤。  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>重要記錄位置和記錄收集器工具
 

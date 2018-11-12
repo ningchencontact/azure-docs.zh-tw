@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098812"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262228"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>使用會建立多位元速率串流的內部部署編碼器執行即時串流
 
@@ -54,7 +54,7 @@ ms.locfileid: "37098812"
 ## <a id="scenario"></a>常見即時串流案例
 下列步驟描述當我們建立一般即時串流應用程式時，會涉及到的各種工作。
 
-1. 將攝影機連接到電腦。 啟動並設定內部部署即時編碼器，讓它以多位元速率 RTMP 或 Fragmented MP4 (Smooth Streaming) 串流做為輸出。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+1. 將攝影機連接到電腦。 啟動並設定內部部署即時編碼器，讓它以多位元速率 RTMP 或 Fragmented MP4 (Smooth Streaming) 串流做為輸出。 如需詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。
 
     您也可以在建立通道之後執行此步驟。
 2. 建立並啟動通道。
@@ -105,7 +105,7 @@ ms.locfileid: "37098812"
 
     在此案例中，兩個編碼器會將資料推送至主要和次要 URL。 這提供最佳的可靠性及容錯功能，以及資料備援。 此案例可容許兩個編碼器皆失敗並且中斷連線，即使一個編碼器停止運作。 它假設編碼器是時間同步處理，並提供完全相同的資料。  
 
-如需 RTMP 即時編碼器的詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](http://go.microsoft.com/fwlink/?LinkId=532824)。
+如需 RTMP 即時編碼器的詳細資訊，請參閱 [Azure 媒體服務 RTMP 支援和即時編碼器](https://go.microsoft.com/fwlink/?LinkId=532824)。
 
 #### <a name="ingest-urls-endpoints"></a>內嵌 URL (端點)
 通道提供一個輸入端點 (內嵌 URL)，您可以在即時編碼器中指定這個端點，這樣編碼器就可以將資料流推播到您的通道。   
@@ -187,7 +187,7 @@ ms.locfileid: "37098812"
 | 通道狀態 | 入口網站 UI 指標 | 是否計費？ |
 | --- | --- | --- | --- |
 | **啟動中** |**啟動中** |無 (暫時性狀態) |
-| **執行中** |**就緒** (沒有執行中的程式)<p><p>或<p>**串流** (至少一個執行中的程式) |yes |
+| **執行中** |**就緒** (沒有執行中的程式)<p><p>或<p>**串流** (至少一個執行中的程式) |是 |
 | **停止中** |**停止中** |無 (暫時性狀態) |
 | **已停止** |**已停止** |否 |
 

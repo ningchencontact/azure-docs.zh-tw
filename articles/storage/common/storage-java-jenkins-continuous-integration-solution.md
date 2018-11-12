@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 040f7ef8d9b50998ac2b84ed9d4e3712f4ed5835
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246860"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>將 Azure 儲存體用於 Jenkins 連續整合解決方案
 
@@ -129,7 +129,7 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 
 * **儲存體帳戶**：一律透過儲存體帳戶來存取 Azure 儲存體。 儲存體帳戶是存取 Blob 的最上層命名空間。 帳戶可以包含不限數目的容器，只要它們的大小總計低於 100 TB 即可。
 * **容器**：容器提供一組 Blob 的群組。 所有 Blob 都必須放在容器中。 一個帳戶可以包含的容器不限數量。 容器可以儲存無限制的 Blob。
-* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+* **Blob**：任何類型和大小的檔案。 Azure 儲存中可以儲存兩種 Blob：區塊 Blob 和分頁 Blob。 大部分檔案都是區塊 Blob。 單一區塊 Blob 的大小上限為 200 GB。 本教學課程使用區塊 Blob。 分頁 Blob (另一種 Blob 類型) 的大小上限為 1 TB，當檔案中的位元組範圍經常修改時，分頁 Blob 的效率較高。 如需關於 Blob 的詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 及分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 * **URL 格式**：可利用下列 URL 格式來定址 Blob：
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
@@ -149,6 +149,6 @@ Jenkins 透過讓開發人員輕鬆整合自己的程式碼變更，並會以自
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure 儲存體用戶端 SDK 參考](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure 儲存體團隊部落格](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure 儲存體團隊部落格](https://blogs.msdn.com/b/windowsazurestorage/)
 
 如需詳細資訊，請瀏覽[適用於 Java 開發人員的 Azure](/java/azure)。

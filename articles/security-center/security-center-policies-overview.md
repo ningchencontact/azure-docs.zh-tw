@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: ab8a289ea0de263871b76788514052c09a6bf4da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295732"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256624"
 ---
 # <a name="security-policy-settings"></a>安全政策設定
 本文提供資訊安全中心的安全性原則設定概觀。
@@ -56,4 +56,4 @@ ms.locfileid: "44295732"
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀況。
 - [Azure 資訊安全中心資料安全性](security-center-data-security.md)：了解資訊安全中心如何管理和保護資料。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)：取得使用服務常見問題的解答。
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：取得最新的 Azure 安全性新聞和資訊。
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/)：取得最新的 Azure 安全性新聞和資訊。

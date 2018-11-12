@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424613"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250402"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>在裝載於 Azure 上的網站中使用 ReportViewer
 > [!IMPORTANT] 
@@ -37,7 +37,7 @@ ms.locfileid: "31424613"
 * **設定** 驗證和授權
 * **發佈** 至 Azure
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 檢閱 [Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)中的＜一般建議和最佳作法＞一節。
 
 > [!NOTE]
@@ -62,7 +62,7 @@ ms.locfileid: "31424613"
 3. 對 Microsoft.ReportViewer.WebForms 重複步驟 1 和 2。
 
 ### <a name="to-get-reportviewer-language-pack"></a>取得 ReportViewer 語言套件
-1. 安裝從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=317386)下載的適當 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
+1. 安裝從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=317386)下載的適當 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
 2. 從下拉式清單中選取語言，然後頁面會重新導向至對應的下載中心頁面。
 3. 按 [下載]  即可開始下載 ReportViewerLP.exe。
 4. 下載 ReportViewerLP.exe 之後，按一下 [執行] 以立即安裝，或按一下 [儲存]，將其儲存至電腦中。 如果您按一下 [儲存] ，請記住儲存檔案的目的地資料夾名稱。
@@ -72,7 +72,7 @@ ms.locfileid: "31424613"
 ### <a name="to-configure-for-localized-reportviewer-control"></a>設定當地語系化的 ReportViewer 控制項
 1. 依照上述的指示，下載並安裝 Microsoft Report Viewer 2012 Runtime 可轉散發套件。
 2. 在專案中建立 <language> 資料夾，並複製該資料夾中的相關聯資源組件檔案。 需複製的資源組件檔案為：**Microsoft.ReportViewer.Webforms.Resources.dll** 和 **Microsoft.ReportViewer.Common.Resources.dll**。選取資源組件檔案，然後在 [屬性] 窗格中，將 [複製到輸出目錄] 設為 [永遠複製]。
-3. 設定 Web 專案的文化特性和 UI 文化特性。 如需關於設定 ASP.NET 網頁的文化特性和 UI 文化特性的詳細資訊，請參閱 [作法：設定 ASP.NET Web 網頁全球化的文化特性和 UI 文化特性](http://go.microsoft.com/fwlink/?LinkId=237461)。
+3. 設定 Web 專案的文化特性和 UI 文化特性。 如需關於設定 ASP.NET 網頁的文化特性和 UI 文化特性的詳細資訊，請參閱 [作法：設定 ASP.NET Web 網頁全球化的文化特性和 UI 文化特性](https://go.microsoft.com/fwlink/?LinkId=237461)。
 
 ## <a name="configuring-authentication-and-authorization"></a>設定驗證和授權
 ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且認證必須由報表伺服器授權，才能存取您需要的報表。 如需驗證的資訊，請檢閱白皮書《 [Reporting Services 報告檢視器控制項和 Microsoft Azure 虛擬機器型報表伺服器](https://msdn.microsoft.com/library/azure/dn753698.aspx)》。
@@ -88,7 +88,7 @@ ReportViewer 必須使用正確的認證對報表伺服器進行驗證，而且�
 > 
 
 ## <a name="resources"></a>資源
-[Microsoft 報告](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Microsoft 報告](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Azure 虛擬機器中的 SQL Server Business Intelligence](../classic/ps-sql-bi.md)
 

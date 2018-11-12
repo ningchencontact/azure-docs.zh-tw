@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 454cfc97aa203d5de7b00f47e1f87fd0aed0d28a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158784"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255944"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
@@ -126,7 +126,7 @@ ms.locfileid: "44158784"
 
 資訊安全中心原則包含下列元件：
 - [資料收集](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)：代理程式佈建和資料收集設定。
-- [安全性原則](https://docs.microsoft.com/azure/security-center/security-center-policies)：[Azure 原則](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)，用於決定哪些控制項由資訊安全中心監視及建議，或使用 Azure 原則以建立新的定義、定義額外的原則，以及在整個管理群組指派原則。
+- [安全性原則](https://docs.microsoft.com/azure/security-center/security-center-policies)：[Azure 原則](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)，用於決定哪些控制項由資訊安全中心監視及建議，或使用 Azure 原則以建立新的定義、定義額外的原則，以及在整個管理群組指派原則。
 - [電子郵件通知](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)：安全性連絡人和通知設定。
 - [定價層](https://docs.microsoft.com/azure/security-center/security-center-pricing)：免費或標準定價選項，用來決定哪個資訊安全中心功能可用於範圍中的資源 (可以針對訂用帳戶、資源群組和工作區指定)。
 
@@ -262,5 +262,5 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健全狀況。
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md) — 了解如何監視合作夥伴解決方案的健全狀況。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
 

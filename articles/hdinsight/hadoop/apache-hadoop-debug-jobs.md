@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: cd688ec1f5b7b46138a3b601f52b54dd6f3615e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046485"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261138"
 ---
 # <a name="analyze-hadoop-logs"></a>分析 Hadoop 記錄
 
@@ -59,7 +59,7 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 * Power Query for Excel
 
 #### <a name="use-power-query-for-excel"></a>使用 Power Query for Excel
-您可以從 [Microsoft Power Query for Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379) 安裝 Power Query。 請參閱下載頁面以了解系統需求。
+您可以從 [Microsoft Power Query for Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379) 安裝 Power Query。 請參閱下載頁面以了解系統需求。
 
 **使用 Power Query 來開啟和分析服務記錄**
 

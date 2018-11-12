@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 6f09e523b70e541c724ea53d0bd47215ad44d623
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 77d47b1f4946a8539b58b9335b967321b6bbf2e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041981"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259865"
 ---
 # <a name="automate-log-analytics-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動化 Log Analytics 程序
 [Microsoft Flow](https://ms.flow.microsoft.com) 可讓您使用數百個動作建立各種不同服務的自動化工作流程。 從一個動作的輸出可用來作為另一個動作的輸入，讓您建立不同服務之間的整合。  適用於 Microsoft Flow 的 Azure Log Analytics 連接器可讓您建立工作流程，包含 Log Analytics 記錄搜尋所擷取的資料。
@@ -29,12 +29,12 @@ ms.locfileid: "48041981"
 
 
 ## <a name="step-1-create-a-flow"></a>步驟 1：建立流程
-1. 登入 [Microsoft Flow](http://flow.microsoft.com)，然後選取 [我的流程]。
+1. 登入 [Microsoft Flow](https://flow.microsoft.com)，然後選取 [我的流程]。
 2. 按一下 [+ 從空白建立]。
 
 ## <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
 1. 按一下 [Search hundreds of connectors and triggers] \(搜尋數以百計的連接器和觸發程序)。
-2. 在搜尋方塊中輸入**排程**。
+2. 在搜尋方塊中鍵入**排程**。
 3. 依序選取 [排程] 和 [排程 - 重複]。
 4. 在 [頻率] 方塊中選取 [天]，然後在 [間隔] 方塊中輸入 **1**。<br><br>![Microsoft Flow 觸發程序對話方塊](media/log-analytics-flow-tutorial/flow01.png)
 
@@ -79,7 +79,7 @@ ms.locfileid: "48041981"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解 [Log Analytics 中的記錄搜尋](log-analytics-log-search-new.md)。
+- 深入了解 [Log Analytics 中的記錄搜尋](log-analytics-queries.md)。
 - 深入了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
 
 

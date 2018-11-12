@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206074"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248991"
 ---
 # <a name="deploy-multiple-guest-executables"></a>部署多個來賓可執行檔
 本文說明如何封裝多個來賓可執行檔並部署至 Azure Service Fabric。 若要建置和部署單一 Service Fabric 套件，請閱讀如何[將來賓可執行檔部署至 Service Fabric](service-fabric-deploy-existing-app.md)。
@@ -33,7 +33,7 @@ ms.locfileid: "34206074"
 * [兩個客體可執行檔 (C# 和 nodejs) 使用 REST 透過命名服務進行通訊的範例](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>手動封裝多個來賓可執行檔應用程式
-或者，您可以手動封裝來賓可執行檔。 對於手動封裝，本文使用 Service Fabric 封裝工具，您可在 [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool) 取得。
+或者，您可以手動封裝來賓可執行檔。 對於手動封裝，本文使用 Service Fabric 封裝工具，您可在 [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool) 取得。
 
 ### <a name="packaging-the-nodejs-application"></a>封裝 Node.js 應用程式
 本文假設 Service Fabric 叢集中的節點上未安裝 Node.js。 因此，您需要在封裝之前，先將 Node.exe 新增至您節點應用程式的根目錄。 Node.js 應用程式 (使用 Express Web 架構和 Jade 範本引擎) 的目錄結構看起來應該與以下類似：

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036502"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262177"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
-此文章提供的資訊可協助您：
+本文提供的資訊可協助您：
 
 - 了解將應用程式裝載在雲端的安全性優點
 - 評估平台即服務 (PaaS) 與其他雲端服務模型相較之下的安全性優點
@@ -35,7 +35,7 @@ ms.locfileid: "47036502"
 
 ![雲端時代的安全性優點][1]
 
-組織能夠透過使用提供者的雲端型安全性功能和雲端智慧，改進其威脅偵測和回應時間。  透過將責任轉移給雲端提供者，組織便可擴大安全性涵蓋範圍，而能夠將安全性資源和預算重新配置給其他業務優先順序項目。
+組織能夠藉由使用提供者的雲端型安全性功能和雲端智慧，改進其威脅偵測和回應時間。  藉由將責任轉移給雲端提供者，組織便可擴大安全性涵蓋範圍，而能夠將安全性資源和預算重新配置給其他業務優先順序項目。
 
 ## <a name="division-of-responsibility"></a>責任劃分
 了解您與 Microsoft 之間的責任劃分相當重要。 在內部部署環境中，您擁有整個堆疊，但是當您移到雲端時，部分責任就會轉移給 Microsoft。 以下責任矩陣圖顯示 SaaS、PaaS 及 IaaS 部署中由您負責和由 Microsoft 負責的堆疊領域。
@@ -58,11 +58,11 @@ ms.locfileid: "47036502"
 
 Microsoft 是從堆疊底部的實體基礎結構開始來減輕常見的風險和責任。 由於 Microsoft 雲端受到 Microsoft 持續不斷的監視，因此難以對它進行攻擊。 對攻擊者來說，以 Microsoft 雲端作為目標並非明智之舉。 除非攻擊者擁有許多資金和資源，否則攻擊者就可能轉移到另一個目標。  
 
-在攻擊當中，PaaS 部署與內部部署之間並沒有差異。 在應用程式層以及帳戶和存取管理層，您都有類似的風險。 在此文章的＜後續步驟＞一節中，我們將引導您進行將這些風險消除或降到最低的最佳做法。
+在攻擊當中，PaaS 部署與內部部署之間並沒有差異。 在應用程式層以及帳戶和存取管理層，您都有類似的風險。 在本文的＜後續步驟＞一節中，我們將引導您進行將這些風險消除或降到最低的最佳做法。
 
-在堆疊頂端的資料控管和權限管理，您需承擔一項可由金鑰管理降低的風險。 (金鑰管理涵蓋在最佳做法中)。雖然金鑰管理是一個額外的責任，但在 PaaS 部署中有些領域已不再需要由您管理，因此您可以將資源轉移到金鑰管理。
+在堆疊頂端的資料控管和權限管理，您需承擔一項可由金鑰管理降低的風險。 (金鑰管理涵蓋在最佳做法中)。雖然金鑰管理是一項額外的責任，但在 PaaS 部署中有些領域已不再需要由您管理，因此您可以將資源轉移到金鑰管理。
 
-Azure 平台也透過使用各種網路型技術，提供您增強式 DDoS 保護。 不過，所有類型的網路型 DDoS 保護方法在每一連結和每一資料中心上都有其限制。 若要協助避免大型 DDoS 攻擊所帶來的影響，您可以利用可讓您快速且自動相應放大規模來防禦 DDoS 攻擊的 Azure 核心雲端功能。 我們將在建議的做法文章中，更詳細地深入探討如何這麼做。
+Azure 平台也藉由使用各種網路型技術，提供您增強式 DDoS 保護。 不過，所有類型的網路型 DDoS 保護方法在每一連結和每一資料中心上都有其限制。 若要協助避免大型 DDoS 攻擊所帶來的影響，您可以利用可讓您快速且自動相應放大規模來防禦 DDoS 攻擊的 Azure 核心雲端功能。 我們將在建議的做法文章中，更詳細地深入探討如何這麼做。
 
 ## <a name="modernizing-the-defenders-mindset"></a>讓防禦者的心態邁向現代化
 伴隨 PaaS 部署而來的就是您整體安全性方法的轉變。 您會從需要全部自行控制轉變成與 Microsoft 分享責任。
@@ -85,7 +85,7 @@ PaaS 與傳統內部部署的另一個重大差異在於一個新觀點，就是
 以下是管理身分識別周邊的最佳做法。
 
 **最佳做法**：保護金鑰和認證來保護 PaaS 部署。   
-**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用集中式解決方案，將金鑰和密碼存放在硬體安全性模組 (HSM) 中。 Azure 透過 [Azure Key Vault](../key-vault/key-vault-whatis.md) 提供您一個雲端 HSM。
+**詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用集中式解決方案，將金鑰和密碼存放在硬體安全性模組 (HSM) 中。 Azure 藉由 [Azure Key Vault](../key-vault/key-vault-whatis.md) 提供您一個雲端 HSM。
 
 **最佳做法**：不要將認證與其他祕密放在原始程式碼或 GitHub 中。   
 **詳細資料**：唯一比遺失金鑰和認證更糟的情況就是讓未經授權的一方能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼存放庫 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用程式碼存放庫中。
@@ -130,7 +130,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 **詳細資料**：對於想要強制執行資料存取安全性原則的組織來說，限制存取是必須做的事。 您可以使用 RBAC 來將權限指派給特定範圍的使用者、群組及應用程式。 若要深入了解授與使用者的應用程式存取權，請參閱[開始使用存取管理](../role-based-access-control/overview.md)。
 
 **最佳做法**：保護您的金鑰。   
-**詳細資料**：Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](../key-vault/key-vault-whatis.md)。 您可以使用 Key Vault 透過自動更新管理 TLS 憑證。
+**詳細資料**：Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](../key-vault/key-vault-whatis.md)。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。
 
 **最佳做法**：限制連入來源 IP 位址。   
 **詳細資料**：[App Service 環境](../app-service/environment/intro.md)具有虛擬網路整合功能，可協助您透過網路安全性群組限制連入來源 IP 位址。 虛擬網路可讓您將 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 若要深入了解，請參閱[將您的應用程式與 Azure 虛擬網路整合](../app-service/web-sites-integrate-with-vnet.md)。
@@ -151,7 +151,7 @@ Web 應用程式已逐漸成為利用常見已知弱點的惡意攻擊目標。 
 ## <a name="monitor-the-performance-of-your-applications"></a>監視應用程式的效能
 監視係指收集和分析資料來判斷應用程式之效能、健康情況和可用性的行為。 有效的監視策略可協助您了解您應用程式元件的詳細操作。 它可透過通知重大問題來協助您增加運作時間，以便您在這些問題發生之前予以解決。 它也可協助您偵測可能和安全性相關的異常。
 
-使用 [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) 來監視應用程式的可用性、效能及使用情況 (不論該應用程式是裝載在雲端還是內部部署環境)。 使用 Application Insights，您可以快速識別並診斷應用程式的錯誤，不必等使用者回報。 有了所收集的資訊之後，您便可以針對應用程式的維護和改善，進行資訊充分的選擇。
+使用 [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) 來監視應用程式的可用性、效能及使用情況 (不論該應用程式是裝載在雲端還是內部部署環境)。 使用 Application Insights，您可以快速識別並診斷應用程式的錯誤，不必等使用者回報。 有了所收集的資訊之後，您便可以針對應用程式的維護和改善，進行資訊充分的選擇。
 
 Application Insights 具有廣泛的工具，能與它所收集的資料進行互動。 Application Insights 會將其資料儲存在一般存放庫中。 它可以利用共用功能，例如警示、儀表板，以及採用 Log Analytics 查詢語言的深入分析。
 
@@ -170,8 +170,8 @@ Application Insights 具有廣泛的工具，能與它所收集的資料進行�
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。
 
 下列資源可提供更多有關 Azure 安全性和相關 Microsoft 服務的一般資訊：
-* [Azure 安全性部落格](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure 安全性的最新資訊
-* [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx) - 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 secure@microsoft.com
+* [Azure 安全性小組部落格](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure 安全性的最新資訊
+* [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx) -- 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 secure@microsoft.com
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

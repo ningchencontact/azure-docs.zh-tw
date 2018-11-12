@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241203"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283558"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
@@ -113,10 +113,10 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
-   針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>
+   針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 
-   針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>
+   針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。

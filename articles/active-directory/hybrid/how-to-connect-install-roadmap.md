@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318634"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253188"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Azure AD Connect 和 Azure AD Connect Health 安裝藍圖
 
@@ -26,7 +26,7 @@ ms.locfileid: "49318634"
 > [!IMPORTANT]
 > Microsoft 不支援在正式記載的動作以外修改和操作 Azure AD Connect 同步處理。 任何這些動作都可能會導致 Azure AD Connect 同步處理的不一致或不受支援狀態。如此一來，Microsoft 無法提供這類部署的技術支援人員。
 
-您可以在 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=615771)下載 Azure AD Connect。
+您可以在 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=615771)下載 Azure AD Connect。
 
 | 解決方法 | 案例 |
 | --- | --- |
@@ -41,7 +41,7 @@ ms.locfileid: "49318634"
 ### <a name="next-steps-to-install-azure-ad-connect"></a>安裝 Azure AD Connect 的後續步驟
 |話題 |連結|  
 | --- | --- |
-|下載 Azure AD Connect | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|下載 Azure AD Connect | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](./how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](./how-to-dirsync-upgrade-get-started.md)|
@@ -141,12 +141,12 @@ ADFS 可以設定為支援 [多個網域](how-to-connect-install-multiple-domain
 ## <a name="download-and-install-azure-ad-connect-health-agent"></a>下載和安裝 Azure AD Connect Health 代理程式
 * 確定您符合 Azure AD Connect Health 的[需求](how-to-connect-health-agent-install.md#requirements)。
 * 開始使用適用於 AD FS 的 Azure AD Connect Health
-    * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [下載適用於 AD FS 的 Azure AD Connect Health 代理程式](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [請參閱安裝指示](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)。
 * 開始使用適用於同步處理的 Azure AD Connect Health
-    * [下載並安裝最新版的 Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771)。 適用於同步處理的健康狀態代理程式將會隨著 Azure AD Connect 安裝 (1.0.9125.0 或更高版本) 一起安裝。
+    * [下載並安裝最新版的 Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771)。 適用於同步處理的健康狀態代理程式將會隨著 Azure AD Connect 安裝 (1.0.9125.0 或更高版本) 一起安裝。
 * 開始使用適用於 AD DS 的 Azure AD Connect Health
-    * [下載適用於 AD DS 的 Azure AD Connect Health 代理程式](http://go.microsoft.com/fwlink/?LinkID=820540)。
+    * [下載適用於 AD DS 的 Azure AD Connect Health 代理程式](https://go.microsoft.com/fwlink/?LinkID=820540)。
     * [請參閱安裝指示](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-ds)。
 
 

@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037232"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250980"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Resource Manager vCPU 配額增加要求
 
 區域層級和 SKU 系列層級強制執行 Resource Manager vCPU 配額。
-您可以在 [Azure 訂用帳戶和服務限制](http://aka.ms/quotalimits)頁面深入了解如何強制執行配額。
-若要深入了解 SKU 系列，您可以在[虛擬機器價格](http://aka.ms/pricingcompute)頁面上比較成本和效能。
+您可以在 [Azure 訂用帳戶和服務限制](https://aka.ms/quotalimits)頁面深入了解如何強制執行配額。
+若要深入了解 SKU 系列，您可以在[虛擬機器價格](https://aka.ms/pricingcompute)頁面上比較成本和效能。
 
 如需要求增加，請依照下列指示，該指示適用於透過 Azure 入口網站中可用的 Azure [使用量 + 配額] 刀鋒視窗，來建立支援要求。 
 

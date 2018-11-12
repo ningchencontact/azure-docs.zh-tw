@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: 134105ee2446f3c7bf0f19e2f9611597ee9bedfe
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240353"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安裝和設定 Trend Micro Deep Security as a Service
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -30,7 +30,7 @@ ms.locfileid: "47451947"
 
 使用 Azure 傳統入口網站、Azure CLI 或 PowerShell 建立的現有 VM 可能沒有 VM 代理程式。 對於沒有 VM 代理程式的現有虛擬機器，您必須先下載與安裝 VM 代理程式。 本文將探討這兩種狀況。
 
-如果您已有 Trend Micro 的內部部署解決方案的目前訂用帳戶，您可以用它來協助保護 Azure 虛擬機器的安全。 如果您還不是 Symantec 客戶，您可以註冊試用訂用帳戶。 如需有關此解決方案的詳細資訊，請參閱 Trend Micro 部落格文章 [適用於 Deep Security 的 Microsoft Azure VM 代理程式延伸模組](http://go.microsoft.com/fwlink/p/?LinkId=403945)。
+如果您已有 Trend Micro 的內部部署解決方案的目前訂用帳戶，您可以用它來協助保護 Azure 虛擬機器的安全。 如果您還不是 Symantec 客戶，您可以註冊試用訂用帳戶。 如需有關此解決方案的詳細資訊，請參閱 Trend Micro 部落格文章 [適用於 Deep Security 的 Microsoft Azure VM 代理程式延伸模組](https://go.microsoft.com/fwlink/p/?LinkId=403945)。
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>在新的 VM 上安裝 Deep Security 代理程式
 
@@ -67,7 +67,7 @@ ms.locfileid: "47451947"
 
 如果您不知道雲端服務和虛擬機器名稱，請執行 **Get-AzureVM** ，來顯示目前訂用帳戶中所有虛擬機器的該項資訊。
 
-如果 **write-host** 命令傳回 **True**，則會安裝 VM 代理程式。 如果傳回 **False**,，請參閱 Azure 部落格文章 [VM 代理程式與延伸模組 - 第 2 部分](http://go.microsoft.com/fwlink/p/?LinkId=403947)中的指示和下載連結。
+如果 **write-host** 命令傳回 **True**，則會安裝 VM 代理程式。 如果傳回 **False**,，請參閱 Azure 部落格文章 [VM 代理程式與延伸模組 - 第 2 部分](https://go.microsoft.com/fwlink/p/?LinkId=403947)中的指示和下載連結。
 
 如果已安裝 VM 代理程式，請執行這些命令。
 
@@ -78,9 +78,9 @@ ms.locfileid: "47451947"
 ## <a name="next-steps"></a>後續步驟
 讓代理程式安裝並開始執行需要幾分鐘的時間。 之後，您必須在虛擬機器上啟用 Deep Security，才能由 Deep Security Manager 進行管理。 如需其他指示，請參閱下列文章：
 
-* 與此解決方案相關的 Trend 文章： [Microsoft Azure 的即時雲端安全性](http://go.microsoft.com/fwlink/?LinkId=404101)
-* 設定虛擬機器的 [Windows PowerShell 指令碼範例](http://go.microsoft.com/fwlink/?LinkId=404100)
-* [指示](http://go.microsoft.com/fwlink/?LinkId=404099) 
+* 與此解決方案相關的 Trend 文章： [Microsoft Azure 的即時雲端安全性](https://go.microsoft.com/fwlink/?LinkId=404101)
+* 設定虛擬機器的 [Windows PowerShell 指令碼範例](https://go.microsoft.com/fwlink/?LinkId=404100)
+* [指示](https://go.microsoft.com/fwlink/?LinkId=404099) 
 
 ## <a name="additional-resources"></a>其他資源
 [如何登入執行 Windows Server 的虛擬機器]

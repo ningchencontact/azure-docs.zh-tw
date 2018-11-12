@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 621c2844b6952e5ea1f6b9f7c8bc2ed170fee310
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297122"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246781"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 從 Web 取得影像
 
@@ -38,7 +38,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="get-images-from-a-specific-web-domain"></a>從特定 Web 網域中取得影像
 
-若要從特定網域取得影像，請使用 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
+若要從特定網域取得影像，請使用 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -71,7 +71,7 @@ Host: api.cognitive.microsoft.com
 * [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license)：依照與網站相關聯的授權類型篩選影像。
 * [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size)：依照大小篩選影像，例如最大 200 x 200 像素的小型影像。
 
-若要從特定網域取得影像，請使用 [site:](http://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
+若要從特定網域取得影像，請使用 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 查詢運算子。
 
  > [!NOTE]
  > 不論是否有 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) 設定，使用 `site:` 運算子的查詢回應都可能包含成人內容。 請只在您知曉網域上的內容時，才使用 `site:`。

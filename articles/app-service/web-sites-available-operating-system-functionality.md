@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 9b4c87bd0889718fcb8938a9e3bb9207b8fe727a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420451"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247342"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service 上的作業系統功能
-本文說明在 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
+本文說明在 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)上執行的所有 Windows 應用程式可用的一般基礎作業系統功能。 此功能包含檔案、網路、登錄存取、診斷記錄和事件。 
 
 > [!NOTE] 
 > App Service 中的 [Linux 應用程式](containers/app-service-linux-intro.md)會在自己的容器中執行。 不允許存取主機作業系統，但您擁有根容器的存取權。 同樣地，對於 [Windows 容器中執行的應用程式](app-service-web-get-started-windows-container.md)，您擁有容器的系統管理存取權，但沒有主機作業系統存取權。 

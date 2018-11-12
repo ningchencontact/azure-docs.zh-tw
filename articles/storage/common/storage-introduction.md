@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: f03872a125e4e4d2f1e0b458a31d67a07802f2c8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1fb9be6c05edbd85a709632a001fe1c1b8b4c6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247784"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 儲存體簡介
 
@@ -201,7 +201,7 @@ Azure 匯入/匯出服務可用於從儲存體帳戶匯入或匯出大量 blob �
 ### <a name="tools-and-utilities"></a>工具和公用程式
 * [儲存體的 Azure PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azure.storage)
 * [儲存體的 Azure CLI Cmdlet](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy 命令列公用程式](http://aka.ms/downloadazcopy)
+* [AzCopy 命令列公用程式](https://aka.ms/downloadazcopy)
 * [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。
 * [Azure 儲存體用戶端工具](../storage-explorers.md)
 * [Azure 開發人員工具](https://azure.microsoft.com/tools/)

@@ -10,19 +10,19 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 84d73add5586aaaf130253a8122a4152e39bcbe9
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260052"
 ---
 # <a name="how-to-add-pre-built-entities"></a>如何新增預先建立的實體
 本教學課程示範如何將「預先建置」的實體新增至對話學習模組模型。
 
 ## <a name="video"></a>影片
 
-[![教學課程 7 預覽](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![教學課程 7 預覽](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -62,7 +62,7 @@ ms.locfileid: "39171362"
 1. 按一下 [動作]，然後按一下 [新增動作] 建立第二個動作。
 3. 在 [回應] 中，鍵入「日期為何？」。
 4. 在 [不合格的實體] 中，輸入 'luis-datetimev2'。
-4. Click Create
+4. 按一下 [建立專案]。
 
 ![](../media/tutorial7_actions2.PNG)
 

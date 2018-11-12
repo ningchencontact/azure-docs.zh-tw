@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8aad769da4d1c831dc0222c39daf86801a4f850b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232507"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244282"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Azure 通知中心豐富內容推播
 ## <a name="overview"></a>概觀
@@ -94,7 +94,7 @@ ms.locfileid: "50232507"
         }
    
    > [!NOTE]
-   > (選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](http://support.microsoft.com/kb/319292)。
+   > (選用) 如需如何新增和取得專案資源的詳細資訊，請參閱[如何使用 Visual C# 來內嵌和存取資源](https://support.microsoft.com/kb/319292)。
    > 
    > 
 7. 在 **NotificationsController.cs** 中，使用下列程式碼片段重新定義 **NotificationsController**。 這會將初始無訊息豐富內容通知識別碼傳送到裝置，並可讓用戶端擷取影像：

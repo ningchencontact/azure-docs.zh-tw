@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959201"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262296"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>如何選擇 Azure Machine Learning Studio 的演算法
 
@@ -121,7 +121,7 @@ ms.locfileid: "46959201"
 | [決策樹系](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [決策叢林](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |低記憶體使用量 |
 | [促進式決策樹](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |高記憶體使用量 |
-| [類神經網路](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [類神經網路](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[支援其他自訂項目](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [平均感知器](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [支援向量機器](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |適用於大型特徵集 |
 | [本機深度支援向量機器](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |適用於大型特徵集 |
@@ -130,7 +130,7 @@ ms.locfileid: "46959201"
 | [羅吉斯迴歸](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [決策樹系](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [決策叢林 ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |低記憶體使用量 |
-| [類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [類神經網路](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[支援其他自訂項目](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |請參閱選取的兩個類別方法的屬性 |
 | **迴歸** | | | | | |
 | [線性](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ ms.locfileid: "46959201"
 | [決策樹系](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [促進式決策樹](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |高記憶體使用量 |
 | [快速樹系分量](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |分佈而不是點預測 |
-| [類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[支援其他自訂項目](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [類神經網路](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[支援其他自訂項目](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [波氏](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |技術上為對數線性。 針對預測計算 |
 | [序數](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |針對預測順位排序 |
 | **異常偵測** | | | | | |
@@ -190,7 +190,7 @@ ms.locfileid: "46959201"
 類神經網路是受大腦啟發的學習演算法，其中涵蓋[多類別](https://msdn.microsoft.com/library/azure/dn906030.aspx)、[雙類別](https://msdn.microsoft.com/library/azure/dn905947.aspx)和[迴歸](https://msdn.microsoft.com/library/azure/dn905924.aspx)問題。 雖然它們具有無限的變化，但 Azure 機器學習內的類神經網路都是定向非循環圖的形式。 這表示輸入的特徵在轉換成輸出前，會在一連串的層中一直向前傳遞，且永遠不會向後。 在每個層中，會以各種組合加權輸入、再加以加總，然後傳遞到下一個層。 這種簡單的計算組合能夠學習複雜的類別界限和資料趨勢，就好像魔術一樣。 這類擁有許多層的網路會執行所謂的「深度學習」，聽起來很適合當作科技報導和科幻小說題材的能力。
 
 可惜這種高效能並非隨手可得。 類神經網路需要用很長的時間來定型，特別是有許多特徵的大型資料集。 它們也比大部分的演算法具有更多參數，這表示參數掃掠會大幅延長定型時間。
-但對於那些想要 [自行指定專屬網路結構](http://go.microsoft.com/fwlink/?LinkId=402867)的佼佼者而言，它們所賦予的可能性將會是取之不盡的。
+但對於那些想要 [自行指定專屬網路結構](https://go.microsoft.com/fwlink/?LinkId=402867)的佼佼者而言，它們所賦予的可能性將會是取之不盡的。
 
 ![類神經網路所學到的界限][6]
 ***類神經網路所學到的界限可能會相當複雜且不規則***

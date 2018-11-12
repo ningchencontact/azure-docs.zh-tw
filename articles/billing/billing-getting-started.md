@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 3e7af4039ca5cd8aaadc36d3f87900e2127af7ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422995"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255654"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
-當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並進行了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
+當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並加以了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
 
 - 如果您的訂用帳戶屬於 Enterprise 合約 (EA)，可使用上線的 Azure 入口網站費用公開預覽功能。 如果您透過雲端解決方案提供者 (CSP) 或 Azure 贊助取得訂用帳戶，以下某些功能可能不適用於您。 如需詳細資訊，請參閱[適用於 EA、CSP 和贊助的其他資源](#other-offers)。
 
@@ -113,7 +113,7 @@ ms.locfileid: "47422995"
 
 ### <a name="turn-on-and-check-out-azure-advisor-recommendations"></a>開啟並查看 Azure 建議程式的建議
 
-[Azure 建議程式](../advisor/advisor-overview.md)是一個功能，可協助您透過找出低使用率的資源來降低成本。 在 Azure 入口網站中造訪 Adviso：
+[Azure 建議程式](../advisor/advisor-overview.md)是一項功能，可協助您藉由找出低使用率的資源來降低成本。 在 Azure 入口網站中造訪 Adviso：
 
 ![Azure 入口網站中 Azure 建議程式按鈕的螢幕擷取畫面](./media/billing-getting-started/advisor-button.PNG)
 
@@ -142,7 +142,7 @@ ms.locfileid: "47422995"
 | 雲端解決方案提供者 (CSP) | 與您的提供者討論 |
 | Azure 贊助 | [贊助入口網站 (英文)](https://www.microsoftazuresponsorships.com/) |
 
-如果您管理的是大型組織的 IT，我們建議您閱讀 [Azure 企業 Scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) 和[企業 IT 技術白皮書](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf 下載，僅提供英文版)。
+如果您管理的是大型組織的 IT，我們建議您閱讀 [Azure 企業 Scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) 和[企業 IT 技術白皮書](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf 下載，僅提供英文版)。
 
 #### <a name="EA"></a> 預覽 Azure 入口網站中的 Enterprise 合約費用檢視 
 

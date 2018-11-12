@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: e563c7000b600bed917f42d8ffb87df883564ef8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979323"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258709"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>搭配 Azure 儲存體使用 Azure 傳統 CLI
 
@@ -23,7 +23,7 @@ Azure 傳統 CLI 為您提供一組開放式原始碼的跨平台命令集合，
 
 在此指南中，我們將探討如何使用 [Azure 傳統 CLI](../../cli-install-nodejs.md) 來搭配 Azure 儲存體執行各種開發與管理工作。 建議您在使用此指南之前，先下載並安裝或升級至最新的傳統 CLI。
 
-此指南假設您已了解 Azure 儲存體的基本概念。 此指南提供許多指令碼示範如何搭配 Azure 儲存體使用 Azure CLI。 在執行每個指令碼之前，請務必先根據您的設定更新指令碼變數。
+本指南假設您已了解 Azure 儲存體的基本概念。 此指南提供許多指令碼示範如何搭配 Azure 儲存體使用 Azure CLI。 在執行每個指令碼之前，請務必先根據您的組態更新指令碼變數。
 
 > [!NOTE]
 > 此指南提供傳統儲存體帳戶的 Azure 傳統 CLI 命令與指令碼範例。 如需適用於 Resource Manager 儲存體帳戶的 Azure 傳統 CLI 命令，請參閱 [使用適用於 Mac、Linux 與 Windows 的 Azure CLI 搭配 Azure 資源管理](../../virtual-machines/azure-cli-arm-commands.md#azure-storage-commands-to-manage-your-storage-objects)。
@@ -33,7 +33,7 @@ Azure 傳統 CLI 為您提供一組開放式原始碼的跨平台命令集合，
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>在 5 分鐘內開始使用 Azure 儲存體和 Azure 傳統 CLI
-此指南使用 Ubuntu 作為範例，但其他作業系統平台也同樣能夠執行。
+本指南使用 Ubuntu 作為範例，但其他作業系統平台也同樣能夠執行。
 
 **Azure 新手：** 取得 Microsoft Azure 訂用帳戶和與該訂用帳戶相關聯的 Microsoft 帳戶。 如需 Azure 購買選項的資訊，請參閱[免費試用](https://azure.microsoft.com/pricing/free-trial/)、[購買選項](https://azure.microsoft.com/pricing/purchase-options/)和[會員供應項目](https://azure.microsoft.com/pricing/member-offers/) (適用於 MSDN、Microsoft 合作夥伴網路、BizSpark 和其他 Microsoft 方案的成員)。
 
@@ -122,7 +122,7 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 ```
 
 ## <a name="create-and-manage-blobs"></a>建立和管理 Blob
-Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](http://msdn.microsoft.com/library/azure/dd179376.aspx)。
+Azure Blob 儲存體是一項儲存大量非結構化資料的服務 (例如文字或二進位資料)，全球任何地方都可透過 HTTP 或 HTTPS 來存取這些資料。 本節假設您已熟悉 Azure Blob 儲存體的概念。 如需詳細資訊，請參閱[使用 .NET 開始使用 Azure Blob 儲存體](../blobs/storage-dotnet-how-to-use-blobs.md)和 [Blob 服務概念](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
 
 ### <a name="create-a-container"></a>建立容器
 Azure 儲存體中的每個 Blob 必須位於一個容器中。 您可以使用 `azure storage container create` 命令建立私用容器：
@@ -137,7 +137,7 @@ azure storage container create mycontainer
 >
 
 ### <a name="upload-a-blob-into-a-container"></a>將 Blob 上傳至容器
-Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 如需詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 和分頁 Blob](http://msdn.microsoft.com/library/azure/ee691964.aspx)。
+Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 如需詳細資訊，請參閱 [了解區塊 Blob、附加 Blob 和分頁 Blob](https://msdn.microsoft.com/library/azure/ee691964.aspx)。
 
 若要將 Blob 上傳至容器，您可以使用 `azure storage blob upload`。 根據預設，此命令會將本機檔案上傳至區塊 Blob。 若要指定 Blob 的類型，您可以使用 `--blobtype` 參數。
 

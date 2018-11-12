@@ -2,22 +2,25 @@
 title: 搭配使用彈性資料庫用戶端程式庫與 Entity Framework | Microsoft Docs
 description: 使用彈性資料庫用戶端程式庫與和 Entity Framework 來編寫資料庫
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-ms.openlocfilehash: 2eafd4b23da8f21f1a4b3ffcf29e50b65882d6c0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 58b109651408a51ca7505c92d3875de63aae2cc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646757"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261922"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>搭配使用彈性資料庫用戶端程式庫與 Entity Framework
-這份文件說明 Entity Framework 應用程式為了要與 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。 重點將著重於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 這整份文件是以 EF 的 [Code First - 新的資料庫](http://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。 本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
+這份文件說明 Entity Framework 應用程式為了要與 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)整合所需做的變更。 重點將著重於使用 Entity Framework **Code First** 方法來編寫[分區對應管理](sql-database-elastic-scale-shard-map-management.md)和[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 這整份文件是以 EF 的 [Code First - 新的資料庫](https://msdn.microsoft.com/data/jj193542.aspx)教學課程作為執行範例。 本文所附的範例程式碼取自於 Visual Studio 程式碼範例中的彈性資料庫工具範例集。
 
 ## <a name="downloading-and-running-the-sample-code"></a>下載並執行範例程式碼
 若要下載本文的程式碼：
@@ -166,9 +169,9 @@ Microsoft 模式和作法小組已發佈[暫時性錯誤處理應用程式區塊
             } 
         }); 
 
-上述程式碼中的 **SqlDatabaseUtils.SqlRetryPolicy** 定義為 **SqlDatabaseTransientErrorDetectionStrategy**，並指定重試計數 10，重試之間等待時間為 5 秒。 這種方式類似於 EF 和使用者起始交易的指引 (請參閱 [重試執行策略的限制 (從 EF6 開始)](http://msdn.microsoft.com/data/dn307226))。 這兩種情況都需要應用程式控制暫時性例外狀況傳回的範圍：重新開啟交易，或 (如下所示) 從使用彈性資料庫用戶端程式庫的適當建構函式重新建立內容。
+上述程式碼中的 **SqlDatabaseUtils.SqlRetryPolicy** 定義為 **SqlDatabaseTransientErrorDetectionStrategy**，並指定重試計數 10，重試之間等待時間為 5 秒。 這種方式類似於 EF 和使用者起始交易的指引 (請參閱 [重試執行策略的限制 (從 EF6 開始)](https://msdn.microsoft.com/data/dn307226))。 這兩種情況都需要應用程式控制暫時性例外狀況傳回的範圍：重新開啟交易，或 (如下所示) 從使用彈性資料庫用戶端程式庫的適當建構函式重新建立內容。
 
-控制暫時性例外狀況把我們帶回範圍中何處的需求，也會妨礙使用 EF 隨附的內建 **SqlAzureExecutionStrategy** 。 **SqlAzureExecutionStrategy** 會重新開啟連接，但不使用 **OpenConnectionForKey**，因此會略過 **OpenConnectionForKey** 呼叫過程中執行的所有驗證。 然而，此程式碼範例會使用同樣是 EF 隨附的內建 **DefaultExecutionStrategy** 。 相對於 **SqlAzureExecutionStrategy**，它會結合暫時性錯誤處理的重試原則一起正確運作。 執行原則設定於 **ElasticScaleDbConfiguration** 類別中。 請注意，我們決定不使用 **DefaultSqlExecutionStrategy**，因為它會在發生暫時性例外狀況時建議使用 **SqlAzureExecutionStrategy**，而這會導致所述的錯誤行為。 如需不同重試原則與 EF 的詳細資訊，請參閱 [EF 的連線恢復功能](http://msdn.microsoft.com/data/dn456835.aspx)。     
+控制暫時性例外狀況把我們帶回範圍中何處的需求，也會妨礙使用 EF 隨附的內建 **SqlAzureExecutionStrategy** 。 **SqlAzureExecutionStrategy** 會重新開啟連接，但不使用 **OpenConnectionForKey**，因此會略過 **OpenConnectionForKey** 呼叫過程中執行的所有驗證。 然而，此程式碼範例會使用同樣是 EF 隨附的內建 **DefaultExecutionStrategy** 。 相對於 **SqlAzureExecutionStrategy**，它會結合暫時性錯誤處理的重試原則一起正確運作。 執行原則設定於 **ElasticScaleDbConfiguration** 類別中。 請注意，我們決定不使用 **DefaultSqlExecutionStrategy**，因為它會在發生暫時性例外狀況時建議使用 **SqlAzureExecutionStrategy**，而這會導致所述的錯誤行為。 如需不同重試原則與 EF 的詳細資訊，請參閱 [EF 的連線恢復功能](https://msdn.microsoft.com/data/dn456835.aspx)。     
 
 #### <a name="constructor-rewrites"></a>建構函式重寫
 上述程式碼範例說明應用程式所需的預設建構函式重寫，以便使用資料相依路由與 Entity Framework。 下表將這個方法擴及其他建構函式。 

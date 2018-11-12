@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ef74ebfab9450d0aa22b5a2f3287491d96573cff
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249156"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255705"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和轉碼器
 本文件包含您可以在 Media Encoder Standard 中使用的常見匯入和匯出檔案格式清單。
@@ -87,7 +87,7 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 | Windows Media 音訊 |是 |
 | WAV/PCM |是 |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |是 |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |是 |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |是 |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |是 |
 | AMR (可變多速率) |是 |
 | AES (SMPTE 331M 和 302M，AES3-2003) |否 |

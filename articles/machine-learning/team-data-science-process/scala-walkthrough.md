@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 16e4af4dd7f5c2bd14d70cc28225dfc750ce3bea
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b90603490af851d9b7ca735b00ee7d6ca5d53951
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838505"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233519"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 與 Spark 的資料科學
-本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](http://aka.ms/datascienceprocess)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰
+本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://aka.ms/datascienceprocess)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰
 
 * 迴歸問題︰計程車車程的小費金額 ($) 預測
 * 二進位分類︰計程車車程的小費或不給小費 (1/0) 預測
@@ -34,8 +34,7 @@ ms.locfileid: "34838505"
 
 [Spark](http://spark.apache.org/) 是一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中反覆演算法的絕佳選擇。 [Spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) 封裝提供一組以資料框架為基礎的統一高階 API，可協助您建立及微調實際的機器學習管線。 [MLlib](http://spark.apache.org/mllib/) 是 Spark 的可調整機器學習程式庫，將模型化功能引進此分散式環境。
 
-
-  [HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 是開放原始碼 Spark 的 Azure 託管供應項目。 它也支援 Spark 叢集上的 Jupyter Scala Notebook，可執行 Spark SQL 互動式查詢以轉換、篩選和視覺化 Azure Blob 儲存體中儲存的資料。 本文中的 Scala 程式碼片段提供解決方案，並且顯示相關的繪圖，將安裝在 Spark 叢集上的 Jupyter Notebook 資料加以視覺化。 這些主題中的模型化步驟有程式碼向您示範如何訓練、評估、儲存和使用各類模型。
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) 是開放原始碼 Spark 的 Azure 託管供應項目。 它也支援 Spark 叢集上的 Jupyter Scala Notebook，可執行 Spark SQL 互動式查詢以轉換、篩選和視覺化 Azure Blob 儲存體中儲存的資料。 本文中的 Scala 程式碼片段提供解決方案，並且顯示相關的繪圖，將安裝在 Spark 叢集上的 Jupyter Notebook 資料加以視覺化。 這些主題中的模型化步驟有程式碼向您示範如何訓練、評估、儲存和使用各類模型。
 
 本文中的設定步驟與程式碼適用於 Azure HDInsight 3.4 Spark 1.6。 不過，本文與 [Scala Jupyter Notebook](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) 中的程式碼皆屬泛型程式碼，應該能在任何 Spark 叢集上運作。 若未使用 HDInsight Spark，叢集設定和管理步驟可能與本文顯示的稍有不同。
 
@@ -44,7 +43,7 @@ ms.locfileid: "34838505"
 > 
 > 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 您必須擁有 Azure 訂用帳戶。 如果還沒有， [請取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * 您需要 Azure HDInsight 3.4 Spark 1.6 叢集來完成下列程序。 若要建立叢集，請參閱 [開始使用：在 Azure HDInsight 上建立 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示。 在 [選取叢集類型]  功能表上設定叢集類型和版本。
 
@@ -1105,7 +1104,7 @@ ROC 曲線夏的領域 = 0.9846895479241554
 執行資料格的時間︰61 秒。
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>透過 Scala 自動取用 Spark 建置的機器學習模型
-如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](http://aka.ms/datascienceprocess)。
+如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](https://aka.ms/datascienceprocess)。
 
 [Team Data Science Process 逐步解說](walkthroughs.md) 說明的其他端對端逐步解說示範 Team Data Science Process 針對特定案例的步驟。 這些逐步解說也示範如何將雲端和內部部署工具與服務組合成工作流程或管線，以建立智慧型應用程式。
 

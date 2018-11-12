@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6422482a31ad8022b795cb357c37ad8560781767
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166588"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232201"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>什麼是 Azure Data Box Edge (預覽)？ 
 
@@ -60,7 +60,7 @@ Data Box Edge 具有下列功能：
 |功能 |說明  |
 |---------|---------|
 |高效能     | 完全自動化且高度最佳化的資料傳輸與頻寬。|
-|支援的通訊協定     | 針對資料擷取支援標準 SMB 與 NFS 通訊協定。 <br> 如需支援版本的詳細資訊，請移至 [Data Box Edge 系統需求](http://aka.ms/dbe-docs) \(英文\)。|
+|支援的通訊協定     | 針對資料擷取支援標準 SMB 與 NFS 通訊協定。 <br> 如需支援版本的詳細資訊，請移至 [Data Box Edge 系統需求](https://aka.ms/dbe-docs) \(英文\)。|
 |運算       |允許對資料進行分析、處理、篩選。|
 |資料存取     | 能使用雲端 API 直接從 Azure 儲存體 Blob 與 Azure 檔案存取資料，以在雲端中進行額外的資料處理。|
 |快速存取     | 裝置上的本機快取可讓您快速存取最近使用的檔案。|
@@ -96,13 +96,13 @@ Data Box Edge 解決方案由 Data Box Edge 資源、Data Box Edge 實體裝置�
 
     <!--![The Data Box Edge service in Azure portal](media/data-box-overview/data-box-Edge-service1.png)-->
 
-    如需詳細資訊，請移至[使用 Data Box Edge 服務來管理您的 Data Box Edge 裝置](http://aka.ms/dbe-docs)。
+    如需詳細資訊，請移至[使用 Data Box Edge 服務來管理您的 Data Box Edge 裝置](https://aka.ms/dbe-docs)。
 
 * **資料箱本機 Web UI** - 使用本機 Web UI 來對 Data Box Edge 裝置執行診斷、關機和重新啟動、檢視複製記錄，以及連絡 Microsoft 支援服務以提出服務要求。
 
     <!--![The Data Box Edge local web UI](media/data-box-Edge-overview/data-box-Edge-local-web-ui.png)-->
 
-    如需有關使用 Web 型 UI 的資訊，請移至[使用 Web 型 UI 來管理資料箱](http://aka.ms/dbe-docs)。
+    如需有關使用 Web 型 UI 的資訊，請移至[使用 Web 型 UI 來管理資料箱](https://aka.ms/dbe-docs)。
 
 
 ## <a name="region-availability"></a>區域可用性
@@ -137,9 +137,9 @@ Data Box Edge 處於預覽狀態，而且您必須註冊。 請執行下列步�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢閱 [Data Box Edge 系統需求](http://aka.ms/dbe-docs)。
-- 了解 [Data Box Edge 限制](http://aka.ms/dbe-docs)。
-- 在 Azure 入口網站中部署 [Azure Data Box Edge](http://aka.ms/dbe-docs)。
+- 檢閱 [Data Box Edge 系統需求](https://aka.ms/dbe-docs)。
+- 了解 [Data Box Edge 限制](https://aka.ms/dbe-docs)。
+- 在 Azure 入口網站中部署 [Azure Data Box Edge](https://aka.ms/dbe-docs)。
 
 
 

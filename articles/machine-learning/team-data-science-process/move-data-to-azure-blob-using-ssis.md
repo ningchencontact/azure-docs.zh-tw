@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394012"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258420"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) 中的元件可供連線至 Azure、在 Azure 與內部部署資源來源之間傳輸資料，以及處理儲存在 Azure 中的資料。
@@ -31,7 +31,7 @@ ms.locfileid: "49394012"
 
 這通常是 [SQL](sql-walkthrough.md) 與 [HDInsight](hive-walkthrough.md) 逐步解說的第一步。
 
-有關使用 SSIS 完成混合式資料整合案例中常見業務需求的典型案例討論，請參閱 [使用 Azure 適用的 SQL Server 整合服務功能套件事半功倍](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 部落格。
+有關使用 SSIS 完成混合式資料整合案例中常見業務需求的典型案例討論，請參閱 [使用 Azure 適用的 SQL Server 整合服務功能套件事半功倍](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) 部落格。
 
 > [!NOTE]
 > 如需 Azure Blob 儲存體的完整介紹，請參閱 [Azure Blob 基本概念](../../storage/blobs/storage-dotnet-how-to-use-blobs.md)和 [Azure Blob 服務](https://msdn.microsoft.com/library/azure/dd179376.aspx)。
@@ -47,10 +47,10 @@ ms.locfileid: "49394012"
 若要使用 **SSIS 連接器**，您必須下載:
 
 * **SQL Server 2014 或 2016 標準版 (或更新版本)**：安裝包含 SQL Server 整合服務。
-* **適用於 Azure 的 Microsoft SQL Server 2014 或 2016 整合服務 Feature Pack**：您可以個別從 [SQL Server 2014 整合服務](http://www.microsoft.com/download/details.aspx?id=47366)和 [SQL Server 2016 整合服務頁面](https://www.microsoft.com/download/details.aspx?id=49492)下載。
+* **適用於 Azure 的 Microsoft SQL Server 2014 或 2016 整合服務 Feature Pack**：您可以個別從 [SQL Server 2014 整合服務](https://www.microsoft.com/download/details.aspx?id=47366)和 [SQL Server 2016 整合服務頁面](https://www.microsoft.com/download/details.aspx?id=49492)下載。
 
 > [!NOTE]
-> SSIS 會隨同 SQL Server 安裝，但未包含在 Express 版本中。 如需 SQL Server 各種版本中包含哪些應用程式的相關資訊，請參閱 [SQL Server 版本](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS 會隨同 SQL Server 安裝，但未包含在 Express 版本中。 如需 SQL Server 各種版本中包含哪些應用程式的相關資訊，請參閱 [SQL Server 版本](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 

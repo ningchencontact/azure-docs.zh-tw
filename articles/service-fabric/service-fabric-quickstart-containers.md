@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/30/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 081b2be82b15c36566e8eb9fe4af0037804d0e7e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: be6c13b998664cda65b1002c23726cbe89359a59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951190"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261191"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入門：將 Windows 容器部署至 Service Fabric
 
@@ -37,7 +37,7 @@ Azure Service Fabric 是一個分散式系統平台，可讓您部署及管理�
 * 建置及封裝 Service Fabric 應用程式
 * 將容器應用程式部署至 Azure
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶 (您可以建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))。
 * 執行下列項目的開發電腦︰
@@ -86,7 +86,7 @@ Microsoft 針對建置於不同 Windows Server 版本的 IIS 版本，發行了�
 
 若要將應用程式部署到 Azure 中的叢集，您可以加入合作對象叢集。 合作對象的叢集是免費的限時 Service Fabric 叢集，裝載於 Azure 上，並且由任何人都可以部署應用程式並了解平台的 Service Fabric 小組執行。  叢集會針對節點對節點和用戶端對節點安全性，使用單一的自我簽署憑證。 合作對象叢集支援容器。 如果您決定設定和使用您自己的叢集，叢集必須在支援容器的 SKU 上執行 (例如 Windows Server 2016 Datacenter with Containers)。
 
-登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 按一下 [如何連線至安全的合作對象叢集?] 連結，並複製憑證密碼。 後續步驟中會使用憑證、憑證密碼和 [連線端點] 值。
+登入並[加入 Windows 叢集](https://aka.ms/tryservicefabric) \(英文\)。 藉由按一下 [PFX] 連結，將 PFX 憑證下載至您的電腦。 按一下 [如何連線至安全的合作對象叢集?] 連結，並複製憑證密碼。 後續步驟中會使用憑證、憑證密碼和 [連線端點] 值。
 
 ![PFX 和連線端點](./media/service-fabric-quickstart-containers/party-cluster-cert.png)
 

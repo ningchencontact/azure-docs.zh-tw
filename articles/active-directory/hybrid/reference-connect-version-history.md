@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420232"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235899"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect︰版本發行歷程記錄
 Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 Azure AD Connect。 並非所有新增項目都適用於所有的對象。
@@ -35,7 +35,7 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 從 Azure AD Connect 升級的步驟 | [從舊版升級到最新版本](how-to-upgrade-previous-version.md) Azure AD Connect 的多種方法。
 所需的權限 | 如需套用更新所需權限的詳細資訊，請參閱[帳戶和權限](reference-connect-accounts-permissions.md#upgrade)。
 
-下載 | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)。
+下載 | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 ## <a name="12650"></a>1.2.65.0 
 
@@ -48,7 +48,6 @@ Azure Active Directory (Azure AD) 團隊會定期以新的特性和功能更新 
 
 
 - 變更屬性回寫的功能，確保裝載的語音信箱如預期般運作。  在某些情況下，Azure AD 會在回寫期間以 Null 值覆寫 msExchUcVoicemailSettings 屬性。  如果未設定雲端值，Azure AD 現在不會再清除此屬性的內部部署值。
-- 增強變更預設規則的處理。 現在如果對預設規則做出變更，您就會收到通知，並提供修復預設規則的選項。 
 - 在 Azure AD Connect 精靈中新增診斷功能，可調查和識別 Azure AD 的連線能力問題。 使用 Test-AdSyncAzureServiceConnectivity Cmdlet 透過 Powershell，也可以直接執行這些相同的診斷。 
 - 在 Azure AD Connect 精靈中新增診斷功能，可調查和識別 AD 的連線能力問題。 使用 ADConnectivityTools Powershell 模組中的 Start-ConnectivityValidation 函式，透過 Powershell，也可以直接執行這些相同的診斷。  如需詳細資訊，請參閱[什麼是 ADConnectivityTool PowerShell 模組？](how-to-connect-adconnectivitytools.md)
 - 針對混合式 Azure Active Directory Join 和裝置回寫，新增 AD 結構描述版本前置檢查 

@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的更新作業系統版本 | Microsoft Docs
 description: 本文說明如何實作 Azure 資訊安全中心建議的**更新作業系統版本**。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
-ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1898926e0488722d18a105697bead18e29e6a35d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298400"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254888"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure 資訊安全中心的更新作業系統版本
 對於雲端服務中的虛擬機器 (VM)，如果有更新的版本可用，則 Azure 資訊安全中心會建議更新作業系統 (OS)。  只監視生產位置中執行的雲端服務 Web 角色和背景工作角色。
@@ -49,7 +49,7 @@ ms.locfileid: "44298400"
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md) -- 了解如何監視合作夥伴解決方案的健全狀況。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找有關使用服務的常見問題。
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) -- 取得最新的 Azure 安全性新聞和資訊。
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) -- 取得最新的 Azure 安全性新聞和資訊。
 
 <!--Image references-->
 [1]: ./media/security-center-update-os-version/update-os-version.png

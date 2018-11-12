@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: 154d82ab5e309631df0bfa40df7fe14902327f46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 294eae1dd5e591d12fdb82f62ea013ba54489686
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884269"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253327"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 解決方案加速器的常見問題集
 
@@ -21,7 +21,7 @@ ms.locfileid: "48884269"
 
 ### <a name="where-can-i-find-the-source-code-for-the-solution-accelerators"></a>哪裡可以找到解決方案加速器的原始程式碼？
 
-原始程式碼儲存在下列 GitHub 存放庫中︰
+原始程式碼儲存在下列 GitHub 儲存機制中︰
 
 * [遠端監視解決方案加速器 (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) \(英文\)
 * [遠端監視解決方案加速器 (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) \(英文\)
@@ -40,7 +40,7 @@ ms.locfileid: "48884269"
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>以微服務作為基礎的開放原始碼新基礎架構能在更新中提供哪些優點？
 
-在過去兩年中，雲端架構已大幅發展。 微服務問世以來都是絕佳的模式，可達成縮放及彈性，而不必犧牲開發速度。 此架構模式運用於多個在內部使用的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 我們會將這些學習放入實務，以便客戶能夠從中獲益。
+在過去兩年中，雲端架構已大幅發展。 微服務問世以來都是絕佳的模式，可達成縮放及彈性，而不必犧牲開發速度。 此架構模式運用於多項在內部使用的 Microsoft 服務，都獲得絕佳的可靠性與延展性結果。 我們會將這些學習放入實務，以便客戶能夠從中獲益。
 
 ### <a name="where-can-i-find-information-about-the-previous-version-of-the-remote-monitoring-solution"></a>哪裡可以找到舊版遠端監視解決方案的相關資訊？
 
@@ -80,7 +80,7 @@ ms.locfileid: "48884269"
 
 ### <a name="how-do-i-delete-an-aad-tenant"></a>如何刪除 AAD 租用戶？
 
-請參閱 Eric Golpe 的部落格文章：[刪除 Azure AD 租用戶的逐步解說](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)。
+請參閱 Eric Golpe 的部落格文章：[刪除 Azure AD 租用戶的逐步解說](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx)。
 
 ### <a name="next-steps"></a>後續步驟
 

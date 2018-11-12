@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634244"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259168"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 
@@ -87,7 +87,7 @@ PowerShell 資源庫會自動將 DSC 資源安裝到您的 Azure 自動化帳戶
 您需要稍微調整一下。 但這並不難，每個資源只需要調整一次 (除非您將來想要升級。)如需關於撰寫 PowerShell 整合模組的詳細資訊，請參閱下列文章：[撰寫 Azure 自動化的整合模組](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - 將您需要的模組安裝在工作站，如下所示：
-  - 安裝 [Windows Management Framework v5](http://aka.ms/wmf5latest) (Windows 10 不需安裝)
+  - 安裝 [Windows Management Framework v5](https://aka.ms/wmf5latest) (Windows 10 不需安裝)
   - `Install-Module –Name MODULE-NAME`    <—從 PowerShell 資源庫抓取模組
 - 從 `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` 模組資料夾複製到暫存資料夾
 - 刪除主要資料夾中的範例和文件

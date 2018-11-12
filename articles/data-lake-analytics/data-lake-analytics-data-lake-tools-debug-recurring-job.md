@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 33c3b91e7bf9fa64e3ba3f98a9396045753d0c2a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260035"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>針對異常的週期性作業進行疑難排解
 
-本文顯示如何使用 [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs)，針對週期性作業進行疑難排解。 從 [Azure Data Lake and Azure HDInsight 部落格](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/) 中，深入了解管線和週期性工作。
+本文顯示如何使用 [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs)，針對週期性作業進行疑難排解。 從 [Azure Data Lake and Azure HDInsight 部落格](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/) 中，深入了解管線和週期性工作。
 
 週期性作業通常會共用相同的查詢邏輯和類似的輸入資料。 例如，假設您在每個星期一早上 8 點有一個週期性作業， 計算過去一週的每週作用中使用者數目。 這些作業的指令碼會共用一個包含查詢邏輯的指令碼範本。 這些作業的輸入是過去一週的使用量資料。 共用相同的查詢邏輯和類似的輸入時，通常表示這些作業的效能類似且穩定。 如果其中一個週期性作業突然執行異常、失敗或變得十分緩慢，您可能想要：
 
@@ -39,7 +39,7 @@ Azure Data Lake Tools for Visual Studio 中的**相關作業檢視**可協助您
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>案例 2：您有週期性作業的管線，而不是 URL
 
-在 Visual Studio 中，您可以透過 [伺服器總管] > 您的 Azure Data Lake Analytics 帳戶 > [管線] 來開啟管線瀏覽器  (如果您在伺服器總管中找不到此節點，請[下載最新外掛程式。](http://aka.ms/adltoolsvs))。 
+在 Visual Studio 中，您可以透過 [伺服器總管] > 您的 Azure Data Lake Analytics 帳戶 > [管線] 來開啟管線瀏覽器  (如果您在伺服器總管中找不到此節點，請[下載最新外掛程式。](https://aka.ms/adltoolsvs))。 
 
 ![選取 [管線] 節點](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

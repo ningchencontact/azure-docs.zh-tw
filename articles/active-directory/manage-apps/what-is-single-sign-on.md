@@ -14,12 +14,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720118"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236001"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
 單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
@@ -102,7 +102,7 @@ Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的�
 以下是尋找應用程式支援哪些功能的一些提示：
 
 * Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
-* 在 [這裡](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)則可以找到特別支援使用如 SAML，WS-同盟或 OpenID Connect 通訊協定之同盟單一登入的同盟應用程式清單。
+* 在 [這裡](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)則可以找到特別支援使用如 SAML，WS-同盟或 OpenID Connect 通訊協定之同盟單一登入的同盟應用程式清單。
 
 一旦您找到您的應用程式，就可以遵循應用程式資源庫和 Azure 入口網站中的逐步指示，啟用單一登入。
 

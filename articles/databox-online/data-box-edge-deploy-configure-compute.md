@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/19/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: ba77fc4596d9bb245b3cea2538804b1816e9ad14
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e970f7cc0d4c4620f2da69286be36d0c22e0d747
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260358"
 ---
 # <a name="tutorial-transform-data-with-azure-data-box-edge-preview"></a>教學課程：使用 Azure Data Box Edge 轉換資料 (預覽)
 
@@ -223,6 +223,6 @@ ms.locfileid: "49466965"
 請繼續進行下一個教學課程，以了解如何管理 Data Box Edge。
 
 > [!div class="nextstepaction"]
-> [使用本機 Web UI 來管理 Data Box Edge](http://aka.ms/dbg-docs)
+> [使用本機 Web UI 來管理 Data Box Edge](https://aka.ms/dbg-docs)
 
 

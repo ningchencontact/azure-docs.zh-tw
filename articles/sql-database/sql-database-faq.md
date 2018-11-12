@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 7bb692735cb3541fb05b2c39dd7325fa74a00034
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232200"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242818"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database 常見問題集 (FAQ)
 
@@ -27,7 +27,7 @@ ms.locfileid: "50232200"
 
 ## <a name="what-is-the-sla-for-sql-database"></a>SQL Database 的 SLA 是什麼
 
-我們保證，無論您屬於哪個服務層，您的 Microsoft Azure SQL Database 可與我們的網際網路閘道正常連線的時間至少須達 99.99%。 0.01% 保留供修補、升級和容錯移轉使用。 如需詳細資訊，請參閱 [SLA](http://azure.microsoft.com/support/legal/sla/)。 如需 Azure SQL Database 可用性架構的資訊，請參閱[高可用性和 Azure SQL Database](sql-database-high-availability.md)。
+我們保證，無論您屬於哪個服務層，您的 Microsoft Azure SQL Database 可與我們的網際網路閘道正常連線的時間至少須達 99.99%。 0.01% 保留供修補、升級和容錯移轉使用。 如需詳細資訊，請參閱 [SLA](https://azure.microsoft.com/support/legal/sla/)。 如需 Azure SQL Database 可用性架構的資訊，請參閱[高可用性和 Azure SQL Database](sql-database-high-availability.md)。
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>我能否控制修補停機時間何時發生
 

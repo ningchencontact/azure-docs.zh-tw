@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 79841887ce8413970cb7dff0ca0099d4e0745a68
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436143"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259304"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>設定 Azure App Service 的部署認證
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 這些與您的 Azure Active Directory 認證不相同。
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 支援兩種認證類，用於[本機 Git 部署](app-service-deploy-local-git.md)和 [FTP/S 部署](app-service-deploy-ftp.md)。 這些與您的 Azure Active Directory 認證不相同。
 
 * **使用者層級認證**︰一組用於整個 Azure 帳戶的認證。 它可以用來將任何應用程式部署至 Azure 帳戶有權存取的任何訂用帳戶的 App Service 中。 有些預設認證集是在 [App Service]  >  [&lt;app_name>]  >  [部署認證] 中設定。 也有些預設集合是呈現在入口網站 GUI 中 (例如應用程式的[資源頁面](../azure-resource-manager/resource-group-portal.md#manage-resources)的 [概觀] 和 [屬性])。
 
@@ -70,7 +70,7 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 
 若要取得應用程式層級的認證：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  [概觀]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >**&lt;any_app>** > **概觀**。
 
 2. 按一下 [...更多]  >  [取得發行設定檔]，便會開始下載 .PublishSettings 檔案。
 
@@ -85,7 +85,7 @@ App Service 中每個應用程式的認證會儲存在 XML 發佈設定檔中。
 
 若要重設應用程式層級的認證：
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >**&lt;any_app>** > **概觀**。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [App Service] >&lt;any_app>  >  [概觀]。
 
 2. 按一下 [...更多]  >  [重設發行設定檔]。 按一下 [是] 確認重設。
 

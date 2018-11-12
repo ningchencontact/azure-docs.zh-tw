@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: e6e2c0b82f306e399454c1672c56e2933e3f1158
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: eed970d46c8a895001ce0a6d7d7f37acf6c02a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040860"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249195"
 ---
 # <a name="power-bi-workspace-collections-faq"></a>Power BI 工作區集合常見問題集
 
@@ -61,7 +61,7 @@ Azure 入口網站會針對您的訂用帳戶提供已經執行多少轉譯/報�
 是。 您可以使用現有的 Azure 訂用帳戶來佈建及使用 Microsoft Power BI 工作區集合服務。
 
 ## <a name="does-my-application-end-user-need-a-power-bi-license"></a>我的應用程式的使用者是否需要 Power BI 授權？
-否。 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](http://go.microsoft.com/fwlink/?LinkId=760527)。
+否。 您應用程式的使用者不需購買個別的 Power BI 訂用帳戶，就能存取應用程式內資料視覺效果。 在 Power BI 工作區集合模型中，應用程式提供者需透過 Azure 使用計量來為服務付費。 請參閱[定價和授權頁面](https://go.microsoft.com/fwlink/?LinkId=760527)。
 
 ## <a name="how-does-user-authentication-work-with-power-bi-workspace-collections"></a>如何使用 Power BI 工作區集合來執行使用者驗證工作？
 Power BI 工作區集合服務會使用應用程式權杖進行驗證和授權，而不使用明確的使用者驗證。 在應用程式權杖模型中，您的應用程式會管理使用者的驗證與授權。 然後，必要時，您的應用程式會建立
@@ -80,7 +80,7 @@ Power BI 工作區集合服務會使用應用程式權杖進行驗證和授權�
 您可以造訪 [Power BI 工作區集合文件頁面](get-started.md)。 您可以透過造訪 [Power BI 部落格](https://powerbi.microsoft.com/blog/) \(英文\) 或造訪 Power BI 開發人員中心 (dev.powerbi.com)，來取得此服務的相關最新資訊。 您也可以在 [Stackoverflow](http://stackoverflow.com/questions/tagged/powerbi)提出問題。
 
 ## <a name="how-do-i-get-started"></a>如何開始使用？
-您現在就可以免費開始使用！ 如果您有 Azure 訂用帳戶，現在就可以直接從 Azure 入口網站佈建 Power BI 工作區集合。 您也可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 在您佈建 Power BI 工作區集合服務之後，就能輕鬆地直接使用 Power BI REST API，或使用 [GitHub](http://go.microsoft.com/fwlink/?LinkID=746472) \(英文\) 上提供的開發人員 SDK。 也有提供範例說明如何使用開發人員 SDK。
+您現在就可以免費開始使用！ 如果您有 Azure 訂用帳戶，現在就可以直接從 Azure 入口網站佈建 Power BI 工作區集合。 您也可以建立[免費的 Azure 帳戶](https://azure.microsoft.com/free/)。 在您佈建 Power BI 工作區集合服務之後，就能輕鬆地直接使用 Power BI REST API，或使用 [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472) \(英文\) 上提供的開發人員 SDK。 也有提供範例說明如何使用開發人員 SDK。
 
 ## <a name="see-also"></a>另請參閱
 
