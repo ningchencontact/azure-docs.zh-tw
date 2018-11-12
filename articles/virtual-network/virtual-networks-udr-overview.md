@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 97e192312619455c0055a917df880cc48eb082dd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9efb08922f3e6f78266baaf8ae623dd241c09522
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978898"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037612"
 ---
 # <a name="virtual-network-traffic-routing"></a>虛擬網路流量路由
 
@@ -167,7 +167,7 @@ Azure 會針對不同的 Azure 功能，新增其他預設系統路由，但只�
         - 能夠進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy，並將流量傳回網際網路。 
     - **虛擬網路閘道**：如果閘道是 ExpressRoute 虛擬網路閘道，則透過 ExpressRoute 的[私人對等互連](../expressroute/expressroute-circuit-peerings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-private-peering)，連線到網際網路的裝置在內部部署上可以進行網路位址轉譯和轉送，或對傳送至子網路中目的地資源的流量設定 Proxy。 
 
-如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。 如需詳細資訊，請參閱 [VPN 閘道常見問題集](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#why-are-certain-ports-opened-on-my-vpn-gateway)中的*為什麼 VPN 閘道上的某些連接埠已開啟？* 問題。
+如果虛擬網路連線至 Azure VPN 閘道，請勿將路由表關聯至所含路由的目的地為 0.0.0.0/0 的[閘道子網路](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub)。 這麼做會讓閘道無法正常運作。 如需詳細資訊，請參閱 [VPN 閘道常見問題集](../vpn-gateway/vpn-gateway-vpn-faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gatewayports)中的*為什麼 VPN 閘道上的某些連接埠已開啟？* 問題。
 
 請參閱 [Azure 與內部部署資料中心之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [Azure 與網際網路之間的 DMZ](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2fazure%2fvirtual-network%2ftoc.json)，以取得在網際網路和 Azure 之間使用虛擬網路閘道和虛擬設備的實作詳細資料。
 
