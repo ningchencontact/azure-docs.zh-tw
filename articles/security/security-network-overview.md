@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244588"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233798"
 ---
 # <a name="azure-network-security-overview"></a>Azure 網路安全性概觀
 
@@ -144,7 +144,7 @@ Azure 防火牆是受控、雲端式網路安全性服務，可以保護您的 A
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>安全遠端存取和跨單位連線
 
-需要從遠端完成 Azure 資源的安裝、設定和管理。 此外，您可能想要部署其元件位於內部部署和 Azure 公用雲端中的[混合式 IT](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) \(英文\) 解決方案。 這些案例都需要安全遠端存取。
+需要從遠端完成 Azure 資源的安裝、設定和管理。 此外，您可能想要部署其元件位於內部部署和 Azure 公用雲端中的[混合式 IT](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) \(英文\) 解決方案。 這些案例都需要安全遠端存取。
 
 Azure 網路支援下列安全遠端存取案例︰
 

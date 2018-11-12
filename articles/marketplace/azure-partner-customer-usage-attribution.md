@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280668"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157933"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -66,7 +66,7 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來�
 
 在您將 GUID 加入至範本或使用者代理程式中，並在 CPP 中註冊該 GUID 之後，便會追蹤所有部署。 
 
-1. 適用於 [Azure Marketplace](https://aka.ms/listonazuremarketplace)，並可取得 CPP 的存取權。
+1. 適用於 [Azure Marketplace](http://aka.ms/listonazuremarketplace)，並可取得 CPP 的存取權。
 
    * 合作夥伴必須[在 CPP 中擁有設定檔](https://docs.microsoft.com/azure/marketplace/become-publisher)。 我們鼓勵您在 Azure Marketplace 或 AppSource 中列出該供應項目。
    * 合作夥伴可以註冊多個 GUID。

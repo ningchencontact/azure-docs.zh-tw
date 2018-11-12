@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6558a888ded1c8657bef6aba886a6f7d14cb554a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90816061766a423f7dbc7d277433a95c5bcf6115
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254531"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095417"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
-適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-queries.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-log-searches.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 ## <a name="map-records"></a>對應記錄
 除了當處理序或電腦啟動或是上線到適用於 VM 的 Azure 監視器對應功能時所產生的記錄外，每小時還會為每個唯一的電腦和處理序產生一筆記錄。 這些記錄具有下表中的屬性。 ServiceMapComputer_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的機器資源欄位。 ServiceMapProcess_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的處理序資源欄位。 ResourceName_s 欄位會符合對應 Resource Manager 資源中的名稱欄位。 
