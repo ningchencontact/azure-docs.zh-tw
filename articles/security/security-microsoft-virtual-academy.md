@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248073"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Microsoft Virtual Academy 中的 Azure 安全性課程
 Microsoft Virtual Academy 提供免費線上訓練，協助開發人員、IT 和資料專業人員以及學生學習最新技術、發展其技能，並讓其生涯更進一步。
@@ -48,7 +48,7 @@ Microsoft Virtual Academy 提供免費線上訓練，協助開發人員、IT 和
 
 [雲端世界的安全性](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-專家將逐步引導您進行 [Microsoft Cloud Security for Enterprise Architects](http://www.microsoft.com/download/48121) 海報中的客戶責任藍圖。 專家也會提供建議，來現代化安全性狀態的各個部分，包括控管、內含項目策略、安全性作業、高價值資產保護、資訊保護，以及使用者和裝置安全性，特別是保護系統管理控制。 了解 Microsoft 網路安全性小組用來存取客戶雲端安全性以及建置其安全性藍圖的相同架構。
+專家將逐步引導您進行 [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) 海報中的客戶責任藍圖。 專家也會提供建議，來現代化安全性狀態的各個部分，包括控管、內含項目策略、安全性作業、高價值資產保護、資訊保護，以及使用者和裝置安全性，特別是保護系統管理控制。 了解 Microsoft 網路安全性小組用來存取客戶雲端安全性以及建置其安全性藍圖的相同架構。
 
 [Microsoft Azure IaaS 深入探討](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 

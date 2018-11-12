@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 51d435d9edea5e341127cac89bc96a71c7bc8bb4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f96ed8659fc2f49b89199a813f9fab9d5f4af5a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232166"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>設定 Active Directory 和 DNS 的災害復原
 
@@ -44,7 +44,7 @@ ms.locfileid: "50211888"
 使用 Site Recovery 複寫的網域控制站會用於[測試容錯移轉](#test-failover-considerations)。 請確定它符合下列需求︰
 
 1. 網域控制站是通用類別目錄伺服器。
-2. 網域控制站應為測試容錯移轉期間所需角色的 FSMO 角色擁有者。 否則在容錯移轉之後，將必須[收回](http://aka.ms/ad_seize_fsmo)這些角色。
+2. 網域控制站應為測試容錯移轉期間所需角色的 FSMO 角色擁有者。 否則在容錯移轉之後，將必須[收回](https://aka.ms/ad_seize_fsmo)這些角色。
 
 ### <a name="configure-vm-network-settings"></a>進行 VM 網路設定
 對於裝載網域控制站或 DNS 的虛擬機器，使用 Site Recovery，在複寫虛擬機器的 [計算和網路] 設定下進行網路設定。 這可確保虛擬機器在容錯移轉之後會連結至正確的網路。
@@ -93,7 +93,7 @@ ms.locfileid: "50211888"
 
 
 ### <a name="remove-references-to-other-domain-controllers"></a>移除對其他網域控制站的參考
-在起始測試容錯移轉時，請勿在測試網路中納入所有網域控制站。 若要移除對您生產環境中其他網域控制站的參考，您可能必須[收回 FSMO Active Directory 角色](http://aka.ms/ad_seize_fsmo)，並針對遺漏的網域控制站執行[中繼資料清理](https://technet.microsoft.com/library/cc816907.aspx)。
+在起始測試容錯移轉時，請勿在測試網路中納入所有網域控制站。 若要移除對您生產環境中其他網域控制站的參考，您可能必須[收回 FSMO Active Directory 角色](https://aka.ms/ad_seize_fsmo)，並針對遺漏的網域控制站執行[中繼資料清理](https://technet.microsoft.com/library/cc816907.aspx)。
 
 
 ### <a name="issues-caused-by-virtualization-safeguards"></a>因虛擬化保護措施而產生的問題
@@ -180,7 +180,7 @@ ms.locfileid: "50211888"
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
-    如需詳細資訊，請參閱[停用讓通用類別目錄伺服器可用來驗證使用者登入的需求](http://support.microsoft.com/kb/241789)。
+    如需詳細資訊，請參閱[停用讓通用類別目錄伺服器可用來驗證使用者登入的需求](https://support.microsoft.com/kb/241789)。
 
 ### <a name="dns-and-domain-controller-on-different-machines"></a>不同電腦上的 DNS 和網域控制站
 

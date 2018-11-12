@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 7d3a357e1a3929153288a9d99e21f2379bcac891
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: f69035202a3358af38ebaf8e94abdd3b030e633f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102013"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256063"
 ---
 # <a name="biztalk-services-troubleshoot-using-operation-logs"></a>BizTalk 服務：使用作業記錄檔進行疑難排解
 
@@ -31,8 +31,8 @@ ms.locfileid: "24102013"
 「作業記錄檔」是一個管理服務功能，可讓您檢視在 Azure 服務上執行的作業 (包括 BizTalk 服務) 的歷程記錄。 它可讓您檢視與 BizTalk 訂用帳戶的管理作業相關歷程資料，最遠可回溯 180 天。
 
 > [!NOTE]
-> 這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。 這類作業使用 [BizTalk 服務 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx) 進行追蹤。 如需使用管理服務進行追蹤的作業完整清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。<br/><br/>
-> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。 若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。 如需詳細資訊，請參閱[追蹤訊息](http://msdn.microsoft.com/library/azure/hh949805.aspx)。
+> 這項功能只會在 BizTalk 服務啟動、備份等期間，針對服務的管理作業擷取記錄檔。 這類作業使用 [BizTalk 服務 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx) 進行追蹤。 如需使用管理服務進行追蹤的作業完整清單，請參閱[使用 Azure 管理服務進行追蹤的作業](#bizops)。<br/><br/>
+> 此功能不會對 BizTalk 服務執行階段的相關活動 (例如橋接器等項目所處理的訊息) 擷取記錄檔。 若要檢視這些記錄檔，請使用 BizTalk 服務入口網站中的 [追蹤] 檢視。 如需詳細資訊，請參閱[追蹤訊息](https://msdn.microsoft.com/library/azure/hh949805.aspx)。
 > 
 > 
 
@@ -64,15 +64,15 @@ ms.locfileid: "24102013"
 | PurgeBackupBizTalkService |清除超過保留週期的 BizTalk 服務備份的作業 |
 
 ## <a name="see-also"></a>另請參閱
-* [備份 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [從備份還原 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [備份 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [從備份還原 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk 服務：簽發者名稱和簽發者金鑰](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: cherylmc
-ms.openlocfilehash: c2bef1d79d3133ea6306928a8c917e1bc3000a58
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 47c0db66889dae5d74e2fcf46a27ec1397930e53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874547"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256777"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>使用入口網站將虛擬網路連線到 ExpressRoute 線路
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Azure CLI](howto-linkvnet-cli.md)
-> * [影片 - Azure 入口網站](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-linkvnet-classic.md)
 > 
 
@@ -49,7 +49,7 @@ ms.locfileid: "29874547"
 
 * 如果您已啟用 ExpressRoute 高階附加元件，則可連結 ExpressRoute 電路的地理政治區域以外的虛擬網路，或是將大量的虛擬網路連線到 ExpressRoute 電路。 如需高階附加元件的詳細資訊，請參閱 [常見問題集](expressroute-faqs.md) 。
 
-* 您可以在開始前先[觀看影片](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)來進一步了解步驟。
+* 您可以在開始前先[觀看影片](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)來進一步了解步驟。
 
 ## <a name="connect-a-vnet-to-a-circuit---same-subscription"></a>將 VNet 連線到線路 - 相同訂用帳戶
 
@@ -124,7 +124,7 @@ ms.locfileid: "29874547"
 
   ![基本頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection3.png)
 5. 在 [設定] 頁面中選取 [虛擬網路閘道]，並選取 [兌換授權] 核取方塊。
-6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [SERVICEPRINCIPAL] 。
+6. 輸入**授權金鑰**和**對等線路 URI**，並提供連線名稱。 按一下 [確定]。
 
   ![設定頁面](./media/expressroute-howto-linkvnet-portal-resource-manager/Connection4.png)
 7. 在 [摘要] 頁面中檢閱資訊，然後按一下 [確定]。

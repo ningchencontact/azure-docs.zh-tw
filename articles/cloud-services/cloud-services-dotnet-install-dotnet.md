@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 3821e13fd968e458e463e90ef338da6637d8d8f2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 698cae13b9e78de6318c28bde998e195540c513c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622009"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256794"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>在 Azure 雲端服務角色上安裝 .NET
 本文說明如何安裝未隨附於 Azure 客體 OS 的 .NET Framework 版本。 若要設定雲端服務 web 和背景工作角色，您可以在客體 OS 上使用 .NET。
@@ -34,7 +34,7 @@ ms.locfileid: "39622009"
 ## <a name="add-the-net-installer-to-your-project"></a>將 .NET 安裝程式加入至專案
 若要下載 .NET framework 的 Web 安裝程式，請選擇您需要安裝的版本：
 
-* [.NET 4.7.2 web 安裝程式](http://go.microsoft.com/fwlink/?LinkId=863262)
+* [.NET 4.7.2 web 安裝程式](https://go.microsoft.com/fwlink/?LinkId=863262)
 * [.NET 4.6.2 web 安裝程式](https://www.microsoft.com/download/details.aspx?id=53345)
 
 若要新增 web 角色的安裝程式：
