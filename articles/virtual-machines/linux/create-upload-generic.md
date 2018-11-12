@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: szark
-ms.openlocfilehash: 67796cc3cbb925bb18a917d17b8abb7c085de370
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 3aa2803550c445e0b30ff998cf3adb779515e487
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638187"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235967"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>非背書的發行版本相關資訊
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -76,7 +76,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 
 * VHD http://<mystorageaccount>.blob.core.windows.net/vhds/MyLinuxVM.vhd 具有不支援的虛擬大小 21475270656 個位元組。 大小必須是整數 (以 MB 為單位)。
 
-在此案例中，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](http://technet.microsoft.com/library/hh848535.aspx) \(英文\) PowerShell Cmdlet 來調整 VM 的大小。  如果您不是在 Windows 環境中執行，建議使用 `qemu-img` 來轉換 VHD (如果需要) 並調整其大小。
+在此案例中，您可以使用 Hyper-V 管理員主控台或 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) \(英文\) PowerShell Cmdlet 來調整 VM 的大小。  如果您不是在 Windows 環境中執行，建議使用 `qemu-img` 來轉換 VHD (如果需要) 並調整其大小。
 
 > [!NOTE]
 > [qemu-img 版本 >=2.2.1 中已知的 Bug](https://bugs.launchpad.net/qemu/+bug/1490611) \(英文\) 會導致 VHD 的格式不正確。 此問題已在 QEMU 2.6 中修正。 我們建議使用 `qemu-img` 2.2.0 或更早版本，或是 2.6 或更新版本。
@@ -125,7 +125,7 @@ Azure 上的 VHD 映像必須具有與 1 MB 對齊的虛擬大小。  一般而�
 
 適用於 Hyper-V 和 Azure 的 Linux Integration Services (LIS) 驅動程式會直接提供給上游 Linux Kernel。 許多包括最新 Linux 核心版本 (例如 3.x) 的發行版本已經有這些驅動程式可供使用，或透過其核心來提供這些驅動程式的向後移植版本。  在上游核心中會透過新的修正和功能不斷更新這些驅動程式，因此，如果可能，建議您執行包含這些修正與更新的[背書發行版本](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-如果您執行的是 Red Hat Enterprise Linux 版本 6.0 到 6.3 的變體，則您必須安裝 [Hyper-V 的最新 LIS 驅動程式](http://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)。 從 RHEL 6.4+ (及衍生項目) 開始，核心就已經隨附 LIS 驅動程式，因此無需額外的安裝套件。
+如果您執行的是 Red Hat Enterprise Linux 版本 6.0 到 6.3 的變體，則您必須安裝 [Hyper-V 的最新 LIS 驅動程式](https://go.microsoft.com/fwlink/p/?LinkID=254263&clcid=0x409)。 從 RHEL 6.4+ (及衍生項目) 開始，核心就已經隨附 LIS 驅動程式，因此無需額外的安裝套件。
 
 如果需要自訂核心，建議您使用最新的核心版本 (例如 3.8+)。 針對發行版本或自行維護核心的廠商，您需要定期將 LIS 驅動程式從上游核心向後移植到您的自訂核心。  即使您已經在執行相對較新的核心版本，還是強烈建議您持續追蹤 LIS 驅動程式中的任何上游修正，並視需要向後移植它們。 LIS 驅動程式原始程式檔的位置均指定於 Linux 核心來源樹狀目錄的 [MAINTAINERS](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/tree/MAINTAINERS) 檔案中：
 ```

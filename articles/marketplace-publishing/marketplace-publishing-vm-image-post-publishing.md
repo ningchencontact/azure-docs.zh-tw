@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/03/2016
 ms.author: hascipio;
-ms.openlocfilehash: e1f90650e71345957c2d353774cb8bef62c1868b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d4c7dce1876e9838fe986aebb7e38a09e8a82baf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715010"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252967"
 ---
 # <a name="post-production-guide-for-virtual-machine-offers-in-the-azure-marketplace"></a>關於 Azure Marketplace 中的虛擬機器供應項目的後期製作指南
 本文說明如何更新 Azure Marketplace 中已上線的虛擬機器供應項目。 它會引導您進行將一或多個新 SKU 新增至現有供應項目的程序。 同時引導您進行從 Marketplace 移除上線虛擬機器供應項目或 SKU 的程序。
@@ -30,7 +30,7 @@ ms.locfileid: "39715010"
 * **SKU 識別碼**︰在發佈入口網站中，移至 [虛擬機器] 並選取您的供應項目。 然後按一下 [SKU] > [新增 SKU]。
 * **發行者命名空間**︰在發佈入口網站中，移至 **[虛擬機器]** > **[逐步解說]** > **[告知我們您的公司]** (請見「步驟 2：註冊您的公司」) > **[發行者命名空間]** > **[命名空間** ]。
 
-供應項目/SKU 列在 [Marketplace](http://azure.microsoft.com/marketplace) 後，您就無法變更下列文字方塊：
+供應項目/SKU 列在 [Marketplace](https://azure.microsoft.com/marketplace) 後，您就無法變更下列文字方塊：
 
 * **供應項目識別碼**︰在發佈入口網站中，移至 [虛擬機器] 並選取您的供應項目。 然後按一下 [VM 映像] > [供應項目識別碼]。
 * **SKU 識別碼**︰在發佈入口網站中，移至 [虛擬機器] 並選取您的供應項目。 然後按一下 [SKU] > [新增 SKU]。

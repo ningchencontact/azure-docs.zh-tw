@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 90cf2d0ddbba47a856bf1299a101c5185873b5d8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214407"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230286"
 ---
 # <a name="biztalk-services-backup-and-restore"></a>BizTalk 服務：備份與還原
 
@@ -132,18 +132,18 @@ BizTalk 服務永遠還原成 **暫止** 狀態。 在此狀態下，您可以�
 </table>
 
 ## <a name="next"></a>下一頁
-若要建立 Azure BizTalk 服務，請移至 [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
+若要建立 Azure BizTalk 服務，請移至 [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)。 若要開始建立應用程式，請移至 [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=235197)(英文)。
 
 ## <a name="see-also"></a>另請參閱
-* [備份 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [從備份還原 BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [備份 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [從備份還原 BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk 服務：簽發者名稱和簽發者金鑰](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

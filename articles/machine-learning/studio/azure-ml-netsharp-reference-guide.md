@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 2571420e3497e85ec1bf37b340015b061e8c91d4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833908"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258472"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>適用於 Azure Machine Learning 的 Net# 類神經規格語言指南
 
@@ -230,7 +230,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 如需迴旋網路及其應用程式的詳細資訊，請參閱下列文章： 
 
 + [http://deeplearning.net/tutorial/lenet.html ](http://deeplearning.net/tutorial/lenet.html)
-+ [http://research.microsoft.com/pubs/68920/icdar03.pdf](http://research.microsoft.com/pubs/68920/icdar03.pdf) 
++ [http://research.microsoft.com/pubs/68920/icdar03.pdf](https://research.microsoft.com/pubs/68920/icdar03.pdf) 
 + [http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf](http://people.csail.mit.edu/jvb/papers/cnn_tutorial.pdf)  
 
 ## <a name="pooling-bundles"></a>集區套組
@@ -460,7 +460,8 @@ output Digit [10] from Hid3 all;
 + 每個核心的加權數目是 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`。 或 `26 * 50 = 1300`。
 + 您可以用下列方式計算每個隱藏層中的節點數：
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5` `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + 節點總數可使用該層的宣告維度 [50, 5, 5] 來計算，如下所示：`MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + 由於只有 `d == 0` 時，`Sharing[d]` 才會是 False，因此核心數為 `MapCount * NodeCount\[0] = 10 * 5 = 50`。 

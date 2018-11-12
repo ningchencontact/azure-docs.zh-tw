@@ -9,19 +9,19 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 5910961ee54c953ea241baf9bce78b79b0dfeaea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309650"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260086"
 ---
 # <a name="manage-credentials"></a>管理認證
 
 您的 Content Moderator 認證會建立於下列位置：
 
 - [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)
-- [Content Moderator 審查工具](http://contentmoderator.cognitive.microsoft.com/)
+- [Content Moderator 審查工具](https://contentmoderator.cognitive.microsoft.com/)
 
 本文說明何處尋找這些認證，以及彼此間的關係。
 

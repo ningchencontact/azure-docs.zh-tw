@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345102"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261144"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 儲存體總管中管理 Azure Cosmos DB
 
 在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援 SQL、MongoDB、圖表和資料表帳戶。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據[Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 SQL API Web 應用程式](create-sql-api-dotnet.md)中的說明，在 Azure 入口網站中建立帳戶。
 
@@ -130,7 +130,7 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 
 2. 選取 [無限制] 即可指定分割區索引鍵，然後按一下 [確定] 以完成。
 
-    若在建立集合時使用了分割區索引鍵，則一旦建立過程完成後，該分割區索引鍵的值便不能在集合上進行變更。 如需分割區索引鍵設定的資訊，請參閱[設計資料分割](partition-data.md#designing-for-partitioning)。
+    若在建立集合時使用了分割區索引鍵，則一旦建立過程完成後，該分割區索引鍵的值便不能在集合上進行變更。
 
     ![資料分割索引鍵](./media/storage-explorer/partitionkey.png)
 

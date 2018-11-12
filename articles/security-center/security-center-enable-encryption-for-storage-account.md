@@ -3,23 +3,23 @@ title: 在 Azure 資訊安全中心啟用儲存體帳戶的加密 | Microsoft Do
 description: 本文件說明如何實作 Azure 資訊安全中心建議：**啟用 Azure 儲存體帳戶的加密**。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/20/2016
-ms.author: terrylan
-ms.openlocfilehash: 82bb201c0b518d0b45e06a1eb25d54f60cb3e028
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 69fbbe13c2c6c8a2bb193054a9b8e613832005e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30235014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257311"
 ---
 # <a name="enable-encryption-for-azure-storage-account-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 Azure 儲存體帳戶的加密
 Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服務加密。
@@ -63,7 +63,7 @@ Azure 資訊安全中心可能建議您對待用資料啟用 Azure 儲存體服�
 * [在 Azure 資訊安全中心管理與回應安全性警示](security-center-managing-and-responding-alerts.md) - 了解如何管理與回應安全性警示。
 * [在 Azure 資訊安全中心管理安全性建議](security-center-recommendations.md) - 了解建議如何協助您保護您的 Azure 資源。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) - 尋找有關使用服務的常見問題。
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) - 尋找有關 Azure 安全性與合規性的部落格文章。
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) - 尋找有關 Azure 安全性與合規性的部落格文章。
 
 <!--Image references-->
 [1]: ./media/security-center-enable-encryption-for-storage-account/enable-encryption-for-storage-account.png

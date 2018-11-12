@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345266"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260579"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
@@ -94,7 +94,7 @@ Azure Stack 1807 更新組建編號為 **1.1807.0.76**。
 - 針對使用從 Azure Marketplace 下載之映像建立的 VM，**縮短 VM 建立時間**。
 
 <!-- TBD | IS, ASDK -->  
-- **提升 Azure Stack Capacity Planner 可用性**。 Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) 現在提供一個在定義解決方案 SKU 時輸入 S2D 快取和 S2D 容量的簡化體驗。 1000 VM 限制已被移除。
+- **提升 Azure Stack Capacity Planner 可用性**。 Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) 現在提供一個在定義解決方案 SKU 時輸入 S2D 快取和 S2D 容量的簡化體驗。 1000 VM 限制已被移除。
 
 
 ### <a name="fixed-issues"></a>已修正的問題

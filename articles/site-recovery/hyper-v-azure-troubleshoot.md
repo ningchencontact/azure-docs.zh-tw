@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212942"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247988"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -167,6 +167,6 @@ ms.locfileid: "50212942"
 
 下列工具有助於進行進階疑難排解：
 
--   對於 VMM，請使用[支援診斷平台 (SDP) 工具](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)執行 Site Recovery 記錄收集。
+-   對於 VMM，請使用[支援診斷平台 (SDP) 工具](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx)執行 Site Recovery 記錄收集。
 -   對於不具 VMM 的 Hyper-V，請[下載此工具](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab)，並在 Hyper-V 主機上執行，以收集記錄。
 

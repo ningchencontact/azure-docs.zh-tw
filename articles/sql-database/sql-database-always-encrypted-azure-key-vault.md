@@ -13,12 +13,12 @@ ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e0971b6b9b8460447d383d238843d4bdddc912f7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5499193ba96d5a32ac6d3b310eee531c68fd52fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958970"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255913"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>一律加密：保護機密資料，並將加密金鑰儲存在 Azure Key Vault 中
 
@@ -635,5 +635,5 @@ SSMS 提供一個精靈，可為您設定資料行主要金鑰、資料行加密
 * [透明資料加密](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server 加密](https://msdn.microsoft.com/library/bb510663.aspx)
 * [一律加密精靈](https://msdn.microsoft.com/library/mt459280.aspx)
-* [一律加密部落格](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [一律加密部落格](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

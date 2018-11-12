@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 6de0d29895a6d12d3a5aa761c0c4c5148f62dd81
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025934"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256267"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>準備備份 Azure VM
 
-本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務備份保存庫中。 
+本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務備份保存庫中。
 
 
 
@@ -45,7 +45,7 @@ ms.locfileid: "50025934"
 ## <a name="limitations-when-backing-up-and-restoring-a-vm"></a>備份和還原 VM 時的限制
 準備環境之前，請務必先了解下列限制：
 
-* 不支援備份具有 32 個以上資料磁碟的虛擬機器。
+* 不支援備份具有 16 個以上資料磁碟的虛擬機器。
 * 不支援備份透過 Linux 統一金鑰設定 (LUKS) 加密所加密的 Linux VM。
 * 我們不建議備份包含叢集共用磁碟區 (CSV) 或向外延展檔案伺服器設定的 VM。 如果已完成，CSV 寫入器預期會失敗。 其需要涉及在快照集工作期間，叢集設定中包含的所有 VM。 Azure 備份無法保持 VM 間的一致性。
 * 備份資料不包含連結至 VM 的網路掛接磁碟機。
@@ -182,8 +182,8 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 
 | **作業** | **Windows** | **Linux** |
 | --- | --- | --- |
-| 安裝 VM 代理程式 |下載並安裝 [代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。 |<li> 安裝最新的 [Linux 代理程式](../virtual-machines/extensions/agent-linux.md)。 您需要有系統管理員權限，才能完成安裝。 我們建議您從散發機制安裝代理程式。 我們「不」建議您直接從 github 安裝 Linux VM 代理程式。  |
-| 更新 VM 代理程式 |更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。 <br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 我們建議您從散發機制更新代理程式。 我們「不」建議您直接從 github 更新 Linux VM 代理程式。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
+| 安裝 VM 代理程式 |下載並安裝 [代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。 |<li> 安裝最新的 [Linux 代理程式](../virtual-machines/extensions/agent-linux.md)。 您需要有系統管理員權限，才能完成安裝。 我們建議您從散發機制安裝代理程式。 我們「不」建議您直接從 github 安裝 Linux VM 代理程式。  |
+| 更新 VM 代理程式 |更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。 <br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 我們建議您從散發機制更新代理程式。 我們「不」建議您直接從 github 更新 Linux VM 代理程式。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
 | 驗證 VM 代理程式安裝 |<li>瀏覽至 Azure VM 中的 C:\WindowsAzure\Packages 資料夾。 <li>您應該會發現 WaAppAgent.exe 檔案已存在。<li> 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本。 |N/A |
 
 ### <a name="backup-extension"></a>備份擴充功能
@@ -194,7 +194,7 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 ## <a name="establish-network-connectivity"></a>建立網路連線
 為了管理 VM 快照集，備份擴充功能需要連線至 Azure 公用 IP 位址。 若無適當的網際網路連線，虛擬機器的 HTTP 要求將會逾時，而備份作業將會失敗。 如果您的部署有存取限制 (如透過網路安全性群組 (NSG))，請選擇其中一個選項來為備份流量提供明確的路徑︰
 
-* [將 Azure 資料中心 IP 範圍列入允許清單](http://www.microsoft.com/en-us/download/details.aspx?id=41653)。
+* [將 Azure 資料中心 IP 範圍列入允許清單](https://www.microsoft.com/download/details.aspx?id=41653)。
 * 部署 HTTP Proxy 伺服器來路由傳送流量。
 
 在決定該使用哪個選項時，要取捨的不外乎是可管理性、精確控制及成本等要素。
@@ -205,7 +205,7 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 | 使用 HTTP Proxy |允許在 Proxy 中精確控制儲存體 URL。<br><br>VM 的單一網際網路存取點。<br><br>不會隨著 Azure IP 位址變更。 |使用 Proxy 軟體執行 VM 時的額外成本。 |
 
 ### <a name="whitelist-the-azure-datacenter-ip-ranges"></a>將 Azure 資料中心 IP 範圍列入允許清單
-若要將 Azure 資料中心 IP 範圍列入允許清單，請參閱 [Azure 網站](http://www.microsoft.com/en-us/download/details.aspx?id=41653)以取得 IP 範圍的詳細資料和指示。
+若要將 Azure 資料中心 IP 範圍列入允許清單，請參閱 [Azure 網站](https://www.microsoft.com/download/details.aspx?id=41653)以取得 IP 範圍的詳細資料和指示。
 
 您可以使用[服務標籤](../virtual-network/security-overview.md#service-tags)，允許連線至特定區域的儲存體。 請確定允許存取儲存體帳戶的規則優先順序，高於封鎖網際網路存取的規則。
 
@@ -305,7 +305,7 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 ```
 
 ## <a name="questions"></a>有疑問嗎？
-如果您有任何問題，或希望我們新增任何功能，請[傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
+如果您有任何問題，或希望我們新增任何功能，請[傳送意見反應給我們](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>後續步驟
 您現在已經備妥環境來備份您的 VM，您的下一個邏輯步驟是建立備份。 規劃文章會提供備份 VM 的詳細資訊。

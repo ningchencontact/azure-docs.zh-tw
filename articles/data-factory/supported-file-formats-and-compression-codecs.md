@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444607"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262041"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure Data Factory 中支援的檔案格式和壓縮轉碼器
 
@@ -434,7 +434,7 @@ ms.locfileid: "42444607"
 ```
 
 > [!IMPORTANT]
-> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 ORC 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
 >
 
 請注意下列幾點：
@@ -478,7 +478,7 @@ ms.locfileid: "42444607"
 ```
 
 > [!IMPORTANT]
-> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](http://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
+> 針對由自我裝載 Integration Runtime 所授權的複製 (例如，在內部部署與雲端資料存放區之間)，如果您不會**依原樣**複製 Parquet 檔案，就需要在 IR 機器上安裝 JRE 8 (Java 執行階段環境)。 64 位元 IR 需要 64 位元 JRE。 您可以從 [這裡](https://go.microsoft.com/fwlink/?LinkId=808605)找到這兩個版本。
 >
 
 請注意下列幾點：

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: c55e67e24c8f5ff6e243c67b614592874b2cc459
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 6cf2aa31e8a7207b041b9789ddde23b616f47150
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870650"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258437"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>您想要了解 Service Fabric 嗎？
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆封裝、部署及管理可調整和可信賴的微服務。  Service Fabric 有相當大的介面區，不過，要了解的方面很多。  本文提供 Service Fabric 的概述，並描述核心概念、程式設計模型、應用程式生命週期、測試、叢集及健康情況監視。 如需相關簡介及了解如何使用 Service Fabric 來建立微服務，請參閱[概觀](service-fabric-overview.md)和[什麼是微服務？](service-fabric-overview-microservices.md)。 本文並未包含完整的內容清單，但有連結到 Service Fabric 每個領域的概觀與入門文章。 
@@ -218,7 +218,7 @@ Service Fabric 提供多種[健康狀態報告檢視](service-fabric-view-entiti
 * 了解如何[監視和診斷服務](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)。 
 * 學習如何[測試您的應用程式和服務](service-fabric-testability-overview.md)。
 * 學習如何[管理和組織叢集資源](service-fabric-cluster-resource-manager-introduction.md)。
-* 查看 [Service Fabric 範例 ](http://aka.ms/servicefabricsamples)。
+* 查看 [Service Fabric 範例 ](https://aka.ms/servicefabricsamples)。
 * 了解 [Service Fabric 支援選項](service-fabric-support.md)。
 * 如需相關文章與公告資訊，請參閱[小組部落格](https://blogs.msdn.microsoft.com/azureservicefabric/)。
 

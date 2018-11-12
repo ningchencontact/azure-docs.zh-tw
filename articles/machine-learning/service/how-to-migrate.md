@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48236579"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253443"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>移轉至最新版的 Azure Machine Learning 服務 
 
-**如果您已安裝 Workbench (預覽) 應用程式和/或具有實驗和模型管理預覽帳戶，則請使用此文章移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗和/或模型管理帳戶，則不需要移轉任何項目。
+**如果您已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶，則請使用本文移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗及/或模型管理帳戶，則不需要移轉任何項目。
 
 ## <a name="what-can-i-migrate"></a>我可以移轉的項目為何？
 在 Azure Machine Learning 服務的第一個預覽版中建立的大部分成品，都會儲存在您自己的本機或雲端儲存體中。 這些成品將不會消失。 若要移轉，請使用已更新的 Azure Machine Learning 服務再次登錄成品。 
@@ -38,13 +38,13 @@ ms.locfileid: "48236579"
 |已註冊的映像|否|在新的工作區下重新建立部署 Docker 映像。|
 |已部署的 Web 服務|否|無。 其運作方式仍如現狀 <br/>或[使用最新版本重新予以部署](#services)。|
 |實驗和 <br/>模型管理帳戶|否|改為[建立工作區](#resources)。|
-|機器學習 CLI 和 SDK|否|針對新的工作，使用新的 [CLI](reference-azure-machine-learning-cli.md) 和 [SDK](http://aka.ms/aml-sdk)。|
+|機器學習 CLI 和 SDK|否|針對新的工作，使用新的 [CLI](reference-azure-machine-learning-cli.md) 和 [SDK](https://aka.ms/aml-sdk)。|
 
 
 深入了解[此版本的變更內容](overview-what-happened-to-workbench.md)？
 
 >[!Warning]
->此文章適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 服務客戶，而這些客戶已安裝 Workbench (預覽) 應用程式和/或具有實驗和模型管理預覽帳戶。
+>本文適用對象不是 Azure Machine Learning Studio 使用者。 這適用於 Azure Machine Learning 服務客戶，而這些客戶已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶。
 
 <a name="resources"></a>
 
@@ -62,7 +62,7 @@ ms.locfileid: "48236579"
 
 專案現在是在最新版本中本機電腦的目錄中，而不是專案位在雲端的工作區中。 請參閱[最新架構](concept-azure-machine-learning-architecture.md)的圖表。 
 
-若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](http://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 'az ml project attach' CLI 命令指定目錄的名稱。
+若要繼續使用包含您檔案和指令碼的本機目錄，請在 ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python 命令中或使用 'az ml project attach' CLI 命令指定目錄的名稱。
 
 例如︰
 ```python

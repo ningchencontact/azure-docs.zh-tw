@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/10/2018
 ms.author: genli
-ms.openlocfilehash: f9b950b1d85f50331d556a54b4237d78ec5c07ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388148"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258445"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 將 Windows 虛擬機器 (VM) 從內部部署上傳至 Microsoft Azure 之前，您必須先準備虛擬硬碟 (VHD 或 VHDX)。 Azure 只支援採用 VHD 檔案格式且具有固定大小磁碟的**第 1 代 VM**。 允許的 VHD 大小上限為 1023 GB。 您可以將第 1 代 VM 從 VHDX 檔案系統轉換為 VHD，以及從動態擴充磁碟轉換為固定大小的磁碟。 但您無法變更 VM 的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的 VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) \(英文\)。
@@ -48,7 +48,7 @@ ms.locfileid: "49388148"
 >本文中的命令必須以提高權限的 PowerShell 工作階段來執行。
 
 ### <a name="convert-disk-by-using-powershell"></a>使用 PowerShell 轉換磁碟
-您可以在 Windows PowerShell 中使用 [Convert-VHD](http://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]。 
+您可以在 Windows PowerShell 中使用 [Convert-VHD](https://technet.microsoft.com/library/hh848454.aspx) 命令來轉換虛擬磁碟。 當您啟動 PowerShell 時，選取 [以系統管理員身分執行]。 
 
 下列範例命令會從 VHDX 轉換至 VHD，以及從動態擴充磁碟轉換至固定大小的磁碟：
 
@@ -58,7 +58,7 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
 在這個命令中，使用您想要轉換的虛擬硬碟路徑取代 "-Path" 的值，並使用已轉換磁碟的新路徑和名稱取代 "-DestinationPath" 的值。
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>從 VMware VMDK 磁碟格式進行轉換
-如果您的 Windows VM 映像是 [VMDK 檔案格式](https://en.wikipedia.org/wiki/VMDK)，使用 [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497) \(英文\) 將它轉換為 VHD。 如需詳細資訊，請參閱部落格文章：[如何將 VMware VMDK 轉換為 Hyper-V VHD](http://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) \(英文\)。
+如果您的 Windows VM 映像是 [VMDK 檔案格式](https://en.wikipedia.org/wiki/VMDK)，使用 [Microsoft VM Converter](https://www.microsoft.com/download/details.aspx?id=42497) \(英文\) 將它轉換為 VHD。 如需詳細資訊，請參閱部落格文章：[如何將 VMware VMDK 轉換為 Hyper-V VHD](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx) \(英文\)。
 
 ## <a name="set-windows-configurations-for-azure"></a>設定適用於 Azure 的 Windows 設定
 
@@ -377,7 +377,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 - [從特殊化磁碟建立 VM](create-vm-specialized.md)
 - [從特殊化 VHD 磁碟建立 VM](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-如果您想要建立一般化映像，就必須執行 sysprep。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](http://technet.microsoft.com/library/bb457073.aspx) \(英文\)。 
+如果您想要建立一般化映像，就必須執行 sysprep。 如需 Sysprep 的詳細資訊，請參閱[如何使用 Sysprep：簡介](https://technet.microsoft.com/library/bb457073.aspx) \(英文\)。 
 
 並非 Windows 電腦上安裝的每個角色或應用程式都支援這個一般化。 因此，在執行此程序之前，請先參閱下列文章，以確定 sysprep 支援該電腦的角色。 如需詳細資訊，請參閱[伺服器角色的 Sysprep 支援](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles) \(英文\)。
 
@@ -401,7 +401,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 ## <a name="complete-recommended-configurations"></a>完成建議的設定
 下列設定不會影響 VHD 上傳。 不過，我們強烈建議您設定它們。
 
-* 安裝 [Azure VM 代理程式](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 如需詳細資訊，請參閱
+* 安裝 [Azure VM 代理程式](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然後您可以啟用 VM 擴充功能。 VM 擴充功能實作了您可能想要與 VM 搭配使用的大部分重要功能，例如重設密碼、設定 RDP 等功能。 如需詳細資訊，請參閱
 
     - [VM 代理程式與擴充功能 - 第 1 部分](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/) \(英文\)
     - [VM 代理程式與擴充功能 - 第 2 部分](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/) \(英文\)

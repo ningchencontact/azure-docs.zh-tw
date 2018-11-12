@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b4472f522571e0056ce6b28d67a69b0dcabba8a6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 71cb4ff7c5948067dfb039caf69241cfa9e22408
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785817"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243891"
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licensing Microsoft® Smooth Streaming Client Porting Kit
 ## <a name="overview"></a>概觀
@@ -43,7 +43,7 @@ SSPK 是根據可提供絕佳商業價值的條款授權。 SSPK 授權提供給
   * 用於與硬體 A/V 解碼器 (解碼、轉譯) 互動的程式設計介面
 * 數位版權管理 (DRM) 介面 
   * 可透過 DRM 抽象層 (DAL) 處理 DRM 的程式設計介面
-  * Microsoft PlayReady Porting Kit 個別出貨，但可透過這個介面整合。 如需 Microsoft PlayReady Device 授權的詳細資訊，請按一下 [這裡](http://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)。
+  * Microsoft PlayReady Porting Kit 個別出貨，但可透過這個介面整合。 如需 Microsoft PlayReady Device 授權的詳細資訊，請按一下 [這裡](https://www.microsoft.com/playready/licensing/device_technology.mspx#pddipdl)。
 * 實作範例 
   * 適用於 Linux 的 PAL 實作範例
   * 適用於 GStreamer 的 HAL 實作範例

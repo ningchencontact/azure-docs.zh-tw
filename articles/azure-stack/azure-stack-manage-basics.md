@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254514"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
@@ -81,7 +81,7 @@ Azure Stack 會持續新增對 Azure 服務的支援。 如需了解所規劃的
  
 您可以使用[系統管理員入口網站](azure-stack-manage-portals.md)或 PowerShell 來管理 Azure Stack。 了解基本概念最簡單的方式是透過入口網站。 如果您想要使用 PowerShell，則有些準備步驟。 您必須[安裝](azure-stack-powershell-install.md) PowerShell、[下載](azure-stack-powershell-download.md)其他模組，並[設定](azure-stack-powershell-configure-admin.md) PowerShell。
 
-Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及組織機制。 如果您要管理 Azure Stack 並協助支援使用者，您應該了解 Resource Manager。 請參閱[開始使用 Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) 白皮書。
+Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及組織機制。 如果您要管理 Azure Stack 並協助支援使用者，您應該了解 Resource Manager。 請參閱[開始使用 Azure Resource Manager](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) 白皮書。
 
 ## <a name="your-typical-responsibilities"></a>您的一般責任
 

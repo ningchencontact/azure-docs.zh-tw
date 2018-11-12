@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 2bc085989ff3bbbc50042c46b338f748a10aa87e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ec429407324210fca824ebd0734ddb39bce56ac
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232788"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256556"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-firebase-cloud-messaging"></a>教學課程：使用 Azure 通知中樞和 Google Firebase 雲端通訊將通知推送至 Android 裝置
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -42,10 +42,10 @@ ms.locfileid: "38232788"
 > * 將您的應用程式連線至通知中樞。
 > * 測試應用程式。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成此教學課程，您必須具備有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
 
-* 除了上述的作用中 Azure 帳戶，本教學課程需要最新版的 [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797)。
+* 除了上述的作用中 Azure 帳戶，本教學課程需要最新版的 [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797)。
 * 適用於 Firebase 雲端通訊的 Android 2.3 或更新版本。
 * 適用於 Firebase 雲端通訊的 Google Repository 修訂版本 27 或更新版本。
 * 適用於 Firebase 雲端通訊的 Google Play Services 9.0.2 或更新版本。

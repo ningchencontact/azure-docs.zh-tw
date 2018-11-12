@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: c83caae58e73d6f2d0fe086938e0bbc5cfdf80c4
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
+ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/10/2018
-ms.locfileid: "27743573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254361"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>建立及管理 StorSimple 8000 系列的支援封裝
 
@@ -93,7 +93,7 @@ StorSimple 支援封裝是一種簡便的機制，可收集所有相關的記錄
 #### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>在 Windows PowerShell for StorSimple 中編輯支援封裝
 
 1. 產生支援封裝，如稍早的 [在 Windows PowerShell for StorSimple 中建立支援封裝](#to-create-a-support-package-in-windows-powershell-for-storsimple)中所述。
-2. [下載指令碼](http://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) 。
+2. [下載指令碼](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) 。
 3. 匯入 Windows PowerShell 模組。 指定下載指令碼時的本機資料夾的路徑。 若要匯入模組，請輸入：
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`

@@ -1,6 +1,6 @@
 ---
 title: 使用 Python 向 Azure 裝置佈建服務註冊 TPM 裝置 | Microsoft Docs
-description: Azure 快速入門 - 使用 Python 佈建服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置
+description: Azure 快速入門 - 使用 Python 佈建服務 SDK 向 Azure IoT 中樞裝置佈建服務註冊 TPM 裝置。 本快速入門使用個別註冊。
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/26/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: ff6200abd88144a530a243b508fd4878126fdb4b
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6e38d5f3a959d363347c8b266b7bbaf165f34937
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234011"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249059"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-python-provisioning-service-sdk"></a>使用 Python 佈建服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "40234011"
 
 1. 選擇下列其中一個選項：
 
-    - 建置和編譯 **Azure IoT Python SDK**。 請遵循[這些指示](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)來建置 Python 套件。 如果您使用 Windows 作業系統，則請同時安裝 [Visual C++ 可轉散發套件](http://www.microsoft.com/download/confirmation.aspx?id=48145)，以允許使用 Python 的原生 DLL。
+    - 建置和編譯 **Azure IoT Python SDK**。 請遵循[這些指示](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)來建置 Python 套件。 如果您使用 Windows 作業系統，則請同時安裝 [Visual C++ 可轉散發套件](https://www.microsoft.com/download/confirmation.aspx?id=48145)，以允許使用 Python 的原生 DLL。
 
     - [安裝或升級 *pip* (Python 套件管理系統)](https://pip.pypa.io/en/stable/installing/)，並透過下列命令安裝套件：
 
@@ -54,7 +54,7 @@ ms.locfileid: "40234011"
 
 1. 使用文字編輯器建立新的 **TpmEnrollment.py** 檔案。
 
-1. 在 **TpmEnrollment.py** 檔案開頭處新增下列 `import` 陳述式和變數。 然後，將 `dpsConnectionString` 取代為您的連接字串；您可以使用 **Azure 入口網站** 在您**裝置佈建服務**的**共用存取原則**下找到此字串。 將 `endorsementKey` 取代為先前在[準備環境](quick-enroll-device-tpm-python.md#prepareenvironment)中記下的值。 最後，建立唯一 `registrationid`；切記其中只能包含小寫英數字元與連字號。  
+1. 在 **TpmEnrollment.py** 檔案開頭處新增下列 `import` 陳述式和變數。 然後，將 `dpsConnectionString` 取代為您的連接字串；您可以使用 **Azure 入口網站**在您**裝置佈建服務**的**共用存取原則**下找到此字串。 將 `endorsementKey` 取代為先前在[準備環境](quick-enroll-device-tpm-python.md#prepareenvironment)中記下的值。 最後，建立唯一 `registrationid`；切記其中只能包含小寫英數字元與連字號。  
    
     ```python
     from provisioningserviceclient import ProvisioningServiceClient

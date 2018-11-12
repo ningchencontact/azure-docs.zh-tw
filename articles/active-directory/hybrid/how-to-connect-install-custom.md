@@ -15,17 +15,17 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95a0ffc6deecb7fd3bd6fce740f578352fdf2d66
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888089"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248821"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>自訂 Azure AD Connect 安裝
 當您想要更多安裝選項時，可使用 Azure AD Connect **自訂設定** 。 如果您有多個樹系，或如果您想要設定未涵蓋在快速安裝中的選用功能，可使用它。 只要是[**快速安裝**](how-to-connect-install-express.md)選項不能滿足部署或拓撲的情況，就可使用它。
 
-在開始安裝 Azure AD Connect 之前，請務必要[下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) 並完成 [Azure AD Connect：硬體和必要條件](how-to-connect-install-prerequisites.md)中的必要條件步驟。 另外，也請確定您具有 [Azure AD Connect 帳戶與權限](reference-connect-accounts-permissions.md)中所述的必要帳戶。
+在開始安裝 Azure AD Connect 之前，請務必要[下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) 並完成 [Azure AD Connect：硬體和必要條件](how-to-connect-install-prerequisites.md)中的必要條件步驟。 另外，也請確定您具有 [Azure AD Connect 帳戶與權限](reference-connect-accounts-permissions.md)中所述的必要帳戶。
 
 如果自訂的設定不符合拓撲，例如若要升級 DirSync，請參閱 [相關文件](#related-documentation) 中的其他案例。
 

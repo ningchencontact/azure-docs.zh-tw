@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2bd0cf8be87937044ad515a2c6f253b1711bb2bf
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013263"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255688"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>使用 Azure 入口網站為 ExpressRoute 設定虛擬網路閘道
 > [!div class="op_single_selector"]
 > * [Resource Manager - Azure 入口網站](expressroute-howto-add-gateway-portal-resource-manager.md)
 > * [Resource Manager - PowerShell](expressroute-howto-add-gateway-resource-manager.md)
 > * [傳統 - PowerShell](expressroute-howto-add-gateway-classic.md)
-> * [影片 - Azure 入口網站](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
+> * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)
 > 
 > 
 
@@ -53,7 +53,7 @@ ms.locfileid: "23013263"
 * 閘道類型 = "ExpressRoute"，ExpressRoute 組態需要這個類型。
 * 閘道公用 IP 名稱 = "MyERGWVIP"
 
-您可以先檢視這些步驟的[影片](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)，再開始進行設定。
+您可以先檢視這些步驟的[影片](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network)，再開始進行設定。
 
 ## <a name="create-the-gateway-subnet"></a>建立閘道子網路
 

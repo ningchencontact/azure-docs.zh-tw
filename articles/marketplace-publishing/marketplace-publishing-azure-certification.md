@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
 ms.author: hascipio
-ms.openlocfilehash: aadc695b1f07d04f1fcc7f2f2e3ff90fb7f54849
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 300b94aea0c06092a5fb6bdecd49771ef1cd517d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713997"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234182"
 ---
 # <a name="get-pre-approved-via-the-microsoft-azure-certified-program"></a>透過 Microsoft Azure 認證計劃取得預先核准
 本文提供如何取得 Microsoft Azure 認證的指示，以便您將解決方案發佈至 Azure Marketplace 並有資格享有行銷優勢。 如需 Microsoft Azure 認證計劃及其優點的詳細概觀，請造訪 [http://azure.com/certified](http://azure.com/certified)。
@@ -34,7 +34,7 @@ ms.locfileid: "39713997"
 3. 如果您與合作夥伴帳戶經理或 DX 夥伴經理接洽，請要求對方在 Azure 認證計劃中提名您的解決方案，或前往 [Microsoft Azure 認證](http://createopportunity.azurewebsites.net)網頁，填妥申請表單並在 [Microsoft 贊助者連絡人] 欄位中輸入您的夥伴客戶經理或 DX 夥伴經理的電子郵件。
 
 > [!IMPORTANT]
-> **「銷售來源」國家/地區**：如果要在 Microsoft Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需完整清單，請參閱 [Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
+> **「銷售來源」國家/地區**：如果要在 Microsoft Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需完整清單，請參閱 [Azure Marketplace 參與原則](https://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
 
 
 ## <a name="next-step"></a>後續步驟

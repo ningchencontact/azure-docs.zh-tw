@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: 0187bf51d36f16001f0f7f67f4f72f5f3df2e05d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255280"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 
   4. 修改應用程式以使用 Facebook 向資源權杖訊息代理程式驗證，並且向已登入的 Facebook 使用者要求資源權杖。 然後您可以存取其在 UserItems 集合中的資料。  
 
-您可以在 [GitHub 上的資源權杖訊息代理程式](http://aka.ms/documentdb-xamarin-todouser)中找到此模式的完整程式碼範例。 下圖可說明解決方案︰
+您可以在 [GitHub 上的資源權杖訊息代理程式](https://aka.ms/documentdb-xamarin-todouser)中找到此模式的完整程式碼範例。 下圖可說明解決方案︰
 
 ![Azure Cosmos DB 使用者和權限訊息代理程式](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

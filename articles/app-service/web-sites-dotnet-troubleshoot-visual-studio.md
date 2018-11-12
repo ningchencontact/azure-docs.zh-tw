@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2028de68b3c50f24c46bfafd804b00e84301a9d7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125239"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256590"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>使用 Visual Studio 疑難排解 Azure App Service 中的 Web 應用程式
 ## <a name="overview"></a>概觀
-本教學課程示範如何使用 Visual Studio 工具，協助針對 [App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式進行偵錯，方法是以[偵錯模式](https://docs.microsoft.com/visualstudio/debugger/)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
+本教學課程示範如何使用 Visual Studio 工具，協助針對 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 中的 Web 應用程式進行偵錯，方法是以[偵錯模式](https://docs.microsoft.com/visualstudio/debugger/)從遠端執行，或者檢視應用程式記錄與 Web 伺服器記錄。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "43125239"
 * 如何檢視 Web 伺服器記錄，包括詳細的錯誤訊息與失敗的要求追蹤。
 * 如何將診斷記錄傳送至 Azure 儲存體帳戶並在該處檢視。
 
-如果您有 Visual Studio Ultimate，您也可以使用 [IntelliTrace](http://msdn.microsoft.com/library/vstudio/dd264915.aspx) 進行偵錯。 本教學課程未涵蓋 IntelliTrace。
+如果您有 Visual Studio Ultimate，您也可以使用 [IntelliTrace](https://msdn.microsoft.com/library/vstudio/dd264915.aspx) 進行偵錯。 本教學課程未涵蓋 IntelliTrace。
 
 ## <a name="prerequisites"></a>必要條件
 本教學課程可運用於開發環境、Web 專案與您在[開始使用 Azure 和 ASP.NET](app-service-web-get-started-dotnet-framework.md) 中所設定的 Azure Web 應用程式。 針對 WebJobs 區段，您將會用到您在[開始使用 Azure WebJobs SDK][GetStartedWJ] 中建立的應用程式。
@@ -48,7 +48,7 @@ ms.locfileid: "43125239"
 串流記錄功能僅適用於鎖定 .NET Framework 4 或更新版本的應用程式。
 
 ## <a name="sitemanagement"></a>Web 應用程式組態與管理
-Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlink/?LinkId=529715)中可用的 Web 應用程式管理功能與組態設定的子集。 本節將說明使用**伺服器總管**可用的項目。 若要查看最新的 Azure 整合功能，也請試試 **雲端總管** 。 您可以同時從 [檢視]  功能表開啟這兩個視窗。
+Visual Studio 可讓您存取 [Azure 入口網站](https://go.microsoft.com/fwlink/?LinkId=529715)中可用的 Web 應用程式管理功能與組態設定的子集。 本節將說明使用**伺服器總管**可用的項目。 若要查看最新的 Azure 整合功能，也請試試 **雲端總管** 。 您可以同時從 [檢視]  功能表開啟這兩個視窗。
 
 1. 如果您尚未在 Visual Studio 中登入 Azure，請在 [伺服器總管] 中以滑鼠右鍵按一下 [Azure]，然後選取 [連接到 Microsoft Azure 訂用帳戶]。
 
@@ -59,7 +59,7 @@ Visual Studio 可讓您存取 [Azure 入口網站](http://go.microsoft.com/fwlin
    >
    >
 
-    如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱 [管理帳戶、訂閱和系統管理角色](http://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
+    如需從 Visual Studio 連線至 Azure 資源的詳細資訊，請參閱 [管理帳戶、訂閱和系統管理角色](https://go.microsoft.com/fwlink/?LinkId=324796#BKMK_AccountVCert)。
 2. 在 [伺服器總管] 中，展開 [Azure]，然後展開 [App Service]。
 3. 展開包含 Web 應用程式的資源群組，該 Web 應用程式是您在＜[在 Azure 中建立 ASP.NET Web 應用程式](app-service-web-get-started-dotnet-framework.md)＞中建立的，然後使用滑鼠右鍵按一下 Web 應用程式節點，然後按一下 [檢視設定]。
 
@@ -253,13 +253,13 @@ public ActionResult About()
 ```
 * 如果您發現偵錯工具不會逐步執行您要進行偵錯的程式碼，可能需要變更 [Just My Code] 設定。  如需詳細資訊，請參閱[指定是否使用 Visual Studio 中的 Just My Code 只對使用者程式碼進行偵錯](https://docs.microsoft.com/visualstudio/debugger/just-my-code)。
 * 當您啟用遠端偵錯功能時，伺服器上會啟動計時器，並在 48 小時後自動關閉此功能。 此 48 小時的限制是為了安全性與效能起見而設計的功能。 若需要，您可以輕鬆開啟這項功能，次數不限。 當您不需要偵錯時，建議您將其保持為停用。
-* 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。 如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱 [Visual Studio 偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
+* 您可以手動將偵錯工具附加至任何處理序，不僅止於 Web 應用程式處理序 (w3wp.exe)。 如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱 [Visual Studio 偵錯](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)。
 
 ## <a name="logsoverview"></a>診斷記錄概觀
 在 Azure Web 應用程式中執行的 ASP.NET 應用程式，可建立下列各種記錄：
 
 * **應用程式追蹤記錄**<br/>
-  此應用程式會呼叫 [System.Diagnostics.Trace](http://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 類別的方法來建立這些記錄。
+  此應用程式會呼叫 [System.Diagnostics.Trace](https://msdn.microsoft.com/library/system.diagnostics.trace.aspx) 類別的方法來建立這些記錄。
 * **Web 伺服器記錄**<br/>
   Web 伺服器會為每個通往 Web 應用程式的 HTTP 要求建立記錄項目。
 * **詳細的錯誤訊息記錄**<br/>
@@ -340,7 +340,7 @@ public ActionResult Contact()
 ```
 
 `WebPageTraceListener` 可讓您藉由瀏覽至 `/trace.axd` 來檢視追蹤輸出。
-3. 在 Web.config 檔案的 `<system.web>` 下方，加入<a href="http://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">追蹤元素</a>，如以下範例所示：
+3. 在 Web.config 檔案的 `<system.web>` 下方，加入<a href="https://msdn.microsoft.com/library/vstudio/6915t83k(v=vs.100).aspx">追蹤元素</a>，如以下範例所示：
 
 ``` xml
 <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
@@ -475,7 +475,7 @@ Web 伺服器記錄會記下 Web 應用程式的所有 HTTP 活動。 為了在 
     ![下載的檔案](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-logfilefolders.png)
 
    * 應用程式追蹤記錄位於 LogFiles\Application 資料夾的 .txt 檔案中。
-   * Web 伺服器記錄位於 LogFiles\http\RawLogs 資料夾的 .log 檔案中。 您可以使用 [記錄檔剖析器](http://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
+   * Web 伺服器記錄位於 LogFiles\http\RawLogs 資料夾的 .log 檔案中。 您可以使用 [記錄檔剖析器](https://www.microsoft.com/download/details.aspx?displaylang=en&id=24659) (英文) 之類的工具來檢視與操作這些檔案。
    * 詳細的錯誤訊息記錄位於 LogFiles\DetailedErrors 資料夾的 .html 檔案中。
 
     (deployments 資料夾用於存放來源控制發行功能所建立的檔案，它與 Visual Studio 發行功能沒有任何關聯。 Git 資料夾則用於存放與來源控制發行功能相關的追蹤記錄，以及記錄檔案串流服務。)  
@@ -554,7 +554,7 @@ Storage accounts offer more storage and longer-lasting retention for logs compar
 
      ![Storage logs in table view](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracelogtableview.png)
 
-     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](http://msdn.microsoft.com/library/ff683677.aspx).
+     This view shows additional fields you don't see in any other views. This view also enables you to filter logs by using special Query Builder UI for constructing a query. For more information, see Working with Table Resources - Filtering Entities in [Browsing Storage Resources with Server Explorer](https://msdn.microsoft.com/library/ff683677.aspx).
 14. To look at the details for a single row, double-click one of the rows.
 
      ![Trace table in Server Explorer](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-tracetablerow.png)
@@ -624,17 +624,17 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 如需在 Azure App Service 中疑難排解 Web 應用程式的詳細資訊，請參閱下列資源：
 
 * [如何監視 Web 應用程式](web-sites-monitor.md)
-* [使用 Visual Studio 2013 調查 Azure Web 應用程式中的記憶體流失](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx)。 Microsoft ALM 部落格文章，討論 Visual Studio 中分析受控記憶體問題的功能。
+* [使用 Visual Studio 2013 調查 Azure Web 應用程式中的記憶體流失](https://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx)。 Microsoft ALM 部落格文章，討論 Visual Studio 中分析受控記憶體問題的功能。
 * [您應該了解的 Azure Web 應用程式線上工具](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/)。 取自 Amit Apple 的部落格文章。
 
 如需特定疑難排解問題的說明，請在下列任一個論壇中開啟一段討論串：
 
 * [ASP.NET 網站上的 Azure 論壇](http://forums.asp.net/1247.aspx/1?Azure+and+ASP+NET)。
-* [MSDN 上的 Azure 論壇](http://social.msdn.microsoft.com/Forums/windowsazure/)。
+* [MSDN 上的 Azure 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/)。
 * [StackOverflow.com](http://www.stackoverflow.com)。
 
 ### <a name="debugging-in-visual-studio"></a>Visual Studio 偵錯
-如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)與 [Visual Studio 2010 的偵錯祕訣](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx) \(英文\)。
+如需如何在 Visual Studio 中使用偵錯模式的詳細資訊，請參閱[在 Visual Studio 中偵錯](https://msdn.microsoft.com/library/vstudio/sc65sadd.aspx)與 [Visual Studio 2010 的偵錯祕訣](http://weblogs.asp.net/scottgu/archive/2010/08/18/debugging-tips-with-visual-studio-2010.aspx) \(英文\)。
 
 ### <a name="remote-debugging-in-azure"></a>在 Azure 中遠端偵錯
 如需針對 Azure Web 應用程式與 WebJob 進行遠端偵錯的詳細資訊，請參閱下列資源：
@@ -644,21 +644,21 @@ Azure Web 應用程式會使用 IIS 7.0 及更新版本所提供的相同失敗�
 * [遠端偵錯 Azure App Service Web Apps 的簡介第 3 部分 - 多重執行個體環境和 GIT](https://azure.microsoft.com/blog/2014/05/08/introduction-to-remote-debugging-on-azure-web-sites-part-3-multi-instance-environment-and-git/)
 * [WebJobs 偵錯 (影片)](https://www.youtube.com/watch?v=ncQm9q5ZFZs&list=UU_SjTh-ZltPmTYzAybypB-g&index=1)
 
-如果您的 Web 應用程式使用 Azure Web API 或行動服務後端，而您需要加以偵錯，請參閱 [在 Visual Studio 中對 .NET 後端進行偵錯](http://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)。
+如果您的 Web 應用程式使用 Azure Web API 或行動服務後端，而您需要加以偵錯，請參閱 [在 Visual Studio 中對 .NET 後端進行偵錯](https://blogs.msdn.com/b/azuremobile/archive/2014/03/14/debugging-net-backend-in-visual-studio.aspx)。
 
 ### <a name="tracing-in-aspnet-applications"></a>在 ASP.NET 應用程式中追蹤
 網際網路上找不到關於 ASP.NET 追蹤功能詳盡且具時效性的說明。 您所能做的，就是從專為 Web Form 所撰寫的一些舊有簡介資料下手，因為 MVC 是最近才問世的技術，並以著重在特定議題的較新的部落格文章來做為補充。 以下資源是您開始了解這項技術的一些好去處：
 
 * [監視與遙測 (運用 Azure 建構真實的雲端應用程式) (英文)](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/monitoring-and-telemetry)。<br>
   針對追蹤 Azure 雲端應用程式所建議的電子書章節。
-* [ASP.NET 追蹤](http://msdn.microsoft.com/library/ms972204.aspx)<br/>
+* [ASP.NET 追蹤](https://msdn.microsoft.com/library/ms972204.aspx)<br/>
   舊有但仍是該主題的基本簡介的良好資源。
-* [追蹤接聽程式](http://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
-  內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](http://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
-* [逐步解說︰整合 ASP.NET 追蹤與 System.Diagnostics 追蹤](http://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
+* [追蹤接聽程式](https://msdn.microsoft.com/library/4y5y10s7.aspx)<br/>
+  內含有關追蹤接聽程式的資訊，但是沒有提到 [WebPageTraceListener](https://msdn.microsoft.com/library/system.web.webpagetracelistener.aspx)。
+* [逐步解說︰整合 ASP.NET 追蹤與 System.Diagnostics 追蹤](https://msdn.microsoft.com/library/b0ectfxd.aspx)<br/>
   本文同樣為舊有的資料，但是內含簡介文章沒有提到的一些額外資訊。
-* [追蹤 ASP.NET MVC Razor 檢視](http://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。 如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上 [完整的錯誤處理常式範例](http://msdn.microsoft.com/library/bb397417.aspx) (英文) 的 Global.asax 範例。 無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
+* [追蹤 ASP.NET MVC Razor 檢視](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
+  除了追蹤 Razor 檢視之外，該文同時說明了如何建立錯誤篩選條件以便記錄 MVC 應用程式所出現的所有未處理的例外。 如需如何記錄 Web Form 應用程式中所有未處理的例外項目的詳細資訊，請參閱 MSDN 上 [完整的錯誤處理常式範例](https://msdn.microsoft.com/library/bb397417.aspx) (英文) 的 Global.asax 範例。 無論是 MVC 還是 Web Form，如果您想要記錄特定例外，但是讓預設的架構處理功能生效，則您可以如以下範例所示捕捉並重新擲回這些例外：
 
 ``` c#
 try
@@ -684,12 +684,12 @@ catch (Exception ex)
 ### <a name="analyzing-web-server-logs"></a>分析 Web 伺服器記錄
 如需分析 Web 伺服器記錄的詳細資訊，請參閱下列資源：
 
-* [LogParser](http://www.microsoft.com/download/details.aspx?id=24659)<br/>
+* [LogParser](https://www.microsoft.com/download/details.aspx?id=24659)<br/>
   用於檢視 Web 伺服器記錄 (*.log* 檔案) 中資料的工具。
 * [疑難排解 IIS 效能問題或使用 LogParser 的應用程式錯誤](http://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
   此篇介紹可以用來分析 Web 伺服器記錄的 Log Parser 工具。
-* [Robert McMurray 關於使用 LogParser 的部落格文章](http://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
-* [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼](http://support.microsoft.com/kb/943891)
+* [Robert McMurray 關於使用 LogParser 的部落格文章](https://blogs.msdn.com/b/robert_mcmurray/archive/tags/logparser/)<br/>
+* [IIS 7.0、IIS 7.5 與 IIS 8.0 中的 HTTP 狀態碼](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>分析失敗要求追蹤記錄
 Microsoft TechNet 網站內的 [使用失敗要求追蹤](http://www.iis.net/learn/troubleshoot/using-failed-request-tracing) \(英文\) 小節可能有助您了解如何使用這些記錄。 不過，本文主要著重在 IIS 內設定失敗要求追蹤功能，這是您無法在 Azure Web Apps 中執行的功能。

@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: b6d548183cfa548f9ad35f06922752c929e318ac
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9f602b08e94071a335d0c88377912ea9b53f37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041950"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244435"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>對我的帳戶進行雙步驟驗證設定
 雙步驟驗證是額外的安全性步驟，可協助保護您的帳戶使其他人更難以破解。 如果您正在閱讀這篇文章，可能會收到一封來自您工作或學校的系統管理員關於 Multi-Factor Authentication 的電子郵件。 或者也許您嘗試登入並收到訊息，要求您設定其他安全性驗證。 如果是這個情況，**則您在完成自動註冊程序之前將無法登入**。
@@ -41,12 +41,12 @@ ms.locfileid: "47041950"
 
 | 連絡方法 | 說明 |
 | --- | --- |
-| [行動應用程式](#use-a-mobile-app-as-the-contact-method) |- **收到驗證的通知。** 這個選項會將通知推送至您智慧型手機或平板電腦上的驗證器應用程式。 檢視通知，如果合法則選取應用程式中的 [驗證]。 您的工作或學校可能會要求您輸入 PIN 後才能進行驗證。<br>- **驗證碼。** 在此模式中，驗證器應用程式會產生每 30 秒更新一次的驗證碼。 在登入介面中輸入最新的驗證碼。<br>Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)。 |
+| [行動應用程式](#use-a-mobile-app-as-the-contact-method) |- **收到驗證的通知。** 這個選項會將通知推送至您智慧型手機或平板電腦上的驗證器應用程式。 檢視通知，如果合法則選取應用程式中的 [驗證]。 您的工作或學校可能會要求您輸入 PIN 後才能進行驗證。<br>- **驗證碼。** 在此模式中，驗證器應用程式會產生每 30 秒更新一次的驗證碼。 在登入介面中輸入最新的驗證碼。<br>Microsoft Authenticator 應用程式適用於 [Android](https://go.microsoft.com/fwlink/?linkid=866594)、[iOS](https://go.microsoft.com/fwlink/?linkid=866594) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。 |
 | [行動電話通話或文字](#use-your-mobile-phone-as-the-contact-method) |- **撥打電話**撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。<br>- **簡訊**傳送包含驗證碼的簡訊。 遵循文字中的提示，回覆簡訊或將所提供的驗證碼輸入登入介面。 |
 | [辦公室電話通話](#use-your-office-phone-as-the-contact-method) |撥打自動語音電話給您所提供的電話號碼。 接聽電話並按電話鍵盤上的 # 進行驗證。 |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>使用行動應用程式做為連絡方式
-使用此方法會要求您在手機或平板電腦上安裝驗證器應用程式。 本文中的步驟是根據 Microsoft Authenticator 應用程式，適用於 [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071)、[Android](http://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](http://go.microsoft.com/fwlink/?Linkid=825073)。
+使用此方法會要求您在手機或平板電腦上安裝驗證器應用程式。 本文中的步驟是根據 Microsoft Authenticator 應用程式，適用於 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)、[Android](https://go.microsoft.com/fwlink/?Linkid=825072) 和 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073)。
 
 >[!NOTE]
 >您不必使用 Microsoft Authenticator 應用程式。 如果您已在使用另一個驗證器應用程式，則可繼續使用它。

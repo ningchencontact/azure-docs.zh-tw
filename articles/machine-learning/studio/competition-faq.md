@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 693fd7b80d69c20971315d8636f27daeb0cacaee
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 28be219c35d382cbd141bb050b35893da02ab775
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240880"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256439"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 競賽常見問題集
 **什麼是 Cortana Intelligence 競賽？**
 
-Microsoft Cortana Intelligence 競賽透過共同解決一些全世界最複雜的資料科學問題，使全球資料愛好者社群團結起來。 Cortana Intelligence 競賽可讓來自世界各地的資料愛好者競爭，建立高度精確的智慧型資料科學模型。 這些舉辦的競賽是以首次公開的獨特資料集為基礎。 參與者可以贏得獎勵或透過 10 大公眾排行榜得到肯定。 您可以在 [aka.ms/CIComp](http://aka.ms/CIComp) 存取競賽首頁。
+Microsoft Cortana Intelligence 競賽透過共同解決一些全世界最複雜的資料科學問題，使全球資料愛好者社群團結起來。 Cortana Intelligence 競賽可讓來自世界各地的資料愛好者競爭，建立高度精確的智慧型資料科學模型。 這些舉辦的競賽是以首次公開的獨特資料集為基礎。 參與者可以贏得獎勵或透過 10 大公眾排行榜得到肯定。 您可以在 [aka.ms/CIComp](https://aka.ms/CIComp) 存取競賽首頁。
 
 **Microsoft 發表新競賽的頻率**
 
@@ -37,7 +37,7 @@ Microsoft Cortana Intelligence 競賽透過共同解決一些全世界最複雜�
 
 **我要如何參加競賽？**
 
-透過 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)進入[競賽](https://gallery.cortanaintelligence.com/competitions)首頁，或前往 [http://aka.ms/CIComp](http://aka.ms/CIComp)。 首頁中會列出所有正在進行的競賽。 每個競賽在其註冊頁面上都會有詳細的指示以及參與規則、獎品和持續時間。
+透過 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)進入[競賽](https://gallery.cortanaintelligence.com/competitions)首頁，或前往 [http://aka.ms/CIComp](https://aka.ms/CIComp)。 首頁中會列出所有正在進行的競賽。 每個競賽在其註冊頁面上都會有詳細的指示以及參與規則、獎品和持續時間。
 
 1. 尋找您想要參與的競賽、閱讀所有指示並觀看教學課程影片。 然後按一下 [參加競賽] 按鈕，將入門實驗複製到您現有的 Azure Machine Learning 工作區。 如果您還沒有工作區的存取權，您必須事先建立一個工作區。 進行入門實驗、觀察效能度量，然後使用您的創意，提升模型的效能。 您可能會將大部分的時間花在這個步驟上。   
 
@@ -98,7 +98,7 @@ Microsoft 將會驗證私人排行榜的結果，然後我們會與您連絡。 
 
 **如果我贏得競賽，要如何領取獎金？**
 
-如果您是競賽的優勝者，您必須簽署一份資格、授權及發行的宣告。 這份表單會重述「競賽規則」。 如果得獎者不是美國納稅人，則必須填寫美國稅務表單 W-9，或表單 W-8BEN。 我們的獎勵發放程序是使用註冊電子郵件連絡所有的優勝者。 如需其他詳細資訊，請參閱我們的 [條款及條件](http://aka.ms/comptermsandconditions) 。
+如果您是競賽的優勝者，您必須簽署一份資格、授權及發行的宣告。 這份表單會重述「競賽規則」。 如果得獎者不是美國納稅人，則必須填寫美國稅務表單 W-9，或表單 W-8BEN。 我們的獎勵發放程序是使用註冊電子郵件連絡所有的優勝者。 如需其他詳細資訊，請參閱我們的 [條款及條件](https://aka.ms/comptermsandconditions) 。
 
 **如果有多個參賽作品獲得相同的分數，該怎麼辦？**
 
@@ -114,5 +114,5 @@ Microsoft 將會驗證私人排行榜的結果，然後我們會與您連絡。 
 
 **我們是否會保留使用者的競賽解決方案/參賽項目？**
 
-使用者參賽作品只會保留供評估之用，以識別勝出的解決方案。 詳情請參閱我們的 [條款及條件](http://aka.ms/comptermsandconditions) 。
+使用者參賽作品只會保留供評估之用，以識別勝出的解決方案。 詳情請參閱我們的 [條款及條件](https://aka.ms/comptermsandconditions) 。
 

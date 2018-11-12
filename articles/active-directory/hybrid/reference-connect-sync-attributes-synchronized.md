@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ea901d51403096166b367a1586cb26d2d914e2d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306527"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251793"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步處理：將屬性同步處理至 Azure Active Directory
 本主題列出 Azure AD Connect 同步處理所同步處理的屬性。  
@@ -376,7 +376,7 @@ ms.locfileid: "46306527"
 此群組是一組屬性，用來作為一般工作負載或應用程式所需的最基本屬性。 它可以用於另一節中未列出的工作負載或用於非 Microsoft 應用程式。 它會明確用於下列︰
 
 * Yammer (使用的只有 User)
-* [SharePoint 等資源所提供的混合式企業對企業 (B2B) 跨組織共同作業案例](http://go.microsoft.com/fwlink/?LinkId=747036)
+* [SharePoint 等資源所提供的混合式企業對企業 (B2B) 跨組織共同作業案例](https://go.microsoft.com/fwlink/?LinkId=747036)
 
 此群組是一組屬性，是未使用 Azure AD 目錄來支援 Office 365、Dynamics 或 Intune 時所能使用的屬性。 它包含一小組的核心屬性。
 

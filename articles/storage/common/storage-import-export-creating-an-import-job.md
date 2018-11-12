@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d7a9da4ac3560e67a6f7bc8b79a7c2dd37995d4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258005"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>建立 Azure 匯入/匯出服務的匯入作業
 
@@ -35,7 +35,7 @@ ms.locfileid: "43666014"
 
 無論您是透過入口網站或透過 REST API 建立作業，準備匯入作業的磁碟機步驟都相同。
 
-以下是磁碟機準備的簡要概觀。 請參閱 [Azure 匯入匯出工具參考](storage-import-export-tool-how-to-v1.md)以取得完整指示。 您可以在[這裡](http://go.microsoft.com/fwlink/?LinkID=301900)下載 Azure 匯入/匯出工具。
+以下是磁碟機準備的簡要概觀。 請參閱 [Azure 匯入匯出工具參考](storage-import-export-tool-how-to-v1.md)以取得完整指示。 您可以在[這裡](https://go.microsoft.com/fwlink/?LinkID=301900)下載 Azure 匯入/匯出工具。
 
 準備您的磁碟機包含︰
 
@@ -97,7 +97,7 @@ ms.locfileid: "43666014"
 >  您必須透過支援的貨運服務公司 (會提供您的包裹追蹤號碼) 寄送您的磁碟機。
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>使用出貨資料更新匯入作業
-在您取得追蹤號碼之後，請呼叫 [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) 作業以更新貨運公司名稱、作業的追蹤號碼和退貨的貨運公司帳戶號碼。 您可以選擇性指定磁碟機數目及寄送日期。
+在您取得追蹤號碼之後，請呼叫 [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) 作業以更新貨運公司名稱、作業的追蹤號碼和退貨的貨運公司帳戶號碼。 您可以選擇性指定磁碟機數目及寄送日期。
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

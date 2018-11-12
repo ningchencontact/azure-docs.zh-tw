@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: ningk
-ms.openlocfilehash: 447532452a848c88fd927f42e4263cef4742dd89
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 0ba85e82824bc257869d9801f342bd6dbb0402d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841498"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247444"
 ---
 # <a name="optimize-mysql-performance-on-azure-linux-vms"></a>在 Azure Linux 上最佳化 MySQL 效能
 有許多因素會影響 Azure 上的 MySQL 效能，均與虛擬硬體選取和軟體設定有關。 本文著重於透過儲存體、系統和資料庫設定最佳化效能。
@@ -38,7 +38,7 @@ ms.locfileid: "30841498"
 
 您也可能要考慮區塊大小。 通常當您有較大的區塊大小時，您的額外負荷會比較低，尤其是大量寫入時。 不過，當區塊大小太大時，可能會增加額外的負荷，進而使您無法利用 RAID。 目前的預設大小為 512 KB，經證明是大多數一般實際執行環境的最佳大小。 如需詳細資訊，請參閱 [附錄 C](#AppendixC) 。   
 
-您可針對不同虛擬機器類型新增的磁碟數目會有所限制。 [Azure 的虛擬機器和雲端服務大小](http://msdn.microsoft.com/library/azure/dn197896.aspx)中有這些限制的詳細說明。 雖然您可以選擇設定具有較少磁碟的 RAID，但您需要連接四個資料磁碟，才能遵循本文中的 RAID 4 範例。  
+您可針對不同虛擬機器類型新增的磁碟數目會有所限制。 [Azure 的虛擬機器和雲端服務大小](https://msdn.microsoft.com/library/azure/dn197896.aspx)中有這些限制的詳細說明。 雖然您可以選擇設定具有較少磁碟的 RAID，但您需要連接四個資料磁碟，才能遵循本文中的 RAID 4 範例。  
 
 本文假設您已經建立 Linux 虛擬機器並已安裝及設定 MYSQL 。 如需開始使用的詳細資訊，請參閱「如何在 Azure 上安裝 MySQL」。  
 
