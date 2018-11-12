@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: df6499410da3ae67715ade29dbc3cc4146fc2265
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171396"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231986"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>如何搭配對話學習模組模型使用 Negatable 實體
 
@@ -23,7 +23,7 @@ ms.locfileid: "39171396"
 
 ## <a name="video"></a>影片
 
-[![教學課程 5 預覽](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+[![教學課程 5 預覽](https://aka.ms/cl-tutorial-05-preview)](https://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -61,13 +61,13 @@ ms.locfileid: "39171396"
 1. 按一下 [動作]，然後按一下 [新增動作]
 2. 在 [回應] 中，鍵入「I don't know your name」(我不知道您的姓名)。
 3. 在 [Disqualifying Entities]\(不合格的實體\) 中，輸入姓名。
-3. Click Create
+3. 按一下 [建立專案]。
 
 然後建立第二個動作。
 
 1. 按一下 [動作]，然後按一下 [新增動作] 建立第二個動作。
 3. 在 [回應] 中，鍵入「I know your name. It is $name」(我知道您的姓名。您叫 $name)。
-4. Click Create
+4. 按一下 [建立專案]。
 
 現在您有兩個動作。
 

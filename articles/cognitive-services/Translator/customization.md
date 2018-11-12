@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: d01a5a8a9a60bef315327721b9f55345bc3d1361
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229674"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
@@ -37,7 +37,7 @@ Microsoft 自訂翻譯工具預覽是 Microsoft 翻譯工具服務的功能，�
 
 假設有適當的訓練資料類型和數量，透過使用自訂翻譯工具預期翻譯品質取得介於 5 到 10 之間或甚至更多的 BLEU 點數並不罕見。
 
-如需根據可用資料之各種自訂層級的詳細資料，請參閱[自訂翻譯工具使用者指南](http://aka.ms/CustomTranslatorDocs)。
+如需根據可用資料之各種自訂層級的詳細資料，請參閱[自訂翻譯工具使用者指南](https://aka.ms/CustomTranslatorDocs)。
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
@@ -53,7 +53,7 @@ Microsoft 自訂翻譯工具預覽是 Microsoft 翻譯工具服務的功能，�
 | SMT 自訂 | 是   | 否 |
 | NMT 自訂 | 否    | 是 |
 | 新的統一語音服務自訂 | 否    | 是 |
-| [不追蹤](http://www.aka.ms/notrace) | 是   | 是 |
+| [不追蹤](https://www.aka.ms/notrace) | 是  | 是 |
 
 ## <a name="collaborative-translations-framework"></a>共同作業翻譯架構
 
@@ -65,4 +65,4 @@ Microsoft 自訂翻譯工具預覽是 Microsoft 翻譯工具服務的功能，�
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用自訂翻譯工具設定自訂的語言系統](http://aka.ms/CustomTranslatorDocs)
+> [使用自訂翻譯工具設定自訂的語言系統](https://aka.ms/CustomTranslatorDocs)

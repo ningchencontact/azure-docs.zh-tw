@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231387"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 若要使用 Split/Merge 服務，您必須正確地設定安全性。 此服務是 Microsoft Azure SQL Database 的 Elastic Scale 功能的一部分。 如需詳細資訊，請參閱 [Elastic Scale 分割及合併服務教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -29,21 +29,21 @@ ms.locfileid: "47166353"
 2. [設定用戶端憑證](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>取得憑證
-您可以從公用憑證授權單位 (CA) 或從 [Windows 憑證服務](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)取得憑證。 這些是取得憑證的慣用方法。
+您可以從公用憑證授權單位 (CA) 或從 [Windows 憑證服務](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx)取得憑證。 這些是取得憑證的慣用方法。
 
 如果這些選項都無法使用，您可以產生 **自我簽署憑證**。
 
 ## <a name="tools-to-generate-certificates"></a>產生憑證的工具
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>執行工具
-* 從 Visual Studio 的開發人員命令提示字元，請參閱 [Visual Studio 命令提示字元](http://msdn.microsoft.com/library/ms229859.aspx) 
+* 從 Visual Studio 的開發人員命令提示字元，請參閱 [Visual Studio 命令提示字元](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     如果已安裝，請移至：
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* 從 [Windows 8.1：下載套件與工具](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>設定 SSL 憑證
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。 從以下三種案例中選擇最適用的案例，然後執行其所有步驟：

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638188"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011046"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
@@ -103,7 +103,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="configure-the-solution"></a>設定方案 
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](log-analytics-add-solutions.md)中說明的程序。 
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](../monitoring/monitoring-solutions.md)中說明的程序。 
 2. 開啟 Log Analytics 工作區，然後選取 [概觀] 圖格。 
 3. 選取含有 *「解決方案需要其他設定」* 訊息的 [網路效能監視器]  圖格。
 
@@ -251,7 +251,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ## <a name="log-analytics-search"></a>Log Analytics 搜尋 
 
-以圖形方式透過網路效能監視器儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](log-analytics-log-search-new.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
+以圖形方式透過網路效能監視器儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](log-analytics-queries.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
 
 ## <a name="alerts"></a>警示
 

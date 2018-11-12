@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230915"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>在執行階段使用 Application Insights 檢測 Web 應用程式
 
@@ -57,7 +57,7 @@ ms.locfileid: "43783488"
 
     ![點選 Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
-[監視雲端和 VM 應用程式](app-insights-azure.md)。
+[監視雲端和 VM 應用程式](app-insights-overview.md)。
 
 ### <a name="enable-client-side-monitoring-in-azure"></a>在 Azure 中啟用用戶端監視
 
@@ -78,7 +78,7 @@ Application Insights JavaScript SDK 現在已插入每個網頁中。
 如果您的應用程式裝載於 IIS 伺服器上，請使用狀態監視器來啟用 Application Insights。
 
 1. 在 IIS Web 伺服器上，以系統管理員認證登入。
-2. 如果尚未安裝 Application Insights 狀態監視器，請下載並執行[狀態監視器安裝程式](http://go.microsoft.com/fwlink/?LinkId=506648) (或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器)。
+2. 如果尚未安裝 Application Insights 狀態監視器，請下載並執行[狀態監視器安裝程式](https://go.microsoft.com/fwlink/?LinkId=506648) (或執行 [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) 並在其中搜尋 Application Insights 狀態監視器)。
 3. 在狀態監視器中，選取您想要監視的已安裝 Web 應用程式或網站。 利用您的 Azure 認證登入。
 
     在 Application Insights 入口網站中設定您要在其中檢視結果的資源。 (通常最好建立新的資源。 如果您已經為此應用程式設定 [Web 測試][availability]或[用戶端監視][client]，請選取現有的資源。) 
@@ -249,7 +249,7 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 
 檢視遙測：
 

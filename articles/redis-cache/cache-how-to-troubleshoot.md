@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: b41fc5c41b2e0d1e5d5ba3e39c7f6063cf57c6c2
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: ff2076d678b16f4de421a2634d751d26956a400d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205777"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228856"
 ---
 # <a name="how-to-troubleshoot-azure-redis-cache"></a>如何針對 Azure Redis 快取進行疑難排解
 本文提供以下類別的 Azure Redis 快取問題疑難排解指引。
@@ -229,7 +229,7 @@ StackExchange.Redis 使用名為 `synctimeout` 的組態設定來進行預設值
    * 確認您是否在伺服器上受到 CPU 限制，方法是監視 `CPU` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)。 如果要求在 Redis 受到 CPU 限制時傳入，則可能會造成這些要求逾時。 若要解決此狀況，您可以將負載分散在高階快取的多個分區中，或升級至較大的大小或定價層。 如需詳細資訊，請參閱 [超過伺服器端頻寬](#server-side-bandwidth-exceeded)。
 5. 伺服器上是否有命令需要很長的處理時間？ Redis 伺服器上處理時間很長的長時間執行命令可能會導致逾時。 長時間執行之命令的部分範例包括有大量金鑰的 `mget`、`keys *` 或編寫得不好的 lua 指令碼。 您可以使用 redis-cli 用戶端連線到 Azure Redis 快取執行個體，或使用 [Redis 主控台](cache-configure.md#redis-console)並執行 [SlowLog](http://redis.io/commands/slowlog) 命令，以查看是否有要求花費的時間超出預期。 Redis 伺服器和 StackExchange.Redis 最適合許多小型要求，而非少數幾個大型要求。 將資料分割成較小的區塊可以改善這些問題。 
    
-    如需使用 redis-cli 和 stunnel 連線到 Azure Redis 快取 SSL 端點的相關資訊，請參閱 [宣佈 Redis 預覽版本的 ASP.NET 工作階段狀態提供者](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 部落格文章。 如需詳細資訊，請參閱 [SlowLog](http://redis.io/commands/slowlog)。
+    如需使用 redis-cli 和 stunnel 連線到 Azure Redis 快取 SSL 端點的相關資訊，請參閱 [宣佈 Redis 預覽版本的 ASP.NET 工作階段狀態提供者](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) 部落格文章。 如需詳細資訊，請參閱 [SlowLog](http://redis.io/commands/slowlog)。
 6. 高 Redis 伺服器負載可能會導致逾時。 您可以藉由監視 `Redis Server Load` [快取效能度量](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)來監視伺服器負載。 伺服器負載為 100 (最大值) 表示 Redis 伺服器正忙碌處理要求，並沒有閒置的時間。 若要確認特定要求是否會佔用所有伺服器功能，請執行 SlowLog 命令，如上一段所述。 如需詳細資訊，請參閱 [高 CPU 使用率/伺服器負載](#high-cpu-usage-server-load)。
 7. 用戶端上是否有其他任何事件可能導致網路問題？ 檢查用戶端 (Web、背景工作角色或 Iaas VM) 上是否有用戶端執行個體數目相應增加或相應減少，或部署新版用戶端或已啟用自動調整之類的事件？我們在測試中發現，自動調整或相應增加/相應減少可能會導致輸出網路連線中斷幾秒鐘。 StackExchange.Redis 程式碼對於這類事件具有復原能力，因此將會重新連線。 在重新連線的這段時間內，佇列中的任何要求都會逾時。
 8. 針對 Redis 快取，在幾個小型要求之前是否有大型要求已逾時？ 錯誤訊息中的參數 `qs` 會告訴您有多少要求已從用戶端傳送到伺服器，但尚未處理回應。 這個值會不斷成長，因為 StackExchange.Redis 使用單一 TCP 連線，而且一次只能讀取一個回應。 即使第一項作業已逾時，它也不會停止傳送資料到伺服器/從伺服器傳出資料，在大型要求完成之前，其他要求都會遭到封鎖，因而導致逾時。 有一個解決方案是確保快取足以容納工作負載，並將較大的值分割成較小的區塊，以將逾時的機會降到最低。 另一個可能的解決方案是在用戶端中使用 `ConnectionMultiplexer` 物件集區，並在傳送新要求時選擇最少負載的 `ConnectionMultiplexer`。 這應該就能防止單一逾時造成其他要求也逾時。

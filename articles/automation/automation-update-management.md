@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90a5be07b6939df1850bb1574c71254bb896f004
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093818"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037391"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -35,7 +35,7 @@ ms.locfileid: "50093818"
 
 ![更新管理程序流程](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。 若要管理不同租用戶上的機器，您必須讓它們以[非 Azure 機器](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine)形式上線。
+您可以使用更新管理在相同租用戶中的多個訂用帳戶中以原生方式上架機器。
 
 發行 CVE 之後，對 Linux 機器而言，需要 2-3 小時的時間，才會顯示修補程式以供評量。  如果是 Windows 機器，則在發行後需要 12-15 小時的時間，才會顯示修補程式以供評量。
 

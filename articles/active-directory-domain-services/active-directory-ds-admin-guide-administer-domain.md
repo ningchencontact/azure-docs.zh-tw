@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dab1547ca17acaeda3cb168d78b342661ebe4615
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157614"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230473"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>管理 Azure Active Directory Domain Services 受控網域
 本文說明如何管理 Azure Active Directory (AD) 網域服務受控網域。
@@ -63,7 +63,7 @@ ms.locfileid: "50157614"
 ### <a name="remotely-administer-the-managed-domain-from-a-client-computer-for-example-windows-10"></a>從用戶端電腦 (例如 Windows 10) 遠端管理受控網域
 本文中的指示使用 Windows Server 虛擬機器來管理 AAD-DS 受控網域。 不過，您也可以選擇使用 Windows 用戶端 (例如 Windows 10) 虛擬機器來執行這項操作。
 
-您可以按照 TechNet 上的指示，在 Windows 用戶端虛擬機器上 [安裝遠端伺服器管理工具 (RSAT)](http://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) 。
+您可以按照 TechNet 上的指示，在 Windows 用戶端虛擬機器上 [安裝遠端伺服器管理工具 (RSAT)](https://social.technet.microsoft.com/wiki/contents/articles/2202.remote-server-administration-tools-rsat-for-windows-client-and-windows-server-dsforum2wiki.aspx) 。
 
 ## <a name="task-2---install-active-directory-administration-tools-on-the-virtual-machine"></a>工作 2 - 在虛擬機器上安裝 Active Directory 系統管理工具
 完成下列步驟，在已加入網域的虛擬機器上安裝 Active Directory 系統管理工具。 如需有關[安裝和使用遠端伺服器管理工具的詳細資訊](https://technet.microsoft.com/library/hh831501.aspx)，請參閱 TechNet。

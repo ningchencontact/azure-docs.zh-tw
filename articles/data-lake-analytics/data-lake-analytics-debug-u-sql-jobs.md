@@ -9,18 +9,18 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 1fd1ce54dea672b19baea84bbf3a40b4365093b8
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046213"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229470"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>對 U-SQL 失敗作業的使用者定義 C# 程式碼進行偵錯
 
 U-SQL 提供使用 C# 的擴充性模型。 在 U-SQL 指令碼中，可以輕鬆地呼叫 C# 函式，以及執行類 SQL 宣告式語言不支援的分析函式。 若要深入了解 U-SQL 擴充性，請參閱 [U-SQL 程式設計指南](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf)。 
 
-在實務上，任何程式碼可能都需要偵錯，但很難透過受限的記錄檔，針對雲端上使用自訂程式碼的分散式工作進行偵錯。 [Azure Data Lake Tools for Visual Studio](http://aka.ms/adltoolsvs) 提供了一個稱為「頂點失敗偵錯」的功能，該功能可協助您更輕鬆地針對您的自訂程式碼中發生的錯誤進行偵錯。 當 U-SQL 作業失敗時，服務會保留失敗狀態，而工具會協助您將雲端失敗環境下載至本機電腦進行偵錯。 本機下載會擷取整個雲端環境，包括任何輸入資料和使用者程式碼。
+在實務上，任何程式碼可能都需要偵錯，但很難透過受限的記錄檔，針對雲端上使用自訂程式碼的分散式工作進行偵錯。 [Azure Data Lake Tools for Visual Studio](https://aka.ms/adltoolsvs) 提供了一個稱為「頂點失敗偵錯」的功能，該功能可協助您更輕鬆地針對您的自訂程式碼中發生的錯誤進行偵錯。 當 U-SQL 作業失敗時，服務會保留失敗狀態，而工具會協助您將雲端失敗環境下載至本機電腦進行偵錯。 本機下載會擷取整個雲端環境，包括任何輸入資料和使用者程式碼。
 
 下列影片示範 Azure Data Lake Tools for Visual Studio 中的頂點失敗偵錯。
 

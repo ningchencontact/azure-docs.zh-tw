@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f600471e8a3602628a5040051f382e6e020f29d5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261871"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211412"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>規劃 Hyper-V VM 災害復原的容量 
 
@@ -43,7 +43,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
 
 ## <a name="run-the-quick-planner"></a>執行快速規劃
-1. 下載 [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel) 並開啟。 您需要執行巨集。 出現提示時，選擇啟用編輯與內容。
+1. 下載 [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 並開啟。 您需要執行巨集。 出現提示時，選擇啟用編輯與內容。
 
 2. 在 [選取規劃類型] 清單方塊中，選取 [快速規劃]。
 
@@ -81,7 +81,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
 
 ## <a name="run-the-detailed-planner"></a>執行詳細規劃
 
-1. 下載 [Site Recovery Capacity Planner](https://aka.ms/asr-capacity-planner-excel) 並開啟。 您需要執行巨集。 出現提示時，選擇啟用編輯與內容。
+1. 下載 [Site Recovery Capacity Planner](http://aka.ms/asr-capacity-planner-excel) 並開啟。 您需要執行巨集。 出現提示時，選擇啟用編輯與內容。
 
 2. 在 [選取規劃類型] 中，從清單方塊中選取 [詳細規劃]。
 

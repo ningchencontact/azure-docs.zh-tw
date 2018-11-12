@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231646"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -35,7 +35,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | --- | --- |
 | 有幾個常用的 HTTP 標題未提供於 REST API 中。 |如果您使用 REST API 來開發媒體服務應用程式，您會發現有些常用的 HTTP 標題欄位 (包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID) 不受支援。 這些標頭將在未來的更新中加入。 |
 | 不允許 percent-encoding。 |媒體服務會在建置串流內容的 URL 時，使用 IAssetFile.Name 屬性的值 (例如 `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`)。 基於此原因，不允許使用 percent-encoding。 Name 屬性的值不可有下列任何[百分比編碼保留字元](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!*'();:@&=+$,/?%#[]"。 此外，副檔名只能有一個 "."。 |
-| 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。 |媒體服務會根據 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本產生 SAS URL。 如果您要使用 Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
+| 屬於 Azure Storage SDK 3.x 版的 ListBlobs 方法無法運作。 |媒體服務會根據 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本產生 SAS URL。 如果您要使用 Storage SDK 列出 Blob 容器中的 Blob，請使用屬於 Storage SDK 2.x 版的 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
 | 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。 服務可能會傳回「服務無法使用」503 HTTP 狀態碼。 |如需詳細資訊，請參閱[媒體服務錯誤碼](media-services-encoding-error-codes.md)中有關於 503 HTTP 狀態碼的說明。 |
 | 當您查詢實體時，一次最多只能傳回 1000 個實體，因為公用 REST 第 2 版有 1,000 個查詢結果數目的限制。 |請依照[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中的說明，使用 Skip 和 Take (.NET)/top (REST)。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
@@ -227,7 +227,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 ## <a id="july_changes_15"></a>2015 年 7 月版本
 * 宣布「媒體編碼器標準」正式運作。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)。
   
-    媒體編碼器標準使用[本節](http://go.microsoft.com/fwlink/?LinkId=618336)說明的預設值。 當您使用 4k 編碼的預設時，請取得進階保留單元類型。 如需詳細資訊，請參閱[調整編碼](media-services-scale-media-processing-overview.md)。
+    媒體編碼器標準使用[本節](https://go.microsoft.com/fwlink/?LinkId=618336)說明的預設值。 當您使用 4k 編碼的預設時，請取得進階保留單元類型。 如需詳細資訊，請參閱[調整編碼](media-services-scale-media-processing-overview.md)。
 * 直播即時字幕用於媒體服務和媒體播放器。 如需詳細資訊，請參閱 [此部落格文章](https://azure.microsoft.com/blog/2015/07/08/live-real-time-captions-with-azure-media-services-and-player/)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒體服務 .NET SDK 更新
@@ -303,7 +303,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * 已新增金鑰傳遞服務的 CORS 支援。
 * 已完成查詢授權原則選項的效能改進。
 * 在中國資料中心，每位客戶現在都已有其各自的[金鑰傳遞 URL](https://docs.microsoft.com/rest/api/media/operations/contentkey#get_delivery_service_url) (就像其他資料中心)。
-* 已新增 HLS 自動目標持續時間。 在執行即時資料流時，會一律動態封裝 HLS。 根據預設，媒體服務會根據主要畫面格間隔 (KeyFrameInterval)，自動計算 HLS 區段封裝比例 (FragmentsPerSegment)。 此方法也稱為接收自即時編碼器的圖片群組 (GOP)。 如需詳細資訊，請參閱[使用媒體服務即時資料流](http://msdn.microsoft.com/library/azure/dn783466.aspx)。
+* 已新增 HLS 自動目標持續時間。 在執行即時資料流時，會一律動態封裝 HLS。 根據預設，媒體服務會根據主要畫面格間隔 (KeyFrameInterval)，自動計算 HLS 區段封裝比例 (FragmentsPerSegment)。 此方法也稱為接收自即時編碼器的圖片群組 (GOP)。 如需詳細資訊，請參閱[使用媒體服務即時資料流](https://msdn.microsoft.com/library/azure/dn783466.aspx)。
 
 ### <a name="media-services-net-sdk-updates"></a>媒體服務 .NET SDK 更新
 [媒體服務 .NET SDK](http://www.nuget.org/packages/windowsazure.mediaservices/) 的現行版本為 3.1.0.0。 已完成的更新如下：
@@ -314,7 +314,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * 已在 PlayReady 授權範本中新增 BeginDate 和 ExpirationDate 的相對位移。
 
 ## <a id="november_changes_14"></a>2014 年 11 月版本
-* 現在，您可以使用媒體服務透過 SSL 連線擷取即時的 Smooth Streaming (fMP4) 內容。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 目前媒體服務不支援將 SSL 用於自訂網域。 如需即時資料流的詳細資訊，請參閱[使用 Azure 媒體服務即時資料流](http://msdn.microsoft.com/library/azure/dn783466.aspx)。
+* 現在，您可以使用媒體服務透過 SSL 連線擷取即時的 Smooth Streaming (fMP4) 內容。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 目前媒體服務不支援將 SSL 用於自訂網域。 如需即時資料流的詳細資訊，請參閱[使用 Azure 媒體服務即時資料流](https://msdn.microsoft.com/library/azure/dn783466.aspx)。
 * 目前您無法透過 SSL 連線擷取 RTMP 即時資料流。
 * 您傳遞內容的來源串流端點必須是在 2014 年 9 月 10 日之後建立的，才能透過 SSL 進行串流處理。 如果您的串流 URL 是以 2014 年 9 月 10 日之後建立的串流端點為基礎，則 URL 會包含 "streaming.mediaservices.windows.net" (新格式)。 包含 "origin.mediaservices.windows.net" (舊格式) 的串流 URL 不支援 SSL。 如果您的 URL 是舊格式，而您想要透過 SSL 進行串流處理，請[建立新的串流端點](media-services-portal-manage-streaming-endpoints.md)。 若要透過 SSL 進行內容的串流處理，請使用以新的串流端點為基礎的 URL。
 
@@ -346,7 +346,7 @@ Media Services SDK for .NET 的現行版本為 3.0.0.7
 * 使用 Azure 入口網站來編碼並發行 MP4 檔案時的預設行為已變更。
 
 ### <a id="sept_14_GA_changes"></a>公開上市版本中的新功能/案例
-* 引進了「媒體索引器」媒體處理器。 如需詳細資訊，請參閱[使用媒體索引器編製媒體檔案的索引](http://msdn.microsoft.com/library/azure/dn783455.aspx)。
+* 引進了「媒體索引器」媒體處理器。 如需詳細資訊，請參閱[使用媒體索引器編製媒體檔案的索引](https://msdn.microsoft.com/library/azure/dn783455.aspx)。
 * 您可以使用 [StreamingEndpoint] 實體新增自訂網域 (主機) 名稱。
   
     若要以自訂網域名稱作為媒體服務串流端點名稱，請將自訂主機名稱新增至您的串流端點。 請使用媒體服務 REST API 或 .NET SDK 新增自訂主機名稱。
@@ -357,16 +357,16 @@ Media Services SDK for .NET 的現行版本為 3.0.0.7
   * 網域名稱的擁有權必須通過媒體服務的驗證。 若要驗證網域，請建立對應 MediaServicesAccountId 父網域的 CName，以確認 DNS mediaservices-dns-zone。
   * 您必須建立另一個 CName，將自訂主機名稱 (例如，sports.contoso.com) 對應到您的媒體服務 StreamingEndpont 主機名稱 (例如，amstest.streaming.mediaservices.windows.net)。
 
-    如需詳細資訊，請參閱 [StreamingEndpoint](http://msdn.microsoft.com/library/azure/dn783468.aspx) 一文中的 CustomHostNames 屬性。
+    如需詳細資訊，請參閱 [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx) 一文中的 CustomHostNames 屬性。
 
 ### <a id="sept_14_preview_changes"></a>公用預覽版本中的新功能/案例
-* 即時資料流預覽。 如需詳細資訊，請參閱[使用媒體服務即時資料流](http://msdn.microsoft.com/library/azure/dn783466.aspx)。
-* 金鑰傳遞服務。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](http://msdn.microsoft.com/library/azure/dn783457.aspx)。
-* AES 動態加密。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](http://msdn.microsoft.com/library/azure/dn783457.aspx)。
+* 即時資料流預覽。 如需詳細資訊，請參閱[使用媒體服務即時資料流](https://msdn.microsoft.com/library/azure/dn783466.aspx)。
+* 金鑰傳遞服務。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](https://msdn.microsoft.com/library/azure/dn783457.aspx)。
+* AES 動態加密。 如需詳細資訊，請參閱[使用 AES-128 動態加密和金鑰傳遞服務](https://msdn.microsoft.com/library/azure/dn783457.aspx)。
 * PlayReady 授權傳遞服務。 
 * PlayReady 動態加密。 
 * 媒體服務 PlayReady 授權範本。 如需詳細資訊，請參閱[媒體服務 PlayReady 授權範本概觀]。
-* 資料流儲存體加密資產。 如需詳細資訊，請參閱[資料流儲存體加密內容](http://msdn.microsoft.com/library/azure/dn783451.aspx)。
+* 資料流儲存體加密資產。 如需詳細資訊，請參閱[資料流儲存體加密內容](https://msdn.microsoft.com/library/azure/dn783451.aspx)。
 
 ## <a id="august_changes_14"></a>2014 年 8 月版本
 當您為資產編碼時，在編碼工作完成時會產生輸出資產。 在此版本之前，媒體服務編碼器會產生輸出資產的相關中繼資料。 自此版本開始，編碼器也會產生輸入資產的相關中繼資料。 如需詳細資訊，請參閱[輸入中繼資料]和[輸出中繼資料]。
@@ -381,7 +381,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ### <a id="may_14_changes"></a>一般媒體服務更新
 您現在可以使用[動態封裝]進行 HLS 第 3 版的串流處理。 若要串流處理 HLS 第 3 版，請將下列格式新增至原始定位器路徑：* .ism/manifest(format=m3u8-aapl-v3)。 如需詳細資訊，請參閱[此論壇](https://social.msdn.microsoft.com/Forums/en-US/13b8a776-9519-4145-b9ed-d2b632861fde/dynamic-packaging-to-hls-v3)。
 
-動態封裝現在也支援根據使用 PlayReady 靜態加密的 Smooth Streaming，來傳遞使用 PlayReady 加密的 HLS (第 3 版和第 4 版)。 如需如何使用 PlayReady 為 Smooth Streaming 加密的相關資訊，請參閱[使用 PlayReady 保護 Smooth Streaming](http://msdn.microsoft.com/library/azure/dn189154.aspx)。
+動態封裝現在也支援根據使用 PlayReady 靜態加密的 Smooth Streaming，來傳遞使用 PlayReady 加密的 HLS (第 3 版和第 4 版)。 如需如何使用 PlayReady 為 Smooth Streaming 加密的相關資訊，請參閱[使用 PlayReady 保護 Smooth Streaming](https://msdn.microsoft.com/library/azure/dn189154.aspx)。
 
 ### <a name="may_14_donnet_changes"></a>媒體服務 .NET SDK 更新
 媒體服務 .NET SDK 的現行版本為 3.0.0.5。 已完成的更新如下：
@@ -397,9 +397,9 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 ## <a id="april_changes_14"></a>2014 年 4 月編碼器版本
 ### <a name="april_14_enocer_changes"></a>媒體服務編碼器更新
 * 新增了相關支援，而可擷取以 Grass Valley EDIUS 非線性編輯器撰寫的 AVI 檔案。 在此程序中，視訊會使用 Grass Valley HQ/HQX 轉碼器稍微進行壓縮。 如需詳細資訊，請參閱 [Grass Valley 發表透過雲端的 EDIUS 7 Streaming]。
-*  新增了為媒體服務編碼器所產生的檔案指定命名慣例的支援。 如需詳細資訊，請參閱[控制媒體服務編碼器輸出檔案名稱](http://msdn.microsoft.com/library/azure/dn303341.aspx)。
-*  新增了視訊和 (或) 音訊重疊的支援。 如需詳細資訊，請參閱[建立重疊](http://msdn.microsoft.com/library/azure/dn640496.aspx)。
-*  新增了編結多個視訊片段的支援。 如需詳細資訊，請參閱[編結視訊片段](http://msdn.microsoft.com/library/azure/dn640504.aspx)。
+*  新增了為媒體服務編碼器所產生的檔案指定命名慣例的支援。 如需詳細資訊，請參閱[控制媒體服務編碼器輸出檔案名稱](https://msdn.microsoft.com/library/azure/dn303341.aspx)。
+*  新增了視訊和 (或) 音訊重疊的支援。 如需詳細資訊，請參閱[建立重疊](https://msdn.microsoft.com/library/azure/dn640496.aspx)。
+*  新增了編結多個視訊片段的支援。 如需詳細資訊，請參閱[編結視訊片段](https://msdn.microsoft.com/library/azure/dn640504.aspx)。
 * 修正了音訊是以 MPEG-1 Audio Layer 3 (也稱為 MP3) 編碼的 MP4 在轉碼方面的錯誤。
 
 ## <a id="jan_feb_changes_14"></a>2014 年 1/2 月版本
@@ -425,7 +425,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
 媒體服務 SDK 目前的最新版本為 3.0.0.0。 您可以從 NuGet 下載最新封裝，或從 [GitHub] 取得。
 
-從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure AD 存取控制服務](http://msdn.microsoft.com/library/hh147631.aspx)權杖。 如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連線至媒體服務](http://msdn.microsoft.com/library/azure/jj129571.aspx) 中的「重複使用存取控制服務權杖」一節。
+從媒體服務 SDK 3.0.0.0 版開始，您可以重複使用 [Azure AD 存取控制服務](https://msdn.microsoft.com/library/hh147631.aspx)權杖。 如需詳細資訊，請參閱[使用 Media Services SDK for .NET 連線至媒體服務](https://msdn.microsoft.com/library/azure/jj129571.aspx) 中的「重複使用存取控制服務權杖」一節。
 
 ### <a name="dec_13_donnet_ext_changes"></a>媒體服務 .NET SDK 延伸模組 2.0.0.0
  媒體服務 .NET SDK 延伸模組是一組延伸方法和協助程式函式，能夠簡化您的程式碼，讓您輕鬆地以媒體服務進行開發。 您可以從[媒體服務 .NET SDK 延伸模組](https://github.com/Azure/azure-sdk-for-media-services-extensions/tree/dev)取得最新版本。
@@ -476,8 +476,8 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
     * StorageAccount 屬性
     * StorageAccountName 屬性
   
-    如需詳細資訊，請參閱[管理多個儲存體帳戶間的媒體服務資產](http://msdn.microsoft.com/library/azure/dn271889.aspx)。
-* 通知相關的 API。 自 2.2.0.0 版起，您已能夠聽取 Azure 佇列儲存體通知。 如需詳細資訊，請參閱[處理媒體服務作業通知](http://msdn.microsoft.com/library/azure/dn261241.aspx)。
+    如需詳細資訊，請參閱[管理多個儲存體帳戶間的媒體服務資產](https://msdn.microsoft.com/library/azure/dn271889.aspx)。
+* 通知相關的 API。 自 2.2.0.0 版起，您已能夠聽取 Azure 佇列儲存體通知。 如需詳細資訊，請參閱[處理媒體服務作業通知](https://msdn.microsoft.com/library/azure/dn261241.aspx)。
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 屬性
     * Microsoft.WindowsAzure.MediaServices.Client.INotificationEndPoint 類型
