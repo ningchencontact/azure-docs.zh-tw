@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 1a8f04f39568816252175fc9e0893f1ab3e2cdc6
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224812"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037136"
 ---
 # <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Kafka 原則 (預覽)
 
@@ -33,7 +33,7 @@ ms.locfileid: "47224812"
 
 * 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-* 使用企業安全性套件建立 [HDInsight Kafka 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-run-hive)。
+* 使用企業安全性套件建立 [HDInsight Kafka 叢集](apache-domain-joined-configure-using-azure-adds.md)。
 
 ## <a name="connect-to-apache-ranger-admin-ui"></a>連線到 Apache Ranger 系統管理 UI
 
@@ -117,15 +117,18 @@ ms.locfileid: "47224812"
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-   
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
+> [!Note]
+> 繼續操作之前，您可能需要設定開發環境 (如果您尚未設定)。 您將需要 Java JDK、Apache Maven 和具有 SCP 的 SSH 用戶端等元件。 如需詳細資訊，請參閱下列[設定指示](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
+1. 下載[已加入 Apache Kafka 網域的產生者/取用者範例](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
 
-4. 執行下列命令： 
+1. 請遵循[教學課程：使用 Apache Kafka Producer 和 Consumer API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) 中的**建置和部署範例**下方的步驟 2 和 3
+
+1. 執行下列命令：
 
    ```bash
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create salesevents $KAFKABROKERS
-   
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 

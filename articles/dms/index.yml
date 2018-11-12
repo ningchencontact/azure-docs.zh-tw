@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: a314401883d0325029ce50502f85c335458e3959
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285045"
+documentType: LandingData
+title: Azure 資料庫移轉服務文件
+metadata:
+  document_id: 83ceabb5-fb4f-a709-3fd2-37d024409f31
+  title: Azure 資料庫移轉服務文件 - 教學課程 | Microsoft Docs
+  meta.description: Learn how to enable seamless migrations from multiple database sources to Azure Data platforms with minimal downtime by using Azure Database Migration Service.
+  services: functions
+  author: pochiraju
+  manager: craigg
+  ms.service: dms
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/30/2018
+  ms.author: rajpo
+abstract:
+  description: Azure 資料庫移轉服務能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低。 服務會使用 Data Migration Assistant 來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有必要步驟。
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/video-thumb-intro2dms.png
+      width: 250
+    title: Azure DMS 簡介 (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
+    width: 250
+sections:
+- title: 5 分鐘快速入門
+  items:
+  - type: paragraph
+    text: 了解如何使用資料庫移轉服務，將內部部署 SQL Server 遷移到 Azure SQL Database：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Azure 入口網站
+      href: /azure/dms/quickstart-create-data-migration-service-portal
+- title: 逐步教學課程
+  items:
+  - type: paragraph
+    text: 了解如何使用資料庫移轉服務遷移資料庫：
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/dms/tutorial-sql-server-to-azure-sql">使用 DMS 在離線狀態下將 SQL Server 遷移至 Azure SQL Database</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-azure-sql-online">使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-to-managed-instance">使用 DMS 將 SQL Server 離線遷移至 Azure SQL Database 受控執行個體</a>
+    - html: <a href="/azure/dms/tutorial-sql-server-managed-instance-online">使用 DMS 在線上將 SQL Server 遷移至 Azure SQL Database 受控執行個體</a>
+    - html: <a href="/azure/dms/tutorial-mysql-azure-mysql-online">使用 DMS 在線上將 MySQL 遷移至適用於 MySQL 的 Azure 資料庫</a>
+    - html: <a href="/azure/dms/tutorial-postgresql-azure-postgresql-online">在線上使用 DMS 將 PostgreSQL 遷移至適用於 PostgreSQL 的 Azure 資料庫</a>
+- title: 範例
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-powershell">使用 Azure PowerShell 將 SQL Server 內部部署遷移至 Azure SQL DB</a>
+    - html: <a href="/azure/dms/howto-sql-server-to-azure-sql-mi-powershell">使用 Azure PowerShell 將 SQL Server 內部部署遷移至 Azure SQL DB 受控執行個體</a>
+- title: 參考
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/dms/pre-reqs">使用 Azure 資料庫移轉服務的必要條件概觀</a>
+    - html: <a href="/azure/dms/faq">使用 Azure 資料庫移轉服務的相關常見問題集</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">線上移轉到 Azure SQL DB 的已知問題/移轉限制</a>
