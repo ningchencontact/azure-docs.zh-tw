@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a3bce69236586bcd0a250c47f1129ac0d94e8b26
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231477"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect：帳戶與權限
 
@@ -241,7 +241,7 @@ Azure AD 中有 20 個同步服務帳戶的限制。 若要取得 Azure AD 中�
 
 |話題 |連結|  
 | --- | --- |
-|下載 Azure AD Connect | [下載 Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|下載 Azure AD Connect | [下載 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |使用快速設定進行安裝 | [快速安裝 Azure AD Connect](how-to-connect-install-express.md)|
 |使用自訂設定進行安裝 | [自訂 Azure AD Connect 安裝](./how-to-connect-install-custom.md)|
 |從 DirSync 升級 | [從 Azure AD Sync 工具 (DirSync) 升級](how-to-dirsync-upgrade-get-started.md)|

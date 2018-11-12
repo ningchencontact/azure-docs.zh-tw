@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26736960"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232975"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>建立和管理混合式連線
 
@@ -105,7 +105,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [Azure App Service 混合式連線](../app-service/app-service-hybrid-connections.md)也是很好的資源。
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>使用群組原則來控制混合式連線使用的內部部署資源
-1. 下載 [混合式連線管理員的系統管理範本](http://www.microsoft.com/download/details.aspx?id=42963)。
+1. 下載 [混合式連線管理員的系統管理範本](https://www.microsoft.com/download/details.aspx?id=42963)。
 2. 將檔案解壓縮。
 3. 在修改群組原則的電腦上，執行下列動作：  
    
@@ -118,7 +118,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [混合式連線概觀](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>另請參閱
-[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)  
 [建立 BizTalk 服務](biztalk-provision-services.md)  
 [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)

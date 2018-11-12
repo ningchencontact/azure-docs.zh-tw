@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2017
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: be97f441d6eb2e97d85d598b0ed66718aec97b14
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29389507"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235321"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
 > * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [影片 - Azure 入口網站](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
 
@@ -38,7 +38,7 @@ ms.locfileid: "29389507"
 * 開始設定之前，請檢閱[必要條件](expressroute-prerequisites.md)和[工作流程](expressroute-workflows.md)。
 * 確定您可以存取 [Azure 入口網站](https://portal.azure.com)。
 * 確定您具有建立新網路資源的權限。 如果您沒有正確的權限，請連絡您的帳戶管理員。
-* 您可以在開始前先[觀賞影片](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)，以便更加了解步驟。
+* 您可以在開始前先[觀賞影片](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)，以便更加了解步驟。
 
 ## <a name="create"></a>建立和佈建 ExpressRoute 線路
 ### <a name="1-sign-in-to-the-azure-portal"></a>1.登入 Azure 入口網站

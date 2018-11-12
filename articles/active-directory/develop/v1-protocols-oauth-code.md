@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e896392404c23e88d697d45146f802576d6045d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870820"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237888"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
 
@@ -183,7 +183,7 @@ Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了�
 | refresh_token |OAuth 2.0 重新整理權杖。 應用程式可以使用這個權杖，在目前的存取權杖過期之後，取得其他的存取權杖。 重新整理權杖的有效期很長，而且可以用來長期保留資源存取權。 |
 | id_token |不帶正負號的 JSON Web 權杖 (JWT)，代表[識別碼權杖](id-tokens.md)。 應用程式可以 base64Url 解碼這個權杖的區段，要求已登入使用者的相關資訊。 應用程式可以快取並顯示值，但不應依賴這些值來取得任何授權或安全性界限。 |
 
-如需 JSON Web 權杖的詳細資訊，請參閱 [JWT IETF 草稿規格](http://go.microsoft.com/fwlink/?LinkId=392344)。   若要深入了解 `id_tokens`，請參閱 [v1.0 OpenID Connect 流程](v1-protocols-openid-connect-code.md)。
+如需 JSON Web 權杖的詳細資訊，請參閱 [JWT IETF 草稿規格](https://go.microsoft.com/fwlink/?LinkId=392344)。   若要深入了解 `id_tokens`，請參閱 [v1.0 OpenID Connect 流程](v1-protocols-openid-connect-code.md)。
 
 ### <a name="error-response"></a>錯誤回應
 權杖發行端點錯誤是 HTTP 錯誤碼，因為用戶端會直接呼叫權杖發行端點。 除了 HTTP 狀態碼，Azure AD 權杖發行端點也會傳回 JSON 文件與描述錯誤的物件。

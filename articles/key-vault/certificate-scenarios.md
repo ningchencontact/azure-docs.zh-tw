@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385629"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235185"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -56,7 +56,7 @@ ms.locfileid: "49385629"
         -   提供者  
         -   認證 – CA 帳戶認證。 每個 CA 都有自己的特定資料。  
 
-     如需使用 CA 提供者建立帳戶的詳細資訊，請參閱 [Key Vault 部落格](http://aka.ms/kvcertsblog)上的相關文章。  
+     如需使用 CA 提供者建立帳戶的詳細資訊，請參閱 [Key Vault 部落格](https://aka.ms/kvcertsblog)上的相關文章。  
 
 **步驟 3.1** - 設定[憑證連絡人](/rest/api/keyvault/setcertificatecontacts)以進行通知。 這是 Key Vault 使用者的連絡人。 Key Vault 不會強制執行此步驟。  
 

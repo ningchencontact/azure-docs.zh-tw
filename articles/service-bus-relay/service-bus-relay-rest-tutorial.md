@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854927"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232438"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
 
@@ -65,7 +65,7 @@ WCF 合約與 REST 樣式合約之間的主要差異在於屬性會新增至 [Op
     {
         ...
     ```
-8. 直接在命名空間宣告的左大括號後面定義名為 **IImageContract** 的新介面，並將 **ServiceContractAttribute** 屬性套用至介面，且值設為 `http://samples.microsoft.com/ServiceModel/Relay/`。 命名空間值與您的整個程式碼範圍中使用的命名空間不同。 命名空間值作為此合約的唯一識別碼，且應該具有版本資訊。 如需詳細資訊，請參閱[服務版本設定](http://go.microsoft.com/fwlink/?LinkID=180498)。 明確指定命名空間可避免將預設命名空間值新增至合約名稱。
+8. 直接在命名空間宣告的左大括號後面定義名為 **IImageContract** 的新介面，並將 **ServiceContractAttribute** 屬性套用至介面，且值設為 `http://samples.microsoft.com/ServiceModel/Relay/`。 命名空間值與您的整個程式碼範圍中使用的命名空間不同。 命名空間值作為此合約的唯一識別碼，且應該具有版本資訊。 如需詳細資訊，請參閱[服務版本設定](https://go.microsoft.com/fwlink/?LinkID=180498)。 明確指定命名空間可避免將預設命名空間值新增至合約名稱。
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 8a1148bbb04bbad2ff25be9bcbe68d086e91027c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049248"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234217"
 ---
 # <a name="create-a-spark-machine-learning-pipeline"></a>建立 Spark 機器學習管線
 
@@ -40,6 +40,11 @@ Transformer 或 Estimator 的每個無狀態執行個體皆有自己唯一的識
 4. 建立定型資料。
 
 ```python
+from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import HashingTF, Tokenizer
+from pyspark.sql import Row
+
 # The data structure (column meanings) of the data array:
 # 0 Date
 # 1 Time

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737408"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238517"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -61,9 +61,9 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
 ## <a name="architecture-of-a-sample-solution"></a>範例解決方案的架構
   本文所述的架構適用於簡單解決方案。 它也與複雜的案例相關，例如依金融服務、映像處理和轉譯以及基因分析進行的風險模型建立。
 
-下圖說明 Data Factory 如何協調資料移動與處理。 此圖也說明 Batch 如何平行處理資料。 請下載及列印此圖以便參考 (11 x 17 英吋或 A3 大小)。 若要存取此圖以便列印，請參閱[使用 Batch 和 Data Factory 來進行的 HPC 與資料協調流程](http://go.microsoft.com/fwlink/?LinkId=717686)。
+下圖說明 Data Factory 如何協調資料移動與處理。 此圖也說明 Batch 如何平行處理資料。 請下載及列印此圖以便參考 (11 x 17 英吋或 A3 大小)。 若要存取此圖以便列印，請參閱[使用 Batch 和 Data Factory 來進行的 HPC 與資料協調流程](https://go.microsoft.com/fwlink/?LinkId=717686)。
 
-[![大規模資料處理圖表](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![大規模資料處理圖表](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 下列清單提供程序中的基本步驟。 此解決方案包含用來建置端對端解決方案的程式碼和說明。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 85a493e05fb87292f303bccdcef65d119223bc76
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 34648426086bdd67f19ec227ddf0d931f3837c0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698608"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237990"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-update-3-and-later"></a>部署您的內部部署 StorSimple 裝置 (Update 3 和更新版本)
 
@@ -66,7 +66,7 @@ ms.locfileid: "38698608"
 ## <a name="deployment-configuration-checklist"></a>部署設定檢查清單
 在部署裝置之前，您必須收集資訊以設定 StorSimple 裝置上的軟體。 事先備妥這些資訊，可協助簡化在環境中部署 StorSimple 裝置的程序。 下載並使用此檢查清單，以記下您部署裝置時的設定詳細資訊。
 
-* [下載 StorSimple 部署設定檢查清單](http://www.microsoft.com/download/details.aspx?id=49159)
+* [下載 StorSimple 部署設定檢查清單](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>部署必要條件
 下列各節說明 StorSimple 裝置管理員服務與 StorSimple 裝置的設定必要條件。

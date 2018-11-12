@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 03/06/2018
 ms.author: danlep
-ms.openlocfilehash: 7bb49e48f3777304aa6f40cee40e0b7147994201
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 52338cc21e46b544c2abb79cd7094615c837a2e8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345232"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233774"
 ---
 # <a name="set-up-a-windows-rdma-cluster-with-hpc-pack-to-run-mpi-applications"></a>使用 HPC Pack 設定 Windows RDMA 叢集以執行 MPI 應用程式
 使用 [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) \(英文\) 和[支援 RDMA 的 HPC VM 大小](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances)在 Azure 中設定 Windows RDMA 叢集，以執行平行訊息傳遞介面 (MPI) 應用程式。 當您在 HPC Pack 叢集中設定了支援 RDMA 的 Windows Server 型節點時，MPI 應用程式會在 Azure 中透過以遠端直接記憶體存取 (RDMA) 技術為基礎的低延遲、高輸送量網路，有效率地進行通訊。
@@ -51,19 +51,19 @@ Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azu
     從 [Microsoft 下載中心](https://www.microsoft.com/download/details.aspx?id=49922)下載 HPC Pack 安裝套件。 如需 Azure 高載部署準備工作的需求和指示，請參閱[使用 Microsoft HPC Pack 將暴增的工作負載移至 Azure 背景工作執行個體](https://technet.microsoft.com/library/gg481749.aspx)。
 2. **在 Azure 訂用帳戶中設定管理憑證**
    
-    設定憑證以保護前端節點與 Azure 之間的連線。 如需相關選項和程序，請參閱 [為 HPC Pack 設定 Azure 管理憑證的案例](http://technet.microsoft.com/library/gg481759.aspx)。 針對測試部署，HPC Pack 會安裝可快速上傳至您的 Azure 訂用帳戶的預設 Microsoft HPC Azure 管理憑證。
+    設定憑證以保護前端節點與 Azure 之間的連線。 如需相關選項和程序，請參閱 [為 HPC Pack 設定 Azure 管理憑證的案例](https://technet.microsoft.com/library/gg481759.aspx)。 針對測試部署，HPC Pack 會安裝可快速上傳至您的 Azure 訂用帳戶的預設 Microsoft HPC Azure 管理憑證。
 3. **建立新的雲端服務和儲存體帳戶**
    
     使用 Azure 入口網站，建立適用於部署的雲端服務 (傳統) 和儲存體帳戶 (傳統)。 在有提供您想要使用之 H 系列、A8 或 A9 大小的區域中建立這些資源。 請參閱[不同區域的 Azure 產品](https://azure.microsoft.com/regions/services/)。
 
 4. **建立 Azure 節點範本**
    
-    使用 [HPC 叢集管理員] 中的 [建立節點範本精靈]。 如需相關步驟，請參閱「使用 Microsoft HPC Pack 部署 Azure 節點的步驟」中的 [建立 Azure 節點範本](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 。
+    使用 [HPC 叢集管理員] 中的 [建立節點範本精靈]。 如需相關步驟，請參閱「使用 Microsoft HPC Pack 部署 Azure 節點的步驟」中的 [建立 Azure 節點範本](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Templ) 。
    
     為了進行初始測試，建議您在範本中設定手動可用性原則。
 5. **將節點新增至叢集**
    
-    使用 [HPC 叢集管理員] 中的 [新增節點精靈]。 如需詳細資訊，請參閱 [將 Azure 節點新增至 Windows HPC 叢集](http://technet.microsoft.com/library/gg481758.aspx#BKMK_Add)。
+    使用 [HPC 叢集管理員] 中的 [新增節點精靈]。 如需詳細資訊，請參閱 [將 Azure 節點新增至 Windows HPC 叢集](https://technet.microsoft.com/library/gg481758.aspx#BKMK_Add)。
    
     指定節點的大小時，請選取其中一個支援 RDMA 的執行個體大小。
    
@@ -76,7 +76,7 @@ Microsoft HPC Pack 是免費提供的工具，可在內部部署環境中或 Azu
     選取節點，然後使用 [HPC 叢集管理員] 中的 [啟動]  動作。 佈建完成時，請選取節點，然後使用 [HPC 叢集管理員] 中的 [上線]  動作。 節點已備妥而可執行工作。
 7. **將工作提交至叢集**
    
-   使用 HPC Pack 工作提交工具來執行叢集工作。 請參閱 [Microsoft HPC Pack：工作管理](http://technet.microsoft.com/library/jj899585.aspx)。
+   使用 HPC Pack 工作提交工具來執行叢集工作。 請參閱 [Microsoft HPC Pack：工作管理](https://technet.microsoft.com/library/jj899585.aspx)。
 8. **停止 (解除佈建) 節點**
    
    工作執行完成後，請讓節點離線，然後使用 [HPC 叢集管理員] 中的 [停止]  動作。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cafb3ec2da335165a3b66c18d83930008c6d72e5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 3f3b20ac21c0a871d3baad50098700b7cf3b3b9c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782537"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235389"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-microsoft-azure-storage-explorer"></a>使用 Microsoft Azure 儲存體總管將 VHD 檔案上傳到實驗室的儲存體帳戶
 
@@ -35,7 +35,7 @@ ms.locfileid: "33782537"
 
 1. 使用 Azure 入口網站來取得實驗室的儲存體帳戶名稱：
 
-    1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+    1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
     
     1. 選取 [所有服務]，然後從清單中選取 [DevTest Labs]。
     

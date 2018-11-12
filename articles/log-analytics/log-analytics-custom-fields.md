@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 164b071a47c13f7c5586bd287adc41bea54a1198
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37129612"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010582"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics 中的自訂欄位
 Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜尋欄位來擴充 Log Analytics 中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
@@ -46,9 +46,9 @@ Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜�
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>步驟 1 – 識別將會具有自訂欄位的記錄
-第一個步驟是識別會取得自訂欄位的記錄。  一開始您可以先進行 [標準的記錄檔搜尋](log-analytics-log-searches.md) ，然後再選取要做為 Log Analytics 將從中了解之模型的記錄。  當您指定您要將資料擷取到自訂欄位時，便會開啟 [欄位擷取精靈]  供您驗證及精簡準則。
+第一個步驟是識別會取得自訂欄位的記錄。  一開始您可以先進行 [標準的記錄檔搜尋](log-analytics-queries.md) ，然後再選取要做為 Log Analytics 將從中了解之模型的記錄。  當您指定您要將資料擷取到自訂欄位時，便會開啟 [欄位擷取精靈]  供您驗證及精簡準則。
 
-1. 移至 [記錄檔搜尋]  ，然後使用 [查詢來擷取將會具有自訂欄位的記錄](log-analytics-log-searches.md) 。
+1. 移至 [記錄檔搜尋]  ，然後使用 [查詢來擷取將會具有自訂欄位的記錄](log-analytics-queries.md) 。
 2. 選取 Log Analytics 將用來做為模型以擷取資料來填入自訂欄位的記錄。  您會識別您想要從這筆記錄擷取的資料，Log Analytics 會使用這項資訊來判斷要為所有類似記錄填入自訂欄位的邏輯。
 3. 按一下記錄的任何文字屬性左邊的按鈕，然後選取 [擷取欄位來源] 。
 4. [欄位擷取精靈] 會隨即開啟，而您選取的記錄會顯示在 [主要範例] 資料行。  這些記錄的自訂欄位將會以所選屬性中的相同值來定義。  
@@ -140,6 +140,6 @@ Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜�
 ![以查詢分組](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，以使用自訂欄位作為準則來建立查詢。
+* 了解 [記錄搜尋](log-analytics-queries.md) ，以使用自訂欄位作為準則來建立查詢。
 * 監視可利用自訂欄位來剖析的[自訂記錄檔](log-analytics-data-sources-custom-logs.md)。
 

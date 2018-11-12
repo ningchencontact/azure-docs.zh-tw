@@ -2,19 +2,19 @@
 title: 使用 Hive 和 Hadoop 進行網站記錄分析 - Azure HDInsight
 description: 了解如何使用 HDInsight 上的 Hive 來分析網站記錄。 您將使用記錄檔做為 HDInsight 資料表的輸入，然後使用 HiveQL 來查詢資料。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233587"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>使用 Windows 型 HDInsight 上的 Hive 分析網站的記錄
 了解如何使用 HDInsight 上的 HiveQL 來分析網站的記錄。 網站記錄分析可用於根據類似活動來區隔對象、依人口統計將網站造訪者分類，以及找出他們檢視的內容、他們來自的網站等。
@@ -34,7 +34,7 @@ ms.locfileid: "43048019"
 ## <a name="prerequisites"></a>必要條件
 * 您必須已在 Azure HDInsight 上佈建 Hadoop 叢集。 如需指示，請參閱[佈建 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。
 * 您必須已安裝 Microsoft Excel 2013 或 Excel 2010。
-* 您必須有 [Microsoft Hive ODBC 驅動程式](http://www.microsoft.com/download/details.aspx?id=40886) ，才能從 Hive 將資料匯入 Excel 中。
+* 您必須有 [Microsoft Hive ODBC 驅動程式](https://www.microsoft.com/download/details.aspx?id=40886) ，才能從 Hive 將資料匯入 Excel 中。
 
 ## <a name="to-run-the-sample"></a>執行範例
 1. 從 [Azure 入口網站](https://portal.azure.com/)的「開始面板」(若您已在該處釘選叢集)，按一下您要在其中執行範例的叢集磚。

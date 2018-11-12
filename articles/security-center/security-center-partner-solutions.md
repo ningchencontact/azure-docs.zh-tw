@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
 ms.author: terrylan
-ms.openlocfilehash: 3d4c9c79ff90ee816719f0179fbb5096b0035854
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 103e0e353efeaf493fb1d72f03eb6ce6469cd683
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142331"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235661"
 ---
 # <a name="managing-connected-partner-solutions-with-azure-security-center"></a>在 Azure 資訊安全中心管理連線的合作夥伴解決方案
 這篇文章會逐步解說如何管理和監視 Azure 資訊安全中心連線的安全性解決方案。
@@ -65,7 +65,7 @@ ms.locfileid: "42142331"
 * [合作夥伴和解決方案整合](security-center-partner-integration.md) — 取得整合其他安全性解決方案的概觀。
 * [管理與回應安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
-* [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
+* [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
 
 <!--Image references-->
 [1]: ./media/security-center-partner-solutions/partner-solutions-tile.png

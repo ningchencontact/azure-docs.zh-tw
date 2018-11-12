@@ -2,25 +2,28 @@
 title: SQL Database 的 XEvent 信號緩衝區程式碼 | Microsoft Docs
 description: 提供 Transact-SQL 程式碼範例，可在 Azure SQL Database 中輕鬆又快速使用信號緩衝區目標。
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: monitor & tune
+ms.subservice: operations
+ms.custom: ''
+ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: ce5fe97a54b96d410d9f904231ff8ff39914d644
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: ''
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 0da4626943a7223b24baac80121b5da0062c0d73
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649477"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237072"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database 中擴充事件的信號緩衝區目標程式碼
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-您想要完整的程式碼範例以最簡單快速的方式在測試期間擷取和報告擴充事件的資訊。 擴充事件資料最簡單的目標是 [信號緩衝區目標](http://msdn.microsoft.com/library/ff878182.aspx)。
+您想要完整的程式碼範例以最簡單快速的方式在測試期間擷取和報告擴充事件的資訊。 擴充事件資料最簡單的目標是 [信號緩衝區目標](https://msdn.microsoft.com/library/ff878182.aspx)。
 
 本主題提供會執行下列動作的 Transact-SQL 程式碼範例：
 
@@ -38,7 +41,7 @@ ms.locfileid: "34649477"
 7. 卸除信號緩衝區目標以釋放其資源。
 8. 卸除事件工作階段和示範資料表。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 帳戶和訂用帳戶。 您可以註冊 [免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 * 您可以在當中建立資料表的任何資料庫。
@@ -47,8 +50,8 @@ ms.locfileid: "34649477"
 * SQL Server Management Studio (ssms.exe)，最好是最新的每月更新版本。 
   您可以從下列位置下載最新的 ssms.exe：
   
-  * 名稱為 [下載 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)的主題。
-  * [下載的直接連結。](http://go.microsoft.com/fwlink/?linkid=616025)
+  * 名稱為 [下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)的主題。
+  * [下載的直接連結。](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## <a name="code-sample"></a>程式碼範例
 
@@ -350,6 +353,6 @@ Azure SQL Database 上擴充事件的主要主題是：
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

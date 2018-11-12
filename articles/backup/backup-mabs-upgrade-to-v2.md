@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: adigan
-ms.openlocfilehash: a458a46f3775a593f369d5acb967fc90d61efde8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4f1e0c14d3a835b9f6d739511186bdcc19917a7a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628336"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230968"
 ---
 # <a name="install-azure-backup-server-v2"></a>安裝 Azure 備份伺服器 v2
 
@@ -103,7 +103,7 @@ Azure 備份伺服器可協助保護您的虛擬機器 (VM)、工作負載以及
 
   如果您想要新增磁碟，該磁碟必須屬於具有舊式儲存體的保護群組。 您只能將這些磁碟用於這些保護群組。 如果備份伺服器所擁有的來源並沒有舊式保護功能，則磁碟不會列出。
 
-  如需新增磁碟的詳細資訊，請參閱[新增磁碟以增加舊式儲存體](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)。 您不能對磁碟賦予易記名稱。
+  如需新增磁碟的詳細資訊，請參閱[新增磁碟以增加舊式儲存體](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage)。 您不能對磁碟賦予易記名稱。
 
 
 ### <a name="assign-workloads-to-volumes"></a>將工作負載指派給磁碟區
@@ -175,13 +175,13 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 1. 在 System Center 2016 DPM 管理主控台中選取 [保護] 功能。 在 [保護群組成員] 清單中，以滑鼠右鍵按一下成員，然後選取 [停止保護成員]。
 
-  ![停止保護成員](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![停止保護成員](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. 在 [從群組中移除] 對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 選取 [確定] 。
 
   如果您想要立即將已使用的磁碟空間歸還給可用的儲存集區，請選取 [刪除磁碟上的複本] 核取方塊，以刪除與該成員相關聯的備份資料 (與復原點)。
 
-  ![[從群組中移除] 對話方塊](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![[從群組中移除] 對話方塊](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. 建立使用新式備份儲存體的保護群組。 納入未受保護的資料來源。
 
@@ -194,7 +194,7 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 1. 在 System Center 2016 DPM 管理主控台中選取 [管理] > [磁碟儲存體] > [新增]。
 
-  ![[新增磁碟儲存體] 對話方塊](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![[新增磁碟儲存體] 對話方塊](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. 在 [新增磁碟儲存體] 對話方塊中選取 [新增磁碟]。
 

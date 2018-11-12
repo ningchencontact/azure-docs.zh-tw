@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: markgal
-ms.openlocfilehash: d35f8667cb1ca9a0b3abd08450ebc647d6d12276
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7cb87847d6a1e191fb20dfa9cdf263066704eb6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238806"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 備份伺服器來備份系統狀態及還原為裸機
 
@@ -97,15 +97,15 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 ## <a name="before-you-begin"></a>開始之前
 
 1.  **部署 Azure 備份伺服器**。 請確認您是否已正確地部署備份伺服器。 如需詳細資訊，請參閱
-    * [Azure 備份伺服器的系統需求](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [Azure 備份伺服器的系統需求](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [備份伺服器保護對照表](backup-mabs-protection-matrix.md)
 
 2.  **設定儲存體**。 您可以將備份資料儲存在磁碟上、磁帶上以及 Azure 雲端中。 如需詳細資訊，請參閱[準備資料儲存體](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage)。
 
-3.  **設定保護代理程式**。 在您要備份的電腦上安裝保護代理程式。 如需詳細資訊，請參閱[部署 DPM 保護代理程式](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)。
+3.  **設定保護代理程式**。 在您要備份的電腦上安裝保護代理程式。 如需詳細資訊，請參閱[部署 DPM 保護代理程式](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent)。
 
 ## <a name="back-up-system-state-and-bare-metal"></a>備份系統狀態和裸機
-設定保護群組，如[部署保護群組](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)所述。 請注意，您無法針對位於不同群組的同一部電腦保護 BMR 和系統狀態。 此外，當您選取 BMR 時，系統會自動啟用系統狀態。
+設定保護群組，如[部署保護群組](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)所述。 請注意，您無法針對位於不同群組的同一部電腦保護 BMR 和系統狀態。 此外，當您選取 BMR 時，系統會自動啟用系統狀態。
 
 
 1.  若要在備份伺服器管理員主控台中開啟「建立新保護群組」精靈，請選取 [保護] > [動作] > [建立保護群組]。
@@ -114,7 +114,7 @@ Azure 備份伺服器可備份系統狀態及提供裸機復原 (BMR) 保護。
 
 3.  在 [選取群組成員] 頁面上展開電腦，然後選取 [BMR] 或 [系統狀態]。
 
-    請記住，您無法針對位於不同群組的同一部電腦同時保護 BMR 和系統狀態。 此外，當您選取 BMR 時，系統會自動啟用系統狀態。 如需詳細資訊，請參閱[部署保護群組](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)。
+    請記住，您無法針對位於不同群組的同一部電腦同時保護 BMR 和系統狀態。 此外，當您選取 BMR 時，系統會自動啟用系統狀態。 如需詳細資訊，請參閱[部署保護群組](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups)。
 
 4.  在 [選取資料保護方式] 頁面上，選取您要如何處理短期和長期備份。 短期備份一律會先備份到磁碟，並可選擇使用 Azure 備份 (短期或長期) 從磁碟備份至 Azure 雲端。 若要以雲端作為目的地進行長期備份，替代方式為將長期備份的目的地設為獨立磁帶裝置或連線到備份伺服器的磁帶媒體櫃。
 

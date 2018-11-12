@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234199"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>啟用 Azure Active Directory Domain Services 的密碼同步
 在先前工作中，您已啟用 Azure Active Directory (Azure AD) 租用戶的 Azure Active Directory Domain Services。 下一項工作是啟用 NT LAN Manager (NTLM) 和 Kerberos 驗證所需的認證雜湊與 Azure AD Domain Services 的同步。 設定認證同步處理後，使用者即可使用他們的公司認證來登入受控網域。
@@ -50,7 +50,7 @@ ms.locfileid: "50155944"
 ### <a name="install-or-update-azure-ad-connect"></a>安裝或更新 Azure AD Connect
 在已加入網域的電腦上安裝建議的最新 Azure AD Connect 版本。 如果您目前已設定 Azure AD Connect 的執行個體，則必須加以更新才能使用最新版的 Azure AD Connect。 若要避免已知問題/錯誤可能已經修復，請一律使用最新的 Azure AD Connect 版本。
 
-**[下載 Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[下載 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 建議版本：**1.1.614.0** - 已於 2017 年 9 月 5 日發佈。
 

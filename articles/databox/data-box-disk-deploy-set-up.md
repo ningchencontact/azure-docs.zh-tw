@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b3b686815b86e28c0473668825b89736b9af5bf1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740479"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232876"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教學課程：針對 Azure 資料箱磁碟打開包裝、連線然後解除鎖定
 
@@ -75,7 +75,7 @@ ms.locfileid: "50740479"
     在此程序中，您將只使用資料箱磁碟解除鎖定工具。 其他兩個工具會在稍後使用。
 
     > [!div class="nextstepaction"]
-    > [下載適用於 Windows 的資料箱磁碟工具組](http://aka.ms/databoxdisktoolswin)         
+    > [下載適用於 Windows 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolswin)         
 
 3. 在您用來複製資料的相同電腦上將工具組解壓縮。 
 4. 在相同電腦上以系統管理員的身分，開啟 [命令提示字元] 視窗或執行 Windows PowerShell。
@@ -131,7 +131,7 @@ ms.locfileid: "50740479"
 2. 下載對應至 Linux 用戶端的資料箱磁碟工具組。  
 
     > [!div class="nextstepaction"]
-    > [下載適用於 Linux 的資料箱磁碟工具組](http://aka.ms/databoxdisktoolslinux) 
+    > [下載適用於 Linux 的資料箱磁碟工具組](https://aka.ms/databoxdisktoolslinux) 
 
 3. 在您的 Linux 用戶端上開啟終端機。 瀏覽至您下載軟體的資料夾。 變更檔案權限，以便執行這些檔案。 輸入以下命令： 
 

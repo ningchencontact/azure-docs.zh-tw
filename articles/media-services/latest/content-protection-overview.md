@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394255"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238344"
 ---
 # <a name="content-protection-overview"></a>內容保護概觀
 
@@ -59,7 +59,7 @@ ms.locfileid: "49394255"
 
     若要測試 AES 或 CENC (Widevine 和/或 PlayReady) 加密的內容，您可以使用 [Azure 媒體播放器](https://ampdemo.azureedge.net/azuremediaplayer.html) \(英文\)。 務必按一下 [進階選項] 並檢查您的加密選項。
 
-    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](http://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇正確的瀏覽器以測試不同的 DRM：Chrome/Opera/Firefox 適用於 Widevine、MS Edge/IE11 適用於 PlayReady、macOS 上的 Safari 適用於 FairPlay。
+    如果您想要測試 FairPlay 加密內容，請使用[此測試播放程式](https://aka.ms/amtest)。 該播放程式支援 Widevine、PlayReady 及 FairPlay DRM，以及 AES-128 清除金鑰加密。 您必須選擇正確的瀏覽器以測試不同的 DRM：Chrome/Opera/Firefox 適用於 Widevine、MS Edge/IE11 適用於 PlayReady、macOS 上的 Safari 適用於 FairPlay。
 
 3. 安全性權杖服務 (STS) 會發出 JSON Web 權杖 (JWT) 作為後端資源存取的存取權杖。 您可以使用 AMS 授權傳遞服務作為後端資源。 STS 必須定義以下項目：
 
@@ -168,8 +168,8 @@ ms.locfileid: "49394255"
 1. 用於生產時，您需要有 Security Token Service (STS) (Web 服務)，才能根據 HTTPS 要求發出 JWT 權杖。 用於測試時，您可以使用 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs) 中定義的 **GetTokenAsync** 方法所示的程式碼。
 2. 播放器必須在使用者經過驗證之後，向 STS 提出此類權杖的要求，並將它指派為權杖的值。 您可以使用 [Azure 媒體播放器 API](https://amp.azure.net/libs/amp/latest/docs/)。
 
-* 如需執行 STS (使用對稱和非對稱金鑰) 的範例，請參閱 [http://aka.ms/jwt](http://aka.ms/jwt)。 
-* 如需以使用這類 JWT 權杖的 Azure 媒體播放器為基礎的播放器範例，請參閱 [http://aka.ms/amtest](http://aka.ms/amtest) (展開 "player_settings" 連結以查看權杖輸入)。
+* 如需執行 STS (使用對稱和非對稱金鑰) 的範例，請參閱 [http://aka.ms/jwt](https://aka.ms/jwt)。 
+* 如需以使用這類 JWT 權杖的 Azure 媒體播放器為基礎的播放器範例，請參閱 [http://aka.ms/amtest](https://aka.ms/amtest) (展開 "player_settings" 連結以查看權杖輸入)。
 
 ### <a name="question"></a>問題
 

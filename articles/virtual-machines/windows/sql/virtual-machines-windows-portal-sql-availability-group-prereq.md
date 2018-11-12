@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: d75bb780a17653aaacbc74413fb4240a8052a983
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371480"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253069"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>完成在 Azure 虛擬機器上建立 Always On 可用性群組的必要條件
 
@@ -35,7 +35,7 @@ ms.locfileid: "43371480"
 
 ## <a name="review-availability-group-documentation"></a>檢閱可用性群組文件
 
-本教學課程假設您對 SQL Server Always On 可用性群組有基本的了解。 如果您不熟悉這項技術，請參閱 [Always On 可用性群組概觀 (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)。
+本教學課程假設您對 SQL Server Always On 可用性群組有基本的了解。 如果您不熟悉這項技術，請參閱 [Always On 可用性群組概觀 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)。
 
 
 ## <a name="create-an-azure-account"></a>建立 Azure 帳戶
@@ -349,7 +349,7 @@ Azure 會建立虛擬機器。
 
 ## <a name="create-sql-server-vms"></a>建立 SQL Server VM
 
-建立第三部額外的虛擬機器。 此解決方案需要兩個有 SQL Server 執行個體的虛擬機器。 第三虛擬機器的功能為見證。 Windows Server 2016 會使用[雲端見證](http://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)，但為了與舊版作業系統一致，本文件使用虛擬機器作為見證。  
+建立第三部額外的虛擬機器。 此解決方案需要兩個有 SQL Server 執行個體的虛擬機器。 第三虛擬機器的功能為見證。 Windows Server 2016 會使用[雲端見證](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)，但為了與舊版作業系統一致，本文件使用虛擬機器作為見證。  
 
 繼續之前，請先考慮下列設計決策。
 

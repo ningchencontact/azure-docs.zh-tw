@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452321"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249892"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的儲存體容量 
 
@@ -138,7 +138,7 @@ VM 磁碟包含作業系統磁碟，並由租用戶新增至容器。 VM 也可�
 > 容器的 blob 移轉是需要使用 PowerShell 的離線作業。 在移轉完成前，您正在移轉之容器的所有 blob 會保持離線狀態且無法使用。 您也應該避免在所有進行中的移轉完成之前升級 Azure Stack。
 
 #### <a name="to-migrate-containers-using-powershell"></a>使用 PowerShell 來移轉容器
-1. 確認您[已安裝並設定 Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需詳細資訊，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](http://go.microsoft.com/fwlink/?LinkId=394767)。
+1. 確認您[已安裝並設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)。 如需詳細資訊，請參閱 [將 Azure PowerShell 與 Azure 資源管理員搭配使用](https://go.microsoft.com/fwlink/?LinkId=394767)。
 2.  檢查容器以了解您打算移轉的共用上有哪些資料。 若要識別可在磁碟區中移轉的最佳候選容器，請使用 **Get-AzsStorageContainer** Cmdlet：
 
     ````PowerShell  

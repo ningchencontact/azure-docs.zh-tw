@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
-ms.openlocfilehash: 5a622eb5ae14a6c6b0c2dd4eceb6ffdb9733dcff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f093251ce3c711cc060369abb27770157024d91
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681531"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238687"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>在 Government 入口網站中部署您的內部部署 StorSimple 裝置
 
@@ -67,7 +67,7 @@ ms.locfileid: "38681531"
 ## <a name="deployment-configuration-checklist"></a>部署設定檢查清單
 在部署 StorSimple 裝置之前，您必須收集資訊以設定您裝置上的軟體。 事先備妥部分的這些資訊可協助簡化在環境中部署 StorSimple 裝置的程序。 下載並使用此檢查清單，以記下您部署裝置時的設定詳細資訊。
 
-[下載 StorSimple 部署設定檢查清單](http://www.microsoft.com/download/details.aspx?id=49159)
+[下載 StorSimple 部署設定檢查清單](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## <a name="deployment-prerequisites"></a>部署必要條件
 下列各節說明 StorSimple 裝置管理員服務與 StorSimple 裝置的設定必要條件。

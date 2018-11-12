@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408705"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233791"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -86,7 +86,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 - - -
 **問︰Azure AD 是否可為組織中的使用者提供自助入口網站？**
 
-**答：** 是，Azure AD 可提供您 [Azure AD 存取面板](http://myapps.microsoft.com) ，以供使用者進行自助服務和應用程式存取。 如果您是 Office 365 客戶，您可以在 Office 365 入口網站中找到許多相同的功能。
+**答：** 是，Azure AD 可提供您 [Azure AD 存取面板](https://myapps.microsoft.com) ，以供使用者進行自助服務和應用程式存取。 如果您是 Office 365 客戶，您可以在 Office 365 入口網站中找到許多相同的功能。
 
 如需詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 

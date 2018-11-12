@@ -9,12 +9,12 @@ ms.date: 04/27/2018
 ms.author: mbullwin
 ms.reviewer: antonfr
 ms.component: alerts
-ms.openlocfilehash: 01f924e0b3a2976a3f537cb5acac842eeeaccb4b
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263308"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233961"
 ---
 # <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>在 Azure 監視器中具有動態閾值的警示 (有限的公開預覽)
 
@@ -30,7 +30,7 @@ ms.locfileid: "35263308"
 
 ## <a name="sign-up-to-access-the-preview"></a>登入以存取預覽
 
-若要試用這項功能，請[註冊預覽](http://aka.ms/DynamicThresholdMetricAlerts)。 一如既往，我們很希望聽聽您的意見反應，來信請寄：[azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+若要試用這項功能，請[註冊預覽](https://aka.ms/DynamicThresholdMetricAlerts)。 一如既往，我們很希望聽聽您的意見反應，來信請寄：[azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
 ## <a name="how-to-configure-alerts-with-dynamic-thresholds"></a>如何設定具有動態閾值的警示
 

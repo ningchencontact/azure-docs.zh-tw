@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d12ca26fb2aa5abddcf44b2e634b2f08b1fb01b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: deb98c2c633200ab4be1d763a94fd2a04979a3b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235695"
 ---
 # <a name="add-an-internal-support-statement-to-a-lab-in-azure-devtest-labs"></a>將內部支援陳述式新增到 Azure DevTest Labs 中的實驗室
 
@@ -31,7 +31,7 @@ Azure DevTest Labs 可讓您使用為使用者提供實驗室相關支援資訊�
 
 ## <a name="steps-to-add-a-support-statement-to-an-existing-lab"></a>將支援陳述式新增到現有實驗室的步驟
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 視需要選取 [所有服務]，然後從清單中選取 [DevTest Labs]。 (您的實驗室可能已顯示在 [所有資源] 下方的儀表板上)。
 1. 從實驗室清單中，選取您想要在其中新增支援陳述式的實驗室。  
 1. 在實驗室的 [概觀] 區域中選取 [組態和原則]。  
@@ -55,7 +55,7 @@ Azure DevTest Labs 可讓您使用為使用者提供實驗室相關支援資訊�
 
 ## <a name="steps-for-users-to-view-the-support-message"></a>讓使用者檢視支援訊息的步驟
 
-1. 從 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)選取一個實驗室。
+1. 從 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)選取一個實驗室。
 
 1. 在實驗室的 [概觀] 區域上，選取 [內部支援]。  
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d193cfcd03eb4e686ba829e121fbf77e2e0c18a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233009"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>在 Marketplace 上拓展業務 
 您在 AppSource 或 Azure Marketplace 上發行供應項目之後，可以使用您的清單作為 Microsoft 聯合 Go-To-Market (GTM) 活動跳板。 推動您的 Marketplace 供應項目流量並與 Marketplace 潛在客戶加強關係，都是加速業務成長的絕佳範例方式。 
@@ -229,7 +229,7 @@ MPN 提供有關下列項目的指導方針：
 
 | 優點 | 資源 |
 |:--- |:--- |
-| 使用您的核心權益 | 加入 Microsoft 合作夥伴網路，您就會收到一組核心權益，幫助您節省時間和金錢。 這些權益也可以幫助您增強能力、為客戶提供更好的服務，以及建立關係來完全發揮您的業務潛力。<br>如需核心權益的詳細資訊，請參閱[核心權益與要求條件](http://partner.microsoft.com/membership/core-benefits)。 |
+| 使用您的核心權益 | 加入 Microsoft 合作夥伴網路，您就會收到一組核心權益，幫助您節省時間和金錢。 這些權益也可以幫助您增強能力、為客戶提供更好的服務，以及建立關係來完全發揮您的業務潛力。<br>如需核心權益的詳細資訊，請參閱[核心權益與要求條件](https://partner.microsoft.com/membership/core-benefits)。 |
 | 獲得雲端平台專長認證 | 獲得專長認證有助於讓您從 Microsoft 合作夥伴中脫穎而出。 獲得專長認證也可協助您在市場中展現技術專業能力和客戶成功案例。 專長認證是許多重要合作夥伴方案 (例如「共同銷售」) 的必要條件。<br> 如需雲端平台專長認證的詳細資訊，請瀏覽[雲端平台專長認證](https://partner.microsoft.com/membership/cloud-platform-competency)。 |
 | IP 共同銷售準備就緒 | 您可能符合「IP 共同銷售準備就緒」計劃的資格，此計劃可讓您與 Microsoft 銷售人員及其他合作夥伴直接合作，爭取目標客戶商機和進行帳戶規劃。 Microsoft 銷售人員會在銷售人員解決方案目錄中看見您的解決方案。 與您合作並贏得交易的 Microsoft 銷售人員會獲得獎勵。<br> 如需有關「共同銷售準備就緒」計劃的詳細資訊 (包括資格需求)，請瀏覽[推廣您的業務](https://partner.microsoft.com/reach-customers/promote-your-business)。 |
 

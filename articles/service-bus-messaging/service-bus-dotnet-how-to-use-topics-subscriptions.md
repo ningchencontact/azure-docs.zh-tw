@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: spelluru
-ms.openlocfilehash: c53e0c16f6b1fd8a79f864651f5aae97af886b96
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d48d658883324637e1026ac00312ade86ccc1400
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699595"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230575"
 ---
 # <a name="get-started-with-service-bus-topics"></a>開始使用服務匯流排主題
 
@@ -35,7 +35,7 @@ ms.locfileid: "43699595"
 
 ## <a name="prerequisites"></a>必要條件
 
-1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](http://www.visualstudio.com/vs) 或更新版本。
+1. [Visual Studio 2017 Update 3 (版本 15.3, 26730.01)](https://www.visualstudio.com/vs) 或更新版本。
 2. [.NET Core SDK](https://www.microsoft.com/net/download/windows)，2.0 版或更新版本。
 2. Azure 訂用帳戶。
 

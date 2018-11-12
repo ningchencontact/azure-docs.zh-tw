@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0fe3116934ac4ab9b1e3fd3b5efcd6627df0ed3d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 072fa8978bd4f08494191708d9a71c6c112a0629
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046924"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252048"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Power BI 工作區集合的新功能
 
@@ -72,5 +72,5 @@ ms.locfileid: "43046924"
 * 已針對所有 **v1.0** API 呼叫，更新範例應用程式。
 * 適用於 Azure SDK、PowerShell 和 CLI 的 Power BI 工作區集合支援。
 * 使用者可以將視覺效果資料匯出到 **.csv**。
-* Power BI 工作區集合現在受到與 Microsoft Azure 相同的所有語言/地區設定的支援。 若要深入了解，請參閱 [Azure - 語言](http://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
+* Power BI 工作區集合現在受到與 Microsoft Azure 相同的所有語言/地區設定的支援。 若要深入了解，請參閱 [Azure - 語言](https://social.technet.microsoft.com/wiki/contents/articles/4234.windows-azure-extent-of-localization.aspx)。
 

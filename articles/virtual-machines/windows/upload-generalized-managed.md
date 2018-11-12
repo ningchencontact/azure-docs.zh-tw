@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 22e28e208d46a23a2dd7e36e1c3ba4be13be928a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091943"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234607"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>將一般化 VHD 上傳，並使用它在 Azure 中建立新的 VM
 
@@ -47,9 +47,9 @@ Sysprep 會移除您的所有個人帳戶資訊以及其他項目，並準備電
 > 
 
 1. 登入 Windows 虛擬機器。
-2. 以系統管理員身分開啟 [命令提示字元] 視窗。 切換至 %windir%\system32\sysprep 目錄，然後執行 `sysprep.exe`。
+2. 以系統管理員身分開啟 [命令提示字元] 視窗。 將目錄變更到 %windir%\system32\sysprep，然後執行 `sysprep.exe`。
 3. 在 [系統準備工具] 對話方塊中，選取 [進入系統全新體驗 (OOBE)]，並確認已啟用 [一般化] 核取方塊。
-4. 針對 [關機選項] 選取 [關機]。
+4. 針對 [關機選項]，選取 [關機]。
 5. 選取 [確定] 。
    
     ![啟動 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
@@ -100,7 +100,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
  
 您也可以使用下列其中一種方法將 VHD 上傳至儲存體帳戶：
 
-- [AzCopy](http://aka.ms/downloadazcopy)
+- [AzCopy](https://aka.ms/downloadazcopy)
 - [Azure 儲存體複製 Blob API](https://msdn.microsoft.com/library/azure/dd894037.aspx)
 - [Azure 儲存體總管上傳 Blob](https://azurestorageexplorer.codeplex.com/)
 - [儲存體匯入/匯出服務 REST API 參考](https://msdn.microsoft.com/library/dn529096.aspx)

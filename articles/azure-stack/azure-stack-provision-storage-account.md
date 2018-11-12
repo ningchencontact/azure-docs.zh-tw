@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235338"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Azure Stack 中的儲存體帳戶
 儲存體帳戶包含 Blob 與資料表服務，且儲存體資料物件的命名空間不得重複。 根據預設，您帳戶中的資料只有身為儲存體帳戶擁有者的您可以使用。
@@ -34,8 +34,8 @@ ms.locfileid: "44713488"
     ![](media/azure-stack-provision-storage-account/image03.png)
 
 ### <a name="next-steps"></a>後續步驟
-[使用 Azure Resource Manager 範本](user/azure-stack-arm-templates.md)
+[使用 Azure 資源管理員範本](user/azure-stack-arm-templates.md)
 
 [深入了解 Azure 儲存體帳戶](../storage/common/storage-create-storage-account.md)
 
-[下載 Azure Stack 與 Azure 一致的儲存體驗證指南](http://aka.ms/azurestacktp1doc) \(英文\)
+[下載 Azure Stack 與 Azure 一致的儲存體驗證指南](https://aka.ms/azurestacktp1doc) \(英文\)

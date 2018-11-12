@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 819af52bb10c9ffcb7e1133437f6d0afbe6105ae
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fa38d0ef3d00bf5fdb886703cd882ec5ba552b95
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26629681"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234029"
 ---
 # <a name="hybrid-connections-overview"></a>混合式連線概觀
 
@@ -94,7 +94,7 @@ ms.locfileid: "26629681"
 [Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>另請參閱
-[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[用於管理 Microsoft Azure 上之 BizTalk 服務的 REST API](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [BizTalk 服務：版本圖表](biztalk-editions-feature-chart.md)  
 [建立 BizTalk 服務](biztalk-provision-services.md)  
 [BizTalk 服務：儀表板、監視和調整索引標籤](biztalk-dashboard-monitor-scale-tabs.md)  

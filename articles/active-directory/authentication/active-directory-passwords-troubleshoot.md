@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 044a3bae75cb385e7a3542b920e0cb3b5bcedcd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321785"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233621"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>針對自助式密碼重設進行疑難排解
 
@@ -99,7 +99,7 @@ ms.locfileid: "49321785"
 | 代碼 | 名稱或訊息 | 說明 |
 | --- | --- | --- |
 | 6329 | BAIL: MMS(4924) 0x80230619：「有一項限制讓密碼無法變更為目前指定的密碼。」 | 當「密碼回寫」服務嘗試在本機目錄上設定不符合密碼有效期、歷程記錄、複雜度或網域篩選需求的密碼時，就會發生此事件。 <br> <br> 如果您有最短的密碼使用期限，且最近在該時段內變更過密碼，就必須在到達網域中指定的使用期限後，才能再次變更密碼。 若要進行測試，最短使用期限應該設定為 0。 <br> <br> 如果已啟用密碼歷程記錄需求，則必須選取最近 N 次未用過的密碼，其中 N 是密碼歷程記錄設定。 如果您選取最近 N 次用過的密碼，則會在此案例中看到失敗。 若要進行測試，密碼歷程記錄應該設定為 0。 <br> <br> 如果您有密碼複雜度需求，則會在使用者嘗試變更或重設密碼時強制執行這些需求。 <br> <br> 如果您啟用密碼篩選功能，當使用者選取的密碼不符合篩選準則時，重設或變更作業就會失敗。 |
-| 6329 | MMS(3040): admaexport.cpp(2837): 伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這麼做，DC 必須是 Windows Server 2008 (含最新的 SP) 或更新版本。 如果您的 DC 是 2008 (R2 之前) 版，則也必須套用 [Hotfix KB2386717](http://support.microsoft.com/kb/2386717)。 |
+| 6329 | MMS(3040): admaexport.cpp(2837): 伺服器未包含 LDAP 密碼原則控制項。 | 如果未在 DC 上啟用 LDAP_SERVER_POLICY_HINTS_OID 控制項 (1.2.840.113556.1.4.2066)，就會發生此問題。 若要使用密碼回寫功能，您必須啟用該控制項。 若要這麼做，DC 必須是 Windows Server 2008 (含最新的 SP) 或更新版本。 如果您的 DC 是 2008 (R2 之前) 版，則也必須套用 [Hotfix KB2386717](https://support.microsoft.com/kb/2386717)。 |
 | HR 8023042 | 同步處理引擎傳回的錯誤 hr= 80230402，訊息=嘗試取得物件失敗，因為存在具有相同錨點的重複項目。 | 在多個網域中啟用相同的使用者識別碼時，就會發生此錯誤。 例如，如果您在同步處理的帳戶和資源樹系中皆存在相同的使用者識別碼，且在每個樹系中皆為啟用時。 <br> <br> 如果您使用非唯一的錨點屬性 (例如別名或 UPN)，而且兩個使用者共用該相同的錨點屬性時，也會發生此錯誤。 <br> <br> 若要解決這個問題，請確定您的網域內沒有重複的使用者，且每個使用者皆使用唯一的錨點屬性。 |
 
 ### <a name="if-the-source-of-the-event-is-passwordresetservice"></a>如果事件來源為 PasswordResetService
@@ -215,7 +215,7 @@ ms.locfileid: "49321785"
 > 如果您已自訂現成可用的同步處理規則，先備份這些規則，然後再繼續進行升級，並於完成後以手動方式重新部署這些規則。
 >
 
-1. 從 [Microsoft 下載中心](http://go.microsoft.com/fwlink/?LinkId=615771)下載最新版的 Azure AD Connect。
+1. 從 [Microsoft 下載中心](https://go.microsoft.com/fwlink/?LinkId=615771)下載最新版的 Azure AD Connect。
 1. 由於您已安裝 Azure AD Connect，需要執行就地升級，即可將 Azure AD Connect 安裝更新為最新版。
 1. 執行下載的封裝，並遵循螢幕上的指示來更新您的 Azure AD Connect 電腦。
 

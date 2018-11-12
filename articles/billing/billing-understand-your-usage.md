@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 723e42d2bb2af09eb2236c3cbefeee33987ea45b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060795"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230456"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>了解您 Microsoft Azure 詳細使用量費用的相關字詞 
 
@@ -77,7 +77,7 @@ CSV 檔案的 [每日使用量] 區段會顯示影響收費率的使用量詳細
 |已耗用的服務 |您所使用的 Azure 平台服務 |
 |資源群組 |部署的資源正在其中執行的計量群組。 <br/><br/>如需詳細資訊，請參閱 [Azure Resource Manager 概觀](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。 |
 |執行個體識別碼 | 計量的識別碼。 <br/><br/> 識別碼包含在建立時為計量指定的名稱。 這會是資源的名稱或完整的資源 ID。 如需詳細資訊，請參閱 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources)。 |
-|標記 | 您指派給計量的標記。 使用標記為帳單記錄分組。<br/><br/>例如，您可以使用標記，根據使用計量的部門散發成本。 支援發出標記的服務為虛擬機器、儲存體，以及使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) 佈建的網路服務。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。 |
+|標記 | 您指派給計量的標記。 使用標記為帳單記錄分組。<br/><br/>例如，您可以使用標記，根據使用計量的部門散發成本。 支援發出標記的服務為虛擬機器、儲存體，以及使用 [Azure Resource Manager API](https://docs.microsoft.com/rest/api/resources/resources) 佈建的網路服務。 如需詳細資訊，請參閱[使用標記組織您的 Azure 資源](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/)。 |
 |其他資訊 |服務專屬的中繼資料。 例如，虛擬機器的影像類型。 |
 |服務資訊 1 |服務在訂用帳戶上所屬的專案名稱 |
 |服務資訊 2 |舊版欄位，可擷取選擇性的服務特定中繼資料 |

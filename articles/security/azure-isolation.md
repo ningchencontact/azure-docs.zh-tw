@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239044"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -111,7 +111,7 @@ Azure Active Directory 的一些其他功能包括：
 - [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 所提供的高可用性全域身分識別管理服務，可用於處理數億個身分識別的消費者端應用程式。 此服務可跨行動及 Web 平台進行整合。 透過可自訂的體驗，讓您的消費者可以使用其現有的社交帳戶或建立認證，來登入您所有的應用程式。
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>從 Microsoft 管理員及資料刪除中隔離
-Microsoft 採取強固的措施來保護您的資料，以免受到未經授權之使用者的不當存取或使用。 這些作業程序和控制都受到 [Online Services 條款 (英文)](http://aka.ms/Online-Services-Terms) 所支援，這類條款會提供管理資料存取的契約承諾。
+Microsoft 採取強固的措施來保護您的資料，以免受到未經授權之使用者的不當存取或使用。 這些作業程序和控制都受到 [Online Services 條款 (英文)](https://aka.ms/Online-Services-Terms) 所支援，這類條款會提供管理資料存取的契約承諾。
 
 -   Microsoft 工程師對於您在雲端中的資料預設並無存取權。 而是只有在必要時，才會在有管理監督的情況下授與他們權限。 該存取權會受到仔細的控制及記錄，並於不再需要時撤銷。
 
@@ -119,7 +119,7 @@ Microsoft 採取強固的措施來保護您的資料，以免受到未經授權�
 
 Microsoft 與公認的稽核公司只會基於合法商業用途，定期驗證具有已經過審核之認證的商業服務 (例如 ISO/IEC 27001)，它們會執行範例稽核來證明該存取權。 您一律可基於任何原因，隨時存取您自己的客戶資料。
 
-如果您刪除任何資料，Microsoft Azure 即會刪除該資料，包括任何快取或備份的複本。 針對範圍內的服務，將在保留期間結束後 90 天內執行該項刪除 (範圍內的服務定義於 [Online Services 條款 (英文)](http://aka.ms/Online-Services-Terms) 的＜資料處理條款＞一節中)。
+如果您刪除任何資料，Microsoft Azure 即會刪除該資料，包括任何快取或備份的複本。 針對範圍內的服務，將在保留期間結束後 90 天內執行該項刪除 (範圍內的服務定義於 [Online Services 條款 (英文)](https://aka.ms/Online-Services-Terms) 的＜資料處理條款＞一節中)。
 
 如果用於儲存的磁碟機發生硬體故障，在 Microsoft 將它送回給製造商進行替換或修復之前，會先安全地[清除或終結 (英文)](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) 它。 磁碟機上的資料會加以覆寫，以確保無法透過任何方式復原資料。
 

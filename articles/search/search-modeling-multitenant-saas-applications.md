@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364269"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232370"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
 
 ## <a name="azure-search-concepts"></a>Azure 搜尋服務概念
-「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為資訊擷取專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](http://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
+「Azure 搜尋服務」是一個搜尋即服務解決方案，可讓開發人員不需管理任何基礎結構或成為資訊擷取專家，就能夠將豐富的搜尋體驗新增到應用程式中。 資料會上傳至服務，然後儲存在雲端。 使用對「Azure 搜尋服務」API 的簡單要求，接著便可修改及搜尋資料。 如需此服務的概觀，請參閱 [這篇文章](https://aka.ms/whatisazsearch)。 在討論設計模式之前，請務必了解「Azure 搜尋服務」的一些概念。
 
 ### <a name="search-services-indexes-fields-and-documents"></a>搜尋服務、索引、欄位及文件
 使用「Azure 搜尋服務」時，使用者需訂閱「搜尋服務」 。 由於資料是上傳到「Azure 搜尋服務」，因此它會儲存在該搜尋服務內的「索引」  中。 單一服務內可能會有好幾個索引。 若要使用熟悉的資料庫概念，搜尋服務可以比喻為資料庫，而服務內的索引則可比喻為資料庫內的資料表。
@@ -69,8 +69,7 @@ S3 HD 會以使用資料分割相應放大索引的能力換取在單一服務�
 在多租用戶案例的情況中，應用程式開發人員會使用一或多個搜尋服務，然後將其租用戶劃分到服務、索引或兩者。 建立多租用戶案例模型時，「Azure 搜尋服務」有幾個常見的模式︰
 
 1. *每個租用戶都使用專屬索引︰* 每個租用戶在與其他租用戶共用的搜尋服務內都有自己的索引。
-2. 
-  *每個租用戶都使用專屬服務︰* 每個租用戶都有自己的專用「Azure 搜尋服務」服務，可提供最高層級的資料和工作負載分隔。
+2. *每個租用戶都使用專屬服務︰* 每個租用戶都有自己的專用「Azure 搜尋服務」服務，可提供最高層級的資料和工作負載分隔。
 3. *兩者混合︰* 針對較大且較活躍的租用戶會指派專用服務，而針對較小的租用戶則會在共用服務內指派個別的索引。
 
 ## <a name="1-index-per-tenant"></a>1.每個租用戶都使用專屬索引
@@ -127,7 +126,7 @@ S3 HD 會以使用資料分割相應放大索引的能力換取在單一服務�
 > 
 
 ## <a name="next-steps"></a>後續步驟
-「Azure 搜尋服務」對許多應用程式而言是相當具吸引力的選擇，請 [深入了解此服務的強大功能](http://aka.ms/whatisazsearch)。 評估多租用戶應用程式的各種設計模式時，請考量[各種定價層](https://azure.microsoft.com/pricing/details/search/)和個別的[服務限制](search-limits-quotas-capacity.md)，以便量身打造「Azure 搜尋服務」來配合各種規模的應用程式工作負載和架構。
+「Azure 搜尋服務」對許多應用程式而言是相當具吸引力的選擇，請 [深入了解此服務的強大功能](https://aka.ms/whatisazsearch)。 評估多租用戶應用程式的各種設計模式時，請考量[各種定價層](https://azure.microsoft.com/pricing/details/search/)和個別的[服務限制](search-limits-quotas-capacity.md)，以便量身打造「Azure 搜尋服務」來配合各種規模的應用程式工作負載和架構。
 
 如果您有任何關於「Azure 搜尋服務」和多租用戶案例的問題，都可以寄送郵件給 azuresearch_contact@microsoft.com。
 

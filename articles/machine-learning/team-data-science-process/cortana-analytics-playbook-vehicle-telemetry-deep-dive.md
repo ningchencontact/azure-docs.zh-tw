@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: 991e4b86a1d3e75c02e5ed8fe97727c625f174a4
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055470"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234760"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>車輛遙測分析方案腳本：深入探索方案
 此功能表會連結至此腳本的章節： 
@@ -123,7 +123,7 @@ ms.locfileid: "37055470"
 
 
 ### <a name="batch-analysis"></a>批次分析
-我們也會產生另一批模擬車輛訊號和診斷資料集，以進行更多樣的批次分析。 此額外數量是為了確保有良好的代表性資料量可供批次處理。 基於此目的，在 Data Factory 工作流程中使用 PrepareSampleDataPipeline，以產生一年份的模擬車輛訊號和診斷資料集。 若要下載 Data Factory 自訂 .NET 活動 Visual Studio 方案，以根據您的需求來自訂，請移至 [Data Factory 自訂活動](http://go.microsoft.com/fwlink/?LinkId=717077)網頁。 
+我們也會產生另一批模擬車輛訊號和診斷資料集，以進行更多樣的批次分析。 此額外數量是為了確保有良好的代表性資料量可供批次處理。 基於此目的，在 Data Factory 工作流程中使用 PrepareSampleDataPipeline，以產生一年份的模擬車輛訊號和診斷資料集。 若要下載 Data Factory 自訂 .NET 活動 Visual Studio 方案，以根據您的需求來自訂，請移至 [Data Factory 自訂活動](https://go.microsoft.com/fwlink/?LinkId=717077)網頁。 
 
 此工作流程會顯示為批次處理所準備的範例資料。
 
@@ -674,4 +674,4 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 * [適用於串流擷取的 Azure 事件中樞 SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory 資料移動功能](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 活動](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [用於準備範例資料的 Azure Data Factory .NET 活動 Visual Studio 方案](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [用於準備範例資料的 Azure Data Factory .NET 活動 Visual Studio 方案](https://go.microsoft.com/fwlink/?LinkId=717077) 

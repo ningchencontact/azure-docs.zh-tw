@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302102"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249348"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>安全框架︰組態管理 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -75,7 +75,7 @@ Example: var str="alert(1)"; eval(str);
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [XSS 防護篩選器](https://www.owasp.org/index.php/List_of_useful_HTTP_headers#X-XSS-Protection) |
-| **步驟** | <p>X-XSS-Protection 回應標頭設定可控制瀏覽器的跨網站指令碼篩選器。 此回應標頭可以有下列值︰</p><ul><li>`0:` 這會停用篩選器</li><li>`1: Filter enabled` 如果偵測到跨網站指令碼攻擊，為了停止攻擊，瀏覽器將會淨化頁面</li><li>`1: mode=block : Filter enabled`。 偵測到 XSS 攻擊時，瀏覽器不會呈現網頁呈現，而非淨化頁面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled`。 瀏覽器將會淨化頁面並報告違規情形。</li></ul><p>這是一項 Chromium 功能，其利用 CSP 違規報告將詳細資料傳送至您所選的 URI。 最後 2 個選項會被視為安全值。</p>|
+| **步驟** | <p>X-XSS-Protection 回應標頭設定可控制瀏覽器的跨網站指令碼篩選器。 此回應標頭可以有下列值︰</p><ul><li>`0:` 這會停用篩選器</li><li>`1: Filter enabled` 如果偵測到跨網站指令碼攻擊，為了停止攻擊，瀏覽器將會淨化頁面</li><li>`1: mode=block : Filter enabled` 。 偵測到 XSS 攻擊時，瀏覽器不會呈現網頁呈現，而非淨化頁面</li><li>`1: report=http://[YOURDOMAIN]/your_report_URI : Filter enabled` 。 瀏覽器將會淨化頁面並報告違規情形。</li></ul><p>這是一項 Chromium 功能，其利用 CSP 違規報告將詳細資料傳送至您所選的 URI。 最後 2 個選項會被視為安全值。</p>|
 
 ## <a id="trace-deploy"></a>ASP.NET 應用程式必須在部署前停用追蹤和偵錯
 
@@ -210,7 +210,7 @@ HttpContext.Response.AppendHeader("Access-Control-Allow-Origin", "http://example
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [IE8 Security Part V：完善的保護](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)、[MIME 類型](http://en.wikipedia.org/wiki/Mime_type) |
+| **參考**              | [IE8 Security Part V：完善的保護](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx)、[MIME 類型](http://en.wikipedia.org/wiki/Mime_type) |
 | **步驟** | X-Content-Type-Options 標頭是可讓開發人員指定不應對其內容探查 MIME 的 HTTP 標頭。 此標頭是設計用來降低 MIME 探查攻擊的風險。 對於可能包含使用者可控制內容的每個頁面，您必須使用 HTTP 標頭 Header X-Content-Type-Options:nosniff。 若要為應用程式中的所有頁面全域啟用必要標頭，您可以執行下列其中一項︰|
 
 ### <a name="example"></a>範例

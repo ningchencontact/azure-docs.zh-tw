@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b1d0a7476cff2be00aa44bb8b859261099298d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236682"
 ---
 # <a name="create-a-microsoft-developer-account"></a>建立 Microsoft 開發人員帳戶
 本文將逐步引導您完成要成為 Azure Marketplace 核准的 Microsoft 開發人員所必須執行的帳戶建立和註冊程序。
@@ -98,7 +98,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
     ![繪圖](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_04.png)
 
    > [!WARNING]
-   > **「銷售來源」國家/地區：** 如果要在 Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需詳細資訊，請參閱 [Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)。
+   > **「銷售來源」國家/地區：** 如果要在 Azure Marketplace 上銷售服務，您的註冊實體必須是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需詳細資訊，請參閱 [Marketplace 參與原則](https://go.microsoft.com/fwlink/?LinkID=526833)。
    >
    >
 5. 在 [帳戶類型] 選取 [公司]，然後按一下 [下一步] 按鈕。
@@ -127,7 +127,7 @@ Microsoft 開發人員中心用於註冊一次公司資訊。 註冊者必須是
 9. 輸入您的付款資訊以支付您的帳戶。 如果您有涵蓋註冊成本的促銷代碼，您可以在此處輸入。 否則，請提供您的信用卡資訊 (或受支援市場的 PayPal)。 當您完成時，按一下 [下一步] 以移至 [檢閱] 畫面。
 
     ![繪圖](media/marketplace-publishing-accounts-creation-registration/imgRegisterCo_09.png)
-10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受[Microsoft Azure Marketplace 發佈者合約](http://go.microsoft.com/fwlink/?LinkID=699560)的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
+10. 檢閱您的帳戶資訊，並確認所有項目都正確。 然後，閱讀並接受[Microsoft Azure Marketplace 發佈者合約](https://go.microsoft.com/fwlink/?LinkID=699560)的條款和條件。 勾選方塊以表示您已閱讀並接受這些條款。
 11. 按一下 [完成]  以確認您的註冊。 我們會傳送一則確認訊息到您的電子郵件地址。
 12. 如果您只打算發佈免費供應項目，按一下 [移至 Azure Marketplace 發佈入口網站]  即可跳到第 3 節， [在發佈入口網站中註冊您的帳戶](#3-register-your-account-in-the-publishing-portal)。
 

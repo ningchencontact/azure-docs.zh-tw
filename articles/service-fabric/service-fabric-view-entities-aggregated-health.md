@@ -14,11 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230847"
 ---
 # <a name="view-service-fabric-health-reports"></a>檢視 Service Fabric 健康狀態報告
 Azure Service Fabric 導入了由健康情況實體組成的[健康情況模型](service-fabric-health-introduction.md)，系統元件和看門狗可以在其上回報所監視的本機情況。 [健康情況存放區](service-fabric-health-introduction.md#health-store) 會彙總所有健康情況資料，以判斷實體是否狀況良好。
@@ -31,7 +32,7 @@ Service Fabric 會提供多種方式，以取得實體的彙總健康情況：
 * 健康情況查詢 (透過 PowerShell、API 或 REST)
 * 一般查詢會傳回一份實體清單，這些實體的其中一個屬性即為健康情況 (透過 PowerShell、API 或 REST)
 
-為了示範這些選項，我們會使用具有五個節點和 [fabric:/WordCount 應用程式](http://aka.ms/servicefabric-wordcountapp) 的本機叢集。 **fabric:/WordCount** 應用程式包含兩項預設服務︰`WordCountServiceType` 類型的具狀態服務，以及 `WordCountWebServiceType` 類型的無狀態服務。 我變更了 `ApplicationManifest.xml`，以要求具狀態服務的七個目標複本和一個磁碟分割。 因為叢集中只有五個節點，所以系統元件會回報服務磁碟分割的警告，因為它低於目標計數。
+為了示範這些選項，我們會使用具有五個節點和 [fabric:/WordCount 應用程式](https://aka.ms/servicefabric-wordcountapp) 的本機叢集。 **fabric:/WordCount** 應用程式包含兩項預設服務︰`WordCountServiceType` 類型的具狀態服務，以及 `WordCountWebServiceType` 類型的無狀態服務。 我變更了 `ApplicationManifest.xml`，以要求具狀態服務的七個目標複本和一個磁碟分割。 因為叢集中只有五個節點，所以系統元件會回報服務磁碟分割的警告，因為它低於目標計數。
 
 ```xml
 <Service Name="WordCountService">

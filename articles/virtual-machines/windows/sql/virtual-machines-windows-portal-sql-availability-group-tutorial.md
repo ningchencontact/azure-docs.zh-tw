@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667442"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238070"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>在 Azure VM 中手動設定 Always On 可用性群組
 
@@ -35,7 +35,7 @@ ms.locfileid: "43667442"
 
 ## <a name="prerequisites"></a>必要條件
 
-本教學課程假設您對「SQL Server Always On 可用性群組」有基本的了解。 如需詳細資訊，請參閱 [AlwaysOn 可用性群組概觀 (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx)。
+本教學課程假設您對「SQL Server Always On 可用性群組」有基本的了解。 如需詳細資訊，請參閱 [AlwaysOn 可用性群組概觀 (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)。
 
 下表列出開始本教學課程之前，您必須完成的必要條件：
 
@@ -119,7 +119,7 @@ ms.locfileid: "43667442"
 
 ### <a name="add-a-cluster-quorum-file-share"></a>新增叢集仲裁檔案共用
 
-在此範例中，Windows 叢集會使用檔案共用來建立叢集仲裁。 本教學課程使用「節點與檔案共用多數」仲裁。 如需詳細資訊，請參閱[了解容錯移轉叢集中的仲裁設定](http://technet.microsoft.com/library/cc731739.aspx)。
+在此範例中，Windows 叢集會使用檔案共用來建立叢集仲裁。 本教學課程使用「節點與檔案共用多數」仲裁。 如需詳細資訊，請參閱[了解容錯移轉叢集中的仲裁設定](https://technet.microsoft.com/library/cc731739.aspx)。
 
 1. 使用遠端桌面工作階段來連接到檔案共用見證成員伺服器。
 
@@ -168,7 +168,7 @@ ms.locfileid: "43667442"
 1. 在 [選取仲裁見證] 上，按一下 [設定檔案共用見證]。
 
    >[!TIP]
-   >Windows Server 2016 支援雲端見證。 如果您選擇此類型的見證，就不需要檔案共用見證。 如需詳細資訊，請參閱[為容錯移轉叢集部署雲端見證 (Deploy a cloud witness for a Failover Cluster)](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)。 本教學課程使用檔案共用見證，這是舊版作業系統所支援的類型。
+   >Windows Server 2016 支援雲端見證。 如果您選擇此類型的見證，就不需要檔案共用見證。 如需詳細資訊，請參閱[為容錯移轉叢集部署雲端見證 (Deploy a cloud witness for a Failover Cluster)](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)。 本教學課程使用檔案共用見證，這是舊版作業系統所支援的類型。
 
 1. 在 [設定檔按共用見證] 上，輸入您所建立共用的路徑。 按 [下一步] 。
 
@@ -515,7 +515,7 @@ WSFC IP 位址也必須位於負載平衡器上。
 SQLCMD 連線會自動連線到任何一個裝載主要複本的 SQL Server 執行個體。
 
 > [!TIP]
-> 確定您指定的連接埠在兩部 SQL Server 在防火牆上開啟。 這兩部伺服器需要您使用的 TCP 連接埠的輸入規則。 如需詳細資訊，請參閱[新增或編輯防火牆規則](http://technet.microsoft.com/library/cc753558.aspx)。
+> 確定您指定的連接埠在兩部 SQL Server 在防火牆上開啟。 這兩部伺服器需要您使用的 TCP 連接埠的輸入規則。 如需詳細資訊，請參閱[新增或編輯防火牆規則](https://technet.microsoft.com/library/cc753558.aspx)。
 
 ## <a name="next-steps"></a>後續步驟
 

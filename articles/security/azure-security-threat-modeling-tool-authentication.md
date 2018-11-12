@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307415"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251554"
 ---
 # <a name="security-frame-authentication--mitigations"></a>安全框架︰驗證 | 緩和措施 
 | 產品/服務 | 文章 |
@@ -156,7 +156,7 @@ ms.locfileid: "43307415"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | Sql Azure、OnPrem |
 | **屬性**              | SQL 版本 - MSSQL2012、SQL 版本 - V12 |
-| **參考**              | [自主資料庫的安全性最佳作法](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **參考**              | [自主資料庫的安全性最佳作法](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **步驟** | 缺少強制執行的密碼原則，可能會增加在自主資料庫中建立弱式認證的可能性。 利用 Windows 驗證。 |
 
 ## <a id="authn-sas-tokens"></a>使用採用 SaS 權杖的每一裝置驗證認證

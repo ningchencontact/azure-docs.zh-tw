@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: rwike77
-ms.openlocfilehash: a87dd6f4afa152aebafdde24defcabe841ae2e9c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4d5e74b9ecffbf8f1161cf6c5ef948cd154d993f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206460"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233151"
 ---
 # <a name="your-service-fabric-application-and-next-steps"></a>您的 Service Fabric 應用程式和後續步驟
 您的 Azure Service Fabric 應用程式已經建立。 本文說明一些可嘗試的教學課程、專案的組成、您感興趣的一些其他資訊，以及潛在後續步驟。
@@ -35,7 +35,7 @@ ms.locfileid: "34206460"
 - [Windows 上可供來賓執行的服務](quickstart-guest-app.md) 
 - [Windows 容器應用程式](service-fabric-get-started-containers.md) 
 
-您可以試用我們的[範例應用程式](http://aka.ms/servicefabricsamples)。
+您可以試用我們的[範例應用程式](https://aka.ms/servicefabricsamples)。
 
 ## <a name="have-questions-or-feedback--need-to-report-an-issue"></a>有任何問題或意見嗎？  需要回報問題？
 閱讀[常見問題](service-fabric-common-questions.md)並尋找有關 Service Fabric 可以執行的工作和其使用方式的答案。

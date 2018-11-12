@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3b6b505be4a0084059d8c37a21099a784cacbed1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: af36f033dbca6c9f594b3568bfe7567a959e2d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237147"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure 中 Windows VM 之遠端桌面連線問題的詳細疑難排解步驟
 本文章提供診斷和修正複雜的以 Windows 為基礎的 Azure 虛擬機器的遠端桌面錯誤的詳細疑難排解步驟。
@@ -130,7 +130,7 @@ ms.locfileid: "50414112"
 * Windows 防火牆或另一個本機防火牆有阻止遠端桌面流量的輸出規則。
 * 在 Azure 虛擬機器上執行的入侵偵測或網路監視軟體正在阻止遠端桌面連線。
 
-對於使用傳統部署模型所建立的 VM，您可以使用關於 Azure 虛擬機器的遠端 Azure PowerShell 工作階段。 首先，您需要為虛擬機器的代管雲端服務安裝憑證。 移至 [設定對 Azure 虛擬機器的安全遠端 PowerShell 存取](http://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ，然後將 **InstallWinRMCertAzureVM.ps1** 指令檔下載到您的本機電腦。
+對於使用傳統部署模型所建立的 VM，您可以使用關於 Azure 虛擬機器的遠端 Azure PowerShell 工作階段。 首先，您需要為虛擬機器的代管雲端服務安裝憑證。 移至 [設定對 Azure 虛擬機器的安全遠端 PowerShell 存取](https://gallery.technet.microsoft.com/scriptcenter/Configures-Secure-Remote-b137f2fe) ，然後將 **InstallWinRMCertAzureVM.ps1** 指令檔下載到您的本機電腦。
 
 接下來，如果尚未安裝 Azure PowerShell，則請先安裝。 請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.component: na
-ms.openlocfilehash: 5b9bd5bf21f378f92b7dd6e027d1bb0c05620dd6
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.component: ''
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128838"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012049"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 Active Directory 健康情況檢查方案來最佳化 Active Directory 環境
 
@@ -40,7 +40,7 @@ ms.locfileid: "37128838"
 
 ![AD 健康情況檢查儀表板的影像](./media/log-analytics-ad-assessment/ad-healthcheck-dashboard-01.png)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Active Directory 健康情況檢查方案需要在已安裝 Microsoft Monitoring Agent (MMA) 的每部電腦上安裝 .NET Framework 4.5.2 或以上的支援版本。  MMA 代理程式會由 System Center 2016 - Operations Manager 和 Operations Manager 2012 R2 及 Log Analytics 服務使用。
 * 方案支援執行 Windows Server 2008 和 2008 R2、Windows Server 2012 和 2012 R2 及 Windows Server 2016 的網域控制站。
@@ -53,7 +53,7 @@ ms.locfileid: "37128838"
 
 若要對您的網域控制站執行健康情況檢查，以讓網域成員受到評估，則這些控制站需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
 
-1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md)。
+1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視網域控制站，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md)。
 2. 如果控制站受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該網域控制站可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
 3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
 
@@ -186,4 +186,4 @@ Active Directory 健康情況檢查會使用您已啟用的代理程式，從下
 * 是，請參閱上面的 [忽略建議](#ignore-recommendations) 一節。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用[ Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)，可讓您了解如何分析詳細的 AD 健康情況檢查資料和建議。
+* 使用[ Log Analytics 中的記錄搜尋](log-analytics-queries.md)，可讓您了解如何分析詳細的 AD 健康情況檢查資料和建議。

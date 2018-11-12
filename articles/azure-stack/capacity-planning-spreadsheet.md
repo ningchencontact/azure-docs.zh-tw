@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 3b07485d4168e38736c12a74b0d36bcc8a276748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740836"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233060"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner 為用於 Azure Stack 資源容量規劃的試算表。 此容量規劃工具可讓您設計各種運算資源的配置，進而了解這些配置如何與選取之硬體供應項目相應。 以下提供使用 Azure Stack Calculator 的詳細指示。
 
 ## <a name="worksheet-descriptions"></a>工作表說明
-下列為包含於 Azure Stack Capacity Planner 試算表之工作表的簡短摘要，可從 [http://aka.ms/azstackcapacityplanner](http://aka.ms/azstackcapacityplanner) 下載：
+下列為包含於 Azure Stack Capacity Planner 試算表之工作表的簡短摘要，可從 [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner) 下載：
 
 |索引標籤名稱|說明|
 |-----|-----|

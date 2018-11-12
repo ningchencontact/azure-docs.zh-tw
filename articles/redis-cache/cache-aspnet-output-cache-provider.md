@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
 ms.date: 02/14/2017
 ms.author: wesmc
-ms.openlocfilehash: a6c3314a981b46aa6f1cbca1f34392d1e1ae6c9a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6ea237c406a9d09b500a12755cd1fa99bb7d41cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431639"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234420"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-redis-cache"></a>Azure Redis 快取的 ASP.NET 輸出快取提供者
 Redis 輸出快取提供者為輸出快取資料的程序外儲存體機制。 此資料特別適用於完整 HTTP 回應 (頁面輸出快取)。 提供者插入 ASP.NET 4 中導入的新輸出快取提供者擴充點。
@@ -89,8 +89,8 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
   * 預設會為新快取停用非 SSL 連接埠。 請於此設定指定為 true，使用 SSL 連接埠。 如需啟用非 SSL 連接埠的相關詳細資訊，請參閱[設定快取](cache-configure.md)主題中的[存取連接埠](cache-configure.md#access-ports)一節。
 * **databaseId** – 指定快取輸出資料所使用的資料庫。 若未指定，就會使用預設值 0。
 * **applicationName** – 金鑰在 redis 中會儲存為 `<AppName>_<SessionId>_Data`。 這個命名配置可讓多個應用程式共用同一金鑰。 此參數是選擇性的，如果您未提供，將會使用預設值。
-* **connectionTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 connectTimeout 設定。 若未指定，將會使用預設的 connectTimeout 設定為 5000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](http://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
-* **operationTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 syncTimeout 設定。 若未指定，將會使用預設的 syncTimeout 設定為 1000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](http://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
+* **connectionTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 connectTimeout 設定。 若未指定，將會使用預設的 connectTimeout 設定為 5000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](https://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
+* **operationTimeoutInMilliseconds** – 此設定可讓您覆寫 StackExchange.Redis 用戶端中的 syncTimeout 設定。 若未指定，將會使用預設的 syncTimeout 設定為 1000。 如需詳細資訊，請參閱 [StackExchange.Redis 設定模型](https://go.microsoft.com/fwlink/?LinkId=398705)(英文)。
 
 將 OutputCache 指示詞新增至每一個您要快取輸出的頁面。
 
@@ -98,7 +98,7 @@ NuGet 封裝會下載和加入必要的組件參考，並將下列區段加入�
 <%@ OutputCache Duration="60" VaryByParam="*" %>
 ```
 
-在上一個範例中，已快取的頁面資料會留在快取中 60 秒，而且會對每一個參數組合快取不同版本的頁面。 如需 OutputCache 指示詞的相關詳細資訊，請參閱 [@OutputCache](http://go.microsoft.com/fwlink/?linkid=320837)。
+在上一個範例中，已快取的頁面資料會留在快取中 60 秒，而且會對每一個參數組合快取不同版本的頁面。 如需 OutputCache 指示詞的相關詳細資訊，請參閱 [@OutputCache](https://go.microsoft.com/fwlink/?linkid=320837)。
 
 一旦執行這些步驟，您的應用程式將設定為使用 Redis 輸出快取提供者。
 

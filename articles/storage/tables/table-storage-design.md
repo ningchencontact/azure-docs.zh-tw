@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526907"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237769"
 ---
 # <a name="design-scalable-and-performant-tables"></a>設計可擴充且具效能的資料表
 
@@ -121,7 +121,7 @@ ms.locfileid: "39526907"
 </table>
 
 
-到目前為止，此資料看起來非常類似於關聯式資料庫中的資料表，主要差異在於必要資料行，並在相同資料表中儲存多個實體類型的能力。 此外，每個使用者定義屬性 (例如**名字**或**年齡**) 皆具有資料類型，例如整數或字串，就像關聯式資料庫中的資料行。 雖然不同於關聯式資料庫，但資料表服務的無結構描述本質意味著一個屬性在每個實體上不需要相同的資料類型。 若要將複雜資料類型儲存在單一屬性中，您必須使用序列化格式，例如 JSON 或 XML。 如需表格服務 (例如支援的資料類型、支援的日期範圍、命名規則和大小限制) 的詳細資訊，請參閱 [了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。
+到目前為止，此資料看起來非常類似於關聯式資料庫中的資料表，主要差異在於必要資料行，並在相同資料表中儲存多個實體類型的能力。 此外，每個使用者定義屬性 (例如**名字**或**年齡**) 皆具有資料類型，例如整數或字串，就像關聯式資料庫中的資料行。 雖然不同於關聯式資料庫，但資料表服務的無結構描述本質意味著一個屬性在每個實體上不需要相同的資料類型。 若要將複雜資料類型儲存在單一屬性中，您必須使用序列化格式，例如 JSON 或 XML。 如需表格服務 (例如支援的資料類型、支援的日期範圍、命名規則和大小限制) 的詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。
 
 您所選擇的 **PartitionKey** 和 **RowKey** 是良好資料表設計不可或缺的元素。 儲存在資料表中的每個實體都必須有一個獨一無二的 **PartitionKey** 和 **RowKey** 組合。 如同關聯式資料庫資料表中的索引鍵，**PartitionKey** 和 **RowKey** 值會進行索引編製，以建立可啟用快速查閱的叢集索引。 不過，表格服務不會建立任何次要索引，因此 **PartitionKey** 和 **RowKey** 是唯一已編製索引的屬性。 [資料表設計模式](table-storage-design-patterns.md)中描述的某些模式會說明您可以如何解決此明顯限制。  
 
@@ -132,7 +132,7 @@ ms.locfileid: "39526907"
 
 在表格服務中，個別節點可為一或多個完整資料分割提供服務，且服務會透過動態的負載平衡資料分割在節點間進行調整。 如果某節點的負載過大，表格服務可將由該節點提供服務的分割範圍*分割*到不同的節點；當流量變小時，服務可將分割範圍從靜止節點*合併*回單一節點。  
 
-如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
+如需表格服務之內部詳細資料的詳細資訊 (特別是服務管理分割的方式)，請參閱文件 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。  
 
 ## <a name="entity-group-transactions"></a>實體群組交易
 在資料表服務中，實體群組交易 (EGT) 是唯一的內建機制，可跨越多個實體執行不可部分完成的更新。 EGT 有時也稱為「批次交易」。 EGT 僅能對相同分割 (亦即，共用指定表格中的相同分割索引鍵) 中儲存的實體進行作業。 因此每當您需要跨多個實體執行不可部分完成的交易行為時，您必須確定這些實體位於相同的分割中。 通常就是基於此原因，才需要將多個實體類型放在相同的資料表 (和資料分割) 中，而不讓不同的實體類型使用多個資料表。 單一 EGT 最多可以操作 100 個實體。  如果您送出多個並行 EGT 進行處理，請務必確保這些 EGT 不會在 EGT 的通用實體上運作，否則處理可能會延遲。
@@ -152,7 +152,7 @@ EGT 也會帶來需在您設計中評估的潛在取捨。 那就是，使用較
 | **RowKey** |大小最多 1 KB 的字串 |
 | 實體群組交易的大小 |交易最多可以包含 100 個實體，而承載大小必須小於 4 MB。 一個 EGT 只能更新實體一次。 |
 
-如需詳細資訊，請參閱 [了解表格服務資料模型](http://msdn.microsoft.com/library/azure/dd179338.aspx)。  
+如需詳細資訊，請參閱 [了解表格服務資料模型](https://msdn.microsoft.com/library/azure/dd179338.aspx)。  
 
 ## <a name="cost-considerations"></a>成本考量
 表格儲存體比較便宜，但您在評估任何表格服務方案時，均應將容量使用量和交易數目的成本預估同時納入考量。 不過，在許多情況下，儲存反正規化或重複的資料以改善方案的效能或延展性，也是有效措施。 如需定價的詳細資訊，請參閱 [Azure 儲存體定價](https://azure.microsoft.com/pricing/details/storage/)。  

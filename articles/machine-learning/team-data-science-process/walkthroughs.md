@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: deguhath
-ms.openlocfilehash: 4ac07d9d56862f315f7ef1f68fdecad1af700dbf
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395003"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253562"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>執行 Team Data Science Process 的逐步解說
 
@@ -47,5 +47,5 @@ ms.locfileid: "49395003"
 
 如需您可以用來結構化資料科學專案之 Team Data Science Process 生命週期的討論，請參閱 [Team Data Science Process 生命週期](lifecycle.md)。 生命週期會概述專案在執行時通常會遵循之從開始到完成的步驟。 
 
-如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [資料科學程序](http://aka.ms/datascienceprocess)。 
+如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [資料科學程序](https://aka.ms/datascienceprocess)。 
 

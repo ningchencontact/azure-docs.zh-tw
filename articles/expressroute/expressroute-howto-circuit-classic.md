@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6e8eac885303531abc7014f2fadc7b6056bde510
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283566"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251690"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -20,7 +20,7 @@ ms.locfileid: "39283566"
 > * [Azure 入口網站](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [影片 - Azure 入口網站](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [影片 - Azure 入口網站](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
 
@@ -34,7 +34,7 @@ ms.locfileid: "39283566"
 
 ## <a name="before-you-begin"></a>開始之前
 
-安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。  當您使用下列範例時，請注意版本號碼 (此範例中為 5.1.1) 會因為發行較新的版本而變更。
+安裝最新版的 Azure 服務管理 (SM) PowerShell 模組和 ExpressRoute 模組。  當您使用下列範例時，請注意版本號碼 (此範例中為 5.1.1) 會因為發行較新的 Cmdlet 版本而變更。
 
 ```powershell
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
@@ -47,7 +47,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRou
 
 1. 以提高的權限開啟 PowerShell 主控台並連接到您的帳戶。 使用下列範例來協助您連接：
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. 檢查帳戶的訂用帳戶。

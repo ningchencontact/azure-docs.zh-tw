@@ -2,19 +2,19 @@
 title: 在虛擬網路上建立 HBase 叢集 - Azure
 description: 開始在 Azure HDInsight 中使用 HBase。 了解如何在 Azure 虛擬網路上建立 HDInsight HBase 叢集。
 services: hdinsight,virtual-network
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: a3686e99f9bab754cdc9cfc801961ea47560a111
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 183f8fd47ea5239e31f03f3aecf420cfb5842098
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043230"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009822"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集
 了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight HBase 叢集。

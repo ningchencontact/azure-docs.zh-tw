@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: 3066da9a492fc12dd8b333a089b8aabbbb647414
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 3f7b216be79be1307a5668d6686fd73a27ae5574
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421351"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237854"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上執行 Cassandra 叢集
 
@@ -49,7 +49,7 @@ Cassandra 可以部署到單一 Azure 區域或多個區域，視工作負載的
 ### <a name="single-region-deployment"></a>單一區域部署
 讓我們從單一區域部署開始，並學習建立多重區域模型。 Azure 虛擬網路功能將用來建立獨立的子網路，以滿足先前所描述的網路安全性需求。  建立單一區域部署中所述的程序使用 Ubuntu 14.04 LTS 和 Cassandra 2.08。 不過，程序要改採用其他 Linux 版本也非常容易。 下列是單一區域部署的一些系統特性。  
 
-**高可用性：** Cassandra 節點 (如圖 1 所示) 已部署至兩個可用性設定組，因此，節點會散佈於多個容錯網域之間，以獲取高可用性。 利用每個可用性設定組進行標註的 VM 會對應至 2 個容錯網域。 Azure 會使用容錯網域的概念來管理意外停機時間 (例如，硬體或軟體失敗)。 升級網域 (例如主機或客體作業系統修補/升級、應用程式升級) 的概念用於管理排定停機時間。 如需用來取得高可用性之容錯和升級網域的角色，請參閱 [Azure 應用程式的災害復原與高可用性](http://msdn.microsoft.com/library/dn251004.aspx) 。
+**高可用性：** Cassandra 節點 (如圖 1 所示) 已部署至兩個可用性設定組，因此，節點會散佈於多個容錯網域之間，以獲取高可用性。 利用每個可用性設定組進行標註的 VM 會對應至 2 個容錯網域。 Azure 會使用容錯網域的概念來管理意外停機時間 (例如，硬體或軟體失敗)。 升級網域 (例如主機或客體作業系統修補/升級、應用程式升級) 的概念用於管理排定停機時間。 如需用來取得高可用性之容錯和升級網域的角色，請參閱 [Azure 應用程式的災害復原與高可用性](https://msdn.microsoft.com/library/dn251004.aspx) 。
 
 ![單一區域部署](./media/cassandra-nodejs/cassandra-linux1.png)
 

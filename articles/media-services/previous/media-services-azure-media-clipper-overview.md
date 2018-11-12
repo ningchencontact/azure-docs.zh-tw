@@ -9,12 +9,12 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f3822386d0d16b1feaf16853424329558a18f910
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0fc04fb64e6d34c46f20b4ba5ff8a1ffc8da9c31
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782647"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237905"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>使用 Azure Media Clipper 建立剪輯
 Azure Media Clipper 是免費的 JavaScript 程式庫，可讓 Web 開發人員為其使用者提供用於建立媒體剪輯的介面。 此工具可整合到任何網頁中，並提供用於載入資產和提交剪輯作業的 API。
@@ -28,7 +28,7 @@ Azure Media Clipper 可讓您：
 - 以圖片群組 (GOP) 的精確度，針對現有的即時和 VOD 資產產生動態資訊清單篩選 
 - 針對您媒體服務帳戶中的資產產生編碼作業
 
-若要要求新功能，或是提供想法或意見反應，請提交至 [Azure 媒體服務的 UserVoice](http://aka.ms/amsvoice/) \(英文\)。 如果您有特定問題或疑問，或是有發現任何錯誤 (Bug)，請以電子郵件通知媒體服務小組 (amcinfo@microsoft.com)。
+若要要求新功能，或是提供想法或意見反應，請提交至 [Azure 媒體服務的 UserVoice](https://aka.ms/amsvoice/) \(英文\)。 如果您有特定問題或疑問，或是有發現任何錯誤 (Bug)，請以電子郵件通知媒體服務小組 (amcinfo@microsoft.com)。
 
 下圖顯示 Clipper 介面：![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)
 

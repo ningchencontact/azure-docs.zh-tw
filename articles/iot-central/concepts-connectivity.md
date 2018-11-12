@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7b2dd4e97d23f37c8261e51f3f65e78436493ddc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157695"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238723"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Azure IoT Central 中的裝置連線能力
 
@@ -150,7 +150,7 @@ CSV 檔案應該具有下列資料行 (及標頭)
     
     以下是一些可用來產生 CA 憑證和裝置憑證的公用程式命令列工具。
 
-    * 如果您正在使用 MxChip，這是用來產生 CA 憑證的[命令列工具](http://aka.ms/iotcentral-docs-dicetool)。將它新增至您的 IoT Central 應用程式，然後驗證憑證。 
+    * 如果您正在使用 MxChip，這是用來產生 CA 憑證的[命令列工具](https://aka.ms/iotcentral-docs-dicetool)。將它新增至您的 IoT Central 應用程式，然後驗證憑證。 
 
     *   使用此[命令列工具](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md )來
         * 建立憑證鏈結 (遵循 GitHub 文件中的步驟 2 進行)。 
@@ -165,7 +165,7 @@ CSV 檔案應該具有下列資料行 (及標頭)
     使用佈建服務資訊對裝置進行程式設計，讓它可在啟動時取得其連線詳細資料和 IoT Central 應用程式指派。    
 
     **其他參考資料** 
-    *   適用於 [RaspberryPi](http://aka.ms/iotcentral-docs-Raspi-releases) 的範例實作。  
+    *   適用於 [RaspberryPi](https://aka.ms/iotcentral-docs-Raspi-releases) 的範例實作。  
 
     *   [C 範例裝置用戶端](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)。
 

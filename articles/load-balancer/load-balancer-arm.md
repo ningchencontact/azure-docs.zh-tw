@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f972495fe1a5a0744cf6d7046b555349e5bc8c54
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9d11a34c499029550de12e8a47f7de0b1beac7b6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416421"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235032"
 ---
 # <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>搭配 Azure Load Balancer 使用 Azure Resource Manager 支援
 
@@ -50,9 +50,9 @@ Azure 資源管理員可讓您使用宣告式範本佈建應用程式。 在單�
 
 範本的範例：
 
-* [負載平衡器中的 2 部 VM 和負載平衡規則](http://go.microsoft.com/fwlink/?LinkId=544799)
-* [搭配內部負載平衡器的 VNET 中的 2 部 VM 和負載平衡器規則](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [負載平衡器中的 2 部 VM，並在 LB 上設定 NAT 規則](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [負載平衡器中的 2 部 VM 和負載平衡規則](https://go.microsoft.com/fwlink/?LinkId=544799)
+* [搭配內部負載平衡器的 VNET 中的 2 部 VM 和負載平衡器規則](https://go.microsoft.com/fwlink/?LinkId=544800)
+* [負載平衡器中的 2 部 VM，並在 LB 上設定 NAT 規則](https://go.microsoft.com/fwlink/?LinkId=544801)
 
 ## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>使用 PowerShell 或 CLI 設定 Azure 負載平衡器
 

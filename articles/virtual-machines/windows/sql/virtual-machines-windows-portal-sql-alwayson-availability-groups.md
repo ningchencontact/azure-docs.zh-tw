@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: a612ffd5a68e34cb0a367a6a883495ef26aeb4bc
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401016"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238160"
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>在 Azure 虛擬機器中自動設定 Always On 可用性群組：Resource Manager
 
@@ -42,12 +42,12 @@ ms.locfileid: "29401016"
 
 在開始本教學課程之前，請確認下列項目︰
 
-* 您已經有 Azure 帳戶。 如果您沒有帳戶，請 [註冊一個試用帳戶](http://azure.microsoft.com/pricing/free-trial/)。
+* 您已經有 Azure 帳戶。 如果您沒有帳戶，請 [註冊一個試用帳戶](https://azure.microsoft.com/pricing/free-trial/)。
 * 您已經知道如何使用 GUI 佈建來自虛擬機器資源庫的 SQL Server 虛擬機器。 如需詳細資訊，請參閱[在 Azure 上佈建 SQL Server 虛擬機器](virtual-machines-windows-portal-sql-server-provision.md)。
-* 您已非常熟悉可用性群組的功能。 如需詳細資訊，請參閱 [Always On 可用性群組 (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx)。
+* 您已非常熟悉可用性群組的功能。 如需詳細資訊，請參閱 [Always On 可用性群組 (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx)。
 
 > [!NOTE]
-> 如果您對搭配 SharePoint 使用可用性群組感興趣，另請參閱 [為 SharePoint 2013 設定 SQL Server 2012 Always On 可用性群組](http://technet.microsoft.com/library/jj715261.aspx)。
+> 如果您對搭配 SharePoint 使用可用性群組感興趣，另請參閱 [為 SharePoint 2013 設定 SQL Server 2012 Always On 可用性群組](https://technet.microsoft.com/library/jj715261.aspx)。
 >
 >
 
@@ -84,7 +84,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![基本概念](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/1-basics.png)
 
-按一下 [SERVICEPRINCIPAL] 。
+按一下 [確定]。
 
 ### <a name="domain-and-network-settings"></a>網域和網路設定
 此 Azure 資源庫範本會建立網域與網域控制站。 它也會建立一個網路和兩個子網路。 此範本無法在現有的網域或虛擬網路中建立伺服器。 下一步是設定網域和網路設定。
@@ -117,7 +117,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 ![可用性群組設定](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
-按一下 [SERVICEPRINCIPAL] 。
+按一下 [確定]。
 
 ### <a name="virtual-machine-size-storage-settings"></a>虛擬機器大小，儲存體設定
 在 [VM 大小，儲存體設定] 上，選擇 SQL Server 虛擬機器大小，並檢閱其他設定。
@@ -125,7 +125,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 * **SQL Server 虛擬機器大小**是執行 SQL Server 之兩個虛擬機器的大小。 選擇適合工作負載的虛擬機器大小。 如果您要為教學課程建置此環境，請使用 **DS2**。 針對生產工作負載，選擇可支援工作負載的虛擬機器大小。 許多生產環境工作負載需要 **DS4** 或更大。 此範本會建置兩個此大小的虛擬機器，並在每個虛擬機器上安裝 SQL Server。 如需相關資訊，請參閱[虛擬機器的大小](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 > [!NOTE]
-> Azure 會安裝 SQL Server Enterprise 版。 成本根據版本和虛擬機器大小而定。 如需目前成本的詳細資訊，請參閱[虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
+> Azure 會安裝 SQL Server Enterprise 版。 成本根據版本和虛擬機器大小而定。 如需目前成本的詳細資訊，請參閱[虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/#Sql)。
 >
 >
 
@@ -161,8 +161,8 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 
 如需儲存空間和儲存體集區的詳細資訊，請參閱：
 
-* [儲存空間概觀](http://technet.microsoft.com/library/hh831739.aspx)
-* [Windows Server 備份和存放集區](http://technet.microsoft.com/library/dn390929.aspx)
+* [儲存空間概觀](https://technet.microsoft.com/library/hh831739.aspx)
+* [Windows Server 備份和存放集區](https://technet.microsoft.com/library/dn390929.aspx)
 
 如需有關 SQL Server 組態最佳做法的詳細資訊，請參閱 [Azure 虛擬機器中的 SQL Server 效能最佳做法](virtual-machines-windows-sql-performance.md)。
 
@@ -186,7 +186,7 @@ Azure 提供整個解決方案的資源庫映像。 若要找出範本，請執�
 檢閱設定，然後按一下 [確定]。
 
 ### <a name="summary"></a>總結
-在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [SERVICEPRINCIPAL] 。
+在 [摘要] 頁面上，Azure 會驗證設定。 您也可以下載此範本。 檢閱摘要。 按一下 [確定]。
 
 ### <a name="buy"></a>購買
 這個最終的刀鋒視窗包含 [使用條款] 和 [隱私權原則]。 檢閱此資訊。 當您準備好讓 Azure 開始建立虛擬機器及可用性群組的所有其他必要資源時，請按一下 [建立]。
@@ -209,6 +209,6 @@ SQL Server 的新執行個體會在具有已連線網際網路之 IP 位址的�
 4. 在 [sqlserver-0] 的刀鋒視窗上，按一下 [連線]。 瀏覽器會詢問您是否要開啟或儲存遠端連接物件。 按一下 [開啟] 。
 5. [遠端桌面連線] 可能會警告您無法識別這個遠端連線的發行者。 按一下 [ **連接**]。
 6. Windows 安全性會提示您輸入認證，以連接到主要網域控制站的 IP 位址。 按一下 [使用其他帳戶]。 在 [使用者名稱] 中，輸入 **contoso\DomainAdmin**。 當您在範本中設定系統管理員使用者名稱時，您可以設定此帳戶。 使用您設定範本時選擇的複雜密碼。
-7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。按一下 [是]。
+7. [遠端桌面] 可能會警告您因為安全性憑證有問題，無法驗證遠端電腦。 它會顯示安全性憑證名稱。 如果您依照本教學課程進行，此名稱會是 **sqlserver-0.contoso.com**。 按一下 [是] 。
 
 您現在已使用 RDP 連線至 SQL Server 虛擬機器。 您可以開啟 SQL Server Management Studio、連線到 SQL Server 的預設執行個體，並確認已設定可用性群組。

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 98a7ae31aeeae29b81a1053b38992d3bc4e0e03f
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 4758c29d1cdb7e09c397524574ba1ab6701efeeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085304"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238016"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>使用發佈工具新增 Marketplace 項目
 
@@ -32,7 +32,7 @@ ms.locfileid: "50085304"
 
  - 下載 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip)並解壓縮。
 
- - 下載 [Azure 資源庫封裝工具](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe)。 
+ - 下載 [Azure 資源庫封裝工具](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe)。 
 
  - 要發佈到 Marketplace 需要有圖示和縮圖檔案。 您可以使用自己的檔案，或是將此範例的[範例](azure-stack-marketplace-publisher.md#support-files)檔案儲存到本機上。
 

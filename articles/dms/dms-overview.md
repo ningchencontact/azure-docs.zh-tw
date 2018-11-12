@@ -10,18 +10,18 @@ ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 053e571b6285cd405ea17f43fec1d3ea99732070
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235576"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>什麼是 Azure 資料庫移轉服務？
 Azure 資料庫移轉服務是一個完全受控的服務，其設計目的是能夠從多個資料庫來源無縫移轉到 Azure 資料平台，將停機時間降到最低 (線上移轉)。
 
 ## <a name="migrate-databases-to-azure-with-familiar-tools"></a>使用熟悉的工具來將資料庫移轉到 Azure
-Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。 它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](http://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有必要步驟。 移轉程序會善用 Microsoft 決定的最佳做法，因此您可以放心地移轉專案。
+Azure 資料庫移轉服務整合我們現有工具和服務的某些功能。 它提供客戶全方位、高可用性的解決方案。 服務會使用[資料移轉小幫手](https://aka.ms/dma)來產生評估報表，提供建議以引導您在移轉之前完成所需的變更。 由您自行決定，是否要執行任何所需的補救。 當您準備好要開始移轉程序時，Azure 資料庫移轉服務會執行所有必要步驟。 移轉程序會善用 Microsoft 決定的最佳做法，因此您可以放心地移轉專案。
 
 > [!NOTE]
 > 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據商務關鍵性 (預覽) 定價層來建立執行個體。

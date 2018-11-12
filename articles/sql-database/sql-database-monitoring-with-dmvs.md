@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 5dba091f62e320d6f9a48bea0208ef74db351402
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: df3062349ac384b92eeaf9483310cd5d3b48921f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095500"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238551"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database
 
@@ -682,7 +682,7 @@ ORDER BY start_time DESC
 
 ## <a name="monitoring-query-performance"></a>監視查詢效能
 
-速度慢或長時間執行的查詢可能會耗用大量系統資源。 本節示範如何使用動態管理檢視偵測幾個常見的查詢效能問題。 在 Microsoft TechNet 上的文章 [疑難排解 SQL Server 2008 的效能問題](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) 雖然較舊，但仍是針對疑難排解相當有用的參考資料。
+速度慢或長時間執行的查詢可能會耗用大量系統資源。 本節示範如何使用動態管理檢視偵測幾個常見的查詢效能問題。 在 Microsoft TechNet 上的文章 [疑難排解 SQL Server 2008 的效能問題](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) 雖然較舊，但仍是針對疑難排解相當有用的參考資料。
 
 ### <a name="finding-top-n-queries"></a>尋找前 N 個查詢
 

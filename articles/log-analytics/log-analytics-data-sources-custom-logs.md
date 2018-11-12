@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 5eab8e4bf6b1aa90a9eef3e26dfc3020e3e3179b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: c8ae6ab818fe88aa5fb79a8911c0242ea3a0ec3b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423505"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012015"
 ---
 # <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
 Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  在收集之後，您就可以使用 Log Analytics 的[自訂欄位](log-analytics-custom-fields.md)功能將記錄中的每一筆記錄剖析成個別欄位。
@@ -182,4 +182,4 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 
 ## <a name="next-steps"></a>後續步驟
 * 使用[自訂欄位](log-analytics-custom-fields.md)，以將自訂記錄中的項目剖析至個別欄位。
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。

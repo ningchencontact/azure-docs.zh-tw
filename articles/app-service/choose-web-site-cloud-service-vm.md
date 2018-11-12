@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42022671"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238500"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Azure App Service、虛擬機器、Service Fabric 及雲端服務的比較
 
@@ -47,7 +47,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 | 支援 WebMatrix |X | |X | | |
 | 存取服務匯流排、儲存體、SQL Database 等服務。 |X |X |X |X | |
 | 裝載多層式架構的 Web 或 Web 服務層 |X |X |X |X | |
-| 裝載多層式架構的中間層 |X |X |X |X |App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。 您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。 |
+| 裝載多層式架構的中間層 |X |X |X |X |App Service Web 應用程式可以輕易裝載 REST API 中間層，而 [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) 功能可以裝載背景處理工作。 您可以在專用網站中執行 WebJobs，以實現此層的獨立擴充性。 |
 | 整合 MySQL 即服務的支援 |X |X | | | |
 | 支援 ASP.NET、傳統 ASP、Node.js、PHP、Python |X |X |X |X |Service Fabric 支援使用 [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) 建立 Web 前端，也可讓您以[來賓可執行檔](../service-fabric/service-fabric-guest-executables-introduction.md)的形式部署任何類型的應用程式 (Node.js、Java 等)。 |
 | 向外延展至多個執行個體而不重新部署 |X |X |X |X |「虛擬機器」可向外延展至多個執行個體，但這些機器上執行的服務必須設計成應付這個向外延展情況。您必須設定負載平衡器以在機器間路由要求，並確定您在[可用性設定組](../virtual-machines/windows/manage-availability.md)中有多個 VM 執行個體。 |
@@ -67,8 +67,7 @@ Azure App Service 是大多數 Web 應用程式的最佳選擇。 部署和管�
 關於哪個 Azure Web 裝載選項最適合，以下是一些常見的應用程式案例與建議。
 
 * [我需要一個具有背景處理和資料庫後端的 Web 前端，以執行與內部部署資源整合的商業應用程式。](#onprem)
-* 
-  [我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。](#corp)
+* [我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。](#corp)
 * [我有一個在 Windows Server 2003 上執行的 IIS6 應用程式。](#iis6)
 * [我是小型企業業主，需要有便宜的方式來裝載網站，但又想顧及網站未來成長的可能性。](#smallbusiness)
 * [我是網頁或平面設計師，想要幫客戶設計及建立網站。](#designer)
@@ -87,9 +86,7 @@ Azure App Service 是複雜商業應用程式的絕佳解決方案。 您開發�
 * 符合 ISO、SOC2 和 PCI。
 * 與 Active Directory 整合
 
-### 
-  <a id="corp">
-  </a> 我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
+### <a id="corp"></a> 我需要可靠的方法來裝載可靈活調整且可供全球存取的公司網站。
 Azure App Service 是裝載公司網站的絕佳解決方案。 它可讓 Web 應用程式快速調整，輕鬆符合全球資料中心網路的需求。 它提供本機存取、容錯和智慧型流量管理。 一切盡在一個提供世界級管理工具的平台上，可讓您快速又輕鬆地深入了解網站健康情況和網路流量。 Azure App Service 為 Web 應用程式提供三個 9 的 SLA，可讓您：
 
 * 在自我修復、自動修補的雲端平台上可靠地執行網站。

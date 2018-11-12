@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 54eefc9c488718dae25e35ef0c5f0f5c50dea16c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a51664144d0dba8eeb82999b212beaf79b4503b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041736"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236925"
 ---
 # <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>使用 Power BI 工作區集合驗證和授權
 
@@ -170,7 +170,7 @@ Body
    
    ![應用程式權杖流程 - 服務將報告傳送給使用者](media/get-started-sample/token-6.png)
 
-當 **Power BI 工作區集合**將報告傳送給使用者之後，使用者就可以在您自訂的應用程式中檢視報告。 例如，如果您匯入了 [分析銷售資料 PBIX 範例](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)，範例 Web 應用程式看起來就會像這樣︰
+當 **Power BI 工作區集合**將報告傳送給使用者之後，使用者就可以在您自訂的應用程式中檢視報告。 例如，如果您匯入了 [分析銷售資料 PBIX 範例](https://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix)，範例 Web 應用程式看起來就會像這樣︰
 
 ![應用程式內嵌的報告範例](media/get-started-sample/sample-web-app.png)
 

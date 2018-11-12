@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
-ms.openlocfilehash: 71d8b020fe96094c15965fd82615e3182e333990
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: d7f55022dc526f44251814ac953787d6652e6f90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783457"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237038"
 ---
 # <a name="develop-video-player-applications"></a>開發視訊播放器應用程式
 ## <a name="overview"></a>概觀
@@ -29,17 +29,17 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 >建立 AMS 帳戶時，**預設**串流端點會新增至 [已停止] 狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於 [執行中] 狀態。 
  
 ## <a name="azure-media-player"></a>Azure 媒體播放器
-[Azure 媒體播放器](http://aka.ms/ampinfo) 是一款網頁視訊播放器，可以在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。 Azure Media Player 採用業界標準，例如 HTML5、媒體來源延伸模組 (MSE) 和加密媒體擴充功能 (EME)，提供豐富的調適性串流體驗。 無法在裝置或瀏覽器使用這些標準時，Azure Media Player 則會使用 Flash 和 Silverlight 做為後援技術。 不論使用何種播放技術，開發人員都會有統一的 JavaScript 介面來存取應用程式開發介面。 這樣我們就可以在各種裝置和瀏覽器上順利播放 Azure 媒體服務提供的內容。
+[Azure 媒體播放器](https://aka.ms/ampinfo) 是一款網頁視訊播放器，可以在各種瀏覽器和裝置上播放 Microsoft Azure 媒體服務的媒體內容。 Azure Media Player 採用業界標準，例如 HTML5、媒體來源延伸模組 (MSE) 和加密媒體擴充功能 (EME)，提供豐富的調適性串流體驗。 無法在裝置或瀏覽器使用這些標準時，Azure Media Player 則會使用 Flash 和 Silverlight 做為後援技術。 不論使用何種播放技術，開發人員都會有統一的 JavaScript 介面來存取應用程式開發介面。 這樣我們就可以在各種裝置和瀏覽器上順利播放 Azure 媒體服務提供的內容。
 
 我們可以利用 Microsoft Azure 媒體服務播放 DASH、Smooth Streaming 和 HLS 資料流等格式的內容。 Azure Media Player 會考量這些不同的格式，並根據平台/瀏覽器功能自動播放最合適的連結。 Microsoft Azure 媒體服務也允許利用 PlayReady 加密或 AES 128 位元信封加密，進行資產的動態加密。 只要設定正確，Azure Media Player 允許解密 PlayReady 和 AES 128 位元加密的內容。 
 
 其他資訊：
 
-* [Azure Media Player](http://aka.ms/ampinfo)
-* [Azure Media Player 文件](http://aka.ms/ampdocs) 
+* [Azure Media Player](https://aka.ms/ampinfo)
+* [Azure Media Player 文件](https://aka.ms/ampdocs) 
 * [Azure Media Player 開始使用部落格](https://azure.microsoft.com/blog/2015/04/15/announcing-azure-media-player/)
-* [註冊以持續收到 Azure Media Player 的最新消息](http://aka.ms/ampsignup)
-* [新增功能要求、概念和意見反應](http://aka.ms/ampuservoice) 
+* [註冊以持續收到 Azure Media Player 的最新消息](https://aka.ms/ampsignup)
+* [新增功能要求、概念和意見反應](https://aka.ms/ampuservoice) 
 
 ## <a name="other-tools-for-creating-player-applications"></a>其他可用來建立播放器應用程式的工具
 您也可以使用任何下列 SDK：
@@ -49,8 +49,8 @@ Azure 媒體服務提供一些工具，供您用來建立適用於大部分平�
 * [Microsoft 媒體平台：Player Framework](http://playerframework.codeplex.com/) 
 * [HTML5 Player Framework 文件](http://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Microsoft Smooth Streaming Plugin for OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
-* [Licensing Microsoft® Smooth Streaming Client Porting Kit](http://aka.ms/sspk) 
-* [XBOX Video Application Development](http://xbox.create.msdn.com/) 
+* [Licensing Microsoft® Smooth Streaming Client Porting Kit](https://aka.ms/sspk) 
+* [XBOX Video Application Development](https://xbox.create.msdn.com/) 
 
 ## <a name="advertising"></a>廣告
 Azure 媒體服務允許透過 Windows Media 平台插入廣告：Player Framework。 具備廣告支援的播放器架構都適用於 Windows 8、Silverlight、Windows Phone 8 和 iOS 裝置。 每一個播放器架構都有範例程式碼，教您如何實作播放器應用程式。 目前有三種不同的廣告可以插入媒體中：

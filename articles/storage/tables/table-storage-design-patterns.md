@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: b06f5a66566c250eef608ddccc551aaebe24ef74
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522793"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238891"
 ---
 # <a name="table-design-patterns"></a>資料表設計模式
 本文將說明一些適用於表格服務方案的模式。 此外，您會了解如何有效處理其他表格儲存體設計文章中討論的一些問題和取捨。 下圖摘要說明不同模式之間的關聯性：  
@@ -48,7 +48,7 @@ ms.locfileid: "39522793"
 * 若要在銷售部門中，找出員工識別碼範圍從 000100 至 000199 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * 若要在銷售部門中，找出電子郵件地址開頭為字母 'a' 的所有員工：請使用 $filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+  請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 ### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
@@ -104,7 +104,7 @@ ms.locfileid: "39522793"
 * 若要在銷售部門中，找出員工識別碼範圍從 **000100** 至 **000199** 以員工識別碼順序排序的所有員工，請使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * 若要在銷售部門中，找出電子郵件地址以 'a' 開頭的所有員工，請使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](http://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+請注意，上述範例中使用的篩選語法來自於表格服務 REST API，如需詳細資訊，請參閱 [查詢實體](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 ### <a name="issues-and-considerations"></a>問題和考量
 當您決定如何實作此模式時，請考慮下列幾點：  
@@ -617,7 +617,7 @@ var employees = employeeTable.ExecuteQuery(employeeQuery);
 
 在此類情況下，您務必要完整測試應用程式的效能。  
 
-對資料表服務的查詢一次最多可傳回 1000 個實體，且最長可執行五秒。 如果結果集包含超過 1000 個實體，且查詢未於五秒內完成，或者查詢跨越資料分割界限，則資料表服務會傳回接續權杖，讓用戶端應用程式能夠要求下一組實體。 如需接續權杖如何運作的詳細資訊，請參閱 [查詢逾時和分頁](http://msdn.microsoft.com/library/azure/dd135718.aspx)。  
+對資料表服務的查詢一次最多可傳回 1000 個實體，且最長可執行五秒。 如果結果集包含超過 1000 個實體，且查詢未於五秒內完成，或者查詢跨越資料分割界限，則資料表服務會傳回接續權杖，讓用戶端應用程式能夠要求下一組實體。 如需接續權杖如何運作的詳細資訊，請參閱 [查詢逾時和分頁](https://msdn.microsoft.com/library/azure/dd135718.aspx)。  
 
 如果您使用儲存體用戶端程式庫，它可以在從資料表服務傳回實體時，自動為您處理接續權杖。 下列使用儲存體用戶端程式庫的 C# 程式碼範例會在資料表服務於回應中傳回接續權杖時自動處理接續權杖：  
 

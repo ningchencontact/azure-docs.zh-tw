@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 69a4364c1d110ae78370fbf0ba1b4a92e033a862
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c2fb3ae20ea2b6ba71408a734c1e0c82cbeb699c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241559"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233570"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>安裝彈性資料庫工作概觀
 
@@ -31,7 +31,7 @@ ms.locfileid: "50241559"
 
 ## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 如需免費試用版，請參閱 [免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
-* Azure PowerShell。 使用 [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376)安裝最新版本。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
+* Azure PowerShell。 使用 [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376)安裝最新版本。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 * [NuGet 命令列公用程式](https://nuget.org/nuget.exe) 可用來安裝彈性資料庫工作封裝。 如需詳細資訊，請參閱 http://docs.nuget.org/docs/start-here/installing-nuget。
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>下載並匯入彈性資料庫工作 PowerShell 封裝

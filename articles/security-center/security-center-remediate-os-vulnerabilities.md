@@ -3,23 +3,23 @@ title: 在 Azure 資訊安全中心修復安全性設定 | Microsoft Docs
 description: 本文件說明如何實作 Azure 資訊安全中心建議的「修復安全性設定」。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 3c56abcec37bb6abcb77ec8cc443b0656bd69932
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: d4523a9e2d5a5466c1617930d14a8a2d25a0e16f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238772"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
@@ -107,7 +107,7 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 * 如果要了解如何管理及回應安全性警示，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 * 如果要了解如何監視合作夥伴解決方案的健康情況，請參閱[使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)。
 * 如需關於使用服務的常見問題解答，請參閱 [Azure 資訊安全中心常見問題集](security-center-faq.md)。
-* 如需有關 Azure 安全性與合規性的部落格文章，請參閱 [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) \(英文\)。
+* 如需有關 Azure 安全性與合規性的部落格文章，請參閱 [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) \(英文\)。
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

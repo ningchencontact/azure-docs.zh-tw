@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161760"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237837"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 資源管理員範本
 
@@ -30,7 +30,7 @@ ms.locfileid: "44161760"
 
 可藉由 Microsoft Azure Stack 入口網站、PowerShell、命令列和 Visual Studio 部署這些範本。
 
-下列快速入門範本位於 [GitHub](http://aka.ms/azurestackgithub)：
+下列快速入門範本位於 [GitHub](https://aka.ms/azurestackgithub)：
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server (非高可用性部署)
 

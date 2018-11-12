@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 8dcd89415bdd48b2d8d5c8e1e699159e9d1129e5
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8696f4780db8b98457b56dd7f1162553697023d4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139470"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237922"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>使用 PowerShell 管理流量管理員
 
@@ -178,7 +178,7 @@ New-AzureRmTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -Reso
 巢狀端點是在父設定檔中使用特定的端點類型 ('NestedEndpoints') 來設定。 指定巢狀端點時︰
 
 * 必須使用 'targetResourceId' 參數指定端點
-* 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](http://azure.microsoft.com/regions/)。
+* 如果使用「效能」流量路由方法，則需要 'EndpointLocation'， 否則為選擇性。 值必須是[有效的 Azure 區域名稱](https://azure.microsoft.com/regions/)。
 * 如同 Azure 端點一樣，'Weight' 和 'Priority' 是選擇性。
 * 'MinChildEndpoints' 參數是選擇性。 預設值為 '1'。 如果可用的端點數目低於此臨界值，父設定檔會將子設定檔視為「已降級」，並將流量導向父設定檔中的其他端點。
 

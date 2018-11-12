@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 3781010c74daa51c92813db85ee03eaa4c02a4cf
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 3796f5c8956b633a4789baaf31a439746dc96b96
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233582"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233757"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>將雲端資料夾的內容同步處理到 Azure App Service
-本文說明如何將您的內容從 Dropbox 和 OneDrive 同步處理到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。 
+本文說明如何將您的內容從 Dropbox 和 OneDrive 同步處理到 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)。 
 
 隨選內容同步處理部署是由 App Service 的 [Kudu 部署引擎](https://github.com/projectkudu/kudu/wiki) 所提供。 您可以在指定的雲端資料夾中處理您的應用程式程式碼和內容，然後透過按一下按鈕同步處理到 App Service。 內容同步處理會使用 Kudu 組建伺服器。 
 
