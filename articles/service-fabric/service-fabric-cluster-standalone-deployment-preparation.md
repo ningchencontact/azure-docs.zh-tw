@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 7357577ea7aff467288578673110b1a6dda7ccef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c505feb20321d785a86cad0422470aa5c9a4311b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391042"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259083"
 ---
 <a id="preparemachines"></a>
 
@@ -74,7 +74,7 @@ ms.locfileid: "44391042"
 部署和設定叢集的叢集系統管理員必須擁有每部電腦的 [系統管理員權限](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) 。 您無法在網域控制站上安裝 Service Fabric。
 
 ## <a name="download-the-service-fabric-standalone-package-for-windows-server"></a>下載適用於 Windows Server 的 Service Fabric 獨立封裝
-[下載連結 - Service Fabric 獨立封裝 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)，並將封裝解壓縮至不屬於叢集一部分的部署電腦，或解壓縮至將屬於叢集的其中一部電腦。
+[下載連結 - Service Fabric 獨立封裝 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)，並將封裝解壓縮至不屬於叢集一部分的部署電腦，或解壓縮至將屬於叢集的其中一部電腦。
 
 ## <a name="modify-cluster-configuration"></a>修改叢集組態
 若要建立獨立叢集，您必須建立獨立叢集組態 ClusterConfig.json 檔案，其中描述叢集的規格。 您可以根據可在下面連結找到的範本來建立組態檔。 <br>

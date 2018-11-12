@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 199095c3cffc8df7f9755f1f2c4bb5a1acba3748
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318532"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260375"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲中的稽核
 
@@ -150,7 +150,7 @@ SQL 資料倉儲資料庫稽核可讓您：
 ### <a name="database-level-policy-audit-logs"></a>資料庫層級原則稽核記錄
 在安裝期間，會在所選擇的 Azure 儲存體帳戶中具有 **SQLDBAuditLogs** 首碼的 [儲存資料表] 集合中，彙總資料庫層級稽核記錄。 您可以使用工具 (例如 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com)) 來檢視記錄檔。
 
-預先設定的儀表板報告範本會以[可下載的 Excel 試算表](http://go.microsoft.com/fwlink/?LinkId=403540)形式提供，以協助您快速分析記錄資料。 若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (可從 [此處](http://www.microsoft.com/download/details.aspx?id=39379)下載)。
+預先設定的儀表板報告範本會以[可下載的 Excel 試算表](https://go.microsoft.com/fwlink/?LinkId=403540)形式提供，以協助您快速分析記錄資料。 若要在稽核記錄上使用範本，您需要 Excel 2013 (或更新版本) 和 Power Query (可從 [此處](https://www.microsoft.com/download/details.aspx?id=39379)下載)。
 
 範本中包含虛構的範例資料，您可以設定 Power Query 直接從 Azure 儲存體帳戶匯入稽核記錄。
 
