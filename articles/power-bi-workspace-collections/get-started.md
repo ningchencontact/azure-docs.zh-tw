@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: b565955abaae44efe20291a6e46b57a5fec941d1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233400"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>開始使用 Microsoft Power BI 工作區集合
 
@@ -79,7 +79,7 @@ ms.locfileid: "43046553"
 
 ## <a name="create-power-bi-datasets-and-reports-to-embed-into-an-app-using-power-bi-desktop"></a>使用 Power BI Desktop 建立要內嵌到應用程式中的 Power BI 資料集和報告
 
-您現已為您的應用程式建立 Power BI 執行個體，而且有**存取金鑰**，您必須建立想要內嵌的 Power BI 資料集和報告。 使用 **Power BI Desktop**可以建立資料集和報告。 您可以下載 [免費的 Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662)。 或者，若要快速開始，您可以下載 [零售分析範例 PBIX](http://go.microsoft.com/fwlink/?LinkID=780547)。
+您現已為您的應用程式建立 Power BI 執行個體，而且有**存取金鑰**，您必須建立想要內嵌的 Power BI 資料集和報告。 使用 **Power BI Desktop**可以建立資料集和報告。 您可以下載 [免費的 Power BI Desktop](https://go.microsoft.com/fwlink/?LinkId=521662)。 或者，若要快速開始，您可以下載 [零售分析範例 PBIX](https://go.microsoft.com/fwlink/?LinkID=780547)。
 
 > [!NOTE]
 > 若要深入了解如何使用 **Power BI Desktop**，請參閱[開始使用 Power BI Desktop](https://powerbi.microsoft.com/guided-learning/powerbi-learning-0-2-get-started-power-bi-desktop)。

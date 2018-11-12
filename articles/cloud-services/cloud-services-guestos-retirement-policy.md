@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: dfa3bac95b9827789950b4931e3198237de4a1fd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6068f054a2ce695a889351b1f959319c64eb73fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235593"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Azure 客體作業系統可支援性和淘汰原則
 本頁面中的資訊涉及雲端服務背景工作和 Web 角色 (PaaS) 適用的 Azure 客體作業系統 ([客體 OS](cloud-services-guestos-update-matrix.md))。 這些資訊不適用於虛擬機器 (IaaS)。
 
-Microsoft 已發佈 [客體 OS 支援原則](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)。 您正在閱讀的頁面描述原則的實施方式。
+Microsoft 已發佈 [客體 OS 支援原則](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq)。 您正在閱讀的頁面描述原則的實施方式。
 
 原則包括
 

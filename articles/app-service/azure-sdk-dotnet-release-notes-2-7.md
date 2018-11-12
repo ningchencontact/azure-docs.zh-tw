@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986573"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239061"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Azure SDK for .NET 2.7 和 .NET 2.7.1 版本資訊
 ## <a name="overview"></a>概觀
@@ -28,7 +28,7 @@ ms.locfileid: "22986573"
 
 只有在 Visual Studio 2015 和 Visual Studio 2013 中才支援 Azure SDK 2.7。 [Azure SDK 2.6](https://azure.microsoft.com/downloads/) 是 Visual Studio 2012 最後一個支援的 SDK。
 
-如需此版本的詳細資訊，請參閱 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)和 [Azure SDK 2.7.1 公告文章](http://go.microsoft.com/fwlink/?LinkId=623850)。
+如需此版本的詳細資訊，請參閱 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)和 [Azure SDK 2.7.1 公告文章](https://go.microsoft.com/fwlink/?LinkId=623850)。
 
 ## <a name="azure-sdk-for-net-27"></a>Azure SDK for .NET 2.7
 ### <a name="sign-in-improvements-for-visual-studio-2015"></a>Visual Studio 2015 的登入增強功能
@@ -43,7 +43,7 @@ Azure SDK 2.7 隨附的登入增強功能只有在 Visual Studio 2015 中才能�
 一般錯誤修正與增強功能。 如需更新和功能的詳細資訊，請參閱最新 [服務匯流排 NuGet](http://www.nuget.org/packages/WindowsAzure.ServiceBus/)的版本資訊。
 
 ### <a name="hdinsight-tools"></a>HDInsight 工具
-此版本進行了下列更新。 這些更新目前為預覽版。 如需詳細資訊，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=619108)。
+此版本進行了下列更新。 這些更新目前為預覽版。 如需詳細資訊，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=619108)。
 
 * 為 Hive on Tez 工作繪製 Hive 圖形
 * 完整的 Hive DML IntelliSense 支援
@@ -51,8 +51,8 @@ Azure SDK 2.7 隨附的登入增強功能只有在 Visual Studio 2015 中才能�
 * Azure 服務的 Storm 範本
 
 #### <a name="breaking-changes"></a>重大變更
-* 使用這個版本的工具時，必須先升級舊的 **Storm** 專案。 如需詳細資訊，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=619108)。
-* 不再支援 Visual Studio Web Express。 如需詳細資訊，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=619108)。
+* 使用這個版本的工具時，必須先升級舊的 **Storm** 專案。 如需詳細資訊，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=619108)。
+* 不再支援 Visual Studio Web Express。 如需詳細資訊，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=619108)。
 
 ### <a name="azure-app-service-tools"></a>Azure App Service 工具
 此版本對 Web 工具延伸模組進行了下列更新。 如需詳細資訊，請參閱[此部落格](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)。 
@@ -84,11 +84,11 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 如果您使用舊版 SDK 的 Azure 資源群組專案搭配 SDK 2.7，必須使用新的儲存體帳戶，而不是傳統儲存體帳戶部署新的部署指令碼。  在變更您的專案以加入新的指令碼之前，會先提示您。  舊的指令碼將會重新命名，而且您必須手動修改新的指令碼。
 
 ### <a name="storage-explorer-tools"></a>儲存體總管工具
-* 支援檢視附加 Blob。 如需詳細資訊，請參閱 [此部落格文章](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx)。 
+* 支援檢視附加 Blob。 如需詳細資訊，請參閱 [此部落格文章](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx)。 
 * 支援透過伺服器總管檢視進階儲存體帳戶。 伺服器總管只會顯示進階儲存體帳戶的分頁 Blob，因為它們是進階儲存體帳戶唯一支援的類型。
 
 ### <a name="azure-data-factory-tools-for-visual-studio"></a>Visual Studio 的 Azure Data Factory 工具
-介紹適用於 Visual Studio 的 **Azure Data Factory 工具** 。 以下是啟用的功能。 如需詳細資訊，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=617530) 。
+介紹適用於 Visual Studio 的 **Azure Data Factory 工具** 。 以下是啟用的功能。 如需詳細資訊，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=617530) 。
 
 * **以範本為基礎進行撰寫**：選取以使用案例為基礎的範本、資料移動範本或資料處理範本，來部署端對端資料整合解決方案，並對 Data Factory 快速上手。 
 * **整合方案總管，方便撰寫和部署 Data Factory 實體**：建立和部署管線與相關實體做為 Visual Studio 專案。 
@@ -102,7 +102,7 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 下節包含使用 Azure SDK for.NET 2.7.1 版本所導入的更新。
 
 ### <a name="hdinsight-tools"></a>HDInsight 工具
-如需更多有關 HDInsight 工具更新的詳細說明，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=623831)。
+如需更多有關 HDInsight 工具更新的詳細說明，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=623831)。
 
 * Hive 工作運算子檢視 (新功能)
   
@@ -120,7 +120,7 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
   
     我們已藉由新增更方便使用的建議來改進 IntelliSense。 例如，現在也建議在 IntelliSense 中使用資料表別名，讓您能夠更輕鬆地撰寫查詢。 此外，還改進了 Hive 中繼資料載入功能，只需數秒鐘，就能列出 Hive 中繼存放區的所有資料庫、資料表及資料行。
 
-如需更多有關 HDInsight 工具更新的詳細說明，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkId=623831)。
+如需更多有關 HDInsight 工具更新的詳細說明，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkId=623831)。
 
 ### <a name="improvements-in-visual-studio-2013"></a>Visual Studio 2013 的增強功能
 * Azure SDK 2.7.1 讓 Visual Studio 2013 能夠透過角色型存取控制、雲端解決方案提供者和 Dreamspark 來存取 Azure 帳戶和訂用帳戶。
@@ -132,7 +132,7 @@ Azure 資源管理員工具已更新為使用角色型存取控制 (RBAC) 和新
 LightSwitch 專案與這個版本不相容。 這個問題將在下個 SDK 版本中解決。
 
 ## <a name="also-see"></a>另請參閱
-[Azure SDK 2.7.1 公告文章](http://go.microsoft.com/fwlink/?LinkId=623850)
+[Azure SDK 2.7.1 公告文章](https://go.microsoft.com/fwlink/?LinkId=623850)
 
 [Azure SDK 2.7 公告文章](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 

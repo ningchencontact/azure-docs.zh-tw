@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783117"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254616"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>了解用戶端如何將權杖傳遞到 Azure 媒體服務金鑰傳遞服務
 客戶常常詢問播放程式如何將權杖傳遞至 Azure 媒體服務金鑰傳遞服務以進行認證，讓播放器能夠取得金鑰。 媒體服務支援簡單 Web 權杖 (SWT) 和 JSON Web 權杖 (JWT) 格式。 不論您在系統中使用的是一般加密或進階加密標準 (AES) 信封加密，權杖驗證都會套用至任何類型的金鑰。
@@ -52,7 +52,7 @@ ms.locfileid: "33783117"
     ```
     將您的驗證權杖放置於 Token 元素中。
 
-- 透過替代的 HTTP 即時串流 (HLS) 播放清單。 如果您需要針對 iOS/Safari 上的 AES + HLS 播放設定權杖驗證，則沒有任何方式可讓您直接傳送權杖。 如需如何替代播放清單來實現此案例的詳細資訊，請參閱這篇[部落格文章](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) \(英文\)。
+- 透過替代的 HTTP 即時串流 (HLS) 播放清單。 如果您需要針對 iOS/Safari 上的 AES + HLS 播放設定權杖驗證，則沒有任何方式可讓您直接傳送權杖。 如需如何替代播放清單來實現此案例的詳細資訊，請參閱這篇[部落格文章](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 

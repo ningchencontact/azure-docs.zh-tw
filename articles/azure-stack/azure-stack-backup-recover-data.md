@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ed89468d65f35d0a8cda90da365e8625f46e3f92
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41954621"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034332"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 
@@ -73,4 +73,4 @@ Azure Stack 支援一種稱為「雲端復原模式」的部署。 只有在災�
 
 ## <a name="next-steps"></a>後續步驟
 
- - 了解[使用基礎結構的備份服務](azure-stack-backup-best-practices.md)的最佳做法。
+了解[使用基礎結構的備份服務](azure-stack-backup-best-practices.md)的最佳做法。

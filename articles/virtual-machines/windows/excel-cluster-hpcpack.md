@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5b8d3aa69d6a141394395f012e5cc57873cafaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421207"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235926"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>開始在 Azure 中的 HPC Pack 叢集上執行 Excel 和 SOA 工作負載
 此文章說明如何在 Azure 虛擬機器上使用 Azure 快速入門範本或 Azure PowerShell 部署指令碼 (選擇性) 部署 Microsoft HPC Pack 2012 R2 叢集。 此叢集使用 Azure Marketplace VM 映像，其設計目的為使用 HPC Pack 執行 Microsoft Excel 或服務導向架構 (SOA) 工作負載。 您可以從內部部署用戶端電腦使用叢集來執行 Excel HPC 和 SOA 服務。 Excel HPC 服務包括 Excel 活頁簿卸載和 Excel 使用者定義函數或 UDF。
@@ -225,7 +225,7 @@ HPC Pack 部署指令碼會執行一段時間。 指令碼會匯出和下載叢�
         </startup>
     </configuration>
     ```
-1. 設定用戶端以將工作提交到 HPC Pack 叢集。 其中一個選項是下載完整的 [HPC Pack 2012 R2 Update 3 安裝](http://www.microsoft.com/download/details.aspx?id=49922) ，並安裝 HPC Pack 用戶端。 或者，為您的電腦 ([x64](http://www.microsoft.com/download/details.aspx?id=14632)、[x86](https://www.microsoft.com/download/details.aspx?id=5555)) 下載並安裝 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)及適當的 Visual C++ 2010 可轉散發套件。
+1. 設定用戶端以將工作提交到 HPC Pack 叢集。 其中一個選項是下載完整的 [HPC Pack 2012 R2 Update 3 安裝](https://www.microsoft.com/download/details.aspx?id=49922) ，並安裝 HPC Pack 用戶端。 或者，為您的電腦 ([x64](https://www.microsoft.com/download/details.aspx?id=14632)、[x86](https://www.microsoft.com/download/details.aspx?id=5555)) 下載並安裝 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)及適當的 Visual C++ 2010 可轉散發套件。
 1. 在此範例中，我們使用名為 ConvertiblePricing_Complete.xlsb 的範例 Excel 活頁簿。 您可以從 [這裡](https://www.microsoft.com/en-us/download/details.aspx?id=2939)下載。
 1. 將 Excel 活頁簿複製到工作資料夾，例如 D:\Excel\Run。
 1. 開啟 Excel 活頁簿。 在 [開發] 功能區上，按一下 [COM 增益集] 並確認 HPC Pack Excel COM 增益集已成功載入。
@@ -262,7 +262,7 @@ HPC Pack 部署指令碼會執行一段時間。 指令碼會匯出和下載叢�
 > 
 > 
 
-成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。 關於自訂的 Excel UDF，請參閱這些 [資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 以建置 XLL 並將其部署在 IaaS 叢集上。
+成功部署叢集之後，繼續進行下列步驟來執行內建的範例 Excel UDF。 關於自訂的 Excel UDF，請參閱這些 [資源](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 以建置 XLL 並將其部署在 IaaS 叢集上。
 
 1. 開啟新的 Excel 活頁簿。 在 [開發] 功能區上，按一下 [增益集]。然後在對話方塊中按一下 [瀏覽]、瀏覽至 %CCP_HOME%Bin\XLL32 資料夾並選取範例 ClusterUDF32.xll。 如果 ClusterUDF32 不存在於用戶端電腦上，您可以從前端節點上的 %CCP_HOME%Bin\XLL32 資料夾複製它。
    
@@ -280,7 +280,7 @@ HPC Pack 部署指令碼會執行一段時間。 指令碼會匯出和下載叢�
 若要在 HPC Pack IaaS 叢集上執行一般 SOA 應用程式，請先使用步驟 1 的其中一個方法部署叢集。 在此案例中請指定一般計算節點映像，因為在計算節點上您不需要 Excel。 接著，遵循下列步驟。
 
 1. 擷取叢集憑證之後，在 Cert:\CurrentUser\Root 下的用戶端電腦上匯入叢集憑證。
-1. 安裝 [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) 和 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)。 這些工具可讓您開發和執行 SOA 用戶端應用程式。
+1. 安裝 [HPC Pack 2012 R2 Update 3 SDK](https://www.microsoft.com/download/details.aspx?id=49921) 和 [HPC Pack 2012 R2 Update 3 用戶端公用程式](https://www.microsoft.com/download/details.aspx?id=49923)。 這些工具可讓您開發和執行 SOA 用戶端應用程式。
 1. 下載 HelloWorldR2 [範例程式碼](https://www.microsoft.com/download/details.aspx?id=41633)。 在 Visual Studio 2010 或 2012 中開啟 HelloWorldR2.sln。 (此範例目前與較新的 Visual Studio 版本不相容。)
 1. 首先建置 EchoService 專案。 接著以您部署至內部部署叢集的相同方式，將服務部署到 IaaS 叢集。 如需詳細步驟，請參閱 HelloWordR2 中的 Readme.doc。 以下一節所述的方式修改並建置 HelloWorldR2 和其他專案，以產生執行於 Azure IaaS 叢集上的 SOA 用戶端應用程式。
 
@@ -343,7 +343,7 @@ HPC Pack 部署指令碼會執行一段時間。 指令碼會匯出和下載叢�
 SOA 用戶端應用程式不需要變更，除了將標頭名稱改變為 IaaS 叢集的完整名稱。
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [這些資源](http://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 以取得使用 HPC Pack 執行 Excel 工作負載的詳細資訊。
+* 請參閱 [這些資源](https://social.technet.microsoft.com/wiki/contents/articles/1198.windows-hpc-and-microsoft-excel-resources-for-building-cluster-ready-workbooks.aspx) 以取得使用 HPC Pack 執行 Excel 工作負載的詳細資訊。
 * 請參閱 [管理 Microsoft HPC Pack 中的 SOA 服務](https://technet.microsoft.com/library/ff919412.aspx) 以取得使用 HPC Pack 部署和管理 SOA 服務的詳細資訊。
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 6c429931a7a17ab62892ecc774a5cca15a532f72
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269474"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237629"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虛擬網路的常見問題 (FAQ)
 
@@ -126,7 +126,7 @@ Azure 虛擬網路 (VNet) 是您的網路在雲端中的身分。 它是專屬�
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>什麼是 Azure 提供的 DNS，以及它是否可搭配 VNet 使用？
 Azure 提供的 DNS 是由 Microsoft 所提供的多租用戶 DNS 服務。 Azure 會註冊您在此服務中的所有 VM 和雲端服務角色執行個體。 這個服務可根據相同雲端服務內所包含 VM 和角色的主機名稱，以及根據 VM 的 FQDN 和相同 VNet 中的角色執行個體提供名稱解析功能。 若要深入了解 DNS，請參閱[虛擬機器與雲端服務角色執行個體的名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。
 
-VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租用戶名稱解析的限制。 如果您使用自己的 DNS 伺服器，則不適用此限制。
+VNet 中的前 100 個雲端服務具有使用 Azure 所提供 DNS 進行跨租用戶名稱解析的限制。 如果您使用自己的 DNS 伺服器，則不適用這項限制。
 
 ### <a name="can-i-override-my-dns-settings-on-a-per-vm-or-cloud-service-basis"></a>我是否可以根據每個虛擬機器或雲端服務來覆寫 DNS 設定？
 是。 您可以根據每個虛擬機器或雲端服務設定 DNS 伺服器，以便覆寫預設網路設定。 不過，建議您盡可能使用全網路 DNS。
@@ -213,7 +213,7 @@ VNet 會與另一個 VNet，以及其他裝載於 Azure 基礎結構中的服務
 ## <a name="apis-schemas-and-tools"></a>API、結構描述和工具
 
 ### <a name="can-i-manage-vnets-from-code"></a>我可以從程式碼管理 VNet 嗎？
-是。 您可以使用 [Azure Resource Manager](/rest/api/virtual-network) 中適用於 VNet 的 REST API，與[傳統 (服務管理)](http://go.microsoft.com/fwlink/?LinkId=296833) 部署模型。
+是。 您可以使用 [Azure Resource Manager](/rest/api/virtual-network) 中適用於 VNet 的 REST API，與[傳統 (服務管理)](https://go.microsoft.com/fwlink/?LinkId=296833) 部署模型。
 
 ### <a name="is-there-tooling-support-for-vnets"></a>是否有工具支援 VNet？
 是。 深入了解如何使用：

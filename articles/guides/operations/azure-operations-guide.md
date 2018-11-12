@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423488"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250776"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -153,7 +153,7 @@ Azure 入口網站是一種 Web 應用程式，可用來建立、管理和移除
 
 ### <a name="resources"></a>資源
 
-Azure 資源是已部署至 Azure 訂用帳戶的個別計算、網路、資料或應用程式裝載服務。 虛擬機器、儲存體帳戶或 SQL 資料庫是一些常見的資源。 Azure 服務通常包含數個相關的 Azure 資源。 例如，Azure 虛擬機器可能包含 VM、儲存體帳戶、網路介面卡和公用 IP 位址。 可以用個別或群組方式建立、管理和刪除這些資源。 本指南稍後會更詳細說明 Azure 資源。
+Azure 資源是已部署至 Azure 訂用帳戶的個別計算、網路、資料或應用程式裝載服務。 虛擬機器、儲存體帳戶或 SQL 資料庫是一些常見的資源。 Azure 服務通常包含數個相關的 Azure 資源。 比方說，Azure 虛擬機器可能包含 VM、儲存體帳戶、網路介面卡和公用 IP 位址。 可以用個別或群組方式建立、管理和刪除這些資源。 本指南稍後會更詳細說明 Azure 資源。
 
 ### <a name="resource-groups"></a>資源群組
 
@@ -173,7 +173,7 @@ Azure PowerShell 是一套模組，提供用於管理 Azure 的 Cmdlet。 您可
 
 #### <a name="azure-command-line-interface"></a>Azure 命令列介面
 
-Azure 命令列介面是一個工具，可用來從命令列建立、管理和移除 Azure 資源。 Azure CLI 適用於 Linux、Mac OS X 和 Windows。 如需詳細資訊和技術詳細資料，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
+Azure 命令列介面是一項工具，可用來從命令列建立、管理和移除 Azure 資源。 Azure CLI 適用於 Linux、Mac OS X 和 Windows。 如需詳細資訊和技術詳細資料，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 #### <a name="rest-apis"></a>REST API
 
@@ -219,7 +219,7 @@ RBAC 包含數個可供您用來指派權限的內建角色。 若要將使用�
 
 除了在入口網站中檢視計費資訊，您可以透過 Azure 計費 REST API 使用指令碼或程式來存取帳單資訊：
 
-- 您可以使用 Azure 使用量 API 來擷取您的使用量資料。 您可以透過標記相關的 Azure 資源來微調使用量計費資訊。 例如，您可以使用部門名稱或專案名稱來標記資源群組中的每個資源，然後特別追蹤該標記的成本。
+- 您可以使用 Azure 使用量 API 來擷取您的使用量資料。 您可以藉由標記相關的 Azure 資源來微調使用量計費資訊。 例如，您可以使用部門名稱或專案名稱來標記資源群組中的每個資源，然後特別追蹤該標記的成本。
 
 - 您可以使用 Azure Rate Card API 來列出所有可用的資源，以及每項資源的中繼資料和價格資訊。
 
@@ -227,7 +227,7 @@ RBAC 包含數個可供您用來指派權限的內建角色。 若要將使用�
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>使用價格計算機預測成本
 
-Azure 中每項服務的價格不同。 許多 Azure 服務都提供基本、標準和進階層。 通常，每一層都有數個價格和效能層級。 使用[線上價格計算機](http://azure.microsoft.com/pricing/calculator)，您可以建立價格估計值。 此計算機具備估計單一資源或資源群組成本的彈性。
+Azure 中每項服務的價格不同。 許多 Azure 服務都提供基本、標準和進階層。 通常，每一層都有數個價格和效能層級。 使用[線上價格計算機](https://azure.microsoft.com/pricing/calculator)，您可以建立價格估計值。 此計算機具備估計單一資源或資源群組成本的彈性。
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -257,7 +257,7 @@ Resource Manager 會提供數個優點：
 
 - 資源群組中的所有資源應具有相同的存留期。
 
-- 您一次只能將一個資源指派給一個群組。
+- 您一次只能將一項資源指派給一個群組。
 
 - 您可以隨時在資源群組中新增或移除資源。 每項資源必須屬於一個資源群組。 因此，如果您從一個群組中移除資源，您必須將該資源新增至另一個群組。
 
@@ -367,7 +367,7 @@ Azure 儲存體帳戶可以設定不同層級的備援性：
 
 - **異地備援儲存體**會在主要區域中為資料製作三份同步副本，以提供高可用性，然後在配對區域中以非同步方式製作三個複本，以便進行災害復原。
 
-- **讀取權限的異地備援儲存體**是異地備援儲存體，加上在次要區域中讀取資料的能力。 此功能適合用於部分災害復原。 如果主要區域發生問題，您可以將應用程式變更為具有配對區域的唯讀存取權。
+- **讀取權限的異地備援儲存體**是異地備援儲存體，加上在次要區域中讀取資料的能力。 這項功能適合用於部分災害復原。 如果主要區域發生問題，您可以將應用程式變更為具有配對區域的唯讀存取權。
 
 ### <a name="use-cases"></a>使用案例
 

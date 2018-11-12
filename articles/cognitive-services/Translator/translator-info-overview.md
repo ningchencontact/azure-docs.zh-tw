@@ -10,26 +10,28 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: erhopf
-ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645013"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037442"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 
-翻譯工具文字 API 可以無縫整合到您的應用程式、網站、工具或其他解決方案，提供[超過 60 種語言的](languages.md)多語言使用者體驗。 它可用於任何硬體平台上，並可與任何作業系統搭配使用，以執行文字轉文字的語言翻譯。
+您可以輕鬆地在應用程式、網站、工具和解決方案中整合翻譯工具文字 API。 它可讓您以 [60 種以上的語言](languages.md)新增多語言使用者體驗，並且可在使用任何作業系統的任何硬體平台上用於文字轉換文字的語言翻譯。
 
-翻譯工具文字 API 是由雲端中機器學習與 AI 演算法所組成之 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 集合的一部分，隨時可供在您的開發專案中取用。
+翻譯工具文字 API 是由雲端中機器學習與 AI 演算法所組成的 [Azure 認知服務 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 集合的一部分，且隨時可供您在開發專案中取用。
 
 ## <a name="about-microsoft-translator"></a>關於 Microsoft Translator
 
-Microsoft Translator 是一個雲端式機器翻譯服務。 此服務的核心是 Translator Text API 和 [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation)，這些 API 為各種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球用戶。
+Microsoft Translator 是一個雲端式機器翻譯服務。 核心服務是翻譯工具文字 API，此 API 可為多種 Microsoft 產品和服務提供技術支援，並由全球數千個企業運用在其應用程式和工作流程中，使其內容得以觸及全球各地的用戶。
 
-語音翻譯也可透過[認知服務語音預覽](https://docs.microsoft.com/azure/cognitive-services/speech-service/)取得，其中包含現有的 Translator Speech API、Bing 語音 API 和 Custom Speech Service (預覽)，並結合成為統合並且可完整自訂的服務。  
+語音翻譯由翻譯工具文字 API 提供技術支援，也可透過 [Microsoft 語音服務](https://docs.microsoft.com/azure/cognitive-services/speech-service/)來使用。 它將翻譯工具語音 API、Bing 語音 API 和自訂語音服務 (預覽) 的功能結合為統合且可完整自訂的服務。 翻譯工具語音 API 將取代為語音服務，且將於 2019 年 10 月 15 日除役。
 
-深入了解 [Microsoft Translator 服務](https://www.microsoft.com/en-us/translator/home.aspx) \(英文\)
+## <a name="language-support"></a>語言支援
+
+Microsoft Translator 提供翻譯、音譯、語言偵測和字典的多語言支援。 如需完整清單請參閱[語言支援](language-support.md)，或透過 [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) 以程式設計方式存取清單。  
 
 ## <a name="language-customization"></a>自訂語言
 

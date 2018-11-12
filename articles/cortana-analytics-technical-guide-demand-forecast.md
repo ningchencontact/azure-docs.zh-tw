@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387654"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238857"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -47,7 +47,7 @@ ms.locfileid: "49387654"
 [Azure 串流分析](https://azure.microsoft.com/services/stream-analytics/)服務用來為來自 [Azure 事件中樞](#azure-event-hub)服務的輸入串流提供近乎即時的分析，並將結果發佈到 [Power BI](https://powerbi.microsoft.com) 儀表板，以及將所有未經處理的內送事件保存至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)服務，供 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) 服務後續處理。
 
 ### <a name="hdinsight-custom-aggregation"></a>HDInsight 自訂彙總
-Azure HDInsight 服務用來執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存的原始事件的彙總。
+Azure HDInsight 服務用來執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼 (由 Azure Data Factory 協調)，以提供使用 Azure 串流分析服務封存的原始事件的彙總。
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 使用 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 服務 (由 Azure Data Factory 協調) 預測特定區域 (提供所收到輸入資料) 的未來用電量。
@@ -102,14 +102,14 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-此 Factory 的五個管線包含 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，用來分割及彙總資料。 如上述，指令碼會位在安裝期間建立的 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶中。 其位置會是：demandforecasting\\\\script\\\\hive\\\\ (或 https://[解決方案名稱].blob.core.windows.net/demandforecasting)。
+此 Factory 的五個管線包含 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，用來分割及彙總資料。 如上述，指令碼會位在安裝期間建立的 [Azure 儲存體](https://azure.microsoft.com/services/storage/)帳戶中。 其位置會是：demandforecasting\\\\script\\\\hive\\\\ (或 https://[解決方案名稱].blob.core.windows.net/demandforecasting)。
 
-類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，必須根據您的資料格式和[特徵工程設計](machine-learning/team-data-science-process/create-features.md)需求來變更這些查詢。
+類似於 [Azure 串流分析](#azure-stream-analytics-1)查詢，[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼對於內送資料格式具有隱含知識，必須根據您的資料格式和[特徵工程設計](machine-learning/team-data-science-process/create-features.md)需求來變更這些查詢。
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-這個[管線](data-factory/concepts-pipelines-activities.md)管線包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，透過 Azure 串流分析作業將分站層級中每 10 秒流入的需求資料，彙總到每小時區域層級，並放入 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中。
+這個[管線](data-factory/concepts-pipelines-activities.md)管線包含單一活動 - 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼，透過 Azure 串流分析作業將分站層級中每 10 秒流入的需求資料，彙總到每小時區域層級，並放入 [Azure 儲存體](https://azure.microsoft.com/services/storage/)中。
 
-此資料分割工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandRegion1Hr.hql
+此資料分割工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandRegion1Hr.hql
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 這個[管線](data-factory/concepts-pipelines-activities.md)包含兩個活動︰
@@ -117,7 +117,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 * 使用 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) 的 [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) 活動，它會執行 Hive 指令碼，在 Azure 串流分析作業期間將分站層級中的每小時歷程需求資料，彙總到每小時區域層級，並放入 Azure 儲存體中
 * [複製](https://msdn.microsoft.com/library/azure/dn835035.aspx) 活動，會將彙總資料從 Azure 儲存體 Blob 移至解決方案範本安裝期間所佈建的 Azure SQL Database。
 
-此工作的 [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandHistoryRegion.hql。
+此工作的 [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) 指令碼為 AggregateDemandHistoryRegion.hql。
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 這些[管線](data-factory/concepts-pipelines-activities.md)包含數個活動，而且其最終結果為來自與這個方案範本相關聯的 Azure Machine Learning 實驗評分的預測。 這些管線幾乎完全相同，差別在於它們各自只會處理不同區域 (由傳入 ADF 管線的不同 RegionID 所完成) 以及每個區域的 hive 指令碼。  
@@ -231,7 +231,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 下列兩項工具可協助您進一步了解在您的訂用帳戶中執行能源需求預測解決方案範本所牽涉的總成本：
 
 * [Microsoft Azure Cost Estimator Tool (線上版)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (桌面版)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (桌面版)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**通知**
 本文是 Microsoft 的資料科學家 Yijing Chen 與軟體工程師 Qiu Min 所撰寫。

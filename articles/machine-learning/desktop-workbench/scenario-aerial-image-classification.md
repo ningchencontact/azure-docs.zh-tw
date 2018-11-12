@@ -12,12 +12,12 @@ services: machine-learning
 ms.workload: data-services
 ms.date: 12/13/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5ca47c8234239b56a2d829903828dda8220d53cb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e71de2d543c8f29b7195e74d574855bcbe739162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967603"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260545"
 ---
 # <a name="aerial-image-classification"></a>空拍影像分類
 
@@ -154,7 +154,7 @@ ms.locfileid: "46967603"
     az storage share create --account-name %STORAGE_ACCOUNT_NAME% --account-key %STORAGE_ACCOUNT_KEY% --name baitshare
     ```
 1. 使用您慣用的文字編輯器，從 Azure Machine Learning Workbench 專案的 "Code" 子目錄中載入 `settings.cfg` 檔案，並依據指示插入儲存體帳戶名稱和金鑰。 儲存並關閉 `settings.cfg` 檔案。
-1. 如果您尚未這樣做，請下載並安裝 [AzCopy](http://aka.ms/downloadazcopy) 公用程式。 您可以藉由輸入 "AzCopy" 並按下 Enter 以顯示其文件的方式，來確認 AzCopy 可執行檔存在您的系統路徑上。
+1. 如果您尚未這樣做，請下載並安裝 [AzCopy](https://aka.ms/downloadazcopy) 公用程式。 您可以藉由輸入 "AzCopy" 並按下 Enter 以顯示其文件的方式，來確認 AzCopy 可執行檔存在您的系統路徑上。
 1. 發佈下列命令，可將所有範例資料、預先定型的模型和模型定型指令碼複製到您儲存體帳戶中的適當位置：
 
     ```

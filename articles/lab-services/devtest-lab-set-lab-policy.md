@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 212afbd605e3a16da7be2c04492ec41875ff5b75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 378eb8c1f2070e8f4b28c221369938e2ff04e2f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666834"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255163"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中管理實驗室的所有原則
 
@@ -27,7 +27,7 @@ Azure DevTest Labs 讓您管理每個實驗室的原則 (設定)，以控制實�
 ## <a name="set-allowed-virtual-machine-sizes"></a>設定允許的虛擬機器大小
 設定允許的 VM 大小的原則有助於將實驗室的成本浪費降至最低，方式是讓您指定實驗室中允許的 VM 大小。 如果啟用此原則，就只能使用此清單中的 VM 大小來建立 VM。
 
-1. 在 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)中，選取實驗室，然後選取 [設定與原則]。
+1. 在 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)中，選取實驗室，然後選取 [設定與原則]。
 
     ![存取實驗室的設定與原則](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

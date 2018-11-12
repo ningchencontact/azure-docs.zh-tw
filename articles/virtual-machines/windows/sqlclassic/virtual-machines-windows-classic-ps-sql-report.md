@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c688de79c985eda9b0898d0f7d989de58f7dbc71
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 32be473ab93231805cdae097e3e984a2e74da973
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038014"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233077"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 建立具有原生模式報表伺服器的 Azure VM
 > [!IMPORTANT] 
@@ -90,7 +90,7 @@ ms.locfileid: "40038014"
 
 您需要信任的 SSL 憑證，才能在 VM 上使用 HTTPS。 您可以根據您的情況，使用下列其中一種方法：
 
-* 由憑證授權單位 (CA) 核發，且受到 Microsoft 信任的有效 SSL 憑證。 CA 根憑證必須透過 Microsoft 根憑證計劃散發。 如需有關此計劃的詳細資訊，請參閱 [Windows 和 Windows Phone 8 SSL 根憑證計劃 (成員 CA)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx)，以及 [Microsoft 根憑證計劃簡介](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)。
+* 由憑證授權單位 (CA) 核發，且受到 Microsoft 信任的有效 SSL 憑證。 CA 根憑證必須透過 Microsoft 根憑證計劃散發。 如需有關此計劃的詳細資訊，請參閱 [Windows 和 Windows Phone 8 SSL 根憑證計劃 (成員 CA)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx)，以及 [Microsoft 根憑證計劃簡介](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx)。
 * 自我簽署憑證。 不建議將自我簽署憑證用於生產環境。
 
 ### <a name="to-use-a-certificate-created-by-a-trusted-certificate-authority-ca"></a>使用由信任的憑證授權單位 (CA) 所建立的憑證
@@ -599,7 +599,6 @@ ms.locfileid: "40038014"
 ## <a name="more-information"></a>相關資訊
 ### <a name="resources"></a>資源
 * 如需與 SQL Server Business Intelligence 及 SharePoint 2013 單一伺服器部署相關的類似內容，請參閱 [使用 Windows PowerShell 建立 Azure VM 搭配 SQL Server BI 及 SharePoint 2013](https://blogs.technet.microsoft.com/ptsblog/2013/10/24/use-powershell-to-create-a-windows-azure-vm-with-sql-server-bi-and-sharepoint-2013/)。
-* 如需與 SQL Server Business Intelligence 及 SharePoint 2013 多伺服器部署相關的類似內容，請參閱 [在 Azure 虛擬機器部署 SQL Server Business Intelligence](https://msdn.microsoft.com/library/dn321998.aspx)。
 * 如需與 Azure 虛擬機器的 SQL Server Business Intelligence 部署相關的一般資訊，請參閱 [Azure 虛擬機器的 SQL Server Business Intelligence](virtual-machines-windows-classic-ps-sql-bi.md)。
 * 如需有關 Azure 計算費用成本的詳細資訊，請參閱 [Azure 價格計算機](https://azure.microsoft.com/pricing/calculator/?scenario=virtual-machines)中的 [虛擬機器] 索引標籤。
 

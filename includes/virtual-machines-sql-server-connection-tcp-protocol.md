@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: c9df9e0812d5c4b5a581d4b7da677623f45f8053
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226782"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263992"
 ---
 1. 透過遠端桌面連線到虛擬機器時，請搜尋 [組態管理員]：
 
@@ -27,4 +27,4 @@ ms.locfileid: "50226782"
 
 1. 關閉 SQL Server 組態管理員。
 
-如需啟用 SQL Server Database Engine 之通訊協定的詳細資訊，請參閱 [啟用或停用伺服器網路通訊協定](http://msdn.microsoft.com/library/ms191294.aspx)。
+如需啟用 SQL Server Database Engine 之通訊協定的詳細資訊，請參閱 [啟用或停用伺服器網路通訊協定](https://msdn.microsoft.com/library/ms191294.aspx)。

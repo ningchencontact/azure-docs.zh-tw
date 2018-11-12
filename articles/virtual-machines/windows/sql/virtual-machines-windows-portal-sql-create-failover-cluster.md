@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42145362"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237959"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虛擬機器上設定 SQL Server 容錯移轉叢集執行個體
 
-本文說明如何在 Resource Manager 模型內的 Azure 虛擬機器中，建立 SQL Server 容錯移轉叢集執行個體 (FCI)。 此解決方案會使用 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\) ](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) 做為軟體型虛擬 SAN，以同步 Windows 叢集中各節點 (Azure VM) 間的儲存體 (資料磁碟)。 S2D 是 Windows Server 2016 中的新功能。
+本文說明如何在 Resource Manager 模型內的 Azure 虛擬機器中，建立 SQL Server 容錯移轉叢集執行個體 (FCI)。 此解決方案會使用 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\) ](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) 做為軟體型虛擬 SAN，以同步 Windows 叢集中各節點 (Azure VM) 間的儲存體 (資料磁碟)。 S2D 是 Windows Server 2016 中的新功能。
 
 下圖顯示 Azure 虛擬機器中的完整解決方案：
 
@@ -44,7 +44,7 @@ ms.locfileid: "42145362"
    >[!NOTE]
    >圖表內的所有 Azure 資源都位於相同的資源群組中。
 
-如需有關 S2D 的詳細資料，請參閱 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)。
+如需有關 S2D 的詳細資料，請參閱 [Windows Server 2016 Datacenter 版本儲存空間直接存取 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)。
 
 S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為超交集。 超交集基礎結構會將儲存體放置於與裝載叢集應用程式相同的伺服器上。 在此架構中，儲存體會放置在每個 SQL Server FCI 節點上。
 
@@ -52,13 +52,13 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 在 Azure 虛擬機器上，您可以使用隨收隨付制 (PAYG) 進行 SQL Server 的授權，而 VM 映像也可自備授權 (BYOL)。 您選擇的映像類型會影響向您收費的方式。
 
-使用 PAYG 授權時，在 Azure 虛擬機器上，SQL Server 的容錯移轉叢集執行個體 (FCI) 會產生所有 FCI 節點的費用，包括被動節點。 如需詳細資訊，請參閱 [SQL Server Enterprise 虛擬機器定價](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)。 
+使用 PAYG 授權時，在 Azure 虛擬機器上，SQL Server 的容錯移轉叢集執行個體 (FCI) 會產生所有 FCI 節點的費用，包括被動節點。 如需詳細資訊，請參閱 [SQL Server Enterprise 虛擬機器定價](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/)。 
 
-至於有簽訂軟體保證 Enterprise 合約的客戶，每個作用中的節點有權使用一個免費的被動 FCI 節點。 若要利用 Azure 的這項優點，可使用 BYOL VM 映像，然後在 FCI 的主動和被動節點上使用相同的授權。 如需詳細資訊，請參閱 [Enterprise 合約](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)。
+至於有簽訂軟體保證 Enterprise 合約的客戶，每個作用中的節點有權使用一個免費的被動 FCI 節點。 若要利用 Azure 的這項優點，可使用 BYOL VM 映像，然後在 FCI 的主動和被動節點上使用相同的授權。 如需詳細資訊，請參閱 [Enterprise 合約](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx)。
 
 若要比較 Azure 虛擬機器上 SQL Server 的 PAYG 和 BYOL 授權，請參閱[開始使用 SQL VM](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms)。
 
-如需授權 SQL Server 的完整資訊，請參閱[定價](http://www.microsoft.com/sql-server/sql-server-2017-pricing)。
+如需授權 SQL Server 的完整資訊，請參閱[定價](https://www.microsoft.com/sql-server/sql-server-2017-pricing)。
 
 ### <a name="example-azure-template"></a>Azure 範本範例
 
@@ -71,12 +71,12 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 ### <a name="what-to-know"></a>注意事項
 您應了解下列技術的操作方式：
 
-- [Windows 叢集技術](http://technet.microsoft.com/library/hh831579.aspx)
-- [SQL Server 容錯移轉叢集執行個體](http://msdn.microsoft.com/library/ms189134.aspx)。
+- [Windows 叢集技術](https://technet.microsoft.com/library/hh831579.aspx)
+- [SQL Server 容錯移轉叢集執行個體](https://msdn.microsoft.com/library/ms189134.aspx)。
 
 此外，您也應對下列技術有大概了解：
 
-- [在 Windows Server 2016 中使用儲存空間直接存取的超交集解決方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [在 Windows Server 2016 中使用儲存空間直接存取的超交集解決方案](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure 資源群組](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-如需參考，請在接下來的步驟依照[在 Windows Server 2016 中使用儲存空間直接存取的超交集解決方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct) 步驟 3 的指示操作。
+如需參考，請在接下來的步驟依照[在 Windows Server 2016 中使用儲存空間直接存取的超交集解決方案](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct) 步驟 3 的指示操作。
 
 ### <a name="validate-the-cluster"></a>驗證叢集
 
-本指南參考[驗證叢集](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation)下的指示。
+本指南參考[驗證叢集](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation)下的指示。
 
 在 UI 中或透過 PowerShell 驗證叢集。
 
@@ -259,7 +259,7 @@ S2D 支援兩種類型的架構 - 交集和超交集。 本文件中的架構為
 
 ### <a name="create-the-failover-cluster"></a>建立容錯移轉叢集
 
-本指南會參考[建立容錯移轉叢集](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)。
+本指南會參考[建立容錯移轉叢集](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster)。
 
 若要建立容錯移轉叢集，您需要：
 - 成為叢集節點的虛擬機器名稱。
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 雲端見證儲存在 Azure 儲存體 Blob 中，是一種新型的叢集仲裁見證。 如有雲端見證，便不再需要使用獨立的 VM 來裝載見證共用。
 
-1. [建立容錯移轉叢集的雲端見證](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)。
+1. [建立容錯移轉叢集的雲端見證](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness)。
 
 1. 建立 Blob 容器。
 
 1. 儲存存取金鑰和容器 URL。
 
-1. 設定容錯移轉叢集的叢集仲裁見證。 請參閱使用者介面中的[在使用者介面中設定仲裁見證](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
+1. 設定容錯移轉叢集的叢集仲裁見證。 請參閱使用者介面中的[在使用者介面中設定仲裁見證](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)。
 
 ### <a name="add-storage"></a>新增儲存體
 
-S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟，請遵循[本指南內的步驟](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)。
+S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟，請遵循[本指南內的步驟](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks)。
 
-1. [啟用儲存空間直接存取 \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)。
+1. [啟用儲存空間直接存取 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct)。
 
    下列 PowerShell 會啟用儲存空間直接存取。  
 
@@ -298,7 +298,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 
    現在，您可以在**容錯移轉管理員**中看到儲存集區。
 
-1. [建立磁碟區](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes)。
+1. [建立磁碟區](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes)。
 
    S2D 的其中一項功能，是會在您啟用時自動建立儲存集區。 您現在可以開始建立磁碟區。 PowerShell commandlet `New-Volume` 會自動執行磁碟區建立程序，包括格式化、新增至叢集、和建立叢集共用磁碟區 (CSV)。 下列範列會建立 800 GB 的 CSV。
 
@@ -343,7 +343,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 1. 按一下 [將節點新增到 SQL Server 容錯移轉叢集]。 請遵循精靈中的指示安裝 SQL Server FCI，並將此伺服器新增至 FCI。
 
    >[!NOTE]
-   >若您曾透過 SQL Server 使用 Azure Marketplace 資源庫映像，映像會包含 SQL Server 工具。 若您沒有用過此映像，請另外安裝 SQL Server 工具。 請參閱[下載 Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx)。
+   >若您曾透過 SQL Server 使用 Azure Marketplace 資源庫映像，映像會包含 SQL Server 工具。 若您沒有用過此映像，請另外安裝 SQL Server 工具。 請參閱[下載 Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="step-5-create-azure-load-balancer"></a>步驟 5：建立 Azure Load Balancer
 
@@ -478,7 +478,7 @@ S2D 的磁碟需為空白且不含分割區或其他資料。 若要清理磁碟
 若要測試連線能力，請在相同的虛擬網路內登入至另一部虛擬機器。 開啟 [SQL Server Management Studio]，然後連接到 SQL Server FCI 名稱。
 
 >[!NOTE]
->如有需要，您可以[下載 SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx)。
+>如有需要，您可以[下載 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="limitations"></a>限制
 
@@ -491,10 +491,10 @@ Azure 虛擬機器支援 Windows Server 2019 上的 Microsoft 分散式交易協
 
 ## <a name="see-also"></a>另請參閱
 
-[透過遠端桌面 (Azure) 設定 S2D](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[透過遠端桌面 (Azure) 設定 S2D](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[具有儲存空間直接存取的超交集解決方案](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)。
+[具有儲存空間直接存取的超交集解決方案](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)。
 
-[儲存空間直接存取概觀](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[儲存空間直接存取概觀](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [適用於 S2D 的 SQL Server 支援](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

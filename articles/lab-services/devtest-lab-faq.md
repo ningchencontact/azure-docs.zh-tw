@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: b5ad6321a41c84928cbc6f8c51c4f5fe3567410f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983945"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262024"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs 常見問題集
 獲得一些關於 Azure DevTest Labs 最常見問題的解答。
@@ -100,7 +100,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 * [透過 Azure DevOps Services 在現有 DevTest Labs 實驗室中部署新的 VM](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [使用 Azure DevOps Services 發行管理來持續部署至 DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-如需其他的持續整合 (CI)/持續傳遞 (CD) 工具鏈，可藉由使用 [Azure PowerShell Cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 和 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/) 部署 [Azure Resource Manager 範本](https://aka.ms/dtlquickstarttemplate) 來實現相同的案例。 您也可以使用[適用於 DevTest Labs 的 REST API](http://aka.ms/dtlrestapis) 來與您的工具鏈整合。  
+如需其他的持續整合 (CI)/持續傳遞 (CD) 工具鏈，可藉由使用 [Azure PowerShell Cmdlet](../azure-resource-manager/resource-group-template-deploy.md) 和 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/) 部署 [Azure Resource Manager 範本](https://aka.ms/dtlquickstarttemplate) 來實現相同的案例。 您也可以使用[適用於 DevTest Labs 的 REST API](https://aka.ms/dtlrestapis) 來與您的工具鏈整合。  
 
 
 **虛擬機器**
@@ -141,7 +141,7 @@ DevTest Labs 是免費的服務。 在 DevTest Labs 建立實驗室和設定原�
 
 若要尋找與實驗室相關聯的目的地儲存體帳戶︰
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 2. 在左功能表上選取 [資源群組]。
 3. 尋找並選取與您的實驗室相關聯的資源群組。
 4. 在 [概觀] 底下，選取其中一個儲存體帳戶。

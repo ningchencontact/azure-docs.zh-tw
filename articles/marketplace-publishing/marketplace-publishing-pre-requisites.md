@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 08/18/2016
 ms.author: hascipio
-ms.openlocfilehash: 4f86d444a2f2b97fd8605d480db358813bc39fd3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: ef19380372354b8f34343f9f94ebf6b384996f14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714184"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261548"
 ---
 # <a name="general-prerequisites-for-creating-an-offer-for-the-azure-marketplace"></a>建立 Azure Marketplace 供應項目的一般必要條件
 了解推動供應項目建立程序所需的一般商務程序必要條件。
@@ -70,7 +70,7 @@ ms.locfileid: "39714184"
 
 ## <a name="sell-from-countries"></a>「銷售來源」國家/地區
 > [!WARNING]
-> 如果要在 Azure Marketplace 上銷售服務，請務必確認您的註冊實體是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需完整清單，請參閱 [Azure Marketplace 參與原則](http://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
+> 如果要在 Azure Marketplace 上銷售服務，請務必確認您的註冊實體是其中一個經過核准的「銷售來源」國家/地區。 這項限制是基於付款和稅務理由。 我們正積極在不久的將來擴充這份國家/地區清單，所以請密切注意。 如需完整清單，請參閱 [Azure Marketplace 參與原則](https://go.microsoft.com/fwlink/?LinkID=526833)的第 1 節 b 項。
 > 
 > 
 

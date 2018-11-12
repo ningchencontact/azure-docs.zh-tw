@@ -1,6 +1,6 @@
 ---
-title: 資料安全性和加密最佳做法 | Microsoft Docs
-description: 此文章提供使用內建 Azure 功能的一些資料安全性和加密最佳做法。
+title: 資料安全性和加密最佳作法 | Microsoft Docs
+description: 本文提供使用內建 Azure 功能的一些資料安全性和加密最佳作法。
 services: security
 documentationcenter: na
 author: barclayn
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465872"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254633"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳做法
+# <a name="azure-data-security-and-encryption-best-practices"></a>Azure 資料安全性和加密最佳作法
 若要協助保護雲端上的資料，您必須考慮您的資料可能會發生的狀態，以及哪些控制項適用於該狀態。 Azure 資料安全性和加密的最佳做法與下列資料狀態相關：
 
 - 待用︰這包括實體媒體 (磁碟或光碟) 上以靜態方式存在的所有資訊儲存物件、容器和類型。
 - 傳輸中：當資料在元件、位置或程式之間傳輸時，就為傳輸中。 範例會透過網路、跨服務匯流排 (從內部部署到雲端，反之亦然，包括諸如 ExpressRoute 的混合式連線)，或輸入/輸出過程期間傳輸。
 
-此文章將討論 Azure 資料安全性和加密最佳做法的集合。 這些最佳做法衍生自我們的 Azure 資料安全性和加密經驗和客戶的經驗。
+本文將討論 Azure 資料安全性和加密最佳作法的集合。 這些最佳作法衍生自我們的 Azure 資料安全性和加密經驗和客戶的經驗。
 
-針對每個最佳做法，我們會說明︰
+針對每個最佳作法，我們會說明︰
 
-* 最佳做法是什麼
-* 您為何想要啟用該最佳做法
-* 如果無法啟用最佳做法，結果可能為何
-* 最佳做法的可能替代方案
-* 如何學習啟用最佳做法
+* 最佳作法是什麼
+* 您為何想要啟用該最佳作法
+* 如果無法啟用最佳作法，結果可能為何
+* 最佳作法的可能替代方案
+* 如何學習啟用最佳作法
 
-這篇「Azure 資料安全性和加密最佳做法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫此文章時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
+這篇「Azure 資料安全性和加密最佳作法」是以共識意見以及 Azure 平台功能和特性集 (因為在撰寫本文時已存在) 為基礎。 意見和技術會隨著時間改變，這篇文章將會定期進行更新以反映這些變更。
 
 ## <a name="choose-a-key-management-solution"></a>選擇金鑰管理解決方案
 保護您的金鑰對於保護雲端中的資料至關重要。
 
 [Azure Key Vault](../key-vault/key-vault-overview.md) 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 金鑰保存庫簡化了金鑰管理程序，並可讓您控管存取和加密資料的金鑰。 開發人員可以在幾分鐘內建立開發和測試的金鑰，然後將它們移轉至生產金鑰。 安全性系統管理員可以視需要授與 (和撤銷) 存取金鑰的權限。
 
-您可以使用 Key Vault 建立多個安全的容器，稱之為保存庫。 這些保存庫由 HSM 支援。 保存庫透過集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證。 它為憑證生命週期管理提供了健全的解決方案功能。
+您可以使用 Key Vault 建立多個安全的容器，稱之為保存庫。 這些保存庫由 HSM 支援。 保存庫藉由集中儲存應用程式祕密，協助減少意外遺失安全性資訊的機會。 Key Vault 也會控制和記錄其中所儲存項目的存取權。 Azure Key Vault 可以處理要求及更新傳輸層安全性 (TLS) 憑證。 它為憑證生命週期管理提供了健全的解決方案功能。
 
 Azure Key Vault 設計用來支援應用程式金鑰和祕密。 Key Vault 的用意並非作為使用者密碼的存放區。
 
@@ -132,7 +132,7 @@ Azure 儲存體和 Azure SQL Database 預設會加密待用資料，且許多服
 - 套用可反映您的業務需求的標籤。 例如：將名為「高度機密」的標籤套用於包含極機密資料的所有文件和電子郵件，來分類並保護此資料。 然後，只有授權的使用者可以存取此資料，並具有您指定的任何限制。
 - 設定 [Azure RMS 的使用量記錄](https://docs.microsoft.com/azure/information-protection/log-analyze-usage)，以便您可以監視您的組織使用保護服務的方式。
 
-[資料分類](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)和檔案保護能力不佳的組織可能更容易受資料外洩或資料不當使用。 使用適當的檔案保護，您可以分析資料流程以深入了解您的業務、偵測風險行為並採取矯正措施、追蹤文件的存取等等。
+[資料分類](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)和檔案保護能力不佳的組織可能更容易受資料外洩或資料不當使用。 使用適當的檔案保護，您可以分析資料流程以深入了解您的業務、偵測風險行為並採取矯正措施、追蹤文件的存取等等。
 
 ## <a name="next-steps"></a>後續步驟
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。

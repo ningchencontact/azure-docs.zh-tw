@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 6aa2684a900dffecd481d51b8876b0e674c1a6ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "22985953"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235525"
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>Azure SDK for .NET 2.8、2.8.1 和 2.8.2
 ## <a name="overview"></a>概觀
@@ -28,9 +28,9 @@ ms.locfileid: "22985953"
 
 ## <a name="azure-sdk-for-net-28"></a>Azure SDK for .NET 2.8
 ### <a name="download-azure-sdk-for-net-28"></a>下載 Azure SDK for .NET 2.8
-[Azure SDK for .NET 2.8 for Visual Studio 2015](http://go.microsoft.com/fwlink/?LinkId=699285) 
+[Azure SDK for .NET 2.8 for Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=699285) 
 
-[Azure SDK for .NET 2.8 for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=699287)
+[Azure SDK for .NET 2.8 for Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=699287)
 
 ### <a name="net-452-support"></a>.NET 4.5.2 支援
 #### <a name="known-issues"></a>已知問題
@@ -48,7 +48,7 @@ Azure 資源群組專案提供的 PowerShell 指令碼在這個版本中已更�
 
 使用 2.8 SDK 時，將無法從 Visual Studio 執行在舊版 SDK 建立的專案中的指令碼。  使用適當的 Azure PowerShell Cmdlet 版本，所有指令碼將可繼續在 Visual Studio 以外使用。  
 
-2.8 SDK 需要 1.0 版的 Azure PowerShell Cmdlet。  所有其他版本的 SDK 則需要 0.9.8 版的 Azure PowerShell Cmdlet。  如需詳細資訊，請參閱 [此部落格](http://go.microsoft.com/fwlink/?LinkID=623011) 。
+2.8 SDK 需要 1.0 版的 Azure PowerShell Cmdlet。  所有其他版本的 SDK 則需要 0.9.8 版的 Azure PowerShell Cmdlet。  如需詳細資訊，請參閱 [此部落格](https://go.microsoft.com/fwlink/?LinkID=623011) 。
 
 ### <a name="web-tools-extensions"></a>Web 工具擴充功能
 #### <a name="known-issues"></a>已知問題

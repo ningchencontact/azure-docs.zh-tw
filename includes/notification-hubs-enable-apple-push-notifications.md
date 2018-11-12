@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/28/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: bf73f64cc1e1789b770d7fae5f62e0ec27425263
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8c8f3cd67186450fdcf65c177ea0353d297a3b01
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42915158"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263891"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>產生憑證簽署要求檔案
 
@@ -41,7 +41,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 若要將推播通知傳送至 iOS 應用程式，您必須向 Apple 註冊您的應用程式，並註冊進行推播通知。  
 
-1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 [iOS 佈建入口網站](http://go.microsoft.com/fwlink/p/?LinkId=272456)，然後使用您的 Apple ID 登入，並按一下 [識別碼]，接著按一下 [應用程式識別碼]，最後按一下 **+** 符號註冊新的應用程式。
+1. 如果您尚未註冊應用程式，請瀏覽至 Apple 開發人員中心的 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)，然後使用您的 Apple ID 登入，並按一下 [識別碼]，接著按一下 [應用程式識別碼]，最後按一下 **+** 符號註冊新的應用程式。
 
     ![iOS 佈建入口網站應用程式識別碼頁面](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -111,7 +111,7 @@ Apple Push Notification Service (APNS) 使用憑證來驗證您的通知服務�
 
 ## <a name="create-a-provisioning-profile-for-the-app"></a>建立應用程式的佈建設定檔
 
-1. 返回 [iOS 佈建入口網站](http://go.microsoft.com/fwlink/p/?LinkId=272456)，並依序選取 [佈建設定檔] 和 [全部]，然後按一下 **+** (加號) 按鈕以建立新的設定檔。 您會看到 [新增 iOS 佈建設定檔] 精靈：
+1. 返回 [iOS 佈建入口網站](https://go.microsoft.com/fwlink/p/?LinkId=272456)，並依序選取 [佈建設定檔] 和 [全部]，然後按一下 **+** (加號) 按鈕以建立新的設定檔。 您會看到 [新增 iOS 佈建設定檔] 精靈：
 
     ![佈建設定檔清單](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 

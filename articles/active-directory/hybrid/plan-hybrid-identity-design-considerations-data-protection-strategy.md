@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 7999dc15fbe1af9d23b47971db03cf6b197f110f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306107"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238143"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>定義混合式身分識別解決方案的資料保護策略
 在這項工作中，您將為混合式身分識別解決方案定義資料保護策略，以符合您已定義的商務需求：
@@ -58,8 +58,6 @@ ms.locfileid: "46306107"
 
 ## <a name="define-content-management-options"></a>定義內容管理選項
 
-<a name="one-advantage-of-using-azure-ad-to-manage-a-hybrid-identity-infrastructure-is-that-the-process-is-fully-transparent-from-the-end-users-perspective-the-user-tries-to-access-a-shared-resource-the-resource-requires-authentication-the-user-has-to-send-an-authentication-request-to-azure-ad-in-order-to-obtain-the-token-and-access-the-resource-this-entire-process-happens-in-the-background-without-user-interaction"></a>使用 Azure AD 來管理混合式身分識別基礎結構的優點之一，是整個程序對使用者而言是完全透明的。 使用者會嘗試存取共用資源，而資源需要驗證，因此使用者必須將驗證要求傳送至 Azure AD，才能夠取得權杖並存取資源。 整個程序都會在背景執行，使用者無須動作。 
-=======
 使用 Azure AD 來管理混合式身分識別基礎結構的優點之一，是整個程序對使用者而言是完全透明的。 使用者會嘗試存取共用資源，而資源需要驗證，因此使用者必須將驗證要求傳送至 Azure AD，才能夠取得權杖並存取資源。 整個程序都會在背景執行，使用者無須動作。 
 
 有資料隱私權顧慮的組織通常需要對其解決方案進行資料分類。 如果其目前的內部部署基礎結構已使用資料分類，就能夠利用 Azure AD 作為使用者身分識別的主要儲存機制。 在 Windows Server 2012 R2 中，內部部署中用於資料分類的常用工具稱為 [資料分類工具組](https://msdn.microsoft.com/library/Hh204743.aspx) 。 這項工具有助於您對私人雲端中的檔案伺服器進行資料的識別、分類及保護。 您也可利用 Windows Server 2012 中的[自動檔案分類](https://technet.microsoft.com/library/hh831672.aspx)來完成這項工作。
@@ -76,7 +74,7 @@ ms.locfileid: "46306107"
 * 新增或移除授權
 
 > [!NOTE]
-> 請閱讀 [Microsoft Azure 安全性和稽核記錄管理](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) ，以深入了解 Azure 中的記錄功能。
+> 請閱讀 [Microsoft Azure 安全性和稽核記錄管理](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) ，以深入了解 Azure 中的記錄功能。
 > 根據您在 [判斷內容管理需求](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)中回答問題的情形，您應該能夠判斷在混合式身分識別解決方案中要如何保護您的內容。 雖然表 6 中顯示的所有選項都都能夠與 Azure AD 整合，但請務必定義何者較適用於您的商務需求。
 >
 >

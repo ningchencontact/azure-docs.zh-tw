@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 8ecef86841bcf13a469f9c0dc81f114bd54acdba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946508"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235151"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>什麼是 Azure Data Box Heavy？ (預覽)
 
@@ -31,7 +31,7 @@ Data Box Heavy 目前為預覽狀態，您可以透過 Azure 入口網站註冊�
 
 > [!IMPORTANT]
 > - Data Box Heavy 目前為預覽狀態。 部署這個解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
-> - 若要申請裝置，請在[預覽入口網站](http://aka.ms/)中註冊。
+> - 若要申請裝置，請在[預覽入口網站](https://aka.ms/)中註冊。
 > - 在預覽期間，Data Box Heavy 可運送給美國與歐盟的客戶。 如需詳細資訊，請移至[區域可用性](#region-availability)。
 
 ## <a name="use-cases"></a>使用案例
@@ -128,7 +128,7 @@ Data Box Heavy 處於預覽狀態，而且您必須註冊。 請執行下列步�
 
     <!--![The Data Box Heavy sign up 1]()-->
 
-3. 按一下 [建立]。
+3. 按一下頁面底部的 [新增] 。
 
     <!--![The Data Box Heavy sign up 2]()-->
 

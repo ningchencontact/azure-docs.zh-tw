@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 41e7f5b4c36ad0bfed0ef5a9a31565474cf4d823
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: cf183b0a78ff3f7e442ea8052f37fc2df58aac54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038013"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262313"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>使用 Azure 儲存體計量和記錄、AzCopy 和 Message Analyzer 進行端對端疑難排解
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -37,7 +37,7 @@ ms.locfileid: "40038013"
   
     如需在 Azure 入口網站中設定監視的相關資訊，請參閱[在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)。
 * **AzCopy**。 Azure 儲存體的伺服器記錄檔會儲存為 Blob，因此您可以使用 AzCopy，將記錄檔 Blob 複製到本機目錄，以便使用 Microsoft Message Analyzer 分析。 如需 AzCopy 的詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
-* **Microsoft Message Analyzer**。 Message Analyzer 是一種可取用記錄檔並以視覺化格式顯示記錄檔資料的工具，讓您輕鬆地篩選、搜尋記錄檔資料並分組為實用的資料集，以便用來分析錯誤和效能問題。 如需 Message Analyzer 的詳細資訊，請參閱 [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)。
+* **Microsoft Message Analyzer**。 Message Analyzer 是一種可取用記錄檔並以視覺化格式顯示記錄檔資料的工具，讓您輕鬆地篩選、搜尋記錄檔資料並分組為實用的資料集，以便用來分析錯誤和效能問題。 如需 Message Analyzer 的詳細資訊，請參閱 [Microsoft Message Analyzer 操作指南](https://technet.microsoft.com/library/jj649776.aspx)。
 
 ## <a name="about-the-sample-scenario"></a>關於範例案例
 在本教學課程中，我們將檢驗一個案例，其中的 Azure 儲存體度量表示應用程式呼叫 Azure 儲存體的成功率很低。 低百分比成功速率計量 (在 [Azure 入口網站](https://portal.azure.com)和計量資料表中顯示為 **PercentSuccess**) 會追蹤成功的作業，但是會傳回大於 299 的 HTTP 狀態碼。 在伺服器端的儲存體記錄檔中，這些作業會加上 **ClientOtherErrors**的交易狀態記錄下來。 如需低成功百分比度量的詳細資訊，請參閱 [度量顯示低 PercentSuccess 或分析記錄檔項目的交易狀態為 ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success)。
@@ -51,7 +51,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 ### <a name="some-causes-of-400-range-errors"></a>400 範圍錯誤的某些原因
 下列範例顯示 Azure Blob 儲存體要求的某些 400 範圍錯誤的取樣，以及其可能原因。 任何這些錯誤，以及 300 範圍和 500 範圍中的錯誤，都可能導致低百分比成功率。
 
-請注意，下面所列並不完整。 如需一般 Azure 儲存體錯誤和每項儲存體服務特定錯誤的詳細資料，請參閱 MSDN 上的 [狀態和錯誤碼](http://msdn.microsoft.com/library/azure/dd179382.aspx) 。
+請注意，下面所列並不完整。 如需一般 Azure 儲存體錯誤和每項儲存體服務特定錯誤的詳細資料，請參閱 MSDN 上的 [狀態和錯誤碼](https://msdn.microsoft.com/library/azure/dd179382.aspx) 。
 
 **狀態碼 404 (找不到) 範例**
 
@@ -79,7 +79,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 * **HTTP 網路追蹤記錄檔**，用以收集 HTTP/HTTPS 要求和回應資料，包括對 Azure 儲存體的作業。 在本教學課程中，我們將透過 Message Analyzer 產生網路追蹤。
 
 ### <a name="configure-server-side-logging-and-metrics"></a>設定伺服器端記錄和度量
-首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。 您可以用各種方式設定記錄和計量 - 透過 [Azure 入口網站](https://portal.azure.com)，或使用 PowerShell，或以程式設計的方式。 如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](http://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx)。
+首先，我們必須設定 Azure 儲存體記錄和度量，如此我們才有用戶端應用程式提供的資料可分析。 您可以用各種方式設定記錄和計量 - 透過 [Azure 入口網站](https://portal.azure.com)，或使用 PowerShell，或以程式設計的方式。 如需設定記錄和度量的詳細資訊，請參閱 MSDN 上的[啟用儲存體度量和檢視度量資料](https://msdn.microsoft.com/library/azure/dn782843.aspx)和[啟用儲存體記錄和存取記錄檔資料](https://msdn.microsoft.com/library/azure/dn782840.aspx)。
 
 **透過 Azure 入口網站**
 
@@ -124,7 +124,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
     ```
 
 ### <a name="configure-net-client-side-logging"></a>設定 .NET 用戶端記錄
-若要設定 .NET 應用程式的用戶端的記錄，請在應用程式的組態檔 (web.config 或 app.config) 中啟用 .NET 診斷。 如需詳細資訊，請參閱 MSDN 上的[使用 .NET Storage Client Library 的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782839.aspx)和[使用 Microsoft Azure Storage SDK for Java 的用戶端記錄](http://msdn.microsoft.com/library/azure/dn782844.aspx)。
+若要設定 .NET 應用程式的用戶端的記錄，請在應用程式的組態檔 (web.config 或 app.config) 中啟用 .NET 診斷。 如需詳細資訊，請參閱 MSDN 上的[使用 .NET Storage Client Library 的用戶端記錄](https://msdn.microsoft.com/library/azure/dn782839.aspx)和[使用 Microsoft Azure Storage SDK for Java 的用戶端記錄](https://msdn.microsoft.com/library/azure/dn782844.aspx)。
 
 用戶端記錄檔包含用戶端如何準備要求及如何接收和處理回應的詳細資訊。
 
@@ -160,7 +160,7 @@ Azure 儲存體作業可能會傳回大於 299 的 HTTP 狀態碼為其正常功
 > 
 > 
 
-如需詳細資訊，請參閱 Technet 上的 [使用網路追蹤功能](http://technet.microsoft.com/library/jj674819.aspx) 。
+如需詳細資訊，請參閱 Technet 上的 [使用網路追蹤功能](https://technet.microsoft.com/library/jj674819.aspx) 。
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>在 Azure 入口網站中檢閱計量資料
 一旦您的應用程式執行了一段時間，您即可檢閱 [Azure 入口網站](https://portal.azure.com)中顯示的計量圖表，以觀察服務的執行狀況。
@@ -186,15 +186,15 @@ AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest
 ```
 在 [Azure 下載](https://azure.microsoft.com/downloads/) 頁面可以下載 AzCopy。 如需使用 AzCopy 的詳細資訊，請參閱 [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)。
 
-如需下載伺服器端記錄檔的詳細資訊，請參閱 [下載儲存體記錄記錄檔資料](http://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)。
+如需下載伺服器端記錄檔的詳細資訊，請參閱 [下載儲存體記錄記錄檔資料](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata)。
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>使用 Microsoft Message Analyzer 來分析記錄檔資料
-Microsoft Message Analyzer 是在疑難排解與診斷案例中用於擷取、顯示及分析通訊協定訊息流量、事件和其他系統或應用程式訊息的工具。 Message Analyzer 也可讓您載入、彙總和分析記錄檔和儲存的追蹤檔案中的資料。 如需 Message Analyzer 的詳細資訊，請參閱 [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)。
+Microsoft Message Analyzer 是在疑難排解與診斷案例中用於擷取、顯示及分析通訊協定訊息流量、事件和其他系統或應用程式訊息的工具。 Message Analyzer 也可讓您載入、彙總和分析記錄檔和儲存的追蹤檔案中的資料。 如需 Message Analyzer 的詳細資訊，請參閱 [Microsoft Message Analyzer 操作指南](https://technet.microsoft.com/library/jj649776.aspx)。
 
 Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、用戶端和網路記錄檔。 在本節中，我們將討論如何使用這些工具來解決儲存記錄檔中低成功百分比的問題。
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>下載並安裝 Message Analyzer 和 Azure 儲存體資產
-1. 從 Microsoft 下載中心下載 [Message Analyzer](http://www.microsoft.com/download/details.aspx?id=44226) ，並執行安裝程式。
+1. 從 Microsoft 下載中心下載 [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) ，並執行安裝程式。
 2. 啟動 Message Analyzer。
 3. 從 [工具] 功能表，選取 [資產管理員]。 在 [資產管理員] 對話方塊中，選取 [下載]，然後依據 [Azure 儲存體] 篩選。 您會看到 Azure 儲存體資產，如下圖所示。
 4. 按一下 [同步處理所有顯示的項目]  以安裝 Azure 儲存體資產。 可用的資產包括：
@@ -231,7 +231,7 @@ Message Analyzer 包含 Azure 儲存體資產，可協助您分析伺服器、�
 
 如果您仍有大量的記錄檔資料，您可能會想要指定工作階段篩選條件，以在載入記錄檔資料前進行篩選。 在 [工作階段篩選條件] 方塊中，選取 [程式庫] 按鈕來選擇預先定義的篩選條件。例如，從 Azure 儲存體篩選條件中選擇 [全域時間篩選 I]，以篩選時間間隔。 然後，您可以編輯篩選準則，針對您要查看的間隔指定開始和結束時間戳記。 您也可以篩選特定狀態碼 ；例如，您可以選擇只載入狀態碼為 404 的記錄檔項目。
 
-如需將記錄檔資料匯入 Microsoft Message Analyzer 的詳細資訊，請參閱 TechNet 上的 [擷取訊息資料](http://technet.microsoft.com/library/dn772437.aspx) 。
+如需將記錄檔資料匯入 Microsoft Message Analyzer 的詳細資訊，請參閱 TechNet 上的 [擷取訊息資料](https://technet.microsoft.com/library/dn772437.aspx) 。
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>使用用戶端要求識別碼讓記錄檔資料相互關聯
 Azure 儲存體用戶端程式庫會自動為每一項要求產生唯一的用戶端要求識別碼。 這個值會寫入至用戶端記錄檔、伺服器記錄檔和網路追蹤，以便您使用它讓 Message Analyzer 內全部三個記錄檔的資料相互關聯。 如需用戶端要求識別碼的其他資訊，請參閱 [用戶端要求識別碼](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) 。
@@ -337,7 +337,7 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 一旦知道造成 404 錯誤之 Blob 的位址，即可進一步調查。 如果您在記錄檔項目中搜尋其他與相同 Blob 上的作業相關聯的訊息，您可以檢查用戶端先前是否刪除了實體。
 
 ## <a name="analyze-other-types-of-storage-errors"></a>分析其他類型的儲存體錯誤
-您現已熟悉使用 Message Analyzer 來分析記錄檔資料，便可利用檢視版面配置、色彩規則及搜尋/篩選功能，分析其他類型的錯誤。 下表列出一些您可能會遇到的問題以及您可用來尋找問題的篩選準則。 如需建構篩選條件與 Message Analyzer 篩選語言的詳細資訊，請參閱 [篩選訊息資料](http://technet.microsoft.com/library/jj819365.aspx)。
+您現已熟悉使用 Message Analyzer 來分析記錄檔資料，便可利用檢視版面配置、色彩規則及搜尋/篩選功能，分析其他類型的錯誤。 下表列出一些您可能會遇到的問題以及您可用來尋找問題的篩選準則。 如需建構篩選條件與 Message Analyzer 篩選語言的詳細資訊，請參閱 [篩選訊息資料](https://technet.microsoft.com/library/jj819365.aspx)。
 
 | 若要調查... | 使用篩選運算式… | 運算式套用到記錄檔 (用戶端、伺服器、網路、全部) |
 | --- | --- | --- |
@@ -361,7 +361,7 @@ Message Analyzer 會找出並選取搜尋準則符合用戶端要求識別碼的
 如需在 Azure 儲存體中進行端對端案例疑難排解的詳細資訊，請參閱下列資源：
 
 * [監視、診斷與疑難排解 Microsoft Azure 儲存體](storage-monitoring-diagnosing-troubleshooting.md)
-* [Storage Analytics](http://msdn.microsoft.com/library/azure/hh343270.aspx)
+* [Storage Analytics](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [在 Azure 入口網站中監視儲存體帳戶](storage-monitor-storage-account.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
-* [Microsoft Message Analyzer 操作指南](http://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer 操作指南](https://technet.microsoft.com/library/jj649776.aspx)

@@ -11,22 +11,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 10/29/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cb2b4bdee445587b32516c8db869170ab067b8d3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c94ecc223c4e2c0533c23e58823bb203064ceef6
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250439"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>針對同步處理期間的錯誤進行疑難排解
 將身分識別資料從 Windows Server Active Directory (AD DS) 同步處理至 Azure Active Directory (Azure AD) 時，可能會發生錯誤。 本文提供不同類型的同步處理錯誤概觀、某些可能導致這些錯誤的案例，以及修正錯誤的可能方式。 本文包含常見的錯誤類型，不一定涵蓋所有可能的錯誤。
 
  本文假設讀者已熟悉 [Azure AD 與 Azure AD Connect 的基礎設計概念](plan-connect-design-concepts.md)。
 
-使用最新版的 Azure AD Connect \(2016年 8 月或更新版本\)，在 [Azure 入口網站](https://aka.ms/aadconnecthealth)中可取得「同步處理錯誤」報告做為 Azure AD Connect Health for Sync 的一部分。
+使用最新版的 Azure AD Connect \(2016 年 8 月或更新版本\)，在 [Azure 入口網站](https://aka.ms/aadconnecthealth)中可取得「同步處理錯誤」報告做為 Azure AD Connect Health for Sync 的一部分。
 
 從 2016 年 9 月 1 日開始，預設會針對所有「新的」Azure Active Directory 租用戶啟用 [Azure Active Directory 重複屬性恢復](how-to-connect-syncservice-duplicate-attribute-resiliency.md)功能。 這項功能會針對未來幾個月內的現有租用戶自動啟用。
 
@@ -219,6 +219,29 @@ a. 確定 userPrincipalName 屬性具有支援的字元和所需的格式。
 
 ### <a name="how-to-fix"></a>修正方式
 1. 確定造成錯誤的屬性在允許的限制內。
+
+## <a name="existing-admin-role-conflict"></a>現有的系統管理員角色衝突
+
+### <a name="description"></a>說明
+當使用者物件符合下列條件時，使用者物件在同步處理期間就會發生**現有的系統管理員角色衝突**：
+
+- 具系統管理權限，而且
+- UserPrincipalName 和現有 Azure AD 物件相同
+
+Azure AD Connect 不允許大致比對內部部署 AD 中的使用者物件與 Azure AD 中獲派系統管理角色的使用者物件。  如需詳細資訊，請參閱 [Azure AD UserPrincipalName 填入](plan-connect-userprincipalname.md)
+
+![現有系統管理員](media/tshoot-connect-sync-errors/existingadmin.png)
+
+
+### <a name="how-to-fix"></a>修正方式
+若要解決此問題，請執行下列其中一個動作：
+
+
+- 將 UserPrincipalName 值變更為和 Azure AD 中的管理使用者不相符，這會在 Azure AD 中以相符的 UserPrincipalName 建立新的使用者
+- 移除 Azure AD 中管理使用者的管理角色，即能大致比對內部部署使用者物件與現有 Azure AD 使用者物件。
+
+>[!NOTE]
+>在大致比對內部部署使用者物件與現有 Azure AD 使用者物件之後，您可以再次將管理角色指派給現有使用者物件。
 
 ## <a name="related-links"></a>相關連結
 * [在 Active Directory 管理中心找出 Active Directory 物件](https://technet.microsoft.com/library/dd560661.aspx)

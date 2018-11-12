@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 63a45aa02eadd0b5739c1624af524883171a7055
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8dc6b7da77988a789de04578d6653b192f58afa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211191"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261718"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>設定 Azure VM 到次要 Azure 區域的災害復原
 
@@ -81,9 +81,9 @@ ms.locfileid: "50211191"
 
 如果您想要使用 IP 位址而非 URL 來控制輸出連線，則須將適當的資料中心範圍列為白名單；針對以 IP 為基礎的防火牆、Proxy 或 NSG 規則使用 Office 365 位址和服務端點位址。
 
-  - [Microsoft Azure 資料中心 IP 範圍](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [德國 Windows Azure 資料中心 IP 範圍](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [中國 Windows Azure 資料中心 IP 範圍](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [德國 Windows Azure 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [中國 Windows Azure 資料中心 IP 範圍](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery 服務端點 IP 位址](https://aka.ms/site-recovery-public-ips)
 

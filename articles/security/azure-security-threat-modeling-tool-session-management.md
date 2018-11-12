@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 182a0232b5317b1a375a20bdd4c6467578dc775b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841808"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232737"
 ---
 # <a name="security-frame-session-management"></a>安全性架構︰工作階段管理
 | 產品/服務 | 文章 |
@@ -157,7 +157,7 @@ HttpContext.GetOwinContext().Authentication.SignOut(OpenIdConnectAuthenticationD
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | EnvironmentType - OnPrem |
-| **參考**              | [httpCookies 元素 (ASP.NET 設定結構描述)](http://msdn.microsoft.com/library/ms228262(v=vs.100).aspx)、[HttpCookie.Secure 屬性](http://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
+| **參考**              | [httpCookies 元素 (ASP.NET 設定結構描述)](https://msdn.microsoft.com/library/ms228262(v=vs.100).aspx)、[HttpCookie.Secure 屬性](https://msdn.microsoft.com/library/system.web.httpcookie.secure.aspx) |
 | **步驟** | Cookie 通常只能供其範圍所在的網域存取。 不幸的是，「網域」的定義不包含通訊協定，因此透過 HTTPS 所建立的 Cookie 可透過 HTTP 來存取。 「安全」的屬性會對瀏覽器指出 Cookie 只應透過 HTTPS 提供使用。 請確定所有透過 HTTPS 設定的 Cookie 會使用**安全**的屬性。 藉由將 requireSSL 屬性設為 true 可在 web.config 檔案中強制執行這項需求。 這是偏好的方法，因為它會強制對所有目前和未來的 Cookie 執行**安全**的屬性，而不需要進行任何額外的程式碼變更。|
 
 ### <a name="example"></a>範例

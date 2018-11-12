@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - Azure Service Fabric 中的定期備份與還原 (預覽) | Microsoft Docs
+title: Azure Service Fabric 中的定期備份與還原 (預覽) | Microsoft Docs
 description: 使用 Service Fabric 的定期備份與還原功能，啟用應用程式資料的定期資料備份。
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 5666ed4226104104b91b6f964abeb0490ef80866
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: bcbb8e60d14615d4bddb4a1efa5ecf1487aab093
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990739"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234675"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>快速入門：Azure Service Fabric 中的定期備份與還原 (預覽)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Azure Service Fabric 中的定期備份與還原 (預覽)
 > [!div class="op_single_selector"]
 > * [Azure 上的叢集](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [獨立叢集](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

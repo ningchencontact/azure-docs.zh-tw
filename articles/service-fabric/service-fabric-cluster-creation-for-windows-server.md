@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f91a6b305a3d531aa1c733685f6d896ed07054ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818576"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257600"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>建立在 Windows Server 上執行的獨立叢集
 您可以使用 Azure Service Fabric 在執行 Windows Server 的任何虛擬機器或電腦上建立 Service Fabric 叢集。 這表示您能夠在包含一組互連式 Windows Server 電腦的任何環境中部署和執行 Service Fabric 應用程式，不論該環境是內部部署或是透過任何雲端提供者來提供。 Service Fabric 會提供一個安裝封裝來建立稱為獨立 Windows Server 封裝的 Service Fabric 叢集。
@@ -27,7 +27,7 @@ ms.locfileid: "42818576"
 本文將逐步引導您完成建立 Service Fabric 獨立叢集的步驟。
 
 > [!NOTE]
-> 此獨立 Windows Server 套件已正式上市，可使用於生產部署。 此套件包含處於「預覽」狀態的新 Service Fabric 功能。 捲動至「[此封裝包含的預覽功能](#previewfeatures_anchor)」。 區段，以取得預覽功能的清單。 您可以立即[下載一份 EULA](http://go.microsoft.com/fwlink/?LinkID=733084)。
+> 此獨立 Windows Server 套件已正式上市，可使用於生產部署。 此套件包含處於「預覽」狀態的新 Service Fabric 功能。 捲動至「[此封裝包含的預覽功能](#previewfeatures_anchor)」。 區段，以取得預覽功能的清單。 您可以立即[下載一份 EULA](https://go.microsoft.com/fwlink/?LinkID=733084)。
 > 
 > 
 
@@ -35,7 +35,7 @@ ms.locfileid: "42818576"
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>取得 Windows Server 套件的 Service Fabric 支援
 * 請至 [Azure Service Fabric 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?)，向社群發問有關 Windows Server 的 Service Fabric 獨立封裝。
-* 向 [Service Fabric 的專業支援](http://support.microsoft.com/oas/default.aspx?prid=16146)開立票證。  [在這裡](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)深入了解 Microsoft 的專業支援。
+* 向 [Service Fabric 的專業支援](https://support.microsoft.com/oas/default.aspx?prid=16146)開立票證。  [在這裡](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0)深入了解 Microsoft 的專業支援。
 * 您也可以取得此封裝的支援做為 [Microsoft 頂級支援](https://support.microsoft.com/en-us/premier)的一部分。
 * 如需詳細資訊，請參閱 [Azure Service Fabric 支援選項](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)。
 * 若要針對支援用途收集記錄，請執行 [Service Fabric 獨立記錄收集器](service-fabric-cluster-standalone-package-contents.md)。
@@ -44,7 +44,7 @@ ms.locfileid: "42818576"
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下載 Windows Server 套件的 Service Fabric
 若要建立叢集，請使用適用於 Windows Server 套件 (Windows Server 2012 R2 及更新版本) 的 Service Fabric，可在這裡找到︰ <br>
-[下載連結 - Service Fabric 獨立封裝 - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[下載連結 - Service Fabric 獨立封裝 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 可在[這裡](service-fabric-cluster-standalone-package-contents.md)找到封裝內容的詳細資訊。
 

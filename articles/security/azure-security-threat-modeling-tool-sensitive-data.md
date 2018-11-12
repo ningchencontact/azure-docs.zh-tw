@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301456"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262364"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN︰自動完成屬性](http://msdn.microsoft.com/library/ms533486(VS.85).aspx)、[在 HTML 中使用自動完成](http://msdn.microsoft.com/library/ms533032.aspx)[HTML 清理弱點](http://technet.microsoft.com/security/bulletin/MS10-071)、[再次自動完成？！](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **參考**              | [MSDN︰自動完成屬性](https://msdn.microsoft.com/library/ms533486(VS.85).aspx)、[在 HTML 中使用自動完成](https://msdn.microsoft.com/library/ms533032.aspx)[HTML 清理弱點](https://technet.microsoft.com/security/bulletin/MS10-071)、[再次自動完成？！](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **步驟** | 自動完成屬性會指定表單應開啟或關閉自動完成。 當自動完成開啟時，瀏覽器會根據使用者之前輸入的值自動填妥值。 例如，在表單中輸入新名稱和密碼並提交表單後，瀏覽器會詢問是否應儲存密碼。之後在顯示表單時，就會自動填入名稱和密碼或在輸入名稱時填妥。 具有本機存取權的攻擊者可從瀏覽器快取取得純文字密碼。 預設會啟用自動完成，但您必須明確地加以停用。 |
 
 ### <a name="example"></a>範例

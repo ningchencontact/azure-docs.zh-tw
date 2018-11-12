@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ab399ae50f9b04acad411b225797f89547a2824
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603986"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237531"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Azure 金鑰保存庫開發人員指南
 
@@ -48,8 +48,8 @@ Key Vault 可讓您從應用程式內安全地存取機密資訊︰
 
 以上影片中所提及的資源︰
 
-- [Azure PowerShell](http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure 金鑰保存庫範例程式碼](http://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
+- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
+- [Azure 金鑰保存庫範例程式碼](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
 
 ## <a name="creating-and-managing-key-vaults"></a>建立及管理金鑰保存庫
 
@@ -151,8 +151,8 @@ Azure Key Vault 可安全地儲存認證和其他金鑰及密碼，但是您的�
 
 ## <a name="social"></a>社交
 
-- [Key Vault Blog (金鑰保存庫部落格)](http://aka.ms/kvblog)
-- [Key Vault Forum (金鑰保存庫論壇)](http://aka.ms/kvforum)
+- [Key Vault Blog (金鑰保存庫部落格)](https://aka.ms/kvblog)
+- [Key Vault Forum (金鑰保存庫論壇)](https://aka.ms/kvforum)
 
 ## <a name="supporting-libraries"></a>支援程式庫
 

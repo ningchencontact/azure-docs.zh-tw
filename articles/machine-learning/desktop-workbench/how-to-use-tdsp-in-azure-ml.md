@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2fd0fe55b975010a1eaafeb455d61a6cb3ebff77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e13ba0bcbd24dcc3cd08a0d2886f1da9d85de79
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970918"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249909"
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>使用 Team Data Science Process 範本來建構專案
 
@@ -54,7 +54,7 @@ TDSP 是一個靈活、反覆的資料科學程序，可用於執行和提供進
 * 內容 ([docs] 資料夾中既有的內容除外) 大小必須小於 25 MB。 請參閱本清單後面的附註。
 * [sample\_data] 資料夾只適用於小型資料檔案 (小於 5 MB)，您可以使用這類檔案來測試程式碼或進行早期開發。
 * 儲存檔案 (例如 Word 和 PowerPoint 檔案) 會大幅增加 [docs] 資料夾的大小。 建議您尋找一個共同作業的 Wiki、[SharePoint](https://products.office.com/sharepoint/collaboration) 或其他共同作業資源來儲存這類檔案。
-* 若要了解如何處理 Machine Learning 中的大型檔案和輸出，請參閱[保存變更和處理大型檔案](http://aka.ms/aml-largefiles)。
+* 若要了解如何處理 Machine Learning 中的大型檔案和輸出，請參閱[保存變更和處理大型檔案](https://aka.ms/aml-largefiles)。
 
 > [!NOTE]
 > 所有在專案執行期間「不」使用的文件相關內容 (文字、Markdown、影像及其他文件檔案，readme.md 檔案除外) 都必須位於名為 "docs" (全部小寫) 的資料夾中。 [docs] 資料夾是 Machine Learning 執行時會忽略的特殊資料夾，如此才不會將此資料夾中的內容不必要地複製到計算目標中。 此資料夾中的物件也不計入專案大小的 25 MB 上限中。 舉例來說，[docs] 資料夾是儲存您文件所需大型影像檔的地方。 Git 仍會透過執行歷程記錄來追蹤這些檔案。 

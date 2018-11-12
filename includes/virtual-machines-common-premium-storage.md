@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437055"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263282"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>VM 高效能進階儲存體與受控磁碟
 
@@ -97,7 +97,7 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
     您可以在相同的進階儲存體 VM 中使用進階和標準磁碟。 使用進階儲存體，您可以佈建 VM 並將幾個永續性資料磁碟附加至 VM。 如有需要，您可以在磁碟上等量分割磁碟區以增加磁碟區的容量和效能。
 
     > [!NOTE]
-    > 如果您使用[儲存空間](http://technet.microsoft.com/library/hh831739.aspx)來等量分割進階儲存體資料磁碟，應將儲存體空間設定為每個使用的磁碟各 1 資料行。 否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。 依預設，您可以在伺服器管理員中設定最多 8 個磁碟的資料行。 如果您有 8 個以上的磁碟，請使用 PowerShell 來建立磁碟區。 以手動方式指定資料行數目。 否則，即使您擁有更多磁碟，伺服器管理員 UI 還是會繼續使用 8 個資料行。 例如，如果您在單一等量磁碟區組有 32 個磁碟，請指定 32 個資料行。 若要指定虛擬磁碟所使用的資料行數目，您可以在 [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell Cmdlet 中使用 *NumberOfColumns* 參數。 如需詳細資訊，請參閱[儲存體空間概觀](http://technet.microsoft.com/library/hh831739.aspx)和[儲存體空間常見問題集](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)。
+    > 如果您使用[儲存空間](https://technet.microsoft.com/library/hh831739.aspx)來等量分割進階儲存體資料磁碟，應將儲存體空間設定為每個使用的磁碟各 1 資料行。 否則，等量磁碟區的整體效能可能會因為磁碟流量分配不平均而比預期的效能還低。 依預設，您可以在伺服器管理員中設定最多 8 個磁碟的資料行。 如果您有 8 個以上的磁碟，請使用 PowerShell 來建立磁碟區。 以手動方式指定資料行數目。 否則，即使您擁有更多磁碟，伺服器管理員 UI 還是會繼續使用 8 個資料行。 例如，如果您在單一等量磁碟區組有 32 個磁碟，請指定 32 個資料行。 若要指定虛擬磁碟所使用的資料行數目，您可以在 [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell Cmdlet 中使用 *NumberOfColumns* 參數。 如需詳細資訊，請參閱[儲存體空間概觀](https://technet.microsoft.com/library/hh831739.aspx)和[儲存體空間常見問題集](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx)。
     >
     > 
 
@@ -151,7 +151,9 @@ Azure 提供兩種建立 VM 進階儲存體磁碟的方法：
 ### <a name="premium-storage-disk-limits"></a>進階儲存體磁碟限制
 當您佈建進階儲存體磁碟時，磁碟的大小決定 IOPS 與輸送量 (頻寬) 上限。 Azure 提供八種類型的進階儲存體磁碟：P4 (僅限受控磁碟)、P6 (僅限受控磁碟)、P10、P15、P20、P30、P40 與 P50， 以及三種預覽磁碟大小：P60、P70 與 P80。 每個進階儲存體磁碟類型都有特定的 IOPS 與輸送量限制。 磁碟類型的限制如下表說明︰
 
-| 進階磁碟類型  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+以星號表示的大小目前為預覽狀態。
+
+| 進階磁碟類型  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | 磁碟大小           | 32 GiB| 64 GiB| 128 GB| 256 GiB| 512 GB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
 | 每一磁碟的 IOPS       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15,000             | 20,000             |
@@ -237,7 +239,7 @@ DS4 VM 連接了兩個 P30 磁碟。 每個 P30 磁碟都有 200 MB/秒的輸送
 
 若要維護快照集的異地備援副本，您可以使用 AzCopy 或「複製 Blob」，將進階儲存體帳戶中的快照複製到異地備援的標準儲存體帳戶。 如需詳細資訊，請參閱[使用 AzCopy 命令列公用程式傳輸資料](../articles/storage/common/storage-use-azcopy.md)和[複製 Blob](/rest/api/storageservices/Copy-Blob)。
 
-如需對進階儲存體帳戶中分頁 Blob 執行 REST 作業的詳細資訊，請參閱[使用 Azure 進階儲存體的 Blob 服務作業](http://go.microsoft.com/fwlink/?LinkId=521969)。
+如需對進階儲存體帳戶中分頁 Blob 執行 REST 作業的詳細資訊，請參閱[使用 Azure 進階儲存體的 Blob 服務作業](https://go.microsoft.com/fwlink/?LinkId=521969)。
 
 ### <a name="managed-disks"></a>受控磁碟
 
@@ -267,12 +269,12 @@ DS4 VM 連接了兩個 P30 磁碟。 每個 P30 磁碟都有 200 MB/秒的輸送
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5、6.6、6.7、7.0 | &nbsp; | [LIS4 (必要)](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
+| CentOS | 6.5、6.6、6.7、7.0 | &nbsp; | [LIS4 (必要)](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 (建議使用) ](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *請參閱下一節中的附註* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+、7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 或 RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 或 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Openlogic CentOS 的 LIS 驅動程式

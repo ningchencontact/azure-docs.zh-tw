@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: bed67c0213ed5715b8b3d8fd393d8d856e0ea15b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1ace09ba293cf80b2dbbe8f746eb7fd5bc8d7cb
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964985"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036388"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教學課程：為 Azure 和 Azure Stack 應用程式設定混合式雲端身分識別
 
@@ -74,7 +74,7 @@ ms.locfileid: "46964985"
 若要使用程式碼連線至 Azure Stack，請使用的 Azure Resource Manager 端點 API 取得 Azure Stack 安裝的驗證和圖形端點，然後使用 REST 要求進行驗證。 您可以在 [GitHub](https://github.com/shriramnat/HybridARMApplication) 找到範例用戶端應用程式。
 
 >[!Note]
->除非您所選語言的 Azure SDK 支援 Azure API 設定檔，否則 SDK 可能無法與 Azure Stack 搭配使用。 若要深入了解 Azure API 設定檔，請參閱[管理 API 版本設定檔](https://docs.microsoft.com/da-dk/azure/azure-stack/user/azure-stack-version-profiles)一文。
+>除非您所選語言的 Azure SDK 支援 Azure API 設定檔，否則 SDK 可能無法與 Azure Stack 搭配使用。 若要深入了解 Azure API 設定檔，請參閱[管理 API 版本設定檔](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-version-profiles)一文。
 
 ## <a name="next-steps"></a>後續步驟
 

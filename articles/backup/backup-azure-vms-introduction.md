@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286647"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232455"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
 本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。 
@@ -146,7 +146,7 @@ Azure 備份不會在備份過程中加密資料。 不過，您可以在 VM 中
 只有在停止保護且刪除全部備份資料時，才會對指定的虛擬機器停止計費。 當保護停止且沒有任何作用中的備份作業時，最後一個成功 VM 備份的大小會成為每月帳單所使用的受保護執行個體大小。
 
 ## <a name="questions"></a>有疑問嗎？
-如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](http://aka.ms/azurebackup_feedback)。
+如果您有問題，或希望我們加入任何功能，請 [傳送意見反應給我們](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>後續步驟
 * [備份虛擬機器](backup-azure-arm-vms.md)

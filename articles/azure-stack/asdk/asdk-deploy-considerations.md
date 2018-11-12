@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238621"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -82,7 +82,7 @@ ms.locfileid: "44719438"
 ### <a name="azure-active-directory-accounts"></a>Azure Active Directory 帳戶
 若要使用 Azure AD 帳戶來部署 Azure Stack，您必須在執行部署 PowerShell 指令碼之前，先備妥 Azure AD 帳戶。 這個帳戶會成為 Azure AD 租用戶的「全域系統管理員」。 它可用來為與 Azure Active Directory 和「圖形 API」互動的所有 Azure Stack 服務佈建及委派應用程式和服務主體。 它也用來作為預設提供者訂用帳戶 (您可以稍後變更此訂用帳戶) 的擁有者。 您可以使用這個帳戶來登入 Azure Stack 系統的系統管理員入口網站。
 
-1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以在 [https://azure.microsoft.com/free/](http://azure.microsoft.com/pricing/free/) 免費建立一個帳戶 (若在中國，請改為造訪 <http://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](asdk-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
+1. 建立至少是一個 Azure AD 之目錄系統管理員的 Azure AD 帳戶。 如果您已經有一個這樣的帳戶，則可以使用該帳戶。 否則，您可以在 [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) 免費建立一個帳戶 (若在中國，請改為造訪 <http://go.microsoft.com/fwlink/?LinkID=717821>)。 如果您打算稍後[向 Azure 註冊 Azure Stack](asdk-register.md)，則也必須在這個新建立的帳戶中有一個訂用帳戶。
    
     儲存這些認證以供作為服務管理員。 這個帳戶可以設定和管理資源雲端、使用者帳戶、租用戶方案、配額及價格。 在此入口網站中，這些管理員可以建立網站雲端、虛擬機器私人雲端、建立方案，以及管理使用者訂用帳戶。
 1. 在 Azure AD 中建立至少一個測試使用者帳戶，以便您能夠以租用戶身分登入開發套件。

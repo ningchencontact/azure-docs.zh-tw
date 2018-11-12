@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: eb129ebe6d63396934cbcda509d711cc63a5ee1b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 469d97385fd86952c2d287e2b5d15d7470a9e34e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402935"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008329"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-log-analytics-from-log-analytics-agent-for-linux"></a>從 Log Analytics Linux 代理程式在 Log Analytics 中收集來自 Nagios 和 Zabbix 的警示 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配[其他來源的警示](log-analytics-alerts.md)一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
+[Nagios](https://www.nagios.org/) 和 [Zabbix](http://www.zabbix.com/) 是開放原始碼監視工具。 您可以將來自這些工具的警示收集到 Log Analytics，以搭配[其他來源的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)一起分析。  本文說明如何設定 Log Analytics Linux 代理程式以收集來自這些系統的警示。
  
 ## <a name="prerequisites"></a>必要條件
 Log Analytics Linux 代理程式支援從 Nagios 收集的警示最高為 4.2.x 版，Zabbix 則最高為 2.x 版。
@@ -80,7 +80,7 @@ Log Analytics Linux 代理程式支援從 Nagios 收集的警示最高為 4.2.x 
 
 
 ## <a name="alert-records"></a>警示記錄
-您可以在 Log Analytics 中使用[記錄搜尋](log-analytics-log-searches.md)，擷取來自 Nagios 和 Zabbix 的警示記錄。
+您可以在 Log Analytics 中使用[記錄搜尋](log-analytics-queries.md)，擷取來自 Nagios 和 Zabbix 的警示記錄。
 
 ### <a name="nagios-alert-records"></a>Nagios 警示記錄
 
@@ -118,5 +118,5 @@ Zabbix 所收集之警示記錄的 **Type** 為 **Alert**，而 **SourceSystem**
 
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 Log Analytics 中的[警示](log-analytics-alerts.md)。
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。 
+* 了解 Log Analytics 中的[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。 

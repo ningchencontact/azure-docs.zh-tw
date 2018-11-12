@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 0205552c073bf03c40da4d108256fa09e71fbbe3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309887"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237090"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>更新 Office 365 和 Azure Active Directory 的同盟憑證
 ## <a name="overview"></a>概觀
@@ -51,9 +51,9 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 > [!IMPORTANT]
 > 如果您使用 AD FS，為確保商務持續性，請確認您的伺服器具備下列更新，以免發生已知問題驗證失敗。 這可減少在此更新和未來更新期間的已知 AD FS Proxy 伺服器問題︰
 >
-> Server 2012 R2 - [Windows Server 2014 年 5 月彙總套件](http://support.microsoft.com/kb/2955164)
+> Server 2012 R2 - [Windows Server 2014 年 5 月彙總套件](https://support.microsoft.com/kb/2955164)
 >
-> Server 2008 R2 和 2012 - [在 Windows Server 2012 或 Windows 2008 R2 SP1 中透過 Proxy 驗證失敗](http://support.microsoft.com/kb/3094446)
+> Server 2008 R2 和 2012 - [在 Windows Server 2012 或 Windows 2008 R2 SP1 中透過 Proxy 驗證失敗](https://support.microsoft.com/kb/3094446)
 >
 >
 
@@ -97,7 +97,7 @@ Azure AD 會嘗試監視同盟中繼資料，並依照此中繼資料的指示�
 
 | AutoCertificateRollover | 憑證與 Azure AD 同步 | 可公開取得同盟中繼資料 | 有效期 | 動作 |
 |:---:|:---:|:---:|:---:|:---:|
-| 是 |yes |是 |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
+| 是 |是 |是 |- |不需採取動作。 請參閱 [自動更新權杖簽署憑證](#autorenew)。 |
 | 是 |否 |- |小於 15 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 | 否 |- |- |少於 30 天 |立即更新。 請參閱 [手動更新權杖簽署憑證](#manualrenew)。 |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: b1ffe3510cf4f5e73b05572a482f49d529fca60d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 69680331bdad0faa36cb3df6117baf8b358da132
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251014"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>在執行於 Windows Server 上的獨立 Service Fabric 叢集中新增或移除節點
 [在 Windows Server 機器上建立獨立 Service Fabric 叢集](service-fabric-cluster-creation-for-windows-server.md)之後，您的業務需求可能會改變，因此您將需要在叢集中新增或移除節點。 本文提供可達成此目的的詳細步驟。 請注意，在本機開發叢集中，不支援新增/移除節點功能。
@@ -29,7 +29,7 @@ ms.locfileid: "34212539"
 1. 遵循[規劃和準備 Service Fabric 叢集部署](service-fabric-cluster-creation-for-windows-server.md)中所述的步驟，準備您要新增至叢集的 VM/機器
 2. 識別要用來新增此 VM/機器的容錯網域和升級網域
 3. 透過遠端桌面 (RDP) 登入到要新增至叢集的 VM/機器
-4. 複製或[下載適用於 Windows Server 之 Service Fabric 的獨立套件](http://go.microsoft.com/fwlink/?LinkId=730690)到此 VM/機器，然後將套件解壓縮
+4. 複製或[下載適用於 Windows Server 之 Service Fabric 的獨立套件](https://go.microsoft.com/fwlink/?LinkId=730690)到此 VM/機器，然後將套件解壓縮
 5. 以較高的權限 PowerShell，然後瀏覽至解壓縮套件的位置
 6. 使用描述要新增之新節點的參數來執行 *AddNode.ps1* 指令碼。 下列範例會將名為 VM5 的新節點 (類型為 NodeType0 且 IP 位址為 182.17.34.52) 新增至 UD1 和 fd:/dc1/r0。 *ExistingClusterConnectionEndPoint* 是已在現有叢集中之節點的連線端點，這可以是叢集中「任何」節點的 IP 位址。
 

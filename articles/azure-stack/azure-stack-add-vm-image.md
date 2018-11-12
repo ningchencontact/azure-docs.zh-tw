@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a0dc3405cc0e1deb25c1f2772a5018dad95b87e9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575808"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036585"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器映像
 
@@ -30,7 +30,7 @@ ms.locfileid: "45575808"
 
 ## <a name="add-a-vm-image-through-the-portal"></a>透過入口網站新增 VM 映像
 
-> [!NOTE]
+> [!NOTE]  
 > 使用此方法時，您必須個別建立 Marketplace 項目。
 
 映像必須能夠由 blob 儲存體 URI 參考。 準備 VHD 格式 (非 VHDX) 的 Windows 或 Linux 作業系統映像，然後將該映像上傳到 Azure 或 Azure Stack 中的儲存體帳戶。 如果您的映像已經上傳到 Azure 或 Azure Stack 中的 blob 儲存體，則您可以略過步驟 1。
@@ -39,7 +39,7 @@ ms.locfileid: "45575808"
 
    - Azure Stack 僅支援固定磁碟 VHD 格式的第一代 VM。 固定格式會線性地建構檔案內部的邏輯磁碟，因此磁碟位移 X 會儲存於 Blob 位移 X。Blob 最後的小頁尾將說明 VHD 屬性。 若要確認是否為固定磁碟，請使用 [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell 命令。  
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     >  Azure Stack 不支援動態磁碟 VHD。 對連結至 VM 的動態磁碟調整大小，會導致 VM 處於失敗狀態。 若要解決這個問題，請刪除 VM，但不要刪除 VM 的磁碟 (儲存體帳戶中的 VHD Blob)。 然後，將 VHD 從動態磁碟轉換為固定磁碟，並重新建立虛擬機器。
 
    * 將映像上傳到 Azure Stack blob 儲存體比上傳到 Azure blob 儲存體有效率，因為將映像推送到 Azure Stack 映像存放庫所需的時間較短。
