@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406306"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238483"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>開始使用 Azure 資料目錄
 Azure 資料目錄是完全受控的雲端服務，可作為企業資料資產的註冊系統和探索系統。 如需詳細的概觀，請參閱 [什麼是 Azure 資料目錄](data-catalog-what-is-data-catalog.md)。
@@ -96,7 +96,7 @@ Adventure Works 資料庫支援一家虛構自行車製造商 (Adventure Works C
 若要安裝 Adventure Works 範例資料庫：
 
 1. 下載 CodePlex 上的 [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) 。
-2. 若要在機器上還原資料庫，請依照 [SQL Server Management Studio 還原資料庫備份](http://msdn.microsoft.com/library/ms177429.aspx)中的指示，或依照下列步驟進行：
+2. 若要在機器上還原資料庫，請依照 [SQL Server Management Studio 還原資料庫備份](https://msdn.microsoft.com/library/ms177429.aspx)中的指示，或依照下列步驟進行：
    1. 開啟 SQL Server Management Studio，然後連線到 SQL Server Database Engine。
    2. 以滑鼠右鍵按一下 [資料庫]，然後按一下 [還原資料庫]。
    3. 在 [還原資料庫] 之下，按一下 [來源]的 [裝置] 選項，然後按一下 [瀏覽]。

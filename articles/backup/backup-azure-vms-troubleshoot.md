@@ -8,19 +8,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: 8ef8241e9f0f6223b29fa29f7a5803f57f4d6203
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 90e03c66717cafc1cd33f4629e88aba8e76c2c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414993"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245716"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虛擬機器備份的疑難排解
 您可以疑難排解將 Azure 備份使用於下表所列資訊時發生的錯誤。
 
 | 錯誤詳細資料 | 因應措施 |
 | --- | --- |
-| 無法執行作業，因為 VM 已不存在。 - 停止保護虛擬機器，但不刪除備份資料。 更多詳細資料可於 http://go.microsoft.com/fwlink/?LinkId=808124 找到 |刪除主要 VM 後，但備份原則繼續尋找 VM 來備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 [更多詳細資料](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| 無法執行作業，因為 VM 已不存在。 - 停止保護虛擬機器，但不刪除備份資料。 更多詳細資料可於 http://go.microsoft.com/fwlink/?LinkId=808124 找到 |刪除主要 VM 後，但備份原則繼續尋找 VM 來備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)</li><li> 停止保護虛擬機器 (不論是否刪除備份資料)。 [更多詳細資料](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | 因為虛擬機器沒有網路連線，所以快照集作業失敗 - 請確定 VM 可存取網路。 若要讓快照集成功，請將 Azure 資料中心 IP 範圍設為允許清單，或設定網路存取的 Proxy 伺服器。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034。 如果您已經使用 Proxy 伺服器，請確定已正確設定 Proxy 伺服器設定 | 當您拒絕虛擬機器上的輸出網際網路連線時，便會發生。 VM 快照集延伸模組需要網際網路連線，才能建立基礎磁碟的快照集。 [請參閱關於如何修正網路存取遭到封鎖所造成的快照集失敗章節](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine)。 |
 | VM 代理程式無法與 Azure 備份服務通訊。 - 請確認 VM 具有網路連線，且 VM 代理程式是最新版且正在執行。 如需詳細資訊，請參閱 http://go.microsoft.com/fwlink/?LinkId=800034 一文。 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 [深入了解](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup)如何進行 VM 快照集問題偵錯。<br> 如果 VM 代理程式未造成問題，請重新啟動 VM。 不正確的 VM 狀態可能會造成問題，重新啟動 VM 可重設此狀態。 |
 | VM 處於「佈建失敗狀態」- 請將 VM 重新啟動，並確定 VM 正在執行或已關機。 | 當其中一個延伸模組失敗而導致 VM 狀態變成失敗的佈建狀態時，就會發生此錯誤。 請移至延伸模組清單，查看是否有失敗的延伸模組，將它移除並嘗試重新啟動虛擬機器。 如果所有延伸模組都是處於執行狀態，請檢查 VM 代理程式服務是否正在執行。 若否，請重新啟動 VM 代理程式服務。 |
@@ -28,7 +28,7 @@ ms.locfileid: "50414993"
 | 無法複製虛擬機器的快照集，因為儲存體帳戶中的可用空間不足 - 請確定儲存體帳戶中的可用空間等於連結至虛擬機器的進階儲存體磁碟上所呈現的資料 | 若為 VM 備份堆疊 V1 上的進階 VM，我們會將快照集複製到儲存體帳戶。 這是為了確定快照集上運作的備份管理流量不會限制可供使用進階磁碟的應用程式使用的 IOPS 數目。 Microsoft 建議只配置 50% (17.5 TB) 的總儲存體帳戶空間，讓 Azure 備份服務可以將快照集複製到儲存體帳戶，並從儲存體帳戶中複製的這個位置，將資料傳送到到保存庫。 | 
 | 無法執行操作，因為 VM 代理程式沒有回應 |如果 VM 代理程式發生問題，或以某種方式封鎖對 Azure 基礎結構的網路存取，則會擲回這個錯誤。 針對 Windows VM，請檢查服務中的VM 代理程式服務狀態，以及代理程式是否出現在 [控制台] 的 [程式集] 中。 請嘗試從 [控制台] 中刪除程式，然後以[下方](#vm-agent)所述的方式重新安裝代理程式。 重新安裝代理程式之後，請觸發臨機操作備份以確認。 |
 | 復原服務擴充作業失敗。 - 請確定虛擬機器上有最新的虛擬機器代理程式，且代理程式服務正在執行中。 請重試備份作業。 如果備份作業失敗，請連絡 Microsoft 支援服務。 |VM 代理程式過期時會擲回這個錯誤。 請參閱下面的「更新 VM 代理程式」一節以更新 VM 代理程式。 |
-| 虛擬機器不存在。 - 請確定該虛擬機器存在，或選取不同的虛擬機器。 |當刪除主要 VM 但備份原則繼續尋找 VM 來執行備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)<br></li><li>停止保護虛擬機器，但不刪除備份資料。 [更多詳細資料](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
+| 虛擬機器不存在。 - 請確定該虛擬機器存在，或選取不同的虛擬機器。 |當刪除主要 VM 但備份原則繼續尋找 VM 來執行備份時，就會發生這種情況。 若要修正此錯誤： <ol><li> 重新建立具有相同名稱和相同資源群組名稱 [雲端服務名稱] 的虛擬機器，<br>(或)<br></li><li>停止保護虛擬機器，但不刪除備份資料。 [更多詳細資料](https://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | 命令執行失敗。 另一項作業目前正在此項目上進行。 請等到前一項作業完成，然後重試此作業。 |現有的備份作業正在執行，必須等到目前的作業完成，才會啟動新作業。 |
 | 從復原服務保存庫複製 VHD 已逾時 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 | 若儲存體端有暫時性錯誤，或備份服務未在逾時期限內收到足夠的儲存體帳戶 IOPS 以便將資料傳輸到保存庫，就會發生此問題。 請務必遵循[設定 VM 時的最佳做法](backup-azure-vms-introduction.md#best-practices)。 請嘗試將 VM 移至其他尚未載入的儲存體帳戶，然後重試備份作業。|
 | 備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業。 如果問題持續發生，請連絡 Microsoft 支援服務。 |之所以收到此錯誤有下列兩個原因︰ <ol><li> 存取 VM 儲存體時發生暫時性問題。 請檢查 [Azure 狀態網站](https://azure.microsoft.com/status/)，以查看該區域中是否有計算、儲存體或網路問題。 問題解決後，請重試備份作業。 <li>原始 VM 已刪除，無法取得復原點。 若要保留已刪除 VM 的備份資料，但移除備份錯誤：請取消保護 VM 並選擇保留資料。 這個動作會停止排定的備份作業和週期性錯誤訊息。 |
@@ -82,18 +82,18 @@ ms.locfileid: "50414993"
 
 若為 Windows VM：
 
-* 下載並安裝 [代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。
-* 若為傳統虛擬機器，請[更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) \(英文\) 以指出代理程式已安裝。 資源管理員虛擬機器不需要此步驟。
+* 下載並安裝 [代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。
+* 若為傳統虛擬機器，請[更新 VM 屬性](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) \(英文\) 以指出代理程式已安裝。 資源管理員虛擬機器不需要此步驟。
 
 如為 Linux VM：
 
 * 從散發套件存放庫安裝最新版的代理程式。 如需套件名稱的詳細資料，請參閱 [Linux 代理程式存放庫](https://github.com/Azure/WALinuxAgent)。
-* 若為傳統 VM，請[使用部落格文章更新 VM 屬性](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，並確認您已安裝代理程式。 資源管理員虛擬機器不需要此步驟。
+* 若為傳統 VM，請[使用部落格文章更新 VM 屬性](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)，並確認您已安裝代理程式。 資源管理員虛擬機器不需要此步驟。
 
 ### <a name="updating-the-vm-agent"></a>更新 VM 代理程式
 若為 Windows VM：
 
-* 若要更新 VM 代理程式，請重新安裝 [VM 代理程式二進位檔](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 更新代理程式之前，請先確定 VM 代理程式更新期間不會進行任何備份作業。
+* 若要更新 VM 代理程式，請重新安裝 [VM 代理程式二進位檔](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 更新代理程式之前，請先確定 VM 代理程式更新期間不會進行任何備份作業。
 
 如為 Linux VM：
 
@@ -135,7 +135,7 @@ VM 備份仰賴發給底層儲存體的快照命令。 無法存取儲存體，�
 * 備份作業 (如磁碟快照) 可能會失敗
 * 顯示備份作業狀態可能會失敗
 
-解析網際網路的公用位址的需求已在 [這裡](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx)說明。 您必須檢查 VNET 的 DNS 設定，並確定可以解析 Azure URI。
+解析網際網路的公用位址的需求已在 [這裡](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx)說明。 您必須檢查 VNET 的 DNS 設定，並確定可以解析 Azure URI。
 
 正確完成名稱解析後，也必須提供 Azure IP 的存取權。 若要解除封鎖對 Azure 基礎結構的存取，請遵循下列步驟進行：
 

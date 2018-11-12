@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/01/2017
 ms.author: vturecek
-ms.openlocfilehash: d0de7e7596fb7fabbc4061709816111a7a4ad827
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 363cba145ed4d5bcf138cf3f7130763891c51e8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213039"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258056"
 ---
 # <a name="introduction-to-service-fabric-reliable-actors"></a>Service Fabric Reliable Actor 簡介
-Reliable Actors 是以 [Virtual Actor](http://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。
+Reliable Actors 是以 [Virtual Actor](https://research.microsoft.com/en-us/projects/orleans/) 模式為基礎的 Service Fabric 應用程式架構。 Reliable Actors API 提供單一執行緒的程式設計模型，此模型立基於 Service Fabric 所提供的延展性和可靠性保證上。
 
 ## <a name="what-are-actors"></a>什麼是動作項目？
 動作項目是隔離且獨立的計算與狀態單位，且具備單一執行緒執行。 [動作項目模式](https://en.wikipedia.org/wiki/Actor_model) 是適用於並行或分散式系統的運算模型，其中有大量的這類動作項目可以同時且各自獨立的方式來執行。 動作項目可以彼此通訊，而且可以建立多個動作項目。

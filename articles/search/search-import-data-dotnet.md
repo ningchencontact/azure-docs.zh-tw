@@ -9,11 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/13/2017
-ms.openlocfilehash: fb8fb153c7393af0e084cb96ee2f5e82fba5b220
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: dc59531b282f6c99dd399ac384a8c6264ee260ea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258760"
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>使用 .NET SDK 將資料上傳到 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -28,7 +29,7 @@ ms.lasthandoff: 04/23/2018
 在開始閱讀本逐步解說前，請先 [建立好 Azure 搜尋服務索引](search-what-is-an-index.md)。 本文也假設您已建立 `SearchServiceClient` 物件，如 [使用 .NET SDK 建立 Azure 搜尋服務索引](search-create-index-dotnet.md#CreateSearchServiceClient)中所示。
 
 > [!NOTE]
-> 本文中的所有範例程式碼均以 C# 撰寫。 您可以 [在 GitHub](http://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 您也可以閱讀 [Azure 搜尋服務 .NET SDK](search-howto-dotnet-sdk.md)，以取得更詳細的範例程式碼逐步說明。
+> 本文中的所有範例程式碼均以 C# 撰寫。 您可以 [在 GitHub](https://aka.ms/search-dotnet-howto)找到完整的原始程式碼。 您也可以閱讀 [Azure 搜尋服務 .NET SDK](search-howto-dotnet-sdk.md)，以取得更詳細的範例程式碼逐步說明。
 
 若要使用 .NET SDK 將文件發送到您的索引中，您必須：
 

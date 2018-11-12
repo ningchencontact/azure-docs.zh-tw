@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f8b7d2620b5b972c9476332f2b662a891a0b3765
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 9edbb9d916840f348a7df589c6e7cb2110419cb3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430335"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262398"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver 的 Azure 虛擬機器規劃和實作指南
 
@@ -1259,7 +1259,7 @@ sudo service waagent restart
 >
 > * [在 Linux 上設定軟體 RAID][virtual-machines-linux-configure-raid]
 > * [在 Azure 中的 Linux VM 上設定 LVM][virtual-machines-linux-configure-lvm]
-> * [Azure 儲存體密碼和 Linux I/O 最佳化](http://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
+> * [Azure 儲存體密碼和 Linux I/O 最佳化](https://blogs.msdn.com/b/igorpag/archive/2014/10/23/azure-storage-secrets-and-linux-i-o-optimizations.aspx)
 >
 >
 
@@ -1316,7 +1316,7 @@ Azure 異地複寫可在 VM 中的每個 VHD 上本機運作，而且不會依�
 > 若要設定自動掛接，請參閱命令列可執行檔 diskpart.exe 的文件：
 >
 > * [DiskPart 命令列選項](https://technet.microsoft.com/library/bb490893.aspx)
-> * [Automount (自動掛接)](http://technet.microsoft.com/library/cc753703.aspx)
+> * [Automount (自動掛接)](https://technet.microsoft.com/library/cc753703.aspx)
 >
 > 您應該以系統管理員身分開啟 Windows 命令列視窗。
 >

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: fe6df20d294a3b1802d396085c36a6587dc45730
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388223"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249076"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教學課程：將 Service Fabric 應用程式部署到 Azure 中的叢集
 
@@ -87,7 +87,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 合作對象叢集是 Azure 上裝載的免費、限時 Service Fabric 叢集，由 Service Fabric 小組所執行。 任何人都可以部署應用程式並了解平台。 叢集會使用單一的自我簽署憑證，以確保節點對節點和用戶端對節點的安全性。
 
-登入並[加入 Windows 叢集](http://aka.ms/tryservicefabric) \(英文\)。 若要將 PFX 憑證下載至您的電腦，請選取 [PFX] 連結。 選取 [如何連線至安全的合作對象叢集?] 連結，並複製憑證密碼。 後續步驟中會使用憑證、憑證密碼和 [連線端點] 值。
+登入並[加入 Windows 叢集](https://aka.ms/tryservicefabric) \(英文\)。 若要將 PFX 憑證下載至您的電腦，請選取 [PFX] 連結。 選取 [如何連線至安全的合作對象叢集?] 連結，並複製憑證密碼。 後續步驟中會使用憑證、憑證密碼和 [連線端點] 值。
 
 ![PFX 和連線端點](./media/service-fabric-quickstart-dotnet/party-cluster-cert.png)
 

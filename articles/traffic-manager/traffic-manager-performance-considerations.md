@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 2fabe1671e9cc2aeed3b0dcd08ad5b5f09da3f11
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bf2222e09644520bbfc6c5424c7f29d05b3c799
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140835"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257692"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>流量管理員的效能考量
 
@@ -80,7 +80,7 @@ ms.locfileid: "50140835"
 
 [測試流量管理員設定](traffic-manager-testing-settings.md)
 
-[流量管理員的相關作業 (REST API 參考)](http://go.microsoft.com/fwlink/?LinkId=313584)
+[流量管理員的相關作業 (REST API 參考)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Azure 流量管理員 Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
 

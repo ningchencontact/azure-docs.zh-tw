@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762436"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258250"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>在 Batch 集區中使用具備 RDMA 功能或已啟用 GPU 功能的執行個體
 
@@ -105,7 +105,7 @@ ms.locfileid: "29762436"
 
 若要在 Azure A8 節點所構成的集區上執行 Windows MPI 應用程式，您必須安裝支援的 MPI 實作。 以下的步驟範例可供您使用 Batch 應用程式套件，在 Windows 集區上安裝 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx)。
 
-1. 下載適用於最新版 Microsoft MPI 的[安裝套件](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe)。
+1. 下載適用於最新版 Microsoft MPI 的[安裝套件](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe)。
 2. 建立該套件的 zip 檔案。
 3. 將套件上傳至您的 Batch 帳戶。 如需相關步驟，請參閱[應用程式套件](batch-application-packages.md)指引。 指定應用程式識別碼 (例如 MSMPI) 和版本 (例如 8.1)。 
 4. 使用 Batch API 或 Azure 入口網站，在雲端服務組態中建立具有所需節點數目和規模大小的集區。 下表顯示使用啟動工作以自動安裝模式設定 MPI 的設定範例：

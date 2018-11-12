@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ee2440171b54e1279571ec4fcb0c5be7bec207a1
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 901b44b829398ef92e63f94e0b35549e63cdd3db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045733"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262245"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>使用 Azure Data Factory 從 Teradata 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,7 +33,7 @@ ms.locfileid: "37045733"
 
 您可以將資料從內部部署的 Teradata 資料存放區複製到任何支援的接收資料存放區。 如需複製活動所支援作為接收器的資料存放區清單，請參閱[支援的資料存放區](data-factory-data-movement-activities.md#supported-data-stores-and-formats)表格。 Data Factory 目前只支援將資料從 Teradata 資料存放區移到其他資料存放區，而不支援將資料從其他資料存放區移到 Teradata 資料存放區。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 資料處理站支援透過資料管理閘道器連接至內部部署 Teradata 來源。 請參閱 [在內部部署位置與雲端之間移動資料](data-factory-move-data-between-onprem-and-cloud.md) 一文來了解資料管理閘道和設定閘道的逐步指示。
 
 即使 Teradata 裝載於 Azure IaaS VM 中，也必須要有閘道。 您可以將閘道安裝在與資料存放區相同或相異的 IaaS VM 上，只要閘道可以連線到資料庫即可。
@@ -42,7 +42,7 @@ ms.locfileid: "37045733"
 > 如需連接/閘道器相關問題的疑難排解秘訣，請參閱 [針對閘道問題進行疑難排解](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) 。
 
 ## <a name="supported-versions-and-installation"></a>支援的版本和安裝
-若要讓資料管理閘道連接至 Teradata 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [Teradata 的 .NET 資料提供者](http://go.microsoft.com/fwlink/?LinkId=278886)版本 14 或以上版本。 支援 Teradata 版本 12 和以上版本。
+若要讓資料管理閘道連接至 Teradata 資料庫，您必須在與資料管理閘道相同的系統上，安裝 [Teradata 的 .NET 資料提供者](https://go.microsoft.com/fwlink/?LinkId=278886)版本 14 或以上版本。 支援 Teradata 版本 12 和以上版本。
 
 ## <a name="getting-started"></a>開始使用
 您可以藉由使用不同的工具/API，建立內含複製活動的管線，以從內部部署的 Cassandra 資料存放區移動資料。 
@@ -65,12 +65,12 @@ ms.locfileid: "37045733"
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| type |類型屬性必須設為： **OnPremisesTeradata** |yes |
-| 伺服器 |Teradata 伺服器的名稱。 |yes |
-| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |yes |
+| type |類型屬性必須設為： **OnPremisesTeradata** |是 |
+| 伺服器 |Teradata 伺服器的名稱。 |是 |
+| authenticationType |用來連接到 Teradata 資料庫的驗證類型。 可能的值為：匿名、基本和 Windows。 |是 |
 | username |如果您使用基本或 Windows 驗證，請指定使用者名稱。 |否 |
 | password |指定您為使用者名稱所指定之使用者帳戶的密碼。 |否 |
-| gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |yes |
+| gatewayName |Data Factory 服務應該用來連接到內部部署 Teradata 資料庫的閘道器名稱。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 如需定義資料集的區段和屬性完整清單，請參閱[建立資料集](data-factory-create-datasets.md)一文。 資料集 JSON 的結構、可用性和原則等區段類似於所有的資料集類型 (SQL Azure、Azure Blob、Azure 資料表等)。
@@ -86,7 +86,7 @@ ms.locfileid: "37045733"
 
 | 屬性 | 說明 | 允許的值 | 必要 |
 | --- | --- | --- | --- |
-| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |yes |
+| query |使用自訂查詢來讀取資料。 |SQL 查詢字串。 例如：select * from MyTable。 |是 |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>JSON 範例：將資料從 Teradata 複製到 Azure Blob
 下列範例提供您使用 [Azure 入口網站](data-factory-copy-activity-tutorial-using-azure-portal.md)、[Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 或 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md) 來建立管線時，可使用的範例 JSON 定義。 這些範例示範如何將資料從 Teradata 複製到 Azure Blob 儲存體。 不過，您可以在 Azure Data Factory 中使用複製活動，將資料複製到 [這裡](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 所說的任何接收器。   

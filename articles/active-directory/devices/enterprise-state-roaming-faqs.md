@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: bea59f0d1ce1d1f3813c0b39a57b1f4e726fe2a5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 24c7ddff1eea16fc2be3f99d04abd90ee0791f4c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128906"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247291"
 ---
 # <a name="settings-and-data-roaming-faq"></a>設定和資料漫遊常見問題集
 本文將回答 IT 系統管理員可能會遇到的設定和應用程式資料同步處理的一些問題。
@@ -37,7 +37,7 @@ ms.locfileid: "50128906"
 * *輕鬆存取功能*- 例如高對比佈景主題、朗讀程式及放大鏡。
 * *其他 Windows 設定*，例如滑鼠設定。
 
-**應用程式資料**：通用 Windows 應用程式可以將設定資料寫入漫遊資料夾中，而系統會對寫入這個資料夾中的任何資料自動進行同步處理。 由個別應用程式開發人員設計應用程式以充分利用這項功能。 如需有關如何開發使用漫遊功能之通用 Windows 應用程式的詳細資訊，請參閱 [AppData 儲存 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 和 [Windows 8 AppData 漫遊開發人員部落格](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)。
+**應用程式資料**：通用 Windows 應用程式可以將設定資料寫入漫遊資料夾中，而系統會對寫入這個資料夾中的任何資料自動進行同步處理。 由個別應用程式開發人員設計應用程式以充分利用這項功能。 如需有關如何開發使用漫遊功能之通用 Windows 應用程式的詳細資訊，請參閱 [AppData 儲存 API](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) 和 [Windows 8 AppData 漫遊開發人員部落格](https://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx)。
 
 ## <a name="what-account-is-used-for-settings-sync"></a>哪些帳戶用於設定同步處理？
 在 Windows 8.1 中，設定同步處理一律使用取用者 Microsoft 帳戶。 企業使用者有能力可以將 Microsoft 帳戶連接至 Active Directory 網域帳戶，以存取設定同步處理。在 Windows 10 中，這項連接的 Microsoft 帳戶功能將由主要/次要帳戶架構取代。

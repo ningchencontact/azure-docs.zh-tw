@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628642"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238704"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk 服務：簽發者名稱和簽發者金鑰
 
@@ -84,17 +84,17 @@ BizTalk 配接器服務會使用服務匯流排簽發者名稱和簽發者金鑰
 ## <a name="next"></a>下一頁
 其他 Azure BizTalk 服務主題：
 
-* [安裝 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [教學課程：Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [安裝 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [教學課程：Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>另請參閱
-* [做法：使用 ACS 管理服務來設定服務身分識別](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk 服務：佈建](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk 服務：節流](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [做法：使用 ACS 管理服務來設定服務身分識別](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk 服務：佈建](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk 服務：備份與還原](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk 服務：節流](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

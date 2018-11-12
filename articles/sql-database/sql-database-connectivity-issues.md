@@ -3,19 +3,22 @@ title: 修正 SQL 連接錯誤、暫時性錯誤 |Microsoft Docs
 description: 了解如何在 Azure SQL Database 中排解、診斷和防止 SQL 連接錯誤或暫時性錯誤。
 keywords: sql 連接, 連接字串, 連接問題, 暫時性錯誤, 連接錯誤
 services: sql-database
-author: dalechen
-manager: craigg
 ms.service: sql-database
-ms.custom: develop apps
+ms.subservice: development
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/01/2018
+author: dalechen
 ms.author: ninarn
-ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 08/01/2018
+ms.openlocfilehash: ee5542c72991a2aa8de94f5dc2e819eb5d311a27
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398932"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246798"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>排解、診斷和防止 SQL Database 的 SQL 連接錯誤和暫時性錯誤
 本文描述如何防止、排解、診斷和減少您的用戶端應用程式在與 Azure SQL Database 互動時發生的連接錯誤和暫時性錯誤。 了解如何設定重試邏輯、建置連接字串和調整其他連接設定。
@@ -60,7 +63,7 @@ ms.locfileid: "39398932"
 ### <a name="interval-increase-between-retries"></a>增加重試之間的間隔
 我們建議您在您第一次重試前等待 5 秒鐘。 在少於 5 秒的延遲後重試，雲端服務會有超過負荷的風險。 對於後續每次重試，延遲應以指數方式成長，最大值為 60 秒。
 
-如需使用 ADO.NET 之用戶端的封鎖期間討論，請參閱 [SQL Server 連線集區 (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)。
+如需使用 ADO.NET 之用戶端的封鎖期間討論，請參閱 [SQL Server 連線集區 (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx)。
 
 您也可以設定在程式自行終止之前的重試次數上限。
 
@@ -112,13 +115,13 @@ ms.locfileid: "39398932"
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## <a name="net-sqlconnection-parameters-for-connection-retry"></a>進行連線重試的.NET SqlConnection 參數
-如果用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連線到 SQL Database，請使用 .NET 4.6.1 或更新版本 (或 .NET Core)，以便使用其連線重試功能。 如需此功能的詳細資訊，請參閱[此網頁](http://go.microsoft.com/fwlink/?linkid=393996)。
+如果用戶端程式利用 .NET Framework 類別 **System.Data.SqlClient.SqlConnection** 連線到 SQL Database，請使用 .NET 4.6.1 或更新版本 (或 .NET Core)，以便使用其連線重試功能。 如需此功能的詳細資訊，請參閱[此網頁](https://go.microsoft.com/fwlink/?linkid=393996)。
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-當您為 [SqlConnection](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立**連接字串**時，請調整下列參數的值：
+當您為 [SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 物件建立**連接字串**時，請調整下列參數的值：
 
 * **ConnectRetryCount**：&nbsp;&nbsp;預設值為 1。 範圍是 0 到 255。
 * **ConnectRetryInterval**：&nbsp;&nbsp;預設值為 1 秒。 範圍是 1 到 60。
@@ -208,7 +211,7 @@ Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 您可以在任何 Windows 電腦上，嘗試這些公用程式：
 
 * SQL Server Management Studio (SSMS.exe)，其使用 ADO.NET 進行連線
-* sqlcmd.exe，其使用 [ODBC](http://msdn.microsoft.com/library/jj730308.aspx) 進行連線
+* sqlcmd.exe，其使用 [ODBC](https://msdn.microsoft.com/library/jj730308.aspx) 進行連線
 
 在您的程式連線之後，請測試簡短的 SQL SELECT 查詢是否能運作。
 
@@ -223,7 +226,7 @@ Connection Timeout = ConnectRetryCount * ConnectionRetryInterval
 * `nmap -sS -O 127.0.0.1`
   * 將範例值變更為您的 IP 位址。
 
-在 Windows 上，[PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。 以下是在 SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的範例執行：
+在 Windows 上，[PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) 公用程式可能很有用。 以下是在 SQL Database 伺服器上查詢連接埠情況，以及在膝上型電腦上執行的範例執行：
 
 ```
 [C:\Users\johndoe\]
@@ -250,7 +253,7 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 您的用戶端可以記錄其遇到的所有錯誤來協助診斷。 您可以使記錄項目與 SQL Database 本身內部記錄的錯誤資料相互關聯。
 
-Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊，請參閱 [5 - 輕而易舉：使用記錄應用程式區塊](http://msdn.microsoft.com/library/dn440731.aspx)。
+Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如需詳細資訊，請參閱 [5 - 輕而易舉：使用記錄應用程式區塊](https://msdn.microsoft.com/library/dn440731.aspx)。
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -259,8 +262,8 @@ Enterprise Library 6 (EntLib60) 提供 .NET 受控類別來協助記錄。 如�
 
 | 記錄查詢 | 說明 |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |[Sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) 檢視可提供個別事件的資訊，包括會導致暫時性錯誤或連線失敗的某些事件。<br/><br/>在理想的情況下，您可以讓 **start_time** 或 **end_time** 值與用戶端程式發生問題時的相關資訊相互關聯。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |[Sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) 檢視可針對其他診斷提供事件類型的彙總計數。<br/><br/>您必須連線到 master 資料庫來執行此查詢。 |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -306,12 +309,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## <a name="enterprise-library-6"></a>Enterprise Library 6
-Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
+Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲端服務的健全用戶端，其中之一就是 SQL Database 服務。 若要找出 EntLib60 所能協助之每個領域的專用主題，請參閱 [Enterprise Library 6 - 2013 年 4 月](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx)。
 
-在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊，請參閱 [4 - 堅持是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
+在 EntLib60 可以協助的一個領域中用於處理暫時性錯誤的重試邏輯。 如需詳細資訊，請參閱 [4 - 堅持是所有成功的秘方：使用暫時性錯誤處理應用程式區塊](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)。
 
 > [!NOTE]
-> EntLib60 的原始程式碼可從[下載中心](http://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
+> EntLib60 的原始程式碼可從[下載中心](https://go.microsoft.com/fwlink/p/?LinkID=290898)公開下載。 Microsoft 沒有計劃進一步更新或維護 EntLib 的功能。
 >
 >
 
@@ -338,7 +341,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 類別的架構，可協助您實作雲
 
 以下是 EntLib60 相關資訊的一些連結：
 
-* 免費書籍下載：[Microsoft Enterprise Library 開發人員指南第 2 版](http://www.microsoft.com/download/details.aspx?id=41145)。
+* 免費書籍下載：[Microsoft Enterprise Library 開發人員指南第 2 版](https://www.microsoft.com/download/details.aspx?id=41145)。
 * 最佳作法： [重試一般指引](../best-practices-retry-general.md) 深入探討重試邏輯。
 * NuGet 下載：[Enterprise Library - 暫時性錯誤處理應用程式區塊 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 

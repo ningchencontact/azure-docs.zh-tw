@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: c89ba62ae104d378dc99809e2d96ac993cd2bc35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d4197effff48c23147799cd1fc3778521c42a19e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256760"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Contoso 移轉：將內部部署 Linux 應用程式重新裝載至 Azure VM 和 Azure MySQL
 
@@ -199,7 +199,7 @@ Contoso 管理員會依照下列方式設定帳戶：
 
 - 若要透過網際網路存取，請在移轉前，先在內部部署 Linux VM 上啟用 SSH。  若為 Ubuntu，可以使用下列命令來完成此動作：**Sudo apt-get ssh install -y**。
 - 容錯移轉之後，他們應勾選 [開機診斷] 以檢視 VM 的螢幕擷取畫面。
-- 如果這個不起任何作用，他們必須檢查 VM 是否正常執行，並檢閱這些[疑難排解祕訣](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
+- 如果這個不起任何作用，他們必須檢查 VM 是否正常執行，並檢閱這些[疑難排解祕訣](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx)。
 
 **需要其他協助？**
 

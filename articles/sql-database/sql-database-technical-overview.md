@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 1ae68e8eac3baca53cda603769a89bc6a84fd468
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 74e963abe5d2798f72bce8212c9f761f8f3297d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405918"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256930"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database 服務
 
@@ -101,7 +101,7 @@ SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](http://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 Azure 平台可完全管理每個 Azure SQL Database，並保證不會遺失任何資料，也不會影響高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
+Azure 領先業界的 99.99% 可用性服務等級協定 [(SLA)](https://azure.microsoft.com/support/legal/sla/)(Microsoft 受控資料中心的全球網路提供支援)，可協助讓您的應用程式 24 小時全年無休地運作。 Azure 平台可完全管理每個 Azure SQL Database，並保證不會遺失任何資料，也不會影響高度的資料可用性。 Azure 會自動處理修補、備份、複寫、失敗偵測，基礎潛在硬體、軟體或網路失敗、部署錯誤修正、容錯移轉、資料庫升級和其他維護工作。 隔離計算和儲存圖層可達成標準可用性。 整合單一節點上的計算和儲存以獲取效能，然後另外實作類似 Always On 可用性群組的技術，則可達成進階可用性。 如需 Azure SQL Database 高可用性功能的完整討論，請參閱 [SQL Database 可用性](sql-database-high-availability.md)。 此外，SQL Database 還提供內建[業務持續性和全域延展性](sql-database-business-continuity.md)功能，包括：
 
 - **[自動備份](sql-database-automated-backups.md)**：
 
@@ -200,7 +200,7 @@ SQL Database 支援在 MacOS、Linux 和 Windows 上使用 Python、Java、Node.
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server)：詢問資料庫管理問題
 - [堆疊溢位](http://stackoverflow.com/questions/tagged/sql-server)：詢問開發問題
 - [MSDN 論壇](https://social.msdn.microsoft.com/Forums/home?category=sqlserver)：詢問技術問題
-- [意見反應](http://aka.ms/sqlfeedback)：回報錯誤 (bug) 及要求加入新功能
+- [意見反應](https://aka.ms/sqlfeedback)：回報錯誤 (bug) 及要求加入新功能
 - [Reddit](https://www.reddit.com/r/SQLServer/)：討論 SQL Server
 
 ## <a name="next-steps"></a>後續步驟
