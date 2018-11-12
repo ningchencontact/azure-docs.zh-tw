@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a469bc600715b2e276d6654596da50d75659aadb
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 3903f247df0bc9dc4bc27d61b195492c585d7634
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831019"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282266"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>教學課程 5：擷取內容相關的資料
 在本教學課程中，根據內容尋找相關的資料片段。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。 若要產生一份工單，則需要這兩個資料片段，而且兩者彼此相關。  
@@ -57,7 +57,7 @@ ms.locfileid: "48831019"
 ## <a name="remove-prebuilt-number-entity-from-app"></a>從應用程式中移除預先建立的數字實體
 若要查看整個語句並標記階層式子系，請暫時移除預先建立的數字實體。
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 從左側功能表中選取 [實體]。
 
@@ -83,7 +83,7 @@ ms.locfileid: "48831019"
 
     在[清單實體](luis-quickstart-intent-and-list-entity.md)教學課程中，會依照名稱、電子郵件地址、電話分機、行動電話號碼或美國聯邦社會安全號碼指定員工。 這些員工編號會使用於語句中。 先前的範例語句包含不同的方式可記下原點和目的地位置 (以粗體顯示標記)。 有些語句特意只有目的地。 這有助於 LUIS 了解如何在未指定原點時將這些位置放在語句中。     
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="create-a-location-entity"></a>建立位置實體
 LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何。 如果您需要在語彙基元 (原始) 檢視中查看語句，請在導覽列中選取標示為 [實體檢視] 的語句上方的切換鍵。 切換參數之後，控制項會標示為 [語彙基元檢視]。
@@ -119,7 +119,7 @@ mv Jill Jones from a-2349 to b-1298
 
 1. 從左側導覽功能表中選取 [Entities] \(實體\)。
 
-2. 選取 [Manage prebuilt entities] \(管理預先建置的實體\) 按鈕。
+2. 選取 [新增預先建置的實體] 按鈕。
 
 3. 從預先建立的實體清單中選取 [數字]，然後選取 [完成]。
 
@@ -248,6 +248,10 @@ mv Jill Jones from a-2349 to b-1298
 ## <a name="clean-up-resources"></a>清除資源
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+
+## <a name="hierarchical-entities-versus-roles"></a>階層式實體與角色
+
+如需詳細資訊，請參閱[角色與階層式實體](luis-concept-roles.md#roles-versus-hierarchical-entities)。
 
 ## <a name="next-steps"></a>後續步驟
 本教學課程建立了新意圖，並針對原點和目的地位置的內容學習資料新增了範例語句。 應用程式一旦經過訓練並發佈，用戶端應用程式即可使用該資訊來建立包含相關資訊的移動票證。

@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: c7c3aea53a1bbdbfc39bad568b2879311e365acd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226689"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264217"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>在 Windows 防火牆中為 Database Engine 的預設執行個體開啟 TCP 連接埠
 1. 使用遠端桌面連線到虛擬機器。 如需連線到 VM 的詳細指示，請參閱[使用遠端桌面開啟 SQL VM](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop)。
@@ -38,7 +38,7 @@ ms.locfileid: "50226689"
    
     ![規則名稱](./media/virtual-machines-sql-server-connection-steps/17Rule-Name.png)
 
-視需要為其他元件開啟額外的連接埠。 如需詳細資訊，請參閱 [設定 Windows 防火牆以允許 SQL Server 存取](http://msdn.microsoft.com/library/cc646023.aspx)。
+視需要為其他元件開啟額外的連接埠。 如需詳細資訊，請參閱 [設定 Windows 防火牆以允許 SQL Server 存取](https://msdn.microsoft.com/library/cc646023.aspx)。
 
 ### <a name="configure-sql-server-to-listen-on-the-tcp-protocol"></a>設定 SQL Server 以接聽 TCP 通訊協定
 
@@ -94,5 +94,5 @@ SQL Server Database Engine 須有網域環境才能使用 Windows 驗證。 若�
    ![系統管理員 (sysadmin)](./media/virtual-machines-sql-server-connection-steps/25sysadmin.png)
 9. 按一下 [確定]。
 
-如需 SQL Server 登入的詳細資訊，請參閱 [建立登入](http://msdn.microsoft.com/library/aa337562.aspx)。
+如需 SQL Server 登入的詳細資訊，請參閱 [建立登入](https://msdn.microsoft.com/library/aa337562.aspx)。
 

@@ -26,7 +26,7 @@
 
 自 2017 年 4 月 1 日起，您的帳戶中任何超過 90 天的作業記錄以及其相關工作記錄都會自動刪除，即使記錄總數低於配額上限亦然。 如果您需要封存作業/工作資訊，您可以使用[這裡](../articles/media-services/previous/media-services-dotnet-manage-entities.md)所述的程式碼。
 
-<sup>3</sup> 提出要求來列出作業實體時，每個要求會傳回最多 1000 個作業。 如果您需要追蹤所有已送出的工作，您可以如 [OData 系統查詢選項](http://msdn.microsoft.com/library/gg309461.aspx)中所述，使用 top/skip。
+<sup>3</sup> 提出要求來列出作業實體時，每個要求會傳回最多 1000 個作業。 如果您需要追蹤所有已送出的工作，您可以如 [OData 系統查詢選項](https://msdn.microsoft.com/library/gg309461.aspx)中所述，使用 top/skip。
 
 <sup>4</sup> 定位器並非設計來管理每個使用者的存取控制。 若要給予個別使用者不同的存取權限，請使用數位版權管理 (DRM) 方案。 如需詳細資訊，請參閱 [本節](../articles/media-services/previous/media-services-content-protection-overview.md) 。
 

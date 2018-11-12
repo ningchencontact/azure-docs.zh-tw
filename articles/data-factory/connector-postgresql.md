@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 6279e088b8abd574bbd8ef6488d986d42c91123c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1c321d96efc7af387fb30b6ed608eb871cb7de5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046049"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230490"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 PostgreSQL 複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -33,11 +33,11 @@ ms.locfileid: "37046049"
 
 具體而言，這個 PostgreSQL 連接器支援 PostgreSQL **7.4 版和更新版本**。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 如果您的 PostgreSQL 資料庫無法公開存取，您需要設定自我裝載 Integration Runtime。 若要了解自我裝載整合執行階段，請參閱[自我裝載整合執行階段](create-self-hosted-integration-runtime.md)一文。 Integration Runtime 從版本 3.7 開始提供內建的 PostgreSQL 驅動程式，因此您不需要手動安裝任何驅動程式。
 
-針對版本 3.7 以前的自我裝載 IR 版本，您必須在 Integration Runtime 電腦上安裝 [PostgreSQL 的 Ngpsql 資料提供者](http://go.microsoft.com/fwlink/?linkid=282716)，版本為 2.0.12 和 3.1.9 之間的版本。
+針對版本 3.7 以前的自我裝載 IR 版本，您必須在 Integration Runtime 電腦上安裝 [PostgreSQL 的 Ngpsql 資料提供者](https://go.microsoft.com/fwlink/?linkid=282716)，版本為 2.0.12 和 3.1.9 之間的版本。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -51,8 +51,8 @@ ms.locfileid: "37046049"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設定為：**PostgreSql** | yes |
-| connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**PostgreSql** | 是 |
+| connectionString | ODBC 連接字串，用於連線到適用於 PostgreSQL 的 Azure 資料庫。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 一般的連接字串為 `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 您可以根據您的案例設定更多屬性：
@@ -117,7 +117,7 @@ ms.locfileid: "37046049"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設定為：**RelationalTable** | yes |
+| type | 資料集的類型屬性必須設定為：**RelationalTable** | 是 |
 | tableName | PostgreSQL 資料庫中的資料表名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
@@ -147,8 +147,8 @@ ms.locfileid: "37046049"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"query": "SELECT * FROM \"MySchema\".\"MyTable\""`。 | 否 (如果已指定資料集中的 "tableName") |
+| type | 複製活動來源的類型屬性必須設定為：**RelationalSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"query": "SELECT * FROM \"MySchema\".\"MyTable\""` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 > [!NOTE]
 > 結構描述和資料表名稱會區分大小寫。 在查詢中以 `""` (雙引號) 括住它們。

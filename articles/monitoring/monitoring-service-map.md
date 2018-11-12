@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32cd373499a1ac6dd8cc02e666b0f6ff70688157
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252916"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215254"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
@@ -277,7 +277,7 @@ Linux：
 ![[機器變更追蹤] 窗格](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 記錄
-服務對應的電腦和處理序清查資料可供在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-queries.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+服務對應的電腦和處理序清查資料可供在 Log Analytics 中進行[搜尋](../log-analytics/log-analytics-log-searches.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 除了當處理序或電腦啟動時或是新增到服務對應時所產生的記錄外，每小時還會為每個唯一的電腦和處理序產生一筆記錄。 這些記錄具有下表中的屬性。 ServiceMapComputer_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的機器資源欄位。 ServiceMapProcess_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的處理序資源欄位。 ResourceName_s 欄位會符合對應 Resource Manager 資源中的名稱欄位。 
 
@@ -504,7 +504,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 Log Analytics 中的[記錄搜尋](../log-analytics/log-analytics-queries.md)，以擷取服務對應所收集的資料。
+深入了解 Log Analytics 中的[記錄搜尋](../log-analytics/log-analytics-log-searches.md)，以擷取服務對應所收集的資料。
 
 
 ## <a name="troubleshooting"></a>疑難排解

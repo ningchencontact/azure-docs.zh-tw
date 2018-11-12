@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443523"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228873"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure 媒體服務的分散 MP4 即時內嵌規格
 此規格說明以分散 MP4 為基礎的即時串流內嵌通訊協定和格式 (適用於 Azure 媒體服務)。 媒體服務提供即時串流服務，讓客戶可使用 Azure 做為雲端平台來串流即時事件和廣播即時內容。 本文件也討論建置高度備援且強固之即時內嵌機制的最佳做法。
@@ -38,7 +38,7 @@ ms.locfileid: "39443523"
 ![內嵌流程][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3.位元資料流格式 – ISO 14496-12 分散 MP4
-本文件中所討論即時資料流內嵌的電傳格式是根據 [ISO-14496-12]。 如需分散 MP4 格式、點播視訊檔案及即時串流內嵌的詳細說明，請參閱 [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx)。
+本文件中所討論即時資料流內嵌的電傳格式是根據 [ISO-14496-12]。 如需分散 MP4 格式、點播視訊檔案及即時串流內嵌的詳細說明，請參閱 [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx)。
 
 ### <a name="live-ingest-format-definitions"></a>即時內嵌格式定義
 下列清單說明適用於即時內嵌至 Azure 媒體服務的特殊格式定義：

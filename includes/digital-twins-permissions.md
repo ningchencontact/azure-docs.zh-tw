@@ -1,19 +1,19 @@
 ---
 title: 包含檔案
 description: 包含檔案
-services: azure-digital-twins
+services: digital-twins
 author: alinamstanciu
-ms.service: azure-digital-twins
+ms.service: digital-twins
 ms.topic: include
 ms.date: 09/19/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: d08b7a1256a26d1d7d39481ba15a8637339063ea
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1887efd741f4779a5186707d60b27ca66fc3c06f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322718"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283970"
 ---
 1. 在 [Azure 入口網站](https://portal.azure.com)中，從左側導覽窗格開啟 **Azure Active Directory**，然後開啟 [屬性] 窗格。 將 [目錄識別碼] 複製到暫存檔。 您會使用此值來設定下一節的應用程式範例。
 

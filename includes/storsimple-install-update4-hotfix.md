@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 6b37f4bac4bfcc6001171ed27899b71cdac7a312
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165245"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263947"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "50165245"
 
 請執行下列步驟，從 Microsoft Update Catalog 下載軟體更新。
 
-1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com)。
+1. 啟動 Internet Explorer 並瀏覽至 [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com)。
 2. 如果這是您第一次在此電腦上使用 Microsoft Update Catalog，請在系統提示您安裝 Microsoft Update Catalog 附加元件時，按一下 [安裝]  。
 
     ![安裝目錄](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)

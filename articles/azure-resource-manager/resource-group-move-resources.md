@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093816"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279410"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -112,7 +112,7 @@ ms.locfileid: "50093816"
 
 ## <a name="validate-move"></a>驗證移動
 
-[驗證移動作業](/rest/api/resources/resources/resources_validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
+[驗證移動作業](/rest/api/resources/resources/validatemoveresources)可讓您直接測試移動案例，而不需要實際移動資源。 您可以使用這項作業來判斷移動是否會成功。 若要執行這項作業，您需要：
 
 * 來源資源群組的名稱
 * 目標資源群組的資源識別碼

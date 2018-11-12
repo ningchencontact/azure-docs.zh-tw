@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606149"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230779"
 ---
 # <a name="restore-system-state-to-windows-server"></a>將系統狀態還原到 Windows Server
 
-本文說明如何從 Azure 復原服務保存庫來還原 Windows Server 系統狀態備份。 若要還原系統狀態，您必須有系統狀態備份 (使用[備份系統狀態](backup-azure-system-state.md#back-up-windows-server-system-state)中的指示所建立)，並確定您已安裝[最新版的 Microsoft Azure 復原服務 (MARS) 代理程式](http://aka.ms/azurebackup_agent)。 從 Azure 復原服務保存庫來復原 Windows Server 系統狀態資料的程序需要兩個步驟：
+本文說明如何從 Azure 復原服務保存庫來還原 Windows Server 系統狀態備份。 若要還原系統狀態，您必須有系統狀態備份 (使用[備份系統狀態](backup-azure-system-state.md#back-up-windows-server-system-state)中的指示所建立)，並確定您已安裝[最新版的 Microsoft Azure 復原服務 (MARS) 代理程式](https://aka.ms/azurebackup_agent)。 從 Azure 復原服務保存庫來復原 Windows Server 系統狀態資料的程序需要兩個步驟：
 
 1. 從 Azure 備份來還原檔案形式的系統狀態。 在從 Azure 備份來還原檔案形式的系統狀態時，您可以：
   * 將系統狀態還原到進行備份時所在的相同伺服器，或

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226779"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264204"
 ---
 VM 擴充功能可協助您：
 
@@ -42,10 +42,10 @@ Azure 虛擬機器代理程式 (VM 代理程式) 是一個安全、輕量級程�
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* 當您建立 VM 映像時，會包含已安裝的 VM 代理程式。 一旦具有 VM 代理程式的映像存在，您可以將該映像上傳至 Azure。 若為 Windows VM，請下載 [Windows VM Agent.msi 檔案](http://go.microsoft.com/fwlink/?LinkID=394789) ，然後安裝 VM 代理程式。 若為 Linux VM，請從位於 <https://github.com/Azure/WALinuxAgent> 的 GitHub 存放庫安裝 VM 代理程式。 如需如何在 Linux 上安裝 VM 代理程式的詳細資訊，請參閱[Azure Linux VM 代理程式使用者指南](../articles/virtual-machines/extensions/agent-linux.md)。
+* 當您建立 VM 映像時，會包含已安裝的 VM 代理程式。 一旦具有 VM 代理程式的映像存在，您可以將該映像上傳至 Azure。 若為 Windows VM，請下載 [Windows VM Agent.msi 檔案](https://go.microsoft.com/fwlink/?LinkID=394789) ，然後安裝 VM 代理程式。 若為 Linux VM，請從位於 <https://github.com/Azure/WALinuxAgent> 的 GitHub 存放庫安裝 VM 代理程式。 如需如何在 Linux 上安裝 VM 代理程式的詳細資訊，請參閱[Azure Linux VM 代理程式使用者指南](../articles/virtual-machines/extensions/agent-linux.md)。
 
 > [!NOTE]
-> 在 PaaS 中，VM 代理程式稱為 **WindowsAzureGuestAgent**，且在 Web 和背景工作角色 VM 中皆可使用。 (如需詳細資訊，請參閱 [Azure 角色架構](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx))。角色 VM 的 VM 代理程式現已可將延伸模組加入雲端服務 VM，其方法與永續性虛擬機器相同。 角色 VM 和永續性 VM 上 VM 擴充功能之間最大的差異是新增 VM 擴充功能的時機。 使用角色 VM 時，擴充功能會先新增至雲端服務，然後新增至該雲端服務內的部署。
+> 在 PaaS 中，VM 代理程式稱為 **WindowsAzureGuestAgent**，且在 Web 和背景工作角色 VM 中皆可使用。 (如需詳細資訊，請參閱 [Azure 角色架構](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx))。角色 VM 的 VM 代理程式現已可將延伸模組加入雲端服務 VM，其方法與永續性虛擬機器相同。 角色 VM 和永續性 VM 上 VM 擴充功能之間最大的差異是新增 VM 擴充功能的時機。 使用角色 VM 時，擴充功能會先新增至雲端服務，然後新增至該雲端服務內的部署。
 >
 > 使用 [Get AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) Cmdlet，來列出所有可用的角色 VM 延伸模組。
 >

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421249"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282606"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -76,7 +76,7 @@ ms.locfileid: "50421249"
 您可以監視涉及一連串 URL 的案例。 例如，如果您正在監視銷售網站，您可以測試將項目加入購物車正確運作。
 
 > [!NOTE]
-> 進行多步驟 Web 測試此會收取費用。 [價格方案](http://azure.microsoft.com/pricing/details/application-insights/)。
+> 進行多步驟 Web 測試此會收取費用。 [價格方案](https://azure.microsoft.com/pricing/details/application-insights/)。
 > 
 
 若要建立多重步驟測試，您可以使用 Visual Studio Enterprise 來記錄案例，然後將記錄結果上傳至 Application Insights。 Application Insights 會不時地重新執行案例，並確認回應。
@@ -214,6 +214,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 > [!NOTE]
 > * 依照上述步驟，設定警示觸發時收到通知的動作群組。 若不進行這個步驟，此規則會觸發時，您只會收到入口網站內部通知。
 >
+
 ### <a name="alert-on-availability-metrics"></a>可用性度量的警示
 使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，您也可以對於分段彙總可用性和測試持續時間計量設定警示：
 

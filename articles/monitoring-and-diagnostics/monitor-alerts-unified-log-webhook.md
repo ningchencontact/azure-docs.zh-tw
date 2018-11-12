@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f5f8ed885791a648f30790434be56d966bbf2e47
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ee38eb32886c050eb87b2d6ed91252ee7bcfea0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989289"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280688"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook 動作記錄警示規則
 [在 Azure 中建立記錄警示](alert-log.md)後，您可以選擇[使用動作群組設定](monitoring-action-groups.md)以執行一或多個動作。  本文說明各種可用的 Webhook 動作以及設定自訂 JSON 型 Webhook 的詳細資訊。
@@ -79,7 +79,7 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 本節說明記錄警示的 Webhook 範例承載，包括其為標準和自訂承載時。
 
 > [!NOTE]
-> 為了確保回溯相容性，使用 Azure Log Analytics 的警示標準 Webhook 承載會與 [Log Analytics 警示管理](../log-analytics/log-analytics-alerts-creating.md)相同。 但是對於使用 [Application Insights](../application-insights/app-insights-analytics.md) 的記錄警示，標準 Webhook 承載是以動作群組結構描述為基礎的。
+> 為了確保回溯相容性，使用 Azure Log Analytics 的警示標準 Webhook 承載會與 [Log Analytics 警示管理](../monitoring-and-diagnostics/alert-metric.md)相同。 但是對於使用 [Application Insights](../application-insights/app-insights-analytics.md) 的記錄警示，標準 Webhook 承載是以動作群組結構描述為基礎的。
 
 ### <a name="standard-webhook-for-log-alerts"></a>記錄警示的標準 Webhook 
 這兩個範例都提供只含有兩個資料行和兩個資料列的虛擬承載。
@@ -201,4 +201,4 @@ Webhook 包括 URL 以及 JSON 格式的承載 (也就是傳送至外部服務�
 - 了解[管理 Azure 中的記錄警示](alert-log.md)
 - 建立和管理 [Azure 中的動作群組](monitoring-action-groups.md)
 - 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)
-- 深入了解 [Log Analytics](../log-analytics/log-analytics-overview.md)。 
+- 深入了解 [Log Analytics](../log-analytics/log-analytics-queries.md)。 

@@ -2,18 +2,18 @@
 title: Azure 資料目錄的常見問題集
 description: 與 Azure 資料目錄相關的常見問題集，包括資料來源探索、註解和管理功能。
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: bb9223e2eef11d3378c228f8cd5242e6ebbbc74d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053116"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231459"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Azure 資料目錄的常見問題集
 這篇文章提供與 Azure 資料目錄服務相關的常見問題集解答。
@@ -99,7 +99,7 @@ ms.locfileid: "43053116"
 專家是指對資料物件具有獨特見解的人。 一個物件可能有多個專家。 專家不見得是物件的「擁有者」，而只是知道應該如何運用資料的人。
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>如果我遇到問題，如何與資料目錄小組共用資訊？
-若要報告問題、共用資訊及發問，請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。
+若要報告問題、共用資訊及發問，請前往 [Azure 資料目錄論壇](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>目錄是否可與我感興趣的其他資料來源搭配運作？
 我們正積極將更多資料來源新增至資料目錄。 如果您希望我們支援某個特定的資料來源，請前往 [Azure 資料目錄意見反應論壇](https://feedback.azure.com/forums/906052-data-catalog)提出建議 (如果已有人建議，請表達支持)。
@@ -127,4 +127,4 @@ ms.locfileid: "43053116"
 若要更新已在目錄中註冊之資料資產的中繼資料，只要重新註冊包含這些資產的資料來源即可。 資料來源中的任何變更 (例如在資料表或檢視中新增或移除資料行) 都會在目錄中更新，但會保留使用者提供的任何註解。
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>這裡沒有回答我的問題。 可以在何處尋求解答？
-請前往 [Azure 資料目錄論壇](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。 那裡提出的問題會在這裡找到答案。
+請前往 [Azure 資料目錄論壇](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409)。 那裡提出的問題會在這裡找到答案。

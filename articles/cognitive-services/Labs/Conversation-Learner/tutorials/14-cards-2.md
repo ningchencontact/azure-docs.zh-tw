@@ -10,21 +10,21 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 1c7c88742c69041594006add76f7e3c642c64dec
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 99c474978d4da1d80669505330b2dc6220d7ca5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170567"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226629"
 ---
-# <a name="how-to-use-cards-part-1-of-2"></a>如何使用卡片 (第 1 部份，共 2 個部份)
-本教學課程顯示如何將可填寫的表單卡片新增至您的聊天機器人。 這將顯示表單欄位如何移至實體中。
+# <a name="how-to-use-cards-part-1-of-2"></a>如何使用卡 (第 1 部份，共 2 個部份)
+本教學課程顯示如何將可填寫的表單卡新增至您的聊天機器人。 這將顯示表單欄位如何移至實體中。
 
 對話學習模組預設您的卡定義檔案位於稱為 cards 的目錄，也就是聊天機器人啟動位置的目錄。
 
 ## <a name="video"></a>影片
 
-[![教學課程 14 預覽](http://aka.ms/cl-tutorial-14-preview)](http://aka.ms/blis-tutorial-14)
+[![教學課程 14 預覽](https://aka.ms/cl-tutorial-14-preview)](https://aka.ms/blis-tutorial-14)
 
 ## <a name="requirements"></a>需求
 本教學課程需要執行一般教學課程聊天機器人
@@ -39,29 +39,29 @@ ms.locfileid: "39170567"
 
 在 Web UI 的模型清單中，按一下 [Tutorial-14-Cards-2]。 
 
-### <a name="the-card"></a>卡片
+### <a name="the-card"></a>卡
 
-卡片的定義位於下列位置：C:\<installedpath\>\src\cards\shippingAddress.json。
+卡的定義位於下列位置：C:\<installedpath\>\src\cards\shippingAddress.json。
 
-此卡片會收集交貨地址的 3 個欄位：縣/市、街道，以及州/省。
+此卡會收集交貨地址的 3 個欄位：縣/市、街道，以及州/省。
 
 ![](../media/tutorial14_card.PNG)
 
 ### <a name="actions"></a>動作
 
-我們已經建立 3 個動作。 如下所示，第一個動作是卡片。
+我們已經建立 3 個動作。 如下所示，第一個動作是卡。
 
 ![](../media/tutorial14_actions.PNG)
 
-讓我們看看卡片動作類型的建立方式：
+讓我們看看卡動作類型的建立方式：
 
-- 請注意 [地址] 的 [街道] \(屬於 Input.text 類型\) 及其識別碼。
+- 請注意 [地址] 的 [街道] (屬於 Input.text 類型) 及其識別碼。
 - 同樣地，也有 [地址] 的 [縣/市] 和將 [地址] 的 [州/省] 識別碼列出的下拉式清單。
 
 識別碼是重要，因為填入並送出欄位時，這些識別碼是聊天機器人收到這些值的實體名稱。
 
 ## <a name="entities"></a>實體
-我們已定義與與上述卡片相符的 3 個實體。
+我們已定義與與上述卡相符的 3 個實體。
 
 ![](../media/tutorial14_entities.PNG)
 
@@ -71,7 +71,7 @@ ms.locfileid: "39170567"
 
 ![](../media/tutorial14_actions.PNG)
 
-- 第一個是交貨地址卡片，其中的動作類型是 CARD，而且已經從下拉式清單選取範本作為交貨地址。
+- 第一個是交貨地址卡，其中的動作類型是 CARD，而且已經從下拉式清單選取範本作為交貨地址。
 - 第二個是讀回交貨地址的簡單動作。
 
 ![](../media/tutorial14_sa_card.PNG)
@@ -80,14 +80,14 @@ ms.locfileid: "39170567"
 
 讓我們逐步進行教學對話。
 
-1. 按一下 [Train Dialogs] \(訓練對話\)，然後按一下 [New Train Dialog] \(新增訓練對話\)。
+1. 按一下 [Train Dialogs]\(訓練對話\)，然後按一下 [New Train Dialog]\(新增訓練對話\)。
 1. 輸入「hi」\(嗨\)。
-2. 按一下 [Score Actions] \(評分動作\)。
-3. 按一下以選取 [Shipping Address] \(交貨地址\)。
-4. 填寫卡片並送出。
+2. 按一下 [Score Actions]\(評分動作\)。
+3. 按一下以選取 [Shipping Address]\(交貨地址\)。
+4. 填寫卡並送出。
     - 請注意，這些值現在已移至實體記憶體。 由於表單已分割輸入，因此不需要剖析。
-5. 按一下 [Score Actions] \(評分動作\)。
-3. 按一下以選取 [Shipping to $Address] \(交貨至 $Address\)。
+5. 按一下 [Score Actions]\(評分動作\)。
+3. 按一下以選取 [Shipping to $Address...]\(交貨至 $Address...\)。
 4. 按一下 [完成測試]。
 
 ![](../media/tutorial14_train_dialog.PNG)

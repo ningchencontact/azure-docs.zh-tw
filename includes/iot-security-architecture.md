@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ac51dc8b7cbfa08ebca201c42c0c82356b7d5b6c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264089"
 ---
 # <a name="internet-of-things-security-architecture"></a>物聯網安全性架構
 
@@ -252,7 +252,7 @@ Microsoft 是使用先前概述的架構來為 Azure IoT 進行威脅模型化�
 
 雲端閘道器是一種系統，其可讓跨公用網路空間之數個不同站台的裝置之間進行遠端通訊；其通常是針對雲端式控制和資料分析系統，也可說是這類系統的同盟。 在某些情況下，雲端閘道器可立即提升特殊用途裝置的終端機存取速度 (如平板電腦或手機)。 在此處所討論的內容中，「雲端」是指未繫結至連接裝置或現場閘道器之相同網站的專屬資料處理系統，且其中用來防止實體存取目標的作業措施並不一定要向 「公用雲端」基礎結構公開。 雲端閘道器可能會對應到網路虛擬化重疊，以隔離雲端閘道器與所有連接裝置或現場閘道器的任何其他網路流量。 雲端閘道本身不屬於裝置控制系統，也不是處理或儲存裝置資料的設備；反之，是這些設備與雲端閘道接合。 雲端閘道器區域包含雲端閘道器和所有現場閘道器，以及直接或間接連接其上的裝置。
 
-雲端閘道器通常是指以服務形式執行且自訂建置的軟體，其含有公開的端點供現場閘道器和裝置進行連線。 因此，它的設計必須完全考慮到安全性問題。 請遵循 [SDL](http://www.microsoft.com/sdl) 程序來設計和建置此服務。
+雲端閘道器通常是指以服務形式執行且自訂建置的軟體，其含有公開的端點供現場閘道器和裝置進行連線。 因此，它的設計必須完全考慮到安全性問題。 請遵循 [SDL](https://www.microsoft.com/sdl) 程序來設計和建置此服務。
 
 #### <a name="services-zone"></a>服務區域
 

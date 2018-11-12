@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 975f76fa15507874a16b2b14c2988d618daf2b29
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520481"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230405"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -127,8 +127,8 @@ queue_service.delete_queue('taskqueue')
 ## <a name="next-steps"></a>後續步驟
 了解佇列儲存體的基本概念之後，請使用下列連結深入了解。
 
-* [Python 開發人員中心](/develop/python/)
-* [Azure 儲存體服務 REST API](http://msdn.microsoft.com/library/azure/dd179355)
+* [Python 開發人員中心](https://azure.microsoft.com/develop/python/)
+* [Azure 儲存體服務 REST API](https://msdn.microsoft.com/library/azure/dd179355)
 * [Azure 儲存體團隊部落格]
 * [Microsoft Azure Storage SDK for Python]
 

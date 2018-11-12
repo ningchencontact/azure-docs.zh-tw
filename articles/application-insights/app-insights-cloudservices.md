@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 2b43e3487493f8568903ee0799fdd3d86e9a6542
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783489"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279665"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Azure 雲端服務的 Application Insights
 您可以透過 [Application Insights][start] 來監視 [Microsoft Azure 雲端服務應用程式](https://azure.microsoft.com/services/cloud-services/)，它會結合 Application Insights SDK 的資料與雲端服務的 [Azure 診斷](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)資料，來讓您了解應用程式的可用性、效能、失敗和使用情形。 當您取得有關應用程式在現實世界的效能和效率的意見反應時，您可以在每個開發生命週期中針對設計方向做出明智的抉擇。
@@ -96,7 +96,7 @@ ms.locfileid: "43783489"
 
 這會將您的 Application insights 檢測金鑰插入名為 `ServiceConfiguration.*.cscfg` 的檔案中。 ([範例程式碼](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg))。
 
-如果您想要變更傳送到 Application Insights 的診斷資訊層級，只要[直接編輯 `.cscfg` 檔案即可](app-insights-azure-diagnostics.md)。
+如果您想要變更傳送到 Application Insights 的診斷資訊層級，只要[直接編輯 `.cscfg` 檔案即可](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)。
 
 ## <a name="sdk"></a>在每個專案中安裝 SDK
 此選項會新增將自訂業務遙測新增到任何角色的功能，可用來進一步分析您應用程式的使用和執行情況。
@@ -151,7 +151,7 @@ ms.locfileid: "43783489"
 
 ![Azure 診斷資料](./media/app-insights-cloudservices/23-wad.png)
 
-使用[搜尋](app-insights-diagnostic-search.md)或[分析查詢](app-insights-analytics-tour.md)，在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋 (Search)] 來查看 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
+使用[搜尋](app-insights-diagnostic-search.md)或[分析查詢](../log-analytics/query-language/get-started-analytics-portal.md)，在各種 Azure 診斷傳送的追蹤記錄檔中搜尋。 例如，假設您有未處理的例外狀況導致角色損毀並需要回收。 這項資訊會出現在 Windows 事件記錄檔的「應用程式 (Application)」通道。 您可以使用 [搜尋 (Search)] 來查看 Windows 事件記錄檔錯誤，並取得例外狀況的完整堆疊追蹤。 這將協助您找出問題的根本原因。
 
 ![Azure 診斷搜尋](./media/app-insights-cloudservices/25-wad.png)
 
@@ -231,14 +231,14 @@ ms.locfileid: "43783489"
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>後續步驟
-* [設定將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md)
+* [設定將 Azure 診斷傳送至 Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [自動建立 Application Insights 資源](app-insights-powershell.md)
 * [自動執行 Azure 診斷](app-insights-powershell-azure-diagnostics.md)
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample)
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[azure]: app-insights-azure.md
+[azure]: app-insights-overview.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 110f787866296ec08b9937d56461d37574270a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980918"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247665"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC 教學課程：使用 Azure Cosmos DB 進行 Web 應用程式開發
 
@@ -488,7 +488,7 @@ ms.locfileid: "46980918"
             return View(item);
         }
    
-    第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。 此方法會從 Azure Cosmos DB 中提取[**文件**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
+    第一個方法會處理當使用者按一下 [索引] 檢視中的 [編輯] 連結時所發生的 Http GET。 此方法會從 Azure Cosmos DB 中提取[**文件**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx)，並將它傳遞給 [編輯] 檢視。
    
     [編輯] 檢視會接著對 **IndexController** 執行 Http POST。 
    
@@ -541,7 +541,7 @@ ms.locfileid: "46980918"
 
 
 
-## <a name="_Toc395637775"></a>後續步驟
+## <a name="_Toc395637775"></a>接續步驟
 恭喜！ 您剛剛使用 Azure Cosmos DB 建置您的第一個 ASP.NET MVC Web 應用程式，並將它發佈至 Azure。 您可以從 [GitHub][GitHub]下載或複製完整應用程式 (包括不包含在本教學課程中的詳細資料和刪除功能) 的原始程式碼。 所以如果您想要將程式碼加入您的應用程式，請抓取程式碼，並將它加入這個應用程式。
 
 若要將其他功能新增至您的應用程式，請檢閱 [Azure Cosmos DB .NET 程式庫](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)中提供的 API，並歡迎您貢獻到 [GitHub][GitHub] 上的 Azure Cosmos DB .NET 程式庫。 

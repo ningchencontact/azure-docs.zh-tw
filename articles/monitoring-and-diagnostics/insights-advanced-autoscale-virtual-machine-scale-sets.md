@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958829"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283628"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>針對 VM 擴展集使用 Resource Manager 範本的進階自動調整設定
 您可以根據效能標準臨界值、循環排程或特定日期，針對虛擬機器擴展集進行相應縮小和放大。 您也可以針對調整動作設定電子郵件和 webhook 通知。 本逐步解說會示範在 VM 擴展集上使用 Resource Manager 範本設定所有這些物件。
 
 > [!NOTE]
-> 雖然此逐步解說會說明 VM 擴展集的各步驟，相同的資訊也適用於自動調整[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 與 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) 如需 VM 擴展集上根據簡單效能計量 (例如 CPU) 的簡單相應縮小/放大設定，請參閱 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) 與 [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) 文件
+> 雖然此逐步解說會說明 VM 擴展集的各步驟，相同的資訊也適用於自動調整[雲端服務](https://azure.microsoft.com/services/cloud-services/)、[App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 與 [API 管理服務](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) 如需 VM 擴展集上根據簡單效能計量 (例如 CPU) 的簡單相應縮小/放大設定，請參閱 [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) 與 [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) 文件
 >
 >
 

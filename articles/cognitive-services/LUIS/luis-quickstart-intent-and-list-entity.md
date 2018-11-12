@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162078"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280690"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>教學課程 4：擷取完全相符的文字項目
 在本教學課程中，了解如何取得與預先定義的項目清單相符的資料。 清單上的每個項目可以包含同義字清單。 在人力資源應用程式中，員工的識別可以透過數個關鍵資訊來實現，例如姓名、電子郵件、電話號碼和美國聯邦稅務識別碼。 
@@ -41,7 +41,7 @@ ms.locfileid: "47162078"
 > * 發佈
 > * 從端點取得意圖和實體
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>使用現有的應用程式
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
@@ -57,7 +57,7 @@ ms.locfileid: "47162078"
 
 ## <a name="moveemployee-intent"></a>MoveEmployee 意圖
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 選取 [Create new intent] \(建立新意圖\)。 
 
@@ -84,7 +84,7 @@ ms.locfileid: "47162078"
 
     請記住，先前的教學課程中已新增 number 和 datetimeV2，系統會將任何語句範例中所找到的這兩個項目自動標記。
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>員工清單實體
 現在 **MoveEmployee** 意圖已具有語句範例，LUIS 接著必須了解員工是什麼。 

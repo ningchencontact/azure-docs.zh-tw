@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 668ccc581e457e2ed3ad72c08bf5e65dd86c4b52
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697463"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228601"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>使用 Azure WCF 轉送的 .NET 內部部署/雲端混合式應用程式
 
@@ -52,7 +52,7 @@ ms.locfileid: "43697463"
 開始開發 Azure 應用程式之前，請先下載工具並設定開發環境：
 
 1. 從 SDK [下載頁面](https://azure.microsoft.com/downloads/)安裝 Azure SDK for .NET。
-2. 在 **.NET** 資料行中，按一下您所使用的 [Visual Studio](http://www.visualstudio.com) 版本。 本教學課程中的步驟使用 Visual Studio 2017。
+2. 在 **.NET** 資料行中，按一下您所使用的 [Visual Studio](https://www.visualstudio.com) 版本。 本教學課程中的步驟使用 Visual Studio 2017。
 3. 當系統提示您執行或儲存安裝程式時，按一下 [執行]。
 4. 在 **Web Platform Installer** 中，按一下 [安裝] 並繼續進行安裝。
 5. 完成安裝後，您將具有開始進行開發所需的一切。 SDK 包含可讓您在 Visual Studio 輕易開發 Azure 應用程式的工具。
@@ -75,7 +75,7 @@ ms.locfileid: "43697463"
 
    ![][11]
 4. 按一下 [確定] 以建立 **ProductsServer** 專案。
-5. 如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。 否則，請造訪 [NuGet][NuGet]，然後按一下[安裝 NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
+5. 如果已安裝 Visual Studio 的 NuGet 套件管理員，請跳至下一個步驟。 否則，請造訪 [NuGet][NuGet]，然後按一下[安裝 NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c)。 按照提示安裝 NuGet 套件管理員，然後重新啟動 Visual Studio。
 6. 在 [方案總管] 中，以滑鼠右鍵按一下 **ProductsServer** 專案，然後按一下 [管理 NuGet 套件]。
 7. 按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 選取 [WindowsAzure.ServiceBus] 套件。
 8. 按一下 [安裝] 並接受使用條款。
@@ -232,7 +232,7 @@ ms.locfileid: "43697463"
     ![][18]
 
 7. 回到 [新增 ASP.NET Web 應用程式] 對話方塊，按一下 [確定] 以建立 MVC 應用程式。
-8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
+8. 您現在必須設定新 Web 應用程式的 Azure 資源。 完成[本文的「發佈至 Azure」一節](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard)中的步驟。 然後，回到本教學課程並繼續進行下一個步驟。
 10. 在 [方案總管] 中，於 [模型] 上按一下滑鼠右鍵、按一下 [新增]，再按一下 [類別]。 在 [名稱] 方塊中，鍵入名稱 **Product.cs**。 然後按一下 [ **新增**]。
 
     ![][17]

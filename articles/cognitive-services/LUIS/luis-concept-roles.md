@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fea70e2b1912bde94e23dbd98fa933784d2a69ac
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8a92852a2721bd391ddf7c3cf3489b820c4a1400
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140310"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277610"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。
@@ -43,7 +43,7 @@ ms.locfileid: "50140310"
 實體和角色都會以大括號 `{}` 括住。 實體與角色是以冒號隔開。 
 
 
-[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>具有預先建置實體的角色
 

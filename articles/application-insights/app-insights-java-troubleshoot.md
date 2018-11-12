@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: 26899ea62b8caa872b6c99b94976c87f84ba7176
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632992"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247359"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
@@ -43,7 +43,7 @@ ms.locfileid: "35632992"
 * 請務必使用相同版本的 Application Insights 核心、Web、代理程式和記錄附加器，以避免任何版本衝突問題。
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>我曾經看到資料，但是已停止
-* 檢查 [狀態部落格](http://blogs.msdn.com/b/applicationinsights-status/)。
+* 檢查 [狀態部落格](https://blogs.msdn.com/b/applicationinsights-status/)。
 * 您有達到資料點的每月配額嗎？ 開啟 [設定/配額和定價] 即可查看。若有達到配額，您可以升級您的方案，或付費取得額外容量。 請參閱 [定價配置](https://azure.microsoft.com/pricing/details/application-insights/)。
 * 您最近是否升級了 SDK？ 請確定專案目錄中只有「唯一」的 SDK jar。 不應該有兩個不同版本的 SDK 存在。
 * 正在尋找適當的 AI 資源嗎？ 請比對應用程式的 iKey 與您預期遙測的資源。 它們應該相同。

@@ -1,6 +1,6 @@
 ---
 title: 如何將適用於容器的 Azure 監視器上線 (預覽) | Microsoft Docs
-description: 此文章說明您如何將適用於容器的 Azure 監視器上線並進行設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
+description: 本文說明您如何將適用於容器的 Azure 監視器上線並加以設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
-ms.openlocfilehash: 505abe8f3dc19458b3f0e18f349974199ae4ba58
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2b7045f74a22732337ceb8dc9136da1c93ee7c2c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212109"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037782"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>如何將適用於容器的 Azure 監視器上線 (預覽) 
-此文章說明如何設定適用於容器的 Azure 監視器，來監視部署至 Kubernetes 環境並裝載於 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 上之工作負載的效能。
+本文說明如何設定適用於容器的 Azure 監視器，來監視部署至 Kubernetes 環境並裝載於 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 上之工作負載的效能。
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 開始之前，請確定您有下列項目：
 
 - 新的或現有的 AKS 叢集。
@@ -97,7 +97,7 @@ provisioningState       : Succeeded
 2. 從清單中選取 [容器 (預覽)]。
 3. 在 [監視器 - 容器 (預覽)] 頁面上，選取 [不受監視的叢集]。
 4. 從不受監視的叢集清單，在清單中尋找容器，然後按一下 [啟用]。   
-5. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中選取它。  
+5. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  
     清單會預先選取訂用帳戶中已部署 AKS 容器的預設工作區和位置。 
 
     ![啟用 AKS 容器深入解析監視](./media/monitoring-container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -244,7 +244,7 @@ Log Analytics 工作區必須手動建立。 若要建立工作區，您可以�
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696926"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230864"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查詢速查表
 
@@ -25,7 +25,7 @@ ms.locfileid: "43696926"
 
 ## <a name="letter-sized-cheat-sheets"></a>Letter 大小的速查表
 
-如果您要列印至 Letter 大小的紙張 (8.5" x 11")，請下載 [Azure Cosmos DB Letter 大小的查詢速查表](http://go.microsoft.com/fwlink/?LinkId=623215)。
+如果您要列印至 Letter 大小的紙張 (8.5" x 11")，請下載 [Azure Cosmos DB Letter 大小的查詢速查表](https://go.microsoft.com/fwlink/?LinkId=623215)。
 
 ![Azure Cosmos DB 查詢速查表 - Letter 大小，包含 SQL API、JavaScript、MongoDB API、Gremlin API 及資料表 API 查詢和函式](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

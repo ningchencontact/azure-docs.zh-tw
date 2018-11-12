@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 45a6bd349169265ef411d01a3601a27551847633
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 37dc96cf965181c5acba74449c684a08035e37b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226729"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264273"
 ---
 本文可解決以傳統部署模型建立之 Azure 虛擬機器的一些使用者常見問題。
 
@@ -22,9 +22,9 @@ ms.locfileid: "50226729"
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上執行什麼？
 所有的訂閱者都可以在 Azure 虛擬機器上執行伺服器軟體。 您可以執行最新版本的 Windows Server，以及各種 Linux 散發套件。 如需支援的詳細資料，請參閱：
 
-• 針對 Windows VM -- [Azure 虛擬機器的 Microsoft 伺服器軟體支援](http://go.microsoft.com/fwlink/p/?LinkId=393550)
+• 針對 Windows VM -- [Azure 虛擬機器的 Microsoft 伺服器軟體支援](https://go.microsoft.com/fwlink/p/?LinkId=393550)
 
-• 針對 Linux VM -- [Azure 背書之散發套件上的 Linux](http://go.microsoft.com/fwlink/p/?LinkId=393551)
+• 針對 Linux VM -- [Azure 背書之散發套件上的 Linux](https://go.microsoft.com/fwlink/p/?LinkId=393551)
 
 針對 Windows 用戶端映像，特定版本的 Windows 7 和 Windows 8.1 可供 MSDN Azure 權益訂閱者和 MSDN 開發與測試隨用隨付訂閱者 (針對開發與測試工作) 使用。 如需詳細資訊 (包括指示和限制)，請參閱 [MSDN 訂閱者的 Windows 用戶端映像](https://azure.microsoft.com/blog/2014/05/29/windows-client-images-on-azure/)。
 
@@ -38,10 +38,10 @@ ms.locfileid: "50226729"
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>我可以使用多少的儲存體搭配虛擬機器？
 每個資料磁碟最多可達 1 TB。 可使用的資料磁碟數量取決於虛擬機器的大小。 如需詳細資訊，請參閱 [虛擬機器的大小](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
-Azure 儲存體帳戶提供作業系統磁碟和任何資料磁碟的儲存空間。 每個磁碟是以分頁 Blob 方式儲存的 .vhd 檔案。 如需定價的詳細資料，請參閱 [儲存體定價詳細資料](http://go.microsoft.com/fwlink/p/?LinkId=396819)。
+Azure 儲存體帳戶提供作業系統磁碟和任何資料磁碟的儲存空間。 每個磁碟是以分頁 Blob 方式儲存的 .vhd 檔案。 如需定價的詳細資料，請參閱 [儲存體定價詳細資料](https://go.microsoft.com/fwlink/p/?LinkId=396819)。
 
 ## <a name="which-virtual-hard-disk-types-can-i-use"></a>可以使用哪些虛擬硬碟類型？
-Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中使用 VHDX，則需要先使用「Hyper-V 管理員」或 [convert-VHD](http://go.microsoft.com/fwlink/p/?LinkId=393656) Cmdlet 進行轉換。 接著，請使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) Cmdlet (以 [服務管理] 模式) 將 VHD 上傳到 Azure 中的儲存體帳戶，您便可以在虛擬機器上使用。
+Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中使用 VHDX，則需要先使用「Hyper-V 管理員」或 [convert-VHD](https://go.microsoft.com/fwlink/p/?LinkId=393656) Cmdlet 進行轉換。 接著，請使用 [Add-AzureVHD](https://msdn.microsoft.com/library/azure/dn495173.aspx) Cmdlet (以 [服務管理] 模式) 將 VHD 上傳到 Azure 中的儲存體帳戶，您便可以在虛擬機器上使用。
 
 * 如需適用於 Linux 的指示，請參閱[建立及上傳含有 Linux 作業系統的虛擬硬碟](../articles/virtual-machines/linux/classic/create-upload-vhd-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)。
 
@@ -50,7 +50,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中�
 
 * Azure 不會提供虛擬機器的主控台存取權。 VM 要完成開機之後才可供存取。
 * 多數[大小](../articles/virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的 Azure VM 僅有 1 個虛擬網路介面卡，這表示它們也可能會有 1 個外部 IP 位址。 (A8 和 A9 大小會使用第二個網路介面卡，讓應用程式在有限案例中的執行個體之間進行通訊。)
-* Azure VM 不支援第 2 代 Hyper-V VM 功能。 如需這些功能的詳細資料，請參閱[Hyper-V 的虛擬機器規格](http://technet.microsoft.com/library/dn592184.aspx)以及[第 2 代虛擬機器概觀](https://technet.microsoft.com/library/dn282285.aspx)。
+* Azure VM 不支援第 2 代 Hyper-V VM 功能。 如需這些功能的詳細資料，請參閱[Hyper-V 的虛擬機器規格](https://technet.microsoft.com/library/dn592184.aspx)以及[第 2 代虛擬機器概觀](https://technet.microsoft.com/library/dn282285.aspx)。
 
 ## <a name="can-these-virtual-machines-use-my-existing-on-premises-networking-infrastructure"></a>這些虛擬機器可以使用我現有的內部部署網路基礎結構嗎？
 對於傳統部署模型中建立的虛擬機器，您可以使用 Azure 虛擬網路來擴充現有的基礎結構。 這個方法像是在設立一個分公司。 您可以在 Azure 中佈建及管理虛擬私人網路 (VPN)，並使用內部部署 IT 基礎結構安全地連接這些網路。 如需詳細資訊，請參閱 [虛擬網路概觀](../articles/virtual-network/virtual-networks-overview.md)。
@@ -85,7 +85,7 @@ Azure 僅支援固定的 VHD 格式虛擬硬碟。 如果您想要在 Azure 中�
 * 針對 Linux VM，使用套件管理工具和適合散發的程序。
 * 針對 Windows 虛擬機器，請使用 Windows Server 移轉工具來移轉伺服器。 請勿嘗試升級位於 Azure 的客體 OS。 不支援此動作是因為有失去虛擬機器存取權的風險。 如果在升級期間發生問題，您可能會無法啟動遠端桌面工作階段，而且將無法疑難排解問題。
 
-如需移轉 Windows Server 的工具和程序的一般詳細資料，請參閱 [移轉角色與功能至 Windows Server](http://go.microsoft.com/fwlink/p/?LinkId=396940)。
+如需移轉 Windows Server 的工具和程序的一般詳細資料，請參閱 [移轉角色與功能至 Windows Server](https://go.microsoft.com/fwlink/p/?LinkId=396940)。
 
 ## <a name="whats-the-default-user-name-and-password-on-the-virtual-machine"></a>虛擬機器上的預設使用者名稱和密碼是什麼？
 Azure 提供的映像沒有預先設定的使用者名稱和密碼。 當您使用這些映像的其中一個來建立虛擬機器時，您將需要提供用來登入虛擬機器的使用者名稱和密碼。
@@ -100,8 +100,8 @@ Azure 提供的映像沒有預先設定的使用者名稱和密碼。 當您使�
 ## <a name="can-azure-run-anti-virus-on-my-virtual-machines"></a>Azure 可以在我的虛擬機器上執行防毒軟體嗎？
 Azure 提供數個防毒軟體解決方案的選項，但管理則掌握在您手中。 例如，您可能需要個別訂閱反惡意程式碼軟體，且需要決定何時執行掃描和安裝更新。 當您建立 Windows 虛擬機器或在稍後的時間點，可以使用適用於 Microsoft Antimalware、Symantec Endpoint Protection，或 TrendMicro Deep Security 代理程式的 VM 延伸模組，新增防毒軟體支援。 Symantec 和 TrendMicro 延伸模組提供您使用免費的限時試用訂用帳戶或現有的企業訂用帳戶。 Microsoft Antimalware 則是免費的。 如需詳細資訊，請參閱：
 
-* [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection](http://go.microsoft.com/fwlink/p/?LinkId=404207)
-* [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service](http://go.microsoft.com/fwlink/p/?LinkId=404206)
+* [如何在 Azure VM 上安裝和設定 Symantec Endpoint Protection](https://go.microsoft.com/fwlink/p/?LinkId=404207)
+* [如何在 Azure VM 上安裝和設定 Trend Micro Deep Security as a Service](https://go.microsoft.com/fwlink/p/?LinkId=404206)
 * [在 Azure 虛擬機器上部署反惡意程式碼解決方案](https://azure.microsoft.com/blog/2014/05/13/deploying-antimalware-solutions-on-azure-virtual-machines/)
 
 ## <a name="what-are-my-options-for-backup-and-recovery"></a>備份和復原有哪些選擇？

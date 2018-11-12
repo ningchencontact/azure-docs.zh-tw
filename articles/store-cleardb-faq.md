@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665717"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230626"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。
@@ -106,7 +106,7 @@ Azure Marketplace 無法供在亞塞拜然、克羅埃西亞、挪威或波多�
 您的 EA Azure 註冊管理員可以管理對 Azure Marketplace 第三方服務的存取權。 他們可以透過市集的 [管理帳戶] 和企業入口網站中 [帳戶] 區段下的訂用帳戶，來停用或重新啟用對第三方購買項目的存取。
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>若對我的 EA 訂用帳戶中 ClearDB 服務的帳單有問題，應該連絡誰？
-如有任何關於自己 EA 註冊的計費問題，請連絡 [企業版客戶支援](http://aka.ms/AzureEntSupport) 。 EA 入口網站支援小組會回答您的問題或協助解決您的問題。
+如有任何關於自己 EA 註冊的計費問題，請連絡 [企業版客戶支援](https://aka.ms/AzureEntSupport) 。 EA 入口網站支援小組會回答您的問題或協助解決您的問題。
 
 ## <a name="more-information"></a>詳細資訊
 [Azure Marketplace 常見問題集](https://azure.microsoft.com/marketplace/faq/)
