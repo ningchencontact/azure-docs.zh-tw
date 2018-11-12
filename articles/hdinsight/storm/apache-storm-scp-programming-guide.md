@@ -3,18 +3,18 @@ title: Azure HDInsight 中的 Storm 適用的 SCP.NET 程式設計指南
 description: 了解如何使用 SCP.NET 建立以 .NET 為基礎的 Storm 拓撲，用於在 Azure HDInsight 中執行的 Storm。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: daf9efb2f9044ed1395b0f2aa3663c2471406e2f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e6025ba2645c284cca87483b48b2d79a9558d574
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045459"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012525"
 ---
 # <a name="scp-programming-guide"></a>SCP 程式設計指南
 SCP 是一個用來建置即時、可靠、一致和高效能資料處理應用程式的平台。 建置在由 OSS 社群所設計的串流處理系統 [Apache Storm](http://storm.incubator.apache.org/) 之上。 Storm 由 Nathan Marz 所設計，由 Twitter 公開原始碼。 它採用 [Apache ZooKeeper](http://zookeeper.apache.org/)，這是另一個可發揮極可靠的分散式協調和狀態管理的 Apache 專案。 

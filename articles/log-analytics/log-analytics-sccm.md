@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dfa0a4b637153d6fa3cce5c9b402587950686341
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a5deccbe87bc8de6f6438259c2a43cc4618c24ab
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418070"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016696"
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>將 Configuration Manager 連線至 Log Analytics
 您可以將 System Center Configuration Manager 環境連線到 Azure Log Analytics，以同步處理裝置集合資料，並在 Log Analytics 和 Azure 自動化中參考這些集合。  
@@ -69,7 +69,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
    
 2. 在 [一般] 畫面上，確認您已完成下列動作而且您有每個項目的詳細資料，然後選取 [下一步]。
 
-   1. 在 Azure 入口網站中，您已將 Configuration Manager 註冊為 Web 應用程式和/或 Web API 應用程式，而且您擁有[註冊中的用戶端識別碼](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)。
+   1. 在 Azure 入口網站中，您已將 Configuration Manager 註冊為 Web 應用程式和/或 Web API 應用程式，而且您擁有[註冊中的用戶端識別碼](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)。
    2. 在 Azure 入口網站中，您已經為 Azure Active Directory 中已註冊的應用程式建立應用程式祕密金鑰。  
    3. 在 Microsoft Azure 入口網站中，您已為註冊的 Web 應用程式提供存取 Log Analytics 的權限。  
       ![連線至 Log Analytics 連線精靈一般頁面](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -113,7 +113,7 @@ Log Analytics 支援 System Center Configuration Manager 目前分支，1606 版
 
 ![電腦群組 - SCCM 索引標籤](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-當您按一下其中一項時，[搜尋] 會開啟，顯示所有匯入的群組或是屬於每個群組的所有電腦。 使用 [記錄搜尋](log-analytics-log-searches.md)，您就可以開始深入分析 Configuration Manager 資料。
+當您按一下其中一項時，[搜尋] 會開啟，顯示所有匯入的群組或是屬於每個群組的所有電腦。 使用 [記錄搜尋](log-analytics-queries.md)，您就可以開始深入分析 Configuration Manager 資料。
 
 ## <a name="next-steps"></a>後續步驟
-* 請使用 [記錄檔搜尋](log-analytics-log-searches.md)，檢視有關 Configuration Manager 資料的詳細資訊。
+* 請使用 [記錄檔搜尋](log-analytics-queries.md)，檢視有關 Configuration Manager 資料的詳細資訊。

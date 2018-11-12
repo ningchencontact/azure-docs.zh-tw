@@ -2,19 +2,19 @@
 title: 在 HDInsight 中使用 Hadoop Pig
 description: 了解如何在 HDInsight 上搭配 Hadoop 使用 Pig。
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: e97763adbe7998ed93e3ba8b87d89ffe8d8de6aa
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 921f4747dcaf9ad302c37930ca09903e345bfdb0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045439"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016415"
 ---
 # <a name="use-pig-with-hadoop-on-hdinsight"></a>搭配使用 Pig 與 HDInsight 上的 Hadoop
 
@@ -111,7 +111,7 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 
 在[這裡][ssispack]深入了解適用於 SSIS 的 Azure Feature Pack。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 現在您已學會如何搭配 HDInsight 使用 Pig，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)

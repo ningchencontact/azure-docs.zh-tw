@@ -2,19 +2,19 @@
 title: 在 HDInsight 中搭配使用 Hadoop Pig 與 REST - Azure
 description: 了解如何使用 REST 在 Azure HDInsight 中的 Hadoop 叢集上執行 Pig Latin 作業。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
-ms.openlocfilehash: e97dcd5a15fa1a58782fb8225e8b3381d7061bb6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051718"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013083"
 ---
 # <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 在 HDInsight 上搭配 Hadoop 執行 Pig 作業
 
@@ -108,7 +108,7 @@ HDInsight 可以使用 Azure 儲存體或 Azure Data Lake Store 作為預設資�
 
 如需本文中使用的 REST 介面的詳細資訊，請參閱 [WebHCat 參照](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 
 如需 HDInsight 上 Pig 的一般資訊：
 

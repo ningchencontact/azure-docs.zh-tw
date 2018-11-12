@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 362d19c489dfa0eda33036052ac9626414ef0933
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.component: ''
+ms.openlocfilehash: 5e736992b16782b87c62ccb59f88798cbce925a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340731"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015106"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>在 Log Analytics 中使用檢視設計工具來建立自訂檢視
-藉由使用 [Azure Log Analytics](log-analytics-overview.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
+藉由使用 [Azure Log Analytics](log-analytics-queries.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
 
 如需檢視設計工具的詳細資訊，請參閱：
 
@@ -42,7 +42,7 @@ ms.locfileid: "43340731"
 |:--- |:--- |
 | 圖格 | 顯示在您的 Log Analytics 工作區 [概觀] 頁面上。 每個圖格會顯示它所呈現自訂檢視的視覺化摘要。 每個圖格類型提供記錄的不同的視覺效果。 您可以選取圖格來顯示自訂檢視。 |
 | 自訂檢視 | 當您選取圖格時顯示。 每個檢視包含一或多個視覺效果組件。 |
-| 視覺效果組件 | 提供根據一或多個針對 Log Analytics 工作區中資料進行[記錄搜尋](log-analytics-log-searches.md)，所得結果的視覺效果。 大部分組件包含標頭 (提供高階的視覺效果)，以及清單 (顯示前幾名搜尋結果)。 每個組件類型提供 Log Analytics 工作區中不同記錄的視覺效果。 您可以選取組件中的元素來執行記錄檔搜尋以提供詳細的記錄。 |
+| 視覺效果組件 | 提供根據一或多個針對 Log Analytics 工作區中資料進行[記錄搜尋](log-analytics-queries.md)，所得結果的視覺效果。 大部分組件包含標頭 (提供高階的視覺效果)，以及清單 (顯示前幾名搜尋結果)。 每個組件類型提供 Log Analytics 工作區中不同記錄的視覺效果。 您可以選取組件中的元素來執行記錄檔搜尋以提供詳細的記錄。 |
 
 
 ## <a name="work-with-an-existing-view"></a>使用現有的檢視

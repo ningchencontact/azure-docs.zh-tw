@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 4f9882ce94827e490b676fdf421095eae40420d5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 96163188fad464bc4b94457f7061a78b3f4997a9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407719"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014494"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>在 Log Analytics 中使用 SQL Server 健康情況檢查方案最佳化 SQL 環境
 
@@ -53,7 +53,7 @@ ms.locfileid: "49407719"
 
 若要對您的 SQL Server 伺服器執行健康情況檢查，則這些伺服器需要代理程式，並且須連線到 Log Analytics，您可以使用下列其中一個支援方法來達成要求：
 
-1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視伺服器，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md)。
+1. 如果 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 已不再監視伺服器，則安裝 [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md)。
 2. 如果伺服器受到 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 監視，而管理群組未與 Log Analytics 服務整合，則該伺服器可以是具有 Log Analytics 的多重主目錄，以便收集資料並轉送至該服務，且仍然受到 Operations Manager 監視。  
 3. 除此之外，如果您的 Operations Manager 管理群組已與服務整合，則在工作區中啟用方案後，您需要讓服務依循[新增代理程式的受控電腦](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics)下的步驟，來新增網域控制站以收集資料。  
 
@@ -184,7 +184,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-queries.md)，則以上查詢會變更如下。
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -209,7 +209,7 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-log-search-upgrade.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](log-analytics-queries.md)，則以上查詢會變更如下。
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -265,4 +265,4 @@ Log Analytics 會使用 Operations Manager 代理程式及管理群組來收集�
 * 是，請參閱上面的 [忽略建議](#ignore-recommendations) 一節。
 
 ## <a name="next-steps"></a>後續步驟
-* [搜尋記錄](log-analytics-log-searches.md)可讓您了解如何分析詳細的 SQL 健康情況檢查資料和建議。
+* [搜尋記錄](log-analytics-queries.md)可讓您了解如何分析詳細的 SQL 健康情況檢查資料和建議。

@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f96d18c2e1a00008f2e391302a41d145d6b47efd
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408535"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016600"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Log Analytics 記錄檔搜尋中的電腦群組
 
-Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-log-search-new.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄檔搜尋包含群組時，結果就僅限於與群組中的電腦相符的記錄。
+Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-queries.md)範圍限於一組特定的電腦。  使用您所定義的查詢，或從不同來源匯入群組，將電腦填入每個群組中。  當記錄檔搜尋包含群組時，結果就僅限於與群組中的電腦相符的記錄。
 
 ## <a name="creating-a-computer-group"></a>建立電腦群組
 您可以使用下表的任何方法，在 Log Analytics 中建立電腦群組。  下列各節提供每個方法的詳細資料。 
@@ -136,5 +136,5 @@ Log Analytics 中的電腦群組中可讓您將[記錄檔搜尋](log-analytics-l
 | TimeGenerated |建立或更新電腦群組的日期和時間。 |
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。  
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。  
 

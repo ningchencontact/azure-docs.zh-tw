@@ -2,19 +2,19 @@
 title: MapReduce 與 HDInsight 上的 Hadoop
 description: 了解如何在 HDInsight 叢集中的 Hadoop 上執行 MapReduce 工作。
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 3b9cc70a1adc55850923f2313f17be435257117d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044864"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015157"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 HDInsight 上的 Hadoop 中使用 MapReduce
 
@@ -166,7 +166,7 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 
 若要深入了解如何處理 HDInsight 的資料，請參閱下列文件：
 

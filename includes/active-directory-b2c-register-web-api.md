@@ -4,12 +4,12 @@ ms.service: active-directory-b2c
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
-ms.openlocfilehash: 9d5af21fb3b329623b14cb8742d9ec9c5d1bad46
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133531"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51017265"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "50133531"
 | **名稱** | Contoso B2C API | 輸入應用程式的 [名稱]，此名稱可為取用者說明您的 API。 | 
 | **包含 Web 應用程式 / Web API** | 是 | 針對 Web API 選取 [是]。 |
 | **允許隱含流程** | 是 | 如果您的應用程式使用 [OpenID Connect 登入](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md)，請選取 [是] |
-| **回覆 URL** | `https://localhost:44316/` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 輸入[適當的](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) [回覆 URL]。 在此範例中，您的 Web API 位於本機並在通訊埠 44316 上進行接聽。 |
+| **回覆 URL** | `https://localhost:44316/` | 回覆 URL 是 Azure AD B2C 傳回您應用程式要求之任何權杖的所在端點。 在此範例中，您的 Web API 位於本機並在通訊埠 44316 上進行接聽。 |
 | **應用程式識別碼 URI** | api | 應用程式識別碼 URI 是您的 Web API 所使用的識別碼。 系統會為您產生包含網域的完整識別碼 URI。 |
 
 按一下 [建立]  以註冊您的應用程式。

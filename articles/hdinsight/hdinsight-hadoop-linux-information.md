@@ -3,18 +3,18 @@ title: 在 Linux 架構的 HDInsight 上使用 Hadoop 的秘訣 - Azure
 description: 取得在 Azure 雲端中執行的熟悉 Linux 環境上使用 Linux 架構的 HDInsight (Hadoop) 叢集的實作秘訣。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: d725bbe31de0f93d1b741ffd008bf39086904b61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997500"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015684"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
@@ -275,6 +275,6 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 ## <a name="next-steps"></a>後續步驟
 
 * [從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Hivet](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hadoop/hdinsight-use-mapreduce.md)

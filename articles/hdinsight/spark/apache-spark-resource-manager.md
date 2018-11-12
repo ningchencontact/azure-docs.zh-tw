@@ -2,19 +2,19 @@
 title: 在 Azure HDInsight 上管理 Apache Spark 叢集的資源
 description: 了解如何在 Azure HDInsight 上管理 Spark 叢集的資源，以便提升效能。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d7395231662d79d284bdf061e651602dea392c28
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 166d52322504e57e01a4bd798252fc956c1a3e44
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051493"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014579"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>在 Azure HDInsight 上管理 Apache Spark 叢集的資源 
 

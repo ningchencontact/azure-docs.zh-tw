@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b50e6de9de6498f57fd9b599c45a35f2367b84ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406869"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012134"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>使用 Log Analytics 代理程式在混合式環境中收集資料
 
@@ -127,6 +127,6 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 
 * 檢閱[資料來源](log-analytics-data-sources.md)以了解可用於從您的 Windows 或 Linux 系統收集資料的資料來源。 
 
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。 
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。 
 
-* 了解可將功能加入 Log Analytics 並會將資料收集到 Log Analytics 工作區的[解決方案](log-analytics-add-solutions.md)。
+* 了解可將功能加入 Log Analytics 並會將資料收集到 Log Analytics 工作區的[解決方案](../monitoring/monitoring-solutions.md)。

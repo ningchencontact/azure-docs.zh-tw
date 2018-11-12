@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: be0a12bbb84db1e4016bd7126a38e750e6c0c3ad
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d8f2fd40712017cb7f44156b8735ee93e123fcd2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412817"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016143"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure Key Vault 分析解決方案
 
@@ -38,7 +38,7 @@ ms.locfileid: "50412817"
 ## <a name="install-and-configure-the-solution"></a>安裝和設定解決方案
 使用下列指示來安裝和設定 Azure 金鑰保存庫解決方案︰
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案。
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案。
 2. 使用[入口網站](#enable-key-vault-diagnostics-in-the-portal)或 [PowerShell](#enable-key-vault-diagnostics-using-powershell)，針對要監視的 Key Vault 資源啟用診斷記錄
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>在入口網站中啟用 Key Vault 診斷
@@ -136,7 +136,7 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 若要使用更新的解決方案︰
 
 1. [將診斷設定為直接從 Key Vault 傳送到 Log Analytics](#enable-key-vault-diagnostics-in-the-portal)  
-2. 使用[從方案庫新增 Log Analytics 解決方案](log-analytics-add-solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案
+2. 使用[從方案庫新增 Log Analytics 解決方案](../monitoring/monitoring-solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案
 3. 更新任何已儲存的查詢、儀表板或警示，以使用新的資料類型
   + 類型從 KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
   - 與其使用 `KeyVaults`，請改用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
@@ -153,4 +153,4 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄搜尋](log-analytics-log-searches.md)來檢視詳細的 Azure 金鑰保存庫資料。
+* 使用 [Log Analytics 中的記錄搜尋](log-analytics-queries.md)來檢視詳細的 Azure 金鑰保存庫資料。

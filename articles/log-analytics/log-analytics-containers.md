@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d8f2701ca62eee261beaa49fe2a0719be7423a5b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408484"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013049"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -36,7 +36,7 @@ ms.locfileid: "49408484"
 - Service Fabric
 - Red Hat OpenShift
 
-對於部署到 Azure Container Service (AKS) 上所裝載 Kubernetes 環境的工作負載，若要監視其效能，請參閱[監視 Azure Kubernetes Service](../monitoring/monitoring-container-health.md)。 容器監視解決方案不包含對監視該平台的支援。  
+對於部署到 Azure Container Service (AKS) 上所裝載 Kubernetes 環境的工作負載，若要監視其效能，請參閱[監視 Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md)。 容器監視解決方案不包含對監視該平台的支援。  
 
 下圖顯示各種容器主機和代理程式與 Log Analytics 之間的關聯性。
 
@@ -97,11 +97,11 @@ ms.locfileid: "49408484"
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
+1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
 
 2. 安裝和使用 Docker 搭配 Log Analytics 代理程式。 根據您的作業系統和 Docker Orchestrator，您可以使用下列方法來設定代理程式。
   - 若為獨立式主機：
-    - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後再安裝和設定[適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)。  
+    - 在支援的 Linux 作業系統上，安裝和執行 Docker，然後再安裝和設定[適用於 Linux 的 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)。  
     - 在 CoreOS 上，您無法執行適用於 Linux 的 Log Analytics 代理程式。 相反地，您可以執行適用於 Linx 的 Log Analytics 代理程式容器化版本。 檢閱 [Linux 容器主機，包括 CoreOS](#for-all-linux-container-hosts-including-coreos) 或 [Azure Government Linux 容器主機，包括 CoreOS](#for-all-azure-government-linux-container-hosts-including-coreos)，如果您正在使用 Azure Government Cloud 中的容器。
     - 在 Windows Server 2016 和 Windows 10 上，安裝 Docker 引擎及用戶端，然後連接代理程式以收集資訊，並將它傳送至 Log Analytics。 如果您有 Windows 環境，請檢閱[安裝和設定 Windows 容器主機](#install-and-configure-windows-container-hosts)。
   - 若為 Docker 多主機協調流程：
@@ -117,7 +117,7 @@ ms.locfileid: "49408484"
 檢閱 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)文章，以取得有關如何在執行 Windows 的電腦上安裝和設定您 Docker 引擎的資訊。
 
 > [!IMPORTANT]
-> 在容器主機上安裝 [適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)**之前**，Docker 必須已在執行中。 如果您在安裝 Docker 前，已安裝此代理程式，則必須重新安裝適用於 Linux 的 Log Analytics 代理程式。 如需 Docker 的詳細資訊，請參閱 [Docker 網站](https://www.docker.com)。
+> 在容器主機上安裝 [適用於 Linux 的 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)**之前**，Docker 必須已在執行中。 如果您在安裝 Docker 前，已安裝此代理程式，則必須重新安裝適用於 Linux 的 Log Analytics 代理程式。 如需 Docker 的詳細資訊，請參閱 [Docker 網站](https://www.docker.com)。
 
 
 ### <a name="install-and-configure-linux-container-hosts"></a>安裝和設定 Linux 容器主機
@@ -146,7 +146,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **從使用已安裝的代理程式切換為使用容器中的 Linux 代理程式**
 
-如果您先前使用了直接安裝的代理程式，而且想要改為使用在容器中執行的代理程式，則必須先移除適用於 Linux 的 Log Analytics 代理程式。 請參閱[為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式](log-analytics-agent-linux.md)，以了解如何順利解除安裝代理程式。  
+如果您先前使用了直接安裝的代理程式，而且想要改為使用在容器中執行的代理程式，則必須先移除適用於 Linux 的 Log Analytics 代理程式。 請參閱[為混合式環境中的 Linux 電腦設定 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)，以了解如何順利解除安裝代理程式。  
 
 #### <a name="configure-a-log-analytics-agent-for-docker-swarm"></a>為 Docker Swarm 設定 Log Analytics 代理程式
 
@@ -190,8 +190,8 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>為 Red Hat OpenShift 設定 Log Analytics 代理程式
 有三種方式可將 Log Analytics 代理程式新增至 Red Hat OpenShift，以開始收集容器監視資料。
 
-* 直接在每個 OpenShift 節點上[安裝適用於 Linux 的 Log Analytics 代理程式](log-analytics-agent-linux.md)  
-* 在位於 Azure 中的每個 OpenShift 節點上[啟用記錄分析 VM 延伸模組](log-analytics-azure-vm-extension.md)  
+* 直接在每個 OpenShift 節點上[安裝適用於 Linux 的 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)  
+* 在位於 Azure 中的每個 OpenShift 節點上[啟用記錄分析 VM 延伸模組](log-analytics-quick-collect-azurevm.md)  
 * 安裝 Log Analytics 代理程式作為 OpenShift 精靈集  
 
 在本節中，我們會討論安裝 Log Analytics 代理程式作為 OpenShift 精靈集所需的步驟。  
@@ -476,15 +476,15 @@ KEY:    88 bytes
     LAST DEPLOYED: Tue Sep 19 20:37:46 2017
     NAMESPACE: default
     STATUS: DEPLOYED
- 
+ 
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
- 
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
+ 
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
 如需進一步的資訊，請造訪[容器解決方案 Helm Chart](https://aka.ms/omscontainerhelm)。
 
@@ -524,9 +524,9 @@ KEY:    88 bytes
 
 #### <a name="install-windows-agents"></a>安裝 Windows 代理程式
 
-若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 若需要在內部部署環境中執行 Windows 的電腦，請參閱[連接 Windows 電腦至 Log Analytics](log-analytics-windows-agent.md)。 若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](log-analytics-azure-vm-extension.md)將它們連接至 Log Analytics。
+若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 若需要在內部部署環境中執行 Windows 的電腦，請參閱[連接 Windows 電腦至 Log Analytics](log-analytics-agent-windows.md)。 若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](log-analytics-quick-collect-azurevm.md)將它們連接至 Log Analytics。
 
-您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](log-analytics-azure-vm-extension.md)和[在內部部署環境中執行 Windows 的電腦](log-analytics-windows-agent.md)。
+您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](log-analytics-quick-collect-azurevm.md)和[在內部部署環境中執行 Windows 的電腦](log-analytics-agent-windows.md)。
 
 您可以確認容器監視解決方案已針對 Windows 正確設定。 若要檢查管理組件是否正確下載，請找出 ContainerManagement.xxx。 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
 
@@ -542,9 +542,9 @@ KEY:    88 bytes
 
 每隔三分鐘會依下列代理程式類型收集資料。
 
-- [適用於 Linux 的 Log Analytics 代理程式](log-analytics-linux-agents.md)
-- [Windows 代理程式](log-analytics-windows-agent.md)
-- [Log Analytics VM 延伸模組](log-analytics-azure-vm-extension.md)
+- [適用於 Linux 的 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)
+- [Windows 代理程式](log-analytics-agent-windows.md)
+- [Log Analytics VM 延伸模組](log-analytics-quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>容器資料列
@@ -604,7 +604,7 @@ KEY:    88 bytes
 
 ![容器的記錄檔搜尋](./media/log-analytics-containers/containers-log-search.png)
 
-在這裡，您可以編輯搜尋查詢來進行修改，以尋找您感興趣的特定資訊。 如需記錄檔搜尋的詳細資訊，請參閱 [Log Analytics 中的記錄檔搜尋](log-analytics-log-searches.md)。
+在這裡，您可以編輯搜尋查詢來進行修改，以尋找您感興趣的特定資訊。 如需記錄檔搜尋的詳細資訊，請參閱 [Log Analytics 中的記錄檔搜尋](log-analytics-queries.md)。
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>尋找失敗的容器以進行疑難排解
 
@@ -672,4 +672,4 @@ Perf <containerName>
 建立您覺得有用的查詢之後，按一下 [記錄檔搜尋] 頁面頂端的 [我的最愛] 來儲存它。 然後您稍後即可輕易地從 [我的儀表板] 頁面進行存取。
 
 ## <a name="next-steps"></a>後續步驟
-* [搜尋記錄檔](log-analytics-log-searches.md)以檢視詳細的容器資料記錄。
+* [搜尋記錄檔](log-analytics-queries.md)以檢視詳細的容器資料記錄。

@@ -2,19 +2,19 @@
 title: 使用 Spark 分析 Application Insights 記錄 - Azure HDInsight
 description: 了解如何將 Application Insights 記錄檔匯出至 blob 儲存體，並接著使用 HDInsight 上的 Spark 分析記錄檔。
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.openlocfilehash: 51123fee9a3ab3c79e57af12a64e1c0b05daf79a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a1b21afb02cffe608ece8687359a021c84b05e1e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041600"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014290"
 ---
 # <a name="analyze-application-insights-telemetry-logs-with-spark-on-hdinsight"></a>使用 HDInsight 上的 Spark 分析 Application Insights 遙測記錄檔
 
@@ -364,7 +364,7 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 
 如需在 Azure 中使用 Spark 處理資料和服務的範例，請參閱下列文件︰
 
-* [Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](apache-spark-use-bi-tools.md)
+* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](apache-spark-use-bi-tools.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
@@ -372,4 +372,4 @@ Application Insights 提供 [匯出資料模型](../../application-insights/app-
 如需建立和執行 Spark 應用程式的詳細資訊，請參閱下列文件︰
 
 * [使用 Scala 來建立獨立的應用程式](apache-spark-create-standalone-application.md)
-* [利用 Livy 在 Spark 叢集上遠端執行作業](apache-spark-livy-rest-interface.md)
+* [利用 Livy 在 Spark 叢集上遠端執行工作](apache-spark-livy-rest-interface.md)

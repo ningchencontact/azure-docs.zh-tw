@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ed6b2fafbb3329e20985b75f55d29b52dcc5da57
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957416"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415693"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
 Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉換的一部分，您最初在 Log Analytics 中設定的警示將會延伸至 Azure。 如果不想等警示自動移動到 Azure 中，您可以起始此程序：
@@ -22,7 +22,7 @@ Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉�
 - 使用 AlertsVersion API 以程式設計方式執行。  
 
 > [!NOTE]
-> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 公用雲端執行個體中建立的警示擴充至 Azure 警示，直到完成作業。 如果您建立[動作群組](monitoring-action-groups.md)時遇到問題，請使用[這些補救步驟](monitoring-alerts-extend-tool.md#troubleshooting)讓系統自動建立動作群組。 2018 年 7 月 5 日之前，您可以使用這些步驟。 不適用於 Log Analytics 的 Azure Goverment 和主權雲端使用者。 
+> Microsoft 自 2018 年 5 月 14 日起，會定期自動將在 Log Analytics 公用雲端執行個體中建立的警示擴充至 Azure 警示，直到完成作業。 如果您建立[動作群組](monitoring-action-groups.md)時遇到問題，請使用[這些補救步驟](monitoring-alerts-extend-tool.md#troubleshooting)讓系統自動建立動作群組。 2018 年 7 月 5 日之前，您可以使用這些步驟。 *不適用於 Log Analytics 的 Azure Goverment and Soveriegn 雲端使用者*。 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>選項 1：從 Operations Management Suite 入口網站起始
 下列步驟說明如何從 Operations Management Suite 入口網站延伸工作區的警示。  
@@ -470,7 +470,7 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 - **錯誤：訂用帳戶/資源群組層級出現原則**：![Operations Management Suite 入口網站 [警示設定] 頁面的螢幕擷取畫面，其中反白顯示原則錯誤訊息](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    套用 [Azure 原則](../governance/policy/overview.md)時，它會限制包含 Log Analytics (Operations Management Suite) 工作區的訂用帳戶或資源群組中的任何新資源。 系統無法將警示延伸至 Azure，並建立必要的動作群組。
+    套用 [Azure 原則](../azure-policy/azure-policy-introduction.md)時，它會限制包含 Log Analytics (Operations Management Suite) 工作區的訂用帳戶或資源群組中的任何新資源。 系統無法將警示延伸至 Azure，並建立必要的動作群組。
     
     若要解決，請編輯引起 *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* 錯誤的原則，該錯誤會妨礙在您的訂用帳戶或資源群組上，建立包含工作區的新資源。 您可以使用 Azure 入口網站、PowerShell、Azure CLI 或 API 來執行這項工作。 您可以稽核動作以尋找造成失敗的原則。 若要深入了解，請參閱[檢視活動記錄以稽核動作](../azure-resource-manager/resource-group-audit.md)。 
     

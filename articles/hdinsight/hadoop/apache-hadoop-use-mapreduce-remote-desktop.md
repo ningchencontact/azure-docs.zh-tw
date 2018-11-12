@@ -2,19 +2,19 @@
 title: MapReduce 和遠端桌面與 HDInsight 中的 Hadoop - Azure
 description: 了解如何使用遠端桌面連線到 HDInsight 上的 Hadoop，並執行 MapReduce 工作。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2ff0677117f67c63ab0dbf050d81db0b3b75d86b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: ee87bd5743307ea5b9ee3ca1258e8cd985a095c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051682"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012923"
 ---
 # <a name="use-mapreduce-in-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面在 HDInsight 上的 Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -87,7 +87,7 @@ ms.locfileid: "43051682"
 ## <a id="summary"></a>摘要
 如您所見，Hadoop 命令提供簡單的方法，在 HDInsight 叢集上執行 MapReduce 工作，然後檢視工作輸出。
 
-## <a id="nextsteps"></a>後續步驟
+## <a id="nextsteps"></a>接續步驟
 如需 HDInsight 中 MapReduce 工作的一般資訊：
 
 * [在 HDInsight Hadoop 上使用 MapReduce](hdinsight-use-mapreduce.md)

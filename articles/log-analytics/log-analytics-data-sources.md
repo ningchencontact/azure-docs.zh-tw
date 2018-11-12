@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 4b7b1a9dc25b1bfaf72ab67dd0725a4518263ca5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.component: ''
+ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140671"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014018"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Analytics 工作區中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  Log Analytics 中的資料會儲存為一組記錄。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
 
 ![Log Analytics 資料收集](./media/log-analytics-data-sources/overview.png)
 
-資料來源與[管理解決方案](log-analytics-add-solutions.md)不同，後者也會從 [連接的來源] 收集資料，並在 Log Analytics 中建立記錄。  除了收集資料以外，解決方案通常包含記錄搜尋和檢視，以協助您分析特定應用程式或服務的作業。
+資料來源與[管理解決方案](../monitoring/monitoring-solutions.md)不同，後者也會從 [連接的來源] 收集資料，並在 Log Analytics 中建立記錄。  除了收集資料以外，解決方案通常包含記錄搜尋和檢視，以協助您分析特定應用程式或服務的作業。
 
 
 ## <a name="summary-of-data-sources"></a>資料來源的摘要
@@ -68,5 +68,5 @@ Log Analytics 收集的所有資料都會以記錄形式儲存在工作區中。
 
 ## <a name="next-steps"></a>後續步驟
 * 了解可將功能加入 Log Analytics 並會將資料收集到工作區的[方案](../monitoring/monitoring-solutions.md)。
-* 了解 [記錄搜尋](log-analytics-log-searches.md) ，其可分析從資料來源和方案所收集的資料。  
-* 設定[警示](log-analytics-alerts.md)，以便從資料來源和方案收集到重要資料時主動通知您。
+* 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。  
+* 設定[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)，以便從資料來源和方案收集到重要資料時主動通知您。

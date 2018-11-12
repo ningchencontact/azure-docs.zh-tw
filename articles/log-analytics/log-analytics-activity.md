@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fab4bcb62d15be11ab0a588b7a58447f05b4466a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404064"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014664"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
@@ -54,8 +54,8 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 | 連接的來源 | 支援 | 說明 |
 | --- | --- | --- |
-| [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
-| [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
+| [Windows 代理程式](log-analytics-agent-windows.md) | 否 | 解決方案不會收集來自 Windows 代理程式的資訊。 |
+| [Linux 代理程式](log-analytics-quick-collect-linux-computer.md) | 否 | 解決方案不會收集來自 Linux 代理程式的資訊。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不會收集來自連線 SCOM 管理群組的代理程式之中的資訊。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | 解決方案不會收集來自 Azure 儲存體的資訊。 |
 
@@ -67,7 +67,7 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 執行下列步驟來設定您工作區的 Activity Log Analytics 解決方案。
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](log-analytics-add-solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)中所述的程序，啟用 Activity Log Analytics 解決方案。
 2. 設定活動記錄移至您的 Log Analytics 工作區。
     1. 在 Azure 網站中，選取您的工作區，然後按一下 [Azure 活動記錄]。
     2. 對於每個訂用帳戶，按一下訂用帳戶名稱。  
@@ -100,5 +100,5 @@ Log Analytics 會免費收集活動記錄，並免費儲存記錄 90 天。 如�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 特定活動時建立[警示](log-analytics-alerts-creating.md)。
-- 使用[記錄搜尋](log-analytics-log-searches.md)檢視活動記錄的詳細資訊。
+- 特定活動時建立[警示](../monitoring-and-diagnostics/alert-metric.md)。
+- 使用[記錄搜尋](log-analytics-queries.md)檢視活動記錄的詳細資訊。
