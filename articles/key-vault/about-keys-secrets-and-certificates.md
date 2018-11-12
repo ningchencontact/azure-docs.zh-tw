@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: c5677dc07326fa16960e0d748f88e26f259c0485
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a2c0d50a2476995dfb0d16d0cdbc5bd0ec313b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262264"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138982"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>關於金鑰、祕密與憑證
 
@@ -398,7 +398,7 @@ Key Vault 憑證物件會保存用來與所選憑證簽發者之提供者通訊�
 
     -   提供組態，以用來建立金鑰保存庫中提供者的簽發者物件  
 
-如需有關從憑證入口網站建立簽發者物件的詳細資訊，請參閱 [Key Vault 憑證部落格](https://aka.ms/kvcertsblog)  
+如需有關從憑證入口網站建立簽發者物件的詳細資訊，請參閱 [Key Vault 憑證部落格](http://aka.ms/kvcertsblog)  
 
 Key Vault 可讓您以不同簽發者的提供者組態，來建立多個簽發者物件。 簽發者物件建立之後，其名稱可以在一個或多個憑證原則中進行參考。 在建立與更新憑證期間，從 CA 提供者中要求 x509 憑證時，參考簽發者物件會指示 Key Vault 使用簽發者物件中所指定的組態。  
 

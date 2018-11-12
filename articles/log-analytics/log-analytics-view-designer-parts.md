@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f3c24dbc0f5bb4d5b595799da4f1212b26f8c02a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419770"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016755"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Log Analytics 中的檢視設計工具視覺效果組件參考指南
 藉由使用 Azure Log Analytics 中的檢視設計工具，您可以在 Azure 入口網站中建立能呈現來自 Log Analytics 工作區之各種資料視覺效果的自訂檢視。 此文章是自訂檢視中可用的視覺效果組件設定的參考指南。
@@ -363,4 +363,4 @@ ms.locfileid: "50419770"
 | 色彩 |表示閾值的色彩。 |
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解[記錄檔搜尋](log-analytics-log-searches.md)以支援在視覺效果組件中查詢。
+* 深入了解[記錄檔搜尋](log-analytics-queries.md)以支援在視覺效果組件中查詢。

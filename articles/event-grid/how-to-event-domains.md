@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48a5356b03e38e864ba76f048febdb0b040893f5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034535"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50669295"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>使用事件網域管理主題並發佈事件
 
@@ -84,7 +84,7 @@ az eventgrid event-subscription create \
 
 ## <a name="manage-access-to-topics"></a>管理主題的存取權
 
-您可以透過[角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)來管理主題的存取權。 角色指派會使用角色型存取檢查，限制只有特定範圍上的授權使用者可在 Azure 資源上執行作業。
+您可以透過[角色指派](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli)來管理主題的存取權。 角色指派會使用角色型存取檢查，限制只有特定範圍上的授權使用者可在 Azure 資源上執行作業。
 
 事件方格有兩個內建角色，可用來將網域中各種主題的存取權指派給特定使用者。 這些角色是 `EventGrid EventSubscription Contributor (Preview)` (可讓您建立和刪除訂閱) 和 `EventGrid EventSubscription Reader (Preview)` (只允許列出事件訂閱)。
 
