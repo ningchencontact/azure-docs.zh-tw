@@ -2,19 +2,19 @@
 title: 在 HDInsight 的 Hadoop 叢集上安裝和使用 Giraph - Azure
 description: 了解如何使用 Giraph 自訂 HDInsight 叢集，以及如何使用 Giraph。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0cf866ee472717c6021922927713ef0bf8817271
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6138cc337c35924405fa3f6489e7e40bfc5779c9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093239"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007003"
 ---
 # <a name="install-and-use-giraph-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Giraph
 
@@ -73,7 +73,7 @@ ms.locfileid: "43093239"
 
     將 tiny_graph.txt 檔案上傳至 HDInsight 叢集的主要儲存體。 如需有關如何上傳資料的指示，請參閱 [在 HDInsight 上將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)。
 
-    這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]][source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 **source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。 **edge\_value** (或權數) 可以視為 **source_id** 和 **dest\_id** 之間的連線強度或距離。
+    這項資料會使用 [source_id, source_value,[[dest_id], [edge_value],...]][source\_id, source\_value,[[dest\_id], [edge\_value],...]] 格式，描述一個有向圖形中物件之間的關聯性。每一行代表 source\_id** 物件和一或多個 **dest\_id** 物件之間的關聯性。 **edge\_value** (或權數) 可以視為 **source_id** 和 **dest\_id** 之間的連線強度或距離。
 
     如果使用值 (或權數) 當做物件之間的距離繪製出來，上述資料可能如下圖所示：
 
@@ -154,7 +154,7 @@ ms.locfileid: "43093239"
     ![Drawing of objects as circles with shortest paths drawn between](./media/hdinsight-hadoop-giraph-install/giraph-graph-out.png)
 
 ## <a name="install-giraph-using-aure-powershell"></a>使用 Aure PowerShell 安裝 Giraph
-請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
+請參閱 [使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。
 
 ## <a name="install-giraph-using-net-sdk"></a>使用 .NET SDK 安裝 Giraph
 請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此範例示範如何使用 .NET SDK 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1)。

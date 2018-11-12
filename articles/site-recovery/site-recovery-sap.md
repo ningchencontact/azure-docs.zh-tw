@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c83cf9fb319c21881f0db8bd94dc9a94a3b811bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247735"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211718"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>設定多層式 SAP NetWeaver 應用程式部署的災害復原
 
@@ -167,5 +167,5 @@ Web Dispatcher 元件是用來作為 SAP 應用程式伺服器之間 SAP 流量�
 如需詳細資訊，請參閱[在 Site Recovery 中容錯移轉](site-recovery-failover.md)。
 
 ## <a name="next-steps"></a>後續步驟
-* 若要深入了解如何使用 Site Recovery 為 SAP NetWeaver 部署建置災害復原解決方案，請參閱可下載的白皮書＜[SAP NetWeaver：使用 Azure Site Recovery 建置災害復原方案](https://aka.ms/asr-sap)＞。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
+* 若要深入了解如何使用 Site Recovery 為 SAP NetWeaver 部署建置災害復原解決方案，請參閱可下載的白皮書＜[SAP NetWeaver：使用 Azure Site Recovery 建置災害復原方案](http://aka.ms/asr-sap)＞。 本白皮書會討論各種 SAP 架構的建議，列出支援 Azure 上的 SAP 的應用程式和 VM 類型，並說明災害復原解決方案的測試計劃選項。
 * 深入了解如何使用 Site Recovery [複寫其他工作負載](site-recovery-workload.md)。

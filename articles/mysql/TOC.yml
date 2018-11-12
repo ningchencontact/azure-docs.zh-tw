@@ -94,6 +94,8 @@ items:
       href: concepts-compatibility.md
     - name: XBOX Video Application Development
       href: concepts-database-application-development.md
+    - name: 恢復連線
+      href: concepts-connectivity.md
   - name: 複寫
     items:
     - name: 複寫中的資料
@@ -158,6 +160,16 @@ items:
       href: howto-data-in-replication.md
     - name: 在 Azure 入口網站中建立讀取複本
       href: howto-read-replicas-portal.md
+    - name: 在 Azure CLI中建立讀取複本
+      href: howto-read-replicas-cli.md
+  - name: 疑難排解
+    items:
+    - name: 針對連線問題進行疑難排解
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: 針對查詢效能進行疑難排解
+      href: howto-troubleshoot-query-performance.md
+    - name: 如何使用 sys 結構描述中的檢視
+      href: howto-troubleshoot-sys-schema.md
   - name: 進階威脅防護
     items:
     - name: Azure 入口網站
@@ -214,9 +226,9 @@ items:
     href: partners-migration-mysql.md
   - name: 資料庫移轉指南
     href: https://datamigration.microsoft.com/
-ms.openlocfilehash: 5e81e536ec941d7822dae39ecf5548a21b2e7a5d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 39c05df6c48a1a6fe42c1c2e75cbc79441e42bc5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986554"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287508"

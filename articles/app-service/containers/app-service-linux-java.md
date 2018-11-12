@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: f07d830e90045c11d870a921d091b45de6d2a89b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418529"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037648"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -147,7 +147,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 >[!NOTE]
 > 如果您的應用程式使用 Spring Framework 或 Spring Boot，則可以設定 Spring Data JPA 的資料庫連線資訊作為環境變數 [在應用程式屬性檔案中]。 然後使用[應用程式設定](/azure/app-service/web-sites-configure#app-settings)，以在 Azure 入口網站或 CLI 中定義您應用程式的這些值。
 
-本節的範例設定程式碼片段使用 MySQL 資料庫。 如需詳細資訊，請參閱 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) \(英文\)、[SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 及 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html) \(英文\) 的設定文件。
+本節的範例設定程式碼片段使用 MySQL 資料庫。 如需詳細資訊，請參閱 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) \(英文\)、[SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 及 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html) \(英文\) 的設定文件。
 
 若要使用 Java Database Connectivity (JDBC) 或 Java Persistence API (JPA) 設定 Tomcat 使用受控資料庫連線，請先自訂 Tomcat 在啟動時所讀入的 CATALINA_OPTS 環境變數。 透過 App Service Maven 外掛程式中的應用程式設定這些值：
 

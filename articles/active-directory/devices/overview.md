@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3baa48113022bed1bdc7caa5854a231334c975af
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f239b3ef6881f9ea1be043b7d27f061e015ae3be
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224625"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037356"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的裝置管理？
 
@@ -45,7 +45,7 @@ ms.locfileid: "47224625"
 
 向 Azure AD **註冊**裝置可讓您管理裝置的身分識別。 當裝置已註冊時，Azure AD 裝置註冊會在使用者登入 Azure AD 時對裝置提供用來驗證裝置的身分識別。 您可以使用此身分識別來啟用或停用裝置。
 
-與 Microsoft Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。 如需如何在 Microsoft Intune 中註冊裝置的詳細資訊，請參閱＜在 Intune 中註冊要管理的裝置＞。
+與 Microsoft Intune 這類的行動裝置管理 (MDM) 解決方案結合時，將會以裝置的其他相關資訊更新 Azure AD 中的裝置屬性。 這可讓您建立條件式存取規則，強制讓裝置的存取符合您的安全性和相容性標準。 如需如何在 Microsoft Intune 中註冊裝置的詳細資訊，請參閱[在 Intune 中註冊要管理的裝置](https://docs.microsoft.com/intune/device-enrollment#supported-device-platforms)。
 
 **加入**裝置是註冊裝置的擴充功能。 這表示，它會為您提供註冊裝置的所有優點，此外，也會變更裝置的本機狀態。 變更本機狀態可讓您的使用者使用組織的公司或學校帳戶 (而非個人帳戶) 來登入裝置。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: TomSh
-ms.openlocfilehash: 7ead955be3835f4ce3e602fe27a06c00d014195c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a61f3572037b1c62ea5ed4e0ac4496b057e2b96d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262194"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249046"
 ---
 # <a name="azure-database-security-overview"></a>Azure 資料庫安全性概觀
 
@@ -35,7 +35,7 @@ Microsoft 提供其他方法來加密企業資料：
 
 Azure SQL Database 稽核可讓企業將事件記錄到 Azure 儲存體中的稽核記錄。 SQL Database 稽核也整合了 Microsoft Power BI，具備向下鑽研報表和分析的功能。
 
-Azure SQL 資料庫可嚴加保護，以符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft Azure 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。
+Azure SQL 資料庫可嚴加保護，以符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft Azure 信任中心網站](http://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。
 
 本文將逐步解說保護 Microsoft Azure SQL Database 中結構化、表格式和關聯式資料的基本概念。 本文尤其著重於協助您開始利用資源來保護資料、控制存取，以及進行主動式監視。
 
@@ -44,7 +44,7 @@ Azure SQL 資料庫可嚴加保護，以符合大多數法規或安全性需求�
 SQL Database 透過提供加密來協助您保護資料：
 
 - 適用於透過[傳輸層安全性 (TLS)](https://support.microsoft.com/kb/3135244) \(機器翻譯\) 的運行中資料。
-- 適用於透過[透明資料加密](https://go.microsoft.com/fwlink/?LinkId=526242)的待用資料。
+- 適用於透過[透明資料加密](http://go.microsoft.com/fwlink/?LinkId=526242)的待用資料。
 - 適用於透過 [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 的使用中資料。
 
 如需其他的資料加密方式，請考慮：

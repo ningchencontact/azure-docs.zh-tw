@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2edaea1cfb02b250b27c47d58b6c1d1ef6501480
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: df020fc3a4e2f57730dea7329b08e1e46660e610
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420263"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037034"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>自訂 Azure-SSIS 整合執行階段的安裝
 
@@ -141,7 +141,7 @@ Azure-SSIS 整合執行階段的自訂安裝介面所提供的介面，可讓您
 
        1. 一個 `.NET FRAMEWORK 3.5` 資料夾，其中包含要安裝舊版 .NET Framework (Azure-SSIS IR 每個節點上的自訂元件可能需要它) 的自訂安裝。
 
-       1. `AAS` 資料夾，其中包含在 Azure-SSIS IR 的每個節點上安裝用戶端的自訂設定，讓您的 Analysis Services 工作使用服務主體驗證連線到 Azure Analysis Services (AAS) 執行個體。 首先，從[這裡](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers)下載最新的 **MSOLAP (amd64)** 和 **AMO** 用戶端程式庫/Windows 安裝程式 (例如，`x64_15.0.900.108_SQL_AS_OLEDB.msi` 和 `x64_15.0.900.108_SQL_AS_AMO.msi`)，然後將它們全部一起和 `main.cmd` 上傳到您的容器中。  
+       1. `AAS` 資料夾，其中包含在 Azure-SSIS IR 的每個節點上安裝用戶端的自訂設定，讓您的 Analysis Services 工作使用服務主體驗證連線到 Azure Analysis Services (AAS) 執行個體。 首先，從[這裡](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers)下載最新的 **MSOLAP (amd64)** 和 **AMO** 用戶端程式庫/Windows 安裝程式 (例如，`x64_15.0.900.108_SQL_AS_OLEDB.msi` 和 `x64_15.0.900.108_SQL_AS_AMO.msi`)，然後將它們全部一起和 `main.cmd` 上傳到您的容器中。  
 
        1. 一個 `BCP` 資料夾，其中包含自訂安裝程式，用以在 Azure-SSIS IR 的每個節點上安裝 SQL Server 命令列公用程式 (`MsSqlCmdLnUtils.msi`)，包括大量複製程式 (`bcp`)。
 
