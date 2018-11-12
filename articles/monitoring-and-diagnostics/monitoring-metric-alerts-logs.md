@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 62b5c8fd0a63e660cd4126755d94ea90cf4d412b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 461c6e3cbdfcc5ef8207277b08ad4a8cf492f796
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961155"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282793"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示  
 
 ## <a name="overview"></a>概觀
-Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-alerts.md)具有優於[傳統警示](insights-alerts-portal.md)的優點。 計量適用於 [Azure 服務的大型清單](monitoring-supported-metrics.md)。 此文章說明 `Microsoft.OperationalInsights/workspaces` 資源子集的使用量。 
+Azure 監視器支援的[計量警示類型](monitoring-near-real-time-metric-alerts.md)具有優於[傳統警示](alert-metric-classic.md)的優點。 計量適用於 [Azure 服務的大型清單](monitoring-supported-metrics.md)。 此文章說明 `Microsoft.OperationalInsights/workspaces` 資源子集的使用量。 
 
 您可以將計量警示使用在「來自記錄的計量」程序所擷取作為計量的常用 Log Analytics 記錄上，包括 Azure 或內部部署中的資源。 以下列出支援的 Log Analytics 解決方案：
 - Windows 和 Linux 電腦的[效能計數器](../log-analytics/log-analytics-data-sources-performance-counters.md)

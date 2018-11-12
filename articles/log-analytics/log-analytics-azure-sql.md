@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b20a142007b3422d071de47410f4c9cdd1ff62a7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49379299"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006731"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL 分析來監視 Azure SQL Database (預覽)
 
 ![Azure SQL 分析符號](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL 分析是一個雲端監視解決方案，可以跨多個訂用帳戶大規模監視 Azure SQL Database、彈性集區和受控執行個體的效能。 它會收集重要的 Azure SQL Database 效能計量，並且以視覺效果方式呈現，具有內建智慧可以執行效能疑難排解。
+Azure SQL 分析是一個雲端監視解決方案，可以透過單一窗格跨多個訂用帳戶大規模監視 Azure SQL Database、彈性集區和受控執行個體的效能。 它會收集重要的 Azure SQL Database 效能計量，並且以視覺效果方式呈現，具有內建智慧可以執行效能疑難排解。
 
 藉由使用您以解決方案收集的計量，您可以建立自訂的監視規則和警示。 解決方案可協助您找出應用程式堆疊中每個層級的問題。 它會使用 Azure 診斷計量與 Log Analytics 檢視，來呈現單一 Log Analytics 工作區中所有 Azure SQL 資料庫、彈性集區和受控執行個體中各個資料庫的相關資料。 Log Analytics 可協助您收集、相互關聯，並以視覺化方式檢視結構化和非結構化資料。
 
@@ -46,8 +46,8 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援 Azure SQL Database
 | --- | --- | --- |
 | **[Azure 診斷](log-analytics-azure-storage.md)** | **是** | Azure 會將 Azure 計量與記錄資料直接傳送至 Log Analytics。 |
 | [Azure 儲存體帳戶](log-analytics-azure-storage.md) | 否 | Log Analytics 不會從儲存體帳戶讀取資料。 |
-| [Windows 代理程式](log-analytics-windows-agent.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
-| [Linux 代理程式](log-analytics-linux-agents.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
+| [Windows 代理程式](log-analytics-agent-windows.md) | 否 | 解決方案不使用直接 Windows 代理程式。 |
+| [Linux 代理程式](log-analytics-quick-collect-linux-computer.md) | 否 | 解決方案不使用直接 Linux 代理程式。 |
 | [SCOM 管理群組](log-analytics-om-agents.md) | 否 | 解決方案不使用從 SCOM 代理程式直接連線到 Log Analytics。 |
 
 ## <a name="configuration"></a>組態
@@ -66,23 +66,11 @@ Azure SQL 分析是僅限雲端的監視解決方案，支援 Azure SQL Database
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>設定 Azure SQL Database、彈性集區 和受控執行個體以串流診斷遙測
 
-在工作區建立了 Azure SQL 分析解決方案後，為了監視 Azure SQL Database、受控執行個體資料庫和彈性集區的效能，您必須**設定每個**想要監視的資源，以將其診斷遙測串流到解決方案。
+在工作區建立了 Azure SQL 分析解決方案後，為了監視 Azure SQL Database、受控執行個體資料庫和彈性集區中資料庫的效能，您必須**設定每個**想要監視的資源，以將其診斷遙測串流到解決方案。 請遵循此頁面中的詳細指示：
 
 - 為 Azure SQL Database、受控執行個體資料庫和彈性集區啟用 Azure 診斷，以[將診斷遙測串流至 Azure SQL 分析](../sql-database/sql-database-metrics-diag-logging.md)。
 
-### <a name="to-configure-multiple-azure-subscriptions"></a>若要設定多個 Azure 訂用帳戶
- 
-若要支援多個訂用帳戶，從[使用 PowerShell 啟用 Azure 資源計量記錄](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/)使用 PowerShell 指令碼。 當執行指令碼以將診斷資料從一個 Azure 訂用帳戶中的資源傳送至另一個 Azure 訂用帳戶中的工作區時，提供工作區資源識別碼做為參數。
-
-**範例**
-
-```
-PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/oms/providers/microsoft.operationalinsights/workspaces/omsws"
-```
-
-```
-PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
-```
+上述頁面同時提供啟用支援將單一 Azure SQL 分析工作區作為單一窗口來監視多個 Azure 訂用帳戶的操作指示。
 
 ## <a name="using-the-solution"></a>使用解決方案
 
@@ -159,15 +147,52 @@ Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intellige
 
 ![Azure SQL 分析查詢](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### <a name="pricing"></a>價格
+## <a name="permissions"></a>權限
 
-雖然可免費使用解決方案，但診斷資料的使用量若超過每個月所配置的免費資料擷取單位，則需付費，請參閱 [Log Analytics 定價](https://azure.microsoft.com/en-us/pricing/details/monitor)。 所提供的免費資料擷取單位可讓您每個月免費監視多個資料庫。 請注意，相較於閒置的資料庫，較繁重工作負載的更多作用中資料庫將會擷取更多資料。 您可以藉由選取 Azure SQL 分析導覽功能表上的 OMS 工作區，然後選取 [使用量和估計成本]，輕鬆地監視您解決方案中的資料擷取耗用。
+若要使用 Azure SQL 分析，使用者需至少在 Azure 中取得「讀者」角色授權。 但此角色無法讓使用者取得觀看查詢文字，或執行任何自動調整動作的權限。 在 Azure 中，可讓您取得最完整解決方案使用權限的角色為擁有者、參與者、SQL DB 參與者和 SQL Server 參與者。 您也可能會考慮在入口網站中建立自訂角色，並將使用權限設定為僅限 Azure SQL 分析，不可存取管理其他資源。
 
-### <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
+### <a name="creating-a-custom-role-in-portal"></a>在入口網站中建立自訂角色
+
+我們發現某些組織在 Azure 中實施嚴格的使用權限控制，請參閱下列 PowerShell 指令碼，它可以在 Azure 入口網站中建立自訂角色「SQL 分析監視人員」，此角色僅擁有使用完整 Azure SQL 分析所需之最低限度讀取和寫入使用權限。
+
+在下列指令碼中，請將 “{SubscriptionId}" 取代為您的 Azure 訂用帳戶識別碼，接著以擁有者或參與者角色身分登入 Azure 並執行指令碼。
+
+   ```powershell
+    Connect-AzureRmAccount
+    Select-AzureRmSubscription {SubscriptionId}
+    $role = Get-AzureRmRoleDefinition -Name Reader
+    $role.Name = "SQL Analytics Monitoring Operator"
+    $role.Description = "Lets you monitor database performance with Azure SQL Analytics as a reader. Does not allow change of resources."
+    $role.IsCustom = $true
+    $role.Actions.Add("Microsoft.SQL/servers/databases/read");
+    $role.Actions.Add("Microsoft.SQL/servers/databases/topQueries/queryText/*");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
+    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
+    $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/write");
+    $role.Actions.Add("Microsoft.Resources/deployments/write");
+    $role.AssignableScopes = "/subscriptions/{SubscriptionId}"
+    New-AzureRmRoleDefinition $role
+   ```
+
+新角色建立後，請將這個角色指派給需要 Azure SQL 分析使用權限的每一位使用者。
+
+## <a name="analyze-data-and-create-alerts"></a>分析資料並建立警示
+
+Azure SQL 分析中的資料分析以 [Log Analytics 語言](./query-language/get-started-queries.md)為基礎，提供您自訂查詢和報告功能。 請參閱[可用的計量和記錄檔](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available)，內有針對收集自資料庫資源可自訂查詢的資料的說明。
+
+解決方案中的自動化警示以寫入的 Log Analytics 查詢為依據，一旦符合條件，該查詢便會觸發警示。 以下請參考數個可在解決方案中設為警示設定的 Log Analytics 查詢。
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>建立 Azure SQL Database 的警示
 
-您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄搜尋](log-analytics-log-searches.md)查詢：
+您可以使用來自 Azure SQL Database 資源的資料，輕鬆[建立警示](../monitoring-and-diagnostics/alert-metric.md)。 以下是您可以搭配記錄警示使用的一些實用[記錄搜尋](log-analytics-queries.md)查詢：
 
 Azure SQL Database 上的高 CPU
 
@@ -258,8 +283,12 @@ AzureDiagnostics
 > - 若要設定此警示，預先需求是所監視的受控執行個體已對解決方案啟用 ResourceUsageStats 記錄的串流。
 > - 這項查詢需要將警示規則設定為會在有查詢結果 (> 0 個結果) 時引發警示，這表示受控執行個體上有此情況。 輸出是受控執行個體上的儲存體耗用量百分比。
 
+### <a name="pricing"></a>價格
+
+雖然可免費使用解決方案，但診斷資料的使用量若超過每個月所配置的免費資料擷取單位，則需付費，請參閱 [Log Analytics 定價](https://azure.microsoft.com/en-us/pricing/details/monitor)。 所提供的免費資料擷取單位可讓您每個月免費監視多個資料庫。 請注意，相較於閒置的資料庫，較繁重工作負載的更多作用中資料庫將會擷取更多資料。 您可以藉由選取 Azure SQL 分析導覽功能表上的 OMS 工作區，然後選取 [使用量和估計成本]，輕鬆地監視您解決方案中的資料擷取耗用。
+
 ## <a name="next-steps"></a>後續步驟
 
-- 使用 Log Analytics 中的[記錄搜尋](log-analytics-log-searches.md)來檢視詳細的 Azure SQL 資料。
+- 使用 Log Analytics 中的[記錄搜尋](log-analytics-queries.md)來檢視詳細的 Azure SQL 資料。
 - [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 Azure SQL 資料。
-- 在特定的 Azure SQL 事件發生時[建立警示](log-analytics-alerts.md)。
+- 在特定的 Azure SQL 事件發生時[建立警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。

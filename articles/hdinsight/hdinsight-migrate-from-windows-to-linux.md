@@ -2,19 +2,19 @@
 title: 從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight - Azure
 description: 了解如何從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的 HDInsight 叢集。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: jasonh
-ms.openlocfilehash: ee97d2005752c9e0cd40de238d1f4a946bb9ee3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: 3f0c912d1489884e0fef87e495d91486f3b1fc67
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948412"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010060"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
