@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 5e4dfec4bdc9deaf1a57413c1cba4ceefa5195d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824035"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246339"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理員來控制 Azure App Service 流量
 > [!NOTE]
@@ -57,5 +57,5 @@ Azure 流量管理員使用四種不同的路由方法。 下列清單說明 Azu
 ## <a name="next-steps"></a>後續步驟
 如需 Azure 流量管理員的概念和技術概觀，請參閱 [Traffic Manager 概觀](../traffic-manager/traffic-manager-overview.md)。
 
-如需將流量管理員與 App Service 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合部落格文章](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)。
+如需將流量管理員與 App Service 搭配使用的詳細資訊，請參閱[將 Azure 流量管理員與 Azure 網站搭配使用](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)和 [Azure 流量管理員現在可以與 Azure 網站整合部落格文章](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675960"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248243"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>在 DevTest Labs 中調整配額和限制
 當您在 DevTest Labs 中工作時，您可能會發現某些 Azure 資源有特定預設限制，會影響 DevTest Labs 服務。 這些限制稱為**配額**。
@@ -35,7 +35,7 @@ ms.locfileid: "38675960"
 ## <a name="view-your-usage-and-quotas"></a>檢視使用量和配額
 下列步驟將示範如何檢視訂用帳戶中 Azure 資源的目前配額，以及查看您使用的每個配額百分比。
 
-1. 登入 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)。
+1. 登入 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)。
 1. 選取 [更多服務]，然後從清單中選取 [計費]。
 1. 在 [計費] 刀鋒視窗中選取訂用帳戶。
 4. 選取 [使用量 + 配額]。
@@ -49,7 +49,7 @@ ms.locfileid: "38675960"
 ## <a name="requesting-more-resources-in-your-subscription"></a>要求訂用帳戶中的更多資源
 如果達到配額上限，訂用帳戶中資源的預設限制可以增加到最大限制，如 [Azure 訂用帳戶和服務限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)中所述。
 
-這些步驟為您示範如何透過 [Azure 入口網站](http://go.microsoft.com/fwlink/p/?LinkID=525040)要求配額增加。
+這些步驟為您示範如何透過 [Azure 入口網站](https://go.microsoft.com/fwlink/p/?LinkID=525040)要求配額增加。
 
 1. 選取 [更多服務]，選取 [計費]，然後選取 [使用量 + 配額]。
 1. 在 [使用量 + 配額] 刀鋒視窗中，選取 [要求增加] 按鈕。

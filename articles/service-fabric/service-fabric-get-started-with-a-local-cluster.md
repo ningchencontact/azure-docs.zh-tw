@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 0243f6ca96b5e2c20b40bf6e0fc11e8d760db475
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 639293a1811c35d87bd705800b8ecf62f667c0e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053358"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246713"
 ---
 # <a name="get-started-with-deploying-and-upgrading-applications-on-your-local-cluster"></a>在您的本機叢集上開始部署和升級應用程式
 Azure Service Fabric SDK 包含完整的本機開發環境，可讓您快速地在本機叢集上開始部署和管理應用程式。 在本文中，您會從 Windows PowerShell 建立本機叢集、將現有的應用程式部署至該叢集，然後將應用程式升級為新版本。
@@ -71,7 +71,7 @@ Service Fabric SDK 包含一組豐富的架構以及用來建立應用程式的�
     mkdir c:\ServiceFabric\
     cd c:\ServiceFabric\
     ```
-4. [將 WordCount 應用程式下載](http://aka.ms/servicefabric-wordcountapp) 至您建立的位置。  注意︰Microsoft Edge 瀏覽器會使用 .zip  副檔名來儲存檔案。  請將副檔名變更為 .sfpkg 。
+4. [將 WordCount 應用程式下載](https://aka.ms/servicefabric-wordcountapp) 至您建立的位置。  注意︰Microsoft Edge 瀏覽器會使用 .zip  副檔名來儲存檔案。  請將副檔名變更為 .sfpkg 。
 5. 連接到本機叢集：
    
     ```powershell
@@ -139,7 +139,7 @@ Service Fabric 會在應用程式推展於叢集時監視其健康狀態，進�
 
 新版的應用程式現在只會計算以母音開頭的單字。 進行升級時，我們會看到應用程式的行為出現兩項變更。 第一，計數成長的速率應該變慢，因為計算的單字比較少。 第二，由於第一個資料分割有兩個母音 (A 和 E)，而其他每個資料分割只包含一個母音，其計數最後應該會開始超越其他資料分割。
 
-1. [將 WordCount 第 2 版套件下載](http://aka.ms/servicefabric-wordcountappv2) 到您下載第 1 版套件的相同位置。
+1. [將 WordCount 第 2 版套件下載](https://aka.ms/servicefabric-wordcountappv2) 到您下載第 1 版套件的相同位置。
 2. 返回 PowerShell 視窗並使用 SDK 的升級命令在叢集中註冊新版本。 然後開始升級 fabric:/WordCount 應用程式。
    
     ```powershell

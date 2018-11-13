@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445462"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250691"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -296,4 +296,4 @@ A3. 是。 在下列情況下，不會傳送通知。
 ## <a name="next-steps"></a>後續步驟
 * [從 Azure 還原 Windows Server 或 Windows 用戶端](backup-azure-restore-windows-server.md)
 * 若要深入了解 Azure 備份，請參閱 [Azure 備份概觀](backup-introduction-to-azure-backup.md)
-* 瀏覽 [Azure 備份論壇](http://go.microsoft.com/fwlink/p/?LinkId=290933)
+* 瀏覽 [Azure 備份論壇](https://go.microsoft.com/fwlink/p/?LinkId=290933)
