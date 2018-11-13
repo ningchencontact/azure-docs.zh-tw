@@ -3,7 +3,7 @@ title: 使用 Azure Event Grid 以自動調整上傳映像的大小 | Microsoft 
 description: Azure Event Grid 可在 Azure 儲存體的 Blob 上傳項目上觸發。 您可以使用此將上傳至 Azure 儲存體的映像檔案傳送至其他服務 (例如 Azure Functions)，以調整大小和其他改善功能。
 services: event-grid, functions
 author: ggailey777
-manager: cfowler
+manager: jpconnoc
 editor: ''
 ms.service: event-grid
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2d94389ade02cb6e61f192e9b9e8adb8f8ceec31
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585572"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282493"
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
 
@@ -158,19 +158,18 @@ az functionapp deployment source config --name <function_app> \
 
 3. 使用表格中指定的事件訂閱設定。
     
-    ![從 Azure 入口網站中的函式建立事件訂閱](./media/resize-images-on-storage-blob-upload-event/event-subscription-create-flow.png)
+    ![從 Azure 入口網站中的函式建立事件訂閱](./media/resize-images-on-storage-blob-upload-event/event-subscription-create.png)
 
     | 設定      | 建議的值  | 說明                                        |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
     | **主題類型** |  儲存體帳戶 | 選擇儲存體帳戶事件提供者。 | 
     | **訂用帳戶** | 您的 Azure 訂用帳戶 | 預設會選取您目前的 Azure 訂用帳戶。   |
     | **資源群組** | myResourceGroup | 選取 [使用現有]，並選擇您在本教學課程中一直使用的資源群組。  |
-    | **執行個體** |  您的 Blob 儲存體帳戶 |  選擇您建立的 Blob 儲存體帳戶。 |
+    | **Resource** |  您的 Blob 儲存體帳戶 |  選擇您建立的 Blob 儲存體帳戶。 |
     | **事件類型** | 已建立 Blob | 取消勾選 [已建立 Blob] 以外的所有類型。 只有 `Microsoft.Storage.BlobCreated` 的事件類型會傳遞至函式。| 
-    | **訂閱者類型** |  Web Hook |  可選擇 Web Hook 或事件中樞。 |
+    | **訂閱者類型** |  自動產生 |  預先定義為 Web Hook。 |
     | **訂閱者端點** | 自動產生 | 使用為您產生的端點 URL。 | 
-    | **前置詞篩選** | /blobServices/default/containers/images/blobs/ | 將儲存體事件篩選為只有**映像**容器上的事件。| 
+    | **名稱** | imageresizersub | 用以識別新事件訂閱的名稱。 | 
 
 4. 按一下 [建立] 以新增事件訂閱。 當 Blob 新增至 images 容器時，這會建立可觸發 `imageresizerfunc` 的事件訂閱。 此函式會調整映像大小，並將其新增至 *thumbnails* 容器。
 

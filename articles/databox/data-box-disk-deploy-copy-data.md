@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/09/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 7bc8b3ba415f8fe701098a9fa7e51d60ffb9df4e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 807453d6af67fd2dccf06a1b4a2beaca47dc865a
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092448"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913795"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教學課程：將資料複製到 Azure 資料箱磁碟並確認
 
@@ -31,14 +31,15 @@ ms.locfileid: "49092448"
 在您開始前，請確定：
 - 您已完成[教學課程：安裝及設定您的 Azure 資料箱磁碟](data-box-disk-deploy-set-up.md)。
 - 您的磁碟已解除鎖定，並連線到用戶端電腦。
-- 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md)。
+- 您用來將資料複製到磁碟的用戶端電腦必須執行[支援的作業系統](data-box-disk-system-requirements.md##supported-operating-systems-for-clients)。
+- 請確定資料的預定儲存體類型符合[支援的儲存體類型](data-box-disk-system-requirements.md#supported-storage-types)。
 
 
 ## <a name="copy-data-to-disks"></a>將資料複製到磁碟
 
 執行下列步驟以從電腦連線到資料箱磁碟，並且複製資料。
 
-1. 檢視已解除鎖定磁碟機的內容。 
+1. 檢視已解除鎖定磁碟機的內容。
 
     ![檢視磁碟機內容](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
  
@@ -229,7 +230,7 @@ ms.locfileid: "49092448"
 
 若要確認資料，請執行下列步驟。
 
-1. 在磁碟機的 AzureImportExport 資料夾中執行 `DataBoxDiskValidation.cmd` 以驗證總和檢查碼。 
+1. 在磁碟機的 DataBoxDiskImport 資料夾中執行 `DataBoxDiskValidation.cmd`，以進行總和檢查碼驗證。 
     
     ![資料箱磁碟驗證工具的輸出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 

@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: 4e14cde99aaf74b5058e4f9d55c386151036594e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/01/2018
+ms.openlocfilehash: 5cb51a412738c2361bbe30ecd1415f81c3f85c9c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987795"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959030"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立適用於 PostgreSQL 的 Azure 資料庫伺服器
 
@@ -97,21 +97,13 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
 
  ![伺服器 [概觀] 頁面](./media/quickstart-create-database-portal/6-server-name.png)
 
-## <a name="connect-to-the-postgresql-database-by-using-psql-in-cloud-shell"></a>在 Cloud Shell 中使用 psql 來連線到 PostgreSQL 資料庫
+## <a name="connect-to-the-postgresql-database-using-psql"></a>使用 psql 連線至 PostgreSQL 資料庫
 
-您可以使用一些應用程式來連線到您的 Azure Database for PostgreSQL 伺服器。 我們將使用 psql 命令列公用程式來說明如何連線到該伺服器。 您可以如這裡所描述使用網頁瀏覽器和 Azure Cloud Shell，而不需要安裝任何其他軟體。 如果您自己的電腦本機上已安裝 psql 公用程式，您也可以從該處進行連線。
+您可以使用一些應用程式來連線到您的 Azure Database for PostgreSQL 伺服器。 如果您的用戶端電腦已安裝 PostgreSQL，您可以使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 的本機執行個體來連線到 Azure PostgreSQL 伺服器。 現在我們將使用 psql 命令列公用程式來連線到 Azure PostgreSQL 伺服器。
 
-1. 在上方導覽窗格中，選取終端符號以開啟 Cloud Shell。
+1. 在殼層中輸入 psql 命令列，以連線至「適用於 PostgreSQL 的 Azure 資料庫」伺服器中的資料庫。
 
-   ![Azure Cloud Shell 終端符號](./media/quickstart-create-database-portal/7-cloud-console.png)
-
-2. Cloud Shell 會在您的瀏覽器中開啟，您可在其中鍵入 Bash shell 命令。
-
-   ![Cloud Shell Bash 提示字元](./media/quickstart-create-database-portal/8-bash.png)
-
-3. 在 Cloud Shell 提示字元，鍵入 psql 命令列，以連線到 Azure Database for PostgreSQL 伺服器。
-
-    若要透過 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 公用程式連線到 Azure Database for PostgreSQL 伺服器，請使用下列格式：
+    若要透過 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 公用程式連線到 Azure Database for PostgreSQL 伺服器，請使用下列格式：
     ```bash
     psql --host=<yourserver> --port=<port> --username=<server admin login> --dbname=<database name>
     ```
@@ -124,7 +116,7 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
 
     psql 參數 |值|說明
     ---|---|---
-    --host | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 顯示的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.postgres.database.azure.com)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
+    --host | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 顯示的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.postgres.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
     --port | 5432 | 當您連線至 Azure Database for PostgreSQL 伺服器時所要使用的連接埠。 
     --username | 伺服器管理員登入名稱 |您稍早建立 Azure Database for PostgreSQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。
     --dbname | *postgres* | 針對第一次連線所建立之系統產生的預設資料庫名稱。 您稍後會建立自己的資料庫。
@@ -135,7 +127,7 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
     ---|---|---
     password | 您的系統管理員密碼 | 輸入的密碼字元不會顯示在 bash 提示字元上。 在您輸入所有字元之後，按 Enter 鍵以進行驗證和連線。
 
-    連線之後，psql 公用程式會顯示 postgres 提示字元，供您鍵入 sql 命令。 在初始連線輸出中，可能會因為 Cloud Shell 中的 psql 版本與適用於 PostgreSQL 的 Azure 資料庫伺服器版本不同，而顯示警告。 
+    連線之後，psql 公用程式會顯示 postgres 提示字元，供您鍵入 sql 命令。 在初始連線輸出中，可能會因為您所使用的 psql 版本與適用於 PostgreSQL 的 Azure 資料庫伺服器版本不同，而顯示警告。 
     
     psql 輸出範例：
     ```bash
@@ -149,26 +141,26 @@ Azure Database for PostgreSQL 會在伺服器層級建立防火牆。 它會防�
     ```
 
     > [!TIP]
-    > 如果未將防火牆設定為允許 Cloud Shell 的 IP 位址，就會發生下列錯誤：
+    > 如果未將防火牆設定為允許用戶端的 IP 位址，就會發生下列錯誤：
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "0.0.0.0", user "myadmin", database "postgres", SSL on FATAL：需要 SSL 連線。 指定 SSL 選項，然後再試一次。
+    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL：需要 SSL 連線。 指定 SSL 選項，然後再試一次。
     > 
     > 若要解決此錯誤，請確定伺服器組態符合本文的「設定伺服器層級防火牆規則」一節中的步驟。
 
-4. 在提示字元輸入下列命令以建立名為 "mypgsqldb" 的空白資料庫︰
+2. 在提示字元輸入下列命令以建立名為 "mypgsqldb" 的空白資料庫︰
     ```bash
     CREATE DATABASE mypgsqldb;
     ```
     此命令可能需要幾分鐘才能完成。 
 
-5. 在提示字元，執行下列命令將連線切換到新建立的資料庫 **mypgsqldb**：
+3. 在提示字元，執行下列命令將連線切換到新建立的資料庫 **mypgsqldb**：
     ```bash
     \c mypgsqldb
     ```
 
-6. 輸入 `\q`，然後選取 Enter 鍵結束 psql。 完成之後，您可以關閉 Cloud Shell。
+4. 輸入 `\q`，然後選取 Enter 鍵結束 psql。 
 
-您已在 Cloud Shell 中透過 psql 連線到適用於 PostgreSQL 的 Azure 資料庫伺服器，並已建立空白的使用者資料庫。 繼續進行下一節，以使用另一個常見工具 pgAdmin 連線。
+您已透過 psql 連線至適用於 PostgreSQL 的 Azure 資料庫伺服器，並已建立空的使用者資料庫。 繼續進行下一節，以使用另一個常見工具 pgAdmin 連線。
 
 ## <a name="connect-to-the-postgresql-server-using-pgadmin"></a>使用 pgAdmin 連線到 PostgreSQL 伺服器
 
@@ -188,7 +180,7 @@ pgAdmin 是搭配 PostgreSQL 使用的開放原始碼工具。 您可以從 [pgA
 
     pgAdmin 參數 |值|說明
     ---|---|---
-    主機名稱/位址 | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 我們的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.postgres.database.azure.com)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
+    主機名稱/位址 | 伺服器名稱 | 您稍早建立 Azure Database for PostgreSQL 伺服器時所用的伺服器名稱值。 我們的範例伺服器是 **mydemoserver.postgres.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.postgres.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。 
     Port | 5432 | 當您連線至 Azure Database for PostgreSQL 伺服器時所要使用的連接埠。 
     維護資料庫 | *postgres* | 系統產生的預設資料庫名稱。
     使用者名稱 | 伺服器管理員登入名稱 | 您稍早建立 Azure Database for PostgreSQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。

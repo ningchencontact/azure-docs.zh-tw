@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/08/2018
+ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 21ac3de793f5ce559c3a03de2a09f11ccb86b12a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6bd3c1b2cdbd83673a181ee7e088adb39749036e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167353"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963841"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>教學課程：安裝 Azure Data Box Edge (預覽)
 
@@ -111,8 +111,14 @@ ms.locfileid: "49167353"
 
 - 已打開包裝並掛接機架的 Edge 實體裝置。
 - 兩條電源線。 
-- 兩條 1-GbE RJ-45 網路纜線和四條 25-GbE SFP+ 銅纜線。
+- 至少一條連接到管理介面的 1-GbE RJ-45 網路線。 裝置上有兩個 1-GbE 網路介面：一個管理介面和一個資料介面。
+- 每個要設定的資料網路介面各一條 25-GbE SFP + 銅纜線。 至少一個資料網路介面 - 連接埠 2、連接埠 3、連接埠 4、連接埠 5 或連接埠 6 必須連接到網際網路 (Azure 的連線)。
 - 可以存取兩個配電裝置 (建議)。
+
+> [!NOTE]
+> - 如果您只連接一個資料網路介面，建議您使用 25-GbE 網路介面 (例如連接埠 3、連接埠 4、連接埠 5 或連接埠 6) 將資料傳送至 Azure。 
+> - 為了達到最佳效能以及處理大量資料，請考慮連接所有資料連接埠。
+> - Edge 裝置應連接到資料中心網路，以便擷取來自資料來源伺服器的資料。 
 
 您的 Edge 裝置有 8 個 NVMe SSD。 前面板也具有狀態 LED 燈與電源按鈕。 裝置背面包含備援的電源供應器 (PSU)。 您的裝置有六個網路介面：兩個 1-Gbps 介面和四個 25-Gbps 介面。 您的裝置有基礎板管理控制器 (BMC)。 識別裝置後擋板上的各個連接埠。
  
@@ -123,13 +129,7 @@ ms.locfileid: "49167353"
 1. 將電源線連接至機箱中的每個 PSU。 為了確保高可用性，請安裝兩個 PSU，並將其連接到不同的電源。
 2. 將電源線連接至機架配電裝置 (PDU)。 請確定兩個 PSU 使用不同的電源。
 3. 將 1-GbE 網路介面連接埠 1 連接到用來設定實體裝置的電腦。 連接埠 1 是專用的管理介面。
-4. 透過 RJ-45 網路纜線，將 1-GbE 網路介面連接埠 2 連接到資料中心網路/網際網路。 
-5. 使用 SFP+ 銅纜線，將四個 25-GbE 網路介面 (連接埠 3、連接埠 4、連接埠 5 和連接埠 6) 連接到資料中心網路/網際網路。 
-
-> [!NOTE]
-> - 至少有一個資料網路介面 (連接埠 2、連接埠 3、連接埠 4、連接埠 5 或連接埠 6) 必須連接到網際網路 (Azure 的連線)。 
-> - 建議您使用 25-GbE 網路介面 (例如連接埠 3、連接埠 4、連接埠 5 或連接埠 6) 將資料傳送至 Azure。 
-> - Edge 裝置應連接到資料中心網路，以便擷取來自資料來源伺服器的資料。  
+4. 將連接埠 2、連接埠 3、連接埠 4、連接埠 5 或連接埠 6 的其中一或多個連接埠連接到資料中心網路/網際網路。 如果連接到連接埠 2，請使用 RJ-45 網路線。 針對 25-GbE 網路介面，請使用 SFP + 銅纜線。  
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,22 +1,22 @@
 ---
-title: '教學課程：在 HDInsight 上搭配使用 Apache Kafka 與 Storm - Azure '
+title: '教學課程：在 HDInsight 上搭配使用 Apache Kafka 與 Apache Storm - Azure '
 description: 了解如何在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka 以建立串流管線。 在本教學課程中，您會使用 KafkaBolt 與 KafkaSpout 元件從 Kafka 串流處理資料。
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 7aa8f0b62459c376113bca5a0c58cc7dd3b5280c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094884"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036337"
 ---
-# <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Kafka
+# <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
 本教學課程說明如何使用 Apache Storm 拓撲，對 HDInsight 上的 Apache Kafka 讀取和寫入資料。 本教學課程也會說明如何將資料保存至 Storm 叢集上與 HDFS 相容的儲存體。
 

@@ -9,12 +9,12 @@ ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 0531985cbab9c10b4df8ea3f27ac6c7903790da5
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362665"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978225"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>設定 Windows 開發環境以建置 Service Fabric Mesh 應用程式
 
@@ -100,6 +100,8 @@ Install-WindowsFeature Containers
 ## <a name="next-steps"></a>後續步驟
 
 完整閱讀[建立 Azure Service Fabric 應用程式](service-fabric-mesh-tutorial-create-dotnetcore.md)教學課程。
+
+尋找[常見問題](service-fabric-mesh-faq.md)的解答。
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows

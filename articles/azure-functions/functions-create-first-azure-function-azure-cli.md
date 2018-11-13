@@ -12,12 +12,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: fdee336298212f2536c2408e49f40e25e2c24161
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985993"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227683"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>從命令列建立您的第一個函式
 
@@ -108,17 +108,19 @@ az functionapp create --resource-group myResourceGroup --consumption-plan-locati
 }
 ```
 
-## <a name="configure-the-function-app"></a>設定函式應用程式
+### <a name="configure-the-function-app-nodejs"></a>設定函式應用程式 (Node.js)
 
-Core Tools 2.x 版會使用 Azure Functions 2.x 執行階段的範本建立專案。 因此，您需要確認 Azure 中是使用 2.x 版執行階段。 將 `FUNCTIONS_WORKER_RUNTIME` 應用程式設定設為 `~2`，讓函數應用程式一律使用最新的 2.x 版。 使用 [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 命令設定應用程式設定。
+當您建立 JavaScript 函式應用程式時，請務必以正確的 Node.js 版本為目標。 Functions 執行階段 2.x 版需要 Node.js 8.x 版。 應用程式設定 `WEBSITE_NODE_DEFAULT_VERSION` 可控制 Azure 中的函式應用程式所使用的 Node.js 版本。 請使用 [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) 命令將 Node.js 版本設為 `8.11.1`。
 
 在下列 Azure CLI 命令中，`<app_name> 是您函數應用程式的名稱。
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+--settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+確認輸出中的新設定。
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -127,3 +129,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

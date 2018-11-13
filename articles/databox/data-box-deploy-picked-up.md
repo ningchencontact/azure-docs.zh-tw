@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/03/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 7676360d71dab4da58693221645517c69b56dff8
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49090683"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036049"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>教學課程：送回 Azure 資料箱，並確認資料上傳至 Azure
 
@@ -51,11 +51,16 @@ ms.locfileid: "49090683"
 
 一旦複製完成，訂單狀態會更新為 [已完成]。
 
-請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。 
+請先確認您的資料位於儲存體帳戶中，再從來源予以刪除。 當您將資料複製到資料箱時，資料會上傳到 Azure 儲存體帳戶中的下列其中一個路徑，視類型而定。
+
+- 區塊 Blob 與分頁 Blob：`https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+- Azure 檔案：`https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+或者，您可以在 Azure 入口網站中移至您 Azure 儲存體帳戶，並從該處瀏覽。
 
 ## <a name="erasure-of-data-from-data-box"></a>清除資料箱的資料
  
- 完成上傳到 Azure 之後，資料箱會根據 [NIST SP 800-88 修訂 1 指導方針](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)清除磁碟中的資料。 
+完成上傳到 Azure 之後，資料箱會根據 [NIST SP 800-88 修訂 1 指導方針](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi)清除磁碟中的資料。 
 
 ## <a name="next-steps"></a>後續步驟
 

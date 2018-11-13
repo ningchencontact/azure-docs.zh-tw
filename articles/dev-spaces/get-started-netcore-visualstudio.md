@@ -6,19 +6,18 @@ ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-manager: douge
-ms.openlocfilehash: 155f823b53ac6a6e391b1f4f71994d896070092a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 83f38d6a04b90cfd8e056686f1a1539fd15e98b3
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42110182"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978292"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>在使用 .NET Core 和 Visual Studio 的 Azure 開發人員空間上開始使用
 
@@ -29,9 +28,39 @@ ms.locfileid: "42110182"
 - 獨立開發兩個不同的服務，並且使用 Kubernetes 的 DNS 服務探索來呼叫另一個服務。
 - 在小組環境中有效率地開發及測試您的程式碼。
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+> [!Note]
+> **如果作業出現停滯的情況**，請參閱[疑難排解](troubleshooting.md)一節，或在此頁面上張貼留言。
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+
+## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>建立已針對 Azure Dev Spaces 啟用的 Kubernetes 叢集
+
+1. 在 http://portal.azure.com 登入 Azure 入口網站。
+1. 選擇 [建立資源] > 搜尋 **Kubernetes** > 選取 [Kubernetes Service] > [建立]。
+
+   完成建立 AKS 叢集表單中每個標題底下的下列步驟。
+
+    - **專案詳細資料**：選取 Azure 訂用帳戶，以及新的或現有的 Azure 資源群組。
+    - **叢集詳細資料**：輸入 AKS 叢集的名稱、地區 (目前，您必須選擇 EastUS、EastUS2、美國中部、WestEurope、WestUS2、SoutheastAsia、CanadaCentral 或 CanadaEast)、版本及 DNS 名稱前置詞。
+    - **級別**：選取 AKS 代理程式節點的 VM 大小和節點數目。 如果您開始使用 Azure Dev Spaces，一個節點就足以瀏覽所有功能。 節點計數可以輕易在叢集部署後隨時調整。 請注意，VM 大小無法在 AKS 叢集建立後變更。 不過，部署 AKS 叢集後，您就可以輕鬆地建立具有較大 VM 的新 AKS 叢集，而如果您需要相應增加，請使用 Dev Spaces 重新部署到該較大叢集。
+
+   務必選擇 Kubernetes 1.9.6 版或更新版本。
+
+   ![Kubernetes 組態設定](media/common/Kubernetes-Create-Cluster-2.PNG)
+
+   完成時，選取 [下一步: 驗證]。
+
+1. 選擇您想要的角色型存取控制 (RBAC) 設定。 Azure Dev Spaces 會在啟用或停用 RBAC 的情況下支援叢集。
+
+    ![RBAC 設定](media/common/k8s-RBAC.PNG)
+
+1. 確定已啟用 [Http 應用程式路由]。
+
+   ![啟用 Http 應用程式路由](media/common/Kubernetes-Create-Cluster-3.PNG)
+
+    > [!Note]
+    > 若要在現有的叢集上啟用 [HTTP 應用程式路由](/azure/aks/http-application-routing)，請使用命令：`az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
+
+1. 選取 [檢閱 + 建立]，然後在完成時選取 [建立]。
 
 ## <a name="get-the-visual-studio-tools"></a>取得 Visual Studio 工具
 1. 安裝最新版的 [Visual Studio 2017](https://www.visualstudio.com/vs/)
@@ -52,7 +81,6 @@ ms.locfileid: "42110182"
 選取 [Web 應用程式 (Model-View-Controller)] 範本，並確定您的目標是對話方塊頂端的兩個下拉式清單中的 **.NET Core** 和 **ASP.NET Core 2.0**。 按一下 [確定]  以建立專案。
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog2.png)
-
 
 ### <a name="enable-dev-spaces-for-an-aks-cluster"></a>針對 AKS 叢集啟用 Dev Spaces
 

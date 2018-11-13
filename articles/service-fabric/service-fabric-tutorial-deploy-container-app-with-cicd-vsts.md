@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381894"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035897"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
 
@@ -76,6 +76,9 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 開啟網頁瀏覽器並瀏覽至新的 Team 專案，網址為：[https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)。
 
 選取 [組建與發行] 索引標籤，再選取 [組建]，然後按一下 [新增管線]。
+
+>[!NOTE]
+>如果您未看到組建定義範本，請確定 [新的 YAML 管線建立體驗] 功能已關閉。 這項功能設定於 DevOps 帳戶的 [預覽功能] 區段內。
 
 ![新增管線][new-pipeline]
 

@@ -2,32 +2,34 @@
 title: 使用 Python 查詢 Azure SQL Database | Microsoft Docs
 description: 本主題說明如何使用 Python 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢。
 services: sql-database
-author: CarlRabeler
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,develop apps
+ms.subservice: development
+ms.custom: ''
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/02/2018
+author: CarlRabeler
 ms.author: carlrab
-ms.openlocfilehash: e88c069bed40bcdf1eae9d356403cc772a11ea85
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.reviewer: ''
+manager: craigg
+ms.date: 11/01/2018
+ms.openlocfilehash: 2ab5b7a5b17daef00cb62f69a7d2a798c18456bb
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704768"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912946"
 ---
-# <a name="use-python-to-query-an-azure-sql-database"></a>使用 Python 查詢 Azure SQL 資料庫
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入門：使用 Python 查詢 Azure SQL 資料庫
 
  此快速入門示範如何使用 [Python](https://python.org) 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。 如需 SDK 的詳細資訊，請查看我們的[參考](https://docs.microsoft.com/python/api/overview/azure/sql)文件、pyodbc [範例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)及 [pyodbc](https://github.com/mkleehammer/pyodbc/wiki/) GitHub 存放庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，請確定您具備下列項目︰
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal.md#create-a-server-level-firewall-rule)。
+- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
 
 - 您已安裝適用於您作業系統的 Python 和相關軟體：
 

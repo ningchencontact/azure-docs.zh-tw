@@ -4,21 +4,21 @@ description: Azure 藍圖可用來建立、定義和部署成品。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/07/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b873ee869b2044977ebefcfd65331567c24e7ec8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b600eeff0482944a8b9b18ad39c23ee6ea4700ce
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974199"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283541"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>使用 REST API 定義和指派 Azure 藍圖
 
-了解如何在 Azure 中建立及指派藍圖，有助於組織定義一致性的常見模式，且能根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並能快速部署的設定。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
+了解如何建立及指派有助於定義常用模式的藍圖，以根據 Resource Manager 範本、原則、安全性等，開發出可重複使用並可快速部署的組態。 在本教學課程中，您將了解如何使用 Azure 藍圖在您的組織中處理藍圖的建立、發佈和指派等常見工作，例如：
 
 > [!div class="checklist"]
 > - 建立新藍圖並新增各種支援成品
@@ -28,11 +28,13 @@ ms.locfileid: "46974199"
 > - 檢查指派的藍圖的狀態和進度
 > - 移除已指派給訂用帳戶的藍圖
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free) 。
 
 ## <a name="getting-started-with-rest-api"></a>開始使用 REST API
 
 如果您不熟悉 REST API，請先詳閱 [Azure REST API 參考](/rest/api/azure/)，以對 REST API 有一般的了解，特別是要求 URI 和要求本文。 本文使用這些概念提供使用 Azure 藍圖的方向，而且假設您已具備其使用知識。 [ARMClient](https://github.com/projectkudu/ARMClient) 這類工具及其他元件可自動處理授權，建議初學者使用它們。
+
+如需藍圖規格，請參閱 [Azure 藍圖 REST API](/rest/api/blueprints/)。
 
 ### <a name="rest-api-and-powershell"></a>REST API 和 PowerShell
 
@@ -59,7 +61,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="create-a-blueprint"></a>建立藍圖
 
-定義合規性標準模式的第一個步驟，即是以可用的資源規劃藍圖。 在此範例中，會建立名為「MyBlueprint」的藍圖，用以設定訂用帳戶的角色和原則指派、新增資源群組、在資源群組上建立 Resource Manager 的範本和角色指派。
+定義合規性標準模式的第一個步驟，即是以可用的資源規劃藍圖。 我們將建立名為 'MyBlueprint' 的藍圖，以設定訂用帳戶的角色和原則指派。 然後，我們將新增資源群組、Resource Manager 範本，以及資源群組的角色指派。
 
 > [!NOTE]
 > 使用 REST API 時，會先建立_藍圖_物件。 對於要新增的具有參數的每個_成品_，需要在初始_藍圖_上預先定義參數。
@@ -69,7 +71,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 - `{YourMG}` - 以您的管理群組名稱取代
 - `{subscriptionId}` - 以您的訂用帳戶 ID 取代
 
-1. 建立初始_藍圖_物件。 **要求本文**包含藍圖的屬性、要建立的任何資源群組，以及所有藍圖層級參數，它們是在指派期間設定，而且稍後步驟中新增的成品會使用它們。
+1. 建立初始_藍圖_物件。 **要求本文**包含藍圖的屬性、要建立的任何資源群組，以及所有藍圖層級參數。 這些參數會在指派期間設定，並且供後續步驟中新增的成品使用。
 
    - REST API URI
 
@@ -148,7 +150,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶中新增原則指派。 **要求本文**定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。
+1. 在訂用帳戶中新增原則指派。 **要求本文**會定義成品的_種類_、對應至原則或方案定義的屬性，以及設定用來定義藍圖參數 (藍圖指派期間設定) 的原則指派。
 
    - REST API URI
 
@@ -176,7 +178,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可用於一個以上的成品。 在範例中，**storageAccountType** 用來在資源群組上設定一個標記，提供下個步驟中建立的儲存體帳戶的相關資訊。
+1. 在訂用帳戶為儲存標記新增另一個儲存體標記 (重複使用 _storageAccountType_ 參數)。 這個新增的原則指派成品示範藍圖上定義的參數可供多個成品使用。 在此範例中，會使用 **storageAccountType** 來設定資源群組的標記。 此值會提供在下一個步驟中建立的儲存體帳戶的相關資訊。
 
    - REST API URI
 
@@ -204,7 +206,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
      }
      ```
 
-1. 在資源群組下新增範本。 Resource Manager 範本的**要求本文** 包含範本的一般 JSON 元件，使用 **properties.resourceGroup** 定義目標資源群組，並將 **storageAccountType**、**tagName** 和 **tagValue** 藍圖參數提供給範本以重複使用它們。 藍圖參數是透過定義 **properties.parameters** 來提供給範本使用，而在 JSON 範本內，索引鍵/值是用來插入值。 藍圖和範本參數的名稱可以相同，但是用不同的名字是為了說明每個物件是如何從藍圖傳遞到範本成品。
+1. 在資源群組下新增範本。 Resource Manager 範本的**要求本文**包含範本的一般 JSON 元件，且會使用 **properties.resourceGroup** 定義目標資源群組。 此範本也會將 **storageAccountType**、**tagName** 和 **tagValue** 藍圖參數傳至範本，以重複使用這些參數。 藍圖參數可藉由定義 **properties.parameters** 提供給範本使用，並且可在使用索引鍵/值配對來插入值的 JSON 範本內使用。 藍圖和範本參數的名稱可以相同，但是用不同的名字是為了說明每個物件是如何從藍圖傳遞到範本成品。
 
    - REST API URI
 
@@ -313,7 +315,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="publish-a-blueprint"></a>發佈藍圖
 
-將成品新增到藍圖之後，即可發佈藍圖。 發佈後即可將藍圖指派給訂用帳戶。
+將成品新增到藍圖之後，即可發佈藍圖。 藍圖發佈後即可指派給訂用帳戶。
 
 - REST API URI
 
@@ -388,7 +390,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="unassign-a-blueprint"></a>取消指派藍圖
 
-如果不再需要藍圖，或因為模式、原則、設計有所更新，而已經用較新的藍圖取代舊藍圖，可以將藍圖從訂用帳戶中移除。 移除藍圖時，會將指派為該藍圖一部份的成品保留下來。 若要移除藍圖指派，請使用下列 REST API 作業：
+您可以從訂用帳戶中移除藍圖。 移除作業通常會在成品資源已不再需要時執行。 移除藍圖時，會將指派為該藍圖一部份的成品保留下來。 若要移除藍圖指派，請使用下列 REST API 作業：
 
 - REST API URI
 
@@ -408,9 +410,9 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解[藍圖生命週期](./concepts/lifecycle.md) (英文)
+- 了解[藍圖生命週期](./concepts/lifecycle.md) (英文)
 - 了解如何使用[靜態和動態參數](./concepts/parameters.md) (英文)
 - 了解如何自訂[藍圖排序順序](./concepts/sequencing-order.md) (英文)
-- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md) (英文)
-- 瞭解如何[更新現有的指派](./how-to/update-existing-assignments.md) (英文)
+- 了解如何使用[藍圖資源鎖定](./concepts/resource-locking.md)
+- 了解如何[更新現有的指派](./how-to/update-existing-assignments.md)
 - 使用[一般疑難排解](./troubleshoot/general.md)來解決藍圖指派期間發生的問題

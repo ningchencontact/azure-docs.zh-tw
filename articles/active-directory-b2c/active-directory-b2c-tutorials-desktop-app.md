@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 40adcc7280a279e066c9e22f3252972cf07d070d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a7a861ccff168655d866d8c9205160bface79c9e
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604071"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913405"
 ---
 # <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>教學課程：讓傳統型應用程式能夠使用 Azure Active Directory B2C 向帳戶進行驗證
 
@@ -127,7 +127,7 @@ Azure AD B2C 原則會定義使用者工作流程。 例如，登入、註冊、
 
 現在，您已註冊傳統型應用程式並建立原則，接下來您必須將應用程式設定為使用您的 Azure AD B2C 租用戶。 在本教學課程中，您會設定範例傳統型應用程式。 
 
-[下載 zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)，或從 GitHub 複製範例。
+[下載 Zip 檔案](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)、[瀏覽存放庫](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)，或從 GitHub 複製範例。
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

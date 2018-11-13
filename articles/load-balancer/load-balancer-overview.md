@@ -4,24 +4,20 @@ description: Azure 負載平衡器功能、架構和實作的概觀。 了解 Lo
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 618b00906a799e1b8cfcfac5ee6bcc3a714c2f87
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918737"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219574"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -70,14 +66,14 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
 * **連接埠轉送**
 
-    有了 Load Balancer，您就能建立輸入 NAT 規則，將特定前端 IP 位址特定連接埠的流量，從連接埠轉送到虛擬網路內特定後端執行個體的特定連接埠。 這也是使用和負載平衡同樣的雜湊型分送來完成的。 此功能的常見案例是透過遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) 工作階段連線至 Azure 虛擬網路內的個別 VM 執行個體。 您可以將多個內部端點對應至相同前端 IP 位址的各個連接埠。 您可以使用這些端點透過網際網路遠端管理 VM，而不需要額外的跳箱。
+    有了 Load Balancer，您就能建立輸入 NAT 規則，將特定前端 IP 位址特定連接埠的流量，從連接埠轉送到虛擬網路內特定後端執行個體的特定連接埠。 這也是使用和負載平衡同樣的雜湊型分送來完成的。 此功能的常見案例是透過遠端桌面通訊協定 (RDP) 或安全殼層 (SSH) 工作階段連線至 Azure 虛擬網路內的個別 VM 執行個體。 您可以將多個內部端點對應至相同前端 IP 位址的各個連接埠。 您可以使用前端 IP 位址透過網際網路從遠端管理 VM，而不需要額外的跳箱。
 
 * **透明且相容的應用程式**
 
     Load Balancer 不會直接與 TCP 或 UDP 或應用程式層互動，可以支援任何 TCP 或 UDP 應用程式案例。  Load Balancer 不會終止或產生流程，也不會與流程承載互動，不提供任何應用程式層的閘道功能，而且通訊協定交握一律直接在用戶端與後端集區的執行個體之間發生。  輸入流程的回應一律是來自虛擬機器的回應。  當流程到達虛擬機器時，也會保留原始的來源 IP 位址。  以下透過幾個範例來進一步說明透明度：
     - 每個端點只會由 VM 回應。  例如，TCP 交握一律是在用戶端和選取的後端虛擬機器之間發生。  前端要求的回應是由後端虛擬機器所產生的回應。 當您已順利驗證前端連線時，就代表至少驗證了一個後端虛擬機器的端對端連線。
     - 對 Load Balancer 而言，應用程式承載均 透明可見，且可支援任何 UDP 或 TCP 應用程式。 至於需要對處理或操作每個 HTTP 要求之應用程式層承載的工作負載 (如 HTTP URL 剖析)，則應使用[應用程式閘道](https://azure.microsoft.com/services/application-gateway)這類第 7 層 Load Balancer。
-    - 由於 Load Balancer 無從驗證 TCP 承載，而且未提供 TLS 卸載 (「SSL」)，因此可以使用 Load Balancer 建立端對端加密的案例，並藉由終止 VM 本身的 TLS 連線來相應放大 TLS 應用程式。  舉例而言，您的 TLS 工作階段金鑰處理容量只會受限於您新增至後端集區的虛擬機器類型和數量。  如果您需要「SSL 卸載」、應用程式層處理，或是想要將憑證管理委派給 Azure，應改用 Azure 的第 7 層 Load Balancer [應用程式閘道](https://azure.microsoft.com/services/application-gateway)。
+    - 由於 Load Balancer 無從驗證 TCP 承載，而且未提供 TLS 卸載 ("SSL")，因此可以使用 Load Balancer 建立端對端加密的案例，並藉由終止 VM 本身的 TLS 連線來相應放大 TLS 應用程式。  舉例而言，您的 TLS 工作階段金鑰處理容量只會受限於您新增至後端集區的虛擬機器類型和數量。  如果您需要「SSL 卸載」、應用程式層處理，或是想要將憑證管理委派給 Azure，應改用 Azure 的第 7 層 Load Balancer [應用程式閘道](https://azure.microsoft.com/services/application-gateway)。
         
 
 * **自動重新設定**

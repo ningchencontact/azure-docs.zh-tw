@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467254"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218571"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 Windows 或 Linux 上以 Java 辨識語音
 
@@ -74,7 +74,7 @@ ms.locfileid: "49467254"
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * 此外，再新增 `dependencies` 元素，並以 1.0.1 版語音 SDK 作為相依性：
+  * 此外，再新增 `dependencies` 元素，並以語音 SDK 1.1.0 版作為相依性：
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

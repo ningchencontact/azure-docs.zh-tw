@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 7e2225a173562be28840cb0a66913b9f8c9657ff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4608e9ec0cd67b6c0f7ac23e27761b0355a5d738
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962040"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50911859"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v10-endpoint"></a>快速入門：向 Azure Active Directory v1.0 端點註冊應用程式
 
@@ -31,7 +31,10 @@ ms.locfileid: "46962040"
 
 任何想要使用 Azure AD 功能的應用程式都必須先在 Azure AD 租用戶中註冊。 此登錄程序牽涉到提供 Azure AD 應用程式的相關詳細資料，例如其所在的 URL、要在使用者驗證之後傳送回應的 URL，以及會識別應用程式的 URI 等。
 
-本快速入門會示範如何在 Azure AD 中新增及註冊應用程式。
+本快速入門說明如何在 Azure 入口網站中使用現有的**應用程式註冊**體驗，在 Azure AD 中新增和註冊應用程式。
+
+> [!NOTE]
+> 要註冊新的應用程式？ 請在 Azure 入口網站中試用新的**應用程式註冊 (預覽)** 體驗。 請參閱[註冊應用程式 (預覽)](quickstart-register-app.md) 以了解如何開始使用。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,7 +43,7 @@ ms.locfileid: "46962040"
 ## <a name="register-a-new-application-using-the-azure-portal"></a>使用 Azure 入口網站註冊新的應用程式
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-1. 如果您的帳戶可讓您存取多個帳戶，請在右上角選取您的帳戶，並將您的入口網站工作階段設定為所需的 Azure AD 租用戶。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，並將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務。
 1. 選取 [應用程式註冊]，然後選取 [新增應用程式註冊]。
 

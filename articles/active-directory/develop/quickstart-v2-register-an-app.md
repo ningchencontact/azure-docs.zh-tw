@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: b2dea11b6573be8f574bd18fa69ee76658d6d698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bf5bbdf496a23a5ed66a149933f25a059984a9
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975805"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913273"
 ---
 # <a name="quickstart-register-an-app-with-the-azure-active-directory-v20-endpoint"></a>快速入門：向 Azure Active Directory v2.0 端點註冊應用程式
 
@@ -30,8 +30,10 @@ ms.locfileid: "46975805"
 
 若要建置同時接受個人 Microsoft 帳戶 (MSA) 與公司或學校帳戶 (Azure AD) 登入的應用程式，您必須向 Azure Active Directory (Azure AD) v2.0 端點註冊該應用程式。 您目前無法使用任何現有的 app 搭配 Azure AD 或 MSA - 您需要建立一個全新的 app。
 
+v2.0 端點並未支援每個 Azure AD 案例和功能。 若要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+
 > [!NOTE]
-> v2.0 端點並未支援每個 Azure AD 案例和功能。 若要判斷是否應該使用 v2.0 端點，請閱讀 [v2.0 限制](active-directory-v2-limitations.md)。
+> 要註冊新的應用程式？ 請在 Azure 入口網站中試用新的**應用程式註冊 (預覽)** 體驗。 請參閱[註冊應用程式 (預覽)](quickstart-register-app.md) 以了解如何開始使用。
 
 ## <a name="step-1-sign-in-to-the-microsoft-application-registration-portal"></a>步驟 1：登入 Microsoft 應用程式註冊入口網站
 

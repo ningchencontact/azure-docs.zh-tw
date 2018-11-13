@@ -1,56 +1,51 @@
 ---
-title: 快速入門：在 C# 中檢查文字內容 - Content Moderator
+title: 快速入門：在 C# 中分析令人反感的文字內容
 titlesuffix: Azure Cognitive Services
-description: 如何使用 Content Moderator SDK for C# 檢查文字內容
+description: 如何使用 Content Moderator SDK for .NET 分析各種令人反感的文字內容
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: conceptual
-ms.date: 10/10/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: ae795ad823c32bc83669d5e98e3fd922500741d4
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 0540a81db93570928dd33b66a69b6883b2df0cd9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309207"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007683"
 ---
-# <a name="quickstart-check-text-content-in-c"></a>快速入門：在 C# 中檢查文字內容 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：在 C# 中分析令人反感的文字內容 
 
-本文提供資訊和範例程式碼，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 來執行下列操作：
-
-- 使用字詞型篩選來偵測文字中可能的粗話
-- 使用機器學習型模型模型將[文字分類](text-moderation-api.md#classification)成三種類別。
-- 偵測個人識別資訊 (PII)，例如美國和英國電話號碼、電子郵件地址及美國郵寄地址。
-- 將文字正規化並自動校正錯字
+本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何執行文字內容的字詞型篩選和分類，以仲裁可能令人反感的內容。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
-## <a name="sign-up-for-content-moderator-services"></a>註冊 Content Moderator 服務
+## <a name="prerequisites"></a>必要條件
+- Content Moderator 訂用帳戶金鑰。 請依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱 Content Moderator 並取得金鑰。
+- 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)
 
-您必須有訂用帳戶金鑰，才能透過 REST API 或 SDK 使用 Content Moderator 服務。 請在 [Azure 入口網站](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator)中訂閱 Content Moderator 服務，以取得此項目。
+> [!NOTE]
+> 本指南將使用免費層的 Content Moderator 訂用帳戶。 若想了解各個訂用帳戶層級所提供的功能，請參閱[定價和限制](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/)頁面。
 
-## <a name="create-your-visual-studio-project"></a>建立 Visual Studio 專案
+## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將其命名為 **TextModeration**。 
+1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+    - Microsoft.Azure.CognitiveServices.ContentModerator
+    - Microsoft.Rest.ClientRuntime
+    - Newtonsoft.Json
 
-   在範例程式碼中，將專案命名為 **TextModeration**。
+## <a name="add-text-moderation-code"></a>新增文字仲裁程式碼
 
-1. 選取此專案作為解決方案的單一啟始專案。
+接下來，您應將本指南中的程式碼複製並貼到您的專案中，以實作基本內容仲裁案例。
 
-### <a name="install-required-packages"></a>安裝必要的套件
+### <a name="include-namespaces"></a>包含命名空間
 
-安裝下列 NuGet 封裝：
-
-- Microsoft.Azure.CognitiveServices.ContentModerator
-- Microsoft.Rest.ClientRuntime
-- Newtonsoft.Json
-
-### <a name="update-the-programs-using-statements"></a>更新程式的 using 陳述式
-
-新增下列 `using` 陳述式。 
+在 *Program.cs* 檔案的最上方新增下列 `using` 陳述式。
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
@@ -65,44 +60,24 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
 
-新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端。
-
-> [!IMPORTANT]
-> 以您的區域識別碼和訂用帳戶訂用帳戶的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
+在您的 *Program.cs* 檔案中新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端提供者。 在相同命名空間中的 **Program** 類別旁新增程式碼。 您必須以區域識別碼和訂用帳戶金鑰的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
 
 ```csharp
-/// <summary>
-/// Wraps the creation and configuration of a Content Moderator client.
-/// </summary>
-/// <remarks>This class library contains insecure code. If you adapt this 
-/// code for use in production, use a secure method of storing and using
-/// your Content Moderator subscription key.</remarks>
+// Wraps the creation and configuration of a Content Moderator client.
 public static class Clients
 {
-    /// <summary>
-    /// The region/location for your Content Moderator account, 
-    /// for example, westus.
-    /// </summary>
+    // The region/location for your Content Moderator account, 
+    // for example, westus.
     private static readonly string AzureRegion = "YOUR API REGION";
 
-    /// <summary>
-    /// The base URL fragment for Content Moderator calls.
-    /// </summary>
+    // The base URL fragment for Content Moderator calls.
     private static readonly string AzureBaseURL =
         $"https://{AzureRegion}.api.cognitive.microsoft.com";
 
-    /// <summary>
-    /// Your Content Moderator subscription key.
-    /// </summary>
+    // Your Content Moderator subscription key.
     private static readonly string CMSubscriptionKey = "YOUR API KEY";
 
-    /// <summary>
-    /// Returns a new Content Moderator client for your subscription.
-    /// </summary>
-    /// <returns>The new client.</returns>
-    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-    /// When you have finished using the client,
-    /// you should dispose of it either directly or indirectly. </remarks>
+    // Returns a new Content Moderator client for your subscription.
     public static ContentModeratorClient NewClient()
     {
         // Create and initialize an instance of the Content Moderator API wrapper.
@@ -114,29 +89,19 @@ public static class Clients
 }
 ```
 
-### <a name="initialize-application-specific-settings"></a>將應用程式特定的設定初始化
+### <a name="set-up-input-and-output-targets"></a>設定輸入和輸出目標
 
-將下列靜態欄位新增至 Program.cs 中的 **Program** 類別。
+將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些項目會指定輸入文字內容和輸出 JSON 內容的檔案。
 
 ```csharp
-/// <summary>
-/// The name of the file that contains the text to evaluate.
-/// </summary>
-/// <remarks>You will need to create an input file and update this path
-/// accordingly. Relative paths are relative to the execution directory.</remarks>
+// The name of the file that contains the text to evaluate.
 private static string TextFile = "TextFile.txt";
 
-/// <summary>
-/// The name of the file to contain the output from the evaluation.
-/// </summary>
-/// <remarks>Relative paths are relative to the execution directory.</remarks>
+// The name of the file to contain the output from the evaluation.
 private static string OutputFile = "TextModerationOutput.txt";
 ```
 
-我們已使用下列文字作為本快速入門的輸入。
-
-> [!NOTE]
-> 以下範例文字中的無效社會安全號碼是刻意安排的。 目的是要傳達範例輸入和輸出格式。
+您必須建立 *TextFile.txt* 輸入檔，並據以更新其路徑 (相對於執行目錄的相對路徑)。 開啟 _TextFile.txt_ 並新增要仲裁的文字。 本快速入門會使用下列範例文字：
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -144,9 +109,15 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).
 ```
 
-## <a name="add-code-to-load-and-evaluate-the-input-text"></a>新增程式碼以載入和評估輸入文字
+### <a name="load-the-input-text"></a>載入輸入文字
 
-將以下程式碼新增至 **Main** 方法。
+將以下程式碼新增至 **Main** 方法。 **ScreenText** 方法是基本作業。 其參數會指定將執行哪些內容仲裁作業。 在此範例中，方法會設定為：
+- 偵測文字中可能的粗話。
+- 將文字正規化並自動校正錯字。
+- 偵測個人識別資訊 (PII)，例如美國和英國電話號碼、電子郵件地址及美國郵寄地址。
+- 使用機器學習型模型將文字分成三種類別。
+
+若要深入了解這些作業的功用，請進入[後續步驟](#next-steps)一節中的連結。
 
 ```csharp
 // Load the input text.
@@ -154,6 +125,8 @@ string text = File.ReadAllText(TextFile);
 Console.WriteLine("Screening {0}", TextFile);
 
 text = text.Replace(System.Environment.NewLine, " ");
+byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
+MemoryStream stream = new MemoryStream(byteArray);
 
 // Save the moderation results to a file.
 using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
@@ -161,12 +134,12 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
     // Create a Content Moderator client and evaluate the text.
     using (var client = Clients.NewClient())
     {
-        // Screen the input text: check for profanity, classify the text into three categories,
-        // do autocorrect text, and check for personally identifying
-        // information (PII)
+        // Screen the input text: check for profanity,
+        // autocorrect text, check for personally identifying
+        // information (PII), and classify the text into three categories
         outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
         var screenResult =
-        client.TextModeration.ScreenText("eng", "text/plain", text, true, true, null, true);
+        client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
         outputWriter.WriteLine(
                 JsonConvert.SerializeObject(screenResult, Formatting.Indented));
     }
@@ -175,12 +148,9 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 }
 ```
 
-> [!NOTE]
-> 您的 Content Moderator 服務金鑰會有每秒要求數目 (RPS) 的速率限制。如果超出此限制，SDK 就會擲回錯誤碼為 429 的例外狀況。 使用免費層金鑰時，要求速率限制為每秒一個要求。
+## <a name="run-the-program"></a>執行程式
 
-## <a name="run-the-program-and-review-the-output"></a>執行程式並檢閱輸出
-
-程式的範例輸出 (寫入至記錄檔) 為：
+程式會將 JSON 字串資料寫入至 _TextModerationOutput.txt_ 檔案。 本快速入門中使用的範例文字會產生下列輸出：
 
 ```json
 Autocorrect typos, check for matching terms, PII, and classify.
@@ -270,4 +240,7 @@ Autocorrect typos, check for matching terms, PII, and classify.
 
 ## <a name="next-steps"></a>後續步驟
 
-針對這個及其他適用於 .NET 的 Content Moderator 快速入門取得 [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解決方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，並開始進行您的整合。
+在本快速入門中，您已開發一個簡單的 .NET 應用程式，會使用 Content Moderator 服務傳回與指定的文字範例有關的資訊。 接下來請深入了解不同旗標和分類的意義，以便決定您所需的資料和應用程式應如何加以處理。
+
+> [!div class="nextstepaction"]
+> [文字仲裁指南](text-moderation-api.md)

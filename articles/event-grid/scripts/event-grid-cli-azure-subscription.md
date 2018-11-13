@@ -4,20 +4,19 @@ description: Azure CLI 指令碼範例 - 訂閱 Azure 訂用帳戶
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: ac02c5515f598daf4aa91879af78341969718163
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 9d1aa53ede323c2bb536c74eeaaba9fd28b01712
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425814"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037527"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>使用 Azure CLI 訂閱 Azure 訂用帳戶的事件
 
@@ -27,9 +26,15 @@ ms.locfileid: "31425814"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>範例指令碼
+預覽範例指令碼需要事件方格延伸模組。 若要安裝，請執行 `az extension add --name eventgrid`。
+
+## <a name="sample-script---stable"></a>範例指令碼 - Stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.sh "Subscribe to Azure subscription")]
+
+## <a name="sample-script---preview-extension"></a>範例指令碼 - 預覽版延伸模組
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.sh "Subscribe to Azure subscription")]
 
 ## <a name="script-explanation"></a>指令碼說明
 
@@ -37,8 +42,8 @@ ms.locfileid: "31425814"
 
 | 命令 | 注意 |
 |---|---|
-| [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | 建立事件格線訂用帳戶。 |
-
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | 建立事件格線訂用帳戶。 |
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - 延伸模組版本 | 建立事件格線訂用帳戶。 |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352605"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963926"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -140,6 +140,9 @@ ms.locfileid: "49352605"
  
 - 設定裝置註冊的近端內部網路設定
 
+- 控制舊版 Windows 裝置 
+
+
 ### <a name="update-device-settings"></a>更新裝置設定 
 
 若要註冊舊版 Windows 裝置，您必須確定已設定允許使用者在 Azure AD 中註冊裝置的裝置設定。 在 Azure 入口網站中，您可以在下列位置找到此設定：
@@ -163,6 +166,12 @@ ms.locfileid: "49352605"
 - `https://autologon.microsoftazuread-sso.com` 。
 
 此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]。
+
+
+### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 
+
+若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請按一下[這裡](hybrid-azuread-join-control.md#control-windows-down-level-devices)。 
+
 
 ## <a name="verify-the-registration"></a>確認註冊
 

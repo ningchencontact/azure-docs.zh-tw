@@ -9,12 +9,12 @@ ms.date: 10/1/2018
 ms.topic: overview
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 361e742b3d9b7a5d2d12aafd15233077c967b825
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: f753d7273c685a7ec3e4e0877e171df04e69e5b4
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888185"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978310"
 ---
 # <a name="what-is-service-fabric-mesh"></a>什麼是 Service Fabric Mesh？
 
@@ -66,6 +66,8 @@ Service Fabric Mesh 會建立跨 [Azure 可用性區域](/azure/availability-zon
 ## <a name="next-steps"></a>後續步驟
 
 只需幾個步驟，即可部署 Visual Studio 的範例專案。 如需詳細資訊，請參閱[建立 ASP.NET Core 網站](service-fabric-mesh-quickstart-dotnet-core.md)。 
+
+尋找[常見問題](service-fabric-mesh-faq.md)的解答。
 
 
 <!-- Links -->

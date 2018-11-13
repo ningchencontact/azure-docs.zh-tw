@@ -4,20 +4,19 @@ description: Azure CLI 指令碼範例 - 訂閱自訂主題
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0c0b4c77815efc4ae3c80a8602222122254f7d88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425806"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038377"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>使用 Azure CLI 訂閱自訂主題的事件
 
@@ -27,9 +26,16 @@ ms.locfileid: "31425806"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>範例指令碼
+預覽範例指令碼需要事件方格延伸模組。 若要安裝，請執行 `az extension add --name eventgrid`。
+
+## <a name="sample-script---stable"></a>範例指令碼 - Stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
+
+## <a name="sample-script---preview-extension"></a>範例指令碼 - 預覽版延伸模組
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
+
 
 ## <a name="script-explanation"></a>指令碼說明
 
@@ -38,7 +44,7 @@ ms.locfileid: "31425806"
 | 命令 | 注意 |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | 建立事件格線訂用帳戶。 |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - 延伸模組版本 | 建立事件格線訂用帳戶。 |
 
 ## <a name="next-steps"></a>後續步驟
 

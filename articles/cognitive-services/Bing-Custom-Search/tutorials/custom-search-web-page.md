@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: tutorial
 ms.date: 10/16/2017
 ms.author: v-brapel
-ms.openlocfilehash: 3e892131a0109d2fff924940542b5d8b2b701950
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 6d08a36d7a464ccc1904839d6631be0553aacb17
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815370"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279206"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>教學課程：建置自訂搜尋網頁
 
@@ -79,7 +79,7 @@ Bing 自訂搜尋可讓您針對感興趣的主題，建立量身訂做的搜尋
 
 ## <a name="add-pinned-entries"></a>加入已釘選的項目
 
-若要將特定網頁釘選到搜尋結果的頂端，請將網頁和查詢字詞加入到 [已釘選] 索引標籤。[已釘選] 索引標籤包含一份網頁與查詢字詞配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 只有當使用者的查詢字串符合釘選的查詢字串 (以釘選的比對狀況為基礎) 時，才會釘選網頁。 [閱讀更多](../define-your-custom-view.md#pin-to-top)。
+若要將特定網頁釘選到搜尋結果的頂端，請將網頁和查詢字詞加入到 [已釘選] 索引標籤。[已釘選] 索引標籤包含一份網頁與查詢字詞配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 只有當使用者的查詢字串符合釘選的查詢字串 (以釘選的比對狀況為基礎) 時，才會釘選網頁。 只有已編製索引的網頁才會顯示在搜尋中。 如需詳細資訊，請參閱[定義您的自訂檢視](../define-your-custom-view.md#pin-to-top)。
 
 1. 在 [設定] 頁面上，按一下 [已釘選] 索引標籤，並輸入網頁與應可傳回為第一個結果的查詢字詞。  
   

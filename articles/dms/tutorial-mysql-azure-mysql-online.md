@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 資料庫移轉服務在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫 | Microsoft Docs
+title: 教學課程：使用 Azure 資料庫移轉服務在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫 | Microsoft Docs
 description: 了解如何使用 Azure 資料庫移轉服務，在線上將內部部署的 MySQL 移轉至適用於 MySQL 的 Azure 資料庫。
 services: dms
 author: HJToland3
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/06/2018
-ms.openlocfilehash: 4825985253f5525314a496f2adbc40657231f5d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829846"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960509"
 ---
-# <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
+# <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 MySQL 執行個體移轉至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在本教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從內部部署的 MySQL 5.7 執行個體移轉至適用於 MySQL 的 Azure 資料庫。
 
 在本教學課程中，您了解如何：

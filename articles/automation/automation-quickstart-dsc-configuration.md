@@ -7,22 +7,22 @@ ms.component: dsc
 keywords: dsc, 設定, 自動化
 author: KrisBash
 ms.author: krbash
-ms.date: 12/17/2017
+ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 959171963bcdc721c81823fcf4f9769174b32636
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053710"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243687"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>使用 Desired State Configuration 來設定 Linux 虛擬機器
 
 您可以啟用 Desired State Configuration (DSC) 來管理和監視您 Windows 和 Linux 伺服器的設定。 可以識別或自動更正漂移自所需設定的設定。 本快速入門逐步說明 DSC 將 Linux VM 上架及使用部署 LAMP 堆疊。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您需要：
 
@@ -30,7 +30,7 @@ ms.locfileid: "34053710"
 * Azure 自動化帳戶。 如需建立 Azure 自動化執行身分帳戶的指示，請參閱 [Azure 執行身分帳戶](automation-sec-configure-azure-runas-account.md)。
 * 執行 Red Hat Enterprise Linux、CentOS 或 Oracle Linux 的 Azure Resource Manager VM (非傳統)。 如需建立 VM 的指示，請參閱 [在 Azure 入口網站中建立第一個 Linux 虛擬機器](../virtual-machines/linux/quick-create-portal.md)
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 在 https://portal.azure.com 登入 Azure
 
 ## <a name="onboard-a-virtual-machine"></a>將虛擬機器上架
@@ -38,12 +38,12 @@ ms.locfileid: "34053710"
 
 1. 在 Azure 入口網站的左側窗格中，選取 [自動化帳戶]。 如果未顯示在左窗格中，請按一下 [所有服務]，然後在產生的檢視中加以搜尋。
 1. 在清單中，選取自動化帳戶。
-1. 在自動化帳戶的左側窗格中，選取 [DSC 節點]。
-1. 按一下功能表選項可 [新增 Azure VM]
-1. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
-1. 按一下虛擬機器，然後選取 [連線]
-1. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
-1. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+1. 在自動化帳戶的左側窗格中，選取 [狀態組態 (DSC)]。
+2. 按一下 [新增] 以開啟 [VM 選取] 頁面。
+3. 尋找您需要啟用 DSC 的虛擬機器。 若要尋找特定的虛擬機器，您可以使用搜尋欄位和篩選選項。
+4. 按一下虛擬機器，然後選取 [連線]
+5. 選取適用於虛擬機器的 DSC 設定。 如果您已經備妥設定，可以將它指定為「節點設定名稱」。 您可以設定[設定模式](https://docs.microsoft.com/powershell/dsc/metaconfig)來控制電腦的設定行為。
+6. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ![將 Azure VM 上架至 DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
 
@@ -101,10 +101,10 @@ configuration LAMPServer {
 
 若要匯入設定：
 
-1. 在自動化帳戶的左側窗格中，選取 [DSC 設定]。
-1. 按一下功能表選項可 [新增設定]
-1. 選取您在先前步驟中儲存的組態檔
-1. 按一下 [檔案] &gt; [新增] &gt; [專案] 
+1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]，然後按一下 [組態] 索引標籤。
+2. 按一下 [+ 新增]
+3. 選取您在先前步驟中儲存的組態檔
+4. 按一下 [檔案] &gt; [新增] &gt; [專案] 
 
 ## <a name="compile-a-configuration"></a>編譯設定
 
@@ -112,18 +112,16 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 
 若要編譯設定：
 
-1. 在自動化帳戶的左側窗格中，選取 [DSC 設定]。
+1. 在自動化帳戶的左側窗格中選取 [狀態組態 (DSC)]，然後按一下 [組態] 索引標籤。
 1. 選取您在先前步驟中匯入的設定 "LAMPServer"
 1. 從功能表選項中，按一下 [編譯]，然後按一下 [是]
 1. 在 [設定] 檢視中，您會看到新的 [編譯作業] 排入佇列。 當作業順利完成時，即準備好進行下一個步驟。 如果發生任何失敗，您可以按一下 [編譯作業] 來取得詳細資料。
-
-![編譯作業狀態](./media/automation-quickstart-dsc-configuration/dsc-compilationjob.png)
 
 ## <a name="assign-a-node-configuration"></a>指派節點設定
 
 可以將編譯的節點設定指派給 DSC 節點。 指派會將設定套用至電腦，並監視 (或自動更正) 該設定中的任何漂移。
 
-1. 在自動化帳戶的左側窗格中，選取 [DSC 節點]
+1. 在自動化帳戶的左側窗格中選取 [**狀態組態 (DSC)]，然後按一下 [節點] 索引標籤。
 1. 選取您需要指派設定的節點
 1. 按一下 [指派節點設定]
 1. 選取 [節點設定] - **LAMPServer.localhost** - 來指派，並按一下 [確定]
@@ -133,7 +131,7 @@ DSC 設定必須先編譯成節點設定 (MOF 文件)，才可以指派至節點
 
 ## <a name="viewing-node-status"></a>檢視節點狀態
 
-您可以在自動化帳戶的 **DSC 節點**檢視中，找到所有受控節點的狀態。 您可以依狀態、節點設定或名稱搜尋來篩選顯示。 
+您可以在自動化帳戶中，從 [狀態組態 (DSC)] 中的 [節點] 索引標籤下找到所有受控節點的狀態。 您可以依狀態、節點設定或名稱搜尋來篩選顯示。
 
 ![DSC 節點狀態](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

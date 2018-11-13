@@ -11,23 +11,27 @@ ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 7eef3d71a35b5016e48e519b95c2573fbe3390e7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 54b25aa141da15224d5d8034ba54783d3633f5be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265100"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914731"
 ---
 # <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Python 連線和查詢資料
 本快速入門示範如何使用 [Python](https://python.org) 連線至 Azure Database for MySQL。 它會使用 SQL 陳述式查詢、插入、更新和刪除 Mac OS、Ubuntu Linux 和 Windows 平台的資料庫中的資料。 本主題假設您已熟悉使用 Python 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-python-and-the-mysql-connector"></a>安裝 Python 和 MySQL 連接器
-在自己的電腦上安裝 [Python](https://www.python.org/downloads/) 和 [Python 的 MySQL 連接器](https://dev.mysql.com/downloads/connector/python/)。 根據您的平台，遵循適當小節中的步驟：
+在自己的電腦上安裝 [Python](https://www.python.org/downloads/) 和 [Python 的 MySQL 連接器](https://dev.mysql.com/downloads/connector/python/)。 根據您的平台，依照下列適當小節中的步驟操作。 
+
+> [!NOTE]
+> 本快速入門會使用原始 SQL 查詢方法連線至 MySQL，以執行查詢。 如果您使用 Web 架構，請為這些架構使用建議的連接器。 例如，對於 Django，建議使用 [mysqlclient](https://pypi.org/project/mysqlclient/)。
+>
 
 ### <a name="windows"></a>Windows
 1. 從 [python.org](https://www.python.org/downloads/windows/) 下載並安裝 Python 2.7。 
@@ -56,7 +60,7 @@ ms.locfileid: "35265100"
 
    ```bash
    pip install mysql-connector-python-rf
-   ```
+   ``` 
 
 ## <a name="get-connection-information"></a>取得連線資訊
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
@@ -66,7 +70,6 @@ ms.locfileid: "35265100"
 3. 按一下伺服器名稱。
 4. 從伺服器的 [概觀] 面板，記下 [伺服器名稱] 和 [伺服器管理員登入名稱]。 如果您忘記密碼，您也可以從此面板重設密碼。
  ![Azure Database for MySQL 伺服器名稱](./media/connect-python/1_server-overview-name-login.png)
-   
 
 ## <a name="run-python-code"></a>執行 Python 程式碼
 - 將程式碼貼入文字檔，然後使用 .py 副檔名來將檔案儲存到專案資料夾 (例如 C:\pythonmysql\createtable.py 或 /home/username/pythonmysql/createtable.py)。

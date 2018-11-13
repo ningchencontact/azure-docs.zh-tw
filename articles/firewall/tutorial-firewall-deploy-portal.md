@@ -1,36 +1,38 @@
 ---
-title: 使用 Azure 入口網站部署和設定 Azure 防火牆
+title: 教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站部署及設定 Azure 防火牆。
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 11/6/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238823"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278577"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
-Azure 防火牆有兩種規則類型，可控制輸出存取：
+控制輸出網路存取是整體網路安全性計畫的重要部分。 例如，您可以限制對網站的存取，或限制可存取的輸出 IP 位址和連接埠。
 
-- **應用程式規則**
+要控制從 Azure 子網路的輸出網路存取，使用 Azure 防火牆是可行的方式之一。 透過 Azure 防火牆，您可以設定：
 
-   能夠讓您設定可從子網路存取的完整網域名稱 (FQDN)。 例如，您可允許從您的子網路存取 github.com。
-- **網路規則**
-
-   可讓您設定包含來源位址、通訊協定、目的地連接埠，以及目的地位址的規則。 例如，您可以建立規則，以允許連接埠 53 (DNS) 的流量從子網路流向您 DNS 伺服器的 IP 位址。
+* 應用程式規則，用以定義可從子網路存取的完整網域名稱 (FQDN)。
+* 網路規則，用以定義來源位址、通訊協定、目的地連接埠和目的地位址。
 
 當您將網路流量路由傳送到防火牆作為子網路預設閘道時，網路流量必須遵守設定的防火牆規則。
 
-應用程式和網路規則會儲存在「規則集合」中。 規則集合是一份規則清單，以便共用相同的動作和優先順序。  網路規則集合是一份網路規則清單，而應用程式規則集合是一份應用程式規則清單。
+在本教學課程中，您會建立包含三個子網路的簡易單一 VNet，以進行簡單的部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中，而工作負載伺服器則位於相同區域中的對等互連 VNet 中，當中包含一個或多個子網路。
 
-若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](rule-processing.md)。
+- **AzureFirewallSubnet** - 防火牆位於此子網路中。
+- **Workload-SN** - 工作負載伺服器位於此子網路。 此子網路的網路流量會通過防火牆。
+- **Jump-SN** - 「跳躍」伺服器位於此子網路。 跳躍伺服器具有公用 IP 位址，您可以使用遠端桌面與其連線。 接著，您可以從這裡連線到 (使用其他的遠端桌面) 工作負載伺服器。
+
+![教學課程網路基礎結構](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
 在本教學課程中，您了解如何：
 
@@ -38,29 +40,22 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 > * 設定測試網路環境
 > * 部署防火牆
 > * 建立預設路由
-> * 設定應用程式規則
-> * 設定網路規則
+> * 設定允許存取 github.com 的應用程式
+> * 設定允許存取外部 DNS 伺服器的網路規則
 > * 測試防火牆
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-在本教學課程中，您會建立包含三個子網路的單一 VNet：
-- **FW-SN** - 防火牆位於此子網路。
-- **Workload-SN** - 工作負載伺服器位於此子網路。 此子網路的網路流量會通過防火牆。
-- **Jump-SN** - 「跳躍」伺服器位於此子網路。 跳躍伺服器具有公用 IP 位址，您可以使用遠端桌面與其連線。 接著，您可以從這裡連線到 (使用其他的遠端桌面) 工作負載伺服器。
-
-![教學課程網路基礎結構](media/tutorial-firewall-rules-portal/Tutorial_network.png)
-
-本教學課程會使用簡化的網路組態，讓您能輕鬆部署。 對於生產環境部署，建議您使用[中樞和支點模型](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)，其中防火牆會位於自己的 VNet 中，而工作負載伺服器則位於相同區域中的對等互連 VNet 中，當中包含一個或多個子網路。
-
-## <a name="set-up-the-network-environment"></a>設定網路環境
+## <a name="set-up-the-network"></a>設定網路
 
 首先，請建立資源群組，以包含部署防火牆所需的資源。 接著建立 VNet、子網路，並測試伺服器。
 
 ### <a name="create-a-resource-group"></a>建立資源群組
 
+此資源群組會包含教學課程的所有資源。
+
 1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
-2. 在 Azure 入口網站首頁上，按一下 [資源群組]，然後按一下 [新增]。
+2. 在 Azure 入口網站首頁上，按一下 [資源群組] > [新增]。
 3. 在 [資源群組名稱] 中，鍵入 **Test-FW-RG**。
 4. 在 [訂用帳戶] 中，選取您的訂用帳戶。
 5. 在 [資源群組位置] 中，選取位置。 您所建立的所有後續資源都必須位在相同的位置。
@@ -68,13 +63,15 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 ### <a name="create-a-vnet"></a>建立 VNet
 
+此 VNet 會包含三個子網路。
+
 1. 從 Azure 入口網站首頁，按一下 [所有服務]。
 2. 在 [網路] 底下，按一下 [虛擬網路]。
 3. 按一下 [新增] 。
 4. 在 [名稱] 中，鍵入 **Test-FW-VN**。
 5. 在 [位址空間] 中，鍵入 **10.0.0.0/16**。
 6. 在 [訂用帳戶] 中，選取您的訂用帳戶。
-7. 在 [資源群組] 中，選取 [使用現有的]，然後選取 [Test-FW-RG]。
+7. 針對 [資源群組]，選取 [使用現有的] > [Test-FW-RG]。
 8. 在 [位置] 中，選取您先前使用的相同位置。
 9. 在 [子網路] 底下的 [名稱] 中鍵入 **AzureFirewallSubnet**。 防火牆會在此子網路中，且子網路名稱「必須」是 AzureFirewallSubnet。
 10. 在 [位址範圍] 中，鍵入 **10.0.1.0/24**。
@@ -87,9 +84,9 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 接下來，建立跳躍伺服器的子網路，以及工作負載伺服器的子網路。
 
-1. 在 Azure 入口網站首頁上，按一下 [資源群組]，然後按一下 [Test-FW-RG]。
+1. 在 Azure 入口網站首頁上，按一下 [資源群組] > [Test-FW-RG]。
 2. 按一下 [Test-FW-VN] 虛擬網路。
-3. 按一下 [子網路]，然後按一下 [+子網路]。
+3. 按一下 [子網路] > [+ 子網路]。
 4. 在 [名稱] 中，鍵入 **Workload-SN**。
 5. 在 [位址範圍] 中，鍵入 **10.0.2.0/24**。
 6. 按一下 [確定]。
@@ -102,14 +99,14 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 1. 從 Azure 入口網站首頁，按一下 [所有服務]。
 2. 在 [計算] 底下，按一下 [虛擬機器]。
-3. 按一下 [新增]，然後按一下 [Windows Server]、按一下 [Windows Server 2016 Datacenter]，然後按一下 [建立]。
+3. 按一下 [新增] > [Windows Server] > [Windows Server 2016 Datacenter] > [建立]。
 
 **基本概念**
 
 1. 在 [名稱] 中，鍵入 **myVault**。
 5. 鍵入使用者名稱和密碼。
 6. 在 [訂用帳戶] 中，選取您的訂用帳戶。
-7. 在 [資源群組] 中，按一下 [使用現有的]，然後選取 [Test-FW-RG]。
+7. 針對 [資源群組]，按一下 [使用現有的] > [Test-FW-RG]。
 8. 在 [位置] 中，選取您先前使用的相同位置。
 9. 按一下 [確定]。
 
@@ -143,9 +140,11 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 ## <a name="deploy-the-firewall"></a>部署防火牆
 
+將防火牆部署到 VNet 中。
+
 1. 從入口網站首頁中，按一下 [建立資源]。
 2. 按一下 [網路]，並在 [精選] 後按一下 [查看全部]。
-3. 按一下 [防火牆]，然後按一下 [建立]。 
+3. 按一下 [防火牆] > [建立]。 
 4. 在 [建立防火牆] 頁面上，使用下表來設定防火牆：
    
    |設定  |值  |
@@ -166,7 +165,7 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 
 ## <a name="create-a-default-route"></a>建立預設路由
 
-在 **Workload-SN** 子網路中，您要設定通過防火牆的輸出預設路由。
+在 **Workload-SN** 子網路中，設定通過防火牆的輸出預設路由。
 
 1. 從 Azure 入口網站首頁，按一下 [所有服務]。
 2. 在 [網路] 底下，按一下 [路由表]。
@@ -177,15 +176,12 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 7. 在 [位置] 中，選取您先前使用的相同位置。
 8. 按一下頁面底部的 [新增] 。
 9. 按一下 [重新整理]，然後按一下 **Firewall-route** 路由表。
-10. 按一下 [子網路]，然後按一下 [關聯]。
-11. 按一下 [虛擬網路]，然後選取 [Test-FW-VN]。
-12. 在 [子網路] 中，按一下 [Workload-SN]。
-
-    > [!IMPORTANT]
-    > 請確定您只為此路由選取 **Workload-SN** 子網路，否則您的防火牆無法正常運作。
+10. 按一下 [子網路] > [關聯]。
+11. 按一下 [虛擬網路] > [Test-FW-VN]。
+12. 在 [子網路] 中，按一下 [Workload-SN]。 請確定您只為此路由選取 **Workload-SN** 子網路，否則您的防火牆無法正常運作。
 
 13. 按一下 [確定]。
-14. 按一下 [路由]，然後按一下 [新增]。
+14. 按一下 [路由] > [新增]。
 15. 在 [路由名稱] 中，鍵入 **FW-DG**。
 16. 在 [位址首碼] 中，鍵入 **0.0.0.0/0**。
 17. 在 [下一個躍點類型] 中，選取 [虛擬設備]。
@@ -194,7 +190,9 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 18. 在 [下一個躍點位址] 中，鍵入您先前記下的防火牆私人 IP 位址。
 19. 按一下 [確定]。
 
-## <a name="configure-application-rules"></a>設定應用程式規則
+## <a name="configure-an-application-rule"></a>設定應用程式規則
+
+此應用程式規則允許對 github.com 進行輸出存取。
 
 1. 開啟 **Test-FW-RG**，然後按一下 **Test-FW01** 防火牆。
 2. 在 [Test-FW01] 頁面的 [設定] 底下，按一下 [規則]。
@@ -204,13 +202,15 @@ Azure 防火牆有兩種規則類型，可控制輸出存取：
 6. 在 [動作] 中，選取 [允許]。
 7. 在 [規則] 底下的 [名稱] 中，鍵入 **AllowGH**。
 8. 在 [來源位址] 中，鍵入 **10.0.2.0/24**。
-9. 在 [通訊協定：連接埠] 中，鍵入 **http、https**。 
+9. 在 [通訊協定：連接埠] 中，鍵入 **http、https**。
 10. 在 [目標 FQDN] 中，鍵入 **github.com**
 11. 按一下 [新增] 。
 
 Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎結構 FQDN。 這些 FQDN 特定於平台，且無法用於其他用途。 如需詳細資訊，請參閱[基礎結構 FQDN](infrastructure-fqdns.md)。
 
-## <a name="configure-network-rules"></a>設定網路規則
+## <a name="configure-a-network-rule"></a>設定網路規則
+
+此網路規則允許透過連接埠 53 對兩個 IP 位址進行輸出存取 (DNS)。
 
 1. 按一下 [新增網路規則集合]。
 2. 在 [名稱] 中，鍵入 **Net-Coll01**。
@@ -226,7 +226,7 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>變更 **Srv-Work** 網路介面的主要和次要 DNS 位址
 
-本教學課程中，您可以就測試目的設定主要和次要 DNS 位址。 這不是一般的 Azure 防火牆需求。 
+本教學課程中，您可以就測試目的設定主要和次要 DNS 位址。 這不是一般的 Azure 防火牆需求。
 
 1. 在 Azure 入口網站中，開啟 **Test-FW-RG** 資源群組。
 2. 按一下 **Srv-Work** 虛擬機器的網路介面。
@@ -238,11 +238,13 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 
 ## <a name="test-the-firewall"></a>測試防火牆
 
+現在請測試防火牆，以確認其運作符合預期。
+
 1. 從 Azure 入口網站中，檢閱 **Srv-Work** 虛擬機器的網路設定，並記下私人 IP 位址。
 2. 將遠端桌面連線到 **Srv-Jump** 虛擬機器，並從該處開啟 **Srv-Work** 私人 IP 位址的遠端桌面連線。
 
 5. 開啟 Internet Explorer 並瀏覽至 http://github.com。
-6. 在安全性警示上，按一下 [確定]，然後按一下 [關閉]。
+6. 在安全性警示上按一下 [確定] > [關閉]。
 
    您應該會看到 GitHub 首頁。
 
@@ -260,17 +262,6 @@ Azure 防火牆包含內建的規則集合，適用於依預設允許的基礎�
 您可以保留防火牆資源供下一個教學課程使用，若不再需要，則可刪除 **Test-FW-RG** 資源群組來刪除所有防火牆相關資源。
 
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立防火牆
-> * 建立預設路由
-> * 設定應用程式及網路防火牆規則
-> * 測試防火牆
-
-接下來，您可以監視 Azure 防火牆記錄。
 
 > [!div class="nextstepaction"]
 > [教學課程：監視 Azure 防火牆記錄](./tutorial-diagnostics.md)

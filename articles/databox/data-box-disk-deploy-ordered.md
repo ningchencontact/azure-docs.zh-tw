@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091417"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037938"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>教學課程：訂購 Azure 資料箱磁碟 (預覽)
 
-Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速、簡便而可靠的方式，將內部部署資料匯入 Azure 中。 您可以將資料傳輸至由 Microsoft 提供的固態硬碟 (SSD)，並將磁碟寄回。 這項資料隨後會上傳至 Azure。 
+Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速、簡便而可靠的方式，將內部部署資料匯入 Azure 中。 您可以將資料傳輸至由 Microsoft 提供的固態硬碟 (SSD)，並將磁碟寄回。 這項資料隨後會上傳至 Azure。
 
 本教學課程說明如何訂購 Azure 資料箱磁碟。 在本教學課程中，您會了解：
 
@@ -34,7 +34,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
 > - 資料箱磁碟處於預覽狀態。 部署訂購並部署此解決方案之前，請檢閱 [Azure 預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 > - 在預覽期間，資料箱磁碟可運送給美國、西歐和北歐、加拿大及澳大利亞的客戶。 如需詳細資訊，請移至[區域可用性](data-box-disk-overview.md#region-availability)。
 
-## <a name="sign-up"></a>註冊 
+## <a name="sign-up"></a>註冊
 
 資料箱磁碟處於預覽狀態，您必須註冊以取得服務。 請執行下列步驟以註冊資料箱服務︰
 
@@ -64,7 +64,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
     |目的地 Azure 區域|選取要傳輸資料的 Azure 區域。|
 
   
-5.  選取 [資料箱磁碟]。 在 5 個磁碟的單一訂單中，解決方案的容量上限為 35 TB。 您可以建立多份訂單以訂購更大的資料大小。 
+5.  選取 [資料箱磁碟]。 在 5 個磁碟的單一訂單中，解決方案的容量上限為 35 TB。 您可以建立多份訂單以訂購更大的資料大小。
 
      ![選取 [資料箱磁碟] 選項](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -77,6 +77,7 @@ Azure 資料箱磁碟是一項混合式雲端解決方案，可讓您以快速�
     |目的地 Azure 區域| 選取儲存體帳戶的區域。<br> 目前支援全美國、西歐和北歐、加拿大及澳大利亞地區的儲存體帳戶。 |
     |儲存體帳戶|根據指定的 Azure 區域，從現有儲存體帳戶的篩選清單中進行選取。 <br>您也可以建立新的一般用途 v1 或一般用途 v2 帳戶。 |
     |預估資料大小 (TB)| 輸入以 TB 為單位的估計值。 <br>Microsoft 會根據資料大小為您傳送適當數目的 8 TB SSD (可用容量為 7 TB)。 <br>5 個磁碟的可用容量上限為 35 TB。 |
+    |磁碟通行金鑰| 如果您核取了 [使用自訂金鑰而非 Azure 產生的通行金鑰]，請提供磁碟通行金鑰。 <br> 請提供 12 到 32 個字元的英數字元金鑰，且至少須包含一個數字和一個特殊字元。 允許的特殊字元為 `@?_+`。 <br> 您可以選擇略過此選項並使用 Azure 產生的通行金鑰，將您的磁碟解除鎖定。|
 
 13. 按 [下一步] 。 
 

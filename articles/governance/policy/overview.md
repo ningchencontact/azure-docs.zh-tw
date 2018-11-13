@@ -4,17 +4,17 @@ description: Azure 原則是 Azure 中的一個服務，您可以在 Azure 環�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: dbdffc7a6f77f3f34ce7937c60eb7a53e5f72590
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c016e21ff59d5f68afee79b2159218d10e90a7ec
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961275"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252814"
 ---
 # <a name="what-is-azure-policy"></a>什麼是 Azure 原則？
 
@@ -35,12 +35,14 @@ Azure 原則是 Azure 中的一個服務，您可以用來建立、指派和管�
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Azure 原則中的 RBAC 權限
 
-Azure 原則用權限代表兩個不同資源提供者中的作業：
+Azure 原則在下列兩個資源提供者中有數個權限，一般稱之為作業：
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-有數個內建角色對 Azure 原則資源具有各種層級的權限，例如 [安全性系統管理員]，可以管理原則指派和定義，但無法檢視合規性資訊；以及 [讀取者]，可以讀取有關原則指派和定義的詳細資料，但無法進行變更或檢視合規性資訊。 而 [擁有者] 具有完整權限，但 [參與者] 沒有任何 Azure 原則權限。 若要授與可檢視原則合規性詳細資訊的權限，請建立[自訂角色](../../role-based-access-control/custom-roles.md)。
+許多內建角色都會授與 Azure 原則資源的權限。 **資源原則參與者 (預覽)** 角色包含大部分的原則作業，而**擁有者**則具有完整權限。 **參與者**和**讀取者**可以讀取關於原則的所有詳細資料，但**參與者**也可以觸發修復。
+
+沒有任何內建角色具有所需的權限，請建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
 ## <a name="policy-definition"></a>原則定義
 

@@ -3,24 +3,24 @@ title: 在 Azure IoT Central 中定義新的裝置類型 | Microsoft Docs
 description: 本教學課程將為建置者說明如何在 Azure IoT Central 應用程式中定義新的裝置類型。 您會定義類型的遙測、狀態、屬性和設定。
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156029"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963581"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>教學課程：在 Azure IoT 中心應用程式中定義新的裝置類型
 
 本教學課程將為建置者說明如何使用裝置範本在 Microsoft Azure IoT Central 應用程式中定義新的裝置類型。 裝置範本會定義裝置類型的遙測、狀態、屬性和設定。
 
-為了讓您能夠先測試應用程式再連接實際裝置，Azure IoT Central 會在您建立裝置範本時，從範本產生模擬裝置。
+為了讓您能夠先測試應用程式再連接實際裝置，IoT Central 會在您建立裝置範本時從範本產生模擬裝置。
 
 在本教學課程中，您會建立**連線的空調**裝置範本。 連線的空調裝置：
 
@@ -59,9 +59,9 @@ ms.locfileid: "50156029"
 
 4. 若要建立新的 Azure IoT Central 應用程式：
     
-    * 選擇 [免費]。 7 天免費試用版不需要訂用帳戶。
+    * 選擇 [試用版]。 您不需要 Azure 訂用帳戶即可建立試用版應用程式。
     
-       如需目錄和訂用帳戶的詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
+       如需關於目錄和訂用帳戶的詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
     
     * 選擇 [自訂應用程式]。
     
@@ -69,9 +69,9 @@ ms.locfileid: "50156029"
     
     * 選擇 [建立] 。
 
-    ![Azure IoT Central 的建立應用程式頁面](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Azure IoT Central 的建立應用程式頁面](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    如需詳細資訊，請參閱[如何建立 Azure IoT Central 應用程式](howto-create-application.md)。
+    如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 
 ## <a name="create-a-new-custom-device-template"></a>建立新的自訂裝置範本
 

@@ -2,19 +2,19 @@
 title: 什麼是 Azure HDInsight 中的 Apache Spark
 description: 本文提供 HDInsight 中的 Spark 簡介，以及您可以在 HDInsight 中使用 Spark 叢集的各種案例。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 7bc7c95c0d15e0c33f7f9a705fb47d27f9daacec
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.author: hrasheed
+ms.openlocfilehash: 20d44e05725b034326398c967efbd997433d5200
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378703"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230541"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Spark
 
@@ -55,7 +55,7 @@ HDInsight 中的 Spark 叢集可提供完全受控的 Spark 服務。 以下列�
 * [Jupyter Notebook](https://jupyter.org)
 * [Zeppelin Notebook](http://zeppelin-project.org/)
 
-HDInsight 中的 Spark 叢集也提供 [ODBC 驅動程式](http://go.microsoft.com/fwlink/?LinkId=616229) \(英文\)，讓您能從 BI 工具 (例如 Microsoft Power BI) 連線到 HDInsight 中的 Spark 叢集。
+HDInsight 中的 Spark 叢集也提供 [ODBC 驅動程式](https://go.microsoft.com/fwlink/?LinkId=616229) \(英文\)，讓您能從 BI 工具 (例如 Microsoft Power BI) 連線到 HDInsight 中的 Spark 叢集。
 
 ## <a name="spark-cluster-architecture"></a>Spark 叢集架構
 

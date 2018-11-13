@@ -8,16 +8,16 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 338acd3e26f9b36e5f9afaf90f95f61e7623cebc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426714"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281722"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
-本快速入門說明如何使用 Azure Databricks 執行 Apache Spark 作業，以對 Azure Data Lake Storage Gen2 預覽版中所儲存的資料執行分析。
+本快速入門說明如何使用 Azure Databricks 執行 Apache Spark 作業，以對已啟用 Azure Data Lake Storage Gen2 預覽版的儲存體帳戶所儲存的資料執行分析。
 
 您會透過 Spark 作業分析電台頻道訂閱資料，以根據人口統計資料深入了解免費/付費的使用方式。
 
@@ -25,7 +25,7 @@ ms.locfileid: "49426714"
 
 ## <a name="prerequisites"></a>必要條件
 
-- [建立 Azure Data Lake Storage Gen2 帳戶](quickstart-create-account.md)
+- [建立啟用 Data Lake Storage Gen2 的儲存體帳戶](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>設定儲存體帳戶組態
 
@@ -38,7 +38,7 @@ ms.locfileid: "49426714"
 
 在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [分析] > [Azure Databricks]。 
+1. 在 Azure 入口網站中，選取 [建立資源] > [分析] > [Azure Databricks]。
 
     ![Azure 入口網站上的 Databricks](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Azure 入口網站上的 Databricks")
 
@@ -47,7 +47,7 @@ ms.locfileid: "49426714"
     ![建立 Azure Databricks 工作區](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
     提供下列值：
-     
+
     |屬性  |說明  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
@@ -191,7 +191,7 @@ ms.locfileid: "49426714"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已在 Azure Databricks 建立 Spark 叢集，並於 Data Lake Storage Gen2 中使用資料執行 Spark 作業。 您也可以查看 [Spark 資料來源](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)，以了解如何從其他資料來源將資料匯入到 Azure Databricks。 前往下一篇文章，以了解如何使用 Azure Databricks 執行 ETL 作業 (擷取、轉換及載入資料)。
+在本文中，您已在 Azure Databricks 建立 Spark 叢集，並使用已啟用 Data Lake Storage Gen2 的儲存體帳戶所儲存的資料執行 Spark 作業。 您也可以查看 [Spark 資料來源](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)，以了解如何從其他資料來源將資料匯入到 Azure Databricks。 前往下一篇文章，以了解如何使用 Azure Databricks 執行 ETL 作業 (擷取、轉換及載入資料)。
 
 > [!div class="nextstepaction"]
 >[使用 Azure Databrick 擷取、轉換和載入資料](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

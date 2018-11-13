@@ -1,31 +1,37 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 Windows 上根據 .NET Framework 以 C# 辨識語音
+title: 快速入門：辨識和轉譯語音，.NET Framework (Windows) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音服務 SDK 在 Windows 上根據 .NET Framework 以 C# 辨識語音
+description: 您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 06d4a41a4a67d077f8d79eee68938dff65adf0e8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468512"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281287"
 ---
-# <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上根據 .NET Framework 以 C# 辨識語音
+# <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>快速入門：使用語音 SDK 和 .NET Framework (Windows) 來辨識和轉譯語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-在本文中，您會使用[語音 SDK](speech-sdk.md)，在 Windows 上建立適用於 .NET Framework 的 C# 主控台應用程式。 您從電腦的麥克風即時將語音轉譯為文字。 應用程式是利用[語音 SDK NuGet 套件](https://aka.ms/csspeech/nuget)與 Microsoft Visual Studio 2017 (任何版本) 所建置的。
+您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
+
+本快速入門需要已啟用 Microsoft 語音的 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您還沒有帳戶，可以使用[免費試用](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要語音服務訂用帳戶金鑰，才能完成本快速入門。 您可以免費取得一個金鑰。 如需詳細資訊，請參閱[免費試用語音服務](get-started.md)。
+若要完成此專案，您需要：
+
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* 語音服務的訂用帳戶金鑰
+* 能夠存取電腦的麥克風
 
 ## <a name="create-a-visual-studio-project"></a>建立 Visual Studio 專案
 
@@ -33,32 +39,32 @@ ms.locfileid: "49468512"
 
 ## <a name="add-sample-code"></a>新增範例程式碼
 
-1. 開啟 `Program.cs` 並將其中的所有程式碼取代為下列程式碼。
+1. 開啟 `Program.cs`，並將自動產生的程式碼取代下列範例：
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. 在相同檔案中，以您的語音服務訂用帳戶金鑰取代 `YourSubscriptionKey` 字串。
+1. 找出字串 `YourSubscriptionKey` 並將其取代為您的語音服務訂用帳戶金鑰。
 
-1. 同時以與您的訂用帳戶 (例如，免費試用訂用帳戶的 `westus`) 相關聯的[區域](regions.md)取代 `YourServiceRegion` 字串。
+1. 找出字串 `YourServiceRegion` 並將其取代為與您的訂用帳戶相關聯的[區域](regions.md)。 例如，如果您使用的是免費試用版，區域將是 `westus`。
 
 1. 儲存專案的變更。
 
 ## <a name="build-and-run-the-app"></a>建置並執行應用程式
 
-1. 建置應用程式。 從功能表列中，選取 [建置]  >  [建置解決方案]。 現在會編譯程式碼，而且不會出現任何錯誤。
+1. 從功能表列中，選取 [建置]  >  [建置解決方案]。 現在會編譯程式碼，而且不會出現任何錯誤。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [建置解決方案] 選項已醒目提示](media/sdk/qs-csharp-dotnet-windows-08-build.png "成功建置")
 
-1. 啟動應用程式。 從功能表列中，選取 [偵錯]  >  [開始偵錯]，或按 **F5**。
+1. 從功能表列中選取 [偵錯] > [開始偵錯]，或按 **F5** 以啟動應用程式。
 
     ![Visual Studio 應用程式的螢幕擷取畫面，其中 [開始偵錯] 選項已醒目提示](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "啟動應用程式並進行偵錯")
 
-1. 一個主控台視窗隨即顯示，提示您說話。 請說英文片語或句子。 您的語音會傳送到語音服務，並且轉譯為文字，該文字會出現在相同視窗中。
+1. 此時會出現一個主控台視窗，提示您開始說話。 現在，請說一些英文。 您的語音會傳送到語音服務，並即時轉譯為文字。 結果會印出到主控台。
 
     ![成功辨識後主控台輸出的螢幕擷取畫面](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "成功辨識後的主控台輸出")
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-在 `quickstart/csharp-dotnet-windows` 資料夾中尋找此範例。
+此程式碼可從 `quickstart/csharp-dotnet-windows` 資料夾中取得。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,6 @@
 ---
 title: 快速入門：建立適用於 MySQL 的 Azure 資料庫伺服器 - Azure 入口網站
-description: 此文章逐步引導您使用 Azure 入口網站在五分鐘內快速建立範例 Azure Database for MySQL 伺服器。
+description: 本文逐步引導您使用 Azure 入口網站在五分鐘內快速建立範例 Azure Database for MySQL 伺服器。
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
-ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/01/2018
+ms.openlocfilehash: b413636f173a682ed74bf92688126d33d429839e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407616"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959217"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>使用 Azure 入口網站建立 Azure Database for MySQL 伺服器
 
-適用於 MySQL 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 此快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立適用於 MySQL 的 Azure 資料庫伺服器。  
+適用於 MySQL 的 Azure 資料庫是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 本快速入門說明如何使用 Azure 入口網站，在大約五分鐘內建立適用於 MySQL 的 Azure 資料庫伺服器。  
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費 Azure 帳戶](https://azure.microsoft.com/free/)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "47407616"
     定價層 | **一般用途**、**Gen 4**、**2 個虛擬核心**、**5GB**、**7 天**、**異地備援** | 新伺服器的計算、儲存體和備份組態。 選取 [定價層]。 接下來，選取 [一般用途] 索引標籤。Gen 4、2 個虛擬核心、5 GB 和 7 天是**計算世代**、**虛擬核心**、**儲存體**和**備份保留期限**。 您可以讓這些滑桿保留原狀。 若要啟用異地備援儲存體中的伺服器備份，請從 [備份備援選項] 中選取 [異地備援]。 若要儲存此定價層選取項目，請選取 [確定]。 下方螢幕擷取畫面會擷取這些選取項目。
   
     > [!IMPORTANT]
-    > 需要伺服器系統管理員登入以及您在此處指定的密碼，稍後才能在此快速入門中登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
+    > 需要伺服器系統管理員登入以及您在此處指定的密碼，稍後才能在本快速入門中登入伺服器及其資料庫。 請記住或記錄此資訊，以供稍後使用。
     > 
 
    ![建立伺服器 - 定價層視窗](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
@@ -98,20 +98,9 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
 在此範例中，伺服器名稱為 **mydemoserver.mysql.database.azure.com**，而伺服器管理員登入為 **myadmin@mydemoserver**。
 
 ## <a name="connect-to-mysql-by-using-the-mysql-command-line-tool"></a>使用 mysql 命令列工具連線到 MySQL
-您可以使用一些應用程式來連線到您的 Azure Database for MySQL 伺服器。 
+使用 **mysql.exe** 命令列工具連線到伺服器。 您可以從[這裡](https://dev.mysql.com/downloads/)下載 MySQL，再將它安裝於電腦上。 
 
-我們將使用 [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 命令列工具來說明如何連線到該伺服器。 您也可以如這裡所述使用網頁瀏覽器和 Azure Cloud Shell，而不需安裝其他軟體。 如果您已在本機安裝 mysql 公用程式，您也可以從該處進行連線。
-
-1. 透過 Azure 入口網站右上方的終端機圖示 (**>_**) 啟動 Azure Cloud Shell。
-![Azure Cloud Shell 終端符號](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell 會在您的瀏覽器中開啟，您可以在其中鍵入 bash shell 命令。
-
-   ![命令提示字元 -- mysql 命令列範例](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. 在 Cloud Shell 提示字元，輸入 mysql 命令列來連線到 Azure Database for MySQL 伺服器。
-
-    若要利用 mysql 公用程式連線到 Azure Database for MySQL 伺服器，請使用下列格式：
+1. 若要利用 mysql 公用程式連線到 Azure Database for MySQL 伺服器，請使用下列格式：
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -119,7 +108,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
 
     例如，下列命令會連線至我們的範例伺服器：
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -129,7 +118,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     --user | 伺服器管理員登入名稱 |您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入使用者名稱。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。
     -p | 等到出現提示為止 |出現提示時，提供您在建立伺服器時所提供的相同密碼。 請注意，輸入的密碼字元不會顯示在 bash 提示字元上。 您已輸入密碼之後，請選取 **Enter**。
 
-   連線之後，mysql 公用程式會顯示 `mysql>` 提示字元，供您輸入命令。 
+   連線之後，mysql 公用程式會顯示 `mysql>` 提示字元，供您鍵入命令。 
 
    以下是範例 mysql 輸出：
 
@@ -149,13 +138,13 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     mysql>
     ```
     > [!TIP]
-    > 如果未將防火牆設定為允許 Azure Cloud Shell 的 IP 位址，就會發生下列錯誤：
+    > 如果未將防火牆設定為允許用戶端的 IP 位址，就會發生下列錯誤：
     >
     > ERROR 2003 (28000)：不允許 IP 位址為 123.456.789.0 的用戶端存取伺服器。
     >
-    > 若要解決此錯誤，請確定伺服器組態符合此文章「設定伺服器層級防火牆規則」一節中的步驟。
+    > 若要解決此錯誤，請確定伺服器組態符合本文「設定伺服器層級防火牆規則」一節中的步驟。
 
-4. 若要確保連線可運作，請在 mysql > 提示字元輸入 `status`，以檢視伺服器狀態。
+4. 若要確保連線可運作，請在 mysql > 提示字元鍵入 `status`，以檢視伺服器狀態。
 
     ```sql
     status
@@ -178,7 +167,7 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
     SHOW DATABASES;
     ```
 
-7.  輸入 `\q`，然後選取 **Enter** 結束 mysql 工具。 您可以在完成後關閉 Azure Cloud Shell。
+7.  鍵入 `\q`，然後選取 **Enter** 結束 mysql 工具。 
 
 現在您已連線到 Azure Database for MySQL 伺服器，並已建立空白的使用者資料庫。 繼續下一節，進行類似的練習。 下一個練習會使用其他常見工具 (MySQL Workbench) 連線到相同的伺服器。
 
@@ -198,20 +187,20 @@ Azure Database for MySQL 服務會在伺服器層級建立防火牆。 它會防
      連接名稱 | 示範連線 | 此連線的標籤。 |
     連線方式 | 標準 (TCP/IP) | 標準 (TCP/IP) 就足夠了。 |
     主機名稱 | *伺服器名稱* | 您稍早建立 Azure Database for MySQL 伺服器時所用的伺服器名稱值。 範例伺服器是 **mydemoserver.mysql.database.azure.com**。 使用如範例所示的完整網域名稱 (**\*.mysql.database.azure.com**)。 如果您不記得您的伺服器名稱，請依照上一節中的步驟執行，以取得連線資訊。|
-     連接埠 | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
+     Port | 3306 | 連線至 Azure Database for MySQL 伺服器時所要使用的連接埠。 |
     使用者名稱 |  伺服器管理員登入名稱 | 您稍早建立 Azure Database for MySQL 時所提供的伺服器管理員登入資訊。 我們的範例使用者名稱為 **myadmin@mydemoserver**。 如果您不記得使用者名稱，請依照上一節中的步驟執行，以取得連線資訊。 格式為 *username@servername*。
     密碼 | *您的密碼* | 選取 [儲存在保存庫...] 按鈕以儲存密碼。 |
 
 4. 選取 [測試連線] 以測試所有參數是否都已設定正確。 然後選取 [確定] 可儲存連線。 
 
     > [!NOTE]
-    > 預設會在您的伺服器上強制執行 SSL，該伺服器需要額外的設定才能連線成功。 如需詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。 若要在此快速入門中停用 SSL，請前往 Azure 入口網站。 然後選取 [連線安全性] 頁面，以停用 [強制 SSL] 連線切換按鈕。
+    > 預設會在您的伺服器上強制執行 SSL，該伺服器需要額外的設定才能連線成功。 如需詳細資訊，請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。 若要在本快速入門中停用 SSL，請前往 Azure 入口網站。 然後選取 [連線安全性] 頁面，以停用 [強制 SSL] 連線切換按鈕。
 
 ## <a name="clean-up-resources"></a>清除資源
-您有兩種方式可以清除您在此快速入門中建立的資源。 您可以刪除 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，其中包括資源群組中的所有資源。 如果您想要讓其他資源保持不變，只要刪除一個伺服器資源。
+您有兩種方式可以清除您在本快速入門中建立的資源。 您可以刪除 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)，其中包括資源群組中的所有資源。 如果您想要讓其他資源保持不變，只要刪除一個伺服器資源。
 
 > [!TIP]
-> 此集合中的其他快速入門會以此快速入門為基礎。 如果您打算繼續進行快速入門，請勿清除您在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，刪除您在此快速入門中建立的所有資源。
+> 此集合中的其他快速入門會以本快速入門為基礎。 如果您打算繼續進行快速入門，請勿清除您在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，刪除您在本快速入門中建立的所有資源。
 >
 
 若要刪除整個資源群組 (包括新建立的伺服器)，請採取下列步驟：

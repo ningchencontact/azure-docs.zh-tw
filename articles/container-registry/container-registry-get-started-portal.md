@@ -2,19 +2,18 @@
 title: 快速入門 - 使用 Azure 入口網站在 Azure 中建立私用的 Docker 登錄
 description: 快速了解如何使用 Azure 入口網站建立私用的 Docker 容器登錄。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
-ms.author: marsma
+ms.date: 11/06/2018
+ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 55da52e0d314c353c669c56ad918c4dd6bef44c3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1e039c465bf37e0ee5ca1db5837798680e27463d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169800"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278662"
 ---
 # <a name="quickstart-create-a-container-registry-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立容器登錄
 
@@ -28,11 +27,11 @@ Azure Container Registry 是 Azure 中的私人 Docker 登錄，您可以在其�
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-選取 [建立資源] > [容器] > [Azure Container Registry]。
+選取 [建立資源] > [容器] > [容器登錄]。
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-01]
 
-輸入 [登錄名稱] 和 [資源群組] 的值。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 建立名為 `myResourceGroup` 的新資源群組，[SKU] 請選取 [基本]。 選取 [建立] 以部署 ACR 執行個體。
+輸入 [登錄名稱] 和 [資源群組] 的值。 登錄名稱在 Azure 內必須是唯一的，且包含 5-50 個英數字元。 在此快速入門中，請在 `West US` 位置中建立名為 `myResourceGroup` 的新資源群組，並選取 [基本] 作為 [SKU]。 選取 [建立] 以部署 ACR 執行個體。
 
 ![在 Azure 入口網站中建立容器登錄][qs-portal-03]
 
@@ -72,29 +71,29 @@ docker login --username <username> --password <password> <login server>
 docker pull microsoft/aci-helloworld
 ```
 
-在將映像推送至您的登錄之前，必須使用 ACR 登入伺服器名稱來標記映像。 使用 [docker tag][docker-tag] 命令來標記映像。 將登入伺服器取代為您先前記錄的登入伺服器名稱。
+在將映像推送至您的登錄之前，必須使用 ACR 登入伺服器名稱來標記映像。 使用 [docker tag][docker-tag] 命令來標記映像。 將登入伺服器取代為您先前記錄的登入伺服器名稱。 新增*存放庫名稱* (例如 **`myrepo`**)，將您的映像放入存放庫中。
 
 ```bash
-docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
+docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-最後，使用 [docker push][docker-push] 將映像推送到 ACR 執行個體。 將登入伺服器取代為 ACR 執行個體的登入伺服器名稱。
+最後，使用 [docker push][docker-push] 將映像推送到 ACR 執行個體。 請將登入伺服器取代為您 ACR 執行個體的登入伺服器名稱，並將存放庫名稱取代為您在先前的命令中使用的存放庫名稱。
 
 ```bash
-docker push <login server>/aci-helloworld:v1
+docker push <login server>/<repository name>/aci-helloworld:v1
 ```
 
 成功 `docker push` 命令的輸出類似於：
 
 ```
-The push refers to a repository [uniqueregistryname.azurecr.io/aci-helloworld]
-7c701b1aeecd: Pushed
-c4332f071aa2: Pushed
-0607e25cc175: Pushed
+The push refers to repository [specificregistryname.azurecr.io/myrepo/aci-helloworld]
+31ba1ebd9cf5: Pushed
+cd07853fe8be: Pushed
+73f25249687f: Pushed
 d8fbd47558a8: Pushed
 44ab46125c35: Pushed
 5bef08742407: Pushed
-v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c62ba size: 1577
+v1: digest: sha256:565dba8ce20ca1a311c2d9485089d7ddc935dd50140510050345a1b0ea4ffa6e size: 1576
 ```
 
 ## <a name="list-container-images"></a>列出容器映像
@@ -115,7 +114,7 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 ![啟動 ACI 操作功能表][qs-portal-11]
 
-填入 [容器名稱]，確定已選取正確的訂用帳戶，選取現有的 [資源群組] "myResourceGroup"，然後按一下 [確定] 以啟動 Azure容器執行個體。
+填入 [容器名稱]，確定已選取正確的訂用帳戶，選取現有的 [資源群組]："myResourceGroup"。 請確定 [公用 IP 位址] 選項已設為 [是] 而啟用，然後按一下 [確定] 以啟動 Azure 容器執行個體。
 
 ![啟動 ACI 部署選項][qs-portal-12]
 
@@ -137,7 +136,7 @@ v1: digest: sha256:f2867748615cc327d31c68b1172cc03c0544432717c4d2ba2c1c2d34b18c6
 
 若要清除資源，請在入口網站中瀏覽至 **myResourceGroup** 資源群組。 載入資源群組後，請按一下 [刪除資源群組] 來移除資源群組、Azure Container Registry 及所有的 Azure 容器執行個體。
 
-![在 Azure 入口網站中建立容器登錄][qs-portal-08]
+![在 Azure 入口網站中刪除資源群組][qs-portal-08]
 
 ## <a name="next-steps"></a>後續步驟
 

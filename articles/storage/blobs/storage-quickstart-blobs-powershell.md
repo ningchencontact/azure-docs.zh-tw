@@ -6,18 +6,18 @@ author: roygara
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 10/23/2018
 ms.author: rogarana
-ms.openlocfilehash: b482379c05133dcf58e54bd01f38f0c3cee95e8d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 89beae63564c9a3f80b92b8a496a452114304718
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398588"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963696"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 上傳、下載及列出 Blob
+# <a name="quickstart-upload-download-and-list-blobs-by-using-azure-powershell"></a>快速入門：使用 Azure PowerShell 上傳、下載及列出 Blob
 
-Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本指南詳細說明如何使用 PowerShell 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。
+使用Azure PowerShell 模組建立及管理 Azure 資源。 您可以從 PowerShell 命令列或在指令碼中建立和管理 Azure 資源。 本指南說明如何使用 PowerShell 在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -27,9 +27,9 @@ Azure PowerShell 模組用於從 PowerShell 命令列或在指令碼中建立和
 
 ## <a name="create-a-container"></a>建立容器
 
-Blob 一律會上傳到容器中。 您可以組織 Blob 群組，方式如同在電腦的資料夾中組織檔案。
+Blob 一律會上傳到容器中。 您可以組織 Blob 群組，如同在電腦的資料夾中組織檔案一般。
 
-設定容器名稱，然後使用 [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) 建立容器，並將權限設定為 'blob' 以允許檔案的公用存取。 此範例中的容器名稱是 *quickstartblobs*。
+設定容器名稱，然後使用 [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) 建立容器。 請設定 `blob` 的權限，以允許檔案的公用存取。 此範例中的容器名稱是 *quickstartblobs*。
 
 ```powershell
 $containerName = "quickstartblobs"
@@ -38,11 +38,11 @@ New-AzureStorageContainer -Name $containerName -Context $ctx -Permission blob
 
 ## <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
-Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 IaaS VM 的 VHD 檔案是分頁 Blob。 附加 Blob 用於記錄，例如當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分檔案都是區塊 Blob。 
+Blob 儲存體支援區塊 Blob、附加 Blob 和分頁 Blob。 用來備份 IaaS VM 的 VHD 檔案是分頁 Blob。 附加 Blob 可用於記錄，例如，當您想要寫入檔案，並繼續新增更多資訊時。 儲存在 Blob 儲存體中的大部分檔案都是區塊 Blob。 
 
-若要將檔案上傳至區塊 Blob，請取得容器參考，然後取得該容器中區塊 Blob 的參考。 取得 Blob 參考之後，即可使用 [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) 將資料上傳給它。 如果沒有 Blob，此作業會建立 Blob，如已存在，則予以覆寫。
+若要將檔案上傳至區塊 Blob，請取得容器參考，然後取得該容器中區塊 Blob 的參考。 取得 Blob 參考之後，即可使用 [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent) 將資料上傳至 blob。 如果 Blob 不存在，此作業會予以建立，若已存在，則加以覆寫。
 
-下列範例會將本機磁碟上 D:\\_TestImages 資料夾中的 Image001.jpg 和 Image002.png 上傳至您所建立的容器。
+下列範例會將本機磁碟上 *D:\\_TestImages* 資料夾中的 *Image001.jpg* 和 *Image002.png* 上傳至您所建立的容器。
 
 ```powershell
 # upload a file
@@ -70,9 +70,9 @@ Get-AzureStorageBlob -Container $ContainerName -Context $ctx | select Name
 
 ## <a name="download-blobs"></a>下載 Blob
 
-將 blob 下載到本機磁碟。 若要下載每個 Blob，請設定名稱並呼叫 [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) 以下載 Blob。
+將 blob 下載到本機磁碟。 對於您要下載每個 Blob，請設定名稱並呼叫 [Get-AzureStorageBlobContent](/powershell/module/azure.storage/get-azurestorageblobcontent) 以下載 Blob。
 
-此範例會將 Blob 下載到本機磁碟上的 D:\\_TestImages\Downloads。 
+此範例會將 Blob 下載到本機磁碟上的 *D:\\_TestImages\Downloads*。 
 
 ```powershell
 # download first blob
@@ -90,9 +90,9 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>使用 AzCopy 進行資料轉送
 
-[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料轉送的另一個選項。 您可以使用 AzCopy 在 Blob、檔案和表格儲存體之間傳輸資料。
+[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 公用程式是適用於 Azure 儲存體的高效能可編寫指令碼資料轉送的另一個選項。 請使用 AzCopy 在 Blob、檔案和表格儲存體之間傳輸資料。
 
-這裡提供一個快速範例，從 PowerShell 視窗利用 AzCopy 命令將稱為 *myfile.txt* 的檔案上傳至 *mystoragecontainer* 容器。
+這裡提供一個快速範例：從 PowerShell 視窗利用 AzCopy 命令將名為 *myfile.txt* 的檔案上傳至 *mystoragecontainer* 容器。
 
 ```PowerShell
 ./AzCopy `
@@ -104,7 +104,7 @@ Get-AzureStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="clean-up-resources"></a>清除資源
 
-移除您已建立的所有資產。 最簡單的做法是刪除資源群組。 這會同時刪除群組內含的所有資源。 在本例中，它會移除儲存體帳戶和資源群組本身。
+移除您已建立的所有資產。 要移除資產，最簡單的方法是刪除資源群組。 移除資源群組時也會刪除群組內包含的所有資源。 在下列範例中，移除資源群組時也會移除儲存體帳戶和資源群組本身。
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -112,7 +112,7 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已了解如何在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解如何透過 PowerShell 使用 Blob 儲存體，請繼續參閱「如何搭配使用 Azure PowerShell 與 Azure 儲存體」。
+在本快速入門中，您已在本機磁碟和 Azure Blob 儲存體之間傳輸檔案。 若要深入了解如何透過 PowerShell 使用 Blob 儲存體，請繼續參閱「如何搭配使用 Azure PowerShell 與 Azure 儲存體」。
 
 > [!div class="nextstepaction"]
 > [搭配使用 Azure PowerShell 與 Azure 儲存體](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

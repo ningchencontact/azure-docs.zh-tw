@@ -1,57 +1,52 @@
 ---
-title: 教學課程：使用適用於 Python 的自訂視覺 SDK 建立物件偵測專案 - 自訂視覺服務
+title: 快速入門：使用適用於 Python 的自訂視覺 SDK 建立物件偵測專案
 titlesuffix: Azure Cognitive Services
-description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，並使用 Python SDK 來偵測物件。
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 05/03/2018
+ms.topic: quickstart
+ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 35548284302dead41df1a4b9bf6218d842214e11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958528"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278747"
 ---
-# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>教學課程：使用適用於 Python 的自訂視覺 SDK 建立物件偵測專案
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>快速入門：使用自訂視覺 Python SDK 建立物件偵測專案
 
-探索使用電腦視覺 API 來建立物件偵測專案的基本 Python 指令碼。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
+本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Python 來建置物件偵測模型。 建立它之後，您就可以新增標記的區域、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Python 應用程式。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用教學課程，您需要執行下列動作：
+- [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 工具
 
-- 安裝 Python 2.7+ 或 Python 3.5+。
-- 安裝 pip。
+## <a name="install-the-custom-vision-sdk"></a>安裝自訂視覺 SDK
 
-### <a name="platform-requirements"></a>平台需求
-這個範例專為 Python 而開發。
+若要安裝適用於 Python 的自訂視覺服務 SDK，請在 PowerShell 中執行下列命令：
 
-### <a name="get-the-custom-vision-sdk"></a>取得自訂視覺 SDK
-
-若要建置此範例，您需要安裝適用於自訂視覺 API 的 Python SDK：
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
 您可以隨著 [Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)下載影像。
 
-## <a name="step-1-get-the-training-and-prediction-keys"></a>步驟 1：取得定型和預測金鑰
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-若要取得此範例中所使用的金鑰，請瀏覽[自訂視覺網站](https://customvision.ai) \(英文\)，然後選取右上方的__齒輪圖示__。 在 [帳戶] 區段中，複製 [定型金鑰] 和 [預測金鑰] 欄位的值。
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-![金鑰 UI 的影像](./media/python-tutorial/training-prediction-keys.png)
+## <a name="add-the-code"></a>新增程式碼
 
-這個範例使用來自[此位置](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images)的影像。
+在您偏好的專案目錄中建立名為 sample.py 的新檔案。
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>步驟 2：建立自訂視覺服務專案
+### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-若要建立新的自訂視覺服務專案，請建立 sample.py 指令碼檔案，然後新增下列內容。 請注意，建立物件偵測和影像分類專案之間的差異，就是指定給 create_project 呼叫的網域。
+在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。 請注意，建立物件偵測和影像分類專案之間的差異，就是在 **create_project** 呼叫中指定的網域。
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -71,9 +66,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-## <a name="step-3-add-tags-to-your-project"></a>步驟 3：將標籤新增到專案
+### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-若要將標籤新增到專案，請插入下列程式碼以建立兩個標籤：
+若要在專案中建立分類標記，請在 sample.py 結尾新增以下程式碼：
 
 ```Python
 # Make two tags in the new project
@@ -81,14 +76,13 @@ fork_tag = trainer.create_tag(project.id, "fork")
 scissors_tag = trainer.create_tag(project.id, "scissors")
 ```
 
-## <a name="step-4-upload-images-to-the-project"></a>步驟 4：將影像上傳到專案
+### <a name="upload-and-tag-images"></a>上傳和標記影像
 
-針對物件偵測專案，您必須上傳影像、區域及標籤。 區域以標準化座標表示，並指定所標記物件的位置。
+為物件偵測專案中的影像加上標記時，您必須使用標準化座標來識別每個加上標記的物件所屬的區域。
 
-若要將影像、區域及標籤新增到專案，請在標籤建立之後，插入下列程式碼。 請注意，本教學課程中的區域是以硬式編碼內嵌於程式碼中。 區域會以標準化座標方式指定週框方塊。
+若要將影像、標記和區域新增至專案，請在標記建立之後插入下列程式碼。 請注意，本教學課程中的區域是以硬式編碼內嵌於程式碼中。 這些區域會在標準化座標中指定週框方塊，且座標會以下列順序指定：左、上、寬度、高度。
 
 ```Python
-
 fork_image_regions = {
     "fork_1": [ 0.145833328, 0.3509314, 0.5894608, 0.238562092 ],
     "fork_2": [ 0.294117659, 0.216944471, 0.534313738, 0.5980392 ],
@@ -134,7 +128,10 @@ scissors_image_regions = {
     "scissors_19": [ 0.333333343, 0.0274019931, 0.443627447, 0.852941155 ],
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
+```
+然後，使用此關聯對應，上傳每個範例影像及其區域座標。 新增下列程式碼。
 
+```Python
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -157,12 +154,9 @@ for file_name in scissors_image_regions.keys():
 trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
 ```
 
-## <a name="step-5-train-the-project"></a>步驟 5：為專案定型
+### <a name="train-the-project"></a>為專案定型
 
-將標籤與影像新增至專案之後，接著就可以將它定型： 
-
-1. 插入下列程式碼。 這會建立專案中的第一個反覆項目。 
-2. 將此反覆項目標示為預設的反覆項目。
+此程式碼會在專案中建立第一個反覆項目，並將其設定為預設反覆項目。 預設反覆項目會反映將會回應預測要求的模型版本。 每次重新定型模型時，均應更新此反覆項目。
 
 ```Python
 import time
@@ -179,12 +173,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>步驟 6：取得並使用預設預測端點
+### <a name="get-and-use-the-default-prediction-endpoint"></a>取得並使用預設預測端點
 
-您現在可以使用模型進行預測： 
-
-1. 取得與預設反覆項目相關聯的端點。 
-2. 使用該端點，將測試影像傳送到專案。
+若要將影像傳送到預測端點並擷取預測，在檔案結尾處新增以下程式碼：
 
 ```Python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -203,10 +194,21 @@ for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
 ```
 
-## <a name="step-7-run-the-example"></a>步驟 7：執行範例
+## <a name="run-the-application"></a>執行應用程式
 
-執行方案。 預測結果會出現在主控台上。
+執行 sample.py。
 
-```
+```PowerShell
 python sample.py
 ```
+
+應用程式的輸出應會顯示在主控台中。 接著，您可以確認測試影像 (位於 **samples/vision/images/Test** 中) 是否已正確加上標記，以及偵測的區域是否正確。
+
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
+
+## <a name="next-steps"></a>後續步驟
+
+現在，您已了解如何在程式碼中完成物件偵測程序的每個步驟。 此範例會執行單一的訓練反覆項目，但您通常必須對模型進行多次訓練和測試，以便提升其精確度。 下列指南會處理影像分類，但其原則類似於物件偵測。
+
+> [!div class="nextstepaction"]
+> [測試和重新定型模型](test-your-model.md)

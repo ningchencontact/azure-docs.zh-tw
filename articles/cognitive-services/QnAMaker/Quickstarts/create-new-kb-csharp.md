@@ -1,36 +1,38 @@
 ---
 title: 快速入門：建立知識庫 - REST、C# - QnA Maker
 titlesuffix: Azure Cognitive Services
-description: 這個以 REST 為基礎的快速入門會逐步引導您以程式設計方式建立範例 QnA Maker 知識庫，且該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
+description: 這個以 C# REST 為基礎的快速入門會逐步引導您以程式設計方式建立範例 QnA Maker 知識庫，且該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/6/2018
 ms.author: diberry
-ms.openlocfilehash: e1456cb0e7b7662cd460e51af3456fc496502798
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d9040965a0cfaf022bf4cc582cb2aeaa34d04849
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645027"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252440"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-c"></a>快速入門：使用 C# 在 QnA Maker 中建立知識庫
 
-本快速入門會逐步引導您以程式設計方式建立 QnA Maker 知識庫範例。 QnA Maker 會從[資料來源](../Concepts/data-sources-supported.md)中的半結構化內容 (如常見問題集) 自動擷取問題和答案。 知識庫的模型是在 JSON (在 API 要求的本體中傳送) 中定義的。 
+本快速入門會逐步引導您以程式設計方式建立及發佈範例 QnA Maker 知識庫。 QnA Maker 會從[資料來源](../Concepts/data-sources-supported.md)中的半結構化內容 (如常見問題集) 自動擷取問題和答案。 知識庫的模型是在 JSON (在 API 要求的本體中傳送) 中定義的。 
 
 本快速入門會呼叫 QnA Maker API：
 * [建立 KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [取得作業詳細資料](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>必要條件
 
 * 最新 [**Visual Studio Community 版本**](https://www.visualstudio.com/downloads/)。
 * 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+> [!NOTE] 
+> 從 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/create-and-publish-knowledge-base)可取得完整的解決方案檔案。
 
 ## <a name="create-a-knowledge-base-project"></a>建立知識庫專案
 
@@ -38,80 +40,34 @@ ms.locfileid: "49645027"
 
 ## <a name="add-the-required-dependencies"></a>新增必要的相依性
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-dependencies.md)]  
+在 Program.cs 的頂端，以下列幾行取代單一 using 陳述式，以將必要的相依性新增至專案：
+
+[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=1-11 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>新增必要的常數
 
-[!INCLUDE [Add required constants to code file](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-required-constants.md)] 
+在 Program 類別的頂端，新增下列常數以存取 QnA Maker：
+
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=17-24 "Add the required constants")]
 
 ## <a name="add-the-kb-definition"></a>新增 KB 定義
 
 在常數後面新增下列 KB 定義：
 
-```csharp
-static string kb = @"
-{
-  'name': 'QnA Maker FAQ from quickstart',
-  'qnaList': [
-    {
-      'id': 0,
-      'answer': 'You can use our REST APIs to manage your knowledge base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa',
-      'source': 'Custom Editorial',
-      'questions': [
-        'How do I programmatically update my knowledge base?'
-      ],
-      'metadata': [
-        {
-          'name': 'category',
-          'value': 'api'
-        }
-      ]
-    }
-  ],
-  'urls': [
-    'https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs',
-    'https://docs.microsoft.com/bot-framework/resources-bot-framework-faq'
-  ],
-  'files': []
-}
-";
-```
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=32-57 "Add the required constants")]
 
 ## <a name="add-supporting-functions-and-structures"></a>新增支援的函式和結構
+在程式類別內新增下列程式碼區塊：
 
-[!INCLUDE [Add supporting functions and structures](../../../../includes/cognitive-services-qnamaker-quickstart-csharp-support-functions.md)] 
+[!code-csharp[Add supporting functions and structures](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=62-82 "Add supporting functions and structures")]
 
 ## <a name="add-a-post-request-to-create-kb"></a>新增 POST 要求來建立 KB
 
 下列程式碼會對 QnA Maker API 提出 HTTPS 要求，以建立 KB 並接收回應：
 
-```csharp
-async static Task<Response> PostCreateKB(string kb)
-{
-    // Builds the HTTP request URI.
-    string uri = host + service + method;
+[!code-csharp[Add a POST request to create KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=91-105 "Add a POST request to create KB")]
 
-    // Writes the HTTP request URI to the console, for display purposes.
-    Console.WriteLine("Calling " + uri + ".");
-
-    // Asynchronously invokes the Post(string, string) method, using the
-    // HTTP request URI and the specified data source.
-    using (var client = new HttpClient())
-    using (var request = new HttpRequestMessage())
-    {
-        request.Method = HttpMethod.Post;
-        request.RequestUri = new Uri(uri);
-        request.Content = new StringContent(kb, Encoding.UTF8, "application/json");
-        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-        var response = await client.SendAsync(request);
-        var responseBody = await response.Content.ReadAsStringAsync();
-        return new Response(response.Headers, responseBody);
-    }
-}
-```
-
-此 API 呼叫會傳回包含作業識別碼的 JSON 回應。 使用作業識別碼來判斷是否已成功建立 KB。 
+此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置] 的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 
 
 ```JSON
 {
@@ -127,30 +83,7 @@ async static Task<Response> PostCreateKB(string kb)
 
 檢查作業的狀態。
 
-```csharp
-async static Task<Response> GetStatus(string operationID)
-{
-    // Builds the HTTP request URI.
-    string uri = host + service + operationID;
-
-    // Writes the HTTP request URI to the console, for display purposes.
-    Console.WriteLine("Calling " + uri + ".");
-
-    // Asynchronously invokes the Get(string) method, using the
-    // HTTP request URI.
-    using (var client = new HttpClient())
-    using (var request = new HttpRequestMessage())
-    {
-        request.Method = HttpMethod.Get;
-        request.RequestUri = new Uri(uri);
-        request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-        var response = await client.SendAsync(request);
-        var responseBody = await response.Content.ReadAsStringAsync();
-        return new Response(response.Headers, responseBody);
-    }
-}
-```
+[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=159-170 "Add GET request to determine creation status")]
 
 此 API 呼叫會傳回包含作業狀態的 JSON 回應： 
 
@@ -179,95 +112,24 @@ async static Task<Response> GetStatus(string operationID)
 
 ## <a name="add-createkb-method"></a>新增 CreateKB 方法
 
-下列方法會建立 KB，並重複檢查狀態。 因為 KB 建立可能需要一些時間，您必須重複呼叫來檢查狀態，直到狀態為成功或失敗。
+下列方法會建立 KB，並重複檢查狀態。  _建立_**作業識別碼**會在 POST 回應標頭欄位 [位置] 中會傳回，然後在 GET 要求中作為路由的一部分。 因為 KB 建立可能需要一些時間，您必須重複呼叫來檢查狀態，直到狀態為成功或失敗。 當作業成功時，會在 **resourceLocation** 中傳回 KB 識別碼。 
 
-```csharp
-async static void CreateKB()
-{
-    try
-    {
-        // Starts the QnA Maker operation to create the knowledge base.
-        var response = await PostCreateKB(kb);
-
-        // Retrieves the operation ID, so the operation's status can be
-        // checked periodically.
-        var operation = response.headers.GetValues("Location").First();
-
-        // Displays the JSON in the HTTP response returned by the 
-        // PostCreateKB(string) method.
-        Console.WriteLine(PrettyPrint(response.response));
-
-        // Iteratively gets the state of the operation creating the
-        // knowledge base. Once the operation state is set to something other
-        // than "Running" or "NotStarted", the loop ends.
-        var done = false;
-        while (true != done)
-        {
-            // Gets the status of the operation.
-            response = await GetStatus(operation);
-
-            // Displays the JSON in the HTTP response returned by the
-            // GetStatus(string) method.
-            Console.WriteLine(PrettyPrint(response.response));
-
-            // Deserialize the JSON into key-value pairs, to retrieve the
-            // state of the operation.
-            var fields = JsonConvert.DeserializeObject<Dictionary<string, string>>(response.response);
-
-            // Gets and checks the state of the operation.
-            String state = fields["operationState"];
-            if (state.CompareTo("Running") == 0 || state.CompareTo("NotStarted") == 0)
-            {
-                // QnA Maker is still creating the knowledge base. The thread is 
-                // paused for a number of seconds equal to the Retry-After header value,
-                // and then the loop continues.
-                var wait = response.headers.GetValues("Retry-After").First();
-                Console.WriteLine("Waiting " + wait + " seconds...");
-                Thread.Sleep(Int32.Parse(wait) * 1000);
-            }
-            else
-            {
-                // QnA Maker has completed creating the knowledge base. 
-                done = true;
-            }
-        }
-    }
-    catch
-    {
-        // An error occurred while creating the knowledge base. Ensure that
-        // you included your QnA Maker subscription key where directed in the sample.
-        Console.WriteLine("An error occurred while creating the knowledge base.");
-    }
-    finally
-    {
-        Console.WriteLine("Press any key to continue.");
-    }
-
-}
-``` 
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=176-237 "Add CreateKB method")]
 
 ## <a name="add-the-createkb-method-to-main"></a>將 CreateKB 方法新增至 Main
 
 變更 Main 方法以呼叫 CreateKB 方法：
 
-```csharp
-static void Main(string[] args)
-{
-    // Call the CreateKB() method to create a knowledge base, periodically 
-    // checking the status of the QnA Maker operation until the 
-    // knowledge base is created.
-    CreateKB();
-
-    // The console waits for a key to be pressed before closing.
-    Console.ReadLine();
-}
-```
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=239-248 "Add CreateKB method")]
 
 ## <a name="build-and-run-the-program"></a>建置並執行程式
 
 建置並執行程式。 程式會自動將要求傳送至 QnA Maker API 以建立 KB，然後會每隔 30 秒輪詢結果。 每個回應都會列印到主控台視窗。
 
 一旦建立您的知識庫，您可以在 QnA Maker 入口網站的[我的知識庫](https://www.qnamaker.ai/Home/MyServices) (英文) 頁面中檢視。 
+
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>後續步驟
 

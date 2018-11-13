@@ -1,24 +1,24 @@
 ---
-title: '教學課程：搭配 Kafka 進行 Apache Spark 結構化串流 - Azure HDInsight '
+title: '教學課程：將 Apache Spark 結構化串流用於 Apache Kafka - Azure HDInsight '
 description: 了解如何使用 Apache Spark 串流將資料傳入或傳出 Apache Kafka。 在此教學課程中，您會使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流處理資料。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/08/2018
-ms.author: jasonh
-ms.openlocfilehash: 11169e45d5fbdc5e51b81c06d814524a7b09c614
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108284"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278356"
 ---
-# <a name="tutorial-use-spark-structured-streaming-with-kafka-on-hdinsight"></a>教學課程：搭配使用 Spark 結構化串流與 HDInsight 上的 Kafka
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
-本教學課程說明如何使用 Spark 結構化串流，對 Azure HDInsight 上的 Apache Kafka 讀取和寫入資料。
+本教學課程說明如何使用 Apache Spark 結構化串流，對 Azure HDInsight 上的 Apache Kafka 讀取和寫入資料。
 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 
 

@@ -1,214 +1,129 @@
 ---
 title: 快速入門：建立知識庫 - REST (Python) - QnA Maker
 titlesuffix: Azure Cognitive Services
-description: 這個以 REST 為基礎的快速入門會逐步引導您以程式設計方式建立範例 QnA Maker 知識庫，且該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
+description: 這個以 Python REST 為基礎的快速入門會逐步引導您以程式設計方式建立範例 QnA Maker 知識庫，且該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: d8802f1d5188966d08ac6a5fc74d38a704925faf
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: f878e365dd43aa8735a0270124038c292d97ed6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646325"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234284"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>快速入門：使用 Python 在 QnA Maker 中建立知識庫
 
-本快速入門會逐步引導您，以程式設計方式建立範例 QnA Maker 知識庫，該知識庫會出現在認知服務 API 帳戶的 Azure 儀表板中。
+本快速入門會逐步引導您以程式設計方式建立及發佈範例 QnA Maker 知識庫。 QnA Maker 會從[資料來源](../Concepts/data-sources-supported.md)中的半結構化內容 (如常見問題集) 自動擷取問題和答案。 知識庫的模型是在 JSON (在 API 要求的本體中傳送) 中定義的。 
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
-
-以下提供兩個範例常見問題集 URL (**req** 字典項目 'urls' 形式)。 QnA Maker 會從半結構化的內容 (就像常見問題集) 中自動擷取問題和答案，本[資料來源](../Concepts/data-sources-supported.md)文件中有更詳細的說明。 您也可以在此快速入門中，使用您自己的常見問題集 URL。
+本快速入門會呼叫 QnA Maker API：
+* [建立 KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [取得作業詳細資料](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要有 [Python 3.x](https://www.python.org/downloads/) (英文)，才能執行此程式碼。
+* [Python 3.7](https://www.python.org/downloads/)
+* 您必須有 QnA Maker 服務。 若要擷取您的金鑰，請在儀表板中選取 [資源管理] 下方的 [金鑰]。
 
-您必須具備已選擇 **QnA Maker** 作為資源的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您將需要來自 [Azure 儀表板](https://ms.portal.azure.com/)的付費訂用帳戶金鑰。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 這兩個金鑰都適用於本快速入門。
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
-![Azure 儀表板服務金鑰](../media/sub-key.png)
+## <a name="create-a-knowledge-base-python-file"></a>建立知識庫 Python 檔案
 
-如需 Visual Studio 和 Python 的詳細說明：[在 Windows 上的 Visual Studio 中使用 Python](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)。
+建立名為 `create-new-knowledge-base-3x.py` 的檔案。
 
-## <a name="create-knowledge-base"></a>建立知識庫
+## <a name="add-the-required-dependencies"></a>新增必要的相依性
 
-以下程式碼使用 [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) 方法來建立新的知識庫。
+在 `create-new-knowledge-base-3x.py` 的頂端，新增下列幾行以將必要的相依性新增至專案：
 
-1. 在您偏好的 IDE 中建立新的 Python 專案。
-2. 新增下方提供的程式碼。
-3. 以您的有效訂用帳戶金鑰取代 `subscriptionKey` 值。
-4. 執行程式。
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
-```python
-# -*- coding: utf-8 -*-
+## <a name="add-the-required-constants"></a>新增必要的常數
+在上述必要的相依性後面，新增必要的常數以存取 QnA Maker。 以您自己的 QnA Maker 金鑰取代 `subscriptionKey` 變數的值。
 
-import http.client, urllib.parse, json, time
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
+## <a name="add-the-kb-model-definition"></a>新增 KB 模型定義
 
-# Replace this with a valid subscription key.
-subscriptionKey = 'YOUR SUBSCRIPTION KEY HERE'
+在常數後面新增下列 KB 模型定義。 模型會在定義之後轉換成字串。
 
-# Represents the various elements used to create HTTP request path
-# for QnA Maker operations.
-host = 'westus.api.cognitive.microsoft.com'
-service = '/qnamaker/v4.0'
-method = '/knowledgebases/create'
+[!code-python[Add the KB model definition](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=15-41 "Add the KB model definition")]
 
-'''
-Formats and indents JSON for display.
-:param content: The JSON to format and indent.
-:type: string
-:return: A string containing formatted and indented JSON.
-:rtype: string
-'''
-def pretty_print(content):
-  # Note: We convert content to and from an object so we can pretty-print it.
-  return json.dumps(json.loads(content), indent=4)
+## <a name="add-supporting-function"></a>新增支援的函式
 
-'''
-Sends the POST request to create the knowledge base.
-:param path: The URL path being called.
-:type: string
-:param content: The contents of your POST.
-:type: string
-:return: A header that creates the knowledge base, the JSON response
-:rtype: string, string
-'''
-def create_kb(path, content):
-  print('Calling ' + host + path + '.')
-  headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
-    'Content-Type': 'application/json',
-    'Content-Length': len (content)
-  }
-  conn = http.client.HTTPSConnection(host)
-  conn.request ("POST", path, content, headers)
-  response = conn.getresponse ()
-  # /knowledgebases/create returns an HTTP header named Location that contains a URL
-  # to check the status of the operation in creating the knowledge base.
-  return response.getheader('Location'), response.read ()
+新增下列函式，以可讀取的格式列印出 JSON：
 
-'''
-Checks the status of the request to create the knowledge base.
-:param path: The URL path being checked
-:type: string
-:return: The header Retry-After if request is not finished, the JSON response
-:rtype: string, string
-'''
-def check_status(path):
-  print('Calling ' + host + path + '.')
-  headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-  conn = http.client.HTTPSConnection(host)
-  conn.request("GET", path, None, headers)
-  response = conn.getresponse ()
-  # If the operation is not finished, /operations returns an HTTP header named Retry-After
-  # that contains the number of seconds to wait before we query the operation again.
-  return response.getheader('Retry-After'), response.read ()
+[!code-python[Add supporting function](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=43-45 "Add supporting function")]
 
-'''
-Dictionary that holds the knowledge base.
-The data source includes a QnA pair with metadata, the URL for the
-QnA Maker FAQ article, and the URL for the Azure Bot Service FAQ article.
-'''
-req = {
-  "name": "QnA Maker FAQ",
-  "qnaList": [
-    {
-      "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/58994a073d9e04097c7ba6fe/operations/58994a073d9e041ad42d9baa",
-      "source": "Custom Editorial",
-      "questions": [
-        "How do I programmatically update my Knowledge Base?"
-      ],
-      "metadata": [
-        {
-          "name": "category",
-          "value": "api"
-        }
-      ]
-    }
-  ],
-  "urls": [
-    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
-  ],
-  "files": []
-}
+## <a name="add-function-to-create-kb"></a>新增函式以建立 KB
 
-# Builds the path URL.
-path = service + method
-# Convert the request to a string.
-content = json.dumps(req)
-# Retrieve the operation ID to check status, and JSON result
-operation, result = create_kb(path, content)
-# Print request response in JSON with presentable formatting
-print(pretty_print(result))
+新增下列函式，以提出建立知識庫的 HTTP POST 要求。 此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置] 的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 `Ocp-Apim-Subscription-Key` 是 QnA Maker 服務金鑰，用於驗證。 
 
-'''
-Iteratively gets the operation state, creating the knowledge base.
-Once state is no longer "Running" or "NotStarted", the loop ends.
-'''
-done = False
-while False == done:
-  path = service + operation
-  # Gets the status of the operation.
-  wait, status = check_status(path)
-  # Print status checks in JSON with presentable formatting
-  print(pretty_print(status))
+[!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-  # Convert the JSON response into an object and get the value of the operationState field.
-  state = json.loads(status)['operationState']
-  # If the operation isn't finished, wait and query again.
-  if state == 'Running' or state == 'NotStarted':
-    print('Waiting ' + wait + ' seconds...')
-    time.sleep(int(wait))
-  else:
-    done = True # request has been processed, if successful, knowledge base is created
-```
+此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置] 的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 
 
-## <a name="understand-what-qna-maker-returns"></a>了解 QnA Maker 會傳回的項目
-
-成功的回應會以 JSON 格式傳回，如下列範例所示。 您的結果可能會稍有不同。 如果最後呼叫傳回「成功」狀態，代表您的知識庫已成功建立。 若要進行疑難排解，請參閱 QnA Maker API 的[取得作業詳細資料](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (英文)。
-
-```json
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/knowledgebases/create.
+```JSON
 {
   "operationState": "NotStarted",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917tb4ebfa1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:19:01Z",
+  "lastActionTimestamp": "2018-09-26T05:19:01Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "8dfb6a82-ae58-4bcb-95b7-d1239ae25681"
 }
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+## <a name="add-function-to-check-creation-status"></a>新增函式以檢查建立狀態
+
+下列函式會檢查在 URL 路由結束時在作業識別碼中傳送的建立狀態。 對 `check_status` 的呼叫會位於主要 _while_ 迴圈內。
+
+[!code-python[Add function to check creation status](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=61-67 "Add function to check creation status")]
+
+此 API 呼叫會傳回包含作業狀態的 JSON 回應： 
+
+```JSON
 {
-  "operationState": "Running",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:30Z",
-  "userId": "2280ef5917bt4ebha1aae41fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "operationState": "NotStarted",
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:22:53Z",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Waiting 30 seconds...
-Calling https://westus.api.cognitive.microsoft.com/qnamaker/v4.0/operations/d9d40918-01bd-49f4-88b4-129fbc434c94.
+```
+
+重複呼叫直到成功或失敗： 
+
+```JSON
 {
   "operationState": "Succeeded",
-  "createdTimestamp": "2018-04-13T01:52:30Z",
-  "lastActionTimestamp": "2018-04-13T01:52:46Z",
-  "resourceLocation": "/knowledgebases/b0288f33-27b9-4258-a304-8b9f63427dad",
-  "userId": "2280ef5917bt4ebfa1aae40fb1cebb4a",
-  "operationId": "e88b5b23-e9ab-47fe-87dd-3affc2fb10f3"
+  "createdTimestamp": "2018-09-26T05:22:53Z",
+  "lastActionTimestamp": "2018-09-26T05:23:08Z",
+  "resourceLocation": "/knowledgebases/XXX7892b-10cf-47e2-a3ae-e40683adb714",
+  "userId": "XXX9549466094e1cb4fd063b646e1ad6",
+  "operationId": "177e12ff-5d04-4b73-b594-8575f9787963"
 }
-Press any key to continue.
+```
+
+## <a name="add-main-code-block"></a>新增主要程式碼區塊
+下列迴圈會在建立作業完成之前定期輪詢該作業的狀態。 
+
+[!code-python[Add main code block](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=70-96 "Add main code block")]
+
+## <a name="build-and-run-the-program"></a>建置並執行程式
+
+在命令列中輸入下列命令，以執行程式。 程式會將要求傳送至 QnA Maker API 以建立 KB，然後會每隔 30 秒輪詢結果。 每個回應都會列印到主控台視窗。
+
+```bash
+python create-new-knowledge-base-3x.py
 ```
 
 一旦建立您的知識庫，您可以在 QnA Maker 入口網站的[我的知識庫](https://www.qnamaker.ai/Home/MyServices) (英文) 頁面中檢視。 選取您的知識庫名稱 (例如 QnA Maker 常見問題集) 以進行檢視。
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322711"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281213"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
 Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 然後，您可以收到環境事件通知，並自訂關於通知的回應。 
 
 本快速入門會使用[一組 .NET 範例](https://github.com/Azure-Samples/digital-twins-samples-csharp)將虛構辦公大樓數位化，並示範如何尋找該大樓內的空閒會議室。 使用 Digital Twins，便可將多個感應器關聯至環境。 除了是否有空閒會議室外，您還可以借助於模擬的二氧化碳感應器，來了解空閒會議室的空氣品質是否理想。 其中一個應用程式範例會產生隨機的感應器資料，以協助您將此案例視覺化。
+
+下列影片將摘要說明快速入門的設定：
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -36,7 +40,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 
 使用這一節中的步驟，在[入口網站](https://portal.azure.com)中建立新的 Digital Twins 執行個體。
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>設定應用程式的權限
 

@@ -4,20 +4,19 @@ description: Azure CLI 指令碼範例 - 訂閱 Blob 儲存體帳戶
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 434d94b9ba2c06c85c84c17be68d8493e8344d2b
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 3ecf5cd0906e04625f44584d0b668f764665075e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425815"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037851"
 ---
 # <a name="subscribe-to-events-for-a-blob-storage-account-with-azure-cli"></a>使用 Azure CLI 訂閱 Blob 儲存體帳戶的事件
 
@@ -27,9 +26,15 @@ ms.locfileid: "31425815"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>範例指令碼
+預覽範例指令碼需要事件方格延伸模組。 若要安裝，請執行 `az extension add --name eventgrid`。
+
+## <a name="sample-script---stable"></a>範例指令碼 - Stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.sh "Subscribe to Blob storage")]
+
+## <a name="sample-script---preview-extension"></a>範例指令碼 - 預覽版延伸模組
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage-preview/subscribe-to-blob-storage-preview.sh "Subscribe to Blob storage")]
 
 ## <a name="script-explanation"></a>指令碼說明
 
@@ -38,7 +43,7 @@ ms.locfileid: "31425815"
 | 命令 | 注意 |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | 建立事件格線訂用帳戶。 |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - 延伸模組版本 | 建立事件格線訂用帳戶。 |
 
 ## <a name="next-steps"></a>後續步驟
 
