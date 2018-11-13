@@ -1,196 +1,97 @@
 ---
-title: 教學課程：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
+title: 快速入門：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
 titlesuffix: Azure Cognitive Services
-description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用 Java SDK 進行預測。
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
-ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ad56a6fa4027115bd4f4679fa50330edad1b919f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957204"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283524"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>教學課程：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>快速入門：使用適用於 Java 的自訂視覺 SDK 建立影像分類專案
 
-了解如何使用自訂視覺服務利用 Java 來建立影像分類專案。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用它以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
+本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 Java SDK 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Java 應用程式。 如果您想要進行「不用」程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
 
 ## <a name="prerequisites"></a>必要條件
+- 您選擇的 Java IDE
+- 已安裝 [JDK 7 或 8](https://aka.ms/azure-jdks)。
+- 已安裝 Maven
 
-- 已安裝 JDK 7 或 8。
-- 已安裝 Maven。
 
-## <a name="get-the-training-and-prediction-keys"></a>取得定型與預測金鑰
-
-若要取得此範例中所使用的金鑰，請瀏覽[自訂視覺網頁](https://customvision.ai) \(英文\)，然後選取右上方的__齒輪圖示__。 在 [帳戶] 區段中，複製 [定型金鑰] 和 [預測金鑰] 欄位的值。
-
-![金鑰 UI 的影像](./media/python-tutorial/training-prediction-keys.png)
-
-## <a name="install-the-custom-vision-service-sdk"></a>安裝自訂視覺服務 SDK
+## <a name="get-the-custom-vision-sdk-and-sample-code"></a>取得自訂視覺 SDK 與程式碼範例
+若要撰寫使用自訂視覺的 Java 應用程式，您需要有自訂視覺 Maven 套件。 這些套件包含在您將會下載的專案範例內，但您可以在此個別存取這些套件。
 
 您可以從 Maven 中央存放庫安裝自訂視覺 SDK：
 * [定型 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [預測 SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
+複製或下載[認知服務 Java SDK 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master)專案。 瀏覽至 **Vision/CustomVision/** 資料夾。
+
+此 Java 專案會建立名為 __Java 專案範例__的新自訂視覺影像分類專案，如需存取此專案，請透過[自訂視覺網站](https://customvision.ai/)。 然後上傳影像以便為分類器定型並加以測試。 在此專案中，分類器會用來判斷影像是__鐵杉__還是__日本櫻__。
+
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+此程式會設定為將金鑰資料儲存為環境變數。 在 PowerShell 中瀏覽至 **Vision/CustomVision** 資料夾，以設定這些變數。 然後輸入命令：
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
+
 ## <a name="understand-the-code"></a>了解程式碼
 
-您可以從[適用於 Java 的自訂視覺 Azure 範例存放庫](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master)取得包含影像的完整專案。 
+在 Java IDE 中載入 `Vision/CustomVision` 專案，然後開啟 _CustomVisionSamples.java_ 檔案。 尋找 **runSample** 方法，並將 **ObjectDetection_Sample** 方法呼叫註解化 &mdash; 這麼做會執行偵測案例，但這不在本指南的討論範圍內。 **ImageClassification_Sample** 方法會實作此範例的主要功能；瀏覽至其定義，然後檢查程式碼。 
 
-使用喜愛的 Java IDE 開啟 `Vision/CustomVision` 專案。 
+### <a name="create-a-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-此應用程式會使用您稍早擷取的定型金鑰，來建立名為 __Sample Java Project__ 的新專案。 然後上傳影像以便為分類器定型並加以測試。 分類器會識別樹是 __Hemlock__ 還是 __Japanese Cherry__。
+這第一段程式碼會建立影像分類專案。 所建立的專案會顯示在您稍早瀏覽過的[自訂視覺網站](https://customvision.ai/)上。 
 
-下列程式碼片段會實作此範例的主要功能：
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=57-63)]
 
-## <a name="create-a-custom-vision-service-project"></a>建立自訂視覺服務專案
+### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-> [!IMPORTANT]
-> 將 `trainingApiKey` 設為您先前擷取的定型金鑰值。
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=65-74)]
 
-```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
+### <a name="upload-and-tag-images"></a>上傳和標記影像
 
-Trainings trainer = trainClient.trainings();
+影像範例包含在專案的 **src/main/resources** 資料夾中。 系統會從該處讀取影像，並使用其適當標記將其上傳至服務。
 
-System.out.println("Creating project...");
-Project project = trainer.createProject()
-            .withName("Sample Java Project")
-            .execute();
-```
-
-## <a name="add-tags-to-your-project"></a>將標記新增到您的專案
-
-```java
-// create hemlock tag
-Tag hemlockTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Hemlock")
-    .execute();
-
-// create cherry tag
-Tag cherryTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Japanese Cherry")
-    .execute();
-```
-
-## <a name="upload-images-to-the-project"></a>將影像上傳到專案
-
-此範例設定為將影像包含在最終套件中。 從 jar 的資源區段讀取影像，然後上傳到服務。
-
-```java
-System.out.println("Adding images...");
-for (int i = 1; i <= 10; i++) {
-    String fileName = "hemlock_" + i + ".jpg";
-    byte[] contents = GetImage("/Hemlock", fileName);
-    AddImageToProject(trainer, project, fileName, contents, hemlockTag.id(), null);
-}
-
-for (int i = 1; i <= 10; i++) {
-    String fileName = "japanese_cherry_" + i + ".jpg";
-    byte[] contents = GetImage("/Japanese Cherry", fileName);
-    AddImageToProject(trainer, project, fileName, contents, cherryTag.id(), null);
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=76-87)]
 
 先前的程式碼片段利用兩個協助程式函式，將影像擷取為資源串流，然後上傳到服務。
 
-```java
-private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
-{
-    System.out.println("Adding image: " + fileName);
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
-    ImageFileCreateEntry file = new ImageFileCreateEntry()
-        .withName(fileName)
-        .withContents(contents);
+### <a name="train-the-classifier"></a>為分類器定型
 
-    ImageFileCreateBatch batch = new ImageFileCreateBatch()
-        .withImages(Collections.singletonList(file));
+此程式碼會在專案中建立第一個反覆項目，並將其設定為預設反覆項目。 預設反覆項目會反映將會回應預測要求的模型版本。 每次重新訓練模型時，請更新此反覆項目。
 
-    batch = batch.withTagIds(Collections.singletonList(tag));
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
-    trainer.createImagesFromFiles(project.id(), batch);
-}
+### <a name="use-the-prediction-endpoint"></a>使用預測端點
 
-private static byte[] GetImage(String folder, String fileName)
-{
-    try {
-        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
+在此以 `predictor` 物件所表示的預測端點，可作為參考供您用來提交影像給目前的模型，並取得分類預測。 在此範例中，`predictor` 會在其他地方使用預測金鑰環境變數加以定義。
 
-    return null;
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
-## <a name="train-the-project"></a>為專案定型
+## <a name="run-the-application"></a>執行應用程式
 
-這會建立專案中的第一個反覆項目，並將此設定為預設的反覆項目。 
+若要使用 Maven 編譯和執行解決方案，請在 PowerShell 中於專案目錄執行下列命令：
 
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(1000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-
-System.out.println("Training Status: "+ iteration.status());
-trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
-```
-
-## <a name="get-and-use-the-default-prediction-endpoint"></a>取得並使用預設預測端點
-
-> [!IMPORTANT]
-> 將 `predictionApiKey` 設為您先前擷取的預測金鑰值。
-
-```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
-// String url = "some url";
-// ImagePrediction results = predictor.predictions().predictImage()
-//                         .withProjectId(project.id())
-//                         .withUrl(url)
-//                         .execute();
-
-// load test image
-byte[] testImage = GetImage("/Test", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().predictImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
-}
-```
-
-## <a name="run-the-example"></a>執行範例
-
-使用 Maven 編譯並執行解決方案：
-
-```
+```PowerShell
 mvn compile exec:java
 ```
 
-應用程式的輸出類似下列文字：
+應用程式的主控台輸出應該會類似下列文字：
 
 ```
 Creating project...
@@ -223,3 +124,14 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+接著，您可以確認測試影像預測 (輸出的最後幾行) 是否正確。
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## <a name="next-steps"></a>後續步驟
+
+現在您已經知道如何在程式碼中完成影像分類程序的每個步驟。 此範例會執行單一的訓練反覆項目，但您通常必須對模型進行多次訓練和測試，以便提升其精確度。
+
+> [!div class="nextstepaction"]
+> [測試和重新訓練模型](test-your-model.md)

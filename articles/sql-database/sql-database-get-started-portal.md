@@ -11,15 +11,15 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: 0e7ea33fa775bfba934d68d7cbcdd754880c3e55
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 66ee4ac8fe946696d6760891a086a672fa9fc412
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165002"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914595"
 ---
-# <a name="create-an-azure-sql-database-in-the-azure-portal"></a>在 Azure 入口網站中建立 Azure SQL Database
+# <a name="quickstart-create-an-azure-sql-database-in-the-azure-portal"></a>快速入門：在 Azure 入口網站中建立 Azure SQL Database
 
 本快速入門將逐步解說如何使用[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)在 Azure 中建立 SQL 資料庫。 Azure SQL Database 是可讓您在雲端中執行及調整高可用性 SQL Server 資料庫的「資料庫即服務」供應項目。 此快速入門說明如何開始使用 Azure 入口網站建立 SQL 資料庫並進行查詢。
 

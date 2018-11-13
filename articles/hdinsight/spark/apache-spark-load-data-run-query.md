@@ -2,19 +2,19 @@
 title: '教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢 '
 description: 了解如何在 Azure HDInsight 中的 Spark 叢集上載入資料和執行互動式查詢。
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047552"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244063"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
@@ -33,7 +33,7 @@ ms.locfileid: "43047552"
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>從 csv 檔案建立資料框架
 
-應用程式可使用 SQLContext 物件，從現有的彈性分散式資料集 (RDD)、Hive 資料表或資料來源建立資料框架。 下列螢幕擷取畫面顯示本教學課程中使用之 HVAC.csv 檔案的快照集。 該 csv 檔案會隨附於所有 HDInsight Spark 叢集。 資料會擷取相同建築物的溫度變化。
+應用程式可以直接建立資料框架，其建立來源可以是遠端儲存體 (例如，Azure 儲存體或 Azure Data Lake Storage) 上的檔案或資料夾；Hive 資料表；或是 Spark 所支援的其他資料來源 (例如，Cosmos DB、Azure SQL DB、DW 等等)。下列螢幕擷取畫面顯示本教學課程中使用之 HVAC.csv 檔案的快照集。 該 csv 檔案會隨附於所有 HDInsight Spark 叢集。 資料會擷取相同建築物的溫度變化。
     
 ![互動式 Spark SQL 查詢的資料快照集](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "互動式 Spark SQL 查詢的資料快照集")
 
@@ -41,7 +41,7 @@ ms.locfileid: "43047552"
 1. 開啟您在必要條件一節中建立的 Jupyter Notebook。
 2. 將以下程式碼貼入 Notebook 的空白儲存格，然後按 **SHIFT + ENTER** 以執行此程式碼。 此程式碼會匯入此案例所需的類型：
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ ms.locfileid: "43047552"
 
 3. 執行下列程式碼，以建立資料框架和暫存資料表 (**hvac**)。 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > 透過使用 PySpark 核心來建立 Notebook，當您執行第一個程式碼儲存格時，系統便會自動為您建立 SQL 內容。 您不需要明確建立任何內容。
+    > 透過使用 PySpark 核心來建立 Notebook，當您執行第一個程式碼儲存格時，系統便會自動為您建立 `spark` 工作階段。 您不需要明確建立工作階段。
 
 
 ## <a name="run-queries-on-the-dataframe"></a>在資料框架上執行查詢
@@ -68,12 +68,10 @@ ms.locfileid: "43047552"
 
 1. 在 Notebook 的空白儲存格中，執行下列程式碼：
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   由於 PySpark 核心用於 Notebook 中，因此您現在可直接在暫存資料表 **hvac** 上執行互動式 SQL 查詢。
 
    此時會顯示下列表格式輸出。
 
@@ -89,7 +87,7 @@ ms.locfileid: "43047552"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-利用 HDInsight，會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行下一個教學課程，則可能想要保留叢集。
+使用 HDInsight 時，資料和 Jupyter Notebook 會儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行下一個教學課程，則可能想要保留叢集。
 
 在 Azure 入口網站中開啟叢集，然後選取 [刪除]。
 

@@ -2,19 +2,19 @@
 title: 快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 description: 本快速入門會說明如何使用 Resource Manager 範本在 Azure HDInsight 中建立 Apache Spark 叢集，以及執行簡單的 Spark SQL 查詢。
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 05/07/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: eccef79b53a78abc577ff40d84b615968be3dd0f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8ad8f04b3afa7ed020eaba64d639fb4dbfbeee37
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257515"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>快速入門：使用範本在 HDInsight 中建立 Spark 叢集
 
@@ -67,7 +67,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
     ![在 Azure 入口網站中開啟 HDInsight 叢集](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. 從入口網站中選取 [叢集儀表板]，然後選取 [Jupyter Notebook]。 出現提示時，輸入叢集的叢集登入認證。
+3. 從入口網站的 [叢集儀表板] 區段，按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的叢集登入認證。
 
    ![開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "開啟 Jupyter Notebook 來執行互動式 Spark SQL 查詢")
 
@@ -80,7 +80,7 @@ Jupyter Notebook 是支援各種程式設計語言的互動式 Notebook 環境�
 
 ## <a name="run-spark-sql-statements"></a>執行 Spark SQL 陳述式
 
-SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查詢及定義資料。 Spark SQL 可作為 Apache Spark 的擴充功能，可讓您使用熟悉的 SQL 語法來處理結構化資料。
+SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查詢及轉換資料。 Spark SQL 可作為 Apache Spark 的擴充功能，可讓您使用熟悉的 SQL 語法來處理結構化資料。
 
 1. 確認核心已就緒。 當您在 Notebook 中的核心名稱旁邊看到一個空心圓時，表示核心已準備就緒。 實心圓表示核心忙碌中。
 
@@ -89,11 +89,11 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
     當您第一次啟動 Notebook 時，核心會在背景執行某些工作。 等待核心準備就緒。 
 2. 將以下程式碼貼入空白儲存格，然後按下 **SHIFT + ENTER** 鍵以執行此程式碼。 此命令會列出叢集上的 Hive 資料表：
 
-    ```PySpark
+    ```sql
     %%sql
     SHOW TABLES
     ```
-    當您使用 Jupyter Notebook 搭配 HDInsight Spark 叢集時，您可取得預設的 `sqlContext`，用來執行使用 Spark SQL 的 Hive 查詢。 `%%sql` 會告知 Jupyter Notebook 使用預設的 `sqlContext` 來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，依預設所有 HDInsight 叢集均隨附該資料表。 大約需要 30 秒才能取得結果。 輸出看起來如下： 
+    當您使用 Jupyter Notebook 搭配 HDInsight Spark 叢集時，您可取得預設的 `spark` 工作階段，用來執行使用 Spark SQL 的 Hive 查詢。 `%%sql` 會告知 Jupyter Notebook 使用預設的 `spark` 工作階段來執行 Hive 查詢。 此查詢會擷取 Hive 資料表 (**hivesampletable**) 中的前 10 個資料列，依預設所有 HDInsight 叢集均隨附該資料表。 第一次提交查詢時，Jupyter 會建立 Notebook 的 Spark 應用程式。 大約需要 30 秒才能完成。 Spark 應用程式準備就緒後，查詢便會在大約一秒內執行，並產生結果。 輸出看起來如下： 
 
     ![HDInsight Spark 中的 Hive 查詢](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query.png "HDInsight Spark 中的 Hive 查詢")
 
@@ -101,7 +101,7 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
     
 2. 執行另一個查詢，以查看 `hivesampletable` 中的資料。
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
@@ -110,10 +110,10 @@ SQL (結構化查詢語言) 是最常見且廣泛使用的語言，可用於查�
 
     ![HDInsight Spark 中的 Hive 查詢輸出](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-get-started-hive-query-output.png "HDInsight Spark 中的 Hive 查詢輸出")
 
-2. 從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 關閉 Notebook 可釋出叢集資源。
+2. 從 Notebook 的 [檔案] 功能表中，選取 [關閉並終止]。 關閉 Notebook 可釋出叢集資源，包括 Spark 應用程式。
 
 ## <a name="clean-up-resources"></a>清除資源
-HDInsight 會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
+HDInsight 會將您的資料和 Jupyter Notebook 儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行[後續步驟](#next-steps)中所列的教學課程，則建議保留叢集。
 
 切換回 Azure 入口網站，然後選取 [刪除]。
 

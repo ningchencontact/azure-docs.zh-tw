@@ -12,15 +12,15 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/10/2018
-ms.openlocfilehash: bd956348a26d32687e1ff76f0ffcc58cc9dcf932
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.date: 11/01/2018
+ms.openlocfilehash: d7b5c6b95cd11cd90f9d326e03e787a7196dcfd0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241713"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913150"
 ---
-# <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
+# <a name="quickstart-azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>快速入門：Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
 
 SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
 

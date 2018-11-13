@@ -1,61 +1,53 @@
 ---
-title: 教學課程：使用適用於 Python 的自訂視覺 SDK 建立影像分類專案
+title: 快速入門：使用適用於 Python 的自訂視覺 SDK 建立影像分類專案
 titlesuffix: Azure Cognitive Services
-description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用預設端點進行預測。
+description: 建立專案、新增標籤、上傳影像、為您的專案定型，以及使用 Python SDK 進行預測。
 services: cognitive-services
 author: areddish
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 11/2/2018
 ms.author: areddish
-ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4de1a33006f580bda9d356027e93b4bf2309dd90
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953107"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281382"
 ---
-# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>教學課程：使用適用於 Python 的自訂視覺 SDK 建立影像分類專案
+# <a name="quickstart-create-an-image-classification-project-with-the-custom-vision-python-sdk"></a>快速入門：使用自訂視覺 Python SDK 建立影像分類專案
 
-了解如何使用自訂視覺服務和基本的 Python 指令碼來建立影像分類專案。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用它以程式設計方式測試影像。 使用自訂視覺 API，利用此開放原始碼範例作為範本，來建置自己的應用程式。
-
-
+本文提供資訊和範例程式碼，可協助您開始使用自訂視覺 SDK 與 Python 來建置影像分類模型。 建立它之後，您就可以新增標記、上傳影像、為專案定型、取得專案的預設預測端點 URL，並使用端點以程式設計方式測試影像。 請使用此範例作為範本來建置您自己的 Python 應用程式。 如果您想要進行「不用」程式碼來建置及使用分類模型的程序，請改為參閱[以瀏覽器為基礎的指引](getting-started-build-a-classifier.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-- Python 2.7+ 或 Python 3.5+。
-- pip 工具。
+- [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 工具
 
-## <a name="get-the-training-and-prediction-keys"></a>取得定型和預測金鑰
+## <a name="install-the-custom-vision-sdk"></a>安裝自訂視覺 SDK
 
-若要取得此範例中所使用的金鑰，請瀏覽[自訂視覺網頁](https://customvision.ai) \(英文\)，然後選取右上方的__齒輪圖示__。 在 [帳戶] 區段中，複製 [定型金鑰] 和 [預測金鑰] 欄位的值。
+若要安裝適用於 Python 的自訂視覺服務 SDK，請在 PowerShell 中執行下列命令：
 
-![金鑰 UI 的影像](./media/python-tutorial/training-prediction-keys.png)
-
-## <a name="install-the-custom-vision-service-sdk"></a>安裝自訂視覺服務 SDK
-
-若要安裝自訂視覺服務 SDK，請使用下列命令：
-
-```
+```PowerShell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## <a name="get-example-images"></a>取得範例影像
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-這個範例所使用的影像來自 [https://github.com/Microsoft/Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) 專案的 `Samples/Images` 目錄。 複製或下載專案，並解壓縮到您的開發環境。
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-## <a name="create-a-custom-vision-service-project"></a>建立自訂視覺服務專案
 
-若要建立新的自訂視覺服務專案，請建立名為 `sample.py` 的新檔案。 使用下列程式碼作為檔案內容：
+## <a name="add-the-code"></a>新增程式碼
 
-> [!IMPORTANT]
-> 將 `training_key` 設為您先前擷取的定型金鑰值。
->
-> 將 `prediction_key` 設為您先前擷取的預測金鑰值。
+在您偏好的專案目錄中建立名為 sample.py 的新檔案。
 
-```python
+### <a name="create-the-custom-vision-service-project"></a>建立自訂視覺服務專案
+
+在指令碼中新增下列程式碼，以建立新的自訂視覺服務專案。 在適當的定義中插入訂用帳戶金鑰。
+
+```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
 from azure.cognitiveservices.vision.customvision.training.models import ImageUrlCreateEntry
 
@@ -67,29 +59,28 @@ trainer = training_api.TrainingApi(training_key)
 
 # Create a new project
 print ("Creating project...")
-project = trainer.create_project("My Project")
+project = trainer.create_project("My New Project")
 ```
 
-## <a name="add-tags-to-your-project"></a>將標記新增到您的專案
+### <a name="create-tags-in-the-project"></a>在專案中建立標記
 
-若要將標記新增到您的專案，在 `sample.py` 檔案結尾處新增以下程式碼：
+若要在專案中建立分類標記，請在 sample.py 結尾新增以下程式碼：
 
-```python
+```Python
 # Make two tags in the new project
 hemlock_tag = trainer.create_tag(project.id, "Hemlock")
 cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 ```
 
-## <a name="upload-images-to-the-project"></a>將影像上傳到專案
+### <a name="upload-and-tag-images"></a>上傳和標記影像
 
-若要將範例影像新增到專案，在標記建立之後插入下列程式碼。 此程式碼會上傳影像以及對應的標記：
+若要將範例影像新增到專案，在標記建立之後插入下列程式碼。 此程式碼會上傳每個影像及其對應標記。 您必須根據認知服務 Python SDK 範例專案的下載位置，來輸入基底影像 URL 路徑。
 
-> [!IMPORTANT]
->
-> 根據您稍早下載 Cognitive-CustomVision-Windows 專案的位置，變更影像的路徑。
+> [!NOTE]
+> 您必須根據認知服務 Python SDK 範例專案稍早的下載位置，來變更影像的路徑。
 
-```python
-base_image_url = "https://raw.githubusercontent.com/Microsoft/Cognitive-CustomVision-Windows/master/Samples/"
+```Python
+base_image_url = "<path to project>"
 
 print ("Adding images...")
 for image_num in range(1,10):
@@ -99,28 +90,13 @@ for image_num in range(1,10):
 for image_num in range(1,10):
     image_url = base_image_url + "Images/Japanese Cherry/japanese_cherry_{}.jpg".format(image_num)
     trainer.create_images_from_urls(project.id, [ ImageUrlCreateEntry(url=image_url, tag_ids=[ cherry_tag.id ] ) ])
-
-
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following:
-#
-#import os
-#hemlock_dir = "Images\\Hemlock"
-#for image in os.listdir(os.fsencode("Images\\Hemlock")):
-#    with open(hemlock_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ hemlock_tag.id ])
-#
-#cherry_dir = "Images\\Japanese Cherry"
-#for image in os.listdir(os.fsencode("Images\\Japanese Cherry")):
-#    with open(cherry_dir + "\\" + os.fsdecode(image), mode="rb") as img_data: 
-#        trainer.create_images_from_data(project.id, img_data, [ cherry_tag.id ])
 ```
 
-## <a name="train-the-project"></a>為專案定型
+### <a name="train-the-classifier"></a>為分類器定型
 
-若要為分類器定型，在 `sample.py` 檔案結尾處新增以下程式碼：
+此程式碼會在專案中建立第一個反覆項目，並將其設定為預設反覆項目。 預設反覆項目會反映將會回應預測要求的模型版本。 每次重新訓練模型時，請更新此反覆項目。
 
-```python
+```Python
 import time
 
 print ("Training...")
@@ -135,9 +111,9 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## <a name="get-and-use-the-default-prediction-endpoint"></a>取得並使用預設預測端點
+### <a name="get-and-use-the-default-prediction-endpoint"></a>取得並使用預設預測端點
 
-若要將影像傳送到預測端點並擷取預測，在 `sample.py` 檔案結尾處新增以下程式碼：
+若要將影像傳送到預測端點並擷取預測，在檔案結尾處新增以下程式碼：
 
 ```python
 from azure.cognitiveservices.vision.customvision.prediction import prediction_endpoint
@@ -150,27 +126,20 @@ predictor = prediction_endpoint.PredictionEndpoint(prediction_key)
 test_img_url = base_image_url + "Images/Test/test_image.jpg"
 results = predictor.predict_image_url(project.id, iteration.id, url=test_img_url)
 
-# Alternatively, if the images were on disk in a folder called Images alongside the sample.py, then
-# they can be added by using the following.
-#
-# Open the sample image and get back the prediction results.
-# with open("Images\\test\\test_image.jpg", mode="rb") as test_data:
-#     results = predictor.predict_image(project.id, test_data, iteration.id)
-
 # Display the results.
 for prediction in results.predictions:
     print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100))
 ```
 
-## <a name="run-the-example"></a>執行範例
+## <a name="run-the-application"></a>執行應用程式
 
-執行方案。 預測結果會出現在主控台上。
+執行 sample.py。
 
-```
+```PowerShell
 python sample.py
 ```
 
-應用程式的輸出類似下列文字：
+應用程式的輸出應該會類似下列文字：
 
 ```
 Creating project...
@@ -182,3 +151,14 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+接著，您可以確認測試影像 (位於 **<base_image_url>/Images/Test/**) 的標記是否適當。 您也可以返回[自訂視覺網站](https://customvision.ai)，然後查看新建立專案的目前狀態。
+
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+
+## <a name="next-steps"></a>後續步驟
+
+現在您已經知道如何在程式碼中完成影像分類程序的每個步驟。 此範例會執行單一的訓練反覆項目，但您通常必須對模型進行多次訓練和測試，以便提升其精確度。
+
+> [!div class="nextstepaction"]
+> [測試和重新訓練模型](test-your-model.md)

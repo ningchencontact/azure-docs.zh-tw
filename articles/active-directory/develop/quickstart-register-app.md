@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988697"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50912980"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式 (預覽)
 
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Microsoft 身分識別平台整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。
 
-本快速入門會說明如何在 Azure 入口網站中新增和註冊應用程式，以便讓它可以和 Microsoft 身分識別平台整合。
+本快速入門會說明如何在 Azure 入口網站中使用**應用程式註冊 (預覽)** 體驗新增和註冊應用程式，以便讓應用程式可以和 Microsoft 身分識別平台整合。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -36,7 +36,7 @@ ms.locfileid: "49988697"
 ## <a name="register-a-new-application-using-the-azure-portal"></a>使用 Azure 入口網站註冊新的應用程式
 
 1. 使用公司或學校帳戶或個人的 Microsoft 帳戶登入 [Azure 入口網站](https://portal.azure.com)。
-1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
 1. 當 [註冊應用程式] 頁面出現時，輸入您應用程式的註冊資訊：
 
@@ -59,7 +59,7 @@ ms.locfileid: "49988697"
 
     [![在 Azure 入口網站註冊新的應用程式](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD 會將唯一的應用程式識別碼指派給您的應用程式，然後系統會帶您進入應用程式的 [概觀] 頁面。 若要在應用程式中新增額外的功能，您可以選取其他組態選項，包括商標、憑證和祕密、API 權限等等。
+Azure AD 會將唯一的應用程式 (用戶端) 識別碼指派給您的應用程式，然後系統會帶您進入應用程式的 [概觀] 頁面。 若要在應用程式中新增額外的功能，您可以選取其他組態選項，包括商標、憑證和祕密、API 權限等等。
 
 [![新註冊應用程式的 [概觀] 頁面](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

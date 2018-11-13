@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 08/26/2018
+ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b290cada86401d91313939a7673998810cb82551
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650631"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51028129"
 ---
 1. 在 [方案總管] 中，以滑鼠右鍵按一下專案並選取 [發佈]。
 
@@ -22,6 +22,9 @@ ms.locfileid: "49650631"
     ![挑選發行目標](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     當您啟用 [從 Zip 執行] 時，您在 Azure 中的函式應用程式會直接從部署套件執行。 如需詳細資訊，請參閱[從套件檔案執行 Azure Functions](../articles/azure-functions/run-functions-from-deployment-package.md)。
+     
+    >[!CAUTION]
+    >當您選擇 [選取現有的]，Azure 中現有函式應用程式的所有檔案都會以本機專案中的檔案加以覆寫。 請在將更新重新發佈至現有函式應用程式時，才使用此選項。
 
 3. 如果您已將 Visual Studio 連線到您的 Azure 帳戶，請選取 [新增帳戶...]。
 

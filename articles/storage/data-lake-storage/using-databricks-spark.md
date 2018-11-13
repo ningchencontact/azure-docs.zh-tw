@@ -8,37 +8,37 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: fd9dfaa2042cae0923c919f4e76d7b59a170918e
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c46a9f827bdeeaf7a2b9897b262484f64f83b9a8
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46466025"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283456"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>教學課程：使用 Spark 以 Azure Databricks 存取 Azure Data Lake Storage Gen2 預覽版資料
 
-在此教學課程中，您會了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以在具有 Azure Data Lake Storage Gen2 預覽版功能的帳戶中查詢資料。
+在此教學課程中，您會了解如何在 Azure Databricks 叢集上執行 Spark 查詢，以在具有 Azure Data Lake Storage Gen2 預覽版功能的 Azure 儲存體帳戶中查詢資料。
 
 > [!div class="checklist"]
 > * 建立 Databricks 叢集
 > * 將非結構化的資料內嵌到儲存體帳戶
 > * 在 Blob 儲存體中對資料執行分析
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此教學課程示範如何取用及查詢航班資料 (來源為[美國運輸部](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time))。 下載至少兩年份的航線資料 (選取所有欄位)，並將結果儲存至機器。 請務必記下所下載資料的檔案名稱與路徑；稍後的步驟需要此資訊。
+本教學課程示範如何取用及查詢航班資料 (來源為[美國運輸部](https://transtats.bts.gov/Tables.asp?DB_ID=120&DB_Name=Airline%20On-Time%20Performance%20Data&DB_Short_Name=On-Time))。 下載至少兩年份的航線資料 (選取所有欄位)，並將結果儲存至機器。 請務必記下所下載資料的檔案名稱與路徑；稍後的步驟需要這項資訊。
 
 > [!NOTE]
 > 按一下 [預先壓縮的檔案] 核取方塊來選取所有資料欄位。 所下載的資料會有數 GB 的大小，但必須有這麼大量的資料才能進行分析。
 
-## <a name="create-an-azure-data-lake-storage-gen2-account"></a>建立 Azure Data Lake Storage Gen2 帳戶
+## <a name="create-an-azure-storage-account-with-analytic-capabilities"></a>建立 Azure 儲存體帳戶與分析功能
 
-若要開始，請建立新的 [Azure Data Lake Storage Gen2 帳戶](quickstart-create-account.md)，並對它賦予唯一的名稱。 然後瀏覽至儲存體帳戶，以擷取組態設定。
+若要開始，請建立新的[儲存體帳戶與分析功能](quickstart-create-account.md)，並對此帳戶賦予唯一的名稱。 然後瀏覽至儲存體帳戶，以擷取組態設定。
 
 1. 按一下 [設定] 下的 [存取金鑰]。
 2. 按一下 [key1] 旁的 [複製] 按鈕以複製金鑰值。
 
-此教學課程的後續步驟需要用到帳戶名稱和金鑰。 請開啟文字編輯器，並設定帳戶名稱和金鑰以供日後參考。
+本教學課程的後續步驟需要用到帳戶名稱和金鑰。 請開啟文字編輯器，並設定帳戶名稱和金鑰以供日後參考。
 
 ## <a name="create-a-databricks-cluster"></a>建立 Databricks 叢集
 
@@ -137,18 +137,19 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-藉由這些程式碼範例，您已使用具有 Azure Data Lake Storage Gen2 功能之帳戶中所儲存的資料來探索 HDFS 的階層式本質。
+
+藉由這些程式碼範例，您已使用具有 Data Lake Storage Gen2 功能的儲存體帳戶所儲存的資料，探索了 HDFS 的階層式本質。
 
 ## <a name="query-the-data"></a>查詢資料
 
-接下來，您可以開始查詢您上傳到 Azure Data Lake Storage 的資料。 在 **Cmd 1** 中輸入下列每個程式碼區塊，然後按 **Cmd + Enter** 來執行 Python 指令碼。
+接下來，您可以開始查詢您上傳到儲存體帳戶的資料。 在 **Cmd 1** 中輸入下列每個程式碼區塊，然後按 **Cmd + Enter** 來執行 Python 指令碼。
 
 ### <a name="simple-queries"></a>範例查詢
 
 若要建立資料來源的資料框架，請執行下列指令碼：
 
 > [!IMPORTANT]
-> 請務必將 **<YOUR_CSV_FILE_NAME>** 預留位置取代為您在此教學課程剛開始時下載的檔案名稱。
+> 請務必將 **<YOUR_CSV_FILE_NAME>** 預留位置取代為您在本教學課程剛開始時下載的檔案名稱。
 
 ```python
 #Copy this into a Cmd cell in your notebook.

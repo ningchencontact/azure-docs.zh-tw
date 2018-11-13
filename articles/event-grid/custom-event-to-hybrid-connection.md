@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/02/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: d56a07bf6fcb368f50e081a1f56b7cfb022c05ca
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042235"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747774"
 ---
 # <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
@@ -22,6 +22,8 @@ Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是�
 ## <a name="prerequisites"></a>必要條件
 
 本文假設您已經有混合式連線和接聽項應用程式。 若要開始使用混合式連線，請參閱[開始使用轉送混合式連線 - .NET](../service-bus-relay/relay-hybrid-connections-dotnet-get-started.md) (英文)，或[開始使用轉送混合式連線 - 節點](../service-bus-relay/relay-hybrid-connections-node-get-started.md) (英文)。
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -64,14 +66,17 @@ hybridname=<hybrid-name>
 
 relayid=$(az resource show --name $relayname --resource-group $relayrg --resource-type Microsoft.Relay/namespaces --query id --output tsv)
 hybridid="$relayid/hybridConnections/$hybridname"
+topicid=$(az eventgrid topic show --name <topic_name> -g gridResourceGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicid \
   --name <event_subscription_name> \
   --endpoint-type hybridconnection \
-  --endpoint $hybridid
+  --endpoint $hybridid \
+  --expiration-date "<yyyy-mm-dd>"
 ```
+
+請留意到訂用帳戶已設定[到期日](concepts.md#event-subscription-expiration)。
 
 ## <a name="create-application-to-process-events"></a>建立應用程式來處理事件
 

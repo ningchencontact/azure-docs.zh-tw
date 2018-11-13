@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/07/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352655"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277965"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -156,6 +156,8 @@ ms.locfileid: "49352655"
  
 - 設定裝置註冊的近端內部網路設定
 
+- 控制舊版 Windows 裝置 
+
 
 ### <a name="update-device-settings"></a>更新裝置設定 
 
@@ -176,8 +178,6 @@ ms.locfileid: "49352655"
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - 組織的 Security Token Service (STS - 同盟網域)
 
 - `https://autologon.microsoftazuread-sso.com` (用於無縫 SSO)。
@@ -185,6 +185,10 @@ ms.locfileid: "49352655"
 此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]。
 
 
+
+### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 
+
+若要註冊舊版 Windows 裝置，您必須從下載中心下載並安裝 Windows Installer 套件 (.msi)。 如需詳細資訊，請按一下[這裡](hybrid-azuread-join-control.md#control-windows-down-level-devices)。 
 
 ## <a name="verify-the-registration"></a>確認註冊
 

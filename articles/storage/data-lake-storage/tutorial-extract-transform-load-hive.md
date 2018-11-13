@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: 23478a1f72a4b74bcacf27d3b18116250eb6bfff
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4e7b6d5c2f84f7d385709dc780507c262081757a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984648"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280574"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
@@ -67,7 +67,7 @@ ms.locfileid: "46984648"
 
 ## <a name="upload-data-to-an-hdinsight-cluster"></a>將資料上傳至 HDInsight 叢集
 
-有許多方法可將資料上傳至與 HDInsight 叢集相關聯的儲存體。 在本節中，您會使用 `scp` 來上傳資料。 若要了解其他的資料上傳方式，請參閱[使用 Distcp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen2 預覽版之間複製資料](use-distcp.md)。
+有許多方法可將資料上傳至與 HDInsight 叢集相關聯的儲存體。 在本節中，您會使用 `scp` 來上傳資料。 若要了解其他的資料上傳方式，請參閱[使用 Distcp 在現有儲存體帳戶與已啟用 Data Lake Storage Gen2 的新儲存體帳戶之間複製資料](use-distcp.md)。
 
 1. 開啟命令提示字元，並使用下列命令將 .zip 檔案上傳至 HDInsight 叢集前端節點：
 

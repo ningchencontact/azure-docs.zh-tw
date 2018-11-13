@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5c1684f7367aec2d283cd6ad310657def49dd3cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024334"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282555"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
-在此教學課程中，您將使用 Azure Databricks 執行 ETL (擷取、轉換及載入資料) 作業，將資料從 Azure Data Lake Storage Gen2 預覽版移至 Azure SQL 資料倉儲。
+在此教學課程中，您將使用 Azure Databricks 執行 ETL (擷取、轉換及載入資料) 作業，將資料從已啟用 Azure Data Lake Storage Gen2 的 Azure 儲存體帳戶移至 Azure SQL 資料倉儲。
 
 下圖顯示此應用程式流程：
 
@@ -52,7 +52,7 @@ ms.locfileid: "50024334"
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。 
+在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。
 
 1. 在 Azure 入口網站中，選取 [建立資源] > [分析] > [Azure Databricks]。
 
@@ -138,7 +138,7 @@ ms.locfileid: "50024334"
 
 2. 接著，將資料範例上傳到儲存體帳戶。 用來將資料上傳到儲存體帳戶的方法，會因為您是否已啟用階層命名空間而有所不同。
 
-    如果針對 Gen2 帳戶所建立的 Azure 儲存體帳戶上已啟用階層命名空間，您便可以使用 Azure Data Factory、distp 或 AzCopy (第 10 版) 來處理上傳。 AzCopy 第 10 版僅供預覽版客戶使用。 若要使用 AzCopy，請將下列程式碼傳入命令視窗：
+    如果 Azure 儲存體帳戶上已啟用階層命名空間，您便可以使用 Azure Data Factory、distp 或 AzCopy (第 10 版) 來處理上傳。 AzCopy 第 10 版目前僅供預覽。 若要使用 AzCopy，請將下列程式碼貼到命令視窗中：
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
