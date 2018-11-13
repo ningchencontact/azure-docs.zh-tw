@@ -8,22 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8c974b3d2a53210b49c3f29a8984038da93dd64c
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466507"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219421"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 在本文中，您將了解如何使用認知服務語音 SDK 將語音轉譯成文字，建立適用於 Android 的 Java 應用程式。
-應用程式以 Microsoft 認知服務語音 SDK Maven 套件 1.0.1 版和 Android Studio 3.1 為基礎。
-語音 SDK 目前與使用 32 位元或 64 位元 ARM 處理器的 Android 裝置相容。
+應用程式以 Microsoft 認知服務語音 SDK Maven 套件 1.1.0 版和 Android Studio 3.1 為基礎。
+語音 SDK 目前與使用 32/64 位元 ARM 和 Intel x86/x64 相容處理器的 Android 裝置相容。
 
 > [!NOTE]
 > 針對語音裝置 SDK 和 Roobo 裝置，請參閱[語音裝置 SDK](speech-devices-sdk.md)。
@@ -58,7 +58,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-認知服務語音 SDK 目前的版本為 `1.0.1`。
+認知服務語音 SDK 目前的版本為 `1.1.0`。
 
 適用於 Android 的語音 SDK 封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library)，其中包含必要的程式庫，以及使用它的必要 Android 權限。
 它會裝載在位於 https://csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
@@ -73,7 +73,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1`。 然後選取 [確定]。
+1. 在出現的視窗中，輸入適用於 Android 之語音 SDK 的名稱和版本 `com.microsoft.cognitiveservices.speech:client-sdk:1.1.0`。 然後選取 [確定]。
    語音 SDK 現在應該會加入至相依性的清單，如下所示：
 
    ![專案結構視窗的螢幕擷取畫面](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
