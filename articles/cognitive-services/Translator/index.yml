@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d74ef4b68545c349c8df2cb7090ee8c26e2cd3e4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622852"
 documentType: LandingData
-title: Translator Text API 文件
+title: 翻譯工具文字文件
 metadata:
   title: Translator Text 文件 - 快速入門、教學課程和 API 參考 - Azure 認知服務 | Microsoft Docs
-  description: 了解如何使用 Translator Text API 翻譯多種語言的文字。
+  description: 了解如何使用翻譯工具文字翻譯多種語言的文字。
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
@@ -11,17 +17,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2017
+  ms.date: 11/06/18
   ms.author: v-jansko
-  ms.openlocfilehash: 85ef860a742c114d01696b9189f57ac9207c0bc5
-  ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-  ms.translationtype: HT
-  ms.contentlocale: zh-TW
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39185868"
 abstract:
-  description: Microsoft Translator Text API 是雲端式機器翻譯服務。 您可以使用此 API，透過簡單的 REST API 呼叫，在任何應用程式或服務中以幾乎即時的方式翻譯文字。 API 採用最先進的類神經機器翻譯技術，同時提供統計機器翻譯技術。 如需了解支援的語言清單，包括類神經機器翻譯和統計機器翻譯，請參閱<a href="languages.md">支援的語言</a>。
+  description: 翻譯工具文字是雲端式機器翻譯服務，可讓您透過 REST API 呼叫，近乎即時地翻譯文字。 此 API 採用先進的類神經機器翻譯技術，同時提供統計機器翻譯技術。 「自訂翻譯工具」是翻譯工具文字 API 的擴充功能，可讓您建置類神經翻譯系統。 自訂的翻譯系統可透過翻譯工具文字 API 或 <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Microsoft 語音服務</a>來翻譯文字。 如需了解包括類神經機器翻譯和統計機器翻譯的支援語言清單，請參閱<a href="languages.md">支援的語言</a>。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/translator/translator-info-overview
+      html: <p>了解翻譯工具文字 API</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是翻譯工具文字 API？
+    - href: /azure/cognitive-services/translator/custom-translator/overview
+      html: <p>了解自訂翻譯工具</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: 什麼是自訂翻譯工具 (預覽)？
+    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+      html: <p>了解如何開始使用自訂翻譯工具</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: 自訂翻譯工具快速入門
 - title: 5 分鐘快速入門
   items:
   - type: paragraph

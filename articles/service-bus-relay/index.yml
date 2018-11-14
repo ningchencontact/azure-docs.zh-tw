@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fe78cdfefb8062d3d576937afd133905e1787a8d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7eba9c526f26254a400eaee1a00644399d3979a8
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698796"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612095"
 documentType: LandingData
 title: Azure 服務匯流排轉送文件
 metadata:
@@ -22,33 +22,19 @@ metadata:
 abstract:
   description: Azure 轉送服務可以在企業網路及公用雲端中的內部部署和雲端環境間使用混合式應用程式，而無需開啟防火牆連線或要求對企業網路基礎結構的進行侵入式變更。
 sections:
-- title: 5 分鐘快速入門
-  items:
-  - type: paragraph
-    text: 了解如何使用 Azure 轉送來傳送及接收訊息：
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: .NET Web 通訊端
-      href: /azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_net.svg
-      text: .NET HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: Node.js Web 通訊端
-      href: /azure/service-bus-relay/relay-hybrid-connections-node-get-started
-    - image:
-        src: /azure/media/index/logo_nodejs.svg
-      text: Node.js HTTP
-      href: /azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started
 - title: 逐步教學課程
   items:
   - type: paragraph
-    text: 了解如何使用 Azure 轉送建立、管理和傳送及接收訊息
+    text: <b>混合式連線：</b>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-dotnet-get-started">傳送和接收訊息 - .NET Web Socket</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started">傳送和接收訊息 - .NET HTTP</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-node-get-started">傳送和接收訊息 - Node.js Web Socket</a>
+    - html: <a href="/azure/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started">傳送和接收訊息 - Node.js HTTP</a>
+  - type: paragraph
+    text: <b>Windows Communication Foundation (WCF) 轉送：</b>
   - type: list
     style: ordered
     items:
@@ -58,12 +44,13 @@ sections:
 - title: 範例
   items:
   - type: paragraph
-    text: 尋找指令碼來管理常見工作。
+    text: GitHub 上的範例
   - type: list
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples">Azure 轉送範例</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections">混合式連線</a>
+    - html: <a href="https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay">Windows Communication Foundation (WCF)</a>
 - title: 參考
   items:
   - type: list

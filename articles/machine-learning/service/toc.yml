@@ -48,10 +48,8 @@ items:
     href: how-to-manage-workspace.md
   - name: 設定開發環境 
     items:
-    - name: 選擇環境
-      displayName: local, remote
-      href: how-to-choose-a-dev-environment.md
     - name: 設定環境
+      displayName: local, remote
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
       displayName: Visual Studio Code, vscode
@@ -129,6 +127,9 @@ items:
       href: how-to-enable-app-insights.md
   - name: 管理資源配額
     href: how-to-manage-quotas.md
+  - name: 使用 Machine Learning CLI
+    displayName: cli, command line, command-line
+    href: reference-azure-machine-learning-cli.md
 - name: 參考
   items:
   - name: 機器學習 SDK
@@ -137,8 +138,6 @@ items:
     href: http://aka.ms/data-prep-sdk
   - name: 監視 SDK
     href: https://aka.ms/aml-monitoring-sdk
-  - name: 機器學習 CLI
-    href: reference-azure-machine-learning-cli.md
 - name: 資源
   items:
   - name: Azure 藍圖
@@ -358,9 +357,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 舊的問題
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 8519a04730105537d5bd8639da54afafdf76590b
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 87379b773b353f4f384252a9840f1e75d595e37b
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344995"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613625"
