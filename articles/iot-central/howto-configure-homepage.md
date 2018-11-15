@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 8e79d05147cae5bf9c46fc1f7c0e7e98574383d5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731116"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007615"
 ---
 ## <a name="configuring-homepage"></a>設定首頁
 
-首頁是當有存取權的使用者瀏覽至應用程式的 URL 時所載入的頁面。 如果您在建立應用程式時選取「範例 Contoso」或「範例 Devkits」應用程式範本，您的應用程式將會有預先定義的首頁。 如果您選取了「自訂應用程式」應用程式範本，您的首頁將會空白。
+首頁是當可存取應用程式的使用者瀏覽至應用程式的 URL 時所載入的頁面。 如果您在建立應用程式時選取「範例 Contoso」或「範例 Devkits」應用程式範本，您的應用程式將會有預先定義的首頁。 如果您選取了「自訂應用程式」應用程式範本，您的首頁將會空白。
 
 例如，以下是以「範例 Contoso」範本為基礎的應用程式首頁。 若要自訂應用程式的首頁，請先選取右上方的 [編輯]。 
 

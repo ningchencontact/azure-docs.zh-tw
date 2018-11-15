@@ -6,18 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451149"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283422"
 ---
 # <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
 
-如 [IoT 中樞端點](iot-hub-devguide-endpoints.md)一文所詳述，裝置可以藉由透過面向裝置的端點 (**/devices/{deviceId}/files**) 傳送通知，來起始檔案上傳。 當裝置向 IoT 中樞告知上傳作業完成時，IoT 中樞會透過 **/messages/servicebound/filenotifications** 面向服務的端點傳送檔案上傳通知訊息。
+如 [IoT 中樞端點](iot-hub-devguide-endpoints.md)一文所詳述，裝置可以透過面向裝置的端點 (**/devices/{deviceId}/files**) 傳送通知，藉此開始檔案上傳。 當裝置向 IoT 中樞告知上傳作業完成時，IoT 中樞會透過 **/messages/servicebound/filenotifications** 面向服務的端點傳送檔案上傳通知訊息。
 
 不是透過 IoT 中樞本身的代理訊息，IoT 中樞會做為相關聯 Azure 儲存體帳戶的發送器。 裝置會向 IoT 中樞要求儲存體權杖，這是裝置想要上傳的檔案的特定權杖。 裝置會使用 SAS URI，將檔案上傳至儲存體，上傳完成時，裝置會將完成的通知傳送到 IoT 中樞。 IoT 中樞會在確認檔案上傳已完成後，再將檔案上傳通知訊息新增至服務面向檔案通知端點。
 
@@ -33,14 +33,15 @@ ms.locfileid: "47451149"
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>讓 Azure 儲存體帳戶與 IoT 中樞產生關聯
 
-若要使用檔案上傳功能，您必須先將 Azure 儲存體帳戶連結至 IoT 中樞。 您可以透過 [Azure 入口網站](https://portal.azure.com)完成此工作，或透過 [IoT 中樞資源提供者 REST API](/rest/api/iothub/iothubresource) 以程式設計方式完成此工作。 一旦您將 Azure 儲存體帳戶與 IoT 中樞產生關聯，服務會在裝置起始檔案上傳要求時，將 SAS URI 傳回至裝置。
+若要使用檔案上傳功能，您必須先將 Azure 儲存體帳戶連結至 IoT 中樞。 您可以透過 Azure 入口網站完成此工作，或透過 [IoT 中樞資源提供者 REST API](/rest/api/iothub/iothubresource)，以程式設計方式完成此工作。 一旦您將 Azure 儲存體帳戶與 IoT 中樞產生關聯之後，服務會在裝置開始檔案上傳要求時，將 SAS URI 傳回至裝置。
+
+[使用 IoT 中樞將檔案從裝置上傳至雲端](iot-hub-csharp-csharp-file-upload.md)操作指南提供檔案上傳程序的完整逐步解說。 這些操作指南會示範如何使用 Azure 入口網站建立儲存體帳戶與 IoT 中樞的關聯。
 
 > [!NOTE]
 > [Azure IoT SDK](iot-hub-devguide-sdks.md) 會自動處理擷取 SAS URI、上傳檔案，並且通知 IoT 中樞已完成上傳。
 
-
 ## <a name="initialize-a-file-upload"></a>初始化檔案上傳
-IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的端點。 為了起始檔案上傳程序，裝置會將含有下列 JSON 主體的 POST 要求傳送到 `{iot hub}.azure-devices.net/devices/{deviceId}/files`：
+IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的端點。 若要開始檔案上傳程序，裝置會將含有下列 JSON 主體的 POST 要求傳送到 `{iot hub}.azure-devices.net/devices/{deviceId}/files`：
 
 ```json
 {
@@ -65,7 +66,7 @@ IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的�
 > [!NOTE]
 > 本節說明如何從 IoT 中樞接收 SAS URI 的功能，但此功能已被取代。 請使用先前所述的 POST 方法。
 
-IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲存體的 SAS URI，另一個用來通知 IoT 中樞已完成上傳。 裝置會起始檔案上傳程序，方法是將 GET 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`。 IoT 中樞會傳回：
+IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲存體的 SAS URI，另一個用來通知 IoT 中樞已完成上傳。 裝置會開始檔案上傳程序，方法是將 GET 傳送至 IoT 中樞的 `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`。 IoT 中樞會傳回：
 
 * 要上傳之檔案專屬的 SAS URI。
 
@@ -73,7 +74,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>通知 IoT 中樞已完成檔案上傳
 
-裝置會負責使用 Azure 儲存體 SDK 將檔案上傳至儲存體。 上傳完成時，裝置會將具有下列 JSON 主體的 POST 要求傳送至 `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications`︰
+裝置會使用 Azure 儲存體 SDK 將檔案上傳至儲存體。 上傳完成時，裝置會將具有下列 JSON 主體的 POST 要求傳送至 `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications`︰
 
 ```json
 {
@@ -84,7 +85,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 }
 ```
 
-`isSuccess` 的值是一個代表是否已成功上傳檔案的布林值。 `statusCode` 的狀態碼是檔案上傳至儲存體的狀態，而且 `statusDescription` 會對應至 `statusCode`。
+`isSuccess` 的值是一個布林值，可指出是否已成功上傳檔案。 `statusCode` 的狀態碼是檔案上傳至儲存體的狀態，而且 `statusDescription` 會對應至 `statusCode`。
 
 ## <a name="reference-topics"></a>參考主題：
 
@@ -92,7 +93,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 ## <a name="file-upload-notifications"></a>檔案上傳通知
 
-(選擇性) 當裝置向「IoT 中樞」通知上傳已完成時，「IoT 中樞」會產生通知訊息，其中包含檔案的名稱和儲存位置。
+(選擇性) 當裝置將上傳已完成的狀態通知 IoT 中樞時，IoT 中樞就會產生通知訊息。 此訊息包含檔案的名稱和儲存位置。
 
 如[端點](iot-hub-devguide-endpoints.md)中所述，IoT 中樞會透過面向服務的端點 (**/messages/servicebound/fileuploadnotifications**) 利用訊息來傳遞檔案上傳通知。 檔案上傳通知的接收語意與雲端到裝置訊息的接收語意相同，並且具有相同的[訊息生命週期](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle)。 從檔案上傳通知端點擷取的每則訊息是具有下列屬性的 JSON 記錄：
 
@@ -120,7 +121,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 ## <a name="file-upload-notification-configuration-options"></a>檔案上傳通知組態選項
 
-每個 IoT 中樞都會針對檔案上傳通知公開下列組態選項：
+每個 IoT 中樞都具備下列適用於檔案上傳通知的組態選項：
 
 | 屬性 | 說明 | 範圍和預設值 |
 | --- | --- | --- |
@@ -133,7 +134,7 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 
 IoT 中樞開發人員指南中的其他參考主題包括︰
 
-* [IoT 中樞端點](iot-hub-devguide-endpoints.md)說明每個 IoT 中樞公開給執行階段和管理作業的各種端點。
+* [IoT 中樞端點](iot-hub-devguide-endpoints.md)說明執行階段和管理作業的各種 IoT 中樞端點。
 
 * [節流和配額](iot-hub-devguide-quotas-throttling.md)描述適用於 IoT 中樞服務的配額和節流行為。
 

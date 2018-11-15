@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: 926ce58872b06b41a0c7942b7090dcb4d5c8df03
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956484"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684081"
 ---
 # <a name="configure-spark-settings"></a>設定 Spark 設定
 
@@ -30,11 +30,8 @@ HDInsight 叢集中各個節點的虛擬機器數目和大小也可能對您的 
 
 使用最適合您的叢集的 Spark 版本。  HDInsight 服務包含數種版本的 Spark 和 HDInsight。  每個版本的 Spark 都包含一組預設叢集設定。  
 
-在您建立新的叢集時，目前可供選擇的 Spark 版本如下所示：
+在您建立新的叢集時，有多個 Spark 版本可供選擇。 若要查看完整清單，請參閱 [HDInsight 元件和版本](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)
 
-![Spark 版本](./media/apache-spark-settings/spark-version.png)
-
-Spark 2.x 的執行效能遠優於 Spark 1.x。 Spark 2.x 有多項效能最佳化，例如 Tungsten、Catalyst 查詢最佳化等等。  
 
 > [!NOTE]
 > HDInsight 服務中的預設 Apache Spark 版本可能會變更，且不另行通知。 如需依存於某個版本，Microsoft 建議您在使用 .NET SDK、Azure PowerShell 與 Azure 傳統 CLI 建立叢集時指定該特定版本。

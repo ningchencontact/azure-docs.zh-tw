@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: scottnap
-ms.openlocfilehash: bcdd5b6d28a6c08b7b36e170fcb7d184fcf65eb0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: d215af253471258e487dadcfae0cfd7edafd1c26
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024455"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634646"
 ---
 # <a name="connect-azure-stack-to-azure-using-vpn"></a>使用 VPN 將 Azure Stack 連線至 Azure
 
@@ -127,7 +127,7 @@ ms.locfileid: "50024455"
 
 1. 在 Azure 入口網站中，選取 [+ 建立資源]。
 2. 移至 [Marketplace]，然後選取 [計算]。
-3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter Oval] 映像。
+3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像。
 4. 在 [基本] 區段的 [名稱] 中，輸入 **AzureVM**。
 5. 輸入有效的使用者名稱和密碼。 建立虛擬機器之後，您將使用此帳戶來登入虛擬機器。
 6. 提供 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。
@@ -227,7 +227,7 @@ ms.locfileid: "50024455"
 
 1. 在 Azure 入口網站中，選取 [+ 建立資源]。
 2. 移至 [Marketplace]，然後選取 [計算]。
-3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter Oval] 映像。
+3. 在虛擬機器映像清單中，選取 [Windows Server 2016 Datacenter 評估版] 映像。
 4. 在 [基本] 區段的 [名稱] 中，輸入 **Azs-VM**。
 5. 輸入有效的使用者名稱和密碼。 建立 VM 之後，您將使用此帳戶來登入 VM。
 6. 提供 [訂用帳戶]、[資源群組] 和 [位置]，然後選取 [確定]。

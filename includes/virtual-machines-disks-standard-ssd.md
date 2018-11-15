@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060518"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264032"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟
 
@@ -22,7 +22,7 @@ ms.locfileid: "47060518"
 ## <a name="standard-ssd-features"></a>標準 SSD 功能
 
 **受控磁碟**：「標準 SSD」僅可供作為「受控磁碟」使用。 「標準 SSD」不支援「非受控磁碟」和「分頁 Blob」。 建立「受控磁碟」時，您需將磁碟類型指定為 [標準 SSD] 並指示所需的磁碟大小，然後 Azure 就會為您建立及管理該磁碟。
-「標準 SSD」支援「受控磁碟」所提供的所有服務管理作業。 例如，您可以建立、複製「標準 SSD 受控磁碟」或為其建立快照，方式與對「受控磁碟」所做的相同。
+標準 SSD 支援受控磁碟提供的所有傳統部署模型作業。 例如，您可以建立、複製「標準 SSD 受控磁碟」或為其建立快照，方式與對「受控磁碟」所做的相同。
 
 **虛擬機器**：「標準 SSD」可以與所有 Azure VM 搭配使用，包括不支援「進階磁碟」的 VM 類型。 例如，不論您使用 A 系列 VM、N 系列 VM、DS 系列還是任何其他 Azure VM 系列，都可以將「標準 SSD」與該 VM 搭配使用。 在導入「標準 SSD」之後，我們便能將先前使用 HDD 型磁碟的廣泛工作負載轉換至 SSD 型磁碟，並體驗一致的效能、更高的可用性、更佳的延遲，以及伴隨 SSD 而來整體更佳的體驗。
 
@@ -32,7 +32,7 @@ ms.locfileid: "47060518"
 
 ## <a name="scalability-and-performance-targets"></a>擴充和效能目標
 
-下表包含目前針對「標準 SSD」提供的磁碟大小。
+下表包含目前針對「標準 SSD」提供的磁碟大小。 以星號表示的大小目前為預覽狀態。
 
 |標準 SSD 磁碟類型  |磁碟大小  |每一磁碟的 IOPS  |每一磁碟的輸送量  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ ms.locfileid: "47060518"
 |E30     |1,024 GiB       |最多 500         |每秒最多 60 MiB         |
 |E40     |2,048 GiB       |最多 500         |每秒最多 60 MiB         |
 |E50     |4,095 GiB       |最多 500         |每秒最多 60 MiB         |
-|E60     |8,192 GiB       |最多 1,300       |每秒最多 300 MiB        |
-|E70     |16,384 GiB      |最多 2,000       |每秒最多 500 MiB        |
-|E80     |32,767 GiB      |最多 2,000       |每秒最多 500 MiB        |
+|E60 *     |8,192 GiB       |最多 1,300       |每秒最多 300 MiB        |
+|E70 *    |16,384 GiB      |最高 2,000       |每秒最多 500 MiB        |
+|E80 *    |32,767 GiB      |最高 2,000       |每秒最多 500 MiB        |
 
 「標準 SSD」已設計成針對大多數 IO 作業均可提供個位數的毫秒延遲，並可提供高達上表所述限制的 IOPS 和輸送量。 實際的 IOPS 和輸送量有時可能會依流量模式而有所不同。 與 HDD 磁碟相比，「標準 SSD」將可提供延遲更低的更一致效能。
 

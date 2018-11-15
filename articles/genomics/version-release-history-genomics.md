@@ -1,28 +1,26 @@
 ---
-title: 版本發行歷程記錄 | Microsoft Docs
+title: 版本發行歷程記錄 - Microsoft Genomics
 titleSuffix: Azure
 description: Microsoft Genomics 會定期更新 Microsoft Genomics Python 用戶端，以進行修正並推出新功能。
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 03/02/2018
-ms.openlocfilehash: 28f1fa7c7e37c276a3a767ce7c742b0239a5b65a
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.openlocfilehash: 458ac634cee1a64da67e6560900c82c2f2743c0f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29802922"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034314"
 ---
 # <a name="version-release-history"></a>版本發行歷程記錄
 Microsoft Genomics 小組會定期更新 Microsoft Genomics Python 用戶端，以進行修正並推出新功能。 
 
 ## <a name="latest-release"></a>最新版本
-目前的 Python 用戶端是 0.7.4 版。 已於 2018 年 3 月 5 日發行，並利用 GATK 3.3。 
+目前的 Python 用戶端是 0.7.4 版。 此版本已在 2018 年 3 月 5 日發行，並支援使用 GATK 3.5 和 GATK4 來執行工作流程。
 
 
 ## <a name="release-history"></a>發行歷程記錄 

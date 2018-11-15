@@ -3,18 +3,18 @@ title: 使用虛擬網路連線到 Kafka - Azure HDInsight
 description: 了解如何透過 Azure 虛擬網路，直接連線到 HDInsight 上的 Kafka。 了解如何使用 VPN 閘道從開發用戶端連線到 Kafka，或使用 VPN 閘道裝置從內部部署網路的用戶端進行連線。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.openlocfilehash: 973563a0c9a986bb4dec785b4521566acb657d15
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: da98873b133d69d78271494b991b67caea1d5a11
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042389"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283065"
 ---
 # <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>透過 Azure 虛擬網路連線到 HDInsight 上的 Kafka
 
@@ -35,7 +35,7 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
     2. 建立 VPN 閘道以使用站對站設定。 本文件中使用的設定會連線到內部部署網路中的 VPN 閘道裝置。
     3. 在虛擬網路中建立 DNS 伺服器。
     4. 設定每個網路中 DNS 伺服器之間的轉送。
-    5. 將 HDInsight 上的 Kafka 安裝到虛擬網路中。
+    5. 在虛擬網路的 HDInsight 叢集上建立 Kafka。
 
     如需詳細資訊，請參閱[從內部部署網路連線至 Kafka](#on-premises) 一節。 
 
@@ -43,8 +43,8 @@ HDInsight 不允許透過公用網際網路直接連線至 Kafka。 Kafka 用戶
 
     1. 建立虛擬網路。
     2. 建立 VPN 閘道以使用點對站設定。 此設定可與 Windows 及 MacOS 用戶端搭配使用。
-    3. 將 HDInsight 上的 Kafka 安裝到虛擬網路中。
-    4. 設定 Kafka 進行 IP 公告。 此設定可讓用戶端使用 IP 位址而不是網域名稱來連線。
+    3. 在虛擬網路的 HDInsight 叢集上建立 Kafka。
+    4. 設定 Kafka 進行 IP 公告。 此設定可讓用戶端使用訊息代理程式 IP 位址來連線，而不是網域名稱。
     5. 下載 VPN 用戶端並在開發系統上使用。
 
     如需詳細資訊，請參閱[將 VPN 用戶端連線到 Kafka](#vpnclient) 一節。

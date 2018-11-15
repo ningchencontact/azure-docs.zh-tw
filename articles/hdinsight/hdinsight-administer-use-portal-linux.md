@@ -1,26 +1,26 @@
 ---
-title: 使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集
+title: 使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 description: 了解如何使用 Azure 入口網站來監視和管理 HDInsight 叢集。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
-ms.author: jasonh
-ms.openlocfilehash: b00c88e526bf72f51df0d2a3d6a87fbd5bc1f991
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: hrasheed
+ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991975"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252287"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-使用 [Azure 入口網站][azure-portal]，您可以管理 Azure HDInsight 中的 Hadoop 叢集。 使用上述的索引標籤選取器，以取得使用其他工具管理 HDInsight 中 Hadoop 叢集的詳細資訊。
+使用 [Azure 入口網站][azure-portal]，您可以管理 Azure HDInsight 中的 Apache Hadoop 叢集。 使用上述的索引標籤選取器，以取得使用其他工具管理 HDInsight 中 Hadoop 叢集的詳細資訊。
 
 **先決條件**
 
@@ -81,29 +81,32 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **移動**：將叢集移至另一個資源群組或另一個訂用帳戶。
     * **刪除**：刪除叢集。
 
-    **左側功能表**：
+**左側功能表**：
     * **活動記錄檔**︰顯示和查詢活動記錄檔。
     * **存取控制 (IAM)**︰使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
     * **標記**：可讓您設定索引鍵/值組，以定義自訂的雲端服務分類法。 例如，您可建立名為 **project**的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
-    * **診斷並解決問題**︰顯示疑難排解資訊。
-    * **鎖定**︰新增鎖定以防止叢集遭到修改或刪除。
-    * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+* **診斷並解決問題**︰顯示疑難排解資訊。
     * **快速啟動**：顯示可協助您開始使用 HDInsight 的資訊。
     * **適用於 HDInsight 的工具**：HDInsight 相關工具的說明資訊。
-    * **訂用帳戶核心使用量**︰顯示訂用帳戶的已使用和可用核心。
-    * **調整叢集**：增加和減少叢集背景工作角色節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
+**設定**
+* **叢集大小**：檢查、增加和減少叢集背景工作角色節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
+    * **配額限制**︰顯示訂用帳戶的已使用和可用核心。
     * **SSH + 叢集登入**︰顯示使用安全殼層 (SSH) 連線來連線至叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
-    * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
-    * **外部中繼存放區**：檢視 Hive 和 Oozie 中繼存放區。 中繼存放區只可以在叢集建立程序期間進行設定。 請參閱[使用 Hive/Oozie 中繼存放區](hdinsight-hadoop-provision-linux-clusters.md#use-hiveoozie-metastore)。
-    * **指令碼動作**︰在叢集上執行 Bash 指令碼。 請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
-    * **應用程式**：新增/移除 HDInsight 應用程式。  請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
-    * **監視**：監視 Azure Log Analytics 中的叢集。
-    * **屬性**：檢視叢集屬性。
+* **Data Lake Store Gen1**：設定 Data Lake Store Gen1 的存取。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
     * **儲存體帳戶**︰檢視儲存體帳戶和金鑰。 儲存體帳戶是在進行叢集建立程序時設定。
-    * **Data Lake Store 存取**：設定 Data Lake Store 的存取。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+    * **應用程式**：新增/移除 HDInsight 應用程式。  請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+    * **指令碼動作**︰在叢集上執行 Bash 指令碼。 請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
+    * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
+    * **屬性**：檢視叢集屬性。
+* **鎖定**︰新增鎖定以防止叢集遭到修改或刪除。
+    * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+**監視**
+* **警示**：管理警示和動作。
+    * **計量**：監視 Azure Log Analytics 中的叢集計量。
+* **診斷設定**：設定在何處儲存**支援與疑難排解**的診斷計量
     * **資源健康狀態**：請參閱 [Azure 資源健康狀態概觀](../service-health/resource-health-overview.md)。
     * **新的支援要求**︰可讓您透過 Microsoft 支援服務建立支援票證。
-    
+
 6. 按一下 [屬性] ：
 
     屬性如下︰
@@ -144,6 +147,15 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 > 只支援使用 HDInsight 3.1.3 版或更高版本的叢集。 如果不確定您的叢集版本，您可以檢查 [屬性] 頁面。  請參閱[列出和顯示叢集](#list-and-show-clusters)。
 >
 >
+**調整叢集**
+
+1. 登入[入口網站][azure-portal]。
+2. 按一下左功能表中的 [HDInsight 叢集]  。
+3. 按一下您想要調整的叢集。
+3. 按一下 [調整叢集]。
+4. 輸入 **背景工作節點的數目**。 叢集節點的數目限制會因 Azure 訂用帳戶而有所不同。 請連絡帳務支援提高限制。  成本資訊會反映您對節點數目所做的變更。
+
+    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 變更資料節點數目的影響會因為 HDInsight 支援的各種類型叢集而有所不同：
 
@@ -188,15 +200,6 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-**調整叢集**
-
-1. 登入[入口網站][azure-portal]。
-2. 按一下左功能表中的 [HDInsight 叢集]  。
-3. 按一下您想要調整的叢集。
-3. 按一下 [調整叢集]。
-4. 輸入 **背景工作節點的數目**。 叢集節點的數目限制會因 Azure 訂用帳戶而有所不同。 請連絡帳務支援提高限制。  成本資訊會反映您對節點數目所做的變更。
-
-    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## <a name="pauseshut-down-clusters"></a>暫停/關閉叢集
 

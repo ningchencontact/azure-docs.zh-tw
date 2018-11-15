@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382700"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004403"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Azure 函式並對其進行偵錯
 
@@ -74,7 +74,7 @@ VS Code 會採用您提供的資訊、使用 Azure Functions 專案建立 IoT Ed
 
 ## <a name="develop-your-module"></a>開發您的模組
 
-解決方案隨附的預設 Azure Function 程式碼位於：[模組] > [您的模組名稱] > [EdgeHubTrigger-Csharp]  >  [run.csx]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
+解決方案隨附的預設 Azure Function 程式碼位於：[模組] > [您的模組名稱] > [modulename.cs]。 系統會設定模組和 deployment.template.json 檔案，讓您可以建置解決方案、將其推送至容器登錄，然後部署到裝置以開始測試，而不需要觸碰到任何程式碼。 模組是建置為僅採用來源的輸入 (在此案例中，是會模擬資料的 tempSensor 模組)，並且將其傳送到 IoT 中樞。 
 
 當您準備要使用自己的程式碼自訂 Azure Function 範本時，請使用 [Azure IoT 中樞 SDK](../iot-hub/iot-hub-devguide-sdks.md) 以建置模組，該模組會解決 IoT 解決方案的主要需求，例如安全性、裝置管理和可靠性。 
 
@@ -93,7 +93,7 @@ VS Code 會採用您提供的資訊、使用 Azure Functions 專案建立 IoT Ed
 
    ![選取偵錯組態](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. 瀏覽至 `run.csx`。 在函式中新增中斷點。
+2. 瀏覽至 `modulename.cs`。 在函式中新增中斷點。
 3. 選取 [開始偵錯] 或選取 **F5**。 選取所要連結的流程。
 4. 在 VS Code 偵錯檢視中，您可以在左面板中看到變數。 
 

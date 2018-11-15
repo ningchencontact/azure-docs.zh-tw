@@ -1,29 +1,29 @@
 ---
-title: 部署 Java 遠端監視解決方案架構 - Azure | Microsoft Docs
-description: 本教學課程會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
+title: 使用 CLI 部署遠端監視解決方案 - Azure | Microsoft Docs
+description: 本操作指南會示範如何使用 CLI 來佈建遠端監視解決方案加速器。
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956692"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248005"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>使用 CLI 部署遠端監視解決方案加速器
 
-本教學課程示範如何佈建遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)。
+本操作指南會示範如何部署遠端監視解決方案加速器。 您將使用 CLI 來部署解決方案。 您也可以使用 azureiotsuite.com 的 Web 型 UI 來部署解決方案；若要了解此選項，請參閱[部署遠端監視解決方案加速器](quickstart-remote-monitoring-deploy.md)快速入門。
 
 ## <a name="prerequisites"></a>必要條件
 
 若要部署遠端監視解決方案加速器，您需要一個有效的 Azure 訂用帳戶。
 
-如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](http://azure.microsoft.com/pricing/free-trial/)。
+如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 若要執行 CLI，您必須在本機電腦上安裝 [Node.js](https://nodejs.org/)。
 
@@ -37,7 +37,7 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>登入 CLI
 
-您必須依照下列方式使用 CLI 來登入 Azure 訂用帳戶，才能部署解決方案加速器：
+您必須使用 CLI 來登入 Azure 訂用帳戶，才能部署解決方案加速器：
 
 ```cmd/sh
 pcs login
@@ -51,19 +51,20 @@ pcs login
 
 | 選項 | 值 | 說明 |
 | ------ | ------ | ----------- |
-| SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至多部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用雲端中的 Azure 服務 (例如儲存體和 Cosmos DB)。 |
+| SKU    | `basic`、`standard`, `local` | _basic_ 部署適用於測試和示範環境，它會將所有微服務部署至單一虛擬機器。 _standard_ 部署適用於生產環境，它會將微服務部署至數部虛擬機器。 _local_ 部署會將 Docker 容器設定為在本機電腦上執行微服務，並且使用 Azure 雲端服務 (例如儲存體和 Cosmos DB)。 |
 | 執行階段 | `dotnet`、`java` | 選取微服務的語言實作。 |
 
-若要了解如何使用本機部署，請參閱[在本機執行遠端監視解決方案](iot-accelerators-remote-monitoring-deploy-local.md)。
+若要了解如何使用本機部署選項，請參閱[在本機執行遠端監視解決方案](iot-accelerators-remote-monitoring-deploy-local.md)。
 
-## <a name="basic-vs-standard-deployments"></a>基本與標準部署
+## <a name="basic-and-standard-deployments"></a>基本和標準部署
+
+本節摘要說明基本和標準部署之間的主要差異。
 
 ### <a name="basic"></a>基本
-基本部署是專門設計來展示解決方案。 為了降低此示範的成本，所有微服務都會部署於單一虛擬機器中。這不會被視為可實際執行的架構。
 
-當您準備自訂可實際執行的架構 (基於調整和擴充性而建置) 時，則應使用我們的標準部署選項。
+基本部署是專門設計來展示解決方案。 為了降低成本，所有微服務都會部署在單一虛擬機器中。 此部署不會使用已準備好用於生產環境的架構。
 
-建立基本解決方案將會按定價在您的 Azure 訂用帳戶中佈建下列 Azure 服務： 
+基本部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
 | Count | 資源                       | 類型         | 用於 |
 |-------|--------------------------------|--------------|----------|
@@ -78,13 +79,11 @@ pcs login
 | 1     | [Azure 裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 大規模佈建裝置 |
 | 1     | [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)        |   S1 - 1 個單位              | 適用於訊息資料的儲存體，並能提供深入遙測分析 |
 
-
-
 ### <a name="standard"></a>標準
-標準部署是開發人員可自訂及擴充來符合其需求的可實際執行部署。 當您準備自訂可實際執行的架構 (基於規模調整與擴充性而建置) 時，應該使用標準部署選項。 應用程式微服務是建置為 Docker 容器並使用 Azure Kubernetes Service (AKS) 部署。 協調器會負責部署、調整及管理應用程式。
 
+標準部署是已準備好用於生產環境的部署，開發人員可以自訂和擴充。 當您準備自訂已準備好用於生產環境的架構 (基於規模調整與擴充性而建置) 時，請使用標準部署選項。 應用程式微服務是建置為 Docker 容器並使用 Azure Kubernetes Service 部署。 Kubernetes 協調器可部署、調整規模及管理微服務。
 
-建立標準解決方案將會按定價在您的 Azure 訂用帳戶中佈建下列 Azure 服務:
+標準部署會在您的 Azure 訂用帳戶中建立下列服務︰
 
 | Count | 資源                                     | SKU / 大小      | 用於 |
 |-------|----------------------------------------------|-----------------|----------|
@@ -99,9 +98,12 @@ pcs login
 | 1     | [Azure 裝置佈建服務](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | 大規模佈建裝置 |
 | 1     | [Azure 時間序列深入解析](https://azure.microsoft.com/services/time-series-insights/)        |   S1 - 1 個單位              | 適用於訊息資料的儲存體，並能提供深入遙測分析 |
 
-> 您可以在[這裡](https://azure.microsoft.com/pricing)找到這些服務的價格資訊。 訂用帳戶的使用量與計費詳細資料則可在 [Azure 入口網站](https://portal.azure.com/)中找到。
+> [!NOTE]
+> 您可以在 [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing) 找到這些服務的價格資訊。 您可以在 [Azure 入口網站](https://portal.azure.com/)中找到訂用帳戶的使用量與計費詳細資料。
 
 ## <a name="deploy-the-solution-accelerator"></a>部署解決方案加速器
+
+部署範例：
 
 ### <a name="example-deploy-net-version"></a>範例：部署 .NET 版本
 
@@ -128,7 +130,7 @@ pcs -t remotemonitoring -s standard -r java
 - 一個位置。
 - 裝載微服務之虛擬機器帳戶的認證。 您可以使用這些認證來存取虛擬機器以進行疑難排解。
 
-當 `pcs` 命令完成時，會顯示新解決方案加速器部署的 URL。 `pcs` 命令也會建立一個檔案 `{deployment-name}-output.json`，其中含有額外的資訊，例如為您佈建的「IoT 中樞」名稱。
+當 `pcs` 命令完成時，會顯示新解決方案加速器的 URL。 `pcs` 命令也會建立一個內含資訊的檔案 `{deployment-name}-output.json`，例如其所建立「IoT 中樞」名稱。
 
 如需有關命令列參數的詳細資訊，請執行：
 
@@ -140,7 +142,7 @@ pcs -h
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
+在此操作指南中，您已了解如何：
 
 > [!div class="checklist"]
 > * 設定解決方案加速器
@@ -149,4 +151,4 @@ pcs -h
 
 既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](./quickstart-remote-monitoring-deploy.md)。
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

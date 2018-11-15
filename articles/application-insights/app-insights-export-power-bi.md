@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246402"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963110"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
 [Power BI](http://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。
@@ -41,7 +41,7 @@ ms.locfileid: "40246402"
 安裝 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)。
 
 ### <a name="export-an-analytics-query"></a>匯出 Analytics 查詢
-1. [開啟 Analytics 並撰寫查詢](app-insights-analytics-tour.md)。
+1. [開啟 Analytics 並撰寫查詢](../log-analytics/query-language/get-started-analytics-portal.md)。
 2. 測試並精簡查詢，直到您滿意結果。 請先確定查詢在 Analytics 中正確執行，再將它匯出。
 3. 在 [匯出] 功能表上，選擇 [Power BI (M)]。 儲存文字檔案。
    
@@ -109,7 +109,7 @@ ms.locfileid: "40246402"
    * 將 **https://management.azure.com/subscriptions/...** 取代
    * 為 **https://api.applicationinsights.io/beta/apps/...**
 3. 最後，將認證更新為基本，並且使用您的 API 金鑰。
-  
+ �
 
 **現有的指令碼**
  ```
@@ -155,5 +155,5 @@ ms.locfileid: "40246402"
 
 ## <a name="next-steps"></a>後續步驟
 * [Power BI - 了解](http://www.powerbi.com/learning/)
-* [Analytics 教學課程](app-insights-analytics-tour.md)
+* [Analytics 教學課程](../log-analytics/query-language/get-started-analytics-portal.md)
 

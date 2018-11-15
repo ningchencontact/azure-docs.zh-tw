@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312569"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264285"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>符合成本效益的標準儲存體及非受控和受控 Azure VM 磁碟
 
@@ -61,10 +61,10 @@ ms.locfileid: "49312569"
 | **Resource** | **預設限制** |
 |--------------|-------------------|
 | 每一儲存體帳戶的 TB  | 500 TB |
-| 每一儲存體帳戶的輸入上限<sup>1</sup> (美國地區) | 如果啟用 GRS/ZRS，則為 10 Gbps，LRS 為 20 Gbps |
-| 每一儲存體帳戶的輸出上限<sup>1</sup> (美國地區) | 如果啟用 RA-GRS/GRS/ZRS，則為 20 Gbps，LRS 為 30 Gbps |
-| 每一儲存體帳戶的輸入上限<sup>1</sup> (歐洲和亞洲地區) | 如果啟用 GRS/ZRS，則為 5 Gbps，LRS 為 10 Gbps |
-| 每一儲存體帳戶的輸出上限<sup>1</sup> (歐洲和亞洲地區) | 如果啟用 RA-GRS/GRS/ZRS，則為 10 Gbps，LRS 為 15 Gbps |
+| 每一儲存體帳戶的輸入上限<sup>1</sup>  (美國區域) | 如果啟用 GRS/ZRS，則為 10 Gbps，LRS 為 20 Gbps |
+| 每一儲存體帳戶的輸出上限<sup>1</sup>  (美國區域) | 如果啟用 RA-GRS/GRS/ZRS，則為 20 Gbps，LRS 為 30 Gbps |
+| 每一儲存體帳戶的輸入上限<sup>1</sup>  (歐洲和亞洲區域) | 如果啟用 GRS/ZRS，則為 5 Gbps，LRS 為 10 Gbps |
+| 每一儲存體帳戶的輸出上限<sup>1</sup>  (歐洲和亞洲區域) | 如果啟用 RA-GRS/GRS/ZRS，則為 10 Gbps，LRS 為 15 Gbps |
 | 每一儲存體帳戶的總要求率 (假設 1KB 物件大小) | 每秒實體或每秒訊息最多 20,000 個 IOPS |
 
 <sup>1</sup>輸入是指傳送至某個儲存體帳戶的所有資料 (要求)。 輸出是指從某個儲存體帳戶接收的所有資料 (回應)。
@@ -111,7 +111,7 @@ ms.locfileid: "49312569"
 
 使用標準儲存體時，需考量下列計費資訊：
 
-* 標準儲存體非受控磁碟/資料大小 
+* 標準儲存體非受控磁碟/資料大小
 * 標準受控磁碟
 * 標準儲存體快照集
 * 輸出資料傳輸
@@ -121,16 +121,18 @@ ms.locfileid: "49312569"
 
 **受控磁碟**：標準受控磁碟的計費取決於磁碟的佈建大小。 Azure 會將佈建大小對應 (無條件進位) 至下表中指定的最接近受控磁碟選項。 每一個受控磁碟對應至其中一個支援的佈建大小，並據此計費。 例如，如果您建立標準受控磁碟，並指定 200 GiB 的佈建大小，就會依據 S15 磁碟類型的定價向您收費。
 
-| **標準 HDD 受控<br>磁碟類型** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+以星號表示的大小目前為預覽狀態。
+
+| **標準 HDD 受控<br>磁碟類型** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | 磁碟大小        | 32 GiB  | 64 GiB  | 128 GB | 256 GiB | 512 GB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 
 
 **快照集**：標準儲存體的快照集會因為使用的額外容量而產生費用。 如需有關快照的資訊，請參閱[建立 Blob 的快照](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)。
 
-**輸出資料傳輸**： [輸出資料傳輸](https://azure.microsoft.com/pricing/details/data-transfers/) (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
+**輸出資料傳輸**： [輸出資料傳輸](https://azure.microsoft.com/pricing/details/data-transfers/)  (Azure 資料中心送出的資料) 會產生頻寬使用量費用。
 
-**交易**：在標準儲存體上，Azure 每 100000 筆交易會收取 $0.0036。 交易一概包括對儲存體進行的讀取和寫入作業。
+**交易**：在標準儲存體上，Azure 每 100,000 筆交易會收取 $0.0036。 交易一概包括對儲存體進行的讀取和寫入作業。
 
 如需標準儲存體、虛擬機器和受控磁碟價格的詳細資訊，請參閱：
 

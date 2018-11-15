@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015769"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614135"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -55,7 +55,7 @@ ms.locfileid: "51015769"
 
 * **傳統活動記錄警示** - 產生符合您所指派篩選準則之「活動記錄」事件時會觸發的資料流記錄警示。 這些警示只有「已啟動」這個狀態，因為警示引擎只會將篩選準則套用至任何新的事件。 您可以使用這些警示，在發生新的服務健康狀態事件時，或是在使用者或應用程式於您的訂用帳戶中執行作業時 (例如「刪除虛擬機器」)，收到通知。
 
-針對透過 Azure 監視器提供的診斷記錄資料，請將資料路由傳送至 Log Analytics (先前稱為 OMS) 並使用 Log Analytics 查詢警示。 Log Analytics 現在使用[新的警示方法](monitoring-overview-unified-alerts.md) 
+針對透過 Azure 監視器提供的診斷記錄資料，請將資料路由傳送至 Log Analytics (先前稱為 OMS) 並使用 Log Analytics 查詢警示。 Log Analytics 現在使用[新的警示方法](monitoring-overview-alerts.md) 
 
 下圖摘要說明 Azure 監視器中的資料來源，以及就概念而言如何發出該資料的警示。
 

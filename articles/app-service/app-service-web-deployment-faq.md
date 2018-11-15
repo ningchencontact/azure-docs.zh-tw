@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302583"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748437"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -79,7 +79,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>如何將我的程式碼發佈至 App Service？
 
-「Azure 快速入門」的設計目的是協助您使用部署堆疊和您選擇的方法來部署您的應用程式。 若要使用快速入門，請在 Azure 入口網站中移至 [設定] >  [應用程式部署]。
+「Azure 快速入門」的設計目的是協助您使用部署堆疊和您選擇的方法來部署您的應用程式。 若要使用快速入門，請在 Azure 入口網站中，移至您的 App Service，在 [部署] 底下選取 [快速入門]。
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>為什麼我的應用程式有時候會在部署至 App Service 之後重新啟動？
 

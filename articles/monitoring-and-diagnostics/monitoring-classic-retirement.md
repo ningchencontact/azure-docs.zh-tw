@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7efafe5e3080de15781496032b688bc5fa71df2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418412"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613190"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -72,4 +72,4 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 ## <a name="next-steps"></a>後續步驟
 
 * 了解[新的整合 Azure 監視器](../azure-monitor/overview.md)。
-* 深入了解新的 [Azure 警示](monitoring-overview-unified-alerts.md)。
+* 深入了解新的 [Azure 警示](monitoring-overview-alerts.md)。

@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2c82007092f9ff93086d5caaf188f6922f4a8aea
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086177"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036422"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -29,7 +29,7 @@ Azure Functions Tools 提供下列優點：
 * 開發及部署預先編譯的 C# 函數。 預先編譯的函數提供的冷啟動效能比 C# 指令碼型函數更好。 
 * 在 C# 中編寫函數，同時享有 Visual Studio 開發的所有優點。 
 
-本文說明如何使用 Azure Functions Tools for Visual Studio 2017 在 C# 中開發函式。 您也會了解如何將專案發佈到 Azure 成為 .NET 組件。
+本文提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀本文之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
 
 > [!IMPORTANT]
 > 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
@@ -81,6 +81,9 @@ Azure Functions Tools 提供下列優點：
 * **host.json**：讓您設定 Functions 主機。 這些設定同時適用於在本機執行及在 Azure 中執行。 如需詳細資訊，請參閱 [host.json 參考](functions-host-json.md)。
 
 * **local.settings.json**：維持在本機執行函數時所使用的設定。 Azure 不會使用這些設定，[Azure Functions Core Tools](functions-run-local.md) 會使用這些設定。 請使用這個檔案來指定函式所需變數的應用程式設定。 針對專案中函式繫結所需的每個連接，將新項目新增至 [值] 陣列。 如需詳細資訊，請參閱＜Azure Functions Core Tools＞一文中的[本機設定檔](functions-run-local.md#local-settings-file)。
+
+    >[!IMPORTANT]
+    >由於 local.settings.json 檔案可以包含祕密，因此，您必須從專案原始檔控制中排除它。 這個檔案的 [複製到輸出目錄] 設定應該一律是 [有更新時才複製]。 
 
 如需詳細資訊，請參閱 [Functions 類別庫專案](functions-dotnet-class-library.md#functions-class-library-project)。
 

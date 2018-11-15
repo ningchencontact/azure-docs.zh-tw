@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 177deb779ca3e3e9575a41ab9a37bb51d5e79df8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126661"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008073"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>保護 Azure 資訊安全中心內的 Azure SQL 服務和資料
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。  這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM)、網路、SQL 和資料，以及應用程式。
@@ -49,12 +49,26 @@ ms.locfileid: "46126661"
 
 若要啟用稽核，請選取 [稽核] 選項底下的 [開啟]。
 
-## <a name="available-sql-service-and-data-recommendations"></a>可用的 SQL 服務和資料建議
-| 建議 | 說明 |
-| --- | --- |
-| [在 SQL Server 上啟用稽核與威脅偵測](security-center-enable-auditing-on-sql-servers.md) |建議您針對 Azure SQL Server 開啟稽核與威脅偵測 (僅適用於 Azure SQL 服務，不包括在您虛擬機器上執行的 SQL)。 |
-| [在 SQL 資料庫上啟用稽核與威脅偵測](security-center-enable-auditing-on-sql-databases.md) |建議您針對 Azure SQL Database 開啟稽核與威脅偵測 (僅適用於 Azure SQL 服務，不包括在您虛擬機器上執行的 SQL)。 |
-| [在 SQL 資料庫上啟用透明資料加密](security-center-enable-transparent-data-encryption.md) |建議您針對 SQL 資料庫啟用加密 (僅適用於 Azure SQL 服務)。 |
+## <a name="data-and-storage-recommendations"></a>資料和儲存體建議
+
+|資源類型|安全分數|建議|說明|
+|----|----|----|----|
+|儲存體帳戶|20|儲存體帳戶需要安全傳輸|安全傳輸這個選項會強制您的儲存體帳戶僅接受來自安全連線 (HTTPS) 的要求。 使用 HTTPS 可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持。|
+|Redis|20|只允許對您 Redis Cache 的安全連線|只允許透過 SSL 連線到 Redis Cache。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持。|
+|SQL|15|在 SQL 資料庫上啟用透明資料加密|啟用透明資料加密，以保護待用資料及符合合規要求。|
+|SQL|15|在 SQL Server 上啟用稽核|啟用 Azure SQL Server 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
+|SQL|15|在 SQL Database 上啟用稽核|啟用 Azure SQL Database 的稽核。 (僅限 Azure SQL 服務。 不包含在虛擬機器上執行的 SQ。)|
+|Data Lake 分析|15|啟用 Data Lake Analytics 的待用加密|啟用透明資料加密以保護 Data Lake Analytics 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Analytics 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 在與 Data Lake Analytics 互動的應用程式和服務中，無須因為加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
+|Data Lake Store|15|啟用 Data Lake Store 的待用加密|啟用透明資料加密以保護 Data Lake Store 中的待用資料。 待用加密是在背景中自動進行的，也就是說 Data Lake Store 會在保存資料前自動將資料加密，並在擷取資料前自動將資料解密。 您無須在與 Data Lake Store 互動的應用程式和服務中，為配合加密而進行任何變更。 待用加密不僅可將實體竊取所造成的資料遺失風險降到最低，還有助於滿足法規合規性需求。|
+|儲存體帳戶|15|啟用 Azure 儲存體帳戶的加密|針對待用資料啟用「Azure 儲存體服務加密」。 「儲存體服務加密」(SSE) 會在資料被寫入 Azure 儲存體時加密資料，並於擷取資料之前將其解密。 SSE 目前僅適用於 Azure Blob 服務，可用於區塊 Blob、分頁 Blob 和附加 Blob。|
+|Data Lake 分析|5|啟用 Data Lake Analytics 診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
+|Data Lake Store|5|啟用 Azure Data Lake Store 的診斷記錄|啟用記錄並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。 |
+|SQL|30|修復 SQL 資料庫的弱點|SQL 弱點評定會掃描資料庫有無安全性弱點，並公開任何與最佳做法不同的差異，例如設定不正確、過多權限，以及未保護敏感性資料等等。 解決找到的弱點可以大幅改進資料庫的安全性等級。|
+|SQL|20|為 SQL Server 佈建 Azure AD 系統管理員|為 SQL Server 佈建 Azure AD 系統管理員，以啟用 Azure AD 驗證。 Azure AD 驗證可針對資料庫使用者及其他 Microsoft 服務，簡化權限管理及集中管理身分識別。|
+|儲存體帳戶|15|停用儲存體帳戶不受限制的存取|稽核儲存體帳戶防火牆設定中不受限制的網路存取。 請改為設定網路規則，只允許來自認可之網路的應用程式存取儲存體帳戶。 若要允許來自特定網際網路或內部部署用戶端的連線，可將存取權授與來自特定 Azure 虛擬網路的流量，或授與公用網際網路 IP 位址範圍。|
+|儲存體帳戶|1||將儲存體帳戶移轉到新的 AzureRM 資源|在您的儲存體帳戶使用新的 Azure Resource Manager v2 以加強安全性，除了增強存取控制 (RBAC)、改善稽核、提供以 Resource Manager 為基礎的部署及治理、受控身分識別的存取、金鑰保存庫的祕密存取、以 Azure AD 為基礎的驗證，還支援標記和資源群組，讓安全性管理更加輕鬆。|
+
+
 
 ## <a name="see-also"></a>另請參閱
 若要深入了解適用於其他 Azure 資源類型的建議，請參閱下列文章︰

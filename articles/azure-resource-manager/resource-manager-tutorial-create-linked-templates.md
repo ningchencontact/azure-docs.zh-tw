@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/30/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b08013941c1cf83b3eb006543d699eb7e1356ff0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e72a7b967ef314dcdcfb2773627ce3d020e2fdcb
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239979"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614220"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -41,7 +41,7 @@ ms.locfileid: "50239979"
 若要完成本文，您需要：
 
 * [Visual Studio Code](https://code.visualstudio.com/) 搭配 [Resource Manager Tools 擴充功能](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
-* 為了提高安全性，請針對虛擬機器系統管理員帳戶使用產生的密碼。 以下是用於產生密碼的範例：
+* 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 以下是用於產生密碼的範例：
 
     ```azurecli-interactive
     openssl rand -base64 32
@@ -213,7 +213,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="deploy-the-template"></a>部署範本
 
-請參閱[部署範本](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)一節，以了解部署程序。 為了提高安全性，請針對虛擬機器系統管理員帳戶使用產生的密碼。 請參閱[必要條件](#prerequisites)。
+請參閱[部署範本](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)一節，以了解部署程序。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

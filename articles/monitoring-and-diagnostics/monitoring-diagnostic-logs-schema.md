@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116188"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280503"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
@@ -47,7 +47,7 @@ ms.locfileid: "49116188"
 
 | 服務 | 結構描述與文件 |
 | --- | --- |
-| Azure Active Directory | [概觀](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md)、[稽核記錄結構描述](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登入結構描述](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [概觀](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)、[稽核記錄結構描述](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md)和[登入結構描述](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API 管理 | [API 管理診斷記錄](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | 應用程式閘道 |[應用程式閘道的診斷記錄功能](../application-gateway/application-gateway-diagnostics.md) |
@@ -92,9 +92,11 @@ ms.locfileid: "49116188"
 |Microsoft.Batch/batchAccounts|ServiceLog|服務記錄檔|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|取得端點的計量，例如頻寬、輸出等資訊。|
 |Microsoft.ClassicNetwork/networksecuritygroups|網路安全性群組規則流程事件|網路安全性群組規則流程事件|
-|Microsoft.CognitiveServices/accounts|稽核|稽核|
+|Microsoft.CognitiveServices/accounts|稽核|稽核記錄|
+|Microsoft.CognitiveServices/accounts|RequestResponse|要求和回應記錄|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API 伺服器|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes 控制器管理員|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Kubernetes 叢集自動調整程式|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes 排程器|
 |Microsoft.ContainerService/managedClusters|成立條件|驗證 Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ ms.locfileid: "49116188"
 |Microsoft.DataLakeAnalytics/accounts|要求|要求記錄檔|
 |Microsoft.DataLakeStore/accounts|稽核|稽核記錄|
 |Microsoft.DataLakeStore/accounts|Requests|要求記錄檔|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 慢速查詢記錄|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|MySQL 伺服器記錄|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL 伺服器記錄|
 |Microsoft.Devices/IotHubs|連線|連線|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|裝置遙測|
@@ -128,6 +130,14 @@ ms.locfileid: "49116188"
 |Microsoft.EventHub/namespaces|ArchiveLogs|封存記錄檔|
 |Microsoft.EventHub/namespaces|OperationalLogs|作業記錄|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|自動調整規模記錄檔|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|自動調整評估|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|自動調整的調整動作|
+|Microsoft.IoTSpaces/Graph|追蹤|追蹤|
+|Microsoft.IoTSpaces/Graph|運作|運作|
+|Microsoft.IoTSpaces/Graph|稽核|稽核|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|輸入|輸入|
+|Microsoft.IoTSpaces/Graph|輸出|輸出|
 |Microsoft.KeyVault/vaults|AuditEvent|稽核記錄|
 |Microsoft.Logic/workflows|WorkflowRuntime|工作流程執行階段診斷事件|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|整合帳戶追蹤事件|
@@ -136,6 +146,8 @@ ms.locfileid: "49116188"
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|負載平衡器警示事件|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|負載平衡器探查健全狀況狀態|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|DDoS 保護通知|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|DDoS 風險降低決策的流程記錄|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|DDoS 風險降低報告|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|VM 保護警示|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|應用程式閘道存取記錄檔|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|應用程式閘道效能記錄檔|
@@ -151,6 +163,8 @@ ms.locfileid: "49116188"
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|P2S 診斷記錄|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|流量管理員探查健康情況結果事件|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|對等互連路由表記錄|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|前門存取記錄|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|前門 Web 應用程式防火牆記錄|
 |Microsoft.PowerBIDedicated/capacities|引擎|引擎|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure 備份報表資料|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery 作業|
@@ -173,10 +187,21 @@ ms.locfileid: "49116188"
 |Microsoft.Sql/servers/databases|死結|死結|
 |Microsoft.Sql/servers/databases|稽核|稽核記錄|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|SQL 安全性稽核事件|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW 要求|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW 要求步驟|
+|Microsoft.Sql/servers/databases|DmsWorkers|Dms 背景工作|
+|Microsoft.Sql/servers/databases|ExecRequests|執行要求|
+|Microsoft.Sql/servers/databases|RequestSteps|要求步驟|
+|Microsoft.Sql/servers/databases|SqlRequests|Sql 要求|
+|Microsoft.Sql/servers/databases|Waits|等候|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|資源使用量統計資料|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|SQL 安全性稽核事件|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|查詢存放區執行階段統計資料|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|查詢存放區等候統計資料|
+|Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.StreamAnalytics/streamingjobs|執行|執行|
 |Microsoft.StreamAnalytics/streamingjobs|編寫|編寫|
+|microsoft.web/sites|FunctionExecutionLogs|函式執行記錄|
+|microsoft.web/sites/slots|FunctionExecutionLogs|函式執行記錄|
 
 ## <a name="next-steps"></a>後續步驟
 

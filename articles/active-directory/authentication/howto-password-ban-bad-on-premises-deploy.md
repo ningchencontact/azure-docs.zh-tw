@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742913"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011488"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>預覽：部署 Azure AD 密碼保護
 
@@ -53,6 +53,13 @@ Microsoft 建議進行任何部署時，都以稽核模式開始。 稽核模式
 * 安裝 Azure AD 密碼保護元件的所有機器 (包括網域控制站)，都必須安裝 Universal C 執行階段。
 透過 Windows Update 來完整修補此機器，是達到此需求的較佳做法。 否則，可能會安裝適當的 OS 專屬更新套件 - 請參閱[更新 Windows 中的 Universal C 執行階段](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * 每個網域中至少要有一個網域控制站有網路連線，且至少要有一部伺服器裝載 Azure AD 密碼保護 Proxy 服務。 此連線必須允許網域控制站存取 Proxy 服務上的 RPC 端點對應程式連接埠 (135) 與 RPC 伺服器連接埠。  根據預設，RPC 伺服器連接埠是動態 RPC 連接埠，但可設定 (請參閱下文) 為使用靜態連接埠。
+* 裝載 Azure AD 密碼保護 Proxy 服務的所有電腦都必須具備下列端點的網路存取權：
+
+    |端點 |目的|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|驗證要求|
+    |`https://enterpriseregistration.windows.net`|Azure AD 密碼保護功能|
+
 * 一個全域系統管理員帳戶，用以向 Azure AD 註冊 Azure AD 密碼保護 Proxy 服務與樹系。
 * 具樹系根網域中 Active Directory 網域系統管理員權限的帳戶，向 Azure AD 註冊 Windows Server Active Directory 樹系。
 * 執行 DC 代理程式服務軟體的任何 Active Directory 網域，都必須使用 DFSR 進行 sysvol 複寫。

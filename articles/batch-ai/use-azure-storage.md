@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731797"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615598"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>使用 Azure 儲存體儲存 Batch AI 作業輸入和輸出
 
@@ -98,7 +98,7 @@ Batch AI 也支援將 Azure 儲存體磁碟區裝載到 Batch AI 叢集。 磁�
 
 ### <a name="abbreviate-input-paths"></a>縮寫輸入路徑
 
-若要將輸入的路徑縮寫為環境變數，請使用 `job.json` 檔案的 `inputDirectories` 屬性 (如果使用 Batch AI SDK，則使用 `models.JobCreateParamters.input_directories`)。 `inputDirectories` 的結構描述是：
+若要將輸入的路徑縮寫為環境變數，請使用 `job.json` 檔案的 `inputDirectories` 屬性 (如果使用 Batch AI SDK，則使用 `models.JobCreateParameters.input_directories`)。 `inputDirectories` 的結構描述是：
 
 ```json
 {
@@ -115,7 +115,7 @@ Batch AI 也支援將 Azure 儲存體磁碟區裝載到 Batch AI 叢集。 磁�
 
 ### <a name="abbreviate-output-paths"></a>縮寫輸出路徑
 
-若要將輸出的路徑縮寫為環境變數，請使用 `job.json` 檔案的 `outputDirectories` 屬性 (如果使用 Batch AI SDK，則使用 `models.JobCreateParamters.output_directories`)。 使用這個方法可以簡化輸出檔案的路徑。 `outputDirectories` 的結構描述是：
+若要將輸出的路徑縮寫為環境變數，請使用 `job.json` 檔案的 `outputDirectories` 屬性 (如果使用 Batch AI SDK，則使用 `models.JobCreateParameters.output_directories`)。 使用這個方法可以簡化輸出檔案的路徑。 `outputDirectories` 的結構描述是：
 
 ```json
 {

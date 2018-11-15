@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d514728b892126522a73827bb79952612f34704b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014018"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613863"
 ---
 # <a name="data-sources-in-log-analytics"></a>Log Analytics 中的資料來源
 Log Analytics 會從 [連接的來源] 收集資料，並將它儲存在 Log Analytics 工作區中。  而您設定的資料來源可定義要從每個來源收集哪些資料。  Log Analytics 中的資料會儲存為一組記錄。  每個資料來源都會建立特定類型的記錄，每種類型各有自己的一組屬性。
@@ -69,4 +69,4 @@ Log Analytics 收集的所有資料都會以記錄形式儲存在工作區中。
 ## <a name="next-steps"></a>後續步驟
 * 了解可將功能加入 Log Analytics 並會將資料收集到工作區的[方案](../monitoring/monitoring-solutions.md)。
 * 了解 [記錄搜尋](log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。  
-* 設定[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)，以便從資料來源和方案收集到重要資料時主動通知您。
+* 設定[警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以便從資料來源和方案收集到重要資料時主動通知您。

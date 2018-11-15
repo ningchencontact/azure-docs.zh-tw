@@ -3,23 +3,23 @@ title: 在 Azure IoT Central 應用程式中管理裝置 | Microsoft Docs
 description: 了解如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/21/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: dc241612149de5c4ea5c1d2e698741e77d429fc7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937613"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004878"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中管理裝置
 
-本文說明如何以操作員的身分在 Microsoft Azure IoT Central 應用程式中管理裝置。 身為操作員，您可以：
+本文說明如何以操作員的身分在 Azure IoT Central 應用程式中管理裝置。 身為操作員，您可以：
 
-- 使用 [總管] 頁面來檢視、新增及刪除已連線至您 Azure IoT Central 應用程式的裝置。
+- 使用 [Device Explorer] 頁面檢視、新增及刪除已連線至您 Azure IoT Central 應用程式的裝置。
 - 維護裝置的最新清查。
 - 透過變更儲存於裝置屬性中的值，將裝置中繼資料保持為最新的版本。
 - 透過從 [設定] 頁面更新特定裝置上的設定來控制裝置的行為。
@@ -28,11 +28,11 @@ ms.locfileid: "36937613"
 
 檢視個別裝置：
 
-1. 在左側導覽功能表上選取 [總管]。 您將能在此看見[裝置範本](howto-set-up-template.md)的清單。
+1. 在左側導覽功能表上選擇 [Device Explorer]。 您將能在此看見[裝置範本](howto-set-up-template.md)的清單。
 
-1. 在左側窗格中選取一個**裝置範本**。
+1. 在左側窗格的 [範本] 筆下，選擇一個裝置範本。
 
-1. 在右側窗格中，會看見該裝置範本所建立裝置的清單。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
+1. 在 [Device Explorer] 頁面的右側窗格中，您會看到從該裝置範本所建立之裝置的清單，如下所示。 選擇個別的裝置以查看該裝置的 [裝置詳細資料] 頁面：
 
     [![[裝置詳細資料] 頁面](./media/howto-manage-devices/image1.png)](./media/howto-manage-devices/image1.png#lightbox)
 
@@ -40,7 +40,7 @@ ms.locfileid: "36937613"
 
 將裝置新增至 Azure IoT Central 應用程式：
 
-1. 在左側導覽功能表上選取 [總管]。
+1. 在左側導覽功能表上選擇 [Device Explorer]。
 
 1. 選擇要用來建立裝置的裝置範本。
 
@@ -51,17 +51,14 @@ ms.locfileid: "36937613"
 
 ## <a name="import-devices"></a>匯入裝置
 
-若要將大量裝置連線至您的應用程式，Azure IoT Central 有提供透過 CSV 檔案大量匯入裝置的功能。 
-
-CSV 檔案需求：
-1. CSV 檔案只能具有包含裝置識別碼的單一資料行。
-
-1. 檔案不能有任何標頭。
+若要將大量裝置連線至您的應用程式，Azure IoT Central 有提供透過 CSV 檔案大量匯入裝置的功能。 CSV 檔案應該具有下列資料行 (及標頭)
+1.  IOTC_DeviceID **<span style="color:Red">(應為小寫)</span>**
+1.  IOTC_DeviceName (選擇性)
 
 
 在應用程式中大量註冊裝置：
 
-1. 在左側導覽功能表上選取 [總管]。
+1. 在左側導覽功能表上選擇 [Device Explorer]。
 
 1. 在左側窗格上，選擇您要用來大量建立裝置的裝置範本。
 
@@ -86,7 +83,7 @@ CSV 檔案需求：
 **讓裝置與範本產生關聯**
 
 如果您是藉由在 [未關聯的裝置] 下啟動匯入來註冊裝置，則裝置會在沒有與任何裝置範本產生關聯的情況下建立。 裝置必須與範本產生關聯，才能探索裝置的資料和其他詳細資料。 請遵循下列步驟讓裝置與範本產生關聯：
-1. 在左側導覽功能表上選取 [總管]。
+1. 在左側導覽功能表上選擇 [Device Explorer]。
 1. 在左側面板上選擇 [未關聯的裝置]。
     [![未關聯的裝置](./media/howto-manage-devices/UnassociatedDevices1.png)](./media/howto-manage-devices/UnassociatedDevices1.png#lightbox)
 1. 選取要與範本產生關聯的裝置。
@@ -103,7 +100,7 @@ CSV 檔案需求：
 如需佈建裝置來連線到 IoT Central，您將需要 IoT Central 所產生的裝置連接字串。 您可以使用「匯出」功能，從您的應用程式大量取得連接字串和裝置的其他屬性。 「匯出」可針對所有選取的裝置建立包含裝置身分識別、裝置名稱及主要連接字串的 CSV 檔案。
 
 若要從您的應用程式大量匯出裝置：
-1. 在左側導覽功能表上選取 [總管]。
+1. 在左側導覽功能表上選擇 [Device Explorer]。
 
 1. 請在左側面板上，選擇您要用來匯出裝置的裝置範本。
 
@@ -119,17 +116,19 @@ CSV 檔案需求：
 
     [![匯出成功](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. 匯出的 CSV 檔案將會擁有下列資訊：
-    1. Name
-    1. 裝置識別碼
-    1. 主要連接字串
-
+1. 匯出的 CSV 檔案將會具有下列資料行資訊：**裝置識別碼、裝置名稱、裝置主要/次要金鑰，以及主要/次要憑證指紋**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>刪除裝置
 
 從 Azure IoT Central 應用程式刪除真實或模擬裝置：
 
-1. 在導覽功能表上選取 [總管]。
+1. 在導覽功能表上選擇 [Device Explorer]。
 
 1. 選取所要刪除裝置的裝置範本。
 
@@ -141,7 +140,7 @@ CSV 檔案需求：
 
 設定能控制裝置的行為。 也就是說，它們能讓您為裝置提供輸入。 您可以在 [裝置詳細資料] 頁面上檢視及更新裝置設定。
 
-1. 在導覽功能表上選取 [總管]。
+1. 在導覽功能表上選擇 [Device Explorer]。
 
 1. 針對要變更設定的裝置，選擇裝置的裝置範本。
 
@@ -155,15 +154,13 @@ CSV 檔案需求：
 
 屬性為與裝置相關聯的裝置中繼資料，例如城市和序號。 您可以在 [裝置詳細資料] 頁面上檢視及更新屬性。
 
-1. 在導覽功能表上選取 [總管]。
+1. 在導覽功能表上選擇 [Device Explorer]。
 
 1. 針對要變更屬性的裝置，選擇裝置的裝置範本。
 
 1. 選擇 [屬性] 索引標籤，您將能在該處看見所有屬性。
 
-1. 將屬性修改為您所需的值。 您可以一次修改多個屬性，並同時上傳它們。
-
-1. 選擇 [更新]。
+1. 將應用程式屬性修改為您所需的值。 您可以一次修改多個屬性，並同時上傳它們。 選擇 [更新]。
 
 > [!NOTE]
 > 您無法變更_裝置屬性_的值。 裝置屬性是由裝置所設定，並且在 Azure IoT Central 應用程式內是唯讀的狀態。

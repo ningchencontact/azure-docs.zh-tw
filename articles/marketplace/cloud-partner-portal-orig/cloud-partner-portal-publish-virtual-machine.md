@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387346"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247070"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>發佈虛擬機器到 Azure Marketplace 
 
@@ -37,7 +37,7 @@ ms.locfileid: "49387346"
 
 -   [從映像建立及測試 Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [建立和上傳 Windows VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [建立和上傳 Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [從映像建立及測試 Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,7 +60,7 @@ ms.locfileid: "49387346"
 
 -   您同意 Azure Marketplace 參與原則和發行者合約中的條款。
 
--   您同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](http://www.microsoft.com/privacystatement/default.aspx)以及 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
+-   您同意遵守[使用條款](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](https://www.microsoft.com/privacystatement/default.aspx)以及 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -211,7 +211,7 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 >[!IMPORTANT]
 >-   供應項目上架之後即無法變更價格。 不過，您仍可以新增或移除支援的區域。
->-   此費用會在 [Azure 的虛擬機器價格](http://aka.ms/vmpricingdetails)以外向使用者另行收取。
+>-   此價格會在  [Azure 的虛擬機器價格](https://aka.ms/vmpricingdetails)以外向使用者另行收取。
 >-   所有區域的價格會以設定價格當時所提供的費率，以當地幣值設定。
 >-   若要個別設定或檢視每個地區的價格，請匯出價格試算表，然後匯入自訂價格。
 
@@ -225,7 +225,7 @@ SKU 新增後，會出現在 SKU 檢視的 SKU 清單中。 若要查看 SKU 詳
 
 -   [從映像建立及測試 Linux VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [建立及上傳 Windows VHD](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [建立及上傳 Windows VHD ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [從映像建立及測試 Windows VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 

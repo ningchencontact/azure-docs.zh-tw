@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 284a964162a2374287b42698b9a2021be36590dd
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158154"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282453"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊  
 本文提供 Azure Stack 開發套件 (ASDK) 中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -41,18 +41,18 @@ ms.locfileid: "50158154"
 ### <a name="fixed-issues"></a>已修正的問題
 
 <!-- TBD - IS ASDK -->
-- 在入口網站上，報告可用/已使用容量的記憶體圖表現在已變正確。 您現在可以更可靠地預測所能建立的 VM 數量。
+- 在入口網站中，記憶體圖表報表免費/已使用容量目前是正確的。 您現在可以更可靠地預測您可以建立的 VM 數量。
 
 <!-- TBD - IS ASDK --> 
 - 已修正當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結至 DS 系列 VM 的資料磁碟數目會不正確的問題。 DS 系列 VM 可容納與 Azure 設定數目一樣多的資料磁碟。
 
-- 下列受控磁碟問題已於 1809 修正，並且也會包含在 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/) 中： 
+- 下列的受控磁碟問題已在 1809 中修正，同時也在 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/) 中修正： 
 
    <!--  2966665 – IS, ASDK --> 
-   - 已修正將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 (Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」的問題。 
+   - 已修正將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」的問題。 
    
-   - 使用 **createOption**: **Attach** 來建立受控磁碟 VM 的作業失敗，且具有下列錯誤：長時間執行的作業失敗，狀態為「失敗」。其他資訊：「發生內部執行錯誤」。
-   ErrorCode：InternalExecutionError ErrorMessage：發生內部執行錯誤。
+   - 使用 **createOption**: **Attach** 建立受控磁碟 VM 失敗，並出現下列錯誤：*長時間執行的作業失敗，狀態為 'Failed'。* 其他資訊：「發生內部執行錯誤」。
+   ErrorCode: InternalExecutionError ErrorMessage：發生內部執行錯誤。
    
    已修正此問題。
 
@@ -100,8 +100,11 @@ ms.locfileid: "50158154"
 
 #### <a name="compute"></a>計算 
 
+<!-- TBD – IS, ASDK -->
+- 將已中斷連結的磁碟重新連結到具有相同名稱的相同虛擬機器 (VM)，並且發生如**無法將資料磁碟 'datadisk' 連結到 VM 'vm1'** 錯誤的 LUN 失敗。 此錯誤的發生原因是磁碟目前正在中斷連結，或上次的中斷連結作業失敗。 請等候磁碟完全中斷連結後再試一次，或再次明確將磁碟刪除/中斷連結。 因應措施是使用其他名稱或在其他 LUN 上將它重新連結。 
+
 <!-- 3235634 – IS, ASDK -->
-- 若要使用含有 **v2** 尾碼 (例如，**Standard_A2_v2**) 的大小來部署 VM，請將尾碼指定為 **Standard_A2_v2** (小寫 v)。 請勿使用 **Standard_A2_V2** (大寫 V)。 此原則適用於 Azure 全域，和 Azure Stack 的原則不同。
+- 若要部署大小包含 **v2** 後置詞的 VM (例如 **Standard_A2_v2**)，請將後置詞指定為 **Standard_A2_v2** (小寫 v)。 請勿使用 **Standard_A2_V2** (大寫 V)。 這適用於全域 Azure，並且在 Azure Stack 上有不一致的問題。
 
 <!-- 3099544 – IS, ASDK --> 
 - 當您使用 Azure Stack 入口網站建立新的虛擬機器 (VM) 並選取 VM 大小時，會顯示美元/月欄位和「無法使用」訊息。 此欄位不應該出現；Azure Stack 不支援顯示 VM 定價欄位。

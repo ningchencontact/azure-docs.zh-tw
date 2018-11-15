@@ -1,6 +1,6 @@
 ---
 title: 在 Azure 自動化中使用 Runbook 收集 Log Analytics 資料 | Microsoft Docs
-description: 逐步教學課程，可逐步解說如何在 Azure 自動化中建立 Runbook 以將資料收集到 OMS 存放庫，供 Log Analytics 進行分析。
+description: 逐步教學課程，可逐步解說如何在 Azure 自動化中建立 Runbook 以將資料收集到存放庫，供 Log Analytics 進行分析。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 7ef7f6548cd3dd838889fd51ff0521428bbbc2aa
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347608"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282674"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自動化 Runbook 在 Log Analytics 中收集資料
 您可以在 Log Analytics 中收集來自各種來源 (包括代理程式上的[資料來源](../log-analytics/log-analytics-data-sources.md)) 的大量資料，以及[收集自 Azure 的資料](../log-analytics/log-analytics-azure-storage.md)。  在某些情況下，您需要收集無法透過這些標準來源存取到的資料。  在這些案例中，您可以使用 [HTTP 資料收集器 API](../log-analytics/log-analytics-data-collector-api.md) 將資料從任何 REST API 用戶端寫入 Log Analytics。  執行此資料收集的常見方法是在 Azure 自動化中使用 Runbook。   
@@ -27,11 +27,11 @@ ms.locfileid: "37347608"
 本教學課程會逐步解說在 Azure 自動化中建立和排程 Runbook 以將資料寫入 Log Analytics 的程序。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 此案例要求您在 Azure 訂用帳戶中設定以下資源。  兩者都可以是免費帳戶。
 
-- [Log Analytics 工作區](../log-analytics/log-analytics-get-started.md)。
-- [Azure 自動化帳戶](../automation/automation-offering-get-started.md)。
+- [Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
+- [Azure 自動化帳戶](..//automation/automation-quickstart-create-account.md)。
 
 ## <a name="overview-of-scenario"></a>案例概觀
 在本教學課程中，您將撰寫 Runbook 來收集自動化工作的相關資訊。  Azure 自動化中的 Runbook 是使用 PowerShell 所實作，因此您會先在 Azure 自動化編輯器中撰寫和測試指令碼。  驗證已收集所需的資訊後，請將該資料寫入 Log Analytics，並驗證自訂資料類型。  最後，您將建立定期啟動 Runbook 的排程。
@@ -56,7 +56,7 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 
 ## <a name="2-create-automation-variables"></a>2.建立自動化變數
-[自動化變數](..\automation\automation-variables.md)會保留值，以供自動化帳戶中的所有 Runbook 使用。  它們可讓您變更這些值，而不需要編輯實際 Runbook，讓 Runbook 更具彈性。 來自 HTTP 資料收集器 API 的每個要求都需要 OMS 工作區的識別碼和索引鍵，而且變數資產最適合用來儲存這項資訊。  
+[自動化變數](..\automation\automation-variables.md)會保留值，以供自動化帳戶中的所有 Runbook 使用。  它們可讓您變更這些值，而不需要編輯實際 Runbook，讓 Runbook 更具彈性。 來自 HTTP 資料收集器 API 的每個要求都需要 Log Analytics 工作區的識別碼和索引鍵，而且變數資產最適合用來儲存這項資訊。  
 
 ![變數](media/monitoring-runbook-datacollect/variables.png)
 
@@ -66,10 +66,10 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 | 屬性 | 工作區識別碼值 | 工作區索引鍵值 |
 |:--|:--|:--|
-| Name | WorkspaceId | WorkspaceKey |
+| 名稱 | WorkspaceId | WorkspaceKey |
 | 類型 | 字串 | 字串 |
 | 值 | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
-| 已加密 | 否 | yes |
+| 已加密 | 否 | 是 |
 
 
 
@@ -145,7 +145,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../automation/automation
     ![張貼輸出](media/monitoring-runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5.確認 Log Analytics 中的記錄
-在 Runbook 完成測試並確認成功收到輸出之後，即可確認已使用 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-log-searches.md)來建立記錄。
+在 Runbook 完成測試並確認成功收到輸出之後，即可確認已使用 [Log Analytics 中的記錄搜尋](../log-analytics/log-analytics-queries.md)來建立記錄。
 
 ![記錄輸出](media/monitoring-runbook-datacollect/log-output.png)
 
@@ -185,7 +185,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../automation/automation
 
 | 屬性 | 值 |
 |:--|:--|
-| Name | AutomationJobs-Hourly |
+| 名稱 | AutomationJobs-Hourly |
 | 啟動 | 選取至少超過目前時間 5 分鐘的任何時間。 |
 | 週期性 | 週期性 |
 | 重複頻率 | 1 小時 |
@@ -198,7 +198,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../automation/automation
 8. 按一下 [確定]。 
 
 ## <a name="9-verify-runbook-starts-on-schedule"></a>9.驗證 Runbook 會依排程啟動
-每次啟動 Runbook 時，都會[建立作業](../automation/automation-runbook-execution.md)且會記錄任何輸出。  事實上，這些作業與 Runbook 所收集的作業相同。  在排程的開始時間過後，您可以檢查 Runbook 的作業來確認 Runbook 如預期啟動。
+每次啟動 Runbook 時，都會[建立作業](../automation/automation-runbook-execution.md)並記錄任何輸出。  事實上，這些作業與 Runbook 所收集的作業相同。  在排程的開始時間過後，您可以檢查 Runbook 的作業來確認 Runbook 如預期啟動。
 
 ![工作](media/monitoring-runbook-datacollect/jobs.png)
 

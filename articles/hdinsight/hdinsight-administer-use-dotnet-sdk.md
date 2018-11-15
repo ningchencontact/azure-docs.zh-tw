@@ -1,22 +1,22 @@
 ---
-title: 使用 .NET SDK 管理 HDInsight 中的 Hadoop 叢集 - Azure
-description: 了解如何使用 HDInsight .NET SDK 對 HDInsight 中的 Hadoop 叢集執行管理工作。
+title: 使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集 - Azure
+description: 了解如何使用 HDInsight .NET SDK 對 HDInsight 中的 Apache Hadoop 叢集執行管理工作。
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110794"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037749"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Hadoop 叢集
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 了解如何使用 [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)管理 HDInsight 叢集。
@@ -142,12 +142,12 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 
 變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
 
-* Hadoop
+* Apache Hadoop
   
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
   
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 這會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* hbase
+* Apache HBase (英文)
   
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
   
@@ -156,7 +156,7 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 但在調整作業順利完成後，您需要重新平衡拓撲。
   
@@ -192,9 +192,9 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 預設會授與這些服務的存取權。 您可以撤銷/授與存取權。 撤銷：
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 請參閱 [在 HDInsight 中執行 Hadoop MapReduce 範例](hadoop/apache-hadoop-run-samples-linux.md)。
 
-**提交 Hive 作業** 
+**提交 Apache Hive 作業** 
 
 請參閱 [使用 .NET SDK 執行 Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
-**提交 Pig 作業**
+**提交 Apache Pig 作業**
 
 請參閱 [使用 .NET SDK 執行 Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
 
-**提交 Sqoop 作業**
+**提交 Apache Sqoop 作業**
 
 請參閱 [在 HDInsight 上使用 Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
 
-**提交 Oozie 作業**
+**提交 Apache Oozie 作業**
 
 請參閱 [在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)。
 

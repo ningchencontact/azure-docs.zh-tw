@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service-web
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cephalin
+ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571865"
+---
 本文適用於 Azure App Service (Web Apps、API Apps、Mobile Apps、Logic Apps)；對於雲端服務，請參閱 [設定 Azure 雲端服務的自訂網域名稱](../articles/cloud-services/cloud-services-custom-domain-name.md)。
 
 > [!NOTE]

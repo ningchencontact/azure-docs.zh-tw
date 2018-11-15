@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835078"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566375"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>了解如何使用 API 管理來管理 AzureML Web 服務
 ## <a name="overview"></a>概觀
@@ -33,7 +33,7 @@ Azure API 管理是一項 Azure 服務，可讓您藉由定義使用者存取、
 ## <a name="what-is-azureml"></a>什麼是 AzureML？
 AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共用進階分析解決方案。 如需 AzureML 的詳細資訊，請按一下 [這裡](https://azure.microsoft.com/services/machine-learning/) 。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本指南，您需要：
 
 * 一個 Azure 帳戶。 如果您沒有 Azure 帳戶，請按一下 [這裡](https://azure.microsoft.com/pricing/free-trial/) 以取得如何建立免費試用帳戶的詳細資訊。
@@ -377,7 +377,7 @@ AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

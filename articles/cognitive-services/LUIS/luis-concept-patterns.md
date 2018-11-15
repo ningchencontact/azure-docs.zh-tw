@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638134"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300365"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
@@ -89,7 +89,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 在這些書名範例中，書名的內容相關字組不會讓 LUIS 感到混淆。 LUIS 知道書名的結束位置，因為它是一個模式，並以 Pattern.any 實體標記。
 
 ### <a name="explicit-lists"></a>明確清單
-如果您的模式包含 Pattern.any，而且模式語法允許根據語句擷取不正確的實體，請透過編寫 API 來建立[明確清單](https://aka.ms/ExplicitList)，以允許例外狀況。 
+如果您的模式包含 Pattern.any，而且模式語法允許根據語句擷取不正確的實體，請透過編寫 API 來建立[明確清單](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)，以允許例外狀況。 
 
 例如，假設您有一個模式，其包含選用語法 `[]` 和實體語法 `{}`，且以錯誤擷取資料的方式合併在一起。
 
@@ -102,7 +102,7 @@ Pattern.any 實體可讓您將變動長度的實體新增至模式。 只要遵�
 
 在上述資料表的語句 `email about the man from La Mancha` 中，subject 應該是 `the man from La Mancha` (書名)，但因為 subject 包含選用字組 `from`，所以會錯誤地預測書名。 
 
-若要修正模式的這個例外狀況，請使用[撰寫明確清單的 API](https://aka.ms/ExplicitList)，新增 `the man from la mancha` 作為符合 {subject} 實體的明確清單。
+若要修正模式的這個例外狀況，請使用[撰寫明確清單的 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)，新增 `the man from la mancha` 作為符合 {subject} 實體的明確清單。
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>在範本語句中標記選用文字的語法
 您可以使用規則運算式的方括弧語法 `[]`，在語句中標記選用文字。 選用文字最多只能在方括弧中套嵌兩個大括弧。

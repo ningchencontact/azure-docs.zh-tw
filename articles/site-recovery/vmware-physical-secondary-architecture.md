@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery 中的 VMware/實體伺服器災害復原架構 | Microsoft Docs
-description: 本文提供使用 Azure Site Recovery 在災害期間將內部部署 VMware VM 或實體 Windows/Linux 伺服器復原至次要 VMware 網站時所用之元件和架構的概觀
+title: 使用 Azure Site Recovery 進行將 VMware/實體伺服器復原到次要站台之災害復原的架構 | Microsoft Docs
+description: 本文概要說明使用 Azure Site Recovery.進行將內部部署 VMware 或實體 Windows/Linux 伺服器復原到次要 VMware 站台的災害復原期間，所使用的元件和架構。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 16e8a9719280b55e86d1d4622a32470b37287dd4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215118"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007428"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-disaster-recovery-architecture"></a>從 VMware VM/實體伺服器至 VMware 的災害復原架構
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>將 VMware/實體伺服器複寫到次要內部部署站台的架構
 
 本文說明使用 [Azure Site Recovery](site-recovery-overview.md) 設定內部部署 VMware 虛擬機器 (VM) 或實體 Windows/Linux 伺服器至次要 VMware 網站的災害復原複寫、容錯移轉及復原時所使用的架構和程序。
 

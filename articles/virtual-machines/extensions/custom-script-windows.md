@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212296"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282320"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows 的自訂指令碼延伸模組
 
@@ -201,7 +201,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>如何使用 CLI 多次執行自訂指令碼
 如果您想要執行自訂指令碼延伸模組多次，您只有在下列情況下才能這麼做：
 1. 擴充功能 'Name' 參數等同於先前的擴充功能部署。
-2. 您必須已更新組態，否則命令將無法重新執行，例如，您可以將動態屬性新增至命令中，例如時間戳記。 
+2. 您必須更新組態，否則命令將不會重新執行，例如，您可以將動態屬性 (例如時間戳記) 新增至命令中。 
 
 ## <a name="troubleshoot-and-support"></a>疑難排解與支援
 

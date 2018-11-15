@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451879"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279698"
 ---
 # <a name="edit-a-knowledge-base"></a>編輯知識庫
 
@@ -89,6 +89,12 @@ QnA Maker 可讓您提供方便使用的編輯方式，藉以管理知識庫的�
 3. **分頁**可讓您管理大型知識庫
 
     ![搜尋、分頁、群組](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>刪除知識庫
+
+刪除知識庫 (KB) 是永久性的作業。 該作業無法復原。 刪除知識庫之前，您應該從 QnA Maker 入口網站的 [設定] 頁面將知識庫匯出。 
+
+如果您與[共同作業者](collaborate-knowledge-base.md)共用知識庫然後刪除它，則每個人都會無法存取 KB。 
 
 ## <a name="next-steps"></a>後續步驟
 

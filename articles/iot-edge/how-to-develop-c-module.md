@@ -4,27 +4,27 @@ description: 使用 Visual Studio Code 來開發、建置適用於 Azure IoT Edg
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382562"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566018"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 C 模組以及針對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組。 本文說明如何使用 Visual Studio Code (VS Code) 作為主要工具，開發 C 模組並對其進行偵錯。
 
 ## <a name="prerequisites"></a>必要條件
-本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 您可在開發電腦上模擬 IoT Edge 裝置。
+本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 且您會使用 IoT Edge 安全性精靈，在開發電腦上模擬 IoT Edge 裝置。
 
 > [!NOTE]
-> 本偵錯文章示範如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您只能在 Linux amd64 容器中進行 C 模組偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。 
+> 本偵錯文章示範如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您只能在 Linux amd64 容器中進行 C 模組偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。
 
 因為本文使用 Visual Studio Code 作為主要開發工具，所以請安裝 VS Code。 然後新增必要的擴充功能：
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ ms.locfileid: "43382562"
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 或 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * 您可以使用本機 Docker 登錄作為原型並用於測試，而非使用雲端登錄。 
 
-若要在裝置上測試模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 若要使用您的電腦作為 IoT Edge 裝置，請遵循 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 快速入門中的步驟。 
+若要在裝置上測試模組，您需要一個有效的 IoT 中樞，而且該中樞中至少必須有一個 IoT Edge 裝置。 若要使用您的電腦作為 IoT Edge 裝置，請依照 [Linux](quickstart-linux.md) 快速入門中的步驟進行。 
 
 ## <a name="create-a-new-solution-template"></a>建立新的解決方案範本
 
@@ -94,10 +94,10 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 2. 將 **deployment.template.json** 中的 C 模組 createOptions 取代為以下內容並儲存此檔案： 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. 在 VS Code 命令選擇區中，輸入並執行 **Edge: Build IoT Edge solution** 命令。
+2. 在 VS Code 命令選擇區中，輸入並執行 **Azure IoT Edge: Build and Push IoT Edge solution** 命令。
 3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
 4. 在 Azure IoT 中樞 Device Explorer 中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼。 然後選取 [建立單一裝置的部署]。 
 5. 開啟解決方案的 **config** 資料夾。 然後選取 `deployment.json` 檔案。 選擇 [選取 Edge 部署資訊清單]。 
@@ -111,7 +111,7 @@ VS Code 會將偵錯設定資訊保留在您工作區中之 `.vscode` 資料夾�
 
 1. 瀏覽至 VS Code 偵錯檢視。 為您的模組選取偵錯組態檔。 偵錯選項名稱應該類似 **ModuleName 遠端偵錯 (C)**
 
-   ![選取偵錯組態](./media/how-to-develop-c-module/debug-config.png).
+   ![選取偵錯組態](./media/how-to-develop-c-module/debug-config.png)
 
 2. 瀏覽至 `main.c`。 在此檔案中新增中斷點。
 

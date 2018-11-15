@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621196"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747553"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Azure Event Grid 中的概念
 
@@ -48,7 +48,7 @@ Event Grid 主題提供來源傳送事件的端點。 發行者會建立 Event G
 
 ## <a name="event-subscriptions"></a>事件訂閱
 
-訂用帳戶會告知 Event Grid 您想接收的主題事件。 您建立訂閱時，可提供處理事件的端點。 您可以篩選傳送至端點的事件。 您可以依事件類型或主旨模式進行篩選。 如需詳細資訊，請參閱 [Event Grid 訂用帳戶結構描述](subscription-creation-schema.md)。
+訂閱會告知事件方格您有興趣接收的主題事件。 您建立訂閱時，可提供處理事件的端點。 您可以篩選傳送至端點的事件。 您可以依事件類型或主旨模式進行篩選。 如需詳細資訊，請參閱 [Event Grid 訂用帳戶結構描述](subscription-creation-schema.md)。
 
 如需建立訂閱的範例，請參閱：
 
@@ -58,9 +58,17 @@ Event Grid 主題提供來源傳送事件的端點。 發行者會建立 Event G
 
 如需取得目前 Event Grid 訂用帳戶的資訊，請參閱[查詢 Event Grid 訂用帳戶](query-event-subscriptions.md)。
 
+## <a name="event-subscription-expiration"></a>事件訂閱過期
+
+適用於 Azure CLI 的[事件方格擴充功能](/cli/azure/azure-cli-extensions-list)可讓您在建立事件訂閱時設定到期日。 如果您使用 REST API，請使用 `api-version=2018-09-15-preview`
+
+事件訂閱會在該日期之後自動過期。 針對只在限定期間內需要的事件訂閱設定到期，而您不需擔心如何清理那些訂閱。 例如，建立事件訂閱來測試案例時，您可能想要設定到期。 
+
+如需設定到期的範例，請參閱[搭配進階篩選進行訂閱](how-to-filter-events.md#subscribe-with-advanced-filters)。
+
 ## <a name="event-handlers"></a>事件處理常式
 
-從 Event Grid 的觀點而言，事件處理常式是傳送事件的位置。 處理常式會採取一些進一步的動作來處理事件。 Event Grid 支援多個處理常式類型。 您可以使用支援的 Azure 服務或您自己的 Webhook 作為處理常式。 視處理常式類型而定，Event Grid 依照不同的機制來保證事件的傳遞。 對於 HTTP Webhook 事件處理常式，事件會重試到處理常式傳回 `200 – OK` 的狀態碼為止。 對於 Azure 儲存體佇列。事件會重試到佇列服務可成功處理訊息推送至佇列為止。
+從 Event Grid 的觀點而言，事件處理常式是傳送事件的位置。 處理常式會採取一些進一步的動作來處理事件。 事件方格支援數個處理常式類型。 您可以使用支援的 Azure 服務或您自己的 Webhook 作為處理常式。 視處理常式類型而定，Event Grid 依照不同的機制來保證事件的傳遞。 對於 HTTP Webhook 事件處理常式，事件會重試到處理常式傳回 `200 – OK` 的狀態碼為止。 對於 Azure 儲存體佇列，系統會重試事件，直到佇列服務成功處理將訊息推送到佇列為止。
 
 如需與實作任何支援的事件方格處理常式有關的資訊，請參閱 [Azure 事件方格中的事件處理常式](event-handlers.md)。
 
@@ -74,7 +82,7 @@ Event Grid 提供訂閱主題和發佈主題的安全性。 訂閱時，您必�
 
 ## <a name="batching"></a>批次處理
 
-在使用自訂主題時，事件必須一律發佈在陣列中。 在低輸送量的情況下，這可以是單一批次，但在大量的使用案例中，建議您在每次發佈時一併批次處理多個事件，以達到更高的效率。 批次最多可達 1 MB。 每個事件仍不應超過 64 KB。
+在使用自訂主題時，事件必須一律發佈在陣列中。 在低輸送量的案例中，這可以是單一批次，但在大量使用案例中，建議您在每次發佈時一併批次處理數個事件，以達到更高的效率。 批次最多可達 1 MB。 每個事件仍不應大於 64 KB。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095803"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281828"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>適用於 Azure Machine Learning Studio Web 服務的 Excel 增益集
 Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>使用活頁簿中現有 Web 服務的步驟
 
-1. 開啟 [範例 Excel 檔案](http://aka.ms/amlexcel-sample-2)，其中包含 Excel 增益集和鐵達尼號乘客的相關資料。 
+1. 開啟 [範例 Excel 檔案](https://aka.ms/amlexcel-sample-2)，其中包含 Excel 增益集和鐵達尼號乘客的相關資料。 
  
 > [!NOTE]
 > 您會看到和檔案相關聯的 Web 服務清單，以及在底部的 [Auto-predict] \(自動預測\) 核取方塊。 如果您啟用自動預測，每當輸入變更時，您**所有**服務的預測都會更新。 如果取消選取，您將需要按一下 [Predict All] \(全部預測\) 來重新整理。 若要啟用服務層級的自動預測，請移至步驟 6。
@@ -85,7 +85,7 @@ Excel 可以讓您直接輕鬆呼叫 Web 服務，而不需要撰寫任何程式
 ## <a name="sharing-your-workbook"></a>共用活頁簿
 如果您儲存您的活頁簿，則您為 Web 服務加入的 API/主要金鑰也會一併儲存。 這表示您應該只與您信任的人共用活頁簿。
 
-如果有任何問題，請在下方的註解區或在我們 [論壇](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)中提出。
+如果有任何問題，請在下方的註解區或在我們 [論壇](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409)中提出。
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

@@ -2,7 +2,6 @@
 title: 在 Azure AD 應用程式 Proxy 中使用連接器群組在個別的網路和位置上發佈應用程式 | Microsoft Docs
 description: 涵蓋如何建立和管理「Azure AD 應用程式 Proxy」中的連接器群組。
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364968"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622628"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 
@@ -86,14 +84,14 @@ ms.locfileid: "39364968"
 大部分已部署應用程式 Proxy 的客戶會執行 Kerberos 限制委派 (KCD) 來使用單一登入 (SSO) 功能。 若要達到此目的，連接器的電腦需要加入可將使用者委派至應用程式的網域。 KCD 支援跨樹系功能。 但對於擁有不同的多樹系環境且它們之間沒有信任的公司來說，單一連接器無法用於所有的樹系。 
 
 在此情況下，每個樹系可以部署特定連接器，並設定為僅為該特定樹系使用者提供服務所發佈的應用程式提供服務。 每個連接器群組代表不同的樹系。 雖然租用戶和大部分的體驗會針對所有樹系進行整合，使用者可以使用 Azure AD 群組指派給其樹系的應用程式。
- 
+ 
 ### <a name="disaster-recovery-sites"></a>災害復原網站
 
 您可以根據您站台的實作方式，使用災害復原 (DR) 網站採用兩種不同的方法︰
 
 * 如果您的 DR 網站是在主動-主動模式中建置，其中與主要站台完全相同，且具有相同的網路與 AD 設定，您可以在與主要站台相同的連接器群組中，在 DR 網站上建立連接器。 這可讓 Azure AD 為您偵測容錯移轉。
 * 如果 DR 網站是獨立於主要網站，您可以在 DR 網站中建立不同的連接器群組，並且 1) 擁有備份應用程式，或 2) 視需要手動將現有的應用程式轉向至 DR 連接器群組。
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>從單一租用戶為多家公司提供服務
 
 有許多不同的方式可實作模型，其中單一服務提供者可部署及為多家公司維護 Azure AD 的相關服務。 連接器群組可協助系統管理員將連接器和應用程式分成不同的群組。 適合小型公司的一個方法是擁有單一 Azure AD 租用戶，同時不同公司都有自己的網域名稱和網路。 M&A 案例和情況也是如此，其中單一 IT 部門會針對規範或企業原因為幾家公司提供服務。 
@@ -101,7 +99,7 @@ ms.locfileid: "39364968"
 ## <a name="sample-configurations"></a>範例組態
 
 您可以實作一些範例，包括下列連接器群組。
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>預設組態 – 不使用連接器群組
 
 如果您不使用連接器群組，您的組態會看起來像這樣︰
@@ -109,7 +107,7 @@ ms.locfileid: "39364968"
 ![AzureAD 沒有連接器群組](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 這個組態就對小型部署和測試就已足夠。 如果您的組織具有平面網路拓撲，則它也會正常運作。
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>預設組態和隔離的網路
 
 此組態是預設的演化，其中有在隔離網路 (例如 IaaS 虛擬網路) 中執行的特定應用程式︰ 
@@ -127,6 +125,6 @@ ms.locfileid: "39364968"
 ## <a name="next-steps"></a>後續步驟
 
 * [了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)
-* [啟用單一登入](application-proxy-single-sign-on.md)
+* [啟用單一登入](what-is-single-sign-on.md)
 
 

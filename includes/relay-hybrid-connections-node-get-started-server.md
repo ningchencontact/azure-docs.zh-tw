@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 531866ece1c4acacb926c9e9c6598158c1aa077f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571874"
+---
 ### <a name="create-a-nodejs-application"></a>建立 Node.js 應用程式
 
 新增名為 `listener.js` 的 JavaScript 檔案。

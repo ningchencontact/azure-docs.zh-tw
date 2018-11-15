@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: e208c8b52c14b99129bf3fce9ae54ba11f1c0a28
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584297"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625329"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -35,15 +35,7 @@ ms.locfileid: "47584297"
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [登入 Azure 入口網站](https://portal.azure.com)
-
-- [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
-
-- [在虛擬機器上啟用系統指派的受控識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - 若要對 VM 身分識別授與 Azure AD Graph 的存取權，必須在 Azure AD 中對帳戶指派**全域管理員**角色。
 

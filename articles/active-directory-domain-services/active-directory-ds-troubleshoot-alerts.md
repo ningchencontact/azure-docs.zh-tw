@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: a6928b5a849f35456a6fb7699acd7720f686c2aa
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: c4aa5786ea1dfbef32c40306de6291ebeb2fe6f8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243056"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036133"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services - 針對警示進行疑難排解
 本文提供的疑難排解指引，適用於受控網域上可能會遇到的任何警示。
@@ -39,13 +39,15 @@ ms.locfileid: "50243056"
 | AADDS105 | *應用程式識別碼為 “d87dcbc6-a371-462e-88e3-28ad15ec4e64” 的服務主體已刪除，然後重新建立。重新建立會在為您受控網域提供服務所需的 Azure AD Domain Services 資源上留下不一致的權限。受控網域上的密碼同步處理可能會受到影響。* | [密碼同步處理應用程式已過期](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS106 | *與受控網域相關聯的 Azure 訂用帳戶已遭到刪除。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。* | [找不到 Azure 訂用帳戶](#aadds106-your-azure-subscription-is-not-found) |
 | AADDS107 | *與受控網域相關聯的 Azure 訂用帳戶不在使用中。Azure AD Domain Services 需要有使用中的訂用帳戶，才能繼續正常運作。* | [Azure 訂用帳戶已停用](#aadds107-your-azure-subscription-is-disabled) |
-| AADDS108 | *用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。* | [資源已遭刪除](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
-| AADDS109 | *所選取要部署 Azure AD Domain Services 的子網路已滿，而且也沒有空間可供建立其他必要的網域控制站。* | [子網路已滿](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS110 | *我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。* | [IP 位址不足](#aadds110-not-enough-ip-address-in-the-managed-domain) |
-| AADDS111 | *因為目標範圍已鎖定，而無法操作一或多個使用受控網域的網路資源。* | [資源遭鎖定](#aadds111-resources-are-locked) |
-| AADDS112 | *由於原則限制，而無法操作一或多個使用受控網域的網路資源。* | [無法使用資源](#aadds112-resources-are-unusable) |
+| AADDS108 | *Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。* | [訂用帳戶移動目錄](#aadds108-subscription-moved-directories) |
+| AADDS109 | *用於受控網域的資源已遭刪除。Azure AD Domain Services 需要這項資源才能正常運作。* | [資源已遭刪除](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS110 | *所選取要部署 Azure AD Domain Services 的子網路已滿，而且也沒有空間可供建立其他必要的網域控制站。* | [子網路已滿](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS111 | *Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。 服務主體必須取得權限，才能為您的受控網域提供服務。 * | [服務主體未獲授權](#aadds111-service-principal-unauthorized) |
+| AADDS112 | *我們發現此網域中的虛擬網路子網路可能沒有足夠的 IP 位址。在啟用 Azure AD Domain Services 的子網路內，需要至少有兩個可用的 IP 位址。我們建議在該子網路內至少要有 3-5 個備用 IP 位址。如果在子網路內部署其他虛擬機器，因而耗盡可用的 IP 位址數目，或子網路中的可用 IP 位址數目有限時，就可能會發生這種情況。* | [IP 位址不足](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。* | [無法復原資源](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *Azure AD Domain Services 網域控制站無法存取連接埠 443。 服務、管理及更新受控網域都需要它。 * | [已封鎖連接埠 442](#aadds114-port-443-blocked) |
+| AADDS114 | * 選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。 * | [子網路無效](#aadds114-subnet-invalid) |
+| AADDS115 | *因為目標範圍已鎖定，而無法操作一或多個使用受控網域的網路資源。* | [資源遭鎖定](#aadds115-resources-are-locked) |
+| AADDS116 | *由於原則限制，而無法操作一或多個使用受控網域的網路資源。* | [無法使用資源](#aadds116-resources-are-unusable) |
 | AADDS500 | *受控網域前次是在 [date] 與 Azure AD 同步處理。* 使用者可能無法登入受控網域，或者群組成員資格可能無法與 Azure AD 同步。 | [有一陣子未發生同步處理](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *受控網域前次是在 [date] 進行備份。* | [有一陣子未進行備份](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | 受控網域的安全 LDAP 憑證將於 [date] 到期。 | [安全 LDAP 憑證即將到期](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
@@ -138,7 +140,17 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 1. [更新 Azure 訂用帳戶](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)。
 2. 更新訂用帳戶之後，Azure Active Directory Domain Services 會收到來自 Azure 的通知，重新啟用受控網域。
 
-## <a name="aadds108-resources-for-your-managed-domain-cannot-be-found"></a>AADDS108：找不到受控網域的資源
+## <a name="aadds108-subscription-moved-directories"></a>AADDS108：訂用帳戶移動目錄
+
+**警示訊息：**
+
+*Azure AD Domain Services 所使用的訂用帳戶已移至另一個目錄。Azure AD 網域服務必須在相同目錄中有有效的訂用帳戶才能正確運作。*
+
+**解決方案：**
+
+您可以將與 Azure AD Domain Services 相關聯的訂用帳戶移回至先前的目錄，或者需要從現有的目錄[刪除您的受控網域](active-directory-ds-disable-aadds.md)，並在所選的目錄中重新建立訂用帳戶 (可以是包含新訂用帳戶的目錄，或變更您的 Azure AD Domain Services 執行個體所在的目錄)。
+
+## <a name="aadds109-resources-for-your-managed-domain-cannot-be-found"></a>AADDS109：找不到您受控網域的資源
 
 **警示訊息：**
 
@@ -149,15 +161,15 @@ Azure AD Domain Services 需要訂用帳戶才能運作，而且無法移到不�
 Azure AD Domain Services 為了能正常運作，會在部署時建立特定資源，包括公用 IP 位址、 NIC 及負載平衡器。 如果有任何具名項目遭刪除，這會導致受控網域處於不支援的狀態，並阻止該網域受到管理。 當可編輯 Azure AD Domain Services 資源的人員刪除所需的資源時，就會出現此警示。 下列步驟概述如何還原受控網域。
 
 1.  瀏覽至 Azure AD Domain Services 健康情況頁面
-  1.    在 Azure 入口網站中，移動至 [Azure AD Domain Services 頁面]()。
+  1.    在 Azure 入口網站中，移動至 [Azure AD Domain Services 頁面](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices)。
   2.    在左側導覽中，按一下 [健康情況]
 2.  檢查該警示是否出現不到 4 小時
-  1.    在 [健康情況] 頁面上，按一下識別碼為 **AADDS108** 的警示
+  1.    在 [健康情況] 頁面上，按一下識別碼為 **AADDS109** 的警示
   2.    該警示會有初次現身時的時間戳記。 如果該時間戳記建立不到 4 小時，則 Azure Active Directory Domain Services 還有機會可以重新建立遭刪除的資源。
 3.  如果警示已出現超過 4 小時，受控網域就會處於無法復原的狀態。 您必須刪除並重新建立 Azure AD Domain Services。
 
 
-## <a name="aadds109-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS109：與受控網域相關聯的子網路已滿
+## <a name="aadds110-the-subnet-associated-with-your-managed-domain-is-full"></a>AADDS110：與受控網域相關聯的子網路已滿
 
 **警示訊息：**
 
@@ -167,8 +179,21 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後[重新建立受控網域](active-directory-ds-getting-started.md)
 
+## <a name="aaddds111-service-principal-unauthorized"></a>AADDDS111：服務主體未獲授權
 
-## <a name="aadds110-not-enough-ip-address-in-the-managed-domain"></a>AADDS110：受控網域中的 IP 位址不足
+**警示訊息：**
+
+*Azure AD Domain Services 用來為您的網域提供服務的服務主體未獲授權，無法管理 Azure 訂用帳戶的資源。服務主體必須取得權限，才能為您的受控網域提供服務。*
+
+**解決方案：**
+
+我們的服務主體需要能夠在您的受控網域上管理及建立資源的存取全。 某人已拒絕服務主體存取，因此它現在無法管理資源。 請遵循步驟授與存取權給服務主體。
+
+1. 了解 [RBAC 控制，以及如何在 Azure 入口網站授與存取權給應用程式](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+2. 透過識別碼 ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 檢閱服務主體的存取權，並授與在較早之前的日期遭到拒絕的存取權。
+
+
+## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112：受控網域中沒有足夠的 IP 位址
 
 **警示訊息：**
 
@@ -189,7 +214,27 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 4. 若要將虛擬機器的網域加入新的網域，請遵循[本指南](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)。
 5. 請在兩個小時後檢查網域的健康情況，以確保您已正確完成所有步驟。
 
-## <a name="aadds111-resources-are-locked"></a>AADDS111：資源遭鎖定
+## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113：無法復原資源
+
+**警示訊息：**
+
+*偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。*
+
+**解決方案：**
+
+此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後[重新建立受控網域](active-directory-ds-getting-started.md)。
+
+## <a name="aadds114-subnet-invalid"></a>AADDS114：子網路無效
+
+**警示訊息：**
+
+*選取用於部署 Azure AD Domain Services 的子網路無效，因此無法使用。*
+
+**解決方案：**
+
+此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後[重新建立受控網域](active-directory-ds-getting-started.md)。
+
+## <a name="aadds115-resources-are-locked"></a>AADDS115：資源遭鎖定
 
 **警示訊息：**
 
@@ -200,8 +245,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 1.  檢閱網路資源上的 Resource Manager 作業記錄 (這應會提供哪個鎖定在阻止修改的資訊)。
 2.  移除資源上的鎖定，讓 Azure AD Domain Services 服務主體可以在其上運作。
 
-
-## <a name="aadds112-resources-are-unusable"></a>AADDS112：無法使用資源
+## <a name="aadds116-resources-are-unusable"></a>AADDS116：無法使用資源
 
 **警示訊息：**
 
@@ -209,28 +253,9 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 **解決方案：**
 
-1.  檢閱受控網域的網路資源上的 Resource Manager 作業記錄
+1.  檢閱受控網域的網路資源上的 Resource Manager 作業記錄。
 2.  降低資源上的原則限制，讓 AAD-DS 服務主體可在其上運作。
 
-## <a name="aadds113-resources-are-unrecoverable"></a>AADDS113：無法復原資源
-
-**警示訊息：**
-
-*偵測到 Azure AD Domain Services 使用的資源處於非預期狀態且無法復原。*
-
-**解決方案：**
-
-此錯誤無法復原。 若要加以解決，您必須[刪除現有受控網域](active-directory-ds-disable-aadds.md)，然後[重新建立受控網域](active-directory-ds-getting-started.md)
-
-## <a name="aadds114-port-443-blocked"></a>AADDS114：已封鎖連接埠 443
-
-**警示訊息：**
-
-*Azure AD Domain Services 網域控制站無法存取連接埠 443。服務、管理及更新受控網域都需要它。*
-
-**解決方案：**
-
-允許 Azure AD Domain Services 透過連接埠 443 對網路安全性群組進行輸入存取。
 
 
 ## <a name="aadds500-synchronization-has-not-completed-in-a-while"></a>AADDS500：同步處理有一陣子未完成
@@ -255,7 +280,7 @@ Azure AD Domain Services 為了能正常運作，會在部署時建立特定資�
 
 **解決方案：**
 
-[檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 有時候，您的組態問題可能會妨礙 Microsoft 同步處理受控網域的能力。 如果您能夠解決任何警示，請等候兩小時並回頭查看是否已完成同步處理。
+[檢查您的網域健康狀態](active-directory-ds-check-health.md)是否有任何警示，其可能表示受控網域的組態有問題。 有時候，您的組態問題可能會妨礙 Microsoft 備份受控網域的能力。 如果您能夠解決任何警示，請等候兩小時並回頭查看是否已完成備份。
 
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503：因為停用的訂用帳戶而造成擱置

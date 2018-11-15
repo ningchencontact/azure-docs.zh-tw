@@ -6,24 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 459cdf4e1a70ee02d818dd6abe101e4fc3475b68
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 83177363803c8f5c505c083614000dfa8f0df60d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036678"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036898"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Azure Stack 資料中心整合 - 實體裝置稽核
 
-Azure Stack 中的所有實體裝置 (例如基礎板管理控制器 (BMC) 和網路交換器) 都會發出稽核記錄，並且應該將這些記錄整合至整個稽核解決方案中。 由於裝置會因為 Azure Stack OEM 硬體廠商不同而有所差異，因此，如需稽核整合文件，請連絡您的廠商。 下列各節提供一些 Azure Stack 中有關實體裝置稽核的一般資訊。  
+Azure Stack 中的所有實體裝置 (例如基礎板管理控制器 (BMC) 和網路交換器) 都會發出稽核記錄。 您可將這些稽核記錄整合至整個稽核解決方案中。 由於裝置會因為 Azure Stack OEM 硬體廠商不同而有所差異，因此，如需稽核整合文件，請連絡您的廠商。
+下列各節提供一些 Azure Stack 中有關實體裝置稽核的一般資訊。  
 
 ## <a name="physical-device-access-auditing"></a>實體裝置存取稽核
 
-Azure Stack 中的所有實體裝置都支援使用 TACACS 或 RADIUS。 這包括存取基礎板管理控制器 (BMC) 和網路交換器。
+Azure Stack 中的所有實體裝置都支援使用 TACACS 或 RADIUS。 支援包括存取基礎板管理控制器 (BMC) 和網路交換器。
 
 Azure Stack 解決方案在推出時並未內建 RADIUS 或 TACACS。 不過，這些解決方案已通過驗證，可支援使用市面上現有的 RADIUS 或 TACACS 解決方案。
 

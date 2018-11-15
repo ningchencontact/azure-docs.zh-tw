@@ -11,23 +11,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e0816e8609ba1ab0ef1b4f685731339378fee844
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f421a3752e83a6a86193bb854e53bfc8322cfea4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525581"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280549"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>快速入門：在 HDInsight 中設定叢集
 
-在本快速入門中，您會了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、互動式查詢、HBase、R 伺服器或 Storm 來安裝並設定叢集。 您也會了解如何自訂叢集、將它們加入網域，並附加至 [Azure Data Lake Storage Gen2 預覽](introduction.md)。
+在本快速入門中，您會了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、互動式查詢、HBase、R 伺服器或 Storm 來安裝並設定叢集。 您也會了解如何自訂叢集、將它們加入網域，以及將它們附加至已啟用 [Azure Data Lake Storage Gen2 預覽](introduction.md)的儲存體帳戶。
 
 Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業。 Azure HDInsight 會處理個別節點所安裝和設定的實作細節，您只需要提供一般設定資訊即可。
 
 > [!IMPORTANT]
 >HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 了解如何[刪除叢集。](../../hdinsight/hdinsight-delete-cluster.md)
 
-在本快速入門中，Data Lake Storage 會作為資料層。 Data Lake Storage 利用其階層式命名空間服務和 [Hadoop 驅動程式](abfs-driver.md)，針對分散式處理和分析進行最佳化。 即使將 HDInsight 叢集刪除，Data Lake Storage 中儲存的資料仍然存在。
+在本快速入門中，會使用具備 Data Lake Storage Gen2 功能的儲存體帳戶作為資料層。 Data Lake Storage Gen2 利用其階層命名空間服務和 [Hadoop 驅動程式](abfs-driver.md)，得以針對分散式處理和分析進行最佳化。 儲存在已啟用 Data Lake Storage Gen2 之儲存體帳戶中的資料，即使在 HDInsight 叢集被刪除後仍會存在。
 
 ## <a name="cluster-setup-methods"></a>叢集設定方法
 
@@ -44,7 +44,7 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 
 ## <a name="quick-create-basic-cluster-setup"></a>快速建立：基本的叢集設定
 
-本文會逐步引導您完成 [Azure 入口網站](https://portal.azure.com)中的設定，您可以在此入口網站中使用 [Quick create] \(快速建立\) 或 [Custom] \(自訂\) 建立 HDInsight 叢集。 
+本文會逐步引導您完成 [Azure 入口網站](https://portal.azure.com)中的設定，您可以在此入口網站中使用 [Quick create] \(快速建立\) 或 [Custom] \(自訂\) 建立 HDInsight 叢集。
 
 ![hdinsight 建立選項自訂快速建立](media/quickstart-create-connect-hdi-cluster/hdinsight-creation-options.png)
 
@@ -63,12 +63,11 @@ Hadoop 叢集由數個虛擬機器 (節點) 組成，可用於分散處理作業
 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 可協助您將應用程式中的資源做為群組使用，稱為 Azure 資源群組。 您可以在單一、協調的作業中，將應用程式的所有資源進行部署、更新、監視或刪除。
 
 ## <a name="cluster-types"></a>叢集類型和設定
+
 Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特定功能的元件。
 
 > [!IMPORTANT]
-> HDInsight 叢集有多種類型，每種類型各適合單一工作負載或技術。 沒有任何支援方法可建立結合多個類型的叢集，例如在一個叢集上並存 Storm 和 HBase。 如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。 
->
->
+> HDInsight 叢集有多種類型，每種類型各適合單一工作負載或技術。 沒有任何支援方法可建立結合多個類型的叢集，例如在一個叢集上並存 Storm 和 HBase。 如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。
 
 | 叢集類型 | 功能 |
 | --- | --- |
@@ -112,7 +111,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 > [!WARNING]
 > 不支援在與 HDInsight 叢集不同的位置中使用其他儲存體帳戶。
 
-在設定期間，您要針對預設儲存體端點指定 Data Lake Storage。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定叢集可存取的其他已連結 Azure Data Lake Storage 帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
+在設定期間，您要針對預設儲存體端點指定 Data Lake Storage。 預設儲存體包含應用程式與系統記錄檔。 您也可以選擇指定其他已啟用 Data Lake Storage Gen2 且可由叢集存取的已連結儲存體帳戶。 HDInsight 叢集與相依的儲存體帳戶必須位於相同的 Azure 位置。
 
 ![叢集儲存體設定：HDFS 相容的儲存體端點](media/quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
@@ -122,7 +121,8 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
 ### <a name="optional-metastores"></a>選擇性中繼存放區
-您可以建立選擇性的 Hive 或 Oozie 中繼存放區。 不過，並非所有叢集類型都支援中繼存放區，且 Azure SQL 資料倉儲不相容於中繼存放區。 
+
+您可以建立選擇性的 Hive 或 Oozie 中繼存放區。 不過，並非所有叢集類型都支援中繼存放區，且 Azure SQL 資料倉儲不相容於中繼存放區。
 
 如需詳細資訊，請參閱[在 Azure HDInsight 中使用外部中繼資料存放區](../../hdinsight/hdinsight-use-external-metadata-stores.md)。
 
@@ -137,7 +137,7 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 ### <a name="oozie-metastore"></a>Oozie 中繼存放區
 
-為提升使用 Oozie 時的效能，請使用自訂的中繼存放區。 在您刪除叢集後，中繼存放區也可提供 Oozie 作業資料的存取。 
+為提升使用 Oozie 時的效能，請使用自訂的中繼存放區。 在您刪除叢集後，中繼存放區也可提供 Oozie 作業資料的存取。
 
 > [!IMPORTANT]
 > 您無法重複使用自訂的 Oozie 中繼存放區。 若要使用自訂的 Oozie 中繼存放區，您必須在建立 HDInsight 叢集時提供空的 Azure SQL Database。
@@ -146,8 +146,8 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 只要叢集存在，就會針對您的節點使用量收費。 建立叢集後就開始計費，並在叢集刪除後停止計費。 無法取消配置或保留叢集。
 
-
 ### <a name="number-of-nodes-for-each-cluster-type"></a>每個叢集類型的節點數目
+
 每個叢集類型都有自己的節點數目、節點術語和預設 VM 大小。 下表中各節點類型的節點數目位於括號中。
 
 | 類型 | 節點 | 圖表 |
@@ -159,29 +159,30 @@ Azure HDInsight 目前提供下列的叢集類型，每種都有一組提供特�
 
 如需詳細資訊，請參閱＜HDInsight 中的 Hadoop 元件和版本是什麼？＞中的[叢集的預設節點設定和虛擬機器大小](../../hdinsight/hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
-HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定。 
+HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定。
 
 不同的叢集類型具有不同的節點類型、節點數目和節點大小：
-* Hadoop 叢集類型的預設值： 
+* Hadoop 叢集類型的預設值：
     * 兩個*前端節點*  
     * 四個*資料節點*
-* Storm 叢集類型的預設值： 
+* Storm 叢集類型的預設值：
     * 兩個 *Nimbus 節點*
     * 三個 *ZooKeeper 節點*
-    * 四個*監督員節點* 
+    * 四個*監督員節點*
 
 如果您只是在試用 HDInsight，建議您使用一個資料節點。 如需關於 HDInsight 定價的詳細資訊，請參閱 [HDInsight 定價](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)。
 
 > [!NOTE]
 > 叢集大小限制會隨著 Azure 訂用帳戶而有所不同。 若要提高限制，請與 [Azure 帳務支援人員](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)連絡。
->
 
-使用 Azure 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開。 在入口網站中，您也可以查看與不同節點大小相關聯的成本。 
+使用 Azure 入口網站設定叢集時，節點大小會透過 [節點定價層] 刀鋒視窗公開。 在入口網站中，您也可以查看與不同節點大小相關聯的成本。
 
 ![HDinsight VM 節點大小](media/quickstart-create-connect-hdi-cluster/hdinsight-node-sizes.png)
 
-### <a name="virtual-machine-sizes"></a>虛擬機器大小 
+### <a name="virtual-machine-sizes"></a>虛擬機器大小
+
 當您部署叢集時，請依據計劃部署的解決方案選擇計算資源。 下列 VM 可用於 HDInsight 叢集：
+
 * A 和 D1-4 系列 VM：[一般用途 Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general)
 * D11-14 系列 VM：[記憶體最佳化 Linux VM 大小](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
@@ -189,13 +190,13 @@ HDInsight 叢集的成本是由節點數和節點的虛擬機器大小來決定�
 
 > [!IMPORTANT]
 > 如果您的叢集需要 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
->
->
 
-如需相關資訊，請參閱[虛擬機器的大小](../../virtual-machines/windows/sizes.md)。 如需各式大小的價格資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight)。   
+如需相關資訊，請參閱[虛擬機器的大小](../../virtual-machines/windows/sizes.md)。 如需各式大小的價格資訊，請參閱 [HDInsight 價格](https://azure.microsoft.com/pricing/details/hdinsight)。
 
 ## <a name="custom-cluster-setup"></a>自訂叢集設定
+
 自訂叢集設定是以 [Quick create] \(快速建立\) 的設定為基礎，並加入下列選項：
+
 - [HDInsight 應用程式](#hdinsight-applications)
 - [叢集大小](#cluster-size)
 - 進階設定
@@ -218,8 +219,6 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 > 如果您在將 JAR 檔案部署至 HDInsight 叢集，或在 HDInsight 叢集上呼叫 JAR 檔案時發生問題，請連絡 [Microsoft 支援](https://azure.microsoft.com/support/options/)。
 >
 > Cascading 不受 HDInsight 支援，而且不符合「Microsoft 支援」的資格。 如需所支援元件的清單，請參閱 [HDInsight 所提供叢集版本的新功能](../../hdinsight/hdinsight-component-versioning.md)。
->
->
 
 有時候，您可能要在建立程序期間設定下列組態檔：
 
@@ -242,7 +241,8 @@ HDInsight 應用程式是使用者可以在以 Linux 為基礎的 HDInsight 叢�
 如需詳細資訊，請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](../../hdinsight/hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
 ## <a name="advanced-settings-extend-clusters-with-a-virtual-network"></a>進階設定：使用虛擬網路擴充叢集
-如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](../../hdinsight/https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。 此組態可讓叢集以及其中部署的任何程式碼直接彼此通訊。
+
+如果您的解決方案需要會分散到多個 HDInsight 叢集類型的技術，[Azure 虛擬網路](https://docs.microsoft.com/azure/virtual-network)可以連接必要的叢集類型。 此組態可讓叢集以及其中部署的任何程式碼直接彼此通訊。
 
 如需如何搭配使用 Azure 虛擬網路與 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md)。
 

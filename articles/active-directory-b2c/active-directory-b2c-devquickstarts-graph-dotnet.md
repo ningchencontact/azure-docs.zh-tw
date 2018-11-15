@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870548"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277529"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 圖形 API
 
@@ -66,8 +66,8 @@ Azure Active Directory (Azure AD) B2C 租用戶通常會很龐大。 這表示�
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>設定應用程式的刪除權限
-目前，「讀取和寫入目錄資料」權限**不**包含執行任何刪除作業的能力，例如刪除使用者。 如果希望應用程式有能力刪除使用者，您必須執行下列額外步驟 (需要使用 PowerShell)，否則可以跳到下一節。
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>設定應用程式的刪除或更新密碼權限
+目前，*讀取和寫入目錄資料*權限**不**包含刪除使用者或更新使用者密碼的能力。 如果希望應用程式有能力刪除使用者或更新密碼，您必須執行下列額外步驟 (需要使用 PowerShell)，否則可以跳到下一節。
 
 如果尚未安裝，請安裝 [Azure AD PowerShell v1 模組 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0)：
 
@@ -84,7 +84,7 @@ Install-Module MSOnline
 Connect-MsolService
 ```
 
-現在，我們將於下列指令碼中使用**應用程式識別碼**，將使用者帳戶管理員角色指派給應用程式，讓它能夠刪除使用者。 這些角色具有已知的識別項，您只需要在下列指令碼中輸入您的**應用程式識別碼**即可。
+現在，我們將於下列指令碼中使用**應用程式識別碼**，將使用者帳戶管理員角色指派給應用程式。 這些角色具有已知的識別項，您只需要在下列指令碼中輸入您的**應用程式識別碼**即可。
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-您的應用程式現在也具有從 B2C 租用戶刪除使用者的權限。
+您的應用程式現在也具有從 B2C 租用戶刪除使用者或更新密碼的權限。
 
 ## <a name="download-configure-and-build-the-sample-code"></a>下載、設定和建置範例程式碼
 首先，下載範例程式碼並開始執行。 然後我們會仔細查看。  您可以 [將範例程式碼下載為 .zip 檔案](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip)。 您可以將此檔案複製到您選擇的目錄中：

@@ -4,16 +4,16 @@ description: 說明「Azure 原則」如何使用資源原則定義，藉由描�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0ff56b86243956d1fa6b51a6dfd14af9e00d8367
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212772"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283285"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure 原則定義結構
 
@@ -123,12 +123,12 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 
 ## <a name="definition-location"></a>定義位置
 
-在建立方案或原則定義時，您必須指定定義位置。
+在建立方案或原則時，務必要指定其定義位置。 定義位置必須為管理群組或訂用帳戶，並判斷可指派方案或原則的範圍。 資源必須是定義位置階層內的直屬成員或其子系，才可作為指派的目標。
 
-定義位置可決定方案或原則定義的指派範圍。 位置可以指定為管理群組，或指定為訂用帳戶。
+如果定義位置為：
 
-> [!NOTE]
-> 如果您計劃要將此原則定義套用至多個訂用帳戶，則作為位置的管理群組必須包含您要對其指派方案或原則的訂用帳戶。
+- **訂用帳戶** - 只能將原則指派給該訂用帳戶內的資源。
+- **管理群組** - 只能將原則指派給子管理群組與子訂用帳戶內的資源。 如果您計劃要將此原則定義套用至多個訂用帳戶，則作為位置的管理群組必須包含那些訂用帳戶。
 
 ## <a name="display-name-and-description"></a>顯示名稱和描述
 
@@ -146,7 +146,7 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -232,7 +232,8 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 - **Audit**：會在活動記錄中產生事件，但不會讓要求失敗
 - **Append**：會在要求中加入一組已定義的欄位
 - **AuditIfNotExists**：如果資源不存在，便啟用稽核
-- **DeployIfNotExists**：如果資源不存在，便部署該資源。
+- **DeployIfNotExists**：如果資源不存在，便部署該資源
+- **Disabled**：不會評估資源的原則規則合規性
 
 對於 **append**，您必須提供下列詳細資料：
 
@@ -247,6 +248,18 @@ Azure 原則所使用的結構描述位於此處：[https://schema.management.az
 值可以是字串或 JSON 格式物件。
 
 使用 **AuditIfNotExists** 及 **DeployIfNotExists** 時，您可以評估相關資源是否存在，並在該資源不存在時，套用規則及對應的效果。 例如，您可以要求網路監看員針對所有虛擬網路部署。 如需在未部署虛擬機器擴充功能時進行稽核的範例，請參閱[稽核擴充功能是否不存在](../samples/audit-ext-not-exist.md)。
+
+**DeployIfNotExists** 效果需要 **roleDefinitionId** 屬性 (在原則規則的 **details** 部分中)。 如需詳細資訊，請參閱[補救 - 設定原則定義](../how-to/remediate-resources.md#configure-policy-definition)。
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 如須每個效果的完整詳細資訊、評估順序、屬性和範例，請參閱[了解原則效果](effects.md)。
 

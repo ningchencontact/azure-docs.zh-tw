@@ -4,7 +4,7 @@ description: 本主題說明如何建立篩選器，讓您的用戶端可以使�
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 11/06/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 982af37a866f73292192b0c889e9eeb1e1291030
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783717"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282402"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
 從 2.17 版開始，媒體服務可讓您為資產定義篩選。 這些篩選器是伺服器端規則，可讓您的客戶選擇執行如下的動作：只播放一段視訊 (而非播放完整視訊)，或只指定您客戶裝置可以處理的一部分音訊和視訊轉譯 (而非與該資產相關的所有轉譯)。 透過在您客戶要求下建立的 **動態資訊清單**可達成對資訊進行這樣的篩選，藉此根據指定的篩選器來串流視訊。
 
-本主題討論對您的客戶很有幫助的常見篩選使用案例，並提供主題連結以示範如何以程式設計方式建立篩選。
+本主題探討使用篩選器會對您客戶很有幫助的常見案例，並提供主題連結以示範如何以程式設計方式建立篩選器。
 
 ## <a name="overview"></a>概觀
-當您將內容傳遞給客戶時 (串流即時事件或點播視訊)，您的目標是在不同的網路條件下將高品質的視訊傳遞到各種裝置。 若要達成此目標，請執行下列動作：
+當您將內容傳遞給客戶時 (串流即時事件或點播視訊)，您的目標是要在不同的網路條件下將高品質的視訊傳遞給各種裝置。 若要達成此目標，請執行下列動作：
 
 * 將您的資料流編碼成多位元速率 ([彈性位元速率](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) 視訊串流 (這會處理品質與網路條件)，並 
 * 使用媒體服務 [動態封裝](media-services-dynamic-packaging-overview.md) 將資料流動態地重新封裝至不同的通訊協定 (這會處理不同裝置上的資料流)。 媒體服務支援傳遞下列自適性串流技術：HTTP 即時串流 (HLS)、Smooth Streaming 和 MPEG DASH。 
@@ -70,7 +70,7 @@ ms.locfileid: "33783717"
 ### <a name="dynamic-manifests"></a>動態資訊清單
 提供許多當您的用戶端需要比預設資產資訊清單檔更多彈性的 [案例](media-services-dynamic-manifest-overview.md#scenarios) 。 例如︰
 
-* 裝置特有：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (「轉譯篩選」)。 
+* 裝置特定：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 * 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)。
 * 修剪視訊開頭 (「修剪視訊」)。
 * 調整 簡報視窗 (DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
@@ -115,7 +115,7 @@ ms.locfileid: "33783717"
 
 ![轉譯篩選範例][renditions2]
 
-下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 編碼的資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth 和 MPEG DASH。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。  右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
+下列範例使用編碼器將夾層資產編碼成七個 ISO MP4 視訊轉譯 (從 180p 到 1080p)。 編碼的資產可以動態地封裝至下列任何一個資料流通訊協定：HLS、Smooth 和 MPEG DASH。  圖表頂端顯示不含篩選器的資產其 HLS 資訊清單 (包含全部七個轉譯)。  左下角顯示名為 "ott" 的篩選器已套用到 HLS 資訊清單。 "ott" 篩選器指定要移除所有不到 1Mbps 的位元速率，因此將最差的兩個品質等級從回應中去除。 右下角顯示名為 "mobile" 的篩選器已套用到 HLS 資訊清單中。 "mobile" 篩選器指定要移除的解析度大於 720p 的轉譯，因此去除兩個 1080p 的轉譯。
 
 ![轉譯篩選][renditions1]
 
@@ -181,8 +181,8 @@ ms.locfileid: "33783717"
 
 ## <a name="know-issues-and-limitations"></a>已知問題與限制
 * 動態資訊清單會在 GOP 界限 (主要畫面格) 中運作，因此修剪後能夠有精確的 GOP。 
-* 您可以讓本機和全域篩選器使用相同的篩選器名稱。 請注意，本機篩選有較高的優先權，會覆寫全域篩選器。
-* 如果您更新篩選器，則資料流端點需要 2 分鐘的時間來重新整理規則。 如果內容是透過使用某些篩選器提供的 (並在 Proxy 和 CDN 快取中快取)，則更新這些篩選器會導致播放程式失敗。 建議在更新篩選器之後清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。
+* 您可以讓本機和全域篩選器使用相同的篩選器名稱。 本機篩選器的優先順序較高，會覆寫全域篩選器。
+* 如果您更新篩選器，則資料流端點需要 2 分鐘的時間來重新整理規則。 如果內容是透過使用某些篩選器提供的 (並在 Proxy 和 CDN 快取中快取)，則更新這些篩選器會導致播放程式失敗。 建議您在更新篩選器之後清除快取。 如果這個選項無法執行，請考慮使用不同的篩選器。
 
 ## <a name="media-services-learning-paths"></a>媒體服務學習路徑
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

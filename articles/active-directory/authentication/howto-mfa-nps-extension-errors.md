@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4097fab5610bf4bee6c14c65d3b45e0de818a0cc
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160904"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036660"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
@@ -30,6 +30,7 @@ ms.locfileid: "39160904"
 | **ESTS_TOKEN_ERROR** | 請遵循[針對 Azure MFA NPS 擴充功能進行移難排解](howto-mfa-nps-extension.md#troubleshooting)中的指示來調查用戶端憑證和 ADAL 權杖問題。 |
 | **HTTPS_COMMUNICATION_ERROR** | NPS 伺服器無法接收來自 Azure MFA 的的回應。 請確定您的防火牆已開放讓 https://adnotifications.windowsazure.com 可雙向傳輸流量 |
 | **HTTP_CONNECT_ERROR** | 在執行 NPS 延伸模組的伺服器上，確認您可以連線到 https://adnotifications.windowsazure.com 和 https://login.microsoftonline.com/。 如果無法載入這些站台，請針對該伺服器上的連線進行移難排解。 |
+| **Azure MFA 的 NPS 擴充功能：** <br> Azure MFA 的 NPS 擴充功能只會針對狀態為 AccessAccept 的 Radius 要求執行次要驗證。 收到要求使用者名稱且回應狀態為 AccessReject 的要求時，忽略要求。 | 此錯誤通常會反應 AD 中的驗證失敗，或 NPS 伺服器無法收到 Azure AD 的回應。 請確定您的防火牆已開放讓 https://adnotifications.windowsazure.com 和 https://login.microsoftonline.com 使用連接埠 80 和 443 雙向傳輸流量。 也請您務必要檢查 [網路存取權限] 的 [撥入] 索引標籤中，設定是否設為 [透過 NPS 網路原則控制存取]。 |
 | **REGISTRY_CONFIG_ERROR** | 應用程式登錄中遺失機碼，可能是因為 [PowerShell 指令碼](howto-mfa-nps-extension.md#install-the-nps-extension)並未在安裝後執行。 錯誤訊息應包含遺失的機碼。 請確定您在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa 下有該機碼。 |
 | **REQUEST_FORMAT_ERROR** <br> RADIUS 要求中遺失必要的 RADIUS 使用者名稱\識別碼。請確定 NPS 會收到 RADIUS 要求 | 此錯誤通常反映的是安裝問題。 NPS 擴充功能必須安裝在可接收 RADIUS 要求的 NPS 伺服器。 NPS 伺服器若是作為 RDG 和 RRAS 等服務的相依項目安裝，則不會收到 RADIUS 要求。 NPS 擴充功能若透過這類安裝方式進行安裝就會無法運作，並會因為無法讀取來自驗證要求的詳細資料而發生錯誤。 |
 | **REQUEST_MISSING_CODE** | 請確定 NPS 和 NAS 伺服器之間的密碼加密協定支援您使用的次要驗證方法。 **PAP** 支援雲端中 Azure MFA 的所有驗證方法：通話、單向簡訊、行動裝置應用程式通知，和行動裝置應用程式驗證碼。 **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知。 |

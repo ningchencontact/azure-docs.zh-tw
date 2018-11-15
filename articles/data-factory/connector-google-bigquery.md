@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051105"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007649"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
@@ -28,7 +28,10 @@ ms.locfileid: "37051105"
 
 您可以將資料從 Google BigQuery 複製到任何支援的接收資料存放區。 如需複製活動所支援作為來源或接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)表格。
 
- Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需要為了使用此連接器而需手動安裝驅動程式。
+Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需要為了使用此連接器而需手動安裝驅動程式。
+
+>[!NOTE]
+>這個 Google BigQuery 連接器會建置於 BigQuery API 之上。 請注意，BigQuery 會限制傳入要求的速率上限，並根據每個專案強制執行適當的配額，請參閱[配額與限制 - API 要求](https://cloud.google.com/bigquery/quotas#api_requests) \(英文\)。 請確定您不會觸發太多對帳戶的並行要求。
 
 ## <a name="get-started"></a>開始使用
 
@@ -42,11 +45,11 @@ ms.locfileid: "37051105"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為 **GoogleBigQuery**。 | yes |
-| project | 要據以查詢之預設 BigQuery 專案的專案識別碼。  | yes |
+| type | type 屬性必須設定為 **GoogleBigQuery**。 | 是 |
+| project | 要據以查詢之預設 BigQuery 專案的專案識別碼。  | 是 |
 | additionalProjects | 要存取之公開 BigQuery 專案的專案識別碼清單 (以逗號分隔)。  | 否 |
 | requestGoogleDriveScope | 是否要求存取 Google 雲端硬碟。 允許 Google 雲端硬碟存取能夠支援同盟資料表，其中結合了 BigQuery 資料與來自 Google 雲端硬碟的資料。 預設值為 **false**。  | 否 |
-| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 Integration Runtime 上使用。 <br/>允許的值為 **UserAuthentication** 和 **ServiceAuthentication**。 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | yes |
+| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 Integration Runtime 上使用。 <br/>允許的值為 **UserAuthentication** 和 **ServiceAuthentication**。 請分別參閱此關於更多屬性的下列資料表各節以及這些驗證類型的 JSON 範例。 | 是 |
 
 ### <a name="using-user-authentication"></a>使用使用者驗證
 
@@ -148,8 +151,8 @@ ms.locfileid: "37051105"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | yes |
+| type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 是 |
 
 **範例：**
 

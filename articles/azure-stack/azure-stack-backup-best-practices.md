@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946512"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035096"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
@@ -52,7 +52,6 @@ ms.locfileid: "41946512"
 
 ### <a name="backups"></a>備份
 
- - 基礎結構備份控制器是依需求觸發。 建議每日至少備份兩次。
  - 備份作業會在系統正在執行時進行，因此對管理體驗或使用者應用程式來說，不會有停機時間。 對於合理負載下的解決方案，備份作業預計會花費 20-40 分鐘。
  - 請使用 OEM 所提供的指示，手動備份網路交換器，此外硬體生命週期主機 (HLH) 應該儲存在與基礎結構備份控制器用以儲存控制平面備份資料相同的備份共用上。 請考慮將交換器和 HLH 設定儲存在區域資料夾中。 若您在相同區域中有多個 Azure Stack 執行個體，請考慮針對屬於同一個縮放單位的每組設定使用一組識別碼。
 
@@ -95,5 +94,6 @@ MASBackup 資料夾是 Azure Stack 儲存其備份資料的地方。 請勿使�
 
 ## <a name="next-steps"></a>後續步驟
 
- - 請檢閱[基礎結構備份服務](azure-stack-backup-reference.md)的參考資料。  
- - 啟用[基礎結構備份服務](azure-stack-backup-enable-backup-console.md)。
+請檢閱[基礎結構備份服務](azure-stack-backup-reference.md)的參考資料。
+
+啟用[基礎結構備份服務](azure-stack-backup-enable-backup-console.md)。

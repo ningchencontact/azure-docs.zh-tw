@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388053"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238908"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>針對 Azure Active Directory 混合式身分識別解決方案選擇正確的驗證方法 
 
@@ -68,6 +68,18 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 ## <a name="decision-tree"></a>決策樹
 
 ![Azure AD 驗證決策樹](media/azure-ad/azure-ad-authn-image1.png)
+
+決策問題的相關詳細資料：
+
+1. Azure AD 無須倚賴內部部署元件來驗證密碼，即可處理使用者的登入。
+2. Azure AD 可以將使用者登入交給受信任的驗證提供者，例如 Microsoft 的 AD FS。
+3. 如果您需要套用使用者層級的 Active Directory 安全性原則 (例如帳戶已過期、停用的帳戶、密碼已過期、帳戶已鎖定及每次使用者登入時的登入時數)，則 Azure AD 需要一些內部部署元件。
+4. Azure AD 未原生支援的登入功能：
+   * 使用智慧卡或憑證進行的登入。
+   * 使用內部部署 MFA 伺服器進行的登入。
+   * 使用第三方驗證解決方案進行的登入。
+   * 多站台內部部署驗證解決方案。
+5. 不論您選擇哪一種登入方法，Azure AD Identity Protection 都需要「密碼雜湊同步」功能，才能提供「認證外洩的使用者」報告。 組織如果發生主要登入方法失敗，而在發生失敗事件之前便已設定「密碼雜湊同步」，便可容錯移轉至「密碼雜湊同步」。
 
 ## <a name="detailed-considerations"></a>詳細考量
 
@@ -207,4 +219,4 @@ Azure AD 針對混合式身分識別解決方案支援下列驗證方法。
 
 [開始使用](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) Azure AD，並為組織部署正確的驗證解決方案。
 
-如果您正考慮從同盟移轉到雲端驗證，請深入了解[變更登入方法](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method)。 為了協助您規劃並實作移轉，您可以使用[這些專案部署計劃](http://aka.ms/deploymentplans)。
+如果您正考慮從同盟移轉到雲端驗證，請深入了解[變更登入方法](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method)。 為了協助您規劃並實作移轉，您可以使用[這些專案部署計劃](https://aka.ms/deploymentplans)。

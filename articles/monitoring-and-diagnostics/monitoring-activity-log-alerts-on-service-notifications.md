@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: 221434a391f963a764ef36b9533cc8cfd0e16c01
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123443"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961886"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ ms.locfileid: "43123443"
 
 若要深入了解動作群組，請參閱[建立及管理動作群組](monitoring-action-groups.md)。
 
-若要了解如何使用 Azure Resource Manager 範本來設定服務健康情況通知警示，請參閱 [Resource Manager 範本](monitoring-create-activity-log-alerts-with-resource-manager-template.md)。
+若要了解如何使用 Azure Resource Manager 範本來設定服務健康情況通知警示，請參閱 [Resource Manager 範本](alert-activity-log.md)。
 
 ## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>使用 Azure 入口網站為新動作群組建立服務健康情況通知的警示
 1. 在[入口網站](https://portal.azure.com)中，選取 [服務健康情況]。
@@ -70,7 +70,7 @@ ms.locfileid: "43123443"
 
 1. 請提供接收者的下列各項，以定義接收者的清單：
 
-    a. **名稱**：輸入接收者名稱、別名或識別碼。
+    a. **名稱**：輸入接收者的名稱、別名或識別碼。
 
     b. **動作類型**：選取簡訊、電子郵件、Webhook 和 Azure 應用程式等。
 

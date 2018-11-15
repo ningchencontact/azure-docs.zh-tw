@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251102"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301011"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>適用於 Azure Functions 的 Microsoft Graph 繫結
 
-這篇文章說明如何在 Azure Functions 中設定並使用 Microsoft Graph 觸發程序和繫結。 您可以進行這些動作，使用 Azure Functions 來處理來自 [Microsoft Graph](https://graph.microsoft.io) 的資料、深入資訊和事件。
+這篇文章說明如何在 Azure Functions 中設定並使用 Microsoft Graph 觸發程序和繫結。 您可以進行這些動作，使用 Azure Functions 來處理來自 [Microsoft Graph](https://developer.microsoft.com/graph) 的資料、深入資訊和事件。
 
 Microsoft Graph 擴充功能會提供下列繫結：
 - [驗證權杖輸入繫結](#token-input)可讓您與任何 Microsoft Graph API 進行互動。
@@ -834,7 +834,7 @@ Outlook 訊息輸出繫結會透過 Outlook 傳送電子郵件訊息。
 * [範例](#outlook-output---example)
 * [屬性](#outlook-output---attributes)
 * [組態](#outlook-output---configuration)
-* [使用量](#outlook-outnput---usage)
+* [使用量](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Outlook 輸出 - 範例
 

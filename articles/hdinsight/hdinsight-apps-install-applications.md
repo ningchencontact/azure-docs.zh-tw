@@ -1,24 +1,24 @@
 ---
-title: 在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式
+title: 在 Azure HDInsight 上安裝協力廠商應用程式
 description: 了解如何在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: c50bd7c314c88c0950478cc3068d9a5873b65263
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 71c371594a0ee2b2b8e976fffb7641ccb6b72c0a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261786"
 ---
-# <a name="install-third-party-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式
+# <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
-了解如何在 Azure HDInsight 上安裝協力廠商 Hadoop 應用程式。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+了解如何在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用程式。 Microsoft 獨立軟體廠商 (ISV) 或您可以自己開發這些應用程式。  
 
@@ -27,13 +27,18 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 * **AtScale 智慧平台**將您的 HDInsight 叢集變成向外延展的 OLAP 伺服器。 此應用程式可讓您使用 Microsoft Excel、PowerBI、Tableau Software 或 QlikView 的 BI 工具，以互動方式查詢無數資料列。
 * **適用於 HDInsight 的 Cask CDAP**：提供第一個巨量資料統一整合平台，可減少資料應用程式與 Data Lake 80% 的產出時間。 此應用程式僅支援 Standard HBase 3.4 叢集。
 * **HDInsight 上的 DATAIKU DDS**可讓資料專業人員製作原型、建置及部署非常特定的服務，以將未經處理資料轉換成有影響力的商務預測。
+* **Datameer** 是可靈活調整規模的自助式平台，用來準備、探索及掌管供分析使用的資料，加速將複雜的多來源資料轉變為有價值的商務就緒資訊，更快提供更聰明的企業級深入解析。
 * **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water 支援下列分散式演算法：GLM、Naïve Bayes、分散式隨機樹系、梯度提升機、深度類神經網路、深度學習、k-means、PCA、Generalized Low Rank Model、異常偵測和 Autoencoders。
 * **Kyligence Analytics Platform**：Kyligence Analytics Platform (KAP) 是由 Apache Kylin 和 Apache Hadoop 支援之符合企業需求的資料倉儲，對大規模資料集的查詢延遲不到一秒，而且可簡化企業用戶和分析師的資料分析作業。 
 * **Paxata 自助資料準備**
 * **Spark Job Server for KNIME Spark Executor**：Spark Job Server for KNIME Spark Executor 可用來將 KNIME Analytics Platform 連線到 HDInsight 叢集。
+* **Starburst Presto** 是快速且可靈活調整規模的分散式 SQL 查詢引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。
 * **適用於 HDInsight 的 Streamsets 資料收集器**提供功能完整的整合式開發環境 (IDE)，可讓您設計、測試、部署和管理任意至任意內嵌管線 (它會協調資料流與批次資料)，並包括各種資料流內轉換，而完全不必撰寫自訂程式碼。 
+* **Striim** (讀為 "stream") 是端對端串流資料整合與智慧平台，可持續擷取、處理及分析不同的資料串流。
 * **[Trifacta](http://www.trifacta.com/)** 可讓資料工程師和分析師利用機器學習來提供突破性的使用者體驗、工作流程和架構，更有效率地探索及準備現今多元的資料。
+* **Unifi 資料平台**是緊密整合的自助式資料工具套件，其設計可讓企業用戶解決資料難題，促進增加營收、降低成本或操作複雜度。 
 * **WANdisco Fusion HDI 應用程式**可隨環境變更，和資料維持持續一致的連線。 它可讓您隨時隨地存取資料，無停機和中斷的時間。
+* **Waterline** 可使用 AI 歸類、整理及掌管資料，以商務詞彙自動標記資料。 Waterline 是自助式分析、合規性與治理以及 IT 管理計劃成功的重要環節。
 
 本文提供的指示將使用 Azure 入口網站。 您也可以從入口網站匯出 Azure Resource Manager 範本或從廠商取得 Resource Manage 範本的複本，然後使用 Azure PowerShell 與 Azure 傳統 CLI 來部署範本。  請參閱[使用 Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 

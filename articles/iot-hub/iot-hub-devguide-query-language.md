@@ -1,18 +1,18 @@
 ---
 title: 了解 Azure IoT 中樞查詢語言 | Microsoft Docs
 description: 開發人員指南 - 說明類似 SQL 的 IoT 中樞查詢語言，用於從 IoT 中樞擷取裝置/模組對應項和作業的相關資訊。
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
-ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/29/2018
+ms.author: rezas
+ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318243"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747910"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>裝置與模組對應項、作業和訊息路由的 IoT 中樞查詢語言
 
@@ -389,6 +389,11 @@ GROUP BY <group_by_element>
 **attribute_name** 指的是 FROM 集合中 JSON 文件的任何屬性。
 
 目前，GROUP BY 子句只支援在查詢裝置對應項時使用。
+
+> [!IMPORTANT]
+> `group` 一詞目前被視為查詢中的特殊關鍵字。 萬一您使用 `group` 作為屬性名稱，請考慮使用雙括號括住，以避免發生錯誤，例如 `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`。
+>
+>
 
 ## <a name="expressions-and-conditions"></a>運算式和條件
 概括而言，運算式：

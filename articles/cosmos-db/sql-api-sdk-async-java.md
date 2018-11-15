@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417594"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252865"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ SQL API Async Java SDK 與 SQL API Java SDK 的不同之處在於會提供非同
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* 已修正寫入重試路徑中的 NPE 錯誤 (bug)。
+* 已修正端點管理中的 NPE 錯誤 (bug)。
+* 已升級易受攻擊的相依性 ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68) \(英文\))。
+* 已新增對 Netty 網路記錄的支援以用來進行疑難排解。
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* 已新增對多重區域寫入的支援。
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * 已新增 Proxy 的支援。
@@ -110,6 +119,8 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |2018 年 11 月 2 日|--- |
+| [2.2.0](#2.2.1) |2018 年 9 月 22 日|--- |
 | [2.1.0](#2.1.0) |2018 年 9 月 5 日|--- |
 | [2.0.1](#2.0.1) |2018 年 8 月 16 日|--- |
 | [2.0.0](#2.0.0) |2018 年 6 月 20 日|--- |

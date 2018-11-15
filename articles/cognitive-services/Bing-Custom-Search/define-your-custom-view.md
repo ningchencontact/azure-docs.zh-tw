@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815251"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282914"
 ---
 # <a name="configure-your-custom-search-experience"></a>設定您的自訂搜尋體驗
 
@@ -64,7 +64,7 @@ ms.locfileid: "48815251"
 
 ## <a name="pinned-list"></a>已釘選清單
 
-如果使用者輸入特定的搜尋字詞，入口網站也可讓您將特定網頁釘選到搜尋結果的頂端。 [已釘選] 索引標籤包含一份查詢字詞與網頁配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 如需釘選結果的資訊，請參閱[調整順位](#adjustrank)。
+如果使用者輸入特定的搜尋字詞，入口網站也可讓您將特定網頁釘選到搜尋結果的頂端。 [已釘選] 索引標籤包含一份查詢字詞與網頁配對的清單，指定對於特定查詢要顯示為第一個結果的網頁。 此外，只有已編製索引的網頁才會顯示在搜尋中。 如需釘選結果的資訊，請參閱[調整順位](#adjustrank)。 
 
 釘選結果不適用於影像搜尋和影片搜尋體驗。
 

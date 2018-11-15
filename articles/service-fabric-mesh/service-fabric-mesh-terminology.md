@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944434"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979126"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 術語
 
@@ -84,5 +84,6 @@ Service Fabric 是一項開放原始碼平台技術，有數個不同的服務�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Service Fabric Mesh，請閱讀下列概觀：
-- [Service Fabric Mesh 概觀](service-fabric-mesh-overview.md)
+若要深入了解 Service Fabric Mesh，請閱讀 [Service Fabric Mesh 概觀](service-fabric-mesh-overview.md)。
+
+尋找[常見問題](service-fabric-mesh-faq.md)的解答。

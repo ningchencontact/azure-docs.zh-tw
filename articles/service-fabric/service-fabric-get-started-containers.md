@@ -3,7 +3,7 @@ title: 建立 Azure Service Fabric 容器應用程式 | Microsoft Docs
 description: 在 Azure Service Fabric 上建立第一個 Windows 容器應用程式。 使用 Python 應用程式建置 Docker 映像、將映像推送到容器登錄，建置和部署 Service Fabric 容器應用程式。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: vturecek
 ms.assetid: ''
@@ -13,25 +13,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
-ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: twhitney
+ms.openlocfilehash: 587ba52a1a30d187268119567b84d2dd8e471b8d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803778"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300586"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 建立第一個 Service Fabric 容器應用程式
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 此文章會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 此文章假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
+在 Service Fabric 叢集上的 Windows 容器中執行現有的應用程式，不需要變更您的應用程式。 本文會逐步引導您建立包含 Python [Flask](http://flask.pocoo.org/) Web 應用程式的 Docker 映像，並將它部署到 Service Fabric 叢集。 您也將透過 [Azure Container Registry](/azure/container-registry/) 共用容器化應用程式。 本文假設您對 Docker 有基本認識。 您可藉由閱讀 [Docker 概觀](https://docs.docker.com/engine/understanding-docker/)來了解 Docker。
 
 > [!NOTE]
-> 此文章適用於 Windows 開發環境。  Service Fabric 叢集執行階段與 Docker 執行階段必須在相同的作業系統上執行。  您無法在 Linux 叢集上執行 Windows 容器。
+> 本文適用於 Windows 開發環境。  Service Fabric 叢集執行階段與 Docker 執行階段必須在相同的作業系統上執行。  您無法在 Linux 叢集上執行 Windows 容器。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 執行下列項目的開發電腦︰
   * Visual Studio 2015 或 Visual Studio 2017。
   * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
@@ -39,7 +39,7 @@ ms.locfileid: "48803778"
 
 * 有三個或更多節點在具有容器的 Windows Server 上執行的 Windows 叢集。 
 
-  在此文章中，在您的叢集節點上執行且具有容器的 Windows Server 版本 (組建) 必須符合您開發電腦上的 Windows Server 版本。 這是因為您會在開發電腦上建立 Docker 映像，而且容器 OS 版本與其部署所在主機 OS 版本之間有相容性條件約束。 如需詳細資訊，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](#windows-server-container-os-and-host-os-compatibility)。 
+  在本文中，在您的叢集節點上執行且具有容器的 Windows Server 版本 (組建) 必須符合您開發電腦上的 Windows Server 版本。 這是因為您會在開發電腦上建立 Docker 映像，而且容器 OS 版本與其部署所在主機 OS 版本之間有相容性條件約束。 如需詳細資訊，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](#windows-server-container-os-and-host-os-compatibility)。 
   
   若要判斷具有您叢集所需容器的 Windows Server 版本，請在開發電腦上從 Windows 命令提示字元執行 `ver` 命令：
 
@@ -49,7 +49,7 @@ ms.locfileid: "48803778"
 * Azure Container Registry 中的登錄 - 在 Azure 訂用帳戶中[建立容器登錄](../container-registry/container-registry-get-started-portal.md)。
 
 > [!NOTE]
-> 系統支援將容器部署到在 Windows 10 上執行的 Service Fabric 叢集。  如需如何設定 Windows 10 以執行 Windows 容器的資訊，請參閱[此文章](service-fabric-how-to-debug-windows-containers.md)。
+> 系統支援將容器部署到在 Windows 10 上執行的 Service Fabric 叢集。  如需如何設定 Windows 10 以執行 Windows 容器的資訊，請參閱[本文](service-fabric-how-to-debug-windows-containers.md)。
 >   
 
 > [!NOTE]
@@ -215,7 +215,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
 服務會接聽特定連接埠 (在此範例中為 8081)。 當應用程式部署至 Azure 中的叢集時，叢集和應用程式都會在 Azure 負載平衡器後方執行。 Azure 負載平衡器必須開啟應用程式連接埠，以便輸入的流量可以通過其傳到服務。  您可以使用 [PowerShell 指令碼](./scripts/service-fabric-powershell-open-port-in-load-balancer.md)或 [Azure 入口網站](https://portal.azure.com)，在 Azure 負載平衡器中開啟這個連接埠。
 
 ## <a name="configure-and-set-environment-variables"></a>設定環境變數
-可以為服務資訊清單中的每個程式碼套件指定環境變數。 所有服務都有此功能，無論是部署為容器或處理程序或來賓可執行檔。 您可以覆寫應用程式資訊清單中環境變數的值，或在部署期間將它們指定為應用程式參數。
+可以為服務資訊清單中的每個程式碼套件指定環境變數。 所有服務都有這項功能，無論是部署為容器或處理程序或來賓可執行檔。 您可以覆寫應用程式資訊清單中環境變數的值，或在部署期間將它們指定為應用程式參數。
 
 下列服務資訊清單 XML 程式碼片段示範如何指定程式碼封裝的環境變數：
 ```xml
@@ -240,7 +240,7 @@ Service Fabric SDK 和工具會提供一個服務範本，協助您建立容器�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>設定容器連接埠對主機連接埠對應，以及容器對容器探索
-設定用來與容器通訊的主機連接埠。 連接埠繫結會將服務在容器內接聽的連接埠，對應至主機上的連接埠。 在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 元素中，新增 `PortBinding` 元素。 在此文章中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "Guest1TypeEndpoint" (先前在服務資訊清單中定義的端點)。 連接埠 8081 上服務的連入要求會對應到容器上的連接埠 80。
+設定用來與容器通訊的主機連接埠。 連接埠繫結會將服務在容器內接聽的連接埠，對應至主機上的連接埠。 在 ApplicationManifest.xml 檔案的 `ContainerHostPolicies` 元素中，新增 `PortBinding` 元素。 在本文中，`ContainerPort` 為 80 (如 Dockerfile 所指定，容器會公開連接埠 80)，而 `EndpointRef` 為 "Guest1TypeEndpoint" (先前在服務資訊清單中定義的端點)。 通訊埠 8081 上服務的連入要求會對應到容器上的連接埠 80。
 
 ```xml
 <ServiceManifestImport>
@@ -363,7 +363,7 @@ Windows 支援兩種容器隔離模式：分別為處理序和 Hyper-V。 在處
 
 ![HealthCheckUnhealthyDsp][5]
 
-您可以將 **HealthConfig** 選項指定為 ApplicationManifest 中 **ContainerHostPolicies** 的一部分，為每個容器設定 **HEALTHCHECK** 行為。
+您可以將 **HealthConfig** 選項指定為 ApplicationManifest 中 **ContainerHostPolicies** 的一部份，為每個容器設定 **HEALTHCHECK** 行為。
 
 ```xml
 <ServiceManifestImport>
@@ -416,7 +416,7 @@ Windows Server 容器在主機 OS 的所有版本之間不相容。 例如︰
 
 - 請確定您部署的容器具有的 OS 與您叢集節點上的 OS 相容。
 - 請確定為容器應用程式所指定的隔離模式，與其部署所在節點上的容器 OS 支援一致。
-- 請考慮叢集節點或容器的 OS 升級可能會對其相容性造成哪種影響。 
+- 請考慮叢集節點或容器的 OS 升級可能會對其相容性造成何種影響。 
 
 我們建議您利用下列作法，確定容器已正確部署在 Service Fabric 叢集上：
 
@@ -458,7 +458,7 @@ WIndows Server 2016 的組建版本為 14393，而 Windows Server 1709 版本的
 未標記的容器映會覆寫 ServiceManifest 中提供的映像。 因此映像 "myregistry.azurecr.io/samples/helloworldappDefault" 會覆寫 ServiceManifest 中的 ImageName "myregistry.azurecr.io/samples/helloworldapp"。
 
 ## <a name="complete-example-service-fabric-application-and-service-manifests"></a>完整範例 Service Fabric 應用程式和服務資訊清單
-以下是此文章中使用的完整服務和應用程式資訊清單。
+以下是本文中使用的完整服務和應用程式資訊清單。
 
 ### <a name="servicemanifestxml"></a>ServiceManifest.xml
 ```xml
@@ -597,7 +597,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 } 
 ```
 
-針對不應該刪除的映像，您可以在 `ContainerImagesToSkip` 參數下指定它們。  
+對於不應刪除的映像，您可以在 `ContainerImagesToSkip` 參數之下加以指定。  
 
 
 ## <a name="configure-container-image-download-time"></a>設定容器映像下載時間

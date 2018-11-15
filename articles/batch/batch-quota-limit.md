@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887559"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282776"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服務配額和限制
 
@@ -45,17 +45,27 @@ ms.locfileid: "48887559"
 
 如果您建立 Batch 帳戶時所用的集區配置模式是設定為**使用者訂用帳戶**，則配額會以不同的方式套用。 在這個模式中，建立集區時，Batch VM 和其他資源會直接建立在您的訂用帳戶中。 Azure Batch 核心配額不適用於在此模式中建立的帳戶。 相反地，會套用您在地區計算核心和其他資源之訂用帳戶中的配額。 深入了解 [Azure 訂用帳戶和服務限制、配額與限制](../azure-subscription-service-limits.md)中的配額。
 
+## <a name="pool-size-limits"></a>集區大小限制
+
+| **Resource** | **上限** |
+| --- | --- |
+| **[節點間通訊已啟用集區](batch-mpi.md)中的計算節點**  ||
+| 批次服務集區配置模式 | 100 |
+| 批次訂用帳戶集區配置模式 | 80 |
+| **[使用自訂 VM 映像所建立集區](batch-custom-images.md)中的計算節點**<sup>1</sup> ||
+| 專用節點 | 2000 |
+| 低優先順序節點 | 1000 |
+
+<sup>1</sup> 表示註記為已啟用節點間通訊的集區。
+
 ## <a name="other-limits"></a>其他限制
 
 | **Resource** | **上限** |
 | --- | --- |
-| [並行工作](batch-parallel-node-tasks.md)  |4 x 節點的核心數目 |
-| [應用程式](batch-application-packages.md)  |20 |
-| 每個應用程式的應用程式封裝 |40 |
+| [並行工作](batch-parallel-node-tasks.md)  | 4 x 節點的核心數目 |
+| [應用程式](batch-application-packages.md)  | 20 |
+| 每個應用程式的應用程式封裝 | 40 |
 | 工作存留期上限 | 7 天<sup>1</sup> |
-| [節點間通訊已啟用集區](batch-mpi.md)中的計算節點 | 100 |
-| [使用自訂 VM 映像所建立集區](batch-custom-images.md)中的專用計算節點 | 2500 |
-| [使用自訂 VM 映像所建立集區](batch-custom-images.md)中的低優先順序計算節點 | 1000 |
 
 <sup>1</sup> 工作的最長存留期 (從它新增至作業到完成時) 為 7 天。 已完成的工作會無限期保留；無法存取未在最長存留期內完成之工作的資料。
 

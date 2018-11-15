@@ -4,17 +4,17 @@ description: 使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Jav
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: af37822429098f904e08404462deb134d4370898
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d72ffd849f9e1e6e661b0e54b7182b02a16c8024
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421198"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568983"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Java 模組以及對其進行偵錯
 

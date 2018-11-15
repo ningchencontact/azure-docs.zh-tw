@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+ms.openlocfilehash: eef2c762c87a13c62eeb9b017ed43f54835ab16e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571908"
+---
 Azure Cloud Shell 是以瀏覽器為基礎的殼層經驗，用於管理和開發 Azure 資源。
 
 Cloud Shell 提供可從瀏覽器存取、預先設定的殼層功能來管理 Azure 資源，您不需要另外自行安裝、版本控制和維護電腦。

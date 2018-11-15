@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 55e4195e2666aed371a5a5664b331184afcf5e36
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420960"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260494"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -48,7 +48,6 @@ ms.locfileid: "50420960"
 
 **錯誤碼**：UserErrorRpCollectionLimitReached <br>
 **錯誤訊息**：已達到還原點集合上限。 <br>
-Description:  
 * 如果鎖定復原點資源群組以防止復原點自動清除，就可能會發生此問題。
 * 如果每日觸發多個備份，也會發生此問題。 目前，我們建議每日只能觸發一個備份，因為立即 RP 會保留 7 天，而一段指定時間內只能讓 18 個立即 RP 與 VM 相關聯。 <br>
 
@@ -96,6 +95,21 @@ Description:
 **原因 5︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
 **原因 6：[備份服務因資源群組鎖定而沒有刪除舊還原點的權限](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
 
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Azure 備份目前不支援容量大於 1023 GB 的磁碟
+
+**錯誤碼**：UserErrorUnsupportedDiskSize <br>
+**錯誤訊息**：Azure 備份目前不支援容量大於 1023 GB 的磁碟 <br>
+
+備份磁碟大小超過 1023GB 的 VM 時，備份作業可能會失敗，因為您的保存庫並未升級到 Azure VM 備份堆疊 V2。 升級至 Azure VM 備份堆疊 V2 將提供最高 4 TB 支援。 請檢閱這些[優點](backup-upgrade-to-vm-backup-stack-v2.md)與[考量](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然後依照這些[指示](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)繼續升級。  
+
+## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported - 目前 Azure 備份不支援標準 SSD 磁碟
+
+**錯誤碼**：UserErrorStandardSSDNotSupported <br>
+**錯誤訊息**：目前 Azure 備份不支援標準 SSD 磁碟 <br>
+
+目前 Azure 備份只針對升級至 Azure VM 備份堆疊 V2 的保存庫支援標準 SSD 磁碟。 請檢閱這些[優點](backup-upgrade-to-vm-backup-stack-v2.md)與[考量](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade)，然後依照這些[指示](backup-upgrade-to-vm-backup-stack-v2.md#upgrade)繼續升級。
+
+
 ## <a name="causes-and-solutions"></a>原因和解決方案
 
 ### <a name="the-vm-has-no-internet-access"></a>VM 沒有網際網路存取
@@ -139,7 +153,7 @@ VM 代理程式可能已損毀，或服務可能已停止。 重新安裝 VM 代
 1. 判斷 Windows 客體代理程式服務是否在 VM 服務 (services.msc) 中執行。 請嘗試重新啟動 Windows 客體代理程式服務並啟動備份。    
 2. 如果 Windows 客體代理程式服務未顯示在控制台的服務中，請移至 [程式和功能] 來判斷是否已安裝 Windows 客體代理程式服務。
 4. 如果此 Windows 客體代理程式顯示在 [程式和功能] 中，請將 Windows 客體代理程式解除安裝。
-5. 下載並安裝[最新版的代理程式 MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您必須擁有系統管理員權限，才能完成安裝。
+5. 下載並安裝[最新版的代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您必須擁有系統管理員權限，才能完成安裝。
 6. 確認 Windows 客體代理程式服務顯示在服務中。
 7. 執行隨選備份：
     * 在入口網站中，選取 [立即備份]。
@@ -208,7 +222,7 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>從還原點資源群組中移除鎖定
 1. 登入 [Azure 入口網站](http://portal.azure.com/)。
-2. 移至 [所有資源] 選項，選取下列格式的還原點集合資源群組：AzureBackupRG_<Geo>_<number>。
+2. 移至 [所有資源] 選項，選取下列格式的還原點集合資源群組：AzureBackupRG_`<Geo>`_`<number>`。
 3. 在 [設定] 區段中，選取 [鎖定] 來顯示鎖定項目。
 4. 若要移除鎖定，請選取省略符號，然後按一下 [刪除]。
 
@@ -217,17 +231,17 @@ VM 備份仰賴發給底層儲存體帳戶的快照命令。 備份可能會失�
 ### <a name="clean_up_restore_point_collection"></a> 清除還原點集合
 移除鎖定之後，必須清除還原點。 若要清除還原點，請遵循下列任一方法：<br>
 * [執行臨機操作備份來清除還原點集合](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [從備份服務建立的入口網站清除還原點集合](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [從 Azure 入口網站清除還原點集合](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>執行臨機操作備份來清除還原點集合
 移除鎖定之後，觸發臨機操作/手動備份。 這可確保還原點會自動清除。 我們預期第一次執行此臨機操作/手動作業會失敗，但這可確保還原點會自動清除，而不是要手動刪除還原點。 完成清除作業之後，下一個排定的備份應該會成功。
 
 > [!NOTE]
-    > 觸發臨機操作/手動備份的幾個小時後，系統會自動執行清除作業。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-portal-created-by-backup-service)列出的步驟，嘗試手動刪除還原點集合。
+    > 觸發臨機操作/手動備份的幾個小時後，系統會自動執行清除作業。 如果您排定的備份仍然失敗，請使用[此處](#clean-up-restore-point-collection-from-azure-portal)列出的步驟，嘗試手動刪除還原點集合。
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>從備份服務建立的入口網站清除還原點集合<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>從 Azure 入口網站清除還原點集合 <br>
 
-若要手動清除因為鎖定而無法清除的還原點集合，請遵循列步驟：
+若要手動清除因為鎖定而無法清除的還原點集合，請嘗試下列步驟：
 1. 登入 [Azure 入口網站](http://portal.azure.com/)。
 2. 在 [中樞] 功能表上按一下 [所有資源]，選取下列格式的資源群組：AzureBackupRG_`<Geo>`_`<number>`，也就是您 VM 所在的位置。
 

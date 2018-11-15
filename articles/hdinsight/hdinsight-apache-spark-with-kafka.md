@@ -1,25 +1,25 @@
 ---
-title: 透過 Kafka 串流的 Apache Spark - Azure HDInsight
-description: 了解如何使用 DStreams 以 Spark Apache Spark 串流方式將資料送入或送出 Apache Kafka。 在此範例中，您使用 HDInsight 上之 Spark 的 Jupyter Notebook 來串流資料。
+title: 使用 Apache Kafka 的 Apache Spark 串流 - Azure HDInsight
+description: 了解如何使用 DStreams 以 Apache Spark 串流方式將資料送入或送出 Apache Kafka。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。
 keywords: kafka 範例,kafka zookeeper,spark 串流 kafka,spark 串流 kafka 範例
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094161"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279155"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>在 HDInsight 上使用 Kafka 的 Apache Spark 串流 (DStream) 範例
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>在 HDInsight 上使用 Apache Kafka 的 Apache Spark 串流 (DStream) 範例
 
-了解如何在 HDInsight 上使用 DStreams，以 Spark Apache Spark 串流方式將資料送入或送出 Apache Kafka。 這個範例會使用在 Spark 叢集上執行的 Jupyter Notebook。
+了解如何在 HDInsight 上使用 DStreams，以 Apache Spark 串流方式將資料送入或送出 Apache Kafka。 這個範例會使用在 Spark 叢集上執行的 Jupyter Notebook。
 
 > [!NOTE]
 > 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
@@ -59,7 +59,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **位置**：選取在地理上靠近您的位置。
 
-    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdi** 可建立名為 __spark-hdi__ 的 Spark 叢集以及名為 **kafka-hdi** 的 Kafka 叢集。
+    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdistreaming** 可建立名為 __spark-hdistreaming__ 的 Spark 叢集，以及名為 **kafka-hdistreaming** 的 Kafka 叢集。
 
     * **叢集登入使用者名稱**：Spark 和 Kafka 叢集的系統管理員使用者名稱。
 
@@ -71,7 +71,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
-4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
+4. 最後，選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
 資源建立後，摘要頁面會隨即出現。
 

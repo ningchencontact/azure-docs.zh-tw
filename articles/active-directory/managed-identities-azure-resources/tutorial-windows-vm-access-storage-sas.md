@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f8f65cbbf3f2583e43416fc36050de6c55f105dc
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161708"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625482"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過 SAS 認證來存取 Azure 儲存體
 
@@ -36,16 +36,7 @@ ms.locfileid: "44161708"
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [登入 Azure 入口網站](https://portal.azure.com)
-
-- [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
-
-- [在虛擬機器上啟用系統指派的身分識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
-
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
@@ -71,9 +62,9 @@ ms.locfileid: "44161708"
 
     ![建立儲存體容器](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>授權 VM 系統指派的受控識別來使用儲存體 SAS 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>將存取儲存體帳戶 SAS 的權利，授予 VM 系統指派的受控識別 
 
-Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用受控識別從 Resource Manager 擷取儲存體 SAS，然後使用該 SAS 存取儲存體。  在此步驟中，您將授權 VM 系統指派的受控識別來存取儲存體帳戶 SAS。   
+Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用受控識別從 Resource Manager 擷取儲存體 SAS，然後使用該 SAS 存取儲存體。  在此步驟中，您會將存取儲存體帳戶 SAS 的權利，授予 VM 系統指派的受控識別。   
 
 1. 巡覽回到您新建立的儲存體帳戶。   
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
@@ -85,7 +76,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用�
 
     ![替代映像文字](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 的身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-call-azure-resource-manager"></a>使用 VM 的身分識別取得存取權杖，並使用它來呼叫 Azure Resource Manager 
 
 其餘課程要從稍早建立的 VM 繼續進行。
 

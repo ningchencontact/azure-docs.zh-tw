@@ -2,18 +2,18 @@
 title: 使用虛擬網路延伸 HDInsight - Azure
 description: 了解如何使用 Azure 虛擬網路將 HDInsight 連接到其他雲端資源或您的資料中心內的資源
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/08/2018
-ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 11/06/2018
+ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945751"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238976"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -25,7 +25,7 @@ ms.locfileid: "49945751"
 
 * 將 HDInsight 連線至 Azure 虛擬網路中的資料存放區。
 
-* 直接存取無法透過網際網路公開使用的 Hadoop 服務。 例如，Kafka API 或 HBase Java API。
+* 直接存取無法透過網際網路公開使用的 Apache Hadoop 服務。 例如，Kafka API 或 HBase Java API。
 
 > [!WARNING]
 > 本文件中的資訊需要了解 TCP/IP 網路。 如果您不熟悉 TCP/IP 網路，則應該與之前在生產網路中修改的人員合作。
@@ -64,7 +64,7 @@ ms.locfileid: "49945751"
 
     加入之後，Resource Manager 網路中所安裝的 HDInsight 就可以與傳統網路中的資源互動。
 
-2. 您使用強制通道嗎？ 強制通道是一種子網路設定，可強制裝置的輸出網際網路流量以進行檢查和記錄。 HDInsight 不支援強制通道。 先移除強制通道，再將 HDInsight 安裝至子網路，或建立 HDInsight 的新子網路。
+2. 您使用強制通道嗎？ 強制通道是一種子網路設定，可強制裝置的輸出網際網路流量以進行檢查和記錄。 HDInsight 不支援強制通道。 先移除強制通道，再將 HDInsight 部署至現有子網路，或為 HDInsight 建立沒有強制通道的新子網路。
 
 3. 您使用網路安全性群組、使用者定義路由或虛擬網路設備來限制傳入或傳出虛擬網路的流量嗎？
 
@@ -121,7 +121,7 @@ ms.locfileid: "49945751"
 
 Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這個內建名稱解析允許 HDInsight 使用完整網域名稱 (FQDN) 連線至下列資源：
 
-* 網際網路上的任何可用資源。 例如，microsoft.com、google.com。
+* 網際網路上的任何可用資源。 例如，microsoft.com、windowsupdate.com。
 
 * 相同 Azure 虛擬網路中的任何資源，方法是使用資源的「內部 DNS 名稱」。 例如，使用預設名稱解析時，以下是指派給 HDInsight 背景工作節點的範例內部 DNS 名稱：
 
@@ -173,7 +173,7 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 ## <a name="directly-connect-to-hadoop-services"></a>直接連線至 Hadoop 服務
 
-您可以連線至位於 https://CLUSTERNAME.azurehdinsight.net 的叢集。 此位址會使用公用 IP，如果您已使用 NSG 或 UDR 限制來自網際網路的連入流量，則可能無法存取該 IP。 此外，當您在 VNet 中部署叢集時，可以使用私人端點 https://CLUSTERNAME-int.azurehdinsight.net 來存取該叢集。 此端點會解析至 VNet 內的私人 IP，以便存取叢集。
+您可以連線至位於 https://CLUSTERNAME.azurehdinsight.net 的叢集。 此位址會使用公用 IP，如果您已使用 NSG 限制來自網際網路的傳入流量，則可能無法觸達該 IP。 此外，當您在 VNet 中部署叢集時，可以使用私人端點 https://CLUSTERNAME-int.azurehdinsight.net 來存取該叢集。 此端點會解析至 VNet 內的私人 IP，以便存取叢集。
 
 若要透過虛擬網路連線至 Ambari 和其他網頁，請使用下列步驟：
 
@@ -213,13 +213,13 @@ Azure 虛擬網路中的網路流量可以使用下列方法進行控制：
 * **網路安全性群組** (NSG) 可讓您篩選輸入和輸出網路流量。 如需詳細資訊，請參閱[使用網路安全性群組來篩選網路流量](../virtual-network/security-overview.md)文件。
 
     > [!WARNING]
-    > HDInsight 不支援限制輸出流量。
+    > HDInsight 不支援限制輸出流量。 應該允許所有輸出流量。
 
 * **使用者定義路由** (UDR) 定義流量在網路中的資源之間如何流動。 如需詳細資訊，請參閱[使用者定義路由和 IP 轉送](../virtual-network/virtual-networks-udr-overview.md)文件。
 
 * **網路虛擬設備**會複寫裝置的功能，例如防火牆和路由器。 如需詳細資訊，請參閱[網路設備](https://azure.microsoft.com/solutions/network-appliances)文件。
 
-HDInsight 是一個受控服務，需要 Azure 雲端中 Azure 健康狀態和管理服務的無限制存取權。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 進行通訊。
+HDInsight 為受控服務，需要不受限制地存取 HDInsight 健康情況與管理服務，以了解 VNET 的傳入和傳出流量。 使用 NSG 和 UDR 時，您必須確定這些服務仍然可以與 HDInsight 叢集進行通訊。
 
 HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時，您必須允許用於這些服務之連接埠的流量。 如需詳細資訊，請參閱[必要連接埠]一節。
 
@@ -233,8 +233,8 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 3. 建立或修改您要安裝 HDInsight 之子網路的網路安全性群組或使用者定義路由。
 
-    * __網路安全性群組__：允許連接埠 __443__ 上來自 IP 位址的「輸入」流量。
-    * __使用者定義路由__：建立每個 IP 位址的路由，並將 [下一個躍點類型] 設定為 [網際網路]。
+    * __網路安全性群組__：允許連接埠 __443__ 上來自 IP 位址的「輸入」流量。 這可確保 HDI 管理服務可從 VNET 外部觸達叢集。
+    * __使用者定義路由__：如果您打算使用 UDR，建立每個 IP 位址的路由，並將 [下一個躍點類型] 設定為 [網際網路]。 您也應該無限制地允許 VNET 的任何其他輸出流量。 例如，您可以將所有其他流量路由傳送至 Azure 防火牆或網路虛擬設備 (裝載於 Azure 中) 進行監視，但不應封鎖傳出流量。
 
 如需網路安全性群組或使用者定義路由的詳細資訊，請參閱下列文件：
 
@@ -242,9 +242,9 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 
 * [使用者定義路由](../virtual-network/virtual-networks-udr-overview.md)
 
-#### <a name="forced-tunneling"></a>強制通道
+#### <a name="forced-tunneling-to-on-premise"></a>流向內部部署的強制通道
 
-強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight「不」支援強制通道。
+強制通道是一種使用者定義路由設定，其中來自子網路的所有流量都會強制流向特定網路或位置，例如內部部署網路。 HDInsight「不」支援流向內部部署網路的強制通道。 如果您使用 Azure 防火牆或裝載於 Azure 的網路虛擬設備，您可以使用 UDR 將流量路由傳送至該處進行監視，並允許所有傳出流量。
 
 ## <a id="hdinsight-ip"></a> 所需的 IP 位址
 

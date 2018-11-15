@@ -16,15 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 0365492b2814d686dd0bfa099e94717137b51725
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 70e159e7b7b2b5934cc584e9eb2e511d2b0ce0db
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834765"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346205"
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>將訓練資料從硬碟上的檔案匯入到 Machine Learning Studio
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 了解如何上傳硬碟上的資料檔案，以在 Azure Machine Learning Studio 中做為訓練資料使用。 透過匯入資料檔案，您就有可在工作區中使用的資料集模組。
 

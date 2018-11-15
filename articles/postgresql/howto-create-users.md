@@ -7,12 +7,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/16/2018
-ms.openlocfilehash: 05bdc841108bf1fb909375b6f2c6399f8121ceeb
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 45d1f55e60763724aeb1b1685c5c69696475a424
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344646"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958095"
 ---
 # <a name="create-users-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中建立使用者 
 本主題說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中建立使用者。
@@ -36,7 +36,7 @@ PostgreSQL 引擎會使用權限來控制資料庫物件的存取，如 [Postgre
    若要連線到您的資料庫伺服器，您需要完整伺服器名稱和系統管理員登入認證。 您可以從 Azure 入口網站的伺服器 [概觀] 或 [屬性] 頁面輕鬆尋找伺服器名稱和登入資訊。 
 
 2. 使用系統管理員帳戶和密碼來連線到資料庫伺服器。 使用您慣用的用戶端工具，例如 pgAdmin 或 psql。
-   如果您不確定如何連線，請參閱[在 Cloud Shell 中使用 psql 來連線到 PostgreSQL 資料庫](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+   如果您不確定如何連線，請參閱[快速入門](./quickstart-create-server-database-portal.md)
 
 3. 編輯並執行下列 SQL 程式碼。 以您新的使用者名稱取代預留位置值 < new_user >，並以您自己的強式密碼取代密碼預留位置。 
 

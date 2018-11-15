@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/09/2018
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: d9b6f5c08eed5efceafc71feaf654ad8f4fcafa0
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: eb14a3bc76fef37cdff4ed49cdbb6a99eac40928
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341118"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280158"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遙測相互關聯
 
@@ -66,7 +66,7 @@ Application Insights 資料模型會定義兩個欄位來解決這個問題：`r
 
 ## <a name="correlation-headers"></a>相互關聯標頭
 
-我們正在進行[相互關聯 HTTP 通訊協定](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md)的 RFC 提案。 此提案會定義兩個標頭︰
+我們正在進行[相互關聯 HTTP 通訊協定](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)的 RFC 提案。 此提案會定義兩個標頭︰
 
 - `Request-Id` 包含呼叫的全域唯一識別碼
 - `Correlation-Context` - 包含分散式追蹤屬性的名稱值組集合
@@ -77,7 +77,7 @@ Application Insights 會定義相互關聯 HTTP 通訊協定的[延伸](https://
 
 ### <a name="w3c-distributed-tracing"></a>W3C 分散式追蹤
 
-我們正在轉換至 (W3C 分散式追蹤格式) [https://w3c.github.io/distributed-tracing/report-trace-context.html]。 其定義：
+我們即將轉換為 [W3C 分散式追蹤格式](https://w3c.github.io/trace-context/)。 其定義：
 - `traceparent`：帶有全域唯一的作業識別碼和唯一的呼叫識別碼
 - `tracestate`：帶有追蹤系統的特定內容。
 
@@ -156,7 +156,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-透過[裝置內容類別](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (只會標記此遙測項目)
+透過[裝置內容類別](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (只會標記此遙測項目)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```

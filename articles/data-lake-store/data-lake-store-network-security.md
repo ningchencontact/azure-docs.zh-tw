@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: b206b49914a448aa3fc9da63f72cca91f9f9ade1
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218962"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287994"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Azure Data Lake Storage Gen1 的虛擬網路整合 - 預覽
 
@@ -29,8 +29,6 @@ ms.locfileid: "51218962"
 Data Lake Storage Gen1 的虛擬網路整合會在虛擬網路與 Azure Active Directory (Azure AD) 之間使用虛擬網路服務端點安全性，以在存取權杖中產生額外的安全性宣告。 這些宣告隨後會用來對 Data Lake Storage Gen1 帳戶驗證虛擬網路並允許存取。
 
 > [!NOTE]
-> 這項技術目前為預覽版。 請勿將其用於生產環境。
->
 > 使用這些功能不會產生額外的相關費用。 帳戶會依照 Data Lake Storage Gen1 的標準費率來計費。 如需詳細資訊，請參閱[定價](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable)。 至於您所使用的所有其他 Azure 服務，則請參閱[定價](https://azure.microsoft.com/pricing/#product-picker)。
 
 ## <a name="scenarios-for-virtual-network-integration-for-data-lake-storage-gen1"></a>Data Lake Storage Gen1 的虛擬網路整合案例

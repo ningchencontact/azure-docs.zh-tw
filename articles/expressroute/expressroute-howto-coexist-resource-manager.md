@@ -6,14 +6,14 @@ author: charwen
 manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: c267e5002fbd603e4bb749550c19e8d022ce4d54
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162337"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243806"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -27,7 +27,9 @@ ms.locfileid: "44162337"
 * 您可以設定站對站 VPN 作為 ExpressRoute 的安全容錯移轉路徑。 
 * 或者，您可以使用站對站 VPN 來連線到未透過 ExpressRoute 連線的網站。 
 
-本文涵蓋設定這兩個案例的步驟。 本文適用於 Resource Manager 部署模型並使用 PowerShell。 您也可以使用 Azure 入口網站來設定這些案例，但目前無法提供相關文件。
+本文涵蓋設定這兩個案例的步驟。 本文適用於 Resource Manager 部署模型並使用 PowerShell。 您也可以使用 Azure 入口網站來設定這些案例，但目前尚未提供相關文件。 您可以先設定任一個閘道。 通常，在新增閘道或閘道連線時，將不會導致任何停機時間。
+
+
 
 >[!NOTE]
 >如果您想要建立透過 ExpressRoute 線路的站對站 VPN，請參閱[本文](site-to-site-vpn-over-microsoft-peering.md)。
@@ -209,7 +211,7 @@ ms.locfileid: "44162337"
 5. 此時，您會有不具閘道的虛擬網路。 若要建立新的閘道並設定連線，請依照上一節中的步驟操作。
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>將點對站組態新增至 VPN 閘道
-您可以在並存設定中，依照下列步驟將點對站組態新增至您的 VPN 閘道。
+您可以在並存設定中，依照下列步驟來將點對站組態新增至您的 VPN 閘道。
 
 1. 新增 VPN 用戶端位址集區。
 
@@ -224,7 +226,8 @@ ms.locfileid: "44162337"
   $p2sCertMatchName = "RootErVpnCoexP2S" 
   $p2sCertToUpload=get-childitem Cert:\CurrentUser\My | Where-Object {$_.Subject -match $p2sCertMatchName} 
   if ($p2sCertToUpload.count -eq 1){write-host "cert found"} else {write-host "cert not found" exit} 
-  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
+  $p2sCertData = [System.Convert]::ToBase64String($p2sCertToUpload.RawData) 
+  Add-AzureRmVpnClientRootCertificate -VpnClientRootCertificateName $p2sCertFullName -VirtualNetworkGatewayname $azureVpn.Name -ResourceGroupName $resgrp.ResourceGroupName -PublicCertData $p2sCertData
   ```
 
 如需點對站 VPN 的詳細資訊，請參閱 [設定點對站連線](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)。

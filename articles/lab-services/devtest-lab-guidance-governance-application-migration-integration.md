@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250780"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978610"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>治理 Azure DevTest Labs 基礎結構 - 應用程式移轉和整合
-一旦建立您的開發/測試實驗室環境之後，您需要思考下列問題： 
+一旦建立您的開發/測試實驗室環境之後，您需要思考下列問題：
 
-- 如何在專案小組中利用該環境？ 
+- 如何在專案小組中利用該環境？
 - 如何確保您會遵循任何必要的組織原則，並保有將值新增到應用程式的靈活度？
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Azure Marketplace 映像與自訂映像
@@ -60,10 +60,10 @@ ms.locfileid: "48250780"
 ### <a name="answer"></a>Answer
 請參閱[這段關於映像處理站模式的影片](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) \(英文\)。 此案例是一個進階案例，而提供的指令碼只是範例指令碼。 如果不需要任何變更，則您需要管理和維護環境中所使用的指令碼。
 
-在 Visual Studio Team Services (VSTS) 中，使用 DevTest Labs 來建立自訂映像管線：
+在 Azure Pipelines 中，使用 DevTest Labs 建立自訂映像管線：
 
 - [簡介：藉由在 Azure DevTest Labs 中設定映像處理站，在數分鐘內備妥 VM](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/) \(英文\)
-- [映像處理站 - 第 2 部分！設定 VSTS 和處理站實驗室來建立 VM](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/) \(英文\)
+- [映像處理站 - 第 2 部分！設定 Azure PipelinesS 和處理站實驗室來建立 VM](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/) \(英文\)
 - [映像處理站 - 第 3 部分：儲存自訂映像並散發至多個實驗室](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/) \(英文\)
 - [影片：使用 Azure DevTest Labs 自訂映像處理站](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) \(英文\)
 
@@ -79,7 +79,7 @@ ms.locfileid: "48250780"
 
 **輸出流量**：如果您想要防止虛擬機器直接連至公用網際網路，並強制流量通過公司防火牆，則您可以藉由使用強制執行的路由，透過 Express Route 或 VPN 來路由傳送內部部署的流量。
 
-> [!NOTE] 
+> [!NOTE]
 > 如果您的 Proxy 伺服器會封鎖不具 Proxy 設定的流量，請務必將例外狀況新增到實驗室的成品儲存體帳戶。
 
 您也可以針對虛擬機器或子網路使用網路安全性群組。 這個步驟會新增額外的保護層來允許 / 封鎖流量。
@@ -100,9 +100,9 @@ ms.locfileid: "48250780"
 何時應使用共用 IP、公用 IP 及私人 IP？
 
 ### <a name="answer"></a>Answer
-如果您使用站對站 VPN 或 Express Route，請考慮使用私人 IP，如此一來，您的機器就可透過透過內部網路存取，但無法透過公用網際網路存取。 
+如果您使用站對站 VPN 或 Express Route，請考慮使用私人 IP，如此一來，您的機器就可透過透過內部網路存取，但無法透過公用網際網路存取。
 
-> [!NOTE] 
+> [!NOTE]
 > 實驗室擁有者可以變更這個子網路原則，以確保沒有人會不小心為其 VM 建立公用 IP 位址。 訂用帳戶擁有者應該建立訂用帳戶原則，以防止建立公用 IP。
 
 使用共用的公用 IP 時，實驗室中的虛擬機器會共用公用 IP 位址。 當您需要避免違反指定訂用帳戶的公用 IP 位址限制時，這個方法相當有幫助。
@@ -125,7 +125,7 @@ ms.locfileid: "48250780"
 如何在 DevTest Labs 環境中使用 Resource Manager 範本？
 
 ### <a name="answer"></a>Answer
-您可以使用 [DevTest labs 中的環境功能](devtest-lab-test-env.md)文章中所述的步驟，來將 Resource Manager 範本部署到 DevTest Labs 環境。 基本上，您會將 Resource Manager 範本簽入到 Git 存放庫 (Visual Studio Team Services 或 GitHub)，並將[適用於範本的私人存放庫](devtest-lab-test-env.md)新增到實驗室。
+您可以使用 [DevTest labs 中的環境功能](devtest-lab-test-env.md)文章中所述的步驟，來將 Resource Manager 範本部署到 DevTest Labs 環境。 基本上，您會將 Resource Manager 範本簽入到 Git 存放庫 (Azure Repos 或 GitHub)，並將[適用於範本的私人存放庫](devtest-lab-test-env.md)新增到實驗室。
 
 如果您使用 DevTest Labs 來裝載開發機器，此案例可能就沒有幫助，但若您要建立代表生產環境的預備環境，則可能會很有用。
 

@@ -16,22 +16,22 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: b01cd43d1c38a9db50937a6cff9b416b8c6acd0e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 942151c0ce2a3a79dbdce9b90adea721456f920f
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946471"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288470"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 同意架構
 
 Azure Active Directory (Azure AD) 同意架構可讓您輕鬆地開發多租用戶的 Web 應用程式和原生用戶端應用程式。 這些應用程式允許與應用程式註冊所在租用戶不同的 Azure AD 租用戶中的使用者帳戶登入。 這些應用程式除了存取自己的 Web API 之外，可能也需要存取 Microsoft Graph API 之類的 Web API (用以存取 Azure AD、Intune 及 Office 365 服務) 以及其他 Microsoft 服務的 API。
 
-此架構以使用者或系統管理員為根據，他們可同意讓應用程式在他們的目錄中註冊，並可能包括存取目錄資料。 例如，如果 Web 用戶端應用程式需要從 Office 365 讀取有關使用者的行事曆資訊，該使用者必須先同意此用戶端應用程式。 取得同意之後，用戶端應用程式可以代表使用者呼叫 Microsoft Graph API，並視需要使用行事曆資訊。 [Microsoft Graph API](https://graph.microsoft.io) 可供存取 Office 365 中的資料 (例如 Exchange 中的行事曆和訊息、SharePoint 中的網站和清單、OneDrive 中的文件、OneNote 中的筆記本、Planner 中的工作，以及 Excel 中的活頁簿)，以及 Azure AD 中的使用者和群組和多項 Microsoft 雲端服務中的其他資料物件。
+此架構以使用者或系統管理員為根據，他們可同意讓應用程式在他們的目錄中註冊，並可能包括存取目錄資料。 例如，如果 Web 用戶端應用程式需要從 Office 365 讀取有關使用者的行事曆資訊，該使用者必須先同意此用戶端應用程式。 取得同意之後，用戶端應用程式可以代表使用者呼叫 Microsoft Graph API，並視需要使用行事曆資訊。 [Microsoft Graph API](https://developer.microsoft.com/graph) 可供存取 Office 365 中的資料 (例如 Exchange 中的行事曆和訊息、SharePoint 中的網站和清單、OneDrive 中的文件、OneNote 中的筆記本、Planner 中的工作，以及 Excel 中的活頁簿)，以及 Azure AD 中的使用者和群組和多項 Microsoft 雲端服務中的其他資料物件。
 
 同意架構建置在 OAuth 2.0 和各種不同流程上，例如授權碼授與和用戶端認證授與，使用公用或機密的用戶端。 藉由使用 OAuth 2.0，Azure AD 就可以建置許多不同類型的用戶端應用程式 (例如在電話、平板電腦、伺服器或 web 應用程式上)，並且存取所需的資源。
 
-如需搭配 OAuth2.0 授權授與使用同意架構的詳細資訊，請參閱[使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](v1-protocols-oauth-code.md)和 [Azure AD 的驗證案例](authentication-scenarios.md)。 如需透過 Microsoft Graph 取得 Office 365 的授權存取權的相關資訊，請參閱[使用 Microsoft Graph 進行應用程式驗證](https://graph.microsoft.io/docs/authorization/auth_overview)。
+如需搭配 OAuth2.0 授權授與使用同意架構的詳細資訊，請參閱[使用 OAuth 2.0 和 Azure AD 授權存取 Web 應用程式](v1-protocols-oauth-code.md)和 [Azure AD 的驗證案例](authentication-scenarios.md)。 如需透過 Microsoft Graph 取得 Office 365 的授權存取權的相關資訊，請參閱[使用 Microsoft Graph 進行應用程式驗證](https://developer.microsoft.com/graph/docs/authorization/auth_overview)。
 
 ## <a name="consent-experience---an-example"></a>同意體驗 - 範例
 
@@ -58,7 +58,7 @@ Azure Active Directory (Azure AD) 同意架構可讓您輕鬆地開發多租用�
   ![授與明確的系統管理員同意權限](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
   > [!IMPORTANT]
-  > 使用 ADAL.js 的單一頁面應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。
+  > 使用 ADAL.js 的單頁應用程式 (SPA) 目前必須使用 [授與權限] 按鈕來授與明確的同意。 否則，應用程式會在要求存取權杖時失敗。
 
 ## <a name="next-steps"></a>後續步驟
 

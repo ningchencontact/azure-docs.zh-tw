@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 811bb40816339dbe7097e429722625a3ae5c95c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358195"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344938"
 ---
 # <a name="resource-providers-and-types"></a>資源提供者和類型
 
@@ -38,7 +38,7 @@ ms.locfileid: "34358195"
 
 若要查看 Azure 中的所有資源提供者，以及您訂用帳戶的登錄狀態，請使用：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -56,7 +56,7 @@ Microsoft.CognitiveServices      Registered
 
 註冊資源提供者可將您的訂用帳戶設定為可搭配資源提供者使用。 註冊範圍一律是訂用帳戶。 許多資源提供者都會預設為自動註冊。 不過，您可能需要手動註冊某些資源提供者。 若要註冊資源提供者，您必須有權執行資源提供者的 `/register/action` 作業。 這項作業包含在「參與者」和「擁有者」角色中。
 
-```powershell
+```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -73,7 +73,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 若要查看特定資源提供者的資訊，請使用：
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -90,7 +90,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 若要查看資源提供者的資源類型，請使用：
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -103,11 +103,11 @@ locations
 locations/quotas
 ```
 
-API 版本會對應至資源提供者所發行的 REST API 作業版本。 當資源提供者啟用新功能時，它會發行新版本的 REST API。 
+API 版本會對應至資源提供者所發行的 REST API 作業版本。 當資源提供者啟用新功能時，它會發行新版本的 REST API。
 
 若要取得資源類型的可用 API 版本，請使用：
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -121,11 +121,11 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。 
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
 
 若要取得資源類型支援的位置，請使用：
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -140,6 +140,7 @@ West US
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
 若要查看 Azure 中的所有資源提供者，以及您訂用帳戶的登錄狀態，請使用：
 
 ```azurecli
@@ -204,7 +205,7 @@ locations
 locations/quotas
 ```
 
-API 版本會對應至資源提供者所發行的 REST API 作業版本。 當資源提供者啟用新功能時，它會發行新版本的 REST API。 
+API 版本會對應至資源提供者所發行的 REST API 作業版本。 當資源提供者啟用新功能時，它會發行新版本的 REST API。
 
 若要取得資源類型的可用 API 版本，請使用：
 
@@ -224,7 +225,7 @@ Result
 2015-07-01
 ```
 
-所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。 
+所有區域都支援資源管理員，但您部署的資源可能無法在所有區域中受到支援。 此外，您的訂用帳戶上可能會有一些限制，以防止您使用某些支援該資源的區域。
 
 若要取得資源類型支援的位置，請使用：
 
@@ -289,7 +290,7 @@ API 版本會對應至資源提供者所發行的 REST API 作業版本。 當�
 ![顯示 API 版本](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 * 若要了解如何建立資源管理員範本，請參閱 [編寫 Azure 資源管理員範本](resource-group-authoring-templates.md)。
 * 若要了解如何部署資源，請參閱 [使用 Azure 資源管理員範本部署應用程式](resource-group-template-deploy.md)。
 * 若要檢視資源提供者的作業，請參閱 [Azure REST API](/rest/api/)。
-

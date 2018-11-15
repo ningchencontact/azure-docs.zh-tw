@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3db77a31dfe92e16d2ec145cc0be595082d0d927
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365640"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279376"
 ---
 # <a name="event-hubs-samples"></a>事件中樞範例 
 您可以在 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples) 上尋找事件中樞範例。 這些範例示範 [Azure 事件中樞](/azure/event-hubs/)中的主要功能。 本主題分類及描述可用的範例與每個範例的連結。
@@ -60,7 +60,8 @@ ms.locfileid: "49365640"
 ## <a name="azure-powershell-samples"></a>Azure PowerShell 範例
 您可以在 [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell) GitHub 存放庫中找到適用於 Azure 事件中樞的 Azure PowerShell 範例。
  
-
+## <a name="apache-kafka-samples"></a>Apache Kafka 範例
+您可以在 [azure-event-hubs-for-kafka](https://github.com/Azure/azure-event-hubs-for-kafka) \(英文\) GitHub 存放庫中，尋找適用於 Apache Kafka 功能的事件中樞範例。
 
 ## <a name="next-steps"></a>後續步驟
 您可以參閱下列文章，深入了解事件中樞：

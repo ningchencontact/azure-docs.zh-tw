@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: bfbb72d6fd101932f00e12ad18ab079ec30a0d3a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: c137f6cfdff9d043a656783f38ec9b894e644338
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818815"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913014"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>將推播通知加入至 Windows 應用程式
 
@@ -37,21 +37,23 @@ ms.locfileid: "42818815"
 
 ## <a name="register-your-app-for-push-notifications"></a>針對推播通知註冊應用程式
 
-您需要將應用程式提交至 Microsoft Store，然後設定您的伺服器專案，以與 Windows 通知服務 (WNS) 整合來傳送推播。
+您需要將應用程式提交至 Microsoft Store，然後設定您的伺服器專案，以與 [Windows 通知服務 (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) 整合來傳送推播。
 
 1. 在 Visual Studio 方案總管中，以滑鼠右鍵按一下 UWP 應用程式專案，然後按一下 [市集]  >  [將應用程式與市集建立關聯...]。
 
     ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
+
 2. 在精靈中按 [下一步]，使用 Microsoft 帳戶登入，在 [保留新的應用程式名稱] 中輸入您應用程式的名稱，然後按一下 [保留]。
 3. 成功建立應用程式註冊之後，選取新的應用程式名稱，按 [下一步]，然後按一下 [關聯]。 這會將所需的 Microsoft Store 註冊資訊新增至應用程式資訊清單。
-4. 瀏覽至 [Windows 開發人員中心](https://dev.windows.com/en-us/overview)、使用您的 Microsoft 帳戶登入、在 [我的應用程式] 中按一下 [新增應用程式註冊]，然後展開 [服務]  >  [推播通知]。
-5. 在 [推播通知] 頁面上，按一下 [Microsoft Azure 行動服務] 底下的 [線上服務網站]。
-6. 在註冊頁面中，記下 [應用程式祕密] 和 [套件 SID] 底下的值，以在接下來用來設定您的行動應用程式後端。
+4. 瀏覽至 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)，並使用您的 Microsoft 帳戶登入。 按一下您在上一個步驟中關聯的 Windows 市集應用程式。
+5. 在註冊頁面中，記下 [應用程式祕密] 和 [套件 SID] 底下的值，以在接下來用來設定您的行動應用程式後端。
 
     ![將應用程式與 Microsoft Store 建立關聯](./media/app-service-mobile-windows-store-dotnet-get-started-push/app-service-mobile-uwp-app-push-auth.png)
 
    > [!IMPORTANT]
    > 用戶端密碼和封裝 SID 是重要的安全性認證。 請勿與任何人共用這些值，或與您的應用程式一起散發密碼。 **應用程式識別碼** 會與密碼搭配用來設定 Microsoft 帳戶驗證。
+
+[App Center](https://docs.microsoft.com/appcenter/sdk/push/uwp#prerequisite---register-your-app-for-windows-notification-services-wns) 也有設定 UWP 應用程式以推播通知的指示。
 
 ## <a name="configure-the-backend-to-send-push-notifications"></a>設定後端來傳送推播通知
 

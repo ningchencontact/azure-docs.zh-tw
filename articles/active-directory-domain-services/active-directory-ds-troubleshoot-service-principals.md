@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579539"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035030"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>針對受控網域的無效服務主體組態進行疑難排解
 
@@ -45,7 +45,7 @@ ms.locfileid: "39579539"
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [使用 PowerShell 重新建立遺失的服務主體](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
-| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [會自動更正的服務主體](#service-principals-that-self-correct) |
+| d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [重新註冊 Microsoft.AAD 命名空間](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>使用 PowerShell 重新建立遺失的服務主體
 如果 Azure AD 目錄中遺漏識別碼為 ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` 的服務主體，請執行下列步驟。
@@ -76,7 +76,7 @@ ms.locfileid: "39579539"
 
 
 ## <a name="re-register-to-the-microsoft-aad-namespace-using-the-azure-portal"></a>使用 Azure 入口網站重新註冊 Microsoft AAD 命名空間
-如果 Azure AD 目錄中遺漏識別碼為 ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 或 ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 的服務主體，請執行下列步驟。
+如果 Azure AD 目錄中遺漏識別碼為 ```443155a6-77f3-45e3-882b-22b3a8d431fb``` 或 ```abba844e-bc0e-44b0-947a-dc74e5d09022``` 或 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` 的服務主體，請執行下列步驟。
 
 **解決方案：** 使用下列步驟，在目錄上還原 Domain Services：
 
@@ -85,12 +85,6 @@ ms.locfileid: "39579539"
 3. 使用左側導覽，選擇 [資源提供者]
 4. 在資料表中搜尋 "Microsoft.AAD"，然後按一下 [重新註冊]
 5. 若要確認警示狀況已解除，請在兩小時後檢查受控網域的健康情況頁面。
-
-
-## <a name="service-principals-that-self-correct"></a>會自動更正的服務主體
-如果 Azure AD 目錄中遺漏識別碼為 ```d87dcbc6-a371-462e-88e3-28ad15ec4e64``` 的服務主體，請執行下列步驟。
-
-**解決方案：** Azure AD Domain Services 可在此服務主體遺失時、設定不正確或遭到刪除時偵測到。 服務會自動重新建立此服務主體。 不過，您將必須刪除應用程式，以及使用已刪除之應用程式的物件，因為當憑證變換時，新的服務主體將無法再修改應用程式和物件。 這將在您的在網域上導致新的錯誤。 請依照 [AADDS105 的區段](#alert-aadds105-password-synchronization-application-is-out-of-date)中說明的步驟來避免此問題。 接著，請在兩個小時之後檢查受控網域的健康情況，以確認新的服務主體已重新建立。
 
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>警示 AADDS105：密碼同步處理應用程式已過期
@@ -110,8 +104,8 @@ ms.locfileid: "39579539"
 2. 使用下列 PowerShell 命令刪除舊的應用程式和物件
 
     ```powershell
-    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
-    Remove-AzureADApplication -ObjectId $app.ObjectId
+    $app = Get-AzureADApplication -Filter "IdentifierUris eq 'https://sync.aaddc.activedirectory.windowsazure.com'"
+    Remove-AzureADApplication -ObjectId $app.ObjectId
     $spObject = Get-AzureADServicePrincipal -Filter "DisplayName eq 'Azure AD Domain Services Sync'"
     Remove-AzureADServicePrincipal -ObjectId $app.ObjectId
     ```

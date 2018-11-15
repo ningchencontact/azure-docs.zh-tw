@@ -3,7 +3,7 @@ title: 關於 Azure Stack 的 VPN 閘道 | Microsoft Docs
 description: 了解並設定您搭配 Azure Stack 使用的 VPN 閘道。
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 0e30522f-20d6-4da7-87d3-28ca3567a890
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
-ms.author: brenduns
-ms.openlocfilehash: 0ff3402115ae9f4c736bf9058fc09de16eaefb1e
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.author: sethm
+ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347480"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300144"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
 
@@ -33,7 +33,7 @@ VPN 閘道是一種虛擬網路閘道，可透過公用連接傳送加密的流�
 
 每個虛擬網路可以有兩個虛擬網路閘道，但每種類型只能有一個。 視您選擇的設定而定，您可以對單一 VPN 閘道建立多個連線。 範例是多站台連線組態。
 
-在您建立及設定適用於 Azure Stack 的 VPN 閘道之前，請檢閱 [Azure Stack 網路服務的注意事項](/azure/azure-stack/user/azure-stack-network-differences)，以了解 Azure Stack 與 Azure 的組態有何不同。
+在您建立及設定適用於 Azure Stack 的 VPN 閘道之前，請檢閱 [Azure Stack 網路服務的注意事項](user/azure-stack-network-differences.md)，以了解 Azure Stack 與 Azure 的組態有何不同。
 
 >[!NOTE]
 >在 Azure 中，您所選 VPN 閘道 SKU 的頻寬輸送量必須分配給連線到該閘道的所有連線。 但是在 Azure Stack 中，VPN 閘道 SKU 的頻寬值會套用到連線到該閘道的每個連線資源。

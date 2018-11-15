@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abde91e04048d64a17f861825d1fb7779873155
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 638946f0ffa8b6540f55fb7a22ac17bd262269bf
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106075"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621678"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>教學課程：在 Linux VM 上利用使用者指派的受控識別來存取 Azure Resource Manager
 
@@ -40,13 +40,11 @@ ms.locfileid: "47106075"
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [登入 Azure 入口網站](https://portal.azure.com)
 
-[登入 Azure 入口網站](https://portal.azure.com)
+- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
 
-[建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
-
-如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
+- 如果您選擇在本機安裝和使用 CLI，本快速入門會要求您執行 Azure CLI 2.0.4 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI 2.0]( /cli/azure/install-azure-cli)。
 
 ## <a name="create-a-user-assigned-managed-identity"></a>建立使用者指派的受控識別
 
@@ -128,20 +126,20 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
 1. 登入 Azure [入口網站](https://portal.azure.com)。
 2. 在入口網站中，瀏覽至 [虛擬機器]，並移至您的 Linux 虛擬機器，在 [概觀] 中按一下 [連線]。 複製字串以連線到您的 VM。
 3. 使用您所選擇的 SSH 用戶端來連線到虛擬機器。 如果您使用 Windows，您可以在[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)中使用 SSH 用戶端。 如果您需要設定 SSH 用戶端金鑰的協助，請參閱[如何在 Azure 上搭配 Windows 使用 SSH 金鑰](~/articles/virtual-machines/linux/ssh-from-windows.md)，或[如何在 Azure 中建立和使用 Linux VM 的 SSH 公開和私密金鑰組](~/articles/virtual-machines/linux/mac-create-ssh-keys.md)。
-4. 在終端機視窗中使用 CURL，向 Azure Instance Metadata Service (IMDS) 身分識別端點提出要求來取得 Azure Resource Manager 的存取權杖。  
+4. 在終端機視窗中使用 CURL，向 Azure Instance Metadata Service (IMDS) 身分識別端點提出要求來取得 Azure Resource Manager 的存取權杖。  
 
-   用來取得存取權杖的 CURL 要求，則如以下範例所示。 請務必將 `<CLIENT ID>` 換成[建立使用者指派的受控識別](#create-a-user-assigned-managed-identity)中，由 `az identity create` 命令所傳回的 `clientId` 屬性： 
+   用來取得存取權杖的 CURL 要求，則如以下範例所示。 請務必將 `<CLIENT ID>` 換成[建立使用者指派的受控識別](#create-a-user-assigned-managed-identity)中，由 `az identity create` 命令所傳回的 `clientId` 屬性： 
     
    ```bash
-   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > `resource` 參數的值必須完全符合 Azure AD 的預期。 使用 Resource Manager 資源識別碼時，必須在 URI 上包含結尾斜線。 
+    > `resource` 參數的值必須完全符合 Azure AD 的預期。 使用 Resource Manager 資源識別碼時，必須在 URI 上包含結尾斜線。 
     
-    此回應包含您存取 Azure Resource Manager 所需的存取權杖。 
+    此回應包含您存取 Azure Resource Manager 所需的存取權杖。 
     
-    回應範例：  
+    回應範例：  
 
     ```bash
     {
@@ -152,19 +150,19 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
     "token_type":"Bearer"
-    } 
+    } 
     ```
 
 5. 使用存取權杖來存取 Azure Resource Manager，並讀取資源群組的屬性 (您已向使用者指派的受控識別授予該資源群組的存取權)。 請務必將 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 取代為您先前指定的值，並將 `<ACCESS TOKEN>` 取代為上一個步驟中所傳回的權杖。
 
     > [!NOTE]
-    > URL 區分大小寫，因此請務必使用稍早在命名資源群組時所使用的相同大小寫，而且 `resourceGroups` 中的 "G" 為大寫。  
+    > URL 區分大小寫，因此請務必使用稍早在命名資源群組時所使用的相同大小寫，而且 `resourceGroups` 中的 "G" 為大寫。  
 
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    回應包含特定資源群組資訊，與下列範例類似： 
+    回應包含特定資源群組資訊，與下列範例類似： 
 
     ```bash
     {
@@ -172,9 +170,9 @@ az role assignment create --assignee <UAMI PRINCIPALID> --role 'Reader' --scope 
     "name":"DevTest",
     "location":"westus",
     "properties":{"provisioningState":"Succeeded"}
-    } 
+    } 
     ```
-    
+    
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何建立使用者指派的受控識別，並將其連結至 Linux 虛擬機器以存取 Azure Resource Manager API。  若要深入了解 Azure Resource Manager，請參閱：

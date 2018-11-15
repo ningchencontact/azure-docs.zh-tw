@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8d5e29b89d65bc8777feac0c496b3253bc2a6763
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 42b0a2440fa459fa31a7d6e137d124883646c205
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278985"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686002"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-azure-portal"></a>在 HDInsight 中使用 Azure 入口網站建立以 Linux 為基礎的叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -65,7 +65,7 @@ Azure 入口網站會公開大部分的叢集屬性。 使用 Azure Resource Man
 
     * 按 [下一步] 。
 
-4. 在 [安全性和網路功能] 中，您可以使用提供的下拉式清單，將叢集連線至虛擬網路。 如果您想要將叢集放入虛擬網路，請選取 Azure 虛擬網路和子網路。 如需搭配虛擬網路使用 HDInsight 的資訊 (包含虛擬網路的特定組態需求)，請參閱 [使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。 如果您想要使用**企業安全性套件**，也可以依照此處的指示進行：[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](https://docs.microsoft.com/en-us/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)。
+4. 在 [安全性和網路功能] 中，您可以使用提供的下拉式清單，將叢集連線至虛擬網路。 如果您想要將叢集放入虛擬網路，請選取 Azure 虛擬網路和子網路。 如需搭配虛擬網路使用 HDInsight 的資訊 (包含虛擬網路的特定組態需求)，請參閱 [使用 Azure 虛擬網路延伸 HDInsight 功能](hdinsight-extend-hadoop-virtual-network.md)。 如果您想要使用**企業安全性套件**，也可以依照此處的指示進行：[使用 Azure Active Directory Domain Services 設定具有企業安全性套件的 HDInsight 叢集](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds)。
 
 5. 針對 [儲存體]，指定您要 Azure 儲存體 (WASB) 或 Data Lake Storage 作為您的預設儲存體。 如需詳細資訊，請參閱下表。
 

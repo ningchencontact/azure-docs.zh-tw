@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 3a46462f761e7608ae7554604577a1e9d7f88b15
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571880"
+---
 ## <a name="go-to-your-api-management-instance"></a>移至您的 API 管理執行個體
 
 ![瀏覽至 API 管理執行個體](./media/api-management-navigate-to-instance/00-FindResource-01.png)

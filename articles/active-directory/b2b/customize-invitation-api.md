@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a2a869c04034f8ca38e80e1bf10518d22e38bcbc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091758"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286991"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 共同作業 API 和自訂
 
@@ -75,7 +75,7 @@ API 可以在下列授權模型中執行：
 ### <a name="app-only-mode"></a>僅應用程式模式
 在僅應用程式模式中，應用程式需要 User.Invite.All 範圍，邀請才能成功。
 
-如需詳細資訊，請參閱： https://graph.microsoft.io/docs/authorization/permission_scopes
+如需詳細資訊，請參閱： https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell

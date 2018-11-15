@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: b0256e899d47e3b6f8141218c11e1a7a62ca8e1a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419719"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960815"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
@@ -185,8 +185,8 @@ Application Insights 會尋找可能只會影響某部分使用者，或只在�
 
 * [分析工具](app-insights-profiler.md) 
 * [快照集偵錯工具](app-insights-snapshot-debugger.md)
-* [分析](app-insights-analytics-tour.md)
-* [分析智慧型診斷](app-insights-analytics-diagnostics.md)
+* [分析](../log-analytics/query-language/get-started-analytics-portal.md)
+* [分析智慧型診斷](app-insights-analytics.md)
 
 智慧型偵測是完全自動的。 但是，或許您會想要再設定一些警示？
 

@@ -7,22 +7,22 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/07/2018
 ms.author: bahariri
-ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352568"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277489"
 ---
-# <a name="azure-event-hubs-for-apache-kafka-preview"></a>適用於 Apache Kafka 的 Azure 事件中樞 (預覽)
+# <a name="azure-event-hubs-for-apache-kafka"></a>適用於 Apache Kafka 的 Azure 事件中樞 
 
 事件中樞提供的 Kafka 端點可讓您現有的 Kafka 型應用程式使用，作為執行您本身的 Kafka 叢集以外的另一項選擇。 事件中樞支援 [Apache Kafka 通訊協定 1.0 和更新版本](https://kafka.apache.org/documentation/)，並且可與您現有的 Kafka 應用程式搭配使用，包括 MirrorMaker。 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>適用於 Kafka 的事件中樞提供哪些功能？
 
-適用於 Kafka 的事件中樞功能在 Azure 事件中樞之上提供了通訊協定標頭，與 Kafka 1.0 版和更新版本之間具有讀取和寫入 Kafka 主題的二進位相容性。 您可以從應用程式開始使用 Kafka 端點，不必變更程式碼，但需要稍微變更設定。 您可以更新設定中的連接字串，以指向事件中樞所公開的 Kafka 端點，而非指向 Kafka 叢集。 然後，您可以開始將事件從使用 Kafka 通訊協定的應用程式串流到事件中樞。 
+適用於 Kafka 的事件中樞功能在 Azure 事件中樞之上提供了通訊協定標頭，與 Kafka 1.0 版和更新版本之間具有讀取和寫入 Kafka 主題的二進位相容性。 您可以從應用程式開始使用 Kafka 端點，不必變更程式碼，但需要稍微變更設定。 您可以更新設定中的連接字串，以指向事件中樞所公開的 Kafka 端點，而非指向 Kafka 叢集。 然後，您可以開始將事件從使用 Kafka 通訊協定的應用程式串流到事件中樞。 此整合也支援 [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect) \(英文\) (目前處於預覽狀態) 之類的架構。 
 
 Kafka 和事件中樞在概念上幾乎是相同的：兩者都具有為了串流資料而建置的分割記錄。 下表提供 Kafka 與事件中樞之間的概念對應。
 
@@ -50,9 +50,9 @@ Azure 事件中樞的所有通訊都需要 SSL 或 TLS，且會使用共用存�
 
 適用於 Kafka 的事件中樞功能可讓您以不同的通訊協定執行寫入和讀取，讓您目前的 Kafka 產生者可以繼續透過 Kafka 發行，並讓您能透過事件中樞新增讀取器，例如 Azure 串流分析或 Azure Functions。 此外，[擷取](event-hubs-capture-overview.md)和[異地災害復原](event-hubs-geo-dr.md)等事件中樞功能也可供適用於 Kafka 的事件中樞功能使用。
 
-## <a name="features-that-are-not-supported-in-the-preview"></a>預覽版不支援的功能
+## <a name="features-that-are-not-yet-supported"></a>尚不支援的功能 
 
-適用於 Kafka 整合的事件中樞在公開預覽階段不支援下列 Kafka 功能：
+以下是尚不支援的 Kafka 功能清單：
 
 *   等冪產生者
 *   交易
@@ -61,18 +61,20 @@ Azure 事件中樞的所有通訊都需要 SSL 或 TLS，且會使用共用存�
 *   記錄壓縮
 *   將分割區新增至現有主題
 *   HTTP Kafka API 支援
-*   Kafka Connect
 *   Kafka Streams
 
 ## <a name="next-steps"></a>後續步驟
 
 本文概略介紹了適用於 Kafka 的事件中樞。 若要深入了解，請參閱下列連結：
 
-* [如何建立已啟用 Kafka 的事件中樞](event-hubs-create-kafka-enabled.md)
-* [從您的 Kafka 應用程式串流到事件中樞](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [在我們的 GitHub 上探索更多範例](https://github.com/Azure/azure-event-hubs-for-kafka)
-* 開始使用[事件中樞教學課程](event-hubs-dotnet-standard-getstarted-send.md)
-* [事件中樞常見問題集](event-hubs-faq.md)
+- [如何建立已啟用 Kafka 的事件中樞](event-hubs-create-kafka-enabled.md)
+- [從您的 Kafka 應用程式串流到事件中樞](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [在已啟用 Kafka 的事件中樞中鏡射 Kafka 訊息代理程式](event-hubs-kafka-mirror-maker-tutorial.md)
+- [將 Apache Spark 連線到已啟用 Kafka 的事件中樞](event-hubs-kafka-spark-tutorial.md)
+- [將 Apache Flink 連線到已啟用 Kafka 的事件中樞](event-hubs-kafka-flink-tutorial.md)
+- [整合 Kafka Connect 與已啟用 Kafka 的事件中樞](event-hubs-kafka-connect-tutorial.md)
+- [將 Akka Streams 連線到已啟用 Kafka 的事件中樞](event-hubs-kafka-akka-streams-tutorial.md)
+- [在 GitHub 上探索範例](https://github.com/Azure/azure-event-hubs-for-kafka) \(英文\)
 
  
  

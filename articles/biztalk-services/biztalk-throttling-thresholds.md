@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 39fc5ef36bb581c3a81c9948fda048f6cb75eb7e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: daab61a0ea9321b0fb918c60688215c80088e0bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102081"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243346"
 ---
 # <a name="biztalk-services-throttling"></a>BizTalk 服務：節流
 
@@ -57,15 +57,15 @@ Azure BizTalk 服務進入節流狀態時會發生下列情況：
 * Azure SQL Database Server 也有內建的節流。
 
 ## <a name="additional-azure-biztalk-services-topics"></a>其他 Azure BizTalk 服務主題
-* [安裝 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [教學課程：Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [如何開始使用 Azure BizTalk 服務 SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk 服務](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [安裝 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [教學課程：Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [如何開始使用 Azure BizTalk 服務 SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk 服務](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>另請參閱
-* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk 服務：佈建狀態圖](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [BizTalk 服務：儀表板、監視和調整索引標籤](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [BizTalk 服務：備份與還原](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [BizTalk 服務：簽發者名稱和簽發者金鑰](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [BizTalk 服務：開發人員、基本、標準和高級版本圖表](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk 服務：佈建狀態圖](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [BizTalk 服務：儀表板、監視和調整索引標籤](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [BizTalk 服務：備份與還原](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [BizTalk 服務：簽發者名稱和簽發者金鑰](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 

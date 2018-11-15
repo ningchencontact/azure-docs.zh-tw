@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: harik
-ms.openlocfilehash: f00b175fed36fbe2b28f1d11843bb17c54ac3873
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bbe2ee7436cc03a3780da096a498769d66eb505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086959"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277931"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服務原則
 本文說明 Azure Stack 整合系統的服務原則，以及必須如何做才能將狀態保持在支援的狀態。 
@@ -55,7 +55,7 @@ Microsoft 預期每月發行軟體更新封裝。 不過，可能一個月內發
 
 例如，如果最新可用更新版本是 1805，而前兩個更新套件的版本為 1804 和 1803，則 1804 和 1803 都可持續獲得支援。 不過，1802 則不在支援之列。 此原則在持續一或兩個月沒有任何發行版本的情況下仍然成立。 例如，如果最新發行版本為 1805，但並沒有 1804 發行版本，則前兩個更新套件 1803 和 1802 會持續獲得支援。
 
-Microsoft 軟體更新套件不會累積，而且先決條件是必須要有上一個更新套件。 如果您決定延後一或多個更新，但是想要取得最新版本，請考慮整體的執行時間。 
+Microsoft 軟體更新套件不會累積，而且先決條件是必須要有上一個更新套件或 Hotfix。 如果您決定延後一或多個更新，但是想要取得最新版本，請考慮整體的執行時間。 
 
 ## <a name="get-support"></a>取得支援
 Azure Stack 會遵循和 Azure 相同的支援程序。 企業客戶可以依照[如何建立 Azure 支援要求](/azure/azure-supportability/how-to-create-azure-support-request)中所述的程序進行。 如果您是雲端服務提供者 (CSP) 的客戶，請連絡您的 CSP 以尋求支援。  如需詳細資訊，請參閱 [Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。 

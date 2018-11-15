@@ -1,6 +1,6 @@
 ---
 title: 適用於 PostgreSQL 的 Azure 資料庫中的限制
-description: 此文章描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
+description: 本文描述適用於 PostgreSQL 的 Azure 資料庫中的限制，例如連線數量和儲存引擎選項。
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983736"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299601"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的限制
 下列各節說明資料庫服務中的容量和功能限制。
@@ -31,10 +31,10 @@ ms.locfileid: "45983736"
 |一般用途| 8| 480|
 |一般用途| 16| 950|
 |一般用途| 32| 1500|
-|記憶體最佳化| 2| 150|
-|記憶體最佳化| 4| 250|
-|記憶體最佳化| 8| 480|
-|記憶體最佳化| 16| 950|
+|記憶體最佳化| 2| 300|
+|記憶體最佳化| 4| 500|
+|記憶體最佳化| 8| 960|
+|記憶體最佳化| 16| 1900|
 
 當連線超過限制時，則可能會收到下列錯誤：
 > 嚴重錯誤︰很抱歉，已經有太多用戶端

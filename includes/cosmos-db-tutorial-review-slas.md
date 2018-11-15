@@ -1,3 +1,16 @@
+---
+author: SnehaGunda
+ms.service: cosmos-db
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sngun
+ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571896"
+---
 在 Azure 入口網站監視您帳戶中資源的輸送量、儲存體、可用性、延遲和一致性。 讓我們快速查看這些計量。 
 
 1. 按一下導覽功能表中的 [計量]。

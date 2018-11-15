@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159511"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913665"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入門：設定 Azure VM 以連線到 Azure SQL Database 受控執行個體
 
 此快速入門示範如何設定 Azure 虛擬機器以使用 SQL Server Management Studio (SSMS) 連線到 Azure SQL Database 受控執行個體。 如需如何使用點對站連線從內部部署用戶端電腦進行連線的快速入門，請參閱[設定點對站連線](sql-database-managed-instance-configure-p2s.md) 
 
@@ -49,10 +49,10 @@ ms.locfileid: "47159511"
    | ---------------- | ----------------- | ----------- | 
    | **名稱** | 任何有效名稱|如需有效的名稱，請參閱[命名規則和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。|
    | **位址範圍 (CIDR 區塊)** | 有效範圍 | 針對此快速入門，使用預設值即可。|
-   | **網路安全性群組** | 無 | 針對此快速入門，使用預設值即可。|
-   | **路由表** | 無 | 針對此快速入門，使用預設值即可。|
+   | **網路安全性群組** | None | 針對此快速入門，使用預設值即可。|
+   | **路由表** | None | 針對此快速入門，使用預設值即可。|
    | **服務端點 ** | 已選取 0 | 針對此快速入門，使用預設值即可。|
-   | **子網路委派** | 無 | 針對此快速入門，使用預設值即可。|
+   | **子網路委派** | None | 針對此快速入門，使用預設值即可。|
  
    ![為用戶端 VM 新增受控執行個體子網路](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "47159511"
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. 按一下 [連線]。 
+2. 按一下 [ **連接**]。 
    
    將顯示遠端桌面通訊協定檔案 (.rdp 檔案) 表單，其中包含虛擬機器的公用 IP 位址與連接埠號碼。 
 
@@ -133,7 +133,7 @@ ms.locfileid: "47159511"
 1. 在虛擬機器中，開啟 SQL Server Management Studio (SSMS)。
  
    由於這是第一次啟動 SSMS，因此需要一些時間才能完成其設定。
-2. 在 [連線到伺服器] 對話方塊中，於 [伺服器名稱] 方塊中輸入您受控執行個體的完整 [主機名稱]，選取 [SQL Server 驗證] 並提供您的登入和密碼，然後按一下 [連線]。
+2. 在 [連接到伺服器] 對話方塊中，於 [伺服器名稱] 方塊中輸入您受控執行個體的完整 [主機名稱]，選取 [SQL Server 驗證]，提供您的登入和密碼，然後按一下 [連線]。
 
     ![SSMS 連線](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 

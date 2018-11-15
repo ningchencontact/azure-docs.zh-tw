@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26737545"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244486"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>教學課程：使用 Azure BizTalk 服務處理 EDIFACT 發票
 
@@ -28,10 +28,10 @@ ms.locfileid: "26737545"
 您可以使用 BizTalk 服務入口網站設定和部署 X12 與 EDIFACT 協議。 在本教學課程中，我們將說明如何建立 EDIFACT 協議以讓交易夥伴彼此交換發票。 本教學課程描述端對端商務方案，內容涉及兩個交易夥伴，分別是 Northwind 和 Contoso，他們會交換 EDIFACT 訊息。  
 
 ## <a name="sample-based-on-this-tutorial"></a>根據本教學課程所建立的範例
-本教學課程描述 **使用 BizTalk 服務傳送 EDIFACT 發票**的範例，您可以從 [MSDN 程式碼資源庫](http://go.microsoft.com/fwlink/?LinkId=401005)下載此範例。 您可以使用此範例來完成本教學課程，以了解此範例的建置方式。 或者，您可以使用本教學課程從頭建立自己的方案。 本教學課程鎖定第二種方法，以便您能夠了解此方案的建置方式。 此外，本教學課程會盡可能與範例保持一致，並對構件使用範例中所使用的相同名稱 (例如，結構描述、轉換)。  
+本教學課程描述 **使用 BizTalk 服務傳送 EDIFACT 發票**的範例，您可以從 [MSDN 程式碼資源庫](https://go.microsoft.com/fwlink/?LinkId=401005)下載此範例。 您可以使用此範例來完成本教學課程，以了解此範例的建置方式。 或者，您可以使用本教學課程從頭建立自己的方案。 本教學課程鎖定第二種方法，以便您能夠了解此方案的建置方式。 此外，本教學課程會盡可能與範例保持一致，並對構件使用範例中所使用的相同名稱 (例如，結構描述、轉換)。  
 
 > [!NOTE]
-> 此方案牽涉到從 EAI 橋接器傳送訊息至 EDI 橋接器，因此會重複使用 [BizTalk 服務橋接器鏈結範例](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 的範例。  
+> 此方案牽涉到從 EAI 橋接器傳送訊息至 EDI 橋接器，因此會重複使用 [BizTalk 服務橋接器鏈結範例](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 的範例。  
 > 
 > 
 
@@ -54,12 +54,12 @@ ms.locfileid: "26737545"
 
 為了完成案例，我們使用服務匯流排佇列將發票從 Contoso 傳送至 Northwind，或從 Northwind 接收通知。 這些佇列可以透過用戶端應用程式 (可經由下載取得) 來予以建立，並且會包含在本教學課程所提供的範例封裝中。  
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 您必須具有服務匯流排命名空間。 如需建立命名空間的指示，請參閱 [作法：建立或修改服務匯流排服務命名空間](https://msdn.microsoft.com/library/azure/hh674478.aspx)。 讓我們假設您已佈建服務匯流排命名空間，且其名稱為 **edifactbts**。
 * 您必須擁有 BizTalk 服務訂用帳戶。 在本教學課程中，讓我們假設您擁有 BizTalk 服務訂用帳戶，且其名稱為 **contosowabs**。
 * 在 BizTalk 服務入口網站註冊 BizTalk 服務訂用帳戶。 如需相關指示，請參閱 [在 BizTalk 服務入口網站註冊 BizTalk 服務部署](https://msdn.microsoft.com/library/hh689837.aspx)
 * 您必須安裝 Visual Studio。
-* 您必須安裝 BizTalk 服務 SDK。 您可以從 [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* 您必須安裝 BizTalk 服務 SDK。 您可以從以下位置下載 SDK：[http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>步驟 1：建立服務匯流排佇列
 此方案使用服務匯流排佇列以讓交易夥伴彼此交換訊息。 Contoso 和 Northwind 會傳送訊息至 EAI 和 (或) EDI 橋接器從中取用訊息的佇列。 在此方案中，您需要三個服務匯流排佇列：
@@ -75,7 +75,7 @@ ms.locfileid: "26737545"
 3. 在畫面中輸入服務匯流排 ACS 命名空間、簽發者名稱和簽發者金鑰。
    
    ![][2]  
-4. 隨即出現訊息方塊提示，指出將會在服務匯流排命名空間中建立三個佇列。 按一下 [SERVICEPRINCIPAL] 。
+4. 隨即出現訊息方塊提示，指出將會在服務匯流排命名空間中建立三個佇列。 按一下 [確定]。
 5. 讓 Tutorial Client 保持執行狀態。 開啟，按一下 [服務匯流排] > 您的服務匯流排命名空間 > [佇列]，然後驗證是否已建立這三個佇列。  
 
 ## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>步驟 2：建立和部署交易夥伴協議
@@ -154,7 +154,7 @@ ms.locfileid: "26737545"
 7. 在 [方案總管] 中，展開 **MessageFlowItinerary.bcs**，然後按兩下 **EDIBridge.config** 檔案。 將 **EDIBridge.config** 的內容更換為下列程式碼。
    
    > [!NOTE]
-   > 為何需要編輯 .config 檔案？ 我們新增至橋接器設計工具畫布上的外部服務端點代表我們稍早部署的 EDI 橋接器。 EDI 橋接器是具有傳送和接收端的雙向橋接器。 不過，我們新增至橋接器設計工具的 EAI 橋接器是單向橋接器。 因此，為了處理兩個橋接器的不同訊息交換模式，我們使用自訂的橋接器行為，將其設定納入 .config 檔案中。 此外，自訂行為也會處理 EDI 傳送橋接器端點的驗證。這個自訂行為是可從 [BizTalk 服務橋接器鏈結範例 - EAI 到 EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 中取得的另一個範例。 此方案重複使用該範例。  
+   > 為何需要編輯 .config 檔案？ 我們新增至橋接器設計工具畫布上的外部服務端點代表我們稍早部署的 EDI 橋接器。 EDI 橋接器是具有傳送和接收端的雙向橋接器。 不過，我們新增至橋接器設計工具的 EAI 橋接器是單向橋接器。 因此，為了處理兩個橋接器的不同訊息交換模式，我們使用自訂的橋接器行為，將其設定納入 .config 檔案中。 此外，自訂行為也會處理 EDI 傳送橋接器端點的驗證。這個自訂行為是可從 [BizTalk 服務橋接器鏈結範例 - EAI 到 EDI](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) 中取得的另一個範例。 此方案重複使用該範例。  
    > 
    > 
    

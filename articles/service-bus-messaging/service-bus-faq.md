@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: spelluru
-ms.openlocfilehash: c851c8a9384acf909dc88d3565d49021e1ee67e9
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: a000c599ecf8287af57aec2f6e9d550bbe61f280
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362006"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279876"
 ---
 # <a name="service-bus-faq"></a>服務匯流排常見問題集
 
@@ -21,7 +21,7 @@ ms.locfileid: "49362006"
 
 ## <a name="general-questions-about-azure-service-bus"></a>關於 Azure 服務匯流排的一般問題
 ### <a name="what-is-azure-service-bus"></a>什麼是 Azure 服務匯流排？
-[Azure 服務匯流排](service-bus-messaging-overview.md)是非同步的訊息雲端平台，可讓您在彼此分離的系統之間傳送資料。 Microsoft 以服務的形式提供此功能，這表示您不需要裝載任何自有硬體就能使用。
+[Azure 服務匯流排](service-bus-messaging-overview.md)是非同步的訊息雲端平台，可讓您在彼此分離的系統之間傳送資料。 Microsoft 以服務的形式提供此功能，這意謂著您無須裝載自己的硬體即可使用它。
 
 ### <a name="what-is-a-service-bus-namespace"></a>什麼是服務匯流排命名空間？
 [命名空間](service-bus-create-namespace-portal.md)提供範圍容器，可在應用程式內定址服務匯流排資源。 必須建立命名空間才能使用服務匯流排，而且這也是開始使用的第一個步驟。
@@ -78,6 +78,9 @@ ms.locfileid: "49362006"
 
 如同 Azure 上的其他服務，服務匯流排會強制執行一組特定的配額，以確保公平的資源使用量。 您可以在[服務匯流排配額概觀][Quotas overview]中找到更多關於這些配額的詳細資料。
 
+### <a name="how-to-handle-messages-of-size--1-mb"></a>如何處理大小超過 1 MB 的訊息？
+「服務匯流排」訊息服務 (佇列和主題/訂用帳戶) 可讓應用程式傳送大小最大達 256 KB (標準層) 或 1 MB (進階層) 的訊息。 如果您要處理大小超過 1 MB 的訊息，請使用[這篇部落格文章](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern) \(英文\) 中所述的宣告檢查模式。
+
 ## <a name="troubleshooting"></a>疑難排解
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure 服務匯流排 API 所產生的例外狀況有哪些，其建議的動作為何？
 如需可能的服務匯流排例外狀況，請參閱[例外狀況概觀][Exceptions overview]。
@@ -112,7 +115,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## <a name="next-steps"></a>後續步驟
 若要深入了解服務匯流排，請參閱下列文章：
 
-* [Azure 服務匯流排進階簡介 (部落格文章)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Azure 服務匯流排進階簡介 (部落格文章)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Azure 服務匯流排進階簡介 (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [服務匯流排概觀](service-bus-messaging-overview.md)
 * [開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)

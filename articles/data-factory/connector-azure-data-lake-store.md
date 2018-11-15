@@ -10,21 +10,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: aed1ab14072da3e3d3e49060b7117a24eeecdb56
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817019"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010247"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Azure Data Lake Storage Gen1 來回複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-azure-datalake-connector.md)
 > * [目前的版本](connector-azure-data-lake-store.md)
 
-此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Azure Data Lake Storage Gen1 (先前稱為 Azure Data Lake Store) 來回複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -44,9 +44,6 @@ ms.locfileid: "48817019"
 > 如需使用 Azure Data Lake Store 連接器的逐步解說，請參閱[將資料載入 Azure Data Lake Store 中](load-azure-data-lake-store.md)。
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->當您使用複製資料工具撰寫複製管線，或在撰寫期間使用 ADF UI 來執行測試連線/瀏覽資料夾時，需要在根層級授與的服務主體或 MSI 權限。 然而，只要將權限授予要複製的資料，複製活動執行就可以運作。 如果您需要限制權限，您可以略過撰寫作業。
 
 下列各節提供屬性的相關詳細資料，這些屬性是用來定義 Azure Data Lake Store 專屬的 Data Factory 實體。
 
@@ -79,6 +76,9 @@ ms.locfileid: "48817019"
 > 請確定您將 Azure Data Lake Store 中適當的權限授與服務主體：
 >- **作為來源**，在 [資料總管] -> [存取] 中，至少授與 [讀取 + 執行] 權限來列出並複製資料夾/子資料夾中的檔案，或授與 [讀取] 權限來複製單一檔案，以及選擇新增至 [此資料夾和所有子系] 以供遞迴使用並新增為**存取權限和預設權限項目**。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
 >- **作為接收**，在 [資料總管] -> [存取] 中，至少授與 [寫入 + 執行] 權限以在資料夾中建立子項目，以及選擇新增至 [此資料夾和所有子系] 以供遞迴使用並新增為**存取權限和預設權限項目**。 如果您使用 Azure IR 來複製 (來源和接收都在雲端)，則在存取控制 (IAM) 中，至少授與**讀取者**角色，以便讓 Data Factory 偵測 Data Lake Store 的區域。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯。
+
+>[!NOTE]
+>當您使用**複製資料工具**撰寫複製管線，或在撰寫期間使用 **ADF UI** 來執行測試連線/瀏覽資料夾時，需要具備**使用「執行」權限在根層級**授與的服務主體權限，才能列出資料夾 (從根資料夾開始)。 然而，只要將權限授予要複製的資料，複製活動執行就可以運作。 如果您需要限制權限，您可以略過撰寫作業。
 
 以下是支援的屬性：
 
@@ -128,6 +128,9 @@ ms.locfileid: "48817019"
 >- **作為來源**，在 [資料總管] -> [存取] 中，至少授與 [讀取 + 執行] 權限來列出並複製資料夾/子資料夾中的檔案，或授與 [讀取] 權限來複製單一檔案，以及選擇新增至 [此資料夾和所有子系] 以供遞迴使用並新增為**存取權限和預設權限項目**。 在帳戶層級存取控制 (IAM) 上沒有任何要求。
 >- **作為接收**，在 [資料總管] -> [存取] 中，至少授與 [寫入 + 執行] 權限以在資料夾中建立子項目，以及選擇新增至 [此資料夾和所有子系] 以供遞迴使用並新增為**存取權限和預設權限項目**。 如果您使用 Azure IR 來複製 (來源和接收都在雲端)，則在存取控制 (IAM) 中，至少授與**讀取者**角色，以便讓 Data Factory 偵測 Data Lake Store 的區域。 如果您需要避免此 IAM 角色，請以 Data Lake Store 的位置[建立 Azure IR](create-azure-integration-runtime.md#create-azure-ir)，並如下列範例，在 Data Lake Store 連結的服務中明確建立關聯。
 
+>[!NOTE]
+>當您使用**複製資料工具**撰寫複製管線，或在撰寫期間使用 **ADF UI** 來執行測試連線/瀏覽資料夾時，需要具備**使用「執行」權限在根層級**授與的權限，才能列出資料夾 (從根資料夾開始)。 然而，只要將權限授予要複製的資料，複製活動執行就可以運作。 如果您需要限制權限，您可以略過撰寫作業。
+
 在 Azure Data Factory 中，除了 Data Lake Store 的一般資訊，您不需要在連結服務中指定任何屬性。
 
 **範例：**
@@ -152,7 +155,7 @@ ms.locfileid: "48817019"
 
 ## <a name="dataset-properties"></a>資料集屬性
 
-如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 此節提供 Azure Data Lake Store 資料集所支援的屬性清單。
+如需可用來定義資料集的區段和屬性完整清單，請參閱資料集文章。 本節提供 Azure Data Lake Store 資料集所支援的屬性清單。
 
 若要將資料複製到 Azure Data Lake Store 或從該處複製資料，請將資料集的類型屬性設定為 **AzureDataLakeStoreFile**。 以下是支援的屬性：
 
@@ -197,7 +200,7 @@ ms.locfileid: "48817019"
 
 ## <a name="copy-activity-properties"></a>複製活動屬性
 
-如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 此節提供 Azure Data Lake 來源和接收器所支援的屬性清單。
+如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Azure Data Lake 來源和接收器所支援的屬性清單。
 
 ### <a name="azure-data-lake-store-as-source"></a>Azure Data Lake Store 作為來源
 
@@ -283,7 +286,7 @@ ms.locfileid: "48817019"
 
 ### <a name="recursive-and-copybehavior-examples"></a>遞迴和 copyBehavior 範例
 
-此節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
+本節說明遞迴和 copyBehavior 值在不同組合的情況下，複製作業所產生的行為。
 
 | 遞迴 | copyBehavior | 來源資料夾結構 | 產生的目標 |
 |:--- |:--- |:--- |:--- |

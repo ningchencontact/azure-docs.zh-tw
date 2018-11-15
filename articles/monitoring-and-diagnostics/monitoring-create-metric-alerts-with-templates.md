@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3739ad3d90dd9d97d755bc0e2fa41e0962396cb1
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c6a1647293cb0e075b3269d795b018bb223ab8f1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354235"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615172"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立度量警示
 
@@ -1372,5 +1372,5 @@ az group deployment create \
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 [Azure 中的警示](monitoring-overview-unified-alerts.md)
+* 深入了解 [Azure 中的警示](monitoring-overview-alerts.md)
 * 了解如何[使用 Resource Manager 範本建立動作群組](monitoring-create-action-group-with-resource-manager-template.md)

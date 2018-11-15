@@ -1,25 +1,25 @@
 ---
-title: 利用堆積傾印偵錯和分析 Hadoop 服務 - Azure
-description: 自動為 Hadoop 服務收集堆積傾印，並放在 Azure Blob 儲存體帳戶內以供偵錯和分析。
+title: 利用堆積傾印偵錯和分析 Apache Hadoop 服務 - Azure
+description: 自動為 Apache Hadoop 服務收集堆積傾印，並放在 Azure Blob 儲存體帳戶內以供偵錯和分析。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099762"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038302"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>收集 Blob 儲存體中的堆積傾印以偵錯和分析 Hadoop 服務
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>收集 Blob 儲存體中的堆積傾印以偵錯和分析 Apache Hadoop 服務
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此它們有助於為執行階段發生的問題進行診斷。 系統可以自動為 Hadoop 服務收集堆積傾印，並放在使用者之 Azure Blob 儲存體帳戶內的 HDInsightHeapDumps/ 下。
+堆積傾印含有應用程式記憶體的快照，其中包括建立傾印時的變數值。 因此它們有助於為執行階段發生的問題進行診斷。 系統可以自動為 Apache Hadoop 服務收集堆積傾印，並放在使用者之 Azure Blob 儲存體帳戶內的 HDInsightHeapDumps/ 下。
 
 啟用各種服務的堆積傾印收集時，必須針對個別叢集上的服務啟用。 叢集的這項功能預設為關閉。 這些堆積傾印的大小可能會很大，因此一旦啟用收集，建議您監視儲存這些傾印的 Blob 儲存體帳戶。
 
@@ -30,11 +30,11 @@ ms.locfileid: "43099762"
 ## <a name="eligible-services-for-heap-dumps"></a>堆積傾印的合格服務
 您可以啟用下列服務的堆積傾印：
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2、metastore、derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2、metastore、derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager、nodemanager、timelineserver
-* **hdfs** - datanode、secondarynamenode、namenode
+* **Apache yarn** - resourcemanager、nodemanager、timelineserver
+* **Apache hdfs** - datanode、secondarynamenode、namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>可啟用堆積傾印的組態元素
 為了開啟服務的堆積傾印，您必須在該服務的區段 (由 **service_name** 指定) 中，設定適當的組態元素。

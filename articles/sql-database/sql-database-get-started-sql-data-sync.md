@@ -11,15 +11,15 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 98d30d2987d42a2c4893e00c3ba2ea6acd471bef
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 11/07/2018
+ms.openlocfilehash: 0a248ec5137a6de43910b1d11184dfeda18601f5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318804"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280342"
 ---
-# <a name="set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料
+# <a name="tutorial-set-up-sql-data-sync-to-sync-data-between-azure-sql-database-and-sql-server-on-premises"></a>教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料
 
 在本教學課程中，您將了解如何使用包含 Azure SQL Database 和 SQL Server 執行個體的混合式同步群組設定 Azure SQL 資料同步。 新的同步處理群組會依照您設定的排程完整設定和同步。
 
@@ -129,7 +129,7 @@ ms.locfileid: "49318804"
 
     在 [建立新的代理程式] 刀鋒視窗中，請執行下列步驟：
 
-   1. 從提供的連結下載用戶端同步代理程式軟體，並安裝在 SQL Server 所在的電腦上。
+   1. 從提供的連結下載用戶端同步代理程式軟體，並安裝在 SQL Server 所在的電腦上。 您也可以直接從 [SQL Azure 資料同步代理程式](https://www.microsoft.com/download/details.aspx?id=27693)下載資料同步代理程式。
 
         > [!IMPORTANT]
         > 您必須在防火牆開啟輸出 TCP 連接埠 1433，以讓用戶端代理程式和伺服器通訊。
@@ -253,35 +253,7 @@ ms.locfileid: "49318804"
 
 ## <a name="faq-about-the-client-agent"></a>關於用戶端代理程式的常見問題集
 
-### <a name="why-do-i-need-a-client-agent"></a>我為何需要用戶端代理程式？
-
-SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫通訊。 這項安全性功能可防止直接與防火牆後方的資料庫通訊。 當 SQL 資料同步服務與代理程式通訊時，會使用加密的連線與唯一的權杖或「代理程式金鑰」來執行此動作。 SQL Server 資料庫會使用連接字串和代理程式金鑰來驗證代理程式。 這項設計可為您的資料提供高階安全性。
-
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>一共可執行多少個本機代理程式 UI 執行個體？
-
-只能執行一個 UI 執行個體。
-
-### <a name="how-can-i-change-my-service-account"></a>如何變更我的服務帳戶？
-
-安裝用戶端代理程式之後，變更服務帳戶的唯一方式是予以解除安裝，並使用新的服務帳戶來安裝新的用戶端代理程式。
-
-### <a name="how-do-i-change-my-agent-key"></a>如何變更我的代理程式金鑰？
-
-代理程式只會使用代理程式金鑰一次。 當您移除再重新安裝新的代理程式時，並不能重複使用它，也不能由多個代理程式使用。 如果您需要為現有代理程式建立新的金鑰，務必確定會以用戶端代理程式和 SQL 資料同步服務來記錄相同的金鑰。
-
-### <a name="how-do-i-retire-a-client-agent"></a>如何淘汰用戶端代理程式？
-
-若要讓代理程式立即失效或淘汰，請在入口網站中重新產生其金鑰，但不在代理程式 UI 中提交。 不論對應的代理程式處於連線或離線，重新產生金鑰即可讓先前的金鑰失效。
-
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>如何將用戶端代理程式移至另一部電腦？
-
-如果您想要從另一部電腦執行本機代理程式，而非它目前所在的電腦，請執行下列動作：
-
-1. 在所需電腦上安裝代理程式。
-2. 登入 SQL 資料同步入口網站，然後為新的代理程式重新產生代理程式金鑰。
-3. 使用新的代理程式 UI 來提交新的代理程式金鑰。
-4. 請等待用戶端代理程式下載先前所註冊內部部署資料庫的清單。
-5. 提供資料庫認證給顯示為無法連線的所有資料庫。 這些資料庫必須要能從安裝該代理程式的新電腦連線。
+如需有關用戶端代理程式的常見問題集，請參閱 [Azure 常見問題集](sql-database-data-sync-agent.md#agent-faq)。
 
 ## <a name="next-steps"></a>後續步驟
 

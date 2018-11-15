@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5f151db9cb2cf7a5ef242f777cd2ad1820c856a8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138155"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636664"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中啟用並檢閱 Kubernetes 主要節點記錄
 
@@ -116,7 +116,7 @@ AzureDiagnostics
 | *resourceId*             | 產生記錄的 Azure 資源 |
 | *time*                   | 上傳記錄的時間戳記 |
 | *類別*               | 產生記錄之容器/元件的名稱 |
-| *operationName*          | 一律為 *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | 來自元件之記錄的全文 |
 | *properties.stream*      | *stderr* 或 *stdout* |
 | *properties.pod*         | 作為記錄來源的 Pod 名稱 |

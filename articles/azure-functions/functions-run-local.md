@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: cc3a835c0322aded4a92b15c1320259780ffb6d2
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249215"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346417"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -113,16 +113,6 @@ npm install -g azure-functions-core-tools@v1
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-
-### <a name="v1"></a>版本 1.x
-
-工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework (4.7.1)，並且只有在 Windows 電腦上提供支援。 安裝版本 1.x 工具之前，您必須先[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)。
-
-使用下列命令來安裝 1.x 版工具：
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ## <a name="create-a-local-functions-project"></a>建立本機的 Functions 專案
 

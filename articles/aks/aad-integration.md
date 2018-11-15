@@ -5,17 +5,16 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 8/9/2018
+ms.date: 08/09/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140899"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979245"
 ---
-# <a name="integrate-azure-active-directory-with-aks"></a>整合 Azure Active Directory 與 AKS
+# <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD) 進行使用者驗證。 在此組態中，您可以使用您的 Azure Active Directory 驗證權杖來登入 AKS 叢集。 此外，叢集系統管理員能夠根據使用者身分識別或目錄群組成員資格，設定 Kubernetes 角色型存取控制 (RBAC)。
 
@@ -69,7 +68,9 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
   ![設定應用程式圖表權限](media/aad-integration/delegated-permissions.png)
 
-7. 選取 [完成]，從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
+  選取 [完成] 。
+
+7. 從 API 清單中選擇 [Microsoft Graph]，然後選取 [授與權限]。 如果目前的帳戶不是租用戶系統管理員，此步驟將會失敗。
 
   ![設定應用程式圖表權限](media/aad-integration/grant-permissions.png)
 
@@ -99,7 +100,9 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 
   ![選取 AKS AAD 伺服器應用程式端點](media/aad-integration/select-server-app.png)
 
-4. 選取 [完成] 和 [授與權限] 來完成此步驟。
+  選取 [完成] 
+
+4. 從清單中選取您的伺服器 API，然後選擇 [授與權限]：
 
   ![授與權限](media/aad-integration/grant-permissions-client.png)
 
@@ -120,16 +123,19 @@ Azure Kubernetes Service (AKS) 可以設定為使用 Azure Active Directory (AD)
 使用 [az group create][az-group-create] 命令來建立 AKS 叢集的資源群組。
 
 ```azurecli
-az group create --name myAKSCluster --location eastus
+az group create --name myResourceGroup --location eastus
 ```
 
 使用 [az aks create][az-aks-create] 命令來部署叢集。 以建立 Azure AD 應用程式時收集的值，取代以下範例命令中的值。
 
 ```azurecli
-az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-keys --enable-rbac \
-  --aad-server-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --generate-ssh-keys \
+  --aad-server-app-id b1536b67-29ab-4b63-b60f-9444d0c15df1 \
   --aad-server-app-secret wHYomLe2i1mHR2B3/d4sFrooHwADZccKwfoQwK2QHg= \
-  --aad-client-app-id 7ee598bb-0000-0000-0000-83692e2d717e \
+  --aad-client-app-id 8aaf8bd5-1bdd-4822-99ad-02bfaa63eea7 \
   --aad-tenant-id 72f988bf-0000-0000-0000-2d7cd011db47
 ```
 
@@ -140,7 +146,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 首先，使用 [az aks get-credentials][az-aks-get-credentials] 命令搭配 `--admin` 引數，透過系統管理員存取權登入叢集。
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
 接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱。 此範例讓帳戶可以完整存取叢集的所有命名空間：
@@ -184,7 +190,7 @@ subjects:
 接下來，使用 [az aks get-credentials][az-aks-get-credentials] 命令，提取非系統管理員使用者的內容。
 
 ```azurecli
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 執行任何 kubectl 命令之後，系統會提示您向 Azure 進行驗證。 依照螢幕上的指示進行。
@@ -195,18 +201,18 @@ $ kubectl get nodes
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BUJHWDGNL to authenticate.
 
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-nodepool1-42032720-0   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-1   Ready     agent     1h        v1.9.6
-aks-nodepool1-42032720-2   Ready     agent     1h        v1.9.6
+aks-nodepool1-79590246-0   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-1   Ready     agent     1h        v1.9.9
+aks-nodepool1-79590246-2   Ready     agent     1h        v1.9.9
 ```
 
 完成後，就會快取驗證權杖。 當權杖已過期或重新建立 Kubernetes 組態檔時，系統才會重新提示您登入。
 
 如果成功登入後看到授權錯誤訊息，請檢查您在 Azure AD 中登入的使用者身分不是「來賓」(如果您使用來自其他目錄中的同盟登入，則通常會出現這種情況)。
+
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
-
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387933"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035901"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服務
 「DNS 服務」是一個選用的系統服務，您可以在叢集中啟用以使用 DNS 通訊協定來探索其他服務。 
@@ -43,6 +43,9 @@ DNS 服務會將 DNS 名稱對應到服務名稱，接著服務名稱會由命�
 DNS 服務不支援動態連接埠。 若要解決動態連接埠上所公開的服務，請使用[反向 Proxy 服務](./service-fabric-reverseproxy.md)。
 
 ## <a name="enabling-the-dns-service"></a>啟用 DNS 服務
+> [!NOTE]
+> Linux 上尚不支援 Service Fabric 服務的 DNS 服務。
+
 當您使用入口網站建立叢集時，預設會在 [叢集組態] 功能表的 [包括 DNS 服務] 核取方塊中啟用 DNS 服務：
 
 ![透過入口網站啟用 DNS 服務](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>已知問題
 * 針對 Service Fabric versions 6.3 與更新版本，針對 DNS 名稱中包含連字號之服務名稱進行 DNS 查閱會發生問題。 如需有關此問題的詳細資訊，請追蹤下列 [GitHub 問題](https://github.com/Azure/service-fabric-issues/issues/1197) \(英文\)。 接下來的 6.3 更新中將包含此問題的修正程式。 
+
+* Linux 上尚不支援 Service Fabric 服務的 DNS 服務。 Linux 上的容器支援 DNS 服務。 使用 Fabric 用戶端/ServicePartitionResolver 來手動解決是可用的替代方案。
 
 ## <a name="next-steps"></a>後續步驟
 若要深入了解叢集內的服務通訊，請參閱[連接服務並與其進行通訊](service-fabric-connect-and-communicate-with-services.md)

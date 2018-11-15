@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.tgt_pltfrm: windows
 ms.component: disks
-ms.openlocfilehash: 401b8ebaa119f146cfcea0f948221c92e8bc6eb9
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: cd2f73b3fb2a8a3d80586063566fe66c37c26c67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713868"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243448"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-windows"></a>Windows 中虛擬機器磁碟的延展性和效能目標
 
@@ -23,6 +23,8 @@ ms.locfileid: "39713868"
 如需詳細資訊，請參閱 [Windows 虛擬機器大小](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 ## <a name="managed-virtual-machine-disks"></a>受控虛擬機器磁碟
+
+以星號表示的大小目前為預覽狀態。 請參閱我們的[常見問題集](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged)，以了解在哪些區域中可以取得它們。
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
@@ -34,4 +36,3 @@ ms.locfileid: "39713868"
 ## <a name="see-also"></a>另請參閱
 
 [Azure 訂用帳戶和服務限制、配額與限制](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

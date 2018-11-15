@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079067"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245693"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -108,9 +108,9 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 * 否。 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
 
 ## <a name="how-secure-is-my-data"></a>我的資料有多安全？
-Application Insights 是一項 Azure 服務。 如需安全性原則的相關說明，請參閱[ Azure 安全性、隱私權及法規遵循白皮書](http://go.microsoft.com/fwlink/?linkid=392408)。
+Application Insights 是一項 Azure 服務。 如需安全性原則的相關說明，請參閱[ Azure 安全性、隱私權及法規遵循白皮書](https://go.microsoft.com/fwlink/?linkid=392408)。
 
-資料會儲存在 Microsoft Azure 伺服器中。 如果是 Azure 入口網站中的帳戶，帳戶限制如 [Azure 安全性、隱私權和法規遵循文件](http://go.microsoft.com/fwlink/?linkid=392408)中所述。
+資料會儲存在 Microsoft Azure 伺服器中。 如果是 Azure 入口網站中的帳戶，帳戶限制如 [Azure 安全性、隱私權和法規遵循文件](https://go.microsoft.com/fwlink/?linkid=392408)中所述。
 
 Microsoft 人員對您的資料存取會受到限制。 我們只有在獲得您的許可及為了支援您使用 Application Insights 而有必要時，才會存取您的資料。 
 
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 根據預設，`ServerTelemetryChannel` 會使用現行使用者的本機應用程式資料的資料夾 `%localAppData%\Microsoft\ApplicationInsights` 或暫存資料夾 `%TMP%`。 (請參閱此處的[實作](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84))。在 Linux 環境中將會停用本機儲存體，除非另行指定儲存體資料夾。
 
-下列程式碼片段說明如何在 `Startup.cs` 類別的 `ConfigureServices()` 方法中設定 `ServerTelemetryChannel.StorageFolder`：
+下列程式碼片段說明如何在  `Startup.cs`  類別的 `ConfigureServices()`  方法中設定 `ServerTelemetryChannel.StorageFolder`：
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>儲存在 Application Insights 中的個人資料
 
-我們的 [Application Insights 個人資料文章](app-insights-customer-data.md)會深入討論此議題。
+我們的 [Application Insights 個人資料文章](../log-analytics/log-analytics-personal-data-mgmt.md)會深入討論此議題。
 
 #### <a name="can-my-users-turn-off-application-insights"></a>我的使用者是否可以關閉 Application Insights？
 無法直接進行。 我們不提供您的使用者可以操作來關閉 Application Insights 的參數。
@@ -246,10 +246,10 @@ openssl s_client -connect bing.com:443 -tls1_2
 | 您的動作 | 收集的資料類別 (請參閱下一個資料表) |
 | --- | --- |
 | [將 Application Insights SDK 新增至 .NET Web 專案][greenbrown] |ServerContext<br/>推斷<br/>效能計數器<br/>Requests<br/>**例外狀況**<br/>工作階段<br/>users |
-| [在 IIS 上安裝狀態監視器][redfield] |相依性<br/>ServerContext<br/>推斷<br/>效能計數器 |
+| [在 IIS 上安裝狀態監視器][redfield] |相依項目<br/>ServerContext<br/>推斷<br/>效能計數器 |
 | [將 Application Insights SDK 新增至 Java Web 應用程式][java] |ServerContext<br/>推斷<br/>要求<br/>工作階段<br/>users |
 | [將 JavaScript SDK 新增至網頁][client] |ClientContext  <br/>推斷<br/>Page<br/>ClientPerf<br/>Ajax |
-| [定義預設屬性][apiproperties] |所有標準和自訂事件上的**屬性** |
+| [定義預設屬性][apiproperties] |**屬性**  |
 | [呼叫 TrackMetric][api] |數值<br/>**屬性** |
 | [呼叫 Track*][api] |事件名稱<br/>**屬性** |
 | [呼叫 TrackException][api] |**例外狀況**<br/>堆疊傾印<br/>**屬性** |

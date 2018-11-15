@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1e9170c955f2a36d68600372e3dcdac2a63056c1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301186"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957726"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用 Logic Apps 自動執行 Application Insights 程序
 
@@ -51,7 +51,7 @@ ms.locfileid: "44301186"
 
 1. 在 [選擇動作] 搜尋方塊中，輸入 **Azure Application Insights**。
 
-1. 在 [動作] 之下，按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
+1. 在 [動作] 之下，按一下 [Azure Application Insights - 視覺化 Analytics 查詢預覽]。
 
     ![邏輯應用程式設計工具的「選擇動作」視窗](./media/automate-with-logic-apps/flow2.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "44301186"
 
 1. 在搜尋方塊中，輸入**Office 365 Outlook**。
 
-1. 按一下 [Office 365 Outlook – 傳送電子郵件]。
+1. 按一下 [Office 365 Outlook - 傳送電子郵件]。
 
     ![Office 365 Outlook 選項](./media/automate-with-logic-apps/flow2b.png)
 
@@ -132,7 +132,7 @@ ms.locfileid: "44301186"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解建立 [Analytics 查詢](app-insights-analytics-using.md)。
+- 深入了解建立 [Analytics 查詢](../log-analytics/query-language/get-started-queries.md)。
 - 深入了解 [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)。
 
 

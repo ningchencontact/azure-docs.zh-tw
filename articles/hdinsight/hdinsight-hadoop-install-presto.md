@@ -2,23 +2,25 @@
 title: 在 Azure HDInsight Linux 叢集上安裝 Presto
 description: 了解如何使用指令碼動作，在以 Linux 為基礎的 HDInsight Hadoop 叢集上安裝 Presto 和 Airpal。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/21/2018
-ms.author: jasonh
-ms.openlocfilehash: b9ac9c49e633906e47244eedcb18a4cda4a6228d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: ea806a1004cf268fb7da75fa45013bdbaf882d86
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978944"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227496"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 
 在本文件中，您會了解如何使用指令碼動作，在 HDInsight Hadoop 叢集上安裝 Presto。 您也會了解如何在現有的 HDInsight 叢集上安裝 Airpal。
+
+HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集使用。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方應用程式](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apps-install-applications)
 
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 **HDInsight 3.5 Hadoop 叢集**。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。
@@ -42,17 +44,17 @@ ms.locfileid: "46978944"
 
     * 必須為隨附 HDInsight 3.6 版的 Hadoop 叢集。
 
-    * 它必須使用 Azure 儲存體作為資料存放區。 尚未支援在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。 
+    * 它必須使用 Azure 儲存體作為資料存放區。 尚無法選擇在將 Azure Data Lake Store 作為儲存體選項的叢集上使用 Presto。
 
     ![使用自訂選項建立 HDInsight 叢集](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
-2. 在 [進階設定] 區域中，選取 [指令碼動作]，並提供下列資訊：
+2. 在 [進階設定] 區域中，選取 [指令碼動作]，並提供下列資訊。 您也可以為該指定碼類型選擇 [安裝 Presto] 選項。
    
    * **名稱**：輸入指令碼動作的易記名稱。
    * **Bash 指令碼 URI**：`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
    * **HEAD**：勾選此選項
    * **WORKER**：勾選此選項
-   * **ZOOKEEPER**︰清除此核取方塊
+   * **ZOOKEEPER**：將此核取方塊保留空白
    * **參數**：將此欄位保留空白
 
 

@@ -8,22 +8,22 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: seguler
-ms.openlocfilehash: 065c4c4315bda209484cc1b2449980e55d4ac798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09703e203370a524b24f552c93161e4cb64d803d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522691"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281671"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-data-lake-storage-gen2-preview"></a>使用 Distcp 在 Azure 儲存體 Blob 與 Data Lake Storage Gen2 預覽版之間複製資料
 
-如果您有可存取 Azure Data Lake Storage Gen2 預覽版的 HDInsight 叢集，就可以使用 [Distcp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料複製到支援 Data Lake Storage Gen2 的帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
+如果您有 HDInsight 叢集，並已註冊至 Azure Data Lake Storage Gen2 的預覽，就可以使用 [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) \(英文\) 之類的 Hadoop 生態系統工具，將**送至/來自** HDInsight 叢集儲存體 (WASB) 的資料，複製到啟用 Data Lake Storage Gen2 的儲存體帳戶中。 本文提供如何使用 Distcp 工具的相關指示。
 
 ## <a name="prerequisites"></a>必要條件
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
-* **啟用 Azure Data Lake Storage (預覽) 功能的 Azure 儲存體帳戶**。 如需如何建立的指示，請參閱[建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶](quickstart-create-account.md)
-* 可存取 Data Lake Storage 帳戶的 **Azure HDInsight 叢集**。 請參閱[搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](use-hdi-cluster.md)。 請確實為叢集啟用遠端桌面。
+* **啟用 Data Lake Storage Gen2 (預覽) 功能的 Azure 儲存體帳戶**。 如需如何建立的指示，請參閱[建立 Azure Data Lake Storage Gen2 預覽版儲存體帳戶](quickstart-create-account.md)
+* 可存取已啟用 Data Lake Storage Gen2 之儲存體帳戶的 **Azure HDInsight 叢集**。 請參閱[搭配 Azure HDInsight 叢集使用 Data Lake Storage Gen2](use-hdi-cluster.md)。 請確實為叢集啟用遠端桌面。
 
 ## <a name="use-distcp-from-an-hdinsight-linux-cluster"></a>使用來自 HDInsight Linux 叢集的 Distcp
 
@@ -97,4 +97,4 @@ HDInsight 叢集隨附 Distcp 公用程式，可用來將不同來源的資料�
 
 * DistCp 受限於每個檔案只有一個對應程式。 因此，對應程式數目不應該超過您擁有的檔案數目。 因為 DistCp 只能將一個對應程式指派給一個檔案，這會限制可用於複製大量檔案的並行程度。
 
-* 如果您的大型檔案很少，則應該將它們分割成 256 MB 的檔案區塊，以提高並行潛力。 
+* 如果您的大型檔案很少，則應該將它們分割成 256 MB 的檔案區塊，以提高並行潛力。

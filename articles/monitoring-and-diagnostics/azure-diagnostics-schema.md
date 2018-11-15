@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 603ed12bf74f2d75543fd7e60834e695138c991d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dbe2619b99fdc5281375e2c6c1300432d9a4cbb9
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963796"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616124"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 診斷延伸模組的設定結構描述版本和歷程記錄
 針對隨附於 Microsoft Azure SDK 的 Azure 診斷擴充功能組態結構描述版本，此頁面會建立其索引。  
@@ -67,7 +67,7 @@ Azure 診斷擴充功能要與 Azure 監視器、Application Insights 和 Log An
 ### <a name="diagnostics-extension-111"></a>診斷擴充功能 1.11 版
 已新增 Azure 監視器接收的支援。 這個接收只適用於效能計數器。 能夠將在 VM、VMSS 或雲端服務上收集的效能計數器，傳送到 Azure 監視器作為自訂計量。 Azure 監視器接收支援：
 * 擷取透過 [Azure 監視器計量 API](https://docs.microsoft.com/rest/api/monitor/metrics/list) 傳送到 Azure 監視器的所有效能計數器。
-* 透過 Azure 監視器中新的[統一的警示體驗](monitoring-overview-unified-alerts.md)，對傳送到 Azure 監視器的所有效能計數器設定警示
+* 透過 Azure 監視器中新的[統一的警示體驗](monitoring-overview-alerts.md)，對傳送到 Azure 監視器的所有效能計數器設定警示
 * 將效能計數器中的萬用字元運算子視為計量上的「執行個體」維度。 例如，如果您收集了 "LogicalDisk(\*)/DiskWrites/sec" 計數器，就能夠為每個邏輯磁碟 (C:、D: 等等)，針對 Disk Writes/sec 在「執行個體」維度上進行繪製或建立警示。
 
 定義 Azure 監視器作為診斷擴充功能組態中的新接收

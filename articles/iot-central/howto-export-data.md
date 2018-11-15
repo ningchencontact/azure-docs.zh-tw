@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034904"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962787"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
@@ -26,10 +26,10 @@ ms.locfileid: "47034904"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 延伸麼 30 天 IoT Central 應用程式，或付費應用程式。
-- 具有 Azure 訂用帳戶的 Azure 帳戶。
-- 同一個 Azure 帳戶也是 IoT Central 應用程式中的系統管理員。
-- 同一個 Azure 帳戶有權限可以建立儲存體帳戶，或存取相同 Azure 訂用帳戶中的現有儲存體帳戶。
+- 預付型方案應用程式。
+- IoT Central 應用程式中的系統管理員，其具備：
+    - IoT Central 應用程式所在 Azure 訂用帳戶中的 Azure 帳戶
+    - 建立儲存體帳戶，或存取此 Azure 訂用帳戶中現有儲存體帳戶的權限
 
 ## <a name="types-of-data-to-export"></a>要匯出的資料類型
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468172"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037087"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 閘道常見問題集
 
@@ -65,7 +65,7 @@ VPN 閘道是一種虛擬網路閘道。 VPN 閘道可透過公用連線在您�
 路由式閘道實作路由式 VPN。 路由式 VPN 會使用 IP 轉送或路由表中的「路由」，直接封包至其對應的通道介面。 然後，通道介面會加密或解密輸入和輸出通道的封包。 路由式 VPN 的原則或流量選取器會設定為任意對任意 (或萬用字元)。
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>可以將我的原則型 VPN 閘道更新為路由型嗎？
-否。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
+否。 Azure Vnet 閘道類型無法從原則型變更為路由型或其他方式。 閘道必須刪除並重新建立，程序大約要 60 分鐘的時間。 閘道的 IP 位址不會保留，預先共用金鑰 (PSK) 也不會保留。
 1. 刪除與要刪除之閘道相關聯的任何連線。
 2. 刪除閘道：
 * [Azure 入口網站](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Azure VPN 使用 PSK (預先共用金鑰) 驗證。 當建立 VPN 通道時，�
 
 是，您可以從 Azure Marketplace 或建立自己的 VPN 路由器，在 Azure 中部署自己的 VPN 閘道或伺服器。 您需要在虛擬網路中設定使用者定義的路由，以確保在您的內部部署網路與虛擬網路子網路之間適當地路由傳送流量。
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>為什麼 VPN 閘道上的某些連接埠已開啟？
+### <a name="gatewayports"></a>為什麼我的虛擬網路閘道上的特定連接埠已開啟？
 
 Azure 基礎結構通訊需要這些連接埠。 它們受到 Azure 憑證的保護 (鎖定)。 若沒有適當的憑證，外部實體 (包括這些閘道的客戶) 將無法對這些端點造成任何影響。
 
-VPN 閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶私人網路的 NIC，以及一個面向公用網路的 NIC。 Azure 基礎結構實體因為相容性，無法使用客戶私人網路，因此他們需要利用公用端點進行基礎結構通訊。 Azure 安全性稽核會定期掃描公用端點。
+虛擬網路閘道基本上是一個多重主目錄的裝置，擁有一個使用客戶私人網路的 NIC，以及一個面向公用網路的 NIC。 Azure 基礎結構實體因為相容性，無法使用客戶私人網路，因此他們需要利用公用端點進行基礎結構通訊。 Azure 安全性稽核會定期掃描公用端點。
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>閘道類型、需求和輸送量的詳細資訊
 

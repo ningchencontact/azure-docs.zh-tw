@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 60ecc2bc1d700c223d4a52b05e3b9362241f3f82
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414603"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612568"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>將 Log Analytics 警示擴充到 Azure 警示
 直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。 
@@ -60,5 +60,5 @@ ms.locfileid: "50414603"
 ## <a name="next-steps"></a>後續步驟
 
 * 了解[啟動將警示從 Log Analytics 擴充至 Azure](monitoring-alerts-extend-tool.md)的工具。
-* 深入了解 [Azure 警示體驗](monitoring-overview-unified-alerts.md)。
+* 深入了解 [Azure 警示體驗](monitoring-overview-alerts.md)。
 * 了解如何建立 [Azure 警示中的記錄警示](monitor-alerts-unified-log.md)。

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: abca81e0db565c6c84d9be9df07b46c8c338030b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6581081f0f34f73c915f0b026a3ed50816f6731f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960272"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298938"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>操作說明：讓任何 Azure Active Directory (AD) 使用者以多租用戶應用程式的模式登入
 
@@ -118,7 +118,7 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 
 僅限應用程式的權限一律需要租用戶系統管理員的同意。 如果您的應用程式要求僅限應用程式的權限，當使用者嘗試登入應用程式時，將會出現錯誤訊息，指出該使用者無法同意。
 
-有些委派的權限也需要租用戶系統管理員的同意。 例如，若要能夠以登入的使用者身分寫回 Azure AD，就需要租用戶系統管理員的同意。 與僅限應用程式的權限一樣，如果一般使用者嘗試登入要求委派權限的應用程式，而該權限需要系統管理員同意，您的應用程式將會收到錯誤。 發佈資源的開發人員可以決定權限是否需要系統管理員的同意，而這項資訊也可在資源文件中找到。 [Azure AD Graph API][AAD-Graph-Perm-Scopes] 和 [Microsoft Graph API][MSFT-Graph-permision-scopes] 的權限文件會指出哪些權限需要系統管理員同意。
+有些委派的權限也需要租用戶系統管理員的同意。 例如，若要能夠以登入的使用者身分寫回 Azure AD，就需要租用戶系統管理員的同意。 與僅限應用程式的權限一樣，如果一般使用者嘗試登入要求委派權限的應用程式，而該權限需要系統管理員同意，您的應用程式將會收到錯誤。 發佈資源的開發人員可以決定權限是否需要系統管理員的同意，而這項資訊也可在資源文件中找到。 [Azure AD Graph API][AAD-Graph-Perm-Scopes] 和 [Microsoft Graph API][MSFT-Graph-permission-scopes] 的權限文件會指出哪些權限需要系統管理員同意。
 
 如果您的應用程式使用需要系統管理員同意的權限，您就必須要有相關的表示，例如可供系統管理員起始動作的按鈕或連結。 您的應用程式針對此動作傳送的要求是一個一般的 OAuth2/OpenID Connect 授權要求，其中也包含 `prompt=admin_consent` 查詢字串參數。 在系統管理員同意且系統已在客戶的租用戶中建立服務主體之後，後續的登入要求就不再需要 `prompt=admin_consent` 參數。 由於系統管理員已決定可接受要求的權限，因此從該時間點之後，就不會再提示租用戶中的任何其他使用者行使同意權。
 
@@ -184,7 +184,7 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 * [應用程式物件和服務主體物件][AAD-App-SP-Objects]
 * [整合應用程式與 Azure Active Directory][AAD-Integrating-Apps]
 * [同意架構的概觀][AAD-Consent-Overview]
-* [Microsoft Graph API 權限範圍][MSFT-Graph-permision-scopes]
+* [Microsoft Graph API 權限範圍][MSFT-Graph-permission-scopes]
 * [Azure AD Graph API 權限範圍][AAD-Graph-Perm-Scopes]
 
 <!--Reference style links IN USE -->
@@ -201,8 +201,8 @@ Web 應用程式和 Web API 會接收並驗證來自 Azure AD 的權杖。
 [AAD-Samples-MT]: https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multitenant
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://graph.microsoft.io/en-us/docs/overview/overview
-[MSFT-Graph-permision-scopes]: https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
+[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png

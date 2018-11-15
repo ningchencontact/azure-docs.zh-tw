@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395843"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013321"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服務匯流排和事件中樞的 AMQP 1.0 通訊協定指南
 
@@ -29,7 +29,7 @@ AMQP 1.0 是產業共同作業的結果，由中介軟體廠商 (例如 Microsof
 
 ## <a name="goals"></a>目標
 
-此文章簡短摘要說明 AMQP 1.0 訊息規格的核心概念以及目前正由 OASIS AMQP 技術委員會定案的一小組草稿擴充規格，並說明 Azure 服務匯流排如何根據這些規格進行實作和建置。
+本文簡短摘要說明 AMQP 1.0 訊息規格的核心概念以及目前正由 OASIS AMQP 技術委員會定案的一小組草稿擴充規格，並說明 Azure 服務匯流排如何根據這些規格進行實作和建置。
 
 目的是要讓在任何平台上使用任何現有 AMQP 1.0 用戶端堆疊的開發人員，能夠透過 AMQP 1.0 與 Azure 服務匯流排互動。
 
@@ -47,7 +47,7 @@ AMQP 是框架處理和傳輸通訊協定。 框架處理表示它會為以網�
 
 此通訊協定可用於對稱的對等通訊，以便與支援佇列及發佈/訂閱實體的訊息代理程式互動，如 Azure 服務匯流排所為。 也可以用來與傳訊基礎結構互動，其互動模式不同於一般佇列 (和 Azure 事件中樞的情況一樣)。 當事件傳送至事件中樞時，事件中樞的作用如同佇列，但從中讀取事件時，其作用比較像是序列儲存體服務；它有點類似磁帶機。 用戶端會挑選可用資料串流的位移，然後取得從該位移至最新可用的所有事件。
 
-AMQP 1.0 通訊協定是設計為可延伸的，允許進一步規格以增強其功能。 我們在此文件中討論的三個擴充規格會說明這點。 在透過現有 HTTPS/WebSockets 基礎結構進行的通訊中，設定原生 AMQP TCP 連接埠可能很困難。 繫結規格會定義如何透過 WebSockets 將 AMQP 分層。 以要求/回應方式與傳訊基礎結構互動，以便進行管理或提供進階功能時，AMQP 管理規格會定義必要的基本互動原始物件。 在同盟授權模型整合中，AMQP 宣告型安全性規格會定義如何產生關聯並更新與連結相關聯的授權權杖。
+AMQP 1.0 通訊協定是設計為可延伸的，允許進一步規格以增強其功能。 我們在本文件中討論的三個擴充規格會說明這點。 在透過現有 HTTPS/WebSockets 基礎結構進行的通訊中，設定原生 AMQP TCP 連接埠可能很困難。 繫結規格會定義如何透過 WebSockets 將 AMQP 分層。 以要求/回應方式與傳訊基礎結構互動，以便進行管理或提供進階功能時，AMQP 管理規格會定義必要的基本互動原始物件。 在同盟授權模型整合中，AMQP 宣告型安全性規格會定義如何產生關聯並更新與連結相關聯的授權權杖。
 
 ## <a name="basic-amqp-scenarios"></a>基本 AMQP 案例
 
@@ -96,7 +96,7 @@ AMQP 會透過連結傳輸訊息。 連結是在能以單一方向傳輸訊息�
 
 在服務匯流排中，節點直接等同於佇列、主題、訂用帳戶或佇列或訂用帳戶的寄不出信件子佇列。 AMQP 中使用的節點名稱因此是服務匯流排命名空間內實體的相對名稱。 如果佇列名為 `myqueue`，這也是它的 AMQP 節點名稱。 主題訂用帳戶會依循 HTTP API 慣例歸類為 “subscriptions” 資源集合，因此訂用帳戶 **sub** 或主題 **mytopic** 具有 AMQP 節點名稱 **mytopic/subscriptions/sub**。
 
-正在連線的用戶端也必須使用本機節點名稱來建立連結；服務匯流排不會規範這些節點名稱，而且不會解譯它們。 AMQP 1.0 用戶端堆疊通常會使用配置，以確保這些暫時節點名稱是用戶端範圍內的唯一名稱。
+正在連線的用戶端也必須使用本機節點名稱來建立連結；服務匯流排不會規範這些節點名稱，而且不會加以解譯。 AMQP 1.0 用戶端堆疊通常會使用配置，以確保這些暫時節點名稱是用戶端範圍內的唯一名稱。
 
 ### <a name="transfers"></a>傳輸
 
@@ -124,19 +124,19 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 ![][4]
 
-在連結上，傳輸只會發生於傳送者有足夠的連結信用額度時。 連結信用額度是接收者使用「流程」展演所設定的計數器，其範圍是連結。 將連結信用額度指派給傳送者時，將會透過傳遞訊息來嘗試用完該信用額度。 每個訊息傳遞會使剩餘的連結信用額外遞減 1。 當連結信用額度用完時，便會停止傳遞。
+在連結上，傳輸只會發生於傳送者有足夠的連結信用額度時。 連結信用額度是接收者使用「流程」展演所設定的計數器，其範圍是連結。 將連結信用額度指派給傳送者時，將會藉由傳遞訊息來嘗試用完該信用額度。 每個訊息傳遞會使剩餘的連結信用額外遞減 1。 當連結信用額度用完時，便會停止傳遞。
 
 當服務匯流排採用接收者角色時，則會立即將充足的連結信用額度提供給傳送者，以便立即傳送訊息。 使用連結信用額度時，服務匯流排偶爾會傳送流程展演給傳送者，以更新連結信用額度餘額。
 
 在傳送者角色中，服務匯流排會立即傳送訊息，以用完任何未償付的連結信用額度。
 
-在 API 層級的「接收」呼叫會轉譯成由用戶端傳送至服務匯流排的流程展演，而服務匯流排會取用佇列中第一個可用、已解除鎖定的訊息，將它鎖定並傳輸，以使用該信用額度。 如果沒有可立即傳遞的訊息，由任何連結使用該特定實體建立的任何未償付信用額度仍會以抵達順序記錄，而訊息會遭到鎖定，並且在能夠使用任何未償付信用額度時進行傳輸。
+在 API 層級的「接收」呼叫會轉譯成由用戶端傳送至服務匯流排的流程展演，而服務匯流排會取用佇列中第一個可用、已解除鎖定的訊息，加以鎖定並傳輸，以使用該信用額度。 如果沒有可立即傳遞的訊息，由任何連結使用該特定實體建立的任何未償付信用額度仍會以抵達順序記錄，而訊息會遭到鎖定，並且在能夠使用任何未償付信用額度時進行傳輸。
 
 當傳輸進入其中一種終止狀態「已接受」、「已拒絕」或「已解除」時，訊息鎖定就會解除。 終止狀態為「已接受」時，就會從服務匯流排中移除訊息。 它會保留在服務匯流排中，並將在傳輸達到任何其他狀態時，傳遞給下一個接收者。 服務匯流排會在因為重複拒絕或解除而達到實體所允許的最大傳遞計數時，自動將訊息移到實體寄不出的信件佇列中。
 
-現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，透過核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
+現在，即使是服務匯流排 API 也不會直接公開這種選項，較低層級的 AMQP 通訊協定用戶端可以使用連結信用額度模型，藉由核發大量的連結信用額度，將針對每個接收要求核發一單位信用額度的「提取式」模型變成「推送式」模型，然後接收可用的訊息，而不需要任何進一步的互動。 推送是透過 [MessagingFactory.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagingfactory#Microsoft_ServiceBus_Messaging_MessagingFactory_PrefetchCount) 或 [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount) 屬性設定來支援。 如果兩者均不為零，則 AMQP 用戶端會使用它做為連結信用額度。
 
-在此內容中，務必了解實體內訊息鎖定的到期時鐘會在從實體取得訊息時啟動，而不是在訊息放在網路上時啟動。 每當用戶端透過核發連結信用額度來表示接收訊息的整備性，因此預期會主動提取網路上的訊息並準備好處理它們。 否則訊息鎖定可能會在訊息傳遞之前過期。 使用連結信用流量控制應直接反映出可立即準備處理分派給接收者的可用訊息。
+在此內容中，務必了解實體內訊息鎖定的到期時鐘會在從實體取得訊息時啟動，而不是在訊息放在網路上時啟動。 每當用戶端藉由核發連結信用額度來表示接收訊息的整備性，因此預期會主動提取網路上的訊息並準備好處理它們。 否則訊息鎖定可能會在訊息傳遞之前過期。 使用連結信用流量控制應直接反映出可立即準備處理分派給接收者的可用訊息。
 
 總而言之，下列各節提供在不同 API 互動期間展演流程的圖解概觀。 每一節會說明不同的邏輯作業。 其中一些互動可能很「緩慢」，這表示它們可能只會在有需要時執行。 直到傳送或要求第一個訊息，建立訊息傳送者才會造成網路互動。
 
@@ -223,13 +223,13 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 | 欄位名稱 | 使用量 | API 名稱 |
 | --- | --- | --- |
 | message-id |應用程式為此訊息定義的自由格式識別碼。 用於重複偵測。 |[MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_MessageId) |
-| user-id |應用程式定義的使用者識別碼，服務匯流排無法解譯。 |無法透過服務匯流排 API 存取。 |
-| to |應用程式定義的目的地識別碼，服務匯流排無法解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
-| 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
-| reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
-| correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
-| Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
-| content-encoding |應用程式為內文定義的內容編碼識別碼，服務匯流排無法解譯。 |無法透過服務匯流排 API 存取。 |
+| user-id |應用程式定義的使用者識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
+| to |應用程式定義的目的地識別碼，服務匯流排無法加以解譯。 |[To](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_To) |
+| 主旨 |應用程式定義的訊息用途識別碼，服務匯流排無法加以解譯。 |[Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) |
+| reply-to |應用程式定義的回覆路徑指示器，服務匯流排無法加以解譯。 |[ReplyTo](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyTo) |
+| correlation-id |應用程式定義的相互關聯識別碼，服務匯流排無法加以解譯。 |[CorrelationId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_CorrelationId) |
+| Content-Type |應用程式為內文定義的內容類型識別碼，服務匯流排無法加以解譯。 |[ContentType](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ContentType) |
+| content-encoding |應用程式為內文定義的內容編碼識別碼，服務匯流排無法加以解譯。 |無法透過服務匯流排 API 存取。 |
 | absolute-expiry-time |宣告訊息會過期的絕對立即時刻。 在輸入時忽略 (觀察到標頭 TTL)，在輸出時授權具權威性。 |[ExpiresAtUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ExpiresAtUtc) |
 | creation-time |宣告訊息的建立時間。 服務匯流排未使用 |無法透過服務匯流排 API 存取。 |
 | group-id |應用程式為一組相關訊息所定義的識別碼。 用於服務匯流排工作階段。 |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
@@ -264,7 +264,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 #### <a name="starting-a-transaction"></a>開始交易
 
-若要開始進行交易式工作： 控制器必須從協調器取得 `txn-id`。 它會透過傳送 `declare` 類型訊息來執行此作業。 如果宣告成功，協調器就會以具有已指派 `txn-id` 的處置結果回應。
+若要開始進行交易式工作： 控制器必須從協調器取得 `txn-id`。 它會藉由傳送 `declare` 類型訊息來執行此作業。 如果宣告成功，協調器就會以具有已指派 `txn-id` 的處置結果回應。
 
 | 用戶端 (控制站) | | 服務匯流排 (協調器) |
 | --- | --- | --- |
@@ -321,7 +321,7 @@ AMQP 1.0 規格會定義稱為「已接收」的進一步處置狀態稱，其�
 
 ### <a name="amqp-management"></a>AMQP 管理
 
-AMQP 管理規格是此文章討論的第一個延伸模組草稿。 此規格會定義一組分層於 AMQP 通訊協定之上的通訊協定，以便透過 AMQP 進行傳訊基礎結構的管理互動。 此規格定義泛型作業 (例如建立、讀取、更新和刪除)，以便管理傳訊基礎結構內的實體和一組查詢作業。
+AMQP 管理規格是本文討論的第一個延伸模組草稿。 此規格會定義一組分層於 AMQP 通訊協定之上的通訊協定，以便透過 AMQP 進行傳訊基礎結構的管理互動。 此規格定義泛型作業 (例如建立、讀取、更新和刪除)，以便管理傳訊基礎結構內的實體和一組查詢作業。
 
 上述所有軌跡都需要用戶端與傳訊基礎結構之間的要求/回應互動，因此此規格會定義如何製作 AMQP 上互動模式的模型︰用戶端會連線到傳訊基礎結構、起始工作階段，然後建立一組連結。 在某一個連結上，用戶端會扮演傳送者，而在其他連結上扮演接收者，因此建立一組可做為雙向通道的連結。
 
@@ -391,13 +391,13 @@ CBS 會定義由傳訊基礎結構所提供的虛擬管理節點 (名為 *$cbs*)
 
 建立連線和工作階段後，將連結附加至 *$cbs* 節點及傳送 *put-token* 要求是唯一允許的作業。 必須在建立連線後的 20 秒內使用對某個實體節點的 *put-token* 要求成功設定有效的權杖，否則服務匯流排會單方面中斷連線。
 
-用戶端後續會負責追蹤權杖到期。 權杖到期時，服務匯流排會立即卸除個別實體連線上的所有連結。 若要避免發生問題，用戶端可以透過具有相同 *put-token* 軌跡的虛擬 *$cbs* 管理節點隨時使用新的權杖來取代節點的權杖，但不會干擾在不同連結上流動的承載流量。
+用戶端後續會負責追蹤權杖到期。 權杖到期時，服務匯流排會立即卸除個別實體連線上的所有連結。 若要避免發生問題，用戶端可以隨時透過具有相同 *put-token* 軌跡的虛擬 *$cbs* 管理節點，使用新的權杖來取代節點的權杖，而不會干擾在不同連結上流動的承載流量。
 
 ### <a name="send-via-functionality"></a>傳送方式功能
 
 [傳送方式 / 傳輸傳送者](service-bus-transactions.md#transfers-and-send-via)功能，可讓服務匯流排透過另一個實體將指定的訊息轉寄至目的地實體。 此功能用於在單一交易中執行跨實體的作業。
 
-使用此功能，您可建立傳送者並建立 `via-entity` 的連結。 建立連結時，系統會傳遞其他資訊，以在此連結上建立訊息/傳輸的真正目的地。 一旦連結成功，在此連結上傳送的所有訊息都會透過 *via-entity* 自動轉寄到 *destination-entity*。 
+使用這項功能，您可建立傳送者並建立 `via-entity` 的連結。 建立連結時，系統會傳遞其他資訊，以在此連結上建立訊息/傳輸的真正目的地。 一旦連結成功，在此連結上傳送的所有訊息都會透過 *via-entity* 自動轉寄到 *destination-entity*。 
 
 > 注意：建立這個連結之前，必須對 via-entity 和 destination-entity 執行驗證。
 

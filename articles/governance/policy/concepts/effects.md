@@ -4,40 +4,46 @@ description: 「Azure 原則」定義有各種效果，可決定合規性的管�
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 54562401c830232d0a4bf90405cc5a2dbedcd8bc
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055963"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279487"
 ---
 # <a name="understand-policy-effects"></a>了解原則效果
 
 「Azure 原則」中的每個原則定義都有單一效果，可決定在掃描期間，於評估原則規則的 **if** 區段以比對所掃描的資源時，會發生什麼情況。 這些效果在針對新資源、已更新的資源或現有的資源時，也可能有不同的行為表現。
 
-原則定義中目前支援 5 種效果：
+原則定義中目前支援六種效果：
 
 - Append
 - 稽核
 - AuditIfNotExists
 - 拒絕
 - DeployIfNotExists
+- 已停用
 
 ## <a name="order-of-evaluation"></a>評估順序
 
 當發出透過 Azure Resource Manager 建立或更新資源的要求時，原則會先處理數個效果，然後才將要求傳遞給適當的資源提供者。
 此做法可避免資源提供者在資源不符合所設計的原則治理控制措施時，進行不必要的處理。 原則會建立依範圍 (減去排除項目) 套用至資源的所有原則定義清單 (由原則或初始指派所指派)，然後準備依據每個定義來評估資源。
 
-- 最先評估的是 **Append**。 由於 Append 可以改變要求，因此 Append 所進行的變更可能會導致無法觸發 Audit 或 Deny 效果。
+- 首先會檢查 **Disabled**，以決定是否應評估原則規則。
+- 接著評估的是 **Append**。 由於 Append 可以改變要求，因此 Append 所進行的變更可能會導致無法觸發 Audit 或 Deny 效果。
 - 接著評估的是 **Deny**。 在 Audit 前先評估 Deny 可防止重複記錄不想要的資源。
 - 接著會先評估**Audit**，然後才將要求傳遞給資源提供者。
 
 在將要求提供給資源提供者且資源提供者傳回成功狀態碼之後，便會評估 **AuditIfNotExists** 和 **DeployIfNotExists**，以判斷是否需要進行後續的合規性記錄或動作。
+
+## <a name="disabled"></a>已停用
+
+此效果適用於測試情況，以及在原則定義已將效果參數化時。 您能夠藉由改變效果的指派參數，而非停用原則的所有指派，來停用該原則的單一指派。
 
 ## <a name="append"></a>Append
 
@@ -256,7 +262,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 此屬性應該包含完整範本部署，因為它將傳遞給 `Microsoft.Resources/deployments` PUT API。 如需詳細資訊，請參閱[部署 REST API](/rest/api/resources/deployments)。
 
   > [!NOTE]
-  > **Deployment** 屬性內的所有函式都會作為範本 (而非原則) 的元件來評估。 **parameters** 屬性例外，此屬性會將來自原則的值傳遞給範本。 此區段中 template 參數名稱底下的 **value** 會用來執行此值傳遞 (請參閱 DeployIfNotExists 範例中的 _fullDbName_)。
+  > **Deployment** 屬性內的所有函式都會作為範本 (而非原則) 的元件來評估。 **parameters** 屬性例外，此屬性會將來自原則的值傳遞給範本。 此區段中 template 參數名稱底下的 **value** 會用來執行這項值傳遞 (請參閱 DeployIfNotExists 範例中的 _fullDbName_)。
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists 範例
 
@@ -313,7 +319,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到多個指派影響。 這些指派可能在相同範圍 (特定資源、資源群組、訂用帳戶或管理群組)，也可能在不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 無論如何，每個原則的條件和效果 (直接指派或作為初始指派的一部分) 都會以獨立方式評估。 例如，如果原則 1 的條件以 Deny 效果限制在 'westus' 中建立訂用帳戶 A 的資源位置，而原則 2 的條件以 Audit 效果限制在 'eastus' 中建立資源群組 B (在訂用帳戶 A 中) 的資源位置，當同時指派這兩個原則時，產生的結果會是：
+一個資源可能會受到多項指派影響。 這些指派可能在相同範圍 (特定資源、資源群組、訂用帳戶或管理群組)，也可能在不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 無論如何，每個原則的條件和效果 (直接指派或作為初始指派的一部分) 都會以獨立方式評估。 例如，如果原則 1 的條件以 Deny 效果限制在 'westus' 中建立訂用帳戶 A 的資源位置，而原則 2 的條件以 Audit 效果限制在 'eastus' 中建立資源群組 B (在訂用帳戶 A 中) 的資源位置，當同時指派這兩個原則時，產生的結果會是：
 
 - 任何已經在資源群組 B 且在 'eastus' 中的資源都符合原則 2 的規範，但會標示為不符合原則 1 的規範。
 - 任何已經在資源群組 B 但不在 'eastus' 中的資源都會標示為不符合原則 2 的規範，且如果不在 'westus' 中，也會標示為不符合原則 1 的規範。

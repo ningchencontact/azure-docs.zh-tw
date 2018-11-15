@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: afba39d1af700650cfbf7226dff36729a76a0bda
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 65e764d843f9e87adee4cf94c1d22b02db80eda0
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669785"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958827"
 ---
 # <a name="additional-documentation"></a>其他文件
 
@@ -33,4 +33,4 @@ ms.locfileid: "50669785"
 
 ## <a name="vfxt-creation-and-management-documentation"></a>vFXT 建立和管理文件
 
-使用 vfxt.py、雲端叢集建立以及管理公用程式的完整指南在 <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 提供。  
+使用 vfxt.py (雲端叢集建立與管理公用程式) 的完整指南可在 GitHub 上找到：[使用 vfxt.py 進行雲端叢集管理](https://github.com/Azure/AvereSDK/blob/master/docs/README.md) \(英文\)。  

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 420ec288b81e0bb12ae9f61a5eaf03880205cc55
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 04639e6d27854d9c25b97936b163cfaaa25fc375
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247975"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287433"
 ---
 # <a name="configure-an-openidoauth-application-from-the-azure-ad-app-gallery"></a>從 Azure AD 應用程式資源庫設定 OpenID/OAuth 應用程式
 
@@ -84,7 +84,7 @@ ms.locfileid: "50247975"
 
 此架構以使用者或系統管理員為根據，他們可同意讓應用程式在他們的目錄中註冊。 註冊可能包含存取目錄資料。 取得同意之後，用戶端應用程式將能代表使用者呼叫 Microsoft Graph API，並視需要使用資訊。
 
-[Microsoft Graph API](https://graph.microsoft.io/) 會提供 Office 365 中資料的存取權，例如：
+[Microsoft Graph API](https://developer.microsoft.com/graph/) 會提供 Office 365 中資料的存取權，例如：
 
 - Exchange 中的行事曆和訊息。
 - SharePoint 中的網站和清單。

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005048"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612742"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>分析 Azure 監視器中的 Log Analytics 資料
 
-Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/data-explorer)。 它會從各種來源收集遙測，並使用[資料總管中的查詢語言](/kusto)來擷取和分析資料。
+Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區中，此作業取決於 [Azure 資料總管](/azure/data-explorer)。 它會從各種來源收集遙測，並使用[資料總管中的查詢語言](/azure/kusto/query)來擷取和分析資料。
 
 > [!NOTE]
 > Log Analytics 先前被視為其本身在 Azure 中的服務。 現在則被視為 Azure 監視器的一部分，主要功能為使用其查詢語言進行記錄資料的儲存和分析。 先前隸屬於 Log Analytics 的功能 (例如 Windows 和 Linux 的資料收集代理程式、以視覺化方式呈現現有資料的檢視，以及會在問題發生時主動通知您的警示) 並未變更，但現已被視為 Azure 監視器的一部分。
@@ -41,12 +41,12 @@ Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區�
 您在 Log Analytics 中使用查詢的不同方式包括：
 
 - **入口網站。** 您可以在 [Azure 入口網站](log-analytics-log-search-portals.md)中執行記錄資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  
-- **警示規則。** [警示規則](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
+- **警示規則。** [警示規則](../monitoring-and-diagnostics/monitoring-overview-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
 - **儀表板。** 您可以將任何查詢的結果釘選到 [Azure 儀表板]()中，如此即可以視覺化方式顯示記錄和計量資料，並選擇性地將其與其他 Azure 使用者共用。 
 - **檢視。**  您可以使用[檢視設計工具](log-analytics-view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄查詢會在各個檢視中提供[圖格](log-analytics-view-designer-tiles.md)和[視覺效果部分](log-analytics-view-designer-parts.md)所使用的資料。  
 - **匯出。**  當您將資料從 Log Analytics 工作區匯入至 Excel 或 [Power BI](log-analytics-powerbi.md) 時，您會建立記錄查詢以定義要匯出的資料。
 - **Powershell。** 您可以從命令列或 Azure 自動化 Runbook (使用 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0)) 執行 PowerShell 指令碼，以從 Log Analytics 擷取資料。  此 Cmdlet 需要查詢來決定要擷取的資料。
-- **Log Analytics API。**  [Log Analytics 記錄搜尋 API](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Log Analytics 執行的查詢，來判斷要擷取的資料。
+- **Log Analytics API。**  [Log Analytics 記錄搜尋 API](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Log Analytics 執行的查詢，來判斷要擷取的資料。
 
 ![記錄檔搜尋](media/log-analytics-queries/queries-overview.png)
 

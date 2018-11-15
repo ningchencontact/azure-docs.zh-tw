@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429060"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279138"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -64,7 +64,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 - **Kubernetes Marketplace 項目**。 您現在可以使用 [Kubernetes Marketplace 項目](azure-stack-solution-template-kubernetes-cluster-add.md)來部署 Kubernetes 叢集。 使用者可以選取 Kubernetes 項目並且填入幾個參數，以將 Kubernetes 叢集部署至 Azure Stack。 範本的目的是讓使用者以少數幾個步驟輕鬆設定開發/測試 Kubernetes 部署。
 
 <!-- | IS ASDK--> 
-- **區塊鏈範本**。 您現在可以在 Azure Stack 上執行[以太坊聯盟部署](azure-stack-ethereum.md)。 您可以在 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三個新範本。 這些範本可以讓使用者僅須具備最少的 Azure 和以太坊知識，即可部署及設定多成員聯盟的以太坊網路。 範本的目的是讓使用者以少數幾個步驟輕鬆設定開發/測試區塊鏈部署。
+- **區塊鏈範本**。 您現在可以在 Azure Stack 上執行[以太坊聯盟部署](user/azure-stack-ethereum.md)。 您可以在 [Azure Stack 快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates)中找到三個新範本。 這些範本可以讓使用者僅須具備最少的 Azure 和以太坊知識，即可部署及設定多成員聯盟的以太坊網路。 範本的目的是讓使用者以少數幾個步驟輕鬆設定開發/測試區塊鏈部署。
 
 <!-- | IS ASDK--> 
 - **API 版本設定檔 2017-03-09-profile 已更新為 2018-03-01-hybrid**。 API 設定檔會指定 Azure 資源提供者和 Azure REST 端點的 API 版本。 如需設定檔的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](/azure/azure-stack/user/azure-stack-version-profiles)。
@@ -157,6 +157,10 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 - 在某些情況下，當需要注意某個更新時，可能並不會產生對應的警示。 入口網站仍然會反映正確的狀態而不受影響。
 
 ### <a name="post-update-steps"></a>更新後步驟
+
+> [!Important]  
+> 讓您的 Azure Stack 部署準備使用延伸主機。 使用下列指導方針準備您的系統：[Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)。
+
 在安裝此更新之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。 
 - [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
@@ -249,8 +253,11 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 
 ### <a name="compute"></a>計算
 
+<!-- TBD – IS, ASDK -->
+- 將已中斷連結的磁碟重新連結到具有相同名稱的相同虛擬機器 (VM)，並且發生如**無法將資料磁碟 'datadisk' 連結到 VM 'vm1'** 錯誤的 LUN 失敗。 此錯誤的發生原因是磁碟目前正在中斷連結，或上次的中斷連結作業失敗。 請等候磁碟完全中斷連結後再試一次，或再次明確將磁碟刪除/中斷連結。 因應措施是使用其他名稱或在其他 LUN 上將它重新連結。 
+
 <!-- 3099544 – IS, ASDK --> 
-- 當您使用 Azure Stack 入口網站建立新的虛擬機器 (VM) 並選取 VM 大小時，會顯示美元/月欄位和「無法使用」訊息。 此欄位不應該出現；Azure Stack 不支援顯示 VM 定價欄位。
+- 當您使用 Azure Stack 入口網站建立新的VM 並選取 VM 大小時，會顯示美元/月欄位和「無法使用」訊息。 此欄位不應該出現；Azure Stack 不支援顯示 VM 定價欄位。
 
 <!-- 3090289 – IS, ASDK --> 
 - 套用 1808 更新之後，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：

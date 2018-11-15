@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470315"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281760"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -59,6 +59,9 @@ Microsoft Azure 儲存體總管是一個獨立應用程式，可讓您在 Window
 1. 移除所有的帳戶，然後關閉 [儲存體總管]
 2. 從您的機器中刪除 .IdentityService 資料夾。 在 Windows 中，該資料夾位於 `C:\users\<username>\AppData\Local`。 對於 Mac 和 Linux，您可以在使用者目錄的根目錄中找到此資料夾。
 3. 如果您使用 Mac 或 Linux，您也必須從您的作業系統金鑰儲存區中刪除 Microsoft.Developer.IdentityService 項目。 在 Mac 上，金鑰儲存區會是 "Gnome Keychain" 應用程式。 針對 Linux，此應用程式通常稱為 "Keyring"，但此名稱可能會因為您的散發版本不同而有差異。
+
+### <a name="conditional-access"></a>條件式存取
+在 Windows 10、Linux 或 macOS 上使用儲存體總管時，不支援條件式存取。 這是因為儲存體總管所使用之 AAD 程式庫中的限制。
 
 ## <a name="mac-keychain-errors"></a>Mac Keychain 錯誤
 macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生問題的狀態。 若要使鑰匙圈脫離這種狀態，請嘗試下列步驟：
@@ -143,6 +146,12 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 ## <a name="unable-to-retrieve-children-error-message"></a>「無法擷取子系」錯誤訊息
 
 如果透過 proxy 連線至 Azure，請確認您的 proxy 設定正確無誤。 如已獲授權可存取訂用帳戶或帳戶擁有者的資源，請確認您已閱讀或列出該資源的權限。
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>連接字串沒有完整的組態設定
+
+如果您收到此錯誤訊息，很可能您沒有取得儲存體帳戶金鑰所需的權限。 若要確認是否為此情形，請移至入口網站並找到您的儲存體帳戶。 您可以以滑鼠右鍵按一下儲存體帳戶的節點，然後按一下 [在入口網站中開啟] 來快速完成此動作。 這麼做之後，會移至 [存取金鑰] 刀鋒視窗。 如果您沒有檢視金鑰的權限，則您會看到頁面顯示訊息：「您沒有存取權」。 若要解決此問題，您可以從其他人取得帳戶金鑰，並使用其名稱和金鑰來連結，或是要求其他人的儲存體帳戶共用存取簽章 (SAS)，並使用它來連結儲存體帳戶。
+
+如果您可以看到帳戶金鑰，請在 GitHub 上提出問題，以便我們協助您解決問題。
 
 ## <a name="issues-with-sas-url"></a>SAS URL 問題
 如果您使用 SAS URL 連線到服務，而碰到此錯誤：

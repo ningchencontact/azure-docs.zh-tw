@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 13d6ed9feab4654d3574a5aced72efa0345365a6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215322"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282062"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory 中群組的動態成員資格規則
 
@@ -339,7 +339,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 
 ## <a name="rules-for-devices"></a>裝置的規則
 
-您也可以建立規則以在群組中選取成員資格的裝置物件。 您不能同時讓使用者和裝置成為群組成員。 可以使用下列裝置屬性。
+您也可以建立規則以在群組中選取成員資格的裝置物件。 您不能同時讓使用者和裝置成為群組成員。 **organizationalUnit** 屬性不會再列出且不應使用。 此字串由 Intune 在特定情況下所設定，但 Azure AD 無法辨識，因此沒有任何裝置會新增至以這個屬性為基礎的群組。
+
+可以使用下列裝置屬性。
 
  裝置屬性  | 值 | 範例
  ----- | ----- | ----------------
@@ -355,9 +357,9 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
  enrollmentProfileName | Apple 裝置註冊設定檔或 Windows Autopilot 設定檔名稱 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM (適用於行動裝置)<br>PC (適用於 Intune PC 代理程式管理的電腦) | (device.managementType -eq "MDM")
- organizationalUnit | 符合內部部署 Active Directory 所設定的組織單位名稱的任何字串值 | (device.organizationalUnit -eq "US PCs")
  deviceId | 有效的 Azure AD 裝置識別碼 | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 有效的 Azure AD 物件識別碼 |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | 比對 Intune 裝置屬性以觸發新式工作場所的裝置的任何字串 | (device.systemLabels - 包含 “M365Managed”)
 
 ## <a name="next-steps"></a>後續步驟
 

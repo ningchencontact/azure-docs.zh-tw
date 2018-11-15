@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005218"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613982"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Log Analytics 中的 VMware 監視 (預覽) 解決方案
 
@@ -165,7 +165,7 @@ VMware 監視解決方案會使用您已啟用的 Log Analytics Linux 代理程�
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>從查詢建立警示
-建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
+建立您的查詢後，您可能想要使用該查詢在特定事件發生時發出警示。 如需有關如何建立警示的資訊，請參閱 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。 如需警示查詢和其他查詢的範例，請參閱部落格文章[使用 Log Analytics 監視 VMware](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>我需要在 ESXi 主機設定上做什麼設定？ 它會對我目前的環境造成什麼影響？
@@ -208,4 +208,4 @@ syslog 時間戳記有一個 ESXi 主機錯誤。 如需詳細資訊，請參閱
 ## <a name="next-steps"></a>後續步驟
 * 使用 Log Analytics 中的 [Log Analytics](log-analytics-queries.md) 檢視詳細的 VMware 主機資料。
 * [建立您自己的儀表板](log-analytics-dashboards.md)來顯示 VMware 主機的資料。
-* 在特定的 VMware 主機事件發生時[建立警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。
+* 在特定的 VMware 主機事件發生時[建立警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。

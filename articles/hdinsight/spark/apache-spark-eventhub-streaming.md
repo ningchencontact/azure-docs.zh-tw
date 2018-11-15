@@ -3,18 +3,18 @@ title: '教學課程：使用 Azure HDInsight 中的 Apache Spark 處理來自 A
 description: 將 Azure HDInsight 中的 Apache Spark 連線至 Azure 事件中樞，並處理串流資料。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046247"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283405"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Spark 處理推文
 
@@ -73,18 +73,14 @@ ms.locfileid: "43046247"
     ![提供 Spark 串流範例的事件中樞名稱](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "提供 Spark 串流範例的事件中樞名稱")
 5. 選取 [建立] 來建立命名空間。
 
-6. 使用下列指示來開啟事件中樞命名空間：
+7. 使用下列指示來開啟事件中樞命名空間：
 
     1. 從入口網站，選取 [所有服務]。
     2. 在篩選方塊中，輸入**事件中樞**。
-    3. 按兩下您建立的命名空間。
+    3. 選取新建立的命名空間。
     4. 選取 [+ 事件中樞]。
 
-6. 在 [事件中樞] 命名空間清單中，按一下新建立的命名空間。      
-5. 選取 [事件中樞]，然後選取 [+ 事件中樞] 以建立新的事件中樞。
-  
-
-6. 輸入下列值：
+8. 輸入下列值：
 
     - 名稱：提供事件中樞的名稱。
     - 分割區計數：10
@@ -92,12 +88,12 @@ ms.locfileid: "43046247"
    
     ![提供 Spark 串流範例的事件中樞詳細資料](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "提供 Spark 串流範例的事件中樞詳細資料")
 
-7. 選取 [建立] 。
-8. 針對命名空間選取 [共用存取原則] (請注意，不是事件中樞共用存取原則)，然後選取 [RootManageSharedAccessKey]。
+9. 選取 [建立] 。
+10. 針對命名空間選取 [共用存取原則] (請注意，不是事件中樞共用存取原則)，然後選取 [RootManageSharedAccessKey]。
     
      ![設定 Spark 串流範例的事件中樞原則](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "設定 Spark 串流範例的事件中樞原則")
 
-9. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在本教學課程中使用。
+11. 儲存**主索引鍵**和**連接字串-主索引鍵**值，以便稍後在本教學課程中使用。
 
      ![檢視 Spark 串流範例的事件中樞原則金鑰](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "檢視 Spark 串流範例的事件中樞原則金鑰")
 
@@ -222,7 +218,7 @@ ms.locfileid: "43046247"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-利用 HDInsight，會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如果您打算立即進行下一個教學課程，則可能想要保留叢集。
+利用 HDInsight，會將您的資料儲存於 Azure 儲存體或 Azure Data Lake Store 中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 如果您打算立即進行下一個教學課程，則可能想要保留叢集，否則可直接刪除叢集。
 
 在 Azure 入口網站中開啟叢集，然後選取 [刪除]。
 

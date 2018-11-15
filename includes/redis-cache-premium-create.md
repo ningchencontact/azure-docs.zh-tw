@@ -1,3 +1,16 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+ms.openlocfilehash: 2c96604093542c2697c691ad8fb8bf11e77e2d0b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571884"
+---
 若要建立進階快取，請登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [建立資源] > [資料庫] > [Redis 快取]。
 
 ![Create cache](media/redis-cache-premium-create/redis-cache-new-cache-menu.png)

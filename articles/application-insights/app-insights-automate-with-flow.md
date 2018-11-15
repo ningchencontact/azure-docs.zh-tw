@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 65909e13c75ae4d2577ea29f562b841a1eb20477
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299095"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256420"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>使用適用於 Microsoft Flow 的連接器自動執行 Azure Application Insights 程序
 
@@ -34,7 +34,7 @@ ms.locfileid: "44299095"
 在此教學課程中，您將學習如何建立流程，該流程會使用 Analytics 自動叢集演算法將 Web 應用程式資料中的屬性分組。 此流程會以電子郵件自動傳送結果，這只是如何將 Microsoft Flow 和 Application Insights Analytics 一起使用的其中一個範例。 
 
 ### <a name="step-1-create-a-flow"></a>步驟 1：建立流程
-1. 登入 [Microsoft Flow](http://flow.microsoft.com)，然後選取 [我的流程]。
+1. 登入 [Microsoft Flow](https://flow.microsoft.com)，然後選取 [我的流程]。
 1. 按一下 [從空白建立流程]。
 
 ### <a name="step-2-create-a-trigger-for-your-flow"></a>步驟 2：建立流程的觸發程序
@@ -47,7 +47,7 @@ ms.locfileid: "44299095"
 ### <a name="step-3-add-an-application-insights-action"></a>步驟 3：新增 Application Insights 動作
 1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 1. 搜尋 **Azure Application Insights**。
-1. 按一下 [Azure Application Insights – 視覺化 Analytics 查詢預覽]。
+1. 按一下 [Azure Application Insights - 視覺化 Analytics 查詢預覽]。
 
     ![執行 Analytics 查詢視窗](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -85,7 +85,7 @@ ms.locfileid: "44299095"
 
 1. 按一下 [新增步驟]，然後按一下 [新增動作]。
 1. 搜尋 **Office 365 Outlook**。
-1. 按一下 [Office 365 Outlook – 傳送電子郵件]。
+1. 按一下 [Office 365 Outlook - 傳送電子郵件]。
 
     ![Office 365 Outlook 選取視窗](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "44299095"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 深入了解建立 [Analytics 查詢](app-insights-analytics-using.md)。
+- 深入了解建立 [Analytics 查詢](../log-analytics/query-language/get-started-queries.md)。
 - 深入了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
 
 

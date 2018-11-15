@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954835"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961818"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -27,8 +27,8 @@ Azure 環境內有數個「層級」的監視資料，而存取每一層資料�
 
 - **應用程式監視資料：** 您所撰寫並在 Azure 上執行之程式碼的效能和功能相關資料。 應用程式監視資料的範例包括效能追蹤、應用程式記錄，以及使用者遙測。 應用程式監視資料通常會以下列其中一種方式收集：
   - 透過使用 [Application Insights SDK](../application-insights/app-insights-overview.md) 之類的 SDK 來檢測程式碼。
-  - 透過執行會在執行應用程式的電腦上接聽新應用程式記錄的監視代理程式，例如 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md)。
-- **客體 OS 監視資料：** 有關執行應用程式之作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/linux/diagnostic-extension.md) 這類的代理程式。
+  - 透過執行會在執行應用程式的電腦上接聽新應用程式記錄的監視代理程式，例如 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md)。
+- **客體 OS 監視資料：** 有關執行應用程式之作業系統的資料。 客體 OS 監視資料的範例為 Linux syslog 或 Windows 系統事件。 若要收集這類資料，您必須安裝像是 [Windows Azure 診斷代理程式](./azure-diagnostics.md)或 [Linux Azure 診斷代理程式](../virtual-machines/extensions/diagnostics-linux.md) 的代理程式。
 - **Azure 資源監視資料：** 有關 Azure 資源之作業的資料。 針對某些 Azure 資源類型 (例如虛擬機器)，在該 Azure 服務內會有要監視的客體 OS 與應用程式。 針對其他 Azure 資源 (例如網路安全性群組)，資源監視資料是最高層級的可用資料 (因為在那些資源中沒有執行任何客體 OS 或應用程式)。 這類資料可使用[資源診斷設定](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)來收集。
 - **Azure 訂用帳戶監視資料：** 有關 Azure 訂用帳戶作業和管理的資料，以及有關 Azure 本身健康情況和作業的資料。 [活動記錄](./monitoring-overview-activity-logs.md)包含大部分的訂用帳戶監視資料，例如服務健康情況事件和 Azure Resource Manager 稽核。 您可以使用記錄設定檔收集此資料。
 - **Azure 租用戶監視資料：** 租用戶層級 Azure 服務的作業相關資料，例如 Azure Active Directory。 Azure Active Directory 稽核和登入是租用戶監視資料的範例。 您也可以使用租用戶診斷設定來收集此資料。
@@ -54,7 +54,7 @@ Azure 租用戶監視資料目前只適用於 Azure Active Directory。 您可�
 
 ### <a name="azure-active-directory-data"></a>Azure Active Directory 資料
 
-若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)來設定租用戶診斷設定。
+若要將資料從 Azure Active Directory 記錄傳送到事件中樞命名空間，您要設定 AAD 租用戶上的租用戶診斷設定。 [遵循本指南](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)來設定租用戶診斷設定。
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure 訂用帳戶監視資料
 
@@ -71,7 +71,7 @@ Azure 訂用帳戶監視資料可用於 [Azure 活動記錄](./monitoring-overvi
 
 Azure 資源會發出兩種監視資料：
 1. [資源診斷記錄](./monitoring-overview-of-diagnostic-logs.md)
-2. [計量](monitoring-overview-metrics.md)
+2. [計量](../monitoring/monitoring-data-collection.md)
 
 這兩種資料都會使用資源診斷設定來傳送至事件中樞。 [遵循此指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)以在特定資源上設定資源診斷設定。 為每個要收集記錄的資源進行資源診斷設定。
 
@@ -113,10 +113,11 @@ Azure 資源會發出兩種監視資料：
     1. [適用於 Splunk 的 Azure 監視器附加元件](https://splunkbase.splunk.com/app/3534/) \(英文\) 可從 Splunkbase 和開放原始碼專案中取得。 [文件在此](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk) \(英文\)。
     2. 如果您無法在 Splunk 執行個體中安裝附加元件 (例如， 如果使用 Proxy 或在 Splunk Cloud 上執行)，您可以使用[由事件中樞中的新訊息觸發的這個功能](https://github.com/Microsoft/AzureFunctionforSplunkVS)，將這些事件轉寄給 Splunk HTTP Event Collector。
 * **SumoLogic** - 設定 SumoLogic 以從事件中樞取用資料的指示[可從這裡取得](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub) \(英文\)
+* **ArcSight** -「ArcSight Azure 事件中樞」智慧型連接器隨附於[這裡的 ArcSight 智慧型連接器集合](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)。
 * **Syslog 伺服器** - 若要直接將 Azure 監視器資料串流到 syslog 伺服器，您可以查看[此 github 存放庫](https://github.com/miguelangelopereira/azuremonitor2syslog/) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 * [將活動記錄檔封存至儲存體帳戶](monitoring-archive-activity-log.md)
 * [閱讀 Azure 活動記錄檔的概觀](monitoring-overview-activity-logs.md)
-* [根據活動記錄檔事件設定警示](insights-auditlog-to-webhook-email.md)
+* [根據活動記錄檔事件設定警示](monitor-alerts-unified-log-webhook.md)
 

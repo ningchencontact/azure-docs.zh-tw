@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: cf69fdf87f1ce64bd78478f07e575d7ae75c16e0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394234"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621203"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>教學課程：將 Azure AD 記錄封存到 Azure 儲存體帳戶 (預覽)
 
@@ -68,9 +68,8 @@ ms.locfileid: "49394234"
 
     ![診斷設定](./media/quickstart-azure-monitor-route-logs-to-storage-account/DiagnosticSettings.png)
 
-12. 大約 15 分鐘之後，確認記錄是否已推送到儲存體帳戶。 移至 [Azure 入口網站](https://portal.azure.com)，選取 [儲存體帳戶]，選取您稍早使用的儲存體帳戶，然後選取 [Blob]。 
+12. 大約 15 分鐘之後，確認記錄是否已推送到儲存體帳戶。 移至 [Azure 入口網站](https://portal.azure.com)，選取 [儲存體帳戶]，選取您稍早使用的儲存體帳戶，然後選取 [Blob]。 針對 [稽核記錄] 選取 [insights-log-audit]。 針對 [登入記錄] 選取 [insights-logs-signin]。
 
-13. 針對 [稽核記錄] 選取 [insights-log-audit]。 針對 [登入記錄] 選取 [insights-logs-signin]。
     ![儲存體帳戶](./media/quickstart-azure-monitor-route-logs-to-storage-account/StorageAccount.png)
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 36c30e11e8b7bd8b3e8ae3e424649998dcfff5bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380499"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228125"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -24,18 +24,30 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 若要使用媒體服務 v3 分析您的內容，請建立**轉換**，並提交使用下列其中一個預設值的**作業**：**AudioAnalyzerPreset** 或 **VideoAnalyzerPreset**。 下列文章示範如何使用 **VideoAnalyzerPreset**：[教學課程：使用 Azure 媒體服務分析影片](analyze-videos-tutorial-with-api.md)。
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+> [!NOTE]
+> 使用視訊或音訊分析程式的預設時，可使用 Azure 入口網站將帳戶設定為擁有 10 個 S3 編碼保留單元。 如需詳細資訊，請參閱[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)。
 
-**AudioAnalyzerPreset** 可讓您從音訊檔案或視訊檔案擷取多個音訊深入資訊。 輸出會包含 JSON 檔案 (包含所有的深入資訊) 和音訊文字記錄的 VTT 檔案。 此預設接受的屬性會指定輸入檔案的語言 ([BCP47](https://tools.ietf.org/html/bcp47) 字串形式)。 音訊的深入資訊包括：
+## <a name="built-in-presets"></a>內建預設
+
+媒體服務目前支援下列內建的分析器預設：  
+
+|**預設名稱**|**案例**|**詳細資料**|
+|---|---|---|
+|**AudioAnalyzerPreset**|分析音訊|此預設會套用一組預先定義的 AI 型分析作業，包括語音轉譯。 此預設目前支援處理具有單一音訊播放軌的內容。<br/>您可以使用「語言標記-區域」的 BCP-47 格式 (例如 'en-US')，為輸入中的音訊承載指定語言。 所支援語言的清單有 'en-US'、'en-GB'、'es-ES'、'es-MX'、'fr-FR'、'it-IT'、'ja-JP'、'pt-BR'、'zh-CN'。|
+|**VideoAnalyzerPreset**|分析音訊和視訊|從音訊和視訊擷取見解 (豐富的中繼資料)，並輸出 JSON 格式檔案。 您可以指定在處理視訊檔案時，是否只想擷取音訊見解。 如需詳細資訊，請參閱[分析視訊](analyze-videos-tutorial-with-api.md)。|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+預設可讓您從音訊檔案或視訊檔案擷取多個音訊深入資訊。 輸出會包含 JSON 檔案 (包含所有的深入資訊) 和音訊文字記錄的 VTT 檔案。 此預設接受的屬性會指定輸入檔案的語言 ([BCP47](https://tools.ietf.org/html/bcp47) 字串形式)。 音訊的深入資訊包括：
 
 * 音訊轉譯 – 具有時間戳記的旁白文字記錄。 支援多種語言
 * 演講者索引 - 演講者和相應旁白之間的對應
 * 口語情緒分析 – 針對音訊轉譯執行的情緒分析輸出
 * 關鍵字 – 從音訊轉譯擷取的關鍵字。
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** 可讓您從視訊檔案擷取多個音訊和視訊深入資訊。 輸出包含 JSON 檔案 (包含所有的深入資訊)、視訊文字記錄的 VTT 檔案，以及縮圖的集合。 此預設也接受 [BCP47](https://tools.ietf.org/html/bcp47) 字串 (表示視訊的語言) 當作屬性。 視訊深入資訊包含上述的音訊深入資訊和下列其他項目：
+預設可讓您從影片檔案擷取多個音訊和影片深入資訊。 輸出包含 JSON 檔案 (包含所有的深入資訊)、視訊文字記錄的 VTT 檔案，以及縮圖的集合。 此預設也接受 [BCP47](https://tools.ietf.org/html/bcp47) 字串 (表示視訊的語言) 當作屬性。 視訊深入資訊包含上述的音訊深入資訊和下列其他項目：
 
 * 臉部追蹤 – 臉部在視訊中出現的時間。 每一張臉都有臉部識別碼和相對應的縮圖集合
 * 視覺文字 – 透過光學字元辨識偵測到的文字。 文字會加上時間戳記，並且也用來擷取關鍵字 (除了音訊文字記錄以外)
@@ -140,7 +152,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 |knownPersonId|如果是已知人物，則為其內部識別碼。|
 |referenceId|若為 Bing 名人，則為其 Bing 識別碼。|
 |referenceType|目前只是 Bing。|
-|title|若為名人，則為其職稱 (例如 Microsoft CEO)。|
+|title|若為名人，則為其職稱 (例如 "Microsoft CEO")。|
 |imageUrl|若為名人，則為其影像 URL。|
 |執行個體|這些是臉部出現在指定時間範圍中的執行個體。 每個執行個體也會有 thumbnailsId。 |
 
@@ -386,7 +398,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-VisualContentModeration 區塊包含影片索引子偵測到可能有成人內容的時間範圍。 若 visualContentModeration 是空的，表示未識別到任何成人內容。
+visualContentModeration 區塊包含影片索引器偵測到可能含有成人內容的時間範圍。 若 visualContentModeration 是空的，表示未識別到任何成人內容。
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
