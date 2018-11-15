@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094078"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960101"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系統效能計數器
 Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) (例如 CPU 使用、記憶體、磁碟和網路使用量)。 您也可以自行定義。 如果應用程式是在您具有系統管理存取權的內部部署主機或虛擬機器上於 IIS 下執行，則 [Application Insights](app-insights-overview.md) 可以顯示這些效能計數器。 這些圖表指出即時應用程式可用的資源，而且有助於識別伺服器執行個體之間的不平衡負載。
@@ -27,7 +27,7 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 
 ![Application Insights 中所報告的效能計數器](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(效能計數器不適用於 Azure Web Apps。 但是，您可以[將 Azure 診斷傳送至 Application Insights](app-insights-azure-diagnostics.md))。
+(效能計數器不適用於 Azure Web Apps。 但是，您可以[將 Azure 診斷傳送至 Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md))。
 
 ## <a name="view-counters"></a>檢視計數器
 [伺服器] 刀鋒視窗會顯示一組預設效能計數器。 
@@ -122,7 +122,7 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 ## <a name="alerts"></a>警示
 與其他計量一樣，您可以[設定警示](app-insights-alerts.md)，在效能計數器超出您指定的界限時提出警告。 開啟 [警示] 刀鋒視窗，然後按一下 [新增警示]。
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 * [相依性追蹤](app-insights-asp-net-dependencies.md)
 * [例外狀況追蹤](app-insights-asp-net-exceptions.md)
 

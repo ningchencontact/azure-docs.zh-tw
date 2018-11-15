@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: b1cf3dc24482da70372f775d0ba63a203df1b285
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571922"
+---
 某些 Bing 回應會包含 Bing 所提供的縮圖影像 URL。 您可能會調整縮圖影像的大小並加以裁剪。 
 
 > [!NOTE]

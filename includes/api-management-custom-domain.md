@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: f98f750c14666400f41a249b3d8379b423e6dee2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571911"
+---
 ## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>APIM Proxy 伺服器在 TLS 交握中使用 SSL 憑證進行回應的方式
 
 ### <a name="clients-calling-with-sni-header"></a>具有 SNI 標頭的用戶端呼叫

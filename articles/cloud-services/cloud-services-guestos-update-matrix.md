@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376664"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978735"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 客體 OS 版次與 SDK 相容性矩陣
 提供適用於雲端服務的最新 Azure 客體作業系統版次的最新資訊。 此資訊協助您在客體 OS停用之前規劃升級路徑。 如果您將角色設定成使用「自動」客體 OS 更新 (如 [Azure 客體 OS 更新設定][Azure Guest OS Update Settings]所述)，就不一定要閱讀此頁面。
@@ -66,7 +66,7 @@ ms.locfileid: "49376664"
 ## <a name="family-5-releases"></a>系列 5 版次
 **Windows Server 2016**
 
-安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2、4.6、4.6.1、4.6.2
+安裝的 .NET Framework：3.5、4.6.2
 
 > [!NOTE]
 > 作業系統系列 5 的 RDP 密碼至少需要 10 個字元。
@@ -84,7 +84,7 @@ ms.locfileid: "49376664"
 ## <a name="family-4-releases"></a>系列 4 版次
 **Windows Server 2012 R2**
 
-安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：3.5、4.5.1
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ ms.locfileid: "49376664"
 ## <a name="family-3-releases"></a>系列 3 版次
 **Windows Server 2012**
 
-安裝的 .NET Framework：4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：3.5、4.5
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ ms.locfileid: "49376664"
 ## <a name="family-2-releases"></a>系列 2 版次
 **Windows Server 2008 R2 SP1**
 
-安裝的 .NET Framework：3.5、4.0、4.5、4.5.1、4.5.2
+安裝的 .NET Framework：3.5 (包括 2.0 和 3.0)
 
 | 組態字串 | 發行日期 | 停用日期 |
 | --- | --- | --- |

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 38a8cd35d123f58d6379ade4d900e86b36b416ec
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257185"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -39,7 +39,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 此更新包含下列適用於 Azure Stack 的改良功能：
 
-- 在此版本中，Azure Stack 整合系統支援 4-16 個節點的設定。 您可以使用 [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) 來協助規劃 Azure Stack 容量與設定。
+- 在此版本中，Azure Stack 整合系統支援 4-16 個節點的設定。 您可以使用 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) 來協助規劃 Azure Stack 容量與設定。
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog 用戶端 (正式運作)**  此用戶端允許將與 Azure Stack 基礎結構相關的稽核、警示和安全性記錄，轉寄到 Azure Stack 外的 syslog 伺服器或安全性資訊與事件管理 (SIEM) 軟體。 Syslog 用戶端現在支援 syslog 伺服器目前接聽的指定連接埠。
 
@@ -62,7 +62,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
    <!--  2966665 – IS, ASDK --> 
    - 已修正將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」的問題。 
    
-   - 使用 **createOption**: **Attach** 建立受控磁碟 VM 失敗，並出現下列錯誤：*長時間執行的作業失敗，狀態為 'Failed'。其他資訊：發生內部執行錯誤。*
+   - 使用 **createOption**: **Attach** 建立受控磁碟 VM 失敗，並出現下列錯誤：*長時間執行的作業失敗，狀態為 'Failed'。* 其他資訊：「發生內部執行錯誤」。
    ErrorCode: InternalExecutionError ErrorMessage：發生內部執行錯誤。
    
    已修正此問題。
@@ -154,7 +154,8 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 ### <a name="post-update-steps"></a>更新後步驟
 
-更新 1809 沒有任何更新後步驟。
+> [!Important]  
+> 讓您的 Azure Stack 部署準備使用延伸主機，這是由後續的更新套件所支援。 使用下列指導方針準備您的系統：[Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)。
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

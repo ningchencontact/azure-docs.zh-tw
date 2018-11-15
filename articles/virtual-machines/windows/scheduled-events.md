@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746760"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034943"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -42,7 +42,7 @@ ms.locfileid: "42746760"
 - 事件記錄
 - 正常關機 
 
-使用排程的事件，應用程式就可以探索維護所發生的時間，以及限制其影響的觸發工作。  
+使用排程的事件，應用程式就可以探索維護所發生的時間，以及限制其影響的觸發工作。 啟用已排定事件可讓您的虛擬機器在執行維護活動之前有最短的時間。 如需詳細資料，請參閱下面的＜事件排程＞一節。
 
 排程的事件會提供下列使用案例中的事件：
 - 平台起始的維護 (例如，主機 OS 更新)
@@ -71,7 +71,7 @@ ms.locfileid: "42746760"
 > 先前排定事件的預覽版支援作為 API 版本的 {latest}。 此格式將不再受到支援且之後會遭到取代。
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>啟用和停用已排定事件
-系統會在您第一次提出事件要求時，為您的服務啟用「已排定事件」。 您可能會在第一次呼叫中遇到長達兩分鐘的延遲回應。
+系統會在您第一次提出事件要求時，為您的服務啟用「已排定事件」。 您可能會在第一次呼叫中遇到長達兩分鐘的延遲回應。 您應該定期查詢端點，以偵測近期的維護事件，以及執行之維護活動的狀態。
 
 如果長達 24 小時未提出要求，您的服務就會停用已排定事件。
 
@@ -110,6 +110,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01 -H @
     ]
 }
 ```
+DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢之後，事件裝載是否已變更。
 
 ### <a name="event-properties"></a>事件屬性
 |屬性  |  說明 |

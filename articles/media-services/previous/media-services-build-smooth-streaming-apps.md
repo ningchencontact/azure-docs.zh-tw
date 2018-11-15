@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: e46ff880ff94abb2de2a9bef1464df0f6ac78fc6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 953cd536c390e571ee4c40dc670316197718eff2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250793"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279189"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何建置 Smooth Streaming Windows 市集應用程式
 
@@ -95,7 +95,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
 
 1. 從 [方案總管] 中，按兩下 [MainPage.xaml]  ，以設計檢視來開啟它。
 2. 在 XAML 檔案中找到 **&lt;Grid&gt;** 和 **&lt;/Grid&gt;** 標籤，然後在這兩個標籤之間貼上下列程式碼：
-
+```xml
          <Grid.RowDefinitions>
 
             <RowDefinition Height="20"/>    <!-- spacer -->
@@ -138,7 +138,7 @@ Smooth Streaming Client SDK for Windows 8 可讓開發人員建置能夠播放�
                FontSize="16" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center" />
             <TextBox x:Name="txtStatus" FontSize="10" Width="700" VerticalAlignment="Center"/>
          </StackPanel>
-   
+```
    MediaElement 控制項會用來播放媒體。 下一個課程將使用名稱為 sliderProgress 的滑動軸控制項來控制媒體進度。
 3. 按 **CTRL+S** 儲存檔案。
 
@@ -160,7 +160,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "text/xml");
         extensions.RegisterByteStreamHandler("Microsoft.Media.AdaptiveStreaming.SmoothByteStreamHandler", ".ism", "application/vnd.ms-sstr+xml");
 5. 在 **MainPage** 類別結尾貼上下列程式碼：
-   
+```csharp
          # region UI Button Click Events
          private void btnPlay_Click(object sender, RoutedEventArgs e)
          {
@@ -202,7 +202,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          mediaElement.Position = new TimeSpan(0, 0, (int)(sliderProgress.Value));
          }
          # endregion
-
+```
 這裡在定義 sliderProgress_PointerPressed 事件處理常式。  還需要進行其他工作，才能讓它運作，在本教學課程的下一個課程中，將會涵蓋這項資訊。
 6. 按 **CTRL+S** 儲存檔案。
 
@@ -242,22 +242,25 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在檔案的開頭，新增下列 using 陳述式：
-
+```csharp
         using Microsoft.Media.AdaptiveStreaming;
+```
 3. 在 MainPage 類別的開頭，新增下列資料成員：
-
+```csharp
          private Windows.Foundation.Collections.PropertySet propertySet = new Windows.Foundation.Collections.PropertySet();             
          private IAdaptiveSourceManager adaptiveSourceManager;
+```
 4. 在 **MainPage** 建構函式內，於 **this.Initialize Components();** 行以及上一個課程中所寫的註冊程式碼行的後面新增下列程式碼：
-
+```csharp
         // Gets the default instance of AdaptiveSourceManager which manages Smooth 
         //Streaming media sources.
         adaptiveSourceManager = AdaptiveSourceManager.GetDefault();
         // Sets property key value to AdaptiveSourceManager default instance.
         // {A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}" must be hardcoded.
         propertySet["{A5CE1DE8-1D00-427B-ACEF-FB9A3C93DE2D}"] = adaptiveSourceManager;
+```
 5. 在 **MainPage** 建構函式內，修改兩個 RegisterByteStreamHandler 方法以新增 forth 參數：
-
+```csharp
          // Registers Smooth Streaming byte-stream handler for ".ism" extension and, 
          // "text/xml" and "application/vnd.ms-ss" mime-types and pass the propertyset. 
          // http://*.ism/manifest URI resources will be resolved by Byte-stream handler.
@@ -273,16 +276,18 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
             ".ism", 
             "application/vnd.ms-sstr+xml", 
          propertySet);
+```
 6. 按 **CTRL+S** 儲存檔案。
 
 **新增調適性來源管理員層級事件處理常式**
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在 [MainPage]  類別內，新增下列資料成員：
-   
+```csharp
      private AdaptiveSource adaptiveSource = null;
+```
 3. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
-   
+```csharp
          # region Adaptive Source Manager Level Events
          private void mediaElement_AdaptiveSourceOpened(AdaptiveSource sender, AdaptiveSourceOpenedEventArgs args)
          {
@@ -291,20 +296,24 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          }
 
          # endregion Adaptive Source Manager Level Events
+```
 4. 在 **MainPage** 建構函式的結尾，新增下行以訂閱調適性來源開放事件：
-   
+```csharp
          adaptiveSourceManager.AdaptiveSourceOpenedEvent += 
            new AdaptiveSourceOpenedEventHandler(mediaElement_AdaptiveSourceOpened);
+```
 5. 按 **CTRL+S** 儲存檔案。
 
 **新增調適性來源層級事件處理常式**
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在 [MainPage]  類別內，新增下列資料成員：
-   
-     private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate;   private Manifest manifestObject;
+```csharp
+     private AdaptiveSourceStatusUpdatedEventArgs adaptiveSourceStatusUpdate; 
+     private Manifest manifestObject;
+```
 3. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
-
+```csharp
          # region Adaptive Source Level Events
          private void mediaElement_ManifestReady(AdaptiveSource sender, ManifestReadyEventArgs args)
          {
@@ -326,7 +335,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          }
 
          # endregion Adaptive Source Level Events
-4. 在 **mediaElement AdaptiveSourceOpened** 方法的結尾，新增下列程式碼以訂閱事件：
+4. At the end of the **mediaElement AdaptiveSourceOpened** method, add the following code to subscribe to the events:
    
          adaptiveSource.ManifestReadyEvent +=
 
@@ -337,6 +346,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          adaptiveSource.AdaptiveSourceFailedEvent += 
 
             mediaElement_AdaptiveSourceFailed;
+```
 5. 按 **CTRL+S** 儲存檔案。
 
 在調適性來源管理員層級也有相同的事件，可用於處理應用程式中所有媒體元素通用的功能。 每個 AdaptiveSource 都包含自己專屬的事件，而且所有 AdaptiveSource 事件都會在 AdaptiveSourceManager 下階層式列出。
@@ -345,7 +355,7 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在 **MainPage** 類別的結尾，新增下列事件處理常式：
-
+```csharp
          # region Media Element Event Handlers
          private void MediaOpened(object sender, RoutedEventArgs e)
          {
@@ -366,30 +376,35 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          }
 
          # endregion Media Element Event Handlers
+```
 3. 在 **MainPage** 建構函式的結尾，新增下列程式碼以訂閱事件：
-
+```csharp
          mediaElement.MediaOpened += MediaOpened;
          mediaElement.MediaEnded += MediaEnded;
          mediaElement.MediaFailed += MediaFailed;
+```
 4. 按 **CTRL+S** 儲存檔案。
 
 **新增滑動軸相關程式碼**
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在檔案的開頭，新增下列 using 陳述式：
-      
+```csharp
         using Windows.UI.Core;
+```
 3. 在 [MainPage]  類別內，新增下列資料成員：
-   
+```csharp
          public static CoreDispatcher _dispatcher;
          private DispatcherTimer sliderPositionUpdateDispatcher;
+```
 4. 在 **MainPage** 建構函式的結尾，新增下列程式碼：
-   
+```csharp
          _dispatcher = Window.Current.Dispatcher;
          PointerEventHandler pointerpressedhandler = new PointerEventHandler(sliderProgress_PointerPressed);
          sliderProgress.AddHandler(Control.PointerPressedEvent, pointerpressedhandler, true);    
+```
 5. 在 **MainPage** 類別的結尾，新增下列程式碼：
-
+```csharp
          # region sliderMediaPlayer
          private double SliderFrequency(TimeSpan timevalue)
          {
@@ -471,25 +486,30 @@ MediaElement 控制項預設不支援 Smooth Streaming 內容。 若要啟用 Sm
          }
 
          # endregion sliderMediaPlayer
-      
+```
+
 >[!NOTE]
 >CoreDispatcher 用來從非 UI 執行緒對 UI 執行緒進行變更。 如果發送器執行緒發生瓶頸，開發人員可以選擇使用自己想要更新之 UI-element 所提供的發送器。  例如︰
-   
+
+```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
 
          timespan = new TimeSpan(adaptiveSourceStatusUpdate.EndTime); 
          double absvalue  = (int)Math.Round(timespan.TotalSeconds, MidpointRounding.AwayFromZero); 
 
          sliderProgress.Maximum = absvalue; }); 
+```
 6. 在 **mediaElement_AdaptiveSourceStatusUpdated** 方法的結尾，新增下列程式碼：
-
+```csharp
          setSliderStartTime(args.StartTime);
          setSliderEndTime(args.EndTime);
+```
 7. 在 **MediaOpened** 方法的結尾，新增下列程式碼：
-
+```csharp
          sliderProgress.StepFrequency = SliderFrequency(mediaElement.NaturalDuration.TimeSpan);
          sliderProgress.Width = mediaElement.Width;
          setupTimer();
+```
 8. 按 **CTRL+S** 儲存檔案。
 
 **編譯和測試應用程式**
@@ -513,7 +533,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
 2. 找到 &lt;Grid.RowDefinitions&gt;，並修改 RowDefinitions，讓它們看起來如下：
-   
+```xml
          <Grid.RowDefinitions>            
             <RowDefinition Height="20"/>
             <RowDefinition Height="50"/>
@@ -521,8 +541,9 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
             <RowDefinition Height="80"/>
             <RowDefinition Height="50"/>
          </Grid.RowDefinitions>
+```
 3. 在 &lt;Grid&gt;&lt;/Grid&gt; 標籤內，新增下列程式碼以定義 listbox 控制項，讓使用者可以看到可用資料流清單並選取資料流：
-
+```xml
          <Grid Name="gridStreamAndBitrateSelection" Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="300"/>
@@ -546,13 +567,14 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
                 </ListBox>
             </StackPanel>
          </Grid>
+```
 4. 按 **CTRL+S** 儲存變更。
 
 **修改程式碼後置檔案**
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在 SSPlayer 命名空間內，新增類別：
-   
+```csharp
         #region class Stream
    
         public class Stream
@@ -597,14 +619,16 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
             }
         }
         #endregion class Stream
+```
 3. 在 MainPage 類別的開頭，新增下列變數定義：
-   
+```csharp
          private List<Stream> availableStreams;
          private List<Stream> availableAudioStreams;
          private List<Stream> availableTextStreams;
          private List<Stream> availableVideoStreams;
+```
 4. 在 MainPage 類別內，新增下列區域：
-   
+```csharp
         #region stream selection
         ///<summary>
         ///Functionality to select streams from IManifestStream available streams
@@ -691,7 +715,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
                 }
             }
    
-            // Select the frist video stream from the list if no video stream is selected
+            // Select the first video stream from the list if no video stream is selected
             if (!isOneVideoSelected)
             {
                 availableVideoStreams[0].isChecked = true;
@@ -709,7 +733,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
                 }
             }
    
-            // Select the frist audio stream from the list if no audio steam is selected.
+            // Select the first audio stream from the list if no audio steam is selected.
             if (!isOneAudioSelected)
             {
                 availableAudioStreams[0].isChecked = true;
@@ -740,14 +764,15 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
             }
         }
         #endregion stream selection
+```
 5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
-   
+```csharp
         getStreams(manifestObject);
         refreshAvailableStreamsListBoxItemSource();
-   
-    因此，當 MediaElement 資訊清單就緒時，程式碼會取得可用資料流清單，並將這份清單填入 UI 清單方塊。
+```
+    So when MediaElement manifest is ready, the code gets a list of the available streams, and populates the UI list box with the list.
 6. 在 MainPage 類別中，找到 UI 按鈕並按一下事件區域，再新增下列函式定義：
-   
+```csharp
         private void btnChangeStream_Click(object sender, RoutedEventArgs e)
         {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -758,7 +783,7 @@ Smooth Streaming 可以串流含多個曲目可供檢視器選取的內容。  �
             // Change streams on the presentation
             changeStreams(selectedStreams);
         }
-
+```
 **編譯和測試應用程式**
 
 1. 按 **F6** 鍵編譯專案。 
@@ -780,7 +805,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視設計工具]。
 2. 找到名稱為 **gridStreamAndBitrateSelection** 的 &lt;Grid&gt; 標籤，並在標籤的結尾附加下列程式碼：
-   
+```xml
          <StackPanel Name="spBitRateSelection" Grid.Row="1" Grid.Column="1">
          <StackPanel Orientation="Horizontal">
              <TextBlock Name="tbBitRate" Text="Available Bitrates:" FontSize="16" VerticalAlignment="Center"/>
@@ -795,13 +820,14 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
              </ListBox.ItemTemplate>
          </ListBox>
          </StackPanel>
+```
 3. 按 **CTRL+S** 儲存變更。
 
 **修改程式碼後置檔案**
 
 1. 從 [方案總管] 中，在 [MainPage.xaml] 上按一下滑鼠右鍵，然後按一下 [檢視程式碼]。
 2. 在 SSPlayer 命名空間內，新增類別：
-   
+```csharp
         #region class Track
         public class Track
         {
@@ -838,11 +864,13 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
             //public Track() { }
         }
         #endregion class Track
+```
 3. 在 MainPage 類別的開頭，新增下列變數定義：
-   
+```csharp
         private List<Track> availableTracks;
+```
 4. 在 MainPage 類別內，新增下列區域：
-   
+```csharp
         #region track selection
         /// <summary>
         /// Functionality to select video streams
@@ -939,12 +967,14 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
             }
         }
         #endregion track selection
+```
 5. 找到 mediaElement_ManifestReady 方法，並在函數的結尾附加下列程式碼：
-   
+```csharp
          getTracks(manifestObject);
          refreshAvailableTracksListBoxItemSource();
+```
 6. 在 MainPage 類別中，找到 UI 按鈕並按一下事件區域，再新增下列函式定義：
-   
+```csharp
          private void btnChangeStream_Click(object sender, RoutedEventArgs e)
          {
             List<IManifestStream> selectedStreams = new List<IManifestStream>();
@@ -955,7 +985,7 @@ Smooth Streaming 簡報可以包含多個以不同品質等級 (位元速率) �
             // Change streams on the presentation
             changeStreams(selectedStreams);
          }
-
+```
 **編譯和測試應用程式**
 
 1. 按 **F6** 鍵編譯專案。 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226870"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981359"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
 若要以一致的方式大規模建立並管理 Azure 虛擬機器 (VM)，通常需要某種形式的自動化。 有許多工具和解決方案可讓您將完整的 Azure 基礎結構部署及管理生命週期自動化。 本文介紹的一些基礎結構自動化工具可供您在 Azure 中使用。 這些工具通常符合下列其中一種方法：
@@ -129,9 +129,9 @@ Azure 自動化也會提供預期狀態設定 (DSC) 服務，可讓您建立一�
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 是一套工具，能協助您共用和追蹤程式碼、使用自動化的組建，並建立完整的持續整合及開發 (CI/CD) 管線。 Azure DevOps Services 會與 Visual Studio 和其他編輯器整合，以簡化使用方式。 Azure DevOps Services 還可以建立及設定 Azure VM，然後再將程式碼部署到這些 VM。
 
-了解如何：
+深入了解：
 
-- [使用 Azure DevOps Services 建立持續整合管線](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md)。
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts) \(英文\)。
 
 
 ## <a name="jenkins"></a>Jenkins

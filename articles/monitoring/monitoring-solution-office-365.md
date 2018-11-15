@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 04211a00bcdce3baf8060e00a9ce81831a39acb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257658"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616277"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -711,4 +711,4 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../log-analy
 ## <a name="next-steps"></a>後續步驟
 * 使用 [Log Analytics](../log-analytics/log-analytics-queries.md) 中的記錄搜尋，檢視詳細的更新資料。
 * [建立自己的儀表板](../log-analytics/log-analytics-dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
-* [建立警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)來讓系統主動通知您重要的 Office 365 活動。  
+* [建立警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)來讓系統主動通知您重要的 Office 365 活動。  

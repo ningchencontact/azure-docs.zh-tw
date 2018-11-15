@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945717"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279121"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
@@ -26,11 +26,11 @@ ms.locfileid: "49945717"
 ## <a name="prerequisites"></a>必要條件
 
 - 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
-- 確定您可以存取具有 ADFS 所核發私密金鑰的憑證 .pfx 檔案。
+- 確定您可以存取具有私密金鑰的憑證 .pfx 檔案。 您可以產生自己簽署的憑證，並將它上傳至 Azure AD B2C。 Azure AD B2C 會使用此憑證簽署傳送給您的 SAML 身分識別提供者的 SAML 要求。
 
 ## <a name="create-a-policy-key"></a>建立原則金鑰
 
-您需要將 ADFS 憑證儲存在 Azure AD B2C 租用戶中。
+您需要將憑證儲存至 Azure AD B2C 租用戶中。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
@@ -38,7 +38,7 @@ ms.locfileid: "49945717"
 4. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 5. 選取 [原則金鑰]，然後選取 [新增]。
 6. 針對 [選項] 選擇 `Upload`。
-7. 輸入原則金鑰的 [名稱]。 例如： `ADFSSamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
+7. 輸入原則金鑰的 [名稱]。 例如： `SamlCert`。 金鑰名稱前面會自動新增前置詞 `B2C_1A_`。
 8. 瀏覽至包含私密金鑰的憑證 .pfx 檔案，並選取該檔案。
 9. 按一下頁面底部的 [新增] 。
 
@@ -64,6 +64,7 @@ ms.locfileid: "49945717"
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
 9. 選取 [新增規則]。  
 10. 在 [宣告規則範本] 中，選取 [傳送 LDAP 屬性作為宣告]。
 11. 提供**宣告規則名稱**。 針對 [屬性存放區]，選取 [選取 Active Directory] 來新增下列宣告，然後按一下 [完成] 和 [確定]。
+
+    | LDAP 屬性 | 傳出宣告類型 |
+    | -------------- | ------------------- |
+    | 使用者主體名稱 | userPricipalName |
+    | Surname | family_name |
+    | 指定的名稱 | given_name |
+    | 電子郵件地址 | 電子郵件 |
+    | 顯示名稱 | name |
+    
 12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階] 索引標籤，然後將 [安全雜湊演算法] 變更為 `SHA-1` 或 `SHA-256`，並按一下 [確定]。  
 13. 在 [伺服器管理員] 中選取 [工具]，然後選取 [ADFS 管理]。
 14. 選取您建立的信賴憑證者信任，並選取 [從同盟中繼資料中更新]，然後按一下 [更新]。 

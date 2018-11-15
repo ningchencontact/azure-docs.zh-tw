@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741168"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978633"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>預覽：Azure AD 密碼保護的監視、報告和疑難排解
 
@@ -28,9 +28,11 @@ ms.locfileid: "50741168"
 
 ## <a name="on-premises-logs-and-events"></a>內部部署記錄和事件
 
-### <a name="dc-agent-service"></a>DC 代理程式服務
+### <a name="dc-agent-admin-log"></a>DC 代理程式系統管理記錄
 
-在每個網域控制站上，DC 代理程式服務軟體會將其密碼驗證的結果 (和其他狀態) 寫入至本機事件記錄：\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+在每個網域控制站上，DC 代理程式服務軟體會將其密碼驗證結果 (和其他狀態) 寫入至本機事件記錄：
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 事件會由各種 DC 代理程式元件使用下列範圍進行記錄：
 
@@ -62,101 +64,153 @@ ms.locfileid: "50741168"
 > [!TIP]
 > 傳入的密碼會先根據 Microsoft 全域密碼進行驗證，如果驗證失敗，則不會執行進一步的處理。 這和對 Azure 中的密碼變更所執行的是相同的行為。
 
-#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>事件識別碼 10014 成功密碼設定的範例事件記錄訊息
+#### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>事件識別碼 10014 (成功密碼設定) 的範例事件記錄訊息
 
-為指定的使用者變更的密碼經驗證符合目前的 Azure 密碼原則。
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- UserName：BPL_02885102771 FullName：
+ UserName: BPL_02885102771
+ FullName:
+```
 
-#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>事件識別碼 10017 和 30003 失敗密碼設定的範例事件記錄訊息
+#### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>事件識別碼 10017 和 30003 (失敗密碼設定) 的範例事件記錄訊息
 
 10017：
 
-為指定的使用者重設的密碼不符合目前的 Azure 密碼原則，因此遭到拒絕。 如需詳細資訊，請參閱相互關聯的事件記錄訊息。
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- UserName：BPL_03283841185 FullName：
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003：
 
-為指定的使用者重設的密碼符合目前 Azure 密碼原則的每一租用戶禁用密碼清單所列的至少一個權杖，因此遭到拒絕。
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- UserName：BPL_03283841185 FullName：
+ UserName: BPL_03283841185
+ FullName:
+```
 
-其他應注意的主要事件記錄訊息包括：
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>事件識別碼 30001 (因為沒有可用原則而接受的密碼) 的範例事件記錄訊息
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>事件識別碼 30001 的範例事件記錄訊息
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-已接受指定使用者的密碼，因為尚未提供 Azure 密碼原則
+UserName: SomeUser
+FullName: Some User
 
-UserName：SomeUser FullName：Some User
+This condition may be caused by one or more of the following reasons:%n
 
-此情況可能是因為下列一或多個原因所造成：%n
+1. The forest has not yet been registered with Azure.
 
-1. 尚未對 Azure 註冊樹系。
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   解決步驟：系統管理員必須使用 Register-AzureADPasswordProtectionForest Cmdlet 註冊樹系。
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. 目前的樹系中至少有一個機器還沒有可用的 Azure AD 密碼保護 Proxy。
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   解決步驟：系統管理員必須使用 Register-AzureADPasswordProtectionProxy Cmdlet 安裝並註冊 Proxy。
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. 此 DC 沒有任何 Azure AD 密碼保護 Proxy 執行個體的網路連線。
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   解決步驟：確定至少已有一個 Azure AD 密碼保護 Proxy 執行個體的網路連線。
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. 此 DC 並未連線至網域中的其他網域控制站。
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   解決步驟：確定有網域的網路連線。
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>事件識別碼 30006 (強制執行的新原則) 的範例事件記錄訊息
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>事件識別碼 30006 的範例事件記錄訊息
+```
+The service is now enforcing the following Azure password policy.
 
-服務現在會強制執行下列 Azure 密碼原則。
+ Enabled: 1
+ AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- AuditOnly：1
+#### <a name="dc-agent-operational-log"></a>DC 代理程式運作記錄
 
- 全域原則日期：‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+DC 代理程式服務也會將與運作有關的事件記錄至以下記錄：
 
- 租用戶原則日期：‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
- 強制執行租用戶原則：1
+#### <a name="dc-agent-trace-log"></a>DC 代理程式追蹤記錄
 
-#### <a name="dc-agent-log-locations"></a>DC 代理程式記錄位置
+DC 代理程式服務也可以將偵錯層級追蹤事件的詳細資訊記錄至以下記錄：
 
-DC 代理程式服務也會將操作相關事件記錄到下列記錄：\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-DC 代理程式服務也可將詳細偵錯層級追蹤事件記錄到下列記錄：\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+依預設會停用追蹤記錄。
 
 > [!WARNING]
-> 依預設會停用追蹤記錄。 啟用時，此記錄會接收大量事件，而可能會影響網域控制站的效能。 因此，只有在問題需要更深入的調查時才應啟用此增強型記錄，且應盡可能縮短啟用時間。
+>  啟用時，追蹤記錄會接收大量事件，而可能會影響網域控制站的效能。 因此，只有在問題需要更深入的調查時才應啟用此增強型記錄，且應盡可能縮短啟用時間。
+
+#### <a name="dc-agent-text-logging"></a>DC 代理程式文字記錄
+
+DC 代理程式服務可以透過設定以下登錄值，設定為寫入至文字記錄檔：
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD 值)
+
+依預設會停用文字記錄。 變更此值時需重新啟動 DC 代理程式服務，此變更才會生效。 啟用 DC 代理程式服務時，將會寫入位於以下位置的記錄檔：
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> 文字記錄會收到與可記錄至追蹤記錄的相同偵錯層級項目，但其格式通常是較容易檢閱和分析的格式。
+
+> [!WARNING]
+> 啟用時，此記錄會接收大量事件，而可能會影響網域控制站的效能。 因此，只有在問題需要更深入的調查時才應啟用此增強型記錄，且應盡可能縮短啟用時間。
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Azure AD 密碼保護 Proxy 服務
 
-密碼保護 Proxy 服務也會將最基本的事件集發出到下列事件記錄：\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Proxy 服務事件記錄檔
 
-密碼保護 Proxy 服務也可將詳細偵錯層級追蹤事件記錄到下列記錄：\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+Proxy 服務會發出最小集合的事件至下列事件記錄檔：
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+Proxy 服務也可以將偵錯層級追蹤事件的詳細資訊記錄至以下記錄：
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+依預設會停用追蹤記錄。
 
 > [!WARNING]
-> 依預設會停用追蹤記錄。 啟用時，此記錄會接收大量事件，而可能會影響 Proxy 主機的效能。 因此，只有在問題需要更深入的調查時才應啟用此記錄，且應盡可能縮短啟用時間。
+> 啟用時，追蹤記錄會接收大量事件，而可能會影響 Proxy 主機的效能。 因此，只有在問題需要更深入的調查時才應啟用此記錄，且應盡可能縮短啟用時間。
 
-### <a name="dc-agent-discovery"></a>DC 代理程式探索
+#### <a name="proxy-service-text-logging"></a>Proxy 服務文字記錄
 
-`Get-AzureADPasswordProtectionDCAgent` Cmdlet 可用來顯示與執行於網域或樹系中的各種 DC 代理程式有關的基本資訊。 您可以從執行中的 DC 代理程式服務所註冊的 serviceConnectionPoint 物件中擷取這項資訊。 此 Cmdlet 的範例輸出如下：
+Proxy 服務可以透過設定以下登錄值，設定為寫入至文字記錄檔：
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD 值)
 
-每個 DC 代理程式服務大約每小時會更新一次各種屬性。 資料仍會受限於 Active Directory 複寫延遲。
+依預設會停用文字記錄。 變更此值時需重新啟動 Proxy 服務，此變更才會生效。 啟用 Proxy 服務時，將會寫入位於以下位置的記錄檔：
 
-此 Cmdlet 的查詢範圍可使用 –Forest 或 –Domain 參數來變更。
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> 文字記錄會收到與可記錄至追蹤記錄的相同偵錯層級項目，但其格式通常是較容易檢閱和分析的格式。
+
+> [!WARNING]
+> 啟用時，此記錄會接收大量事件，而可能會影響網域控制站的效能。 因此，只有在問題需要更深入的調查時才應啟用此增強型記錄，且應盡可能縮短啟用時間。
+
+#### <a name="powershell-cmdlet-logging"></a>PowerShell Cmdlet 記錄
+
+大部分的 Azure AD 密碼保護 Powershell Cmdlet 會寫入至位於以下位置的文字記錄檔：
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+如果發生 Cmdlet 錯誤，且原因和/或解決方式不明顯，可能也會參考這些文字記錄檔。
 
 ### <a name="emergency-remediation"></a>緊急補救
 
-如果發生 DC 代理程式服務造成問題的不良狀況，DC 代理程式服務可以立即關閉。 DC 代理程式密碼篩選 dll 會嘗試呼叫非執行中服務，且會記錄警告事件 (10012、10013)，但在這段期間傳入的所有密碼都會被接受。 隨後如有需要，也可以透過 Windows 服務控制管理員，在啟動類型設為 [已停用] 的情況下設定 DC 代理程式服務。
+如果發生 DC 代理程式服務造成問題的情況，可以立即將 DC 代理程式服務關閉。 DC 代理程式密碼篩選 dll 仍會嘗試呼叫非執行中服務，且會記錄警告事件 (10012、10013)，但在這段期間傳入的所有密碼都會被接受。 隨後如有需要，也可以透過 Windows 服務控制管理員，在啟動類型設為 [已停用] 的情況下設定 DC 代理程式服務。
 
 ### <a name="performance-monitoring"></a>效能監視
 
@@ -182,6 +236,7 @@ DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計
 ## <a name="domain-controller-demotion"></a>網域控制站降階
 
 目前支援將仍在執行 DC 代理程式軟體的網域控制站降階。 不過，系統管理員應了解 DC 代理程式軟體在降階程序中會繼續執行，並且繼續強制執行目前的密碼原則。 新的本機系統管理員帳戶密碼 (指定為降階作業的一部分) 會像任何其他密碼一樣受到驗證。 Microsoft 建議在 DC 降階程序中應為本機系統管理員帳戶選擇安全的密碼；但 DC 代理程式軟體對新的本機系統管理員帳戶密碼所做的驗證，可能會干擾到既有的降階作業程序。
+
 在降階成功後，網域控制站即已重新啟動，並重新以一般成員伺服器的形式執行，且 DC 代理程式軟體會回復為以被動模式執行。 其後您可以隨時將其解除安裝。
 
 ## <a name="removal"></a>移除
@@ -189,14 +244,15 @@ DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計
 如果決定要解除安裝公用預覽版軟體，並從網域和樹系清除所有相關的狀態，您可以使用下列步驟來完成這項工作：
 
 > [!IMPORTANT]
-> 這些步驟務必要依序執行。 如果有任何密碼保護 Proxy 服務的執行個體仍繼續執行，它將會定期重新建立其 serviceConnectionPoint 物件，並定期重新建立 sysvol 狀態。
+> 這些步驟務必要依序執行。 如果有任何 Proxy 服務的執行個體仍繼續執行，它將會定期重新建立其 serviceConnectionPoint 物件。 如果有任何 DC 代理程式服務的執行個體仍繼續執行，它將會定期重新建立其 serviceConnectionPoint 物件與 sysvol 狀態。
 
 1. 從所有機器解除安裝密碼保護 Proxy 軟體。 此步驟**不需要**重新開機。
 2. 從所有網域控制站解除安裝 DC 代理程式軟體。 此步驟**需要**重新開機。
 3. 手動移除每個網域命名內容中的所有 Proxy 服務連接點。 您可以使用下列 Active Directory Powershell 命令找出這些物件的位置：
-   ```
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -206,9 +262,9 @@ DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計
 
 4. 手動移除在每個網域命名內容中所有的 DC 代理程式連接點。 樹系中的每個網域控制站可能各有一個此類物件，視先前部署公用預覽版軟體的範圍而定。 您可以使用下列 Active Directory Powershell 命令找出該物件的位置：
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -216,8 +272,8 @@ DC 代理程式服務軟體會安裝名為 **Azure AD 密碼保護**的效能計
 
 5. 手動移除樹系層級的組態狀態。 樹系組態狀態會保存在 Active Directory 組態命名內容中的容器內。 您可以依照下列方式加以探索和刪除：
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 4376b9e89aeef32987f7a3bb29ca6815e941ba00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960237"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514361"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Azure Stack 的延伸主機準備
 
@@ -84,8 +84,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
 
 1. 針對後續步驟，請使用可以連線到 Azure Stack 特殊權限端點的電腦。 請確定您可以從該電腦存取新的的憑證檔案。
 2. 開啟 PowerShell ISE 來執行後續的指令碼區塊
-3. 匯入主機端點的憑證。 調整指令碼以符合您的環境。
-4. 匯入管理員主機端點的憑證。
+3. 匯入管理員主機端點的憑證。
 
     ```PowerShell  
 
@@ -104,7 +103,7 @@ Azure Stack 整備檢查工具可讓您為兩個必要的新 SSL 憑證建立憑
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. 匯入主機端點的憑證。
+4. 匯入主機端點的憑證。
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

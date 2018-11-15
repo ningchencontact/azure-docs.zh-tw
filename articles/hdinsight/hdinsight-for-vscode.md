@@ -10,16 +10,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 5cf3a18dc01ba5670e73aa93cb6c9aab2d5de660
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f8bd1f1181cbd592782ce1126d5d61b5f257ca08
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378614"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234743"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
-了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Hive 批次作業、互動式 Hive 查詢和 PySpark 指令碼。 Azure HDInsight 工具可以安裝在 VS Code 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 您可以找到不同平台的必要條件。
+了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具來建立、提交 Apache Hive 批次作業、互動式 Apache Hive 查詢和 PySpark 指令碼。 Azure HDInsight 工具可以安裝在 VS Code 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 您可以找到不同平台的必要條件。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -83,7 +83,7 @@ ms.locfileid: "44378614"
 
         ![其他環境的登入指示](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
-    連線之後，您的 Azure 帳戶名稱會顯示在 VS Code 視窗左下角的狀態列上。 
+    連線之後，您的 Azure 帳戶名稱會顯示在 VS Code 視窗左下角的狀態列上。 
 
     > [!NOTE]
     > 因為已知的 Azure 驗證問題，所以您需要以私用模式或無痕模式開啟瀏覽器。 如果 Azure 帳戶已啟用雙因素驗證，建議使用電話驗證而不是 Pin 碼驗證。
@@ -102,7 +102,7 @@ ms.locfileid: "44378614"
 
 <h3 id="linkcluster">連結叢集</h3>
 
-您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
+您可以使用 Apache Ambari 受控使用者名稱來連結正常的叢集，或可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結企業安全性套件保護 Hadoop 叢集。
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a Cluster**。
 
    ![連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
@@ -121,7 +121,7 @@ ms.locfileid: "44378614"
 4. 您也可以從命令選擇區輸入 **HDInsight: Unlink a Cluster** 以取消連結叢集。
 
 
-### <a name="to-link-a-generic-livy-endpoint"></a>連結泛型 Livy 端點
+### <a name="to-link-a-generic-apache-livy-endpoint"></a>連結泛型 Apache Livy 端點
 
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a Cluster**。
 2. 選取 [泛型 Livy 端點]。
@@ -142,7 +142,7 @@ ms.locfileid: "44378614"
 
 2. 以滑鼠右鍵按一下指令碼編輯器，然後從快顯功能表選取 [HDInsight: 列出叢集]。 
 
-3. [輸出] 窗格中會出現 Hive 和 Spark 叢集。
+3. [輸出] 窗格中會出現 HDInsight 叢集。
 
     ![設定預設叢集組態](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -160,7 +160,7 @@ ms.locfileid: "44378614"
 
 2. 輸入 **HDInsight: 設定 Azure 環境**。
 
-3. 在 Azure 和 AzureChina 中擇一作為預設登入項目。
+3. 選取作為預設登入項目的環境，例如 "Azure" 或 "AzureChina"。
 
 4. 同時，工具已將您的預設登入項目儲存在 **.VSCode\settings.json** 中。 您也可以直接在這個組態檔內更新此登入項目。 
 
@@ -181,7 +181,7 @@ ms.locfileid: "44378614"
     ```
 4. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [HDInsight：Hive 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。選取 [HDInsight：Hive 批次] 以提交指令碼，或使用快速鍵 **Ctrl + Alt + H**。 
 
-5. 視需要選取叢集。 工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 不久之後，查詢結果就會顯示在新的索引標籤中。
+5. 如果您還未指定預設的叢集，請選取叢集。 工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 在幾分鐘之後，查詢結果就會顯示在新的索引標籤中。
 
    ![互動式 Hive 結果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
@@ -191,7 +191,7 @@ ms.locfileid: "44378614"
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交互動式 PySpark 查詢
 
-### <a name="to-submit-interactive-pyspark-queries-to-spark-clusters"></a>若要將互動式 PySpark 查詢提交至 Spark 叢集。
+### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>若要將互動式 PySpark 查詢提交至 HDInsight Spark 叢集。
 
 1. 建立新的工作資料夾和副檔名為 .py 的新指令碼檔案 (如果您還沒有這兩個項目)。
 
@@ -211,7 +211,7 @@ ms.locfileid: "44378614"
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 反白顯示這些指令碼。 然後，以滑鼠右鍵按一下指令碼編輯器，並選取 [HDInsight：PySpark 互動式]，或使用快速鍵 **Ctrl + Alt + I**。
+4. 反白顯示此指令碼。 然後，以滑鼠右鍵按一下指令碼編輯器，並選取 [HDInsight：PySpark 互動式]，或使用快速鍵 **Ctrl + Alt + I**。
 
 5. 如果您尚未在 VS Code 中安裝 **Python** 擴充功能，請選取 [安裝] 按鈕，如下圖所示：
 

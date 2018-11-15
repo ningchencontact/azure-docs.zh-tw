@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406512"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006189"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -24,7 +24,7 @@ Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗
 每個使用 Azure AD B2C 的應用程式都必須使用 [Azure 入口網站](https://portal.azure.com/)，在 [Azure AD B2C 租用戶](active-directory-b2c-get-started.md)中註冊。 應用程式註冊程序會收集和指派值，例如：
 
 * 可唯一識別應用程式的**應用程式識別碼**。
-* 可用來將回應導回應用程式的**重新導向 URI**。
+* 可用來將回應導回應用程式的**回覆 URL**。
 
 每個傳送至 Azure AD B2C 的要求都指定一個 **原則**。 原則控制 Azure AD 的行為。 您也可以使用這些端點來建立一組可靈活自訂的使用者體驗。 常見的原則包括註冊、登入和設定檔編輯原則。 如果您不熟悉原則，在繼續之前，請參閱 Azure AD B2C 的 [可延伸原則架構](active-directory-b2c-reference-policies.md) 。
 
@@ -112,9 +112,9 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 
 ## <a name="current-limitations"></a>目前的限制
 
-Azure AD B2C 目前不支援下列類型的應用程式，但正在規劃中。 
+### <a name="application-not-supported"></a>不支援的應用程式 
 
-### <a name="daemonsserver-side-applications"></a>精靈/伺服器端應用程式
+#### <a name="daemonsserver-side-applications"></a>精靈/伺服器端應用程式
 
 如果應用程式含有長時間執行的處理序或不需要使用者操作，也仍然需要有存取受保護資源的方法，例如 Web API。 這些應用程式可以使用應用程式的身分識別 (而非使用者的委派身分識別)，以及使用 OAuth 2.0 用戶端認證流程，以驗證及取得權杖。 用戶端認證流程與代理流程不同，代理流程不應用於伺服器對伺服器的驗證。
 
@@ -122,9 +122,60 @@ Azure AD B2C 目前不支援下列類型的應用程式，但正在規劃中。
 
 若要設定用戶端認證流程，請參閱 [Azure Active Directory v2.0 和 OAuth 2.0 用戶端認證流程](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds)。 成功驗證後會收到已格式化的權杖，如此就可供 Azure AD 使用，如 [Azure AD 權杖參考](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)中所述。
 
-
-### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 鏈結 (代理者流程)
+#### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 鏈結 (代理者流程)
 
 許多架構中都有一個 Web API 需要呼叫另一個下游 Web API，而兩者都受 Azure AD B2C 保護。 此案例常見於有 Web API 後端的原生用戶端。 這接著會呼叫 Microsoft 線上服務，例如 Azure AD Graph API。
 
 使用 OAuth 2.0 JWT 持有人認證授與可支援此鏈結的 Web API 案例，亦稱為代理者流程。  不過，Azure AD B2C 目前未實作代理者流程。
+
+### <a name="reply-url-values"></a>回覆 URL
+
+目前，已向 Azure AD B2C 註冊的應用程式僅限使用一組受限的回覆 URL 值。 Web 應用程式和服務的回覆 URL 必須以配置 `https` 開頭，而且所有回覆 URL 值必須共用單一 DNS 網域。 例如，您不能註冊具有下列其中一個回覆 URL 的 Web 應用程式︰
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+註冊系統會將現有回覆 URL 的整個 DNS 名稱與您要新增之回覆 URL 的 DNS 名稱做比較。 如果下列任一條件成立，新增 DNS 名稱的要求就會失敗：
+
+- 新回覆 URL 的整個 DNS 名稱與現有回覆 URL 的 DNS 名稱不相符。
+- 新回覆 URL 的整個 DNS 名稱不是現有回覆 URL 的子網域。
+
+例如，如果應用程式具有下列回覆 URL：
+
+`https://login.contoso.com`
+
+您可以在其中新增，就像這樣：
+
+`https://login.contoso.com/new`
+
+在此情況下，DNS 名稱會完全相符。 或者，您可以這樣做：
+
+`https://new.login.contoso.com`
+
+在此情況下，您參照的是 login.contoso.com 的 DNS 子網域。 如果您想要有一個以 login-east.contoso.com 和 login-west.contoso.com 做為回覆 URL 的應用程式，就必須依下列順序新增這些回覆 URL︰
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+您可以新增後面兩個，因為它們是第一個回覆 URL (contoso.com) 的子網域。 
+
+當您建立行動/原生應用程式時，您會定義**重新導向 URI** 而不是**回覆 URL**。 選擇重新導向 URI 時，有兩個重要考量︰
+
+- **唯一**︰每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，使用者會看到 [選擇應用程式] 對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
+- **完成**︰重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 中沒有任何特殊字元，例如底線。
+
+### <a name="faulted-apps"></a>發生錯誤的應用程式
+
+下列情況不得編輯 Azure AD B2C 應用程式：
+
+- 在其他應用程式管理入口網站上，例如 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
+- 使用圖形 API 或 PowerShell。
+
+如果您在 Azure 入口網站外部編輯 Azure AD B2C 應用程式，它會變成錯誤的應用程式並且無法再搭配 Azure AD B2C 使用。 您必須刪除應用程式並重新加以建立。
+
+若要刪除應用程式，請移至[應用程式註冊入口網站](https://apps.dev.microsoft.com/)並在此刪除應用程式。 為了讓應用程式得以顯示，您必須是應用程式的擁有者 (而不只是租用戶的系統管理員)。
+

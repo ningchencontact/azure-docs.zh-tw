@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 2dc81a96f1e83c3a6b1ddee92f57b2f0bae4196d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248901"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038463"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -148,6 +148,10 @@ ms.locfileid: "50248901"
 您可以重複使用您已經在資料處理站中設定的現有自我裝載整合執行階段基礎結構。 這可讓您藉由參考現有的自我裝載 IR (共用)，在不同的資料處理站中建立*連結的自我裝載整合執行階段*。
 
 若要使用 PowerShell 共用自我裝載整合執行階段，請參閱[使用 PowerShell 在 Azure Data Factory 中建立共用的自我裝載整合執行階段](create-shared-self-hosted-integration-runtime-powershell.md)。
+
+如需此功能的簡介與示範，請觀看下列 12 分鐘長的影片：
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>術語
 

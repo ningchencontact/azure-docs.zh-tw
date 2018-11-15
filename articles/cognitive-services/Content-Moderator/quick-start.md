@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260001"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>快速入門：熟悉 Content Moderator
 
@@ -26,11 +26,11 @@ ms.locfileid: "50023435"
 - 網頁瀏覽器
 
 ## <a name="set-up-the-review-tool"></a>設定審核工具
-「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在本指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](http://contentmoderator.cognitive.microsoft.com/)網站並註冊。
+「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在本指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站並註冊。
 
 ![Content Moderator 首頁](images/homepage.PNG)
 
-## <a name="create-a-review-team"></a>建立審核小組
+## <a name="create-a-review-team"></a>建立檢閱小組
 
 接著，建立審核小組。 在工作案例中，這會是將手動審核服務仲裁決策的一群人。 目前，您只須建立小組名稱。 如果您想要邀請同事加入小組，只要在這裡輸入他們的電子郵件地址即可。
 
@@ -48,7 +48,7 @@ ms.locfileid: "50023435"
 
 ## <a name="review-moderation-tags"></a>審核仲裁標記
 
-審核已套用的仲裁標記。 您可以查看您的內容已套用哪些標記，以及每個類別的分數。
+審核已套用的仲裁標記。 您可以查看您的內容已套用哪些標記，以及每個類別的分數。 請參閱[影像](image-moderation-api.md)、[文字](text-moderation-api.md)和[影片](video-moderation-api.md)仲裁主題，來深入了解不同的內容標記表示的意義。
 
 ![檢閱結果](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ ms.locfileid: "50023435"
 了解如何在您的應用程式中使用「仲裁 API」本身。
 - 實作影像仲裁。 使用 [API 主控台](try-image-api.md)或 [C# 快速入門](image-moderation-quickstart-dotnet.md)來掃描影像，並使用標記、信賴分數及其他擷取資訊來偵測潛在的成人和不雅內容。
 - 實作文字仲裁。 使用 [API 主控台](try-text-api.md)或使用 [C# 快速入門](text-moderation-quickstart-dotnet.md)來掃描文字內容，以找出潛在的粗話、機器輔助的不必要文字分類 (預覽)，以及個人識別資訊 (PII)。 
-- 實作影片仲裁。 使用 [C# 快速入門](video-moderation-api.md)來掃描影片，並偵測潛在的成人和不雅內容。 
+- 實作影片仲裁。 請遵循[適用於 C# 的影片仲裁操作指南](video-moderation-api.md)以掃描影片並偵測潛在成人和不雅內容。 

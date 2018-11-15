@@ -2,22 +2,18 @@
 title: 如何管理 Azure Functions 中的連線
 description: 了解如何使用靜態連線用戶端來避免 Azure Functions 中的效能問題。
 services: functions
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.workload: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/13/2018
+manager: jeconnoc
+ms.service: azure-functions
+ms.topic: conceptual
+ms.date: 11/02/2018
 ms.author: glenga
-ms.openlocfilehash: 86727355d36e16f5b3c7edef8ce666fb27805a80
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: eb5c302c807f85f24f53fa1ba32ef4cd7b52274a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346295"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036456"
 ---
 # <a name="how-to-manage-connections-in-azure-functions"></a>如何管理 Azure Functions 中的連線
 
@@ -40,9 +36,13 @@ ms.locfileid: "39346295"
 - **請**建立單一靜態用戶端，以供每次函式引動過程使用。
 - 如果不同函式使用相同的服務，**請考慮**在共用協助程式類別中建立單一靜態用戶端。
 
-## <a name="httpclient-code-example"></a>HttpClient 程式碼範例
+## <a name="client-code-examples"></a>用戶端程式碼範例
 
-以下函式程式碼範例會建立靜態 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) \(英文\)：
+本節示範如何從您的函式程式碼建立和使用用戶端的最佳做法。
+
+### <a name="httpclient-example-c"></a>HttpClient 範例 (C#)
+
+以下 C# 函式程式碼範例會建立靜態 [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx)：
 
 ```cs
 // Create a single, static HttpClient
@@ -57,7 +57,27 @@ public static async Task Run(string input)
 
 .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) \(英文\) 的常見問題是「我應該處置我的用戶端嗎？」 在一般情況下，您會在使用完實作 `IDisposable` 的物件時加以處置。 但您不會處置靜態用戶端，因為在函式結束時，您還為使用完畢。 您希望靜態用戶端在您應用程式的使用期間存留。
 
-## <a name="documentclient-code-example"></a>DocumentClient 程式碼範例
+### <a name="http-agent-examples-nodejs"></a>HTTP 代理程式範例 (Node.js)
+
+因為它提供更好的連線管理選項，所以，您應該使用原生的 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) \(英文\) 類別而不是非原生的方法，例如 `node-fetch` 模組。 連線參數是使用 `http.agent` 類別上的選項來設定的。 如需使用 HTTP 代理程式提供的詳細選項，請參閱 [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) \(英文\)。
+
+`http.request()` 所使用的全域 `http.globalAgent` 會將這些值全都設定為其各自的預設值。 在 Functions 中設定連線限制的建議方式是全域設定最大數目。 下列範例會針對函式應用程式設定通訊端數目上限：
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ 下列範例只會針對該要求，使用自訂 HTTP 代理程式來建立新的 HTTP 要求。
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
+
+### <a name="documentclient-code-example-c"></a>DocumentClient 程式碼範例 (C#)
 
 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
 ) \(英文\) 會連線到 Azure Cosmos DB 執行個體。 Azure Cosmos DB 文件建議您[在應用程式存留期內使用單一 Azure Cosmos DB 用戶端](https://docs.microsoft.com/azure/cosmos-db/performance-tips#sdk-usage)。 下列範例顯示在函式中執行該作業的一種模式：

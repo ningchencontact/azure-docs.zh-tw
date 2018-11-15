@@ -4,7 +4,7 @@ description: 說明要建立 Data Factory 及使用子資源所需的角色和�
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883766"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218758"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory 的角色和權限
 
@@ -50,6 +50,8 @@ ms.locfileid: "48883766"
 ### <a name="resource-manager-template-deployment"></a>Resource Manager 範本部署
 
 位於資源群組層級以上的 **Data Factory 參與者**角色可讓使用者部署 Resource Manager 範本。 因此，該角色的成員可以使用 Resource Manager 範本來部署資料處理站及其子資源，包括資料集、連結的服務、管線、觸發程序和整合執行階段。 不過，此角色的成員資格不會讓使用者建立其他資源。
+
+Azure Repos 和 GitHub 上的權限與 Data Factory 權限無關。 因此，具備存放庫權限的使用者只能是讀者角色的成員，該使用者可以編輯 Data Factory 子資源，並將變更認可至存放庫，但無法發佈這些變更。
 
 > [!IMPORTANT]
 > 使用 **Data Factory 參與者**角色來部署 Resource Manager 範本並不會提高您的權限。 例如，如果您部署範本來建立 Azure 虛擬機器，但您沒有建立虛擬機器的權限，則部署會因為授權錯誤而失敗。

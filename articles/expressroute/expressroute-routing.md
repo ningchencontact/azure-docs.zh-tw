@@ -5,14 +5,14 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650123"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230936"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -100,7 +100,7 @@ Microsoft 對等路徑可讓您連線到 Microsoft 雲端服務。 服務清單�
 Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗證。 此外，我們會針對接收到的前置詞，移除 AS PATH 中的私用 AS 編號。 因此，您無法在 AS PATH 中附加私用 AS 編號以[影響 Microsoft 對等互連的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
-> 透過 ExpressRoute 向 Microsoft 公告的公用 IP 位址不得向網際網路公告。 這可能會中斷其他 Microsoft 服務的連線。 不過，您的網路中伺服器用來與 Microsoft 內部 O365 端點進行通訊的公用 IP 位址可透過 ExpressRoute 公告。 
+> 請勿將同一個公用 IP 路由公告到公用網際網路及透過 ExpressRoute 進行公告。 我們強烈建議您透過 ExpressRoute 來公告更特定的路由，以及將更一般的路由公告至適用於 [NAT](expressroute-nat.md) 的網際網路。 除了適用於 NAT 的公用路由，您也可以透過 ExpressRoute 來公告內部部署網路中伺服器所使用的公用 IP 位址，其會與 Microsoft 內的 Office 365 端點進行通訊。 
 > 
 > 
 
@@ -138,7 +138,7 @@ ExpressRoute 不能設定為傳輸路由器。 您必須依賴連線提供者的
 * 您可使用使用者定義的路由，讓需要網際網路連線的每個子網路進行網際網路連線。
 
 > [!NOTE]
-> 公告預設路由會中斷 Windows 和其他 VM 授權啟用。 請依照 [這裡](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) 的指示來解決這個問題。
+> 公告預設路由會中斷 Windows 和其他 VM 授權啟用。 請依照 [這裡](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) 的指示來解決這個問題。
 > 
 > 
 

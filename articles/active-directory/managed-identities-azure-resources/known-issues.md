@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295576"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913983"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -60,7 +60,7 @@ Azure 資源適用受控識別虛擬機器擴充功能目前仍可供使用，�
 
 Azure IaaS 支援的所有 Linux 散發套件都可以透過 IMDS 端點與 Azure 資源適用受控識別搭配使用。 
 
-注意：Azure 資源適用受控識別 VM 擴充功能 (預計在 2019 年 1 月淘汰) 僅支援下列 Linux 散發套件：
+Azure 資源適用受控識別 VM 擴充功能 (預計在 2019 年 1 月淘汰) 僅支援下列 Linux 散發套件：
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Azure 資源適用受控識別 VM 擴充功能 (預計在 2019 年 1 月淘汰) 
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>使用者指派身分識別的已知問題
+### <a name="vm-extension-provisioning-fails"></a>VM 擴充功能佈建失敗
 
-- 使用者指派身分識別的指派僅適用於 VM 和 VMSS。 重要：使用者指派身分識別的指派將會在之後幾個月進行變更。
-- 相同 VM/VMSS 上若有重複的使用者指派身分識別，將導致 VM/VMSS 失敗。 這包括以大小寫不同而新增的身分識別。 例如 MyUserAssignedIdentity 和 myuserassignedidentity。 
-- 將 VM 擴充功能 (預計在 2019 年 1 月淘汰) 佈建到 VM 的作業，可能會因為 DNS 查閱失敗而失敗。 重新啟動 VM，然後再試一次。 
-- 新增「不存在」的使用者指派身分識別會造成 VM 失敗。 
-- 不支援在名稱中使用特殊字元 (例如底線) 建立使用者指派的身分識別。
-- 針對端對端案例，使用者指派身分識別的名稱僅限 24 個字元。 使用者指派身分識別的名稱若超過 24 個字元，將會無法進行指派。
+佈建 VM 擴充功能的作業可能會因為 DNS 查閱失敗而失敗。 重新啟動 VM，然後再試一次。
+ 
+> [!NOTE]
+> VM 擴充功能已計劃在 2019 年 1 月淘汰。 我們建議您改為使用 IMDS 端點。
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>在 Azure AD 目錄之間轉移訂用帳戶
+
+當訂用帳戶移動/轉移至另一個目錄時，不會更新受控身分識別。 因此，系統指派或使用者指派的任何現有受控身分識別都會中斷。 
+
+因應措施是您可以在移動訂用帳戶之後，停用系統指派的受控身分識別並重新予以啟用。 同樣地，您可以刪除並重新建立任何使用者指派的受控身分識別。 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>使用者指派的受控身分識別已知問題
+
+- 建立使用者指派的受控身分識別時，不支援在名稱中使用特殊字元 (例如底線)。
+- 使用者指派的身分識別名稱長度限制為 24 個字元。 如果名稱長度超過 24 個字元，將無法把識別指派給資源 (也就是虛擬機器)。
 - 如果您使用受控識別虛擬機器擴充功能 (預計在 2019 年 1 月淘汰)，所支援的限制為 32 個使用者指派的受控識別。 若未使用受控識別虛擬機器擴充功能，則所支援的限制為 512 個。  
-- 新增第二個使用者指派的身分識別時，可能無法使用 clientID 來要求虛擬機器擴充功能的權杖。 使用下列兩個 bash 命令重新啟動 Azure 資源所適用受控識別 VM 擴充功能來作為風險降低措施：
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- 當 VM 具有使用者指派的身分識別，但是沒有系統指派的身分識別時，入口網站 UI 會將 Azure 資源所適用受控識別顯示為已停用狀態。 若要啟用系統指派的身分識別，請使用 Azure Resource Manager 範本、Azure CLI 或 SDK。
+- 將使用者指派的受控身分識別移至不同的資源群組會導致身分識別中斷。 如此一來，您將無法針對該身分識別要求權杖。 
+- 將訂用帳戶轉移至另一個目錄，將會中斷任何現有使用者指派的受控身分識別。 

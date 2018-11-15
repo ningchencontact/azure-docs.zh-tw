@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219404"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345584"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>將解決方案範本發行到 Azure Marketplace
 
@@ -161,7 +161,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
 ![套件詳細資料](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **目前的版本** - 您將上傳之套件的版本。 它的格式應該是 - ..
+- **目前的版本** - 您將上傳之套件的版本。 版本標籤格式應為 X.Y.Z，其中 X、Y 和 Z 是整數。
 
 - **套件檔案** - 此套件包含下列檔案，且這些檔案儲存在 .zip 檔中。
 

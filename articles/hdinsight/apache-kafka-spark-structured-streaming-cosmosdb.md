@@ -2,27 +2,27 @@
 title: 從 Kafka 到 Azure Cosmos DB 的 Apache Spark 結構化串流 - Azure HDInsight
 description: 了解如何使用「Apache Spark 結構化串流」從 Apache Kafka 讀取資料，然後儲存至 Azure Cosmos DB。 在此範例中，您使用 Jupyter Notebook 從 HDInsight 上的 Spark 串流資料。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.author: jasonh
-ms.openlocfilehash: 8f0a16320091f8b2efa98ee96a63801e841c082e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: fcedf4a9335a0d70cfbab5a7f803b68cb154e209
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971309"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278900"
 ---
-# <a name="use-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
+# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
-了解如何使用「Spark 結構化串流」從 Azure HDInsight 上的 Apache Kafka 讀取資料，然後將資料儲存至 Azure Cosmos DB。
+了解如何使用「Apache Spark 結構化串流」從 Azure HDInsight 上的 Apache Kafka 讀取資料，然後將資料儲存至 Azure Cosmos DB。
 
 Azure Cosmos DB 是全域散發的多模型資料庫。 此範例使用 SQL API 資料庫模型。 如需詳細資訊，請參閱[歡迎使用 Azure Cosmos DB](../cosmos-db/introduction.md) 文件。
 
-Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 如需有關結構化串流的詳細資訊，請參閱 Apache.org 的[結構化串流程式設計手冊 [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) \(英文\)。
+Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 如需有關結構化串流的詳細資訊，請參閱 Apache.org 的[結構化串流程式設計手冊](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) \(英文\)。
 
 > [!IMPORTANT]
 > 此範例使用 HDInsight 3.6 上的 Spark 2.2。
@@ -95,7 +95,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 3. 讀取**條款及條件**，然後選取 [我同意上方所述的條款及條件]。
 
-4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
+4. 最後，選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
 > [!IMPORTANT]
 > 最多需要 45 分鐘才能建立叢集、虛擬網路與 Cosmos DB 帳戶。

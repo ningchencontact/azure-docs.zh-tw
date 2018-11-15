@@ -2,25 +2,25 @@
 title: 以程式設計方式存取 Hadoop YARN 應用程式記錄檔 - Azure
 description: 在 HDInsight 中的 Hadoop 叢集上以程式設計方式存取應用程式記錄檔
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: b7b93ca9c8638451d23a27edeed823e593a95b23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094396"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035640"
 ---
-# <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>存取以 Windows 為基礎之 HDInsight 上的 YARN 應用程式記錄
-本文件說明針對已在 Azure HDInsight 的以 Windows 為基礎的 Hadoop 叢集上完成的 YARN 應用程式，如何存取其記錄。
+# <a name="access-apache-yarn-application-logs-on-windows-based-hdinsight"></a>存取以 Windows 為主之 HDInsight 上的 Apache YARN 應用程式記錄檔
+本文件說明針對已在 Azure HDInsight 的以 Windows 為主的 Hadoop 叢集上完成的 Apache YARN 應用程式，如何存取其記錄檔
 
 > [!IMPORTANT]
-> 本文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 之 HDInsight 叢集上 YARN 記錄檔的相關資訊，請參閱 [在 HDInsight 中的 Linux 之 Hadoop 上存取 YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+> 本文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 之 HDInsight 叢集上 YARN 記錄檔的相關資訊，請參閱 [在 HDInsight 中以 Linux 為基礎之 Hadoop 上存取 Apache YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 >
 
 

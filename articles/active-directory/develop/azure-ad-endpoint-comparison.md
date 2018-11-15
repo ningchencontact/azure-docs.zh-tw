@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955413"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288198"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>比較 Azure AD v2.0 端點與 v1.0 端點
 
@@ -41,7 +41,7 @@ ms.locfileid: "49955413"
 
 * 對於設定為[單一租用戶](single-and-multi-tenant-apps.md)的應用程式，或對於設定為指向租用戶專用端點的多租用戶應用程式 (`https://login.microsoftonline.com/{TenantId_or_Name}`)，V1.0 與 v2.0 端點也都接受 Azure AD 目錄的[來賓使用者](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)登入。
 
-V2.0 端點可讓您撰寫應用程式，以接受來自個人及公司和學校帳戶的登入，並且讓您能夠撰寫與帳戶完全無關的應用程式。 例如，如果您的應用程式呼叫 [Microsoft Graph](https://graph.microsoft.io)，則有一些額外的功能和資料可供公司帳戶使用，例如他們的 SharePoint 網站或目錄資料。 但在許多動作 (例如[讀取使用者的郵件](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message)) 中，相同的程式碼可以存取個人及公司和學校帳戶的電子郵件。
+V2.0 端點可讓您撰寫應用程式，以接受來自個人及公司和學校帳戶的登入，並且讓您能夠撰寫與帳戶完全無關的應用程式。 例如，如果您的應用程式呼叫 [Microsoft Graph](https://developer.microsoft.com/graph)，則有一些額外的功能和資料可供公司帳戶使用，例如他們的 SharePoint 網站或目錄資料。 但在許多動作 (例如[讀取使用者的郵件](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message)) 中，相同的程式碼可以存取個人及公司和學校帳戶的電子郵件。
 
 對於 v2.0 端點，您可以使用單一程式庫 (MSAL) 來進入消費者、教育和企業的世界。
 

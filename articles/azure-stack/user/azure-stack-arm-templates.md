@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d520a33fd6729f4a9d4778cfdb8d3380c9ac09b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237837"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636215"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 資源管理員範本
 
@@ -34,7 +34,7 @@ ms.locfileid: "51237837"
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來[建立 SharePoint Server 2013 伺服器陣列](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha)，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 SharePoint Server 2013 伺服器陣列](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 三個儲存體帳戶
@@ -45,7 +45,7 @@ ms.locfileid: "51237837"
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>部署 AD (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來[建立 AD 網域控制站伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha)，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 AD 網域控制站伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 一個儲存體帳戶
@@ -54,7 +54,7 @@ ms.locfileid: "51237837"
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>部署 AD/SQL (非高可用性部署)
 
-使用 PowerShell DSC 擴充功能來[建立 SQL Server 2014 獨立伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha)，其中包含下列資源：
+使用 PowerShell DSC 擴充功能來[建立 SQL Server 2014 獨立伺服器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha)，其中包含下列資源：
 
 * 虛擬網路
 * 兩個儲存體帳戶
@@ -68,11 +68,11 @@ ms.locfileid: "51237837"
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>從使用者映像建立虛擬機器
 
-[從自訂使用者映像建立虛擬機器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image)。 這個範本也會部署虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
+[從自訂使用者映像建立虛擬機器](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image)。 這個範本也會部署虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
 
 ## <a name="basic-virtual-machine"></a>基本虛擬機器
 
-[部署一部 Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm)，其中包含虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
+[部署一部 Windows VM](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm)，其中包含虛擬網路 (含 DNS)、公用 IP 位址及網路介面。
 
 ## <a name="cancel-a-running-template-deployment"></a>取消執行中的範本部署
 

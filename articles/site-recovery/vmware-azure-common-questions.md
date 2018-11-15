@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 086acdd74932836627c600b5545bc4353052ad6f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215441"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012100"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -59,6 +59,8 @@ ms.locfileid: "50215441"
 ### <a name="where-do-on-premises-vms-replicate-to"></a>內部部署 VM 會複寫到何處？
 資料會複寫到 Azure 儲存體。 當您容錯移轉時，Site Recovery 會從儲存體帳戶自動建立 Azure VM。
 
+## <a name="replication"></a>複寫
+
 ### <a name="what-apps-can-i-replicate"></a>我可以複寫哪些應用程式？
 您可以複寫符合[複寫需求](vmware-physical-azure-support-matrix.md##replicated-machines)的 VMware VM 上執行的任何應用程式或工作負載。 Site Recovery 支援應用程式感知複寫，可讓應用程式容錯移轉及容錯回復至智慧型狀態。 Site Recovery 除了與 Microsoft 應用程式 (例如 SharePoint、Exchange、Dynamics、SQL Server 及 Active Directory) 整合之外，還與產業龍頭 (包括 Oracle、SAP、IBM 及 Red Hat) 密切合作。 [深入了解](site-recovery-workload.md) 工作負載保護。
 
@@ -74,18 +76,17 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 在複寫至 Azure 時，複寫流量會送到 Azure 儲存體帳戶的公用端點，因此您只能使用公用網際網路透過 ExpressRoute (公用對等互連) 進行複寫，VPN 無法運作。
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>複寫的 VM 有何需求？
+### <a name="what-are-the-replicated-vm-requirements"></a>複寫的 VM 有何需求？
 
 若要進行複寫，VMware VM 必須執行支援的作業系統。 此外，VM 必須符合 Azure VM 的需求。 請在[支援矩陣](vmware-physical-azure-support-matrix.md##replicated-machines)中深入了解相關資訊。
 
-## <a name="how-often-can-i-replicate-to-azure"></a>複寫到 Azure 的頻率為何？
+### <a name="how-often-can-i-replicate-to-azure"></a>複寫到 Azure 的頻率為何？
 從 VMware VM 到 Azure 的複寫會持續執行。
 
-## <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
+### <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
 不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出這項功能的要求。
 
-## <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
+### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
 不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
@@ -141,7 +142,7 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 安裝程式存放在組態伺服器的 **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** 資料夾中。
 
 ## <a name="how-do-i-install-the-mobility-service"></a>如何安裝行動服務？
-您可以使用[推送安裝](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery)，安裝在您要複寫的每個 VM 上，或從 [UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) 或[使用 PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt) 手動安裝。 或者，您可以使用 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 或 [Azure 自動化和 DSC](vmware-azure-mobility-deploy-automation-dsc.md) 之類的部署工具來安裝。
+您可以使用[推送安裝](vmware-azure-install-mobility-service.md)，或是從 UI 或 PowerShell 進行[手動安裝](vmware-physical-mobility-service-install-manual.md)，在您想要複寫的每個 VM 上安裝。 或者，也可以使用 [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) 之類的部署工具來部署。
 
 
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670145"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958911"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
 
@@ -83,7 +83,7 @@ vfxt.py 指令碼可以用於以下叢集管理工作：
 
 vfxt.py 已預先安裝在叢集控制器 VM 上。 <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-完整的 vfxt.py 使用指南可在 GitHub 上取得：<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+完整的 vfxt.py 使用指南可在 GitHub 上取得：[使用 vfxt.py 進行雲端叢集管理](https://github.com/azure/averesdk/blob/master/docs/README.md) \(英文\)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>使用 vfxt.py 新增叢集節點
 
@@ -115,7 +115,7 @@ vfxt.py 已預先安裝在叢集控制器 VM 上。 <!-- (If you want to install
    --log ~/vfxt.log
 ```
 
-如需詳細資訊，請閱讀 vfxt.py 使用指南中的[將節點新增至叢集](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster)。
+如需詳細資訊，請閱讀 vfxt.py 使用指南中的[將節點新增至叢集](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster)。
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>使用 vfxt.py 停止叢集
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-由於叢集已停止，因此您必須傳遞執行個體識別碼以指定叢集節點。 若要深入了解，請閱讀 vfxt.py 使用指南中的[指定要修改的叢集](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify)。
+由於叢集已停止，因此您必須傳遞執行個體識別碼以指定叢集節點。 若要深入了解，請閱讀 vfxt.py 使用指南中的[指定要修改的叢集](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify)。
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>使用 vfxt.py 終結叢集
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 如果您不想要從叢集快取寫入已變更的資料，可以使用選項 ``--quick-destroy``。
 
-如需其他資訊，請閱讀 [vfxt.py 使用指南](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>)。  
-<!-- change to final location when available -->
+如需其他資訊，請閱讀 [vfxt.py 使用指南](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>)。  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>從 Azure 入口網站管理叢集 VM 
 

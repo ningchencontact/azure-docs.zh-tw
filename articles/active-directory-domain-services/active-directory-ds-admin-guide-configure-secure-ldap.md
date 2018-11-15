@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: de77050206c98832b274e8bdbda8026fc115610e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156216"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236948"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>針對 Azure AD 網域服務受控網域設定安全的 LDAP (LDAPS)
 本文說明如何為 Azure Active Directory Domain Services 受控網域啟用安全的輕量型目錄存取通訊協定 (LDAPS)。 安全的 LDAP 亦稱為「透過安全通訊端層 (SSL)/傳輸層安全性 (TLS) 的輕量型目錄存取通訊協定 (LDAP)」。
@@ -45,7 +45,7 @@ ms.locfileid: "50156216"
 
 1. **信任的簽發者** - 憑證必須由使用安全 LDAP 連線到網域的電腦，所信任的授權單位加以發行。 此授權單位可能是受這些電腦信任的公用憑證授權單位 (CA) 或企業 CA。
 2. **存留期** - 憑證必須至少在接下來的 3 至 6 個月內都要保持有效。 當憑證過期時，受控網域的安全 LDAP 存取會中斷。
-3. **主體名稱** - 在受控網域中，憑證的主體名稱必須是萬用字元。 比方說，如果您的網域名稱為 'contoso100.com'，則憑證的主體名稱必須是 '*.contoso100.com'。 設定此萬用字元名稱的 DNS 名稱 (主體替代名稱)。
+3. **主體名稱** - 憑證的主體名稱必須是您受控網域。 比方說，如果您的網域名稱為 'contoso100.com'，則憑證的主體名稱必須是 'contoso100.com'。 請將 DNS 名稱 (主體替代名稱) 設定為您受控網域的萬用字元名稱。
 4. **金鑰使用方法** - 必須將憑證設定為下列用途 - 數位簽章與金鑰編密。
 5. **憑證目的** - 憑證必須有效可進行 SSL 伺服器驗證。
 
@@ -83,7 +83,7 @@ ms.locfileid: "50156216"
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 在上述範例中，將 'contoso100.com' 替換為受控網域的 DNS 網域名稱。 例如，如果您建立名為 'contoso100.onmicrosoft.com' 的受控網域，請將 Subject 屬性中的 'contoso100.com' 替換成 'contoso100.onmicrosoft.com'，並將 DnsName 屬性中的 '*.contoso100.com' 替換成 '*.contoso100.onmicrosoft.com'。

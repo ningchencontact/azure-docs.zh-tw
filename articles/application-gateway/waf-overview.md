@@ -2,16 +2,16 @@
 title: 適用於 Azure 應用程式閘道的 Web 應用程式防火牆 (WAF) 簡介
 description: 本文提供適用於應用程式閘道的 Web 應用程式防火牆 (WAF) 的概觀
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068446"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219523"
 ---
 # <a name="web-application-firewall-waf"></a>Web 應用程式防火牆 (WAF)
 
@@ -39,7 +39,7 @@ WAF 會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:O
 
 * 使用即時 WAF 記錄來監視 Web 應用程式對抗攻擊。 此記錄已經與 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)整合，可追蹤 WAF 警示和記錄並輕鬆地監視趨勢。
 
-* WAF 即將與 Azure 資訊安全中心整合。 Azure 資訊安全中心可供集中檢閱所有 Azure 資源的安全性狀態。
+* WAF 已經與 Azure 資訊安全中心整合。 Azure 資訊安全中心可供集中檢閱所有 Azure 資源的安全性狀態。
 
 ### <a name="customization"></a>自訂
 
@@ -47,11 +47,11 @@ WAF 會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:O
 
 ## <a name="features"></a>特性
 
-- SQL 插入式攻擊保護
+- SQL 插入保護
 - 跨網站指令碼保護
-- 常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
+- 常見 Web 攻擊保護，例如命令插入、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
 - 防範 HTTP 通訊協定違規
-- 防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
+- 防範 HTTP 通訊協定異常 (例如遺漏主機使用者代理程式和接受標頭)
 - 防範 Bot、編目程式和掃描器
 - 偵測一般應用程式錯誤組態 (也就是 Apache、IIS 等)
 
@@ -74,11 +74,11 @@ WAF 會根據 [OWASP 核心規則集](https://www.owasp.org/index.php/Category:O
 
 Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選擇使用 2.2.9。 CRS 3.0 的誤判情形低於 2.2.9。 能夠[自訂規則以符合您需求](application-gateway-customize-waf-rules-portal.md)。 Web 應用程式防火牆防禦的一些常見 Web 弱點包括︰
 
-- SQL 插入式攻擊保護
+- SQL 插入保護
 - 跨網站指令碼保護
-- 常見 Web 攻擊保護，例如命令插入式攻擊、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
+- 常見 Web 攻擊保護，例如命令插入、HTTP 要求走私、HTTP 回應分割和遠端檔案包含攻擊
 - 防範 HTTP 通訊協定違規
-- 防範 HTTP 通訊協定異常行為，例如遺漏主機使用者代理程式和接受標頭
+- 防範 HTTP 通訊協定異常 (例如遺漏主機使用者代理程式和接受標頭)
 - 防範 Bot、編目程式和掃描器
 - 偵測一般應用程式錯誤組態 (也就是 Apache、IIS 等)
 
@@ -91,7 +91,7 @@ Web 應用程式防火牆已預先設定為使用 CRS 3.0，或者您可以選�
 
 |RuleGroup|說明|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|包含規則，可鎖定方法 (PUT、PATCH< ..)|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|包含規則，可鎖定方法 (PUT、PPATCH< ..)|
 |**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| 包含規則，可防禦連接埠和環境掃描器。|
 |**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|包含規則，可防範通訊協定和編碼問題。|
 |**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|包含規則，可防止標頭插入、要求走私和回應分割|

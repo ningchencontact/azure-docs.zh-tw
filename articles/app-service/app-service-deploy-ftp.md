@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: 66d375022d200cc916c77c059fa64eb6dbbc17e2
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308141"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231375"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
-這篇文章說明如何使用 FTP 或 FTPS 將您的 Web 應用程式、行動裝置應用程式後端或 API 應用程式部署到 [Azure App Service (英文)](http://go.microsoft.com/fwlink/?LinkId=529714)。
+這篇文章說明如何使用 FTP 或 FTPS 將您的 Web 應用程式、行動裝置應用程式後端或 API 應用程式部署到 [Azure App Service (英文)](https://go.microsoft.com/fwlink/?LinkId=529714)。
 
 您應用程式的 FTP/S 端點已經啟動。 啟用 FTP/S 部署不需要任何組態。
 
@@ -45,7 +45,7 @@ ms.locfileid: "39308141"
 
 ## <a name="deploy-files-to-azure"></a>將檔案部署至 Azure
 
-1. 從您的 FTP 用戶端 (例如 [Visual Studio](https://www.visualstudio.com/vs/community/) 或 [FileZilla](https://filezilla-project.org/download.php?type=client))，使用您所蒐集的連線資訊來連線到您的應用程式。
+1. 從您的 FTP 用戶端 (例如 [Visual Studio](https://www.visualstudio.com/vs/community/)、[Cyberduck](https://cyberduck.io/) 或 [WinSCP](https://winscp.net/index.php))，使用您所蒐集的連線資訊來連線到您的應用程式。
 3. 將您的檔案和其個別的目錄結構複製到 Azure 中的 [**/site/wwwroot** 目錄](https://github.com/projectkudu/kudu/wiki/File-structure-on-azure) (或 WebJobs 的 **/site/wwwroot/App_Data/Jobs/** 目錄)。
 4. 瀏覽至您的應用程式 URL，以確認應用程式運作正常。 
 
@@ -109,4 +109,4 @@ Azure App Service 支援透過主動與被動模式進行連線。 建議使用�
 
 ## <a name="more-resources"></a>其他資源
 
-* [Azure App Service 部署認證](app-service-deploy-ftp.md)
+* [Azure App Service 部署認證](app-service-deployment-credentials.md)

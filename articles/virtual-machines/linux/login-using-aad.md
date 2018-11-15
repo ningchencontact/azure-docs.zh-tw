@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ec712dcce1295a91f552176ddcf6572d3f23ecc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993556"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007125"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -147,6 +147,20 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 關閉瀏覽器視窗，返回 SSH 提示字元，然後按 **Enter** 鍵。 您此時會已使用指派的角色權限 (例如 [VM 使用者]或 [VM 系統管理員]) 登入 Azure Linux 虛擬機器。 如果您的使用者帳戶已被指派 [虛擬機器系統管理員登入] 角色，您可以使用 `sudo` 執行需要根權限的命令。
+
+## <a name="sudo-and-aad-login"></a>Sudo 和 AAD 登入
+
+首次執行 sudo 時，系統將會要求您進行第二次的驗證。 如果您不想再次進行驗證以執行 sudo，您可以編輯 sudoers 檔案 `/aad/etc/sudoers.d/aad_admins` 並取代這一行：
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+改用這行︰
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## <a name="troubleshoot-sign-in-issues"></a>對登入問題進行疑難排解
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory Connect 常見問題集 - | Microsoft Docs
-description: 此文章將回答有關 Azure AD Connect 的常見問題。
+description: 本文將回答有關 Azure AD Connect 的常見問題。
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269440"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010599"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常見問題集
 
@@ -45,14 +45,14 @@ ms.locfileid: "48269440"
 不行，相同 AD 網域不能有多個連接器。 
 
 **問：可以將 Azure AD Connect 資料庫移從本機資料庫至遠端 SQL Server 執行個體嗎？**   
-是，下列步驟將提供如何執行此操作的一般指導方針。 我們目前正在製作更詳細的文件。
+是，下列步驟將提供如何執行這項操作的一般指引。 我們目前正在製作更詳細的文件。
 1. 備份 LocalDB ADSync 資料庫。
 執行此操作最簡單的方式是使用與 Azure AD Connect 安裝在同一部機器上的 SQL Server Management Studio。 請連線至 *(LocalDb).\ADSync*，然後備份 ADSync 資料庫。
 
 2. 將 ADSync 資料庫還原至您的遠端 SQL Server 執行個體。
 
 3. 針對現有的[遠端 SQL 資料庫](how-to-connect-install-existing-database.md)安裝 Azure AD Connect。
-   此文章將示範如何移轉至使用本機 SQL 資料庫。 如果您要移轉至使用遠端 SQL 資料庫，則在此程序的步驟 5 中，您也必須輸入現有服務帳戶作為 Windows 同步服務執行時的依據。 此同步引擎服務帳戶的描述如下：
+   本文將示範如何遷移至使用本機 SQL 資料庫。 如果您要遷移至使用遠端 SQL 資料庫，則在此程序的步驟 5 中，您也必須輸入現有服務帳戶作為 Windows 同步服務執行時的依據。 此同步引擎服務帳戶的描述如下：
    
       **使用現有服務帳戶**：Azure AD Connect 預設會使用虛擬服務帳戶，以供同步處理服務使用。 如果您是使用遠端 SQL Server 執行個體或需要驗證的 Proxy，請使用受控服務帳戶，或使用網域中知道密碼的服務帳戶。 在這類情況下，請輸入要使用的帳戶。 請確定執行安裝的使用者是 SQL 中的系統管理員，以便建立服務帳戶的登入認證。 如需詳細資訊，請參閱 [Azure AD Connect 帳戶與權限](reference-connect-accounts-permissions.md#adsync-service-account)。 
    
@@ -65,7 +65,7 @@ ms.locfileid: "48269440"
 所有網路軟體、實體裝置或其他軟硬體限制連線開啟時間上限的閥值應該至少為 5 分鐘 (300 秒)，以便讓安裝 Azure AD Connect 用戶端的伺服器與 Azure Active Directory 連線。 此建議也適用於所有先前發行的 Microsoft 身分識別同步處理工具。
 
 **問：是否支援單一標籤網域 (SLD)？**  
-雖然非常不建議您使用這種網路設定 ([請參閱文章](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains))，但只要單一層級網域的網路設定可正常運作，便支援搭配單一標籤網域使用 Azure AD Connect 同步處理。
+雖然非常不建議您使用這種網路設定 ([請參閱文章](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains))，但只要單一層級網域的網路設定可正常運作，便支援搭配使用 Azure AD Connect 同步處理與單一標籤網域。
 
 **問：是否支援使用斷續 AD 網域的樹系？**  
 否，Azure AD Connect 不支援包含斷續命名空間的內部部署樹系。
@@ -76,9 +76,12 @@ ms.locfileid: "48269440"
 **問：是否支援純 IPv6 環境？**  
 否，Azure AD Connect 不支援純 IPv6 環境。
 
+**問︰我有多樹系環境，並在兩個樹系之間的網路使用 NAT (網路位址轉譯)。是否支援在這兩個個樹系之間使用 Azure AD Connect？**</br>
+ 否，不支援透過 NAT 使用 Azure AD Connect。 
+
 ## <a name="federation"></a>同盟
 **問：如果我收到一封電子郵件，要求我更新我的 Office 365 憑證，該怎麼辦？**  
-如需有關更新憑證的指導方針，請參閱[更新憑證](how-to-connect-fed-o365-certs.md)。
+如需有關更新憑證的指引，請參閱[更新憑證](how-to-connect-fed-o365-certs.md)。
 
 **問：我已經針對 Office 365 信賴憑證者設定「自動更新信賴憑證者」。當我的權杖簽署憑證自動換用時，需要採取任何動作嗎？**  
 請參考[更新憑證](how-to-connect-fed-o365-certs.md)一文中概述的指導方針。
@@ -163,7 +166,7 @@ Azure AD Connect 小組會對此服務提出頻繁的更新。 若要獲取錯�
 **問：我認為我已升級到 Azure AD Connect，但是在 Office 入口網站中，它仍然提及 DirSync。這是為什麼？**  
 Office 小組正在處理 Office 入口網站更新，以反映目前的產品名稱。 它不會反映您所使用的同步處理工具。
 
-**問：我的自動升級狀態顯示「擱置」。它為何會擱置？我是否應該啟用它？**  
+**問：我的自動升級狀態顯示「擱置」。它為何會擱置？應該加以啟用嗎？**  
 在某些情況下，先前版本中引入的錯誤會讓自動升級狀態設定為「擱置」。 以手動方式啟用在技術上是可行的，但需要幾個複雜的步驟。 最佳做法是下載並安裝最新版的 Azure AD Connect。
 
 **問：我的公司有嚴格的變更管理需求，我想要控制其推出的時間。我可以控制何時啟動自動升級嗎？**  

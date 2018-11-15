@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 923a2a137bb4510e9490ce4077f744a43619a2c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165019"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010315"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
-[Azure Migrate](migrate-overview.md) 服務會評估要移轉至 Azure 的內部部署機器群組。 您可以使用 Azure Migrate 的相依性視覺效果功能來建立群組。 此文章提供此功能的相關資訊。
+[Azure Migrate](migrate-overview.md) 服務會評估要移轉至 Azure 的內部部署機器群組。 您可以使用 Azure Migrate 的相依性視覺效果功能來建立群組。 本文提供此功能的相關資訊。
 
 
 ## <a name="overview"></a>概觀
@@ -25,7 +25,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 ## <a name="how-does-it-work"></a>運作方式
 
 為提供相依性的視覺效果，Azure Migrate 採用了 [Log Analytics](../log-analytics/log-analytics-overview.md) 的[服務對應](../operations-management-suite/operations-management-suite-service-map.md)解決方案。
-- 若要利用相依性視覺效果，您需要將新增或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
+- 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。
 - 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
 - 若要將 Log Analytics 工作區連結至專案，請移至專案 [概觀] 頁面的 [基本資訊] 區段，按一下 [需要設定]
 
@@ -38,6 +38,12 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
     ![瀏覽 Log Analytics 工作區](./media/concepts-dependency-visualization/oms-workspace.png)
 
 若要使用相依性視覺效果，您需要在待分析的每個內部部署機器上，下載及安裝代理程式。  
+
+- 必須在每個機器上安裝 [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)。
+- 必須在每個機器上安裝[相依性代理程式](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)。
+- 此外，如果您有無法連線至網際網路的機器，則必須在該機器上下載並安裝 Log Analytics 閘道。
+
+您不需要在所要評量的機器上有這些代理程式，除非您使用相依性視覺效果。
 
 ## <a name="do-i-need-to-pay-for-it"></a>我需要支付多少費用？
 
@@ -63,4 +69,4 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 
 ## <a name="next-steps"></a>後續步驟
 - [使用機器相依性的群組機器](how-to-create-group-machine-dependencies.md)
-- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)相依性視覺效果常見問題集。
+- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)相依性視覺效果的常見問題集。

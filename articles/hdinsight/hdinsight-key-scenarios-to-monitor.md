@@ -7,26 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/27/2017
-ms.author: maxluk
-ms.openlocfilehash: 434b3ecf65aaa5ecea81f5a9773f1bc6e8f6f2be
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: arindamc
+ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092322"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255297"
 ---
 # <a name="monitor-cluster-performance"></a>監視叢集效能
 
-監視 HDInsight 叢集的健康情況和效能對於維護最大效能和資源使用率而言是不可或缺的。 監視也可以協助您解決可能發生的編碼或叢集設定錯誤。
+監視 HDInsight 叢集的健康情況和效能對於維護最佳效能與資源使用率而言是不可或缺的。 監視也可以協助您偵測並解決叢集設定錯誤和使用者程式碼問題。
 
-下列各節說明如何將叢集負載最佳化、YARN 佇列效率，以及儲存體的存取能力。
+下列各節說明如何監視和最佳化叢集、YARN 佇列上的負載，以及偵測儲存體節流問題。
 
-## <a name="cluster-loading"></a>叢集負載
+## <a name="monitor-cluster-load"></a>監視叢集負載
 
-Hadoop 叢集應該在叢集的節點之間平衡負載。 此負載平衡可避免處理工作受限於 RAM、CPU 或磁碟資源。
+當叢集上的負載平均分散於所有節點時，Hadoop 叢集可以提供最佳效能。 這可讓處理工作在執行時，不會受限於個別節點上的 RAM、CPU 或磁碟資源。
 
-若要高階查看您叢集的節點及其負載，請登入 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然後選取 [主機]。會依主機的完整網域名稱加以列出。 每個主機的操作狀態是依彩色的健康情況指示器來顯示：
+若要查看您叢集的節點及其負載概況，請登入 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md)，然後選取 [主機]。會依主機的完整網域名稱加以列出。 每個主機的操作狀態是依彩色的健康情況指示器來顯示：
 
 | 色彩 | 說明 |
 | --- | --- |
@@ -47,11 +47,11 @@ Hadoop 叢集應該在叢集的節點之間平衡負載。 此負載平衡可避
 
 ## <a name="yarn-queue-configuration"></a>YARN 佇列組態
 
-Hadoop 有各種服務在其分散式平台之間執行。 YARN (Yet Another Resource Negotiator) 會協調這些服務、配置叢集資源，並管理一般資料集的存取。
+Hadoop 有各種服務在其分散式平台之間執行。 YARN (Yet Another Resource Negotiator) 可協調這些服務並配置叢集資源，確保將任何負載平均分散於叢集。
 
-YARN 會將 JobTracker、資源管理及作業排程/監視的兩個責任分割為兩個精靈：全域 ResourceManager 和每個應用程式 ApplicationMaster (AM)。
+YARN 會將 JobTracker、資源管理及作業排程/監視的兩個責任分割為兩個精靈：全域 Resource Manager 和每個應用程式 ApplicationMaster (AM)。
 
-ResourceManager 是純排程器，且會單獨仲裁所有競爭應用程式之間的可用資源。 ResourceManager 可確保所有資源一律在使用中、最佳化各種常數，例如 SLA、容量保證等等。 ApplicationMaster 會交涉 ResourceManager 的資源，並使用 NodeManager(s) 來執行及監視容器和其資源耗用量。
+Resource Manager 是純排程器，且會單獨仲裁所有競爭應用程式之間的可用資源。 Resource Manager 可確保所有資源一律在使用中、最佳化各種常數，例如 SLA、容量保證等等。 ApplicationMaster 會交涉 Resource Manager 的資源，並使用 NodeManager(s) 來執行及監視容器和其資源耗用量。
 
 當多個租用戶共用大型叢集時，叢集資源會進行競爭。 CapacityScheduler 是隨插即用的排程器，可藉由將要求排入佇列來協助資源共用。 CapacityScheduler 也支援階層式佇列，以確保在允許其他應用程式的佇列使用可用資源之前，在組織的子佇列之間共用資源。
 
@@ -63,13 +63,13 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 ![YARN 佇列管理員詳細資料頁面](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-若要更詳細查看您的佇列，請從 Ambari 儀表板中的左側清單選取 [YARN] 服務。 然後在 [快速連結] 下拉式功能表中，選取作用中節點下的 [ResourceManager UI]。
+若要更詳細查看您的佇列，請從 Ambari 儀表板中的左側清單選取 [YARN] 服務。 然後在 [快速連結] 下拉式功能表中，選取作用中節點下的 [Resource Manager UI]。
 
-![ResourceManager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
+![Resource Manager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-在 ResourceManager UI 中，從左側功能表選取 [排程器]。 您會在 [應用程式佇列] 下方看到您的佇列清單。 您可以在這裡查看每個佇列使用的容量，作業在它們之間散發的情況，以及是否有任何作業為有限資源。
+在 Resource Manager UI 中，從左側功能表選取 [排程器]。 您會在 [應用程式佇列] 下方看到您的佇列清單。 您可以在這裡查看每個佇列使用的容量，作業在它們之間散發的情況，以及是否有任何作業為有限資源。
 
-![ResourceManager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
+![Resource Manager UI 功能表連結](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>儲存體節流
 

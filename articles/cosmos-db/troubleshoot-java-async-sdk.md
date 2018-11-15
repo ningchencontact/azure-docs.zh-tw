@@ -4,17 +4,17 @@ description: 使用像是用戶端記錄的功能及其他協力廠商工具，�
 services: cosmos-db
 author: moderakh
 ms.service: cosmos-db
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: ef1d2d0751bf1b1a7ee88fbf37e44e6316dee8f8
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249859"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238824"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>針對搭配 Azure Cosmos DB SQL API 帳戶使用 Java Async SDK 時所發生的問題進行疑難排解
 此文章涵蓋搭配 Azure Cosmos DB SQL API 帳戶使用 [Java Async SDK](sql-api-sdk-async-java.md) 時的常見問題、因應措施、診斷步驟與工具。
@@ -48,7 +48,7 @@ ulimit -a
 
 ##### <a name="snat"></a>Azure SNAT (PAT) 連接埠耗盡
 
-如果您的應用程式部署於 Azure VM 上，預設會使用 [Azure SNAT 連接埠](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)來建立與您 VM 外部之任何端點的連線。 從 VM 到 Cosmos DB 端點所允許的連線數目會受到 [Azure SNAT 設定](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)所限制。
+如果您的應用程式部署於不具公用 IP 位址的 Azure VM 上，預設會使用 [Azure SNAT 連接埠](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)來建立與您 VM 外部之任何端點的連線。 從 VM 到 Cosmos DB 端點所允許的連線數目會受到 [Azure SNAT 設定](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports)所限制。
 
 只有在您的 Azure VM 具有私人 IP 位址，而且來自 VM 的程序會嘗試建立與公用 IP 位址的連線時，才會使用 Azure SNAT 連接埠。 因此，有兩種因應措施可避免 Azure SNAT 限制：
     * 將您的 Azure Cosmos DB 服務端點新增至您的 Azure VM VNET 子網路，如[啟用 VNET 服務端點](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)中所述。 啟用服務端點時，已不會將要求從公用 IP 傳送到 Cosmos DB，而是改為傳送 VNET 和子網路身分識別。 如果只允許公用 IP，此變更可能會導致防火牆卸除。 如果您使用防火牆，則在啟用服務端點時，使用 [VNET ACL](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl) 來將子網路新增至防火牆。

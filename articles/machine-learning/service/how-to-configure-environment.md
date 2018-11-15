@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
-ms.openlocfilehash: 6c2d5a776f603161ef730028168b91844c120aec
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158987"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238311"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -84,14 +84,40 @@ Azure Machine Learning SDK 會使用工作區組態檔來和您的 Azure Machine
 
 Azure Notebooks 和 Azure 資料科學虛擬機器 (DSVM) 已設定為可搭配使用 Azure Machine Learning services。 這些環境已包含所有必要的元件，例如 Azure Machine Learning SDK。
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Azure Notebooks 是 Azure 雲端中的 Jupyter Notebook 服務。
-- 資料科學虛擬機器是專為資料科學工作設計的自訂虛擬機器 (VM) 映像。 其中包括：
-  - 常用工具
-  - 整合式開發環境 (IDE)
-  - Jupyter Notebooks、PyCharm 和 Tensorflow 等套件
 - 但您仍然需要工作區組態檔來使用這些環境。
 
 如需搭配使用 Azure Notebooks 和 Azure Machine Learning 服務的範例，請參閱[開始使用 Azure Machine Learning services](quickstart-get-started.md)。
+
+### <a name="data-science-virtual-machines"></a>資料科學虛擬機器
+
+- 資料科學虛擬機器是專為資料科學工作設計的自訂虛擬機器 (VM) 映像。 其中包括：
+  - 常用的資料科學工具
+  - 整合式開發環境 (IDE)，例如 PyCharm 和 RStudio
+  - 套件，例如 Jupyter Notebooks 和 Tensorflow
+
+DSVM 隨附多個已經安裝的 Anaconda 環境。 若要在不安裝任何套件的情況下使用 Azure Machine Learning Python SDK，請開啟命令提示字元/殼層，並使用下列其中一個命令啟用環境：
+
+* 在 __Ubuntu__ DSVM 上，使用下列命令：
+
+    ```shell
+    conda activate py36
+    ```
+
+* 在 __Windows__ DSVM 上，使用下列命令：
+
+    ```shell
+    conda activate AzureML
+    ```
+
+一旦處於此環境之後，您可以立即在所選擇的建置工具中匯入 Azure Machine Learning SDK，而不需要安裝套件。
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 如需有關資料科學虛擬機器的詳細資訊，請參閱[資料科學虛擬機器](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)。
 

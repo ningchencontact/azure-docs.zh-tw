@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 5224f11cba621da384be23d3ec402f17cb29f317
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571876"
+---
 ## <a name="related-topics"></a>相關主題
 
 * [匯入 OpenAPI 規格](../articles/api-management/import-api-from-oas.md)

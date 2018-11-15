@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968063"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515347"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>如何透過 Azure 成本管理將雲端投資最佳化
 
@@ -186,10 +186,6 @@ Azure 保留可讓您預付一年或三年期的虛擬機器或 SQL Database 計
 如果您在內部部署中已經有 Windows Server 或 SQL Server 授權，您可以使用 Azure Hybrid Benefit 程式儲存在 Azure 中。 利用 Windows Server 權益，每個授權都涵蓋 OS (最多兩部虛擬機器上) 的費用，而您只需支付基礎計算費用。 您可以使用現有的 SQL Server 授權，最多節省 55% 的 vCore 型 SQL Database 選項。 選項包括 Azure 虛擬機器和 SQL Server Integration Services 中的 SQL Server。
 
 如需詳細資訊，請參閱 [Azure Hybrid Benefit 節費計算機](https://azure.microsoft.com/pricing/hybrid-benefit/)。
-
-#### <a name="monetary-commitment"></a>承諾用量
-
-簽署 Enterprise 合約的客戶可以建立 Microsoft 的預付承諾用量。 除了提供簡單的方式來配置雲端資源的預算，承諾用量可讓您降低 Azure 的費率。 降低費率可為您的組織節省大量的成本。
 
 ### <a name="other-resources"></a>其他資源
 

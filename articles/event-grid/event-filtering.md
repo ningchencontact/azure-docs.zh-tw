@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24337863d4e3f8e093c2e33afbb39364ec37516d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd33ca723bd00b4a9c25009ef5b4f444487244f0
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252100"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281943"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>了解適用於事件格線訂用帳戶的事件篩選
 
@@ -57,9 +57,9 @@ ms.locfileid: "50252100"
 
 若要依資料欄位中的值進行篩選並指定比較運算子，請使用進階篩選的選項。 在進階篩選中，您會指定：
 
-* 運算子 - 比較的類型。
+* 運算子類型 - 比較的類型。
 * 索引鍵 - 事件資料中用來進行篩選的欄位。 它可以是數字、布林值或字串。
-* 值 - 要和索引鍵比較的值。
+* 一或多個值 - 要和索引鍵比較的一或多個值。
 
 使用進階篩選的 JSON 語法為：
 
@@ -67,14 +67,14 @@ ms.locfileid: "50252100"
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -122,7 +122,7 @@ ms.locfileid: "50252100"
 * EventTypeVersion
 * 事件資料 (例如 Data.key1)
 
-針對自訂輸入結構描述，請使用事件資料欄位 (例如 Data.key1 Data.key1.key2)。
+針對自訂輸入結構描述，請使用事件資料欄位 (例如 Data.key1)。
 
 ### <a name="values"></a>值
 
@@ -140,7 +140,7 @@ ms.locfileid: "50252100"
 * 每個事件格線訂用帳戶只能有五個進階篩選
 * 每個字串值只能有 512 個字元
 * **in** 和 **not in** 運算子個別只能有五個值
-* 索引鍵只能有兩個層級的巢狀結構 (例如 data.key1.key2)
+* 索引鍵只能有一個層級的巢狀結構 (例如 data.key1)
 
 相同的索引鍵可以用在多個篩選中。
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45570427"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964528"
 ---
 | 資源 | 上限 |注意|
 | --- | --- |---|
@@ -31,5 +31,6 @@ ms.locfileid: "45570427"
 | Runbook 作業參數大小上限   | 512 kb||
 | Runbook 參數上限   | 50|您可以將 JSON 或 XML 字串傳遞至參數，並，如果達到 50 個參數限制，則使用 Runbook 進行剖析|
 | Webhook 裝載大小上限 |  512 kb|
+| 保留作業資料的最大天數|30 天|
 
 **<sup>1</sup>** 沙箱是共用的環境，可以讓多個作業使用，使用相同沙箱的作業受限於沙箱的資源限制。

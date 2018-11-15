@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323724"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012457"
 ---
 # <a name="create-and-manage-role-assignments"></a>建立和管理角色指派
 
@@ -21,15 +21,15 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 
 每個角色指派都包含：
 
-* **物件識別碼** (Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱)。
-* **物件識別碼類型**。
-* **角色定義識別碼**。
-* **空間路徑**。
-* (在大部分的情況下) Azure Active Directory **租用戶識別碼**。
+* **物件識別碼**：Azure Active Directory 識別碼、服務主體物件識別碼或網域名稱
+* **物件識別碼類型**
+* **角色定義識別碼**
+* **空間路徑**
+* **租用戶識別碼**：在大部分情況下為 Azure Active Directory 租用戶識別碼
 
 ## <a name="role-definition-identifiers"></a>角色定義識別碼
 
-下表顯示可藉由查詢系統/角色 API 取得的項目：
+下表顯示可藉由查詢系統/角色 API 取得的項目。
 
 | **角色** | **識別碼** |
 | --- | --- |
@@ -41,11 +41,11 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 | 使用者 | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | 支援專家 | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | 裝置安裝人員 | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| 閘道裝置 | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>支援的 ObjectIdTypes
 
-支援的 `ObjectIdTypes` 包括：
+支援的 `ObjectIdTypes`：
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **名稱** | **必要** | **類型** | **說明** |
 | --- | --- | --- | --- |
-| roleId| 是 |字串 | 角色定義識別碼。 角色定義及其識別碼可藉由查詢系統 API 找到。 |
+| roleId| 是 |字串 | 角色定義識別碼。 藉由查詢系統 API 來尋找角色定義及其識別碼。 |
 | objectId | 是 |字串 | 角色指派的物件識別碼，必須根據其相關聯的類型進行格式化。 `DomainName` ObjectIdType 的 ObjectId 必須以 `“@”` 字元開頭。 |
 | objectIdType | 是 |字串 | 角色指派的類型。 必須是此表格中的下列其中一列。 |
 | tenantId | 視情況而異 | 字串 |租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
-| path* | 是 | 字串 |`Space` 物件的完整存取路徑。 例如：`/{Guid}/{Guid}`。如果某個識別碼需要整個圖形的角色指派，請指定 `"/"` (這會指定根目錄)。 但不建議加以使用，且**您應嚴格遵循最低權限原則**。 |
+| path* | 是 | 字串 |`Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限準則。 |
 
 ## <a name="sample-configuration"></a>範例組態
 
-使用者必須具有最低限度租用戶空間的系統管理權限：
+在此範例中，使用者必須具有最低限度租用戶空間的系統管理權限。
 
   ```JSON
     {
@@ -82,7 +82,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-模擬裝置和感應器以執行測試案例的應用程式：
+在此範例中，應用程式會執行模擬裝置和感應器的測試案例。
 
   ```JSON
     {
@@ -94,7 +94,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-網域中的所有使用者都會獲得空間、感應器和使用者 (及其對應的相關物件) 的讀取權限：
+所有隸屬於網域的使用者都會接收到適用於空間、感應器和使用者的讀取權限。 此存取權包含其對應的相關物件。
 
   ```JSON
     {
@@ -105,7 +105,7 @@ HTTP POST /api/v1.0/roleassignments
     }
   ```
 
-若要取得角色指派：
+使用 GET 來取得角色指派。
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | Path | Path | True | 字串 | 空間的完整路徑 |
 
-若要刪除角色指派：
+使用 DELETE 來刪除角色指派。
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

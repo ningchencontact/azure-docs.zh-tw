@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 28344ac7c50b48b472ba6f907b116b3b202de454
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238792"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959982"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -49,6 +49,7 @@ ms.locfileid: "50238792"
 |---|---|
 |![勾選][1]|檢閱支援的裝置|
 |![勾選][1]|檢閱您應該知道的事情|
+|![勾選][1]|檢閱如何控制裝置的混合式 Azure AD Join|
 |![勾選][1]|選取您的案例|
 
 
@@ -112,6 +113,11 @@ ms.locfileid: "50238792"
 混合式 Azure AD Join 程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 在有些情況下，您不想自動註冊所有裝置。 如果這適合您，請參閱[如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)。
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>檢閱如何控制裝置的混合式 Azure AD Join
+
+混合式 Azure AD Join 程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 在某些情況下，您會不想自動註冊所有裝置。 舉例來說，在首次推出期間要確認一切都正常運作時，即屬此種情況。
+
+如需詳細資訊，請參閱[如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
 
 ## <a name="select-your-scenario"></a>選取您的案例
 

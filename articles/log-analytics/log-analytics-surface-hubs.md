@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407158"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009550"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>使用 Log Analytics 監視 Surface Hub 來追蹤其健全狀況
 
@@ -35,7 +35,7 @@ ms.locfileid: "49407158"
 
 * 可支援您需要監視之裝置數目的 [Log Analytics 訂用帳戶](https://azure.microsoft.com/pricing/details/log-analytics/)層級。 Log Analytics 的定價取決於已註冊的裝置數目，以及所要處理的資料量。 規劃使用 Surface Hub 時請將這一點列入考慮。
 
-接下來，您要新增現有的 Log Analytics 工作區，或建立新的工作區。 使用哪一種方法的詳細指示請參閱[開始使用 Log Analytics](log-analytics-get-started.md)。 設定 Log Analytics 工作區之後，有兩種方式可以註冊 Surface Hub 裝置：
+接下來，您要新增現有的 Log Analytics 工作區，或建立新的工作區。 如需使用任一種方法的詳細指示，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](log-analytics-quick-create-workspace.md)。 設定 Log Analytics 工作區之後，有兩種方式可以註冊 Surface Hub 裝置：
 
 * 自動透過 Intune 註冊
 * 在 Surface Hub 裝置上手動透過 [設定] 註冊
@@ -84,8 +84,8 @@ Intune 接著會將 Log Analytics 設定與目標群組中的裝置同步處理�
 
    ![Surface Hub 的儀表板](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-您可以根據現有或自訂的記錄檔搜尋來建立[警示](log-analytics-alerts.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
+您可以根據現有或自訂的記錄檔搜尋來建立[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄檔搜尋](log-analytics-log-searches.md)來檢視詳細的 VMware 資料。
-* 建立[警示](log-analytics-alerts.md)在 Surface Hub 發生問題時通知您。
+* 使用 [Log Analytics 中的記錄檔搜尋](log-analytics-queries.md)來檢視詳細的 VMware 資料。
+* 建立[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)在 Surface Hub 發生問題時通知您。

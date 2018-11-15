@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 24bb7a1fcb1569922fb34034fb3c0d003cdd7061
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571887"
+---
 ## <a name="repeatability-during-copy"></a>在複製期間的重複性
 從其他資料存放區複製資料到 Azure SQL/SQL Server 時，需要記住重複性以避免非預期的結果。 
 

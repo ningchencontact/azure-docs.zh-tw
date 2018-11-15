@@ -1,25 +1,25 @@
 ---
-title: '教學課程：使用 Data Factory 在 Azure HDInsight 中建立隨選 Hadoop 叢集 '
-description: 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Handooop 叢集。
+title: '教學課程：使用 Data Factory 在 Azure HDInsight 中建立隨選 Apache Hadoop 叢集 '
+description: 了解如何使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Handooop 叢集。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955604"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036371"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Hadoop 叢集
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-在本文中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 Hadoop 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在本教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
+在本文中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 Apache Hadoop 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在本教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
 
 本教學課程涵蓋下列工作： 
 

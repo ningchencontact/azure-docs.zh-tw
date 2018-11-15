@@ -1,6 +1,6 @@
 ---
-title: Hadoop 架構 - Azure HDInsight
-description: 說明 HDInsight 叢集上的 Hadoop 儲存體和處理工作。
+title: Apache Hadoop 架構 - Azure HDInsight
+description: 說明 HDInsight 叢集上的 Apache Hadoop 儲存體和處理工作。
 services: hdinsight
 author: ashishthaps
 ms.author: ashishth
@@ -8,24 +8,24 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: f22cb6a56e0ef81e3d7799b38e33113f8b175457
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699425"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277574"
 ---
-# <a name="hadoop-architecture-in-hdinsight"></a>HDInsight 上的 Hadoop 架構
+# <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight 上的 Apache Hadoop 架構
 
-Hadoop 包含兩個核心元件：提供儲存體的 Hadoop 分散式檔案系統 (HDFS)，和提供處理功能的 Yet Another Resource Negotiator (YARN)。 利用儲存體和處理功能，叢集變成能夠執行 MapReduce 程式以進行所需的資料處理。
+Apache Hadoop 包含兩個核心元件：提供儲存體的 Hadoop 分散式檔案系統 (HDFS)，和提供處理功能的 Yet Another Resource Negotiator (YARN)。 利用儲存體和處理功能，叢集變成能夠執行 MapReduce 程式以進行所需的資料處理。
 
 > [!NOTE]
 > 通常不會在 HDInsight 叢集內部署 HDFS 來提供儲存體。 相反地，Hadoop 元件使用 HDFS 相容的介面層。 實際的儲存體功能是由 Azure 儲存體或 Azure Data Lake Store 提供。 對於 Hadoop，在 HDInsight 叢集上執行的 MapReduce 作業會像 HDFS 存在一般運作，因此不需要變更即可支援其儲存需求。 在 HDInsight 上的 Hadoop 中，儲存體是外部的，但 YARN 處理仍然是核心元件。 如需詳細資訊，請參閱 [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)。
 
 本文會介紹 YARN 以及 YARN 是如何協調 HDInsight 上應用程式的執行工作。
 
-## <a name="yarn-basics"></a>YARN 基本概念 
+## <a name="apache-yarn-basics"></a>Apache YARN 基本概念 
 
 YARN 掌管並協調 Hadoop 中的資料處理。 YARN 有兩種核心服務，在叢集節點上作為流程執行： 
 

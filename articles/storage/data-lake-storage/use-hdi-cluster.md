@@ -7,20 +7,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 8c79107a0081b1c7478ffe8ceb44ec67e1f618c4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782272"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283660"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>搭配 Azure HDInsight 叢集使用 Azure Data Lake Storage Gen2 預覽
 
-若要分析 HDInsight 叢集中的資料，您可以將資料儲存在 Azure 儲存體、Azure Data Lake Storage Gen1 或 Azure Data Lake Storage Gen2 預覽的任何組合中。 所有儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
+若要分析 HDInsight 叢集中的資料，您可以將資料儲存在 Azure Blob 儲存體、啟用 Azure Data Lake Storage Gen2 預覽的 Azure Blob 儲存體，或是 Azure Data Lake Storage Gen1 的任何組合中。 所有儲存體選項都可讓您安全地刪除用於計算的 HDInsight 叢集，而不會遺失使用者資料。
 
-Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 進行 HDInsight 叢集建立程序期間，您可以指定 Azure 儲存體或 Azure Data Lake Storage 中的 Blob 容器作為預設檔案系統。 或者，您也可以使用 HDInsight 3.5，選取 Azure 儲存體或 Azure Data Lake Storage 作為預設的檔案系統，但有一些例外狀況。
+Hadoop 支援預設檔案系統的概念。 預設檔案系統意指預設配置和授權。 也可用來解析相對路徑。 在 HDInsight 叢集建立程序期間，您可以指定 Azure 儲存體中的 Blob 容器，或是由 Data Lake Storage Gen2 所提供的階層命名空間作為預設檔案系統。 或者，在搭配 HDInsight 3.5 的情況下，您可以選取容器或階層命名空間作為預設的檔案系統，但有一些例外狀況。
 
-在本文中，您將了解 Azure Data Lake Storage Gen2 與 HDInsight 叢集搭配運作的方式。 如需建立 HDInsight 叢集的詳細資訊，請參閱[使用 Azure Data Lake Storage 搭配 Hadoop、Spark、Kafka 等等來設定 HDInsight 叢集](quickstart-create-connect-hdi-cluster.md)。
+在本文中，您將了解 Data Lake Storage Gen2 與 HDInsight 叢集搭配運作的方式。 如需建立 HDInsight 叢集的詳細資訊，請參閱[使用 Azure Data Lake Storage 搭配 Hadoop、Spark、Kafka 等等來設定 HDInsight 叢集](quickstart-create-connect-hdi-cluster.md)。
 
 Azure 儲存體是強大的一般用途儲存體解決方案，其完美整合了 HDInsight。 HDInsight 可以使用 Azure Data Lake Storage 作為叢集的預設檔案系統。 透過 Hadoop 分散式檔案系統 (HDFS) 介面，可直接在 Azure Data Lake Storage 的檔案上運作 HDInsight 中的整套元件。
 
@@ -49,13 +49,13 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 * **「未」連線到叢集的儲存體帳戶中公用檔案**會對檔案系統中的檔案公開唯讀權限。
   
   > [!NOTE]
-  > 公用檔案系統可讓您取得檔案系統中所有可用檔案的清單，並讓您可存取中繼資料。 只有在您知道確切的 URL 時，公用檔案系統才可讓您存取檔案。 如需詳細資訊，請參閱[限制對容器和 Blob 的存取](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (容器和 Blob 的規則與檔案和檔案系統的運作方式相同)。
+  > 公用檔案系統可讓您取得檔案系統中所有可用檔案的清單，並讓您可存取中繼資料。 只有在您知道確切的 URL 時，公用檔案系統才可讓您存取檔案。 如需詳細資訊，請參閱[限制對容器和 Blob 的存取](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (容器和 Blob 的規則與檔案和檔案系統的運作方式相同)。
  
 * **儲存體帳戶中「未」連線到叢集的私人檔案系統**不允許存取檔案系統中的檔案，除非您在提交 WebHCat 作業時定義了儲存體帳戶。 本文稍後將會說明這項限制的原因。
 
 建立程序及其金鑰中定義的儲存體帳戶會儲存在叢集節點的 *%HADOOP_HOME%/conf/core-site.xml* 中。 HDInsight 的預設行為是使用 *core-site.xml* 檔案中定義的儲存體帳戶。 您可以使用 [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md) 來修改此設定
 
-多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 (這個方法目前適用於具有儲存體帳戶的 Pig，但不適用於中繼資料)。如需詳細資訊，請參閱 [在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
+多個 WebHCat 工作 (包括 Hive、MapReduce、Hadoop 資料流和 Pig) 可隨身夾帶儲存體帳戶的說明和中繼資料。 (這個方法目前適用於具有儲存體帳戶的 Pig，但不適用於中繼資料)。如需詳細資訊，請參閱 [在其他儲存體帳戶和 Metastores 上使用 HDInsight 叢集](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)。
 
 ## <a id="benefits"></a>Azure 儲存體的優點
 
@@ -80,13 +80,13 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
 > [!NOTE]
 > 大部分 HDFS 命令 (例如，`ls`、`copyFromLocal` 和 `mkdir`) 仍可正常運作。 只有 DFS 的特定命令 (例如 `fschk` 和 `dfsadmin`) 才會在 Azure 儲存體上出現不同的行為。
 
-## <a name="create-an-data-lake-storage-file-system"></a>建立 Data Lake Storage 檔案系統
+## <a name="create-a-data-lake-storage-file-system"></a>建立 Data Lake Storage 檔案系統
 
 若要使用檔案系統，您必須先建立 [Azure 儲存體帳戶][azure-storage-create]。 在這個程序中，您可以指定建立儲存體帳戶所在的 Azure 區域。 叢集與儲存體帳戶必須在相同區域內託管。 Hive 中繼存放區 SQL Server 資料庫和 Oozie 中繼存放區 SQL Server 資料庫也必須位在相同的區域內。
 
-您所建立的每個 Blob 不論位於何處，都屬於 Azure Data Lake Storage 帳戶中的某個檔案系統。 
+您所建立的每個 Blob 不論位於何處，都會屬於您儲存體帳戶中的某個檔案系統。
 
-預設 Data Lake Storage 檔案系統會儲存叢集特定資訊，例如作業記錄和記錄。 請勿將預設 Data Lake Storage 檔案系統與多個 HDInsight 叢集共用。 這可能會損毀作業歷程記錄。 建議您為每個叢集使用不同的檔案系統，並在所有相關叢集的部署中指定的連結儲存體帳戶 (而不是預設儲存體帳戶) 上放置共用的資料。 如需如何設定連結儲存體帳戶的詳細資訊，請參閱[建立 HDInsight 叢集][hdinsight-creation]。 不過，在刪除原始的 HDInsight 叢集後，您可以重複使用預設儲存檔案系統。 對於 HBase 叢集，您可以利用已刪除的 HBase 叢集所使用的預設 Blob 容器來建立一個新的 HBase 叢集，藉以保留 HBase 資料表結構描述和資料。
+預設 Data Lake Storage Gen2 檔案系統會儲存叢集特定資訊，例如作業記錄和記錄。 請勿將預設 Data Lake Storage Gen2 檔案系統與多個 HDInsight 叢集共用。 這可能會損毀作業歷程記錄。 建議您為每個叢集使用不同的檔案系統，並在所有相關叢集的部署中指定的連結儲存體帳戶 (而不是預設儲存體帳戶) 上放置共用的資料。 如需如何設定連結儲存體帳戶的詳細資訊，請參閱[建立 HDInsight 叢集][hdinsight-creation]。 不過，在刪除原始的 HDInsight 叢集後，您可以重複使用預設儲存檔案系統。 對於 HBase 叢集，您可以利用已刪除的 HBase 叢集所使用的預設 Blob 容器來建立一個新的 HBase 叢集，藉以保留 HBase 資料表結構描述和資料。
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -132,7 +132,7 @@ HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 可
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> 建立容器與在 Azure Data Lake Storage 中建立檔案系統為同義詞。
+> 建立容器相當於在 Data Lake Storage Gen2 中建立檔案系統。
 
 ### <a name="use-azure-cli"></a>使用 Azure CLI
 
@@ -164,7 +164,7 @@ az storage account create \
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> 建立容器與在 Azure Data Lake Storage 中建立檔案系統為同義詞。
+> 建立容器相當於在 Data Lake Storage Gen2 中建立檔案系統。
 
 ## <a name="address-files-in-azure-storage"></a>定址 Azure 儲存體中的檔案
 
@@ -174,7 +174,7 @@ az storage account create \
 
 URI 配置提供未加密存取 (使用 abfs: 首碼) 和 SSL 加密存取 (使用 abfss 首碼)。 建議盡可能使用 abfss，即使是存取 Azure 中相同區域內的資料也一樣。
 
-* &lt;FILE_SYSTEM_NAME&gt; 可識別檔案系統 Azure Data Lake Storage 的路徑。
+* &lt;FILE_SYSTEM_NAME&gt; 可識別檔案系統 Data Lake Storage Gen2 的路徑。
 * &lt;ACCOUNT_NAME&gt; 可識別 Azure 儲存體帳戶名稱。 需要使用完整網域名稱 (FQDN)。
 
     如果 &lt;FILE_SYSTEM_NAME&gt; 和 &lt;ACCOUNT_NAME&gt; 的值皆未指定，則會使用預設檔案系統。 對於預設檔案系統上的檔案，您可以使用相對路徑或絕對路徑。 例如，可使用下列其中一個路徑來參考 HDInsight 叢集隨附的 hadoop-mapreduce-examples.jar 檔案：
@@ -205,9 +205,9 @@ URI 配置提供未加密存取 (使用 abfs: 首碼) 和 SSL 加密存取 (使�
 如需詳細資訊，請參閱
 
 * [Azure Data Lake Storage Gen2 的 ABFS Hadoop Filesystem 驅動程式](abfs-driver.md)
-* [Azure Data Lake Storage 簡介](introduction.md)
-* [使用 Azure Data Lake Storage 搭配 Hadoop、Spark、Kafka 等等來設定 HDInsight 叢集](quickstart-create-connect-hdi-cluster.md)
-* [使用 Distcp 將資料內嵌到 Azure Data Lake Storage](use-distcp.md)
+* [Azure Data Lake Storage Gen2 簡介](introduction.md)
+* [使用 Azure Data Lake Storage Gen2 搭配 Hadoop、Spark、Kafka 等等來設定 HDInsight 叢集](quickstart-create-connect-hdi-cluster.md)
+* [使用 DistCp 將資料內嵌到 Azure Data Lake Storage Gen2](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

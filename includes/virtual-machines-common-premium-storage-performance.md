@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060446"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746178"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 進階儲存體：專為高效能而設計
 
@@ -30,6 +30,10 @@ ms.locfileid: "47060446"
 * 如何最佳化 IOPS、頻寬和延遲？  
 
 我們特別針對進階儲存體提供這些指導方針，因為進階儲存體上執行的工作負載非常重視效能。 我們在適當的地方都提供範例。 針對在具有標準儲存體磁碟的 IaaS VM 上執行的應用程式，您也可以運用這些指導方針。
+
+> [!NOTE]
+> 有時候，看似效能問題的情況，其實是網路瓶頸。 在這些情況下，您應該將您的[網路效能](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)最佳化。
+> 您也應該確定您的 VM 支援加速網路。 如果支援，您甚至可以在部署於 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 和 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) VM 之後啟用它。
 
 開始之前，如果您不熟悉進階儲存體，請先閱讀[進階儲存體：Azure 虛擬機器工作負載適用的高效能儲存體](../articles/virtual-machines/windows/premium-storage.md)和 [Azure 儲存體延展性和效能目標](../articles/storage/common/storage-scalability-targets.md)文章。
 
@@ -221,11 +225,11 @@ Azure 進階儲存體可讓執行 Windows 和 Linux 的 VM 達到相同層級的
 
 Azure 進階儲存體提供八種 GA 磁碟大小，以及目前處於預覽狀態的三種磁碟大小。 對於 IOPS、頻寬和儲存體，每個磁碟大小各有不同的調整限制。 請根據應用程式需求和高延展性 VM 大小，選擇正確的進階儲存體磁碟大小。 下表顯示八種磁碟大小及其功能。 目前只有針對「受控磁碟」才支援 P4、P6、P15、P60、P70 和 P80 磁碟大小。
 
-| 進階磁碟類型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| 進階磁碟類型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 磁碟大小           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 GiB)    |
-| 每一磁碟的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
-| 每一磁碟的輸送量 | 每秒 25 MiB  | 每秒 50 MiB  | 每秒 100 MiB |每秒 125 MiB | 每秒 150 MiB | 每秒 200 MiB | 每秒 250 MiB | 每秒 250 MiB | 每秒 480 MiB | 每秒 750 MiB | 每秒 750 MiB |
+| 磁碟大小           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 GiB)    |
+| 每一磁碟的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
+| 每一磁碟的輸送量 | 每秒 25 MiB  | 每秒 50 MiB  | 每秒 100 MiB |每秒 125 MiB | 每秒 150 MiB | 每秒 200 MiB | 每秒 250 MiB | 每秒 250 MiB | 每秒 480 MiB | 每秒 750 MiB | 每秒 750 MiB |
 
 您選擇的磁碟數量取決於已選擇的磁碟大小。 您可以使用單一 P50 磁碟或多個 P10 磁碟來滿足應用程式需求。 做決定時，請將下列因素納入考量。
 

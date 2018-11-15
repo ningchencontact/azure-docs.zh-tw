@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035194"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981358"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>在入口網站中檢視排定維護的 VM
 
@@ -38,7 +38,7 @@ ms.locfileid: "50035194"
       | 已更新 | 已更新您的 VM，此時不需要採取任何進一步的動作。 | 
       | 稍後重試 | 您已啟動維護，但是沒有成功。 您可以在稍後使用自助式維護選項。 | 
       | 立即重試 | 您可以重試先前失敗的自行啟動維護。 | 
-      | - | 您的虛擬機器不在計劃性維護波段中。 |
+      | - | 您的 VM 不屬於計劃性維護的一部分。 |
       
 
    **維護 - 自助服務期間**：顯示您可以在 VM 上自行開始維護的時間範圍。
@@ -49,17 +49,9 @@ ms.locfileid: "50035194"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>入口網站中的通知和警示
 
-Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以建立 Azure 活動記錄警示，將其他收件者和通道新增到這個通訊。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以建立 Azure 活動記錄警示，將其他收件者和通道新增到這個通訊。 如需詳細資訊，請參閱[建立服務通知的活動記錄警示](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側功能表中，選取 [監視]。 
-3. 在 [監視 - 警示 (傳統)] 窗格中，按一下 [+ 新增活動記錄警示]。
-5. 完成 [新增活動記錄警示] 頁面中的資訊，並確保在 [準則] 中設定以下內容：
-   - **事件類別目錄**：服務健康狀態
-   - **服務**：虛擬機器擴展集與虛擬機器
-   - **類型**：計劃性維護 
-    
-若要進一步了解如何設定活動記錄警示，請參閱[建立活動記錄警示](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md)。
+請務必將 [事件類型] 設定為 [計劃性維護]，並將 [服務] 設定為 [虛擬機器擴展集] 和/或 [虛擬機器]
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>從入口網站在 VM 上開始維護

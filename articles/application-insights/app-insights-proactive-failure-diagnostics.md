@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093980"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960917"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智慧型偵測 - 失敗異常
 當 Web 應用程式的失敗要求比率異常增加時，[Application Insights](app-insights-overview.md) 會以幾乎即時的方式自動通知您。 它偵測到回報為失敗的 HTTP 要求率異常提高或相依性呼叫。 對於要求，失敗的要求通常是回應碼為 400 或更高的要求。 為了協助您分級並診斷問題，通知中會提供失敗的特性分析與相關遙測。 其中也有 Application Insights 入口網站的連結，以供進一步診斷。 不需要設定該功能，因為它是使用機器學習演算法來預測一般失敗率。
@@ -40,7 +40,7 @@ ms.locfileid: "47093980"
 請注意，它會告訴您︰
 
 * 相較於一般應用程式行為的失敗率。
-* 受影響的使用者人數 – 讓您知道應處理的數目。
+* 受影響的使用者人數 - 讓您知道應處理的數目。
 * 與失敗關聯的特性模式。 在此範例中，有特定的回應碼、要求名稱 (操作) 和應用程式版本。 可立即告訴您從何處開始了解程式碼。 其他可能性則可能是特定的瀏覽器或用戶端作業系統。
 * 看起來似乎與特色失敗相關聯的例外狀況、記錄追蹤和相依性失敗 (資料庫或其他外部元件)。
 * 直接連結到 Application Insights 的遙測上相關搜尋。
@@ -147,7 +147,7 @@ ms.locfileid: "47093980"
 
 * [計量瀏覽器](app-insights-metrics-explorer.md)
 * [搜尋總管](app-insights-diagnostic-search.md)
-* [分析 - 功能強大的查詢語言](app-insights-analytics-tour.md)
+* [分析 - 功能強大的查詢語言](../log-analytics/query-language/get-started-analytics-portal.md)
 
 智慧型偵測是完全自動的。 但是，或許您會想要再設定一些警示？
 

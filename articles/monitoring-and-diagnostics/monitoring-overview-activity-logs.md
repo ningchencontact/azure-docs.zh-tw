@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094358"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006017"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>使用 Azure 活動記錄監視訂用帳戶活動
 
@@ -33,10 +33,7 @@ ms.locfileid: "50094358"
 您可以使用 Azure 入口網站、CLI、PowerShell Cmdlet、Azure 監視器 REST API 從活動記錄檔擷取事件。
 
 > [!NOTE]
->  [新版警示](monitoring-overview-unified-alerts.md)在建立和管理活動記錄警示規則時，可提供增強的體驗。  [深入了解](monitoring-activity-log-alerts-new-experience.md)。
-
-檢視下列簡介活動記錄的影片。
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  [新版警示](monitoring-overview-unified-alerts.md)在建立和管理活動記錄警示規則時，可提供增強的體驗。  [深入了解](alert-activity-log.md)。
 
 
 ## <a name="categories-in-the-activity-log"></a>活動記錄中的類別
@@ -70,7 +67,7 @@ ms.locfileid: "50094358"
 在 Azure 入口網站中，您可以從幾個地方檢視活動記錄：
 * [活動記錄]，您可以在左側瀏覽窗格的 [所有服務] 底下，搜尋活動記錄以進行存取。
 * [監視器]，依預設會顯示於左側瀏覽窗格中。 [活動記錄] 會是此 [Azure 監視器] 的一個區段。
-* 任何資源的**資源**，例如虛擬機器的設定刀鋒視窗。 [活動記錄] 會是大多數這類資源刀鋒視窗中的其中一個區段，按一下即可將事件自動篩選為與該特定資源相關的事件。
+* 大多數**資源**，例如虛擬機器的設定刀鋒視窗。 [活動記錄] 是大多數資源刀鋒視窗上的一個區段，按一下它會自動將事件篩選為與該特定資源相關的事件。
 
 在 Azure 入口網站中，您可以依下列欄位篩選活動記錄：
 * 時間範圍 - 事件的開始和結束時間。
@@ -84,11 +81,9 @@ ms.locfileid: "50094358"
 * 事件起始者 -「呼叫者」或執行作業的使用者。
 * 開啟搜尋 - 這是開啟文字搜尋方塊，可在所有事件的所有欄位中搜尋該字串。
 
-定義一組篩選之後，如果未來需要再次套用這些篩選以執行相同的查詢，您可以將它儲存為在工作階段間保存的查詢。 您也可以將查詢釘選到 Azure 儀表板，以持續留意特定事件。
+在您定義一組篩選之後，您可以將查詢釘選到 Azure 儀表板，以始終留意特定事件。
 
-按一下 [套用] 執行您的查詢，並顯示所有相符的事件。 按一下清單中的任何事件即可顯示該事件的摘要，以及該事件的完整原始 JSON。
-
-若要取得更強大的功能，您可以按一下**記錄搜尋**圖示，以顯示 [Log Analytics 活動記錄分析解決方案](../log-analytics/log-analytics-activity.md)中的活動記錄資料。 [活動記錄] 刀鋒視窗提供記錄的基本篩選/瀏覽體驗，而 Log Analytics 則可讓您以更強大的方式對資料進行樞紐分析、查詢和視覺化。
+若要取得更強大的功能，您可以按一下 [記錄] 圖示，以顯示 [Log Analytics 活動記錄分析解決方案](../log-analytics/log-analytics-activity.md)中的「活動記錄」資料。 [活動記錄] 刀鋒視窗提供記錄的基本篩選/瀏覽體驗，而 Log Analytics 則可讓您以更強大的方式對資料進行樞紐分析、查詢和視覺化。
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>使用記錄設定檔匯出活動記錄
 **記錄檔設定檔** 控制活動記錄檔的匯出方式。 使用記錄檔設定檔，您可以設定︰
@@ -114,14 +109,14 @@ ms.locfileid: "50094358"
 這些設定可透過入口網站中 [活動記錄檔] 刀鋒視窗中的 [匯出] 選項來設定。 也可以[使用 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx)、PowerShell Cmdlet 或 CLI 以程式設計方式設定。 一個訂用帳戶只能有一個記錄檔的設定檔。
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>使用 Azure 入口網站設定記錄檔設定檔
-您可以將活動記錄檔串流至事件中樞，或在 Azure 入口網站中使用 [匯出] 選項將它們儲存在儲存體帳戶。
+您可以將「活動記錄」串流至「事件中樞」，或在 Azure 入口網站中使用 [匯出至事件中樞] 選項將它們儲存在「儲存體帳戶」中。
 
 1. 使用入口網站左側的功能表，瀏覽至 [活動記錄]。
 
-    ![在入口網站中瀏覽至活動記錄檔](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. 按一下刀鋒視窗頂端的 [匯出]  按鈕。
+    ![在入口網站中瀏覽至活動記錄檔](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. 按一下刀鋒視窗頂端的 [匯出至事件中樞] 按鈕。
 
-    ![入口網站中的匯出按鈕](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![入口網站中的匯出按鈕](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. 在出現的刀鋒視窗中，您可以選取︰  
   * 您要匯出事件的區域
   * 您要儲存事件的儲存體帳戶

@@ -2,19 +2,19 @@
 title: Azure IoT Edge 裝置上的 Azure Blob 儲存體 | Microsoft Docs
 description: 將 Azure Blob 儲存體模組部署到您的 IoT Edge 裝置，即可在邊緣儲存資料。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
 ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: fa88ff46b4fb93d55aa0087cca0e6184f3e087a0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955267"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567276"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>在 IoT Edge (預覽) 使用 Azure Blob 儲存體，以便在邊緣儲存資料
 
@@ -68,7 +68,7 @@ Azure IoT Edge 裝置：
 1. 選取您的 IoT 中樞部署所在的「訂用帳戶」。
 2. 選取您的「IoT 中樞」。
 3. 提供您要在其中部署此模組的 [IoT Edge 裝置名稱]。 您可以選擇使用 [尋找裝置] 來尋找您的裝置。
-4. 按一下頁面底部的 [新增]。
+4. 按一下頁面底部的 [新增] 。
 
 **設定模組**
 

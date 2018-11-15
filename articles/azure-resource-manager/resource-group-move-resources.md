@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279410"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346587"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -28,11 +28,10 @@ ms.locfileid: "51279410"
 您無法變更資源的位置。 移動資源只會將它移動到新的資源群組。 新的資源群組可能會有不同的位置，但那樣不會變更資源的位置。
 
 > [!NOTE]
-> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您實際想要變更 Azure 帳戶供應項目 (例如從免費升級為預付型方案)，則必須轉換您的訂用帳戶。 
+> 本文說明如何在現有的 Azure 帳戶供應項目內移動資源。 如果您實際想要變更 Azure 帳戶供應項目 (例如從免費升級為預付型方案)，則必須轉換您的訂用帳戶。
 > * 若要將免費試用升級，請參閱[將免費試用或 Microsoft Imagine Azure 訂用帳戶升級至隨用隨付](..//billing/billing-upgrade-azure-subscription.md)。
 > * 若要變更預付型方案帳戶，請參閱[將您的 Azure 預付型方案訂閱變更為其他供應項目](../billing/billing-how-to-switch-azure-offer.md)。
 > * 如果您無法轉換訂用帳戶，請[建立 Azure 支援要求](../azure-supportability/how-to-create-azure-support-request.md)。 針對問題類型選取 [訂用帳戶管理]。
->
 
 ## <a name="checklist-before-moving-resources"></a>移動資源前的檢查清單
 
@@ -42,7 +41,7 @@ ms.locfileid: "51279410"
 
   如果是 Azure PowerShell，請使用：
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ ms.locfileid: "51279410"
 
   針對 PowerShell，使用下列命令來取得註冊狀態：
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   若要註冊資源提供者，請使用：
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -325,7 +324,6 @@ Authorization: Bearer <access-token>
 * 具有標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
-
 ## <a name="virtual-networks-limitations"></a>虛擬網路限制
 
 當您移動虛擬網路時，也必須移動其相依資源。 針對 VPN 閘道，您必須移動 IP 位址、虛擬網路閘道和所有相關聯的連線資源。 區域網路閘道可位於不同的資源群組。
@@ -346,9 +344,9 @@ Authorization: Bearer <access-token>
 
 如果您想在移動 Web 應用程式時一併移動 SSL 憑證，請遵循下列步驟：
 
-1.  刪除從 Web 應用程式上傳的憑證。
-2.  移動 Web 應用程式。
-3.  將憑證上傳至移動的 Web 應用程式。
+1. 刪除從 Web 應用程式上傳的憑證。
+2. 移動 Web 應用程式。
+3. 將憑證上傳至移動的 Web 應用程式。
 
 ### <a name="moving-across-subscriptions"></a>跨訂用帳戶移動
 
@@ -503,7 +501,7 @@ Authorization: Bearer <access-token>
 
 若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) 命令。 下列範例顯示如何將多個資源移動到新的資源群組。
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

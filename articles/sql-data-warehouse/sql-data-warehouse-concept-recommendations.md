@@ -3,19 +3,19 @@ title: SQL 資料倉儲建議 - 概念 | Microsoft Docs
 description: 深入了解 SQL 資料倉儲的建議與其產生方式
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232149"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>SQL 資料倉儲建議
 
@@ -39,4 +39,28 @@ SQL 資料倉儲提供的建議可確保為了效能持續最佳化資料倉儲�
 
 - [建立及更新資料表統計資料](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-若要查看這些建議列出的受影響資料表，請執行下列 [T-SQL 指令碼](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)。 Advisor 會持續執行相同的 T-SQL 指令碼，以產生這些建議。
+若要查看受這些建議影響的資料表清單，請執行下列 [T-SQL 指令碼](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables)。 Advisor 會持續執行相同的 T-SQL 指令碼，以產生這些建議。
+
+## <a name="replicate-tables"></a>複寫資料表
+
+針對複寫的資料表建議，Advisor 會根據下列實體特性偵測資料表候選項目：
+
+- 複寫的資料表大小
+- 資料行數目
+- 資料表散發類型
+- 資料分割數目
+
+Advisor 會持續運用工作負載型啟發學習法 (例如資料表存取頻率、平均傳回的資料列數，以及與資料倉儲大小和活動相關的閾值) 來確保產生高品質的建議。 
+
+以下說明針對每個複寫的資料表建議，您在 Azure 入口網站中可能找到的工作負載型啟發學習法：
+
+- 掃描平均 - 過去七天內，針對每個資料表存取，從資料表傳回的資料列平均百分比
+- 經常讀取、無更新 - 指出資料表在過去七天有顯示存取活動但沒有更新
+- 讀取/更新比例 - 過去七天內，資料表的存取頻率相對於其更新時間的比例
+- 活動 - 根據存取活動評估使用狀況。 這會將資料表存取活動與過去七天內整個資料倉儲的平均資料表存取活動做比較。 
+
+目前 Advisor 一次最多只會顯示四個複寫的資料表候選項目，並以叢集資料行存放區索引排列最高活動優先順序。
+
+> [!IMPORTANT]
+> 複寫的資料表建議並非無懈可擊的，而且未將資料移動作業納入考量。 我們正著手將其新增為啟發學習法，但在此同時，您應該在套用建議之後，一律驗證您的工作負載。 如果您發現造成您工作負載效能變差的複寫資料表建議，請與 sqldwadvisor@service.microsoft.com 連絡。 若要深入了解複寫的資料表，請瀏覽下列[文件](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table)。
+>

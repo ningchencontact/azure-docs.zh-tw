@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571883"
+---
 Bing 支援搜尋結果醒目提示，可在某些回答的顯示字串中標示查詢詞彙 (或 Bing 找到的其他相關詞彙)。 例如，網頁的 `name`、`displayUrl` 和 `snippet` 欄位可標示查詢詞彙。
 
 根據預設，Bing 不會在顯示字串中包含醒目提示標記。 若要加入標記，請在要求中包含 `textDecorations` 查詢參數，並將它設定為 **true**。 Bing 會使用 E000 和 E001 Unicode 字元來標示查詢詞彙，以便標示詞彙的開頭和結尾。 比方說，如果查詢詞彙為 Sailing Dinghy 且欄位中存在任一詞彙，則該詞彙會含括在搜尋結果醒目提示字元內，如下列範例所示︰  

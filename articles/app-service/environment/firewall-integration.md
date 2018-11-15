@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093613"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251571"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
@@ -28,7 +28,7 @@ ASE 有一些輸入相依性。 輸入的管理流量不能透過防火牆裝置
 
 ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺乏靜態位址表示網路安全性群組 (NSG) 不能用來鎖定來自 ASE 的輸出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
 
-保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 網路小組已經將新的網路裝置放入預覽，稱為 Azure 防火牆。 Azure 防火牆可以根據目的地的 DNS 名稱，來限制輸出 HTTP 和 HTTPS 流量。  
+保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>使用 ASE 設定 Azure 防火牆 
 
@@ -36,11 +36,11 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
 
 1. 在您的 ASE 所在或將來所在的 VNet 中，建立 Azure 防火牆。 [Azure 防火牆文件](https://docs.microsoft.com/azure/firewall/)
 2. 從 Azure 防火牆 UI，選取 [App Service Environment FQDN] 標籤
-3. 建立路由表，其中具有來自 [App Service Environment 管理位址]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)的管理位址，以及網際網路的下一個躍點。 需要路由表項目，才能避免發生非對稱式路由問題。 
-4. 針對底下＜IP 位址相依性＞所註明的 IP 位址相依性，新增具有網際網路下一個躍點的路由。 
-5. 在路由表中新增 0.0.0.0/0 的路由，並且以 Azure 防火牆網路設備作為下一個躍點
-6. 將您的 ASE 子網路建立 Azure SQL 和 Azure 儲存體的服務端點
-7. 將您建立的路由表指派給 ASE 子網路  
+3. 建立路由表，其中具有來自 [App Service Environment 管理位址]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)的管理位址，以及網際網路的下一個躍點。 需要路由表項目，才能避免發生非對稱式路由問題。
+4. 針對底下＜IP 位址相依性＞所註明的 IP 位址相依性，新增具有網際網路下一個躍點的路由。
+5. 在路由表中新增 0.0.0.0/0 的路由，並且以 Azure 防火牆作為下一個躍點。
+6. 將您的 ASE 子網路建立 Azure SQL 和 Azure 儲存體的服務端點。
+7. 將您建立的路由表指派給 ASE 子網路。
 
 ## <a name="application-traffic"></a>應用程式流量 
 

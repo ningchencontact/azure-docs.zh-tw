@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257993"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011828"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>將 Azure 活動記錄檔串流至事件中樞
 您可以藉由下列任一方式，將 [Azure 活動記錄](monitoring-overview-activity-logs.md)近乎即時地串流至任何應用程式：
@@ -39,10 +39,10 @@ ms.locfileid: "39257993"
 ### <a name="via-the-azure-portal"></a>透過 Azure 入口網站
 1. 藉由使用入口網站左側的 [所有服務] 搜尋，瀏覽至 [活動記錄] 區段。
    
-   ![從入口網站的服務清單中選取 [活動記錄]](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. 選取記錄檔頂端的 [匯出] 按鈕。
+   ![從入口網站的服務清單中選取 [活動記錄]](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. 選取記錄頂端的 [匯出至事件中樞] 按鈕。
    
-   ![入口網站中的 [匯出] 按鈕](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![入口網站中的 [匯出] 按鈕](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    請注意，您在上一個檢視中檢視「活動記錄」時所套用的篩選設定，對您的匯出設定沒有任何影響。 這些僅用來篩選您在入口網站中瀏覽「活動記錄」時所看到的內容。
 3. 在出現的區段中，選取 [所有區域]。 請勿選取特定的區域。
@@ -101,5 +101,5 @@ ms.locfileid: "39257993"
 ## <a name="next-steps"></a>後續步驟
 * [將活動記錄檔封存至儲存體帳戶](monitoring-archive-activity-log.md)
 * [閱讀 Azure 活動記錄檔的概觀](monitoring-overview-activity-logs.md)
-* [根據活動記錄檔事件設定警示](insights-auditlog-to-webhook-email.md)
+* [根據活動記錄檔事件設定警示](monitor-alerts-unified-log-webhook.md)
 

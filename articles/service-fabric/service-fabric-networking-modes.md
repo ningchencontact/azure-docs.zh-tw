@@ -3,7 +3,7 @@ title: 設定 Azure Service Fabric 容器服務的網路模式 | Microsoft Docs
 description: 了解如何設定 Azure Service Fabric 所支援的不同網路模式。
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 869b87b8df3b1f532a33e943e728681b358ed8b4
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: twhitney, subramar
+ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36287621"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300774"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -180,7 +180,7 @@ ms.locfileid: "36287621"
    |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |Name |Custom_Dns  | |
+   |名稱 |Custom_Dns  | |
    |來源 |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |

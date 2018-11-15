@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 09/24/2018
-ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/07/2018
+ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162775"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278968"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>管線和 Azure Machine Learning
 
@@ -22,11 +22,11 @@ ms.locfileid: "47162775"
 
 ## <a name="what-are-machine-learning-pipelines"></a>什麼是機器學習管線？
 
-資料科學家會使用機器學習 (ML) 管線來建置、最佳化及管理他們的機器學習工作流程。 一般管線會包含一連串的步驟，其中涵蓋下列領域：
-
+資料科學家、資料工程師和 IT 專業人員可以使用機器學習 (ML) 管線，共同處理所需的步驟：
 + 資料準備，例如正規化和轉換
-+ 模型訓練，例如超參數調整和驗證
-+ 模型部署和評估  
++ 模型訓練
++ 模型評估
++ 部署 
 
 下圖顯示管線範例：
 
@@ -38,11 +38,13 @@ ms.locfileid: "47162775"
 
 透過管線，您可以從簡易性、速度、可攜性和重複使用率方面來最佳化工作流程。 使用 Azure Machine Learning 建置管線時，您可以專注於最了解的事項 (機器學習)，而非基礎結構。
 
-使用不同步驟，便可在調整和測試工作流程時，只重新執行所需的步驟。 步驟是在管線中的計算單位。 如上圖所示，準備資料的工作可能牽涉到許多步驟，包括 (但不限於) 正規化、轉換、驗證和特徵化。
+使用不同步驟，便可在調整和測試工作流程時，只重新執行所需的步驟。 步驟是在管線中的計算單位。 如上圖所示，準備資料的工作可能牽涉到許多步驟，包括 (但不限於) 正規化、轉換、驗證和特徵化。 資料來源和中繼資料會在管線上重複使用，如此可節省計算時間和資源。 
 
 設計好管線之後，在管線的訓練迴圈上通常會需要更多微調。 當您重新執行管線時，該執行會跳至需要重新執行的步驟，例如更新的訓練指令碼，並略過未變更的項目。 相同範例適用於用來執行步驟的未變更指令碼。 
 
 透過 Azure Machine Learning，您可以對管線中的每個步驟使用各種工具組和架構，例如 Microsoft Cognitive Toolkit 或 TensorFlow。 Azure 會協調您使用的各種[計算目標](concept-azure-machine-learning-architecture.md)，讓您的中繼資料可輕易地與下游計算目標共用。 
+
+您可以直接在 Azure 入口網站中[追蹤管線實驗的計量](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments)。 
 
 ## <a name="key-advantages"></a>主要優點
 
@@ -59,16 +61,16 @@ ms.locfileid: "47162775"
 
 使用 Python 來建立您的 ML 管線。 沒有資料相依性存在時，Azure Machine Learning SDK 會提供命令式架構來排序和平行化您管線中的步驟。 您可以在 Jupyter Notebook 或另一個慣用的 IDE 中與之互動。 
 
-您可以使用宣告式資料相依性來最佳化您的工作。 SDK 包含一般工作適用的預建模組架構，這類工作包括資料轉送、計算目標建立及模型發行等等。 藉由實作可在管線間重複使用的自訂步驟，即可延伸架構以建立您自己的慣例模型。
+您可以使用宣告式資料相依性來最佳化您的工作。 SDK 包含一般工作適用的預建模組架構，這類工作包括資料轉送及模型發行。 藉由實作可在管線間重複使用的自訂步驟，即可延伸架構以建立您自己的慣例模型。 計算目標和儲存體資源也可以直接從 SDK 管理。
 
 管線可以儲存成範本，也可部署到 REST 端點，以便您排程批次評分或重新訓練作業。
 
-請參閱[管線的 Python SDK 參考文件](http://aka.ms/aml-sdk)和下一節中的 Notebook，以了解如何建置您自己的管線。
+請參閱[管線的 Python SDK 參考文件](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)和下一節中的 Notebook，以了解如何建置您自己的管線。
 
 ## <a name="example-notebooks"></a>Notebook 範例
  
-下列 Notebook 會示範如何使用 Azure Machine Learning 建立管線：`pipeline/pipeline-batch-scoring.ipynb`。
+以下筆記本將示範如何使用 Azure Machine Learning 的管線： [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb)。
  
-取得以下筆記：
+請取得此筆記本：
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

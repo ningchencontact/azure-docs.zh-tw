@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239212"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256370"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
-此文章包含有關 Azure Migrate 的常見問題集。 如果您在閱讀此文章後仍有其他問題，請將問題張貼在 [Azure Migrate 論壇](http://aka.ms/AzureMigrateForum)。
+本文包含有關 Azure Migrate 的常見問題集。 如果您在閱讀本文後仍有其他問題，請將問題張貼在 [Azure Migrate 論壇](https://aka.ms/AzureMigrateForum)。
 
 ## <a name="general"></a>一般
 
@@ -29,7 +29,7 @@ ms.locfileid: "48239212"
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery"></a>Azure Migrate 和 Azure Site Recovery 有何不同？
 
-Azure Migrate 是一個評估服務，可協助您探索內部部署工作負載，並規劃移轉至 Azure 的作業。 搭配 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 作為災難復原解決方案，可協助您將內部部署工作負載移轉至 Azure 中的 IaaS 虛擬機器。
+Azure Migrate 是一項評估服務，可協助您探索內部部署工作負載，並規劃移轉至 Azure 的作業。 搭配 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) 作為災難復原解決方案，可協助您將內部部署工作負載移轉至 Azure 中的 IaaS 虛擬機器。
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>使用 Azure Migrate 評量和 Map Toolkit 之間的差異為何？
 
@@ -40,7 +40,7 @@ Azure Migrate 是一個評估服務，可協助您探索內部部署工作負載
 
 Azure Migrate 是移轉規劃工具，而 Azure Site Recovery 部署規劃工具則是災難復原 (DR) 規劃工具。
 
-**從 VMware 移轉至 Azure**：如果您要將內部部署工作負載移轉至 Azure，請使用 Azure Migrate 規劃移轉作業。 Azure Migrate 會評估內部部署工作負載，並提供指導方針、見解和機制，協助您移轉至 Azure。 將移轉計劃準備就緒後，您可以使用 Azure Site Recovery 和 Azure 資料庫移轉服務等服務，將機器移轉至 Azure。
+**從 VMware 移轉至 Azure**：如果您要將內部部署工作負載移轉至 Azure，請使用 Azure Migrate 規劃移轉作業。 Azure Migrate 會評估內部部署工作負載，並提供指引、見解和機制，協助您移轉至 Azure。 將移轉計劃準備就緒後，您可以使用 Azure Site Recovery 和 Azure 資料庫移轉服務等服務，將機器移轉至 Azure。
 
 **從 Hyper-V 移轉至 Azure**：Azure Migrate 目前僅支援評估 VMware 虛擬機器至 Azure 的移轉。 Hyper-V 支援已列在 Azure Migrate 藍圖規劃中。 在此過渡期間，您可使用 Site Recovery 部署規劃工具。 一旦 Azure Migrate 啟用 Hyper-V 支援，您即可使用 Azure Migrate 規劃移轉 Hyper-V 的工作負載。
 
@@ -54,9 +54,9 @@ Azure Migrate 目前支援以美國東部和美國中西部作為移轉專案位
 
 連線可以透過網際網路或使用 ExpressRoute 與公用對等互連。
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>我可以使用 .OVA 範本強化虛擬機器設定嗎？
+### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>我可以使用 OVA 範本來強化 VM 設定嗎？
 
-只要 Azure Migrate 設備運作所需的通訊和防火牆規則保持不變，即可將其他元件 (例如防毒軟體) 新增至 .OVA 範本中。   
+您可以將額外元件 (例如防毒元件) 新增到 OVA 範本中，只要 Azure Migrate 設備運作所需的通訊和防火牆規則保持不變即可。   
 
 ## <a name="discovery"></a>探索
 
@@ -98,7 +98,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 收集器設備收集的資料會儲存在您建立移轉專案時所指定的 Azure 位置。 資料會安全地儲存在 Microsoft 訂用帳戶中，而使用者刪除 Azure Migrate 專案後，資料即會一併刪除。
 
-針對相依性視覺化，如果您在虛擬機器上安裝代理程式，則相依性代理程式收集的資料會儲存在美國由使用者訂用帳戶建立的 OMS 工作區中。 刪除訂用帳戶中的 OMS 工作區時，會刪除此資料。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)。
+針對相依性視覺化，如果您在 VM 上安裝代理程式，則相依性代理程式所收集的資料會儲存在於美國之使用者訂用帳戶中建立的 Log Analytics 工作區內。 刪除訂用帳戶中的 Log Analytics 工作區時，會刪除此資料。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)。
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>待用資料和傳輸中的資料是否會加密？
 
@@ -114,7 +114,7 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 
 可以，單一收集器設備可用來探索多部 vCenter 伺服器，但無法同時進行。 需要逐一執行探索。
 
-### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery 使用的 .OVA 範本是否與 Azure Migrate 使用的 .OVA 整合？
+### <a name="is-the-ova-template-used-by-site-recovery-integrated-with-the-ova-used-by-azure-migrate"></a>Site Recovery 使用的 OVA 範本是否已與 Azure Migrate 使用的 OVA 整合？
 
 目前未整合。 Site Recovery 中的 .OVA 範本用來設定 VMware VM/實體伺服器複寫的 Site Recovery 設定伺服器。 基於移轉評估目的，Azure Migrate 使用的 .OVA 用於探索 vCenter 伺服器管理的 VMware VM。
 
@@ -141,9 +141,23 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ## <a name="dependency-visualization"></a>相依性視覺效果
 
+### <a name="what-is-dependency-visualization"></a>什麼是相依性視覺效果？
+
+相依性視覺效果可透過在執行評量前先交叉檢查機器相依性，讓您在評量要移轉的 VM 群組時更具信心。 相依性視覺效果可協助您確保沒有遺漏任何項目，避免在移轉至 Azure 時發生未預期的中斷情況。 Azure Migrate 會運用 Log Analytics 中的「服務對應」解決方案來啟用相依性視覺效果。
+
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>我是否需要付費才能使用相依性虛擬化功能？
 
-不須額外費用即可使用 Azure Migrate。 [在此](https://azure.microsoft.com/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。
+否。 [在此](https://azure.microsoft.com/pricing/details/azure-migrate/)深入了解 Azure Migrate 定價。
+
+### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>我是否需要為相依性視覺效果安裝任何項目？
+
+若要使用相依性視覺效果，您需要在您想要評估的每個內部部署機器上，下載並安裝代理程式。 
+
+- 必須在每個機器上安裝 [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)。
+- 必須在每個機器上安裝[相依性代理程式](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)。
+- 此外，如果您有無法連線至網際網路的機器，則必須在該機器上下載並安裝 Log Analytics 閘道。
+
+您不需要在所要評量的機器上有這些代理程式，除非您使用相依性視覺效果。
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>是否可使用現有的工作區進行相依性視覺化？
 

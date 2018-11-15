@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026155"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240166"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Azure Stack 中的多重租用
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026155"
 
 您可以設定 Azure Stack，以支援來自多重 Azure Active Directory (Azure AD) 租用戶的使用者在 Azure Stack 中使用服務。 例如，請考慮下列情節：
 
- - 您是 contoso.onmicrosoft.com 的服務管理員，而 Azure Stack 也安裝於此。
- - Mary 是 fabrikam.onmicrosoft.com 的目錄系統管理員，也是來賓使用者的所在位置。 
- - Mary 的公司從貴公司接收 IaaS 和 paas 整合服務，且需要允許來自來賓目錄 (fabrikam.onmicrosoft.com) 的使用者登入，並且使用 contoso.onmicrosoft.com 中的 Azure Stack 資源。
+- 您是 contoso.onmicrosoft.com 的服務管理員，而 Azure Stack 也安裝於此。
+- Mary 是 fabrikam.onmicrosoft.com 的目錄系統管理員，也是來賓使用者的所在位置。
+- Mary 的公司從貴公司接收 IaaS 和 paas 整合服務，且需要允許來自來賓目錄 (fabrikam.onmicrosoft.com) 的使用者登入，並且使用 contoso.onmicrosoft.com 中的 Azure Stack 資源。
 
 本指南提供此情節內容中必要的逐步執行，如何在 Azure Stack 中設定多重租用。 在此情節中，您和 Mary 必須完成逐步執行好讓使用者從 Fabrikam 登入，並在 Contoso 中從 Azure Stack 部署使用服務。  
 
@@ -50,6 +51,8 @@ ms.locfileid: "50026155"
 在本節中，您可以設定 Azure Stack 以允許從 Fabrikam Azure AD 目錄租用戶登入。
 
 設定 Azure Resource Manager 接受來自來賓目錄租用戶的使用者和服務主體，讓 Guest Directory Tenant (Fabrikam) 在 Azure Stack 中上線。
+
+contoso.onmicrosoft.com 的服務管理員執行下列命令。
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>設定來賓目錄
 
-在您完成 Azure Stack 目錄中的逐步執行之後，Mary 必須同意 Azure Stack 存取來賓目錄，並向 Azure Stack 註冊來賓目錄。 
+一旦 Azure Stack 管理員/操作員啟用 Fabrikam 目錄以與 Azure Stack 搭配使用，Mary 必須使用 Fabrikam 的目錄租用戶向 Azure Stack 註冊。
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>向 Azure Stack 註冊來賓目錄
 
-一旦來賓目錄系統管理員同意讓 Azure Stack 存取 Fabrikam 的目錄，Mary 必須向 Azure Stack 註冊 Fabrikam 的目錄租用戶。
+Mary (Fabrikam 的目錄管理員) 在來賓目錄 fabrikam.onmicrosoft.com 中執行下列命令。
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,7 +102,7 @@ Register-AzSWithMyDirectoryTenant `
 > 若您的 Azure Stack 系統管理員在未來安裝新的服務或更新，您可能需要再次執行此指令碼。
 >
 > 隨時再次執行此指令碼以檢查您目錄中的 Azure Stack 應用程式狀態。
-> 
+>
 > 如果您發現在受控磁碟 (於 1808 更新引進) 中建立 VM 有問題，我們已新增**磁碟資源提供者**，但需要再次執行這個指令碼。
 
 ### <a name="direct-users-to-sign-in"></a>將使用者導向登入

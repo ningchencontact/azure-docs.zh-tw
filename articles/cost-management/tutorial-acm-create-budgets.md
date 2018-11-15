@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017348"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977663"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>教學課程：建立和管理 Azure 預算
 
@@ -25,17 +25,17 @@ ms.locfileid: "48017348"
 
 此教學課程的範例會引導您針對 Azure Enterprise 合約 (EA) 訂用帳戶建立和編輯預算。
 
-在此教學課程中，您了解如何：
+在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算
 > * 編輯預算
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-所有的 Azure EA 客戶都可以使用預算。 您必須具備 Azure EA 訂用帳戶的讀取權限，才能建立和管理預算。 預算不支援 EA 計費帳戶。
+所有的 Azure EA 客戶都可以使用預算。 您必須具備 Azure EA 訂用帳戶的讀取權限，才能建立和管理預算。 您可以個別為 EA 訂用帳戶和資源群組建立預算。 不過，您無法為 EA 帳單帳戶建立預算。
 
-預算會分別建立於訂用帳戶或資源群組層級。 使用者和群組針對預算的每個訂用帳戶支援下列 Azure 權限：
+使用者和群組針對預算的每個訂用帳戶支援下列 Azure 權限：
 
 - 擁有者：可以建立、修改或刪除訂用帳戶的預算。
 - 參與者：可以建立、修改或刪除他們自己的預算。 可以修改其他人所建立之預算的預算金額。
@@ -84,7 +84,7 @@ ms.locfileid: "48017348"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 在 Azure 入口網站中建立預算

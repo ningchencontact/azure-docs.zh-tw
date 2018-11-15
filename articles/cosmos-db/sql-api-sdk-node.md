@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6983b49135b5a8adbef1d0cfc5a407cb7b0c7ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0dc7daebe91199cc6c54ac5e3a2d8f43e1592a73
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960544"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282419"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -45,6 +45,26 @@ ms.locfileid: "46960544"
 | 目前支援的平台 | [Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/) - SDK 2.0.0 版和更新版本的必要項目。<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="2.0.5"/>2.0.5</a>
+* 已新增適用於節點代理程式類型的介面。 Typescript 使用者不再需要安裝 @types/node 作為相依性
+* 現在會正確接受慣用位置
+* 提供開發人員文件的改進
+* 各種錯字修正
+
+### <a name="2.0.4"/>2.0.4</a>
+* 修正 2.0.3 中所導入的類型定義問題
+
+### <a name="2.0.3"/>2.0.3</a>
+* 移除 `big-integer` 相依性
+* 切換為適用於 AsyncIterable 類型的參考指示詞。 Typescript 使用者不再需要自訂他們的 "lib" 設定。
+* 錯字修正
+
+### <a name="2.0.2"/>2.0.2</a>
+* 修正讀我檔案連結
+
+### <a name="2.0.1"/>2.0.1</a>
+* 修正重試介面實作
 
 ### <a name="2.0.0"/>2.0.0</a>
 * JavaScript SDK 2.0.0 版的公開推出

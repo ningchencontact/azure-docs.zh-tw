@@ -1,6 +1,6 @@
 ---
 title: Azure 資料庫安全性最佳做法 | Microsoft Docs
-description: 此文章提供一組 Azure 資料庫安全性的最佳做法。
+description: 本文章提供一組 Azure 資料庫安全性的最佳做法。
 services: security
 documentationcenter: na
 author: unifycloud
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040088"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281620"
 ---
 # <a name="azure-database-security-best-practices"></a>Azure 資料庫安全性最佳做法
-安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](http://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
+安全性是管理資料庫的最重要考量，而且向來是 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 的優先考量。 您的資料庫可嚴加保護，有助於符合大多數法規或安全性需求，包括 HIPAA、ISO 27001/27002 和 PCI DSS Level 1。 [Microsoft 信任中心網站](https://azure.microsoft.com/support/trust-center/services/)提供目前的安全性合規性認證清單。 您也可以法規要求作為基礎，選擇將資料庫放在特定的 Azure 資料中心。
 
-此文章討論 Azure 資料庫安全性最佳做法的集合。 這些最佳做法衍生自我們的 Azure 資料庫安全性以及如您本身的客戶體驗。
+本文討論 Azure 資料庫安全性最佳做法的集合。 這些最佳做法衍生自我們的 Azure 資料庫安全性以及如您本身的客戶體驗。
 
 針對每個最佳做法，我們會說明︰
 
@@ -72,22 +72,18 @@ SQL Database 支援兩種類型的驗證，SQL Server 驗證和 Azure AD 驗證�
 
 > [!NOTE]
 > SQL Server 驗證無法使用 Kerberos 安全性通訊協定。
->
->
 
 如果您是使用 SQL Server 驗證，就必須：
 
 - 自行管理強式認證。
 - 保護連接字串中的認證。
-- (可能) 保護透過網路從 Web 伺服器傳遞至資料庫的認證。 如需詳細資訊，請參閱[如何：使用 ASP.NET 2.0 中的 SQL 驗證連線到 SQL Server](https://msdn.microsoft.com/library/ms998300.aspx)。
+- (可能) 保護透過網路從 Web 伺服器傳遞至資料庫的認證。 如需詳細資訊，請參閱[如何：使用 ASP.NET 2.0 中的 SQL 驗證連線到 SQL Server](/previous-versions/msp-n-p/ff648340(v=pandp.10))。
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Azure Active Directory (AD) 驗證*
 Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Database 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的機制。 您可以使用 Azure AD 驗證，在單一中央位置管理資料庫使用者和其他 Microsoft 服務的身分識別。 中央識別碼管理提供單一位置以管理資料庫使用者並簡化權限管理。
 
 > [!NOTE]
 > 建議您優先使用 Azure AD 驗證，而不是使用 SQL Server 驗證。
->
->
 
 包括以下優點：
 
@@ -95,7 +91,7 @@ Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Datab
 - 有助於防止使用者身分識別在資料庫伺服器之間擴散。
 - 允許在單一位置變換密碼。
 - 客戶可以使用外部 (Azure AD) 群組來管理資料庫權限。
-- 它可以透過啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
+- 它可以藉由啟用整合式 Windows 驗證和 Azure Active Directory 支援的其他形式驗證來避免儲存密碼。
 - 它會使用自主資料庫使用者，在資料庫層級驗證身分。
 - 可針對連線到 SQL Database 的應用程式支援權杖型驗證。
 - 支援本機 Azure Active Directory 執行個體的 ADFS (網域同盟) 或原生使用者/密碼驗證，而不需進行網域同步處理。
@@ -112,12 +108,12 @@ Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Datab
 
 您可以在[使用 Azure Active Directory 驗證向 SQL Database、受控執行個體或 SQL 資料倉儲進行驗證](../sql-database/sql-database-aad-authentication.md)中找到詳細資訊。
 
-## <a name="protect-your-data-by-using-encryption"></a>使用加密來保護您的資料
-[Azure SQL Database 的透明資料加密](https://msdn.microsoft.com/library/dn948096.aspx)有助於保護磁碟上的資料，並可防止未經授權存取硬體。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 透明資料加密會使用稱為資料庫加密金鑰的對稱金鑰，來將整個資料庫的儲存體加密。
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>使用加密和資料列層級安全性來保護您的資料
+[Azure SQL Database 的透明資料加密](../sql-database/transparent-data-encryption-azure-sql.md)有助於保護磁碟上的資料，並可防止未經授權存取硬體。 它會對資料庫、相關聯的備份和待用的交易記錄檔執行即時加密和解密，而不需變更應用程式。 透明資料加密會使用稱為資料庫加密金鑰的對稱金鑰，來將整個資料庫的儲存體加密。
 
 即使整個儲存體都已加密，也務必要將資料庫本身加密。 這是資料保護的深度防禦方法實作。 如果您是使用 Azure SQL Database，而且需要保護敏感性資料 (例如信用卡或身分證號碼)，可以使用 FIPS 140-2 驗證的 256 位元 AES 加密來加密資料庫。 此加密符合許多產業標準 (例如 HIPAA 與 PCI) 的需求。
 
-當您使用透明資料加密來加密資料庫時，與[緩衝集區延伸 (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension)相關的檔案不會加密。 您必須對 BPE 相關檔案使用檔案系統等級的加密工具，像是 [BitLocker](https://technet.microsoft.com/library/cc732774) 或 [加密檔案系統 (EFS)]()。
+當您使用透明資料加密來加密資料庫時，與[緩衝集區延伸 (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension)相關的檔案不會加密。 您必須對 BPE 相關檔案使用檔案系統等級的加密工具，像是 [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) 或 [加密檔案系統 (EFS)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10))。
 
 因為經過授權的使用者 (像是安全性系統管理員或資料庫管理員) 可以存取資料，所以即使已使用透明資料加密將資料庫加密，您也應該遵循下列建議︰
 
@@ -126,11 +122,11 @@ Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Datab
 - 確定使用者和應用程式使用不同的帳戶進行驗證。 如此一來，您可以限制授與使用者和應用程式的權限，並降低惡意活動的風險。
 - 使用固定的資料庫角色 (例如 db_datareader 或 db_datawriter) 實作資料庫等級安全性。 或者您可以為應用程式建立自訂角色，以授與明確的權限給選取的資料庫物件。
 
-如需其他的資料加密方式，請考慮：
+如需其他保護資料的方式，請考慮：
 
-- [儲存格層級加密](https://msdn.microsoft.com/library/ms179331.aspx) ，可利用不同的加密金鑰來加密特定的資料行或甚至是資料儲存格。
-- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) 可讓用戶端在用戶端應用程式中將敏感性資料加密，且永遠不會對資料庫引擎 (SQL Database 或 SQL Server) 顯示加密金鑰。 因此，Always Encrypted 可將資料擁有者 (和可檢視者) 及資料管理者 (但無法存取資料) 分隔開來。
-- [資料列層級安全性](https://msdn.microsoft.com/library/dn765131)讓客戶能夠根據執行查詢的使用者特性，以控制對資料庫資料表中的資料列存取權。 (範例特性是群組成員資格和執行內容)。
+- [儲存格層級加密](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) ，可利用不同的加密金鑰來加密特定的資料行或甚至是資料儲存格。
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) 可讓用戶端在用戶端應用程式中將敏感性資料加密，且永遠不會對資料庫引擎 (SQL Database 或 SQL Server) 顯示加密金鑰。 因此，Always Encrypted 可將資料擁有者 (和可檢視者) 及資料管理者 (但無法存取資料) 分隔開來。
+- [資料列層級安全性](/sql/relational-databases/security/row-level-security)讓客戶能夠根據執行查詢的使用者特性，以控制對資料庫資料表中的資料列存取權。 (範例特性是群組成員資格和執行內容)。
 
 不使用資料庫層級加密的組織可能更容易受到攻擊，進而危害 SQL Database 中的資料。
 
@@ -180,5 +176,5 @@ Azure AD 驗證是使用 Azure AD 中的身分識別來連線到 Azure SQL Datab
 如需更多安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](security-best-practices-and-patterns.md)，以便在使用 Azure 設計、部署和管理雲端解決方案時使用。
 
 下列資源可提供更多有關 Azure 安全性和相關 Microsoft 服務的一般資訊：
-* [Azure 安全性部落格](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure 安全性的最新資訊
-* [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx) - 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 secure@microsoft.com
+* [Azure 安全性小組部落格](https://blogs.msdn.microsoft.com/azuresecurity/) - Azure 安全性的最新資訊
+* [Microsoft 安全性回應中心](https://technet.microsoft.com/library/dn440717.aspx) -- 可在其中回報 Microsoft 安全性弱點 (包括 Azure 的問題) 或透過電子郵件傳送給 secure@microsoft.com

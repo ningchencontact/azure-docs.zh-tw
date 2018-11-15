@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/30/2018
+ms.date: 11/06/2018
 ms.author: genli
-ms.openlocfilehash: 8d1415e996f65f0791b3e449a61fb30053add523
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240200"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238310"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
 
@@ -221,7 +221,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>一次有太多 VPN 用戶端連線
 
-每個 VPN 閘道可允許的連線數目上限是 128。 您可以在 Azure 入口網站中查看已連線的用戶端總數。
+已達允許的連線數目上限。 您可以在 Azure 入口網站中查看已連線的用戶端總數。
 
 ## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>點對站 VPN 錯誤地將 10.0.0.0/8 的路由新增到路由表
 
@@ -282,7 +282,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="symptom"></a>徵狀
 
-當用戶端使用點對站 VPN 連線來連線到 Azure 時，無法解析您 本機網域中資源的 FQDN。
+當用戶端使用點對站 VPN 連線來連線到 Azure 時，無法解析您本機網域中資源的 FQDN。
 
 ### <a name="cause"></a>原因
 

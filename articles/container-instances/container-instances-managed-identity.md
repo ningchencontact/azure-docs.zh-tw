@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651087"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578666"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>如何搭配 Azure 容器執行個體使用受控識別
 
@@ -38,7 +38,7 @@ ms.locfileid: "49651087"
 
 ### <a name="enable-a-managed-identity"></a>啟用受控識別
 
- 在「Azure 容器執行個體」中，從 REST API 2018-10-01 版及對應的 SDK 和工具開始，便支援適用於 Azure 資源的受控識別。 當您建立容器群組時，可藉由設定 [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity) 屬性來啟用一或多個受控識別。 您也可以在容器群組開始執行後啟用或更新受控識別；上述任一動作都會使容器群組重新啟動。 若要在新的或現有的容器群組上設定身分識別，請使用 Azure CLI、Resource Manager 範本或 YAML 檔案。 
+ 在「Azure 容器執行個體」中，從 REST API 2018-10-01 版及對應的 SDK 和工具開始，便支援適用於 Azure 資源的受控識別。 當您建立容器群組時，可藉由設定 [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity) 屬性來啟用一或多個受控識別。 您也可以在容器群組開始執行後啟用或更新受控識別；上述任一動作都會使容器群組重新啟動。 若要在新的或現有的容器群組上設定身分識別，請使用 Azure CLI、Resource Manager 範本或 YAML 檔案。 
 
 「Azure 容器執行個體」同時支援兩種類型的受控 Azure 身分識別：使用者指派和系統指派。 在容器群組上，您可以啟用一個系統指派的身分識別，一或多個使用者指派的身分識別，或是同時啟用這兩種身分識別。 
 

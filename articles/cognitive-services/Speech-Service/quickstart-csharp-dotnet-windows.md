@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281287"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683487"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>快速入門：使用語音 SDK 和 .NET Framework (Windows) 來辨識和轉譯語音
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281287"
 
 您可以使用本指南，透過 .NET Framework for Windows 和語音 SDK 建立語音轉換文字的主控台應用程式。 完成之後，您可以使用電腦的麥克風將語音即時轉譯為文字。
 
-本快速入門需要已啟用 Microsoft 語音的 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您還沒有帳戶，可以使用[免費試用](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started)來取得訂用帳戶金鑰。
+本快速入門需要已啟用 Microsoft 語音的 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 如果您還沒有帳戶，可以使用[免費試用](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 

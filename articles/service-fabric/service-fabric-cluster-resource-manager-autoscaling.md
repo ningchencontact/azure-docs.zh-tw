@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362597"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281646"
 ---
 # <a name="introduction-to-auto-scaling"></a>自動調整簡介
 自動調整是 Service Fabric 的一項額外功能，可根據服務所回報的負載，或根據其資源使用情況，來動態調整服務。 自動調整提供絕佳的彈性，並可讓您依需求佈建額外的服務執行個體或分割區。 整個自動調整程序是自動化並在背景執行的，在您於服務上設定原則之後，即無須在服務層級進行手動調整作業。 您可以在建立服務時，或隨時藉由更新服務，來開啟自動調整功能。
@@ -28,7 +28,9 @@ ms.locfileid: "49362597"
 * 如果所有閘道執行個體平均使用的核心數都超過 2 個，則再多新增一個執行個體來相應放大閘道服務規模。 每小時都執行一次此操作，但執行個體總數一律不要超過 7 個。
 * 如果所有閘道執行個體平均使用的核心數都少於 0.5 個，則移除一個執行個體來相應縮小閘道服務規模。 每小時都執行一次此操作，但執行個體總數一律不要少於 3 個。
 
-容器和一般 Service Fabric 服務都支援自動調整功能。 本文的其餘部分說明調整原則、啟用或停用自動調整的方法，並提供有關如何使用此功能的範例。
+容器和一般 Service Fabric 服務都支援自動調整功能。 若要使用自動調整規模功能，您的執行版本必須是 Service Fabric 執行階段 6.2 或更新版本。 
+
+本文的其餘部分說明調整原則、啟用或停用自動調整的方法，並提供有關如何使用此功能的範例。
 
 ## <a name="describing-auto-scaling"></a>描述自動調整
 您可以為 Service Fabric 叢集內的每個服務定義自動調整原則。 每個調整原則都由兩個部分組成：
@@ -41,7 +43,7 @@ ms.locfileid: "49362597"
 目前針對自動調整功能支援兩種機制。 第一種適用於無狀態服務，或適用於藉由新增或移除[執行個體](service-fabric-concepts-replica-lifecycle.md)來進行自動調整的容器。 不論是具狀態服務還是無狀態服務，都可以藉由新增或移除具名的服務[分割區](service-fabric-concepts-partitioning.md)來執行自動調整。
 
 > [!NOTE]
-> 目前僅支援每一服務一個調整原則。
+> 目前僅支援每一服務一個調整規模原則，以及每一調整規模原則一個調整規模觸發程序。
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>搭配執行個體型調整的平均分割區負載觸發程序
 第一種觸發程序所根據的是無狀態服務分割區中的執行個體負載。 計量負載會先經過平滑處理以取得分割區每個執行個體的負載，然後從分割區的所有執行個體中算出這些值的平均值。 決定服務調整時機的因素有三個：

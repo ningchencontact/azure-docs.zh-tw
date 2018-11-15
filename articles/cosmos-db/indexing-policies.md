@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054667"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237582"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Azure Cosmos DB 如何為資料編製索引？
 
@@ -140,7 +140,7 @@ Azure Cosmos DB 將 JSON 文件和索引模型化為樹狀結構。 您可以為
 
 索引路徑的開頭為根 (/)，且通常結尾為 ? 萬用字元運算子。 這代表有多個可能的首碼值。 例如，若要為 SELECT * FROM Families F WHERE F.familyName = "Andersen" 提供服務，您必須在集合的索引原則中包含 /familyName/? 的索引路徑。
 
-索引路徑也可以使用 \* 萬用字元運算子來指定路徑首碼底下的遞迴行為。 例如，使用 /payload/* 可將 payload 屬性下的所有項目自編製索引作業中排除。
+索引路徑也可以使用 \*萬用字元運算子來指定路徑首碼底下的遞迴行為。 例如，使用 /payload/* 可將 payload 屬性下的所有項目自編製索引作業中排除。
 
 以下是指定索引路徑的常見模式：
 
@@ -276,9 +276,9 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 
 | 索引類型 | 描述/使用案例                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 雜湊       | Hash over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (或 / 或 /props/) 可用來有效率地處理下列查詢︰<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| 雜湊       | Hash over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Hash over /props/[]/? (或 / 或 /props/) 可用來有效率地處理下列查詢：<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
 | 範圍      | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| 空間     | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --with indexing on points enabled<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --with indexing on polygons enabled              |
+| 空間     | Range over /prop/? (或 /) 可用來有效率地處理下列查詢︰<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) -- 已啟用在 Point 上編製索引<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) -- 已啟用在 Polygon 上編製索引              |
 
 根據預設，如果沒有 (任何精確度的) 範圍索引，以發出可能需要掃描才能進行查詢的訊號，則含有範圍運算子 (例如 >=) 的查詢都會傳回錯誤。 只要在 REST API 中使用 **x-ms-documentdb-enable-scan** 標頭，或使用 .NET SDK 利用 **EnableScanInQuery** 要求選項，仍然可以在沒有範圍索引的情況下執行範圍查詢。 如果在查詢中有 Azure Cosmos DB 可以使用索引據以篩選的其他任何篩選，就不會傳回任何錯誤。
 
@@ -323,7 +323,7 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 
 在關閉自動索引編製功能的情況下，您仍然可以選擇性地只將特定的文件新增到索引中。 相反地，您也可以讓自動編製索引保持開啟，並選擇性地排除特定的文件。 當您只需要查詢文件的子集時，編製索引開/關組態相當有用。
 
-下列範例示範如何使用 [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) 和 [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 屬性來明確地包含文件。
+下列範例示範如何使用 [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) 和 [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) 屬性來明確地包含文件。
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Azure Cosmos DB 針對每個路徑也支援空間索引類型 (可針對 Point�
 ## <a name="performance-tuning"></a>效能微調
 SQL API 會提供效能度量 (像是已使用的索引儲存體)，以及每個作業的輸送量成本 (要求單位) 等相關資訊。 這項資訊可以用來比較各種編製索引的原則，以及用來微調效能。
 
-若要檢查集合的儲存體配額和使用量，請對集合資源執行 **HEAD** 或 **GET** 要求。 接著，檢查 **x-ms-request-quota** 和 **x-ms-request-usage**標頭。 在 .NET SDK 中，[ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) 屬性包含這些對應的值。
+若要檢查集合的儲存體配額和使用量，請對集合資源執行 **HEAD** 或 **GET** 要求。 接著，檢查 **x-ms-request-quota** 和 **x-ms-request-usage**標頭。 在 .NET SDK 中，[ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) 中的 [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) 和 [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) 屬性包含這些對應的值。
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ SQL API 會提供效能度量 (像是已使用的索引儲存體)，以及每個
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-若要測量每一個寫入作業 (建立、更新或刪除) 的編製索引負荷，請檢查 **x-ms-request-charge** 標頭 (或 .NET SDK 的 [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) 中同等的 [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) 屬性) 來測量這些作業所耗用的要求單位數量。
+若要測量每一個寫入作業 (建立、更新或刪除) 的編製索引負荷，請檢查 **x-ms-request-charge** 標頭 (或 .NET SDK 的 [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) 中同等的 [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) 屬性) 來測量這些作業所耗用的要求單位數量。
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

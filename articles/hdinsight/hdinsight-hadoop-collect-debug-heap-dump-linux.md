@@ -1,22 +1,22 @@
 ---
-title: 在 HDInsight 上啟用 Hadoop 服務的堆積傾印 - Azure
-description: 在以 Linux 為基礎的 HDInsight 叢集上啟用 Hadoop 服務的堆積傾印，以進行偵錯和分析。
+title: 在 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印 - Azure
+description: 在以 Linux 為基礎的 HDInsight 叢集上啟用 Apache Hadoop 服務的堆積傾印，以進行偵錯和分析。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095577"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037663"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ ms.locfileid: "43095577"
 
 您可以啟用下列服務的堆積傾印：
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2、metastore、derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2、metastore、derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager、nodemanager、timelineserver
-* **hdfs** - datanode、secondarynamenode、namenode
+* **Apache yarn** - resourcemanager、nodemanager、timelineserver
+* **Apache hdfs** - datanode、secondarynamenode、namenode
 
 您也可以針對 HDInsight 所執行的 map 和 reduce 處理序來啟用堆積傾印。
 
@@ -49,7 +49,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> 我們建議使用 Ambari 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。 如需特定的步驟，請參閱 [使用 Ambari](#using-ambari) 一節。
+> 我們建議使用 Apache Ambari 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。 如需特定的步驟，請參閱 [使用 Ambari](#using-ambari) 一節。
 
 ### <a name="enable-heap-dumps"></a>啟用堆積傾印
 

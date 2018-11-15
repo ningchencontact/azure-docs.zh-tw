@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/6/2018
 ms.author: victorh
-ms.openlocfilehash: 12115770959c3869184f0af78c4feba2fd6f2be4
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: f89841c7712737d2d55601c6525e975274b4a103
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984888"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036712"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists-public-preview"></a>Web 應用程式防火牆要求大小限制與排除清單 (公開預覽)
 
@@ -30,22 +30,31 @@ Web 應用程式可讓使用者設定介於上下限範圍之間的要求大小�
 - 要求本文大小欄位的上限是以 KB 為單位指定，而且控制整體的要求大小限制，但不包括任何檔案上傳。 此欄位值的範圍可從最小 1 KB 到最大 128 KB。 要求本文大小的預設值為 128 KB。
 - 檔案上傳限制欄位是以 MB 為單位指定，而且它會控管允許的檔案上傳大小上限。 這個欄位的最小值為 1MB，最大值為 500 MB。 檔案上傳限制的預設值為 100 MB。
 
-WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 根據預設，要求本文檢查是啟用的。 如果關閉要求本文檢查，WAF 就不會評估 HTTP 訊息本文的內容。 在此情況下，WAF 會繼續針對標頭、Cookie 與 URI 強制執行 WAF 規則。 如果要求本文檢查關閉，則最大要求本文大小欄位就不適用，而且也無法設定。 關閉要求本文檢查可讓要傳送給 WAF 的訊息大於 128 KB。 不過，訊息本文並未經過檢查，而可能會有漏洞。
+WAF 也可提供可設定的旋鈕，以便開啟或關閉要求本文檢查。 根據預設，要求本文檢查是啟用的。 如果關閉要求本文檢查，WAF 就不會評估 HTTP 訊息本文的內容。 在此情況下，WAF 會繼續針對標頭、Cookie 與 URI 強制執行 WAF 規則。 如果要求本文檢查關閉，則最大要求本文大小欄位就不適用，而且也無法設定。 關閉要求本文檢查可讓要傳送給 WAF 的訊息大於 128 KB，但不會檢查訊息本文是否有漏洞。
 
 ## <a name="waf-exclusion-lists"></a>WAF 排除清單
 
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 WAF 排除清單可讓使用者略過 WAF 評估的特定要求屬性。 常見範例是用於驗證或密碼欄位的 Active Directory 插入式權杖。 這類屬性較可能包含特殊字元，而會觸發 WAF 規則的誤判。 一旦屬性新增至 WAF 排除清單，該屬性就不會列入任何已設定和作用中 WAF 規則的考慮。 排除清單的範圍是全域的。
-您可以將要求標頭、要求本文、要求 Cookie，或要求查詢字串引數新增至 WAF 排除清單。 如果本文有表單資料或 XML/JSON (機碼值組)，則可以使用要求屬性排除類型。
+
+下列屬性可以新增至排除清單：
+
+* 要求標頭
+* 要求 Cookie
+* 要求本文
+
+   * 表單多部分資料
+   * XML
+   * JSON
 
 您可以指定要精確比對要求標頭、本文、Cookie 或查詢字串屬性，或者也可以選擇指定部分相符即可。
 
 以下是支援的比對條件運算子：
 
 - **等於**：此運算子適用於精確比對。 例如，若要選取名為 **bearerToken** 的標頭，請使用等於運算子搭配設定為 **bearerToken** 的選取器。
-- **開頭為**：此運算子會比對開頭與指定之選取器值相符的所有欄位。 
-- **結尾為**：此運算子會比對結尾與指定之選取器值相符的所有欄位。 
+- **開頭為**：此運算子會比對開頭與指定之選取器值相符的所有欄位。
+- **結尾為**：此運算子會比對結尾與指定之選取器值相符的所有欄位。
 - **包含**：此運算子會比對包含與指定之選取器值相符的所有欄位。
 
 在所有情況下，比對都不會區分大小寫，且不允許使用規則運算式作為選取器。

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: 4438cff0dcf5e896f39729d9871d4deb3207b4b8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107990"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230422"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -38,7 +38,7 @@ HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域�
 
 ### <a name="location-of-default-storage"></a>預設儲存體的位置
 
-預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Store) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Store 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Store 可用性。
+預設儲存體 (無論是 Azure 儲存體帳戶或 Azure Data Lake Store) 必須與您的叢集在相同的位置。 Azure 儲存體可在所有位置使用。 Data Lake Store Gen1 可在某些區域中使用 - 請在[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中的儲存體下參閱目前的 Data Lake Store 可用性。
 
 ### <a name="location-of-existing-data"></a>現有資料的位置
 
@@ -48,7 +48,7 @@ HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域�
 
 部署 HDInsight 叢集之後，您可以連接額外的 Azure 儲存體帳戶，或存取其他 Data Lake Store。 所有的儲存體帳戶都必須與您的叢集位於相同的位置。 Data Lake Store 可位於不同的位置，雖然這樣可能會導致某些資料的讀取/寫入延遲。
 
-Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#storage-limits)，但 Data Lake Store 幾乎不受限制。
+Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#storage-limits)，但 Data Lake Store Gen1 幾乎不受限制。
 
 叢集可以存取不同儲存體帳戶的組合。 典型的範例包括：
 

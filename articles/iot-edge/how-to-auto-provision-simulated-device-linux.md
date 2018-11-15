@@ -2,18 +2,18 @@
 title: 使用 DPS 自動佈建 Azure IoT Edge 裝置 - Linux | Microsoft Docs
 description: 在 Linux VM 上使用模擬的 TPM 來測試 Azure IoT Edge 的裝置佈建
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739659"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565066"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用虛擬 TPM 在 Linux 虛擬機器上建立及佈建 Edge 裝置
 

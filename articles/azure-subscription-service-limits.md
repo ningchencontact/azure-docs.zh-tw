@@ -8,17 +8,17 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393608"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219557"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
-此文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 此文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
+本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
 
 請瀏覽 [Azure 定價一覽](https://azure.microsoft.com/pricing/) 以深入了解 Azure 定價。 您可以在那裡使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)或透過瀏覽服務 (例如，[Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows)) 的定價詳細資料頁面來估計成本。 如需協助您管理成本的祕訣，請參閱[使用 Azure 計費與成本管理避免非預期的成本](billing/billing-getting-started.md)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "47393608"
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [適用於 MySQL 的 Azure 資料庫](#azure-database-for-mysql)
 * [適用於 PostgreSQL 的 Azure 資料庫](#azure-database-for-postgresql)
-* [事件方格](#azure-event-grid-limits)
+* [事件格線](#azure-event-grid-limits)
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure 監視器](#monitor-limits)
 * [Azure 原則](#azure-policy-limits)
@@ -78,7 +78,6 @@ ms.locfileid: "47393608"
 * [Log Analytics](#log-analytics-limits)
 * [受控身分識別](#managed-identity-limits)
 * [媒體服務](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [行動服務](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [網路功能](#networking-limits)
@@ -102,13 +101,13 @@ ms.locfileid: "47393608"
 * [虛擬機器擴展集](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>訂用帳戶限制
-#### <a name="subscription-limits"></a>訂用帳戶限制
+#### <a name="subscription-limits---azure-service-management-classic-resources"></a>訂用帳戶限制 - Azure 服務管理 (傳統資源)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>訂用帳戶限制 - Azure Resource Manager
 使用 Azure 資源管理員和 Azure 資源群組時，適用下列限制。 使用 Azure 資源管理員時未變更的限制不會在以下列出。 請參閱先前的資料表來瞭解這些限制。
 
-如需處理限制 Resource Manager 要求的資訊，請參閱[節流 Resource Manager 要求](resource-manager-request-limits.md)。
+如需 Resource Manager API 讀取和寫入限制的相關資訊，請參閱[對 Resource Manager 要求進行節流](resource-manager-request-limits.md)。
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -145,6 +144,8 @@ ms.locfileid: "47393608"
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>應用程式閘道限制
+
+下列表格適用於 v1、v2、「標準」及 WAF SKU (除非另外註明)。
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>網路監看員限制

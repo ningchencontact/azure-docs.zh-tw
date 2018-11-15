@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 95cfc7e6d9515274aa7a3c5fde382244f3b33fab
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 8dc85c55dd67d8acd394d7922e947c91234ef23b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142127"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957115"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。
@@ -37,6 +37,13 @@ ms.locfileid: "42142127"
 「串流分析」與 Azure Cosmos DB 的整合可讓您根據指定的「文件識別碼」資料行，在集合中插入或更新記錄。 這也稱為「Upsert」 。
 
 串流分析可使用最佳化的 upsert 方法，而此方法只會在因為文件識別碼發生衝突而插入失敗時，才進行更新。 此更新會以修補程式的方式執行，對文件進行部分更新，也就是以漸進方式新增屬性或取代現有屬性。 但是，變更 JSON 文件中陣列屬性的值，會造成整個陣列遭到覆寫，也就是不會合併陣列。
+
+如果傳入 JSON 文件具有現有的識別碼欄位，系統會自動將該欄位作為 Cosmos DB 中的「文件識別碼」資料行使用，且所有後續的寫入都會以同樣方式處理，並導致下列其中一種情況：
+- 唯一識別碼導致插入
+- 重複識別碼和「文件識別碼」設定為「識別碼」導致更新插入
+- 重複識別碼和「文件識別碼」未設定導致錯誤，在第一個文件之後
+
+如果您想要儲存「所有」<i></i>文件 (包括具有重複識別碼的文件)，請重新命名查詢中的「識別碼」欄位 (搭配 AS 關鍵字)，並讓 Cosmos DB 建立「識別碼」欄位或以另一個資料行的值取代識別碼 (使用 AS 關鍵字或使用 'Document ID' 設定)。
 
 ## <a name="data-partitioning-in-cosmos-db"></a>Cosmos DB 中的資料分割
 Azure Cosmos DB [無限制](../cosmos-db/partition-data.md)是建議的資料分割方法，因為 Azure Cosmos DB 會根據您的工作負載自動調整資料分割。 當寫入無限制的容器時，串流分析會使用與先前查詢步驟或輸入資料分割配置同樣數目的平行寫入器。
