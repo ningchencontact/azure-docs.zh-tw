@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: srdan-bozovic-msft
+ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/24/2018
-ms.openlocfilehash: ca1ef9c402b370a8d1228e13d7fe3e13fd225f79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11133a24f4446478dcc7f38ed50eb36de8843442
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986316"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978396"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database 連線架構
 
@@ -31,19 +31,30 @@ ms.locfileid: "49986316"
 
 下列步驟說明如何透過 Azure SQL Database 軟體負載平衡器 (SLB) 和 Azure SQL Database 閘道，和 Azure SQL Database 建立連線。
 
-- Azure 內部或 Azure 外部的用戶端會連線到其有公用 IP 位址且接聽連接埠 1433 的 SLB。
-- SLB 會將流量導向至 Azure SQL Database 閘道。
-- 閘道會將流量重新導向至正確的 Proxy 中介軟體。
-- Proxy 中介軟體會將流量重新導向到適當的 Azure SQL Database。
+- 用戶端會連線到具有公用 IP 位址並在連接埠 1433 進行接聽的 SLB。
+- SLB 會將流量轉送到 Azure SQL Database 閘道。
+- 此閘道會視有效的連線原則而定，將流量重新導向或透過 Proxy 傳送到正確的 Proxy 中介軟體。
+- Proxy 中介軟體會將流量轉送到適當的 Azure SQL Database。
 
 > [!IMPORTANT]
 > 這些元件各個都在網路和應用程式層內建分散式阻斷服務 (DDoS) 保護。
 
+## <a name="connection-policy"></a>連線原則
+
+Azure SQL Database 支援下列三個 SQL Database 伺服器連線原則設定選項：
+
+- **重新導向 (建議使用)：** 用戶端直接與裝載資料庫的節點建立連線。 若要啟用連線，用戶端必須對區域中的所有 Azure IP 位址，而不只是 Azure SQL Database 閘道 IP 位址，允許輸出防火牆規則 (請使用「網路安全性群組」(NSG) 搭配[服務標籤](../virtual-network/security-overview.md#service-tags)來嘗試這樣做)。 由於封包會直接傳送到資料庫，因此會改善延遲和輸送量方面的效能。
+- **Proxy：** 在此模式中，所有連線都會透過 Azure SQL Database 閘道 Proxy。 若要啟用連線，用戶端必須具有只允許 Azure SQL Database 閘道 IP 位址 (通常每一區域有兩個 IP 位址) 的輸出防火牆規則。 視工作負載的本質而定，選擇此模式可能會導致延遲提高和輸送量降低。 為了將延遲降到最低及將輸送量提升到最高，強烈建議您採用 [重新導向] 連線原則，而不要採用 [Proxy] 連線原則。
+- **預設：** 除非您明確地將連線原則更改成 [Proxy] 或 [重新導向]，否則這會是所有伺服器在建立後生效的連線原則。 有效原則取決於連線源自 Azure 內部 (重新導向) 還是 Azure 外部 (Proxy)。
+
 ## <a name="connectivity-from-within-azure"></a>從 Azure 內部連線
 
-如果您從 Azure 內部連線，該連線預設的連線原則為 [重新導向]。 [重新導向] 原則代表連線在和 Azure SQL Database 建立 TCP 工作階段之後，會將其 Azure SQL Database 閘道的目的地虛擬 IP 變更為 Proxy 中介軟體的目的地虛擬 IP，將該用戶端工作階段重新導向至 Proxy 中介軟體。 此後，所有後續封包會略過 Azure SQL Database 閘道，直接流經 Proxy 中介軟體。 下圖說明此流量。
+如果您在 2018 年 11 月 10 日之後建立的伺服器上從 Azure 內部連線，則您的連線預設擁有的連線原則會是 [重新導向]。 [重新導向] 原則代表連線在和 Azure SQL Database 建立 TCP 工作階段之後，會將其 Azure SQL Database 閘道的目的地虛擬 IP 變更為 Proxy 中介軟體的目的地虛擬 IP，將該用戶端工作階段重新導向至 Proxy 中介軟體。 此後，所有後續封包會略過 Azure SQL Database 閘道，直接流經 Proxy 中介軟體。 下圖說明此流量。
 
 ![架構概觀](./media/sql-database-connectivity-architecture/connectivity-from-within-azure.png)
+
+> [!IMPORTANT]
+> 如果您在 2018 年 11 月 10 日之前建立 SQL Database 伺服器，則您的連線原則已明確設定為 [Proxy]。 使用服務端點時，強烈建議您將連線原則變更為 [重新導向] 以獲得更佳的效能。 如果您將連線原則變更為 [重新導向]，則在您的 NSG 上只允許輸出至以下所列的 Azure SQL Database 閘道 IP 是不夠的，您必須允許輸出至所有 Azure SQL Database IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](../virtual-network/security-overview.md#service-tags)。
 
 ## <a name="connectivity-from-outside-of-azure"></a>從 Azure 外部連線
 
@@ -51,19 +62,11 @@ ms.locfileid: "49986316"
 
 ![架構概觀](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
-> [!IMPORTANT]
-> 搭配 Azure SQL Database 使用服務端點時，您的預設原則會是 **Proxy**。 若要從 VNet 內進行連線，您必須允許對以下清單中指定的 Azure SQL Database 閘道 IP 位址進行連出連線。
-
-使用服務端點時，強烈建議將您的連線原則變更為 [重新導向] 以達到更佳的效能。 如果您將連線原則變更為 [重新導向]，則不足以允許在您的 NSG 上輸出至下面所列的 Azure SQL Database 閘道 IP，您必須允許輸出至所有 Azure SQL Database IP。 透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
-
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 閘道 IP 位址
 
 若要從內部部署資源連線到 Azure SQL Database，您必須允許輸出網路流量流到 Azure 區域的 Azure SQL Database 閘道。 在從內部部署資源連線時的預設 Proxy 模式中連線時，您只能透過閘道連線。
 
 下表列出所有資料區之 Azure SQL Database 閘道的主要和次要 IP。 對於某些區域，會有兩個 IP 位址。 在這些區域中，主要 IP 位址是閘道目前的 IP 位址，而次要 IP 位址為容錯移轉 IP 位址。 容錯移轉位址是指可能會移動伺服器以讓服務保持高可用性的位址。 對於這些區域，建議您針對這兩個 IP 位址允許輸出。 次要 IP 位址為 Microsoft 所有，在由 Azure SQL Database 啟動以接受連線之前，並不會接聽任何服務。
-
-> [!IMPORTANT]
-> 如果從 Azure 內部連線，則根據預設連線原則將為 [重新導向] (除非您使用的是服務端點)。 它不足以允許下列 IP。 您必須允許所有 Azure SQL Database IP。 如果您是從 VNet 內進行連線，透過 NSG (網路安全性群組) 服務標籤可以完成此作業。 如需詳細資訊，請參閱[服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 | 區域名稱 | 主要 IP 位址 | 次要 IP 位址 |
 | --- | --- |--- |

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740343"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010723"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft 整合
 
@@ -43,7 +43,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 若要設定 Azure AD 與 JIRA SAML SSO by Microsoft 整合，您需要下列項目：
 
 - Azure AD 訂用帳戶
-- 應該在 Windows 64 位元版本上安裝及設定 JIRA Core 和 JIRA Software 6.0 到 7.8 或 JIRA Service Desk 3.0 到 3.2
+- 應該在 Windows 64 位元版本上安裝及設定 JIRA Core 和 JIRA Software 6.0 到 7.12 或 JIRA Service Desk 3.0 到 3.5
 - JIRA 伺服器已啟用 HTTPS
 - 請注意下一節提及支援的 JIRA 外掛程式版本。
 - JIRA 伺服器可從網際網路連上，特別是連線至 Azure AD 登入頁面來進行驗證，且應該能夠接收來自 Azure AD 的權杖
@@ -140,7 +140,7 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 如果連接埠是具名 URL，則為選擇性。 在設定 Jira 外掛程式 (本教學課程稍後會說明) 期間會收到這些值。
 
-5. 在 [SAML 簽署憑證] 區段的 [SAML 簽署憑證] 頁面上，按一下 [複製] 按鈕以複製**應用程式同盟中繼資料 URL** 並貼到記事本。
+5. 在 [SAML 簽署憑證] 頁面的 [SAML 簽署憑證] 區段中，按一下 [複製] 按鈕以複製**應用程式同盟中繼資料 URL** 並貼到記事本。
 
     ![憑證下載連結](./media/jiramicrosoft-tutorial/tutorial_metadataurl.png) 
 

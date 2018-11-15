@@ -9,19 +9,19 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: da92f59c4e25ec012cd9ad389c9afac410ba28e1
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649987"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219302"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>使用 Azure Machine Learning 追蹤實驗與訓練計量
 
 在 Azure Machine Learning 服務中，您可以追蹤您的實驗並監視計量，以加強模型建立程序。 在本文中，您將了解將記錄新增到訓練指令碼、如何使用 **start_logging** 和 **ScriptRunConfig** 提交實驗、如何檢查執行中作業的進度，以及如何檢視執行結果的不同方法。 
 
 >[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 0.168 版進行測試 
+> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.74 版進行測試 
 
 ## <a name="list-of-training-metrics"></a>訓練計量的清單 
 
@@ -67,7 +67,6 @@ ms.locfileid: "49649987"
 
   # make up an arbitrary name
   experiment_name = 'train-in-notebook'
-  exp = Experiment(workspace_object = ws, name = experiment_name)
   ```
   
 ## <a name="option-1-use-startlogging"></a>選項 1：使用 start_logging
@@ -103,7 +102,8 @@ ms.locfileid: "49649987"
 2. 使用 Azure Machine Learning 服務 SDK 新增實驗定型，並將保存的模型上傳至實驗執行記錄。 以下程式碼新增標記、記錄，並將模型檔案上傳到實驗執行中。
 
   ```python
-  run = Run.start_logging(experiment = exp)
+  experiment = Experiment(workspace = ws, name = experiment_name)
+  run = experiment.start_logging()
   run.tag("Description","My first run!")
   run.log('alpha', 0.03)
   reg = Ridge(alpha = 0.03)
@@ -209,8 +209,8 @@ ms.locfileid: "49649987"
   ```python
   from azureml.core import ScriptRunConfig
 
-  src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_user_managed)
-  run = exp.submit(src)
+  src = ScriptRunConfig(source_directory = './', script = 'train.py', run_config = run_config_user_managed)
+  run = experiment.submit(src)
   ```
   
 ## <a name="view-run-details"></a>檢視執行詳細資料
@@ -248,11 +248,22 @@ ms.locfileid: "49649987"
   ![Azure 入口網站執行詳細資料的螢幕擷取畫面](./media/how-to-track-experiments/run-details-page-web.PNG)
 
 您也可以檢視執行的任何輸出或記錄，或下載讓您提交的實驗快照集，以便與其他人共用實驗資料夾。
+### <a name="viewing-charts-in-run-details"></a>檢視執行詳細資料中的圖表
+
+有各種方式可以在執行期間使用記錄 API 記錄不同類型的計量，並以 Azure 入口網站中的圖表形式加以檢視。 
+
+|記錄的值|程式碼範例| 在入口網站中檢視|
+|----|----|----|
+|記錄數值的陣列| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|單一變數的折線圖|
+|透過重複使用的相同計量名稱，記錄單一數值 (例如，從 for 迴圈中)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| 單一變數的折線圖|
+|使用 2 個數字資料行重複記錄資料列|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|兩個變數的折線圖|
+|使用 2 個數字資料行記錄資料表|`run.log_table(name='Sine Wave', value=sines)`|兩個變數的折線圖|
 
 ## <a name="example-notebooks"></a>Notebook 範例
 下列 Notebook 示範了此文章中說明的概念：
 * [01.getting-started/01.train-within-notebook/01.train-within-notebook.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/01.train-within-notebook)
 * [01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local)
+* [01.getting-started/06.logging-api/06.logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/06.logging-api/06.logging-api.ipynb)
 
 取得這些 Notebook：[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

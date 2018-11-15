@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987640"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015769"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -29,7 +29,7 @@ ms.locfileid: "46987640"
 
 您只能在 Azure 入口網站的傳統警示使用者畫面中檢視傳統警示。 您可以從警示畫面上的 [檢視傳統警示] 按鈕取得此畫面。 
 
- ![Azure 入口網站中的警示選擇](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Azure 入口網站中的警示選擇](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 新的警示使用者體驗比傳統警示體驗多了下列優點：
 -   **更好的通知系統**- 所有新版警示都使用動作群組，這些是可在多個警示中重複使用的具名通知及動作群組。 傳統計量警示及舊版 Log Analytics 警示並不使用動作群組。
@@ -89,14 +89,14 @@ Webhook 可啟用自動化和修復，例如使用：
 ## <a name="next-steps"></a>後續步驟
 使用下列項目取得有關警示規則和設定這些規則的資訊：
 
-* 深入了解[計量](monitoring-overview-metrics.md)
-* [透過 Azure 入口網站設定傳統的計量警示](insights-alerts-portal.md)
-* 設定[傳統的計量警示 PowerShell](insights-alerts-powershell.md)
-* 設定[傳統的計量警示命令列介面 (CLI)](insights-alerts-command-line-interface.md)
+* 深入了解[計量](../monitoring/monitoring-data-collection.md)
+* [透過 Azure 入口網站設定傳統的計量警示](alert-metric-classic.md)
+* 設定[傳統的計量警示 PowerShell](alert-metric-classic.md)
+* 設定[傳統的計量警示命令列介面 (CLI)](alert-metric-classic.md)
 * 設定[傳統的計量警示 Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * 深入了解[活動記錄](monitoring-overview-activity-logs.md)
 * [透過 Azure 入口網站設定活動記錄警示](monitoring-activity-log-alerts.md)
-* [透過 Resource Manager 設定活動記錄警示](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* [透過 Resource Manager 設定活動記錄警示](alert-activity-log.md)
 * 檢閱[活動記錄警示 webhook 結構描述](monitoring-activity-log-alerts-webhook.md)
 * 深入了解[動作群組](monitoring-action-groups.md)
-* 設定[較新的警示](monitor-alerts-unified-usage.md)
+* 設定[較新的警示](alert-metric.md)

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144517"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958656"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>虛擬機器供應項目發佈指南
 
@@ -29,7 +29,7 @@ ms.locfileid: "43144517"
 
 ## <a name="free-trial"></a>免費試用 
 
-您可以讓使用者在使用自備授權 (BYOL) 計費模型時，可存取有限期間的軟體授權，以便測試您的供應項目。 以下是部署這項供應項目的需求。 
+您可以讓使用者在使用自備授權 (BYOL) 計費模型時，存取有限期間的軟體授權，以便測試您的供應項目。 以下是部署這項供應項目的需求。 
 
 |需求  |詳細資料  |
 |---------|---------|
@@ -40,7 +40,7 @@ ms.locfileid: "43144517"
 
 ## <a name="test-drive"></a>試用產品
 
-您會透過基礎結構即服務 (IaaS) 或 SaaS 應用程式部署一或多部虛擬機器。 試用產品發佈選項的優點是，可在合作夥伴所主持的引導式導覽帶領下，以自動化方式佈建虛擬機器或整個解決方案。 試用產品可為您的客戶提供評估，而無須額外收費。 客戶不必是現有的 Azure 客戶，即可參與試用體驗。 
+您會透過基礎結構即服務 (IaaS) 或軟體即服務 (SaaS) 應用程式部署一部或多部虛擬機器。 試用產品發佈選項的優點是，可在合作夥伴所主持的引導式導覽帶領下，以自動化方式佈建虛擬機器或整個解決方案。 試用產品可為您的客戶提供評估，而無須額外收費。 客戶不必是現有的 Azure 客戶，即可參與試用體驗。 
 
 請經由 [amp-testdrive](mailto:amp-testdrive@microsoft.com) 與我們連絡，以開始使用。 
 

@@ -2,19 +2,19 @@
 title: 在 Azure HDInsight 中使用 Data Lake Store 搭配 Hadoop
 description: 了解如何從 Azure Data Lake Store 查詢資料，以及如何儲存分析的結果。
 services: hdinsight,storage
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: d205a46c672523e029816b573742d991de79b2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/06/2018
+ms.openlocfilehash: 0d76aa5091e77d8713290e6da8908e15ad3ef995
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956726"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684562"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>使用 Data Lake Store 搭配 Azure HDInsight 叢集
 
@@ -40,16 +40,17 @@ HDInsight 叢集可透過兩種方式來使用 Data Lake Store︰
 
 | HDInsight 叢集類型 | Data Lake Store 作為預設儲存體 | Data Lake Store 作為其他儲存體| 注意 |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight 3.6 版 | 是 | 是 | |
+| HDInsight 3.6 版 | 是 | 是 | HBase 的例外狀況|
 | HDInsight 3.5 版 | 是 | 是 | HBase 的例外狀況|
 | HDInsight 3.4 版 | 否 | 是 | |
 | HDInsight 3.3 版 | 否 | 否 | |
 | HDInsight 3.2 版 | 否 | 是 | |
 | Storm | | |您可以使用 Data Lake Store 從 Storm 拓撲寫入資料。 您也可以使用 Data Lake Store 做為參考資料，該資料稍後可以由 Storm 拓撲讀取。|
 
+> [!WARNING]
+> Azure Data Lake Storage Gen 1 不支援 HDInsight HBase
+
 使用 Data Lake Store 作為其他儲存體帳戶，並不會影響效能或從叢集讀取或寫入至 Azure 儲存體的能力。
-
-
 ## <a name="use-data-lake-store-as-default-storage"></a>使用 Data Lake Store 作為預設儲存體
 
 使用 Data Lake Store 作為預設儲存體部署 HDInsight 時，儲存在 Data Lake Store 中的叢集相關檔案會位在下列位置︰

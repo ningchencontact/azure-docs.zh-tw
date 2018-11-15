@@ -1,3 +1,16 @@
+---
+author: sdwheeler
+ms.service: azure-powershell
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: sewhee
+ms.openlocfilehash: 5f224ab3b0040bcba6b99d8db744e9dbde4a63c9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571925"
+---
 ## <a name="setting-up-powershell-for-resource-manager-templates"></a>設定資源管理員範本的 PowerShell
 您必須擁有正確的 Windows PowerShell 和 Azure PowerShell 版本，才能搭配使用 Azure PowerShell 與資源管理員。
 

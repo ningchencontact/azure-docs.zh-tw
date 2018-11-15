@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437146"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973725"
 ---
 當您建立 Azure 虛擬機器 (VM) 時，您必須建立[虛擬網路](../articles/virtual-network/virtual-networks-overview.md) (VNet)，或使用現有的 VNet。 您也需要決定如何在 VNet 上存取您的 VM。 請務必[在建立資源前進行規劃](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，並確定您已了解[網路資源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
@@ -36,9 +36,7 @@ ms.locfileid: "49437146"
 
 [網路介面 (NIC)](../articles/virtual-network/virtual-network-network-interface.md) 是 VM 與虛擬網路 (VNet) 之間互相連線的橋樑。 VM 必須有至少一個 NIC，但視您所建立的 VM 大小而定，可以有一個以上的 NIC。 了解 [Windows](../articles/virtual-machines/windows/sizes.md)或[Linux](../articles/virtual-machines/linux/sizes.md) 的每個 VM 大小所支援的 NIC 數目。
 
-您可以使用多個 NIC 來建立 VM，並透過 VM 的生命週期來新增或移除 NIC。 多個 NIC 允許 VM 連線到不同的子網路，並透過最適當的介面來傳送或接收流量。
-
-如果 VM 已新增至可用性設定組，則可用性設定組內的所有 VM 都必須具有一或多個 NIC。 具有多個 NIC 的 VM 不需要有相同數目的 NIC，但全都必須有至少兩個 NIC。
+您可以使用多個 NIC 來建立 VM，並透過 VM 的生命週期來新增或移除 NIC。 多個 NIC 允許 VM 連線到不同的子網路，並透過最適當的介面來傳送或接收流量。 有任意多個網路介面的 VM (最多可達 VM 大小所支援的數目) 可存在於相同的可用性設定組中。 
 
 連接到 VM 的每個 NIC 都必須與 VM 位於相同的位置和訂用帳戶。 每個 NIC 都必須連接到與 NIC 位於相同 Azure 位置和訂用帳戶中的 VNet。 您可以變更 VM 建立之後所要連線的子網路，但無法變更它所連線的 VNet。 連接到 VM 的每個 NIC 會被指派 MAC 位址，該 MAC 位址在 VM 刪除前不會變更。
 
@@ -151,7 +149,7 @@ NSG 包含兩組規則：輸入和輸出。 規則的優先順序在每一個集
 
 您可以在相同的 VNet 中建立 VM，而這些 VM 可以使用私人 IP 位址彼此連接。 即使它們位於不同的子網路中，仍可連接，而不需設定閘道或使用公用 IP 位址。 若要將 VM 放入 VNet 中，您可建立 VNet，然後在建立每個 VM 時，將它指派給 VNet 和子網路。 VM 會在部署或啟動期間取得其網路設定。  
 
-VM 會在部署時被指派 IP 位址。 如果您將多部 VM 部署至 VNet 或子網路，它們會在啟動時被指派 IP 位址。 動態 IP 位址 (DIP) 是與 VM 相關聯的內部 IP 位址。 您可以將靜態 DIP 配置給 VM。 如果您要配置靜態 DIP，您應該考慮使用特定的子網路，以避免不小心將靜態 DIP 重複使用於另一部 VM。  
+VM 會在部署時被指派 IP 位址。 如果您將多部 VM 部署至 VNet 或子網路，它們會在啟動時被指派 IP 位址。 您也可以將靜態 IP 位址配置給 VM。 如果您要配置靜態 IP，您應該考慮使用特定的子網路，以避免不小心將靜態 IP 重複使用於另一部 VM。  
 
 如果您建立 VM 而稍後想要將它移轉至 VNet，則不太容易進行組態變更。 您必須將 VM 重新部署到 VNet 中。 最簡單的重新部署方法就是刪除 VM (但不刪除連接到它的任何磁碟)，然後使用原始磁碟在 VNet 中重新建立 VM。 
 

@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/11/2018
 ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-manager: douge
-ms.openlocfilehash: 3f30a62a2f351aecabc37206607c3e28ec5e3ab5
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: a1c68f7e1d0a24be173137d3a7c920876cc8ba66
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353353"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515738"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -65,9 +64,9 @@ azds remove -g <resource group name> -n <cluster name>
 
 使用 _azds.exe_ 時，請使用 --verbose 命令列選項並使用 --output 命令列選項，來指定輸出格式。
  
-    ```cmd
-    azds up --verbose --output json
-    ```
+```cmd
+azds up --verbose --output json
+```
 
 在 Visual Studio 中：
 
@@ -231,6 +230,16 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="try"></a>請嘗試︰
 在您的叢集中重新啟動代理程式節點通常會解決這個問題。
+
+## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev Spaces Proxy 可能會干擾在開發空間中執行的其他 Pod
+
+### <a name="reason"></a>原因
+當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的。
+
+可惜的是，它可能會干擾在那些 Pod 中執行的特定服務。 具體來說，它會干擾執行 Redis 快取的 Pod，並在主要/附屬通訊中導致連線錯誤和失敗。
+
+### <a name="try"></a>請嘗試︰
+您可以將受影響的 Pod 移至叢集內「未」啟用 Dev Spaces 的命名空間，同時繼續在啟用 Dev Spaces 的命名空間內執行應用程式的其餘部分。 Dev Spaces 將不會在啟用非 Dev Spaces 的命名空間內安裝 _mindaro-proxy_ 容器。
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces 似乎未使用我現有的 Dockerfile 來建置容器 
 

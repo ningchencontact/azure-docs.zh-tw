@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/05/2018
+ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091550"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035728"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在適用於 MySQL 的 Azure 資料庫中監視
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 適用於 MySQL 的 Azure 資料庫提供多種計量，可讓您深入了解您伺服器的行為。
@@ -41,10 +41,12 @@ ms.locfileid: "49091550"
 |seconds_behind_master|複寫延遲 (秒)|Count|複本伺服器與主要伺服器相較下延遲的秒數。|
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
+|backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
-您可以在伺服器上啟用慢速查詢記錄。 這些記錄也可透過 OMS Log Analytics、事件中樞和儲存體帳戶中的 Azure 診斷記錄取得。 若要深入了解記錄，請造訪[伺服器記錄](concepts-server-logs.md)頁面。
+您可以在伺服器上啟用慢速查詢記錄。 這些記錄也可透過 OMS Log Analytics、事件中樞和儲存體帳戶中的 Azure 診斷記錄取得。 若要深入了解記錄，請瀏覽 [伺服器記錄](concepts-server-logs.md)頁面。
 
 ## <a name="next-steps"></a>後續步驟
 - 請參閱[如何設定警示](howto-alert-on-metric.md)，取得根據計量來建立警示的指引。
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+- 請參閱有關[監視伺服器的最佳做法](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/) \(英文\) 的部落格。

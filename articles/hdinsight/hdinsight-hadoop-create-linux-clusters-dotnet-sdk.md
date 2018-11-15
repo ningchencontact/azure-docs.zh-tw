@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET 建立 Hadoop 叢集 - Azure HDInsight
-description: 了解如何在 Linux 上使用 HDInsight .NET SDK 為 HDInsight 建立 Hadoop、HBase、Storm 或 Spark 叢集。
+title: 使用 .NET 建立 Apache Hadoop 叢集 - Azure HDInsight
+description: 了解如何在 Linux 上使用 HDInsight .NET SDK 為 HDInsight 建立 Apache Hadoop、Apache HBase、Apache Storm 或 Apache Spark 叢集。
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: ea5c0d3b9f444601607ebcda8d139797eb8dd2ec
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093906"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035675"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 Hadoop 叢集。
+了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 Apache Hadoop 叢集。
 
 > [!IMPORTANT]
 > 本文中的步驟會建立具有一個背景工作節點的叢集。 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，您就必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。

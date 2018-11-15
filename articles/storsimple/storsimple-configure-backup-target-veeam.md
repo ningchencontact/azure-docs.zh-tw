@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2016
 ms.author: hkanna
-ms.openlocfilehash: cc1c7a3f77af76c451bb6e97a081a01c119333b5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f06b74493bad546997f82ed6eef0a89cffb7c75b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23112426"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261973"
 ---
 # <a name="storsimple-as-a-backup-target-with-veeam"></a>使用 StorSimple 做為 Veeam 的備份目標
 
@@ -482,7 +482,7 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 
 從 StorSimple 裝置還原的運作方式就如同從任何區塊存放裝置還原。 還原已分層儲存到雲端的資料時，會以雲端速度進行。 如果是本機資料，則會以裝置的本機磁碟速度進行還原。
 
-使用 Veeam，您可經由 Veeam 主控台中內建的瀏覽器檢視，透過 StorSimple 進行快速細微的檔案層級復原。 您可以使用 Veeam 瀏覽器，從備份復原個別的項目，例如電子郵件訊息、Active Directory 物件和 SharePoint 項目。 內部部署 VM 不需要中斷，就可以完成復原。 您也可以進行 Azure SQL Database 和 Oracle Database 的時間點復原。 Veeam 與 StorSimple 可以既快速又簡單地從 Azure 復原項目層級。 如需有關如何執行還原的詳細資訊，請參閱 Veeam 文件：
+使用 Veeam，您可經由 Veeam 主控台中內建的瀏覽器檢視，透過 StorSimple 進行快速細微的檔案層級復原。 您可以使用 Veeam 瀏覽器從備份復原個別的項目，例如電子郵件訊息、Active Directory 物件和 SharePoint 項目。 內部部署 VM 不需要中斷，就可以完成復原。 您也可以進行 Azure SQL Database 和 Oracle Database 的時間點復原。 Veeam 與 StorSimple 可以既快速又簡單地從 Azure 復原項目層級。 如需有關如何執行還原的詳細資訊，請參閱 Veeam 文件：
 
 - 若為 [Exchange Server](https://www.veeam.com/microsoft-exchange-recovery.html)
 - 若為 [Active Directory](https://www.veeam.com/microsoft-active-directory-explorer.html)
@@ -510,9 +510,9 @@ StorSimple 雲端快照集可保護位於 StorSimple 裝置中的資料。 建�
 本文中參考下列文件︰
 
 - [StorSimple 多重路徑 I/O 設定](storsimple-configure-mpio-windows-server.md)
-- [儲存體案例︰精簡佈建 (英文)](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
-- [使用 GPT 磁碟機 (英文)](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
-- [設定共用資料夾的陰影複製](http://technet.microsoft.com/library/cc771893.aspx)
+- [儲存體案例︰精簡佈建 (英文)](https://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
+- [使用 GPT 磁碟機 (英文)](https://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
+- [設定共用資料夾的陰影複製](https://technet.microsoft.com/library/cc771893.aspx)
 
 ## <a name="next-steps"></a>後續步驟
 

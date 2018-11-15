@@ -3,7 +3,7 @@ title: 如何設定或編輯 Azure API 管理原則 | Microsoft Docs
 description: 本主題會示範如何設定或編輯 Azure API 管理原則。
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,13 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008261"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>如何設定或編輯 Azure API 管理原則
 
@@ -32,15 +33,14 @@ ms.lasthandoff: 05/10/2018
 1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 瀏覽至您的 APIM 執行個體。
 3. 按一下 [API] 索引標籤。
+
+    ![編輯原則](./media/set-edit-policies/code-editor.png)
+
 4. 選取其中一個您先前匯入的 API。
 5. 選取 [設計] 索引標籤。
 6. 選取您要套用原則的作業。 如果您想要將原則套用至所有作業，請選取 [所有作業]。
-7. 按一下 [輸入] 或 [輸出] 鉛筆旁的三角形。
-8. 選取 [程式碼編輯器] 項目。
-
-    ![編輯原則](./media/set-edit-policies/set-edit-policies01.png)
-
-9. 將需要的原則程式碼貼入其中一個適當的區塊。
+7. 在 [輸入處理] 或 [輸出處理] 區段中選取 **</>** (程式碼編輯器) 圖示。
+8. 將需要的原則程式碼貼入其中一個適當的區塊。
          
         <policies>
              <inbound>

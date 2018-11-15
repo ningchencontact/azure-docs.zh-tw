@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 92553fc8867a482c0af99c4ba3937dcc0d2f09e6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: eeb615a89469ef8c165ed7ad76acaa01493f78ec
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158097"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625533"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過存取金鑰來存取 Azure 儲存體
 
@@ -35,15 +35,7 @@ ms.locfileid: "44158097"
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [登入 Azure 入口網站](https://portal.azure.com)
-
-- [建立 Windows 虛擬機器](/azure/virtual-machines/windows/quick-create-portal)
-
-- [在虛擬機器上啟用系統指派的受控識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>建立儲存體帳戶 
 
@@ -83,7 +75,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用 V
 
     ![替代映像文字](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role.png)
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>使用 VM 系統指派的受控識別取得存取權杖，以呼叫 Azure Resource Manager 
+## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-to-call-azure-resource-manager"></a>使用 VM 系統指派的受控識別取得存取權杖，以呼叫 Azure Resource Manager 
 
 其餘課程要從稍早建立的 VM 繼續進行。 
 

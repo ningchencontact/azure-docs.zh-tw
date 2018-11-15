@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307977"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914357"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 憑證使用方式詳細資料
 
@@ -78,9 +78,9 @@ Edge 中樞伺服器憑證是提供給分葉裝置和模組的實際憑證，用
 
 ## <a name="devtest-implications"></a>開發/測試影響
 
-為了簡化開發和測試過程，Microsoft 提供了一組[便利性指令碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)，用來產生透明閘道案例中試用 IoT Edge 的非生產憑證。
+為了簡化開發和測試過程，Microsoft 提供了一組[便利性指令碼](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates)，用來產生透明閘道案例中試用 IoT Edge 的非生產憑證。 如需指令碼運作方式的範例，請參閱[設定 IoT Edge 裝置作為透明閘道](how-to-create-transparent-gateway.md)。
 
-這些指令碼產生的憑證會遵循本文所述的憑證鏈結結構。 對於 [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) 或 [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation)。 下列命令會產生「根 CA 憑證 」和單一「中繼 CA 憑證」。
+這些指令碼產生的憑證會遵循本文所述的憑證鏈結結構。 下列命令會產生「根 CA 憑證 」和單一「中繼 CA 憑證」。
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ New-CACertsEdgeDevice "<gateway device name>"
 
 [了解 Azure IoT Edge 模組](iot-edge-modules.md)
 
-[建立作為透明閘道的 Linux IoT Edge 裝置](how-to-create-transparent-gateway-linux.md)
-
-[建立作為透明閘道的 Windows IoT Edge 裝置](how-to-create-transparent-gateway-windows.md)
+[設定 IoT Edge 裝置作為透明閘道](how-to-create-transparent-gateway.md)

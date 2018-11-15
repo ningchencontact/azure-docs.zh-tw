@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237888"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914323"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>規劃 Azure 檔案同步部署
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
 
-此文章說明 Azure 檔案同步部署的重要考量。 建議您另行閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)。 
+本文章說明 Azure 檔案同步部署的重要考量。 建議您另行閱讀[規劃 Azure 檔案服務部署](storage-files-planning.md)。 
 
 ## <a name="azure-file-sync-terminology"></a>Azure 檔案同步術語
 在了解規劃 Azure 檔案同步部署的細節之前，請務必先了解其術語。
@@ -62,13 +62,13 @@ Azure 檔案同步代理程式是可下載的套件，可讓 Windows Server 能�
 > Azure 檔案同步支援直接對 Azure 檔案共用進行變更。 不過，在 Azure 檔案共用上所做的任何變更，都必須先由 Azure 檔案同步變更偵測作業做出探索。 針對雲端端點的變更偵測作業，每隔 24 小時才會起始一次。 此外，透過 REST 通訊協定對 Azure 檔案共用所做的變更，將不會更新 SMB 上次修改時間，而且將不會同步顯示為變更。如需詳細資訊，請參閱 [Azure 檔案服務常見問題集](storage-files-faq.md#afs-change-detection)。
 
 ### <a name="cloud-tiering"></a>雲端階層處理 
-雲端階層處理是 Azure 檔案同步的選擇性功能，其中經常存取的檔案會以本機方式快取到伺服器上，而其他的檔案則會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
+雲端階層處理是 Azure 檔案同步的一個選用功能，其中經常存取的檔案會快取到伺服器本機上，而其他的檔案會依原則設定分層處理至 Azure 檔案服務。 如需詳細資訊，請參閱[了解雲端階層處理](storage-sync-cloud-tiering.md)。
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure 檔案同步系統需求和互通性 
-此節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
+本節涵蓋 Azure 檔案同步代理程式與 Windows Server 功能和角色以及第三方解決方案的系統需求和互通性。
 
 ### <a name="evaluation-tool"></a>評估工具
-在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 AzureRM PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀此節的其餘部分，以確保您的部署可順利進行。 
+在部署 Azure 檔案同步之前，您應該使用 Azure 檔案同步評估工具來評估其是否與您的系統相容。 此工具是 AzureRM PowerShell Cmdlet，可檢查檔案系統和資料集的潛在問題，例如不支援的字元或不支援的作業系統版本。 請注意，此工具會檢查下列提到的大部分功能 (但不是全部)；我們建議您仔細閱讀本節的其餘部分，以確保您的部署可順利進行。 
 
 #### <a name="download-instructions"></a>下載指示
 1. 請確定您已安裝最新版的 PackageManagement 和 PowerShellGet (這可讓您安裝預覽模組)
@@ -242,7 +242,9 @@ Azure 檔案同步僅於下列區域提供：
 | 東亞 | 香港 |
 | 美國東部 | 維吉尼亞州 |
 | 美國東部 2 | 維吉尼亞州 |
+| 美國中北部 | 伊利諾州 |
 | 北歐 | 愛爾蘭 |
+| 美國中南部 | Texas |
 | 印度南部 | 辰內 |
 | 東南亞 | 新加坡 |
 | 英國南部 | 倫敦 |
@@ -269,6 +271,7 @@ Azure 檔案同步僅支援與位於和儲存體同步服務相同之區域中�
 | 美國東部             | 美國西部            |
 | 美國東部 2           | 美國中部         |
 | 北歐        | 西歐        |
+| 美國中北部    | 美國中南部   |
 | 印度南部         | 印度中部      |
 | 東南亞      | 東亞          |
 | 英國南部            | 英國西部            |

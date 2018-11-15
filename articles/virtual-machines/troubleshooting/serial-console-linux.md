@@ -1,5 +1,5 @@
 ---
-title: Azure 虛擬機器序列主控台 | Microsoft Docs
+title: 適用於 Linux 的 Azure 虛擬機器序列主控台 | Microsoft Docs
 description: Azure 虛擬機器的雙向序列主控台。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741703"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963813"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>適用於 Linux 的虛擬機器序列主控台
 
@@ -33,17 +33,17 @@ Azure 入口網站上的虛擬機器 (VM) 序列主控台可讓您存取 Linux �
 
 ## <a name="prerequisites"></a>必要條件 
 
-* 您正在其中存取序列主控台的 VM 必須使用資源管理部署模型。 不支援傳統部署。 
+- 您正在其中存取序列主控台的 VM 必須使用資源管理部署模型。 不支援傳統部署。 
 
-* 您正在其中存取序列主控台的 VM 必須啟用[開機診斷](boot-diagnostics.md)。 然後，選取 [支援與疑難排解] 區段中的 [開機診斷]。
+- 您正在其中存取序列主控台的 VM 必須啟用[開機診斷](boot-diagnostics.md)。 
 
     ![開機診斷設定](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-使用序列主控台的帳戶必須具有 VM 的[虛擬機器參與者角色](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[開機診斷](boot-diagnostics.md)儲存體帳戶： 
+- 使用序列主控台的帳戶必須具有 VM 的[虛擬機器參與者角色](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)和[開機診斷](boot-diagnostics.md)儲存體帳戶： 
 
-* 您正在其中存取序列主控台的 VM，也必須具有密碼型帳戶。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解] 區段中的 [重設密碼]。 
+    - 您正在其中存取序列主控台的 VM 必須具有密碼型帳戶。 您可以使用 VM 存取擴充的[重設密碼](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password)功能來建立一個帳戶。 然後，選取 [支援與疑難排解] 區段中的 [重設密碼]。 
 
-* 如需有關 Linux 發行版本的特定設定，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
+    - 如需有關 Linux 發行版本的特定設定，請參閱[序列主控台 Linux 發行版本可用性](#serial-console-linux-distribution-availability)。
 
 
 
@@ -51,12 +51,14 @@ Azure 入口網站上的虛擬機器 (VM) 序列主控台可讓您存取 Linux �
 只有透過 Azure 入口網站，才能存取虛擬機器的序列主控台：
 
   1. 開啟 [Azure 入口網站](https://portal.azure.com)。
+
   1. 在左功能表上，選取 [虛擬機器]。
+
   1. 在清單中選取您的 VM。 將會開啟該 VM 的概觀頁面。
+
   1. 向下捲動至 [支援與疑難排解] 區段，然後選取 [序列主控台]。 這會開啟含有序列主控台的新窗格，並開始連線。
 
-   ![Linux 序列主控台視窗](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux 序列主控台視窗](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

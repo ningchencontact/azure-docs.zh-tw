@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
 ms.component: disks
-ms.openlocfilehash: de5322709b5d7f7bcfe6c512bab94b025d9a56a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234709"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>關於 Azure Windows VM 的磁碟儲存體
 
@@ -42,7 +42,7 @@ ms.locfileid: "50023542"
 
 ### <a name="data-disk"></a>資料磁碟
 
-資料磁碟是連接至虛擬機器的 VHD，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟都有 4,095 GB 的容量上限，受控磁碟都有 32,767 TiB 的容量上限。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
+資料磁碟是連接至虛擬機器的 VHD，用來儲存應用程式資料或其他您需要保留的資料。 資料磁碟註冊為 SCSI 磁碟機，並以您選擇的字母標示。 每個資料磁碟都有 4,095 GB 的容量上限，受控磁碟都有 32,767 GiB 的容量上限。 虛擬機器的大小會決定您可以連接之磁碟的數量，以及您可以用來裝載磁碟的儲存體類型。
 
 > [!NOTE]
 > 如需有關虛擬機器容量的詳細資訊，請參閱 [Windows 虛擬機器的大小](sizes.md)。
@@ -51,8 +51,9 @@ ms.locfileid: "50023542"
 
 您可以隨時將資料磁碟「連接」  到虛擬機器來將該磁碟新增到虛擬機器中。 您可以使用已上傳或複製到儲存體帳戶的 VHD，或是使用 Azure 為您建立的空白 VHD。 附加資料磁碟時，會透過在 VHD 上加上「租約」，來將 VHD 檔案與 VM 關聯，如此一來，當它仍處於附加狀態時，就無法將它從儲存體中刪除。
 
-
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
+
+針對處於預覽狀態的大小，請參閱我們的[常見問題集](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged)，以了解在哪些區域中可以取得它們。
 
 ## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>最後一個建議：對非受控標準磁碟使用 TRIM
 

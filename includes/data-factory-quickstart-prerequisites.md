@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/01/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 4b209953e957d0c2892bc5c6bca7a577992c5dee
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: c1ae8e1d06fca79b586208a3eaee0c5d26975ea1
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843543"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51628103"
 ---
 ## <a name="prerequisites"></a>必要條件
 
@@ -63,7 +63,7 @@ ms.locfileid: "48843543"
    ![輸入容器名稱](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. 在容器清單中選取 [adftutorial]。 
 
-   ![選取容器](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
+   ![選取容器](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
 5. 在 [容器] 頁面上，選取工具列上的 [上傳]。  
 
    ![上傳按鈕](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: sutalasi
-ms.openlocfilehash: 1e0c8069d5eff4ba6d26afb9f2edcd1507c9b8aa
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f75c9a9b9cd258ad2c4e071593126697d41e4071
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156386"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624398"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 來設定 Azure 虛擬機器的災害復原
 
@@ -148,7 +148,7 @@ Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.File
 
 ```
 ```
-ResourceName         ResourceGroupName ResourceNamespace          ResouceType
+ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
 ```
@@ -344,7 +344,7 @@ $WestUSTargetStorageAccount = New-AzureRmStorageAccount -Name "a2atargetstorage"
     #Extract resource name from the ResourceId of the nic
     $NICname = $SplitNicArmId[-1]
 
-    #Get network interface details using the extracted resource group name and resourec name
+    #Get network interface details using the extracted resource group name and resource name
     $NIC = Get-AzureRmNetworkInterface -ResourceGroupName $NICRG -Name $NICname
 
     #Get the subnet ID of the subnet that the nic is connected to

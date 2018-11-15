@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 166adc2b464ede5ba77d049075479e3b37a02a88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1451cdc5efcb62cff5c5d3725d5b15eb44be1755
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954852"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613659"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 來建置和部署物件偵測模型
 
@@ -534,7 +534,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
         image (str): Image file path
         service_endpoint_url(str): web service endpoint url
         service_key(str): Service key. None for local deployment.
-        parameters (dict): Additional request paramters in dictionary. Default is {}.
+        parameters (dict): Additional request parameters in dictionary. Default is {}.
 
 
     Returns:

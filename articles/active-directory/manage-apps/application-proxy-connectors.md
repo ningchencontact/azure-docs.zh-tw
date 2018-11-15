@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406272"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036032"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -32,7 +32,7 @@ ms.locfileid: "49406272"
 
 ## <a name="requirements-and-deployment"></a>需求和部署
 
-若要成功部署應用程式 Proxy，您至少需要一個連接器，但我們建議兩個以上可獲得較佳的復原功能。 在 Windows Server 2012 R2 或 2016 電腦上安裝連接器。 連接器必須能夠與應用程式 Proxy 服務以及您發佈的內部部署應用程式進行通訊。 
+若要成功部署應用程式 Proxy，您至少需要一個連接器，但我們建議兩個以上可獲得較佳的復原功能。 在 Windows Server 2012 R2 或 2016 電腦上安裝連接器。 連接器必須能夠與應用程式 Proxy 服務以及您發佈的內部部署應用程式進行通訊。 應用程式 Proxy 也需要在基礎作業系統上執行的 TLS 1.2。 若要變更為 TLS 1.2，請依照[啟用 Azure TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect) 中的步驟。 雖然內容適用於 Azure AD Connect，但對所有 .NET 用戶端來說，此程序都是一樣的。
 
 如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](application-proxy-enable.md)。
 

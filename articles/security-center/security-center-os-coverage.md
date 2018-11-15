@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319977"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240421"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Azure 資訊安全中心所支援的平台和功能
 
@@ -80,16 +80,16 @@ ms.locfileid: "49319977"
 |安全性設定|✔|✔|✔|✔|
 |反惡意程式碼|✔|✔|X|X|
 |JIT VM 存取|✔|X|✔|X|
-|自適性應用程式控制|✔ (僅限 Azure)|X|X|X|
+|自適性應用程式控制|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |磁碟加密|✔|X|✔|X|
 |第三方部署|✔|X|✔|X|
 |NSG|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Filess 威脅偵測|✔|✔|X|X|
 |網路地圖|✔|X|✔|X|
-|自適性網路強化|✔|X|✔|X|
+|自適性網路控制措施|✔|X|✔|X|
 
-* 這些功能目前以公開預覽形式支援。
+\* 這些功能目前以公開預覽形式支援。
 
 
 ## <a name="supported-paas-features"></a>支援的 PaaS 功能
@@ -103,26 +103,17 @@ ms.locfileid: "49319977"
 |Blob 儲存體帳戶*|✔| ✔|
 |應用程式服務|✔| ✔|
 |雲端服務|✔| X|
-|Redis 快取|✔| X|
-|Service Fabric|✔| X|
-|Azure 自動化|✔| X|
-|Data Lake |✔| X|
-|金鑰保存庫|✔| X|
-|服務匯流排|✔| X|
-|串流分析|✔| X|
-|Batch|✔| X|
-|邏輯應用程式|✔| X|
 |Vnet|✔| NA|
 |子網路|✔| NA|
 |NIC|✔| ✔|
 |NSG|✔| NA|
 |訂用帳戶|✔| ✔|
 
-* 這些功能目前以公開預覽形式支援。
+\* 這些功能目前以公開預覽形式支援。
 
 ## <a name="next-steps"></a>後續步驟
 
 - [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md) - 了解如何規劃及了解採用 Azure 資訊安全中心的設計考量
 - [Azure 資訊安全中心不同類型的安全性警示](security-center-alerts-type.md#virtual-machine-behavioral-analysis) - 深入了解資訊安全中心中的虛擬機器行為分析和損毀傾印記憶體分析
 - [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
-- [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/) - 尋找有關 Azure 安全性與合規性的部落格文章
+- [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) - 尋找有關 Azure 安全性與合規性的部落格文章

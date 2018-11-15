@@ -4,16 +4,16 @@ description: 如何設定 Azure IoT Edge 執行階段及任何網際網路對應
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037451"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913218"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -25,6 +25,18 @@ IoT Edge 裝置會傳送 HTTPS 要求以和 IoT 中樞通訊。 如果您的裝�
 2. 設定您裝置上的 Docker 精靈及 IoT Edge 精靈以使用 Proxy 伺服器。
 3. 設定您裝置上 config.yaml 中的 edgeAgent 屬性。
 4. 設定部署資訊清單中 IoT Edge 執行階段和其他 IoT Edge 模組的環境變數。 
+
+## <a name="know-your-proxy-url"></a>知道您的 Proxy URL
+
+若要在裝置上設定 Docker 精靈和 IoT Edge，您需要知道您的 Proxy URL。 
+
+Proxy URL 採用下列格式：**protocol**://**proxy_host**:**proxy_port**。 
+
+* **protocol**是 HTTP 或 HTTPS。 Docker 精靈可以使用任一種通訊協定設定，端視您的容器登錄設定而定，但 IoT Edge 精靈和執行階段容器應該一律使用 HTTPS。
+
+* **proxy_host**是 Proxy 伺服器的位址。 如果您的 Proxy 伺服器需要驗證，您可以使用 **user**:**password**@**proxy_host** 格式提供您的認證，作為 proxy_host 的一部分。 
+
+* **proxy_port**是 Proxy 回應網路流量的網路連接埠。 
 
 ## <a name="install-the-runtime"></a>安裝執行階段
 
@@ -47,7 +59,7 @@ Install-SecurityDaemon -Manual -ContainerOs Windows
 
 ### <a name="docker-daemon"></a>Docker 精靈
 
-請參考 Docker 文件以搭配環境變數設定 Docker 精靈。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定 **HTTPS_PROXY**變數。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY**。 
+請參考 Docker 文件以搭配環境變數設定 Docker 精靈。 大部分的容器登錄 (包括 Docker Hub 和 Azure Container Registry) 皆支援 HTTPS 要求，因此您應該設定的參數為 **HTTPS_PROXY**。 如果您是從不支援傳輸層安全性 (TLS) 的登錄提取映像，則應該設定 **HTTP_PROXY** 參數。 
 
 請選擇適用於您 Docker 版本的文章： 
 
@@ -113,7 +125,9 @@ Edge 代理程式是在所有 IoT Edge 裝置上皆應第一個啟動的模組�
 
 在 config.yaml 檔案中，找到 **Edge Agent module spec** 區段。 Edge 代理程式定義包含 **env** 參數，可供您於該處新增環境變數。 
 
-![edgeAgent 定義](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 移除作為 env 參數之預留位置的大括號，然後將新的變數加入至新的一行上。 請記得 YAML 中的縮排為兩個空格。 
 
@@ -201,7 +215,7 @@ UpstreamProtocol: "AmqpWs"
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

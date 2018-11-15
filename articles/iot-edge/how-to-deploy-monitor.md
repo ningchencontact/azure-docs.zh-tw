@@ -3,18 +3,18 @@ title: 部署和監視適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 管理在 Edge 裝置上執行的模組
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393452"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566239"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -106,7 +106,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 由於多個部署可能會以相同裝置為目標，因此，您應該為每個部署提供優先順序號碼。 如果發生衝突，優先順序最高 (值愈高，優先順序就愈高) 的部署將會勝出。 如果兩個部署具有相同的優先順序號碼，則最新建立的部署獲勝。 
 
 1. 為部署**優先順序**輸入一個正整數。 如果兩個以上部署的目標為相同的裝置，則將會套用 [優先順序] 數值最高的部署。
-1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.devicemodel='4000x'`。 
+1. 輸入**目標條件**來判斷這個部署會將哪些裝置設為目標。 條件會以裝置對應項標籤或裝置對應項報告屬性為基礎，且應符合運算式格式。 例如，`tags.environment='test'` 或 `properties.reported.devicemodel='4000x'`。 
 1. 選取 [下一步] 移到最後一個步驟。
 
 ### <a name="step-5-review-template"></a>步驟 5：檢閱範本
@@ -123,14 +123,14 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. 檢查部署清單。 針對每個部署，您可以檢視下列詳細資料：
+1. 檢查部署清單。 針對每個部署，您可以檢視下列詳細資料：
    * **識別碼**：部署的名稱。
    * **目標條件**：用來定義目標裝置的標記。
    * **優先順序**：指派給部署的優先順序號碼。
    * **系統計量** - [設為目標] 會指定 IoT 中樞內符合目標條件的裝置對應項數目，而 [以套用] 則會指定已在 IoT 中樞內將部署內容套用到至模組對應項的裝置數目。 
    * **裝置計量** - 從 IoT Edge 用戶端執行階段報告成功或錯誤部署中的 Edge 裝置數目。
    * **建立時間**：建立部署時的時間戳記。 當兩個部署具有相同的優先順序時，可使用此時間戳記來中斷繫結。 
-2. 選取您想要監視的部署。  
+2. 選取您想要監視的部署。  
 3. 檢查部署詳細資料。 您可以使用索引標籤來檢閱部署的詳細資料。
 
 ## <a name="modify-a-deployment"></a>修改部署
@@ -151,10 +151,10 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
    ![檢視 IoT Edge 部署](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. 選取您想要修改的部署。 
-1. 對下列欄位進行更新： 
-   * 目標條件 
-   * 標籤 
-   * 優先順序 
+1. 對下列欄位進行更新： 
+   * 目標條件 
+   * 標籤 
+   * 優先順序 
 1. 選取 [ **儲存**]。
 1. 依照[監視部署](#monitor-a-deployment)中的步驟監看變更推出的情形。 
 
@@ -170,7 +170,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 1. 使用核取方塊來選取您想要刪除的部署。 
 1. 選取 [刪除] 。
-1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  這表示將套用優先順序較低的部署。  如果沒有將其他部署設為目標，將不會移除任何模組。 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 選取 [是] 以繼續進行。 
+1. 提示將會通知您，這個動作將刪除此部署，並將所有裝置還原成先前狀態。  這表示將套用優先順序較低的部署。  如果沒有將其他部署設為目標，將不會移除任何模組。 如果您想要從裝置中移除所有模組，請建立不含模組的部署，並將其部署至相同的裝置。 選取 [是] 以繼續進行。 
 
 ## <a name="next-steps"></a>後續步驟
 

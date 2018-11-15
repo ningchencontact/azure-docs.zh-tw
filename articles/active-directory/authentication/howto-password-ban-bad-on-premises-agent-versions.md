@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742903"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913631"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>預覽：Azure AD 密碼保護代理程式版本歷程記錄
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742903"
 | --- |
 | Azure AD 密碼保護是 Azure Active Directory 的公開預覽功能。 如需有關預覽版的詳細資訊，請參閱 [Microsoft Azure 預覽版增補使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+發行日期：2018/11/01
+
+修正：
+
+* DC 代理程式和 Proxy 服務應該不會再因為憑證信任失敗而失敗。
+* DC 代理程式和 Proxy 服務有適用於 FIPS 合規電腦的其他修正程式。
+* Proxy 服務現在將可在只有 TLS 1.2 的網路環境中正常運作。
+* 次要的效能和穩健性修正
+* 改進記錄功能
+
+變更：
+
+* 現在 Proxy 服務的最低必要作業系統層級是 Windows Server 2012 R2。 DC 代理程式服務的最低必要作業系統層級維持為 Windows Server 2012。
+* 密碼驗證演算法採用擴充字元正規化資料表。 這可能會導致在舊版中接受的密碼遭到拒絕。
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ ms.locfileid: "50742903"
 > 就地升級 DC 代理程式軟體需要重新開機。
 
 * DC 代理程式和 Proxy 服務現在支援在設定為僅使用 FIPS 相容演算法的伺服器上執行。
-* 改進記錄功能
 * 次要的效能和穩健性修正
+* 改進記錄功能
 
 ## <a name="11103"></a>1.1.10.3
 

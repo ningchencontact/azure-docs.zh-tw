@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741516"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914034"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -191,15 +191,83 @@ Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的
 
 ### <a name="built-in-roles"></a>內建角色
 
-事件格線能提供兩個內建角色以用來管理事件訂閱。 這些角色是 `EventSubscription Contributor (Preview)` 和 `EventSubscription Reader (Preview)`。 它們在實作事件網域時具有相當的重要性。 如需授與動作的詳細資訊，請參閱[事件網域 - 存取管理](event-domains.md#access-management)。
+事件格線能提供兩個內建角色以用來管理事件訂閱。 它們在實作[事件網域](event-domains.md)時非常重要，因為它們會為使用者授與必要權限來訂閱您事件網域中的主題。 這些角色會將焦點放在事件訂閱上，而且不會針對建立主題之類的動作授與存取權。
 
 您可以[將這些角色指派給使用者或群組](../role-based-access-control/quickstart-assign-role-user-portal.md)。
+
+**EventGrid EventSubscription 參與者 (預覽)**：管理事件方格訂用帳戶作業
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription 讀者 (預覽)**：讀取事件方格訂用帳戶
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>自訂角色
 
 如果您需要指定不同於內建角色的權限，則可以建立自訂角色。
 
-以下是允許使用者採取不同動作的事件方格角色定義範例。
+以下是允許使用者採取不同動作的事件方格角色定義範例。 這些自訂角色與內建角色不同，因為它們所授與的存取權會比只有事件訂閱更廣泛。
 
 **EventGridReadOnlyRole.json**：只允許唯讀作業。
 

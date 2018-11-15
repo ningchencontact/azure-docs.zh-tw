@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414789"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753962"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Azure VM 備份服務的相關問題
 本文包含常見問題的解答，可協助您快速了解 Azure VM 備份元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -48,13 +48,13 @@ ms.locfileid: "50414789"
 是。 如果備份作業處於「正在建立快照」階段，您可以將它取消。 **如果正在從快照傳輸資料，則無法取消作業**。
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>我已在已備份的受控磁碟 VM 上啟用資源群組鎖定。 我的備份是否會繼續運作？
-如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service)。
+如果使用者鎖定資源群組，備份服務就無法刪除較舊的還原點。 原因是這個新的備份因後端最多只能有 18 個還原點而開始失敗。 如果您的備份在 RG 鎖定之後，因為內部錯誤而發生失敗，請遵循下列[步驟來移除還原點集合](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)。
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>備份原則是否會將日光節約時間 (DST) 列入考量？
 否。 請留意本機電腦上顯示的日期和時間是您的當地時間，加上目前的日光節約時間偏差。 因此，排程備份設定的時間可能會因為 DST 而與您的當地時間不同。
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>可連結到 VM (要由 Azure 備份進行備份) 的資料磁碟數目上限為何？
-Azure 備份現在最多可支援備份具有 32 個磁碟的虛擬機器。 若要獲得 32 個磁碟的支援，請[升級至 Azure VM 備份堆疊 V2](backup-upgrade-to-vm-backup-stack-v2.md)。 在 2018 年 9 月 24 日起啟用保護功能的所有 VM 都將獲得支援。
+Azure 備份現在支援備份最多具有 16 個磁碟的虛擬機器。 若要獲得 16 個磁碟的支援，請[升級至 Azure VM 備份堆疊 V2](backup-upgrade-to-vm-backup-stack-v2.md)。 在 2018 年 9 月 24 日起啟用保護功能的所有 VM 都將獲得支援。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 備份是否支援標準 SSD 受控磁碟？
 Azure 備份支援[標準 SSD 受控磁碟](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)，這是適用於 Microsoft Azure 虛擬機器的新型耐久儲存體。 其支援用於 [Azure VM 備份堆疊 V2](backup-upgrade-to-vm-backup-stack-v2.md) 上的受控磁碟。

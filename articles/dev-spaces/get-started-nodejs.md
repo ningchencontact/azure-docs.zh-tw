@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: b93276af8e5018d0da68ce837487b8f648944f1e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 662c324da3b644b7ccdb33fc428c0886ae93d78d
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977799"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515296"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>在使用 Node.js 的 Azure 開發人員空間上開始使用
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 使用下列命令來建立 Kubernetes 叢集：
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 建立叢集需要幾分鐘的時間。

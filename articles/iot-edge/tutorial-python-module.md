@@ -3,18 +3,18 @@ title: Azure IoT Edge Python 教學課程 | Microsoft Docs
 description: 本教學課程說明如何使用 Python 程式碼建立 IoT Edge 模組，並將其部署到邊緣裝置。
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ab09a46c70006d1ca7996767e38d99a9208efcb5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5c05145c550e0d218e009ad33b2a88a2ec0dfd18
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157865"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566290"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 

@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: d92f94836fd789f0d97d83abd9ac9683d378497a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571912"
+---
 ### <a name="create-a-console-application"></a>建立主控台應用程式
 
 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案。

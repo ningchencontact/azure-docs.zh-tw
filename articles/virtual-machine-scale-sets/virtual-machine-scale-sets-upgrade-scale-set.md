@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: c3c01d7013749ca5cbd95224c230932a20a8146b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 4ef611965382906e933f8d50b5dbdb3969d0b45f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740582"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979041"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>修改虛擬機器擴展集
-在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 此文章說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
+在應用程式的整個生命週期中，您可能需要修改或更新您的虛擬機器擴展集。 這些更新可能包括如何更新擴展集的組態，或者變更應用程式組態。 本文說明如何使用 REST API、Azure PowerShell 或 Azure CLI 來修改現有的擴展集。
 
 ## <a name="fundamental-concepts"></a>基本概念
 
@@ -363,7 +363,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
 
 ## <a name="vm-specific-updates"></a>VM 特定的更新
-某些修改可以套用至特定 VM，而無法套用至全域擴展集屬性。 目前唯一支援的虛擬機器特定更新是將資料磁碟連結至擴展集內的虛擬機器，或將資料磁碟與那些虛擬機器中斷連結。 此功能處於預覽狀態。 如需詳細資訊請，參閱[預覽文件](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk) \(英文\)。
+某些修改可以套用至特定 VM，而無法套用至全域擴展集屬性。 目前唯一支援的虛擬機器特定更新是將資料磁碟連結至擴展集內的虛擬機器，或將資料磁碟與那些虛擬機器中斷連結。 這項功能處於預覽狀態。 如需詳細資訊請，參閱[預覽文件](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk) \(英文\)。
 
 
 ## <a name="scenarios"></a>案例
@@ -396,6 +396,26 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+或者，您可能想要變更擴展集使用的映像。 例如，您可能要更新或變更擴展集使用的自訂映像。 您可以藉由更新映像參考識別碼屬性，來變更擴展集使用的映像。 映像參考識別碼屬性不是清單的一部分，因此您可以使用下列其中一個命令來直接修改此屬性：
+
+- Azure PowerShell 搭配 [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)，如下所示：
+
+    ```powershell
+    Update-AzureRmVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- Azure CLI 執行 [az vmss update](/cli/azure/vmss#az_vmss_update_instances)：
+
+    ```azurecli
+    az vmss update \
+        --resource-group myResourceGroup \
+        --name myScaleSet \
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
 

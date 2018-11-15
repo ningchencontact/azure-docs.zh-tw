@@ -9,12 +9,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 02fffe7c4a3acff6ce6d68046eee4286003b1766
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232217"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300214"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
 
@@ -34,14 +34,17 @@ ms.locfileid: "50232217"
     - 請依照本[文件](https://docs.microsoft.com/azure/storage/)中的步驟來建立儲存體帳戶  
     - **命名指導方針：** 儲存體帳戶名稱必須介於 3 到 24 個字元的長度，而且只能包含數字和小寫字母。        
       
-<a name="step-by-step-instructions"></a>逐步指示
--------------------------
+<a name="step-by-step-instructions-on-how-to-use-key-vault-to-manage-storage-account-keys"></a>如何使用 Key Vault 管理儲存體帳戶金鑰的逐步指示
+--------------------------------------------------------------------------------
 在下面的指示中，我們會將 Key Vault 指派為服務，以便擁有儲存體帳戶的操作員權限
+
+> [!NOTE]
+> 請注意，一旦您已經設定 Azure Key Vault 受控儲存體帳戶金鑰之後，除非透過 Key Vault，否則應該**無法**再變更。 受控儲存體帳戶金鑰意旨 Key Vault 可以管理輪替儲存體帳戶金鑰
 
 1. 建立儲存體帳戶之後，執行下列命令來取得您想要管理的儲存體帳戶的資源識別碼
 
     ```
-    az storage account show -n storageaccountname (Copy ID out of the result of this command)
+    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
 2. 取得 Azure Key Vault 服務主體的應用程式識別碼 
@@ -53,7 +56,7 @@ ms.locfileid: "50232217"
 3. 將儲存體金鑰操作員角色指派給 Azure Key Vault 身分識別
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. 建立 Key Vault 受控儲存體帳戶。     <br /><br />
@@ -71,6 +74,8 @@ ms.locfileid: "50232217"
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### <a name="relavant-azure-cli-cmdlets"></a>相關的 Azure CLI Cmdlet
+- [Azure CLI 儲存體 Cmdlet](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### <a name="relevant-powershell-cmdlets"></a>相關的 Powershell Cmdlet
 

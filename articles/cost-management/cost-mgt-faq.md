@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2018
+ms.date: 11/14/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: ba6d8250d70320b33822d73c9213e9005128633f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7ac115118a06df28dd5569cede4430b6f834336d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157202"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684829"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Cloudyn 的常見問題集
 
-本文說明 Cloudyn 的一些常見問題。 如果您有關於 Cloudyn 的問題，可在 [Cloudyn 的常見問題集](https://social.msdn.microsoft.com/Forums/home?forum=faqs-for-azure-cost-management-by-cloudyn)發問。
+本文說明 Cloudyn 的一些常見問題。 如果您有關於 Cloudyn 的問題，可在 [Cloudyn 的常見問題集](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn)發問。
 
 ## <a name="how-can-i-resolve-common-indirect-enterprise-setup-problems"></a>如何解決常見的間接企業設定問題？
 

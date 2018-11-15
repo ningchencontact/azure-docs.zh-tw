@@ -5,19 +5,21 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: conceptual
+ms.devlang: na
+ms.topic: article
 ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: f8f529ecc21e8d9ecf149edb8bdf45e8b20dc283
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5cce3005a0058604136e05d9c3bf9700d5296bf3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241251"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964038"
 ---
-# <a name="support-matrix-for-disaster-recovery-of-azure-vms-between-azure-regions"></a>Azure 區域之間的 Azure VM 災害復原支援矩陣
+# <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
 本文摘要說明使用 [Azure Site Recovery](site-recovery-overview.md) 服務來部署災害復原，以將 Azure VM 從一個 Azure 區域複寫、容錯移轉及復原至另一個區域時，所支援的設定和元件。
+
 
 ## <a name="deployment-method-support"></a>部署方法的支援
 
@@ -32,10 +34,10 @@ ms.locfileid: "50241251"
 ## <a name="resource-support"></a>資源支援
 
 **資源動作** | **詳細資料**
---- | --- | --- 
+--- | --- | ---
 **在資源群組間移動保存庫** | 不支援
 **跨資源群組移動計算/儲存體/網路資源** | 不支援。<br/><br/> 如果您在 VM 複寫之後移動 VM 或是相關聯的元件 (例如儲存體/網路)，您必須停用該 VM 的複寫，然後再重新啟用複寫。
-**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。 
+**將 Azure VM 從某個訂用帳戶複寫至另一個以進行災害復原** | 在相同的 Azure Active Directory 租用戶中支援。
 **在支援的地理叢集 (在訂用帳戶內或跨訂用帳戶) 內移轉區域之間的 VM** | 在相同的 Azure Active Directory 租用戶中支援。
 **在相同區域內移轉 VM** | 不支援。
 
@@ -77,8 +79,8 @@ Site Recovery 可對執行本節所列作業系統的 Azure VM 進行複寫。
 **作業系統** | **詳細資料**
 --- | ---
 Windows Server 2016  | 伺服器核心、含有桌面體驗的伺服器
-Windows Server 2012 R2 | 
-Windows Server 2012 | 
+Windows Server 2012 R2 |
+Windows Server 2012 |
 Windows Server 2008 R2 | 執行 SP1 或更新版本
 
 #### <a name="linux"></a>Linux
@@ -131,7 +133,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.19 | SP1 3.12.49-11-defaul
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.18 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default 至 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.126-94.22-default |
 
-## <a name="replicated-machines---linux-file-systemguest-storage"></a>複寫機器 - Linux 檔案系統/客體儲存體 
+## <a name="replicated-machines---linux-file-systemguest-storage"></a>複寫機器 - Linux 檔案系統/客體儲存體
 
 * 檔案系統：ext3、ext4、ReiserFS (僅 Suse Linux Enterprise Server)、XFS
 * 磁碟區管理員：LVM2
@@ -143,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-defaul
 **設定** | **支援** | **詳細資料**
 --- | --- | ---
 大小 | 至少 2 顆 CPU 核心和 1 GB RAM 的任何 Azure VM 大小 | 確認 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)。
-可用性設定組 | 支援 | 如果您以預設選項啟用 Azure VM 的複寫，系統會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。 
+可用性設定組 | 支援 | 如果您以預設選項啟用 Azure VM 的複寫，系統會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。
 可用性區域 | 不支援 | 您目前無法在可用性區域中複寫 VM。
 Hybrid Use Benefit (HUB) | 支援 | 如果來源 VM 已啟用 HUB 授權，測試容錯移轉或容錯移轉 VM 也會使用 HUB 授權。
 VM 擴展集 | 不支援 |
@@ -164,14 +166,14 @@ Azure 資源庫映像 - 第三方發行 | 支援 | 只要 VM 在支援的作業�
 下表摘要說明 Azure VM OS 磁碟、資料磁碟和暫存磁碟的支援。
 
 - 請務必注意 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 和 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM 的 VM 磁碟限制和目標，以避免發生任何效能問題。
-- 如果您使用預設設定來部署，Site Recovery 會以來源設定作為基礎，自動建立磁碟與儲存體帳戶。 
-- 如果您使用自訂的設定，請務必遵循指導方針。 
+- 如果您使用預設設定來部署，Site Recovery 會以來源設定作為基礎，自動建立磁碟與儲存體帳戶。
+- 如果您使用自訂的設定，請務必遵循指導方針。
 
 **元件** | **支援** | **詳細資料**
 --- | --- | ---
 OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) VM 磁碟。
 暫存磁碟 | 不支援 | 暫存磁碟一律排除在複寫之外。<br/><br/> 請不要在暫存磁碟上保存任何永續性資料。 [深入了解](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk)。
-資料磁碟的大小上限 | 4095 GB | 
+資料磁碟的大小上限 | 4095 GB |
 資料磁碟的數目上限 | 最多 64 個 (根據特定的 Azure VM 大小支援) | [深入了解](../virtual-machines/windows/sizes.md) VM 大小。
 資料磁碟的變更率 | 進階儲存體的每個磁碟最多 10 MBps。 標準儲存體的每個磁碟最多 2 MBps。 | 如果磁碟的平均資料變更率持續高於最大值，複寫將趕不上進度。<br/><br/>  不過，如果是偶而超過最大值，則複寫可以趕上進度，但您可能會看到稍有延遲的復原點。
 資料磁碟 - 標準儲存體帳戶 | 支援 |
@@ -182,36 +184,44 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |         
 待用加密 (SSE) | 支援 | SSE 是儲存體帳戶上的預設設定。   
-適用於 Windows 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM。 |
-適用於 Linux 的 Azure 磁碟加密 (ADE) | 不支援 |
-經常性新增/移除磁碟    | 不支援 | 如果您在 VM 上新增或移除資料磁碟，您需要停用 VM 的複寫，然後再次啟用複寫。
-排除磁碟 | 不支援 | 預設排除暫存磁碟。
-儲存空間直接存取  | 不支援 
-向外延展檔案伺服器  | 不支援 
+適用於 Windows OS 的 Azure 磁碟加密 (ADE) | 支援啟用[使用 Azure AD 應用程式加密](https://aka.ms/ade-aad-app)的 VM |
+適用於 Linux OS 的 Azure 磁碟加密 (ADE) | 不支援 |
+熱新增/移除磁碟 | 不支援 | 如果您在 VM 上新增或移除資料磁碟，需要停用複寫，然後再次為 VM 啟用複寫。
+排除磁碟 | 不支援|   預設排除暫存磁碟。
+儲存空間直接存取  | 不支援|
+向外延展檔案伺服器  | 不支援|
+LRS | 支援 |
+GRS | 支援 |
+RA-GRS | 支援 |
+ZRS | 不支援 |  
+非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
+適用於虛擬網路的 Azure 儲存體防火牆  | 是 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
+一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
-
-
+>[!IMPORTANT]
+> 請務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
 
 ## <a name="replicated-machines---networking"></a>複寫的機器 - 網路
 **組態** | **支援** | **詳細資料**
 --- | --- | ---
-NIC | 特定 Azure VM 大小的支援數目上限 | 在容錯移轉期間建立 VM 時，系統會建立 NIC。<br/><br/> 容錯移轉 VM 的 NIC 數目取決於啟用複寫時來源 VM 具有的 NIC 數量。 如果您在啟用複寫後新增或移除 NIC，不會影響容錯移轉後複寫 VM 上的 NIC 數目。
+NIC | 針對特定 Azure VM 大小支援的數目上限 | 在容錯移轉期間建立 VM 時，系統會建立 NIC。<br/><br/> 容錯移轉 VM 的 NIC 數目取決於啟用複寫時來源 VM 具有的 NIC 數量。 如果您在啟用複寫後新增或移除 NIC，不會影響容錯移轉後複寫 VM 上的 NIC 數目。
 網際網路負載平衡器 | 支援 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
 內部負載平衡器 | 支援 | 使用復原方案中的 Azure 自動化指令碼，使預先設定的負載平衡器產生關聯。
 公用 IP 位址 | 支援 | 將現有公用 IP 位址與 NIC 產生關聯。 或者，建立公用 IP 位址，然後使用復原方案中的 Azure 自動化指令碼讓它與 NIC 產生關聯。
 NIC 上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與 NIC 產生關聯。  
 子網路上的 NSG | 支援 | 使用復原方案中的 Azure 自動化指令碼，使 NSG 與子網路產生關聯。
-保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。 
-動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。 
+保留 (靜態) IP 位址 | 支援 | 如果來源 VM 上的 NIC 有靜態 IP 位址，而目標子網路有相同的 IP 位址可用，則會將它指派給容錯移轉 VM。<br/><br/> 如果目標子網路沒有相同的 IP 位址，子網路中一個可用的 IP 位址會被保留供 VM 使用。<br/><br/> 您也可以在 [複寫的項目] > [設定] > [計算與網路] > [網路介面] 中指定固定的 IP 位址和子網路。
+動態 IP 位址 | 支援 | 如果來源上的 NIC 有動態 IP 位址，則容錯移轉 VM 上的 NIC 預設也是動態。<br/><br/> 如有需要，您可以將此修改為固定的 IP 位址。
 流量管理員     | 支援 | 您可以預先設定流量管理員，定期將流量傳輸到來源區域中的端點，如果發生容錯移轉，則傳輸到目標區域中的端點。
 Azure DNS | 支援 |
 自訂 DNS  | 支援 |    
-未經驗證的 Proxy | 支援 | [深入了解](site-recovery-azure-to-azure-networking-guidance.md)。   
-經驗證的 Proxy | 不支援 | 您無法複寫對輸出連線使用已驗證 Proxy 的 VM     
-站對站 VPN | 不論有無 ExpressRoute 皆支援 | 請確定設定 UDR 和 NSG 時，Site Recovery 流量不是傳送到內部部署的裝置。 [深入了解](site-recovery-azure-to-azure-networking-guidance.md)。
-VNet 對 VNet 連線 | 支援 |[深入了解](site-recovery-azure-to-azure-networking-guidance.md)。 
-虛擬網路服務端點 | 支援 | 請注意，不支援適用於虛擬網路的 Azure 儲存體防火牆。 此外，不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
+未經驗證的 Proxy | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。    
+經驗證的 Proxy | 不支援 | 如果 VM 對於輸出連線能力使用經驗證的 Proxy，則無法使用 Azure Site Recovery 加以複寫。    
+內部部署的網站對網站 VPN 與 (不論是否有 ExpressRoute)| 支援 | 請確定設定 UDR 和 NSG 時，站台復原流量不是傳送到內部部署的裝置。 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+VNET 對 VNET 連線 | 支援 | 請參閱[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)。  
+虛擬網路服務端點 | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。 
 加速網路 | 支援 | 必須在來源 VM 上啟用加速網路。 [深入了解](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -3,7 +3,7 @@ title: 使用 Service Fabric 和 VS 對 Windows 容器進行偵錯 | Microsoft D
 description: 了解如何使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯。
 services: service-fabric
 documentationcenter: .net
-author: mikkelhegn
+author: TylerMSFT
 manager: msfussell
 editor: ''
 ms.service: service-fabric
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/14/2018
-ms.author: mikhegn
-ms.openlocfilehash: 180bd3709cc9ffefb17f78e337e6f6995024fdcf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.author: twhitney, mikhegn
+ms.openlocfilehash: b38946f813185a4821520b8591b7fd72a5f0cce0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523422"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300059"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2017"></a>如何：使用 Visual Studio 2017 對 Azure Service Fabric 中的 Windows 容器進行偵錯
 

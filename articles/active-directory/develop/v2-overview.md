@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956421"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286685"
 ---
 # <a name="about-v20"></a>關於 v2.0
 
@@ -32,7 +32,7 @@ v2.0 端點與平台已在預覽中，並持續增強。 現在，JavaScript 單
 
 Azure 入口網站開發人員體驗已經大幅更新，現在包含使用 ADAL 或 MSAL 建置的所有應用程式，並改善可用性。
 
-在過去，應用程式開發人員需要同時支援個人 Microsoft 帳戶和 Azure Active Directory (Azure AD) 中的公司帳戶時，必須整合這兩個不同的系統。 v2.0 端點與平台提供了一個簡化此程序的驗證 API 版本。 它使用單一整合讓使用者可從兩種類型的帳戶登入。 使用 v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph API](https://graph.microsoft.io) 取用 REST API。
+在過去，應用程式開發人員需要同時支援個人 Microsoft 帳戶和 Azure Active Directory (Azure AD) 中的公司帳戶時，必須整合這兩個不同的系統。 v2.0 端點與平台提供了一個簡化此程序的驗證 API 版本。 它使用單一整合讓使用者可從兩種類型的帳戶登入。 使用 v2.0 端點的應用程式也可以利用這其中一種帳戶，從 [Microsoft Graph API](https://developer.microsoft.com/graph) 取用 REST API。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -56,10 +56,10 @@ Azure 入口網站開發人員體驗已經大幅更新，現在包含使用 ADAL
 
 * [v2.0 通訊協定參考](active-directory-v2-protocols.md)
 * [存取權杖參考](access-tokens.md)
-* [`id_tokens` 參考](id-tokens.md)
+* [識別碼權杖參考](id-tokens.md)
 * [v2.0 驗證程式庫參考](reference-v2-libraries.md)
-* [v2.0 的範圍和同意](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://graph.microsoft.io)
+* [v2.0 中的權限和同意](v2-permissions-and-consent.md)
+* [Microsoft Graph API](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > 如果您只需要從 Azure Active directory 登入公司及學校帳戶，請先閱讀 [Azure AD 開發人員指南](v1-overview.md)。 v2.0 端點的適用對象是明確需要登入 Microsoft 個人帳戶的開發人員。

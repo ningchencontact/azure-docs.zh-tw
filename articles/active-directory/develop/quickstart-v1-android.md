@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: c3ab241e42c431ae4e95e8154343a949bb9e596e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970160"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287229"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入門：從 Android 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "46970160"
 
 如果您正在開發 Android 應用程式，Microsoft 提供了簡單直接的 Azure Active Directory (Azure AD) 使用者登入方式。 Azure AD 讓您的應用程式可透過 Microsoft Graph 或是您自己的受保護 Web 應用程式開發介面 (API) 來存取使用者資料。
 
-Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用業界標準的 OAuth 2.0 和 OpenID Connect 來支援 [Microsoft Azure Active Directory 帳戶](https://azure.microsoft.com/services/active-directory/)，以開始使用 [Microsoft Azure 雲端](https://cloud.microsoft.com) & [Microsoft Graph API](https://graph.microsoft.io) \(英文\)。
+Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用業界標準的 OAuth 2.0 和 OpenID Connect 來支援 [Microsoft Azure Active Directory 帳戶](https://azure.microsoft.com/services/active-directory/)，以開始使用 [Microsoft Azure 雲端](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) \(英文\)。
 
 在本快速入門中，您將了解如何：
 

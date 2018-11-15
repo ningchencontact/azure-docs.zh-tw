@@ -6,18 +6,18 @@ keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: fdee336298212f2536c2408e49f40e25e2c24161
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 05b35ac182d70d6d7a7630a14c8a8aa3b7a6a9fd
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227683"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634306"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>從命令列建立您的第一個函式
 
@@ -115,9 +115,8 @@ az functionapp create --resource-group myResourceGroup --consumption-plan-locati
 在下列 Azure CLI 命令中，`<app_name> 是您函數應用程式的名稱。
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az functionapp config appsettings set --resource-group myResourceGroup \
+ --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 確認輸出中的新設定。

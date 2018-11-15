@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: ea1e3ca76f779f442c9d22478ea93de3d5ab83f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43088101"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614510"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -279,7 +279,7 @@ END
    ![自我裝載 IR 名稱](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
 1. 在 [選項 1：快速安裝] 區段中，按 [按一下這裡啟動此電腦的快速安裝]。 
 
-   ![按一下 [快速安裝] 連結](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
+   ![按一下 [快速安裝] 連結](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. 在 [Integration Runtime (自我裝載) 快速安裝] 視窗中，按一下 [關閉]。 
 
    ![整合執行階段安裝 - 成功](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)

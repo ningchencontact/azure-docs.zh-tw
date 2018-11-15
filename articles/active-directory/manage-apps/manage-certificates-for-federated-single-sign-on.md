@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: d7a5bf23f2855b43c4a2e4022568028d852c094b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0f6e690bc80ae8004fba4faf53c0403b0cb7edd9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719574"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035331"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>在 Azure Active Directory 中管理同盟單一登入的憑證
 本文涵蓋各種與 Azure Active Directory (Azure AD) 建立憑證，以對 SaaS 應用程式建立同盟單一登入 (SSO) 相關的常見問題和相關資訊。 從 Azure AD 應用程式資源庫，或使用非資源庫的應用程式範本新增應用程式。 使用同盟 SSO 選項以設定應用程式。
@@ -76,11 +76,15 @@ Azure AD 會在 SAML 憑證到期前 60 天、30 天及 7 天各傳送一封電�
 
     ![產生新的憑證](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
 
-2. 選取新憑證的所需到期日期與時間，按一下 [儲存]。
+2. 選取新憑證的所需到期日期與時間，按一下 [儲存]。 選取和現有憑證重疊的日期可確保因憑證到期而導致的任何停機時間都會受到限制。 
 
-3. 下載 [SAML 簽署憑證] 選項中的憑證。 將新的憑證上傳至 SaaS 應用程式的單一登入設定畫面。 若要了解如何為特定 SaaS 應用程式執行這項操作，請按一下 [檢視應用程式設定教學課程] 連結。
+3. 如果應用程式可以自動變換憑證，請設定要啟用的新憑證。  請登入應用程式以檢查新憑證是否能正常運作。
+
+4. 如果應用程式不會自動選擇新憑證，但是可以處理一個以上的簽署憑證，請在舊憑證到期之前，上傳新憑證至應用程式，然後返回入口網站並將它設定為作用中的憑證。 
+
+5. 如果應用程式一次只能處理一個憑證，請挑選停機時間範圍、下載新憑證、將它上傳至應用程式，回到 Azure 入口網站並將新憑證設定為作用中。 
    
-4. 若要在 Azure AD 上啟用新憑證，選取 [讓新憑證成為使用中] 核取方塊，然後按一下分頁頂端的 [儲存] 按鈕。 這會在 Azure AD 端變換新憑證。 憑證的狀態會從 [新增] 變更為 [作用中]。 從該時間點開始，Azure AD 會開始使用新憑證來簽署回應。 
+6. 若要在 Azure AD 上啟用新憑證，選取 [讓新憑證成為使用中] 核取方塊，然後按一下分頁頂端的 [儲存] 按鈕。 這會在 Azure AD 端變換新憑證。 憑證的狀態會從 [新增] 變更為 [作用中]。 從該時間點開始，Azure AD 會開始使用新憑證來簽署回應。 
    
     ![產生新的憑證](./media/manage-certificates-for-federated-single-sign-on/new_certificate_download.png)
 

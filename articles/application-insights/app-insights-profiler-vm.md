@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142710"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978361"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>使用 Application Insights Profiler 來分析 Azure 虛擬機器或虛擬機器擴展集上所執行的 Web 應用程式
 您也可以在這些服務上部署 Application Insights Profiler：
@@ -63,11 +63,8 @@ ms.locfileid: "50142710"
 
 1. 部署應用程式。
 
-## <a name="enable-profiler-on-on-premises-servers"></a>在內部部署伺服器上啟用 Profiler
-
-在內部部署伺服器上啟用 Profiler 也稱為在獨立模式中執行 Application Insights Profiler。 這不會涉及 Azure 診斷擴充程式修改。
-
-我們尚未規劃正式針對內部部署伺服器支援 Profiler。 如果您對於此案例中的測試有興趣，您可以[下載支援程式碼](https://github.com/ramach-msft/AIProfiler-Standalone)。 我們「不」負責維護該程式碼，或回應與該程式碼相關的問題和功能要求。
+## <a name="can-profiler-run-on-on-premises-servers"></a>是否可在內部部署伺服器上執行 Profiler？
+我們沒有計畫針對內部部署伺服器支援 Applciation Insights Profiler。 
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,20 +1,20 @@
 ---
-title: 在 HDInsight 中使用 Hadoop 分析 Twitter 資料 - Azure
-description: 了解如何在 HDInsight 中的 Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。
+title: 在 HDInsight 中使用 Apache Hadoop 分析 Twitter 資料 - Azure
+description: 了解如何在 HDInsight 中的 Apache Hadoop 上使用 Hive 來分析 Twitter 資料，以找出特定單字的使用頻率。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 294353cfcfba617ab19e703f11f35402bcf7ea82
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39db03170d6a9c9d481b1448b54bdbd52e205921
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387575"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037290"
 ---
 # <a name="analyze-twitter-data-using-hive-in-hdinsight"></a>在 HDInsight 中使用 Hive 分析 Twitter 資料
 社群網站是驅使採用巨量資料的其中一個主要動力。 像 Twitter 之類的網站所提供的公開 API，是分析和了解流行趨勢的一項實用的資料來源。

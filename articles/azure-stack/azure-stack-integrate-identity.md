@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 11/08/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024438"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300705"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -173,8 +173,6 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 |CustomAdfsName|宣告提供者的名稱。 在 AD FS 登陸頁面上的顯示方式。|Contoso|
 |CustomADFSFederationMetadataFileContent|中繼資料內容|$using:federationMetadataFileContent|
 
-
-
 ### <a name="create-federation-metadata-file"></a>建立同盟中繼資料檔案
 
 對於下列程序，您必須使用與現有 AD FS 部署具有網路連線的電腦，它會成為帳戶 STS。 此外，必須安裝必要的憑證。
@@ -182,9 +180,11 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 1. 開啟提升權限的 Windows PowerShell 工作階段，並使用適用於您環境的參數執行下列命令：
 
    ```PowerShell  
-    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
-    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
-
+    $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
+    $webclient = New-Object System.Net.WebClient
+    $webclient.Encoding = [System.Text.Encoding]::UTF8
+    $metadataAsString = $webclient.DownloadString($url)
+    Set-Content -Path c:\metadata.xml -Encoding UTF8 -Value $metadataAsString
    ```
 
 2. 將中繼資料複製到能夠與具特殊權限端點通訊的電腦。

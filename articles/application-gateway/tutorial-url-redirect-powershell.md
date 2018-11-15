@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580594"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566902"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>使用 Azure PowerShell 以建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -32,6 +32,8 @@ ms.locfileid: "45580594"
 以下範例會顯示來自連接埠 8080 和 8081 並導向至相同後端集區的網站流量：
 
 ![URL 路由範例](./media/tutorial-url-redirect-powershell/scenario.png)
+
+如果您想要，您可以使用 [Azure CLI](tutorial-url-redirect-cli.md) 完成本教學課程。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -516,14 +518,6 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立應用程式閘道
-> * 新增接聽程式和路由規則
-> * 為後端集區建立虛擬機器擴展集
 
 > [!div class="nextstepaction"]
 > [深入了解應用程式閘道的用途](application-gateway-introduction.md)

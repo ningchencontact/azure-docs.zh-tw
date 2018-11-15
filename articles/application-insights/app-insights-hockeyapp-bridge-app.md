@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7586dbc4d7a0b7dbc7756eabbb4a8d5e0e60a731
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632861"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957483"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中探索 HockeyApp 資料
 
@@ -52,7 +52,7 @@ HockeyApp 橋接器欄位隨即出現。
 
 ![等候資料的 Application Insights 資源](./media/app-insights-hockeyapp-bridge-app/04.png)
 
-這樣就大功告成了！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
+就這麼簡單！ 從現在開始在 HockeyApp 檢測的應用程式中收集的自訂和追蹤資料，也可供您在 Application Insights 的分析和連續匯出功能中使用。
 
 讓我們簡短地回顧一下您現在可以使用的功能。
 
@@ -61,7 +61,7 @@ HockeyApp 橋接器欄位隨即出現。
 
 ![分析](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [深入了解分析](app-insights-analytics-tour.md)
+* [深入了解分析](../log-analytics/query-language/get-started-analytics-portal.md)
 
 ## <a name="continuous-export"></a>連續匯出
 連續匯出可讓您將資料匯出至 Azure Blob 儲存體容器。 如果您的資料所需的保留時間超過 Application Insights 目前提供的保留期間，這就非常有用。 您可以將資料保留在 Blob 儲存體中，將它處理到 SQL Database 或您慣用的資料倉儲解決方案中。
@@ -69,5 +69,5 @@ HockeyApp 橋接器欄位隨即出現。
 [深入了解連續匯出](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>後續步驟
-* [將分析套用到資料](app-insights-analytics-tour.md)
+* [將分析套用到資料](../log-analytics/query-language/get-started-analytics-portal.md)
 

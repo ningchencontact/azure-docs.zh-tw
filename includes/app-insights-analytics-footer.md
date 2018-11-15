@@ -1,4 +1,16 @@
-
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: edd7492dba1352484e1a1e5c361c8041bcd966b0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571885"
+---
 ## <a name="analytics"></a>分析
 * [概觀](../articles/application-insights/app-insights-analytics.md)
 * [分析的教學課程](../articles/application-insights/app-insights-analytics-tour.md)

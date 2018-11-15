@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 管理 VMware 和實體伺服器災害復原的組態伺服器 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 管理現有組態伺服器，以進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
+description: 本文說明如何管理現有的設定伺服器，以使用 Azure Site Recovery 進行將 VMware VM 和實體伺服器復原到 Azure 的災害復原。
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4ac3871893e7e8161dc087f285eb3d802cd4a355
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f76a55778a5d4c00060192bfaa704724d5fe1045
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215135"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219474"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>管理 VMware VM 的設定伺服器
 
@@ -137,10 +137,10 @@ ms.locfileid: "50215135"
 - 如果您執行 9.7、9.8、9.9 或 9.10，就可以直接升級至 9.11。
 - 如果您執行 9.6 或更早版本，而且想要升級至 9.11，則在升級到 9.11 之前，必須先升級到 版本 9.7。
 
-用來升級至組態伺服器所有版本的更新彙總連結，可以在 [wiki 更新頁面](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)取得。
+[Azure 更新頁面](https://azure.microsoft.com/updates/?product=site-recovery)提供了升級至所有設定伺服器版本的更新彙總套件連結。
 
 > [!IMPORTANT]
-> 每當發行最新的第「N」版 Azure Site Recovery 元件時，第「N-4」版以下的所有版本將不再受到支援。 我們一律建議您升級到可用的最新版本。
+> 每當發行新的 Azure Site Recovery 元件版本 'N' 時，'N-4' 以下的所有版本就會被視為不支援的版本。 我們一律建議您升級到可用的最新版本。
 
 升級伺服器，如下所示：
 

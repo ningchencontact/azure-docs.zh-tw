@@ -5,21 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 11/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 3bd4adcd6df07aa47312223c559f0e9ed4fc0b14
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49312542"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264380"
 ---
 <!-- F-series, Fs-series* -->
 
 計算最佳化的 VM 大小，具有高 CPU 對記憶體比率，並且適用於中流量網頁伺服器、網路設備、批次處理及應用程式伺服器。 本文提供 vCPU 數量、資料磁碟和 NIC 的相關資訊，以及此群組中各種大小之儲存體輸送量和網路頻寬的相關資訊。
 
-Fsv2 系列是根據 Intel® Xeon® Platinum 8168 處理器，具備 2.7 GHz 基底核心頻率，以及 3.7 GHz 的最大單一核心加速頻率。 Intel® AVX-512 指示，在 Intel 可擴充處理器上是新功能，為單精確度浮點數和雙精確度浮點數作業上的向量處理工作負載皆提供最多 2X 效能加速。 也就是說，它們確實比任何計算工作負載還要快。 
+Fsv2 系列是以 Intel® Xeon® Platinum 8168 處理器為基礎，提供持續的所有核心 3.4 GHz 渦輪時脈速度，以及 3.7 GHz 的最大單一核心渦輪頻率。 Intel® AVX-512 指示，在 Intel 可擴充處理器上是新功能，為單精確度浮點數和雙精確度浮點數作業上的向量處理工作負載皆提供最多 2X 效能加速。 也就是說，它們確實比任何計算工作負載還要快。 
 
 Fsv2 系列的每小時訂價較低，在 Azure 產品組合中，就每一 vCPU 的「Azure 計算單位」(ACU) 而言，具有最佳的價格/性能比表現。 
 

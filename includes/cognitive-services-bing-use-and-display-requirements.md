@@ -8,15 +8,13 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 174af83686eba665a729246be7a477b9a5054f30
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f166ceac1ae848565f861a94781ce0500c24747e
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370947"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289150"
 ---
-# <a name="bing-search-api-use-and-display-requirements"></a>Bing 搜尋 API 使用和顯示需求
-
 使用和顯示需求會套用至內容和相關資訊的任何實作。 例如，需求會套用至關聯性、中繼資料及其他訊號。 這些項目可以透過對下列 API 進行呼叫來取得：
 
 - Bing 自訂搜尋
@@ -36,7 +34,7 @@ ms.locfileid: "35370947"
 請勿：
 
 - 複製、儲存或快取您從 Bing 拼字檢查或 Bing 自動建議 API 收到的任何資料。
-- 使用從 Bing 拼字檢查或 Bing 自動建議 API 收到的資料，作為任何機器學習或類似演算法作業的一部分。 請勿使用這項資料來定型、評估或改善您或第三方可能提供的新的或現有服務。
+- 使用從 Bing 拼字檢查或 Bing 自動建議 API 收到的資料，作為任何機器學習或類似演算法作業的一部分。 請勿使用這項資料來定型、評估或改善您或第三方可能提供的全新或現有服務。
 
 ## <a name="definitions"></a>定義
 

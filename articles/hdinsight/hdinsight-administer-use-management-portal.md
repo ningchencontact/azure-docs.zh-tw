@@ -1,30 +1,28 @@
 ---
-title: 使用 Azure 入口網站在 HDInsight 中管理 Windows 型 Hadoop 叢集
-description: 了解如何管理 HDInsight 服務。 建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Hadoop 命令主控台。
+title: 使用 Azure 入口網站在 HDInsight 中管理以 Windows 為主的 Apache Hadoop 叢集
+description: 了解如何管理 HDInsight 服務。 建立 HDInsight 叢集、開啟互動式 JavaScript 主控台，以及開啟 Apache Hadoop 命令主控台。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130f684b69a9cfa1936c2a9aa5175f3d5a7631ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970272"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282470"
 ---
-# <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Windows 型 Hadoop 叢集
+# <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站在 HDInsight 中管理以 Windows 為主的 Apache Hadoop 叢集
 
-您可以使用 [Azure 入口網站][azure-portal]，在 Azure HDInsight 中建立 Windows 型 Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
+您可以使用 [Azure 入口網站][azure-portal]，在 Azure HDInsight 中建立以 Windows 為主的 Apache Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
 
 本文的資訊僅適用於 Windows 型 HDInsight 叢集。 如需管理 Linux 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
 
-> [!IMPORTANT]
-> Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
+[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -207,7 +205,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 * 使用 Azure Data Factory。 請參閱 [Azure HDInsight 連結服務](../data-factory/compute-linked-services.md)和[使用 Azure Data Factory 進行轉換和分析](../data-factory/transform-data.md)，以取得隨選和自行定義的 HDInsight 連結服務。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
-* 使用 Azure 傳統 CLI。 請參閱[使用 Azure 傳統 CLI 管理 HDInsight 叢集](hdinsight-administer-use-command-line.md)。
+* 使用 Azure 傳統 CLI。 請參閱[使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)。
 * 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
@@ -328,7 +326,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
     [到期日] 的預設值是一週。
 
    > [!NOTE]
-   > 您也可以使用 HDInsight .NET SDK，在叢集上啟用遠端桌面。 以下列方式在 HDInsight 用戶端物件上使用 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。 同樣地，若要在叢集上停用遠端桌面，您可以使用 **client.DisableRdp(clustername, location)**。 如需這些方法的詳細資訊，請參閱 [HDInsight .NET SDK 參考](http://go.microsoft.com/fwlink/?LinkId=529017)。 這僅適用於在 Windows 上執行的 HDInsight 叢集。
+   > 您也可以使用 HDInsight .NET SDK，在叢集上啟用遠端桌面。 以下列方式在 HDInsight 用戶端物件上使用 **EnableRdp** 方法：**client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))**。 同樣地，若要在叢集上停用遠端桌面，您可以使用 **client.DisableRdp(clustername, location)**。 如需這些方法的詳細資訊，請參閱 [HDInsight .NET SDK 參考](https://go.microsoft.com/fwlink/?LinkId=529017)。 這僅適用於在 Windows 上執行的 HDInsight 叢集。
    >
    >
 

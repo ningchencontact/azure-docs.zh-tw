@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
 ms.author: barclayn
-ms.openlocfilehash: 29aea0171c767b2188e3eac23b1d61ffbda8e284
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37748aaa7f34a51d24091ee04608496ebd45fa90
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986843"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231618"
 ---
 # <a name="azure-ddos-protection-best-practices-and-reference-architectures"></a>Azure DDoS 保護：最佳做法與參考架構
 
@@ -75,7 +75,7 @@ Azure 客戶可藉由檢閱 Microsoft 的最佳做法，以及全域建置針對
 若要協助保護在 Microsoft Azure 上執行的服務，您應該對您應用程式架構有良好的了解，而且必須專注於[軟體品質的五大要素](https://docs.microsoft.com/azure/architecture/guide/pillars)。
 您應該了解一般流量、應用程式與其他應用程式之間的連線模型，以及公開至公用網際網路的服務端點。
 
-確保應用程式有足夠的彈性，能夠處理以應用程式本身為目標的阻斷服務，至關重要。 從[安全性開發週期 (SDL)](https://www.microsoft.com/sdl/default.aspx) 開始，安全性和隱私權便會內建於 Azure 平台之中。 SDL 會在每個開發階段處理安全性，並確保 Azure 會持續更新以使其更為安全。
+確保應用程式有足夠的彈性，能夠處理以應用程式本身為目標的阻斷服務，至關重要。 從 [安全性開發週期 (SDL)](https://www.microsoft.com/sdl/default.aspx) 開始，安全性和隱私權便會內建於 Azure 平台中。 SDL 會在每個開發階段處理安全性，並確保 Azure 會持續更新以使其更為安全。
 
 ### <a name="design-for-scalability"></a>延展性設計
 
@@ -265,8 +265,8 @@ Azure 標準 DDoS 保護會識別 DDoS 攻擊並降低風險，無須使用者�
 
 #### <a name="paas-web-application"></a>PaaS Web 應用程式
 
-此參考架構示範在單一區域中執行的 Azure App Service 應用程式。 針對使用 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 和 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) 的 Web 應用程式，此架構會示範一組經過證實的作法。
-針對容錯移轉案例設定待命區域。
+此參考架構示範如何在單一區域中執行 Azure App Service 應用程式。 此架構針對使用 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/) 和 [Azure SQL Database](https://azure.microsoft.com/documentation/services/sql-database/) 的 Web 應用程式，示範一組經過證實的做法。
+針對容錯移轉案例，會設定一個待命區域。
 
 ![PaaS Web 應用程式的架構參考圖](media/azure-ddos-best-practices/image11.png)
 
@@ -300,6 +300,6 @@ Azure 流量管理員會將連入要求路由到其中一個區域中的應用�
 
 * [Azure DDoS 保護產品頁面](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS 保護部落格](http://aka.ms/ddosblog) (英文)
+* [Azure DDoS 保護部落格](https://aka.ms/ddosblog) (英文)
 
 * [Azure DDoS 保護文件](../virtual-network/ddos-protection-overview.md)

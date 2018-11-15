@@ -1,68 +1,72 @@
 ---
-title: 快速入門：在 C# 中檢查影片內容 - Content Moderator
+title: 使用 C# 分析視訊內容中的不當題材
 titlesuffix: Azure Cognitive Services
-description: 如何使用 Content Moderator SDK for C# 檢查成人或不雅內容的影片
+description: 如何使用 Content Moderator SDK for .NET 分析視訊內容中的各種不當題材
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: cb97eebcf398137653988ab3b6ef663f987fb57a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 80635354b228edc1a8c1334e5d59cf530a10083e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310499"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008278"
 ---
-# <a name="quickstart-check-video-content-in-c"></a>快速入門：在 C# 中檢查影片內容
+# <a name="analyze-video-content-for-objectionable-material-in-c"></a>使用 C# 分析視訊內容中的不當題材
 
-今日，線上檢視器會在熱門的區域社交媒體網站和應用程式之間產生數十億個影片觀看次數。 藉由套用機器學習服務來偵測成人和不雅內容，您可以降低仲裁工作的成本。
+本文提供的資訊和程式碼範例，可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) \(英文\)，以掃描視訊內容中的成人或露骨內容。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
-## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>註冊 Content Moderator 媒體處理器 (預覽)
+## <a name="prerequisites"></a>必要條件
+- [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 的任何版本
+
+## <a name="set-up-azure-resources"></a>設定 Azure 資源
+
+Content Moderator 的影片仲裁功能是以 Azure 媒體服務 (AMS) 中免費公開預覽**媒體處理器**的形式提供。 Azure 媒體服務是適用於整理和串流處理視訊內容的特殊化 Azure 服務。 
 
 ### <a name="create-an-azure-media-services-account"></a>建立 Azure 媒體服務帳戶
 
-內容仲裁的影片功能是以 Azure 媒體服務 (AMS) 中公開預覽**媒體處理器**的形式免費提供。 請在您的 Azure 訂用帳戶中[建立 Azure 媒體服務帳戶](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)。
+請依照[使用 Azure 入口網站建立 Azure 媒體服務帳戶](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account)中的指示，來訂閱 AMS 和建立相關聯的 Azure 儲存體帳戶。 在該儲存體帳戶中，建立新的 Blob 儲存體容器。
 
-### <a name="get-azure-active-directory-credentials"></a>取得 Azure Active Directory 認證
+### <a name="create-an-azure-active-directory-application"></a>建立 Azure Active Directory 應用程式
 
-   1. 閱讀 [Azure 媒體服務入口網站文章](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)，以了解如何使用 Azure 入口網站來取得您的 Azure Active Directory 驗證認證。
-   1. 閱讀 [Azure 媒體服務 .NET 文章](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad)，以了解如何搭配 .NET SDK 使用您的 Azure Active Directory 認證。
+在 Azure 入口網站中瀏覽至您新的 AMS 訂用帳戶，然後從側邊功能表選取 **API 存取**。 選取 [使用服務主體連線到 Azure 媒體服務]。 記下 [REST API 端點] 欄位中的值，稍後會需要它。
 
-   > [!NOTE]
-   > 本快速入門中的範例程式碼使用以上兩篇文章中所述的**服務主體驗證**方法。
+在 [Azure AD 應用程式] 區段中，選取 [新建]，並為您新的 Azure AD 應用程式註冊命名 (例如 "VideoModADApp")。 按一下 [儲存]，在設定應用程式的同時，請稍候幾分鐘。 然後，您應該會在頁面的 [Azure AD 應用程式] 區段底下看到您新增的應用程式註冊。
 
-一旦您取得 AMS 認證，即可透過兩個方法來嘗試內容仲裁媒體處理器。
+選取您的應用程式註冊，然後按一下其下方 [管理應用程式] 按鈕。 記下 [應用程式識別碼] 欄位中的值，稍後會需要它。 選取 [設定] > [金鑰]，並為新的金鑰輸入描述 (例如 "VideoModKey")。 按一下 [儲存]，然後留意到新的金鑰值。 複製這個字串，並將它儲存在安全的位置。
+
+如需上述程序更完整的逐步解說，請參閱[利用 Azure 入口網站開始使用 Azure AD 驗證](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad)。
+
+完成之後，您就有兩種方法可以使用影片仲裁媒體處理器。
 
 ## <a name="use-azure-media-services-explorer"></a>使用 Azure 媒體服務總管
 
-使用互動式 [Azure 媒體服務 (AMS) 總管](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/)瀏覽您的 AMS 帳戶、上傳影片，並使用內容仲裁媒體處理器進行掃描。 從 GitHub [將它下載並安裝](https://github.com/Azure/Azure-Media-Services-Explorer/releases)，然後使用 AMS SDK [瀏覽原始程式碼](http://github.com/Azure/Azure-Media-Services-Explorer)以深入分析。
+Azure 媒體服務總管是方便使用的 AMS 前端。 您可以使用它來瀏覽您的 AMS 帳戶、上傳影片，以及使用 Content Moderator 媒體處理器來掃描內容。 從 [GitHub](https://github.com/Azure/Azure-Media-Services-Explorer/releases) 下載並安裝，如需詳細資訊，請參閱 [Azure 媒體服務總管部落格文章](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) \(英文\)。
 
 ![Azure 媒體服務總管與內容仲裁](images/ams-explorer-content-moderator.PNG)
 
-## <a name="quickstart-with-visual-studio-and-c"></a>使用 Visual Studio 和 C# 的快速入門
+## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 
-1. 將一個新的 [主控台應用程式 (.NET Framework)] 專案新增到您的解決方案。
+1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將它命名為 **VideoModeration**。 
+1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
+1. 取得必要的 NuGet 套件。 以滑鼠右鍵按一下 [方案總管] 中的專案，並選取 [管理 NuGet 套件]，然後尋找並安裝下列套件：
+    - windowsazure.mediaservices
+    - windowsazure.mediaservices.extensions
 
-   在範例程式碼中，將專案命名為 **VideoModeration**。
+## <a name="add-video-moderation-code"></a>新增影片仲裁程式碼
 
-1. 選取此專案作為解決方案的單一啟始專案。
-
-### <a name="install-required-packages"></a>安裝必要的套件
-
-安裝 [NuGet](https://www.nuget.org/) 上提供的下列 NuGet 套件。
-
-- windowsazure.mediaservices
-- windowsazure.mediaservices.extensions
+接下來，您應將本指南中的程式碼複製並貼到您的專案中，以實作基本內容仲裁案例。
 
 ### <a name="update-the-programs-using-statements"></a>更新程式的 using 陳述式
 
-新增下列 `using` 陳述式。
+在 _Program.cs_ 檔案的頂端新增下列 `using` 陳述式。
 
 ```csharp
 using System;
@@ -77,9 +81,9 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using System.Collections.Generic;
 ```
 
-### <a name="initialize-application-specific-settings"></a>將應用程式特定的設定初始化
+### <a name="set-up-resource-references"></a>設定資源參考
 
-將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。
+將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些欄位持有連線到您的 AMS 訂用帳戶的必要資訊。 使用您在上述步驟中取得的值填入這些欄位。 請注意，`CLIENT_ID` 是您 Azure AD 應用程式的**應用程式識別碼**值，而 `CLIENT_SECRET` 是您為該應用程式建立的 "VideoModKey"。
 
 ```csharp
 // declare constants and globals
@@ -94,9 +98,9 @@ static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
 
 private static StorageCredentials _StorageCredentials = null;
 
-// Azure Media Services authentication. See the quickstart for how to get these.
+// Azure Media Services authentication. 
 private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
-private const string CLIENT_ID = "YOUR CLIENT ID"
+private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
 
 // REST API endpoint, for example "https://accountname.restv2.westcentralus.media.azure.net/API".      
@@ -108,23 +112,25 @@ private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
 // Input and Output files in the current directory of the executable
 private const string INPUT_FILE = "VIDEO FILE NAME";
 private const string OUTPUT_FOLDER = "";
-```
 
-### <a name="create-a-preset-file-json"></a>建立預設檔案 (json)
-
-在具有版本號碼的目前目錄中建立 JSON 檔案。
-
-```csharp
-//Example file content:
-//        {
-//             "version": "2.0"
-//        }
+// JSON settings file
 private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
+
 ```
 
-### <a name="add-the-following-code-to-the-main-method"></a>將下列程式碼新增至 main 方法
+如果您想要使用本機的視訊檔案 (最簡單的情況)，請將它新增至專案，並將其路徑輸入為 `INPUT_FILE` 值 (相對路徑是相對於執行目錄)。
 
-若您的影片位於 Blob 儲存體中，main 方法會先建立 Azure 媒體內容，再建立 Azure 儲存體內容。 其餘程式碼會從本機資料夾、blob 或 Azure 儲存體容器中的多個 blob 掃描影片。 您可以透過將其他程式碼行註解化，來嘗試所有選項。
+您也需要在目前的目錄中建立 _preset.json_ 檔案，並使用它來指定版本號碼。 例如︰
+
+```JSON
+{
+    "version": "2.0"
+}
+```
+
+### <a name="load-the-input-videos"></a>載入輸入影片
+
+**Program** 類別的 **Main** 方法會建立「Azure 媒體內容」，然後建立「Azure 儲存體內容」(以防您的視訊在 Blob 儲存體中)。 其餘程式碼會從本機資料夾、blob 或 Azure 儲存體容器中的多個 blob 掃描影片。 您可以透過將其他程式碼行註解化，來嘗試所有選項。
 
 ```csharp
 // Create Azure Media Context
@@ -134,7 +140,7 @@ CreateMediaContext();
 CreateStorageContext();
 
 // Use a file as the input.
-// IAsset asset = CreateAssetfromFile();
+IAsset asset = CreateAssetfromFile();
 
 // -- OR ---
 
@@ -142,20 +148,20 @@ CreateStorageContext();
 // IAsset asset = CreateAssetfromBlob((CloudBlockBlob)GetBlobsList().First());
 
 // Then submit the asset to Content Moderator
-// RunContentModeratorJob(asset);
+RunContentModeratorJob(asset);
 
 //-- OR ----
 
 // Just run the content moderator on all blobs in a list (from a Blob Container)
-RunContentModeratorJobOnBlobs();
+// RunContentModeratorJobOnBlobs();
 ```
 
-### <a name="add-the-code-to-create-an-azure-media-context"></a>新增程式碼以建立 Azure 媒體內容
+### <a name="create-an-azure-media-context"></a>建立 Azure 媒體內容
+
+將下列方法新增至 **Program** 類別。 這會使用您的 AMS 認證來允許對 AMS 的通訊。
 
 ```csharp
-/// <summary>
-/// Creates a media context from azure credentials
-/// </summary>
+// Creates a media context from azure credentials
 static void CreateMediaContext()
 {
     // Get Azure AD credentials
@@ -172,12 +178,11 @@ static void CreateMediaContext()
 ```
 
 ### <a name="add-the-code-to-create-an-azure-storage-context"></a>新增程式碼以建立 Azure 儲存體內容
-您可以使用從儲存體認證建立的儲存體內容，以存取您的 Blob 儲存體。
+
+將下列方法新增至 **Program** 類別。 您會使用儲存體內容 (從您的儲存體認證建立)，來存取您的 Blob 儲存體。
 
 ```csharp
-/// <summary>
-/// Creates a storage context from the AMS associated storage name and key
-/// </summary>
+// Creates a storage context from the AMS associated storage name and key
 static void CreateStorageContext()
 {
     // Get a reference to the storage account associated with a Media Services account. 
@@ -190,24 +195,18 @@ static void CreateStorageContext()
 ```
 
 ### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>新增程式碼以從本機檔案和 blob 建立 Azure 媒體資產
+
 內容仲裁媒體處理器會針對 Azure 媒體服務平台中的**資產**執行工作。
 這些方法可從本機檔案或相關聯的 blob 建立資產。
 
 ```csharp
-/// <summary>
-/// Creates an Azure Media Services Asset from the video file
-/// </summary>
-/// <returns>Asset</returns>
+// Creates an Azure Media Services Asset from the video file
 static IAsset CreateAssetfromFile()
 {
     return _context.Assets.CreateFromFile(INPUT_FILE, AssetCreationOptions.None); ;
 }
 
-/// <summary>
-/// Creates an Azure Media Services asset from your blog storage
-/// </summary>
-/// <param name="Blob"></param>
-/// <returns>Asset</returns>
+// Creates an Azure Media Services asset from your blog storage
 static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
 {
     // Create asset from the FIRST blob in the list and return it
@@ -218,9 +217,7 @@ static IAsset CreateAssetfromBlob(CloudBlockBlob Blob)
 ### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>新增程式碼以掃描容器中的影片集合 (以 blob 表示)
 
 ```csharp
-/// <summary>
-/// Runs the Content Moderator Job on all Blobs in a given container name
-/// </summary>
+// Runs the Content Moderator Job on all Blobs in a given container name
 static void RunContentModeratorJobOnBlobs()
 {
     // Get the reference to the list of Blobs. See the following method.
@@ -239,10 +236,7 @@ static void RunContentModeratorJobOnBlobs()
     }
 }
 
-/// <summary>
-/// Get all blobs in your container
-/// </summary>
-/// <returns></returns>
+// Get all blobs in your container
 static IEnumerable<IListBlobItem> GetBlobsList()
 {
     // Get a reference to the Container within the Storage Account
@@ -259,10 +253,7 @@ static IEnumerable<IListBlobItem> GetBlobsList()
 ### <a name="add-the-method-to-run-the-content-moderator-job"></a>新增方法以執行內容仲裁工作
 
 ```csharp
-/// <summary>
-/// Run the Content Moderator job on the designated Asset from local file or blob storage
-/// </summary>
-/// <param name="asset"></param>
+// Run the Content Moderator job on the designated Asset from local file or blob storage
 static void RunContentModeratorJob(IAsset asset)
 {
     // Grab the presets

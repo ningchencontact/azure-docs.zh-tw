@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/05/2018
+ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867777"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035079"
 ---
 # <a name="monitor-and-tune"></a>監視與微調
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。
@@ -39,6 +39,7 @@ ms.locfileid: "48867777"
 |connections_failed|失敗的連線|Count|伺服器的失敗連線數量。|
 |network_bytes_egress|Network Out|位元組|跨作用中連線的網路輸出。|
 |network_bytes_ingress|Network In|位元組|跨作用中連線的網路輸入。|
+|backup_storage_used|已使用的備份儲存體|位元組|已使用的備份儲存體數量。|
 
 ## <a name="server-logs"></a>伺服器記錄
 您可以在伺服器上啟用記錄功能。 透過 [Log Analytics](../log-analytics/log-analytics-queries.md)、「事件中樞」及「儲存體帳戶」中的「Azure 診斷記錄」也可以取得這些記錄。 若要深入了解記錄，請瀏覽[伺服器記錄](concepts-server-logs.md)頁面。
@@ -55,3 +56,4 @@ ms.locfileid: "48867777"
 ## <a name="next-steps"></a>後續步驟
 - 如需有關建立計量相關警示的指引，請參閱[如何設定警示](howto-alert-on-metric.md)。
 - 如需如何使用 Azure 入口網站、REST API 或 CLI 存取及匯出計量的詳細資訊，請參閱 [Azure 計量概觀](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+- 請參閱有關[監視伺服器的最佳做法](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/) \(英文\) 的部落格。

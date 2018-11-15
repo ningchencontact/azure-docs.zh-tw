@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7b05876214c08c9298cca30e01958e43e2ef81d6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914153"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615326"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Azure 中的代理程式健全狀況解決方案
 對於直接向 Log Analytics 工作區或向連線到 Log Analytics 之 System Center Operations Manager 管理群組回報的所有代理程式，Azure 中的代理程式健全狀況解決方案可協助您了解哪些代理程式沒有回應且正在提交作業資料。  您可以也追蹤已部署的代理程式數目，其散佈地區，並執行其他查詢，以留意 Azure、其他雲端環境或內部部署中部署之代理程式的散佈情形。    
@@ -118,4 +118,4 @@ ms.locfileid: "50914153"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需有關從 Log Analytics 產生的警示的詳細資料，請深入了解 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 。
+* 如需有關從 Log Analytics 產生的警示的詳細資料，請深入了解 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 。 

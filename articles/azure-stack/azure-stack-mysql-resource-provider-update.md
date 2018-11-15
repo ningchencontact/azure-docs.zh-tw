@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f58ba1af301379810d5072f55c7b9365f205911f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364688"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686325"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 資源提供者 
 
@@ -41,9 +41,6 @@ ms.locfileid: "49364688"
 >[!NOTE]
 >建議您從 Marketplace Management 下載最新的 Windows Server 2016 Core 映像。 如果您需要安裝某個更新，可以將**單一** MSU 套件放在本機相依性路徑中。 如果這個位置中有多個 MSU 檔案，指令碼就會失敗。
 
->[!NOTE]  
-> 
-
 此指令碼會要求使用與針對 DeployMySqlProvider.ps1 指令碼所述的相同引數。 請一併在這裡提供憑證。  
 
 以下是一個您可以從 PowerShell 提示字元中執行的 *UpdateMySQLProvider.ps1* 指令碼範例。 請務必視需要變更帳戶資訊和密碼：  
@@ -52,9 +49,10 @@ ms.locfileid: "49364688"
 > 此更新程序僅適用於整合式系統。 
 
 ```powershell 
-# Install the AzureRM.Bootstrapper module and set the profile. 
-Install-Module -Name AzureRm.BootStrapper -Force 
-Use-AzureRmProfile -Profile 2017-03-09-profile 
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time. 
 $domain = "AzureStack" 

@@ -1,3 +1,16 @@
+---
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: clemensv
+ms.openlocfilehash: 13ac2ec0569dc79791eca9efb2bd51e7b76ddd05
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571879"
+---
 1. 登入 [Azure 入口網站][Azure portal]。
 2. 在左功能表中選取 [+ 建立資源]。 然後，選取 [整合] > [轉送]。 如果清單中未顯示 [轉送]，請選取右上角的 [查看全部]。 
 3. 在 [建立命名空間] 下，輸入命名空間名稱。 系統會立即檢查此名稱是否可用。

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: b7839fc498b54d2128528c8d655d78bb759a7cd5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282045"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612434"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -54,7 +54,7 @@ ms.locfileid: "51282045"
 您應該定義您認為會對使用者有幫助的任何查詢，即使沒有任何檢視或警示使用這些查詢也是如此。  在入口網站中，這些查詢會以「已儲存搜尋」的形式提供給使用者來使用，而您也可以將這些查詢包含在自訂檢視中的[查詢清單視覺效果部分](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part)。
 
 ### <a name="alerts"></a>警示
-[Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
+[Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
 
 如果問題有可能透過自動化程序加以修正，您通常會在 Azure 自動化中建立 Runbook 以執行此修復。  大部分 Azure 服務都可使用 [Cmdlet](/powershell/azure/overview) 來管理，Runbook 會運用這些 Cmdlet 來執行這類功能。
 

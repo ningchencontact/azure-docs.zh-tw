@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: a9967aec61aaab5bc6b4517407f36e2a6c7342c8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238857"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957687"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>遠端桌面服務未在 Azure VM 上啟動
 
-本文將說明如何針對在遠端桌面服務 (TermService) 未啟動或無法啟動時連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
+本文說明如何針對在遠端桌面服務 (或 TermService) 未啟動或無法啟動的問題，以及連線到 Azure 虛擬機器 (VM) 的問題進行疑難排解。
 
->[!NOTE]
->Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不要使用傳統部署模型。
+> [!NOTE]  
+> Azure 建立和處理資源的部署模型有二種：[Azure Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文將說明如何使用 Resource Manager 部署模型。 建議您針對新的部署使用此模型，而不使用傳統部署模型。
 
 ## <a name="symptoms"></a>徵兆
 
@@ -35,7 +35,7 @@ ms.locfileid: "50238857"
 
     ![VM 狀態的螢幕擷取畫面](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- 您使用事件檢視器從遠端檢視 VM 中的事件記錄時，看到遠端桌面服務 (TermServ) 未啟動或無法啟動。 以下是記錄範例︰
+- 您使用事件檢視器從遠端檢視 VM 中的事件記錄檔。 您看到遠端桌面服務 (TermService)，沒有啟動或無法啟動。 下列記錄檔是範例：
 
     **記錄名稱**：     系統 </br>
     **來源**：        服務控制管理員 </br>
@@ -48,7 +48,7 @@ ms.locfileid: "50238857"
     **電腦**：vm.contoso.com</br>
     **描述**：遠端桌面服務啟動時無反應。 
 
-    您也可以使用序列存取主控台功能來尋找這些錯誤，請使用下列查詢： 
+    您也可以使用序列存取主控台功能執行下列查詢來尋找這些錯誤： 
 
         wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
@@ -58,115 +58,169 @@ ms.locfileid: "50238857"
 
 - 已將 TermService 服務設定為**停用**。 
 - TermService 服務當機或停止回應。 
+- TermService 因錯誤的設定而未啟動。
 
 ## <a name="solution"></a>解決方法
 
-若要針對此問題進行疑難排解，請使用「序列主控台」，或藉由將 VM 的 OS 磁碟連結至復原 VM 來[修復離線的 VM](#repair-the-vm-offline)。
+若要對此問題進行疑難排解，請使用序列主控台。 或者，藉由將 VM 的 OS 磁碟連結至復原 VM，進行[離線修復 VM](#repair-the-vm-offline)。
 
 ### <a name="use-serial-console"></a>使用序列主控台
 
 1. 選取 [支援與疑難排解] > [序列主控台] 來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
 
-2. 針對 CMD 執行個體建立新通道。 輸入 **CMD** 以啟動通道來取得通道名稱。
+2. 針對 CMD 執行個體建立新通道。 輸入 **CMD** 以啟動通道並取得通道名稱。
 
-3. 切換至執行 CMD 執行個體的通道。 在此案例中，應該是通道 1。
+3. 切換至執行 CMD 執行個體的通道。 在此案例中，應該是通道 1：
 
    ```
    ch -si 1
    ```
 
-4. 再按一次 **Enter** 鍵，然後輸入 VM 的有效使用者名稱和密碼 (本機或網域識別碼)。
+4. 再次選取 **Enter**，然後輸入 VM 的有效使用者名稱和密碼 (本機或網域識別碼)。
 
-5. 查詢 TermService 服務的狀態。
+5. 查詢 TermService 服務的狀態：
 
    ```
    sc query TermService
    ```
 
-6. 如果服務狀態顯示**已停止**，請嘗試啟動服務。
+6. 如果服務狀態顯示**已停止**，請嘗試啟動服務：
 
     ```
     sc start TermService
      ``` 
 
-7. 再次查詢服務，以確定服務已成功啟動。
+7. 再次查詢服務，以確定服務已成功啟動：
 
    ```
    sc query TermService
    ```
-    如果服務無法啟動，請根據您所收到的錯誤訊息來遵循解決方案：
+8. 如果服務無法啟動，請根據您所收到的錯誤訊息來遵循解決方案：
 
     |  Error |  建議 |
     |---|---|
-    |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-access-denied-error) |
-    |1058 - ERROR_SERVICE_DISABLED  |請參閱 [TermService 服務已停用。](#termService-service-is-disabled)  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題|
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題    |
-    |1070 - ERROR_SERVICE_START_HANG   | 請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題  |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | 請參閱 [TermService 服務已停用](#termService-service-is-disabled)  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題 |
-    |1753   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題   |
-
-#### <a name="termservice-service-is-stopped-because-of-access-denied-error"></a>TermService 服務因為拒絕存取錯誤而停止
+    |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-an-access-denied-problem)。 |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |請參閱 [TermService 服務已停用](#termService-service-is-disabled)。  |  
+    |1058 - ERROR_SERVICE_DISABLED  |請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。  |
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。|
+    |1067 - ERROR_PROCESS_ABORTED  |請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。  |
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。|
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |請參閱 [TermService 服務因為登入失敗而失敗](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | 請參閱 [TermService 服務當機或停止回應](#termService-service-crashes-or-hangs)。 |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | 請參閱 [TermService 服務已停用](#termService-service-is-disabled)。  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。 |
+    |1753   |請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。   |   |5- 拒絕存取 |請參閱 [TermService 服務因為拒絕存取錯誤而停止](#termService-service-is-stopped-because-of-an-access-denied-error)。 |
+    
+#### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService 服務因為拒絕存取問題而停止
 
 1. 連線至[序列主控台](serial-console-windows.md#)並開啟 PowerShell 執行個體。
 2. 執行下列指令碼來下載處理程序監視工具：
 
-        remove-module psreadline  
-        $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
-        $destination = "c:\temp\ProcessMonitor.zip" 
-        $wc = New-Object System.Net.WebClient 
-        $wc.DownloadFile($source,$destination) 
-3. 現在啟動 procmon 追蹤：
+   ```
+   remove-module psreadline  
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+   $destination = "c:\temp\ProcessMonitor.zip" 
+   $wc = New-Object System.Net.WebClient 
+   $wc.DownloadFile($source,$destination) 
+   ```
 
-        procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
-4. 啟動出現拒絕存取錯誤的服務，以重現問題： 
+3. 現在啟動 **procmon** 追蹤：
 
-        sc start TermService 
-        
-    當服務失敗時，請繼續並終止處理程序監視工具的追蹤：
+   ```
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   ```
 
-        procmon /Terminate 
-5. 收集  **c:\temp\ProcMonTrace.PML** 檔案，並使用 procmon 開啟檔案，然後以 [結果是拒絕存取] **** 來進行篩選，如下列螢幕擷取畫面所示：
+4. 啟動出現**拒絕存取**錯誤的服務，以重現問題： 
 
-    ![依處理程序監視工具的結果篩選](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+   ```
+   sc start TermService 
+   ```
+
+   當它失敗時，終止處理序監視追蹤：
+
+   ```   
+   procmon /Terminate 
+   ```
+
+5. 收集檔案  **c:\temp\ProcMonTrace.PML**：
+
+    1. [將資料磁碟連結至 VM](../windows/attach-managed-disk-portal.md
+)。
+    2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
+    3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
+
+6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取] **** 來篩選，如下列螢幕擷取畫面中所示：
+
+    ![在處理程序監視中依結果篩選](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. 修正輸出上的登錄機碼、資料夾或檔案。 之所以會有此問題，通常是因為服務上使用的登入帳戶沒有存取這些物件的 ACL 權限。 若要知道登入帳戶的正確 ACL 權限，您可以在狀況良好的 VM 上查看。 
+6. 修正輸出上的登錄機碼、資料夾或檔案。 當用於服務上的登入帳戶沒有存取這些物件的 ACL 權限時，通常會發生此問題。 若要知道登入帳戶的正確 ACL 權限，您可以在狀況良好的 VM 上查看。 
 
 #### <a name="termservice-service-is-disabled"></a>TermService 服務已停用
 
-1.  將服務還原為其預設的啟動值：
+1. 將服務還原為其預設的啟動值：
 
-        sc config TermService start= demand 
-        
-2.  啟動服務：
+   ```
+   sc config TermService start= demand 
+   ```
 
-        sc start TermService 
-3.  再次查詢其狀態，以確保服務正在執行：     sc 查詢 TermService 
-4.  嘗試使用遠端桌面來連線至 VM。
+2. 啟動服務：
 
+   ```
+   sc start TermService
+   ```
+
+3. 再次查詢其狀態，以確定服務正在執行：
+
+   ```
+   sc query TermService 
+   ```
+
+4. 嘗試使用遠端桌面來連線至 VM。
+
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>TermService 服務因為登入失敗而失敗
+
+1. 如果此服務的啟動帳戶變更，就會發生此錯誤。 將此項變更為預設值： 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. 啟動服務：
+
+        sc start TermService
+3. 嘗試使用遠端桌面來連線至 VM。
+
+#### <a name="termservice-service-crashes-or-hangs"></a>TermService 服務當機或停止回應
+1. 如果服務狀態停滯在**起始**或**停止**，請嘗試停止服務： 
+
+        sc stop TermService
+2. 將服務隔離在其自己的 'svchost' 容器上：
+
+        sc config TermService type= own
+3. 啟動服務：
+
+        sc start TermService
+4. 如果服務仍然無法啟動，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ### <a name="repair-the-vm-offline"></a>修復離線的 VM
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結 OS 磁碟的磁碟機代號。
-3.  開啟提高權限的命令提示字元執行階段 (**以系統管理員身分執行**)，然後執行下列指令碼。 我們假設指派給已連結 OS 磁碟的磁碟機代號是 F。請將它取代為您 VM 中的適當值。 
+2. 啟動復原 VM 的遠端桌面連線。 確定連結的磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給所連結 OS 磁碟的磁碟機代號。
+3.  開啟提升權限的命令提示字元執行個體 (**以系統管理員身分執行**)。 然後執行下列指令碼。 我們假設指派給所連結 OS 磁碟的磁碟機代號是 **F**。將它取代為您 VM 中適當的值。 
 
-        reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+   ```
+   reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
         
-        REM Set default values back on the broken service 
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
-        reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
-4. [卸離 OS 磁碟並重新建立 VM](../windows/troubleshoot-recovery-disks-portal.md)，然後檢查問題是否已解決。
+   REM Set default values back on the broken service 
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+   ```
+
+4. [將 OS 磁碟中斷連結並建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然後檢查問題是否已解決。
 
 ## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
 
-如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以解決您的問題。

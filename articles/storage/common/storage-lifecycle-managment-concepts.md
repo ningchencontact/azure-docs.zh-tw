@@ -1,36 +1,36 @@
 ---
 title: 管理 Azure 儲存體生命週期
-description: 了解如何建立生命週期原則規則，將過時資料從經常性轉換到非經常性和封存層。
+description: 了解如何建立生命週期原則規則，以將過時資料從「經常性」層轉換到「非經常性」層和「封存」層。
 services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6647ff97b078ca5afa5c66833a1617f6b3ec0f1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429553"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978803"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>管理 Azure Blob 儲存體生命週期 (預覽)
 
-資料集具有唯一的生命週期。 有些資料在生命週期的早期存取頻率很高，但存取需求隨著資料老化而大幅下滑。 有些資料在雲端維持閒置，而且儲存後就很少存取。 有些資料集會在建立後幾天或幾個月過期，而其他資料集在其生命週期內會積極地讀取及修改。 Azure Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。
+資料集具有唯一的生命週期。 有些資料在生命週期的早期存取頻率很高，但存取需求隨著資料老化而大幅下滑。 有些資料在雲端維持閒置，而且儲存後就很少存取。 有些資料集會在建立後幾天或幾個月過期，而其他資料集在其生命週期內會積極地讀取及修改。 「Azure Blob 儲存體」生命週期管理 (預覽) 提供一個豐富、以規則為基礎的原則，可供您在 GPv2 和 Blob 儲存體帳戶上用來將資料轉換到其適當的存取層，或是讓資料在其生命週期結束時過期。
 
 生命週期管理原則可協助您：
 
 - 將 Blob 轉換到較少存取的儲存層 (經常性到非經常性、經常性到封存或非經常性到封存)，以最佳化效能和成本
 - 在其生命週期結束時刪除 Blob
-- 定義每天要在儲存體帳戶層級執行一次的規則 (支援 GPv2 和 Blob 儲存體帳戶)
+- 定義每天要在儲存體帳戶層級執行一次的規則
 - 將規則套用至容器或 Blob 子集 (使用前置詞作為篩選)
 
-假設有一組資料在生命週期的早期階段存取頻率很高，兩週後偶爾才需要，一個月後就很少存取。 在此案例中，經常性儲存體最適合早期階段、非經常性儲存體最適合偶爾存取，而封存儲存體則是資料老化超過一個月之後的最佳階層選項。 藉由根據資料存在時間來調整儲存層，您就可以按照自己的需求設計最便宜的儲存體選項。 若要達成這項轉換，可使用生命週期管理原則將過時資料移至較少存取的階層。
+假設有一組資料在生命週期的早期階段存取頻率很高，兩週後偶爾才需要，一個月後就很少存取。 在此案例中，經常性儲存體最適合早期階段、非經常性儲存體最適合偶爾存取，而封存儲存體則是資料老化超過一個月之後的最佳階層選項。 藉由根據資料存在時間來調整儲存層，您就可以按照自己的需求設計最便宜的儲存體選項。 若要達成這項轉換，可使用生命週期管理原則規則將過時資料移至較少存取的階層。
 
 ## <a name="storage-account-support"></a>儲存體帳戶支援
 
-生命週期管理原則適用於一般用途 v2 (GPv2) 帳戶和 Blob 儲存體帳戶。 您可以透過 Azure 入口網站中簡單的單鍵程序，將現有的一般用途 (GPv1) 帳戶轉換成 GPv2 帳戶。 如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)深入瞭解。  
+生命週期管理原則適用於一般用途 v2 (GPv2) 帳戶和 Blob 儲存體帳戶。 您可以透過 Azure 入口網站中簡單的單鍵程序，將現有的一般用途 (GPv1) 帳戶升級成 GPv2 帳戶，而無須停機。 如需儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](../common/storage-account-overview.md)深入瞭解。  
 
 ## <a name="pricing"></a>價格 
 
@@ -67,9 +67,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 如果功能經核准且正確註冊，您應該會收到「已註冊」狀態。 
 
 
-## <a name="add-or-remove-policies"></a>新增或移除原則 
+## <a name="add-or-remove-a-policy"></a>新增或移除原則 
 
-您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
+您可以使用 Azure 入口網站、[PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview)、[REST API](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) 或下列語言的用戶端工具，來新增、編輯或移除原則：[.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview)、[Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/)、[Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0)、[Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2)。 
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
@@ -77,7 +77,7 @@ az feature show --namespace Microsoft.Storage --name DLM
 
 2. 瀏覽至儲存體帳戶、選取 [所有資源]，然後選取您的儲存體帳戶。
 
-3. 在 [設定] 刀鋒視窗中，按一下群組在 Blob 服務下的 [生命週期管理]，以檢視及/或變更原則。
+3. 在 [設定] 刀鋒視窗中，按一下聚集在 [Blob 服務] 底下的 [生命週期管理]，以檢視及/或變更原則。
 
 ### <a name="powershell"></a>PowerShell
 
@@ -92,7 +92,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 如果您啟用儲存體帳戶的防火牆規則，可能會封鎖生命週期管理要求。 您可以提供例外狀況來將它解除封鎖。 如需詳細資訊，請參閱[設定防火牆和虛擬網路](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)中的＜例外狀況＞一節。
 
-## <a name="policies"></a>原則
+## <a name="policy"></a>原則
 
 生命週期管理原則是 JSON 文件中的規則集合：
 
@@ -122,20 +122,23 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | version        | 以 `x.x` 表示的字串 | 預覽版本號碼為 0.5 |
 | 規則          | 規則物件的陣列 | 每個原則至少需要一項規則。 在預覽期間，每個原則最多可以指定 4 項規則。 |
 
-規則所需的參數包括：
+每個規則內都需要三個參數：
 
 | 參數名稱 | 參數類型 | 注意 |
 |----------------|----------------|-------|
 | 名稱           | 字串 | 規則名稱可包含英數字元的任意組合。 規則名稱會區分大小寫。 它在原則內必須是唯一的。 |
 | type           | 列舉值 | 預覽的有效值為 `Lifecycle` |
-| 定義     | 定義生命週期規則的物件 | 每個定義是由篩選集和動作集組成。 |
+| 定義     | 定義生命週期規則的物件 | 每個定義皆由篩選集和動作集所組成。 |
 
 ## <a name="rules"></a>規則
 
-每個規則定義包含篩選集和動作集。 下列範例規則會修改前置詞為 `container1/foo` 的基底區塊 Blob 層。 在原則中，這些規則的定義如下：
+每個規則定義皆包含篩選集和動作集。 [篩選集](#rule-filters)可用來將規則動作限制在容器或物件名稱內的一組特定物件。 [動作集](#rule-actions)會將階層或刪除動作套用至已篩選的一組物件。
 
-- 上次修改 30 天後將 Blob 分層到非經常性儲存體
-- 上次修改 90 天後將 Blob 分層到封存儲存體
+### <a name="sample-rule"></a>範例規則
+以下範例規則會篩選帳戶，以只對 `container1/foo` 執行動作。 針對存在於 `container1` 內**且**開頭為 `foo` 的所有物件，會執行下列動作： 
+
+- 在上次修改 30 天後將 Blob 分層到「非經常性」層
+- 在上次修改 90 天後將 Blob 分層到「封存」層
 - 上次修改 2,555 天 (7 年) 後刪除 Blob
 - 快照集建立 90 天後刪除 Blob 快照集
 
@@ -177,7 +180,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 | 篩選名稱 | 篩選類型 | 注意 | 必要 |
 |-------------|-------------|-------|-------------|
 | blobTypes   | 預先定義的列舉值陣列。 | 預覽版本僅支援 `blockBlob`。 | 是 |
-| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果 "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." 下的所有 Blob 都應與規則相符，則前置詞為 "mycontainer/mydir"。 | 如果未定義，此規則會套用至帳戶內的所有 Blob。 | 否 |
+| prefixMatch | 要比對前置詞的字串陣列。 前置詞字串必須以容器名稱開頭。 例如，如果 "https://myaccount.blob.core.windows.net/container1/foo/..." 底下的所有 Blob 都應該針對規則進行比對，則 prefixMatch 會是為 "container1/foo"。 | 如果沒有定義 prefixMatch，規則就會套用至帳戶內的所有 Blob。 | 否 |
 
 ### <a name="rule-actions"></a>規則動作
 

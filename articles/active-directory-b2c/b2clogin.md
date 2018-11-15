@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 00fde1145b038f3bf82e3dbc5e1dc967e1865ad6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649262"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234914"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
@@ -62,7 +62,16 @@ ms.locfileid: "49649262"
 
 如果您使用 MSAL，請將 **ValidateAuthority** 設定為 `false`。 下列範例示範如何設定該屬性：
 
+在[適用於 .NET 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)：
+
+```CSharp
+ ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
+ client.ValidateAuthority = false;
 ```
+
+和在[適用於 JavaScript 的 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js) 中：
+
+```Javascript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -72,5 +81,3 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
-
- 如需詳細資訊，請參閱 [ClientApplicationBase 類別](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet)。

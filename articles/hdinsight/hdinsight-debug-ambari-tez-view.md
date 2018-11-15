@@ -1,24 +1,24 @@
 ---
-title: 搭配 HDInsight 來使用 Ambari Tez 檢視 - Azure
-description: 了解如何在 HDInsight 上使用 Ambari Tez 檢視來為 Tez 作業偵錯。
+title: 搭配 HDInsight 來使用 Apache Ambari Tez 檢視 - Azure
+description: 了解如何在 HDInsight 上使用 Apache Ambari Tez 檢視來為 Tez 作業偵錯。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 576460f4b68d670e534e0ddeed920f7ac99e1458
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108881"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034671"
 ---
-# <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Ambari 檢視來為 Tez 作業偵錯
+# <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
 
-適用於 HDInsight 的 Ambari Web UI 包含 Tez 檢視，可用來了解使用 Tez 的作業，和為該類型作業偵錯。 Tez 檢視可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
+適用於 HDInsight 的 Apache Ambari Web UI 包含 Apache Tez 檢視，可用來了解使用 Tez 的作業，和為該類型作業偵錯。 Tez 檢視可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
 
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -28,9 +28,9 @@ ms.locfileid: "43108881"
 * 以 Linux 為基礎的 HDInsight 叢集。 如需建立叢集的步驟，請參閱[開始使用以 Linux 為基礎的 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 * 支援 HTML5 的新式網頁瀏覽器。
 
-## <a name="understanding-tez"></a>了解 Tez
+## <a name="understanding-apache-tez"></a>了解 Apache Tez
 
-Tez 是 Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 MapReduce 處理方式還要快。 而對於 Linux 型 HDInsight 叢集來說，Tez 是 Hive 的預設引擎。
+Tez 是 Apache Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 MapReduce 處理方式還要快。 而對於 Linux 型 HDInsight 叢集來說，Tez 是 Hive 的預設引擎。
 
 Tez 會建立有向非循環圖 (DAG)，說明作業所需動作的順序。 個別的動作稱為頂點，它會執行整體作業的一部分。 而由端點所描述的實際工作 (Work) 執行程序稱為工作 (Task)，且可能會分散到叢集中的多個節點上。
 

@@ -1,22 +1,22 @@
 ---
-title: 在以 Windows 為基礎的 HDInsight 中使用 Tez UI - Azure
-description: 了解在以 Windows 為基礎的 HDInsight 上如何使用 Tez UI 偵錯 Tez 作業。
+title: 在以 Windows 為基礎的 HDInsight 中使用 Apache Tez UI - Azure
+description: 了解在以 Windows 為基礎的 HDInsight 上如何使用 Apache Tez UI 偵錯 Tez 作業。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ff47d0a71e97ce4ec9fd04e1d0cb9e5592192d53
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112182"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036575"
 ---
-# <a name="use-the-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Tez UI 偵錯 Tez 作業
+# <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI 偵錯 Tez 作業
 Tez UI 可用來對使用 Tez 作為執行引擎的 Hive 作業進行偵錯。 Tez UI 把作業視覺化為已連接項目的圖表，可以深入每個項目、取得統計資料及記錄資訊。
 
 > [!IMPORTANT]
@@ -26,13 +26,13 @@ Tez UI 可用來對使用 Tez 作為執行引擎的 Hive 作業進行偵錯。 T
 * 以 Windows 為基礎的 HDInsight 叢集。 如需建立新叢集的步驟，請參閱 [開始使用以 Windows 為基礎的 HDInsight](hdinsight-hadoop-tutorial-get-started-windows.md)。
 
   > [!IMPORTANT]
-  > 只有在 2016 年 2 月 8 日之後建立的以 Windows 為基礎的 HDInsight 叢集上才能使用 Tez UI。
+  > 只有在 2016 年 2 月 8 日之後建立的以 Windows 為基礎的 HDInsight 叢集上才能使用 Apache Tez UI。
   >
   >
 * 以 Windows 為基礎的遠端桌面用戶端。
 
-## <a name="understanding-tez"></a>了解 Tez
-Tez 是 Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 MapReduce 處理方式還要快。 將下列文字加入 Hive 查詢可以啟用 Tez：
+## <a name="understanding-apache-tez"></a>了解 Apache Tez
+Tez 是 Apache Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 MapReduce 處理方式還要快。 將下列文字加入 Hive 查詢可以啟用 Tez：
 
     set hive.execution.engine=tez;
 

@@ -10,17 +10,15 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6ab5ede0b8af6c601cc53e044a3e6902fbd2e11
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340805"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282640"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
-
-<!-- TODO: Need link to libraries -->
 
 如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](http://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖和重新整理權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。  一旦存取權杖到期 (通常在一小時後)，重新整理權杖即可讓用戶端取得新的存取 (和重新整理) 權杖。
 
@@ -80,7 +78,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |必要 |應用程式的重新導向 URI，您的應用程式會在此處傳送及接收驗證回應。 除了必須是 URL 編碼，它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符。 |
 | scope |必要 |範圍的空格分隔清單。 單一範圍值向 Azure Active Directory (Azure AD) 指出正在要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。 您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | response_mode |建議 |用來將產生的授權碼傳回至應用程式的方法。 可以是 `query`、`form_post` 或 `fragment`。 |
-| state |建議 |會隨權杖回應傳回之要求中所包含的值。 它可以是您想要使用之任何內容的字串。 通常會使用隨機產生的唯一值，以防止跨網站偽造要求攻擊。 在驗證要求出現之前，也會使用此狀態將應用程式中使用者狀態的相關資訊編碼。 例如，使用者所在的頁面，或正在執行的原則。 |
+| state |建議 |包含在要求中的值，可以是您想要使用的任何內容字串。 通常會使用隨機產生的唯一值，以防止跨網站偽造要求攻擊。 在驗證要求出現之前，也會使用此狀態將應用程式中使用者狀態的相關資訊編碼。 例如，使用者所在的頁面，或正在執行的原則。 |
 | p |必要 |執行的原則。 這是在您的 Azure AD B2C 目錄中建立的原則名稱。 原則名稱值的開頭應該為**b2c\_1\_**。 若要深入了解原則，請參閱 [Azure AD B2C 內建原則](active-directory-b2c-reference-policies.md)。 |
 | prompt |選用 |需要的使用者互動類型。 目前，唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 單一登入將沒有作用。 |
 

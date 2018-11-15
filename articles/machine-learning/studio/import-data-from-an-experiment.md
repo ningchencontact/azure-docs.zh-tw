@@ -4,7 +4,8 @@ description: 如何將訓練資料儲存在 Azure Machine Learning Studio 並將
 keywords: 匯入資料,資料,資料來源,定型資料
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 7da9dcec-5693-4bb6-8166-15904e7f75c3
@@ -15,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: bradsev
-ms.openlocfilehash: 8279b13270d4bba990e6670acd714be19118e98c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 922619f09ffc72a79c5ff6dac1bbc6807c38467c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834823"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344513"
 ---
 # <a name="import-your-data-into-azure-machine-learning-studio-from-another-experiment"></a>從另一個實驗匯入資料到 Azure Machine Learning Studio。
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 有時候您會想要從實驗取得中繼結果，並且用來做為其他實驗的一部分。 若要這樣做，您可以將模組另存為資料集：
 

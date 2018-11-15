@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957416"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614937"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
 Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉換的一部分，您最初在 Log Analytics 中設定的警示將會延伸至 Azure。 如果不想等警示自動移動到 Azure 中，您可以起始此程序：
@@ -479,5 +479,5 @@ $response = armclient post "/subscriptions/$subscriptionId/resourceGroups/$resou
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解新的 [Azure 警示體驗](monitoring-overview-unified-alerts.md)。
+* 深入了解新的 [Azure 警示體驗](monitoring-overview-alerts.md)。
 * 了解 [Azure 警示中的記錄警示](monitor-alerts-unified-log.md)。
