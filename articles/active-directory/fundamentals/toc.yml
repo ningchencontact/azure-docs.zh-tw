@@ -16,8 +16,6 @@ items:
     href: active-directory-groups-view-azure-portal.md
 - name: 概念
   items:
-  - name: Azure 身分識別管理
-    href: identity-fundamentals.md
   - name: 身分識別安全分數
     href: identity-secure-score.md
   - name: 群組和存取管理
@@ -46,6 +44,8 @@ items:
       href: customize-branding.md
     - name: 與 Azure 訂用帳戶建立關聯
       href: active-directory-how-subscriptions-associated-directory.md
+    - name: 新增您的隱私權資訊
+      href: active-directory-properties-area.md
   - name: 群組
     items:
     - name: 建立群組和新增成員
@@ -83,13 +83,11 @@ items:
     href: active-directory-faq.md
   - name: Azure Active Directory 部署方案
     href: active-directory-deployment-plans.md
-  - name: 管理 Azure AD Directory
-    href: active-directory-administer.md
-  - name: Azure 身分識別解決方案
-    href: understand-azure-identity-solutions.md
-ms.openlocfilehash: b31baf4a0472afd09343673e2cdf94dc29b4cb12
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+  - name: 封存 Azure AD 的新功能
+    href: whats-new-archive.md
+ms.openlocfilehash: ac750e329a530978979d3ca580ae1f1407d2fa78
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465549"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704404"

@@ -28,8 +28,8 @@
 ### [Web 基準評估](../security-center/security-center-customize-os-security-config.md)
 
 ## 使用解決方案
-### [管理解決方案](../monitoring/monitoring-solutions.md)
-### [目標解決方案](../monitoring/monitoring-solution-targeting.md)
+### [管理解決方案](../azure-monitor/insights/solutions.md)
+### [目標解決方案](../azure-monitor/insights/solution-targeting.md)
 ### 深入解析與分析
 #### [AD 評估](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD 複寫狀態](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [反惡意程式碼評估](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## 建立解決方案
-### [設計和建置](../monitoring/monitoring-solutions-creating.md)
-### [解決方案檔案](../monitoring/monitoring-solutions-solution-file.md)
-### [自動化資源](../monitoring/monitoring-solutions-resources-automation.md)
-### [記錄搜尋與警示](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [檢視](../monitoring/monitoring-solutions-resources-views.md)
-### [最佳做法](../monitoring/monitoring-solutions-best-practices.md)
+### [設計和建置](../azure-monitor/insights/solutions-creating.md)
+### [解決方案檔案](../azure-monitor/insights/solutions-solution-file.md)
+### [自動化資源](../azure-monitor/insights/solutions-resources-automation.md)
+### [記錄搜尋與警示](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [檢視](../azure-monitor/insights/solutions-resources-views.md)
+### [最佳做法](../azure-monitor/insights/solutions-best-practices.md)
 
 ## 管理案例
 ### [從 Runbook 收集分析資料](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

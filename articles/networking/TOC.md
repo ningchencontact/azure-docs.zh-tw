@@ -35,7 +35,7 @@
 # 作法
 ## 網際網路連線
 ### [網路負載平衡公用伺服器](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
-### [應用程式負載平衡公用伺服器](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
+### [應用程式負載平衡公用伺服器](../application-gateway/quick-create-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [保護 Web 應用程式](../application-gateway/application-gateway-web-application-firewall-portal.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [將流量分散到位置](../traffic-manager/traffic-manager-configure-geographic-routing-method.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ## 內部連線能力
