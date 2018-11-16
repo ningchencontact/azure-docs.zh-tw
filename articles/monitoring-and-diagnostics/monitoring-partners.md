@@ -5,28 +5,28 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/08/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb60afc21b7f8e21c4573e46165696c3461d3613
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955362"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963858"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
 | --- | --- | --- |
-| [**AlertLogic**<br/>![合作夥伴標誌][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![合作夥伴標誌][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![合作夥伴標誌][atlassian-logo]][atlassian-anchor] 
-| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![合作夥伴標誌][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![合作夥伴標誌][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix** <br/>![合作夥伴標誌][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![合作夥伴標誌][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![合作夥伴標誌][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/>![合作夥伴標誌][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![合作夥伴標誌][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![合作夥伴標誌][influxdata-logo]][influxdata-anchor]
-| [**Logic Monitor**<br/>![合作夥伴標誌][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![合作夥伴標誌][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![合作夥伴標誌][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![合作夥伴標誌][opsgenie-logo]][opsgenie-anchor] 
-| [**PagerDuty**<br/>![合作夥伴標誌][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![合作夥伴標誌][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![合作夥伴標誌][sciencelogic-logo]][sciencelogic-anchor] 
-| [**SignalFx**<br/>![合作夥伴標誌][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![合作夥伴標誌][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/>![合作夥伴標誌][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![合作夥伴標誌][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![合作夥伴標誌][turbonomic-logo]][turbonomic-anchor] 
-
+| [**AlertLogic**<br/>![合作夥伴標誌][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![合作夥伴標誌][appdynamics-logo]][appdynamics-anchor] | [**ArcSight**][arcsight-anchor] |
+| [**Atlassian**<br/>![合作夥伴標誌][atlassian-logo]][atlassian-anchor] | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![合作夥伴標誌][circonus-logo]][circonus-anchor] |
+| [**CloudHealth**<br/>![合作夥伴標誌][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/>![合作夥伴標誌][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![合作夥伴標誌][datadog-logo]][datadog-anchor] |
+| [**Dynatrace** <br/>![合作夥伴標誌][dynatrace-logo]][dynatrace-anchor] | [**Elastic**<br/>![合作夥伴標誌][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![合作夥伴標誌][grafana-logo]][grafana-anchor] |
+| [**Influxdata**<br/>![合作夥伴標誌][influxdata-logo]][influxdata-anchor] | [**Logic Monitor**<br/>![合作夥伴標誌][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![合作夥伴標誌][moogsoft-logo]][moogsoft-anchor] |
+| [**NewRelic**<br/>![合作夥伴標誌][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![合作夥伴標誌][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![合作夥伴標誌][pagerduty-logo]][pagerduty-anchor] |
+| [**QRadar**<br/>![合作夥伴標誌][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![合作夥伴標誌][sciencelogic-logo]][sciencelogic-anchor] | [**SignalFx**<br/>![合作夥伴標誌][signalfx-logo]<br/>][signalfx-anchor] |
+| [**SIGNL4**<br/>![合作夥伴標誌][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [**Splunk** <br/>![合作夥伴標誌][splunk-logo]][splunk-anchor] |
+| [**Sumo Logic**<br/>![合作夥伴標誌][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![合作夥伴標誌][turbonomic-logo]][turbonomic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄檔以進行安全分析和保留。 它也會透過 Azure 監視器 API 收集 Azure 活動記錄。 這項資訊用於偵測 malfeasance 及符合法務遵循需求。
@@ -37,6 +37,11 @@ Alert Logic Log Manager 會收集 VM、應用程式和 Azure 平台記錄檔以�
 AppDynamics 應用程式效能管理 (APM) 可讓應用程式擁有者快速針對效能瓶頸進行疑難排解，並將其在 Azure 環境中執行的應用程式效能進行最佳化。 它可以監視 Azure 雲端服務 (PaaS)、Web 和背景工作角色、虛擬機器 (IaaS)、遠端服務偵測 (Microsoft Azure 服務匯流排)、Microsoft Azure 佇列 Microsoft Azure 遠端服務 (Azure Blob)、Azure 佇列 (Microsoft 服務匯流排)、資料儲存體及 Microsoft Azure Blob 儲存體。 Azure Marketplace 現已提供 AppDynamics APM。
 
 [請移至文件。][appdynamics-doc]
+
+## <a name="microfocus-arcsight"></a>Microfocus ArcSight
+ArcSight 具有適用於「Azure 監視器」事件中樞的智慧型連接器。
+
+[深入了解。][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 您可以對 Azure 監視器警示建立 JIRA 票證。
@@ -62,11 +67,6 @@ CloudMonix 提供 Microsoft Azure 平台的監視、自動化和自我修復服�
 
 [請移至文件。][cloudmonix-doc]
 
-## <a name="cloudyn"></a>Cloudyn
-Cloudyn 管理並最佳化 Multi-Platform、Hybrid Cloud Deployment 以協助企業完全了解它們的雲端潛力。 SaaS 解決方案提供使用方式、效能及成本的可見度。 它為智慧最佳化和雲端控管提供深入解析和可採取動作的建議。 Cloudyn 可透過精確的退款和階層式成本配置管理來提供權責。 Cloudyn 與 Azure 監視進行整合，以提供深入解析和可採取動作的建議，將您的 Azure 部署進行最佳化。
-
-[請移至文件。][cloudyn-doc]
-
 ## <a name="datadog"></a>Datadog
 Datadog 是世界領先的雲端規模應用程式監視服務。 它結合來自伺服器、資料庫、工具和服務的資料，呈現整個堆疊的整合檢視。 SaaS 型資料分析平台上提供這些功能。 此服務可讓開發和作業團隊協同運作，以避免停機時間、解決效能問題，並確保開發及部署週期能準時完成。 藉由整合 Datadog 和 Azure，您可以收集並檢視整個基礎結構的計量。 讓 VM 計量與應用程式層級計量相互關聯。 使用屬性和自訂標記的任意組合，細分您的計量。
 
@@ -77,6 +77,11 @@ Dynatrace OneAgent 會透過 Azure 延伸模組機制來與 Azure VM 和應用�
 
 [請移至文件。][dynatrace-doc]
 
+## <a name="elastic"></a>Elastic
+Elastic 是一家搜尋公司。 身為 Elastic 堆疊 (Elasticsearch、Kibana、Beats 及 Logstash) 的建立者，Elastic 建置了自我管理和 SaaS 供應項目，讓資料可供以即時且大規模的方式用於搜尋、記錄、安全性及分析使用案例。
+
+[請移至文件。][elastic-doc]
+
 ## <a name="grafana"></a>Grafana
 Grafana 是開放原始碼應用程式，可讓您以視覺化方式檢視時間序列計量資料。
 
@@ -85,7 +90,7 @@ Grafana 是開放原始碼應用程式，可讓您以視覺化方式檢視時間
 ## <a name="influxdata"></a>InfluxData
 InfluxData (InfluxDB 建立者) 提供從頭建立的新式開放原始碼平台，可用來分析 DevOps 與 IoT 應用程式的計量與事件 (時間序列資料)。 不論資料來自人類、感應器或機器，InfluxData 都能讓開發人員更快速、輕鬆地建置下一代監視、分析及 IoT 應用程式，並能更快速提供真正商業價值。 總部在舊金山的 InfluxData，其客戶超過 420 個，包括 Cisco、eBay、IBM 與 Siemens。
 
-[移至文件。][influxdata-doc]
+[請移至文件。][influxdata-doc]
 
 
 ## <a name="logic-monitor"></a>Logic Monitor
@@ -159,7 +164,7 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解 Azure 監視器](monitoring-overview.md)
+* [深入了解 Azure 監視器](../azure-monitor/overview.md)
 * [使用 REST API 存取計量](monitoring-rest-api-walkthrough.md)
 * [將活動記錄串流至非 Microsoft 服務](monitoring-stream-activity-logs-event-hubs.md)
 * [將診斷記錄串流至非 Microsoft 服務](monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -167,14 +172,15 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
+[arcsight-anchor]: #microfocus-arcsight "ArcSight"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
 [botmetric-anchor]: #botmetric "Botmetric"
 [circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
-[cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[elastic-anchor]: #elastic "Elastic"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [influxdata-anchor]: #Influxdata "Influxdata"
@@ -198,9 +204,9 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 [circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
-[cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[elastic-logo]: ./media/partner-logos/elastic.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
 [influxdata-logo]: ./media/partner-logos/influxdata.png
@@ -219,14 +225,15 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文件。"
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 文件。"
+[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 文件。"
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 簡介。"
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix 簡介。"
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn 簡介。"
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog 文件。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文件。"
+[elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 文件。"
 [grafana-doc]: ./monitor-send-to-grafana.md "Azure 監視器 Grafana 整合。"
 [influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Azure 監視器 Influxdata Telegraf 整合。"
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 文件。"

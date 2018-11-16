@@ -4,29 +4,29 @@ description: 使用 Visual Studio Code 來開發及建置適用於 Azure IoT Edg
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4393d3231ca4f0a813d4586161383bd6d61f6a49
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 0dfe096bb3a2a2116ead2423f53a5e44c8f02630
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552223"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567514"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-python-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Python 模組，以及對其進行偵錯
 
 您可以將商務邏輯轉換成 Azure IoT Edge 的模組。 此文章說明如何使用 Visual Studio Code (VS Code) 作為主要工具來開發 Python 模組，以及對其進行偵錯。
 
-## <a name="prerequisites"></a>先決條件
-此文章假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 且您會使用 IoT Edge 安全性精靈，在開發電腦上模擬 IoT Edge 裝置。
+## <a name="prerequisites"></a>必要條件
+本文假設您使用執行 Windows 或 Linux 的電腦或虛擬機器作為開發電腦。 且您會使用 IoT Edge 安全性精靈，在開發電腦上模擬 IoT Edge 裝置。
 
 > [!NOTE]
 > 本偵錯文章示範如何在模組容器中附加一個流程，並使用 VS Code 進行偵錯。 您只能在 Linux amd64 容器中對 Python 模組進行偵錯。 如果您不熟悉 Visual Studio Code 的偵錯功能，請參閱[偵錯](https://code.visualstudio.com/Docs/editor/debugging)。 
 
-因為此文章使用 Visual Studio Code 作為主要開發工具，所以請安裝 VS Code。 然後新增必要的擴充功能：
+因為本文使用 Visual Studio Code 作為主要開發工具，所以請安裝 VS Code。 然後新增必要的擴充功能：
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
 * [Docker 擴充功能](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
@@ -66,7 +66,7 @@ ms.locfileid: "45552223"
 
 7. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
 
-8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊來取代它。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 
+8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 
 
    ![提供 Docker 映像存放庫](./media/how-to-develop-c-module/repository.png)
 

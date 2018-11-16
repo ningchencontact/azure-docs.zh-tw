@@ -1,6 +1,6 @@
 ---
-title: 諮詢服務 |Microsoft Docs
-description: 定義和發佈諮詢服務供應項目的指南。
+title: Azure 與 Dynamcis 365 諮詢服務供應項目 | Microsoft Docs
+description: 在「Cloud Partner 入口網站」中定義和發佈 Azure 或 Dynamcis 365 諮詢服務供應項目的指南。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806367"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037751"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>定義和發佈諮詢服務供應項目
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 與 Dynamcis 365 諮詢服務供應項目
 
-本指南協助您在 Cloud Partner 入口網站中定義和發佈諮詢服務供應項目。
+<table> <tr> <td>本節說明如何將諮詢服務發佈到 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 或 <a href="https://appsource.microsoft.com">AppSource Marketplace</a>。 以 Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>、<a href="https://products.office.com">Office 365</a>、<a href="https://powerbi.microsoft.com">Power BI</a> 及 <a href="https://powerapps.microsoft.com">PowerApps</a> 為基礎的解決方案有資格在 AppSource 上列出。 以其他 Microsoft <a href="https://azure.microsoft.com/services">Azure 服務</a>為基礎的其他供應項目則有資格在 Azure Marketplace 上列出。 </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>發佈的優點
+
+發佈到任一 Microsoft 市集具有相當多的優點：
+
+- 利用 Microsoft 品牌來推廣您的公司。
+- 透過 AppSource 潛在地接觸超過 1 億個 Office 365 和 Dynamics 365 使用者；透過 Azure Marketplace 接觸超過 20 萬個組織。
+- 從這些市集取得高品質潛在客戶。
+- 讓 Microsoft 現場和電話銷售團隊推廣您的服務。
+
 
 <a name="define-your-consulting-services-offer"></a>定義您的諮詢服務供應項目
 -------------------------------------
@@ -52,43 +62,36 @@ ms.locfileid: "48806367"
 
 ### <a name="define-offer-settings"></a>定義供應項目設定
 
-在 [新增供應項目] 畫面上，第一步是建立供應項目身分識別。
-供應項目身分識別由三個部分所組成：
-
-1.  供應項目識別碼
-2.  發行者識別碼
-3.  名稱
-
-下列各節中涵蓋每個這些部分。
+在 [新增供應項目] 畫面上，第一步是建立供應項目身分識別。  供應項目身分識別由三個部分組成：**供應項目識別碼**、**發行者識別碼**及**名稱**。  下列各節中涵蓋每個這些部分。
 
 #### <a name="offer-id"></a>供應項目識別碼
 
-這是您第一次提交供應項目時，所建立的唯一名稱。 它只能包含小寫英數字元、連字號或底線。 識別碼會顯示在 URL 中，並影響搜尋引擎結果。 例如，*yourcompanyname\_exampleservice*
+這個識別碼是您第一次提交供應項目時，所建立的唯一名稱。 它只能包含小寫英數字元、連字號或底線。 供應項目識別碼會顯示在 URL 中，並影響搜尋引擎結果。 例如，*yourcompanyname\_exampleservice*
 
-如範例中所示，供應項目識別碼會附加至您的發行者識別碼，以建立唯一識別碼。 這會公開為永久連結，且可由搜尋引擎預定和編製索引。
+如範例中所示，供應項目識別碼會附加至您的發行者識別碼，以建立唯一識別碼。 這會公開為永久連結，且可由搜尋引擎預定和編製索引。 
 
-**供應項目上線之後可以更新它**
+*供應項目上架之後，即無法更新其識別碼*
 
 #### <a name="publisher-id"></a>發行者識別碼
 
-這與您的帳戶相關聯。 當您登入您的組織帳戶時，您的發行者識別碼會顯示在下拉式功能表中。
+此識別碼與您的帳戶相關。 當您登入您的組織帳戶時，您的發行者識別碼會顯示在下拉式功能表中。
 
 #### <a name="name"></a>名稱
 
-這是在 AppSource 或 Azure Marketplace 上顯示為供應項目名稱的部分。
+此字串是將在 AppSource 或 Azure Marketplace 上顯示為供應項目名稱的字串。
 
 **重要事項：** 只輸入實際的服務名稱。 請勿包含持續時間和服務類型。
 
-Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式。 供應項目名稱會顯示如下：
+Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式。 供應項目名稱會顯示為：
 
 ![建立新的諮詢服務供應項目](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 供應項目名稱由四個部分組成：
 
--   **持續時間：** 您會在編輯器的 [電子店面詳細資料] 索引標籤中定義此項目。 持續時間可以用小時、天或週來表示。
--   **服務類型：** 您會在編輯器的 [電子店面詳細資料] 索引標籤中定義此項目。 服務類型為 [評定]、[簡報]、[實作]、[概念證明] 和 [工作坊]。
+-   **持續時間：** 在編輯器的 [電子店面詳細資料] 索引標籤中定義。 持續時間可以用小時、天或週來表示。
+-   **服務類型：** 在編輯器的 [電子店面詳細資料] 索引標籤中定義。 服務類型為 `Assessment`、`Briefing`、`Implementation`、`Proof of concept` 及 `Workshop`。
 -   **前置詞：** 由檢閱者插入
--   **名稱：** 這是您在 [供應項目設定] 頁面中所定義的名稱。
+-   **名稱：** 在 [供應項目設定] 頁面中定義。
 
 下列清單提供數個妥善命名的供應項目名稱：
 
@@ -124,7 +127,7 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 ##### <a name="offer-summary"></a>供應項目摘要
 
-[供應項目摘要] 是顯示在供應項目名稱底下的供應項目簡短描述。 您應該使用純文字輸入供應項目摘要，且不可包含分行符號。 下列是供應項目摘要及其對應之供應項目名稱的良好範例：
+[供應項目摘要] 是顯示在供應項目名稱底下的供應項目簡短描述。 輸入供應項目摘要時，請使用純文字，且不應包含分行符號。 下列是供應項目摘要及其對應之供應項目名稱的良好範例：
 
 *範例 1*
 
@@ -153,7 +156,7 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 ##### <a name="offer-description"></a>供應項目描述
 
-這是諮詢服務供應項目的描述。 良好的供應項目描述會涵蓋參與活動的確切詳細資料，包括其活動情況和客戶最後可獲得的資訊。 它應該清楚地協助客戶了解他們能獲得的項目。
+「諮詢服務」供應項目的描述。 良好的供應項目描述會涵蓋參與活動的確切詳細資料，包括其活動情況和客戶最後可獲得的資訊。 它應該清楚地協助客戶了解他們能獲得的項目。
 
 請勿在您的 [供應項目描述] 中包含連絡您的電子郵件連結或電話號碼。 您的供應項目將會包含 [與我連絡] 按鈕，它會將潛在客戶上傳到您可以在供應項目上識別出的潛在客戶管理目標。
 
@@ -161,7 +164,7 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 使用這些格式可確保您的供應項目對於客戶有最大的可讀性。
 
-保持您的 [供應項目描述] 簡短，且遵守字元限制，因為使用者不喜歡閱讀大量文字。 您仍然可以選擇上傳詳細描述您供應項目的行銷摺頁冊、資料表和其他文件。
+請讓供應項目描述保持簡短且符合字元數限制，因為使用者並不喜歡閱讀冗長的文字。 您仍然可以選擇上傳詳細描述您供應項目的行銷摺頁冊、資料表和其他文件。
 
 下列範例示範撰寫良好的 [供應項目描述]，以及其相關名稱和摘要：
 
@@ -223,7 +226,7 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 **MPN 識別碼**
 
 輸入祕密金鑰，以在上線之前先在 AppSource 上預覽您的供應項目。
-這不是密碼。
+此識別碼不是密碼。
 
 #### <a name="listing-details"></a>清單詳細資料
 
@@ -287,4 +290,4 @@ Microsoft 是著重在固定的範圍、固定的期間、估計或固定的價�
 
 您完成 [供應項目設定]、[電子店面詳細資料] 和 [連絡人] 之後，請選取 [發佈]，並提供電子郵件地址。 當 Microsoft 準備發佈您的供應項目時，您會收到一封電子郵件，讓您在上線之前先預覽。 您隨時可以返回入口網站來檢查供應項目的狀態。
 
-在發佈程序期間，供應項目可能會顯示為 [發行已取消] 或 [發佈失敗] 狀態。 這是程序的正常部分，並可讓 Microsoft 對您的供應項目進行編輯。 如果您看到供應項目處於 [發行已取消] 狀態，請讓它保持該狀態。
+在發佈程序期間，供應項目可能會顯示為 [發行已取消] 或 [發佈失敗] 狀態。 此狀態是程序的正常部分，並可讓 Microsoft 對您的供應項目進行編輯。 如果您看到供應項目處於 [發行已取消] 狀態，請讓它保持該狀態。

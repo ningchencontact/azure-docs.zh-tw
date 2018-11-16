@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717670"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016041"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -24,8 +24,8 @@ ms.locfileid: "44717670"
 每個動作是由下列屬性所組成：
 
 * **名稱**：動作群組內的唯一識別碼。  
-* **動作類型**：傳送語音通話或簡訊、傳送電子郵件、呼叫 Webhook、將資料傳送至 ITSM 工具、呼叫 Logic App、將推播通知傳送至 Azure 應用程式，或執行自動化 Runbook。
-* **詳細資料**：對應的電話號碼、電子郵件地址、Webhook URI 或 ITSM 連線詳細資料。
+* **動作類型**：要執行的動作。 範例包括傳送語音電話、SMS、電子郵件或觸發各種類型的自動化動作。 請參閱本文稍後的類型。 
+* **詳細資料**：對應的詳細資料，會依「動作類型」而有所不同。 
 
 如需如何使用 Azure Resource Manager 範本設定動作群組的資訊，請參閱[動作群組 Resource Manager 範本](monitoring-create-action-group-with-resource-manager-template.md)。
 
@@ -57,64 +57,45 @@ ms.locfileid: "44717670"
 
 1. 選取 [確定] 來建立動作群組。
 
-## <a name="action-specific-information"></a>動作特定資訊
-<dl>
-<dt>Azure 應用程式推送</dt>
-<dd>您在動作群組中最多可擁有 10 個 Azure 應用程式動作。</dd>
-<dd>Azure 應用程式動作目前只支援 ServiceHealth 警示。 將會忽略所有其他的警示時間。 請參閱[設定每當服務健康狀態通知公佈時的警示](monitoring-activity-log-alerts-on-service-notifications.md)。</dd>
-
-<dt>電子郵件</dt>
-<dd>下列電子郵件地址將寄出電子郵件。 請確定已適當設定您的電子郵件篩選
-<ul>
-    <li>azure-noreply@microsoft.com</li>
-    <li>azureemail-noreply@microsoft.com</li>
-    <li>alerts-noreply@mail.windowsazure.com</li>
-</ul>
-</dd>
-<dd>您在動作群組中最多可擁有 1000 個電子郵件動作</dd>
-<dd>請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文</dd>
-
-<dt>ITSM</dt>
-<dd>您在動作群組中最多可擁有 10 個 ITSM 動作</dd>
-<dd>ITSM 動作需要 ITSM 連線。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。</dd>
-
-<dt>邏輯應用程式</dt>
-<dd>您在動作群組中最多可擁有 10 個邏輯應用程式動作</dd>
-
-<dt>Runbook</dt>
-<dd>您在動作群組中最多可擁有 10 個 Runbook 動作</dd>
-<dd>請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)，了解 Runbook 承載的限制</dd>
-
-<dt>簡訊</dt>
-<dd>您在動作群組中最多可擁有 10 個簡訊動作</dd>
-<dd>請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文</dd>
-<dd>請參閱[簡訊警示行為](monitoring-sms-alert-behavior.md)一文</dd>
-
-<dt>語音</dt>
-<dd>您在動作群組中最多可擁有 10 個語音動作</dd>
-<dd>請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文</dd>
-
-<dt>Webhook</dt>
-<dd>您在動作群組中最多可擁有 10 個 Webhook 動作
-<dd>重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼或 HTTP 端點未回應時，最多會重試 2 次 Webhook 呼叫：408、429、503、504。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。</dd>
-<dd>來源 IP 位址範圍
-<ul>
-    <li>13.106.57.181</li>
-    <li>13.106.54.3</li>
-    <li>13.106.54.19</li>
-    <li>13.106.38.142</li>
-    <li>13.106.38.148</li>
-    <li>13.106.57.196</li>
-</ul>
-若要接收與這些 IP 位址的變更有關的更新，建議您設定[服務健康狀態警示](./monitoring-service-notifications.md)，這會監視動作群組服務的資訊通知。
-</dd>
-</dl>
-
 ## <a name="manage-your-action-groups"></a>管理您的動作群組 ##
 建立動作群組之後，將會在 [監視] 刀鋒視窗的 [動作群組] 區段中顯示。 選取您要管理的動作群組：
 
 * 新增、編輯或移除動作。
 * 刪除動作群組。
+
+## <a name="action-specific-information"></a>動作特定資訊
+**Azure 應用程式推送** - 一個「動作群組」中最多可以有 10 個 Azure 應用程式動作。 Azure 應用程式動作目前只支援 ServiceHealth 警示。 將會忽略所有其他的警示時間。 請參閱[設定每當服務健康狀態通知公佈時的警示](monitoring-activity-log-alerts-on-service-notifications.md)。
+
+**電子郵件** - 將會從下列電子郵件地址傳送電子郵件。 請確定已適當設定您的電子郵件篩選
+   - azure-noreply@microsoft.com
+   - azureemail-noreply@microsoft.com
+   - alerts-noreply@mail.windowsazure.com
+
+一個「動作群組」中最多可以有 1000 個電子郵件動作。 請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文
+
+**ITSM** - 一個「動作群組」中最多可以有 10 個 ITSM 動作。「ITSM 動作」需要「ITSM 連線」。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。
+
+**邏輯應用程式** - 一個「動作群組」中最多可以有 10 個「邏輯應用程式」動作
+
+**Runbook** - 一個「動作群組」中最多可以有 10 個 Runbook 動作。如需了解 Runbook 承載的限制，請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)
+
+**SMS** - 一個「動作群組」中最多可以有 10 個 SMS 動作。請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文，以及參閱 [SMS 警示行為](monitoring-sms-alert-behavior.md)一文
+
+**語音** - 一個「動作群組」中最多可以有 10 個「語音」動作</dd>
+請參閱[速率限制資訊](./monitoring-alerts-rate-limiting.md)一文</dd>
+
+**Webhook** - 一個「動作群組」中最多可以有 10 個 Webhook 動作。 重試邏輯：回應的逾時期限為 10 秒。 傳回下列 HTTP 狀態碼或 HTTP 端點未回應時，最多會重試 2 次 Webhook 呼叫：408、429、503、504。 第一次重試會在 10 秒後執行。 第二次和最後一次重試會在 100 秒後執行。
+
+來源 IP 位址範圍
+    - 13.106.57.181
+    - 13.106.54.3
+    - 13.106.54.19
+    - 13.106.38.142
+    - 13.106.38.148
+    - 13.106.57.196
+
+若要接收與這些 IP 位址的變更有關的更新，建議您設定[服務健康狀態警示](./monitoring-service-notifications.md)，這會監視動作群組服務的資訊通知。
+
 
 ## <a name="next-steps"></a>後續步驟 ##
 * 進一步了解 [SMS 警示行為](monitoring-sms-alert-behavior.md)。  

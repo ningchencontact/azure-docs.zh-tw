@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 11/06/2018
-ms.openlocfilehash: 5d72d883b8d28e1ca71ea9c69488da5e1659e407
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.date: 11/12/2018
+ms.openlocfilehash: e5c7d51428c66bf9e6c245f28fb13b8d4a316d18
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219676"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614663"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Azure 磁碟加密的附錄 
 本文是[IaaS VM 適用的 Azure 磁碟加密](azure-security-disk-encryption-overview.md)附錄。 請務必先閱讀 IaaS VM 適用的 Azure 磁碟加密文章，以了解內容。 本文說明如何準備預先加密的 VHD 和其他工作。
@@ -553,7 +553,7 @@ to
 ```powershell
 # Change the VM Name, key vault name, and specify the path to the BEK file.
 $VMName ="MySecureVM"
-$BEKFilepath = "C:\test\BEK\E60CF855-1B47-4AE5-A70C-4FE6E8386AAA.BEK"
+$BEKFilepath = "C:\test\BEK\12345678-90AB-CDEF-A1B2-C3D4E5F67890A.BEK"
 $VeyVaultName ="MySecureVault"
 
 # Get the name of the BEK file from the BEK file path. This will be a tag for the key vault secret.

@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264710"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010638"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>為什麼無法存取 Azure 入口網站中的 Azure AD B2C 擴充功能？
-Azure AD 擴充功能無法運作有兩個常見原因。  Azure AD B2C 要求您在目錄中的使用者角色是全域管理員。  如果您認為自己具有存取權，請連絡您的管理員。  如果您有全域管理員權限，請確定您是在 Azure AD B2C 目錄中，而非 Azure Active Directory 目錄。  可至此查看[教學課程：建立 Azure Active Directory B2C 租用戶](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant)。
+Azure AD 擴充功能無法運作有兩個常見原因。  Azure AD B2C 要求您在目錄中的使用者角色是全域管理員。  如果您認為自己具有存取權，請連絡您的管理員。  如果您有全域管理員權限，請確定您是在 Azure AD B2C 目錄中，而非 Azure Active Directory 目錄。  可至此查看[建立 Azure AD B2C 租用戶](tutorial-create-tenant.md)的指示。
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>我可以在以員工為主的現有 Azure AD 租用戶中使用 Azure AD B2C 功能嗎？
 Azure AD 和 Azure AD B2C 為個別的產品供應項目，無法共存於同一個租用戶。  一個 Azure AD 租用戶代表一個組織。  一個 Azure AD B2C 租用戶代表一組要用於信賴憑證者應用程式的身分識別。  透過自訂原則 (處於公開預覽狀態)，Azure AD B2C 可以與 Azure AD 結成同盟，所以能夠驗證組織中的員工。
@@ -39,12 +39,12 @@ Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD �
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>你們現在支援哪些社交身分識別提供者？ 你們打算在未來支援哪些？
 我們目前支援 Facebook、Google+、LinkedIn、Amazon、Twitter (預覽)、WeChat (預覽)、Weibo (預覽) 和 QQ (預覽)。 根據客戶需求，我們將會增加支援其他熱門的社交身分識別提供者。
 
-Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)的支援。  這些[自訂原則](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
+Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)的支援。  這些[自訂原則](active-directory-b2c-overview-custom.md)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
 
 查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
 
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>我可以設定範圍，以便從各種社交身分識別提供者收集取用者的詳細資訊嗎？
-否，但這項功能已在我們的規劃中。 我們支援的一組社交身分識別提供者所使用的預設範圍如下：
+否。 我們支援的一組社交身分識別提供者所使用的預設範圍如下：
 
 * Facebook: email
 * Google+: email
@@ -56,7 +56,7 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-
 否，您可以將應用程式裝載於任何地方 (雲端或內部部署)。 只要能夠在公開存取的端點上傳送和接收 HTTP 要求，就可以與 Azure AD B2C 互動。
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>我有多個 Azure AD B2C 租用戶。 如何在 Azure 入口網站上管理它們？
-在 Azure 入口網站的左側功能表中開啟 'Azure AD B2C' 之前，您必須切換到需要管理的目錄。  在 Azure 入口網站右上角按一下您的身分識別來切換目錄，然後選擇出現在下拉式清單中的目錄。  如需逐步映像，請參閱[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
+在 Azure 入口網站的左側功能表中開啟 'Azure AD B2C' 之前，您必須切換到需要管理的目錄。  在 Azure 入口網站右上角按一下您的身分識別來切換目錄，然後選擇出現在下拉式清單中的目錄。
 
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>我如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和 [寄件者:] 欄位)？
 您可以使用 [公司商標功能](../active-directory/fundamentals/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
@@ -74,13 +74,13 @@ Azure AD B2C 也新增了[自訂原則](https://docs.microsoft.com/azure/active-
 1. 變更 [名稱] 欄位。
 1. 按一下頁面頂端的 [儲存]。
 
-目前無法變更電子郵件中的 [從:] 欄位。 請在 [feedback.azure.com](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/15334335-fully-customizable-verification-emails) 上投票，表示您有興趣自訂驗證電子郵件的本文。
+目前無法變更電子郵件中的 [從:] 欄位。
 
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>我如何將現有的使用者名稱、密碼和設定檔從資料庫移轉至 Azure AD B2C？
 您可以使用 Azure AD 圖形 API 來撰寫您的移轉工具。 如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。
 
 ### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C 中用於本機帳戶的密碼原則為何？
-Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Azure AD B2C 的註冊、註冊或登入和密碼重設原則會使用「強式」密碼強度，而且不會讓任何密碼到期。 如需更詳細的資料，請閱讀 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx) 。
+Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Azure AD B2C 的註冊、註冊或登入和密碼重設原則會使用「強式」密碼強度，而且不會讓任何密碼到期。 如需更詳細的資料，請閱讀 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx) 。 如需帳戶鎖定和密碼相關資訊，請參閱[管理對 Azure Active Directory B2C 中的資源與資料的威脅](active-directory-b2c-reference-threat-management.md)。
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>我可以使用 Azure AD Connect，將儲存於內部部署 Active Directory 的取用者身分識別移轉至 Azure AD B2C 嗎？
 否，Azure AD Connect 不是設計來搭配 Azure AD B2C 一起使用。 請考慮使用[圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 來移轉使用者。  如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。
@@ -113,8 +113,7 @@ Azure AD B2C 不適用於 SharePoint 外部夥伴共用的情節。請改以參�
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何刪除 Azure AD B2C 租用戶？
 請遵循下列步驟來刪除 Azure AD B2C 租用戶︰
 
-1. 遵循下列步驟，以在 Azure 入口網站上[瀏覽至 Azure AD B2C 設定](active-directory-b2c-app-registration.md#navigate-to-b2c-settings)。
-1. 瀏覽至 [應用程式]、[識別提供者] 和 [所有原則]，並刪除其中所有的輸入。
+1. 刪除您 Azure AD B2C 租用戶中的所有原則。
 1. 現在以訂用帳戶管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。 (使用您註冊 Azure 時所用的相同公司或學校帳戶，或相同的 Microsoft 帳戶。)
 1. 切換至您想要刪除的 Azure AD B2C 租用戶。
 2. 巡覽至左側的 [Active Directory] 功能表。

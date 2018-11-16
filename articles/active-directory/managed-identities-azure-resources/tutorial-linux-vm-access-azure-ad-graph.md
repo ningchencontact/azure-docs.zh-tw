@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237478"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623089"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Linux VM 系統指派的受控識別來存取 Azure AD Graph API
 
@@ -37,15 +37,7 @@ ms.locfileid: "48237478"
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [登入 Azure 入口網站](https://portal.azure.com)
-
-- [建立 Linux 虛擬機器](/azure/virtual-machines/linux/quick-create-portal)
-
-- [在虛擬機器上啟用系統指派的受控識別](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - [安裝最新版的 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 

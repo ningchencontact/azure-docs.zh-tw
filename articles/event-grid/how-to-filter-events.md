@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8bf7ac9daf928c35a3d6efcac528d3372fa87c8a
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: fd0b2bda91ecb9b717f4cfe366c45bc95b21fd8e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50252040"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277550"
 ---
 # <a name="filter-events-for-event-grid"></a>針對事件格線篩選事件
 
@@ -181,30 +181,17 @@ az eventgrid event-subscription create \
 
 ## <a name="filter-by-operators-and-data"></a>依運算子和資料進行篩選
 
-若要使用進階篩選，您必須安裝適用於 Azure CLI 的預覽擴充功能。 您可以使用 [CloudShell](/azure/cloud-shell/quickstart) 或於本機安裝 Azure CLI。
+若要以更有彈性的方式進行篩選，您可以使用運算子和資料屬性來篩選事件。
 
-### <a name="install-extension"></a>安裝擴充功能
-
-在 CloudShell 中：
-
-* 如果您先前已安裝過該擴充功能，請更新它 `az extension update -n eventgrid`
-* 如果您先前尚未安裝過該擴充功能，請安裝它 `az extension add -n eventgrid`
-
-針對本機安裝：
-
-1. 在本機將 Azure CLI 解除安裝。
-1. 安裝[最新版](/cli/azure/install-azure-cli)的 Azure CLI。
-1. 啟動命令視窗。
-1. 將舊版的擴充功能解除安裝 `az extension remove -n eventgrid`
-1. 安裝擴充功能 `az extension add -n eventgrid`
-
-您已經準備好使用進階篩選了。
+[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ### <a name="subscribe-with-advanced-filters"></a>搭配進階篩選進行訂閱
 
 若要了解可用來進行進階篩選的運算子和索引鍵，請參閱[進階篩選](event-filtering.md#advanced-filtering)。
 
-下列範例會建立自訂主題。 它會訂閱自訂主題，並依資料物件中的值來進行篩選。 系統會將色彩屬性設為藍色、紅色或綠色的事件傳送到訂閱。
+這些範例會建立自訂主題。 它們會訂閱自訂主題，並依資料物件中的值進行篩選。 系統會將色彩屬性設為藍色、紅色或綠色的事件傳送到訂閱。
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
 topicName=<your-topic-name>
@@ -220,14 +207,38 @@ az eventgrid event-subscription create \
   -n demoAdvancedSub \
   --advanced-filter data.color stringin blue red green \
   --endpoint $endpointURL \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-請留意到已針對訂閱設定到期日。 事件訂閱會在該日期之後自動過期。 請針對僅在有限時間內所需的事件訂閱設定到期日。
+請留意到已針對訂閱設定[到期日](concepts.md#event-subscription-expiration)。
+
+對於 PowerShell，請使用：
+
+```azurepowershell-interactive
+$topicName = <your-topic-name>
+$endpointURL = <endpoint-URL>
+
+New-AzureRmResourceGroup -Name gridResourceGroup -Location eastus2
+New-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Name $topicName
+
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
+
+$expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
+$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint $endpointURL `
+  -ExpirationDate $expDate `
+  -AdvancedFilter @($AdvFilter1)
+```
 
 ### <a name="test-filter"></a>測試篩選
 
-若要測試篩選，請以將色彩欄位設為綠色的方式傳送事件。
+若要測試篩選，請以將色彩欄位設為綠色的方式傳送事件。 因為綠色是篩選的其中一個值，所以會將事件傳遞到端點。
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
 topicEndpoint=$(az eventgrid topic show --name $topicName -g gridResourceGroup --query "endpoint" --output tsv)
@@ -238,17 +249,60 @@ event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
 
-該事件會被傳送至您的端點。
+對於 PowerShell，請使用：
 
-若要測試事件未傳送的案例，請以將色彩欄位設為黃色的方式傳送該事件。
+```azurepowershell-interactive
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
+
+$eventID = Get-Random 99999
+$eventDate = Get-Date -Format s
+
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="green"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
+
+若要測試事件未傳送的案例，請以將色彩欄位設為黃色的方式傳送該事件。 由於訂閱中並沒有指定黃色的值，因此系統並不會將該事件傳送至您的訂用帳戶。
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
 event='[ {"id": "'"$RANDOM"'", "eventType": "recordInserted", "subject": "myapp/vehicles/cars", "eventTime": "'`date +%Y-%m-%dT%H:%M:%S%z`'", "data":{ "model": "SUV", "color": "yellow"},"dataVersion": "1.0"} ]'
 
 curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 ```
+對於 PowerShell，請使用：
 
-由於訂閱中並沒有指定黃色的值，因此系統並不會將該事件傳送至您的訂用帳戶。
+```azurepowershell-interactive
+$htbody = @{
+    id= $eventID
+    eventType="recordInserted"
+    subject="myapp/vehicles/cars"
+    eventTime= $eventDate
+    data= @{
+        model="SUV"
+        color="yellow"
+    }
+    dataVersion="1.0"
+}
+
+$body = "["+(ConvertTo-Json $htbody)+"]"
+
+Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
+```
 
 ## <a name="next-steps"></a>後續步驟
 

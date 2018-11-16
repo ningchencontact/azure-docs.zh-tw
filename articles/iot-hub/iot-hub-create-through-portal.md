@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 8f08141f5c14a734f89ba91045767e2a36a44fd2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 21758d112cd7eaf45b8b279cf2a6f6060c44c9c1
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46985600"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515840"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>使用 Azure 入口網站建立 IoT 中樞
 
@@ -24,45 +24,7 @@ ms.locfileid: "46985600"
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-
-2. 選擇 [+建立資源]，然後選擇 [物聯網]。
-
-3. 按一下右側清單中的 [IoT 中樞]。 您會看到用於建立 IoT 中樞的第一個畫面。
-
-   ![顯示在 Azure 入口網站中建立中樞的螢幕擷取畫面](./media/iot-hub-create-through-portal/iot-hub-create-screen-basics.png)
-
-   填寫欄位。
-
-   **訂用帳戶**：選取要為您的 IoT 中樞使用的訂用帳戶。
-
-   **資源群組**：您可以建立新的資源群組或使用現有的資源群組。 若要建立新的資源群組，請按一下 [新建] 並填入您要使用的名稱。 若要使用現有的資源群組，請按一下 [使用現有的] 並從下拉式清單中選取資源群組。
-
-   **區域**：從下拉式清單中選取您要放置中樞的區域。
-
-   **IoT 中樞名稱**：輸入 IoT 中樞的名稱。 此名稱必須是全域唯一的。 
-
-   [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
-
-4. 按一下 [下一步: 大小與級別] 移至下一個畫面。
-
-   ![顯示使用 Azure 入口網站之新 IoT 中樞的設定大小與級別的螢幕擷取畫面](./media/iot-hub-create-through-portal/iot-hub-create-screen-size-scale.png)
-
-   在此畫面上，您可以接受預設值，只需按一下底部的 [檢閱 + 建立] 即可。 或者您可以根據需要填寫欄位。
-
-   **定價與級別層**：您可以依據所需的功能多寡，以及每天透過解決方案傳送的訊息多寡，從數個層級中選擇。 免費層適用於測試和評估。 它可允許 500 個裝置連接到 IoT 中樞，每天最多可允許 8,000 則訊息。 每個 Azure 訂用帳戶可以在免費層建立一個「IoT 中樞」。 
-
-   **IoT 中樞單位**：每天每單位允許的訊息數目取決於您中樞的定價層。 例如，如果您想要 IoT 中樞支援 700,000 封訊息的輸入，您可以選擇 2 個 S1 層單位。
-
-   如需有關其他層級選項的詳細資料，請參閱[選擇適合的 IoT 中樞層](iot-hub-scaling.md)。
-
-   **進階 / 裝置到雲端的分割區**：此屬性就是裝置到雲端的訊息數對同時閱讀這些訊息的讀者數比例。 大部分的 IoT 中樞只需要四個分割區。 
-
-5. 按一下 [檢閱 + 建立] 以檢閱您的選擇。 您會看到類似這個畫面的內容。
-
-   ![檢閱有關建立新 IoT 中樞之資訊的螢幕擷取畫面](./media/iot-hub-create-through-portal/iot-hub-create-review.png)
-
-5. 按一下 [建立] 以建立新的 IoT 中樞。 建立中樞需要幾分鐘的時間。
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="change-the-settings-of-the-iot-hub"></a>變更 IoT 中樞的設定
 

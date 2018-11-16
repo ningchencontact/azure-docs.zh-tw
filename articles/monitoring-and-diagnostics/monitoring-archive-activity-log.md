@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: d7ed440ba794bcdfab4744e0ac4864aab6896ca8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140299"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016313"
 ---
 # <a name="archive-the-azure-activity-log"></a>封存 Azure 活動記錄檔
 在本文中，我們示範如何使用 Azure 入口網站、PowerShell Cmdlet 或跨平台 CLI 封存儲存體帳戶中的 [**Azure 活動記錄檔**](monitoring-overview-activity-logs.md)。 如果您想要保留活動記錄檔超過 90 天 (而且對保留原則有完全的控制)，以便稽核、靜態分析或備份，這個選項非常有用。 如果您只需要保留事件 90 天或更短，則不需要設定封存至儲存體帳戶，因為在不啟用封存的情況下，活動記錄檔就會在 Azure 平台保留 90 天。
@@ -24,7 +24,7 @@ ms.locfileid: "42140299"
 > 
 
 ## <a name="prerequisites"></a>必要條件
-在開始之前，您需要[建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md)，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
+在開始之前，您需要 [建立儲存體帳戶](../storage/common/storage-quickstart-create-account.md) ，以便將活動記錄檔封存至此。 我們強烈建議您不要使用已儲存了其他非監視資料的現有儲存體帳戶，這樣您對監視資料才能有更好的存取控制。 不過，如果您也要封存診斷記錄檔和度量至儲存體帳戶，則將同一儲存體帳戶用於活動記錄檔合情合理，因為可以將所有監視資料集中在一個位置。 儲存體帳戶不一定要和訂用帳戶發出記錄檔屬於相同的訂用帳戶，只要使用者有適當的設定可 RBAC 存取這兩個訂用帳戶即可。
 
 > [!NOTE]
 >  您目前無法將資料封存到位在安全虛擬網路後面的儲存體帳戶。
@@ -35,10 +35,10 @@ ms.locfileid: "42140299"
 ## <a name="archive-the-activity-log-using-the-portal"></a>使用入口網站封存活動記錄檔
 1. 在入口網站中，按一下左側導覽中的 [活動記錄檔]  連結。 如果您沒有看到活動記錄的連結，先按一下 [所有服務] 連結。
    
-    ![瀏覽至活動記錄檔刀鋒視窗](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. 在刀鋒視窗頂端，按一下 [匯出] 。
+    ![瀏覽至活動記錄檔刀鋒視窗](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. 在刀鋒視窗頂端，按一下 [匯出至事件中樞]。
    
-    ![按一下匯出按鈕](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![按一下匯出按鈕](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. 在出現的刀鋒視窗中，勾選 [匯出至儲存體帳戶]  方塊，選取儲存體帳戶。
    
     ![設定儲存體帳戶](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)

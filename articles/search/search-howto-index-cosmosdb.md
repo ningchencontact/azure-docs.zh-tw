@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: c74563ba98835403f12a4df048d7ff358014b826
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406665"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747536"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
 
@@ -48,6 +48,8 @@ ms.locfileid: "49406665"
 ## <a name="prerequisites"></a>必要條件
 
 除了 Cosmos DB 帳戶以外，您必須擁有 [Azure 搜尋服務](search-create-service-portal.md)。 
+
+在您的 Cosmos DB 帳戶中，您可以選擇是否要讓集合自動編製所有文件的索引。 根據預設，所有文件會自動編制索引，但您可以關閉自動編制索引。 關閉編製索引時，只能透過文件自己的連結或使用文件識別碼透過查詢來存取文件。 「Azure 搜尋服務」會要求在將由「Azure 搜尋服務」編製索引的集合中，必須開啟 Cosmos DB 自動編製索引功能。 
 
 <a name="Concepts"></a>
 ## <a name="azure-search-indexer-concepts"></a>Azure 搜尋服務索引子概念

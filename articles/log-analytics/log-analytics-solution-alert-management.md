@@ -15,23 +15,23 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fa76ccf7019097c5f27aa126b0a5a7dc81ffbd41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bba008bc6d1214aa4b2ca7cc609586a3d18159fd
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008142"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613608"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警示管理方案
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)或[從 Nagios 或 Zabbix 匯入](log-analytics-quick-collect-linux-computer.md)的來源。 此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](log-analytics-om-agents.md)匯入警示。
+警示管理解決方案可協助您分析 Log Analytics 儲存機制中的所有警示。  這些警示可能來自各種來源，包括[由 Log Analytics 所建立](../monitoring-and-diagnostics/monitoring-overview-alerts.md)或[從 Nagios 或 Zabbix 匯入](log-analytics-quick-collect-linux-computer.md)的來源。 此解決方案也會從所有[連線的 System Center Operations Manager 管理群組](log-analytics-om-agents.md)匯入警示。
 
 ## <a name="prerequisites"></a>必要條件
 此解決方案將會使用 Log Analytics 中類型為**警示**的所有記錄，因此您必須執行收集這些記錄所需的所有設定。
 
-- 針對 Log Analytics 警示，[建立警示規則](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)，以直接在儲存機制中建立警示記錄。
+- 針對 Log Analytics 警示，[建立警示規則](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，以直接在儲存機制中建立警示記錄。
 - 針對 Nagios 和 Zabbix 警示，[設定這些伺服器](log-analytics-quick-collect-linux-computer.md)，以將警示傳送至 Log Analytics。
 - 針對 System Center Operations Manager 警示，[將 Operations Manager 管理群組連線到 Log Analytics 工作區](log-analytics-om-agents.md)。  在 System Center Operations Manager 中建立的任何警示會匯入至記錄分析。  
 
@@ -123,4 +123,4 @@ ms.locfileid: "51008142"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 如需有關從 Log Analytics 產生的警示的詳細資料，請深入了解 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) 。
+* 如需有關從 Log Analytics 產生的警示的詳細資料，請深入了解 [Log Analytics 中的警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 。

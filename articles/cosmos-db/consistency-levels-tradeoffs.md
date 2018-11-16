@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963042"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514769"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中各種一致性層級的可用性和效能權衡取捨
 
@@ -33,20 +33,6 @@ ms.locfileid: "50963042"
 - 相較於強式和限定過期，工作階段、一致前置詞和最終一致性層級可針對相同數量的要求單位提供大約 2X 的讀取輸送量。
 
 - 針對指定類型的寫入作業 (例如，插入、取代、更新插入、刪除等等)，對於要求單位的寫入輸送量會與所有一致性層級完全相同。
-
-## <a name="consistency-levels-and-durability"></a>一致性層級和持久性
-
-將寫入作業認可至用戶端之前，資料會由接受寫入作業之區域內的複本仲裁進行永久認可。 此外，如果容器是使用一致的編製索引原則設定的，複本仲裁也會以同步方式更新、複寫及永久認可索引，然後再將寫入作業的認可傳送至用戶端。
-
-下表摘要說明跨越數個區域的 Cosmos 帳戶發生地區性災難時可能遺失資料的時段。
-
-| **一致性層級** | **發生地區性災難時可能遺失資料的時段** |
-| - | - |
-| 強式 | 零 |
-| 限定過期 | 侷限於您在 Cosmos 帳戶上設定的「過期時段」。 |
-| 工作階段 | 最多 5 秒 |
-| 一致前置詞 | 最多 5 秒 |
-| 最終 | 最多 5 秒 |
 
 ## <a name="next-steps"></a>後續步驟
 

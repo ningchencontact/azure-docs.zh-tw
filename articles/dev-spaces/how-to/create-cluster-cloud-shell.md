@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 10/04/2018
 ms.topic: article
 description: 了解如何在不安裝任何項目的情況下，直接從瀏覽器快速建立針對 Azure Dev Spaces 所啟用的 Kubernetes 叢集。
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-manager: douge
-ms.openlocfilehash: f10a84a602ce152d5c428525aa50f678b50c8b41
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 47c467e020a7a9253daa636352352d9a57dddf28
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872196"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978140"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>使用 Azure Cloud Shell 建立 Kubernetes 叢集
 
@@ -24,7 +23,7 @@ ms.locfileid: "48872196"
 
 ## <a name="create-the-cluster"></a>建立叢集
 
-首先，建立資源群組。 使用目前支援的其中一個區域 (EastUS、CentralUS、WestUS2、WestEurope、CanadaCentral 或 CanadaEast)。
+首先，建立資源群組。 使用目前支援的其中一個區域 (EastUS、EastUS2、CentralUS、WestUS2、WestEurope、SoutheastAsia、CanadaCentral 或 CanadaEast)。
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -33,7 +32,7 @@ az group create --name MyResourceGroup --location <region>
 使用下列命令來建立 Kubernetes 叢集：
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.3 --enable-addons http_application_routing
 ```
 
 建立叢集需要幾分鐘的時間。  完成時，輸出會以 JSON 格式顯示。 尋找 `provisioningState` 並確認它 `Succeeded`。

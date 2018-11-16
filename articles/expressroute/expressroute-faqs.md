@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211361"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239197"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -76,7 +76,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="microsoft-peering"></a>Microsoft 對等互連
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
@@ -199,11 +199,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 ### <a name="can-i-use-site-to-site-connectivity-for-virtual-networks-in-conjunction-with-expressroute"></a>我是否可以將虛擬網路的站對站連線與 ExpressRoute 搭配使用?
 
-是。 ExpressRoute 可與站對站 VPN 並存。
-
-### <a name="can-i-move-a-virtual-network-from-site-to-site--point-to-site-configuration-to-use-expressroute"></a>我可以將虛擬網路從站對站/點對站組態移至使用 ExpressRoute 嗎？
-
-是。 您必須在您的虛擬網路內建立 ExpressRoute 閘道。 此程序會有相關的短暫停機時間。
+是。 ExpressRoute 可與站對站 VPN 並存。 請參閱[設定 ExpressRoute 和站對站並存連線](expressroute-howto-coexist-resource-manager.md)。
 
 ### <a name="why-is-there-a-public-ip-address-associated-with-the-expressroute-gateway-on-a-virtual-network"></a>為什麼虛擬網路上的 ExpressRoute 閘道會有相關聯的公用 IP 位址？
 
@@ -287,7 +283,7 @@ ExpressRoute Premium 是下列功能的集合：
 
 1. 請檢閱 [ExpressRoute 必要條件頁面](expressroute-prerequisites.md)，以確定您符合需求。
 2. 若要確保符合您的連線需求，請檢閱 [ExpressRoute 合作夥伴和位置](expressroute-locations.md)文章中的服務提供者和位置清單。
-3. 透過檢閱 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)來計劃您的容量需求。
+3. 透過檢閱 [Office 365 的網路規劃和效能調整](https://aka.ms/tune/)來計劃您的容量需求。
 4. 遵循工作流程中所列的步驟來設定連線：[ExpressRoute 工作流程線路佈建和線路狀態](expressroute-workflows.md)。
 
 > [!IMPORTANT]
@@ -297,11 +293,11 @@ ExpressRoute Premium 是下列功能的集合：
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>我的現有 ExpressRoute 線路是否支援與 Office 365 服務和 Dynamics 365 連線？
 
-是。 您可以設定現有 ExpressRoute 電路以支援與 Office 365 服務的連線。 請確保您有足夠的容量可以連線到 Office 365 服務，並已啟用 Premium 附加元件。 [Office 365 的網路規劃和效能調整](http://aka.ms/tune/)可協助您規劃連線需求。 另請參閱 [建立和修改 ExpressRoute 電路](expressroute-howto-circuit-classic.md)。
+是。 您可以設定現有 ExpressRoute 電路以支援與 Office 365 服務的連線。 請確保您有足夠的容量可以連線到 Office 365 服務，並已啟用 Premium 附加元件。 [Office 365 的網路規劃和效能調整](https://aka.ms/tune/)可協助您規劃連線需求。 另請參閱 [建立和修改 ExpressRoute 電路](expressroute-howto-circuit-classic.md)。
 
 ### <a name="what-office-365-services-can-be-accessed-over-an-expressroute-connection"></a>透過 ExpressRoute 連線可以存取哪些 Office 365 服務？
 
-請參閱 [Office 365 URL 與 IP 位址範圍](http://aka.ms/o365endpoints)頁面，以取得透過 ExpressRoute 支援的最新服務清單。
+請參閱 [Office 365 URL 與 IP 位址範圍](https://aka.ms/o365endpoints)頁面，以取得透過 ExpressRoute 支援的最新服務清單。
 
 ### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>適用於 Office 365 服務的 ExpressRoute 費用是多少？
 

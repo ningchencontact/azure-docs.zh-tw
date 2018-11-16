@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42140669"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959999"
 ---
 # <a name="import-data-into-analytics"></a>將資料匯入分析
 
@@ -123,7 +123,7 @@ JSON 格式
 * 位置 - 若為以符號分隔的檔案格式，則是對應值的位置。 若為 JSON 格式，則是對應索引鍵的 jpath。
 * 名稱 - 資料行的顯示名稱。
 * 類型 - 資料行的類型。
- 
+
 > [!NOTE]
 > 在使用範例資料、而且檔案格式是符號分隔的情況下，結構描述定義必須對應所有資料行，並在結尾加入新的資料行。
 > 
@@ -137,7 +137,7 @@ JSON 格式
 
 您可以手動執行下列程序，或設定自動系統定期執行。 您必須依照下列步驟進行每個您要匯入的資料區塊。
 
-1. 將資料上傳至 [Azure Blob 儲存體](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。 
+1. 將資料上傳至 [Azure Blob 儲存體](../storage/blobs/storage-quickstart-blobs-dotnet.md)。 
 
  * Blob 未壓縮大小可以達 1 GB 。 從效能觀點來看，數百 MB 的大型 blob 很適合。
  * 可以使用 Gzip 進行壓縮，以改善上傳時間和延遲時間，以便資料可用於查詢。 使用 `.gz` 副檔名。
@@ -369,5 +369,5 @@ namespace IngestionClient
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Log Analytics 查詢語言導覽](app-insights-analytics-tour.md)
+* [Log Analytics 查詢語言導覽](../log-analytics/query-language/get-started-analytics-portal.md)
 * 如果您使用 Logstash，請使用 [Logstash 外掛程式將資料傳送至 Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

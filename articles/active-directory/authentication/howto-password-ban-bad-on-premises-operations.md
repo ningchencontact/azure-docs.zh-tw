@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739459"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007581"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>預覽：Azure AD 密碼保護作業程序
 
@@ -67,7 +67,7 @@ ms.locfileid: "50739459"
 
 `Get-AzureADPasswordProtectionSummaryReport` Cmdlet 可用來產生活動的摘要檢視。 此 Cmdlet 的範例輸出如下：
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,10 +83,26 @@ PasswordSetErrors               : 1
 此 Cmdlet 的報告範圍可使用 –Forest、-Domain 或 –DomainController 參數其中之一來加以影響。 未指定參數意指 –Forest。
 
 > [!NOTE]
-> 此 Cmdlet 的運作方式是針對每個網域控制站開啟 Powershell 工作階段。 每個網域控制站上都必須啟用 Powershell 遠端供作階段支援，且用戶端必須要有足夠權限，才能成功。 如需 Powershell 遠端工作階段需求的詳細資訊，請在 Powershell 視窗中，執行 'Get-help about_Remote_Troubleshooting'。
+> 此 Cmdlet 的運作方式是針對每個網域控制站開啟 PowerShell 工作階段。 每個網域控制站上都必須啟用 PowerShell 遠端供作階段支援，且用戶端必須要有足夠權限，才能成功。 如需 PowerShell 遠端工作階段需求的詳細資訊，請在 Powershell 視窗中，執行 'Get-help about_Remote_Troubleshooting'。
 
 > [!NOTE]
 > 從遠端查詢每個 DC 代理程式服務的系統管理事件記錄即可讓此 Cmdlet 運作。 如果事件記錄包含大量事件，此 Cmdlet 可能需要很長的時間才能完成。 此外，透過網路大量查詢大型資料集可能會影響網域控制站的效能。 因此，在生產環境中請小心使用這個 Cmdlet。
+
+## <a name="dc-agent-discovery"></a>DC 代理程式探索
+
+`Get-AzureADPasswordProtectionDCAgent` Cmdlet 可用來顯示與執行於網域或樹系中的各種 DC 代理程式有關的基本資訊。 您可以從執行中的 DC 代理程式服務所註冊的 serviceConnectionPoint 物件中擷取這項資訊。 此 Cmdlet 的範例輸出如下：
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+每個 DC 代理程式服務大約每小時會更新一次各種屬性。 資料仍會受限於 Active Directory 複寫延遲。
+
+此 Cmdlet 的查詢範圍可使用 –Forest 或 –Domain 參數來變更。
 
 ## <a name="next-steps"></a>後續步驟
 

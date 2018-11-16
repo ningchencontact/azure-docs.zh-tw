@@ -1,260 +1,85 @@
 ---
-title: Azure Cosmos DB 的佈建輸送量 | Microsoft Docs
-description: 了解如何設定 Azure Cosmos DB 容器、集合、圖表和資料表的佈建輸送量。
-services: cosmos-db
+title: Azure Cosmos DB 的佈建輸送量
+description: 了解如何設定 Azure Cosmos DB 容器和資料庫的佈建輸送量。
 author: aliuy
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 2280a3f6b2a67d392a109a5294e1509bcc804bc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869919"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278883"
 ---
-# <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>設定及取得 Azure Cosmos DB 容器和資料庫的輸送量
+# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>佈建 Cosmos DB 容器和資料庫的輸送量
 
-您可以使用 Azure 入口網站或使用用戶端 SDK，設定 Azure Cosmos DB 容器或一組容器的輸送量。 本文會說明為 Azure Cosmos DB 帳戶設定不同層級輸送量所需的步驟。
+Cosmos 資料庫是一組容器的管理單位。 資料庫是由一組無從驗證結構描述的容器所組成的。 Cosmos 容器是適用於輸送量和儲存體的延展性單位。 容器會跨 Azure 區域內的一組機器進行水平分割，並散發到與您 Cosmos 帳戶相關聯的所有 Azure 區域。
 
-## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 入口網站佈建輸送量
+Azure Cosmos DB 可讓您在下列兩個資料粒度上設定輸送量：**Cosmos 容器**和 **Cosmos 資料庫**。
 
-### <a name="provision-throughput-for-a-container-collectiongraphtable"></a>佈建容器的輸送量 (集合/圖表/資料表)
+# <a name="setting-throughput-on-a-cosmos-container"></a>在 Cosmos 容器上設定輸送量  
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 從左側導覽選取 [所有資源]，然後尋找 Azure Cosmos DB 帳戶。  
-3. 您可以在建立容器 (集合/圖表/資料表) 時設定輸送量，也可以更新現有容器的輸送量。  
-4. 若要在建立容器時指派輸送量，請開啟 [資料總管] 刀鋒視窗，然後針對其他 API 選取 [新增集合] ([新增圖表]、[新增資料表])  
-5. 填寫 [新增集合] 刀鋒視窗中的表單。 下表會說明此刀鋒視窗中的欄位：  
+在 Cosmos 容器上佈建的輸送量是專為該容器保留的。 該容器隨時都可接收佈建輸送量。 容器上的佈建輸送量在財務方面會由 SLA 所支援。 若要在容器上設定輸送量，請參閱[如何在 Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
 
-   |**設定**  |**說明**  |
-   |---------|---------|
-   |資料庫識別碼  |  提供可識別資料庫的唯一名稱。 資料庫是一或多個集合的邏輯容器。 資料庫名稱必須包含從 1 到 255 個字元，且不能包含 /、\\、#、? 或尾端空格。 |
-   |集合識別碼  | 提供可識別集合的唯一名稱。 集合識別碼與資料庫名稱具有相同的字元需求。 |
-   |儲存體容量   | 此值代表資料庫的儲存體容量。 在佈建個別集合的輸送量時，儲存體容量可以**固定 (10 GB)**，也可以**無限量**。 若要使用無限制的儲存體容量，您需要為資料設定資料分割索引鍵。  |
-   |Throughput   | 每個集合和資料庫都會有以「每秒要求單位數」表示的輸送量。  集合可以有固定或無限制的儲存體容量。 |
+在容器上設定佈建輸送量是廣泛使用的選項。 雖然您可藉由佈建任意數目的輸送量 (RU) 來彈性調整容器的輸送量，但您無法選擇性地指定邏輯分割區的輸送量。 當邏輯分割區上執行的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 
-6. 在輸入這些欄位的值之後，選取 [確定] 以儲存設定。  
+當您想要保證容器的效能時，建議您在容器資料粒度上設定輸送量。
 
-   ![設定集合的輸送量](./media/set-throughput/set-throughput-for-container.png)
+Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割區。 由於資源分割區會裝載容器的一或多個邏輯分割區，因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 下圖示範資源分割區如何裝載容器的一或多個邏輯分割區：
 
-7. 若要更新現有容器的輸送量，請展開資料庫和容器，然後按一下 [設定]。 在新視窗中輸入新的輸送量值，然後選取 [儲存]。  
+![資源分割區](./media/set-throughput/resource-partition.png)
 
-   ![更新集合的輸送量](./media/set-throughput/update-throughput-for-container.png)
+# <a name="setting-throughput-on-a-cosmos-database"></a>在 Cosmos 資料庫上設定輸送量
 
-### <a name="provision-throughput-for-a-set-of-containers-or-at-the-database-level"></a>針對一組容器或在資料庫層級佈建輸送量
+當您在 Cosmos 資料庫上佈建輸送量時，除非已在特定容器上指定佈建輸送量，否則，輸送量會在資料庫中的所有容器上共用。 在其容器之間共用資料庫輸送量，相當於在機器叢集上裝載資料庫。 由於資料庫共用內的所有容器都會共用機器上可用的資源，因此，您自然不會取得任何特定容器上的可預測效能。 若要在資料庫上設定輸送量，請參閱[如何在 Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)。
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 從左側導覽選取 [所有資源]，然後尋找 Azure Cosmos DB 帳戶。  
-3. 您可以在建立資料庫時設定輸送量，也可以更新現有資料庫的輸送量。  
-4. 若要在建立資料庫時指派輸送量，請開啟 [資料總管] 刀鋒視窗，然後選取 [新增資料庫]  
-5. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。  
+在 Cosmos 資料庫上設定輸送量，保證您隨時都能接收到佈建輸送量。 由於資料庫共用內的所有容器都會共用佈建輸送量，因此，Cosmos DB 不會針對該資料庫中的特定容器提供任何可預測的輸送量保證。 特定容器可接收的輸送量部分取決於：
 
-   ![使用新增資料庫選項設定輸送量](./media/set-throughput/set-throughput-with-new-database-option.png)
+* 容器數目
+* 對於各種容器所選擇的分割區索引鍵，以及
+* 散發於容器中各種不同邏輯分割區的工作負載。 
 
-6. 若要更新現有資料庫的輸送量，請展開資料庫和容器，然後按一下 [調整]。 在新視窗中輸入新的輸送量值，然後選取 [儲存]。  
+當您想要在多個容器之間共用輸送量，但不想讓輸送量專屬於任何特定容器時，建議您在資料庫上設定輸送量。 以下是一些最好在資料庫層級佈建輸送量的範例：
 
-   ![更新資料庫的輸送量](./media/set-throughput/update-throughput-for-database.png)
+* 在一組容器上共用資料庫的佈建輸送量非常適用於多租用戶應用程式。 每位使用者都可透過不同的 Cosmos 容器來表示。
 
-### <a name="provision-throughput-for-a-set-of-containers-as-well-as-for-an-individual-container-in-a-database"></a>針對一組容器以及資料庫中的個別容器佈建輸送量
+* 當您將從 VM 叢集或從內部部署實體伺服器裝載的 NoSQL 資料庫 (例如 MongoDB、Cassandra) 移轉到 Cosmos DB 時，在一組容器之間共用資料庫的佈建輸送量就很實用。 您可以將 Cosmos 資料庫上設定的佈建輸送量想像為 MongoDB 或 Cassandra 叢集計算容量之佈建輸送量的邏輯對等項目 (但更符合成本效益且更具彈性)。  
 
-1. 登入 [Azure 入口網站](https://portal.azure.com)。  
-2. 從左側導覽選取 [所有資源]，然後尋找 Azure Cosmos DB 帳戶。  
-3. 建立資料庫，並對其指派輸送量。 開啟 [資料總管] 刀鋒視窗，然後選取 [新增資料庫]  
-4. 填寫 [資料庫識別碼] 值，勾選 [佈建輸送量] 選項，然後設定輸送量值。  
+在任何指定的時間點，配置給資料庫內容器的輸送量都會散發到該容器的所有邏輯分割區。 當您的容器會共用資料庫上的佈建輸送量時，您就無法選擇性地將輸送量套用到特定容器或邏輯分割區。 如果邏輯分割區上的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 
-   ![使用新增資料庫選項設定輸送量](./media/set-throughput/set-throughput-with-new-database-option.png)
+共用佈建到資料庫之輸送量的多個邏輯分割區可裝載於單一資源分割區上。 儘管容器的單一邏輯分割區範圍一律限定為一個資源分割區，但在 'C' 個容器上共用資料庫佈建輸送量的 'L' 個邏輯分割區均可在 'R' 個邏輯分割區上進行對應與裝載。 下圖顯示資源分割區如何裝載一或多個屬於資料庫內不同容器的邏輯分割區：
 
-5. 接下來，在您於上述步驟所建立的資料庫中建立集合。 若要建立集合，請以滑鼠右鍵按一下資料庫，然後選取 [新增集合]。  
+![資源分割區](./media/set-throughput/resource-partition2.png)
 
-6. 在 [新增集合] 刀鋒視窗中，輸入集合的名稱和資料分割索引鍵。 (選擇性) 如果您選擇不指派輸送量值，您可以針對該特定容器佈建輸送量，指派給資料庫的輸送量會與集合共用。  
+## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>在 Cosmos 資料庫和容器上設定輸送量
 
-   ![(選擇性) 設定容器的輸送量](./media/set-throughput/optionally-set-throughput-for-the-container.png)
+您可以結合這兩個模型，就能同時在資料庫和容器上佈建輸送量。 下列範例示範如何在 Cosmos 資料庫和容器上佈建輸送量：
 
-## <a name="considerations-when-provisioning-throughput"></a>佈建輸送量時的考量
+* 您可以使用 'K' 個 RU 的佈建輸送量來建立名為 'Z' 的 Cosmos 資料庫。 
+* 接下來，在資料庫中建立五個容器，名稱分別為 A、B、C、D 和 E。
+* 您可以明確地在容器 'B' 上設定 'P' 個 RU 的佈建輸送量。
+* 'K' 個 RU 的輸送量會在這四個容器 (A、C、D 和 E) 上共用。可供 A、C、D 或 E 使用的輸送量確切數目將有所不同，而且沒有適用於每個個別容器輸送量的 SLA。
+* 容器 'B' 保證能夠隨時取得 'P' 個 RU 的輸送量，並受到 SLA 支援。
 
-以下是一些可協助您決定輸送量保留策略的考量。
+## <a name="comparison-of-models"></a>模型的比較
 
-### <a name="considerations-when-provisioning-throughput-at-the-database-level"></a>在資料庫層級佈建輸送量時的考量
-
-有下列情況時，請考慮在資料庫層級 (也就是針對一組容器) 佈建輸送量：
-
-* 如果您有為數十多個以上的容器，並可在其中一部分或全部一起共用輸送量。  
-
-* 在從設計目的是要在 IaaS 所裝載的 VM 上或在內部部署環境上執行的單一租用戶資料庫 (例如，NoSQL 或關聯式資料庫) 移轉至 Azure Cosmos DB，並擁有許多容器時。  
-
-* 如果您想要考慮在資料庫層級使用集區輸送量進行非計劃性的工作負載提升。  
-
-* 您不想設定個別容器的輸送量，而是要跨資料庫內的一組容器取得彙總輸送量。
-
-### <a name="considerations-when-provisioning-throughput-at-the-container-level"></a>在容器層級佈建輸送量時的考量
-
-有下列情況時，請考慮在個別容器佈建輸送量：
-
-* 如果您的 Azure Cosmos DB 容器數量不多。  
-
-* 如果您想要在獲得 SLA 支援的指定容器上取得保證的輸送量。
-
-<a id="set-throughput-sdk"></a>
-
-## <a name="set-throughput-by-using-sql-api-for-net"></a>使用 SQL API for .NET 來設定輸送量
-
-### <a name="set-throughput-at-the-container-level"></a>設定容器層級的輸送量
-以下程式碼片段會使用 SQL API 的 .NET SDK，為個別容器建立一個具有每秒 3,000 個要求單位的容器：
-
-```csharp
-DocumentCollection myCollection = new DocumentCollection();
-myCollection.Id = "coll";
-myCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(
-    UriFactory.CreateDatabaseUri("db"),
-    myCollection,
-    new RequestOptions { OfferThroughput = 3000 });
-```
-
-### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>在資料庫層級為一組容器設定輸送量
-
-以下程式碼片段會使用 SQL API 的 .NET SDK，在一組容器間佈建每秒 100,000 個要求單位：
-
-```csharp
-// Provision 100,000 RU/sec at the database level. 
-// sharedCollection1 and sharedCollection2 will share the 100,000 RU/sec from the parent database
-// dedicatedCollection will have its own dedicated 4,000 RU/sec, independant of the 100,000 RU/sec provisioned from the parent database
-Database database = await client.CreateDatabaseAsync(new Database { Id = "myDb" }, new RequestOptions { OfferThroughput = 100000 });
-
-DocumentCollection sharedCollection1 = new DocumentCollection();
-sharedCollection1.Id = "sharedCollection1";
-sharedCollection1.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection1, new RequestOptions())
-
-DocumentCollection sharedCollection2 = new DocumentCollection();
-sharedCollection2.Id = "sharedCollection2";
-sharedCollection2.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, sharedCollection2, new RequestOptions())
-
-DocumentCollection dedicatedCollection = new DocumentCollection();
-dedicatedCollection.Id = "dedicatedCollection";
-dedicatedCollection.PartitionKey.Paths.Add("/deviceId");
-
-await client.CreateDocumentCollectionAsync(database.SelfLink, dedicatedCollection, new RequestOptions { OfferThroughput = 4000 )
-```
-
-Azure Cosmos DB 針對輸送量會以保留模型的方式運作。 也就是說，您需要針對所「保留」的輸送量支付費用，而不論該輸送量中有多少數量是主動「使用」的。 當您應用程式的負載、資料及使用方式模式變更時，您可以透過 SDK 或使用 [Azure 入口網站](https://portal.azure.com)，輕鬆地相應增加和減少保留 RU 的數量。
-
-每個容器或一組容器會對應至 Azure Cosmos DB 中的一個 `Offer` 資源，其中有所佈建輸送量的相關中繼資料。 藉由查閱容器的對應 offer 資源，然後使用新的輸送量值加以更新，即可變更已配置的輸送量。 以下程式碼片段會使用 .NET SDK，將容器的輸送量變更為每秒 5,000 個要求單位。 在變更輸送量之後，您應重新整理任何現有的 Azure 入口網站視窗，以顯示變更的輸送量。 
-
-```csharp
-// Fetch the resource to be updated
-// For a updating throughput for a set of containers, replace the collection's self link with the database's self link
-Offer offer = client.CreateOfferQuery()
-                .Where(r => r.ResourceLink == collection.SelfLink)    
-                .AsEnumerable()
-                .SingleOrDefault();
-
-// Set the throughput to 5000 request units per second
-offer = new OfferV2(offer, 5000);
-
-// Now persist these changes to the database by replacing the original resource
-await client.ReplaceOfferAsync(offer);
-```
-
-當您變更輸送量時，不會影響容器或一組容器的可用性。 新保留的輸送量通常會在套用新輸送量的數秒內於生效。
-
-<a id="set-throughput-java"></a>
-
-## <a name="to-set-the-throughput-by-using-the-sql-api-for-java"></a>使用 SQL API for Java 設定輸送量
-
-下列程式碼片段會取出目前的輸送量，並將其更改為 500 RU/秒。 如需完整的程式碼範例，請參閱 GitHub 上的 [OfferCrudSamples.java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 檔案。 
-
-```Java
-// find offer associated with this collection
-// To change the throughput for a set of containers, use the database's resource id instead of the collection's resource id
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
-
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
-
-// update the offer
-int newThroughput = 500;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
-
-## <a name="get-the-request-charge-using-cassandra-api"></a>使用 Cassandra API 取得要求費用 
-
-Cassandra API 支援一種為指定作業提供要求單位費用額外資訊的方式。 例如，插入作業的 RU/秒費用可採以下方式擷取：
-
-```csharp
-var insertResult = await tableInsertStatement.ExecuteAsync();
- foreach (string key in insertResult.Info.IncomingPayload)
-        {
-            byte[] valueInBytes = customPayload[key];
-            string value = Encoding.UTF8.GetString(valueInBytes);
-            Console.WriteLine($“CustomPayload:  {key}: {value}”);
-        }
-```
-
-
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>使用 MongoDB API 入口網站計量取得輸送量
-
-若要準確估計 MongoDB API 資料庫的要求單位費用，最簡單的方法就是使用 [Azure 入口網站](https://portal.azure.com)計量。 利用 [要求數目] 和 [要求費用] 圖表，您可以估計每個作業耗用多少要求單位，以及它們彼此之間相對耗用多少要求單位。
-
-![MongoDB API 入口網站計量][1]
-
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> 超過 MongoDB API 中保留的輸送量限制
-超過為容器或一組容器佈建之輸送量的應用程式會受到速率限制，直取用速率降到佈建的輸送量速率以下為止。 發生速率限制時，後端會結束要求，並傳回 `16500` 錯誤碼 - `Too Many Requests`。 根據預設，在傳回 `Too Many Requests` 錯誤碼之前，MongoDB API 會自動重試最多 10 次。 如果您收到很多 `Too Many Requests` 錯誤碼，您可以考慮在應用程式的錯誤處理常式中新增重試行為，或[提高容器的佈建輸送量](set-throughput.md)。
-
-## <a id="GetLastRequestStatistics"></a>使用 MongoDB API 的 GetLastRequestStatistics 命令取得要求費用
-
-MongoDB API 支援自訂命令 getLastRequestStatistics，可擷取指定作業的要求費用。
-
-例如，在 Mongo 殼層中，執行您想要驗證要求費用的作業。
-```
-> db.sample.find()
-```
-
-接著，執行命令 *getLastRequestStatistics*。
-```
-> db.runCommand({getLastRequestStatistics: 1})
-{
-    "_t": "GetRequestStatisticsResponse",
-    "ok": 1,
-    "CommandName": "OP_QUERY",
-    "RequestCharge": 2.48,
-    "RequestDurationInMilliSeconds" : 4.0048
-}
-```
-
-若要估計您的應用程式所需的保留輸送量，其中一個方法為對照應用程式使用的代表性項目，記錄與執行一般作業相關聯的要求單位費用，然後估計您預期每秒會執行的作業數目。
-
-> [!NOTE]
-> 如果您的項目類型與已編製索引之屬性的大小與數目截然不同，則請記錄與每個一般項目「類型」相關聯的適用作業要求單位費用。
-> 
-> 
-
-## <a name="throughput-faq"></a>輸送量常見問題集
-
-**我可以將輸送量設定為小於 400 RU/s 嗎？**
-
-400 RU/s 是 Cosmos DB 單一資料分割容器上可用的最小輸送量 (1000 RU/s 是資料分割容器的最小值)。 要求單位是設定為 100 RU/s 時間間隔，但不能將輸送量設定為 100 RU/s 或任何小於 400 RU/s 的值。 如果您正在尋找符合成本效益的方法來開發和測試 Cosmos DB，您可以使用免費的 [Cosmos DB 模擬器](local-emulator.md)，於本機免費部署此模擬器。 
-
-**如何使用 MongoDB API 設定輸送量？**
-
-MongoDB API 沒有可以設定輸送量的擴充功能。 建議使用 SQL API，如[使用 SQL API for .NET 設定輸送量](#set-throughput-sdk)中所示。
+|**配額**  |**資料庫上佈建的輸送量**  |**容器上佈建的輸送量**|
+|---------|---------|---------|
+|延展性單位|容器|容器|
+|RU 數目下限 |400 |400|
+|每個容器的 RU 數目下限|100|400|
+|取用 1 GB 儲存體所需的 RU 數目下限|40|40|
+|RU 數目上限|在資料庫上無限制|在容器上無限制|
+|指派給/適用於特定容器的 RU|不提供保證。 指派給指定容器的 RU 取決於如下的屬性：共用輸送量之容器分割區索引鍵的選項、工作負載的散發、容器數目。 |設定於容器上的所有 RU 都是專為該容器保留的。|
+|容器的儲存體上限|無限|無限|
+|容器中每個邏輯分割區的輸送量上限|10K RU|10K RU|
+|容器中每個邏輯分割區的儲存體上限 (資料 + 索引)|10 GB|10 GB|
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解如何估計輸送量和要求單位，請參閱 [Azure Cosmos DB 中的要求單位和估計輸送量](request-units.md)
+* 深入了解[邏輯分割區](partition-data.md)
+* 了解[如何在 Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)
+* 了解[如何在 Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)
 
-* 若要深入了解 Cosmos DB 的佈建和全球規模化，請參閱 [Cosmos DB 的資料分割和規模調整](partition-data.md)。
-
-[1]: ./media/set-throughput/api-for-mongodb-metrics.png

@@ -10,18 +10,20 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 34b908ef79b0a2479c420675272f7d3f3bf0ff15
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286787"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005745"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 資料倉儲 - 大量平行處理 (MPP) 架構
 了解 Azure SQL 資料倉儲如何將大量平行處理 (MPP) 與 Azure 儲存體結合，以達到高效能和延展性。 
 
+> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
+
 ## <a name="mpp-architecture-components"></a>MPP 架構元件
-SQL 資料倉儲會利用相應放大架構，將資料的計算處理散發到多個節點。 縮放單位是抽象的計算能力，即為資料倉儲單位。 SQL 資料倉儲會將計算與儲存體分隔開來，讓您可以在系統中單獨調整資料的計算。
+SQL 資料倉儲會利用相應放大架構，將資料的計算處理散發到多個節點。 縮放單位是稱為[資料倉儲單位](what-is-a-data-warehouse-unit-dwu-cdwu.md)之計算能力的抽象概念。 SQL 資料倉儲會將計算與儲存體分隔開來，讓您可以在系統中單獨調整資料的計算。
 
 ![SQL 資料倉儲架構](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

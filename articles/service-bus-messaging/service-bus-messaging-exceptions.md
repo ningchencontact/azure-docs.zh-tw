@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: spelluru
-ms.openlocfilehash: 26118d55d200bb4a67c7f9cfad3975e7e6e5b45b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: d96982f4dff523e1a262ee4f9d8bdc2dfc8480e1
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855318"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037595"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服務匯流排傳訊例外狀況
-此文章列出一些 Microsoft Azure 服務匯流排傳訊 API 產生的例外狀況。 此參考可能有所變更，請不定期查看更新。
+本文列出一些 Microsoft Azure 服務匯流排傳訊 API 產生的例外狀況。 此參考可能有所變更，請不定期查看更新。
 
 ## <a name="exception-categories"></a>例外狀況類別
 傳訊 API 會產生下列類別的例外狀況，以及可用來嘗試修正它們的相關動作。 例外狀況的原因可能會因為訊息實體的類型而不同：
 
 1. 使用者程式碼撰寫錯誤 ([System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx)、[System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx)、[System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx)、[System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx))。 一般動作：請先嘗試修正此程式碼，再繼續執行。
 2. 設定/組態錯誤 ([Microsoft.ServiceBus.Messaging.MessagingEntityNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception)、[System.UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx))。 一般動作：檢閱您的組態並視需要進行變更。
-3. 暫時性例外狀況 ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception))。 一般動作：重試此操作或通知使用者。
+3. 暫時性例外狀況 ([Microsoft.ServiceBus.Messaging.MessagingException](/dotnet/api/microsoft.servicebus.messaging.messagingexception)、[Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception)、[Microsoft.ServiceBus.Messaging.MessagingCommunicationException](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception))。 一般動作：重試此操作或通知使用者。 請注意，您可以設定用戶端 SDK 中的 `RetryPolicy` 類別來自動處理重試。 如需詳細資訊，請參閱[重試指引](/azure/architecture/best-practices/retry-service-specific#service-bus)。
 4. 其他例外狀況 ([System.Transactions.TransactionException](https://msdn.microsoft.com/library/system.transactions.transactionexception.aspx)、[System.TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx)、[Microsoft.ServiceBus.Messaging.MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception)、[Microsoft.ServiceBus.Messaging.SessionLockLostException](/dotnet/api/microsoft.azure.servicebus.sessionlocklostexception))。 一般動作︰依例外狀況類型而異；請參閱下列小節中的表格： 
 
 ## <a name="exception-types"></a>例外狀況類型

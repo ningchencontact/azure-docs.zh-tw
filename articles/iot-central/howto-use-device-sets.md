@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731969"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004114"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中使用裝置集合
 
-本文說明如何以操作員的身分在 Microsoft Azure IoT Central 應用程式中使用裝置集合。
+本文說明如何以操作員的身分在 Azure IoT Central 應用程式中使用裝置集合。
 
 裝置集合是一份裝置清單，這些裝置因為全都符合某些指定準則而群組在一起。 裝置集合可藉由將裝置分組到較小的邏輯群組，來協助您大規模地對裝置進行管理、視覺化和分析。 例如，您建立了一份西雅圖所有空調裝置的清單，讓位於西雅圖的技師可以找到其負責的所有裝置。 本文說明如何建立和設定裝置集合。
 
@@ -73,7 +73,7 @@ ms.locfileid: "45731969"
         ![選擇格線](media/howto-use-device-sets/image8.png)
 
     1. 為格線提供**標題**。
-    1. 藉由選擇 [設定] 按鈕來選取要顯示的資料行。 在跳出的面板中選擇您想要顯示的資料行，並選擇向右箭號來加以選取。
+    1. 選擇 [新增/移除] 來選取要顯示的資料行。 在跳出的面板中選擇您想要顯示的資料行，並選擇向右箭號來加以選取。
     1. 選擇 [確定]。
     1. 選擇 [儲存]。
 
@@ -103,7 +103,8 @@ ms.locfileid: "45731969"
 3. 儲存之後，就會在 [裝置集合] 中看到顯示您裝置位置的地圖磚。
 4. 現在，當操作員檢視裝置集合儀表板時，就可以看到您設定的所有磚 (包括位置圖格)，一眼就能看到以視覺化方式呈現的所有裝置位置！ 
     
-[!NOTE] 您可以將地圖調整為需要的大小。 按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
+> [!NOTE] 
+> 您可以將地圖調整為需要的大小。 按一下地圖中的大頭針，即會顯示裝置資訊、名稱和位置。 您可以按一下快顯視窗，然後開啟裝置屬性頁。  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>設定裝置集合的清單

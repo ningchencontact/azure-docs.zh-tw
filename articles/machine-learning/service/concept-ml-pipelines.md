@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 099b59cde4ee438f16b9d7e77bd81c004006cb71
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278968"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684853"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>管線和 Azure Machine Learning
 
@@ -44,7 +44,7 @@ ms.locfileid: "51278968"
 
 透過 Azure Machine Learning，您可以對管線中的每個步驟使用各種工具組和架構，例如 Microsoft Cognitive Toolkit 或 TensorFlow。 Azure 會協調您使用的各種[計算目標](concept-azure-machine-learning-architecture.md)，讓您的中繼資料可輕易地與下游計算目標共用。 
 
-您可以直接在 Azure 入口網站中[追蹤管線實驗的計量](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments)。 
+您可以直接在 Azure 入口網站中[追蹤管線實驗的計量](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments)。 
 
 ## <a name="key-advantages"></a>主要優點
 

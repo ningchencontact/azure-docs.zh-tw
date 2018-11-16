@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 4a0800dccca3a43d49204dfbcc32e7778449ae6e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b528507d0f12cda72855db19aa28c7b06a4e26c1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442080"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345199"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 SQL Server 及從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -119,7 +119,7 @@ ms.locfileid: "42442080"
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
-| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | 是 |
+| tableName |SQL Server 資料庫執行個體中已連結的服務所參考的資料表或檢視名稱。 | 否 (來源)；是 (接收) |
 
 **範例：**
 
@@ -159,7 +159,6 @@ ms.locfileid: "42442080"
 
 - 如果已為 SqlSource 指定 **sqlReaderQuery**，「複製活動」就會針對 SQL Server 來源執行此查詢來取得資料。 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 - 如果您未指定 "sqlReaderQuery" 或 "sqlReaderStoredProcedureName"，就會使用資料集 JSON 的 "structure" 區段中定義的資料行，來建構要針對 SQL Server 執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
-- 當您使用 **sqlReaderStoredProcedureName** 時，仍然必須在資料集 JSON 中指定一個虛設的 **tableName**。
 
 **範例：使用 SQL 查詢**
 
@@ -475,6 +474,9 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 ```
 
 預存程序功能使用 [資料表值參數](https://msdn.microsoft.com/library/bb675163.aspx)。
+
+>[!NOTE]
+>如果透過叫用預存程序來寫入 Money/Smallmoney 資料類型，值可能會四捨五入。 在 TVP 中將對應的資料類型指定為十進位而不是 Money/Smallmoney，以降低風險。 
 
 ## <a name="data-type-mapping-for-sql-server"></a>SQL Server 的資料類型對應
 

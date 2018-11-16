@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5601c6c5b85b144b853c40e89c81a22f87b7880f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009550"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614986"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>使用 Log Analytics 監視 Surface Hub 來追蹤其健全狀況
 
@@ -84,8 +84,8 @@ Intune 接著會將 Log Analytics 設定與目標群組中的裝置同步處理�
 
    ![Surface Hub 的儀表板](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-您可以根據現有或自訂的記錄檔搜尋來建立[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
+您可以根據現有或自訂的記錄檔搜尋來建立[警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
 
 ## <a name="next-steps"></a>後續步驟
 * 使用 [Log Analytics 中的記錄檔搜尋](log-analytics-queries.md)來檢視詳細的 VMware 資料。
-* 建立[警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)在 Surface Hub 發生問題時通知您。
+* 建立[警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)在 Surface Hub 發生問題時通知您。

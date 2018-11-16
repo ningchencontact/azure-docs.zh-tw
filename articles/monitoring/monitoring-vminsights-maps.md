@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095473"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614203"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
 檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
@@ -52,7 +52,7 @@ ms.locfileid: "50095473"
 - 包含依電腦群組的子句，例如，**by Computer interval 1 minute** (依 1 分鐘的電腦間隔)。
 - 選擇依據計量量值來發出警示。
 
-如需 Azure 警示和建立警示規則的詳細資訊，請參閱 [Azure 監視器中的整合警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+如需 Azure 警示和建立警示規則的詳細資訊，請參閱 [Azure 監視器中的整合警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 
 右上角的 [圖例] 選項會說明對應的符號和角色。  若要放大以進一步查看您的對應並四處移動它，可使用頁面右下角的縮放控制項來設定縮放層級，並使頁面符合目前頁面的大小。  
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9cd5789cd2ee6e167f3d3ed05c2fde077f7ec9a3
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344936"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015344"
 ---
 # <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C︰要求存取權杖
 
-存取權杖 (在 Azure AD B2C 的回應中表示為 **access\_token**) 是一種安全性權杖形式，用戶端可用來存取受[授權伺服器](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics)保護的資源，例如 web API。 存取權杖統稱為[JWT](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens)，且包含關於預期資源伺服器和伺服器授與權限的資訊。 在呼叫資源伺服器時，存取權杖必須出現在 HTTP 要求中。
+存取權杖 (在 Azure AD B2C 的回應中表示為 **access\_token**) 是一種安全性權杖形式，用戶端可用來存取受 [授權伺服器](active-directory-b2c-reference-protocols.md)保護的資源，例如 web API。 存取權杖統稱為[JWT](active-directory-b2c-reference-tokens.md)，且包含關於預期資源伺服器和伺服器授與權限的資訊。 在呼叫資源伺服器時，存取權杖必須出現在 HTTP 要求中。
 
 本文將討論如何設定用戶端應用程式與 Web API 以取得 **access\_token**。
 
@@ -37,22 +37,22 @@ ms.locfileid: "43344936"
 ### <a name="register-a-web-api"></a>註冊 Web API
 
 1. 在 Azure 入口網站的 Azure AD B2C 功能功能表中，按一下 [應用程式]。
-1. 按一下功能表頂端的 [+ 新增]。
-1. 輸入應用程式的 **名稱** ，此名稱將會為取用者說明您的應用程式。 例如，您可以輸入「Contoso API」。
-1. 將 [包括 web 應用程式 / web API] 切換為 [是]。
-1. 在 [回覆 URL] 輸入任意值。 例如，輸入 `https://localhost:44316/`。 這個值無關緊要，因為 API 不應該直接從 Azure AD B2C 接收權杖。
-1. 輸入 [應用程式識別碼 URI]。 這是您的 Web API 所使用的識別碼。 例如，在方塊中輸入「notes」。 [App ID URI] 即會顯示為 `https://{tenantName}.onmicrosoft.com/notes`。
-1. 按一下 [建立]  以註冊您的應用程式。
-1. 按一下您剛才建立的應用程式，並複製稍後要在程式碼中使用的全域唯一 **應用程式用戶端識別碼** 。
+2. 按一下功能表頂端的 [+ 新增]。
+3. 輸入應用程式的 **名稱** ，此名稱將會為取用者說明您的應用程式。 例如，您可以輸入「Contoso API」。
+4. 將 [包括 web 應用程式 / web API] 切換為 [是]。
+5. 在 [回覆 URL] 輸入任意值。 例如，輸入 `https://localhost:44316/`。 這個值無關緊要，因為 API 不應該直接從 Azure AD B2C 接收權杖。
+6. 輸入 [應用程式識別碼 URI]。 這是您的 Web API 所使用的識別碼。 例如，在方塊中輸入「notes」。 [App ID URI] 即會顯示為 `https://{tenantName}.onmicrosoft.com/notes`。
+7. 按一下 [建立]  以註冊您的應用程式。
+8. 按一下您剛才建立的應用程式，並複製稍後要在程式碼中使用的全域唯一 **應用程式用戶端識別碼** 。
 
 ### <a name="publishing-permissions"></a>發佈權限
 
 範圍類似權限，當應用程式在呼叫 API 時，範圍是不可或缺的。 舉例來說，「讀取」或「寫入」即是範圍。 假設您想要您的 Web 或原生應用程式從 API 「讀取」。 您的應用程式會呼叫 Azure AD B2C 並要求一個存取權杖，該權杖會將存取權授與「讀取」範圍。 為了讓 Azure AD B2C 發出這類存取權杖，必須將可從特定 API 「讀取」的權限授與該應用程式。 因此，您的 API 必須先發佈「讀取」範圍。
 
 1. 在 Azure AD B2C [應用程式] 功能表中，開啟 Web API 應用程式 ("Contoso API")。
-1. 按一下 [已發佈範圍]。 您會在此定義可授予其他應用程式的權限 (範圍)。
-1. 視需要新增 [範圍值] \(例如「讀取」)。 根據預設，將會定義 "user_impersonation" 範圍。 想要的話，也可以忽略此步驟。 在 [範圍名稱] 資料行中輸入範圍的描述。
-1. 按一下 [檔案] 。
+2. 按一下 [已發佈範圍]。 您會在此定義可授予其他應用程式的權限 (範圍)。
+3. 視需要新增 [範圍值] \(例如「讀取」)。 根據預設，將會定義 "user_impersonation" 範圍。 想要的話，也可以忽略此步驟。 在 [範圍名稱] 資料行中輸入範圍的描述。
+4. 按一下 [檔案] 。
 
 > [!IMPORTANT]
 > [範圍名稱] 是 [範圍值] 的描述。 當使用範圍時，請務必使用 [範圍值]。
@@ -62,11 +62,11 @@ ms.locfileid: "43344936"
 設定好 API 發佈範圍後，必須透過 Azure 入口網站將這些範圍授與用戶端應用程式。
 
 1. 瀏覽至 Azure AD B2C 功能功能表中的 [應用程式] 功能表。
-1. 如果您還沒有用戶端應用程式 ([Web 應用程式](active-directory-b2c-app-registration.md#register-a-web-app)或[原生用戶端](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app))，請註冊一個。 如果您一開始便是跟隨本指南的說明進行，則需要註冊用戶端應用程式。
-1. 按一下 [API 存取]。
-1. 按一下 [新增]。
-1. 選取您的 web API，以及您想要授與的範圍 (權限)。
-1. 按一下 [確定]。
+2. 如果您還沒有用戶端應用程式 ([Web 應用程式](active-directory-b2c-app-registration.md)或[原生用戶端](active-directory-b2c-app-registration.md))，請註冊一個。 如果您一開始便是跟隨本指南的說明進行，則需要註冊用戶端應用程式。
+3. 按一下 [API 存取]。
+4. 按一下 [新增]。
+5. 選取您的 web API，以及您想要授與的範圍 (權限)。
+6. 按一下 [確定]。
 
 > [!NOTE]
 > Azure AD B2C 不會要求您的用戶端應用程式使用者同意。 相反地，根據上述應用程式之間設定的權限，所有同意都係由系統管理員提供。 如果已撤銷應用程式的權限授與，所有先前能夠取得該權限的使用者將不再能夠執行這項操作。

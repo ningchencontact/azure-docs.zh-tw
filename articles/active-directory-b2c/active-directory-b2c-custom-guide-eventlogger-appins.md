@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ced100f0bdd20841648ca84dfcab1847bdcd3096
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d7097886b746c225bb420f9a96e2b7ef5c95c913
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362478"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684728"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>使用 Application Insights 在 Azure Active Directory B2C 中追蹤使用者行為
 
@@ -31,7 +31,7 @@ ms.locfileid: "49362478"
 
 ## <a name="how-it-works"></a>運作方式
 
-Azure AD B2C 中的身分識別體驗架構納入了 `Handler="Web.TPEngine.Providers.UserJourneyContextProvider, Web.TPEngine, Version=1.0.0.0` 提供者。 它會使用提供給 Azure AD B2C 的檢測金鑰，將事件資料直接傳送到 Application Insights。
+Azure AD B2C 中的身分識別體驗架構納入了 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0` 提供者。 它會使用提供給 Azure AD B2C 的檢測金鑰，將事件資料直接傳送到 Application Insights。
 
 技術設定檔會使用此提供者來定義 Azure AD B2C 的事件。 這個設定檔會指定事件的名稱、所記錄的宣告及檢測金鑰。 為了張貼事件，接著會在自訂的使用者旅程圖中新增技術設定檔，以作為 `orchestration step` 或 `validation technical profile`。
 

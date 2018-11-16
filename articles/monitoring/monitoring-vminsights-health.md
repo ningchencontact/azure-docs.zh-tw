@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0f149d09b310553ecd5b03e94601408f279d9c0c
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914306"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614391"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>使用適用於 VM 的 Azure 監視器 (預覽) 來了解 Azure 虛擬機器的健康情況
 Azure 包含多個服務，它們可在監視空間中分別執行特定的角色或工作，但無法用來為裝載於 Azure 虛擬機器的作業系統提供深入的健康情況檢視方塊。  雖然您可以使用 Log Analytics 或 Azure 監視器來監視不同的情況，但它們並不是設計來呈現核心元件的健康情況或虛擬機器的整體健康情況或為其設定模型。  透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
@@ -119,7 +119,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 * 有多少部 VM 因為處理器、磁碟、記憶體或網路介面卡偵測到問題 (依健康狀態分類) 而處於狀況不良的狀態？  
 * 有多少部 VM 因為核心作業系統服務偵測到問題 (依健康狀態分類) 而處於狀況不良的狀態？
 
-您可以在這裡快速地識別由主動監視 VM 的健康情況準則所偵測到的前幾個重大問題，並檢閱 VM 健康情況警示的詳細資料，以及旨在協助診斷並修復問題的相關知識文章。  選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) 頁面。
+您可以在這裡快速地識別由主動監視 VM 的健康情況準則所偵測到的前幾個重大問題，並檢閱 VM 健康情況警示的詳細資料，以及旨在協助診斷並修復問題的相關知識文章。  選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) 頁面。
 
 [依作業系統的 VM 分佈] 清單會顯示依 Windows 版本或 Linux 發行版本列出的 VM 及其版本。 在每個作業系統分類中，都會根據 VM 的健康情況進一步細分 VM。 
 
@@ -247,7 +247,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 若要查看更新的健康狀態，您可以按一下 [重新整理] 連結，重新整理 [健康情況診斷] 頁面。  如果要基於預先定義的輪詢間隔來更新健康情況準則的健康狀態，此工作可讓您避免等候，並反映最新的健康狀態。  [健康情況準則狀態] 是一個篩選條件，可允許您根據所選取的健康情況狀態 (狀況良好、警告、重大、未知及全部) 來設定結果範圍。  右上角的**上次更新**時間表示上次重新整理 [健康情況診斷] 頁面時的時間。  
 
 ## <a name="alerting-and-alert-management"></a>警示和警示管理 
-適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
+適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
 
 依嚴重性分類的 VM 健康情況警示總數可在 [健康情況] 儀表板的 [警示] 區段下方取得。 當您選取警示總數或對應到嚴重性層級的數字時，[警示] 頁面隨即開啟並列出所有符合您選取項目的警示。  例如，如果您選取了對應至**嚴重性層級 1** 的資料列，則會看到下列檢視：
 

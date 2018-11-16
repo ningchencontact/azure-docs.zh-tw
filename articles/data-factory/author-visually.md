@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/7/2018
 ms.author: shlo
-ms.openlocfilehash: 3db32dfe2d7b65535f7d30f76241b33ecca96c15
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7a0d72ac67b329cb6d25be955205a2bbcef38e81
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957950"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281688"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory 中的視覺化撰寫
 Azure Data Factory 使用者介面體驗 (UX) 可讓您透過視覺化方式撰寫及部署資料處理站的資源，而不必編寫任何程式碼。 您可以將活動拖放到管線畫布上、執行測試回合、反覆進行偵錯，以及部署和監視管線回合。 使用 UX 來執行視覺化撰寫的方法有兩種：
@@ -142,7 +142,9 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 
 ## <a name="author-with-github-integration"></a>使用 GitHub 整合進行撰寫
 
-使用 GitHub 整合所進行的視覺化撰寫，會對資料處理站管線上的工作支援原始檔控制和共同作業功能。 您可以將資料處理站與 GitHub 帳戶存放庫建立關聯，以進行原始檔控制、共同作業及版本設定。 一個 GitHub 帳戶可以有多個存放庫，但一個 GitHub 存放庫只能與一個資料處理站建立關聯。 如果您沒有 GitHub 帳戶或存放庫，請遵循[這些指示](https://github.com/join)來建立您的資源。 GitHub 與 Data Factory 的整合支援公用 GitHub 與 GitHub Enterprise。
+使用 GitHub 整合所進行的視覺化撰寫，會對資料處理站管線上的工作支援原始檔控制和共同作業功能。 您可以將資料處理站與 GitHub 帳戶存放庫建立關聯，以進行原始檔控制、共同作業及版本設定。 一個 GitHub 帳戶可以有多個存放庫，但一個 GitHub 存放庫只能與一個資料處理站建立關聯。 如果您沒有 GitHub 帳戶或存放庫，請遵循 [這些指示](https://github.com/join)  \(英文\) 來建立您的資源。
+
+GitHub 與 Data Factory 的整合支援公用 GitHub (即 [https://github.com](https://github.com)) 與 GitHub Enterprise。 只要您具備 GitHub 中存放庫的讀取和寫入權限，就能搭配 Data Factory 使用公用和私人 GitHub 存放庫。
 
 若要設定 GitHub 存放庫，您必須擁有所用 Azure 訂用帳戶的系統管理員權限。
 
@@ -164,11 +166,11 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 
 設定方法 1 (公用存放庫)：[現在就開始吧] 頁面
 
-在 Azure Data Factory 中，移至 [現在就開始吧] 頁面。 選取 [設定程式碼存放庫]：
+在 Azure Data Factory 中，移至 [現在就開始吧] **** 頁面。 選取 [設定程式碼存放庫] ****：
 
 ![Data Factory 開始使用網頁](media/author-visually/github-integration-image1.png)
 
-[存放庫設定] 設定窗格會隨即出現：
+[存放庫設定] **** 設定窗格隨即出現：
 
 ![GitHub 存放庫設定](media/author-visually/github-integration-image2.png)
 
@@ -181,14 +183,14 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 | **RepositoryName**                                       | 您的 GitHub 程式碼存放庫名稱。 GitHub 帳戶包含 Git 存放庫，可用來管理原始程式碼。 您可以建立新的存放庫，或使用帳戶中既有的存放庫。                                                                                                                                                                                                                              |                    |
 | **共同作業分支**                                 | 用於發行的 GitHub 共同作業分支。 根據預設，這是主要分支。 如果您想要從其他分支發行資源，請變更此設定。                                                                                                                                                                                                                                                               |                    |
 | **根資料夾**                                          | 在您 GitHub 共同作業分支中的根資料夾。                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 GitHub 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
+| **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布** 將現有的資料處理站資源匯入到 GitHub 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 | **要匯入資源的分支**                       | 指定要匯入資料處理站資源 (管線、資料集、連結服務等等) 的分支。 您可以將資源匯入下列其中一個分支：a. 共同作業 b. 新建 c. 使用現有的                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-public-repo-ux-authoring-canvas"></a>設定方法 2 (公用存放庫)：UX 撰寫畫布
 
-在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] 下拉式功能表，然後選取 [設定程式碼存放庫]。
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] **** 下拉式功能表，然後選取 [設定程式碼存放庫] ****。
 
-隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」中的說明。
+隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」 ** 中的說明。
 
 ### <a name="configure-a-github-enterprise-repository-with-azure-data-factory"></a>設定搭配 Azure Data Factory 的 GitHub Enterprise 存放庫
 
@@ -196,11 +198,11 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 
  #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>設定方法 1 (Enterprise 存放庫)：[現在就開始吧] 頁面
 
-在 Azure Data Factory 中，移至 [現在就開始吧] 頁面。 選取 [設定程式碼存放庫]：
+在 Azure Data Factory 中，移至 [現在就開始吧] **** 頁面。 選取 [設定程式碼存放庫] ****：
 
 ![Data Factory 開始使用網頁](media/author-visually/github-integration-image1.png)
 
-[存放庫設定] 設定窗格會隨即出現：
+[存放庫設定] **** 設定窗格隨即出現：
 
 ![GitHub 存放庫設定](media/author-visually/github-integration-image3.png)
 
@@ -215,14 +217,14 @@ Data Factory 只有在載入處理站時才會讀取 `publish_config.json` 檔�
 | **RepositoryName**                                       | 您的 GitHub 程式碼存放庫名稱。 GitHub 帳戶包含 Git 存放庫，可用來管理原始程式碼。 您可以建立新的存放庫，或使用帳戶中既有的存放庫。                                                                                                                                                                                                                              |                    |
 | **共同作業分支**                                 | 用於發行的 GitHub 共同作業分支。 根據預設，這是主要分支。 如果您想要從其他分支發行資源，請變更此設定。                                                                                                                                                                                                                                                               |                    |
 | **根資料夾**                                          | 在您 GitHub 共同作業分支中的根資料夾。                                                                                                                                                                                                                                                                                                                                                                             |                    |
-| **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布**將現有的資料處理站資源匯入到 GitHub 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
+| **將現有的 Data Factory 資源匯入存放庫** | 指定是否要從 UX **撰寫畫布** 將現有的資料處理站資源匯入到 GitHub 存放庫。 選取此方塊可將您的資料處理站資源以 JSON 格式匯入到相關聯的 Git 存放庫。 此動作會將每個資源個別匯出 (亦即，已連結的服務和資料集會匯出至個別的 JSON)。 若未選取此方塊，則不會匯入現有資源。 | 已選取 (預設值) |
 | **要匯入資源的分支**                       | 指定要匯入資料處理站資源 (管線、資料集、連結服務等等) 的分支。 您可以將資源匯入下列其中一個分支：a. 共同作業 b. 新建 c. 使用現有的                                                                                                                                                                                                     |                    |
 
 #### <a name="configuration-method-2-enterprise-repo-ux-authoring-canvas"></a>設定方法 2 (Enterprise 存放庫)：UX 撰寫畫布
 
-在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] 下拉式功能表，然後選取 [設定程式碼存放庫]。
+在 Azure Data Factory UX **撰寫畫布**中，找到您的資料處理站。 選取 [Data Factory] **** 下拉式功能表，然後選取 [設定程式碼存放庫] ****。
 
-隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」中的說明。
+隨即會出現設定窗格。 如需有關組態設定的詳細資訊，請參閱上述「設定方法 1」 ** 中的說明。
 
 ## <a name="use-the-expression-language"></a>使用運算式語言
 您可以藉由使用 Azure Data Factory 所支援的運算式語言，來指定屬性值的運算式。

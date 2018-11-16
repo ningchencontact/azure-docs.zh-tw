@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 558f7d684453c8b5040f586820bd2a8a9ac0f9c8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a1fd001980efbff27f10cfb4be1502cd2f9f402
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838427"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345924"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>在 Azure HDInsight Hive 資料表中進行資料取樣
 本文說明如何使用 Hive 查詢，對 Azure HDInsight Hive 資料表中儲存的資料向下取樣，以縮減至更適合操控分析的大小。 文中討論三個普遍使用的取樣方法：
@@ -28,10 +28,6 @@ ms.locfileid: "34838427"
 * 統一隨機取樣
 * 依群組隨機取樣
 * 分層取樣
-
-以下**功能表**所連結的主題會說明如何從各種不同儲存體環境進行資料取樣。
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **為何要對您的資料進行取樣？**
 如果您規劃分析的資料集很龐大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。 向下取樣有助於資料的了解、探索和功能工程。 它在 Team Data Science Process 中扮演的角色是，能夠快速建立資料處理函式與機器學習服務模型的原型。

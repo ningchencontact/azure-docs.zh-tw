@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 2c4255b70ae9eb3b31b6fdfce33853f0d517aa1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215475"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231442"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>選取並使用計算目標將您的模型定型
 
@@ -463,7 +463,7 @@ run_config.auto_prepare_environment = True
 * 提交 `Pipeline` 物件。
 
 > [!IMPORTANT]
-> Azure Databricks、Azure Data Lake Analytics 和 Azure HDInsight 計算目標只能在管線中使用。
+> Azure Databricks 和 Azure Data Lake Analytics 計算目標只能在管線中使用。
 > 本機計算目標則無法在管線中使用。
 
 ### <a name="submit-using-scriptrunconfig"></a>使用 `ScriptRunConfig` 來提交
@@ -591,7 +591,7 @@ pipeline_run.wait_for_completion()
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Azure Machine Learning SDK 參照](http://aka.ms/aml-sdk)
+* [Azure Machine Learning SDK 參照](https://aka.ms/aml-sdk)
 * [教學課程：將模型定型](tutorial-train-models-with-aml.md)
 * [部署模型的位置](how-to-deploy-and-where.md)
 * [使用 Azure Machine Learning 服務建置機器學習服務管線](concept-ml-pipelines.md)

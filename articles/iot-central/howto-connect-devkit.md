@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205454"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255722"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -23,7 +23,7 @@ ms.locfileid: "39205454"
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
+1. Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 1. DevKit 裝置。 若要購買 DevKit 裝置，請造訪 [MXChip IoT DevKit](http://mxchip.com/az3166)。
 
 
@@ -31,7 +31,7 @@ ms.locfileid: "39205454"
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **MXChip** 裝置範本： 
 
-- 包含裝置**溼度**、**溫度**、**壓力**、**Magnometer** (沿著 X、Y、Z 軸測量)、**加速器** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
+- 包含裝置**溼度**、**溫度**、**壓力**、**磁強計** (沿著 X、Y、Z 軸測量)、**加速計** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
 - 包含**裝置狀態**範例度量的狀態。
 - 包含 **按下按鈕 B** 事件的事件度量。 
 - 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換等設定。
@@ -43,26 +43,34 @@ ms.locfileid: "39205454"
 
 ## <a name="add-a-real-device"></a>新增真實裝置
 
-在 Azure IoT 中心應用程式中，從 **MXChip** 裝置範本新增真實裝置，並記下裝置連接字串。 如需詳細資訊，請參閱[將真實裝置新增至 Azure IoT 中心應用程式](tutorial-add-device.md)。
+在 Azure IoT Central 應用程式中，從 **MXChip** 裝置範本新增真實裝置，並記下裝置連線詳細資料 ([範圍識別碼]、[裝置識別碼] 和 [主要金鑰])。
+
+1. 從 Device Explorer 中新增 [真實裝置]，按一下 [+ 新增] > [實際] 以新增實際裝置。
+    * 輸入裝置識別碼**<span style="color:Red"> (應為小寫)</span>**，或使用建議的裝置識別碼。
+    * 輸入裝置名稱，或使用建議的名稱
+    
+    ![新增裝置](media\concepts-connectivity\add-device.png)
+
+
+1. 取得所新增裝置的連線詳細資料 (例如**範圍識別碼、裝置識別碼和主要金鑰**)，方法是按一下裝置頁面上的 [連線]。
+ 
+    ![連線詳細資料](media\concepts-connectivity\device-connect.PNG)
+
+3. 請務必儲存這些詳細資料，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。 
+
 
 ### <a name="prepare-the-devkit-device"></a>準備 DevKit 裝置
 
 > [!NOTE]
 > 如果您先前已經使用裝置並且已儲存 WiFi 認證，但是想要將裝置重新設定為使用不同的 WiFi 網路、連接字串或遙測度量，請同時按面板上的 **A** 和 **B** 按鈕。 如果沒有作用，請按 [重設] 按鈕，然後再試一次。
 
-#### <a name="before-you-start-configuring-the-device"></a>在開始設定裝置之前：
-1. 在您的 IoT Central **範例 Devkits** 中前往 `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (在右上方) 
-2. 複製主要連接字串
-3. 請務必儲存連接字串，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>若要準備 DevKit 裝置：
 
 
-1. 從 GitHub 上的[版本](https://github.com/Azure/iot-central-firmware/releases)頁面下載適用於 MXChip 的最新預先建置 Azure IoT 中心韌體。 [版本] 頁面上的下載檔案名稱看起來像 `AZ3166-IoT-Central-X.X.X.bin`。
-
+1. 從 GitHub 上的[版本](https://aka.ms/iotcentral-docs-MXChip-releases)頁面下載適用於 MXChip 的最新預先建置 Azure IoT 中心韌體。
 1. 使用 USB 纜線將 DevKit 裝置連接到開發電腦。 在 Windows 中，檔案總管視窗會在對應到 DevKit 裝置上儲存體的磁碟機上開啟。 例如，此磁碟機可能會稱為 **AZ3166 (D:)**。
-
 1. 將 **iotCentral.bin** 檔案拖曳到磁碟機視窗。 複製完成時，使用新的韌體重新啟動裝置。
 
 1. 當 DevKit 裝置重新啟動時，會顯示下列畫面：
@@ -75,7 +83,7 @@ ms.locfileid: "39205454"
     ```
 
     > [!NOTE]
-    > 如果畫面顯示任何其他項目，請同時按下裝置上的 **A** 和 **B** 按鈕重新啟動裝置。 
+    > 如果畫面顯示任何其他項目，請重設裝置，並同時按下裝置上的 **A** 和 **B** 按鈕重新啟動裝置。 
 
 1. 裝置現在處於存取點 (AP) 模式。 您可以從您的電腦或行動裝置連線到此 WiFi 存取點。
 
@@ -89,7 +97,7 @@ ms.locfileid: "39205454"
     - 新增 WiFi 網路的名稱 
     - WiFi 網路密碼
     - 裝置 LCD 上顯示的 PIN CODE 
-    - 裝置的連接字串 (您應該已遵循步驟儲存了連接字串) 您可以在 `https://apps.iotcentral.com`->`Device Explorer`->`Device`->`Select or Create a new Real Device`->`Connect this device` (在右上方) 找到連接字串
+    - 裝置的連線詳細資料 [範圍識別碼]、[裝置識別碼] 和 [主要金鑰] (您應該已遵循步驟儲存這項資訊)      
     - 選取所有可用的遙測量值！ 
 
 1. 選擇 [設定裝置] 之後，您會看到這個頁面：
@@ -99,7 +107,6 @@ ms.locfileid: "39205454"
 1. 按裝置上的 [重設] 按鈕。
 
 
-
 ## <a name="view-the-telemetry"></a>檢視遙測資料
 
 當 DevKit 裝置重新啟動時，裝置上的畫面會顯示：
@@ -107,6 +114,9 @@ ms.locfileid: "39205454"
 * 傳送的遙測訊息數目。
 * 失敗次數。
 * 接收的所需屬性數目和傳送的報告屬性數目。
+
+> [!NOTE]
+> 如果裝置似乎在連線檢查期間形成迴圈，請在 IoT Central 中已「封鎖」裝置時，「解除鎖定」該裝置，讓它可以連線到應用程式。
 
 搖動裝置，使傳送的報告屬性數目遞增。 裝置會傳送一個隨機數字作為 [Die 數字] 裝置屬性。
 
@@ -193,12 +203,12 @@ git clone https://github.com/Azure/iot-central-firmware
 
 
 #### <a name="states"></a>狀態 
-| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>活動 
-| Name             | 顯示名稱      | 
+| 名稱             | 顯示名稱      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 

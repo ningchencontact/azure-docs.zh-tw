@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: reference
-ms.date: 05/11/2018
+ms.date: 10/29/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b4407ac6b7a0d9fdbf52b84fb94223c32868f0c5
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9f82deaa3ca048342c3501e111470eaea2ed9437
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983847"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748403"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 共同作業常見問題集
 
 這些有關 Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業的常見問題集 (FAQ) 會定期更新來包含新的主題。
 
-### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>我們是否可以自訂登入頁面，讓我們的 B2B 共同作業來賓使用者感到更直覺式？
+### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>是否可以自訂登入頁面，讓我們的 B2B 共同作業來賓使用者感到更直覺式？
 當然！ 請參閱我們[有關這項功能的部落格文章](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/)。 如需有關如何自訂組織登入頁面的詳細資訊，請參閱[將公司商標新增至登入和存取面板頁面](../fundamentals/customize-branding.md)。
 
 ### <a name="can-b2b-collaboration-users-access-sharepoint-online-and-onedrive"></a>B2B 共同作業的使用者可以存取 SharePoint Online 和 OneDrive 嗎？
@@ -46,7 +46,7 @@ ms.locfileid: "45983847"
 組織可能想要新增 B2B 共同作業使用者，依需要將他們佈建至應用程式，然後送出邀請。 您可以使用 B2B 共同作業邀請 API 自訂登入工作流程。
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>能否在 Exchange 全域通訊清單中顯示來賓使用者？
-是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 加以顯示。 如需詳細資訊，請參閱 [Office 365 群組的來賓存取](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)中的**能否在 Exchange 全域通訊清單中顯示來賓物件？**。
+是。 根據預設，來賓物件不會在貴組織的全域通訊清單中顯示，但您可以使用 Azure Active Directory PowerShell 加以顯示。 請參閱 [Office 365 群組的來賓存取](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ)中的**能否在全域通訊清單中顯示來賓物件？**。
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>我是否可以將來賓使用者設為受限的管理員？
 當然。 如需詳細資訊，請參閱[將來賓使用者新增至角色](add-guest-to-role.md)。
@@ -68,16 +68,13 @@ ms.locfileid: "45983847"
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 共同作業是否支援多重要素驗證和取用者電子郵件帳戶？
 是。 Azure AD B2B 共同作業支援多重要素驗證和取用者電子郵件帳戶。
 
-### <a name="do-you-plan-to-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>您是否打算支援 Azure AD B2B 共同作業使用者的密碼重設？
-是。 以下是受到夥伴組織邀請之 B2B 使用者自助式密碼重設 (SSPR) 的重要詳細資料：
+### <a name="do-you-support-password-reset-for-azure-ad-b2b-collaboration-users"></a>您是否支援 Azure AD B2B 共同作業使用者的密碼重設？
+如果您的 Azure AD 租用戶是使用者的主目錄，您可以從 Azure 入口網站[重設使用者密碼](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-reset-password-azure-portal#how-to-reset-the-password-for-a-user)。 但您無法直接重設使用由其他 Azure AD 目錄或外部身分識別提供者所管理的帳戶進行登入的來賓使用者的密碼。 只有來賓使用者或使用者主目錄中的系統管理員可以重設密碼。 以下是一些如何重設來賓使用者密碼的範例：
  
-* SSPR 只會在 B2B 使用者的身分識別租用戶中發生。
-* 如果身分識別租用戶是 Microsoft 帳戶，就會使用 Microsoft 帳戶 SSPR 機制。
-* 如果身分識別租用戶是及時 (JIT) 或病毒式租用戶，則會傳送密碼重設電子郵件。
-* 如果是其他租用戶，則會對 B2B 使用者採用標準 SSPR 程序。 就像 B2B 使用者的成員 SSPR，在資源方面也會封鎖租用。 
-
-### <a name="is-password-reset-available-for-guest-users-in-a-just-in-time-jit-or-viral-tenant-who-accepted-invitations-with-a-work-or-school-email-address-but-who-didnt-have-a-pre-existing-azure-ad-account"></a>在 Just-In-Time (JIT) 或「病毒式」租用戶中，以工作或學校電子郵件地址接受邀請，但沒有既存 Azure AD 帳戶的來賓使用者，可以使用密碼重設嗎？
-是。 會傳送密碼重設郵件，讓使用者重設其 JIT 租用密碼。
+* 使用 Microsoft 帳戶 (例如guestuser@live.com) 登入的來賓使用者，可以使用 Microsoft 帳戶自助式密碼重設 (SSPR) 功能重設自己的密碼。 請參閱[如何重設 Microsoft 帳戶密碼](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)。
+* 使用 Google 帳戶或其他外部身分識別提供者登入的來賓使用者，可以使用其身分識別提供者的 SSPR 方法重設自己的密碼。 例如，使用 Google 帳戶 guestuser@gmail.com 的來賓使用者可以依照[變更或重設密碼](https://support.google.com/accounts/answer/41078)中的指示重設自己的密碼。
+* 如果身分識別租用戶是 Just-in-time (JIT) 或 「病毒式」租用戶 (表示它是獨立、非受控的 Azure 租用戶)，只有來賓使用者才能重設自己的密碼。
+* 如果來賓使用者的主目錄是您的 Azure AD 租用戶，您可以重設使用者的密碼。 例如，您可能已建立使用者或從您的內部部署 Active Directory 同步使用者，並將他們的 UserType 設為 Guest。 因為這位使用者位於您的主目錄中，所以您可以從 Azure 入口網站重設其密碼。
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365 是否提供 Azure AD B2B 共同作業的線上支援？
 是，Dynamics 365 提供 Azure AD B2B 共同作業的線上支援。 如需詳細資訊，請參閱 Dynamics 365 文章[透過 Azure Active Directory B2B 共同作業邀請使用者](https://docs.microsoft.com/dynamics365/customer-engagement/admin/invite-users-azure-active-directory-b2b-collaboration)。
@@ -92,24 +89,24 @@ Azure AD 有一組固定的字元、密碼強度，以及帳戶鎖定需求，�
 針對同盟帳戶，密碼原則取決於內部部署租用中套用的原則，以及使用者的 Microsoft 帳戶設定。
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>組織可能想要在其應用程式中讓租用戶使用者和來賓使用者有不同的體驗。 有適用於此案例的標準指引嗎？ 識別提供者宣告的存在是否為應使用的正確模型？
- 來賓使用者可以使用任何識別提供者進行驗證。 如需詳細資訊，請參閱 [B2B 共同作業使用者的屬性](user-properties.md)。 使用 **UserType** 屬性來決定使用者體驗。 權杖中目前不包含 **UserType** 宣告。 應用程式應該使用圖形 API 來查詢目錄中的使用者及取得 UserType。
+來賓使用者可以使用任何識別提供者進行驗證。 如需詳細資訊，請參閱 [B2B 共同作業使用者的屬性](user-properties.md)。 使用 **UserType** 屬性來決定使用者體驗。 權杖中目前不包含 **UserType** 宣告。 應用程式應該使用圖形 API 來查詢目錄中的使用者及取得 UserType。
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>哪裡可以找到 B2B 共同作業社群，以分享解決方案和提交構想？
-我們會時常聆聽您對改進 B2B 共同作業的意見反應。 我們邀請您分享您的使用者案例、最佳做法，以及您喜歡 Azure AD B2B 共同作業的什麼功能。 請前往 [Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)參與討論。
- 
+我們會時常聆聽您對改進 B2B 共同作業的意見反應。 請分享您的使用者案例、最佳做法，以及您喜歡 Azure AD B2B 共同作業的什麼功能。 請前往 [Microsoft 技術社群](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)參與討論。
+ 
 我們也邀請您前往 [B2B 共同作業構想](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)提交您的構想和票選未來的功能。
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>我們是否可以傳送自動兌換的邀請，讓使用者「隨時出發」？ 還是使用者一定要按一下才能前往兌換 URL？
-邀請者可以使用 UI、PowerShell 指令碼或 API，邀請夥伴組織中的其他使用者。 然後，邀請者可以將共用應用程式的直接連結傳送給來賓使用者。 在大部分情況下，不再需要開啟電子郵件邀請，然後按一下兌換 URL。 如需詳細資訊，請參閱 [Azure Active Directory B2B 共同作業邀請兌換](redemption-experience.md)。
+您可以使用 UI、PowerShell 指令碼或 API，邀請夥伴組織中的其他使用者。 然後，您可以將共用應用程式的直接連結傳送給來賓使用者。 在大部分情況下，不再需要開啟電子郵件邀請，然後按一下兌換 URL。 請參閱 [Azure Active Directory B2B 共同作業邀請兌換](redemption-experience.md)。
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>當受邀的合作夥伴使用同盟來新增自己的內部部署驗證時，B2B 共同作業如何運作？
 如果合作夥伴具有與內部部署驗證基礎結構同盟的 Azure AD 租用戶，就會自動達成內部部署單一登入 (SSO)。 如果合作夥伴沒有 Azure AD 租用戶，則系統會為新的使用者建立 Azure AD 帳戶。 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>我以為 Azure AD B2B 不接受 gmail.com 和 outlook.com 電子郵件地址，而 B2C 用於這些類型的帳戶？
-在支援哪些身分識別這方面，我們將會消除 B2B 與企業對消費者 (B2C) 共同作業之間的差異。 使用的身分識別並不是選擇使用 B2B 或 B2C 時的一個好理由。 如需有關選擇協同作業選項的資訊，請參閱[比較 Azure Active Directory 的 B2B 共同作業和 B2C](compare-with-b2c.md)。
+在支援哪些身分識別這方面，我們將會消除 B2B 與企業對消費者 (B2C) 共同作業之間的差異。 使用的身分識別並不是用來選擇要使用 B2B 或 B2C 的好理由。 如需有關選擇協同作業選項的資訊，請參閱[比較 Azure Active Directory 的 B2B 共同作業和 B2C](compare-with-b2c.md)。
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>哪些應用程式和服務支援 Azure B2B 來賓使用者？
-Azure AD 整合的所有應用程式都支援 Azure B2B 來賓使用者。 
+所有與 Azure AD 整合的應用程式都能支援 Azure B2B 來賓使用者，但它們必須使用租用戶端點驗證來賓使用者。 您可能也需要在使用者向應用程式驗證時所發出的 SAML 權杖中[自訂宣告](claims-mapping.md)。 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>如果我們的合作夥伴沒有多重要素驗證，我們是否可以對 B2B 來賓使用者強制使用多重要素驗證？
 是。 如需詳細資訊，請參閱 [B2B 共同作業使用者的條件式存取](conditional-access.md)。

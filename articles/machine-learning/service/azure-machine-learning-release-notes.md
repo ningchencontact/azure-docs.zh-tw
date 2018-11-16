@@ -9,16 +9,53 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 0927ae14d232ec2ce3a46bb66ed535deabbe0138
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158681"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261562"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。 
+
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Azure 入口網站 
+Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
+  * 用於已發佈管線的新 [管線] 索引標籤。
+  * 已增加附加現有的 HDInsight 叢集作為計算目標的支援。
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>Azure Machine Learning SDK for Python v0.1.74
+
++ **重大變更** 
+  * *Workspace.compute_targets、datastores、experiments、images、models* 以及 *webservices* 是屬性而非方法。 例如，將 Workspace.compute_targets() 取代為 Workspace.compute_targets。
+  * *Run.get_context* 取代 *Run.get_submitted_run*。 第二個方法將會在後續版本中移除。
+  * *PipelineData* 類別現在預期將 datastore 物件而不是 datastore_name 當作參數。 同樣地，*管線* 接受 default_datastore，而不是 default_datastore_name。
+
++ **新功能**
+  * Azure Machine Learning 管線[範例 Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) 現在使用 MPI 步驟。
+  * Jupyter Notebooks 的 RunDetails 小工具已更新以顯示管線的視覺效果。
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>Azure Machine Learning Data Prep SDK v0.4.0 
+ 
++ **新功能**
+  * 類型計數已新增至資料設定檔 
+  * 值計數與長條圖現在可以使用
+  * 資料設定檔中有更多百分位數
+  * 中間值可以在 Summarize 中使用
+  * 現在支援 Python 3.7
+  * 當您將包含資料存放區的資料流程儲存至 DataPrep 套件時，資料存放區資訊將保存為 DataPrep 套件的一部分
+  * 現在支援寫入至資料存放區 
+        
++ **已修正的 Bug**
+  * 64 位元不帶正負號的整數溢位現在會在 Linux 上正確處理
+  * 已在 smart_read 中修正純文字檔案不正確的文字標籤
+  * 字串資料行類型現在會出現在 [計量] 檢視中
+  * 類型計數現在已修正，可顯示對應至單一 FieldType，而不是個別項目的 ValueKinds
+  * 當路徑以字串方式提供時，Write_to_csv 不會再失敗
+  * 使用 Replace 時，將 “find” 留空將不會再失敗 
 
 ## <a name="2018-10-12"></a>2018-10-12
 
@@ -26,9 +63,6 @@ ms.locfileid: "50158681"
 
 + **新功能**
   * 建立新工作區時的多個租用戶支援。
-
-+ **重大變更**
-  * **即將在下一版推出**「Workspace.compute_targets 資料存放區、實驗、映像、模型」，以及 webservices 會變成屬性而非方法。 例如，將 Workspace.compute_targets() 取代為 Workspace.compute_targets。
 
 + **已修正的 BUG**
   * 部署 Web 服務時，不再需要釘選 pynacl 程式庫版本。
@@ -217,7 +251,7 @@ Azure Machine Learning 的全新、完整重新整理版本：深入了解此版
 **重要新功能**
 - [支援 SQL Server 和 Azure SQL DB 作為資料來源](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [使用 MMLSpark 在具備 GPU 支援的 Spark 上進行深度學習](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md) \(英文\)
-- [所有 AML 容器在部署時都與 Azure IoT Edge 裝置相容 (不需要額外步驟)](http://aka.ms/aml-iot-edge-blog) \(英文\)
+- [所有 AML 容器在部署時都與 Azure IoT Edge 裝置相容 (不需要額外步驟)](https://aka.ms/aml-iot-edge-blog) \(英文\)
 - Azure 入口網站提供註冊的模型清單和詳細資料檢視
 - 除了透過使用者名稱/密碼存取計算目標之外，也可以使用以 SSH 金鑰為基礎的驗證進行存取。 
 - 資料準備體驗中全新的模式頻率偵測器。 
@@ -282,7 +316,7 @@ Azure Machine Learning 的全新、完整重新整理版本：深入了解此版
 - 已新增 `az ml datasource create` 命令來允許從命令列建立資料來源檔案
 
 #### <a name="model-management-and-operationalization"></a>模型管理與作業
-- [所有 AML 容器在作業時都與 Azure IoT Edge 裝置相容 (不需要額外步驟)](http://aka.ms/aml-iot-edge-blog) \(英文\) 
+- [所有 AML 容器在作業時都與 Azure IoT Edge 裝置相容 (不需要額外步驟)](https://aka.ms/aml-iot-edge-blog) \(英文\) 
 - o16n CLI 中錯誤訊息的改進
 - 模型管理入口網站 UX 中的錯誤修正  
 - 詳細資料頁面中模型管理屬性採用一致的字母大小寫

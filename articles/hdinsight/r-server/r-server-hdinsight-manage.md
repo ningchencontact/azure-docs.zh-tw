@@ -3,18 +3,18 @@ title: 在 HDInsight 上管理 ML 服務叢集 - Azure
 description: 了解如何在 Azure HDInsight 中管理 ML 服務叢集。
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702396"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255393"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>在 HDInsight 上管理 ML 服務叢集
 
@@ -80,7 +80,7 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>遠端連線到 Microsoft ML 服務
 
-您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Hadoop Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如：
+您可以設定從桌上型電腦上執行的 ML 用戶端遠端執行個體，來存取 HDInsight Spark 計算內容。 若要這樣做，在桌上型電腦上定義 RxSpark 計算內容時，您必須指定選項 (hdfsShareDir、shareDir、sshUsername、sshHostname、sshSwitches 和 sshProfileScript)：例如：
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ HDInsight 上 ML 服務叢集中所使用的 R Studio Server 社群版本，只�
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > 您也可以使用 MapReduce，將計算分散到叢集節點。 如需計算內容的詳細資訊，請參閱[適用於 HDInsight 中 ML 服務叢集的計算內容選項](r-server-compute-contexts.md)。
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>將 R 程式碼分散到多個節點
 
 有了 HDInsight 上的 ML 服務，您就可以採用現有的 R 程式碼，並使用 `rxExec` 在跨叢集中的多個節點執行。 執行參數掃掠或模擬時，這個函式非常有用。 以下是使用 `rxExec` 的範例程式碼：
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-如果您仍在使用 Spark 或 MapReduce 內容，此命令會針對執行程式碼 `(Sys.info()["nodename"])` 的背景工作節點傳回 nodename 值。 例如，在四節點叢集上時，您應會取得如下列程式碼片段的輸出：
+如果您仍在使用 Spark 內容，此命令會針對執行程式碼 `(Sys.info()["nodename"])` 的背景工作節點傳回 nodename 值。 例如，在四節點叢集上時，您應會取得如下列程式碼片段的輸出：
 
     $rxElem1
         nodename

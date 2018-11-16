@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982200"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958673"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上掛接 Azure 檔案儲存體
 
@@ -100,6 +100,7 @@ mkdir -p /mnt/MyAzureFileShare
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+上述命令會使用 [mount](https://linux.die.net/man/8/mount) \(英文\) 命令來掛接 [cifs](https://linux.die.net/man/8/mount.cifs) \(英文\)特定的 Azure 檔案共用和選項。 具體來說，file_mode 和 dir_mode 選項會將檔案和目錄設定至權限 `0777`。 `0777` 權限能為所有使用者授與讀取、寫入及執行權限。 若要變更這些權限，您可以使用其他 [chmod 權限](https://en.wikipedia.org/wiki/Chmod)來取代值。 您也可以使用其他 [cifs](https://linux.die.net/man/8/mount.cifs) \(英文\) 選項，例如 gid 或 uid。 
 
 
 ## <a name="persist-the-mount"></a>保存掛接

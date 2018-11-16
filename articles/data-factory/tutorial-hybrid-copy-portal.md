@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304130"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614016"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體
 在本教學課程中，您會使用 Azure Data Factory 使用者介面 (UI) 來建立資料處理站管線，以將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體。 您要建立及使用自我裝載的整合執行階段，其會在內部部署與雲端資料存放區之間移動資料。
@@ -111,7 +111,7 @@ ms.locfileid: "44304130"
 
 1. 在容器清單中選取 [adftutorial]。
 
-    ![容器選取](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![容器選取](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. 保留 [容器] 視窗以供 **adftutorial** 開啟。 您可以在本快速入門結尾處使用它來確認輸出。 Data Factory 會在此容器中自動建立輸出資料夾，因此您不需要建立輸出資料夾。
 
@@ -197,7 +197,7 @@ ms.locfileid: "44304130"
 
 1. 在 [選項 1：快速安裝] 下，選取 [按一下這裡啟動此電腦的快速安裝]。 
 
-    ![快速安裝連結](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![快速安裝連結](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. 在 [Integration Runtime (自我裝載) 快速安裝] 視窗中，選取 [關閉]。 
 
@@ -237,7 +237,7 @@ ms.locfileid: "44304130"
 
 1. 移至 **SQLServerToBlobPipeline** 的索引標籤，或在樹狀檢視中選取 [SQLServerToBlobPipeline]。 
 
-    ![管線索引標籤](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![管線索引標籤](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. 移至 [屬性] 視窗底部的 [接收] 索引標籤，並選取 [+ 新增]。 
 

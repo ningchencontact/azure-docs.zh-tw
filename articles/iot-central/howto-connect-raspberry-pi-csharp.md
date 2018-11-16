@@ -1,19 +1,19 @@
 ---
 title: 將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#) | Microsoft Docs
 description: 如何以裝置開發人員身分，將 Raspberry Pi 連線到使用 C# 的 Azure IoT Central 應用程式。
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734230"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956718"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>將 Raspberry Pi 連線到 Azure IoT Central 應用程式 (C#)
 
@@ -23,10 +23,10 @@ ms.locfileid: "45734230"
 
 ## <a name="before-you-begin"></a>開始之前
 
-若要完成這篇文章中的步驟，您需要下列項目︰
+若要完成本文中的步驟，您需要下列元件︰
 
 * 安裝在您開發機器上的 [.NET Core 2](https://www.microsoft.com/net)。 您也應該有合適的程式碼編輯器，例如 [Visual Studio Code](https://code.visualstudio.com/)。
-* Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立 Azure IoT Central 應用程式](howto-create-application.md)。
+* Azure IoT Central 應用程式是從**範例 Devkits** 應用程式範本建立而來。 如需詳細資訊，請參閱[建立應用程式快速入門](quick-deploy-iot-central.md)。
 * 執行 Raspbian 作業系統的 Raspberry Pi 裝置。
 
 
@@ -34,10 +34,21 @@ ms.locfileid: "45734230"
 
 從**範例 Devkits** 應用程式範本建立的應用程式包含具有下列特性的 **Raspberry Pi**  裝置範本： 
 
-- 包含裝置**溼度**、**溫度**、**壓力**、**磁強計** (沿著 X、Y、Z 軸測量)、**加速計** (沿著 X、Y、Z 軸測量) 和**陀螺儀** (沿著 X、Y、Z 軸測量) 等測量值的遙測。
-- 顯示**電壓**、**電流**、**風扇速度**和 **IR** 切換的設定。
-- 包含裝置屬性**骰子數字**和**位置**雲端屬性的屬性。
-
+- 遙測，包括裝置將會收集的下列度量：
+    - 溼度
+    - 溫度
+    - 壓力
+    - 磁力計 (X, Y, Z)
+    - 加速計 (X, Y, Z)
+    - 迴轉儀 (X, Y, Z)
+- 設定
+    - 電壓
+    - Current
+    - 風扇速度
+    - IR 切換。
+- properties
+    - 模具編號裝置屬性
+    - 位置雲端屬性
 
 如需裝置範本的詳細設定資訊，請參閱 [Raspberry PI 裝置範本詳細資料](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 

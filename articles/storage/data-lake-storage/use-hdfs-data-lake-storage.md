@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576970"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277081"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>使用 HDFS CLI 搭配 Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 預覽可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 無論您是連結 HDInsight 叢集，或是使用 Azure Databricks、針對儲存於 Azure Data Lake Storage Gen2 的資料執行分析，從而執行 Apache Spark 作業，都可以使用命令列介面 (CLI) 來擷取和操作所載入的資料。 本文的其餘部分將概述在 [Azure 儲存體小組在新增 Azure 儲存體總管和 Azure 入口網站的支援](https://azure.microsoft.com/roadmap/)時，您有哪些選項可以使用。
+Azure Data Lake Storage Gen2 預覽可讓您管理及存取資料，就如同使用 [Hadoop 分散式檔案系統 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一樣。 無論您是有附加的 HDInsight 叢集，或是執行使用 Azure Databricks 來針對儲存於 Azure 儲存體帳戶中的資料執行分析的 Apache Spark 作業，都可以使用命令列介面 (CLI) 來擷取和操作已載入的資料。
 
 ## <a name="hdfs-cli-with-hdinsight"></a>HDFS CLI 搭配 HDInsight
 
 HDInsight 可以存取本機連接至計算節點的分散式檔案系統。 您可以使用與 HDFS 直接互動的殼層，以及 Hadoop 支援的其他檔案系統，來存取此檔案系統。 以下是常用的命令和實用資源的連結。
 
 >[!IMPORTANT]
->HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集 (了解如何[刪除叢集](../../hdinsight/hdinsight-delete-cluster.md))。 不過，即使將 HDInsight 叢集刪除，Azure Data Lake Storage Gen2 中儲存的資料仍然存在。
+>HDInsight 叢集的計費，是從建立叢集之後開始算起，並於叢集被刪除時停止計算。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。 若要了解如何刪除叢集，請參閱我們[針對該主題的文章](../../hdinsight/hdinsight-delete-cluster.md)。 不過，儲存在已啟用 Data Lake Storage Gen2 之儲存體帳戶中的資料，即使在 HDInsight 叢集被刪除後仍會存在。
 
 若要取得檔案清單或目錄：
 
