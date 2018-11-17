@@ -42,9 +42,9 @@
 #### [Office 365](oms-solution-office-365.md)
 #### [Service Fabric 分析](../log-analytics/log-analytics-service-fabric.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### 服務對應
-##### [使用](../monitoring/monitoring-service-map.md)
-##### [設定](../monitoring/monitoring-service-map-configure.md)
-##### [與 Operations Manager 整合](../monitoring/monitoring-service-map-scom.md)
+##### [使用](../azure-monitor/insights/service-map.md)
+##### [設定](../azure-monitor/insights/service-map-configure.md)
+##### [與 Operations Manager 整合](../azure-monitor/insights/service-map-scom.md)
 #### [SQL 評估](../log-analytics/log-analytics-sql-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [Surface Hub](../log-analytics/log-analytics-surface-hubs.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [升級分析](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics?f=255&MSPPError=-2147217396)
@@ -65,7 +65,7 @@
 ### [最佳做法](../azure-monitor/insights/solutions-best-practices.md)
 
 ## 管理案例
-### [從 Runbook 收集分析資料](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [從 Runbook 收集分析資料](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # 資源
 ## [Azure 藍圖](https://azure.microsoft.com/roadmap/)

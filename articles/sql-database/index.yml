@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0e1c246a0132c53656cb0b993b870677698fe65f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d7111b5faaa5276c65219db8ddd35fca64081a72
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732884"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853042"
 documentType: LandingData
 title: Azure SQL Database 文件
 metadata:
@@ -63,7 +63,7 @@ sections:
       image:
         src: media/index/i_elasticpool.svg
       title: 彈性集區
-    - href: /azure/sql-database/sql-database-managed-instance
+    - href: /azure/sql-database/sql-database-managed-instance-index
       html: <p>使用受控執行個體，輕鬆地將內部部署資料庫遷移至完全受控的 Azure PaaS 資料庫服務，而只需變更極少或不需變更資料庫程式碼。</p>
       image:
         src: media/index/i_mi.svg
@@ -155,6 +155,19 @@ sections:
     - html: 使用 <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>、<a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">資料庫移轉小幫手</a>或 <a href="/azure/sql-database/sql-database-import">BACPAC Import</a> 將現有資料庫遷移至 Azure
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">保護您的 SQL Database</a>
     - html: 使用<a href="/azure/sql-database/sql-database-implement-geo-distributed-database">異地分散資料庫</a>將資料散發到全域
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: 佈建 Azure SQL Database 以存放應用程式資料
+      href: /learn/modules/provision-azure-sql-db/
+      image:
+        src: /learn/achievements/provision-azure-sql-db.svg
+        href: /learn/modules/provision-azure-sql-db/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-sql-database">更多互動式學習...</a>
 - title: 免費 Pluralsight 影片訓練
   items:
   - type: list
