@@ -31,6 +31,8 @@ items:
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: 使用警示並修正裝置問題
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: 偵測 Edge 的異常行為
+      href: iot-accelerators-remote-monitoring-edge.md
   - name: 裝置模擬
     items:
     - name: 建立及執行模擬
@@ -75,6 +77,10 @@ items:
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+    - name: 新增 IoT Edge 裝置
+      href: iot-accelerators-remote-monitoring-add-edge-device.md
+    - name: 匯入 IoT Edge 套件
+      href: iot-accelerators-remote-monitoring-import-edge-package.md
     - name: 整合 SIM 卡資料
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: 建立模擬裝置
@@ -99,11 +105,14 @@ items:
     - name: 使用 CLI 進行部署
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: 本機部署
+      href: iot-accelerators-remote-monitoring-deploy-local.md
       items:
       - name: Visual Studio
         href: iot-accelerators-remote-monitoring-deploy-local.md
       - name: Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
+    - name: 電子郵件動作
+      href: iot-accelerators-remote-monitoring-email-actions.md
     - name: 使用 PowerBI 將遙測視覺化
       href: iot-accelerators-integrate-data-powerbi.md
     - name: 整合 Azure 時間序列深入解析與遠端監視
@@ -216,9 +225,9 @@ items:
     href: iot-accelerators-faq-cf.md
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-ms.openlocfilehash: 1819c70b5834d8086a57928d39f2e5b547bfb901
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bdd52d0023fbf43343cc5108216c6f11e35b89aa
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615104"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824841"
