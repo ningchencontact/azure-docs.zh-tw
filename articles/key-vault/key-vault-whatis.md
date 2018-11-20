@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230296"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246526"
 ---
 # <a name="what-is-azure-key-vault"></a>什麼是 Azure 金鑰保存庫？
 
@@ -81,12 +81,5 @@ Azure Key Vault 是可安全儲存及存取祕密的工具。 祕密是指任何
 
 ## <a name="next-steps"></a>後續步驟
 
-如需適用於系統管理員的開始使用教學課程，請參閱[開始使用 Azure Key Vault](key-vault-get-started.md)。
-
-如需 Key Vault 使用記錄的詳細資訊，請參閱 [Azure Key Vault 記錄](key-vault-logging.md)。
-
-如需搭配 Azure Key Vault 使用金鑰和秘密的詳細資訊，請參閱 [關於金鑰、秘密和憑證](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx)。
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
+了解如何[保護您的保存庫](key-vault-secure-your-key-vault.md)
+<!--Image references--> [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png Azure Key Vault 適用於大部分的區域。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。

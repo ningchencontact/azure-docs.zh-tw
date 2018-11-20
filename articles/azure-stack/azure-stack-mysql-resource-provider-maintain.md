@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: bc1c96d2f027d459ca20fccb70cd94ac9e5cae94
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: quying
+ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130133"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361910"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>MySQL 資源提供者維護作業
 
@@ -92,9 +92,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>祕密輪替
 
-這些指示只適用於 Azure Stack 整合系統 1804 版或更新版本。請勿在早於 1804 的 Azure Stack 版本上嘗試輪替秘密。
+*這些指示只適用於 Azure Stack 整合系統。*
 
-搭配使用 SQL 和 MySQL 資源提供者與 Azure Stack 整合系統時，您可以輪替下列基礎結構 (部署) 祕密：
+在 Azure Stack 整合系統中搭配使用 SQL 和 MySQL 資源提供者時，Azure Stack 操作員負責旋轉下列資源提供者基礎結構密碼，以確保密碼不會過期：
 
 - [部署期間所提供的](azure-stack-pki-certs.md)外部 SSL 憑證。
 - 部署期間所提供的資源提供者 VM 本機系統管理員帳戶密碼。

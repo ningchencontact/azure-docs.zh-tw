@@ -2,19 +2,19 @@
 title: 使用指令碼動作自訂 HDInsight 叢集 - Azure
 description: 使用指令碼動作在以 Linux 為基礎的 HDInsight 叢集上新增自訂元件。 指令碼動作是 Bash 指令碼，可用來自訂叢集設定，或新增其他服務和公用程式，如 Hue、Solr 或 R。
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978024"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279695"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>使用指令碼動作自訂 Linux 型 HDInsight 叢集
 
@@ -67,7 +67,7 @@ HDInsight 提供一個稱為**指令碼動作**的設定方法，此方法會叫
         如需範例 URI，請參閱[範例指令碼動作指令碼](#example-script-action-scripts)一節。
 
         > [!WARNING]
-        > HDInsight 僅支援__一般用途__的 Azure 儲存體帳戶。 目前不支援 __Blob 儲存體__帳戶類型。
+        > HDInsight 僅在標準效能層級的 Azure 儲存體帳戶支援 Blob。 
 
 * 可以限制為**只在特定節點類型上執行**，例如前端節點或背景工作節點。
 
