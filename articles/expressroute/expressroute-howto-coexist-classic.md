@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 09d1649f0ca0cf4ca464d95b29461cad3fe51788
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 30d56acf6bd3a882622af41ca0f2095572f72f71
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/18/2017
-ms.locfileid: "22710128"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615733"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>設定 ExpressRoute 和站對站並存連線 (傳統)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "22710128"
 > 
 > 
 
-能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。 您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連接至不是透過 ExpressRoute 連接的網站。 本文中將說明設定這兩個案例的步驟。 本文適用於傳統部署模型。 此組態無法使用於入口網站。
+能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。 您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不是透過 ExpressRoute 連線的網站。 本文中將說明設定這兩個案例的步驟。 本文適用於傳統部署模型。 此組態無法使用於入口網站。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -80,7 +80,7 @@ ms.locfileid: "22710128"
     如果您還沒有虛擬網路，這個程序將引導您使用傳統部署模型來建立新的虛擬網路，並建立新的 ExpressRoute 和站對站 VPN 連線。 若要設定，請依照 [建立新的虛擬網路和並存的連線](#new)一節中的步驟進行。
 * 我已經有一個傳統部署模型 VNet。
   
-    您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。 本文的 [為已經存在的 VNet 設定並存的連線](#add) 一節將引導您刪除閘道，然後建立新的 ExpressRoute 和站對站 VPN 連線。 請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。 請勿使用其他文章中的指示建立閘道器和連線。
+    您可能已經有虛擬網路，而且使用現有的站對站 VPN 連線或 ExpressRoute 連線。 本文的[為已經存在的 VNet 設定並存的連線](#add) 一節將引導您刪除閘道，然後建立新的 ExpressRoute 和站對站 VPN 連線。 請注意，建立新的連線時，您必須以非常特定的順序來完成這些步驟。 請勿使用其他文章中的指示建立閘道器和連線。
   
     在此程序中，建立可以並存的連線將會要求您刪除閘道器，然後設定新的閘道器。 這表示當您刪除和重新建立閘道器與連線時，將會有跨設備連線的停機時間，但您不需要將任何 VM 或服務移轉至新的虛擬網路。 您的 VM 和服務仍能透過負載平衡器對外通訊，而您能夠在這兩者設定為這樣做時進行閘道器設定。
 

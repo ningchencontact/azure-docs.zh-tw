@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 7eeb4fdba8272d9bc2b67d8a33dd7b1d210f5e47
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278594"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636468"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -218,7 +218,7 @@ ms.locfileid: "51278594"
    const containerId = config.container.id;
    ```
 
-   [資料庫](sql-api-resources.md#databases)可使用 **Databases** 類別的 [createIfNotExists](/javascript/api/%40azure/cosmos/databases) 或 [create](/javascript/api/%40azure/cosmos/databases) 函式來建立。 資料庫是分割於多個容器之項目的邏輯容器。 
+   資料庫可使用 **Databases** 類別的 [createIfNotExists](/javascript/api/%40azure/cosmos/databases) 或 [create](/javascript/api/%40azure/cosmos/databases) 函式來建立。 資料庫是分割於多個容器之項目的邏輯容器。 
 
 2. 複製 **createDatabase** 和 **readDatabase** 方法，並將其貼到 app.js 檔案中的 ```databaseId``` 和 ```containerId``` 定義下方。 **createDatabase** 函式會以識別碼 ```FamilyDatabase``` 建立新的資料庫；如果該識別碼尚不存在，則會從 ```config``` 物件指定。 **readDatabase** 函式會讀取資料庫的定義，以確定該資料庫確實存在。
 

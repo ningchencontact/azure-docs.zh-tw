@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471283"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515721"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：利用成本分析探索及分析成本
 
@@ -32,27 +32,14 @@ ms.locfileid: "49471283"
 
 ## <a name="prerequisites"></a>必要條件
 
-成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。
+成本分析適用於所有 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 客戶。 您必須至少具備一或多個下列範圍的讀取存取，才能檢視成本資料。 如需成本管理資料的存取權指派詳細資訊，請參閱[指派資料的存取權](assign-access-acm-data.md)。
 
-
-|**範圍**|**定義於**|**依範圍分析成本所需的存取權**|**事先的 EA 設定**|**將計費資料合併至**|
-|---                |---                  |---                   |---            |---           |
-|計費帳戶<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|企業管理員|None|Enterprise 合約中的所有訂用帳戶|
-|department|[https://ea.azure.com ](https://ea.azure.com )|部門管理員|啟用 DA 檢視費用|連結至部門的註冊帳戶所含的所有訂用帳戶|
-|註冊帳戶<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|帳戶擁有者|啟用 AO 檢視費用|註冊帳戶中的所有訂用帳戶|
-|管理群組|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|管理群組下的所有訂用帳戶|
-|訂用帳戶|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|訂用帳戶中的所有資源/資源群組|
-|資源群組|[https://portal.azure.com ](https://portal.azure.com )|成本管理讀者 (或讀者)|啟用 AO 檢視費用|資源群組中的所有資源|
-
-<sup>1</sup>計費帳戶通常稱為「Enterprise 合約」或「註冊」。
-
-<sup>2</sup>註冊帳戶通常稱為帳戶擁有者。
-
-如需設定 [DA 檢視費用] 和 [AO 檢視費用] 設定的詳細資訊，請參閱[啟用成本存取權](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)。
-
-
-
-
+- 計費帳戶
+- department
+- 註冊帳戶
+- 管理群組
+- 訂用帳戶
+- 資源群組
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 

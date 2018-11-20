@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362964"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621423"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站下載登入報告
 
@@ -32,7 +32,7 @@ ms.locfileid: "46362964"
 您需要：
 
 * 一個 Azure Active Directory 租用戶，而且您必須具有進階版授權以顯示登入活動報告。 
-* 一個使用者，他必須是租用戶中「安全性系統管理員」、「安全性讀取者」、「報告讀取者」或「全域系統管理員」的成員。 此外，租用戶中的任何使用者都可以存取自己的登入資訊。
+* 所擔任的租用戶角色為**安全性系統管理員**、**安全性讀取者**、**報告讀取者**或**全域系統管理員**的使用者。 此外，租用戶中的任何使用者都可以存取自己的登入資訊。
 
 ## <a name="quickstart-download-a-sign-in-report"></a>快速入門：下載登入報告
 

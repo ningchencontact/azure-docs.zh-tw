@@ -8,17 +8,18 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
-ms.openlocfilehash: e4624b115143f9f2e6dd77aa8ee79597c86ba31c
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.date: 11/09/2018
+ms.openlocfilehash: fff08131af277b20034ad23c354b70e73ae32f2e
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456164"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578275"
 ---
 # <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python 來開始使用 Azure Machine Learning
 
-在此快速入門中，您會使用適用於 Python 的 Azure Machine Learning 來建立及使用 Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。
+在此快速入門中，您會使用適用於 Python 的 Azure Machine Learning 來建立及使用 Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 在本快速入門中，您會先設定自己的 Python 環境和 Jupyter Notebook 伺服器。 若要在無安裝的情況下執行，請參閱[快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning](quickstart-get-started.md)。
+
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,6 +39,9 @@ ms.locfileid: "49456164"
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)
 
+>[!NOTE]
+> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.74 版進行測試 
+
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 
@@ -56,28 +60,31 @@ ms.locfileid: "49456164"
 
 開啟命令列視窗。 然後使用 Python 3.6 建立名為 `myenv` 的新 Conda 環境。
 
-```sh
+```shell
 conda create -n myenv -y Python=3.6
 ```
 
 啟用環境。
 
-  ```sh
+  ```shell
   conda activate myenv
   ```
 
 ### <a name="install-the-sdk"></a>安裝 SDK
 
-在已啟用的 Conda 環境中安裝 SDK。 此程式碼會安裝 Machine Learning SDK 的核心元件。 它也會在 `myenv` conda 環境中安裝 Jupyter Notebook 伺服器。 完成此安裝作業需要**大約 4 分鐘**。
+在已啟用的 Conda 環境中安裝 SDK。 下列命令會安裝 Machine Learning SDK 的核心元件。 它也會在 `myenv` conda 環境中安裝 Jupyter Notebook 伺服器。 完成安裝需要幾分鐘的時間，視您的電腦組態而定。
 
-```sh
+```shell
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
+
+
 
 ## <a name="create-a-workspace"></a>建立工作區
 
 若要啟動 Jupyter Notebook，請輸入下列命令。
-```sh
+```shell
 jupyter notebook
 ```
 
@@ -85,10 +92,7 @@ jupyter notebook
 
 若要顯示 SDK 版本，請在 Notebook 資料格中輸入下列 Python 程式碼並加以執行。
 
-```python
-import azureml.core
-print(azureml.core.VERSION)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
 建立新的 Azure 資源群組和新的工作區。
 
@@ -97,10 +101,10 @@ print(azureml.core.VERSION)
 ```python
 from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
+                      subscription_id='<azure-subscription-id>',    
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region
+                      location='eastus2' # or other supported Azure region  
                      )
 ```
 
@@ -108,9 +112,8 @@ ws = Workspace.create(name='myworkspace',
 
 若要查看工作區詳細資料，例如相關聯的儲存體、容器登錄和金鑰保存庫，請輸入下列程式碼。
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+
 
 ## <a name="write-a-configuration-file"></a>寫入組態檔
 
@@ -118,14 +121,8 @@ ws.get_details()
 
 此工作區組態檔可讓您稍後輕鬆地載入這同一個工作區。 您可以使用相同目錄或子目錄中的其他 Notebook 和指令碼來載入它。 
 
-```python
-# Create the configuration file.
-ws.write_config()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-# Use this code to load the workspace from 
-# other scripts and notebooks in this directory.
-# ws = Workspace.from_config()
-```
 
 `write_config()` API 呼叫會在目前的目錄中建立組態檔。 `config.json` 檔案包含下列指令碼。
 
@@ -141,24 +138,8 @@ ws.write_config()
 
 撰寫一些使用基本 SDK API 的程式碼來追蹤實驗執行。
 
-```python
-from azureml.core import Experiment
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
-# create a new experiment
-exp = Experiment(workspace=ws, name='myexp')
-
-# start a run
-run = exp.start_logging()
-
-# log a number
-run.log('my magic number', 42)
-
-# log a list (Fibonacci numbers)
-run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
-
-# finish the run
-run.complete()
-```
 
 ## <a name="view-logged-results"></a>檢視記錄的值
 執行完成時，您可以在 Azure 入口網站中檢視實驗執行。 使用下列程式碼可列印上一個執行結果的 URL。
@@ -177,9 +158,8 @@ print(run.get_portal_url())
 
 如果您不打算使用您在此建立的資源，請刪除它們，以免產生任何費用。
 
-```python
-ws.delete(delete_dependent_resources=True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
+
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -191,10 +171,34 @@ ws.delete(delete_dependent_resources=True)
 1. 在命令列視窗中，使用 `Ctrl`+`C` 停止 Notebook 伺服器。
 1. 安裝其他套件。
 
-    ```sh
+    ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
     ```
+
+    您也可以使用其他「額外」關鍵字來安裝 SDK 的其他元件。
+
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
+    ```
+
 
 安裝這些套件後，請遵循教學課程來定型和部署模型。 
 

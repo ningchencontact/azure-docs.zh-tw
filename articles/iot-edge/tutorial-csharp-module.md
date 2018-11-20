@@ -3,29 +3,31 @@ title: Azure IoT Edge C# 教學課程 | Microsoft Docs
 description: 本教學課程說明如何使用 C# 程式碼建立 IoT Edge 模組，並將其部署到邊緣裝置。
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ec8cd52d8a91c76033d52f9b49ee84dde98eada2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156760"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633983"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>教學課程：開發 C# IoT Edge 模組並部署至模擬裝置
 
 您可以使用 Azure IoT Edge 模組來部署程式碼，直接在 IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署能篩選感應器資料的 IoT Edge 模組。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：    
 
 > [!div class="checklist"]
-> * 使用 Visual Studio Code 建立以 .NET Core 2.0 SDK 為基礎的 IoT Edge 模組。
+> * 使用 Visual Studio Code 建立以 .NET Core 2.1 SDK 為基礎的 IoT Edge 模組。
 > * 使用 Visual Studio Code 和 Docker 建立 Docker 映像，並將其發佈至您的登錄中。
 > * 將模組部署到您的 IoT Edge 裝置。
 > * 檢視產生的資料。
 
+>[!NOTE]
+>您也可以使用 [Visual Studio 2017 開發、偵錯和部署 IoT Edge 模組](how-to-visual-studio-develop-csharp-module.md)。
 
 您於此教學課程中建立的 IoT Edge 模組，能夠篩選由您裝置所產生的溫度資料。 它只有在溫度超過指定的閾值時，才會將訊息往上游傳送。 這類於邊緣所進行的分析，對於減少針對雲端所傳輸及儲存的資料量相當有幫助。 
 

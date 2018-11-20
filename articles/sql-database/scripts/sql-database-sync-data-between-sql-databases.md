@@ -2,27 +2,22 @@
 title: PowerShell 範例 - 在多個 Azure SQL Database 之間進行同步處理 | Microsoft Docs
 description: 在多個 Azure SQL Database 之間進行同步處理的 Azure PowerShell 範例指令碼
 services: sql-database
-documentationcenter: sql-database
-author: allenwux
-manager: craigg
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: sql-database
-ms.custom: load & move data, mvc
+ms.subservice: data-movement
+ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 04/01/2018
+author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 3091d772c9650c816e8ec56ea4a01b3819deabc9
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+manager: craigg
+ms.date: 04/01/2018
+ms.openlocfilehash: 11347203b4d21bc046b97c1fb1ddc8348f5046af
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715783"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684911"
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>使用 PowerShell 在多個 SQL Database 之間進行同步處理
  
@@ -368,14 +363,18 @@ Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 如需 SQL 資料同步的詳細資訊，請參閱：
 
--   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](../sql-database-sync-data.md)
--   [設定 Azure SQL 資料同步](../sql-database-get-started-sql-data-sync.md)
--   [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
--   [透過 Log Analytics 監視 Azure SQL 資料同步](../sql-database-sync-monitor-oms.md)
--   [對 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
-
--   示範如何設定 SQL 資料同步的完整 PowerShell 範例：
-    -   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](sql-database-sync-data-between-azure-onprem.md)
+-   概觀 - [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](../sql-database-sync-data.md)
+-   設定資料同步
+    - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](../sql-database-get-started-sql-data-sync.md)
+    - 透過 PowerShell
+        -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](sql-database-sync-data-between-azure-onprem.md)
+-   資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](../sql-database-data-sync-agent.md)
+-   最佳做法 - [Azure SQL 資料同步最佳做法](../sql-database-best-practices-data-sync.md)
+-   監視 - [使用 Log Analytics 監視 SQL 資料同步](../sql-database-sync-monitor-oms.md)
+-   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](../sql-database-troubleshoot-data-sync.md)
+-   更新同步結構描述
+    -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](../sql-database-update-sync-schema.md)
+    -   使用 PowerShell - [使用 PowerShell 更新現有同步群組中的同步結構描述](sql-database-sync-update-schema.md)
 
 如需 SQL Database 的詳細資訊，請參閱：
 

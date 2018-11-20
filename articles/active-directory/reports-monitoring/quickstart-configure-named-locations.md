@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d99f077449529fb4a4a7f124fe1c0263d4113dee
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 49d0840ff7a41ed48151b65e1351628d32d46d24
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363440"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623238"
 ---
 # <a name="quickstart-configure-named-locations-in-azure-active-directory"></a>快速入門：在 Azure Active Directory 中設定具名位置
 
@@ -32,7 +32,7 @@ ms.locfileid: "46363440"
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此快速入門，您需要：
+若要完成本快速入門，您需要：
 
 * Azure AD 租用戶。 註冊[免費試用](https://azure.microsoft.com/trial/get-started-active-directory/)。 
 * 一個使用者，他必須是租用戶端全域系統管理員。
@@ -54,16 +54,14 @@ ms.locfileid: "46363440"
 
     * 在 [名稱] 方塊中，輸入具名位置的名稱。
     * 在 [IP 位址] 方塊中，輸入 CIDR 格式的 IP 範圍。  
-    * 按一下頁面底部的 [新增]。
+    * 按一下頁面底部的 [新增] 。
     
     ![[新增] 刀鋒視窗](./media/quickstart-configure-named-locations/61.png)
 
 ## <a name="next-steps"></a>後續步驟
 
-如需詳細資訊，請參閱：
+如需詳細資訊，請參閱
 
-- [Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md)。
-
+- [Azure AD 條件式存取](../active-directory-conditional-access-azure-portal.md)。
 - [Azure AD 條件式存取中的位置條件](../conditional-access/location-condition.md)
-
-- [Azure AD 入口網站中有風險的登入報告](concept-risky-sign-ins.md)。  
+- [有風險的登入報告](concept-risky-sign-ins.md)。  

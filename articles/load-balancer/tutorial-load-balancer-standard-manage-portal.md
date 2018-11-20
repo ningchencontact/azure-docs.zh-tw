@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立和管理標準負載平衡器 - Azure 入口網站 | Microsoft Docs
+title: 教學課程：針對網際網路至 VM 的流量進行負載平衡 - Azure 入口網站 | Microsoft Docs
 description: 本教學課程說明如何使用 Azure 入口網站建立和管理標準負載平衡器。
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380040"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687298"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站建立和管理標準負載平衡器
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站針對網際網路至 VM 的流量進行負載平衡
 
-負載平衡會將傳入要求分散於多部虛擬機器，藉此提供高可用性和範圍。 在本教學課程中，您會了解 Azure Standard Load Balancer 有哪些不同的元件可分散流量並提供高可用性。 您會了解如何：
+負載平衡會將傳入要求分散於多部虛擬機器，藉此提供高可用性和範圍。 在本教學課程中，您會了解 Azure Standard Load Balancer 有哪些不同的元件可分散網際網路至 VM 的流量並提供高可用性。 您會了解如何：
 
 
 > [!div class="checklist"]

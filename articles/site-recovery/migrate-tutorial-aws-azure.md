@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252134"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567089"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>將 Amazon Web Services (AWS) VM 移轉至 Azure
 
@@ -241,7 +241,10 @@ Azure 中必須有幾個資源可供移轉的 EC2 執行個體使用。 其中�
 1. 在 [受保護的項目] > [複寫的項目] 中，選取 AWS 執行個體，然後選取 [容錯移轉]。
 2. 在 [容錯移轉] 中，選取容錯移轉的目標 [復原點]。 選取最新的復原點，然後開始容錯移轉。 您可以 [作業] 頁面上追蹤容錯移轉進度。
 1. 確保 VM 出現在 [複寫的項目] 中。
-2. 以滑鼠右鍵按一下每個 VM，然後選取 [完成移轉]。 這會完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
+2. 以滑鼠右鍵按一下每個 VM，然後選取 [完成移轉]。 這會執行以下動作：
+
+    - 這會完成移轉程序、停止 AWS VM 的複寫，並停止 VM 的 Site Recovery 計費。
+    - 此步驟會清除複寫資料。 但並不會刪除已遷移的 VM。 
 
     ![完成移轉](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

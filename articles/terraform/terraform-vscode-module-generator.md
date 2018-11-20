@@ -1,6 +1,6 @@
 ---
-title: Azure Terraform VS Code 模組產生器
-description: 了解如何使用 Yeoman 來建立 Terraform 基底範本。
+title: 使用 Yeoman 在 Azure 中建立 Terraform 基底範本
+description: 了解如何使用 Yeoman 在 Azure 中建立 Terraform 基底範本。
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, virtual machine, azure, yeoman, 虛擬機器
@@ -8,24 +8,26 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.openlocfilehash: 513b123c44cf2cd37cf81a91e0d2da9599eb1fcd
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 11/08/2018
+ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396199"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288011"
 ---
-# <a name="create-a-terraform-base-template-using-yeoman"></a>使用 Yeoman 建立 Terraform 基底範本
+# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>使用 Yeoman 在 Azure 中建立 Terraform 基底範本
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
 ) 能提供在 Azure 上輕鬆建立基礎結構的方法。 [Yeoman](http://yeoman.io/) 能大幅簡化模組開發人員建立 Terraform 模組的作業，並提供絕佳的*最佳做法*架構。
 
-在此文章中，您會了解如何使用 Yeoman 模組產生器來建立基底 Terraform 範本。
+在此文章中，您會了解如何使用 Yeoman 模組產生器來建立基底 Terraform 範本。 然後，您將了解如何以兩種方法測試新的 Terraform 範本：
 
-## <a name="prerequisites"></a>先決條件
+- 使用您在本文中建立的 Docker 檔案執行 Terraform 模組。
+- 在 Azure Cloud Shell 中以原生方式執行您的 Terraform 模組。
 
-- 執行 Windows 10、Linux 或 macOS 10.10+ 的電腦。
+## <a name="prerequisites"></a>必要條件
+
 - **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 - **Visual Studio Code**：我們將會使用 [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) 來檢視由 Yeoman 產生器所建立的檔案。 不過，您也可以使用自己偏好的程式碼編輯器。
 - **Terraform**：您需要安裝 [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) 以執行由 Yeoman 所建立的模組。
@@ -33,7 +35,7 @@ ms.locfileid: "47396199"
 - **Go 程式設計語言**：您需要安裝 [Go](https://golang.org/)，因為由 Yeoman 所產生的測試案例將會以 Go 撰寫。
 
 >[!NOTE]
->此教學課程中大部分的程序都牽涉到命令列輸入。 這裡所描述的步驟皆適用於所有作業系統與命令列工具。 在下列範例中，我們選擇使用 PowerShell。 不過，您可以選擇使用數個其他替代方案，例如 Git Bash、Windows 命令提示字元，或是 Linux 或 macOS 命令列命令。
+>此教學課程中大部分的程序都牽涉到命令列輸入。 這裡所描述的步驟皆適用於所有作業系統與命令列工具。 在我們的範例中，我們已選擇對本機環境使用 PowerShell，並對 Cloud Shell 環境使用 Git Bash。
 
 ## <a name="prepare-your-environment"></a>準備您的環境
 
@@ -69,7 +71,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 從命令提示字元：
 
 1. 瀏覽到您要新增空白目錄的父目錄。
-1. 輸入 `mkdir <new-directory-name>`。
+1. 輸入 `mkdir <new-directory-name>` 。
 
     >[!NOTE]
     >將 <new-directory-name> 取代為新目錄的名稱。 在此範例中，我們將新目錄命名為 `GeneratorDocSample`。
@@ -87,7 +89,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 從命令提示字元：
 
-1. 輸入 `yo az-terra-module`。
+1. 輸入 `yo az-terra-module` 。
 
 1. 依照螢幕上的指示提供下列資訊：
 
@@ -103,7 +105,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
         ![包含 Docker 映像檔案？](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >輸入 `y`。 如果您輸入 **n**，產生的模組程式碼將僅支援以原生模式執行。
+        >輸入 `y` 。 如果您輸入 **n**，產生的模組程式碼將僅支援以原生模式執行。
 
 3. 輸入 `ls` 以檢視所建立的檔案。
 
@@ -149,7 +151,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 - 端對端測試會嘗試使用 Terraform 來佈建定義於 **fixture** 底下的所有項目，然後將 **template_output.go** 程式碼中的輸出與預先定義的預期值比較。
 - **Gopkg.lock** 與 **Gopkg.toml**：定義您的相依性。 
 
-## <a name="test-the-module-using-docker"></a>使用 Docker 來測試模組
+## <a name="test-your-new-terraform-module-using-a-docker-file"></a>使用 Docker 檔案測試新的 Terraform 模組
 
 >[!NOTE]
 >在我們的範例中，我們是以本機模組的形式執行模組，而沒有實際碰觸到 Azure。
@@ -185,29 +187,98 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
     >[!NOTE]
     >模組的名稱 *terra-mod-example* 已於您在先前步驟 1 中所輸入的命令中指定。
 
-1. 輸入 `docker run -it terra-mod-example /bin/sh`。
+1. 輸入 `docker run -it terra-mod-example /bin/sh` 。
 
     您現已在 Docker 中執行，並可以輸入 `ls` 來列出檔案。
 
     ![列出 Docker 檔案](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
-1. 輸入 `bundle install`。
+### <a name="build-the-module"></a>建置模組
+
+1. 輸入 `bundle install` 。
 
     等候 **Bundle complete** (組合完成) 的訊息，然後繼續進行下個步驟。
 
-1. 輸入 `rake build`。
+1. 輸入 `rake build` 。
 
     ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="perform-the-end-to-end-test"></a>執行端對端測試
+### <a name="run-the-end-to-end-test"></a>執行端對端測試
 
-1. 輸入 `rake e2e`。
+1. 輸入 `rake e2e` 。
 
 1. 過幾分鐘之後，將會出現 **PASS** (通過) 訊息。
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. 輸入 `exit` 以完成端對端測試。
+1. 輸入 `exit` 來完成端對端測試，並結束 Docker 環境。
+
+## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>使用 Yeoman 產生器來建立和測試 Cloud Shell 中的模組
+
+在上一節中，您已了解如何使用 Docker 檔案測試 Terraform 模組。 在本節中，您將使用 Yeoman 產生器來建立和測試 Cloud Shell 中的模組。
+
+比起使用 Docker 檔案，使用 Cloud Shell 可大幅簡化程序。 使用 Cloud Shell：
+
+- 您不需要安裝 Node.js
+- 您不需要安裝 Yeoman
+- 您不需要安裝 Terraform
+
+所有這些項目都已預先安裝在 Cloud Shell 中。
+
+### <a name="start-a-cloud-shell-session"></a>啟動 Cloud Shell 工作階段
+
+1. 透過 [Azure 入口網站](https:/portal.azure.com/)、[shell.azure.com](https://shell.azure.com)或 [Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)來啟動 Azure Cloud Shell 工作階段。
+
+1. [歡迎使用 Azure Cloud Shell] 頁面隨即開啟。 選取 **Bash (Linux)**。 (不支援 Power Shell。)
+
+    ![歡迎使用 Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >在此範例中，我們選取 [Bash (Linux)]。
+
+1. 若您尚未設定 Azure 儲存體帳戶，會出現下列畫面。 選取 [建立儲存體]。
+
+    ![您未掛接任何儲存體](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell 會在您先前選取的殼層中啟動，並顯示剛為您建立之雲端磁碟機的資訊。
+
+    ![已建立您的雲端磁碟機](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>準備資料夾以保存您的 Terraform 模組
+
+1. 此時，Cloud Shell 已為您在環境變數中設定 GOPATH。 若要查看此路徑，請輸入 `go env`。
+
+1. 如果尚無 $GOPATH 資料夾，請建立一個：輸入 `mkdir ~/go`。
+
+1. 在 $GOPATH 資料夾內建立資料夾：輸入 `mkdir ~/go/src`。 此資料夾將用來保存及組織您可能建立的其他專案資料夾，例如我們將在下個步驟中建立的 <your-module-name> 資料夾。
+
+1. 建立資料夾以保存您的 Terraform 模組：輸入 `mkdir ~/go/src/<your-module-name>`。
+
+    >[!NOTE]
+    >在此範例中，我們選擇 `my-module-name` 作為資料夾名稱。
+
+1. 瀏覽至您的模組資料夾：輸入 `cd ~/go/src/<your-module-name>`
+
+### <a name="create-and-test-your-terraform-module"></a>建立和測試您的 Terraform 模組
+
+1. 輸入 `yo az-terra-module` 並依照精靈中的指示。
+
+    >[!NOTE]
+    >如果系統詢問您是否要建立 Docker 檔案，您可以輸入 `N`。
+
+1. 輸入 `bundle install` 以安裝相依性。
+
+    等候 **Bundle complete** (組合完成) 的訊息，然後繼續進行下個步驟。
+
+1. 輸入 `rake build` 來建置您的模組。
+
+    ![Rake build](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. 輸入 `rake e2e` 以執行端對端測試。
+
+1. 過幾分鐘之後，將會出現 **PASS** (通過) 訊息。
+
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>後續步驟
 

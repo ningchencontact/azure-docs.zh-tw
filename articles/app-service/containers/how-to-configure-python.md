@@ -15,24 +15,38 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9474b2d64c97b6e6d0fc06c3c448fa6e0515e70c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406461"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633643"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>針對 Linux 上的 Azure App Service 設定 Python 應用程式
 
 本文說明 [Linux 上的 Azure App Service](app-service-linux-intro.md) 會如何執行 Python 應用程式，以及要如何在需要時自訂 App Service 的行為。
 
+## <a name="set-python-version"></a>設定 Python 版本
+
+有兩個可用的基底映像：Python 3.6 和 Python 3.7。 您可以使用所需的 Python 型映像來建立應用程式。 例如，若要使用 Python 3.7 建立應用程式，請在 Cloud Shell 中執行下列命令：
+
+```azurecli-interactive
+az webapp create --resource-group <group_name> --plan <plan_name> --name <app_name> --runtime "PYTHON|3.7"
+```
+
+例如，若要將 Python 版本 (型映像) 變更為 Python 3.6，請在 Cloud Shell 中執行下列命令：
+
+```azurecli-interactive
+az webapp config set --resource-group <group_name> --name <app_name> --linux-fx-version "PYTHON|3.6"
+```
+
+如果您需要不同的 Python 版本，則必須改為建置和部署您自己的容器映像。 如需詳細資訊，請參閱[針對用於容器的 Web App 使用自訂 Docker 映像](tutorial-custom-docker-image.md)。
+
 ## <a name="container-characteristics"></a>容器的特性
 
-部署至 Linux 上 App Service 的 Python 應用程式，會在 GitHub 存放庫 ([Azure-App-Service/python 容器](https://github.com/Azure-App-Service/python/tree/master/3.7.0)) 中所定義的 Docker 容器內執行。
+部署至 Linux 上 App Service 的 Python 應用程式，會在 GitHub 存放庫 ([Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) 或 [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0)) 中所定義的 Docker 容器內執行。
 
 此容器具有下列特性︰
-
-- 基底容器映像是 `python-3.7.0-slim-stretch`，這表示應用程式會搭配 Python 3.7 來執行。 如果您需要不同的 Python 版本，則必須改為建置和部署您自己的容器映像。 如需詳細資訊，請參閱[針對用於容器的 Web App 使用自訂 Docker 映像](tutorial-custom-docker-image.md)。
 
 - 應用程式在執行時所使用的是 [Gunicorn WSGI HTTP 伺服器](http://gunicorn.org/)，並且會使用額外的引數 `--bind=0.0.0.0 --timeout 600`。
 

@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 2279a6475ab8c39b3ff599f7244caea59d622651
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bc168cf696d6280ce4c0e7cb46f90af4a2ad7aa0
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802996"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686480"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-node"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 Node
 
@@ -25,7 +25,9 @@ Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功
 
 ## <a name="application-dependencies"></a>應用程式相依性
 
-若要使用 Bing 新聞搜尋 SDK 來設定主控台應用程式，請在您的開發環境中執行 `npm install azure-cognitiveservices-newssearch`。
+若要使用 Bing 新聞搜尋 SDK 來設定主控台應用程式：
+* 在開發環境中執行 `npm install ms-rest-azure`。
+* 在開發環境中執行 `npm install azure-cognitiveservices-newssearch`。
 
 ## <a name="news-search-client"></a>新聞搜尋用戶端
 在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 建立 `CognitiveServicesCredentials` 的執行個體：

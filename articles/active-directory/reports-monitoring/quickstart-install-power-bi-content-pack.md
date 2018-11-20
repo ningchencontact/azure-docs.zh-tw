@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816645"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622529"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>快速入門：安裝 Azure Active Directory Power BI 內容套件
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816645"
 |目前，Azure AD Power BI 內容套件會使用 Azure AD Graph API 從您的 Azure AD 租用戶擷取資料。 因此，您可能會發現內容套件中的可用資料與使用 [Microsoft Graph API](concept-reporting-api.md) 擷取以用於報告的資料之間有些許差異。 |
 |  |
 
-Azure Active Directory 的 Power BI 內容套件可讓您取得 Active Directory上發生什麼狀況的深入解析。 您可以下載預先建立的內容套件，並且使用它來利用 Power BI 提供的視覺效果體驗，報告目錄中的所有活動。 您也可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
+Azure Active Directory (Azure AD) 的 Power BI 內容套件可讓您以視覺化方式檢視來自環境的報告資料。 您可以下載預先建立的內容套件，並且使用它來利用 Power BI 提供的視覺效果體驗，報告目錄中的所有活動。 您也可以建立自己的儀表板，並輕鬆地與組織中所有人共用。 
 
 在本快速入門中，您會深入了解如何安裝內容套件。
 

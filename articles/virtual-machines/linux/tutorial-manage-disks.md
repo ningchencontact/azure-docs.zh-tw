@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/30/2018
+ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 04fad24b17d7f74211deae53c0d044f2049660f2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69ffd2dd4df8ca0a64036f7a96c88d5c83353211
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978313"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685359"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教學課程 - 使用 Azure CLI 管理 Azure 磁碟
 
@@ -36,9 +36,6 @@ Azure 虛擬機器 (VM) 使用磁碟來儲存作業系統、應用程式和資�
 > * 調整磁碟的大小
 > * 磁碟快照集
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-如果您選擇在本機安裝和使用 CLI，本教學課程會要求您執行 Azure CLI 2.0.30 版或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。
 
 ## <a name="default-azure-disks"></a>預設 Azure 磁碟
 
@@ -48,35 +45,15 @@ Azure 虛擬機器 (VM) 使用磁碟來儲存作業系統、應用程式和資�
 
 **暫存磁碟** - 暫存磁碟會使用與 VM 位於相同 Azure 主機的固態磁碟機。 暫存磁碟的效能非常好，可用於暫存資料處理等作業。 不過，如果 VM 移至新的主機，則會移除儲存在暫存磁碟上的任何資料。 暫存磁碟的大小取決於 VM 大小。 暫存磁碟會標示為 /dev/sdb，其掛接點為 /mnt。
 
-### <a name="temporary-disk-sizes"></a>暫存磁碟大小
-
-| 類型 | 一般大小 | 暫存磁碟大小上限 (GiB) |
-|----|----|----|
-| [一般用途](sizes-general.md) | A、B 和 D 系列 | 1600 |
-| [計算最佳化](sizes-compute.md) | F 系列 | 576 |
-| [記憶體最佳化](sizes-memory.md) | D、E、G 和 M 系列 | 6144 |
-| [儲存體最佳化](sizes-storage.md) | L 系列 | 5630 |
-| [GPU](sizes-gpu.md) | N 系列 | 1440 |
-| [高效能](sizes-hpc.md) | A 和 H 系列 | 2000 |
 
 ## <a name="azure-data-disks"></a>Azure 資料磁碟
 
-若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 每個資料磁碟皆具有 4 TB 的最大容量。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結兩個資料磁碟。
+若要安裝應用程式和儲存資料，可以新增額外的資料磁碟。 資料磁碟應使用於任何需要持久且有回應之資料儲存體的情況。 每個資料磁碟皆具有 4 TB 的最大容量。 虛擬機器的大小會決定可連結到 VM 的資料磁碟數目。 每個 VM vCPU 可以連結四個資料磁碟。
 
-### <a name="max-data-disks-per-vm"></a>每部 VM 的資料磁碟上限
-
-| 類型 | VM 大小 | 每部 VM 的資料磁碟上限 |
-|----|----|----|
-| [一般用途](sizes-general.md) | A、B 和 D 系列 | 64 |
-| [計算最佳化](sizes-compute.md) | F 系列 | 64 |
-| [記憶體最佳化](../virtual-machines-windows-sizes-memory.md) | D、E 和 G 系列 | 64 |
-| [儲存體最佳化](../virtual-machines-windows-sizes-storage.md) | L 系列 | 64 |
-| [GPU](sizes-gpu.md) | N 系列 | 64 |
-| [高效能](sizes-hpc.md) | A 和 H 系列 | 64 |
 
 ## <a name="vm-disk-types"></a>VM 磁碟類型
 
-Azure 提供兩種類型的磁碟。
+Azure 提供兩種類型的磁碟，分別是標準和進階。
 
 ### <a name="standard-disk"></a>標準磁碟
 
@@ -88,13 +65,20 @@ Azure 提供兩種類型的磁碟。
 
 ### <a name="premium-disk-performance"></a>進階磁碟效能
 
-|進階儲存體磁碟類型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 磁碟大小 (上調) | 32 GB | 64 GB | 128 GB | 512 GB | 1,024 GB (1 TB) | 2,048 GB (2 TB) | 4,095 GB (4 TB) |
-| 每一磁碟的 IOPS 上限 | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 |
-每一磁碟的輸送量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 |
+|進階儲存體磁碟類型 | P4 | P6 | P10 | P20 | P30 | P40 | P50 | p60 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 磁碟大小 (上調) | 32 GiB | 64 GiB | 128 GB | 512 GB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB)
+| 每一磁碟的 IOPS 上限 | 120 | 240 | 500 | 2,300 | 5,000 | 7,500 | 7,500 | 12,500 |
+每一磁碟的輸送量 | 25 MB/秒 | 50 MB/秒 | 100 MB/秒 | 150 MB/秒 | 200 MB/秒 | 250 MB/秒 | 250 MB/秒 | 480 MB/秒 |
 
 雖然上表指出每個磁碟的最大 IOPS，但可藉由分割多個資料磁碟來達到較高等級的效能。 例如，Standard_GS5 VM 最高可達到 80,000 IOPS。 如需每部 VM 的最大 IOPS 詳細資訊，請參閱 [Linux VM 大小](sizes.md)。
+
+
+## <a name="launch-azure-cloud-shell"></a>啟動 Azure Cloud Shell
+
+Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 
+
+若要開啟 Cloud Shell，只要選取程式碼區塊右上角的 [試試看] 即可。 您也可以移至 [https://shell.azure.com/powershell](https://shell.azure.com/bash)，從另一個瀏覽器索引標籤啟動 Cloud Shell。 選取 [複製] 即可複製程式碼區塊，將它貼到 Cloud Shell 中，然後按 enter 鍵加以執行。
 
 ## <a name="create-and-attach-disks"></a>建立和連結磁碟
 
@@ -116,7 +100,6 @@ az vm create \
   --name myVM \
   --image UbuntuLTS \
   --size Standard_DS2_v2 \
-  --admin-username azureuser \
   --generate-ssh-keys \
   --data-disk-sizes-gb 128 128
 ```
@@ -139,7 +122,6 @@ az vm disk attach \
 
 將磁碟連結到虛擬機器後，必須將作業系統設定為使用該磁碟。 下列範例示範如何手動設定磁碟。 使用 cloud-init (涵蓋於[稍後的教學課程](./tutorial-automate-vm-deployment.md)中) 也可以將此程序自動化。
 
-### <a name="manual-configuration"></a>手動設定
 
 建立虛擬機器的 SSH 連線。 以虛擬機器的公用 IP 位址取代範例 IP 位址。
 
@@ -204,42 +186,10 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail 
 exit
 ```
 
-## <a name="resize-vm-disk"></a>調整 VM 磁碟的大小
 
-部署 VM 後，作業系統磁碟或任何連結的資料磁碟可以增加大小。 需要更多儲存空間或更高層級的效能 (例如 P10、P20 或 P30) 時，增加磁碟的大小很有幫助。 磁碟的大小不能減少。
+## <a name="snapshot-a-disk"></a>製作磁碟的快照集
 
-增加磁碟大小之前，需要有磁碟的識別碼或名稱。 使用 [az disk list](/cli/azure/disk#az-disk-list) 命令來傳回資源群組中的所有磁碟。 記下您想要調整大小的磁碟名稱。
-
-```azurecli-interactive
-az disk list \
-    --resource-group myResourceGroupDisk \
-    --query '[*].{Name:name,Gb:diskSizeGb,Tier:accountType}' \
-    --output table
-```
-
-必須將 VM 解除配置。 請使用 [az vm deallocate](/cli/azure/vm#az-vm-deallocate) 命令將 VM 停止並解除配置。
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupDisk --name myVM
-```
-
-使用 [az disk update](/cli/azure/vm/disk#az-vm-disk-update) 命令來調整磁碟的大小。 這個範例會將名為 myDataDisk 的磁碟大小調整為 1 TB。
-
-```azurecli-interactive
-az disk update --name myDataDisk --resource-group myResourceGroupDisk --size-gb 1023
-```
-
-調整大小作業完成後，請啟動 VM。
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupDisk --name myVM
-```
-
-如果您調整作業系統磁碟的大小，則會自動擴充分割區。 如果您調整資料磁碟的大小，則必須在 VM 作業系統中擴充所有目前的分割區。
-
-## <a name="snapshot-azure-disks"></a>建立 Azure 磁碟快照集
-
-當您建立磁碟快照集時，Azure 會建立磁碟的唯讀、時間點複本。 進行組態變更之前，Azure VM 快照集可用於快速儲存 VM 的狀態。 在證實不需要組態變更的事件中，可使用快照集還原 VM 狀態。 當 VM 有多個磁碟時，每個磁碟會各自產生快照集。 若要進行應用程式一致備份，請考慮在建立磁碟快照集之前停止 VM。 或者，使用 [Azure 備份服務](/azure/backup/)，其可讓您在 VM 執行時執行自動化備份。
+當您建立磁碟快照集時，Azure 會建立磁碟的唯讀、時間點複本。 進行組態變更之前，Azure VM 快照集可用於快速儲存 VM 的狀態。 發生問題或錯誤時，便可使用快照集來還原 VM。 當 VM 有多個磁碟時，每個磁碟會各自產生快照集。 若要進行應用程式一致備份，請考慮在建立磁碟快照集之前停止 VM。 或者，使用 [Azure 備份服務](/azure/backup/)，其可讓您在 VM 執行時執行自動化備份。
 
 ### <a name="create-snapshot"></a>建立快照集
 

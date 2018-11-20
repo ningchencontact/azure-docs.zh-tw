@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體服務執行上傳、編碼和串流 | Microsoft Docs
+title: 使用 Azure 媒體服務執行上傳、編碼和串流 - REST | Microsoft Docs
 description: 遵循此教學課程的步驟，使用 Azure 媒體服務和 REST 來上傳檔案、編碼視訊及串流處理內容。
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377422"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615767"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>教學課程：使用 REST 上傳、編碼和串流處理視訊
 
-本教學課程說明如何使用 Azure 媒體服務來上傳、編碼和串流處理視訊檔案。
+Azure 媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽器和裝置上播放的格式。 例如，您可能會想要串流處理 Apple 的 HLS 或 MPEG DASH 格式的內容。 在進行串流處理之前，您應先編碼高品質數位媒體檔案。 如需編碼指引，請參閱[編碼概念](encoding-concept.md)。
 
-媒體服務可讓您將媒體檔案編碼成可在各種不同的瀏覽器和裝置上播放的格式。 例如，您可能會想要串流處理 Apple 的 HLS 或 MPEG DASH 格式的內容。 在進行串流處理之前，您應先編碼高品質數位媒體檔案。 如需編碼指引，請參閱[編碼概念](encoding-concept.md)。
+本教學課程說明如何搭配使用 REST 與 Azure 媒體服務來上傳、編碼和串流處理視訊檔案。 
 
 ![播放影片](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ ms.locfileid: "49377422"
 
 ## <a name="prerequisites"></a>必要條件
 
+- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+
+    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
+
+- [建立媒體服務帳戶](create-account-cli-how-to.md)。
+
+    請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值
+
 - 安裝 [Postman](https://www.getpostman.com/) \(英文\) REST 用戶端，來執行在某些 AMS REST 教學課程中所示範的 REST API。 
 
     我們使用的是 **Postman**，但任何 REST 工具都適用。 其他替代方案為：搭配 REST 外掛程式的 **Visual Studio Code**，或 **Telerik Fiddler**。 
@@ -53,10 +61,6 @@ ms.locfileid: "49377422"
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -352,11 +356,11 @@ Azure 媒體播放器可以用於測試，但不應用於生產環境。
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。 您可以使用 [CloudShell] 工具。
+如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。  
 
-在 **CloudShell** 中，執行以下命令：
+執行下列 CLI 命令：
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

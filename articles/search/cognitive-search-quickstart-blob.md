@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729987"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288028"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -26,15 +26,21 @@ ms.locfileid: "45729987"
 * 執行精靈 (會偵測人員、位置和組織的實體技能)
 * 使用[搜尋總管](search-explorer.md)來查詢擴充的資料。
 
+## <a name="supported-regions"></a>支援的區域
+
 您可以在下列區域中建立的 Azure 搜尋服務中嘗試使用認知搜尋：
 
+* 美國中西部
 * 美國中南部
+* 美國東部
 * 西歐
+* 北歐
+* 東南亞
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 > [!NOTE]
-> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取與正規劃目前免費提供。 我們將在不久後宣布這些功能的定價。 
+> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣告這些功能的定價。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -57,7 +63,7 @@ Azure 服務僅限用於此案例中。 建立所需服務是準備工作的一�
 
 1. 針對資源群組，請建立資源群組來包含本快速入門中建立的所有資源。 這可讓您在完成快速入門後，更輕鬆地清除資源。
 
-1. 針對位置，請選擇 [美國中南部] 或 [西歐]。 預覽版本目前只能在這些區域中使用。
+1. 針對位置，請選擇其中一個[支援的區域](#supported-regions)以進行認知搜尋。
 
 1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
 

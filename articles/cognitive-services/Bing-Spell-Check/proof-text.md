@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361706"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345703"
 ---
 # <a name="what-is-bing-spell-check-api"></a>什麼是 Bing 拼字檢查 API？
 
@@ -42,9 +42,12 @@ Bing 拼字檢查 API 可讓您執行內容的文法與拼字檢查。
 <br /><br/>**附註：** 查詢文字的長度若超過 4096，則會先截斷為 4096 個字元再進行處理。 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Spell - 適用於 Web 搜尋/查詢
 `Spell` 會較積極地處理而傳回較佳的搜尋結果。 `Spell` 模式可找出大部分的拼字錯誤，但有可能找不到 `Proof` 可挑出的某些文法錯誤，例如大小寫和重複的文字。
-<br /></br>**附註：** 支援的最大查詢長度如下所示。 如果查詢超出限制，結果將會顯示未變更的查詢。
-<ul><li>en、de、es、fr、pl、pt、sv、ru、nl、nb、tr-tr、it、zh、ko 等語言代碼限為 130 個字元。 </li>
-<li>其他語言限為 65 個字元</li></ul>
+
+> [!NOTE]
+> * 以下是支援的查詢長度上限。 如果查詢超過長度上限，查詢及其結果將不會改變。
+>    * 下列語言代碼的限制為 130 個字元：en、de、es、fr、pl、pt、sv、ru、nl、nb、tr-tr、it、zh、ko。 
+>    * 其他語言的限制為 65 個字元。
+> * 拼字模式不支援查詢中的方括號字元 ( `[` 和 `]`)，這可能會導致不一致的結果。 建議您在使用拼字模式時，從查詢中移除這些字元。
 
 ## <a name="market-setting"></a>市場設定
 市場必須指定在要求 URL 的查詢參數中，否則拼字檢查將會根據 IP 位址來認定預設市場。

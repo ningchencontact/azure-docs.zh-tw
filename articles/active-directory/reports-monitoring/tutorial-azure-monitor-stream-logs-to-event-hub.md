@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c8157820f7137eb06a0fe10c42645ec91f33edbc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364047"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623755"
 ---
-# <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>教學課程：將 Azure AD 記錄串流到 Azure 事件中樞 (預覽)
+# <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>教學課程：將 Azure Active Directory 記錄串流到 Azure 事件中樞 (預覽)
 
-在本教學課程中，深入了解如何設定 Azure 監視器診斷設定，以將 Azure Active Directory (Azure AD) 記錄串流到 Azure 事件中樞。 使用這個機制將記錄與 Splunk 和 QRadar 等第三方安全性資訊與事件管理 (SIEM) 工具整合在一起。
+在本教學課程中，您會了解如何設定 Azure 監視器診斷設定，以將 Azure Active Directory (Azure AD) 記錄串流到 Azure 事件中樞。 使用這個機制將記錄與 Splunk 和 QRadar 等第三方安全性資訊與事件管理 (SIEM) 工具整合在一起。
 
 ## <a name="prerequisites"></a>必要條件 
 
@@ -36,7 +36,7 @@ ms.locfileid: "46364047"
 * 使用者，身分是該 Azure AD 租用戶的「全域管理員」或「安全性管理員」。
 * Azure 訂用帳戶中的事件中樞命名空間和事件中樞。 了解如何[建立事件中樞](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)。
 
-## <a name="archive-logs-to-an-event-hub"></a>將記錄封存到事件中樞
+## <a name="stream-logs-to-an-event-hub"></a>將記錄串流至事件中樞
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394585"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578344"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ ms.locfileid: "47394585"
 
 若要建立 Azure AD 服務主體，您必須有足夠權限向 Azure AD 租用戶註冊應用程式，並將應用程式指派給您訂用帳戶中的角色。 如果您沒有必要的權限，您可能需要要求您的 Azure AD 或訂用帳戶系統管理員指派必要權限，或或要求其預先建立服務主體以供您搭配 AKS 叢集使用。
 
-您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行 `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI][install-azure-cli]。
+您也必須安裝並設定 Azure CLI 版本 2.0.46 或更新版本。 執行  `az --version` 以尋找版本。 如果您需要安裝或升級，請參閱 [安裝 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自動建立並使用服務主體
 
@@ -75,6 +75,45 @@ az aks create \
 
 ![瀏覽至 Azure 投票的影像](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>將存取權委派給其他 Azure 資源
+
+AKS 叢集的服務主體可用來存取其他資源。 例如，如果您想要使用進階網路功能來連線到現有的虛擬網路，或連線到 Azure Container Registry (ACR)，則需要將存取權委派給服務主體。
+
+若要委派權限，您可以使用 [az role assignment create][az-role-assignment-create] 命令來建立角色指派。 您可以將 `appId` 指派給特定範圍，例如資源群組或虛擬網路資源。 接著，角色會定義資源上的服務主體可擁有哪些權限，如下列範例所示：
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+資源的 `--scope` 必須是完整的資源識別碼，例如 */subscriptions/\<guid\>/resourceGroups/myResourceGroup* 或 */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+下列各節將詳細說明您可能需要執行的一般委派。
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
+
+### <a name="networking"></a>網路功能
+
+您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
+
+- 建立[自訂角色][rbac-custom-role]，然後定義下列角色權限：
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- 或是，指派虛擬網路內子網路上的內建[網路參與者][rbac-network-contributor]角色
+
+### <a name="storage"></a>儲存體
+
+您可能需要存取另一個資源群組中的現有磁碟資源。 指派下列一組角色權限：
+
+- 建立[自訂角色][rbac-custom-role]，然後定義下列角色權限：
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- 或是，指派資源群組上的內建[儲存體帳戶參與者][rbac-storage-contributor]角色
+
 ## <a name="additional-considerations"></a>其他考量
 
 當使用 AKS 與 Azure AD 服務主體時，請記住下列考量。
@@ -107,3 +146,8 @@ az aks create \
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

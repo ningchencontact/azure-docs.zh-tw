@@ -1,49 +1,45 @@
 ---
-title: 快速入門：使用 REST API 和 C# 偵測影像中的人臉
+title: 快速入門：使用 Azure REST API 和 C# 偵測影像中的臉部
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您可以使用臉部 API 搭配 C# 偵測影像中的人臉。
+description: 在本快速入門中，您將使用 Azure Face REST API 搭配 C# 來偵測影像中的臉部。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: 5a3b3e70a12f70874bf54e8f01a0f8baf3eec845
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ca8702cfd70b245c10df9251b6ced9ac1bc40bba
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954516"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578012"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-c"></a>快速入門：使用 REST API 和 C# 偵測影像中的人臉
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入門：使用 Face REST API 和 C# 偵測影像中的臉部
 
-在本快速入門中，您會使用臉部 API 來偵測影像中的人臉。
+在本快速入門中，您將使用 Azure Face REST API 搭配 C# 來偵測影像中的人臉。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要有訂用帳戶金鑰才能執行範例。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
+- 任何 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/) 版本。
 
-## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
+## <a name="create-the-visual-studio-project"></a>建立 Visual Studio 專案
 
-使用 [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 方法，偵測影像中的人臉並傳回臉部屬性，包括：
+1. 在 Visual Studio 中建立新的**主控台應用程式 (.NET Framework)** 專案，並將其命名為 **FaceDetection**。 
+1. 如果您的解決方案中有其他專案，請選取此專案作為單一啟始專案。
 
-* Face ID：數個臉部 API 案例中使用的唯一識別碼。
-* 臉部矩形：左側、頂端、寬度和高度，表示影像中臉部的位置。
-* 特徵點：27 點臉部特徵點陣列，指向臉部元件的重要位置。
-* 臉部屬性，包括年齡、性別、笑容程度、頭部姿勢以及臉部毛髮。
+## <a name="add-face-detection-code"></a>新增臉部偵測程式碼
 
-若要執行範例，請執行下列步驟：
+開啟新專案的 Program.cs 檔案。 在這裡，您將新增載入影像及偵測臉部所需的程式碼。
 
-1. 在 Visual Studio 中建立 Visual C# 主控台應用程式。
-2. 以下列程式碼取代 Program.cs。
-3. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-4. 必要時，請將 `uriBase` 值變更為使用您取得訂用帳戶金鑰的位置。
-5. 執行程式。
-6. 在系統提示時，輸入影像的路徑。
+### <a name="include-namespaces"></a>包含命名空間
 
-### <a name="face---detect-request"></a>Face - Detect 要求
+在 *Program.cs* 檔案的最上方新增下列 `using` 陳述式。
 
 ```csharp
 using System;
@@ -51,190 +47,199 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+```
 
-namespace CSHttpClientSample
+### <a name="add-essential-fields"></a>新增必要欄位
+
+將下列欄位新增到 **Program** 類別。 這項資料會指定連線到 Face 服務的方式，以及接收輸入資料的位置。 您將需要以訂用帳戶金鑰更新 `subscriptionKey` 欄位的值，而且可能需要變更 `uriBase` 字串，使其包含正確的區域識別碼。
+
+
+```csharp
+// Replace <Subscription Key> with your valid subscription key.
+const string subscriptionKey = "<Subscription Key>";
+
+// NOTE: You must use the same region in your REST call as you used to
+// obtain your subscription keys. For example, if you obtained your
+// subscription keys from westus, replace "westcentralus" in the URL
+// below with "westus".
+//
+// Free trial subscription keys are generated in the westcentralus region.
+// If you use a free trial subscription key, you shouldn't need to change
+// this region.
+const string uriBase =
+    "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+```
+
+### <a name="receive-image-input"></a>接收影像輸入
+
+對 **Program** 類別的 **Main** 方法新增下列程式碼。 這會將提示字元寫入主控台，並要求使用者輸入影像 URL。 然後呼叫另一種方法：**MakeAnalysisRequest**，以處理該位置上的影像。
+
+```csharp
+// Get the path and filename to process from the user.
+Console.WriteLine("Detect faces:");
+Console.Write(
+    "Enter the path to an image with faces that you wish to analyze: ");
+string imageFilePath = Console.ReadLine();
+
+if (File.Exists(imageFilePath))
 {
-    static class Program
+    try
     {
-        // Replace <Subscription Key> with your valid subscription key.
-        const string subscriptionKey = "<Subscription Key>";
+        MakeAnalysisRequest(imageFilePath);
+        Console.WriteLine("\nWait a moment for the results to appear.\n");
+    }
+    catch (Exception e)
+    {
+        Console.WriteLine("\n" + e.Message + "\nPress Enter to exit...\n");
+    }
+}
+else
+{
+    Console.WriteLine("\nInvalid file path.\nPress Enter to exit...\n");
+}
+Console.ReadLine();
+```
 
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
-        const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+### <a name="call-the-face-detection-rest-api"></a>呼叫臉部偵測 REST API
 
-        static void Main()
-        {
-            // Get the path and filename to process from the user.
-            Console.WriteLine("Detect faces:");
-            Console.Write(
-                "Enter the path to an image with faces that you wish to analyze: ");
-            string imageFilePath = Console.ReadLine();
+將下列方法新增至 **Program** 類別。 此方法會建構對臉部 API 發出的 REST 呼叫，以偵測遠端影像中的臉部資訊 (`requestParameters` 字串會指定要擷取的臉部屬性)。 然後將輸出資料寫入 JSON 字串。
 
-            if (File.Exists(imageFilePath))
-            {
-                // Execute the REST API call.
-                try
-                {
-                    MakeAnalysisRequest(imageFilePath);
-                    Console.WriteLine("\nWait a moment for the results to appear.\n");
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("\n" + e.Message + "\nPress Enter to exit...\n");
-                }
-            }
-            else
-            {
-                Console.WriteLine("\nInvalid file path.\nPress Enter to exit...\n");
-            }
-            Console.ReadLine();
-        }
+您將在下列步驟中定義協助程式方法。
 
+```csharp
+// Gets the analysis of the specified image by using the Face REST API.
+static async void MakeAnalysisRequest(string imageFilePath)
+{
+    HttpClient client = new HttpClient();
 
-        /// <summary>
-        /// Gets the analysis of the specified image by using the Face REST API.
-        /// </summary>
-        /// <param name="imageFilePath">The image file.</param>
-        static async void MakeAnalysisRequest(string imageFilePath)
-        {
-            HttpClient client = new HttpClient();
+    // Request headers.
+    client.DefaultRequestHeaders.Add(
+        "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-            // Request headers.
-            client.DefaultRequestHeaders.Add(
-                "Ocp-Apim-Subscription-Key", subscriptionKey);
+    // Request parameters. A third optional parameter is "details".
+    string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
+        "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
+        "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 
-            // Request parameters. A third optional parameter is "details".
-            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
-                "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
-                "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+    // Assemble the URI for the REST API Call.
+    string uri = uriBase + "?" + requestParameters;
 
-            // Assemble the URI for the REST API Call.
-            string uri = uriBase + "?" + requestParameters;
+    HttpResponseMessage response;
 
-            HttpResponseMessage response;
+    // Request body. Posts a locally stored JPEG image.
+    byte[] byteData = GetImageAsByteArray(imageFilePath);
 
-            // Request body. Posts a locally stored JPEG image.
-            byte[] byteData = GetImageAsByteArray(imageFilePath);
+    using (ByteArrayContent content = new ByteArrayContent(byteData))
+    {
+        // This example uses content type "application/octet-stream".
+        // The other content types you can use are "application/json"
+        // and "multipart/form-data".
+        content.Headers.ContentType =
+            new MediaTypeHeaderValue("application/octet-stream");
 
-            using (ByteArrayContent content = new ByteArrayContent(byteData))
-            {
-                // This example uses content type "application/octet-stream".
-                // The other content types you can use are "application/json"
-                // and "multipart/form-data".
-                content.Headers.ContentType =
-                    new MediaTypeHeaderValue("application/octet-stream");
+        // Execute the REST API call.
+        response = await client.PostAsync(uri, content);
 
-                // Execute the REST API call.
-                response = await client.PostAsync(uri, content);
+        // Get the JSON response.
+        string contentString = await response.Content.ReadAsStringAsync();
 
-                // Get the JSON response.
-                string contentString = await response.Content.ReadAsStringAsync();
-
-                // Display the JSON response.
-                Console.WriteLine("\nResponse:\n");
-                Console.WriteLine(JsonPrettyPrint(contentString));
-                Console.WriteLine("\nPress Enter to exit...");
-            }
-        }
-
-
-        /// <summary>
-        /// Returns the contents of the specified file as a byte array.
-        /// </summary>
-        /// <param name="imageFilePath">The image file to read.</param>
-        /// <returns>The byte array of the image data.</returns>
-        static byte[] GetImageAsByteArray(string imageFilePath)
-        {
-            using (FileStream fileStream =
-                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
-            {
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-        }
-
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            int offset = 0;
-            int indentLength = 3;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\'':
-                        if (quote) ignore = !ignore;
-                        break;
-                }
-
-                if (quote)
-                    sb.Append(ch);
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-            }
-
-            return sb.ToString().Trim();
-        }
+        // Display the JSON response.
+        Console.WriteLine("\nResponse:\n");
+        Console.WriteLine(JsonPrettyPrint(contentString));
+        Console.WriteLine("\nPress Enter to exit...");
     }
 }
 ```
 
-### <a name="face---detect-response"></a>Face - Detect 回應
+### <a name="process-the-input-image-data"></a>處理輸入影像資料
 
-成功的回應會以 JSON 格式傳回，例如：
+將下列方法新增至 **Program** 類別。 這會將位於指定 URL 的影像轉換成位元組陣列。
+
+```csharp
+// Returns the contents of the specified file as a byte array.
+static byte[] GetImageAsByteArray(string imageFilePath)
+{
+    using (FileStream fileStream =
+        new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+    {
+        BinaryReader binaryReader = new BinaryReader(fileStream);
+        return binaryReader.ReadBytes((int)fileStream.Length);
+    }
+}
+```
+
+### <a name="parse-the-json-response"></a>剖析 JSON 回應
+
+將下列方法新增至 **Program** 類別。 這會格式化 JSON 輸入，以便閱讀。 您的應用程式會將此字串資料寫入主控台。
+
+```csharp
+// Formats the given JSON string by adding line breaks and indents.
+static string JsonPrettyPrint(string json)
+{
+    if (string.IsNullOrEmpty(json))
+        return string.Empty;
+
+    json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+    StringBuilder sb = new StringBuilder();
+    bool quote = false;
+    bool ignore = false;
+    int offset = 0;
+    int indentLength = 3;
+
+    foreach (char ch in json)
+    {
+        switch (ch)
+        {
+            case '"':
+                if (!ignore) quote = !quote;
+                break;
+            case '\'':
+                if (quote) ignore = !ignore;
+                break;
+        }
+
+        if (quote)
+            sb.Append(ch);
+        else
+        {
+            switch (ch)
+            {
+                case '{':
+                case '[':
+                    sb.Append(ch);
+                    sb.Append(Environment.NewLine);
+                    sb.Append(new string(' ', ++offset * indentLength));
+                    break;
+                case '}':
+                case ']':
+                    sb.Append(Environment.NewLine);
+                    sb.Append(new string(' ', --offset * indentLength));
+                    sb.Append(ch);
+                    break;
+                case ',':
+                    sb.Append(ch);
+                    sb.Append(Environment.NewLine);
+                    sb.Append(new string(' ', offset * indentLength));
+                    break;
+                case ':':
+                    sb.Append(ch);
+                    sb.Append(' ');
+                    break;
+                default:
+                    if (ch != ' ') sb.Append(ch);
+                    break;
+            }
+        }
+    }
+
+    return sb.ToString().Trim();
+}
+```
+
+## <a name="run-the-app"></a>執行應用程式
+
+成功的回應會以可輕鬆閱讀的 JSON 格式顯示臉部資料。 例如︰
 
 ```json
 [
@@ -332,7 +337,7 @@ namespace CSHttpClientSample
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何建立 WPF Windows 應用程式，使用臉部服務來偵測影像中的人臉。 此應用程式會在每張臉的周圍繪出邊框，然後在狀態列上顯示該張臉的描述。
+在此快速入門中，您已建立簡單的 .NET 主控台應用程式來搭配使用 REST 呼叫和 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以深入了解支援的案例。
 
 > [!div class="nextstepaction"]
-> [教學課程：以 C# 開始使用臉部 API](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

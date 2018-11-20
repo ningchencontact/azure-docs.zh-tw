@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
 ms.author: erhopf
-ms.openlocfilehash: b15f4000d30b7b6c6f8055d596b9ab5336d173c5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 375a2f14bdc6fc13d23b59ec71870cfe9c15517b
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126015"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514055"
 ---
 # <a name="bing-web-search-sdk-samples"></a>Bing Web 搜尋 SDK 範例
 
@@ -31,11 +31,11 @@ Bing Web 搜尋 SDK 可在 Python、Node.js、C# 和 Java 中使用。 GitHub �
 使用下列連結來存取適用於您慣用語言的 SDK。
 
 * 開始使用 [Python 範例](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
-  * 另請參閱 [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch)，以了解定義和相依性。
+  * 另請參閱 [Python 程式庫](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-websearch) ，以了解定義和相依性。
 * 開始使用 [Node.js 範例](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
-  * 另請參閱 [Node.js 程式庫](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/webSearch)，以了解定義和相依性。
+  * 另請參閱 [Node.js Web 搜尋](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesWebSearch)。
 * 開始使用 [.NET 範例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
   * [Nuget 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0)
   * 另請參閱 [.NET 程式庫](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Search/BingWebSearch)，以了解定義和相依性。
 * 開始使用 [Java 範例](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
-  * 另請參閱 [Java 程式庫](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch)，以了解定義和相依性。
+  * 另請參閱 [Java 程式庫](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingWebSearch) ，以了解定義和相依性。

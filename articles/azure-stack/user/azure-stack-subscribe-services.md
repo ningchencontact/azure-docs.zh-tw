@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 35b3e6d59cdb1edc59aa211954b8a69a3ce51bc5
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076095"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632200"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>教學課程：建立和測試訂用帳戶
+
 本教學課程說明如何建立含有供應項目的訂用帳戶，然後進行測試。 為了進行測試，您會以雲端管理員的身分登入 Azure Stack 使用者入口網站，訂閱該供應項目，然後建立虛擬機器。
 
 > [!TIP]
-> 若要獲得更進階的評估體驗，您可以[為特定使用者建立訂用帳戶](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator)，然後在使用者入口網站中以使用者的身分登入。 
+> 若要獲得更進階的評估體驗，您可以[為特定使用者建立訂用帳戶](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator)，然後在使用者入口網站中以使用者的身分登入。 
 
 本教學課程說明如何訂閱 Azure Stack 供應項目。
 
@@ -38,25 +39,26 @@ ms.locfileid: "49076095"
 > * 測試供應項目
 
 ## <a name="subscribe-to-an-offer"></a>訂閱供應項目
+
 若要以使用者身分訂閱供應項目，您需要登入 Azure Stack 使用者入口網站，以探索 Azure Stack 操作員已提供的服務。
 
-1. 登入使用者入口網站，並按一下 [取得訂用帳戶]。
+1. 登入使用者入口網站，並選取 [取得訂用帳戶]。
 
    ![取得訂用帳戶](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. 在 [顯示名稱]  欄位中，輸入您的訂閱名稱。 接著，按一下 [供應項目] 以選取 [選擇供應項目] 區段中的其中一個可用供應項目，然後按一下 [建立]。
+2. 在 [顯示名稱]  欄位中，輸入您的訂閱名稱。 接著，選取 [供應項目] 以選擇 [選擇供應項目] 區段中的其中一個可用供應項目。 然後選取 [建立]。
 
    ![建立供應項目](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > 您必須立即重新整理使用者入口網站才可開始使用您的訂用帳戶。
 
-3. 若要檢視您所建立的訂用帳戶，請按一下 [所有服務]。  接著，選取 [一般] 類別之下的 [訂用帳戶]，然後選取您的新訂用帳戶。 在訂閱供應項目之後，請重新整理入口網站以查看新訂用帳戶中是否已納入新服務。 在此範例中，我們已新增**虛擬機器**。
+3. 若要檢視您所建立的訂用帳戶，請選取 [所有服務]。 接著，選取 [一般] 類別之下的 [訂用帳戶]，然後選取您的新訂用帳戶。 在訂閱供應項目之後，請重新整理入口網站以查看新訂用帳戶中是否已納入新服務。 在此範例中，我們已新增**虛擬機器**。
 
    ![檢視訂用帳戶](media/azure-stack-subscribe-services/view-subscription.png)
 
-
 ## <a name="test-the-offer"></a>測試供應項目
+
 在登入使用者入口網站時，您可以藉由使用新的訂用帳戶功能佈建虛擬機器，來測試供應項目。 
 
 > [!NOTE]
@@ -64,17 +66,17 @@ ms.locfileid: "49076095"
 
 1. 登入使用者入口網站。
 
-2. 在使用者入口網站中，按一下 [虛擬機器] > [新增] > [Windows Server 2016 Datacenter]，然後按一下 [建立]。
+2. 在使用者入口網站中，依序選取 [虛擬機器]、[新增] 和 [Windows Server 2016 Datacenter]，然後按一下 [建立]。
 
-3. 在 [基本概念] 區段中，輸入 [名稱]、[使用者名稱] 和 [密碼]，選擇 [訂用帳戶]，建立 [資源群組] (或選取現有的)，然後按一下 [確定]。
+3. 在 [基本概念] 區段中，輸入 [名稱]、[使用者名稱] 和 [密碼]，選擇 [訂用帳戶]，建立 [資源群組] (或選取現有的)，然後選取 [確定]。
 
-4. 在 [選擇大小] 區段中，按一下 [A1 標準]，再按一下 [選取]。  
+4. 在 [選擇大小] 區段中，選取 [A1 標準]，然後按一下 [選取]。  
 
-5. 在 [設定] 刀鋒視窗中，接受預設值並按一下 [確定]。
+5. 在 [設定] 刀鋒視窗中，接受預設值並選取 [確定]。
 
 6. 在 [摘要] 區段中，按一下 [確定] 以建立虛擬機器。  
 
-7. 若要查看您的新虛擬機器，請按一下 [虛擬機器]，然後搜尋新的虛擬機器並按一下其名稱。
+7. 若要查看您的新虛擬機器，請選取 [虛擬機器]，然後搜尋新的虛擬機器並按一下其名稱。
 
     ![所有資源](media/azure-stack-subscribe-services/view-vm.png)
 

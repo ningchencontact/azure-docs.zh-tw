@@ -1,47 +1,35 @@
 ---
-title: 快速入門：使用 REST API 和 Node.js 偵測影像中的人臉
+title: 快速入門：使用 Azure REST API 和 Node.js 偵測影像中的臉部
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您可以使用認知服務的臉部 API 搭配 Node.js，偵測影像中的臉部。
+description: 在本快速入門中，您將使用 Azure Face REST API 搭配 Node.js 來偵測影像中的臉部。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954089"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577963"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>快速入門：使用 REST API 和 Node.js 偵測影像中的人臉
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>快速入門：使用 Face REST API 和 Node.js 偵測影像中的臉部
 
-在本快速入門中，您會使用臉部 API 來偵測影像中的人臉。
+在本快速入門中，您將使用 Azure Face REST API 搭配 Node.js 來偵測影像中的人臉。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要有訂用帳戶金鑰才能執行範例。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
 
-## <a name="face---detect-request"></a>Face - Detect 要求
+## <a name="create-the-nodejs-script"></a>建立 Node.js 指令碼
 
-使用 [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 方法，偵測影像中的人臉並傳回臉部屬性，包括：
-
-* Face ID：數個臉部 API 案例中使用的唯一識別碼。
-* 臉部矩形：左側、頂端、寬度和高度，表示影像中臉部的位置。
-* 特徵點：27 點臉部特徵點陣列，指向臉部元件的重要位置。
-* 臉部屬性，包括年齡、性別、笑容程度、頭部姿勢以及臉部毛髮。
-
-若要執行範例，請執行下列步驟：
-
-1. 請將下列程式碼複製到編輯器中。
-1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-1. 必要時，請將 `uriBase` 值變更為您取得訂用帳戶金鑰的位置。
-1. (選擇性) 將 `imageUri` 設為您想要分析的影像。
-1. 以 `.js` 副檔名儲存檔案。
-1. 開啟 Node.js 命令提示字元並執行檔案，例如：`node myfile.js`。
+下列程式碼會呼叫臉部 API，並從影像中取得臉部屬性資料。 首先，將程式碼複製到文字編輯器 &mdash; 您將需要進行一些變更，才能執行該程式碼。
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Face - Detect 回應
+### <a name="subscription-key"></a>訂用帳戶金鑰
+將 `<Subscription Key>` 換成您的有效 Face 訂用帳戶金鑰。
 
-成功的回應會以 JSON 格式傳回，例如：
+### <a name="face-endpoint-url"></a>Face 端點 URL
+
+URL：`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` 會指出要查詢的 Azure Face 端點。 您必須變更此 URL 的第一個部分，以符合與您訂用帳戶金鑰對應的區域 (除非此 URL 已是正確的)。
+
+### <a name="url-query-string"></a>URL 查詢字串
+
+`returnFaceAttributes` 欄位會指定要擷取的臉部屬性。 您可以根據您的用途來變更此字串。
+
+### <a name="image-source-url"></a>影像來源 URL
+`imageUrl` 欄位會指出要作為輸入使用的影像。 您可以將此欄位變更為指向任何您想要分析的影像。
+
+## <a name="save-and-run-the-script"></a>儲存並執行指令碼
+
+進行變更之後，請將檔案儲存為 JavaScript (.js) 指令碼。 然後，開啟命令提示字元，並執行 `node` 命令。
+
+```
+node myfile.js
+```
+
+您應該會在主控台視窗中看到顯示為 JSON 資料的臉部資訊。 例如︰
 
 ```json
 [
@@ -273,7 +281,7 @@ request.post(options, (error, response, body) => {
 
 ## <a name="next-steps"></a>後續步驟
 
-探索臉部 API，此 API 可用來偵測影像中的人臉、使用矩形標定臉部，以及傳回例如年齡和性別等屬性。
+在本快速入門中，您已撰寫 cURL 命令來呼叫 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以取得更多資訊。
 
 > [!div class="nextstepaction"]
-> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (英文)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

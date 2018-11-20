@@ -1,60 +1,65 @@
 ---
-title: 快速入門：使用 REST API 和 cURL 偵測影像中的人臉
+title: 快速入門：使用 Azure REST API 和 cURL 偵測影像中的臉部
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您可以使用臉部 API 搭配 cURL 偵測影像中的人臉。
+description: 在本快速入門中，您將使用 Azure Face REST API 搭配 cURL 來偵測影像中的臉部。
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953343"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578020"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>快速入門：使用 REST API 和 cURL 偵測影像中的人臉
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>快速入門：使用 Face REST API 和 cURL 偵測影像中的臉部
 
-在此快速入門中，您會使用臉部 API 來偵測影像中的人臉。
+在本快速入門中，您將使用 Azure Face REST API 搭配 cURL 來偵測影像中的人臉。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
 ## <a name="prerequisites"></a>必要條件
 
-您需要有訂用帳戶金鑰才能執行範例。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
 
-## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
-
-使用 [Face - Detect](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 方法，偵測影像中的人臉並傳回臉部屬性，包括：
-
-* Face ID：數個臉部 API 案例中使用的唯一識別碼。
-* 臉部矩形：左側、頂端、寬度和高度，表示影像中臉部的位置。
-* 特徵點：27 點臉部特徵點陣列，指向臉部元件的重要位置。
-* 臉部屬性，包括年齡、性別、笑容程度、頭部姿勢以及臉部毛髮。
-
-若要執行範例，請執行下列步驟：
-
-1. 開啟命令提示字元。
-2. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-3. 必要時，請將 URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) 變更為使用您取得訂用帳戶金鑰的位置。
-4. (選擇性) 變更要分析的影像 (`"{\"url\":...`)。
-5. 將程式碼貼入命令視窗中。
-6. 執行命令。
-
-### <a name="face---detect-request"></a>Face - Detect 要求
-
-> [!NOTE]
-> 您必須在 REST 呼叫中使用與用來取得訂用帳戶金鑰相同的位置。 例如，如果您已從 westus 取得訂用帳戶金鑰，請將下列 URL 中的 "westcentralus" 取代為 "westus"。
+## <a name="write-the-command"></a>撰寫命令
+ 
+您將會使用類似下列的命令來呼叫臉部 API，並從影像中取得臉部屬性資料。 首先，將程式碼複製到文字編輯器 &mdash; 您將需要變更命令的特定部分，才能執行該程式碼。
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Face - Detect 回應
+### <a name="subscription-key"></a>訂用帳戶金鑰
+將 `<Subscription Key>` 換成您的有效 Face 訂用帳戶金鑰。
 
-成功的回應會以 JSON 的形式傳回。
+### <a name="face-endpoint-url"></a>Face 端點 URL
+
+URL：`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` 會指出要查詢的 Azure Face 端點。 您必須變更此 URL 的第一個部分，以符合與您訂用帳戶金鑰對應的區域 (除非此 URL 已是正確的)。
+
+### <a name="url-query-string"></a>URL 查詢字串
+
+Face 端點 URL 的查詢字串會指定要擷取的臉部屬性。 您可以根據您的用途來變更此字串。
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>影像來源 URL
+來源 URL 會指出要作為輸入使用的影像。 您可以將此欄位變更為指向任何您想要分析的影像。
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>執行命令
+
+完成變更之後，請開啟命令提示字元並輸入新的命令。 您應該會在主控台視窗中看到顯示為 JSON 資料的臉部資訊。 例如︰
 
 ```json
 [
@@ -150,7 +155,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.a
 
 ## <a name="next-steps"></a>後續步驟
 
-探索臉部 API，此 API 可用來偵測影像中的人臉、使用矩形標定臉部，以及傳回例如年齡和性別等屬性。
+在本快速入門中，您已撰寫 cURL 命令來呼叫 Azure 臉部 API，進而偵測影像中的臉部並傳回其屬性。 接下來，請瀏覽臉部 API 參考文件，以取得更多資訊。
 
 > [!div class="nextstepaction"]
-> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (英文)
+> [臉部 API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

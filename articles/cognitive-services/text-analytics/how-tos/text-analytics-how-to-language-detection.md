@@ -1,7 +1,6 @@
 ---
-title: 範例：使用文字分析 REST API 進行語言偵測
-titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字分析 REST API 偵測語言。
+title: 如何在文字分析 REST API 中進行語言偵測 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
+description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測語言。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604547"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633559"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>範例：如何在文字分析中偵測語言
 
 [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 會針對每份文件評估文字輸入，並傳回語言識別項，其中含有指出分析強度的分數。 文字分析最多可辨識 120 種語言。
 
 此功能對於收集任意文字且語言為未知的內容存放區而言非常實用。 您可以剖析此分析的結果，以判斷輸入文件中使用的是哪一種語言。 回應也會傳回分數來反映對模型的信賴度 (介於 0 和 1 之間的值)。
+
+> [!TIP]
+> 文字分析也會提供可用來偵測語言的 Linux 型 Docker 容器映像，好讓您可以在接近資料的位置[安裝和執行文字分析容器](text-analytics-how-to-install-containers.md)。
 
 ## <a name="preparation"></a>準備工作
 
@@ -62,7 +64,7 @@ ms.locfileid: "45604547"
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\)
 
-+ 設定適用於語言偵測的 HTTP 端點。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來偵測語言的 HTTP 端點。 它必須包括 `/languages` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
@@ -202,7 +204,7 @@ ms.locfileid: "45604547"
 
 ## <a name="summary"></a>總結
 
-在此文章中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
+在本文中，您已了解使用認知服務中的文字分析進行語言偵測的概念和工作流程。 以下是先前所說明和示範之重點的快速提醒：
 
 + [語言偵測 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) 可供 120 種語言使用。
 + 要求主體中的 JSON 文件包含識別碼和文字。

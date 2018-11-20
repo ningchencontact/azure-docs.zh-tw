@@ -1,5 +1,5 @@
 ---
-title: 透過 Azure 媒體服務 v3 使用 .NET Core 進行即時串流 | Microsoft Docs
+title: 透過 Azure 媒體服務 v3 進行即時串流 | Microsoft Docs
 description: 本教學課程將逐步解說透過媒體服務 v3 使用 .NET Core 進行即時串流的步驟。
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392330"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613387"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>透過 Azure 媒體服務 v3 使用 .NET Core 進行即時串流
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>教學課程：透過媒體服務 v3 使用 API 進行即時串流
 
-在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責處理即時串流內容。 LiveEvent 會提供輸入端點 (內嵌 URL)，接著您再提供給即時編碼器。 LiveEvent 會從即時編碼器接收即時輸入資料流，再透過一或多個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 進行串流處理。 LiveEvent 也會提供預覽端點 (預覽 URL)，您可在進一步處理和傳遞之前先用來預覽及驗證您的資料流。 本教學課程說明如何使用 .NET Core 建立即時事件的**傳遞**類型。 
+在 Azure 媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責處理即時串流內容。 LiveEvent 會提供輸入端點 (內嵌 URL)，接著您再提供給即時編碼器。 LiveEvent 會從即時編碼器接收即時輸入資料流，再透過一或多個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 進行串流處理。 LiveEvent 也會提供預覽端點 (預覽 URL)，您可在進一步處理和傳遞之前先用來預覽及驗證您的資料流。 本教學課程說明如何使用 .NET Core 建立即時事件的**傳遞**類型。 
 
 > [!NOTE]
 > 請務必先檢閱[使用媒體服務 v3 進行即時串流](live-streaming-overview.md)，再繼續操作。 
@@ -31,7 +31,6 @@ ms.locfileid: "49392330"
 本教學課程說明如何：    
 
 > [!div class="checklist"]
-> * 建立媒體服務帳戶
 > * 存取媒體服務 API
 > * 設定範例應用程式
 > * 檢查執行即時串流的程式碼
@@ -44,9 +43,17 @@ ms.locfileid: "49392330"
 
 需要有下列項目，才能完成教學課程。
 
-* 安裝 Visual Studio Code 或 Visual Studio
-* 用來廣播事件的相機或裝置 (例如筆記型電腦)。
-* 內部部署即時編碼器，它會將相機中的訊號轉換成資料流，再傳送至媒體服務即時串流服務。 資料流的格式必須是 **RTMP** 或 **Smooth Streaming**。
+- 安裝 Visual Studio Code 或 Visual Studio。
+- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+
+    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
+
+- [建立媒體服務帳戶](create-account-cli-how-to.md)。
+
+    請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值
+
+- 用來廣播事件的相機或裝置 (例如筆記型電腦)。
+- 內部部署即時編碼器，它會將相機中的訊號轉換成資料流，再傳送至媒體服務即時串流服務。 資料流的格式必須是 **RTMP** 或 **Smooth Streaming**。
 
 ## <a name="download-the-sample"></a>下載範例
 
@@ -61,10 +68,6 @@ ms.locfileid: "49392330"
 > [!IMPORTANT]
 > 此範例會對每個資源使用唯一尾碼。 如果您取消偵錯，或在應用程式執行完成之前家以終止，則您的帳戶將會出現多個 LiveEvent。 <br/>
 > 請確實停止執行 LiveEvent。 否則將會產生相關**費用**！
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。 您可以使用 [CloudShell] 工具。
+如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。
 
-在 **CloudShell** 中，執行以下命令：
+執行下列 CLI 命令：
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

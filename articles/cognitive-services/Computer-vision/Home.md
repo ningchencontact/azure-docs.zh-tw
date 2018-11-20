@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250601"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634323"
 ---
 # <a name="what-is-computer-vision"></a>什麼是電腦視覺？
 
@@ -53,6 +53,10 @@ ms.locfileid: "50250601"
 ## <a name="moderating-content-in-images"></a>調節影像中的內容
 
 您可以使用電腦視覺在影像中[偵測成人和猥褻內容](concept-detecting-adult-content.md)、評估影像中包含成人或猥褻內容的可能性，及產生兩者的信賴分數。 成人和猥褻內容偵測的篩選條件可用滑動標尺來設定，以配合您的喜好設定。
+
+## <a name="using-containers"></a>使用容器
+
+[使用電腦視覺容器](computer-vision-how-to-install-containers.md)，藉由在更接近資料的位置安裝標準化的 Docker 容器，於本機辨識列印和手寫的文字。
 
 ## <a name="image-requirements"></a>影像需求
 

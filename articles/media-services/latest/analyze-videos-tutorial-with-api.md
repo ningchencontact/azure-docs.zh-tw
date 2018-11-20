@@ -10,18 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: 5bb840be119f5eac380c44e2cf45b3f73a9d981e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985704"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612749"
 ---
-# <a name="tutorial-analyze-videos-with-azure-media-services"></a>教學課程：使用 Azure 媒體服務分析影片 
+# <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>教學課程：透過媒體服務 v3 使用 API 分析影片
 
-本教學課程會示範如何使用 Azure 媒體服務分析影片。 在許多情況下，您會想從記錄影片或音訊內容中取得深入的見解。 例如，為達到更高的客戶滿意度，組織可以執行語音轉文字處理，將客戶支援記錄轉換為可搜尋的目錄，且其中可包含索引及儀表板。 然後，他們可以取得有關其業務的見解，例如常見的抱怨、這類抱怨的來源等清單。
+本教學課程會示範如何使用 Azure 媒體服務分析影片。 在許多情況下，您會想從記錄影片或音訊內容中取得深入的見解。 例如，為達到更高的客戶滿意度，組織可以執行語音轉文字處理，將客戶支援記錄轉換為可搜尋的目錄，且其中可包含索引及儀表板。 然後，他們可以取得有關其業務的見解，例如常見的抱怨清單、這類抱怨的來源和其他實用資訊等。
 
 本教學課程說明如何：    
 
@@ -38,7 +38,14 @@ ms.locfileid: "49985704"
 
 ## <a name="prerequisites"></a>必要條件
 
-如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
+- 如果沒有安裝 Visual Studio，您可以取得 [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15)。
+- 在本機安裝和使用 CLI，本文需要 Azure CLI 2.0 版或更新版本。 執行 `az --version` 以尋找您擁有的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 
+
+    目前，並非所有[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 命令都可在 Azure Cloud Shell 中運作。 建議在本機使用 CLI。
+
+- [建立媒體服務帳戶](create-account-cli-how-to.md)。
+
+    請務必記住您用於資源群組名稱和「媒體服務」帳戶名稱的值。
 
 ## <a name="download-the-sample"></a>下載範例
 
@@ -49,10 +56,6 @@ ms.locfileid: "49985704"
  ```
 
 此範例位於 [AnalyzeVideos](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/AnalyzeVideos) 資料夾中。
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -154,11 +157,11 @@ ms.locfileid: "49985704"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。 您可以使用 [CloudShell] 工具。
+如果您不再需要資源群組中的任何資源 (包含您為教學課程建立的媒體服務和儲存體帳戶)，請將稍早建立的資源群組刪除。 
 
-在 **CloudShell** 中，執行以下命令：
+執行下列 CLI 命令：
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

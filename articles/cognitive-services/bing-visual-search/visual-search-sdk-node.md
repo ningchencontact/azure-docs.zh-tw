@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0956e88bd293b62935f5c8e2b9ef2d30466af8e4
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 77b8f956ca2a6985121cb5dbfebc2755fa73a35c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456604"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685968"
 ---
 # <a name="quickstart-bing-visual-search-sdk-node"></a>快速入門：Bing 圖像式搜尋 SDK 節點 
 
@@ -32,7 +32,9 @@ Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
 
 ## <a name="application-dependencies"></a>應用程式相依性
 
-* 執行 `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`。
+若要使用 Bing 圖像式搜尋 SDK 來設定主控台應用程式：
+* 執行 `npm install ms-rest-azure`
+* 執行 `npm install azure-cognitiveservices-search-visualSearch`。
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>圖像式搜尋用戶端

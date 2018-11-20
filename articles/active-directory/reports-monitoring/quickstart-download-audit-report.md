@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d6ecf62b46c25ec7cf4ab80219d1bc220e4eb4cc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367401"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620729"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站下載稽核報告
 
@@ -32,7 +32,7 @@ ms.locfileid: "46367401"
 您需要：
 
 * Azure Active Directory 租用戶。 
-* 一個使用者，他必須是租用戶中「安全性系統管理員」、「安全性讀取者」或「全域系統管理員」的成員。 此外，租用戶中的任何使用者都可以存取自己的稽核記錄。
+* 所擔任的租用戶角色為**安全性系統管理員**、**安全性讀取者**或**全域系統管理員**的使用者。 此外，租用戶中的任何使用者都可以存取自己的稽核記錄。
 
 ## <a name="quickstart-download-an-audit-report"></a>快速入門：下載稽核報告
 

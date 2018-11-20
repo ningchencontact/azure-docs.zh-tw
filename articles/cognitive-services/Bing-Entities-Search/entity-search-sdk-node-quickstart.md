@@ -10,12 +10,12 @@ ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 1f2a5f6a1473cde40928ada6e30f6bd9b780543d
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 69bcca7871d9bf4bebf64c0c0ae1b54cd8408927
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814877"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684115"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-node"></a>快速入門：搭配使用 Bing 實體搜尋 SDK 與 Node
 
@@ -24,7 +24,9 @@ Bing 實體搜尋 SDK 包含用於實體查詢和剖析結果的 REST API 功能
 [C# Bing 實體搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js)可從 Git Hub 取得。
 ## <a name="application-dependencies"></a>應用程式相依性
 
-若要使用 Bing 實體搜尋 SDK 來設定主控台應用程式，請在您的開發環境中執行 `npm install azure-cognitiveservices-entitysearch`。
+若要使用 Bing 實體搜尋 SDK 來設定主控台應用程式：
+* 在開發環境中執行 `npm install ms-rest-azure`。
+* 在開發環境中執行 `npm install azure-cognitiveservices-entitysearch`。
 
 ## <a name="entity-search-client"></a>實體搜尋用戶端
 在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 建立 `CognitiveServicesCredentials` 的執行個體：

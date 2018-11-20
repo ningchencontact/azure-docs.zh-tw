@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398705"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623191"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>什麼是 Azure Active Directory 監視？ (預覽)
 
@@ -32,7 +32,6 @@ ms.locfileid: "49398705"
 - 一個 Azure 儲存體帳戶。
 - Azure 事件中樞，因此您可以與 Splunk 和 Sumologic 執行個體整合。
 - Azure Log Analytics 工作區，您可在其中分析資料、建立儀表板以及特定事件的警示
-
 
 ## <a name="diagnostic-settings-configuration"></a>診斷設定組態
 

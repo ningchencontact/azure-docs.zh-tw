@@ -1,6 +1,6 @@
 ---
-title: 建立包含 URL 路徑型重新導向的應用程式閘道 - Azure CLI
-description: 瞭解如何使用 Azure CLI，建立包含 URL 路徑型重新導向流量功能的應用程式閘道。
+title: 教學課程 - 建立包含 URL 路徑型重新導向的應用程式閘道 - Azure CLI
+description: 在本教學課程中，您將了解如何使用 Azure CLI，建立包含 URL 路徑型重新導向流量功能的應用程式閘道。
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947543"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568143"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>教學課程：使用 Azure CLI 建立包含 URL 路徑型重新導向的應用程式閘道
 
@@ -313,14 +313,6 @@ az network public-ip show \
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路
-> * 建立應用程式閘道
-> * 新增接聽程式和路由規則
-> * 為後端集區建立虛擬機器擴展集
 
 > [!div class="nextstepaction"]
 > [深入了解應用程式閘道的用途](application-gateway-introduction.md)

@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365351"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288708"
 ---
-# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Azure 物聯網技術與解決方案：PaaS 與 SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>物聯網 (IoT) 技術與解決方案：PaaS 和 SaaS
 
 Microsoft 已建立一個能支援所有客戶需求的產品組合，讓每個人都能享用數位轉換的優點。 Azure IoT 產品組合概述可用的 PaaS/SaaS 技術與解決方案。 它提供兩種途徑讓您建立自己的解決方案：
 
@@ -24,7 +24,7 @@ Microsoft 已建立一個能支援所有客戶需求的產品組合，讓每個�
 
 - 軟體即服務 (SaaS)：可讓您快速開始使用 [Azure IoT 中心](https://azure.microsoft.com/services/iot-central/)這個新的 SaaS 解決方案，來開發 IoT 應用程式，而無須接觸到複雜的 IoT 解決方案。 如果您的組織缺少資源而無法建立您自己的 IoT 解決方案，Azure IoT 中心是一種無程式碼的 IoT 解決方案，可以在數分鐘內建立裝置型號、儀表板和規則。
 
-![Azure IoT 技術和解決方案](./media/iot-comparison/paas-saas-technologies-solutions.png)
+![Azure IoT 技術和解決方案](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>解決方案
 

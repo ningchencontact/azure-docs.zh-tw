@@ -1,7 +1,6 @@
 ---
-title: 範例：使用文字分析 REST API 分析情感
-titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字分析 REST API 偵測情感。
+title: 如何在文字分析 REST API 中進行情感分析 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
+description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來偵測情感。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605890"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632861"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>範例：如何在文字分析中偵測情感
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605890"
 此功能在偵測社交媒體、客戶評價及討論論壇中的正面和負面情感上非常實用。 內容是由您提供，模型和定型資料則由服務提供。
 
 情感分析目前支援英文、德文、西班牙文及法文。 其他語言則為預覽狀態。 如需詳細資訊，請參閱[支援的語言](../text-analytics-supported-languages.md)。
+
+> [!TIP]
+> 文字分析也會提供可用來分析情感的 Linux 型 Docker 容器映像，好讓您可以在接近資料的位置[安裝和執行文字分析容器](text-analytics-how-to-install-containers.md)。
 
 ## <a name="concepts"></a>概念
 
@@ -77,7 +79,7 @@ ms.locfileid: "45605890"
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\)
 
-+ 設定適用於關鍵片語擷取的 HTTP 端點。 它必須包括 `/sentiment` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來分析情感的 HTTP 端點。 它必須包括 `/sentiment` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
@@ -99,7 +101,7 @@ ms.locfileid: "45605890"
 
 輸出會立即傳回。 您可以將結果串流處理到可接受 JSON 的應用程式，或將輸出儲存到本機系統上的檔案，然後將它匯入能讓您排序、搜尋和操作資料的應用程式。
 
-下列範例顯示此文章中文件集合的回應。
+下列範例顯示本文中文件集合的回應。
 
 ```
 {
@@ -131,7 +133,7 @@ ms.locfileid: "45605890"
 
 ## <a name="summary"></a>總結
 
-在此文章中，您已了解使用認知服務中的文字分析進行情感分析的概念和工作流程。 摘要說明：
+在本文中，您已了解使用認知服務中的文字分析進行情感分析的概念和工作流程。 摘要說明：
 
 + [情感分析 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) \(英文\) 僅針對特定語言提供。
 + 要求主體中的 JSON 文件包含識別碼、文字和語言代碼。

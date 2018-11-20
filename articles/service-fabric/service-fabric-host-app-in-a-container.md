@@ -3,7 +3,7 @@ title: 將容器中的 .NET 應用程式部署到 Azure Service Fabric | Microso
 description: 了解如何使用 Visual Studio 將現有 .NET 應用程式容器化，並在 Service Fabric 本機為容器偵錯。 需將容器化的應用程式推送至 Azure 容器登錄，並部署到 Service Fabric 叢集。 部署到 Azure 時，應用程式會使用 Azure SQL 資料庫保存資料。
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
-ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.author: twhitney
+ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429587"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299634"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教學課程：將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric
 
@@ -61,9 +61,7 @@ ms.locfileid: "49429587"
 ## <a name="create-an-azure-sql-db"></a>建立 Azure SQL 資料庫
 在生產環境中執行 Fabrikam Fiber CallCenter 應用程式時，資料必須保存在資料庫中。 目前無法保證資料能保存在容器中，因此請不要將 SQL Server 生產環境的資料儲存在容器中。
 
-建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP 是開發電腦的 IP 位址。
-
-如果您在公司防火牆後方，開發電腦的 IP 位址可能是無法向網際網路公開的 IP 位址。 若要確認用於防火牆規則的資料庫 IP 位址是否正確，請前往 [Azure 入口網站](https://portal.azure.com)，並在 SQL Database 區段中尋找您的資料庫。 按一下其名稱，然後在 [概觀] 區段中按一下 [設定伺服器防火牆]。 「用戶端 IP 位址」是您開發機器的 IP 位址。 請確定它符合 "AllowClient" 規則中的 IP 位址。
+建議使用 [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell)。 若要在 Azure 中設定及執行受控 SQL Server 資料庫，執行下列指令碼。  視需要修改指令碼變數。 clientIP 是開發電腦的 IP 位址。 記下由指令碼輸出的伺服器名稱。 
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -84,7 +82,7 @@ $adminlogin = "ServerAdmin"
 $password = "Password@123"
 
 # The IP address of your development computer that accesses the SQL DB.
-$clientIP = "24.18.117.76"
+$clientIP = "<client IP>"
 
 # The database name.
 $databasename = "call-center-db"
@@ -111,13 +109,15 @@ New-AzureRmSqlDatabase  -ResourceGroupName $dbresourcegroupname `
 
 Write-Host "Server name is $servername"
 ```
+> [!TIP]
+> 如果您在公司防火牆後方，開發電腦的 IP 位址可能是無法向網際網路公開的 IP 位址。 若要確認用於防火牆規則的資料庫 IP 位址是否正確，請前往 [Azure 入口網站](https://portal.azure.com)，並在 SQL Database 區段中尋找您的資料庫。 按一下其名稱，然後在 [概觀] 區段中按一下 [設定伺服器防火牆]。 「用戶端 IP 位址」是您開發機器的 IP 位址。 請確定它符合 "AllowClient" 規則中的 IP 位址。
 
 ## <a name="update-the-web-config"></a>更新 Web 設定
-回到 **FabrikamFiber.Web** 專案，更新 **web.config** 檔案中的連接字串以指向容器中的 SQL Server。  更新連接字串的 Server 這個部分，改為之前的指令碼所建立的伺服器。 
+回到 **FabrikamFiber.Web** 專案，更新 **web.config** 檔案中的連接字串以指向容器中的 SQL Server。  更新連接字串的 Server 這個部分，改為之前指令碼所建立的伺服器名稱。 它應該會類似 "fab-fiber-751718376.database.windows.net"。
 
 ```xml
-<add name="FabrikamFiber-Express" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
-<add name="FabrikamFiber-DataWarehouse" connectionString="Server=tcp:fab-fiber-1300282665.database.windows.net,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+<add name="FabrikamFiber-Express" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
+<add name="FabrikamFiber-DataWarehouse" connectionString="Server=<server name>,1433;Initial Catalog=call-center-db;Persist Security Info=False;User ID=ServerAdmin;Password=Password@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" providerName="System.Data.SqlClient" />
   
 ```
 >[!NOTE]
@@ -150,7 +150,9 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
 
 本教學課程是從 Visual Studio建立叢集，這非常適合用於測試案例。 如果您用其他方式建立叢集或使用現有叢集，可以複製和貼上您的連線端點，或從訂用帳戶中選擇它。 
 
-在建立叢集時，選擇支援執行容器的 SKU。 在叢集節點上的 Windows Server 作業系統必須相容於您容器的 Windows Server 作業系統。 若要深入了解，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 根據預設，本教學課程會建立以 Windows Server 2016 LTSC 為基礎的 Docker 映像。 以此映像為基礎的容器將會在叢集上執行，而叢集會透過具有容器的 Windows Server 2016 Datacenter 來建立。 不過，如果您建立的叢集或使用的現有叢集，是以具有容器的 Windows Server Datacenter Core 1709 為基礎，您必須變更容器所依據的 Windows Server 作業系統映像。 開啟 **FabrikamFiber.Web** 專案中的 [Dockerfile]，為現有的 `FROM` 陳述式加上註解 (以 `windowsservercore-ltsc` 為基礎)，並對以 `windowsservercore-1709` 為基礎的 `FROM` 陳述式取消註解。 
+開始之前，在 [方案總管] 中，開啟 FabrikamFiber.Web->PackageRoot->ServiceManifest.xml。 記下 [端點] 中列出的 Web 前端連接埠。 
+
+建立叢集時， 
 
 1. 以滑鼠右鍵按一下 [方案總管] 中的 [FabrikamFiber.CallCenterApplication] 應用程式專案，然後選擇 [發佈]。
 
@@ -160,21 +162,29 @@ Service Fabric 應用程式執行於叢集，也就是一組連接網路的虛�
         
 4. 在 [建立叢集] 對話方塊中，修改下列設定：
 
-    1. 在 [叢集名稱] 欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。
-    2. 您可以選擇是否修改節點的數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
-    3. 選取 [憑證] 索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
-    4. 選取 [VM 詳細資料] 索引標籤。指定您想用於組成叢集之虛擬機器 (VM) 的密碼。 使用者名稱和密碼可用來從遠端連線到 VM。 您也必須選取 VM 機器大小，並可視需要變更 VM 映像。
-    5. 在 [進階] 索引標籤中，列出應用程式連接埠，這是叢集部署時要在負載平衡器中開啟的連接埠。 在 [方案總管] 中，開啟 FabrikamFiber.Web -> PackageRoot -> ServiceManifest.xml。  [端點] 會列出 Web 前端的連接埠。  您也可以新增現有的 Application Insights 金鑰，此金鑰會用於路由傳送應用程式記錄檔。
-    6. 當您完成設定修改時，請選取 [建立] 按鈕。 
-5. 建立作業需要幾分鐘才能完成；輸出視窗會指出叢集何時建立完成。
+    a. 在 [叢集名稱] 欄位中指定叢集的名稱，以及您想要使用的訂用帳戶和位置。 記下叢集資源群組的名稱。
+
+    b. 您可以選擇是否修改節點的數目。 根據預設，您有三個節點，這是測試 Service Fabric 案例所需的最少節點數。
+
+    c. 選取 [憑證] 索引標籤。在此索引標籤中，輸入要用來保護叢集憑證的密碼。 此憑證可協助保護您的叢集。 您也可以修改您要儲存憑證的路徑。 Visual Studio 也可以為您匯入憑證，因為這是要將應用程式發佈至叢集所需的項目。
+
+    d. 選取 [VM 詳細資料] 索引標籤。指定您想用於組成叢集之虛擬機器 (VM) 的密碼。 使用者名稱和密碼可用來從遠端連線到 VM。 您也必須選取 VM 機器大小，並可視需要變更 VM 映像。 
+
+    > [!IMPORTANT]
+    >選擇支援執行容器的 SKU。 在叢集節點上的 Windows Server 作業系統必須相容於您容器的 Windows Server 作業系統。 若要深入了解，請參閱 [Windows Server 容器作業系統和主機作業系統的相容性](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility)。 根據預設，本教學課程會建立以 Windows Server 2016 LTSC 為基礎的 Docker 映像。 以此映像為基礎的容器將會在叢集上執行，而叢集會透過具有容器的 Windows Server 2016 Datacenter 來建立。 不過，如果您建立的叢集或使用的現有叢集，是以具有容器的 Windows Server Datacenter Core 1709 為基礎，您必須變更容器所依據的 Windows Server 作業系統映像。 開啟 **FabrikamFiber.Web** 專案中的 [Dockerfile]，為現有的 `FROM` 陳述式加上註解 (以 `windowsservercore-ltsc` 為基礎)，並對以 `windowsservercore-1709` 為基礎的 `FROM` 陳述式取消註解。 
+
+    e. 在 [進階] 索引標籤中，列出應用程式連接埠，這是叢集部署時要在負載平衡器中開啟的連接埠。 這是您在開始建立叢集之前所記下的連接埠。 您也可以新增現有的 Application Insights 金鑰，此金鑰會用於路由傳送應用程式記錄檔。
+
+    f. 當您完成設定修改時，請選取 [建立] 按鈕。 
+1. 建立作業需要幾分鐘才能完成；輸出視窗會指出叢集何時建立完成。
     
 
 ## <a name="allow-your-application-running-in-azure-to-access-the-sql-db"></a>允許在 Azure 中執行的應用程式存取 SQL 資料庫
-您先前已建立 SQL 防火牆規則，讓在本機執行的應用程式有存取權。  接著，您需要讓在 Azure 中執行的應用程式存取 SQL 資料庫。  為 Service Fabric 叢集建立[虛擬網路服務端點](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)，然後再建立規則以允許該端點存取 SQL 資料庫。
+您先前已建立 SQL 防火牆規則，讓在本機執行的應用程式有存取權。  接著，您需要讓在 Azure 中執行的應用程式存取 SQL 資料庫。  為 Service Fabric 叢集建立[虛擬網路服務端點](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)，然後再建立規則以允許該端點存取 SQL 資料庫。 請務必指定建立叢集時，您所記下的叢集資源群組變數。 
 
 ```powershell
 # Create a virtual network service endpoint
-$clusterresourcegroup = "fabrikamfiber.callcenterapplication_RG"
+$clusterresourcegroup = "<cluster resource group>"
 $resource = Get-AzureRmResource -ResourceGroupName $clusterresourcegroup -ResourceType Microsoft.Network/virtualNetworks | Select-Object -first 1
 $vnetName = $resource.Name
 

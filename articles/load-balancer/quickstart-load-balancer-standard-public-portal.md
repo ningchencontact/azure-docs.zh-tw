@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702401"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615203"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立標準負載平衡器以平衡 VM 的負載
 
@@ -145,6 +145,7 @@ ms.locfileid: "42702401"
     - myHealthProbe - 作為健康狀態探查的名稱。
     - HTTP - 作為通訊協定類型。
     - 80 - 作為連接埠號碼。
+    - [Healthprobe.aspx] - 作為 URI 路徑。 您可以使用任何其他 URI 來取代此值，也可以保留 **"\\"** 的預設路徑值來取得預設 URI。
     - 15 - 探查嘗試的 [間隔] 秒數。
     - 2 - 作為 [狀況不良閾值]，或將 VM 視為狀況不良之前，必須達到的連續探查失敗次數。
 4. 按一下 [確定]。

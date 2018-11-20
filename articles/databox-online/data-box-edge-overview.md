@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: alkohli
-ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232201"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685951"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>什麼是 Azure Data Box Edge (預覽)？ 
 
@@ -84,7 +84,7 @@ Data Box Edge 實體裝置具有下列功能：
 | 記憶體| 64 GB RAM|
 | 磁碟| 8 個 NVMe SSD，每個硬碟的大小為 1.6 TB <br> 如果有單一 NVMe SSD 失敗，系統便會失敗。 |
 | 本機儲存體容量| 12.8 TB 的總容量|
-| 網路介面| 2 個 1 GbE 介面 - 1 個為管理用途 (使用者無法設定)，用於初始設定。 另一個資料介面可由使用者設定，且預設為 DHCP。 <br>2 個 25 GbE 介面 - 這些也能以 10 GbE 介面的形式運作。 這些資料介面可由使用者設定為 DHCP (預設) 或靜態。 <br> 2 個 25 GbE 介面 - 這些資料介面可由使用者設定為 DHCP (預設) 或靜態。|
+| 網路介面| 2 個 1 GbE 介面 - 1 個為管理用途 (使用者無法設定)，用於初始設定。 其他介面則可由使用者設定、可用於傳輸資料，且預設為 DHCP。 <br>2 個 25 GbE 介面 - 這些也能以 10 GbE 介面的形式運作。 這些資料介面可由使用者設定為 DHCP (預設) 或靜態。 <br> 2 個 25 GbE 介面 - 這些資料介面可由使用者設定為 DHCP (預設) 或靜態。|
 
 ## <a name="components"></a>元件
 

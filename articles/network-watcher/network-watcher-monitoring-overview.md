@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390940"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614272"
 ---
 # <a name="what-is-azure-network-watcher"></a>什麼是 Azure 網路監看員？
 
@@ -98,6 +98,9 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 ### <a name="view-diagnostic-logs-for-network-resources"></a>檢視網路資源的診斷記錄
 
 您可以啟用 Azure 網路資源的診斷記錄，例如網路安全性群組、公用 IP 位址、負載平衡器、虛擬網路閘道，以及應用程式閘道。 *診斷記錄*功能提供單一介面，可為任何會產生診斷記錄的現有網路資源啟用和停用網路資源診斷記錄。 您可以使用 Microsoft Power BI 和 Azure Log Analytics 等工具來檢視診斷記錄。 若要深入了解如何分析 Azure 網路診斷記錄，請參閱 [Log Analytics 中的 Azure 網路解決方案](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+
+## <a name="network-watcher-automatic-enablement"></a>自動啟用網路監看員
+當您建立或更新訂用帳戶中的虛擬網路時，網路監看員將會在虛擬網路的區域中自動啟用。 自動啟用網路監看員不會對您的資源或相關費用造成任何影響。 如需詳細資訊，請參閱[建立網路監看員](network-watcher-create.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

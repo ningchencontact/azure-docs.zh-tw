@@ -1,41 +1,43 @@
 ---
-title: 教學課程：偵測並框出影像中的人臉 - 臉部 API、Python
+title: 快速入門：使用 Python SDK 偵測並框出影像中的人臉
 titleSuffix: Azure Cognitive Services
-description: 了解如何搭配 Python SDK 使用臉部 API 來偵測影像中的人臉。
+description: 在此快速入門中，您會建立簡單的 Python 指令碼，以使用臉部 API 來偵測並框出遠端影像中的人臉。
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127732"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683996"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>教學課程：使用臉部 API 和 Python 偵測並框出人臉 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入門：建立 Python 指令碼來偵測並框出影像中的臉部
 
-在本教學課程中，您將了解如何透過 Python SDK 叫用臉部 API 來偵測影像中的人類。
+在此快速入門中，您會建立簡單的 Python 指令碼 (透過 Python SDK)，以使用 Azure 臉部 API 來偵測遠端影像中的人臉。 此應用程式會顯示選取的影像，並在每個偵測到的人臉周圍繪製框架。
+
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 
 ## <a name="prerequisites"></a>必要條件
 
-若要使用教學課程，您必須執行下列動作：
+- 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
+- [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) 工具
+- 臉部 API Python SDK。 您可以執行下列命令來安裝它：
+    ```bash
+    pip install cognitive_face
+    ```
 
-- 安裝 Python 2.7+ 或 Python 3.5+。
-- 安裝 pip。
-- 安裝適用於臉部 API 的 Python SDK，如下所示：
+## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
 
-```bash
-pip install cognitive_face
-```
+建立新的 Python 指令碼 (FaceQuickstart.py)。 新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
 
-- 取得 Microsoft 認知服務的[訂用帳戶金鑰](https://azure.microsoft.com/try/cognitive-services/)。 您可以在本教學課程中使用主要或次要金鑰 (請注意，若要使用任何臉部 API，您必須擁有有效的訂用帳戶金鑰)。
-
-## <a name="detect-a-face-in-an-image"></a>偵測影像中的人臉
+此指令碼會藉由呼叫 **cognitive_face.face.detect** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回臉部清單。
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-以下是範例結果。 它是所偵測臉部的 `list`。 清單中的每個項目都是 `dict` 執行個體，其中 `faceId` 是所偵測臉部的唯一識別碼，而 `faceRectangle` 描述所偵測臉部的位置。 臉部識別碼會在 24 小時內到期。
+### <a name="try-the-app"></a>試用應用程式
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+使用 `python FaceQuickstart.py` 命令執行應用程式。 您應該會在主控台視窗中取得文字回應，如下所示：
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>在臉部周圍繪製矩形
+這是所偵測到臉部的清單。 清單中的每個項目都是 **dict** 執行個體，其中 `faceId` 是所偵測臉部的唯一識別碼，而 `faceRectangle` 描述所偵測臉部的位置。 
 
-您可以使用從上一個命令收到的 json 座標，在影像上繪製矩形以視覺方式表示每張臉。 您需要 `pip install Pillow` 才能使用 `PIL` 影像處理模組。  在檔案的最上方，新增下列項目：
+> [!NOTE]
+> 臉部識別碼會在 24 小時後到期；如果您想要長期保留識別碼，則必須明確地儲存臉部資料。
+
+## <a name="draw-face-rectangles"></a>繪製臉部矩形
+
+您可以使用從上一個命令收到的座標，在影像上繪製矩形以視覺方式表示每張臉。 您必須安裝 Pillow (`pip install pillow`) 才能使用 Pillow 影像模組。 在 FaceQuickstart.py 頂端，新增下列程式碼：
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-然後，在 `print(faces)` 後面，將下列內容加入您的指令碼：
+然後，在指令碼底部新增下列程式碼。 這會建立用於分析矩形座標的簡單函式，並使用 Pillow 在原始影像上繪製矩形。 然後，它會在預設的影像檢視器中顯示該影像。
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>進一步探索
+## <a name="run-the-app"></a>執行應用程式
 
-為了協助您進一步探索臉部 API，本教學課程提供 GUI 範例。 若要執行它，請先安裝 [wxPython](https://wxpython.org/pages/downloads/)，然後執行下列命令。
+系統可能會提示您先選取預設影像檢視器。 然後，您應該會看到如下的影像。 您應該也會在主控台視窗中看到列印出來的矩形資料。
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![臉部周圍繪有紅色矩形的年輕女性](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>總結
+## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解透過叫用 Python SDK 使用臉部 API 的基本程序。 如需 API 詳細資料的詳細資訊，請參閱操作說明和 [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) (API 參考)。
+在本快速入門中，您已了解臉部 API Python SDK 的基本使用程序，並建立了指令碼來偵測並框出影像中的臉部。 接下來，請在更複雜的範例中探索 Python SDK 的使用方式。 移至 GitHub 上的認知臉部 Python 範例、將範例複製到專案資料夾，然後遵循 README.md 檔案中的指示。
 
-## <a name="related-topics"></a>相關主題
-
-- [在 CSharp 中開始使用臉部 API](FaceAPIinCSharpTutorial.md)
-- [在適用於 Android 的 Java 中開始使用臉部 API](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [認知臉部 Python 範例](https://github.com/Microsoft/Cognitive-Face-Python)

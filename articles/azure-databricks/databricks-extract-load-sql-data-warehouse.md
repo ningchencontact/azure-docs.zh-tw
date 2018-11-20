@@ -10,16 +10,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c67a223a95e73161b58f8cd4f2aeba2614a9ee76
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: bf7351f5d62958b77473440d618d31cda2c983ea
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419074"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615512"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
-在此教學課程中，您將使用 Azure Databricks 執行 ETL (擷取、轉換及載入資料) 作業。 您會將資料從 Azure Data Lake Store 擷取至 Azure Databricks，並在 Azure Databricks 中執行資料轉換，然後將轉換後的資料載入 Azure SQL 資料倉儲。 
+在此教學課程中，您將使用 Azure Databricks 執行 ETL (擷取、轉換及載入資料) 作業。 您會將資料從 Azure Data Lake Store 擷取至 Azure Databricks，並在 Azure Databricks 中執行資料轉換，然後將轉換後的資料載入 Azure SQL 資料倉儲。
 
 本教學課程中的步驟會使用適用於 Azure Databricks 的 SQL 資料倉儲連接器，將資料轉送至 Azure Databricks。 接著，當資料在 Azure Databricks 叢集和 Azure SQL 資料倉儲之間進行轉換時，此連接器會使用 Azure Blob 儲存體作為暫時儲存體。
 
@@ -27,7 +27,7 @@ ms.locfileid: "50419074"
 
 ![搭配 Data Lake Store 與 SQL 資料倉儲的 Azure Databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-extract-transform-load-sql-datawarehouse.png "搭配 Data Lake Store 與 SQL 資料倉儲的 Azure Databricks")
 
-本教學課程涵蓋下列工作： 
+本教學課程涵蓋下列工作：
 
 > [!div class="checklist"]
 > * 建立 Azure Databricks 工作區
@@ -64,7 +64,7 @@ ms.locfileid: "50419074"
 
     ![建立 Azure Databricks 工作區](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
-    提供下列值： 
+    提供下列值：
      
     |屬性  |說明  |
     |---------|---------|
@@ -95,14 +95,14 @@ ms.locfileid: "50419074"
     接受下列值以外的所有其他預設值：
 
     * 輸入叢集的名稱。
-    * 針對本文，使用 **4.0** 執行階段建立叢集。 
+    * 針對本文，使用 **4.0** 執行階段建立叢集。
     * 請確定您已選取 [在活動\_\_分鐘後終止] 核取方塊。 請提供用來終止叢集的叢集未使用持續時間 (以分鐘為單位)。
     
     選取 [建立叢集]。 叢集在執行後，您就可以將 Notebook 連結至叢集，並執行 Spark 作業。
 
 ## <a name="create-an-azure-data-lake-store-account"></a>建立 Azure Data Lake Store 帳戶
 
-在本節中，您將會建立 Azure Data Lake Store 帳戶，並讓 Azure Active Directory 服務主體與其產生關聯。 稍後在本教學課程中，您會在 Azure Databricks 中使用此服務主體來存取 Azure Data Lake Store。 
+在本節中，您將會建立 Azure Data Lake Store 帳戶，並讓 Azure Active Directory 服務主體與其產生關聯。 稍後在本教學課程中，您會在 Azure Databricks 中使用此服務主體來存取 Azure Data Lake Store。
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [建立資源] > [儲存體] > [Data Lake Store]。
 3. 在 [新增 Data Lake Store] 刀鋒視窗中，提供如以下螢幕擷取畫面所示的值：
@@ -189,7 +189,7 @@ ms.locfileid: "50419074"
 
 1. 複製 [目錄識別碼]。 這個值是您的租用戶識別碼。
 
-   ![租用戶識別碼](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png) 
+   ![租用戶識別碼](./media/databricks-extract-load-sql-data-warehouse/copy-directory-id.png)
 
 ## <a name="upload-data-to-data-lake-store"></a>將資料上傳至 Data Lake Store
 
@@ -306,7 +306,7 @@ ms.locfileid: "50419074"
 
 ## <a name="transform-data-in-azure-databricks"></a>轉換 Azure Databricks 中的資料
 
-未經處理的範例資料 **small_radio_json.json** 擷取了廣播電台的聽眾，並且有不同資料行。 在本節中，您會將資料轉換為僅從資料集擷取特定資料行。 
+未經處理的範例資料 **small_radio_json.json** 擷取了廣播電台的聽眾，並且有不同資料行。 在本節中，您會將資料轉換為僅從資料集擷取特定資料行。
 
 1. 一開始，僅在已建立的資料框架中擷取 *firstName*、*lastName**gender**location* 和 *level* 資料行。
 
@@ -340,7 +340,7 @@ ms.locfileid: "50419074"
         |  Margaux|     Smith|     F|Atlanta-Sandy Spr...| free|
         +---------+----------+------+--------------------+-----+
 
-2.  您可以進一步轉換此資料，將 **level** 資料行重新命名為 **subscription_type**。
+2. 您可以進一步轉換此資料，將 **level** 資料行重新命名為 **subscription_type**。
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
         renamedColumnsDf.show()
@@ -382,7 +382,7 @@ ms.locfileid: "50419074"
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
-        val blobAccessKey =  "<ACCESS KEY>"
+        val blobAccessKey = "<ACCESS KEY>"
 
 2. 指定在 Azure Databricks 與 Azure SQL 資料倉儲之間移動資料所用的暫存資料夾。
 
@@ -397,15 +397,15 @@ ms.locfileid: "50419074"
 
         //SQL Data Warehouse related settings
         val dwDatabase = "<DATABASE NAME>"
-        val dwServer = "<DATABASE SERVER NAME>" 
+        val dwServer = "<DATABASE SERVER NAME>"
         val dwUser = "<USER NAME>"
         val dwPass = "<PASSWORD>"
-        val dwJdbcPort =  "1433"
+        val dwJdbcPort = "1433"
         val dwJdbcExtraOptions = "encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;"
         val sqlDwUrl = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass + ";$dwJdbcExtraOptions"
         val sqlDwUrlSmall = "jdbc:sqlserver://" + dwServer + ".database.windows.net:" + dwJdbcPort + ";database=" + dwDatabase + ";user=" + dwUser+";password=" + dwPass
 
-5. 執行下列程式碼片段，將已轉換的資料框架 **renamedColumnsDf** 以資料表形式載入 SQL 資料倉儲中。 此程式碼片段會在 SQL 資料庫中建立名為 **SampleTable** 的資料表。 請注意，Azure SQL DW 需要主要金鑰。  您可以在 SQL Server Management Studio 中執行 "CREATE MASTER KEY;" 命令，以建立主要金鑰。
+5. 執行下列程式碼片段，將已轉換的資料框架 **renamedColumnsDf** 以資料表形式載入 SQL 資料倉儲中。 此程式碼片段會在 SQL 資料庫中建立名為 **SampleTable** 的資料表。 請注意，Azure SQL DW 需要主要金鑰。 您可以在 SQL Server Management Studio 中執行 "CREATE MASTER KEY;" 命令，以建立主要金鑰。
 
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
@@ -413,7 +413,7 @@ ms.locfileid: "50419074"
         
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
-            .option("url", sqlDwUrlSmall) 
+            .option("url", sqlDwUrlSmall)
             .option("dbtable", "SampleTable")
             .option( "forward_spark_azure_storage_credentials","True")
             .option("tempdir", tempDir)
@@ -434,9 +434,9 @@ ms.locfileid: "50419074"
 
 ![停止 Databricks 叢集](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
-如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 __ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
+如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
 
-## <a name="next-steps"></a>後續步驟 
+## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]

@@ -1,7 +1,6 @@
 ---
-title: 範例：如何在文字分析中擷取關鍵片語
-titleSuffix: Azure Cognitive Services
-description: 了解如何使用文字分析 REST API 擷取關鍵片語。
+title: 如何在文字分析 REST API 中進行關鍵片語擷取 (Azure 上的 Microsoft 認知服務) | Microsoft Docs
+description: 本逐步解說教學課程將示範如何使用 Azure 上 Microsoft 認知服務中的文字分析 REST API 來擷取關鍵片語。
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605482"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632385"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>範例：如何在文字分析中擷取關鍵片語
 
@@ -24,6 +23,9 @@ ms.locfileid: "45605482"
 此功能在您需要快速識別文件集合中的要點時相當有用。 例如，假設輸入文字為 "The food was delicious and there were wonderful staff"，服務即會傳回主要討論要點："food" 和 "wonderful staff"。
 
 關鍵片語擷取目前支援英文、德文、西班牙文和日文。 其他語言則為預覽狀態。 如需詳細資訊，請參閱[支援的語言](../text-analytics-supported-languages.md)。
+
+> [!TIP]
+> 文字分析也會提供可用來擷取關鍵片語的 Linux 型 Docker 容器映像，好讓您可以在接近資料的位置[安裝和執行文字分析容器](text-analytics-how-to-install-containers.md)。
 
 ## <a name="preparation"></a>準備工作
 
@@ -71,7 +73,7 @@ ms.locfileid: "45605482"
 
 + 建立一個 **POST** 要求。 檢閱適用於此要求的 API 文件：[關鍵片語 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\)
 
-+ 設定適用於關鍵片語擷取的 HTTP 端點。 它必須包括 `/keyphrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ 使用 Azure 文字分析資源或具現化的[文字分析容器](text-analytics-how-to-install-containers.md)，來設定可用來擷取關鍵片語的 HTTP 端點。 它必須包括 `/keyPhrases` 資源：`https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + 設定要求標頭以包含適用於文字分析作業的存取金鑰。 如需詳細資訊，請參閱[如何尋找端點和存取金鑰](text-analytics-how-to-access-key.md)。
 
@@ -143,7 +145,7 @@ ms.locfileid: "45605482"
 
 ## <a name="summary"></a>總結
 
-在此文章中，您已了解使用認知服務中的文字分析進行關鍵片語擷取的概念和工作流程。 摘要說明：
+在本文中，您已了解使用認知服務中的文字分析進行關鍵片語擷取的概念和工作流程。 摘要說明：
 
 + [關鍵片語擷取 API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) \(英文\) 僅針對特定語言提供。
 + 要求主體中的 JSON 文件包含識別碼、文字和語言代碼。

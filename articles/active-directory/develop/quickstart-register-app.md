@@ -16,18 +16,18 @@ ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f0220c244bd5ed48393e2f81b7dd8a62fd0423be
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912980"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298716"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>快速入門：使用 Microsoft 身分識別平台來註冊應用程式 (預覽)
 
 企業開發人員和軟體即服務 (SaaS) 提供者可以開發可與 Microsoft 身分識別平台整合的商業雲端服務或企業營運應用程式，以提供安全的登入和授權給其服務。
 
-本快速入門會說明如何在 Azure 入口網站中使用**應用程式註冊 (預覽)** 體驗新增和註冊應用程式，以便讓應用程式可以和 Microsoft 身分識別平台整合。
+本快速入門會說明如何在 Azure 入口網站中使用**應用程式註冊 (預覽)** 體驗新增和註冊應用程式，以便讓應用程式可以和 Microsoft 身分識別平台整合。 若要深入了解新應用程式註冊體驗中的新功能與功能改善，請參閱[此部落格文章](https://developer.microsoft.com/graph/blogs/new-app-registration/)。 
 
 ## <a name="prerequisite"></a>必要條件
 

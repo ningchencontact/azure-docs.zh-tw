@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 在 Azure 中建立執行 SQL&#47;IIS&#47;.NET 堆疊的 VM | Microsoft Docs
+title: 教學課程 - 在 Azure 中建立執行 SQL、IIS、.NET 堆疊的 VM | Microsoft Docs
 description: 在本教學課程中，您將學習如何在 Azure 中的 Windows 虛擬機器上安裝 Azure SQL、IIS、.NET 堆疊。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464905"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515483"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 在 Windows VM 中安裝 SQL&#47;IIS&#47;.NET 堆疊
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 在 Windows VM 中安裝 SQL、IIS、.NET 堆疊
 
-在本教學課程中，我們會使用 Azure PowerShell 來安裝 SQL&#47;IIS&#47;.NET 堆疊。 此堆疊是由兩個執行 Windows Server 2016 的 VM 所組成，一個包含 IIS 和 .NET 而另一個則是包含 SQL Server。
+在本教學課程中，我們會使用 Azure PowerShell 來安裝 SQL、IIS、.NET 堆疊。 此堆疊是由兩個執行 Windows Server 2016 的 VM 所組成，一個包含 IIS 和 .NET 而另一個則是包含 SQL Server。
 
 > [!div class="checklist"]
 > * 建立 VM 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-使用自訂指令碼擴充功能安裝 IIS 和 .NET Framework。
+使用自訂指令碼擴充功能和 [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) Cmdlet 來安裝 IIS 和 .NET Framework。
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

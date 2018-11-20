@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5239788f06ed3e738d1f0b62ddcde77c2a13b5f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241730"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621254"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>將多個 Azure AD 執行個體和單一 AD FS 執行個體建立同盟
 
@@ -47,7 +47,7 @@ ms.locfileid: "50241730"
  
 與 AD FS 建立同盟的單一網域的預設簽發者為 "http://ADFSServiceFQDN/adfs/services/trust"，例如 "http://fs.contoso.com/adfs/services/trust"。 Azure Active Directory 要求每個同盟網域都需要擁有唯一簽發者。 由於相同的 AD FS 會建立兩個網域的同盟，因此必須修改簽發者值，所以該值對於 AD FS 與 Azure Active Directory 同盟的每個網域而言是唯一的值。 
  
-在 AD FS 伺服器上，開啟 Azure AD PowerShell 並執行下列步驟︰
+在 AD FS 伺服器上，開啟 Azure AD PowerShell (請確定您已安裝 MSOnline 模組) 並執行下列步驟︰
  
 連線至 Azure Active Directory，其中包含網域 contoso.com Connect-MsolService Update contoso.com 的同盟設定 Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  

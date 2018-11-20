@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981241"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613421"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教學課程：使用 Azure CLI 來建立和管理 Linux VM
 
@@ -262,7 +262,7 @@ Azure VM 的電源狀態可以是許多電源狀態的其中一種。 這個狀�
 | 已解除配置 | 表示虛擬機器已從 Hypervisor 中移除，但仍可在控制平面中使用。 處於「已解除配置」狀態的虛擬機器不會產生計算費用。 |
 | - | 表示虛擬機器的電源狀態不明。 |
 
-### <a name="find-power-state"></a>尋找電源狀態
+### <a name="find-the-power-state"></a>尋找電源狀態
 
 若要擷取特定 VM 的狀態，請使用 [az vm get-instance-view](/cli/azure/vm#az_vm_get_instance_view) 命令。 請務必為虛擬機器和資源群組指定有效的名稱。 
 
