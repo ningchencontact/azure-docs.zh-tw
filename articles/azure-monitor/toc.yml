@@ -9,7 +9,7 @@ items:
     href: azure-monitor-rebrand.md
 - name: 快速入門
   items:
-  - name: '[應用程式]'
+  - name: 應用程式
     items:
     - name: .NET 應用程式
       href: ../application-insights/quick-monitor-portal.md?toc=/azure/azure-monitor/toc.json
@@ -152,7 +152,7 @@ items:
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
       - name: 工作區
         href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
-      - name: '[應用程式]'
+      - name: 應用程式
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 位址
         href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
@@ -640,7 +640,7 @@ items:
       items:
       - name: 記錄檔
         href: ../log-analytics/log-analytics-dashboards.md?toc=/azure/azure-monitor/toc.json
-      - name: '[應用程式]'
+      - name: 應用程式
         href: ../application-insights/app-insights-dashboards.md?toc=/azure/azure-monitor/toc.json
     - name: Power BI
       items:
@@ -846,7 +846,7 @@ items:
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell Cmdlet
         href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
-      - name: '[應用程式]'
+      - name: 應用程式
         items:
         - name: 建立 Application Insights 資源
           href: ../application-insights/app-insights-powershell.md?toc=/azure/azure-monitor/toc.json
@@ -866,7 +866,7 @@ items:
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: 警示 API
         href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
-    - name: '[應用程式]'
+    - name: 應用程式
       items:
       - name: 透過 Microsoft Flow 進行自動化
         href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
@@ -876,7 +876,7 @@ items:
         href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
   - name: Extend
     items:
-    - name: '[應用程式]'
+    - name: 應用程式
       items:
       - name: 自訂事件和度量的 API
         href: ../application-insights/app-insights-api-custom-events-metrics.md?toc=/azure/azure-monitor/toc.json
@@ -971,9 +971,9 @@ items:
       items:
       - name: 1.3 和更新版本
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
-      - name: "1.2"
+      - name: 1.2
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
-      - name: "1"
+      - name: 1.0
         href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
 - name: 資源
   items:
