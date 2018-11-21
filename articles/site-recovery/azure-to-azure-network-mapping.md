@@ -7,110 +7,89 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 1e8bad9a7a194c96c39be0ab4f1c2f40d79031ea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209583"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564964"
 ---
-# <a name="map-virtual-networks-in-different-azure-regions"></a>對應不同 Azure 區域中的虛擬網路
+# <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>為 VNet 設定網路對應和 IP 位址
 
-
-本文說明如何彼此對應位於不同 Azure 區域之 Azure 虛擬網路的兩個執行個體。 網路對應可確保在目標 Azure 區域中建立複寫的虛擬機器時，也會在與來源虛擬機器之虛擬網路對應的虛擬網路上建立虛擬機器。  
+本文說明如何彼此對應位於不同 Azure 區域之 Azure 虛擬網路 (VNet) 的兩個執行個體，以及如何設定網路之間的 IP 位址。 網路對應可確保在目標 Azure 區域中建立的複寫 VM，會建立在對應至來源 VM VNet 的 VNet 中。
 
 ## <a name="prerequisites"></a>必要條件
-對應網路之前，請確定您已在來源區域和目標 Azure 區域中建立 [Azure 虛擬網路](../virtual-network/virtual-networks-overview.md)。
 
-## <a name="map-virtual-networks"></a>對應虛擬網路
+在網路對應之前，您應該在來源和目標 Azure 區域中擁有 [Azure VNet](../virtual-network/virtual-networks-overview.md)。 
 
-若要將位於一個 Azure 區域的 Azure 虛擬網路 (來源網路) 對應至位於另一個區域的虛擬網路 (目標網路)，針對 Azure 虛擬機器，移至 [Site Recovery 基礎結構] > [網路對應]。 建立網路對應。
+## <a name="set-up-network-mapping"></a>設定網路對應
 
-![[網路對應] 視窗 - 建立網路對應](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+對應網路，如下所示：
 
+1. 在 **Site Recovery 基礎架構**中，按一下 [+網路對應]。
 
-在下列範例中，虛擬機器正在東亞地區中執行。 正在將虛擬機器複寫至東南亞地區。
+    ![ 建立網路對應](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-若要建立從東亞地區到東南亞地區的網路對應，請選取來源網路的位置及目標網路的位置。 然後選取 [確定]。
+3. 在 [新增網路對應] 中，選取來源和目標位置。 在我們的範例中，來源 VM 在東亞地區中執行，且會複寫至東南亞地區。
 
-![[新增網路對應] 視窗 - 選取來源網路的來源和目標位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![選取來源和目標 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. 現在在相反的目錄中建立網路對應。 在我們的範例中，來源現在將是東南亞，目標將是東亞。
 
-
-重複上述程序，以建立從東南亞地區到東亞地區的網路對應。
-
-![[新增網路對應] 窗格 - 選取目標網路的來源和目標位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![[新增網路對應] 窗格 - 選取目標網路的來源和目標位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## <a name="map-a-network-when-you-enable-replication"></a>啟用複寫時對應網路
+## <a name="map-networks-when-you-enable-replication"></a>啟用複寫時對應網路
 
-當您第一次將虛擬機器從一個 Azure 區域複製到另一個區域時，如果沒有網路對應，您可以在設定複寫時設定目標網路。 Azure Site Recovery 會根據此設定，建立從來源區域到目標區域以及從目標區域到來源區域的網路對應。   
+如果在為 Azure VM 設定災害復原之前尚未準備網路對應，則可以在[設定並啟用複寫](azure-to-azure-how-to-enable-replication.md)時指定目標網路。 執行此動作時，會發生下列情況：
 
-![[組態設定] 窗格 - 選擇目標位置](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- Site Recovery 會根據您選取的目標，自動建立從來源到目標區域以及從目標到來源區域的網路對應。
+- 根據預設，Site Recovery 會在目標區域中建立與來源網路完全相同的網路。 Site Recovery 會新增 **-asr** 作為來源網路的名稱尾碼。 您可以自訂目標頁面。
+- 如果已發生網路對應，您就無法在啟用複寫時變更目標虛擬網路。 若要變更目標虛擬網路，您必須修改現有的網路對應。
+- 如果您修改從區域 A 到區域 B 的網路對應，請確定也會修改從區域 B 到區域 A 的網路對應。
 
-根據預設，Site Recovery 會在目標區域中建立與來源網路完全相同的網路。 Site Recovery 會藉由新增 **-asr** 作為來源網路的名稱尾碼來建立網路。 若要選擇已建立的網路，請選取 [自訂]。
+## <a name="specify-a-subnet"></a>指定子網路
 
-![[自訂目標設定] 窗格 - 設定目標資源群組名稱和目標虛擬網路名稱](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+目標 VM 的子網路會根據來源 VM 的子網路名稱來選取。
 
-如果已發生網路對應，您就無法在啟用複寫時變更目標虛擬網路。 在此情況下，若要變更目標虛擬網路，請修改現有的網路對應。  
+- 如果目標網路中可用的子網路具備與來源 VM 子網路相同的名稱，則會針對目標 VM 設定該子網路。
+- 如果目標網路中沒有相同名稱的子網路，則會依字母順序設定第一個子網路作為目標子網路。
+- 執行此操作時，您可以修改 VM 的一個**計算與網路**設定。
 
-![[自訂目標設定] 窗格 - 設定目標資源群組名稱](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![[修改網路對應] 窗格 - 修改現有的目標虛擬網路名稱](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> 如果您修改從區域 A 到區域 B 的網路對應，請確定也會修改從區域 B 到區域 A 的網路對應。
->
->
+    ![[計算與網路] 計算屬性視窗](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## <a name="subnet-selection"></a>子網路選取項目
-目標虛擬機器的子網路會根據來源虛擬機器的子網路名稱來選取。 如果目標網路中可用的子網路具備與來源虛擬機器相同的名稱，則會針對目標虛擬機器設定該子網路。 如果目標網路中沒有相同名稱的子網路，則會依字母順序設定第一個子網路作為目標子網路。
+## <a name="set-up-ip-addressing-for-target-vms"></a>設定目標 VM 的 IP 位址
 
-若要修改子網路，請移至虛擬機器的 [計算與網路] 設定。
+目標虛擬機器上每個 NIC 的 IP 位址設定，如下所示：
 
-![[計算與網路] 計算屬性視窗](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
-
-
-## <a name="ip-address"></a>IP 位址
-
-以下列各節所述的方式，針對目標虛擬機器的每個網路介面設定 IP 位址。
-
-### <a name="dhcp"></a>DHCP
-如果來源虛擬機器的網路介面使用 DHCP，也會將目標虛擬機器的網路介面設定為使用 DHCP。
-
-### <a name="static-ip-address"></a>靜態 IP 位址
-如果來源虛擬機器的網路介面使用靜態 IP 位址，也會將目標虛擬機器的網路介面設定為使用靜態 IP 位址。 下列各節說明如何設定靜態 IP 位址。
-
-### <a name="ip-assignment-behavior-during-failover"></a>容錯移轉期間的 IP 指派行為
-#### <a name="1-same-address-space"></a>1.相同的位址空間
-
-如果來源子網路和目標子網路具有相同的位址空間，會將來源虛擬機器之網路介面的 IP 位址設定為目標 IP 位址。 如果無法使用相同的 IP 位址，則會設定下一個可用的 IP 位址作為目標 IP 位址。
-
-#### <a name="2-different-address-spaces"></a>2.不同的位址空間
-
-如果來源子網路和目標子網路具有不同的位址空間，會將目標子網路的下一個可用 IP 位址設定為目標 IP 位址。
+- **DHCP**：如果來源 VM 的 NIC 使用 DHCP，則目標 VM 的 NIC 也會設定為使用 DHCP。
+- **靜態 IP 位址**：如果來源 VM 的 NIC 使用靜態 IP 位址，則目標 VM NIC 也會使用靜態 IP 位址。
 
 
-### <a name="ip-assignment-behavior-during-test-failover"></a>測試容錯移轉期間的 IP 指派行為
-#### <a name="1-if-the-target-network-chosen-is-the-production-vnet"></a>1.若選擇的目標網路是生產 vNet
-- 復原 IP (目標 IP) 將會靜態 IPM，但它**將不會與針對容錯移轉保留的 IP 位址相同**。
-- 指派的 IP 位址將會是從子網路位址範圍結尾開始的下一個可用 IP。
-- 例如，若來源 VM 靜態 IP 是設定為 10.0.0.19 且測試容錯移轉已使用設定的生產網路 ***dr-PROD-nw*** (子網路範圍為 10.0.0.0/24) 嘗試。 </br>
-已容錯移轉的 VM 將會被指派從子網路位址範圍結尾開始的下一個可用 IP，亦即 10.0.0.254。 </br>
+## <a name="ip-address-assignment-during-failover"></a>容錯移轉期間的 IP 位址指派
 
-**注意：** 術語**生產 vNet** 指的是災害復原設定期間對應的「目標網路」。
-#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2.若選擇的目標網路不是生產 vNet 但有與生產網路相同的子網路範圍
-
-- 復原 IP (目標 IP) 將具有與針對容錯移轉保留之 **IP 位址** 相同的 IP 位址 (例如，已設定的靜態 IP 位址)。 假設相同的 IP 位址可用。
-- 若設定的靜態 IP 已指派給其他 VM/裝置，則復原 IP 將會是從子網路位址範圍結尾開始的下一個可用 IP。
-- 例如，若來源 VM 靜態 IP 是設定為 10.0.0.19 且測試容錯移轉已使用測試網路 ***dr-NON-PROD-nw*** (具有與生產網路相同的子網路範圍，亦即 10.0.0.0/24) 嘗試。 </br>
-  已容錯移轉的 VM 將會被指派下列靜態 IP </br>
-    - 已設定的 IP：10.0.0.19，若此 IP 可用。
-    - 下一個可用的 IP：10.0.0.254，若 IP 位址 10.0.0.19 已在使用中。
+**來源與目標子網路** | **詳細資料**
+--- | ---
+相同的位址空間 | 來源 VM NIC 的 IP 位址設為目標 VM 的 NIC IP 位址。<br/><br/> 如果該位址無法使用，則會設定下一個可用的 IP 位址作為目標。
+不同的位址空間<br/><br/> 目標子網路中的下一個可用 IP 位址將設為目標 VM NIC 位址。
 
 
-若要修改各個網路介面上的目標 IP，請移至虛擬機器的 [計算與網路] 設定。</br>
-最佳做法是一律選擇測試網路以執行測試容錯移轉。
+
+## <a name="ip-address-assignment-during-test-failover"></a>測試容錯移轉期間的 IP 位址指派
+
+**目標網路** | **詳細資料**
+--- | ---
+目標網路是容錯移轉 VNet | - 目標 IP 位址是靜態的，但與為容錯移轉保留的 IP 位址不同。<br/><br/>  - 指派的 IP 位址是從子網路範圍結尾開始的下一個可用位址。<br/><br/> 例如：如果來源 IP 位址為 10.0.0.19 且容錯移轉網路使用範圍 10.0.0.0/24，則指派給目標 VM 的下一個 IP 位址為 10.0.0.254。
+目標網路不是容錯移轉 VNet | - 目標 IP 位址將是靜態的，具有為容錯移轉保留的相同 IP 位址。<br/><br/>  - 如果已指派相同的 IP 位址，則 IP 位址是子網路範圍的下一個可用 IP 位址。<br/><br/> 例如：如果來源靜態 IP 位址為 10.0.0.19 且容錯移轉位於不是容錯移轉網路的網路上 (範圍為 10.0.0.0/24)，則目標靜態 IP 位址將為 10.0.0.0.19 (如果可用)，否則將是 10.0.0.254。
+
+- 容錯移轉 VNet 是您在設定災害復原時選取的目標網路。
+- 我們建議您一律使用非實際執行網路進行測試容錯移轉。
+- 您可以在 VM 的**計算與網路**設定中修改目標 IP 位址。
+
+
 ## <a name="next-steps"></a>後續步驟
 
-* 檢閱[複寫 Azure 虛擬機器的網路指引](site-recovery-azure-to-azure-networking-guidance.md)。
+- 檢閱 Azure VM 災害復原的[網路指引](site-recovery-azure-to-azure-networking-guidance.md)。
+- [深入了解](site-recovery-retain-ip-azure-vm-failover.md)有關在容錯移轉之後保留 IP 位址。
+
+如果選擇的目標網路是容錯移轉 vnet，且第 2 點說「如果選擇的目標網路與容錯移轉 vnet 不同但具有與容錯移轉 vnet 相同的子網路範圍」

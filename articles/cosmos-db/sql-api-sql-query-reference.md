@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979500"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623939"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 語法參考
 
-Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言的參考/語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢的逐步解說與範例資料，請參閱[查詢 Azure Cosmos DB 資料](sql-api-sql-query.md)。  
+Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢範例逐步解說，請參閱 [Cosmos DB 中的 SQL 查詢](sql-api-sql-query.md)。  
   
-請造訪 [Query Playground](http://www.documentdb.com/sql/demo)，您可以在此試用 Azure Cosmos DB 並針對我們的資料集執行 SQL 查詢。  
+請造訪 [Query Playground](http://www.documentdb.com/sql/demo)，您可以在此試用 Cosmos DB 並針對我們的資料集執行 SQL 查詢。  
   
 ## <a name="select-query"></a>SELECT 查詢  
 根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 用來描述 SELECT 陳述式的慣例會在「語法」慣例一節中製成資料表。 如需範例，請參閱 [SELECT 查詢範例](sql-api-sql-query.md#SelectClause)
@@ -60,7 +60,7 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 
 ### <a name="whitespace-characters-and-comments"></a>空白字元和註解  
 
-所有不屬於括號中的字串或引號識別項的空白字元都不是語言文法的一部分，而且會在剖析時忽略。  
+所有不屬於括號中字串或引號識別項的空白字元都不是語言文法的一部分，而且會在剖析時忽略。  
 
 查詢語言支援 T-SQL 樣式的註解，例如  
 
@@ -69,7 +69,7 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 若空白字元和註解在文法中不具備任何重要性，則必須用來分隔權杖。 例如：`-1e5` 是單一數字的權杖，而 `: – 1 e5` 則是加上減號的權杖，後面接著數字 1 和識別碼 e5。  
 
 ##  <a name="bk_select_query"></a> SELECT 子句  
-SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](sql-api-sql-query.md#SelectClause)
+SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](sql-api-sql-query.md#SelectClause)。
 
 **語法**  
 
@@ -132,7 +132,7 @@ SELECT <select_specification>
 [SELECT 子句](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a>FROM 子句  
-指定來源或聯結的來源。 除非稍後會在查詢中篩選或投射來源，否則 FROM 子句為選用子句。 此子句的目的是指定查詢必須操作的資料來源。 整個集合通常是來源，但是您可以改為指定集合的子集。 若未指定此子句，系統仍然會在如同 FROM 子句提供了單一文件的情況下執行其他子句。 如需範例，請參閱 [FROM 子句範例](sql-api-sql-query.md#FromClause)
+指定來源或聯結的來源。 除非稍後會在查詢中篩選或投射來源，否則 FROM 子句為選用子句。 此子句的目的是指定查詢必須操作的資料來源。 整個容器通常是來源，但是您可以改為指定容器的子集。 若未指定此子句，系統仍然會在如同 FROM 子句提供了單一文件的情況下執行其他子句。 如需範例，請參閱 [FROM 子句範例](sql-api-sql-query.md#FromClause)
   
 **語法**  
   
@@ -143,98 +143,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **引數**  
   
 - `<from_source>`  
   
-  指定包含或不包含別名的資料來源。 若未指定別名，則會使用下列規則從 `<collection_expression>` 加以推斷：  
+  指定包含或不包含別名的資料來源。 若未指定別名，則會使用下列規則從 `<container_expression>` 加以推斷：  
   
-  -  如果運算式為 collection_name，則會使用 collection_name 作為別名。  
+  -  如果運算式為 container_name，則會使用 container_name 作為別名。  
   
-  -  如果運算式為 `<collection_expression>`，則會使用 property_name、 then property_name 作為別名。 如果運算式為 collection_name，則會使用 collection_name 作為別名。  
+  -  如果運算式為 `<container_expression>`，則會使用 property_name、 then property_name 作為別名。 如果運算式為 container_name，則會使用 container_name 作為別名。  
   
 - AS `input_alias`  
   
-  指定 `input_alias` 為一組由基礎集合運算式傳回的值。  
+  指定 `input_alias` 為一組由基礎容器運算式傳回的值。  
  
 - `input_alias` IN  
   
-  指定 `input_alias` 應該代表一組透過反覆計算所有陣列元素所取得的值，其中會依基礎集合運算式傳回每個陣列。 會忽略任何由基礎集合運算式傳回的任何非陣列的值。  
+  指定 `input_alias` 應該代表一組透過反覆計算所有陣列元素所取得的值，其中會依基礎容器運算式傳回每個陣列。 會忽略任何由基礎容器運算式傳回的任何非陣列的值。  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  指定要用來擷取文件的集合運算式。  
+  指定要用來擷取文件的容器運算式。  
   
 - `ROOT`  
   
-  指定應該從預設、目前的連線集合中擷取文件。  
+  指定應該從預設、目前的連線容器中擷取文件。  
   
-- `collection_name`  
+- `container_name`  
   
-  指定應該從提供的連線集合中擷取文件。 集合名稱必須符合目前連線的集合名稱。  
+  指定應該從提供的容器中擷取文件。 容器名稱必須與目前所連線容器的名稱相符。  
   
 - `input_alias`  
   
   指定應該從由提供的別名定義的其他來源擷取文件。  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  指定文件應該透過存取 `property_name` 屬性或 array_index 陣列元素加以擷取，其中所文件均依指定的集合運算式擷取。  
+  指定文件應該透過存取 `property_name` 屬性或 array_index 陣列元素加以擷取，其中所文件均依指定的容器運算式擷取。  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  指定文件應該透過存取 `property_name` 屬性或 array_index 陣列元素加以擷取，其中所文件均依指定的集合運算式擷取。  
+  指定文件應該透過存取 `property_name` 屬性或 array_index 陣列元素加以擷取，其中所文件均依指定的容器運算式擷取。  
   
 **備註**  
   
-`<from_source>(`中提供的所有別名或推斷) 必須是唯一的。 語法 `<collection_expression>.`property_name 與 `<collection_expression>' ['"property_name"']'` 相同。 不過，若屬性名稱包含非識別碼字元，則可以使用後者的語法。  
+`<from_source>(`中提供的所有別名或推斷) 必須是唯一的。 語法 `<container_expression>.`property_name 與 `<container_expression>' ['"property_name"']'` 相同。 不過，若屬性名稱包含非識別碼字元，則可以使用後者的語法。  
   
 ### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>處理遺漏的屬性、遺漏的陣列元素及未定義的值
   
-若集合運算式存取屬性或陣列元素，且該值不存在，則會忽略該值且不會進一步處理。  
+若容器運算式存取屬性或陣列元素，且該值不存在，則會忽略該值且不會進一步處理。  
   
-### <a name="collection-expression-context-scoping"></a>集合運算式內容範圍  
+### <a name="container-expression-context-scoping"></a>容器運算式內容範圍  
   
-集合運算方式可以是集合範圍或文件範圍：  
+容器運算式可以是容器範圍或文件範圍的運算式：  
   
--   若集合運算式的基礎來源為 ROOT 或 `collection_name`，則運算式為集合範圍。 這類運算式代表一組直接從集合中擷取的文件，並不會相依於其他集合運算式的處理。  
+-   若容器運算式的基礎來源為 ROOT 或 `container_name`，則運算式為容器範圍的運算式。 這類運算式代表一組直接從容器中擷取的文件，並不會相依於其他容器運算式的處理。  
   
--   若集合運算式的基礎來源為之前在查詢中導入的 `input_alias`，則運算式為文件範圍。 這類運算式代表一組文件，這組文件是透過評估屬於與別名集合相關聯之集的每個文件範圍的集合運算式而取得。  結果集會是透過評估基礎集中每個文件的集合運算式所獲得的聯集。  
+-   若容器運算式的基礎來源為之前在查詢中導入的 `input_alias`，則運算式為文件範圍的運算式。 這類運算式代表一組文件，這組文件是透過評估屬於與別名容器相關聯之集的每個文件範圍的容器運算式而取得。  結果集會是透過評估基礎集中每個文件的容器運算式所獲得的聯集。  
   
 ### <a name="joins"></a>聯結 
   
-在目前版本中，Azure Cosmos DB 支援內部聯結。 即將推出其他聯結功能。 
+在目前版本中，Cosmos DB 支援內部聯結。 即將推出其他聯結功能。 
 
 內部聯結是參與聯結之集的完整交叉乘積。 N 方聯結的結果為一組 N 元素 Tuple，其中 Tuple 中的每個值都與參與聯結的別名集相關聯，而且可以透過參考其他子句中的別名加以存取。 如需範例，請參閱 [JOIN 關鍵字範例](sql-api-sql-query.md#Joins)
   
 聯結的評估依參與集的內容範圍而定：  
   
--  集合組 A 和集合範圍組 B 之間的聯結會產生集合 A 和 B 中所有元素的交叉乘積。
+-  容器組 A 和容器範圍組 B 之間的聯結會產生集合 A 和 B 中所有元素的交叉乘積。
   
 -   集合組 A 和文件範圍組 B 之間的聯結會產生所有集合的聯集，是依評估集合 A 的每個文件的文件範圍集合 B 來取得。  
   
- 在目前的版本中，查詢處理器支援集合範圍運算式的上限。  
+ 在目前的版本中，查詢處理器支援容器範圍運算式的上限。  
   
 ### <a name="examples-of-joins"></a>聯結範例  
   
 我們來看看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有集合別名在其個別集合上反覆運算所產生。  
+ 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生。  
   
 **範例 1** - 2 個來源  
   
-- 讓 `<from_source1>` 為集合範圍並代表集 {A, B, C}。  
+- 讓 `<from_source1>` 為容器範圍並代表集 {A, B, C}。  
   
 - 讓 `<from_source2>` 為參照 input_alias1 的文件範圍，並代表以下集：  
   
@@ -252,7 +252,7 @@ FROM <from_specification>
   
 **範例 2** - 3 個來源  
   
-- 讓 `<from_source1>` 為集合範圍並代表集 {A, B, C}。  
+- 讓 `<from_source1>` 為容器範圍並代表集 {A, B, C}。  
   
 - 讓 `<from_source2>` 為參照 `input_alias1` 的文件範圍，並代表以下集：  
   
@@ -279,9 +279,9 @@ FROM <from_specification>
   
 **範例 3** - 3 個來源  
   
-- 讓 <from_source1> 為集合範圍並代表集 {A, B, C}。  
+- 讓 <from_source1> 為容器範圍並代表集 {A, B, C}。  
   
-- 讓 `<from_source1>` 為集合範圍並代表集 {A, B, C}。  
+- 讓 `<from_source1>` 為容器範圍並代表集 {A, B, C}。  
   
 - 讓 <from_source2> 為參照 input_alias1 的文件範圍，並代表以下集：  
   
@@ -371,7 +371,7 @@ ORDER BY <sort_specification>
   
  **備註**  
   
- 即使查詢文法支援多個屬性順序，但 Azure Cosmos DB 查詢執行階段僅會支援單一屬性及屬性名稱的排序，例如不支援已計算屬性的排序。 排序也需要索引原則，包括適用於屬性及指定類型的範圍索引，搭配最大有效位數。 如需詳細資訊，請參閱索引原則文件。  
+ 即使查詢文法支援多個屬性順序，但 Cosmos DB 查詢執行階段僅會支援單一屬性及屬性名稱的排序 (不支援已計算屬性的排序)。 排序也需要索引原則，包括適用於屬性及指定類型的範圍索引，搭配最大有效位數。 如需詳細資訊，請參閱索引原則文件。  
   
 ##  <a name="bk_scalar_expressions"></a>純量運算式  
  純量運算式結合了符號及運算子，可以加以評估以取得單一值。 簡單運算式可以是常數、屬性參考、陣列元素參考、別名參考或函式呼叫。 簡單運算式可以透過使用運算子，與複雜運算式結合。 如需範例，請參閱[純量運算式範例](sql-api-sql-query.md#scalar-expressions)
@@ -517,7 +517,7 @@ ORDER BY <sort_specification>
   
  **備註**  
   
- 在 Azure Cosmos DB 中，通常不會知道值的類型，除非實際從資料庫中擷取。 為了支援有效率的查詢執行，大部分的運算子都有嚴謹的類型需求。 此外，運算子本身並不會執行隱含轉換。  
+ 在 Cosmos DB 中，通常不會知道值的類型，除非從資料庫中擷取。 為了支援有效率的查詢執行，大部分的運算子都有嚴謹的類型需求。 此外，運算子本身並不會執行隱含轉換。  
   
  這表示例如 SELECT * FROM ROOT r WHERE r.Age = 21 的查詢僅會傳回具有適當年齡為數字 21 的文件。 具有適當年齡為字串 "21" 或字串 "0021" 的文件並不相符，因為運算式 "21" = 21 評估為未定義。 由於查詢特定值 (例如數字 21) 比搜尋不限數量的可能相符項目更加快速 (例如數字 21 或字串 "21"、"021"、"21.0" 等)，因此可以利用索引進行。 這點不同於 JavaScript 評估不同類型運算子值的方式。  
   
@@ -632,7 +632,7 @@ ORDER BY <sort_specification>
 |\uXXXX|由 4 個十六進位數字所定義的 Unicode 字元。|U+XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> 查詢效能指導方針  
- 為了讓查詢在大型集合中有效率的執行，應該使用可透過一或多個索引提供的篩選條件。  
+ 為了讓查詢在大型容器中有效率的執行，應該使用可透過一或多個索引提供的篩選條件。  
   
  下列的篩選器會被視為索引查詢：  
   
@@ -640,15 +640,15 @@ ORDER BY <sort_specification>
   
 -   使用範圍比較運算子 (<, \<=, >, >=) 搭配文件路徑運算式和數字常數。  
   
--   文件路徑運算式代表可識別受參考資料庫集合的文件中，常數路徑的任何運算式。  
+-   文件路徑運算式代表可識別受參考資料庫容器的文件中，常數路徑的任何運算式。  
   
  **文件路徑運算式**  
   
- 文件路徑運算式是一種運算式，會採取來自資料庫集合文件之文件上的屬性或陣列索引子的路徑。 這個路徑可以用來識別值的位置，而這些值會由篩選條件直接在資料庫集合中的文件參考。  
+ 文件路徑運算式是一種運算式，會採取來自資料庫容器文件之文件上的屬性或陣列索引子的路徑。 這個路徑可以用來識別值的位置，而這些值會由篩選條件直接在資料庫容器中的文件參考。  
   
  對於被視為文件路徑運算式的運算式，它應該：  
   
-1.  直接參考集合根。  
+1.  直接參考容器根。  
   
 2.  參考某些文件路徑運算式的屬性或常數陣列索引子  
   
@@ -674,7 +674,7 @@ ORDER BY <sort_specification>
     |[ ...n ]|指出先前項目可以重複 n 次。 以空格分隔項目。|  
   
 ##  <a name="bk_built_in_functions"></a>內建函式  
- Azure Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
+ Cosmos DB 提供許多內建 SQL 函式。 內建函式的分類如下所示。  
   
 |函式|說明|  
 |--------------|-----------------|  
@@ -2904,7 +2904,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## <a name="next-steps"></a>後續步驟  
- [適用於Azure Cosmos DB 的 SQL 語法和 SQL 查詢](sql-api-sql-query.md)   
- [Azure Cosmos DB 文件](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [適用於 Cosmos DB 的 SQL 語法和 SQL 查詢](sql-api-sql-query.md)
+
+- [Cosmos DB 文件](https://docs.microsoft.com/azure/cosmos-db/)  

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407209"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567378"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上的資料探索和視覺效果工具
 
@@ -60,7 +60,7 @@ ms.locfileid: "31407209"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 互動式資料視覺效果和 BI 工具    |
-| 支援的 DSVM 版本      | Windows  |
+| 支援的 DSVM 版本      |  Windows  |
 | 典型的使用案例      |  資料視覺效果和建立儀表板   |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |

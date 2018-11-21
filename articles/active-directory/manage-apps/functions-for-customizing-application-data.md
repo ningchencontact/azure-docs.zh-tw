@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: d8e390fc185c3cb0b63bcea56feb4b133652673d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258828"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345788"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -37,7 +37,7 @@ ms.locfileid: "51258828"
 * 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如："公司名稱：\"Contoso\""
 
 ## <a name="list-of-functions"></a>函式的清單
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
@@ -54,7 +54,7 @@ ms.locfileid: "51258828"
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**函式：**<br> FormatDateTime(source, inputFormat, outputFormat)
+**函式：**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
 **說明：**<br> 從一種格式取出日期字串，並將它轉換成不同的格式。
 
@@ -152,6 +152,24 @@ ms.locfileid: "51258828"
 | **template** |選用 |字串 |提供 **template** 值時，我們會尋找 template 內的 **oldValue** 並以 source 值取代。 |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**函式：**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+
+**說明：**<br> 至少需要兩個引數，也就是使用運算式定義的唯一值產生規則。 此函式會評估每個規則，接著檢查所產生的值在目標應用程式/目錄中的唯一性。 將會傳回所找到的第一個唯一值。 如果所有值都已存在於目標中，則項目會進行委付且原因會記錄於稽核記錄中。 可提供的引數數目沒有上限。
+
+> [!NOTE]
+>1. 這是最上層函式，無法巢狀處理。
+>2. 此函式只能用於建立項目。 搭配屬性使用此函式時，請將 [套用對應] 屬性設定為 [僅限物件建立期間]。
+
+
+**參數：**<br> 
+
+| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單 |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **函式：**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -238,6 +256,7 @@ NormalizeDiacritics([givenName])
 * **輸出**：「Zoe」
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
+
 您想要以特定格式傳送日期到 SaaS 應用程式。 <br>
 例如，您要格式化 ServiceNow 的日期。
 
@@ -251,6 +270,7 @@ NormalizeDiacritics([givenName])
 * **輸出**："2015-01-23"
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>根據預先定義的一組選項取代值
+
 您必須根據儲存在 Azure AD 中的狀態碼定義使用者的時區。 <br>
 如果狀態碼不符合任何預先定義的選項，則使用 "Australia/Sydney" 的預設值。
 
@@ -262,6 +282,26 @@ NormalizeDiacritics([givenName])
 
 * **輸入** (state)："QLD"
 * **輸出**："Australia/Brisbane"
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>產生 userPrincipalName (UPN) 屬性的唯一值
+
+根據使用者的名字、中間名和姓氏，您必須先產生 UPN 屬性的值並檢查其在目標 AD 目錄中的唯一性，再將此值指派給 UPN 屬性。
+
+**運算式：** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**範例輸入/輸出：**
+
+* **輸入** (PreferredFirstName)："John"
+* **輸入** (PreferredLastName)："Smith"
+* **輸出**：如果 John.Smith@contoso.com 的 UPN 值尚未存在於目錄中，則為 "John.Smith@contoso.com"
+* **輸出**：如果 John.Smith@contoso.com 的 UPN 值已存在於目錄中，則為 "J.Smith@contoso.com"
+* **輸出**：如果以上兩個 UPN 值已存在於目錄中，則為 "Jo.Smith@contoso.com"
 
 ## <a name="related-articles"></a>相關文章
 * [自動化 SaaS 應用程式使用者佈建/解除佈建](user-provisioning.md)

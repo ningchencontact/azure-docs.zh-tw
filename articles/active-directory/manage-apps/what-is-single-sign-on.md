@@ -1,199 +1,183 @@
 ---
-title: 什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？ | Microsoft Docs
-description: 您可以使用 Azure Active Directory 來單一登入到您進行工作所需的所有 SaaS 和 Web 應用程式。
+title: 單一登入應用程式 - Azure Active Directory | Microsoft Docs
+description: 了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇單一登入方法。 使用單一登入使用者就不需要記住每個應用程式的密碼，且可以簡化帳戶管理。
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: asmalser
-ms.custom: it-pro
-ms.openlocfilehash: 72665ed4c25d2719ac5030bce59157a3ccd9dec7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.reviewer: arvindh
+ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236001"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633507"
 ---
-# <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？
-單一登入表示只要使用單一使用者帳戶登入，就能夠存取所有進行工作所需的應用程式和資源。 登入之後，您可以存取所有需要的應用程式，而不需要再驗證一次 (例如，輸入密碼)。
+# <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
+了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇最適當的單一登入方法。 
 
-許多組織依賴軟體即服務 (SaaS) 應用程式，例如 Office 365、Box 和 Salesforce 來提升使用者生產力。 在過去，IT 人員必須在每個 SaaS 應用程式中個別建立並更新使用者帳戶，使用者則必須記住每個 SaaS 應用程式的密碼。
+- **使用單一登入**，使用者使用一個帳戶登入一次，就能存取已加入網域的裝置、公司資源、軟體即服務 (SaaS) 應用程式和 Web 應用程式。 登入之後，使用者可以從 Office 365 入口網站或 Azure AD MyApps 存取面板啟動應用程式。 系統管理員可將使用者帳戶集中管理，並根據群組成員資格自動新增或移除使用者的應用程式存取權。 
 
-Azure Active Directory 將內部部署的 Active Directory 延伸到雲端，讓使用者不只能夠使用主要的組織帳戶登入加入網域的裝置和公司資源，也能登入工作所需的所有 Web 和 SaaS 應用程式。
+- **沒有單一登入**，使用者必須記住應用程式特定的密碼並登入每個應用程式。 IT 人員需要針對每個應用程式 (如 Office 365、Box 和 Salesforce) 建立及更新使用者帳戶。 使用者需要記住其密碼，還要花費時間登入每個應用程式。
 
-所以不只使用者不需要管理多組使用者名稱和密碼，還可根據其組織的群組成員，以及其身為員工的狀態，自動佈建或解除佈建其應用程式的存取權。 Azure Active Directory 引進了安全性和存取管理控制，可讓您集中管理所有 SaaS 應用程式的使用者存取權。
+本文說明單一登入方法，並協助您選擇最適合您應用程式的方法。
 
-Azure AD 能輕鬆整合到許多現今熱門的 SaaS 應用程式。它提供身分識別與存取管理，並可讓使用者直接單一登入應用程式，或從入口網站 (例如 Office 365 或 Azure AD 存取面板) 探索並啟動應用程式。
+## <a name="choosing-a-single-sign-on-method"></a>選擇單一登入方法
 
-整合的架構包含下列四個主要建置區塊：
+有幾種方式可以為應用程式設定單一登入。 請根據已為應用程式設定的驗證方式，選擇其單一登入方法。 所有的單一登入方法 (除非停用) 都會自動將使用者登入應用程式，而不需要第二次登入。  
 
-* 單一登入可讓使用者根據其在 Azure AD 中的組織帳戶存取其 SaaS 應用程式。 單一登入可讓使用者使用單一組織帳戶向應用程式進行驗證。
-* 使用者佈建可讓使用者根據在 Windows Server Active Directory 和/或 Azure AD 中所做的變更，佈建和解除佈建到目標 SaaS。 佈建的帳戶透過單一登入驗證之後，可授權使用者使用應用程式。
-* 在 Azure 入口網站中的集中式應用程式存取管理，可以單點存取 SaaS 應用程式和進行管理，並且可以委派應用程式存取權的決策和核准給組織中的任何人。
-* 統一報告和監視 Azure AD 中的使用者活動
+- 雲端應用程式可以使用 SAML、密碼式、已連結或已停用方法進行單一登入。 SAML 是最安全的單一登入方法。
+- 內部部署應用程式可以使用密碼式、整合式 Windows 驗證、標頭式、已連結或已停用方法進行單一登入。 當應用程式已設定應用程式 Proxy 時，內部部署選擇就可運作。 
 
-## <a name="how-does-single-sign-on-with-azure-active-directory-work"></a>單一登入如何搭配 Azure Active Directory 運作？
-當使用者登入應用程式時，會經歷一個驗證程序，需要證明他們的身分。 如果沒有單一登入，此驗證程序通常是藉由輸入儲存在應用程式中的密碼進行，而使用者必須知道此密碼。
+此流程圖可協助您決定哪一種單一登入方法最適合您的情況。 
 
-Azure AD 支援三種不同的方式登入應用程式：
+![選擇單一登入方法](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
 
-* **同盟單一登入**可讓應用程式重新導向至 Azure AD 進行使用者驗證，而不是提示使用者自己的密碼。 支援如 SAML 2.0、WS-同盟或 OpenID Connect 等通訊協定的應用程式都支援同盟單一登入，而且這是最豐富的單一登入模式。
-* **密碼單一登入**可以使用網頁瀏覽器延伸或行動應用程式，安全儲存應用程式的密碼以及重新執行。 密碼型單一登入會使用應用程式提供的現有程序，但是讓系統管理員能夠管理密碼，而且使用者不需要知道密碼。
-* **已連結的單一登入**可讓 Azure AD 運用應用程式已設定的任何現有單一登入，但可讓這些應用程式連結至 Office 365 或 Azure AD 存取面板入口網站，當其中有應用程式啟動時，Azure AD 中也會有額外的報告。
+下表摘要說明單一登入方法，並提供更多詳細資料的連結。 
 
-一旦使用者通過應用程式的驗證，他們在應用程式中也必須具有佈建的帳戶記錄，以便告訴應用程式在應用程式內部具有權限和存取層級的位置。 佈建此帳戶記錄可以自動執行，或是在提供使用者單一登入存取之前由系統管理員手動執行。
+| 單一登入方法 | 應用程式類型 | 使用時機 |
+| :------ | :------- | :----- |
+| [SAML](#saml-sso) | 僅限雲端 | 盡可能使用 SAML。 當應用程式設定成使用其中一種 SAML 通訊協定時，SAML 可運作。|
+| [密碼式](#password-based-sso) | 雲端和內部部署 | 當應用程式是使用使用者名稱和密碼進行驗證時使用。 密碼式單一登入可以使用網頁瀏覽器擴充功能或行動應用程式，安全儲存應用程式的密碼以及重新執行。 此方法會使用應用程式提供的現有登入程序，但讓系統管理員可以管理密碼。 |
+| [已連結](#linked-sso) | 雲端和內部部署 | 當應用程式已經在其他識別提供者服務中設定單一登入時，使用已連結的單一登入。 此選項不會將單一登入新增至應用程式。 不過，應用程式可能已經使用另一個服務 (例如 Active Directory 同盟服務) 來實作單一登入。|
+| [Disabled](#disabled-sso) | 雲端和內部部署 | 當應用程式尚未準備好設定單一登入時，請使用已停用的單一登入。 使用者每次啟動此應用程式時，都需要輸入其使用者名稱和密碼。|
+| [整合式 Windows 驗證 (IWA)](#integrated-windows-authentication-iwa-sso) | 僅內部部署 | 對於使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 或宣告感知的應用程式，請使用此單一登入方法。 應用程式 Proxy 連接器會使用 Kerberos 限制委派 (KCD) 來向應用程式驗證使用者。 | 
+| [標頭式](#header-based-sso) | 僅內部部署 | 當應用程式是使用標頭進行驗證時，請使用標頭式單一登入。 標頭式單一登入需要適用於 Azure Active Directory 的 PingAccess。 應用程式 Proxy 會使用 Azure AD 來驗證使用者，然後透過連接器服務傳遞流量。  | 
 
- 以下是有關這些單一登入模式和佈建的詳細資訊。
+## <a name="saml-sso"></a>SAML SSO
+使用 **SAML 單一登入**，Azure AD 會使用使用者的 Azure AD 帳戶向應用程式驗證。 Azure AD 與應用程式透過連線通訊協定，進行登入資訊通訊。 使用 SAML 式單一登入，您可以根據您在 SAML 宣告中定義的規則，將使用者對應至特定的應用程式角色
 
-### <a name="federated-single-sign-on"></a>同盟單一登入
-同盟單一登入可讓 Azure AD 使用 Azure AD 的使用者帳戶資訊，將組織中的使用者自動登入協力廠商 SaaS 應用程式。
+SAML 式單一登入是：
 
-在此情節中，如果您已經登入 Azure AD，而且您想要存取由協力廠商 SaaS 應用程式控制的資源，同盟就可以讓使用者不需要重新驗證。
+- 比密碼式單一登入和其他單一登入方法更安全的方法。
+- 我們建議的單一登入方法。
 
-Azure AD 可以對支援 SAML 2.0、WS-同盟或 OpenID Connect 通訊協定的應用程式支援同盟單一登入。
+使用以下任一個通訊協定的應用程式都支援 SAML 式單一登入：
 
-亦請參閱： [管理同盟單一登入的憑證](manage-certificates-for-federated-single-sign-on.md)
+- SAML 2.0
+- WS-同盟
+- OpenID Connect
 
-### <a name="password-based-single-sign-on"></a>密碼單一登入
-設定密碼單一登入可讓您組織中的使用者，使用協力廠商 SaaS 應用程式的使用者帳戶資訊，由 Azure AD 自動登入協力廠商的 SaaS 應用程式。 當您啟用此功能時，Azure AD 會收集並安全地儲存使用者帳戶資訊和相關的密碼。
+若要為應用程式設定 SAML 式單一登入，請參閱[設定 SAML 式單一登入](configure-single-sign-on-portal.md)。 此外，許多應用程式都有[應用程式特定的教學課程](../saas-apps/tutorial-list.md)，逐步引導您針對特定應用程式設定 SAML 式單一登入。 
 
-凡是任何具有 HTML 登入頁面的雲端應用程式，Azure AD 都可以支援密碼單一登入。 AAD 會使用自訂的瀏覽器外掛程式，從目錄安全地擷取應用程式認證 (例如使用者名稱和密碼)，將登入程序自動化，並代替使用者將這些認證輸入應用程式的登入頁面。 有兩個使用案例：
+如需 SAML 通訊協定運作方式的詳細資訊，請參閱[單一登入 SAML 通訊協定](../develop/single-sign-on-saml-protocol.md)。
 
-1. **系統管理員管理認證** – 系統管理員可以建立和管理應用程式認證，並將這些認證指派給需要存取應用程式的使用者或群組。 在這些情況下，使用者不需要知道認證，但只要在其存取面板中或透過提供的連結按一下認證，仍然可以單一登入存取應用程式。 此程序既可讓系統管理員對認證進行週期管理，對終端使用者也很方便，因為終端使用者不需要記住或管理應用程式專用的密碼。 使用者在自動登入程序期間的認證會經過模糊處理，不過使用者使用 Web 偵錯工具在技術上還是可以找到這些認證，因此使用者和系統管理員應該遵循與使用者直接提出認證時相同的安全性原則。 當提供的帳戶存取權是由許多使用者共用時，例如社交媒體或文件共用應用程式，系統管理員提供的認證會很有用。
-2. **使用者管理認證** – 系統管理員可以指派應用程式給使用者或群組，並允許使用者在存取面板中第一次存取應用程式時直接輸入自己的認證。 這樣可以方便使用者，每次存取應用程式時，不需要一再輸入應用程式專用的密碼。 使用者可以繼續管理他們的密碼，視需要更新或刪除它們。 這個使用案例也可以用來做為系統性管理認證的跳板，系統管理員可以在日後設定應用程式的新認證，而不需要變更使用者的應用程式存取體驗。
+## <a name="password-based-sso"></a>密碼式 SSO
+使用密碼式登入，應用程式是使用使用者名稱和密碼向應用程式驗證。 使用者在第一次存取應用程式時登入。 第一次登入之後，Azure Active Directory 就會向應用程式提供使用者名稱和密碼。 
 
-在上述兩種情況下，認證都會以加密的狀態儲存在目錄中，而且在自動登入程序期間只會透過 HTTPS 傳遞。 使用密碼單一登入，Azure AD 就能對無法支援同盟通訊協定的應用程式提供方便的身分識別存取管理解決方案。
+密碼式單一登入使用應用程式所提供的現有驗證程序。 當您為應用程式啟用密碼單一登入時，Azure AD 會收集應用程式的使用者名稱和密碼，並安全地儲存。 使用者認證會以加密的狀態儲存在目錄中。 
 
-密碼 SSO 依賴瀏覽器延伸模組從 Azure AD 安全地擷取應用程式和使用者特定資訊，並將它套用至服務。 Azure AD 支援的大多數協力廠商 SaaS 應用程式都支援這項功能。
+使用密碼式單一登入的時機：
 
-若是密碼 SSO，則使用者的瀏覽器可以是：
-* Internet Explorer 11 - 在 Windows 7 或更新版本上
-* Windows 10 Anniversary Edition 或更新版本上的 Edge 
-* Chrome - 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上
-* Firefox 26.0 或更新版本 - 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上
+- 應用程式不支援 SAML 單一登入通訊協定。
+- 應用程式使用使用者名稱和密碼進行驗證，而不是使用存取權杖和標頭。
 
-### <a name="linked-single-sign-on"></a>已連結的單一登入
-設定應用程式的單一登入時，Azure 入口網站提供「已連結的單一登入」的第三個選項。 這個選項只允許系統管理員建立應用程式的連結，並將連結放在選定使用者的存取面板上。
+有 HTML 型登入頁面的雲端應用程式支援密碼式單一登入。 使用者可以使用下列任何瀏覽器：
 
-例如，如果有一個應用程式設定為使用 Active Directory 同盟服務 2.0 來驗證使用者，系統管理員可以使用 [已連結的單一登入] 選項在存取面板上建立應用程式的連結。 當使用者存取此連結時，會使用 Active Directory Federation Services 2.0，或由應用程式提供的任何現有單一登入解決方案來驗證使用者。
+- Windows 7 上的 Internet Explorer 11 或更新版本
+- Windows 10 Anniversary Edition 或更新版本上的 Edge 
+- 在 Windows 7 或更新版本，和在 MacOS X 或更新版本上的 Chrome
+- 在 Windows XP SP2 或更新版本，和在 Mac OS X 10.6 或更新版本上的 Firefox 26.0 或更新版本
 
-### <a name="user-provisioning"></a>使用者佈建
-對於選取的應用程式，Azure AD 使用您的 Windows Server Active Directory 或 Azure AD 身分識別資訊，可從 Azure 入口網站內在協力廠商 SaaS 應用程式中進行帳戶的自動化使用者佈建和解除佈建。 當使用者在 Azure AD 中獲得其中一個應用程式的權限時，就會在目標 SaaS 應用程式中自動建立 (佈建) 帳戶。
+若要為雲端應用程式設定密碼式單一登入的，請參閱[為應用程式設定密碼單一登入](application-sign-in-problem-password-sso-gallery.md#configure-the-application-for-password-single-sign-on)。
 
-當使用者被刪除，或其資訊在 Azure AD 中有所變更時，這些變更也會反映在 SaaS 應用程式中。 這表示，設定自動化的身分識別週期管理，可讓系統管理員控制和提供 SaaS 應用程式的自動化佈建和解除佈建。 在 Azure AD 中，使用者佈建已啟用此自動化身分識別週期管理。
+若要為內部部署應用程式設定透過應用程式 Proxy 的單一登入，請參閱[使用應用程式 Proxy 之單一登入的密碼保存庫](application-proxy-configure-single-sign-on-password-vaulting.md)
 
-若要深入了解，請參閱 [SaaS 應用程式的自動化使用者佈建和解除佈建](user-provisioning.md)
+### <a name="managing-credentials-for-password-based-sso"></a>管理密碼式 SSO 的認證
 
-## <a name="get-started-with-the-azure-ad-application-gallery"></a>開始使用 Azure AD 應用程式庫
-準備好開始了嗎？ 若要在 Azure AD 和您的組織所使用的 SaaS 應用程式之間部署單一登入，請遵循這些指導方針。
+為了向應用程式驗證使用者，Azure AD 會從目錄擷取使用者的認證，並將它們輸入應用程式的登入頁面。  Azure AD 透過網頁瀏覽器擴充功能或行動裝置應用程式，安全地傳遞使用者認證。 此程序可讓系統管理員管理使用者認證，而且使用者不需要記住其密碼。
 
-### <a name="using-the-azure-ad-application-gallery"></a>使用 Azure AD 應用程式庫
-[Azure Active Directory 應用程式資源庫](https://azure.microsoft.com/marketplace/active-directory/all/) 提供一份已知能支援單一登入搭配 Azure Active Directory 的應用程式清單。
+> [!IMPORTANT]
+> 在自動登入程序期間，系統對使用者會將認證模糊處理。 不過，使用 Web 偵錯工具可以探索認證。 使用者和系統管理員需要遵循相同的安全性原則，如同認證是直接由使用者輸入一般。
 
-![Azure 線上應用程式庫](media/what-is-single-sign-on/onlineappgallery.png)
+每個應用程式的密碼可由 Azure AD 系統管理員或使用者來管理。
 
-以下是尋找應用程式支援哪些功能的一些提示：
+當 Azure AD 系統管理員管理認證時：  
 
-* Azure AD 支援自動佈建和解除佈建 [Azure Active Directory 應用程式資源庫](https://azure.microsoft.com/marketplace/active-directory/all/)中所有「精選的」應用程式。
-* 在 [這裡](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx)則可以找到特別支援使用如 SAML，WS-同盟或 OpenID Connect 通訊協定之同盟單一登入的同盟應用程式清單。
+- 使用者不需要重設或記得使用者名稱和密碼。 使用者可以在其存取面板中按一下應用程式，或透過提供的連結來存取應用程式。
+- 系統管理員可以對認證執行管理工作。 例如，系統管理員可以根據使用者群組成員資格和員工狀態，來更新應用程式的存取。
+- 系統管理員可以使用系統管理認證，提供在許多使用者間共用之應用程式的存取權。 例如，系統管理員可以允許能存取某個應用程式許的每個人，都能存取某個社交媒體或文件共用應用程式。
 
-一旦您找到您的應用程式，就可以遵循應用程式資源庫和 Azure 入口網站中的逐步指示，啟用單一登入。
+當使用者管理認證時：
 
-### <a name="application-not-in-the-gallery"></a>不在資源庫中的應用程式呢？
-如果 Azure AD 應用程式庫中找不到您的應用程式，您可以選擇：
+- 使用者可以管理他們的密碼，視需要更新或刪除它們。 
+- 系統管理員仍可設定應用程式的新認證。
 
-* **新增您正在使用但未列出的應用程式** - 使用 Azure 入口網站內應用程式資源庫中的自訂類別目錄，連線您的組織正在使用但未列出的應用程式。 您可以加入支援 SAML 2.0 的任何應用程式做為同盟應用程式，或者加入具有 HTML 登入頁面的任何應用程式做為密碼 SSO 應用程式。 如需詳細資訊，請參閱 [加入自己的應用程式](configure-federated-single-sign-on-non-gallery-applications.md)一文。
-* **新增您正在開發的專屬應用程式** - 如果您自己開發了應用程式，請依照 Azure AD 開發人員文件中的指導方針來實作同盟單一登入或使用 Azure AD 圖形 API 的佈建。 如需詳細資訊，請參閱這些資源：
-  
-  * [Azure AD 的驗證案例](../develop/authentication-scenarios.md)
-  * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
-  * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)
-* **要求應用程式整合** - 使用 [Azure AD 意見反應論壇](https://feedback.azure.com/forums/169401-azure-active-directory/)要求所需應用程式的支援。
 
-### <a name="using-the-azure-portal"></a>使用 Azure 入口網站
-您可以使用 Azure 入口網站中的 Active Directory 延伸模組來設定應用程式單一登入。 首先，您必須從入口網站的 [Active Directory] 區段中選取目錄：
+## <a name="linked-sso"></a>已連結的 SSO
+已連結的登入可讓 Azure AD 對已在其他服務設定單一登入的應用程式提供單一登入。 已連結的應用程式可以在 Office 365 入口網站或 Azure AD MyApps 入口網站中向使用者顯示。 例如，使用者可以從 Office 365 入口網站啟動已在 Active Directory Federation Services 2.0 (AD FS) 中設定單一登入的應用程式。 從 Office 365 入口網站或 Azure AD MyApps 入口網站啟動的已連結的應用程式也可以取得其他報告。 
 
-![](./media/what-is-single-sign-on/azuremgmtportal.png)
+使用已連結的單一登入：
 
-若要管理您的協力廠商 SaaS 應用程式，您可以切換至所選目錄的 [應用程式] 索引標籤。 這個檢視可讓系統管理員：
+- 當您於一段時間內移轉應用程式時，提供一致的使用者體驗。 如果您要將應用程式移轉至 Azure Active Directory，您可以使用已連結的單一登入快速將連結發行至您想要移轉的所有應用程式。  使用者可以在 [MyApps 入口網站](../user-help/active-directory-saas-access-panel-introduction.md)或 [Office 365 應用程式啟動器](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a)中找到所有連結。 使用者不會知道他們存取的是已連結的應用程式或已移轉的應用程式。  
 
-* 新增 Azure AD 資源庫的應用程式，以及您正在開發的應用程式
-* 刪除整合的應用程式
-* 管理已經整合的應用程式
+使用者與連結的應用程式驗證之後，需要先建立帳戶記錄，系統才會提供使用者單一登入存取權。 佈建此帳戶記錄可以是自動執行，或是由系統管理員手動執行。
 
-協力廠商 SaaS 應用程式的一般管理工作有：
+## <a name="disabled-sso"></a>已停用的 SSO
 
-* 向 Azure AD 啟用單一登入、使用密碼 SSO，或做為目標 SaaS、同盟 SSO (如果適用)
-* (選擇性) 啟用使用者佈建來佈建和解除佈建使用者 (身分識別週期管理)
-* 對於啟用 
-* 使用者佈建的應用程式，選取哪些使用者可以存取該應用程式
+停用模式表示單一登入不會用於該應用程式。 當單一登入停用時，使用者可能需要驗證兩次。 首先，使用者向 Azure AD 驗證，然後再登入應用程式。 
 
-對於支援同盟單一登入的資源庫應用程式，通常需要您提供其他組態設定，例如用來建立協力廠商應用程式與 Azure AD 之間同盟信任的憑證和中繼資料。 組態精靈會引導您完成細節，並且提供特定資料和指示讓您輕鬆存取 SaaS 應用程式。
+使用已停用的單一登入模式：
 
-對於支援自動使用者佈建的資源庫應用程式，您需要賦予 Azure AD 權限來管理您在 SaaS 應用程式中的帳戶。 至少，您需要提供 Azure AD 在向目標應用程式進行驗證時應該使用的認證。 是否需要提供額外的組態設定，取決於應用程式的要求。
+- 如果您尚未準備好將此應用程式與 Azure AD 單一登入整合，或
+- 如果您在測試應用程式的其他層面，或
+- 作為不需要使用者進行驗證之內部部署應用程式的一層安全性。 停用之後，使用者需要進行驗證。 
 
-## <a name="deploying-azure-ad-integrated-applications-to-users"></a>對使用者部署 Azure AD 整合應用程式
-Azure AD 提供幾種可自訂的方式，來對您組織中的使用者部署應用程式：
+## <a name="integrated-windows-authentication-iwa-sso"></a>整合式 Windows 驗證 (IWA) SSO
 
-* Azure AD 存取面板
-* Office 365 應用程式啟動程式
-* 直接登入同盟應用程式
-* 同盟、密碼或現有應用程式的深層連結
+Azure AD 應用程式 Proxy 會對使用[整合式 Windows 驗證 (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) 的應用程式，或宣告感知應用程式提供單一登入 (SSO)。 如果您的應用程式使用 IWA，則應用程式 Proxy 會使用 Kerberos 限制委派 (KCD) 來驗證應用程式。 對於信任 Azure Active Directory 的宣告感知應用程式，因為使用者已由 Azure AD 驗證，所以可以使用單一登入。
 
-您選擇要在組織中部署哪一種方法由您自行決定。
+使用整合式 Windows 驗證單一登入模式：
 
-### <a name="azure-ad-access-panel"></a>Azure AD 存取面板
-位於 https://myapps.microsoft.com 的「存取面板」是一種 Web 入口網站，可讓 Azure Active Directory 中擁有組織帳戶的使用者檢視和啟動 Azure AD 系統管理員已授與他們存取權的雲端應用程式。 如果您是 [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/) 的使用者，也可以透過 [存取面板] 使用自助式群組管理功能。
+- 對使用 IWA 驗證的內部部署應用程式提供單一登入。 
 
-![Azure AD 存取面板](media/what-is-single-sign-on/azure-ad-access-panel.png)
+為內部部署應用程式設定 IWA，請參閱[適用於單一登入使用應用程式 Proxy 之應用程式的 Kerberos 限制委派](application-proxy-configure-single-sign-on-with-kcd.md)。 
 
-存取面板與 Azure 入口網站不同，使用者不需要具備 Azure 訂用帳戶或 Office 365 訂用帳戶。
+### <a name="how-single-sign-on-with-kcd-works"></a>使用 KCD 單一登入的運作方式
+此圖表說明使用者存取採用 IWA 之內部部署應用程式時的流程。
 
-如需有關 Azure AD 存取面板的詳細資訊，請參閱 [存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+![Microsoft AAD 驗證流程圖](./media/application-proxy-configure-single-sign-on-with-kcd/AuthDiagram.png)
 
-### <a name="office-365-application-launcher"></a>Office 365 應用程式啟動程式
-針對已部署 Office 365 的組織，透過 Azure AD 指派給使用者的應用程式也會出現在位於 https://portal.office.com/myapps 的 Office 365 入口網站中。 這對於組織中的使用者來說，能夠啟動應用程式又不需要使用第二個入口網站，非常簡單而且方便，建議使用 Office 365 的組織採取這個應用程式啟動解決方案。
+1. 使用者輸入 URL，以透過「應用程式 Proxy」存取內部部署應用程式。
+2. 「應用程式 Proxy」將要求重新導向至 Azure AD 驗證服務，以進行預先驗證。 此時，Azure AD 會套用任何適用的驗證和授權原則，例如多重要素驗證。 若使用者通過驗證，Azure AD 會建立權杖並將它傳送給使用者。
+3. 使用者將權杖傳遞給「應用程式 Proxy」。
+4. 應用程式 Proxy 驗證權杖，並從權杖擷取使用者主體名稱 (UPN)。 它接著透過雙重驗證安全通道，將要求、UPN 和服務主體名稱 (SPN) 傳送到連接器。
+5. 連接器會與內部部署 AD 執行 Kerberos 限制委派 (KCD) 交涉，以模擬使用者將 Kerberos 權杖傳送至應用程式。
+6. Active Directory 會將應用程式的 Kerberos 權杖傳送至連接器。
+7. 連接器會使用從 AD 接收的 Kerberos 權杖，將原始要求傳送至應用程式伺服器。
+8. 應用程式會將回應傳送至連接器，然後再傳回至應用程式 Proxy 服務，最後再傳回給使用者。
 
-![](./media/what-is-single-sign-on/officeapphub.png)
+## <a name="header-based-sso"></a>標頭式 SSO
 
-如需有關 Office 365 應用程式啟動程式的詳細資訊，請參閱 [讓您的應用程式出現在 Office 365 應用程式啟動程式中](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)。
+標頭式單一登入適用於使用 HTTP 標頭進行驗證的應用程式。 此登入方法會使用名為 PingAccess 的協力廠商驗證服務。 使用者只需要向 Azure AD 驗證。 
 
-### <a name="direct-sign-on-to-federated-apps"></a>直接登入同盟應用程式
-大部分支援 SAML 2.0、WS-同盟或 OpenID Connect 的同盟應用程式也支援使用者在應用程式啟動，然後再透過 Azure AD 的自動重新導向或按一下連結登入。 這稱為服務提供者起始的登入，Azure AD 應用程式資源庫中大部分的同盟應用程式都支援這個方式 (請參閱 Azure 入口網站中應用程式的單一登入設定精靈連結的文件來了解詳細資訊)。
+使用標頭式單一登入的時機：
 
-![](./media/what-is-single-sign-on/workdaymobile.png)
+- 已為應用程式設定應用程式 Proxy 和 PingAccess
 
-### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>同盟、密碼或現有應用程式的直接登入連結
-Azure AD 也支援對支援密碼單一登入、已連結的單一登入，以及任何形式的同盟單一登入的個別應用程式使用直接單一登入連結。
+若要設定標頭式驗證，請參閱[適用於使用應用程式 Proxy 之單一登入的標頭式驗證](application-proxy-configure-single-sign-on-with-ping-access.md)。 
 
-這些連結是特別撰寫的 URL，會透過 Azure AD 登入程序針對特定應用程式傳送給使用者，使用者不需要從 Azure AD 存取面板或 Office 365 啟動。 您可以在 Azure 入口網站 [Active Directory] 區段中任何預先整合之應用程式的 [儀表板] 索引標籤下，找到這些單一登入 URL，如以下螢幕擷取畫面所示。
+### <a name="what-is-pingaccess-for-azure-ad"></a>什麼是 Azure AD 的 PingAccess？
 
-![](./media/what-is-single-sign-on/deeplink.png)
+使用適用於 Azure AD 的 PingAccess，使用者就能存取和單一登入至使用標頭驗證的應用程式。 應用程式 Proxy 會如同任何其他應用程式一樣處理這些應用程式，使用 Azure AD 驗證存取，然後透過連接器服務傳遞流量。 驗證發生之後，PingAccess 服務會將 Azure AD 存取權杖翻譯成傳送到應用程式的標頭格式。
 
-您可以複製這些連結，然後貼到任何您想要提供選取應用程式登入連結的位置。 可以是在電子郵件中，或是任何您已設定使用者應用程式存取權的自訂網頁型入口網站中。 以下是 Azure AD 直接單一登入 Twitter 的 URL 範例：
+使用者在登入使用您公司的應用程式時，將不會注意到什麼不同。 這些還是可以在任何裝置上從任何地方運作。 應用程式 Proxy 連接器將遠端流量導向至所有應用程式，然後它們會繼續自動進行負載平衡。
 
-`https://myapps.microsoft.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
+### <a name="how-do-i-get-a-license-for-pingaccess"></a>如何取得 PingAccess 的授權？
 
-類似於存取面板的組織特定 URL，您可以在 myapps.microsoft.com 網域之後加入其中一個作用中或經過驗證的網域做為您的目錄，進一步自訂這個 URL。 這樣可以確保使用者不需要先輸入其使用者識別碼，登入頁面就可以立即載入任何組織品牌：
+因為這種情況是透過 Azure Active Directory 和 PingAccess 之間的合作關係提供，您會需要這兩種服務的授權。 不過，Azure Active Directory Premium 訂用帳戶所包含的基本 PingAccess 授權最多可涵蓋 20 個應用程式。 如果您需要發佈 20 個以上的標頭應用程式，可以從 PingAccess 取得額外的授權。 
 
-`https://myapps.microsoft.com/contosobuild.com/signin/Twitter/230848d52c8745d4b05a60d29a40fced`
-
-當授權的使用者按一下其中一個應用程式特定連結時，他們會先看到其組織登入頁面 (假設他們尚未登入)，登入之後會重新導向至該應用程式而不會先停在存取面板。 如果使用者遺漏存取應用程式所需的先決條件，例如密碼單一登入瀏覽器延伸，則連結將會提示使用者安裝遺漏的延伸。 如果應用程式的單一登入組態有變更，連結 URL 也會維持不變。
-
-這些連結使用與存取面板和 Office 365 相同的存取控制機制，只有在 Azure 入口網站中已指派給應用程式的使用者或群組能夠順利通過驗證。 不過，任何未經授權的使用者都會看到一個訊息，說明他們未獲得存取權，且會獲得一個載入存取面板的連結，以檢視可存取的應用程式。
+如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。
 
 ## <a name="related-articles"></a>相關文章
-* [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](../saas-apps/tutorial-list.md)
-* [設定 Cloud Discovery](/cloud-app-security/set-up-cloud-discovery)
+* [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
+* [設定單一登入的教學課程](configure-single-sign-on-portal.md)
 * [管理應用程式存取簡介](what-is-access-management.md)
-* [比較 Azure AD 中管理外部身分識別的功能](../active-directory-b2b-compare-b2c.md)
+* 下載連結︰[單一登入部署計劃](http://aka.ms/SSODeploymentPlan) \(英文\)。
 
 

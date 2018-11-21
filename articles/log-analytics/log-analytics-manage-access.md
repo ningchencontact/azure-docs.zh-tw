@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964147"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625618"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -78,7 +78,7 @@ ms.locfileid: "50964147"
 
 下列活動也需要 Azure 權限︰
 
-| 動作                                                          | 所需的 Azure 權限 | 注意 |
+|  動作                                                          | 所需的 Azure 權限 | 注意 |
 |-----------------------------------------------------------------|--------------------------|-------|
 | 新增及移除管理解決方案                        | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | 必須在資源群組或訂用帳戶層級授與這些權限。 |
 | 變更定價層                                       | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -101,10 +101,10 @@ Log Analytics 讀者角色包含下列 Azure 動作：
 
 | 類型    | 權限 | 說明 |
 | ------- | ---------- | ----------- |
-| 動作 | `*/read`   | 檢視所有 Azure 資源和資源組態的能力。 包括檢視： <br> 虛擬機器擴充功能 <br> 在資源上設定 Azure 診斷 <br> 所有資源的所有屬性和設定 |
-| 動作 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 執行記錄搜尋 v2 查詢的能力 |
-| 動作 | `Microsoft.OperationalInsights/workspaces/search/action` | 執行記錄搜尋 v1 查詢的能力 |
-| 動作 | `Microsoft.Support/*` | 開啟支援案例的能力 |
+|  動作 | `*/read`   | 檢視所有 Azure 資源和資源組態的能力。 包括檢視： <br> 虛擬機器擴充功能 <br> 在資源上設定 Azure 診斷 <br> 所有資源的所有屬性和設定 |
+|  動作 | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | 執行記錄搜尋 v2 查詢的能力 |
+|  動作 | `Microsoft.OperationalInsights/workspaces/search/action` | 執行記錄搜尋 v1 查詢的能力 |
+|  動作 | `Microsoft.Support/*` | 開啟支援案例的能力 |
 |不是動作 | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | 防止讀取在使用資料收集 API 和安裝代理程式時所需的工作區金鑰。 這可防止使用者將新資源新增至工作區 |
 
 
@@ -239,7 +239,7 @@ OMS 有三種工作區方案類型：[免費]、[獨立] 和 [OMS]。  如果您
 ![OMS 功能區](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱[使用 Log Analytics 從您的環境中的電腦收集資料](log-analytics-concept-hybrid.md)，以從資料中心或其他雲端環境中的電腦收集資料。
+* 請參閱 [Log Analytics 代理程式概觀](log-analytics-agent-overview.md)，從您資料中心或其他雲端環境中的電腦收集資料。
 * 請參閱[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)，以進行從 Azure VM 收集資料的設定。  
 * [從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)，以新增功能和收集資料。
 

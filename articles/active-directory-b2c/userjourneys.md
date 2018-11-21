@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 65b34a49006e6a2f9be003414498d9a8fc9955ae
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161809"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567055"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -51,7 +51,6 @@ ms.locfileid: "47161809"
 
 協調流程步驟可以根據協調流程步驟元素中所定義的先決條件，有條件地執行。 例如，您可以檢查只有在特定宣告存在，或宣告是否等於指定的值時才要執行協調流程步驟。 
 
-
 為了指定已排序的協調流程步驟清單，會新增 **OrchestrationSteps** 元素作為原則的一部分。 這個元素是必要的。
 
 **OrchestrationSteps** 元素包含下列元素：
@@ -66,7 +65,7 @@ ms.locfileid: "47161809"
 | --------- | -------- | ----------- |
 | 順序 | 是 | 協調流程步驟的順序。 | 
 | 類型 | 是 | 協調流程步驟的類型。 可能的值： <ul><li>**ClaimsProviderSelection**：指出協調流程步驟會向使用者呈現各種宣告提供者，使其可選取其中一個。</li><li>**CombinedSignInAndSignUp**：指出協調流程步驟會呈現社交提供者登入和本機帳戶註冊的組合頁面。</li><li>**ClaimsExchange**：指出協調流程步驟會與宣告提供者交換宣告。</li><li>**SendClaims**：指出協調流程步驟會使用宣告簽發者所發出的權杖，將宣告傳送到信賴憑證者。</li></ul> | 
-| ContentDefinitionReferenceId | 否 | 與此協調流程步驟相關聯的[內容定義](contentdefinitions.md)識別碼。 內容定義參考識別碼通常定義於自我判斷技術設定檔中。 但是，在某些案例中，Azure AD B2C 需要在沒有技術設定檔的情況下顯示某些內容。 有兩個範例，如果協調流程步驟的類型是下列其中一個：`ClaimsProviderSelection`或`CombinedSignInAndSignUp`。 Azure AD B2C 就必須在沒有技術設定檔的情況下顯示識別提供者選取項目。 | 
+| ContentDefinitionReferenceId | 否 | 與此協調流程步驟相關聯的[內容定義](contentdefinitions.md)識別碼。 內容定義參考識別碼通常定義於自我判斷技術設定檔中。 但是，在某些案例中，Azure AD B2C 需要在沒有技術設定檔的情況下顯示某些內容。 有兩個範例，如果協調流程步驟的類型是下列其中一個：`ClaimsProviderSelection` 或 `CombinedSignInAndSignUp`。 Azure AD B2C 就必須在沒有技術設定檔的情況下顯示識別提供者選取項目。 | 
 | CpimIssuerTechnicalProfileReferenceId | 否 | 協調流程步驟的類型為 `SendClaims`。 這個屬性會定義宣告提供者的技術設定檔識別碼，此宣告提供者會發出適用於信賴憑證者的權杖。  如果不存在，就不會建立任何信賴憑證者權杖。 |
 
 
@@ -101,7 +100,7 @@ ms.locfileid: "47161809"
 | 元素 | 發生次數 | 說明 |
 | ------- | ----------- | ----------- |
 | 值 | 1:n | 要查詢的 ClaimTypeReferenceId。 另一個值元素包含要檢查的值。</li></ul>|
-| 動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應執行的動作。 如果將 `Action` 的值設定為 `SkipThisOrchestrationStep`，就不應執行相關聯的 `OrchestrationStep`。 | 
+|  動作 | 1:1 | 當協調流程步驟內的先決條件檢查為 True 時應執行的動作。 如果將 `Action` 的值設定為 `SkipThisOrchestrationStep`，就不應執行相關聯的 `OrchestrationStep`。 | 
 
 ### <a name="preconditions-examples"></a>先決條件範例
 

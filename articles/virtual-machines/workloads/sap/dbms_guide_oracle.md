@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 11/07/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39075190"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288640"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Oracle Azure 虛擬機器 DBMS 部署
 
@@ -309,15 +309,11 @@ ms.locfileid: "39075190"
 [xplat-cli-azure-resource-manager]:../../../xplat-cli-azure-resource-manager.md
 
 
-
-## <a name="specifics-to-oracle-database"></a>Oracle Database 專屬的詳細資料
-Oracle 支援 Oracle 軟體在 Microsoft Azure 上執行。 如需關於 Windows Hyper-V 和 Azure 一般支援的詳細資訊，請查看︰<https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
-
-遵循一般支援，也支援利用 Oracle 資料庫的 SAP 應用程式特定案例。 詳細資料已詳述於文件中。 在閱讀本文件之前，您應該先參閱[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件，以及 [Azure 上的 SAP 工作負載文件](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)中的其他指南。 
+遵循一般支援，也支援利用 Oracle 資料庫的 SAP 應用程式特定案例。 詳細資料已詳述於本文中。 本文介紹在 Azure IaaS 中部署適用於 SAP 工作負載的 Oracle Database 時，幾個需要考量的地方。 在閱讀本文件之前，您應該先參閱[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件，以及 [Azure 上的 SAP 工作負載文件](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)中的其他指南。 
 
 在 SAP 附註 [2039619] 中，可找到 Azure 虛擬機器上的 Oracle 執行 SAP 時所支援的 Oracle 版本和對應的 OS 版本。
 
-如需有關在 Oracle 上執行 SAP 商務套件的一般資訊，請參閱 <https://www.sap.com/community/topic/oracle.html> \(英文\)
+如需有關在 Oracle 上執行 SAP 商務套件的一般資訊，請參閱 <https://www.sap.com/community/topic/oracle.html> \(英文\)。Oracle 支援在 Microsoft Azure 上執行 Oracle 軟體。 如需關於 Windows Hyper-V 和 Azure 一般支援的詳細資訊，請查看︰<http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 與 Oracle、SAP 和 Azure 清單相關的 SAP 附註如下：
 
@@ -339,41 +335,73 @@ Oracle 支援 Oracle 軟體在 Microsoft Azure 上執行。 如需關於 Windows
 
 Oracle 及 Azure 上的 SAP 所支援的確切設定和功能，已記載於 SAP 附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\) 之中
 
-如您所見，僅支援 Windows 和 Oracle Linux 這兩個客體作業系統。 廣泛使用的 SLES 和 RHEL Linux 並無法在 Azure 中部署 Oracle 元件。 Oracle 元件確實也有包含 Oracle 資料庫用戶端，SAP 應用程式會使用此用戶端來針對 Oracle DBMS 進行連線。 根據 SAP 附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\) 所述，SAP 元件是唯一的例外，這些元件不會使用 Oracle 用戶端，因為它們可能不需要連線至 Oracle DBMS。 這類的 SAP 元件是 SAP 的獨立加入佇列、訊息伺服器，以及加入佇列複寫服務。 這代表就算是在 Oracle Linux 上執行 Oracle DBMS 和 SAP 應用程式執行個體，您仍舊無法在 SLES 或 RHEL 上執行 SAP 中央服務，並使用以 Pacemaker 為基礎的叢集來保護它。 Oracle Linux 上不支援 HA 設定。
+Windows 和 Oracle Linux 是 Oracle 和 Azure 上的 SAP 唯一支援的作業系統。 廣泛使用的 SLES 和 RHEL Linux 散發套件並無法在 Azure 中部署 Oracle 元件。 Oracle 元件包含 Oracle 資料庫用戶端，SAP 應用程式會使用此用戶端來針對 Oracle DBMS 進行連線。 根據 SAP 附註 [#2039619](https://launchpad.support.sap.com/#/notes/2039619) \(英文\)，例外狀況為 SAP 元件，其並不使用 Oracle 資料庫用戶端。 這些 SAP 元件是 SAP 的獨立加入佇列、訊息伺服器、加入佇列複寫服務、WebDispatcher，以及 SAP 閘道。  就算是在 Oracle Linux 上執行 Oracle DBMS 和 SAP 應用程式執行個體，您仍舊無法在 SLES 或 RHEL 上執行 SAP 中央服務，並使用以 Pacemaker 為基礎的叢集來保護它。 Oracle Linux 上並不支援作為高可用性架構的 Pacemaker。
 
-## <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 的 Oracle 組態指導方針
+## <a name="specifics-to-oracle-database-on-windows"></a>Windows 上 Oracle 資料庫專屬的詳細資料
+### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-windows"></a>在 Windows 上的 Azure VM 中安裝 SAP 的 Oracle 設定指導方針
+
+根據 SAP 安裝手冊，所有與 Oracle 相關的檔案都不應該安裝或置於 VM 之 OS 磁碟 (C: 磁碟) 的系統驅動程式中。 不同大小的虛擬機器，所能附加的磁碟數目也會不同。 較小的虛擬機器類型只能附加較少數目的磁碟。 針對這類較小的 VM，我們建議將 Oracle home、stage、"saptrace"、"saparch"、"sapbackup"、"sapcheck"、"sapreorg" 安裝/置於 OS 磁碟中。 這部分的 Oracle DBMS 元件並不會密集地使用 I/O 和 I/O 輸送量。 因此 OS 磁碟可以處理 I/O 需求。 OS 磁碟的預設大小為 127 GB。 如果可用空間不足，則可以將該磁碟的大小[調整](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk)為 2048 GB。 Oracle 資料庫和重做記錄檔則必須儲存在個別的資料磁碟上。 例外狀況為 Oracle 暫存資料表空間。 Tempfiles 可以在 D:/ (非永續性磁碟) 上建立。 非持續性 D:\ 磁碟機也會提供更好的 I/O 延遲和輸送量 (但 A 系列 VM 除外)。 若要判斷正確的 tempfiles 大小，您可以檢查現有系統上的 tempfiles 大小。
+
 ### <a name="storage-configuration"></a>儲存體組態
-只支援 Oracle 使用 NTFS 格式化磁碟的單一執行個體。 所有的資料庫檔案都必須儲存於以 VHD 或受控磁碟為基礎的 NTFS 檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 或受控磁碟 (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>) 為基礎。 任何類型的網路磁碟機或遠端共用 (例如 Azure 檔案服務)：
+只支援 Oracle 使用 NTFS 格式化磁碟的單一執行個體。 所有的資料庫檔案都必須儲存在受控磁碟 (建議) 或 VHD 上的 NTFS 檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> \(英文\)) 或 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)為基礎。 
+
+我們非常建議使用 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+
+任何類型的網路磁碟機或遠端共用 (例如 Azure 檔案服務)：
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
 
 就 Oracle 資料庫檔案而言，都「不」  支援使用！
 
-使用以 Azure 分頁 BLOB 儲存體或受控磁碟為基礎的磁碟時，[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的描述同樣適用於使用 Oracle Database 所做的部署。
+使用以 Azure 分頁 BLOB 儲存體或受控磁碟為基礎的磁碟時，在[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述的內容同樣適用於搭配 Oracle Database 所做的部署。
 
-如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述，Azure 磁碟的 IOPS 輸送量具有配額上的限制。 確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[這裡 (Linux)][virtual-machines-sizes-linux] 和[這裡 (Windows)][virtual-machines-sizes-windows]。
+如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中所述，Azure 磁碟的 IOPS 輸送量具有配額上的限制。 確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[這裡 (Windows)][virtual-machines-sizes-windows]。
 
 若要找出支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
-只要每個磁碟上目前的 IOPS 配額能滿足需求，就可以將所有 DB 資料檔案儲存於單一已掛接的磁碟上。 且兩個重做記錄檔會位於另外兩個磁碟上。
+最小設定：
+| 元件 | 磁碟 | 快取 | 儲存體集區 |
+| --- | ---| --- | --- |
+| \oracle\<SID>\origlogaA & mirrlogB | 進階 | None | 不需要 |
+| \oracle\<SID>\origlogaB & mirrlogA | 進階 | None | 不需要 |
+| \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 可以使用 |
+| \oracle\<SID>\oraarch | 標準 | None | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
+
+
+裝載線上重做記錄檔之磁碟的選取，應由 IOPs 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其大小、IOPS 及輸送量必須能滿足需求。 
+
+效能設定：
+| 元件 | 磁碟 | 快取 | 儲存體集區 |
+| --- | ---| --- | --- |
+| \oracle\<SID>\origlogaA | 進階 | None | 可以使用  |
+| \oracle\<SID>\origlogaB | 進階 | None | 可以使用 |
+| \oracle\<SID>\mirrlogAB | 進階 | None | 可以使用 |
+| \oracle\<SID>\mirrlogBA | 進階 | None | 可以使用 |
+| \oracle\<SID>\sapdata1...n | 進階 | 唯讀 | 建議  |
+| \oracle\SID\sapdata(n+1)* | 進階 | None | 可以使用 |
+| \oracle\<SID>\oraarch* | 進階 | None | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
+
+*(n+1) - 裝載 SYSTEM、TEMP 及 UNDO 資料表空間。 System 和 Undo 資料表空間的 I/O 模式，與其他裝載應用程式資料的資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
+*oraarch - 就效能的角度來說，並不需要儲存體集區。 可以用它來換取更多空間
 
 如果需要更多 IOPS ，建議使用 Windows 儲存集區 (僅適用於 Windows Server 2012 和更新版本) ，在多個已掛接的磁碟上建立一個大型邏輯裝置。 這種方法可以簡化系統管理負荷來管理磁碟空間，並避免將檔案手動分散到多個已掛接的磁碟。
 
-根據客戶體驗而做出的建議為：
 
-- 針對重做記錄檔和其鏡像使用不同的磁碟區
-- 在考量 IOPS 因素的必要情況下，僅將一個等量組套用至包含重做記錄檔和其鏡像的磁碟區
-- 針對 Azure M 系列的 VM，寫入重做記錄檔的延遲可以透過使用 Azure 寫入加速器來大幅降低 (和 Azure 進階儲存體相比之下)。 因此，您應該針對組成 Oracle 重做記錄檔磁碟區的 VHD 來部署 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)文件。
+#### <a name="write-accelerator"></a>寫入加速器
+針對 Azure M 系列的 VM，寫入線上重做記錄檔的延遲可以透過使用 Azure 寫入加速器來大幅降低 (和 Azure 進階儲存體效能相比)。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)文件。
+
 
 ### <a name="backup--restore"></a>備份 / 還原
-針對備份 / 還原功能，適用於 Oracle 的 SAP BR*Tools 的支援方式，與標準的 Windows Server 作業系統相同。 Oracle Recovery Manager (RMAN) 也支援備份至磁碟，以及從磁碟還原。
+針對備份/還原功能，適用於 Oracle 的 SAP BR*Tools 的支援方式，與標準的 Windows Server 作業系統上的支援方式相同。 Oracle Recovery Manager (RMAN) 也支援備份至磁碟，以及從磁碟還原。
 
-您也可以使用 Azure 備份服務來執行應用程式一致的 VM 備份。 [在 Azure 中規劃 VM 備份基礎結構](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)一文說明 Azure 備份服務會使用 Windows VSS 功能來執行應用程式一致的備份。 Azure 與 SAP 上所支援的 Oracle 資料庫版本，能夠利用 VSS 功能進行備份。 如需詳細資料，請參閱 Oracle 文件[搭配 VSS 進行資料庫備份與復原的基本概念](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701) \(英文\)。
+您也可以使用 Azure 備份服務來執行應用程式一致的 VM 備份。 [在 Azure 中規劃 VM 備份基礎結構](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)一文說明 Azure 備份服務會使用 Windows VSS 功能來執行應用程式一致的備份。 由 SAP 在 Azure 上所支援的 Oracle DBMS 版本，能夠利用 VSS 功能進行備份。 如需詳細資料，請參閱 Oracle 文件[搭配 VSS 進行資料庫備份與復原的基本概念](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/ntqrf/basic-concepts-of-database-backup-and-recovery-with-vss.html#GUID-C085101B-237F-4773-A2BF-1C8FD040C701) \(英文\)。
 
 
 ### <a name="high-availability"></a>高可用性
-基於高可用性和災害復原目的支援 Oracle Data Guard。 
+基於高可用性和災害復原目的支援 Oracle Data Guard。 若要在 Data Guard 中達成自動容錯移轉，便必須使用 Fast-Start Failover (FSFA)。 觀察者 (FSFA) 會觸發容錯移轉。 在不使用 FSFA 的情況下，將只允許手動容錯移轉設定。
 
 Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)中。
 
@@ -384,18 +412,27 @@ Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure �
 所有其他一般領域 (例如 Azure 可用性設定組或 SAP 監視) 也同樣適用於使用 Oracle Database 部署 VM 的情況，如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件中所述。
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Oracle Linux 上 Oracle 資料庫專屬的詳細資料
-Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 上執行。 如需關於 Windows Hyper-V 和 Azure 一般支援的詳細資訊，請查看︰<https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 上執行。 如需關於 Windows Hyper-V 和 Azure 一般支援的詳細資訊，請查看︰<http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
-遵循一般支援，也支援利用 Oracle 資料庫的 SAP 應用程式特定案例。 詳細資料已在文件的這個部分中命名。
+遵循一般支援，也支援利用 Oracle 資料庫的 SAP 應用程式特定案例。 詳細資料已在文件的這個部分中討論。
 
 ### <a name="oracle-version-support"></a>Oracle 版本支援
 在 SAP 附註 [2039619] 中，可找到 Azure 虛擬機器上的 Oracle 執行 SAP 時所支援的 Oracle 版本和對應的 OS 版本。
 
 如需有關在 Oracle 上執行 SAP 商務套件的一般資訊，請參閱 <https://www.sap.com/community/topic/oracle.html> \(英文\)
 
-### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms"></a>在 Azure VM 中安裝 SAP 的 Oracle 組態指導方針
-#### <a name="storage-configuration"></a>儲存體組態
-只支援 Oracle 使用 ext3、ext4 和 xfs 格式化磁碟的單一執行個體。 所有的資料庫檔案都必須儲存於以 VHD 或受控磁碟為基礎的這些檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 或受控磁碟 (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>) 為基礎。 任何類型的網路磁碟機或遠端共用 (例如 Azure 檔案服務)：
+### <a name="oracle-configuration-guidelines-for-sap-installations-in-azure-vms-on-linux"></a>在 Linux 上的 Azure VM 中安裝 SAP 的 Oracle 設定指導方針
+
+根據 SAP 安裝手冊，與 Oracle 相關的檔案都不應該安裝或置於 VM 之開機磁碟的系統驅動程式中。 不同大小的虛擬機器，所能附加的磁碟數目也會不同。 較小的虛擬機器類型只能附加較少數目的磁碟。 在此情況下，我們建議將 Oracle home、stage、saptrace、saparch、sapbackup、sapcheck、sapreorg 安裝/置於開機磁碟中。 這部分的 Oracle DBMS 元件並不會密集地使用 I/O 和 I/O 輸送量。 因此 OS 磁碟可以處理 I/O 需求。 OS 磁碟的預設大小為 30 GB。 您可以使用 Azure 入口網站/PowerShell/CLI 來擴展開機磁碟。 擴展開機磁碟之後，您便可以針對 Oracle 二進位檔新增額外的磁碟分割。
+
+
+### <a name="storage-configuration"></a>儲存體組態
+
+針對 Azure 上的 Oracle 資料庫檔案，僅支援 ext4 或 xfs 或 Oracle ASMOnly 的檔案系統。 所有的資料庫檔案都必須儲存於以 VHD 或受控磁碟為基礎的這些檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> \(英文\)) 或 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)為基礎。 
+
+我們非常建議使用 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)。
+
+任何類型的網路磁碟機或遠端共用 (例如 Azure 檔案服務)：
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx> 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx>
@@ -404,35 +441,65 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 
 使用以 Azure 分頁 BLOB 儲存體或受控磁碟為基礎的磁碟時，[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)中的描述同樣適用於使用 Oracle Database 所做的部署。
 
-如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件中所述，Azure 磁碟的 IOPS 輸送量具有配額上的限制。 確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[這裡 (Linux)][virtual-machines-sizes-linux] 和[這裡 (Windows)][virtual-machines-sizes-windows]。
+如[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件中所述，Azure 磁碟的 IOPS 輸送量具有配額上的限制。 確切的配額會根據使用的 VM 類型而定。 如需 VM 類型及其配額的清單，請參閱[這裡 (Linux)][virtual-machines-sizes-linux]。
 
 若要找出支援的 Azure VM 類型，請參閱 SAP 附註 [1928533]。
 
-只要每個磁碟上目前的 IOPS 配額能滿足需求，就可以將所有 DB 檔案儲存於單一已掛接的磁碟上。 且兩個重做記錄檔會位於另外兩個磁碟上。
+最小設定：
+| 元件 | 磁碟 | 快取 | 移除* |
+| --- | ---| --- | --- |
+| /oracle/<SID>/origlogaA & mirrlogB | 進階 | None | 不需要 |
+| /oracle/<SID>/origlogaB & mirrlogA | 進階 | None | 不需要 |
+| /oracle/<SID>/sapdata1...n | 進階 | 唯讀 | 可以使用 |
+| /oracle/<SID>/oraarch | 標準 | None | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | | 不需要 |
+
+*移除：使用 RAID0 的 LVM stripe 或 MDADM
+
+裝載 Oracle 線上重做記錄檔之磁碟的選取，應由 IOPS 需求來決定。 可以將所有 sapdata1...n (資料表空間) 儲存在單一已掛接磁碟上，前提是其容量、IOPS 及輸送量必須能滿足需求。 
+
+效能設定：
+| 元件 | 磁碟 | 快取 | 移除* |
+| --- | ---| --- | --- |
+| /oracle/<SID>/origlogaA | 進階 | None | 可以使用  |
+| /oracle/<SID>/origlogaB | 進階 | None | 可以使用 |
+| /oracle/<SID>/mirrlogAB | 進階 | None | 可以使用 |
+| /oracle/<SID>/mirrlogBA | 進階 | None | 可以使用 |
+| /oracle/<SID>/sapdata1...n | 進階 | 唯讀 | 建議  |
+| /oracle/SID/sapdata(n+1)* | 進階 | None | 可以使用 |
+| /oracle/<SID>/oraarch* | 進階 | None | 不需要 |
+| Oracle Home、saptrace... | 作業系統磁碟 | 不需要 |
+
+*移除：使用 RAID0 的 LVM stripe 或 MDADM *(n+1) - 裝載 SYSTEM、TEMP 及 UNDO 資料表空間。 System 和 Undo 資料表空間的 I/O 模式，與其他裝載應用程式資料的資料表空間不同。 對於 System 和 Undo 資料表空間的效能來說，無快取是最佳選項。
+*oraarch - 就效能的角度來說，並不需要儲存體集區。 可以用它來換取更多空間。
+
 
 如果需要更多 IOPS，建議使用 LVM (邏輯磁碟區管理員) 或 MDADM 透過多個已掛接的磁碟建立一個大型邏輯磁碟區。 另請參閱[適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量](dbms_guide_general.md)文件，以取得使用 LVM 或 MDADM 的指導方針和指示。 這種方法可以簡化系統管理負荷來管理磁碟空間，並避免將檔案手動分散到多個已掛接的磁碟。
 
-根據客戶體驗而做出的建議為：
 
-- 針對重做記錄檔和其鏡像使用不同的磁碟區
-- 在考量 IOPS 因素的必要情況下，僅將一個等量組套用至包含重做記錄檔和其鏡像的磁碟區
-- 針對 Azure M 系列的 VM，寫入重做記錄檔的延遲可以透過使用 Azure 寫入加速器來大幅降低 (和 Azure 進階儲存體相比之下)。 因此，您應該針對組成 Oracle 重做記錄檔磁碟區的 VHD 來部署 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)文件。
+#### <a name="write-accelerator"></a>寫入加速器：
+針對 Azure M 系列的 VM，寫入線上重做記錄檔的延遲可以透過使用 Azure 寫入加速器來大幅降低 (和 Azure 進階儲存體效能相比)。 請針對以 Azure 進階儲存體為基礎並用於線上重做記錄檔的磁碟 (VHD) 啟用 Azure 寫入加速器。 如需詳細資訊，請參閱[寫入加速器](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)文件。
 
 
-#### <a name="backup--restore"></a>備份 / 還原
-針對備份 / 還原功能，利用與裸機和 Hyper-V 上所做的相同方式來支援 SAP BR*Tools for Oracle。 Oracle Recovery Manager (RMAN) 也支援備份至磁碟，以及從磁碟還原。
+### <a name="backup--restore"></a>備份 / 還原
+針對備份/還原功能，適用於 Oracle 的 SAP BR*Tools 的支援方式，與裸機和 Hyper-V 上的支援方式相同。 Oracle Recovery Manager (RMAN) 也支援備份至磁碟，以及從磁碟還原。
 
 如需如何使用 Azure 備份與還原服務來備份和還原 Oracle 資料庫的詳細資料，請參閱[在 Azure Linux 虛擬機器上備份及復原 Oracle Database 12c 資料庫](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-backup-recovery)文章。
 
-#### <a name="high-availability"></a>高可用性
-基於高可用性和災害復原目的支援 Oracle Data Guard。 如需詳細資料，請參閱[在 Azure Linux 虛擬機器上實作 Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard) 文章。
+### <a name="high-availability"></a>高可用性
+基於高可用性和災害復原目的支援 Oracle Data Guard。 若要在 Data Guard 中達成自動容錯移轉，便必須使用 Fast-Start Failover (FSFA)。 觀察者功能 (FSFA) 會觸發容錯移轉。 在不使用 FSFA 的情況下，將只允許手動容錯移轉設定。  如需詳細資料，請參閱[在 Azure Linux 虛擬機器上實作 Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard) 文章。
 
 
 Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)中。
 
-#### <a name="accelerated-networking"></a>加速網路
-Oracle Linux 7 Update 5 (Oracle Linux 7.5) 已針對 Oracle Linux 提供 Azure 加速網路的相關支援。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RHEL 核心，而非使用 Oracle UEK 核心。 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 不過，請留意最小的 RHEL 核心版本必須是 3.10.0-862.el7.x86_64，Azure 加速網路才能正常執行。
+### <a name="accelerated-networking"></a>加速網路
+Oracle Linux 中針對 Azure 加速網路的支援，已於 Oracle Linux 7 Update 5 (Oracle Linux 7.5) 中推出。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RedHat Compatible Kernel (RHCK)，而非使用 Oracle UEK 核心。 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 針對 Azure 加速網路，最小的 RHCKL 核心版本必須是 3.10.0-862.13.1.el7。
+
+如果您不是從不是以 Azure Marketplace 為基礎的映像部署 VM，則您必須執行下列命令以從 VM 複製額外的設定檔： 
+<pre><code># Copy settings from github to correct place in VM
+sudo curl -so /etc/udev/rules.d/68-azure-sriov-nm-unmanaged.rules https://raw.githubusercontent.com/LIS/lis-next/master/hv-rhel7.x/hv/tools/68-azure-sriov-nm-unmanaged.rules 
+</code></pre>
 
 
-#### <a name="other"></a>其他
+### <a name="other"></a>其他
 所有其他一般領域 (例如「Azure 可用性設定組」或 SAP 監視) 也適用於使用 Oracle 資料庫來部署 VM 的情況，如本文件的前三章中所述。

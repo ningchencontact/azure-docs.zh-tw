@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1e95ade4793fd7d3acf396b00ee4f7d8b81b2f8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670375"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288674"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect：ADSyncTools PowerShell 參考
 以下文件提供 Azure AD Connect 所隨附 ADSyncTools.psm1 PowerShell 模組的參考資訊。
@@ -1102,7 +1102,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-如果已經以網域系統管理員的身分執行，即不需要提供 AD 認證：手動輸入浮水印，而不是 XML 檔案，例如 $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
+如果已經以網域系統管理員的身分執行，即不需要提供 AD 認證。
+手動輸入浮水印，而不是 XML 檔案，例如 $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
 
 ```yaml
 Type: String
@@ -1273,7 +1274,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-action"></a>-Action
-動作
+ 動作
 
 ```yaml
 Type: String

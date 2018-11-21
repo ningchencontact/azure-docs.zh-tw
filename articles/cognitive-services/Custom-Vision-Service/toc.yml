@@ -42,6 +42,8 @@ items:
     href: export-model-python.md
   - name: 使用 REST API 建置模型
     href: rest-api-tutorial.md
+  - name: 匯出或刪除帳戶資料
+    href: ./export-delete-data.md
 - name: 參考
   items:
   - name: 自訂視覺訓練 API
@@ -52,7 +54,7 @@ items:
     href: glossary-of-terms.md
   - name: SDK
     items:
-    - name: Windows
+    - name: " Windows"
       href: http://github.com/Microsoft/Cognitive-CustomVision-Windows
     - name: Python
       href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
@@ -60,25 +62,23 @@ items:
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: 資源
   items:
-  - name: 版本資訊
-    href: release-notes.md
   - name: 範例
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: 價格和限制
     href: limits-and-quotas.md
-  - name: 匯出或刪除帳戶資料
-    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: 堆疊溢位
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure 藍圖
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: 區域可用性
-    href: https://azure.microsoft.com/global-infrastructure/services/
-ms.openlocfilehash: 1394f71bceef7a0646411a155b63825771e839d3
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: 版本資訊
+    href: release-notes.md
+ms.openlocfilehash: 9a084dbfbbc6d90a56e5986d967375da8a8fbb03
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281027"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276069"

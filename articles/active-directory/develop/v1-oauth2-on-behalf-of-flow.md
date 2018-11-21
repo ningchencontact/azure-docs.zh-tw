@@ -1,6 +1,6 @@
 ---
-title: 使用 OAuth2.0 代理者進行 Azure AD 服務對服務驗證草稿規格 | Microsoft Docs
-description: 本文說明如何使用 HTTP 訊息，以利用 OAuth2.0 代理者流程實作服務對服務驗證。
+title: 使用 OAuth2.0 代理者草稿規格的 Azure Active Directory 服務對服務驗證 | Microsoft Docs
+description: 本文說明如何使用 HTTP 訊息，以搭配 OAuth2.0 代理者流程實作服務對服務驗證。
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -17,86 +17,108 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a231b79bebd9684281edea48dfe7cf5f57ccdacb
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986010"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345127"
 ---
-# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>服務對服務呼叫使用在代理者流程中委派的使用者身分識別
+# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>使用代理者流程中委派使用者身分識別的服務對服務呼叫
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-OAuth 2.0 代理者流程 (OBO) 的使用案例是應用程式叫用服務/Web API，而後者又需要呼叫另一個服務/Web API。 其概念是透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，需要代表使用者保護來自 Azure Active Directory (Azure AD) 存取權杖。
+OAuth 2.0 代理者 (OBO) 流程能讓叫用服務或 Web API 的應用程式將使用者驗證傳遞至另一個服務或 Web API。 OBO 流程會透過要求鏈傳播委派的使用者身分識別和權限。 中介層服務若要向下游服務提出已驗證的要求，便必須代表使用者從 Azure Active Directory (Azure AD) 取得存取權杖。
 
 > [!IMPORTANT]
-> 自 2018 年 5 月起，`id_token` 無法用於代理者流程 - SPA 必須傳遞**存取**權杖到中介層的機密用戶端，才能執行 OBO 流程。 若要詳加了解哪些用戶端可以執行代理呼叫，請參閱[限制](#client-limitations)。
+> 從 2018 年 5 月起，`id_token` 已無法用於代理者流程。  單頁應用程式 (SPA) 必須將存取權杖傳遞至中介層機密用戶端，才能執行 OBO 流程。 如需有哪些用戶端可以執行代理者呼叫的詳細資料，請參閱[限制](#client-limitations)。
 
 ## <a name="on-behalf-of-flow-diagram"></a>代理者流程圖
-假設使用者已使用 [OAuth 2.0 授權碼授與流程](v1-protocols-oauth-code.md)通過應用程式的驗證。 此時，應用程式有一個包含使用者宣告的存取權杖 (權杖 A)，且同意存取中介層 Web API (API A)。 現在，API A 需要向下游 Web API (API B) 提出已驗證的要求。
 
-接下來的步驟由代理者流程構成，並搭配下圖協助說明。
+OBO 流程會在使用者已在使用 [OAuth 2.0 授權碼授與流程](v1-protocols-oauth-code.md)的應用程式上取得驗證之後開始。 此時，應用程式會將存取權杖 (權杖 A) 傳送至包含使用者宣告及同意的中介層 Web API (API A) 以存取 API A。接下來，API A 會向下游 Web API (API B) 發出已驗證的要求。
 
-![OAuth2.0 代理者流程](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
-
+這些步驟會構成代理者流程：![OAuth2.0 代理者流程](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. 用戶端應用程式使用權杖 A 向 API A 提出要求。
-2. API A會向 Azure AD 權杖發行端點進行驗證，並要求存取 API B 的權杖。
-3. Azure AD 權杖發行端點以權杖 A 驗證 API A 的認證，並發出 API B 的存取權杖 (權杖 B)。
-4. 在對 API B 的要求的授權標頭中設定權杖 B。
-5. API B 傳回來自受保護資源的資料。
+1. API A會向 Azure AD 權杖發行端點進行驗證，並要求存取 API B 的權杖。
+1. Azure AD 權杖發行端點以權杖 A 驗證 API A 的認證，並發出 API B 的存取權杖 (權杖 B)。
+1. 對 API B 的要求，會在授權標頭中包含權杖 B。
+1. API B 傳回來自受保護資源的資料。
 
 >[!NOTE]
->存取權杖 (用來要求下游服務權杖) 中的對象宣告，必須是提出 OBO 要求的服務識別碼，且權杖必須以 Azure Active Directory 全域簽署金鑰 (這是透過入口網站中**應用程式註冊**註冊的應用程式預設值) 簽署
+>用來針對下游服務要求權杖之存取權杖中的對象宣告，必須是發出 OBO 要求之服務的識別碼。 該權杖同時也必須使用 Azure Active Directory 全域簽署金鑰進行簽署 (這是透過入口網站中的 [應用程式註冊] 註冊之應用程式的預設值)。
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>在 Azure AD 中註冊應用程式和服務
-在 Azure AD 中註冊用戶端應用程式和中介層服務。
+
+在 Azure AD 中同時註冊中介層服務和用戶端應用程式。
+
 ### <a name="register-the-middle-tier-service"></a>註冊中介層服務
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [更多服務]，然後選擇 [Azure Active Directory]。
-4. 按一下 [應用程式註冊]，然後選擇 [新應用程式註冊]。
-5. 為應用程式輸入易記名稱，然後選取應用程式類型。 根據應用程式的類型，設定登入 URL 或重新導向 URL (導向基底 URL)。 按一下 [建立] 來建立應用程式。
-6. 仍然是在 Azure 入口網站中，選擇您的應用程式，按一下 [設定]。 從 [設定] 功能表中，選擇 [金鑰] 並新增金鑰 - 金鑰的持續時間請選取 1 年或 2 年。 當您儲存此頁面時，會顯示金鑰值，複製此值並儲存在安全的位置 - 稍後在您的實作中您將需要此金鑰進行應用程式設定 - 此金鑰值不會再次顯示，也無法以任何其他方法擷取，因此，請在 Azure 入口網站中顯示金鑰值時盡快記下它。
+1. 在頂端列上選取您的帳戶，然後在 [目錄] 清單底下，選取適用於您應用程式的 Active Directory 租用戶。
+1. 選取左側窗格中的 [更多服務]，然後選擇 [Azure Active Directory]。
+1. 選取 [應用程式註冊]，然後選取 [新增應用程式註冊]。
+1. 為應用程式輸入易記名稱，然後選取應用程式類型。
+    1. 根據應用程式的類型，設定登入 URL 或是導向基底 URL 的重新導向 URL。
+    1. 選取 [建立] 來建立應用程式。
+1. 在結束 Azure 入口網站之前產生用戶端祕密。
+    1. 在 Azure 入口網站中，選擇您的應用程式，然後選取 [設定]。
+    1. 選取 [設定] 功能表中的 [金鑰]，然後新增具有一年或兩年金鑰持續時間的金鑰。
+    1. 當您儲存此頁面時，Azure 入口網站將會顯示金鑰值。 請複製金鑰值並將它儲存到安全的位置。
+
+    > [!IMPORTANT]
+    > 您需要金鑰來設定實作中的應用程式設定。 系統不會再次顯示此金鑰值，且您無法透過任何其他方式取得它。 在它顯示於 Azure 入口網站中時，請儘快將它記錄下來。
 
 ### <a name="register-the-client-application"></a>註冊用戶端應用程式
+
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在頂端列上按一下您的帳戶，然後在 [目錄] 清單底下，選擇您要註冊應用程式的 Active Directory 租用戶。
-3. 按一下左側瀏覽區中的 [更多服務]，然後選擇 [Azure Active Directory]。
-4. 按一下 [應用程式註冊]，然後選擇 [新應用程式註冊]。
-5. 為應用程式輸入易記名稱，然後選取應用程式類型。 根據應用程式的類型，設定登入 URL 或重新導向 URL (導向基底 URL)。 按一下 [建立] 來建立應用程式。
-6. 設定應用程式的權限 - 在 [設定] 功能表中，選擇 [必要權限] 區段，依序按一下 [新增] 和 [選取 API]，然後在文字方塊中輸入中介層服務的名稱。 接著，按一下 [選取權限] 並選取 [存取*服務名稱*]。
+1. 在頂端列上選取您的帳戶，然後在 [目錄] 清單底下，選取適用於您應用程式的 Active Directory 租用戶。
+1. 選取左側窗格中的 [更多服務]，然後選擇 [Azure Active Directory]。
+1. 選取 [應用程式註冊]，然後選取 [新增應用程式註冊]。
+1. 為應用程式輸入易記名稱，然後選取應用程式類型。
+   1. 根據應用程式的類型，設定登入 URL 或是導向基底 URL 的重新導向 URL。
+   1. 選取 [建立] 來建立應用程式。
+1. 設定應用程式的權限。
+   1. 在 [設定] 功能表中，選擇 [必要權限] 區段，然後依序選取 [新增] 及 [選取 API]。
+   1. 在文字欄位中輸入中介層服務的名稱。
+   1. 選擇 [選取權限]，然後選取 [存取服務名稱]。
 
 ### <a name="configure-known-client-applications"></a>設定已知的用戶端應用程式
-在此案例中，中介層服務不會利用使用者互動來取得使用者的下游 API 存取同意。 因此，在驗證期間必須先呈現授與存取下游 API 的選項，作為同意步驟的一部分。
-若要這麼做，請遵循下列步驟，明確繫結 Azure AD 中的用戶端應用程式註冊與中介層服務註冊，這會將用戶端和中介層皆需要的同意合併在單一對話方塊中。
-1. 瀏覽至中介層服務註冊，按一下 [資訊清單] 開啟資訊清單編輯器。
-2. 在資訊清單中，找到 `knownClientApplications` 陣列屬性，並新增用戶端應用程式的用戶端識別碼作為元素。
-3. 按一下儲存按鈕以儲存資訊清單。
 
-## <a name="service-to-service-access-token-request"></a>服務對服務的存取權杖要求
-若要要求存取權杖，請對租用戶特定的 Azure AD 端點提出 HTTP POST 並搭配下列參數。
+在此案例中，中介層服務需要取得使用者同意，以在沒有使用者互動的情況下存取下游 API。 授與權限以存取下游 API 的選項，必須在驗證期間作為同意步驟的一部分清楚顯示。
+
+請遵循下列步驟以明確地將 Azure AD 中用戶端應用程式的註冊繫結至中介層服務的註冊。 此作業會將用戶端與中介層所需的同意合併成單一的對話方塊。
+
+1. 移至中介層服務註冊，並選取 [資訊清單] 以開啟資訊清單編輯器。
+1. 找到 `knownClientApplications` 陣列屬性，並將用戶端應用程式的用戶端識別碼新增為元素。
+1. 選取 [儲存] 來儲存資訊清單。
+
+## <a name="service-to-service-access-token-request"></a>服務對服務存取權杖要求
+
+若要要求存取權杖，請對租用戶特定的 Azure AD 端點搭配下列參數提出 HTTP POST：
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-有兩種情況，取決於用戶端應用程式是選擇透過共用密碼或憑證來保護。
+
+用戶端應用程式會受到共用祕密或憑證的保護。
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>第一種情況︰使用共用密碼的存取權杖要求
+
 使用共用密碼時，服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
 | --- | --- | --- |
-| grant_type |必要 | 權杖要求的類型。 因為 OBO 要求是使用 JWT 存取權杖，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
+| grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JSON Web 權杖 (JWT)，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。 |
-| client_id |必要 | 在向 Azure AD 註冊期間指派的用來呼叫服務的應用程式識別碼。 若要在 Azure 管理入口網站中尋找應用程式識別碼，依序按一下 [Active Directory]、目錄，然後按一下應用程式名稱。 |
+| client_id |必要 | 在向 Azure AD 註冊期間指派給呼叫服務的應用程式識別碼。 若要在 Azure 入口網站中尋找應用程式識別碼，請選取 [Active Directory]，選擇目錄，然後選取應用程式名稱。 |
 | client_secret |必要 | 在 Azure AD 中註冊之呼叫端服務的金鑰。 此值應該在註冊期間記下來。 |
-| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式名稱、[所有設定] 及 [屬性]。 |
+| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要在 Azure 入口網站中尋找應用程式識別碼 URI，請選取 [Active Directory]，然後選擇目錄。 選取應用程式名稱，選擇 [所有設定]，然後選取 [屬性]。 |
 | requested_token_use |必要 | 指定應該如何處理要求。 在代理者流程中，此值必須是 **on_behalf_of**。 |
 | scope |必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 若為 OpenID connect，則必須指定 **openid** 範圍。|
 
 #### <a name="example"></a>範例
+
 下列 HTTP POST 會要求提供 https://graph.windows.net Web API 的存取權杖。 `client_id` 會識別要求存取權杖的服務。
 
 ```
@@ -116,22 +138,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>第二種情況︰使用憑證的存取權杖要求
+
 使用憑證的服務對服務存取權杖要求包含下列參數：
 
 | 參數 |  | 說明 |
 | --- | --- | --- |
-| grant_type |必要 | 權杖要求的類型。 因為 OBO 要求是使用 JWT 存取權杖，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
+| grant_type |必要 | 權杖要求的類型。 OBO 要求會使用 JWT 存取權杖，所以值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的權杖值。 |
-| client_id |必要 | 在向 Azure AD 註冊期間指派的用來呼叫服務的應用程式識別碼。 若要在 Azure 管理入口網站中尋找應用程式識別碼，依序按一下 [Active Directory]、目錄，然後按一下應用程式名稱。 |
+| client_id |必要 | 在向 Azure AD 註冊期間指派給呼叫服務的應用程式識別碼。 若要在 Azure 入口網站中尋找應用程式識別碼，請選取 [Active Directory]，選擇目錄，然後選取應用程式名稱。 |
 | client_assertion_type |必要 |值必須是 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
-| client_assertion |必要 | 您必須建立判斷提示 (JSON Web 權杖)，並使用註冊的憑證來簽署，以作為應用程式的認證。 請參閱[憑證認證](active-directory-certificate-credentials.md)，以了解如何註冊您的憑證與判斷提示的格式。|
-| 資源 |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式名稱、[所有設定] 及 [屬性]。 |
+| client_assertion |必要 | 您所建立並使用註冊為您應用程式之認證的憑證簽署的 JSON Web 權杖。 請參閱[憑證認證](active-directory-certificate-credentials.md)以了解判斷提示格式，以及如何註冊您的憑證。|
+| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 若要在 Azure 入口網站中尋找應用程式識別碼 URI，請選取 [Active Directory]，然後選擇目錄。 選取應用程式名稱，選擇 [所有設定]，然後選取 [屬性]。 |
 | requested_token_use |必要 | 指定應該如何處理要求。 在代理者流程中，此值必須是 **on_behalf_of**。 |
 | scope |必要 | 權杖要求範圍的清單，各項目之間以空格分隔。 若為 OpenID connect，則必須指定 **openid** 範圍。|
 
-請注意，在透過共用祕密要求的情況中，參數幾乎相同，不同之處在於使用下列兩個參數來取代 client_secret 參數：client_assertion_type 和 client_assertion。
+這些參數與共用祕密的要求幾乎相同，唯一的不同之處在於 `client_secret parameter` 會被下列兩個參數取代：`client_assertion_type` 和 `client_assertion`。
 
 #### <a name="example"></a>範例
+
 下列 HTTP POST 會使用憑證要求提供 https://graph.windows.net Web API 的存取權杖。 `client_id` 會識別要求存取權杖的服務。
 
 ```
@@ -151,8 +175,9 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## <a name="service-to-service-access-token-response"></a>服務對服務的存取權杖回應
-成功的回應是 JSON OAuth 2.0 回應，包含下列參數。
+## <a name="service-to-service-access-token-response"></a>服務對服務存取權杖回應
+
+成功的回應是包含下列參數的 JSON OAuth 2.0 回應：
 
 | 參數 | 說明 |
 | --- | --- |
@@ -162,10 +187,11 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
 | access_token |所要求的存取權杖。 呼叫端服務可以使用此權杖來向接收端服務進行驗證。 |
-| id_token |所要求的識別碼權杖。 呼叫端服務可以使用此識別碼權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
+| id_token |所要求的識別碼權杖。 呼叫端服務可以使用此權杖來確認使用者的身分識別，然後開始與使用者的工作階段。 |
 | refresh_token |所要求之存取權杖的重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的存取權杖過期之後，要求其他的存取權杖。 |
 
 ### <a name="success-response-example"></a>成功回應範例
+
 下列範例顯示 https://graph.windows.net Web API 存取權杖要求的成功回應。
 
 ```
@@ -184,7 +210,8 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="error-response-example"></a>錯誤回應範例
-嘗試取得下游 API 的存取權杖時，如果下游 API 有條件式存取原則，例如在其上設定多重要素驗證時，Azure AD 權杖端點會傳回錯誤回應。 中介層服務應該向用戶端應用程式呈現此錯誤，以便用戶端應用程式可以提供使用者互動，以滿足條件式存取原則。
+
+Azure AD 權杖端點在嘗試取得已設定條件式存取原則 (例如多重要素驗證) 之下游 API 的存取權障時，會傳回錯誤回應。 中介層服務應該向用戶端應用程式呈現此錯誤，以便用戶端應用程式可以提供使用者互動，以滿足條件式存取原則。
 
 ```
 {
@@ -199,45 +226,47 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>使用存取權杖來存取受保護資源
-現在，中介層服務可以使用取得的權杖，在 `Authorization` 標頭中設定權杖，並向下游 Web API 提出已驗證的要求。
+
+中介層服務可以使用取得的存取權杖，透過在 `Authorization` 標頭中設定權杖，來向下游 Web API 提出已驗證的要求。
 
 ### <a name="example"></a>範例
+
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
-## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>使用代表流程以 OAuth2.0 取得的 SAML 判斷提示，為服務呼叫提供服務
 
-某些 OAuth 型 Web 服務需要存取其他 Web 服務 API，這些 API 會在非互動流程中接受 SAML 判斷提示。  Azure Active Directory 可以提供 SAML 判斷提示，以回應具有 SAML 型 SAML Web 服務作為目標資源的代表流程。 
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>搭配 OAuth2.0 OBO 流程取得的 SAML 判斷提示
 
->[!NOTE] 
->這是對於 OAuth 2.0 代表流程的非標準擴充，允許 OAuth2 型應用程式存取會耗用 SAML 權杖的 Web 服務 API 端點。  
+某些 OAuth 型 Web 服務需要存取會在非互動流程中接受 SAML 判斷提示的其他 Web 服務 API。 Azure Active Directory 可以提供 SAML 判斷提示，以回應使用 SAML 型 SAML Web 服務作為目標資源的代理者流程。
 
->[!TIP]
->如果您是從前端 Web 應用程式呼叫 SAML 受保護 Web 服務，只需呼叫 API 並起始一般互動驗證流程，該流程會使用使用者現有工作階段。  為服務呼叫提供服務需要 SAML 權杖以提供使用者內容時，您只需要考慮使用 OBO 流程。
+>[!NOTE]
+>這是針對 OAuth 2.0 代理者流程的非標準擴充，能允許 OAuth2 型應用程式存取會耗用 SAML 權杖的 Web 服務 API 端點。
 
-### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>使用具有共用祕密的 OBO 要求來取得 SAML 權杖
-服務對服務要求，以取得包含下列參數的 SAML判斷提示：
+> [!TIP]
+> 當您從前端 Web 應用程式呼叫受 SAML 保護的 Web 服務時，只需呼叫 API 並搭配使用者現有的工作階段起始一般互動驗證流程。 當服務對服務呼叫需要 SAML 權杖以提供使用者內容時，您只需要使用 OBO 流程。
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>使用具有共用祕密的 OBO 要求來取得 SAML 權杖
+
+適用於 SAML 判斷提示的服務對服務要求包含下列參數：
 
 | 參數 |  | 說明 |
 | --- | --- | --- |
-| grant_type |必要 | 權杖要求的類型。 若是使用 JWT 的要求，此值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
+| grant_type |必要 | 權杖要求的類型。 針對使用 JWT 的要求，此值必須是 **urn:ietf:params:oauth:grant-type:jwt-bearer**。 |
 | assertion |必要 | 要求中使用的存取權杖值。|
-| client_id |必要 | 在向 Azure AD 註冊期間指派的用來呼叫服務的應用程式識別碼。 若要在 Azure 管理入口網站中尋找應用程式識別碼，依序按一下 [Active Directory]、目錄，然後按一下應用程式名稱。 |
+| client_id |必要 | 在向 Azure AD 註冊期間指派給呼叫服務的應用程式識別碼。 若要在 Azure 入口網站中尋找應用程式識別碼，請選取 [Active Directory]，選擇目錄，然後選取應用程式名稱。 |
 | client_secret |必要 | 在 Azure AD 中註冊之呼叫端服務的金鑰。 此值應該在註冊期間記下來。 |
-| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 這是 SAML 權杖對象的資源。  若要尋找應用程式識別碼 URI，請在 Azure 管理入口網站中，依序按一下 [Active Directory]、目錄、應用程式名稱、[所有設定] 及 [屬性]。 |
+| resource |必要 | 接收端服務 (受保護的資源) 的應用程式識別碼 URI。 這是 SAML 權杖對象的資源。 若要在 Azure 入口網站中尋找應用程式識別碼 URI，請選取 [Active Directory]，然後選擇目錄。 選取應用程式名稱，選擇 [所有設定]，然後選取 [屬性]。 |
 | requested_token_use |必要 | 指定應該如何處理要求。 在代理者流程中，此值必須是 **on_behalf_of**。 |
-| requested_token_type | 必要 | 指定要求權杖的類型。  值可以是 "urn:ietf:params:oauth:token-type:saml2" 或 "urn:ietf:params:oauth:token-type:saml1"，取決於要存取資源的需求。 |
+| requested_token_type | 必要 | 指定要求權杖的類型。 值可以是 **urn:ietf:params:oauth:token-type:saml2** 或 **urn:ietf:params:oauth:token-type:saml1**，取決於所存取之資源的需求。 |
 
+回應會包含以 UTF8 及 Base64url 編碼的 SAML 權杖。
 
-回應會包含 UTF8 及 Base64url 編碼 SAML 權杖。 
+- **源自 OBO 呼叫之 SAML 判斷提示的 SubjectConfirmationData**：如果目標應用程式需要 **SubjectConfirmationData** 中的收件者值，該值必須是資源應用程式設定中的非萬用字元回覆 URL。
+- **SubjectConfirmationData 節點**：此節點不能包含 **InResponseTo** 屬性，因為它不屬於 SAML 回應。 接收 SAML 權杖的應用程式必須能夠在沒有 **InResponseTo** 屬性的情況下接受 SAML 判斷提示。
 
-SAML 判斷提示的 SubjectConfirmationData 源自 OBO 呼叫：如果目標應用程式需要 SubjectConfirmationData 中的收件者值，則必須在資源應用程式組態中設為非萬用字元回覆 URL。
-
-SubjectConfirmationData 節點不能包含 InResponseTo 屬性，因為該屬性不屬於 SAML 回應。  接收 SAML 權杖的應用程式必須能夠接受沒有 InResponseTo 屬性的 SAML 判斷提示。
-
-同意：若要接收 SAML 權杖，在 OAuth 流程上包含使用者資料，則必須授權同意。  如需權限的詳細資訊及取得系統管理員的同意，請參閱 https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent。
+- **同意**：必須被授與同意，才能在 OAuth 流程上接收包含使用者資料的 SAML 權杖。 如需權限和取得系統管理員同意的相關資訊，請參閱 [Azure Active Directory v1.0 端點中的權限和同意](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)。
 
 ### <a name="response-with-saml-assertion"></a>使用 SAML 判斷提示進行回應
 
@@ -248,15 +277,25 @@ SubjectConfirmationData 節點不能包含 InResponseTo 屬性，因為該屬性
 | expires_in |存取權杖的有效時間長度 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |接收端服務 (受保護的資源) 的應用程式識別碼 URI。 |
-| access_token |SAML 判斷提示會在 access_token 參數中傳回。 |
+| access_token |傳回 SAML 判斷提示的參數。 |
 | refresh_token |重新整理權杖。 呼叫端服務可以使用這個權杖，在目前的 SAML 判斷提示過期之後，要求其他的存取權杖。 |
 
-token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type:saml2 refresh_token: <Refresh token>
+- token_type：Bearer
+- expires_in：3296
+- ext_expires_in：0
+- expires_on：1529627844
+- resource：`https://api.contoso.com`
+- access_token：\<SAML 判斷提示\>
+- issued_token_type：urn:ietf:params:oauth:token-type:saml2
+- refresh_token：\<重新整理權杖\>
 
 ## <a name="client-limitations"></a>用戶端限制
-含有萬用字元回覆 URL 的公用用戶端無法針對 OBO 流程使用 `id_token`。 不過，機密用戶端仍可兌換透過隱含授與流程取得的存取權杖，即使公用用戶端已註冊萬用字元重新導向 URL 亦然。
+
+含有萬用字元回覆 URL 的公用用戶端無法針對 OBO 流程使用 `id_token`。 不過，機密用戶端仍可兌換透過隱含授與流程取得的**存取**權杖，即使公用用戶端已註冊萬用字元重新導向 URL 亦然。
 
 ## <a name="next-steps"></a>後續步驟
-進一步了解 OAuth 2.0 通訊協定，以及另一種使用用戶端認證來執行服務對服務驗證的方式。
-* [使用 Azure AD 中授與的 OAuth 2.0 用戶端認證來進行服務對服務授權](v1-oauth2-client-creds-grant-flow.md)
+
+深入了解 OAuth 2.0 通訊協定，以及另一種使用用戶端認證來執行服務對服務驗證的方式：
+
+* [使用 Azure AD 中授與的 OAuth 2.0 用戶端認證來進行服務對服務驗證](v1-oauth2-client-creds-grant-flow.md)
 * [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
