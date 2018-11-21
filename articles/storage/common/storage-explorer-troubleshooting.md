@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281760"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616192"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 儲存體總管疑難排解指南
 
@@ -81,7 +81,7 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 * 重新啟動儲存體總管
 * 如果驗證視窗空白，請在關閉驗證對話方塊之前先等待至少一分鐘。
 * 確認您的機器和儲存體總管都已正確設定 Proxy 和憑證設定。
-* 如果您是在 Windows 上，而且能夠在相同機器上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。 
+* 如果您是在 Windows 上，而且能夠在相同機器上存取 Visual Studio 2017 並登入，請嘗試登入 Visual Studio 2017。 成功登入 Visual Studio 2017 之後，您應該能夠開啟 [儲存體總管]，並在 [帳戶] 面板中查看您的帳戶。
 
 如果這些方法都沒有用，請[在 GitHub 上開立問題](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -115,6 +115,8 @@ macOS 鑰匙圈有時會進入導致 [儲存體總管] 的驗證程式庫發生�
 
 * Proxy URL 和連接埠號碼
 * 使用者名稱和密碼 (如果 proxy 要求)
+
+請注意，儲存體總管不支援 .pac 檔來設定 Proxy 設定。
 
 ### <a name="common-solutions"></a>常見的解決方案
 

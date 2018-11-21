@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b004abb3959bbfe36fc200bf762114f88f3d2ead
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429452"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345030"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>將 Web 服務部署至 Azure 容器執行個體 
 
@@ -48,9 +48,12 @@ ACI 通常比 AKS 便宜，並且使用 4 到 6 行程式碼即可完成設定�
 ## <a name="configure-an-image"></a>設定映像
 
 設定用於儲存所有模型檔案的 Docker 映像。
-1. [使用這些指令](tutorial-deploy-models-with-aml.md#create-scoring-script)建立評分指令碼 (score.py)
+1. [使用這些指令](tutorial-deploy-models-with-aml.md#create-scoring-script)建立評分指令碼 (score.py)。
 
-1. [使用這些指令](tutorial-deploy-models-with-aml.md#create-environment-file)建立環境檔案 (myenv.yml) 
+    > [!IMPORTANT]
+    > 評分指令碼會接收用戶端所提交的資料，並將它傳遞至模型進行評分。 記載指令碼和模型所預期的資料結構。 建置用戶端時擁有這份文件，即可輕鬆地取用 Web 服務。
+
+1. [使用這些指示](tutorial-deploy-models-with-aml.md#create-environment-file)建立環境檔案 (myenv.yml)。
 
 1. 使用這兩個檔案，利用 SDK 在 Python 中設定 Docker 映像，如下所示：
 
@@ -217,8 +220,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
 
 您現在可以測試 Web 服務。
 
-<a name='test-web-service'/>
-## <a name="test-the-web-service"></a>測試 Web 服務
+## <a name="a-nametest-web-servicetest-the-web-service"></a><a name='test-web-service'/>測試 Web 服務
 
 無論使用的方法為何，Web 服務都是相同的。  若要取得預測，請使用服務的 `run` 方法。  
 
@@ -261,4 +263,5 @@ service.delete()
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何針對更大規模的部署[部署至 Azure Kubernetes Service](how-to-deploy-to-aks.md)。 
+* 了解如何[取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)。
+* 了解如何針對更大規模的部署[部署至 Azure Kubernetes Service](how-to-deploy-to-aks.md)。 

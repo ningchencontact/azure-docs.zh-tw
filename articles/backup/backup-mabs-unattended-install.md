@@ -1,29 +1,29 @@
 ---
-title: 以無訊息方式安裝 Azure 備份伺服器 v2
-description: 使用 PowerShell 指令碼來以無訊息方式安裝 Azure 備份伺服器 v2。 這種安裝也稱為自動安裝。
+title: 以無訊息方式安裝 Azure 備份伺服器 V2
+description: 使用 PowerShell 指令碼來以無訊息方式安裝 Azure 備份伺服器 V2。 這種安裝也稱為自動安裝。
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/30/2017
+ms.date: 11/13/2018
 ms.author: markgal
-ms.openlocfilehash: 126c1971d83a8874c096caf407231fb6dee2ff59
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7bda070e613e5495d3733dd1610cb291e12c36
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606404"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612690"
 ---
-# <a name="run-an-unattended-installation-of-azure-backup-server-v2"></a>執行 Azure 備份伺服器 v2 的自動安裝
+# <a name="run-an-unattended-installation-of-azure-backup-server"></a>執行 Azure 備份伺服器 2018 年 9 月2 的自動安裝
 
-了解如何執行 Azure 備份伺服器 v2 的自動安裝。 
+了解如何執行 Azure 備份伺服器 V2 的自動安裝。
 
-如果您要安裝 Azure 備份伺服器 v1，這些步驟並不適用。
+如果您要安裝 Azure 備份伺服器 V1，這些步驟並不適用。
 
-## <a name="install-backup-server-v2"></a>安裝備份伺服器 v2
+## <a name="install-backup-server"></a>安裝備份伺服器
 
-1. 在裝載 Azure 備份伺服器 v2 的伺服器上建立文字檔  (您可以在記事本或其他文字編輯器中建立檔案)。將檔案儲存為 MABSSetup.ini。 
+1. 在裝載 Azure 備份伺服器 V2 或更新版本的伺服器上建立文字檔。 (您可以在記事本或其他文字編輯器中建立檔案)。將檔案儲存為 MABSSetup.ini。
 
 2. 在 MABSSetup.ini 檔案中貼上下列程式碼。 以您的環境值取代括號內的文字 (\< \>)。 範例如下列文字：
 

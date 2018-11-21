@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 8e8518cdf95e1b97bd4b641322c1b2a3fdc3bf9e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282453"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515755"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊  
 本文提供 Azure Stack 開發套件 (ASDK) 中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -46,7 +46,7 @@ ms.locfileid: "51282453"
 <!-- TBD - IS ASDK --> 
 - 已修正當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結至 DS 系列 VM 的資料磁碟數目會不正確的問題。 DS 系列 VM 可容納與 Azure 設定數目一樣多的資料磁碟。
 
-- 下列的受控磁碟問題已在 1809 中修正，同時也在 1808 [Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/) 中修正： 
+- 下列的受控磁碟問題已在 1809 中修正，同時也在 1808 [Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/) 中修正： 
 
    <!--  2966665 – IS, ASDK --> 
    - 已修正將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」的問題。 
@@ -59,6 +59,16 @@ ms.locfileid: "51282453"
 - <!-- 2702741 -  IS, ASDK --> 過去針對使用「動態」配置方法來部署的公用 IP，不保證在發出 Stop-Deallocate 之後還能予以保留，此問題已修正。 現在這些 IP 會予以保留。
 
 - <!-- 3078022 - IS, ASDK --> 如果 VM 在 1808 版本以前停止解除配置，則無法在 1808 更新後重新配置。  此問題已在 1809 版本修正。 經過此次修正，過去在此狀態的執行個體和無法啟動的執行個體將可於 1809 版本中啟動。 此修正也可避免此問題再次發生。
+
+<!-- 3090289 – IS, ASDK --> 
+- 修正了在套用 1808 更新後的問題，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：
+
+   1. 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
+      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
+      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+   2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
+      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992)。
+      2. 依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。
 
 - 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**
 
@@ -100,7 +110,7 @@ ms.locfileid: "51282453"
 
 #### <a name="compute"></a>計算 
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - 將已中斷連結的磁碟重新連結到具有相同名稱的相同虛擬機器 (VM)，並且發生如**無法將資料磁碟 'datadisk' 連結到 VM 'vm1'** 錯誤的 LUN 失敗。 此錯誤的發生原因是磁碟目前正在中斷連結，或上次的中斷連結作業失敗。 請等候磁碟完全中斷連結後再試一次，或再次明確將磁碟刪除/中斷連結。 因應措施是使用其他名稱或在其他 LUN 上將它重新連結。 
 
 <!-- 3235634 – IS, ASDK -->
@@ -108,16 +118,6 @@ ms.locfileid: "51282453"
 
 <!-- 3099544 – IS, ASDK --> 
 - 當您使用 Azure Stack 入口網站建立新的虛擬機器 (VM) 並選取 VM 大小時，會顯示美元/月欄位和「無法使用」訊息。 此欄位不應該出現；Azure Stack 不支援顯示 VM 定價欄位。
-
-<!-- 3090289 – IS, ASDK --> 
-- 套用 1808 更新之後，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：
-
-   1. 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
-      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
-   2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
-      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920)。
-      2. 依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。
 
 <!-- 2869209 – IS, ASDK --> 
 - 當使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 時，您必須使用 **-OsUri** 參數作為要上傳磁碟的儲存體帳戶 URI。 如果您使用磁碟的本機路徑，此 Cmdlet 就會失敗，且具有下列錯誤：「長時間執行的作業失敗，狀態為「失敗」」。 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: d58e5816c3b0e7c951c7d6bcfc6bfe4d0789f47a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233791"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621746"
 ---
 # <a name="azure-active-directory-faq"></a>Azure Active Directory 常見問題集
 Azure Active Directory (Azure AD) 是全方位的身分識別即服務 (IDaaS) 解決方案，其涉及範圍橫跨身分識別、存取管理和安全性的所有層面。
@@ -171,7 +171,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 * 直接登入同盟應用程式
 * 同盟、密碼或現有應用程式的深層連結
 
-如需詳細資訊，請參閱 [對使用者部署 Azure AD 整合應用程式](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)。
+如需詳細資訊，請參閱[應用程式的使用者體驗](../manage-apps/end-user-experiences.md)。
 
 - - -
 **問︰Azure AD 可透過哪些不同方式來啟用應用程式的驗證和單一登入？**
@@ -182,7 +182,7 @@ Azure AD 付費服務 (例如 Enterprise Mobility + Security) 可透過全方位
 
 * [Azure AD 的驗證案例](../develop/authentication-scenarios.md)
 * [Active Directory 驗證通訊協定](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [單一登入如何搭配 Azure Active Directory 運作？](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Azure AD 中應用程式的單一登入](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **問︰是否可以新增在內部部署中執行的應用程式？**

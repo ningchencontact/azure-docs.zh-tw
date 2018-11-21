@@ -13,24 +13,23 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 11/08/2018
 ms.author: deguhath
-ms.openlocfilehash: 168d2852d8905735b450850c8bb32a1ae07a620d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 55d92fedbb67d21d34464b792b3600eb6964840b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837283"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345516"
 ---
 # <a name="explore-data-in-the-team-data-science-process"></a>探索 Team Data Science Process 中的資料
-本文件說明如何在 Team Data Science Process 中四個常用的不同環境中探索資料：
 
-* **Azure blob 容器** Python 封裝來瀏覽 [Azure blob 容器](http://pandas.pydata.org/) 資料。
-* **SQL Server** 資料。
-* **Hive 資料表** 資料。
-* **Azure Machine Learning (AML) Studio** 資料。
+探索工作是 [Team Data Science Process](overview.md) 中的一個步驟。
 
-下列 **功能表** 連結的主題會說明如何從各種不同儲存體環境使用這些工具來瀏覽資料。 
+下列文章說明如何在 Data Science Process 中三個常用的不同儲存體環境中探索資料：
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+* 使用 [Pandas](http://pandas.pydata.org/) Python 套件，探索 [Azure Blob 容器](explore-data-blob.md)資料。
+* 使用 SQL 及使用 Python 這類程式設計語言，探索 [SQL Server](explore-data-sql-server.md) 資料。
+* 使用 Hive 查詢來探索 [Hive 資料表](explore-data-hive-tables.md)資料。
 
+此外，[在 Azure Machine Learning Studio 中前置處理資料](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/)影片描述在 Azure Machine Learning Studio 中常用來清除及轉換資料的模組。

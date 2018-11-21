@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 2dd9b14ebd7e64a1073ab773b2f1ac8d8c05ac0a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a2d067f71b7b68944e479cfd27c1dbf414762af8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185242"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514871"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>將 Raspberry Pi 線上模擬器連線至 Azure IoT Hub (Node.js)
 
@@ -59,9 +59,13 @@ ms.locfileid: "39185242"
 <a href="https://azure-samples.github.io/raspberry-pi-web-simulator/#GetStarted" target="_blank">啟動 Raspberry Pi 模擬器</a>
 
 Web 模擬器中有三個區域。
+
 1. 組件區域 - 預設線路是 Pi 與 BME280 感應器和 LED 連線。 此區域已在預覽版本中鎖定，所以您目前無法進行自訂。
+
 2. 編碼區域 - 可供您使用 Raspberry Pi 編碼的線上程式碼編輯器。 預設範例應用程式有助於從 BME280 感應器收集感應器資料，並傳送至您的 Azure IoT 中樞。 應用程式與實際 Pi 裝置完全相容。 
+
 3. 整合式主控台視窗 - 它會顯示您的程式碼輸出。 在這個視窗頂端，有三個按鈕。
+
    * **執行** - 在編碼區域中執行應用程式。
    * **重設** - 將編碼區域重設為預設範例應用程式。
    * **摺疊/展開** - 右邊有一個可供您摺疊/展開主控台視窗的按鈕。
@@ -71,8 +75,17 @@ Web 模擬器中有三個區域。
 
 ![Pi 線上模擬器概觀](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+### <a name="retrieve-connection-string-for-iot-hub"></a>擷取 IoT 中樞的連接字串
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中樞註冊新的裝置
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>在 Pi Web 模擬器上執行範例應用程式
 
@@ -80,7 +93,6 @@ Web 模擬器中有三個區域。
    ![取代裝置連接字串](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. 按一下 [執行] 或輸入 `npm start` 以執行應用程式。
-
 
 您應該會看見下列輸出，顯示傳送至 IoT 中樞的感應器資料和訊息 ![輸出 - 從 Raspberry Pi 傳送至 IoT 中樞的感應器資料](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 

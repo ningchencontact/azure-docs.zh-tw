@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 46b6b789b2bab7e647e10a61939bd16b5ea8726d
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209683"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577918"
 ---
 # <a name="confidence-score"></a>信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
@@ -53,6 +53,8 @@ ms.locfileid: "50209683"
 
 - 如果**涵蓋範圍** (或重新叫用) 更重要，且您想要盡可能回答更多問題 (即使答案與使用者的問題只有部分相關)，則您可以降低閾值。 這表示會有更多答案無法回答使用者實際查詢，但能提供一些其他可能相關之答案的情況。 *例如：* 如果您將閾值設為 **30**，您可能會提供一些不太相關的答案，例如使用上述的範例回答如「我可以在哪裡編輯 KB？」的問題
 
+> [!NOTE]
+> 較新的 QnA Maker 版本包括改善評分邏輯，並可能影響您的閾值。 每當您更新服務時，請務必視需要測試和調整閾值。 您可以[在此](https://www.qnamaker.ai/UserSettings)檢查您的 QnA 服務版本，並[在此](../How-To/troubleshooting-runtime.md)了解如何取得最新的更新。
 
 ## <a name="improve-confidence-scores"></a>改善信賴分數
 若要改善使用者查詢特定回應的信賴分數，您可以將使用者查詢加入至知識庫做為該回應的替代問題。

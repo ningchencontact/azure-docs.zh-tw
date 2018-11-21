@@ -3,7 +3,7 @@ title: Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽) | Microso
 description: Service Fabric 支援使用 Azure 檔案服務以備份來自您容器的磁碟區。 這目前為預覽狀態。
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
-ms.openlocfilehash: 0ce1ca09327fa0bd7fbbb82b8dc3c3bdc70d5028
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: twhitney, subramar
+ms.openlocfilehash: fabb44f9369dd7b7050ae353ab94263f140aae48
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239367"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346400"
 ---
 # <a name="service-fabric-azure-files-volume-driver-preview"></a>Service Fabric Azure 檔案服務磁碟區驅動程式 (預覽)
 Azure 檔案服務磁碟區外掛程式為 [Docker 磁碟區外掛程式](https://docs.docker.com/engine/extend/plugins_volume/) \(英文\)，針對 Docker 容器提供以 [Azure 檔案服務](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)為基礎的磁碟區。 此 Docker 磁碟區外掛程式會封裝為可部署至 Service Fabric 叢集的 Service Fabric 應用程式。 其目的是為部署至叢集的其他 Service Fabric 容器應用程式，提供以 Azure 檔案服務為基礎的磁碟區。
@@ -166,12 +166,11 @@ Azure 檔案服務磁碟區外掛程式的驅動程式名稱為 **sfazurefile**�
 - **Destination**：此標記是磁碟區在執行容器內所對應的位置。 因此，您的目的地不能是容器內的現有位置
 
 如上述程式碼片段的 **DriverOption** 元素中所示，Azure 檔案服務磁碟區外掛程式支援下列驅動程式選項：
+- **shareName**：為容器提供磁碟區之 Azure 檔案服務檔案共用的名稱。
+- **storageAccountName**：包含 Azure 檔案服務檔案共用之 Azure 儲存體帳戶的名稱。
+- **storageAccountKey**：包含 Azure 檔案服務檔案共用之 Azure 儲存體帳戶的存取金鑰。
+- **storageAccountFQDN** - 與儲存體帳戶相關聯的網域名稱。 如果未指定 storageAccountFQDN，網域名稱會使用預設的尾碼 (.file.core.windows.net) 和 storageAccountName 來組成。  
 
-支援的驅動程式選項：
-- **shareName**：為容器提供磁碟區之 Azure 檔案服務檔案共用的名稱
-- **storageAccountName**：包含 Azure 檔案服務檔案共用之 Azure 儲存體帳戶的名稱
-- **storageAccountKey**：包含 Azure 檔案服務檔案共用之 Azure 儲存體帳戶的存取金鑰
-- **storageAccountFQDN** - 與儲存體帳戶相關聯的網域名稱。 如果未指定 storageAccountFQDN，網域名稱會使用預設的尾碼 (.file.core.windows.net) 和 storageAccountName 來組成。 
     ```xml
     - Example1: 
         <DriverOption Name="shareName" Value="myshare1" />
@@ -184,6 +183,7 @@ Azure 檔案服務磁碟區外掛程式的驅動程式名稱為 **sfazurefile**�
         <DriverOption Name="storageAccountKey" Value="mykey2" />
         <DriverOption Name="storageAccountFQDN" Value="myaccount2.file.core.chinacloudapi.cn" />
     ```
+
 ## <a name="using-your-own-volume-or-logging-driver"></a>使用您自己的磁碟區或記錄驅動程式
 Service Fabric 也允許使用您自己的自訂[磁碟區](https://docs.docker.com/engine/extend/plugins_volume/)或[記錄](https://docs.docker.com/engine/admin/logging/overview/)驅動程式。 如果叢集上未安裝 Docker 磁碟區/記錄驅動程式，可以使用 RDP/SSH 通訊協定來手動安裝它。 您可以透過[虛擬機器擴展集啟動指令碼](https://azure.microsoft.com/resources/templates/201-vmss-custom-script-windows/)或 [SetupEntryPoint 指令碼](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model#describe-a-service)，使用這些通訊協定執行安裝。
 

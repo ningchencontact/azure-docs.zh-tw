@@ -12,26 +12,42 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/06/2017
+ms.date: 11/06/2018
 ms.author: spelluru
-ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 40562c77cf38ad316d64f68b54dd4174dae6da1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232438"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614467"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 轉送的 REST 教學課程
-
 本教學課程描述如何建置簡單的 Azure 轉送主機應用程式來公開 REST 架構介面。 REST 可讓 Web 用戶端 (例如 Web 瀏覽器) 透過 HTTP 要求存取服務匯流排 API。
 
 本教學課程會使用 Windows Communication Foundation (WCF) REST 程式設計模型，在 Azure 轉送上建構 REST 服務。 如需詳細資訊，請參閱 WCF 文件中的 [WCF REST 程式設計模型](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[設計與實作服務](/dotnet/framework/wcf/designing-and-implementing-services)。
 
-## <a name="step-1-create-a-namespace"></a>步驟 1：建立命名空間
+您會在本教學課程中執行下列步驟：
+
+> [!div class="checklist"]
+> * 建立轉送命名空間。
+> * 定義 REST 型 WCF 服務合約
+> * 實作 REST 型 WCF 合約
+> * 裝載及執行 REST 型 WCF 服務
+> * 執行及測試服務
+
+## <a name="prerequisites"></a>必要條件
+
+若要完成本教學課程，您需要下列必要條件：
+
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+- [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
+- 適用於 .NET 的 Azure SDK。 從 [SDK 下載頁面](https://azure.microsoft.com/downloads/)進行安裝。
+
+## <a name="create-a-relay-namespace"></a>建立轉送命名空間
 
 若要開始在 Azure 中使用轉送功能，首先必須建立服務命名空間。 命名空間提供範圍容器，可在應用程式內進行 Azure 資源定址。 請依照[這裡的指示](relay-create-namespace-portal.md)來建立轉送命名空間。
 
-## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步驟 2：定義 REST 架構的 WCF 服務合約以與 Azure 轉送搭配使用
+## <a name="define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>定義 REST 架構的 WCF 服務合約以與 Azure 轉送搭配使用
 
 當您建立 WCF REST 樣式服務時，必須定義合約。 合約會指定主機支援哪些作業。 服務作業可視為 Web 服務方法。 合約可以透過定義 C++、C# 或 Visual Basic 介面建立。 介面中的每個方法會對應一個特定服務作業。 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 屬性必須套用至每個介面，且 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 屬性必須套用至每個作業。 如果介面中的方法具備沒有 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 的 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute)，則不會公開該方法。 用來執行這些工作的程式碼顯示在程序後面的範例中。
 
@@ -136,7 +152,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-## <a name="step-3-implement-a-rest-based-wcf-service-contract-to-use-service-bus"></a>步驟 3：實作 REST 架構 WCF 服務合約以使用服務匯流排
+## <a name="implement-the-rest-based-wcf-service-contract"></a>實作 REST 型 WCF 服務合約
 建立 REST 樣式的 WCF 轉送服務需要先建立合約，您可使用介面定義該合約。 下一步是實作介面。 這牽涉到建立名為 **ImageService** 的類別，該類別實作使用者定義的 **IImageContract** 介面。 實作合約後，接著可使用 App.config 檔案設定介面。 組態檔包含應用程式的必要資訊，例如服務名稱、合約名稱，以及用來與轉送服務通訊的通訊協定類型。 程序後面的範例提供用來執行這些工作的程式碼。
 
 如同先前的步驟，實作 REST 樣式合約與 WCF 轉送合約之間的差異很小。
@@ -430,7 +446,7 @@ namespace Microsoft.ServiceBus.Samples
 </configuration>
 ```
 
-## <a name="step-4-host-the-rest-based-wcf-service-to-use-azure-relay"></a>步驟 4：裝載 REST 架構的 WCF 服務以使用 Azure 轉送
+## <a name="host-the-rest-based-wcf-service-to-use-azure-relay"></a>裝載 REST 架構的 WCF 服務以使用 Azure 轉送
 此步驟描述如何搭配 WCF 轉送使用主控台應用程式來執行 Web 服務。 程序後面的範例提供此步驟中撰寫的完整程式碼清單。
 
 ### <a name="to-create-a-base-address-for-the-service"></a>建立服務的基底位址
@@ -476,7 +492,7 @@ namespace Microsoft.ServiceBus.Samples
     host.Close();
     ```
 
-## <a name="example"></a>範例
+### <a name="example"></a>範例
 下列範例包括教學課程先前步驟的服務合約和實作，以及在主控台應用程式中主控服務。 將下列程式碼編譯為名為 ImageListener.exe 的可執行檔。
 
 ```csharp
@@ -551,7 +567,7 @@ namespace Microsoft.ServiceBus.Samples
 }
 ```
 
-### <a name="compiling-the-code"></a>編譯程式碼
+## <a name="run-and-test-the-service"></a>執行及測試服務
 建置解決方案後，請執行下列命令以執行應用程式：
 
 1. 按 **F5**，或瀏覽至可執行檔的位置 (ImageListener\bin\Debug\ImageListener.exe) 來執行服務。 讓應用程式保持執行狀態，因為需要它來執行下一個步驟。

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dcc27992c318a970a86f1ff5c60723daeef881b6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914646"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345482"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>操作說明：為 Azure AD 應用程式提供選擇性宣告 (公開預覽)
 
@@ -42,7 +42,7 @@ ms.locfileid: "50914646"
 | 帳戶類型 | V1.0 端點 | V2.0 端點  |
 |--------------|---------------|----------------|
 | 個人 Microsoft 帳戶  | N/A - 改用 RPS 票證 | 即將支援 |
-| Azure AD 帳戶          | 支援                          | 支援注意事項      |
+| Azure AD 帳戶          | 支援                          | 支援注意事項 |
 
 > [!IMPORTANT]
 > 同時支援個人帳戶和 Azure AD (透過[應用程式註冊入口網站](https://apps.dev.microsoft.com)註冊) 的應用程式無法使用選擇性宣告。 不過，使用 v2.0 端點只註冊 Azure AD 的應用程式，可在資訊清單中取得所要求的選擇性宣告。 您可以在 Azure 入口網站中，使用現有**應用程式註冊**體驗中的應用程式資訊清單編輯器編輯您的選擇性宣告。 不過，這項功能尚無法在新的**應用程式註冊 (預覽)** 體驗中使用應用程式資訊清單編輯器。
@@ -60,8 +60,6 @@ ms.locfileid: "50914646"
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | 上次驗證使用者的時間。 請參閱 OpenID Connect 規格。| JWT        |           |  |
 | `tenant_region_scope`      | 資源租用戶的區域 | JWT        |           | |
-| `signin_state`             | 登入狀態宣告   | JWT        |           | 6 個以旗標形式表示的傳回值：<br> "dvc_mngd"：裝置為受控裝置<br> "dvc_cmp"：裝置符合規範<br> "dvc_dmjd"：裝置已加入網域<br> "dvc_mngd_app"：裝置是透過 MDM 管理的裝置<br> "inknownntwk"：裝置位於已知的網路內。<br> "kmsi"：已使用 [讓我保持登入]。 <br> |
-| `controls`                 | 包含「條件式存取」原則所強制執行之工作階段控制項的多值宣告。 | JWT        |           | 3 個值：<br> "app_res"：應用程式必須強制執行更細微的限制。 <br> "ca_enf"：「條件式存取」強制執行已延遲但仍需要。 <br> "no_cookie"：此權杖不足以在瀏覽器中交換 Cookie。 <br>  |
 | `home_oid`                 | 就來賓使用者而言，是使用者主租用戶中的使用者物件識別碼。| JWT        |           | |
 | `sid`                      | 工作階段識別碼，用於個別工作階段使用者登出。 | JWT        |           |         |
 | `platf`                    | 裝置平台    | JWT        |           | 限制為可驗證裝置類型的受控裝置。|
@@ -76,6 +74,7 @@ ms.locfileid: "50914646"
 | `xms_pl`                   | 使用者慣用語言  | JWT ||如果設定，則為使用者的慣用語言。 在來賓存取案例中，來源是其主租用戶。 格式化 LL-CC (“en-us”)。 |
 | `xms_tpl`                  | 租用戶慣用語言| JWT | | 如果設定，則為資源租用戶的慣用語言。 格式化 LL (“en”)。 |
 | `ztdid`                    | 全自動部署識別碼 | JWT | | 裝置身分識別，用於 [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | 此使用者可定址的電子郵件 (如果使用者有的話)。  | JWT、SAML | | 如果使用者是租用戶中的來賓，則預設會包含此值。  若為受管理的使用者 (在租用戶中)，則必須透過此選擇性宣告，或使用 OpenID 範圍 (僅限 v2.0) 要求此值。  若為受管理的使用者，電子郵件地址必須設定於 [Office 管理入口網站](https://portal.office.com/adminportal/home#/users)。|  
 | `acct`             | 租用戶中的使用者帳戶狀態。 | JWT、SAML | | 如果使用者是租用戶的成員，則值為 `0`。 如果是來賓使用者，則值為 `1`。 |
 | `upn`                      | UserPrincipalName 宣告。 | JWT、SAML  |           | 雖然會自動包含此宣告，但在來賓使用者案例中，您可以將它指定為選擇性宣告來附加額外屬性，以修改其行為。 <br> 額外屬性： <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

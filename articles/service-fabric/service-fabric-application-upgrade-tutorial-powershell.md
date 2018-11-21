@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 0f134bdb4f77034dd124027fc960d172d25db721
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348764"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515313"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 進行 Service Fabric 應用程式升級
 > [!div class="op_single_selector"]
@@ -79,13 +79,13 @@ ms.locfileid: "44348764"
 ## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>步驟 3：決定健康狀態原則並升級參數
 請您熟悉[應用程式升級參數](service-fabric-application-upgrade-parameters.md)和[升級程序](service-fabric-application-upgrade.md)，以了解套用的各種升級參數、逾時和健康狀態準則。 對於此逐步解說，服務健康狀態評估準則會設定為預設值 (和建議值)，這表示升級之後，所有服務和執行個體應該是「健康狀態良好」  。  
 
-但是，讓我們將 *HealthCheckStableDuration* 增加為 60 秒 (如此一來，在升級繼續至下一個更新網域之前，至少有 20 秒的時間服務是健康狀態良好的)。  同時也要將 *UpgradeDomainTimeout* 設為 1200 秒，將 *UpgradeTimeout* 設為 3000 秒。
+但是，讓我們將 *HealthCheckStableDuration* 增加為 180 秒 (如此一來，在升級繼續至下一個更新網域之前，至少有 120 秒的時間服務是健康狀態良好的)。  同時也要將 *UpgradeDomainTimeout* 設為 1200 秒，將 *UpgradeTimeout* 設為 3000 秒。
 
 最後，我們也將 *UpgradeFailureAction* 設定為回復。 此選項要求 Service Fabric 在升級期間如果遇到任何問題時要將應用程式回復為舊版。 因此在啟動升級 (在步驟 4) 時，會指定下列參數︰
 
 FailureAction = Rollback
 
-HealthCheckStableDurationSec = 60
+HealthCheckStableDurationSec = 180
 
 UpgradeDomainTimeoutSec = 1200
 
