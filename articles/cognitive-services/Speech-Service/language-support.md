@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471436"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622511"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
@@ -30,20 +30,20 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  ar-EG | 阿拉伯文 (埃及)，現代標準 | 否 | 是 | 否
  ca-ES | 加泰蘭文 (西班牙) | 否 | 否 | 否
  da-DK | 丹麥文 (丹麥) | 否 | 否 | 否
- de-DE | 德文 (德國) | 是 | yes | 否
+ de-DE | 德文 (德國) | 是 | 是 | 否
  en-AU | 英文 (澳洲) | 否 | yes | 是
  en-CA | 英文 (加拿大) | 否 | yes | 是
  en-GB | 英文 (英國) | 否 | yes | 是
- en-IN | 英文 (印度) | 是 | yes | 是
+ en-IN | 英文 (印度) | 是 | 是 | 是
  en-NZ | 英文 (紐西蘭) | 否 | yes | 是  
- zh-TW | 英文 (美國) | 是 | yes | 是
+ zh-TW | 英文 (美國) | 是 | 是 | 是
  es-ES | 西班牙文 (西班牙) | 否 | 是 | 否
  es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否
  fi-FI | 芬蘭文 (芬蘭) | 否 | 否 | 否
  fr-CA | 法文 (加拿大) | 否 | 是 | 否
- fr-FR | 法文 (法國) | 是 | yes | 否
+ fr-FR | 法文 (法國) | 是 | 是 | 否
  hi-IN | 印地文 (印度) | 否 | 是 | 否
- it-IT | 義大利文 (義大利) | 是 | yes | 否
+ it-IT | 義大利文 (義大利) | 是 | 是 | 否
  ja-JP | 日文 (日本) | 否 | 是 | 否
  ko-KR | 韓文 (韓國) | 否 | 是 | 否
  nb-NO | 挪威文 (巴克摩) (挪威) | 否 | 否 | 否
@@ -51,9 +51,9 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  pl-PL | 波蘭文 (波蘭) | 否 | 否 | 否
  pt-BR | 葡萄牙文 (巴西) | 否 | 是 | 否
  pt-PT | 葡萄牙文 (葡萄牙) | 否 | 是 | 否
- ru-RU | 俄文 (俄羅斯) | 是 | yes | 否
+ ru-RU | 俄文 (俄羅斯) | 是 | 是 | 否
  sv-SE | 瑞典文 (瑞典) | 否 | 否 | 否
- zh-CN | 中文 (普通話，簡體) | 是 | yes | 否
+ zh-CN | 中文 (普通話，簡體) | 是 | 是 | 否
  zh-HK | 中文 (普通話，繁體) | 否 | 是 | 否
  zh-TW | 中文 (繁體，國語) | 否 | 是 | 否
  th-TH | 泰文 (泰國) | 否 | 否 | 否
@@ -160,7 +160,7 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ## <a name="speech-translation"></a>語音翻譯
 
-**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。
+**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。 您可以將傳入的語音翻譯為 [60 多種語言](https://www.microsoft.com/translator/business/languages/)。 其中有一些語言提供[語音合成](language-support.md#text-languages)功能。 
 
 ### <a name="speech-languages"></a>語音語言
 

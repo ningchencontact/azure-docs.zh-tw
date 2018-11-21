@@ -1,46 +1,65 @@
 ---
-title: 如何使用事件網域管理 Azure 事件方格中的大量主題集合，並將事件發佈到這些主題中
-description: 說明如何使用事件網域建立和管理 Azure 事件方格中的主題，並將事件發佈到這些主題中。
+title: 使用事件網域管理 Azure 事件方格中的大量主題集合
+description: 顯示如何使用事件網域管理 Azure 事件方格中的大量主題集合，並將事件發佈到這些主題中。
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: d6da1ee603c85556693b145ba17d1e0cd0dfabd7
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.date: 11/08/2018
+ms.openlocfilehash: ad23599d1df5d07e912f634435f8b44b441d87e6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034535"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298521"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>使用事件網域管理主題並發佈事件
 
 本文將說明如何：
 
 * 建立事件方格網域
-* 訂閱主題
+* 訂閱事件方格主題
 * 列出金鑰
 * 將事件發佈至網域
+
+若要深入了解事件網域，請參閱[了解用於管理事件方格主題的事件網域](event-domains.md)。
+
+## <a name="install-preview-feature"></a>安裝預覽功能
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
 ## <a name="create-an-event-domain"></a>建立事件網域
 
-建立事件網域可透過 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 的 `eventgrid` 擴充功能來完成。 網域建好後，您可以使用它來管理大量的主題集合。
+若要管理大量主題集合，請建立事件網域。
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
-# if you haven't already installed the extension, do it now.
+# If you haven't already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
 az eventgrid domain create \
   -g <my-resource-group> \
-  --name <my-domain-name>
+  --name <my-domain-name> \
   -l <location>
 ```
 
-建立成功會傳回下列內容：
+對於 PowerShell，請使用：
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridDomain `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain-name> `
+  -Location <location>
+```
+
+建立成功會傳回下列值：
 
 ```json
 {
@@ -59,22 +78,57 @@ az eventgrid domain create \
 
 請記下 `endpoint` 和 `id`，因為管理網域和發佈事件時需要這些項目。
 
+## <a name="manage-access-to-topics"></a>管理主題的存取權
+
+您可以透過[角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)來管理主題的存取權。 角色指派會使用角色型存取控制，限制只有特定範圍上的授權使用者可在 Azure 資源上執行作業。
+
+事件方格有兩個內建角色，可用來將網域中各種主題的存取權指派給特定使用者。 這些角色是 `EventGrid EventSubscription Contributor (Preview)` (可讓您建立和刪除訂閱) 和 `EventGrid EventSubscription Reader (Preview)` (只允許列出事件訂閱)。
+
+下列 Azure CLI 命令會限制 `alice@contoso.com` 只能建立和刪除 `demotopic1` 主題的事件訂用帳戶：
+
+```azurecli-interactive
+az role assignment create \
+  --assignee alice@contoso.com \
+  --role "EventGrid EventSubscription Contributor (Preview)" \
+  --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+下列 PowerShell 命令會限制 `alice@contoso.com` 只能建立和刪除 `demotopic1` 主題的事件訂用帳戶：
+
+```azurepowershell-interactive
+New-AzureRmRoleAssignment `
+  -SignInName alice@contoso.com `
+  -RoleDefinitionName "EventGrid EventSubscription Contributor (Preview)" `
+  -Scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1
+```
+
+如需管理事件方格作業存取的詳細資訊，請參閱[事件方格安全性和驗證](./security-authentication.md)。
+
 ## <a name="create-topics-and-subscriptions"></a>建立主題和訂用帳戶
 
-事件方格服務會根據為網域主題建立事件訂閱的呼叫，在網域中自動建立及管理對應的主題。 沒有任何個別步驟可用來建立網域中的主題。 同樣地，刪除主題的最後一個事件訂閱時，也會將主題一併刪除。
+事件方格服務會根據為網域主題建立事件訂用帳戶的呼叫，在網域中自動建立及管理對應的主題。 沒有任何個別步驟可用來建立網域中的主題。 同樣地，刪除主題的最後一個事件訂閱時，也會將主題一併刪除。
 
-訂閱網域中的主題如同訂閱任何其他 Azure 資源：
+訂閱網域中的主題如同訂閱任何其他 Azure 資源。 對於來源資源識別碼，請指定稍早建立網域時所傳回的事件網域識別碼。 若要指定您想要訂閱的主題，請在來源資源識別碼結尾新增 `/topics/<my-topic>`。 若要建立可接收網域中所有事件的網域範圍事件訂用帳戶，請指定事件網域識別碼，但不要指定任何主題。
+
+您在上一節中授與存取權的使用者通常會建立訂用帳戶。 若要簡化這篇文章，您可以建立訂用帳戶。 
+
+對於 Azure CLI，請使用：
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --name <event-subscription> \
-  --resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/<my-topic>" \
-  --endpoint https://contoso.azurewebsites.net/api/f1?code=code
+  --source-resource-id "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" \
+  --endpoint https://contoso.azurewebsites.net/api/updates
 ```
 
-提供的資源識別碼是稍早建立網域時傳回的識別碼。 若要指定您想要訂閱的主題，請在資源識別碼結尾新增 `/topics/<my-topic>`。
+對於 PowerShell，請使用：
 
-若要建立可接收網域中所有事件的網域範圍事件訂閱，請提供網域作為 `resource-id`，並且不要指定任何主題，例如 `/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>`。
+```azurepowershell-interactive
+New-AzureRmEventGridSubscription `
+  -ResourceId "/subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/demotopic1" `
+  -EventSubscriptionName <event-subscription> `
+  -Endpoint https://contoso.azurewebsites.net/api/updates
+```
 
 如果您需要能訂閱事件的測試端點，您可以一律部署[預先建置的 Web 應用程式](https://github.com/Azure-Samples/azure-event-grid-viewer)，以顯示傳入的事件。 您可以將事件傳送到您的測試網站：`https://<your-site-name>.azurewebsites.net/api/updates`。
 
@@ -82,23 +136,6 @@ az eventgrid event-subscription create \
 
 為主題設定的權限會儲存在 Azure Active Directory，必須明確地刪除。 如果使用者在主題上具有寫入權限，則刪除事件訂閱並不會撤銷使用者建立事件訂閱的存取權。
 
-## <a name="manage-access-to-topics"></a>管理主題的存取權
-
-您可以透過[角色指派](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli)來管理主題的存取權。 角色指派會使用角色型存取檢查，限制只有特定範圍上的授權使用者可在 Azure 資源上執行作業。
-
-事件方格有兩個內建角色，可用來將網域中各種主題的存取權指派給特定使用者。 這些角色是 `EventGrid EventSubscription Contributor (Preview)` (可讓您建立和刪除訂閱) 和 `EventGrid EventSubscription Reader (Preview)` (只允許列出事件訂閱)。
-
-下列命令會限制 `alice@contoso.com` 只能建立和刪除 `foo` 主題上的事件訂閱：
-
-```azurecli-interactive
-az role assignment create --assignee alice@contoso.com --role "EventGrid EventSubscription Contributor (Preview)" --scope /subscriptions/<sub-id>/resourceGroups/<my-resource-group>/providers/Microsoft.EventGrid/domains/<my-domain-name>/topics/foo
-```
-
-請參閱[事件方格安全性和驗證](./security-authentication.md)，以深入了解下列項目：
-
-* 管理存取控制
-* 作業類型
-* 建立自訂角色定義
 
 ## <a name="publish-events-to-an-event-grid-domain"></a>將事件發佈到事件方格網域
 
@@ -106,7 +143,7 @@ az role assignment create --assignee alice@contoso.com --role "EventGrid EventSu
 
 ```json
 [{
-  "topic": "foo",
+  "topic": "demotopic1",
   "id": "1111",
   "eventType": "maintenanceRequested",
   "subject": "myapp/vehicles/diggers",
@@ -118,7 +155,7 @@ az role assignment create --assignee alice@contoso.com --role "EventGrid EventSu
   "dataVersion": "1.0"
 },
 {
-  "topic": "bar",
+  "topic": "demotopic2",
   "id": "2222",
   "eventType": "maintenanceCompleted",
   "subject": "myapp/vehicles/tractors",
@@ -131,7 +168,7 @@ az role assignment create --assignee alice@contoso.com --role "EventGrid EventSu
 }]
 ```
 
-若要取得網域適用的金鑰：
+若要透過 Azure CLI 取得網域金鑰，請使用：
 
 ```azurecli-interactive
 az eventgrid domain key list \
@@ -139,8 +176,16 @@ az eventgrid domain key list \
   -n <my-domain>
 ```
 
+對於 PowerShell，請使用：
+
+```azurepowershell-interactive
+Get-AzureRmEventGridDomainKey `
+  -ResourceGroupName <my-resource-group> `
+  -Name <my-domain>
+```
+
 然後使用您慣用的方法，讓 HTTP POST 將您的事件發佈至事件方格網域。
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需深入了解事件網域和其為何實用的整體概念，請參閱[事件網域的概觀](./event-domains.md)。
+* 如需深入了解事件網域和其為何實用的整體概念，請參閱[事件網域的概觀](event-domains.md)。

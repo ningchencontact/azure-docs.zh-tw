@@ -16,31 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: a5750555802489b41b007831164767beb953ebc4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 575e17f214561bde06b70bf87c4895ae379659f2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837458"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344717"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-from-various-data-sources"></a>從各種資料來源將訓練資料匯入 Azure Machine Learning Studio
-若要在 Machine Learning Studio 中使用您自己的資料來開發和訓練預測性分析方案，您可以： 
 
-* 事先上傳硬碟中**本機檔案**資料，在工作區中建立資料集模組
-* 使用[匯入資料][import-data]模組，在實驗進行時，從數個**線上資料來源**其中之一存取資料 
-* 使用其他 Azure Machine Learning **實驗**中儲存為資料集的資料
-* 使用內部部署 **SQL Server 資料庫**中的資料
+若要在 Machine Learning Studio 中使用您自己的資料來開發和訓練預測性分析方案，您可以使用來自下列各項的資料： 
 
-上述選項都在下方選單的其中一個主題裡說明。 這些主題說明如何從各種資料來源匯入用於 Machine Learning Studio 的資料。 
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
+* [**本機檔案**](import-data-from-local-file.md) - 事先從硬碟載入本機資料，以在工作區中建立資料集模組。
+* [**線上資料來源**](import-data-from-online-sources.md) - 使用[匯入資料][import-data]模組，在實驗進行時從數個線上來源之一存取資料
+* [**Machine Learning Studio 實驗**](import-data-from-an-experiment.md) - 使用在 Machine Learning Studio 中儲存為資料集的資料
+* [**內部部署 SQL Server 資料庫**](use-data-from-an-on-premises-sql-server.md) - 使用來自內部部署 SQL Server 資料庫的資料，而不必手動複製資料
 
 > [!NOTE]
 > Machine Learning Studio 中有一些可用於訓練資料的範例資料集。 如需這些資訊，請參閱 [在 Azure Machine Learning Studio 中使用範例資料集](use-sample-datasets.md)。
 > 
 > 
 
-這個簡介主題也會討論如何備妥資料供 Machine Learning Studio 使用，並描述支援的資料格式和資料類型。 
+這篇簡介文章也會討論如何備妥資料供 Machine Learning Studio 使用，並描述支援的資料格式和資料類型。
 
 > [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 > 

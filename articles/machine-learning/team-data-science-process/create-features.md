@@ -15,19 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: b4194ef5ab1c2c09206ea0acf78cb539bc2fc0b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836512"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343987"
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本文說明特徵工程設計的目的，並透過提供的範例，顯示它在機器學習服務的資料增強程序中扮演的角色。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 
 
-[!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
-
-這個**功能表**所連結的文章會說明如何在各種環境中建立資料的特徵。 此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
+此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
 
 特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 特徵的工程設計與選取是何謂 [Team Data Science Process 生命週期？](overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。 
 
@@ -37,6 +35,11 @@ ms.locfileid: "34836512"
 通常會先套用**特性工程設計**以產生其他特定，然後執行**特性選取**步驟以排除不相關、多餘或高度相關的特性。
 
 從收集的原始資料擷取特性，通常可以增強機器學習服務中使用的定型資料。 學習環境中工程設計特性範例，分類手寫字元的影像的方式是是建立從原始位元分配資料建構的位元密度對應。 相較於直接使用原始分配，此對應有助於更有效地找出字元的界限。
+
+若要在特定環境中建立資料功能，請參閱下列文章：
+
+* [在 SQL Server 中建立資料的特性](create-features-sql-server.md)
+* [針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特徵](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 72eaa17e78086a4e5338bb3198ef7471c44b785f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: eb48e40007a25992a9a399176b6a4f93be89efc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234692"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344074"
 ---
 # <a name="subscribe-to-events-through-portal"></a>透過入口網站訂閱事件
 
@@ -45,6 +45,16 @@ ms.locfileid: "40234692"
 1. 提供有關事件訂閱的其他詳細資料，例如，用於處理事件的端點和訂閱名稱。
 
    ![提供訂閱詳細資料](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. 若要啟用無效信件功能及自訂重試原則，請選取 [其他功能]。
+
+   ![選取其他功能](./media/subscribe-through-portal/select-additional-features.png)
+
+1. 選取要用來儲存未傳遞事件的容器，並設定重試的傳送方式。
+
+   ![啟用無效信件功能並重試](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. 完成後，請選取 [建立]。
 
 ## <a name="create-subscription-on-resource"></a>建立資源相關的訂閱
 

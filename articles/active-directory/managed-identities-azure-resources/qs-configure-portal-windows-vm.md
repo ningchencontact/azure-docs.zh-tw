@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/19/2017
+ms.date: 11/10/2018
 ms.author: daveba
-ms.openlocfilehash: b73a79676be559ad491bd7bb16691369dd8fa271
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f0d207bb5db8d27765c608f07a9d2ed9dc2f08dd
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158626"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514990"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-vm-using-the-azure-portal"></a>使用 Azure 入口網站在虛擬機器上設定 Azure 資源的受控識別
 
@@ -33,12 +33,6 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
-- 若要執行本文中的管理作業，您的帳戶需要下列 Azure 角色型存取控制指派：
-
-    > [!NOTE]
-    > 不需要其他 Azure AD 目錄角色指派。
-
-    - [虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)，可從 Azure VM 啟用和移除系統指派的受控識別。
 
 ## <a name="system-assigned-managed-identity"></a>系統指派的受控識別
 
@@ -46,7 +40,9 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-a-vm"></a>在建立虛擬機器時啟用系統指派的受身分控識別
 
-若要在建立 VM 時啟用系統指派的受空識別，請在 [身分識別] 區段的 [管理] 索引標籤之下，將 [受控服務識別] 切換至 [開啟]。  
+若要於 VM 建立期間在 VM 上啟用系統指派的受控識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
+
+- 請在 [身分識別] 區段的 [管理] 索引標籤之下，將 [受控服務識別] 切換至 [開啟]。  
 
 ![在建立 VM 時啟用系統指派的身分識別](./media/msi-qs-configure-portal-windows-vm/enable-system-assigned-identity-vm-creation.png)
 
@@ -58,7 +54,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="enable-system-assigned-managed-identity-on-an-existing-vm"></a>在現有虛擬機器上啟用系統指派的受身分控識別
 
-若要在原本佈建時沒有使用系統指派身分識別的虛擬機器上啟用此受控識別：
+若要在原先佈建的 VM 上啟用系統指派的受控識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
 1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 
@@ -69,6 +65,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ![組態頁面螢幕擷取畫面](./media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
 ### <a name="remove-system-assigned-managed-identity-from-a-vm"></a>從虛擬機器移除系統指派的受控識別
+
+若要從 VM 中移除系統指派的受控識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
 如果您的虛擬機器不再需要系統指派的受控識別：
 
@@ -86,12 +84,16 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>在建立虛擬機器時指派使用者指派的身分識別
 
+若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
+
 目前，Azure 入口網站不支援在建立虛擬機器時指派使用者指派的受控識別。 相反地，請參閱下列其中一篇虛擬機器建立快速入門文章來先建立虛擬機器，然後繼續進行下一節，以了解如何對虛擬機器指派使用者指派的受控識別：
 
 - [使用 Azure 入口網站建立 Windows 虛擬機器](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [使用 Azure 入口網站建立 Linux 虛擬機器](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-vm"></a>將使用者指派的受控識別指派至現有虛擬機器
+
+若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
 1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至所需 VM，然後依序按一下 [身分識別]、[使用者指派] 和 [\+新增]。
@@ -103,6 +105,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
     ![將使用者指派的受控識別新增至虛擬機器](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
 ### <a name="remove-a-user-assigned-managed-identity-from-a-vm"></a>從虛擬機器移除使用者指派的受控識別
+
+若要從 VM 中移除使用者指派的身分識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
 1. 使用與包含虛擬機器的 Azure 訂用帳戶相關聯的帳戶，登入 [Azure 入口網站](https://portal.azure.com)。
 2. 瀏覽至所需的虛擬機器，按一下 [身分識別]、[使用者指派] 和想要刪除的使用者指派受控識別名稱，然後按一下 [移除] (按一下 [確認] 窗格中的 [是])。

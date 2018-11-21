@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: cce6685e98b7a67ab8e9e9ea35ccb492ae56da10
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 58643593970fa00822e79ed54f91d56c45ebba65
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018204"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578564"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定 Azure 資源受控識別
 
@@ -27,23 +27,15 @@ ms.locfileid: "48018204"
 
 Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控系統識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在此文章中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
+在本文中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
 
 - 在 Azure VM 上啟用和停用系統指派受控識別
 - 在 Azure VM 上新增和移除使用者指派受控識別
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)**。
 - 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
-- 若要執行此文章中的管理作業，您的帳戶需要下列 Azure 角色型存取控制指派：
-
-    > [!NOTE]
-    > 不需要其他 Azure AD 目錄角色指派。
-
-    - [虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)，可建立 VM，並從 Azure VM 啟用和移除系統和/或使用者指派的受控識別。
-    - [受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色，可建立使用者指派的識別。
-    - [受控識別操作員](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色，可為虛擬機器指派和移除使用者指派的受控識別。
 - 如果您使用的是 Windows，請安裝[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)，或使用 Azure 入口網站中的 [Azure Cloud Shell](../../cloud-shell/overview.md)。
 - 如果您使用的是[適用於 Linux 的 Windows 子系統](https://msdn.microsoft.com/commandline/wsl/about)或 [Linux 散發作業系統](/cli/azure/install-azure-cli-apt?view=azure-cli-latest)，請[安裝 Azure CLI 本機主控台](/cli/azure/install-azure-cli)。
 - 如果您使用的是 Azure CLI 本機主控台，請登入 Azure ，登入時請使用與您想要用於管理系統或使用者指派受控識別的 Azure 訂用帳戶相關聯的帳戶，搭配使用 `az login` 登入。
@@ -52,11 +44,11 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ## <a name="system-assigned-managed-identity"></a>系統指派的受控識別
 
-在此節中，您將了解如何使用 CURL 呼叫 Azure Resource Manager REST 端點，在 Azure VM 上啟用和停用系統指派的受控識別。
+在本節中，您將了解如何使用 CURL 呼叫 Azure Resource Manager REST 端點，在 Azure VM 上啟用和停用系統指派的受控識別。
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>在建立 Azure VM 時，啟用系統指派的受控識別
 
-若要啟用系統指派的受控識別來建立 Azure VM，您需要建立虛擬機器，並擷取存取權杖，才能使用 CURL 以系統指派的受控識別類型值呼叫 Resource Manager 端點。
+若要建立已啟用系統指派受控識別的 Azure VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
 1. 使用 [az group create](/cli/azure/group/#az-group-create)，為您的 VM 和其相關資源建立[資源群組](../../azure-resource-manager/resource-group-overview.md#terminology)。 如果您已經有想要使用的資源群組，您可以略過此步驟：
 
@@ -84,7 +76,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>在現有 Azure VM 上啟用系統指派的身分識別
 
-若要在現有的虛擬機器上啟用系統指派的識別，需要取得存取權杖，然後使用 CURL 呼叫 Resource Manager REST 端點來更新識別類型。
+若要在原先佈建的 VM 上啟用系統指派的受控識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
 1. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
@@ -121,7 +113,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>停用來自 Azure VM 的系統指派受控識別
 
-若要在現有的虛擬機器上停用系統指派的受控識別，需要取得存取權杖，然後使用 CURL 呼叫 Resource Manager REST 端點將識別類型更新為 `None`。
+若要在 VM 上停用系統指派的受控識別，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。  不需要其他 Azure AD 目錄角色指派。
 
 1. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
@@ -142,9 +134,11 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
-在此節中，您將了解如何使用 CURL 呼叫 Azure Resource Manager REST 端點，在 Azure VM 上新增和移除使用者指派的受控識別。
+在本節中，您將了解如何使用 CURL 呼叫 Azure Resource Manager REST 端點，在 Azure VM 上新增和移除使用者指派的受控識別。
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>在建立 Azure VM 時，指派使用者指派的受控識別
+
+若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
 1. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
@@ -182,6 +176,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>將使用者指派的受控識別指派至現有 Azure VM
+
+若要將使用者指派的身分識別指派給 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)和[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)角色指派。 不需要其他 Azure AD 目錄角色指派。
 
 1. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 
@@ -238,6 +234,8 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>從 Azure VM 移除使用者指派的受控識別
+
+若要將使用者指派的身分識別移除至 VM，您的帳戶需要[虛擬機器參與者](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor)角色指派。
 
 1. 擷取持有人存取權杖，在下一個步驟中，會使用此權杖搭配搭配系統指派的受控識別，在授權標頭中建立虛擬機器。
 

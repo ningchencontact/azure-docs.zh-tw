@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 08434007c7ef66349cae2a368d3be94ee522bab1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bfc2f40231b5e28ffa3721eef70311da8dcb6da9
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242343"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51343663"
 ---
 # <a name="discover-competitions-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中的競賽
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="cortana-intelligence-competitions"></a>Cortana Intelligence Competitions
-**[競賽](https://gallery.cortanaintelligence.com/competitions)** 提供了絕佳機會讓您與資料科學家社群較量，看誰能用 Cortana Intelligence Suite 解決複雜的問題。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)中的**[競賽](https://gallery.cortanaintelligence.com/competitions)** 提供了絕佳機會讓您與資料科學家社群較量，看誰能用 Cortana Intelligence Suite 解決複雜的問題。
 
 如需關於競賽之常見問題集的解答，請參閱 [Microsoft Cortana Intelligence 競賽常見問題集](competition-faq.md)。
 

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d13eb22bd58dc7e680a27738549665bc2b691898
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 4a39ee2fb057547c44c9eb08c85afdbb971ea5d5
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392205"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622399"
 ---
-# <a name="integrate-azure-ad-logs-with-sumologic-by-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 SumoLogic 整合 (預覽)
+# <a name="integrate-azure-active-directory-logs-with-sumologic-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure Active Directory 記錄與 SumoLogic 整合 (預覽)
 
 在此文章中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 SumoLogic 整合。 您首先會將記錄路由傳送至 Azure 事件中樞，然後將事件中樞與 SumoLogic 整合。
 

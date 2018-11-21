@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: b870be792da9a6646a7854bc17b7e33fb11d7b0c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2138eed9975abe804442c476d19b5b7229685362
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070163"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289184"
 ---
-# <a name="internet-of-things-security-best-practices"></a>物聯網安全性最佳做法
+# <a name="security-best-practices-for-internet-of-things-iot"></a>物聯網 (IoT) 的安全性最佳做法
 
 保護物聯網 (IoT) 基礎結構需要嚴格的深度安全性防禦策略。 此策略會要求您保護雲端中的資料、透過公用網際網路傳輸時保護資料完整性，以及安全地佈建裝置。 每一層都會在整體基礎結構中建置更佳的安全性保證。
 

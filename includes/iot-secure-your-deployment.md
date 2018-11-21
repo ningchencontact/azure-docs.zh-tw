@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 744d9929d7f82242d2bb75452b70b11af19b3af7
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49084226"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289167"
 ---
-# <a name="secure-your-iot-deployment"></a>保護您的 IoT 部署
+# <a name="secure-your-internet-of-things-iot-deployment"></a>保護您的物聯網 (IoT) 部署
 
-此文章針對以 Azure IoT 為主的物聯網 (IoT) 基礎結構提供更進一層的詳細資料。 它會連結到設定及部署每個元件的實作層級詳細資料。 另外也會提供各種競爭方法之間的比較和選擇。
+本文針對以 Azure IoT 為主的物聯網 (IoT) 基礎結構提供更進一層的詳細資料。 它會連結到設定及部署每個元件的實作層級詳細資料。 另外也會提供各種競爭方法之間的比較和選擇。
 
 保護 Azure IoT 部署可分為下列三個安全性區域：
 
@@ -37,7 +37,7 @@ IoT 解決方案加速器可使用下列兩個方法保護 IoT 裝置：
 
 * 使用裝置上的 [X.509 憑證](http://www.itu.int/rec/T-REC-X.509-201210-I/en)與私密金鑰做為向 IoT 中樞驗證裝置的方法。 這種驗證方法可在任何時候確保無法從裝置外部知道裝置上的私密金鑰，提供較高的安全性等級。
 
-安全性權杖方法藉由將裝置對 IoT 中樞所進行的每個呼叫與對稱金鑰建立關聯，提供每個呼叫的驗證。 X.509 型驗證允許實體層 IoT 裝置的驗證做為 TLS 連線建立作業的一部分。 安全性權杖型方法可不搭配 X.509 驗證使用，該驗證是較不安全的模式。 這兩種方法的選擇主要取決於裝置驗證所需的安全性有多高，以及裝置上安全存放裝置的可用性 (以安全地儲存私密金鑰)。
+安全性權杖方法藉由將裝置對 IoT 中樞所進行的每個呼叫與對稱金鑰建立關聯，提供每個呼叫的驗證。 X.509 型驗證允許實體層 IoT 裝置的驗證做為 TLS 連線建立作業的一部份。 安全性權杖型方法可不搭配 X.509 驗證使用，該驗證是較不安全的模式。 這兩種方法的選擇主要取決於裝置驗證所需的安全性有多高，以及裝置上安全存放裝置的可用性 (以安全地儲存私密金鑰)。
 
 ## <a name="iot-hub-security-tokens"></a>IoT 中樞安全性權杖
 
@@ -113,4 +113,4 @@ Azure IoT 中樞和可能屬於解決方案的其他服務，能允許使用 Azu
 
 ## <a name="conclusion"></a>結論
 
-此文章提供使用 Azure IoT 設計和部署 IoT 基礎結構的實作層級詳細資料概觀。 設定每個元件的安全保護，對於保護整體 IoT 基礎結構非常重要。 Azure IoT 中可用的設計選項提供了某種程度的彈性和選擇 ；不過，每個選擇都可能會影響安全性。 建議您透過風險/成本評估謹慎評估每個選擇。
+本文提供使用 Azure IoT 設計和部署 IoT 基礎結構的實作層級詳細資料概觀。 設定每個元件的安全保護，對於保護整體 IoT 基礎結構非常重要。 Azure IoT 中可用的設計選項提供了某種程度的彈性和選擇 ；不過，每個選擇都可能會影響安全性。 建議您透過風險/成本評估謹慎評估每個選擇。

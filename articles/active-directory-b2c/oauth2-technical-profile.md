@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f85de79b683ba7b10f5466c4a8042fc0ffdea90
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382397"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612470"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth2 技術設定檔
 
@@ -36,7 +36,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 ## <a name="input-claims"></a>輸入宣告
 
-**InputClaims** 和 **InputClaimsTransformations** 元素不是必要項目。 但您可以將其他參數傳送給識別提供者。 下列範例會將 **domain_hint** 查詢字串參數 (包含 `contoso.com` 的值) 新增至授權要求。
+**InputClaims** 和 **InputClaimsTransformations** 元素不是必要項目。 但您可能會想要將其他參數傳送至您的識別提供者。 下列範例會將 **domain_hint** 查詢字串參數 (包含 `contoso.com` 的值) 新增至授權要求。
 
 ```XML
 <InputClaims>
@@ -46,9 +46,9 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 ## <a name="output-claims"></a>輸出宣告
 
-**OutputClaims** 元素包含 OAuth2 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定 `DefaultValue` 屬性，您也可以包含識別提供者未傳回的宣告。
+**OutputClaims** 元素包含 OAuth2 識別提供者傳回的宣告清單。 您可能需要將原則中定義的宣告名稱對應至識別提供者中定義的名稱。 只要設定了 `DefaultValue` 屬性，也可以加入識別提供者未傳回的宣告。
 
-**OutputClaimsTransformations** 元素可能包含 **OutputClaimsTransformation** 的集合，用來修改輸出宣告或產生新的輸出宣告。
+**OutputClaimsTransformations** 元素可能含有 **OutputClaimsTransformation** 的集合，用於修改輸出宣告或產生新的輸出宣告。
 
 下列範例顯示 Facebook 識別提供者傳回的宣告：
 
@@ -108,7 +108,7 @@ Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供�
 
 當您設定識別提供者的重新導向 URL 時，請輸入 `https://login.microsoftonline.com/te/tenant/policyId/oauth2/authresp`。 請務必將 **tenant** 取代為您的租用戶名稱 (例如 contosob2c.onmicrosoft.com)，並將 **policyId** 取代為原則的識別碼 (例如 b2c_1a_policy)。 重新導向 URL 必須全部是小寫。
 
-如果您使用 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
+如果使用的是 **b2clogin.com** 網域，而非使用 **login.microsoftonline.com**，請務必使用 b2clogin.com，而非使用 login.microsoftonline.com。
 
 範例：
 

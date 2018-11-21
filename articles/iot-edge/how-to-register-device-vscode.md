@@ -2,18 +2,18 @@
 title: 註冊新的 Azure IoT Edge 裝置 (VS Code) |Microsoft 文件
 description: 使用 Visual Studio Code 在您的 Azure IoT 中樞中建立新的 IoT Edge 裝置
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7902461f58df1b4fe0c3ed3b577f668fe8be4cc2
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: cf9603c65454f076a494789e784c9352fb7bef33
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034548"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578700"
 ---
 # <a name="register-a-new-azure-iot-edge-device-from-visual-studio-code"></a>從 Visual Studio Code 註冊新的 Azure IoT Edge 裝置
 
@@ -21,7 +21,7 @@ ms.locfileid: "37034548"
 
 本文說明如何使用 Visual Studio Code (VS Code) 註冊新的 IoT Edge 裝置。 目前有多種方式可以在 VS Code 中執行大部分的操作。 本文使用總管，但您也可以使用命令選擇區來執行大部分的步驟。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * Azure 訂用帳戶中的 [IoT 中樞](../iot-hub/iot-hub-create-through-portal.md)
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -29,15 +29,15 @@ ms.locfileid: "37034548"
 
 ## <a name="sign-in-to-access-your-iot-hub"></a>登入以存取您的 IoT 中樞
 
-您可以使用適用於 Visual Studio Code 的 Azure IoT 擴充功能來透過 IoT 中樞執行各種操作。 若要讓這些操作有效，您需要登入 Azure 帳戶，並選取現用的 IoT 中樞。
+您可以使用適用於 Visual Studio Code 的 Azure IoT 擴充功能來透過 IoT 中樞執行各種操作。 為了讓這些作業發揮作用，您需要登入 Azure 帳戶，並選取現用的 IoT 中樞。
 
-1. 在 Visual Studio Code 中，開啟[總管] 檢視。
+1. 在 Visual Studio Code 中，開啟 [總管] 檢視。
 
 2. 在總管底部，展開 [Azure IoT 中樞裝置] 區段。 
 
    ![展開 Azure IoT 中樞裝置](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
-3. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 如果您沒有看到省略符號，將滑鼠停留在標頭上方。 
+3. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...**。 若未看到省略符號，請按一下標題或將滑鼠暫留在其上方。 
 
 4. 選擇 [選取 IoT 中樞]。
 
@@ -51,7 +51,7 @@ ms.locfileid: "37034548"
 
 1. 在 VS Code 總管中，展開 [Azure IoT 中樞裝置] 區段。 
 
-2. 按一下 [Azure IoT 中樞裝置] 區段標頭中的 [...]。 如果您沒有看到省略符號，將滑鼠停留在標頭上方。 
+2. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...**。 若未看到省略符號，請按一下標題或將滑鼠暫留在其上方。 
 
 3. 選取 [建立 IoT Edge 裝置]。 
 

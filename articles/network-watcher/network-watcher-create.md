@@ -14,16 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 9d3e579cd58bc6c7d67b29998ea5a48a65548b0a
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903995"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615192"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>建立 Azure 網路監看員執行個體
 
-網路監看員是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路案例層級條件。 案例層級監視可讓您在端對端網路層級檢視診斷問題。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。
+網路監看員是一項區域性服務，可讓您監視與診斷位於和進出 Azure 的網路案例層級條件。 案例層級監視可讓您在端對端網路層級檢視診斷問題。 網路監看員提供的網路診斷和視覺效果工具，可幫助您了解、診斷及洞悉您在 Azure 中的網路。 網路監看員會透過建立網路監看員資源來啟用。 這項資源可讓您使用網路監看員功能。
+
+## <a name="network-watcher-is-automatically-enabled"></a>網路監看員會自動啟用
+當您建立或更新訂用帳戶中的虛擬網路時，網路監看員將會在虛擬網路的區域中自動啟用。 自動啟用網路監看員不會對您的資源或相關費用造成任何影響。
+
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>退出自動啟用網路監看員
+如果您想要退出自動啟用網路監看員，執行下列命令即可達成：
+
+> [!WARNING]
+> 退出自動啟用網路監看員是永久性變更。 一旦退出，便無法在不[連絡支援服務](https://azure.microsoft.com/support/options/)的情況下加入
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+```
+
+```azurecli-interactive
+az feature register --name DisableNetworkWatcherAutocreation --namespace Microsoft.Network
+az provider register -n Microsoft.Network
+```
+
+
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>在入口網站中建立網路監看員
 

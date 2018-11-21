@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: dobett
-ms.openlocfilehash: 2c7857cd787e9298e94def5341d61238c5bb3a78
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 00b093b5567d85e7f12373020dfaa5f3ca7b0530
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321153"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514395"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>透過入口網站和 .NET 裝置開始使用 IoT 中樞模組身分識別和模組對應項
 
@@ -24,8 +24,9 @@ ms.locfileid: "49321153"
 
 在本教學課程中，您將了解：
 
-1. 了解如何在入口網站中建立模組身分識別。 
-1. 如何從您的裝置使用 .NET 裝置 SDK 更新模組對應項。
+1. 如何在入口網站中建立模組身分識別。 
+
+2. 如何從您的裝置使用 .NET 裝置 SDK 更新模組對應項。
 
 > [!NOTE]
 > 如需可用來建置兩個應用程式，以在裝置與您的解決方案後端執行之 Azure IoT SDK 的相關資訊，請參閱 [Azure IoT SDK][lnk-hub-sdks]。
@@ -36,21 +37,17 @@ ms.locfileid: "49321153"
 * Visual Studio 2015 或 Visual Studio 2017。
 * 使用中的 Azure 帳戶。 (如果您沒有帳戶，只需要幾分鐘的時間就可以建立[免費帳戶][lnk-free-trial]。)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
-## <a name="create-a-device-identity-in-the-portal"></a>在入口網站中建立裝置身分識別
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-您現在有自己的 IoT 中樞。 開啟[入口網站](https://portal.azure.com)，然後瀏覽至 IoT 中樞。 在 IoT 裝置上按一下，然後按一下 [新增] 以建立裝置身分識別。 將它命名為 **MyFirstDevice**。 
+### <a name="retrieve-connection-string-for-iot-hub"></a>擷取 IoT 中樞的連接字串
 
-  ![建立裝置身分識別][8]
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-儲存之後，在裝置身分識別清單中，您可以看到已成功建立 MyFirstDevice 身分識別。
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中樞註冊新的裝置
 
-  ![已建立裝置識別碼][11]
-
-現在按一下資料列。 您會看見裝置詳細資料。
-
-  ![裝置詳細資料][10]
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-module-identity-in-the-portal"></a>在入口網站中建立模組身分識別
 
@@ -173,14 +170,11 @@ private static void ConnectionStatusChangeHandler(ConnectionStatus status, Conne
 
 
 <!-- Images. -->
-[8]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-device-id.JPG
-[9]:./media\iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
-[10]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-details.JPG
-[11]:./media\iot-hub-portal-csharp-module-twin-getstarted/device-id-created.JPG
-[12]:./media\iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
-[13]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
-[14]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
+[9]:./media/iot-hub-portal-csharp-module-twin-getstarted/create-module-id.JPG
+[12]:./media/iot-hub-portal-csharp-module-twin-getstarted/module-details.JPG
+[13]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG
+[14]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png
+[15]: ./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
 <!-- Links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/

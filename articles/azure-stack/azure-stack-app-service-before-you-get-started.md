@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 786f6ca3b3a1ad26d36c751c54d3cf69ae1d2fd4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240863"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615869"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
@@ -28,7 +28,7 @@ ms.locfileid: "50240863"
 在部署 Azure Stack 上的 Azure App Service 之前，您必須完成本文中的先決條件步驟。
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下載安裝程式與協助程式指令碼
 
@@ -44,6 +44,10 @@ ms.locfileid: "50240863"
    - Remove-AppService.ps1
    - Modules 資料夾
      - GraphAPI.psm1
+
+## <a name="syndicate-the-custom-script-extension-from-the-marketplace"></a>從 Marketplace 同步發佈自訂指令碼擴充功能
+
+Azure App Service on Azure Stack 需要自訂指令碼擴充功能 v1.9.0。  此擴充功能必須先[從 Marketplace 同步發佈](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item)，才能開始部署或升級 Azure App Service on Azure Stack。
 
 ## <a name="high-availability"></a>高可用性
 
@@ -151,6 +155,9 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 
 ## <a name="virtual-network"></a>虛擬網路
 
+> [!NOTE]
+> 預先建立自訂虛擬網路為選擇性作業，因為 Azure App Service on Azure Stack 可以建立所需的虛擬網路，但之後需要透過公用 IP 位址與 SQL 和檔案伺服器進行通訊。
+
 Azure Stack 上的 Azure App Service 可讓您將資源提供者部署至現有的虛擬網路，或者讓您在部署時建立一個虛擬網路。 使用現有的虛擬網路時，便能以內部 IP 連線至 Azure Stack 上的 Azure App Service 所需檔案伺服器和 SQL Server。 安裝 Azure Stack 上的 Azure App Service 之前，您必須為虛擬網路設定下列位址範圍和子網路：
 
 虛擬網路 - /16
@@ -167,12 +174,20 @@ Azure Stack 上的 Azure App Service 可讓您將資源提供者部署至現有�
 
 Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，必須將檔案伺服器設定為高度可用，且能夠處理失敗。
 
+### <a name="quickstart-template-for-file-server-for-deployments-of-azure-app-service-on-asdk"></a>可供檔案伺服器部署 Azure App Service on ASDK 的快速入門範本。
+
 若是只部署 Azure Stack 開發套件，您可以使用[範例 Azure Resource Manager 部署範本](https://aka.ms/appsvconmasdkfstemplate)來部署已設定的單一節點檔案伺服器。 單一節點檔案伺服器會位於工作群組中。
+
+### <a name="quickstart-template-for-highly-available-file-server-and-sql-server"></a>高可用性檔案伺服器和 SQL Server 的快速入門範本
+
+現已提供[參考架構快速入門範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha)，該範本會部署檔案伺服器、SQL Server，並在設定為支援 Azure App Service on Azure Stack 高可用性部署的虛擬網路中支援 Active Directory 基礎結構。  
+
+### <a name="steps-to-deploy-a-custom-file-server"></a>部署自訂檔案伺服器的步驟
 
 >[!IMPORTANT]
 > 如果您選擇在現有的虛擬網路中部署 App Service，則應該將「檔案伺服器」部署至與 App Service 不同的子網路。
 
-### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
+#### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中佈建群組和帳戶
 
 1. 建立下列 Active Directory 全域安全性群組：
 
@@ -195,7 +210,7 @@ Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，�
    - 將 **FileShareOwner** 新增至 **FileShareOwners** 群組。
    - 將 **FileShareUser** 新增至 **FileShareUsers** 群組。
 
-### <a name="provision-groups-and-accounts-in-a-workgroup"></a>在工作群組中佈建群組和帳戶
+#### <a name="provision-groups-and-accounts-in-a-workgroup"></a>在工作群組中佈建群組和帳戶
 
 >[!NOTE]
 > 當您設定檔案伺服器時，請從**系統管理員命令提示字元**中執行下列所有命令。 <br>***不要使用 PowerShell。***
@@ -225,7 +240,7 @@ Azure App Service 需要使用檔案伺服器。 在實際執行的部署中，�
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### <a name="provision-the-content-share"></a>佈建內容共用
+#### <a name="provision-the-content-share"></a>佈建內容共用
 
 內容共用包含租用戶網站內容。 在單一檔案伺服器上佈建內容共用的程序與在 Active Directory 和工作群組環境中均相同。 但是對於 Active Directory 中的容錯移轉叢集則不同。
 
