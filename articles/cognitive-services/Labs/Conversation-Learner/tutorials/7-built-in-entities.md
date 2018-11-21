@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260052"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683491"
 ---
 # <a name="how-to-add-pre-built-entities"></a>如何新增預先建立的實體
 本教學課程示範如何將「預先建置」的實體新增至對話學習模組模型。
@@ -47,24 +47,25 @@ ms.locfileid: "51260052"
     - 將會停用 [可程式化] 和 [不可取消] 選項，因為它們不會套用到預先建置的實體。
 3. 按一下 [建立]。
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>建立兩個動作
 
-1. 按一下 [動作]，然後按一下 [新增動作]
-2. 在 [回應] 中，鍵入「日期是 $luis-datetimev2」。
-3. 按一下 [建立]。
+1. 按一下 [動作]，然後按一下 [新增動作]。
+1. 在 [回應] 中，鍵入「日期是 $builtin-datetimev2」。
+1. 在 [必要的實體] 中，輸入 '$builtin-datetimev2'。
+1. 按一下 [建立]。
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 然後建立第二個動作：
 
 1. 按一下 [動作]，然後按一下 [新增動作] 建立第二個動作。
-3. 在 [回應] 中，鍵入「日期為何？」。
-4. 在 [不合格的實體] 中，輸入 'luis-datetimev2'。
-4. 按一下 [建立專案]。
+1. 在 [回應] 中，鍵入「日期為何？」。
+1. 在 [不合格的實體] 中，輸入 '$builtin-datetimev2'。
+1. 按一下 [建立]。
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 現在您有兩個動作。
 
@@ -75,11 +76,11 @@ ms.locfileid: "51260052"
 3. 按一下 [分數動作]，並選取 [日期為何？]
 2. 輸入「今天」。 
     - 請注意，今天已加上標籤，並顯示在第二行，因為它是預先建立的實體，而且不可編輯。
-5. 按一下 [分數動作]
+5. 按一下 [Score Actions]\(評分動作\)。
     - 請注意，日期現在會出現在 [實體記憶體] 區段中。 
     - 如果您將滑鼠移到日期上，則會看到 LUIS 所提供的其他資料，這些資料可供使用，而且可以進一步在程式碼中操作。 
-6. 選取「日期是 $luis-datetimev2」。
-7. 按一下 [Done Teaching]\(完成教學\)
+6. 選取「日期是 $builtin-datetimev2」。
+7. 按一下 [Done Teaching]\(完成教學\)。
 
 ## <a name="next-steps"></a>後續步驟
 

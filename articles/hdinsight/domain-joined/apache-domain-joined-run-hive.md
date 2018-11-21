@@ -9,15 +9,15 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: bdad0bac0d320b641359df4093ae10c9505b7de2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43b3e293bf2990c953aeb2947b1113ee30175dee
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993420"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632810"
 ---
-# <a name="configure-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Hive 原則
-了解如何針對 Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
+# <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight 中設定 Apache Hive 原則
+了解如何針對 Apache Hive 設定 Apache Ranger 原則。 在本文中，您會建立兩個 Ranger 原則來限制 hivesampletable 的存取權。 HDInsight 叢集隨附 hivesampletable。 設定原則之後，您可以使用 Excel 和 ODBC 驅動程式連接到 HDInsight 中的 Hive 資料表。
 
 ## <a name="prerequisites"></a>必要條件
 * 具有企業安全性套件的 HDInsight 叢集。 請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
@@ -101,8 +101,8 @@ ms.locfileid: "46993420"
 4. 從 ODBC 資料來源中，選取您在上一個步驟中建立的資料來源名稱，然後按 [下一步] 。
 5. 在精靈中重新輸入叢集的密碼，然後按一下 [確定]。 等待 [選取資料庫及資料表]  對話方塊開啟。 這可能需要幾秒鐘的時間。
 6. 選取 **hivesampletable**，然後按 [下一步]。
-7. 按一下 [完成]。
-8. 在 [匯入資料] 對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性]。 這可能需要幾秒鐘的時間。
+7. 按一下 [完成] 。
+8. 在 [匯入資料]  對話方塊中，您可以變更或指定查詢。 若要執行此動作，請按一下 [屬性] 。 這可能需要幾秒鐘的時間。
 9. 按一下 [定義] 索引標籤。命令文字如下：
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
@@ -134,6 +134,6 @@ ms.locfileid: "46993420"
 * 如需設定具有企業安全性套件的 HDInsight 叢集，請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需管理具有 ESP 的 HDInsight 叢集，請參閱[管理具有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md)。
 * 如需在具有 ESP 的 HDInsight 叢集上使用 SSH 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)。
-* 如需使用 Hive JDBC 連接 Hive，請參閱[使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
+* 如需使用 Hive JDBC 連接 Hive，請參閱 [使用 Hive JDBC 驅動程式連接到 Azure HDInsight 上的 Hive](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)
 * 如需使用 Hive ODBC 將 Excel 連接到 Hadoop，請參閱[使用 Microsoft Hive ODBC 驅動程式將 Excel 連接到 Hadoop](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)
 * 如需使用 Power Query 將 Excel 連接到 Hadoop，請參閱[使用 Power Query 將 Excel 連接到 Hadoop](../hadoop/apache-hadoop-connect-excel-power-query.md)

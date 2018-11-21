@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8d344adc367eb9b93e52d9423a2ab4dda657b298
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115534"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632725"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -24,11 +24,11 @@ ms.locfileid: "49115534"
 
 在管理方面，HDInsight 依賴廣受使用的識別提供者 – Active Directory。 藉由 HDInsight 與 [Azure Active Directory Domain Services (Azure AD DS)](../../active-directory-domain-services/active-directory-ds-overview.md) 的整合，您可以使用網域認證來存取叢集。 
 
-HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過驗證的使用者都能夠順暢地使用在 HDInsight 上執行的所有服務 (Ambari、Hive 伺服器、Ranger、Spark Thrift 伺服器等等)。 接著，系統管理員可使用 Apache Ranger 來建立強式授權原則，為叢集中的資源提供角色型存取控制。
+HDInsight 中的虛擬機器 (VM) 會加入您提供的網域。 因此，經過驗證的使用者都能夠順暢地使用在 HDInsight 上執行的所有服務 (Apache Ambari、Apache Hive 伺服器、Apache Ranger、Apache Spark Thrift 伺服器等等)。 接著，系統管理員可使用 Apache Ranger 來建立強式授權原則，為叢集中的資源提供角色型存取控制。
 
 ## <a name="integrate-hdinsight-with-active-directory"></a>整合 HDInsight 與 Active Directory
 
-開放原始碼 Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
+開放原始碼 Apache Hadoop 須依賴 Kerberos 來提供驗證和安全性。 因此，有企業安全性套件 (ESP) 的 HDInsight 叢集節點都會加入由 Azure AD DS 管理的網域。 針對叢集上的 Hadoop 元件，會設定 Kerberos 安全性。 
 
 系統會自動建立下列事項：
 - 每個 Hadoop 元件的服務主體 

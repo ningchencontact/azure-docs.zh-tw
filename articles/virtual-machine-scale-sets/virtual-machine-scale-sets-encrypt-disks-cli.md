@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: cynthn
-ms.openlocfilehash: c8035a87816c56daa5ac9e1f95b40d15fa556cd9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 1ae352a0292e75eb9a5bf07e3ddca79ca687dea2
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465152"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687379"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>使用 Azure CLI (預覽) 加密虛擬機器擴展集中的 OS 與連結的資料磁碟
 
@@ -48,7 +48,7 @@ Azure 磁碟加密支援：
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature#az_feature_show) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider#az_provider_register) 重新登錄 *Mirosoft.Compute* 提供者：
+註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature#az_feature_show) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider#az_provider_register) 重新登錄 *Microsoft.Compute* 提供者：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute

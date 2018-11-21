@@ -1,5 +1,5 @@
 ---
-title: 序列化 Hadoop 中的資料 - Microsoft Avro Library - Azure
+title: 序列化 Apache Hadoop 中的資料 - Microsoft Avro Library - Azure
 description: 了解如何使用 Microsoft Avro Library 序列化和還原序列化 HDInsight 上 Hadoop 中的資料來保存到記憶體、資料庫或檔案中。
 keywords: avro, hadoop avro
 services: hdinsight
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 5928c6490c9de6c48b75800158b8298007d7b8ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ae728cd1cfc27a17badcce319a8cd047b54ddb1e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246900"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634000"
 ---
-# <a name="serialize-data-in-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 將 Hadoop 中的資料序列化
+# <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>使用 Microsoft Avro Library 將 Apache Hadoop 中的資料序列化
 
 >[!NOTE]
 >Microsoft 不再支援 Avro SDK。 該程式庫由開放原始碼社群來支援。 該程式庫的來源位於 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)。
@@ -52,17 +52,8 @@ Azure HDInsight 和其他 Apache Hadoop 環境中廣泛採用了 Apache Avro 序
 * <a href="https://www.microsoft.com/download/details.aspx?id=17851" target="_blank">Microsoft .NET Framework 4</a>
 * <a href="http://james.newtonking.com/json" target="_blank">Newtonsoft Json.NET</a> (6.0.4 或更新版本)
 
-請注意，Newtonsoft.Json.dll 相依性也會隨著安裝 Microsoft Avro Library 自動下載。 此程序會在下一節中提供：
-
-Microsoft Avro 程式庫會以 NuGet 封裝發行，您可以透過下列程序在 Visual Studio 中安裝 NuGet 封裝：
-
-1. 依序選取 [專案] 索引標籤 -> [管理 NuGet 封裝]
-2. 在 [ **線上搜尋** ] 方塊中搜尋 "Microsoft.Hadoop.Avro"。
-3. 按一下 [Microsoft Azure HDInsight Avro Library] 旁的 [安裝] 按鈕。
-
-請注意，Newtonsoft.Json.dll (>=6.0.4) 相依性也會隨著 Microsoft Avro Library 自動下載。
-
-Microsoft Avro Library 原始程式碼可在 [Github](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro) 取得。
+> [!Note]
+> Microsoft Avro Library 不再以 NuGet 套件形式的提供。 如果您想要使用 Avro Library，請複製 [Microsoft.Hadoop.Avro Github 存放庫](https://github.com/Azure/azure-sdk-for-net/tree/master/src/ServiceManagement/HDInsight/Microsoft.Hadoop.Avro)，並在您的電腦上編譯程式碼。
 
 ## <a name="compile-schemas-using-avro-library"></a>使用 Avro Library 來編譯結構描述
 Microsoft Avro Library 包含程式碼產生公用程式，可允許自動依據先前定義的 JSON 結構描述來建立 C# 類型。 程式碼產生公用程式未以二進位執行檔的形式散佈，但可透過下列程序輕鬆建置：

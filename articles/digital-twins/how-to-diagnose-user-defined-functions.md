@@ -6,14 +6,14 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: 852b2d35ae605f5529d162d52655fd258ca07c5a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946091"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636266"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中使用使用者定義函式的問題偵錯
 
@@ -42,12 +42,12 @@ Azure Digital Twins 執行個體的記錄和計量是透過 Azure 監視器公�
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| 自訂屬性名稱 | 取代為 |
+| 查詢值 | 更換為 |
 | --- | --- |
-| *yourCorrelationIdentifier* | 針對事件資料指定的相互關聯識別碼 |
+| YOUR_CORRELATION_IDENTIFIER | 針對事件資料指定的相互關聯識別碼 |
 
 如果您記錄使用者定義函式，這些記錄檔將會出現在類別為 `UserDefinedFunction` 的 Azure Log Analytics 執行個體中。 若要擷取這些記錄檔，請在 Azure Log Analytics 中輸入下列查詢條件：
 
@@ -62,6 +62,8 @@ AzureDiagnostics
 
 為解決方案進行疑難排解時，診斷並找出常見問題很重要。 以下摘要說明開發使用者定義函式時所碰到的幾個常見問題。
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### <a name="ensure-a-role-assignment-was-created"></a>請確定已建立角色指派
 
 如果沒有在管理 API 中建立的角色指派，使用者定義函式將沒有執行任何動作的存取權，例如傳送通知、擷取中繼資料，以及在拓撲內設定計算的值。
@@ -69,13 +71,12 @@ AzureDiagnostics
 透過管理 API 檢查使用者定義函式是否存在角色指派：
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| 自訂屬性名稱 | 取代為 |
+| 參數 | 更換為 |
 | --- | --- |
-| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
-| *yourUserDefinedFunctionId* | 擷取其角色指派之使用者定義函式的識別碼|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | 擷取其角色指派之使用者定義函式的識別碼|
 
 如果未擷取任何角色指派，則依照本文中的[如何為使用者定義函式建立角色指派](./how-to-user-defined-functions.md)進行。
 
@@ -84,14 +85,13 @@ GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&o
 如果針對 Azure Digital Twins 執行個體的管理 API 進行下列呼叫，您將能夠判斷指定的比對器是否適用於指定的感應器。
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| 自訂屬性名稱 | 取代為 |
+| 參數 | 更換為 |
 | --- | --- |
-| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
-| *yourMatcherIdentifier* | 您想要評估之比對器的識別碼 |
-| *yourSensorIdentifier* | 您想要評估之感應器的識別碼 |
+| *YOUR_MATCHER_IDENTIFIER* | 您想要評估之比對器的識別碼 |
+| *YOUR_SENSOR_IDENTIFIER* | 您想要評估之感應器的識別碼 |
 
 回應：
 
@@ -109,13 +109,12 @@ GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluat
 如果針對 Azure Digital Twins 執行個體的管理 API 進行下列呼叫，您可以判斷所指定感應器內送遙測資料觸發之使用者定義函式的識別碼：
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| 自訂屬性名稱 | 取代為 |
+| 參數 | 更換為 |
 | --- | --- |
-| *yourManagementApiUrl* | 管理 API 的完整 URL 路徑  |
-| *yourSensorIdentifier* | 將傳送遙測資料之感應器的識別碼 |
+| *YOUR_SENSOR_IDENTIFIER* | 將傳送遙測資料之感應器的識別碼 |
 
 回應：
 

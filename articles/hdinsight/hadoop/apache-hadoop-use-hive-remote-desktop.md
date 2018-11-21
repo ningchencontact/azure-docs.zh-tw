@@ -1,5 +1,5 @@
 ---
-title: 在 HDInsight 中使用 Hadoop Hive 與遠端桌面 - Azure
+title: 在 HDInsight 中使用 Apache Hive 與遠端桌面 - Azure
 description: 學習如何使用遠端桌面連接到 HDInsight 中的 Hadoop 叢集，然後使用 Hive 命令列介面執行 Hive 查詢。
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 32fb2bc9514b911d0a1ce295eee651e4b6b6388a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015072"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634204"
 ---
-# <a name="use-hive-with-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面搭配使用 Hive 與 HDInsight 上的 Hadoop
+# <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面搭配使用 Apache Hive 與 HDInsight 上的 Apache Hadoop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 在本文中，您將學習如何使用遠端桌面連接到 HDInsight 叢集，然後使用 Hive 命令列介面 (CLI) 執行 Hive 查詢。

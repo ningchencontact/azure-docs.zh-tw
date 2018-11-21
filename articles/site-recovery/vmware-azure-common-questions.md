@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012100"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636810"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
@@ -110,6 +110,8 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 - 處理序伺服器，可作為複寫閘道。 它會接收複寫資料、使用快取、壓縮和加密加以最佳化，然後將其傳送至 Azure 儲存體。處理序伺服器也會在您要複寫的 VM 上安裝行動服務，並且在內部部署 VMware VM 上執行自動探索。
 - 主要目標伺服器，會在從 Azure 容錯回復期間處理複寫資料。
 
+[深入了解](vmware-azure-architecture.md)組態伺服器元件和程序。
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>我應在何處設定組態伺服器？
 您需要具有高可用性的單一內部部署 VMware VM，供組態伺服器使用。
 
@@ -126,15 +128,35 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>是否可將組態伺服器裝載在 Azure 中？
 雖然可行，但執行組態伺服器的 Azure VM 將需要與您的內部部署 VMware 基礎結構和 VM 通訊。 這會加入延遲，並影響進行中的複寫。
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>哪裡可以取得最新版的組態伺服器範本？
-請從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版本。
-
 ### <a name="how-do-i-update-the-configuration-server"></a>如何更新組態伺服器？
-您可以安裝更新彙總套件。 您可以在 [Wiki 更新頁面](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx)中找到最新的更新資訊。
+[深入了解](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)如何更新組態伺服器。 您可以在 [Azure 更新頁面](https://azure.microsoft.com/updates/?product=site-recovery)中找到最新的更新資訊。 您也可以直接從 [Microsoft 下載中心](https://aka.ms/asrconfigurationserver)下載最新版的設定伺服器。
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>我是否應該備份已部署的組態伺服器？
 建議對於組態伺服器進行定期排程的備份。 為了成功容錯回復，進行容錯回復的虛擬機器必須存在於組態伺服器資料庫，而且組態伺服器必須執行中且處於連線狀態。 您可在[此處](vmware-azure-manage-configuration-server.md)深入了解常見組態伺服器管理工作。
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>在設定組態伺服器時，是否可以手動下載並安裝 MySQL？
+是。 請下載 MySQL 並將它放在 **C:\Temp\ASRSetup** 資料夾中。 然後再手動加以安裝。 當您設定組態伺服器 VM 時，如果您接受條款，MySQL 在 [下載並安裝] 中就會列示為 [已安裝]。
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>是否可以不要下載 MySQL 而讓 Site Recovery 加以安裝？
+是。 請下載 MySQL 安裝程式，並將它放在 **C:\Temp\ASRSetup** 資料夾中。  當您設定組態伺服器 VM 時，只要接受條款，再按一下 [下載並安裝]，入口網站就會使用您新增的安裝程式來安裝 MySQL。
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>組態伺服器 VM 是否可用於任何其他位置？
+否，VM 只能用於組態伺服器上。 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>是否可變更組態伺服器中註冊的保存庫？
+否。 保存庫在組態伺服器中註冊後，即無法變更。
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>是否可將相同的組態伺服器用於 VMware VM 和實體伺服器的災害復原
+是，但請注意，實體機器只能容錯回復到 VMware VM。
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>哪裡可以下載組態伺服器的複雜密碼？
+請[檢閱此文](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase)，以了解如何下載複雜密碼。
+
+### <a name="where-can-i-download-vault-registration-keys"></a>哪裡可以下載保存庫註冊金鑰？
+
+在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
+
+
 
 ## <a name="mobility-service"></a>行動服務
 

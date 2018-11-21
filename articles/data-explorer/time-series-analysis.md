@@ -1,6 +1,6 @@
 ---
 title: Azure 資料總管的時間序列分析
-description: 了解 Azure 資料總管中的時間序列分析
+description: '了解 Azure 資料總管中的時間序列分析 '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: fafaf0b4721c45b002e67896223877da43d66e56
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 53ef96b561ccaa1480125f2c509381e980084b7a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51220011"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636670"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 資料總管中的時間序列分析
 
@@ -35,7 +35,7 @@ demo_make_series1 | take 10
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | 國家/地區 |
+|   | TimeStamp | BrowserVer | OsVer | 國家 (地區) |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | 英國 |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | 英國 |
@@ -57,10 +57,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- 使用 [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) 運算子來建立含三個時間序列的集合，其中：
+- 使用 [`make-series`](/azure/kusto/query/make-seriesoperator) 運算子來建立含三個時間序列的集合，其中：
     - `num=count()`：流量的時間序列
     - `range(min_t, max_t, 1h)`：在時間範圍 (資料表記錄的最舊和最新時間戳記) 內，以 1 小時的間隔來建立時間序列
-    - `default=0`：指定填滿遺漏間隔的方法以來建立標準時間序列。 或者，使用 [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction)、[`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction)、[`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) 及 [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) 進行變更
+    - `default=0`：指定填滿遺漏間隔的方法以來建立標準時間序列。 或者，使用 [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction)、[`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction)、[`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) 及 [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) 進行變更
     - `byOsVer`：依 OS 分割
 - 實際的時間序列資料結構是每個時間間隔中彙總值的數值陣列。 我們使用 `render timechart` 來產生視覺效果。
 
@@ -71,14 +71,14 @@ demo_make_series1
 ## <a name="time-series-analysis-functions"></a>時間序列分析函式
 
 在本節中，我們將執行一般序列處理函式。
-建立一組時間序列之後，ADX 就能支援持續增長的函式清單來處理和分析它們，您可以在[時間序列文件](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa) \(英文\) 中找到這些函式。 我們將說明數個可用來處理和分析時間序列的代表性函式。
+建立一組時間序列之後，ADX 就能支援持續增長的函式清單來處理和分析它們，您可以在[時間序列文件](/azure/kusto/query/machine-learning-and-tsa) \(英文\) 中找到這些函式。 我們將說明數個可用來處理和分析時間序列的代表性函式。
 
 ### <a name="filtering"></a>篩選
 
 篩選是單一處理中的常見做法，非常適合用於時間序列處理工作 (例如，緩和吵雜的訊號、變更偵測)。
 - 有兩個泛型篩選函式：
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction)：套用 FIR 篩選。 用於移動時間序列平均和差異的簡單計算，以進行變更偵測。
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction)：套用 IIR 篩選。 用於指數平滑和累計總和。
+    - [`series_fir()`](/azure/kusto/query/series-firfunction)：套用 FIR 篩選。 用於移動時間序列平均和差異的簡單計算，以進行變更偵測。
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction)：套用 IIR 篩選。 用於指數平滑和累計總和。
 - `Extend` 時間序列，此時間序列會透過在查詢中新增大小 5 個間隔的新移動平均序列 (名為 *ma_num*) 來設定：
 
 ```kusto
@@ -95,8 +95,8 @@ demo_make_series1
 ### <a name="regression-analysis"></a>迴歸分析
 
 ADX 支援使用分段線性迴歸分析來評估時間序列的趨勢。
-- 使用 [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) \(英文\)，以使最佳線條擬合至某個時間序列以進行一般趨勢偵測。
-- 使用 [series_fit_2lines](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) \(英文\) 來偵測趨勢變更 (相對於基準線)，這類變更對於監視案例非常實用。
+- 使用 [series_fit_line()](/azure/kusto/query/series-fit-linefunction) \(英文\)，以使最佳線條擬合至某個時間序列以進行一般趨勢偵測。
+- 使用 [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) \(英文\) 來偵測趨勢變更 (相對於基準線)，這類變更對於監視案例非常實用。
 
 時間序列查詢中的 `series_fit_line()` 和 `series_fit_2lines()` 函式範例：
 
@@ -128,8 +128,9 @@ demo_series3
 
 ![季節性時間序列](media/time-series-analysis/time-series-seasonality.png)
 
-- 使用 [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) \(英文\) 自動偵測時間序列中的期間。 
-- 如果我們知道計量應具備特定的相異期間，而且想要確認它們存在，請使用 [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) \(英文\)。
+- 使用 [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) \(英文\) 自動偵測時間序列中的期間。 
+- 如果我們知道計量應具備特定的相異期間，而且想要確認它們存在，請使用 [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) \(英文\)。
+
 > [!NOTE]
 > 如果特定的相異期間不存在，則為異常狀況
 
@@ -150,7 +151,7 @@ demo_series3
 
 ### <a name="element-wise-functions"></a>元素型函式
 
-您可以針對時間序列進行算術和邏輯運算。 我們可以使用 [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) \(英文\) 來計算剩餘的時間序列，即原始未經處理的計量和經過平滑處理之時間序列間的差異，並尋找剩餘訊號中的異常狀況：
+您可以針對時間序列進行算術和邏輯運算。 我們可以使用 [series_subtract()](/azure/kusto/query/series-subtractfunction) \(英文\) 來計算剩餘的時間序列，即原始未經處理的計量和經過平滑處理之時間序列間的差異，並尋找剩餘訊號中的異常狀況：
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -165,7 +166,9 @@ demo_make_series1
 
 ![時間序列作業](media/time-series-analysis/time-series-operations.png)
 
-藍色：原始時間序列，紅色：經過平滑處理的時間序列，綠色：剩餘的時間序列
+- 藍色：原始時間序列
+- 紅色：平滑時間序列
+- 綠色：剩餘時間序列
 
 ## <a name="time-series-workflow-at-scale"></a>大規模的時間序列工作流程
 
@@ -255,6 +258,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-ADX 已在兩分鐘內偵測到兩個異常的時間序列 (共 23115 個)，其中的讀取計數突然下降。
+ADX 在兩分鐘內分析了超過 20,000 個時間序列，並偵測到兩個異常的時間序列，其中的讀取計數突然下降。
 
 這些與 ADX 快速效能相結合的進階功能會提供唯一且功能強大的解決方案來進行時間序列分析。

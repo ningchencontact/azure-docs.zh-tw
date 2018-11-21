@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280668"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685696"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
@@ -59,12 +59,13 @@ Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤�
 1. [驗證範本部署中的 GUID 已成功建立](#verify-the-guid-deployment)。
 
 ### <a name="sample-resource-manager-template-code"></a>範例 Resource Manager 範本程式碼
-在將下列範例程式碼新增至主要範本檔案時，請務必使用您自己的輸入對該範例進行修改。
+
+若要啟用範本的追蹤資源，您必須在資源區段下新增下列其他資源。 在將下列範例程式碼新增至主要範本檔案時，請務必使用您自己的輸入對該範例進行修改。
 資源只需要新增至 **mainTemplate.json** 或 **azuredeploy.json** 檔案，不可新增至任何巢狀或連結的範本。
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
@@ -126,14 +127,14 @@ GUID 是具有 32 個十六進位數字的參考號碼。 若要建立 GUID 來�
 > [!Note]
 > 強烈建議您使用 [Azure 儲存體的 GUID 產生器表單](https://aka.ms/StoragePartners)來建立您的 GUID。 如需詳細資訊，請參閱[常見問題集](#faq)。
 
-為每個供應項目與散發通道都建立唯一的 GUID。 若您已使用範本部署兩個解決方案，且每個解決方案都可以在 Azure Marketplace 與 GitHub 上取得，您必須建立四個 GUID：
+建議您為每個產品的每個供應項目與散發通道建立唯一的 GUID。 如果您不想要分割報告，您可以讓產品的多個散發通道使用單一 GUID。 
 
-*   Azure Marketplace 中的供應項目 A 
-*   GitHub 上的供應項目 A
-*   Azure Marketplace 中的供應項目 B 
-*   GitHub 上的供應項目 B
+若您使用範本部署產品，且該產品在 Azure Marketplace 與 GitHub 上都有提供，您必須建立並註冊 2 個相異的 GUID：
 
-回報是由合作夥伴值 (Microsoft 合作夥伴 ID) 與 GUID 所完成。 
+*   Azure Marketplace 中的產品 A 
+*   GitHub 上的產品 A
+
+報告是由合作夥伴值 (Microsoft 合作夥伴 ID) 與 GUID 所完成。 
 
 您也能以更細微的層級來追蹤 GUID (例如，供應項目的變體 SKU)。
 

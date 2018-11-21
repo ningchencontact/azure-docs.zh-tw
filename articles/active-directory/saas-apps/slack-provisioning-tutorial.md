@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264142"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636538"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教學課程︰設定 Slack 來自動佈建使用者
 
@@ -57,7 +57,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 本節會引導您將 Azure AD 連接至 Slack 的使用者帳戶佈建 API，以及根據 Azure AD 中的使用者和群組指派，設定佈建服務以在 Slack 中建立、更新和停用指派的使用者帳戶。
 
-**秘訣：** 您也可以選擇啟用 Slack 的 SAML 型單一登入，請遵循 (Azure 入口網站)[https://portal.azure.com] 中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
+**秘訣：** 您也可以選擇啟用 Slack 的 SAML 型單一登入，請遵循 [Azure 入口網站](https://portal.azure.com)中提供的指示。 可以獨立設定自動佈建的單一登入，雖然這兩個功能彼此補充。
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>若要在 Azure AD 中設定自動使用者帳戶佈建至 Slack︰
@@ -111,7 +111,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 這會造成在 [使用者和群組] 區段中指派至 Slack 的任何群組物件完全從 Azure AD 同步至 Slack。 您可以使用 [同步處理詳細資料] 區段來監視進度，並依循連結前往佈建活動記錄，此記錄會描述您 Slack 應用程式上佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
 
 ## <a name="additional-resources"></a>其他資源

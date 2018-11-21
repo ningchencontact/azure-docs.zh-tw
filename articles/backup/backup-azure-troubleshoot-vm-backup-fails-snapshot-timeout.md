@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9511e4f90348d58c7b5f6e85d9a5eb74af276461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 496afab869d8cf1b7b00791913c3082e31b45327
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260494"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633915"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>針對 Azure 備份失敗進行疑難排解：與代理程式或延伸模組相關的問題
 
@@ -28,11 +28,11 @@ ms.locfileid: "51260494"
 **錯誤訊息**：VM 代理程式無法與 Azure 備份通訊<br>
 
 在註冊及排程備份服務的 VM 之後，備份就會藉由與 VM 代理程式通訊以取得時間點快照集，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 若未觸發快照集，備份可能會失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：<br>
-**原因 1：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
-**原因 2：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**原因 3︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**原因 5︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 5：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 無法與 VM 代理程式通訊來取得快照集狀態
 
@@ -57,9 +57,15 @@ ms.locfileid: "51260494"
 > [!NOTE]
     > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。 備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
 
-
 **步驟 1：[從還原點資源群組中移除鎖定](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **步驟 2：[清除還原點集合](#clean_up_restore_point_collection)**<br>
+
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - 備份沒有足夠的金鑰保存庫權限可以進行加密 VM 的備份。
+
+**錯誤碼**：UserErrorKeyvaultPermissionsNotConfigured <br>
+**錯誤訊息**：備份沒有足夠的金鑰保存庫權限可以進行加密 VM 的備份。 <br>
+
+若要在加密的 VM 上成功執行備份作業，它必須有存取金鑰保存庫的權限。 這可以使用 [Azure 入口網站](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup)或透過 [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection) 來達成
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - 因為虛擬機器沒有網路連線，所以快照集作業失敗
 
@@ -67,9 +73,9 @@ ms.locfileid: "51260494"
 **錯誤訊息**：因為虛擬機器沒有網路連線，所以快照集作業失敗<br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：    
-**原因 1：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
-**原因 2︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 3︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 1︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**原因 2︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 3：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot 延伸模組作業失敗
 
@@ -88,12 +94,12 @@ ms.locfileid: "51260494"
 **錯誤訊息**：備份因為內部錯誤而失敗 - 請在幾分鐘內重試此作業 <br>
 
 在註冊及排程 Azure 備份服務的 VM 之後，備份就會藉由與 VM 備份擴充功能通訊以取得時間點快照，來起始作業。 下列任一種狀況都可能會阻止觸發快照集。 如果未觸發快照集，可能會發生備份失敗。 請依照列出的順序完成下列疑難排解步驟，然後重試作業：  
-**原因 1：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**  
-**原因 2：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**原因 3︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 4︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**原因 5︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
-**原因 6：[備份服務因資源群組鎖定而沒有刪除舊還原點的權限](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
+**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 3︰[無法擷取快照集狀態或無法取得快照集](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
+**原因 4︰[備份延伸模組無法更新或載入](#the-backup-extension-fails-to-update-or-load)**  
+**原因 5：[備份服務因資源群組鎖定而沒有刪除舊還原點的權限](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)** <br>
+**原因 6：[VM 沒有網際網路存取](#the-vm-has-no-internet-access)**
 
 ## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize - Azure 備份目前不支援容量大於 1023 GB 的磁碟
 

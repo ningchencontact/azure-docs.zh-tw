@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 上提交 Hadoop 工作
-description: 了解如何在 Azure HDInsight 上提交 Hadoop 作業。
+title: 在 HDInsight 中提交 Apache Hadoop 作業
+description: 了解如何在 Azure HDInsight 上提交 Apache Hadoop 作業。
 ms.reviewer: jasonh
 services: hdinsight
 ms.author: hrasheed
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 9a764814028c1858139e2439c674c176d4e754ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 633a5c26711b7ef9f891455c6712b77238fd3a62
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009135"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631961"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>在 HDInsight 上提交 Hadoop 工作
 
-您可以使用 Microsoft .NET SDK for HDInsight、Curl 或 Azure PowerShell 在 Azure HDInsight 上提交 Hadoop 作業。
+您可以使用 Microsoft .NET SDK for HDInsight、Curl 或 Azure PowerShell 在 Azure HDInsight 上提交 Apache Hadoop 作業。
 
 ## <a name="resources"></a>資源
 

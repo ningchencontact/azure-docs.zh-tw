@@ -1,19 +1,19 @@
 ---
 title: Azure IoT 中樞調整 | Microsoft Docs
 description: 如何調整 IoT 中樞以支援您預期的訊息輸送量和所需功能。 包含每個層級支援的輸送量和分區化選項的摘要。
-author: kgremban
+author: wesmc7777
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: kgremban
-ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.author: wesmc
+ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143643"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633371"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -31,7 +31,7 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 標準層的 IoT 中樞可啟用所有功能，想要使用雙向通訊功能的 IoT 解決方案都必須使用此層級。 基本層則可啟用一小部分功能，可供只需要從裝置到雲端進行單向通訊的 IoT 解決方案使用。 這兩個層級均提供相同的安全性和驗證功能。
 
-在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。 請注意，基本層 IoT 中樞的分割區上限為 8，標準層的上限為 32。 大部分的 IoT 中樞只需要 4 個分割區。 分割區限制會在建立 IoT 中樞時選擇，就是裝置到雲端訊息數對同時閱讀這些訊息的人員數比例。 當您從基本層遷移到標準層時，這個值保持不變。 也請注意，每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
+每個 IoT 中樞只能選擇層次內的一個[版本](https://azure.microsoft.com/pricing/details/iot-hub/)類型。 例如，您建立的 IoT 中樞可以具有多個 S1 單位，但不能具有來自不同版本 (例如 S1 和 B3 或 S1 和 S2) 的混合單位。
 
 | 功能 | 基本層 | 標準層 |
 | ---------- | ---------- | ------------- |
@@ -47,7 +47,22 @@ Azure IoT 中樞提供基本和標準兩個層級，兩者所支援的功能數�
 
 IoT 中樞也會提供免費層供您測試和評估。 其具有標準層的所有功能，但允許的傳訊量有限。 您無法從免費層升級至基本或標準層。 
 
-### <a name="iot-hub-rest-apis"></a>IoT 中樞 REST API
+
+## <a name="partitions"></a>分割數
+
+Azure IoT 中樞包含 [Azure 事件中樞](../event-hubs/event-hubs-features.md)的多個核心元件，包括[分割區](../event-hubs/event-hubs-features.md#partitions)。 IoT 中樞的事件資料流通常會填入由各種不同 IoT 裝置報告的內送遙測資料。 事件資料流的分割可用來減少同時讀取和寫入事件資料流時所發生的爭用。 
+
+分割區限制是在 IoT 中樞建立時所選擇的，無法變更。 基本層 IoT 中樞的分割區上限為 8，標準層的上限為 32。 大部分的 IoT 中樞只需要 4 個分割區。 如需關於決定分割區的詳細資訊，請參閱事件中樞的常見問題集：[我需要多少個分割區？](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
+
+
+## <a name="tier-upgrade"></a>層級升級
+
+在建立 IoT 中樞後，您不需要中斷現有作業就可以從基本層升級到標準層。 如需詳細資訊，請參閱[如何升級 IoT 中樞](iot-hub-upgrade.md)。
+
+當您從基本層移轉至標準層時，分割區組態會保持不變。
+
+
+## <a name="iot-hub-rest-apis"></a>IoT 中樞 REST API
 
 IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API 呼叫無法與基本層中樞搭配運作。 下表顯示可用的 API： 
 
@@ -115,7 +130,7 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱 [IoT 中樞定價][link-pricing] 或 [IoT 中樞配額與節流][IoT Hub quotas and throttles]。
+* 如需 IoT 中樞功能和效能詳細資料的詳細資訊，請參閱 [IoT 中樞定價][lnk-pricing]或 [IoT 中樞配額與節流][IoT Hub quotas and throttles]。
 * 若要變更 IoT 中樞層，請遵循[升級 IoT 中樞](iot-hub-upgrade.md)內的步驟。
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

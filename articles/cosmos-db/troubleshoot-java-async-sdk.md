@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 74813634aad95f163b06717521bb2c746ac3df6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee92a5dd474cdf4f32ed2c7327d732a2cfbbbf79
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238824"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632929"
 ---
 # <a name="troubleshooting-issues-when-using-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>針對搭配 Azure Cosmos DB SQL API 帳戶使用 Java Async SDK 時所發生的問題進行疑難排解
 此文章涵蓋搭配 Azure Cosmos DB SQL API 帳戶使用 [Java Async SDK](sql-api-sdk-async-java.md) 時的常見問題、因應措施、診斷步驟與工具。
@@ -148,7 +148,7 @@ Cosmos DB 模擬器的 HTTPS 憑證是自我簽署的。 針對要與模擬器�
 
 ## <a name="enable-client-sice-logging"></a>啟用用戶端 SDK 記錄
 
-非同步 Java SDK 會使用 SLF4j 作為記錄外觀，以支援登入到 log4j 和 logback 等熱門記錄架構。
+Java Async SDK 會使用 SLF4j 作為記錄外觀，以支援登入到 log4j 和 logback 等熱門記錄架構。
 
 例如，如果您想要使用 log4j 作為記錄架構，請在您的 Java 類別路徑中新增下列程式庫：
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 6aa7f8c3b9d21d9c55aee3ce49f2bc140769a855
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 27726f261b2d9c88f1544a6e66ea352fbb98d253
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408059"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685662"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service 中的驗證與授權
 
@@ -92,7 +92,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 所有提供者的驗證流程皆相同，但會根據您是否要使用提供者的 SDK 登入而有所不同：
 
 - 不使用提供者 SDK：應用程式會將同盟登入委派給 App Service。 瀏覽器應用程式通常是這種情況，可以向使用者顯示提供者的登入頁面。 伺服器程式碼會管理登入程序，因此也稱為「伺服器導向流程」或「伺服器流程」。 此案例適用於 Web 應用程式。 它也適用於使用 Mobile Apps 用戶端 SDK 將使用者登入的原生應用程式，因為 SDK 會開啟 Web 檢視，使用 App Service 驗證將使用者登入。 
-- 使用提供者 SDK：應用程式會以手動方式將使用者登入，然後將驗證權杖提交給 App Service 進行驗證。 無瀏覽器應用程式通常是這種情況，無法向使用者顯示提供者的登入頁面。 應用程式程式碼會管理登入程序，因此也稱為「用戶端導向流程」或「用戶端流程」。 此案例適用於 REST API、[Azure Functions](../azure-functions/functions-overview.md)、JavaScript 瀏覽器用戶端，以及在登入程序中需要更多彈性的 Web 應用程式。 它也適用於使用提供者 SDK 將使用者登入的原生行動應用程式。
+- 使用提供者 SDK：應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證。 無瀏覽器應用程式通常是這種情況，無法向使用者顯示提供者的登入頁面。 應用程式程式碼會管理登入程序，因此也稱為「用戶端導向流程」或「用戶端流程」。 此案例適用於 REST API、[Azure Functions](../azure-functions/functions-overview.md)、JavaScript 瀏覽器用戶端，以及在登入程序中需要更多彈性的 Web 應用程式。 它也適用於使用提供者 SDK 將使用者登入的原生行動應用程式。
 
 > [!NOTE]
 > 您可以使用伺服器導向流程來驗證 App Service 中受信任瀏覽器應用程式的呼叫對 App Service 或 [Azure Functions](../azure-functions/functions-overview.md) 中另一個 REST API 的呼叫。 如需詳細資訊，請參閱[自訂 App Service 中的驗證與授權](app-service-authentication-how-to.md)。
@@ -103,7 +103,7 @@ App Service 使用[同盟身分識別](https://en.wikipedia.org/wiki/Federated_i
 | 步驟 | 不使用提供者 SDK | 使用提供者 SDK |
 | - | - | - |
 | 1.將使用者登入 | 將用戶端重新導向至 `/.auth/login/<provider>`。 | 用戶端程式碼會直接使用提供者的 SDK 將使用者登入，並接收驗證權杖。 如需詳細資訊，請參閱提供者的文件。 |
-| 2.後續驗證 | 提供者會將用戶端重新導向至 `/.auth/login/<provider>/callback`。 | 用戶端程式碼會將提供者的權杖張貼至 `/.auth/login/<provider>` 以進行驗證。 |
+| 2.後續驗證 | 提供者會將用戶端重新導向至 `/.auth/login/<provider>/callback`。 | 用戶端程式碼會將[提供者的權杖](app-service-authentication-how-to.md#validate-tokens-from-providers)公佈至 `/.auth/login/<provider>` 以進行驗證。 |
 | 3.建立已驗證的工作階段 | App Service 會將已驗證的 Cookie 新增至回應。 | App Service 會將自己的驗證權杖傳回至用戶端程式碼。 |
 | 4.提供已驗證的內容 | 用戶端會在後續要求中包含驗證 Cookie (瀏覽器會自動處理)。 | 用戶端程式碼會在 `X-ZUMO-AUTH` 標頭中顯示驗證權杖 (Mobile Apps 用戶端 SDK 會自動處理)。 |
 

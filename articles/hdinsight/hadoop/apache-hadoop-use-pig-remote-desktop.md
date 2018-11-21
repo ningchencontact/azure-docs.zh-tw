@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Pig 與遠端桌面 - Azure
-description: 學習如何使用 Pig 命令，從連往 HDInsight 中 Windows 型 Hadoop 叢集的遠端桌面連線執行 Pig Latin 陳述式。
+title: 在 HDInsight 中搭配使用 Apache Pig 與遠端桌面 - Azure
+description: 學習如何使用 Pig 命令，從連往 HDInsight 中 Windows 型 Apache Hadoop 叢集的遠端桌面連線執行 Apache Pig Latin 陳述式。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9ab3c5399263e301760b7822488fe00145149d2a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007224"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633337"
 ---
-# <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>從遠端桌面連線執行 Pig 工作
+# <a name="run-apache-pig-jobs-from-a-remote-desktop-connection"></a>從遠端桌面連線執行 Apache Pig 作業
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-本文件逐步解說如何使用 Pig 命令，從連往 Windows 型 HDInsight 叢集的遠端桌面連線執行 Pig Latin 陳述式。 Pig Latin 可讓您透過描述資料轉換來建立 MapReduce 應用程式，而不是建立對應和縮減函數。
+本文件逐步解說如何使用 Apache Pig 命令，從連往 Windows 型 HDInsight 叢集的遠端桌面連線執行 Pig Latin 陳述式。 Pig Latin 可讓您透過描述資料轉換來建立 MapReduce 應用程式，而不是建立對應和縮減函數。
 
 > [!IMPORTANT]
 > 只有在使用 Windows 作為作業系統的 HDInsight 叢集上才能使用「遠端桌面」。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

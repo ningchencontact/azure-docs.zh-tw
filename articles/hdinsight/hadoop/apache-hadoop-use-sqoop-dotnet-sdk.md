@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET 和 HDInsight 執行 Sqoop 作業 - Azure
-description: 了解如何在 Hadoop 叢集與 Azure SQL Database 之間使用 HDInsight .NET SDK 執行 Sqoop 匯入和匯出。
+title: 使用 .NET 和 HDInsight 執行 Apache Sqoop 作業 - Azure
+description: 了解如何在 Apache Hadoop 叢集與 Azure SQL Database 之間使用 HDInsight .NET SDK 執行 Apache Sqoop 匯入和匯出。
 keywords: Sqoop 作業
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,17 +10,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 423934dee0b490bb12522cec6d37393a1ec5e2f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0b8d408482f1f6e2bcd25182208a46d28f7b4f7a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014868"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633027"
 ---
-# <a name="run-sqoop-jobs-by-using-net-sdk-for-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Hadoop 執行 Sqoop 作業
+# <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何在 HDInsight 上使用 Azure HDInsight .NET SDK 執行 Sqoop 作業，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
+了解如何在 HDInsight 上使用 Azure HDInsight .NET SDK 執行 Apache Sqoop 作業，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
 
 > [!NOTE]
 > 雖然本文中的程序可與以 Windows 為基礎或以 Linux 為基礎的 HDInsight 叢集搭配使用，不過，這些程序只能從 Windows 用戶端運作。 若要選擇其他方法，您可使用本文頂端的索引標籤選取器。

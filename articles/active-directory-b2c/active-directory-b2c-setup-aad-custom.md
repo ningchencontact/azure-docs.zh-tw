@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386615"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636725"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來設定以 Azure Active Directory 帳戶進行登入 
 
@@ -25,14 +25,11 @@ ms.locfileid: "49386615"
 
 ## <a name="prerequisites"></a>必要條件
 
-完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 
 ## <a name="register-an-application"></a>註冊應用程式
 
 若要讓特定 Azure AD 組織的使用者登入，您需要在組織 Azure AD 租用戶內註冊應用程式。
-
->[!NOTE]
->在下列指示中，會使用 `Contoso.com` 作為組織的 Azure AD 租用戶，以及使用 `fabrikamb2c.onmicrosoft.com` 作為 Azure AD B2C 租用戶。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含組織 Azure AD B2C 租用戶 (contoso.com) 的目錄。
@@ -40,11 +37,13 @@ ms.locfileid: "49386615"
 4. 選取 [新增應用程式註冊]。
 5. 輸入應用程式的名稱。 例如： `Azure AD B2C App`。
 6. 針對 [應用程式類型]，選取 `Web app / API`。
-7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱 (fabrikamb2c.onmicrosoft.com) 取代 `your-tenant`：
+7. 針對 [登入 URL]，以全小寫字母輸入下列 URL，其中以您 Azure AD B2C 租用戶的名稱取代 `your-B2C-tenant-name`：
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    例如： `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`。
 
 8. 按一下頁面底部的 [新增] 。 複製 [應用程式識別碼] 以供稍後使用。
 9. 選取應用程式，然後選取 [設定]。
@@ -55,7 +54,7 @@ ms.locfileid: "49386615"
 您必須將所建立的應用程式金鑰儲存在 Azure AD B2C 租用戶中。
 
 1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-2. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
+2. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 3. 在 [概觀] 頁面上，選取 [識別體驗架構 - 預覽]。
 4. 選取 [原則金鑰]，然後選取 [新增]。
 5. 針對 [選項] 選擇 `Manual`。
@@ -85,7 +84,7 @@ ms.locfileid: "49386615"
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ ms.locfileid: "49386615"
     </ClaimsProvider>
     ```
 
-4. 在 **ClaimsProvider** 元素底下，將 **Domain** 的值更新成可用來與其他識別提供者做區別的唯一值。
+4. 在 **ClaimsProvider** 元素底下，將 **Domain** 的值更新成可用來與其他識別提供者做區別的唯一值。 例如 `Contoso` 。 您不應在此網域設定的結尾放置 `.com`。
 5. 在 **ClaimsProvider** 元素下，將 **DisplayName** 的值更新成可用來與其他識別提供者區別的唯一值。 目前不使用此值。
 
 ### <a name="update-the-technical-profile"></a>更新技術設定檔
@@ -130,7 +129,7 @@ ms.locfileid: "49386615"
 2. 更新 **DisplayName** 的值。 這個值會顯示在登入畫面的登入按鈕上。
 3. 更新 [描述] 的值。
 4. Azure AD 使用 OpenID Connect 通訊協定，因此請確定 [通訊協定] 的值為 `OpenIdConnect`。
-5. 將 **METADATA** 的值設定為 `https://login.windows.net/your-tenant/.well-known/openid-configuration`，其中 `your-tenant` 是您的 Azure AD 租用戶名稱 (contoso.com)。
+5. 將 **METADATA** 的值設定為 `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`，其中 `your-AD-tenant-name` 是您的 Azure AD 租用戶名稱。 例如， `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. 開啟您的瀏覽器並移至您剛才更新的 **METADATA** URL，查看**簽發者**物件，並將其值複製並貼到 XML 檔案的 **ProviderName** 值中。
 8. 將 **client_id** 和 **IdTokenAudience** 設定為來自應用程式註冊的應用程式識別碼。
 9. 在 **CryptograhicKeys** 下方，將 **StorageReferenceId** 的值更新為您所定義的原則金鑰。 例如： `ContosoAppSecret`。
@@ -140,7 +139,7 @@ ms.locfileid: "49386615"
 現在，您應該已設定原則，所以 Azure AD B2C 知道如何與 Azure AD 目錄進行通訊。 嘗試上傳原則的擴充檔案，這只是為了確認它到目前為止沒有任何問題。
 
 1. 在 Azure AD B2C 租用戶的 [自訂原則] 頁面上，選取 [上傳原則]。
-2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 TrustFrameworkExtensions.xml 檔案。
+2. 啟用 [覆寫現有的原則]，然後瀏覽並選取 *TrustFrameworkExtensions.xml* 檔案。
 3. 按一下 [上傳] 。
 
 ## <a name="register-the-claims-provider"></a>註冊宣告提供者
@@ -158,7 +157,7 @@ ms.locfileid: "49386615"
 **ClaimsProviderSelection** 元素類似於註冊/登入畫面上的識別提供者按鈕。 如果您為 Azure AD 新增 **ClaimsProviderSelection** 元素，當使用者登陸頁面時，就會出現新按鈕。
 
 1. 在您建立的使用者旅程圖中，尋找包含 `Order="1"` 的 **OrchestrationStep** 元素。
-2. 在 **ClaimsProviderSelects** 底下，新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `ContosoExchange`：
+2. 在 **ClaimsProviderSelections** 底下新增下列元素。 將 **TargetClaimsExchangeId** 的值設定成適當的值，例如 `ContosoExchange`：
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
@@ -181,14 +180,14 @@ ms.locfileid: "49386615"
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 本節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
-3. 選擇 Azure 入口網站左上角的**所有服務**，然後搜尋並選取 **Azure AD B2C**。
+3. 選擇 Azure 入口網站左上角的 [所有服務]，然後搜尋並選取 [Azure AD B2C]。
 4. 選取 [應用程式]，然後選取 [新增]。
 5. 輸入應用程式的名稱，例如 testapp1。
-6. 針對 [Web 應用程式/Web API]，選取 `Yes`，然後針對 [回覆 URL] 輸入 `https://jwt.ms`。
+6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
 7. 按一下頁面底部的 [新增] 。
 
 ## <a name="update-and-test-the-relying-party-file"></a>更新並測試信賴憑證者檔案

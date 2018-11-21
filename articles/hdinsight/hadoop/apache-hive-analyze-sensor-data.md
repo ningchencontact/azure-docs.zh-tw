@@ -1,6 +1,6 @@
 ---
-title: 使用 Hive 及 Hadoop 分析感應器資料 - Azure HDInsight
-description: 了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
+title: 使用 Apache Hive 與 Apache Hadoop 分析感應器資料 - Azure HDInsight
+description: 了解如何使用 Apache Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/14/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: dfc4d930f185c36c3ba0c869494ba0e7dee64cac
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c3e4ab9dc03afe1c4a19e738804e6400b0830291
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249399"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634408"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>在 HDInsight 的 Hadoop 上使用 Hive 查詢主控台分析感應器資料
+# <a name="analyze-sensor-data-using-the-apache-hive-query-console-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 的 Apache Hadoop 上使用 Apache Hive 查詢主控台分析感應器資料
 
-了解如何使用 Hive 查詢主控台搭配 HDInsight (Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
+了解如何使用 Hive 查詢主控台搭配 HDInsight (Apache Hadoop) 分析感應器資料，然後在 Microsoft Excel 中使用 Power View 將資料視覺化。
 
 > [!IMPORTANT]
 > 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

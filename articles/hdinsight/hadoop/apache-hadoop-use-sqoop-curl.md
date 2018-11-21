@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Sqoop 與 Curl - Azure
-description: 了解如何使用 Curl 從遠端提交 Sqoop 工作到 HDInsight。
+title: 在 HDInsight 中搭配使用 Apache Sqoop 與 Curl - Azure
+description: 了解如何使用 Curl 從遠端提交 Apache Sqoop 作業到 HDInsight。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: fd05ee18ccad7e689f9679df2bbf80dc19e39368
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4b565252c78bfe2194530d840651a57df2686728
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010434"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633168"
 ---
-# <a name="run-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Sqoop 作業
+# <a name="run-apache-sqoop-jobs-with-hadoop-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中以 Hadoop 執行 Apache Sqoop 作業
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何使用 Curl 在 HDInsight 中的 Hadoop 叢集上執行 Sqoop 作業。
+了解如何使用 Curl 在 HDInsight 中的 Apache Hadoop 叢集上執行 Apache Sqoop 作業。
 
 本文件使用 Curl 示範如何使用未經處理的 HTTP 要求來與 HDInsight 互動，以便執行、監視和擷取 Sqoop 作業的結果。 要想執行這些作業，就要使用 HDInsight 叢集所提供的 WebHCat REST API (先前稱為 Templeton)。
 

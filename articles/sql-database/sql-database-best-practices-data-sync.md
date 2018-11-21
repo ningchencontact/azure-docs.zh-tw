@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fa5ce7264fd003e0a49d6408acae070577879cdd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646293"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686614"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 資料同步最佳做法 
 
@@ -219,13 +219,18 @@ SQL 資料同步提供基本資料庫自動佈建。
 ## <a name="next-steps"></a>後續步驟
 如需有關 SQL 資料同步的詳細資訊，請參閱：
 
--   [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步處理資料](sql-database-sync-data.md)
--   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
--   [透過 Log Analytics 監視 Azure SQL 資料同步](sql-database-sync-monitor-oms.md)
--   [對 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)  
--   示範如何設定 SQL 資料同步的完整 PowerShell 範例：  
-    -   [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)  
+-   概觀 - [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)
+-   設定資料同步
+    - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](sql-database-get-started-sql-data-sync.md)
+    - 透過 PowerShell
+        -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](sql-database-data-sync-agent.md)
+-   監視 - [使用 Log Analytics 監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
+-   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
+-   更新同步結構描述
+    -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)
+    -   使用 PowerShell - [使用 PowerShell 更新現有同步群組中的同步結構描述](scripts/sql-database-sync-update-schema.md)
 
 如需有關 SQL Database 的詳細資訊，請參閱：
 

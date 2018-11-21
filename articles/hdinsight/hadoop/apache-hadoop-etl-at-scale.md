@@ -1,6 +1,6 @@
 ---
 title: 大規模擷取、轉換和載入 (ETL) - Azure HDInsight
-description: 了解如何在 HDInsight 中搭配 Hadoop 使用 ETL。
+description: 了解如何在 HDInsight 中搭配 Apache Hadoop 使用 ETL。
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048997"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633320"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
-擷取、轉換和載入 (ETL) 是一個程序，其中會從各種來源取得資料、將資料收集在標準位置中、進行清理和處理，然後最終載入至資料存放區以供查詢。 傳統 ETL 會處理匯入資料、適當地清理該資料，然後將其儲存在關聯式資料引擎中。 使用 HDInsight 時，各種 Hadoop 生態系統元件都可支援大規模執行 ETL。 
+擷取、轉換和載入 (ETL) 是一個程序，其中會從各種來源取得資料、將資料收集在標準位置中、進行清理和處理，然後最終載入至資料存放區以供查詢。 傳統 ETL 會處理匯入資料、適當地清理該資料，然後將其儲存在關聯式資料引擎中。 使用 HDInsight 時，各種 Apache Hadoop 生態系統元件都可支援大規模執行 ETL。 
 
 ETL 程序中的 HDInsight 使用可以由以下管線來摘要說明：
 

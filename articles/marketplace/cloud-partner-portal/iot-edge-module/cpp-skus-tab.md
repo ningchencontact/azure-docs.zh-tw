@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432311"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684812"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 模組 SKU 索引標籤
 

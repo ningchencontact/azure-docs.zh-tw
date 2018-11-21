@@ -1,5 +1,5 @@
 ---
-title: 使用 Beeline 搭配 Apache Hive - Azure HDInsight
+title: 使用 Apache Beeline 搭配 Apache Hive - Azure HDInsight
 description: 了解如何使用 Beeline 用戶端以 Hadoop on HDInsight 執行 Hive 查詢。 Beeline 是透過 JDBC 與 HiveServer2 搭配作業的公用程式。
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1edf0a33db7df2435be55d5a9b36276e2702bd69
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1516c1a2802046b526688de703b565513789851b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013916"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633257"
 ---
-# <a name="use-the-beeline-client-with-apache-hive"></a>使用 Beeline 用戶端搭配 Apache Hive
+# <a name="use-the-apache-beeline-client-with-apache-hive"></a>使用 Apache Beeline 用戶端搭配 Apache Hive
 
-了解如何使用 [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) 在 HDInsight 上執行 Hive 查詢。
+了解如何使用 [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) 在 HDInsight 上執行 Apache Hive 查詢。
 
 Beeline 是 Hive 用戶端，隨附於您的 HDInsight 叢集的前端節點。 Beeline 會使用 JDBC 連線至 HiveServer2，它是裝載在 HDInsight 叢集上的服務。 您也可以使用 Beeline 透過網際網路從遠端存取 HDInsight 上的 Hive。 下列範例中提供用來從 Beeline 連接到 HDInsight 最常見的連接字串：
 

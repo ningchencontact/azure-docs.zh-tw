@@ -15,15 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c318411fe17fb60c1c0bf991a07b46a515252952
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243415"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683205"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>使用 SQL 資料分割資料表平行處理大量資料匯入
-本文件說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。 若要將巨量資料載入/傳輸至 SQL Database，可使用*資料分割資料表和檢視*，來改善將資料匯入 SQL DB 和後續查詢的效能。 
+
+本文說明如何建置資料分割資料表，以快速的平行處理方式將大量資料匯入 SQL Server 資料庫。 若要將巨量資料載入/傳輸至 SQL Database，可使用*資料分割資料表和檢視*，來改善將資料匯入 SQL DB 和後續查詢的效能。 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>建立新的資料庫和一組檔案群組
 * [建立新的資料庫](https://technet.microsoft.com/library/ms176061.aspx) (如果尚不存在)。
@@ -81,7 +82,7 @@ ms.locfileid: "51243415"
   若要根據函式/配置確認範圍會在每個資料分割中生效，請執行下列查詢：
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id

@@ -1,5 +1,5 @@
 ---
-title: 使用 Ambari 檢視與 HDInsight (Hadoop) 上的 Hive 搭配作業 - Azure
+title: 使用 Apache Ambari 檢視與 HDInsight (Apache Hadoop) 上的 Hive 搭配作業 - Azure
 description: 了解如何從網頁瀏覽器使用 Hive 檢視來提交 Hive 查詢。 Hive 檢視是以 Linux 為基礎的 HDInsight 叢集隨附的 Ambari 檢視的一部分。
 services: hdinsight
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c481889eda53ff46a8899676da2529fe4165dfd5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233146"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632742"
 ---
-# <a name="use-ambari-hive-view-with-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Hadoop 使用 Ambari Hive 檢視
+# <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-了解如何使用 Ambari Hive 檢視執行 Hive 查詢。 Hive 檢視可讓您從網頁瀏覽器編寫、最佳化及執行 Hive 查詢。
+了解如何使用 Apache Ambari Hive 檢視執行 Hive 查詢。 Hive 檢視可讓您從網頁瀏覽器編寫、最佳化及執行 Hive 查詢。
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
+* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
 
   > [!IMPORTANT]
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

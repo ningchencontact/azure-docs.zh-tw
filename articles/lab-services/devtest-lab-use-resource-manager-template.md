@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 99d835d1d0e18bf62d6e64b7e5af45b6c53d809e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4fd9f76223adba20028288b46037586f8f54fd1a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239503"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686376"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本建立虛擬機器 
 
@@ -42,7 +42,7 @@ ms.locfileid: "51239503"
 
    在相同環境中的 VM 可以一起管理，並且共用相同生命週期。 只要系統管理員已對實驗室進行相關設定，獲得 DevTest Labs 使用者角色指派的使用者就可以使用這些範本來建立環境。
 
-本文的其餘部分討論使用 Mirosoft.DevTestLab/labs/virtualmachines 的 Resource Manager 範本。 這些範本是由實驗室管理員用來自動化實驗室 VM 建立 (例如，可宣告 VM) 或黃金映像產生 (例如，映像工廠)。
+本文的其餘部分討論使用 Microsoft.DevTestLab/labs/virtualmachines 的 Resource Manager 範本。 這些範本是由實驗室管理員用來自動化實驗室 VM 建立 (例如，可宣告 VM) 或黃金映像產生 (例如，映像工廠)。
 
 [建立 Azure Resource Manager 範本的最佳做法](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices)提供許多指導方針和建議，可以協助您建立可靠又容易使用的 Azure Resource Manager 範本。
 

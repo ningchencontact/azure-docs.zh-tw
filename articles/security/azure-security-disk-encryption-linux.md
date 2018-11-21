@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 3561c2959283cd1c589414b96724cf0341af5e0a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8806d2b1848064c48615aed653c69c2df9b1949f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215373"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685458"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>啟用 Linux IaaS VM 適用的 Azure 磁碟加密 
 
@@ -130,7 +130,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 | 參數 | 說明 |
 | --- | --- |
 | vmName | 要執行加密作業的 VM 名稱。 |
-| keyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MySecureGroup" |Convertfrom-JSON` 來取得它|
+| keyVaultName | 應上傳 BitLocker 金鑰的金鑰保存庫名稱。 您可以使用 cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <MyResourceGroupName>). Vaultname` 或 Azure CLI 命令 `az keyvault list --resource-group "MySecureGroup" |ConvertFrom-JSON`|
 | keyVaultResourceGroup | 包含金鑰保存庫的資源群組名稱|
 |  keyEncryptionKeyURL | 用來加密所產生 BitLocker 金鑰的金鑰加密金鑰 URL。 如果您在 UseExistingKek 下拉式清單中選取 [nokek]，此參數是選擇性的。 如果您在 UseExistingKek 下拉式清單中選取 [kek]，您必須輸入 _keyEncryptionKeyURL_ 值。 |
 | volumeType | 執行加密作業所在磁碟區的類型。 有效值為 _OS_、_Data_ 和 _All_。 
@@ -153,7 +153,7 @@ key-encryption-key 參數值的語法為 KEK 的完整 URI： https://[keyvault-
 az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
 ```
 
-註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature#az_feature_show) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider#az_provider_register) 重新登錄 *Mirosoft.Compute* 提供者：
+註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [az feature show](/cli/azure/feature#az_feature_show) 檢查註冊狀態。 當 `State` 回報「已登錄」時，請使用 [az provider register](/cli/azure/provider#az_provider_register) 重新登錄 *Microsoft.Compute* 提供者：
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Compute
@@ -191,7 +191,7 @@ az provider register --namespace Microsoft.Compute
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 
-註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 檢查註冊狀態。 當 `RegistrationState` 回報「已登錄」時，請使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 重新登錄 *Mirosoft.Compute* 提供者：
+註冊要求傳播的時間最多可能需要 10 分鐘。 您可以使用 [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature) 檢查註冊狀態。 當 `RegistrationState` 回報「已登錄」時，請使用 [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider) 重新登錄 *Microsoft.Compute* 提供者：
 
 ```azurepowershell-interactive
 Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
@@ -304,7 +304,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
     
     4. 執行 Set-AzureRmVMDiskEncryptionExtension PowerShell cmdlet 搭配 -EncryptFormatAll to 來加密這些磁碟。
          ```azurepowershell-interactive
-         Set-AzureRmVMDiskEncryptionExtension -ResouceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
+         Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName "MySecureGroup" -VMName "MySecureVM" -DiskEncryptionKeyVaultUrl "https://mykeyvault.vault.azure.net/" -EncryptFormatAll
          ```
     5. 在這些新的磁碟上設定 LVM。 請注意，VM 完成開機之後，加密磁碟機就會解除鎖定。 因此，LVM 掛接後續也必須延遲。
 
@@ -330,7 +330,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 ```azurepowershell-interactive
 $VirtualMachine = New-AzureRmVMConfig -VMName "MySecureVM" -VMSize "Standard_A1"
 $VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -Name "SecureOSDisk" -VhdUri "os.vhd" Caching ReadWrite -Windows -CreateOption "Attach" -DiskEncryptionKeyUrl "https://mytestvault.vault.azure.net/secrets/Test1/514ceb769c984379a7e0230bddaaaaaa" -DiskEncryptionKeyVaultId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mytestvault"
-New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName "MySecureRG"
 ```
 
 ## <a name="enable-encryption-on-a-newly-added-data-disk"></a>在新增的資料磁碟上啟用加密

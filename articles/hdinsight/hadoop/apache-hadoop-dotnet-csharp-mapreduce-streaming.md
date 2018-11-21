@@ -1,6 +1,6 @@
 ---
 title: 搭配 HDInsight 的 Hadoop 上的 MapReduce 使用 C# - Azure
-description: 了解如何搭配 Azure HDInsight 的 Hadoop 使用 C# 以建立 MapReduce 方案。
+description: 了解如何搭配 Azure HDInsight 的 Apache Hadoop 使用 C# 以建立 MapReduce 解決方案。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cf68ba16cf19a20686f323832ccd7e7d1b543bb
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010944"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632580"
 ---
-# <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Hadoop 上的 MapReduce 串流使用 C#
+# <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
 
 了解如何使用 C# 在 HDInsight 上建立 MapReduce 方案。
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。
 
-Hadoop 串流是一個公用程式，可讓您使用指令碼或可執行檔執行 MapReduce 作業。 在此範例中，.NET 用來實作字數統計方案的對應工具和歸納器。
+Apache Hadoop 串流是一個公用程式，可讓您使用指令碼或可執行檔執行 MapReduce 作業。 在此範例中，.NET 用來實作字數統計方案的對應工具和歸納器。
 
 ## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 

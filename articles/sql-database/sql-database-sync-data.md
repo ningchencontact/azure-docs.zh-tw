@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 78984cf9f73fd0cdd6e28e20e1d54d5b1198b7be
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362232"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687481"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料
 
@@ -82,6 +82,7 @@ ms.locfileid: "49362232"
 ### <a name="set-up-data-sync-in-the-azure-portal"></a>在 Azure 入口網站中設定資料同步
 
 -   [設定 Azure SQL 資料同步](sql-database-get-started-sql-data-sync.md)
+-   資料同步代理程式 - [適用於 Azure SQL 資料同步的資料同步代理程式](sql-database-data-sync-agent.md)
 
 ### <a name="set-up-data-sync-with-powershell"></a>使用 PowerShell 設定資料同步
 

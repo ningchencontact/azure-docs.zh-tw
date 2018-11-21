@@ -10,17 +10,19 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: e0f3703d50f20b766b2ac43b96be7e001ff9bc7f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957696"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687362"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>整合 QnA Maker 與 LUIS 散發您的知識庫
 隨著 QnA Maker 知識庫變得愈來愈大，整體而言相當難以維護，因此需要將知識庫分割成較小的邏輯區塊。
 
 雖然可以直接在 QnA Maker 中建立多個知識庫，但是您需要一些邏輯將內送的問題傳送到適當的知識庫。 您可以使用 LUIS 來達成此目的。
+
+本文使用 Bot Framework v3 SDK。 如果您對這項資訊的 Bot Framework v4 SDK 版有興趣，請參閱這篇 [Bot Framework 文章](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp)。
 
 ## <a name="architecture"></a>架構
 

@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 7310d300c68399c31d9580f070602aa3adbc75e3
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7644a8517840b4fdffe0bc47c5a9bb97d48f6322
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094051"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686786"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>教學課程：Azure Active Directory 與 MyWorkDrive 整合
 
@@ -31,7 +32,7 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 MyWorkDrive (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -49,31 +50,33 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
+
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 MyWorkDrive
 2. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-myworkdrive-from-the-gallery"></a>從資源庫新增 MyWorkDrive
+
 若要設定 MyWorkDrive 與 Azure AD 整合，您需要從資源庫將 MyWorkDrive 新增到受控 SaaS App 清單。
 
 **若要從資源庫新增 MyWorkDrive，請執行下列步驟：**
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![映像](./media/myworkdrive-tutorial/selectazuread.png)
+    ![Azure Active Directory 按鈕][1]
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![映像](./media/myworkdrive-tutorial/a_select_app.png)
-    
+    ![企業應用程式刀鋒視窗][2]
+
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![映像](./media/myworkdrive-tutorial/a_new_app.png)
+    ![新增應用程式按鈕][3]
 
 4. 在搜尋方塊中，輸入 **MyWorkDrive**，從結果面板中選取 [MyWorkDrive]，然後按一下 [新增] 按鈕以新增應用程式。
 
-     ![映像](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+    ![結果清單中的 MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -83,41 +86,41 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
 
 若要使用 MyWorkDrive 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
-1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 MyWorkDrive 測試使用者](#create-a-myworkdrive-test-user)** - 讓 MyWorkDrive 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+3. **[建立 MyWorkDrive 測試使用者](#creating-a-myworkdrive-test-user)** - 讓 MyWorkDrive 中對應的 Britta Simon 連結到使用者在 Azure AD 中的代表項目。
+4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
+### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 MyWorkDrive 應用程式中設定單一登入。
 
 **若要使用 MyWorkDrive 設定 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 **MyWorkDrive** 應用程式整合頁面上，選取 [單一登入]。
+1. 在 Azure 入口網站的 [MyWorkDrive] 應用程式整合頁面上，按一下 [單一登入]。
 
-    ![映像](./media/myworkdrive-tutorial/B1_B2_Select_SSO.png)
+    ![設定單一登入連結][4]
 
-2. 在 [選取單一登入方法] 對話方塊中，選取 [SAML] 模式以啟用單一登入。
+2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
 
-    ![映像](./media/myworkdrive-tutorial/b1_b2_saml_sso.png)
+    ![設定單一登入](common/tutorial_general_301.png)
 
-3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
 
-    ![映像](./media/myworkdrive-tutorial/b1-domains_and_urlsedit.png)
+    ![設定單一登入](common/editconfigure.png)
 
 4. 若您想要以 **IDP** 起始模式設定應用程式，請在 [基本 SAML 組態] 區段執行下列步驟：
 
-    ![映像](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+    ![MyWorkDrive 網域與 URL 單一登入資訊](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
 5. 如果您想要以 **SP** 起始模式設定應用程式，請按一下 [設定其他 URL]，然後執行下列步驟：
 
-    ![映像](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+    ![MyWorkDrive 網域與 URL 單一登入資訊](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
+     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。  輸入您自己公司的 MyWorkDrive 伺服器主機：例如
@@ -128,40 +131,42 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
     > 
     > 如果您不確定如何針對這些值設定自己的主機名稱和 SSL 憑證，請連絡 MyWorkDrive 用戶端支援小組。
 
-6. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下複製**圖示**以複製 [應用程式同盟中繼資料 URL]，然後按 [下載] 以下載 [憑證 (Base64)] 並儲存在您的電腦上。
+6. 在 [SAML 簽署憑證] 頁面的 [SAML 簽署憑證] 區段中，按一下複製**圖示**以複製 [應用程式同盟中繼資料 URL]，並將資料儲存在您的電腦上。
 
-    ![映像](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
+    ![憑證下載連結](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png)
 
-7. 在 [設定 MyWorkDrive] 區段上，依據您的需求複製適當的 URL。
+7. 在不同的網頁瀏覽器視窗中，以安全性系統管理員身分登入 MyWorkDrive。
 
-    請注意，URL 可能會顯示下列項目：
+8. 在管理面板中的 MyWorkDrive 伺服器上按一下 **ENTERPRISE**，並執行下列步驟：
 
-    a. 登入 URL
+    ![管理員](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 
-    b. Azure AD 識別碼
+    a. 啟用 [SAML/ADFS SSO]。
 
-    c. 登出 URL
+    b. 選取 [SAML - Azure AD]
 
-    ![映像](./media/myworkdrive-tutorial/d1_samlsonfigure.png) 
+    c. 在 [Azure App 同盟中繼資料 URL] 文字方塊中，貼上您從 Azure 入口網站複製的 [應用程式同盟中繼資料 URL] 值。
 
-8. 若要在 MyWorkDrive 端設定單一登入，請下載**憑證 (Base64)、登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL**，然後在 MyWorkDrive 伺服器上手動設定這些項目，或將 Azure **應用程式同盟中繼資料 URL** 複製並貼到 MyWorkDrive 伺服器系統管理面板 SAML Azure AD 組態畫面中。 如需詳細資訊，請連絡 [MyWorkDrive 支援小組](mailto:support@myworkdrive.com)。
+    d. 按一下 [儲存] 
 
-    
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+    >[!NOTE]
+    >如需詳細資訊，請檢閱 [MyWorkDrive Azure AD 支援文章](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/)。
+
+### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-    ![映像](./media/myworkdrive-tutorial/d_users_and_groups.png)
+    ![建立 Azure AD 使用者][100]
 
 2. 在畫面頂端選取 [新增使用者]。
 
-    ![映像](./media/myworkdrive-tutorial/d_adduser.png)
+    ![建立 Azure AD 測試使用者](common/create_aaduser_01.png) 
 
 3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![映像](./media/myworkdrive-tutorial/d_userproperties.png)
+    ![建立 Azure AD 測試使用者](common/create_aaduser_02.png)
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
@@ -171,43 +176,56 @@ MyWorkDrive 與 Azure AD 整合提供下列優點：
     c. 依序選取 [屬性] [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
     d. 選取 [建立] 。
- 
-### <a name="create-a-myworkdrive-test-user"></a>建立 MyWorkDrive 測試使用者
+
+### <a name="creating-a-myworkdrive-test-user"></a>建立 MyWorkDrive 測試使用者
 
 在本節中，您要在 MyWorkDrive 中建立名為 Britta Simon 的使用者。 請與  [MyWorkDrive 支援小組](mailto:support@myworkdrive.com)合作，在 MyWorkDrive 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 MyWorkDrive 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
-    ![映像](./media/myworkdrive-tutorial/d_all_applications.png)
+    ![指派使用者][201]
 
 2. 在應用程式清單中，選取 [MyWorkDrive] 。
 
-    ![映像](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)
+    ![設定單一登入](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png) 
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![映像](./media/myworkdrive-tutorial/d_leftpaneusers.png)
+    ![指派使用者][202]
 
-4. 選取 [新增] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
-    ![映像](./media/myworkdrive-tutorial/d_assign_user.png)
+    ![指派使用者][203]
 
-4. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
+5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 
-5. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
-    
-### <a name="test-single-sign-on"></a>測試單一登入
+6. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
+
+### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [MyWorkDrive] 圖格時，應該會自動登入您的 MyWorkDrive 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
+
+<!--Image references-->
+
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
+
+[100]: common/tutorial_general_100.png
+
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

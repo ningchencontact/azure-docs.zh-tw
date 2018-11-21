@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中的查詢主控台上使用 Hadoop Hive - Azure
-description: 學習如何使用 Web 型查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Hive 查詢。
+title: 在 HDInsight 中的查詢主控台上使用 Apache Hive - Azure
+description: 了解如何使用 Web 型查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Apache Hive 查詢。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4083ceca8c9181c8acb1a90e782cb5bca981e684
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: da270792c8987ff43c422c5b03eb8b789b8bda5e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013955"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634580"
 ---
-# <a name="run-hive-queries-using-the-query-console"></a>使用查詢主控台執行 Hive 查詢
+# <a name="run-apache-hive-queries-using-the-query-console"></a>使用查詢主控台執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-在本文中，您將學習如何使用 HDInsight 查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Hive 查詢。
+在本文中，您將學習如何使用 HDInsight 查詢主控台，透過瀏覽器在 HDInsight Hadoop 叢集上執行 Apache Hive 查詢。
 
 > [!IMPORTANT]
 > 只有在 Windows 型 HDInsight 叢集上才能使用 HDInsight 查詢主控台。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

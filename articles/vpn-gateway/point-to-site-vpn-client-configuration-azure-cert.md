@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: cdb1fa7dd9bada5615a0dcd706184a5213ff917b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299248"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636640"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>建立和安裝適用於原生 Azure 憑證驗證 P2S 組態的 VPN 用戶端組態檔
 
@@ -67,19 +67,19 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 
 1. 選取 Windows 電腦架構所對應的 VPN 用戶端組態檔。 若是 64 位元的處理器架構，請選擇 'VpnClientSetupAmd64' 安裝程式套件。 若是 32 位元的處理器架構，請選擇 'VpnClientSetupX86' 安裝程式套件。 
 2. 對套件按兩下來加以安裝。 如果您看到 SmartScreen 快顯視窗，請按一下 [更多資訊]，然後按一下 [仍要執行]。
-3. 在用戶端電腦上，瀏覽至 [網路設定]，然後按一下 [VPN]。 VPN 連線會顯示其連線的虛擬網路名稱。 
+3. 在用戶端電腦上，瀏覽至 [網路設定]，然後按一下 [VPN]。 VPN 連線會顯示其連線的虛擬網路名稱。 
 4. 嘗試連線之前，請確認您已在用戶端電腦上安裝用戶端憑證。 使用原生 Azure 憑證驗證類型時，必須提供用戶端憑證才能通過驗證。 如需有關產生憑證的詳細資訊，請參閱[產生憑證](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)。 如需有關如何安裝用戶端憑證的資訊，請參閱[安裝用戶端憑證](point-to-site-how-to-vpn-client-install-azure-cert.md)。
 
 ## <a name="installmac"></a>Mac (OS X)
 
  您必須在將會連線到 Azure 的每部 Mac 上，手動設定原生 IKEv2 VPN 用戶端。 Azure 不提供用於原生 Azure 憑證驗證的 mobileconfig 檔案。 **Generic** 包含您進行設定所需的所有資訊。 如果未出現下載的 Generic 資料夾，則可能是未將 IKEv2 選為通道型別。 一旦選取 IKEv2 後，重新產生 zip 檔案以擷取 Generic 資料夾。<br>Generic 資料夾包含下列檔案：
 
-* **VpnSettings.xml**，此檔案包含重要的設定，例如伺服器位址和通道類型。 
+* **VpnSettings.xml**，此檔案包含重要的設定，例如伺服器位址和通道類型。 
 * **VpnServerRoot.cer**，此檔案包含所需的根憑證，以供您在 P2S 連線設定期間驗證 Azure VPN 閘道。
 
 使用下列步驟，在 Mac 上設定用於憑證驗證的原生 VPN 用戶端。 您必須在將會連線到 Azure 的每部 Mac 上，完成下列步驟：
 
-1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。  
+1. 將 **VpnServerRoot** 根憑證匯入 Mac 中。 若要這麼做，請將該檔案複製到 Mac 上並對該檔案按兩下。  
 按一下 [新增] 來進行匯入。
 
   ![新增憑證](./media/point-to-site-vpn-client-configuration-azure-cert/addcert.png)
@@ -97,7 +97,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 4. 從 **Generic** 資料夾的 **VpnSettings.xml** 檔案複製 **VpnServer** 標記值。 將此值貼到設定檔的 [伺服器位址] 和 [遠端識別碼] 欄位。
 
   ![伺服器資訊](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. 按一下 [驗證設定]，然後選取 [憑證]。 
+5. 按一下 [驗證設定]，然後選取 [憑證]。 
 
   ![驗證設定](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 6. 按一下 [選取...] 以選擇您要用於驗證的用戶端憑證。 這是您在步驟 2 安裝的憑證。
@@ -172,7 +172,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
 1. 從 Azure 入口網站下載 VPNClient 套件。
 2. 將檔案解壓縮。
 3. 從 **Generic** 資料夾中，將 VpnServerRoot.cer 複製或移動到 /etc/ipsec.d/cacerts。
-4. 從 **Generic** 資料夾中，將 cp client.p12 複製或移動到 /etc/ipsec.d/private/。
+4. 將 cp client.p12 複製或移動到 /etc/ipsec.d/private/。 此檔案是 Azure VPN 閘道的用戶端憑證。
 5. 開啟 VpnSettings.xml 檔案，並複製 <VpnServer> 值。 您將在下一個步驟中使用此值。
 6. 調整下列範例中的值，然後將範例新增至 /etc/ipsec.conf 組態。
   
@@ -185,7 +185,7 @@ VPN 用戶端組態檔包含在 ZIP 檔案內。 這些組態檔會提供原生 
   leftauth=eap-tls
   leftid=%client # use the DNS alternative name prefixed with the %
   right= Enter the VPN Server value here# Azure VPN gateway address
-  rightid=%Enter the VPN Server value here# Azure VPN gateway address, prefixed with %
+  rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
   rightsubnet=0.0.0.0/0
   leftsourceip=%config
   auto=add

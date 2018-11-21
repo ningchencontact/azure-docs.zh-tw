@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Hive 與 PowerShell - Azure
-description: 使用 PowerShell 在 HDInsight 的 Hadoop 中執行 Hive 查詢
+title: 在 HDInsight 中搭配使用 Apache Hive 與 PowerShell - Azure
+description: 使用 PowerShell 在 HDInsight 的 Apache Hadoop 中執行 Hive 查詢。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,24 +9,24 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: e02f6b17dff93ce2df1f06ad9681e3086c35300c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257862"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633106"
 ---
-# <a name="run-hive-queries-using-powershell"></a>使用 PowerShell 執行 Hive 查詢
+# <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-本文件提供在 Azure 資源群組模式中使用 Azure PowerShell 的範例，以便在 HDInsight 叢集的 Hadoop 中執行 Hive 查詢。
+本文件提供在 Azure 資源群組模式中使用 Azure PowerShell 的範例，以便在 HDInsight 叢集的 Apache Hadoop 中執行 Hive 查詢。
 
 > [!NOTE]
 > 本文件不提供範例中使用的 HiveQL 陳述式所執行的工作詳細的描述。 如需此範例中使用的 HiveQL 的相關資訊，請參閱 [在 HDInsight 上搭配 Hadoop 使用 Hive](hdinsight-use-hive.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Hadoop。
+* HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
 
   > [!IMPORTANT]
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

@@ -1,6 +1,6 @@
 ---
-title: 了解使用 Hadoop 沙箱 - 模擬器 - Azure HDInsight
-description: '若要開始了解 Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 '
+title: 了解使用 Apache Hadoop 沙箱 - 模擬器 - Azure HDInsight
+description: '若要開始了解 Apache Hadoop 生態系統，您可以在 Azure 虛擬機器上從 Hortonworks 設定 Hadoop 沙箱。 '
 keywords: hadoop 模擬器, hadoop 沙箱
 ms.reviewer: jasonh
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: add1833671b995e747af6a447c65114d1add76e9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013100"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631552"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Hadoop 沙箱，它是虛擬機器上的模擬器
+# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Apache Hadoop 沙箱，它是虛擬機器上的模擬器
 
-了解如何在虛擬機器上從 Hortonworks 安裝 Hadoop 沙箱，以了解 Hadoop 生態系統。 沙箱提供本機開發環境，讓您了解 Hadoop、Hadoop 分散式檔案系統 (HDFS)，以及作業提交。 熟悉 Hadoop 之後，您就可以開始在 Azure 中使用 Hadoop 建立 HDInsight 叢集。 有關如何開始使用的詳細資訊，請參閱 [開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
+了解如何在虛擬機器上從 Hortonworks 安裝 Apache Hadoop 沙箱，以了解 Hadoop 生態系統。 沙箱提供本機開發環境，讓您了解 Hadoop、Hadoop 分散式檔案系統 (HDFS)，以及作業提交。 熟悉 Hadoop 之後，您就可以開始在 Azure 中使用 Hadoop 建立 HDInsight 叢集。 有關如何開始使用的詳細資訊，請參閱 [開始在 HDInsight 中使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
 ## <a name="prerequisites"></a>必要條件
 * [Oracle VirtualBox](https://www.virtualbox.org/)。 請從[這裡](https://www.virtualbox.org/wiki/Downloads)下載並安裝。

@@ -9,19 +9,19 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: 02a77ef9589a42a6f33087ba7e22efc3144a8f2c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973553"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634459"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>使用企業安全性套件管理 HDInsight 叢集
 了解 HDInsight 企業安全性套件 (ESP) 中的使用者與角色，以及如何管理 ESP 叢集。
 
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>使用 VSCode 連結至已加入網域的叢集
 
-您可以使用 Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 hadoop 叢集。
+您可以使用 Apache Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 Apache Hadoop 叢集。
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a cluster**。
 
    ![連結叢集命令](./media/apache-domain-joined-manage/link-cluster-command.png)
@@ -222,5 +222,5 @@ HDInsight 企業安全性套件有下列角色：
 3. 按一下 [新增使用者] 或 [新增群組] 以將使用者或群組指定至不同角色。
 
 ## <a name="next-steps"></a>後續步驟
-* 如需使用企業安全性套件設定 HDInsight 叢集，請參閱[使用 ESP 設定 HDInsight 叢集](apache-domain-joined-configure.md)。
+* 如需設定具有企業安全性套件的 HDInsight 叢集，請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
 * 如需設定 Hive 原則和執行 Hive 查詢，請參閱[使用 ESP 針對 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)。

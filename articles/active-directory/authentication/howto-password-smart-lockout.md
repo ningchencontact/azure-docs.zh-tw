@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/12/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 9ea91f70a72b812803a20244bb4445b76b133b0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296154"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685798"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
@@ -23,7 +23,15 @@ ms.locfileid: "46296154"
 
 根據預設，智慧鎖定會在 10 次失敗嘗試後鎖定帳戶，使其無法嘗試登入一分鐘。 在每次後續登入嘗試失敗之後，帳戶會再次鎖定，先鎖定一分鐘，後續嘗試鎖定時間會更長。
 
+* 智慧鎖定會追蹤最後三個不正確的密碼雜湊，以避免重複累計鎖定計數器。 如果有人多次輸入相同的錯誤密碼，此行為並不會導致帳戶鎖定。
+   * 這項功能不適用已啟用傳遞驗證的客戶。
+
 任何 Azure AD 客戶只要採用兼具適當安全性和可用性的預設設定，智慧鎖定就一律會啟用。 要使用組織的特定值自訂智慧鎖定設定，您的使用者必須具有 Azure AD Basic 或更高的授權。
+
+使用智慧鎖定並不保證實際使用者永遠不會遭到鎖定。當智慧鎖定將使用者帳戶鎖定時，我們會盡力不讓實際使用者遭到鎖定。 鎖定服務會嘗試確保不良執行者無法獲得實際使用者帳戶的存取權。  
+
+* 每個 Azure Active Directory 資料中心會獨立追蹤鎖定。 如果使用者叫用每個資料中心，使用者會有 (threshold_limit * datacenter_count) 的嘗試次數。
+* 智慧鎖定會使用熟悉的位置與不熟悉的位置來區分實際使用者與不良執行者。 不熟悉的位置與熟悉的位置會有各自的鎖定計數器。
 
 智慧鎖定可與混合式部署整合，使用密碼雜湊同步或傳遞驗證來保護內部部署 Active Directory 帳戶不被攻擊者鎖定。 藉由適當地在 Azure AD 中設定智慧鎖定原則，攻擊將會在到達內部部署 Active Directory 之前遭到篩除。
 

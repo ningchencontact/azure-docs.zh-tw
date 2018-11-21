@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012440"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636895"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的權杖、工作階段及單一登入組態
 
@@ -26,9 +26,9 @@ ms.locfileid: "51012440"
 - Azure AD B2C 所發出之安全性權杖中的重要宣告格式。
 - Azure AD B2C 租用戶中跨越多個應用程式和原則的單一登入 (SSO) 行為。
 
-針對內建原則，您可以在 Azure AD B2C 目錄中使用這項功能，如下所示：
+這項功能適用於任何原則類型，但此範例說明的是如何將此功能用於註冊或登入原則。 針對內建原則，您可以在 Azure AD B2C 目錄中使用這項功能，如下所示：
 
-1. 按一下 [註冊或登入原則] 。 *附註︰這項功能適用於任何原則類型，並不限於 **註冊或登入原則*\*\*。
+1. 按一下 [註冊或登入原則] 。
 2. 按一下原則以予以開啟。 例如，按一下 [B2C_1_SiUpIn]。
 3. 按一下功能表頂端的 [編輯]。
 4. 按一下 [權杖、工作階段及單一登入設定]。

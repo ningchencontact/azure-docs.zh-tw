@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d445a4673245b4c6d1986d099113beba79d136bb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310587"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687447"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -46,7 +46,7 @@ ms.locfileid: "46310587"
 | -- | -- |
 | 存取面板 | https://myapps.microsoft.com/contoso.com |
 | 網路版 Outlook | https://outlook.office365.com/contoso.com |
-| Office 365 入口網站 | https://portal.office.com?domain_hint=contoso.com |
+| Office 365 入口網站 | https://portal.office.com?domain_hint=contoso.com、 https://www.office.com?domain_hint=contoso.com |
 
 此外，如果應用程式將登入要求傳送至 Azure AD 的租用戶端點 (也就是 https://login.microsoftonline.com/contoso.com/<..> 或 https://login.microsoftonline.com/<tenant_ID>/<..>) 而不是 Azure AD 的一般端點 (也就是 https://login.microsoftonline.com/common/<...>)，使用者也可獲得無訊息登入體驗。 以下是一份不完整的應用程式清單，列出會提出這類登入要求的應用程式。
 

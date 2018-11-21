@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: danlep
-ms.openlocfilehash: a26b766c18ea2b14796af796abe7f36aa4fc1c66
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: de543798702137905ee5243c6ca8e502152f9c44
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854944"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634374"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 工作參考：YAML
 
@@ -85,7 +85,7 @@ az configure --defaults acr=myregistry
 
 | 屬性 | 類型 | 選用 | 說明 | 支援覆寫 | 預設值 |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | 字串 | 否 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 | 否 | 無 |
+| `version` | 字串 | 否 | 「ACR 工作」服務所剖析的 `acr-task.yaml` 檔案版本。 在「ACR 工作」努力維持回溯相容性的同時，此值則可讓「ACR 工作」在已定義的版本內維持相容性。 | 否 | None |
 | `stepTimeout` | 整數 (秒) | 是 | 步驟的可執行秒數上限。 設定步驟的 [timeout](#timeout) 屬性即可在步驟中覆寫此屬性。 | 是 | 600 (10 分鐘) |
 | `totalTimeout` | 整數 (秒) | 是 | 工作的可執行秒數上限。 「執行」包括執行及完成工作中的所有步驟，不論成功或失敗。 此外，也包括列印工作輸出，例如偵測到的映像相依性和工作執行狀態。 | 否 | 3600 (1 小時) |
 
@@ -112,7 +112,7 @@ steps:
       [property]: [value]
 ```
 
-`build` 步驟類型支援下列參數：
+`build` 步驟類型支援下表中的參數。 `build` 步驟類型也支援 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 命令的所有建置選項，例如以 `--build-arg` 設定建置時間變數。
 
 | 參數 | 說明 | 選用 |
 | --------- | ----------- | :-------: |
@@ -122,7 +122,7 @@ steps:
 
 ### <a name="properties-build"></a>屬性：build
 
-`build` 步驟類型支援下列屬性。您可以在此文章的[工作步驟屬性](#task-step-properties)一節中，找到這些屬性的詳細資料。
+`build` 步驟類型支援下列屬性。 您可以在此文章的[工作步驟屬性](#task-step-properties)一節中，找到這些屬性的詳細資料。
 
 | | | |
 | -------- | ---- | -------- |

@@ -1,5 +1,5 @@
 ---
-title: 使用企業安全性套件維護 Hadoop 安全性的簡介
+title: 使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 description: 了解企業安全性套件如何支援企業安全性的四大要件。
 services: hdinsight
 ms.service: hdinsight
@@ -9,23 +9,23 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf94ba73d57763f5e05ed9b33d10bb335103400a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 270227204af9cf50f0244b8aa11ebf9aa8cdc3ce
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946386"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631994"
 ---
-# <a name="an-introduction-to-hadoop-security-with-enterprise-security-package"></a>使用企業安全性套件維護 Hadoop 安全性的簡介
+# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>使用企業安全性套件維護 Apache Hadoop 安全性的簡介
 
-在過去，Azure HDInsight 僅支援單一使用者本機系統管理員。這很適合用於比較小型的應用程式團隊或部門。 Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 
+在過去，Azure HDInsight 僅支援單一使用者本機系統管理員。這很適合用於比較小型的應用程式團隊或部門。 Apache Hadoop 型工作負載在企業間越來越受青睞，而 Active Directory 型驗證、多使用者支援和角色型存取控制等企業級功能的需求日益重要。 
 
 您可以建立已加入 Active Directory 網域並具備企業安全性套件 (ESP) 的 HDInsight 叢集。 接著，您可以設定企業員工清單，指出可透過 Azure Active Directory 進行驗證以登入 HDInsight 叢集的員工。 沒有人能夠從企業外部登入或存取此 HDInsight 叢集。 
 
-企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/) \(英文\)，針對 Hive 安全性設定角色型存取控制 (RBAC)。 設定 RBAC 可限制資料存取只提供所需的資料。 最後，系統管理員可稽核由員工存取的資料，以及對存取控制原則所做的任何變更。 系統管理員因此便能高度控管公司的資源。
+企業系統管理員可以使用 [Apache Ranger](http://hortonworks.com/apache/ranger/) \(英文\)，針對 Apache Hive 安全性設定角色型存取控制 (RBAC)。 設定 RBAC 可限制資料存取只提供所需的資料。 最後，系統管理員可稽核由員工存取的資料，以及對存取控制原則所做的任何變更。 系統管理員因此便能高度控管公司的資源。
 
 > [!NOTE]
-> 本文所說明的新功能 (預覽版) 僅適用於下列叢集類型：Hadoop、Spark 及互動式查詢。 ESP 叢集現已啟用 Oozie。 若要存取 Oozie Web UI，使用者應該啟用[通道](../hdinsight-linux-ambari-ssh-tunnel.md)。
+> ESP 叢集現已啟用 Oozie。 若要存取 Oozie Web UI，使用者應該啟用[通道](../hdinsight-linux-ambari-ssh-tunnel.md)。
 
 企業安全性包含四大要件：周邊安全性、驗證、授權和加密。
 
@@ -64,5 +64,5 @@ HDInsight 叢集的兩個資料存放區 (Azure Blob 儲存體和 Azure Data Lak
 * [設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)
 * [管理具有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md)
 * [為具有 ESP 的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)
-* [搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
+* [搭配使用 SSH 與 HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)
 

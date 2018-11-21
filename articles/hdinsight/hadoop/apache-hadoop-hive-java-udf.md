@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Java 使用者定義函式 (UDF) 和 Hive - Azure
-description: 了解如何建立能配合 Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例 UDF 會將文字字串的資料表轉換成小寫。
+title: 在 HDInsight 中搭配使用 Java 使用者定義函式 (UDF) 和 Apache Hive - Azure
+description: 了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例 UDF 會將文字字串的資料表轉換成小寫。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3d8f1d75b8e61bd611f58ed953a8357fb4a47c78
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006238"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634068"
 ---
-# <a name="use-a-java-udf-with-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Hive
+# <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
-了解如何建立能配合 Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例中的 Java UDF 會將文字字串的資料表轉換成全部小寫。
+了解如何建立能配合 Apache Hive 使用的以 Java 為基礎的使用者定義函式 (UDF)。 此範例中的 Java UDF 會將文字字串的資料表轉換成全部小寫。
 
 ## <a name="requirements"></a>需求
 

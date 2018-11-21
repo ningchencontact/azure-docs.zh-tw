@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Pig 與 PowerShell - Azure
-description: 了解如何使用 Azure PowerShell 將 Pig 工作提交至 HDInsight 上的 Hadoop 叢集。
+title: 在 HDInsight 中搭配使用 Apache Pig 與 PowerShell - Azure
+description: 了解如何使用 Azure PowerShell 將 Apache Pig 作業提交至 HDInsight 上的 Apache Hadoop 叢集。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: e50c551381a065e8651ab7970ef9cf18c6c3a765
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e9f6778f12f4f6260bfc20c3a78f7929f13405b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011012"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634527"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Pig 工作與 HDInsight
+# <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>使用 Azure PowerShell 執行 Apache Pig 作業與 HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-本文件提供使用 Azure PowerShell 將 Pig 工作提交至 HDInsight 叢集上的 Hadoop 的範例。 Pig 可讓您使用可建立資料轉換模型的語言 (Pig Latin) 撰寫 MapReduce 工作，而不是撰寫對應和歸納函數。
+本文件提供使用 Azure PowerShell 將 Apache Pig 作業提交至 HDInsight 叢集上的 Apache Hadoop 的範例。 Pig 可讓您使用可建立資料轉換模型的語言 (Pig Latin) 撰寫 MapReduce 工作，而不是撰寫對應和歸納函數。
 
 > [!NOTE]
 > 本文件不提供範例中使用的 Pig Latin 陳述式所執行的工作詳細的描述。 如需此範例中使用的 Pig Latin 相關資訊，請參閱 [在 HDInsight 上搭配 Hadoop 使用 Pig](hdinsight-use-pig.md)。

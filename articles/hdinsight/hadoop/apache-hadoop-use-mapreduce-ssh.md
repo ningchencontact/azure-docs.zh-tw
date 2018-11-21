@@ -1,6 +1,6 @@
 ---
-title: MapReduce 和 SSH 連線與 HDInsight 中的 Hadoop - Azure
-description: 了解如何使用 SSH，以利用 HDInsight 上的 Hadoop 來執行 MapReduce 工作。
+title: MapReduce 和 SSH 連線與 HDInsight 中的 Apache Hadoop - Azure
+description: 了解如何使用 SSH，以利用 HDInsight 上的 Apache Hadoop 來執行 MapReduce 作業。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8c3fb1a5474d0546dc06dfea681e6229b563ccc0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: df6a96d8bbf1c77d279806e69e7aa7f65387dd4b
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014341"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632521"
 ---
-# <a name="use-mapreduce-with-hadoop-on-hdinsight-with-ssh"></a>搭配使用 MapReduce 與 HDInsight 上的 Hadoop 和 SSH
+# <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>搭配使用 MapReduce 與 HDInsight 上的 Apache Hadoop 和 SSH
 
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 了解如何從 HDInsight 的安全殼層 (SSH) 連線提交 MapReduce 作業。
 
 > [!NOTE]
-> 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱 [以 Linux 為基礎的 HDInsight 秘訣](../hdinsight-hadoop-linux-information.md)。
+> 如果您已熟悉使用以 Linux 為基礎的 Apache Hadoop 伺服器，但剛接觸 HDInsight，請參閱 [以 Linux 為基礎的 HDInsight 秘訣](../hdinsight-hadoop-linux-information.md)。
 
 ## <a id="prereq"></a>必要條件
 

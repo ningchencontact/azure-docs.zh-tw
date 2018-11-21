@@ -10,22 +10,22 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162437"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687464"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 SAML 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 提供對 SAML 2.0 識別提供者的支援。 此文章說明技術設定檔的詳細規格，可用來與支援此標準化通訊協定的宣告提供者互動。 使用 SAML 技術設定檔，您可以與 SAML 式識別提供者 (例如 AD-FS 與 Salesforce) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
+Azure Active Directory (Azure AD) B2C 提供對 SAML 2.0 識別提供者的支援。 本文會說明技術設定檔的詳細規格，其可和支援此標準化通訊協定的宣告提供者互動。 使用 SAML 技術設定檔，您可以與 SAML 式識別提供者 (例如 [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) 與 [Salesforce](active-directory-b2c-setup-sf-app-custom.md)) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
 
 ## <a name="metadata-exchange"></a>中繼資料交換
 
-中繼資料是在 SAML 通訊協定中用來公開 SAML 合作對象 (例如，服務提供者或識別提供者) 設定的資訊。 中繼資料會定義服務的位置，例如，登入和登出、憑證、登入方法，以及其他項目。 識別提供者會使用中繼資料來了解如何與 Azure AD B2C 通訊。 中繼資料會以 XML 格式來設定，並且可能使用數位簽章來簽署，如此一來，另一個合作對象能夠驗證中繼資料的完整性。 當 Azure AD B2C 與 SAML 識別提供者同盟時，它會做為服務提供者來起始 SAML 要求，並等候 SAML 回應。 此外，在某些情況下 (不包括未經要求的 SAML 驗證)，也稱為識別提供者起始。 
+中繼資料是在 SAML 通訊協定中用來公開 SAML 合作對象 (例如，服務提供者或識別提供者) 設定的資訊。 中繼資料會定義服務的位置，例如，登入和登出、憑證、登入方法，以及其他項目。 識別提供者會使用中繼資料來了解如何與 Azure AD B2C 通訊。 中繼資料會以 XML 格式來設定，並且可能使用數位簽章來簽署，如此一來，另一個合作對象能夠驗證中繼資料的完整性。 當 Azure AD B2C 與 SAML 識別提供者同盟時，它會做為服務提供者來起始 SAML 要求，並等候 SAML 回應。 此外，在某些情況下會接受未經要求的 SAML 驗證，這也稱為識別提供者起始。 
 
 在這兩個合作對象中，可將中繼資料設定為「靜態中繼資料」或「動態中繼資料」。 在靜態模式中，您會從一個合作對象中複製完整的中繼資料，並在另一個合作對象中設定它。 在動態模式中，您會將 URL 設定為中繼資料，而另一個合作對象會以動態方式讀取該設定。 準則都一樣，您會在識別提供者中設定 Azure AD B2C 技術設定檔的中繼資料，並在 Azure AD B2C 中設定識別提供者的中繼資料。
 
@@ -34,14 +34,14 @@ Azure Active Directory (Azure AD) B2C 提供對 SAML 2.0 識別提供者的支�
 下列範例顯示 Azure AD B2C 技術設定檔 SAML 中繼資料的 URL 位址：
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 取代下列值：
 
-- 將 **your-tenant** 取代為您的租用戶名稱，例如 your-tenant.onmicrosoft.com
+- 將 **your-tenant-name** 取代為您的租用戶名稱，例如 fabrikam.b2clogin.com。
 - 將 **your-policy** 取代為您的原則名稱。 使用您用來設定 SAML 提供者技術設定檔的原則，或繼承自該原則的原則。
-- 將 **your-technical-profile** 取代為您的 SAML 識別提供者技術設定檔名稱
+- 將 **your-technical-profile** 取代為您的 SAML 識別提供者技術設定檔名稱。
 
 ## <a name="digital-signing-certificates-exchange"></a>數位簽署憑證交換
 

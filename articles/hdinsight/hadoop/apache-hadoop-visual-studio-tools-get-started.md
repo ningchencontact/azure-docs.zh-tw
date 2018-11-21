@@ -1,6 +1,6 @@
 ---
 title: 使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight
-description: 了解如何安裝和使用 Data Lake Tools for Visual Studio 來連線到 Azure HDInsight 中的 Hadoop 叢集，然後執行 Hive 查詢。
+description: 了解如何安裝和使用 Data Lake Tools for Visual Studio 來連線到 Azure HDInsight 中的 Apache Hadoop 叢集，然後執行 Hive 查詢。
 keywords: hadoop 工具,hive 查詢,visual studio,visual studio hadoop
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive, hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 281c3744dc311fdced20f810e0a9f2b233076472
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 670de3f61047bcc8b168863f5981e41084225ec4
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247138"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634663"
 ---
-# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢
+# <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢
 
-了解如何使用 Data Lake Tools for Visual Studio (也稱為 Azure Data Lake and Stream Analytics Tools for Visual Studio) 來連線到 [Azure HDInsight](../hdinsight-hadoop-introduction.md) 中的 Hadoop 叢集及提交 Hive 查詢。 
+了解如何使用 Data Lake Tools for Visual Studio (也稱為 Azure Data Lake and Stream Analytics Tools for Visual Studio) 來連線到 [Azure HDInsight](../hdinsight-hadoop-introduction.md) 中的 Apache Hadoop 叢集及提交 Hive 查詢。 
 
 如需使用 HDInsight 的詳細資訊，請參閱 [HDInsight 簡介](../hdinsight-hadoop-introduction.md)和[開始使用 HDInsight](apache-hadoop-linux-tutorial-get-started.md)。 
 

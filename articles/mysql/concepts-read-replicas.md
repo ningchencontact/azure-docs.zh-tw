@@ -7,13 +7,13 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: b4e79723072a19f2637bea16d0534cb85588e9e3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/13/2018
+ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412443"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632555"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 
@@ -60,12 +60,15 @@ ms.locfileid: "50412443"
 - 備份保留期限
 - 備份備援選項
 - MySQL 引擎版本
+- 防火牆規則
 
 建立複本之後，您可以變更為與獨立伺服器不一樣定價層 (無法變更為基本或從基本變更為其他定價層)、計算世代、vCore、儲存體與備份保留。
 
 ### <a name="master-server-configuration"></a>主要伺服器設定
 
-若主要伺服器設定 (例如 vCore 或儲存體) 已更新，複本的設定應該也會更新為相等或更大的值。 若沒有，複本伺服器可能無法同步主要伺服器上發生的變更，而且可能會因此當機。 
+若主要伺服器設定 (例如 vCore 或儲存體) 已更新，複本的設定應該也會更新為相等或更大的值。 若沒有，複本伺服器可能無法同步主要伺服器上發生的變更，而且可能會因此當機。
+
+在複本伺服器建立之後新增至主要伺服器的新防火牆規則，不會複寫到複本。 複本也應使用這個新的防火牆規則進行更新。
 
 ### <a name="deleting-the-master-server"></a>刪除主要伺服器
 
@@ -87,7 +90,4 @@ ms.locfileid: "50412443"
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[使用 Azure 入口網站來建立及管理讀取複本](howto-read-replicas-portal.md)
-
-<!--
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-using-cli.md)
--->
+- 了解如何[使用 Azure CLI 來建立及管理讀取複本](howto-read-replicas-cli.md)

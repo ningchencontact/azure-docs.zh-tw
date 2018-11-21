@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 6c9172140691f7107d3907ab86938d879989a6c0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: d1127834732a6fc82e0331370a6c4173e9f61dcf
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748233"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685407"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 指令碼 (.csx) 開發人員參考
 
@@ -376,34 +376,27 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 系統會自動監看包含函式指令碼檔案之目錄中的組件變更。 若要監看其他目錄中的組件變更，請將它們新增至 [host.json](functions-host-json.md) 中的 `watchDirectories` 清單。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 套件
+若要在 C# 函式中使用 NuGet 套件，請將 *extensions.csproj* 檔案上傳至函式應用程式檔案系統中的函式資料夾。 以下是範例 *extensions.csproj* 檔案，該檔案會加入對 *Microsoft.ProjectOxford.Face* *1.1.0* 版的參考：
 
-若要在 C# 函式中使用 NuGet 套件，請將 project.json  檔案上傳至函式應用程式檔案系統中的函式資料夾。 以下是範例 project.json  檔案，該檔案會加入對 Microsoft.ProjectOxford.Face 1.1.0 版的參考：
-
-```json
-{
-  "frameworks": {
-    "net46":{
-      "dependencies": {
-        "Microsoft.ProjectOxford.Face": "1.1.0"
-      }
-    }
-   }
-}
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ProjectOxford.Face" Version="1.1.0" />
+    </ItemGroup>
+</Project>
 ```
-
-在 Azure Functions 1.x 中，只支援 .NET Framework 4.6；因此，請確認您的 project.json 檔案指定 `net46`，如下所示。
-
-當您上傳 project.json  檔案時，執行階段會取得封裝並自動加入對封裝組件的參考。 您不需要加入 `#r "AssemblyName"` 指示詞。 若要使用 NuGet 套件中所定義的類型，只需要將所需的 `using` 陳述式新增至 run.csx 檔案。 
-
-在 Functions 執行階段中，NuGet 還原會透過比較 `project.json` 和 `project.lock.json` 來運作。 如果檔案的日期和時間戳記**不**相符，會執行 NuGet 還原，且 NuGet 會下載更新的套件。 不過，如果檔案的日期和時間戳記**相符**，NuGet 不會執行還原。 因此，不應該部署 `project.lock.json`，因為它會導致 NuGet 略過套件還原。 若要避免部署鎖定檔案，請將 `project.lock.json` 加入至 `.gitignore` 檔案。
 
 若要使用自訂 NuGet 摘要，請在函式應用程式根目錄的 *Nuget.Config* 檔案中指定摘要。 如需詳細資訊，請參閱[設定 NuGet 行為](/nuget/consume-packages/configuring-nuget-behavior)。
 
-### <a name="using-a-projectjson-file"></a>使用 project.json 檔案
+### <a name="using-a-extensionscsproj-file"></a>使用 extensions.csproj 檔案
 
 1. 在 Azure 入口網站中開啟函式。 [記錄] 索引標籤會顯示套件安裝輸出。
-2. 若要上傳 project.json 檔案，請使用 Azure Functions 開發人員參考主題的[如何更新函式應用程式檔案](functions-reference.md#fileupdate)所述的其中一個方法。
-3. 上傳 project.json  檔案之後，您會在函式的串流記錄檔中看到如下列範例所示的輸出：
+2. 若要上傳 *extensions.csproj* 檔案，請使用 Azure Functions 開發人員參考主題的[如何更新函式應用程式檔案](functions-reference.md#fileupdate)所述的其中一個方法。
+3. 上傳 *extensions.csproj* 檔案之後，您會在函式的串流記錄檔中看到如下列範例所示的輸出：
 
 ```
 2016-04-04T19:02:48.745 Restoring packages.
@@ -413,7 +406,7 @@ simple-name 可能會參考下列組件 (例如，`#r "AssemblyName"`)：
 2016-04-04T19:02:50.261 C:\DWASFiles\Sites\facavalfunctest\LocalAppData\NuGet\Cache
 2016-04-04T19:02:50.261 https://api.nuget.org/v3/index.json
 2016-04-04T19:02:50.261
-2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\Project.json...
+2016-04-04T19:02:50.511 Restoring packages for D:\home\site\wwwroot\HttpTriggerCSharp1\extensions.csproj...
 2016-04-04T19:02:52.800 Installing Newtonsoft.Json 6.0.8.
 2016-04-04T19:02:52.800 Installing Microsoft.ProjectOxford.Face 1.1.0.
 2016-04-04T19:02:57.095 All packages are compatible with .NETFramework,Version=v4.6.

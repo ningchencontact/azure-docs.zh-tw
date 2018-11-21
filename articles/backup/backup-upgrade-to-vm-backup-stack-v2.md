@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c65cfedd398bbb18d65f36a3f2a768e11443687a
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962524"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636504"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>升級至 Azure VM 備份堆疊 V2
 
@@ -86,15 +86,42 @@ ms.locfileid: "50962524"
     ```
     PS C:>  Register-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
     ```
+### <a name="cli"></a>CLI
+從殼層執行下列命令：
+1.  登入您的 Azure 帳戶：
+
+    ```
+    az login
+    ```
+
+2.  選取您要註冊的訂用帳戶：
+
+    ```
+    az account set --subscription "Subscription Name"
+    ```
+
+3.  註冊此訂用帳戶：
+
+    ```
+    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+    ```
 
 ## <a name="verify-that-the-upgrade-is-finished"></a>驗證已完成升級
+### <a name="powershell"></a>PowerShell
 從提高權限的 PowerShell 終端機執行下列 Cmdlet︰
 
 ```
 Get-AzureRmProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
 ```
 
-如果顯示 "Registered" (已註冊)，則代表您的訂用帳戶已升級至 VM 備份堆疊 Resource Manager 部署模型。
+### <a name="cli"></a>CLI
+從殼層執行下列命令：
+
+```
+az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
+```
+
+如果顯示 "Registered"，表示您的訂用帳戶已升級至 V2 備份堆疊。
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 

@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: eb50673b4f618caadfa1abfb654d7e3f15e51713
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740955"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685441"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -93,7 +93,7 @@ ms.locfileid: "50740955"
   * IChangeFeedObserver.ProcessChangesAsync 現在會取用 CancellationToken。
   * IRemainingWorkEstimator - 剩餘工作估算器可在處理器以外單獨使用。
   * 新的擴充點：
-    * IParitionLoadBalancingStrategy - 用於處理器執行個體之間的分割區自訂負載平衡。
+    * IPartitionLoadBalancingStrategy - 用於處理器執行個體之間的分割區自訂負載平衡。
     * ILease、ILeaseManager - 用於自訂租用管理。
     * IPartitionProcessor - 用於分割區上的自訂處理變更。
 * 記錄 - 使用 [LibLog](https://github.com/damianh/LibLog) 程式庫。

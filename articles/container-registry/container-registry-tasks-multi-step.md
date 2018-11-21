@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856712"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632687"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
@@ -53,7 +53,7 @@ ms.locfileid: "48856712"
 * [`push`](container-registry-tasks-reference-yaml.md#push)將所建置的映像推送至容器登錄。 支援 Azure Container Registry 之類的私人登錄，也支援公用 Docker Hub。
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd)：執行容器，使其能夠在執行中工作的內容內以函式方式執行。 您可以將參數傳遞給容器的 `[ENTRYPOINT]`，並指定 env、detach 等屬性及其他熟悉的 `docker run` 參數。 `cmd` 步驟類型可讓您搭配並行容器執行來進行單元和功能測試。
 
-多步驟工作可以像建置和推送單一映像一樣簡單：
+下列程式碼片段說明如何結合這些工作步驟類型。 多步驟的工作有可能很簡單，像是使用如下的 YAML 檔案，從 Dockerfile 建置單一映像並推送至登錄：
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-也可以更為複雜，例如這個包含建置、測試、helm 套件及 helm 部署步驟的工作：
+但也可能較為複雜，例如這個虛構的多步驟定義，其中包含建置、測試、Helm 封裝和 Helm 部署的步驟 (容器登錄和 Helm 存放庫組態未顯示)：
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+請參閱[工作範例][task-examples]，以取得數個案例的多步驟工作 YAML 檔案和 Dockerfile。
 
 ## <a name="run-a-sample-task"></a>執行範例工作
 
@@ -163,6 +165,7 @@ Run ID: yd14 was successful after 19s
 
 * [工作參考](container-registry-tasks-reference-yaml.md) - 工作步驟類型、其屬性及使用方式。
 * [工作範例][task-examples] - 從簡單到複雜的數個案例範例 `task.yaml` 檔案。
+* [Cmd 存放庫](https://github.com/AzureCR/cmd) - 作為 ACR 工作命令的容器集合。
 
 <!-- IMAGES -->
 

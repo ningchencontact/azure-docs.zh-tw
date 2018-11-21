@@ -1,6 +1,6 @@
 ---
-title: 搭配使用 C# 與 HDInsight 的 Hadoop 上的 Hive 和 Pig - Azure
-description: 了解如何搭配使用 C# 使用者定義函數 (UDF) 與 Azure HDInsight 中的 Hive 和 Pig 串流處理。
+title: 在 HDInsight 的 Apache Hadoop 上搭配使用 C# 與 Apache Hive 和 Apache Pig - Azure
+description: 了解如何搭配使用 C# 使用者定義函數 (UDF) 與 Azure HDInsight 中的 Apache Hive 和 Apache Pig 串流處理。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014681"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633830"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>搭配使用 C# 使用者定義函數與 HDInsight 的 Hadoop 上的 Hive 和 Pig 串流處理。
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 的 Apache Hadoop 上搭配使用 C# 使用者定義函數與 Apache Hive 和 Apache Pig 串流處理
 
-了解如何搭配使用 C# 使用者定義函式 (UDF) 與 HDInsight 上的 Apache Hive 和 Pig。
+了解如何搭配使用 C# 使用者定義函式 (UDF) 與 HDInsight 上的 Apache Hive 和 Apache Pig。
 
 > [!IMPORTANT]
 > 本文件中的步驟適用於以 Linux 為基礎和以 Windows 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](../hdinsight-component-versioning.md)。

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304547"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687396"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Azure Active Directory 無縫單一登入：技術性深入探討
 
@@ -79,8 +79,8 @@ ms.locfileid: "46304547"
 
 1. 使用者嘗試從公司網路內已加入網域的公司裝置存取原生應用程式 (例如 Outlook 用戶端)。
 2. 如果使用者尚未登入，原生應用程式就會從裝置的 Windows 工作階段擷取使用者的使用者名稱。
-3. 應用程式會將使用者名稱傳送給 Azure AD，然後擷取您租用戶的 WS-Trust MEX 端點。
-4. 應用程式會接著查詢 WS-Trust MEX 端點，以了解是否有可用的整合式驗證端點。
+3. 應用程式會將使用者名稱傳送給 Azure AD，然後擷取您租用戶的 WS-Trust MEX 端點。 「無縫 SSO」功能會以獨佔方式使用此 WS-Trust 端點，而且不是 WS-Trust 通訊協定在 Azure AD 上的一般實作。
+4. 應用程式會接著查詢 WS-Trust MEX 端點，以了解是否有可用的整合式驗證端點。 「無縫 SSO」功能會以獨佔方式使用整合式驗證端點。
 5. 如果步驟 4 成功，就會發出 Kerberos 查問。
 6. 如果應用程式能夠擷取 Kerberos 票證，它就會將票證向上轉送至 Azure AD 的整合式驗證端點。
 7. Azure AD 會將 Kerberos 票證解密並加以驗證。

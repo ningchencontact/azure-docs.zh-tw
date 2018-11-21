@@ -1,5 +1,5 @@
 ---
-title: 自訂 Azure App Service 中的驗證和授權 | Microsoft Docs
+title: 在 Azure App Service 中進階使用驗證和授權 | Microsoft Docs
 description: 示範如何自訂 App Service 中的驗證與授權，以及取得使用者宣告和不同的權杖。
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344165"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685322"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>自訂 Azure App Service 中的驗證與授權
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
 
-本文會說明如何自訂 [App Service 中的驗證與授權](app-service-authentication-overview.md)，以及管理您應用程式的身分識別。 
+本文說明如何自訂 [App Service 中的內建驗證與授權](app-service-authentication-overview.md)，以及管理您應用程式的身分識別。 
 
 若要快速開始，請參閱下列其中一個教學課程︰
 
@@ -58,6 +58,48 @@ ms.locfileid: "43344165"
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>驗證提供者的權杖
+
+在用戶端導向的登入中，應用程式會以手動方式將使用者登入提供者，然後將驗證權杖提交給 App Service 進行驗證 (請參閱[驗證流程](app-service-authentication-overview.md#authentication-flow))。 此驗證本身並不會實際為您授與所需應用程式資源的存取權，但成功的驗證會給予您可用來存取應用程式資源的工作階段權杖。 
+
+若要驗證提供者權杖，App Service 應用程式必須先以所需的提供者進行設定。 在執行階段，在您從提供者擷取驗證權杖之後，請將權杖公佈到 `/.auth/login/<provider>` 進行驗證。 例如︰ 
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+權杖的格式會隨著提供者而稍有不同。 如需詳細資訊，請參閱下表︰
+
+| 提供者值 | 要求本文中需要 | 註解 |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | `expires_in` 是選用屬性。 <br/>從即時服務要求權杖時，請一律要求 `wl.basic` 範圍。 |
+| `google` | `{"id_token":"<id_token>"}` | `authorization_code` 是選用屬性。 若已指定，也可以選擇性地與 `redirect_uri` 屬性搭配使用。 |
+| `facebook`| `{"access_token":"<user_access_token>"}` | 使用來自 Facebook 的有效[使用者存取權杖](https://developers.facebook.com/docs/facebook-login/access-tokens)。 |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+如果提供者權杖驗證成功，API 會連同 `authenticationToken` 在回應本文中一起傳回，這是您的工作階段權杖。 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+在取得此工作階段權杖之後，您可以藉由將 `X-ZUMO-AUTH` 標頭新增至 HTTP 要求，來存取受保護的應用程式資源。 例如︰ 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>登出工作階段
@@ -119,7 +161,7 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
 提供者專屬權杖會從伺服器程式碼插入到要求標頭，以供您輕鬆地存取。 下表顯示可能的權杖標頭名稱：
 
-| | |
+| 提供者 | 標頭名稱 |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook 權杖 | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

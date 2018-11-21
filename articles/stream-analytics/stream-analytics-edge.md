@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985058"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687430"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
 
@@ -71,13 +71,17 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 
 1. 從 Azure 入口網站中，建立新的「串流分析作業」。 [在這裡導向連結以建立新的 ASA 作業](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob)。
 
-2. 在 [建立] 畫面中，選取 **Edge** 作為 **裝載環境**(請參閱下圖) ![作業建立](media/stream-analytics-edge/ASAEdge_create.png)
+2. 在 [建立] 畫面中，選取 **Edge** 作為 **裝載環境**(請參閱下圖)
+
+   ![建立作業](media/stream-analytics-edge/ASAEdge_create.png)
 3. 作業定義
     1. **定義輸入資料流**。 定義適用於您作業的一或多個輸入資料流。
     2. 定義參考資料 (選擇性)。
     3. **定義輸出資料流**。 定義適用於您作業的一或多個輸出資料流。 
     4. **定義查詢**。 使用內嵌編輯器在雲端中定義 ASA 查詢。 編譯器會自動檢查針對 ASA Edge 啟用的語法。 您也可以上傳範例資料來測試您的查詢。 
+
 4. 在 [IoT Edge 設定] 功能表中設定儲存體容器資訊。
+
 5. 設定選擇性設定
     1. **事件順序**。 您可以在入口網站中設定順序錯亂的事件。 您可以在[這裡](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)取得文件。
     2. **地區設定**。 設定國際化格式。
@@ -181,20 +185,27 @@ ASA Edge 作業可以從 IoT Edge 裝置上執行的其他模組取得輸入和�
 
 
 ##### <a name="reference-data"></a>參考資料
-參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集。 可用來執行查閱或與資料流相互關聯。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 如需詳細資訊，請參閱[關於參考資料的 API 文件](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data)。
+參考資料 (也稱為查詢資料表) 基本上是靜態或不常變更的有限資料集。 可用來執行查閱或與資料流相互關聯。 若要使用 Azure 串流分析作業中的參考資料，您通常會在查詢中使用[參考資料聯結](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)。 如需詳細資訊，請參閱[使用參考資料在串流分析中進行查閱](stream-analytics-use-reference-data.md)。
 
-若要使用 IoT Edge 上的 ASA 參考資料，請遵循下列步驟： 
-1. 建立作業的新輸入
+目前僅支援本機參考資料。 當作業部署到 IoT Edge 裝置時，它會從使用者定義的檔案路徑載入參考資料。
+
+若要使用 Edge 上的參考資料建立作業：
+
+1. 建立作業的新輸入。
+
 2. 選擇 [參考資料] 作為 [來源類型]。
-3. 設定檔案路徑。 檔案路徑在![參考資料建立](media/stream-analytics-edge/ReferenceData.png)裝置上必須是**絕對**的檔案路徑
-4. 在 Docker 設定中啟用**共用磁碟機**，並確定在開始部署之前已啟用磁碟機。
 
-如需詳細資訊，請在這裡參閱[適用於 Windows 的 Docker 文件](https://docs.docker.com/docker-for-windows/#shared-drives)。
+3. 在裝置上備妥參考資料檔案。 針對 Windows 容器，請將參考資料檔案放在本機磁碟機上，並將本機磁碟機與 Docker 容器共用。 針對 Linux 容器，請建立 Docker 磁碟區，並在磁碟區上填入資料檔案。
 
-> [!Note]
-> 目前僅支援本機參考資料。
+4. 設定檔案路徑。 針對 Windows 裝置，請使用絕對路徑。 針對 Linux 裝置，請使用磁碟區中的路徑。
 
+![IoT Edge 上的 Azure 串流分析作業的新參考資料輸入](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+IoT Edge 上的參考資料更新會由部署觸發。 觸發之後，ASA 模組會挑選更新的資料，且不會停止執行中的作業。
+
+有兩種方式可更新參考資料：
+* 使用 Azure 入口網站更新您 ASA 作業中的參考資料路徑。
+* 更新 IoT Edge 部署。
 
 
 ## <a name="license-and-third-party-notices"></a>授權和第三方通知

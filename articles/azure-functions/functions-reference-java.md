@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 423661b8a459abf0b3028da92d6fd3ec885bb2c9
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025017"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686887"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -24,11 +24,13 @@ ms.locfileid: "50025017"
 
 ## <a name="programming-model"></a>程式設計模型 
 
-您的 Azure 函式應該是無狀態類別方法，處理輸入及產生輸出。 雖然您可以寫入執行個體方法，但是函式不得相依於類別的任何執行個體欄位。 所有函式方法必須有 `public` 存取修飾詞。
+[觸發程序和繫結](functions-triggers-bindings.md)的概念是 Azure Functions 的基礎。 觸發程序會開始執行您的程式碼。 繫結可讓您將資料傳至函式以及從函式傳回資料，而不需要撰寫自訂的資料存取程式碼。
+
+函式應該是無狀態方法，用來處理輸入及產生輸出。 您的函式不應相依於類別的任何執行個體欄位。 所有函式方法均應為 `public`，且附有註釋 @FunctionName 的方法必須是唯一的，因為方法名稱會定義函式的項目。
 
 ## <a name="folder-structure"></a>資料夾結構
 
-Java 專案的資料夾結構看起來如下：
+以下是 Azure 函式 Java 專案的資料夾結構：
 
 ```
 FunctionsProject
@@ -60,14 +62,12 @@ FunctionsProject
 
  Azure 函式可透過觸發程序 (例如，HTTP 要求、計時器或資料的更新) 來叫用。 函式必須處理該觸發程序和任何其他輸入，以產生一或多個輸出。
 
-請使用 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 套件中所包含的 Java 註釋，以將輸入和輸出繫結至方法。 使用註釋的程式碼範例位於每個註釋的 [Java 參考文件](/java/api/com.microsoft.azure.functions.annotation)中，以及 Azure Functions 繫結參考文件中，例如 [HTTP 觸發程序](/azure/azure-functions/functions-bindings-http-webhook)的文件。
-
-觸發程序輸入和輸出也可以定義於函式的 [function.json](/azure/azure-functions/functions-reference#function-code) 中，而不透過註釋來定義。 不建議您以這種方式使用 `function.json` 而不使用註釋。
+請使用 [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) 套件中所包含的 Java 註釋，以將輸入和輸出繫結至方法。 如需詳細資訊，請參閱 [Java 參考文件](/java/api/com.microsoft.azure.functions.annotation)。
 
 > [!IMPORTANT] 
 > 您必須在 [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) 中設定 Azure 儲存體帳戶，以在本機執行 Azure 儲存體 Blob、佇列或資料表觸發程序。
 
-使用註釋的範例：
+範例：
 
 ```java
 public class Function {
@@ -79,24 +79,12 @@ public class Function {
 }
 ```
 
-撰寫的相同函式且沒有註釋：
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-具有對應 `function.json`：
+以下是 [azure-functions-maven-plugin](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-maven-plugin) 所產生的對應 `function.json`：
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -117,113 +105,113 @@ public class MyClass {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 執行階段可用性和支援 
 
-請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK，以在本機開發 Java 函數應用程式。 除了提供適用於 Windows、Linux 和 macOS 的 JDK 之外，在使用[合格的支援方案](https://azure.microsoft.com/support/plans/)進行開發的期間，針對遇到的問題，也提供 [Azure 支援](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)。
+請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK，以在本機開發 Java 函數應用程式。 JDK 適用於 Windows、Linux 和 macOS。 [Azure 支援](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)可透過[合格的支援方案](https://azure.microsoft.com/support/plans/)取得。
 
 ## <a name="third-party-libraries"></a>第三方程式庫 
 
-Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.xml` 檔案中所指定的相依性全都會在 `mvn package` 目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放在 `lib` 目錄中的相依性會在執行階段新增至系統類別載入器。
+Azure Functions 支援使用第三方程式庫。 根據預設，專案的 `pom.xml` 檔案中所指定的相依性全都會在 [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) 目標期間自動配套。 對於在 `pom.xml` 檔案中未指定為相依性的程式庫，請將其放入函式根目錄的 `lib` 目錄中。 放在 `lib` 目錄中的相依性會在執行階段新增至系統類別載入器。
 
-`com.microsoft.azure.functions:azure-functions-java-library` 相依性預設會在 Classpath 提供，因此無須包含在 `lib` 目錄中。
+`com.microsoft.azure.functions:azure-functions-java-library` 相依性預設會在 Classpath 提供，因此無須包含在 `lib` 目錄中。 此外，[azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) 會將[這裡](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies)列出的相依性新增至類別路徑。
 
 ## <a name="data-type-support"></a>資料類型支援
 
-您可以針對輸入和輸出資料在 Java 中使用任何資料類型，包括原生類型。自訂 Java 類型及特殊 Azure 類型會在 `azure-functions-java-library` 套件中定義。 Azure Functions 執行階段會嘗試將收到的輸入轉換為您的程式碼要求的類型。
-
-### <a name="strings"></a>字串
-
-如果函式的對應輸入參數類型是 `String`，傳遞至函式方法的值會轉換成字串。 
+您可以使用 Plain Old Java Object (POJO)，`azure-functions-java-library` 或基本 dataTypes 中定義的類型 (例如字串、整數) 來繫結至輸入/輸出繫結。
 
 ### <a name="plain-old-java-objects-pojos"></a>純舊 Java 物件 (POJO)
 
-如果函式的輸入簽章應該為 Java 類型，則使用 JSON 格式化的字串會轉換為 Java 類型。 這項轉換可讓您傳入 JSON，並與 Java 類型搭配使用。
-
-作為函式輸入的 POJO 類型必須具有與在其中使用之函式方法相同的 `public` 存取修飾詞。 您不需要宣告 POJO 類別欄位 `public`。 例如，JSON 字串 `{ "x": 3 }` 可以轉換成下列 POJO 類型：
-
-```Java
-public class MyData {
-    private int x;
-}
-```
+為了將輸入資料轉換成 POJO，[azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker) 會使用 [gson](https://github.com/google/gson) 程式庫。 作為函式輸入的 POJO 類型應為 `public`。
 
 ### <a name="binary-data"></a>二進位資料
 
-二進位資料在 Azure 函式程式碼中會表示為 `byte[]`。 藉由將 function.json 中的 `dataType` 欄位設定為 `binary`，將二進位輸入或輸出繫結至您的函式：
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-然後在您的函式程式碼中使用它：
+藉由將 function.json 中的 `dataType` 欄位設定為 `binary`，將二進位輸入或輸出繫結至 `byte[]`：
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-空的輸入值可以是 `null` 以作為函式引數，但潛在空白值的建議處理方式為使用 `Optional<T>`。
+如果預期為 Null 值，請使用 `Optional<T>`
 
+## <a name="bindings"></a>繫結
 
-## <a name="function-method-overloading"></a>函式方法多載
+輸入和輸出繫結提供從您的程式碼內連線到資料的宣告式方法。 一個函數可以有多個輸入和輸出繫結。
 
-您可以使用相同名稱但是不同類型，多載函式方法。 例如，您可以在類別中同時具有 `String echo(String s)` 和 `String echo(MyType s)`。 Azure Functions 會根據輸入類型 (若為 HTTP 輸入，MIME 類型 `text/plain` 會產生 `String`，`application/json` 則代表 `MyType`) 決定要叫用的方法。
-
-## <a name="inputs"></a>輸入
-
-在 Azure Functions 中輸入會分成兩個類別：一個是觸發程序輸入，另一個是額外的輸入。 雖然它們在 `function.json` 中是不同的，在 Java 程式碼中的使用方式則相同。 讓我們以下列程式碼片段為例：
+### <a name="example-input-binding"></a>範例輸入繫結
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("echo")
     public static String echo(
-        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+        @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String inputReq,
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
+        @TableOutput(name = "myOutputTable", tableName = "Person", connection = "AzureWebJobsStorage") OutputBinding<Person> testOutputData,
     ) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+        testOutputData.setValue(new Person(httpbody + "Partition", httpbody + "Row", httpbody + "Name"));
+        return "Hello, " + inputReq + " and " + inputData.getKey() + ".";
     }
 
-    public static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
+    public static class Person {
+        public String PartitionKey;
+        public String RowKey;
+        public String Name;
+
+        public Person(String p, String r, String n) {
+            this.PartitionKey = p;
+            this.RowKey = r;
+            this.Name = n;
+        }
+    }
 }
 ```
 
-此函式觸發時，HTTP 要求會透過 `String in` 傳遞至函式。 系統會根據路由 URL 中的識別碼從 Azure 資料表儲存體擷取輸入，並於函式主體中以 `obj` 形式提供使用。
+此函式透過 HTTP 要求來叫用。 
+- HTTP 要求承載會傳入作為 引數 `inputReq` 的 `String`
+- 系統會從 Azure 資料表儲存體中擷取一個項目，並傳入作為引數 `inputData` 的 `TestInputData`。
 
-## <a name="outputs"></a>輸出
+若要接收輸入批次，您可以繫結至 `String[]`、`POJO[]`、`List<String>` 或 `List<POJO>`。
 
-輸出可以使用傳回值或輸出參數來表示。 如果只有一個輸出，建議您使用傳回值。 若為多個輸出，您必須使用輸出參數。
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
 
-傳回值是最簡單形式的輸出，您只要傳回任何類型的值，Azure Functions 執行階段就會嘗試將它封送處理回實際類型 (例如 HTTP 回應)。  您可以將任何輸出註釋套用至函式方法 (註釋的名稱屬性必須為 $return)，以定義傳回值的輸出。
+```
 
-若要產生多個輸出值，請使用 `azure-functions-java-library` 套件中定義的 `OutputBinding<T>` 類型。 如果您需要進行 HTTP 回應，同時將訊息推送至佇列，您可以撰寫如下的程式碼：
+每當設定的事件中樞內有新資料時，就會觸發此函式。 由於 `cardinality` 設為 `MANY`，因此函式會從事件中樞接收訊息批次。 來自事件中樞的 EventData 會轉換成 `TestEventData` 供函式執行。
 
-例如，複製函式的 Blob 內容可定義為下列程式碼。 `@StorageAccount` 註釋在此會用來防止複製 `@BlobTrigger` 和 `@BlobOutput` 的連線屬性。
+### <a name="example-output-binding"></a>範例輸出繫結
+
+您可以使用 `$return` 將「輸出繫結」繫結至傳回值 
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("copy")
     @StorageAccount("AzureWebJobsStorage")
     @BlobOutput(name = "$return", path = "samples-output-java/{name}")
@@ -233,25 +221,57 @@ public class MyClass {
 }
 ```
 
-請使用 `OutputBinding<byte[]`> 來產生二進位輸出值 (針對參數)；針對傳回值，請直接使用 `byte[]`。
+如果有多個輸出繫結，請只對其中一個使用傳回值。
 
-## <a name="specialized-types"></a>特殊類型
+若要傳送多個輸出值，請使用 `azure-functions-java-library` 套件中定義的 `OutputBinding<T>`。 
 
-有時候函式必須對輸入和輸出有細微控制權。 在 `azure-functions-java-core` 套件中為您提供特殊類型，來管理要求資訊以及訂製 HTTP 觸發程序的傳回狀態：
+```java
+@FunctionName("QueueOutputPOJOList")
+    public HttpResponseMessage QueueOutputPOJOList(@HttpTrigger(name = "req", methods = { HttpMethod.GET,
+            HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "itemsOut", queueName = "test-output-java-pojo", connection = "AzureWebJobsStorage") OutputBinding<List<TestData>> itemsOut, 
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+       
+        String query = request.getQueryParameters().get("queueMessageId");
+        String queueMessageId = request.getBody().orElse(query);
+        itemsOut.setValue(new ArrayList<TestData>());
+        if (queueMessageId != null) {
+            TestData testData1 = new TestData();
+            testData1.id = "msg1"+queueMessageId;
+            TestData testData2 = new TestData();
+            testData2.id = "msg2"+queueMessageId;
+
+            itemsOut.getValue().add(testData1);
+            itemsOut.getValue().add(testData2);
+
+            return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + queueMessageId).build();
+        } else {
+            return request.createResponseBuilder(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Did not find expected items in CosmosDB input list").build();
+        }
+    }
+
+     public static class TestData {
+        public String id;
+    }
+```
+
+上方的函式會經由 HttpRequest 叫用，將多個值寫入 Azure 佇列中
+
+## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 和 HttpResponseMessage
+
+ 定義於 `azure-functions-java-library` 中的 HttpRequestMessage 和 HttpResponseMessage 類型，是要與 HttpTrigger 函式搭配使用的協助程式類型
 
 | 特殊類型      |       目標        | 一般使用方式                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP 觸發程序     | 取得方法、標頭或查詢 |
-| `HttpResponseMessage<T>` | HTTP 輸出繫結 | 傳回 200 以外的狀態   |
+| `HttpResponseMessage` | HTTP 輸出繫結 | 傳回 200 以外的狀態   |
 
-> [!NOTE] 
-> 您也可以使用 `@BindingName` 註釋來取得 HTTP 標頭和查詢。 例如，`@BindingName("name") String query` 會逐一查看 HTTP 要求標頭和查詢，並將該值傳遞至方法。 例如，如果要求 URL 是 `http://example.org/api/echo?name=test`，則 `query` 是 `"test"`。
+## <a name="metadata"></a>中繼資料
 
-### <a name="metadata"></a>中繼資料
+有幾個觸發程序會將[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)與輸入資料一起傳送。 您可以使用註釋 `@BindingName` 繫結至觸發程序中繼資料
 
-中繼資料會來自不同的來源，例如 HTTP 標頭、HTTP 查詢及[觸發程序中繼資料](/azure/azure-functions/functions-triggers-bindings#trigger-metadata-properties)。 請使用 `@BindingName` 註解搭配中繼資料名稱來取得值。
-
-例如，如果要求的 URL 是 `http://{example.host}/api/metadata?name=test`，則下列程式碼片段中的 `queryValue` 將會是 `"test"`。
 
 ```Java
 package com.example;
@@ -260,7 +280,7 @@ import java.util.Optional;
 import com.microsoft.azure.functions.annotation.*;
 
 
-public class MyClass {
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
@@ -270,16 +290,34 @@ public class MyClass {
     }
 }
 ```
+在上述範例中，`queryValue` 繫結至 Http 要求 URL `http://{example.host}/api/metadata?name=test` 中的查詢字串參數 `name`。 以下是另一個從佇列觸發程序中繼資料繫結至 `Id` 的範例
+
+```java
+ @FunctionName("QueueTriggerMetadata")
+    public void QueueTriggerMetadata(
+        @QueueTrigger(name = "message", queueName = "test-input-java-metadata", connection = "AzureWebJobsStorage") String message,@BindingName("Id") String metadataId,
+        @QueueOutput(name = "output", queueName = "test-output-java-metadata", connection = "AzureWebJobsStorage") OutputBinding<TestData> output,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Queue trigger function processed a message: " + message + " whith metadaId:" + metadataId );
+        TestData testData = new TestData();
+        testData.id = metadataId;
+        output.setValue(testData);
+    }
+```
+
+> [!NOTE]
+> 註釋中提供的名稱必須符合中繼資料屬性
 
 ## <a name="execution-context"></a>執行內容
 
-透過 `azure-functions-java-library` 套件中定義的 `ExecutionContext` 物件，與 Azure Functions 執行環境互動。 使用 `ExecutionContext` 物件以在您的程式碼中使用引動資訊和函式執行階段資訊。
+定義於 `azure-functions-java-library` 中的 `ExecutionContext` 包含用來與函式執行階段進行通訊的協助程式方法。
 
-### <a name="custom-logging"></a>自訂記錄
+### <a name="logger"></a>記錄器
 
-可以透過 `ExecutionContext` 物件存取函式執行階段記錄器。 這個記錄器會繫結至 Azure 監視，並可讓您將函式執行期間遇到的警告和錯誤加上旗標。
+使用 `ExecutionContext` 中定義的 `getLogger` 從函式程式碼寫入記錄。
 
-下列範例程式碼會在收到的要求主體是空白時，記錄一則警告訊息。
+範例：
 
 ```java
 
@@ -298,7 +336,9 @@ public class Function {
 
 ## <a name="view-logs-and-trace"></a>檢視記錄檔和追蹤
 
-您可以使用 Azure CLI 以串流 Java 標準流出與錯誤記錄檔，以及其他應用程式記錄檔。 首先，設定您的函式應用程式以使用 Azure CLI 寫入應用程式記錄：
+您可以使用 Azure CLI 來串流 Java stdout 和 stderr 記錄，以及其他應用程式記錄。 
+
+請設定您的函式應用程式以使用 Azure CLI 寫入應用程式記錄：
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
@@ -321,26 +361,22 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>環境變數
 
-為確保安全，請將祕密資訊 (例如金鑰或權杖) 保存在原始程式碼以外的地方。 藉由從環境變數讀取金鑰和權杖，以在函式程式碼中使用。
+在 Functions 中，[應用程式設定](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `System.getenv("AzureWebJobsStorage")` 來存取這些設定
 
-若要在於本機執行 Azure Functions 時設定環境變數，您可選擇將這些變數加入到 local.settings.json 檔案中。 如果函式專案根目錄中沒有該檔案，則可建立檔案。 該檔案看起來應該會像這樣：
+範例：
 
-```xml
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "",
-    "AzureWebJobsDashboard": ""
-  }
+新增具有名稱 testAppSetting 和值 testAppSettingValue 的 [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
+
+```java
+
+public class Function {
+    public String echo(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req, ExecutionContext context) {
+        context.getLogger().info("testAppSetting "+ System.getenv("testAppSettingValue"));
+        return String.format(req);
+    }
 }
+
 ```
-
-`values` 對應中的每個機碼/值對應會在執行階段時做為環境變數，可透過呼叫 `System.getenv("<keyname>")` 來存取，例如 `System.getenv("AzureWebJobsStorage")`。 可接受加入其他機碼/值組，而且是建議的做法。
-
-> [!NOTE]
-> 如果採取這種方式，請務必要將 local.settings.json 檔案新增至存放庫忽略檔案，讓系統不要認可該檔案。
-
-由於您的程式碼現在仰賴這些環境變數，您現在可以登入 Azure 入口網站，在函數應用程式設定中設定相同的機碼/值組，如此程式碼功能在本機測試及部署至 Azure 時都會相同。
 
 ## <a name="next-steps"></a>後續步驟
 

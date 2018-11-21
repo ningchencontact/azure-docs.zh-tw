@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: 2164dedc27d81aa488c3e054b4c6df067e96e612
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 815e3c711850eab11aef63e04a1c512c4510a910
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418189"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684272"
 ---
 #  <a name="configure-reverse-lookup-zones-for-an-smtp-banner-check"></a>設定反向對應區域用於 SMTP Banner 檢查
 
@@ -43,7 +43,7 @@ ms.locfileid: "50418189"
     Set-AzureRmPublicIpAddress : ReverseFqdn mail.contoso.com that PublicIPAddress ip01 is trying to use does not belong to subscription <Subscription ID>. One of the following conditions need to be met to establish ownership: 
                         
     1) ReverseFqdn 符合訂用帳戶下之任何公用 IP 資源的 FQDN; 
-    2) ReverseFqdn 可解析成訂用帳戶下任一公用 IP 資源的 FQDN (透過 CName 記錄鏈); 
+    2) ReverseFqdn 可解析成訂用帳戶下任一公用 IP 資源的 FQDN (透過 CName 記錄鏈)； 
     3) ReverseFqdn 可解析成訂用帳戶下之靜態公用 IP 資源的 IP 位址 (透過 CName 及 A 記錄鏈)。 
 
 如果您手動變更 SMTP Banner 以符合預設的反向 FQDN，遠端郵件伺服器仍然可能失敗，因為它期望 SMTP Banner 主機符合網域的 MX 記錄。

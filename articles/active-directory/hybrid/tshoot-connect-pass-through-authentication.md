@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d4f44deac1e8833af064e0abea4e65c5ca2b2f93
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309167"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686189"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>針對 Azure Active Directory 傳遞驗證進行疑難排解
 
@@ -125,7 +125,7 @@ ms.locfileid: "46309167"
 
 如需與驗證代理程式相關的錯誤，請開啟伺服器上的事件檢視器應用程式，並於 **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** 下查看。
 
-如需詳細分析，請啟用「工作階段」記錄。 不要使用正常作業期間啟用的記錄檔執行驗證代理程式，此記錄檔只適用於進行疑難排解。 只有再次停用此記錄檔之後，才能看見記錄檔的內容。
+如需詳細分析，請啟用「工作階段」記錄 (以滑鼠右鍵按一下事件檢視器應用程式內部，可找到此選項)。 不要使用正常作業期間啟用的記錄檔執行驗證代理程式，此記錄檔只適用於進行疑難排解。 只有再次停用此記錄檔之後，才能看見記錄檔的內容。
 
 ### <a name="detailed-trace-logs"></a>詳細的追蹤記錄檔
 

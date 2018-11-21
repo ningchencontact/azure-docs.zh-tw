@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 叢集上搭配使用 Hadoop Pig 與 SSH - Azure
-description: 學習如何使用 SSH 連線到以 Linux 為基礎的 Hadoop 叢集，然後使用 Pig 命令以互動方式或批次工作形式執行 Pig Latin 陳述式。
+title: 在 HDInsight 叢集上搭配使用 Apache Pig 與 SSH - Azure
+description: 學習如何使用 SSH 連線到以 Linux 為基礎的 Apache Hadoop 叢集，然後使用 Pig 命令以互動方式或批次工作形式執行 Pig Latin 陳述式。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1deb44fecad6c120dd1e8f82cec36bff6353fc0b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51003875"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632217"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Pig 工作
+# <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Apache Pig 作業
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-了解如何透過與 HDInsight 叢集的 SSH 連線以互動方式執行 Pig 作業。 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
+了解如何透過與 HDInsight 叢集的 SSH 連線以互動方式執行 Apache Pig 作業。 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
 
 > [!IMPORTANT]
 > 此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

@@ -1,5 +1,5 @@
 ---
-title: '在 HDInsight 上對 Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息 - Azure '
+title: '在 HDInsight 上對 Apache Hadoop 進行偵錯：檢視記錄與解譯錯誤訊息 - Azure '
 description: 了解您使用 PowerShell 來管理 HDInsight 時可能收到的錯誤訊息，以及可採取來回復的步驟。
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261138"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634629"
 ---
 # <a name="analyze-hadoop-logs"></a>分析 Hadoop 記錄
 
-Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Hadoop 叢集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
+Azure HDInsight 中的每個 Apache Hadoop 叢集都有一個 Azure 儲存體帳戶作為預設檔案系統。 這個儲存體帳戶稱為預設儲存體帳戶。 叢集使用預設儲存體帳戶上的 Azure 資料表儲存體和 Blob 儲存體來儲存其記錄檔。  若要找出叢集的預設儲存體帳戶，請參閱[在 HDInsight 中管理 Hadoop 叢集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在刪除叢集之後，記錄檔仍會保留在儲存體帳戶中。
 
 ## <a name="logs-written-to-azure-tables"></a>寫入 Azure 資料表的記錄檔
 
@@ -131,7 +131,7 @@ Azure HDInsight 中的每個 Hadoop 叢集都有一個 Azure 儲存體帳戶作�
 
 使用 Azure 入口網站管理 HDinsight 叢集時也可能會看到其中某些錯誤訊息。 但由於此情況下可能採取的補救動作有其限制，您可能看到的其他錯誤訊息比較不詳細。 在很顯然有緩和措施的情況下，則會提供其他錯誤訊息。 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **描述**：請至少提供一個元件的 Azure SQL Database 詳細資料，以便使用 Hive 和 Oozie metastore 的自訂設定。
 * **緩和**：使用者必須提供有效的 SQL Azure metastore，然後重試要求。  
 

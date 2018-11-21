@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012457"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636232"
 ---
 # <a name="create-and-manage-role-assignments"></a>建立和管理角色指派
 
@@ -26,6 +26,8 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 * **角色定義識別碼**
 * **空間路徑**
 * **租用戶識別碼**：在大部分情況下為 Azure Active Directory 租用戶識別碼
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>角色定義識別碼
 
@@ -57,7 +59,7 @@ Azure Digital Twins 會使用角色型存取控制 ([RBAC](./security-role-based
 ## <a name="create-a-role-assignment"></a>建立角色指派
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **名稱** | **必要** | **類型** | **說明** |
@@ -66,7 +68,7 @@ HTTP POST /api/v1.0/roleassignments
 | objectId | 是 |字串 | 角色指派的物件識別碼，必須根據其相關聯的類型進行格式化。 `DomainName` ObjectIdType 的 ObjectId 必須以 `“@”` 字元開頭。 |
 | objectIdType | 是 |字串 | 角色指派的類型。 必須是此表格中的下列其中一列。 |
 | tenantId | 視情況而異 | 字串 |租用戶識別碼。 不允許用於 `DeviceId` 和 `TenantId` ObjectIdTypes。 必須用於 `UserId` 和 `ServicePrincipalId` ObjectIdTypes。 DomainName ObjectIdType 可選用。 |
-| path* | 是 | 字串 |`Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限準則。 |
+| path* | 是 | 字串 |`Space` 物件的完整存取路徑。 例如 `/{Guid}/{Guid}`。 如果某個識別碼需要整個圖形的角色指派，請指定 `"/"`。 這個字元會指定根目錄，但不鼓勵使用。 一律遵循最低權限原則。 |
 
 ## <a name="sample-configuration"></a>範例組態
 
@@ -108,22 +110,22 @@ HTTP POST /api/v1.0/roleassignments
 使用 GET 來取得角色指派。
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **名稱** | **位置** | **必要** |    **類型** |  **說明** |
 | --- | --- | --- | --- | --- |
-| Path | Path | True | 字串 | 空間的完整路徑 |
+| YOUR_PATH | Path | True | 字串 |    空間的完整路徑 |
 
 使用 DELETE 來刪除角色指派。
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **名稱** | **位置** | **必要** | **類型** | **說明** |
 | --- | --- | --- | --- | --- |
-| ID | Path | True | 字串 |   角色指派識別碼 |
+| YOUR_ROLE_ID | Path | True | 字串 | 角色指派識別碼 |
 
 ## <a name="next-steps"></a>後續步驟
 

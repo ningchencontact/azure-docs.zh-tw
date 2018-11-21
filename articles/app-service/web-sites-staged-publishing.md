@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: ea9167404034911a0e917374fbdb9962da1578d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257828"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636062"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
 
-當您將 Web 應用程式、Linux 上的 Web 應用程式、行動後端及 API 應用程式部署到 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 時，如果是在 [標準] 或 [進階] App Service 方案層中執行，就可以部署到個別的部署位置，而不是預設的生產位置。 部署位置實際上是含有自己主機名稱的作用中應用程式。 兩個部署位置 (包括生產位置) 之間的應用程式內容與設定項目可以互相交換。 將應用程式部署至部署位置具有下列優點：
+當您將 Web 應用程式、Linux 上的 Web 應用程式、行動後端及 API 應用程式部署到 [App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 時，如果是在 [標準]、[進階] 或 [隔離] App Service 方案層中執行，就可以部署到個別的部署位置，而不是預設的生產位置。 部署位置實際上是含有自己主機名稱的作用中應用程式。 兩個部署位置 (包括生產位置) 之間的應用程式內容與設定項目可以互相交換。 將應用程式部署至部署位置具有下列優點：
 
 * 您可以先驗證預備部署位置中的應用程式變更，再將它與生產位置進行交換。
 * 先將應用程式部署至某個位置，然後再將它交換到生產位置，可確保該位置的所有執行個體在交換到生產位置之前都已準備就緒。 這麼做可以排除部署應用程式時的停機情況。 交換作業期間所有的流量都能順暢地重新導向，而且不會捨棄任何要求封包。 不需要預先交換驗證時，這整個工作流程可藉由設定 [自動交換](#Auto-Swap) 來自動化。
@@ -36,7 +36,7 @@ ms.locfileid: "51257828"
 <a name="Add"></a>
 
 ## <a name="add-a-deployment-slot"></a>新增部署位置
-應用程式必須在 [標準] 或 [進階] 層中執行，您才能啟用多個部署位置。
+應用程式必須在 [標準]、[進階] 或 *[隔離] 層中執行，您才能啟用多個部署位置。
 
 1. 在 [Azure 入口網站](https://portal.azure.com/)中，開啟應用程式的[資源刀鋒視窗](../azure-resource-manager/resource-group-portal.md#manage-resources)。
 2. 選擇 [部署位置] 選項，然後按一下 [新增位置]。
@@ -44,7 +44,7 @@ ms.locfileid: "51257828"
     ![新增部署位置][QGAddNewDeploymentSlot]
    
    > [!NOTE]
-   > 如果應用程式尚未處於 [標準] 或 [進階] 層，您將會收到訊息，指出適用於啟用預備發行的支援層。 此時，您可以選取 [升級]，並瀏覽至應用程式的 [級別] 索引標籤後再繼續。
+   > 如果應用程式尚未處於 [標準]、[進階] 或 *[隔離] 層，您將會收到訊息，指出適用於啟用預備發行的支援層。 此時，您可以選取 [升級]，並瀏覽至應用程式的 [級別] 索引標籤後再繼續。
    > 
    > 
 3. 在 [新增位置] 刀鋒視窗中，指定位置名稱，然後選取是否要複製其他現有部署位置的應用程式設定。 按一下打勾記號繼續。

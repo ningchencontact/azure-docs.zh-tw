@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: afed471694dd66adfc285965433a1efd92d1653b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 03961cab8bcf71a9db69937257385db5d3b500d8
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945089"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684098"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則註冊並登入 Salesforce SAML 提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文說明如何在 Azure Active Directory (Azure AD) B2C 中藉由使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 Salesforce 組織帳戶登入。
+本文說明如何在 Azure Active Directory (Azure AD) B2C 中藉由使用[自訂原則](active-directory-b2c-overview-custom.md)，讓使用者能夠從 Salesforce 組織帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 完成[在 Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
+- 完成在 [Azure Active Directory B2C 中開始使用自訂原則](active-directory-b2c-get-started-custom.md)中的步驟。
 - 如果您還沒有這麼做，請註冊[免費的開發人員版本帳戶](https://developer.salesforce.com/signup)。 這篇文章會運用 [Salesforce Lightning 經驗](https://developer.salesforce.com/page/Lightning_Experience_FAQ)。
 - 為您的 Salesforce 組織[設定網域](https://help.salesforce.com/articleView?id=domain_name_setup.htm&language=en_US&type=0)。
 
@@ -196,7 +196,7 @@ Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 
 ## <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
-與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 本節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
+與 Azure AD B2C 的通訊會透過您在租用戶中建立的應用程式進行。 此節會列出您可以視需要完成以建立測試應用程式的步驟 (如果您尚未這麼做)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。

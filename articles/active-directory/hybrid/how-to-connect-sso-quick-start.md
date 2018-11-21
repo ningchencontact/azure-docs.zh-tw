@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914085"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687328"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory 無縫單一登入：快速入門
 
@@ -91,7 +91,7 @@ ms.locfileid: "50914085"
 ![Azure 入口網站：Azure AD Connect 窗格](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> 無縫 SSO 會在每個 AD 樹系中的內部部署 Active Directory (AD) 中，建立名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD)。 需要此電腦帳戶才能讓該功能運作。 將 `AZUREADSSOACC` 電腦帳戶移至儲存其他電腦帳戶的組織單位 (OU)，確保它是透過相同方式進行管理，而且不會予以刪除。
+> 無縫 SSO 會在每個 AD 樹系中的內部部署 Active Directory (AD) 中，建立名為 `AZUREADSSOACC` 的電腦帳戶 (代表 Azure AD)。 需要此電腦帳戶才能讓該功能運作。 如果您在內部部署環境中使用雜湊傳遞和認證竊取風險降低架構，請確定 `AZUREADSSOACC` 電腦帳戶最終不會出現在隔離容器中。 請進行適當的變更，以在 [電腦] 容器中建立電腦帳戶。 在 Azure AD Connect 精靈上成功啟用無縫 SSO 之後，請將 `AZUREADSSOACC` 電腦帳戶移至管理其他電腦帳戶的組織單位 (OU)，以確保該帳戶不會意外遭到刪除。
 
 ## <a name="step-3-roll-out-the-feature"></a>步驟 3：推出功能
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f344424c372f65cd8bfe5779cc65f0e866e58a11
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252542"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633966"
 ---
 # <a name="how-to-use-alternative-inputs"></a>如何使用替代輸入
 
@@ -137,9 +137,11 @@ ms.locfileid: "51252542"
     3. 按一下 [送出變更]。
 4. 按一下以選取左窗格中的 [denver]\(丹佛\)：
     1. 在 [Add alternative input]\(新增替代輸入\) 中，輸入「for denver」(丹佛的)。
-    2. 輸入「forecast for austin」(奧斯汀的天氣預報)。
-        - 整個片語都會反白顯示。 按一下整個詞，然後按一下紅色 x。 選取 [austin]\(奧斯汀\)，然後按一下 [city]\(城市\)。
-        - 按一下 [送出變更]
+    1. 輸入「forecast for austin」(奧斯汀的天氣預報)。
+        - 出現錯誤訊息：「文字變異必須包含偵測到且與原始輸入文字相同的實體。」
+        - 按一下 'austin' 這個字。
+        - 快顯視窗隨即出現，讓您選取 'austin' 的實體。 按一下 [城市]。
+        - 按一下 [送出變更]。
     1. 按一下 [完成]，使模型重新訓練。
 
 ![](../media/tutorial8_altcities.png)

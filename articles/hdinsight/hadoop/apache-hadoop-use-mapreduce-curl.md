@@ -1,6 +1,6 @@
 ---
-title: 搭配使用 MapReduce 和 Curl 與 HDInsight 中的 Hadoop - Azure
-description: 了解如何使用 Curl 從遠端搭配執行 MapReduce 工作與 HDInsight 上的 Hadoop。
+title: 搭配使用 MapReduce 和 Curl 與 HDInsight 中的 Apache Hadoop - Azure
+description: 了解如何使用 Curl 從遠端搭配執行 MapReduce 工作與 HDInsight 上的 Apache Hadoop。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 496b7dacdb30507fe5eb2d4d7c5602003a944269
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: afa9b57d9c0e2acf81b5307273ac038e92073655
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010893"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632289"
 ---
-# <a name="run-mapreduce-jobs-with-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Hadoop 執行 MapReduce 作業
+# <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>使用 REST 搭配 HDInsight 上的 Apache Hadoop 執行 MapReduce 作業
 
-學習如何使用 WebHCat REST API 在 HDInsight 叢集的 Hadoop 上執行 MapReduce 作業。 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。
+了解如何使用 WebHCat REST API 在 HDInsight 叢集的 Apache Hadoop 上執行 MapReduce 作業。 Curl 用來示範如何使用原始 HTTP 要求與 HDInsight 互動，以執行 MapReduce 工作。
 
 > [!NOTE]
 > 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱[在以 Linux 為基礎的 HDInsight 上安裝 Hadoop 的須知事項](../hdinsight-hadoop-linux-information.md)文件。

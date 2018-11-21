@@ -1,6 +1,6 @@
 ---
-title: 透過 JDBC 驅動程式查詢 Hive - Azure HDInsight
-description: 從 Java 應用程式使用 JDBC 驅動程式，將 Hive 查詢提交到 HDInsight 上的 Hadoop。 以程式設計方式連接和透過 SQuirrel SQL 用戶端連接。
+title: 透過 JDBC 驅動程式查詢 Apache Hive - Azure HDInsight
+description: 從 Java 應用程式使用 JDBC 驅動程式，將 Apache Hive 查詢提交到 HDInsight 上的 Hadoop。 以程式設計方式連接和透過 SQuirrel SQL 用戶端連接。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014409"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633439"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中透過 JDBC 驅動程式查詢 Hive
+# <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>透過 JDBC 驅動程式在 HDInsight 中查詢 Apache Hive
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-了解如何從 Java 應用程式使用 JDBC 驅動程式將 Hive 查詢提交到 Azure HDInsight 中的 Hadoop。 本文件中的資訊會示範如何以程式設計方式以及如何從 SQuirrel SQL 用戶端連線。
+了解如何從 Java 應用程式使用 JDBC 驅動程式將 Apache Hive 查詢提交到 Azure HDInsight 中的 Apache Hadoop。 本文件中的資訊會示範如何以程式設計方式以及如何從 SQuirrel SQL 用戶端連線。
 
 如需有關 Hive JDBC 介面的詳細資訊，請參閱 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)。
 

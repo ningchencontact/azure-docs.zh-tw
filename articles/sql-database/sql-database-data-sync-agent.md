@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 032676528120995dab980207ee9d09ccad712142
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 11/12/2018
+ms.openlocfilehash: bb80b512176e8fe260eb4572ea9fa801a6ffc80a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285370"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685135"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>適用於 Azure SQL 資料同步的資料同步代理程式
 
@@ -31,8 +31,14 @@ ms.locfileid: "51285370"
 
 若要從命令提示字元以無訊息方式安裝「資料同步代理程式」，請輸入類似以下範例的命令。 請檢查所下載 .msi 檔案的檔案名稱，然後提供您自己的 **TARGETDIR** 和 **SERVICEACCOUNT** 引數值。
 
+- 如果您未提供 **TARGETDIR** 的值，預設值將是 `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`。
+
+- 如果您提供 `LocalSystem` 作為 **SERVICEACCOUNT** 的值，當您設定代理程式以連線至內部部署 SQL Server 時，請使用 SQL Server 驗證。
+
+- 如果您提供網域使用者帳戶或本機使用者帳戶作為 **SERVICEACCOUNT** 的值，您也必須使用 **SERVICEPASSWORD** 引數提供密碼。 例如： `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`。
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## <a name="sync-data-with-sql-server-on-premises"></a>與內部部署 SQL Server 同步資料
@@ -91,10 +97,10 @@ SQL 資料同步服務會透過用戶端代理程式來與 SQL Server 資料庫�
 
 - **原因**。 許多情節可能會造成這個失敗。 若要判斷此失敗的特定原因，請查看記錄。
 
-- **解決方案**。 若要尋找失敗的特定原因，請產生並查看 Windows Installer 記錄。 您可以在命令提示字元開啟記錄。 例如，如果下載的 AgentServiceSetup.msi 檔案為 LocalAgentHost.msi，請使用下列命令列來產生並檢查記錄：
+- **解決方案**。 若要尋找失敗的特定原因，請產生並查看 Windows Installer 記錄。 您可以在命令提示字元開啟記錄。 例如，如果下載的安裝檔案為 `SQLDataSyncAgent-2.0-x86-ENU.msi`，請使用下列命令列來產生並檢查記錄：
 
-    -   安裝：`msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   解除安裝：`msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
+    -   安裝：`msiexec.exe /i SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
+    -   解除安裝：`msiexec.exe /x SQLDataSyncAgent-2.0-x86-ENU.msi /l*v LocalAgentSetup.Log`
 
     您也可以為 Windows Installer 所執行的所有安裝開啟記錄。 Microsoft 知識庫文章[如何啟用 Windows Installer 記錄](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging)提供開啟 Windows Installer 記錄的單鍵解決方案。 它也提供記錄檔的位置。
 
@@ -268,13 +274,15 @@ SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdat
 #### <a name="examples"></a>範例
 
 ```cmd
-SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username xiwu -password Yukon900 -encryption true
+SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
 
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication windows -encryption true
 
 ```
 
 ### <a name="unregister-a-database"></a>將資料庫取消註冊
+
+當您使用此命令來取消註冊資料庫時，它將會完全取消佈建資料庫。 如果資料庫參與其他同步群組，這項作業會中斷其他同步群組。
 
 #### <a name="usage"></a>使用量
 
@@ -308,6 +316,15 @@ SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -da
 
 如需有關「SQL 資料同步」的詳細資訊，請參閱下列文章：
 
-- [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](sql-database-get-started-sql-data-sync.md)
-
-- [使用 SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)
+-   概觀 - [使用 Azure SQL 資料同步，跨多個雲端和內部部署資料庫同步資料](sql-database-sync-data.md)
+-   設定資料同步
+    - 在入口網站中 - [教學課程：設定 SQL 資料同步以同步處理 Azure SQL Database 與內部部署 SQL Server 之間的資料](sql-database-get-started-sql-data-sync.md)
+    - 透過 PowerShell
+        -  [使用 PowerShell 在多個 Azure SQL Database 之間進行同步處理](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [使用 PowerShell 設定「資料同步」在內部部署的 Azure SQL Database 和 SQL Server 之間進行同步處理](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   最佳做法 - [Azure SQL 資料同步最佳做法](sql-database-best-practices-data-sync.md)
+-   監視 - [使用 Log Analytics 監視 SQL 資料同步](sql-database-sync-monitor-oms.md)
+-   疑難排解 - [為 Azure SQL 資料同步的問題進行疑難排解](sql-database-troubleshoot-data-sync.md)
+-   更新同步結構描述
+    -   使用 Transact-SQL - [在 Azure SQL 資料同步中自動執行結構描述變更複寫](sql-database-update-sync-schema.md)
+    -   使用 PowerShell - [使用 PowerShell 更新現有同步群組中的同步結構描述](scripts/sql-database-sync-update-schema.md)

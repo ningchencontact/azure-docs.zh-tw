@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dae003b011e8e33f0ae935d6dd8399a5687dff6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958146"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633762"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
-此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](monitoring-overview-unified-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
+此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](monitoring-overview-alerts.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
 
 記錄警示包含針對 [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) 或 [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 所建立的記錄搜尋規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](alert-log.md)
 
@@ -106,7 +106,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - 下午 1:15，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果提供了 2 個記錄；超過閾值並在觸發相關聯的[動作群組](monitoring-action-groups.md)之後不久引發警示。
 - 現在，下午 1:20 的下一個反覆項目，在 Azure 警示執行 Contoso-Log-Alert 時，記錄搜尋結果再次提供 0 個記錄；低於閾值，因此不引發警示。
 
-但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示不可以確定的。 因此，為了謹慎起見，Contoso-Log-Alert 會在下午 1:15 透過設定[動作群組](monitoring-action-groups.md)再引發一次。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
+但在上述所列的情況中，下午 1:15 - Azure 警示無法判斷下午 1:10 發現的基本問題是否仍存在，以及是否有完全新的失敗；因為使用者提供的查詢可能會算在較早的記錄中 - 這是 Azure 警示可以確定的。 因此，為了謹慎起見，當 Contoso-Log-Alert 在下午 1:15 執行時，已設定的[動作群組](monitoring-action-groups.md)會再次引發。 現在，下午 1:20 沒有看到任何記錄 - Azure 警示無法確定記錄的原因是否已經解決；因此，Contoso-Log-Alert 不會在 Azure 儀表板中和/或已發出表示解決警示的通知中變更為已解決。
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>記錄警示的價格和計費
@@ -120,6 +120,6 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 ## <a name="next-steps"></a>後續步驟
 * 了解[在 Azure 警示中的記錄警示中建立](alert-log.md)。
 * 了解 [Azure 中記錄警示中的 Webhook](monitor-alerts-unified-log-webhook.md)。
-* 了解 [Azure 警示](monitoring-overview-unified-alerts.md)。
+* 了解 [Azure 警示](monitoring-overview-alerts.md)。
 * 深入了解 [Application Insights](../application-insights/app-insights-analytics.md)。
 * 深入了解 [Log Analytics](../log-analytics/log-analytics-queries.md)。    

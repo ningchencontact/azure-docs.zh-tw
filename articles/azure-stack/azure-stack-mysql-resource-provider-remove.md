@@ -11,30 +11,36 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dcd1c40717cb35fe4daa9ab9e2c66f334ffff5fe
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7d3b0e179972464a1ed857c576ca8a7c8fc2e162
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361493"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686788"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>移除 MySQL 資源提供者
 
 在您移除 MySQL 資源提供者之前，必須先移除所有提供者相依性。 您還需要一份用來安裝資源提供者的部署套件複本。
 
+  |最低 Azure Stack 版本|MySQL RP 版本|
+  |-----|-----|
+  |1808 版 (1.1808.0.97)|[MySQL RP 1.1.30.0 版](https://aka.ms/azurestacksqlrp11300)|
+  |1804 版 (1.0.180513.1)|[MySQL RP 1.1.24.0 版](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
+
 ## <a name="dependency-cleanup"></a>相依性清除
 
 在您執行 DeployMySqlProvider.ps1 指令碼來移除資源提供者之前，需要執行幾項清除工作。
 
-租用戶負責執行下列清除工作：
+Azure Stack 租用戶使用者負責執行下列清除工作：
 
 * 從資源提供者刪除其所有資料庫。 (刪除租用戶資料庫並不會刪除資料)。
 * 取消註冊提供者命名空間。
 
-系統管理員負責執行下列清除工作：
+Azure Stack 操作員負責執行下列清除工作：
 
 * 從 MySQL 介面卡刪除主控伺服器。
 * 刪除任何參照 MySQL 介面卡的方案。

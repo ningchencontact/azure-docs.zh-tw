@@ -1,5 +1,5 @@
 ---
-title: 使用 Hive ODBC 驅動程式將 Excel 連線到 Hadoop - Azure HDInsight
+title: 使用 Hive ODBC 驅動程式將 Excel 連線到 Apache Hadoop - Azure HDInsight
 description: 了解如何設定和使用 Excel 的 Microsoft Hive ODBC 驅動程式，從 Microsoft Excel 查詢 HDInsight 叢集中的資料。
 keywords: hadoop excel, hive excel, hive odbc
 services: hdinsight
@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: ecdde9b5ac4c6c303edf553af3eb33986d4fb199
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 09642aba1cd0daa05e56e418330f21361d9263a2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005082"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632504"
 ---
-# <a name="connect-excel-to-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Hadoop
+# <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Azure HDInsight 中的 Apache Hadoop
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
@@ -39,7 +39,7 @@ Microsoft 巨量資料方案會將 Microsoft 商業智慧 (BI) 元件與 Azure H
 
 此驅動程式可以安裝在 32 位元或 64 位元版本的 Windows 7、Windows 8、Windows 10、Windows Server 2008 R2 和 Windows Server 2012。 驅動程式可允許 Azure HDInsight 的連線。 您所安裝的版本必須與您要使用 ODBC 驅動程式的應用程式版本相符。 本教學課程將會從 Office Excel 使用此驅動程式。
 
-## <a name="create-hive-odbc-data-source"></a>建立 Hive ODBC 資料來源
+## <a name="create-apache-hive-odbc-data-source"></a>建立 Apache Hive ODBC 資料來源
 下列步驟將說明如何建立 Hive ODBC 資料來源。
 
 1. 在 Windows 8 或 Windows 10 中，按視窗鍵以開啟 [開始] 畫面，然後輸入 **資料來源**。

@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263747"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686257"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>處理 Azure Logic Apps 中的錯誤和例外狀況
 
@@ -73,7 +73,7 @@ ms.locfileid: "39263747"
 
 | 值 | 類型 | 說明 |
 |-------|------|-------------|
-| <retry-policy-type> | 字串 | 您想要使用的重試原則類型：「預設值」、「無」、「固定」或「指數」 | 
+| <retry-policy-type> | 字串 | 您想要使用的重試原則類型：`default`、`none`、`fixed` 或 `exponential` | 
 | <retry-interval> | 字串 | 值必須使用 [ISO 8601 格式](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)的重試間隔。 預設最小間隔是 `PT5S`，最大間隔則是 `PT1D`。 當您使用指數間隔原則時，您可以指定不同的最小和最大值。 | 
 | <retry-attempts> | 整數  | 重試次數必須介於 1 到 90 之間 | 
 ||||
@@ -221,9 +221,9 @@ ms.locfileid: "39263747"
 
 ### <a name="get-context-and-results-for-failures"></a>取得失敗的內容和結果
 
-雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。 @result() 運算式會提供範圍內所有動作結果的相關內容。
+雖然從範圍擷取失敗很實用，但還是建議您取得內容以協助解實際上有哪些動作失敗，以及所傳回的任何錯誤或狀態碼。 `@result()` 運算式會提供範圍內所有動作結果的相關內容。
 
-@result() 運算式會接受單一參數 (範圍名稱)，並傳回該範圍內所有動作結果的陣列。 這些動作物件包含與 **@actions()** 物件相同的屬性，例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在某個範圍內失敗之任何動作的內容，您可以輕鬆地將 **@result()** 函式與 **runAfter** 屬性配對。
+`@result()` 運算式會接受單一參數 (範圍名稱)，並傳回該範圍內所有動作結果的陣列。 這些動作物件包含與 **@actions()** 物件相同的屬性，例如動作的開始時間、結束時間、狀態、輸入、相互關聯識別碼和輸出。 若要傳送在某個範圍內失敗之任何動作的內容，您可以輕鬆地將 **@result()** 函式與 **runAfter** 屬性配對。
 
 若要針對範圍中結果為 **Failed** 的每個動作執行動作，以及篩選結果陣列以顯示失敗的動作，您可以將 **@result()** 與**[篩選陣列](../connectors/connectors-native-query.md)** 動作及 [**For each**](../logic-apps/logic-apps-control-flow-loops.md) 迴圈配對。 您可以取得篩選後的結果陣列，並使用 **For each** 迴圈對每個失敗執行動作。 
 
@@ -270,22 +270,22 @@ ms.locfileid: "39263747"
 
 以下是說明此範例中所發生情況的詳細逐步解說︰
 
-1. 若要從 "My_Scope" 內的所有動作取得結果，**篩選陣列**動作會使用這個篩選條件運算式："@result('My_Scope')"
+1. 若要從 "My_Scope" 內的所有動作取得結果，**篩選陣列**動作會使用這個篩選條件運算式：`@result('My_Scope')`
 
-2. **篩選陣列**的條件是任何狀態等於 **Failed** 的 "@result()" 項目。 此條件會將具有 "My_Scope" 所有動作結果的陣列篩選成只剩失敗動作結果的陣列。
+2. **篩選陣列**的條件是任何狀態等於 **Failed** 的 `@result()` 項目。 此條件會將具有 "My_Scope" 所有動作結果的陣列篩選成只剩失敗動作結果的陣列。
 
 3. 對篩選後陣列的輸出執行 **For each** 迴圈動作。 此步驟會對之前篩選的每個失敗動作結果執行動作。
 
    如果範圍中的單一動作失敗，**For each** 迴圈中的動作只會執行一次。 
    如果有多個失敗動作，則會導致對每個失敗執行一個動作。
 
-4. 在 **For each** 項目回應本文 (即 "@item()['outputs']['body']" 運算式) 上傳送 HTTP POST。 
+4. 在 **For each** 項目回應本文 (即 `@item()['outputs']['body']` 運算式) 上傳送 HTTP POST。 
 
-   "@result()" 項目圖形和 "@actions()" 圖形相同，並可透過相同方式剖析。
+   `@result()` 項目圖形和 `@actions()` 圖形相同，並可透過相同方式剖析。
 
-5. 包含兩個具有失敗動作名稱 ("@item()['name']") 和失敗執行用戶端追蹤識別碼 ("@item()['clientTrackingId']") 的自訂標頭。
+5. 包含兩個具有失敗動作名稱 (`@item()['name']`) 和失敗執行用戶端追蹤識別碼 (`@item()['clientTrackingId']`) 的自訂標頭。
 
-供您參考，以下範例是單一 "@result()" 項目，會顯示前一個範例中剖析的 **name**、**body**和 **clientTrackingId** 屬性。 在 **For each** 動作之外，"@result()" 會傳回這些物件的陣列。
+供您參考，以下範例是單一 `@result()` 項目，會顯示前一個範例中剖析的 **name**、**body**和 **clientTrackingId** 屬性。 在 **For each** 動作之外，`@result()` 會傳回這些物件的陣列。
 
 ```json
 {

@@ -9,15 +9,15 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 563a4c14d78b7edd228c998817f44c6b3f14efe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 298277b720045c06d78f1c4964de2246dac22f08
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947483"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633660"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie
-Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
+Apache Oozie 是可管理 Apache Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
 - Apache MapReduce
 - Apache Pig
 - Apache Hive
@@ -166,7 +166,7 @@ nano workflow.xml
  ```
 4. 將 `clustername` 取代為叢集的名稱。 
 
-5. 若要儲存檔案，請選取 Ctrl+X。 輸入 `Y`。 然後，選取 **Enter** 鍵。
+5. 若要儲存檔案，請選取 Ctrl+X。 輸入 `Y` 。 然後，選取 **Enter** 鍵。
 
     工作流程分成兩個部分：
     *   **[認證] 區段。** 此區段會採用將用來驗證 Oozie 動作的認證：

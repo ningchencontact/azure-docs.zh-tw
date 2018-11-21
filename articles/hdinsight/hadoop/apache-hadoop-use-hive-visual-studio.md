@@ -1,5 +1,5 @@
 ---
-title: 搭配使用 Hive 與 Data Lake (Hadoop) Tools for Visual Studio - Azure HDInsight
+title: 搭配使用 Apache Hive 與 Data Lake (Apache Hadoop) Tools for Visual Studio - Azure HDInsight
 description: 了解如何使用 Data Lake Tools for Visual Studio 在 Azure HDInsight 上搭配 Apache Hadoop 執行 Apache Hive 查詢。
 services: hdinsight
 author: hrasheed-msft
@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4cc2012e40fad9e1343804149cdffaa3a1ab9db4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011080"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634102"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Hive 查詢
+# <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
-了解如何使用 Data Lake Tools for Visual Studio 查詢 Apache Hive。 Data Lake Tools 可讓您在 Azure HDInsight 上輕鬆地建立、提交和監視對 Hadoop 的 Hive 查詢。
+了解如何使用 Data Lake Tools for Visual Studio 查詢 Apache Hive。 Data Lake Tools 可讓您在 Azure HDInsight 上輕鬆地建立、提交和監視對 Apache Hadoop 的 Hive 查詢。
 
 ## <a id="prereq"></a>必要條件
 
-* Azure HDInsight (HDInsight 上的 Hadoop) 叢集
+* Azure HDInsight (HDInsight 上的 Apache Hadoop) 叢集
 
   > [!IMPORTANT]
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

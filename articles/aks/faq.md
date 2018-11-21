@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
-ms.openlocfilehash: 1e101e308ec350e9900c1347da730ca02b16c7bb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 55f32c403da179a0b7babc2172a80c2168cfab17
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377459"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636912"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 的常見問題集
 
@@ -46,6 +46,8 @@ ms.locfileid: "49377459"
 - 手動、透過 Azure 入口網站，或透過 Azure CLI。
 - 藉由升級 AKS 叢集。 叢集會自動升級 [cordon 和 drain 節點][cordon-drain]，然後為每個節點的備份帶來最新的 Ubuntu 映像和新的修補程式版本或 Kubernetes 次要版本。 如需詳細資訊，請參閱[升級 AKS 叢集][aks-upgrade]。
 - 使用 [Kured](https://github.com/weaveworks/kured)，這是一款針對 Kubernetes 所推出的的開放原始碼重新啟動精靈。 Kured 會以 [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) 執行，並監視每個節點，查看是否有檔案指示需重新啟動。 系統會使用相同的 [cordon 和 drain 程序][cordon-drain] 作為叢集升級，跨叢集管理作業系統重新開機。
+
+如需使用 kured 的詳細資訊，請參閱[將安全性和核心更新套用至 AKS 中的節點][node-updates-kured]。
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>為何會使用 AKS 建立兩個資源群組？
 
@@ -97,6 +99,7 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-advanced-networking.md
 [aks-rbac-aad]: ./aad-integration.md
+[node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->
 
@@ -105,3 +108,4 @@ AKS 目前並未原生整合到 Azure Key Vault。 不過，[Azure Key Vault Fle
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
+

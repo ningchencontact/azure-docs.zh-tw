@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fcdc14534e833ee394645e19cf8bc4bd9d6a7aaa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bba283a0c3fde75966ae123023e50d497abd5a
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961138"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687549"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>將 Operations Manager 連接到 Log Analytics
-若要維護 System Center Operations Manager 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 Log Analytics 工作區。 這可讓您利用 Log Analytics 的機會，同時繼續使用 Operations Manager：
+若要維護 [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) 中的現有投資，並使用 Log Analytics 的延伸功能，您可以整合 Operations Manager 與 Log Analytics 工作區。 這可讓您利用 Log Analytics 的機會，同時繼續使用 Operations Manager：
 
 * 使用 Operations Manager 監視 IT 服務的健全狀況
 * 維護與支援事件和問題管理之 ITSM 解決方案的整合
@@ -44,7 +44,7 @@ ms.locfileid: "50961138"
 
 * Log Analytics 只支援 System Center Operations Manager 1807、Operations Manager 1801、Operations Manager 2016、Operations Manager 2012 SP1 UR6 或更新版本，以及 Operations Manager 2012 R2 UR2 或更新版本。 Operations Manager 2012 SP1 UR7 和 Operations Manager 2012 R2 UR3 中已加入 Proxy 支援。
 * 所有 Operations Manager 代理程式必須符合最低支援需求。 請確定代理程式已安裝最低更新版本，否則 Windows 代理程式通訊可能會失敗，而且會在 Operations Manager 事件記錄中產生錯誤。
-* Log Analytics 工作區。 如需詳細資訊，請檢閱[將電腦從您的環境連線到 Log Analytics](log-analytics-concept-hybrid.md)。
+* Log Analytics 工作區。 如需進一步資訊，請檢閱 [Log Analytics 工作區概觀](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json)。
 * 您必須使用屬於 [Log Analytics 參與者角色](log-analytics-manage-access.md#manage-accounts-and-users)向 Azure 驗證。  
 
 >[!NOTE]
@@ -52,7 +52,7 @@ ms.locfileid: "50961138"
 >我們已針對每個版本的 Operations Manager 發行新的管理組件：  
 >* 針對 System Center Operations Manager 1801，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57173)下載管理組件  
 >* 針對 System Center 2016 - Operations Manager，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57172)下載管理組件  
->* 針對 System Center Operations Manager 2012 R2，請從[這裡](https://www.microsoft.com/en-us/download/details.aspx?id=57171)下載管理組件  
+>* 針對 System Center Operations Manager 2012 R2，請從[這裡](https://www.microsoft.com/download/details.aspx?id=57171)下載管理組件  
 
 ### <a name="network"></a>網路
 下列資訊列出 Operations Manager 代理程式、管理伺服器及 Operations 主控台與 Log Analytics 通訊所需的 Proxy 和防火牆組態資訊。 每個元件的流量會從您的網路輸出至 Log Analytics 服務。   

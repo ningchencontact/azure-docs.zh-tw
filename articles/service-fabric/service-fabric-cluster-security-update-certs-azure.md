@@ -3,7 +3,7 @@ title: 管理 Azure Service Fabric 叢集中的憑證 | Microsoft Docs
 description: 說明如何在 Service Fabric 叢集新增新的憑證、變換憑證及移除憑證。
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
-ms.author: chackdan
-ms.openlocfilehash: a1cfd68b526d8ce63fcfbc3b6e0eac84926fabaa
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.date: 11/13/2018
+ms.author: aljo-microsoft
+ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141505"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687413"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>新增或移除 Azure 中 Service Fabric 叢集的憑證
 建議您熟悉 Service Fabric 使用 X.509 憑證的方式，以及熟悉[叢集安全性案例](service-fabric-cluster-security.md)。 您必須瞭解什麼是叢集憑證及其用途，方可繼續進行後續作業。
@@ -175,7 +175,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>編輯您的範本檔案，以反映先前加入的新參數
-如果您是依循來自 [git 儲存機制](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)的範例進行操作，則可以開始在範例 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 中進行變更 
+如果您是依循來自 [git 儲存機制](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)的範例進行操作，則可以開始在範例 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 中進行變更 
 
 請編輯您的 Resource Manager 範本參數檔，新增 secCertificateThumbprint 和 secCertificateUrlValue 的兩個新參數。 
 
@@ -196,7 +196,7 @@ Azure Service Fabric SDK 的預設憑證載入行為，是部署和使用到期�
 
 ```powershell
 Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
+Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
@@ -221,11 +221,11 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <R
 以下是已填入資料的相同 Powershell 範例。
 
 ```powershell
-$ResouceGroup2 = "chackosecure5"
+$ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResouceGroup2
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: dce9d4d5d1f2e3e50cabb86ee0d8d14b2fce2923
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f0c627c1b0ab5f551ed71c3c30eb1dccc6c930a3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230024"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686342"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 資源提供者
 
@@ -28,9 +28,9 @@ ms.locfileid: "50230024"
 > [!IMPORTANT]
 > 僅支援資源提供者在裝載 SQL 或 MySQL 的伺服器上建立項目。 在不是由資源提供者建立的主機伺服器上建立項目，可能會導致不相符的狀態。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-您必須先滿足數個先決條件，才能部署 Azure Stack MySQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成此文章中的步驟。
+您必須先滿足數個先決條件，才能部署 Azure Stack MySQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成本文中的步驟。
 
 * 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](.\azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
 * 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
@@ -45,16 +45,16 @@ ms.locfileid: "50230024"
 
     | 最低 Azure Stack 版本 | MySQL RP 版本|
     | --- | --- |
-    | 1804 版 (1.0.180513.1)|[MySQL RP 1.1.24.0 版](https://aka.ms/azurestackmysqlrp1804) |
+    | 1808 版 (1.1808.0.97)|[MySQL RP 1.1.30.0 版](https://aka.ms/azurestackmysqlrp11300) |
     |     |     |
 
-* 請確定已符合資料中心整合先決條件：
+* 請確定已符合資料中心整合必要條件：
 
-    |先決條件|參考|
+    |必要條件|參考|
     |-----|-----|
     |條件式 DNS 轉送已正確設定。|[Azure Stack 資料中心整合 - DNS](azure-stack-integrate-dns.md)|
     |資源提供者的輸入連接埠已開啟。|[Azure Stack 資料中心整合 - 發佈端點](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI 憑證主體和 SAN 已正確設定。|[Azure Stack 部署必要 PKI 先決條件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack 部署 PaaS 憑證先決條件](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI 憑證主體和 SAN 已正確設定。|[Azure Stack 部署必要 PKI 必要條件](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack 部署 PaaS 憑證必要條件](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>憑證
@@ -105,8 +105,8 @@ _僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI �
 ```powershell
 # Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
 Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.4.0
+Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+Install-Module -Name AzureStack -RequiredVersion 1.5.0
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"  

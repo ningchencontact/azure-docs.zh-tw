@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/07/2017
 ms.author: revitalb
-ms.openlocfilehash: ea69befb1084b08352eb3cf38db0364c5c82c45b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b134bc2529bf11557ddb1778b87f127db8da650c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684626"
 ---
 # <a name="security-filters-for-trimming-azure-search-results-using-active-directory-identities"></a>使用 Active Directory 身分識別進行安全性篩選以調整 Azure 搜尋服務結果
 
@@ -98,7 +98,7 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>步驟 4：快取群組識別碼
-(選擇性) 若要降低網路延遲，您可以快取使用者群組關聯，以便在發出搜尋要求時從快取傳回群組，從而省下 AAD 的往返。 您可以使用 (AAD 批次 API) [https://developer.microsoft.com/graph/docs/concepts/json_batching]，來傳送具有多位使用者的單一 Http 要求，以及建置快取。
+(選擇性) 若要降低網路延遲，您可以快取使用者群組關聯，以便在發出搜尋要求時從快取傳回群組，從而省下 AAD 的往返。 您可以使用 [AAD 批次 API](https://developer.microsoft.com/graph/docs/concepts/json_batching)，來傳送具有多位使用者的單一 HTTP 要求，以及建置快取。
 
 Microsoft Graph 依設計可處理大量的要求。 如果發生大量的要求，Microsoft Graph 會無法執行要求，並顯示 HTTP 狀態碼 429。 如需詳細資訊，請參閱 [Microsoft Graph 節流](https://developer.microsoft.com/graph/docs/concepts/throttling)。
 

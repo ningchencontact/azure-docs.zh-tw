@@ -5,21 +5,21 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/13/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58bb3ae39ecd5631508ca1d09bf1d9d8f4d75063
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 3820aae1e926e51ffa88fabc94e3572b286162de
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036660"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634221"
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>解決 Azure Multi-Factor Authentication NPS 擴充功能的錯誤訊息
 
-如果您使用 Azure Multi-Factor Authentication NPS 擴充功能時發生錯誤，請使用本文以快速取得解決方案。 
+如果您使用 Azure Multi-Factor Authentication NPS 擴充功能時發生錯誤，請使用本文以快速取得解決方案。 NPS 擴充功能記錄會存放於事件檢視器中，在 NPS 擴充功能安裝所在的伺服器上，位於**自訂檢視** > **伺服器角色** > **網路原則與存取服務**下。
 
 ## <a name="troubleshooting-steps-for-common-errors"></a>為常見錯誤而設的疑難排解步驟
 
@@ -36,9 +36,6 @@ ms.locfileid: "51036660"
 | **REQUEST_MISSING_CODE** | 請確定 NPS 和 NAS 伺服器之間的密碼加密協定支援您使用的次要驗證方法。 **PAP** 支援雲端中 Azure MFA 的所有驗證方法：通話、單向簡訊、行動裝置應用程式通知，和行動裝置應用程式驗證碼。 **CHAPV2** 和 **EAP** 支援通話和行動裝置應用程式通知。 |
 | **USERNAME_CANONICALIZATION_ERROR** | 請確定使用者已存在於內部部署的 Active Directory 執行個體中，而且 NPS 服務有權存取目錄。 如果您使用跨樹系信任，請[連絡支援人員](#contact-microsoft-support)以取得進一步協助。 |
 
-
-   
-
 ### <a name="alternate-login-id-errors"></a>替代登入識別碼錯誤
 
 | 錯誤碼 | 錯誤訊息 | 疑難排解步驟 |
@@ -46,7 +43,6 @@ ms.locfileid: "51036660"
 | **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：userObjectSid 查閱失敗 | 請確認使用者存在於內部部署 Active Directory 執行個體中。 如果您使用跨樹系信任，請[連絡支援人員](#contact-microsoft-support)以取得進一步協助。 |
 | **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：替代 LoginId 查閱失敗 | 請確認 LDAP_ALTERNATE_LOGINID_ATTRIBUTE 設定為[有效的 Active Directory 屬性](https://msdn.microsoft.com/library/ms675090(v=vs.85).aspx)。 <br><br> 如果 LDAP_FORCE_GLOBAL_CATALOG 設定為 True，或 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認您已設定通用類別目錄，且 AlternateLoginId 屬性已新增到其中。 <br><br> 如果 LDAP_LOOKUP_FORESTS 設定具有非空白值，請確認值是否正確。 如果有多個樹系名稱，名稱必須以分號分隔，而非空格。 <br><br> 如果上述步驟未能解決問題，請[連絡支援人員](#contact-microsoft-support)以取得更多協助。 |
 | **ALTERNATE_LOGIN_ID_ERROR** | 錯誤：替代 LoginId 值是空的 | 請確認已為使用者設定 AlternateLoginId 屬性。 |
-
 
 ## <a name="errors-your-users-may-encounter"></a>您的使用者可能會遇到下列錯誤
 
@@ -97,7 +93,7 @@ ms.locfileid: "51036660"
 
 ### <a name="troubleshoot-user-accounts"></a>針對使用者帳戶進行移難排解
 
-如果您的使用者[進行雙步驟驗證時發生問題](../user-help/multi-factor-authentication-end-user-troubleshoot.md)，請協助助他們自行診斷問題。 
+如果您的使用者[進行雙步驟驗證時發生問題](../user-help/multi-factor-authentication-end-user-troubleshoot.md)，請協助助他們自行診斷問題。
 
 ### <a name="contact-microsoft-support"></a>連絡 Microsoft 支援
 
@@ -131,5 +127,3 @@ ms.locfileid: "51036660"
 
 5. 開啟登錄編輯程式，並瀏覽至 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa，將 **VERBOSE_LOG** 設定為 **FALSE**
 6. 壓縮 C:\NPS 資料夾的內容，並將壓縮的檔案附加到支援案例。
-
-

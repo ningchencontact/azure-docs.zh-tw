@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: e9fc4773a0dafc813f217564d5d052fa69d3f298
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0aa45ae807f153e6f1a3fde1d648571b29802dc2
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006698"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632470"
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Hadoop 執行 Pig 工作
+# <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Pig 作業
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-了解如何使用 .NET SDK for Hadoop 將 Apache Pig 工作提交至 Azure HDInsight 上的 Hadoop。
+了解如何使用 .NET SDK for Apache Hadoop 將 Apache Pig 工作提交至 Azure HDInsight 上的 Hadoop。
 
 HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使用 HDInsight 叢集。 Pig 可讓您透過建立一系列資料轉換的模型，來建立 MapReduce 作業。 在本文件中，您會學習如何使用基本 C# 應用程式將 Pig 作業提交至 HDInsight 叢集。
 

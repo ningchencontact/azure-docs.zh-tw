@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637860"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685645"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -79,6 +79,23 @@ ms.locfileid: "49637860"
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>傳遞驗證代理程式是否能透過輸出 Web Proxy 伺服器進行通訊？
 
 是。 如果您的內部部署環境啟用了 Web Proxy 自動探索 (WPAD)，則驗證代理程式會自動嘗試在網路上找出並使用 Web Proxy 伺服器。
+
+如果您的環境中沒有 WPAD，您可以新增 Proxy 資訊 (如下所示)，以允許傳遞驗證代理程式與 Azure AD 進行通訊：
+- 在伺服器上安裝傳遞驗證代理程式之前，請先在 Internet Explorer 中設定 Proxy 資訊。 這可讓您完成驗證代理程式的安裝，但它在管理入口網站中仍將顯示為 [非作用中]。
+- 在伺服器上，瀏覽至 "C:\Program Files\Microsoft Azure AD Connect Authentication Agent"。
+- 編輯 "AzureADConnectAuthenticationAgentService" 組態檔，並新增以下幾行 (將 "http://contosoproxy.com:8080" 取代為您實際的 Proxy 位址)：
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>是否可以在相同的伺服器上安裝兩個以上的傳遞驗證代理程式？
 

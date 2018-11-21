@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a91e14afa8325e75507b2f65cd9d71ab38df4524
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235236"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636450"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>從 VM 建立自訂映像
 
@@ -47,7 +47,7 @@ ms.locfileid: "51235236"
 
     ![[建立自訂映像] 窗格](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. 選取 sysprep 是否在 VM 上執行。 如果 sysprep 未在 VM 上執行，請指定您是否要在從這個自訂映像建立 VM 時讓 sysprep 執行。
+1. 選取 sysprep 是否在 VM 上執行。 如果 sysprep 未在 VM 上執行，請指定您是否要在自訂映像建立時讓 sysprep 在 VM 上執行。
 
 1. 完成時選取 [確定]  ，以建立自訂映像。
 

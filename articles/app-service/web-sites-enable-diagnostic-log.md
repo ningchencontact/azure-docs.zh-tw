@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8a58f8722b41944a7be02254e0f00682575c1bbb
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231613"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636953"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>在 Azure App Service 中針對 Web 應用程式啟用診斷記錄功能。
 ## <a name="overview"></a>概觀
 Azure 提供內建診斷功能，可協助對 [App Service Web 應用程式](https://go.microsoft.com/fwlink/?LinkId=529714)進行偵錯。 您會在本文中了解如何啟用診斷記錄，並在您的應用程式中加入檢測，以及如何存取 Azure 所記錄的資訊。
 
-本文使用 [Azure 入口網站](https://portal.azure.com)、Azure PowerShell 及 Azure 命令列介面 (Azure CLI) 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
+本文使用 [Azure 入口網站](https://portal.azure.com)和 Azure CLI 來處理診斷記錄。 如需使用 Visual Studio 來處理診斷記錄的詳細資訊，請參閱 [在 Visual Studio 中疑難排解 Azure](web-sites-dotnet-troubleshoot-visual-studio.md)。
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -65,7 +65,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 針對 [Web 伺服器記錄]，您可以選取 [儲存體] 或 [檔案系統]。 選取 [儲存體] 可讓您選取儲存體帳戶，並接著選取可供寫入記錄的 Blob 容器。 
 
-如果您在檔案系統上儲存記錄，這些檔案可透過 FTP 存取，或是使用 Azure PowerShell 或 Azure 命令列介面 (Azure CLI) 下載為 Zip 封存。
+如果您在檔案系統上儲存記錄，這些檔案將可透過 FTP 來存取，或是使用 Azure CLI 以 Zip 封存檔的形式下載。
 
 根據預設，不會自動刪除記錄 (除了 [應用程式記錄 (檔案系統)] 之外)。 若要自動刪除記錄，請設定 [保留期限 (天)] 欄位。
 
@@ -73,24 +73,20 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 > 如果您 [重新產生儲存體帳戶的存取金鑰](../storage/common/storage-create-storage-account.md)，您必須重設個別的記錄組態，才能使用更新的金鑰。 作法：
 >
 > 1. 在 [設定] 索引標籤上，將個別的記錄功能設定為 [關閉]。 儲存您的設定。
-> 2. 重新啟用記錄至儲存體帳戶 Blob 或資料表。 儲存您的設定。
+> 2. 重新啟用記錄至儲存體帳戶 Blob。 儲存您的設定。
 >
 >
 
-包括檔案系統、資料表儲存體或是 Blob 儲存體都可以任意組合並同時啟用，並個別具有記錄層級組態。 例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
+檔案系統或 Blob 儲存體可以任意組合並同時啟用，並且具有個別的記錄層級組態。 例如，您也許想要將各種錯誤與警告資訊記錄到 Blob 儲存體做為長期的記錄解決方案，同時啟用詳細資訊層級的檔案系統記錄功能。
 
-雖然以上三個儲存位置全都提供相同的基本資訊供您記錄事件，[資料表儲存體] 與 [Blob 儲存體] 會比 [檔案系統] 記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
+雖然這兩個儲存位置針對已記錄的事件會提供相同的基本資訊，但 **Blob 儲存體**會比**檔案系統**記錄更多的資訊，例如執行個體識別碼、執行緒識別碼以及更細緻的時間戳記 (刻度格式)。
 
 > [!NOTE]
-> 儲存在 [資料表儲存體] 或 [Blob 儲存體] 內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索資料表或 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](https://azure.microsoft.com/downloads/)，撰寫可存取 Azure 儲存體的應用程式。
->
-> [!NOTE]
-> 您也可以在 Azure PowerShell 中使用 **Set-AzureWebsite** Cmdlet 來啟用診斷功能。 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)。
->
+> 儲存在 **Blob 儲存體**內的資訊只能透過儲存用戶端，或是能夠直接使用這些儲存系統的應用程式來存取。 例如，Visual Studio 2013 內含的 [儲存體總管] 可用來探索 Blob 儲存體，而 HDInsight 則可存取儲存在 Blob 儲存體內的資料。 您也可以使用任何一項 [Azure SDK](https://azure.microsoft.com/downloads/)，撰寫可存取 Azure 儲存體的應用程式。
 >
 
 ## <a name="download"></a> 作法：下載記錄
-儲存在 Web 應用程式檔案系統中的診斷資訊，可透過 FTP 直接存取。 或是使用 Azure PowerShell 或 Azure 命令列介面下載為 Zip 封存。
+儲存在 Web 應用程式檔案系統中的診斷資訊，可透過 FTP 直接存取。 此外也可使用 Azure CLI 以 Zip 封存檔的形式下載。
 
 儲存這些記錄的目錄結構如下所示：
 
@@ -106,19 +102,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 
 一旦連線到您的 Web 應用程式 FTP/S 伺服器後，開啟儲存記錄檔所在的 [LogFiles] 資料夾。
 
-### <a name="download-with-azure-powershell"></a>使用 Azure PowerShell 來下載
-若要下載記錄檔，請啟動新的 Azure PowerShell 執行個體並使用下列命令：
-
-    Save-AzureWebSiteLog -Name webappname
-
-此命令會將 **-Name** 參數所指定的 Web 應用程式記錄儲存到目前目錄中名為 **logs.zip** 的檔案中。
-
-> [!NOTE]
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂用帳戶，請參閱[安裝並設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)。
->
->
-
-### <a name="download-with-azure-command-line-interface"></a>使用 Azure 命列列介面來下載
+### <a name="download-with-azure-cli"></a>使用 Azure CLI 來下載
 若要使用 Azure 命令列介面來下載記錄檔案，請開啟新的命令列提示字元、PowerShell、Bash 或終端機工作階段，然後輸入下列命令：
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -126,7 +110,7 @@ App Service Web 應用程式會針對來自 Web 伺服器和 Web 應用程式的
 此命令會將名為 'webappname' 的 Web 應用程式記錄儲存至目前目錄中名為 **diagnostics.zip** 的檔案。
 
 > [!NOTE]
-> 如果您尚未安裝 Azure 命令列介面 (Azure CLI)，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
+> 如果您尚未安裝 Azure CLI，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)。
 >
 >
 
@@ -143,7 +127,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 [深入了解使用 Application Insights 的效能追蹤](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> 作法：串流記錄
-開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure PowerShell 或 Azure 命令列介面，將記錄資訊串流至開發環境。
+開發應用程式時，如果能夠幾近即時地檢視記錄資訊，通常會很實用。 您可以使用 Azure CLI，將記錄資訊串流至開發環境。
 
 > [!NOTE]
 > 某些記錄緩衝區類型會寫入記錄檔中，進而造成串流中的事件順序錯亂。 例如，使用者造訪某個網頁所產生的應用程式記錄項目，可能會比頁面要求的對應 HTTP 記錄項目優先顯示在串流中。
@@ -153,29 +137,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 >
 >
 
-### <a name="streaming-with-azure-powershell"></a>使用 Azure PowerShell 來串流
-若要串流記錄資訊，請啟動新的 Azure PowerShell 執行個體並使用下列命令：
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-此命令會連線至 **-Name** 參數所指定的 Web 應用程式，並在該 Web 應用程式產生記錄事件時，開始將資訊串流至 PowerShell 視窗。 任何寫入副檔名為 .txt、.log 或 .htm 的檔案中並存放在 /LogFiles 目錄 (d:/home/logfiles) 的資訊，都會串流至本機主控台。
-
-若要篩選特定事件，例如錯誤，請使用 **-Message** 參數。 例如︰
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-若要篩選特定記錄類型，例如 HTTP，請使用 **-Path** 參數。 例如︰
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-若要檢視可用的路徑清單，請使用 -ListPath 參數。
-
-> [!NOTE]
-> 如果您尚未安裝 Azure PowerShell，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/)(英文)。
->
->
-
-### <a name="streaming-with-azure-command-line-interface"></a>使用 Azure 命令列介面來串流
+### <a name="streaming-with-azure-cli"></a>透過 Azure CLI 進行串流
 若要串流記錄資訊，請開啟新的命列列提示字元、PowerShell、Bash 或終端機工作階段，然後輸入下列命令：
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -191,13 +153,15 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> 如果您尚未安裝 Azure 命令列介面，或是尚未將其設定為使用您的 Azure 訂用帳戶，請參閱 [如何使用 Azure 命令列介面](../cli-install-nodejs.md)。
+> 如果您尚未安裝 Azure CLI，或尚未將其設定為使用 Azure 訂閱，請參閱 [如何使用 Azure CLI](../cli-install-nodejs.md)。
 >
 >
 
 ## <a name="understandlogs"></a> 作法：了解診斷記錄
 ### <a name="application-diagnostics-logs"></a>應用程式診斷記錄
-應用程式診斷功能會根據您將記錄儲存至檔案系統、資料表儲存體或 Blob 儲存體的不同，將 .NET 應用程式的資訊儲存為特定格式。 這三種儲存類型所儲存的資料基底集合全都相同，包括事件發生的日期與時間、產生事件的處理序識別碼、事件類型 (資訊、警告與錯誤)，以及事件訊息。
+應用程式診斷功能會根據您將記錄儲存至檔案系統或 Blob 儲存體的不同，將 .NET 應用程式的資訊儲存為特定格式。 
+
+這兩種儲存類型所儲存的資料基底集合是相同的，包括事件發生的日期與時間、產生事件的處理序識別碼、事件類型 (資訊、警告與錯誤)，以及事件訊息。 當您需要立即存取以進行問題的疑難排解時，使用檔案系統來儲存記錄將有其效用，因為記錄檔會幾近即時地進行更新。 Blob 儲存體可供封存之用，因為檔案在快取後會定期排清至儲存體容器。
 
 **檔案系統**
 
@@ -211,27 +175,9 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
 
 記錄到檔案系統可針對三種可用的方法提供最基本的資訊，亦即僅提供時間、處理序識別碼、事件層級與訊息。
 
-**資料表儲存體**
-
-記錄至資料表儲存體時，會使用其他屬性來協助搜尋儲存在資料表裡的資料，以及更精細的事件資訊。 以下內容 (資料行) 會用於資料表中儲存的每個實體 (列)。
-
-| 屬性名稱 | 值/格式 |
-| --- | --- |
-| PartitionKey |格式為 yyyyMMddHH 的事件日期/時間 |
-| RowKey |可唯一識別此實體的 GUID 值 |
-| Timestamp |事件發生的日期與時間 |
-| EventTickCount |事件發生的日期與時間 (刻度格式，精準度更高) |
-| ApplicationName |Web 應用程式名稱 |
-| Level |事件層級 (例如錯誤、警告、資訊) |
-| EventId |如果沒有指定<p><p>這個事件的事件識別碼，則預設為 0 |
-| InstanceId |發生事件的 Web 應用程式執行個體 |
-| Pid |處理序識別碼 |
-| Tid |產生事件的執行緒之執行緒識別碼 |
-| 訊息 |事件詳細資訊訊息 |
-
 **Blob 儲存體**
 
-登入 Blob 儲存體時，資料會儲存為逗號分隔值 (CSV) 的格式。 其他欄位則會以類似資料表儲存體的作法記錄起來，以提供更精細的事件相關資訊。 CSV 中的每一列會使用以下屬性：
+登入 Blob 儲存體時，資料會儲存為逗號分隔值 (CSV) 的格式。 系統也會記錄其他欄位，以提供更精細的事件相關資訊。 CSV 中的每一列會使用以下屬性：
 
 | 屬性名稱 | 值/格式 |
 | --- | --- |
@@ -251,7 +197,7 @@ Visual Studio Application Insights 提供篩選與搜尋記錄的工具，以及
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> 記錄的第一行會包含資料行標頭，如此範例所示。
+> ASP.NET Core 的記錄會使用 [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) 提供者來完成，此提供者會將其他記錄檔放置在 Blob 容器中。 如需詳細資訊，請參閱 [Azure 中的 ASP.NET Core 記錄](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure)。
 >
 >
 

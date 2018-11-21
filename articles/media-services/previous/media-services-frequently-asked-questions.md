@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: d4b7d8ec5cb162e5fc844f107fbd5eb08fb00639
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: bf5bc66ce55b0b9d6095cd395a11f68b40af1639
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353524"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685713"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -28,7 +28,7 @@ ms.locfileid: "49353524"
 
 問：如何串流至 Apple iOS 裝置
 
-答：將 "(format=m3u8-aapl)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 HLS 內容以供在 Apple iOS 原生裝置上取用 (如需詳細資料，請參閱 (提供內容)[media-services-deliver-content-overview.md])。
+答：將 "(format=m3u8-aapl)" 路徑新增至 URL 的 "/Manifest" 部分，來告訴串流原始伺服器傳回 HLS 內容以供在 Apple iOS 原生裝置上取用 (如需詳細資料，請參閱[提供內容](media-services-deliver-content-overview.md))。
 
 問：如何調整索引？
 

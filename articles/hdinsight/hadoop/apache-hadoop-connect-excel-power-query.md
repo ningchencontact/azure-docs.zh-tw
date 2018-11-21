@@ -1,5 +1,5 @@
 ---
-title: 使用 Power Query 將 Excel 連接到 Hadoop - Azure HDInsight
+title: 使用 Power Query 將 Excel 連線到 Apache Hadoop - Azure HDInsight
 description: 了解如何利用商業智慧元件和使用 Power Query for Excel 來存取 HDInsight 上的 Hadoop 中儲存的資料。
 services: hdinsight
 author: hrasheed-msft
@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 7335e4370d25b7cc404d93ad6f2c9ff524d928e0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: dc287325b3ef0fc951dab127e0def5f4023534ca
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016296"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632487"
 ---
-# <a name="connect-excel-to-hadoop-by-using-power-query"></a>使用 Power Query 將 Excel 連接到 Hadoop
-Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 上的 Hadoop 叢集相整合。 舉例來說，可讓您使用 Microsoft Power Query for Excel 增益集，將 Excel 連接到包含 Hadoop 叢集相關聯資料的 Azure 儲存體帳戶。 本文將逐步解說如何設定及使用 Power Query，以查詢受 HDInsight 管理的 Hadoop 叢集相關聯資料。
+# <a name="connect-excel-to-apache-hadoop-by-using-power-query"></a>使用 Power Query 將 Excel 連線到 Apache Hadoop
+Microsoft 巨量資料方案的主要功能之一，是將 Microsoft 商業智慧 (BI) 元件與 Azure HDInsight 上的 Apache Hadoop 叢集相整合。 舉例來說，可讓您使用 Microsoft Power Query for Excel 增益集，將 Excel 連接到包含 Hadoop 叢集相關聯資料的 Azure 儲存體帳戶。 本文將逐步解說如何設定及使用 Power Query，以查詢受 HDInsight 管理的 Hadoop 叢集相關聯資料。
 
 ### <a name="prerequisites"></a>必要條件
 開始閱讀本文之前，您必須有下列各項：

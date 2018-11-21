@@ -1,6 +1,6 @@
 ---
-title: 在 HDInsight 中搭配使用 Hadoop Pig 與 REST - Azure
-description: 了解如何使用 REST 在 Azure HDInsight 中的 Hadoop 叢集上執行 Pig Latin 作業。
+title: 在 HDInsight 中搭配使用 Apache Hadoop Pig 與 REST - Azure
+description: 了解如何使用 REST 在 Azure HDInsight 中的 Apache Hadoop 叢集上執行 Pig Latin 作業。
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: bd729d0d2cd095339a82b8a7f38a17a20b709c15
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cb96933569c18b8c70d8991c9ba19f9f3e1243e6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013083"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633694"
 ---
-# <a name="run-pig-jobs-with-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 在 HDInsight 上搭配 Hadoop 執行 Pig 作業
+# <a name="run-pig-jobs-with-apache-hadoop-on-hdinsight-by-using-rest"></a>使用 REST 在 HDInsight 上搭配 Apache Hadoop 執行 Pig 作業
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-了解如何對 Azure HDInsight 叢集提出 REST 要求以執行 Pig Latin 作業。 Curl 用來示範如何使用 WebHCat REST API 來與 HDInsight 互動。
+了解如何對 Azure HDInsight 叢集提出 REST 要求以執行 Apache Pig Latin 作業。 Curl 用來示範如何使用 WebHCat REST API 來與 HDInsight 互動。
 
 > [!NOTE]
-> 如果您已熟悉使用以 Linux 為基礎的 Hadoop 伺服器，但剛接觸 HDInsight，請參閱 [以 Linux 為基礎的 HDInsight 秘訣](../hdinsight-hadoop-linux-information.md)。
+> 如果您已熟悉使用以 Linux 為基礎的 Apache Hadoop 伺服器，但剛接觸 HDInsight，請參閱[以 Linux 為基礎的 HDInsight 秘訣](../hdinsight-hadoop-linux-information.md)。
 
 ## <a id="prereq"></a>必要條件
 

@@ -8,173 +8,200 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: c09ee84cda5f0a9747d3ee1f8f1b37d1323f2cc2
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: c94d29f16c011a9ff9951d064d7496d3a87f70ef
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212245"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636300"
 ---
 # <a name="egress-and-endpoints"></a>輸出和端點
 
-Azure Digital Twins 支援「端點」的概念，而在使用者的 Azure 訂用帳戶中，每個端點都代表訊息/事件的訊息代理程式。 事件和訊息可以傳送至**事件中樞**、**事件方格**和**服務匯流排主題**。
+Azure Digital Twins 支援**端點**的概念。 在使用者的 Azure 訂用帳戶中，每個端點都代表訊息/事件的訊息代理程式。 事件和訊息可以傳送至 Azure 事件中樞、Azure 事件方格和 Azure 服務匯流排主題。
 
-事件會根據預先定義的路由喜好設定來傳送至端點：使用者可以指定應接收下列任一事件的端點：**TopologyOperation**、**UdfCustom**、**SensorChange**、**SpaceChange** 或 **DeviceMessage**。
+事件會根據預先定義的路由喜好設定傳送至端點。 使用者可以指定哪些端點應接收下列任何事件： 
+
+- TopologyOperation
+- UdfCustom
+- SensorChange
+- SpaceChange
+- DeviceMessage
 
 若要對事件路由和事件類型有基本了解，請參閱[路由事件和訊息](concepts-events-routing.md)。
 
 ## <a name="event-types-description"></a>事件類型描述
 
-以下是每個事件類型的事件格式：
+以下幾節將說明每個事件類型的事件格式。
 
-- **TopologyOperation**
+### <a name="topologyoperation"></a>TopologyOperation
 
-  適用於圖表變更。 subject 屬性會指定受影響的物件類型。 可觸發此事件的物件類型為：**Device**、**DeviceBlobMetadata**、**DeviceExtendedProperty**、**ExtendedPropertyKey**、**ExtendedType**、**KeyStore**、**Report**、**RoleDefinition**、**Sensor**、**SensorBlobMetadata**、**SensorExtendedProperty**、**Space**、**SpaceBlobMetadata**、**SpaceExtendedProperty**、**SpaceResource**、**SpaceRoleAssignment**、**System**、**User**、**UserBlobMetadata**、**UserExtendedProperty**。
+**TopologyOperation** 適用於圖表變更。 subject 屬性會指定受影響的物件類型。 下列類型的物件可能會觸發此事件： 
 
-  範例：
+- 裝置
+- DeviceBlobMetadata
+- DeviceExtendedProperty
+- ExtendedPropertyKey
+- ExtendedType
+- KeyStore
+- 報告
+- RoleDefinition
+- 感應器
+- SensorBlobMetadata
+- SensorExtendedProperty
+- 空白字元
+- SpaceBlobMetadata
+- SpaceExtendedProperty
+- SpaceResource
+- SpaceRoleAssignment
+- 系統
+- 使用者
+- UserBlobMetadata
+- UserExtendedProperty
 
-  ```JSON
-  {
-    "id": "00000000-0000-0000-0000-000000000000",
-    "subject": "ExtendedPropertyKey",
-    "data": {
-      "SpacesToNotify": [
-        "3a16d146-ca39-49ee-b803-17a18a12ba36"
-      ],
-      "Id": "00000000-0000-0000-0000-000000000000",
+#### <a name="example"></a>範例
+
+```JSON
+{
+  "id": "00000000-0000-0000-0000-000000000000",
+  "subject": "ExtendedPropertyKey",
+  "data": {
+    "SpacesToNotify": [
+      "3a16d146-ca39-49ee-b803-17a18a12ba36"
+    ],
+    "Id": "00000000-0000-0000-0000-000000000000",
       "Type": "ExtendedPropertyKey",
-      "AccessType": "Create"
-    },
-    "eventType": "TopologyOperation",
-    "eventTime": "2018-04-17T17:41:54.9400177Z",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+    "AccessType": "Create"
+  },
+  "eventType": "TopologyOperation",
+  "eventTime": "2018-04-17T17:41:54.9400177Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
 
-    | 自訂屬性名稱 | 取代為 |
-    | --- | --- |
-    | yourTopicName | 自訂主題的名稱 |
+| 值 | 更換為 |
+| --- | --- |
+| YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- **UdfCustom**
+### <a name="udfcustom"></a>UdfCustom
 
-  由使用者定義函式 (UDF) 傳送的事件。 
+**UdfCustom** 是由使用者定義函式 (UDF) 傳送的事件。 
   
-  > [!IMPORTANT]
-  > 此事件必須以明確地從 UDF 本身傳送。
+> [!IMPORTANT]  
+> 此事件必須以明確地從 UDF 本身傳送。
 
-  範例：
+#### <a name="example"></a>範例
 
-  ```JSON
-  {
-    "id": "568fd394-380b-46fa-925a-ebb96f658cce",
-    "subject": "UdfCustom",
-    "data": {
-      "TopologyObjectId": "7c799bfc-1bff-4b9e-b15a-669933969d20",
-      "ResourceType": "Space",
-      "Payload": "\"Room is not available or air quality is poor\"",
-      "CorrelationId": "568fd394-380b-46fa-925a-ebb96f658cce"
-    },
-    "eventType": "UdfCustom",
-    "eventTime": "2018-10-02T06:50:15.198Z",
-    "dataVersion": "1.0",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "568fd394-380b-46fa-925a-ebb96f658cce",
+  "subject": "UdfCustom",
+  "data": {
+    "TopologyObjectId": "7c799bfc-1bff-4b9e-b15a-669933969d20",
+    "ResourceType": "Space",
+    "Payload": "\"Room is not available or air quality is poor\"",
+    "CorrelationId": "568fd394-380b-46fa-925a-ebb96f658cce"
+  },
+  "eventType": "UdfCustom",
+  "eventTime": "2018-10-02T06:50:15.198Z",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
 
-    | 自訂屬性名稱 | 取代為 |
-    | --- | --- |
-    | yourTopicName | 自訂主題的名稱 |
+| 值 | 更換為 |
+| --- | --- |
+| YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- **SensorChange**
+### <a name="sensorchange"></a>SensorChange
 
-  以遙測變更為基礎的感應器狀態更新。
+**SensorChange** 是以遙測變更為基礎的感應器狀態更新。
 
-  範例：
+#### <a name="example"></a>範例
 
-  ```JSON
-  {
-    "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
-    "subject": "SensorChange",
-    "data": {
-      "Type": "Classic",
-      "DataType": "Motion",
-      "Id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
-      "Value": "False",
-      "PreviousValue": "True",
-      "EventTimestamp": "2018-04-17T17:46:15.4964262Z",
-      "MessageType": "sensor",
-      "Properties": {
-        "ms-client-request-id": "c9e576b7-5eea-4f61-8617-92a57add5179",
-        "ms-activity-id": "ct22YwXEGJ5u.605.0"
-      }
-    },
-    "eventType": "SensorChange",
-    "eventTime": "2018-04-17T17:46:18.5452993Z",
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
+  "subject": "SensorChange",
+  "data": {
+    "Type": "Classic",
+    "DataType": "Motion",
+    "Id": "60bf5336-2929-45b4-bb4c-b45699dfe95f",
+    "Value": "False",
+    "PreviousValue": "True",
+    "EventTimestamp": "2018-04-17T17:46:15.4964262Z",
+    "MessageType": "sensor",
+    "Properties": {
+      "ms-client-request-id": "c9e576b7-5eea-4f61-8617-92a57add5179",
+      "ms-activity-id": "ct22YwXEGJ5u.605.0"
+    }
+  },
+  "eventType": "SensorChange",
+  "eventTime": "2018-04-17T17:46:18.5452993Z",
+  "dataVersion": "1",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
 
-    | 自訂屬性名稱 | 取代為 |
-    | --- | --- |
-    | yourTopicName | 自訂主題的名稱 |
+| 值 | 更換為 |
+| --- | --- |
+| YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- **SpaceChange**
+### <a name="spacechange"></a>SpaceChange
 
-  以遙測變更為基礎的空間狀態更新。
+**SpaceChange** 是以遙測變更為基礎的空間狀態更新。
 
-  範例：
+#### <a name="example"></a>範例
 
-  ```JSON
-  {
-    "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
-    "subject": "SpaceChange",
-    "data": {
-      "Type": null,
-      "DataType": "AvailableAndFresh",
-      "Id": "7c799bfc-1bff-4b9e-b15a-669933969d20",
-      "Value": "Room is not available or air quality is poor",
-      "PreviousValue": null,
-      "RawData": null,
-      "transactionId": null,
-      "EventTimestamp": null,
-      "MessageType": null,
-      "Properties": null,
-      "CorrelationId": "42522e10-b1aa-42ff-a5e7-7181788ffc4b"
-    },
-    "eventType": "SpaceChange",
-    "eventTime": "2018-10-02T06:50:20.128Z",
-    "dataVersion": "1.0",
-    "metadataVersion": "1",
-    "topic": "/subscriptions/yourTopicName"
-  }
-  ```
+```JSON
+{
+  "id": "42522e10-b1aa-42ff-a5e7-7181788ffc4b",
+  "subject": "SpaceChange",
+  "data": {
+    "Type": null,
+    "DataType": "AvailableAndFresh",
+    "Id": "7c799bfc-1bff-4b9e-b15a-669933969d20",
+    "Value": "Room is not available or air quality is poor",
+    "PreviousValue": null,
+    "RawData": null,
+    "transactionId": null,
+    "EventTimestamp": null,
+    "MessageType": null,
+    "Properties": null,
+    "CorrelationId": "42522e10-b1aa-42ff-a5e7-7181788ffc4b"
+  },
+  "eventType": "SpaceChange",
+  "eventTime": "2018-10-02T06:50:20.128Z",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
+}
+```
 
-    | 自訂屬性名稱 | 取代為 |
-    | --- | --- |
-    | yourTopicName | 自訂主題的名稱 |
+| 值 | 更換為 |
+| --- | --- |
+| YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- **DeviceMessage**
+### <a name="devicemessage"></a>DeviceMessage
 
-  可讓您指定 **EventHub** 連線，原始遙測事件也可從 Azure Digital Twins 路由至此。
+使用 **DeviceMessage** 可以指定 **EventHub** 連線，原始遙測事件也可從 Azure Digital Twins 路由至此。
 
 > [!NOTE]
-> - **DeviceMessage** 只能與 **EventHub** 結合；您無法讓 **DeviceMessage** 與任何其他事件類型結合。
+> - **DeviceMessage** 只能與 **EventHub** 搭配使用。 您無法將 **DeviceMessage** 與任何其他事件類型結合。
 > - 您只能指定一個結合 **EventHub** 或 **DeviceMessage** 類型的端點。
 
-## <a name="configuring-endpoints"></a>設定端點
+## <a name="configure-endpoints"></a>設定端點
 
-端點管理可透過端點 API 來執行。 以下是如何設定不同支援端點的一些範例。 請特別注意事件類型陣列，因為此陣列會定義端點的路由：
+端點管理可透過端點 API 來執行。 下列範例示範如何設定不同的支援端點。 請特別注意事件類型陣列，因為此陣列會定義端點的路由：
 
 ```plaintext
 POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 ```
 
-- 路由傳送至**服務匯流排**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
+- 路由傳送至服務匯流排事件類型 **SensorChange**、**SpaceChange** 和 **TopologyOperation**：
 
   ```JSON
   {
@@ -184,20 +211,20 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | 自訂屬性名稱 | 取代為 |
+    | 值 | 更換為 |
     | --- | --- |
-    | yourNamespace | 端點的命名空間 |
-    | yourPrimaryKey | 用於驗證的主要連接字串 |
-    | yourSecondaryKey | 用於驗證的次要連接字串 |
-    | yourTopicName | 自訂主題的名稱 |
+    | YOUR_NAMESPACE | 端點的命名空間 |
+    | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
+    | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
+    | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- 路由傳送至**事件方格**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
+- 路由傳送至事件方格事件類型 **SensorChange**、**SpaceChange** 和 **TopologyOperation**：
 
   ```JSON
   {
@@ -207,19 +234,19 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | 自訂屬性名稱 | 取代為 |
+    | 值 | 更換為 |
     | --- | --- |
-    | yourPrimaryKey | 用於驗證的主要連接字串|
-    | yourSecondaryKey | 用於驗證的次要連接字串 |
-    | yourTopicName | 自訂主題的名稱 |
+    | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串|
+    | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
+    | YOUR_TOPIC_NAME | 自訂主題的名稱 |
 
-- 路由傳送至**事件中樞**事件類型：**SensorChange**、**SpaceChange**、**TopologyOperation**
+- 路由傳送至事件中樞事件類型 **SensorChange**、**SpaceChange** 和 **TopologyOperation**：
 
   ```JSON
   {
@@ -229,20 +256,20 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | 自訂屬性名稱 | 取代為 |
+    | 值 | 更換為 |
     | --- | --- |
-    | yourNamespace | 端點的命名空間 |
-    | yourPrimaryKey | 用於驗證的主要連接字串 |
-    | yourSecondaryKey | 用於驗證的次要連接字串 |
-    | yourEventHubName | **事件中樞**的名稱 |
+    | YOUR_NAMESPACE | 端點的命名空間 |
+    | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
+    | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
+    | YOUR_EVENT_HUB_NAME | 事件中樞的名稱 |
 
-- 路由傳送至**事件中樞**事件類型：**DeviceMessage**。 包含在 **connectionString** 中包含 `EntityPath`。
+- 路由傳送至事件中樞事件類型 **DeviceMessage**。 `EntityPath` 必須包含在 **connectionString** 中：
 
   ```JSON
   {
@@ -250,20 +277,20 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | 自訂屬性名稱 | 取代為 |
+    | 值 | 更換為 |
     | --- | --- |
-    | yourNamespace | 端點的命名空間 |
-    | yourPrimaryKey | 用於驗證的主要連接字串 |
-    | yourSecondaryKey | 用於驗證的次要連接字串 |
-    | yourEventHubName | **事件中樞**的名稱 |
+    | YOUR_NAMESPACE | 端點的命名空間 |
+    | YOUR_PRIMARY_KEY | 用於驗證的主要連接字串 |
+    | YOUR_SECONDARY_KEY | 用於驗證的次要連接字串 |
+    | YOUR_EVENT_HUB_NAME | 事件中樞的名稱 |
 
-> [!NOTE]
+> [!NOTE]  
 > 建立新端點時，可能需要 5 到 10 分鐘的時間，才能開始在端點上接收事件。
 
 ## <a name="primary-and-secondary-connection-keys"></a>主要和次要連線金鑰
@@ -280,6 +307,6 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
 
 ## <a name="next-steps"></a>後續步驟
 
-若要了解如何使用 Azure Digital Twins Swagger，請參閱 [Azure Digital Twins Swagger](how-to-use-swagger.md)。
+- 了解[如何使用 Azure Digital Twins Swagger](how-to-use-swagger.md)。
 
-若要深入了解 Azure Digital Twins 中的路由事件與訊息，請參閱[路由事件和訊息](concepts-events-routing.md)。
+- 深入了解 Azure Digital Twins 中的[路由事件與訊息](concepts-events-routing.md)。

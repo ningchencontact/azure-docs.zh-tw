@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6729a0e3ccbb96dc178925bbab4cfbf8189c4a14
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ebbb12a6454a093ad0ac3b3cc30eb489eeef21ec
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278254"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687209"
 ---
 # <a name="optimize-hive-queries-in-azure-hdinsight"></a>將 Azure HDInsight 中的 Hive 查詢最佳化
 
@@ -72,7 +72,7 @@ Hive 資料分割的實作方法是將未經處理的資料重新整理成新的
 
 * **請勿分割不足** - 依據只有少數幾個值的資料行進行分割，可能會造成很少的分割區。 例如，依據性別進行分割，只會建立兩個分割區 (男性和女性)，因此只會降低最多一半的延遲。
 * **請勿過度分割** - 另一方面，在具有唯一值 (例如，使用者識別碼) 的資料行建立分割區會造成多個分割區。 過度分割會在叢集 namenode 上造成太多壓力，因為它必須處理大量目錄。
-* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」資料行上的資料分割可能會扭曲資料的分佈。 因為加利福尼亞州的母體擴展幾乎是佛蒙特州的 30 倍，所以資料分割大小可能會扭曲，效能也可能會有極大的差異。
+* **避免資料扭曲** - 明智地選擇分割索引鍵，讓所有分割區的大小平均。 例如，「州/省」資料行上的資料分割可能會扭曲資料的分佈。 由於加州的人口幾乎是佛蒙特州的 30 倍，分割區大小可能會有偏差，且效能可能會有極大的差異。
 
 若要建立分割資料表，請使用 *Partitioned By* 子句：
 

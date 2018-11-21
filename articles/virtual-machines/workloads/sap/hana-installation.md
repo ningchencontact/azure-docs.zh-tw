@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 160cc4fb3ccdabfd76e228c447ad179b3616d195
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad04b229e4c6ace3f87ba6e800c0a7c82eb76d92
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231095"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633949"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>如何在 Azure 上安裝和設定 SAP HANA (大型執行個體)
 
@@ -170,7 +170,7 @@ HANA/log/backup 磁碟區不支援作為資料庫備份的磁碟區。 它會調
 
 除了所提供的儲存體之外，您還可以購買額外的儲存體容量 (增量單位為 1 TB)。 此額外儲存體可以做為新的磁碟區新增至 HANA 大型執行個體。
 
-在 Azure 服務管理的 SAP HANA 上架期間，客戶會為 sidadm 使用者和 sapsys 群組指定使用者識別碼 (UID) 和群組識別碼 (GID) (例如：1000,500)。安裝 SAP HANA 系統時，您必須使用這些相同的值。 因為您想要在一個單元上部署多個 HANA 執行個體，所以您會取得多個磁碟區集合 (每個執行個體一組)。 如此一來，在部署期間您需要定義下列項目：
+在 Azure 服務管理的 SAP HANA 上架期間，客戶會為 sidadm 使用者和 sapsys 群組指定使用者識別碼 (UID) 和群組識別碼 (GID) (例如：1000,500)。 安裝 SAP HANA 系統時，您必須使用這些相同的值。 因為您想要在一個單元上部署多個 HANA 執行個體，所以您會取得多個磁碟區集合 (每個執行個體一組)。 如此一來，在部署期間您需要定義下列項目：
 
 - 不同的 (sidadm 衍生來源的) HANA 執行個體 SID。
 - 不同 HANA 執行個體的記憶體大小。 每個執行個體的記憶體大小都會定義每個個別磁碟區集合中的磁碟區大小。
