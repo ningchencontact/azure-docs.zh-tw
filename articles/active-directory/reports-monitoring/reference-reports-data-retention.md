@@ -13,24 +13,21 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 05/10/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 68028fd1ba116251860e5c370e9e9ce61fd314bb
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146139"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624585"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
+在本文中，您會了解 Azure Active Directory 中不同活動報告的資料保留原則。 
 
-本文為您提供 Azure Active Directory 中各種活動報告的資料保留相關常見問題的解答。 
-
-### <a name="q-how-can-you-get-the-collection-of-activity-data-started"></a>問：如何才能開始收集活動資料？
-
-**答：**
+### <a name="when-does-azure-ad-start-collecting-data"></a>Azure AD 何時會開始收集資料？
 
 | Azure AD 版本 | 開始收集 |
 | :--              | :--   |
@@ -38,25 +35,21 @@ ms.locfileid: "42146139"
 | Azure AD Free | 首次開啟 [Azure Active Directory 刀鋒視窗](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[報告 API](https://aka.ms/aadreports)  |
 
 ---
-### <a name="q-when-is-your-activity-data-available-in-the-azure-portal"></a>問：何時可在 Azure 入口網站中取得您的活動資料？
 
-**答：**
+### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>何時可在 Azure 入口網站中取得活動資料？
 
 - **立即** - 如果您已在 Azure 入口網站中使用報告。
 - **2 小時內** - 如果您尚未在 Azure 入口網站中開啟報告功能。
 
 ---
 
-### <a name="q-how-can-you-get-the-collection-of-security-signals-started"></a>問：如何才能開始收集安全性訊號？  
+### <a name="when-does-azure-ad-start-collecting-security-signal-data"></a>Azure AD 何時會開始收集安全性訊號資料？  
 
-**答：** 對於安全性訊號，收集程序會在您選擇使用 Identity Protection 中心時啟動。 
-
+對於安全性訊號，收集程序會在您選擇使用 **Identity Protection 中心**時啟動。 
 
 ---
 
-### <a name="q-for-how-long-is-the-collected-data-stored"></a>問：收集的資料會儲存多久？
-
-**答：**
+### <a name="how-long-does-azure-ad-store-the-data"></a>Azure AD 會將資料儲存多久？
 
 **活動報告**    
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: 1b949d2baedc7a7da3230212e267c3ac98b30bbd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 64e7b6ad79fc26f8ab2ba796bbca2909417b113c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239537"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625992"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>監視、診斷與疑難排解 Microsoft Azure 儲存體
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -642,7 +642,7 @@ client.SetServiceProperties(sp);
 請務必注意，這些作業已經成功完成，因此不會影響到例如可用性的其他度量。 以下作業範例顯示作業已成功執行，但卻出現不成功的 HTTP 狀態碼：
 
 * **ResourceNotFound** (找不到 404)，例如來自 GET 對不存在的 Blob 的要求。
-* **ResouceAlreadyExists** (衝突 409)，例如來自 **CreateIfNotExist** 的作業，而且其資源已經存在。
+* **ResourceAlreadyExists** (衝突 409)，例如來自 **CreateIfNotExist** 的作業，而且其資源已經存在。
 * **ConditionNotMet** (未修改 304)，例如來自條件式作業，像是用戶端傳送 **ETag** 值與 HTTP **If-None-Match** 標頭以要求顯示影像 (前提是該影像自從上次作業後已經更新)。
 
 您可以在[常見的 REST API 錯誤碼](https://msdn.microsoft.com/library/azure/dd179357.aspx)頁面找到儲存體服務傳回的常見 REST API 錯誤碼清單。

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
-ms.openlocfilehash: 4c96eb5b49c72fe9bb5ab977c773407889c56805
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e6c654b00ee6be0ed87feb0fb2a5ccba38e5cbe4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213299"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624872"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -26,9 +26,9 @@ QnA Maker 會自動從半結構化的內容 (例如，儲存為網頁、PDF 檔�
 |來源類型|內容類型| 範例|
 |--|--|--|
 |URL|常見問題集 (一般，含有區段或含有主題首頁)|[一般的常見問題集](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs)、[具有連結的常見問題集](https://www.microsoft.com/software-download/faq)、[具有主題首頁的常見問題集](https://support.microsoft.com/products/windows?os=windows-10)|
-|PDF/DOC|常見問題集、產品手冊、摺頁冊、白皮書、傳單原則、支援指南、結構化 QnA 等等。|[Structured QnA.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Bot%20Service%20Sample%20FAQ.docx)、[Sample Product Manual.pdf](https://download.microsoft.com/download/2/9/B/29B20383-302C-4517-A006-B0186F04BE28/surface-pro-4-user-guide-EN.pdf)、[Sample semi-structured.doc](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)、[Sample white paper.pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-stack-wortmann-bring-the-power-of-the-public-cloud-into-your-data-center/Azure_Stack_Wortmann_Bring_the_Power_of_the_Public_Cloud_into_Your_Data_Center.pdf)|
-|Excel|結構化 QnA 檔案 (包括 RTF、HTML 支援)|[Sample QnA FAQ.xls](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/QnA%20Maker%20Sample%20FAQ.xlsx)|
-|TXT/TSV|結構化 QnA 檔案|[Sample chit-chat.tsv](https://github.com/Microsoft/BotBuilder-PersonalityChat/blob/master/CSharp/Datasets/scenario_responses_the_friend.tsv)|
+|PDF/DOC|常見問題集、產品手冊、摺頁冊、白皮書、傳單原則、支援指南、結構化 QnA 等等。|[Structured QnA.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、[Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf)、[Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx)、[Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
+|Excel|結構化 QnA 檔案 (包括 RTF、HTML 支援)|[Sample QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
+|TXT/TSV|結構化 QnA 檔案|[Sample chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
 ## <a name="faq-urls"></a>常見問題集 URL
 
@@ -131,6 +131,10 @@ Answer2
 ## <a name="editorially-add-to-knowledge-base"></a>透過編輯來新增至知識庫
 
 如果您沒有既有的內容可填入知識庫，您也可以透過編輯將 QnA 新增至 QnA Maker 知識庫中。 在[這裡](../How-To/edit-knowledge-base.md)了解如何更新知識庫。
+
+## <a name="formatting-considerations"></a>格式化考量
+
+檔案或 URL 在匯入後會轉換為 Markdown，並以該格式進行儲存。 如果轉換程序未正確地轉換檔案和 URL 中的連結，您應該在 [編輯] 頁面上編輯問題與解答。 
 
 ## <a name="next-steps"></a>後續步驟
 

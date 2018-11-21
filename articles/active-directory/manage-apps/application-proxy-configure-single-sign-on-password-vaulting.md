@@ -8,25 +8,23 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/20/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362817"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624024"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>使用應用程式 Proxy 進行單一登入的密碼保存庫
 
 Azure Active Directory 應用程式 Proxy 可發佈內部部署應用程式，讓遠端員工也可以安全地存取它們，進而幫助您改進生產力。 在 Azure 入口網站中，您也可以設定這些應用程式的單一登入 (SSO)。 您的使用者只需要向 Azure AD 驗證，便可以存取您的企業應用程式，而不必再次登入。
 
-應用程式 Proxy 支援數個[單一登入模式](application-proxy-single-sign-on.md)。 密碼型登入適用於使用使用者名稱/密碼組合進行驗證的應用程式。 當您設定應用程式的密碼型登入您時，您的使用者必須登入一次內部部署應用程式。 之後，Azure Active Directory 會儲存登入資訊，並且會在您的使用者從遠端存取時，自動將登入資訊提供給應用程式。 
+應用程式 Proxy 支援數個[單一登入模式](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。 密碼型登入適用於使用使用者名稱/密碼組合進行驗證的應用程式。 當您設定應用程式的密碼型登入您時，您的使用者必須登入一次內部部署應用程式。 之後，Azure Active Directory 會儲存登入資訊，並且會在您的使用者從遠端存取時，自動將登入資訊提供給應用程式。 
 
 您應該已經使用應用程式 Proxy 發行並測試您的應用程式。 如果還沒，請依照[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)的步驟操作，然後回到這裡。 
 
@@ -56,5 +54,5 @@ Azure Active Directory 應用程式 Proxy 可發佈內部部署應用程式，�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 閱讀其他實作[使用應用程式 Proxy 進行單一登入](application-proxy-single-sign-on.md)的做法
+- 閱讀其他實作[單一登入](what-is-single-sign-on.md)的做法
 - 深入了解[使用 Azure AD 應用程式 Proxy 遠端存取應用程式的安全性考量](application-proxy-security.md)

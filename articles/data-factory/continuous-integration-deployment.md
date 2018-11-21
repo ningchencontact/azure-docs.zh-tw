@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 11/12/2018
 ms.author: douglasl
-ms.openlocfilehash: 94633ce2f11f9efa99f1ad44820abd5aecdec923
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 60c715e97f6b1d2046fb4050ae41b27146c0610a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457201"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623762"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory 中的持續整合和傳遞 (CI/CD)
 
-持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續傳遞。
+持續整合是指進行相關實作，以自動並及早測試對您的程式碼基底所做的每項變更。 在持續整合期間執行測試，並將變更推送至暫存或生產系統後，就會進行持續傳遞。
 
 就 Azure Data Factory 而言，持續整合和傳遞是指將一個環境 (開發、測試、生產) 中的 Data Factory 管線移至另一個環境。 若要進行持續整合和傳遞，您可以使用 Data Factory UI 整合與 Azure Resource Manager 範本。 當您選取 [ARM 範本] 選項時，Data Factory UI 可產生 Resource Manager 範本。 當您選取 [匯出 ARM 範本] 時，入口網站將會產生資料處理站的 Resource Manager 範本，以及包含您所有連接字串和其他參數的組態檔。 然後，您必須為每個環境 (開發、測試、生產) 建立一個組態檔。 所有環境的主要 Resource Manager 範本檔案會保持相同。
 
@@ -75,11 +75,11 @@ ms.locfileid: "49457201"
 
 ### <a name="requirements"></a>需求
 
--   使用 [*Azure Resource Manager 服務端點*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)連結至 Team Foundation Server 或 Azure Repos 的 Azure 訂用帳戶。
+-   使用  [*Azure Resource Manager 服務端點*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)連結至 Team Foundation Server 或 Azure Repos 的 Azure 訂用帳戶。
 
 -   設定了 Azure Repos Git 整合的 Data Factory。
 
--   包含密碼的 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)。
+-   包含密碼的  [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 。
 
 ### <a name="set-up-an-azure-pipelines-release"></a>設定 Azure Pipelines 發行
 
@@ -832,6 +832,48 @@ else {
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>搭配使用自訂參數與 Resource Manager 範本
 
 您可以定義 Resource Manager 範本的自訂參數。 您只需要在存放庫的根資料夾中具有名為 `arm-template-parameters-definition.json` 的檔案  (檔案名稱必須完全符合這裡顯示的名稱)。Data Factory 會嘗試從您目前使用的任何分支中讀取檔案，而不只是從共同作業分支。 如果找不到任何檔案，Data Factory 會使用預設的參數和值。
+
+### <a name="syntax-of-a-custom-parameters-file"></a>自訂參數檔案的語法
+
+以下是在撰寫自訂參數檔案時所要使用的一些指導方針。 若要查看這個語法的範例，請參閱下一節[自訂參數檔案範例](#sample)。
+
+1. 當您在定義檔中指定陣列時，就表示範本中的比對屬性是陣列。 Data Factory 會使用陣列中第一個物件所指定的定義，逐一查看陣列中的所有物件。 第二個物件 (字串) 會變成屬性的名稱，以作為每個反覆項目參數的名稱。
+
+    ```json
+    ...
+    "Microsoft.DataFactory/factories/triggers": {
+        "properties": {
+            "pipelines": [{
+                    "parameters": {
+                        "*": "="
+                    }
+                },
+                "pipelineReference.referenceName"
+            ],
+            "pipeline": {
+                "parameters": {
+                    "*": "="
+                }
+            }
+        }
+    },
+    ...
+    ```
+
+2. 當您將屬性名稱設定為 `*` 時，就表示您想要讓範本使用該層級的所有屬性，但明確定義的屬性除外。
+
+3. 當您將屬性的值設定為字串時，就表示您想要將屬性參數化。 請使用此格式：`<action>:<name>:<stype>`。
+    1.  `<action>` 可以是下列其中一個字元： 
+        1.  `=` 表示將目前的值保留作為參數的預設值。
+        2.  `-` 表示不要保留參數的預設值。
+        3.  `|` 是 Azure Key Vault 中連接字串祕密的特殊案例。
+    2.  `<name>` 是參數的名稱。 如果 `<name`> 是空白的，便會採用參數的名稱 
+    3.  `<stype>` 是參數的類型。 如果 `<stype>` 是空白的，則預設類型是字串。
+4.  如果您在參數名稱開頭輸入 `-` 字元，則完整的 Resource Manager 參數名稱會縮略為 `<objectName>_<propertyName>`。
+例如，`AzureStorage1_properties_typeProperties_connectionString` 會縮略為 `AzureStorage1_connectionString`。
+
+
+### <a name="sample"></a> 自訂參數檔案範例
 
 下列範例顯示範例參數檔案。 使用此範例作為參考，以建立您自己的自訂參數檔案。 如果您提供的檔案不是正確的 JSON 格式，則 Data Factory 會在瀏覽器主控台中輸出錯誤訊息，並還原為 Data Factory UI 中顯示的預設參數和值。
 

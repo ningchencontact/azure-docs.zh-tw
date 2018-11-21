@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/07/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5c54af76fc1e145ea062c6bcb37f354a7de94781
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0ee756828a50cdf62471923614afbe88e238b9ef
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364167"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624552"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>教學課程：使用 Azure Active Directory 報告 API 配合憑證來取得資料
 
 [Azure Active Directory (Azure AD) 報告 API](concept-reporting-api.md) 透過一組以 REST 為基礎的 API 為您提供資料的程式設計方式存取。 您可以從各種程式設計語言和工具呼叫這些 API。 如果您想在沒有使用者介入的情況下存取 Azure AD 報告 API，請務必設定您的存取權以使用憑證。
 
-在本教學課程中，您會了解如何建立測試憑證，並使用該憑證存取 MS 圖形 API 來進行報告。 我們不建議在生產環境中使用測試憑證。 
+在本教學課程中，您會了解如何使用測試憑證來存取 MS 圖形 API 以進行報告。 我們不建議在生產環境中使用測試憑證。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -39,28 +39,24 @@ ms.locfileid: "46364167"
     - 從使用者、應用程式金鑰和憑證存取權杖 (使用 ADAL)
     - 處理分頁結果的圖形 API
 
-4. 如果您第一次使用模組執行 **Install-MSCloudIdUtilsModule**，則改用 **Import-Module** Powershell 命令將其匯入。
+4. 如果您第一次使用模組執行 **Install-MSCloudIdUtilsModule**，則改用 **Import-Module** Powershell 命令將其匯入。 您的工作階段看起來應該類似此畫面：
 
-您的工作階段看起來應該類似此畫面：
-
-  ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
+        ![Windows Powershell](./media/tutorial-access-api-with-certificates/module-install.png)
   
-## <a name="create-a-test-certificate"></a>建立測試憑證
-
-1. 使用 **New-SelfSignedCertificate** Powershell commandlet 建立測試憑證。
+5. 使用 **New-SelfSignedCertificate** Powershell commandlet 建立測試憑證。
 
    ```
    $cert = New-SelfSignedCertificate -Subject "CN=MSGraph_ReportingAPI" -CertStoreLocation "Cert:\CurrentUser\My" -KeyExportPolicy Exportable -KeySpec Signature -KeyLength 2048 -KeyAlgorithm RSA -HashAlgorithm SHA256
    ```
 
-2. 使用 **Export-Certificate** commandlet 將其匯出至憑證檔案。
+6. 使用 **Export-Certificate** commandlet 將其匯出至憑證檔案。
 
    ```
    Export-Certificate -Cert $cert -FilePath "C:\Reporting\MSGraph_ReportingAPI.cer"
 
    ```
 
-## <a name="register-the-certificate-in-your-app"></a>在您的應用程式中註冊憑證
+## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>使用 Azure Active Directory 報告 API 搭配憑證來取得資料
 
 1. 導覽至 [Azure 入口網站](https://portal.azure.com)，選取 [Azure Active Directory]，接著選取 [應用程式註冊]，然後從清單中選擇您的應用程式。 
 
@@ -86,29 +82,22 @@ ms.locfileid: "46364167"
 
 6. 儲存資訊清單。 
   
-## <a name="get-an-access-token-for-ms-graph-api"></a>取得 MS 圖形 API 的存取權杖
-
-1. 使用 MSCloudIdUtils PowerShell 模組中的 **Get-MSCloudIdMSGraphAccessTokenFromCert** Cmdlet，然後傳入您從上一個步驟中所取得的應用程式識別碼和指紋。 
+7. 現在，您可以使用此憑證來取得 MS 圖形 API 的存取權杖。 使用 MSCloudIdUtils PowerShell 模組中的 **Get-MSCloudIdMSGraphAccessTokenFromCert** Cmdlet，然後傳入您從上一個步驟中所取得的應用程式識別碼和指紋。 
 
  ![Azure 入口網站](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
-## <a name="use-the-access-token-to-call-the-graph-api"></a>使用存取權杖來呼叫圖形 API
+8. 使用 Powershell 指令碼中的存取權杖來查詢圖形 API。 使用 MSCloudIDUtils 中的 **Invoke-MSCloudIdMSGraphQuery** 指令程式來列舉 signins 和 directoryAudits 端點。 此指令程式可處理多個分頁結果，並將這些結果傳送至 PowerShell 管道。
 
-1. 現在，您可以使用 Powershell 指令碼中的存取權杖來查詢圖形 API。 使用 MSCloudIDUtils 中的 **Invoke-MSCloudIdMSGraphQuery** 指令程式來列舉 signins 和 directoryAudits 端點。 此指令程式可處理多個分頁結果，並將這些結果傳送至 PowerShell 管道。
-
-2. 查詢 directoryAudits 端點以擷取稽核記錄。 
+9. 查詢 directoryAudits 端點以擷取稽核記錄。 
  ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
-3. 查詢 signins 端點以擷取登入記錄。
+10. 查詢 signins 端點以擷取登入記錄。
  ![Azure 入口網站](./media/tutorial-access-api-with-certificates/query-signins.png)
 
-4. 您現在可以選擇將此資料匯出為 CSV，並儲存至 SIEM 系統。 您也可以在排定的工作中包裝您的指令碼，以便定期從租用戶取得 Azure AD 資料，而不必將應用程式金鑰儲存在原始程式碼中。 
+11. 您現在可以選擇將此資料匯出為 CSV，並儲存至 SIEM 系統。 您也可以在排定的工作中包裝您的指令碼，以便定期從租用戶取得 Azure AD 資料，而不必將應用程式金鑰儲存在原始程式碼中。 
 
 ## <a name="next-steps"></a>後續步驟
 
 * [取得報告 API 的第一印象](concept-reporting-api.md)
 * [稽核 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
 * [登入活動報告 API 參考](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
-
-

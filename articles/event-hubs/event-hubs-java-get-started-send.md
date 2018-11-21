@@ -7,14 +7,14 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/12/2018
 ms.author: shvija
-ms.openlocfilehash: 87d3261d5d9604b004c949e384e9d48e957229d7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455720"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624534"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 將事件傳送至 Azure 事件中樞
 
@@ -143,7 +143,7 @@ eventHubClient.closeSync();
 
 ## <a name="next-steps"></a>後續步驟
 
-在此快速入門中，您已經使用 Java 將訊息傳送到事件中樞。 若要了解如何使用 .NET Framework 從事件中樞接收事件，請參閱[從事件中樞接收事件 - Java](event-hubs-java-get-started-receive-eph.md)。
+在此快速入門中，您已經使用 Java 將訊息傳送到事件中樞。 若要了解如何使用 Java 從事件中樞接收事件，請參閱[從事件中樞接收事件 - Java](event-hubs-java-get-started-receive-eph.md)。
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

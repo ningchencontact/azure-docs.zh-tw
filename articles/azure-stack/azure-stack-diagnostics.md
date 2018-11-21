@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/13/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 6e15fee02fd001bddd25a19b8a9420eb899d4f85
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f9a7ae76f2d52b3439bfb33f306e164bb81549eb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978667"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623973"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 診斷工具
 
@@ -70,12 +70,10 @@ if($s)
     Remove-PSSession $s
 }
 ```
+- **OutputSharePath** 和 **OutputShareCredential** 參數可用來將記錄儲存到使用者指定的位置。
+- **FromDate** 和 **ToDate** 參數可以用來收集特定時段的記錄。 如果未指定這些參數，預設將會收集過去 4 小時的記錄。
 
-- **OutputSharePath** 和 **OutputShareCredential** 參數用於將記錄上傳至外部共用資料夾。
-- 如先前範例中所示，**FromDate** 和 **ToDate** 參數可以用來收集特定時段的記錄。 對於在整合系統上套用更新套件後收集記錄之類案例中，這會非常方便。
 
-
- 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>在 Azure Stack 開發套件 (ASDK) 系統上執行 Get-AzureStackLog
 1. 以 **AzureStack\CloudAdmin** 身分登入主機。
 2. 以系統管理員身分開啟 PowerShell 視窗。
@@ -111,15 +109,17 @@ if($s)
 
 - 如果未指定 **FromDate** 和 **ToDate** 參數，預設將會收集過去 4 小時的記錄。
 - 使用 **FilterByNode** 參數依電腦名稱篩選記錄。 例如︰
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByNode azs-xrp01
+    ```
 - 使用 **FilterByLogType** 參數依類型篩選記錄。 您可以選擇依檔案、共用或 WindowsEvent 進行篩選。 例如︰
-```powershell
-Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
-```
+
+    ```powershell
+    Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByLogType File
+    ```
 - 您可以使用 **TimeOutInMinutes** 參數來設定記錄收集的逾時。 根據預設，它是設定為 150 (2.5 個小時)。
-- 在 1805 版和更新版本中，預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
+- 預設會停用傾印檔案記錄收集。 若要加以啟用，請使用 **IncludeDumpFile** 切換參數。 
 - 目前您可以透過下列角色使用 **FilterByRole** 參數來篩選記錄集合：
 
  |   |   |   |    |

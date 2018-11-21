@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: b9b6c67930e251302f397e199c65f949997a25cf
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637950"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625584"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -404,6 +404,10 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 **Azure 儲存體是否支援受控磁碟或非受控磁碟的計量？**
 
 否。Azure 計算支援磁碟的計量。 如需詳細資訊，請參閱[這篇文章](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)。
+
+**如何將傳統計量對應和遷移至新計量？**
+
+您可以在 [Azure 儲存體計量移轉](./storage-metrics-migration.md)中找到傳統計量與新計量之間的詳細對應。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -6,20 +6,23 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: adgera
-ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 737c33f6b8cdf9bcb2530816601ff9b5eb994087
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960188"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624245"
 ---
 # <a name="use-azure-digital-twins-swagger"></a>使用 Azure Digital Twins Swagger
 
 每個已佈建的 Azure Digital Twins 執行個體都包含本身自動產生的 Swagger 參考文件。
 
 [Swagger](https://swagger.io/) \(英文\) (或 [OpenAPI](https://www.openapis.org/) \(英文\)) 會將複雜的 API 資訊結合至可互動且與語言無關的參考資源。 若要對 API 執行作業，Swagger 會針對要使用的 JSON 承載、HTTP 方法和特定端點提供重要的參考資料。
+
+> [!IMPORTANT]
+> 公開預覽期間會暫時停用對於 Swagger 驗證的支援。
 
 ## <a name="swagger-summary"></a>Swagger 摘要
 
@@ -33,20 +36,7 @@ Swagger 會提供可互動的 API 摘要，包括：
 
 Swagger 是一個很便利的工具，可協助您開發和測試對管理 API 所發出的呼叫。
 
-> [!TIP]
-> Swagger 搶先預覽中有 API 功能集的示範。
-> 這些內容位在 [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger)。
-
-您可以在以下位置存取自己產生的管理 API Swagger 文件：
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| 自訂屬性名稱 | 更換為 |
-| --- | --- |
-| yourInstanceName | Azure Digital Twins 執行個體的名稱 |
-| yourLocation | 裝載您執行個體的伺服器區域 |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## <a name="reference-material"></a>參考資料
 
@@ -104,7 +94,10 @@ Swagger 所提供的強大功能之一是直接透過文件 UI 來測試 API 端
 
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 授權
 
-若要針對 OAuth 2.0 所保護的 API 資源以互動方式來測試要求，請參閱[官方文件](https://swagger.io/docs/specification/authentication/oauth2/)。
+若要深入了解如何以互動方式測試由 OAuth 2.0 所保護的要求，請參閱[官方文件](https://swagger.io/docs/specification/authentication/oauth2/)。
+
+> [!NOTE]
+> 公開預覽期間會暫時停用對於 OAuth 2.0 驗證的支援。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -12,20 +12,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/14/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e4aa4a87bec8f737405c90bb42bdb5fc60cb379a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232992"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625261"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory 風險事件
 
-大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 探索遭入侵的身分識別並不容易。 Azure Active Directory 使用調適性機器學習服務演算法和啟發學習法，來偵測與您使用者帳戶相關的可疑動作。 偵測到的每個可疑動作會儲存在名為*風險事件*的記錄中。
+大部分的安全性缺口出現於當攻擊者藉由竊取使用者的身分識別來取得環境的存取權時。 探索遭入侵的身分識別並不容易。 Azure Active Directory 使用調適性機器學習服務演算法和啟發學習法，來偵測與您使用者帳戶相關的可疑動作。 偵測到的每個可疑動作都會儲存在名為**風險事件**的記錄中。
 
+您可以在兩個地方檢閱已報告的風險事件：
+
+ - **Azure AD 報告** - 風險事件屬於 Azure AD 的安全性報表。 如需詳細資訊，請參閱[有風險的安全性報告上的使用者](concept-user-at-risk.md)和[有風險的登入安全性報告](concept-risky-sign-ins.md)。
+
+ - **Azure AD Identity Protection** - 風險事件也屬於 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 的報告功能。
+    
 Azure Active Directory 目前會偵測六種風險事件類型：
 
 - [認證外洩的使用者](#leaked-credentials) 
@@ -35,18 +41,18 @@ Azure Active Directory 目前會偵測六種風險事件類型：
 - [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) 
 
-
 ![風險事件](./media/concept-risk-events/91.png)
 
-您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 使用 Azure AD Premium P2 版本時，您會獲得有關所有基礎偵測的最詳細資訊。 使用 Azure AD Premium P1 版本時，您授權未涵蓋的偵測會顯示為**偵測到有額外風險的登入**風險事件。
+您針對偵測到風險事件所獲得的深入解析會與您的 Azure AD 訂用帳戶息息相關。 
 
+* 使用 **Azure AD Premium P2 版本**時，您會獲得有關所有基礎偵測的最詳細資訊。 
+* 使用 **Azure AD Premium P1 版本**時，您授權未涵蓋的偵測會顯示為偵測到**有額外風險的登入**風險事件。
 
-本文提供哪些屬於風險事件，以及您如何使用它們來保護 Azure AD 身分識別的概觀。
-
+儘管偵測風險事件已經代表保護您身分識別的重要層面，但您還是可以選擇手動處理它們，或可藉由設定條件式存取原則來實作自動化回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
 
 ## <a name="risk-event-types"></a>風險事件類型
 
-風險事件類型屬性是風險事件記錄已為之建立的可疑動作的識別碼。
+**風險事件類型**屬性是風險事件記錄已為之建立的可疑動作的識別碼。
 
 Microsoft 針對偵測程序的持續投資的結果是︰
 
@@ -55,7 +61,7 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 
 ### <a name="leaked-credentials"></a>認證外洩
 
-當網路罪犯入侵合法使用者的有效密碼時，罪犯通常會共用這些認證。 他們的做法通常是在深層網路上公開張貼或貼上站台，或是在黑市上交易或銷售認證。 Microsoft 的認證外洩服務取得使用者名稱 / 密碼組的方式，是監視公用及深層網路，以及使用：
+當網路罪犯入侵合法使用者的有效密碼時，他們通常會共用這些認證。 他們的做法通常是在深層網路上公開張貼或貼上站台，或是在黑市上交易或銷售認證。 Microsoft 的認證外洩服務取得使用者名稱 / 密碼組的方式，是監視公用及深層網路，以及使用：
 
 - 研究員
 - 執法機關
@@ -67,7 +73,6 @@ Microsoft 針對偵測程序的持續投資的結果是︰
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>從匿名 IP 位址登入
 
 此風險事件類型會識別從被視為匿名 Proxy IP 位址的 IP 位址成功登入的使用者。 這些 Proxy 通常由想要隱藏其裝置 IP 位址的人員使用，而且可能用於惡意意圖。
-
 
 ### <a name="impossible-travel-to-atypical-locations"></a>不可能到達非典型位置的移動
 
@@ -88,10 +93,9 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
 此風險事件類型會識別在短期內透過多個使用者帳戶多次嘗試登入失敗的 IP 位址。 這符合攻擊者所使用的 IP 位址流量模式，而且強烈指出帳戶已經或即將遭到入侵。 這種機器學習演算法會忽略明顯的「誤判」，例如，組織中的其他使用者定期使用的 IP 位址。  系統有為期 14 天的初始學習期間，它會在這段期間了解新使用者和新租用戶的登入行為。
 
-
 ## <a name="detection-type"></a>偵測類型
 
-偵測類型屬性是風險事件的偵測時間範圍指標 (即時或離線)。 目前，大部分的風險事件都是在風險事件發生之後，在後處理作業中以離線方式偵測的。
+偵測類型屬性是風險事件的偵測時間範圍指標 (**即時**或**離線**)。 目前，大部分的風險事件都是在風險事件發生之後，在後處理作業中以離線方式偵測的。
 
 下表列出偵測類型要在相關報告中顯示所花費的時間：
 
@@ -115,7 +119,7 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 ## <a name="risk-level"></a>風險層級
 
-風險事件的風險層級屬性是風險事件的嚴重性和信賴度的指標 (高、中或低)。 這個屬性可協助您排定必須採取之動作的優先順序。 
+風險事件的風險層級屬性是風險事件的嚴重性和信賴度的指標 (**高**、**中**或**低**)。 這個屬性可協助您排定必須採取之動作的優先順序。 
 
 風險事件的嚴重性代表做為身分識別入侵預測工具的訊號強度。 信賴度是發生誤判可能性的指標。 
 
@@ -153,38 +157,17 @@ Identity Protection 偵測到來不熟悉位置的登入也適用於基本驗證
 
 此風險事件可識別 IP 位址，而不是使用者裝置。 如果單一 IP 位址背後有數個裝置，而只有某些裝置受 Bot 網路控制，則來自其他裝置的登入可能會不必要地觸發此事件，這就是將此風險事件歸類為**低**的原因。  
 
-建議您連絡使用者並掃描使用者的所有裝置。 使用者的個人裝置也可能受到感染，或如前所述，可能是其他人從與使用者相同的 IP 位址使用受感染的裝置。 受感染的裝置通常是受到防毒軟體尚未識別的惡意程式碼所感染，這也表示不良的使用者習慣可能會導致裝置受到感染。
+建議您連絡使用者並掃描使用者的所有裝置。 使用者的個人裝置也可能受到感染，或可能是其他人從與使用者相同的 IP 位址使用受感染的裝置。 受感染的裝置通常是受到防毒軟體尚未識別的惡意程式碼所感染，這也表示任何不良的使用者習慣可能會導致裝置受到感染。
 
 如需如何處理惡意程式碼感染的詳細資訊，請參閱 [惡意程式碼防護中心](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409)。
-
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>從具有可疑活動的 IP 位址登入
 
 我們建議您連絡使用者，確認他們是否實際從標示為可疑的 IP 位址進行登入。 此事件類型的風險層級為「**中**」，因為相同 IP 位址背後可能有數個裝置，而只有某些裝置可能負責進行可疑的活動。 
 
 
- 
 ## <a name="next-steps"></a>後續步驟
 
-風險事件是保護您 Azure AD 身分識別的基礎。 Azure AD 目前可以偵測六種風險事件： 
-
-
-| 風險事件類型 | 風險層級 | 偵測類型 |
-| :-- | --- | --- |
-| [認證外洩的使用者](#leaked-credentials) | 高 | 離線 |
-| [從匿名 IP 位址登入](#sign-ins-from-anonymous-ip-addresses) | 中 | 即時 |
-| [不可能進入非慣用位置](#impossible-travel-to-atypical-locations) | 中 | 離線 |
-| [從不熟悉的位置登入](#sign-in-from-unfamiliar-locations) | 中 | 即時 |
-| [從受感染的裝置登入](#sign-ins-from-infected-devices) | 低 | 離線 |
-| [從具有可疑活動的 IP 位址登入](#sign-ins-from-ip-addresses-with-suspicious-activity) | 中 | 離線|
-
-您可以在何處找到已在您的環境中偵測到的風險事件？
-您可以在兩個地方檢閱已報告的風險事件：
-
- - **Azure AD 報告** - 風險事件屬於 Azure AD 的安全性報表。 如需詳細資訊，請參閱[有風險的安全性報告上的使用者](concept-user-at-risk.md)和[有風險的登入安全性報告](concept-risky-sign-ins.md)。
-
- - **Azure AD Identity Protection** - 風險事件也屬於 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 的報告功能。
-    
-
-儘管偵測風險事件已經代表保護您身分識別的重要層面，但您還是可以選擇手動處理它們，或甚至可藉由設定條件式存取原則來實作自動化回應。 如需詳細資訊，請參閱 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)。
- 
+* [有風險使用者的安全性報告](concept-user-at-risk.md)
+* [有風險登入的安全性報告](concept-risky-sign-ins.md)
+* [Azure AD Identity Protection](../active-directory-identityprotection.md)。

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423352"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624092"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>新增 Azure 虛擬機器的擴充計量
 
@@ -67,6 +67,8 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 當您建立新的 VM 時，請在 [管理] 索引標籤上針對 [OS 客體診斷] 選取 [開啟]。
 
 ![啟用來賓 OS 診斷](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+如需為 Azure 虛擬機器啟用擴充計量的詳細資訊，請參閱[了解與使用 Azure Linux 代理程式](../virtual-machines/extensions/agent-linux.md)和 [Azure 虛擬機器代理程式概觀](../virtual-machines/extensions/agent-windows.md)。
 
 ## <a name="resource-manager-credentials"></a>Resource Manager 認證
 

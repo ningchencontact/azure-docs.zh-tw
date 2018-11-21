@@ -5,7 +5,6 @@
 ### [在市集上成為發行者](./become-publisher.md)  
 #### [建立 Microsoft 帳戶](./guidelines.md)
 #### [在開發人員中心註冊](./register-dev-center.md) 
-#### [適用於 Azure Marketplace 的計費選項](./billing-options-azure-marketplace.md)  
 #### [Azure 合作夥伴客戶使用情況屬性](./azure-partner-customer-usage-attribution.md)
 #### [雲端市集的潛在客戶管理](./lead-management-for-cloud-marketplace.md)
 
@@ -13,7 +12,7 @@
 
 ### [判斷解決方案的發行選項](./determine-your-listing-type.md)  
 
-### 依供應項目類型的發行指南 
+### [依供應項目類型的發行指南](./publisher-guide-by-offer-type.md)
 #### [虛擬機器](./marketplace-virtual-machines.md)
 #### [Azure 應用程式：解決方案範本](./marketplace-solution-templates.md)
 #### [Azure 應用程式：受控應用程式](./marketplace-managed-apps.md)
@@ -27,6 +26,8 @@
 ### [透過 Marketplace 拓展業務](./grow-your-business-with-azure-marketplace.md)  
 #### [慣用的解決方案](./preferred-solutions.md) 
 #### [市集內容驗證](./marketplace-criteria-content-validation.md)
+#### [私人供應項目](./private-offers.md)
+#### [Marketplace 商業交易功能和考量](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 ### [支援 Azure Marketplace 和 AppSource](./support-azure-marketplace.md)  
 
@@ -34,6 +35,16 @@
 <!-- Following section is for Cloud Partner Portal (CPP). -->
 
 # [雲端合作夥伴入口網站](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
+
+## [入口網站導覽](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [入口網站導覽](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [新增供應項目功能表](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [所有供應項目分頁](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [核准分頁](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [所有發行者分頁](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [使用者分頁](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [稽核記錄分頁](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [深入解析分頁](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
 
 ## 連接埠管理
 ### [開發人員中心帳戶註冊](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)

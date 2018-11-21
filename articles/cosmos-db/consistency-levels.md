@@ -11,26 +11,22 @@ ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2611c25764503551c4da918d06bcaabe315cbf7c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6ace11cf3704ddbd503c0202d45874670476198e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963076"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624822"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性層級
 
 依賴複寫來達到高可用性或低延遲性 (或兩者皆是) 的分散式資料庫，可在讀取一致性與可用性、延遲性及輸送量之間進行基本取捨。 大部分的商用分散式資料庫都會要求開發人員在兩個極端的一致性模型之間進行選擇：強式一致性和最終一致性。 雖然 [線性化能力](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) \(英文\) 或強式一致性模型是資料可程式性的黃金標準，但它增添了付出更高延遲 (穩定狀態下) 和降低可用性 (失敗時) 的高昂代價。 相反地，最終一致性提供更高的可用性和更佳的效能，但很難為應用程式進行程式設計。
 
-Cosmos DB 會提供資料一致性的選擇頻譜，而不是兩個極端的選擇。 強式一致性和最終一致性是此頻譜的兩端，而在此頻譜中有許多一致性選擇。 這些一致性選項可讓開發人員在高可用性或效能方面做出精確的選擇和更細微的權衡取捨。 Cosmos DB 可讓開發人員從一致性頻譜 (最強到最弱) 內五個定義完善的一致性模型之間進行選擇：**強式**、**限定過期**、**工作階段**、**一致前置詞**和**最終**。 這些一致性模型中的每一個都是完善定義且直覺化的模型，可用於特定的真實案例。 這五個一致性模型中的每一個都提供[可用性和效能權衡取捨](consistency-levels-tradeoffs.md)，並且由全方位 SLA 所支援。
+Cosmos DB 會提供資料一致性的選擇頻譜，而不是兩個極端的選擇。 強式一致性和最終一致性是此頻譜的兩端，而在此頻譜中有許多一致性選擇。 這些一致性選項可讓開發人員在高可用性或效能方面做出精確的選擇和更細微的權衡取捨。 Cosmos DB 可讓開發人員從一致性頻譜 (最強到最弱) 內五個定義完善的一致性模型之間進行選擇：**強式**、**限定過期**、**工作階段**、**一致前置詞**和**最終**。 這些一致性模型中的每一個都是完善定義且直覺化的模型，可用於特定的真實案例。 這五個一致性模型中的每一個都提供[可用性和效能權衡取捨](consistency-levels-tradeoffs.md)，並且由全方位 SLA 所支援。 下圖以頻譜顯示不同的一致性層級：
 
 ![以頻譜形式顯示的一致性](./media/consistency-levels/five-consistency-levels.png)
 
-一致性層級與區域無關。 所有讀取作業都有您 Cosmos DB 帳戶的一致性層級保證，與下列屬性無關：
-
-- 處理讀取和寫入作業的區域
-- 與您 Cosmos 帳戶相關聯的區域數目
-- 您的帳戶已設定為使用單一或多個寫入區域
+一致性層級與區域無關。 您 Cosmos DB 帳戶的一致性層級保證會套用至所有讀取作業，並且與下列項目皆無關：處理讀取或寫入項目的位置、與您 Cosmos 帳戶相關聯的區域數，或您的帳戶設定為單一或多個寫入區域。
 
 ## <a name="scope-of-the-read-consistency"></a>讀取一致性的範圍
 

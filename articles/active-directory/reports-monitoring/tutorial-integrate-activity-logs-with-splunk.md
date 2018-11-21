@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c60dc354fa0c5f64ece9acae95744477c145bc27
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e45b175b97b7f395199dbc4521054fa69a4bb4a7
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393621"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623772"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-by-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Splunk 整合 (預覽)
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>使用 Azure 監視器將 Azure AD 記錄與 Splunk 整合 (預覽)
 
 在此文章中，您將了解如何使用 Azure 監視器將 Azure Active Directory (Azure AD) 記錄與 Splunk 整合。 您首先會將記錄路由傳送至 Azure 事件中樞，然後將事件中樞與 Splunk 整合。
 

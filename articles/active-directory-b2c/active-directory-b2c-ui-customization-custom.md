@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945055"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625789"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -99,17 +99,13 @@ ms.locfileid: "49945055"
 
 執行下列作業，針對跨原始資源共用設定 Blob 儲存體：
 
->[!NOTE]
->想要使用我們的範例 HTML 和 CSS 內容來嘗試 UI 自訂功能嗎？ 我們已提供[簡單的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)，讓您上傳我們的範例內容，並在您的 Blob 儲存體帳戶上設定。 如果您使用此工具，請直接跳到[修改註冊或登入自訂原則](#modify-your-sign-up-or-sign-in-custom-policy)。
-
-1. 在 [設定] 下的 [儲存體] 刀鋒視窗中，開啟 [CORS]。
-2. 按一下 [新增] 。
-3. 針對 [允許的來源]，輸入星號 (\*)。
-4. 在 [允許的動詞命令] 下拉式清單中，同時選取 **GET** 和 **OPTIONS**。
-5. 針對 [允許的標頭]，輸入星號 (\*)。
-6. 針對 [公開的標頭]，輸入星號 (\*)。
-7. 針對 [最長使用期限 (秒)]，輸入 **200**。
-8. 按一下 [新增] 。
+1. 在功能表中，選取 [CORS]。
+2. 針對 [允許的來源]，輸入 `your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `fabrikam.b2clogin.com`。
+3. 針對 [允許的方法]，選取 `GET` 和 `OPTIONS`。
+4. 針對 [允許的標頭]，輸入星號 (*)。
+5. 針對 [公開的標頭]，輸入星號 (*)。
+6. 針對 [最大壽命]，輸入 200。
+7. 按一下 [檔案] 。
 
 ## <a name="test-cors"></a>測試 CORS
 

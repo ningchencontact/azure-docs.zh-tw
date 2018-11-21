@@ -1,6 +1,6 @@
 ---
 title: Azure 監視器 (預覽) 中的 Azure Active Directory 活動記錄 | Microsoft Docs
-description: Azure 監視器 (預覽) 中的 Azure Active Directory 活動記錄概觀
+description: Azure 監視器 (預覽) 中的 Azure Active Directory 活動記錄簡介
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -13,30 +13,30 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3a4fc814a40bf370a137a2045c6218d3ee4b8778
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 760110d0ac359f6b7f135bf869e2520b8028ba6e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395483"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625431"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Azure 監視器 (預覽) 中的 Azure AD 活動記錄
 
-您現在可以使用 Azure 監視器，將 Azure Active Directory (Azure AD) 活動記錄路由傳送至您自己的儲存體帳戶或事件中樞。 透過 Azure 監視器中的公開預覽版 Azure Active Directory 記錄，您可以：
+您現在可以將 Azure Active Directory (Azure AD) 活動記錄路由到多個端點，以取得較長的保留期限和資料深入解析。 Azure 監視器中的 Azure AD 記錄公開預覽版可讓您：
 
-* 封存 Azure 儲存體帳戶的稽核記錄，讓您長時間保存資料。
-* 將稽核記錄串流至 Azure 事件中樞，以便使用 Splunk 和 QRadar 等常用的安全性資訊與事件管理 (SIEM) 工具進行分析。
-* 將稽核記錄串流至事件中樞，將其與您自己的自訂記錄解決方案整合。
+* 將 Azure AD 活動記錄封存到 Azure 儲存體帳戶，以長時間保存資料。
+* 將 Azure AD 活動記錄串流至 Azure 事件中樞，以便使用 Splunk 和 QRadar 等常用的安全性資訊與事件管理 (SIEM) 工具進行分析。
+* 將 Azure AD 活動記錄串流至事件中樞，將其與您自己的自訂記錄解決方案整合。
 * 將 Azure AD 活動記錄傳送到 Log Analytics，以對已連線的資料啟用豐富的視覺效果、監視與警示功能。
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## <a name="supported-reports"></a>支援的報告
 
-您可以使用這項功能將稽核活動記錄和登入活動記錄路由至您的 Azure 儲存體帳戶、事件中樞或自訂解決方案。 
+您可以使用這項功能將 Azure AD 稽核記錄和登入記錄路由至您的 Azure 儲存體帳戶、事件中樞、Log Analytics 或自訂解決方案。 
 
 * **稽核記錄**：[稽核記錄活動報告](concept-audit-logs.md)可讓您對每個在租用戶中執行的工作存取歷程記錄。
 * **登入記錄**：透過[登入活動報告](concept-sign-ins.md)，您可以判斷是誰執行了稽核記錄中所報告的工作。
@@ -101,25 +101,19 @@ ms.locfileid: "49395483"
 
 這一節會回答 Azure 監視器中 Azure AD 記錄的常見問題集，以及討論已知的問題。
 
-**問: 我該從何處著手？** 
-
-**答**: 本文討論您部署此功能時所需的項目。 在您滿足先決條件後，請前往可協助設定以及將記錄路由傳送至事件中樞的教學課程。
-
----
-
 **問: 其中包含哪些記錄？**
 
 **答**: 登入活動記錄和稽核記錄都可透過這項功能路由傳送，但目前不包含 B2C 相關稽核事件。 若要找出目前支援哪些類型的記錄和哪些以功能為基礎的記錄，請參閱[稽核記錄結構描述](reference-azure-monitor-audit-log-schema.md)和[登入記錄結構描述](reference-azure-monitor-sign-ins-log-schema.md)。 
 
 ---
 
-**問: 在執行動作後，多久會在事件中樞內顯示對應的記錄？**
+**問：在執行動作後，多久會在事件中樞內顯示對應的記錄？**
 
 **答**: 在執行動作後，記錄應該會在二到五分鐘內顯示於事件中樞。 如需事件中樞的詳細資訊，請參閱[什麼是 Azure 事件中樞？](../../event-hubs/event-hubs-about.md)。
 
 ---
 
-**問: 在執行動作後，多久會在儲存體帳戶中顯示對應的記錄？**
+**問：在執行動作後，多久會在儲存體帳戶中顯示對應的記錄？**
 
 **答**: 就 Azure 儲存體帳戶而言，延遲介於執行動作後的 5 到 15 分鐘之間。
 

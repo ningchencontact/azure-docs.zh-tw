@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 0ca9c7ff1ac4cfbb50f251679286a933429bf03f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 71ac963f00993f8a66d41a8d6f3f67528d9c0583
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903042"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625144"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>在用戶端插入廣告
 本文包含如何在用戶端上插入各種類型廣告的相關資訊。
@@ -107,7 +107,7 @@ VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -127,7 +127,7 @@ VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -160,7 +160,7 @@ VAST 檔案會指定要顯示的廣告。 下列 XML 是線性廣告的 VAST 檔
     </Creative>
 ```
 
-<**NonLinearAds**> 元素可以包含一或多個 <**NonLinear**> 元素，其中每一個元素都可說明一個非線性廣告。 <**NonLinear**> 元素會指定非線性廣告的資源。 資源可以是 <**StaticResouce**>、<**IFrameResource**> 或 <**HTMLResouce**>。 <**StaticResource**> 說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
+<**NonLinearAds**> 元素可以包含一或多個 <**NonLinear**> 元素，其中每一個元素都可說明一個非線性廣告。 <**NonLinear**> 元素會指定非線性廣告的資源。 資源可以是 <**StaticResource**>、<**IFrameResource**> 或 <**HTMLResource**>。 <**StaticResource**> 說明非 HTML 資源，並且定義 creativeType 屬性，該屬性會指定資源的顯示方式：
 
 image/gif、image/jpeg、image/png – 資源在 HTML <**img**> 標記中顯示。
 

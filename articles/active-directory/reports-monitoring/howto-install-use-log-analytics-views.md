@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/01/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b1333eda0fa0bffdf3852f24414511f55acc090e
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395484"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624636"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>安裝與使用適用於 Azure Active Directory 的 Log Analytics 檢視
 
@@ -42,7 +42,7 @@ Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure
 
 1. 瀏覽至您的 Log Analytics 工作區。 若要這麼做，請先瀏覽至 [Azure 入口網站](https://portal.azure.com)，然後選取 [所有服務]。 在文字方塊中輸入 **Log Analytics**，然後選取 [Log Analytics]。 請選取您的活動記錄路由到的工作區，作為必要條件的一部分。
 2. 依序選取 [檢視設計工具]、[匯入] 和 [選擇檔案]，以從本機電腦匯入檢視。
-3. 選取您根據必要條件下載的檢視，然後選取 [儲存] 以儲存匯入。 請為 [Azure AD 帳戶佈建事件] 檢視、[登入事件] 檢視和 [執行同意的使用者] 檢視執行此動作。
+3. 選取您根據必要條件下載的檢視，然後選取 [儲存] 以儲存匯入。 請為 [Azure AD 帳戶佈建事件] 檢視和 [登入事件] 檢視執行此動作。
 
 ## <a name="use-the-views"></a>使用檢視
 
@@ -52,7 +52,6 @@ Azure Active Directory 的 Log Analytics 檢視可協助您分析和搜尋 Azure
 
     * **Azure AD 帳戶佈建事件**：此檢視會顯示與稽核佈建活動有關的報告，例如佈建的新使用者數目和佈建失敗、更新的使用者數目和更新失敗，以及取消佈建的使用者數目和對應的失敗。    
     * **登入事件**：此檢視會顯示與監視登入活動相關性最高的報告，例如依應用程式、使用者、裝置顯示的登入，以及追蹤一段時間內登入次數的摘要檢視。
-    * **Users Performing Consent**：此檢視會顯示與使用者同意有關的報告，例如使用者的同意授與、授與同意的使用者所執行的登入，以及應用程式為所有以同意為基礎的應用程式執行的登入。 
 
 3. 選取其中一個檢視，以跳到個別的報告。 您也可以設定任何報告參數的警示。 例如，我們將設定發生任何登入錯誤時的警示。 為此，請依序選取 [登入事件] 檢視、[一段時間的登入錯誤] 報告和 [Analytics]，以開啟詳細資料頁面，內含構成報告的實際查詢。 
 
