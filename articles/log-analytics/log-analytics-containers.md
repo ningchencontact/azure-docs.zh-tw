@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 087e11f906fe7f5c2fe67c43a597de8551dfc951
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013049"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685934"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -49,7 +49,7 @@ ms.locfileid: "51013049"
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台
 下表概述對於使用 Log Analytics 之容器清查、效能和記錄的 Docker 協調流程和作業系統監視支援。   
 
-| | ACS | Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
+| | ACS | Linux |  Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -126,7 +126,7 @@ ms.locfileid: "51013049"
 
 **適用於 CoreOS 以外的所有 Linux 容器主機：**
 
-- 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱[使用 Log Analytics 代理程式在混合式環境中收集資料](log-analytics-concept-hybrid.md)。
+- 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱 [Log Analytics 代理程式概觀](log-analytics-agent-overview.md)。
 
 **適用於包含 CoreOS 的所有 Linux 容器主機：**
 

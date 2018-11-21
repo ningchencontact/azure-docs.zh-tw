@@ -1,6 +1,6 @@
 ---
-title: MapReduce 與 HDInsight 上的 Hadoop
-description: 了解如何在 HDInsight 叢集中的 Hadoop 上執行 MapReduce 工作。
+title: 搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
+description: 了解如何在 HDInsight 叢集中的 Apache Hadoop 上執行 MapReduce 作業。
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: f9dea4c965f64576f839a39b813e4361b166ffe6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c9a4a0944c51cb8c6f6d91cd153580a17a9b7898
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015157"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632644"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>在 HDInsight 上的 Hadoop 中使用 MapReduce
+# <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>搭配 MapReduce 與 HDInsight 上的 Apache Hadoop
 
 了解如何在 HDInsight 叢集上執行 MapReduce 工作。 使用下表了解可搭配 HDInsight 使用 MapReduce 的各種方式︰
 
@@ -24,7 +24,7 @@ ms.locfileid: "51015157"
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** (例如使用 cURL) 從遠端提交工作 |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows | Windows |
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -32,7 +32,7 @@ ms.locfileid: "51015157"
 
 ## <a id="whatis"></a>什麼是 MapReduce
 
-Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入的資料會分割成獨立的區塊。 每個區塊會在叢集的節點之間平行處理。 MapReduce 工作由兩項功能組成：
+Apache Hadoop MapReduce 是一種可撰寫工作來處理大量資料的軟體架構。 輸入的資料會分割成獨立的區塊。 每個區塊會在叢集的節點之間平行處理。 MapReduce 工作由兩項功能組成：
 
 * **對應程式**：取用輸入資料、分析 (通常使用篩選及排序作業)，以及發出 Tuple (機碼值組)
 
@@ -161,7 +161,7 @@ HDInsight 可以使用各種方法執行 HiveQL 工作。 請使用下表決定�
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |透過 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows |Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows | Windows |
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Apache Hive 和 HiveQL - Azure HDInsight
-description: Apache Hive 是適用於 Hadoop 的資料倉儲系統。 您可以使用 HiveQL (這類似於 TRANSACT-SQL) 查詢 Hive 中儲存的資料。 在本文件中，您將了解如何使用 Hive 和 HiveQL 搭配 Azure HDInsight。
+description: Apache Hive 是適用於 Apache Hadoop 的資料倉儲系統。 您可以使用 HiveQL (這類似於 TRANSACT-SQL) 查詢 Hive 中儲存的資料。 在本文件中，您將了解如何使用 Hive 和 HiveQL 搭配 Azure HDInsight。
 keywords: hiveql,什麼是 hive,hadoop hiveql,如何使用 hive,了解 hive,什麼是s hive
 services: hdinsight
 author: hrasheed-msft
@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 0401717da8c5548033bbbd7720bb1266646bbe48
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241101"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633711"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
-[Apache Hive](http://hive.apache.org/) 是適用於 Hadoop 的資料倉儲系統。 Hive 可執行資料摘要、查詢以及資料分析。 Hive 查詢是以 HiveQL 撰寫而成，這是類似 SQL 的查詢語言。
+[Apache Hive](http://hive.apache.org/) 是適用於 Apache Hadoop 的資料倉儲系統。 Hive 可執行資料摘要、查詢以及資料分析。 Hive 查詢是以 HiveQL 撰寫而成，這是類似 SQL 的查詢語言。
 
 Hive 可讓您將結構投影在大量非結構化資料上。 定義結構後，您不需具備 Jave 或 MapReduce 相關知識，即可使用 HiveQL來查詢資料。
 
@@ -40,11 +40,11 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 | **使用此方法**，如果您想要... | ...**互動式**查詢 | ...**批次** 處理 | ...搭配此 **叢集作業系統** | ...從此 **用戶端作業系統** |
 |:--- |:---:|:---:|:--- |:--- |
 | [適用於 Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux、Unix、Mac OS X 或 Windows |
-| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 或 Windows* |Windows |
+| [HDInsight Tools for Visual Studio](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 或 Windows* | Windows |
 | [Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |任何 (以瀏覽器為基礎) |
 | [Beeline 用戶端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 或 Windows* |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* |Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* | Windows |
 
 > [!IMPORTANT]
 > \* Linux 是 HDInsight 3.4 版或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。

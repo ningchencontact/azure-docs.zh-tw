@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure HDInsight (Hadoop) 執行 Apache Sqoop 作業
+title: 使用 Azure HDInsight (Apache Hadoop) 執行 Apache Sqoop 作業
 description: 了解如何從工作站使用 Azure PowerShell，在 HDInsight 叢集與 Azure SQL Database 之間執行 Sqoop 匯入和匯出。
 ms.reviewer: jasonh
 services: hdinsight
@@ -9,21 +9,21 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 85753376e33f5392be06f7d3ea89a04367e3c9ab
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009856"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684972"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-了解如何在 HDInsight 上使用 Sqoop，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
+了解如何在 HDInsight 上使用 Apache Sqoop，以進行 HDInsight 叢集與 Azure SQL Database 或 SQL Server Database 之間的匯入和匯出作業。
 
-雖然在處理非結構化資料和半結構化資料時 (例如記錄和檔案)，很自然地會選擇 Hadoop，但有時也需要處理儲存在關聯式資料庫中的結構化資料。
+雖然在處理非結構化資料和半結構化資料時 (例如記錄和檔案)，很自然地會選擇 Apache Hadoop，但有時也需要處理儲存在關聯式資料庫中的結構化資料。
 
-[Sqoop][sqoop-user-guide-1.4.4] 是一種可在 Hadoop 叢集和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本教學課程中，您將使用 SQL Server Database 做為關聯式資料庫。
+[Apache Sqoop][sqoop-user-guide-1.4.4] 是一種可在 Hadoop 叢集和關聯式資料庫之間傳送資料的工具。 此工具可讓您從 SQL Server、MySQL 或 Oracle 等關聯式資料庫管理系統 (RDBMS)，將資料匯入 Hadoop 分散式檔案系統 (HDFS)，使用 MapReduce 或 Hive 轉換 Hadoop 中的資料，然後將資料匯回 RDBMS。 在本教學課程中，您將使用 SQL Server Database 做為關聯式資料庫。
 
 如需 HDInsight 叢集所支援的 Sqoop 版本，請參閱 [HDInsight 所提供叢集版本的新功能][hdinsight-versions]。
 
@@ -90,7 +90,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
         
         |名稱|值|
         |----|-----|
-        | 預設儲存體帳戶名稱 | &lt;CluterName>store |
+        | 預設儲存體帳戶名稱 | &lt;ClusterName>store |
         | Azure SQL Database 伺服器名稱 | &lt;ClusterName>dbserver |
         | Azure SQL Database 名稱 | &lt;ClusterName>db |
      
@@ -102,7 +102,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 * **Azure SQL Database**：您必須設定 Azure SQL Database 伺服器的防火牆規則，以允許從您的工作站存取。 如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。 
   
   > [!NOTE]
-  > 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。 如果停用此防火牆設定，則您必須在 Azure 入口網站中加以啟用。 如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configue]。
+  > 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。 如果停用此防火牆設定，則您必須在 Azure 入口網站中加以啟用。 如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configure]。
   > 
   > 
 * **SQL Server**：如果您的 HDInsight 叢集與 SQL Server 位於同一個 Azure 虛擬網路上，您可以使用本文中的步驟在 SQL Server Database 上匯入和匯出資料。
@@ -149,7 +149,7 @@ HDInsight 可以使用各種方法執行 Sqoop 工作。 請使用下表決定�
 |:--- |:---:|:---:|:--- |:--- |
 | [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux、Unix、Mac OS X 或 Windows |
 | [.NET SDK for Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux 或 Windows |Windows (目前) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux 或 Windows |Windows |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux 或 Windows | Windows |
 
 ## <a name="limitations"></a>限制
 * 大量匯出 - 使用 Linux 型 HDInsight，用來將資料匯出至 Microsoft SQL Server 或 Azure SQL Database 的 Sqoop 連接器目前不支援大量插入。
@@ -305,7 +305,7 @@ try{Get-AzureRmContext}
 catch{Connect-AzureRmAccount}
 #endregion
 
-#region - Create Azure resouce group
+#region - Create Azure resource group
 Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
 try{
     Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -636,7 +636,7 @@ Get-AzureRmHDInsightJobOutput `
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
-[sqldatabase-create-configue]: ../../sql-database/sql-database-get-started.md
+[sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
