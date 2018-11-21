@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 3ca7897455f763237533aa15680fbfcf805cdaf9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4ef653a603bccc001a5bbbb4c2af97e5ca0b20a8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834721"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344428"
 ---
 # <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>探索與分享 Azure AI 資源庫中的教學課程
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="tutorials"></a>教學課程
-Azure AI 資源庫提供數個[教學課程](https://gallery.cortanaintelligence.com/tutorials)，可以逐步引導您獲得機器學習技術和概念。 教學課程也可能會說明解決機器學習問題的進階方法。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)提供數個[教學課程](https://gallery.cortanaintelligence.com/tutorials)，可以逐步引導您獲得機器學習技術和概念。 教學課程也可能會說明解決機器學習問題的進階方法。
 
 ## <a name="discover"></a>探索
 若要瀏覽[資源庫](http://gallery.cortanaintelligence.com)中的教學課程，請在 [更多] 下選取 [教學課程]。

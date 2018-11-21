@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.openlocfilehash: aff0710ead4f76bb80c38e2d88fe9cd3ce6a7b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 55a4b150471b87289cdd67dc8fbce92336850364
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109256"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568813"
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set"></a>從備份組還原 StorSimple 磁碟區
 
@@ -51,7 +51,7 @@ ms.locfileid: "23109256"
 
 ## <a name="how-does-restore-work"></a>還原的運作方式
 
-如果是執行 Update 4 或更新版本的裝置，就會實作熱度圖式還原。 當存取資料的主機要求到達裝置時，即會追蹤這些要求並建立熱度圖。 高要求率會產生具有更高熱度的資料區塊，而較低的要求率會轉譯為熱度較低的區塊。 您必須存取資料至少兩次，才能將其標示為「熱」。 已修改的檔案也會標示為「熱」。 一旦您起始還原之後，接著會根據熱度圖進行資料的主動式水化。 如果版本早於 Update 4，就只會在還原期間根據存取下載資料。
+如果是執行 Update 4 或更新版本的裝置，就會實作熱度圖式還原。 當存取資料的主機要求到達裝置時，即會追蹤這些要求並建立熱度圖。 高要求率會產生具有更高熱度的資料區塊，而較低的要求率會轉譯為熱度較低的區塊。 您必須存取資料至少兩次，才能將其標示為「經常性存取層」。 已修改的檔案也會標示為「熱」。 一旦您起始還原之後，接著會根據熱度圖進行資料的主動式水化。 如果版本早於 Update 4，就只會在還原期間根據存取下載資料。
 
 下列注意事項適用於熱度圖式還原：
 

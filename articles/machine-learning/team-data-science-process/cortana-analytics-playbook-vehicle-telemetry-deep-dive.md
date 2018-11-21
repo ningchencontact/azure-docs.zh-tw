@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: fc4b2d0beef1c91cd937ba901974796441657441
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234760"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300943"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>車輛遙測分析方案腳本：深入探索方案
-此功能表會連結至此腳本的章節： 
 
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
+本文深入探索方案架構中所述的每個階段。 內含自訂作業的指示和方針。 
 
-本文件深入方案架構所述的每個階段。 內含自訂作業的指示和方針。 
+若要檢閱此解決方案的摘要說明，請參閱[車輛遙測分析方案腳本](cortana-analytics-playbook-vehicle-telemetry.md)。
+
 
 ## <a name="data-sources"></a>資料來源
 此方案使用兩種不同的資料來源：
@@ -675,3 +675,7 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 * [Azure Data Factory 資料移動功能](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 活動](../../data-factory/transform-data-using-dotnet-custom-activity.md)
 * [用於準備範例資料的 Azure Data Factory .NET 活動 Visual Studio 方案](https://go.microsoft.com/fwlink/?LinkId=717077) 
+
+## <a name="next-steps"></a>後續步驟
+
+若要了解如何設定此解決方案的 Power BI 報告和儀表板，請參閱[車輛遙測分析方案範本 Power BI 儀表板安裝指示](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)。

@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 110bfe4b98045149bb52af2ad6f1156ea6d4018d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 2fad3ad8bc6e1c0ca87038af6c461d863065fc95
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37034512"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345958"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽版) 將資料複製到 Azure Data Lake Storage Gen2 預覽版或從該處複製資料
 
@@ -32,6 +32,12 @@ ms.locfileid: "37034512"
 - 使用帳戶金鑰複製資料。
 - 依原樣複製檔案，或使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析或產生檔案。
 
+>[!TIP]
+>如果您啟用階層命名空間，Blob 和 ADLS Gen2 API 之間目前並沒有作業的互通性。 如果發生 "ErrorCode=FilesystemNotFound" 的錯誤 (詳細訊息為「指定的檔案系統不存在。」)，這是因為指定的接收檔案系統是透過 Blob API 而建立的，而不是 ADLS Gen2 API。 若要修正此問題，請使用目前未作為 Blob 容器名稱的名稱來指定新的檔案系統，ADF 即會在資料複製期間自動建立該檔案系統。
+
+>[!NOTE]
+>如果您啟用 Azure 儲存體防火牆設定的 [允許信任的 Microsoft 服務存取此儲存體帳戶] 選項，則使用 Azure Integration Runtime 連線到 Data Lake Storage Gen2 會失敗並出現禁止錯誤，因為 ADF 並未被視為信任的 Microsoft 服務。 請改用自我裝載 Integration Runtime 作為連線方式。
+
 ## <a name="get-started"></a>開始使用
 
 >[!TIP]
@@ -47,9 +53,9 @@ ms.locfileid: "37034512"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為 **AzureBlobFS**。 |yes |
-| url | 具有 `https://<accountname>.dfs.core.windows.net` 模式的 Data Lake Storage Gen2 所適用的端點。 | yes | 
-| accountKey | Data Lake Storage Gen2 服務的帳戶金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |yes |
+| type | 類型屬性必須設為 **AzureBlobFS**。 |是 |
+| url | 具有 `https://<accountname>.dfs.core.windows.net` 模式的 Data Lake Storage Gen2 所適用的端點。 | 是 | 
+| accountKey | Data Lake Storage Gen2 服務的帳戶金鑰。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 |是 |
 | connectVia | 用來連線到資料存放區的[整合執行階段](concepts-integration-runtime.md)。 您可以使用 Azure Integration Runtime 或自我裝載 Integration Runtime (如果您的資料存放區位於私人網路中)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -80,8 +86,8 @@ ms.locfileid: "37034512"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的類型屬性必須設為 **AzureBlobFSFile**。 |yes |
-| folderPath | Data Lake Storage Gen2 資料夾的路徑。 不支援萬用字元篩選。 範例：根資料夾/子資料夾/。 |yes |
+| type | 資料集的類型屬性必須設為 **AzureBlobFSFile**。 |是 |
+| folderPath | Data Lake Storage Gen2 資料夾的路徑。 不支援萬用字元篩選。 若未指定，它會指向根。 範例：根資料夾/子資料夾/。 |否 |
 | fileName | 在指定 "folderPath" 之下檔案的**名稱或萬用字元篩選**。 若未指定此屬性的值，資料集就會指向資料夾中的所有檔案。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>當沒有針對輸出資料集指定 fileName，且活動接收中沒有指定 **preserveHierarchy** 時，複製活動會自動使用以下模式產生檔案名稱：「Data.[活動執行識別碼 GUID].[GUID (若為 FlattenHierarchy)].[格式 (若有設定)].[壓縮 (若有設定)]」。 範例："Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"。 |否 |
 | format | 如果您想要在檔案型存放區之間依原樣複製檔案 (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)小節。 |否 (僅適用於二進位複製案例) |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：GZip、Deflate、BZip2 及 ZipDeflate。<br/>支援的層級為 **Optimal** 和 **Fastest**。 |否 |
@@ -127,7 +133,7 @@ ms.locfileid: "37034512"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設為 **AzureBlobFSSource**。 |yes |
+| type | 複製活動來源的類型屬性必須設為 **AzureBlobFSSource**。 |是 |
 | 遞迴 | 指出是否從子資料夾、或只有從指定的資料夾，以遞迴方式讀取資料。 請注意，當遞迴設定為 true 且接收是檔案型存放區時，就不會在接收上複製或建立空的資料夾或子資料夾。<br/>允許的值為 **true** (預設值) 和 **false**。 | 否 |
 
 **範例：**
@@ -168,7 +174,7 @@ ms.locfileid: "37034512"
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動接收的類型屬性必須設為 **AzureBlobFSSink**。 |yes |
+| type | 複製活動接收的類型屬性必須設為 **AzureBlobFSSink**。 |是 |
 | copyBehavior | 當來源是來自檔案型資料存放區的檔案時，會定義複製行為。<br/><br/>允許的值包括：<br/><b>- PreserveHierarchy (預設值)</b>：保留目標資料夾中的檔案階層。 來源檔案到來源資料夾的相對路徑，與目標檔案到目標資料夾的相對路徑相同。<br/><b>- FlattenHierarchy</b>：來自來源資料夾的所有檔案都在目標資料夾的第一層中。 目標檔案會有自動產生的名稱。 <br/><b>- MergeFiles</b>：將來源資料夾的所有檔案合併成一個檔案。 若已指定檔案名稱，合併檔案的名稱會是指定的名稱。 否則，就會是自動產生的檔案名稱。 | 否 |
 
 **範例：**

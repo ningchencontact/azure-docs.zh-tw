@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 37fb4c330004ce87afd900d9cafebb337261ec06
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279138"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568228"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 更新
 
@@ -69,7 +69,8 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 <!-- | IS ASDK--> 
 - **API 版本設定檔 2017-03-09-profile 已更新為 2018-03-01-hybrid**。 API 設定檔會指定 Azure 資源提供者和 Azure REST 端點的 API 版本。 如需設定檔的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](/azure/azure-stack/user/azure-stack-version-profiles)。
 
- ### <a name="fixed-issues"></a>已修正的問題
+### <a name="fixed-issues"></a>已修正的問題
+
 <!-- IS ASDK--> 
 - 我們已修正在入口網站中建立可用性設定組時，設定組中只有 1 個容錯網域和 1 個更新網域的問題。 
 
@@ -162,7 +163,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 > 讓您的 Azure Stack 部署準備使用延伸主機。 使用下列指導方針準備您的系統：[Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)。
 
 在安裝此更新之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。 
-- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
@@ -219,6 +220,8 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
    
   請執行[Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet 來確認基礎結構角色執行個體的健康情況及縮放單位節點。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 偵測不到任何問題，可以忽略這些警示。 如果偵測到問題，可以嘗試使用系統管理員入口網站或 PowerShell 啟動基礎結構角色執行個體或節點。
 
+  此問題已在最新 [1808 Hotfix 版本](https://support.microsoft.com/help/4471992/)中修正，所以如果您遇到此問題，請務必安裝此 Hotfix。
+
 <!-- 1264761 - IS ASDK --> 
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
@@ -253,7 +256,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
 
 ### <a name="compute"></a>計算
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - 將已中斷連結的磁碟重新連結到具有相同名稱的相同虛擬機器 (VM)，並且發生如**無法將資料磁碟 'datadisk' 連結到 VM 'vm1'** 錯誤的 LUN 失敗。 此錯誤的發生原因是磁碟目前正在中斷連結，或上次的中斷連結作業失敗。 請等候磁碟完全中斷連結後再試一次，或再次明確將磁碟刪除/中斷連結。 因應措施是使用其他名稱或在其他 LUN 上將它重新連結。 
 
 <!-- 3099544 – IS, ASDK --> 
@@ -266,7 +269,7 @@ Azure Stack 1808 更新組建編號為 **1.1808.0.97**。
       1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
       2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
    2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
-      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/)。
+      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992/)。
       2. 依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。
       
 <!-- 3179561 - IS --> 

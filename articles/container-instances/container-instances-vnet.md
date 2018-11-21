@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/05/2018
 ms.author: danlep
-ms.openlocfilehash: cab19cf051efea55a476128e4038aa69efdce8d9
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: e2f0d90a0a4384560c0a4126c028761765cb9e45
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157083"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288861"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>將容器執行個體部署至 Azure 虛擬網路
 
@@ -56,7 +56,7 @@ ms.locfileid: "50157083"
 
 ## <a name="required-network-resources"></a>必要的網路資源
 
-將容器群組部署至虛擬網路需要三項 Azure 虛擬網路資源：[虛擬網路](#virtual-network)本身、虛擬網路中的[委派子網路](#subnet-delegated)及[網路設定檔](#network-profile)。
+將容器群組部署至虛擬網路需要三項 Azure 虛擬網路資源：[虛擬網路](#virtual-network)本身、虛擬網路中的[委派子網路](#subnet-delegated)及[網路設定檔](#network-profile)。 
 
 ### <a name="virtual-network"></a>虛擬網路
 
@@ -70,15 +70,17 @@ ms.locfileid: "50157083"
 
 ### <a name="network-profile"></a>網路設定檔
 
-網路設定檔是 Azure 資源的網路設定範本。 其會為資源指定特定的網路屬性，例如應該部署該資源的子網路。 當您首次將容器群組部署至子網路 (也因此部署至虛擬網路) 時，Azure 會為您建立網路設定檔。 然後您可以在日後部署至子網路時，使用該網路設定檔。
+網路設定檔是 Azure 資源的網路設定範本。 其會為資源指定特定的網路屬性，例如應該部署該資源的子網路。 當您首次使用 [az container create][az-container-create] 命令將容器群組部署至子網路 (也因此部署至虛擬網路) 時，Azure 會為您建立網路設定檔。 然後您可以在日後部署至子網路時，使用該網路設定檔。 
+
+若要使用 Resource Manager 範本、YAML 檔案或程式設計方法將容器群組部署至子網路，您必須提供網路設定檔的完整 Resource Manager 資源識別碼。 您可以使用先前使用 [az container create][az-container-create] 建立的設定檔，或使用 Resource Manager 範本建立設定檔 (請參閱[參考](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles))。 若要取得先前所建設定檔的識別碼，請使用 [az network profile list][az-network-profile-list] 命令。 
 
 在下圖中，多個容器群組已部署到委派至 Azure 容器執行個體的子網路。 當您將一個容器群組部署至子網路後，就可立即指定相同的網路設定檔來部署其他容器群組。
 
 ![虛擬網路中的容器群組][aci-vnet-01]
 
-## <a name="deploy-to-virtual-network"></a>部署至虛擬網路
+## <a name="deployment-scenarios"></a>部署案例
 
-您可以將容器群組部署至新的虛擬網路，並允許 Azure 為您建立必要的網路資源，或是部署至現有的虛擬網路。
+您可以使用 [az container create][az-container-create] 將容器群組部署至新的虛擬網路，並允許 Azure 為您建立必要的網路資源，或是部署至現有的虛擬網路。 
 
 ### <a name="new-virtual-network"></a>新的虛擬網路
 
@@ -99,19 +101,21 @@ ms.locfileid: "50157083"
 
 1. 在現有的虛擬網路中建立子網路，或是將「所有」其他資源的子網路清空
 1. 使用 [az container create][az-container-create] 部署容器群組，並指定下列其中一項：
-   * 虛擬網路名稱及子網路名稱</br>
-    或
-   * 網路設定檔名稱或識別碼
+   * 虛擬網路名稱及子網路名稱
+   * 虛擬網路資源識別碼與子網路資源識別碼，其允許使用不同資源群組中的虛擬網路
+   * 網路設定檔名稱或識別碼，您可使用 [az network profile list][az-network-profile-list] 取得
 
 當您將第一個容器群組部署至現有的子網路後，Azure 會將該子網路委派至 Azure 容器執行個體。 除了容器群組之外，您不可再將其他資源部署至該子網路。
 
+## <a name="deployment-examples"></a>部署範例
+
 下列章節說明如何利用 Azure CLI 將容器群組部署至虛擬網路。 該命令範例已處理成 **Bash** 殼層格式。 如果您慣用其他殼層，例如 PowerShell 或命令提示字元，請相應調整行接續字元。
 
-## <a name="deploy-to-new-virtual-network"></a>部署至新的虛擬網路
+### <a name="deploy-to-a-new-virtual-network"></a>部署至新的虛擬網路
 
 首先，部署容器群組，並為新的虛擬網路及子網路指定參數。 當您指定這些參數時，Azure 會建立虛擬網路及子網路，將子網路委派至 Azure 容器執行個體，以及建立網路設定檔。 當您建立這些資源後，您的容器群組就會部署至子網路。
 
-請執行下列 [az container create][az-container-create] 命令，為新的虛擬網路及子網路指定設定。 此命令會部署 [microsoft/aci-helloworld][aci-helloworld] 容器，該容器執行小型 Node.js 網頁伺服器來提供靜態網頁服務。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
+請執行下列 [az container create][az-container-create] 命令，為新的虛擬網路及子網路指定設定。 您必須提供在以下區域中建立的資源群組名稱：[支援](#preview-limitations)虛擬網路中的容器群組。 此命令會部署 [microsoft/aci-helloworld][aci-helloworld] 容器，該容器執行小型 Node.js 網頁伺服器來提供靜態網頁服務。 在下一節中，您會對同一個子網路部署第二個容器群組，並測試兩個容器執行個體之間的通訊。
 
 ```azurecli
 az container create \
@@ -126,7 +130,7 @@ az container create \
 
 當您使用此方法部署至新的虛擬網路時，部署可能會花費幾分鐘建立網路資源。 經過初始部署後，其他容器群組部署會更快完成。
 
-## <a name="deploy-to-existing-virtual-network"></a>部署至現有的虛擬網路
+### <a name="deploy-to-existing-virtual-network"></a>部署至現有的虛擬網路
 
 既然您已將一個容器群組部署至新的虛擬網路，請再對同一個子網路部署第二個容器群組，然後驗證這兩個容器執行個體之間的通訊。
 
@@ -174,7 +178,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 記錄輸出應會顯示，`wget` 可以使用其區域子網路的私人 IP 位址從第一個容器連線及下載索引檔案。 兩個容器群組之間的網路流量會保留在虛擬網路中。
 
-## <a name="deploy-to-existing-virtual-network---yaml"></a>部署至現有的虛擬網路 - YAML
+### <a name="deploy-to-existing-virtual-network---yaml"></a>部署至現有的虛擬網路 - YAML
 
 您也可以使用 YAML 檔案將容器群組部署至現有的虛擬網路。 若要部署至虛擬網路中的子網路，您要在 YAML 中額外指定幾項屬性：
 

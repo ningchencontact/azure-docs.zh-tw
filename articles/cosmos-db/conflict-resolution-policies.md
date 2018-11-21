@@ -7,18 +7,18 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: c682b61a39224f2c80db8fe5fa153ea5e5d82922
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958534"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514820"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>衝突類型和解決原則
 
 如果您的 Cosmos 帳戶設定了多個寫入區域，就適用衝突和衝突解決原則。
 
-對於設定了多個區域的 Cosmos DB 帳戶，當多個寫入作業同時更新多個區域中的相同項目時，就可能發生更新衝突。 更新衝突分為下列三個類別：
+對於設定了多個區域的 Cosmos 帳戶，當多個寫入作業同時更新多個區域中的相同項目時，就可能發生更新衝突。 更新衝突分為下列三個類別：
 
 1. **插入衝突：** 當應用程式從兩個或多個區域，同時插入唯一索引 (例如 ID 屬性) 相同的兩個或多個項目時，可能就會發生這類衝突。 在此情況下，寫入作業一開始在各自的當地區域可能會成功，但根據您所選的衝突解決原則，系統最後只會認可一個具有該原始識別碼的項目。
 

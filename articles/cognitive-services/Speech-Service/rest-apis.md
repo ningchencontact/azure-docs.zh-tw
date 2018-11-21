@@ -7,14 +7,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
-ms.openlocfilehash: be2f6c49a260477e907f1f8f29f64b9eb08e6926
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a8aa2600c8f3bcbc9d2ebc7f55ac0d2f038d8ecd
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038598"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566613"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -127,14 +127,43 @@ HTTP 代碼|意義|可能的原因
 
 ### <a name="json-response"></a>JSON 回應
 
-結果會以 JSON 格式傳回。 `simple` 格式只包含下列最上層欄位。
+結果會以 JSON 格式傳回。 視您的查詢參數而定，傳回 `simple` 或 `detailed` 格式。
+
+#### <a name="the-simple-format"></a>`simple` 格式 
+
+此格式包含下列最上層欄位。
 
 |欄位名稱|內容|
 |-|-|
-|`RecognitionStatus`|狀態，例如 `Success` 代表辨識成功。 請參閱下一個表格。|
+|`RecognitionStatus`|狀態，例如 `Success` 代表辨識成功。 請參閱此[資料表](rest-apis.md#recognitionstatus)。|
 |`DisplayText`|在大寫字、標點符號、反向文字正規化 (將語音文字轉換為較短的形式，例如 200 表示 "two hundred" 或將 "Dr.Smith" 表示 "doctor smith")，以及不雅內容遮罩之後辨識的文字。 只會在成功時呈現。|
 |`Offset`|辨識的語音在音訊資料流中開始的時間 (以 100 奈秒為單位)。|
 |`Duration`|辨識的語音在音訊資料流中的持續時間 (以 100 奈秒為單位)。|
+
+#### <a name="the-detailed-format"></a>`detailed` 格式 
+
+此格式包含下列最上層欄位。
+
+|欄位名稱|內容|
+|-|-|
+|`RecognitionStatus`|狀態，例如 `Success` 代表辨識成功。 請參閱此[資料表](rest-apis.md#recognition-status)。|
+|`Offset`|辨識的語音在音訊資料流中開始的時間 (以 100 奈秒為單位)。|
+|`Duration`|辨識的語音在音訊資料流中的持續時間 (以 100 奈秒為單位)。|
+|`NBest`|相同語音的替代解譯清單 (從最有可能的解譯排到最不可能的解譯)。 請參閱 [NBest 描述](rest-apis.md#nbest)。|
+
+#### <a name="nbest"></a>NBest
+
+`NBest` 欄位是相同語音的替代解譯清單 (從最有可能的解譯排到最不可能的解譯)。 第一個項目與主要辨識結果相同。 每個項目都包含下列欄位：
+
+|欄位名稱|內容|
+|-|-|
+|`Confidence`|項目的信賴分數從 0.0 (不信賴) 到 1.0 (完全信賴)
+|`Lexical`|已辨識文字的語彙形式：已辨識的實際文字。
+|`ITN`|已辨識文字的反向文字正規化 (「標準」) 形式，包含電話號碼、數字、縮寫 ("doctor smith" 縮短為 "dr smith")，以及其他已套件的轉換。
+|`MaskedITN`| 如果要求，已套用不雅內容遮罩的 ITN 形式。
+|`Display`| 已辨識文字的顯示形式，已新增標點符號和大寫。
+
+#### <a name="recognitionstatus"></a>RecognitionStatus
 
 `RecognitionStatus` 欄位可能包含下列值。
 
@@ -148,17 +177,6 @@ HTTP 代碼|意義|可能的原因
 
 > [!NOTE]
 > 如果音訊只包含不雅內容，而且 `profanity` 查詢參數設為 `remove`，則服務不會傳回語音結果。
-
-
-`detailed` 格式包含與 `simple` 格式相同的欄位，以及 `NBest` 欄位。 `NBest` 欄位是相同語音的替代解譯清單 (從最有可能的解譯排到最不可能的解譯)。 第一個項目與主要辨識結果相同。 每個項目都包含下列欄位：
-
-|欄位名稱|內容|
-|-|-|
-|`Confidence`|項目的信賴分數從 0.0 (不信賴) 到 1.0 (完全信賴)
-|`Lexical`|已辨識文字的語彙形式：已辨識的實際文字。
-|`ITN`|已辨識文字的反向文字正規化 (「標準」) 形式，包含電話號碼、數字、縮寫 ("doctor smith" 縮短為 "dr smith")，以及其他已套件的轉換。
-|`MaskedITN`| 如果要求，已套用不雅內容遮罩的 ITN 形式。
-|`Display`| 已辨識文字的顯示形式，已新增標點符號和大寫。 與最上層結果中的 `DisplayText` 相同。
 
 ### <a name="sample-responses"></a>回應範例
 

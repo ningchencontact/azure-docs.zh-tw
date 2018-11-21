@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958582"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578631"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
-若要建立 vFXT 叢集，最簡單的方式就是使用叢集控制器，這是具備建立和管理 vFXT 叢集所需之指令碼、範本及軟體基礎結構的 VM。
+在 Azure 中建立 vFXT 叢集的最簡單方式就是使用叢集控制器。 叢集控制器是包含建立和管理 vFXT 叢集所需指令碼、範本及軟體基礎結構的 VM。
 
 部署新的 vFXT 叢集包含下列步驟：
 
@@ -82,7 +82,7 @@ ms.locfileid: "50958582"
 * 虛擬網路資源群組、名稱及子網路名稱 - 輸入現有資源的名稱 (如果要使用現有的 VNet)，或輸入新名稱 (如果要建立新的 VNet)
 * **控制器名稱** - 設定控制器 VM 的名稱
 * 控制器管理員使用者名稱 - 預設值為 `azureuser`
-* SSH 金鑰 - 貼上要與管理員使用者名稱建立關聯的公開金鑰。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)。
+* SSH 金鑰 - 貼上要與管理員使用者名稱建立關聯的公開金鑰。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)。
 
 在 [條款及條件] 底下： 
 
@@ -91,18 +91,16 @@ ms.locfileid: "50958582"
   > [!NOTE] 
   > 如果您不是訂用帳戶擁有者，請依照[事先接受軟體條款](avere-vfxt-prereqs.md#accept-software-terms-in-advance)中的先決條件步驟，讓擁有者為您接受條款。 
 
+
 完成時，請按一下 [購買]。 在 5 或 6 分鐘之後，您的控制器節點就會啟動並執行。
 
-您應該瀏覽輸出頁面以收集叢集所需的資訊。 若要深入了解，請參閱[建立叢集所需的輸入](#inputs-needed-for-cluster-creation)。
+瀏覽輸出頁面以收集建立叢集所需的控制器資訊。 讀取[建立叢集所需的資訊](#information-needed-to-create-the-cluster)以深入了解相關資訊。
 
 ### <a name="create-controller---azure-marketplace-image"></a>建立控制器 - Azure Marketplace 映像
 
-請在 Azure Marketplace 中搜尋 ``Avere`` 名稱來尋找控制器範本。 選取 [適用於 Azure 的 Avere vFXT 控制器] 範本。 
+請在 Azure Marketplace 中搜尋 ``Avere`` 名稱來尋找控制器範本。 選取 [適用於 Azure 的 Avere vFXT 控制器] 範本。
 
 如果您尚未接受條款並為 Marketplace 映像啟用以程式設計方式存取的功能，請接受條款並按一下 [建立] 按鈕底下的 [想要以程式設計方式部署嗎?]。
-
-> [!NOTE] 
-> 在正式運作的第一週 (2018 年 10 月 31 日 - 11 月 7 日)，您必須使用命令列選項來接受兩個軟體映像的條款，而不是依照此程序進行操作。 請依照[事先接受軟體條款](avere-vfxt-prereqs.md#accept-software-terms-in-advance)中的指示進行操作。 
 
 ![以程式設計方式存取的連結 (位於 [建立] 按鈕下方) 螢幕擷取畫面](media/avere-vfxt-deploy-programmatically.png)
 
@@ -125,7 +123,7 @@ ms.locfileid: "50958582"
   * 選取 [使用者名稱/密碼] 或 [SSH 公開金鑰] (建議使用)。
   
     > [!TIP] 
-    > SSH 金鑰較為安全。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)。 
+    > SSH 金鑰較為安全。 如果需要協助，請參閱[如何建立和使用 SSH 金鑰](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)。 
   * 指定使用者名稱 
   * 貼上 SSH 金鑰，或輸入並確認密碼
 * **輸入連接埠規則** - 如果使用公用 IP 位址，請開啟連接埠 22 (SSH)
@@ -172,29 +170,31 @@ ms.locfileid: "50958582"
 
   ![含有建立服務端點之註解的 Azure 入口網站螢幕擷取畫面](media/avere-vfxt-service-endpoint.png)
 
-## <a name="gather-needed-inputs"></a>收集所需的輸入
+## <a name="information-needed-to-create-the-cluster"></a>建立叢集所需的資訊
 
-您需要下列資訊來建立叢集。 
-
-如果您已藉由使用 Resource Manager 範本來建立控制器節點，您可以[從範本輸出取得資訊](#finding-template-output)。 
+建立叢集控制器之後，請確定您具有後續步驟所需的資訊。 
 
 連線到控制器所需的資訊： 
 
-* 控制器使用者名稱和 SSH 金鑰或密碼
+* 控制器使用者名稱和 SSH 金鑰 (或密碼)
 * 控制器 IP 位址或其他可連線到控制器 VM 的方法
 
-建立叢集所需的資訊： 
+叢集所需的資訊： 
 
 * 資源群組名稱
 * Azure 位置 
 * 虛擬網路名稱
 * 子網路名稱
-* 叢集節點角色名稱
+* 叢集節點角色名稱 - 如[下方](#create-the-cluster-node-access-role)所述，當您建立角色時會設定此名稱。
 * 儲存體帳戶名稱 (如果要建立 Blob 容器)
 
-您也可以瀏覽至控制器 VM 資訊頁面來尋找遺漏的資訊。 例如，按一下 [所有資源] 並搜尋控制器名稱，然後按一下控制器名稱，即可查看詳細資料。
+如果您已藉由使用 Resource Manager 範本來建立控制器節點，您可以從[範本輸出](#find-template-output)取得資訊。 
 
-### <a name="finding-template-output"></a>尋找範本輸出
+如果您使用了 Azure Marketplace 映像來建立控制器，便已直接提供大部分的項目。 
+
+瀏覽至控制器 VM 資訊頁面，以尋找遺漏的項目。 例如，按一下 [所有資源] 並搜尋控制器名稱，然後按一下控制器名稱，即可查看其詳細資料。
+
+### <a name="find-template-output"></a>尋找範本輸出
 
 若要從 Resource Manager 範本輸出尋找此資訊，請依照此程序：
 
@@ -215,7 +215,7 @@ ms.locfileid: "50958582"
 1. 連線到叢集控制器的方法取決於您的設定。
 
    * 如果控制器具有公用 IP 位址，請以您所設定的管理員使用者名稱身分透過 SSH 連線到控制器的 IP (例如``ssh azureuser@40.117.136.91``)。
-   * 如果控制器沒有公用 IP，則請使用 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 或 VPN 來連線到您的 VNet。
+   * 如果控制器沒有公用 IP，請使用 VPN 或 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) 來連線到您的 VNet。
 
 1. 登入您的控制器之後，請執行 `az login`來進行驗證。 複製殼層中所提供的驗證碼，然後使用網頁瀏覽器來載入 [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin)，並向 Microsoft 系統進行驗證。 返回殼層來進行確認。
 
@@ -226,7 +226,9 @@ ms.locfileid: "50958582"
 ## <a name="create-the-cluster-node-access-role"></a>建立叢集節點存取角色
 
 > [!NOTE] 
-> 如果您不是訂用帳戶擁有者，且尚未建立角色，請讓訂用帳戶擁有者依照下列步驟，或使用[在沒有控制器的情況下建立 Avere vFXT 叢集執行階段存取角色](avere-vfxt-pre-role.md)中的程序來進行操作。
+> * 如果您不是訂用帳戶擁有者，且尚未建立角色，請讓訂用帳戶擁有者依照下列步驟，或使用[在沒有控制器的情況下建立 Avere vFXT 叢集執行階段存取角色](avere-vfxt-pre-role.md)中的程序來進行操作。
+> 
+> * Microsoft 內部使用者應使用名為「Avere 叢集執行階段操作員」的現有角色，而非嘗試建立一個角色。 
 
 [角色型存取控制](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) 會為 vFXT 叢集節點提供授權來執行必要的工作。  
 
@@ -292,15 +294,18 @@ RESOURCE_GROUP=
 儲存檔案並結束。
 
 ### <a name="run-the-script"></a>執行指令碼
+
 請輸入您已建立的檔案名稱來執行指令碼。 (範例：`./create-cloudbacked-cluster-west1`)  
 
-請考慮在[終端機多工器](http://linuxcommand.org/lc3_adv_termmux.php) (例如 `screen` 或 `tmux`) 內執行此命令，以防萬一發生連線中斷的情況。  
+> [!TIP]
+> 請考慮在[終端機多工器](http://linuxcommand.org/lc3_adv_termmux.php) (例如 `screen` 或 `tmux`) 內執行此命令，以防萬一發生連線中斷的情況。  
+
 輸出也會記錄到 `~/vfxt.log`中。
 
 當指令碼完成時，請複製管理 IP 位址，您將需要這項資訊來進行叢集管理。
 
 ![在接近結尾處顯示管理 IP 位址的指令碼命令列輸出](media/avere-vfxt-mgmt-ip.png)
 
-### <a name="next-step"></a>後續步驟
+## <a name="next-step"></a>後續步驟
 
 既然叢集已處於執行狀態且您知道其管理 IP 位址，現在即可[連線到叢集設定工具](avere-vfxt-cluster-gui.md)，以視需要啟用支援及新增儲存體。

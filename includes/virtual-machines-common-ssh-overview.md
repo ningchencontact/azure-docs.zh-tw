@@ -5,15 +5,15 @@ services: virtual-machines-linux
 author: dlepow
 ms.service: virtual-machines-linux
 ms.topic: include
-ms.date: 04/16/2018
+ms.date: 11/08/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 0363b719e2587226282257e19e58e3c4e55c2219
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: cff3d7bfb89d5b03f986da32edc148efcfb7e7bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47454459"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51506280"
 ---
 ## <a name="overview-of-ssh-and-keys"></a>SSH 和金鑰的概觀
 
@@ -21,7 +21,7 @@ SSH 是允許透過不安全連線進行安全登入的已加密連線通訊協�
 
 * *公開金鑰*會置於您的 Linux VM 或任何您要搭配公開金鑰加密使用的其他服務上。
 
-* 當您建立 SSH 連線時，要對 Linux VM 呈現「私密金鑰」以驗證您的身分識別。 保護此私密金鑰。 不要共用它。
+* 當您連線到 Linux VM 時，SSH 用戶端會使用本機系統上的「私密金鑰」來確認您的身分識別。 保護此私密金鑰。 不要共用它。
 
 根據組織的安全性原則，您可以重複使用單一公用/私密金鑰組來存取多個 Azure VM 和服務。 您想要存取的每個 VM 或服務都不需要各有一對金鑰。 
 

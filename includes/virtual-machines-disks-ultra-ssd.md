@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: bb9a2a884439b00f52adfa9b7c1010a4610a77f7
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 050308e1c8de160f1671ded991e550087299ae2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47401602"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285791"
 ---
 # <a name="ultra-ssd-preview-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的Ultra SSD (預覽) 受控磁碟
 
@@ -23,7 +23,7 @@ Azure Ultra SSD (預覽) 可為 Azure IaaS VM 提供高輸送量、高 IOPS 以�
 
 **受控磁碟**：Ultra SSD 僅可供作為「受控磁碟」使用。 您無法將 Ultra SSD 部署為非受控磁碟或分頁 Blob。 建立「受控磁碟」時，您只要將磁碟 SKU 類型指定為 UltraSSD_LRS，並指定您所需的磁碟大小、IOPS 和輸送量，Azure 就會為您建立及管理該磁碟。  
 
-**虛擬機器**：Ultra SSD 依設計可使用所有支援進階 SSD 的 Azure 虛擬機器 SKU，不過在預覽階段，VM 大小會限定為 ES/DS v3 VM 執行個體。
+**虛擬機器**：Ultra SSD 依設計可使用所有支援進階 SSD 的 Azure 虛擬機器 SKU，不過目前處於預覽階段，VM 大小會設為 ES/DS v3。
 
 **動態效能組態**：Ultra SSD 可讓您以動態方式變更磁碟的效能 (IOPS 和輸送量) 以及您的工作負載需求，而不需要重新啟動虛擬機器。
 
@@ -55,7 +55,7 @@ Ultra SSD 的主要功能包括：
 
 ## <a name="pricing-and-billing"></a>價格和計費
 
-使用 Ultra SSD 時，會有下列計費考量：
+使用 Ultra SSD 時，適用下列計費考量：
 
 - 受控磁碟大小
 - 受控磁碟佈建的 IOPS
@@ -64,11 +64,11 @@ Ultra SSD 的主要功能包括：
 
 ### <a name="managed-disk-size"></a>受控磁碟大小
 
-受控磁碟依據佈建的大小計費。 Azure 會將佈建大小對應 (無條件進位) 至最接近的磁碟大小供應項目。 如需所提供磁碟大小的詳細資料，請參閱上述＜延展性和效能目標＞一節中的表格。 每個磁碟皆與一個支援的佈建磁碟大小對應，並據此依小時計費。 例如，若您佈建了一個 200 GiB 的 Ultra SSD 磁碟，並在 20 小時後刪除了這個磁碟，這個磁碟將會對應至 256 GiB 的磁碟大小方案，並且以 256 GiB 的基準向您收取 20 小時的費用。 這與寫入磁碟的實際資料量無關。
+受控磁碟會依據您佈建新 Azure VM 時所選擇的 VM 大小計費。 Azure 會將佈建大小對應 (無條件進位) 至最接近的磁碟大小供應項目。 如需所提供磁碟大小的詳細資料，請參閱上述＜延展性和效能目標＞一節中的表格。 每個磁碟皆與一個支援的佈建磁碟大小對應，並據此依小時計費。 例如，若您佈建了一個 200 GiB 的 Ultra SSD 磁碟，並在 20 小時後刪除了這個磁碟，這個磁碟將會對應至 256 GiB 的磁碟大小方案，並且以 256 GiB 的基準向您收取 20 小時的費用。 不論實際寫入至磁碟的資料量為何，此計費是以計算時數耗用量為基礎。
 
 ### <a name="managed-disk-provisioned-iops"></a>受控磁碟佈建的 IOPS
 
-IOPS 是指您的應用程式在一秒內傳送到磁碟的要求數。 輸入/輸出作業可以是循序或隨機、讀取或寫入作業。 和磁碟大小相同，佈建的 IOPS 也會依小時計費。 如需所提供 IOPS 的詳細資訊，請參閱上述「延展性和效能目標」一節中的表格。
+IOPS 是指您的應用程式在美秒內傳送到磁碟的要求數。 輸入/輸出作業可以是循序讀取或寫入或隨機讀取或寫入作業。 根據 VM 所連結磁碟的磁碟大小或磁碟數目，IOPS 的平均數目是依照每小時計費。 如需所提供 IOPS 的詳細資訊，請參閱上述「延展性和效能目標」一節中的表格。
 
 ### <a name="managed-disk-provisioned-throughput"></a>受控磁碟佈建的輸送量
 

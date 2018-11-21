@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: d57e780fbf5187f2481d40bde28b113181c15b4a
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 22432a98a7ac5ecba46201d0166940e069f6031b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834653"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346434"
 ---
 # <a name="discover-experiments-in-azure-ai-gallery"></a>探索 Azure AI 資源庫中的實驗
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="experiments-for-machine-learning-studio"></a>Machine Learning studio 的實驗
-Gallery 包含各種在 [Azure Machine Learning Studio](https://studio.azureml.net) 中開發的[實驗](https://gallery.cortanaintelligence.com/experiments)。 小至示範特定機器學習服務技術的快速概念證明實驗，大至用於解決複雜機器學習服務問題的完整開發解決方案，都在這些實驗的涵蓋範圍內。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)包含各種在 [Azure Machine Learning Studio](https://studio.azureml.net) 中開發的[實驗](https://gallery.cortanaintelligence.com/experiments)。 小至示範特定機器學習服務技術的快速概念證明實驗，大至用於解決複雜機器學習服務問題的完整開發解決方案，都在這些實驗的涵蓋範圍內。
 
 > [!NOTE]
 > ***實驗***是 Machine Learning Studio 中的畫布，可用來建構預測分析模型。 您可以將資料與各種分析模組連接，以建立模型。 您可以嘗試不同的想法、執行試用，最後部署您的模型做為 Azure 中的 Web 服務。 如需建立基本實驗的範例，請參閱[機器學習服務教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗](create-experiment.md)。 如需建立預測性分析方案的更完整逐步解說，請參閱[逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案](walkthrough-develop-predictive-solution.md)。

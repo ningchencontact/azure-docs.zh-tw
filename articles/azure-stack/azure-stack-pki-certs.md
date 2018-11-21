@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: d181835c6baf5a2a40bca04feaa4c115178ba086
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: a6f18222e5683d2d9663b699a8f6bab399d4f45b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093956"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299855"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公開金鑰基礎結構憑證需求
 
@@ -42,7 +42,7 @@ Azure Stack 有一個公共基礎結構網路，其使用已指派給一小組 A
 - 針對部署和旋轉，您可以使用單一憑證以涵蓋憑證之主體名稱和主體別名 (SAN) 欄位中的所有命名空間，也可以針對下面您規劃利用之 Azure Stack 服務所需的每個命名空間來使用個別憑證。 這兩種方法都需要將萬用字元用於需要它們的端點 (例如 **KeyVault** 和 **KeyVaultInternal**)。 
 - 憑證的 PFX 加密應該是 3DES。 
 - 憑證簽章演算法不應該是 SHA1。 
-- 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 
+- 憑證格式必須是 PFX，因為安裝 Azure Stack 時需要公用與私密金鑰。 私密金鑰必須有本機電腦金鑰屬性集。
 - PFX 加密必須是 3DES (如果從 Windows 10 用戶端或 Windows Server 2016 憑證存放區匯出，這會是預設值)。
 - 憑證 pfx 檔案的 [金鑰使用方法] 欄位中必須有 [數位簽章] 和 [KeyEncipherment] 值。
 - 憑證 pfx 檔案的 [增強金鑰使用方法] 欄位中必須有 [伺服器驗證 (1.3.6.1.5.5.7.3.1)] 和 [用戶端驗證 (1.3.6.1.5.5.7.3.2)]。

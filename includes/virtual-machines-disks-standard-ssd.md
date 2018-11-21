@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 75b3934a7329b4e83a0f36f79bbc8365eaf8a086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264032"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51571894"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>適用於 Azure 虛擬機器工作負載的標準 SSD 受控磁碟
 
@@ -46,9 +46,9 @@ ms.locfileid: "51264032"
 |E70 *    |16,384 GiB      |最高 2,000       |每秒最多 500 MiB        |
 |E80 *    |32,767 GiB      |最高 2,000       |每秒最多 500 MiB        |
 
-「標準 SSD」已設計成針對大多數 IO 作業均可提供個位數的毫秒延遲，並可提供高達上表所述限制的 IOPS 和輸送量。 實際的 IOPS 和輸送量有時可能會依流量模式而有所不同。 與 HDD 磁碟相比，「標準 SSD」將可提供延遲更低的更一致效能。
+「標準 SSD」已設計成針對大多數 IO 作業均可提供個位數的毫秒延遲，並可提供高達上表所述限制的 IOPS 和輸送量 (99% 的時間)。 實際的 IOPS 和輸送量有時可能會依流量模式而有所不同。 與 HDD 磁碟相比，「標準 SSD」將可提供延遲更低的更一致效能。
 
-另一方面，「進階 SSD」則是效能比「標準 SSD」更佳，不僅提供低延遲、高 IOPS/輸送量，甚至也與所佈建的磁碟效能更一致。 就重要的生產環境工作負載而言，這是建議的磁碟類型。 如果您的工作負載需要高效能、低延遲磁碟支援，您應該考慮使用進階儲存體。
+另一方面，「進階 SSD」則是效能比「標準 SSD」更佳，不僅提供低延遲、高 IOPS/輸送量，甚至也與所佈建的磁碟效能更一致。 就重要的生產環境工作負載而言，進階 SSD 是建議的磁碟類型。 如果您的工作負載需要高效能、低延遲磁碟支援，您應該考慮使用進階儲存體。
 
 與「進階 SSD」相同，「標準 SSD」使用的「IO 單位」大小也是 256 KiB。 要傳送的資料如果少於 256 KiB，就會視為 1 個 I/O 單位。 更大的 I/O 大小則會視為大小是 256 KiB 的多個 I/O。 例如，一個 1,100 KiB 的 I/O 會視為 5 個 I/O 單位。
 

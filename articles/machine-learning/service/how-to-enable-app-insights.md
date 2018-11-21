@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: fa425a5ecd8cf8f4c7b3516534b4c4f0f4257850
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085337"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578292"
 ---
 # <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>使用 Application Insights 監視您生產環境中的 Azure Machine Learning 模型
 
@@ -24,6 +24,10 @@ ms.locfileid: "50085337"
 * 例外狀況。
 
 [深入了解 Application Insights](../../application-insights/app-insights-overview.md)。 
+
+>[!NOTE]
+> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.74 版進行測試
+
 
 ## <a name="prerequisites"></a>必要條件
 * Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
@@ -109,8 +113,11 @@ ms.locfileid: "50085337"
 ## <a name="evaluate-data"></a>評估資料
 服務資料會儲存在您的 Application Insights 帳戶中，這個帳戶位於與 Azure Machine Learning 服務相同的資源群組內。
 若要檢視：
-1. 前往 [Azure 入口網站](https://portal.azure.com)中的資源群組，然後瀏覽至 Application Insights 資源。 
-2. [概觀] 索引標籤會顯示一組您服務的基本計量。
+1. 移至 [Azure 入口網站](https://portal.azure.com)中的 Machine Learning 服務工作區，然後按一下 Application Insights 連結。
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. 選取 [概觀] 索引標籤以查看一組您服務的基本計量。
 
    [![概觀](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -130,3 +137,7 @@ ms.locfileid: "50085337"
 
 ## <a name="next-steps"></a>後續步驟
 您也可以在生產環境中收集您模型上的資料。 閱讀[在生產環境中收集模型資料](how-to-enable-data-collection.md)一文。 
+
+
+## <a name="other-references"></a>其他參考資料
+* [適用於容器的 Azure 監視器](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)

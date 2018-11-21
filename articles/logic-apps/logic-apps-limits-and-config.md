@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/11/2018
-ms.openlocfilehash: 1ae350e74a9b56aaaa72b38a9e3a43bddfbefefc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232268"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346690"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -321,9 +321,9 @@ ms.locfileid: "50232268"
 | 英國西部 | 51.141.48.98、51.141.51.145、51.141.53.164、51.141.119.150 |
 | | |
 
-### <a name="connectors"></a>連接器
+### <a name="managed-connectors"></a>受控連接器
 
-若要支援[連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，設定您的防火牆設定，使其包含下列輸出 IP 位址。
+若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，設定您的防火牆設定，使其包含下列輸出 IP 位址。
 
 > [!IMPORTANT]
 > 如果您有現有的設定，請**在 2018 年 9 月 1 日前儘快**更新這些設定，使其包含並符合此清單中您邏輯應用程式所在區域的 IP 位址。 

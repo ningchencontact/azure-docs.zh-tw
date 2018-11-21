@@ -1,8 +1,18 @@
 ---
-標題：使用 Azure Site Recovery 針對 VMware 容錯移轉至 Azure 啟用 VMware VM 的複寫| Microsoft Docs' 描述：本文說明如何使用 Azure Site Recovery 針對容錯移轉至 Azure 啟用 VMware VM 的複寫。
-author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
-
-
+title: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行 VMware 災害復原 | Microsoft Docs
+description: 本文說明如何使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行災害復原。
+author: asgang
+ms.service: site-recovery
+ms.date: 07/06/2018
+ms.topic: conceptual
+ms.author: asgang
+ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566348"
+---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
 
@@ -68,10 +78,7 @@ author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptua
     ![啟用複寫](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. 按一下 [啟用複寫] 。 您可以在 [設定]  >  [作業]  >  [Site Recovery 作業] 中，追蹤 [啟用保護] 作業的進度。 執行 [完成保護] 作業之後，機器即準備好進行容錯移轉。
 
-> [!NOTE]
-> 如果機器已準備好進行推送安裝，則當啟用保護時，將會安裝行動服務元件。 在機器上安裝元件之後，保護工作會啟動並失敗。 在失敗之後，您需要手動將每一部電腦重新啟動。 重新啟動之後，保護作業再次開始，並且會發生初始複寫。
->
->
+
 
 ## <a name="view-and-manage-vm-properties"></a>檢視及管理 VM 屬性
 

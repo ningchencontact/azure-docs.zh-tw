@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 6d4f7fab0c36095d96cec0038a39744102e8972b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433747"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288249"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
 
@@ -33,7 +33,7 @@ App Service Environment 有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 的資
 
 來自 ASE 並傳送至網際網路的所有呼叫，都會透過為 ASE 指派的 VIP 離開 VNet。 此 VIP 的公用 IP 是來自 ASE 並傳送至網際網路之所有呼叫的來源 IP。 如果 ASE 中的應用程式會呼叫位於 VNet 中或跨 VPN 的資源，則來源 IP 就會是 ASE 所用子網路中的其中一個 IP。 因為 ASE 是位於 VNet 之內，所以它也可以存取 VNet 內的資源，而不需要任何額外設定。 如果 VNet 連線至您的內部部署網路，您 ASE 中的應用程式也擁有該處資源的存取權，而不需其他設定。
 
-![外部 ASE][1] 
+![外部 ASE][1] 
 
 如果您有外部 ASE，公用 VIP 也會是您 ASE 應用程式針對以下項目進行解析的端點：
 
@@ -52,7 +52,7 @@ App Service Environment 有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 的資
 |----------|---------|-------------|
 |  HTTP/HTTPS  | 可由使用者設定 |  80、443 |
 |  FTP/FTPS    | 可由使用者設定 |  21、990、10001-10020 |
-|  Visual Studio 遠端偵錯  |  可由使用者設定 |  4016、4018、4020、4022 |
+|  Visual Studio 遠端偵錯  |  可由使用者設定 |  4020、4022、4024 |
 
 這適用於您位於外部 ASE 或 ILB ASE 上的情況。 如果您是在外部 ASE 中，就會叫用公用 VIP 上的那些連接埠。 如果您是在 ILB ASE 中，就會叫用 ILB 上的那些連接埠。 如果您鎖定連接埠 443，可能會影響在入口網站中公開的某些功能。 如需詳細資訊，請參閱[入口網站相依性](#portaldep)。
 
@@ -73,7 +73,7 @@ ASE 連入存取相依性如下：
 
 | 使用 | 從 | 至 |
 |-----|------|----|
-| 管理 | App Service 管理位址 | ASE 子網路：454、455 |
+| 管理性 | App Service 管理位址 | ASE 子網路：454、455 |
 |  ASE 內部通訊 | ASE 子網路：所有連接埠 | ASE 子網路：所有連接埠
 |  允許 Azure Load Balancer 輸入 | Azure Load Balancer | ASE 子網路：所有連接埠
 |  應用程式指派的 IP 位址 | 應用程式指派的位址 | ASE 子網路：所有連接埠
@@ -90,7 +90,7 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 ### <a name="ase-outbound-dependencies"></a>ASE 連出相依性 ###
 
-針對連出存取，ASE 取決於多個外部系統。 那些系統相依性中有許多都會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的連出存取。 
+對於輸出存取，ASE 取決於多個外部系統。 那些系統相依性中有許多都會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的輸出存取。 
 
 連出相依性的完整清單列於說明[鎖定 App Service Environment 連出流量](./firewall-integration.md)的文件中。 如果 ASE 失去對其相依性的存取，就會停止運作。 當停止運作時間達到一定的長度之後，ASE 就會暫停。 
 
@@ -170,7 +170,7 @@ NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊�
 
 預設規則可讓 VNet 中的 IP 與 ASE 子網路通訊。 另一個預設規則可讓負載平衡器 (也稱為公用 VIP) 和 ASE 通訊。 您可以選取 [新增] 圖示旁邊的 [預設規則] 來查看預設規則。 如果您在顯示的 NSG 規則後面加入拒絕其他任何內容的規則，便可以防止 VIP 和 ASE 之間產生流量。 若要防止來自 VNet 內部的流量，請新增您自己的規則來允許輸入。 使用來源等於 AzureLoadBalancer，目的地為 **Any**，以及 **\*** 的連接埠範圍。 由於 NSG 規則是套用至 ASE 子網路，因此不需要特別指定目的地。
 
-如果指派 IP 位址給應用程式，請確定維持開啟連接埠。 若要查看連接埠，請選取 [App Service Environment] > [IP 位址]。  
+如果指派 IP 位址給應用程式，請確定維持開啟連接埠。 若要查看連接埠，請選取 [App Service Environment] > [IP 位址]。  
 
 下列輸出規則中顯示的所有項目都是需要的項目，但不包含最後一個項目。 它們可啟用針對本文章之前所提到之 ASE 相依性的網路存取。 如果封鎖它們任何一項，ASE 會停止運作。 清單中的最後一個項目可讓 ASE 和 VNet 中的其他資源通訊。
 

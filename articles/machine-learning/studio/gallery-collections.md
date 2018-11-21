@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 6b8cb104c734edf688d875a8e9674a660f2db4e2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834595"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346030"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>探索與分享 Azure AI 資源庫中的集合
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="collections"></a>集合
-您可以使用[集合](https://gallery.cortanaintelligence.com/collections)，將用於處理特定解決方案或概念的實驗、API 和其他資源庫項目劃分為同一個群組。 您可以將它們分組使用、儲存以供日後參考，或進行共用。
+您可以使用 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)中的[集合](https://gallery.cortanaintelligence.com/collections)，將用於處理特定解決方案或概念的實驗、API 和其他資源庫項目劃分為同一個群組。 您可以將它們分組使用、儲存以供日後參考，或進行共用。
 
 ## <a name="discover"></a>探索
 若要瀏覽[資源庫](http://gallery.cortanaintelligence.com)中的集合，請在 [更多] 下選取 [集合]。

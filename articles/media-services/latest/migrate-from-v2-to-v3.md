@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
-ms.openlocfilehash: 2f5c0ef63ba150fdad4aea1a0c65269611d56815
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8c3ff4af3b556614d0b2179dceed6cabd9cbabff
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247682"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616005"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>從媒體服務 v2 移動至 v3 的移轉指導
 
@@ -45,7 +45,7 @@ ms.locfileid: "51247682"
 * 介紹檔案型作業處理的 [Transform](transforms-jobs-concept.md) 概念。 Transform 可用來建置可重複使用的組態、建立 Azure Resource Manager 範本，並隔離多個客戶或租用戶之間的處理設定。
 * 一個 Asset 可以有[多個 StreamingLocator](streaming-locators-concept.md)，各自具有不同的 [動態封裝] 和 [動態加密] 設定。
 * [內容保護](content-key-policy-concept.md)可支援多索引鍵功能。
-* 您可以串流處理時間長度高達 24 小時的即時事件。
+* 使用媒體服務將單一位元速率貢獻饋送轉碼為有多個位元速率的輸出資料流時，您可以串流處理長達 24 小時的即時事件。
 * LiveEvent 上新的低延遲即時串流處理支援。
 * LiveEvent 預覽版可支援動態封裝和動態加密。 這可在預覽版上實現內容保護，以及 DASH 和 HLS 封裝。
 * LiveOuput 在使用上比 v2 API 中的 Program 實體更簡單。 
@@ -59,6 +59,7 @@ ms.locfileid: "51247682"
 * v3 SDK 現在已與儲存體 SDK 分離，其掌控力勝過所使用的儲存體 SDK，並可避免版本控制問題。 
 * 在 v3 API 中，所有的編碼位元速率單位都是「位元/秒」。 這不同於 v2 媒體編碼器標準預設。 例如，v2 中的位元速率會指定為 128 (kbps)，但在 v3 中，則會是 128000 (位元/秒)。 
 * 實體 AssetFiles、AccessPolicies 和 IngestManifests 不存在於 v3 中。
+* IAsset.ParentAssets 屬性不在 v3 中。
 * ContentKey 不再是實體，它現在是 StreamingLocator 的屬性。
 * 事件方格支援取代了 NotificationEndpoint。
 * 下列實體已重新命名

@@ -1,41 +1,32 @@
 ---
-title: Azure 儲存體延展性和效能目標 | Microsoft Docs
-description: 了解 Azure 儲存體的延展性和效能目標，包括標準和進階儲存體帳戶的容量、要求率以及輸入和輸出頻寬。 了解每一項 Azure 儲存體服務內分割的效能目標。
+title: Azure 儲存體延展性和效能目標
+description: 了解延展性和效能目標，包括標準 Azure 儲存體帳戶的容量、要求率以及輸入和輸出頻寬。
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/08/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93e09f3ab6780eb9ce7fa29b4554b53d796b6837
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241309"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564947"
 ---
-# <a name="azure-storage-scalability-and-performance-targets"></a>Azure 儲存體延展性和效能目標
-## <a name="overview"></a>概觀
-本文說明 Azure 儲存體的延展性和效能主題。 如需其他 Azure 限制的摘要，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../../azure-subscription-service-limits.md)。
+# <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>標準儲存體帳戶的 Azure 儲存體延展性和效能目標
 
-> [!NOTE]
-> 所有儲存體帳戶都能在新的一般網路拓撲上執行，並支援本文中說明的延展性和效能目標，無論它們在何時建立。 如需 Azure 儲存體平面網路架構及延展性的詳細資訊，請參閱 [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)。
-> 
+本文詳細說明標準 Azure 儲存體帳戶的延展性和效能目標。 列於此處的延展性和效能目標都是高階目標，但仍可達成。 在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。 
 
-> [!IMPORTANT]
-> 列於此處的延展性和效能目標都是高階目標，但仍可達成。 在所有情況下，您的儲存體帳戶所達到的要求率和頻寬取決於已儲存物件的大小、使用的存取模式、應用程式執行的工作負載類型。 請務必測試您的服務，以判斷效能是否達到您的要求。 如果可能，請避免流量率突增，確保流量在不同分割之間妥善分散。
-> 
-> 當您的應用程式達到分割區可處理的工作負載限制時，Azure 儲存體會開始傳回錯誤碼 503 (伺服器忙碌) 或錯誤碼 500 (作業逾時) 回應。 如果發生這些錯誤，您的應用程式應該針對重試使用指數輪詢原則。 指數輪詢讓分割的負載減少，也能減輕該分割流量的尖峰。
-> 
-> 
+請務必測試您的服務，以判斷效能是否達到您的要求。 如果可能，請避免流量率突增，確保流量在不同分割之間妥善分散。
 
-如果您應用程式的需求超過單一儲存體帳戶的延展性目標，您可以將應用程式建置為使用多個儲存體帳戶。 接著您可以在這些儲存體帳戶之間分割資料物件。 如需批量價格的詳細資訊，請參閱 [Azure 儲存體價格](https://azure.microsoft.com/pricing/details/storage/) 。
+當您的應用程式達到分割區可處理的工作負載限制時，Azure 儲存體會開始傳回錯誤碼 503 (伺服器忙碌) 或錯誤碼 500 (作業逾時) 回應。 如果發生 503 錯誤，請考慮將您的應用程式修改為針對重試使用指數輪詢原則。 指數輪詢讓分割的負載減少，也能減輕該分割流量的尖峰。
 
-## <a name="scalability-targets-for-a-storage-account"></a>儲存體帳戶的延展性目標
+## <a name="standard-storage-account-scale-limits"></a>標準儲存體帳戶縮放限制
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-### <a name="storage-resource-provider-limits"></a>儲存體資源提供者限制 
+## <a name="storage-resource-provider-scale-limits"></a>儲存體資源提供者縮放限制 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -48,7 +39,7 @@ ms.locfileid: "51241309"
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Azure 檔案同步擴展目標
-藉由 Azure 檔案同步，我們已儘可能嘗試設計沒有限制的使用方式，但並非總是可行。 下表指出我們測試的界限，及哪些目標實際上是固定限制：
+Azure 檔案同步的設計目標是無限制的使用方式，但無限制的使用方式不一定行得通。 下表指出 Microsoft 的測試界限，也指出哪些目標是固定限制：
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -63,5 +54,4 @@ ms.locfileid: "51241309"
 * [Azure 訂用帳戶和服務限制、配額與限制](../../azure-subscription-service-limits.md)
 * [Azure 儲存體複寫](../storage-redundancy.md)
 * [Microsoft Azure 儲存體效能與延展性檢查清單](../storage-performance-checklist.md)
-* [Microsoft Azure 儲存體：具有高度一致性的高可用性雲端儲存體服務。](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

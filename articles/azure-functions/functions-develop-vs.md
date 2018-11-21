@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036422"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515364"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -189,7 +189,7 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 您在 local.settings.json 中所新增的所有設定，也必須新增至 Azure 中的函式應用程式。 當您發行專案時，不會自動上傳這些設定。
 
-將必要設定上傳至 Azure 中函式應用程式的最簡單方式，是使用**管理應用程式設定...** 連結，該連結會在您成功發行專案之後顯示。 
+將必要設定上傳至 Azure 中函式應用程式的最簡單方式，是使用**管理應用程式設定...** 連結，該連結會在您成功發行專案之後顯示。
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+[本機] 代表 local.settings.json 檔案中的一個設定值，而 [遠端] 是 Azure 的函式應用程式中的目前設定。  選擇 [新增設定] 來建立新的應用程式設定。 使用 [從本機插入值] 連結，將設定值複製到 [遠端] 欄位。 當您選取 [確定] 時，暫止的變更會寫入至本機設定檔案和函式應用程式。
+
 您也可以使用下列其中一種方式管理應用程式設定：
 
 * [使用 Azure 入口網站](functions-how-to-use-azure-function-app-settings.md#settings)。
 * [使用 Azure Functions Core Tools 中的 `--publish-local-settings` 發行選項](functions-run-local.md#publish)。
-* [使用 Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。 
+* [使用 Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set)。
 
 ## <a name="monitoring-functions"></a>監視函式
 

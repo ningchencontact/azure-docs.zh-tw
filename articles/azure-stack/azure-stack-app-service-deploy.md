@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166877"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614050"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49166877"
 使用本文中的指引在 Azure Stack 中部署 App Service。
 
 > [!IMPORTANT]  
-> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
 
 您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要讓使用者能夠建立這些應用程式，您需要：
 
@@ -74,8 +74,8 @@ ms.locfileid: "49166877"
 
    b. 在 [Azure Stack 訂用帳戶] 中，選取 [預設提供者訂用帳戶]。
 
-     >[!NOTE]
-     >目前，App Service 只能部署到**預設提供者訂用帳戶**。
+     > [!IMPORTANT]  
+     > App Service **必須**部署到**預設提供者訂用帳戶**。
 
    c. 在 [Azure Stack 位置] 中，選取對應到您要部署的區域位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
 
@@ -198,7 +198,7 @@ ms.locfileid: "49166877"
 
 1. 在 Azure Stack 管理入口網站中，前往 [管理 - App Service]。
 
-2. 在狀態下的概觀，查看 [狀態]是否顯示為 [所有角色都已準備完成]。
+2. 在概觀中，於狀態之下，查看 [狀態] 是否顯示 [所有角色均已就緒]。
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 

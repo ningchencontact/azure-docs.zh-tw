@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: 3cd9b5a2bfed49ee712b89040477389ba9ea7715
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389627"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567038"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 串流分析中的異常偵測
 
@@ -31,7 +31,7 @@ AnomalyDetection 運算子可偵測三種類型的異常：
 
 * **緩慢負向趨勢**：一段時間緩慢下降的趨勢。  
 
-使用 AnomalyDetection 運算子時，您必須指定 **Limit Duration** 子句。 此子句可指定在偵測異常時應該考量的時間間隔 (在歷程記錄中從目前事件回推的距離)。 使用  **When**  子句，此運算子可選擇性地僅限於符合特定屬性或條件的事件。 此運算子也可以根據  **Partition by**  子句中指定的索引鍵，選擇性地分開處理事件群組。 每個分割區會獨立進行訓練和預測。 
+使用 AnomalyDetection 運算子時，您必須指定 **Limit Duration** 子句。 此子句可指定在偵測異常時應該考量的時間間隔 (在歷程記錄中從目前事件回推的距離)。 使用 **When** 子句，此運算子可選擇性地僅限於符合特定屬性或條件的事件。 此運算子也可以根據 **Partition by** 子句中指定的索引鍵，選擇性地分開處理事件群組。 每個分割區會獨立進行訓練和預測。 
 
 ## <a name="syntax-for-anomalydetection-operator"></a>AnomalyDetection 運算子的語法
 
@@ -45,11 +45,11 @@ AnomalyDetection 運算子可偵測三種類型的異常：
 
 * **scalar_expression** - 執行異常偵測的純量運算式。 此參數允許的值包含可傳回單一 (純量) 值的 Float 或 Bigint 資料類型。 不允許萬用字元運算式 **\*** 。 純量運算式不能包含其他分析函式或外部函式。 
 
-* **partition_by_clause** - `PARTITION BY <partition key>` 子句會將學習和訓練劃分為單獨的分割區。 換句話說，`<partition key>` 的每個值會使用單獨的模型，只有具備該值的事件才會用於該模型中的學習與訓練。 例如，下列查詢僅對相同感應器的其他讀數來訓練和評分某一讀數：
+* **partition_by_clause**  - `PARTITION BY <partition key>` 子句會將學習和訓練劃分為單獨的分割區。 換句話說，`<partition key>` 的每個值會使用單獨的模型，只有具備該值的事件才會用於該模型中的學習與訓練。 例如，下列查詢僅對相同感應器的其他讀數來訓練和評分某一讀數：
 
   `SELECT sensorId, reading, ANOMALYDETECTION(reading) OVER(PARTITION BY sensorId LIMIT DURATION(hour, 1)) FROM input`
 
-* **limit_duration 子句** `DURATION(<unit>, <length>)` - 指定在偵測異常時應該考量的時間間隔 (在歷程記錄中從目前事件回推的距離)。 如需支援單位及其縮寫的詳細說明，請參閱 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics)。 
+* **limit_duration 子句** `DURATION(<unit>, <length>)` - 指定在偵測異常時應該考量的時間間隔 (在歷程記錄中從目前事件回推的距離)。 如需支援單位及其縮寫的詳細說明，請參閱 [DATEDIFF](https://msdn.microsoft.com/azure/stream-analytics/reference/datediff-azure-stream-analytics)。 
 
 * **when_clause** - 指定異常偵測運算中考量之事件的布林條件。
 

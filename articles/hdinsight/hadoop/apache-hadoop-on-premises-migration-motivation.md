@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: f899c2fb871ee528219bd48e94de62746626447f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416115"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288113"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -180,7 +180,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 |使用 Azure 監視器與警示或整合協力廠商監視|使用 Azure 監視器與警示||
 |**主題**：**安全性喜好設定** |||
 |私人且受保護的資料管線？|是||
-|是否使用網域加入叢集 (ESPP)？|     是||
+|是否使用網域加入叢集 (ESP)？|     是||
 |是否將內部部署 AD 同步處理至雲端？|     是||
 |否。 要同步處理的 AD 使用者數目？|          100||
 |是否將密碼同步套雲端？|    是||

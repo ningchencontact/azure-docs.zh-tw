@@ -1,5 +1,5 @@
 ---
-title: 徹底保護您的物聯網
+title: 徹底保護物聯網 (IoT) 安全性
 description: 本文說明 Microsoft Azure IoT 解決方案加速器的內建安全性功能
 author: robinsh
 ms.service: iot-fundamentals
@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 043ba54f3607cd669245e7defbf32aeb586ae292
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5d4034aa3ea2ceb3a3c294e05952461d46835895
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066950"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286957"
 ---
 [!INCLUDE [iot-security-ground-up](../../includes/iot-security-ground-up.md)]
 

@@ -10,12 +10,12 @@ author: raymondlaghaeian
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3ab32388e0a35f4abf3866aa0a84ee0628b0570c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: efaaa196220213877283040120d6c2eeed86dbf3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318192"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346315"
 ---
 # <a name="how-to-deploy-models-from-azure-machine-learning-service-to-azure-kubernetes-service"></a>如何從 Azure Machine Learning 服務將模型部署至 Azure Kubernetes Service
 
@@ -63,6 +63,9 @@ Azure Kubernetes Service 使用 Docker 映像。 若要建立映像，請使用�
 1. 若要設定映像，必須建立評分指令碼與環境檔案。 如需建立指令碼與環境檔案的範例，請參閱下列映像分類範例小節：
 
     * [建立評分指令碼 (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > 評分指令碼會接收用戶端所提交的資料，並將它傳遞至模型進行評分。 記載指令碼和模型所預期的資料結構。 建置用戶端時擁有這份文件，即可輕鬆地取用 Web 服務。
 
     * [建立環境檔案 (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -190,3 +193,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## <a name="next-steps"></a>後續步驟
+
+了解如何[取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)。

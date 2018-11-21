@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 9f88e71df7697156e0745aeaf6b989548bcc223f
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a4a9fefa98d30d0f9815a935f000c8a663dffd21
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945106"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514191"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Azure Stack 憑證簽署要求產生
 
@@ -29,7 +29,7 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
  - **標準憑證要求**  
     根據[產生適用於 Azure Stack 部署的 PKI 憑證](azure-stack-get-pki-certs.md)提出要求。
  - **平台即服務**  
-    對 [Azure Stack 公開金鑰基礎結構憑證要求 - 選擇性 PaaS 憑證](azure-stack-pki-certs.md#optional-paas-certificates)中所指定的憑證，選擇性地要求平台即服務 (PaaS) 名稱。
+    對於 [Azure Stack 公開金鑰基礎結構憑證要求 - 選擇性 PaaS 憑證](azure-stack-pki-certs.md#optional-paas-certificates)中所指定的憑證，您可以要求平台即服務 (PaaS) 名稱。
 
 
 
@@ -102,7 +102,7 @@ Azure Stack 整備檢查工具 (AzsReadinessChecker) 會執行下列憑證要求
 
     若要包含 PaaS 服務，請指定 ```-IncludePaaS``` 參數
 
-7. 或者，在開發/測試環境中。 若要產生具有多個主體別名的單一憑證要求，請新增 **-RequestType SingleCSR** 參數和值 (**不**建議用於生產環境)：
+7. 或者，對於開發/測試環境，若要產生具有多個主體別名的單一憑證要求，請新增 **-RequestType SingleCSR** 參數和值 (**不**建議用於生產環境)：
 
     ```PowerShell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem

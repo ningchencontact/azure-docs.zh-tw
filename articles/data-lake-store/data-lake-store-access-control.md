@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432615"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567480"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的存取控制
 
-Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDFS 又衍生自 POSIX 存取控制模型。 此文章摘要說明 Data Lake Storage Gen1 存取控制模型的基本概念。 
+Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDFS 又衍生自 POSIX 存取控制模型。 本文摘要說明 Data Lake Storage Gen1 存取控制模型的基本概念。 
 
 ## <a name="access-control-lists-on-files-and-folders"></a>檔案和資料夾的存取控制清單
 
@@ -128,9 +128,11 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 在 POSIX ACL 中，每個使用者都與「主要群組」相關聯。 例如，使用者 "alice" 可能屬於 "finance" 群組。 Alice 也可能屬於多個群組，但一定有一個群組指定為其主要群組。 在 POSIX 中，當 Alice 會建立檔案時，該檔案的擁有群組會設定為她的主要群組，在此案例中為 "finance"。 除此之外，擁有群組的作用類似於指派給其他使用者/群組的權限。
 
+因為 Data Lake Storage Gen1 中的使用者沒有相關聯的「主要群組」，所以會如下指派擁有群組。
+
 **指派新檔案或資料夾的擁有群組**
 
-* **案例 1**：根資料夾 "/"。 建立 Data Lake Storage Gen1 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為建立帳戶的使用者。
+* **案例 1**：根資料夾 "/"。 建立 Data Lake Storage Gen1 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為全部為零的 GUID。  這個值不允許任何存取。  將這類時間指派給群組以前，這是一個預留位置。
 * **案例 2** (其他所有案例)：建立新項目時，會從父資料夾複製擁有群組。
 
 **變更擁有群組**
@@ -140,7 +142,9 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 * 擁有使用者，如果擁有使用者也是目標群組的成員。
 
 > [!NOTE]
-> 擁有群組「無法」變更檔案或資料夾的 ACL。  如果將擁有群組設定為在上述根資料夾案例 (**案例 1**) 中建立帳戶的使用者，則無法透過擁有群組提供權限給單一使用者帳戶。  您可以將此權限指派給有效的使用者群組 (如果適用的話)。
+> 擁有群組「無法」變更檔案或資料夾的 ACL。
+>
+> 若為在 2018 年 9 月或之前建立的帳戶，擁有群組已設定為在上述根資料夾案例 (**案例 1**) 中建立帳戶的使用者。  單一使用者帳戶不適用於透過擁有群組提供權限，因此此預設設定不會授與任何權限。 您可以將此權限指派給有效的使用者群組。
 
 
 ## <a name="access-check-algorithm"></a>存取檢查演算法

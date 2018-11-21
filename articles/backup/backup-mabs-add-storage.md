@@ -1,32 +1,33 @@
 ---
-title: 在 Azure 備份伺服器 v2 中使用新式備份儲存體
-description: 了解 Azure 備份伺服器 v2 中的新功能。 本文說明如何升級您的備份伺服器安裝。
+title: 在 Azure 備份伺服器中使用新式備份儲存體
+description: 了解 Azure 備份伺服器中的新功能。 本文說明如何升級您的備份伺服器安裝。
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/15/2017
-ms.author: markgal
-ms.openlocfilehash: 7c583ea048ed1837c662869c62039165aaa3c024
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 11/13/2018
+ms.author: markgal; adigan; kasinh
+ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606749"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612962"
 ---
-# <a name="add-storage-to-azure-backup-server-v2"></a>在 Azure 備份伺服器 v2 中新增儲存體
+# <a name="add-storage-to-azure-backup-server"></a>在 Azure 備份伺服器中新儲存體
 
-Azure 備份伺服器 v2 隨附 System Center 2016 Data Protection Manager 新式備份儲存體。 新式備份儲存體可節省 50% 的儲存空間、備份速度快三倍，且更具儲存效率。 它也提供可感知工作負載的儲存體。 
+Azure 備份伺服器 V2 和更新版本隨附 System Center 2016 Data Protection Manager 新式備份儲存體。 新式備份儲存體可節省 50% 的儲存空間、備份速度快三倍，且更具儲存效率。 它也提供可感知工作負載的儲存體。
 
 > [!NOTE]
-> 若要使用新式備份儲存體，您必須在 Windows Server 2016 上執行備份伺服器 v2。 如果您在舊版 Windows Server 上執行備份伺服器 v2，Azure 備份伺服器將無法利用新式備份儲存體。 相反地，它保護工作負載的方式會和備份伺服器 v1 一樣。 如需詳細資訊，請參閱備份伺服器版本[保護對照表](backup-mabs-protection-matrix.md)。
+> 若要使用新式備份儲存體，您必須在 Windows Server 2016 上執行備份伺服器 V2 或 V3 或在 Windows Server 2019 上執行 V3。
+> 如果您在舊版 Windows Server 上執行備份伺服器 V2，Azure 備份伺服器將無法利用新式備份儲存體。 相反地，它保護工作負載的方式會和備份伺服器 V1 一樣。 如需詳細資訊，請參閱備份伺服器版本[保護對照表](backup-mabs-protection-matrix.md)。
 
-## <a name="volumes-in-backup-server-v2"></a>備份伺服器 v2 中的磁碟區
+## <a name="volumes-in-backup-server"></a>備份伺服器中的磁碟區
 
-備份伺服器 v2 接受儲存體磁碟區。 當您新增磁碟區時，備份伺服器會將磁碟區格式化為新式備份儲存體所需要的復原檔案系統 (ReFS)。 若要新增磁碟區，並於稍後需要時加以擴充，建議您使用此工作流程：
+備份伺服器 V2 和更新版本接受儲存體磁碟區。 當您新增磁碟區時，備份伺服器會將磁碟區格式化為新式備份儲存體所需要的復原檔案系統 (ReFS)。 若要新增磁碟區，並於稍後需要時加以擴充，建議您使用此工作流程：
 
-1.  在 VM 上設定備份伺服器 v2。
+1.  在 VM 上設定備份伺服器。
 2.  在儲存集區的虛擬磁碟上建立磁碟區：
     1.  在儲存集區中新增磁碟，並建立簡單配置的虛擬磁碟。
     2.  新增其他磁碟，並擴充虛擬磁碟。
@@ -36,9 +37,9 @@ Azure 備份伺服器 v2 隨附 System Center 2016 Data Protection Manager 新�
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>為新式備份儲存體建立磁碟區
 
-以磁碟區作為磁碟儲存體來使用備份伺服器 v2 可協助您掌控儲存體。 磁碟區可以是單一磁碟。 不過，如果您日後想要擴充儲存體，請從使用儲存體空間所建立的磁碟中建立磁碟區。 如果您想要擴充磁碟區以供儲存備份，這麼做會有所幫助。 本節會提供最佳做法，讓您了解如何建立具有此設定的磁碟區。
+以磁碟區作為磁碟儲存體來使用備份伺服器 V2 或更新版本可協助您掌控儲存體。 磁碟區可以是單一磁碟。 不過，如果您日後想要擴充儲存體，請從使用儲存體空間所建立的磁碟中建立磁碟區。 如果您想要擴充磁碟區以供儲存備份，這麼做會有所幫助。 本節會提供最佳做法，讓您了解如何建立具有此設定的磁碟區。
 
-1. 在 [伺服器管理員] 中，選取 [檔案和存放服務] > [磁碟區] > [儲存集區]。 在 [實體磁碟] 底下，選取 [新增儲存集區]。 
+1. 在 [伺服器管理員] 中，選取 [檔案和存放服務] > [磁碟區] > [儲存集區]。 在 [實體磁碟] 底下，選取 [新增儲存集區]。
 
     ![建立新的儲存集區](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
@@ -91,10 +92,41 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 ![管理員主控台中的磁碟和磁碟區](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
+
+## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>將舊式儲存體移轉至新式備份儲存體
+在安裝或升級為備份伺服器 V2，並將作業系統升級為 Windows Server 2016 之後，請將您的保護群組更新為使用新式備份儲存體。 根據預設，系統不會變更保護群組。 保護群組會繼續依照一開始的設定方式運作。
+
+您可以選擇是否將保護群組更新為使用新式備份儲存體。 若要更新保護群組，請使用保留資料選項來停止保護所有資料來源。 然後，將資料來源新增至新的保護群組。
+
+1. 在管理員主控台中選取 [保護] 功能。 在 [保護群組成員] 清單中，以滑鼠右鍵按一下成員，然後選取 [停止保護成員]。
+
+  ![停止保護成員](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+
+2. 在 [從群組中移除] 對話方塊中，檢閱儲存集區中已使用的磁碟空間和可用空間。 預設值是讓復原點留在磁碟上，並讓復原點按照所關聯的保留原則來到期。 按一下 [確定]。
+
+  如果您想要立即將已使用的磁碟空間歸還給可用的儲存集區，請選取 [刪除磁碟上的複本] 核取方塊，以刪除與該成員相關聯的備份資料 (與復原點)。
+
+  ![[從群組中移除] 對話方塊](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+
+3. 建立使用新式備份儲存體的保護群組。 納入未受保護的資料來源。
+
+## <a name="add-disks-to-increase-legacy-storage"></a>新增磁碟以增加舊式儲存體
+
+如果您想要在備份伺服器中使用舊式儲存體，您可能需要新增磁碟以增加舊式儲存體。
+
+若要新增磁碟儲存體：
+
+1. 在管理員主控台中，選取 [管理] > [磁碟儲存體] > [新增]。
+
+    ![[新增磁碟儲存體] 對話方塊](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+
+4. 在 [新增磁碟儲存體] 對話方塊中選取 [新增磁碟]。
+
+5. 在可用磁碟清單中選取您要新增的磁碟，選取 [新增]，然後選取 [確定]。
+
 ## <a name="next-steps"></a>後續步驟
 在安裝備份伺服器之後，請了解如何準備您的伺服器或開始保護工作負載。
 
 - [準備備份伺服器工作負載](backup-azure-microsoft-azure-backup.md)
 - [使用備份伺服器來備份 VMware 伺服器](backup-azure-backup-server-vmware.md)
 - [使用備份伺服器來備份 SQL Server](backup-azure-sql-mabs.md)
-

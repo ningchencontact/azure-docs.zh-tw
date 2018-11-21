@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/29/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 37492e22b5615ae0b266bc8b2bb6d8f039fdaabe
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 6b2a6d84fffecbe30bd2a47c795ee6143458ee2b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336850"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344989"
 ---
 # <a name="azure-active-directory-b2c-modify-sign-up-to-add-new-claims-and-configure-user-input"></a>Azure Active Directory B2C︰修改註冊以新增宣告並設定使用者輸入。
 
@@ -277,8 +277,8 @@ ms.locfileid: "43336850"
 
 ## <a name="next-steps"></a>後續步驟
 
-藉由變更下列 TechnicalProfiles，將新的宣告新增至社交帳戶登入的的流程。 社交/同盟帳戶登入會使用這些項目，以 alternativeSecurityId 作為定位器來寫入和讀取使用者資料。
-```xml
-<TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
-<TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-```
+如果您的政策支援社交帳戶，請藉由變更下列技術設定檔，將新的宣告新增至社交帳戶登入的的流程。 社交帳戶登入會使用這些宣告來收集並寫入使用者的資料。
+
+1. 找出技術設定檔 **SelfAsserted-Social** 並新增輸出宣告。 **OutputClaims** 中宣告的順序會控制 Azure AD B2C 在螢幕上呈現宣告的順序。 例如： `<OutputClaim ClaimTypeReferenceId="city" />`。
+2. 找出技術設定檔 **AAD-UserWriteUsingAlternativeSecurityId** 並新增保存宣告。 例如： `<PersistedClaim ClaimTypeReferenceId="city" />`。
+3. 找出技術設定檔 **AAD-UserReadUsingAlternativeSecurityId** 並新增輸出宣告。 例如： `<OutputClaim ClaimTypeReferenceId="city" />`。

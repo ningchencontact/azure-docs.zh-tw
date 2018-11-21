@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: c8e4e84d7ae0defdb053108dc668956062c47ea5
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: a4569505cb9a42f6682391a8b06725dea5e539dc
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962379"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344964"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -44,11 +44,11 @@ ms.locfileid: "50962379"
 
 在最新版本中，已完成下列新的改進功能。
 
-- 新的即時低延遲模式 (10 秒端對端)。
+- 新的低延遲模式。 如需詳細資訊，請參閱[延遲](#latency)。
 - 改進的 RTMP 支援 (更高的穩定性及更多來源編碼器支援)。
 - RTMPS 安全內嵌。
 
-    當您建立即時事件時，現在會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。   
+    當您建立 LiveEvent 時，您會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。   
 - 24 小時制的轉碼支援。 
 - 已改善透過 SCTE35 在 RTMP 中執行的廣告訊號支援。
 
@@ -82,7 +82,7 @@ ms.locfileid: "50962379"
 
 下表比較兩種 LiveEvent 類型的功能。
 
-| 功能 | 即時通行 LiveEvent | 基本 LiveEvent |
+| 功能 | 即時通行 LiveEvent | 標準 LiveEvent |
 | --- | --- | --- |
 | 單一位元速率輸入會在雲端編碼為多重位元速率 |否 |是 |
 | 最大解析度、分層數目 |4Kp30  |720p、6 層、30 fps |
@@ -126,6 +126,20 @@ LiveEvent 支援最多三個同時執行的 LiveOutput，因此您可以建立�
 讓資料流流入 LiveEvent 之後，您即可建立「資產」、LiveOutput 和 StreamingLocator 來開始串流事件。 這會封存資料流，並透過 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) 將它提供給檢視器。
 
 建立媒體服務帳戶時，預設串流端點會新增至「已停止」狀態的帳戶。 若要開始串流內容並利用動態封裝和動態加密功能，您想要串流內容的串流端點必須處於「執行中」狀態。
+
+## <a name="latency"></a>Latency
+
+本節討論使用低延遲設定和各種播放程式時，您會看到的典型結果。 結果會隨著 CDN 和網路延遲而有所不同。
+
+若要使用新的 LowLatency 功能，您可以在 LiveEvent 上將 **StreamOptionsFlag** 設定為 **LowLatency**。 啟動並執行資料流後，您可以使用 [Azure 媒體播放器](http://ampdemo.azureedge.net/) (AMP) 示範頁面，並將播放選項設定為使用 [低延遲啟發學習法設定檔]。
+
+### <a name="pass-through-liveevents"></a>傳遞 LiveEvent
+
+||已啟用 2 秒 GOP 低延遲|已啟用 1 秒 GOP 低延遲|
+|---|---|---|
+|AMP 中的 DASH|10 秒|8 秒|
+|原生 iOS 播放程式上的 HLS|14 秒|10 秒|
+|Mixer Player 中的 HLS.JS|30 秒|16 秒|
 
 ## <a name="billing"></a>計費
 

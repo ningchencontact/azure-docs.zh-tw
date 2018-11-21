@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: cca9307fd849f6b8537cf7484d2e56e1a710295b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257185"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567905"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
@@ -70,6 +70,17 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 - <!-- 2702741 -  IS, ASDK --> 過去針對使用「動態」配置方法來部署的公用 IP，不保證在發出 Stop-Deallocate 之後還能予以保留，此問題已修正。 現在這些 IP 會予以保留。
 
 - <!-- 3078022 - IS, ASDK --> 如果 VM 在 1808 版本以前停止解除配置，則無法在 1808 更新後重新配置。  此問題已在 1809 版本修正。 經過此次修正，過去在此狀態的執行個體和無法啟動的執行個體將可於 1809 版本中啟動。 此修正也可避免此問題再次發生。
+
+<!-- 3090289 – IS, ASDK --> 
+- 修正了在套用 1808 更新後的問題，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：
+
+   1. 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
+      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
+      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
+   2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
+      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992)。
+      2. 依照[這篇文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。
+
 
 ### <a name="changes"></a>變更
 
@@ -128,7 +139,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 ### <a name="prerequisites"></a>必要條件
 
-- 在套用 1809 之前，請安裝 1808 的最新 Azure Stack Hotfix。 如需詳細資訊，請參閱 [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920)。
+- 在套用 1809 之前，請安裝 1808 的最新 Azure Stack Hotfix。 如需詳細資訊，請參閱 [KB 4471992 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)。
 
   > [!TIP]  
   > 訂閱下列 *RRS* 或 *Atom* 摘要，以掌握最新的 Azure Stack Hotfix：
@@ -157,9 +168,8 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 > [!Important]  
 > 讓您的 Azure Stack 部署準備使用延伸主機，這是由後續的更新套件所支援。 使用下列指導方針準備您的系統：[Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)。
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+在安裝此更新之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
+- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
@@ -211,6 +221,8 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
    - *縮放單位節點已離線*
    
   執行 [Test-AzureStack](azure-stack-diagnostic-test.md) Cmdlet 來確認基礎結構角色執行個體的健康情況及縮放單位節點。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 偵測不到任何問題，可以忽略這些警示。 如果偵測到問題，可以嘗試使用系統管理員入口網站或 PowerShell 啟動基礎結構角色執行個體或節點。
+
+  此問題已在最新 [1809 Hotfix 版本](https://support.microsoft.com/help/4471993/)中修正，所以如果您遇到此問題，請務必安裝此 Hotfix。 
 
 <!-- 1264761 - IS ASDK -->  
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  

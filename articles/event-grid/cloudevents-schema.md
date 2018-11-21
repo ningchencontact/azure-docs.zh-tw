@@ -6,24 +6,26 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 4f1f0e95ae74ef41ed91be55f4c964671e8f723b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3865a94192a65a2cb8a761cc1da30317f605548b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044544"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287195"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>透過事件方格使用 CloudEvents 結構描述
 
-除了[預設事件結構描述](event-schema.md)以外，Azure 事件方格原本也就支援 [CloudEvents JSON 結構描述](https://github.com/cloudevents/spec/blob/master/json-format.md)中的事件。 [CloudEvents](http://cloudevents.io/) 是用來以常見的方式說明事件資料的[開放式標準規格](https://github.com/cloudevents/spec/blob/master/spec.md)。
+除了[預設事件結構描述](event-schema.md)以外，Azure 事件方格原本也就支援 [CloudEvents JSON 結構描述](https://github.com/cloudevents/spec/blob/master/json-format.md)中的事件。 [CloudEvents](http://cloudevents.io/) 是用來說明事件資料的[開放式規格](https://github.com/cloudevents/spec/blob/master/spec.md)。
 
 CloudEvents 提供用以發佈和取用雲端型事件的常見事件結構描述，可簡化互通性。 此結構描述可支援統一的工具、路由和處理事件的標準方式，以及將外部事件結構描述還原序列化的通用方式。 透過通用結構描述，您將可更輕鬆地跨平台整合工作。
 
 目前有數個[共同作業者](https://github.com/cloudevents/spec/blob/master/community/contributors.md) (包括 Microsoft) 正透過 [Cloud Native Compute Foundation](https://www.cncf.io/) 建置 CloudEvents。 目前可用的版本為 0.1。
 
 本文說明如何透過事件方格使用 CloudEvents 結構描述。
+
+## <a name="install-preview-feature"></a>安裝預覽功能
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -91,12 +93,12 @@ CloudEvents v0.1 具有下列可用屬性：
 
 ### <a name="input-schema"></a>輸入結構描述
 
-若要將自訂主題的輸入結構描述設為 CloudEvents，請在建立自訂主題 `--input-schema cloudeventv01schema` 時，在 Azure CLI 中使用下列參數。 自訂主題現在會預期 CloudEvents v0.1 格式的傳入事件。
+當您建立自訂主題時，您可以設定自訂主題的輸入結構描述。
 
-若要建立事件方格主題，請使用：
+對於 Azure CLI，請使用：
 
-```azurecli
-# if you have not already installed the extension, do it now.
+```azurecli-interactive
+# If you have not already installed the extension, do it now.
 # This extension is required for preview features.
 az extension add --name eventgrid
 
@@ -107,24 +109,50 @@ az eventgrid topic create \
   --input-schema cloudeventv01schema
 ```
 
+對於 PowerShell，請使用：
+
+```azurepowershell-interactive
+# If you have not already installed the module, do it now.
+# This module is required for preview features.
+Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
+
+New-AzureRmEventGridTopic `
+  -ResourceGroupName gridResourceGroup `
+  -Location westcentralus `
+  -Name <topic_name> `
+  -InputSchema CloudEventV01Schema
+```
+
 CloudEvents 的目前版本不支援事件的批次處理。 若要透過 CloudEvent 結構描述將事件發佈至主題，請個別發佈每個事件。
 
 ### <a name="output-schema"></a>輸出結構描述
 
-若要將事件訂閱的輸出結構描述設為 CloudEvents，請在建立事件訂閱 `--event-delivery-schema cloudeventv01schema` 時，在 Azure CLI 中使用下列參數。 此事件訂閱的事件現在會以 CloudEvents v0.1 格式傳遞。
+當您建立事件訂用帳戶時，您可以設定輸出結構描述。
 
-若要建立事件訂閱，請使用：
+對於 Azure CLI，請使用：
 
-```azurecli
+```azurecli-interactive
+topicID=$(az eventgrid topic show --name <topic-name> -g gridResourceGroup --query id --output tsv)
+
 az eventgrid event-subscription create \
   --name <event_subscription_name> \
-  --topic-name <topic_name> \
-  -g gridResourceGroup \
+  --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
   --event-delivery-schema cloudeventv01schema
 ```
 
-CloudEvents 的目前版本不支援事件的批次處理。 為 CloudEvent 結構描述設定的事件訂閱會個別接收每個事件。 目前，當事件是在 CloudEvents 結構描述中傳遞時，您無法針對 Azure Functions 應用程式使用事件方格觸發程序。 您必須使用 HTTP 觸發程序。 如需實作 HTTP 觸發程序 (該觸發程序會接收 CloudEvents 結構描述中的事件) 的範例，請參閱[使用 HTTP 觸發程序作為事件方格觸發程序](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)。
+對於 PowerShell，請使用：
+```azurepowershell-interactive
+$topicid = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name <topic-name>).Id
+
+New-AzureRmEventGridSubscription `
+  -ResourceId $topicid `
+  -EventSubscriptionName <event_subscription_name> `
+  -Endpoint <endpoint_URL> `
+  -DeliverySchema CloudEventV01Schema
+```
+
+CloudEvents 的目前版本不支援事件的批次處理。 為 CloudEvent 結構描述設定的事件訂閱會個別接收每個事件。 目前，當事件是在 CloudEvents 結構描述中傳遞時，您無法針對 Azure Functions 應用程式使用事件方格觸發程序。 使用 HTTP 觸發程序。 如需實作 HTTP 觸發程序 (該觸發程序會接收 CloudEvents 結構描述中的事件) 的範例，請參閱[使用 HTTP 觸發程序作為事件方格觸發程序](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)。
 
 ## <a name="next-steps"></a>後續步驟
 

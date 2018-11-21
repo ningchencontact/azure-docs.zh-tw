@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: f064521929bdaf0565a2993e12be62a3959ad567
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945292"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300433"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中具有特殊權限的端點
 
@@ -55,7 +55,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 如果您是執行 ADSK，請登入開發套件主機。
+    - 如果您是執行 ASDK，請登入開發套件主機。
 
 2. 在硬體生命週期主機或特殊權限工作站中執行的強化虛擬機器上，開啟 Windows PowerShell 工作階段。 執行下列命令，以在裝載 PEP 的虛擬機器上建立遠端工作階段：
  
@@ -67,7 +67,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 參數可以是其中一部裝載 PEP 之虛擬機器的 IP 位址或 DNS 名稱。 
-    - 如果您是執行 ADSK：
+    - 如果您是執行 ASDK：
      
       ````PowerShell
         $cred = Get-Credential
@@ -127,7 +127,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
       ````PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
       ````
-    - 如果您是執行 ADSK，請登入開發套件主機。
+    - 如果您是執行 ASDK，請登入開發套件主機。
 
 2. 在硬體生命週期主機或特殊權限工作站中執行的強化虛擬機器上，開啟 Windows PowerShell 工作階段。 執行下列命令，以在裝載 PEP 的虛擬機器上建立遠端工作階段：
  
@@ -139,7 +139,7 @@ PEP 會記錄您在 PowerShell 工作階段中執行的每個動作 (和其對�
           -ConfigurationName PrivilegedEndpoint -Credential $cred
       ````
       `ComputerName` 參數可以是其中一部裝載 PEP 之虛擬機器的 IP 位址或 DNS 名稱。 
-    - 如果您是執行 ADSK：
+    - 如果您是執行 ASDK：
      
       ````PowerShell
        $cred = Get-Credential

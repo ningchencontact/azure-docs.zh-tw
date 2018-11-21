@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669345"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622664"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂應用程式的使用者介面
 
@@ -64,9 +64,11 @@ ms.locfileid: "50669345"
  瀏覽器中的 Azure AD B2C 程式碼會使用最新且標準的方法，從原則中的指定 URL 載入自訂內容。 跨來源資源共用 (CORS) 可允許從其他網域要求網頁上受限制的資源。
 
 1. 在功能表中，選取 [CORS]。
-2. 在 [允許的來源]、[允許的標頭] 和 [公開的標頭] 中，輸入 `your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `fabrikam.b2clogin.com`。
-3. 針對 [允許的動詞]，選取 `GET` 和 `OPTIONS`。
-4. 針對 [最大壽命]，輸入 200。
+2. 針對 [允許的來源]，輸入 `your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `fabrikam.b2clogin.com`。
+3. 針對 [允許的方法]，選取 `GET` 和 `OPTIONS`。
+4. 針對 [允許的標頭]，輸入星號 (*)。
+5. 針對 [公開的標頭]，輸入星號 (*)。
+6. 針對 [最大壽命]，輸入 200。
 
     ![啟用 CORS](./media/tutorial-customize-ui/enable-cors.png)
 

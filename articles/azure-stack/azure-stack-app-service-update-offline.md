@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: c91f92a519c91f4c0fe32ed102c5bb9fab528868
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359028"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614798"
 ---
 # <a name="offline-update-of-azure-app-service-on-azure-stack"></a>離線更新 Azure App Service on Azure Stack
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 之前，請先將 1802 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 >
 >
 
@@ -44,7 +44,7 @@ ms.locfileid: "34359028"
 
 若要升級 Azure Stack 環境中的 App Service 資源提供者，您必須完成下列工作：
 
-1. 下載 [App Service 安裝程式](https://aka.ms/appsvcupdate2installer)
+1. 下載 [App Service 安裝程式](https://aka.ms/appsvcupdate4installer)
 2. 建立離線升級套件。
 3. 執行 App Service 安裝程式 (appservice.exe) 並完成升級。
 
@@ -93,7 +93,7 @@ ms.locfileid: "34359028"
 
 5. 檢閱並接受協力廠商授權條款，然後按 [下一步]。
 
-6. 確定 Azure Stack Azure Resource Manager 端點和 Active Directory 租用戶資訊是正確的。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果部署 Azure Stack 時自訂了選項，則必須編輯此視窗中的值以反映那些選項。 例如，如果您使用網域尾碼「mycloud.com」，則您的 Azure Stack Azure Resource Manager 端點必須變更為「management.region.mycloud.com」。確認您的資訊之後，按 [下一步]。
+6. 確定 Azure Stack Azure Resource Manager 端點和 Active Directory 租用戶資訊是正確的。 如果您在 Azure Stack 開發套件部署期間使用了預設設定，在這裡可以接受預設值。 不過，如果部署 Azure Stack 時自訂了選項，則必須編輯此視窗中的值。 例如，如果您使用網域尾碼「mycloud.com」，則您的 Azure Stack Azure Resource Manager 端點必須變更為「management.region.mycloud.com」。 確認您的資訊之後，按 [下一步]。
 
     ![Azure Stack 雲端資訊][3]
 
@@ -104,7 +104,7 @@ ms.locfileid: "34359028"
         * 如果您使用 Active Directory 同盟服務 (AD FS)，請提供您的管理帳戶。 例如：*cloudadmin@azurestack.local*。 輸入您的密碼，然後按一下 [登入]。
    2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
    3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
-   4. 如果探索到現有的 App Service 部署，就會將資源群組和儲存體帳戶填入並呈現灰色。
+   4. 如果偵測到現有的 App Service 部署，就會將資源群組和儲存體帳戶填入並呈現灰色。
    5. 按 [下一步] 以檢閱升級摘要。
 
     ![偵測到 App Service 安裝][4]

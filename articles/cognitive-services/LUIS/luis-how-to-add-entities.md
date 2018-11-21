@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
-ms.openlocfilehash: 178f4314f9ede86444ee60fd2a64f85dc283080b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138523"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288045"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
@@ -49,7 +49,7 @@ ms.locfileid: "50138523"
 
     建立此實體後，請移至具有範例語句 (含有此實體) 的所有意圖。 選取範例語句中的文字並將此文字標示為實體。 
 
-    [片語清單](luis-concept-feature.md)常用來提升簡單實體的訊號。
+    [片語清單](luis-concept-feature.md)常被用來提升簡單實體的訊號。
 
 ## <a name="add-regular-expression-entities"></a>新增規則運算式實體
 
@@ -116,7 +116,7 @@ ms.locfileid: "50138523"
 
 1. 從 [建置] 區段，選取左面板中的 [實體]，然後選取 [建立新實體]。
 
-1. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入資料，然後選取 [Pattern.any] 作為 [實體類型]。
+1. 在 [新增實體] 對話方塊中，於 [實體名稱] 方塊中輸入 `HumanResourcesFormTitle`，然後選取 [Pattern.any] 作為 [實體類型]。
 
     若要使用 pattern.any 實體，在 [模式] 頁面 (在 [改善應用程式效能] 區段中) 搭配正確的大括號語法來新增模式，例如 `Where is **{HumanResourcesFormTitle}** on the server?`。
 

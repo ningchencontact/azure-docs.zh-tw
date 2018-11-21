@@ -1,6 +1,6 @@
 ---
 title: Azure 媒體服務 v3 版本資訊 | Microsoft Docs
-description: 為了讓您隨時掌握最新的開發訊息，此文章提供 Azure 媒體服務 v3 最新資訊。
+description: 為了讓您隨時掌握最新的開發訊息，本文提供 Azure 媒體服務 v3 最新資訊。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: juliako
-ms.openlocfilehash: ed2550c1df4645933fb968c54ee536995c810136
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 70a3de35f6fd942bca5355db3a7c6b57aec6adbc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219317"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613931"
 ---
-# <a name="azure-media-services-v3-preview-release-notes"></a>Azure 媒體服務 v3 (預覽) 版本資訊 
+# <a name="azure-media-services-v3-release-notes"></a>Azure 媒體服務 v3 版本資訊 
 
-為了讓您隨時掌握最新的開發訊息，此文章提供下列相關資訊：
+為了讓您隨時掌握最新的開發訊息，本文提供下列相關資訊：
 
 * 最新版本
 * 已知問題
@@ -28,18 +28,139 @@ ms.locfileid: "47219317"
 * 已被取代的功能
 * 方案變更
 
-## <a name="may-07-2018"></a>2018 年 5 月 7 日
+## <a name="november-2018"></a>2018 年 11 月
+
+CLI 2.0 模組現已適用於 [Azure 媒體服務 v3 GA](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest) – v 2.0.50。
+
+### <a name="new-commands"></a>新的命令
+
+- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) - 可讓您管理媒體保留單元
+
+### <a name="new-features-and-breaking-changes"></a>新功能和重大變更
+
+#### <a name="asset-commands"></a>資產命令
+
+- 已新增 ```--storage-account``` 和 ```--container``` 引數。
+- 已在 ```az ams asset get-sas-url``` 命令中新增到期時間 (現在 + 23 小時) 和權限 (讀取) 的預設值。
+
+#### <a name="job-commands"></a>作業命令
+
+- 已新增 ```--correlation-data``` 和 ```--label``` 引數
+- ```--output-asset-names``` 已重新命名為 ```--output-assets```。 現在它會接受以空格分隔且格式為 'assetName=label' 的資產清單。 可以傳送沒有標籤的資產，例如：'assetName='。
+
+#### <a name="streaming-locator-commands"></a>串流定位器命令
+
+- ```az ams streaming locator``` 基底命令已取代為 ```az ams streaming-locator```。
+- 已新增 ```--streaming-locator-id``` 和 ```--alternative-media-id support``` 引數。
+- 已更新 ```--content-keys argument``` 引數。
+- ```--content-policy-name``` 已重新命名為 ```--content-key-policy-name```。
+
+#### <a name="streaming-policy-commands"></a>串流原則命令
+
+- ```az ams streaming policy``` 基底命令已取代為 ```az ams streaming-policy```。
+- 已在 ```az ams streaming-policy create``` 中新增加密參數支援。
+
+#### <a name="transform-commands"></a>轉換命令
+
+- ```--preset-names``` 引數已取代為 ```--preset```。 現在您一次只能設定 1 個輸出/預設 (以新增更多必須執行 ```az ams transform output add``` 的項目)。 此外，您可傳遞自訂 JSON 的路徑以設定自訂 StandardEncoderPreset。
+- 傳遞要移除的輸出索引即可執行 ```az ams transform output remove```。
+- 已在 ```az ams transform create``` 和 ```az ams transform output add``` 命令中新增 ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` 引數。
+
+## <a name="october-2018---ga"></a>2018 年 10 月 - GA
+
+本節說明 Azure 媒體服務 (AMS) 的 10 月更新。
+
+### <a name="rest-v3-ga-release"></a>REST v3 GA 版本
+
+[REST v3 GA 版本](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) 包含更多 API，適用於即時、帳戶/資產層級資訊清單篩選器，以及 DRM 支援。
+
+#### <a name="azure-resource-management"></a>Azure 資源管理 
+
+Azure 資源管理支援可提供統一的管理和作業 API (現在所有項目都在單一位置)。
+
+從這個版本開始，您可以使用 Resource Manager 範本來建立即時事件。
+
+#### <a name="improvement-of-asset-operations"></a>改進資產作業 
+
+引進了下列改進︰
+
+- 從 HTTP(s) 的 URL 或 Azure Blob 儲存體 SAS URL 內嵌。
+- 指定您自己資產的容器名稱。 
+- 使用 Azure Functions 建立自訂工作流程時有更簡便的輸出支援。
+
+#### <a name="new-transform-object"></a>新的轉換物件
+
+新的**轉換**物件會簡化編碼模型。 新的物件可讓您輕鬆地建立及共用編碼 Resource Manager 範本和預設值。 
+
+#### <a name="azure-active-directory-authentication-and-rbac"></a>Azure Active Directory 驗證和 RBAC
+
+Azure AD 驗證和角色型存取控制 (RBAC) 會啟用 Azure AD 中的安全轉換、即時事件、內容金鑰原則，或是依角色或使用者的資產。
+
+#### <a name="client-sdks"></a>用戶端 SDK  
+
+媒體服務 v3 中支援的語言：.NET Core、Java、Node.js、Ruby、Typescript、Python、Go。
+
+#### <a name="live-encoding-updates"></a>即時編碼更新
+
+導入下列即時編碼更新：
+
+- 新的即時低延遲模式 (10 秒端對端)。
+- 改進的 RTMP 支援 (更高的穩定性及更多來源編碼器支援)。
+- RTMPS 安全內嵌。
+
+    當您建立即時事件時，現在會取得 4 個內嵌 URL。 4 個內嵌 URL 幾乎完全相同，並有相同的串流權杖 (AppId)，只有連接埠號碼部分不同。 其中兩個 URL 是 RTMPS 的主要部分和備份。 
+- 24 小時制的轉碼支援。 
+- 已改善透過 SCTE35 在 RTMP 中執行的廣告訊號支援。
+
+#### <a name="improved-event-grid-support"></a>已改善事件方格支援
+
+您可以看到下列的事件方格支援增強功能：
+
+- 整合 Azure 事件方格，以更輕鬆地使用 Logic Apps 與 Azure Functions 進行開發。 
+- 訂閱編碼、即時頻道等更多的事件。
+
+### <a name="cmaf-support"></a>CMAF 支援
+
+Apple HLS (iOS 11 +) 的 CMAF 和 'cbcs' 加密支援和支援 CMAF 的 MPEG-DASH 播放程式。
+
+### <a name="video-indexer"></a>影片索引子
+
+我們已在 8 月發表了影片索引器 GA 版本。 如需目前支援功能的全新詳細資訊，請參閱[什麼是影片索引器](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)。 
+
+### <a name="plans-for-changes"></a>方案變更
+
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+ 
+Azure CLI 2.0 模組即將推出，內含所有功能的操作 (包括即時、內容金鑰原則、帳戶/資產篩選器、串流原則)。 
+
+### <a name="known-issues"></a>已知問題
+
+只有使用適用於資產或帳戶篩選器預覽 API 的客戶會受到下列問題影響。
+
+如果您在 09/28 到 10/12 之間使用媒體服務 v3 CLI 或 API 來建立資產或帳戶篩選器，由於版本衝突，您必須移除所有的資產和帳戶篩選器並加以重新建立。 
+
+## <a name="may-2018---preview"></a>2018 年 5 月 - 預覽
 
 ### <a name="net-sdk"></a>.Net SDK
 
 以下是 .Net SDK 現有的功能︰
 
-1. **轉換**和**工作**，可編碼或分析媒體內容。 如需範例，請參閱[串流處理檔案](stream-files-tutorial-with-api.md)和[分析](analyze-videos-tutorial-with-api.md)。
-2. **StreamingLocators**，用於將內容發佈及串流處理到使用者裝置
-3. **StreamingPolicies** 和 **ContentKeyPolicies**，當傳遞內容時，可設定金鑰傳遞和內容保護 (DRM)。
-4. **LiveEvents** 和 **LiveOutputs**，可設定內嵌和封存即時串流內容。
-5. **資產**，可在 Azure 儲存體中儲存及發佈媒體內容。 
-6. **StreamingEndpoint**，可設定和擴展動態套件、 加密和串流處理實況和點播媒體內容。
+* **轉換**和**工作**，可編碼或分析媒體內容。 如需範例，請參閱[串流處理檔案](stream-files-tutorial-with-api.md)和[分析](analyze-videos-tutorial-with-api.md)。
+* **StreamingLocators**，用於將內容發佈及串流處理到使用者裝置
+* **StreamingPolicies** 和 **ContentKeyPolicies**，當傳遞內容時，可設定金鑰傳遞和內容保護 (DRM)。
+* **LiveEvents** 和 **LiveOutputs**，可設定內嵌和封存即時串流內容。
+* **資產**，可在 Azure 儲存體中儲存及發佈媒體內容。 
+* **StreamingEndpoint**，可設定和擴展動態封裝、 加密和串流處理實況和點播媒體內容。
 
 ### <a name="known-issues"></a>已知問題
 
@@ -47,5 +168,4 @@ ms.locfileid: "47219317"
 
 ## <a name="next-steps"></a>後續步驟
 
-> [!div class="nextstepaction"]
-> [概觀](media-services-overview.md)
+[概觀](media-services-overview.md)

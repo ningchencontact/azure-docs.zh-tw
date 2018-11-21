@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 受控執行個體連線應用程式 | Microsoft Docs
-description: 此文章討論如何將您的應用程式連線到 Azure SQL Database 受控執行個體。
+description: 本文討論如何將您的應用程式連線到 Azure SQL Database 受控執行個體。
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 0221965c51f2287cb6042c33b9ab3402e104abc3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870473"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514956"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>將您的應用程式連線到 Azure SQL Database 受控執行個體
 
@@ -53,7 +53,7 @@ ms.locfileid: "48870473"
 - 站對站 VPN 連線 ([Azure 入口網站](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)) 
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 連線  
  
-如果您已成功建立內部部署環境與 Azure 的連線，但是無法建立與受控執行個體的連線，請檢查您的防火牆是否開啟 SQL 連接埠 1433 的輸出連線，以及開啟 11000-12000 範圍的連接埠以便重新導向。 
+如果您已成功建立內部部署環境與 Azure 的連線，但是無法建立與受控執行個體的連線，請檢查您的防火牆是否開啟 SQL 通訊埠 1433 的輸出連線，以及開啟 11000-12000 範圍的連接埠以便重新導向。 
 
 ## <a name="connect-an-application-on-the-developers-box"></a>連線開發人員方塊上的應用程式
 
@@ -83,10 +83,14 @@ ms.locfileid: "48870473"
 下圖說明此案例：
 
 ![整合式應用程式對等互連](./media/sql-database-managed-instance/integrated-app-peering.png)
- 
-## <a name="troubleshooting-connectivity-issues"></a>針對連線問題進行疑難排解
 
-若要針對連線問題進行疑難排解，請檢閱以下幾點︰
+>[!NOTE]
+>VNet 整合功能不會將應用程式與具有 ExpressRoute 閘道的 VNet 整合。 即使是在共存模式中設定 ExpressRoute 閘道，VNet 整合仍無法運作。 如果您需要透過 ExpressRoute 連線存取資源，則可使用在您 VNet 中執行的 App Service 環境。
+>
+ 
+## <a name="troubleshooting-connectivity-issues"></a>對連線問題進行疑難排解
+
+若要對連線問題進行疑難排解，請檢閱以下幾點︰
 - 如果您無法從位於相同 VNet、但子網路不同的 Azure 虛擬機器連線至受控執行個體時，請檢查您是否在 VM 子網路上設定了可能會封鎖存取的網路安全性群組。此外請注意，您必須在 SQL 連接埠 1433 和 11000-12000 範圍內的連接埠上開啟輸出連線，因為在 Azure 界限內透過重新導向連線時需要這些連接埠。 
 - 確定已針對與 VNet 相關聯的路由表將 BGP 傳播設定為 [已啟用]。
 - 如果使用 P2S VPN，請檢查 Azure 入口網站中的組態，以確認您是否看到**輸入/輸出**數值。 非零的數值表示 Azure 會將流量路由至內部部署，或從中輸出流量。

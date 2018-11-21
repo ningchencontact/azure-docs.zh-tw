@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 11/07/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 396fb947a95ebc634ab0dea24d20f35126bc006e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5bc94b6fe69a9ffec11fcbab952a6f8aa3e2259a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389440"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569000"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>將 Google 新增為 B2B 來賓使用者的識別提供者
 
@@ -43,15 +43,21 @@ ms.locfileid: "49389440"
 
    ![Google API 認證](media/google-federation/google-api.png)
  
-4. 選擇 [Oauth 同意畫面] 索引標籤，然後輸入 [向使用者顯示的產品名稱]。 (其他設定保留不變)。選取 [ **儲存**]。
+4. 選擇 [OAuth 同意畫面] 索引標籤，然後輸入 [應用程式名稱]。 (其他設定保留不變)。
 
    ![Google OAuth 同意畫面](media/google-federation/google-oauth-consent-screen.png)
 
-5. 選擇 [認證] 索引標籤。在 [建立認證] 功能表中，選擇 [OAuth 用戶端識別碼]。
+5. 捲動至 [授權的網域] 區段並輸入 microsoftonline.com。
+
+   ![授權的網域區段](media/google-federation/google-oauth-authorized-domains.png)
+
+6. 選取 [ **儲存**]。
+
+7. 選擇 [認證] 索引標籤。在 [建立認證] 功能表中，選擇 [OAuth 用戶端識別碼]。
 
    ![Google API 認證](media/google-federation/google-api-credentials.png)
 
-6. 在 [應用程式類型] 底下，選擇 [Web 應用程式]，然後在 [授權的重新導向 URI] 底下，輸入下列 URI：
+8. 在 [應用程式類型] 底下，選擇 [Web 應用程式]，然後在 [授權的重新導向 URI] 底下，輸入下列 URI：
    - `https://login.microsoftonline.com` 
    - `https://login.microsoftonline.com/te/<directory id>/oauth2/authresp` <br>(其中，`<directory id>` 是目錄識別碼)
    
@@ -60,7 +66,7 @@ ms.locfileid: "49389440"
 
    ![建立 OAuth 用戶端識別碼](media/google-federation/google-create-oauth-client-id.png)
 
-7. 選取 [建立] 。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
+9. 選取 [建立] 。 複製用戶端識別碼和用戶端密碼，以便用來在 Azure AD 入口網站中新增識別提供者。
 
    ![OAuth 用戶端識別碼和用戶端密碼](media/google-federation/google-auth-client-id-secret.png)
 

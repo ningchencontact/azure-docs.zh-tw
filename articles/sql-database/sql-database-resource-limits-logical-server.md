@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 資源限制 - 邏輯伺服器 | Microsoft Docs
-description: 此文章提供適用於單一資料庫和使用彈性集區之集區資料庫的 Azure SQL Database 資源限制概觀。 它也提供抵達或超過那些資源限制時所會發生之情況的相關資訊。
+description: 此文章針對單一資料庫和使用彈性集區的集區資料庫，提供 Azure SQL Database 邏輯伺服器資源限制的概觀。 它也提供抵達或超過那些資源限制時所會發生之情況的相關資訊。
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 11/13/2018
+ms.openlocfilehash: a423f5c112faa615b7888dacfa20f9ff8f6a595a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829558"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620885"
 ---
-# <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制 
+# <a name="sql-database-resource-limits-for-single-and-pooled-databases"></a>單一和集區資料庫的 SQL Database 資源限制
 
 此文章適用於邏輯伺服器上之單一和集區資料庫的 SQL Database 資源限制概觀。 它也提供抵達或超過那些資源限制時所會發生之情況的相關資訊。
 
@@ -35,12 +35,11 @@ ms.locfileid: "48829558"
 | 任何區域中每個訂用帳戶的伺服器最大數目 | 200 |  
 | 每一伺服器的 DTU/eDTU 配額 | 54,000 |  
 | 每一伺服器/執行個體的 vCore 配額 | 540 |
-| 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目 |
+| 每一伺服器的集區數目上限 | 受限於 DTU 或 vCore 數目。 例如，如果每個集區是 1000 DTU，則單一伺服器可以支援 54 集區。|
 ||||
 
 > [!NOTE]
-> 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。 
-
+> 若要獲得大於預設數量的 DTU/eDTU 配額、vCore 配額或伺服器，可以在 Azure 入口網站中，針對訂用帳戶使用問題類型「配額」提交新的支援要求。 每一伺服器的 DTU/eDTU 配額和資料庫限制會限制每一部伺服器的彈性集區數目。
 > [!IMPORTANT]
 > 每當資料庫數量接近每部邏輯伺服器的限制時，可能會出現下列情況：
 > - 使用 master 資料庫執行查詢時，延遲狀況增加。  這包含資源使用率統計資料的檢視，例如 sys.resource_stats。
@@ -54,7 +53,7 @@ ms.locfileid: "48829558"
 遇到高計算使用率時，緩和選項包括：
 
 - 提高資料庫或彈性集區的計算大小，以提供更多計算資源給資料庫。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
-- 將查詢最佳化，以降低每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢調整/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
+- 將查詢最佳化，以降低每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
 ### <a name="storage"></a>儲存體
 
@@ -66,13 +65,14 @@ ms.locfileid: "48829558"
 - 如果資料庫在彈性集區，也可以將資料庫移出集區，如此便不會與其他資料庫共用儲存空間。
 - 壓縮資料庫以回收未使用的空間。 如需詳細資訊，請參閱[管理 Azure SQL Database 中的檔案空間](sql-database-file-space-management.md)。
 
-### <a name="sessions-and-workers-requests"></a>工作階段和背景工作角色 (要求) 
+### <a name="sessions-and-workers-requests"></a>工作階段和背景工作角色 (要求)
 
-工作階段與背景工作角色的數量上限取決於服務層和計算大小 (DTU 與 eDTU)。 達到工作階段或背景工作角色的限制時，會拒絕新要求，而且用戶端會收到錯誤訊息。 雖然應用程式能控制可用的連線數目，但並行背景工作角色的數目通常難以預估及控制。 特別是在尖峰負載期間，資料庫資源達到上限，背景工作角色也因為長時間執行查詢而不斷累積。 
+工作階段與背景工作角色的數量上限取決於服務層和計算大小 (DTU 與 eDTU)。 達到工作階段或背景工作角色的限制時，會拒絕新要求，而且用戶端會收到錯誤訊息。 雖然應用程式能控制可用的連線數目，但並行背景工作角色的數目通常難以預估及控制。 特別是在尖峰負載期間，資料庫資源達到上限，背景工作角色也因為長時間執行查詢而不斷累積。
 
 當工作階段或背景工作角色出現高使用率時，緩和選項包括：
+
 - 提高資料庫或彈性集區的服務層或計算大小。 請參閱[調整單一資料庫資源](sql-database-single-database-scale.md)和[調整彈性集區資源](sql-database-elastic-pool-scale.md)。
-- 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢調整/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
+- 如果背景工作角色的使用率增加是爭用計算資源所造成，則可將查詢最佳化，以減少每個查詢的資源使用率。 如需詳細資訊，請參閱[查詢微調/提示](sql-database-performance-guidance.md#query-tuning-and-hinting)。
 
 ## <a name="next-steps"></a>後續步驟
 

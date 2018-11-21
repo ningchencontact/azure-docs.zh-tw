@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: sutalasi
-ms.openlocfilehash: 5d1beb124bbb857d13aecad7bf0cef493d42dac5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6d47fe29dab37523913b96ebae0ef3ef31d11210
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043272"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300569"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>將已啟用 Azure 磁碟加密 (ADE) 的虛擬機器複寫到另一個 Azure 區域
 
@@ -104,7 +104,7 @@ ms.locfileid: "48043272"
 
 1. 按一下「目標訂用帳戶」旁的 [自訂] 來修改預設目標訂用帳戶。 在同一個 Azure Active Directory (AAD) 租用戶中，從所有可用的訂用帳戶清單中選取訂用帳戶。
 
-2. 按一下 [資源群組、儲存體、網路和可用性設定組] 旁的 [自訂:] 來修改下列預設設定：
+2. 按一下 [資源群組、網路、儲存體和可用性設定組] 旁的 [自訂:] 來修改下列預設設定：
     - 在 [目標資源群組] 中，從訂用帳戶目標位置上的所有資源群組清單中選取資源群組。
     - 在 [目標虛擬網路] 中，從目標位置上的所有虛擬網路清單中選取網路。
     - 在 [可用性設定組] 中，如果 VM 是來源區域中可用性設定組的一部分，即可將可用性設定組新增至其中。

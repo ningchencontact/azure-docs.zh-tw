@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/08/2018
 ms.author: jingwang
-ms.openlocfilehash: 83be53edf240220726639b51381b487c5b742cee
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 3109cad0e00b6ec5af47210f2c8d094659bd4553
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50754081"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345771"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Blob 儲存體或從該處複製資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,6 +35,9 @@ ms.locfileid: "50754081"
 - 使用「帳戶金鑰」、「服務共用存取簽章」、「服務主體」或「Azure 資源的受控識別」驗證來複製 Blob。
 - 從區塊、附加或分頁 Blob 複製 Blob，以及將資料只複製到區塊 Blob。 不支援使用「Azure 進階儲存體」作為接收，因為它是以分頁 Blob 為後盾。
 - 依原樣複製 Blob，或是使用[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md)來剖析或產生 Blob。
+
+>[!NOTE]
+>如果您啟用 Azure 儲存體防火牆設定的 [允許信任的 Microsoft 服務存取此儲存體帳戶] 選項，則使用 Azure Integration Runtime 連線到 Blob 儲存體會失敗並出現禁止錯誤，因為 ADF 並未被視為信任的 Microsoft 服務。 請改用自我裝載 Integration Runtime 作為連線方式。
 
 ## <a name="get-started"></a>開始使用
 
@@ -247,7 +250,7 @@ Azure Blob 連接器支援下列驗證類型，請參閱詳細資料的對應章
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的 type 屬性必須設定為 **AzureBlob**。 |是 |
-| folderPath | Blob 儲存體中容器和資料夾的路徑。 不支援萬用字元篩選。 範例是 myblobcontainer/myblobfolder/。 |是 |
+| folderPath | Blob 儲存體中容器和資料夾的路徑。 不支援萬用字元篩選。 範例是 myblobcontainer/myblobfolder/。 |[是] 適用於複製/查閱活動，[否] 適用於 GetMetadata 活動 |
 | fileName | 在指定 "folderPath" 下之 Blob 的**名稱或萬用字元篩選**。 如果沒有為此屬性指定值，資料集就會指向資料夾中的所有 Blob。 <br/><br/>針對篩選，允許的萬用字元為：`*` (符合零或多個字元) 和 `?` (符合零或單一字元)。<br/>- 範例 1：`"fileName": "*.csv"`<br/>- 範例 2：`"fileName": "???20180427.txt"`<br/>如果實際檔案名稱內有萬用字元或逸出字元 `^`，請使用此逸出字元來逸出。<br/><br/>當沒有針對輸出資料集指定 fileName，且活動接收中沒有指定 **preserveHierarchy** 時，複製活動會自動使用以下模式產生 Blob 名稱："Data.[活動執行識別碼 GUID].[GUID (若為 FlattenHierarchy)].[格式 (若有設定)].[壓縮 (若有設定)]"。 範例："Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"。 |否 |
 | format | 如果您想要在檔案型存放區之間依原樣複製檔案 (二進位複本)，請在輸入和輸出資料集定義中略過格式區段。<br/><br/>如果您想要以特定格式來剖析或產生檔案，以下是支援的檔案格式類型：**TextFormat**、**JsonFormat**、**AvroFormat**、**OrcFormat** 和 **ParquetFormat**。 將 [format] 下的 [type] 屬性設定為下列其中一個值。 如需詳細資訊，請參閱[文字格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)小節。 |否 (僅適用於二進位複製案例) |
 | compression | 指定此資料的壓縮類型和層級。 如需詳細資訊，請參閱[支援的檔案格式和壓縮轉碼器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支援的類型為：GZip、Deflate、BZip2 及 ZipDeflate。<br/>支援的層級為 **Optimal** 和 **Fastest**。 |否 |

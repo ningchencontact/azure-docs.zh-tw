@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: e2c676932541866df081f6db54fa0b1ec4da7088
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218588"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567531"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -48,7 +48,7 @@ ms.locfileid: "51218588"
 
 **範例**
 
-* 已在我們的[範例存放庫](https://aka.ms/csspeech/samples) \(英文\) 中新增提取和推送資料流使用方式的 C++ 範例。
+* 已在[範例存放庫](https://aka.ms/csspeech/samples)中新增可供提取和推送資料流使用方式的 C++ 和 C# 範例。
 
 ## <a name="speech-service-sdk-101"></a>語音服務 SDK 1.0.1
 

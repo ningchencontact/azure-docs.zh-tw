@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 203a142a21153935e172508e62b813dca95468cb
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 6c39cfdd3bfe244296290c4083644ea7e1b35672
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687077"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298988"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 之 Azure 資料庫中的高可用性概念
 「適用於 PostgreSQL 的 Azure 資料庫」服務可提供保證的高可用性等級。 以財務為後盾的服務等級協定 (SLA) 在正式運作時可達 99.99%。 使用此服務時幾乎不會有應用程式停機時間。
@@ -35,4 +35,5 @@ ms.locfileid: "29687077"
 進行規模調整作業時，會發生資料庫連線中斷。 系統會將用戶端應用程式中斷連線，並將已開啟的未認可交易取消。 一旦用戶端應用程式重試連線或建立新連線，閘道就會將該連線導向到新調整過大小的執行個體。 
 
 ## <a name="next-steps"></a>後續步驟
-- 如需服務的概觀，請參閱[適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)
+- 如需服務的概觀，請參閱 [適用於 PostgreSQL 的 Azure 資料庫概觀](overview.md)
+- 如需重試邏輯概觀，請參閱[處理適用於 PostgreSQL 的 Azure 資料庫的暫時性連線錯誤](concepts-connectivity.md)

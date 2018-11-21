@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a5d031622103183fa9aa7a3f3771a055fc16edb2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 632558760d0b4a00384763cc30de3b9241bb1ae6
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049971"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300161"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>將作用中的 DNS 名稱移轉至 Azure App Service
 
@@ -60,6 +60,13 @@ ms.locfileid: "39049971"
 | \* (萬用字元) | _awverify.\*_ | _&lt;應用程式名稱>.azurewebsites.net_ |
 
 在您的 DNS 記錄頁面中，記下您要移轉之 DNS 名稱的記錄類型。 App Service 支援 CNAME 與 A 記錄之間的對應。
+
+> [!NOTE]
+> 對於某些提供者，例如 CloudFlare，`awverify.*` 不是有效的記錄。 改為只用 `*`。
+
+> [!NOTE]
+> 萬用字元 `*` 記錄不會使用現有 CNAME 記錄驗證子網域。 您可能需要為每個子網域明確地建立 TXT 記錄。
+
 
 ### <a name="enable-the-domain-for-your-app"></a>為您的應用程式啟用網域
 

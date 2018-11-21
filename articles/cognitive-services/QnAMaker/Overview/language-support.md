@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 1a61d8f4008b0183ab5ddb51332d887217f52f48
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435645"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566630"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>QnA Maker 支援的語言與區域
 
@@ -34,6 +34,8 @@ QnA Maker 支援在任何語言頁面中擷取問題/答案，但下列語言的
 
 ## <a name="query-matching-and-relevance"></a>查詢比對和相關性
 QnA Maker 需要 Azure 搜尋服務中的[語言分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)才能提供結果。 特殊的重新排名功能適用於 En-* 語言，可改善相關性。
+
+雖然 Azure 搜尋服務功能與支援的語言同等重要，但 QnA Maker 有位於上述 Azure 搜尋結果的其他順位排定程式。 在此順位排定程式模型中，我們使用一些採用 en-* 的特殊語意和字組型功能 (尚無法適用於其他語言)。 我們不會提供這些功能，因為它們是順位排定程式內部運作的一部分。 
 
 QnA Maker 會在建立期間自動偵測知識庫的語言，並據以設定分析器。 您可以建立下列語言的知識庫。 如需 QnA Maker 如何處理語言的詳細資料，請閱讀[這篇文章](../How-To/language-knowledge-base.md)。
 

@@ -15,36 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597148"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515636"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
-**問：可以註冊 Android 或 iOS BYOD 裝置嗎？**
-
-**答：** 可以，但只能使用 Azure 裝置註冊服務且僅限混合式客戶使用。 不支援使用 AD FS 中的內部部署裝置註冊服務。
-
-**問：我要如何註冊 macOS 裝置？**
-
-**答：** 若要註冊 macOS 裝置：
-
-1.  [建立裝置相容性原則](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
-2.  [定義 macOS 裝置的條件式存取原則](../active-directory-conditional-access-azure-portal.md) 
-
-**備註：**
-
-- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](../conditional-access/technical-reference.md#client-apps-condition) 才能存取資源。 
-
-- 在首次存取嘗試期間，系統會提示使用者使用公司入口網站註冊裝置。
-
----
-
-**問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？**
-
+**問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？或為何會針對已加入混合式 Azure AD 的裝置，將裝置擁有者標示為 N/A？**
 **答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
 您需要在 Azure 入口網站中使用 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
@@ -58,12 +38,16 @@ ms.locfileid: "39597148"
 
 **問：我要如何知道用戶端的裝置註冊狀態為何？**
 
-**答：** 您可以使用 Azure 入口網站，移至 [所有裝置]，然後使用裝置識別碼來搜尋裝置。 檢查加入類型資料行中的值。
-
-如果您想要從已註冊的裝置檢查本機裝置註冊狀態：
+**答：** 您可以使用 Azure 入口網站，移至 [所有裝置]，然後使用裝置識別碼來搜尋裝置。 檢查加入類型資料行中的值。 有時候，裝置可能已重設或重新製作映像。 因此，檢查裝置上的裝置註冊狀態也很重要：
 
 - 針對 Windows 10 和 Windows Server 2016 或更新的裝置，請執行 dsregcmd.exe /status。
 - 舊版作業系統版本請執行 "%programFiles%\Microsoft Workplace Join\autoworkplace.exe"。
+
+---
+
+**問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，而且可以看到狀態為已在裝置上註冊。我是否已針對使用條件式存取進行正確設定？**
+
+**答：** deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
 
 ---
 
@@ -88,25 +72,6 @@ ms.locfileid: "39597148"
 3.  輸入 `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`。
 
 ---
-**問：如何在本機裝置上退出已加入 Azure AD 的裝置？**
-
-**答：** 
-- 針對已加入 Azure AD 的混合式裝置，請務必關閉自動註冊，這樣的話，已排定的工作就不會再次註冊裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，可跨多個裝置以指令碼方式執行此命令，以進行大量退出。
-
-- 針對純粹已加入 Azure AD 的裝置，確定您具有離線的本機系統管理員帳戶 (若無帳戶則請建立)，因為您將無法使用任何 Azure AD 使用者認證進行登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後按一下 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
-
----
-
-**問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從已加入 Azure AD 的裝置啟用列印功能？**
-
-**答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (英文)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
-
----
-
-**問：如何連線到遠端已加入 Azure AD 的裝置？**
-**答：** 如需詳細資訊，請參閱這篇文章 https://docs.microsoft.com/en-us/windows/client-management/connect-to-remote-aadj-pc。
-
----
 
 **問：為什麼我在 Azure 入口網站中看到重複的裝置項目？**
 
@@ -128,7 +93,27 @@ ms.locfileid: "39597148"
 
 >[!Note] 
 >針對已註冊的裝置，建議您將裝置清除，以確保使用者無法存取該資源。 如需詳細資訊，請參閱[註冊裝置以在 Intune 中管理](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。 
+---
 
+# <a name="azure-ad-join-faq"></a>Azure AD Join 常見問題集
+
+**問：如何在本機裝置上退出已加入 Azure AD 的裝置？**
+
+**答：** 
+- 針對已加入 Azure AD 的混合式裝置，請務必關閉自動註冊，這樣的話，已排定的工作就不會再次註冊裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，可跨多個裝置以指令碼方式執行此命令，以進行大量退出。
+
+- 針對純粹已加入 Azure AD 的裝置，確定您具有離線的本機系統管理員帳戶 (若無帳戶則請建立)，因為您將無法使用任何 Azure AD 使用者認證進行登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後按一下 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
+
+---
+
+**問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從已加入 Azure AD 的裝置啟用列印功能？**
+
+**答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (英文)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
+
+---
+
+**問：如何連線到遠端已加入 Azure AD 的裝置？**
+**答：** 如需詳細資訊，請參閱這篇文章 https://docs.microsoft.com/windows/client-management/connect-to-remote-aadj-pc。
 
 ---
 
@@ -144,12 +129,6 @@ ms.locfileid: "39597148"
 
 ---
 
-**問：我在 Azure 入口網站中的 [使用者資訊] 底下看到裝置記錄，而且可以看到狀態為已在裝置上註冊。我是否已針對使用條件式存取進行正確設定？**
-
-**答：** deviceID 反映出來的裝置加入狀態必須與 Azure AD 上的狀態相符，並滿足所有條件式存取的評估準則。 如需詳細資訊，請參閱[透過條件式存取要求必須從受控裝置存取雲端應用程式](../conditional-access/require-managed-devices.md)。
-
----
-
 **問：為什麼針對剛加入 Azure AD 的裝置，我收到「使用者名稱或密碼不正確」訊息？**
 
 **答：** 此情況的常見原因如下：
@@ -158,7 +137,7 @@ ms.locfileid: "39597148"
 
 - 您的電腦無法與 Azure Active Directory 通訊。 請檢查是否有任何網路連線問題。
 
-- 同盟登入會要求您的同盟伺服器必須支援 WS-Trust 作用中端點。 
+- 同盟登入會要求同盟伺服器支援已啟用並可存取的 WS-Trust 端點。 
 
 - 您已啟用傳遞驗證，而且使用者必須在登入時變更暫時密碼。
 
@@ -170,14 +149,15 @@ ms.locfileid: "39597148"
 
 ---
 
-**問：為什麼當我嘗試將電腦加入時，雖然沒有收到任何錯誤資訊，但卻發生失敗？**
+**問：為什麼嘗試將電腦加入 Azure AD 時，雖然沒有收到任何錯誤資訊，但卻發生失敗？**
 
 **答：** 可能是因為使用者使用本機內建的系統管理員帳戶來登入裝置。 在使用 Azure Active Directory Join 來完成設定之前，請先建立一個不同的本機帳戶。 
 
-
 ---
 
-**問：哪裡可以找到有關自動裝置註冊的疑難排解資訊？**
+# <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
+
+**問：哪裡可以找到有關診斷 混合式 Azure AD Join 失敗的疑難排解資訊？**
 
 **答：** 如需疑難排解資訊，請參閱：
 
@@ -188,3 +168,23 @@ ms.locfileid: "39597148"
 
 ---
 
+# <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
+
+**問：可以註冊 Android 或 iOS BYOD 裝置嗎？**
+
+**答：** 可以，但只能使用 Azure 裝置註冊服務且僅限混合式客戶使用。 不支援使用 AD FS 中的內部部署裝置註冊服務。
+
+**問：我要如何註冊 macOS 裝置？**
+
+**答：** 若要註冊 macOS 裝置：
+
+1.  [建立裝置相容性原則](https://docs.microsoft.com/intune/compliance-policy-create-mac-os)
+2.  [定義 macOS 裝置的條件式存取原則](../active-directory-conditional-access-azure-portal.md) 
+
+**備註：**
+
+- 條件式存取原則包含的使用者需要[支援的 macOS 版 Office](../conditional-access/technical-reference.md#client-apps-condition) 才能存取資源。 
+
+- 在首次存取嘗試期間，系統會提示使用者使用公司入口網站註冊裝置。
+
+---

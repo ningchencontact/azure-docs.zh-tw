@@ -7,12 +7,12 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: ac34f03c896e9e2180b653c41faa7f7525a40e33
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 12b14b87a02619b21e80436c80a284c4011f8b33
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407870"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300314"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 虛刪除概觀
 
@@ -44,7 +44,9 @@ Azure Key Vault 是由 Azure Resource Manager 管理的追蹤資源。 Azure Res
 ### <a name="purge-protection--flag"></a>清除保護旗標
 清除保護 (在 Azure CLI 中為 **--enable-purge-protection**) 旗標預設為關閉。 開啟此旗標時，必須等到 90 天的保留期間過後，才能清除處於已刪除狀態的保存庫或物件。 這類保存庫或物件仍可復原。 此旗標可為客戶加強確保在保留期間已過之前，一律無法永久刪除保存庫或物件。 只有在已開啟虛刪除旗標的情況下，或在建立保存庫時同時開啟虛刪除和清除保護的情況下，您才能開啟清除保護旗標。
 
-[!NOTE] 開啟清除保護的先決條件是您必須開啟虛刪除。 若要這樣做，在 Azure CLI 2 中的命令為
+> [!NOTE] 
+   開啟清除保護的先決條件是您必須開啟虛刪除。
+若要這樣做，在 Azure CLI 2 中的命令為
 
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true

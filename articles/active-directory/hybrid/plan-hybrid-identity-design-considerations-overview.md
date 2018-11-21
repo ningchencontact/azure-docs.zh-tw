@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d916e884e7764a1ba5ebaf224750f38e7d7673e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308657"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344877"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory 混合式身分識別設計考量
 以取用者為基礎的裝置正廣為公司組織採用，而且雲端架構的軟體即服務 (SaaS) 應用程式是很易於採用的。 因此，要持續掌控使用者在內部資料中心與雲端平台間的應用程式存取，是很不容易的。  
@@ -62,6 +62,6 @@ Microsoft 的身分識別解決方案可跨越內部部署和雲端架構功能�
 | 透過增強式身分識別解決方案規劃更高的資料安全性 |[判斷資料保護需求](plan-hybrid-identity-design-considerations-dataprotection-requirements.md) <br> [判斷內容管理需求](plan-hybrid-identity-design-considerations-contentmgt-requirements.md)<br> [判斷存取控制需求](plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)<br> [判斷事件因應需求](plan-hybrid-identity-design-considerations-incident-response-requirements.md) <br> [定義資料保護策略](plan-hybrid-identity-design-considerations-data-protection-strategy.md) |
 | 規劃混合式身分識別生命週期 |[判斷混合式身分識別管理工作](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) <br> [同步處理管理](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)<br> [判斷混合式身分識別管理採用策略](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md) |
 
-## <a name="download-this-guide"></a>下載此指南
-您可以從 [Technet 組件庫](https://gallery.technet.microsoft.com/Azure-Hybrid-Identity-b06c8288)下載 PDF 版本的《混合式身分識別設計考量》指南。 
+## <a name="next-steps"></a>後續步驟
+[判斷身分識別需求](plan-hybrid-identity-design-considerations-business-needs.md)
 

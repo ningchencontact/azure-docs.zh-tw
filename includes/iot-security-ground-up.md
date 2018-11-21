@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069927"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289269"
 ---
-# <a name="internet-of-things-security-from-the-ground-up"></a>徹底保護物聯網安全性
+# <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>徹底保護物聯網 (IoT) 安全性
 
 物聯網 (IoT) 使得全球企業面臨獨特的安全性、隱私權及相容性挑戰。 不同於傳統網路技術 (這類問題是以軟體及其實作方式為中心)，IoT 在意的是當網路與實體世界交會時會發生什麼事。 保護 IoT 解決方案要求確保安全佈建裝置，保護這些裝置與雲端之間的連接，以及在處理和儲存期間保護雲端中資料保護的安全。 但是，會針對這類功能運作的是資源受限的裝置、根據地理位置分佈的部署，以及解決方案中的大量裝置。
 
-此文章將說明 IoT 解決方案加速器如何提供安全且私密的物聯網雲端解決方案。 此解決方案加速器提供完整的端對端解決方案，徹底為每個階段內建安全性。 在 Microsoft，開發安全的軟體是軟體工程實務的一部分，這立基於 Microsoft 數十年來長時間開發安全軟體的體驗。 為了確保這一點，安全性開發週期 (SDL) 是基礎的開發方法，再加上基礎結構層級安全性服務的主機，例如營運安全性保證 (OSA)，以及 Microsoft 數位犯罪防治中心、Microsoft 安全性回應中心及 Microsoft 惡意程式碼防護中心。
+本文將說明 IoT 解決方案加速器如何提供安全且私密的物聯網雲端解決方案。 此解決方案加速器提供完整的端對端解決方案，徹底為每個階段內建安全性。 在 Microsoft，開發安全的軟體是軟體工程實務的一部分，這立基於 Microsoft 數十年來長時間開發安全軟體的體驗。 為了確保這一點，安全性開發週期 (SDL) 是基礎的開發方法，再加上基礎結構層級安全性服務的主機，例如營運安全性保證 (OSA)，以及 Microsoft 數位犯罪防治中心、Microsoft 安全性回應中心及 Microsoft 惡意程式碼防護中心。
 
-此解決方案加速器提供獨特的功能，從 IoT 裝置佈建、連線及儲存資料都是簡單且明確的，而最棒的是很安全。 此文章將檢驗 Azure IoT 解決方案加速器的安全性功能和部署策略，以確保能夠應付安全性、隱私權及相容性的挑戰。
+此解決方案加速器提供獨特的功能，從 IoT 裝置佈建、連線及儲存資料都是簡單且明確的，而最棒的是很安全。 本文將檢驗 Azure IoT 解決方案加速器的安全性功能和部署策略，以確保能夠應付安全性、隱私權及相容性的挑戰。
 
 ## <a name="introduction"></a>簡介
 
@@ -29,7 +29,7 @@ ms.locfileid: "49069927"
 
 接著，會有隱私權問題。 公司希望資料收集過程透明化，例如，要收集哪些資料及原因、可查看資料的人員、可控制存取的人員等。 最後，還有關於設備及操作人員的一般安全性問題，以及維護業界標準相容性的問題。
 
-假如有安全性、隱私權、透明度及相容性考量，選擇正確的 IoT 解決方案提供者仍然是一個挑戰。 將由各種不同廠商所提供的 IoT 軟體和服務的各個部分聯結在一起，會難以偵測到安全性、隱私權、透明度及相容性中產生的隔閡，因此讓我們單獨進行修正。 選擇正確 IoT 軟體和服務提供者，是以尋找具有跨越多個縱向市場和地理位置執行的豐富經驗，同時還能以安全且透明的方式進行調整的提供者為基礎。 同樣地，它對於有數十年在全球無數部電腦上執行安全軟體之體驗的卓越提供者非常實用，並且能夠鑑別由這個物聯網的新世界所導致的威脅面。
+假如有安全性、隱私權、透明度及相容性考量，選擇正確的 IoT 解決方案提供者仍然是一項挑戰。 將由各種不同廠商所提供的 IoT 軟體和服務的各個部分聯結在一起，會難以偵測到安全性、隱私權、透明度及相容性中產生的隔閡，因此讓我們單獨進行修正。 選擇正確 IoT 軟體和服務提供者，是以尋找具有跨越多個縱向市場和地理位置執行的豐富經驗，同時還能以安全且透明的方式進行調整的提供者為基礎。 同樣地，它對於有數十年在全球無數部電腦上執行安全軟體之體驗的卓越提供者非常實用，並且能夠鑑別由這個物聯網的新世界所導致的威脅面。
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>徹底保護基礎結構的安全
 
@@ -47,7 +47,7 @@ Microsoft 的系統能提供持續的入侵偵測與防護、阻斷服務攻擊�
 
 [IoT 解決方案加速器](../articles/iot-fundamentals/iot-introduction.md)內的 [Azure IoT 中樞](../articles/iot-hub/about-iot-hub.md)提供完全受控服務，使用每一裝置的安全性認證和存取控制，在 IoT 裝置與 Azure 服務之間啟用可靠且安全的雙向通訊，例如 [Azure Machine Learning](../articles/machine-learning/studio/what-is-machine-learning.md) 和 [Azure 串流分析](../articles/stream-analytics/stream-analytics-introduction.md)。
 
-為了以最佳方式傳達內建於 Azure IoT 解決方案加速器的安全性和隱私權功能，此文章將套件細分成三個主要的安全性領域。
+為了以最佳方式傳達內建於 Azure IoT 解決方案加速器的安全性和隱私權功能，本文將套件細分成三個主要的安全性領域。
 
 ![Azure IoT 解決方案加速器](media/iot-security-ground-up/securing-iot-ground-up-fig3.png)
 

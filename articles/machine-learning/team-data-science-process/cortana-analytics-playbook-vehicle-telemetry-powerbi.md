@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f86d1d74f5139458999a8c91ac35ec76ac278c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262265"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300926"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>車輛遙測分析方案範本 Power BI 儀表板安裝指示
-此功能表連結至此腳本的章節： 
-
-[!INCLUDE [cap-vehicle-telemetry-playbook-selector](../../../includes/cap-vehicle-telemetry-playbook-selector.md)]
 
 本車輛遙測分析解決方案示範汽車經銷商、汽車製造商及保險公司如何使用 Cortana Intelligence 的功能。 取得車輛健全狀況和駕駛習慣的即時和預測性深入解析，從而改善客戶經驗、研究和開發以及行銷活動。 這些逐步指示說明在您的訂用帳戶中部署方案之後，如何設定 Power BI 報告和儀表板。 
+
+若要檢閱此解決方案的摘要說明，請參閱[車輛遙測分析方案腳本](cortana-analytics-playbook-vehicle-telemetry.md)。
+若要進一步探索此解決方案，請參閱[車輛遙測分析方案腳本：深入探索方案](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)。
 
 ## <a name="prerequisites"></a>必要條件
 * 部署[車輛遙測分析](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90) /(英文/) 解決方案。 

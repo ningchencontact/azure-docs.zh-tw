@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 19861955dcf82d0ffae674400552ca1f0c439a81
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: cb02ed61ea050c17bc7e6dc0ebc724f29f885dd7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834876"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344330"
 ---
 # <a name="discover-solutions-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中的解決方案
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="solutions"></a>解決方案
-Gallery 中的**[解決方案](https://gallery.cortanaintelligence.com/solutions)** 可讓您快速開始從預先設定的解決方案、參考結構與設計模式迅速地建置 Cortana Intelligence 解決方案。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)中的**[解決方案](https://gallery.cortanaintelligence.com/solutions)** 可讓您快速開始從預先設定的解決方案、參考結構與設計模式迅速地建置 Cortana Intelligence 解決方案。
 透過隨附的指示或精選的合作夥伴建置您自己的解決方案。  
 
 ## <a name="discover"></a>探索

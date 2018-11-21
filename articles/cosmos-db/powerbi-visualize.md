@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945173"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622086"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 連接器將 Azure Cosmos DB 資料視覺化
 
@@ -76,11 +76,11 @@ ms.locfileid: "49945173"
 
 5. 在 [預覽版連接器] 頁面上，按一下 [繼續]。 [Azure Cosmos DB] 視窗隨即出現。
 
-6. 依照下列所示方式指定您要從中擷取資料的 Azure Cosmos DB 帳戶端點 URL，然後按一下 [確定]。 若要使用您的帳戶，可以從 Azure 入口網站 [[金鑰](manage-account.md#keys)] 刀鋒視窗的 [URI] 方塊中擷取 URL。 您可以視需要提供資料庫名稱、集合名稱，或使用導覽器來選取資料庫和集合，以識別資料的來源。
+6. 依照下列所示方式指定您要從中擷取資料的 Azure Cosmos DB 帳戶端點 URL，然後按一下 [確定]。 若要使用您的帳戶，可以從 Azure 入口網站 [金鑰] 刀鋒視窗的 [URI] 方塊中擷取 URL。 您可以視需要提供資料庫名稱、集合名稱，或使用導覽器來選取資料庫和集合，以識別資料的來源。
    
-7. 如果是第一次連接到此端點，系統會提示您提供帳戶金鑰。 如果是您自己的帳戶，請從 Azure 入口網站 [[唯讀金鑰](manage-account.md#keys)] 刀鋒視窗的 [主要金鑰] 方塊中擷取金鑰。 輸入適當的金鑰，然後按一下 [連接]。
+7. 如果是第一次連接到此端點，系統會提示您提供帳戶金鑰。 如果是您自己的帳戶，請從 Azure 入口網站 [唯讀金鑰] 刀鋒視窗的 [主要金鑰] 方塊中擷取金鑰。 輸入適當的金鑰，然後按一下 [連接]。
    
-   建議您在建置報告時使用唯讀金鑰。 這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。 您可以從 Azure 入口網站的 [[金鑰](manage-account.md#keys)] 刀鋒視窗取得唯讀金鑰。 
+   建議您在建置報告時使用唯讀金鑰。 這樣可避免非必要地將主要金鑰暴露於潛在的安全性風險下。 您可以從 Azure 入口網站的 [**金鑰**] 刀鋒視窗取得唯讀金鑰。 
     
 8. 順利連接帳戶後，會出現 [瀏覽器]  窗格。 [瀏覽器]  會顯示帳戶下的資料庫清單。
 

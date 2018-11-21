@@ -12,21 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718724"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614033"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
 *適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
-> 在部署 Azure App Service 1.3 之前，請先將 1807 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
 >
 >
 
@@ -84,8 +84,7 @@ ms.locfileid: "44718724"
     2. 在 [Azure Stack 訂用帳戶] 方塊中，選取 [預設提供者訂用帳戶]。
     
     > [!NOTE]
-    > 目前，App Service 只能部署到**預設提供者訂用帳戶**。  在未來的更新中，App Service 會部署至 Azure Stack 1804 所導入的新計量訂用帳戶，而且現有部署也全都會遷移至這個新的訂用帳戶。
-    >
+    > App Service 只能部署到「預設提供者訂用帳戶」。
     >
     
     3. 在 [Azure Stack 位置] 方塊中，選取對應到您要部署之區域的位置。 例如，如果要部署至 Azure Stack 開發套件，請選取 [本機]。
@@ -170,7 +169,7 @@ ms.locfileid: "44718724"
     ![App Service 安裝程式][14]
 
     > [!NOTE]
-    > **Windows Server 2016 Core 不是支援的平台映像，無法與 Azure Stack 上的 Azure App Service 搭配使用。請勿將評估映像用於生產環境部署。Azure App Service on Azure Stack 要求在用於部署的映像上必須啟用 Microsoft.Net 3.5.1 SP1。 市集摘要整合的 Windows Server 2016 映像並未啟用此功能。**
+    > **Windows Server 2016 Core 不是支援的平台映像，無法與 Azure Stack 上的 Azure App Service 搭配使用。請勿將評估映像用於生產環境部署。Azure App Service on Azure Stack 要求在用於部署的映像上必須啟用 Microsoft.Net 3.5.1 SP1。 Marketplace 同步發佈的 Windows Server 2016 映像並未啟用這項功能，因此您必須建立並使用已預先啟用此功能的 Windows Server 2016 映像。**
 
 14. 在 [選取平台映像] 方塊中，從可以在適用於 App Service 雲端的運算資源提供者的可用映像中，選擇您的部署 Windows Server 2016 虛擬機器映像。 按 [下一步] 。
 
@@ -198,7 +197,7 @@ ms.locfileid: "44718724"
 
 1. 在 Azure Stack 管理入口網站中，前往 [管理 - App Service]。
 
-2. 在狀態下的概觀，查看 [狀態]是否顯示為 [所有角色都已準備完成]。
+2. 在概觀中，於狀態之下，查看 [狀態] 是否顯示 [所有角色均已就緒]。
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
     

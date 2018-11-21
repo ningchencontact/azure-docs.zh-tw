@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/16/2018
+ms.date: 11/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 46fd818d8ca15515c91bb6e65e99b0a3bc1f1fa4
-ms.sourcegitcommit: a36a1ae91968de3fd68ff2f0c1697effbb210ba8
+ms.openlocfilehash: b8e9f12a549f71971c2da3b9865f6a74dad58f61
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/17/2018
-ms.locfileid: "29972835"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300909"
 ---
 # <a name="storsimple-virtual-array-best-practices"></a>StorSimple Virtual Array 的最佳作法
 ## <a name="overview"></a>概觀
@@ -117,7 +117,7 @@ StorSimple Virtual Array 是佈建在主機伺服器 Hypervisor (Hyper-V 或 VMw
 * 確定虛擬陣列位於它自己的 Active Directory 組織單位 (OU) 中。
 * 確定虛擬陣列沒有套用群組原則物件 (GPO)。 您可以禁止繼承，以確保虛擬陣列 (子節點) 不會自動繼承父節點的任何 GPO。 如需詳細資訊，請移至 [禁止繼承](https://technet.microsoft.com/library/cc731076.aspx)。
 
-### <a name="networking"></a>網路
+### <a name="networking"></a>網路功能
 虛擬陣列的網路組態是透過本機 Web UI 來設定。 虛擬網路介面則是透過虛擬陣列佈建所在的 Hypervisor 來啟用。 使用 [網路設定](storsimple-virtual-array-deploy3-fs-setup.md) 頁面可設定虛擬網路介面的 IP 位址、子網路和閘道。  您也可以為裝置設定主要和次要 DNS 伺服器、時間設定和選用的 Proxy 設定。 大部分網路組態都是一次性設定。 在部署虛擬陣列之前，請檢閱 [StorSimple 網路需求](storsimple-ova-system-requirements.md#networking-requirements) 。
 
 在部署虛擬陣列時，建議您遵循下列最佳作法︰
@@ -168,7 +168,7 @@ StorSimple Virtual Array 可與單一儲存體帳戶相關聯。 此儲存體帳
 在設定 StorSimple 磁碟區/共用時，建議您實作下列最佳作法︰
 
 * 在建立磁碟區之前，請先根據您想要部署的工作負載識別磁碟區類型。 對於需要確保資料位於本機 (即使在雲端中斷的期間) 以及需要低雲端延遲的工作負載，請使用固定在本機的磁碟區。 一旦在虛擬陣列上建立磁碟區，就無法將磁碟區類型從固定在本機變更為分層，「反之亦然」 。 例如，在部署 SQL 工作負載或裝載虛擬機器 (VM) 的工作負載時，請建立固定在本機的磁碟區；若為檔案共用工作負載，則使用分層式磁碟區。
-* 在處理大型檔案大小時，請核取不常使用的封存資料的選項。 若啟用此選項，則會使用較大的重複資料刪除區塊大小 512 K，以加快將資料傳輸至雲端的速度。
+
 
 #### <a name="volume-format"></a>磁碟區格式
 在 iSCSI 伺服器上建立 StorSimple 磁碟區之後，您必須初始化、掛接和格式化磁碟區。 此作業會在連線至 StorSimple 裝置的主機上執行。 在 StorSimple 主機上掛接和格式化磁碟區時，建議您遵循下列最佳作法。
@@ -249,7 +249,7 @@ StorSimple Virtual Array 擁有資料安全性和加密功能，可確保資料�
 ### <a name="monitoring"></a>監視
 為了確保 StorSimple Virtual Array 持續處於狀況良好狀態，您必須監視陣列，並確保能夠收到系統傳來的資訊，包括警示。 若要監視虛擬陣列的整體健全狀況，請實作下列最佳作法︰
 
-* 設定監視功能來追蹤虛擬陣列資料磁碟以及作業系統磁碟的磁碟使用量。 如果執行 Hyper-V，您可以使用 System Center Virtual Machine Manager (SCVMM) 和 System Center Operations Manager (SCOM) 的組合來監視虛擬化主機。
+* 設定監視功能來追蹤虛擬陣列資料磁碟以及作業系統磁碟的磁碟使用量。 如果執行 Hyper-V，您可以使用 System Center Virtual Machine Manager (SCVMM) 和 System Center Operations Manager 的組合來監視虛擬化主機。
 * 在虛擬陣列上設定電子郵件通知，在到達特定使用量層級時傳送警示。                                                                                                                                                                                                
 
 ### <a name="index-search-and-virus-scan-applications"></a>索引搜尋和病毒掃描應用程式

@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: c53bab2e838425dfdd124e64c3d7d3114fa30429
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: fe58b335a029e558ce29871483589908f17c03cd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834425"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345686"
 ---
 # <a name="discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>探索 Azure AI 資源庫中的自訂機器學習服務模組
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="custom-modules-for-machine-learning-studio"></a>Machine Learning studio 的自訂模組
-Azure AI 資源庫會提供數個[自訂模組](https://gallery.cortanaintelligence.com/customModules)，可擴充 Azure Machine Learning Studio 的功能。 您可以匯入這些模組用於您的實驗，以便開發更進階的預測性分析解決方案。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)會提供數個[自訂模組](https://gallery.cortanaintelligence.com/customModules)，可擴充 Azure Machine Learning Studio 的功能。 您可以匯入這些模組用於您的實驗，以便開發更進階的預測性分析解決方案。
 
 目前，Gallery 提供*時間序列分析**關聯規則**叢集演算法*(k-means 除外) 和*視覺效果*，以及其他的主力公用程式模組。
 

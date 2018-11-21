@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 51404c35b42d1c98116e74b5b7a47afe05b7d2a9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470059"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300552"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 Azure 儲存體提供多層式的安全性模型，讓您保護特定允許網路集合的儲存體帳戶。  設定網路規則時，只有來自允許網路的應用程式可以存取儲存體帳戶。  從允許的網路呼叫時，應用程式仍然需要適當的權限 (有效的存取金鑰或 SAS 權杖) 才能存取儲存體帳戶。
@@ -201,7 +201,7 @@ az storage account network-rule remove --resource-group "myresourcegroup" --acco
 ### <a name="configuring-access-from-on-premises-networks"></a>設定內部部署網路存取權
 為將內部部署網路存取權授與使用 IP 網路規則的儲存體帳戶，您必須識別網路所使用的網際網路對應 IP 位址。  請連絡網路系統管理員尋求協助。
 
-如果您的網路使用 [ExpressRoute](/azure/expressroute/expressroute-introduction) 連接至 Azure 網路，每個線路在 Microsoft Edge 會設定兩個公用 IP 位址用來連接到 Microsoft 服務，像使用 [Azure 公用對等](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)的 Azure 儲存體。  若要允許從您的線路與 Azure 儲存體通訊，您必須為電路的公用 IP 位址建立 IP 網路規則。  若要尋找您 ExpressRoute 線路的公用 IP 位址，請透過 Azure 入口網站[開啟具有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
+如果您的網路使用 [ExpressRoute](/azure/expressroute/expressroute-introduction) 連接至 Azure 網路，每個線路在 Microsoft Edge 會設定兩個公用 IP 位址用來連接到 Microsoft 服務，像使用 [Azure 公用對等](/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains)的 Azure 儲存體。  若要允許從您的線路與 Azure 儲存體通訊，您必須為電路的公用 IP 位址建立 IP 網路規則。  若要尋找您 ExpressRoute 線路的公用 IP 位址，請透過 Azure 入口網站[開啟具有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。
 
 
 ### <a name="managing-ip-network-rules"></a>管理 IP 網路規則

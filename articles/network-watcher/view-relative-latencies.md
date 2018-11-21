@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a6c2ffa619eeff8b455df8a8b2157525af12c640
-ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
+ms.openlocfilehash: 6ac37c3a53b0cc71bdab85fb86e0e85d998867aa
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27601016"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300603"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>檢視特定位置中 Azure 區域的相對延遲
 
@@ -60,7 +60,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 > 您在前一個命令中指定的區域不必與您擷取網路監看員時所指定的區域相同。 前一個命令只會要求您指定現有的網路監看員。 網路監看員可位於任何區域。 如果您指定 `-Country` 和 `-State` 的值，它們必須是有效的。 值會區分大小寫。 資料可供有限數目的國家/地區、州和城市使用。 在[檢視可用的國家/地區、州、城市及提供者](#view-available)中執行命令，以檢視可與前一個命令搭配使用的國家/地區、城市及狀態清單。 
 
 > [!WARNING]
-> 您必須針對 `-StartTime` 和 `-EndTime` 指定 2017 年 11 月 14 日之後的日期。 指定 2017 年 11 月 14 日之前的日期不會傳回任何資料。 
+> 您必須針對 `-StartTime` 和 `-EndTime` 指定過去 30 天內的日期。 指定先前的日期會導致未傳回任何資料。
 
 前一個命令的輸出如下：
 

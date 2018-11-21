@@ -5,20 +5,21 @@ services: automation
 author: georgewallace
 ms.service: automation
 ms.topic: include
-ms.date: 04/05/2018
+ms.date: 11/07/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: abe7668ed16ddd5cc1b247207d3e80f7c1118137
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 70cdd5a9d0482c24dfeb2037ae56b86cd9339fcf
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964528"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51285766"
 ---
 | 資源 | 上限 |注意|
 | --- | --- |---|
 | 每個自動化帳戶每隔 30 秒可以送出的新作業數量上限 (非排程作業) |100 |達到此限制時，後續的建立作業要求會失敗。 用戶端會收到錯誤回應。|
 | 每個自動化帳戶在相同時間點的並行執行作業數量上限 (非排程作業) |200 |達到此限制時，後續的建立作業要求會失敗。 用戶端會收到錯誤回應。|
+| 30 天累積期間內作業中繼資料的儲存體大小上限。 | 10 GB (約 4 百萬個作業)|達到此限制時，後續的建立作業要求會失敗。 |
 | 每個自動化帳戶每隔 30 秒可匯入的模組數量上限 |5 ||
 | 模組的大小上限 |100 MB ||
 | 工作執行時間 - 免費層 |每個訂用帳戶每行事曆月份 500 分鐘 ||

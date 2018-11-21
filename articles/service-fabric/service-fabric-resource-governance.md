@@ -3,7 +3,7 @@ title: 適用於容器和服務的 Azure Service Fabric 資源控管 | Microsoft
 description: Azure Service Fabric 可讓您針對在容器內部或外部執行的服務指定資源限制。
 services: service-fabric
 documentationcenter: .net
-author: masnider
+author: TylerMSFT
 manager: timlt
 editor: ''
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: 49c7e2c99cce13880781a67806543b1cde0c12b6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney, subramar
+ms.openlocfilehash: f2898de030a70d578eb45e81c9ccbef90bce96c8
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208007"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300467"
 ---
 # <a name="resource-governance"></a>資源管理 
 
@@ -78,12 +78,12 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 如果需要完全手動設定節點容量，您可以使用一般機制描述叢集中的節點。 以下是具有 4 個核心和 2 GB 記憶體的節點設定範例： 
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 當您啟用自動偵測可用資源，並手動定義叢集資訊清單中的節點容量時，Service Fabric 會檢查節點是否有足夠資源來支援使用者已經定義的容量：
@@ -102,8 +102,8 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 為了獲得最佳效能，在叢集資訊清單中應該也開啟下列設定： 
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" /> 
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -131,7 +131,7 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
     </Policies>
   </ServiceManifestImport>
 ```
-  
+  
 在此範例中，稱為 **ServicePackageA** 的服務套件在其所在的節點上獲得一個核心。 此服務套件包含兩個程式碼套件 (**CodeA1** 和**CodeA2**)，且兩者皆指定 `CpuShares` 參數。 CpuShares 的比例 512:256 會將核心在這兩個程式碼套件做分配。 
 
 因此，在此範例中，CodeA1 會獲得 2/3 的核心，CodeA2 則獲得 1/3 的核心 (並具有同樣的彈性保證保留)。 如果未針對程式碼套件指定 CpuShares，Service Fabric 就會在它們之間平均分配核心。
@@ -180,8 +180,7 @@ Service Fabric 執行階段目前不提供資源的保留。 當開啟處理序�
 </Application>
 ```
 
-> [!IMPORTANT] 
-> 從 Service Fabric 版本 6.1 開始，可以使用應用程式參數指定資源控管。<br> 
+> [!IMPORTANT]  從 Service Fabric 版本 6.1 開始，可以使用應用程式參數指定資源控管。<br> 
 >
 > 當應用程式參數用來指定資源控管時，Service Fabric 無法降級至 6.1 版之前的版本。 
 

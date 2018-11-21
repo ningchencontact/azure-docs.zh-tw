@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834636"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344649"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中的 Jupyter Notebook
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="jupyter-notebooks"></a>Jupyter Notebook
-**[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)** 在單一的互動式畫布中納入程式碼、資料視覺效果和文件。
+[Azure AI 資源庫](http://gallery.cortanaintelligence.com)中的 **[Jupyter Notebook](https://gallery.cortanaintelligence.com/notebooks)** 在單一的互動式畫布中納入程式碼、資料視覺效果和文件。
 資源庫中的 Notebook 會提供進階機器學習服務之技術和解決方案的教學課程和詳細說明。
 
 ## <a name="discover"></a>探索

@@ -13,32 +13,31 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 04/19/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 818f4f4d8ea51cb278190d6e41953f0b04b2e995
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 4d86bcf99d5b4cf2b04980e72a2bd0a422233dc3
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42146141"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622869"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 稽核活動參考
 
-透過 Azure Active Directory 中的報告，您可以取得判斷您的環境執行狀況所需的資訊。
+透過 Azure Active Directory (Azure AD) 報告，您可以取得判斷您的環境執行狀況所需的資訊。
 
 Azure AD 中的報告架構包含下列元件：
 
-- **活動** 
-    - **登入活動** – 受控應用程式和使用者登入活動的使用情況相關資訊
-    - **稽核記錄** - 可針對各種功能在 Azure AD 內進行的所有變更，提供記錄追蹤功能。 稽核記錄的範例包括使用者、應用程式、群組、角色、原則、驗證等任何資源在 Azure AD 中所做的變更。
-- **安全性** 
-    - **有風險的登入** - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 如需詳細資訊，請參閱＜有風險的登入＞。
-    - **標幟為有風險的使用者** - 有風險的使用者表示可能被盜用的使用者帳戶。 如需詳細資訊，請參閱＜標幟為有風險的使用者＞。
+- **活動報告** 
+    - [登入](concept-sign-ins.md) – 提供受控應用程式和使用者登入活動的使用情況相關資訊
+    - [稽核記錄](concept-audit-logs.md) - 可針對各種功能在 Azure AD 內進行的所有變更，提供記錄追蹤功能。 
+    
+- **安全性報告** 
+    - [有風險的登入](concept-risky-sign-ins.md) - 有風險的登入表示非使用者帳戶合法擁有者的某人嘗試登入。 
+    - [標幟為有風險的使用者](concept-user-at-risk.md) - 有風險的使用者表示可能被盜用的使用者帳戶。 
 
 本文列出可以在稽核記錄中記錄的稽核活動。
- 
-
 
 ## <a name="access-reviews"></a>存取權檢閱
 
@@ -72,9 +71,6 @@ Azure AD 中的報告架構包含下列元件：
 |使用者管理|取得 V1 應用程式|
 |使用者管理|取得 V2 應用程式|
 |使用者管理|取得 V2 應用程式|
-
-
-
 
 ## <a name="account-provisioning"></a>帳戶佈建
 
@@ -593,13 +589,8 @@ Azure AD 中的報告架構包含下列元件：
 |原則管理|使用者已註冊自助式密碼重設|
 
 
-
-
 ## <a name="next-steps"></a>後續步驟
 
-如需下列各項的概觀：
-
-- 報告，請參閱 [Azure Active Directory 報告](overview-reports.md)。
-
-- 稽核活動報告，請參閱 [Azure Active Directory 入口網站中的稽核活動報告](concept-audit-logs.md)。 
-
+- [Azure AD 報告概觀](overview-reports.md)。
+- [稽核記錄報告](concept-audit-logs.md)。 
+- [以程式設計方式存取 Azure AD 報告](concept-reporting-api.md)

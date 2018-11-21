@@ -2,18 +2,18 @@
 title: 開發適用於 Azure IoT Edge 的模組 | Microsoft Docs
 description: 了解如何建立適用於 Azure IoT Edge 的自訂模組
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741417"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567225"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>了解開發 IoT Edge 模組的需求和工具
 
@@ -41,7 +41,7 @@ IoT 中樞會看見一個類似裝置的模組執行個體，這表示：
 ### <a name="device-to-cloud-messages"></a>裝置到雲端的訊息
 為了能夠對裝置到雲端的訊息進行複雜處理，IoT Edge 中樞在模組之間以及模組與 IoT 中樞之間提供宣告式路由傳送。 宣告式路由可讓模組攔截並處理其他模組所傳送的訊息，並將它們傳播至複雜的管線。 [模組撰寫](module-composition.md)一文說明如何使用路由，將模組撰寫為複雜的管線。
 
-IoT Edge 模組不同於一般的 IoT 中樞裝置應用程式，可接收其本機 IoT Edge 中樞正在進行 Proxy 處理的裝置到雲端訊息，以處理它們。
+IoT Edge 模組 (相對於一般 IoT 中樞裝置應用程式) 可接收其本機 IoT Edge 中樞正在進行 Proxy 處理的裝置到雲端訊息，以處理它們。
 
 IoT Edge 中樞會根據[模組撰寫](module-composition.md)一文中所述的宣告式路由，將訊息傳播至模組。 在開發 IoT Edge 模組時，您可以透過設定訊息處理常式來接收這些訊息。
 
@@ -58,7 +58,9 @@ IoT Edge 中樞會根據[模組撰寫](module-composition.md)一文中所述的�
 | $outputName | 用來傳送訊息的輸出。 可以是空的。 |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>從模組連線到 IoT Edge 中樞
-從模組連線到本機 IoT Edge 中樞包含兩個步驟：當您的模組啟動時，使用 IoT Edge 執行階段所提供的連接字串，並確定您的應用程式會接受該裝置上 IoT Edge 中樞所呈現的憑證。
+從模組連線到本機 IoT Edge 中樞涉及兩個步驟： 
+1. 使用您的模組啟動時，IoT Edge 執行階段所提供的連接字串。
+2. 請確定您的應用程式接受 IoT Edge 中樞在該裝置上所提供的憑證。
 
 要使用的連接字串會由 IoT Edge 執行階段插入環境變數 `EdgeHubConnectionString` 中。 這使得任何想使用它的程式都能使用。
 

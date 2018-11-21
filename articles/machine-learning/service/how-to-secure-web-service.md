@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: 885d867d0733ef923d327d8d6a36fc1588fd4961
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801007"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344479"
 ---
 # <a name="secure-azure-machine-learning-web-services-with-ssl"></a>使用 SSL 保護 Azure Machine Learning Web 服務
 
@@ -53,9 +53,8 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 > [!TIP]
 > 如果憑證授權單位無法以 PEM 編碼的檔案來提供憑證和金鑰，您可以使用 [OpenSSL](https://www.openssl.org/) 之類的公用程式來變更格式。
 
-> [!IMPORTANT]
-> 自我簽署的憑證應只用於開發。 這些憑證不應用於實際生產環境。 如果您使用自我簽署憑證，請參閱[使用自我簽署憑證來取用 Web 服務](#self-signed)一節以取得特定指示。
-
+> [!WARNING]
+> 自我簽署的憑證應只用於開發。 這些憑證不應用於實際生產環境。 自我簽署的憑證可能會造成用戶端應用程式的問題。 如需詳細資訊，請參閱用戶端應用程式中所用網路程式庫的文件。
 
 ## <a name="enable-ssl-and-deploy"></a>啟用 SSL 並部署
 
@@ -119,91 +118,8 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 
   在 AKS 叢集之 [公用 IP 位址] 的 [設定] 索引標籤底下更新 DNS，如下圖所示。 您可以找到公用 IP 位址，作為在包含 AKS 代理程式節點和其他網路資源之資源群組下方所建立的其中一個資源類型。
 
-  ![Azure Machine Learning services：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
+  ![Azure Machine Learning services：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## <a name="consume-authenticated-services"></a>取用已驗證的服務
+## <a name="next-steps"></a>後續步驟
 
-### <a name="how-to-consume"></a>如何取用 
-+ **對於 ACI 和 AKS**： 
-
-  對於 ACI 和 AKS Web 服務，了解如何取用這些文章中的 Web 服務：
-  + [如何部署至 ACI](how-to-deploy-to-aci.md)
-
-  + [如何部署至 AKS](how-to-deploy-to-aks.md)
-
-+ **對於 FPGA**：  
-
-  下列範例示範如何使用 Python 和 C# 來取用已驗證的 FPGA 服務。
-  將 `authkey` 取代為部署服務時所傳回的主要或次要金鑰。
-
-  Python 範例：
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C# 範例：
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### <a name="set-the-authorization-header"></a>設定驗證標頭
-其他 gRPC 用戶端可以藉由設定授權標頭來驗證要求。 一般方法是建立結合 `SslCredentials` 與 `CallCredentials` 的 `ChannelCredentials` 物件。 這會新增至要求的授權標頭。 如需有關如何為特定標頭實作支援的詳細資訊，請參閱 [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html)。
-
-下列範例示範如何使用 C# 與 Go 來設定標頭：
-
-+ 使用 C# 來設定標頭：
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ 使用 Go 來設定標頭：
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## <a name="consume-services-with-self-signed-certificates"></a>使用自我簽署憑證來取用服務
-
-針對受到自我簽署憑證保護的伺服器，有兩種方式可讓用戶端向伺服器進行驗證：
-
-* 在用戶端系統上，將用戶端系統上的 `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` 環境變數設定為指向憑證檔案。
-
-* 建構 `SslCredentials` 物件時，將憑證檔案的內容傳遞給建構函式。
-
-使用任一種方法都會導致 gRPC 使用憑證作為根憑證。
-
-> [!IMPORTANT]
-> gRPC 不會接受未受信任的憑證。 使用未受信任的憑證將會失敗，並顯示 `Unavailable` 狀態碼。 失敗的詳細資料包含 `Connection Failed`。
+了解如何[取用部署為 Web 服務的 ML 模型](how-to-consume-web-service.md)。

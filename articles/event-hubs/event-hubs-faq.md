@@ -9,12 +9,12 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 10/07/2018
 ms.author: shvija
-ms.openlocfilehash: 4e0f762a69451ce0dc9ec00db5992fce0707f275
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9bd1649c0ec89abf660865971314becb6580852f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282436"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300670"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中樞常見問題集
 
@@ -50,7 +50,7 @@ Azure 事件中樞的標準層提供比基本層更多的功能。 標準層包�
 ### <a name="how-do-i-monitor-my-event-hubs"></a>如何監視事件中樞？
 事件中樞會發出詳盡的計量，以便將您的資源狀態提供給 [Azure 監視器](../azure-monitor/overview.md)。 它們也可以讓您存取事件中樞服務的整體健康情況 (不僅是在命名空間層級，還包括在實體層級)。 了解針對 [Azure 事件中樞](event-hubs-metrics-azure-monitor.md)所提供的監視功能。
 
-## <a name="apache-kakfa-integration"></a>Apache Kakfa 整合
+## <a name="apache-kafka-integration"></a>Apache Kafka 整合
 
 ### <a name="how-do-i-integrate-my-existing-kafka-application-with-event-hubs"></a>如何將現有的 Kafka 應用程式與事件中樞整合？
 事件中樞提供的 Kafka 端點可供您現有的 Apache Kafka 型應用程式使用。 只需進行設定變更，就能取得 PaaS Kafka 體驗。 它會提供替代方案來執行您自己的 Kafka 叢集。 事件中樞支援 Apache Kafka 1.0 和更新的用戶端版本，並且可與您現有的 Kafka 應用程式、工具及架構搭配使用。 如需詳細資訊，請參閱[適用於 Kafka 的事件中樞存放庫](https://github.com/Azure/azure-event-hubs-for-kafka) \(英文\)。

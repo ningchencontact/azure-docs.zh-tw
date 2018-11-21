@@ -1,6 +1,6 @@
 ---
 title: 本機部署遠端監視解決方案 (透過 Visual Studio IDE) - Azure | Microsoft Docs
-description: 此操作指南會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
+description: 此操作指南會示範如何使用 Visual Studio，將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278815"
+ms.locfileid: "51287603"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>本機部署遠端監視解決方案加速器 - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 本文示範如何在 Visual Studio 中執行微服務。 本機微服務部署使用下列雲端服務：雲端中的 IoT 中樞、Cosmos DB、Azure 串流分析及 Azure 時間序列深入解析服務。
+本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您可了解如何在 Visual Studio 中執行微服務。 本機微服務部署使用下列雲端服務：雲端中的 IoT 中樞、Cosmos DB、Azure 串流分析及 Azure 時間序列深入解析服務。
 
 如果您想要在本機電腦上執行 Docker 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)。
 
@@ -115,14 +115,4 @@ npm start
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定本機開發環境
-> * 設定解決方案加速器
-> * 部署解決方案加速器
-> * 登入解決方案加速器
-
 既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](quickstart-remote-monitoring-deploy.md)。
-
-<!-- Next tutorials in the sequence -->

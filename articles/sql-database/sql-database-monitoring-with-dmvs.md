@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: df3062349ac384b92eeaf9483310cd5d3b48921f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238551"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288522"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>使用動態管理檢視監視 Azure SQL Database
 
@@ -333,7 +333,7 @@ ORDER BY start_time ASC;
 
 ## <a name="identify-memory-grant-wait-performance-issues"></a>識別記憶體授與等候效能問題
 
-如果您的常見等候類型為 `RESOURCE_SEMAHPORE`，而且您沒有高 CPU 問題，您可能有記憶體授與等候問題。
+如果您的常見等候類型為 `RESOURCE_SEMAHPORE`，而且沒有高 CPU 使用量問題，則可能有記憶體授與等候問題。
 
 ### <a name="determine-if-a-resourcesemahpore-wait-is-a-top-wait"></a>判斷 `RESOURCE_SEMAHPORE` 等候是否為常見等候
 

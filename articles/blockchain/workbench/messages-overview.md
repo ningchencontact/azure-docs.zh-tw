@@ -5,23 +5,327 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 11/12/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b4a816c887d1cca78ff845858dce29049946b09f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f8f3584475415cf9ca19458f6da78d34df37f438
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235984"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614356"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 訊息整合
 
 Azure Blockchain Workbench 除了提供 REST API，也會提供以傳訊為基礎的整合。 Workbench 會透過 Azure 事件方格發佈以總帳為中心的事件，讓下游取用者能夠根據這些事件來擷取資料或採取動作。 對於需要可靠傳訊功能的用戶端，Azure Blockchain Workbench 也會將訊息傳遞至 Azure 服務匯流排端點。
 
-開發人員也已經表現出，他們非常想要能夠讓外部系統通訊起始交易，以建立使用者、建立合約和更新總帳上的合約。 雖然這項功能目前尚未在公開預覽中出現，但您可以在 [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample) 找到提供該功能的範例。
+## <a name="input-apis"></a>輸入 API
+
+如果您想要從外部系統起始交易，以便建立使用者、建立合約及更新合約，您可使用傳訊輸入 API 在總帳上執行交易。 如需示範輸入 API 的範例，請參閱[傳訊整合範例](https://aka.ms/blockchain-workbench-integration-sample)。
+
+以下是目前可用的輸入 API。
+
+### <a name="create-user"></a>建立使用者
+
+建立新使用者。
+
+要求需要下列欄位：
+
+| **名稱**             | **說明**                                      |
+|----------------------|------------------------------------------------------|
+| requestId            | 用戶端提供的 GUID                                |
+| firstName            | 使用者的名字                              |
+| lastName             | 使用者的姓氏                               |
+| emailAddress         | 使用者的電子郵件地址                           |
+| externalId           | 使用者的 Azure AD 物件識別碼                      |
+| connectionId         | 區塊鏈連線的唯一識別碼 |
+| messageSchemaVersion | 傳訊結構描述版本                            |
+| messageName          | **CreateUserRequest**                               |
+
+範例：
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bbbb-edba8e44562d",
+    "firstName": "Ali",
+    "lastName": "Alio",
+    "emailAddress": "aa@contoso.com",
+    "externalId": "6a9b7f65-ffff-442f-b3b8-58a35abd1bcd",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateUserRequest"
+}
+```
+
+Blockchain Workbench 會傳回包含下列欄位的回應：
+
+| **名稱**              | **說明**                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| requestId             | 用戶端提供的 GUID |
+| userId                | 所建立使用者的識別碼 |
+| userChainIdentifier   | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的 **鏈結** 位址。 |
+| connectionId          | 區塊鏈連線的唯一識別碼|
+| messageSchemaVersion  | 傳訊結構描述版本 |
+| messageName           | **CreateUserUpdate** |
+| status                | 使用者建立要求的狀態。  如果成功，值為 [成功]。 失敗時，值為 [失敗]。     |
+| additionalInformation | 其他根據狀態提供的資訊 |
+
+來自 Blockchain Workbench 的成功**建立使用者**回應範例：
+
+``` json
+{ 
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Success", 
+    "additionalInformation": { } 
+} 
+```
+
+如果要求不成功，失敗相關詳細資料會包含在其他資訊中。
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": null, 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Failure", 
+    "additionalInformation": { 
+        "errorCode": 4000, 
+        "errorMessage": "User cannot be provisioned on connection." 
+    }
+}
+```
+
+### <a name="create-contract"></a>建立合約
+
+建立新合約。
+
+要求需要下列欄位：
+
+| **名稱**             | **說明**                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId            | 用戶端提供的 GUID |
+| userChainIdentifier  | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
+| applicationName      | 應用程式的名稱 |
+| workflowName         | 工作流程的名稱 |
+| parameters           | 可供建立合約的參數輸入 |
+| connectionId         | 區塊鏈連線的唯一識別碼 |
+| messageSchemaVersion | 傳訊結構描述版本 |
+| messageName          | **CreateContractRequest** |
+
+範例：
+
+``` json
+{ 
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "applicationName": "AssetTransfer", 
+    "workflowName": "AssetTransfer", 
+    "parameters": [ 
+        { 
+            "name": "description", 
+            "value": "a 1969 dodge charger" 
+        }, 
+        { 
+            "name": "price", 
+            "value": "12345" 
+        } 
+    ], 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateContractRequest" 
+}
+```
+
+Blockchain Workbench 會傳回包含下列欄位的回應：
+
+| **名稱**                 | **說明**                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------|
+| requestId                | 用戶端提供的 GUID                                                             |
+| contractId               | Azure Blockchain Workbench 內合約的唯一識別碼 |
+| contractLedgerIdentifier | 總帳上合約的位址                                            |
+| connectionId             | 區塊鏈連線的唯一識別碼                               |
+| messageSchemaVersion     | 傳訊結構描述版本                                                         |
+| messageName              | **CreateContractUpdate**                                                      |
+| status                   | 合約建立要求的狀態。  可能的值：[已提交]、[已認可]、[失敗]。  |
+| additionalInformation    | 其他根據狀態提供的資訊                              |
+
+來自 Blockchain Workbench 的已提交**建立合約**回應範例：
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Submitted"
+    "additionalInformation": { }
+}
+```
+
+來自 Blockchain Workbench 的已認可**建立合約**回應範例：
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Committed",
+    "additionalInformation": { }
+}
+```
+
+如果要求不成功，失敗相關詳細資料會包含在其他資訊中。
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": null,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="create-contract-action"></a>建立合約動作
+
+建立新的合約動作。
+
+要求需要下列欄位：
+
+| **名稱**                 | **說明**                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId                | 用戶端提供的 GUID |
+| userChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這是使用者的**鏈結**位址。 |
+| contractLedgerIdentifier | 總帳上合約的位址 |
+| workflowFunctionName     | 工作流程函式的名稱 |
+| parameters               | 可供建立合約的參數輸入 |
+| connectionId             | 區塊鏈連線的唯一識別碼 |
+| messageSchemaVersion     | 傳訊結構描述版本 |
+| messageName              | **CreateContractActionRequest** |
+
+範例：
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "workflowFunctionName": "modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a 1969 dodge charger"
+        },
+        {
+            "name": "price",
+            "value": "12345"
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionRequest"
+}
+```
+
+Blockchain Workbench 會傳回包含下列欄位的回應：
+
+| **名稱**              | **說明**                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------|
+| requestId             | 用戶端提供的 GUID|
+| contractId            | Azure Blockchain Workbench 內合約的唯一識別碼 |
+| connectionId          | 區塊鏈連線的唯一識別碼 |
+| messageSchemaVersion  | 傳訊結構描述版本 |
+| messageName           | **CreateContractActionUpdate** |
+| status                | 合約動作要求的狀態。 可能的值：[已提交]、[已認可]、[失敗]。                         |
+| additionalInformation | 其他根據狀態提供的資訊 |
+
+來自 Blockchain Workbench 的已提交**建立合約動作**回應範例：
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Submitted",
+    "additionalInformation": { }
+}
+```
+
+來自 Blockchain Workbench 的已認可**建立合約動作**回應範例：
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Committed"
+    "additionalInformation": { }
+}
+```
+
+如果要求不成功，失敗相關詳細資料會包含在其他資訊中。
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract action cannot be provisioned on connection."
+    }
+}
+```
+
+### <a name="input-api-error-codes-and-messages"></a>輸入 API 錯誤碼和訊息
+
+**錯誤碼 4000：不正確的要求錯誤**
+- 無效的 connectionId
+- CreateUserRequest deserialization 失敗
+- CreateContractRequest deserialization 失敗
+- CreateContractActionRequest deserialization 失敗
+- 應用程式 {依應用程式名稱識別} 不存在
+- 應用程式 {依應用程式名稱識別} 沒有工作流程
+- UserChainIdentifier 不存在
+- 合約 {依總帳識別碼識別} 不存在
+- 合約 {依總帳識別碼識別} 沒有函式 {工作流程函式名稱}
+- UserChainIdentifier 不存在
+
+**錯誤碼 4090：衝突錯誤**
+- 使用者已經存在
+- 合約已經存在
+- 合約動作已經存在
+
+**錯誤碼 5000：內部伺服器錯誤**
+- 例外狀況訊息
 
 ## <a name="event-notifications"></a>事件通知
 
@@ -92,15 +396,15 @@ public class NewAccountRequest : MessageModelBase
 
 | 名稱 | 說明 |
 |-----|--------------|
-| ChainID | 要求的相關聯鏈結唯一識別碼。|
-| BlockId | 總帳上區塊的唯一識別碼。|
-| ContractId | 合約的唯一識別碼。|
-| ContractAddress |       總帳上合約的位址。|
-| TransactionHash  |     總帳上交易的雜湊。|
-| OriginatingAddress |   交易建立者的位址。|
-| ActionName       |     動作的名稱。|
-| IsUpdate        |      識別這是否為更新。|
-| 參數       |     物件清單，這些物件可識別傳送至動作的參數名稱、值和資料類型。|
+| ChainID | 要求相關鏈結的唯一識別碼 |
+| BlockId | 總帳上區塊的唯一識別碼 |
+| ContractId | 合約的唯一識別碼 |
+| ContractAddress |       總帳上合約的位址 |
+| TransactionHash  |     總帳上交易的雜湊 |
+| OriginatingAddress |   交易建立者的位址 |
+| ActionName       |     動作的名稱 |
+| IsUpdate        |      識別這是否為更新 |
+| 參數       |     物件清單，這些物件可識別傳送至動作的參數名稱、值和資料類型 |
 | TopLevelInputParams |  在合約連線至一或多個其他合約的情況下，這些是來自最上層合約的參數。 |
 
 ``` csharp
@@ -126,18 +430,17 @@ public class ContractInsertOrUpdateRequest : MessageModelBase
 
 | 名稱                     | 說明                                                                                                                                                                   |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ContractActionId         | 此合約動作的唯一識別碼                                                                                                                                |
-| ChainIdentifier          | 鏈結的唯一識別碼                                                                                                                                           |
-| ConnectionId             | 連線的唯一識別碼                                                                                                                                      |
-| UserChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，這會是使用者的「鏈結」位址。                                                     |
-| ContractLedgerIdentifier | 總帳上合約的位址。                                                                                                                                        |
-| WorkflowFunctionName     | 工作流程函式的名稱。                                                                                                                                                |
-| WorkflowName             | 工作流程的名稱。                                                                                                                                                         |
-| WorkflowBlobStorageURL   | Blob 儲存體中合約的 URL。                                                                                                                                      |
-| ContractActionParameters | 合約動作的參數。                                                                                                                                           |
-| TransactionHash          | 總帳上交易的雜湊。                                                                                                                                    |
-| 佈建狀態      | 動作目前的佈建狀態。</br>0 – 已建立</br>1 – 處理中</br>2 – 完成</br> 完成表示總帳確認已成功新增此項目。                                               |
-|                          |                                                                                                                                                                               |
+| ContractActionId         | 此合約動作的唯一識別碼 |
+| ChainIdentifier          | 鏈結的唯一識別碼 |
+| ConnectionId             | 連線的唯一識別碼 |
+| UserChainIdentifier      | 區塊鏈網路上所建立使用者的位址。 在 Ethereum 中，此位址是使用者的**鏈結**位址。 |
+| ContractLedgerIdentifier | 總帳上合約的位址 |
+| WorkflowFunctionName     | 工作流程函式的名稱 |
+| WorkflowName             | 工作流程的名稱 |
+| WorkflowBlobStorageURL   | Blob 儲存體中合約的 URL |
+| ContractActionParameters | 合約動作的參數 |
+| TransactionHash          | 總帳上交易的雜湊 |
+| 佈建狀態      | 動作目前的佈建狀態。</br>0 – 已建立</br>1 – 處理中</br>2 – 完成</br> 完成表示總帳確認已成功新增此項目 |
 
 ```csharp
 public class ContractActionRequest : MessageModelBase
@@ -165,9 +468,9 @@ public class ContractActionRequest : MessageModelBase
 
 | 名稱    | 說明                              |
 |---------|------------------------------------------|
-| 位址 | 已對其募集資金的使用者位址。 |
-| 餘額 | 使用者餘額的餘額。         |
-| ChainID | 鏈結的唯一識別碼。     |
+| 位址 | 已對其募集資金的使用者位址 |
+| 餘額 | 使用者餘額的餘額         |
+| ChainID | 鏈結的唯一識別碼     |
 
 
 ``` csharp
@@ -185,10 +488,10 @@ public class UpdateUserBalanceRequest : MessageModelBase
 
 | 名稱           | 說明                                                            |
 |----------------|------------------------------------------------------------------------|
-| ChainId        | 已在其中新增區塊的鏈結唯一識別碼。             |
-| BlockId        | Azure Blockchain Workbench 內區塊的唯一識別碼。 |
-| BlockHash      | 區塊的雜湊。                                                 |
-| BlockTimeStamp | 區塊的時間戳記。                                            |
+| ChainId        | 已在其中新增區塊的鏈結唯一識別碼             |
+| BlockId        | Azure Blockchain Workbench 內區塊的唯一識別碼 |
+| BlockHash      | 區塊的雜湊                                                 |
+| BlockTimeStamp | 區塊的時間戳記                                            |
 
 ``` csharp
 public class InsertBlockRequest : MessageModelBase
@@ -206,13 +509,13 @@ public class InsertBlockRequest : MessageModelBase
 
 | 名稱            | 說明                                                            |
 |-----------------|------------------------------------------------------------------------|
-| ChainId         | 已在其中新增區塊的鏈結唯一識別碼。             |
-| BlockId         | Azure Blockchain Workbench 內區塊的唯一識別碼。 |
-| TransactionHash | 交易的雜湊。                                           |
-| 從            | 交易建立者的位址。                      |
-| 至              | 交易預定接收者的位址。              |
-| 值           | 交易中所包含的值。                                 |
-| IsAppBuilderTx  | 識別這是否為 Blockchain Workbench 交易。                         |
+| ChainId         | 已在其中新增區塊的鏈結唯一識別碼             |
+| BlockId         | Azure Blockchain Workbench 內區塊的唯一識別碼 |
+| TransactionHash | 交易的雜湊                                           |
+| 從            | 交易建立者的位址                      |
+| 至              | 交易預定接收者的位址              |
+| 值           | 交易中所包含的值                                 |
+| IsAppBuilderTx  | 識別這是否為 Blockchain Workbench 交易                         |
 
 ``` csharp
 public class InsertTransactionRequest : MessageModelBase
@@ -233,8 +536,8 @@ public class InsertTransactionRequest : MessageModelBase
 
 | 名稱            | 說明                                                                       |
 |-----------------|-----------------------------------------------------------------------------------|
-| ContractId      | 這是 Azure Blockchain Workbench 內合約的唯一識別碼。 |
-| ChainIdentifier | 這是鏈結上合約的識別碼。                             |
+| ContractId      | Azure Blockchain Workbench 內合約的唯一識別碼 |
+| ChainIdentifier | 鏈結上合約的識別碼                             |
 
 ``` csharp
 public class AssignContractChainIdentifierRequest : MessageModelBase
@@ -252,8 +555,8 @@ public class AssignContractChainIdentifierRequest : MessageModelBase
 
 | 名稱          | 說明                          |
 |---------------|--------------------------------------|
-| OperationName | 作業的名稱。           |
-| RequestId     | 要求的唯一識別碼。 |
+| OperationName | 作業的名稱           |
+| RequestId     | 要求的唯一識別碼 |
 
 ``` csharp
 public class MessageModelBase
@@ -269,9 +572,9 @@ public class MessageModelBase
 
 | 名稱  | 說明                 |
 |-------|-----------------------------|
-| 名稱  | 參數名稱。  |
-| 值 | 參數的值。 |
-| 類型  | 參數的類型。  |
+| 名稱  | 參數的名稱  |
+| 值 | 參數的值 |
+| 類型  | 參數的類型  |
 
 ``` csharp
 public class ContractInputParameter
@@ -288,10 +591,10 @@ public class ContractInputParameter
 
 | 名稱  | 說明                |
 |-------|----------------------------|
-| id    | 屬性的識別碼。    |
-| 名稱  | 屬性的名稱。  |
-| 值 | 屬性的值。 |
-| 類型  | 屬性的類型。  |
+| id    | 屬性的識別碼    |
+| 名稱  | 屬性的名稱  |
+| 值 | 屬性的值 |
+| 類型  | 屬性的類型  |
 
 ``` csharp
 public class ContractProperty

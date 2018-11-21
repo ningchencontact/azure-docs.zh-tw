@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153213"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616056"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>使用 ExpressRoute 之 App Service 環境的網路組態詳細資料
 ## <a name="overview"></a>概觀
@@ -36,7 +36,7 @@ ms.locfileid: "32153213"
 * 位於連接埠 445 的 Azure 檔案服務的輸出網路連線
 * 位於與 App Service 環境相同區域中的 SQL DB 端點的輸出網路連接。  Sql DB 端點在下列網域之下解析：database.windows.net。  這需要開啟連接埠 1433、11000-11999 和 14000 14999 的存取。  如需詳細資訊，請參閱 [Sql Database V12 連接埠使用方式](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md)一文。
 * Azure 管理平面端點 (ASM 和 ARM 端點) 的輸出網路連線。  這包括 management.core.windows.net 和 management.azure.com 的輸出連線。 
-* ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。需要此連線才能支援 SSL 功能。
+* ocsp.msocsp.com、mscrl.microsoft.com 和 crl.microsoft.com 的輸出網路連線。  需要此連線才能支援 SSL 功能。
 * 虛擬網路的 DNS 設定必須能夠解析前面幾點所提到的所有端點和網域。  如果無法解析這些端點，App Service 環境建立嘗試將會失敗，而且現有的 App Service 環境會標示為狀況不良。
 * 需要有連接埠 53 的輸出存取，才能與 DNS 伺服器通訊。
 * 如果 VPN 閘道的另一端有自訂 DNS 伺服器存在，則必須可從包含 App Service 環境的子網路連接該 DNS 伺服器。 
@@ -93,7 +93,7 @@ ms.locfileid: "32153213"
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-請記住 0.0.0.0/0 是廣泛的位址範圍，因此會被 ExpressRoute 所通告的更明確位址範圍所覆寫。  若要重新反覆執行先前的建議，具有 0.0.0.0/0 路由的 UDR 應搭配也只會通告 0.0.0.0/0 的 ExressRoute 組態使用。 
+請記住 0.0.0.0/0 是廣泛的位址範圍，因此會被 ExpressRoute 所通告的更明確位址範圍所覆寫。  若要重新反覆執行先前的建議，具有 0.0.0.0/0 路由的 UDR 應搭配也只會通告 0.0.0.0/0 的 ExpressRoute 組態使用。 
 
 或者，您可以下載完整和更新的由 Azure 使用中的 CIDR 範圍清單。  從 [Microsoft 下載中心][DownloadCenterAddressRanges]可取得包含所有 Azure IP 位址範圍的 Xml 檔案。  
 

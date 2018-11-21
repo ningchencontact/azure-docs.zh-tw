@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 9b2c5fa38d0ad21a374d3e5acee8534aeb9c0384
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: fe1f2e026aaa4260d34b9b1cb96064053af1c3c7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580543"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568007"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>升級 SQL 資料倉儲可將效能發揮到極限
 將「Azure SQL 資料倉儲」升級至最新一代 Azure 硬體和儲存體架構。
@@ -45,13 +45,17 @@ ms.locfileid: "45580543"
 
 ## <a name="start-the-upgrade"></a>開始升級
 
-1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲，然後按一下 [升級至 Gen2]：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. 在 Azure 入口網站中移至計算最佳化 Gen1 層資料倉儲，然後按一下 [工作] 索引標籤下的 [升級至 Gen2] 卡片：![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+    
+> [!NOTE]
+> 如果您未在 [工作] 索引標籤下看見 [升級至 Gen2] 卡片，您的訂用帳戶類型受限於目前的區域。 [提交支援票證](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)，將您的訂用帳戶列入白名單中。
 
 2. 依預設，使用下列對應，根據計算最佳化 Gen1 層目前的效能層級，針對資料倉儲**選取建議的效能層級**：
     
    | 計算最佳化 Gen1 層 | 計算最佳化 Gen2 層 |
    | :----------------------: | :-------------------: |
-   |      DW100 – DW1000      |        DW1000c        |
+   |      DW100 – DW600       |        DW500c         |
+   |          DW1000          |        DW1000c        |
    |          DW1200          |        DW1500c        |
    |          DW1500          |        DW1500c        |
    |          DW2000          |        DW2000c        |

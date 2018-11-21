@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834782"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346366"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>共用及探索 Azure AI 資源庫中的資源
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
+**[Azure AI 資源庫](http://gallery.cortanaintelligence.com)** 是一個由社群驅動的網站，可用於探索及共用透過 Azure AI 建置的解決方案。
+資源庫具有各種資源，可供您開發自己的分析解決方案。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

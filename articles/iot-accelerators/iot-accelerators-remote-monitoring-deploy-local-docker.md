@@ -1,6 +1,6 @@
 ---
 title: 本機部署遠端監視解決方案 - Docker - Azure | Microsoft Docs
-description: 此操作指南會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
+description: 此操作指南會示範如何使用 Docker，將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285410"
+ms.locfileid: "51288539"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>本機部署遠端監視解決方案加速器 - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 本文示範如何將微服務部署盪本機的 Docker 容器。 本機微服務部署使用下列雲端服務：雲端中的 IoT 中樞、Cosmos DB、Azure 串流分析及 Azure 時間序列深入解析服務。
+本文會示範如何將遠端監視解決方案加速器部署到本機電腦，以進行測試和開發。 您可了解如何將微服務部署盪本機的 Docker 容器。 本機微服務部署使用下列雲端服務：雲端中的 IoT 中樞、Cosmos DB、Azure 串流分析及 Azure 時間序列深入解析服務。
 
 如果您想要在本機電腦上執行 IDE 中的遠端監視解決方案加速器，請參閱[本機部署遠端監視解決方案加速器 - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md)。
 
@@ -70,13 +70,13 @@ docker-compose up
 您第一次執行此命令時，Docker 會下載 Docker 中樞的微服務映像，以在本機建置容器。 在後續執行時，Docker 則會立即執行容器。
 
 > [!TIP]
-> 我們經常會發佈提供新功能的新 Docker 映像。 在您提取最新的映像之前，可以使用下列這組命令來清除本機 Docker 容器和對應的映像。 
+> Microsoft 經常會發佈包含新功能的新 Docker 映像。 在您提取最新的映像之前，可以使用下列這組命令來清除本機 Docker 容器和對應的映像：
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 您可以使用個別殼層來檢視容器中的記錄。 請先使用 `docker ps` 命令來尋找容器識別碼。 然後使用 `docker logs {container-id} --tail 1000` 來檢視指定容器的最後 1000 個項目。
 
@@ -101,14 +101,4 @@ docker rmi <list_of_images>
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定本機開發環境
-> * 設定解決方案加速器
-> * 部署解決方案加速器
-> * 登入解決方案加速器
-
 既然您已部署遠端監視解決方案，下一步便是[探索解決方案儀表板的功能](quickstart-remote-monitoring-deploy.md)。
-
-<!-- Next tutorials in the sequence -->

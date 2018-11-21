@@ -1,5 +1,5 @@
 ---
-title: Azure 服務匯流排 WCF 轉送教學課程 | Microsoft Docs
+title: 使用 Azure WCF 轉送向外部用戶端公開內部部署 WCF REST 服務 | Microsoft Docs
 description: 使用 WCF 轉送建立用戶端和服務應用程式。
 services: service-bus-relay
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2017
+ms.date: 11/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6927788fa79c567222a199064f5b375546ecf9ad
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262007"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615463"
 ---
-# <a name="azure-wcf-relay-tutorial"></a>Azure WCF 轉送教學課程
+# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>使用 Azure WCF 轉送向外部用戶端公開內部部署 WCF REST 服務
 
 本教學課程說明如何使用 Azure 轉送，來建置簡單的 WCF 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
@@ -31,19 +31,32 @@ ms.locfileid: "51262007"
 
 最後三個步驟描述如何建立用戶端應用程式、設定用戶端應用程式，以及建立和使用可存取主機功能的用戶端。
 
+您會在本教學課程中執行下列步驟：
+
+> [!div class="checklist"]
+> * 建立轉送命名空間。
+> * 建立 WCF 服務合約
+> * 實作 WCF 合約
+> * 裝載並執行 WCF 服務以向轉送服務登錄
+> * 建立服務合約的 WCF 用戶端
+> * 設定 WCF 用戶端
+> * 實作 WCF 用戶端
+> * 執行應用程式。 
+
 ## <a name="prerequisites"></a>必要條件
 
-若要完成此教學課程，您需要下列項目：
+若要完成本教學課程，您需要下列必要條件：
 
-* [Microsoft Visual Studio 2015 或更高版本](https://visualstudio.com)。 本教學課程使用 Visual Studio 2017。
-* 使用中的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/free/)。
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+- [Visual Studio 2015 或更新版本](http://www.visualstudio.com)。 本教學課程中的範例使用 Visual Studio 2017。
+- 適用於 .NET 的 Azure SDK。 從 [SDK 下載頁面](https://azure.microsoft.com/downloads/)進行安裝。
 
-## <a name="create-a-service-namespace"></a>建立服務命名空間
+## <a name="create-a-relay-namespace"></a>建立轉送命名空間
+第一個步驟是建立命名空間，並取得[共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 金鑰。 命名空間會為每個透過轉送服務公開的應用程式提供應用程式界限。 建立服務命名空間時，系統會自動產生 SAS 金鑰。 服務命名空間與 SAS 金鑰的組合會提供一個認證，供 Azure 用來驗證對應用程式的存取權。
 
-第一個步驟是建立命名空間，並取得[共用存取簽章 (SAS)](../service-bus-messaging/service-bus-sas.md) 金鑰。 命名空間會為每個透過轉送服務公開的應用程式提供應用程式界限。 建立服務命名空間時，系統會自動產生 SAS 金鑰。 服務命名空間與 SAS 金鑰的組合會提供一個認證，供 Azure 用來驗證對應用程式的存取權。 請依照[這裡的指示](relay-create-namespace-portal.md)來建立轉送命名空間。
+[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>定義 WCF 服務合約
-
 服務合約會指定服務可支援哪些作業 (方法或函式的 Web 服務術語)。 合約可以透過定義 C++、C# 或 Visual Basic 介面建立。 介面中的每個方法會對應一個特定服務作業。 每個介面都必須已套用 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 屬性，而且每個作業都必須已套用 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 屬性。 如果介面中的方法有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 屬性，但沒有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 屬性，則不會公開該方法。 程序後面的範例會提供這些工作的程式碼。 如需合約與服務的詳細討論，請參閱 WCF 文件中的[設計和實作服務](https://msdn.microsoft.com/library/ms729746.aspx)。
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>使用介面建立轉送合約
@@ -51,13 +64,13 @@ ms.locfileid: "51262007"
 1. 以系統管理員身分開啟 Visual Studio：以滑鼠右鍵按一下 [開始] 功能表中的程式，然後選取 [以系統管理員身分執行]。
 2. 這會建立新的主控台應用程式專案。 按一下 [檔案] 功能表，選取 [新增]，然後按一下 [專案]。 在 [新增專案] 對話方塊中，按一下 **Visual C#** (如果 **Visual C#** 未出現，請查看 [其他語言] 下方)。 按一下 [主控台應用程式 (.NET Framework)] 範本，並將它命名為 **EchoService**。 按一下 [確定]  以建立專案。
 
-    ![][2]
+    ![建立主控台應用程式][2]
 
 3. 安裝服務匯流排 NuGet 套件。 此套件會自動新增服務匯流排程式庫及 WCF **System.ServiceModel** 的參考。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是可讓您以程式設計方式存取 WCF 基本功能的命名空間。 服務匯流排會使用 WCF 的許多物件和屬性來定義服務合約。
 
     在 [方案總管] 中，以滑鼠右鍵按一下專案，然後按一下 [管理 NuGet 套件]。按一下 [瀏覽] 索引標籤，然後搜尋 **WindowsAzure.ServiceBus**。 確定已在 [版本] 方塊中選取此專案名稱。 按一下 [安裝] 並接受使用條款。
 
-    ![][3]
+    ![服務匯流排套件][3]
 4. 在 [方案總管] 中，按兩下 Program.cs 檔案，以在編輯器中開啟它 (如果尚未開啟的話)。
 5. 在檔案頂端加入下列 using 陳述式：
 
@@ -231,7 +244,7 @@ namespace Microsoft.ServiceBus.Samples
 </configuration>
 ```
 
-## <a name="host-and-run-a-basic-web-service-to-register-with-the-relay-service"></a>裝載並執行基本 Web 服務以向轉送服務登錄
+## <a name="host-and-run-the-wcf-service-to-register-with-the-relay-service"></a>裝載並執行 WCF 服務以向轉送服務登錄
 
 此步驟描述如何執行 Azure 轉送服務。
 
@@ -501,7 +514,7 @@ namespace Microsoft.ServiceBus.Samples
     此步驟會定義端點的名稱、服務中定義的合約，以及用戶端應用程式使用 TCP 來與 Azure 轉送通訊的細節。 端點名稱在下一步中用來連結此端點組態與服務 URI。
 5. 按一下 [檔案]，然後按一下 [全部儲存]。
 
-## <a name="example"></a>範例
+### <a name="example"></a>範例
 
 下列程式碼會顯示 Echo 用戶端的 App.config 檔案。
 
@@ -607,7 +620,7 @@ namespace Microsoft.ServiceBus.Samples
     channelFactory.Close();
     ```
 
-## <a name="example"></a>範例
+### <a name="example"></a>範例
 
 完整的程式碼應如下所示，顯示如何建立用戶端應用程式、如何呼叫服務的作業，以及如何在完成作業呼叫之後關閉用戶端。
 
@@ -714,13 +727,10 @@ namespace Microsoft.ServiceBus.Samples
 12. 您可以繼續以這種方式將文字訊息從用戶端傳送至服務。 完成後，在用戶端和服務主控台視窗中按 Enter 鍵以結束這兩個應用程式。
 
 ## <a name="next-steps"></a>後續步驟
+前進到下列教學課程： 
 
-本教學課程示範了如何使用服務匯流排的 WCF 轉送功能，來建置 Azure 轉送用戶端應用程式和服務。 如需使用[服務匯流排通訊](../service-bus-messaging/service-bus-messaging-overview.md)的類似教學課程，請參閱[開始使用服務匯流排佇列](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
-
-若要深入了解 Azure 轉送，請參閱下列主題。
-
-* [Azure 轉送概觀](relay-what-is-it.md)
-* [如何使用 WCF 轉送服務搭配 .NET](relay-wcf-dotnet-get-started.md)
+> [!div class="nextstepaction"]
+>[將內部部署 WCF REST 服務公開至網路外用戶端](service-bus-relay-rest-tutorial.md)
 
 [2]: ./media/service-bus-relay-tutorial/create-console-app.png
 [3]: ./media/service-bus-relay-tutorial/install-nuget.png
