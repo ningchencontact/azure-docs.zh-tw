@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 474cae69353555064f4e866e9f3fc756a127a64f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7a813d091378a0cef3193f7da1937eb0db00c1d1
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403282"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264024"
 documentType: LandingData
 title: Azure Stack 使用者文件
 metadata:
@@ -73,7 +73,7 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">使用 Azure 和 Azure Stack 建立暫存資料分析解決方案</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">使用 Azure 建立跨雲端縮放解決方案</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">使用 Azure 和 Azure Stack 建立異地分散應用程式解決方案</a>
-    - html: <a href="/azure/azure-stack/userazure-stack-solution-hybrid-cloud">使用 Azure 與 Azure Stack 部署混合式雲端解決方案</a>
+    - html: <a href="azure-stack-solution-hybrid-cloud.md">使用 Azure 與 Azure Stack 部署混合式雲端解決方案</a>
 - title: 參考
   items:
   - type: list
