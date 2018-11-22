@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/21/2017
 ms.author: charwen
-ms.openlocfilehash: 30d56acf6bd3a882622af41ca0f2095572f72f71
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615733"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165436"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>設定 ExpressRoute 和站對站並存連線 (傳統)
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "51615733"
 
 **關於 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 > [!IMPORTANT]
 > 在執行下列指示之前，必須事先設定 ExpressRoute 線路。 在執行下列步驟之前，請確定您已遵循[建立 ExpressRoute 線路](expressroute-howto-circuit-classic.md)和[設定路由](expressroute-howto-routing-classic.md)的指南。

@@ -9,28 +9,28 @@ ms.date: 09/14/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: bed1ea3785c35d1053a0ff2147c3bdd797e28581
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 36f53203a7d75fc06f872e9cc9ef9379944df108
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996622"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273545"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>註冊 Azure Enterprise 合約並檢視成本資料
 
 您可使用您的 Azure Enterprise 合約註冊 Cloudyn。 註冊將可提供 Cloudyn 入口網站的存取權。 本快速入門詳細說明建立 Cloudyn 試用訂用帳戶並登入 Cloudyn 入口網站所需的註冊程序。 它也會示範如何立即開始檢視成本資料。
 
-Azure 成本管理可提供與 Cloudyn 類似的功能。 Azure 成本管理是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱並針對最佳化建議採取動作以節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
+「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 - 在 http://portal.azure.com 登入 Azure 入口網站。
 
-## <a name="register-with-cloudyn"></a>註冊 Cloudyn
+## <a name="register-with-cloudyn"></a>向 Cloudyn 註冊
 
 1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
-2. 在 [概觀] 底下，按一下 [Cloudyn]  
+2. 在 [概觀] 下，按一下 [Cloudyn]  
     ![Cloudyn 頁面](./media/quick-register-ea/cost-mgt-billing-service.png)
 3. 在 [Cloudyn] 頁面上，按一下 [移至 Cloudyn] 以在新視窗開啟 Cloudyn 註冊頁面。
 4. 在 Cloudyn 入口網站試用版註冊頁面上，輸入您的公司名稱，然後選取 [Azure 企業註冊系統管理員]。  

@@ -1,4 +1,16 @@
-
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genemi
+ms.openlocfilehash: c4329b9efef3cdb2911466e64ac6c9f07a1e9b31
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269330"
+---
 <a name="cs_0_csharpprogramexample_h2"/>
 
 ## <a name="c-program-example"></a>C# 程式範例
@@ -39,7 +51,7 @@ C# 程式包含：
 7. 若要從 Visual Studio 執行程式，請按一下 [啟動] 按鈕。 報告輸出會顯示在 cmd.exe 視窗中。
 
 > [!NOTE]
-> 您可以選擇編輯 T-SQL，將前置  **#**  新增至資料表名稱，以將其建立為 **tempdb** 中的暫存資料表。 沒有測試資料庫可供使用時，這很適合用於示範。 暫存資料表會在連線關閉時自動刪除。 不會對暫存資料表強制執行外部索引鍵的任何 REFERENCES。
+> 您可以選擇編輯 T-SQL，將前置 **#** 新增至資料表名稱，以將其建立為 **tempdb** 中的暫存資料表。 沒有測試資料庫可供使用時，這很適合用於示範。 暫存資料表會在連線關閉時自動刪除。 不會對暫存資料表強制執行外部索引鍵的任何 REFERENCES。
 >
 
 <a name="cs_1_connect"/>
