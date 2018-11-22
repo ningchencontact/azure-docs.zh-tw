@@ -39,8 +39,10 @@ items:
     href: troubleshoot-rdp-static-ip.md
   - name: 針對停用 NIC 而在 VM 中導致的 RDP 錯誤進行疑難排解
     href: troubleshoot-rdp-nic-disabled.md
-  - name: 針對安全模式 而導致的 RDP 錯誤進行疑難排解
+  - name: 針對由安全模式所造成的 RDP 錯誤進行疑難排解
     href: troubleshoot-rdp-safe-mode.md
+  - name: 針對由 netvsc.sys 所造成的 RDP 錯誤進行疑難排解
+    href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:
   - name: SSH 疑難排解
@@ -151,9 +153,9 @@ items:
   href: understand-vm-reboot.md
 - name: 遠端疑難排解工具
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: fbbc44073d4cb27222800943826ab7a177709833
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 5b5da17002955e7a5c24e1b528ebf3076f2de24a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260624"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283807"

@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: d8fb8ca84f68e6e8c503375b3b2fae1ce1eb72ba
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989204"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283786"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -41,7 +41,7 @@ ms.locfileid: "46989204"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 上登入 Azure 入口網站。
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
