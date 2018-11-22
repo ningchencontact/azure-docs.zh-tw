@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 07b7327b01987d79a6447ed67de27b69c02c14ee
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 5169f6c7ff3d34d90f3f2e4b37b01733384966ff
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268354"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283582"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Python 來呼叫文字分析認知服務 
 <a name="HOLTop"></a>
@@ -30,7 +30,7 @@ ms.locfileid: "48268354"
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您可以使用 **5,000 次交易/月的免費層**來完成此逐步解說。
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 您也必須具備註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
 

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: dech
-ms.openlocfilehash: 61d9d33ae7e8e2104e61bbd24862a709dd6d78ec
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 08fe85ae88b1f53941d490a6c22684d223da24a8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636468"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160948"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 JavaScript SDK 建置 Node.js 主控台應用程式，以管理 Azure Cosmos DB SQL API 資料
 
@@ -497,9 +497,9 @@ ms.locfileid: "51636468"
 
 
 ## <a id="Query"></a>步驟 8︰查詢 Azure Cosmos DB 資源
-Azure Cosmos DB 支援針對儲存於每個容器中的 JSON 文件進行[豐富查詢](sql-api-sql-query.md)。 下列範例程式碼說明您可以對容器中的文件執行的查詢。
+Azure Cosmos DB 支援針對儲存於每個容器中的 JSON 文件進行[豐富查詢](how-to-sql-query.md)。 下列範例程式碼說明您可以對容器中的文件執行的查詢。
 
-1. 將 **queryContainer** 函式複製並貼到 app.js 檔案中的 **createFamilyItem** 函式下方。 Azure Cosmos DB 支援類 SQL 查詢，如下所示。 如需建立複雜查詢的詳細資訊，請參閱[查詢遊樂場](https://www.documentdb.com/sql/demo)和[查詢文件](sql-api-sql-query.md)。
+1. 將 **queryContainer** 函式複製並貼到 app.js 檔案中的 **createFamilyItem** 函式下方。 Azure Cosmos DB 支援類 SQL 查詢，如下所示。 如需建立複雜查詢的詳細資訊，請參閱[查詢遊樂場](https://www.documentdb.com/sql/demo)和[查詢文件](how-to-sql-query.md)。
 
    ```nodejs
    /**

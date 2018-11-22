@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 8a5ca4f94a6f1186b6d1a26b1c7e12357cd9e799
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8c947e2effab84b17ea88623695e0a6b0d020d0f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616362"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285113"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立邊緣機器學習解決方案
 
@@ -89,7 +89,7 @@ ms.locfileid: "51616362"
 
  -  Azure Stack 整合系統，或部署 Azure Stack 開發套件。
 
-    - 您可以在[安裝 Azure Stack 開發套件](/articles/azure-stack/asdk/asdk-install)中找到如何安裝 Azure Stack 的指示。
+    - 您可以在[安裝 Azure Stack 開發套件](../asdk/asdk-install.md)中找到如何安裝 Azure Stack 的指示。
      - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 此安裝可能需要幾個小時才能完成。
 
  -  將 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS 服務部署至 Azure Stack

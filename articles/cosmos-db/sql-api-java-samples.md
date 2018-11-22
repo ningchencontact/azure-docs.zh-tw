@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: sample
 ms.date: 02/08/2018
 ms.author: sngun
-ms.openlocfilehash: ec13a594750132bc016d1383eb4b0a08fdf6114e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 539e863d05c2d343a643c54c39c1e5a28694c03a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831824"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163213"
 ---
 # <a name="azure-cosmos-db-java-examples-for-the-sql-api"></a>Azure Cosmos DB：適用於 SQL API 的 Java 範例
 
@@ -133,11 +133,10 @@ $ cd azure-documentdb-java
 | [執行簡單的跨分割區文件查詢](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) \(英文\) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_options.setenablecrosspartitionquery) |
 | [依查詢排序](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) \(英文\) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb._feed_response.getqueryiterator) |
 
-如需撰寫查詢的詳細資訊，請參閱 [在 Azure Cosmos DB 中執行 SQL 查詢](sql-api-sql-query.md)。
+如需撰寫查詢的詳細資訊，請參閱 [在 Azure Cosmos DB 中執行 SQL 查詢](how-to-sql-query.md)。
 
 ## <a name="offer-examples"></a>供應項目範例
-
-  [OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 檔案示範如何執行下列工作：
+[OfferCrudSamples](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) 檔案示範如何執行下列工作：
 
 | Task | API 參考資料 |
 | --- | --- |

@@ -2,18 +2,17 @@
 title: 在 Azure 容器執行個體中監視容器
 description: 有關如何在 Azure 容器執行個體中依照您的容器，監視計算資源 (例如 CPU 和記憶體) 耗用量的詳細資訊。
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: overview
 ms.date: 04/24/2018
-ms.author: marsma
-ms.openlocfilehash: 6107aee0a4d7497e90186e0ea4bda6cd2712820d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: danlep
+ms.openlocfilehash: c4834d7f9c63735fe08ddc8d023ad9bf34b891cc
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979602"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822495"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>在 Azure 容器執行個體中監視容器資源
 
@@ -144,4 +143,4 @@ Timestamp            Name          Containername             Average
 
 <!-- LINKS - Internal -->
 [azure-monitoring]: ../monitoring-and-diagnostics/monitoring-overview.md
-[monitor-dimension]: ../monitoring/monitoring-data-collection.md#multi-dimensional-metrics
+[monitor-dimension]: ../azure-monitor/platform/data-collection.md#multi-dimensional-metrics

@@ -9,13 +9,13 @@ ms.date: 08/07/2018
 ms.topic: quickstart
 ms.custom: ''
 ms.service: cost-management
-manager: dougeby
-ms.openlocfilehash: e49be3d61cfbbf71a0e9cbeef4c171f3af222544
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 4b0c0a6fdf8d84b6519d1228f148342b8486c282
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979551"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276392"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>註冊個人 Azure 訂用帳戶並檢視成本資料
 
@@ -25,10 +25,10 @@ ms.locfileid: "46979551"
 
 - 在 http://portal.azure.com 登入 Azure 入口網站。
 
-## <a name="register-with-cloudyn"></a>註冊 Cloudyn
+## <a name="register-with-cloudyn"></a>向 Cloudyn 註冊
 
 1. 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。
-2. 在 [概觀] 底下，按一下 [Cloudyn]  
+2. 在 [概觀] 下，按一下 [Cloudyn]  
     ![Cloudyn 頁面](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. 在 [成本管理] 頁面上，按一下 [移至 Cloudyn] 以在新視窗開啟 Cloudyn 註冊頁面。
 4. 在 Cloudyn 入口網站試用註冊頁面上，輸入您的公司名稱並選取 [Azure 個人訂用帳戶擁有者]，然後按一下 [下一步]。 您的帳戶名稱和租用戶識別碼便會自動加入表單。  

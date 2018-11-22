@@ -1,5 +1,5 @@
 ---
-title: 教學課程：建立公用基本負載平衡器 - Azure 入口網站 | Microsoft Docs
+title: 教學課程 - 建立公用基本負載平衡器 - Azure 入口網站 | Microsoft Docs
 description: 本教學課程會示範如何使用 Azure 入口網站建立內部的基本負載平衡器。
 services: load-balancer
 documentationcenter: na
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: c0d19c53a0bd217935a494dfb4affbaa85062247
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a5b6ae833fcd340a639c068156940e6b9ad469ca
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097473"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711985"
 ---
 # <a name="tutorial-load-balance-internal-traffic-with-basic-load-balancer-to-vms-using-the-azure-portal"></a>教學課程：在 Azure 入口網站中使用基本負載平衡器，將內部流量負載平衡到 VM
 
@@ -102,7 +102,7 @@ ms.locfileid: "37097473"
 
 ## <a name="create-basic-load-balancer-resources"></a>建立基本負載平衡器資源
 
-在本節中，您會設定後端位址集區和健康狀態探查的負載平衡器設定，並指定負載平衡器和 NAT 規則。
+在本節中，您會設定後端位址集區和健康狀態探查的負載平衡器設定，並指定負載平衡器規則。
 
 
 ### <a name="create-a-backend-address-pool"></a>建立後端位址集區

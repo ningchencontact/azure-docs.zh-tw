@@ -85,12 +85,14 @@ items:
   - name: 最佳作法
     href: luis-concept-best-practices.md
   - name: 規劃您的應用程式
+    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
   - name: 編寫應用程式
     items:
     - name: 撰寫循環
       href: luis-concept-app-iteration.md
     - name: 共同作業
+      displayName: shared, transfer, ownership, author, access
       href: luis-concept-collaborator.md
     - name: 版本控制
       href: luis-concept-version.md
@@ -99,6 +101,7 @@ items:
     - name: 對應方式
       href: luis-concept-intent.md
     - name: 實體
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
       href: luis-concept-entity-types.md
     - name: 表達方式
       href: luis-concept-utterance.md
@@ -139,6 +142,7 @@ items:
   - name: 安全性
     items:
     - name: 應用程式存取
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center
       href: luis-concept-security.md
     - name: 編寫和端點索引鍵
       href: luis-concept-keys.md
@@ -179,22 +183,29 @@ items:
       - name: Web 應用程式 Bot
         items:
         - name: Node.js
+          displayName: ABS, azure bot, service
           href: luis-nodejs-tutorial-build-bot-framework-sample.md
         - name: C#
+          displayName: ABS, azure bot, service
           href: luis-csharp-tutorial-build-bot-framework-sample.md
       - name: Application Insights
         items:
         - name: Node.js
+          displayName: Application insight, kusto
           href: luis-tutorial-function-appinsights.md
         - name: C#
+          displayName: Application insight, kusto
           href: luis-tutorial-bot-csharp-appinsights.md
   - name: 改善預測精確度
     items:
     - name: 檢閱端點表達方式
+      displayName: active learning
       href: luis-how-to-review-endoint-utt.md
     - name: 新增片語清單
+      displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: 新增模式
+      displayName: syntax, template
       href: luis-how-to-model-intent-pattern.md
   - name: 定型
     href: luis-how-to-train.md
@@ -209,14 +220,18 @@ items:
   - name: 管理應用程式
     items:
     - name: 使用儀表板
+      displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
     - name: 建立端點金鑰
+      displayName: azure portal
       href: luis-how-to-azure-subscription.md
     - name: 將端點新增至應用程式
+      displayName: assign key, assign
       href: luis-how-to-manage-keys.md
     - name: 管理版本
       href: luis-how-to-manage-versions.md
     - name: 管理建立者及共同作業者
+      displayName: access, transfer, AAD, tenant, Azure AD, consent
       href: luis-how-to-collaborate.md
     - name: 管理撰寫金鑰
       href: luis-how-to-account-settings.md
@@ -289,6 +304,7 @@ items:
     - name: 端點 V2 REST API
       href: https://aka.ms/luis-endpoint-apis
     - name: HTTP 代碼
+      displayName: 400, 401, 403, 409, 410, 414, 429
       href: luis-reference-response-codes.md
   - name: SDK
     items:
@@ -368,9 +384,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: 知識庫
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: 43d36dd8f08508139bc74904c9c155b947ace52e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d5a40f294e63ad72c667ed94fd367588537450c6
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139664"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283258"

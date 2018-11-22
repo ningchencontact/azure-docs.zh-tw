@@ -6,14 +6,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734128"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712019"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入門：使用 .NET 在物件儲存體中建立 Blob
 
@@ -21,9 +21,7 @@ ms.locfileid: "45734128"
 
 ## <a name="prerequisites"></a>必要條件
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
-
-若要完成本快速入門，首先在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中建立 Azure 儲存體帳戶。 如需建立帳戶的協助，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 接下來，請下載並安裝您的作業系統適用的 .NET Core 2.0。 如果執行 Windows，您可以安裝 Visual Studio 並使用 .NET Framework (視您的喜好而定)。 您也可以選擇安裝編輯器來搭配您的作業系統使用。
 
@@ -56,7 +54,7 @@ ms.locfileid: "45734128"
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找出 *storage-blobs-dotnet-quickstart* 資料夾並開啟它，然後按兩下 *storage-blobs-dotnet-quickstart.sln*。 
+此命令會將存放庫複製到本機的 git 資料夾。 若要開啟 Visual Studio 解決方案，請找出 *storage-blobs-dotnet-quickstart* 資料夾並加以開啟，然後按兩下 *storage-blobs-dotnet-quickstart.sln*。 
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -211,7 +209,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>將 Blob 上傳到容器
 
-接下來，此範例會將本機檔案上載至區塊 blob。 此程式碼範例會藉由在前一節建立的容器上呼叫 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 方法，以取得 **CloudBlockBlob** 物件的參考。 然後藉由呼叫 [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 方法，將所選的檔案上傳到 blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會覆寫它。 
+接下來，此範例會將本機檔案上載至區塊 blob。 此程式碼範例會藉由在前一節建立的容器上呼叫 [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) 方法，以取得 **CloudBlockBlob** 物件的參考。 然後藉由呼叫 [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync) 方法，將所選的檔案上傳到 blob。 如果 Blob 不存在，此方法會建立 Blob，若已存在，則會加以覆寫。 
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.

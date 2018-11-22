@@ -3,19 +3,19 @@ title: 快速入門：Bing 新聞搜尋 API，PHP
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 新聞搜尋 API。
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8f70352a8f9f07b94b53fae0aac286bc65e3f0dc
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: ef8c20943499371f19aef13e156444e4508fd558
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801739"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164264"
 ---
 # <a name="quickstart-for-bing-news-search-api-with-php"></a>Bing 新聞搜尋 API 的 PHP 快速入門
 

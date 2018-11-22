@@ -3,19 +3,19 @@ title: 快速入門：使用 Java 呼叫端點 - Bing 自訂搜尋
 titlesuffix: Azure Cognitive Services
 description: 本快速入門說明如何使用 Java 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: ba1eb9799bc95dede081c6f1a6d972896c126da6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: edbeda3245ab2e91ef1b3e7e5812a49e11d57d98
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814105"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164997"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-java"></a>快速入門：呼叫 Bing 自訂搜尋端點 (Java)
 
@@ -122,7 +122,7 @@ ms.locfileid: "48814105"
     }
     
     // Container class for search results encapsulates relevant headers and JSON data
-    class SearchResults{
+    static class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

@@ -3,19 +3,19 @@ title: 快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
 titleSuffix: Azure Cognitive Services
 description: Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 C# 應用程式。 在本快速入門中，您將了解如何具現化用戶端、傳送要求，以及列印回應。
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 04a70c2afbd499d3965e23487cd49540b38e08af
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: aahi
+ms.openlocfilehash: 0c5ac37b5a3992c3f9e80fd8f155f368fa61615c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318651"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163804"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing Web 搜尋 SDK
 

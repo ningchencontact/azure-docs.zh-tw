@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: f79455166ef0d1bec9a2fb1d6045005f844e55ac
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0c458892c56634c97eec92a9439059c087a32144
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636742"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165470"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 Async Java SDK 建置 Java 應用程式來管理 Azure Cosmos DB SQL API 資料
 
@@ -223,7 +223,7 @@ public static Family getJohnsonFamilyDocument() {
 
 ## <a id="Query"></a>步驟 8︰查詢 Azure Cosmos DB 資源
 
-Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](sql-api-sql-query.md)。 下列範例程式碼示範如何使用 SQL 語法與 [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) 方法來查詢 Azure Cosmos DB 中的文件。
+Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](how-to-sql-query.md)。 下列範例程式碼示範如何使用 SQL 語法與 [queryDocuments](/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments) 方法來查詢 Azure Cosmos DB 中的文件。
 
 ```java
 private void executeSimpleQueryAsyncAndRegisterListenerForResult(CountDownLatch completionLatch) 

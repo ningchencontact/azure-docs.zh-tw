@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 0fca20f4f714e586281a32e57fe6129b262f5fa5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9778911d56f55ea83b542d6fbe5c31b646d85d2d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248484"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976463"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 
@@ -32,7 +32,7 @@ Azure 表格儲存體和 Azure Cosmos DB 是可將結構化的 NoSQL 資料儲�
 * 插入和查詢實體
 * 修改實體
 
-在進行此範例中的案例時，您可以參閱 [Azure Cosmos DB SDK for Python API 參考資料](https://azure.github.io/azure-cosmosdb-python/) \(英文\)。
+在進行此範例中的案例時，您可以參閱 [Azure Cosmos DB SDK for Python API 參考資料](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python) \(英文\)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -222,7 +222,7 @@ table_service.delete_table('tasktable')
 ## <a name="next-steps"></a>後續步驟
 
 * [常見問題集 - 利用資料表 API 進行開發](https://docs.microsoft.com/azure/cosmos-db/faq#develop-with-the-table-api)
-* [Azure Cosmos DB SDK for Python API 參考資料](https://azure.github.io/azure-cosmosdb-python/) \(英文\)
+* [Azure Cosmos DB SDK for Python API 參考資料](https://docs.microsoft.com/en-us/python/api/overview/azure/cosmosdb?view=azure-python) \(英文\)
 * [Python 開發人員中心](https://azure.microsoft.com/develop/python/)
 * [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md)：一個免費、跨平台的應用程式，以視覺化方式在 Windows、macOS 和 Linux 上使用 Azure 儲存體資料。
 * [在 Visual Studio 中使用 Python (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio)

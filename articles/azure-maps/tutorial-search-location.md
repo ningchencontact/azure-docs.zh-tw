@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e879e096fb990e4567b43b1938909449820edd42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412715"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262052"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -178,7 +178,7 @@ ms.locfileid: "50412715"
      client = new atlas.service.Client(atlas.getSubscriptionKey());
     ```
 
-2. 接著，新增下列指令碼區塊以建置搜尋查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址、地點和景點 (POI)。 此程式碼會在指定的半徑範圍內搜尋附近的加油站。 然後，回應會剖析為 GeoJSON 格式，並新增至資料來源，而使資料自動透過符號圖層呈現在地圖上。 指令碼的最後一個部分會透過地圖的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) 屬性使用結果的週框方塊來設定地圖相機檢視。 系統會加入邊框間距，以補償符號圖示的像素維度，因為週框方塊是根據座標而計算的。 
+2. 接著，新增下列指令碼區塊以建置搜尋查詢。 它會使用模糊搜尋服務，這是搜尋服務的基本搜尋 API。 模糊搜尋服務可處理大部分的模糊輸入，例如地址、地點和景點 (POI)。 此程式碼會在指定的半徑範圍內搜尋附近的加油站。 然後，回應會剖析為 GeoJSON 格式，並新增至資料來源，而使資料自動透過符號圖層呈現在地圖上。 指令碼的最後一個部分會透過地圖的 [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性使用結果的週框方塊來設定地圖相機檢視。 系統會加入邊框間距，以補償符號圖示的像素維度，因為週框方塊是根據座標而計算的。 
  
    ```JavaScript
    //Execute a POI search query then add the results to the map.

@@ -9,13 +9,13 @@ ms.date: 09/18/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
-manager: dougeby
-ms.openlocfilehash: b3dcfc1756932d75f9885490baa8d09af54d111c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: benshy
+ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957461"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275261"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>教學課程：指派對 Cloudyn 資料的存取權
 
@@ -23,7 +23,7 @@ ms.locfileid: "46957461"
 
 實體用來反映您企業組織的階層式結構。 其可在 Cloudyn 中識別貴組織的部門、事業部和小組。 實體階層可協助您精確地追蹤各實體的支出。
 
-在您註冊 Azure 合約或帳戶後，就會在 Cloudyn 中建立具有系統管理員權限的帳戶，以便您執行此教學課程中的所有步驟。 此教學課程涵蓋對 Cloudyn 資料 (包括使用者管理與實體管理) 的存取權。 您會了解如何：
+在您註冊 Azure 合約或帳戶後，就會在 Cloudyn 中建立具有系統管理員權限的帳戶，以便您執行本教學課程中的所有步驟。 此教學課程涵蓋對 Cloudyn 資料 (包括使用者管理與實體管理) 的存取權。 您會了解如何：
 
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者
@@ -120,7 +120,7 @@ ms.locfileid: "46957461"
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 建立具有系統管理員存取權的使用者

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f0e5b9d6e873cad1a997bda2ee286c92ad3818d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3ffc361421f57b405c284742b662a833b178f9da
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959455"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260318"
 ---
 # <a name="create-an-azure-iot-central-application"></a>建立 Azure IoT Central 應用程式
 
@@ -29,10 +29,10 @@ ms.locfileid: "50959455"
 若要建立新的 Azure IoT Central 應用程式：
 
 1. 選擇付款方案：
-    - **試用版**應用程式可以免費試用 7 天。 此類應用程式可在到期前隨時轉換成隨用隨付。
-    - **隨用隨付**應用程式會依據裝置收費，前 5 個裝置免費。
+    - **試用版**應用程式可以免費試用 7 天。 此類應用程式可在到期前隨時轉換成預付型方案。
+    - **預付型方案**應用程式會依據裝置收費，前 5 個裝置免費。
 
-    您可以在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
+    在 [Azure IoT Central 定價頁面](https://azure.microsoft.com/pricing/details/iot-central/)上深入了解定價。
 
 1. 選擇易記的應用程式名稱，例如 **Contoso IoT**。 Azure IoT Central 會為您產生唯一的 URL 前置詞。 您可以將其變更為更好記的 URL 前置詞。
 
@@ -60,4 +60,4 @@ ms.locfileid: "50959455"
 在本快速入門中，您已建立 IoT Central 應用程式。 以下是建議的後續步驟：
 
 > [!div class="nextstepaction"]
-> [瀏覽 IoT Central](#overview-iot-central-tour)
+> [瀏覽 IoT Central](https://docs.microsoft.com/azure/iot-central/overview-iot-central-tour)

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: a41ffdb31cb54e1488c0f114632c605b92d4c444
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6311316ab5aeab4685ca820ef5dbec4832896dcd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255280"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164501"
 ---
 # <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 建置行動應用程式
 
@@ -35,7 +35,7 @@ Azure Cosmos DB 為行動應用程式開發人員提供了下列重要功能：
 
 ![適用於行動應用程式的 Azure Cosmos DB 功能](media/mobile-apps-with-xamarin/documentdb-for-mobile.png)
 
-* 豐富的無結構描述資料查詢。 Azure Cosmos DB 會將資料以無結構描述 JSON 文件的形式儲存在異質集合中。 它提供[豐富且快速的查詢](sql-api-sql-query.md)，不需要擔心結構描述或索引。
+* 豐富的無結構描述資料查詢。 Azure Cosmos DB 會將資料以無結構描述 JSON 文件的形式儲存在異質集合中。 它提供[豐富且快速的查詢](how-to-sql-query.md)，不需要擔心結構描述或索引。
 * 快速的輸送量。 只需要幾毫秒就能使用 Azure Cosmos DB 讀取和寫入文件。 開發人員可以指定他們需要的輸送量，Azure Cosmos DB 則以 99.99% 可用性的 SLA 加以實現，適用於一致性很寬鬆的所有單一區域帳戶和所有多重區域帳戶，而所有多重區域資料庫帳戶則有 99.999% 的讀取可用性。
 * 規模無限制。 您的 Azure Cosmos DB 集合可[隨著應用程式成長](partition-data.md)。 您可以從小型資料大小和每秒數百個要求的輸送量著手。 您的集合或資料庫可以成長至數 PB 的資料以及每秒數億個要求的極大輸送量。
 * 散布世界各地。 行動應用程式使用者總是忙個不停，經常在世界各地奔波。 Azure Cosmos DB 是[分散在世界各地的資料庫](distribute-data-globally.md)。 按一下地圖，讓使用者能夠存取您的資料。
@@ -107,7 +107,7 @@ Azure Cosmos DB 是受控資料庫即服務。 隨著使用者人數成長，您
 * 檢視 [GitHub 上的 Xamarin 和 Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin) 原始程式碼。
 * 下載 [Azure Cosmos DB .NET Core SDK](sql-api-sdk-dotnet-core.md)。
 * 尋找更多 [.NET 應用程式](sql-api-dotnet-samples.md)的程式碼範例。
-* 了解 [Azure Cosmos DB 豐富查詢功能](sql-api-sql-query.md)。
+* 了解 [Azure Cosmos DB 豐富查詢功能](how-to-sql-query.md)。
 * 了解 [Azure Cosmos DB 中的地理空間支援](geospatial.md)。
 
 

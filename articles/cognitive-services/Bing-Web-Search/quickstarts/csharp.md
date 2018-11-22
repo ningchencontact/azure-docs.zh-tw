@@ -3,19 +3,19 @@ title: 快速入門：使用 C# 執行搜尋 - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將學習如何使用 C# 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 7f0555a9bb655109ff8786d3a0873d997d715477
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: 1997ca83ebcc7162d7056fdc099ab5b74d87fdd2
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124757"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163139"
 ---
 # <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>快速入門：使用 C# 來呼叫 Bing Web 搜尋 API  
 
@@ -23,7 +23,7 @@ ms.locfileid: "46124757"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下是執行本快速入門之前的幾個必備項目：
 
@@ -238,7 +238,7 @@ static string JsonPrettyPrint(string json)
 
 ## <a name="sample-response"></a>範例回應
 
-來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 此範例回應已截斷而只顯示單一結果。  
+來自 Bing Web 搜尋 API 的回應會以 JSON 格式傳回。 本範例回應已截斷而只顯示單一結果。  
 
 ```json
 {

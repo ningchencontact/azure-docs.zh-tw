@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: b60c1e84eb5b62bfce0eb2ba96129deeee2fc3c3
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 72acc4fe0febaa09d6deb82043795b6003af683f
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345303"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706768"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>教學課程：使用 Azure Lab Services 設定實驗室帳戶
 在 Azure Lab Services 中，實驗室帳戶會作為中心帳戶，用來管理組織的實驗室。 在您的實驗室帳戶中，您可以為他人授與建立實驗室的權限，以及設定對實驗室帳戶下的所有實驗室皆適用的原則。 在本教學課程中，請了解如何以實驗室管理員的身分建立實驗室帳戶。 
@@ -31,7 +31,7 @@ ms.locfileid: "39345303"
 > * 將使用者新增至實驗室建立者角色
 > * 指定適用於實驗室擁有者的 Marketplace 映像
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="create-a-lab-account"></a>建立實驗室帳戶
 下列步驟將說明如何透過 Azure 入口網站使用 Azure 實驗室服務，來建立實驗室。 
@@ -75,7 +75,7 @@ ms.locfileid: "39345303"
     
     ![Marketplace 映像頁面](../media/tutorial-setup-lab-account/marketplace-images-page.png)
 
-    只有滿足下列條件的 Marketplace 映像會顯示在清單中：
+    在清單中顯示的是滿足下列條件的 Marketplace 映像：
         
     - 建立單一 VM。
     - 使用 Azure Resource Manager 來佈建 VM

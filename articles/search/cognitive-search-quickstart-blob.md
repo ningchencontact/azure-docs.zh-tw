@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc88ca63f14c5480210455abcf403771b6a4c232
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288028"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264118"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>快速入門：使用技能和範例資料建立認知搜尋管線
 
@@ -33,9 +33,16 @@ ms.locfileid: "51288028"
 * 美國中西部
 * 美國中南部
 * 美國東部
+* 美國東部 2
+* 美國西部 2
+* 加拿大中部
 * 西歐
+* 英國南部
 * 北歐
+* 巴西南部
 * 東南亞
+* 印度中部
+* 澳洲東部
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

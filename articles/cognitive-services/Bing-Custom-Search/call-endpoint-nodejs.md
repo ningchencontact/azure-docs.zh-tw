@@ -3,19 +3,19 @@ title: 快速入門：使用 Node.js 呼叫端點 - Bing 自訂搜尋
 titlesuffix: Azure Cognitive Services
 description: 本快速入門說明如何使用 Node.js 呼叫自訂的 Bing 搜尋端點，以從您的自訂搜尋執行個體要求搜尋結果。
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
-ms.openlocfilehash: af77b4c06b61cda4fd18d19ac3578129004c4914
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.author: aahi
+ms.openlocfilehash: 64fc631e3d8473b53e4b360001dcc4e87dd27be6
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167200"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162614"
 ---
 # <a name="quickstart-call-bing-custom-search-endpoint-nodejs"></a>快速入門：呼叫 Bing 自訂搜尋端點 (Node.js)
 

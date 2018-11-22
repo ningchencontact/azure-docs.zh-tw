@@ -11,12 +11,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 1865fcf47510bbaae82f98ccad85993a85ffc1ab
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: fc4ccdc2d73d0aa7213db9b1d9a28d029ec032b7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959132"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284654"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -44,7 +44,7 @@ ms.locfileid: "50959132"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 http://portal.azure.com 登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="enable-change-tracking-and-inventory"></a>啟用變更追蹤和清查
 
@@ -72,7 +72,7 @@ ms.locfileid: "50959132"
 變更追蹤資料會儲存在 **ConfigurationChange** 類型之下。
 下列範例 Log Analytics 查詢會傳回所有已停止的 Windows 服務。
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```

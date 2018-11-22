@@ -3,19 +3,19 @@ title: 教學課程：建立單頁 Web 應用程式 - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
 description: 此單頁應用程式示範如何使用 Bing Web 搜尋 API，在單頁應用程式中擷取、剖析及顯示相關的搜尋結果。
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: tutorial
 ms.date: 09/12/2018
-ms.author: erhopf
-ms.openlocfilehash: 670f02cbd8e994664e7c4edd75940ff43f9616b6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: b94e6f70d4a28dc59ddaa62cfad55c6c8383b761
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126474"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161917"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>教學課程：使用 Bing Web 搜尋 API 建立單頁應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "46126474"
 
 若要使用此應用程式，需要具備 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)及 Bing 搜尋 API。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)來取得訂用帳戶金鑰。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 以下是數個您執行應用程式所需的項目：
 
@@ -437,7 +437,7 @@ searchItemRenderers = {
 
 提供 `X-MSEdge-ClientID` 標頭可讓 Bing API 關聯到使用者的搜尋。 首先，它可讓 Bing 搜尋引擎將過去的內容套用至搜尋，以尋找更能滿足要求的結果。 例如，若使用者之前搜尋與航行相關的字詞，稍後搜尋「節」可能會優先傳回航行中所使用節數的相關資訊。 其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 隨著每個要求提供相同的用戶端識別碼，可確保已選擇看到功能的使用者將一律看到該功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中隨機看到功能出現並消失。
 
-瀏覽器安全性原則 (例如，跨原始來源資源共用 (CORS)) 可能會防止範例應用程式存取 `X-MSEdge-ClientID` 標頭。 當搜尋回應的來源與要求回應的頁面不同時，就會發生此限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
+瀏覽器安全性原則 (例如，跨原始來源資源共用 (CORS)) 可能會防止範例應用程式存取 `X-MSEdge-ClientID` 標頭。 當搜尋回應的來源與要求回應的頁面不同時，就會發生這項限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
 
 > [!NOTE]
 > 在生產 Web 應用程式中，無論如何都應該執行要求伺服器端。 否則，您的 Bing 搜尋 API 訂用帳戶金鑰必須包含在網頁中，以提供給檢視來源的任何人。 您會根據 API 訂用帳戶金鑰的所有使用量付費，即使是未經授權的合作對象所提出的要求，因此請務必不要公開您的金鑰。

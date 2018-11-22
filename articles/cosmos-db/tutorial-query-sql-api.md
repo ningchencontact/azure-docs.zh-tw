@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: rafats
-ms.openlocfilehash: 5f5a98f0f28eba499b7ea3fa76944c21cf8bf8db
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: a56147432d4ef1cc9ac2568259cc2bbf2c7da7ab
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36958863"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162657"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>教學課程：使用 SQL API 查詢 Azure Cosmos DB
 
@@ -65,9 +65,9 @@ Azure Cosmos DB [SQL API](documentdb-introduction.md) 支援使用 SQL 來查詢
 您可以使用 Azure 入口網站中的 [資料總管]、透過 [REST API 和 SDK](sql-api-sdk-dotnet.md)，甚至是 [Query Playground](https://www.documentdb.com/sql/demo) (在一組現有的範例資料上執行查詢)，來執行查詢。
 
 如需有關 SQL 查詢的詳細資訊，請參閱：
-* [SQL 查詢和 SQL 語法](sql-api-sql-query.md)
+* [SQL 查詢和 SQL 語法](how-to-sql-query.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本教學課程會假設您具備 Azure Cosmos DB 帳戶和集合。 不符合上述其中任何一項條件嗎？ 完成 [5 分鐘快速入門](create-mongodb-nodejs.md)。
 

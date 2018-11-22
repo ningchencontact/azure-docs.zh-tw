@@ -3,19 +3,19 @@ title: 快速入門：建立第一個 Bing 自訂搜尋執行個體
 titlesuffix: Azure Cognitive Services
 description: 若要使用 Bing 自訂搜尋，必須建立可定義檢視或網路配量的自訂搜尋執行個體。 執行個體包含指定您要 Bing 搜尋的公用網域、子網站和網頁的設定，以及任何順位調整。
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2017
-ms.author: v-brapel
-ms.openlocfilehash: 866d32aa4de45076fcbc4e413d8c2e67d5346878
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: c9b37486d664920bbc4b85a0715ce7f5ea910365
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816215"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161529"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>快速入門：建立您的第一個 Bing 自訂搜尋執行個體
 若要使用 Bing 自訂搜尋，必須建立可定義檢視或網路配量的自訂搜尋執行個體。 執行個體包含指定您要 Bing 搜尋的公用網域、網站和網頁的設定，以及任何順位調整。 若要建立執行個體，請使用 Bing 自訂搜尋[入口網站](https://customsearch.ai)。 

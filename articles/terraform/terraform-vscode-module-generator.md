@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 15ef4795544044427805e21f7a8e98646c9cf9bd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288011"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284330"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>使用 Yeoman 在 Azure 中建立 Terraform 基底範本
 
@@ -227,7 +227,7 @@ Yeoman 範本會在**目前的目錄**中產生檔案。 因此，您必須建�
 
 ### <a name="start-a-cloud-shell-session"></a>啟動 Cloud Shell 工作階段
 
-1. 透過 [Azure 入口網站](https:/portal.azure.com/)、[shell.azure.com](https://shell.azure.com)或 [Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)來啟動 Azure Cloud Shell 工作階段。
+1. 透過 [Azure 入口網站](https://portal.azure.com/)、[shell.azure.com](https://shell.azure.com)或 [Azure 行動應用程式](https://azure.microsoft.com/features/azure-portal/mobile-app/)來啟動 Azure Cloud Shell 工作階段。
 
 1. [歡迎使用 Azure Cloud Shell] 頁面隨即開啟。 選取 **Bash (Linux)**。 (不支援 Power Shell。)
 

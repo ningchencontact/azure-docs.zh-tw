@@ -6,22 +6,22 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 09/19/2018
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 0a82e5122ddaf5c8c50423de8f658372c8a1b747
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 68d03a5e37559c6db2955cc966d4f074c9adbe64
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686036"
+ms.locfileid: "51711237"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript-preview"></a>快速入門：使用適用於 JavaScript 的 Azure 儲存體 v10 SDK (預覽) 上傳、下載、列出及刪除 Blob
 
 在本快速入門中，您將了解如何在 Node.js 中，使用[適用於 JavaScript 的 Azure 儲存體 v10 SDK](https://github.com/Azure/azure-storage-js) \(英文\)，來上傳、下載、列出及刪除 Blob，以及管理容器。
 
-若要完成本快速入門，您需要 [Azure 訂用帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 

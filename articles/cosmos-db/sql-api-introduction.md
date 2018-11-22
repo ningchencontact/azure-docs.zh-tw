@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
-ms.openlocfilehash: f71a7ad538e22359a2a0dd9c2e3f6c4448ee5a2d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5d1e86630ff9143a75e5b0502a64c7661cc2822c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232377"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161062"
 ---
 # <a name="introduction-to-azure-cosmos-db-sql-api"></a>Azure Cosmos DB 簡介：SQL API
 
@@ -24,7 +24,7 @@ ms.locfileid: "51232377"
 
 ![Azure SQL API](./media/sql-api-introduction/cosmosdb-sql-api.png) 
 
-透過 SQL API，Azure Cosmos DB 就可利用無結構描述的 JSON 資料來提供豐富且熟悉的 [SQL 查詢功能](sql-api-sql-query.md) (一致低延遲)。 在本文中，我們概略說明 Azure Cosmos DB 的 SQL API，以及如何使用它來儲存大量的 JSON 資料、在毫秒延遲等級內查詢它們，並輕鬆發展結構描述。 
+透過 SQL API，Azure Cosmos DB 就可利用無結構描述的 JSON 資料來提供豐富且熟悉的 [SQL 查詢功能](how-to-sql-query.md) (一致低延遲)。 在本文中，我們概略說明 Azure Cosmos DB 的 SQL API，以及如何使用它來儲存大量的 JSON 資料、在毫秒延遲等級內查詢它們，並輕鬆發展結構描述。 
 
 ## <a name="what-capabilities-and-key-features-does-azure-cosmos-db-offer"></a>Azure Cosmos DB 提供哪些功能和主要功能？
 Azure Cosmos DB 可透過 SQL API 提供下列重要功能和優點：
@@ -34,7 +34,7 @@ Azure Cosmos DB 可透過 SQL API 提供下列重要功能和優點：
 
 * **多重區域複寫**︰Azure Cosmos DB 會自動將您的資料複寫至與您 Azure Cosmos DB 帳戶相關聯的所有區域，讓您開發需要全域存取資料的應用程式，同時能在一致性、可用性與效能之間做出取捨，且全都有相對應的保證。 Azure Cosmos DB 利用多重定址 API 提供自動的區域性容錯移轉，還能夠彈性調整世界各地的輸送量和儲存體。 深入了解[使用 Azure Cosmos DB 全域發佈資料](distribute-data-globally.md)。
 
-* **運用常見的 SQL 語法進行特定查詢：** 儲存異質 JSON 文件，並透過常見的 SQL 語法來查詢這些文件。 Azure Cosmos DB 採用高度並行、無鎖定、記錄結構化索引技術，自動編製所有文件內容的索引。 這樣一來，不需要指定結構描述提示、次要索引或檢視，就能進行大量且即時的查詢。 深入了解[查詢 Azure Cosmos DB](sql-api-sql-query.md)。 
+* **運用常見的 SQL 語法進行特定查詢：** 儲存異質 JSON 文件，並透過常見的 SQL 語法來查詢這些文件。 Azure Cosmos DB 採用高度並行、無鎖定、記錄結構化索引技術，自動編製所有文件內容的索引。 這樣一來，不需要指定結構描述提示、次要索引或檢視，就能進行大量且即時的查詢。 深入了解[查詢 Azure Cosmos DB](how-to-sql-query.md)。 
 * **在資料庫內執行 JavaScript：** 使用標準 JavaScript，以預存程序、觸發程序和使用者定義函式 (UDF) 的形式表示應用程式邏輯。 這允許您的應用程式邏輯操作 JSON 資料，而不需要擔心應用程式與資料庫結構描述之間的不相符。 SQL API 可讓您直接在資料庫引擎內以完整的交易方式執行 JavaScript 應用程式邏輯。 JavaScript 的深入整合則可讓您以獨立交易的形式，從 JavaScript 程式內執行 INSERT、REPLACE、DELETE 和 SELECT 作業。 在 [SQL 伺服器端程式設計](programming.md)中深入了解。
 
 * **可調整的一致性等級：** 有五個定義完善的一致性等級可選擇，讓您在一致性與效能之間做出最好的取捨。 針對查詢和讀取作業，Azure Cosmos DB 提供五個不同的一致性等級：強式、限定過期、工作階段、一致的前置和最終。 這些細微且定義完善的一致性層級可讓您在一致性、可用性與延遲三者間做出合理取捨。 深入了解[使用一致性層級將可用性和效能最大化](consistency-levels.md)。

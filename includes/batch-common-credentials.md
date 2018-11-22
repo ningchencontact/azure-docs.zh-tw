@@ -1,3 +1,16 @@
+---
+author: dlepow
+ms.service: batch
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+ms.openlocfilehash: 7d90ccf55b10eff4299692b481a25ba4cdf41b8a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279493"
+---
 ## <a name="get-account-credentials"></a>取得帳戶認證
 
 在此範例中，您必須提供 Batch 和儲存體帳戶的認證。 在 Azure 入口網站中可以直接取得所需的認證。 (您也可以使用 Azure API 或命令列工具取得這些認證。)

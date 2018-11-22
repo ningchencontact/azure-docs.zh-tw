@@ -3,19 +3,19 @@ title: 快速入門：使用 Python 執行搜尋 - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入門中，您將學習如何使用 Python 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
-ms.author: erhopf
-ms.openlocfilehash: 22dc88d2b924587818f7767105872f01f2e43faf
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: aahi
+ms.openlocfilehash: 2f034bd60747282ac9724250ab260e06122def6f
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129143"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160989"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>快速入門：使用 Python 來呼叫 Bing Web 搜尋 API  
 
