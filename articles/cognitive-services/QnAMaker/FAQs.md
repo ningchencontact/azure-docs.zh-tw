@@ -70,7 +70,7 @@ ms.locfileid: "51622358"
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>我對知識庫所做的更新並未在發佈時反映。 為什麼？
 
-無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次完成編輯作業後，請務必按一下 [儲存並訓練] **** 按鈕。
+無論是資料表更新、測試或設定，每個編輯作業都必須先儲存才能加以發佈。 每次完成編輯作業後，請務必按一下 [儲存並訓練] 按鈕。  **** 
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>知識庫是否支援豐富的資料或多媒體？
 
