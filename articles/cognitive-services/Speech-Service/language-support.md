@@ -90,7 +90,7 @@ en-IE | 英文 (愛爾蘭) |男性 | "Microsoft Server Speech Text to Speech Voi
 en-IN | 英文 (印度) | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
-zh-TW | 英文 (美國) |女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
+en-US | 英文 (美國) |女性 | "Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
