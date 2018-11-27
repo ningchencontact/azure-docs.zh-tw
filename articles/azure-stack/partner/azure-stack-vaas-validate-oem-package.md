@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bcfc4cb65c94e34e9f6056ada53726f88489fefb
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8268a6b04d7ddbb35821999142d3a33bdd2bedcc
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646646"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261797"
 ---
 # <a name="validate-oem-packages"></a>驗證 OEM 套件
 
@@ -58,22 +58,17 @@ ms.locfileid: "49646646"
 
 #### <a name="option-1-generating-an-account-sas-url"></a>選項 1：產生帳戶 SAS URL
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+1. 在 [Azure 入口網站](https://portal.azure.com/)中移至儲存體帳戶，然後瀏覽至包含您套件的 .zip
 
-1. 從 [允許的服務選項] 中選取 [Blob]。 請將其餘所有的選項取消選取。
+2. 從捷徑功能表內選取 [產生 SAS]
 
-1. 從 [允許的資源類型] 中選取 [容器] 和 [物件]。 請將其餘所有的選項取消選取。
+3. 從 [權限] 選取 [讀取]
 
-1. 從 [允許的權限] 中選取 [讀取] 和 [列出]。 請將其餘所有的選項取消選取。
+4. 將 [開始時間] 設為目前時間，並將 [結束時間] 至少設為**開始時間**的 48 小時後。 如果您會使用相同的套件執行其他測試，請考慮增加**結束時間**以符合您的測試長度。 在**結束時間**後，任何透過 VaaS 排程的測試將會失敗，且必須產生新的 SAS。
 
-1. 將 [開始時間] 設為目前時間，並將 [結束時間] 設為目前時間的 1 小時後。
+5. 選取 [產生 Blob SAS 權杖和 URL]
 
-1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
-    其格式應會顯示如下：`https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-1. 修改產生的 SAS URL，以納入套件容器 `{containername}` 和套件 Blob 的名稱 `{mypackage.zip}`，如下所示：`https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
-
-    在 VaaS 入口網站中啟動新的**套件驗證**工作流程時，請使用此值。
+在 VaaS 入口網站中啟動新的**套件驗證**工作流程時，請使用 **Blob SAS URL**。
 
 #### <a name="option-2-using-public-read-container"></a>選項 2：使用公用讀取容器
 

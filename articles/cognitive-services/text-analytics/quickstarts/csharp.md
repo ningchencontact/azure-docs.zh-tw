@@ -10,25 +10,25 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: a5223b026705cef5abbcd0be6f64cf0c98fd0930
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 59469b6c27ceb0ed96659198edd6ddbca12685e2
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309020"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283956"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 C# 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
 
-本文示範如何使用[文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711) 與 C# 來偵測語言、分析情感及擷取關鍵片語。 程式碼以能在 .Net Core 應用程式上運作，且參考最少量外部程式庫的方式撰寫，因此您也可以在 Linux 或 MacOS 上執行。
+本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 C# 來偵測語言、分析情感及擷取關鍵片語。 程式碼以能在 .Net Core 應用程式上運作，且參考最少量外部程式庫的方式撰寫，因此您也可以在 Linux 或 MacOS 上執行。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您可以使用 **5,000 次交易/月的免費層**來完成此快速入門。
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-您也必須具備註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
+您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
 
 
 ## <a name="install-the-nuget-sdk-package"></a>安裝 NuGet SDK 套件

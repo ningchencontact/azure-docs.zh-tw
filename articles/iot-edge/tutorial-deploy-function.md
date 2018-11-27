@@ -4,17 +4,17 @@ description: 在本教學課程中，將 Azure Function 當作模組部署至邊
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 27aac9431c3f4cd801d090ddf11114c98edab405
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567310"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165609"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure Functions 部署為 IoT Edge 模組
 
@@ -41,7 +41,7 @@ ms.locfileid: "51567310"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，設定您的開發電腦或虛擬機器作為 Edge 裝置。
 
 雲端資源：
 
@@ -51,15 +51,15 @@ Azure IoT Edge 裝置：
 
 * [Visual Studio Code](https://code.visualstudio.com/)。 
 * [C# for Visual Studio Code (採用 OmniSharp 技術) 擴充功能](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
-* 適用於 Visual Studio Code 的 [Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
+* [Visual Studio Code 的 Azure IoT Edge 擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
 * [Docker CE](https://docs.docker.com/install/)。 
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
 
-在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
+在本教學課程中，您會使用適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
 
-您可以此教學課程中使用任何與 Docker 相容的登錄。 雲端中提供使用的兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker 中樞](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) (英文)。 本教學課程使用的是 Azure Container Registry。 
+您可以使用任何與 Docker 相容的登錄來保存容器映像。 兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教學課程使用的是 Azure Container Registry。 
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [容器登錄]。
 
@@ -80,7 +80,7 @@ Azure IoT Edge 裝置：
 
 6. 建立容器登錄之後，請加以瀏覽，然後選取 [存取金鑰]。 
 
-7. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 您在本教學課程後續的內容中，會用到這些值。 
+7. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 稍後在本教學課程中，您會使用這些值來提供容器登錄的存取權。 
 
 ## <a name="create-a-function-project"></a>建立函式專案
 
@@ -90,90 +90,89 @@ Azure IoT Edge 裝置：
 
 2. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 
-3. 在 [命令選擇區] 中，輸入並執行命令 **Azure: Sign in**。 依照指示登入 Azure 帳戶。
+3. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
 
-4. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
-
-   1. 選取要用來建立解決方案的資料夾。 
-   2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
-   3. 選擇 [Azure Functions - C#] 作為模組範本。 
-   4. 將模組命名為 **CSharpFunction**。 
-   5. 將您在上一節所建立的 Azure 容器登錄，指定為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 請確保模組名稱 (例如 /csharpfunction) 會原封不動地成為字串一部分。 最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/csharpfunction。
+   | 欄位 | 值 |
+   | ----- | ----- |
+   | 選取資料夾 | 選擇開發機器上可供 VS Code 建立解決方案檔案的位置。 |
+   | 提供解決方案名稱 | 輸入解決方案的描述性名稱 (例如 **FunctionSolution**)，或接受預設值。 |
+   | 選取模組範本 | 選擇 [Azure Functions - C#]。 |
+   | 提供模組名稱 | 將模組命名為 **CSharpFunction**。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/CSharpFunction。 |
 
    ![提供 Docker 映像存放庫](./media/tutorial-deploy-function/repository.png)
 
 4. VS Code 視窗會載入您的 IoT Edge 解決方案工作區：\.vscode 資料夾、模組資料夾、部署資訊清單範本檔案。 和 \.env 檔案。 在 VS Code 總管中，開啟 [模組] > [CSharpFunction] > [CSharpFunction.cs]。
 
-5. 以下列程式碼取代 **CSharpFunction.cs** 檔案的內容：
+5. 以下列程式碼取代 **CSharpFunction.cs** 檔案的內容。 此程式碼會接收有關環境和機器溫度的遙測，並只會在機器溫度高於所定義的閾值時，才將訊息轉送到 IoT 中樞。
 
    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Microsoft.Azure.Devices.Client;
-    using Microsoft.Azure.WebJobs;
-    using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
-    using Microsoft.Azure.WebJobs.Host;
-    using Microsoft.Extensions.Logging;
-    using Newtonsoft.Json;
+   using System;
+   using System.Collections.Generic;
+   using System.IO;
+   using System.Text;
+   using System.Threading.Tasks;
+   using Microsoft.Azure.Devices.Client;
+   using Microsoft.Azure.WebJobs;
+   using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+   using Microsoft.Azure.WebJobs.Host;
+   using Microsoft.Extensions.Logging;
+   using Newtonsoft.Json;
 
-    namespace Functions.Samples
-    {
-        public static class CSharpFunction
-        {
-            [FunctionName("CSharpFunction")]
-            public static async Task FilterMessageAndSendMessage(
-                        [EdgeHubTrigger("input1")] Message messageReceived,
-                        [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
-                        ILogger logger)
-            {
-                const int temperatureThreshold = 20;
-                byte[] messageBytes = messageReceived.GetBytes();
-                var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+   namespace Functions.Samples
+   {
+       public static class CSharpFunction
+       {
+           [FunctionName("CSharpFunction")]
+           public static async Task FilterMessageAndSendMessage(
+               [EdgeHubTrigger("input1")] Message messageReceived,
+               [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+               ILogger logger)
+           {
+               const int temperatureThreshold = 20;
+               byte[] messageBytes = messageReceived.GetBytes();
+               var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
 
-                if (!string.IsNullOrEmpty(messageString))
-                {
-                    logger.LogInformation("Info: Received one non-empty message");
-                    // Get the body of the message and deserialize it.
-                    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+               if (!string.IsNullOrEmpty(messageString))
+               {
+                   logger.LogInformation("Info: Received one non-empty message");
+                   // Get the body of the message and deserialize it.
+                   var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
 
-                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
-                    {
-                        // Send the message to the output as the temperature value is greater than the threashold.
-                        var filteredMessage = new Message(messageBytes);
-                        // Copy the properties of the original message into the new Message object.
-                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
-                        {
-                            filteredMessage.Properties.Add(prop.Key, prop.Value);                }
-                        // Add a new property to the message to indicate it is an alert.
-                        filteredMessage.Properties.Add("MessageType", "Alert");
-                        // Send the message.       
-                        await output.AddAsync(filteredMessage);
-                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
-                    }
-                }
-            }
-        }
-        //Define the expected schema for the body of incoming messages.
-        class MessageBody
-        {
-            public Machine machine {get; set;}
-            public Ambient ambient {get; set;}
-            public string timeCreated {get; set;}
-        }
-        class Machine
-        {
-            public double temperature {get; set;}
-            public double pressure {get; set;}         
-        }
-        class Ambient
-        {
-            public double temperature {get; set;}
-            public int humidity {get; set;}         
-        }
-    }
+                   if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                   {
+                       // Send the message to the output as the temperature value is greater than the threashold.
+                       var filteredMessage = new Message(messageBytes);
+                       // Copy the properties of the original message into the new Message object.
+                       foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                       {filteredMessage.Properties.Add(prop.Key, prop.Value);}
+                       // Add a new property to the message to indicate it is an alert.
+                       filteredMessage.Properties.Add("MessageType", "Alert");
+                       // Send the message.       
+                       await output.AddAsync(filteredMessage);
+                       logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                   }
+               }
+           }
+       }
+       //Define the expected schema for the body of incoming messages.
+       class MessageBody
+       {
+           public Machine machine {get; set;}
+           public Ambient ambient {get; set;}
+           public string timeCreated {get; set;}
+       }
+       class Machine
+       {
+           public double temperature {get; set;}
+           public double pressure {get; set;}         
+       }
+       class Ambient
+       {
+           public double temperature {get; set;}
+           public int humidity {get; set;}         
+       }
+   }
    ```
 
 6. 儲存檔案。
@@ -186,12 +185,13 @@ Azure IoT Edge 裝置：
 
 1. 選取 [檢視] > [終端機]，以開啟 VS Code 整合式終端機。 
 
-1. 在整合式終端機中輸入下列命令，以登入您的容器登錄。 接著，您可以將模組映像推送到您的 Azure 容器登錄： 
+2. 在整合式終端機中輸入下列命令，以登入您的容器登錄。 請使用您先前從 Azure 容器登錄複製而來的使用者名稱和登入伺服器。
      
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    請使用您先前從 Azure 容器登錄複製而來的使用者名稱和登入伺服器。 當系統提示您輸入密碼時，請貼上容器登錄的密碼，然後按 **Enter** 鍵。
+
+    當系統提示您輸入密碼時，請貼上容器登錄的密碼，然後按 **Enter** 鍵。
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -235,9 +235,9 @@ Azure IoT Edge 裝置：
 
 6. 以滑鼠右鍵按一下 IoT Edge 裝置的名稱，然後選取 [建立單一裝置的部署]。 
 
-7. 瀏覽至 **CSharpFunction** 所在的解決方案資料夾。 開啟 config 資料夾、選取 deployment.json 檔案，然後選擇 [選取 Edge 部署資訊清單]。
+7. 瀏覽至 **CSharpFunction** 所在的解決方案資料夾。 開啟 config 資料夾、選取 **deployment.json** 檔案，然後選擇 [選取 Edge 部署資訊清單]。
 
-8. 重新整理 [Azure IoT 中樞裝置] 區段。 您應該會看到新的 **CSharpFunction** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 
+8. 重新整理 [Azure IoT 中樞裝置] 區段。 您應該會看到新的 **CSharpFunction** 正在與 **TempSensor** 模組以及 **$edgeAgent** 和 **$edgeHub** 一起執行。 新模組可能需要一些時間才會出現。 IoT Edge 裝置必須從 IoT 中樞擷取其新的部署資訊、啟動新容器，然後向 IoT 中樞回報狀態。 
 
    ![在 VS Code 中檢視已部署的模組](./media/tutorial-deploy-function/view-modules.png)
 

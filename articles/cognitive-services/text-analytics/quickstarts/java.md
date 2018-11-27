@@ -10,32 +10,33 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 8ea45d202e550e16a7afd11e056738b2b21bd963
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: f2e576b421526c0245ff249d77214b27c9fd649a
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267710"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283939"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 Java 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
 
-本文示範如何使用[文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711) 與 Java 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以及[識別已連結實體](#Entities)。
+本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 Java 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以及[識別已連結實體](#Entities)。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您可以使用 **5,000 次交易/月的免費層**來完成此快速入門。
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
 您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>偵測語言種類
 
-語言偵測 API 會使用[偵測語言方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。
+語言偵測 API 會使用 [偵測語言方法](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) \(英文\) 來偵測文字文件的語言。
 
-1. 在您最愛的 IDE 中，建立新的 JAVA 專案。
+1. 在您偏好的 IDE 中建立新的 JAVA 專案。
 2. 新增下方提供的程式碼。
 3. 將 `accessKey` 值取代為對您的訂用帳戶有效的存取金鑰。
 4. 將 `host` 中的位置 (目前為 `westus`) 取代為您註冊的區域。

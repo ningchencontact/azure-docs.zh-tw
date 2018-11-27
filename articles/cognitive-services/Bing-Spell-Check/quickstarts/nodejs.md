@@ -3,23 +3,23 @@ title: 快速入門：Bing 拼字檢查 API，Node.js
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 拼字檢查 API。
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 2d9354d82b86cc3a33a57dc4745c63e688e7959d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.author: aahi
+ms.openlocfilehash: e58bd5540c4bb479992155e97653744c003fb33d
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800786"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164977"
 ---
 # <a name="quickstart-for-bing-spell-check-api-with-nodejs"></a>搭配使用 Bing 拼字檢查 API 與 Node.js 的快速入門 
 
-本文示範如何使用以 Node.js 撰寫的 [Bing 拼字檢查 API](https://azure.microsoft.com/services/cognitive-services/spell-check/)。 拼字檢查 API 會傳回未能辨識的字詞清單，附帶建議的替代項目。 一般而言，您會將文字提交給此 API，然後在文字中進行建議的替代，或者向應用程式使用者顯示建議的替代項目，讓他們決定是否要進行替代。 本文顯示如何傳送其中包含文字 "Hollo, wrld!" 的要求。 建議的替代項目是 "Hello" 和 "world"。
+本文示範如何使用以 Node.js 撰寫的 [Bing 拼字檢查 API](https://azure.microsoft.com/services/cognitive-services/spell-check/)。 拼字檢查 API 會傳回未能辨識的字詞清單，附帶建議的替代項目。 一般而言，您會將文字提交給此 API，然後在文字中進行建議的替代，或者向應用程式使用者顯示建議的替代項目，讓他們決定是否要進行替代。 本文顯示如何傳送其中包含文字 "Hollo, wrld!" 的要求。 建議的替代項目是 "Hello" 和 "world"。
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -5,15 +5,15 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 8258c8f34b4b9a1b216d9d497dcdf7d3b8db1373
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369340"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284554"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>教學課程：進行警示的根本原因分析
 
@@ -21,7 +21,7 @@ ms.locfileid: "46369340"
 
 此教學課程會使用兩個會傳送位置、海拔、速度及貨物溫度遙測資料的模擬送貨卡車裝置。 卡車是由名為 Contoso 的組織所管理，且已連線到遠端監視解決方案加速器。 身為 Contoso 操作員，您必須了解為何其中一輛貨車 (delivery-truck-02) 已記錄低溫警示。
 
-在此教學課程中，您：
+在本教學課程中，您：
 
 >[!div class="checklist"]
 > * 篩選儀表板中的裝置
@@ -40,7 +40,7 @@ ms.locfileid: "46369340"
 
 [![儀表板上的卡車篩選條件](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-當您套用篩選條件時，只有符合篩選條件的裝置會顯示在 [儀表板] 頁面的地圖上和遙測面板中。 您可以看到有兩輛卡車連線至解決方案加速器，其中包括 **truck-02**。
+當您套用篩選條件時，只有符合篩選條件的裝置會顯示在 [儀表板] 的地圖上和遙測面板中。 您可以看到有兩輛卡車連線至解決方案加速器，其中包括 **truck-02**。
 
 ## <a name="view-real-time-telemetry"></a>檢視即時遙測
 
@@ -66,7 +66,7 @@ ms.locfileid: "46369340"
 
 [![TSI 總管卡車溫度](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-您會看到與「遠端監視」儀表板中所見相同的檢視，而現在可以放大觸發警示的時間範圍：
+您會看到您在遠端監視儀表板中看到的相同檢視。 此外，您現在可以拉近到觸發警示的時間範圍：
 
 [![TSI 總管縮放](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -80,7 +80,7 @@ ms.locfileid: "46369340"
 
 ## <a name="diagnose-the-alert"></a>診斷警示
 
-當您查看目前檢視中的資料流時，可以看到兩輛卡車的海拔設定檔非常不同。 此外，當 **delivery-truck-02** 到達高海拔時，該卡車便發生溫度下降的情況。 您對該項發現感到訝異，因為這些卡車都排定成行駛相同路線。
+當您查看目前檢視中的資料流時，可以看到兩輛卡車的海拔設定檔並不同。 此外，當 **delivery-truck-02** 到達高海拔時，該卡車便發生溫度下降的情況。 您對該項發現感到訝異，因為這些卡車都排定成行駛相同路線。
 
 為確認您對該卡車採用不同旅程路徑的懷疑，請使用 [新增] 按鈕將另一個窗格加入側邊面板中。 在新窗格中，將新標籤的名稱變更為 [裝置]，使其與先前的名稱相符。 選取 [經度] 作為 [量值]，並選取 [iothub-connection-device-id] 作為 [分割依據] 值，以將經度遙測資料新增至您的檢視。 您可以藉由查看**經度**資料流之間的差異，看出貨車是否確實採用不同的旅程：
 
@@ -88,7 +88,7 @@ ms.locfileid: "46369340"
 
 ## <a name="create-a-new-rule"></a>建立新的規則
 
-雖然卡車路線通常會事先經過最佳化，但您了解交通模式、天氣及其他無法預測的事件都可能造成延誤，因此讓卡車司機根據其最佳判斷來決定最後的路線。 不過，由於您資產在車輛內的溫度相當重要，因此您應該在「遠端監視」解決方案中建立額外的規則，以確保當平均海拔在 1 分鐘的間隔內上升超過 350 英呎時會收到警告：
+雖然卡車路線通常會事先經過最佳化，但您了解交通模式、天氣及其他無法預測的事件都可能造成延誤，因此讓卡車司機根據其最佳判斷來決定最後的路線。 不過，由於您資產在車輛內的溫度相當重要，因此您應該在「遠端監視」解決方案中建立額外的規則。 此規則可確保當平均海拔在 1 分鐘的間隔內上升超過 350 英呎時，您會收到警告：
 
 [![「遠端監視」之規則索引標籤的設定海拔規則](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/new-rule-altitude-expanded.png#lightbox)
 

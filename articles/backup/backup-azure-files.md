@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: d21a235602c425cef77b26d8c60f1e3562411095
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: 14a6e295eebcc3a7cb3f190a09afd65b0e959d7e
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961667"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52265333"
 ---
 # <a name="back-up-azure-file-shares"></a>備份 Azure 檔案共用
 本文說明如何使用 Azure 入口網站來備份和還原 [Azure 檔案共用](../storage/files/storage-files-introduction.md)。
@@ -27,11 +27,11 @@ ms.locfileid: "36961667"
 > * 停止保護 Azure 檔案
 > * 刪除備份資料
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 請先確定 Azure 檔案共用存在於其中一種[支援的儲存體帳戶類型](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview)中，您才可以備份 Azure 檔案共用。 一旦確認這點，您即可保護您的檔案共用。
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>預覽期間的 Azure 檔案共用備份限制
-Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下列備份案例︰
+Azure 檔案共用的備份處於預覽狀態。 支援一般用途 v1 和一般用途 v2 儲存體帳戶中的 Azure 檔案共用。 Azure 檔案共用不支援下列備份案例︰
 - 您無法使用[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能，保護儲存體帳戶中的 Azure 檔案共用*。
 - 您無法在已啟用虛擬網路或防火牆的儲存體帳戶中保護 Azure 檔案共用。
 - 無法透過 PowerShell 或 CLI 使用 Azure 備份來保護 Azure 檔案。
@@ -39,10 +39,11 @@ Azure 檔案共用的備份處於預覽狀態。 Azure 檔案共用不支援下�
 - 每天的隨選備份次數上限為 4 次。
 - 在儲存體帳戶上使用[資源鎖定](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest)，以防止在您的復原服務保存庫中意外刪除備份。
 - 請勿刪除 Azure 備份所建立的快照集。 刪除快照集可能會導致遺失復原點和/或還原失敗。
+- 請勿刪除由 Azure 備份所保護的檔案共用。 目前的解決方案會在刪除檔案共用後，刪除 Azure 備份使用的所有快照集，並因此失去所有還原點
 
 \*儲存體帳戶中的 Azure 檔案共用以[讀取權限異地備援儲存體](../storage/common/storage-redundancy-grs.md) (RA-GRS) 複寫功能作為 GRS，並以 GRS 價格計費。
 
-在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA) 和西歐 (WE)。
+在儲存體帳戶中使用[區域備援儲存體](../storage/common/storage-redundancy-zrs.md) (ZRS) 複寫功能來備份 Azure 檔案共用，目前僅適用於美國中部 (CUS)、美國東部 (EUS)、美國東部 2 (EUS2)、北歐 (NE)、東南亞 (SEA)、西歐 (WE) 和西歐 2 (WUS2)。
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>設定 Azure 檔案共用備份
 所有備份資料都儲存在復原服務保存庫中。 本教學課程假設您已經建立了 Azure 檔案共用。 若要備份 Azure 檔案共用：
@@ -195,3 +196,5 @@ Azure 備份提供在 Azure 入口網站中瀏覽還原點的功能。 若要還
 如需 Azure 檔案共用的詳細資訊，請參閱
 - [Azure 檔案共用備份的常見問題](backup-azure-files-faq.md)
 - [Azure 檔案共用備份的移難排解](troubleshoot-azure-files.md)
+ 
+

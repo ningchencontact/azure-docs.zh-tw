@@ -8,18 +8,18 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: e1e349f4ddbebdd9df38d7f0babf50d726241d4f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 3d96beee881df560fc616cd975502f062275e9eb
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648729"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162019"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>快速入門：使用 Node.js 在 QnA Maker 中發佈知識庫
 
-本快速入門會逐步引導您以程式設計方式發佈知識庫 (KB)。 發佈作業會將最新版的知識庫推送到專用 Azure 搜尋服務索引，並建立端點以供應用程式或聊天機器人呼叫。
+本快速入門以 REST 為基礎，會逐步引導您以程式設計方式發佈知識庫 (KB)。 發佈作業會將最新版的知識庫推送到專用 Azure 搜尋服務索引，並建立端點以供應用程式或聊天機器人呼叫。
 
 本快速入門會呼叫 QnA Maker API：
 * [發佈](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) - 此 API 不需要在要求主體中有任何資訊。
@@ -32,9 +32,11 @@ ms.locfileid: "49648729"
 
     ![QnA Maker 知識庫識別碼](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-如果您還沒有知識庫，可以建立要用於本快速入門的範例知識庫：[建立新的知識庫](create-new-kb-nodejs.md)。
+    如果您還沒有知識庫，可以建立要用於本快速入門的範例知識庫：[建立新的知識庫](create-new-kb-nodejs.md)。
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
+
+> [!NOTE] 
+> 從 [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short)可取得完整的解決方案檔案。
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>建立知識庫 Node.js 檔案
 
@@ -44,49 +46,27 @@ ms.locfileid: "49648729"
 
 在 `publish-knowledge-base.js` 的頂端，新增下列幾行以將必要的相依性新增至專案：
 
-[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-4 "Add the dependencies")]
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=1-3 "Add the dependencies")]
 
 ## <a name="add-required-constants"></a>新增必要的常數
 
-在上述必要的相依性後面，新增必要的常數以存取 QnA Maker。 以您自己的 QnA Maker 金鑰取代 `subscriptionKey` 變數的值。 
+在上述必要的相依性後面，新增必要的常數以存取 QnA Maker。 使用您自己的值加以取代。
 
-[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=10-17 "Add required constants")]
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=11-14 "Add required constants")]
 
-## <a name="add-knowledge-base-id"></a>新增知識庫識別碼
+## <a name="add-post-request-to-publish-knowledge-base"></a>新增 POST 要求來發佈知識庫
 
-在先前的常數後面，新增知識庫識別碼並且將其新增至路徑：
+在必要常數之後，新增下列程式碼來對 QnA Maker API 提出 HTTPS 要求，以便發佈知識庫並接收回應：
 
-[!code-nodejs[Add knowledge base ID](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=19-23 "Add knowledge base ID")]
+[!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base-short/publish-knowledge-base.js?range=16-47 "Add a POST request to publish knowledge base")]
 
-## <a name="add-supporting-functions"></a>新增支援的函式
+發佈成功時，API 呼叫會傳回 204 狀態，且回應主體中沒有任何內容。 程式碼會針對 204 回應新增內容。
 
-接下來，新增下列支援的函式。
-
-1. 新增下列函式，以可讀取的格式列印出 JSON：
-
-   [!code-nodejs[Add supporting functions, step 1](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=25-28 "Add supporting functions, step 1")]
-
-2. 新增下列函式，來管理要取得建立作業狀態的 HTTP 回應：
-
-   [!code-nodejs[Add supporting functions, step 2](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=30-52 "Add supporting functions, step 2")]
-
-## <a name="add-the-publishkb-function-and-main-function"></a>新增 publish_kb 函式和 main 函式
-
-下列程式碼會對 QnA Maker API 提出 HTTPS 要求，以發佈 KB 並接收回應：
-
-[!code-nodejs[Add POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=54-71 "Add POST request to publish KB")]
-
-[!code-nodejs[Add the publish_kb function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=73-91 "Add the publish_kb function and main function")]
-
-## <a name="add-the-main-function"></a>新增 main 函式
-
-新增下列函式以管理要求和回應：
-
-[!code-nodejs[Add the main function](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=94-97 "Add the main function")]
+對於任何其他回應，該回應則會原封不動地傳回。
 
 ## <a name="run-the-program"></a>執行程式
 
-建置並執行程式。 程式會自動將要求傳送至 QnA Maker API 以發佈 KB，然後在主控台視窗中輸出回應。
+建置並執行程式。 程式會自動將要求傳送至 QnA Maker API 以發佈知識庫，然後在主控台視窗中輸出回應。
 
 發佈知識庫之後，您就可以從具有用戶端應用程式或聊天機器人的端點來加以查詢。 
 
@@ -94,7 +74,11 @@ ms.locfileid: "49648729"
 node publish-knowledge-base.js
 ```
 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## <a name="next-steps"></a>後續步驟
+
+在發佈知識庫之後，您需要有[用來產生答案的端點 URL](../Tutorials/create-publish-answer.md#generating-an-answer)。 
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API 參考](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

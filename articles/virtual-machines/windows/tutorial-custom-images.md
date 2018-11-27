@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1481c32512266f494c03f9ffdc1ce67ef503b4a8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 415652739c4987deafe820c31499132ec3829c8b
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255195"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263310"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教學課程：使用 Azure PowerShell 建立 Azure VM 的自訂映像
 
@@ -101,7 +101,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>從映像建立 VM
 
-現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須提供關於映像、映像提供者、供應項目、SKU 和版本的資訊。 使用針對 [New-AzureRMVM]() Cmdlet 簡化的參數集時，只要自訂映像位在同一個資源群組，您就只需要提供自訂映像的名稱。 
+現在您已有映像，您可以從映像建立一個或多個新的 VM。 從自訂映像建立 VM 類似於使用 Marketplace 映像建立 VM。 使用 Marketplace 映像時，您必須提供關於映像、映像提供者、供應項目、SKU 和版本的資訊。 使用針對 [New-AzureRMVM](/powershell/module/azurerm.compute/new-azurermvm) Cmdlet 簡化的參數集時，只要自訂映像位在同一個資源群組，您就只需要提供自訂映像的名稱。 
 
 該範例會根據 *myResourceGroup* 中的 *myImage* 建立名為 *myVMfromImage* 的 VM。
 
@@ -130,11 +130,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-删除映像。 此範例會刪除 myResourceGroup 中名為 myOldImage 的映像。
+删除映像。 此範例會刪除 myResourceGroup 中名為 myImage 的映像。
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
     -ResourceGroupName myResourceGroup
 ```
 

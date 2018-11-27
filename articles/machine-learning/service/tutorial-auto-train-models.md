@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 29d673f48671ec917e45b7ff76feeebf0b868c4b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.date: 11/21/2018
+ms.openlocfilehash: 76436da1013c6747e9167c006e0d7c5e89ec8d9c
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426884"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284739"
 ---
 # <a name="tutorial-train-a-classification-model-with-automated-machine-learning-in-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務中的自動化機器學習將分類模型定型
 
@@ -34,7 +34,10 @@ ms.locfileid: "49426884"
 > * 檢閱定型結果
 > * 註冊最佳模型
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
+
+>[!NOTE]
+> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.79 版進行測試
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
@@ -214,7 +217,7 @@ local_run = experiment.submit(Automl_config, show_output=True)
 使用 Jupyter Notebook 小工具可查看圖形以及所有結果的資料表。
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 

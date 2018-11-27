@@ -3,23 +3,23 @@ title: 快速入門：Bing 實體搜尋 API，Python
 titlesuffix: Azure Cognitive Services
 description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 實體搜尋 API。
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
-ms.openlocfilehash: 80265c883214812acbd0af3bd186a0fbd3703132
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: aahi
+ms.openlocfilehash: 8650d241be5d3a34ae24b25c4e694792925ee300
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48814333"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161815"
 ---
 # <a name="quickstart-for-bing-entity-search-api-with-python"></a>搭配使用 Bing 實體搜尋 API 與 Python 的快速入門
 
-本文說明如何搭配使用 [Bing 實體搜尋 API](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) 與 Python。
+本文說明如何搭配使用 [Bing 實體搜尋](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API 與 Python。
 
 ## <a name="prerequisites"></a>必要條件
 

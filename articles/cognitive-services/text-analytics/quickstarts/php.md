@@ -10,23 +10,23 @@ ms.component: text-analytics
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: nolachar
-ms.openlocfilehash: 99761cf5105535105a7dd9576a32a79e0ae39768
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 6ce4dda4a8a927ea904d241d63eed3483468961e
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247785"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282816"
 ---
 # <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>快速入門：使用 PHP 來呼叫文字分析認知服務
 <a name="HOLTop"></a>
 
-本文示範如何使用[文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711) 與 PHP 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以及[識別已連結實體](#Entities)。
+本文示範如何使用 [文字分析 API](//go.microsoft.com/fwlink/?LinkID=759711)  與 PHP 來[偵測語言](#Detect)、[分析情感](#SentimentAnalysis)、[擷取關鍵片語](#KeyPhraseExtraction)，以及[識別已連結實體](#Entities)。
 
 如需 API 的技術文件，請參閱 [API 定義](//go.microsoft.com/fwlink/?LinkID=759346)。
 
 ## <a name="prerequisites"></a>必要條件
 
-您必須有具備**文字分析 API** 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 您可以使用 **5,000 次交易/月的免費層**來完成此快速入門。
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 您也必須具備在註冊時產生的[端點和存取金鑰](../How-tos/text-analytics-how-to-access-key.md)。 
 

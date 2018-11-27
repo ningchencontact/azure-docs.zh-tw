@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: bf616dda602edff6add5070ad1f1ab85b6a21380
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568966"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285130"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 查詢是透過使用者定義的索引而執行的。
@@ -91,7 +91,7 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 
 在我們的客戶中，可利用 Azure 搜尋服務中最廣泛功能的客戶包括線上型錄、商務營運程式和文件探索應用程式。
 
-## <a name="rest-api--net-sdk"></a>REST API | .Net SDK
+## <a name="rest-api--net-sdk"></a>REST API | .NET SDK
 
 雖然在入口網站中可以執行許多工作，但 Azure 搜尋服務主要是提供給想要將搜尋功能整合到現有應用程式的開發人員使用。 有下列程式設計介面可用。
 
