@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: b6c05382a3a40aa9157fd64a7f0192c58e79b0ee
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578020"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853773"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>快速入門：使用 Face REST API 和 cURL 偵測影像中的臉部
 
@@ -40,7 +40,7 @@ curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.a
 
 ### <a name="face-endpoint-url"></a>Face 端點 URL
 
-URL：`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` 會指出要查詢的 Azure Face 端點。 您必須變更此 URL 的第一個部分，以符合與您訂用帳戶金鑰對應的區域 (除非此 URL 已是正確的)。
+URL：`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` 會指出要查詢的 Azure Face 端點。 您可能需要變更此 URL 的第一個部分，以符合與您訂用帳戶金鑰對應的區域 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
 
 ### <a name="url-query-string"></a>URL 查詢字串
 

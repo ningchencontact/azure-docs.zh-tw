@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 68049b9c0b9186a433ddf3c92be12487cfd3c13b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 79196e2e89ec28236b7256571ccaa087866c2e76
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700275"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706461"
 ---
 # <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
   [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 - [Go](https://golang.org/) 語言的 [Go](https://golang.org/dl/) 和基本知識。
-- IDE — Jetbrains 的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio 程式碼](https://code.visualstudio.com/) 或 [Atom](https://atom.io/)。 在本教學課程中，我是使用 Goglang。
+- IDE — Jetbrains 的 [GoLand](https://www.jetbrains.com/go/)、Microsoft 的 [Visual Studio 程式碼](https://code.visualstudio.com/) 或 [Atom](https://atom.io/)。 在本教學課程中，我是使用 Goglang。
 
 <a id="create-account"></a>
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
@@ -65,7 +65,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo) 驅動程式 (發音為 mango) 是 [Go 語言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驅動程式，它可在非常簡單且符合標準 Go 慣用語的 API 之下實作豐富且經過妥善測試的精選功能。
+[mgo](http://labix.org/mgo) 驅動程式是 [Go 語言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驅動程式，它可在非常簡單且符合標準 Go 慣用語的 API 之下實作豐富且經過妥善測試的精選功能。
 
 <a id="connection-string"></a>
 
@@ -138,7 +138,7 @@ session.SetSafe(&mgo.Safe{})
 **DialWIthInfo{}** 物件的執行個體用來建立工作階段物件。 一旦建立工作階段，您就可以使用下列程式碼片段來存取集合：
 
 ```go
-collection := session.DB(“database”).C(“package”)
+collection := session.DB("database").C("package")
 ```
 
 <a id="create-document"></a>

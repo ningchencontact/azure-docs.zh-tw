@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/12/2018
 ms.author: pafarley
-ms.openlocfilehash: 4378d04d8909ecb0cd77c3196b74ecd51eb19638
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 92344943d2ec19f6730387221974a001e6a2045a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686223"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852889"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>教學課程：建立 Android 應用程式來偵測並框出影像中的臉部
 
@@ -92,11 +92,7 @@ GitHub 上的[認知服務臉部 Android](https://github.com/Azure-Samples/cogni
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-您必須將 `<Subscription Key>` 取代為訂用帳戶金鑰。 此外，也請使用適合金鑰的區域識別碼，將 `<API endpoint>` 取代為臉部 API 端點。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 API 端點值的範例為：
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+您必須將 `<Subscription Key>` 取代為訂用帳戶金鑰。 此外，也請使用適合金鑰的區域識別碼，將 `<API endpoint>` 取代為臉部 API 端點 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。
 
 在 [專案] 窗格中，依序展開 [應用程式] 和 [資訊清單]，然後開啟 AndroidManifest.xml。 將下列元素插入為 `manifest` 元素的直接子系：
 

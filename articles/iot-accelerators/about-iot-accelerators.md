@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 6fed0c5e3f24fbcefec427cf56a625d1d8d7aba2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345108"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824535"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Azure IoT 解決方案加速器是什麼？
 
@@ -50,7 +50,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 
 ### <a name="predictive-maintenance"></a>預測性維護
 
-使用此解決方案加速器可預測遠端裝置應該會在什麼時候故障，以便您可以在所預測的故障發生前，先進行維護。 此解決方案加速器會使用機器學習演算法，透過裝置的遙測資料來預測故障。 裝置範例可能是飛機引擎或電梯。
+使用此解決方案加速器可預測遠端裝置應該會在什麼時候故障，以便在裝置故障之前先進行維護。 此解決方案加速器會使用機器學習演算法，透過裝置的遙測資料來預測故障。 裝置範例可能是飛機引擎或電梯。
 
 您可以使用預測性維護儀表板來檢視預測性維護分析：
 
@@ -97,7 +97,7 @@ IoT 解決方案加速器是完整且可立即部署的 IoT 解決方案，可�
 * **基本：** 低成本的示範版本，或用來測試部署。 所有微服務都將部署到單一 Azure 虛擬機器。
 * **本機：** 用於測試和開發的本機電腦部署。 這種方法會將微服務部署到本機 Docker 容器，並連線到 IoT 中樞、Azure Cosmos DB 和 Azure 雲端儲存體服務。
 
-解決方案加速器的執行成本是[基礎 Azure 服務成本](https://azure.microsoft.com/pricing)的彙總。 當您選擇部署選項時，就會看到所用 Azure 服務的詳細資料。
+解決方案加速器的執行成本是合併[基礎 Azure 服務的執行成本](https://azure.microsoft.com/pricing)。 當您選擇部署選項時，就會看到所用 Azure 服務的詳細資料。
 
 ## <a name="next-steps"></a>後續步驟
 

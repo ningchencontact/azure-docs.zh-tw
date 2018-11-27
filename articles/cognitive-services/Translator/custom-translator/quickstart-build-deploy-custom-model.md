@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: quickstart
-ms.openlocfilehash: 949fb2487c3ca519c1d7022c1434d0a029ed20bb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cb713ac53b399d8ba79d003ee6d948bb5af5220b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627867"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975767"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>快速入門：建置、部署和使用自訂模型來進行翻譯
 
@@ -26,7 +26,7 @@ ms.locfileid: "51627867"
 
 2. 可透過 Azure 入口網站來使用的翻譯工具文字 API 訂用帳戶。 您必須有翻譯工具文字 API 訂用帳戶金鑰，才能與工作區相關聯。 請參閱[如何註冊翻譯工具文字 API](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup)。
 
-3. 上述兩項皆具備時，請登入[自訂翻譯工具](https://portal.customtranslator.azure.ai)入口網站。 進入自訂翻譯工具入口網站後，請瀏覽至 [設定] 頁面，在其中將 Microsoft 翻譯工具文字 API 訂用帳戶金鑰與工作區相關聯。 
+3. 上述兩項皆具備時，請登入[自訂翻譯工具](https://portal.customtranslator.azure.ai)入口網站。 進入自訂翻譯工具入口網站後，請瀏覽至 [設定] 頁面，在其中將 Microsoft 翻譯工具文字 API 訂用帳戶金鑰與工作區相關聯。
 
 ## <a name="create-a-project"></a>建立專案
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: f010bebcf1130b3061c60987ffbd4e706a030773
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41919119"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822461"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站記錄往返虛擬機器的網路流量
 
@@ -36,6 +36,9 @@ ms.locfileid: "41919119"
 > * 檢視記錄的資料
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+> [!NOTE] 
+> 美國中西部區域現已提供流程記錄第 2 版。 組態可透過 Azure 入口網站和 REST API 取得。 在不支援的區域中啟用第 2 版記錄會導致第 1 版記錄儲存到您的儲存體帳戶。
 
 ## <a name="create-a-vm"></a>建立 VM
 
@@ -100,8 +103,9 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
 6. 從 NSG 清單中，選取名為 **myVm-nsg** 的 NSG。
 7. 在 [流量記錄設定] 下，選取 [開啟]。
-8. 選取您在步驟 3 建立的儲存體帳戶。
-9. 將 [保留 (天數)] 設定為 5，然後選取 [儲存]。
+8. 選取流程記錄版本。 第 2 版包含流程工作階段統計資料 (位元組和封包)。 ![選取流程記錄版本](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. 選取您在步驟 3 建立的儲存體帳戶。
+10. 將 [保留 (天數)] 設定為 5，然後選取 [儲存]。
 
 ## <a name="download-flow-log"></a>下載流量記錄
 
@@ -118,7 +122,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
     ![記錄檔](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
-    記錄檔會寫入遵循下列命名慣例的資料夾階層：https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+    記錄檔會寫入遵循下列命名慣例的資料夾階層： https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
 6. 選取 PT1H.json 檔案右邊的 [...]，然後選取 [下載]。
 
@@ -126,6 +130,7 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
 
 對於每個已記錄其資料的流量，下列 json 範例就是您會在 PT1H.json 檔案中看到的內容：
 
+### <a name="version-1-flow-log-event"></a>第 1 版的流程記錄事件
 ```json
 {
     "time": "2018-05-01T15:00:02.1713710Z",
@@ -135,29 +140,83 @@ NSG 流量記錄需要 **Microsoft.Insights** 提供者。 若要註冊提供者
     "operationName": "NetworkSecurityGroupFlowEvents",
     "properties": {
         "Version": 1,
-        "flows": [{
-            "rule": "UserRule_default-allow-rdp",
-            "flows": [{
-                "mac": "000D3A170C69",
-                "flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-            }]
-        }]
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 }
 ```
+### <a name="version-2-flow-log-event"></a>第 2 版的流程記錄事件
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 上述輸出中的 **mac** 值是網路介面的 MAC 位址，該網路介面是在建立 VM 時建立的。 以逗號分隔的 **flowTuples** 資訊代表下列內容：
 
 | 範例資料 | 資料代表的意義   | 說明                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | 時間戳記             | 流量發生時的時間戳記，格式為 UNIX EPOCH。 在上述範例中，日期會轉換為 2018 年 5 月 1 日下午 2:59:05 GMT。                                                                                    |
-| 192.168.1.4  | 來源 IP 位址      | 流量源頭的來源 IP 位址。
-| 10.0.0.4     | 目的地 IP 位址 | 流量流向的目的地 IP 位址。 對於您在[建立 VM](#create-a-vm) 中建立的 VM，10.0.0.4 是此 VM 的私人 IP 位址。                                                                                 |
-| 55960        | 來源連接埠            | 流量源頭的來源連接埠。                                           |
-| 3389         | 目的地連接埠       | 流量流向的目的地連接埠。 因為流量已流向連接埠 3389，記錄檔中名為 **UserRule_default-allow-rdp** 的規則會處理此流量。                                                |
+| 1542110377   | 時間戳記             | 流量發生時的時間戳記，格式為 UNIX EPOCH。 在上述範例中，日期會轉換為 2018 年 5 月 1 日下午 2:59:05 GMT。                                                                                    |
+| 10.0.0.4  | 來源 IP 位址      | 流量源頭的來源 IP 位址。 對於您在[建立 VM](#create-a-vm) 中建立的 VM，10.0.0.4 是此 VM 的私人 IP 位址。
+| 13.67.143.118     | 目的地 IP 位址 | 流量流向的目的地 IP 位址。                                                                                  |
+| 44931        | 來源連接埠            | 流量源頭的來源連接埠。                                           |
+| 443         | 目的地連接埠       | 流量流向的目的地連接埠。 因為流量已流向連接埠 443，記錄檔中名為 **UserRule_default-allow-rdp** 的規則會處理此流量。                                                |
 | T            | 通訊協定               | 流量的通訊協定是 TCP (T) 或 UDP (U)。                                  |
-| I            | 方向              | 流量是輸入 (I) 或輸出 (O)。                                     |
-| 具有使用             | 動作                 | 允許 (A) 或拒絕 (D) 流量。                                           |
+| O            | 方向              | 流量是輸入 (I) 或輸出 (O)。                                     |
+| 具有使用             | 動作                 | 允許 (A) 或拒絕 (D) 流量。  
+| C            | 流程狀態 **僅限第 2 版** | 擷取流程的狀態。 可能的狀態為 **B**：開始，當流量建立時。 不提供統計資料。 **C**：繼續進行中的流量。 提供 5 分鐘間隔的統計資料。 **E**：結束，當流量終止時。 提供統計資料。 |
+| 30 | 已傳送的封包數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包總數。 |
+| 16978 | 已傳送的位元組數 - 來源到目的地 **僅限第 2 版** | 上次更新之後從來源傳送到目的地的 TCP 或 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。 | 
+| 24 | 已傳送的封包數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 或 UDP 封包總數。 |
+| 14008| 已傳送的位元組數 - 目的地到來源 **僅限第 2 版** | 上次更新之後從目的地傳送到來源的 TCP 與 UDP 封包位元組總數。 封包位元組包括封包標頭與承載。| |
 
 ## <a name="next-steps"></a>後續步驟
 

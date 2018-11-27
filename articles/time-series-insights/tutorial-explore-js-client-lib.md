@@ -8,20 +8,20 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 85d6ac0084343dc821a4eaf91c8053c9885ccfeb
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366041"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706988"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
-為了協助 Web 開發人員查詢時間序列深入解析 (TSI) 中儲存的資料並將其視覺化，我們開發出以 JavaScript D3 為基礎的 TSI 用戶端程式庫。  此教學課程會使用 Web 應用程式範例，來引導您探索 TSI 用戶端程式庫，以及相關的程式設計模型。
+為了協助 Web 開發人員查詢時間序列深入解析 (TSI) 中儲存的資料並將其視覺化，我們開發出以 JavaScript D3 為基礎的 TSI 用戶端程式庫。  本教學課程會使用 Web 應用程式範例，來引導您探索 TSI 用戶端程式庫，以及相關的程式設計模型。
 
-此教學課程中討論的各個主題會讓您有機會以程式庫進行試驗，以了解如何存取 TSI 資料，以及使用圖表控制項來轉譯並視覺化資料。 課程目標是要讓您獲得足夠的詳細資料，以供您在 Web 應用程式中使用程式庫。
+本教學課程中討論的各個主題會讓您有機會以程式庫進行試驗，以了解如何存取 TSI 資料，以及使用圖表控制項來轉譯資料並加以視覺化。 課程目標是要讓您獲得足夠的詳細資料，以供您在 Web 應用程式中使用程式庫。
 
-在此教學課程中，您會了解：
+在本教學課程中，您會了解：
 
 > [!div class="checklist"]
 > * TSI 範例應用程式。
@@ -34,13 +34,13 @@ ms.locfileid: "46366041"
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-此教學課程使用在大多數新式網頁瀏覽器 (包括 [Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等等) 中皆能找到的「開發人員工具」功能 (也稱為 DevTools 或 F12)。 如果您不熟悉此功能，建議您先在瀏覽器中瀏覽此功能，然後再繼續。
+本教學課程使用在大多數新式網頁瀏覽器 (包括 [Microsoft Edge](/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[FireFox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等等) 中皆能找到的「開發人員工具」功能 (也稱為 DevTools 或 F12)。 如果您不熟悉此功能，建議您先在瀏覽器中瀏覽這項功能，然後再繼續。
 
 ## <a name="time-series-insights-sample-application"></a>時間序列深入解析範例應用程式
 
-此教學課程通篇使用時間序列深入解析範例應用程式來瀏覽應用程式背後的原始程式碼，包括 TSI JavaScript 用戶端程式庫的使用方式。 此範例為單頁 Web 應用程式 (SPA)，用來說明如何使用程式庫。 此範例將說明如何從範例 TSI 環境查詢資料，並將其視覺化。
+本教學課程通篇使用時間序列深入解析範例應用程式來瀏覽應用程式背後的原始程式碼，包括 TSI JavaScript 用戶端程式庫的使用方式。 此範例為單頁 Web 應用程式 (SPA)，用來說明如何使用程式庫。 此範例將說明如何從範例 TSI 環境查詢資料，並將其視覺化。
 
 1. 瀏覽至[時間序列深入解析應用程式範例](https://insights.timeseries.azure.com/clientsample)。 您會看到類似下圖且包含登入提示的頁面：
 
@@ -206,7 +206,7 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
 
 ### <a name="states-and-events"></a>狀態和事件
 
-所提供的其中一個進階功能範例是能夠將狀態轉換和離散事件新增至圖表。 此功能可用於醒目提示事件、警示和狀態切換，例如開啟/關閉。
+所提供的其中一個進階功能範例是能夠將狀態轉換和離散事件新增至圖表。 這項功能可用於醒目提示事件、警示和狀態切換，例如開啟/關閉。
 
 請查看 `// Example 10` 註解底下的 HTML 區段背後的程式碼。 此程式碼會轉譯「具有多個序列類型的折線圖」標題底下的線條控制項，並將其繫結至識別碼值為 `chart10` 的 `<div>` 元素。
 
@@ -275,7 +275,7 @@ TSI 用戶端程式庫也會公開一些選擇性的進階功能以供您利用�
 
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已了解如何：
+在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
 > * 登入並瀏覽 TSI 應用程式範例和其來源。

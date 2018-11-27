@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/05/2018
+ms.date: 11/14/2018
 ms.author: spelluru
-ms.openlocfilehash: 6696d6e7e53e98dfab2a65c7c66825936020f33c
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: babff55d6684feb1f0414970616260be96b994f4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856628"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706002"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>教學課程：設定教室實驗室 
 您將在本教學課程中設定教室實驗室，且其中包含教室中學生所使用的虛擬機器。  
@@ -81,7 +81,7 @@ ms.locfileid: "48856628"
 
         > [!WARNING]
         > 在您發佈時，即無法取消發佈。 
-    2. 若要稍後再發佈，請選取 [儲存以便稍後使用]。 您可以在精靈完成之後發佈範本 VM。 如需如何在精靈完成之後設定和發佈的詳細資訊，請參閱[如何管理教室實驗室](how-to-manage-classroom-labs.md)一文中的[發佈範本](how-to-manage-classroom-labs.md#publish-the-template)小節。
+    2. 若要稍後再發佈，請選取 [儲存以便稍後使用]。 您可以在精靈完成之後發佈範本 VM。 如需如何在精靈完成之後設定和發佈的詳細資訊，請參閱[如何管理教室實驗室](how-to-manage-classroom-labs.md)一文中的[發佈範本](how-to-create-manage-template.md#publish-the-template-vm)小節。
 
         ![發佈範本](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. 您會看到範本的**發佈進度**。 此程序最多可能需要一小時。 
@@ -97,17 +97,33 @@ ms.locfileid: "48856628"
 
     ![已停止狀態的虛擬機器](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## <a name="add-users-to-the-lab"></a>將使用者新增至實驗室
+
+1. 選取左側功能表上的 [使用者]。 預設會啟用 [限制存取] 選項。 當此設定為開啟時，即使使用者有註冊連結，除非使用者位於使用者清單中，否則也無法向實驗室註冊。 只有清單中的使用者可以使用您傳送的註冊連結，向實驗室註冊。 在此程序中，您會在清單中新增使用者。 或者，您可以關閉 [限制存取]，讓使用者能向實驗室註冊 (只要他們有註冊連結)。 
+2. 選取工具列上的 [新增使用者]。 
+3. 在 [新增使用者] 頁面上的不同行或以分號隔開的單一行中，輸入使用者的電子郵件地址。 
+
+    ![新增使用者電子郵件地址](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. 選取 [ **儲存**]。 您會在清單中看到使用者的電子郵件地址及其狀態 (是否已註冊)。 
+
+    ![使用者清單](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## <a name="send-registration-link-to-students"></a>將註冊連結傳送給學生
 
-1. 選取左側功能表上 [儀表板]，以切換至 [儀表板] 檢視。 
-2. 選取 [使用者註冊] 磚。
+1. 如果您尚未在 [使用者] 頁面上，請切換至該檢視。 
+2. 選取 [取得註冊連結] 圖格。
 
     ![學生註冊連結](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. 在 [使用者註冊] 對話方塊中，選取 [複製] 按鈕。 連結會複製到剪貼簿中。 將連結貼到電子郵件編輯器中，然後將電子郵件傳送給學生。 
+1. 在 [使用者註冊] 對話方塊中，選取 [複製] 按鈕。 連結會複製到剪貼簿中。 
 
     ![學生註冊連結](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. 在 [使用者註冊] 對話方塊上，選取 [關閉]。 
-3. 將註冊連結分享給學生，讓他們能夠註冊課程。 
+4. 將註冊連結分享給學生，讓他們能夠註冊課程。 如果您已啟用 [限制選項] 設定，而且有一份使用者清單，請執行下列動作：
+    1. 選取清單中使用者的**電子郵件地址**。 
+    2. 您可從預設電子郵件程式看見已填入 [收件人] 地址的視窗。 
+    3. 貼上您之前複製的 [註冊 URL]。 
+    4. 傳送**電子郵件**。
 
 
 ## <a name="next-steps"></a>後續步驟

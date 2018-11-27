@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: b98653ea0896e617a666147d243f24cb55483a28
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f4ea5e282e9b915cffeac7daff07f5934be1a424
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091674"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974984"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>使用 Azure 入口網站來管理資料箱磁碟 (預覽)
 
@@ -132,7 +132,7 @@ ms.locfileid: "49091674"
 |已取貨     |您的退貨已取貨。 <br> 一旦 Azure 資料中心收到出貨時，資料會自動上傳至 Azure。         |
 |已收到     | Azure 資料中心已收到您的磁碟。 複製資料即將開始。        |
 |已複製資料     |資料複製進行中。<br> 等候資料複製完成。         |
-|Completed       |已順利完成訂單。<br> 從伺服器中刪除內部部署資料之前，請確認資料位於 Azure 中。         |
+|Completed       |已順利完成訂單。<br> 從伺服器刪除內部部署資料之前，請確認資料已位於 Azure 中。         |
 |已完成，但發生錯誤| 資料複製已完成，但收到錯誤。 <br> 使用 [概觀] 中提供的路徑來檢閱複製記錄。 如需詳細資訊，請移至[下載診斷記錄](data-box-disk-troubleshoot.md#download-diagnostic-logs)。   |
 |Canceled            |訂單便會取消。 <br> 可能是您取消訂單或發現錯誤，而服務將訂單取消。     |
 

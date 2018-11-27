@@ -4,17 +4,17 @@ description: 在本快速入門中，請了解如何將預先建置的程式碼�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/14/2018
+ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a392c4c20e54081ae5e4876b7c718759b8200ce5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: d4ea7d3fba891e954ca7faa5176a73d2341630d6
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566426"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976905"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -58,8 +58,10 @@ IoT Edge 裝置：
 * 當作 IoT Edge 裝置的 Linux 裝置或虛擬機器。 如果您想要在 Azure 中建立虛擬機器，請使用下列命令快速展開作業：
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
+
+   當您建立新的虛擬機器時，請記住在建立命令輸出中提供的 **publicIpAddress**。 您稍後會在本快速入門中使用此公用 IP 位址來連線到虛擬機器。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
@@ -75,7 +77,7 @@ IoT Edge 裝置：
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
-   如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。
+   如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。 如果您收到無法使用 IoT 中樞名稱的錯誤，則表示其他人已經有該名稱的中樞。 請嘗試新的名稱。 
 
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
 
@@ -84,7 +86,7 @@ IoT Edge 裝置：
 
 建立模擬裝置的裝置身分識別，以便與 IoT 中樞通訊。 裝置身分識別存在於雲端，您可以使用唯一的裝置連接字串，讓實體裝置與裝置身分識別建立關聯。 
 
-由於 IoT Edge 裝置的行為和管理方式不同於典型 IoT 裝置，您從開頭就要將此宣告為 IoT Edge 裝置。 
+由於 IoT Edge 裝置的行為和管理方式不同於典型 IoT 裝置，請使用 `--edge-enabled` 旗標將此身分識別宣告為 IoT Edge 裝置。 
 
 1. 在 Azure Cloud Shell 中輸入下列命令，以在中樞內建立名為 **myEdgeDevice** 的裝置。
 
@@ -92,13 +94,15 @@ IoT Edge 裝置：
    az iot hub device-identity create --hub-name {hub_name} --device-id myEdgeDevice --edge-enabled
    ```
 
-1. 擷取裝置的連接字串，此字串將作為連結實體裝置與其在 IoT 中樞內的身分識別。 
+   如果您收到有關 iothubowner 原則金鑰的錯誤，請確定 Cloud Shell 正在執行最新版的 azure-cli-iot-ext 擴充功能。 
+
+2. 擷取裝置的連接字串，此字串將作為連結實體裝置與其在 IoT 中樞內的身分識別。 
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。 
+3. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。 
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>安裝並啟動 IoT Edge 執行階段
 
@@ -109,7 +113,15 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 在執行階段設定期間，您必須提供裝置連接字串。 請使用您從 Azure CLI 擷取到的字串。 這個字串會讓實體裝置與 Azure 中的 IoT Edge 裝置身分識別建立關聯。 
 
-在您已準備好作為 IoT Edge 裝置的 Linux 機器或 VM 中，完成下列步驟。 
+### <a name="connect-to-your-iot-edge-device"></a>連線到 IoT Edge 裝置
+
+本節中的步驟全都在 IoT Edge 裝置上進行。 如果您使用自己的機器作為 IoT Edge 裝置，則可略過這個部分。 如果您使用虛擬機器或次要硬體，您會想要立即連線到該機器。 
+
+如果您為此快速入門建立了 Azure 虛擬機器，請擷取建立命令所輸出的公用 IP 位址。 您也可在 Azure 入口網站中您虛擬機器的 [概觀] 頁面上找到該公用 IP 位址。 使用下列命令連線到您的虛擬機器。 以您的電腦位址取代 **{publicIpAddress}**。 
+
+```azurecli-interactive
+ssh azureuser@{publicIpAddress}
+```
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>註冊裝置以使用軟體存放庫
 
@@ -242,7 +254,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 如果您在記錄中看到的最後一行是 `Using transport Mqtt_Tcp_Only`，則表示溫度感應器模組可能正在等候連線至 Edge 中樞。 請嘗試終止此模組，並讓 Edge 代理程式重新啟動模組。 您可以使用 `sudo docker stop tempSensor` 命令來終止模組。
 
-您也可以在遙測資料送達您的 IoT 中樞時，使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)加以檢視。 
+您也可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，查看送達 IoT 中樞的訊息。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -250,7 +262,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 ### <a name="delete-azure-resources"></a>刪除 Azure 資源
 
-如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。 
+如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 再次檢查資源群組的內容，確定沒有您想要保留的內容。 如果您不想刪除整個群組，可改為刪除個別資源。
 
 移除 **IoTEdgeResources** 群組。
 

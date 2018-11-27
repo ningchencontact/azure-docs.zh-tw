@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/10/2018
 ms.author: pafarley
-ms.openlocfilehash: 355d3258392fa722fbdc3762a9125a22e8a69b67
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0d0ff627ad2549ff9b6f09b6c934c5a17a102962
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954284"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852362"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入門：使用 REST API 和 JavaScript 偵測影像中的人臉
 
@@ -37,10 +37,10 @@ ms.locfileid: "49954284"
 若要執行範例，請執行下列步驟：
 
 1. 複製下列內容並儲存至檔案，例如 `detectFaces.html`。
-2. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
-3. 必要時，請將 `uriBase` 值變更為使用您取得訂用帳戶金鑰的位置。
-4. 將檔案拖曳到您的瀏覽器。
-5. 按一下 `Analyze faces` 按鈕。
+1. 將 `<Subscription Key>` 換成您的有效訂用帳戶金鑰。
+1. 必要時，變更 `uriBase` 值，以使用您取得訂用帳戶金鑰的位置 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
+1. 將檔案拖曳到您的瀏覽器。
+1. 按一下 `Analyze faces` 按鈕。
 
 ### <a name="face---detect-request"></a>Face - Detect 要求
 
@@ -63,7 +63,7 @@ ms.locfileid: "49954284"
         // subscription keys from westus, replace "westcentralus" in the URL
         // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the "westus" region.
         // If you use a free trial subscription key, you shouldn't need to change 
         // this region.
         var uriBase =

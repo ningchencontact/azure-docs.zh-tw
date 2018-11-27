@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
+title: 教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 description: 在本教學課程中，您將了解如何使用 Azure 入口網站部署及設定 Azure 防火牆。
 services: firewall
 author: vhorne
@@ -7,32 +7,44 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 3c225e6fbfb13c04d650b8e6b72ee18d23139a8e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158953"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854164"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
+
+當您將內部部署網路連線到 Azure 虛擬網路以建立混合式網路時，控制 Azure 網路資源存取的能力是整體安全性計劃的重要部分。
+
+您可以使用定義允許和拒絕網路流量的規則，在混合式網路中使用 Azure 防火牆來控制網路存取。
+
+在本教學課程中，您會建立三個虛擬網路：
+
+- **VNet-Hub** - 防火牆位於此虛擬網路中。
+- **VNet-Spoke** - 輪輻虛擬網路代表位於 Azure 的工作負載。
+- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際部署中，它可經由 VPN 或 Express Route 連線來連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的虛擬網路用來代表內部部署網路。
+
+![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
 在本教學課程中，您了解如何：
 
 > [!div class="checklist"]
-> * 設定網路環境
+> * 宣告變數
+> * 建立防火牆中樞虛擬網路
+> * 建立輪輻虛擬網路
+> * 建立內部部署虛擬網路
 > * 設定及部署防火牆
+> * 建立及連線 VPN 閘道
+> * 對等互連中樞與輪輻虛擬網路
 > * 建立路由
 > * 建立虛擬機器
 > * 測試防火牆
 
-在本教學課程中，您會建立三個 VNet：
-- **VNet-Hub** - 防火牆位於此 VNet 中。
-- **VNet-Spoke** - 輪輻 VNet 代表位於 Azure 的工作負載。
-- **VNet-Onprem** - 內部部署 VNet 代表內部部署網路。 在實際部署中，它可經由 VPN 或 Express Route 連線來連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的 VNet 用來代表內部部署網路。
+## <a name="prerequisites"></a>必要條件
 
-![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
-
-## <a name="key-requirements"></a>重要需求
+進行本教學課程時，您必須在本機執行 PowerShell。 您必須安裝 Azure PowerShell 模組 6.12.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 以尋找版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。 驗證 PowerShell 版本之後，請執行 `Login-AzureRmAccount` 以建立與 Azure 的連線。
 
 要讓此案例正常運作有三項重要需求：
 
@@ -45,11 +57,9 @@ ms.locfileid: "50158953"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 ## <a name="declare-the-variables"></a>宣告變數
 
-下列範例會使用本教學課程中的值來宣告變數。 在大部分的情況下，您應將值取代為您自己的值。 不過，若您執行這些步驟是為了熟悉此類型的設定，則可以使用這些變數。 視需要修改變數，然後將其複製並貼到您的 PowerShell 主控台中。
+下列範例會使用本教學課程中的值來宣告變數。 在某些情況下，您可能需要以自己的值取代一些值，才能在您的訂用帳戶中運作。 視需要修改變數，然後將其複製並貼到您的 PowerShell 主控台中。
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -67,7 +77,7 @@ $GWHubpipName = "VNet-hub-GW-pip"
 $GWIPconfNameHub = "GW-ipconf-hub"
 $ConnectionNameHub = "hub-to-Onprem"
 
-# Variables for the spoke VNet
+# Variables for the spoke virtual network
 
 $VnetNameSpoke = "VNet-Spoke"
 $SNnameSpoke = "SN-Workload"
@@ -75,7 +85,7 @@ $VNetSpokePrefix = "10.6.0.0/16"
 $SNSpokePrefix = "10.6.0.0/24"
 $SNSpokeGWPrefix = "10.6.1.0/24"
 
-# Variables for the OnPrem VNet
+# Variables for the on-premises virtual network
 
 $VNetnameOnprem = "Vnet-Onprem"
 $SNNameOnprem = "SN-Corp"
@@ -90,70 +100,69 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## <a name="create-a-resource-group"></a>建立資源群組
 
-建立資源群組，以包含本教學課程中需要的所有資源：
+## <a name="create-the-firewall-hub-virtual-network"></a>建立防火牆中樞虛擬網路
+
+首先，建立資源群組，以包含本教學課程中的資源：
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
 
-## <a name="create-and-configure-the-firewall-hub-vnet"></a>建立及設定防火牆中樞 Vnet
-
-定義要包含在 VNet 中的子網路：
+定義要包含在虛擬網路中的子網路：
 
 ```azurepowershell
 $FWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameHub -AddressPrefix $SNHubPrefix
 $GWsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWHubPrefix
 ```
 
-現在，建立防火牆中樞 VNet：
+現在，建立防火牆中樞虛擬網路：
 
 ```azurepowershell
 $VNetHub = New-AzureRmVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的 VPN 閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的 VPN 閘道。 
+要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的 VPN 閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的 VPN 閘道。 
 
   ```azurepowershell
   $gwpip1 = New-AzureRmPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
   -Location $Location1 -AllocationMethod Dynamic
 ```
 
-## <a name="create-and-configure-the-spoke-vnet"></a>建立及設定輪輻 Vnet
+## <a name="create-the-spoke-virtual-network"></a>建立輪輻虛擬網路
 
-定義要包含在輪輻 VNet 中的子網路：
+定義要包含在輪輻虛擬網路中的子網路：
 
 ```azurepowershell
 $Spokesub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameSpoke -AddressPrefix $SNSpokePrefix
 $GWsubSpoke = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNSpokeGWPrefix
 ```
 
-建立輪輻 VNet：
+建立輪輻虛擬網路：
 
 ```azurepowershell
 $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## <a name="create-and-configure-the-onprem-vnet"></a>建立及設定內部部署 VNet
+## <a name="create-the-on-premises-virtual-network"></a>建立內部部署虛擬網路
 
-定義要包含在 VNet 中的子網路：
+定義要包含在虛擬網路中的子網路：
 
 ```azurepowershell
 $Onpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNNameOnprem -AddressPrefix $SNOnpremPrefix
 $GWOnpremsub = New-AzureRmVirtualNetworkSubnetConfig -Name $SNnameGW -AddressPrefix $SNGWOnpremPrefix
 ```
 
-現在建立內部部署 VNet：
+現在，建立內部部署虛擬網路：
 
 ```azurepowershell
 $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-要求一個公用 IP 位址，以配置給您將建立給 VNet 使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
+要求一個公用 IP 位址，以配置給您將建立給虛擬網路使用的閘道。 請注意，AllocationMethod 為 [動態]。 您無法指定想要使用的 IP 位址。 該 IP 位址會以動態方式配置給您的閘道。 
 
   ```azurepowershell
   $gwOnprempip = New-AzureRmPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -162,7 +171,7 @@ $VNetOnprem = New-AzureRmVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName
 
 ## <a name="configure-and-deploy-the-firewall"></a>設定及部署防火牆
 
-現在將防火牆部署到中樞 VNet 中。
+現在將防火牆部署到中樞虛擬網路中。
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -198,9 +207,9 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>建立及連線 VPN 閘道
 
-中樞和內部部署 VNet 都是透過 VPN 閘道連線的。
+中樞和內部部署虛擬網路都是透過 VPN 閘道連線。
 
-### <a name="create-a-vpn-gateway-for-the-hub-vnet"></a>建立中樞 VNet 的 VPN 閘道
+### <a name="create-a-vpn-gateway-for-the-hub-virtual-network"></a>建立中樞虛擬網路的 VPN 閘道
 
 建立 VPN 閘道組態。 VPN 閘道器組態定義要使用的子網路和公用 IP 位址。
 
@@ -211,7 +220,7 @@ Set-AzureRmFirewall -AzureFirewall $Azfw
   -Subnet $subnet1 -PublicIpAddress $gwpip1
   ```
 
-現在建立中樞 VNet 的 VPN 閘道。 VNet 對 VNet 組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
+現在建立中樞虛擬網路的 VPN 閘道。 網路對網路組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
@@ -219,7 +228,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWHubName -ResourceGroupName $RG1 `
 -VpnType RouteBased -GatewaySku basic
 ```
 
-### <a name="create-a-vpn-gateway-for-the-onprem-vnet"></a>建立內部部署 VNet 的 VPN 閘道
+### <a name="create-a-vpn-gateway-for-the-on-premises-virtual-network"></a>建立虛擬網路的 VPN 內部部署閘道
 
 建立 VPN 閘道組態。 VPN 閘道器組態定義要使用的子網路和公用 IP 位址。
 
@@ -230,7 +239,7 @@ $gwipconf2 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GWIPconfNameOnprem 
   -Subnet $subnet2 -PublicIpAddress $gwOnprempip
   ```
 
-現在建立內部部署 VNet 的 VPN 閘道。 VNet 對 VNet 組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
+現在建立虛擬網路的 VPN 內部部署閘道。 網路對網路組態需要 RouteBased VpnType。 建立 VPN 閘道通常可能需要 45 分鐘或更久，視選取的 VPN 閘道 SKU 而定。
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGroupName $RG1 `
@@ -251,14 +260,14 @@ $vnetOnpremgw = Get-AzureRmVirtualNetworkGateway -Name $GWOnpremName -ResourceGr
 
 #### <a name="create-the-connections"></a>建立連線
 
-在此步驟中，您會建立從中樞 VNet 到內部部署 VNet 的連線。 您會看到範例使用共用金鑰。 您可以使用自己的值，作為共用金鑰。 但請務必確認該共用金鑰必須適用於這兩個連線。 建立連線可能需要一段時間才能完成。
+在此步驟中，您會建立從中樞虛擬網路到內部部署虛擬網路的連線。 您會看到範例使用共用金鑰。 您可以使用自己的值，作為共用金鑰。 但請務必確認該共用金鑰必須適用於這兩個連線。 建立連線可能需要一段時間才能完成。
 
 ```azurepowershell
 New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGroupName $RG1 `
 -VirtualNetworkGateway1 $vnetHubgw -VirtualNetworkGateway2 $vnetOnpremgw -Location $Location1 `
 -ConnectionType Vnet2Vnet -SharedKey 'AzureA1b2C3'
 ```
-建立內部部署到中樞 VNet 的連線。 此步驟類似前一個步驟，只不過您是建立 Vnet-Onprem 到 VNet-hub 的連線。 請確認共用的金鑰相符。 稍候幾分鐘就會建立連線。
+建立內部部署對中樞虛擬網路連線。 此步驟類似前一個步驟，只不過您是建立 VNet-Onprem 到 VNet-hub 的連線。 請確認共用的金鑰相符。 稍候幾分鐘就會建立連線。
 
   ```azurepowershell
   New-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameOnprem -ResourceGroupName $RG1 `
@@ -282,9 +291,9 @@ Get-AzureRmVirtualNetworkGatewayConnection -Name $ConnectionNameHub -ResourceGro
 "egressBytesTransferred": 4142431
 ```
 
-## <a name="peer-the-hub-and-spoke-vnets"></a>對等互連中樞與輪輻 VNet
+## <a name="peer-the-hub-and-spoke-virtual-networks"></a>對等互連中樞與輪輻虛擬網路
 
-現在對等互連輪輻與中樞 VNet。
+現在對等互連中樞與輪輻虛擬網路。
 
 ```azurepowershell
 # Peer hub to spoke
@@ -294,7 +303,7 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## <a name="create-routes"></a>建立路由
+## <a name="create-the-routes"></a>建立路由
 
 接下來，建立幾個路由：
 
@@ -302,7 +311,7 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 - 透過防火牆 IP 位址，從輪輻子網路開始的預設路由
 
 > [!NOTE]
-> Azure 防火牆會使用 BGP 學習您的內部部署網路。 其中可能包括會將網際網路流量路由回內部部署網路的預設路由。 如果您想要讓網際網路流量直接從防火牆傳送到網際網路，請在 AzureFirewallSubnet 上新增使用者定義的預設路由 (0.0.0.0/0)，並以**網際網路**作為下一個躍點類型。 您以內部部署為目的地的流量仍會使用從 BGP 學習到且更明確的路由，透過 VPN/ExpressRoute 閘道強制輸送。
+> Azure 防火牆會使用 BGP 學習您的內部部署網路。 其中可能包括會將網際網路流量路由回內部部署網路的預設路由。 在生產部署中，您可能希望網際網路流量直接從防火牆傳送到網際網路。 您可以在下一個躍點類型為**網際網路**的 AzureFirewallSubnet 上，新增使用者定義的預設路由 (0.0.0.0/0)。 您以內部部署為目的地的流量仍會使用從 BGP 學習到且更明確的路由，透過 VPN/ExpressRoute 閘道強制輸送。
 
 ```azurepowershell
 #Create a route table
@@ -367,7 +376,7 @@ Set-AzureRmVirtualNetwork
 
 ### <a name="create-the-workload-virtual-machine"></a>建立工作負載虛擬機器
 
-在輪輻 VNet 中建立虛擬機器，該虛擬機器會執行 IIS、沒有公用 IP 位址，而且允許 Ping 傳入。
+在輪輻虛擬網路中建立虛擬機器，該虛擬機器會執行 IIS、沒有公用 IP 位址，而且允許 Ping 傳入。
 出現提示時，請輸入虛擬機器的使用者名稱和密碼。
 
 ```azurepowershell
@@ -415,9 +424,9 @@ Set-AzureRmVMExtension `
     -SettingString '{"commandToExecute":"powershell New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4"}' `
     -Location $Location1--->
 
-### <a name="create-the-onprem-virtual-machine"></a>建立內部部署虛擬機器
+### <a name="create-the-on-premises-virtual-machine"></a>建立內部部署虛擬機器
 
-這是一部簡單的虛擬機器，您可以使用遠端桌面連線到公用 IP 位址。 從該處，您可以透過防火牆接著連線到內部部署伺服器。 出現提示時，請輸入虛擬機器的使用者名稱和密碼。
+這是一部簡單的虛擬機器，您可使用遠端桌面連線到公用 IP 位址。 從該處，您可透過防火牆接著連線到內部部署伺服器。 出現提示時，請輸入虛擬機器的使用者名稱和密碼。
 
 ```azurepowershell
 New-AzureRmVm `
@@ -432,29 +441,29 @@ New-AzureRmVm `
 
 ## <a name="test-the-firewall"></a>測試防火牆
 
-首先，取得並記下 **VM-spoke-01** 虛擬機器的私人 IP 位址。
+首先，取得而後記下 **VM-spoke-01** 虛擬機器的私人 IP 位址。
 
 ```azurepowershell
 $NIC.IpConfigurations.privateipaddress
 ```
 
-1. 從 Azure 入口網站，連線到 **VM-Onprem** 虛擬機器。
+從 Azure 入口網站，連線到 **VM-Onprem** 虛擬機器。
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-2. 在 **VM-Onprem** 上開啟網頁瀏覽器，並瀏覽至 http://\<VM-spoke-01 private IP\>
+在 **VM-Onprem** 上開啟網頁瀏覽器，並瀏覽至 http://\<VM-spoke-01 private IP\>。
 
-   您應該會看到 Internet Information Services 預設頁面。
+您應該會看到 Internet Information Services 預設頁面。
 
-3. 從 **VM-Onprem**，針對位於私人 IP 位址的 **VM-spoke-01** 開啟遠端桌面。
+從 **VM-Onprem**，針對位於私人 IP 位址的 **VM-spoke-01** 開啟遠端桌面。
 
-   您的連線應會成功，而且應該能夠使用您所選的使用者名稱和密碼登入。
+您的連線應會成功，而且應該能夠使用您所選的使用者名稱和密碼登入。
 
 因此，現在您已確認防火牆規則正在運作：
 
 <!---- You can ping the server on the spoke VNet.--->
-- 您可以瀏覽輪輻 VNet 上的網頁伺服器。
-- 您可以使用 RDP 連線到輪輻 VNet 上的伺服器。
+- 您可以瀏覽輪輻虛擬網路上的網頁伺服器。
+- 您可以使用 RDP 連線到輪輻虛擬網路上的伺服器。
 
 接下來，將防火牆網路規則集合動作變更為 [拒絕]，確認防火牆規則會如預期般運作。 請執行下列指令碼，將規則集合動作變更為 [拒絕]。
 
@@ -472,15 +481,6 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 您可以保留防火牆資源供下一個教學課程使用，若不再需要，則可刪除 **FW-Hybrid-Test** 資源群組來刪除所有防火牆相關資源。
 
 ## <a name="next-steps"></a>後續步驟
-
-在本教學課程中，您已了解如何：
-
-> [!div class="checklist"]
-> * 設定網路環境
-> * 設定及部署防火牆
-> * 建立路由
-> * 建立虛擬機器
-> * 測試防火牆
 
 接下來，您可以監視 Azure 防火牆記錄。
 

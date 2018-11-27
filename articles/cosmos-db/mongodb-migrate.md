@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: d3a7ddcd4a95660264bdf9609f54af39a05c97b3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 13422434e6392ec7681ec4478533c45a84f40c9a
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741015"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706971"
 ---
 # <a name="tutorial-migrate-your-data-to-azure-cosmos-db-mongodb-api-account"></a>教學課程：將您的資料移轉至 Azure Cosmos DB MongoDB API 帳戶
 
@@ -36,13 +36,13 @@ ms.locfileid: "50741015"
 
 1. 預先建立並調整您的集合：
         
-    * 根據預設，Azure Cosmos DB 會佈建含每秒 1,000 個要求單位 (RU/秒) 的新 MongoDB 集合。 使用 mongoimport 或 mongorestore 開始進行移轉之前，請先從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 如果資料大小超過 10 GB，請務必使用適當的分區索引鍵建立[分割集合](partition-data.md)。
+   * 根據預設，Azure Cosmos DB 會佈建含每秒 1,000 個要求單位 (RU/秒) 的新 MongoDB 集合。 使用 mongoimport 或 mongorestore 開始進行移轉之前，請先從 [Azure 入口網站](https://portal.azure.com)或 MongoDB 驅動程式與工具預先建立您的所有集合。 如果資料大小超過 10 GB，請務必使用適當的分區索引鍵建立[分割集合](partition-data.md)。 MongoDB 建議在集合中儲存實體資料。 您可以在 Azure Cosmos 資料庫層級共置可比較大小和佈建輸送量的實體。
 
-    * 在 [Azure 入口網站](https://portal.azure.com)中，僅針對移轉的需求增加集合的輸送量，單一分割區集合從 1,000 RU/秒起，分區集合則從 2,500 RU/秒起。 藉由較高的輸送量，您可以避免速率限制，並花費較少的時間進行移轉。 您可以在移轉之後立即減少輸送量，以節省成本。
+   * 在 [Azure 入口網站](https://portal.azure.com)中，僅針對移轉期間的需求增加集合的輸送量，單一分割區集合從 1,000 RU/秒起，分區集合則從 2,500 RU/秒起。 藉由較高的輸送量，您可以避免速率限制，並花費較少的時間進行移轉。 您可以在移轉之後立即減少輸送量，以節省成本。
 
-    * 除了佈建集合層級的 Ru/秒，您也可以為一組集合佈建父資料庫層級的 RU/秒。 這必須預先建立資料庫和集合，並定義每個集合的分區索引鍵。
+   * 除了佈建集合層級的 Ru/秒，您也可以為一組集合佈建父資料庫層級的 RU/秒。 這必須預先建立資料庫和集合，並定義每個集合的分區索引鍵。
 
-    * 您可以透過您慣用的工具、驅動程式或 SDK 來建立分區化集合。 在此範例中，我們使用 Mongo 殼層來建立分區化集合：
+   * 您可以透過您慣用的工具、驅動程式或 SDK 來建立分區化集合。 在此範例中，我們使用 Mongo 殼層來建立分區化集合：
 
         ```bash
         db.runCommand( { shardCollection: "admin.people", key: { region: "hashed" } } )

@@ -4,17 +4,17 @@ description: 在模擬的 Edge 裝置上執行分析以試用 Azure IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/02/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 16c5b15612acebacfa034c6c55dd053a21eac0d2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 78cb00c568942e6b8c0f5da035381c82f5789a08
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566324"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977007"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>快速入門：從 Azure 入口網站將您的第一個 IoT Edge 模組部署至 Windows 裝置 - 預覽
 
@@ -61,7 +61,7 @@ IoT Edge 裝置：
 * 可當作您 IoT Edge 裝置的 Windows 電腦或虛擬機器。 使用支援的 Windows 版本：
   * Windows 10 或更新版本
   * Windows Server 2016 或更新版本
-* 如果是 Windows 電腦，請確定其符合 HYPER-V 的[系統需求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
+* 如果是 Windows 電腦，請檢查其是否符合 Hyper-V 的[系統需求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
 * 如果使用虛擬機器，請啟用[巢狀虛擬化](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)並配置至少 2GB 的記憶體。
 * 安裝[適用於 Windows 的 Docker](https://docs.docker.com/docker-for-windows/install/) 並確定它正在執行。
 
@@ -82,7 +82,7 @@ IoT Edge 裝置：
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。
+   如果因您的訂用帳戶中已有免費中樞而發生錯誤，請將 SKU 變更為 **S1**。 如果您收到無法使用 IoT 中樞名稱的錯誤，則表示其他人已經有該名稱的中樞。 請嘗試新的名稱。 
 
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
 
@@ -91,7 +91,7 @@ IoT Edge 裝置：
 
 建立模擬裝置的裝置身分識別，以便與 IoT 中樞通訊。 裝置身分識別存在於雲端，您可以使用唯一的裝置連接字串，讓實體裝置與裝置身分識別建立關聯。
 
-由於 IoT Edge 裝置的行為和管理方式不同於典型 IoT 裝置，您從開頭就要將此宣告為 IoT Edge 裝置。
+由於 IoT Edge 裝置的行為和管理方式不同於典型 IoT 裝置，請使用 `--edge-enabled` 旗標將此身分識別宣告為 IoT Edge 裝置。 
 
 1. 在 Azure Cloud Shell 中輸入下列命令，以在中樞內建立名為 **myEdgeDevice** 的裝置。
 
@@ -99,13 +99,15 @@ IoT Edge 裝置：
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
-1. 擷取裝置的連接字串，此字串將作為連結實體裝置與其在 IoT 中樞內的身分識別。
+   如果您收到有關 iothubowner 原則金鑰的錯誤，請確定 Cloud Shell 正在執行最新版的 azure-cli-iot-ext 擴充功能。 
+
+2. 擷取裝置的連接字串，此字串將作為連結實體裝置與其在 IoT 中樞內的身分識別。
 
    ```azurecli-interactive
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
-1. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。
+3. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>安裝並啟動 IoT Edge 執行階段
 
@@ -118,7 +120,9 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件
 
 本節中的指示會設定 Linux 容器的 IoT Edge 執行階段。 如果您想要使用 Windows 容器，請參閱[在 Windows 上安裝要用於 Windows 容器的 Azure IoT Edge 執行階段](how-to-install-iot-edge-windows-with-windows.md)。
 
-在您已準備好作為 IoT Edge 裝置的 Windows 機器或 VM 中完成下列步驟。
+### <a name="connect-to-your-iot-edge-device"></a>連線到 IoT Edge 裝置
+
+本節中的步驟全都在 IoT Edge 裝置上進行。 如果您使用自己的機器作為 IoT Edge 裝置，則可略過這個部分。 如果您使用虛擬機器或次要硬體，您會想要立即連線到該機器。 
 
 ### <a name="download-and-install-the-iot-edge-service"></a>下載並安裝 IoT Edge 服務
 
@@ -195,7 +199,7 @@ iotedge logs tempSensor -f
 
   ![從您的模組中檢視資料](./media/quickstart/iotedge-logs.png)
 
-您也可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，來檢視 IoT 中樞所接收的訊息。
+您也可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，查看送達 IoT 中樞的訊息。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -203,7 +207,7 @@ iotedge logs tempSensor -f
 
 ### <a name="delete-azure-resources"></a>刪除 Azure 資源
 
-如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 如果該資源群組中有您想要保留的項目，則只要刪除您要清除的個別資源即可。
+如果您是在新的資源群組中建立虛擬機器和 IoT 中樞，您可以刪除該群組和所有相關聯的資源。 再次檢查資源群組的內容，確定沒有您想要保留的內容。 如果您不想刪除整個群組，可改為刪除個別資源。
 
 移除 **IoTEdgeResources** 群組。
 

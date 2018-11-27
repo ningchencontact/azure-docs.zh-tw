@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial
-ms.openlocfilehash: 65dc420b6832b7b0a4cf14d63203d4c66e2a4254
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6b8bf4a0bc6b5e5e9b9ad7f91ba409aaf922e8e9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993590"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822224"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 位址類型及配置方法
 
@@ -75,7 +75,7 @@ ms.locfileid: "46993590"
 
 - 只會使用靜態配置方法來指派。
 - 預設為保護狀態，且禁止輸入流量。 您必須透過[網路安全性群組](security-overview.md#network-security-groups)，明確地將允許的輸入流量列入白名單。
-- 會指派給網路介面或公用的標準負載平衡器。 如需 Azure 標準負載平衡器的詳細資訊，請參閱 [Azure 標準負載平衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- 會指派給網路介面、公用標準負載平衡器、應用程式閘道或 VPN 閘道。 如需 Azure 標準負載平衡器的詳細資訊，請參閱 [Azure 標準負載平衡器](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - 預設具有區域備援功能。 可以建立為區域型，並保證在特定可用性區域中。 若要了解可用性區域，請參閱[可用性區域概觀](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[標準負載平衡器和可用性區域](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
  
 > [!NOTE]
@@ -132,8 +132,8 @@ ms.locfileid: "46993590"
 | --- | --- | --- | --- |
 | 虛擬機器 |Linux |是 |是 |
 | 網際網路對應負載平衡器 |前端組態 |是 |是 |
-| VPN 閘道 |閘道 IP 組態 |是 |否 |
-| 應用程式閘道 |前端組態 |是 |否 |
+| VPN 閘道 |閘道 IP 組態 |是 |是 |
+| 應用程式閘道 |前端組態 |是 |是 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源透過 VPN 閘道或 ExpressRoute 電路，與 [虛擬網路](virtual-networks-overview.md) 中或內部部署網路中的其他資源進行通訊，而不必使用可網際網路連線的 IP 位址。

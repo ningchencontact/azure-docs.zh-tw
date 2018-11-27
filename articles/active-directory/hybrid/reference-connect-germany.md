@@ -16,17 +16,18 @@ ms.topic: get-started-article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e5377078010e899c41b27ef0ea5248ff4a09df8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 545ec1d4f5cd817b1fa02a135d305b997c9945bc
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301780"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705390"
 ---
 # <a name="azure-ad-connect-in-microsoft-cloud-germany---public-preview"></a>Microsoft Cloud Germany 中的 Azure AD Connect - 公開預覽
 ## <a name="introduction"></a>簡介
 Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directory 之間的同步處理。
-[Microsoft Cloud Germany](https://www.microsoft.com/de-de/cloud/deutschland/default.aspx) 中目前有許多案例必須由操作員來完成。 使用 Microsoft Cloud Germany 時，您必須注意下列事項︰
+[Microsoft Cloud Germany](https://azure.microsoft.com/global-infrastructure/germany/
+) 中目前有許多案例必須由操作員來完成。 使用 Microsoft Cloud Germany 時，您必須注意下列資訊︰
 
 * 下列 URL 必須在 Proxy 伺服器上開啟，才能成功進行同步處理：
   
@@ -40,13 +41,13 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
 您可以從入口網站中的 [Azure AD Connect] 刀鋒視窗下載 Azure AD Connect。  使用下列指示來尋找 Azure AD Connect 刀鋒視窗。
 
 ### <a name="the-azure-ad-connect-blade"></a>Azure AD Connect 刀鋒視窗
-登入 Azure 入口網站後，請執行下列動作：
+一旦登入 Azure 入口網站：
 
 1. 移至瀏覽
 2. 選取 Azure Active Directory
 3. 然後選取 Azure AD Connect
 
-您應該會看見下列內容：
+您會看到以下詳細資料：
 
 ![Azure AD Connect 刀鋒視窗](./media/reference-connect-germany/germany1.png)
 
@@ -62,5 +63,5 @@ Azure AD Connect 可進行內部部署 Active Directory 與 Azure Active Directo
 若要安裝 Azure AD Connect，您可以使用 [這裡](how-to-connect-install-roadmap.md)的文件。
 
 ## <a name="advanced-features-and-additional-information"></a>進階功能和其他資訊
-如需自訂設定或進階組態的其他資訊和指引，請從 [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)著手。  此頁面會提供其他指引的資訊和連結。
+如需自訂設定或進階組態的其他資訊，請移至[整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)。 此頁面會提供其他指引的資訊和連結。
 

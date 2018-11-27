@@ -6,15 +6,15 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 07/19/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 6e92ef276d270fcc4c351fb89c699c8addd74632
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b54f7601f66bd115b7ceb937e2c0ebf8ca8eb01e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222144"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821040"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>教學課程：設定和管理連線到監視解決方案的裝置
 
@@ -63,7 +63,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="act-on-a-device"></a>在裝置上採取行動
 
-若要測試模擬的引擎裝置是否會正確回應從儀表板起始的動作，請執行 **FirmwareUpdate** 方法。 若要執行方法以對裝置採取行動，請在裝置清單中選取裝置，然後按一下 [作業]。 如果您想要對多個裝置採取行動，則可以選取多個裝置。 在 [作業] 面板中，選取 [執行方法]。 [引擎] 裝置模型會指定三種方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
+若要測試模擬的引擎裝置是否會正確回應從儀表板起始的動作，請執行 **FirmwareUpdate** 方法。 若要執行方法以對裝置採取行動，請在裝置清單中選取裝置，然後按一下 [作業]。 如果您想要對多個裝置採取行動，則可以選取多個裝置。 在 [作業] 面板中，選取 [方法]。 [引擎] 裝置模型會指定三種方法：**FirmwareUpdate**、**FillTank** 和 **EmptyTank**：
 
 [![引擎方法](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -81,7 +81,7 @@ Contoso 已排序新的機制來延伸其中一個設備。 在等待新機制�
 
 ## <a name="reconfigure-a-device"></a>重新設定裝置
 
-若要測試是否可以更新引擎的設定屬性，請在 [裝置] 頁面的裝置清單中選取裝置。 然後按一下 [作業]，再選擇 [重新設定]。 [作業] 面板會顯示所選裝置的可更新屬性值：
+若要測試是否可以更新引擎的設定屬性，請在 [裝置] 頁面的裝置清單中選取裝置。 接著按一下 [作業]，然後選擇 [屬性]。 [作業] 面板會顯示所選裝置的可更新屬性值：
 
 [![重新設定裝置](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

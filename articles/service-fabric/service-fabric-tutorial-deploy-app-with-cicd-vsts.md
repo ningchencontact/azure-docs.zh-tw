@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7f14151224a9e2baa74183696c92bca06695bf4f
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380143"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853723"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 
@@ -94,23 +94,23 @@ Azure DevOps 發行管線描述將應用程式封裝部署到叢集的工作流�
 
 開啟網頁瀏覽器並瀏覽至新的專案，網址為：[https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)。
 
-選取 [組建與發行] 索引標籤，再選取 [組建]，然後按一下 [新增管線]。
+選取 [管線] 索引標籤，再選取 [組建]，然後按一下 [新增管線]。
 
 ![新增管線][new-pipeline]
 
-選取 **Azure DevOps Git** 作為來源，然後依序選取**投票**專案、**投票**存放庫、**主要**預設分支或手動和排程組建。  然後按一下 [繼續]。
+選取 [Azure Repos Git] 作為來源，然後依序選取**投票** Team 專案、**投票**存放庫、**主要**預設分支或手動和排程組建。  然後按一下 [繼續]。
+
+![選取存放庫][select-repo]
 
 在 [選取範本] 中，選取 [Azure Service Fabric 應用程式] 範本，然後按一下 [套用]。
 
 ![選擇組建範本][select-build-template]
 
-在 [工作] 中，輸入 "Hosted VS2017" 作為**代理程式佇列**。
+在 [工作] 中，輸入 "Hosted VS2017" 作為**代理程式集區**。
 
 ![選取工作][save-and-queue]
 
-在 [觸發程序] 下方，透過核取 [啟用持續整合] 來啟用持續整合。 在 [分支篩選] 內按一下 [+ 新增]，[分支規格] 將會預設為 [主要]。 選取 [儲存並加入佇列] 以手動啟動組建。
-
-在 [儲存建置管線和佇列] 對話方塊中，按一下 [儲存並加入佇列]。
+在 [觸發程序] 下方，透過核取 [啟用持續整合] 來啟用持續整合。 在 [分支篩選] 內，[分支規格] 會預設為 [主要]。 選取 [儲存並加入佇列] 以手動啟動組建。
 
 ![選取觸發程序][save-and-queue2]
 
@@ -118,7 +118,7 @@ Azure DevOps 發行管線描述將應用程式封裝部署到叢集的工作流�
 
 ### <a name="create-a-release-pipeline"></a>建立發行管線
 
-依序選取 [組建與發行] 索引標籤、[版本]，以及 [+ 新增管線]。  在 [選取範本] 中，從清單中選取 [Azure Service Fabric 部署] 範本，然後選取 [套用]。
+依序選取 [管線] 索引標籤、[版本]，以及 [+ 新增管線]。  在 [選取範本] 中，從清單中選取 [Azure Service Fabric 部署] 範本，然後選取 [套用]。
 
 ![選擇發行範本][select-release-template]
 
@@ -198,6 +198,7 @@ Azure DevOps 發行管線描述將應用程式封裝部署到叢集的工作流�
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

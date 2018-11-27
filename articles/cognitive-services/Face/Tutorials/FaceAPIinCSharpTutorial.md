@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 5319584d892c261dcc6290703e9ca6518640cc94
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 8db2437b7f78271aee131cf5b4dfd9f06f744c66
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685475"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852668"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教學課程：建立 WPF 應用程式來顯示影像中的臉部資料
 
@@ -67,7 +67,7 @@ GitHub 上的[認知臉部 CSharp 範例](https://github.com/Azure-Samples/Cogni
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-接下來，在 **MainWindow** 類別中插入下列程式碼。 這會使用訂用帳戶金鑰建立 **FaceClient** 執行個體，但您必須自行輸入。 您還必須將 `faceEndpoint` 中的區域字串設定為適用於訂用帳戶的正確區域。
+接下來，在 **MainWindow** 類別中插入下列程式碼。 這會使用訂用帳戶金鑰建立 **FaceClient** 執行個體，但您必須自行輸入。 您還必須將 `faceEndpoint` 中的區域字串設定為您訂用帳戶的正確區域 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 

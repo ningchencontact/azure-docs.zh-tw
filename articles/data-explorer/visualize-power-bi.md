@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: fc2d96c4dc8184ba26001fd77732ce7c45253d5a
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: c04c9d9618cfc507ebdba170e0697aeaeecb1e99
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393707"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854096"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>教學課程：在 Power BI 中從 Azure 資料總管將資料視覺化
 
@@ -36,9 +36,9 @@ ms.locfileid: "49393707"
 
 * [測試叢集和資料庫](create-cluster-database-portal.md)
 
-* [StormEvents 範例資料](ingest-sample-data.md)
+* [StormEvents 範例資料](ingest-sample-data.md)。 [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
-* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (按一下 [免費下載])
+* [Power BI Desktop](https://powerbi.microsoft.com/get-started/) (選取 [免費下載])
 
 ## <a name="render-visuals-in-azure-data-explorer"></a>在 Azure 資料總管中轉譯視覺效果
 
@@ -82,17 +82,17 @@ ms.locfileid: "49393707"
 
 現在您需在 Power BI Desktop 中連線至 Azure 資料總管。
 
-1. 在 Power BI Desktop 中，選取 [取得資料]，然後選取 [更多]。
+1. 在 Power BI Desktop 的 [首頁] 索引標籤上，選取 [取得資料]，然後選取 [更多]。
 
     ![取得資料](media/visualize-power-bi/get-data-more.png)
 
-1. 搜尋 *Kusto*、選取 [Azure Kusto 搶鮮版 (Beta)]，然後選取 [連接]。
+1. 搜尋 [Azure 資料總管]，選取 [Azure 資料總管 (Beta)]，然後選取 [連線]。
 
     ![搜尋並取得資料](media/visualize-power-bi/search-get-data.png)
 
 1. 在 [預覽版連接器] 畫面上，選取 [繼續]。
 
-1. 在 [Kusto] 畫面上，輸入測試叢集和資料庫的名稱。 叢集的格式應該是 `https://<ClusterName>.<Region>.kusto.windows.net`。 輸入 *StormEvents* 作為資料表的名稱。 保留所有其他選項的預設值，然後選取 [確定]。
+1. 在下一個畫面上，輸入測試叢集和資料庫的名稱。 叢集的格式應該是 `https://<ClusterName>.<Region>.kusto.windows.net`。 輸入 *StormEvents* 作為資料表的名稱。 保留所有其他選項的預設值，然後選取 [確定]。
 
     ![叢集、資料庫、資料表選項](media/visualize-power-bi/cluster-database-table.png)
 

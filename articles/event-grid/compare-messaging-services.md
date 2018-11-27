@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c54f5c5fba31933a6dd9f98d1ecfb6d03a3ad9be
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003742"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852192"
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>在傳遞訊息的 Azure 服務之間進行選擇
 
@@ -54,6 +54,8 @@ Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 �
 Event Grid 是可供進行回應式事件導向程式設計的事件背板。 其使用的是發行 - 訂閱模型。 發行者發布事件，但不會預期要處理哪些事件。 由訂閱者決定要處理的事件。
 
 Event Grid 不僅與 Azure 服務緊密整合，並可與第三方服務整合。 它可簡化事件取用，並且無須不斷輪詢來降低成本。 Event Grid 有效且可靠地從 Azure 和非 Azure 資源中路由事件。 其會將事件發佈至已註冊的訂閱者端點。 事件訊息中具有您必須對服務和應用程式中的變更做出回應的資訊。 事件方格不是資料管線，因此並不會傳遞已更新的實際物件。
+
+事件方格可對未傳遞至端點的事件，支援無效信件處理。
 
 其具有下列特性︰
 

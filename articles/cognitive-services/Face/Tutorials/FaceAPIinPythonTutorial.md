@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683996"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853144"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入門：建立 Python 指令碼來偵測並框出影像中的臉部
 
@@ -35,7 +35,7 @@ ms.locfileid: "51683996"
 
 ## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
 
-建立新的 Python 指令碼 (FaceQuickstart.py)。 新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
+建立新的 Python 指令碼 (FaceQuickstart.py)。 新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
 
 此指令碼會藉由呼叫 **cognitive_face.face.detect** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回臉部清單。
 

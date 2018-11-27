@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 7f93a225db845840545b761d812f5a8a81f76f91
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913558"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822349"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立及管理匯出的資料
 
-若您已閱讀過成本分析教學課程，您便已對手動下載成本管理資料相當熟悉。 但是，您可以建立每日定期工作，每天自動將您的成本管理資料匯出至 Azure 儲存體。 匯出的資料格式為 CSV，其中包含所有由成本管理收集的資訊。 您接著可以在 Azure 儲存體中，搭配外部系統使用匯出的資料，並與您擁有的自訂資料合併。 您也可以在外部系統 (例如儀表板或其他財務系統) 中使用您的匯出資料。
+若您已閱讀過成本分析教學課程，您便已對手動下載成本管理資料相當熟悉。 但是，您可以建立週期性工作，每天、每週或每個月自動將您的成本管理資料匯出至 Azure 儲存體。 匯出的資料格式為 CSV，其中包含所有由成本管理收集的資訊。 您接著可以在 Azure 儲存體中，搭配外部系統使用匯出的資料，並與您擁有的自訂資料合併。 您也可以在外部系統 (例如儀表板或其他財務系統) 中使用您的匯出資料。
 
 本教學課程中的範例會引導您匯出成本管理資料，並驗證該資料已成功匯出。
 
@@ -48,11 +48,17 @@ ms.locfileid: "50913558"
 
 [成本管理 + 帳單] &gt; [成本管理] &gt; 選取訂用帳戶或訂用帳戶中的資源群組 &gt; [匯出] &gt; [新增]。
 
-鍵入匯出的名稱並指定訂用帳戶、Azure 儲存體帳戶、容器，以及檔案儲存體目錄或 Blob 容器，然後按一下 [建立]。
+輸入匯出的名稱，然後選取 [每日匯出月初至今的成本] 選項。 按 [下一步] 。
 
-![新增匯出](./media/tutorial-export-acm-data/new-export01.png)
+![新的匯出：匯出類型](./media/tutorial-export-acm-data/basics_exports.png)
 
-您新增的匯出會出現在匯出清單中。 根據預設會啟用新的匯出，並且會每天執行。 若您想要停用或刪除已排程的匯出，請按一下清單中的任何項目，然後按一下 [停用] 或 [刪除]。
+為您的 Azure 儲存體帳戶名稱指定訂用帳戶，然後選取您的儲存體帳戶。  指定您希望匯出檔案移至的儲存體容器和目錄路徑。  按 [下一步] 。
+
+![新的匯出：儲存體](./media/tutorial-export-acm-data/storage_exports.png)
+
+檢閱匯出詳細資料，然後按一下 [建立]。
+
+您新增的匯出會出現在匯出清單中。 根據預設會啟用新的匯出。 若您想要停用或刪除已排程的匯出，請按一下清單中的任何項目，然後按一下 [停用] 或 [刪除]。
 
 剛開始可能會需要一到兩個小時，匯出才會開始執行。 但是，資料可能需要最多四個小時，才會出現在匯出檔案中。
 

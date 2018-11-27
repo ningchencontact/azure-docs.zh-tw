@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fbe286313bce9b735665b134a5ea18ba4995548b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245064"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712257"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>快速入門：使用 Azure 入口網站部署 Azure 資料箱磁碟 (預覽)
 
@@ -67,7 +67,7 @@ ms.locfileid: "51245064"
 
     1. 在 Azure 入口網站中，前往 [一般] > [裝置詳細資料] 並取得通行金鑰。
     2. 在用來將資料複製到磁碟上的電腦上，下載及擷取作業系統特定的資料箱碟解除鎖定工具。 
-    3. 執行資料箱磁碟解除鎖定工具，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 如需如何將磁碟解除鎖定的詳細資訊，請移至[解除鎖定 Windows 用戶端上的磁碟]()或[解除鎖定 Linux 用戶端上的磁碟]()。
+    3. 執行資料箱磁碟解除鎖定工具，並提供通行金鑰。 若要執行磁碟重新插入，請再次執行解除鎖定工具，並提供通行金鑰。 **請勿使用 BitLocker 對話方塊或 BitLocker 金鑰來解除鎖定磁碟。** 如需如何將磁碟解除鎖定的詳細資訊，請移至[解除鎖定 Windows 用戶端上的磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client)或[解除鎖定 Linux 用戶端上的磁碟](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client)。
     4. 指派給磁碟的磁碟機代號會由工具顯示。 請記下磁碟機代號。 這會用於後續的步驟。
 
 ## <a name="copy-data-and-validate"></a>複製資料並驗證
@@ -85,7 +85,6 @@ ms.locfileid: "51245064"
 2. (選擇性) 複製完成之後，建議您執行 DataBoxDiskImport 資料夾中提供的 `DataBoxDiskValidation.cmd`，以產生驗證的總和檢查碼。 視資料大小而定，此步驟可能需要一段時間。 
 3. 拔除磁碟機。 
 
-
 ## <a name="ship-to-azure"></a>寄送到 Azure
 
 此步驟約需要 5-7 分鐘來完成。
@@ -94,7 +93,6 @@ ms.locfileid: "51245064"
 2. 將已密封的包裹交給運送公司。  
 
 資料箱磁碟服務會傳送電子郵件通知，並且在 Azure 入口網站上更新訂單狀態。
-
 
 ## <a name="verify-your-data"></a>驗證資料
 
@@ -126,5 +124,3 @@ ms.locfileid: "51245064"
 
 > [!div class="nextstepaction"]
 > [使用 Azure 入口網站來管理資料箱磁碟](data-box-portal-ui-admin.md)
-
-

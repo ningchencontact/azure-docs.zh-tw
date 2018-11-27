@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
-ms.openlocfilehash: 365c6e41db865edf8384ca1f82210d9471808f94
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 4071770a74d205570cee082d9af0c0fb7c77e203
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140852"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824773"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>快速入門：嘗試雲端式遠端監視解決方案
 
@@ -32,7 +32,7 @@ ms.locfileid: "50140852"
 
 使用 Azure 帳戶認證登入 [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators)。
 
-按一下 [遠端監視] 圖格上的 [立即試用]。
+按一下 [遠端監視] 圖格。 在 [遠端監視] 頁面，按一下 [立即試用]：
 
 ![選擇遠端監視](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -40,9 +40,10 @@ ms.locfileid: "50140852"
 
 選擇 [.NET] 作為語言。 Java 和 .NET 實作的功能相同。
 
-為遠端監視解決方案加速器輸入唯一的 [解決方案名稱]。 本快速入門中，我們的名稱是 **contoso-rm2**。
+為遠端監視解決方案加速器輸入唯一的 [解決方案名稱]。 本快速入門中，我們的名稱是 **contoso-rm**。
 
-選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 **Visual Studio Enterprise** 和**西歐**。 您必須是訂用帳戶中的[全域管理員或使用者](iot-accelerators-permissions.md)。
+選取您要用來部署解決方案加速器的 [訂用帳戶] 和 [區域]。 一般而言，您會選擇與您最接近的區域。 在本快速入門中，我們會使用 [美國東部]。
+您可以選擇 [Visual Studio Enterprise]，但您必須是[全域管理員或使用者](iot-accelerators-permissions.md)才能這麼做。
 
 若要開始部署，請按一下 [建立解決方案]。 此程序至少需要執行五分鐘：
 
