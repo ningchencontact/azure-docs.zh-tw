@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 983b966ad304afb467df26193dd609f6f21a1b32
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8738ac52eeaf1f27df5f9cc21ffb0c683a912195
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614272"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427016"
 ---
 # <a name="what-is-azure-network-watcher"></a>什麼是 Azure 網路監看員？
 
@@ -37,7 +37,7 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 連線監視器也會提供在一段時間內觀察到的最小、平均和最大延遲。 在了解連線的延遲後，您或許就能藉由將 Azure 資源移至不同的 Azure 區域，而減少延遲。 深入了解如何判斷 [Azure 區域與網際網路服務提供者之間的相對延遲](#determine-relative-latencies-between-azure-regions-and-internet-service-providers)，以及如何使用[連線監視器](connection-monitor.md)來監視 VM 與端點之間的通訊。 如果您想要在某個時間點測試連線，而非在一段時間內監視連線，您可以比照使用連線監視器的方式，來使用[連線疑難排解](#connection-troubleshoot)功能。
 
-網路效能監視器是雲端式的混合網路監視解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視服務和應用程式端點的網路連線能力，以及監視 Azure ExpressRoute 的效能。 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 深入了解[網路效能監視器](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+網路效能監視器是雲端式的混合網路監視解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視服務和應用程式端點的網路連線能力，以及監視 Azure ExpressRoute 的效能。 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 深入了解[網路效能監視器](../azure-monitor/insights/network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>檢視虛擬網路中的資源及其關聯性
 
@@ -97,7 +97,7 @@ Azure 網路監看員提供了相關工具，可對 Azure 虛擬網路中的資�
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>檢視網路資源的診斷記錄
 
-您可以啟用 Azure 網路資源的診斷記錄，例如網路安全性群組、公用 IP 位址、負載平衡器、虛擬網路閘道，以及應用程式閘道。 *診斷記錄*功能提供單一介面，可為任何會產生診斷記錄的現有網路資源啟用和停用網路資源診斷記錄。 您可以使用 Microsoft Power BI 和 Azure Log Analytics 等工具來檢視診斷記錄。 若要深入了解如何分析 Azure 網路診斷記錄，請參閱 [Log Analytics 中的 Azure 網路解決方案](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
+您可以啟用 Azure 網路資源的診斷記錄，例如網路安全性群組、公用 IP 位址、負載平衡器、虛擬網路閘道，以及應用程式閘道。 *診斷記錄*功能提供單一介面，可為任何會產生診斷記錄的現有網路資源啟用和停用網路資源診斷記錄。 您可以使用 Microsoft Power BI 和 Azure Log Analytics 等工具來檢視診斷記錄。 若要深入了解如何分析 Azure 網路診斷記錄，請參閱 [Log Analytics 中的 Azure 網路解決方案](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)。
 
 ## <a name="network-watcher-automatic-enablement"></a>自動啟用網路監看員
 當您建立或更新訂用帳戶中的虛擬網路時，網路監看員將會在虛擬網路的區域中自動啟用。 自動啟用網路監看員不會對您的資源或相關費用造成任何影響。 如需詳細資訊，請參閱[建立網路監看員](network-watcher-create.md)。

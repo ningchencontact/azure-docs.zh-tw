@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d6feb24b1e59aee70204d8438f1a4c51f71d1835
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281807"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424807"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>教學課程 8：擷取語句的關鍵片語
 在本教學課程中，您將使用預先建置的 keyPhrase 實體，從語句中擷取關鍵主題。 您不需使用預先建置的實體來標示任何語句。 系統會自動偵測實體。
@@ -56,7 +56,7 @@ ms.locfileid: "51281807"
 ## <a name="add-keyphrase-entity"></a>新增 KeyPhrase 實體 
 新增預先建立的 keyPhrase 實體，從語句中擷取主題。
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 從左側功能表中選取 [實體]。
 

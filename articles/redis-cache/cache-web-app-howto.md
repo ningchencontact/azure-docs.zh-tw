@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: a92621d852ec60fb4773957d71dc6a55caaf991c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b719f45a2b76b41408593649e9e5cfe21dcf9179
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674881"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443784"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>快速入門：建立 ASP.NET Web 應用程式 
 
@@ -32,7 +32,7 @@ ms.locfileid: "38674881"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本快速入門，您必須將 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 安裝到下列環境：
 * ASP.NET 和 Web 開發
@@ -190,16 +190,16 @@ ASP.NET 執行階段會將外部檔案的內容與 `<appSettings>` 元素的標�
 4. 在 [方案總管] 中，展開 [檢視] > [共用] 資料夾。 然後開啟 *_Layout.cshtml* 檔案。
 
     將：
-
-        ```csharp
-        @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    
+    ```csharp
+    @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
     取代為
 
-        ```csharp
-        @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        ```
+    ```csharp
+    @Html.ActionLink("Azure Redis Cache Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
 ### <a name="to-add-a-new-rediscache-view"></a>新增 RedisCache 檢視
 

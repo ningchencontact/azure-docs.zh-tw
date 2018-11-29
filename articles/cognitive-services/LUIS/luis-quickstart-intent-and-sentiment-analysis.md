@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277472"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424845"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>教學課程 9：擷取整體語句的情感
 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。 情感是從整個語句決定。
@@ -60,7 +60,7 @@ ms.locfileid: "51277472"
 ## <a name="employeefeedback-intent"></a>新增 EmployeeFeedback 意圖 
 新增意圖，以擷取公司成員的員工意見。 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 選取 [Create new intent] \(建立新意圖\)。
 

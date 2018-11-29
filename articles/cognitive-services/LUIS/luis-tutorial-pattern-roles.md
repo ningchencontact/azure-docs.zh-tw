@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277831"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427483"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>教學課程 4：擷取內容相關的模式
 
@@ -49,7 +49,7 @@ ms.locfileid: "51277831"
 > * 建立城市的片語清單
 > * 從端點取得意圖和實體
 
-[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>使用現有的應用程式
 以上一個教學課程中建立的應用程式繼續進行，其名稱為 **HumanResources**。 
@@ -64,7 +64,7 @@ ms.locfileid: "51277831"
 
 ## <a name="create-new-entities"></a>建立新實體
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 從左側瀏覽列中，選取 [實體]。 
 
@@ -254,7 +254,7 @@ ms.locfileid: "51277831"
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>從端點取得意圖和實體
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 移至位址中的 URL 結尾並輸入 `Move wayne berry from miami to mount vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 

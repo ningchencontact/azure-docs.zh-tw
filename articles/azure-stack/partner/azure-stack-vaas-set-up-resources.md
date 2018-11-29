@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: d9406032a55c0bbd73bf16ae2f0fa272dddd7698
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 0830deaaa1161880706c39aee741af06a41b4b6f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650869"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426328"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>教學課程：設定驗證即服務的資源
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 您必須建立解決方案。 驗證即服務 (VaaS) 解決方案代表特定硬體用料表的 Azure Stack 解決方案。 您可以使用此解決方案檢查您的硬體是否支援執行的 Azure Stack。 請遵循本教學課程，做好將此服務用於解決方案的準備。
 

@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2f690e6c930a1a119c9b7bf4b83ec04a564e47c9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ca99f9ac36281ecddf41bcc228440adcad90412b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288742"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582412"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>什麼是 Azure 物聯網 (IoT)？
 
@@ -113,7 +113,7 @@ Azure 中有數個與 IoT 相關的服務，因此，您可能會不曉得要使
 
 5. [**IoT Edge**](/azure/iot-edge/)：此服務會建立在 IoT 中樞之上。 可用來分析 IoT 裝置上的資料 (並非雲端中的資料)。 藉由將部分工作負載移到邊緣裝置，您就只需將較少的訊息傳送至雲端。 
 
-6. [**Azure Digital Twins**](/azure/azure-digital-twins/)：此服務可讓您建立完整的實體環境模型。 您可以為人員、空間和裝置之間的關聯性和互動方式建立模型。 例如，您可以預測工廠的維修需求、分析輸電網路的即時能源需求，或最佳化辦公室的可用空間利用。
+6. [**Azure Digital Twins**](../digital-twins/index.yml)：此服務可讓您建立完整的實體環境模型。 您可以為人員、空間和裝置之間的關聯性和互動方式建立模型。 例如，您可以預測工廠的維修需求、分析輸電網路的即時能源需求，或最佳化辦公室的可用空間利用。
 
 7. [**時間序列深入解析**](/azure/time-series-insights)：此服務可讓您儲存、視覺化及查詢 IoT 裝置所產生的大量時間序列資料。 您可以搭配 IoT 中樞來使用此服務。 
 

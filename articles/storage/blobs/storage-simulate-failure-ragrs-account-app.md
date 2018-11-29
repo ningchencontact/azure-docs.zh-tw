@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 12/23/2017
 ms.author: tamram
-ms.openlocfilehash: 84ced8a529c2e717dc3e5888466d9a2e1e7e928a
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 044cc30a418f3c54053a6f4878f97f5c9ea9f9e2
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180938"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335107"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>教學課程：模擬存取讀取權限備援儲存體時失敗
 
@@ -145,7 +145,7 @@ nslookup STORAGEACCOUNTNAME.blob.core.windows.net
  
 將 `<destination_ip>` 取代為您的儲存體帳戶 IP 位址，並將 `<gateway_ip>` 取代為您的本機主機 IP 位址。 若要繼續執行應用程式，請按**任意鍵**。
 
-應用程式再次開始執行後，針對主要端點的要求即會開始發生失敗。 應用程式會嘗試重新連線至主要端點 5 次。 超過五次的失敗嘗試閥值後，其會從次要唯讀端點要求映像。 應用程式從次要端點成功取出 20 次映像後，即會嘗試連線至主要端點。 若仍然無法連線至主要端點，則應用程式會繼續從次要端點讀取。 此模式即是在上個教學課程中述及的[斷路器模式](/azure/architecture/patterns/circuit-breaker.md)。
+應用程式再次開始執行後，針對主要端點的要求即會開始發生失敗。 應用程式會嘗試重新連線至主要端點 5 次。 超過五次的失敗嘗試閥值後，其會從次要唯讀端點要求映像。 應用程式從次要端點成功取出 20 次映像後，即會嘗試連線至主要端點。 若仍然無法連線至主要端點，則應用程式會繼續從次要端點讀取。 此模式即是在上個教學課程中述及的[斷路器模式](/azure/architecture/patterns/circuit-breaker)。
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模擬主要端點還原
 

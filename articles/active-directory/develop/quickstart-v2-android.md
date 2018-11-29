@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/23/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 6eb06a2a4e83c9c293474f1692c2d33d4d0dfb36
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e9c46e1315257d619f1624c06441adc08daddb2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995732"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427007"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入門：從 Android 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -29,7 +29,7 @@ ms.locfileid: "46995732"
 
 此快速入門包含示範 Android 應用程式如何登入個人或公司與學校帳戶、取得存取權杖，以及呼叫 Microsoft Graph API 的程式碼範例。
 
-![此快速入門所產生範例應用程式的運作方式](media/quickstart-v2-android/android-intro.png)
+![本快速入門所產生之範例應用程式的運作方式](media/quickstart-v2-android/android-intro.png)
 
 > [!NOTE]
 > **先決條件**
@@ -123,7 +123,7 @@ ms.locfileid: "46995732"
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)) 是一個程式庫，可用來登入使用者並要求用來存取受 Microsoft Azure Active Directory (Azure AD) 保護之 API 的權杖。 您可以使用 Gradle 安裝它，方法是將下列內容新增到 Gradle Scripts > build.gradle (Module: app) 中的 **Dependencies**下：
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) 是一個程式庫，可用來登入使用者並要求用來存取受 Microsoft Azure Active Directory (Azure AD) 保護之 API 的權杖。 您可以使用 Gradle 安裝它，方法是將下列內容新增到 Gradle Scripts > build.gradle (Module: app) 中的 **Dependencies**下：
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -132,7 +132,7 @@ implementation 'com.microsoft.identity.client:msal:0.1.+'
 
 ### <a name="msal-initialization"></a>MSAL 初始化
 
-您可以透過加入下列程式碼新增 MSAL 的參考：
+您可以透過加入下列程式碼來新增 MSAL 的參考：
 
 ```java
 import com.microsoft.identity.client.*;
@@ -158,10 +158,10 @@ MSAL 有兩種取得權杖的方法：`acquireToken` 與 `acquireTokenSilentAsyn
 
 有些情況需要強制使用者與 Azure AD v2.0 端點互動，這會導致將環境切換至系統瀏覽器以驗證使用者的認證或要求使用者同意。 部分範例包括：
 
-* 使用者第一次登入應用程式
-* 當使用者因為密碼已過期而可能需要重新輸入其認證時
-* 當您的應用程式要求的資源存取權，需要使用者同意時
-* 當需要雙因素驗證時
+* 使用者首次登入應用程式
+* 使用者因為密碼已過期而可能需要重新輸入其認證時
+* 您的應用程式要求存取的資源需要使用者同意時
+* 需要雙因素驗證時
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -187,7 +187,7 @@ sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
 
 ## <a name="next-steps"></a>後續步驟
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>了解建立此快速入門中所使用應用程式的步驟
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>了解建立本快速入門中所使用之應用程式的步驟
 
 請試試看 Android 教學課程，以取得建置應用程式和新功能的完整逐步指南，且包括此快速入門的完整說明。
 

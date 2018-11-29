@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 119853df5b5234b65bdade890df1fecb72c326b7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 48ac46a9087e8027d0282533afccc4d9b28481ba
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157372"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582446"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 建立及管理 Azure 檔案共用 
 本指南會逐步說明透過 PowerShell 來使用 [Azure 檔案共用](storage-files-introduction.md)的基本概念。 Azure 檔案共用與其他檔案共用類似，但它儲存在雲端中，並且由 Azure 平台支援。 Azure 檔案共用支援業界標準 SMB 通訊協定，並可在多個機器、應用程式及執行個體上啟用檔案共用。 
@@ -49,7 +49,7 @@ $storageAcct = New-AzureRmStorageAccount `
 ```
 
 ## <a name="create-an-azure-file-share"></a>建立 Azure 檔案共用
-現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzureStorageShare](/powershell/module/azurerm.storage/new-azurestorageshare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
+現在，您可以建立第一個 Azure 檔案共用。 您可以使用 [New-AzureStorageShare](/powershell/module/azure.storage/new-azurestorageshare) Cmdlet 來建立檔案共用。 此範例會建立名為 `myshare` 的共用。
 
 ```azurepowershell-interactive
 New-AzureStorageShare `
@@ -79,7 +79,7 @@ Azure 檔案服務提供兩個在 Azure 檔案共用中使用檔案和資料夾�
 下列範例會示範如何透過檔案 REST 通訊協定，來使用 AzureRM PowerShell 模組操作 Azure 檔案共用。 
 
 #### <a name="create-directory"></a>建立目錄
-若要在 Azure 檔案共用的根目錄建立名為 myDirectory 的新目錄，請使用 [New-AzureStorageDirectory](/powershell/module/azurerm.storage/new-azurestoragedirectory) Cmdlet。
+若要在 Azure 檔案共用的根目錄建立名為 myDirectory 的新目錄，請使用 [New-AzureStorageDirectory](/powershell/module/azure.storage/new-azurestoragedirectory) Cmdlet。
 
 ```azurepowershell-interactive
 New-AzureStorageDirectory `

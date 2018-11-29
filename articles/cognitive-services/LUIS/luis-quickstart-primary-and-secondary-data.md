@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277795"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425236"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>教學課程 7：利用簡單實體和片語清單擷取名稱
 
@@ -86,7 +86,7 @@ ms.locfileid: "51277795"
 
 標示範例語句中的實體後，請務必新增片語清單，以提升簡單實體的訊號。 片語清單**不會**作為完全相符項目，而且不必是您預期的每個可能值。 
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [ApplyForJob] 意圖。 
 

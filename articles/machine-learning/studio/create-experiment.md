@@ -17,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 8f4740a559e73620500c4ab04ea6e9e25405b8a3
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263565"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425705"
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>機器學習服務教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
@@ -43,9 +43,7 @@ ms.locfileid: "52263565"
 - [機器學習服務演算法小祕技](algorithm-cheat-sheet.md)和[如何選擇 Microsoft Azure Machine Learning 的演算法](algorithm-choice.md) - 這個可下載的海報和隨附的文章深入探討 Studio 演算法。
 - [Machine Learning Studio︰演算法和模組說明](https://msdn.microsoft.com/library/azure/dn905974.aspx) - 這是所有 Studio 模組的完整參考，還包括機器學習服務演算法。
 
-<!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="how-does-machine-learning-studio-help"></a>Machine Learning Studio 如何協助您？
 

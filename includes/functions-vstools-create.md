@@ -3,17 +3,17 @@ title: 包含檔案
 description: 包含檔案
 services: functions
 author: ggailey777
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 05/22/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: a8be74558fb71ceb1c28c27004b27a5a5f477a8f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c746fc86ea4d260575eb97b16d4a190b175f754
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650634"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585649"
 ---
 Visual Studio 中的 Azure Functions 專案範本會建立可發行至 Azure 中函式應用程式的專案。 函式應用程式可讓您將多個函式群組為邏輯單位，以便您管理、部署和共用資源。
 

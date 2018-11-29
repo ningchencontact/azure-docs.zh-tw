@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1354faad4abf9a8a4b56414628d39d9a6f90d721
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987423"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426162"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教學課程：監視 Azure 防火牆記錄和計量
 
 您可以使用防火牆記錄來監視 Azure 防火牆。 您也可以使用活動記錄來稽核 Azure 防火牆資源上的作業。 使用計量，您可以在入口網站中檢視效能計數器。 
 
-您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)、儲存體和事件中樞，並在 Log Analytics 中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
+您可以透過入口網站存取其中一些記錄。 您可以將記錄傳送到 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)、儲存體和事件中樞，並在 Log Analytics 中或透過不同的工具 (例如 Excel 和 Power BI) 來分析記錄。
 
 在本教學課程中，您了解如何：
 
@@ -94,7 +94,7 @@ ms.locfileid: "49987423"
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>檢視及分析網路和應用程式規則記錄
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) 會收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
 關於 Azure 防火牆的 Log Analytics 查詢範例，請參閱 [Azure 防火牆 Log Analytics 範例](log-analytics-samples.md)。
 
@@ -111,7 +111,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 既然您已設定防火牆來收集記錄，您可以探索 Log Analytics 以檢視您的資料。
 
 > [!div class="nextstepaction"]
-> [Log Analytics 中的網路監視解決方案](../log-analytics/log-analytics-azure-networking-analytics.md)
+> [Log Analytics 中的網路監視解決方案](../azure-monitor/insights/azure-networking-analytics.md)
 
 [1]: ./media/tutorial-diagnostics/figure1.png
 [2]: ./media/tutorial-diagnostics/figure2.png

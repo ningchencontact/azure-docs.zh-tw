@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d039654fc1d652a3997515a12caa48acaac124fe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429782"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425287"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>搭配使用儲存體總管與 Azure 檔案儲存體
 
@@ -29,7 +29,7 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-- [下載並安裝儲存體總管](http://www.storageexplorer.com/)
+- [下載並安裝儲存體總管](https://www.storageexplorer.com/)
 
 - [連接到 Azure 儲存體帳戶或服務](https://docs.microsoft.com//azure/vs-azure-tools-storage-manage-with-storage-explorer#connect-to-a-storage-account-or-service)
 
@@ -259,6 +259,6 @@ Azure 檔案儲存體是使用標準伺服器訊息區塊 (SMB) 通訊協定，�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 檢視 [最新的儲存體 Explorer 版本資訊與影片](http://www.storageexplorer.com/)。
+- 檢視 [最新的儲存體 Explorer 版本資訊與影片](https://www.storageexplorer.com/)。
 
 - 了解如何 [利用 Azure Blob、資料表、佇列和檔案建立應用程式](https://azure.microsoft.com/documentation/services/storage/)。

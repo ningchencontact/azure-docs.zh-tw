@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 18141e0f58a0b5227c3f5f5c36210017da101780
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6e8f7f18196eb23900c815048e12d57a238d08f7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625329"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423051"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure AD Graph API
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
 本教學課程說明如何將系統指派的受控識別用於 Windows 虛擬機器 (VM)，以存取 Microsoft Graph API 來擷取其群組成員資格。 適用於 Azure 資源的受控識別會自動由 Azure 管理，可讓您向支援 Azure AD 驗證的服務進行驗證，而不需要將認證插入程式碼中。  在本教學課程中，您會查詢 VM 身分識別在 Azure AD 群組中的成員資格。 舉例來說，群組資訊通常會用於決定授權。 在 Azure AD 中，VM 的受控識別實際上會以**服務主體**來表示。 在執行群組查詢前，請在 Azure AD 的群組中新增代表 VM 身分識別的服務主體。 您可以使用 Azure PowerShell、Azure AD PowerShell 或 Azure CLI 來執行這項工作。
 

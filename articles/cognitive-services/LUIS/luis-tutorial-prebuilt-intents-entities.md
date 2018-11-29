@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d73284ecf40b2dfcd4954c1ddee82bf92a8931b9
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281790"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422417"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>教學課程 2：找出常見的意圖和實體
 在本教學課程中，修改人力資源應用程式。 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 您不需使用預先建置的實體來標示任何語句，因為系統會自動偵測實體。
@@ -48,7 +48,7 @@ ms.locfileid: "51281790"
 ## <a name="add-prebuilt-intents"></a>新增預先建置的意圖
 LUIS 提供數個預先建置的意圖來協助處理常見的使用者意圖。  
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 選取 [新增預先建置的意圖]。 
 
