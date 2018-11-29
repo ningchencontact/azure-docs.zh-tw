@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-ms.openlocfilehash: 781365e32ce5602e9fb99b620e068ddf68de8c44
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854164"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316390"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -309,9 +309,6 @@ Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -Re
 
 - 透過防火牆 IP 位址，從中樞閘道子網路到輪輻子網路的路由
 - 透過防火牆 IP 位址，從輪輻子網路開始的預設路由
-
-> [!NOTE]
-> Azure 防火牆會使用 BGP 學習您的內部部署網路。 其中可能包括會將網際網路流量路由回內部部署網路的預設路由。 在生產部署中，您可能希望網際網路流量直接從防火牆傳送到網際網路。 您可以在下一個躍點類型為**網際網路**的 AzureFirewallSubnet 上，新增使用者定義的預設路由 (0.0.0.0/0)。 您以內部部署為目的地的流量仍會使用從 BGP 學習到且更明確的路由，透過 VPN/ExpressRoute 閘道強制輸送。
 
 ```azurepowershell
 #Create a route table

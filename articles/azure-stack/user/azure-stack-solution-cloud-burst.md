@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095333"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334885"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教學課程：使用 Azure 建立跨雲端縮放解決方案
 
@@ -49,7 +49,7 @@ ms.locfileid: "50095333"
 -   Azure 訂用帳戶。 如有需要，請在開始之前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 - Azure Stack 整合系統，或部署 Azure Stack 開發套件。
-    - 您可以在[安裝 Azure Stack 開發套件](/articles/azure-stack/asdk/asdk-install)中找到如何安裝 Azure Stack 的指示。
+    - 您可以在[安裝 Azure Stack 開發套件](../asdk/asdk-install.md)中找到如何安裝 Azure Stack 的指示。
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) 此安裝可能需要幾個小時才能完成。
 
 -   將 [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) PaaS 服務部署至 Azure Stack。
@@ -97,7 +97,7 @@ ms.locfileid: "50095333"
 設定混合式持續整合和持續部署 (CI/CD)，以將 Web 應用程式部署至 Azure 和 Azure Stack，並自動將變更推送至這兩個雲端。
 
 > [!Note]  
-> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](/articles/azure-stack/azure-stack-app-service-before-you-get-started)」區段。
+> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](../azure-stack-app-service-before-you-get-started.md)」區段。
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>將程式碼新增至 Visual Studio Team Services 專案
 
@@ -259,7 +259,7 @@ Visual Studio Team Services 和 Team Foundation Server (TFS) 提供具有高度�
 ## <a name="develop-the-application-build"></a>開發應用程式組建
 
 > [!Note]  
-> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](/articles/azure-stack/azure-stack-app-service-before-you-get-started)」區段。
+> 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](../azure-stack-app-service-before-you-get-started.md)」區段。
 
 請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 VSTS 的 Web 應用程式程式碼) 以部署至這兩個雲端。
 

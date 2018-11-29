@@ -9,12 +9,12 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 11/21/2018
-ms.openlocfilehash: 067a8deb935fb8a49d72c6ce441e8d9760c5390c
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283650"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496213"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程 #1：使用 Azure Machine Learning 服務將影像分類模型定型
 
@@ -40,7 +40,7 @@ ms.locfileid: "52283650"
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `01.train-models.ipynb` Notebook。
+為了方便起見，此教學課程以 [Jupyter Notebook](https://aka.ms/aml-notebook-tut-01) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `01.train-models.ipynb` Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 

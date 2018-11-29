@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 1345d4c4d349ed2fa5bb95ee35299c77fb391359
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 5aff783735d38a2707f42efe8a1632bd5aaafc4b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42884980"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316764"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
 
@@ -66,7 +66,6 @@ dotnet new web
 還原 NuGet 套件，並執行應用程式。
 
 ```bash
-dotnet restore
 dotnet run
 ```
 

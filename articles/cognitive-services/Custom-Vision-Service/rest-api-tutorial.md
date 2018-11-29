@@ -10,18 +10,18 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: larryfr
-ms.openlocfilehash: a38f737b5281903328a53d6552b1666ca4f58d80
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: afdc306a3d5a3130ecb44f88910e76f23f7c0c0e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364953"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334715"
 ---
 # <a name="tutorial-use-the-custom-vision-rest-api"></a>教學課程：使用自訂視覺 REST API
 
 了解如何使用「自訂視覺 REST API」來建立、定型、測試及匯出模型。
 
-此文件中的資訊會示範如何使用 REST 用戶端與 REST API 搭配運作，來進行「自訂視覺」服務定型。 範例會從 Bash 環境使用 `curl` 公用程式及從 Windows PowerShell 使用 `Invoke-WebRequest`，來說明如何使用 API。
+本文件中的資訊會示範如何使用 REST 用戶端與 REST API 搭配運作，來進行「自訂視覺」服務定型。 範例會從 Bash 環境使用 `curl` 公用程式及從 Windows PowerShell 使用 `Invoke-WebRequest`，來說明如何使用 API。
 
 > [!div class="checklist"]
 > * 取得金鑰
@@ -33,7 +33,7 @@ ms.locfileid: "46364953"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 對「具象狀態傳輸」(REST) 有基本的了解。 此文件不詳細探討 HTTP 指令動詞、JSON 或其他常與 REST 搭配使用的項目。
+* 對「具象狀態傳輸」(REST) 有基本的了解。 本文件不詳細探討 HTTP 指令動詞、JSON 或其他常與 REST 搭配使用的項目。
 
 * Bash (Bourne Again Shell) 搭配 [curl](https://curl.haxx.se) 公用程式，或是 Windows PowerShell 3.0 (或更新版本)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "46364953"
 ![金鑰 UI 的影像](./media/rest-api-tutorial/training-prediction-keys.png)
 
 > [!IMPORTANT]
-> 由於金鑰會用來驗證每個要求，因此此文件中的範例會假設金鑰值包含在環境變數中。 請先使用下列命令將金鑰儲存至環境變數，再使用此文件中的任何其他程式碼片段：
+> 由於金鑰會用來驗證每個要求，因此本文件中的範例會假設金鑰值包含在環境變數中。 請先使用下列命令將金鑰儲存至環境變數，再使用本文件中的任何其他程式碼片段：
 >
 > ```bash
 > read -p "Enter the training key: " TRAININGKEY
@@ -98,9 +98,9 @@ $resp.Content
 ```
 
 > [!TIP]
-> 回應中的 `id` 項目是新專案的識別碼。 在此文件稍後的其他範例中會用到此識別碼。
+> 回應中的 `id` 項目是新專案的識別碼。 在本文件稍後的其他範例中會用到此識別碼。
 
-如需有關此要求的詳細資訊，請參閱 [CreateProject](https://southcentralus.dev.cognitive.microsoft.com/docs/services/d0e77c63c39c4259a298830c15188310/operations/5a59953940d86a0f3c7a8290)。
+如需有關此要求的詳細資訊，請參閱 [CreateProject](https://go.microsoft.com/fwlink/?linkid=865446)。
 
 ### <a name="specific-domains"></a>特定網域
 

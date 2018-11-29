@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: diberry
-ms.openlocfilehash: f878e365dd43aa8735a0270124038c292d97ed6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 598a861c207aaff6e61f7ffcb0fd6bf7a9b506a1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234284"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335788"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>快速入門：使用 Python 在 QnA Maker 中建立知識庫
 
@@ -65,7 +65,7 @@ ms.locfileid: "51234284"
 
 [!code-python[Add function to create KB](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=48-59 "Add function to create KB")]
 
-此 API 呼叫會傳回 JSON 回應，其中包含標頭欄位 [位置] 的作業識別碼。 使用作業識別碼來判斷是否已成功建立 KB。 
+此 API 呼叫會傳回包含作業識別碼的 JSON 回應。 使用作業識別碼來判斷是否已成功建立 KB。 
 
 ```JSON
 {

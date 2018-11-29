@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: get-started-article
 ms.date: 08/18/2016
-ms.openlocfilehash: 07b7cce4b026464ba34296b54c4ae90d6d2b1afa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981156"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334222"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Azure 排程器中的概念、術語及實體
 
@@ -319,5 +319,5 @@ Azure 排程器支援多個作業類型：
 * [概念、術語及實體階層](scheduler-concepts-terms.md)
 * [建置複雜的排程和進階週期](scheduler-advanced-complexity.md)
 * [限制、配額、預設值及錯誤碼](scheduler-limits-defaults-errors.md)
-* [Azure 排程器 REST API 參考](https://docs.microsoft.com/rest/api/schedule)
+* [Azure 排程器 REST API 參考](/rest/api/scheduler)
 * [Azure 排程器 PowerShell Cmdlet 參考](scheduler-powershell-reference.md)
