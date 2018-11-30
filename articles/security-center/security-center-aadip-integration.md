@@ -3,7 +3,7 @@ title: 將 Azure Active Directory Identity Protection 連線至 Azure 資訊安�
 description: 了解 Azure 資訊安全中心如何整合 Azure Active Directory Identity Protection。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 0d4b77c2-dba4-4e46-8f55-ab04ddd92496
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2018
-ms.author: yurid
-ms.openlocfilehash: 9c13bd671efee5bc07885320cbaa0bd090cc1390
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51226355"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635300"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>將 Azure Active Directory Identity Protection 連線至 Azure 資訊安全中心
 本文件可協助您設定 Azure Active Directory (AD) Identity Protection 與 Azure 資訊安全中心之間的整合。
 
 ## <a name="why-connect-azure-ad-identity-protection"></a>為什麼要和 Azure AD Identity Protection 連線？
-[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 能協助偵測會影響組織身分識別的潛在弱點。 連線之後，您就能在資訊安全中心內檢視 Azure AD Identity Protection 的警示。 此整合可讓您在資訊安全中心內檢視、相互關聯和調查與混合式雲端工作負載相關的所有安全性警示。 
+[Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 能協助偵測會影響組織身分識別的潛在弱點。 連線之後，您就能在資訊安全中心內檢視 Azure AD Identity Protection 的警示。 此整合可讓您在資訊安全中心內檢視、相互關聯和調查與混合式雲端工作負載相關的所有安全性警示。
 
 ## <a name="how-do-i-configure-this-integration"></a>如何設定此整合？
 如果您的組織已經使用 Azure AD Identity Protection，請遵循下列步驟來設定整合：
@@ -42,13 +42,13 @@ ms.locfileid: "51226355"
 
 5. 按一下 [ **連接**]。
 
-一旦您完成這項設定，Azure AD Identity Protection 解決方案就會出現在 [安全性解決方案] 頁面的 [已連接的解決方案] 之下。 
+一旦您完成這項設定，Azure AD Identity Protection 解決方案就會出現在 [安全性解決方案] 頁面的 [已連接的解決方案] 之下。
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何將 Azure AD Identity Protection 連線至資訊安全中心。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心](security-center-ata-integration.md)
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) — 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。
@@ -56,5 +56,3 @@ ms.locfileid: "51226355"
 - [Azure 資訊安全中心資料安全性](security-center-data-security.md) - 了解資訊安全中心如何管理及保護其中的資料。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) — 取得最新的 Azure 安全性新聞和資訊。
-
-

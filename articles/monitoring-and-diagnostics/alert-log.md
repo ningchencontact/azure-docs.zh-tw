@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6e6db7ef2f2de075aea41a29e69b2c674efafa17
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279090"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635351"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示  
 
@@ -132,7 +132,7 @@ ms.locfileid: "51279090"
 ### <a name="azure-resource-template-for-log-analytics"></a>適用於 Log Analytics 的 Azure 資源範本
 Log Analytics 的記錄警示是由警示規則所建立，這些規則會定期執行已儲存的搜尋。 如果查詢的結果符合指定的準則，就會建立警示記錄，並執行一或多個動作。 
 
-您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../monitoring/monitoring-solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
+您可以在文件的 Log Analytics 一節中，取得記錄分析儲存的搜尋和記錄分析警示資源範本。 若要深入了解，請參閱[新增 Log Analytics 的已儲存搜尋和警示](../azure-monitor/insights/solutions-resources-searches-alerts.md)；其中包含說明範例與結構描述詳細資料。
 
 ### <a name="azure-resource-template-for-application-insights"></a>適用於 Application Insights 的 Azure 資源範本
 Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights/scheduledQueryRules/`。 如需有關此資源類型的詳細資訊，請參閱 [Azure 監視器 - 排程的查詢規則 API 參考](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/)。
@@ -223,7 +223,7 @@ Application Insights 資源的記錄警示有一個類型是 `Microsoft.Insights
 ### <a name="powershell-cli-or-api-for-log-analytics"></a>適用於 Log Analytics 的 PowerShell、CLI 或 API
 Log Analytics 警示 REST API 是 RESTful，可透過 Azure Resource Manager REST API 來存取。 因此您可以從 PowerShell 命令列存取 API，API 會以 JSON 格式向您輸出搜尋結果，讓您以程式設計方式透過許多不同的方法使用結果。
 
-深入了解[使用 REST API 建立及管理 Log Analytics 中的警示規則](../log-analytics/log-analytics-api-alerts.md)；包括從 Powershell 存取 API 的範例。
+深入了解[使用 REST API 建立及管理 Log Analytics 中的警示規則](../azure-monitor/platform/api-alerts.md)；包括從 Powershell 存取 API 的範例。
 
 ### <a name="powershell-cli-or-api-for-application-insights"></a>適用於 Application Insights 的 PowerShell、CLI 或 API
 [Azure 監視器 - 已排程的查詢規則 API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) 是 REST API，並且可與 Azure Resource Manager REST API 完全相容。 因此它可以透過 Powershell 和 Azure CLI 搭配資源管理員 Cmdlet 來使用。

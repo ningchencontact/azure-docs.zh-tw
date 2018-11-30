@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 4b7192b0c406d2c5df42e3bb3e604f26c56c7bd4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d2ce4dcda9ea72d4a33ee363efd3519c2118aa
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235185"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635827"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>開始使用 Key Vault 憑證
 下列情節概述 Key Vault 憑證管理服務的數個主要用法 (包括在金鑰保存庫中建立第一個憑證所需的其他步驟)。
@@ -51,14 +51,14 @@ ms.locfileid: "51235185"
 
 **步驟 3** - Contoso 管理員與擁有憑證的 Contoso 員工 (Key Vault 使用者) (根據 CA 而定) 可以向管理員取得憑證或者直接向 CD 從帳戶取得憑證。  
 
--   [設定憑證簽發者](/rest/api/keyvault/setcertificateissuer)資源，開始將認證作業新增至金鑰保存庫。 憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。
+-   [設定憑證簽發者](/rest/api/keyvault/setcertificateissuer/setcertificateissuer)資源，開始將認證作業新增至金鑰保存庫。 憑證簽發者是 Azure Key Vault (KV) 中以 CertificateIssuer 資源表示的實體。 它用來提供 KV 憑證來源相關資訊；簽發者名稱、提供者、認證和其他系統管理詳細資訊。
     -   例如 MyDigiCertIssuer  
         -   提供者  
         -   認證 – CA 帳戶認證。 每個 CA 都有自己的特定資料。  
 
      如需使用 CA 提供者建立帳戶的詳細資訊，請參閱 [Key Vault 部落格](https://aka.ms/kvcertsblog)上的相關文章。  
 
-**步驟 3.1** - 設定[憑證連絡人](/rest/api/keyvault/setcertificatecontacts)以進行通知。 這是 Key Vault 使用者的連絡人。 Key Vault 不會強制執行此步驟。  
+**步驟 3.1** - 設定[憑證連絡人](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts)以進行通知。 這是 Key Vault 使用者的連絡人。 Key Vault 不會強制執行此步驟。  
 
 附註 - 透過步驟 3.1 的這個流程是一次性作業。  
 
@@ -83,7 +83,7 @@ ms.locfileid: "51235185"
       -   更新資訊 - > 例如 到期之前的 90 天  
 
   - 憑證建立流程通常為非同步流程，並且包含輪詢金鑰保存庫中的建立憑證作業狀態。  
-[取得憑證作業](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
+[取得憑證作業](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   狀態：已完成、失敗但有錯誤資訊，或已取消  
       -   因為延遲建立，所以可以起始取消作業。 取消不一定會有作用。  
 
