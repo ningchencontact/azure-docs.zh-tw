@@ -40,8 +40,8 @@ Resource Manager 提供了幾個用來在範本中進行比較的函式。
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 ture 的第二個值。 |
+| arg1 |是 |布林值 |要檢查是否為 true 的第一個值。 |
+| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -167,7 +167,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| condition |是 |布林值 |要檢查是否為 ture 的值。 |
+| condition |是 |布林值 |要檢查是否為 true 的值。 |
 | trueValue |是 | 字串、int、物件或陣列 |條件為 true 時，傳回的值。 |
 | falseValue |是 | 字串、int、物件或陣列 |條件為 false 時，傳回的值。 |
 
@@ -372,12 +372,12 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |布林值 |要檢查是否為 ture 的第一個值。 |
-| arg2 |是 |布林值 |要檢查是否為 ture 的第二個值。 |
+| arg1 |是 |布林值 |要檢查是否為 true 的第一個值。 |
+| arg2 |是 |布林值 |要檢查是否為 true 的第二個值。 |
 
 ### <a name="return-value"></a>傳回值
 
-如果任一值為 ture，傳回 **True**，否則會傳回 **False**。
+如果任一值為 true，傳回 **True**，否則會傳回 **False**。
 
 ### <a name="examples"></a>範例
 
