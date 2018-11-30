@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 48f1afcbef873e1af4346199c00ee2fadb1ad858
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 1877acbd39f4e312e3a567e092bb0bcf7531b96b
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830237"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276324"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>連線 Google Cloud Platform 帳戶
 
@@ -39,7 +39,7 @@ Cloudyn 會從儲存體貯體擷取您的 Google 帳單資料。 請記下 [Buck
 
 使用 Google Cloud Storage 儲存使用量報告需支付最低費用。 如需詳細資訊，請參閱[雲端儲存體定價](https://cloud.google.com/storage/pricing)。
 
-1. 如果您未啟用計費匯出至檔案，請依照[如何啟用計費匯出至檔案](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)的指示執行。 您可以使用 JSON 或 CSV 計費匯出格式。
+1. 如果您未啟用計費匯出至檔案，請遵循[如何啟用計費匯出至檔案](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file)的指示。 您可以使用 JSON 或 CSV 計費匯出格式。
 2. 否則，在 Google Cloud Platform 主控台中，巡覽至 [計費] > [計費匯出]。 注意您的計費「貯體名稱」和「報告前置詞」。  
     ![計費匯出](./media/connect-google-account/billing-export.png)
 

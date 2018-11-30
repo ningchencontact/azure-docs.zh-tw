@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e853ea6d05585fa764ad6e019a3a4390ed840263
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007853"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313430"
 ---
 # <a name="permissions-in-azure-security-center"></a>Azure 資訊安全中心的權限
 
@@ -59,7 +59,7 @@ Azure 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-ac
 ## <a name="next-steps"></a>後續步驟
 本文說明資訊安全中心如何使用 RBAC，將權限指派給使用者，並識別每個角色允許的動作。 現在，您已熟悉監視您的訂用帳戶的安全性狀態所需的角色指派，編輯安全性原則和套用建議，接著了解如何︰
 
-- [在資訊安全中心設定安全性原則](security-center-policies.md)
+- [在資訊安全中心設定安全性原則](security-center-azure-policy.md)
 - [管理資訊安全中心的安全性建議](security-center-recommendations.md)
 - [監視您的 Azure 資源的安全性健全狀況](security-center-monitoring.md)
 - [在資訊安全中心管理和回應安全性警示](security-center-managing-and-responding-alerts.md)

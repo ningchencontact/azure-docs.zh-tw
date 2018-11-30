@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 11/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 2f9868abd0eb8bf96928aeba6f96c10bcb91c4e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3bb7e9837f74fd04d38cc77a9504cc26c6dcf803
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958544"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854181"
 ---
 # <a name="writing-advanced-queries-in-log-analytics"></a>在 Log Analytics 中撰寫進階查詢
 
@@ -76,28 +76,6 @@ Event
 | extend USTimeGenerated = utc_to_us_date_format(TimeGenerated)
 | project TimeGenerated, USTimeGenerated, Source, Computer, EventLevel, EventData 
 ```
-
-## <a name="functions"></a>Functions
-您可以使用函式別名來儲存查詢，以便它可以由其他查詢參考。 例如，下列標準查詢會傳回過去一天內所回報的所有缺少的安全性更新：
-
-```Kusto
-Update
-| where TimeGenerated > ago(1d) 
-| where Classification == "Security Updates" 
-| where UpdateState == "Needed"
-```
-
-您可以將此查詢另存為函式並為它指定別名，例如 _security_updates_last_day_。 接著，您可以在另一個查詢中使用它來搜尋必要 SQL 相關安全性更新：
-
-```Kusto
-security_updates_last_day | where Title contains "SQL"
-```
-
-若要將查詢另存為函式，請選取入口網站中的 [儲存] 按鈕，並將 [另存新檔] 變更為 [函式]。 函式別名可以包含字母、數字或底線，而且開頭必須是字母或底線。
-
-> [!NOTE]
-> 您可以在 Log Analytics 查詢中儲存函式，但目前不適用於 Application Insights 查詢。
-
 
 ## <a name="print"></a>列印
 `print` 將會傳回具有單欄與單列的表格，顯示計算的結果。 這通常用於需要簡單計算的案例。 例如，尋找太平洋標準時間 (PST) 的目前時間並加上美國東部標準時間 (EST) 欄：

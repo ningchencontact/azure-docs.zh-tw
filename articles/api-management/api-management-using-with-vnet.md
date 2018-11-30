@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 843b03ce33d1897e2e985ac832f883e1fae12960
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: dd876462559ac10fc0463c64413bf11eabbc88a1
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959038"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443520"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>如何將 Azure API 管理與虛擬網路搭配使用
 「Azure 虛擬網路」(VNET) 可讓您將任何 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 然後，可以使用各種 VPN 技術，將這些網路連線到您的內部部署網路。 若要深入了解「Azure 虛擬網路」，請從以下資訊著手：[Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
@@ -27,7 +27,8 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
 
 > [!NOTE]
 > Azure API 管理支援傳統和 Azure Resource Manager Vnet。
->
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,7 +39,6 @@ Azure API 管理可以部署在虛擬網路 (VNET) 內，因此它可以存取�
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + APIM 執行個體。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
-+ VNET 連線僅適用於「進階」和「開發人員」層。 請遵循[升級和調整](upgrade-and-scale.md#upgrade-and-scale)主題中的指示，切換至上述其中一層。
 
 ## <a name="enable-vpn"> </a>啟用 VNET 連線
 

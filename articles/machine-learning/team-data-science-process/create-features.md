@@ -2,30 +2,26 @@
 title: 資料科學特徵工程設計 | Microsoft Docs
 description: 說明機器學習服務的資料增強程序中特性工程設計的目的，並提供其角色的範例。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 3fde69e8-5e7b-49ad-b3fb-ab8ef6503a4d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: fd3f010c3fccca679daa6639c1427d17ae64a0d1
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51343987"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446670"
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本文說明特徵工程設計的目的，並透過提供的範例，顯示它在機器學習服務的資料增強程序中扮演的角色。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 
 
-此工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
+此工作是 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)中的一個步驟。
 
 特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 特徵的工程設計與選取是何謂 [Team Data Science Process 生命週期？](overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。 
 

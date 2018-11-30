@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: c477eee662d20c66eaa3be3927e47c2c6bf379a6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ae2afddbf6556947ae9fdc1eb65daaae18c2c26d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633253"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707073"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>針對 Microsoft Azure 復原服務 (MARS) 代理程式進行疑難排解
 
@@ -22,14 +22,14 @@ ms.locfileid: "51633253"
 ## <a name="invalid-vault-credentials-provided"></a>提供的保存庫認證無效
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |
-| **錯誤** </br> *提供的保存庫認證無效。檔案已損毀或沒有與復原服務關聯的最新認證。(識別碼：34513)* | <ul><li> 保存庫認證無效 (亦即，在將它們下載超過 48 小時之後才註冊)。<li>MARS 代理程式無法將檔案下載到 Windows Temp 目錄。 <li>保存庫認證位於網路位置上。 <li>TLS 1.0 已停用<li> 已設定的 Proxy 伺服器正在封鎖連線。 <br> |  <ul><li>下載新的保存庫認證。(**注意**：如果先前下載了多個保存庫認證檔案，只有最新下載的檔案會在 48 小時內維持有效狀態。) <li>移至 [網際網路選項] > [安全性] > [網際網路]。 接下來，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 接著選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li> 使日期和時間與您的電腦相符。<li>如果您收到敘述不允許檔案下載的錯誤，有可能 C:/Windows/Temp 目錄中具有大量檔案。<li>移至 C:/Windows/Temp，並檢查具有 .tmp 副檔名的檔案是否超過 60,000 或 65,000 個。 如果有，請刪除這些檔案。<li>確定您已安裝 .NET Framework 4.6.2。 <li>如果您因 PCI 合規性而停用了 TLS 1.0，請參閱這個[疑難排解頁面](https://support.microsoft.com/help/4022913)。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案： <ul><li>CBengine.exe<li>與 .NET Framework 相關的 CSC.exe。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 *例如，針對 v2.0.50727，請排除 .NET Framework 路徑 C:\Windows\Microsoft.NET\Framework\v2.0.50727；同樣地，請排除其餘的 .NET Framework 版本路徑。* <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<br><li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **錯誤** </br> *提供的保存庫認證無效。檔案已損毀或沒有與復原服務關聯的最新認證。(識別碼：34513)* | <ul><li> 保存庫認證無效 (亦即，在將它們下載超過 48 小時之後才註冊)。<li>MARS 代理程式無法將檔案下載到 Windows Temp 目錄。 <li>保存庫認證位於網路位置上。 <li>TLS 1.0 已停用<li> 已設定的 Proxy 伺服器正在封鎖連線。 <br> |  <ul><li>下載新的保存庫認證。(**注意**：如果先前下載了多個保存庫認證檔案，只有最新下載的檔案會在 48 小時內維持有效狀態。) <li>移至 [網際網路選項] > [安全性] > [網際網路]。 接下來，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 接著選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li> 使日期和時間與您的電腦相符。<li>如果您收到敘述不允許檔案下載的錯誤，有可能 C:/Windows/Temp 目錄中具有大量檔案。<li>移至 C:/Windows/Temp，並檢查具有 .tmp 副檔名的檔案是否超過 60,000 或 65,000 個。 如果有，請刪除這些檔案。<li>確定您已安裝 .NET Framework 4.6.2。 <li>如果您因 PCI 合規性而停用了 TLS 1.0，請參閱這個[疑難排解頁面](https://support.microsoft.com/help/4022913)。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案： <ul><li>CBengine.exe<li>與 .NET Framework 相關的 CSC.exe。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<br><li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="the-mars-agent-was-unable-to-connect-to-azure-backup"></a>MARS 代理程式無法連線至 Azure 備份
 
 | 錯誤詳細資料 | 可能的原因 | 建議動作 |
 | ---     | ---     | ---    |
-| **錯誤** </br><ol><li>*Microsoft Azure 復原服務代理程式無法連線至 Microsoft Azure 備份。(識別碼：100050) 請檢查您的網路設定，並確保您能夠連線至網際網路*<li>*(407) 需要 Proxy 驗證* |Proxy 正在封鎖連線。 |  <ul><li>移至 [網際網路選項] > [安全性] > [網際網路]。 接著，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案。 <ul><li>CBEngine.exe (而不是 dpmra.exe)。<li>CSC.exe (與 .NET Framework 相關)。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 *例如，針對 v2.0.50727，請排除 .NET Framework 路徑 C:\Windows\Microsoft.NET\Framework\v2.0.50727；同樣地，請排除其餘的 .NET Framework 版本路徑。* <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **錯誤** </br><ol><li>*Microsoft Azure 復原服務代理程式無法連線至 Microsoft Azure 備份。(識別碼：100050) 請檢查您的網路設定，並確保您能夠連線至網際網路*<li>*(407) 需要 Proxy 驗證* |Proxy 正在封鎖連線。 |  <ul><li>移至 [網際網路選項] > [安全性] > [網際網路]。 接著，選取 [自訂層級]，然後捲動，直到您看到檔案下載區段為止。 選取 [啟用]。<li>您可能也必須在 IE [信任的網站](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins#network-and-connectivity-requirements)中新增這些網站。<li>變更設定以使用 Proxy 伺服器。 接著提供 Proxy 伺服器詳細資料。 <li>如果您已在伺服器上安裝防毒程式，請從防毒掃描中排除下列檔案。 <ul><li>CBEngine.exe (而不是 dpmra.exe)。<li>CSC.exe (與 .NET Framework 相關)。 伺服器上所安裝的每個 .NET 版本都有一個 CSC.exe。 排除受影響伺服器上繫結至所有 .NET Framework 版本的 CSC.exe 檔案。 <li>臨時資料夾或快取位置。 <br>臨時資料夾或快取位置路徑的預設位置是 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch。<li>Bin 資料夾 C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>無法設定安全備份的加密金鑰

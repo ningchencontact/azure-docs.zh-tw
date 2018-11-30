@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: e16c82f7c49bf90fc074732d0a989b9de94a52c5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0f376d6b1108b784af37b5e50dab9edba63e5f76
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49375846"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713090"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Azure Kubernetes Service (AKS) 上的叢集自動調整程式 - 預覽
 
@@ -26,7 +26,7 @@ Azure Kubernetes Service (AKS) 會提供可在 Azure 中部署受控 Kubernetes 
 > Azure Kubernetes Service (AKS) 叢集自動調整程式整合目前為**預覽**狀態。 若您同意[補充的使用規定](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
 >
 
-## <a name="prerequisites-and-considerations"></a>必要條件和考量
+## <a name="prerequisites-and-considerations"></a>先決條件與考量
 
 本文件假設您有已啟用 RBAC 的 AKS 叢集。 如果您需要 AKS 叢集，請參閱 [Azure Kubernetes Service (AKS) 快速入門][aks-quick-start]。
 
@@ -232,7 +232,7 @@ subjects:
     namespace: kube-system
 
 ---
-apiVersion: extensions/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:

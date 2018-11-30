@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ee89f3d57ded382b4d4519e4054448c144b10c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625059"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632682"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>讓更新管理、變更追蹤和清查解決方案上線
 
@@ -81,7 +81,7 @@ Azure 自動化提供的解決方案可管理作業系統安全性更新、追�
 
 您必須手動加入不在 Azure 中的機器。 從您的自動化帳戶中選取 [組態管理] 下的 [清查] 或 [變更追蹤]，或選取 [更新管理] 下的 [更新管理]。
 
-按一下 [加入非 Azure 電腦]。 此動作會開啟新的瀏覽器視窗，[指示如何在電腦上安裝和設定 Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-overview.md)，讓電腦可以開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
+按一下 [加入非 Azure 電腦]。 此動作會開啟新的瀏覽器視窗，[指示如何在電腦上安裝和設定 Microsoft Monitoring Agent](../azure-monitor/platform/log-analytics-agent.md)，讓電腦可以開始向解決方案回報。 如果您讓目前受 System Center Operations Manager 管理的機器上線，不需要新的代理程式，就會將工作區資訊輸入現有的代理程式。
 
 ## <a name="onboard-machines-in-the-workspace"></a>讓工作區中的機器上線
 

@@ -4,7 +4,7 @@ description: 本主題描述如何設定通道，從內部部署編碼器接收�
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: 30ce6556-b0ff-46d8-a15d-5f10e4c360e2
 ms.service: media-services
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246560"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262613"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -166,7 +166,7 @@ ms.locfileid: "40246560"
 
 建立通道之後，您可以取得內嵌 URL。 若要取得這些 URL，通道不一定要在 **執行** 狀態。 當您準備好開始將資料推入通道，它必須處於 **執行** 狀態。 一旦通道開始內嵌資料，您就可以透過預覽 URL 預覽您的串流。
 
-您可以透過 SSL 連線選擇內嵌的分散 MP4 (Smooth Streaming) 即時串流。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 請注意，目前 AMS 不支援使用 SSL 搭配自訂網域。  
+您可以透過 SSL 連線選擇內嵌的分散 MP4 (Smooth Streaming) 即時串流。 若要透過 SSL 擷取，請務必將擷取 URL 更新為 HTTPS。 目前 AMS 不支援使用 SSL 搭配自訂網域。  
 
 ### <a name="allowed-ip-addresses"></a>允許的 IP 位址
 您可以定義允許將視訊發行到這個通道的 IP 位址。 允許的 IP 位址可以指定為單一 IP 位址 (例如 ‘10.0.0.1’)、使用 IP 位址和 CIDR 子網路遮罩的 IP 範圍 (例如 ‘10.0.0.1/22’)，或是使用 IP 位址和小數點十進位子網路遮罩的 IP 範圍 (例如 '10.0.0.1(255.255.252.0)')。
@@ -268,8 +268,8 @@ slate 的持續時間，以秒為單位。 必須為非零的正整數值才能�
 選用。 指定包含 slate 映像之媒體服務資產的資產識別碼。 預設值為 null。 
 
 
->[!NOTE] 
->建立通道之前，具有下列限制的靜態圖像映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。 只有在即時編碼器因為廣告中斷而插入靜態圖像時，或者已明確發出訊號來插入靜態圖像時，才會使用此映像。 即時編碼器也可以在發生特定的錯誤情況期間鍵入靜態圖像模式 - 例如，如果遺失輸入訊號。 目前沒有任何選項可在即時編碼器進入這類「輸入訊號遺失」狀態時使用自訂映像。 您可以在[這裡](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel)投此功能一票。
+> [!NOTE] 
+> 建立通道之前，具有下列限制的靜態圖像映像應上傳做為專用的資產 (此資產中應該沒有其他檔案)。 只有在即時編碼器因為廣告中斷而插入靜態圖像時，或者已明確發出訊號來插入靜態圖像時，才會使用此映像。 目前沒有任何選項可在即時編碼器進入這類「輸入訊號遺失」狀態時使用自訂映像。 您可以在[這裡](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel)投此功能一票。
 
 
 * 最多 1920 x 1080 的解析度。

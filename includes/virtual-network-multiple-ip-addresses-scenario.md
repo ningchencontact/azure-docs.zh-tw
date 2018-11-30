@@ -1,3 +1,16 @@
+---
+author: genlin
+ms.service: virtual-network
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genli
+ms.openlocfilehash: 3df4108907a4e1e65a444faf1049163966b7accf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269337"
+---
 ## <a name="scenario"></a>案例
 建立具有單一 NIC 的 VM，並連接至虛擬網路。 VM 需要三個不同的「私人」IP 位址和兩個「公用」IP 位址。 IP 位址會指派給下列 IP 組態︰
 

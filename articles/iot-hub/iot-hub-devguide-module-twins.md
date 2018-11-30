@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 1b76bfded6562f61a0a9f4a870a18a1fff71bc6a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 9c82ad04b22a29f4a548b79b9b46a08d46de24ca
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309727"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284300"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>了解和使用 IoT 中樞的模組對應項
 
@@ -327,7 +327,7 @@ IoT 中樞會為模組對應項所需屬性和報告屬性中的每個 JSON 物�
 ## <a name="optimistic-concurrency"></a>開放式並行存取
 
 標籤、所需屬性和報告屬性全都支援開放式並行存取。
-依據 [RFC7232]()https://tools.ietf.org/html/rfc7232，標籤會有一個 ETag 來表示該標籤的 JSON 表示法。 您可以從解決方案後端在條件式更新作業中使用 ETag，以確保一致性。
+依據 [RFC7232](https://tools.ietf.org/html/rfc7232)，標籤會有一個 ETag 來表示該標籤的 JSON 表示法。 您可以從解決方案後端在條件式更新作業中使用 ETag，以確保一致性。
 
 模組對應項所需屬性和報告屬性沒有 ETag，但是有一定會遞增的 `$version` 值。 類似於 ETag，更新端可以使用版本強制達到更新的一致性。 例如報告屬性的模組應用程式，或是所需屬性的解決方案後端。
 

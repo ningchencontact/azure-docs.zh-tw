@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: victorh
-ms.openlocfilehash: 44f9400a1ecebd3c204ec0b891c5d7fe01bdfd25
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 3d66d825306c5183bdd8d8e611d98904eef2022a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51628104"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440033"
 ---
 | 資源 | 預設限制 | 附註 |
 | --- | --- | --- |
@@ -26,7 +26,7 @@ ms.locfileid: "51628104"
 | 驗證憑證 |40 | |
 | 要求逾時下限 |1 秒 | |
 | 要求逾時上限 |24 小時 | |
-| 站台數目 |20 |每個 HTTP 接聽程式 1 個 |
+| 站台數目 |40 |每個 HTTP 接聽程式 1 個 |
 | 每個接聽程式的 URL 對應 |1 | |
 | 每個 URL 對應的路徑型規則數上限|100|
 | 重新導向組態 |40| |

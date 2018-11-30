@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 6e099d0cdf659aa6ed2ccbef1381021ae55c72c2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d4d53d2f365e06c58dcbbb70ea168128c364fbfd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261837"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165215"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "51261837"
 
 **關於 Azure 部署模型**
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>組態必要條件
 

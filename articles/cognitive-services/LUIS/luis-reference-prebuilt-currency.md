@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 89350ad6a49ceef8169d1693dafdedf702992504
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6346ce4e3c9e51852a9a98904b797b6eb64970e4
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033884"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334001"
 ---
 # <a name="currency-entity"></a>Currency 實體
 預先建置的 currency 實體可偵測許多面額與國家的貨幣，無論 LUIS 應用程式文化特色為何。 因為此實體已經定型，所以您不需要將包含貨幣的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 currency 實體。 

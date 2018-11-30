@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 01f213f0a02913c2d0b632542160b25c97fec989
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 290e68e8367570bee3497a039f98d140a8d3ffe1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713369"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423621"
 ---
 # <a name="problem-adding-a-non-gallery-application"></a>新增不在資源庫內的應用程式時遇到問題
 
@@ -121,12 +121,12 @@ ms.locfileid: "44713369"
 
 -   **詳細資料** - 作業所產生之結果的詳細描述
 
-   *  範例 – **內部 url 'http://bing.com/' 無效，因為已在使用中**
+   *  範例 – **內部 url 'https://bing.com/' 無效，因為已在使用中**
 
 -   **複製錯誤** – 按一下 [複製錯誤] 文字方塊右邊的**複製圖示**，以複製所有通知詳細資料來分享給支援工程師或產品群組 
 -   工程師
 
-   *  範例 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'http://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'http://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
+   *  範例 ```{"errorCode":"InternalUrl\_Duplicate","localizedErrorDetails":{"errorDetail":"Internal url 'https://google.com/' is invalid since it is already in use"},"operationResults":\[{"objectId":null,"displayName":null,"status":0,"details":"Internal url 'https://bing.com/' is invalid since it is already in use"}\],"timeStampUtc":"2017-03-23T19:50:26.465743Z","clientRequestId":"302fd775-3329-4670-a9f3-bea37004f0bb","internalTransactionId":"ea5b5475-03b9-4f08-8e95-bbb11289ab65","upn":"tperkins@f128.info","tenantId":"7918d4b5-0442-4a97-be2d-36f9f9962ece","userObjectId":"17f84be4-51f8-483a-b533-383791227a99"}```
 
 
 

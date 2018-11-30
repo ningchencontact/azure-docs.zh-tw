@@ -17,18 +17,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466711"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424947"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>操作說明：針對 Azure AD 中的企業應用程式，自訂 SAML 權杖中發出的宣告
 
 現在 Azure Active Directory (Azure AD) 已支援大部分企業應用程式的單一登入，包括 Azure AD 資源庫中預先整合的應用程式，以及自訂應用程式。 當使用者利用 SAML 2.0 通訊協定來透過 Azure AD 向應用程式驗證時，Azure AD 會將權杖傳送給應用程式 (透過 HTTP POST)。 然後，應用程式會驗證並使用權杖將使用者登入，而不會提示輸入使用者名稱和密碼。 這些 SAML 權杖包含關於使用者的資訊片段 (稱為「宣告」)。
 
-*宣告*是身分識別提供者核發權杖給使用者時，所提供的權杖內部使用者相關資訊。 在 [SAML 權杖](http://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
+*宣告*是身分識別提供者核發權杖給使用者時，所提供的權杖內部使用者相關資訊。 在 [SAML 權杖](https://en.wikipedia.org/wiki/SAML_2.0)中，此資料通常包含在 SAML 屬性陳述式中。 使用者的唯一識別碼通常在 SAML Subject 中表示，也稱為「名稱識別碼」。
 
 根據預設，Azure AD 會將 SAML 權杖核發給內含 NameIdentifier 宣告的應用程式，並附上 Azure AD 中的使用者名稱 (也稱為使用者主體名稱) 的值。 此值可唯一識別使用者。 SAML 權杖也包含額外的宣告，其包含使用者的電子郵件地址、名字和姓氏。
 

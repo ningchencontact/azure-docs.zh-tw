@@ -1,26 +1,22 @@
 ---
 title: 使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料 | Microsoft Docs
 description: 使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料。
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 2eda0490392e26d386faa4c1e379b50738a56cbb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258420"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443350"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>使用 SSIS 連接器從 Azure Blob 儲存體來回移動資料
 [SQL Server Integration Services Feature Pack for Azure](https://msdn.microsoft.com/library/mt146770.aspx) 中的元件可供連線至 Azure、在 Azure 與內部部署資源來源之間傳輸資料，以及處理儲存在 Azure 中的資料。

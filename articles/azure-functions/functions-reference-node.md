@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 506bbcf31833b20a6ee06e85fbad166d1f0b80e2
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 44a2cb196e1a89b0abe229f478c0b76b146aa268
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567140"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620620"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 開發人員指南
 
@@ -70,8 +70,6 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 ```
 
 ### <a name="exporting-an-async-function"></a>匯出非同步函式
-使用 JavaScript [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 宣告或傳回 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) (不適用於 Functions v1.x) 時，您不需要明確呼叫 [`context.done`](#contextdone-method) 回呼以表明函式已完成。 在匯出的非同步函式/Promise 完成時，函式便會完成。
-
 在 2.x 版的 Functions 執行階段中使用 [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) 宣告或純 JavaScript [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) 時，您不需要明確呼叫 [`context.done`](#contextdone-method) 回呼以表明函式已完成。 在匯出的非同步函式/Promise 完成時，函式便會完成。 針對以 1.x 版的執行階段為目標的函式，您仍須在程式碼執行完成時呼叫 [`context.done`](#contextdone-method)。
 
 下列範例說明的簡單函式會記錄其已遭到觸發，並立即完成執行。

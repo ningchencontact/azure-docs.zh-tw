@@ -2,25 +2,21 @@
 title: 在 Azure 上執行 Team Data Science Process 的逐步解說 | Microsoft Docs
 description: 如何將雲端和內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: deguhath
-ms.openlocfilehash: 86024316344ccbce87f48adbc0598c94e61c5e6d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253562"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495895"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>執行 Team Data Science Process 的逐步解說
 
@@ -32,7 +28,6 @@ ms.locfileid: "51253562"
 以下是這些逐步解說範例在其個別平台上所提供的簡短描述：
 
 
-- [Azure Machine Learning Workbench](walkthroughs-aml-with-tdsp.md) 這些逐步解說教學課程和範例示範如何使用 Azure Machine Learning Workbench 來建立 Team Data Science 結構化專案，以進行自然語言處理及分類。
 - [使用 PySpark 和 Scala 的 HDInsight Spark 逐步解說](walkthroughs-spark.md)：這些逐步解說會在 Azure Spark 叢集上使用 PySpark 和 Scala 來執行預測性分析。
 - [使用 Hive 的 HDInsight Hadoop 逐步解說](walkthroughs-hdinsight-hadoop.md)：這些逐步解說會使用 Hive 搭配 HDInsight Hadoop 叢集來執行預測性分析。
 - [使用 U-SQL 的 Azure Data Lake 逐步解說](walkthroughs-azure-data-lake.md)：這些逐步解說會使用 U-SQL 搭配 Azure Data Lake 來執行預測性分析。

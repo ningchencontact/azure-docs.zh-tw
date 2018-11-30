@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 4a2cb6fa310cc56b4c5ccb1cb625b88431f70783
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6b6dd80f649b0c92aacdb5711e88d7710db5f51b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633847"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424437"
 ---
 # <a name="azure-active-directory-code-samples-v20-endpoint"></a>Azure Active Directory 程式碼範例 (v2.0 端點)
 
@@ -73,7 +73,7 @@ ms.locfileid: "51633847"
 
 用戶端應用程式 | 平台 | 流程/授與 | 呼叫 Microsoft Graph | 呼叫 ASP.NET Core 2.0 Web API
 ------------------ | -------- |  ----------| ---------- | -------------------------
-桌上型 (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 互動式 | [dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) (英文)
+桌上型 (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | 互動式 | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) (英文) | [dotnet-native-aspnetcore-v2](https://GitHub.com/azure-samples/active-directory-dotnet-native-aspnetcore-v2) (英文)
 桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NET.png) | 整合式 Windows 驗證 |[dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2)
 桌上型 (主控台)   | ![.NET/C# (桌上型)](media/sample-v2-code/logo_NETcore.png) | 使用者名稱/密碼 |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)
 行動裝置 (UWP)   | ![.NET/C# (UWP)](media/sample-v2-code/logo_windows.png) | 互動式 |[dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) (英文) |

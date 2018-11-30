@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239829"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705850"
 ---
 # <a name="what-is-the-myapps-portal"></a>什麼是 MyApps 入口網站？
 
@@ -83,7 +83,7 @@ MyApps 入口網站延伸模組目前適用於：
 >
 您也可以直接從下列網站下載延伸模組：
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 如果您是使用 `https://myapps.microsoft.com` 以外的 My Apps URL，請執行下列作業來設定您的預設 URL：

@@ -15,12 +15,12 @@ ms.topic: conceptal
 ms.date: 10/02/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2d3d48db5a1eb329d854d1c062d23dfaf63ad9fa
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cef080707d6745459f27450c2c66f4aa2ea50ec7
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963127"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51710676"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 建立 Log Analytics 工作區
 
@@ -131,4 +131,4 @@ Azure CLI 2.0 用於從命令列或在指令碼中建立和管理 Azure 資源�
 * 若要從具有 Azure 診斷或 Azure 儲存體的 Azure 資源啟用資料收集，請參閱[收集 Azure 服務的記錄和計量以便使用於 Log Analytics](log-analytics-azure-storage.md)。  
 * [新增 System Center Operations Manager 作為資料來源](log-analytics-om-agents.md)，以從會報告 Operations Manager 管理群組的代理程式收集資料，並且將其儲存在 Log Analytics 工作區中。  
 * 連線 [Configuration Manager](log-analytics-sccm.md) 以匯入階層中集合成員的電腦。  
-* 檢閱可用的[管理解決方案](../monitoring/monitoring-solutions.md)，以及如何從您的工作區新增或移除解決方案。
+* 檢閱可用的[管理解決方案](../azure-monitor/insights/solutions.md)，以及如何從您的工作區新增或移除解決方案。

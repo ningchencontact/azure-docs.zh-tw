@@ -2,25 +2,21 @@
 title: Azure Machine Learning 自動化資料管線小密技 | Microsoft Docs
 description: 可列印的小祕技，可向您示範如何對您的 Azure Machine Learning Web 服務設定自動資料管線，無論您的資料是在內部部署、串流、Azure 中或協力廠商雲端服務中。
 services: machine-learning
-documentationcenter: ''
-author: garyericson
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 22674d6b-4491-4805-a3ac-d423611177bb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.author: garye
-ms.openlocfilehash: 32c7fca1b56e5426bc422b816279dd0919599f0f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=garyericson, ms.author=garye)
+ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243993"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444421"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>適用於 Azure Machine Learning 預測之自動資料管線的小祕技
 「Microsoft Azure Machine Learning 自動資料管線小祕技」  可協助您瀏覽用於傳送資料至可由預測性分析模型評分之機器學習 Web 服務的技術。

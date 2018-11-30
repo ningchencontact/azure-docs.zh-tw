@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: ce2c0ddcce3813990bf819477f7db425d70e3595
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09ed72c73acf16f944c3b1101aff5ea04acb624d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34612294"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308166"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Azure Cosmos DB 的效能和規模測試
 
@@ -95,7 +95,7 @@ ms.locfileid: "34612294"
 
 **步驟 4 (如有必要)：** 從工具回報的輸送量 (RU/s) 應該等於或大於佈建的集合或一組集合的輸送量。 如果情況並非如此，向上微調 DegreeOfParallelism 可協助您達到該限制。 如果來自用戶端應用程式的輸送量達持平狀態，請在其他用戶端電腦上啟動多個應用程式執行個體。 如果您需要協助進行這個步驟，請傳送電子郵件至 askcosmosdb@microsoft.com 或在 [Azure 入口網站](https://portal.azure.com)提出支援票證。
 
-讓應用程式處於執行狀態之後，您便可以嘗試不同的[索引編製原則](indexing-policies.md)和[一致性層級](consistency-levels.md)，以了解它們對輸送量和延遲的影響。 您也可以檢閱原始程式碼，然後對自己的測試套件或實際執行應用程式實作類似的組態。
+讓應用程式處於執行狀態之後，您便可以嘗試不同的[索引編製原則](index-policy.md)和[一致性層級](consistency-levels.md)，以了解它們對輸送量和延遲的影響。 您也可以檢閱原始程式碼，然後對自己的測試套件或實際執行應用程式實作類似的組態。
 
 ## <a name="next-steps"></a>後續步驟
 在這篇文章中，我們探討了如何使用 .NET 主控台應用程式來執行 Azure Cosmos DB 的相關效能和規模測試。 如需詳細資訊，請參閱下列文章：

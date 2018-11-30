@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: c37492a42322ffc386751c4c63b981c9d93a72f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633371"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261713"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>選擇適合您解決方案的 IoT 中樞層
 
@@ -83,7 +83,7 @@ IoT 中樞的基本和標準層之間的支援功能差異，代表某些 API �
 | [傳送裝置事件](https://docs.microsoft.com/rest/api/iothub/device/senddeviceevent) | 是 | 是 |
 | 傳送模組事件 | 是 | 是 |
 | [更新檔案上傳狀態](https://docs.microsoft.com/rest/api/iothub/device/updatefileuploadstatus) | 是 | 是 |
-| [大量裝置作業](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/bulkoperation) | 是，IoT Edge 功能除外 | 是 | 
+| [大量裝置作業](/rest/api/iot-dps/runbulkenrollmentoperation/runbulkenrollmentoperation) | 是，IoT Edge 功能除外 | 是 | 
 | [清除命令佇列](https://docs.microsoft.com/rest/api/iothub/service/purgecommandqueue) |   | 是 |
 | [取得裝置對應項](https://docs.microsoft.com/rest/api/iothub/service/gettwin) |   | 是 |
 | 取得模組對應項 |   | 是 |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 264e7f3d885535304470c833e228660ba51fefc6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306387"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497739"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health 常見問題集
 本文會回答有關 Azure Active Directory (Azure AD) Connect Health 的常見問題 (FAQ)。 這些常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
@@ -62,7 +62,7 @@ ms.locfileid: "46306387"
 
 **問：Azure AD Connect Health 是否支援 Azure 德國雲端？**
 
-德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](how-to-connect-health-sync.md#object-level-synchronization-error-report-preview)除外。 
+德國雲端不支援 Azure AD Connect Health，但[同步處理錯誤報告功能](how-to-connect-health-sync.md#object-level-synchronization-error-report)除外。 
 
 | 角色 | 特性 | 德國雲端中支援 |
 | ------ | --------------- | --- |
@@ -137,7 +137,7 @@ Health 代理程式會因為下列可能原因而無法註冊：
 
 **問︰我收到有關「Health 服務資料不是最新狀態」的警示。我該如何進行解決這個問題？**
 
-當 Azure AD Connect Health 在過去 2 小時沒有從伺服器收到所有資料點，就會產生此警示。 [閱讀更多資訊](how-to-connect-health-data-freshness.md)。
+當 Azure AD Connect Health 在過去 2 小時沒有從伺服器收到所有資料點，就會產生此警示。 [閱讀更多](how-to-connect-health-data-freshness.md)。
 
 ## <a name="operations-questions"></a>操作問題
 **問︰是否需要在 Web 應用程式 Proxy 伺服器上啟用稽核？**

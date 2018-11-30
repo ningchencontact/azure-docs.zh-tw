@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283507"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423496"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>教學課程 6：將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
@@ -97,7 +97,7 @@ ms.locfileid: "51283507"
 ]
 ```
 
-1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. 在 [意圖] 頁面上，選取 [MoveEmployee] 意圖。 
 

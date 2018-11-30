@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 97350c90ab4ce9c3623a293c3a6637edc65ced08
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345465"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706053"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 和 Azure Machine Learning：建立及部署可交互作用的 AI 模型
 
-[開放神經網路交換](http://onnx.ai) (ONNX) 格式是代表機器學習模型的開放標準。 ONNX 受到[合作夥伴社群](http://onnx.ai/supported-tools)的支援，例如 Microsoft 建立了相容的架構和工具。 Microsoft 致力於開發開放且可交互作用的 AI，讓資料科學家和開發人員可以：
+[開放神經網路交換](https://onnx.ai) (ONNX) 格式是代表機器學習模型的開放標準。 ONNX 受到[合作夥伴社群](https://onnx.ai/supported-tools)的支援，例如 Microsoft 建立了相容的架構和工具。 Microsoft 致力於開發開放且可交互作用的 AI，讓資料科學家和開發人員可以：
 
 + 使用自己所選擇的架構來建立模型並加以定型
 + 以最少的整合工作在各個平台之間部署模型
@@ -207,6 +207,6 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 ## <a name="more-info"></a>其他資訊
 
 深入了解 ONNX 或參與專案：
-+ [ONNX 專案網站](http://onnx.ai)
++ [ONNX 專案網站](https://onnx.ai)
 
 + [GitHub 上的 ONNX 程式碼](https://github.com/onnx/onnx)

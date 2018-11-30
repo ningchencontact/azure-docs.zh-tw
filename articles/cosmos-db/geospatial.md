@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961903"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284484"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 
@@ -151,7 +151,7 @@ await client.CreateDocumentAsync(
 既然我們已經探討過如何插入地理空間資料，現在就來看看如何透過 SQL 和 LINQ 使用 Azure Cosmos DB 查詢此資料。
 
 ### <a name="spatial-sql-built-in-functions"></a>空間 SQL 內建函數
-Azure Cosmos DB 支援下列開放地理空間協會 (OGC) 內建的地理空間查詢函式。 如需 SQL 語言中一組完整內建函式的詳細資訊，請參閱[查詢 Azure Cosmos DB](sql-api-sql-query.md)。
+Azure Cosmos DB 支援下列開放地理空間協會 (OGC) 內建的地理空間查詢函式。 如需 SQL 語言中一組完整內建函式的詳細資訊，請參閱[查詢 Azure Cosmos DB](how-to-sql-query.md)。
 
 <table>
 <tr>
@@ -392,6 +392,6 @@ SQL .NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提供者�
 
 * 使用 [GitHub 上的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)來開始轉寫程式碼
 * 在 [Azure Cosmos DB 查詢園地 (英文)](http://www.documentdb.com/sql/demo#geospatial) 中瞭解地理空間查詢
-* 深入了解 [Azure Cosmos DB 查詢](sql-api-sql-query.md)
-* 深入了解 [Azure Cosmos DB 編製索引原則](indexing-policies.md)
+* 深入了解 [Azure Cosmos DB 查詢](how-to-sql-query.md)
+* 深入了解 [Azure Cosmos DB 編製索引原則](index-policy.md)
 

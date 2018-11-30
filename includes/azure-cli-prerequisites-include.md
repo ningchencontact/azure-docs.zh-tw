@@ -1,3 +1,16 @@
+---
+author: genlin
+ms.service: virtual-network
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: genli
+ms.openlocfilehash: 147eb5321853706b59fac7d3d49a761a251987fa
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279508"
+---
 ## <a name="prerequisite-install-the-azure-cli"></a>必要條件：安裝 Azure CLI
 若要執行本文的步驟，您需要[安裝適用於 Mac、Linux 和 Windows 的 Azure 命令列介面 (Azure CLI)](../articles/cli-install-nodejs.md)，而且需要[登入 Azure](/cli/azure/authenticate-azure-cli)。 
 

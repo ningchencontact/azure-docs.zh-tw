@@ -1,18 +1,18 @@
 ---
 title: 關於與 Azure Site Recovery 搭配使用來進行 VMware VM 和實體伺服器災害復原的行動服務 | Microsoft Docs
 description: 了解與 Azure Site Recovery 服務搭配使用來進行將 VMware VM 和實體伺服器復原到 Azure 之災害復原的行動服務代理程式。
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2018
-ms.author: raynew
-ms.openlocfilehash: a3e695e8c238dd4bc333d5cd477e70b93231399b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: efbbe048456c969f0045a0588bc5b64d1138ee15
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565015"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976956"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 

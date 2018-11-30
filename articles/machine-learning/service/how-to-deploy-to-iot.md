@@ -10,12 +10,12 @@ author: shivanipatel
 manager: cgronlun
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d706cf71761496fd740c729224ee4331eeb2911
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: dc6119bdca850a71064795a80f3087c15189a2e5
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091618"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709996"
 ---
 # <a name="prepare-to-deploy-models-on-iot-edge"></a>準備在 IoT Edge 上部署模型
 
@@ -27,7 +27,7 @@ Azure IoT Edge 裝置是以 Linux 或 Windows 為基礎並執行 Azure IoT Edge 
 
 ## <a name="prerequisites"></a>必要條件
 
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree)。
 
 * Azure Machine Learning 服務工作區。 若要建立工作區，請使用[開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件中的步驟。
 

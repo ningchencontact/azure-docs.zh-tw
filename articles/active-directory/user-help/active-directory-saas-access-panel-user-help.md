@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4229ca7ff96a9806ac82cf9452de496d858f6b4
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306405"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705679"
 ---
 # <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>針對存取和使用 MyApps 入口網站的問題進行疑難排解
 
@@ -57,7 +57,7 @@ MyApps 入口網站需要支援 JavaScript 且已啟用 CSS 的瀏覽器。 如�
 您也可以直接從下列網站下載擴充功能：
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 如果您已安裝擴充功能，但仍遇到問題，請嘗試下列各項：

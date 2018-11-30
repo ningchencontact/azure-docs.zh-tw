@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 33a5b6e894c9c2b74f4c85ee96d59c0313a4bbe2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391873"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446971"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 來授權開發人員帳戶
 
@@ -31,6 +31,8 @@ ms.locfileid: "44391873"
 
 - 完成下列快速入門：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 - 匯入並發佈 Azure API 管理執行個體。 如需詳細資訊，請參閱[匯入和發佈](import-and-publish.md)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>使用 Azure AD 來授權開發人員帳戶
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9dead2c8801340a736b6f67010a85f3dd34fbe85
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298942"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820251"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>持續部署至 Azure App Service
 本文將示範如何設定 [Azure App Service](app-service-web-overview.md) 的持續部署。 App Service 可從 BitBucket、GitHub 及 [Azure DevOps Services](https://www.visualstudio.com/team-services/) 進行持續部署，方法是從這些服務之一的現有存放庫中提取最新更新。
@@ -152,5 +152,5 @@ ms.locfileid: "44298942"
 [Git 文件]: http://git-scm.com/documentation
 
 [建立儲存機制 (GitHub)]: https://help.github.com/articles/create-a-repo
-[建立儲存機制 (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[建立儲存機制 (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
 [開始使用 Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

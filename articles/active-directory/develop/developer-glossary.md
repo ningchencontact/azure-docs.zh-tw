@@ -17,12 +17,12 @@ ms.date: 11/16/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: dc3bbab2242321ae736f3f2cefb1eed5e96e834e
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7ce11b3e54a8770a2b3d53e335afc57f52d3d14e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288725"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425304"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Azure Active Directory 開發人員詞彙
 
@@ -173,7 +173,7 @@ Microsoft 身分識別平台是 Azure Active Directory (Azure AD) 身分識別�
 
 ## <a name="security-token"></a>安全性權杖
 
-包含 OAuth2 權杖或 SAML 2.0 判斷提示等宣告的已簽署文件。 對於 OAuth2 [授權授與](#authorization-grant)而言，[存取權杖](#access-token) (OAuth2) 和[識別碼權杖](http://openid.net/specs/openid-connect-core-1_0.html#IDToken)皆為安全性權杖類型，而且這兩種類型都會實作為 [JSON Web 權杖 (JWT)][JWT]。
+包含 OAuth2 權杖或 SAML 2.0 判斷提示等宣告的已簽署文件。 對於 OAuth2 [授權授與](#authorization-grant)而言，[存取權杖](#access-token) (OAuth2) 和[識別碼權杖](https://openid.net/specs/openid-connect-core-1_0.html#IDToken)皆為安全性權杖類型，而且這兩種類型都會實作為 [JSON Web 權杖 (JWT)][JWT]。
 
 ## <a name="service-principal-object"></a>服務主體物件
 
@@ -251,6 +251,6 @@ Azure AD 租用戶會在註冊期間建立/與 Azure 和 Office 365 訂用帳戶
 [OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
-[OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
-[OpenIDConnect-AuthZ-Endpoint]: http://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
-[OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
+[OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html
+[OpenIDConnect-AuthZ-Endpoint]: https://openid.net/specs/openid-connect-core-1_0.html#AuthorizationEndpoint
+[OpenIDConnect-ID-Token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

@@ -2,25 +2,21 @@
 title: Team Data Science Process 生命週期的模型化階段 - Azure | Microsoft Docs
 description: 資料科學專案模型化階段的目標、工作和交付項目
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 4043ae4cf8ab7d9716db834fed0019456f2a52d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227530"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442400"
 ---
 # <a name="modeling"></a>模型化
 
@@ -94,4 +90,4 @@ ms.locfileid: "51227530"
 
 我們也會提供完整的端對端逐步解說，說明特定案例之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)一文提供有連結和縮圖描述的案例清單。 這些逐步解說示範如何將雲端、內部部署工具與服務組合成工作流程或管線，以建立智慧型應用程式。 
 
-如需如何在使用 Azure Machine Learning Studio 的 TDSP 中執行步驟的範例，請參閱[配合使用 Team Data Science Process 與 Azure Machine Learning](https://aka.ms/datascienceprocess)。 
+如需如何在使用 Azure Machine Learning Studio 的 TDSP 中執行步驟的範例，請參閱[配合使用 Team Data Science Process 與 Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。 

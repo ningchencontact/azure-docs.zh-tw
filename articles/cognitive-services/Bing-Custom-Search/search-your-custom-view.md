@@ -3,19 +3,19 @@ title: 搜尋自訂檢視 - Bing 自訂搜尋
 titlesuffix: Azure Cognitive Services
 description: 描述如何搜尋網頁的自訂檢視。
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 15c5b3c58c4f3617111707ed82d031b67b6ad4c1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 58472d535be41fdd3e1139756f867f683509d9a3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465130"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161730"
 ---
 # <a name="call-your-custom-search"></a>呼叫您的自訂搜尋
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/04/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 83f648b67ae4f8e6fb964d82c245f1c7ba475542
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: e7cf7518a20f1901e3347350f090c9a8588a7a7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568534"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422910"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-web-role-on-azure"></a>如何在 Azure 上的 Web 角色中使用 Twilio 撥打電話
 本指南將說明如何從 Azure 代管的網頁上使用 Twilio 撥打電話。 產生的應用程式會提示使用者利用指定的號碼和訊息撥打電話，如下列螢幕擷取畫面所示。
@@ -29,7 +29,7 @@ ms.locfileid: "51568534"
 ## <a name="twilio-prereqs"></a>必要條件
 您必須執行下列動作才能使用本主題中的程式碼：
 
-1. 從 [Twilio 主控台][twilio_console]取得 Twilio 帳戶和驗證權杖。 若要開始使用 Twilio，請在 [https://www.twilio.com/try-twilio][try_twilio] 上註冊。 您可以在 [http://www.twilio.com/pricing][twilio_pricing] 上評估價格。 如需 Twilio 所提供的 API 相關資訊，請參閱 [http://www.twilio.com/voice/api][twilio_api]。
+1. 從 [Twilio 主控台][twilio_console]取得 Twilio 帳戶和驗證權杖。 若要開始使用 Twilio，請在 [https://www.twilio.com/try-twilio][try_twilio] 上註冊。 您可以在 [https://www.twilio.com/pricing][twilio_pricing] 上評估價格。 如需 Twilio 所提供的 API 相關資訊，請參閱 [https://www.twilio.com/voice/api][twilio_api]。
 2. 將「Twilio .NET 程式庫」新增至您的 Web 角色。 請參閱本主題稍後的「將 Twilio 程式庫新增至 Web 角色專案」。
 
 您應知悉如何[在 Azure 上建立基本 Web 角色][azure_webroles_get_started]。
@@ -126,7 +126,7 @@ namespace WebRole1
                 // Create a URL using the Twilio message and the user-entered
                 // text. You must replace spaces in the user's text with '%20'
                 // to make the text suitable for a URL.
-                var url = $"http://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
+                var url = $"https://twimlets.com/message?Message%5B0%5D={myMessage.Replace(" ", "%20")}";
                 var twimlUri = new Uri(url);
 
                 // Display the endpoint, API version, and the URL for the message.
@@ -148,7 +148,7 @@ namespace WebRole1
 
 ![Azure call response using Twilio and ASP.NET][twilio_dotnet_basic_form_output]
 
-如需 TwiML 的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]。 如需 &lt;Say&gt; 和其他 Twilio 動詞的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
+如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]。 如需 &lt;Say&gt; 和其他 Twilio 動詞的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。
 
 ## <a id="nextsteps"></a>接續步驟
 此程式可說明在 Azure 上的 ASP.NET Web 角色中使用 Twilio 的基本功能。 在部署至生產環境中的 Azure 之前，您可以新增更多錯誤處理或其他功能。 例如︰
@@ -162,15 +162,15 @@ namespace WebRole1
 * [如何透過 Twilio 來使用 Azure 的語音和簡訊功能](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_console]: https://www.twilio.com/console
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/voice/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/voice/api
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified
 
 [twilio_dotnet_basic_form]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form.png
 [twilio_dotnet_basic_form_output]: ./media/partner-twilio-cloud-services-dotnet-phone-call-web-role/WA_twilio_dotnet_basic_form_output.png
 
-[twiml]: http://www.twilio.com/docs/api/twiml
+[twiml]: https://www.twilio.com/docs/api/twiml
 
 
 
@@ -181,10 +181,10 @@ namespace WebRole1
 [howto_sql_azure_dotnet]: https://www.windowsazure.com/develop/net/how-to-guides/sql-database/
 
 
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 
 
-[azure_runtime_ref_dotnet]: http://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
+[azure_runtime_ref_dotnet]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.serviceruntime.aspx
 [azure_webroles_get_started]: https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-get-started

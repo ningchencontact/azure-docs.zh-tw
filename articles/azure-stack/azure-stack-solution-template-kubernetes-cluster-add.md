@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5a3d63637d7b680a012057b92546ccde87ac73de
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233356"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332998"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
@@ -70,7 +70,7 @@ ms.locfileid: "50233356"
 
 1. 選取 [+ 從 Azure 加入]。
 
-1. 輸入 `UbuntuServer`。
+1. 輸入 `UbuntuServer` 。
 
 1. 選取伺服器的最新版本。 檢查完整版本，並確定您已有最新的版本：
     - **發行者**：Canonical
@@ -90,7 +90,7 @@ ms.locfileid: "50233356"
 
 1. 選取 [+ 從 Azure 加入]。
 
-1. 輸入 `Custom Script for Linux`。
+1. 輸入 `Custom Script for Linux` 。
 
 1. 選取具有下列設定檔的指令碼：
     - **供應項目**：Custom Script for Linux 2.0
@@ -111,7 +111,7 @@ ms.locfileid: "50233356"
 
 1. 選取 [+ 從 Azure 加入]。
 
-1. 輸入 `Kubernetes`。
+1. 輸入 `Kubernetes` 。
 
 1. 選取 `Kubernetes Cluster`。
 
@@ -136,7 +136,7 @@ ms.locfileid: "50233356"
     Get-AzsGalleryItem | Select Name
     ```
     
-3. 請記下目前項目的名稱，例如 `Microsoft.AzureStackKubernetesCluster.0.2.0`
+3. 請記下目前項目的名稱，例如 `Microsoft.AzureStackKubernetesCluster.0.3.0`
 
 4. 使用以下 PowerShell Cmdlet 來移除項目：
 

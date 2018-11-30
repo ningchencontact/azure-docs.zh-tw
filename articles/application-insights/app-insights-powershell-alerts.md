@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 678a31b8c07b21e4bb2c43b8e8bc286d66ee4bab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233740"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309224"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 您可以在 [Application Insights](app-insights-overview.md) 中自動設定[警示](app-insights-alerts.md)的組態。
@@ -43,15 +43,15 @@ ms.locfileid: "51233740"
 
 ```PowerShell
 
-    Add-AzureAccount
+    Add-AzureRmAccount
 ```
 
 
 ## <a name="get-alerts"></a>取得警示
-    Get-AzureAlertRmRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
+    Get-AzureRmAlertRule -ResourceGroup "Fabrikam" [-Name "My rule"] [-DetailedOutput]
 
 ## <a name="add-alert"></a>Add alert
-    Add-AlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
+    Add-AzureRmMetricAlertRule  -Name "{ALERT NAME}" -Description "{TEXT}" `
      -ResourceGroup "{GROUP NAME}" `
      -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
      -MetricName "{METRIC NAME}" `
@@ -70,7 +70,7 @@ ms.locfileid: "51233740"
 
 GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 
-    Add-AlertRule -Name "slow responses" `
+    Add-AzureRmMetricAlertRule -Name "slow responses" `
      -Description "email me if the server responds slowly" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
@@ -84,7 +84,7 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 ## <a name="example-2"></a>範例 2
 我已有應用程式，並在其中使用 [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) 來報告名為 "salesPerHour" 的度量。 若 salesPerHour 超過 24 小時皆低於平均值 100，則傳送電子郵件給我的同事。
 
-    Add-AlertRule -Name "poor sales" `
+    Add-AzureRmMetricAlertRule -Name "poor sales" `
      -Description "slow sales alert" `
      -ResourceGroup "Fabrikam" `
      -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: 2aa25004fb9c2e914cd8c669095953e174686197
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: aace01fedd0c2ab538d4e11b418907f962128d0e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051758"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163113"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>在 Azure Data Factory 中執行管線活動
 執行管線活動可允許資料處理站管線叫用另一個管線。
@@ -62,9 +62,9 @@ ms.locfileid: "37051758"
 ## <a name="type-properties"></a>類型屬性
 屬性 | 說明 | 允許的值 | 必要
 -------- | ----------- | -------------- | --------
-name | 執行管線活動的名稱。 | 字串 | yes
-type | 必須設為：**ExecutePipeline**。 | 字串 | yes
-管線 | 此管線叫用之相依管線的管線參考。 管線參考物件有兩個屬性：**referenceName** 和 **type**。 referenceName 屬性指定參考管線的名稱。 type 屬性必須設為 PipelineReference。 | PipelineReference | yes
+name | 執行管線活動的名稱。 | 字串 | 是
+type | 必須設為：**ExecutePipeline**。 | 字串 | 是
+管線 | 此管線叫用之相依管線的管線參考。 管線參考物件有兩個屬性：**referenceName** 和 **type**。 referenceName 屬性指定參考管線的名稱。 type 屬性必須設為 PipelineReference。 | PipelineReference | 是
 parameters | 要傳遞至叫用之管線的參數 | 將參數名稱對應到引數值的 JSON 物件 | 否
 waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 | 預設值為 false。 | BOOLEAN | 否
 
@@ -93,7 +93,7 @@ waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 
               "value": "@pipeline().parameters.masterSourceBlobContainer",
               "type": "Expression"
             },
-            "sinkBlobCountainer": {
+            "sinkBlobContainer": {
               "value": "@pipeline().parameters.masterSinkBlobContainer",
               "type": "Expression"
             }
@@ -245,7 +245,7 @@ waitOnCompletion | 定義活動執行是否等待相依的管線執行完成。 
           "value": "@pipeline().parameters.masterSourceBlobContainer",
           "type": "Expression"
         },
-        "sinkBlobCountainer": {
+        "sinkBlobContainer": {
           "value": "@pipeline().parameters.masterSinkBlobContainer",
           "type": "Expression"
         }

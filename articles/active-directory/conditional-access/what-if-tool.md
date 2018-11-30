@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: d9bdc35e732a84920800424a260610fd6f068c94
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626085"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285028"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取假設工具？
 
@@ -51,9 +51,6 @@ ms.locfileid: "39626085"
 
 評估完成時，此工具會產生一份受影響原則的報告。
 
-
-> [!NOTE]
-> What If 工具目前不支援巢狀群組。 如果使用者位於某個群組且該群組為條件式存取原則中所使用的另一個群組成員，則 What If 工具不會向使用者正確顯示該原則的效果。 
 
 
 ## <a name="running-the-tool"></a>執行工具

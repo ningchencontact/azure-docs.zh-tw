@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: cde668fdeda7e484585a457a46fc5c25ce6ea6ae
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310533"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427534"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>如何透過 Twilio 來使用 Azure 的語音和簡訊功能
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
@@ -30,9 +30,9 @@ Twilio 正在形塑商業環境的未來，可讓開發人員將語音、VoIP �
 **Twilio 語音** 可讓應用程式撥打和接聽電話。 **Twilio 簡訊**可讓應用程式收發簡訊。 **Twilio 用戶端**可讓您從任何電話、平板電腦或瀏覽器撥打 VoIP 電話，且支援 WebRTC。
 
 ## <a id="Pricing"></a>Twilio 定價和特別供應項目
-升級 Twilio 帳戶的 Azure 客戶，可 [特別獲贈](http://www.twilio.com/azure)價值 $10 的 Twilio 點數。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 請至 [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure) 兌換 Twilio 點數來開始使用。
+升級 Twilio 帳戶的 Azure 客戶，可 [特別獲贈](https://www.twilio.com/azure)價值 $10 的 Twilio 點數。 此 Twilio 點數可用來折抵任何 Twilio 使用量 ($10 點數相當於最多傳送 1,000 則簡訊，或最多接收 1000 分鐘的撥入語音，視電話號碼所在地點或通話目的地而定)。 請至 [ahoy.twilio.com/azure](https://ahoy.twilio.com/azure) 兌換 Twilio 點數來開始使用。
 
-Twilio 是隨收隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格](http://www.twilio.com/voice/pricing)。
+Twilio 是隨收隨付的服務。 不需要設定費，隨時都可結清帳戶。 如需詳細資訊，請參閱 [Twilio 價格](https://www.twilio.com/voice/pricing)。
 
 ## <a id="Concepts"></a>概念
 Twilio API 是一套為應用程式提供語音和簡訊功能的 RESTful API。 用戶端程式庫有多種語言版本，相關清單請參閱 [Twilio API 程式庫][twilio_libraries]。
@@ -42,7 +42,7 @@ Twilio API 的兩大重點是 Twilio 動詞和 Twilio 標記語言 (TwiML)。
 ### <a id="Verbs"></a>Twilio 動詞
 API 採用 Twilio 動詞。例如，**&lt;Say&gt;** 動詞指示 Twilio 在通話中用語音傳遞訊息。
 
-以下是 Twilio 動詞清單。  如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件](http://www.twilio.com/docs/api/twiml)。
+以下是 Twilio 動詞清單。  如需了解其他動詞和功能，請參閱 [Twilio 標記語言文件](https://www.twilio.com/docs/api/twiml)。
 
 * `<Dial>`：使撥號者接通另一支電話。
 * `<Gather>`：收集電話按鍵上輸入的號碼。
@@ -98,9 +98,9 @@ Twilio 為 .NET 開發人員提供五套程式庫：
 
 本指南提供的範例使用 Twilio.API 程式庫。
 
-程式庫可以[使用 NuGet 套件管理員延伸模組安裝](http://www.twilio.com/docs/csharp/install) (適用於 Visual Studio 2010 到 2015)。  原始程式碼可裝載於 [GitHub][twilio_github_repo]，它包含一個 Wiki，提供完整的程式庫使用說明文件。
+程式庫可以[使用 NuGet 套件管理員延伸模組安裝](https://www.twilio.com/docs/csharp/install) (適用於 Visual Studio 2010 到 2015)。  原始程式碼可裝載於 [GitHub][twilio_github_repo]，它包含一個 Wiki，提供完整的程式庫使用說明文件。
 
-依預設，Microsoft Visual Studio 2010 會安裝 NuGet 1.2 版。 安裝 Twilio 程式庫需要有 NuGet 1.6 版或更新版本。 如需有關安裝或更新 NuGet 的詳細資訊，請參閱 [http://nuget.org/][nuget]。
+依預設，Microsoft Visual Studio 2010 會安裝 NuGet 1.2 版。 安裝 Twilio 程式庫需要有 NuGet 1.6 版或更新版本。 如需有關安裝或更新 NuGet 的詳細資訊，請參閱 [https://nuget.org/][nuget]。
 
 > [!NOTE]
 > 若要安裝最新版的 NuGet，您必須先使用 Visual Studio 擴充功能管理員來解除安裝已載入的版本。 若要這麼做，您必須以系統管理員身分執行 Visual Studio。 否則，[解除安裝] 按鈕會停用。
@@ -128,7 +128,7 @@ const string authToken = "your_twilio_authentication_token";
 TwilioClient.Init(accountSID, authToken);
 
 // Use the Twilio-provided site for the TwiML response.
-var url = "http://twimlets.com/message";
+var url = "https://twimlets.com/message";
 url = $"{url}?Message%5B0%5D=Hello%20World";
 
 // Set the call From, To, and URL values to use for the call.
@@ -141,7 +141,7 @@ var call = CallResource.Create(
     }
 ```
 
-如需 **CallResource.Create** 方法中傳遞之參數的詳細資訊，請參閱 [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]。
+如需 **CallResource.Create** 方法中傳遞之參數的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]。
 
 如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。 您可以改用您自己的網站來提供 TwiML 回應。 如需詳細資訊，請參閱[如何：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)。
 
@@ -173,10 +173,10 @@ catch (TwilioException ex)
 ```
 
 ## <a id="howto_provide_twiml_responses"></a>作法：從您自己的網站提供 TwiML 回應
-當您的應用程式呼叫 Twilio API 時 (例如透過 **CallResource.Create** 方法)，Twilio 會將您的要求傳送到應該傳送 TwiML 回應的 URL。 [作法：撥出電話](#howto_make_call)中的範例使用 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url] 傳回回應。
+當您的應用程式呼叫 Twilio API 時 (例如透過 **CallResource.Create** 方法)，Twilio 會將您的要求傳送到應該傳送 TwiML 回應的 URL。 [作法：撥出電話](#howto_make_call)中的範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 傳回回應。
 
 > [!NOTE]
-> 雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。 例如，按一下 [http://twimlets.com/message][twimlet_message_url] 可查看空白的 `<Response>` 元素。另一個範例中，按一下 [http://twimlets.com/message?Message%5B0%5D=Hello%20World](http://twimlets.com/message?Message%5B0%5D=Hello%20World) 可查看包含 &lt;Say&gt; 元素的 `<Response>` 元素。
+> 雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 `<Response>` 元素。另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) 可查看包含 &lt;Say&gt; 元素的 `<Response>` 元素。
 >
 
 除了依賴 Twilio 提供的 URL，您也可以建立自己的 URL 網站來傳回 HTTP 回應。 您可以使用任何可傳回 HTTP 回應的語言來建立網站。 本主題假設您從 ASP.NET 通用處理常式來裝載 URL。
@@ -273,17 +273,17 @@ var call = CallResource.Create(
 
 [howto_phonecall_dotnet]: partner-twilio-cloud-services-dotnet-phone-call-web-role.md
 
-[twimlet_message_url]: http://twimlets.com/message
+[twimlet_message_url]: https://twimlets.com/message
 
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:http://msdn.microsoft.com/library/windowsazure/ee405487.aspx
-[nuget]:http://nuget.org/
+[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_account]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified

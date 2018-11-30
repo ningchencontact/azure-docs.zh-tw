@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 dimension 實體資訊。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 3c923e7791c58255690100b04700577eb5c3f5dd
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 138cf1d2fbc050797c133afaffdb2a9820e2717f
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237259"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332913"
 ---
 # <a name="dimension-entity"></a>Dimension 實體
 預先建置的 dimension 實體可偵測各種維度類型，無論 LUIS 應用程式文化特色為何。 因為此實體已經定型，所以您不需要將包含維度的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 dimension 實體。 

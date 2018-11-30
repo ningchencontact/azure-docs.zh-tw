@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 765a10a336b908d399f46b2248aab3903c594d24
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1039cde45824491bcc82f324c05e4819e66355e0
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628540"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975987"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>使用 Azure Data Factory 從 ODBC 資料存放區移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -355,33 +355,6 @@ Data Factory 服務支援使用資料管理閘道器連接至內部部署 ODBC �
 
 ## <a name="repeatable-read-from-relational-sources"></a>從關聯式來源進行可重複的讀取
 從關聯式資料存放區複製資料時，請將可重複性謹記在心，以避免產生非預期的結果。 在 Azure Data Factory 中，您可以手動重新執行配量。 您也可以為資料集設定重試原則，使得在發生失敗時，重新執行配量。 以上述任一方式重新執行配量時，您必須確保不論將配量執行多少次，都會讀取相同的資料。 請參閱[從關聯式來源進行可重複的讀取](data-factory-repeatable-copy.md#repeatable-read-from-relational-sources)。
-
-## <a name="ge-historian-store"></a>GE Historian 存放區
-您建立 ODBC 連結服務，將 [GE Proficy Historian (現為 GE Historian)](http://www.geautomation.com/products/proficy-historian) 資料存放區連結至 Azure Data Factory，如下例所示︰
-
-```json
-{
-    "name": "HistorianLinkedService",
-    "properties":
-    {
-        "type": "OnPremisesOdbc",
-        "typeProperties":
-        {
-            "connectionString": "DSN=<name of the GE Historian store>;",
-            "gatewayName": "<gateway name>",
-            "authenticationType": "Basic",
-            "userName": "<user name>",
-            "password": "<password>"
-        }
-    }
-}
-```
-
-將「資料管理閘道」安裝在內部部署機器上，並向入口網站註冊該閘道。 安裝在內部部署電腦上的閘道會使用適用於 GE Historian 的 ODBC 驅動程式來連接到 GE Historian 資料存放區。 因此，如果尚未在閘道機器上安裝該驅動程式，請安裝它。 如需詳細資訊，請參閱 [啟用連線](#enabling-connectivity) 一節。
-
-使用 Data Factory 方案中的 GE Historian 存放區之前，請先確認閘道器可否使用下節中的指示連接到資料存放區。
-
-如需在複製作業中將 ODBC 資料存放區用做來源資料存放區的詳細概觀，請從頭閱讀本文。  
 
 ## <a name="troubleshoot-connectivity-issues"></a>疑難排解連線問題
 若要針對連線問題進行疑難排解，請使用 [資料管理閘道器組態管理員] 的 [診斷] 索引標籤。

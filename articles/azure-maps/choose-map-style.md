@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 32571d88ffc08c19f819335254b4f5dda521bdb0
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c77467efbbc1c33be5bc2aaf3251a5803beee864
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885916"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317104"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>選擇 Azure 地圖服務中的地圖樣式
 
-「Azure 地圖服務」有四種不同的地圖樣式可選擇。 如需地圖樣式的詳細資訊，請參閱 [Azure 地圖服務中支援的地圖樣式](./supported-map-styles.md)。 此文章說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
+「Azure 地圖服務」有四種不同的地圖樣式可選擇。 如需地圖樣式的詳細資訊，請參閱 [Azure 地圖服務中支援的地圖樣式](./supported-map-styles.md)。 本文說明如何使用與樣式相關的功能在地圖負載上設定樣式、設定新樣式，以及使用樣式選擇器控制項。
 
 ## <a name="set-style-on-map-load"></a>設定載入地圖時的樣式
 
@@ -42,7 +42,7 @@ ms.locfileid: "48885916"
 
 上述程式碼的第一個程式碼區塊會設定訂用帳戶金鑰及建立「地圖」物件，並將地圖樣式預先設定為 grayscale_dark。 如需如何建立地圖的相關指示，請參閱[建立地圖](./map-create.md)。
 
-第二個程式碼區塊會使用地圖集 [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) 建構函式，來建構樣式選取器。
+第二個程式碼區塊會使用地圖集 [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) 建構函式，來建構樣式選取器。
 
 樣式選取器可啟用地圖的樣式選擇功能。 第三個程式碼區塊會使用地圖的 [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) 方法，將樣式選擇器新增至地圖。 樣式選擇器位於地圖**事件接聽程式**內，以確保它會在地圖完全載入之後載入。
 

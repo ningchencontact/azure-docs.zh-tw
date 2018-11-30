@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 79bf6892c823da282c3e763921e830f986419854
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23123836"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165490"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用傳統部署模型設定強制通道
 
 強制通道可讓您透過站對站 VPN 通道，重新導向或「強制」所有網際網路繫結流量傳回內部部署位置，以便進行檢查和稽核。 這是多數企業 IT 原則的重要安全性需求。 若不使用強制通道，則 Azure 中來自 VM 的網際網路繫結流量會永遠從 Azure 網路基礎結構直接向外周遊到網際網路，而您無法選擇檢查或稽核流量。 未經授權的網際網路存取可能會導致資訊洩漏或其他類型的安全性漏洞。
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 本文會引導您為使用傳統部署模型建立的虛擬網路設定強制通道。 強制通道可使用 PowerShell 設定，而非透過入口網站。 如果想要設定 Resource Manager 部署模型的強制通道，請從下列下拉式清單選取傳統文章：
 
@@ -66,7 +66,7 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 ## <a name="configure-forced-tunneling"></a>設定強制通道
 下列程序將協助您指定虛擬網路的強制通道。 設定步驟會對應至 Vnet 網路組態檔。
 
-```
+```xml
 <VirtualNetworkSite name="MultiTier-VNet" Location="North Europe">
      <AddressSpace>
       <AddressPrefix>10.1.0.0/16</AddressPrefix>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 8506238e41c5d9dac8d76d729d4919b30a0528b9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a0f1313f8b22aba0a153563bd804435c3ef53f2
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23124346"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52159860"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>與 DMZ 搭配使用的範例應用程式
 [返回 [安全性界限最佳作法] 頁面][HOME]
@@ -132,8 +132,8 @@ New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     $MainPage | Out-File -FilePath "C:\inetpub\wwwroot\Home.aspx" -Encoding ascii
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
-# Set App Pool to Clasic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+# Set App Pool to Classic Pipeline to remote file access will work easier
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 

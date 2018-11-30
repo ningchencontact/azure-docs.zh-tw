@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: c0e502c1627ebe9d63ca43cb46b982bb0639f3d7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42144204"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444714"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>如何在 Azure API 管理中使用 OAuth 2.0 授權開發人員帳戶
 
@@ -30,6 +30,8 @@ ms.locfileid: "42144204"
 
 > [!NOTE]
 > 如需使用 Azure Active Directory 設定 OAuth 2.0 的詳細資訊，請參閱 [WebApp-GraphAPI-DotNet][WebApp-GraphAPI-DotNet] (英文) 範例。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="step1"> </a>在 API 管理中設定 OAuth 2.0 授權伺服器
 
@@ -63,9 +65,9 @@ ms.locfileid: "42144204"
 
     ![OAuth 2.0 新伺服器](./media/api-management-howto-oauth2/oauth-03.png)
 
-    對於 Azure Active Directory OAuth 2.0 伺服器，[權杖端點 URL] 將具有以下格式；其中 `<APPID>` 的格式為 `yourapp.onmicrosoft.com`。
+    對於 Azure Active Directory OAuth 2.0 伺服器，[權杖端點 URL] 將具有以下格式；其中 `<TenantID>` 的格式為 `yourapp.onmicrosoft.com`。
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     [用戶端驗證方法] 的預設設定是 [基本]，而 [存取權杖傳送方法] 則是 [授權標頭]。 這些值和 [預設範圍] 均是在此表單區段設定的。
 

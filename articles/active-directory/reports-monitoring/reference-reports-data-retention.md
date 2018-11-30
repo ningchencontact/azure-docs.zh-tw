@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 601169cc62a99438f661adc06ab166b545606edb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: abd64b7d2fa7930f5b6177c7ac037840da34dc18
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624585"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333576"
 ---
 # <a name="azure-active-directory-report-retention-policies"></a>Azure Active Directory 報告保留原則
 
@@ -32,7 +32,7 @@ ms.locfileid: "51624585"
 | Azure AD 版本 | 開始收集 |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | 當您註冊訂用帳戶 |
-| Azure AD Free | 首次開啟 [Azure Active Directory 刀鋒視窗](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[報告 API](https://aka.ms/aadreports)  |
+| Azure AD Free <br /> Azure AD Basic | 首次開啟 [Azure Active Directory 刀鋒視窗](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)或使用[報告 API](https://aka.ms/aadreports)  |
 
 ---
 

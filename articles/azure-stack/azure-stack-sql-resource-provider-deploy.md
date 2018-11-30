@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8a1bae4a05a0054960771b61ac186c1a48c3aea1
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686240"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852566"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -37,10 +37,11 @@ ms.locfileid: "51686240"
 - 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。
 - 下載 SQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至暫存目錄。 資源提供者會有最低限度的相對應 Azure Stack 組建。
 
-    |最低 Azure Stack 版本|SQL RP 版本|
-    |-----|-----|
-    |1808 版 (1.1808.0.97)|[SQL RP 1.1.30.0 版](https://aka.ms/azurestacksqlrp11300)|
-    |     |     |
+  |最低 Azure Stack 版本|SQL RP 版本|
+  |-----|-----|
+  |1808 版 (1.1808.0.97)|[SQL RP 1.1.30.0 版](https://aka.ms/azurestacksqlrp11300)|
+  |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp11240)
+  |     |     |
 
 - 請確定已符合資料中心整合必要條件：
 

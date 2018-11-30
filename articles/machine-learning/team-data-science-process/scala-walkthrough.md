@@ -2,25 +2,21 @@
 title: 在 Azure 上使用 Scala 與 Spark 的資料科學 | Microsoft Docs
 description: 如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: b90603490af851d9b7ca735b00ee7d6ca5d53951
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233519"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447158"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 與 Spark 的資料科學
 本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://aka.ms/datascienceprocess)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰

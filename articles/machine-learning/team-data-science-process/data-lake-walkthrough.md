@@ -2,28 +2,24 @@
 title: Azure Data Lake 中可調整的資料科學︰完整的逐步解說 | Microsoft Docs
 description: 如何使用 Azure Data Lake 在資料集上進行資料探索和二元分類工作。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 91a8207f-1e57-4570-b7fc-7c5fa858ffeb
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 6688432342ff08d2ca177570cc6bbbe0095ccbe0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 52518f8c9295f00b93dee0ea356513605450aed7
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229060"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443554"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Azure Data Lake 中可調整的資料科學︰完整的逐步解說
-本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測車費是否會支付小費。 其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](https://aka.ms/datascienceprocess)。
+本逐步解說示範如何使用 Azure Data Lake，在 NYC 計程車車程和車費資料集上執行資料探索和二元分類，以預測車費是否會支付小費。 其中，從取得資料開始，經過模型訓練，然後部署 Web 服務來發佈模型，從頭到尾逐步引導您完成 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) 具備所有必要的功能，讓資料科學家能夠輕易地儲存任何大小、形狀和速度的資料，並以高延展性且符合成本效益的方式，進行資料處理、進階分析和建構機器學習服務模型。   只在實際處理資料時，才需要依個別作業付費。 Azure Data Lake Analytics 包括 U-SQL，此語言融合 SQL 的宣告性質和 C# 表達能力，提供可調整的分散式查詢功能。 它可讓您在讀取、插入自訂邏輯和使用者定義函式 (UDF) 上套用結構描述，以處理非結構化資料，並包含擴充性，可精細控制如何大規模執行。 若要深入了解 U-SQL 背後的設計原理，請參閱 [Visual Studio 部落格文章](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/)。
@@ -684,7 +680,7 @@ Azure Machine Learning Studio 可以直接從 Azure Data Lake Store 讀取資料
 完成這個逐步解說之後，您就已經建立了資料科學環境，可在 Azure Data Lake 中建置可調整的端對端解決方案。 這個環境可用來分析大型公用資料集，透過資料科學程序的標準步驟來取得此公用資料集，過程中從取得資料開始、經過模型訓練，最後將模型部署成 Web 服務。 您可以使用 U-SQL 來處理、探索和取樣資料。 Python 和 Hive 會與 Azure Machine Learning Studio 搭配使用來建置和部署預測模型。
 
 ## <a name="whats-next"></a>後續步驟
-[Team Data Science Process (TDSP)](https://aka.ms/datascienceprocess) 的學習路徑提供可說明進階分析程序中每個步驟的主題連結。 [Team Data Science Process 逐步解說](walkthroughs.md) 頁面上分項列出一系列逐步解說，示範如何在各種不同預測性分析案例中使用資源和服務：
+[Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 的學習路徑提供可說明進階分析程序中每個步驟的主題連結。 [Team Data Science Process 逐步解說](walkthroughs.md) 頁面上分項列出一系列逐步解說，示範如何在各種不同預測性分析案例中使用資源和服務：
 
 * [Team Data Science Process 實務：使用 SQL 資料倉儲](sqldw-walkthrough.md)
 * [Team Data Science Process 實務：使用 HDInsight Hadoop 叢集](hive-walkthrough.md)

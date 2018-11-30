@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5936157a46643ff76b5e1cc11d636aa6be9175ff
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281994"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427466"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>使用 Azure AD Connect 同步來實作密碼雜湊同步處理
 本文提供您所需資訊，以讓您將使用者密碼從內部部署 Active Directory 執行個體同步處理至雲端式 Azure Active Directory (Azure AD) 執行個體。
@@ -80,7 +80,7 @@ Active Directory 網域服務是以代表使用者實際密碼的雜湊值格式
 
 
 1. 每隔兩分鐘，AD Connect 伺服器上的密碼雜湊同步處理代理程式會透過標準 [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) 複寫通訊協定，向 DC 要求預存的密碼雜湊 (unicodePwd 屬性)，以同步處理 DC 之間的資料。 服務帳戶必須具有複寫目錄變更和複寫目錄變更所有 AD 權限 (預設在安裝時授與)，以取得密碼雜湊。
-2. 在傳送之前，DC 會使用金鑰 (它是 RPC 工作階段金鑰和 salt 的 [MD5](http://www.rfc-editor.org/rfc/rfc1321.txt) 雜湊)，來加密 MD4 密碼雜湊。 然後它會透過 RPC 將結果傳送給密碼雜湊同步處理代理程式。 DC 也會使用 DC 複寫通訊協定將 salt 傳送至同步處理代理程式，讓代理程式可以解密信封。
+2. 在傳送之前，DC 會使用金鑰 (它是 RPC 工作階段金鑰和 salt 的 [MD5](https://www.rfc-editor.org/rfc/rfc1321.txt) 雜湊)，來加密 MD4 密碼雜湊。 然後它會透過 RPC 將結果傳送給密碼雜湊同步處理代理程式。 DC 也會使用 DC 複寫通訊協定將 salt 傳送至同步處理代理程式，讓代理程式可以解密信封。
 3.  在密碼雜湊同步處理代理程式將信封加密後，它會使用 [MD5CryptoServiceProvider](https://msdn.microsoft.com/library/System.Security.Cryptography.MD5CryptoServiceProvider.aspx) 和 salt 來產生金鑰，以將接收的資料解密回其原始 MD4 格式。 密碼雜湊同步處理代理程式完全無法存取純文字密碼。 密碼雜湊同步處理代理程式使用 MD5 純粹是為了與 DC 的複寫通訊協定相容，並且只會在內部部署環境中的 DC 和密碼雜湊同步處理代理程式之間使用。
 4.  密碼雜湊同步處理代理程式會將 16 位元組二進位密碼雜湊擴展成 64 位元組，方法是先將該雜湊轉換成 32 位元組十六進位字串，再將此字串轉換回具有 UTF-16 編碼的二進位檔。
 5.  密碼雜湊同步處理代理程式會將每位使用者 salt 處理 (由 10 位元組長度 salt 所組成) 新增至 64 位元組二進位檔，以進一步保護原始雜湊。

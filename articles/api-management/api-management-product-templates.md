@@ -14,14 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: dae757231d8f2ff7fcd8e032d941c0fa9f192796
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 14090e21fb7c6ca07fe63220ffd1d44d483ac869
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983343"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443622"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API 管理中的產品範本
+
 「Azure API 管理」可讓您使用一組可設定開發人員入口網站頁面內容的範本，來自訂那些頁面的內容。 使用這些範本時，您可以運用 [DotLiquid](http://dotliquidmarkup.org/) 語法和您選擇的編輯器 (例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers))，以及一組提供的當地語系化[字串資源](api-management-template-resources.md#strings)、[字符資源](api-management-template-resources.md#glyphs)和[頁面控制項](api-management-page-controls.md)，依照您的想法自由靈活地設定頁面內容。  
   
  本節的範本可讓您自訂開發人員入口網站中產品頁面的內容。  
@@ -32,6 +33,8 @@ ms.locfileid: "22983343"
   
 > [!NOTE]
 >  下列文件中包含範例預設範本，但範本可能會因持續進行的改善而有變更。 您可以瀏覽至想要的個別範本，來檢視開發人員入口網站中的即時預設範本。 如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="ProductList"></a>產品清單  
  **清單**範本可讓您自訂開發人員入口網站中產品清單頁面的主體。  

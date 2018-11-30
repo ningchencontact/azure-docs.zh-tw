@@ -6,36 +6,36 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2755cc4e8e0e5a1b2a0e491b00fc73530dd9b958
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163421"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635674"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>使用機器相依性對應分組機器
 
-此文章說明如何將機器相依性視覺化，建立機器群組以進行 [Azure Migrate](migrate-overview.md) 評量。 在執行評量前，若想要透過交叉檢查機器相依性的方式，對信心等級較高的虛擬機器群組進行評估，通常會使用此方法。 相依性視覺效果可協助您有效地規劃移轉至 Azure。 它可協助您確保不會遺留任何動作，且在您要移轉至 Azure 時，不會發生意外的中斷。 您可以探索所有需要一起移轉的交互相依系統，以及識別執行中的系統是否仍為使用者提供服務，還是應該解除委任而非移轉。
+本文說明如何將機器相依性視覺化，建立機器群組以進行 [Azure Migrate](migrate-overview.md) 評量。 在執行評量前，若想要透過交叉檢查機器相依性的方式，對信心等級較高的虛擬機器群組進行評估，通常會使用此方法。 相依性視覺效果可協助您有效地規劃移轉至 Azure。 它可協助您確保不會遺留任何動作，且在您要移轉至 Azure 時，不會發生意外的中斷。 您可以探索所有需要一起移轉的交互相依系統，以及識別執行中的系統是否仍為使用者提供服務，還是應該解除委任而非移轉。
 
 
-## <a name="prepare-for-dependency-visualization"></a>準備相依性視覺效果
-Azure Migrate 運用 Log Analytics 的服務對應解決方案，提供機器相依性視覺效果。
+## <a name="prepare-for-dependency-visualization"></a>為相依性視覺效果做準備
+Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈現機器的相依性視覺效果。
 
 ### <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
-若要利用相依性視覺效果，您需要將新增或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
+若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
 
-- 若要將 Log Analytics 工作區連結至專案，請在 [概觀] 中，移至專案的 [基本資訊] 區段，按一下 [需要設定]
+- 若要將 Log Analytics 工作區連結至專案，請在 [概觀] 中，移至專案的 [基本資訊] 區段，然後按一下 [需要設定]
 
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同的訂用帳戶中，以及在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
-- [使用現有的] 選項列出的工作區，只以在提供服務對應的區域中建立者為限。 如果您的工作區位在無法使用服務對應的區域中，就不會列在下拉式清單中。
+- 建立新工作區時，您必須指定工作區的名稱。 接著，該工作區就會建立在與移轉專案相同的訂用帳戶中，以及在與移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中。
+- [使用現有的] 選項所列出的工作區僅限於在有提供「服務對應」的區域中建立的工作區。 如果您工作區所在的區域沒有提供「服務對應」，下拉式清單中就不會列出該工作區。
 
 > [!NOTE]
 > 您無法變更與移轉專案相關聯的工作區。
 
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
-在您設定工作區之後，您必須在待評估的每個內部部署機器上，下載及安裝代理程式。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
+在您設定工作區之後，您必須在待評估的每個內部部署機器上，下載及安裝代理程式。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [Log Analytics 閘道](../azure-monitor/platform/gateway.md)。
 
 1. 在 [概觀] 中，按一下 [管理] > [機器]，並選取所需的機器。
 2. 在 [相依性] 資料行中，按一下 [安裝代理程式]。
@@ -72,7 +72,7 @@ Azure Migrate 運用 Log Analytics 的服務對應解決方案，提供機器相
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-深入了解 [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
+深入了解 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
 
 [深入了解](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples)如何使用指令碼安裝 Dependency 代理程式。
 
@@ -104,6 +104,6 @@ Azure Migrate 運用 Log Analytics 的服務對應解決方案，提供機器相
 
 ## <a name="next-steps"></a>後續步驟
 
-- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)相依性視覺效果常見問題集。
+- [深入了解](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization)相依性視覺效果的常見問題集。
 - [了解如何](how-to-create-group-dependencies.md)將群組相依性視覺化來調整群組。
 - [深入了解](concepts-assessment-calculation.md)評定的計算方式。

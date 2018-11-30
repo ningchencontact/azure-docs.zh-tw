@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f08bf6a65a93c31d76c5b336cc6ef433153d71c4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297566"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423112"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>使用 Azure 的網路原則伺服器擴充功能來整合您的 VPN 基礎結構與 Azure MFA
 
@@ -438,7 +438,7 @@ Azure Multi-Factor Authentication 記錄中的相關事件顯示如下：
 
 若要執行進階的疑難排解，請參閱安裝了 NPS 服務的 NPS 資料庫格式記錄檔。 記錄檔會建立於 _%SystemRoot%\System32\Logs_ 資料夾，並以逗號分隔文字檔的形式存在。 如需這些記錄檔的說明，請參閱[解譯 NPS 資料庫格式記錄檔](https://technet.microsoft.com/library/cc771748.aspx) \(英文\)。 
 
-這些記錄檔中的項目除非匯入到試算表或資料庫，否則將難以解譯。 您可以找到許多線上的網際網路驗證服務 (IAS) 剖析工具，以協助您解譯記錄檔。 以下是其中一個這類可下載[共享軟體應用程式](http://www.deepsoftware.com/iasviewer)的輸出： 
+這些記錄檔中的項目除非匯入到試算表或資料庫，否則將難以解譯。 您可以找到許多線上的網際網路驗證服務 (IAS) 剖析工具，以協助您解譯記錄檔。 以下是其中一個這類可下載[共享軟體應用程式](https://www.deepsoftware.com/iasviewer)的輸出： 
 
 ![共享軟體應用程式](./media/howto-mfa-nps-extension-vpn/image49.png)
 

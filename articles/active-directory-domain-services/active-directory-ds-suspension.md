@@ -8,19 +8,19 @@ manager: mtillman
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
-ms.component: domains
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 72e22fbe61b4e30191bbac553709241e1b13f1f5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 31e7307e427b175eb7424ecaee380bd90ce8150e
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502244"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443393"
 ---
 # <a name="suspended-domains"></a>暫時停權的網域
 當 Azure Active Directory Domain Services (Azure AD DS) 有很長的一段時間無法服務受控網域時，其會使該受控網域進入暫時停權狀態。 本文會說明受控網域被暫時停權的原因，以及如何修復被暫時停權的網域。
@@ -43,7 +43,7 @@ ms.locfileid: "39502244"
 
 
 ### <a name="needs-attention-state"></a>「需要注意」狀態
-如果有一或多個問題需要系統管理員採取動作，受控網域即會處於**需要注意**狀態。 您受控網域的健康情況頁面會在此狀態下列出一或多個警示。 
+如果有一或多個問題需要系統管理員採取動作，受控網域即會處於**需要注意**狀態。 您受控網域的健康情況頁面會在此狀態下列出一或多個警示。
 
 例如，如果您已針對虛擬網路設定受限的 NSG，Microsoft 可能無法更新和監視您的受控網域。 這個無效的設定會觸發警示，使您的受控網域進入「需要注意」狀態。
 

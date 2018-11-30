@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0376f09d4d7d6c952cbef40751a2729045f68061
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255826"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313975"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
@@ -205,7 +205,7 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用資訊安全中心的檔案完整性監視 (FIM)。 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [設定安全性原則](security-center-policies.md) - 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [設定安全性原則](security-center-azure-policy.md) - 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理安全性建議](security-center-recommendations.md) - 了解建議如何協助保護您的 Azure 資源。
 * [安全性健康狀態監視](security-center-monitoring.md) - 了解如何監視 Azure 資源的健康清況。
 * [管理及回應安全性警訊](security-center-managing-and-responding-alerts.md) - 了解如何管理及回應安全性警訊。

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 27bfd3176ecad847f9bba2a62abd66b55484443b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145547"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443010"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>如何將 Azure API 管理服務執行個體部署到多個 Azure 區域
 
@@ -26,11 +26,10 @@ Azure API 管理支援多區域部署，可讓 API 發行者跨所需的任意�
 
 新的 Azure API 管理服務一開始只會在單一 Azure 區域 (主要區域) 中包含一個[單位][unit]。 您可以透過 Azure 入口網站輕鬆新增其他區域。 「API 管理」閘道伺服器會部署到每個區域，而呼叫流量則會路由傳送到距離最近的閘道。 如果區域離線，流量會自動重新導向到下一個最近的閘道。
 
-> [!IMPORTANT]
-> 多重區域部署僅供**[進階][Premium]** 層使用。
-
 > [!NOTE]
 > Azure API 管理只可跨區域複寫 API 閘道元件。 服務管理元件只裝載在主要區域中。 如果主要區域發生中斷狀況，則不可能將組態變更套用至 Azure API 管理服務執行個體 (包括設定或原則更新)。
+
+[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
 
 ## <a name="add-region"> </a>部署 API 管理服務執行個體到新區域
 

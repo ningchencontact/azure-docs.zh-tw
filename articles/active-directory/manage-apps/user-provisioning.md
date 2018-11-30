@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387272"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311448"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>自動化使用 Azure Active Directory 對於 SaaS 應用程式的使用者佈建和取消佈建
 
@@ -255,7 +255,7 @@ Azure AD 的特色是為各種熱門 SaaS 應用程式和人力資源系統提�
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>對 SaaS 應用程式的自動使用者佈建是否適用於 Azure AD 中的動態群組？
 
-是。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務可根據使用者是否為[動態群組](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule])的成員來佈建或取消佈建 SaaS 應用程式中的使用者。 動態群組也適用於 [同步所有使用者與群組] 選項。
+是。 設定為 [只同步已指派的使用者與群組] 時，Azure AD 使用者佈建服務可根據使用者是否為[動態群組](../users-groups-roles/groups-create-rule.md)的成員來佈建或取消佈建 SaaS 應用程式中的使用者。 動態群組也適用於 [同步所有使用者與群組] 選項。
 
 不過，使用動態群組可能會影響到從 Azure AD 到 SaaS 應用程式進行端對端使用者佈建的整體效能。 使用動態群組時，請記住下列注意事項和建議：
 

@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
-ms.openlocfilehash: 9ef754e9952bcbd47d668331e906b19ad582b90c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 84c37927eda65be71eb837aef2cb4968a121ee29
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818593"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426888"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>如何在 Azure 上的 Java 應用程式中使用 Twilio 撥打電話
 下列範例將說明如何從 Azure 代管的網頁上使用 Twilio 撥打電話。 產生的應用程式會提示使用者提供電話值，如下列螢幕擷取畫面所示。
@@ -28,7 +28,7 @@ ms.locfileid: "42818593"
 
 您必須執行下列動作才能使用本主題中的程式碼：
 
-1. 取得 Twilio 帳戶和驗證權杖。 若要開始使用 Twilio，請在 [http://www.twilio.com/pricing][twilio_pricing] 上評估價格。 您可以在 [https://www.twilio.com/try-twilio][try_twilio] 註冊。 如需 Twilio 所提供的 API 相關資訊，請參閱 [http://www.twilio.com/api][twilio_api]。
+1. 取得 Twilio 帳戶和驗證權杖。 若要開始使用 Twilio，請在 [https://www.twilio.com/pricing][twilio_pricing] 上評估價格。 您可以在 [https://www.twilio.com/try-twilio][try_twilio] 註冊。 如需 Twilio 所提供的 API 相關資訊，請參閱 [https://www.twilio.com/api][twilio_api]。
 2. 取得 Twilio JAR。 在 [https://github.com/twilio/twilio-java][twilio_java_github] 上，您可以下載 GitHub 來源及建立自己的 JAR，或下載預先建置的 JAR (可能有相依性)。
    本主題中的程式碼是以預先建置的 TwilioJava-3.3.8-with-dependencies JAR 撰寫的。
 3. 將 JAR 新增至您的 Java 建置路徑。
@@ -42,7 +42,7 @@ ms.locfileid: "42818593"
 
     <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
         pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -88,7 +88,7 @@ ms.locfileid: "42818593"
     import="com.twilio.sdk.resource.factory.*"
     import="com.twilio.sdk.resource.instance.*"
     pageEncoding="ISO-8859-1" %>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+    <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "https://www.w3.org/TR/html4/loose.dtd">
     <html>
     <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
@@ -130,7 +130,7 @@ ms.locfileid: "42818593"
          userText = userText.replace(" ", "%20");
 
          // Create a URL using the Twilio message and the user-entered text.
-         String Url="http://twimlets.com/message";
+         String Url="https://twimlets.com/message";
          Url = Url + "?Message%5B0%5D=" + userText;
 
          // Display the message URL.
@@ -183,7 +183,7 @@ ms.locfileid: "42818593"
 
 * 除了使用 Web 表單以外，您也可以使用 Azure 儲存體 Blob 或 SQL Database 來儲存電話號碼和通話文字。 如需在 Java 中使用 Azure 儲存體 Blob 的相關資訊，請參閱[如何使用 Java 的 Blob 儲存體服務][howto_blob_storage_java]。 
 * 您可以使用 **RoleEnvironment.getConfigurationSettings** ，從部署的組態設定中擷取 Twilio 帳戶 ID 和驗證權杖，而不要在 makecall.jsp 中進行值的硬式編碼。 如需 **RoleEnvironment** 類別的相關資訊，請參閱[在 JSP 中使用 Azure Service Runtime Library][azure_runtime_jsp]，以及 [http://dl.windowsazure.com/javadoc][azure_javadoc] 上的 Azure Service Runtime 套件文件。
-* makecall.jsp 程式碼會將 Twilio 提供的 URL [http://twimlets.com/message][twimlet_message_url] 指派給 **URL** 變數。 此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。 例如，傳回的 TwiML 可能會包含 **&lt;Say&gt;** 動詞，而產生要傳達給受話方的文字。 除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。 如需 TwiML 的詳細資訊，請參閱 [http://www.twilio.com/docs/api/twiml][twiml]，如需 **&lt;Say&gt;** 和其他 Twilio 動詞的詳細資訊，則請參閱 [http://www.twilio.com/docs/api/twiml/say][twilio_say]。
+* makecall.jsp 程式碼會將 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 指派給 **URL** 變數。 此 URL 會提供 Twilio 標記語言 (TwiML) 回應，告知 Twilio 應如何執行通話。 例如，傳回的 TwiML 可能會包含 **&lt;Say&gt;** 動詞，而產生要傳達給受話方的文字。 除了使用 Twilio 提供的 URL 以外，您也可以建置自己的服務來回應 Twilio 的要求；如需詳細資訊，請參閱[如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]。 如需 TwiML 的詳細資訊，請參閱 [https://www.twilio.com/docs/api/twiml][twiml]，如需 **&lt;Say&gt;** 和其他 Twilio 動詞的詳細資訊，則請參閱 [https://www.twilio.com/docs/api/twiml/say][twilio_say]。
 * 閱讀 Twilio 安全性方針，網址為 [https://www.twilio.com/docs/security][twilio_docs_security]。
 
 如需 Twilio 的其他資訊，請參閱 [https://www.twilio.com/docs][twilio_docs]。
@@ -192,23 +192,23 @@ ms.locfileid: "42818593"
 * [如何在 Java 中透過 Twilio 使用語音和簡訊功能][howto_twilio_voice_sms_java]
 * [新增憑證至 Java CA 憑證存放區][add_ca_cert]
 
-[twilio_pricing]: http://www.twilio.com/pricing
-[try_twilio]: http://www.twilio.com/try-twilio
-[twilio_api]: http://www.twilio.com/api
+[twilio_pricing]: https://www.twilio.com/pricing
+[try_twilio]: https://www.twilio.com/try-twilio
+[twilio_api]: https://www.twilio.com/api
 [verify_phone]: https://www.twilio.com/user/account/phone-numbers/verified#
-[twilio_java_github]: http://github.com/twilio/twilio-java
-[twimlet_message_url]: http://twimlets.com/message
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api_service]: http://api.twilio.com
+[twilio_java_github]: https://github.com/twilio/twilio-java
+[twimlet_message_url]: https://twimlets.com/message
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api_service]: https://api.twilio.com
 [add_ca_cert]: java-add-certificate-ca-store.md
 [azure_java_eclipse_hello_world]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app 
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
-[howto_blob_storage_java]: http://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
-[howto_sql_azure_java]: http://msdn.microsoft.com/library/windowsazure/hh749029.aspx
-[azure_runtime_jsp]: http://msdn.microsoft.com/library/windowsazure/hh690948.aspx
+[howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/
+[howto_sql_azure_java]: https://msdn.microsoft.com/library/windowsazure/hh749029.aspx
+[azure_runtime_jsp]: https://msdn.microsoft.com/library/windowsazure/hh690948.aspx
 [azure_javadoc]: http://dl.windowsazure.com/javadoc
-[twilio_docs_security]: http://www.twilio.com/docs/security
-[twilio_docs]: http://www.twilio.com/docs
-[twilio_say]: http://www.twilio.com/docs/api/twiml/say
+[twilio_docs_security]: https://www.twilio.com/docs/security
+[twilio_docs]: https://www.twilio.com/docs
+[twilio_say]: https://www.twilio.com/docs/api/twiml/say
 [twilio_java]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaCallForm.jpg
 [twilio_java_response]: ./media/partner-twilio-java-phone-call-example/WA_TwilioJavaMakeCall.jpg

@@ -8,14 +8,15 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7f10495e22cf6750fdc5891d760885a238175da8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095206"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711768"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>將客體作業系統計量傳送至 Azure 監視器計量存放區的傳統雲端服務 
+
 您可以使用 Azure 監視器[診斷擴充功能](azure-diagnostics.md)，從當作虛擬機器、雲端服務或 Service Fabric 叢集一部分執行的客體作業系統 (客體 OS) 收集計量與記錄。 擴充功能可以將遙測資料傳送到[許多不同位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
 本文說明將 Azure 傳統雲端服務的客體 OS 效能計量傳送至 Azure 監視器計量存放區的程序。 從診斷 1.11 版開始，您可以直接將計量寫入到已收集標準平台計量的 Azure 監視器計量存放區。 
@@ -23,16 +24,14 @@ ms.locfileid: "50095206"
 將計量儲存在此位置，可讓您存取與您可對平台計量執行的相同動作。 動作包括近乎即時的警示、圖表、路由、從 REST API 存取以及更多功能。  在過去，診斷擴充功能會寫入到 Azure 儲存體，而不是 Azure 監視器資料存放區。  
 
 本文中所述的程序僅適用於 Azure 雲端服務中的效能計數器。 不適合用於其他自訂計量。 
-   
 
 ## <a name="prerequisites"></a>必要條件
 
-- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md)。 
+- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](~/articles/billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal) 註冊您的訂用帳戶。 
 
 - 您需要安裝 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
-
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>佈建雲端服務與儲存體帳戶 
 
@@ -42,15 +41,13 @@ ms.locfileid: "50095206"
 
    ![儲存體帳戶金鑰](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
-
-
 ## <a name="create-a-service-principal"></a>建立服務主體 
 
 使用[使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)中的指示，在 Azure Active Directory 租用戶中建立服務主體。 進行此流程時，請注意下列事項： 
 
-  - 您可以將任何 URL 填入為登入 URL。  
-  - 為此應用程式建立新用戶端密碼。  
-  - 儲存金鑰與用戶端識別碼，以便在稍後的步驟中使用。  
+- 您可以將任何 URL 填入為登入 URL。  
+- 為此應用程式建立新用戶端密碼。  
+- 儲存金鑰與用戶端識別碼，以便在稍後的步驟中使用。  
 
 針對您希望發出計量的資源，將其「監視計量發行者」權限授與在上一個步驟中建立的應用程式。 如果您計劃使用該應用程式對許多資源發出自訂計量，您可以在資源群組或訂用帳戶層級上授與這些權限。  
 
@@ -136,7 +133,7 @@ ms.locfileid: "50095206"
     </AzureMonitorAccount> 
 </PrivateConfig> 
 ```
- 
+
 在本機儲存此診斷檔案。  
 
 ## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>將診斷擴充功能部署到您的雲端服務 
@@ -153,19 +150,19 @@ Login-AzureRmAccount
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
- 
+
 同樣地，使用下列命令，將診斷檔案路徑設定為變數：
 
 ```PowerShell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
- 
+
 透過使用下列命令設定的 Azure 監視器接收，使用診斷檔案將診斷擴充功能部署到您的雲端服務：  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
- 
+
 > [!NOTE] 
 > 在安裝診斷擴充功能期間，仍會強制您提供儲存體帳戶。 診斷組態檔中指定的任何記錄或效能計數器，都會寫入指定的儲存體帳戶。  
 
@@ -190,7 +187,5 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
  ![計量 Azure 入口網站](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 - 深入了解[自訂計量](metrics-custom-overview.md)。
-
-
-

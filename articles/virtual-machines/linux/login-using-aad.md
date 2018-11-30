@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 8bf87f9d1d1ab6da4b034890f1fbe058199eca41
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007125"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334630"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -39,7 +39,7 @@ ms.locfileid: "51007125"
 
 - **無縫式共同作業：** 透過角色型存取控制 (RBAC)，您可以指定哪些人能夠以一般使用者的身分或系統管理員權限登入指定的 VM。 當使用者加入或退出您的小組時，您可以更新 VM 的 RBAC 原則，以授與適當的存取權。 這項體驗遠比經由刪除 VM 移除非必要的 SSH 公開金鑰來得容易。 當員工離開您的組織時，其使用者帳戶會從 Azure AD 中停用或移除，且他們將無法再存取您的資源。
 
-### <a name="supported-azure-regions-and-linux-distributions"></a>支援的 Azure 區域和 Linux 發行版
+## <a name="supported-azure-regions-and-linux-distributions"></a>支援的 Azure 區域和 Linux 發行版
 
 以下是目前在這項功能的預覽期間支援的 Linux 發行版：
 

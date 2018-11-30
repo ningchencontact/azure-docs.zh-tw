@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7a787535d6e6e216df27c8cf7448fa584e85ef2b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306607"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284875"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -209,7 +209,7 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
 ## <a name="next-steps"></a>後續步驟
 - [目前的限制](how-to-connect-pta-current-limitations.md)：了解支援的情節和不支援的情節。
 - [快速入門](how-to-connect-pta-quick-start.md)：開始使用 Azure AD 傳遞驗證。
-- [從 AD FS 遷移到傳遞驗證](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
+- [從 AD FS 遷移到傳遞驗證](https://aka.ms/adfstoptadpdownload) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [運作方式](how-to-connect-pta-how-it-works.md)：了解 Azure AD 傳遞驗證運作方式的基本概念。
 - [常見問題集](how-to-connect-pta-faq.md)：常見問題集的答案。

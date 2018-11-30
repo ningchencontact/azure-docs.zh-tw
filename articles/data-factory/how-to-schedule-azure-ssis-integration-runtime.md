@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: f83715d2a382db271686210d9df285c255c09216
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 7e93e83f7594d30d223d37454e09943beba6d3ce
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113972"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976720"
 ---
 # <a name="how-to-start-and-stop-the-azure-ssis-integration-runtime-on-a-schedule"></a>如何排程 Azure SSIS 整合執行階段的啟動和停止
 本文說明如何使用 Azure 自動化及 Azure Data Factory 來排程 Azure SSIS 整合執行階段 (IR) 的啟動和停止。 執行 Azure SSIS (SQL Server Integration Services) 整合執行階段 (IR) 會產生相關費用。 因此，您通常只應在需要於 Azure 中執行 SSIS 套件時才執行 IR，而在不需要時即應加以停止。 您可以使用 Data Factory UI 或 Azure PowerShell，[以手動方式啟動或停止 Azure SSIS IR](manage-azure-ssis-integration-runtime.md)。
@@ -347,7 +347,7 @@ ms.locfileid: "39113972"
     6. 以滑鼠右鍵按一下 SSIS 套件，然後選取 [報告] -> [標準報告] -> [所有執行]。 
     7. 確認 SSIS 套件已執行。 
 
-        ![確認 SSIS 套件已執行](./media/how-to-schedule-azure-ssis-integration-runtime/verfiy-ssis-package-run.png)
+        ![確認 SSIS 套件已執行](./media/how-to-schedule-azure-ssis-integration-runtime/verify-ssis-package-run.png)
 
 ### <a name="schedule-the-pipeline"></a>排程管線 
 現在，管線已如您預期的方式運作，您可以建立觸發程序，以指定的頻率執行此管線。 如需將排程觸發程序與管線產生關聯的詳細資訊，請參閱[觸發排程上的管線](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule)。

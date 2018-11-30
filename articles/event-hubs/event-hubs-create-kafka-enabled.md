@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: bahariri
-ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b72f6b190aad436398629c67f271020ffd0a8da9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145552"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822070"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>建立已啟用 Apache kafka 的事件中樞
 
@@ -39,7 +39,7 @@ Azure 事件中樞為您提供 Kafka 端點。 此端點可讓您的事件中樞
  
 3. 提供唯一名稱並在命名空間上啟用 Kafka。 按一下頁面底部的 [新增] 。
     
-    ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
+    ![建立命名空間](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
 4. 建立命名空間後，在 [設定] 索引標籤上，按一下 [共用存取原則] 以取得連接字串。
 

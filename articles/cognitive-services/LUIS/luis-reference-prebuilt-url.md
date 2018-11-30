@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 url 實體資訊。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 86989abab1dcf64384b8b26b9484bc508f2ce31f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 62872a3fd3e6e830e25fc4cdba01d1f32b80db91
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236783"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446507"
 ---
 # <a name="url-entity"></a>URL 實體
 URL 實體會擷取含有網域名稱或 IP 位址的 URL。 因為此實體已經定型，所以您不需要將包含 URL 的範例語句加入應用程式。 只有 `en-us` 文化特色才支援 URL 實體。 

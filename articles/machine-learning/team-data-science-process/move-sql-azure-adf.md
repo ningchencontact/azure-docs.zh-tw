@@ -2,25 +2,21 @@
 title: 使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure | Microsoft Docs
 description: 請設定 ADF 管線來編寫兩個資料移轉活動，這兩個活動會每天在內部部署及雲端中的資料庫之間一同移動資料。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 36837c83-2015-48be-b850-c4346aa5ae8a
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 0afa8d92aaa60cd70f378595054506c8e9f7daee
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344683"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447031"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 

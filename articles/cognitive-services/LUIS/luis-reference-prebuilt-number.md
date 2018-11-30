@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 4d14a3490d87693a4785111035b62e7ae59ee669
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041841"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334562"
 ---
 # <a name="number-entity"></a>Number 實體
 數值用來量化、表達及描述各項資訊的方式眾多。 本文只涵蓋部分可能的範例。 LUIS 可解譯使用者語句的變化，並傳回一致的數值。 因為此實體已經定型，所以您不需要將包含數字的範例語句加入應用程式意圖。 

@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 7c9c52c5cda258908ac8463dd06044e244c75ee2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330814"
+---
 當您不再需要某個連結至虛擬機器 (VM) 的資料磁碟時，可以輕鬆將它中斷連結。 當您從 VM 中斷連結磁碟時，磁碟不會從儲存體中移除。 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連結至相同 VM 或其他 VM。  
 
 > [!NOTE]

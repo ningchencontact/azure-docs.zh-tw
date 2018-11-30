@@ -11,21 +11,21 @@ ms.workload: integration
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: apimpm
-ms.openlocfilehash: 96e233a26af95d4373323867046ca01fe1304608
-ms.sourcegitcommit: 95500c068100d9c9415e8368bdffb1f1fd53714e
+ms.openlocfilehash: f613995dbdd787d0a031cb2c24d67c682b2d7cec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/14/2018
-ms.locfileid: "29345365"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446362"
 ---
 # <a name="configure-a-custom-domain-name"></a>設定自訂網域名稱 
 
-當您建立 API 管理 (APIM) 執行個體時，Azure 會將它指派至 azure-api.net 的子網域 (例如，`apim-service-name.azure-api.net`)。 不過，您可以使用自己的網域名稱 (例如 **contoso.com**) 來公開您的 APIM 端點。本教學課程會示範如何將現有的自訂 DNS 名稱對應至 Azure API 管理執行個體所公開的端點。
+當您建立 API 管理 (APIM) 執行個體時，Azure 會將它指派至 azure-api.net 的子網域 (例如，`apim-service-name.azure-api.net`)。 不過，您可以使用自己的網域名稱 (例如 **contoso.com**) 來公開您的 APIM 端點。 本教學課程會示範如何將現有的自訂 DNS 名稱對應至 Azure API 管理執行個體所公開的端點。
 
 > [!WARNING]
 > 想要使用憑證釘選以改善應用程式安全性的客戶，必須使用自訂網域名稱 > 與其所管理的憑證，而非預設憑證。 改為釘選預設憑證的客戶 > 會對其所未控制的憑證屬性採用硬式相依性，這不是建議做法。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要執行本文所述的步驟，您必須具有：
 
@@ -36,6 +36,8 @@ ms.locfileid: "29345365"
 + APIM 執行個體。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 + 您所擁有的自訂網域名稱。 您要使用的自訂網域名稱，必須另外購買並由 DNS 伺服器代管。 本主題不含如何代管自訂網域名稱的指示。
 + 您必須具備一個含有公開和私密金鑰的有效憑證 (.PFX)。 主體或主體別名 (SAN) 必須符合網域名稱 (這可讓 APIM 安全地透過 SSL 公開 URL)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 入口網站來設定自訂網域名稱
 

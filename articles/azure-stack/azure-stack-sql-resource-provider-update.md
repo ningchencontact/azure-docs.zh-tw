@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: d1bb7da3ad3862e5b15f6440b4c607143b3c5b2a
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51683215"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853552"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 資源提供者
 
@@ -27,8 +27,8 @@ ms.locfileid: "51683215"
 
 當 Azure Stack 更新為新的組建時，可能會發行新的 SQL 資源提供者。 雖然現有配接器仍可正常運作，但建議您盡快更新至最新組建。
 
->[!IMPORTANT]
->您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單。
+> [!IMPORTANT]
+> 您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單。
 
 ## <a name="overview"></a>概觀
 

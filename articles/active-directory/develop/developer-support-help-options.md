@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9b2ccce4ef6fad4f7710ba2092d67ac5f4e73b71
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601262"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422434"
 ---
 # <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項 
 
@@ -67,13 +67,13 @@ Stack Overflow 是開發相關問題的慣用管道，該社群的成員和 Micr
 
 |元件/區域  |標記  |
 |---------|---------|
-|ADAL 程式庫 |[[adal]](http://stackoverflow.com/questions/tagged/adal)|
-|MSAL 程式庫     |[[msal]](http://stackoverflow.com/questions/tagged/msal)|
-|OWIN 中介軟體  |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)|
-|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](http://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](http://stackoverflow.com/questions/tagged/microsoft-graph)
-|與驗證或授權主題相關的其他任何區域 |[[azure-active-directory]](http://stackoverflow.com/questions/tagged/azure-active-directory)
+|ADAL 程式庫 |[[adal]](https://stackoverflow.com/questions/tagged/adal)|
+|MSAL 程式庫     |[[msal]](https://stackoverflow.com/questions/tagged/msal)|
+|OWIN 中介軟體  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
+|[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
+|[Microsoft Graph API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|與驗證或授權主題相關的其他任何區域 |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
 > 下面的 Stack Overflow 文章包含如何提出問題以及如何新增原始程式碼的訣竅，遵循這些指導方針，會有助於增加社群成員盡速評估問題並做出回應的機率：  

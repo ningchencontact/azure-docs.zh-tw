@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 195776cda0005b3a79aa82220660fcc328f6ee98
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231516"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426249"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>能源需求預測的 Cortana Intelligence 解決方案範本教戰守則
 ## <a name="executive-summary"></a>執行摘要
@@ -122,7 +122,7 @@ SLTF 解決方案也可能引起大量的預測呼叫 (服務要求)，因為每
 ### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>範例使用案例 1：Esmart Systems – 超載最佳化
 [智慧電網](https://en.wikipedia.org/wiki/Smart_grid) 是一個重要角色是隨著不斷變化的用電模式，而動態和持續地最佳化並調整。 用電量可能受到短期變化所影響，主要是溫度變動所造成 (例如，空調或暖氣的用電增加)。 同時，用電量也會受到長期趨勢所影響。 其中包括季節性效應、國定假日、長期用電量成長，甚至是經濟因素，例如消費者指數、石油價格和 GDP。
 
-在此使用案例中， [eSmart](http://www.esmartsystems.com/) 想要部署以雲端為基礎的解決方案，以預測電網的任何給定變電站發生超載情況的傾向。 特別是的，eSmart 希望找出下一個小時可能超載的變電站，以立即採取動作來避免或解決這種情況。
+在此使用案例中， [eSmart](https://www.esmartsystems.com/) 想要部署以雲端為基礎的解決方案，以預測電網的任何給定變電站發生超載情況的傾向。 特別是的，eSmart 希望找出下一個小時可能超載的變電站，以立即採取動作來避免或解決這種情況。
 
 為了精確和快速預測，必須實作三種預測模型︰
 
@@ -365,7 +365,7 @@ MAPE (Mean Absolute Percentage Error) 代表「平均絕對百分比誤差」。
 在能源需求預測方面，我們的目標是引用連續和定期的預測，同時確保模型可取得最新的資料，並將預測的資料傳回給取用的用戶端。
 
 ### <a name="web-services-deployment"></a>Web 服務部署
-在 Azure ML 中，主要的可部署建置組塊是 Web 服務。 這是在雲端中利用預測模型的最有效方式。 Web 服務封裝模型，並以 [RESTful](http://www.restapitutorial.com/) API (應用程式開發介面) 來包裝它。 API 可以做為任何用戶端程式碼的一部分，如下圖所示。
+在 Azure ML 中，主要的可部署建置組塊是 Web 服務。 這是在雲端中利用預測模型的最有效方式。 Web 服務封裝模型，並以 [RESTful](https://www.restapitutorial.com/) API (應用程式開發介面) 來包裝它。 API 可以做為任何用戶端程式碼的一部分，如下圖所示。
 
 ![Web 服務部署和取用](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 

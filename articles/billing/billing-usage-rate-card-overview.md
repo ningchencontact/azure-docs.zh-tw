@@ -4,7 +4,7 @@ description: 了解 Azure 計費使用情況和 RateCard API，其可用來提�
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: 3e817b43-0696-400c-a02e-47b7817f9b77
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 5/10/2018
-ms.author: mobandyo
-ms.openlocfilehash: 650fac6208adf8f904384454b2e66e26e45893f1
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: erikre
+ms.openlocfilehash: 7e504b2fb01bc8b92c529b68f818df5ed1b889a1
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918847"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276443"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>使用 Azure 計費 API 來以程式設計方式深入了解 Azure 使用情況
 使用 Azure 計費 API 將使用情況和資源資料提取到您慣用的資料分析工具。 Azure 資源使用情況和 RateCard API 可協助您準確地預測並管理成本。 這些 API 會實作為資源提供者，並成為 Azure Resource Manager 所公開之 API 系列的一部分。  

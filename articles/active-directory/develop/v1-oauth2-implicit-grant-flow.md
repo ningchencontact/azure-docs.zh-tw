@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ccc5aa116d2f01b601e6b6b9aad456110b764856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 90c636d57189518cb95291510f3e83ef8e7a8a75
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985721"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422026"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隱含授與流程
 
@@ -34,7 +34,7 @@ OAuth2 隱含授與是 OAuth2 規格中安全性疑慮最多的授與方式，�
 
 典型的 [OAuth2 授權碼授與](https://tools.ietf.org/html/rfc6749#section-1.3.1) \(英文\) 是使用兩個不同端點的授權授與。 授權端點會用於使用者互動階段，進而產生授權碼。 接著，用戶端會使用權杖端點來交換存取權杖的代碼，而且經常也會交換重新整理權杖。 Web 應用程式必須向權杖端點提交自己的應用程式認證，授權伺服器才能驗證用戶端。
 
-[OAuth2 隱含授與](https://tools.ietf.org/html/rfc6749#section-1.3.2)是其他授權授與的一種變體。 它可讓用戶端直接從授權端點取得存取權杖 (使用 [OpenId Connect](http://openid.net/specs/openid-connect-core-1_0.html) 時，還可取得 id_token)，既不需要連絡權杖端點，也不需要驗證用戶端應。 這個變體是針對在網頁瀏覽器中執行的 JavaScript 型應用程式所設計︰在原始的 OAuth2 規格中，權杖會在 URI 片段中傳回。 這可讓權杖位元可供用戶端中的 JavaScript 程式碼使用，卻又保證權杖位元不會包含在朝向伺服器的重新導向中。 透過瀏覽器傳回權杖會直接從授權端點重新導向。 它也有不需要跨原始來源呼叫的優點，如果需要 JavaScript 應用程式才能連絡權杖端點，就需要這些呼叫。
+[OAuth2 隱含授與](https://tools.ietf.org/html/rfc6749#section-1.3.2)是其他授權授與的一種變體。 它可讓用戶端直接從授權端點取得存取權杖 (使用 [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html) 時，還可取得 id_token)，既不需要連絡權杖端點，也不需要驗證用戶端應。 這個變體是針對在網頁瀏覽器中執行的 JavaScript 型應用程式所設計︰在原始的 OAuth2 規格中，權杖會在 URI 片段中傳回。 這可讓權杖位元可供用戶端中的 JavaScript 程式碼使用，卻又保證權杖位元不會包含在朝向伺服器的重新導向中。 透過瀏覽器傳回權杖會直接從授權端點重新導向。 它也有不需要跨原始來源呼叫的優點，如果需要 JavaScript 應用程式才能連絡權杖端點，就需要這些呼叫。
 
 OAuth2 隱含授與的重要特性就是，這類流程絕對不會將重新整理權杖傳回到用戶端的事實。 下一節說明為何這是不必要的，而且事實上會成為安全性問題。
 

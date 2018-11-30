@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 03c6d45cb3a20244ddbb9c0aec693f7802a95b22
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 19de4164f8d5049d72c3dd5c0a04b7ba4cee7065
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976353"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821135"
 ---
 # <a name="how-to-monitor-azure-redis-cache"></a>如何監視 Azure Redis 快取
 Azure Redis Cache 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Redis 快取執行個體的健全狀況，並協助您管理快取應用程式。
@@ -61,7 +61,7 @@ Azure Redis Cache 執行個體的計量使用 Redis [INFO](http://redis.io/comma
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>匯出快取計量
-根據預設，Azure 監視器中的快取計量會[儲存 30 天](../monitoring/monitoring-data-collection.md#metrics)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，並指定快取計量的 [保留天數] 原則。 
+根據預設，Azure 監視器中的快取計量會[儲存 30 天](../azure-monitor/platform/data-collection.md#metrics)後刪除。 若要保留您的快取計量超過 30 天，您可以[指定儲存體帳戶](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)，並指定快取計量的 [保留天數] 原則。 
 
 設定快取計量的儲存體帳戶：
 

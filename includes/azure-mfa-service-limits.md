@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 00c3a9392d0654208093ef235ec60bf25aadb6b9
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279484"
+---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
 | 受信任的 IP 位址/範圍的最大數目</a> 每個訂用帳戶 |0 |50 |

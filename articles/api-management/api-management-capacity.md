@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 4983854a14a6efe9214692dc677dedeada73933b
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296795"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442586"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理執行個體的容量
 
@@ -24,7 +24,7 @@ ms.locfileid: "36296795"
 
 本文說明**容量**是什麼及其行為方式。 文中會說明如何在 Azure 入口網站中存取**容量**計量，並建議何時該考慮調整或升級 API 管理執行個體。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要依照本文中的步驟進行，您必須有：
 
@@ -33,6 +33,8 @@ ms.locfileid: "36296795"
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 + APIM 執行個體。 如需詳細資訊，請參閱[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="what-is-capacity"></a>容量是什麼
 

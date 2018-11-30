@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230092"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333798"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>使用 Log Analytics 來監視效能
 
@@ -98,6 +98,6 @@ ms.locfileid: "50230092"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 收集相關[效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 若要設定 Log Analytics 代理程式來收集特定的效能計數器，請檢閱[設定資料來源](../log-analytics/log-analytics-data-sources.md#configuring-data-sources)。
+* 收集相關[效能計數器](service-fabric-diagnostics-event-generation-perf.md)。 若要設定 Log Analytics 代理程式來收集特定的效能計數器，請檢閱[設定資料來源](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources)。
 * 設定 Log Analytics 以設定[自動化警示](../log-analytics/log-analytics-alerts.md)，來協助偵測與診斷
 * 或者，您可以透過 [Azure 診斷延伸模組來收集效能計數器，並將它們傳送至 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)

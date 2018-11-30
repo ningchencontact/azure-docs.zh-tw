@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 39b071c258a7aab3f8f0287ef2ce581a8f1b333e
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 5787f72f2bc93c5dff05c6764639a4c46efe1a4f
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623142"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582780"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的無伺服器資料庫計算
 
@@ -124,7 +124,7 @@ Azure Functions 提供了建立可擴展工作單位的功能，或可視需要�
 
 無伺服器計算建議使用 Azure Cosmos DB 的資料庫，原因如下：
 
-* **即時存取所有資料**：您可以精確存取儲存的每個值，因為 Azure Cosmos DB 依預設會[自動編製索引](indexing-policies.md)所有資料，並讓這些索引立即可用。 這表示您可以經常向資料庫查詢、更新和新增項目，並透過 Azure Functions 即時存取。
+* **即時存取所有資料**：您可以精確存取儲存的每個值，因為 Azure Cosmos DB 依預設會[自動編製索引](index-policy.md)所有資料，並讓這些索引立即可用。 這表示您可以經常向資料庫查詢、更新和新增項目，並透過 Azure Functions 即時存取。
 
 * **無結構描述**。 Azure Cosmos DB 是無結構描述的 - 因此它有獨特的能力可處理來自 Azure Function 的任何資料輸出。 這種「處理任何事」的方法使其可直接建立所有輸出至 Azure Cosmos DB 的各種函式。
 

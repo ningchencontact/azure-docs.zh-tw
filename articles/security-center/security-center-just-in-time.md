@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 72acf0f06bbed0129ff322b10a7faf16fd94f712
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320334"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314740"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用 Just-In-Time 管理虛擬機器存取
 
@@ -262,7 +262,7 @@ Just-In-Time VM 存取功能可透過 Azure 資訊安全中心 API 使用。 您
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-- [設定安全性原則](security-center-policies.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+- [設定安全性原則](security-center-azure-policy.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 - [管理安全性建議](security-center-recommendations.md) — 了解建議如何協助保護您的 Azure 資源。
 - [安全性健康情況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健康清況。
 - [管理與回應安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。

@@ -1,3 +1,16 @@
+---
+author: vhorne
+ms.service: dns
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: victorh
+ms.openlocfilehash: f7fa018225d82e2db4a3c51b333aea6fcb9a1514
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330813"
+---
 ### <a name="record-names"></a>記錄名稱
 
 在 Azure DNS 中，記錄是使用相對名稱來指定。 「完整」網域名稱 (FQDN) 包含區域名稱，而「相對」名稱不含區域名稱。 比方說，區域 'contoso.com' 中的相對記錄名稱 'www' 就給出完整記錄名稱 'www.contoso.com'。

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3e1acb714cfc1c059f8d02240c2a6d49be9f4971
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010582"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335277"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Log Analytics 中的自訂欄位
 Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜尋欄位來擴充 Log Analytics 中的現有記錄。  自訂欄位會自動填入擷取自同一筆記錄中其他屬性的資料。
@@ -81,7 +81,7 @@ Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜�
 有兩種方式可移除自訂欄位。  第一個方式是在檢視如上所述的完整清單時，每個欄位所具有的 [移除]  選項。  另一個方式是擷取一筆記錄，然後按一下欄位左邊的按鈕。  功能表中會有可供移除自訂欄位的選項。
 
 ## <a name="sample-walkthrough"></a>範例逐步解說
-下面的章節會逐步解說建立自訂欄位的完整範例。  這個範例會擷取 Windows 事件中指出變更狀態之服務的服務名稱。  這個動作必須仰賴服務控制管理員在 Windows 電腦的系統記錄檔中建立的事件。  如果您想要跟隨此範例，您必須 [收集系統記錄檔的資訊事件](log-analytics-data-sources-windows-events.md)。
+下面的章節會逐步解說建立自訂欄位的完整範例。  這個範例會擷取 Windows 事件中指出變更狀態之服務的服務名稱。  這個動作必須仰賴服務控制管理員在 Windows 電腦的系統記錄檔中建立的事件。  如果您想要跟隨此範例，您必須 [收集系統記錄檔的資訊事件](../azure-monitor/platform/data-sources-windows-events.md)。
 
 我們輸入下列查詢，以從服務控制管理員傳回事件識別碼為 7036，且為指出服務正在啟動或停止之事件的所有事件。
 
@@ -141,5 +141,5 @@ Log Analytics 的**自訂欄位**功能，可讓您透過新增自己的可搜�
 
 ## <a name="next-steps"></a>後續步驟
 * 了解 [記錄搜尋](log-analytics-queries.md) ，以使用自訂欄位作為準則來建立查詢。
-* 監視可利用自訂欄位來剖析的[自訂記錄檔](log-analytics-data-sources-custom-logs.md)。
+* 監視可利用自訂欄位來剖析的[自訂記錄檔](../azure-monitor/platform/data-sources-custom-logs.md)。
 

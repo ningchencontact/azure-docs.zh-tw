@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7f653eca0c768cc35df039cbd51153484710d80a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620931"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422248"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>針對 Azure Active Directory 中應用程式的 SAML 型單一登入進行偵錯
 
@@ -32,7 +32,7 @@ ms.locfileid: "39620931"
 若要下載並安裝 My Apps 安全登入擴充功能，請使用下列其中一個連結。
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
@@ -75,7 +75,7 @@ ms.locfileid: "39620931"
     - 可識別問題根本原因的陳述。
 2.  返回 Azure AD，並尋找 [測試單一登入] 刀鋒視窗。
 3.  在 [取得解決指導方針] 上方的文字方塊中，貼上錯誤訊息。
-3.  按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您未使用 My Apps 安全登入擴充功能，則可能需要 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來擷取 SAML 要求和回應。
+3.  按一下 [取得解決指導方針] 以顯示問題的解決步驟。 此指導方針可能需要來自 SAML 要求或 SAML 回應的資訊。 如果您未使用 My Apps 安全登入擴充功能，則可能需要 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 要求和回應。
 4.  確認 SAML 要求中的目的地，會對應到從 Azure Active Directory 中取得的 SAML 單一登入服務 URL
 5.  確認 SAML 要求中的簽發者，就是您在 Azure Active Directory 中為應用程式設定的同一個識別碼。 Azure AD 會使用簽發者尋找您目錄中的應用程式。
 6.  確認 AssertionConsumerServiceURL 是應用程式預期會從 Azure Active Directory 收到 SAML 權杖的位置。 您可以在 Azure Active Directory 中設定這個值，但如果它是 SAML 要求的一部分則不一定要設定。
@@ -90,17 +90,17 @@ ms.locfileid: "39620931"
 1. 如果應用程式在 Azure AD 資源庫中，請確認您已遵循用於整合應用程式與 Azure AD 的所有步驟。 若要尋找應用程式的整合指示，請參閱 [SaaS 應用程式整合教學課程清單](../saas-apps/tutorial-list.md)。
 2. 擷取 SAML 回應。
     - 如果您已安裝 My Apps 安全登入擴充功能，請從 [測試單一登入] 刀鋒視窗中，按一下 [下載 SAML 回應]。
-    - 如果未安裝此擴充功能，則請使用 [Fiddler](http://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。 
+    - 如果未安裝此擴充功能，則請使用 [Fiddler](https://www.telerik.com/fiddler) 之類的工具來擷取 SAML 回應。 
 3. 請注意 SAML 回應權杖中的這些元素：
     - NameID 值和格式的使用者唯一識別碼
     - 在權杖中所發出的宣告
     - 用來簽署權杖的憑證。 如需如何檢閱 SAML 回應的相關資訊，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
 4. 如需 SAML 回應的詳細資訊，請參閱[單一登入 SAML 通訊協定](single-sign-on-saml-protocol.md)。
-5. 既然您已檢閱 SAML 回應，請參閱[登入後應用程式頁面的錯誤](../application-sign-in-problem-application-error.md)，以取得解決問題的指導方針。 
+5. 既然您已檢閱 SAML 回應，請參閱[登入後應用程式頁面的錯誤](../manage-apps/application-sign-in-problem-application-error.md)，以取得解決問題的指導方針。 
 6. 如果您仍無法成功登入，則可以詢問應用程式廠商 SAML 回應中遺漏了什麼。
 
 
 ## <a name="next-steps"></a>後續步驟
-既然應用程式已可使用單一登入，您可以[將 SaaS 應用程式的使用者佈建和解除佈建自動化](../active-directory-saas-app-provisioning.md)，也可以[開始使用條件式存取](../conditional-access/app-based-conditional-access.md)。
+既然應用程式已可使用單一登入，您可以[將 SaaS 應用程式的使用者佈建和解除佈建自動化](../manage-apps/user-provisioning.md)，也可以[開始使用條件式存取](../conditional-access/app-based-conditional-access.md)。
 
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 97ca4f69f4bf2aa814d51cc17970c1aead8399e8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d0522dc4cc218792569498c149b32b3de652cb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414398"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443571"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 儲存和設定 API 管理服務組態
 
@@ -43,6 +43,8 @@ ms.locfileid: "50414398"
 5. 從您的儲存機制將變更部署至您的服務組態資料庫
 
 本文說明如何啟用及使用 Git 來管理您的服務組態，並提供 Git 儲存機制中檔案和資料夾的參考。
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="access-git-configuration-in-your-service"></a>存取服務中的 Git 組態
 

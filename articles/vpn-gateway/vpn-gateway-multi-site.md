@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: yushwang
-ms.openlocfilehash: c0af4271df0e88354edb717b8d6f4c99ab29e573
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 768f06c9d007e716f89ca61ccd9f8a2ccd575efd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399367"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160863"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>將站對站連線新增至具有現有 VPN 閘道連線的 VNet (傳統)
 
@@ -36,7 +36,7 @@ ms.locfileid: "29399367"
 
 ### <a name="deployment-models-and-methods"></a>部署模型和方法
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 當此組態有新文章和額外工具可以使用時，我們就會更新此資料表。 當文章可用時，我們會直接從此資料表連結至該文章。
 
@@ -138,7 +138,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 ## <a name="4-add-multiple-site-references"></a>4.新增多個網站參考
 當您新增或移除網站參考資訊時，將會對 ConnectionsToLocalNetwork/LocalNetworkSiteRef 進行組態變更。 加入新的本機網站參考資訊會促使 Azure 建立新的通道。 下列範例中的網路組態適用於單一網站連線。 完成變更後請儲存檔案。
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>
@@ -148,7 +148,7 @@ Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
 
 若要新增額外的站台參考 (建立多站台組態)，只需新增額外的 "LocalNetworkSiteRef" 行即可，如以下範例所示：
 
-```
+```xml
   <Gateway>
     <ConnectionsToLocalNetwork>
       <LocalNetworkSiteRef name="Site1"><Connection type="IPsec" /></LocalNetworkSiteRef>

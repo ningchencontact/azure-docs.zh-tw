@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: ed0c387f9785336fbf18b3fd3c0cd9a7b09df633
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279502"
+---
 金鑰交易 (每個區域中的每個保存庫在 10 秒內允許的最大交易數<sup>1</sup>)：
 
 |金鑰類型|HSM-Key<br>CREATE 金鑰|HSM-key<br>所有其他交易|Software-key<br>CREATE 金鑰|Software-key<br>所有其他交易|

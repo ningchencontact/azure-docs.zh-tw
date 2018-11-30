@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389763"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162801"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -182,7 +182,7 @@ ms.locfileid: "49389763"
 * 修正根據字串欄位排序時交叉資料分割排序依據查詢接續無法運作的問題。
 
 ### <a name="a-name11201120"></a><a name="1.12.0"/>1.12.0
-* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 請參閱[彙總支援](sql-api-sql-query.md#Aggregates)。
+* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 請參閱[彙總支援](how-to-sql-query.md#Aggregates)。
 * 已將分割區集合的最小輸送量從 10,100 RU/s 降低為 2500 RU/s。
 
 ### <a name="a-name11141114"></a><a name="1.11.4"/>1.11.4

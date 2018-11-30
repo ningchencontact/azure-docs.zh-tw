@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e3f08b80b891ad277794ae5a07c3662dab2f2c16
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e47dcda90682bd1f83dbb5fdc6a106f80853d2d0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687447"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424828"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory 無縫單一登入：常見問題集
 
@@ -34,7 +34,7 @@ ms.locfileid: "51687447"
 
 無縫 SSO 是免費功能，您不需要任何付費的 Azure AD 版本即可使用。
 
-## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](http://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供「無縫 SSO」功能？
+## <a name="is-seamless-sso-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](https://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供「無縫 SSO」功能？
 
 否。 只有全球版的 Azure AD 執行個體有提供「無縫 SSO」功能。
 

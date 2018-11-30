@@ -13,18 +13,18 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
-ms.openlocfilehash: e0694aa8c5226b794be59358e73751cc493a7e95
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 639faef9d95a6ff3ba307290add3bee73904fee0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755529"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269309"
 ---
 下列限制適用於 Azure Site Recovery：
 
 | 限制識別碼 | 預設限制 |
 | --- | --- | --- | --- |
-| 每個訂用帳戶的保存庫數目 |25 |
+| 每個訂用帳戶的保存庫數目 |500 |     
 | 每個 Azure 保存庫的伺服器數目 |250 |
 | 每個 Azure 保存庫的保護群組數目 |沒有限制 |
 | 每個 Azure 保存庫的復原計劃數目 |沒有限制 |

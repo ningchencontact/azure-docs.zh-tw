@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: eee68481f4396f8a09241b664d4c3d7d4a4f6567
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054345"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976344"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>建立依排程執行管線的觸發程序
 本文提供有關排程觸發程序的資訊，以及建立、啟動和監視排程觸發程序的步驟。 如需了解其他類型的觸發程序，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -325,10 +325,10 @@ ms.locfileid: "37054345"
 
 | JSON 屬性 | 類型 | 必要 | 預設值 | 有效值 | 範例 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | 字串 | yes | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | Object | yes | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **startTime** | 字串 | 是 | None | ISO 8601 日期時間 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | Object | 是 | None | Recurrence 物件 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **interval** | Number | 否 | 1 | 1 到 1,000 | `"interval":10` |
-| **endTime** | 字串 | yes | None | 代表未來時間的日期時間值。 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | 字串 | 是 | None | 代表未來時間的日期時間值。 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
 | **schedule** | Object | 否 | None | Schedule 物件 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 屬性

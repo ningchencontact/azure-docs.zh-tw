@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 449fdbceeb0b64d58c589fe5dbde61302ee27afb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006153"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309203"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>保護 Azure 資訊安全中心內的網路資源
 Azure 資訊安全中心會持續分析 Azure 資源的安全性狀態，以獲得網路安全性最佳做法。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議，以加強並保護您的資源。
@@ -149,6 +149,6 @@ Vnet|5|啟用 DDoS 保護標準|針對在這些虛擬網路中具有公用 IP �
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找有關使用服務的常見問題。

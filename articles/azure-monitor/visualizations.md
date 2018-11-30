@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2018
 ms.author: bwren
-ms.openlocfilehash: 7a3545e3fdf37f33db4c3b77be6cf6d5db0f6aef
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4200accee94840a8a4455308f24a857fd5d7034a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973570"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632971"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>將來自 Azure 監視器的資料視覺化
-本文會概要介紹用以將儲存在 Azure 監視器中的資料視覺化的可用方法。 [Azure 計量存放區中的計量](../monitoring/monitoring-data-collection.md#metrics)和 [Log Analytics 中的記錄資料](../monitoring/monitoring-data-collection.md#logs)均包括在內。 
+本文會概要介紹用以將儲存在 Azure 監視器中的資料視覺化的可用方法。 [Azure 計量存放區中的計量](../azure-monitor/platform/data-collection.md#metrics)和 [Log Analytics 中的記錄資料](../azure-monitor/platform/data-collection.md#logs)均包括在內。 
 
 圖表影像等視覺效果可協助分析監視資料，以深入鑽研問題，並找出其中的模式。 根據您所使用的工具，還可以選擇是否要與組織內外的其他使用者共用視覺效果。
 
@@ -50,7 +50,7 @@ ms.locfileid: "46973570"
 - 內容相關的向下鑽研受限。
 
 ## <a name="azure-monitor-views"></a>Azure 監視器檢視
-[Azure 監視器中的檢視](../log-analytics/log-analytics-view-designer.md)可讓您使用儲存在 Log Analytics 中的記錄資料，建立自訂視覺效果。 [監視解決方案](../monitoring/monitoring-solutions.md)會使用這些視覺效果呈現收集到的資料。
+[Azure 監視器中的檢視](../azure-monitor/platform/view-designer.md)可讓您使用儲存在 Log Analytics 中的記錄資料，建立自訂視覺效果。 [監視解決方案](../azure-monitor/insights/solutions.md)會使用這些視覺效果呈現收集到的資料。
 
 ![檢視](media/visualizations/view.png)
 
@@ -58,7 +58,7 @@ ms.locfileid: "46973570"
 - Log Analytics 資料有豐富的視覺效果。
 - 可匯出和匯入檢視，以將之傳送給其他資源群組和訂用帳戶。
 - 可使用工作區和監視解決方案，整合至 Log Analytic 管理模型。
-- 提供自訂參數的[篩選條件](../log-analytics/log-analytics-view-designer-filters.md)。
+- 提供自訂參數的[篩選條件](../azure-monitor/platform/view-designer-filters.md)。
 - 互動式，可支援多層級的向下鑽研能力 (可從一個檢視鑽研至另一個檢視)
 
 ### <a name="limitations"></a>限制
@@ -138,9 +138,9 @@ ms.locfileid: "46973570"
 
 
 ## <a name="next-steps"></a>後續步驟
-- 了解 [ Azure 監視器收集的資料](../monitoring/monitoring-data-collection.md)。
+- 了解 [ Azure 監視器收集的資料](../azure-monitor/platform/data-collection.md)。
 - 了解 [Azure 儀表板](../azure-portal/azure-portal-dashboards.md)。
-- 了解 [Azure 監視器中的檢視](../log-analytics/log-analytics-view-designer.md)。
+- 了解 [Azure 監視器中的檢視](../azure-monitor/platform/view-designer.md)。
 - 了解 [Application Insights 中的活頁簿](../application-insights/app-insights-usage-workbooks.md)。
 - 了解[將記錄資料匯入 Power BI](../log-analytics/log-analytics-powerbi.md)。
 - 了解 [Grafana Azure 監視器資料來源外掛程式](../monitoring-and-diagnostics/monitor-send-to-grafana.md)。

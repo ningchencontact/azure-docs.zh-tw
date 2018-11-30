@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d8264f896b7c6cac8fc46616ab3ee579c5acb8b7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d291d7ecd5ee9b8bf5645296ef345ac436f1d047
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34621644"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495911"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 客戶案例研究
 Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料。 許多產業的客戶會使用 Data Factory 和其他 Azure 服務來建置其分析管線以及解決其業務問題。  直接向我們的客戶學習他們使用 Data Factory 的方法和原因。
@@ -34,8 +34,7 @@ Data Factory 是雲端架構資訊管理服務，會自動移動和轉換資料�
 [您想將什麼遊戲搭配漢堡一起享用？Ziosk 可能已經知道。](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>阿拉斯加航空公司
-
-  [航空公司使用平板電腦和雲端服務，提供更吸引人的機上娛樂](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
+[航空公司使用平板電腦和雲端服務，提供更吸引人的機上娛樂](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)
 
 ## <a name="tacoma-public-schools"></a>塔科馬公立學校
 [使用雲端分析來預測學生中輟風險並增加畢業率](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20703)

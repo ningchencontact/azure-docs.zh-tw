@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/29/2018
 ms.author: anwestg
-ms.openlocfilehash: aa745d827db7633dc9f8601f65fa31dfadbb4076
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cd16bf400c5a5e5a07c7e2dc459d801e6fc810b9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614050"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635368"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>將 App Service 資源提供者新增到 Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "51614050"
 使用本文中的指引在 Azure Stack 中部署 App Service。
 
 > [!IMPORTANT]  
-> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的「Azure Stack 開發套件」(ASDK)。
+> 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件 (ASDK)。
 
 您可以讓使用者具有建立 Web 和 API 應用程式的能力。 若要讓使用者能夠建立這些應用程式，您需要：
 
@@ -202,17 +202,17 @@ ms.locfileid: "51614050"
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
 
-   >[!IMPORTANT]
-   >如果您要部署到現有的虛擬網路，並使用內部 IP 位址連線到檔案伺服器，則必須新增輸出安全性規則。 此規則可啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：<br>
-    >  - 來源：任何
-    >  - 來源連接埠範圍：*
-    >  - 目的地：IP 位址
-    >  - 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
-    >  - 目的地連接埠範圍：445
-    >  - 通訊協定：TCP
-    >  - 動作：允許
-    >  - 優先順序：700
-    >  - 名稱：Outbound_Allow_SMB445
+    如果您要部署到現有的虛擬網路，並使用內部 IP 位址連線到檔案伺服器，則必須新增輸出安全性規則。 此規則可啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
+
+    - 來源：任何
+    - 來源連接埠範圍：*
+    - 目的地：IP 位址
+    - 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+    - 目的地連接埠範圍：445
+    - 通訊協定：TCP
+    - 動作：允許
+    - 優先順序：700
+    - 名稱：Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>測試 Azure Stack 上的 App Service
 

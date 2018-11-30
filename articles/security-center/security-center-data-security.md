@@ -3,7 +3,7 @@ title: Azure 資訊安全中心資料安全性 | Microsoft Docs
 description: 本文件說明如何在 Azure 資訊安全中心管理和保護資料。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 33f2c9f4-21aa-4f0c-9e5e-4cd1223e39d7
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2017
-ms.author: yurid
-ms.openlocfilehash: 587dd2af0e04b8557182ab041a817878592923d4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbf861c582ec8b5297bc1d29aa558b86404b6d99
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230439"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620297"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 資訊安全中心資料安全性
 為了協助客戶防範、偵測和回應威脅，Azure 資訊安全中心會收集和處理安全性的相關資料，包括組態資訊、中繼資料、事件記錄檔、損毀傾印檔等等。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。
@@ -31,7 +31,7 @@ Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的�
 
 - Azure 服務︰與 Azure 服務的資源提供者通訊，以使用您所部署之 Azure 服務的組態相關資訊。
 - 網路流量︰使用從 Microsoft 的基礎結構取樣的網路流量中繼資料，例如來源/目的地 IP/連接埠、封包大小和網路通訊協定。
-- 合作夥伴解決方案：使用整合式合作夥伴解決方案 (例如防火牆和反惡意程式碼解決方案) 的安全性警示。 
+- 合作夥伴解決方案：使用整合式合作夥伴解決方案 (例如防火牆和反惡意程式碼解決方案) 的安全性警示。
 - 您的虛擬機器和伺服器：使用設定資訊以及安全性事件的相關資訊，例如來自您虛擬機器的 Windows 事件和稽核記錄、IIS 記錄、syslog 訊息和損毀傾印檔。 此外，建立警示時，Azure 資訊安全中心可能會產生受影響 VM 磁碟的快照集並從 VM 磁碟擷取與警示相關的機器構件 (例如登錄檔)，以供鑑識之用。
 
 
@@ -44,7 +44,7 @@ Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的�
 
 ## <a name="data-location"></a>資料位置
 
-**您的工作區**：會針對下列地區指定工作區，且從 Azure 虛擬機器收集的資料 (包括損毀傾印以及某些類型的警示資料) 會儲存在最近的工作區。 
+**您的工作區**：會針對下列地區指定工作區，且從 Azure 虛擬機器收集的資料 (包括損毀傾印以及某些類型的警示資料) 會儲存在最近的工作區。
 
 | VM 地區                        | 工作區地區 |
 |-------------------------------|---------------|
@@ -53,20 +53,21 @@ Azure 資訊安全中心會分析來自下列來源的資料，以掌握您的�
 | 亞太地區、日本、印度    | 亞太地區  |
 | 澳大利亞                     | 澳大利亞     |
 
- 
+
 VM 磁碟快照集會儲存在與 VM 磁碟相同的同一個儲存體帳戶中。
- 
-針對在其他環境中執行的虛擬機器和伺服器 (例如內部部署)，您可以指定要儲存所收集資料的工作區和區域。 
+
+針對在其他環境中執行的虛擬機器和伺服器 (例如內部部署)，您可以指定要儲存所收集資料的工作區和區域。
 
 **Azure 資訊安全中心儲存體**：有關安全性警示 (包括夥伴警示) 的資訊會根據相關 Azure 資源的位置以區域性方式儲存，而安全性健康情況狀態和建議的相關資訊則會以客戶的位置作為基礎，集中儲存在美國和歐洲。
 Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分析，以取得惡意探索嘗試和成功入侵的證明。 Azure 資訊安全中心會在與工作區相同的地理區域內執行這項分析，並且在分析完成時刪除暫複本。
 
-機器構件會集中儲存在與 VM 相同的區域。 
+機器構件會集中儲存在與 VM 相同的區域。
 
 
 ## <a name="managing-data-collection-from-virtual-machines"></a>從虛擬機器管理資料收集
 
-當您啟用 Azure 中的資訊安全中心時，已針對每個 Azure 訂用帳戶開啟資料收集。 您也可以在 Azure 資訊安全中心的 [安全性原則] 區段中開啟訂用帳戶的資料收集。 開啟資料收集後，Azure 資訊安全中心會在所有現有支援的 Azure 虛擬機器和任何新建立的虛擬機器上佈建 Microsoft 監視代理程式。 Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉換成 [Windows 事件追蹤](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) 的追蹤事件。 此外，作業系統會在執行機器的過程中引發事件記錄檔事件。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址、已登入的使用者和租用戶識別碼。 Microsoft Monitoring Agent 會讀取事件記錄項目和 ETW 追蹤，並將它們複製到您的工作區進行分析。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區，啟用程序建立事件，以及啟用命令列稽核功能。
+當您啟用 Azure 中的資訊安全中心時，已針對每個 Azure 訂用帳戶開啟資料收集。 您也可以在 Azure 資訊安全中心的 [安全性原則] 區段中開啟訂用帳戶的資料收集。 開啟資料收集後，Azure 資訊安全中心會在所有現有支援的 Azure 虛擬機器和任何新建立的虛擬機器上佈建 Microsoft 監視代理程式。
+Microsoft Monitoring Agent 會掃描各種安全性相關設定，並將其轉換成 [Windows 事件追蹤](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) 的追蹤事件。 此外，作業系統會在執行機器的過程中引發事件記錄檔事件。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址、已登入的使用者和租用戶識別碼。 Microsoft Monitoring Agent 會讀取事件記錄項目和 ETW 追蹤，並將它們複製到您的工作區進行分析。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區，啟用程序建立事件，以及啟用命令列稽核功能。
 
 如果您是使用免費版的 Azure 安全性中心，也可以在安全性原則中，從虛擬機器停用資料收集。 標準層上的訂用帳戶需要資料收集。 即使已停用資料集合，仍然會啟用VM 磁碟快照集和構件集合。
 
@@ -79,7 +80,7 @@ Azure 資訊安全中心會收集損毀傾印檔案的暫時複本並加以分�
 
 
 > [!NOTE]
-> 您也可透過 REST API 取用安全性建議。 如需詳細資訊，請參閱[安全性資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)。 
+> 您也可透過 REST API 取用安全性建議。 如需詳細資訊，請參閱[安全性資源提供者 REST API 參考](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx)。
 
 ## <a name="see-also"></a>另請參閱
 在本文件中，您已了解如何在 Azure 資訊安全中心管理和保護資料。 若要深入了解 Azure 資訊安全中心，請參閱：

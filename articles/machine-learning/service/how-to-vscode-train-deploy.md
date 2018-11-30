@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: 6372aada8c3d380f8d3cefb0479e45bbd7c63898
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 377a4bbf359b2c65136625fcef8a1093e49da728
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945241"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854300"
 ---
 # <a name="vs-code-tools-for-ai-train-and-deploy-ml-models-from-vs-code"></a>VS Code Tools for AI：從 VS Code 定型和部署 ML 模型
 在此文章中，您將了解如何使用 **VS Code Tools for AI** 擴充功能，透過 VS Code 中的 Azure Machine Learning services 來定型和部署機器學習和深度學習模型。
@@ -29,7 +29,7 @@ Azure Machine Learning 支援在本機和遠端計算目標上執行實驗。 �
 
 + 已使用 VS Code [安裝適用於 Python 的 Azure Machine Learning SDK](how-to-vscode-tools.md)。
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
++ 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
 
 ## <a name="create-and-manage-compute-targets"></a>建立和管理計算目標
 

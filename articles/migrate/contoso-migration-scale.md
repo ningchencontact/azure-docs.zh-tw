@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-ms.openlocfilehash: 5c1858fca1ca5f6bc48f5225ecf2d52dee055c91
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 37f0ba800cca4b096691a8bb6b43eb33a636d833
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092740"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284858"
 ---
 # <a name="contoso---scale-a-migration-to-azure"></a>Contoso - 對 Azure 進行大規模移轉
 
@@ -289,9 +289,9 @@ Contoso 必須了解如何根據容量考量來部署這些元件。
 --- | ---
 **最大每日變動率** | 單一處理序伺服器可以處理多達 2 TB 的每日變動率。 由於一個 VM 只能使用一個處理序伺服器，所複寫 VM 支援的每日最大資料變動率會是 2 TB。
 **最大輸送量** | 標準 Azure 儲存體帳戶每秒可處理最多 20,000 個要求，複寫中 VM 的每秒輸入/輸出作業 (IOPS) 數應保持在此限制內。 例如，如果某個 VM 有 5 個磁碟，且該 VM 上的每個磁碟會產生 120 IOPS (8K 大小)，則它會保持在 Azure 的每個磁碟 IOPS 限制 (500) 內。<br/><br/> 請注意，所需的儲存體帳戶數目等於來源機器 IOPS 總數除以 20,000。 複寫的機器只能屬於 Azure 中的單一儲存體帳戶。
-**組態伺服器** | 根據 Contoso 所估計的一起複寫 100=200 VM 以及[組態伺服器調整大小需求](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)，Contoso 估計值所需的組態伺服器機器如下：<br/><br/> CPU：16 個 vCPU (2 個通訊端 * 8 核心 @ 2.5 GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變動率：1 TB 至 2 TB。<br/><br/> 除了調整大小需求，Contoso 還必須確定該組態伺服器完美地位在和所要遷移 VM 相同的網路與 LAN 區段上。
+**組態伺服器** | 根據 Contoso 所估計的一起複寫 100=200 VM 以及[組態伺服器調整大小需求](../site-recovery/site-recovery-plan-capacity-vmware.md#size-recommendations-for-the-configuration-server)，Contoso 估計值所需的組態伺服器機器如下：<br/><br/> CPU：16 個 vCPU (2 個通訊端 * 8 核心 @ 2.5 GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變動率：1 TB 至 2 TB。<br/><br/> 除了調整大小需求，Contoso 還必須確定該組態伺服器完美地位在和所要遷移 VM 相同的網路與 LAN 區段上。
 **處理序伺服器** | Contoso 會部署獨立的專用處理序伺服器，並使其能夠複寫 100 至 200 個 VM：<br/><br/> CPU：16 個 vCPU (2 個通訊端 * 8 核心 @ 2.5 GHz)<br/><br/> 記憶體：32 GB<br/><br/> 快取磁碟：1 TB<br/><br/> 資料變動率：1 TB 至 2 TB。<br/><br/> 處理序伺服器會竭力運作，因此其位置應該落在 ESXi 主機上，以便應付複寫所需的磁碟 I/O、網路流量和 CPU。 為此，Contoso 會考慮使用專用主機。 
-**網路功能** | Contoso 已檢閱目前的站對站 VPN 基礎結構，並決定實作 Azure ExpressRoute。 此實作很重要，因為它會減少延遲，並提升通往 Contoso 主要美國東部 2 Azure 區域的頻寬。<br/><br/> **監視**：Contoso 將需要仔細監視來自處理序伺服器的資料。 如果資料負載超過網路頻寬處理能力，Contoso 會考慮[將處理序伺服器的頻寬節流](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
+**網路功能** | Contoso 已檢閱目前的站對站 VPN 基礎結構，並決定實作 Azure ExpressRoute。 此實作很重要，因為它會減少延遲，並提升通往 Contoso 主要美國東部 2 Azure 區域的頻寬。<br/><br/> **監視**：Contoso 將需要仔細監視來自處理序伺服器的資料。 如果資料負載超過網路頻寬處理能力，Contoso 會考慮[將處理序伺服器的頻寬節流](../site-recovery/site-recovery-plan-capacity-vmware.md#control-network-bandwidth)。
 **Azure 儲存體** | 為了移轉，Contoso 必須識別目標 Azure 儲存體帳戶的正確類型和數目。  Site Recovery 會將 VM 資料複寫至 Azure 儲存體。<br/><br/> Site Recovery 可以複寫至標準或進階的 (SSD) 儲存體帳戶。<br/><br/> 為了決定儲存體，Contoso 必須檢閱[儲存體限制](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)，並考慮一段時間後的預期成長和使用量增加。 知道移轉速度和優先順序後，Contoso 決定使用進階儲存體帳戶。<br/><br/> 他們會在移轉程序期間建立並重複使用多個儲存體帳戶。
 Contoso 已決定對部署至 Azure 的所有 VM 使用受控磁碟。  所需的 IOPS 將會決定磁碟會是標準 (HDD) 還是進階 (SSD)。<br/>.<br/>
 

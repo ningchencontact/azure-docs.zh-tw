@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2018
 ms.author: bwren
-ms.openlocfilehash: f40c8ed7eb6bfae958b3b57c4b7d525963ab9741
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f7b0f7c1cd08168db3f0f0ffd6cf6c4fa2c604e
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955238"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334545"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Log Analytics 中的資料擷取時間
 Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象為每月需傳送數 TB 資料的上千名客戶。 而在 Log Analytics 收集資料後，資料需要多久時間方能轉為可用狀態，是經常受到詢問的問題。 本文會說明影響這種延遲的不同因素。
@@ -40,7 +40,7 @@ Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象�
 代理程式和管理解決方案使用不同的策略來收集虛擬機器的資料，這可能會影響延遲。 某些特定範例包括以下內容：
 
 - 立即收集 Windows 事件、syslog 事件和效能計量。 Linux 效能計數器每隔 30 秒輪詢一次。
-- 時間戳記變更後，會收集 IIS 記錄和自訂記錄。 而 IIS 記錄檔會因[變換在 IIS 上設定的排程](log-analytics-data-sources-iis-logs.md)而受影響。 
+- 時間戳記變更後，會收集 IIS 記錄和自訂記錄。 而 IIS 記錄檔會因[變換在 IIS 上設定的排程](../azure-monitor/platform/data-sources-iis-logs.md)而受影響。 
 - Active Directory 複寫解決方案每五天執行一次評估，而 Active Directory 評定解決方案每週對 Active Directory 基礎結構執行一次評估。 只有在評估完成後，代理程式才會收集這些記錄。
 
 ### <a name="agent-upload-frequency"></a>代理程式上傳頻率
@@ -61,7 +61,7 @@ Azure Log Analytics 是 Azure 監視器中的高階資料服務，服務對象�
 將記錄檔記錄擷取至 Log Analytics 管道後，會將其寫入暫存儲存體，以確保租用戶隔離，並確保資料不會遺失。 此程序通常會增加 5-15 秒。 某些管理解決方案會實作更繁重的演算法以彙總資料，並在資料流入時獲得見解。 例如，網路效能監控會每 3 分鐘彙總傳入資料，有效地增加 3 分鐘的延遲。 另一個會增加延遲的程序是處理自訂記錄的程序。 在某些情況下，對於代理程式收集自檔案的記錄，此程序可能會增加數分鐘的延遲。
 
 ### <a name="new-custom-data-types-provisioning"></a>新的自訂資料類型佈建
-從[自訂記錄](../log-analytics/log-analytics-data-sources-custom-logs.md)或[資料收集器 API](../log-analytics/log-analytics-data-collector-api.md) 建立新類型的自訂資料時，系統會建立專用的儲存體容器。 這是一次性的額外負荷，僅在第一次出現此資料類型時發生。
+從[自訂記錄](../log-analytics/../azure-monitor/platform/data-sources-custom-logs.md)或[資料收集器 API](../log-analytics/log-analytics-data-collector-api.md) 建立新類型的自訂資料時，系統會建立專用的儲存體容器。 這是一次性的額外負荷，僅在第一次出現此資料類型時發生。
 
 ### <a name="surge-protection"></a>突波保護
 Log Analytics 的首要任務是確保不會遺失客戶資料，因此系統具有內建的資料突波保護。 這包括緩衝區，以確保即使在巨大的負載下，系統會保持正常運作。 在正常負載下，這些控制項增加不到一分鐘，但是在極端的條件下和故障時，它們可能會增加大量時間，同時確保資料安全。

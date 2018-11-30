@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 45ddb31a20b830de29cf77231bb3acd6f8917601
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230898"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976210"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>針對 SSH 連線至 Azure Linux VM 失敗、發生錯誤或被拒進行疑難排解
 當您嘗試連接到 Linux 虛擬機器 (VM) 時，有許多原因可能會導致您遇到安全殼層 (SSH) 錯誤、SSH 連線失敗或 SSH 被拒。 本文可協助您找出原因並加以更正。 您可以使用 Azure 入口網站、Azure CLI 或適用於 Linux 的 VM 存取擴充功能，針對連線問題進行疑難排解並予以解決。
@@ -242,7 +242,7 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 * 將 VM 重新部署到新的 Azure 節點。 如需如何重新部署 VM 的資訊，請參閱[將虛擬機器重新部署至新的 Azure 節點](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
   
     此作業完成之後，暫時磁碟機資料將會遺失，且將會更新與虛擬機器相關聯的動態 IP 位址。
-* 請依循[如何為 Linux 虛擬機器重設密碼或 SSH](../linux/classic/reset-access-classic.md?) 中的指示進行，以：
+* 請依循[如何為 Linux 虛擬機器重設密碼或 SSH](../linux/classic/reset-access-classic.md) 中的指示進行，以：
   
   * 重設密碼或 SSH 金鑰。
   * 建立 *sudo* 使用者帳戶。

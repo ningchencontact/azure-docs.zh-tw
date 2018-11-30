@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7835674536c43fcb694ad8eaeb18aebb89de5fad
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740367"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262069"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>治理 Azure DevTest Labs 基礎結構 - 資源
 此文章將說明如何在組織內調整與管理適用於 DevTest Labs 的資源。 
@@ -35,7 +35,7 @@ ms.locfileid: "50740367"
 - 是否需要進行分割以便將開發與生產環境分隔開來？ 
 - 需要基於長期簡化管理、穩定性和成長因素來引進哪些控制項？
 
-**第一個建議的做法**是檢閱組織的 Azure 分類法，其概述如何在生產與開發訂用帳戶之間進行劃分。 在下圖中，建議的分類法允許進行開發/測試和生產環境的邏輯分隔。 使用此方法，組織就能導入計費代碼，個別追蹤與每個環境相關聯的成本。 如需詳細資訊，請參閱[ 規定的訂用帳戶治理](/architecture/cloud-adoption/appendix/azure-scaffold)。 此外，您可以基於追蹤與計費目的，使用 [Azure 標記](../azure-resource-manager/resource-group-using-tags.md)來組織資源。
+**第一個建議的做法**是檢閱組織的 Azure 分類法，其概述如何在生產與開發訂用帳戶之間進行劃分。 在下圖中，建議的分類法允許進行開發/測試和生產環境的邏輯分隔。 使用此方法，組織就能導入計費代碼，個別追蹤與每個環境相關聯的成本。 如需詳細資訊，請參閱[ 規定的訂用帳戶治理](/azure/architecture/cloud-adoption/appendix/azure-scaffold)。 此外，您可以基於追蹤與計費目的，使用 [Azure 標記](../azure-resource-manager/resource-group-using-tags.md)來組織資源。
 
 **第二個建議的做法**是在 Azure 企業版入口網站內啟用 DevTest 訂用帳戶。 它讓組織能夠執行通常不會在 Azure 企業版訂用帳戶中提供的用戶端作業系統。 然後，使用企業軟體，您只需支付計算費用，而不需擔心授權。 它可確保對於指定服務 (包括像是 Microsoft SQL Server 之 IaaS 中的資源庫映像) 的計費只會以使用量為基礎。 有關 Azure DevTest 訂用帳戶的詳細資料，可在[此處](https://azure.microsoft.com/offers/ms-azr-0148p/)找到適用於 Enterprise 合約 (EA) 客戶的資料，並在[這裡](https://azure.microsoft.com/offers/ms-azr-0023p/)找到適用於隨用隨付客戶的資料。
 

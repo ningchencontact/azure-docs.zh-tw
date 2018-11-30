@@ -1,26 +1,22 @@
 ---
 title: Team Data Science Process 專案規劃 - Azure | Microsoft Docs
 description: Microsoft Project 和 Excel 範本可協助您規劃和管理資料科學專案。
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
 services: machine-learning
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
-ms.author: deguhath
-ms.openlocfilehash: 1ebd640191ffbb1b3ea70ca07081522b370e4e2d
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308182"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443095"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 專案規劃
 

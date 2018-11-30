@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: c5a947301b0861ffa09a24da79e04b5e92b2c29e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aaed6a6282da61a49698fdcdfefffe949630930a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44723658"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421822"
 ---
 # <a name="how-to-recognize-differences-between-delegated-and-application-permissions"></a>如何辨識委派與應用程式權限之間的差異
 
@@ -30,4 +30,4 @@ ms.locfileid: "44723658"
 - 您可以深入研究資源應用程式如何將[範圍](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#scopes)與[應用程式角色](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#roles)公開至用戶端應用程式，這在 Azure 入口網站中分別以委派與應用程式權限表示。 
 
 ## <a name="next-steps"></a>後續步驟
-[AzureAD StackOverflow (英文)](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow (英文)](https://stackoverflow.com/questions/tagged/azure-active-directory)

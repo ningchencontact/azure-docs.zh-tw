@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 2caf3d6373e764f5d5538a14a1750f1bfee2871d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614135"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822274"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>什麼是 Microsoft Azure 中的傳統警示？
 
@@ -89,7 +89,7 @@ Webhook 可啟用自動化和修復，例如使用：
 ## <a name="next-steps"></a>後續步驟
 使用下列項目取得有關警示規則和設定這些規則的資訊：
 
-* 深入了解[計量](../monitoring/monitoring-data-collection.md)
+* 深入了解[計量](../azure-monitor/platform/data-collection.md)
 * [透過 Azure 入口網站設定傳統的計量警示](alert-metric-classic.md)
 * 設定[傳統的計量警示 PowerShell](alert-metric-classic.md)
 * 設定[傳統的計量警示命令列介面 (CLI)](alert-metric-classic.md)

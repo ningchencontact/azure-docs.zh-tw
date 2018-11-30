@@ -10,12 +10,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: cb1abdce3bbd7349695ece70ff336c7e513c0918
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162180"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712121"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 硬體加速套件
 
@@ -32,7 +32,7 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://aka.ms/AMLfree) 。
 
 1. Azure Machine Learning 模型管理帳戶。 如需有關建立帳戶的詳細資訊，請參閱 [Azure Machine Learning 快速入門和 Workbench 安裝](../desktop-workbench/quickstart-installation.md)文件。 
 
@@ -148,7 +148,7 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 ## <a name="reporting-issues"></a>回報問題
 
-使用[論壇](https://aka.ms/aml-forum)回報您遇到的任何套件相關問題。
+使用[論壇](https://aka.ms/aml-forum-service)回報您遇到的任何套件相關問題。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.author: netahw
 author: nhaiby
 ms.date: 05/07/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 97d988332a2c5234cb260cef29f195f0fecfee45
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73f95280cc02b6f891c4ef67cd11084768d7d282
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994933"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853008"
 ---
 # <a name="build-and-deploy-text-classification-models-with-azure-machine-learning"></a>使用 Azure Machine Learning 來建置和部署文字分類模型
 
@@ -436,7 +436,7 @@ text_classifier.fit(df_train)
 
 下列程式碼範例會示範如何使用預設管線和模型參數來定型模型。 
 
-若要查看 "text_word_ngrams" 所包含的參數，請使用 [get_step_param_names_by_name](https://docs.microsoft.com/python/api/tatk.core.base_text_model.basetextmodel)。 此函數傳回的參數包括 lowercase、input_col、output_col 等等。 
+若要查看 "text_word_ngrams" 所包含的參數，請使用 [get_step_param_names_by_name](/python/api/msft-tatk/tatk.core.base_text_model.basetextmodel#get-step-param-names-by-name)。 此函數傳回的參數包括 lowercase、input_col、output_col 等等。 
 
 ```python
 text_classifier.get_step_param_names_by_name("text_word_ngrams")
@@ -625,7 +625,7 @@ text_classifier.export_params(params_file_path)
 </div>
 
 ## <a name="evaluate-model-performance"></a>評估模型效能
-[評估模組](https://docs.microsoft.com/python/api/tatk.evaluation) \(英文\) 會針對測試資料集，評估定型文字分類器的準確度。 評估函數會產生混淆矩陣，並提供 Macro-F1 分數。
+[評估模組](/python/api/msft-tatk/tatk.evaluation) \(英文\) 會針對測試資料集，評估定型文字分類器的準確度。 評估函數會產生混淆矩陣，並提供 Macro-F1 分數。
 
 ```python
  text_classifier.evaluate(df_test)          

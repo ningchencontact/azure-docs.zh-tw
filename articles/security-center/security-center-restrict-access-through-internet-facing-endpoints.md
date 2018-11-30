@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8e404651fa315f630ff190c9e70ccdd3eec7f117
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 487b9d8d02909913f251ae7547d75669fa90f8d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229997"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313295"
 ---
 # <a name="restrict-access-through-internet-facing-endpoints-in-azure-security-center"></a>在 Azure 資訊安全中心限制透過網際網路面向端點的存取
 如果您的任一網路安全性群組 (NSG) 有一或多個輸入規則允許來自任何來源 IP 位址的存取，Azure 資訊安全中心會建議您限制透過網際網路面向端點的存取。 開放任一來源 IP 位址的存取可能會讓攻擊者存取您的資源。 資訊安全中心會建議您編輯這些輸入規則，以限制只有實際上需要存取權的來源 IP 位址才能存取。
@@ -60,7 +60,7 @@ ms.locfileid: "51229997"
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)--了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)--了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)-- 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)-- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)-- 了解如何管理與回應安全性警示。

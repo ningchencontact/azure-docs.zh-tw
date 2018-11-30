@@ -1,3 +1,16 @@
+---
+author: roygara
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: rogarana
+ms.openlocfilehash: aa701ada917811382351fee9469a5cfa9a7599b8
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279503"
+---
 Azure 虛擬機器支援附加資料磁碟數目。 本文說明 VM 資料磁碟的延展性和效能目標。 使用這些目標來協助決定您所需要的磁碟數目和類型，以符合您的效能和容量需求。 
 
 > [!IMPORTANT]
@@ -12,7 +25,6 @@ Azure 虛擬機器支援附加資料磁碟數目。 本文說明 VM 資料磁碟
 > | 進階受控磁碟 | 10,000 | 50,000 |
 > | Standard_LRS 快照集 | 10,000 | 50,000 |
 > | Standard_ZRS 快照集 | 10,000 | 50,000 |
-> | Premium_LRS 快照集 | 10,000 | 50,000 |
 > | 受控映像 | 10,000 | 50,000 |
 
 * **標準儲存體帳戶：** 標準儲存體帳戶的總要求率上限為 20000 IOPS。 在標準儲存體帳戶中，所有虛擬機器磁碟的 IOPS 總數不得超過此限。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: spelluru
-ms.openlocfilehash: ef1b8b2dd96a89a553239168d412d84e63a29f2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254582"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284909"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>使用共用存取簽章的服務匯流排存取控制
 
@@ -31,7 +31,7 @@ SAS 會根據授權規則保護對服務匯流排的存取。 這些規則會設
 
 共用存取簽章是使用簡易權杖的宣告式授權機制。 使用 SAS 時，金鑰一律不會透過網路傳遞。 金鑰可用來以密碼編譯方式簽署稍後可由服務驗證的資訊。 SAS 的作用可類似於用戶端直接擁有授權規則名稱和相符金鑰的使用者名稱和密碼。 SAS 的作用也可類似於同盟安全性模型；在此模型中，用戶端會收到來自於安全性權杖服務、具有時效性且已簽署的存取權杖，而從未擁有簽署金鑰。
 
-服務匯流排中的 SAS 驗證，會使用具有相關存取權限的具名[共用存取授權規則](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)以及主要和次要密碼編譯金鑰組進行設定。 金鑰是採用 Base64 表示法的 256 位元值。 您可以在服務匯流排[轉送](../service-bus-relay/relay-what-is-it.md)、[佇列](/service-bus-messaging/service-bus-messaging-overview.md#queues)和[主題](/service-bus-messaging/service-bus-messaging-overview.md#topics)上，於命名空間層級設定規則。
+服務匯流排中的 SAS 驗證，會使用具有相關存取權限的具名[共用存取授權規則](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule)以及主要和次要密碼編譯金鑰組進行設定。 金鑰是採用 Base64 表示法的 256 位元值。 您可以在服務匯流排[轉送](../service-bus-relay/relay-what-is-it.md)、[佇列](service-bus-messaging-overview.md#queues)和[主題](service-bus-messaging-overview.md#topics)上，於命名空間層級設定規則。
 
 [共用存取簽章](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider)權杖包含所選授權規則的名稱、應存取之資源的 URI、到期時間，以及使用所選授權規則的主要或次要密碼編譯金鑰對這些欄位計算的 HMAC RSA-SHA256 密碼編譯簽章。
 

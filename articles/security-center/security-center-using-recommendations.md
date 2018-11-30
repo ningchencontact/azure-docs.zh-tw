@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2017
 ms.author: terrylan
-ms.openlocfilehash: 978ef8087665edb3f0bfaa0bd0a55f4d8ab9a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3640e4affe42986106791cba50f6cbfd97906806
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251496"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308319"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>使用 Azure 資訊安全中心建議增強安全性
 您可以設定安全性原則，然後實作 Azure 資訊安全中心提供的建議，以降低發生重大安全性事件的機會。 本文說明如何使用資訊安全中心的安全性原則和建議，以協助減少安全性攻擊。
@@ -30,7 +30,7 @@ ms.locfileid: "51251496"
 >
 
 ## <a name="managing-security-recommendations"></a>管理安全性建議
-安全性原則定義了針對指定之訂用帳戶或資源群組內的資源所建議的一組控制項。 在資訊安全中心，您可以根據公司的安全性需求來定義原則。 若要深入了解，請參閱[在資訊安全中心設定安全性原則](security-center-policies.md)。
+安全性原則定義了針對指定之訂用帳戶或資源群組內的資源所建議的一組控制項。 在資訊安全中心，您可以根據公司的安全性需求來定義原則。 若要深入了解，請參閱[在資訊安全中心設定安全性原則](security-center-azure-policy.md)。
 
 資源群組的安全性原則繼承自訂用帳戶層級。
 

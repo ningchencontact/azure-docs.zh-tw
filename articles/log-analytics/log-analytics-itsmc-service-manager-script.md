@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: v-jysur
-ms.component: na
-ms.openlocfilehash: 0fe987b00da669daf3830e903d53793d9d1edab6
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.component: ''
+ms.openlocfilehash: 2bbcfc95895ca925b585ab15d4a2edf404eb162f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950119"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634841"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>使用自動化的指令碼建立 Service Manager Web 應用程式
 
-使用下列指令碼來建立您 Service Manager 執行個體的 Web 應用程式。 可在這裡找到 Service Manager 連線的相關詳細資訊：[Service Manager Web 應用程式](log-analytics-itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+使用下列指令碼來建立您 Service Manager 執行個體的 Web 應用程式。 可在這裡找到 Service Manager 連線的相關詳細資訊：[Service Manager Web 應用程式](../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 提供下列必要的詳細資料來執行指令碼︰
 
@@ -39,7 +39,7 @@ ms.locfileid: "37950119"
 
 儲存這些值，當您使用 IT 服務管理連接器建立連線時會用到這些值。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
  Windows Management Framework 5.0 或更新版本。
 Windows 10 依預設包含 5.1。 您可以從[這裡](https://www.microsoft.com/download/details.aspx?id=50395)下載架構：
@@ -323,4 +323,4 @@ if(!$err)
 
 ```
 ## <a name="next-steps"></a>後續步驟
-[設定混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)。
+[設定混合式連線](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)。

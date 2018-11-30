@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 1bcc290d987e8294f9a73cf8490f6cdd0251b440
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ceb8e929520becd2bf097fefc9c6fe8959b1bf85
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467271"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709809"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>使用 REST API 辨識語音
 
@@ -29,7 +29,7 @@ ms.locfileid: "49467271"
 > 使用 REST API 時，語句會受限於 15 秒或更短。
 > 若要辨識較長的語句，請參閱[語音 SDK](how-to-recognize-speech-csharp.md)。
 
-如需 [語音轉換文字] REST API 的詳細資訊，請參閱 [REST API](rest-apis.md#speech-to-text) 一文。 若要查看運作中的 API，可從 GitHub 下載 [REST API 範例](https://github.com/Azure-Samples/SpeechToText-REST)。
+如需 [語音轉換文字] REST API 的詳細資訊，請參閱 [REST API](rest-apis.md#speech-to-text-api) 一文。 若要查看運作中的 API，可從 GitHub 下載 [REST API 範例](https://github.com/Azure-Samples/SpeechToText-REST)。
 
 ## <a name="next-steps"></a>後續步驟
 

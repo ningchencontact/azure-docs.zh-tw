@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 134c7ab8156f3acb558e8b8a2da343961a6aad4e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 58bc0c0669992b8b3884e24c39862f47412b9110
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419328"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584650"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 健康情況探查
 
@@ -201,7 +201,6 @@ Load Balancer 會為其內部健康情況模型使用分散式探查服務。 �
 ## <a name="limitations"></a>限制
 
 -  HTTPS 探查不支援使用用戶端憑證進行相互驗證。
--  目前，SDK、PowerShell 不支援 HTTPS 探查。
 
 ## <a name="next-steps"></a>後續步驟
 

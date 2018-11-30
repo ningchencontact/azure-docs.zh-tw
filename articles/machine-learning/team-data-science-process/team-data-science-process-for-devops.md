@@ -2,25 +2,21 @@
 title: 適用於 DevOps 的 Team Data Science Process | Microsoft Docs
 description: 提供指引來了解使用 Team Data Science Process 和 Azure Machine Learning 分析工作負載。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 487e1fa4baa42d4266798790e899912cf62031db
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: af6468e0d9deb08d0a2902de2a6b413b4b9052b8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979296"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447073"
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>適用於開發人員作業的 Team Data Science Process
 
