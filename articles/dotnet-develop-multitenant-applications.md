@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013023"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425024"
 ---
 # <a name="multitenant-applications-in-azure"></a>Azure 中的多租用戶應用程式
 多租用戶應用程式是一種共用資源，可讓個別使用者 (或「租用戶」) 將應用程式視為其本身的應用程式。 適用多租用戶應用程式的常見情況，是應用程式的所有使用者都想自訂個人的使用性，但另一方面又有相同的基本商業需求時。 舉例來說，Office 365、Outlook.com 和 visualstudio.com 都屬於大型多租用戶應用程式。
@@ -91,5 +91,5 @@ Azure 提供許多可為應用程式佈建新租用戶的方式。 就租用戶�
 
 <!--links-->
 
-[Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
-[Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
+[Hosting a Multi-Tenant Application on Azure]: https://msdn.microsoft.com/library/hh534480.aspx
+[Designing Multitenant Applications on Azure]: https://msdn.microsoft.com/library/windowsazure/hh689716

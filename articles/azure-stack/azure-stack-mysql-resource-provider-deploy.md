@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: f0c627c1b0ab5f551ed71c3c30eb1dccc6c930a3
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686342"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853892"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 資源提供者
 
@@ -43,10 +43,11 @@ ms.locfileid: "51686342"
 
 * 資源提供者會有最低限度的相對應 Azure Stack 組建。
 
-    | 最低 Azure Stack 版本 | MySQL RP 版本|
-    | --- | --- |
-    | 1808 版 (1.1808.0.97)|[MySQL RP 1.1.30.0 版](https://aka.ms/azurestackmysqlrp11300) |
-    |     |     |
+  |最低 Azure Stack 版本|MySQL RP 版本|
+  |-----|-----|
+  |1808 版 (1.1808.0.97)|[MySQL RP 1.1.30.0 版](https://aka.ms/azurestackmysqlrp11300)|
+  |1804 版 (1.0.180513.1)|[MySQL RP 1.1.24.0 版](https://aka.ms/azurestackmysqlrp11240)
+  |     |     |
 
 * 請確定已符合資料中心整合必要條件：
 

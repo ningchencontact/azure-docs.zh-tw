@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746712"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52285147"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>修補 Service Fabric 叢集中的 Linux 作業系統
 
@@ -147,7 +147,7 @@ Sfpkg 格式的應用程式可以從 [sfpkg 連結](https://aka.ms/POA/POA_v2.0.
 
 1. 完成所有先決條件步驟，以進行叢集準備工作。
 2. 部署修補程式協調流程應用程式，和任何其他 Service Fabric 應用程式一樣。 您可以使用 PowerShell 或 Azure Service Fabric CLI 部署此應用程式。 請遵循[使用 PowerShell 部署與移除應用程式](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications)或[使用 Azure Service Fabric CLI 部署應用程式](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)中的步驟
-3. 若要在部署時設定應用程式，請將 `ApplicationParamater` 傳至 `New-ServiceFabricApplication` Cmdlet 或提供的指令碼。 為方便您作業，powershell (Deploy.ps1) 和 bash (Deploy.sh) 指令碼會隨應用程式提供。 若要使用指令碼：
+3. 若要在部署時設定應用程式，請將 `ApplicationParameter` 傳至 `New-ServiceFabricApplication` Cmdlet 或提供的指令碼。 為方便您作業，powershell (Deploy.ps1) 和 bash (Deploy.sh) 指令碼會隨應用程式提供。 若要使用指令碼：
 
     - 連線至 Service Fabric 叢集。
     - 執行部署指令碼。 選擇性地將應用程式參數傳至指令碼。 例如：.\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 

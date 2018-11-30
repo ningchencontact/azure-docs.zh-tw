@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bb7e422e0eb4a71e0f88a911083f8f5d6fb0ef2f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d42a9458afa6244e0b6d8e7deb420a8ac49a130f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092163"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634161"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>使用混合式 Runbook 背景工作角色將資料中心內或雲端的資源自動化
 
@@ -36,7 +36,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 
 |作業系統  |部署類型  |
 |---------|---------|
-|Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[手動](automation-windows-hrw-install.md#manual-deployment)        |
+| Windows     | [PowerShell](automation-windows-hrw-install.md#automated-deployment)<br>[手動](automation-windows-hrw-install.md#manual-deployment)        |
 |Linux     | [Python](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)        |
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Azure 自動化中的 Runbook 可能無法存取其他雲端或內部部署環�
 1. 在 Azure 入口網站中，前往您的自動化帳戶。
 2. 在 [設定] 下，選取 [金鑰] 並記下 [URL] 和 [主要存取金鑰] 的值。 下一個步驟需要此資訊。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 在系統管理員模式中開啟 PowerShell 工作階段，並執行下列命令。 使用 **-Verbose** 參數可取得移除程序的詳細記錄。
 
@@ -95,7 +95,7 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 
 ### <a name="hybrid-worker-role"></a>混合式背景工作角色
 
-若要讓混合式 Runbook 背景工作角色連線至 Log Analytics 並向其註冊，它必須能夠存取本節所述的連接埠號碼和 URL。 除了 [Microsoft Monitoring Agent 所需的連接埠和 URL](../log-analytics/log-analytics-agent-windows.md) 外，還必須有此存取權才能連線至 Log Analytics。
+若要讓混合式 Runbook 背景工作角色連線至 Log Analytics 並向其註冊，它必須能夠存取本節所述的連接埠號碼和 URL。 除了 [Microsoft Monitoring Agent 所需的連接埠和 URL](../azure-monitor/platform/agent-windows.md) 外，還必須有此存取權才能連線至 Log Analytics。
 
 如果您使用 Proxy 伺服器在代理程式和 Log Analytics 服務之間進行通訊，請確保可以存取適當的資源。 如果您使用防火牆來限制網際網路存取，您必須設定防火牆以允許存取。 如果您使用 Log Analytics 閘道作為 Proxy，請確保已針對混合式背景工作角色進行設定。 如需有關如何執行這項操作的指示，請參閱[為自動化混合式背景工作角色設定 Log Analytics 閘道](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers)。
 

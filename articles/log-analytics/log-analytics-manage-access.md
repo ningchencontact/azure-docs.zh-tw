@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d291a46eaac0f5e4023d343f700448d029765098
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625618"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634875"
 ---
 # <a name="manage-workspaces"></a>管理工作區
 
@@ -52,7 +52,7 @@ ms.locfileid: "51625618"
 * 您是受控服務提供者，需要將您管理的每個客戶的 Log Analytics 資料和其他客戶的資料保持隔離。
 * 您管理多個客戶，並且想要讓每個客戶/部門/事業群只看到他們自己的資料，而不是其他客戶/部門/事業群的資料。
 
-使用 Windows 代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](log-analytics-agent-windows.md)。
+使用 Windows 代理程式收集資料時，您可以[設定每個代理程式向一或多個工作區回報](../azure-monitor/platform/agent-windows.md)。
 
 如果您使用 System Center Operations Manager，每個 Operations Manager 管理群組只能連接一個工作區。 您可以將 Microsoft Monitoring Agent 安裝在 Operations Manager 所管理的電腦上，由代理程式向 Operations Manager 和不同的 Log Analytics 工作區回報。
 
@@ -239,7 +239,7 @@ OMS 有三種工作區方案類型：[免費]、[獨立] 和 [OMS]。  如果您
 ![OMS 功能區](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 請參閱 [Log Analytics 代理程式概觀](log-analytics-agent-overview.md)，從您資料中心或其他雲端環境中的電腦收集資料。
+* 請參閱 [Log Analytics 代理程式概觀](../azure-monitor/platform/log-analytics-agent.md)，從您資料中心或其他雲端環境中的電腦收集資料。
 * 請參閱[收集關於 Azure 虛擬機器的資料](log-analytics-quick-collect-azurevm.md)，以進行從 Azure VM 收集資料的設定。  
-* [從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)，以新增功能和收集資料。
+* [從方案庫新增 Log Analytics 方案](../azure-monitor/insights/solutions.md)，以新增功能和收集資料。
 

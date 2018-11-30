@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: 3163d4d61dba958cdf71dd0470b943bba69b0191
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237191"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427160"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -95,7 +95,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ## <a name="diagnostic-logging"></a>診斷記錄
 
-您可以在 Azure 中使用不同類型的記錄檔來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md)、Excel、PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔：
+您可以在 Azure 中使用不同類型的記錄檔來管理和針對應用程式閘道進行疑難排解。 您可以透過入口網站存取其中一些記錄。 可以從 Azure Blob 儲存體擷取所有記錄，並且在不同的工具中進行檢視 (例如 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md)、Excel、PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔：
 
 * **活動記錄**：您可以使用 [Azure 活動記錄](../monitoring-and-diagnostics/insights-debugging-with-events.md) (之前稱為「作業記錄和稽核記錄」) 來檢視提交至您的 Azure 訂用帳戶的所有作業及其狀態。 預設會收集活動記錄，您可在 Azure 入口網站中檢視它們。
 * **存取記錄**：您可以使用此記錄來檢視應用程式閘道存取模式及分析重要資訊，包括呼叫端的 IP、要求的 URL、回應延遲、傳回碼、輸入和輸出位元組。每隔 300 秒會收集一次存取記錄。 此記錄檔包含每個應用程式閘道執行個體的一筆記錄。 應用程式閘道執行個體可以由 instanceId 屬性識別。
@@ -303,7 +303,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>檢視及分析存取、效能和防火牆記錄
 
-Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 可以從您的 Blob 儲存體帳戶收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
+Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) 可以從您的 Blob 儲存體帳戶收集計數器和事件記錄檔。 它也納入了視覺效果和強大的搜尋功能來分析您的記錄。
 
 您也可以連接到儲存體帳戶並擷取存取和效能記錄檔的 JSON 記錄檔項目。 下載 JSON 檔案後，可以將它們轉換成 CSV，並在 Excel、PowerBI 或任何其他資料視覺化工具中檢視它們。
 
@@ -379,7 +379,7 @@ Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.
 
 ## <a name="next-steps"></a>後續步驟
 
-* 利用 [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) 將計數器和事件記錄視覺化。
+* 利用 [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) 將計數器和事件記錄視覺化。
 * [使用 Power BI 將您的 Azure 活動記錄視覺化](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx)部落格文章。
 * [在 Power BI 和其他工具中檢視和分析 Azure 活動記錄](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)部落格文章。
 

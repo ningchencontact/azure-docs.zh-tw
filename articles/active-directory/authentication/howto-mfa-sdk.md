@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6b82ba53e7a469b01d77865831c2f5fb37f71044
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 565c35b296e2734df264942b9eab0a067626c368
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160836"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427177"
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>在自訂應用程式中建置 Multi-Factor Authentication (SDK)
 
@@ -44,8 +44,8 @@ SDK 包含下列各項：
 * **原始程式檔**，用於 Multi-Factor Authentication
 * **用戶端憑證** 
 * **私密金鑰** 
-* **呼叫結果。** 呼叫結果碼的清單。 若要開啟此檔案，請使用可設定文字格式的應用程式，例如 WordPad。 使用呼叫結果碼來測試及疑難排解您在應用程式中的 Multi-Factor Authentication 實作。 它們不是驗證狀態碼。
-* **範例。** Multi-Factor Authentication 基本工作實作的範例程式碼。
+* **呼叫結果。**  呼叫結果碼的清單。 若要開啟此檔案，請使用可設定文字格式的應用程式，例如 WordPad。 使用呼叫結果碼來測試及疑難排解您在應用程式中的 Multi-Factor Authentication 實作。 它們不是驗證狀態碼。
+* **範例。**  Multi-Factor Authentication 基本工作實作的範例程式碼。
 
 > [!WARNING]
 > 用戶端憑證是特別為您產生的唯一私人憑證。 請勿分享或遺失此檔案。 它是您與 Multi-Factor Authentication 通訊時確保安全性的關鍵。
@@ -76,7 +76,7 @@ SDK 包含下列各項：
 
     <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html xmlns="https://www.w3.org/1999/xhtml">
     <head runat="server">
     <title>Multi-Factor Authentication Demo</title>
     </head>

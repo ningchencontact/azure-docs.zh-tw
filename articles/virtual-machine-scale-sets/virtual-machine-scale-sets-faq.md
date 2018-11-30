@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 7b8faca82a23875b403d0b51b2e8719549d845fb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 40af55e48e0097f1ad6cb52a76b78fab40c2074c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740681"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447175"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虛擬機器擴展集常見問題集
 
@@ -69,7 +69,7 @@ ms.locfileid: "50740681"
 
 **問：** 擴展集是否可與 Azure 可用性區域搭配使用？
 
-**答：** 可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
+**答：**  可以！ 如需詳細資訊，請參閱[擴展集區域文件](./virtual-machine-scale-sets-use-availability-zones.md)。
 
 
 ## <a name="autoscale"></a>Autoscale
@@ -371,7 +371,7 @@ GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?
 
 在虛擬機器擴展集和 VM 中，憑證必須包裝在 JSON 物件中。 
 
-我們也支援內容類型 application/x-pkcs12。 如需使用 application/x-pkcs12 的相關指示，請參閱 [Azure Key Vault 中的 PFX 憑證](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/)。
+我們也支援內容類型 application/x-pkcs12。 
  
 我們目前不支援 .cer 檔案。 若要使用 .cer 檔案，請將它們匯出到 .pfx 容器。
 

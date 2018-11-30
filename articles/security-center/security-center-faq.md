@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 16291e4f4915dd6328a2015407fa06dc8f62fba1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 10ff2118ade13980250608bf4bc238e8ff2f9c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011879"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312981"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 資訊安全中心常見問題集 (FAQ)
 這個常見問題集回答「Azure 資訊安全中心」的相關問題，此資訊安全中心是一項針對 Microsoft Azure 資源的安全性提供更深入的洞悉和更佳控制的服務，可協助您預防、偵測及回應威脅。
@@ -250,7 +250,7 @@ Security & Audit 解決方案會用來啟用 Azure 虛擬機器上資訊安全�
 ### <a name="who-can-modify-a-security-policy"></a>誰可以修改安全性原則？
 若要修改安全性原則，您必須是安全性系統管理員或是訂用帳戶的擁有者或參與者。
 
-若要了解如何設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)。
+若要了解如何設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)。
 
 ### <a name="what-is-a-security-recommendation"></a>什麼是安全性建議？
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當發現潛在的安全性弱點時，就會產生相關建議。 這些建議會引導您完成設定所需控制項的程序。 範例包括：

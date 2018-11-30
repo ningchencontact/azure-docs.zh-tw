@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 04c7b521ad13db9f5ec9573fd1ab966ad1282e8e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 442aa7034c3fec57b3b9394e6b0f46d4dec47849
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954308"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633107"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>加入、變更或刪除虛擬網路子網路
 
@@ -32,8 +32,8 @@ ms.locfileid: "46954308"
 
 - 如果您還沒有 Azure 帳戶，請註冊[免費試用帳戶](https://azure.microsoft.com/free)。
 - 如果使用入口網站，請開啟 https://portal.azure.com，並使用您的 Azure 帳戶來登入。
-- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 此教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
-- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 此教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
+- 如果使用 PowerShell 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/powershell) \(英文\) 中執行命令，或從您的電腦執行 PowerShell。 Azure Cloud Shell 是免費的互動式 Shell，可讓您用來執行本文中的步驟。 它具有預先安裝和設定的共用 Azure 工具，可與您的帳戶搭配使用。 本教學課程需要 Azure PowerShell 模組 5.7.0 版或更新版本。 執行 `Get-Module -ListAvailable AzureRM` 來了解安裝的版本。 如果您需要升級，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)。 如果您在本機執行 PowerShell，則也需要執行 `Connect-AzureRmAccount` 以建立與 Azure 的連線。
+- 如果使用命令列介面 (CLI) 命令來完成這篇文章中的工作，請在 [Azure Cloud Shell](https://shell.azure.com/bash) \(英文\) 中執行命令，或從您的電腦執行 CLI。 本教學課程需要 Azure CLI 2.0.31 版或更新版本。 執行 `az --version` 來了解安裝的版本。 如果您需要安裝或升級，請參閱[安裝 Azure CLI](/cli/azure/install-azure-cli)。 如果您在本機執行 Azure CLI，則也需要執行 `az login` 以建立與 Azure 的連線。
 
 您登入或連線到 Azure 的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派[權限](#permissions)中所列適當動作的[自訂角色](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
@@ -69,11 +69,11 @@ ms.locfileid: "46954308"
 4. 在子網路清單中，選取您想要變更設定的子網路。 您可以變更下列設定：
 
     - **位址範圍：** 如果子網路內沒有部署資源，您可以變更位址範圍。 如果子網路中有任何資源存在，您必須將資源移至另一個子網路，或先從子網路中刪除。 不同資源的資源移動或刪除步驟也各異。 若要了解如何移動或刪除子網路中的資源，請閱讀您想要移動或刪除之各個資源類型的適用文件。 如需**位址範圍**的條件約束，請參閱步驟 5 的[新增子網路](#add-a-subnet)。
-    - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access)。
+    - **使用者**︰您可以使用內建角色或自有的自訂角色來控制子網路的存取。 若要深入了解如何指派角色和使用者以存取子網路，請參閱[使用角色指派來管理 Azure 資源的存取權](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment)。
     - **網路安全性群組**和**路由表**：請參閱[新增子網路](#add-a-subnet)的步驟 5。
     - **服務端點**：請參閱[新增子網路](#add-a-subnet)的步驟 5 中的服務端點。 當啟用現有子網路的服務端點時，請確定子網路中的任何資源上都沒有重要的工作正在執行。 服務端點會將子網路中每個網路介面上的路由，從使用預設路由 (使用 *0.0.0.0/0* 位址前置詞和*網際網路*的下一個躍點類型) 切換為使用新的路由 (使用服務的位址前置詞和 *VirtualNetworkServiceEndpoint* 的下一個躍點類型)。 在切換期間，任何開啟的 TCP 連接都可能會終止。 直到流量流向服務時，服務端點才會啟用，以便所有網路介面都使用新的路由進行更新。 若要深入了解路由，請參閱[路由概觀](virtual-networks-udr-overview.md)。
     - **子網路委派：** 請參閱[新增子網路](#add-a-subnet)之步驟 5 中的服務端點。 子網路委派可以修改為有零或多個為它啟用的委派。 若服務的資源已在子網路中部署，則在移除服務的所有資源之前，無法移除子網路委派。 若要為不同的服務進行委派，請從 [服務] 清單選取您要委派到的服務。 
-5. 選取 [儲存]。
+5. 選取 [ **儲存**]。
 
 **命令**
 
@@ -99,7 +99,7 @@ ms.locfileid: "46954308"
 
 若要針對子網路執行工作，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色或為已指派下表所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-|動作                                                                   |   名稱                                       |
+| 動作                                                                   |   名稱                                       |
 |-----------------------------------------------------------------------  |   -----------------------------------------  |
 |Microsoft.Network/virtualNetworks/subnets/read                           |   讀取虛擬網路子網路              |
 |Microsoft.Network/virtualNetworks/subnets/write                          |   建立或更新虛擬網路子網路  |

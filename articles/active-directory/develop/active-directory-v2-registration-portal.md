@@ -17,12 +17,12 @@ ms.date: 08/28/2018
 ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: bebabad4c7beb27022e12e5d48b77d88fc054fc2
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 0a9ec2e84197729f98fbf90bac53b505a8c99a19
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190110"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427321"
 ---
 # <a name="app-registration-reference"></a>App 註冊參考
 本文件提供可在[應用程式註冊入口網站](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/)中找到的各種功能內容和說明。
@@ -37,7 +37,7 @@ ms.locfileid: "43190110"
 此清單包含所有已註冊且只能與 Microsoft 帳戶搭配使用的應用程式。 它們都不會啟用來與 Azure Active Directory 搭配使用。 您可以在此處找到任何先前已於 MSA 開發人員入口網站`https://account.live.com/developers/applications`註冊的應用程式。 您先前曾在 `https://account.live.com/developers/applications` 執行的所有函式現在均可在這個新的入口網站 `https://apps.dev.microsoft.com` 中執行。
 
 ## <a name="application-secrets"></a>應用程式密碼
-應用程式密碼是可讓您的應用程式利用 Azure AD 執行可靠的 [用戶端驗證](http://tools.ietf.org/html/rfc6749#section-2.3) 的認證。 在 OAuth 和 OpenID Connect 中，應用程式密碼通常稱為 `client_secret`。 在 v2.0 通訊協定中，任何在 Web 可定址位置 (使用 `https` 配置) 中接收安全性權杖的應用程式都必須使用應用程式密碼，藉由兌換該安全性權杖來向 Azure AD 識別它自己。 此外，在裝置上收到權杖的任何原生用戶端都將禁止使用應用程式密碼來執行用戶端驗證。 這項限制可防止在不安全的環境中儲存機密資料。
+應用程式密碼是可讓您的應用程式利用 Azure AD 執行可靠的 [用戶端驗證](https://tools.ietf.org/html/rfc6749#section-2.3) 的認證。 在 OAuth 和 OpenID Connect 中，應用程式密碼通常稱為 `client_secret`。 在 v2.0 通訊協定中，任何在 Web 可定址位置 (使用 `https` 配置) 中接收安全性權杖的應用程式都必須使用應用程式密碼，藉由兌換該安全性權杖來向 Azure AD 識別它自己。 此外，在裝置上收到權杖的任何原生用戶端都將禁止使用應用程式密碼來執行用戶端驗證。 這項限制可防止在不安全的環境中儲存機密資料。
 
 每個應用程式最後都能在任何時間點包含兩個有效的應用程式密碼。 藉由維護兩個密碼，您就能夠在應用程式的整個環境中執行定期的金鑰變換。 一旦將應用程式的全部內容移轉至新的密碼之後，您可能會刪除舊的密碼，並佈建一個新密碼。
 

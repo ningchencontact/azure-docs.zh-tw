@@ -1,3 +1,16 @@
+---
+author: zhangmanling
+ms.service: cdn
+ms.topic: include
+ms.date: 11/21/2018
+ms.author: mazha
+ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330799"
+---
 ## <a name="prerequisites"></a>必要條件
 在撰寫 CDN 管理程式碼之前，您必須做一些準備工作，讓程式碼與 Azure Resource Manager 進行互動。 若要執行這項準備作業，您必須：
 

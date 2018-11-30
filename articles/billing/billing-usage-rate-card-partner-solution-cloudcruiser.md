@@ -4,7 +4,7 @@ description: 提供 Microsoft Azure 計費合作夥伴 Cloud Cruiser 將 Azure �
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 ms.assetid: b65128cf-5d4d-4cbd-b81e-d3dceab44271
@@ -14,19 +14,19 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
-ms.author: mobandyo
-ms.openlocfilehash: 487636ffb0efc35c282e14d835c6669ed9d47315
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: erikre
+ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771492"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275950"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser 和 Microsoft Azure 計費 API 整合
 本文描述從新的 Microsoft Azure 計費 API 所收集來的資訊如何用來在 Cloud Cruiser 中進行工作流程成本模擬與分析。
 
 ## <a name="azure-ratecard-api"></a>Azure RateCard API
-RateCard API 提供來自 Azure 的費率資訊。 以適當的認證進行驗證之後，您可以查詢 API 以收集 Azure 上可用服務的中繼資料，以及與優惠識別碼相關聯的費率。
+RateCard API 提供來自 Azure 的費率資訊。 以適當的認證進行驗證之後，您可以查詢 API 以收集 Azure 上可用服務的中繼資料，以及與供應項目識別碼相關聯的費率。
 
 以下是來自 API 的範例回應，顯示 A0 (Windows) 執行個體的價格：
 
@@ -50,7 +50,7 @@ Cloud Cruiser 可以用不同的方式使用 RateCard API 資訊。 在這篇文
 
 為了示範這個使用案例，請想像執行於 Microsoft Azure Pack (WAP) 之數個執行個體的工作負載。 目標是要在 Azure 上模擬相同的工作負載，並評估這類移轉的成本。 若要建立這個模擬，有兩個主要的工作要執行：
 
-1. **匯入和處理從 RateCard API 收集的服務資訊。** 這項工作也會在活頁簿上執行，其中從 RateCard API 擷取的內容會轉換並發佈為新的費率方案。 新的費率方案會在模擬中用來評估 Azure 價格。
+1. **匯入和處理從 RateCard API 收集的服務資訊。**  這項工作也會在活頁簿上執行，其中從 RateCard API 擷取的內容會轉換並發佈為新的費率方案。 新的費率方案會在模擬中用來評估 Azure 價格。
 2. **標準化 WAP 服務和 IaaS 的 Azure 服務。** 根據預設，WAP 服務以個別資源 (CPU、記憶體大小、磁碟大小等) 為基礎，而 Azure 服務以執行個體大小 (A0、A1、A2 等等) 為基礎。 第一個工作可以由 Cloud Cruiser 的 ETL 引擎執行，稱為活頁簿，其中資源整合為執行個體大小，類似 Azure 執行個體服務。
 
 ### <a name="import-data-from-the-ratecard-api"></a>從 RateCard API 匯入資料
