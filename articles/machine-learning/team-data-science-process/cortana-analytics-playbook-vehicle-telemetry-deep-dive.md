@@ -2,25 +2,21 @@
 title: 深入探索如何預測車輛健全狀態與駕駛習慣 - Azure | Microsoft Docs
 description: 使用 Cortana Intelligence 具備的強大功能，取得關於車輛健全狀態與駕駛習慣的即時預測情資。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: d8866fa6-aba6-40e5-b3b3-33057393c1a8
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.author: deguhath
-ms.openlocfilehash: 8c4946ebef8d17d2016d482010768207d5e859ff
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: b1c01bcd15c5cfc63eae7c2b1983fc9075d4220c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300943"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444371"
 ---
 # <a name="vehicle-telemetry-analytics-solution-playbook-deep-dive-into-the-solution"></a>車輛遙測分析方案腳本：深入探索方案
 
@@ -670,7 +666,7 @@ Power BI 給此方案一個豐富的儀表板來提供即時資料和預測性�
 ### <a name="references"></a>參考
 
 * [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)
-* [Azure Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
+* [Azure Data Factory](https://docs.microsoft.com/rest/api/datafactory/)
 * [適用於串流擷取的 Azure 事件中樞 SDK](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory 資料移動功能](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET 活動](../../data-factory/transform-data-using-dotnet-custom-activity.md)

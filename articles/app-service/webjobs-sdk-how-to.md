@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 3e06dc82baed4043ce490769aa0ec84ab3de8c24
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 2266f63f9689ec4d22659eb4a7c4876e25fa08b1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577006"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335209"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -462,7 +462,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 
 ### <a name="log-filtering"></a>記錄篩選
 
-`ILogger` 執行個體建立的每個記錄皆有相關聯的 `Category` 和 `Level`。 [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) 為一個列舉，而整數代碼表示相對的重要性：
+`ILogger` 執行個體建立的每個記錄皆有相關聯的 `Category` 和 `Level`。 [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) 為一個列舉，而整數代碼表示相對的重要性：
 
 |LogLevel    |代碼|
 |------------|---|
@@ -474,7 +474,7 @@ WebJobs SDK 使用 [Azure 二進位大型物件租用](../storage/common/storage
 |重要    | 5 |
 |None        | 6 |
 
-每個分類皆可獨立篩選至特定的 [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
+每個分類皆可獨立篩選至特定的 [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，您可能想要看見二進位大型物件觸發程序處理的所有記錄，但只看見所有其他項目的 `Error` 以上等級記錄。
 
 為了能更容易指定篩選規則，WebJobs SDK 提供 `LogCategoryFilter`，它可傳遞給許多現有的記錄提供者，包括 Application Insights 與主控台。
 

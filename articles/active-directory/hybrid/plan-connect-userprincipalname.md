@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637709"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426803"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Azure AD UserPrincipalName 填入
 
@@ -34,7 +34,7 @@ UserPrincipalName 屬性值是使用者帳戶的 Azure AD 使用者名稱。
 |替代登入識別碼|非 UserPrincipalName 的內部部署屬性 (例如 mail 屬性)，可用於登入。|
 
 ## <a name="what-is-userprincipalname"></a>何謂 UserPrincipalName？
-UserPrincipalName 是依據網際網路標準 [RFC 822](http://www.ietf.org/rfc/rfc0822.txt) 所定義的一個屬性，可作為使用者的網際網路樣式登入名稱。 
+UserPrincipalName 是依據網際網路標準 [RFC 822](https://www.ietf.org/rfc/rfc0822.txt) 所定義的一個屬性，可作為使用者的網際網路樣式登入名稱。 
 
 ### <a name="upn-format"></a>UPN 格式
 UPN 是由 UPN 前置詞 (使用者帳戶名稱) 和 UPN 尾碼 (DNS 網域名稱) 所組成。 前置詞會使用 "\@" 符號來與尾碼聯結。 例如，"someone\@example.com"。 在目錄樹系的所有安全性主體物件之間，UPN 必須是唯一的。 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: b3d46e10facdef26b36c910a5c23b40a415a2894
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2e65c5f0d6c2d493abcd61bea4077cbdd8ff95fa
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988397"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330815"
 ---
 ## <a name="register-your-application"></a>註冊您的應用程式
 
@@ -38,7 +38,7 @@ ms.locfileid: "49988397"
 ### <a name="option-2-register-your-application-advanced-mode"></a>選項 2：註冊您的應用程式 (進階模式)
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)以註冊應用程式。
-1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取您的帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
+1. 如果您的帳戶可讓您存取多個租用戶，請在右上角選取帳戶，然後將您的入口網站工作階段設定為想要的 Azure AD 租用戶。
 1. 在左側導覽窗格中，選取 [Azure Active Directory] 服務，然後選取 [應用程式註冊 (預覽)] > [新增註冊]。
 1. [註冊應用程式] 頁面出現時，輸入您應用程式的名稱。
 1. 在 [支援的帳戶類型] 底下，選取 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]。
@@ -67,7 +67,8 @@ ms.locfileid: "49988397"
 
     ```javascript
     var applicationConfig = {
-        clientID: "[Enter the application Id here]",
+        clientID: "Enter_the_Application_Id_here",
+        authority: "https://login.microsoftonline.com/common",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };

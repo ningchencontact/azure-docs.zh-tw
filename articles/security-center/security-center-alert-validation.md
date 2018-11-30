@@ -3,7 +3,7 @@ title: Azure 資訊安全中心的警示驗證 | Microsoft 文件
 description: 本文件可協助您在 Azure 資訊安全中心驗證安全性警示。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
-ms.author: yurid
-ms.openlocfilehash: 5ac1e03fda90e12b6edbe28a66fdd488a34ea54b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 2c0bb2a68eaaa8183463efbdc2848567ab67d1b9
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240047"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619739"
 ---
 # <a name="alerts-validation-in-azure-security-center"></a>Azure 資訊安全中心的警示驗證
 這份文件可協助您了解如何驗證您的系統是否已針對 Azure 資訊安全中心警示正確設定。
@@ -43,7 +43,7 @@ ms.locfileid: "51240047"
 
 
 > [!NOTE]
-> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看這項功能的示範。 
+> 觀看 [Azure 資訊安全中心的警示驗證](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center)影片，以查看這項功能的示範。
 
 ## <a name="see-also"></a>另請參閱
 本文介紹警示驗證程序。 現在，您已熟悉此驗證，請嘗試下列文章︰
@@ -51,7 +51,6 @@ ms.locfileid: "51240047"
 * [管理及回應 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)。 了解如何在資訊安全中心管理警示，以及回應安全性事件。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)。 了解如何監視 Azure 資源的健全狀況。
 * [了解 Azure 資訊安全中心的安全性警示](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 了解不同類型的安全性警示。
-* [Azure 資訊安全中心疑難排解指南](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)。 了解如何針對資訊安全中心的常見問題進行疑難排解。 
+* [Azure 資訊安全中心疑難排解指南](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)。 了解如何針對資訊安全中心的常見問題進行疑難排解。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md)。 尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/)。 尋找有關 Azure 安全性與相容性的部落格文章。
-

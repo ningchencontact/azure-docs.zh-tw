@@ -1,3 +1,16 @@
+---
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tomfitz
+ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440028"
+---
 ## <a name="deploy-template-from-cloud-shell"></a>從 Cloud Shell 部署範本
 
 您可以使用 [Cloud Shell](../articles/cloud-shell/overview.md) 來部署您的範本。 不過，您必須先將範本載入 Cloud Shell 的儲存體帳戶。 如果您尚未使用 Cloud Shell，請參閱 [Azure Cloud Shell 概觀](../articles/cloud-shell/overview.md)以取得如何設定的相關資訊。

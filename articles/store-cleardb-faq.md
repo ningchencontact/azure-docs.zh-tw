@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 253f817099bd2705d8b9ea98741dc8fd28f09efe
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230626"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421652"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>ClearDB MySQL 資料庫搭配 Azure App Service 的常見問題集
 此常見問題集可回答為 Azure Web Apps 使用及購買 ClearDB MySQL 資料庫的常見問題。
@@ -25,7 +25,7 @@ ms.locfileid: "51230626"
 > [!IMPORTANT]
 > 自 2018 年 6 月 13 日起，ClearDB 將目前由 Microsoft 收費的 Azure 客戶轉換為使用 ClearDB 的直接計費模式。 本文中的資訊已過時。 您將無法再建立或升級在 Azure 中建立的 ClearDB 資料庫。
 >
-> 如需詳細資訊和後續步驟，請參閱 [ClearDB 服務方案之變更](http://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (英文)。
+> 如需詳細資訊和後續步驟，請參閱 [ClearDB 服務方案之變更](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) (英文)。
 
 
 ## <a name="what-options-do-i-have-for-mysql-on-azure"></a>在 Azure 上的 MySQL 有哪些選項？

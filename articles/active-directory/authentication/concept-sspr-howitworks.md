@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296391"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426199"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>運作方式：Azure AD 自助式密碼重設
 
@@ -189,7 +189,7 @@ ms.locfileid: "46296391"
    * **使用自助式註冊功能註冊的使用者**：如果您合作的組織是使用[自助式註冊](../users-groups-roles/directory-self-service-signup.md)功能進入租用戶，我們會讓他們利用其註冊的電子郵件重設密碼。
    * **B2B 使用者**：任何使用新的 [Azure AD B2B 功能](../active-directory-b2b-what-is-azure-ad-b2b.md)建立的新 B2B 使用者，也能夠利用其在邀請程序期間註冊的電子郵件重設其密碼。
 
-若要測試此案例，請使用其中一個合作夥伴使用者前往 http://passwordreset.microsoftonline.com。 如果他們有定義備用電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
+若要測試此案例，請使用其中一個合作夥伴使用者前往 https://passwordreset.microsoftonline.com。 如果他們有定義備用電子郵件或驗證電子郵件，密碼重設就會如預期般運作。
 
 > [!NOTE]
 > 若 Microsoft 帳戶已獲得存取您的 Azure AD 租用戶的權限 (例如來自 Hotmail.com、Outlook.com 或其他個人電子郵件地址的帳戶)，則無法使用 Azure AD SSPR。 他們需要使用[當您無法登入您的 Microsoft 帳戶時](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)文章所述的資訊來重設其密碼。

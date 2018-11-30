@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: 27dbd4215deef6574622ffcd2c62a64503459258
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515755"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427245"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊  
 本文提供 Azure Stack 開發套件 (ASDK) 中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
@@ -233,7 +233,7 @@ ms.locfileid: "51515755"
 
 - <!-- ASDK --> **虛擬機器擴展集的資源庫項目現已內建**。  虛擬機器擴展集資源庫項目現在可於使用者和系統管理員入口網站中取用，不需要下載。 
 
-- <!-- IS, ASDK --> **虛擬機器擴展集縮放**.  您可以使用入口網站來[縮放虛擬機器擴展集](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
+- <!-- IS, ASDK --> **虛擬機器擴展集縮放**.  您可以使用入口網站來[縮放虛擬機器擴展集](../azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS)。   
 
 - <!-- 2489570 | IS ASDK--> **支援自訂 IPSec/IKE 原則組態**，適用於 [Azure Stack 中的 VPN 閘道](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways)。
 

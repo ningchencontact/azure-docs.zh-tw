@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 temperature 實體資訊。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6436a7ee8d7b796595813fa613c442824aeae8f3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2716600346e65f2ca0b97e56cc156fdfb10ff3a4
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237456"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52440953"
 ---
 # <a name="temperature-entity"></a>Temperature 實體
 Temperature 實體會擷取各種溫度類型。 因為此實體已經定型，所以您不需要將包含溫度的範例語句加入應用程式。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 temperature 實體。 

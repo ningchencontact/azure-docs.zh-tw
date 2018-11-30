@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366675"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422278"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -135,14 +135,14 @@ Azure AD 應用程式 Proxy 的 Kerberos 委派流程會在 Azure AD 在雲端�
    * 內部部署 SAM 帳戶名稱 (視網域控制站組態而定)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>疑難排解不同身分識別的 SSO
-如果 SSO 程序發生錯誤，它會顯示在連接器電腦事件記錄中，如[疑難排解](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)所述。
+如果 SSO 程序發生錯誤，它會顯示在連接器電腦事件記錄中，如[疑難排解](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)所述。
 但在某些情況下，要求會成功傳送至後端應用程式，同時此應用程式會以各種其他 HTTP 回應來回覆。 疑難排解這些情況應該要從檢查連接器電腦上應用程式 Proxy 工作階段事件記錄中的事件編號 24029 開始。 用於委派的使用者身分識別會出現在事件詳細資料的 [使用者] 欄位內。 若要開啟工作階段記錄，請選取事件檢視器檢視功能表中的 [顯示分析與偵錯記錄檔]  。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [如何設定應用程式 Proxy 應用程式以使用 Kerberos 限制委派](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [如何設定應用程式 Proxy 應用程式以使用 Kerberos 限制委派](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [使用應用程式 Proxy 疑難排解您遇到的問題](application-proxy-troubleshoot.md)
 
 
-如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
+如需最新消息，請查閱 [應用程式 Proxy 部落格](https://blogs.technet.com/b/applicationproxyblog/)
 

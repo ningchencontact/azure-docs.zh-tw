@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 age 實體資訊。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: f93acb8bece8c66c3ed7197f1c4530011aec3f29
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 63ff00c29548af2f26a2b7b5e5ac68b5397671ec
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237395"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441820"
 ---
 # <a name="age-entity"></a>Age 實體
 預先建置的 age 實體會以年數、月數、週數及天數的方式擷取年齡值。 因為此實體已經定型，所以您不需要將包含年齡的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 age 實體。 

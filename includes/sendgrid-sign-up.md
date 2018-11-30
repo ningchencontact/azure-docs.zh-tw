@@ -1,3 +1,16 @@
+---
+author: erikre
+ms.service: multiple
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: erikre
+ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440043"
+---
 Azure 客戶每月可以解除鎖定 25,000 封免費電子郵件。 這些每月 25,000 封的免費電子郵件可讓您存取進階報告與分析及 [所有 API][all APIs] (Web、SMTP、Event、Parse 及更多)。 如需 SendGrid 所提供其他服務的相關資訊，請參閱 [SendGrid 解決方案 (英文)][SendGrid Solutions] 頁面。
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>註冊 SendGrid 帳戶

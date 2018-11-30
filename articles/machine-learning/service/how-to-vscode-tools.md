@@ -5,16 +5,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: jmartens
-author: j-martens
+ms.author: shwinne
+author: swinner95
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 57fe511e5de0d73f2a372da0ecab3e9a3039b194
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945547"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854198"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools for AI：從 Visual Studio Code 開始使用 Azure Machine Learning
 
@@ -28,7 +28,7 @@ ms.locfileid: "49945547"
 
 + [安裝 Python 3.5 或更新版本](https://www.anaconda.com/download/)。
 
-+ 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
++ 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
 
 ## <a name="install-vs-code-tools-for-ai-extension"></a>安裝 VS Code Tools for AI 擴充功能
 
@@ -40,7 +40,7 @@ ms.locfileid: "49945547"
 
 1. 啟動 VS Code。
 
-1. 在瀏覽器中，瀏覽： http://aka.ms/vscodetoolsforai。 
+1. 在瀏覽器中，瀏覽： https://aka.ms/vscodetoolsforai。 
 
 1. 在該網頁上，按一下 [安裝]。 
 

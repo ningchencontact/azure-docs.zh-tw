@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 2b04853e8d01ae559ce4ad982daba2928a6cd130
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4220af0a93bd48074c29c7b8e25a822d28a8161b
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244469"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712376"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 本文件旨在提供 Log Analytics (Azure 監視器的功能) 的特定資訊，以補充 [Azure 信任中心](../security/security-microsoft-trust-center.md)上的資訊。  
@@ -158,7 +158,7 @@ Log Analytics 工作區是收集、彙總、分析以及呈現資料的位置。
 
 連線系統與 Log Analytics 服務之間的所有通訊都會加密。 會使用 TLS (HTTPS) 通訊協定來加密。  隨後會進行 Microsoft SDL 程序，使用最先進的密碼編譯通訊協定確保 Log Analytics 保持最新狀態。
 
-會收集 Log Analytics 資料的每個類型代理程式。 所收集的資料類型取決於使用的解決方案類型。 若要查看資料集合摘要，請參閱[從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)。 此外，大部分方案都會有更詳細的集合資訊。 解決方案是預先定義的檢視、記錄搜尋查詢、資料收集規則，以及處理邏輯的組合。 只有系統管理員可以使用 Log Analytics 來匯入方案。 在匯入解決方案之後，便會移到 Operations Manager 管理伺服器 (如果使用的話)，然後移至您所選擇的代理程式。 之後，代理程式會收集資料。
+會收集 Log Analytics 資料的每個類型代理程式。 所收集的資料類型取決於使用的解決方案類型。 若要查看資料集合摘要，請參閱[從方案庫新增 Log Analytics 方案](../azure-monitor/insights/solutions.md)。 此外，大部分方案都會有更詳細的集合資訊。 解決方案是預先定義的檢視、記錄搜尋查詢、資料收集規則，以及處理邏輯的組合。 只有系統管理員可以使用 Log Analytics 來匯入方案。 在匯入解決方案之後，便會移到 Operations Manager 管理伺服器 (如果使用的話)，然後移至您所選擇的代理程式。 之後，代理程式會收集資料。
 
 ## <a name="2-send-data-from-agents"></a>2.從代理程式傳送資料
 您使用註冊金鑰來註冊所有類型的代理程式，而代理程式與 Log Analytics 服務之間會使用憑證型驗證和 SSL 在連接埠 443 建立安全的連線。 Log Analytics 會使用秘密存放區來產生及維護金鑰。 私密金鑰每 90 天會輪替一次，其儲存在 Azure 中，並由遵守嚴格法規與相容性作法的 Azure 作業人員管理。

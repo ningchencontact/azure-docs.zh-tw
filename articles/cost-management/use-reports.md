@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8267401a0dade0ca7cfb1dbf69d2fdfd6786f1df
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976778"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276018"
 ---
 # <a name="use-cloudyn-reports"></a>使用 Cloudyn 報告
 
@@ -23,7 +23,7 @@ ms.locfileid: "46976778"
 
 「Azure 成本管理」提供與 Cloudyn 類似的功能。 「Azure 成本管理」是原生的 Azure 成本管理解決方案。 它可協助您分析成本、建立及管理預算、匯出資料，以及檢閱最佳化建議並依據這些建議採取動作來節省成本。 如需詳細資訊，請參閱 [Azure 成本管理](overview-cost-mgt.md)。
 
-## <a name="report-types"></a>報告類型
+## <a name="report-types"></a>報表類型
 
 Cloudyn 報告類型有三種：
 

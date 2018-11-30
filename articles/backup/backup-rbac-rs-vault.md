@@ -6,14 +6,14 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
-ms.openlocfilehash: cf06fc9c12493e208832596a27b479dc9dfea942
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: de7c00717349a1c814c5a13508adb11879aa10a5
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011318"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51704642"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用角色型存取控制來管理 Azure 備份復原點
 Azure 角色型存取控制 (RBAC) 可以對 Azure 進行更細緻的存取權管理。 RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需的存取權。
@@ -41,7 +41,7 @@ Azure 備份提供 3 種用來控制備份管理作業的內建角色。 深入�
 | | 虛擬機器參與者 | VM 資源 |
 | VM 的隨選備份 | 備份操作員 | 復原保存庫資源 |
 | 還原 VM | 備份操作員 | 復原服務保存庫 |
-| | 虛擬機器參與者 | 將部署 VM 的資源群組 |
+| | 參與者 | 將部署 VM 的資源群組 |
 | | 虛擬機器參與者 | 已備份的來源 VM |
 | 還原非受控磁碟 VM 備份 | 備份操作員 | 復原保存庫資源 |
 | | 虛擬機器參與者 | 已備份的來源 VM |

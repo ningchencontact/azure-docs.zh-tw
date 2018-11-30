@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aeb14bd7962205b89e1207e082f551999f54558
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612742"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634518"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>分析 Azure 監視器中的 Log Analytics 資料
 
@@ -42,8 +42,8 @@ Azure 監視器所收集的記錄檔資料會儲存在 Log Analytics 工作區�
 
 - **入口網站。** 您可以在 [Azure 入口網站](log-analytics-log-search-portals.md)中執行記錄資料的互動式分析。  這可讓您在各種不同的格式和視覺效果中編輯查詢及分析結果。  
 - **警示規則。** [警示規則](../monitoring-and-diagnostics/monitoring-overview-alerts.md)會主動識別您的工作區中資料的問題。  每個警示規則是根據以固定間隔自動執行的記錄搜尋。  會檢查結果來判斷是否應該建立警示。
-- **儀表板。** 您可以將任何查詢的結果釘選到 [Azure 儀表板]()中，如此即可以視覺化方式顯示記錄和計量資料，並選擇性地將其與其他 Azure 使用者共用。 
-- **檢視。**  您可以使用[檢視設計工具](log-analytics-view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄查詢會在各個檢視中提供[圖格](log-analytics-view-designer-tiles.md)和[視覺效果部分](log-analytics-view-designer-parts.md)所使用的資料。  
+- **儀表板。** 您可以將任何查詢的結果釘選到 [Azure 儀表板](../azure-monitor/platform/dashboards.md)中，如此即可以視覺化方式顯示記錄和計量資料，並選擇性地將其與其他 Azure 使用者共用。 
+- **檢視。**  您可以使用[檢視設計工具](../azure-monitor/platform/view-designer.md)，建立要包含在使用者儀表板中的資料視覺效果。  記錄查詢會在各個檢視中提供[圖格](../azure-monitor/platform/view-designer-tiles.md)和[視覺效果部分](../azure-monitor/platform/view-designer-parts.md)所使用的資料。  
 - **匯出。**  當您將資料從 Log Analytics 工作區匯入至 Excel 或 [Power BI](log-analytics-powerbi.md) 時，您會建立記錄查詢以定義要匯出的資料。
 - **Powershell。** 您可以從命令列或 Azure 自動化 Runbook (使用 [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0)) 執行 PowerShell 指令碼，以從 Log Analytics 擷取資料。  此 Cmdlet 需要查詢來決定要擷取的資料。
 - **Log Analytics API。**  [Log Analytics 記錄搜尋 API](../monitoring-and-diagnostics/monitoring-overview-alerts.md) 可讓任何 REST API 用戶端從工作區擷取記錄資料。  API 要求包含針對 Log Analytics 執行的查詢，來判斷要擷取的資料。
@@ -111,4 +111,4 @@ union Update, workspace("contoso-workspace").Update
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解[您用來建立和編輯記錄搜尋的入口網站](log-analytics-log-search-portals.md)。
-- 請參閱使用新的查詢語言[撰寫查詢的教學課程](log-analytics-tutorial-viewdata.md)。
+- 請參閱使用新的查詢語言[撰寫查詢的教學課程](query-language/get-started-queries.md)。

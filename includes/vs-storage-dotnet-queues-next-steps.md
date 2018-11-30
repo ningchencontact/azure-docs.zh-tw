@@ -1,4 +1,16 @@
-
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: c118ba581aa23bd1647e4dce26c035e6591d07dc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440018"
+---
 既然已了解 Azure 佇列儲存體的基本概念，請遵循下列連結以了解更複雜的儲存體工作。
 
 * 如需可用 API 的完整詳細資料，請檢視 [.NET 的 Azure 儲存體用戶端文件庫](https://go.microsoft.com/fwlink/?LinkID=390731) 中的佇列服務參考文件。

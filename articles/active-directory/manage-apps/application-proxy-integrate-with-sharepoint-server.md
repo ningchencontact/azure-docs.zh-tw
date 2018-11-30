@@ -15,12 +15,12 @@ ms.date: 10/19/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 89852e90daa548dc82455cb6317d367b7423ba65
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456893"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425202"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取
 
@@ -119,7 +119,7 @@ HTTP/sharepoint.demo.o365identity.us demo
 1. 從另一部電腦使用 SPN 瀏覽至此網站。
  當您這樣做時，系統會快取電腦上的一組相關 Kerberos 票證。 這些票證包含您所瀏覽之目標網站的 SPN。
 
-2. 您可以使用稱為 [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html) 的工具提取該網站的 SPN。 在執行於和瀏覽器中網站存取使用者相同之內容中的命令視窗中，執行下列命令︰
+2. 您可以使用稱為 [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html) 的工具提取該網站的 SPN。 在執行於和瀏覽器中網站存取使用者相同之內容中的命令視窗中，執行下列命令︰
 ```
 Klist
 ```

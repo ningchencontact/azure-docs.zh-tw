@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d6355926c8fac62b01c36d28265842b1233ce213
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38666933"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584141"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客戶資料要求功能的摘要
 
@@ -39,9 +39,9 @@ Azure IoT 中樞裝置佈建服務是以企業客戶為目標的 REST API 型雲
 
 也可以使用 REST API 執行註冊和註冊記錄的刪除作業：
 
-* 若要刪除單一裝置的註冊資訊，您可以使用[裝置註冊 - 刪除](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/delete)。
-* 若要刪除一組裝置的註冊資訊，您可以使用[裝置註冊群組 - 刪除](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/delete)。
-* 若要刪除已佈建裝置的相關資訊，您可以使用[註冊狀態 - 刪除註冊狀態](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/deleteregistrationstate)。
+* 若要刪除單一裝置的註冊資訊，您可以使用[裝置註冊 - 刪除](/rest/api/iot-dps/deleteindividualenrollment/deleteindividualenrollment)。
+* 若要刪除一組裝置的註冊資訊，您可以使用[裝置註冊群組 - 刪除](/rest/api/iot-dps/deleteenrollmentgroup/deleteenrollmentgroup)。
+* 若要刪除已佈建裝置的相關資訊，您可以使用[註冊狀態 - 刪除註冊狀態](/rest/api/iot-dps/deletedeviceregistrationstate/deletedeviceregistrationstate)。
 
 ## <a name="exporting-customer-data"></a>匯出客戶資料
 
@@ -53,9 +53,9 @@ Azure IoT 中樞裝置佈建服務是以企業客戶為目標的 REST API 型雲
 
 也可以使用 REST API 執行註冊和註冊記錄的匯出作業：
 
-* 若要匯出單一裝置的註冊資訊，您可以使用[裝置註冊 - 取得](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/get)。
-* 若要匯出一組裝置的註冊資訊，您可以使用[裝置註冊群組 - 取得](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollmentgroup/get)。
-* 若要匯出已佈建裝置的相關資訊，您可以使用[註冊狀態 - 取得註冊狀態](https://docs.microsoft.com/rest/api/iot-dps/registrationstate/getregistrationstate)。
+* 若要匯出單一裝置的註冊資訊，您可以使用[裝置註冊 - 取得](/rest/api/iot-dps/getindividualenrollment/getindividualenrollment)。
+* 若要匯出一組裝置的註冊資訊，您可以使用[裝置註冊群組 - 取得](/rest/api/iot-dps/getenrollmentgroup/getenrollmentgroup)。
+* 若要匯出已佈建裝置的相關資訊，您可以使用[註冊狀態 - 取得註冊狀態](/rest/api/iot-dps/getdeviceregistrationstate/getdeviceregistrationstate)。
 
 > [!NOTE]
 > 當您使用 Microsoft 的企業服務時，Microsoft 會產生一些資訊，稱為系統所產生的記錄。 租用戶系統管理員無法存取或匯出部分裝置佈建服務系統所產生的記錄。 這些記錄可視為在與個人裝置相關的服務和診斷資料中，所進行的實際動作。

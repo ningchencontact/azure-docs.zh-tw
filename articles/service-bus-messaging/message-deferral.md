@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 18e668249c50ffbc1020aa12455fdfb87dcb8a24
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855386"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282544"
 ---
 # <a name="message-deferral"></a>訊息延遲
 
@@ -40,7 +40,6 @@ API 是 .NET Framework 用戶端中的 [BrokeredMessage.Defer](/dotnet/api/micro
 
 如果訊息因為用於處理該訊息的特殊資源暫時無法使用而無法處理，但不應立即暫止訊息處理，則用來將該訊息放在一邊數分鐘的方法是，記住要在數分鐘內發佈之[已排程的訊息](message-sequencing.md)中的 **SequenceNumber**，並在已排程的訊息送達時，重新擷取延遲的訊息。 如果訊息處理常式倚賴資料庫來進行所有作業，而該資料庫暫時無法提供服務，它就不應該使用延遲，而是應該完全暫停接收訊息，直到資料庫再次可供使用為止。
 
-延遲訊息不會影響訊息到期，這表示延遲的訊息仍然會在一開始排定的時間到期，然後移到無效信件佇列中 (如果是如此設定)。
 
 ## <a name="next-steps"></a>後續步驟
 

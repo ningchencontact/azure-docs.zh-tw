@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+ms.openlocfilehash: 343ffb8daf19711d6c2a61b819ece92448146446
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52330812"
+---
 當不再需要某個連接至虛擬機器的資料磁碟時，卸離此資料磁碟很簡單。 將磁碟中斷連結會將它從虛擬機器中移除，但不會從 Azure 儲存體帳戶中刪除。
 
 如果您想要再次使用磁碟上現有的資料，您可以將磁碟重新連接至相同或其他虛擬機器。  

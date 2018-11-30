@@ -1,3 +1,16 @@
+---
+author: Juliako
+ms.service: media-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: juliako
+ms.openlocfilehash: 065cb4daa9501ee658d364dad43b9e03798e4083
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52269335"
+---
 此作業會產生 JSON 輸出檔案，其中包含有關偵測到並進行追蹤之臉部的中繼資料。 中繼資料包括指出臉部位置的座標，以及指出正在追蹤該個人的臉部識別碼。 臉部識別碼很容易在正面臉部長時間於畫面中遺失或重疊的情況下重設，導致某些人員被指派多個識別碼。
 
 輸出 JSON 包括下列元素：

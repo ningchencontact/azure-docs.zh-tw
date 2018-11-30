@@ -14,26 +14,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 6b6fd7395f7aff303f4950fb07bd0472cf7057a2
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: acaf73c2d981761b0bc57cfccbbf6c6a48e5e0c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145735"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446495"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>在內部虛擬網路中使用 Azure API 管理服務
 在 Azure 虛擬網路中，Azure API 管理可以管理無法在網際網路上存取的 API。 有許多 VPN 技術可讓您建立連線。 API 管理在虛擬網路內有兩種主要的部署模式：
 * 外部
 * 內部
 
-
 當 API 管理以內部虛擬網路模式部署時，只有在您控制存取的虛擬網路內才看得到所有服務端點 (閘道、開發人員入口網站、Azure 入口網站、直接管理和 Git)。 公用 DNS 伺服器上不會註冊任何服務端點。
 
 在內部模式中使用 API 管理可讓您實現下列情節：
+
 * 使用站對站或 Azure ExpressRoute VPN 連線，讓裝載於私人資料中心的 API 可供外部第三方安全地存取。
 * 透過通用閘道器公開雲端式 API 和內部部署 API，以實現混合式雲端情節。
 * 使用單一閘道端點，管理裝載於多個地理位置的 API。 
 
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 49a2c03664ba39a624871b24c0b86a968a67eddb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a0fcb95ed34ed3d98c6b25b475c0866135897f3
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521518"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584667"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>檢視 Azure 匯入/匯出作業的狀態
 
@@ -23,7 +23,6 @@ ms.locfileid: "39521518"
 您可以在 Azure 入口網站中追蹤匯入或匯出工作的狀態。 按一下 [匯入/匯出] 索引標籤。您的作業清單會隨即出現在頁面上。
 
 ![檢視工作狀態](./media/storage-import-export-service/jobstate.png)
-
 
 ## <a name="view-job-status"></a>檢視作業狀態
 
@@ -74,7 +73,7 @@ ms.locfileid: "39521518"
 -  要複製的作業類型和資料大小
 -  作業中的磁碟數量。 
 
-匯入/匯出服務沒有 SLA，但在收到磁碟之後，服務會努力在 7 到 10 天內完成複製。 除了 Azure 入口網站上所公佈的狀態之外，也可使用 REST API 來追蹤作業進度。 在「[列出作業]()」作業 API 呼叫中的完成百分比參數會提供複製進度百分比。
+匯入/匯出服務沒有 SLA，但在收到磁碟之後，服務會努力在 7 到 10 天內完成複製。 除了 Azure 入口網站上所公佈的狀態之外，也可使用 REST API 來追蹤作業進度。 在「[列出作業](/previous-versions/azure/dn529083(v=azure.100))」作業 API 呼叫中的完成百分比參數會提供複製進度百分比。
 
 
 ## <a name="next-steps"></a>後續步驟
@@ -82,4 +81,3 @@ ms.locfileid: "39521518"
 * [設定 WAImportExport 工具](storage-import-export-tool-how-to.md)
 * [使用 AzCopy 命令列公用程式傳輸資料](storage-use-azcopy.md)
 * [Azure 匯入匯出 REST API 範例 (英文)](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-

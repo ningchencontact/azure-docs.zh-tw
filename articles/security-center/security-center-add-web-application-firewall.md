@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8ae1a4b7b8ce2e82856b63bd108e44a111dfd3fe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246577"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310645"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 資訊安全中心新增 Web 應用程式防火牆
 Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web 應用程式防火牆 (WAF)，以保護您 Web 應用程式的安全。 本文件逐步解說如何套用此建議的範例。
@@ -73,7 +73,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) --了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) --了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助您保護您的 Azure 資源。

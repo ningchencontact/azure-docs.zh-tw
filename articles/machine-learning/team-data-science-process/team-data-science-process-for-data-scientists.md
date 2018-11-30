@@ -2,25 +2,21 @@
 title: 適用於資料科學家的 Team Data Science Process | Microsoft Docs
 description: 提供使用 Team Data Science Process 和 Azure Machine Learning 來了解分析工作負載的指引。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
-ms.author: deguhath
-ms.openlocfilehash: 80f006c4e8f051c3f744168be114f1c9fb3b1a0f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: ddf73f15dc7c269ba3bf9a2912c3713fd4e847f2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092486"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497579"
 ---
 # <a name="team-data-science-process-for-data-scientists"></a>適用於資料科學家的 Team Data Science Process
 
@@ -65,7 +61,7 @@ ms.locfileid: "50092486"
 | 使用 Power BI 以視覺方式呈現結果                                                         | [Power BI](https://powerbi.microsoft.com/guided-learning/)                                                                                     | Power BI 是 Microsoft 的資料視覺化工具。 從 Web 到行動裝置及桌上型電腦等多種平台上都有提供此工具。 在本文中，您將了解如何藉由從 Azure 儲存體存取結果及使用 Power BI 來建立視覺效果，處理您所建立之解決方案的輸出。                                                                                                                                                                                                                                                                                                                             | [完成這個有關 Power BI 的教學課程。](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) 然後將 Power BI 連接到在實驗執行中建立的 Blob CSV。                                                                                                                                                                                                                                                                       |
 | 監視您的解決方案                                                                     | [Application Insights](../../application-insights/app-insights-overview.md)                                            | 有多種工具可供您用來監視您的端點解決方案。 Azure Application Insights 可讓您輕鬆將內建的監視功能整合到解決方案中。                                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [設定 Application Insights 來監視應用程式](https://cmatskas.com/visual-studio-code-integration-with-azure-application-insights/) \(英文\)。                                                                                                                                                                                                                                                                                                                  |
 |                                                                                           | [Azure Log Analytics](../../log-analytics/log-analytics-overview.md)                                                   | 另一個監視您應用程式的方法是將其整合到 DevOps 程序中。 Azure Log Analytics 系統提供一組豐富的功能，可協助您在部署分析解決方案之後，監控這些解決方案。                                                                                                                                                                                                                                                                                                                                                                                                                       | [完成這個有關使用 Azure Log Analytics 的教學課程](https://docs.loganalytics.io/docs/Learn/Getting-Started/Getting-started-with-the-Analytics-portal) \(英文\)。                                                                                                                                                                                                                                                                                                       |
-| 完成此學習路徑                                                               | 其他可嘗試的專案                                                                                                                           | 恭喜！ 您已完成此學習路徑。 還有許多需要學習的內容。 其中一個較進階的範例是在 Azure Machine Learning 服務中建置客戶變換模型。 [立即在這裡試用](../desktop-workbench/scenario-churn-prediction.md)。                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+| 完成此學習路徑                                                               |                                                                                                                           | 恭喜！ 您已完成此學習路徑。 還有許多需要學習的內容。                                                                                                                                                                                                                                                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
 ## <a name="next-steps"></a>後續步驟
 [適用於開發人員作業的 Team Data Science Process](team-data-science-process-for-devops.md)。本文將探索對「進階分析」和「認知服務」解決方案實作而言特定的「開發人員作業」(DevOps) 功能。 

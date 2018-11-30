@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 5d18b0265d2b1c114ed9ef326241ed531e015288
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a55d16a35b5eec1af2b24d02e158905493615999
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385134"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52441107"
 ---
 # <a name="manage-protocols-and-ciphers-in-azure-api-management"></a>在 Azure API 管理中管理通訊協定和加密
 
@@ -27,6 +27,8 @@ Azure API 管理支援適用於用戶端和後端的多個 TLS 通訊協定版�
 本指南示範如何管理適用於 Azure API 管理執行個體的通訊協定和加密設定。
 
 ![在 APIM 中管理通訊協定和加密](./media/api-management-howto-manage-protocols-ciphers/api-management-protocols-ciphers.png)
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

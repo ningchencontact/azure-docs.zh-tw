@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: John.Haskin
-ms.openlocfilehash: 8fd551156d424adbe4d6ce7eb38a6a6a00aa8f83
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fc2659fb9bbe043a61f1ad49bb4290b7ccf834f8
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650886"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422009"
 ---
 # <a name="create-an-oem-package"></a>建立 OEM 套件
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 「Azure Stack OEM 延伸模組套件」是一個機制，藉由此機制即可將 OEM 特定內容新增至 Azure Stack 基礎結構，以供在部署及操作程序 (例如更新、擴充及欄位取代) 中使用。
 

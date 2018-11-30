@@ -2,25 +2,21 @@
 title: 使用 Machine Learning Python 用戶端程式庫存取資料集 | Microsoft Docs
 description: 安裝並使用 Python 用戶端程式庫，從本機 Python 環境存取和管理 Azure Machine Learning 資料。
 services: machine-learning
-documentationcenter: python
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 9ab42272-c30c-4b7e-8e66-d64eafef22d0
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838345"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445750"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
@@ -65,7 +61,7 @@ Python 用戶端程式庫已在下列環境下經過測試：
 ## <a name="datasetAccess"></a>使用Studio 程式碼片段存取資料集
 Python 用戶端程式庫讓您以程式設計方式存取執行實驗所得的現有資料集。
 
-您可以從 Studio Web 介面，產生包含所有必要資訊的程式碼片段，以下載資料集並和還原序列化為您位置電腦的 Pandas DataFrame 物件。
+您可以從 Studio Web 介面，產生包含所有必要資訊的程式碼片段，以下載資料集並將其還原序列化為您位置電腦上的 pandas DataFrame 物件。
 
 ### <a name="security"></a>資料存取安全性
 Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段包括工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
@@ -197,7 +193,7 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
 如需可用中繼資料的詳細資訊，請參閱 `SourceDataset` 類別。
 
 ### <a name="read-contents"></a>讀取內容
-Machine Learning Studio 提供的程式碼片段會自動下載並將資料集還原序列化為 Pandas DataFrame 物件。 此動作可用 `to_dataframe` 方法來完成：
+Machine Learning Studio 提供的程式碼片段會自動下載並將資料集還原序列化為 pandas DataFrame 物件。 此動作可用 `to_dataframe` 方法來完成：
 
     frame = ds.to_dataframe()
 
@@ -220,7 +216,7 @@ Machine Learning Studio 提供的程式碼片段會自動下載並將資料集�
 ### <a name="create-a-new-dataset"></a>建立新的資料集
 Python 用戶端程式碼可讓您上傳 Python 程式中的資料集。 這些資料集接著可在您的工作區中使用。
 
-如果您有資料在 Pandas DataFrame 中，可以使用下列程式碼：
+如果您有資料在 pandas DataFrame 中，可以使用下列程式碼：
 
     from azureml import DataTypeIds
 
@@ -242,7 +238,7 @@ Python 用戶端程式碼可讓您上傳 Python 程式中的資料集。 這些�
         description='my description'
     )
 
-Python 用戶端程式碼能夠將 Pandas DataFrame 序列化為下列格式 (這些都是 `azureml.DataTypeIds` 類別的常數)：
+Python 用戶端程式庫能夠將 pandas DataFrame 序列化為下列格式 (這些都是 `azureml.DataTypeIds` 類別的常數)：
 
 * 純文字
 * GenericCSV

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83fff9fa322431983c1d385705ae235a8e818570
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237259"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275272"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>從 Orchestrator 移轉到 Azure 自動化 (Beta)
 [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) 中的 Runbook 是根據來自專為 Orchestrator 編寫的整合套件的活動，而 Azure 自動化中的 Runbook 則是根據 Windows PowerShell。  [圖形化 Runbook](automation-runbook-types.md#graphical-runbooks) 外觀都類似 Orchestrator Runbook，其活動代表 PowerShell Cmdlet、子 Runbook 和資產。
@@ -79,7 +79,9 @@ Runbook Converter 會使用可執行轉換、稱為 **ConvertFrom-SCORunbook** �
 ### <a name="using-runbook-converter"></a>使用 Runbook Converter
 **ConvertFrom-SCORunbook** 的語法如下所示：
 
-    ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```powershell
+ConvertFrom-SCORunbook -RunbookPath <string> -Module <string[]> -OutputFolder <string>
+```
 
 * RunbookPath - 包含要轉換之 Runbook 的匯出檔案的路徑。
 * Module - 逗號分隔的整合模組清單，其中包含 Runbook 中的活動。
@@ -87,8 +89,9 @@ Runbook Converter 會使用可執行轉換、稱為 **ConvertFrom-SCORunbook** �
 
 下列範例命令會在名為 **MyRunbooks.ois_export** 的匯出檔案中轉換 Runbook。  這些 Runbook 使用 Active Directory 和 Data Protection Manager 整合套件。
 
-    ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
-
+```powershell
+ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module c:\ip\SystemCenter_IntegrationModule_ActiveDirectory.zip,c:\ip\SystemCenter_IntegrationModule_DPM.zip -OutputFolder "c:\runbooks"
+```
 
 ### <a name="log-files"></a>記錄檔
 Runbook Converter 會在與所轉換的 Runbook 的相同位置中建立下列記錄檔。  如果檔案已經存在，則會以最後一個轉換的資訊加以複寫。

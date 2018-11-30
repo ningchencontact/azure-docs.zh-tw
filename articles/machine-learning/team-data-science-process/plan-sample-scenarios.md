@@ -2,25 +2,21 @@
 title: 識別 Azure Machine Learning 的進階分析案例 | Microsoft Docs
 description: 選取適合使用 Team Data Science Process 進行進階預測性分析的案例。
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 53aecc1e-5089-42cf-8d44-77678653f92d
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-ms.openlocfilehash: 62e035c0d28a797ae08480b982598d8265b18767
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423839"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444829"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
@@ -37,7 +33,7 @@ ms.locfileid: "39423839"
 > **對於下列所有案例，您必須：**
 > <br/>
 > 
-> * [建立儲存體帳戶](../../storage/common/storage-create-storage-account.md)
+> * [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)
 >   <br/>
 > * [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)
 > 

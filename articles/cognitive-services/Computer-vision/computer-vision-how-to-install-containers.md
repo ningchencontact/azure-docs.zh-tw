@@ -10,16 +10,16 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2ba7039fe42e3b5638b99161e12e9888bc852f87
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 67dbf3bdf6631785fc876283847e36349e857a77
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635078"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634637"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
-容器化是散發軟體的方法，它將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性，都包含在容器映像中。 接著可以將容器映像部署在容器主機上，且只需要稍微修改或不修改。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
+容器化是散發軟體的方法，它會將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性都包含在容器映像中。 接著可以將容器映像部署在容器主機上，且只需要稍微修改或不修改。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
 
 電腦視覺的辨識文字部分也能以 Docker 容器的形式取得。 您可以使用它來從不同表面和背景的各種物件影像 (如收據、海報和名片)，偵測及擷取印刷文字。  
 > [!IMPORTANT]
@@ -31,13 +31,13 @@ ms.locfileid: "51635078"
 
 使用辨識文字容器之前，您必須符合下列必要條件：
 
-**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或至部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或是已部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) \(英文\) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
 
-Docker 必須設定為允許容器與 Azure 連線，以及傳送計費資料至 Azure。
+Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。
 
-**對 Microsoft Container Registry 和 Docker 的熟悉度**：您對登錄、存放庫、容器和容器映像等 Microsoft Container Registry 和 Docker 概念，以及基本 `docker` 命令的知識應有基本的了解。  
+**對 Microsoft Container Registry 和 Docker 的熟悉度**：您應具備對 Microsoft Container Registry 和 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。  
 
-如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/)。
+如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。
 
 ### <a name="server-requirements-and-recommendations"></a>伺服器需求和建議
 
@@ -45,7 +45,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送計費資料至
 
 ## <a name="request-access-to-the-private-container-registry"></a>要求存取私人容器登錄
 
-您必須先填寫完並提交[認知服務視覺容器要求表單](https://aka.ms/VisionContainersPreview) \(英文\)，以要求存取辨識文字容器。 該表格需要您的相關資訊，如您的公司，以及您將會使用該容器的使用者情節。 提交之後，Azure 認知服務小組會檢閱表單，以確保您符合存取私人容器登錄的準則。
+您必須先填寫完並提交[認知服務視覺容器要求表單](https://aka.ms/VisionContainersPreview) \(英文\)，以要求存取辨識文字容器。 該表格需要您的相關資訊，如您的公司，以及您將會使用該容器的使用者情節。 提交之後，Azure 認知服務小組會檢閱該表單，以確保您符合存取私人容器登錄的準則。
 
 > [!IMPORTANT]
 > 您必須在表單中使用與 Microsoft 帳戶 (MSA) 或 Azure Active Directory (Azure AD) 帳戶相關聯的電子郵件地址。
@@ -60,9 +60,6 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送計費資料至
 
 1. 在 Azure 入口網站中建立 Azure 資源。  
    如果您想要使用辨識文字容器，您必須先在 Azure 入口網站中建立相對應的電腦視覺資源。 如需詳細資訊，請參閱[快速入門：在 Azure 入口網站中建立認知服務帳戶](../cognitive-services-apis-create-account.md)。
-
-   > [!IMPORTANT]
-   > 電腦視覺資源必須使用 F0 定價層。
 
 1. 取得 Azure 資源的端點 URL 和訂用帳戶金鑰。  
    Azure 資源建立之後，您必須使用來自該資源的端點 URL 和訂用帳戶金鑰，將相對應的辨識文字容器具現化。 您可以從 Azure 入口網站上電腦視覺資源的 [快速啟動] 和 [金鑰] 頁面，分別複製端點 URL 和訂用帳戶金鑰。
@@ -96,7 +93,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 如需辨識文字容器之可用標籤的完整描述，請參閱 Docker Hub 上的[辨識文字](https://go.microsoft.com/fwlink/?linkid=2018655)。
 
 > [!TIP]
-> 您可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來列出已下載的容器映像。 例如，下列命令會列出識別碼、存放庫和每個已下載的容器映像的標籤，並格式化為表格：
+> 您可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來列出已下載的容器映像。 例如，下列命令會列出每個已下載之容器映像的識別碼、存放庫和標籤，並將它格式化為表格：
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
@@ -105,7 +102,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 ## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>從已下載的容器映象將容器具現化
 
-使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來從已下載的容器映像將容器具現化。 例如下列命令：
+使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) \(英文\) 命令來從已下載的容器映像將容器具現化。 例如下列命令：
 
 * 從辨識文字容器映像將容器具現化
 * 配置兩個 CPU 核心和 8 GB 的記憶體
@@ -152,7 +149,7 @@ http://localhost:5000/
 | `Eula` | 表示您已接受容器的授權。<br/>此選項的值必須設定為 `accept`。 |
 
 > [!IMPORTANT]
-> 三個選項都必須指定有效的值，否則無法啟動容器。
+> 這三個選項都必須指定為有效的值，否則將無法啟動容器。
 
 如需這些選項的詳細資訊，請參閱[設定容器](computer-vision-resource-container-config.md)。
 
@@ -165,11 +162,11 @@ http://localhost:5000/
 * 容器映像在 Docker 中執行。
 * 您可以使用 REST API 或 SDK，藉由指定容器的主機 URI 來呼叫電腦視覺容器中的作業。
 * 在具現化容器時，您必須指定計費資訊。
-* ** 未授權認知服務容器未連線至 Azure 進行計量即執行。 客戶需要讓容器向計量服務隨時通訊傳送計費資訊。 認知服務容器不會將客戶資料 (例如，正在分析的影像或文字) 傳送至 Microsoft。  
+* ** 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。  
 
 ## <a name="next-steps"></a>後續步驟
 
-* 檢閱[設定容器](computer-vision-resource-container-config.md)，以取得設定的資訊
+* 檢閱[設定容器](computer-vision-resource-container-config.md)以了解組態設定
 * 檢閱[電腦視覺概觀](Home.md)，以深入了解辨識印刷和手寫的文字  
 * 參閱[電腦視覺 API](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)，以取得容器支援的方法之詳細資訊。
 * 參閱[常見問題集 (FAQ)](FAQ.md) 來解決與電腦視覺功能相關的問題。

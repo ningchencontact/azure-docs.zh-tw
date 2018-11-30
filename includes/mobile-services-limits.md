@@ -1,4 +1,16 @@
-
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 4f0cb05214cf391d0ac2a75511473a3ddf9778dd
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279490"
+---
 | 層： | 可用 | 基本 | 標準 |
 | --- | --- | --- | --- |
 | API 呼叫 |50 萬個 |150 萬 / 單位 |1500 萬 / 單位 |

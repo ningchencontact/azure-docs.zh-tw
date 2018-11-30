@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585912"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426283"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>操作說明：使用 ADAL 在 iOS 上啟用跨應用程式的 SSO
 
@@ -30,7 +30,7 @@ ms.locfileid: "47585912"
 
 Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕鬆地在您自己的應用程式套件內，或使用訊息代理程式功能和 Authenticator 應用程式來啟用單一登入。
 
-在此操作說明中，您會了解如何在應用程式中設定 SDK 以提供 SSO 給客戶。
+在本操作說明中，您會了解如何在應用程式中設定 SDK 以提供 SSO 給客戶。
 
 此操作說明適用於：
 
@@ -39,7 +39,7 @@ Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕
 * Azure Active Directory B2B
 * Azure Active Directory 條件式存取
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 此操作說明會假設您知道如何：
 
@@ -52,11 +52,11 @@ Microsoft 的身分識別平台搭配 SDK，能讓您在整個裝置中，更輕
 
 Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應用程式橋接認證，並需要單一安全地方來驗證認證的增強功能。 我們稱之為**訊息代理程式**。
 
-在 iOS 和 Android 上，會透過可下載的應用程式提供這些訊息代理程式，客戶可以單獨安裝，或為員工管理部分或所有裝置的公司推送至裝置。 訊息代理程式支援只管理某些應用程式或整個裝置的安全性，取決於 IT 管理員設定。 在 Windows 中，內建於作業系統的帳戶選擇器會提供此功能，在技術上稱為 Web 驗證訊息代理程式。
+在 iOS 和 Android 上，會透過可下載的應用程式提供這些訊息代理程式，客戶可以單獨加以安裝，或為員工管理部分或所有裝置的公司推送至裝置。 訊息代理程式支援只管理某些應用程式或整個裝置的安全性，取決於 IT 管理員設定。 在 Windows 中，內建於作業系統的帳戶選擇器會提供此功能，在技術上稱為 Web 驗證訊息代理程式。
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>在行動裝置上登入的模式
 
-在裝置上存取認證的動作依照兩個基本模式︰
+在裝置上存取認證的動作遵循兩個基本模式︰
 
 * 非訊息代理程式協助登入
 * 訊息代理程式協助登入
@@ -95,7 +95,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 
 #### <a name="broker-assisted-logins"></a>訊息代理程式協助登入
 
-訊息代理程式協助登入是在訊息代理程式應用程式中發生的登入體驗，並且使用訊息代理程式的儲存體和安全性，跨套用身分識別平台的裝置上所有應用程式共用認證。 這表示您的應用程式依賴訊息代理程式來讓使用者登入。 在 iOS 和 Android 上，會透過可下載的應用程式提供這些訊息代理程式，客戶可單獨安裝，或可由為使用者管理裝置的公司推送至裝置。 此類型應用程式的範例為 iOS 上的 Microsoft Authenticator 應用程式。 在 Windows 中，內建於作業系統的帳戶選擇器會提供此功能，在技術上稱為 Web 驗證訊息代理程式。
+訊息代理程式協助登入是在訊息代理程式應用程式中發生的登入體驗，並且使用訊息代理程式的儲存體和安全性，跨套用身分識別平台的裝置上所有應用程式共用認證。 這表示您的應用程式依賴訊息代理程式來讓使用者登入。 在 iOS 和 Android 上，會透過可下載的應用程式提供這些訊息代理程式，客戶可單獨加以安裝，或可由為使用者管理裝置的公司推送至裝置。 此類型應用程式的範例為 iOS 上的 Microsoft Authenticator 應用程式。 在 Windows 中，內建於作業系統的帳戶選擇器會提供此功能，在技術上稱為 Web 驗證訊息代理程式。
 
 體驗會依平台而有所不同，如果未正確管理，有時可能會干擾使用者。 如果您已安裝 Facebook 應用程式，並在另一個應用程式中使用 Facebook Connect，您可能最熟悉這種模式。 身分識別平台會使用相同的模式。
 
@@ -109,7 +109,7 @@ Microsoft 為每個行動平台提供應用程式，允許跨不同廠商的應�
 
 #### <a name="how-we-ensure-the-application-is-valid"></a>我們如何確保應用程式有效
 
-需要確保應用程式的身分識別會呼叫訊息代理程式，對於我們在訊息代理程式協助登入中所提供的安全性而言相當重要。 IOS 和 Android 都不會強制執行僅對特定應用程式有效的唯一識別碼，因此，惡意應用程式可能會「詐騙」合法應用程式的識別碼，並接收適用於合法應用程式的權杖。 若要確定我們一律會在執行階段與正確的應用程式進行通訊，我們會要求開發人員在向 Microsoft 註冊應用程式時提供自訂的 redirectURI。 以下將詳細討論開發人員應該如何製作此重新導向 URI。 此自訂的 redirectURI 包含應用程式的搭售識別碼，並透過 Apple App Store 確保它對應用程式而言是唯一的。 當應用程式呼叫訊息代理程式時，訊息代理程式會要求 iOS 作業系統搭配呼叫訊息代理程式的配套識別碼來提供它。 訊息代理程式會在對我們身分識別系統的呼叫中將此配套識別碼提供給 Microsoft。 如果應用程式的配套識別碼不符合開發人員在註冊期間提供給我們的配套識別碼，我們將會拒絕存取應用程式所要求之資源的權杖。 此檢查可確保只有開發人員所註冊的應用程式能夠接收權杖。
+需要確保應用程式的身分識別會呼叫訊息代理程式，對於我們在訊息代理程式協助登入中所提供的安全性而言相當重要。 IOS 和 Android 都不會強制執行僅對特定應用程式有效的唯一識別碼，因此，惡意應用程式可能會「詐騙」合法應用程式的識別碼，並接收適用於合法應用程式的權杖。 若要確定我們一律會在執行階段與正確的應用程式進行通訊，我們會要求開發人員在向 Microsoft 註冊應用程式時提供自訂的 redirectURI。 以下將詳細討論開發人員應該如何製作此重新導向 URI。 此自訂的 redirectURI 包含應用程式的搭售識別碼，並透過 Apple App Store 確保它對應用程式而言是唯一的。 當應用程式呼叫訊息代理程式時，訊息代理程式會要求 iOS 作業系統搭配呼叫訊息代理程式的配套識別碼來提供它。 訊息代理程式會在對我們身分識別系統的呼叫中將此配套識別碼提供給 Microsoft。 如果應用程式的配套識別碼不符合開發人員在註冊期間提供給我們的配套識別碼，我們將會拒絕存取應用程式所要求之資源的權杖。 這項檢查可確保只有開發人員所註冊的應用程式能夠接收權杖。
 
 **無論 SDK 呼叫訊息代理程式或使用非訊息代理程式協助流程，開發人員都有這個選項。** 不過，如果開發人員選擇不使用訊息代理程式協助流程，他們會失去使用單一登入認證的優點，使用者可能已在裝置上新增這些認證，並防止 Microsoft 提供給客戶的商務功能使用其應用程式，例如條件式存取、Intune 管理功能和以憑證為基礎的驗證。
 
@@ -212,13 +212,13 @@ App3 重新導向 URI： `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 #### <a name="create-keychain-sharing-between-applications"></a>建立應用程式之間共用的金鑰鏈
 
-啟用金鑰鏈共用已超出此文件範圍，此主題包含在 Apple 的 [新增功能](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html)文件中。 您必須決定金鑰鍊的名稱，並且跨所有應用程式新增該功能。
+啟用金鑰鏈共用已超出本文範圍，包含在 Apple 的 [新增功能](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html)文件中。 您必須決定金鑰鍊的名稱，並且跨所有應用程式新增該功能。
 
 當您確實已正確設定權利時，您應該會在標題為 `entitlements.plist` 的專案目錄中看到檔案，其中包含的項目外觀如下︰
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
     <key>keychain-access-groups</key>
@@ -243,9 +243,9 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>開啟訊息代理程式協助 SSO 的 SSO
 
-應用程式使用任何已安裝在裝置上之訊息代理程式的功能 **預設為關閉**。 若要搭配訊息代理程式使用應用程式，您必須執行一些額外的設定，並將一些程式碼新增至您的應用程式。
+應用程式使用任何已安裝在裝置上之訊息代理程式的功能 **預設為關閉**。 若要搭配使用應用程式與訊息代理程式，您必須執行一些額外的設定，並將一些程式碼新增至您的應用程式。
 
-要依照的步驟如下：
+要遵循的步驟如下：
 
 1. 在應用程式程式碼呼叫 MS SDK 時啟用訊息代理程式模式。
 2. 建立新的重新導向 URI，並將其提供給應用程式與應用程式註冊。

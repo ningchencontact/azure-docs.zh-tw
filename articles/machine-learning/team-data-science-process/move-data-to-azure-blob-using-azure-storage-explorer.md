@@ -1,26 +1,22 @@
 ---
 title: 使用 Azure 儲存體總管從 Blob 儲存體移入或移出資料 | Microsoft Docs
 description: 使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: 10bd283f-0875-4c67-af63-6492270b7656
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
-ms.author: deguhath
-ms.openlocfilehash: 295fadd69a86769f74ec45ed3e77e8a5b807e14f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392517"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446989"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windows、MacOS 和 Linux 上使用 Azure 儲存體資料。 本主題說明如何使用它來於 Azure Blob 儲存體中上傳及下載資料。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。

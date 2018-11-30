@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 788ce1f2543b9ed76d718cf01d28292f49594414
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 62bc6507e4b56c9df31a561f7677907486b0d562
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037349"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421584"
 ---
 # <a name="upload-an-azure-service-management-certificate"></a>上傳 Azure 服務管理憑證
 管理憑證可讓您使用 Azure 所提供的傳統部署模型進行驗證。 許多程式和工具 (例如 Visual Studio 或 Azure SDK) 會使用這些憑證，將各種 Azure 服務的設定與部署自動化。 
@@ -38,7 +38,7 @@ ms.locfileid: "47037349"
 ## <a name="upload-a-management-certificate"></a>上傳管理憑證
 一旦建立管理憑證 (僅包含公開金鑰的 .cer 檔案) 之後，您就可以將其上傳到入口網站。 入口網站提供憑證時，具有符合的憑證 (私密金鑰) 的任何人都可以透過管理 API 連線，並存取相關聯訂用帳戶的資源。
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 Azure 服務清單底部的 [所有服務]，然後選取 [一般] 服務群組中的 [訂用帳戶]。
 
     ![[訂用帳戶] 功能表](./media/azure-api-management-certs/subscriptions_menu.png)

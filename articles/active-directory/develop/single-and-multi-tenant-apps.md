@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: 8986f18b9f1f2953ad0612679d31996628870cb1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a965cd70e3eba04f278cf432196b9386b537462d
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988218"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424335"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Azure Active Directory 中的租用戶
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) 會將例如使用者和應用程式的物件�
 
 ## <a name="who-can-sign-in-to-your-app"></a>誰可以登入您的應用程式？
 
-來到開發應用程式階段時，開發人員可以在應用程式註冊期間，在 [Azure 入口網站](http://portal.azure.com)中選擇將其應用程式設為單一租用戶或多租用戶。
+來到開發應用程式階段時，開發人員可以在應用程式註冊期間，在 [Azure 入口網站](https://portal.azure.com)中選擇將其應用程式設為單一租用戶或多租用戶。
 * 單一租用戶應用程式僅適用於他們註冊所在的租用戶，也稱為主租用戶。
 * 多租用戶應用程式同時適用於主租用戶和其他租用戶中的使用者。
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: cc4b165b4fa04e22c9c57547df1657a0c6fc4537
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b89830d566b36b0446836d8f32aee5756e2d0991
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263373"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498438"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB 中的資料分割
 
@@ -47,7 +47,6 @@ Cosmos DB 會使用雜湊型分割，來將邏輯分割區分散到實體分割�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何[選擇分割區索引鍵](partitioning-overview.md#choose-partitionkey)
 * 了解[分割區](partition-data.md)
 * 了解 [Azure Cosmos DB 中佈建的輸送量](request-units.md)
 * 了解 [Azure Cosmos DB 中的全域分散](distribute-data-globally.md)

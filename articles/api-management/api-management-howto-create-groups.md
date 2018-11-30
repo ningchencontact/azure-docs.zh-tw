@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 3986b07c3568c3dcbb4077361d38f74d658458cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5392cf5463dd0b11d1ce53856c8e4e2e788892b0
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38603059"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442402"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何在 Azure API 管理中建立和使用群組來管理開發人員帳戶
+
 在 API 管理中，群組的作用是管理產品對於開發人員的可見度。 產品是先設為可讓群組看見，然後群組中的開發人員就能檢視和訂閱與群組相關聯的產品。 
 
 API 管理具有下列不可變的系統群組：
@@ -35,7 +36,9 @@ API 管理具有下列不可變的系統群組：
 
 除了在發佈者入口網站中建立和管理群組，您還可以使用 API 管理 REST API [群組](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity) 實體，建立和管理您的群組。
 
-## <a name="prerequisites"></a>先決條件
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+## <a name="prerequisites"></a>必要條件
 
 完成本文中的工作：[建立 Azure API 管理執行個體](get-started-create-service-instance.md)。
 

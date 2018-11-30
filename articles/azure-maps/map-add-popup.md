@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0be10c155398133887fadb1fe9954068f3afb9d9
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568109"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282527"
 ---
 # <a name="add-a-popup-to-the-map"></a>在地圖上新增快顯
 
@@ -33,7 +33,7 @@ ms.locfileid: "51568109"
 
 [符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。  在第三個程式碼區塊中會建立符號層。 資料來源會新增至符號層，然後新增至地圖。
 
-程式碼的第四個區塊會透過 `new atlas.Popup()` 建立[快顯物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)。 position 和 pixelOffset 等快顯屬性都屬於 [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest)。 PopupOptions 可定義在快顯建構函式中或透過快顯類別的 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 函式來定義。 接著會建立符號層的 `mouseover` 事件接聽程式。
+程式碼的第四個區塊會透過 `new atlas.Popup()` 建立[快顯物件](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)。 position 和 pixelOffset 等快顯屬性都屬於 [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions)。 PopupOptions 可定義在快顯建構函式中或透過快顯類別的 [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) 函式來定義。 接著會建立符號層的 `mouseover` 事件接聽程式。
 
 最後一個程式碼區塊會建立由 `mouseover` 事件接聽程式所觸發的函式。 它會設定快顯的內容和屬性，並將快顯物件新增至地圖。
 

@@ -3,7 +3,7 @@ title: 將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中�
 description: 了解 Azure 資訊安全中心如何與 Microsoft Advanced Threat Analytics 整合。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 5d80bf91-16c3-40b3-82fc-e0805e6708db
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2018
-ms.author: yurid
-ms.openlocfilehash: 6129c83e33d046c2fc9ce1724a27efce5efdfa0e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: bcd9b006c5451cb2d251cd5ff9e6ae5e0bd17f3c
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258794"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634008"
 ---
 # <a name="connecting-microsoft-advanced-threat-analytics-to-azure-security-center"></a>將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心
 本文件可協助您設定 Microsoft Advanced Threat Analytics 與 Azure 資訊安全中心之間的整合。
 
 ## <a name="why-add-advanced-threat-analytics-data"></a>為何新增 Advanced Threat Analytics 資料？
-[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) 是內部部署平台，可協助偵測可疑的使用者行為。 連線時，您就能夠在資訊安全中心檢視 ATA 所偵測到的可疑動作。 此整合可讓您在資訊安全中心檢視、相互關聯和調查與混合式雲端工作負載相關的所有安全性警示。 
+[Advanced Threat Analytics (ATA)](https://docs.microsoft.com/advanced-threat-analytics/what-is-ata) 是內部部署平台，可協助偵測可疑的使用者行為。 連線時，您就能夠在資訊安全中心檢視 ATA 所偵測到的可疑動作。 此整合可讓您在資訊安全中心檢視、相互關聯和調查與混合式雲端工作負載相關的所有安全性警示。
 
 ## <a name="how-do-i-configure-this-integration"></a>如何設定此整合？
 假設已安裝 ATA，並可在內部部署上正常運作，請遵循下列步驟來設定此整合：
@@ -46,7 +46,7 @@ ms.locfileid: "51258794"
 8. 在 **Advanced Threat Analytics** 下，按一下 [新增]**ADD**。
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig3.png)
-    
+
 9. 移至最後一個步驟，然後按一下 [下載代理程式]。
 
     ![ATA](./media/security-center-ata-integration/security-center-ata-integration-fig4.png)
@@ -62,13 +62,13 @@ ms.locfileid: "51258794"
 12. 在 ATA 中心安裝此代理程式。 在安裝期間，確定選取 [將代理程式連線至 Azure Log Analytics] 選項，並在要求時，提供*工作區識別碼*和*主索引鍵*。
 
 
-一旦完成安裝之後，整合即算完成，而且您將能夠在 [搜尋] 結果中看到從 ATA 傳送到資訊安全中心的新警示。 解決方案會出現在 [安全性解決方案]頁面的 [連線的解決方案] 之下。 
+一旦完成安裝之後，整合即算完成，而且您將能夠在 [搜尋] 結果中看到從 ATA 傳送到資訊安全中心的新警示。 解決方案會出現在 [安全性解決方案]頁面的 [連線的解決方案] 之下。
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何將 Microsoft ATA 連線至資訊安全中心。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [將 Azure Active Directory Identity Protection 連線至 Azure 資訊安全中心](security-center-aadip-integration.md)
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) — 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。
@@ -76,5 +76,3 @@ ms.locfileid: "51258794"
 - [Azure 資訊安全中心資料安全性](security-center-data-security.md) - 了解資訊安全中心如何管理及保護其中的資料。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) — 取得最新的 Azure 安全性新聞和資訊。
-
-

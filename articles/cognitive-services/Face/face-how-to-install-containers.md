@@ -10,16 +10,16 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 27a4bccfbac73c7c8c902a59fdd4cafe0c420c31
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635076"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634535"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
-容器化是散發軟體的方法，它會將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性都包含在容器映像中。 接著可以在只需要小幅修改或不修改的情況下，將容器映像部署在容器主機上。 容器之間會彼此隔離，也會與基礎作業系統隔離，這使其磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
+容器化是散發軟體的方法，它會將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性都包含在容器映像中。 接著可以將容器映像部署在容器主機上，且只需要稍微修改或不修改。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
 
 臉部會針對 Docker 提供名為「臉部」的標準化 Linux 容器，其能偵測影像中的人臉並識別其特性，包括臉部特徵點 (例如鼻子和眼睛)、性別、年齡及其他機器預測的臉部容貌。 除了偵測以外，臉部也可以使用信賴分數檢查相同或不同影像中的兩張臉是否相同，或將臉部向資料庫進行比對，看看是否有樣貌相似或相同的臉部。 它也能夠使用共同視覺特徵，將相似臉部分組。
 
@@ -59,23 +59,20 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 1. 在 Azure 入口網站中建立臉部資源。  
    如果您想要使用臉部容器，便必須先在 Azure 入口網站中建立相對應的臉部資源。 如需詳細資訊，請參閱[快速入門：在 Azure 入口網站中建立認知服務帳戶](../cognitive-services-apis-create-account.md)。
 
-   > [!IMPORTANT]
-   > 臉部資源必須使用 F0 定價層。
-
 1. 取得 Azure 資源的端點 URL 和訂用帳戶金鑰。  
    Azure 資源建立之後，您必須使用來自該資源的端點 URL 和訂用帳戶金鑰，將相對應的臉部容器具現化。 您可以從 Azure 入口網站上臉部資源的 [快速入門] 和 [金鑰] 頁面，分別複製端點 URL 和訂用帳戶金鑰。
 
 ## <a name="log-in-to-the-private-container-registry"></a>登入私人容器登錄
 
-有幾個方式可以向認知服務容器的私人容器登入驗證，但從命令列進行的建議方法是使用 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) \(英文\)。
+有幾個方式可以向認知服務容器的私人容器登錄驗證，但從命令列進行的建議方法是使用 [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/) \(英文\)。
 
-使用 [docker login](https://docs.docker.com/engine/reference/commandline/login/) \(英文\) 命令 (如下列範例所示) 登入 `containerpreview.azurecr.io`，此為認知服務容器的私人容器登錄。 將 *\<username\>* 和 *\<password\>* 分別取代為您從 Azure 認知服務小組收到之認證中所提供的使用者名稱和密碼。
+使用下列範例中所示的 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令來登入 `containerpreview.azurecr.io` (認知服務容器的私人容器登錄)。 將 *\<username\>* 取代為使用者名稱，並將 *\<password\>* 取代為您從 Azure 認知服務小組收到的認證所提供的密碼。
 
 ```docker
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 
-如果您已經將您的認證保護在文字檔中，您可以將該文字檔的內容串連 (使用 `cat` 命令) 至 `docker login` 命令，如下列範例所示。 將 *\<passwordFile\>* 取代為包含密碼之文字檔的路徑和名稱，並將 *\<username\>* 取代為您認證中所提供的使用者名稱。
+如果您已經將您的認證保護在文字檔中，您可以將該文字檔的內容串連 (使用 `cat` 命令) 至 `docker login` 命令，如下列範例所示。 將 *\<passwordFile\>* 取代為包含密碼之文字檔的路徑和名稱，並將 *\<username\>* 取代為您認證中提供的使用者名稱。
 
 ```docker
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin

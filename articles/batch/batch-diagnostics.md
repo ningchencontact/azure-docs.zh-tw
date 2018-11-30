@@ -15,17 +15,17 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409521"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822750"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
  
-本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../monitoring/monitoring-data-collection.md#metrics)和[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，在計量達到指定值時接收通知。 
+本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，在計量達到指定值時接收通知。 
 
 ## <a name="batch-metrics"></a>Batch 計量
 

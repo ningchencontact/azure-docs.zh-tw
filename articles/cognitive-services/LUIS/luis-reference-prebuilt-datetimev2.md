@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中 datetimeV2 預先建置的實體資訊。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 13f62e98a33aac51eae86d5ce1b802d4701ef3f6
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236766"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335771"
 ---
 # <a name="datetimev2-entity"></a>DatetimeV2 實體
 

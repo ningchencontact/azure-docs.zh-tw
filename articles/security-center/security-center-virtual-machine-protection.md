@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0bd93e0732b0e822fae68b4ac2cc5e28fb246808
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016959"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316645"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -193,7 +193,7 @@ ms.locfileid: "51016959"
 |機器|20|請在您的機器上安裝 Endpoint Protection 解決方案|在虛擬機器上安裝 Endpoint Protection 解決方案，以避免虛擬機器遭受威脅及弱點損害。|
 |機器|20|請重新啟動您的機器，以套用系統更新|重新啟動機器，以套用系統更新及避免機器受到弱點損害。|
 |App Service|20|Web 應用程式應只可經由 HTTPS 存取|僅限透過 HTTPS 存取 Web 應用程式。|
-|App Service|20|函數應用程式應只可經由 HTTPS 存取|僅限透過 HTTPS 存取函數應用程式。|
+|App Service|20|函式應用程式應只可經由 HTTPS 存取|僅限透過 HTTPS 存取函數應用程式。|
 |機器|15|請在您的虛擬機器上套用磁碟加密|使用「Azure 磁碟加密」為 Windows 和 Linux 虛擬機器磁碟加密虛擬機器磁碟。 「Azure 磁碟加密」(ADE) 利用 Windows 的業界標準 BitLocker 功能及 Linux 的 DM-Crypt 功能來提供 OS 和資料磁碟加密，以協助您在客戶 Azure Key Vault 中保護資料並滿足組織的安全性與合規性承諾。 當您的合規性與安全性需求要求您使用加密金鑰來進行端對端資料加密 (包括加密暫時磁碟 (本機連結的臨時磁碟)) 時，請使用「Azure 磁碟加密」。 或者，系統預設會使用「Azure 儲存體服務加密」將待用的「受控磁碟」加密，其中加密金鑰為 Azure 中的 Microsoft 受控金鑰。 如果這符合您的合規性與安全性需求，您便可以利用預設的受控磁碟加密來滿足您的需求。|
 |計算資源 (Service Fabric)|10|在 Service Fabric 中使用 Azure Active Directory 來執行用戶端驗證|在 Service Fabric 中只透過 Azure Active Directory 來執行用戶端驗證。|
 |計算資源 (自動化帳戶)|5| 啟用自動化帳戶加密|儲存敏感性資料時，啟用自動化帳戶變數資產加密。|
@@ -212,7 +212,7 @@ ms.locfileid: "51016959"
 |計算資源 (Service Fabric)|15|在 Service Fabric 中，將 ClusterProtectionLevel 屬性設定為 EncryptAndSign|Service Fabric 使用主要叢集憑證，可為節點對節點的通訊提供三層保護 (None、Sign 及 EncryptAndSign)。  設定保護層級可確保所有節點對節點的訊息皆經過加密及數位簽署。 |
 |App Service|10|Web 應用程式的遠端偵錯應關閉|如果您不再需要使用 Web 應用程式的偵錯功能，請將該功能關閉。 遠端偵錯需要在函式應用程式上開啟輸入連接埠。|
 |App Service|10|函數應用程式的遠端偵錯應關閉|如果您不再需要使用函數應用程式的偵錯功能，請將該功能關閉。 遠端偵錯需要在函式應用程式上開啟輸入連接埠。|
-|App Service|10|設定 Web 應用程式的 IP 限制|定義允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止 Web 應用程式遭受常見攻擊。|
+|App Service|10|設定 Web 應用程式的 IP 限制|定義獲允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止 Web 應用程式遭受常見攻擊。|
 |App Service|10|設定函式應用程式的 IP 限制| 定義獲允許存取應用程式的 IP 位址清單。 使用 IP 限制可防止函式應用程式遭受常見攻擊。|
 |App Service|10|請勿允許所有 ('*') 資源來存取應用程式| 請勿允許將 WEBSITE_LOAD_CERTIFICATES 參數設定為 ""。 將此參數設定為 ‘’ 意謂著會將所有憑證都載入至 Web 應用程式個人憑證存放區。 這會導致最小權限的原則遭到濫用，原因是網站不可能需要在執行階段存取所有憑證。|
 |App Service|5|Web 應用程式應停用 Web 通訊端|請檢閱 Web 應用程式內 Web 通訊端的使用狀況。 Web 通訊端通訊協定易受不同類型的安全性威脅攻擊。|
@@ -225,7 +225,7 @@ ms.locfileid: "51016959"
 |計算資源 (事件中樞)|5|為事件中樞實體定義授權規則|稽核事件中樞實體上的授權規則，以只授與最低權限的存取權。|
 |機器|30|在您的虛擬機器上安裝弱點評定解決方案|在您的虛擬機器上安裝弱點評定解決方案|
 |App Service|20|CORS 不應允許每項資源存取您的 Web 應用程式|請只允許必要網域與您的 Web 應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取 Web 應用程式。|
-|App Service|20|CORS 不應允許每項資源存取您的函數應用程式| 請只允許必要網域與您的函數應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取函式應用程式。|
+|App Service|20|CORS 不應允許每項資源存取函式應用程式| 請只允許必要網域與您的函數應用程式互動。 跨原始資源共用 (CORS) 不應允許所有網域存取函式應用程式。|
 |機器|15|新增 Web 應用程式防火牆| 新增 Web 應用程式防火牆 (WAF) 解決方案來保護 Web 應用程式。 |
 |App Service|10|為 Web 應用程式使用支援的最新 .NET Framework|請使用最新的 .NET Framework 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
 |App Service|10|為 Web 應用程式使用支援的最新 JAVA 版本|請使用最新的 JAVA 版本，以取得最新的安全性類別。 使用較舊的類別和類型會讓應用程式變得容易遭受攻擊。|
@@ -249,7 +249,7 @@ ms.locfileid: "51016959"
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找有關使用服務的常見問題。
 

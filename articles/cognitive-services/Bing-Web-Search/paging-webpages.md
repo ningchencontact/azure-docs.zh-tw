@@ -10,13 +10,13 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: erhopf
-ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.author: aahi
+ms.openlocfilehash: d161d377b3ad8792e1be9c9a86a7aa53ff185468
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739238"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161311"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>如何逐頁檢視 Bing Web 搜尋 API 的搜尋結果
 

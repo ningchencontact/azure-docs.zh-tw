@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f424abd339bda6c29079e3d286cbe96593f16f52
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040035"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335618"
 ---
 # <a name="prebuilt-domain-reference"></a>預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
@@ -27,27 +27,27 @@ LUIS 提供 20 個預先建立的定義域。
 
 | 預建網域 | 說明 | 支援的語言 |
 | ---------------- |-----------------------|:------:|
-| 行事曆 | Calendar 定義域提供新增、刪除或編輯約會，檢查參與者是否可與會，以及尋找行事曆事件相關資訊的意圖和實體。| zh-TW<br/> zh-CN |
-| Camera | Camera 定義域提供拍照、錄製視訊及廣播視訊到應用程式的意圖和實體。| zh-TW |
-| 通訊 | 傳送訊息及撥打電話。| zh-TW <br/> zh-CN |
-| Entertainment  | 處理與音樂、電影和電視節目相關的查詢。| zh-TW |
-| 活動 | 預約演唱會、運動賽事和喜劇表演門票。| zh-TW |
-| Fitness | 處理與追蹤健身活動相關的要求。| zh-TW |
-| 玩遊戲 | 處理與多玩家遊戲中遊戲陣營相關的要求。| zh-TW |
-| HomeAutomation | 控制燈光與家電用品等智慧型家電裝置。| zh-TW<br/> zh-CN |
-| MovieTickets | 預約電影院的電影票。| zh-TW |
-| 音樂 | 在音樂播放程式上播放音樂。| zh-TW<br/> zh-CN |
-| 附註 | Note 定義域提供與建立、編輯及尋找筆記相關的意圖和實體。| zh-TW<br/> zh-CN |
-| OnDevice | OnDevice 定義域提供與控制裝置相關的意圖和實體。| zh-TW<br/> zh-CN |
-| 地點  | 處理與公司、機構、餐廳、公共空間和地址等地點相關的查詢。| zh-TW<br/> zh-CN |
-| 提醒 | 處理與建立、編輯及尋找提醒相關的要求。| zh-TW<br/> zh-CN |
-| RestaurantReservation | 處理管理餐廳預約的要求。| zh-TW<br/> zh-CN |
-| Taxi | 處理計程車的預約。| zh-TW<br/> zh-CN |
-| 翻譯 | 將文字翻譯成目標語言。| zh-TW<br/> zh-CN |
-| TV | 控制電視。| zh-TW |
-| 公用事業  | 處理許多定義域通用的要求，例如「說明」、「重複」、「重新開始」。| zh-TW |
-| Weather | 取得天氣預報。| zh-TW<br/> zh-CN |
-| Web | 巡覽至網站。| zh-TW<br/> zh-CN |
+| 行事曆 | Calendar 定義域提供新增、刪除或編輯約會，檢查參與者是否可與會，以及尋找行事曆事件相關資訊的意圖和實體。| en-US<br/> zh-CN |
+| Camera | Camera 定義域提供拍照、錄製視訊及廣播視訊到應用程式的意圖和實體。| en-US |
+| 通訊 | 傳送訊息及撥打電話。| en-US <br/> zh-CN |
+| Entertainment  | 處理與音樂、電影和電視節目相關的查詢。| en-US |
+| 活動 | 預約演唱會、運動賽事和喜劇表演門票。| en-US |
+| Fitness | 處理與追蹤健身活動相關的要求。| en-US |
+| 玩遊戲 | 處理與多玩家遊戲中遊戲陣營相關的要求。| en-US |
+| HomeAutomation | 控制燈光與家電用品等智慧型家電裝置。| en-US<br/> zh-CN |
+| MovieTickets | 預約電影院的電影票。| en-US |
+| 音樂 | 在音樂播放程式上播放音樂。| en-US<br/> zh-CN |
+| 附註 | Note 定義域提供與建立、編輯及尋找筆記相關的意圖和實體。| en-US<br/> zh-CN |
+| OnDevice | OnDevice 定義域提供與控制裝置相關的意圖和實體。| en-US<br/> zh-CN |
+| 地點  | 處理與公司、機構、餐廳、公共空間和地址等地點相關的查詢。| en-US<br/> zh-CN |
+| 提醒 | 處理與建立、編輯及尋找提醒相關的要求。| en-US<br/> zh-CN |
+| RestaurantReservation | 處理管理餐廳預約的要求。| en-US<br/> zh-CN |
+| Taxi | 處理計程車的預約。| en-US<br/> zh-CN |
+| 翻譯 | 將文字翻譯成目標語言。| en-US<br/> zh-CN |
+| TV | 控制電視。| en-US |
+| 公用事業  | 處理許多定義域通用的要求，例如「說明」、「重複」、「重新開始」。| en-US |
+| Weather | 取得天氣預報。| en-US<br/> zh-CN |
+| Web | 巡覽至網站。| en-US<br/> zh-CN |
 
 如需每個定義域的詳細資料，請參閱下列各節。
 

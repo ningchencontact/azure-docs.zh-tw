@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: c59cb8277bee13a83d0bf17c26deef1b8fc8d3e6
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946006"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822838"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure 監視器中的 Azure 事件中樞計量 (預覽)
 
@@ -29,7 +29,7 @@ ms.locfileid: "49946006"
 
 ## <a name="access-metrics"></a>存取計量
 
-Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure 入口網站](https://portal.azure.com)來存取計量，或使用「Azure 監視器」API (REST 和 .NET) 和分析解決方案 (例如 Operation Management Suite 和「事件中樞」) 來存取計量。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../monitoring/monitoring-data-collection.md)。
+Azure 監視器提供了多種方法供您存取計量。 您可以透過 [Azure 入口網站](https://portal.azure.com)來存取計量，或使用「Azure 監視器」API (REST 和 .NET) 和分析解決方案 (例如 Operation Management Suite 和「事件中樞」) 來存取計量。 如需詳細資訊，請參閱[監視 Azure 監視器所收集的資料](../azure-monitor/platform/data-collection.md)。
 
 計量是預設啟用的功能，您可以存取最近 30 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)中進行設定。
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
 ms.component: ''
-ms.openlocfilehash: 526ba73858322ee41f649a338f22226da6af33e7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cab78d09038b8ab00c318b3ce615d99139e9b005
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964036"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634025"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>使用 IT Service Management Connector 將 Azure 連線到 ITSM 工具
 
@@ -84,10 +84,10 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 根據您所連線的 ITSM 產品，使用下列步驟：
 
-- [System Center Service Manager (SCSM)](log-analytics-itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
-- [ServiceNow](log-analytics-itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
-- [Provance](log-analytics-itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
-- [Cherwell](log-analytics-itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
+- [System Center Service Manager (SCSM)](../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [ServiceNow](../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
+- [Provance](../azure-monitor/platform/itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
+- [Cherwell](../azure-monitor/platform/itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
 一旦您備妥 ITSM 工具之後，請遵循下列步驟來建立連線：
 
@@ -100,7 +100,7 @@ ITSMC 支援與下列 ITSM 工具連線：
 
     ![新增 ITSM 連線](media/log-analytics-itsmc-overview/add-new-itsm-connection.png)
 
-4.  指定連線設定，如[設定與 ITSM 產品/服務的 ITSMC 連線](log-analytics-itsmc-connections.md)中所述。
+4.  指定連線設定，如[設定與 ITSM 產品/服務的 ITSMC 連線](../azure-monitor/platform/itsmc-connections.md)中所述。
 
     > [!NOTE]
 
@@ -157,13 +157,13 @@ ITSMC 支援與下列 ITSM 工具連線：
 
 您也可以在服務對應解決方案中，將針對受影響電腦同步處理的事件視覺化。
 
-服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 如果您想到您的伺服器，ADM 可讓您以互連系統 (提供重要服務) 的形式檢視它們。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連接。 [深入了解](../monitoring/monitoring-service-map.md)。
+服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 如果您想到您的伺服器，ADM 可讓您以互連系統 (提供重要服務) 的形式檢視它們。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連接架構的伺服器、處理程序和連接埠之間的連接。 [深入了解](../azure-monitor/insights/service-map.md)。
 
 如果您使用服務對應解決方案，則可檢視 ITSM 解決方案中建立的服務台項目，如下列範例中所示：
 
 ![Log Analytics 畫面](media/log-analytics-itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-詳細資訊︰[服務對應](../monitoring/monitoring-service-map.md)
+詳細資訊︰[服務對應](../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>其他資訊
@@ -291,7 +291,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
     - 請確定您已正確輸入每個連線的使用者名稱、密碼、用戶端識別碼及用戶端密碼。  
     - 請檢查您在對應的 ITSM 產品中是否擁有足夠權限來進行連線。  
  - 對於服務管理連線，  
-    - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)所述。  
+    - 請確定已成功部署 Web 應用程式，且已建立混合式連線。 若要確認是否已成功與內部部署 Service Manager 機器建立連線，請瀏覽 Web 應用程式 URL，如文件中針對建立[混合式連線](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)所述。  
 
 2.  如果 ServiceNow 的資料未同步處理至 Log Analytics，請確定 ServiceNow 執行個體並非處在睡眠中。 ServiceNow 開發人員執行個體閒置很長的時間時，有時會進入睡眠狀態。 否則，請回報問題。
 3.  如果引發 Log Analytics 警示，但未在 ITSM 產品中建立工作項目，或未將設定項目建立為/連結至工作項目，或需任何其他一般資訊，請查看下列位置：
@@ -301,7 +301,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>針對 Service Manager Web 應用程式部署進行疑難排解
 1.  如果是有關 Web 應用程式部署的任何問題，請確定您在所述的訂用帳戶中擁有足夠權限來建立/部署資源。
 2.  當您執行[指令碼](log-analytics-itsmc-service-manager-script.md)時，如果收到「物件參考未設定為物件的執行個體」錯誤訊息，請確定您已在 [使用者設定] 區段中輸入有效值。
-3.  如果您無法建立服務匯流排轉送命名空間，請確定所需的資源提供者已在訂用帳戶中註冊。 如果未註冊，請以手動方式從 Azure 入口網站建立服務匯流排轉送命名空間。 您也可以在建立它時，同時從 Azure 入口網站[建立混合式連線](log-analytics-itsmc-connections.md#configure-the-hybrid-connection)。
+3.  如果您無法建立服務匯流排轉送命名空間，請確定所需的資源提供者已在訂用帳戶中註冊。 如果未註冊，請以手動方式從 Azure 入口網站建立服務匯流排轉送命名空間。 您也可以在建立它時，同時從 Azure 入口網站[建立混合式連線](../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection)。
 
 
 ## <a name="contact-us"></a>與我們連絡
@@ -309,4 +309,4 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 如需關於 IT 服務管理連接器的任何查詢或意見反應，請與我們連絡：[omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)。
 
 ## <a name="next-steps"></a>後續步驟
-[將 ITSM 產品/服務新增至 IT 服務管理連接器](log-analytics-itsmc-connections.md)。
+[將 ITSM 產品/服務新增至 IT 服務管理連接器](../azure-monitor/platform/itsmc-connections.md)。

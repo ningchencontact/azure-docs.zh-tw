@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 2bdb8c30ffa630f85d666f3a16ce2b9dcdab6492
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 90084f6c4fb270c34165bf12763109d9be2398aa
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118219"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446954"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>如何使用範本自訂 Azure API 管理開發人員入口網站。
 
@@ -31,7 +31,10 @@ ms.locfileid: "29118219"
 
 範本可用來自訂系統產生之開發人員入口網站網頁的內容 (例如 API 文件、產品、使用者驗證等)。 使用 [DotLiquid](http://dotliquidmarkup.org/) 語法及一組提供的當地語系化字串資源、圖示和頁面控制項，您可以依照您的想法自由靈活地設定頁面內容。
 
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
 ## <a name="developer-portal-templates-overview"></a>開發人員入口網站範本概觀
+
 當您以系統管理員身分登入時，可從 [開發人員入口網站] 編輯範本。 若要到達該處，請開啟 Azure 入口網站，然後從 API 管理執行個體的服務工具列按一下 [開發人員入口網站]。
 
 若要存取開發人員入口網站範本，請按一下左側的自訂圖示，顯示 [自訂] 功能表，然後按一下 [範本] 。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/18/2016
 ms.author: cawa
-ms.openlocfilehash: 8315647afec0166b41ce7a75f491077edd56db46
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fd13cb25fbe3696bf67615ef956f478b7c355547
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036255"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422047"
 ---
 # <a name="manage-azure-blob-storage-resources-with-storage-explorer"></a>使用儲存體總管來管理 Azure Blob 儲存體資源
 ## <a name="overview"></a>概觀
@@ -29,7 +29,7 @@ ms.locfileid: "51036255"
 ## <a name="prerequisites"></a>必要條件
 若要完成這篇文章中的步驟，您需要下列項目︰
 
-* [下載並安裝儲存體總管](http://www.storageexplorer.com)
+* [下載並安裝儲存體總管](https://www.storageexplorer.com)
 * [連接到 Azure 儲存體帳戶或服務](vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service)
 
 ## <a name="create-a-blob-container"></a>建立 Blob 容器
@@ -213,7 +213,7 @@ Blob 容器可以輕鬆地建立並視需要刪除。 (若要查看如何刪除�
      3. 選取確認對話方塊上的 [是]  。
 
 ## <a name="next-steps"></a>後續步驟
-* 檢視 [最新的儲存體 Explorer 版本資訊與影片](http://www.storageexplorer.com)。
+* 檢視 [最新的儲存體 Explorer 版本資訊與影片](https://www.storageexplorer.com)。
 * 了解如何 [利用 Azure Blob、資料表、佇列和檔案建立應用程式](https://azure.microsoft.com/documentation/services/storage/)。
 
 [0]: ./media/vs-azure-tools-storage-explorer-blobs/blob-containers-create-context-menu.png

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4c6765e54dc881c35e344f111e82721be0852052
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961818"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823753"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>將 Azure 監視資料串流至事件中樞以供外部工具取用
 
@@ -71,7 +71,7 @@ Azure 訂用帳戶監視資料可用於 [Azure 活動記錄](./monitoring-overvi
 
 Azure 資源會發出兩種監視資料：
 1. [資源診斷記錄](./monitoring-overview-of-diagnostic-logs.md)
-2. [計量](../monitoring/monitoring-data-collection.md)
+2. [計量](../azure-monitor/platform/data-collection.md)
 
 這兩種資料都會使用資源診斷設定來傳送至事件中樞。 [遵循此指南](./monitoring-stream-diagnostic-logs-to-event-hubs.md)以在特定資源上設定資源診斷設定。 為每個要收集記錄的資源進行資源診斷設定。
 

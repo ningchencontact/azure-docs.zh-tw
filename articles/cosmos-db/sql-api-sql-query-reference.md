@@ -10,21 +10,21 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4492324b174c97325f40110b7500d5b0e99a926b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dbd3d4e34df3bf918c831a3d9c74de8a9015b50e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623939"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163598"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Azure Cosmos DB SQL 語法參考
 
-Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢範例逐步解說，請參閱 [Cosmos DB 中的 SQL 查詢](sql-api-sql-query.md)。  
+Azure Cosmos DB 支援在階層式 JSON 文件上使用諸如文法等熟悉的 SQL (結構式查詢語言) 查詢文件，無需明確的結構描述，也不用建立次要索引。 本文提供 SQL 查詢語言語法文件，其與 SQL API 帳戶相容。 如需 SQL 查詢範例逐步解說，請參閱 [Cosmos DB 中的 SQL 查詢](how-to-sql-query.md)。  
   
 請造訪 [Query Playground](http://www.documentdb.com/sql/demo)，您可以在此試用 Cosmos DB 並針對我們的資料集執行 SQL 查詢。  
   
 ## <a name="select-query"></a>SELECT 查詢  
-根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 用來描述 SELECT 陳述式的慣例會在「語法」慣例一節中製成資料表。 如需範例，請參閱 [SELECT 查詢範例](sql-api-sql-query.md#SelectClause)
+根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 文件的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 用來描述 SELECT 陳述式的慣例會在「語法」慣例一節中製成資料表。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)
   
 **語法**  
   
@@ -69,7 +69,7 @@ SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一
 若空白字元和註解在文法中不具備任何重要性，則必須用來分隔權杖。 例如：`-1e5` 是單一數字的權杖，而 `: – 1 e5` 則是加上減號的權杖，後面接著數字 1 和識別碼 e5。  
 
 ##  <a name="bk_select_query"></a> SELECT 子句  
-SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](sql-api-sql-query.md#SelectClause)。
+SELECT 陳述式中的子句的順序必須如上所述。 您可以省略任一選用子句。 但是，若使用了選用子句，則這些子句必須以正確的順序出現。 如需範例，請參閱 [SELECT 查詢範例](how-to-sql-query.md#SelectClause)。
 
 **語法**  
 
@@ -132,7 +132,7 @@ SELECT <select_specification>
 [SELECT 子句](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a>FROM 子句  
-指定來源或聯結的來源。 除非稍後會在查詢中篩選或投射來源，否則 FROM 子句為選用子句。 此子句的目的是指定查詢必須操作的資料來源。 整個容器通常是來源，但是您可以改為指定容器的子集。 若未指定此子句，系統仍然會在如同 FROM 子句提供了單一文件的情況下執行其他子句。 如需範例，請參閱 [FROM 子句範例](sql-api-sql-query.md#FromClause)
+指定來源或聯結的來源。 除非稍後會在查詢中篩選或投射來源，否則 FROM 子句為選用子句。 此子句的目的是指定查詢必須操作的資料來源。 整個容器通常是來源，但是您可以改為指定容器的子集。 若未指定此子句，系統仍然會在如同 FROM 子句提供了單一文件的情況下執行其他子句。 如需範例，請參閱 [FROM 子句範例](how-to-sql-query.md#FromClause)
   
 **語法**  
   
@@ -216,7 +216,7 @@ FROM <from_specification>
   
 在目前版本中，Cosmos DB 支援內部聯結。 即將推出其他聯結功能。 
 
-內部聯結是參與聯結之集的完整交叉乘積。 N 方聯結的結果為一組 N 元素 Tuple，其中 Tuple 中的每個值都與參與聯結的別名集相關聯，而且可以透過參考其他子句中的別名加以存取。 如需範例，請參閱 [JOIN 關鍵字範例](sql-api-sql-query.md#Joins)
+內部聯結是參與聯結之集的完整交叉乘積。 N 方聯結的結果為一組 N 元素 Tuple，其中 Tuple 中的每個值都與參與聯結的別名集相關聯，而且可以透過參考其他子句中的別名加以存取。 如需範例，請參閱 [JOIN 關鍵字範例](how-to-sql-query.md#Joins)
   
 聯結的評估依參與集的內容範圍而定：  
   
@@ -230,7 +230,7 @@ FROM <from_specification>
   
 我們來看看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生。  
+ 讓每個來源定義 `input_alias1, input_alias2, …, input_aliasN`。 這個 FROM 子句會傳回一組 N-Tuple (具有 N 個值的 Tuple)。 每個 Tuple 所擁有的值，都是將所有容器別名在其個別集合上反覆運算所產生的。  
   
 **範例 1** - 2 個來源  
   
@@ -311,7 +311,7 @@ FROM <from_specification>
  [SELECT 子句](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a>WHERE 子句  
- 指定查詢所傳回的文件之搜尋條件。 如需範例，請參閱 [WHERE 子句範例](sql-api-sql-query.md#WhereClause)
+ 指定查詢所傳回的文件之搜尋條件。 如需範例，請參閱 [WHERE 子句範例](how-to-sql-query.md#WhereClause)
   
  **語法**  
   
@@ -336,7 +336,7 @@ WHERE <filter_condition>
  為了傳回文件，指定為篩選條件的運算式必須評估為 True。 只有在布林值為 True 的情況下才會滿足條件，任何其他值：未定義、Null、False、數字、陣列或物件都不會滿足條件。  
   
 ##  <a name="bk_orderby_clause"></a>ORDER BY 子句  
- 指定由查詢傳回之結果的排列順序。 如需範例，請參閱 [ORDER BY 子句範例](sql-api-sql-query.md#OrderByClause)
+ 指定由查詢傳回之結果的排列順序。 如需範例，請參閱 [ORDER BY 子句範例](how-to-sql-query.md#OrderByClause)
   
  **語法**  
   
@@ -374,7 +374,7 @@ ORDER BY <sort_specification>
  即使查詢文法支援多個屬性順序，但 Cosmos DB 查詢執行階段僅會支援單一屬性及屬性名稱的排序 (不支援已計算屬性的排序)。 排序也需要索引原則，包括適用於屬性及指定類型的範圍索引，搭配最大有效位數。 如需詳細資訊，請參閱索引原則文件。  
   
 ##  <a name="bk_scalar_expressions"></a>純量運算式  
- 純量運算式結合了符號及運算子，可以加以評估以取得單一值。 簡單運算式可以是常數、屬性參考、陣列元素參考、別名參考或函式呼叫。 簡單運算式可以透過使用運算子，與複雜運算式結合。 如需範例，請參閱[純量運算式範例](sql-api-sql-query.md#scalar-expressions)
+ 純量運算式結合了符號及運算子，可以加以評估以取得單一值。 簡單運算式可以是常數、屬性參考、陣列元素參考、別名參考或函式呼叫。 簡單運算式可以透過使用運算子，與複雜運算式結合。 如需範例，請參閱[純量運算式範例](how-to-sql-query.md#scalar-expressions)
   
  如需純量運算式具備哪些值的詳細資料，請參閱[常數](#bk_constants)一節。  
   
@@ -2905,6 +2905,6 @@ SELECT ST_ISVALIDDETAILED({
   
 ## <a name="next-steps"></a>後續步驟  
 
-- [適用於 Cosmos DB 的 SQL 語法和 SQL 查詢](sql-api-sql-query.md)
+- [適用於 Cosmos DB 的 SQL 語法和 SQL 查詢](how-to-sql-query.md)
 
 - [Cosmos DB 文件](https://docs.microsoft.com/azure/cosmos-db/)  

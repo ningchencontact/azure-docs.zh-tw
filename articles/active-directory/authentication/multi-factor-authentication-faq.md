@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 58992c80344902674b2b21a71b07925c752911a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb0fa1edaadddfe055f3fc53a6d232e5a1293490
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230933"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424930"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>與 Azure Multi-Factor Authentication 相關的常見問題
 
@@ -212,7 +212,7 @@ Windows Server 2012 R2 中的安全性變更已改變 Azure Multi-Factor Authent
 
 當您嘗試登入非瀏覽器應用程式 (安裝於本機電腦) 時，發生 0x800434D4L 錯誤，無法使用需要雙步驟驗證的帳戶。
 
-此種錯誤的因應措施是使用不同的使用者帳戶，進行系統管理和非系統管理作業。 您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。 如需這個解決方案的詳細資訊，請了解如何[讓系統管理員能夠開啟及檢視使用者信箱的內容](http://help.outlook.com/141/gg709759.aspx?sl=1)。
+此種錯誤的因應措施是使用不同的使用者帳戶，進行系統管理和非系統管理作業。 您稍後可以連結系統管理帳戶與非系統管理帳戶之間的信箱，以便使用非系統管理帳戶登入 Outlook。 如需這個解決方案的詳細資訊，請了解如何[讓系統管理員能夠開啟及檢視使用者信箱的內容](https://help.outlook.com/141/gg709759.aspx?sl=1)。
 
 ## <a name="next-steps"></a>後續步驟
 

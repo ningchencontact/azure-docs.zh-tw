@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0ca8e1081b514d5569c84a6364d55e8f49bee533
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0d31fc0ecb06727aa44d31d832b0bfd5145b7c7d
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238991"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262087"
 ---
 # <a name="biomedical-entity-recognition-using-team-data-science-process-tdsp-template"></a>使用 Team Data Science Process (TDSP) 範本的生物醫學實體辨識
 
@@ -174,7 +174,7 @@ Word2Vec 是一種字組內嵌非監督式學習演算法，可從無標籤的�
 
 ![Skip Gram 模型](./media/scenario-tdsp-biomedical-recognition/skip-gram.png)
 
-此模型使用 Hierarchical Softmax 和 Negative 取樣來達到最佳化效能。 Hierarchical SoftMax (H-SoftMax) 是二元樹所啟發的逼近法。 H-SoftMax 基本上會使用以字組作為分葉的階層式層取代一般 SoftMax 圖層。 這可讓我們將一個字組的機率分解成一連串的計算機率，我們就不必計算耗費資源的正規化所有文字。 因為平衡二進位樹狀目錄的深度為 log2(|V|) (V 為詞彙)，所以我們只需要評估最多 log2(|V|) 節點，即可取得字組的最終機率。 在給定的內容 c 之下 w 字組的機率，就是向右轉和向左轉 (分別導向其分葉節點) 的機率乘積。 我們可以根據資料集中的字組頻率來建立 Huffman 樹狀目錄，確保較頻繁的字組可取得較短的表示法。 如需詳細資訊，請參閱[此連結](http://sebastianruder.com/word-embeddings-softmax/)。
+此模型使用 Hierarchical Softmax 和 Negative 取樣來達到最佳化效能。 Hierarchical SoftMax (H-SoftMax) 是二元樹所啟發的逼近法。 H-SoftMax 基本上會使用以字組作為分葉的階層式層取代一般 SoftMax 圖層。 這可讓我們將一個字組的機率分解成一連串的計算機率，我們就不必計算耗費資源的正規化所有文字。 因為平衡二進位樹狀目錄的深度為 log2(|V|) (V 為詞彙)，所以我們只需要評估最多 log2(|V|) 節點，即可取得字組的最終機率。 在給定的內容 c 之下 w 字組的機率，就是向右轉和向左轉 (分別導向其分葉節點) 的機率乘積。 我們可以根據資料集中的字組頻率來建立 Huffman 樹狀目錄，確保較頻繁的字組可取得較短的表示法。 如需詳細資訊，請參閱[此連結](http://ruder.io/word-embeddings-softmax/)。
 取自[這裡](https://ahmedhanibrahim.wordpress.com/2017/04/25/thesis-tutorials-i-understanding-word2vec-for-word-embedding-i/)的影像。
 
 ##### <a name="visualization"></a>視覺效果

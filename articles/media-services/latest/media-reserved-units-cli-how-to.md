@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: db1915f23c33b5cc0d504f8fcc21b9533228247f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: dd587e5fc2082d1e496fbc05d5b25cf6692413bc
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634391"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713056"
 ---
 # <a name="scaling-media-processing"></a>調整媒體處理
 
-Azure 媒體服務可讓您藉由管理媒體保留單元 (MRU)，在帳戶中調整媒體處理方式。 如需詳細概觀，請參閱[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)。 本文說明如何使用[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 來調整 MRU。
+Azure 媒體服務可讓您藉由管理媒體保留單元 (MRU)，在帳戶中調整媒體處理方式。 如需詳細概觀，請參閱[調整媒體處理](../previous/media-services-scale-media-processing-overview.md)。 
 
-> [!IMPORTANT]
-> 請檢閱[本節](#considerations)中說明的考量。  
-> 
->
+本文說明如何使用[媒體服務 v3 CLI](https://aka.ms/ams-v3-cli-ref) 來調整 MRU。
+
+> [!NOTE]
+> 針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 10 個 S3 MRU 佈建帳戶。 <br/>如果您需要 10 個以上的 S3 MRU，請使用 [Azure 入口網站](https://portal.azure.com/)開立支援票證。
 
 ## <a name="prerequisites"></a>必要條件 
 
@@ -44,11 +44,6 @@ Azure 媒體服務可讓您藉由管理媒體保留單元 (MRU)，在帳戶中�
 ```azurecli
 az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## <a name="considerations"></a>考量
-
-- 針對由媒體服務 v3 或影片索引子觸發的音訊分析和影片分析作業，強烈建議您使用 10 個 S3 MRU 佈建帳戶。
-- 如果您需要 10 個以上的 S3 MRU，請使用 [Azure 入口網站](https://portal.azure.com/)開立支援票證。
 
 ## <a name="billing"></a>計費
 

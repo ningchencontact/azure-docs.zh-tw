@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015327"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423376"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>操作說明：從 Azure 存取控制服務遷移
 
@@ -113,7 +113,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
 以下是存取控制元件的淘汰排程：
 
-- **2017 年 11 月**：Azure 傳統入口網站中的 Azure AD 管理員體驗[已淘汰](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/)。 目前，可在以下新的專用 URL 進行「存取控制」的命名空間管理：`http://manage.windowsazure.com?restoreClassic=true`。 該 URL 可以用來檢視現有的命名空間、啟用和停用命名空間，若您有需要，也可以刪除命名空間。
+- **2017 年 11 月**：Azure 傳統入口網站中的 Azure AD 管理員體驗[已淘汰](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/)。 目前，可在以下新的專用 URL 進行「存取控制」的命名空間管理：`https://manage.windowsazure.com?restoreClassic=true`。 該 URL 可以用來檢視現有的命名空間、啟用和停用命名空間，若您有需要，也可以刪除命名空間。
 - **2018 年 4 月 2 日**：Azure 傳統入口網站已完全淘汰，這意謂著透過任何 URL 都無法進行「存取控制」命名空間管理。 屆時，您將無法停用或啟用、刪除或列舉存取控制命名空間。 不過，「存取控制」管理入口網站將會在 `https://\<namespace\>.accesscontrol.windows.net` 運作並提供完整功能。 存取控制的其他所有元件都將繼續正常運作。
 - **2018 年 11 月 7 日**：所有「存取控制」元件將永久關閉。 這包括存取控制管理入口網站、管理服務、STS 和權杖轉換規則引擎。 屆時，所有傳送給存取控制 (網指 \<namespace\>.accesscontrol.windows.net) 的要求都會失敗。 在那之前，請確實將所有現有的應用程式和服務移轉至其他技術。
 
@@ -139,7 +139,7 @@ https://<mynamespace>.accesscontrol.windows.net
 | Azure 備份 | [升級 Azure 備份代理程式](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
-<!-- Azure RemoteApp deprecated in favor of Citrix: http://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
+<!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
 <!-- Exchange push notifications are moving, customers don't need to move -->
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->

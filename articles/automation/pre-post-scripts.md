@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 245cbd86ae43560e4e41f4b97350f9a5857e1b25
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d84596b586ea54dd4a64faf46b32226862d83198
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956609"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584613"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>管理前置和後置指令碼 (預覽)
 
@@ -220,8 +220,6 @@ if ($summary.Type -eq "Error")
 ## <a name="known-issues"></a>已知問題
 
 * 使用前置和後置指令碼時，您無法將物件或陣列傳遞給參數。 Runbook 將會失敗。
-* 選擇前置或後置指令碼時，未發佈的 Runbook 顯示為可選取。 應只選擇已發佈的 Runbook，因為未發佈的 Runbook 並不能叫用，而且會導致失敗。
-* 目前，使用[動態群組 (預覽)](automation-update-management.md#using-dynamic-groups) 新增到部署的電腦，不屬於傳遞至前置和後置指令碼的 **SoftwareUpdateConfigurationRunContext** 參數。
 
 ## <a name="next-steps"></a>後續步驟
 

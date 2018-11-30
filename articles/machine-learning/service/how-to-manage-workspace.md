@@ -9,18 +9,18 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 2d62e2688c6c17cc96798cb1a560808f6da9c6a9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1565c54779278b440cfe631951e964921cc85720
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242699"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51709877"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>建立及管理 Azure Machine Learning services 工作區
 
 在此文章中，您將在 Azure 入口網站中為 [Azure Machine Learning services](overview-what-is-azure-ml.md) 建立、檢視和刪除 [**Azure Machine Learning services 工作區**](concept-azure-machine-learning-architecture.md#workspace)。  您也可以[使用 CLI](reference-azure-machine-learning-cli.md) 或[透過 Python 程式碼](https://aka.ms/aml-sdk)建立和刪除工作區。
 
-若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+若要建立工作區，您將需要 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://aka.ms/AMLfree) 。
 
 ## <a name="create-a-workspace"></a>建立工作區 
 

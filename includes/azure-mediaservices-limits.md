@@ -1,3 +1,16 @@
+---
+author: rothja
+ms.service: billing
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jroth
+ms.openlocfilehash: 1e1316ef568cbc6409a8653022d9acff9837b59d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52279501"
+---
 >[!NOTE]
 >如果是不固定的資源，您可以建立支援票證，要求增加配額。 **請勿**為了嘗試取得更高的限制而建立其他 Azure 媒體服務。
 

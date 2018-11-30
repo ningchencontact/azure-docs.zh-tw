@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 219fe9e8f91f9b02e64b3b44ab4301f77820561f
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: b3b7b7374b02210f44fde408f28fd0378bf9bd12
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648950"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310849"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>了解 Azure 串流分析的輸入
 
@@ -27,7 +27,7 @@ Azure 串流分析作業能連接一或多個資料輸入。 每個輸入都定�
 
 這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，或來自不同的訂用帳戶。
 
-若要建立、編輯及測試串流分析作業輸入，您可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md#configure-input-to-the-job)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput)、[.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)，以及 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)。
+若要建立、編輯及測試串流分析作業輸入，您可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md#configure-job-input)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput)、[.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)，以及 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md)。
 
 ## <a name="stream-and-reference-inputs"></a>資料流和參考輸入
 當資料發送到資料來源時，串流分析作業會即時取用並處理該資料。 輸入分為兩種類型：資料流輸入和參考資料輸入。

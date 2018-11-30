@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261144"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162376"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 儲存體總管中管理 Azure Cosmos DB
 
@@ -152,7 +152,7 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 - 按一下 [刪除] 按鈕來刪除選取的文件。
 
 #### <a name="query-for-documents"></a>查詢文件
-- 輸入 [SQL 查詢](sql-api-sql-query.md)，然後按一下 [套用] 來編輯文件篩選。
+- 輸入 [SQL 查詢](how-to-sql-query.md)，然後按一下 [套用] 來編輯文件篩選。
 
     ![文件篩選器](./media/storage-explorer/document-filter.png)
 

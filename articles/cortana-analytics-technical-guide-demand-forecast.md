@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88f6a27d4092e638403c641d72916ed9d2540708
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238857"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427058"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>能源需求預測之 Cortana Intelligence 解決方案範本的技術指南
 ## <a name="overview"></a>**概觀**
@@ -159,14 +159,14 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 本節說明如何設定 Power BI 儀表板，以視覺化方式檢視來自 Azure 串流分析 (熱路徑) 的即時資料，以及來自 Azure 機器學習 (冷路徑) 的預測結果。
 
 ### <a name="setup-hot-path-dashboard"></a>設定最忙碌路徑儀表板
-下列步驟將引導您如何以視覺化方式，檢視解決方案部署時所產生串流分析作業的即時資料輸出。 需要 [Power BI 線上版](http://www.powerbi.com/) 帳戶，才能執行下列步驟。 如果您沒有帳戶，您可以 [建立一個](https://powerbi.microsoft.com/pricing)。
+下列步驟將引導您如何以視覺化方式，檢視解決方案部署時所產生串流分析作業的即時資料輸出。 需要 [Power BI 線上版](https://www.powerbi.com/) 帳戶，才能執行下列步驟。 如果您沒有帳戶，您可以 [建立一個](https://powerbi.microsoft.com/pricing)。
 
 1. 在 Azure 串流分析 (ASA) 中加入 Power BI 輸出。
 
    * 您必須依照 [Azure 串流分析及 Power BI：適用於串流資料即時可見度的即時分析儀表板](stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
    * 找出 [Azure 入口網站](https://portal.azure.com)中的串流分析作業。 作業名稱應該是︰您的解決方案名稱+"streamingjob"+隨機數字+"asapbi" (也就是 demostreamingjob123456asapbi)。
    * 針對 ASA 工作加入 PowerBI 輸出。 將 [輸出別名] 設定為 **‘PBIoutput’**。 將 [資料集名稱] 和 [資料表名稱] 命名為 **‘EnergyStreamData’**。 新增了輸出之後，按一下頁面底部的 [啟動]  以啟動串流分析作業。 您應該會收到確認訊息 (例如，「串流分析作業 myteststreamingjob12345asablob 啟動成功」)。
-2. 登入 [Power BI 線上版](http://www.powerbi.com)
+2. 登入 [Power BI 線上版](https://www.powerbi.com)
 
    * 在 [我的工作區] 中的左側面板 [資料集] 區段中，您應該可以看到新的資料集出現在 Power BI 的左面板上。 這是您在上一個步驟中從 Azure 串流分析推入的串流資料。
    * 請確定 [視覺效果]  窗格開啟，並顯示在螢幕的右邊。
@@ -207,7 +207,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
    * 在快顯視窗中，將 [伺服器]和 [資料庫] 取代為您自己的伺服器和資料庫名稱，然後按一下 [確定]。 針對伺服器名稱，請確定您指定連接埠 1433 (**YourSoutionName.database.windows.net, 1433**)。 忽略畫面上出現的警告訊息。
    * 在下一個快顯視窗中，您會在左側窗格上看到兩個選項 ([Windows] 和 [資料庫])。 按一下 [資料庫]，填入您的 [使用者名稱] 和 [密碼] \(這是當您首次部署解決方案並建立 Azure SQL Database 時輸入的使用者名稱和密碼)。 在 [選取要套用這些設定的層級] 中，請勾選資料庫層級選項。 然後按一下 [連接] 。
    * 一旦引導您回到上一頁，請關閉視窗。 隨即快顯訊息 - 按一下 [套用]。 最後，按一下 [儲存]  按鈕以儲存變更。 您的 Power BI 檔案現在已建立與伺服器的連線。 如果視覺效果是空的，請確定將視覺效果上的選取範圍都清除，以將所有資料視覺化，成法是按一下圖例右上角的橡皮擦圖示。 使用重新整理按鈕在視覺效果上反映新的資料。 最初，您只會在視覺效果上看到種子資料，因為 Data Factory 排定為每 3 個小時重新整理。 3 小時後，當您重新整理資料時，會看到新的預測反映在視覺效果中。
-3. (選擇性) 將冷路徑儀表板發佈至 [Power BI 線上版](http://www.powerbi.com/)。 請注意，這個步驟需要 Power BI 帳戶 (或 Office 365 帳戶)。
+3. (選擇性) 將冷路徑儀表板發佈至 [Power BI 線上版](https://www.powerbi.com/)。 請注意，這個步驟需要 Power BI 帳戶 (或 Office 365 帳戶)。
 
    * 按一下 [發佈]，幾秒鐘後會出現一個視窗顯示「發佈至 Power BI 成功!」， 並帶有綠色核取記號。 按一下 [在 Power BI 中開啟 demoprediction.pbix] 下方的連結。 若要尋找詳細的指示，請參閱[從 Power BI Desktop 發佈](https://support.powerbi.com/knowledgebase/articles/461278-publish-from-power-bi-desktop)。
    * 若要建立新儀表板：在左側窗格中按一下 [儀表板] 區段旁的 **+** 號。 為這個新的儀表板輸入名稱「需求預測示範」。

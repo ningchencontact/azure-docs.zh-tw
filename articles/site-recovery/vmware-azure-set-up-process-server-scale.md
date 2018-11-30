@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 在 Azure 中設定要在 VMware VM 和實體伺服器的災害復原期間容錯回復的處理序伺服器 | Microsoft Docs
 description: 本文說明如何在 Azure 中設定要在 VMware VM 和實體伺服器的災害復原期間，從 Azure 容錯回復至內部部署環境的處理序伺服器。
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
-ms.author: raynew
-ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/19/2018
+ms.author: ramamill
+ms.openlocfilehash: 50d1170f64ae199f4a1bf4b852c1ed3232df4d42
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212228"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974796"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>進行調整以使用額外處理序伺服器進行容錯回復
 
@@ -41,6 +41,7 @@ ms.locfileid: "50212228"
 下表為額外處理序伺服器的必要條件摘要。
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
+
 
 
 ## <a name="download-installation-file"></a>下載安裝檔

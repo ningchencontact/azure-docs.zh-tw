@@ -9,12 +9,12 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 79e26d4d2cf5743abae6dc0f1fb58585e1b9b9db
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977901"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620195"
 ---
 # <a name="how-to-access-data-during-training"></a>如何在定型期間存取資料
 使用資料存放區存取 Azure Machine Learning 工作流程中的資料並與其互動。
@@ -76,7 +76,7 @@ ds = Datastore.get(ws, datastore_name='your datastore name')
 ```Python
 datastores = ws.datastores()
 for name, ds in datastores.items(),
-    print(name, ds.datastore_type)"
+    print(name, ds.datastore_type)
 ```
 
 為了方便起見，請將已註冊的其中一個資料存放區設定為工作區的預設資料存放區：

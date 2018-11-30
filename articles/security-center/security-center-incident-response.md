@@ -3,23 +3,23 @@ title: 使用 Azure 資訊安全中心回應安全性事件 | Microsoft Docs
 description: 本文件說明如何使用 Azure 資訊安全中心執行事件回應案例。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 8af12f1c-4dce-4212-8ac4-170d4313492d
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/03/2017
-ms.author: yurid
-ms.openlocfilehash: 8564dd8a86cab1229f31e77e072ddd4e776947e7
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 684098dd2780e827ccc74b7fbbb16a2be75fa3e1
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029691"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619872"
 ---
 # <a name="using-azure-security-center-for-an-incident-response"></a>使用 Azure 資訊安全中心進行事件回應
 許多組織都了解如何只在遭受攻擊之後回應安全性事件。 為了降低成本和損害，一定要在攻擊發生前備妥事件回應計劃。 您可以在不同階段的事件回應使用 Azure 資訊安全中心。

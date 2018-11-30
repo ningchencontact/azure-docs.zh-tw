@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9790cd7c79efa1b64220f9e128de9a3b8eb902c0
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178818"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426939"
 ---
 # <a name="azure-key-vault-logging"></a>Azure 金鑰保存庫記錄
 大部分地區均提供 Azure 金鑰保存庫。 如需詳細資訊，請參閱 [金鑰保存庫價格頁面](https://azure.microsoft.com/pricing/details/key-vault/)。
@@ -43,7 +43,7 @@ ms.locfileid: "32178818"
 
 如需 Azure 金鑰保存庫的概觀資訊，請參閱 [什麼是 Azure 金鑰保存庫？](key-vault-whatis.md)
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您必須具備下列項目：
 
 * 所使用的現有金鑰保存庫。  
@@ -134,7 +134,7 @@ ms.locfileid: "32178818"
     Get-AzureStorageBlob -Container $container -Context $sa.Context
 其輸出類似如下範例：
 
-**容器 Uri：https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
+**容器 Uri： https://contosokeyvaultlogs.blob.core.windows.net/insights-logs-auditevent**
 
 **名稱**
 
@@ -265,9 +265,9 @@ ms.locfileid: "32178818"
 
 ## <a id="loganalytics"></a>使用 Log Analytics
 
-您可以使用 Log Analytics 中的 Azure 金鑰保存庫解決方案來檢閱 Azure 金鑰保存庫 AuditEvent 記錄檔。 如需詳細資訊 (包括如何進行此設定)，請參閱 [Log Analytics 中的 Azure Key Vault 解決方案](../log-analytics/log-analytics-azure-key-vault.md)。 如果您需要從 Log Analytics 預覽版時期所提供的舊 Key Vault 解決方案 (其中您是先將記錄檔路由遞送至「Azure 儲存體」帳戶，然後將 Log Analytics 設定成從該處讀取) 移轉，本文也包含相關指示。
+您可以使用 Log Analytics 中的 Azure 金鑰保存庫解決方案來檢閱 Azure 金鑰保存庫 AuditEvent 記錄檔。 如需詳細資訊 (包括如何進行此設定)，請參閱 [Log Analytics 中的 Azure Key Vault 解決方案](../azure-monitor/insights/azure-key-vault.md)。 如果您需要從 Log Analytics 預覽版時期所提供的舊 Key Vault 解決方案 (其中您是先將記錄檔路由遞送至「Azure 儲存體」帳戶，然後將 Log Analytics 設定成從該處讀取) 移轉，本文也包含相關指示。
 
-## <a id="next"></a>後續步驟
+## <a id="next"></a>接續步驟
 如需在 Web 應用程式中使用 Azure 金鑰保存庫的教學課程，請參閱 [從 Web 應用程式使用 Azure 金鑰保存庫](key-vault-use-from-web-application.md)。
 
 如需程式設計參考，請參閱 [Azure 金鑰保存庫開發人員指南](key-vault-developers-guide.md)。

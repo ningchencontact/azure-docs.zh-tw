@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158609"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634297"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
-此文章描述如何透過將群組中所有機器的相依性視覺化來調整群組。 當您想要為現有群組調整成員資格時，通常會使用此方法，先交叉檢查群組相依性，然後再進行評量。 使用相依性視覺效果來精簡群組，可協助您有效地規劃 Azure 移轉。 您可以探索所有需要一起移轉的互相依存系統。 它可協助您確保不會遺留任何項目，且當您在移轉至 Azure 時，不會發生意外的中斷。
+本文描述如何藉由將群組中所有機器的相依性視覺化來調整群組。 當您想要為現有群組調整成員資格時，通常會使用此方法，先交叉檢查群組相依性，然後再進行評量。 使用相依性視覺效果來精簡群組，可協助您有效地規劃 Azure 移轉。 您可以探索所有需要一起移轉的互相依存系統。 它可協助您確保不會遺留任何項目，且當您在移轉至 Azure 時，不會發生意外的中斷。
 
 
 > [!NOTE]
@@ -39,7 +39,7 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 > 您無法變更與移轉專案相關聯的工作區。
 
 ### <a name="download-and-install-the-vm-agents"></a>下載並安裝虛擬機器代理程式
-若要檢視群組的相依性，您需要下載代理程式，並將它安裝在屬於群組的每個內部部署機器上。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [OMS 閘道](../log-analytics/log-analytics-oms-gateway.md)。
+若要檢視群組的相依性，您需要下載代理程式，並將它安裝在屬於群組的每個內部部署機器上。 此外，如果您的機器沒有網際網路連線，則需要下載並安裝 [Log Analytics 閘道](../azure-monitor/platform/gateway.md)。
 
 1. 在 [概觀] 中，按一下 [管理] > [群組]，移至必要的群組。
 2. 在機器清單中，在 [相依性代理程式] 欄中，按一下 [需要安裝] 以查看有關如何下載並安裝代理程式的指示。
@@ -71,7 +71,7 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-深入了解 [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
+深入了解 [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) 與 [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) 作業系統的相依性代理程式支援。
 
 ## <a name="refine-the-group-based-on-dependency-visualization"></a>根據相依性視覺效果調整群組
 一旦您已在群組的所有機器上安裝代理程式，您可以將群組的相依性視覺化，並按照下列步驟進行調整。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319858"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444610"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>整合內部 VNET 中的 API 管理與應用程式閘道
 
@@ -32,6 +32,8 @@ API 管理服務可以內部模式設定於虛擬網路中，因此只能從虛�
 * 使用相同的 API 管理資源供內部取用者和外部取用者取用。
 * 使用單一 API 管理資源，並在 API 管理中定義一部分 API 供外部取用者使用。
 * 提供周全的方法來開啟和關閉從公用網際網路對 API 管理的存取權。
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 ## <a name="prerequisites"></a>必要條件
 

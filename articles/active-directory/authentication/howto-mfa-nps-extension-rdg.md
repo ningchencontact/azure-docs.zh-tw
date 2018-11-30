@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 7fb69fd52c03300ee554fd903cba1670f2aa2421
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 10b2b6e67c22efaf1dcab2cfe8abdd42b7576dbc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318600"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426062"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>使用網路原則伺服器 (NPS) 擴充功能和 Azure AD 整合遠端桌面閘道基礎結構
 
@@ -359,7 +359,7 @@ NPS 角色服務可提供 RADIUS 伺服器和用戶端功能，以及網路存�
 
 如需這些記錄檔的說明，請參閱[解譯 NPS 資料庫格式記錄檔](https://technet.microsoft.com/library/cc771748.aspx)。 這些記錄檔中的項目若不匯入到試算表或資料庫，將難以解譯。 您可以在線上找到數個 IAS 剖析器來協助您解譯記錄檔。 
 
-下圖顯示其中一個這類可下載[共享軟體應用程式](http://www.deepsoftware.com/iasviewer)的輸出。 
+下圖顯示其中一個這類可下載[共享軟體應用程式](https://www.deepsoftware.com/iasviewer)的輸出。 
 
 ![共享軟體應用程式](./media/howto-mfa-nps-extension-rdg/image35.png)
 

@@ -16,16 +16,16 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 8879cc331c5d0e8c6aab24e8c6178d96ab23bf9d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8738205aec8e0b00115a185886ca293b2f96033c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955393"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422366"
 ---
 # <a name="native-apps"></a>原生應用程式
 
-原生應用程式是可代表使用者呼叫 Web API 的應用程式。 此案例是根據 OAuth 2.0 授權碼授與類型和公用用戶端，如 [OAuth 2.0 規格](http://tools.ietf.org/html/rfc6749)第 4.1 節所述。 此原生應用程式使用 OAuth 2.0 通訊協定，為使用者取得存取權杖。 接著，此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
+原生應用程式是可代表使用者呼叫 Web API 的應用程式。 此案例是根據 OAuth 2.0 授權碼授與類型和公用用戶端，如 [OAuth 2.0 規格](https://tools.ietf.org/html/rfc6749)第 4.1 節所述。 此原生應用程式使用 OAuth 2.0 通訊協定，為使用者取得存取權杖。 接著，此存取權杖隨著要求傳送至 Web API，Web API 再授權使用者並傳回所需的資源。
 
 ## <a name="diagram"></a>圖表
 
@@ -51,7 +51,7 @@ ms.locfileid: "46955393"
 
 ## <a name="app-registration"></a>應用程式註冊
 
-若要註冊應用程式與 Azure AD v1.0 端點，請參閱[使用 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
+若要向 Azure AD v1.0 端點註冊應用程式，請參閱[向 Azure AD v1.0 端點註冊應用程式](quickstart-v1-add-azure-ad-app.md)。
 
 * 單一租用戶 - 原生應用程式和 Web API 必須註冊在 Azure AD 的相同目錄中。 Web API 可以設定為公開一組權限，用以限制原生應用程式對其資源的存取權。 用戶端應用程式即可從 Azure 入口網站的 [其他應用程式的權限] 下拉式功能表中，選取所需的權限。
 * 多租用戶 - 首先，原生應用程式僅註冊在開發人員或發行者的目錄中。 第二，設定原生應用程式來指出它運作所需的權限。 當目的地目錄中的使用者或系統管理員同意應用程式時 (使得應用程式可供組織使用)，這份必要權限清單會顯示在對話方塊中。 有些應用程式只需要使用者層級權限，亦即組織中的任何使用者都可以同意應用程式。 其他應用程式需要系統管理員層級權限，亦即組織中的使用者無法同意應用程式。 只有目錄管理員才能對需要此權限層級的應用程式表示同意。 當使用者或系統管理員同意時，只有 Web API 會註冊在他們的目錄中。 
@@ -63,4 +63,4 @@ ms.locfileid: "46955393"
 ## <a name="next-steps"></a>後續步驟
 
 - 深入了解其他[應用程式類型和案例](app-types.md)
-- 深入了解 Azure AD [驗證基本概念](authentication-scenarios.md)
+- 了解 Azure AD [驗證基本概念](authentication-scenarios.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 6cbcb42ee8c77ff0c8ded966b4f04af8815ca726
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614937"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632988"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>將警示從 Log Analytics 延伸至 Azure 警示
 Azure Log Analytics 中的警示功能已由 Azure 警示取代。 作為此轉換的一部分，您最初在 Log Analytics 中設定的警示將會延伸至 Azure。 如果不想等警示自動移動到 Azure 中，您可以起始此程序：
@@ -150,7 +150,7 @@ armclient POST  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupNam
 }
 ```
 
-此回應指出警示已成功延伸至 Azure 警示。 版本屬性僅供檢查警示是否已延伸至 Azure，與 [Log Analytics 搜尋 API](../log-analytics/log-analytics-api-alerts.md) 並無任何關聯。 當警示成功延伸至 Azure，會將報告傳送到與 POST 要求一起提供的所有電子郵件地址。 如果指定工作區中的所有警示都已排程要進行延伸，則對 POST 要求的回應會是嘗試已禁止 (403 狀態碼)。 若要檢視任何錯誤訊息，或了解程序是否卡住，您可以提交 GET 要求。 如果有錯誤訊息，它會傳回，並附上摘要資訊。
+此回應指出警示已成功延伸至 Azure 警示。 版本屬性僅供檢查警示是否已延伸至 Azure，與 [Log Analytics 搜尋 API](../azure-monitor/platform/api-alerts.md) 並無任何關聯。 當警示成功延伸至 Azure，會將報告傳送到與 POST 要求一起提供的所有電子郵件地址。 如果指定工作區中的所有警示都已排程要進行延伸，則對 POST 要求的回應會是嘗試已禁止 (403 狀態碼)。 若要檢視任何錯誤訊息，或了解程序是否卡住，您可以提交 GET 要求。 如果有錯誤訊息，它會傳回，並附上摘要資訊。
 
 ```json
 {

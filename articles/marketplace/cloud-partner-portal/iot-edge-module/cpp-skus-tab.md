@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 370d8160661c1f73124151a3a49d0bb3170dfb77
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684812"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276035"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 模組 SKU 索引標籤
 
@@ -125,7 +125,7 @@ ms.locfileid: "51684812"
 
 |  **欄位**       |     **說明**                                                          |
 |  ---------       |     ---------------                                                          |
-| **預設路由**        | 每個預設路由名稱和值必須少於 512 個字元。 最多可以定義 5 個預設路由。 請務必在您的路由值中使用正確的[路由語法](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)。 若要參考您的模組，請使用預設模組名稱，該名稱將是您的 **SKU 標題**，不含空格和特殊字元。 若要參考尚為未知的其他模組，請使用 `<FROM_MODULE_NAME>` 慣例，讓客戶知道他們需要更新此資訊。 深入了解 [IoT Edge 路由](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)。 <br/> 例如，如果模組 `ContosoModule` 接聽 `ContosoInput` 上的輸入和 `ContosoOutput` 的輸出資料，則應該定義以下 2 個預設路由：<br/>- Name #1: `ToContosoModule`<br/>- Value #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Name #2: `FromContosoModuleToCloud`<br/>- Value #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOuput INTO $upstream`<br/>  |
+| **預設路由**        | 每個預設路由名稱和值必須少於 512 個字元。 最多可以定義 5 個預設路由。 請務必在您的路由值中使用正確的[路由語法](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)。 若要參考您的模組，請使用預設模組名稱，該名稱將是您的 **SKU 標題**，不含空格和特殊字元。 若要參考尚為未知的其他模組，請使用 `<FROM_MODULE_NAME>` 慣例，讓客戶知道他們需要更新此資訊。 深入了解 [IoT Edge 路由](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes)。 <br/> 例如，如果模組 `ContosoModule` 接聽 `ContosoInput` 上的輸入和 `ContosoOutput` 的輸出資料，則應該定義以下 2 個預設路由：<br/>- Name #1: `ToContosoModule`<br/>- Value #1:`FROM /messages/modules/<FROM_MODULE_NAME>/outputs/* INTO BrokeredEndpoint("/modules/ContosoModule/inputs/ContosoInput")`<br/>- Name #2: `FromContosoModuleToCloud`<br/>- Value #2: `FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream`<br/>  |
 | **預設對應項的所需屬性**      | 每個預設對應項的所需屬性名稱和值必須少於 512 個字元。 最多可以定義 5 個名稱/值對應項的所需屬性。 對應項所需屬性的值必須是有效的 JSON、非逸出、無陣列，且包含最多 4 個巢狀階層。 深入了解[對應項的所需屬性](https://docs.microsoft.com/azure/iot-edge/module-composition#define-or-update-desired-properties)。 <br/> 例如，如果模組透過對應項的所需屬性支援可動態設定的重新整理頻率，請定義以下預設的對應項所需屬性：<br/> - Name #1: `RefreshRate`<br/>- Value #1: `60`|
 | **預設環境變數**  | 每個預設環境變數名稱和值必須少於 512 個字元。 最多可以定義 5 個名稱/值的環境變數。 <br/>例如，如果模組在啟動之前需要接受使用條款，您可以定義以下環境變數：<br/> - Name #1: `ACCEPT_EULA`<br/>- Value #1: `Y`|
 | **預設 createOptions**  | createOptions 必須少於 512 個字元， 必須是非逸出的有效 JSON。 深入了解 [createOptions](https://docs.microsoft.com/azure/iot-edge/module-composition#configure-modules)。 <br/> 例如，如果模組需要繫結連接埠，您可以定義下列 createOptions:<br/>  `"HostConfig":{"PortBindings":{"5012/tcp":[{"HostPort":"5012"}]}`|

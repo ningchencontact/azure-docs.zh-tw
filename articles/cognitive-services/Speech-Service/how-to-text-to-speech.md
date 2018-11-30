@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 16b7de909ce57a7f8d3cea54a59996dc6f0a6ba0
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469907"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51712002"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>使用語音服務中的「文字轉換語音」
 
@@ -92,7 +92,7 @@ Response audio payload
 429|太多要求|您已超出訂用帳戶允許的配額或要求率。
 |502|錯誤的閘道    | 網路或伺服器端問題。 也可能表示標頭無效。
 
-如需文字轉換語音 REST API 的詳細資訊，請參閱 [REST API](rest-apis.md#text-to-speech)。
+如需文字轉換語音 REST API 的詳細資訊，請參閱 [REST API](rest-apis.md#text-to-speech-api)。
 
 ## <a name="next-steps"></a>後續步驟
 

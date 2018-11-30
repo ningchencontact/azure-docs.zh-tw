@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: roiyz
-ms.openlocfilehash: dc0d7857dbbbdc862878201ba9d47632d2b5affd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4c35820daa9cc25f40dfa0034d9ce632ece235a7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404846"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633400"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>適用於 Linux 的 Log Analytics 虛擬機器擴充功能
 
@@ -219,7 +219,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 | 51 | VM 的作業系統上不支援此擴充功能 | |
 | 55 | 無法連線至 Log Analytics 服務，或缺少必要套件，或 dpkg 套件管理員遭到鎖定| 請確認系統是否有網際網路存取權，或已提供有效的 HTTP Proxy。 此外，請檢查工作區識別碼的正確性，並確認已安裝 curl 和 tar 公用程式。 |
 
-如需其他疑難排解資訊，請參閱 [Log Analytics-Agent-for-Linux 疑難排解指南](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md)。
+如需其他疑難排解資訊，請參閱 [Log Analytics-Agent-for-Linux 疑難排解指南](../../azure-monitor/platform/vmext-troubleshoot.md)。
 
 ### <a name="support"></a>支援
 

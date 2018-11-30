@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: erikre
-ms.openlocfilehash: 8908a6ceb87e2c0e4c7222e8a8e72fa7ebfa7f82
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f2d653441598a47986913d525057672eed24b435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309258"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421278"
 ---
 # <a name="how-to-send-email-using-sendgrid-from-nodejs"></a>如何使用 SendGrid 透過 Node.js 傳送電子郵件
 
@@ -131,7 +131,7 @@ sendgrid.send({
 ```
 
 > [!NOTE]
-> 使用 **files** 屬性時，必須要能夠透過 [fs.readFile](http://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile) 存取檔案。 如果您想要附加的檔案裝載於 Azure 儲存體中 (例如 Blob 容器中)，您就必須先將該檔案複製到本機儲存體或 Azure 磁碟機，才能使用 **files** 屬性以附件形式傳送它。
+> 使用 **files** 屬性時，必須要能夠透過 [fs.readFile](https://nodejs.org/docs/v0.6.7/api/fs.html#fs.readFile) 存取檔案。 如果您想要附加的檔案裝載於 Azure 儲存體中 (例如 Blob 容器中)，您就必須先將該檔案複製到本機儲存體或 Azure 磁碟機，才能使用 **files** 屬性以附件形式傳送它。
 > 
 > 
 

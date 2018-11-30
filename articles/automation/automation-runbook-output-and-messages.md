@@ -9,15 +9,15 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9602b8ff4d0df15b030626d5e2cfeca9bcc2bd5d
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240727"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284109"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Azure 自動化中的 Runbook 輸出與訊息
-大部分的 Azure 自動化 Runbook 會有某種形式的輸出，例如向使用者提供錯誤訊息，或供其他工作流程使用的複雜物件。 Windows PowerShell 提供 [多個資料流](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同的方式使用這些資料流，而在您建立 Runbook 時，應遵循使用每個資料流的最佳作法。
+大部分的 Azure 自動化 Runbook 會有某種形式的輸出，例如向使用者提供錯誤訊息，或供其他工作流程使用的複雜物件。 Windows PowerShell 提供 [多個資料流](https://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) 從指令碼或工作流程傳送輸出。 Azure 自動化會以不同的方式使用這些資料流，而在您建立 Runbook 時，應遵循使用每個資料流的最佳作法。
 
 下表提供每個資料流的簡短描述，以及它們在 Azure 入口網站中，執行已發佈的 Runbook 和 [測試 Runbook](automation-testing-runbook.md) 時的行為。 後續各節將提供每個資料流的進一步詳細資料。
 
@@ -64,13 +64,17 @@ Workflow Test-Runbook
 
 Runbook 工作的輸出資料流會是：
 
-    Output inside of function
-    Output outside of function
+```output
+Output inside of function
+Output outside of function
+```
 
 Runbook 工作的詳細資訊資料流會是：
 
-    Verbose outside of function
-    Verbose inside of function
+```output
+Verbose outside of function
+Verbose inside of function
+```
 
 在您發佈 Runbook 之後，並在加以啟動之前，您還必須在 Runbook 設定中開啟詳細資訊記錄，以取得詳細資訊資料流的輸出。
 
@@ -131,7 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### <a name="verbose-stream"></a>詳細資訊資料流
-詳細資訊訊息流是 Runbook 作業的一般相關資訊。 由於 [偵錯資料流](#Debug) 無法在 Runbook 中使用，因此詳細資訊資料流應用於偵錯資訊。 根據預設，已發行 Runbook 的詳細訊息不會儲存在作業記錄中。 若要儲存詳細訊息，請在 Azure 入口網站中 Runbook 的 [設定] 索引標籤上，將已發佈的 Runbook 設為 [記錄詳細記錄]。 在大部分情況下，您應該保留預設設定，亦即基於效能考量，不記錄 Runbook 的詳細資訊記錄。 只有在疑難排解或偵錯 Runbook 時才開啟此選項。
+詳細資訊訊息流是 Runbook 作業的一般相關資訊。 由於 [偵錯資料流](#debug-stream) 無法在 Runbook 中使用，因此詳細資訊資料流應用於偵錯資訊。 根據預設，已發行 Runbook 的詳細訊息不會儲存在作業記錄中。 若要儲存詳細訊息，請在 Azure 入口網站中 Runbook 的 [設定] 索引標籤上，將已發佈的 Runbook 設為 [記錄詳細記錄]。 在大部分情況下，您應該保留預設設定，亦即基於效能考量，不記錄 Runbook 的詳細資訊記錄。 只有在疑難排解或偵錯 Runbook 時才開啟此選項。
 
 [測試 Runbook](automation-testing-runbook.md)時，即使 Runbook 設為記錄詳細記錄，也不會顯示詳細訊息。 若要在 [測試 Runbook](automation-testing-runbook.md)時顯示詳細訊息，您必須將 $VerbosePreference 設為 Continue。 設定該變數後，詳細訊息會顯示在 Azure 入口網站的 [測試輸出] 窗格中。
 

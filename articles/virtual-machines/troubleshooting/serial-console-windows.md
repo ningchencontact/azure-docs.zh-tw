@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0a4a31a4905de38de444604c8ffdf4d4a2e632d4
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: e4deb40f2c9dfb080739f4426129223b152baea9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515857"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335652"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>適用於 Windows 的虛擬機器序列主控台
 
@@ -133,7 +133,7 @@ Azure 上的新版 Windows Server 映像預設會啟用[特殊系統管理主控
 > 若要啟用或停用訂用帳戶的序列主控台，您必須有該訂用帳戶的寫入權限。 這些權限包括 (但不限於) 系統管理員或擁有者角色。 自訂角色也可以有寫入權限。
 
 ### <a name="subscription-level-disable"></a>訂用帳戶層級的停用
-透過[停用主控台 REST API 呼叫](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole)，即可針對整個訂用帳戶停用序列主控台。 您可以使用 [API 文件] 頁面上提供的 [試用] 功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 "default"，然後選取 [執行]。 Azure CLI 命令尚未提供使用。
+透過[停用主控台 REST API 呼叫](/rest/api/serialconsole/console/disableconsole)，即可針對整個訂用帳戶停用序列主控台。 您可以使用 [API 文件] 頁面上提供的 [試用] 功能，針對訂用帳戶停用和啟用序列主控台。 針對 **subscriptionId** 輸入您的訂用帳戶識別碼，針對 **default** 輸入 "default"，然後選取 [執行]。 Azure CLI 命令尚未提供使用。
 
 ![REST API 試用](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

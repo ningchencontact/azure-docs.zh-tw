@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: da68c9b7ebbb1880e35bd60b12db9f920f51e13c
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d87293d89e4009512494bf47f9742ea5901f909a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936133"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445357"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API 管理的頁面控制項
 Azure API 管理提供下列可在開發人員入口網站範本中使用的控制項。  
@@ -32,6 +32,8 @@ Azure API 管理提供下列可在開發人員入口網站範本中使用的控�
  參數的值會以範本資料模型組件的形式來傳入。 大部分情況下，您只要在針對每個控制項所提供的範例中貼上，即可讓其正確運作。 如需參數值的詳細資訊，請參閱控制項可能使用所在之各個範本的資料模型區段。  
   
  如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ## <a name="developer-portal-template-page-controls"></a>開發人員入口網站範本頁面控制項  
   

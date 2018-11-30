@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2e14112220eeea1df094ff0c5844429fa3891a9b
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8337d6b353b6651a2699176813220ed7a7a0f879
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612800"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634790"
 ---
 # <a name="oms-portal-moving-to-azure"></a>OMS 入口網站移至 Azure
 
@@ -84,7 +84,7 @@ Azure 入口網站存取管理功能，比在 OMS 入口網站中的存取管理
 警示已[擴充至 Azure 入口網站](../monitoring-and-diagnostics/monitoring-alerts-extend.md)。 一旦完成後，警示的管理動作將只能在 Azure 入口網站中使用。 現有警示會繼續列在 OMS 入口網站中。 若您藉由使用 Log Analytics 警示 REST API 或 Log Analytics 警示資源範本以程式設計的方式存取警示，則必須使用動作群組，而非您 API 呼叫、Azure Resource Manager 範本及 PowerShell 命令中的動作。
 
 ### <a name="alert-management-solution"></a>警示管理解決方案
-您可以使用 [Azure 監視器的統一警示介面](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，而不用[警示管理解決方案](log-analytics-solution-alert-management.md)，即可以視覺化方式檢視和管理您的通知。 這個新體驗會從 Azure 內多個來源彙總警示，包括 Log Analytics 的記錄檔警示。 您可以看到警示的分佈、透過智慧型群組 充分利用對相關警示的自動化分組功能，以及套用豐富的篩選器同時檢視多個訂閱的警示。 所有這些功能自 2018 年 6 月 4 日起均可提供預覽。 警示管理解決方案無法在 Azure 入口網站使用。 
+您可以使用 [Azure 監視器的統一警示介面](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，而不用[警示管理解決方案](../azure-monitor/platform/alert-management-solution.md)，即可以視覺化方式檢視和管理您的通知。 這個新體驗會從 Azure 內多個來源彙總警示，包括 Log Analytics 的記錄檔警示。 您可以看到警示的分佈、透過智慧型群組 充分利用對相關警示的自動化分組功能，以及套用豐富的篩選器同時檢視多個訂閱的警示。 所有這些功能自 2018 年 6 月 4 日起均可提供預覽。 警示管理解決方案無法在 Azure 入口網站使用。 
 
 只要為工作區安裝解決方案，警示管理解決方案  (具有警報類型的記錄) 所收集的資料就會繼續存在於 Log Analytics 中。 自 2018 年 8 月起，將啟用從統一警示進入工作區的警示串流，取代此項功能。 預期有部分結構描述將會變更，並將在日後公告。
 
@@ -98,7 +98,7 @@ OMS 行動裝置應用程式將會連同 OMS 入口網站一併終止。 您不�
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure 網路安全性群組分析
-[Azure 網路安全性群組分析解決方案](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
+[Azure 網路安全性群組分析解決方案](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics)將由最近推出的[流量分析](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)所取代，讓您清楚掌握雲端網路上使用者和應用程式的活動。 流量分析可協助您稽核貴組織的網路活動、保護應用程式和資料、將工作負載效能最佳化並保持符合規範。 
 
 此解決方案可分析 NSG 流程記錄，並提供下列深入見解。
 

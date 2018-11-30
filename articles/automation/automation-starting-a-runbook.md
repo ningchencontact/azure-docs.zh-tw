@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 020923a76c94b10165e95bb4c5950419595dff0b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252338"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275482"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>在 Azure 自動化中啟動 Runbook
 下表可協助您判斷在 Azure 自動化中啟動 Runbook 的方法，最適合您的特定案例。 這篇文章包含有關使用 Azure 入口網站和 Windows PowerShell 啟動 Runbook 的詳細資料。 其他方法的詳細資訊在其他文件中提供，您可以從下列連結來存取。
@@ -43,13 +43,13 @@ ms.locfileid: "51252338"
 ## <a name="starting-a-runbook-with-windows-powershell"></a>使用 Windows PowerShell 啟動 Runbook
 您可以使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) ，利用 Windows PowerShell 來啟動 Runbook。 下列範例程式碼會啟動名稱為 Test-Runbook 的 Runbook。
 
-```
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
 Start-AzureRmAutomationRunbook 會傳回工作物件，一旦啟動 Runbook，您即可用來追蹤其狀態。 然後您可以使用此作業物件搭配 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) 來判斷作業的狀態，以及搭配 [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) 來取得其輸出。 下列範例程式碼會啟動名稱為 Test-Runbook 的 Runbook，等到它完成，然後顯示其輸出。
 
-```
+```azurepowershell-interactive
 $runbookName = "Test-Runbook"
 $ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
@@ -68,7 +68,7 @@ Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job
 
 如果 Runbook 需要參數，則您必須提供其作為 [hashtable](https://technet.microsoft.com/library/hh847780.aspx) ，其中雜湊表的索引鍵符合參數名稱，而值是參數值。 下列範例顯示如何啟動 Runbook 具有名為 FirstName 和 LastName 的兩個參數、名為 RepeatCount 的整數，和名為 Show 的布林值參數。 如需有關參數的詳細資訊，請參閱以下的 [Runbook 參數](#Runbook-parameters)。
 
-```
+```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
@@ -83,7 +83,7 @@ Azure 自動化 Web 服務會為特定資料型別的參數提供特殊功能，
 
 請考慮可接受稱為 user 的參數的下列測試 Runbook。
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -101,13 +101,13 @@ Workflow Test-Parameters
 
 下列文字可用於 user 參數。
 
-```
+```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 這會導致下列輸出：
 
-```
+```output
 Joe
 Smith
 Joe
@@ -119,7 +119,7 @@ Smith
 
 請考慮可接受稱為 *user*的參數的下列測試 Runbook。
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -136,13 +136,13 @@ Workflow Test-Parameters
 
 下列文字可用於 user 參數。
 
-```
+```input
 ["Joe","Smith",2,true]
 ```
 
 這會導致下列輸出：
 
-```
+```output
 Joe
 Smith
 Joe
@@ -154,7 +154,7 @@ Smith
 
 請考慮可接受稱為 credential 的參數的下列測試 Runbook。
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -166,13 +166,13 @@ Workflow Test-Parameters
 
 假設有稱為 *My Credential*的認證資產，則下列文字可用於 user 參數。
 
-```
+```input
 My Credential
 ```
 
 假設認證中的使用者名稱是 jsmith，這會導致下列輸出：
 
-```
+```output
 jsmith
 ```
 

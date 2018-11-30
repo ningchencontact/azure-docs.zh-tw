@@ -1,4 +1,16 @@
-
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+ms.openlocfilehash: ede5e2587f1f4d99193e621965b68f75fbad27f4
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52440035"
+---
 了解 Azure Blob 儲存體的基礎概念之後，請參考下列連結以了解有關更複雜的儲存工作。
 
 * 如需可用 API 的完整詳細資料，請檢視 [.NET 的 Azure 儲存體用戶端文件庫](https://go.microsoft.com/fwlink/?LinkID=390731) 中的 Blob 服務參考文件。

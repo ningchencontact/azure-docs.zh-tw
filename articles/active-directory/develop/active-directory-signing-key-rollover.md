@@ -16,18 +16,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: eaaeaf1b37c0d732d8d0009ad5a66f2118674b66
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240447"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423757"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory 中的簽署金鑰變換
 本文討論 Azure Active Directory (Azure AD) 中用來簽署安全性權杖的公開金鑰須知事項。 請務必注意這些金鑰會定期變換，且在緊急狀況下可以立即變換。 所有使用 Azure AD 的應用程式都應該能夠以程式設計方式處理金鑰變換程序或建立定期手動變換程序。 請繼續閱讀以了解金鑰的運作方式、如何評估變換對應用程式的影響，以及必要時如何更新應用程式或建立定期手動變換程序來處理金鑰變換。
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Azure AD 中簽署金鑰的概觀
-Azure AD 會使用根據業界標準所建置的公開金鑰加密技術，建立 Azure AD 本身和使用 Azure AD 的應用程式之間的信任。 實際上，其運作方式如下：Azure AD 使用由公開和私密金鑰組所組成的簽署金鑰。 當使用者登入使用 Azure AD 來進行驗證的應用程式時，Azure AD 會建立包含使用者相關資訊的安全性權杖。 此權杖會先由 Azure AD 使用其私密金鑰進行簽署，再傳送回到應用程式。 若要確認該權杖有效且來自 Azure AD，應用程式必須使用由 Azure AD 公開且包含在租用戶的 [OpenID Connect 探索文件](http://openid.net/specs/openid-connect-discovery-1_0.html) \(英文\) 或 SAML/WS-Fed [同盟中繼資料文件](azure-ad-federation-metadata.md)中的公開金鑰來驗證權杖的簽章。
+Azure AD 會使用根據業界標準所建置的公開金鑰加密技術，建立 Azure AD 本身和使用 Azure AD 的應用程式之間的信任。 實際上，其運作方式如下：Azure AD 使用由公開和私密金鑰組所組成的簽署金鑰。 當使用者登入使用 Azure AD 來進行驗證的應用程式時，Azure AD 會建立包含使用者相關資訊的安全性權杖。 此權杖會先由 Azure AD 使用其私密金鑰進行簽署，再傳送回到應用程式。 若要確認該權杖有效且來自 Azure AD，應用程式必須使用由 Azure AD 公開且包含在租用戶的 [OpenID Connect 探索文件](https://openid.net/specs/openid-connect-discovery-1_0.html) \(英文\) 或 SAML/WS-Fed [同盟中繼資料文件](azure-ad-federation-metadata.md)中的公開金鑰來驗證權杖的簽章。
 
 基於安全考量，Azure AD 的簽署金鑰會定期變換，且在緊急情況下可以立即變換。 任何與 Azure AD 整合的應用程式均應準備好處理金鑰變換事件，不論其可能發生頻率為何。 如果沒有，應用程式又嘗試使用過期的金鑰來驗證權杖上的簽章，登入要求便會失敗。
 

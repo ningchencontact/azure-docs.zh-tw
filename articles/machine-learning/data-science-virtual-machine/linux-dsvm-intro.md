@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: db1d449e5c9f66446f00b637c5550dc9144920ff
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ca3a0e9a8c63ddc9a5c2ca34faffc683d0324321
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446760"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262548"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>在 Azure 上佈建 Linux CentOS 資料科學虛擬機器
 
@@ -38,7 +38,7 @@ Linux 資料科學虛擬機器是以 CentOS 為基礎的 Azure 虛擬機器，�
   * [辨識工具組](https://github.com/Microsoft/CNTK) \(英文\)︰來自 Microsoft Research 的深度學習軟體工具組。
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit)︰快速的機器學習系統，支援像是線上、雜湊，allreduce、簡化、learning2search、主動和互動式學習的技術。
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/)︰提供快速且正確的推進式決策樹實作的工具。
-  * [Rattle](http://rattle.togaware.com/) (R Analytical Tool To Learn Easily)︰此工具可讓您利用 GUI 型資料探索，輕鬆地使用 R 架構開始進行資料分析與機器學習，以及自動產生 R 程式碼來建立模型。
+  * [Rattle](https://togaware.com/rattle/) (R Analytical Tool To Learn Easily)︰此工具可讓您利用 GUI 型資料探索，輕鬆地使用 R 架構開始進行資料分析與機器學習，以及自動產生 R 程式碼來建立模型。
 * Java、Python、node.js、Ruby、PHP 中的 Azure SDK
 * R 和 Python 語言的程式庫，可用於 Azure Machine Learning 和其他 Azure 服務
 * 開發工具和編輯器 (RStudio、PyCharm、IntelliJ、Emacs、gedit、vi)
@@ -63,7 +63,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
 您必須先具有下列項目，才可以建立 Linux 資料科學虛擬機器：
 
 * **Azure 訂用帳戶**：若要取得訂用帳戶，請參閱 [取得 Azure 免費試用](https://azure.microsoft.com/free/)。
-* **Azure 儲存體帳戶**：若要建立帳戶，請參閱 [建立 Azure 儲存體帳戶](../../storage/common/storage-create-storage-account.md#create-a-storage-account)。 或者，如果您不想使用現有的帳戶，可以在建立 VM 的過程中建立儲存體帳戶。
+* **Azure 儲存體帳戶**：若要建立帳戶，請參閱 [建立 Azure 儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)。 或者，如果您不想使用現有的帳戶，可以在建立 VM 的過程中建立儲存體帳戶。
 
 ## <a name="create-your-linux-data-science-virtual-machine"></a>建立 Linux 資料科學虛擬機器
 建立 Linux 資料科學虛擬機器執行個體的步驟如下：
@@ -81,7 +81,7 @@ Linux 資料科學虛擬機器可以大幅減輕這樣的負擔。 使用它可�
    * **資源群組**：您可以建立新群組或使用現有的群組。
    * **位置**：選取最適合的資料中心。 它通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
    
-   b. ：
+   b. **大小**：
    
    * 選取其中一個符合您的功能性需求和成本條件約束的伺服器類型。 選取 [檢視全部]  以查看更多 VM 大小的選項。
    
@@ -374,6 +374,6 @@ Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) 會使用 GUI
 
 * [Data science on the Linux Data Science Virtual Machine (Linux 資料科學虛擬機器上的資料科學)](linux-dsvm-walkthrough.md) 逐步解說會示範如何使用此處佈建的 Linux 資料科學 VM 來執行數個常見的資料科學工作。 
 * 試試本文中所述的工具，在資料科學 VM 上探索各種資料科學工具。 您也可以在虛擬機器內的殼層上執行 *dsvm-more-info* ，以獲得關於 VM 上所安裝工具的基本簡介和詳細資訊的指標。  
-* 了解如何使用 [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)，以系統化方式建置端對端分析方案。
+* 了解如何使用 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)，以系統化方式建置端對端分析方案。
 * 請造訪 [Cortana Analytics Gallery](http://gallery.cortanaanalytics.com) ，以取得使用 Cortana Analytics Suite 的機器學習和資料分析範例。
 

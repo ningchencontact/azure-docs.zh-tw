@@ -17,12 +17,12 @@ ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 603da0add9efba4e68088bf0eb6ab919ec9988e2
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 30dff14f322bcd66ea56b4b12843a6293cd95326
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955482"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423791"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>如何讓 AppSource 取得 Azure Active Directory 認證
 
@@ -118,9 +118,9 @@ ms.locfileid: "49955482"
 
 ## <a name="get-support"></a>取得支援
 
-對於 Azure AD 整合，我們使用 [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) \(英文\) 搭配社群來提供支援。 
+對於 Azure AD 整合，我們使用 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource) \(英文\) 搭配社群來提供支援。 
 
-我們強烈建議您先在 Stack Overflow 上詢問您的問題，並瀏覽現有的問題，以查看先前是否有人已提出您的問題。 請確定您的問題或意見已標記 [`[azure-active-directory]` 和 `[appsource]`](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource)。
+我們強烈建議您先在 Stack Overflow 上詢問您的問題，並瀏覽現有的問題，以查看先前是否有人已提出您的問題。 請確定您的問題或意見已標記 [`[azure-active-directory]` 和 `[appsource]`](https://stackoverflow.com/questions/tagged/azure-active-directory+appsource)。
 
 使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
 

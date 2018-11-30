@@ -10,17 +10,19 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: b4c58a13c8b66add8ebd7e535ecac9d7b0f1075b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032116"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333491"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
+
  批次測試是針對您目前已定型模型的完整測試，以測量其於 LUIS 中的效能。 
 
 <a name="batch-testing"></a>
+
 ## <a name="import-a-dataset-file-for-batch-testing"></a>針對批次測試匯入資料集檔案
 
 1. 選取頂端列中的 [測試]，然後選取 [批次測試面板]。
@@ -36,6 +38,7 @@ ms.locfileid: "47032116"
 4. 選取 [完成] 。 系統會新增資料集檔案。
 
 ## <a name="run-rename-export-or-delete-dataset"></a>執行、重新命名、匯出或刪除資料集
+
 若要執行、重新命名、匯出或刪除資料集，請使用位於資料集列尾端的省略符號 (***...***) 按鈕。
 
 ![資料集動作](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -55,7 +58,9 @@ ms.locfileid: "47032116"
 |![已準備就緒進行測試圖示](./media/luis-how-to-batch-test/batch-test-result-blue.png)|測試已準備好開始執行。|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## <a name="view-batch-test-results"></a>檢視批次測試結果 
+
 若要檢閱批次測試結果，請選取 [查看結果]。
 
 ![批次測試結果](./media/luis-how-to-batch-test/run-test-results.png)
@@ -64,6 +69,7 @@ ms.locfileid: "47032116"
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## <a name="filter-chart-results"></a>篩選圖表結果
 
 若要依特定意圖或實體篩選圖表，請於右側的篩選面板中選取意圖或實體。 資料點及其分佈會根據您的選取範圍在圖表中更新。 
@@ -71,6 +77,7 @@ ms.locfileid: "47032116"
 ![視覺化的批次測試結果](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## <a name="view-single-point-utterance-data"></a>檢視單一點語句資料
+
 在圖表中，將滑鼠暫留於資料點上，以查看其預測的確定性分數。 選取資料點以擷取它在頁面底部語句清單中的相對應語句。 
 
 ![選取的語句](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -78,7 +85,9 @@ ms.locfileid: "47032116"
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="view-section-data"></a>檢視區段資料
+
 在四個區段的圖表中，選取圖表右上角的區段名稱 (例如 **False Positive**)。 該區段中的所有語句會以清單的形式顯示在圖表下方。 
 
 ![依區段選取的語句](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

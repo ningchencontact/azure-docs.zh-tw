@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: aec12e6dc7d331b2610546d0b0c92fa6ce0789ee
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304436"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284518"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>使用 RBAC 管理外部使用者的存取權
 
@@ -45,7 +45,7 @@ ms.locfileid: "44304436"
 ![Azure 入口網站中的訂用帳戶刀鋒視窗](./media/role-assignments-external-users/0.png) 根據預設，如果管理使用者已購買 Azure 訂用帳戶，使用者就會顯示為**帳戶管理員**，這是訂用帳戶角色。 如需 Azure 訂用帳戶角色的詳細資訊，請參閱[新增或變更 Azure 訂用帳戶管理員](../billing/billing-add-change-azure-subscription-administrator.md)。
 
 在此範例中，使用者 "alflanigan@outlook.com" 是「預設租用戶 Azure」AAD 租用戶中的「免費試用版」訂用帳戶之**擁有者**。 由於此使用者是具有初始 Microsoft 帳戶 “Outlook” (Microsoft 帳戶 = Outlook、Live 等) 的 Azure 訂用帳戶建立者，因此這個租用戶中所新增其他所有使用者的預設網域名稱會是 **"\@alflaniganuoutlook.onmicrosoft.com"**。 根據設計，新網域的語法構成方式是，將建立租用戶的使用者之使用者名稱和網域名稱加以組合，並新增 **".onmicrosoft.com"** 延伸。
-此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](/active-directory/active-directory-add-domain)。
+此外，使用者在新增及驗證新租用戶的自訂網域名稱之後，即可使用租用戶中的自訂網域名稱進行登入。 如需有關如何驗證 Azure Active Directory 租用戶中自訂網域名稱的詳細資訊，請參閱[將自訂網域名稱新增至您的目錄](../active-directory/fundamentals/add-custom-domain.md)。
 
 在此範例中，「預設租用戶 Azure」目錄僅包含具有 "\@alflanigan.onmicrosoft.com" 網域名稱的使用者。
 
@@ -85,7 +85,7 @@ ms.locfileid: "44304436"
 
 ![存取限於 Azure Active Directory Azure 入口網站](./media/role-assignments-external-users/9.png)
 
-Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同其他 Azure 資源 (例如︰虛擬機器、虛擬網路、Web Apps、儲存體等) 與 Azure 訂用帳戶。 所有後者都是在 Azure 訂用帳戶底下建立、管理及計費，而 Azure 訂用帳戶則是用來管理對 Azure 目錄的存取權。 如需詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure AD 相關](/active-directory/active-directory-how-subscriptions-associated-directory)。
+Azure Active Directory 和 Azure 訂用帳戶沒有父子式關聯性，如同其他 Azure 資源 (例如︰虛擬機器、虛擬網路、Web Apps、儲存體等) 與 Azure 訂用帳戶。 所有後者都是在 Azure 訂用帳戶底下建立、管理及計費，而 Azure 訂用帳戶則是用來管理對 Azure 目錄的存取權。 如需詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure AD 相關](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
 所有內建 RBAC 角色的**擁有者**和**參與者**會提供對環境中所有資源的完整管理存取權，差異在於參與者無法建立新的 RBAC 角色並加以刪除。 其他內建角色 (例如**虛擬機器參與者**) 僅對該名稱所表示的資源提供完整管理存取權，不論它們要建立在哪一個**資源群組**。
 

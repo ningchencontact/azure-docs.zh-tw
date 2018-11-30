@@ -3,7 +3,7 @@ title: 資訊安全中心規劃和操作指南 | Microsoft Docs
 description: 本文件可協助您在採用 Azure 資訊安全中心和日常作業相關考量之前進行規劃。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2018
-ms.author: yurid
-ms.openlocfilehash: 76d472ff75f66973b3e680d8a30d7691c1cd36dc
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.date: 11/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f24baaf07f86722bc461cbb79e262f63b46c8a1f
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622562"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619940"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure 資訊安全中心規劃和操作指南
 本指南適用於計劃採用 Azure 資訊安全中心的組織中的資訊技術 (IT) 專業人員、IT 架構設計人員、資訊安全性分析師和雲端系統管理員。
 
-    
+
 ## <a name="planning-guide"></a>規劃指南
 本指南涵蓋您可以遵循的一組步驟和工作，以根據您組織的安全性需求和雲端管理模型，將您的資訊安全中心使用最佳化。 若要充分利用資訊安全中心，務必了解您組織中的不同人員或小組如何使用此服務，來滿足安全地開發和作業、監視、控管和事件回應的需求。 規劃使用資訊安全中心時所應考量的主要領域如下︰
 
@@ -40,7 +40,7 @@ ms.locfileid: "51622562"
 
 > [!NOTE]
 > 如需在設計和規劃階段也很好用的常見問題清單，請閱讀 [Azure 資訊安全中心常見問題集 (FAQ)](security-center-faq.md) 。
-> 
+>
 
 ## <a name="security-roles-and-access-controls"></a>安全性角色和存取控制
 根據您組織的大小和結構，多個個人和小組可以使用資訊安全中心來執行不同的安全性相關工作。 下圖是虛構人物與其各自角色和安全性責任的範例︰
@@ -74,7 +74,7 @@ ms.locfileid: "51622562"
 **Sam (安全性分析師)**
 
 * 調查攻擊
-* 與雲端工作負載擁有者合作以套用補救方法 
+* 與雲端工作負載擁有者合作以套用補救方法
 
 資訊安全中心會使用[角色型存取控制 (RBAC)](../role-based-access-control/role-assignments-portal.md)，以提供可在 Azure 中指派給使用者、群組與服務的[內建角色](../role-based-access-control/built-in-roles.md)。 當使用者開啟資訊安全中心時，他們只能看到與自己能夠存取的資源相關的資訊。 這表示會為使用者指派資源所屬訂用帳戶或資源群組的「擁有者」、「參與者」或「讀者」角色。 除了這些角色，有兩個特定的資訊安全中心角色：
 
@@ -84,9 +84,9 @@ ms.locfileid: "51622562"
 上述的資訊安全中心角色無法存取 Azure 的其他服務區域，例如儲存體、Web 和行動或物聯網。  
 
 > [!NOTE]
-> 使用者必須至少是訂用帳戶、資源群組的擁有者或參與者，才能在 Azure 中看到資訊安全中心。 
-> 
-> 
+> 使用者必須至少是訂用帳戶、資源群組的擁有者或參與者，才能在 Azure 中看到資訊安全中心。
+>
+>
 
 使用在上圖中所述的人物，會需要下列 RBAC：
 
@@ -118,8 +118,8 @@ ms.locfileid: "51622562"
 
 > [!NOTE]
 > 我們建議您指派所需的最寬鬆角色，以便使用者完成其工作。 例如，只需要檢視資源安全性狀態的相關資訊，但不採取行動 (例如套用建議或編輯原則) 的使用者應被指派「讀者」角色。
-> 
-> 
+>
+>
 
 ## <a name="security-policies-and-recommendations"></a>安全性原則和建議
 安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 您可以在資訊安全中心為 Azure 訂用帳戶定義原則，可以針對工作負載類型或資料機密性訂製。
@@ -151,15 +151,15 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 
 > [!NOTE]
 > 若要尋找支援的 VM 清單，請閱讀 [Azure 資訊安全中心常見問題集 (FAQ)](security-center-faq.md)。
-> 
+>
 
 ### <a name="workspace"></a>工作區
 
 工作區是一項 Azure 資源，作為資料的容器。 您或組織的其他成員可能會使用多個工作區來管理從所有或部分 IT 基礎結構收集而來的不同資料。
 
-從 Microsoft Monitoring Agent (代表 Azure 資訊安全中心) 收集的資料，將會儲存在與您的 Azure 訂用帳戶相關聯的現有 Log Analytics 工作區或新的工作區中 (將 VM 的地理位置納入考量)。 
+從 Microsoft Monitoring Agent (代表 Azure 資訊安全中心) 收集的資料，將會儲存在與您的 Azure 訂用帳戶相關聯的現有 Log Analytics 工作區或新的工作區中 (將 VM 的地理位置納入考量)。
 
-在 Azure 入口網站中，您可以瀏覽以查看 Log Analytics 工作區清單，包括 Azure 資訊安全中心所建立的任何工作區。 將會針對新的工作區建立相關的資源群組。 兩者都會遵照此命名慣例： 
+在 Azure 入口網站中，您可以瀏覽以查看 Log Analytics 工作區清單，包括 Azure 資訊安全中心所建立的任何工作區。 將會針對新的工作區建立相關的資源群組。 兩者都會遵照此命名慣例：
 
 * 工作區：*DefaultWorkspace-[subscription-ID]-[geo]*
 * 資源群組：*DefaultResourceGroup-[geo]*
@@ -168,7 +168,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 
 > [!NOTE]
 > Microsoft 鄭重保證會保護此資料的隱私和安全。 Microsoft 從撰寫程式碼到運作服務均遵守嚴格的規範與安全性指導方針。 如需資料處理和隱私權的詳細資訊，請閱讀 [Azure 資訊安全中心資料安全性](security-center-data-security.md)。
-> 
+>
 
 ## <a name="onboarding-non-azure-resources"></a>上架非 Azure 資源
 
@@ -195,7 +195,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 ### <a name="monitoring-for-new-or-changed-resources"></a>監視新的或已變更的資源
 大多數 Azure 環境是動態的，包含定期上下波動的新資源、組態或變更等。資訊安全中心有助於確保您看得到這些新資源的安全性狀態。
 
-當您將新資源 (VM、SQL DB) 新增至 Azure 環境時，資訊安全中心會自動探索這些資源並開始監視其安全性。 這也包括 PaaS Web 角色和背景工作角色。 如果已在 [安全性原則](security-center-policies.md)中啟用資料收集，則會自動為您的虛擬機器啟用其他監視功能。
+當您將新資源 (VM、SQL DB) 新增至 Azure 環境時，資訊安全中心會自動探索這些資源並開始監視其安全性。 這也包括 PaaS Web 角色和背景工作角色。 如果已在 [安全性原則](security-center-azure-policy.md)中啟用資料收集，則會自動為您的虛擬機器啟用其他監視功能。
 
 ![主要領域](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 
@@ -214,7 +214,7 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 
 ### <a name="hardening-access-and-applications"></a>強化存取和應用程式
 
-您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用 [Just-in-Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 存取功能來強化您的 VM 存取。 
+您也應該在安全性作業中採用預防措施，來限制對 VM 的存取，並且控制在 VM 上執行的應用程式。 藉由鎖定前往您的 Azure VM 的輸入流量，可以降低被攻擊的曝光度，同時提供簡易存取以在需要時連線到 VM。 使用 [Just-in-Time VM](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) 存取功能來強化您的 VM 存取。
 
 您可以使用[自適性應用程式控制](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)，以協助控制哪些應用程式可以在 Azure 中的 VM 上執行，而且有助於強化您的 VM 來抵禦惡意程式碼。 資訊安全中心會利用機器學習服務來分析在 VM 中執行的程序，並協助您利用此情報來套用列入允許清單規則。
 
@@ -228,11 +228,11 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 
 > [!NOTE]
 > 您可以使用美國國家標準技術局 (NIST) 的 [Computer Security Incident Handling Guide](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf) 做為參考來協助您建置自己的計劃。
-> 
+>
 
 在下列階段期間，您可以使用資訊安全中心警示︰
 
-* **偵測**︰識別一或多個資源中的可疑活動。 
+* **偵測**︰識別一或多個資源中的可疑活動。
 * **評估**︰執行初始評估，以取得可疑活動的詳細資訊。
 * **診斷**︰使用補救步驟來進行解決問題的技術程序。
 
@@ -251,9 +251,9 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 在[如何利用 Azure 資訊安全中心和 Microsoft Operations Management Suite 進行事件回應](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703)影片中，您可以看到一些示範，有助於您了解如何在每個階段使用資訊安全中心。
 
 > [!NOTE]
-> 如需有關如何使用資訊安全中心功能協助進行事件回應程序的詳細資訊，請參閱 [善用 Azure 資訊安全中心進行事件回應](security-center-incident-response.md) 。 
-> 
-> 
+> 如需有關如何使用資訊安全中心功能協助進行事件回應程序的詳細資訊，請參閱 [善用 Azure 資訊安全中心進行事件回應](security-center-incident-response.md) 。
+>
+>
 
 ## <a name="next-steps"></a>後續步驟
 在本文件中，您已了解如何規劃資訊安全中心的採用。 如要深入了解資訊安全中心，請參閱下列主題：
@@ -263,4 +263,3 @@ Azure 資訊安全中心會使用 Microsoft Monitoring Agent (這是 Log Analyti
 * [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md) — 了解如何監視合作夥伴解決方案的健全狀況。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) — 尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](https://blogs.msdn.com/b/azuresecurity/) — 尋找有關 Azure 安全性與相容性的部落格文章。
-

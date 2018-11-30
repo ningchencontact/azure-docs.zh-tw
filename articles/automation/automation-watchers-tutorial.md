@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 2786de150307b21b06b624914d5fea55ded6e3c7
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249770"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282767"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>建立 Azure 自動化監看員工作，以追蹤本機電腦上的檔案變更
 
@@ -103,13 +103,13 @@ Azure 自動化會使用監看員工作搭配 PowerShell Runbook 來監看事件
 
 遠端連線至混合式背景工作角色。 開啟 **PowerShell** 並在資料夾中建立測試檔案。
   
-   ```PowerShell-interactive
-   New-Item -Name ExampleFile1.txt
-   ```
+```azurepowerShell-interactive
+New-Item -Name ExampleFile1.txt
+```
 
 下列範例會顯示預期的輸出。
 
-```
+```output
     Directory: D:\examplefiles
 
 
@@ -129,7 +129,7 @@ Mode                LastWriteTime         Length Name
 
 您可以在下列範例中看到系統找到新檔案時的預期輸出：
 
-```
+```output
 Message is Process new file...
 
 

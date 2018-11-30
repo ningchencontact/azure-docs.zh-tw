@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: f109adfd-daed-4257-9692-2042a1399480
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2017
 ms.author: terrylan
-ms.openlocfilehash: b507a62db9a80866005cb63d2008fb14612b516f
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2b16bc98c456c9c85d8e49e01171086933533707
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415940"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312624"
 ---
 # <a name="azure-security-center-and-azure-sql-database-service"></a>Azure 資訊安全中心和 Azure SQL Database 服務
 [Azure 資訊安全中心](https://azure.microsoft.com/documentation/services/security-center/)可協助您保護、偵測威脅並採取相應的措施。 它提供您 Azure 訂用帳戶之間的整合式安全性監視和原則管理，協助您偵測可能會忽略的威脅，且適用於廣泛的安全性解決方案生態系統。
@@ -36,7 +36,7 @@ ms.locfileid: "31415940"
 
 除了協助您保護 SQL Database 資源，資訊安全中心也提供 Azure 虛擬機器、雲端服務、應用程式服務、虛擬網路等的安全性監視和管理功能。 [在此](security-center-intro.md)深入了解資訊安全中心。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要開始使用資訊安全中心，您必須有 Microsoft Azure 訂用帳戶。 您的訂用帳戶已經啟用資訊安全中心的免費層。 如需資訊安全中心的免費和標準層的詳細資訊，請參閱[安全性中心價格](https://azure.microsoft.com/pricing/details/security-center/)。
 
 資訊安全中心支援角色型存取。 若要深入了解 Azure 中的角色型存取控制 (RBAC)，請參閱 [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md)。 資訊安全中心常見問題集提供[在資訊安全中心處理權限的方式](security-center-faq.md#permissions)。
@@ -60,7 +60,7 @@ ms.locfileid: "31415940"
 若要設定安全性原則，請選取 [資訊安全中心] 刀鋒視窗上的 [原則] 圖格。 在 [安全性原則] 刀鋒視窗上，選取您想要啟用安全性原則的訂用帳戶。 選取 [預防原則] 並 [開啟] 您想要在此訂用帳戶使用的安全性建議。
 ![安全性原則][3]
 
-若要深入了解，請參閱[設定安全性原則](security-center-policies.md)。
+若要深入了解，請參閱[設定安全性原則](security-center-azure-policy.md)。
 
 ## <a name="manage-security-recommendation"></a>管理安全性建議
 資訊安全中心會定期分析 Azure 資源的安全性狀態。 當資訊安全中心識別潛在的安全性弱點時，它會建立建議。 這些建議會引導您完成設定所需控制項的程序。
@@ -85,7 +85,7 @@ ms.locfileid: "31415940"
 若要深入了解相關建議，請參閱[管理安全性建議](security-center-recommendations.md)。
 
 ## <a name="monitor-security-health"></a>監視安全性健康狀態
-在您為訂用帳戶的資源啟用 [安全性原則](security-center-policies.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健康狀態] 圖格中，檢視資源的安全性狀態。 當您按一下 [資源安全性健康狀態] 圖格中的 [資料] 時，將會開啟 [資料資源] 刀鋒視窗，內含一些問題 (例如未啟用稽核和透明資料加密) 的 SQL 建議。 它也具有資料庫的一般健全狀況狀態建議。
+在您為訂用帳戶的資源啟用 [安全性原則](security-center-azure-policy.md) 之後，資訊安全中心會分析您資源的安全性狀態，以找出潛在的弱點。  您可以在 [資源安全性健康狀態] 圖格中，檢視資源的安全性狀態。 當您按一下 [資源安全性健康狀態] 圖格中的 [資料] 時，將會開啟 [資料資源] 刀鋒視窗，內含一些問題 (例如未啟用稽核和透明資料加密) 的 SQL 建議。 它也具有資料庫的一般健全狀況狀態建議。
 ![資源安全性健康狀態][6]
 
 若要深入了解，請參閱[安全性健康狀態監視](security-center-monitoring.md)。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a4d62dd0bc984ce80324b405ddd0dcb625694b21
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 8aabcf342cde6de9fd4438014c9c400b28470e9b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612568"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632665"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>將 Log Analytics 警示擴充到 Azure 警示
 直到最近，Azure Log Analytics 剛剛加入了自己的警示功能，可根據 Log Analytics 資料主動通知您情況。 您之前可在 Microsoft Operations Management Suite 中管理警示規則。 全新警示體驗現已整合 Microsoft Azure 中各種服務之間的警示。 此功能即為 Azure 入口網站中的 Azure 監視器下的 **[警示]**，支援 Log Analytics 和 Azure Application Insights 中活動記錄、計量和記錄的警示。 
@@ -55,7 +55,7 @@ ms.locfileid: "51612568"
 > 請確認已在 Azure 中正確指派需要加入或編輯警示的人員所需的相關權限。 若要了解您需要授予何種權限，請參閱[使用 Azure 監視器和警示的權限](monitoring-roles-permissions-security.md)。  
 > 
 
-您可以繼續透過 [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) 和 [Log Analytics 資源範本](../monitoring/monitoring-solutions-resources-searches-alerts.md)建立警示。 這麼做時，請務必加入動作群組。
+您可以繼續透過 [Log Analytics API](../azure-monitor/platform/api-alerts.md) 和 [Log Analytics 資源範本](../azure-monitor/insights/solutions-resources-searches-alerts.md)建立警示。 這麼做時，請務必加入動作群組。
 
 ## <a name="next-steps"></a>後續步驟
 

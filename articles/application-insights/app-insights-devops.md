@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 521bf044f280b91f668d42d760ba2a726b555f12
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958579"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822665"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 深入診斷 Web 應用程式
 ## <a name="why-do-i-need-application-insights"></a>我為什麼需要 Application Insights 呢？
@@ -82,7 +82,7 @@ Web 系統中的失敗通常是由組態問題或其許多元件之間的互動�
 ## <a name="case-study-real-madrid-fc"></a>案例研究：西班牙皇家馬德里隊
 [皇家馬德里足球俱樂部](http://www.realmadrid.com/) 的 Web 服務可服務世界各地大約 450 百萬名球迷。 球迷可透過 Web 瀏覽器和俱樂部的行動應用程式來存取此服務。 球迷不只可預約門票，也能存取比賽結果、選手及即將舉行的比賽相關資訊和影片剪輯。 他們會使用像是得分進球數等篩選條件進行搜尋。 另外還提供社交媒體的連結。 使用者體驗已高度個人化，並設計為可讓球迷參與的雙向溝通。
 
-此解決方案[是一個 Microsoft Azure 上應用程式和服務的系統](https://www.microsoft.com/en-us/enterprise/microsoftcloud/realmadrid.aspx)。 延展性是關鍵需求︰流量變化無常，而且可在比賽期間和接近比賽時達到非常高的量。
+此解決方案[是一個 Microsoft Azure 上應用程式和服務的系統](https://www.microsoft.com/inculture/sports/real-madrid/)。 延展性是關鍵需求︰流量變化無常，而且可在比賽期間和接近比賽時達到非常高的量。
 
 對於皇家馬德里而言，監視系統效能是非常重要的。 Azure Application Insights 能夠提供整個系統的完整檢視，確保提供既可靠又高等級的服務。 
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dab6b87c2785d3331817d6c191be64d406683a51
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311787"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852371"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>關於 Azure Active Directory B2C 自訂原則中的宣告解析程式
 
@@ -33,10 +33,10 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 </ClaimType>
 ```
 
-在技術設定檔中，將宣告解析程式對應至宣告類型。 Azure AD B2C 會將宣告解析程式 `{context:corelationId}` 的值填入宣告 `correlationId` 中，然後將宣告傳送至技術設定檔。
+在技術設定檔中，將宣告解析程式對應至宣告類型。 Azure AD B2C 會將宣告解析程式 `{Context:CorrelationId}` 的值填入宣告 `correlationId` 中，然後將宣告傳送至技術設定檔。
 
 ```XML
-<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{context:corelationId}" />
+<InputClaim ClaimTypeReferenceId="correlationId" DefaultValue="{Context:CorrelationId}" />
 ```
 
 ## <a name="claim-resolver-types"></a>宣告解析程式類型
@@ -50,7 +50,7 @@ Azure Active Directory (Azure AD) B2C[自訂原則](active-directory-b2c-overvie
 | {Culture:LanguageName} | 語言的雙字母 ISO 代碼。 | en |
 | {Culture:LCID}   | 語言代碼的 LCID。 | 1033 |
 | {Culture:RegionName} | 區域的雙字母 ISO 代碼。 | US |
-| {Culture:RFC5646} | RFC5646 語言代碼。 | zh-TW |
+| {Culture:RFC5646} | RFC5646 語言代碼。 | en-US |
 
 ### <a name="policy"></a>原則
 

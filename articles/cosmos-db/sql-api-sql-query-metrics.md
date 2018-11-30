@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: sngun
-ms.openlocfilehash: 4ed0008f4b574691387d6e0ee0300b5f05f1ec1b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: c330171f0c85bce6451b8f342203e2eeeccb3c5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34798690"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425134"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 調整查詢效能
 
-Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](sql-api-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
+Azure Cosmos DB 提供一個[適用於查詢資料的 SQL API](how-to-sql-query.md)，而不需結構描述或次要索引。 本文可為開發人員提供下列資訊：
 
 * 關於 Azure Cosmos DB 之 SQL 查詢執行如何運作的高階詳細資料
 * 關於查詢要求和回應標頭以及用戶端 SDK 選項的詳細資訊
@@ -218,7 +218,7 @@ IDocumentQuery<dynamic> query = client.CreateDocumentQuery(
 查詢執行計量上的區段說明如何擷取查詢的伺服器執行時間 ( `totalExecutionTimeInMs`)，以便您可以區分查詢執行所花費的時間以及網路傳輸所花費的時間。
 
 ### <a name="indexing-policy"></a>編製索引原則
-若要了解編製索引路徑、種類和模式，以及它們如何影響執行查詢，請參閱[設定編製索引原則](indexing-policies.md)。 根據預設，編製索引原則會針對字串使用雜湊索引編製，這對於等號比較查詢很有效率，但不適用於範圍查詢/排序依據查詢。 如果您需要針對字串進行範圍查詢，我們建議針對所有字串指定範圍索引類型。 
+若要了解編製索引路徑、種類和模式，以及它們如何影響執行查詢，請參閱[設定編製索引原則](index-policy.md)。 根據預設，編製索引原則會針對字串使用雜湊索引編製，這對於等號比較查詢很有效率，但不適用於範圍查詢/排序依據查詢。 如果您需要針對字串進行範圍查詢，我們建議針對所有字串指定範圍索引類型。 
 
 ## <a name="query-execution-metrics"></a>查詢執行計量
 您可以藉由傳入選擇性的 `x-ms-documentdb-populatequerymetrics` 標頭 (.NET SDK 中的 `FeedOptions.PopulateQueryMetrics`)，來取得查詢執行的詳細計量。 `x-ms-documentdb-query-metrics` 中傳回的值含有下列索引鍵/值組，適用於對查詢執行進行進階疑難排解。 
@@ -274,8 +274,8 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 
 ## <a name="next-steps"></a>後續步驟
-* 若要了解支援的 SQL 查詢運算子和關鍵字，請參閱 [SQL 查詢](sql-api-sql-query.md)。 
+* 若要了解支援的 SQL 查詢運算子和關鍵字，請參閱 [SQL 查詢](how-to-sql-query.md)。 
 * 若要了解要求單位，請參閱[要求單位](request-units.md)。
-* 若要了解編製索引原則，請參閱[編製索引原則](indexing-policies.md) 
+* 若要了解編製索引原則，請參閱[編製索引原則](index-policy.md) 
 
 

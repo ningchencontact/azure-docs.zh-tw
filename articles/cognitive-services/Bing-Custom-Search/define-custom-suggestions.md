@@ -3,19 +3,19 @@ title: 定義自訂自動建議的建議 - Bing 自訂搜尋
 titlesuffix: Azure Cognitive Services
 description: 描述如何使用自訂的建議設定自訂自動建議
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: maheshb
-ms.openlocfilehash: 6d7ee4ef1a84b644a7075e24c0760ea46b407754
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: cf3c9061b953264794fbe4f94cbcdcee9d3c69b3
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465537"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423002"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>設定您的自訂自動建議體驗
 
@@ -52,7 +52,7 @@ ms.locfileid: "49465537"
 
 
 
-[!INCLUDE[publish or revert](./includes/publish-revert.md)]
+[!INCLUDE [publish or revert](./includes/publish-revert.md)]
 
 >[!NOTE]  
 >這個程序可能需要 24 小時，自動建議設定的變更才會生效。

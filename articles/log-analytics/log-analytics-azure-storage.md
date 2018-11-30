@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6303fe4313f68d4f38151ce9ba85eae2d6de96ca
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006527"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426990"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>收集 Azure 服務的記錄和計量以便使用於 Log Analytics
 
@@ -34,7 +34,7 @@ ms.locfileid: "51006527"
 
 | 服務                 | 資源類型                           | 記錄檔        | 度量     | 解決方法 |
 | --- | --- | --- | --- | --- |
-| 應用程式閘道    | Microsoft.Network/applicationGateways   | 診斷 | 診斷 | [Azure 應用程式閘道分析](log-analytics-azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| 應用程式閘道    | Microsoft.Network/applicationGateways   | 診斷 | 診斷 | [Azure 應用程式閘道分析](../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
 | Application insights    |                                         | 連接器   | 連接器   | [Application Insights Connector (Application Insights 連接器)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (預覽) |
 | 自動化帳戶     | Microsoft.Automation/AutomationAccounts | 診斷 |             | [詳細資訊](../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch 帳戶          | Microsoft.Batch/batchAccounts           | 診斷 | 診斷 | |
@@ -44,10 +44,10 @@ ms.locfileid: "51006527"
 | Data Lake Store         | Microsoft.DataLakeStore/accounts        | 診斷 |             | |
 | 事件中樞命名空間     | Microsoft.EventHub/namespaces           | 診斷 | 診斷 | |
 | IoT 中樞                | Microsoft.Devices/IotHubs               |             | 診斷 | |
-| Key Vault               | Microsoft.KeyVault/vaults               | 診斷 |             | [金鑰保存庫分析](log-analytics-azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | 診斷 |             | [金鑰保存庫分析](../azure-monitor/insights/azure-key-vault.md) |
 | 負載平衡器          | Microsoft.Network/loadBalancers         | 診斷 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 診斷 | 診斷 | |
-| 網路安全性群組 | Microsoft.Network/networksecuritygroups | 診斷 |             | [Azure 網路安全性群組分析](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| 網路安全性群組 | Microsoft.Network/networksecuritygroups | 診斷 |             | [Azure 網路安全性群組分析](../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
 | 復原保存庫         | Microsoft.RecoveryServices/vaults       |             |             | [Azure 復原服務分析 (預覽)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | 搜尋服務         | Microsoft.Search/searchServices         | 診斷 | 診斷 | |
 | 服務匯流排命名空間   | Microsoft.ServiceBus/namespaces         | 診斷 | 診斷 | [服務匯流排分析 (預覽)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -158,5 +158,5 @@ Azure 範本庫包含[使用 Azure 自動化的範例](https://azure.microsoft.c
 ## <a name="next-steps"></a>後續步驟
 
 * [對 IIS 使用 Blob 儲存體，對事件使用表格儲存體](log-analytics-azure-storage-iis-table.md)，以讀取 Azure 服務 (將診斷寫入表格儲存體) 的記錄，或讀取寫入 Blob 儲存體的 IIS 記錄。
-* [啟用解決方案](../monitoring/monitoring-solutions.md) 以提供資料的深入見解。
+* [啟用解決方案](../azure-monitor/insights/solutions.md) 以提供資料的深入見解。
 * [使用搜尋查詢](log-analytics-queries.md) 以分析資料。

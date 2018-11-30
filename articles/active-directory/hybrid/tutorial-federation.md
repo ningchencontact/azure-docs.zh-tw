@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 161a5710766db626e4c4ec6bb6fdfafcc20650d5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50868d32b35e77495965b9ee9d0023d23b43fd5a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248039"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426378"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>教學課程：將單一 AD 樹系環境與雲端建立同盟
 
@@ -280,7 +280,7 @@ New-SelfSignedCertificate -DnsName $DNSname -CertStoreLocation $Location
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>使用我們的其中一個使用者來測試登入
 
-1.  瀏覽至 [http://myapps.microsoft.com](https://myapps.microsoft.com)
+1.  瀏覽至 [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
 2. 使用我們在新租用戶中建立的使用者來登入。  您必須使用下列格式登入：(user@domain.onmicrosoft.com)。 透過該使用者在內部部署用來登入的密碼登入。
 ![Verify](media/tutorial-password-hash-sync/verify1.png)
 

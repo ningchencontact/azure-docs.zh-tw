@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: juliako
-ms.openlocfilehash: e9b66721135456320134f41c614b194d1e22b10f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 758a3b30717e3bf516c1bceb5c255c397a6072cc
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380524"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291381"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>比較 Azure 媒體服務 v3 預設值與影片索引子 
 
@@ -30,8 +30,8 @@ ms.locfileid: "49380524"
 
 |功能|影片索引子 API |影片分析器和音訊分析器的預設值<br/>在 Azure 媒體服務 v3 中|
 |---|---|---|
-|媒體深入解析|[增強](../../cognitive-services/video-indexer/video-indexer-output-json-v2.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json) |[基礎](../latest/intelligence-concept.md)|
-|體驗|請參閱支援功能的完整清單︰ <br/> [概觀](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)|僅傳回影片深入解析|
+|媒體深入解析|[增強](video-indexer-output-json-v2.md) |[基礎](../latest/intelligence-concept.md)|
+|體驗|請參閱支援功能的完整清單︰ <br/> [概觀](video-indexer-overview.md)|僅傳回影片深入解析|
 |計費|[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[媒體服務定價](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
 |法規遵循|TBD|媒體服務符合多項認證。 請參閱 [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 並搜尋「媒體服務」，以確認它是否符合相關憑證。|
 |免費試用|美國東部|尚未提供|
@@ -39,6 +39,6 @@ ms.locfileid: "49380524"
 
 ## <a name="next-steps"></a>後續步驟
 
-[影片索引子概觀](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)
+[影片索引子概觀](video-indexer-overview.md)
 
-[媒體服務 v3 概觀](../../media-services/latest/media-services-overview.md)
+[媒體服務 v3 概觀](../latest/media-services-overview.md)

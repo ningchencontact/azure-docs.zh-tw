@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d3957038410e7a7d80e1ac710f0c227047b636a7
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259168"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284790"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>使用範例：使用自動化狀態設定和 Chocolatey 持續部署至虛擬機器
 
@@ -34,14 +34,14 @@ DevOps 領域中有許多工具可協助處理持續整合管線中的各個點�
 ## <a name="component-overview"></a>元件概觀
 
 [apt get](https://en.wikipedia.org/wiki/Advanced_Packaging_Tool) 這類封裝管理員在 Linux 領域中相當知名，但在 Windows 領域中沒有那麼出名。
-[Chocolatey](https://chocolatey.org/) 就是如此，Scott Hanselman 的[部落格](http://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)對此主題有深入介紹。 簡單的說，Chocolatey 可讓您使用命令列，從封裝的中央儲存機制將封裝安裝到 Windows 系統。 您可以建立和管理您自己的儲存機制，而 Chocolatey 可以從您指定的任何數量的儲存機制來安裝封裝。
+[Chocolatey](https://chocolatey.org/) 就是如此，Scott Hanselman 的[部落格](https://www.hanselman.com/blog/IsTheWindowsUserReadyForAptget.aspx)對此主題有深入介紹。 簡單的說，Chocolatey 可讓您使用命令列，從封裝的中央儲存機制將封裝安裝到 Windows 系統。 您可以建立和管理您自己的儲存機制，而 Chocolatey 可以從您指定的任何數量的儲存機制來安裝封裝。
 
 預期狀態設定 (DSC) ([概觀](/powershell/dsc/overview)) 是一個 PowerShell 工具，可讓您為電腦宣告您想要的組態。 例如，您可以說「我想要安裝 Chocolatey、我想要安裝 IIS、我想要開啟連接埠 80、我想要安裝網站 1.0.0 版」。 DSC 本機組態管理員 (LCM) 會實作該組態。 DSC 提取伺服器有一個儲存機制保存您電腦的組態。 每台電腦上的 LCM 會定期檢查電腦的組態是否符合已儲存的組態。 它可能報告狀態，也可能嘗試讓電腦回復到符合已儲存的組態。 您可以編輯提取伺服器上儲存的組態，讓一台電腦或一群電腦符合已變更的組態。
 
 Azure 自動化是 Microsoft Azure 中的受控服務，可讓您使用 Runbook、節點、認證、資源以及排程和全域變數之類的資產，將各種工作自動化。
 Azure 自動化狀態設定擴充了此自動化功能而納入 PowerShell DSC 工具。 以下提供清楚的[概觀](automation-dsc-overview.md)。
 
-DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。 Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。 [PowerShell 資源庫](http://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。
+DSC 資源是具有特定功能的程式碼模組，例如管理網路、Active Directory 或 SQL Server。 Chocolatey DSC 資源知道如何存取 NuGet 伺服器 (還有其他)、下載封裝、安裝封裝...等等。 [PowerShell 資源庫](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title)中有許多其他 DSC 資源。
 這些模組會安裝到您的 Azure 自動化狀態設定提取伺服器 (由您安裝)，供您的組態使用。
 
 Resource Manager 範本以宣告方式產生基礎結構，例如網路、子網路、網路安全性和路由、負載平衡器、NIC、VM...等等。 這篇[文章](../azure-resource-manager/resource-manager-deployment-model.md)比較 Resource Manager 部署模型 (宣告) 與 Azure 服務管理 (ASM 或傳統) 部署模型 (必要)，以及討論核心資源提供者、計算、儲存體和網路。
@@ -64,8 +64,10 @@ Chocolatey 可以處理各種類型的安裝封裝，例如 MSI、MSU、ZIP 等�
 
 在已驗證的 (`Connect-AzureRmAccount`) PowerShell 命令列上：(設定提取伺服器可能需要幾分鐘的時間)
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 您可以將自動化帳戶放入下列任何區域 (也就是位置)︰美國東部 2、美國中南部、美國維吉尼亞州政府、西歐、東南亞、日本東部、印度中部和澳大利亞東南部、加拿大中部、北歐。
 
@@ -177,7 +179,7 @@ Get-AzureRmAutomationDscCompilationJob `
 ## <a name="step-5-creating-and-maintaining-package-metadata"></a>步驟 5：建立和維護封裝中繼資料
 
 對於放入封裝儲存機制中的每一個封裝，您需要 nuspec 來描述它。
-該 nuspec 必須編譯並儲存在 NuGet 伺服器中。 此程序的說明請參閱 [這裡](http://docs.nuget.org/create/creating-and-publishing-a-package)。 您可以使用 MyGet.org 做為 NuGet 伺服器。 他們銷售這項服務，但有免費的入門 SKU。 在 NuGet.org，您可以找到針對私人套件自行安裝 NuGet 伺服器的指示。
+該 nuspec 必須編譯並儲存在 NuGet 伺服器中。 此程序的說明請參閱 [這裡](https://docs.nuget.org/create/creating-and-publishing-a-package)。 您可以使用 MyGet.org 做為 NuGet 伺服器。 他們銷售這項服務，但有免費的入門 SKU。 在 NuGet.org，您可以找到針對私人套件自行安裝 NuGet 伺服器的指示。
 
 ## <a name="step-6-tying-it-all-together"></a>步驟 6：整合一切
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: dd1fff79d6f611ae29307d666860d3740f4372f1
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817093"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162121"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB 伺服器端程式設計：預存程序、資料庫觸發程序和 UDF
 
@@ -31,7 +31,7 @@ ms.locfileid: "48817093"
 * 哪些 Cosmos DB SDK 可用來建立及執行預存程序、觸發程序和 UDF？
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>預存程序和 UDF 程式設計簡介
-這種「以 JavaScript 作為新式 T-SQL」的方法可讓應用程式開發人員無須應付複雜的類型系統不符問題和物件關聯式對應技術。 此外，它本身還有一些可利用以便建置豐富應用程式的優勢：  
+這種「以 JavaScript 作為新式 T-SQL」的方法可讓應用程式開發人員無須應付複雜的類型系統不符問題和物件關聯式對應技術。 此外，它本身還有一些可加以利用以便建置豐富應用程式的優勢：  
 
 * **程序邏輯** ：JavaScript 是高階程式設計語言，可提供豐富且熟悉的介面來表達商務邏輯。 您可以用更接近資料的方式執行一連串的複雜作業。
 * **不可部分完成的交易**：Cosmos DB 可確保在單一預存程序或觸發程序內執行的資料庫作業成為不可部分完成的作業。 這個不可部分完成的功能可讓應用程式將相關作業合併在單一批次中，讓所有作業不是一起成功就是一起失敗。 
@@ -46,7 +46,7 @@ ms.locfileid: "48817093"
 
 許多平台 (包括 .NET、Node.js 和 JavaScript) 都透過 [Azure 入口網站](https://portal.azure.com)、[REST API](/rest/api/cosmos-db/)、[Azure DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio/releases) 和[用戶端 SDK](sql-api-sdk-dotnet.md)，以支援資料庫觸發程序、預存程序及自訂查詢運算子的建立和執行。
 
-此教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
+本教學課程使用 [Node.js SDK 搭配 Q Promises](http://azure.github.io/azure-documentdb-node-q/) 來說明預存程序、觸發程序及 UDF 的語法和用法。   
 
 ## <a name="stored-procedures"></a>預存程序
 ### <a name="example-write-a-stored-procedure"></a>範例：撰寫預存程序
@@ -147,9 +147,9 @@ client.createStoredProcedureAsync('dbs/testdb/colls/testColl', createDocumentSto
 });
 ```
 
-您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (此教學課程稍後將會討論)。   
+您可以修改此預存程序，將一批文件本文作為輸入，並將這些本文全都建立在相同的預存程序執行內，而不是用多個要求個別建立這些本文。 您可以使用此預存程序來實作有效率的 Cosmos DB 大量匯入工具 (本教學課程稍後將會討論)。   
 
-上面描述的範例已示範如何使用預存程序。 接著，您將在此教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
+上面描述的範例已示範如何使用預存程序。 接著，您將在本教學課程後續的內容中了解觸發程序和使用者定義函式 (UDF)。
 
 ### <a name="known-issues"></a>已知問題
 
@@ -453,7 +453,7 @@ client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
 });
 ```
 
-此觸發程序會查詢中繼資料文件，並使用新建立之文件的詳細資料更新它。  
+此觸發程序會查詢中繼資料文件，並使用新建立之文件的詳細資料加以更新。  
 
 有一點務必要注意，那就是在 Cosmos DB 中觸發程序的「交易式」執行。 此後續觸發程序會在與建立原始文件時的相同交易過程中執行。 因此，如果從後續觸發程序擲出例外狀況 (例如，如果您無法更新中繼資料文件的話)，則整個交易會失敗並予以回復。 此時不會建立任何文件，並且會傳回例外狀況。  
 
@@ -733,7 +733,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-下列範例則說明如何建立使用者定義函式 (UDF) 並將它用於 [SQL 查詢](sql-api-sql-query.md)中。
+下列範例則說明如何建立使用者定義函式 (UDF) 並將它用於 [SQL 查詢](how-to-sql-query.md)中。
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 46671a559f4db9aaa798e2c0d8cc668794687a58
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 36d37adff6d45b7d154511c11888aad090c54638
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686325"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853671"
 ---
 # <a name="update-the-mysql-resource-provider"></a>更新 MySQL 資源提供者 
 
@@ -27,8 +27,8 @@ ms.locfileid: "51686325"
 
 當 Azure Stack 組建更新時，可能會發行新的 SQL 資源提供者配接器。 建議您在現有配接器繼續運作的情況下，儘快更新至最新的組建。 
 
->[!IMPORTANT]
->您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本清單。
+> [!IMPORTANT]
+> 您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中的版本清單。
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>更新 MySQL 資源提供者配接器 (僅限已整合系統)
 

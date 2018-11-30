@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 09528aab5f694aa017f9f16e2675d3c36c1bead3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632382"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822121"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>快速入門：針對 Azure Active Directory Identity Protection 偵測到工作階段風險時封鎖存取  
 
@@ -36,13 +36,13 @@ ms.locfileid: "45632382"
 
 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
-若要完成此教學課程中的案例，您需要：
+若要完成本教學課程中的案例，您需要：
 
 - **存取 Azure AD Premium P2 版** - Azure AD Identity Protection 是 Azure AD Premium P2 的功能。 
 
-- **Identity Protection** - 此快速入門中的案例需要啟用 Identity Protection。 如果您不知道如何啟用 Identity Protection，請參閱[啟用 Azure Active Directory Identity Protection](../identity-protection/enable.md)。
+- **Identity Protection** - 本快速入門中的案例需要啟用 Identity Protection。 如果您不知道如何啟用 Identity Protection，請參閱[啟用 Azure Active Directory Identity Protection](../identity-protection/enable.md)。
 
 - **Tor 瀏覽器** - [Tor 瀏覽器](https://www.torproject.org/projects/torbrowser.html.en)的設計目的是協助您保留您的線上隱私權。 Identity Protection 偵測到來自 Tor 瀏覽器的登入是**從匿名 IP 位址登入**，這種登入有中等風險等級。 如需詳細資訊，請參閱 [Azure Active Directory 風險事件](../reports-monitoring/concept-risk-events.md)。  
 
@@ -62,7 +62,7 @@ ms.locfileid: "45632382"
 
 ## <a name="create-your-conditional-access-policy"></a>建立條件式存取原則 
 
-此快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。 若要回應此風險事件，您可以將登入風險條件設定為「中」。 
+本快速入門中的案例會使用來自 Tor 瀏覽器的登入，以產生偵測到**從匿名 IP 位址登入**的風險事件。 此風險事件的風險等級是「中」。 若要回應此風險事件，您可以將登入風險條件設定為「中」。 
 
 此節說明如何建立必要的登入風險條件式存取原則。 為您的原則進行下列設定：
 
@@ -122,6 +122,6 @@ ms.locfileid: "45632382"
 
 - 如果您不知道如何刪除 Azure AD 使用者，請參閱[如何新增或刪除使用者](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
 
-- 如需移除 Tor 瀏覽器的指示，請參閱[解除安裝](https://tb-manual.torproject.org/en-US/uninstalling.html)。
+- 如需移除 Tor 瀏覽器的指示，請參閱[解除安裝](https://tb-manual.torproject.org/uninstalling/)。
 
 

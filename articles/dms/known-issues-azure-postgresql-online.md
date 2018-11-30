@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/22/2018
-ms.openlocfilehash: e30ffe2dd79d55e856ef297608745b60578cf7e7
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b83c889e72acb320c308c3ad5ee6243e715fd523
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46131028"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282871"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>線上移轉到適用於 PostgreSQL 的 Azure DB 的已知問題/移轉限制
 
 下列小節描述從 PostgreSQL 線上移轉到適用於 PostgreSQL 的 Azure 資料庫的相關已知問題和限制。 
 
 ## <a name="online-migration-configuration"></a>線上移轉組態
-- 來源 PostgreSQL 伺服器必須執行 9.5.11、9.6.7 或 10.3 版或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](1.2.%09https:/docs.microsoft.com/azure/postgresql/concepts-supported-versions)一文。
+- 來源 PostgreSQL 伺服器必須執行 9.5.11、9.6.7 或 10.3 版或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](../postgresql/concepts-supported-versions.md)一文。
 - 僅支援相同版本之間的移轉。 例如，不支援將 PostgreSQL 9.5.11 移轉至適用於 PostgreSQL 9.6.7 的 Azure 資料庫。
 - 若要在**來源 PostgreSQL postgresql.conf** 檔案中啟用邏輯複寫，請設定下列參數：
     - **wal_level** = logical
@@ -167,4 +167,4 @@ COMMIT;
     - 資料庫將會報告父和子資料表清單。
     - 該資料表會在目標上建立為一般資料表，且具有和所選資料表相同的屬性。
     - 如果來源資料庫中的父資料表具有和其子資料表相同的主索引鍵值，則會產生「索引鍵重複」錯誤。
-- 在 DMS 中，於單一移轉活動中移轉的資料庫上限為四個。
+- 在 DMS 中，於單一移轉活動中遷移的資料庫上限為四個。

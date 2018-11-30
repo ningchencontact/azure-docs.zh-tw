@@ -3,7 +3,7 @@ title: Azure 狀態概觀 | Microsoft Docs
 description: Azure 服務健康情況的全域檢視。
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
-ms.openlocfilehash: 6bb67fa17ace2e662091c6b66a774baf9d7d8bfd
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: be3c8d10ef034a4bd03f178bc1334b8a9eeb2f58
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32181815"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282901"
 ---
 # <a name="azure-status"></a>Azure 狀態
 [Azure 狀態](https://azure.microsoft.com/status/)提供您 Azure 服務健康情況的全域檢視。 您可以使用 Azure 狀態取得服務可用性的最新資訊。 每個人都可存取 Azure 狀態，而且可以檢視回報其服務健康情況的所有服務。 
@@ -37,7 +37,7 @@ ms.locfileid: "32181815"
 您可以查看最多過去 90 天的事件，包括初步的根本原因、風險降低以及 Azure 的後續步驟。
 
 ## <a name="rss-feed"></a>RSS 摘要
-Azure 狀態也會提供 Azure 服務健康情況變更的 [RSS 摘要](https://azure.microsoft.com/status/feed/)，您可以加以訂閱。
+Azure 狀態也會提供 Azure 服務健康情況變更的 [RSS 摘要](https://azure.microsoft.com/en-us/status/feed/)，您可以加以訂閱。
 
 # <a name="next-steps"></a>後續步驟
 * 了解您如何透過[服務健康情況](./service-health-overview.md)取得更個人化的 Azure 健康情況檢視。
