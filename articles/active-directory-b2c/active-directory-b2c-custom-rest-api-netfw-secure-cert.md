@@ -47,7 +47,7 @@ ms.locfileid: "43344960"
 >如需設定 **clientCertEnabled** 屬性的詳細資訊，請參閱[設定 Web 應用程式的 TLS 相互驗證](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)。
 
 ## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>步驟 2：將憑證上傳至 Azure AD B2C 原則金鑰
-將 `clientCertEnabled` 設為 *ture* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作： 
+將 `clientCertEnabled` 設為 *true* 之後，與您的 RESTful API 的通訊需要用戶端憑證。 若要在您的 Azure AD B2C 租用戶中取得、上傳和儲存用戶端憑證，請執行下列動作： 
 1. 在您的 Azure AD B2C 租用戶中，選取 [B2C 設定] > [識別體驗架構]。
 
 2. 若要檢視租用戶中可用的金鑰，請選取 [原則金鑰]。
