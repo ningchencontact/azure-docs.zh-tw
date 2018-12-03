@@ -5,6 +5,8 @@ items:
   items:
   - name: 了解您的帳單
     href: billing-understand-your-bill.md
+  - name: 了解您的帳單 - 僅限 EA
+    href: billing-understand-your-bill-ea.md
   - name: 取得發票和使用量資料
     href: billing-download-azure-invoice-daily-usage-date.md
   - name: 第三方服務費用
@@ -18,6 +20,8 @@ items:
   items:
   - name: 避免非預期成本
     href: billing-getting-started.md
+  - name: 檢視 EA 定價
+    href: billing-ea-pricing.md
   - name: 使用資源標籤
     href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
   - name: 開始分析成本 - 僅限 EA
@@ -62,6 +66,8 @@ items:
       href: billing-understand-reserved-instance-usage-ea.md
     - name: 管理保留項目
       href: billing-manage-reserved-vm-instance.md
+    - name: 檢視保留項目
+      href: billing-view-reservations.md
 - name: 管理帳戶
   items:
   - name: 免費帳戶
@@ -80,6 +86,8 @@ items:
     href: billing-how-to-change-azure-account-profile.md
   - name: 授與帳單存取權
     href: billing-manage-access.md
+  - name: Azure 中的 EA 角色
+    href: billing-understand-ea-roles.md
   - name: 連結合作夥伴識別碼
     href: billing-partner-admin-link-started.md
   - name: 檢視計費帳戶
@@ -110,7 +118,9 @@ items:
     href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
   - name: 移動 Azure 資源
     href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-  - name: 建立 Enterprise 訂用帳戶
+  - name: 建立其他訂用帳戶
+    href: billing-create-subscription.md
+  - name: 以程式設計方式建立 Enterprise 訂用帳戶
     href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
   - name: 匯出訂用帳戶資訊
     href: billing-export-subscriptions.md
@@ -178,9 +188,9 @@ items:
     items:
     - name: Enterprise 報表 REST API
       href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
-ms.openlocfilehash: ee136fceb3febfbda2d0f18982544fd90d32832b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5de05f7b1426a959c046b1e651f09c2f8e584b8a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422689"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497838"

@@ -6,17 +6,17 @@ manager: rithorn
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/28/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: b5a99ff8cfc0a915b70c6d90b8aa04d020177d54
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.topic: overview
+ms.openlocfilehash: ea34296e170d18a1d5636c50e7cae316b1d97948
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748165"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584599"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>使用 Azure 管理群組來組織資源
 
@@ -28,12 +28,12 @@ ms.locfileid: "50748165"
 
 您可以建置管理群組和訂用帳戶的彈性結構，將資源組織到一個階層中，以便執行統一原則與存取管理。 下圖顯示使用管理群組建立治理階層的範例。
 
-![樹狀](./media/MG_overview.png)
+![樹狀](./media/tree.png)
 
-透過建立如同此範例的階層，您可以將原則 (例如將 VM 位置限制在美國西部區域) 套用至 "Infrastructure Team Management Group" (基礎結構小組管理群組) 群組，以啟用內部合規性和安全性原則。 此原則將會同時繼承至管理群組底下的兩個 "EA Subscription" (EA 訂用帳戶)，並會套用至那些訂用帳戶底下的所有 VM。 由於此原則是從管理群組繼承至訂用帳戶，此安全性原則將無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
+建立階層以便套用原則；例如，將「基礎結構團隊管理群組」群組的 VM 位置限制為美國西部。 此原則將會同時繼承至管理群組底下的兩個 "EA Subscription" (EA 訂用帳戶)，並會套用至那些訂用帳戶底下的所有 VM。 此安全性原則無法由資源或訂用帳戶擁有者改變，並能進一步提升治理能力。
 
-另一個案例是使用管理群組來向使用者提供多個訂用帳戶的存取權。 透過將多個訂用帳戶移至該管理群組底下，您將能在管理群組上建立[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 指派，這會將該存取權繼承至所有的訂用帳戶。
-您不需要透過指令碼將 RBAC 指派給多個訂用帳戶，而只需要單獨對管理群組進行指派，使用者便能存取其所需要的所有內容。
+另一個使用管理群組的案例是讓使用者能存取多個訂閱。 將多個訂用帳戶移至該管理群組底下，讓您能在管理群組上建立[角色型存取控制](../../role-based-access-control/overview.md) (RBAC) 指派；如此一來，所有訂用帳戶均能繼承該存取權。
+只需要單獨對管理群組進行指派，使用者便能存取其所需要的所有內容，無需透過指令碼將 RBAC 指派給多個訂用帳戶。
 
 ### <a name="important-facts-about-management-groups"></a>關於管理群組的重要事實
 
@@ -41,7 +41,7 @@ ms.locfileid: "50748165"
 - 管理群組樹狀結構最多可支援六個層級的深度。
   - 此限制不包含根層級或訂用帳戶層級。
 - 每個管理群組和訂用帳戶只能支援一個父系。
-- 一個管理群組可以有多個子系。
+- 每個管理群組可以有多個子系。
 - 所有訂用帳戶和管理群組都包含在每個目錄的單一階層中。 如需預覽期間的例外狀況，請參閱[關於根管理群組的重要事實](#important-facts-about-the-root-management-group)。
 
 ## <a name="root-management-group-for-each-directory"></a>每個目錄的根管理群組
@@ -73,17 +73,17 @@ ms.locfileid: "50748165"
 
 ## <a name="trouble-seeing-all-subscriptions"></a>看不到所有訂用帳戶
 
-若目錄在 (2018 年 6 月 25 日) 之前已在早期預覽版本中開始使用管理群組，則您可能會發現並非所有訂用帳戶均強制排定至階層。  這是因為系統會在目錄中的根管理群組中將角色或原則指派完成之後，才會實作強制將訂用帳戶排定至階層的流程。
+若目錄在 (2018 年 6 月 25 日) 之前已在早期預覽版本中開始使用管理群組，則您可能會發現並非所有訂用帳戶均強制排定至階層。  系統會在目錄中的根管理群組中將角色或原則指派完成之後，才會實作強制將訂用帳戶排定至階層的流程。
 
 ### <a name="how-to-resolve-the-issue"></a>如何解決此問題
 
-有兩種自助式選項可以解決此問題。
+您有兩種方法可以解決此問題。
 
 1. 從根管理群組中移除所有角色和原則指派
-    1. 從根管理群組中移除所有原則和角色指派之後，服務會將所有訂用帳戶回填至下一個隔日工作週期階層。  進行檢查的原因，是為了確保並未意外地將存取權或原則指派提供給所有租用戶訂用帳戶。
+    1. 從根管理群組中移除所有原則和角色指派之後，服務會將所有訂用帳戶回填至下一個隔日工作週期階層。  此流程是為了確保並未意外地將存取權或原則指派提供給所有租用戶訂用帳戶。
     1. 要在不影響您服務的情況下進行此流程，最好的方法是將角色或原則指派套用至比根管理群組低一階的層級。 如此一來，您就可以從根範圍中移除所有指派。
 1. 直接呼叫 API 以啟動回填流程
-    1. 目錄中的所有已授權客戶都可以呼叫 *TenantBackfillStatusRequest* 或 *StartTenantBackfillRequest* API。 呼叫了 StartTenantBackfillRequest API 之後，系統就會開始初步的設定流程，將所有訂用帳戶移動至該階層。 此流程也會強制將所有新的訂用帳戶均設為根管理群組的子系。 若您允許根上的所有原則或存取指派都可以套用至所有訂用帳戶，則此流程就能在不變更根層級上任何指派的情況下完成。
+    1. 目錄中的所有客戶都可以呼叫 *TenantBackfillStatusRequest* 或 *StartTenantBackfillRequest* API。 呼叫了 StartTenantBackfillRequest API 之後，系統就會開始初步的設定流程，將所有訂用帳戶移動至該階層。 此流程也會強制將所有新的訂用帳戶均設為根管理群組的子系。 您可以在未變更根層級上任何指派的情況下完成此程序。 您可以呼叫 API，表示根的任何原則或存取指派都能套用至所有訂用帳戶。
 
 若您對於此回填流程有任何問題，請連絡：managementgroups@microsoft.com  
   
@@ -111,12 +111,26 @@ Azure 管理群組支援對所有的資源存取和角色定義使用 [Azure 角
 
 管理群組目前不支援自訂的 RBAC 角色。 若要檢視這個項目的狀態，請參閱[管理群組意見反應論壇](https://aka.ms/mgfeedback)。
 
+## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
+
+若要透過此 API 追蹤管理群組，請使用[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)。 目前無法使用 PowerShell、CLI 或 Azure 入口網站來追蹤管理群組活動。
+
+1. 以 Azure AD 租用戶的租用戶管理員身分[提高存取權](../../role-based-access-control/elevate-access-global-admin.md)，然後將 `/providers/microsoft.insights/eventtypes/management`範圍的「讀者」角色指派給稽核使用者。
+1. 以稽核使用者身分呼叫[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)，以查看管理群組活動。 您可以依資源提供者 **Microsoft.Management** 篩選所有管理群組活動。  範例：
+
+```
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> 若要以便利的方式從命令列呼叫此 API，請嘗試 [ARMClient](https://github.com/projectkudu/ARMClient)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解管理群組，請參閱：
 
 - [建立管理群組以組織 Azure 資源](create.md)
 - [如何變更、刪除或管理您的管理群組](manage.md)
-- [安裝 Azure PowerShell 模組](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [檢閱 REST API 規格](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [安裝 Azure CLI 擴充功能](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [檢閱 Azure PowerShell 資源模組中的管理群組](https://aka.ms/mgPSdocs)
+- [檢閱 REST API 中的管理群組](https://aka.ms/mgAPIdocs)
+- [檢閱 Azure CLI 中的管理群組](https://aka.ms/mgclidoc)

@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9eaed5c8d30d902700af25319d91b77aab645dbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.translationtype: HT
+ms.contentlocale: zh-TW
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52318005"
+documentType: LandingData
+title: Azure 專用 HSM 文件
+metadata:
+  title: Azure 專用 HSM 文件 - 教學課程和 API 參考 | Microsoft Docs
+  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  services: dedicated-hsm
+  author: barclayn
+  manager: mbaldwin
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: dedicated-hsm
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/21/2018
+  ms.author: barclayn
+abstract:
+  description: 了解有關專用 HSM 功能，以及是否適用於您的環境。
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/dedicated-hsm/overview
+      html: <p>了解 Azure 專用 HSM 相關資訊。</p>
+      image:
+        src: media/index/i_article.svg
+      title: 專用 HSM 概觀
+    - href: /azure/dedicated-hsm/faq
+      html: <p>常見問題集。</p>
+      image:
+        src: media/index/guide.svg
+      title: 常見問題集
+- title: 逐步教學課程
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+    - image:
+        src: media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+- title: 參考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 常見問題集
+      html: <p><a href="/dedicated-hsm/faq/">常見問題集</a></p>

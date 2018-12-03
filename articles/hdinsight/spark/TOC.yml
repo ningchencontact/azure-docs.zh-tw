@@ -3,9 +3,9 @@ items:
   href: /azure/hdinsight
 - name: 概觀
   items:
-  - name: 關於 HDInsight 上的 Spark
+  - name: 關於 HDInsight 上的 Apache Spark
     href: apache-spark-overview.md
-  - name: HDInsight 上的 Hadoop 元件
+  - name: HDInsight 上的 Apache Hadoop 元件
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -13,19 +13,19 @@ items:
     maintainContext: true
 - name: 快速入門
   items:
-  - name: 建立 Spark 叢集 - 入口網站
+  - name: 建立 Apache Spark 叢集 - 入口網站
     href: apache-spark-jupyter-spark-sql-use-portal.md
-  - name: 建立 Spark 叢集 - PowerShell
+  - name: 建立 Apache Spark 叢集 - PowerShell
     href: apache-spark-jupyter-spark-sql-use-powershell.md
-  - name: 建立 Spark 叢集 - 範本
+  - name: 建立 Apache Spark 叢集 - 範本
     href: apache-spark-jupyter-spark-sql.md
 - name: 教學課程
   items:
-  - name: 在 Spark 叢集上執行查詢
+  - name: 在 Apache Spark 叢集上執行查詢
     href: apache-spark-load-data-run-query.md
-  - name: 使用 VSCode 執行 Spark 查詢
+  - name: 使用 VSCode 執行 Apache Spark 查詢
     href: ../hdinsight-for-vscode.md
-  - name: 使用 IntelliJ 執行 Spark 查詢
+  - name: 使用 IntelliJ 執行 Apache Spark 查詢
     href: apache-spark-intellij-tool-plugin.md
   - name: 使用 BI 工具分析資料
     href: apache-spark-use-bi-tools.md
@@ -33,7 +33,7 @@ items:
     href: apache-spark-eventhub-streaming.md
   - name: 建立機器學習應用程式
     href: apache-spark-ipython-notebook-machine-learning.md
-  - name: 在 IntelliJ 中建立 Spark 應用程式
+  - name: 在 IntelliJ 中建立 Apache Spark 應用程式
     href: apache-spark-create-standalone-application.md
 - name: 作法
   items:
@@ -47,17 +47,17 @@ items:
       maintainContext: true
   - name: 開發
     items:
-    - name: 使用互動式 Spark Shell
+    - name: 使用互動式 Apache Spark Shell
       href: apache-spark-shell.md
-    - name: 使用 Livy 的遠端工作
+    - name: 使用 Apache Livy 的遠端作業
       href: apache-spark-livy-rest-interface.md
     - name: 使用 Eclipse 建立應用程式
       href: apache-spark-eclipse-tool-plugin.md
     - name: 使用 IntelliJ 建立應用程式
       href: apache-spark-intellij-tool-plugin.md
-    - name: 使用 IntelliJ 透過 SSH 進行遠端 Spark 偵錯作業
+    - name: 使用 IntelliJ 透過 SSH 進行遠端 Apache Spark 偵錯作業
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-    - name: 使用 IntelliJ 透過 VPN 進行遠端 Spark 偵錯作業
+    - name: 使用 IntelliJ 透過 VPN 進行遠端 Apache Spark 偵錯作業
       href: apache-spark-intellij-tool-plugin-debug-jobs-remotely.md
     - name: 建立非互動式驗證 .NET HDInsight 應用程式
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
@@ -77,9 +77,9 @@ items:
     - name: PySpark for VSCode
       href: ../set-up-pyspark-interactive-environment.md
       maintainContext: true
-    - name: 在 IntelliJ 中對 Spark 進行偵錯
+    - name: 在 IntelliJ 中對 Apache Spark 進行偵錯
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
-  - name: 透過 Spark 使用 Notebook
+  - name: 透過 Apache Spark 使用 Notebook
     items:
     - name: 使用本機 Jupyter Notebook
       href: apache-spark-jupyter-notebook-install-locally.md
@@ -89,7 +89,7 @@ items:
       href: apache-spark-jupyter-notebook-use-external-packages.md
     - name: 使用指令碼動作搭配 Jupyter 使用外部套件
       href: apache-spark-python-package-installation.md
-    - name: 使用 Zeppelin Notebook
+    - name: 使用 Apache Zeppelin Notebook
       href: apache-spark-zeppelin-notebook.md
   - name: 搭配其他 Azure 服務使用
     items:
@@ -97,7 +97,7 @@ items:
       href: apache-spark-use-with-data-lake-store.md
     - name: 連線到 Azure SQL 資料庫
       href: apache-spark-connect-to-sql-database.md
-    - name: 使用 Spark 和 Cosmos DB 實作 Lambda 架構
+    - name: 使用 Apache Spark 和 Cosmos DB 實作 Lambda 架構
       href: ../../cosmos-db/lambda-architecture.md
       maintainContext: true
   - name: Spark 串流
@@ -106,20 +106,20 @@ items:
       href: apache-spark-streaming-overview.md
     - name: 結構化串流概觀
       href: apache-spark-structured-streaming-overview.md
-    - name: 在 YARN 中建立高可用性的 Spark 串流作業
+    - name: 在 Apache Hadoop YARN 中建立高可用性 Apache Spark 串流作業
       href: apache-spark-streaming-high-availability.md
-    - name: 搭配 Kafka 使用結構化串流
+    - name: 搭配 Apache Kafka 使用結構化串流
       href: ../hdinsight-apache-kafka-spark-structured-streaming.md
       maintainContext: true
-    - name: 從 Kafka 進行結構化串流至 CosmosDB
+    - name: 從 Apache Kafka 進行結構化串流至 CosmosDB
       href: ../apache-kafka-spark-structured-streaming-cosmosdb.md
       maintainContext: true
-    - name: 搭配 Kafka 使用 Spark 串流 (DStream)
+    - name: 搭配 Apache Kafka 使用 Spark 串流 (DStream)
       href: ../hdinsight-apache-spark-with-kafka.md
       maintainContext: true
-    - name: 透過一次事件處理建立 Spark 串流作業
+    - name: 透過一次性事件處理來建立 Apache Spark 串流作業
       href: apache-spark-streaming-exactly-once.md
-  - name: Spark 和機器學習服務
+  - name: Apache Spark 和機器學習服務
     items:
     - name: 預測食品檢查結果
       href: apache-spark-machine-learning-mllib-ipython.md
@@ -129,11 +129,11 @@ items:
       href: apache-spark-deep-learning-caffe.md
     - name: 搭配 Microsoft 辨識工具組使用
       href: apache-spark-microsoft-cognitive-toolkit.md
-    - name: 建立 Spark 機器學習管線
+    - name: 建立 Apache Spark 機器學習服務管線
       href: apache-spark-creating-ml-pipelines.md
   - name: 分析巨量資料
     items:
-    - name: 使用 Spark 來讀取和寫入 HBase 資料
+    - name: 使用 Apache Spark 來讀取和寫入 Apache HBase 資料
       href: ../hdinsight-using-spark-query-hbase.md
       maintainContext: true
     - name: 分析 Application Insights 遙測記錄
@@ -155,16 +155,16 @@ items:
     - name: 安裝或更新 Mono
       href: ../hdinsight-hadoop-install-mono.md
       maintainContext: true
-    - name: 新增 Hive 程式庫
+    - name: 新增 Apache Hive 程式庫
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: 使用 Giraph
+    - name: 使用 Apache Giraph
       href: ../hdinsight-hadoop-giraph-install-linux.md
       maintainContext: true
     - name: 使用 Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: 使用 Solr
+    - name: 使用 Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
     - name: 使用空白邊緣節點
@@ -206,18 +206,18 @@ items:
     - name: 限制對資料的存取
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: 授權 Ambari 檢視的使用者
+    - name: 授權 Apache Ambari 檢視的使用者
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 管理
     items:
     - name: 管理叢集資源
       href: apache-spark-resource-manager.md
-    - name: 使用擴充的記錄伺服器管理 Spark 應用程式
+    - name: 使用擴充的記錄伺服器管理 Apache Spark 應用程式
       href: apache-azure-spark-history-server.md
-    - name: 設定 Spark 設定
+    - name: 設定 Apache Spark 設定
       href: apache-spark-settings.md
-    - name: 最佳化 Spark 作業
+    - name: 最佳化 Apache Spark 作業
       href: apache-spark-perf.md
     - name: 使用 IO 快取啟用快取
       href: apache-spark-improve-performance-iocache.md
@@ -262,13 +262,13 @@ items:
       - name: 使用 Azure 傳統 CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
-    - name: 使用 Ambari Web UI 管理叢集
+    - name: 使用 Apache Ambari web UI 管理叢集
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: 使用 Ambari Web UI 最佳化叢集
+      - name: 使用 Apache Ambari web UI 最佳化叢集
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: 使用 Ambari REST API
+      - name: 使用 Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -278,13 +278,13 @@ items:
     - name: 新增儲存體帳戶
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: 上傳 Hadoop 工作的資料
+    - name: 上傳 Apache Hadoop 作業的資料
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: 搭配 Data Lake Store 的多個 HDInsight 叢集
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: 使用 Sqoop 匯入和匯出資料
+    - name: 使用 Apache Sqoop 匯入和匯出資料
       href: ../hadoop/hdinsight-use-sqoop.md
       items:
       - name: 使用 SSH 連線
@@ -303,7 +303,7 @@ items:
     - name: 工作流程使用 Oozie
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: 使用以時間為基礎的 Oozie 協調器
+    - name: 使用以時間為基礎的 Apache Oozie 協調器
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: 叢集和服務的連接埠和 URI
@@ -323,21 +323,21 @@ items:
       maintainContext: true
   - name: 疑難排解
     items:
-    - name: 為 Spark 工作偵錯
+    - name: 對 Apache Spark 進行偵錯
       href: apache-spark-job-debugging.md
-    - name: 透過作業圖表對 Spark 工作進行偵錯
+    - name: 透過作業圖表對 Apache Spark 工作進行偵錯
       href: apache-azure-spark-history-server.md
-    - name: 使用 IntelliJ 對 Spark 作業進行偵錯
+    - name: 使用 IntelliJ 對 Apache Spark 作業進行偵錯
       href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
     - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: Spark 疑難排解
+    - name: Apache Spark 疑難排解
       href: apache-troubleshoot-spark.md
-    - name: HDFS 疑難排解
+    - name: Apache Hadoop HDFS 疑難排解
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: YARN 疑難排解
+    - name: Apache Hadoop YARN 疑難排解
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 已知問題
@@ -347,25 +347,25 @@ items:
       - name: 在 Linux 上使用 HDInsight 的相關資訊
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 記憶體和效能
+      - name: Apache Hadoop 記憶體和效能
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: 存取 Linux 上的 YARN 應用程式記錄
+      - name: 存取 Linux 上的 Apache Hadoop YARN 應用程式記錄
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: 啟用 Hadoop 適用的服務堆積傾印
+      - name: 啟用 Apache Hadoop 適用的服務堆積傾印
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: 了解並解決 WebHCat 錯誤
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: 記憶體不足錯誤的 Hive 設定修正
+      - name: 記憶體不足錯誤的 Apache Hive 設定修正
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: 使用 Ambari 檢視為 Tez 作業偵錯
+      - name: 使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: 最佳化 Hive 查詢
+      - name: 最佳化 Apache Hive 查詢
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
 - name: 企業整備
@@ -384,7 +384,7 @@ items:
     - name: 使用 Azure AD DS 在 HDInsight 中設定企業安全性
       href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
       maintainContext: true
-    - name: 設定 Hive 原則
+    - name: 設定 Apache Hive 原則
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
     - name: 以企業安全性管理叢集
@@ -426,13 +426,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST API
     href: /rest/api/hdinsight/
-  - name: REST API (Spark)
+  - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 資源
   items:
@@ -456,9 +456,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 53f7e70e9ce7442ab37008c1c6614eec0783fd85
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 35ef5face0f64b6766993eeb7f546923726bd166
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428278"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584327"

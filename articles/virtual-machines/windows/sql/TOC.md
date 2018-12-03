@@ -1,6 +1,7 @@
 # 概觀
 ## [關於 Windows SQL Server VM](virtual-machines-windows-sql-server-iaas-overview.md) 
- 
+## [版本資訊](virtual-machines-windows-sql-server-iaas-release-notes.md) 
+
 # 快速入門
 ## [建立 SQL VM - 入口網站](quickstart-sql-vm-create-portal.md)
 ## [建立 SQL VM - PowerShell](quickstart-sql-vm-create-powershell.md)
@@ -10,7 +11,7 @@
 ### [效能最佳做法](virtual-machines-windows-sql-performance.md)
 ### [安全性考量](virtual-machines-windows-sql-security.md)
 ### [應用程式模式](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
-## 管理
+## 管理性
 ### [連接到 VM](virtual-machines-windows-sql-connect.md)
 ### [設定儲存體](virtual-machines-windows-sql-server-storage-configuration.md)
 ### 將管理工作自動化
@@ -40,6 +41,7 @@
 #### [多個區域嗎](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### 容錯移轉叢集執行個體
 #### [設定](virtual-machines-windows-portal-sql-create-failover-cluster.md)
+## [變更供 SQL VM 使用的授權模型](virtual-machines-windows-sql-ahb.md)
 
 # 參考
 ## [Azure PowerShell](/powershell/azure/overview)

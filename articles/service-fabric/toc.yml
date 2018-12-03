@@ -227,6 +227,10 @@ items:
       items:
       - name: 了解定期備份組態
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
+      - name: 觸發磁碟分割還原
+        href: service-fabric-backup-restore-service-trigger-restore.md
+      - name: 磁碟分割隨選備份
+        href: service-fabric-backup-restore-service-ondemand-backup.md
   - name: 叢集
     items:
     - name: 叢集概觀
@@ -459,6 +463,8 @@ items:
       href: service-fabric-backuprestoreservice-quickstart-azurecluster.md
     - name: 設定定期備份 (獨立的叢集)
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
+    - name: 磁碟分割隨選備份
+      href: service-fabric-backuprestoreservice-ondemand-backup.md
     - name: 移轉舊的 Java 應用程式以支援 Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
   - name: 在整合式開發環境 (IDE) 中工作
@@ -663,10 +669,14 @@ items:
         href: service-fabric-diagnostics-event-analysis-oms.md
       - name: 查詢 EventStore API
         href: service-fabric-diagnostics-eventstore-query.md
-      - name: 自訂 WAD 代理程式
+      - name: Windows 叢集診斷
         href: service-fabric-diagnostics-event-aggregation-wad.md
-      - name: 自訂 LAD 代理程式
-        href: service-fabric-diagnostics-event-aggregation-lad.md
+      - name: Linux 叢集診斷
+        href: service-fabric-diagnostics-oms-syslog.md
+      - name: 設定 Log Analytics
+        href: service-fabric-diagnostics-oms-setup.md
+      - name: 透過 Log Analytics 監視
+        href: service-fabric-diagnostics-event-analysis-oms.md
     - name: 監視基礎結構
       items:
       - name: 使用 Log Analytics 代理程式來收集效能計數器
@@ -782,9 +792,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: 320399b277b7b6aa05b128994f68058455353e7b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 1b610207303b7a1b7ec283217830fe89f07f43e9
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291499"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721743"
