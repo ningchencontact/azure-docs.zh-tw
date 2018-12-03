@@ -409,15 +409,15 @@ items:
       - name: Azure 活動記錄
         items:
         - name: 分析
-          href: ../log-analytics/log-analytics-activity.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs.md
         - name: 跨訂用帳戶收集
-          href: ../log-analytics/log-analytics-activity-logs-subscriptions.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-activity-logs-subscriptions.md
       - name: Service 記錄檔與計量
-        href: ../log-analytics/log-analytics-azure-storage.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azure-metrics-logs.md
       - name: Azure 儲存體的診斷或記錄資料
-        href: ../log-analytics/log-analytics-azure-storage-iis-table.md?toc=/azure/azure-monitor/toc.json
+        href: platform/azure-storage-iis-table.md
       - name: Azure PaaS 資源
-        href: ../log-analytics/log-analytics-collect-azurepass-posh.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-azurepass-posh.md
       - name: 將自訂資料來源相互關聯
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: 收集自訂資料
@@ -425,7 +425,7 @@ items:
       - name: Log Analytics 資料收集器 API
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics 資料收集器 API 管線範例
-        href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/create-pipeline-datacollector-api.md
       - name: 應用程式資料
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: 計量存放區 REST API
@@ -453,7 +453,7 @@ items:
       - name: 診斷記錄到事件中樞
         href: ../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=/azure/azure-monitor/toc.json
       - name: 應用程式資料到 Log Analytics
-        href: ../log-analytics/log-analytics-app-insights-connector.md?toc=/azure/azure-monitor/toc.json
+        href: platform/app-insights-connector.md
       - name: 匯出應用程式資料
         items:
         - name: 連續匯出
@@ -719,7 +719,7 @@ items:
       - name: 從搜尋結果採取行動
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
       - name: 電腦群組
-        href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
+        href: platform/computer-groups.md
       - name: 流程連接器
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
       - name: 記錄檔搜尋 API
@@ -1007,9 +1007,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: e73da33dd67d9fa4b7427ff82a5cedca9db018ba
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9c1f8397ce9e88216eaff10cda9c3b2ebbc6e5bd
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633481"
+ms.locfileid: "52682923"
