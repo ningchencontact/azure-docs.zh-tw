@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a3ca6422bf5335604e561b71db6c75a889a74586
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 0bcff6e0cec234f17b0aaab9828602eb4a194d85
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615750"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334205"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>教學課程：在 Resource Manager 範本部署中整合 Azure Key Vault
 
@@ -93,7 +93,7 @@ ms.locfileid: "51615750"
     * **Key Vault 名稱**：指派唯一的名稱。 
     * **租用戶識別碼**：範本功能會自動擷取您的租用戶識別碼。請勿變更預設值
     * **AD 使用者識別碼**：輸入您從上一個程序中擷取的 Azure AD 使用者物件識別碼。
-    * **祕密名稱**：預設名稱是 **mAdminPassword**。 如果您在此變更祕密名稱，則需要在部署虛擬機器時更新祕密名稱。
+    * **祕密名稱**：預設名稱是 **vmAdminPassword**。 如果您在此變更祕密名稱，則需要在部署虛擬機器時更新祕密名稱。
     * **祕密值**：輸入您的祕密。  祕密是用來登入虛擬機器的密碼。 建議使用您在上一個程序中產生的密碼。
     * **我同意上方所述的條款及條件**：選取。
 3. 選取頂端的 [編輯參數] 來看一下範本。

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 8f552967dcf7e5c5d41d468914a2c829cad3dc96
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8ac288a3b62b305ca45ba8ef2dcc6cdaf6aaf6bd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010283"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309636"
 ---
-# <a name="quickstart-create-a-kafka-on-hdinsight-cluster"></a>快速入門：建立 HDInsight 上的 Kafka 叢集
+# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入門：在 HDInsight 叢集上建立 Apache Kafka 叢集
 
-Kafka 是一個開放原始碼的分散式串流平台。 它通常會用來作為訊息代理程式，因為可以提供類似「發佈-訂閱」訊息佇列的功能。 
+[Apache Kafka](https://kafka.apache.org/) 是一個開放原始碼的分散式串流平台。 它通常會用來作為訊息代理程式，因為可以提供類似「發佈-訂閱」訊息佇列的功能。 
 
 在本快速入門中，您會了解如何使用 Azure PowerShell 來建立 [Apache Kafka](https://kafka.apache.org) \(英文\) 叢集。 您也會了解如何使用內含的公用程式，使用 Kafka 來傳送和接收訊息。
 
@@ -27,7 +27,7 @@ Kafka 是一個開放原始碼的分散式串流平台。 它通常會用來作�
 > [!IMPORTANT]
 > Kafka API 只能由同一個虛擬網路中的資源來存取。 在本快速入門中，您會使用 SSH 直接存取叢集。 若要將其他服務、網路或虛擬機器連線到 Kafka，您必須先建立虛擬網路，然後建立網路中的資源。
 >
-> 如需詳細資訊，請參閱[使用虛擬網路連線到 Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
+> 如需詳細資訊，請參閱[使用虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文件。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -95,9 +95,9 @@ $storageContext = New-AzureStorageContext `
 New-AzureStorageContainer -Name $containerName -Context $storageContext 
 ```
 
-## <a name="create-a-kafka-cluster"></a>建立 Kafka 叢集
+## <a name="create-an-apache-kafka-cluster"></a>建立 Apache Kafka 叢集
 
-使用 [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 來建立 HDInsight 叢集上的 Kafka。
+使用 [New-AzureRmHDInsightCluster](/powershell/module/AzureRM.HDInsight/New-AzureRmHDInsightCluster) 來建立 HDInsight 叢集上的 Apache Kafka。
 
 ```powershell
 # Create a Kafka 1.0 cluster
@@ -182,11 +182,11 @@ Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
 ssuhuser@hn0-mykafk:~$
 ```
 
-## <a id="getkafkainfo"></a>取得 Zookeeper 和訊息代理程式主機資訊
+## <a id="getkafkainfo"></a>取得 Apache Zookeeper 和訊息代理程式主機資訊
 
-使用 Kafka 時，您必須知道 *Zookeeper* 主機和「訊息代理程式」主機。 這些主機可搭配 Kafka API 以及 Kafka 隨附的許多公用程式使用。
+使用 Kafka 時，您必須知道 Apache Zookeeper 主機和「訊息代理程式」主機。 這些主機可搭配 Kafka API 以及 Kafka 隨附的許多公用程式使用。
 
-在本節中，您會從叢集上的 Ambari REST API 取得主機資訊。
+在本節中，您會從叢集上的 Apache Ambari REST API 取得主機資訊。
 
 1. 從連往叢集的 SSH 連線中，使用下列命令來安裝 `jq` 公用程式。 此公用程式可用來剖析 JSON 文件，而且在擷取主機資訊時很有用：
    
@@ -241,7 +241,7 @@ ssuhuser@hn0-mykafk:~$
    
     `wn1-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092,wn0-kafka.eahjefxxp1netdbyklgqj5y1ud.cx.internal.cloudapp.net:9092`
 
-## <a name="manage-kafka-topics"></a>管理 Kafka 主題
+## <a name="manage-apache-kafka-topics"></a>管理 Apache Kafka 主題
 
 Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topics.sh` 公用程式來管理主題。
 
@@ -267,7 +267,7 @@ Kafka 會將資料串流儲存於「主題」中。 您可以使用 `kafka-topic
         > [!IMPORTANT] 
         > Kafka 不知道 Azure 容錯網域。 為主題建立副本時，可能無法正確發散副本以實現高可用性。
 
-        若要確保高可用性，請使用[Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 您必須從連往 Kafka 叢集前端節點的 SSH 連線來執行此工具。
+        若要確保高可用性，請使用 [Apache Kafka 分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 您必須從連往 Kafka 叢集前端節點的 SSH 連線來執行此工具。
 
         針對 Kafka 資料的最高可用性，您應該在下列情況中重新平衡主題的分割區複本：
 
@@ -329,7 +329,7 @@ Kafka 會在主題中儲存「記錄」。 記錄是由「產生者」產生，�
 
 4. 使用 __Ctrl + C__ 來停止取用者。
 
-您也可以利用程式設計方式建立產生者和取用者。 如需使用此 API 的範例，請參閱[採用 HDInsight 的 Kafka 產生者和取用者 API](apache-kafka-producer-consumer-api.md) 文件。
+您也可以利用程式設計方式建立產生者和取用者。 如需使用此 API 的範例，請參閱[使用 Apache Kafka Producer 和 Consumer API 搭配 HDInsight](apache-kafka-producer-consumer-api.md) 文件。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -347,4 +347,4 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [使用 Apache Spark 搭配 Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+> [使用 Apache Spark 搭配 Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

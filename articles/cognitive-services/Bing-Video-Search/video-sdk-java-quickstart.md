@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/18/2018
 ms.author: rosh
-ms.openlocfilehash: b0e083a7397378956d9fe0d0ae2257aaf0bbdf1e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: a50771fddc15ab0ec284fa7f42539f1f8dcce40d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223408"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308642"
 ---
 # <a name="quickstart-bing-video-search-sdk-java"></a>快速入門：Bing 影片搜尋 SDK Java
 
@@ -24,7 +24,9 @@ Bing 影片搜尋 SDK 提供用於影片查詢以及剖析結果的 REST API 功
 [Java Bing 影片搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingVideoSearch)可從 Git Hub 取得。
 
 ## <a name="application-dependencies"></a>應用程式相依性
-在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。 使用 Maven、Gradle 或另一個相依性管理系統，來安裝 Bing 影片搜尋 SDK 相依性。 Maven POM 檔案需要宣告：
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
+
+使用 Maven、Gradle 或另一個相依性管理系統，來安裝 Bing 影片搜尋 SDK 相依性。 Maven POM 檔案需要宣告：
 ```
   <dependencies>
     <dependency>

@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 416557b11ebef953411fb6fabcddb72d08dcb5af
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802979"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317053"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-c"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 C#
 
@@ -24,6 +24,7 @@ Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功
 [C# Bing 新聞搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingNewsSearch)可從 Git Hub 取得。
 
 ## <a name="application-dependencies"></a>應用程式相依性
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。  
 
 若要使用 Bing 新聞搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.NewsSearch` 套件。
 

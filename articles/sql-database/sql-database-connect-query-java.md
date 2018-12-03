@@ -1,65 +1,66 @@
 ---
 title: 使用 JAVA 查詢 Azure SQL Database | Microsoft Docs
-description: 本主題說明如何使用 JAVA 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢。
+description: 說明如何使用 Java 來建立可連線到 Azure SQL Database 的程式，並使用 T-SQL 陳述式加以查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: java
 ms.topic: quickstart
 author: ajlam
 ms.author: andrela
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 2e8e47e8f2b61105a720c36d5b91a04df094c5d6
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/20/2018
+ms.openlocfilehash: afa975a593fd962050c9f894ec091d7f64579138
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50912351"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52332607"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入門：使用 Java 查詢 Azure SQL 資料庫
 
-此快速入門示範如何使用 [JAVA](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 來連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
+本文示範如何使用 [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 連線至 Azure SQL 資料庫。 您可以接著使用 T-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請確定您具備下列必要條件︰
+若要完成此範例，請確定您具有下列必要條件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
+- 您所用電腦的公用 IP 位址的[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
 
-- 您已安裝適用於您作業系統的 JAVA 和相關軟體：
+- 針對您的作業系統安裝的 Java 相關軟體：
 
-    - **MacOS**：安裝 Homebrew 和 JAVA，然後再安裝 Maven。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)。
-    - **Ubuntu**：安裝 JAVA Development Kit，並安裝 Maven。 請參閱[步驟 1.2、1.3 和 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)。
-    - **Windows**：安裝 JAVA Development Kit，並安裝 Maven。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)。    
+  - **MacOS**：安裝 Homebrew 和 JAVA，然後安裝 Maven。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)。
 
-## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
+  - **Ubuntu**：安裝 Java、Java Development Kit，然後安裝 Maven。 請參閱[步驟 1.2、1.3 和 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)。
+
+  - **Windows**：安裝 Java，然後安裝 Maven。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)。
+
+## <a name="get-database-connection"></a>取得資料庫連線
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## <a name="create-maven-project-and-dependencies"></a>**建立 Maven 專案和相依性**
-1. 從終端機，建立名為 **sqltest**的新 Maven 專案。 
+## <a name="create-the-project"></a>建立專案
 
-   ```bash
-   mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-   ```
+1. 從終端機，建立名為 *sqltest*的新 Maven 專案。
 
-2. 在出現提示時按下 Y 鍵 。
-3. 將目錄切換到 **sqltest** 並使用您慣用的文字編輯器開啟 pom.xml。  使用下列代碼將 **Microsoft JDBC Driver for SQL Server** 新增到專案的相依性：
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
 
-   ```xml
-   <dependency>
-       <groupId>com.microsoft.sqlserver</groupId>
-       <artifactId>mssql-jdbc</artifactId>
-       <version>6.4.0.jre8</version>
-   </dependency>
-   ```
+1. 將目錄切換到 *sqltest* 並使用您慣用的文字編輯器開啟 pom.xml。 使用下列代碼將 **Microsoft JDBC Driver for SQL Server** 新增到專案的相依性。
 
-4. 此外，在 pom.xml 中，將下列屬性新增至您的專案。  如果您沒有屬性區段，您可以將它新增在相依性後面。
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
+
+1. 此外，在 pom.xml 中，將下列屬性新增至您的專案。 如果您沒有屬性區段，您可以將它新增在相依性後面。
 
    ```xml
    <properties>
@@ -68,82 +69,89 @@ ms.locfileid: "50912351"
    </properties>
    ```
 
-5. 儲存並關閉 pom.xml。
+1. 儲存並關閉 pom.xml。
 
-## <a name="insert-code-to-query-sql-database"></a>插入程式碼以查詢 SQL 資料庫
+## <a name="add-code-to-query-database"></a>新增程式碼以查詢資料庫
 
-1. 您的 Maven 專案中應該已經有名為 App.java 的檔案，位於：\sqltest\src\main\java\com\sqlsamples\App.java
+1. 您的 Maven 專案中應該已經有名為 App.java 的檔案，位於：
 
-2. 開啟檔案並使用下列程式碼取代其內容，並為您的伺服器、資料庫、使用者和密碼新增適當的值。
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
-   ```java
-   package com.sqldbsamples;
+1. 開啟檔案，並以下列程式碼取代其內容。 然後，為您的伺服器、資料庫、使用者和密碼新增適當的值。
 
-   import java.sql.Connection;
-   import java.sql.Statement;
-   import java.sql.PreparedStatement;
-   import java.sql.ResultSet;
-   import java.sql.DriverManager;
+    ```java
+    package com.sqldbsamples;
 
-   public class App {
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-           String hostName = "your_server.database.windows.net";
-           String dbName = "your_database";
-           String user = "your_username";
-           String password = "your_password";
-           String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
-           Connection connection = null;
+    public class App {
 
-           try {
-                   connection = DriverManager.getConnection(url);
-                   String schema = connection.getSchema();
-                   System.out.println("Successful connection - Schema: " + schema);
+        public static void main(String[] args) {
 
-                   System.out.println("Query data example:");
-                   System.out.println("=========================================");
+            // Connect to database
+            String hostName = "your_server.database.windows.net";
+            String dbName = "your_database";
+            String user = "your_username";
+            String password = "your_password";
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.windows.net;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
 
-                   // Create and execute a SELECT SQL statement.
-                   String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
-                       + "FROM [SalesLT].[ProductCategory] pc "  
-                       + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
-                   try (Statement statement = connection.createStatement();
-                       ResultSet resultSet = statement.executeQuery(selectSql)) {
+            try {
+                connection = DriverManager.getConnection(url);
+                String schema = connection.getSchema();
+                System.out.println("Successful connection - Schema: " + schema);
 
-                           // Print results from select statement
-                           System.out.println("Top 20 categories:");
-                           while (resultSet.next())
-                           {
-                               System.out.println(resultSet.getString(1) + " "
-                                   + resultSet.getString(2));
-                           }
+                System.out.println("Query data example:");
+                System.out.println("=========================================");
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
+                    + "FROM [SalesLT].[ProductCategory] pc "  
+                    + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
+
+                try (Statement statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
+
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
                     connection.close();
-                   }                   
-           }
-           catch (Exception e) {
-                   e.printStackTrace();
-           }
-       }
-   }
-   ```
+                }
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    ```
+
+   > [!NOTE]
+   > 程式碼範例會使用適用於 Azure SQL 的 **AdventureWorksLT** 範例資料庫。
 
 ## <a name="run-the-code"></a>執行程式碼
 
-1. 在命令提示字元中，執行下列命令：
+1. 在命令提示字元中，執行程式。
 
-   ```bash
-   mvn package
-   mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
-   ```
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-2. 請確認前 20 個資料列已傳回，然後關閉應用程式視窗。
-
+1. 請確認前 20 個資料列已傳回，然後關閉應用程式視窗。
 
 ## <a name="next-steps"></a>後續步驟
-- [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
-- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)
-- [回報問題/發問](https://github.com/microsoft/mssql-jdbc/issues)
 
+- [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)  
+
+- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
+
+- [回報問題/發問](https://github.com/microsoft/mssql-jdbc/issues)  

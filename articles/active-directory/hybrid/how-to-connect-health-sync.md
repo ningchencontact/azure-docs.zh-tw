@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9811c51485ec30e7fe692c52f4e65cefd93e5cb0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277132"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499075"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>使用 Azure AD Connect Health 監視 Azure AD Connect 同步處理
 下列文件適用於使用 Azure AD Connect Health 來監視 Azure AD Connect (同步處理)。  如需使用 Azure AD Connect Health 來監視 AD FS 的詳細資訊，請參閱 [在 AD FS 使用 Azure AD Connect Health](how-to-connect-health-adfs.md)。 此外，如需使用 Azure AD Connect Health 來監視 Active Directory 網域服務的詳細資訊，請參閱 [在 AD DS 使用 Azure AD Connect Health](how-to-connect-health-adds.md)。
@@ -62,7 +62,7 @@ ms.locfileid: "51277132"
 
 ![同步處理延遲](./media/how-to-connect-health-sync/syncobjectchanges02.png)
 
-## <a name="object-level-synchronization-error-report-preview"></a>物件層級同步處理錯誤報告 (預覽)
+## <a name="object-level-synchronization-error-report"></a>物件層級同步處理錯誤報告
 在 Windows Server AD 與 Azure AD 之間使用 Azure AD Connect 同步處理身分識別資料時，針對可能發生的同步處理錯誤，這項功能提供相關的報告。
 
 * 此報告涵蓋同步處理用戶端所記錄的錯誤 (Azure AD Connect 1.1.281.0 版或更高版本)
@@ -74,7 +74,7 @@ ms.locfileid: "51277132"
   * 依各類別之錯誤列出物件
   * 集中記錄有關錯誤的所有資料
   * 並排比較由於衝突而發生錯誤的物件
-  * 將錯誤報告下載為 CVS (即將推出)
+  * 將錯誤報告下載為 CVS
 
 ### <a name="categorization-of-errors"></a>錯誤分類
 此報告將現有的同步處理錯誤分成下列類別︰

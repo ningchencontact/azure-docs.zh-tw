@@ -4,21 +4,20 @@ description: 本快速入門會示範如何開始建立串流分析作業、設�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 08/20/2018
+ms.date: 11/21/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-manager: kfile
-ms.openlocfilehash: 15f465bf2aaf7c8b3a4a49819548c8db0b2ea014
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7762a48fd34973872fe4d0b00906a03a18d52867
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958851"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311920"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立串流分析作業
 
-本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您將定義串流分析作業來讀取感應器資料範例，並篩選出每 30 秒中平均溫度大於 100 的資料列。 在本文中，您會從 blob 儲存體讀取資料並轉換資料，然後將資料寫回相同 blob 儲存體中的不同容器。 本快速入門中所使用的輸入資料檔案包含僅供說明之用的靜態資料。 在實際案例中，您可以使用串流輸入資料來進行串流分析作業。
+本快速入門會示範如何開始建立串流分析作業。 在本快速入門中，您會定義串流分析作業，以讀取即時串流資料並篩選出溫度大於 27 的訊息。 串流分析作業會從 IoT 中樞裝置讀取資料、轉換資料，以及將資料寫回 Blob 儲存體中的容器。 本快速入門中使用的輸入資料是由 Raspberry Pi 線上模擬器產生。 
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -28,33 +27,54 @@ ms.locfileid: "49958851"
 
 ## <a name="prepare-the-input-data"></a>準備輸入資料
 
-定義串流分析作業前，您應先準備設定為作業輸入的資料。 為了準備作業所需的輸入資料，請執行下列步驟：
+定義串流分析作業前，您應先準備資料，該資料稍後會設定為作業輸入。 為了準備作業所需的輸入資料，請完成下列步驟：
 
-1. 從 GitHub 下載[感應器資料範例](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json)。 範例資料包含下列 JSON 格式的感應器資訊：  
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-   ```json
-   {
-     "time": "2018-08-19T21:18:52.0000000",
-     "dspl": "sensorC",
-     "temp": 87,
-     "hmdt": 44
-   }
-   ```
-2. 登入 [Azure 入口網站](https://portal.azure.com/)。  
+2. 選取 [建立資源] > [物聯網] > [IoT 中樞]。
 
-3. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。 填寫儲存體帳戶作業頁面，將 [名稱] 設為 "asaquickstartstorage"、[位置] 設為 [美國西部 2]、[資源群組] 設為 "asaquickstart-resourcegroup" (將儲存體帳戶裝載在與串流作業相同的資源群組中可增加效能)。 其餘設定可以保留預設值。  
+3. 在 [IoT 中樞] 窗格中，輸入下列資訊︰
+   
+   |**設定**  |**建議的值**  |**說明**  |
+   |---------|---------|---------|
+   |訂用帳戶  | \<您的訂用帳戶\> |  選取您要使用的 Azure 訂用帳戶。 |
+   |資源群組   |   asaquickstart-resourcegroup  |   選取 [新建]，然後為您的帳戶輸入新的資源群組名稱。 |
+   |區域  |  \<選取最接近使用者的區域\> | 選取您可以在其中裝載 IoT 中樞的地理位置。 使用最靠近您的使用者的位置。 |
+   |IoT 中樞名稱  | MyASAIoTHub  |   選取您的 IoT 中樞名稱。   |
 
-   ![建立儲存體帳戶](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
+   ![建立 IoT 中樞](./media/stream-analytics-quick-create-portal/create-iot-hub.png)
 
-4. 從 [所有資源] 頁面中，找出您在上一個步驟中建立的儲存體帳戶。 依序開啟 [概觀] 頁面及 [Blob] 圖格。  
+4. 選取 [下一步: 設定大小與級別]。
 
-5. 從 [Blob 服務] 頁面中選取 [容器]，並為容器提供**名稱**，例如 container1，然後將 [公用存取層級] 變更為 [私人] (無匿名存取) > 選取 [確定]。  
+5. 選擇您的**定價與級別層**。 在本快速入門中，選取 [F1-免費] 層 (如果仍可用於您的訂用帳戶)。 如需詳細資訊，請參閱 [IoT 中樞定價](https://azure.microsoft.com/pricing/details/iot-hub/)。
 
-   ![建立容器](./media/stream-analytics-quick-create-portal/create-a-storage-container.png)
+   ![調整 IoT 中樞的大小與級別](./media/stream-analytics-quick-create-portal/iot-hub-size-and-scale.png)
 
-6. 移至您在上一個步驟所建立的容器。 選取 [上傳] 並上傳您從第一個步驟取得的感應器資料。  
+6. 選取 [檢閱 + 建立]。 檢閱您的 IoT 中樞資訊，然後按一下 [建立]。 建立 IoT 中樞可能需要數分鐘。 您可以在 [通知] 窗格中監視進度。
 
-   ![將範例資料上傳至 blob](./media/stream-analytics-quick-create-portal/upload-sample-data-to-blob.png)
+7. 在您的 IoT 中樞導覽功能表中，按一下 [IoT 裝置] 之下的 [新增]。 新增 [裝置識別碼]，然後按一下 [儲存]。
+
+   ![將裝置新增至 IoT 中樞](./media/stream-analytics-quick-create-portal/add-device-iot-hub.png)
+
+8. 建立裝置之後，請從 [IoT 裝置] 清單開啟裝置。 複製 [連接字串 -- 主索引鍵]，並將它儲存到記事本以供日後使用。
+
+   ![複製 IoT 中樞裝置連接字串](./media/stream-analytics-quick-create-portal/save-iot-device-connection-string.png)
+
+## <a name="create-blob-storage"></a>建立 Blob 儲存體
+
+1. 從 Azure 入口網站的左上角，選取 [建立資源] > [儲存體] > [儲存體帳戶]。
+
+2. 在 [建立儲存體帳戶] 窗格中，輸入儲存體帳戶名稱、位置和資源。 選擇相同的位置和資源群組作為您建立的 IoT 中樞。 然後按一下 [檢閱 + 建立] 以建立帳戶。
+
+   ![建立儲存體帳戶](./media/stream-analytics-quick-create-portal/create-storage-account.png)
+
+3. 建立儲存體帳戶後，選取 [概觀] 窗格上的 [Blob] 圖格。
+
+   ![儲存體帳戶概觀](./media/stream-analytics-quick-create-portal/blob-storage.png)
+
+4. 在 [Blob 服務] 頁面中選取 [容器]，然後為容器提供名稱 (例如 container1)。 將 [公用存取層級] 保留為 [私人 (沒有匿名存取)]，然後選取 [確定]。
+
+   ![建立 Blob 容器](./media/stream-analytics-quick-create-portal/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-job"></a>建立串流分析作業
 
@@ -68,43 +88,40 @@ ms.locfileid: "49958851"
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
-   |作業名稱   |  myasajob   |   輸入用來識別您串流分析作業的名稱。 串流分析作業名稱只可包含英數字元、連字號與底線，且其長度必須介於 3 到 63 個字元之間。 |
+   |作業名稱   |  MyASAJob   |   輸入用來識別您串流分析作業的名稱。 串流分析作業名稱只可包含英數字元、連字號與底線，且其長度必須介於 3 到 63 個字元之間。 |
    |訂用帳戶  | \<您的訂用帳戶\> |  選取您要用於此作業的 Azure 訂用帳戶。 |
-   |資源群組   |   asaquickstart-resourcegroup  |   選取 [新建]，然後為您的帳戶輸入新的資源群組名稱。 |
+   |資源群組   |   asaquickstart-resourcegroup  |   選取與您的 IoT 中樞相同的資源群組。 |
    |位置  |  \<選取最接近使用者的區域\> | 選取您可以在其中裝載串流分析作業的地理位置。 使用最接近使用者的區域以提升效能並減少資料轉送成本。 |
    |串流單位  | 1  |   串流單位代表執行作業所需的計算資源。 根據預設，此值設定為 1。 若要深入了解如何調整串流單位，請參閱[了解與調整串流單位](stream-analytics-streaming-unit-consumption.md)一文。   |
    |裝載環境  |  雲端  |   串流分析作業可以部署到雲端或邊緣裝置。 雲端部分可讓您部署到 Azure 雲端，邊緣裝置部分可讓您部署到 IoT 邊緣裝置。 |
 
-   ![建立作業](./media/stream-analytics-quick-create-portal/create-job.png)
+   ![建立作業](./media/stream-analytics-quick-create-portal/create-asa-job.png)
 
 5. 核取 [釘選至儀表板] 方塊，以將作業放在您的儀表板上，然後選取 [建立]。  
 
-6. 您應會看到「部署進行中...」顯示在瀏覽器視窗的右上方。 
+6. 您應會看到「部署進行中...」通知顯示在瀏覽器視窗的右上方。 
 
-## <a name="configure-input-to-the-job"></a>設定作業的輸入
+## <a name="configure-job-input"></a>設定作業輸入
 
-在本節中，您會將 blob 儲存體設定為串流分析作業的輸入。 在設定輸入之前，請先建立 blob 儲存體帳戶。  
-
-### <a name="add-the-input"></a>新增輸入 
+在本節中，您會將 IoT 中樞裝置輸入設定為串流分析作業。 使用在本快速入門的上一節中建立的 IoT 中樞。
 
 1. 瀏覽至您的串流分析作業。  
 
-2. 選取 [輸入] > [新增串流輸入] > [Blob 儲存體]。  
+2. 選取 [輸入] > [新增串流輸入] > [IoT 中樞]。  
 
-3. 使用下列值填寫 [Blob 儲存體] 頁面：
+3. 使用下列值填寫 [IoT 中樞] 頁面：
 
    |**設定**  |**建議的值**  |**說明**  |
    |---------|---------|---------|
-   |輸入別名  |  BlobInput   |  輸入名稱以識別作業的輸入。   |
+   |輸入別名  |  IoTHubInput   |  輸入名稱以識別作業的輸入。   |
    |訂用帳戶   |  \<您的訂用帳戶\> |  選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。 |
-   |儲存體帳戶  |  myasastorageaccount |  選擇或輸入儲存體帳戶的名稱。 系統會自動偵測建立在相同訂用帳戶中的儲存體帳戶名稱。 |
-   |容器  | container1 | 選擇具有範例資料的容器名稱。 系統會自動偵測建立在相同訂用帳戶中的容器名稱。 |
+   |IoT 中樞  |  MyASAIoTHub |  輸入在上一節中建立的 IoT 中樞名稱。 |
 
 4. 其他選項保留為預設值，然後選取 [儲存] 以儲存設定。  
 
-   ![設定輸入資料](./media/stream-analytics-quick-create-portal/configure-input.png)
+   ![設定輸入資料](./media/stream-analytics-quick-create-portal/configure-asa-input.png)
  
-## <a name="configure-output-to-the-job"></a>設定作業的輸出
+## <a name="configure-job-output"></a>設定作業輸出
 
 1. 瀏覽至您先前建立的串流分析作業。  
 
@@ -118,11 +135,10 @@ ms.locfileid: "49958851"
    |訂用帳戶  |  \<您的訂用帳戶\>  |  選取您在其中建立儲存體帳戶的 Azure 訂用帳戶。 儲存體帳戶可以位在相同或不同的訂用帳戶中。 此範例假設您已在相同的訂用帳戶中建立儲存體帳戶。 |
    |儲存體帳戶 |  asaquickstartstorage |   選擇或輸入儲存體帳戶的名稱。 系統會自動偵測建立在相同訂用帳戶中的儲存體帳戶名稱。       |
    |容器 |   container1  |  選取您在儲存體帳戶中建立的現有容器。   |
-   |路徑模式 |   output  |  輸入名稱以作為您現有容器內的輸出路徑。   |
 
 4. 其他選項保留為預設值，然後選取 [儲存] 以儲存設定。  
 
-   ![設定輸出](./media/stream-analytics-quick-create-portal/configure-output.png)
+   ![設定輸出](./media/stream-analytics-quick-create-portal/configure-asa-output.png)
  
 ## <a name="define-the-transformation-query"></a>定義轉換查詢
 
@@ -131,43 +147,35 @@ ms.locfileid: "49958851"
 2. 選取 [查詢]並更新查詢，如下所示：  
 
    ```sql
-   SELECT 
-   System.Timestamp AS OutputTime,
-   dspl AS SensorName,
-   Avg(temp) AS AvgTemperature
-   INTO
-     BlobOutput
-   FROM
-     BlobInput TIMESTAMP BY time
-   GROUP BY TumblingWindow(second,30),dspl
-   HAVING Avg(temp)>100
+   SELECT *
+   INTO BlobOutput
+   FROM IoTHubInput
+   HAVING Temperature > 27
    ```
 
-3. 在此範例中，查詢會從 blob 讀取資料，並將資料複製到 blob 中的新檔案，然後選取 [儲存]。  
+3. 在此範例中，查詢會從 IoT 中樞讀取資料，並將資料複製到 Blob 中的新檔案。 選取 [ **儲存**]。  
 
-   ![設定工作轉換](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+   ![設定工作轉換](./media/stream-analytics-quick-create-portal/add-asa-query.png)
 
-## <a name="configure-late-arrival-policy"></a>設定延遲傳入原則
+## <a name="run-the-iot-simulator"></a>執行 IoT 模擬器
 
-1. 瀏覽至您先前建立的串流分析作業。
+1. 開啟 [Raspberry Pi Azure IoT 線上模擬器](https://azure-samples.github.io/raspberry-pi-web-simulator/)。
 
-2. 在 [設定] 下方，選取 [事件排序]。
+2. 以您在上一節中儲存的 Azure IoT 中樞裝置連接字串取代行 15 中的預留位置。
 
-3. 將 [延遲抵達的事件] 設定為 20 天，然後選取 [儲存]。
+3. 按一下 **[執行]**。 下列輸出會顯示傳送至 IoT 中樞的感應器資料和訊息。
 
-   ![設定延遲傳入原則](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
+   ![Raspberry Pi Azure IoT 線上模擬器](./media/stream-analytics-quick-create-portal/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>啟動串流分析工作並查看輸出
 
 1. 回到作業概觀頁面，然後選取 [啟動]。
 
-2. 在 [啟動作業] 下，針對 [啟動時間] 欄位選取 [自訂]。 選取 `2018-01-24` 作為開始日期，但不要變更時間。 之所以選擇這個開始日期，是因為它位於範例資料的事件時間戳記之前。 完成時，選取 [啟動]。
+2. 在 [啟動作業] 之下，針對 [作業輸出開始時間]  欄位，選取 [現在]。 然後，選取 [啟動] 以啟動作業。
 
-   ![啟動工作](./media/stream-analytics-quick-create-portal/start-the-job.png)
+3. 幾分鐘後，在入口網站中尋找您設定為作業輸出的儲存體帳戶和容器。 您現在可以在容器中看到輸出檔。 第一次啟動作業需要幾分鐘的時間，作業一旦啟動後，即會在資料送達時繼續執行。  
 
-3. 幾分鐘後，在入口網站中尋找您設定為作業輸出的儲存體帳戶和容器。 選取輸出路徑。 您現在可以在容器中看到輸出檔。 第一次啟動作業需要幾分鐘的時間，作業一旦啟動後，即會在資料送達時繼續執行。  
-
-   ![已轉換的輸出](./media/stream-analytics-quick-create-portal/transformed-output.png)
+   ![已轉換的輸出](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
 ## <a name="clean-up-resources"></a>清除資源
 

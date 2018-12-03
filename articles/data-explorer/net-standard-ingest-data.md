@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: b0e8c4dabea6aeae8d93d64d97b598ec97b2d18a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: e734f11fb3f6a833b8c080deb57b9153c6c12dde
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52277072"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290683"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>快速入門：使用 Azure 資料總管 .NET Standard SDK 內嵌資料 (預覽)
 
@@ -75,14 +75,14 @@ var kustoConnectionStringBuilder =
 
 ## <a name="set-source-file-information"></a>設定來源檔案資訊
 
-設定資料來源檔案的常數。 本範例使用裝載於 Azure Blob 儲存體的範例檔案。 **StormEvents** 範例資料集包含來自[美國國家環境資訊中心](https://www.ncdc.noaa.gov/stormevents/)的氣象相關資料。
+設定來源檔案的路徑。 本範例使用裝載於 Azure Blob 儲存體的範例檔案。 **StormEvents** 範例資料集包含來自[美國國家環境資訊中心](https://www.ncdc.noaa.gov/stormevents/)的氣象相關資料。
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## <a name="create-a-table-on-your-test-cluster"></a>在測試叢集上建立資料表
-建立與 `StormEvents.csv` 檔案中的資料結構描述相符的資料表。 此程式碼執行時，會傳回與下列類似的訊息：若要登入，請使用網頁瀏覽器開啟頁面 https://microsoft.com/devicelogin，並輸入程式碼 F3W4VWZDM 來驗證。 請遵循下列步驟來登入，然後返回執行下一個程式碼區塊。 建立連線的後續程式碼區塊需要您重新登入。
+建立名為 `StormEvents` 的資料表，該資料表與 `StormEvents.csv` 檔案中的資料結構描述相符。
 
 ```csharp
 var table = "StormEvents";
@@ -122,7 +122,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## <a name="define-ingestion-mapping"></a>定義擷取對應
 
-將傳入的 CSV 資料對應到建立資料表時使用的資料行名稱與資料類型。
+將傳入的 CSV 資料對應到建立資料表時使用的資料行名稱。
 在該資料表上佈建 [CSV 資料行對應物件](/azure/kusto/management/tables#create-ingestion-mapping)
 
 ```csharp
@@ -193,12 +193,12 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 
 ## <a name="validate-data-was-ingested-into-the-table"></a>驗證已將資料內嵌至資料表
 
-等待已排入佇列的擷取五到十分鐘，以排定將資料內嵌和載入至 ADX。 然後執行下列程式碼，以取得 StormEvents 資料表中的記錄計數。
+等待已排入佇列的擷取五到十分鐘，以排定將資料內嵌和載入至 ADX。 然後執行下列程式碼，以取得 `StormEvents` 資料表中的記錄計數。
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
 {
-    var query = "StormEvents | count";
+    var query = $"{table} | count";
 
     var results = cslQueryProvider.ExecuteQuery<long>(query);
     Console.WriteLine(results.Single());
@@ -224,7 +224,7 @@ using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoCon
 
 ## <a name="clean-up-resources"></a>清除資源
 
-如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 StormEvents 資料表。
+如果您打算按照其他快速入門和教學課程繼續進行，請保留您建立的資源。 否則，請在資料庫中執行下列命令，來清除 `StormEvents` 資料表。
 
 ```Kusto
 .drop table StormEvents

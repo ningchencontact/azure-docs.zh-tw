@@ -1,257 +1,201 @@
 ---
 title: 快速入門：尋找替代的翻譯 (C#) - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
-description: 在此快速入門中，您可以使用翻譯工具文字 API 搭配 C#，為內容中的字詞尋找替代的翻譯與範例。
+description: 在本快速入門中，您可以使用 .NET Core 和翻譯工具文字 API，取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
-ms.openlocfilehash: e7a450838ab32d191ca8659a8e84e0104c76e3a5
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d0921d67867e412ed1862c597297e27c2c56ae3b
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645451"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334528"
 ---
 # <a name="quickstart-find-alternate-translations-with-the-translator-text-rest-api-c"></a>快速入門：使用翻譯工具文字 REST API (C#) 尋找替代的翻譯
 
-在本快速入門中，您可以使用翻譯工具文字 API，尋找字詞可能的替代翻譯的詳細資料，以及這些替代翻譯的使用範例。
+在本快速入門中，您可以使用 .NET Core 和翻譯工具文字 API，取得字詞的替代翻譯，以及這些替代翻譯的使用範例。
+
+本快速入門需要 [Azure 認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)和翻譯工具文字資源。 如果您還沒有帳戶，可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/)來取得訂用帳戶金鑰。
 
 ## <a name="prerequisites"></a>必要條件
 
-您將需要 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 以在 Windows 上執行此程式碼。 (可使用免費的 Community Edition)。
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet 套件](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)、[Visual Studio Code](https://code.visualstudio.com/download)，或您最愛的文字編輯器。
+* 語音服務的 Azure 訂用帳戶金鑰
 
-若要使用翻譯工具文字 API，您也需要有訂用帳戶金鑰；請參閱[如何註冊翻譯工具文字 API](translator-text-how-to-signup.md)。
+## <a name="create-a-net-core-project"></a>建立 .NET Core 專案
 
-## <a name="dictionary-lookup-request"></a>Dictionary Lookup 要求
+開啟新的命令提示字元 (或終端機工作階段) 並執行下列命令：
 
-> [!TIP]
-> 從 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 取得最新程式碼。
+```console
+dotnet new console -o alternate-sample
+cd alternate-sample
+```
 
-下列程式碼會使用 [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) 方法，以取得字組的替代翻譯。
+第一個命令會執行兩項工作。 它會建立新的 .NET 主控台應用程式，並建立名為 `alternate-sample` 的目錄。 第二個命令會變更為您專案的目錄。
 
-1. 在您最愛的 IDE 中建立新的 C# 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+接下來，您必須安裝 Json.Net。 從您的專案目錄中，執行：
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## <a name="add-required-namespaces-to-your-project"></a>將所需的命名空間新增至您的專案
+
+您先前建立專案時執行的 `dotnet new console` 命令，包括 `Program.cs`。 這個檔案是您將放置應用程式程式碼的地方。 開啟 `Program.cs`，並取代現有的 using 陳述式。 這些陳述式可確保您有權存取建置和執行範例應用程式所需的所有類型。
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
-{
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/lookup?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-
-        async static void Lookup()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Lookup();
-            Console.ReadLine();
-        }
-    }
-}
 ```
 
-## <a name="dictionary-lookup-response"></a>Dictionary Lookup 回應
+## <a name="create-a-function-to-get-alternate-translations"></a>建立可取得替代翻譯的函式
 
-成功的回應會以 JSON 格式傳回，如下列範例所示：
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
-        ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## <a name="dictionary-examples-request"></a>Dictionary Examples 要求
-
-下列程式碼會使用 [Dictionary Examples](./reference/v3-0-dictionary-examples.md) 方法，以取得如何在字典中使用字詞的內容相關範例。
-
-1. 在您最愛的 IDE 中建立新的 C# 專案。
-2. 新增下方提供的程式碼。
-3. 以訂用帳戶有效的存取金鑰來取代 `key` 值。
-4. 執行程式。
+在 `Program` 類別內建立稱為 `AltTranslation` 的函式。 這個類別會封裝用來呼叫 Dictionary 資源的程式碼，並將結果輸出至主控台。
 
 ```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
+static void AltTranslation()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/examples?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-        static string translation = "formidable";
-
-        async static void Examples()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text, Translation = translation } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Examples();
-            Console.ReadLine();
-        }
-    }
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
 }
 ```
 
-## <a name="dictionary-examples-response"></a>Dictionary Examples 回應
+## <a name="set-the-subscription-key-host-name-and-path"></a>設定訂用帳戶金鑰、主機名稱和路徑
 
-成功的回應會以 JSON 格式傳回，如下列範例所示：
+將這些行新增至 `AltTranslation` 函式。 您會注意到，連同 `api-version` ，已將兩個額外參數附加到 `route`。 這些參數用來設定翻譯輸入和輸出。 在此範例中為英文 (`en`) 和西班牙文 (`es`)。
+
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+接下來，我們需要建立及序列化 JSON 物件，該物件包含您要翻譯的文字。 請記住，您可以在 `body` 陣列中傳遞多個物件。
+
+```csharp
+System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
+var requestBody = JsonConvert.SerializeObject(body);
+```
+
+## <a name="instantiate-the-client-and-make-a-request"></a>將用戶端具現化並提出要求
+
+這幾行會將 `HttpClient` 和 `HttpRequestMessage` 具現化：
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## <a name="construct-the-request-and-print-the-response"></a>建構要求並列印回應
+
+在 `HttpRequestMessage` 內，您將會：
+
+* 宣告 HTTP 方法
+* 建構要求 URI
+* 插入要求本文 (序列化的 JSON 物件)
+* 新增必要的標頭
+* 提出非同步要求
+* 列印回應
+
+將下列程式碼新增至 `HttpRequestMessage`：
+
+```csharp
+// Set the method to POST
+request.Method = HttpMethod.Post;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the serialized JSON object to your request
+request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## <a name="put-it-all-together"></a>組合在一起
+
+最後一個步驟是在 `Main` 中呼叫 `AltTranslation()`。 找出 `static void Main(string[] args)` 並新增下列幾行：
+
+```csharp
+AltTranslation();
+Console.ReadLine();
+```
+
+## <a name="run-the-sample-app"></a>執行範例應用程式
+
+就這樣，您準備要執行範例應用程式。 從命令列 (或終端機工作階段)，請瀏覽至您的專案目錄，然後執行：
+
+```console
+dotnet run
+```
+
+## <a name="sample-response"></a>範例回應
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
+        ]
+    }
 ]
 ```
+
+## <a name="clean-up-resources"></a>清除資源
+
+請務必從您的範例應用程式來源程式碼中移除任何機密資訊，例如訂用帳戶金鑰。
 
 ## <a name="next-steps"></a>後續步驟
 
-瀏覽本快速入門及其他文件的範例程式碼，包括翻譯和音譯，以及 GitHub 上的其他「翻譯工具文字」專案範例。
+瀏覽本快速入門及其他文件的範例程式碼，包括音譯和語言識別，以及 GitHub 上的其他「翻譯工具文字」專案範例。
 
 > [!div class="nextstepaction"]
 > [瀏覽 GitHub 上的 C# 範例](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## <a name="see-also"></a>另請參閱
+
+* [翻譯文字](quickstart-csharp-translate.md)
+* [進行文字音譯](quickstart-csharp-transliterate.md)
+* [從輸入識別語言](quickstart-csharp-detect.md)
+* [取得支援的語言清單](quickstart-csharp-languages.md)
+* [從輸入判斷句子長度](quickstart-csharp-sentences.md)

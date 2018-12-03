@@ -1,6 +1,6 @@
 ---
 title: 將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
-description: 在本教學課程中，您會了解如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 容器應用程式的持續整合和部署。
+description: 在本教學課程中，您會了解如何使用 Visual Studio Azure DevOps 設定 Azure Service Fabric 容器應用程式的持續整合和部署。
 services: service-fabric
 documentationcenter: .net
 author: TylerMSFT
@@ -15,23 +15,23 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: a7cb139da2cdbfb187a62eeadc707f7206de8a34
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300179"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443486"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
 
-本教學課程是系列中的第二部分，說明如何使用 Visual Studio Team Services (VSTS) 設定 Azure Service Fabric 容器應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric](service-fabric-host-app-in-a-container.md) 中建立的應用程式會作為範例。
+本教學課程是系列中的第二部分，說明如何使用 Visual Studio 和 Azure DevOps 設定 Azure Service Fabric 容器應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[將 Windows 容器中的 .NET 應用程式部署到 Azure Service Fabric](service-fabric-host-app-in-a-container.md) 中建立的應用程式會作為範例。
 
 在本系列的第二部分中，您將瞭解如何：
 
 > [!div class="checklist"]
 > * 將原始檔控制新增至專案
-> * 在 Team Services 中建立組建定義
-> * 在 Team Services 中建立發行定義
+> * 在 Visual Studio Team Explorer 中建立組建定義
+> * 在 Visual Studio Team Explorer 中建立發行定義
 > * 自動部署和升級應用程式
 
 ## <a name="prerequisites"></a>必要條件
@@ -43,23 +43,23 @@ ms.locfileid: "51300179"
 
 ## <a name="prepare-a-publish-profile"></a>下載發行設定檔
 
-您現在已經[部署容器應用程式](service-fabric-host-app-in-a-container.md)，接下來可以設定持續整合。  首先，在應用程式中準備部署程序使用的發行設定檔 (於 Team Services 內執行)。  發行設定檔應設定為以先前建立的叢集為目標。  啟動 Visual Studio，並開啟現有的 Service Fabric 應用程式專案。  在 [方案總管] 中，以滑鼠右鍵按一下應用程式並選取 [發佈...]。
+您現在已經[部署容器應用程式](service-fabric-host-app-in-a-container.md)，接下來可以設定持續整合。  首先，在應用程式中準備部署程序使用的發行設定檔 (於 Azure DevOps 內執行)。  發行設定檔應設定為以先前建立的叢集為目標。  啟動 Visual Studio，並開啟現有的 Service Fabric 應用程式專案。  在 [方案總管] 中，以滑鼠右鍵按一下應用程式並選取 [發佈...]。
 
-在您的應用程式專案內選擇要使用於持續整合工作流程 (例如雲端) 的目標設定檔。  指定叢集連線端點。  勾選**升級應用程式**核取方塊，讓您的應用程式對於 Team Services 中的每個部署升級。  按一下 [儲存] 超連結，將設定儲存至發行設定檔，然後按一下 [取消] 關閉對話方塊。
+在您的應用程式專案內選擇要使用於持續整合工作流程 (例如雲端) 的目標設定檔。  指定叢集連線端點。  勾選**升級應用程式**核取方塊，讓您的應用程式對於 Azure DevOps 中的每個部署升級。  按一下 [儲存] 超連結，將設定儲存至發行設定檔，然後按一下 [取消] 關閉對話方塊。
 
 ![推送設定檔][publish-app-profile]
 
-## <a name="share-your-visual-studio-solution-to-a-new-team-services-git-repo"></a>向新的 Team Services Git 儲存機制共用 Visual Studio 解決方案
+## <a name="share-your-visual-studio-solution-to-a-new-azure-devops-git-repo"></a>向新的 Azure DevOps Git 儲存機制共用 Visual Studio 解決方案
 
-向 Team Services 中的小組專案共用應用程式原始檔，以便產生組建。
+向 Azure DevOps 中的 Team 專案共用應用程式原始檔，以便產生組建。
 
 Visual Studio 右上角的狀態列上，選取 [新增至原始檔控制] -> [Git]，建立專案的新本機 Git 儲存機制。
 
-在 [Team Explorer] 的 [推送] 檢視中，選取 [推送至 Visual Studio Team Services] 下的 [發佈 Git 儲存機制] 按鈕。
+在 [Team Explorer] 的 [推送] 檢視中，選取 [推送至 Azure DevOps] 下的 [發佈 Git 儲存機制] 按鈕。
 
 ![推送 Git 儲存機制][push-git-repo]
 
-確認您的電子郵件，並在 [Team Services 網域] 下拉式清單選取您的帳戶。 輸入您的儲存機制名稱，並選取 [發佈儲存機制]。
+確認電子郵件，並在 [帳戶] 下拉式清單中選取組織。 如果您還沒有組織，請先設定一個。 輸入您的儲存機制名稱，並選取 [發佈儲存機制]。
 
 ![推送 Git 儲存機制][publish-code]
 
@@ -67,22 +67,22 @@ Visual Studio 右上角的狀態列上，選取 [新增至原始檔控制] -> [G
 
 ## <a name="configure-continuous-delivery-with-vsts"></a>設定 VSTS 的持續傳遞
 
-Team Services 組建定義描述由一組循序執行的組建步驟所組成的工作流程。 建立產生 Service Fabric 應用程式封裝的組建定義，以及其他構件，以便部署到 Service Fabric 叢集。 深入了解 [Team Services 組建定義](https://www.visualstudio.com/docs/build/define/create)。 
+Azure DevOps 組建定義描述由一組循序執行的組建步驟所組成的工作流程。 建立產生 Service Fabric 應用程式封裝的組建定義，以及其他構件，以便部署到 Service Fabric 叢集。 深入了解 [Azure DevOps 組建定義](https://www.visualstudio.com/docs/build/define/create)。 
 
-Team Services 發行定義描述將應用程式封裝部署到叢集的工作流程。 一起使用時，組建定義和發行定義可以執行整個工作流程，從來源檔案開始，並以叢集中的執行中應用程式結束。 深入了解 Team Services [發行定義](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
+Azure DevOps 發行定義描述將應用程式封裝部署到叢集的工作流程。 一起使用時，組建定義和發行定義可以執行整個工作流程，從來源檔案開始，並以叢集中的執行中應用程式結束。 深入了解 Azure DevOps [發行定義](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
 
 ### <a name="create-a-build-definition"></a>建立組建定義
 
-開啟網頁瀏覽器並瀏覽至新的 Team 專案，網址為：[https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting)。
+在網頁瀏覽器中瀏覽至 https://dev.azure.com 並選取您的組織，然後選取新增專案以開啟新的 Team 專案。 
 
-選取 [組建與發行] 索引標籤，再選取 [組建]，然後按一下 [新增管線]。
+選取左窗格中的 [管線] 選項，然後按一下 [新增管線]。
 
 >[!NOTE]
 >如果您未看到組建定義範本，請確定 [新的 YAML 管線建立體驗] 功能已關閉。 這項功能設定於 DevOps 帳戶的 [預覽功能] 區段內。
 
 ![新增管線][new-pipeline]
 
-選取 **VSTS Git** 作為來源，然後依序選取**投票** Team 專案、**投票**存放庫、**主要**預設分支或手動和排程組建。  然後按一下 [繼續]。
+選取 [Azure Repos Git] 作為來源，然後依序選取 Team 專案名稱、專案存放庫、**主要**預設分支或手動和排程組建。  然後按一下 [繼續]。
 
 在 [選取範本] 中，選取 [含 Docker 支援的 Azure Service Fabric 應用程式] 範本，然後按一下 [套用]。
 
@@ -104,7 +104,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 ![選取 Docker Push 映像][select-push-images]
 
-在 [觸發程序] 下方，透過核取 [啟用持續整合] 來啟用持續整合。 在 [分支篩選] 內按一下 [+ 新增]，[分支規格] 將會預設為 [主要]。
+在 [觸發程序] 索引標籤下方，透過核取 [啟用持續整合] 來啟用持續整合。 在 [分支篩選] 內按一下 [+ 新增]，[分支規格] 將會預設為 [主要]。
 
 在 [儲存組建管線和佇列] 對話方塊中，按一下 [儲存並加入佇列] 以手動啟動組建。
 
@@ -114,7 +114,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 ### <a name="create-a-release-definition"></a>建立發行定義
 
-依序選取 [組建與發行] 索引標籤、[版本]，以及 [+ 新增管線]。  在 [選取範本] 中，從清單中選取 [Azure Service Fabric 部署] 範本，然後選取 [套用]。
+選取左窗格中的 [管線] 選項，然後依序選取 [發行] 和 [+ 新增管線]。  在 [選取範本] 中，從清單中選取 [Azure Service Fabric 部署] 範本，然後選取 [套用]。
 
 ![選擇發行範本][select-release-template]
 
@@ -151,7 +151,7 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>認可並推送變更，觸發發行程序
 
-簽入某些程式碼變更至 Team Services，確認持續整合管線正常運作。
+將某些程式碼變更簽入到 Azure DevOps，以確認持續整合管線正常運作。
 
 您撰寫程式碼時，Visual Studio 會自動追蹤您的變更。 認可本機 Git 儲存機制的變更，方法是從右下方的狀態列選取暫止變更圖示 (![Pending][pending])。
 
@@ -159,11 +159,11 @@ Team Services 發行定義描述將應用程式封裝部署到叢集的工作流
 
 ![全部認可][changes]
 
-選取 [未發行的變更] 狀態列圖示 (![未發行的變更][unpublished-changes]) 或 Team Explorer 中的 [同步] 檢視。 選取 [推送] 更新 Team Services/TFS 中的程式碼。
+選取 [未發行的變更] 狀態列圖示 (![未發行的變更][unpublished-changes]) 或 Team Explorer 中的 [同步] 檢視。 選取 [推送] 更新 Azure DevOps 中的程式碼。
 
 ![推送變更][push]
 
-自動將變更推送至 Team Services 觸發組建。  組建定義成功完成時，發行就會自動建立，並開始升級叢集上的應用程式。
+自動將變更推送至 Azure DevOps 觸發組建。  組建定義成功完成時，發行就會自動建立，並開始升級叢集上的應用程式。
 
 若要檢查組建進度，請切換到 **Team Explorer** Visual Studio 中的 [組建] 索引標籤。  您確認組建執行成功，請定義將應用程式部署至叢集的發行定義。
 

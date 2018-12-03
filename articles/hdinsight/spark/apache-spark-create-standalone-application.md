@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: 529dc37187f6709ecfa93bf3a6d71f053ba49103
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: d83c04946b67dd25bae306c2fa41a0864287bfc8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008958"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499313"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 上的 Spark 建立 Scala Maven 應用程式
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>教學課程：使用 IntelliJ 為 HDInsight 上的 Apache Spark 建立 Scala Maven 應用程式
 
-在本教學課程中，您將了解如何使用 Maven 與 IntelliJ IDEA 建立以 Scala 撰寫的 Spark 應用程式。 本文以 Apache Maven 作為建置系統，並且以 IntelliJ IDEA 為 Scala 提供的現有 Maven 原型作為起始點。  要在 IntelliJ IDEA 中建立 Scala 應用程式，必須執行下列步驟：
+在本教學課程中，您將了解如何使用 [Apache Maven](https://maven.apache.org/) 與 IntelliJ IDEA 建立以 [Scala](https://www.scala-lang.org/) 撰寫的 [Apache Spark](https://spark.apache.org/) 應用程式。 本文以 Apache Maven 作為建置系統，並且以 IntelliJ IDEA 為 Scala 提供的現有 Maven 原型作為起始點。  要在 IntelliJ IDEA 中建立 Scala 應用程式，必須執行下列步驟：
 
 * 以 Maven 做為建置系統。
 * 更新專案物件模型 (POM) 檔案，以解析 Spark 模組相依性。
@@ -27,7 +27,7 @@ ms.locfileid: "51008958"
 * 使用 Livy 在 Spark 叢集上執行應用程式。
 
 > [!NOTE]
-> HDInsight 也提供 IntelliJ IDEA 外掛程式工具，可簡化建立和提交應用程式至 Linux 上之 HDInsight Spark 叢集的程序。 如需詳細資訊，請參閱 [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Spark 應用程式](apache-spark-intellij-tool-plugin.md)。
+> HDInsight 也提供 IntelliJ IDEA 外掛程式工具，可簡化建立和提交應用程式至 Linux 上之 HDInsight Spark 叢集的程序。 如需詳細資訊，請參閱 [使用 IntelliJ IDEA 的 HDInsight Tools 外掛程式來建立和提交 Apache Spark 應用程式](apache-spark-intellij-tool-plugin.md)。
 > 
 
 在本教學課程中，您了解如何：
@@ -183,16 +183,16 @@ ms.locfileid: "51008958"
        
         ![建立 JAR](./media/apache-spark-create-standalone-application/output.png)
 
-## <a name="run-the-application-on-the-spark-cluster"></a>在 Spark 叢集上執行應用程式
+## <a name="run-the-application-on-the-apache-spark-cluster"></a>在 Apache Spark 叢集上執行應用程式
 若要在叢集上執行應用程式，您可以使用下列方法：
 
-* **將應用程式 jar 複製到與叢集相關聯的 Azure 儲存體 Blob** 。 您可以使用命令列公用程式 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 來執行此動作。 另外也有很多用戶端可用來上傳資料。 您可以在 [在 HDInsight 上將 Hadoop 作業的資料上傳](../hdinsight-upload-data.md)中找到其詳細資訊。
-* **使用 Livy 從遠端提交應用程式作業至** Spark 叢集。 HDInsight 上的 Spark 叢集包含會公開 REST 端點以從遠端提交 Spark 作業的 Livy。 如需詳細資訊，請參閱 [搭配 HDInsight 上的 Spark 叢集利用 Livy 遠端提交 Spark 作業](apache-spark-livy-rest-interface.md)。
+* **將應用程式 jar 複製到與叢集相關聯的 Azure 儲存體 Blob** 。 您可以使用命令列公用程式 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 來執行此動作。 另外也有很多用戶端可用來上傳資料。 [在 HDInsight 上將 Apache Hadoop 作業的資料上傳](../hdinsight-upload-data.md)中可找到其詳細資訊。
+* **使用 Apache Livy 從遠端提交應用程式作業至** Spark 叢集。 HDInsight 上的 Spark 叢集包含會公開 REST 端點以從遠端提交 Spark 作業的 Livy。 如需詳細資訊，請參閱 [搭配 HDInsight 上的 Spark 叢集利用 Apache Livy 遠端提交 Apache Spark 作業](apache-spark-livy-rest-interface.md)。
 
 ## <a name="next-step"></a>後續步驟
 
-在本文中，您已了解如何建立 Spark Scala 應用程式。 前往下篇文章，了解如何使用 Livy 在 HDInsight Spark 叢集上執行此應用程式。
+在本文中，您已了解如何建立 Apache Spark Scala 應用程式。 前往下篇文章，了解如何使用 Livy 在 HDInsight Spark 叢集上執行此應用程式。
 
 > [!div class="nextstepaction"]
->[利用 Livy 在 Spark 叢集上遠端執行作業](./apache-spark-livy-rest-interface.md)
+>[利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](./apache-spark-livy-rest-interface.md)
 

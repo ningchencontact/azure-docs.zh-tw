@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 70a7829c14997287ed130b0b4300c7f5aa0f3a30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: e4489fd9119bce0e38e14f536f41940b74205e95
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345567"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52424998"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教學課程：使用 Azure Deployment Manager 搭配 Resource Manager 範本 (個人預覽版)
 
@@ -41,6 +41,8 @@ ms.locfileid: "51345567"
 > * 部署較新版本
 > * 清除資源
 
+在[這裡](https://docs.microsoft.com/rest/api/deploymentmanager/)可以找到 Azure 部署管理員 REST API 參考。
+
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="prerequisites"></a>必要條件
@@ -50,12 +52,12 @@ ms.locfileid: "51345567"
 * 開發 [Azure Resource Manager 範本](./resource-group-overview.md)的某些體驗。
 * Azure Deployment Manager 為個人預覽版。 若要使用 Azure 部署管理員進行註冊，請填寫[註冊表](https://aka.ms/admsignup)。 
 * Azure PowerShell。 如需詳細資訊，請參閱[開始使用 Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
-* 部署管理員 Cmdlet。 若要安裝這些發行前版本的 Cmdlet，您需要最新版的 PowerShellGet。 若要取得最新版本，請參閱[安裝 PowerShellGet](/powershell/gallery/installing-psget)。 安裝 PowerShellGet 之後，請關閉 PowerShell 視窗。 開啟新的 PowerShell 視窗，並使用下列命令：
+* 部署管理員 Cmdlet。 若要安裝這些發行前版本的 Cmdlet，您需要最新版的 PowerShellGet。 若要取得最新版本，請參閱[安裝 PowerShellGet](/powershell/gallery/installing-psget)。 安裝 PowerShellGet 之後，請關閉 PowerShell 視窗。 開啟已提升權限的新 PowerShell 視窗，然後使用下列命令：
 
     ```powershell
     Install-Module -Name AzureRM.DeploymentManager -AllowPrerelease
     ```
-* [Microsoft Azure 儲存體總管](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409)。 您不一定要使用 Azure 儲存體總管，但若使用操作會更輕鬆。
+* [Microsoft Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)。 您不一定要使用 Azure 儲存體總管，但若使用操作會更輕鬆。
 
 ## <a name="understand-the-scenario"></a>了解案例
 
@@ -145,10 +147,10 @@ ms.locfileid: "51345567"
 您必須建立使用者指派的受控識別，並為您的訂用帳戶設定存取控制。
 
 > [!IMPORTANT]
-> 使用者指派的受控識別必須位於與[首度發行](#create-the-rollout-template)相同的位置。 目前，部署管理員資源 (包括首度發行) 只能在美國中部或美國東部 2 建立。
+> 使用者指派的受控識別必須位於與[首度發行](#create-the-rollout-template)相同的位置。 目前，部署管理員資源 (包括首度發行) 只能在美國中部或美國東部 2 建立。 不過，這只適用於 Deployment Manager 資源 (例如服務拓撲、服務、服務單位、首度發行、和步驟)。 您的目標資源可以部署到任何支援的 Azure 區域。 例如，在本教學課程中，Deployment Manager 資源會部署到美國中部，但服務會部署到美國東部和美國西部。 未來將會提高此限制。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 建立[使用者指派的受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
+2. 建立[使用者指派的受控識別](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
 3. 在入口網站中，從左側功能表中選取 [訂用帳戶]，然後選取您的訂用帳戶。
 4. 選取 [存取控制 (IAM)]，然後選取 [新增]
 5. 輸入或選取下列值：
@@ -200,6 +202,9 @@ ms.locfileid: "51345567"
 - **dependsOn**：所有的服務拓撲資源皆相依於成品來源資源。
 - **artifacts** 指向範本成品。  本文使用相對路徑。 完整路徑由 artifactSourceSASLocation (定義於成品來源中)、artifactRoot (定義於成品來源中) 和 templateArtifactSourceRelativePath (或 parametersArtifactSourceRelativePath) 串連建構而成。
 
+> [!NOTE]
+> 服務單位名稱必須包含 31 個或更少字元。 
+
 ### <a name="topology-parameters-file"></a>拓撲參數檔案
 
 您必須建立用於拓樸範本的參數檔案。
@@ -242,7 +247,7 @@ ms.locfileid: "51345567"
 
 在根層級上有三個已定義的資源：成品來源、步驟和首度發行。
 
-成品來源定義與拓樸範本中定義的完全相同。  如需詳細資訊，請參閱[建立服務拓撲範本](#create-the-service-topology-tempate)。
+成品來源定義與拓樸範本中定義的完全相同。  如需詳細資訊，請參閱[建立服務拓撲範本](#create-the-service-topology-template)。
 
 下列螢幕擷取畫面顯示等候步驟定義：
 
@@ -310,7 +315,7 @@ Azure PowerShell 可用來部署範本。
 
     必須選取 [顯示隱藏的類型] 才能檢視資源。
 
-3. 部署首度發行範本：
+3. <a id="deploy-the-rollout-template"></a>部署首度發行範本：
 
     ```azurepowershell-interactive
     # Create the rollout
@@ -325,7 +330,7 @@ Azure PowerShell 可用來部署範本。
 
     ```azurepowershell-interactive
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>"
+    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzureRmDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName
@@ -365,7 +370,7 @@ Azure PowerShell 可用來部署範本。
 
 1. 開啟 CreateADMRollout.Parameters.json。
 2. 將 **binaryArtifactRoot** 更新為 **binaries/1.0.0.1**。
-3. 依照[部署範本](#deploy-the-templates)中的指示重新部署首度發行。
+3. 依照[部署範本](#deploy-the-rollout-template)中的指示重新部署首度發行。
 4. 依照[驗證部署](#verify-the-deployment)中的指示驗證部署。 網頁應該會顯示 1.0.0.1 版本。
 
 ## <a name="clean-up-resources"></a>清除資源

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 06/11/2018
 ms.author: v-gedod
-ms.openlocfilehash: 935241d5574a59edfa256b74db3a0aeab2f7bf91
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9f2a6d9b75ccf704862d169b96ea1a1f2edb9815
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458100"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445679"
 ---
 # <a name="quickstart-bing-visual-search-sdk-python"></a>快速入門：Bing 圖像式搜尋 SDK Python
 
@@ -30,8 +30,17 @@ Bing 圖像式搜尋 SDK 使用 Web 要求和剖析結果的 REST API 功能。
 * [標記、動作和 actionType](#tags-actions)
 
 ## <a name="application-dependencies"></a>應用程式相依性
-* 必須要有認知服務 API 金鑰才能驗證 SDK 呼叫。 申請[免費試用金鑰](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)。 試用金鑰可讓您以每秒 1 個呼叫的頻率使用 7 天。 針對生產案例，[請購買存取金鑰](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7)。 另請參閱[定價資訊](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/)。
-* 如果還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
+* 為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+
+若要在 Azure 入口網站中啟用訂用帳戶：
+1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
+2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
+3. 輸入新資源的 `Name`。
+4. 選取 `Pay-As-You-Go` 訂用帳戶。
+5. 選取 `S9` 定價層。
+6. 按一下 `Enable` 來啟用訂用帳戶。
+ 
+* 若還沒有 Python，請安裝。 SDK 可與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。
 * Python 開發的一般建議是使用[虛擬環境](https://docs.python.org/3/tutorial/venv.html)。 使用 [venv 模組](https://pypi.python.org/pypi/virtualenv) 安裝和初始化虛擬環境。 安裝適用於 Python 2.7 的 virtualenv。
 ```
 python -m venv mytestenv

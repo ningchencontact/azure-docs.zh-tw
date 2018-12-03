@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/14/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b592ac10d483bbf0ca058e87f819b8f67847c54e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 9bbff92b7706fd207894616b83580c4ddf85e5eb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296103"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444779"
 ---
 # <a name="tutorial-monitor-and-diagnose-an-aspnet-core-application-on-service-fabric-using-application-insights"></a>教學課程：使用 Application Insights 監視和診斷 Service Fabric 上的 ASP.NET Core 應用程式
 
@@ -79,6 +79,8 @@ Application Insights 是 Azure 的應用程式效能管理平台，也是 Servic
 1. 以滑鼠右鍵按一下服務名稱，然後按一下 [設定 Application Insights...]。
 
     ![設定 AI](./media/service-fabric-tutorial-monitoring-aspnet/configure-ai.png)
+>[!NOTE]
+>視專案類型而定，當您以滑鼠右鍵按一下服務名稱時，您可能需要按一下 [新增]-> [Application Insights 遙測...]
 
 2. 按一下 [開始免費試用]。
 3. 登入您的帳戶 (這也用來設定您的 Azure 訂用帳戶)，並選取您在其中建立 Application Insights 資源的訂用帳戶。 從 [資源] 下拉式清單中，在 [現有的 Application Insights 資源] 下尋找資源。 按一下 [註冊] 將 Application Insights 新增至您的服務。

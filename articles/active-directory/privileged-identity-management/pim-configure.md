@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 6720294fe9a3e166d0d6ef8f141e53212ef4b194
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465855"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496810"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>什麼是 Azure AD Privileged Identity Management？
 
@@ -73,7 +73,7 @@ Privileged Identity Management 支援下列案例：
 
 - 檢視待決的核准 (要求)
 - 核准或拒絕提高角色權限 (單一和/或大量) 的要求
-- 提供我的核准/拒絕理由 
+- 提供我的核准/拒絕理由 
 
 **身為合格角色使用者，您可以：**
 
@@ -81,22 +81,13 @@ Privileged Identity Management 支援下列案例：
 - 檢視要啟用之要求的狀態
 - 如果已核准啟用，在 Azure AD 中完成您的工作
 
-## <a name="enable-privileged-identity-management-for-your-directory"></a>啟用目錄的 Privileged Identity Management
+## <a name="who-can-do-what-in-pim"></a>PIM 中的角色與角色權限
 
-您可以在 [Azure 入口網站](https://portal.azure.com/)中開始使用 Azure AD Privileged Identity Management。
+如果您是使用 PIM 的第一人，則會自動獲指派目錄中的[安全性系統管理員](../users-groups-roles/directory-assign-admin-roles.md#security-administrator)和[特殊權限角色管理員](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)角色。
 
-> [!NOTE]
-> 您必須是具有組織帳戶 (例如 @yourdomain.com) 而非 Microsoft 帳戶 (例如 @outlook.com) 的全域管理員，才能啟用目錄的 Azure AD Privileged Identity Management。
+對於 Azure AD 角色，只有具特殊權限角色系統管理員角色的使用者可以管理 PIM 中其他系統管理員的指派。 您可以[授與其他系統管理員存取權以管理 PIM](pim-how-to-give-access-to-pim.md)。 全域管理員、安全性系統管理員和安全性讀取者可以在 PIM 中檢視 Azure AD 角色指派。
 
-1. 以目錄的全域系統管理員身分登入 [Azure 入口網站](https://portal.azure.com/) 。
-2. 如果貴組織有多個目錄，請選取 Azure 入口網站右上角的使用者名稱。 選取您將在其中使用 Azure AD Privileged Identity Management 的目錄。
-3. 選取 [所有服務] 並使用 [篩選器] 文字方塊來搜尋 [Azure AD Privileged Identity Management]。
-4. 選取 [釘選到儀表板]，然後按一下 [建立]。 Privileged Identity Management 應用程式隨即開啟。
-
-如果您是在目錄中第一個使用 Azure AD Privileged Identity Management 的人，並且瀏覽至 Azure AD 目錄角色，則[安全性精靈](pim-security-wizard.md)會引導您完成初始指派體驗。 之後，您就會自動成為目錄的第一個「安全性系統管理員」和「特殊權限角色管理員」。
-
-對於 Azure AD 角色，只有具特殊權限角色系統管理員角色的使用者可以管理 Azure AD PIM 中其他系統管理員的指派。 您可以[在 PIM 中為其他使用者提供管理目錄角色的能力](pim-how-to-give-access-to-pim.md)。 全域管理員、安全性系統管理員和安全性讀取者可以在 Azure AD PIM 中檢視 Azure AD 角色指派。
-對於 Azure RBAC 角色，只有訂用帳戶管理員、資源擁有者、或資源使用者存取系統管理員可以管理 Azure AD PIM 中其他系統管理員的指派。  作為特殊權限角色系統管理員、安全性系統管理員或安全性讀取者的使用者，依預設沒有存取權限可檢視 Azure AD PIM 中的 Azure RBAC 角色指派。
+對於 Azure 資源角色，只有訂用帳戶管理員、資源擁有者、或資源使用者存取系統管理員可以管理 PIM 中其他系統管理員的指派。 作為特殊權限角色系統管理員、安全性系統管理員或安全性讀取者的使用者，依預設沒有存取權限可檢視 PIM 中的 Azure 資源角色指派。
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Privileged Identity Management 概觀 (進入點)
 
@@ -150,7 +141,7 @@ Azure AD Privileged Identity Manager 有一個管理員儀表板可提供重要�
 
 ![PIM 設定 - 系統管理員啟動 - 螢幕擷取畫面](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
-請注意，此影像中已停用 [Multi-Factor Authentication] 的按鈕。 針對某些高特殊權限的角色，我們會要求使用 MFA 來增強防護。
+請注意，此影像中已停用 [Multi-Factor Authentication]  的按鈕。 針對某些高特殊權限的角色，我們會要求使用 MFA 來增強防護。
 
 Azure 資源角色的角色設定允許系統管理員設定 Just-In-Time 及直接指派設定，包括：
 
@@ -163,7 +154,7 @@ Azure 資源角色的角色設定允許系統管理員設定 Just-In-Time 及直
 
 ## <a name="role-activation"></a>角色啟用
 
-為了 [啟用角色](pim-how-to-activate-role.md)，合格系統管理員會為角色要求一個有時效性的「啟用」。 使用 Azure AD 特殊權限身分識別管理中的 [啟用我的角色] 選項，即可要求啟用。
+為了 [啟用角色](pim-how-to-activate-role.md)，合格系統管理員會為角色要求一個有時效性的「啟用」。 使用 Azure AD 特殊權限身分識別管理中的 [ **啟用我的角色** ] 選項，即可要求啟用。
 
 想要啟用角色的管理員必須在 Azure 入口網站中初始化 Azure AD Privileged Identity Management。
 
@@ -177,7 +168,7 @@ Azure 資源角色的角色設定允許系統管理員設定 Just-In-Time 及直
 
 ![PIM 啟動歷程記錄 - 螢幕擷取畫面](./media/pim-configure/PIM_ActivationHistory.png)
 
-第二個選項是設定標準[存取檢閱](pim-how-to-start-security-review.md)。 這些存取檢閱可以由指派的檢閱者 (例如團隊經理) 來執行或者員工可以檢閱自己。 如此來監視誰仍需要或不再需要存取是最佳的方式。
+第二個選項是設定標準 [存取檢閱](pim-how-to-start-security-review.md)。 這些存取檢閱可以由指派的檢閱者 (例如團隊經理) 來執行或者員工可以檢閱自己。 如此來監視誰仍需要或不再需要存取是最佳的方式。
 
 ## <a name="azure-ad-pim-at-subscription-expiration"></a>訂用帳戶過期時的 Azure AD PIM
 
@@ -186,6 +177,6 @@ Azure 資源角色的角色設定允許系統管理員設定 Just-In-Time 及直
 
 ## <a name="next-steps"></a>後續步驟
 
+- [開始使用 PIM](pim-getting-started.md)
 - [使用 PIM 的訂用帳戶需求](subscription-requirements.md)
-- [您可以在 PIM 中管理的 Azure AD 目錄角色](pim-roles.md)
 - [在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

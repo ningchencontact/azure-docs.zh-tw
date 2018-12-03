@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/17/2018
+ms.date: 11/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 78e56286e0dec3307c7481a6097c53a1362f57cc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393825"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52427517"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教學課程：連接 Azure 資料箱的纜線並且連線
 
@@ -30,7 +30,9 @@ ms.locfileid: "49393825"
 在您開始前，請確定：
 
 1. 您已完成[教學課程：訂購 Azure 資料箱](data-box-deploy-ordered.md)。
-2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。 黏貼到裝置目前標籤下的透明袋中有出貨標籤。 請妥善保存此標籤，您會在退貨時用到。
+2. 您已收到資料箱，且入口網站中的訂購狀態為 [已交付]。 
+    - 黏貼到裝置目前標籤下的透明袋中有出貨標籤。 請妥善保存此標籤，您會在退貨時用到。
+    - 歐洲境內某些區域可能會收到封裝在盒子裡的裝置。 打開裝置包裝後，請保留盒子以在送回裝置時使用。
 3. 您已檢閱[資料箱安全指導方針](data-box-safety.md)。
 4. 您已收到一條用於 100 TB 儲存體裝置的接地電源線。
 5. 您有一部主機電腦，其中包含要複製到資料箱的資料。 您的主機電腦必須符合下列條件：

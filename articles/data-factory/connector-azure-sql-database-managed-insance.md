@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 11/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 87ca7c10095f12c82137b6287fbb895c97676062
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 561e672436c38cd0b3e637b794662483fc630676
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458984"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706716"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 受控執行個體及從該處複製資料
 
@@ -115,7 +115,7 @@ ms.locfileid: "49458984"
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 資料集的類型屬性必須設定為：**SqlServerTable** | 是 |
-| tableName |資料庫執行個體中連結服務所參考的資料表或檢視的名稱。 | 是 |
+| tableName |資料庫執行個體中連結服務所參考的資料表或檢視的名稱。 | 否 (來源)；是 (接收) |
 
 **範例**
 
@@ -155,7 +155,6 @@ ms.locfileid: "49458984"
 
 - 如果為 SqlSource 指定 **sqlReaderQuery**，複製活動就會針對受控執行個體來源執行此查詢來取得資料。 或者，您可以藉由指定 **sqlReaderStoredProcedureName** 和 **storedProcedureParameters** (如果預存程序接受參數) 來指定預存程序。
 - 如果您未指定 "sqlReaderQuery" 或 "sqlReaderStoredProcedureName" 屬性，就會使用資料集 JSON 的 "structure" 區段中定義的資料行，來建構要針對受控執行個體執行的查詢 (`select column1, column2 from mytable`)。 如果資料集定義沒有 "structure"，則會從資料表中選取所有資料行。
-- 當您使用 **sqlReaderStoredProcedureName** 時，仍然必須在資料集 JSON 中指定一個虛設的 **tableName**。
 
 **範例：使用 SQL 查詢**
 

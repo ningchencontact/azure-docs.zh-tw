@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b468240d1a9aaf0511358433a8beee7e6442e145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4d8a95ee4afc844868cfda78087773a6a37c07c2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445016"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445424"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>教學課程：在 Azure App Service 中裝載具有 CORS 支援的 RESTful API
 
@@ -175,6 +175,9 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 ```
 
 您可以在 `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`) 中設定多個用戶端 URL。 您也可以使用 `"['*']"` 來啟用所有的用戶端 URL。
+
+> [!NOTE]
+> 如果您的應用程式需要傳送認證，例如 Cookie 或驗證權杖，則瀏覽器可能會在回應上要求 `ACCESS-CONTROL-ALLOW-CREDENTIALS` 標頭。 若要在 App Service 中啟用此作業，請在 CORS 組態中將 `properties.cors.supportCredentials` 設定為 `true`。當 `allowedOrigins` 包含 `'*'` 時，無法啟用此作業。
 
 ### <a name="test-cors-again"></a>再次測試 CORS
 

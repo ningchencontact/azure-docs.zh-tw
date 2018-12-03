@@ -9,22 +9,22 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eac44d3b8daae27afec8aa24f4767bdb5dbf991a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a730f6ccba9f935855b233ca804a8180aa7f504b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239554"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580554"
 ---
-# <a name="tutorial-build-a-spark-machine-learning-application-in-hdinsight"></a>教學課程：在 HDInsight 中建置 Spark 機器學習應用程式 
+# <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教學課程：在 HDInsight 中建置 Apache Spark 機器學習應用程式 
 
-在本教學課程中，您將了解如何使用 Jupyter Notebook 為 Azure HDInsight 建置 Apache Spark 機器學習應用程式。 
+在本教學課程中，您將了解如何使用 [Jupyter Notebook](https://jupyter.org/) 為 Azure HDInsight 建置 [Apache Spark](https://spark.apache.org/) 機器學習應用程式。 
 
 [MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可調整機器學習程式庫，由常見的學習演算法和公用程式 (包括分類、迴歸、群集、協同篩選、維度縮減，以及基礎最佳化基本項目) 所組成。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
-> * 開發 Spark 機器學習應用程式
+> * 開發 Apache Spark 機器學習應用程式
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -190,7 +190,7 @@ HDInsight 中的 Apache Spark 叢集包含 Anaconda 程式庫。 其中也包含
 
 在本教學課程中，您已了解如何：
 
-* 開發 Spark 機器學習應用程式
+* 開發 Apache Spark 機器學習應用程式
 
 繼續進行下一個教學課程，以了解如何將 IntelliJ IDEA 用於 Spark 作業。 
 

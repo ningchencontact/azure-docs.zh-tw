@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 如何在 Python 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器 | Microsoft Docs
+title: 教學課程 - 如何在 Python 中搭配使用 Azure Key Vault 與 Azure Windows 虛擬機器 | Microsoft Docs
 description: 教學課程：設定 ASP.NET Core 應用程式，以從 Key Vault 讀取祕密
 services: key-vault
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 863f3a8c18eab5b42b5f1377ca0f91f9740c06e7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 26b5b16e3eb016edbe53c3526e51c3aa44f307b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265964"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583579"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-python"></a>教學課程：如何在 Python 中搭配使用 Azure Key Vault 與 Azure Linux 虛擬機器
+# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>教學課程：如何在 Python 中搭配使用 Azure Key Vault 與 Azure Windows 虛擬機器
 
 Azure Key Vault 可協助您保護秘密，例如存取您的應用程式、服務和 IT 資源所需的 API 金鑰和資料庫連接字串。
 

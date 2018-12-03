@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
 ms.author: aahi
-ms.openlocfilehash: d810704d0f18915d805a4db46818df30147c8dfa
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c28a3097e8b0733db229fc10778d0ac77a3b0a7a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283275"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306365"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-python"></a>快速入門：使用適用於 Python 的 Bing Web 搜尋 SDK
 
@@ -25,8 +25,9 @@ Bing Web 搜尋 SDK 可讓您輕鬆地將 Bing Web 搜尋整合到 Python 應用
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../includes/bing-web-search-quickstart-signup.md)]
 
-## <a name="prerequisites"></a>必要條件
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
+## <a name="prerequisites"></a>必要條件
 Bing Web 搜尋 SDK 與 Python 2.7、3.3、3.4、3.5 和 3.6 相容。 建議在虛擬環境下使用此快速入門。
 
 * Python 2.7、3.3、3.4、3.5 或 3.6

@@ -10,18 +10,19 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: ad09c1d6f9e7cea1150ce1638c723c5c35d66a32
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 3050bc06c30c29efe7ba5294cbbee2aea1a6055b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284433"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311597"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>快速入門：搭配使用 Bing 拼字檢查 SDK 與 C#
 
 Bing 拼字檢查 SDK 包含了 REST API 用來進行拼字檢查的功能。
 
 ## <a name="application-dependencies"></a>應用程式相依性
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 若要使用 Bing 拼字檢查 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。 新增 `Microsoft.Azure.CognitiveServices.Language.SpellCheck` 套件。
 

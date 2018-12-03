@@ -8,15 +8,15 @@ ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ec952aa26d7bc6b185b425700080a4f474564b76
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 83829264f16fb295a1f5fa4f2efc74d8b35ec6eb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955804"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309186"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>在 Azure 檔案服務中建立檔案共用
-您可以使用 [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：
+您可以使用  [Azure 入口網站](https://portal.azure.com/)、Azure 儲存體 PowerShell Cmdlet、Azure 儲存體用戶端程式庫或 Azure 儲存體 REST API 來建立 Azure 檔案共用。 在本教學課程中，您將了解：
 * [如何使用 Azure 入口網站建立 Azure 檔案共用](#create-file-share-through-the-azure-portal)
 * [如何使用 Powershell 建立 Azure 檔案共用](#create-file-share-through-powershell)
 * [如何使用 CLI 建立 Azure 檔案共用](#create-file-share-through-command-line-interface-cli)
@@ -24,14 +24,14 @@ ms.locfileid: "46955804"
 ## <a name="prerequisites"></a>必要條件
 若要建立 Azure 檔案共用，您可以使用已經存在的儲存體帳戶，或[建立新的 Azure 儲存體帳戶](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要使用 PowerShell 建立 Azure 檔案共用，您需要儲存體帳戶的名稱與帳戶金鑰。 如果您打算使用 Powershell 或 CLI，您將需要儲存體帳戶金鑰。
 
-## <a name="create-file-share-through-the-azure-portal"></a>透過 Azure 入口網站建立檔案共用
+## <a name="create-a-file-share-through-the-azure-portal"></a>透過 Azure 入口網站建立檔案共用
 1. **前往 Azure 入口網站上的儲存體帳戶刀鋒視窗**：    
     ![儲存體帳戶刀鋒視窗](./media/storage-how-to-create-file-share/create-file-share-portal1.png)
 
 2. **按一下 [新增檔案共用] 按鈕**：    
     ![按一下 [新增檔案共用] 按鈕](./media/storage-how-to-create-file-share/create-file-share-portal2.png)
 
-3. **提供名稱和配額。目前的配額上限可以是 5 TiB**：    
+3. **提供名稱和配額。目前的配額最大值是 5 TiB**：    
     ![提供新檔案共用的名稱和所需的配額](./media/storage-how-to-create-file-share/create-file-share-portal3.png)
 
 4. **檢視新的檔案共用**：![檢視新的檔案共用](./media/storage-how-to-create-file-share/create-file-share-portal4.png)
@@ -42,12 +42,12 @@ ms.locfileid: "46955804"
 
 
 ## <a name="create-file-share-through-powershell"></a>透過 PowerShell 建立檔案共用
-若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。 如需安裝點和安裝指示的詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 。
+若要準備使用 PowerShell，請下載並安裝 Azure PowerShell Cmdlet。 如需安裝點和安裝指示的詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/) 。
 
 > [!Note]  
 > 建議您下載和安裝或升級至最新的 Azure PowerShell 模組。
 
-1. **建立儲存體帳戶和金鑰的內容** 內容包含儲存體帳戶名稱和帳戶金鑰。 如需從 [Azure 入口網站](https://portal.azure.com/)複製帳戶金鑰的指示，請參閱[儲存體帳戶存取金鑰](../common/storage-account-manage.md#access-keys)。
+1. **建立儲存體帳戶和金鑰的內容** 內容包含儲存體帳戶名稱和帳戶金鑰。 如需從  [Azure 入口網站](https://portal.azure.com/)複製帳戶金鑰的指示，請參閱 [儲存體帳戶存取金鑰](../common/storage-account-manage.md#access-keys)。
 
     ```powershell
     $storageContext = New-AzureStorageContext <storage-account-name> <storage-account-key>
@@ -60,14 +60,14 @@ ms.locfileid: "46955804"
     ```
 
 > [!Note]  
-> 您的檔案共用名稱必須是全部小寫。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱 [命名和參考共用、目錄、檔案及中繼資料](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
+> 您的檔案共用名稱必須是全部小寫。 如需有關為檔案共用與檔案命名的完整詳細資料，請參閱 [命名和參考共用、目錄、檔案及中繼資料](https://msdn.microsoft.com/library/azure/dn167011.aspx)。
 
 ## <a name="create-file-share-through-command-line-interface-cli"></a>透過命令列介面 (CLI) 建立檔案共用
-1. **若要準備使用命令列介面 (CLI)，請下載並安裝 Azure CLI**  
-    請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 和[開始使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
+1. **若要準備使用命令列介面 (CLI)，請下載並安裝 Azure CLI。**  
+    請參閱 [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 和[開始使用 Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)。
 
 2. **在您要建立共用的儲存體帳戶中，建立儲存體帳戶的連接字串。**  
-    使用下列範例中的儲存體帳戶名稱和資源群組來取代 ```<storage-account>``` 和 ```<resource_group>```：
+    使用下列範例中的儲存體帳戶名稱和資源群組來取代 ```<storage-account>``` 和 ```<resource_group>``` ：
 
    ```azurecli
     current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)

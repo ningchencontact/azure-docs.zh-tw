@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: b6cecdb2418be78c40ff08c53f98f4c709a47728
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 81bd7356579b3e4f7b82497bb2163c85374fd0d9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974404"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316322"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>快速入門：使用 Bing 影像搜尋 SDK 和 Java 來搜尋影像
 
@@ -24,6 +24,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch/Quickstart) 取得，其中含有其他錯誤處理和註釋。
 
 ## <a name="prerequisites"></a>必要條件
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 最新版的 [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 

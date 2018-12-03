@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415605"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445730"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -24,9 +24,9 @@ ms.locfileid: "50415605"
 
 | Windows 版本        | SMB 版本 | 可在 Azure VM 中掛接 | 可在內部部署環境掛接 |
 |------------------------|-------------|-----------------------|----------------------|
-| Windows Server 2019 (預覽)<sup>1</sup> | SMB 3.0 | 是 | 是 |
-| Windows 10<sup>2</sup> | SMB 3.0 | 是 | 是 |
-| Windows Server 半年度通道<sup>3</sup> | SMB 3.0 | 是 | 是 |
+| Windows Server 2019    | SMB 3.0 | 是 | 是 |
+| Windows 10<sup>1</sup> | SMB 3.0 | 是 | 是 |
+| Windows Server 半年度通道<sup>2</sup> | SMB 3.0 | 是 | 是 |
 | Windows Server 2016    | SMB 3.0     | 是                   | 是                  |
 | Windows 8.1            | SMB 3.0     | 是                   | 是                  |
 | Windows Server 2012 R2 | SMB 3.0     | 是                   | 是                  |
@@ -34,9 +34,8 @@ ms.locfileid: "50415605"
 | Windows 7              | SMB 2.1     | 是                   | 否                   |
 | Windows Server 2008 R2 | SMB 2.1     | 是                   | 否                   |
 
-<sup>1</sup>Windows Server 2019 (預覽) 可透過 [Windows Server Insiders 方案](https://insider.windows.com/for-business-getting-started-server/)取得。 雖然 Windows Server 2019 尚不支援用於生產環境，請讓我們知道除了 [Windows 疑難排解指南](storage-troubleshoot-windows-file-connection-problems.md)中所說明的問題，您是否有連線到 Azure 檔案共用的問題。  
-<sup>2</sup>Windows 10 版本 1507、1607、1703、1709 和 1803。  
-<sup>3</sup>Windows Server 版本 1709 和 1803。
+<sup>1</sup>Windows 10 版本 1507、1607、1703、1709、1803 和 1809。  
+<sup>2</sup>Windows Server 版本 1709 和 1803。
 
 > [!Note]  
 > 我們一律建議針對您的 Windows 版本採取最新的 KB。

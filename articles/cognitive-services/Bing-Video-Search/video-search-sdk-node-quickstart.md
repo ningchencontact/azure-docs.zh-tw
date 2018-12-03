@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: rosh
-ms.openlocfilehash: 9a2544fe5a3c0bac763b9aee79c36893ec56f351
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 985ddcff35a16c747fff34ed487c72744e1ee466
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686682"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313434"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-node"></a>快速入門：使用 Node 的 Bing 影片搜尋 SDK
 
@@ -24,6 +24,7 @@ Bing 影片搜尋 SDK 包含用於影片查詢和剖析結果的 REST API 功能
 [節點 Bing 影片搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js)可從 Git Hub 取得。
 
 ## <a name="application-dependencies"></a>應用程式相依性
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 若要使用 Bing 影片搜尋 SDK 來設定主控台應用程式：
 * 在開發環境中執行 `npm install ms-rest-azure`。

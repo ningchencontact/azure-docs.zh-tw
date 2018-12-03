@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 01/29/2018
 ms.author: rosh
-ms.openlocfilehash: 6cf7a16fa28602e5e3733741db8bfb7296882487
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bf8eece4b5afe34635d80a57cc12c26a8ed157d6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219935"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314127"
 ---
 # <a name="quickstart-bing-video-search-sdk-with-c"></a>快速入門：使用 C# 的 Bing 影片搜尋 SDK 
 
@@ -24,6 +24,7 @@ Bing 影片搜尋 SDK 包含用於 Web 要求以及剖析結果的 REST API 功�
 [C# Bing 影片搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingVideoSearch)可從 Git Hub 取得。
 
 ## <a name="application-dependencies"></a>應用程式相依性
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 若要使用 Bing 影片搜尋 SDK 來設定主控台應用程式，請在 Visual Studio 中瀏覽至 [方案總管] 中的 `Manage NuGet Packages` 選項。  新增 `Microsoft.Azure.CognitiveServices.Search.VideoSearch` 套件。
 

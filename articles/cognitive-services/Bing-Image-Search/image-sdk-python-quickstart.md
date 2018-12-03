@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 7afe19cf0167784a5c8b3e2751ec869a2664935d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a2a39049196e19d29d2b4d845b9cf756392013bf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296612"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315017"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-python"></a>快速入門：使用 Bing 影像搜尋 SDK 和 Python 來搜尋影像
 
@@ -23,7 +23,8 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 此範例的原始程式碼可從 [Github](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image-search-quickstart.py) 取得，其中含有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 * [Python 2.7 或 3.4](https://www.python.org/) 和更新版本。
 

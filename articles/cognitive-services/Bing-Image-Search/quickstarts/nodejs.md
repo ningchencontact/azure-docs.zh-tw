@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: 1584b3e0a1e1c560d42b5f8320d0e15ad6242918
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 189533e496e90dc072f33c9560275323ba5e62c4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294589"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312047"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-rest-api-and-nodejs"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Node.js 來傳送搜尋查詢
 
@@ -26,12 +26,14 @@ ms.locfileid: "46294589"
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingImageSearchv7Quickstart.js) 上有此範例的原始程式碼，其中還有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 最新版的 [Node.js](https://nodejs.org/en/download/)。
 
 * [JavaScript 要求程式庫](https://github.com/request/request)
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
@@ -102,7 +104,7 @@ ms.locfileid: "46294589"
 
 ## <a name="json-response"></a>JSON 回應
 
-來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 此範例回應已截斷而只顯示單一結果。
+來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 本範例回應已截斷而只顯示單一結果。
 
 ```json
 {

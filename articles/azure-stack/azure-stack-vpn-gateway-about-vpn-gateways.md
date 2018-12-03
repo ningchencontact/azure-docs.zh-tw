@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: d94b7f7f2f032278f71053e5de8bb2935af01f3f
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300144"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496207"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
 
@@ -117,6 +117,10 @@ Azure Stack 不支援專門搭配 Express Route 使用的超效能閘道 SKU。
 *附註 (1)* - VPN 輸送量不是網際網路上跨單位連線的保證輸送量。 這是可能的最大輸送量測量。  
 *附註 (2)* - 通道上限是每個 Azure Stack 部署的所有訂用帳戶總數。  
 *附註 (3)* - 基本 SKU 不支援 BGP 路由。
+
+>[!NOTE]
+>兩個 Azure Stack 部署之間只能建立一個站對站 VPN 連線。  這是因為平台中有限制，只允許單一 VPN 連線到相同的 IP 位址。  由於 Azure Stack 會利用多租用戶閘道，並對 Azure Stack 系統中的所有 VPN 閘道使用單一公用 IP，因此兩個 Azure Stack 系統之間可能只有一個 VPN 連線。  將多個站對站 VPN 連線連接到任何使用單一 IP 位址的 VPN 閘道也適用此限制。  Azure Stack 將不允許使用相同 IP 位址建立多個區域網路閘道資源。
+
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 2a441e3cd90eba8fc2b1201671047cfcd9d277a6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277727"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313807"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
-了解如何將 Kafka Producer 和 Consumer API 用於 HDInsight 上的 Kafka。
+了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka Producer 和 Consumer API。
 
 Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka Consumer API 可讓應用程式從叢集讀取資料流。
 
@@ -56,7 +56,7 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
 
 ## <a name="set-up-your-deployment-environment"></a>設定您的部署環境
 
-本教學課程需要 HDInsight 3.6 上的 Apache Kafka。 若要深入了解如何在 HDInsight 叢集上建立 Kafka，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md) 文件。
+本教學課程需要 HDInsight 3.6 上的 Apache Kafka。 若要深入了解如何建立 HDInsight 上的 Apache Kafka 叢集，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md) 文件。
 
 ## <a name="understand-the-code"></a>了解程式碼
 
@@ -171,7 +171,7 @@ consumer = new KafkaConsumer<>(properties);
         read -p 'Enter your Kafka cluster name:' CLUSTERNAME
         ```
     
-    2. 若要取得 Kafka 代理程式主機和 Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。
+    2. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。
     
         ```bash
         export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
@@ -227,8 +227,8 @@ Kafka 中儲存的記錄會依照其在資料分割內接收的順序儲存。 �
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，您會了解如何搭配 HDInsight 上的 Kafka 使用 Kafka Producer and Consumer API。 使用下列各項來深入了解 Kafka 的使用方式︰
+在本文件中，您會了解如何使用 Apache Kafka Producer 和 Consumer API 搭配 HDInsight 上的 Apache Kafka。 使用下列各項來深入了解 Kafka 的使用方式︰
 
-* [分析 Kafka 日誌](apache-kafka-log-analytics-operations-management.md)
-* [在Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
-* [採用 HDInsight 的 Kafka Streams API](apache-kafka-streams-api.md)
+* [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)
+* [在 Apache Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
+* [採用 HDInsight 的 Apache Kafka Streams API](apache-kafka-streams-api.md)

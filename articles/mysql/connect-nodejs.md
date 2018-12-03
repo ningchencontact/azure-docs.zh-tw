@@ -10,42 +10,42 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: e0edd31027480df3592b46a4c1246462611da26e
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 11/21/2018
+ms.openlocfilehash: f0e76dff32038ba53dbdf7f869f5a04e75316e12
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265324"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290700"
 ---
 # <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL︰使用 Node.js 連線及查詢資料
 本快速入門示範如何從 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/) 來連線到 Azure Database for MySQL。 它會顯示如何使用 SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。 本主題假設您已熟悉使用 Node.js 進行開發，但不熟悉適用於 MySQL 的 Azure 資料庫。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本快速入門使用在以下任一指南中建立的資源作為起點︰
 - [使用 Azure 入口網站建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-portal.md)
 - [使用 Azure CLI 建立適用於 MySQL 的 Azure 資料庫伺服器](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 您也需要：
 - 安裝 [Node.js](https://nodejs.org) 執行階段。
-- 安裝 [mysql2](https://www.npmjs.com/package/mysql2) 套件，以從 Node.js 應用程式連線至 MySQL。 
+- 安裝 [mysql](https://www.npmjs.com/package/mysql) 套件，以從 Node.js 應用程式連線至 MySQL。 
 
 ## <a name="install-nodejs-and-the-mysql-connector"></a>安裝 Node.js 和 MySQL 連接器
-根據您的平台，遵循適當小節中的指示來安裝 Node.js。 使用 npm 將 mysql2 套件及其相依性安裝到您的專案資料夾中。
+根據您的平台，遵循適當小節中的指示來安裝 Node.js。 使用 npm 將 mysql 套件及其相依性安裝到您的專案資料夾中。
 
 ### <a name="windows"></a>**Windows**
 1. 造訪 [Node.js 下載頁面](https://nodejs.org/en/download/) \(英文\)，然後選取您需要的 Windows 安裝程式選項。
 2. 建立本機專案資料夾，例如 `nodejsmysql`。 
 3. 啟動命令提示字元，然後將目錄變更為專案資料夾，例如 `cd c:\nodejsmysql\`
-4. 執行 NPM 工具將 mysql2 程式庫安裝至專案資料夾中。
+4. 執行 NPM 工具將 mysql 程式庫安裝至專案資料夾中。
 
    ```cmd
    cd c:\nodejsmysql\
-   "C:\Program Files\nodejs\npm" install mysql2
+   "C:\Program Files\nodejs\npm" install mysql
    "C:\Program Files\nodejs\npm" list
    ```
 
-5. 檢查 `mysql2@1.3.5` 的 `npm list` 輸出文字，以確認安裝。
+5. 檢查`npm list` 輸出文字，以確認安裝。 版本號碼可能會隨著新的修補檔案發行而有所不同。
 
 ### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 1. 執行下列命令，以安裝 **Node.js** 和適用於 Node.js 的 **npm** 套件管理員。
@@ -54,15 +54,15 @@ ms.locfileid: "35265324"
    sudo apt-get install -y nodejs npm
    ```
 
-2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql2 封裝安裝到該資料夾。
+2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql 封裝安裝到該資料夾。
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
-3. 檢查 `mysql2@1.3.5` 的 npm 清單輸出文字，以確認安裝。
+3. 檢查 npm 清單輸出文字，以確認安裝。 版本號碼可能會隨著新的修補檔案發行而有所不同。
 
 ### <a name="mac-os"></a>**Mac OS**
 1. 輸入下列命令以安裝 **brew**、適用於 Mac OS X 的簡易使用封裝管理員和 **Node.js**。
@@ -71,16 +71,16 @@ ms.locfileid: "35265324"
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
    brew install node
    ```
-2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql2 封裝安裝到該資料夾。
+2. 執行下列命令來建立專案資料夾 `mysqlnodejs`，然後將 mysql 封裝安裝到該資料夾。
 
    ```bash
    mkdir nodejsmysql
    cd nodejsmysql
-   npm install --save mysql2
+   npm install --save mysql
    npm list
    ```
 
-3. 檢查 `mysql2@1.3.6` 的 `npm list` 輸出文字，以確認安裝。 版本號碼可能會隨著新的修補檔案發行而有所不同。
+3. 檢查`npm list` 輸出文字，以確認安裝。 版本號碼可能會隨著新的修補檔案發行而有所不同。
 
 ## <a name="get-connection-information"></a>取得連線資訊
 取得連線到 Azure Database for MySQL 所需的連線資訊。 您需要完整的伺服器名稱和登入認證。
@@ -105,7 +105,7 @@ ms.locfileid: "35265324"
 將 `host`、`user`、`password` 和 `database` 參數取代為您在建立伺服器和資料庫時所指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -172,7 +172,7 @@ function queryDatabase(){
 將 `host`、`user`、`password` 和 `database` 參數取代為您在建立伺服器和資料庫時所指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -224,7 +224,7 @@ function readData(){
 將 `host`、`user`、`password` 和 `database` 參數取代為您在建立伺服器和資料庫時所指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {
@@ -272,7 +272,7 @@ function updateData(){
 將 `host`、`user`、`password` 和 `database` 參數取代為您在建立伺服器和資料庫時所指定的值。
 
 ```javascript
-const mysql = require('mysql2');
+const mysql = require('mysql');
 
 var config =
 {

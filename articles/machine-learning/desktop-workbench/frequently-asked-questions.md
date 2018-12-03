@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4785f87515663831b1177c6c0958d3d965351797
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 45cf987d9af7b7dd0e8f05056b49ba56835603e7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996565"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313929"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Azure Machine Learning 常見問題集
 
@@ -171,4 +171,4 @@ Workbench 中的資料準備工具目前支援從下列格式內嵌：
 
 **Azure Machine Learning 與 Microsoft Cognitive Toolkit 如何相關？**
 
-[Microsoft Cognitive Toolkit](https://www.microsoft.com/cognitive-toolkit/) 是我們新工具和服務所支援的眾多架構之一。 Cognitive Toolkit 是一個整合的深層學習工具組，可讓您取用和結合常用的機器學習模型，包括「前饋深層類神經網路」(Feed-Forward Deep Neural Networks)、卷積類神經網路 (Convolutional Nets)、「序列到序列」(Sequence-to-Sequence) 及「循環式網路網路」。 如需有關 Microsoft Cognitive Toolkit 的詳細資訊，請瀏覽我們的[產品文件](https://docs.microsoft.com/cognitive-toolkit/)。 
+[Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/) 是我們新工具和服務所支援的眾多架構之一。 Cognitive Toolkit 是一個整合的深層學習工具組，可讓您取用和結合常用的機器學習模型，包括「前饋深層類神經網路」(Feed-Forward Deep Neural Networks)、卷積類神經網路 (Convolutional Nets)、「序列到序列」(Sequence-to-Sequence) 及「循環式網路網路」。 如需有關 Microsoft Cognitive Toolkit 的詳細資訊，請瀏覽我們的[產品文件](https://docs.microsoft.com/cognitive-toolkit/)。 

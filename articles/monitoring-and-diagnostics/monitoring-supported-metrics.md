@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 5f6140b582b2412a164593bd2aa99bfbde5fb688
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0bb79c9d85e56308d9872baeb10868be8eaf7a5a
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964181"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824909"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>支援 Azure 監視器的計量
 Azure 監視器提供數種與計量進行互動的方式，包括在入口網站中製作計量圖表、透過 REST API 存取計量，或使用 PowerShell 或 CLI 查詢計量。 以下是目前可供 Azure 監視器計量管線使用的所有計量完整清單。 其他計量可在入口網站中或使用舊版 API 提供。 下列清單只包含使用彙總 Azure 監視器計量管線時可供使用的計量。 若要查詢及存取這些計量，請使用 [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -819,7 +819,7 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |IsEngineAnsweringQuery|保持運作|Count|平均值|例行性檢查指出對查詢的叢集回應|無維度|
 |IngestCommandOriginalSizeInMb|擷取量 (以 MB 為單位)|Count|總計|擷取到叢集的資料總量 (以 MB 為單位)|無維度|
 |EventAgeSeconds|擷取延遲 (以秒為單位)|秒|平均值|從來源 (例如，訊息位於 EventHub 中) 擷取到叢集的擷取時間，以秒為單位|無維度|
-|EventRecievedFromEventHub|已處理的事件 (針對事件中樞)|Count|總計|從事件中樞擷取時，由叢集處理的事件數目|無維度|
+|EventReceivedFromEventHub|已處理的事件 (針對事件中樞)|Count|總計|從事件中樞擷取時，由叢集處理的事件數目|無維度|
 |IngestionResult|擷取結果|Count|Count|擷取作業數|IngestionResultDetails|
 |EngineCPU|CPU|百分比|平均值|CPU 使用率等級|無維度|
 
@@ -1570,6 +1570,6 @@ Azure 監視器提供數種與計量進行互動的方式，包括在入口網�
 |MemoryPercentage|記憶體百分比|百分比|平均值|記憶體百分比|執行個體|
 
 ## <a name="next-steps"></a>後續步驟
-* [了解 Azure 監視器中的計量](../monitoring/monitoring-data-collection.md)
+* [了解 Azure 監視器中的計量](../azure-monitor/platform/data-collection.md)
 * [建立計量警示](monitoring-overview-alerts.md)
 * [將計量匯出至儲存體、事件中樞或 Log Analytics](monitoring-overview-of-diagnostic-logs.md)

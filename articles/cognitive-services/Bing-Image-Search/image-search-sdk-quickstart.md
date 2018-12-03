@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: edebd1361e39a338672b4249dd159e5c1d4078ce
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294147"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316781"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>快速入門：使用 Bing 影像搜尋 SDK 和 C# 來搜尋影像
 
@@ -23,17 +23,17 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) 取得，其中含有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>先決條件
-
-* [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/) 的任意版本。
+## <a name="prerequisites"></a>必要條件
+* 任何一版的 [Visual Studio 2017](https://visualstudio.microsoft.com/vs/whatsnew/)。
 * [認知影像搜尋 NuGet 套件](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0)。
 
 若要在 Visual Studio 中安裝 Bing 影像搜尋 SDK ，可在 Visual Studio 的 [方案總管] 中使用 `Manage NuGet Packages` 選項。
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-## <a name="create-and-initialize-the-application"></a>建立並初始化應用程式
+## <a name="create-and-initialize-the-application"></a>建立應用程式並將其初始化
 
 首先，在 Visual Studio 中建立新的 C# 主控台應用程式。 然後，將下列套件新增至您的專案。
 

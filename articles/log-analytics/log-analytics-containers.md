@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 575b3ec5e729b325cad216ae463063acbb68f20b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 81728e7963767cd90bf2486a35fbce55043a76f7
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685934"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633464"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Log Analytics 中的容器監視解決方案
 
@@ -36,7 +36,7 @@ ms.locfileid: "51685934"
 - Service Fabric
 - Red Hat OpenShift
 
-對於部署到 Azure Container Service (AKS) 上所裝載 Kubernetes 環境的工作負載，若要監視其效能，請參閱[監視 Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md)。 容器監視解決方案不包含對監視該平台的支援。  
+對於部署到 Azure Container Service (AKS) 上所裝載 Kubernetes 環境的工作負載，若要監視其效能，請參閱[監視 Azure Kubernetes Service](../azure-monitor/insights/container-insights-overview.md)。 容器監視解決方案不包含對監視該平台的支援。  
 
 下圖顯示各種容器主機和代理程式與 Log Analytics 之間的關聯性。
 
@@ -49,7 +49,7 @@ ms.locfileid: "51685934"
 ### <a name="container-monitoring-solution-support-for-docker-orchestrator-and-os-platform"></a>容器監視解決方案支援 Docker Orchestrator 和作業系統平台
 下表概述對於使用 Log Analytics 之容器清查、效能和記錄的 Docker 協調流程和作業系統監視支援。   
 
-| | ACS | Linux |  Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
+| | ACS | Linux | Windows | 容器<br>清查 | 映像<br>清查 | 節點<br>清查 | 容器<br>效能 | 容器<br>Event | Event<br>記錄檔 | 容器<br>記錄檔 |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>DC/OS | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
@@ -97,7 +97,7 @@ ms.locfileid: "51685934"
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../monitoring/monitoring-solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
+1. 從 [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) 或使用[從方案庫新增 Log Analytics 方案](../azure-monitor/insights/solutions.md)中所述的程序，將容器監視解決方案新增至您的 Log Analytics 工作區。
 
 2. 安裝和使用 Docker 搭配 Log Analytics 代理程式。 根據您的作業系統和 Docker Orchestrator，您可以使用下列方法來設定代理程式。
   - 若為獨立式主機：
@@ -126,7 +126,7 @@ ms.locfileid: "51685934"
 
 **適用於 CoreOS 以外的所有 Linux 容器主機：**
 
-- 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱 [Log Analytics 代理程式概觀](log-analytics-agent-overview.md)。
+- 如需如何安裝適用於 Linux 的 Log Analytics 代理程式詳細資訊和步驟，請參閱 [Log Analytics 代理程式概觀](../azure-monitor/platform/log-analytics-agent.md)。
 
 **適用於包含 CoreOS 的所有 Linux 容器主機：**
 
@@ -524,9 +524,9 @@ KEY:    88 bytes
 
 #### <a name="install-windows-agents"></a>安裝 Windows 代理程式
 
-若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 若需要在內部部署環境中執行 Windows 的電腦，請參閱[連接 Windows 電腦至 Log Analytics](log-analytics-agent-windows.md)。 若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](log-analytics-quick-collect-azurevm.md)將它們連接至 Log Analytics。
+若要啟用 Windows 和 Hyper-V 容器監視，請在容器主機的 Windows 電腦上安裝 Microsoft Monitoring Agent (MMA)。 若需要在內部部署環境中執行 Windows 的電腦，請參閱[連接 Windows 電腦至 Log Analytics](../azure-monitor/platform/agent-windows.md)。 若需要在 Azure 中執行的虛擬機器，可使用[虛擬機器擴充功能](log-analytics-quick-collect-azurevm.md)將它們連接至 Log Analytics。
 
-您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](log-analytics-quick-collect-azurevm.md)和[在內部部署環境中執行 Windows 的電腦](log-analytics-agent-windows.md)。
+您可以監視 Service Fabric 上執行的 Windows 容器。 不過，Service Fabric 目前只支援 [Azure 中執行的虛擬機器](log-analytics-quick-collect-azurevm.md)和[在內部部署環境中執行 Windows 的電腦](../azure-monitor/platform/agent-windows.md)。
 
 您可以確認容器監視解決方案已針對 Windows 正確設定。 若要檢查管理組件是否正確下載，請找出 ContainerManagement.xxx。 這些檔案應在 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 資料夾。
 
@@ -543,7 +543,7 @@ KEY:    88 bytes
 每隔三分鐘會依下列代理程式類型收集資料。
 
 - [適用於 Linux 的 Log Analytics 代理程式](log-analytics-quick-collect-linux-computer.md)
-- [Windows 代理程式](log-analytics-agent-windows.md)
+- [Windows 代理程式](../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM 延伸模組](log-analytics-quick-collect-azurevm.md)
 
 

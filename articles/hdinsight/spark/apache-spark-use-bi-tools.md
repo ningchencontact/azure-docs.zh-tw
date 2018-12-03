@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: dcd28d8e33045f4c0324f964a854e98dfe004321
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: e862000df1edc5101c0768f1f96c11953f1485c7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712410"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583273"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教學課程：在 HDInsight 中使用 Power BI 分析 Apache Spark 資料 
 
-了解如何使用 Microsoft Power BI 在 Azure HDInsight 中將 Apache Spark 叢集中的資料視覺化。
+了解如何使用 [Microsoft Power BI](https://powerbi.microsoft.com/) 在 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) 中將 [Apache Spark](https://spark.apache.org/) 叢集中的資料視覺化。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -34,7 +34,7 @@ ms.locfileid: "51712410"
 
 ## <a name="verify-the-data"></a>驗證資料
 
-您在[上一個教學課程](apache-spark-load-data-run-query.md)中建立的 Jupyter Notebook 包含可建立 `hvac` 資料表的程式碼。 本資料表根據的是 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 上所有 HDInsight Spark 叢集上的可用 CSV 檔案。 使用下列程序來驗證資料。
+您在[上一個教學課程](apache-spark-load-data-run-query.md)中建立的 [Jupyter Notebook](https://jupyter.org/) 包含可建立 `hvac` 資料表的程式碼。 本資料表根據的是 **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv** 上所有 HDInsight Spark 叢集上的可用 CSV 檔案。 使用下列程序來驗證資料。
 
 1. 從 Jupyter Notebook 貼上下列程式碼，然後按下 **SHIFT + ENTER** 鍵。 該程式碼會驗證資料表是否存在。
 
@@ -214,9 +214,9 @@ Power BI 服務可讓您跨組織共用報表和儀表板。 在本節中，您�
 
 在本教學課程中，您已了解如何：
 
-- 使用 Power BI 將 Spark 資料視覺化。
+- 使用 Power BI 將 Apache Spark 資料視覺化。
 
 前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。 
 > [!div class="nextstepaction"]
-> [執行 Spark 串流作業](apache-spark-eventhub-streaming.md)
+> [執行 Apache Spark 串流作業](apache-spark-eventhub-streaming.md)
 

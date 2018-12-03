@@ -11,16 +11,16 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6e4c5a47ea19a4308865de78f3a4c059a9f8ac79
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126236"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312396"
 ---
 # <a name="your-first-bing-search-query"></a>第一個 Bing 搜尋查詢
 
-第一次進行呼叫之前，您需要取得認知服務訂用帳戶金鑰。 若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。
+第一次進行呼叫之前，您需要取得認知服務訂用帳戶金鑰。 若要取得金鑰，請參閱[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)。 另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 若要取得網路搜尋結果，您要將 GET 要求傳送至下列端點：  
 
@@ -30,7 +30,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/search
 
 要求必須使用 HTTPS 通訊協定。
 
-建議讓所有要求來自伺服器。 將金鑰作為用戶端應用程式的一部分散佈，會讓惡意第三方有更多機會存取到金鑰。 此外，從伺服器進行呼叫，API 未來就能以同個升級點更新版本。  
+建議讓所有要求來自伺服器。 將金鑰作為用戶端應用程式的一部份散佈，會讓惡意第三方有更多機會存取到金鑰。 此外，從伺服器進行呼叫，API 未來就能以同個升級點更新版本。  
 
 要求必須指定 [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query) 查詢參數，其中含有使用者的搜尋字詞。 雖是選擇性，但請在要求中指定 [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) 查詢參數，其可識別您希望從哪個市場取得結果。 如需選擇性查詢參數 (例如 `responseFilter` 和 `textDecorations`) 的清單，請參閱[查詢參數](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters)。 所有查詢參數值均須為 URL 編碼。  
 

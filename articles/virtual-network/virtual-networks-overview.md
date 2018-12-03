@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 8/8/2018
+ms.date: 11/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: fe84dfcef2a5dad1c170592f933638b984e16a05
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717024"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499476"
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
-Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 (VM)) 安全地彼此通訊，以及與網際網路和內部部署網路通訊。 Azure 虛擬網路提供下列主要功能：
+Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 (VM)) 安全地彼此通訊，以及與網際網路和內部部署網路通訊。 虛擬網路的範圍為單一區域；不過，您可以使用虛擬網路對等互連將不同區域的多個虛擬網路連在一起。
+
+Azure 虛擬網路提供下列主要功能：
 
 ## <a name="isolation-and-segmentation"></a>隔離和分割
 
@@ -47,7 +49,7 @@ Azure 虛擬網路可讓多種類型的 Azure 資源 (例如 Azure 虛擬機器 
 Azure 資源可透過下列其中一種方式安全地相互通訊：
 
 - **透過虛擬網路**：您可以將虛擬機器和數種其他類型的 Azure 資源部署到虛擬網路，例如 Azure App Service Environment、Azure Kubernetes Service (AKS) 和 Azure 虛擬機器擴展集。 若要檢視可部署到虛擬網路中的 Azure 資源的完整清單，請參閱[虛擬網路服務整合](virtual-network-for-azure-services.md)。 
-- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間與虛擬網路的身分識別延伸至 Azure 服務資源，例如 Azure 儲存體帳戶與 Azure SQL Database。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而保護其安全。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
+- **透過虛擬網路服務端點**：透過直接連線，將您的虛擬網路私人位址空間與虛擬網路的身分識別延伸至 Azure 服務資源，例如 Azure 儲存體帳戶與 Azure SQL Database。 服務端點可讓您將重要的 Azure 服務資源限用於虛擬網路，而加以保護。 若要深入了解，請參閱[虛擬網路服務端點概觀](virtual-network-service-endpoints-overview.md)。
  
 ## <a name="communicate-with-on-premises-resources"></a>與內部部署資源通訊
 

@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 2e65313207e2bb29ae269425012cc6c340261ba4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888334"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443452"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>教學課程：分析 Bing 圖像式搜尋上傳
 
@@ -23,6 +23,15 @@ ms.locfileid: "48888334"
 
 本教學課程是提供給想要探索 Bing 圖像式搜尋回應內容的開發人員。 它不會套用所有使用和顯示需求 (例如，不提供 Microsoft 隱私權原則的連結)。 如需所有使用需求，請參閱 [Bing 使用和顯示需求](./use-and-display-requirements.md)。
 
+為使用本教學課程，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+
+若要在 Azure 入口網站中啟用訂用帳戶：
+1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
+2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
+3. 輸入新資源的 `Name`。
+4. 選取 `Pay-As-You-Go` 訂用帳戶。
+5. 選取 `S9` 定價層。
+6. 按一下 `Enable` 來啟用訂用帳戶。
 
 ## <a name="where-to-start"></a>從哪裡開始？
 

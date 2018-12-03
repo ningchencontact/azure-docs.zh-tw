@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 09/21/2018
+ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 40fa0357245ad77fbdb08c5dbb4839d69322954f
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 12ba0ba4addd882d82007df34b79d5f13f6b1ec6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566787"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309567"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Node.js IoT Edge 模組並部署到模擬裝置
 
@@ -49,16 +49,31 @@ Azure IoT Edge 裝置：
 * [Node.js 和 npm](https://nodejs.org)。 npm 套件會隨著 Node.js 一起散發，這表示當您下載 Node.js 時，就會自動將 npm 安裝到電腦上。
 
 ## <a name="create-a-container-registry"></a>建立容器登錄庫
-在本教學課程中，您會使用適用於 VS Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
 
-您可以此教學課程中使用任何與 Docker 相容的登錄。 於雲端中提供使用的兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) \(英文\)。 本教學課程使用的是 Azure Container Registry。 
+在本教學課程中，您會使用適用於 Visual Studio Code 的 Azure IoT Edge 擴充功能來建置模組，並從檔案建立**容器映像**。 接著，您會將此映像推送至儲存並管理映像的**登錄**。 最後，您會從登錄部署該映像，以在 IoT Edge 裝置上執行。  
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [Azure Container Registry]。
-2. 為登錄提供名稱，選擇訂用帳戶，選擇資源群組，然後將 SKU 設定為 [基本]。 
-3. 選取 [建立] 。
-4. 建立容器登錄之後，請瀏覽至它並選取 [存取金鑰]。 
-5. 將 [管理使用者] 切換為 [啟用]。
-6. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 您在本教學課程後續的內容中將會用到這些值。 
+您可以使用任何與 Docker 相容的登錄來保存容器映像。 兩個熱門 Docker 登錄服務為 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) 和 [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教學課程使用的是 Azure Container Registry。 
+
+如果您還沒有容器登錄，請依照下列步驟在 Azure 中建立新的容器登錄：
+
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [容器登錄]。
+
+2. 提供下列值以建立您的容器登錄：
+
+   | 欄位 | 值 | 
+   | ----- | ----- |
+   | 登錄名稱 | 提供唯一名稱。 |
+   | 訂用帳戶 | 從下拉式清單中選取訂用帳戶。 |
+   | 資源群組 | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
+   | 位置 | 選擇接近您的位置。 |
+   | 管理員使用者 | 設定為 [已啟用]。 |
+   | SKU | 選取 [基本]。 | **終端機**
+
+5. 選取 [建立] 。
+
+6. 建立容器登錄之後，請加以瀏覽，然後選取 [存取金鑰]。 
+
+7. 複製 [登入伺服器]、[使用者名稱] 及 [密碼] 的值。 稍後在本教學課程中，您會使用這些值來提供容器登錄的存取權。 
 
 ## <a name="create-an-iot-edge-module-project"></a>建立 IoT Edge 模組專案
 下列步驟會示範如何使用 Visual Studio Code 與 Azure IoT Edge 擴充功能來建立 IoT Edge Node.js 模組。
@@ -79,21 +94,25 @@ Azure IoT Edge 裝置：
 
 3. 在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 
-4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+4. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
 
-   1. 選取要用來建立解決方案的資料夾。 
-   2. 為解決方案提供名稱，或是接受預設值 **EdgeSolution**。
-   3. 選擇 [Node.js 模組] 作為模組範本。 
-   4. 將模組命名為 **NodeModule**。 
-   5. 將您在上一節所簡歷的 Azure Container Registry 指定作為第一個模組的映像存放庫。 將 **localhost:5000** 取代為您所複製的登入伺服器值。 最終字串的樣貌如下：**\<登錄名稱\>.azurecr.io/nodemodule**。
-
+   | 欄位 | 值 |
+   | ----- | ----- |
+   | 選取資料夾 | 選擇開發機器上可供 VS Code 建立解決方案檔案的位置。 |
+   | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **SqlSolution**。 |
+   | 選取模組範本 | 選擇 [Node.js 模組]。 |
+   | 提供模組名稱 | 將模組命名為 **NodeModule**。 |
+   | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串的樣貌如下：\<登錄名稱\>.azurecr.io/nodemodule。 |
+ 
    ![提供 Docker 映像存放庫](./media/tutorial-node-module/repository.png)
 
-VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區包含五個最上層元件。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 **modules** 資料夾包含您的模組所需的 Node.js 程式碼，以及用來將模組建置為容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 
+VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區包含五個最上層元件。 **modules** 資料夾包含您的模組所需的 Node.js 程式碼，以及用來將模組建置為容器映像的 Dockerfile。 **\.env** 檔案會儲存您的容器登錄認證。 **Deployment.template.json** 檔案包含 IoT Edge 執行階段用來在裝置上部署模組的資訊。 而 **deployment.debug.template.json** 檔案包含模組的偵錯版本。 您在本教學課程中將不會編輯 **\.vscode** 資料夾或 **\.gitignore** 檔案。 
 
 如果您在建立解決方案時未指定容器登錄，但接受了預設的 localhost:5000 值，則不會有 \.env 檔案。 
 
-   ![Node.js 解決方案工作區](./media/tutorial-node-module/workspace.png)
+<!--
+   ![Node.js solution workspace](./media/tutorial-node-module/workspace.png)
+-->
 
 ### <a name="add-your-registry-credentials"></a>新增登錄認證
 
@@ -162,6 +181,27 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 9. 儲存這個檔案。
 
+10. 在 VS Code 總管中，於 IoT Edge 解決方案工作區中開啟 **deployment.template.json** 檔案。 
+
+   此檔案會指示 `$edgeAgent` 部署兩個模組：**tempSensor** (會模擬裝置資料) 和 **NodeModule**。 IoT Edge 的預設平台會設定為 VS Code 狀態列中的 **amd64**，這表示您的 **NodeModule** 會設定為映像的 Linux amd64 版。 將狀態列中的預設平台從 **amd64** 變更為 **arm32v7** 或 **windows-amd64** (如果這是您 IoT Edge 裝置的架構)。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。 
+
+   此檔案也包含登錄的認證。 範本檔案會在使用者名稱和密碼中填入預留位置。 當您產生部署資訊清單時，系統就會使用您新增至 **.env** 的值來更新這兩個欄位。 
+
+12. 在部署資訊清單中新增 NodeModule 模組對應項。 在 `moduleContent` 區段底部，於 `$edgeHub` 模組對應項後面插入下列 JSON 內容： 
+
+   ```json
+       "NodeModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![將模組對應項新增至部署範本](./media/tutorial-node-module/module-twin.png)
+
+13. 儲存這個檔案。
+
+
 ## <a name="build-your-iot-edge-solution"></a>建置 IoT Edge 解決方案
 
 在上一節中，您已建立 IoT Edge 解決方案，並在 NodeModule 中新增了程式碼，來篩選出所回報機器溫度低於可接受閾值的訊息。 現在，您需要建置容器映像形式的解決方案，並將它推送到容器登錄。 
@@ -173,22 +213,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
    ```
    使用您在第一節中從 Azure Container Registry 複製而來的使用者名稱、密碼及登入伺服器。 或者，在 Azure 入口網站中從登錄的 [存取金鑰] 區段再擷取一次這些資料。
 
-2. 在 VS Code 總管中，於 IoT Edge 解決方案工作區開啟 **deployment.template.json** 檔案。 
-
-   此檔案會指示 `$edgeAgent` 部署兩個模組：**tempSensor** (會模擬裝置資料) 和 **NodeModule**。 `NodeModule.image` 值會設定為映像的 Linux amd64 版本。 若要深入了解部署資訊清單，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
-
-   此檔案也包含登錄的認證。 範本檔案會在使用者名稱和密碼中填入預留位置。 當您產生部署資訊清單時，系統就會使用您新增至 **.env** 的值來更新這兩個欄位。 
-
-4. 在部署資訊清單中新增 NodeModule 模組對應項。 在 `moduleContent` 區段底部，於 `$edgeHub` 模組對應項後面插入下列 JSON 內容： 
-    ```json
-        "NodeModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-5. 儲存這個檔案。
-6. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
+2. 在 VS Code 總管中，以滑鼠右鍵按一下 **deployment.template.json** 檔案，然後選取 [建置並推送 IoT Edge 解決方案]。 
 
 當您指示 Visual Studio Code 建置解決方案時，它會先擷取部署範本中的資訊，再於新的 **config** 資料夾中產生 `deployment.json` 檔案。 然後，它會在整合式終端機中執行兩個命令：`docker build` 和 `docker push`。 這兩個命令會建置程式碼、將 Node.js 程式碼容器化，再將程式碼推送至您在初始化解決方案時所指定的容器登錄中。 
 

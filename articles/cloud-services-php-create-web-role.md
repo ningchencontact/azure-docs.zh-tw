@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34608894"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425671"
 ---
 # <a name="create-php-web-and-worker-roles"></a>建立 PHP Web 和背景工作角色
 
@@ -152,7 +152,7 @@ PHP 5.4.0           http://nodertncu.blob.core...   False
 
 1. 如本主題先前所述，建立 Azure 服務專案並加入 PHP 背景工作角色。
 2. 在背景工作角色的根目錄中建立 `php` 資料夾，然後將 PHP 執行階段 (所有的二進位檔、組態檔、子資料夾等) 新增至 `php` 資料夾。
-3. (選擇性) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][sqlsrv drivers]，您就必須將背景工作角色設定為在佈建時安裝 [SQL Server Native Client 2012][sql native client]。 若要執行此動作， [請將sqlncli.msi x64 安裝程式] 新增至背景工作角色的根目錄。 下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。 如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
+3. (選擇性) 如果您的 PHP 執行階段使用[適用於 PHP for SQL Server 的 Microsoft 驅動程式][sqlsrv drivers]，您就必須將背景工作角色設定為在佈建時安裝 [SQL Server Native Client 2012][sql native client]。 若要執行此動作， 請將 [sqlncli.msi x64 安裝程式] 新增至背景工作角色的根目錄。 下一個步驟中說明的啟動指令碼，將會在角色進行佈建時以無訊息方式執行安裝程式。 如果您的 PHP 執行階段並未使用適用於 PHP for SQL Server 的 Microsoft 驅動程式，您可以從下一個步驟所顯示的指令碼中移除以下一行：
 
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. 定義啟動工作，在佈建角色時將您的 `php.exe` 可執行檔新增至背景工作角色的 PATH 環境變數中。 若要執行此動作，請在文字編輯器中開啟 `setup_worker.cmd` 檔案 (位於背景工作角色的根目錄中)，並使用下列指令碼來取代它的內容：
@@ -211,16 +211,16 @@ Azure 模擬器所提供的本機環境，可讓您在 Azure 應用程式部署�
 
 ## <a name="publish-your-application"></a>發佈您的應用程式
 
-若要發佈應用程式，您必須先使用 [Import-AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) Cmdlet 匯入您的發佈設定。 使用 [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) Cmdlet 發佈應用程式，如下所示。 如需登入的相關資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
+若要發佈應用程式，您必須先使用 [Import-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) Cmdlet 匯入您的發佈設定。 使用 [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) Cmdlet 發佈應用程式，如下所示。 如需登入的相關資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
 ## <a name="next-steps"></a>後續步驟
 
 如需詳細資訊，請參閱 [PHP 開發人員中心](https://azure.microsoft.com/develop/php/)。
 
-[install ps and emulators]: http://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
-[服務定義 (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
-[服務組態 (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
-[iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
-[sqlsrv drivers]: http://php.net/sqlsrv
-[]: http://go.microsoft.com/fwlink/?LinkID=239648
+[install ps and emulators]: https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409
+[服務定義 (.csdef)]: https://msdn.microsoft.com/library/windowsazure/ee758711.aspx
+[服務組態 (.cscfg)]: https://msdn.microsoft.com/library/windowsazure/ee758710.aspx
+[iis.net]: https://www.iis.net/
+[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
+[sqlsrv drivers]: https://php.net/sqlsrv
+[sqlncli.msi x64 安裝程式]: https://go.microsoft.com/fwlink/?LinkID=239648

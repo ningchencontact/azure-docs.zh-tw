@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: 3490f7722ca0c1331ccea26cd18398cff1317aee
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 553d068d70f7e722f3c8e4de3978f3583b941963
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887407"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442519"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-javascript"></a>快速入門：使用 JavaScript 的第一個 Bing 圖像式搜尋查詢
 
@@ -27,7 +27,7 @@ Bing 圖像式搜尋 API 會傳回您所提供影像的相關資訊。 您可以
 --boundary_1234-abcd
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -35,10 +35,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 本文包含簡單的主控台應用程式，它會傳送 Bing 圖像式搜尋 API 要求，並顯示 JSON 搜尋結果。 雖然此應用程式是以 JavaScript 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可提出 HTTP 要求並剖析 JSON。 
 
 ## <a name="prerequisites"></a>必要條件
+為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+
+若要在 Azure 入口網站中啟用訂用帳戶：
+1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
+2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
+3. 輸入新資源的 `Name`。
+4. 選取 `Pay-As-You-Go` 訂用帳戶。
+5. 選取 `S9` 定價層。
+6. 按一下 `Enable` 來啟用訂用帳戶。
 
 您需要有 [Node.js 6](https://nodejs.org/en/download/)，才能執行此程式碼。
-
-在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
 ## <a name="running-the-application"></a>執行應用程式
 

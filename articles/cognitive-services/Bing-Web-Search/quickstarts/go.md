@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
 ms.reviewer: nhoyadx@gmail.com, v-gedod, erhopf
-ms.openlocfilehash: 9ba0501f9d4b408e4972f36806ab21cba6519b59
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4191232e45d012d3aec5d056c28e765332073ede
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163770"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310424"
 ---
 # <a name="quickstart-use-go-to-call-the-bing-web-search-api"></a>快速入門：使用 Go 來呼叫 Bing Web 搜尋 API  
 
@@ -24,8 +24,9 @@ ms.locfileid: "52163770"
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]  
 
-## <a name="prerequisites"></a>必要條件
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
+## <a name="prerequisites"></a>必要條件
 以下是執行本快速入門之前的幾個必備項目：
 
 * [Go 二進位檔](https://golang.org/dl/) (英文)

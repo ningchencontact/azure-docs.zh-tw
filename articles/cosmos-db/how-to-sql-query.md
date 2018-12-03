@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f9ec8ff1fbd5f6341d2d949d15d963f8abe15200
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9496f88a24c92387418d5d9ae23bb7f2eaff2088
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52166596"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444424"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查詢來查詢 Azure Cosmos DB 資料
 
@@ -400,9 +400,18 @@ WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。 它會指定條件
 除了二元和一元運算子之外，還允許屬性參照。 例如，`SELECT * FROM Families f WHERE f.isRegistered` 所傳回的 JSON 項目包含屬性 `isRegistered` 且屬性值等於 JSON `true` 值。 任何其他值 (false、null、Undefined、`<number>`、`<string>`、`<object>`、`<array>` 等) 則會導致從結果中排除來源項目。 
 
 ### <a name="equality-and-comparison-operators"></a>相等和比較運算子
+
 下表顯示 SQL API 中任何兩個 JSON 類型之間的相等比較結果。
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** | | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | | **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined | | **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | | **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | | **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | | **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | | **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Op** | **未定義** | **Null** | **布林值** | **Number** | **String** | **Object** | **Array** |
+|---|---|---|---|---|---|---|---|
+| **未定義** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **布林值** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
 
 其他比較運算子 (例如 >、>=、!=、< 及 <=) 則適用下列規則：
 

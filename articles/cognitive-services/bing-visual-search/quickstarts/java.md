@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: quickstart
 ms.date: 5/16/2018
 ms.author: scottwhi
-ms.openlocfilehash: f54914b846c6a001a9fb10d938a038e390abf6bf
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1b63b12a48f5ccfb1a396ffa9282249b03893fe
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416438"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445169"
 ---
 # <a name="quickstart-your-first-bing-visual-search-query-in-java"></a>快速入門：使用 Java 的第一個 Bing 圖像式搜尋查詢
 
@@ -36,10 +36,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 
 ## <a name="prerequisites"></a>必要條件
+為使用本快速入門，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+
+若要在 Azure 入口網站中啟用訂用帳戶：
+1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
+2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
+3. 輸入新資源的 `Name`。
+4. 選取 `Pay-As-You-Go` 訂用帳戶。
+5. 選取 `S9` 定價層。
+6. 按一下 `Enable` 來啟用訂用帳戶。
 
 您將需要有 [JDK 7 或 8](https://aka.ms/azure-jdks)，才能編譯和執行此程式碼。 若您有特別喜愛的 Java IDE 也可以使用，但是文字編輯器就夠了。
-
-在本快速入門中，您可以使用[免費試用](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)的訂用帳戶金鑰或付費的訂用帳戶金鑰。
 
 ## <a name="running-the-application"></a>執行應用程式
 

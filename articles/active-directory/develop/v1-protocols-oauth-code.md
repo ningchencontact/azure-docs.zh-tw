@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b7b8ccf7e84239db4eef0914346c453a2f205f91
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c4a18fa022304e7ccfb4503cf2e02650555d6d7b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237888"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425117"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>使用 OAuth 2.0 授權碼授與流程，授權存取 Azure Active Directory Web 應用程式
 
@@ -60,7 +60,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |必要 |授權碼流程必須包含 `code`。 |
 | redirect_uri |建議使用 |應用程式的 redirect_uri，您的應用程式可在此傳送及接收驗證回應。 其必須完全符合您在入口網站中註冊的其中一個 redirect_uris，不然就必須得是編碼的 url。 對於原生和行動應用程式，請使用 `urn:ietf:wg:oauth:2.0:oob` 的預設值。 |
 | response_mode |選用 |指定將產生的權杖送回到應用程式所應該使用的方法。 可以是 `query`、`fragment` 或 `form_post`。 `query` 會提供程式碼，以作為重新導向 URI 的查詢字串參數。 如果您要求可使用隱含流程的識別碼權杖，就無法使用 [OpenID 規格](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)中指定的 `query`。如果您只要求程式碼，您可以使用 `query`、`fragment` 或 `form_post`。 `form_post` 會執行 POST，其中包含您重新導向 URI 的程式碼。 預設值是程式碼流程的 `query`。  |
-| state |建議使用 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](http://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
+| state |建議使用 |要求中包含的值，也會隨權杖回應傳回。 隨機產生的唯一值通常用於 [防止跨站台要求偽造攻擊](https://tools.ietf.org/html/rfc6749#section-10.12)。 此狀態也用於在驗證要求出現之前，於應用程式中編碼使用者的狀態資訊，例如之前所在的網頁或檢視。 |
 | resource | 建議使用 |目標 Web API (受保護的資源) 應用程式識別碼 URI。 若要尋找應用程式識別碼 URI，請在 Azure 入口網站中，按一下 [Azure Active Directory]，再按一下 [應用程式註冊]，開啟應用程式的 [設定] 頁面，再按一下 [屬性]。 其也可能是外部的資源，例如 `https://graph.microsoft.com`。 授權或權杖要求會需要此 URI。 為盡量減少授權提示次數，請將之放置於授權要求內，以確保收到使用者的同意。 |
 | scope | **已忽略** | 若為 v1 Azure AD 應用程式，請務必前往 Azure 入口網站，至應用程式 [設定] 下方的 [所需權限]，以統計方式設定範圍。 |
 | prompt |選用 |表示需要的使用者互動類型。<p> 有效值為： <p> *login*：應提示使用者重新驗證。 <p> select_account：使用者會收到選取帳戶的提示，中斷單一登入。 使用者可以選取現有登入帳戶、為已記住的帳戶輸入認證，或者選擇使用完全不同的帳戶。 <p> *consent*：已授與使用者同意，但需要更新。 應提示使用者同意。 <p> *admin_consent*：應提示管理員代表其組織內的所有使用者同意 |
@@ -102,7 +102,7 @@ error=access_denied
 
 | 參數 | 說明 |
 | --- | --- |
-| 錯誤 |[OAuth 2.0 授權架構](http://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 下一份資料表會描述 Azure AD 傳回的錯誤碼。 |
+| 錯誤 |[OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 下一份資料表會描述 Azure AD 傳回的錯誤碼。 |
 | error_description |更詳細的錯誤描述。 此訊息的目的並非要方便使用者了解。 |
 | state |狀態值是隨機產生的非重複使用值，會在要求中傳送並在回應中傳回以防止跨網站偽造要求 (CSRF) 攻擊。 |
 
@@ -175,7 +175,7 @@ Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了�
 | 參數 | 說明 |
 | --- | --- |
 | access_token |要求的[存取權杖](access-tokens.md)，其形式為帶正負號的 JSON Web 權杖 (JWT)。 應用程式可以使用這個權杖驗證受保護的資源，例如 Web API。 |
-| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖用法 (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt) |
+| token_type |表示權杖類型值。 Azure AD 唯一支援的類型是 Bearer。 如需持有人權杖的詳細資訊，請參閱 [OAuth2.0 授權架構︰持有人權杖用法 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) |
 | expires_in |存取權杖的有效期 (以秒為單位)。 |
 | expires_on |存取權杖的到期時間。 日期會表示為從 1970-01-01T0:0:0Z UTC 至到期時間的秒數。 這個值用來判斷快取權杖的存留期。 |
 | resource |Web API (受保護的資源) 應用程式識別碼 URI。 |
@@ -235,7 +235,7 @@ Azure AD 在成功回應時會傳回[存取權杖](access-tokens.md)。 為了�
 | temporarily_unavailable |伺服器暫時過於忙碌而無法處理要求。 |重試要求。 用戶端應用程式可能會向使用者解釋，說明其回應因暫時性狀況而延遲。 |
 
 ## <a name="use-the-access-token-to-access-the-resource"></a>使用存取權杖來存取資源
-既然您已經成功取得 `access_token`，您就可以透過在 `Authorization` 標頭中包含權杖，在 Web API 的要求中使用權杖。 [RFC 6750](http://www.rfc-editor.org/rfc/rfc6750.txt) 規格會說明如何在 HTTP 要求中使用持有人權杖來存取受保護的資源。
+既然您已經成功取得 `access_token`，您就可以透過在 `Authorization` 標頭中包含權杖，在 Web API 的要求中使用權杖。 [RFC 6750](https://www.rfc-editor.org/rfc/rfc6750.txt) 規格會說明如何在 HTTP 要求中使用持有人權杖來存取受保護的資源。
 
 ### <a name="sample-request"></a>範例要求
 ```
@@ -258,7 +258,7 @@ WWW-Authenticate: Bearer authorization_uri="https://login.microsoftonline.com/co
 | 參數 | 說明 |
 | --- | --- |
 | authorization_uri |授權伺服器的 URI (實體端點)。 此值也可做為查閱索引鍵，以從探索端點取得伺服器的詳細資訊。 <p><p> 用戶端必須確認授權伺服器受到信任。 當資源受到 Azure AD 保護時，便足以確認 URL 開頭為 https://login.microsoftonline.com 或 Azure AD 支援的其他主機名稱。 租用戶特定資源應該一律會傳回租用戶特定授權 URI。 |
-| 錯誤 |[OAuth 2.0 授權架構](http://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 |
+| 錯誤 |[OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)的 5.2 節中所定義的錯誤碼值。 |
 | error_description |更詳細的錯誤描述。 此訊息的目的並非要方便使用者了解。 |
 | resource_id |傳回資源的唯一識別碼。 用戶端應用程式可在要求資源的權杖時，使用此識別碼做為 `resource` 參數的值。 <p><p> 用戶端應用程式務必要確認此值，否則惡意服務或許可以引發**提升權限**攻擊 <p><p> 防止攻擊的建議策略是確認 `resource_id` 符合要存取的 Web API URL 的基礎。 例如，如果正在存取 https://service.contoso.com/data，`resource_id` 可以是 htttps://service.contoso.com/。 除非有可確認識別碼的可靠替代方法，否則用戶端應用程式必須拒絕開頭不是基礎 URL 的 `resource_id` 。 |
 

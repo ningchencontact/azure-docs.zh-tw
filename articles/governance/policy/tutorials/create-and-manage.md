@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 原則來建立和管理原則以強制執行組織合規性
+title: 使用 Azure 原則來建立和管理原則以強制執行合規性
 description: 使用 Azure 原則來強制執行標準、符合法規合規性與稽核需求、控制成本、維護安全性與效能一致性，並且強制整個企業的設計原則。
 services: azure-policy
 author: DCtheGeek
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: a7495ca1153fa6b84902423ee79c69f24316cb40
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6ee7a4190248c8c18f747ee579aadc04a136696b
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980952"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583075"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>建立和管理原則來強制執行相容性
 
@@ -26,7 +26,7 @@ ms.locfileid: "46980952"
 > - 解決不相容或拒絕的資源
 > - 在整個組織中實作新的原則
 
-如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/)。
+如果您想要指派原則以識別現有資源的目前合規性狀態，快速入門文章會說明如何執行這項操作。 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/) 。
 
 ## <a name="assign-a-policy"></a>指派原則
 
@@ -44,11 +44,11 @@ ms.locfileid: "46980952"
 
    ![指派原則定義](../media/create-and-manage/select-assign-policy.png)
 
-1. 在 [指派原則] 分頁上，藉由按一下省略符號並選取管理群組或訂用帳戶來選取 [範圍]。 選取資源群組 (選用)。 範圍會決定在哪些資源或資源群組上強制執行原則指派。  然後，按一下位於 [範圍] 分頁底部的 [選取]。
+1. 在 [指派原則] 頁面上，按一下省略符號並選取管理群組或訂用帳戶來選取 [範圍]。 選擇性地選取資源群組。 範圍會決定在哪些資源或資源群組上強制執行原則指派。  然後，按一下位於 [範圍] 分頁底部的 [選取]。
 
-   這個範例會使用 **Contoso 訂用帳戶**。 您的訂用帳戶不同。
+   這個範例會使用 **Contoso** 訂用帳戶。 您的訂用帳戶不同。
 
-1. 以**範圍**作為基礎，您可以將一些資源排除在外。  **排除項目**會在比**範圍**層級低的層級上啟動。 **排除項目**是選擇用項目，所以目前先保留空白。
+1. 您可以根據**範圍**來排除資源。  **排除項目**會在低於**範圍**層級的層級上啟動。 **排除項目**是選擇性項目，所以目前將其保留為空白。
 
 1. 選取 [原則定義] 省略符號以開啟可用定義的清單。 您可以將原則定義 [類型] 篩選為 [內建]，以檢視所有項目並閱讀其描述。
 
@@ -58,7 +58,7 @@ ms.locfileid: "46980952"
 
 1. [指派名稱] 會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，請保留「需要 SQL Server 12.0 版」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派的詳細資料。  **指派者**會自動填入登入者。 這是選用欄位，所以可以輸入自訂值。
 
-1. 不用勾選 [建立受控識別]。 但是當要指派的原則或計畫包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」勾選此項目。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+1. 讓 [建立受控識別] 保持未選取狀態。 但是當要指派的原則或計畫包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」勾選此項目。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
 
 1. 按一下 [指派]。
 
@@ -383,7 +383,7 @@ az policy definition list
    - 描述：此計畫指派適合強制執行此原則定義群組。
    - 指派者：會自動填入登入者。 這是選用欄位，所以可以輸入自訂值。
 
-1. 不用勾選 [建立受控識別]。 但是當要指派的原則或計畫包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」勾選此項目。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
+1. 讓 [建立受控識別] 保持未選取狀態。 但是當要指派的原則或計畫包含具有 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 效果的原則時，「必須」勾選此項目。 因為本教學課程中所用的原則並沒有包含該效果，所以保留空白。 如需詳細資訊，請參閱[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](../how-to/remediate-resources.md#how-remediation-security-works)。
 
 1. 按一下 [指派]。
 

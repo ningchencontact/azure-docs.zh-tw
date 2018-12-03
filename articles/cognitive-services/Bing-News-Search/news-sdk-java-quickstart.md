@@ -10,16 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 7919f13e8c5aaa592a416190d3cd11edbf31af2c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: f01f31c5cfc30ac31ea41db2a8504454e1f05799
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802472"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316866"
 ---
 # <a name="quickstart-bing-news-search-sdk-with-java"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 Java
 
-Bing 新聞搜尋 SDK 提供用於新聞查詢以及剖析結果的 REST API 功能。 
+Bing 新聞搜尋 SDK 提供用於新聞查詢以及剖析結果的 REST API 功能。  在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。 
 
 [Java Bing 新聞搜尋 SDK 範例的原始程式碼](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch)可從 Git Hub 取得。
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9f77beb8c51fb3a06045183433907e1c634fb45d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 7c7891d8a73142c78b1ca80027d685b93a062d06
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820260"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317903"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>使用 Azure 地圖服務建立商店定位器
 
@@ -81,7 +81,7 @@ ms.locfileid: "51820260"
 * 此外還有一些包含咖啡廳相關中繼資料的資料行：電話號碼、Wi-Fi 熱點和殘障人士協助工具的布林資料行，以及 24 小時格式的開店和關店時間。 您可以建立的資料行，並納入與您的位置資料更為相關的中繼資料。
 
 > [!Note]
-> Azure 地圖服務採用球面麥卡托投影 (EPSG:3857)。
+> Azure 地圖服務會以球面麥卡托投影 "EPSG:3857" 呈現資料，但是會讀取 "EPSG:4325" 中採用 WGS84 數據的資料。 
 
 有許多方式可將資料集公開給應用程式。 其中一個方法是將資料載入至資料庫，然後公開會查詢資料並將結果傳送至使用者瀏覽器的 Web 服務。 此選項非常適用於大型資料集或經常更新的資料集。 不過，此選項需要遠高於一般的開發工作，且成本較高。 
 

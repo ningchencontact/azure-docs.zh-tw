@@ -9,16 +9,16 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
 ms.date: 11/06/2018
-ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f279d7ca40eac1764ec5549aecec36b0f62034e8
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244063"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495785"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢
 
-在本教學課程中，您將了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 Apache Spark 叢集執行互動式 Spark SQL 查詢。 在 Spark 中，資料框架是組織成具名資料行的分散式資料集合。 資料框架在概念上等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
+在本教學課程中，您將了解如何從 csv 檔案建立資料框架，以及如何在 Azure HDInsight 中對 [Apache Spark](https://spark.apache.org/) 叢集執行互動式 Spark SQL 查詢。 在 Spark 中，資料框架是組織成具名資料行的分散式資料集合。 資料框架在概念上等同於關聯式資料庫中的資料表或 R/Python 中的資料框架。
  
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -99,10 +99,10 @@ ms.locfileid: "51244063"
 
 在本教學課程中，您已了解如何：
 
-* 建立 Spark 資料框架。
+* 建立 Apache Spark 資料框架。
 * 對資料框架執行 Spark SQL。
 
-前往下一篇文章，以查看如何將您在 Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。 
+前往下一篇文章，以查看如何將您在 Apache Spark 中註冊的資料提取至 BI 分析工具，例如 Power BI。 
 > [!div class="nextstepaction"]
 > [使用 BI 工具分析資料](apache-spark-use-bi-tools.md)
 

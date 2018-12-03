@@ -41,6 +41,14 @@ items:
     href: troubleshoot-rdp-nic-disabled.md
   - name: 針對由安全模式所造成的 RDP 錯誤進行疑難排解
     href: troubleshoot-rdp-safe-mode.md
+  - name: 停用 Azure VM 中的客體 OS 防火牆
+    href: disable-guest-os-firewall-windows.md
+  - name: 啟用或停用客體 OS 上的防火牆規則
+    href: enable-disable-firewall-rule-guest-os.md
+  - name: 客體 OS 防火牆封鎖輸入流量
+    href: guest-os-firewall-blocking-inbound-traffic.md
+  - name: 客體 OS 防火牆設定不正確
+    href: guest-os-firewall-misconfigured.md
   - name: 針對由 netvsc.sys 所造成的 RDP 錯誤進行疑難排解
     href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
@@ -64,11 +72,11 @@ items:
   items:
   - name: Linux
     href: redeploy-to-new-node-linux.md
-  - name: " Windows"
+  - name: Windows
     href: redeploy-to-new-node-windows.md
 - name: 重設 VM 密碼
   items:
-  - name: " Windows"
+  - name: Windows
     href: reset-local-password-without-agent.md
   - name: Linux
     href: reset-password.md
@@ -102,19 +110,19 @@ items:
   items:
   - name: Linux
     href: troubleshoot-deployment-new-vm-linux.md
-  - name: " Windows"
+  - name: Windows
     href: troubleshoot-deployment-new-vm-windows.md
 - name: 針對部署進行疑難排解
   items:
   - name: Linux
     href: troubleshoot-deploy-vm-linux.md
-  - name: " Windows"
+  - name: Windows
     href: troubleshoot-deploy-vm-windows.md
 - name: 裝置名稱已變更
   href: troubleshoot-device-names-problems.md
 - name: VM 復原存取
   items:
-  - name: " Windows"
+  - name: Windows
     items:
     - name: PowerShell
       href: troubleshoot-recovery-disks-windows.md
@@ -153,9 +161,9 @@ items:
   href: understand-vm-reboot.md
 - name: 遠端疑難排解工具
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: 5b5da17002955e7a5c24e1b528ebf3076f2de24a
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 933976034950fbd454789dc620aa34ec9b1598c1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283807"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306466"

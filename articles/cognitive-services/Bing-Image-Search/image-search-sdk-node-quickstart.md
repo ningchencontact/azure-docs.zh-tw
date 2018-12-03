@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: fcef8d29ae7154633e19c118fd03d98d6489df6f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: a1fda703c74549c351d8eb609819198d7e2856cf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686563"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311267"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-nodejs"></a>快速入門：使用 Bing 影像搜尋 SDK 和 Node.js 來搜尋影像
 
@@ -24,6 +24,7 @@ Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以�
 此範例的原始程式碼可從 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js) 取得，其中還有其他錯誤處理和註釋。
 
 ## <a name="prerequisites"></a>必要條件
+在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 * [適用於 Node.js 的認知服務影像搜尋 SDK](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
     * 使用 `npm install azure-cognitiveservices-imagesearch` 進行安裝

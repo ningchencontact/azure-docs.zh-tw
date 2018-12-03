@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1d7c880a56c79d516c3904c3f532eb7006f0b68c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 179a13d6fbb162ae7727c6a176b60879901dc4d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705832"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426181"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站部署和設定 Azure 防火牆
 
@@ -78,7 +78,7 @@ ms.locfileid: "51705832"
 11. 使用其他預設設定，然後按一下 [建立]。
 
 > [!NOTE]
-> AzureFirewallSubnet 子網路的大小下限是 /25。
+> AzureFirewallSubnet 子網路的大小下限是 /26。
 
 ### <a name="create-additional-subnets"></a>建立其他子網路
 

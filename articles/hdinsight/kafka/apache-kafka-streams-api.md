@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: b22a701d9e876ca011381810e330fed60b7177d4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8319376c597f16a5bfe1a357d74c59453b797e51
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278696"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495135"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>教學課程：Apache Kafka 串流 API
 
-了解如何建立應用程式，該應用程式會使用 Kafka 串流 AP，並且與 HDInsight 上的 Kafka 搭配使用。 
+了解如何建立應用程式，該應用程式會使用 Apache Kafka 串流 API，並且與 HDInsight 上的 Kafka 搭配使用。 
 
 本教學課程中使用的應用程式是串流字數統計程式。 它會讀取 Kafka 主題中的文字資料、擷取個別文字，然後將文字和字數儲存到另一個 Kafka 主題中。
 
 > [!NOTE]
-> Kafka 串流處理通常會使用 Apache Spark 或 Storm 來完成。 Kafka 0.10.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
+> Kafka 串流處理通常會使用 Apache Spark 或 Apache Storm 來完成。 Kafka 0.10.0 版 (在 HDInsight 3.5 和 3.6 中) 導入了 Kafka 串流 API。 此 API 可讓您轉換輸入和輸出主題之間的資料流。 在某些情況下，這可能是建立 Spark 或 Storm 串流解決方案的替代方案。 
 >
 > 如需有關 Kafka 串流的詳細資訊，請參閱 Apache.org 上的[串流簡介](https://kafka.apache.org/10/documentation/streams/)文件。
 
@@ -38,9 +38,9 @@ ms.locfileid: "51278696"
 
 ## <a name="prerequisites"></a>必要條件
 
-* HDInsight 3.6 叢集上的 Kafka。 若要深入了解如何在 HDInsight 叢集上建立 Kafka，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md) 文件。
+* HDInsight 3.6 叢集上的 Kafka。 若要深入了解如何建立 HDInsight 上的 Apache Kafka 叢集，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md) 文件。
 
-* 完成 [Kafka Consumer 和 Producer API](apache-kafka-producer-consumer-api.md) 文件中的步驟。 此文件中的步驟會在本教學課程中建立的範例應用程式和主題。
+* 完成 [Apache Kafka Consumer 和 Producer API](apache-kafka-producer-consumer-api.md) 文件中的步驟。 此文件中的步驟會在本教學課程中建立的範例應用程式和主題。
 
 ## <a name="set-up-your-development-environment"></a>設定開發環境
 
@@ -158,7 +158,7 @@ public class Stream
    
     將 `sshuser` 取代為叢集的 SSH 使用者，並將 `clustername` 取代為叢集的名稱。 出現提示時，請輸入 SSH 使用者帳戶的密碼。 如需搭配 HDInsight 使用 `scp` 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="create-kafka-topics"></a>建立 Kafka 主題
+## <a name="create-apache-kafka-topics"></a>建立 Apache Kafka 主題
 
 1. 若要開啟與叢集的 SSH 連線，使用下列命令：
 
@@ -175,7 +175,7 @@ public class Stream
     read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. 若要取得 Kafka 代理程式主機和 Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。 系統會提示您輸入密碼兩次。
+3. 若要取得 Kafka 代理程式主機和 Apache Zookeeper 主機，請使用下列命令。 出現提示時，輸入叢集登入 (admin) 帳戶的密碼。 系統會提示您輸入密碼兩次。
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
@@ -255,7 +255,7 @@ public class Stream
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，您會了解如何搭配 HDInsight 上的 Kafka 使用 Kafka 串流 API。 使用下列各項來深入了解 Kafka 的使用方式︰
+在本文件中，您會了解如何搭配 HDInsight 上的 Kafka 使用 Apache Kafka 串流 API。 使用下列各項來深入了解 Kafka 的使用方式︰
 
-* [分析 Kafka 日誌](apache-kafka-log-analytics-operations-management.md)
-* [在Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
+* [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)
+* [在 Apache Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)

@@ -10,16 +10,26 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: aahi
-ms.openlocfilehash: b493f65e47f5e4c932ed1229e4c00ee1af3cd5ab
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: fe7159e88bd70ba8af23909559264fa5f210ef10
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161849"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443880"
 ---
 # <a name="tutorial-visual-search-single-page-web-app"></a>教學課程：圖像式搜尋單頁 Web 應用程式
 
 Bing 圖像式搜尋 API 可提供與 Bing.com/images 上顯示的影像詳細資料類似的體驗。 使用圖像式搜尋可以指定影像並取得影像的相關深入解析，例如外觀上類似的影像、購物來源、包含影像的網頁等。 
+
+為使用本教學課程，您必須在 S9 定價層上啟用訂用帳戶，如[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/) 中所示。 
+
+若要在 Azure 入口網站中啟用訂用帳戶：
+1. 在 Azure 入口網站頂端顯示 `Search resources, services, and docs` 的文字方塊中輸入 'BingSearchV7'。  
+2. 在下拉式清單中的 Marketplace 下選取 `Bing Search v7`。
+3. 輸入新資源的 `Name`。
+4. 選取 `Pay-As-You-Go` 訂用帳戶。
+5. 選取 `S9` 定價層。
+6. 按一下 `Enable` 來啟用訂用帳戶。
 
 本教學課程會從 Bing 影像搜尋教學課程來延伸單頁 Web 應用程式 (請參閱[單頁 Web 應用程式](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md))。 如需開始進行本教學課程所需的完整原始程式碼，請參閱[單頁 Web 應用程式 (原始程式碼)](../Bing-Image-Search/tutorial-bing-image-search-single-page-app-source.md)。 如需本教學課程最終的原始程式碼，請參閱[圖像式搜尋單頁 Web 應用程式](tutorial-bing-visual-search-single-page-app-source.md)。
 

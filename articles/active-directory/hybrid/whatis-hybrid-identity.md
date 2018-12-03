@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/02/2018
+ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2aca42c23cc213d5d7e451105052d5d5d697b77d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: c8ab6b6e6bab7451de7d975dde644386fd4cb84e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979466"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311529"
 ---
 # <a name="hybrid-identity-and-microsoft-identity-solutions"></a>混合式身分識別和 Microsoft 身分識別解決方案
 [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 混合式身分識別解決方案可讓您同步處理內部部署目錄物件與 Azure AD，仍同時在內部部署環境管理使用者。 在規劃同步處理內部部署 Windows Server Active Directory 與 Azure AD 時，首先要決定您要使用受控識別還是同盟身分識別。 
@@ -42,7 +42,7 @@ ms.locfileid: "50979466"
 由於大部分組織只想要讓使用者登入 Office 365、SaaS 應用程式和其他 Azure AD 資源，因此建議使用預設的密碼雜湊同步處理選項。 如果您適用該選項，您必須在傳遞驗證與 AD FS 之間做決定。
 
 > [!TIP]
-> 使用者密碼會以代表實際使用者密碼的雜湊值形式儲存在內部部署 Windows Server Active Directory 中。 雜湊值是單向數學函式 (雜湊演算法) 的計算結果。 沒有任何方法可將單向函式的結果還原為純文字版本的密碼。 您無法使用密碼雜湊來登入您的內部部署網路。 當您選擇要同步處理密碼時，Azure AD Connect 會從內部部署 Active Directory 擷取密碼雜湊，並且在密碼雜湊同步處理至 Azure AD 之前套用額外的安全性處理。 密碼雜湊同步處理也可以搭配密碼回寫功能一起使用，以啟用 Azure AD 中的自助式密碼重設功能。 此外，您可以針對連至公司網路且加入網域的電腦使用者啟用單一登入 (SSO)。 使用單一登入，啟用的使用者只需要輸入使用者名稱即可安全地存取雲端資源。 
+> 使用者密碼會以代表實際使用者密碼的雜湊值形式儲存在內部部署 Windows Server Active Directory 中。 雜湊值是單向數學函式 (雜湊演算法) 的計算結果。 沒有任何方法可將單向函式的結果還原為純文字版本的密碼。 您無法使用密碼雜湊來登入您的內部部署網路。 當您選擇要同步處理密碼雜湊時，Azure AD Connect 會從內部部署 Active Directory 擷取密碼雜湊，並且在密碼雜湊同步處理至 Azure AD 之前套用額外的安全性處理。 密碼雜湊同步處理也可以搭配密碼回寫功能一起使用，以啟用 Azure AD 中的自助式密碼重設功能。 此外，您可以針對連至公司網路且加入網域的電腦使用者啟用單一登入 (SSO)。 使用單一登入，啟用的使用者只需要輸入使用者名稱即可安全地存取雲端資源。 
 >
 
 ## <a name="pass-through-authentication"></a>傳遞驗證

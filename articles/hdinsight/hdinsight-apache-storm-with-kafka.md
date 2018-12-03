@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/21/2018
-ms.openlocfilehash: 1f8537408325aff0ba3ec198ed0e2bb697134845
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036337"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496636"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
-本教學課程說明如何使用 Apache Storm 拓撲，對 HDInsight 上的 Apache Kafka 讀取和寫入資料。 本教學課程也會說明如何將資料保存至 Storm 叢集上與 HDFS 相容的儲存體。
+本教學課程說明如何使用 [Apache Storm](https://storm.apache.org/) 拓撲，對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。 本教學課程也會說明如何將資料保存至 Storm 叢集上與 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容的儲存體。
 
 在本教學課程中，您了解如何：
 
@@ -37,7 +37,7 @@ ms.locfileid: "51036337"
 
 * 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Kafka 快速入門](./kafka/apache-kafka-get-started.md)文件。
 
-* 熟悉如何建置和部署 Storm 解決方案 (拓撲)。 具體來說，即使用 Flux 架構的拓撲。 如需詳細資訊，請參閱[以 Java 建立 Storm 拓撲](./storm/apache-storm-develop-java-topology.md)文件。
+* 熟悉如何建置和部署 Storm 解決方案 (拓撲)。 具體來說，即使用 [Flux](https://storm.apache.org/releases/current/flux.html) 架構的拓撲。 如需詳細資訊，請參閱[以 Java 建立 Storm 拓撲](./storm/apache-storm-develop-java-topology.md)文件。
 
 * [Java JDK 1.8](http://www.oracle.com/technetwork/pt/java/javase/downloads/jdk8-downloads-2133151.html) 或更新版本。 HDInsight 3.5 或更新版本需要 Java 8。
 
@@ -63,7 +63,7 @@ ms.locfileid: "51036337"
 
 ## <a name="storm-and-kafka"></a>Storm 和 Kafka
 
-Apache Storm 提供數個用來處理 Kafka 的元件。 在本教學課程中會使用下列元件：
+Apache Storm 提供數個用來處理 Apache Kafka 的元件。 在本教學課程中會使用下列元件：
 
 * `org.apache.storm.kafka.KafkaSpout`：此元件會從 Kafka 讀取資料。 此元件依存於下列元件：
 
@@ -82,7 +82,7 @@ Apache Storm 提供數個用來處理 Kafka 的元件。 在本教學課程中�
 這些是 `org.apache.storm : storm-kafka` 套件中提供的元件。 請使用與 Storm 版本相符的套件版本。 對於 HDInsight 3.6，適用的 Storm 版本為 1.1.0。
 您也需要 `org.apache.kafka : kafka_2.10` 套件，其中包含其他 Kafka 元件。 請使用與 Kafka 版本相符的套件版本。 對於 HDInsight 3.6，適用的 Kafka 版本為 0.10.0.0。
 
-下列 XML 是 `pom.xml` 中對於 Maven 專案的相依性宣告：
+下列 XML 是 `pom.xml` 中對於 [Apache Maven](https://maven.apache.org/) 專案的相依性宣告：
 
 ```xml
 <!-- Storm components for talking to Kafka -->
@@ -369,7 +369,7 @@ streams:
 
 | dev.properties 檔案 | 說明 |
 | --- | --- |
-| `kafka.zookeeper.hosts` | Kafka 叢集的 Zookeeper 主機。 |
+| `kafka.zookeeper.hosts` | Kafka 叢集的 [Apache ZooKeeper](https://zookeeper.apache.org/) 主機。 |
 | `kafka.broker.hosts` | Kafka 代理程式主機 (背景工作節點)。 |
 | `kafka.topic` | 拓撲所使用的 Kafka 主題。 |
 | `hdfs.write.dir` | Kafka 讀取器拓撲寫入的目標目錄。 |
@@ -384,7 +384,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 ![Azure 虛擬網路中的 Storm 和 Kafka 叢集圖表](./media/hdinsight-apache-storm-with-kafka/storm-kafka-vnet.png)
 
 > [!NOTE]
-> 叢集上的其他服務 (例如 SSH 和 Ambari) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
+> 叢集上的其他服務 (例如 SSH 和 [Apache Ambari](https://ambari.apache.org/)) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
 
 若要建立 Azure 虛擬網路，然後在其中建立 Kafka 和 Storm 叢集，請使用下列步驟：
 
@@ -637,8 +637,8 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Storm 拓撲對 HDInsight 上的 Kafka 進行寫入和讀取。 您也已了解如何將資料儲存至 HDInsight 所使用的 HDFS 相容儲存體。
+在本教學課程中，您已了解如何使用 [Apache Storm](https://storm.apache.org/) 拓撲對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 進行寫入和讀取。 您也已了解如何將資料儲存至 HDInsight 所使用的 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 相容儲存體。
 
-若要深入了解如何使用 HDInsight 上的 Kafka，請參閱[使用 Kafka Producer 和 Consumer API](kafka/apache-kafka-producer-consumer-api.md) 文件。
+若要深入了解如何使用 HDInsight 上的 Kafka，請參閱[使用 Apache Kafka Producer 和 Consumer API](kafka/apache-kafka-producer-consumer-api.md) 文件。
 
 如需部署和監視以 Linux 為基礎的 HDInsight 上的拓撲相關資訊，請參閱[部署和管理以 Linux 為基礎的 HDInsight 上的 Apache Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)

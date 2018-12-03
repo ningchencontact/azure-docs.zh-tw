@@ -8,18 +8,19 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 12/15/2017
+ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 62c04e5893eaefcc5eb7272eb9a99cf932086205
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086857"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496037"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>為函式建立 OpenAPI 定義
+
 REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。
 
 在本教學課程中，您會建立一個函式，來判斷風力渦輪機的緊急修復是否符合成本效益。 然後，您會為函式應用程式建立 OpenAPI 定義，以便從其他應用程式和服務呼叫函式。
@@ -33,7 +34,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 > * 呼叫函式以測試定義
 
 > [!IMPORTANT]
-> 目前只有 1.x 執行階段中有提供 OpenAPI 預覽功能。 如需有關如何建立 1.x 函數應用程式的資訊，請[參閱這裡](./functions-versions.md#creating-1x-apps)。
+> OpenAPI 功能目前處於預覽狀態，並且僅適用於 1.x 版的 Azure Functions 執行階段。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
@@ -41,6 +42,11 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
+## <a name="set-the-functions-runtime-version"></a>設定 Functions 執行階段版本
+
+根據預設，您所建立的函式應用程式會使用 2.x 版的執行階段。 建立函式之前，您必須將執行階段版本設回 1.x 版。
+
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 ## <a name="create-the-function"></a>建立函式
 
@@ -50,34 +56,27 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
     ![Azure 入口網站中的 Functions 快速入門](media/functions-openapi-definition/add-first-function.png)
 
-2. 在搜尋欄位中，輸入 `http`，然後針對 HTTP 觸發程序範本選擇 **C#**。 
- 
+1. 在搜尋欄位中，輸入 `http`，然後針對 HTTP 觸發程序範本選擇 **C#**。 
+
     ![選擇 HTTP 觸發程序](./media/functions-openapi-definition/select-http-trigger-portal.png)
 
-3. 輸入 `TurbineRepair` 作為函式 [名稱]，選擇 `Function` 作為 **[[驗證層級]](functions-bindings-http-webhook.md#http-auth)**，然後選取 [建立]。  
+1. 輸入 `TurbineRepair` 作為函式 [名稱]，選擇 `Function` 作為 **[[驗證層級]](functions-bindings-http-webhook.md#http-auth)**，然後選取 [建立]。  
 
     ![建立由 HTTP 觸發的函式](./media/functions-openapi-definition/select-http-trigger-portal-2.png)
 
 1. 使用下列程式碼取代 run.csx 檔案的內容，然後按一下 [儲存]：
 
     ```csharp
-    #r "Newtonsoft.Json"
-
     using System.Net;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.Extensions.Logging;
-    using Microsoft.Extensions.Primitives;
-    using Newtonsoft.Json;
 
-    const double revenuePerkW = 0.12; 
-    const double technicianCost = 250; 
+    const double revenuePerkW = 0.12;
+    const double technicianCost = 250;
     const double turbineCost = 100;
 
-    public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
-    {   
+    public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
+    {
         //Get request body
-        string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
-        dynamic data = JsonConvert.DeserializeObject(requestBody);
+        dynamic data = await req.Content.ReadAsAsync<object>();
         int hours = data.hours;
         int capacity = data.capacity;
 
@@ -93,13 +92,14 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
             repairTurbine = "No";
         }
 
-        return (ActionResult) new OkObjectResult(new{
+        return req.CreateResponse(HttpStatusCode.OK, new{
             message = repairTurbine,
             revenueOpportunity = "$"+ revenueOpportunity,
-            costToFix = "$"+ costToFix         
-        }); 
+            costToFix = "$"+ costToFix
+        });
     }
     ```
+
     此函式程式碼會傳回 `Yes` 或 `No` 的訊息，指出緊急修復是否符合成本效益，以及渦輪機所代表的收入機會與修復渦輪機的成本。 
 
 1. 若要測試函式，請按一下最右邊的 [測試]，將 [測試] 索引標籤展開。針對 [要求本文] 輸入下列值，然後按一下 [執行]。
@@ -132,7 +132,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
     1. 在 [選取的 HTTP 方法] 中，清除 [POST] 以外的所有選項，然後按一下 [儲存]。
 
         ![選取的 HTTP 方法](media/functions-openapi-definition/selected-http-methods.png)
-        
+
 1. 按一下函式應用程式名稱 (例如 **function-demo-energy**) > [平台功能] > [API 定義]。
 
     ![API 定義](media/functions-openapi-definition/api-definition.png)
@@ -185,6 +185,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
     此定義會描述為「範本」，因為它需要更多中繼資料才能成為完整的 OpenAPI 定義。 您將修改下一個步驟中的定義。
 
 ## <a name="modify-the-openapi-definition"></a>修改 OpenAPI 定義
+
 現在您已擁有範本定義，您可以對其進行修改，以提供 API 作業和資料結構的其他相關中繼資料。 在 [API 定義] 中，刪除產生的定義，從 `post` 到定義的底部，在下列內容中貼上，然後按一下 [儲存]。
 
 ```yaml
@@ -249,15 +250,15 @@ securityDefinitions:
 
 在此情況下，您可以只貼上更新的中繼資料，不過，請務必了解我們對預設範本所做的修改類型：
 
-+ 指定 API 會產生並取用 JSON 格式的資料。
+* 指定 API 會產生並取用 JSON 格式的資料。
 
-+ 指定必要的參數，以及其名稱和資料類型。
+* 指定必要的參數，以及其名稱和資料類型。
 
-+ 指定成功回應的傳回值，以及其名稱和資料類型。
+* 指定成功回應的傳回值，以及其名稱和資料類型。
 
-+ 針對 API 以及其作業和參數提供易記摘要和描述。 這對使用此函式的人員很重要。
+* 針對 API 以及其作業和參數提供易記摘要和描述。 這對使用此函式的人員很重要。
 
-+ 已新增 x-ms-summary 和 x-ms-visibility，可用於 Microsoft Flow 和 Logic Apps 的 UI 中。 如需詳細資訊，請參閱 [Microsoft Flow 中自訂 API 的 OpenAPI 延伸模組](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
+* 已新增 x-ms-summary 和 x-ms-visibility，可用於 Microsoft Flow 和 Logic Apps 的 UI 中。 如需詳細資訊，請參閱 [Microsoft Flow 中自訂 API 的 OpenAPI 延伸模組](https://preview.flow.microsoft.com/documentation/customapi-how-to-swagger/)。
 
 > [!NOTE]
 > 我們將安全性定義保留為 API 金鑰的預設驗證方法。 如果您使用不同類型的驗證，則會變更定義的這個區段。
@@ -265,6 +266,7 @@ securityDefinitions:
 如需定義 API 作業的詳細資訊，請參閱 [OpenAPI 規格](https://swagger.io/specification/#operationObject)。
 
 ## <a name="test-the-openapi-definition"></a>測試 OpenAPI 定義
+
 使用 API 定義之前，建議先在 Azure Functions UI 中進行測試。
 
 1. 在您函式的 [管理] 索引標籤中，複製 [主機金鑰] 下的**預設**金鑰。
@@ -305,5 +307,6 @@ securityDefinitions:
 > * 呼叫函式以測試定義
 
 前進到下一個主題，了解如何建立使用您所建立之 OpenAPI 定義的 PowerApps 應用程式。
+
 > [!div class="nextstepaction"]
 > [從 PowerApps 呼叫函式](functions-powerapps-scenario.md)

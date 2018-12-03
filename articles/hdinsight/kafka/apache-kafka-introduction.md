@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 04/11/2018
-ms.openlocfilehash: c08c9a292350adf588296c13a5ce007564899053
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 587279d247b945b787051721d256f00a090d56db
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005763"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313957"
 ---
 # <a name="what-is-apache-kafka-on-hdinsight"></a>什麼是 HDInsight 上的 Apache Kafka？
 
@@ -26,23 +26,23 @@ HDInsight 上的 Apache Kafka 特定特性如下：
 
 * Microsoft 會針對 Kafka 執行時間提供 99.9% 的服務等級協定 (SLA)。 如需詳細資訊，請參閱[適用於 HDInsight 的 SLA 資訊](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/)文件。
 
-* 它會使用 Azure 受控磁碟作為 Kafka 的備份存放區。 受控磁碟可針對每個 Kafka 訊息代理程式最多提供 16 TB 的儲存空間。 如需使用 HDInsight 上的 Kafka 設定受控磁碟的資訊，請參閱[提高 HDInsight 上的 Kafka 延展性](apache-kafka-scalability.md)。
+* 它會使用 Azure 受控磁碟作為 Kafka 的備份存放區。 受控磁碟可針對每個 Kafka 訊息代理程式最多提供 16 TB 的儲存空間。 如需使用 HDInsight 上的 Kafka 設定受控磁碟的資訊，請參閱[提高 HDInsight 上的 Apache Kafka 延展性](apache-kafka-scalability.md)。
 
     如需受控磁碟的詳細資訊，請參閱 [Azure 受控磁碟](../../virtual-machines/windows/managed-disks-overview.md)。
 
 * Kafka 是針對機架的單一維度檢視而設計的。 Azure 會將一個機架分隔成兩個維度：更新網域 (UD) 和容錯網域 (FD)。 Microsoft 所提供的工具會重新平衡各 UD 和 FD 的 Kafka 分割區和複本。 
 
-    如需詳細資訊，請參閱[使用 HDInsight 上的 Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
+    如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
 
 * HDInsight 可讓您在叢集建立後，變更背景工作節點 (裝載 Kafka 訊息代理程式的節點) 的數目。 您可以從 Azure 入口網站、Azure PowerShell 及其他 Azure 管理介面執行調整。 對於 Kafka，您應該在調整作業完成後重新平衡磁碟分割複本。 重新平衡資料分割可讓 Kafka 利用新的背景工作節點數。
 
-    如需詳細資訊，請參閱[使用 HDInsight 上的 Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
+    如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保高可用性](apache-kafka-high-availability.md)文件。
 
 * Azure Log Analytics 可用來監視 HDInsight 上的 Kafka。 Log Analytics 會呈現虛擬機器層級資訊，例如磁碟和 NIC 計量，以及來自 Kafka 的 JMX 計量。
 
-    如需詳細資訊，請參閱[針對 HDInsight 上的 Kafka 分析記錄](apache-kafka-log-analytics-operations-management.md)。
+    如需詳細資訊，請參閱[針對 HDInsight 上的 Apache Kafka 分析記錄](apache-kafka-log-analytics-operations-management.md)。
 
-### <a name="kafka-on-hdinsight-architecture"></a>HDInsight 上的 Kafka 架構
+### <a name="apache-kafka-on-hdinsight-architecture"></a>HDInsight 上的 Apache Kafka 架構
 
 下圖顯示的典型 Kafka 設定會使用取用者群組、分割及複寫，以提供具有容錯功能的事件平行讀取：
 
@@ -56,29 +56,29 @@ Kafka 會在「主題」中儲存記錄 (資料)。 記錄是由「產生者」�
 
 複寫用於將分割區複製到各個節點，以防止節點 (訊息代理程式) 中斷。 圖表中以 *(L)* 表示的分割區是指定分割區的前端項目。 使用 ZooKeeper 所管理的狀態，可將生產者流量路由傳送至每個節點的前端項目。
 
-## <a name="why-use-kafka-on-hdinsight"></a>為何使用 HDInsight 上的 Kafka？
+## <a name="why-use-apache-kafka-on-hdinsight"></a>為何使用 HDInsight 上的 Apache Kafka？
 
 以下是可以使用 HDInsight 上的 Kafka 執行的常見工作和模式：
 
-* **複寫 Kafka 資料**：Kafka 提供 MirrorMaker 公用程式，該公用程式可在 Kafka 叢集之間複寫資料。
+* **複寫 Apache Kafka 資料**：Kafka 提供 MirrorMaker 公用程式，該公用程式可在 Kafka 叢集之間複寫資料。
 
-    如需使用 MirrorMaker 的詳細資訊，請參閱[透過 HDInsight 上的 Kafka 複寫 Kafka 主題](apache-kafka-mirroring.md)。
+    如需使用 MirrorMaker 的詳細資訊，請參閱[透過 HDInsight 上的 Apache Kafka 複寫 Kafka 主題](apache-kafka-mirroring.md)。
 
 * **發佈-訂閱傳訊模式**︰Kafka 提供生產者 API，可將記錄發佈到 Kafka 主題。 訂閱主題時會使用取用者 API。
 
-    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)。
+    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
 * **串流處理**︰Kafka 通常與 Apache Storm 或 Spark 一起用來處理即時串流。 Kafka 0.10.0.0 (HDInsight 3.5 和 3.6 版) 引進串流 API，讓您不需要 Storm 或 Spark 就能建置串流解決方案。
 
-    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)。
+    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
 * **水平縮放**︰Kafka 可將串流分割給 HDInsight 叢集的各節點。 取用者處理程序可以與個別的資料分割相關聯，在取用記錄時可平衡負載。
 
-    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)。
+    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
 * **依序傳遞**︰在每個資料分割內，記錄會依收到時的順序儲存在串流中。 每個資料分割與一個取用者處理序建立關聯之後，就能保證依序處理記錄。
 
-    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)。
+    如需詳細資訊，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)。
 
 ## <a name="use-cases"></a>使用案例
 
@@ -94,8 +94,8 @@ Kafka 會在「主題」中儲存記錄 (資料)。 記錄是由「產生者」�
 
 使用下列連結以了解如何使用 HDInsight 上的 Apache Kafka：
 
-* [快速入門：建立 HDInsight 上的 Kafka](apache-kafka-get-started.md)
+* [快速入門：建立 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)
 
-* [教學課程：使用 Apache Spark 搭配 HDInsight 上的 Kafka](../hdinsight-apache-spark-with-kafka.md)
+* [教學課程：使用 Apache Spark 搭配 HDInsight 上的 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 
-* [教學課程：使用 Apache Storm 搭配 HDInsight 上的 Kafka](../hdinsight-apache-storm-with-kafka.md)
+* [教學課程：使用 Apache Storm 搭配 HDInsight 上的 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)

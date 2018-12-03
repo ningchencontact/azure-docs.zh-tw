@@ -42,20 +42,22 @@ items:
   items:
   - name: IoT Edge 執行階段
     href: iot-edge-runtime.md
-  - name: IoT Edge 憑證
-    href: iot-edge-certs.md
   - name: IoT Edge 模組
     items:
     - name: 了解 Azure IoT Edge 模組
       href: iot-edge-modules.md
     - name: 開發
       href: module-development.md
-    - name: 撰寫
-      href: module-composition.md
     - name: Edge 代理程式和中樞屬性
       href: module-edgeagent-edgehub.md
-  - name: 部署
-    href: module-deployment-monitoring.md
+  - name: 模組部署
+    items:
+    - name: 部署資訊清單
+      href: module-composition.md
+    - name: 自動部署
+      href: module-deployment-monitoring.md
+  - name: IoT Edge 憑證
+    href: iot-edge-certs.md
   - name: 離線功能
     href: offline-capabilities.md
   - name: 將 IoT Edge 裝置設定為閘道
@@ -68,6 +70,8 @@ items:
       href: iot-edge-security-manager.md
   - name: 平台支援
     href: support.md
+  - name: 生產部署檢查清單
+    href: production-checklist.md
   - name: IoT Edge 詞彙
     href: iot-edge-glossary.md
 - name: 使用說明指南
@@ -218,9 +222,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 7ad5c5da9162c2b5d9b5908dbea5630cf277393c
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 27bc0b00a51f10695c5ce1e2e600b91a1f97b0ab
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613897"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582797"

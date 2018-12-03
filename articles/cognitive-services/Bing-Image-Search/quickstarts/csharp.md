@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296633"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307486"
 ---
 # <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>快速入門：使用 Bing 影像搜尋 API 和 C# 來傳送搜尋查詢
 
@@ -25,13 +25,14 @@ ms.locfileid: "46296633"
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) 上有此範例的原始程式碼，其中還有其他錯誤處理和註釋。
 
-## <a name="prerequisites"></a>先決條件
-
-* 任何一版 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
+## <a name="prerequisites"></a>必要條件
+* 任何一版的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。
 * [Json.NET](https://www.newtonsoft.com/json) 架構 (以 NuGet 套件形式提供)。
 * 如果您使用 Linux/MacOS，則可以使用 [Mono](http://www.mono-project.com/)來執行此應用程式。
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="create-and-initialize-a-project"></a>建立專案並將其初始化
 
@@ -159,7 +160,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="json-response"></a>JSON 回應
 
-來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 此範例回應已截斷而只顯示單一結果。
+來自「Bing 影像搜尋 API」的回應會以 JSON 形式傳回。 本範例回應已截斷而只顯示單一結果。
 
 ```json
 {

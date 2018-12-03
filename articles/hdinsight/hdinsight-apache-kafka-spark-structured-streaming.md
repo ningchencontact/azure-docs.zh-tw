@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 83e277eceea2df746de6f6e9a33130989e2d874d
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5f59f14f93b5bfc79c07b096a07ac109be0bedb6
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278356"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499085"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
-本教學課程說明如何使用 Apache Spark 結構化串流，對 Azure HDInsight 上的 Apache Kafka 讀取和寫入資料。
+本教學課程說明如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)，對 Azure HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。
 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 
 
@@ -35,11 +35,11 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 熟悉如何搭配使用 Jupyter Notebook 和 HDInsight 上的 Spark。 如需詳細資訊，請參閱[使用 HDInsight 上的 Spark 載入資料及執行查詢](spark/apache-spark-load-data-run-query.md)文件。
+* 熟悉如何搭配使用 [Jupyter Notebook](https://jupyter.org/) 和 HDInsight 上的 Spark。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Spark 載入資料及執行查詢](spark/apache-spark-load-data-run-query.md)文件。
 
 * 熟悉 [Scala](https://www.scala-lang.org/) 程式設計語言。 教學課程中使用的程式碼是以 Scala 撰寫的。
 
-* 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Kafka 快速入門](kafka/apache-kafka-get-started.md)文件。
+* 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Apache Kafka 快速入門](kafka/apache-kafka-get-started.md)文件。
 
 > [!IMPORTANT]
 > 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
@@ -48,7 +48,7 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 >
 > 如需在虛擬網路中使用 HDInsight 的詳細資訊，請參閱[使用 Azure 虛擬網路擴充 HDInsight](hdinsight-extend-hadoop-virtual-network.md) 文件。
 
-## <a name="structured-streaming-with-kafka"></a>搭配 Kafka 使用結構化串流
+## <a name="structured-streaming-with-apache-kafka"></a>搭配 Apache Kafka 使用結構化串流
 
 Spark 結構化串流是建置在 Spark SQL 引擎上的串流處理引擎。 使用結構化串流時，您可以比照撰寫批次查詢的方式來撰寫串流查詢。
 
@@ -205,7 +205,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已了解如何使用 Spark 結構化串流對 HDInsight 上的 Kafka 寫入及讀取資料。 請使用下列連結了解如何搭配使用 Storm 與 Kafka。
+在本教學課程中，您已了解如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)對 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 寫入及讀取資料。 請使用下列連結了解如何搭配使用 [Apache Storm](https://storm.apache.org/) 與 Kafka。
 
 > [!div class="nextstepaction"]
-> [搭配使用 Apache Storm 與 Kafka](hdinsight-apache-storm-with-kafka.md)
+> [使用 Apache Storm 搭配 Apache Kafka](hdinsight-apache-storm-with-kafka.md)
