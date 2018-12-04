@@ -20,8 +20,6 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 定義安全性原則
-    href: tutorial-security-policy.md
   - name: 保護您的資源
     href: tutorial-protect-resources.md
   - name: 回應事件
@@ -44,6 +42,8 @@ items:
     href: security-center-app-services.md
   - name: 檢視安全性原則
     href: security-center-azure-policy.md
+  - name: 編輯安全性原則
+    href: tutorial-security-policy.md
   - name: 自訂資訊保護原則
     href: security-center-info-protection-policy.md
   - name: 資訊安全中心設定
@@ -219,9 +219,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 4b6187ca5b56ea634524df0294725e23f188d492
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dfcf985e2f7dec286f6b64d508e8525986315a6c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310441"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843354"

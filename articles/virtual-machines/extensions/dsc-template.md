@@ -182,7 +182,7 @@ DSC 延伸模組會繼承預設的延伸模組屬性。
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |必要屬性。 指定節點向「Azure 自動化」服務註冊時，用來作為 PowerShell 認證物件密碼的金鑰。 針對「自動化」帳戶使用 **listkeys** 方法，即可自動探索此值。  查看[範例](#example-using-referenced-azure-automation-registration-values)。 |
 | settings.configurationArguments.RegistrationUrl |字串 |必要屬性。 指定節點嘗試進行註冊之「自動化」端點的 URL。 針對「自動化」帳戶使用**reference** 方法，即可自動探索此值。 |
 | settings.configurationArguments.NodeConfigurationName |字串 |必要屬性。 指定「自動化」帳戶中要指派給節點的 節點設定。 |
-| settings.configurationArguments.ConfigurationMode |字串 |指定 LCM 的模式。 有效的選項包括 **ApplyOnly****ApplyandMonitor**, 及 **ApplyandAutoCorrect**。  預設值為 **ApplyandMonitor**。 |
+| settings.configurationArguments.ConfigurationMode |字串 |指定 LCM 的模式。 有效的選項包括 **ApplyOnly** **ApplyandMonitor**, 及 **ApplyandAutoCorrect**。  預設值為 **ApplyandMonitor**。 |
 | settings.configurationArguments.RefreshFrequencyMins | uint32 | 指定 LCM 嘗試檢查「自動化」帳戶是否有更新的頻率。  預設值為 **30**。  最小值為 **15**。 |
 | settings.configurationArguments.ConfigurationModeFrequencyMins | uint32 | 指定 LCM 驗證目前設定的頻率。 預設值為 **15**。 最小值為 **15**。 |
 | settings.configurationArguments.RebootNodeIfNeeded | 布林值 | 指定節點是否能在 DSC 作業要求時自動重新開機。 預設值為 **false**。 |

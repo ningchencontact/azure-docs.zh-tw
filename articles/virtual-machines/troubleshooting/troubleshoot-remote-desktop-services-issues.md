@@ -148,7 +148,7 @@ ms.locfileid: "50957687"
     2. 您可以使用序列主控台，將檔案複製到新的磁碟機。 例如： `copy C:\temp\ProcMonTrace.PML F:\`。 在此命令中，F 是所連結之資料磁碟的磁碟機代號。
     3. 將資料磁碟機中斷連結，並連結到作用中且已安裝處理序監視的 VM。
 
-6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取] **** 來篩選，如下列螢幕擷取畫面中所示：
+6. 使用作用中 VM 的處理序監視開啟 **ProcMonTrace.PML**。 然後依 [結果] 是 [拒絕存取]來篩選，如下列螢幕擷取畫面中所示 **：**
 
     ![在處理程序監視中依結果篩選](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
