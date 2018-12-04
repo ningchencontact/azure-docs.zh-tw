@@ -243,7 +243,7 @@ Azure 排程器支援多個作業類型：
 |----------|----------|-------|-------------| 
 | **frequency** | 在使用 **recurrence** 時是必要的 | "Minute"、"Hour"、"Day"、"Week"、"Month"、"Year" | 發生次數之間的時間單位 | 
 | **interval** | 否 | 1 到 1000 (含) | 正整數，根據 **frequency** 來決定每次發生作業的間隔時間單位數 | 
-| **schedule** | 否 | 視情況而異 | 更複雜且進階的排程詳細資料。 請參考 **hours**、**minutes****weekDays**、**months** 和 **monthDays** | 
+| **schedule** | 否 | 視情況而異 | 更複雜且進階的排程詳細資料。 請參考 **hours**、**minutes**、**weekDays**、**months** 和 **monthDays** | 
 | **hours** | 否 | 1 到 24 | 包含小時標記的陣列，表示要執行作業的時間 | 
 | **minutes** | 否 | 1 到 24 | 包含分鐘標記的陣列，表示要執行作業的時間 | 
 | **months** | 否 | 1 到 12 | 包含月份的陣列，表示要執行作業的時間 | 
