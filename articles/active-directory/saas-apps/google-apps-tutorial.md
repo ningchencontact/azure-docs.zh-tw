@@ -203,11 +203,11 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     a. 選取 [使用第三方識別提供者來設定 SSO]。
 
-    b. 在 G Suite 的 [登入頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登入 URL] ****  值。
+    b. 在 G Suite 的 [登入頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
 
-    c. 在 G Suite 的 [登出頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登出 URL] ****  值。
+    c. 在 G Suite 的 [登出頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
 
-    d. 在 G Suite 的 [變更密碼 URL] 欄位中，貼上您從 Azure 入口網站複製的 [變更密碼 URL] ****  值。
+    d. 在 G Suite 的 [變更密碼 URL] 欄位中，貼上您從 Azure 入口網站複製的 [變更密碼 URL]  值。
 
     e. 在 G Suite 中，請於 [驗證憑證] 上傳您從 Azure 入口網站下載的憑證。
 
