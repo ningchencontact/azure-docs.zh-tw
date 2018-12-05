@@ -1,10 +1,11 @@
 ---
-title: 步驟 5：部署 Machine Learning Web 服務 | Microsoft Docs
+title: 步驟 5：部署 Machine Learning Studio Web 服務 | Microsoft Docs
 description: 開發預測解決方案逐步解說的步驟 5：在 Machine Learning Studio 中將預測實驗部署為 Web 服務。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 3fca74a3-c44b-4583-a218-c14c46ee5338
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 33965270c2be6f70614def79a49f1c4aa1a8fbbc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246531"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309924"
 ---
-# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Web 服務
+# <a name="walkthrough-step-5-deploy-the-azure-machine-learning-studio-web-service"></a>逐步解說步驟 5：部署 Azure Machine Learning Studio Web 服務
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
 
 1. [建立機器學習服務工作區](walkthrough-1-create-ml-workspace.md)
@@ -109,7 +110,7 @@ Machine Learning Studio 已在移除[分割][split]模組時移除一個[執行 
 >一個值得注意的重要事項是若您的原始資料集包含標籤，則來自 Web 輸入的預期結構描述也預期應該有具有標籤的資料行！ 避免此問題的一個因應措施是移除標籤，以及在將 Web 輸入與定型資料集連結到通用模組之前，移除位於定型資料集但將不會位於 Web 輸入中的任何其他資料。 
 > 
 
-最後一次執行實驗 (按一下 **[執行]**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model]模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
+最後一次執行實驗 (按一下 **[執行]**)。如果要確認模型仍然有效，請按一下 [評分模型][score-model] 模組的輸出結果，並選取 [檢視結果]。 您可以看到原始資料出現，也會看到信用風險值 ("Scored Labels") 和評分機率值 ("Scored Probabilities")。 
 
 ## <a name="deploy-the-web-service"></a>部署 Web 服務
 您可以將實驗部署為傳統 Web 服務或架構在 Azure Resource Manager 上的新式 Web 服務。

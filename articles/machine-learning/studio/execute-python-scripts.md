@@ -1,11 +1,12 @@
 ---
-title: 執行 Python 機器學習服務指令碼 | Microsoft Docs
-description: 概述 Azure Machine Learning 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。
+title: 執行 Python 機器學習服務指令碼 - Azure Machine Learning Studio | Microsoft Docs
+description: 概述 Azure Machine Learning Studio 中對於 Python 指令碼目前支援基礎之下的設計原則，以及基本使用案例、功能及限制。
 keywords: python 機器學習服務,pandas,python pandas,python 指令碼, 執行 python 指令碼
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228159"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317580"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
 
@@ -62,11 +63,11 @@ Azure Machine Learning Studio 支援將 Python 指令碼內嵌至機器學習實
 
 ![image2](./media/execute-python-scripts/embedded-machine-learning-python-script.png)
 
-圖 1. **執行 Python 指令碼** 模組。
+圖 1.  **執行 Python 指令碼** 模組。
 
 Azure ML Studio 中的[執行 Python 指令碼][execute-python-script]模組最多接受三個輸入，而且最多產生兩個輸出 (於下一節中討論)，就像其同類的 R 一樣：[執行 R 指令碼][execute-r-script]模組。 要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函式的參數方塊。 以下是用來實作此模組的關鍵設計原則：
 
-1. *必須是 Python 使用者慣用的。* 大多數 Python 使用者將其程式碼視為模組中的函式。 因此，將大量的可執行陳述式放在最上層的模組相當罕見。 因此，指令碼方塊也會採用特殊命名的 Python 函數，而不是採用一系列的陳述式。 在函式中公開的物件是標準 Python 程式庫類型 (例如 [Pandas](http://pandas.pydata.org/)資料框架和 [NumPy](http://www.numpy.org/) 陣列)。
+1. *必須是 Python 使用者慣用的。* 大多數 Python 使用者將其程式碼視為模組中的函式。 因此，將大量的可執行陳述式放在最上層的模組相當罕見。 因此，指令碼方塊也會採用特殊命名的 Python 函式，而不是採用一系列的陳述式。 在函式中公開的物件是標準 Python 程式庫類型 (例如 [Pandas](http://pandas.pydata.org/)資料框架和 [NumPy](http://www.numpy.org/) 陣列)。
 2. *必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是以 [Anaconda](https://store.continuum.io/cshop/anaconda/) (廣為使用的跨平台科學 Python 發行版本) 為基礎。 它隨附將近 200 個最常見的 Python 套件。 因此，資料科學家可在其本機 Azure Machine Learning 相容的 Anaconda 環境中，對程式碼進行偵錯與限定。 然後使用現有的開發環境 (例如 [IPython](http://ipython.org/) 筆記本或[適用於 Visual Studio 的 Python 工具](https://aka.ms/ptvs)) 來執行它，以作為 Azure ML 實驗的一部分執行。 此外，`azureml_main` 進入點是原始 Python 函式，因此****不需要 Azure ML 特定程式碼或安裝 SDK 即可編寫。
 3. *必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集作為輸入和輸出。 底層架構明確而有效率地橋接了 Azure ML 和 Python 執行階段。 因此，Python 可以用於與現有 Azure ML 工作流程接合，包括呼叫 R 和 SQLite 的那些工作流程。 因此，資料科學家可以撰寫執行下列工作的工作流程：
    * 使用 Python 和 Pandas 進行資料前處理和清除
@@ -201,9 +202,9 @@ Azure ML 中的輸入資料集會轉換為 Pandas 中的資料框架。 輸出�
 ## <a name="limitations"></a>限制
 [執行 Python 指令碼][execute-python-script]目前具有下列限制：
 
-1. *沙箱化執行。* Python 執行階段目前已沙箱化，因此，不允許以永續方式存取網路或本機檔案系統。 所有本機儲存的文件都會被隔離，並且在模組結束時加以刪除。 Python 程式碼無法在其執行的機器上存取大部分的目錄，但目前的目錄及其子目錄例外。
-2. *缺少精細的開發和偵錯支援。* Python 模組目前不支援 IDE 功能，例如 intellisense 和偵錯。 此外，如果模組在執行階段失敗，則會提供完整的 Python 堆疊追蹤。 但是，它必須在模組的輸出記錄檔中檢視。 我們目前建議您在如 IPython 的環境中開發 Python 指令碼及進行偵錯，然後將程式碼匯入到模組。
-3. *單一資料框架輸出。* Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件 (例如訓練模型) 傳回 Azure Machine Learning 執行階段。 如同[執行 R 指令碼][execute-r-script] (具有相同的限制)，在許多情況下可以將物件存放至位元組陣列，然後在資料框架內傳回。
+1. *沙箱化執行。*  Python 執行階段目前已沙箱化，因此，不允許以永續方式存取網路或本機檔案系統。 所有本機儲存的文件都會被隔離，並且在模組結束時加以刪除。 Python 程式碼無法在其執行的機器上存取大部分的目錄，但目前的目錄及其子目錄例外。
+2. *缺少精細的開發和偵錯支援。*  Python 模組目前不支援 IDE 功能，例如 intellisense 和偵錯。 此外，如果模組在執行階段失敗，則會提供完整的 Python 堆疊追蹤。 但是，它必須在模組的輸出記錄檔中檢視。 我們目前建議您在如 IPython 的環境中開發 Python 指令碼及進行偵錯，然後將程式碼匯入到模組。
+3. *單一資料框架輸出。*  Python 進入點是唯一獲得允許的位置，可以將單一資料框架傳回為輸出。 目前無法直接將任意 Python 物件 (例如訓練模型) 傳回 Azure Machine Learning 執行階段。 如同[執行 R 指令碼][execute-r-script] (具有相同的限制)，在許多情況下可以將物件存放至位元組陣列，然後在資料框架內傳回。
 4. *無法自訂 Python 安裝*。 目前，新增自訂 Python 模組的唯一方法是透過稍早所述的 zip 檔案機制。 對於小模組可行，但是對於大模組 (特別是具有原生 DLL 的模組) 和大量模組而言則顯得繁瑣。 
 
 ## <a name="conclusions"></a>結論
