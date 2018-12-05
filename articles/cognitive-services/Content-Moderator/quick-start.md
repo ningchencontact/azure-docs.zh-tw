@@ -10,23 +10,23 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 259919f3b7cb0b614450c94f876cff933a5e01e8
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260001"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852685"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>快速入門：熟悉 Content Moderator
 
-在本快速入門中，您將使用線上「Content Moderator 審核工具」，無須撰寫任何程式碼，即可測試 Content Moderator 的基本功能。 如果您想要將此服務更快整合至您的應用程式，請參閱[後續步驟](#next-steps)一節中的其他快速入門。
+在此快速入門中，您將使用線上「Content Moderator 審核工具」，無須撰寫任何程式碼，即可測試 Content Moderator 的基本功能。 如果您想要將此服務更快整合至您的應用程式，請參閱[後續步驟](#next-steps)一節中的其他快速入門。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 - 網頁瀏覽器
 
 ## <a name="set-up-the-review-tool"></a>設定審核工具
-「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在本指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站並註冊。
+「Content Moderator 審核工具」是一個 Web 型工具，可讓人工審核者協助認知服務進行決策。 在此指南中，您將完成設定審核工具的簡短程序，以便了解 Content Moderator 服務如何運作。 請前往 [Content Moderator 審核工具](https://contentmoderator.cognitive.microsoft.com/)網站並註冊。
 
 ![Content Moderator 首頁](images/homepage.PNG)
 
@@ -58,7 +58,7 @@ ms.locfileid: "51260001"
 
 ## <a name="learn-more-about-the-review-tool"></a>深入了解審核工具
 
-若要深入了解如何使用「Content Moderator 審核工具」，請參閱[人機互動](Review-Tool-User-Guide/human-in-the-loop.md)指南，以及參閱「審核工具 API」以了解如何微調人供審核體驗：
+若要深入了解如何使用「Content Moderator 審核工具」，請參閱[審核工具](Review-Tool-User-Guide/human-in-the-loop.md)指南，以及參閱「審核工具 API」以了解如何微調人工審核體驗：
 - [作業 API](try-review-api-job.md) 會使用審核 API 掃描您的內容，並在檢閱工具中產生檢閱。 
 - [檢閱 API](try-review-api-review.md) 會直接為人工審核者建立影像、文字或影片檢閱，無須先掃描內容。 
 - [工作流程 API](try-review-api-workflow.md) 會建立、更新並取得您小組建立的自訂工作流程詳細資料。

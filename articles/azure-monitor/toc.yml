@@ -62,6 +62,8 @@ items:
   items:
   - name: Azure 管理
     href: azure-management.md?toc=/azure/azure-monitor/toc.json
+  - name: 連續監視
+    href: continuous-monitoring.md
   - name: 監視資料
     items:
     - name: 計量與記錄檔
@@ -75,13 +77,13 @@ items:
     - name: 診斷記錄檔
       href: ../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md?toc=/azure/azure-monitor/toc.json
     - name: 記錄檔資料擷取時間
-      href: ../log-analytics/log-analytics-data-ingestion-time.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-ingestion-time.md
     - name: 自訂計量至計量存放區
       href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json
     - name: 資料安全性
       items:
       - name: 記錄資料
-        href: ../log-analytics/log-analytics-data-security.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-security.md
       - name: 個人記錄檔資料處理
         href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
       - name: 應用程式資料收集、保留和儲存
@@ -109,7 +111,7 @@ items:
     - name: Log Analytics
       href: log-query/log-query-overview.md
     - name: 記錄檔查詢入口網站
-      href: ../log-analytics/log-analytics-log-search-portals.md?toc=/azure/azure-monitor/toc.json
+      href: log-query/portals.md
     - name: OMS 入口網站轉換
       items:
       - name: 概觀
@@ -139,7 +141,7 @@ items:
   - name: 常見問題集
     items:
     - name: Log Analytics
-      href: ../log-analytics/log-analytics-faq.md?toc=/azure/azure-monitor/toc.json
+      href: platform/log-faq.md
     - name: Application Insights
       href: ../application-insights/app-insights-troubleshoot-faq.md?toc=/azure/azure-monitor/toc.json
 - name: 使用說明指南
@@ -199,7 +201,7 @@ items:
         - name: Linux 的 VM 延伸模組
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
-          href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
+          href: platform/om-agents.md
         - name: OMS 閘道
           href: platform/gateway.md
         - name: 代理程式管理
@@ -257,7 +259,7 @@ items:
       - name: 自訂的記錄檔
         href: platform/data-sources-custom-logs.md
       - name: 自訂欄位
-        href: ../log-analytics/log-analytics-custom-fields.md?toc=/azure/azure-monitor/toc.json
+        href: platform/custom-fields.md
     - name: 設定應用程式
       items:
       - name: Azure 應用程式
@@ -423,7 +425,7 @@ items:
     - name: 收集自訂資料
       items:
       - name: Log Analytics 資料收集器 API
-        href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/data-collector-api.md
       - name: Log Analytics 資料收集器 API 管線範例
         href: platform/create-pipeline-datacollector-api.md
       - name: 應用程式資料
@@ -514,7 +516,7 @@ items:
         - name: 活頁簿
           href: ../application-insights/app-insights-usage-workbooks.md?toc=/azure/azure-monitor/toc.json
       - name: Web 應用程式 Analytics 解決方案
-        href: ../log-analytics/log-analytics-azure-web-apps-analytics.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-web-apps-analytics.md
     - name: 監視容器
       items:
       - name: 適用於容器的 Azure 監視器
@@ -532,7 +534,7 @@ items:
         - name: 疑難排解
           href: insights/container-insights-troubleshoot.md
       - name: Docker 和 Windows 容器監視
-        href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
+        href: insights/containers.md
       - name: 監視 Docker 應用程式
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: 監視資源群組
@@ -540,7 +542,7 @@ items:
     - name: 監視資料庫
       items:
       - name: Azure SQL
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
+        href: insights/azure-sql.md
       - name: SQL Server
         href: insights/sql-assessment.md
     - name: 監視網路
@@ -661,55 +663,55 @@ items:
     - name: 查詢記錄檔資料
       items:
       - name: 查詢語言文件
-        href: ../log-analytics/query-language/query-language.md
+        href: log-query/query-language.md
       - name: 語言差異
-        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/data-explorer-difference.md
       - name: 開始使用
         items:
         - name: 開始使用 Analytics 入口網站
-          href: ../log-analytics/query-language/get-started-analytics-portal.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-portal.md
         - name: 開始使用查詢
-          href: ../log-analytics/query-language/get-started-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/get-started-queries.md
         - name: 搜尋查詢
-          href: ../log-analytics/query-language/search-queries.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/search-queries.md
         - name: 實用運算子
-          href: ../log-analytics/query-language/useful-operators.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/useful-operators.md
       - name: 課程
         items:
         - name: 字串作業
-          href: ../log-analytics/query-language/string-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/string-operations.md
         - name: 日期與時間作業
-          href: ../log-analytics/query-language/datetime-operations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/datetime-operations.md
         - name: 彙總函式
-          href: ../log-analytics/query-language/aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/aggregations.md
         - name: 進階彙總
-          href: ../log-analytics/query-language/advanced-aggregations.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-aggregations.md
         - name: 聯結
-          href: ../log-analytics/query-language/joins.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/joins.md
         - name: JSON 與資料結構
-          href: ../log-analytics/query-language/json-data-structures.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/json-data-structures.md
         - name: 進階查詢撰寫
-          href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/advanced-query-writing.md
         - name: 圖表和資料圖表
-          href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/charts.md
         - name: Functions
-          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/functions.md
       - name: 速查表
         items:
         - name: SQL
-          href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/sql-cheatsheet.md
         - name: Splunk
-          href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/splunk-cheatsheet.md
       - name: 查詢語言
         items:
         - name: 範例
-          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/examples.md
         - name: 跨資源搜尋
-          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/cross-workspace-query.md
         - name: 應用程式運算式
-          href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/app-expression.md
         - name: 工作區運算式
-          href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
+          href: log-query/workspace-expression.md
       - name: 記錄資料
         items:
         - name: 應用程式資料
@@ -717,11 +719,11 @@ items:
         - name: 標準屬性
           href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: 從搜尋結果採取行動
-        href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
+        href: log-query/take-action.md
       - name: 電腦群組
         href: platform/computer-groups.md
       - name: 流程連接器
-        href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
+        href: platform/flow-tutorial.md
       - name: 記錄檔搜尋 API
         href: https://dev.loganalytics.io/
   - name: 回應事件
@@ -821,11 +823,11 @@ items:
     - name: IT 服務管理
       items:
       - name: IT 服務管理連接器
-        href: ../log-analytics/log-analytics-itsmc-overview.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-overview.md
       - name: IT 服務管理連線
         href: platform/itsmc-connections.md
       - name: 建立服務管理員 Web 應用程式
-        href: ../log-analytics/log-analytics-itsmc-service-manager-script.md?toc=/azure/azure-monitor/toc.json
+        href: platform/itsmc-service-manager-script.md
   - name: 管理使用量與成本
     items:
     - name: 使用量和估計成本
@@ -1007,9 +1009,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 46f8dfa668deed1be2b955fd42b894dfa5513a20
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: d87574fb4e430742a733d92992ef2009e0240d43
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846176"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889747"

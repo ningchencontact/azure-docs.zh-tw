@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: b180e62804b875ca4547a9d09f19efff32ae0cd9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 2fce90f971d13b94c73012d4089cca05739c5440
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207218"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853705"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 網路功能模式
-您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 本文說明如何建立使用下列功能的叢集︰
+您可以將 Azure Service Fabric 叢集與其他的 Azure 網路功能整合起來。 此文章說明如何建立使用下列功能的叢集︰
 
 - [現有虛擬網路或子網路](#existingvnet)
 - [靜態公用 IP 位址](#staticpublicip)
@@ -37,7 +37,7 @@ Service Fabric 有一個方面是其他網路功能所沒有的。 [Azure 入口
 
 ## <a name="templates"></a>範本
 
-所有 Service Fabric 範本都位於 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀本文的[初始設定](#initialsetup)一節。
+所有 Service Fabric 範本都位於 [GitHub](https://github.com/Azure/service-fabric-scripts-and-templates/tree/master/templates/networking) 中。 使用下列 Powershell 命令應該可以依原樣部署範本。 如果您要部署現有 Azure 虛擬網路範本或靜態公用 IP 範本，請先閱讀此文章的[初始設定](#initialsetup)一節。
 
 <a id="initialsetup"></a>
 ## <a name="initial-setup"></a>初始設定
@@ -74,7 +74,7 @@ DnsSettings              : {
 
 ### <a name="service-fabric-template"></a>Service Fabric 範本
 
-在本文的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用其中一個[範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)，例如[五個節點的安全 Service Fabric 叢集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
+在此文章的範例中，我們會使用 Service Fabric template.json。 您可以先使用標準入口網站精靈從入口網站下載範本，再建立叢集。 您也可以使用其中一個[範例範本](https://github.com/Azure-Samples/service-fabric-cluster-templates)，例如[五個節點的安全 Service Fabric 叢集](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)。
 
 <a id="existingvnet"></a>
 ## <a name="existing-virtual-network-or-subnet"></a>現有虛擬網路或子網路
@@ -106,15 +106,20 @@ DnsSettings              : {
             },*/
     ```
 
+2. 將 `Microsoft.Compute/virtualMachineScaleSets` 的 `nicPrefixOverride` 屬性註解化，因為您是使用現有的子網路，且已在步驟 1 中停用此變數。
 
-2. 變更 `vnetID` 變數以指向現有虛擬網路︰
+    ```
+            /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. 變更 `vnetID` 變數以指向現有虛擬網路︰
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. 從資源中移除 `Microsoft.Network/virtualNetworks`，讓 Azure 不會建立新的虛擬網路︰
+4. 從資源中移除 `Microsoft.Network/virtualNetworks`，讓 Azure 不會建立新的虛擬網路︰
 
     ```
     /*{
@@ -144,7 +149,7 @@ DnsSettings              : {
     },*/
     ```
 
-4. 從 `Microsoft.Compute/virtualMachineScaleSets` 的 `dependsOn` 屬性將虛擬網路註解化，以便不需依賴建立新的虛擬網路︰
+5. 從 `Microsoft.Compute/virtualMachineScaleSets` 的 `dependsOn` 屬性將虛擬網路註解化，以便不需依賴建立新的虛擬網路︰
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -158,7 +163,7 @@ DnsSettings              : {
 
     ```
 
-5. 部署範本：
+6. 部署範本：
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
@@ -383,11 +388,11 @@ DnsSettings              : {
 <a id="internalexternallb"></a>
 ## <a name="internal-and-external-load-balancer"></a>內部與外部負載平衡器
 
-在此案例中，您會從現有的單一節點類型外部負載平衡器來開始，然後新增同一節點類型的內部負載平衡器。 連結到後端位址集區的後端連接埠只能指派給單一負載平衡器。 選擇要讓哪個負載平衡器擁有您的應用程式連接埠，哪個負載平衡器擁有管理端點 (連接埠 19000 和 19080)。 如果您將管理端點放在內部負載平衡器，請記住本文稍早討論過的 Service Fabric 資源提供者限制。 在我們使用的範例中，管理端點會留在外部負載平衡器。 您也會新增連接埠 80 應用程式連接埠，並將它放在內部負載平衡器。
+在此案例中，您會從現有的單一節點類型外部負載平衡器來開始，然後新增同一節點類型的內部負載平衡器。 連結到後端位址集區的後端連接埠只能指派給單一負載平衡器。 選擇要讓哪個負載平衡器擁有您的應用程式連接埠，哪個負載平衡器擁有管理端點 (連接埠 19000 和 19080)。 如果您將管理端點放在內部負載平衡器，請記住此文章稍早討論過的 Service Fabric 資源提供者限制。 在我們使用的範例中，管理端點會留在外部負載平衡器。 您也會新增連接埠 80 應用程式連接埠，並將它放在內部負載平衡器。
 
 在雙節點類型的叢集中，一個節點類型位於外部負載平衡器。 另一個節點類型則位於內部負載平衡器。 若要使用雙節點類型的叢集，請在入口網站中建立雙節點類型的範本 (隨附兩個負載平衡器)，並將第二個負載平衡器切換至內部負載平衡器。 如需詳細資訊，請參閱[僅內部負載平衡器](#internallb)一節。
 
-1. 新增靜態內部負載平衡器 IP 位址參數  (如需使用動態 IP 位址的相關注意事項，請參閱本文前面幾節)。
+1. 新增靜態內部負載平衡器 IP 位址參數  (如需使用動態 IP 位址的相關注意事項，請參閱此文章前面幾節)。
 
     ```
             "internalLBAddress": {

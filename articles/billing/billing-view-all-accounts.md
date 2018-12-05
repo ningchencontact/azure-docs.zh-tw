@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
-ms.author: amberb
-ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: cwatson
+ms.openlocfilehash: f27b80a99dbe65d628453c5222ef4fcdf7e0f982
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630801"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580383"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>在 Azure 入口網站檢視您所有的帳單帳戶  
 
@@ -41,7 +41,6 @@ ms.locfileid: "39630801"
 
     ![顯示帳單帳戶列表的螢幕截圖](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
- 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

@@ -1,5 +1,5 @@
 ---
-title: 發行解決方案範本 | Microsoft Docs
+title: 發行 Azure 解決方案範本 | Microsoft Docs
 description: 將解決方案範本發行到 Azure Marketplace。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345584"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261612"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>將解決方案範本發行到 Azure Marketplace
 
@@ -31,31 +31,22 @@ ms.locfileid: "51345584"
 
 ### <a name="technical"></a>技術需求
 
-- [了解 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [了解 Azure Resource Manager 範本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)。
 - Azure 快速入門範本：
-
     - [Azure 快速入門範本文件](https://azure.microsoft.com/documentation/templates/)
-
     - [GitHub 上的 Azure 快速入門文件](https://github.com/azure/azure-quickstart-templates)
-
  - [建立 Azure 入口網站使用者介面檔案](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - 啟用[客戶使用狀況屬性](./../azure-partner-customer-usage-attribution.md)以協助在 Azure 上追蹤軟體客戶部署的 Azure 使用狀況。
 
 ### <a name="non-technical-business-requirements"></a>非技術性需求 (商務需求)
 
--   您的公司 (或其子公司) 必須位於 Azure Marketplace 支援的銷售來源國家/地區。
-
--   您的產品授權，必須與 Azure Marketplace 支援的計費模式相容。
-
--   您必須以合乎商業行為的方式 (包括免費、付費或透過社群支援)，負責為客戶提供技術支援。
-
--   您必須負責為您的軟體和任何第三方廠商相依性進行授權。
-
--   為了使您的供應項目可列於 Azure Marketplace 和 Azure 管理入口網站中，提供的內容必須符合標準。
-
--   同意 Azure Marketplace 參與原則和發行者合約中的條款。
-
--   同意遵守使用條款、Microsoft 隱私權聲明以及 Microsoft Azure 認證方案合約。
+- 您的公司 (或其子公司) 必須位於 Azure Marketplace 支援的銷售來源國家/地區。
+- 您的產品授權，必須與 Azure Marketplace 支援的計費模式相容。
+- 您必須以合乎商業行為的方式 (包括免費、付費或透過社群支援)，負責為客戶提供技術支援。
+- 您必須負責為您的軟體和任何第三方廠商相依性進行授權。
+- 提供符合標準的內容，供應項目才可列於 Azure Marketplace 和 Azure 入口網站中。
+- 同意 Azure Marketplace 參與原則和發行者合約中的條款。
+- 同意遵守使用條款、Microsoft 隱私權聲明以及 Microsoft Azure 認證方案合約。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -101,7 +92,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
     **供應項目識別碼**
 
-     發行者設定檔內供應項目的唯一識別碼。 此識別碼會顯示在產品的 URL、ARM 範本與計費報告中。 您只能使用小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 
+     發行者設定檔內供應項目的唯一識別碼。 此識別碼會顯示在產品 URL、Resource Manager 範本和計費報告中。 您只能使用小寫英數字元或連字號 (-)。 此識別碼不能以連字號結尾，且不能超過 50 個字元。 
     >[!Note]
     >供應項目上架後，此欄位便會鎖住。
 
@@ -128,7 +119,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
     ![新 SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    SKU 識別碼是供應項目內 SKU 的唯一識別碼。 此識別碼會顯示在產品的 URL、ARM 範本與計費報告中。 SKU 識別碼：
+    SKU 識別碼是供應項目內 SKU 的唯一識別碼。 此識別碼會顯示在產品的 URL，Resource Manager 範本和計費報告中。 SKU 識別碼：
     - 最多不可超過 50 個字元。
     - 只能包含小寫英數字元或連字號 (-)。
     - 識別碼不能以連字號結尾。
@@ -146,14 +137,10 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 提供下列 SKU 設定。
 
 - **標題** - SKU 的標題。 此標題顯示在此項目的資源庫中。
-
 - **摘要** - SKU 的簡短摘要描述。 (長度上限是 100 個字元。)
-
 - **描述** - SKU 的詳細描述。
-
 - **SKU 類型** - 具有下列值的下拉式清單：「受控應用程式 (預覽)」與「解決方案範本」。 針對此案例，請選取 [解決方案範本]。
-
-- **雲端可用性** - SKU 的位置。 預設值是「公用 Azure」。
+- **雲端可用性** - SKU 的位置。 預設值是**公用 Azure**。
 
 ### <a name="package-details"></a>套件詳細資料
 
@@ -162,11 +149,8 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 ![套件詳細資料](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
 - **目前的版本** - 您將上傳之套件的版本。 版本標籤格式應為 X.Y.Z，其中 X、Y 和 Z 是整數。
-
 - **套件檔案** - 此套件包含下列檔案，且這些檔案儲存在 .zip 檔中。
-
     -   MainTemplate.json - 用來部署解決方案/應用程式並建立針對解決方案定義之資源的部署範本檔案。 如需詳細資訊，請參閱[如何製作部署範本檔案](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
     -   createUIDefinition.json - Azure 入口網站會使用這個檔案來產生使用者介面，以便佈建此解決方案/應用程式。 如需詳細資訊，請參閱[為您的受控應用程式建立 Azure 入口網站使用者介面](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
@@ -174,7 +158,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
 ## <a name="to-configure-the-marketplace"></a>設定 Marketplace
 
-使用 Marketplace 檢視來設定針對 [Azure Marketplace](https://azuremarketplace.microsoft.com) 上與 [Azure Portal](https://portal.azure.com/) 上的供應項目顯示的欄位。
+使用 Marketplace 檢視來設定針對 [Azure Marketplace](https://azuremarketplace.microsoft.com) 上與 [Azure 入口網站](https://portal.azure.com/)上供應項目顯示的欄位。
 
 ### <a name="preview-subscription-ids"></a>預覽訂用帳戶識別碼
 
@@ -182,9 +166,9 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
 ### <a name="suggested-categories"></a>建議的類別
 
-從提供的清單中，選擇最能與您的供應項目互相關聯的五種類別 選取的類別係用來將您提供的供應項目對應至 [Marketplace](https://azuremarketplace.microsoft.com) 和 [Azure 入口網站](https://portal.azure.com/)中提供的產品類別。
+從提供的清單中，選擇最能與您的供應項目建立關聯的五種類別。 選取的類別係用來將您提供的供應項目對應至 [Marketplace](https://azuremarketplace.microsoft.com) 和 [Azure 入口網站](https://portal.azure.com/)中提供的產品類別。
 
-下列範例顯示 Azure Marketplace 與 Azure 入口網站中的 Marketplace 資訊。
+下列範例顯示 Azure Marketplace 與 Azure 入口網站中的市集資訊。
 
 **Azure Marketplace**
 
@@ -219,7 +203,7 @@ SKU 會出現在 Azure Marketplace 中父供應項目下，而且會顯示為 Az
 
 -   請不要在標誌上使用漸層背景。
 
--   避免在標誌上放置文字。 這包括您的公司或品牌名稱。 您標誌的外觀與風格應該是*一般*，而且應該避免漸層。
+-   避免在標誌上放置文字。 此指導方針包括您的公司或品牌名稱。 您標誌的外觀與風格應該是*一般*，而且應該避免漸層。
 
 -   標誌不應自動縮放。
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 4a1f9552b9a578cd34f3482e793947e06bb24407
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 24bc0b19d03148e98083fe6d21dd3980fcdf3714
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249763"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276600"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結
 
@@ -187,7 +187,7 @@ namespace CosmosDBSamplesV2
             databaseName = "ToDoList",
             collectionName = "Items",
             leaseCollectionName = "leases",
-            reateLeaseCollectionIfNotExists = true,
+            createLeaseCollectionIfNotExists = true,
             connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
                 context.getLogger().info(items.length + "item(s) is/are changed.");
@@ -232,7 +232,7 @@ namespace CosmosDBSamplesV2
 |**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (選擇性) 應用程式設定的名稱，包含連至保存租用集合之服務的連接字串。 如果未設定，會使用 `connectionStringSetting` 值。 在入口網站中建立繫結時，會自動設定此參數。 租用集合的連接字串必須具有寫入權限。|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (選擇性) 保存用來儲存租用之集合的資料庫名稱。 如果未設定，會使用 `databaseName` 設定的值。 在入口網站中建立繫結時，會自動設定此參數。 |
 |**leaseCollectionName** | **LeaseCollectionName** | (選擇性) 用來儲存租用的集合名稱。 如果未設定，會使用 `leases` 值。 |
-|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動建立它。 預設值為 `false`。 |
+|**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (選擇性) 設為 `true` 時，如果租用集合尚未存在，即會自動加以建立。 預設值為 `false`。 |
 |**leasesCollectionThroughput**| **LeasesCollectionThroughput**| (選擇性) 定義要在建立租用集合時指派的要求單位數。 只有在將 `createLeaseCollectionIfNotExists` 設為 `true` 時才會使用此設定。 使用入口網站建立繫結時，會自動設定此參數。
 |**leaseCollectionPrefix**| **LeaseCollectionPrefix**| (選擇性) 如果設定，將會為此函式對建立於租用集合中的租用加上前置詞，而有效地讓兩個不同的 Azure Functions 藉由使用不同的前置詞來共用相同的租用。
 |**feedPollDelay**| **FeedPollDelay**| (選擇性) 如果設定，將會以毫秒為單位定義在目前所有的變更都清空後，每次輪詢分割區以了解摘要上是否有新變更時所要延遲的時間。 預設值為 5000 (5 秒)。
@@ -949,7 +949,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 ### <a name="input---javascript-examples"></a>輸入 - JavaScript 範例
 
-此節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
+本章節包含下列範例，藉由從各種來源中指定識別碼值，讀取單一文件：
 
 * [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-string-javascript)
 * [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-javascript)
@@ -1201,7 +1201,7 @@ module.exports = function (context, req, toDoItem) {
 }
 ```
 
-若要新增 `project.json` 檔案，請參閱 [F# 套件管理](functions-reference-fsharp.md#package)。
+若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
 
 ### <a name="input---java-examples"></a>輸入 - Java 範例
 
@@ -1277,7 +1277,7 @@ Azure Cosmos DB 輸出繫結可讓您使用 SQL API，將新的文件寫入 Azur
 
 [跳過輸出範例](#output---attributes)
 
-### <a name="ouput---c-examples"></a>輸出 - C# 範例
+### <a name="output---c-examples"></a>輸出 - C# 範例
 
 本區段包含下列範例：
 
@@ -1639,7 +1639,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 }
 ```
 
-若要新增 `project.json` 檔案，請參閱 [F# 套件管理](functions-reference-fsharp.md#package)。
+若要新增 `project.json` 檔案，請參閱 [F# 封裝管理](functions-reference-fsharp.md#package)。
 
 ## <a name="output---java-examples"></a>輸出 - Java 範例
 
@@ -1697,7 +1697,7 @@ public String cosmosDbQueryById(
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-根據預設，當您在函式中寫入輸出參數時，會在資料庫中建立文件。 這份文件已自動產生 GUID 作為文件識別碼。 您可以藉由在傳遞至輸出參數的 JSON 物件中指定 `id` 屬性，來指定輸出文件的文件識別碼。 
+根據預設，當您在函式中寫入輸出參數時，會在資料庫中建立文件。 此文件已自動產生 GUID 作為文件識別碼。 您可以藉由在傳遞至輸出參數的 JSON 物件中指定 `id` 屬性，來指定輸出文件的文件識別碼。 
 
 > [!Note]  
 > 當您指定現有文件的識別碼時，新的輸出文件會覆寫現有文件。 
@@ -1731,7 +1731,7 @@ public String cosmosDbQueryById(
 
 |屬性  |預設值 | 說明 |
 |---------|---------|---------| 
-|GatewayMode|閘道|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
+|GatewayMode|閘道器|連線到 Azure Cosmos DB 服務時函式所使用的連線模式。 選項為 `Direct` 和 `Gateway`|
 |通訊協定|Https|連線到 Azure Cosmos DB 服務時函式所使用的連線通訊協定。  請參閱[此處以了解這兩種模式](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|n/a|要在應用程式的所有函式上使用的租用前置詞。| 
 

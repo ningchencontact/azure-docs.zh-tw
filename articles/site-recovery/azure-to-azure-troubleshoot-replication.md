@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/30/2018
 ms.author: asgang
-ms.openlocfilehash: 0ac90d8ef29d4293a5eeb5f932687788320c218e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 22ea3d955fe2910dc99ab4015165008da899d48e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615791"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312845"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>針對 Azure 至 Azure VM 持續複寫問題進行疑難排解
 
-本文說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
+此文章說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
 
 
 ## <a name="recovery-points-not-getting-generated"></a>未產生復原點
@@ -29,7 +29,7 @@ ms.locfileid: "51615791"
 Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復原區域，且每隔 5 分鐘建立損毀一致點。 如果 Site Recovery 長達 60 分鐘無法建立復原點，則會對使用者提出警示。 以下是可能導致此錯誤的原因：
 
 **原因 1：[來源虛擬機器上的高資料變更率](#high-data-change-rate-on-the-source-virtal-machine)**    
-**原因 2：[網路連線問題](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**原因 2：[網路連線問題](#Network-connectivity-issue)**
 
 ## <a name="causes-and-solutions"></a>原因和解決方案
 
@@ -77,5 +77,10 @@ Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復
 
 ### <a name="Network-connectivity-issue"></a>網路連線問題
 
+#### <a name="network-latency-to-cache-storage-account-"></a>針對快取儲存體帳戶的網路延遲：
+ Site Recovery 會將複寫的資料傳送至快取儲存體帳戶，因此在從虛擬機器將資料上傳至快取儲存體帳戶的速度小於每 3 秒 4 MB 的情況下，便可能會發生該錯誤。 若要檢查是否有任何延遲相關問題，請使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 來從虛擬機器將資料上傳至快取儲存體資料庫。<br>
+如果延遲很高，請檢查您是否正在使用網路虛擬設備來控制來自 VM 的輸出網路流量。 如果所有複寫流量都會通過 NVA，系統就可能會對該設備進行節流。 建議您在虛擬網路中為「儲存體」建立一個網路服務端點，這樣複寫流量就不會流向 NVA。 請參閱[網路虛擬設備設定](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+
+#### <a name="network-connectivity"></a>網路連線
 若要使 Site Recovery 複寫正常運作，VM 需要特定 URL 或 IP 範圍的輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。</br>
-請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)以確保所有 URL 皆已連線 

@@ -10,21 +10,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279155"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494275"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>在 HDInsight 上使用 Apache Kafka 的 Apache Spark 串流 (DStream) 範例
 
-了解如何在 HDInsight 上使用 DStreams，以 Apache Spark 串流方式將資料送入或送出 Apache Kafka。 這個範例會使用在 Spark 叢集上執行的 Jupyter Notebook。
+了解如何在 HDInsight 上使用 [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)，以 [Apache Spark](https://spark.apache.org/) 串流方式將資料送入或送出 [Apache Kafka](https://kafka.apache.org/)。 這個範例會使用在 Spark 叢集上執行的 [Jupyter Notebook](https://jupyter.org/)。
 
 > [!NOTE]
-> 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
+> 此文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 >
-> 當您完成本文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
+> 當您完成此文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
 
 > [!IMPORTANT]
 > 此範例會使用 DStreams，這是較舊的 Spark 串流技術。 如需使用較新 Spark 串流功能的範例，請參閱[使用 Kafka 的 Spark 結構化串流](hdinsight-apache-kafka-spark-structured-streaming.md)文件。
@@ -90,13 +90,13 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-因為本文件中的步驟會在相同的 Azure 資源群組中建立兩個叢集，您可以在 Azure 入口網站中刪除資源群組。 刪除群組，即可移除依循本文件建立的所有資源、Azure 虛擬網路，以及叢集所使用的儲存體帳戶。
+因為此文件中的步驟會在相同的 Azure 資源群組中建立兩個叢集，您可以在 Azure 入口網站中刪除資源群組。 刪除群組，即可移除依循此文件建立的所有資源、Azure 虛擬網路，以及叢集所使用的儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 
 在此範例中，您已了解如何使用 Spark 來讀取和寫入至 Kafka。 使用下列連結來探索使用 Kafka 的其他方式︰
 
 * [開始使用 Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
-* [使用 MirrorMaker 建立 Apache Kafka on HDInsight 複本](kafka/apache-kafka-mirroring.md)
-* [使用 Apache Storm 搭配 Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [使用 MirrorMaker 在 HDInsight 上建立 Apache Kafka 複本](kafka/apache-kafka-mirroring.md)
+* [在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](hdinsight-apache-storm-with-kafka.md)
 

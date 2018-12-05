@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/16/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 1e6ea5d6ae321a0443631ec928912611a68346c6
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408008"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290768"
 ---
 # <a name="performance-metrics"></a>效能度量
 
@@ -31,14 +31,15 @@ ms.locfileid: "49408008"
 
 | 計數器類別 | 計數器名稱 |
 | --- | --- |
+| Logical Disk | 邏輯磁碟可用空間 |
 | PhysicalDisk(per Disk) | Avg.磁碟讀取佇列長度 |
 | PhysicalDisk(per Disk) | Avg.磁碟寫入佇列長度 |
 | PhysicalDisk(per Disk) | Avg.Disk sec/Read |
 | PhysicalDisk(per Disk) | Avg.Disk sec/Write |
 | PhysicalDisk(per Disk) | Disk Reads/sec  |
 | PhysicalDisk(per Disk) | Disk Read Bytes/sec  |
-| PhysicalDisk(per Disk) | Disk Writes/sec |
-| PhysicalDisk(per Disk) | Disk Write Bytes/sec |
+| PhysicalDisk(per Disk) |  Disk Writes/sec |
+| PhysicalDisk(per Disk) |  Disk Write Bytes/sec |
 | 記憶體 | 可用的 MB |
 | PagingFile | % 使用量 |
 | Processor(Total) | % Processor Time |
@@ -49,6 +50,9 @@ ms.locfileid: "49408008"
 | Process (per service) | 虛擬位元組 |
 | Process (per service) | 工作集 |
 | Process (per service) | 工作集 - 私用 |
+| Network Interface(all-instances) | 記錄的位元組 |
+| Network Interface(all-instances) | 傳送的位元組數 |
+| Network Interface(all-instances) | 位元組總數 |
 | Network Interface(all-instances) | 輸出佇列長度 |
 | Network Interface(all-instances) | 已丟棄輸出封包 |
 | Network Interface(all-instances) | 已丟棄接收封包 |
@@ -65,6 +69,8 @@ ms.locfileid: "49408008"
 | .NET CLR 記憶體 (每一服務) | 認可的位元組總數 |
 | .NET CLR 記憶體 (每一服務) | 保留的位元組總數 |
 | .NET CLR 記憶體 (每一服務) | 所有堆積中的位元組數 |
+| .NET CLR 記憶體 (每一服務) | 大型物件堆積大小 |
+| .NET CLR 記憶體 (每一服務) | # GC Handles |
 | .NET CLR 記憶體 (每一服務) | 層代 0 集合數 |
 | .NET CLR 記憶體 (每一服務) | 層代 1 集合數 |
 | .NET CLR 記憶體 (每一服務) | 層代 2 集合數 |
@@ -76,7 +82,7 @@ Service Fabric 可產生大量的自訂效能計數器。 如果您已安裝 SDK
 
 在您部署到叢集的應用程式中，如果您使用 Reliable Actors，請從 `Service Fabric Actor` 和 `Service Fabric Actor Method` 類別新增計數器 (請參閱 [Service Fabric Reliable Actors 診斷](service-fabric-reliable-actors-diagnostics.md))。
 
-如果您使用 Reliable Services，我們同樣提供 `Service Fabric Service` 和 `Service Fabric Service Method` 計數器類別，您應該從這些類別收集計數器。 
+如果您使用 Reliable Services 或服務遠端，我們同樣擁有應從其中收集計數器的 `Service Fabric Service` 和 `Service Fabric Service Method` 計數器類別，請參閱[使用服務遠端進行監視](service-fabric-reliable-serviceremoting-diagnostics.md)和[可靠服務效能計數器](service-fabric-reliable-services-diagnostics.md#performance-counters)。 
 
 如果您使用「可靠的集合」，建議您從 `Service Fabric Transactional Replicator` 新增 `Avg. Transaction ms/Commit`，以收集每一交易的平均認可延遲計量。
 

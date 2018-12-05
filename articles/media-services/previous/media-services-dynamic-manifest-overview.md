@@ -12,19 +12,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/25/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e0eaf88117aa3c67f7ffecad2e3811a22449a5f8
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282402"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312964"
 ---
 # <a name="filters-and-dynamic-manifests"></a>篩選器與動態資訊清單
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [第 2 版](media-services-dynamic-manifest-overview.md)
+> * [第 3 版](../latest/filters-dynamic-manifest-overview.md)
+
 從 2.17 版開始，媒體服務可讓您為資產定義篩選。 這些篩選器是伺服器端規則，可讓您的客戶選擇執行如下的動作：只播放一段視訊 (而非播放完整視訊)，或只指定您客戶裝置可以處理的一部分音訊和視訊轉譯 (而非與該資產相關的所有轉譯)。 透過在您客戶要求下建立的 **動態資訊清單**可達成對資訊進行這樣的篩選，藉此根據指定的篩選器來串流視訊。
 
-本主題探討使用篩選器會對您客戶很有幫助的常見案例，並提供主題連結以示範如何以程式設計方式建立篩選器。
+本主題探討使用篩選器會對您客戶有幫助的常見案例，並提供主題連結以示範如何以程式設計方式建立篩選器。
 
 ## <a name="overview"></a>概觀
 當您將內容傳遞給客戶時 (串流即時事件或點播視訊)，您的目標是要在不同的網路條件下將高品質的視訊傳遞給各種裝置。 若要達成此目標，請執行下列動作：
@@ -73,7 +78,7 @@ ms.locfileid: "51282402"
 * 裝置特定：只傳遞用來播放內容的裝置所支援的指定轉譯和/或指定的語言資料軌 (轉譯篩選)。 
 * 縮小資訊清單以顯示即時事件的子剪輯 (「子剪輯篩選」)。
 * 修剪視訊開頭 (「修剪視訊」)。
-* 調整 簡報視窗 (DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
+* 調整簡報視窗 (DVR)，以便在播放程式中提供長度有限的 DVR 視窗 (「調整簡報視窗」)。
 
 為達到這種彈性，媒體服務會根據預先定義的 **篩選器** 提供 [動態資訊清單](media-services-dynamic-manifest-overview.md#filters)。  一旦您定義了篩選器，您的用戶端便會使用篩選器來串流視訊的特定轉譯或子剪輯。 用戶端會在資料流 URL 中指定篩選器。 篩選器可以套用到下列 [動態封裝](media-services-dynamic-packaging-overview.md)支援的自適性串流通訊協定：HLS、MPEG-DASH 和 Smooth Streaming。 例如︰
 
@@ -167,7 +172,7 @@ ms.locfileid: "51282402"
 
 下列案例示範您可能會想結合篩選條件的理由：
 
-1. 您要篩選例如 Android 或 iPAD 等行動裝置的視訊品質 (以限制視訊品質)。 若要移除不必要的品質，您可以建立適用於裝置設定檔的全域篩選。 如本文章稍早所述，全域篩選可以用於相同媒體服務帳戶下所有的資產，而不需進一步的關聯。 
+1. 您要篩選例如 Android 或 iPAD 等行動裝置的視訊品質 (以限制視訊品質)。 若要移除不必要的品質，您可以建立適用於裝置設定檔的全域篩選。 如此文章章稍早所述，全域篩選可以用於相同媒體服務帳戶下所有的資產，而不需進一步的關聯。 
 2. 您也想要修剪資產的開始和結束時間。 若要達到此目的，您可建立本機篩選條件，並設定開始/結束時間。 
 3. 您必須結合這兩個篩選 (若不組合，您便需要將品質篩選加入修剪篩選，這會讓篩選更難以使用)。
 

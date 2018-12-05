@@ -9,15 +9,15 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 06/29/2018
+ms.date: 11/21/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7d00d6236b601d145be03e6086bec2d72faafcd
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4c58c1972fee782a93f9641d00376db916021f95
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344932"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634484"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API：版本資訊與資源
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 
 <tr><td>**Web 應用程式教學課程**</td><td>[使用 Azure Cosmos DB 進行 Web 應用程式開發](sql-api-java-application.md)</td></tr>
 
-<tr><td>**最低支援執行階段**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
+<tr><td>**最低支援執行階段**</td><td>[Java 開發套件 (JDK) 7+](https://aka.ms/azure-jdks)</td></tr>
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
@@ -105,7 +105,7 @@ SQL API Java SDK 支援同步作業。 如需非同步支援，請使用 [SQL AP
 * 修正工作階段容器中可能在集合建立後立即對要求造成「找不到擁有者資源」例外狀況的幾個錯誤。
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 請參閱[彙總支援](sql-api-sql-query.md#Aggregates)。
+* 新增彙總查詢的支援 (COUNT、MIN、MAX、SUM 和 AVG)。 請參閱[彙總支援](how-to-sql-query.md#Aggregates)。
 * 新增變更摘要的支援。
 * 新增透過 RequestOptions.setPopulateQuotaInfo 收集配額資訊的支援。
 * 新增透過 RequestOptions.setScriptLoggingEnabled 進行預存程序指令碼記錄的支援。

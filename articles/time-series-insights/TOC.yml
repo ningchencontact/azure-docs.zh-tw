@@ -5,7 +5,7 @@ items:
   href: index.yml
 - name: 概觀
   items:
-  - name: 關於時間序列深入解析 (預覽)
+  - name: 關於時間序列深入解析
     href: time-series-insights-update-overview.md
 - name: 快速入門
   items:
@@ -15,7 +15,7 @@ items:
       href: time-series-quickstart.md
   - name: Azure 時間序列深入解析 (預覽)
     items:
-    - name: 探索 Azure 時間序列深入解析 (預覽)
+    - name: 探索時間序列深入解析 (預覽)
       href: time-series-insights-update-quickstart.md
 - name: 教學課程
   items:
@@ -29,7 +29,7 @@ items:
       href: tutorial-create-populate-tsi-environment.md
   - name: Azure 時間序列深入解析 (預覽)
     items:
-    - name: 建立 TSI 環境
+    - name: Azure TSI (預覽) 教學課程
       href: time-series-insights-update-create-environment.md
 - name: 概念
   items:
@@ -51,11 +51,11 @@ items:
       href: time-series-insights-update-storage-ingress.md
     - name: 使用案例
       href: time-series-insights-update-use-cases.md
-    - name: 時間序列模型
+    - name: 資料模型
       href: time-series-insights-update-tsm.md
-    - name: 時間序列查詢
+    - name: 資料查詢
       href: time-series-insights-update-tsq.md
-    - name: 在 Explorer 中將資料視覺化
+    - name: 在 Explorer 更新中將資料視覺化
       href: time-series-insights-update-explorer.md
   - name: 開發
     items:
@@ -109,25 +109,29 @@ items:
   items:
   - name: 時間序列深入解析
     items:
-    - name: 時間序列深入解析 GA
+    - name: Azure 時間序列深入解析 (GA)
+      href: /rest/api/time-series-insights/ga
       items:
       - name: 查詢
+        href: /rest/api/time-series-insights/ga-query
         items:
         - name: API
-          href: /rest/api/time-series-insights/time-series-insights-reference-queryapi
+          href: /rest/api/time-series-insights/ga-query-api
         - name: 語法
-          href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
+          href: /rest/api/time-series-insights/ga-query-syntax
       - name: 參考資料 API
+        href: /rest/api/time-series-insights/ga-reference-data-api
     - name: Azure 時間序列深入解析 (預覽)
+      href: /rest/api/time-series-insights/preview
       items:
       - name: 時間序列查詢
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsq
+        href: /rest/api/time-series-insights/preview-query
       - name: 時間序列模型
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsm
+        href: /rest/api/time-series-insights/preview-model
       - name: 時間序列環境 API
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-env
+        href: /rest/api/time-series-insights/preview-env
       - name: 時間序列運算式和語法
-        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsx
+        href: /rest/api/time-series-insights/preview-tsx
 - name: 相關參考
   items:
   - name: 解決方案
@@ -176,9 +180,9 @@ items:
     href: https://azure.microsoft.com/support/options/
   - name: 影片
     href: https://azure.microsoft.com/resources/videos/index/?services=time-series-insights
-ms.openlocfilehash: d30b4b2b19a4f055647b4723c91a15a1a977de6d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c75c034e0f54b33e28aa7f0ef5d0c18ad0004e55
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849508"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52889986"

@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: ''
-ms.openlocfilehash: 9569a9da81848c279db6d6d45b7621f84060387b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0b1209c1d8d92b08d15cfbfd6e323b7bd748e2f5
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958622"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316911"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>將客體 OS 計量傳送到 Windows 虛擬機器的 Azure 監視器資料存放區 (傳統)
 
 Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (也稱為 "WAD" 或「診斷」) 可讓您從當作虛擬機器、雲端服務或 Service Fabric 叢集一部分執行的客體作業系統 (客體 OS) 收集計量與記錄。 擴充功能可以將遙測資料傳送到[許多不同位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
-本文說明將 Windows 虛擬機器 (傳統) 的客體 OS 效能計量傳送至 Azure 監視器計量存放區的流程。 從診斷 1.11 版開始，您可以直接將計量寫入到已收集標準平台計量的 Azure 監視器計量存放區。 
+此文章說明將 Windows 虛擬機器 (傳統) 的客體 OS 效能計量傳送至 Azure 監視器計量存放區的流程。 從診斷 1.11 版開始，您可以直接將計量寫入到已收集標準平台計量的 Azure 監視器計量存放區。 
 
 將計量儲存在此位置，可讓您存取與您對平台計量執行的相同動作。 動作包括近乎即時的警示、圖表、路由、從 REST API 存取以及更多功能。 在過去，診斷擴充功能會寫入到 Azure 儲存體，而不是 Azure 監視器資料存放區。 
 
-本文所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
+此文章所述的流程僅適用於執行 Windows 作業系統的傳統虛擬機器。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md)。 
+- 您必須是 Azure 訂用帳戶的[服務管理員或共同管理員](../billing/billing-add-change-azure-subscription-administrator.md)。 
 
 - 您必須先向 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal) 註冊您的訂用帳戶。 
 
@@ -40,7 +40,7 @@ Azure 監視器[診斷擴充功能](https://docs.microsoft.com/azure/monitoring-
 
 1. 建立此 VM 時，請選擇建立新傳統儲存體帳戶的選項。 我們會在稍後步驟中使用此儲存體帳戶。
 
-1. 在 Azure 入口網站中，移至 [儲存體帳戶] 資源刀鋒視窗。 選取 [金鑰]，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要這項資訊。
+1. 在 Azure 入口網站中，移至 [儲存體帳戶] 資源刀鋒視窗。 選取 [金鑰]，並記下儲存體帳戶名稱和儲存體帳戶金鑰。 稍後的步驟將會需要此資訊。
    ![儲存體存取金鑰](./media/metrics-store-custom-guestos-classic-vm/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>建立服務主體

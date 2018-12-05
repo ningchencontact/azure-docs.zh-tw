@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: f46d975c33d10688b04fca40b55c249b913fe5a1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f34bed915350b43f7964b4341d1375fb67a6f134
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394670"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584429"
 ---
 # <a name="sign-up-for-an-azure-subscription-with-your-office-365-account"></a>使用 Office 365 帳戶註冊 Azure 訂用帳戶
 如果您有 Office 365 訂用帳戶，您可以使用 Office 365 帳戶來建立 Azure 訂用帳戶。 使用 Office 365 使用者名稱和密碼來登入 [Azure 入口網站](https://portal.azure.com/)。 如果您想要設定虛擬機器或使用其他 Azure 服務，您必須註冊 Azure 訂用帳戶。 您可以與他人共用您的 Azure 訂用帳戶，並[使用角色型存取控制來管理 Azure 訂用帳戶和資源的存取](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
@@ -55,5 +55,6 @@ Office 365 和 Azure 均使用 Azure AD 服務來管理使用者和訂用帳戶�
 
 如需詳細資訊，請參閱 [Azure 訂用帳戶如何與 Azure Active Directory 產生關聯](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
-如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

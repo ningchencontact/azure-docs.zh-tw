@@ -1,10 +1,11 @@
 ---
-title: 使用 Azure Machine Learning Web 服務參數 | Microsoft Docs
+title: 使用 Azure Machine Learning Studio Web 服務參數 | Microsoft Docs
 description: 如何使用 Azure Machine Learning Web 服務參數來修改模型在 Web 服務受到存取時的行為。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
@@ -15,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-ms.openlocfilehash: 91b3c9df8a7fd0e1abb79c21b1e1d833e57c24d5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0e8a1a4bb90f935bf3890bd803b9375d10261aa7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835921"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312005"
 ---
-# <a name="use-azure-machine-learning-web-service-parameters"></a>使用 Azure Machine Learning Web 服務參數
-藉由發行包含可設定參數模組的試驗，來建立 Azure Machine Learning Web 服務。 在某些情況下，您可能想要在執行 Web 服務時之際，變更模組的行為。 「Web 服務參數」可讓您執行這項工作。 
+# <a name="use-azure-machine-learning-studio-web-service-parameters"></a>使用 Azure Machine Learning Studio Web 服務參數
+藉由發行包含可設定參數模組的試驗，來建立 Azure Machine Learning Web 服務。 在某些情況下，您可能想要在執行 Web 服務時之際，變更模組的行為。 「Web 服務參數」可讓您執行此工作。 
 
 常見的範例是設定[匯入資料][reader]模組，讓已發佈之 Web 服務的使用者可以在存取 Web 服務時，指定不同的資料來源。 或者，設定[匯出資料][writer]模組，以便能夠指定不同的目的地。 部分其他範例包括變更[特徵雜湊][feature-hashing]模組的位元數，或變更[以篩選器為基礎的特徵選取][filter-based-feature-selection]模組的所需特徵數。 
 

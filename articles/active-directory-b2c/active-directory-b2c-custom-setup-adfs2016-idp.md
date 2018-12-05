@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d94542e0c6c19fd3a79f465b69fadb6f3f28330e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685764"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275882"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則將 ADFS 新增為 SAML 識別提供者
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-本文將示範如何在 Azure Active Directory (Azure AD) B2C 中使用[自訂原則](active-directory-b2c-overview-custom.md)來允許以 ADFS 使用者帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
+此文章將示範如何在 Azure Active Directory (Azure AD) B2C 中使用[自訂原則](active-directory-b2c-overview-custom.md)來允許以 ADFS 使用者帳戶登入。 將 [SAML 技術設定檔](saml-technical-profile.md)新增至自訂原則，以啟用登入。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -175,7 +175,7 @@ https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idpt
     | 電子郵件地址 | 電子郵件 |
     | 顯示名稱 | name |
     
-12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階] 索引標籤，然後將 [安全雜湊演算法] 變更為 `SHA-1` 或 `SHA-256`，並按一下 [確定]。  
+12.  根據不同憑證類型，您可能需要設定雜湊演算法。 在信賴憑證者信任 (B2C 示範) 屬性視窗上，選取 [進階] 索引標籤、將 [安全雜湊演算法] 變更為 `SHA-256`，然後按一下 [確定]。  
 13. 在 [伺服器管理員] 中選取 [工具]，然後選取 [ADFS 管理]。
 14. 選取您建立的信賴憑證者信任，並選取 [從同盟中繼資料中更新]，然後按一下 [更新]。 
 

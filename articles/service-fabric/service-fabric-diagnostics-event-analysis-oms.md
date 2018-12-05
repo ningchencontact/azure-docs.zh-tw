@@ -12,17 +12,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/29/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 6dee895ba9fc024baac0500619b7d6cc62167b6d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 332939710517e99aaa77642dc5e67256b476bd66
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404472"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634570"
 ---
 # <a name="event-analysis-and-visualization-with-log-analytics"></a>使用 Log Analytics 進行事件分析與視覺化
-Log Analytics 會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文將概述如何在 Log Analytics 中執行查詢，以便深入了解叢集發生什麼狀況並進行疑難排解。 我們將討論下列常見的問題：
+ Log Analytics 會從裝載於雲端的應用程式和服務收集和分析遙測，並提供分析工具來協助您將其可用性和效能最大化。 本文將概述如何在 Log Analytics 中執行查詢，以便深入了解叢集發生什麼狀況並進行疑難排解。 我們將討論下列常見的問題：
 
 * 如何針對健康情況事件進行疑難排解？
 * 如何知道節點發生故障？
@@ -30,9 +30,12 @@ Log Analytics 會從裝載於雲端的應用程式和服務收集和分析遙測
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作區
 
+>[!NOTE] 
+>雖然在叢集建立時預設會啟用診斷儲存體，但您仍必須設定 Log Analytics 工作區才能讀取診斷儲存體。
+
 Log Analytics 會從受控資源 (包括 Azure 儲存體資料表或代理程式) 收集資料，並在中央存放庫中維護資料。 此資料可接著用於分析、警示和視覺效果，或進一步匯出。 Log Analytics 支援事件、效能資料或任何其他自訂資料。 請查看[如何設定分析延伸模組來彙總事件](service-fabric-diagnostics-event-aggregation-wad.md)以及[如何建立 Log Analytics 工作區來讀取儲存體中的事件](service-fabric-diagnostics-oms-setup.md)，以確定資料會流入 Log Analytics。
 
-Log Analytics 收到資料之後，Azure 會針對數個案例自訂數個*管理解決方案*，這些預先封裝的解決方案可監視傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 本文說明如何使用 Service Fabric 分析解決方案，它是用工作區建立的。
+Log Analytics 收到資料之後，Azure 會針對數個案例自訂數個*管理解決方案*，這些預先封裝的解決方案或操作儀表板可監視傳入資料。 其中包括 *Service Fabric 分析*解決方案和*容器*解決方案，這是與使用 Service Fabric 叢集進行診斷和監視最相關的兩個解決方案。 本文說明如何使用 Service Fabric 分析解決方案，它是用工作區建立的。
 
 ## <a name="access-the-service-fabric-analytics-solution"></a>存取 Service Fabric 分析解決方案
 
@@ -40,7 +43,7 @@ Log Analytics 收到資料之後，Azure 會針對數個案例自訂數個*管�
 
 2. 選取資源 **ServiceFabric\<nameOfOMSWorkspace\>**。
 
-2. 在 [摘要] 中，您會看到磚以圖形形式來代表每一個啟用的解決方案，其中有一個是 Service Fabric 的解決方案。 按一下 **Service Fabric** 的圖形 (第一個圖像下方) 以繼續前往 Service Fabric 分析解決方案 (第二個圖像下方)。
+2. 在 `Summary` 中，您會看到每一個所啟用解決方案的圖格以圖形形式顯示，其中一個屬於 Service Fabric。 按一下 **Service Fabric** 的圖形 (第一個圖像下方) 以繼續前往 Service Fabric 分析解決方案 (第二個圖像下方)。
 
     ![Service Fabric 解決方案](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
@@ -48,12 +51,12 @@ Log Analytics 收到資料之後，Azure 會針對數個案例自訂數個*管�
 
 上面的圖像是 Service Fabric 分析解決方案的首頁。 這是叢集目前情況的快照集檢視。 如果您建立叢集的時候啟用了分析功能，就可以看到以下各項的事件 
 
-* [操作通道](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台 (系統服務的集合) 執行的較高層級操作。
+* [Service Fabric 叢集事件](service-fabric-diagnostics-event-generation-operational.md)
 * [Reliable Actors 程式設計模型事件](service-fabric-reliable-actors-diagnostics.md)
 * [Reliable Services 程式設計模型事件](service-fabric-reliable-services-diagnostics.md)
 
 >[!NOTE]
->除了操作通道外，[更新分析延伸模組的設定](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)可以收集更詳細的系統事件。
+>除了現有的 Service Fabric 事件外，[更新分析延伸模組的設定](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations)可以收集更詳細的系統事件。
 
 ### <a name="view-service-fabric-events-including-actions-on-nodes"></a>檢視 Service Fabric 事件，包括節點上的動作
 
@@ -105,7 +108,7 @@ Kusto 查詢語言功能很強大。 您可以執行的另一個重要查詢是�
 ## <a name="next-steps"></a>後續步驟
 
 * 若要啟用基礎結構監視 (也就是監視效能計數器)，請前往[新增 Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)。 這個代理程式會收集效能計數器，並將它們新增至現有的工作區。
-* 針對內部部署叢集，Log Analytics 提供可用於將資料傳送至 Log Analytics 的閘道 (HTTP 正向 Proxy)。 如需詳細資訊，請參閱[在無網際網路存取下使用 Log Analytics 閘道將電腦連線到 Log Analytics](../log-analytics/log-analytics-oms-gateway.md)。
+* 針對內部部署叢集，Log Analytics 提供可用於將資料傳送至 Log Analytics 的閘道 (HTTP 正向 Proxy)。 如需詳細資訊，請參閱[在無網際網路存取下使用 Log Analytics 閘道將電腦連線到 Log Analytics](../azure-monitor/platform/gateway.md)。
 * 設定[自動化警示](../log-analytics/log-analytics-alerts.md)，以協助偵測與診斷。
 * 熟悉 Log Analytics 的[記錄搜尋和查詢](../log-analytics/log-analytics-log-searches.md)功能。
 * 若要深入了解 Log Analytics 及其提供的功能，請參閱[什麼是 Log Analytics？](../operations-management-suite/operations-management-suite-overview.md)。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 1f83dd64c7f6773ddb8956e6ebbc37b8c55aacec
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e072a27087f90bddd3f7c416904758e40c2f6b9
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423866"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>教學課程：Azure Active Directory 與 Workplace by Facebook 整合
 
@@ -140,7 +140,7 @@ ms.locfileid: "39423866"
    > [!NOTE] 
    > 為將參數傳遞給 Azure AD，Workplace 可利用大小最多 2.5 KB 的查詢字串，作為 SAML 驗證流程的一部分。
 
-1. 在 [公司儀表板] 中，請移至 [驗證] 索引標籤。
+1. 在 [Admin Panel] \(系統管理面板\) 中，依序移至 [Security] \(安全性\) 索引標籤和 [Authentication] \(驗證\)。
 
 1. 在 [SAML 驗證] 下，從下拉式清單中選取 [僅限 SSO]。
 

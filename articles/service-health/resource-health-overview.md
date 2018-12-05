@@ -3,7 +3,7 @@ title: Azure 資源健康狀態概觀 | Microsoft Docs
 description: Azure 資源健康狀態的概觀
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 ms.assetid: 85cc88a4-80fd-4b9b-a30a-34ff3782855f
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
-ms.openlocfilehash: 99e996f182aac774f2e2565d87fd0debaba1b2d1
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.date: 11/16/2018
+ms.author: stbaron
+ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263117"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309424"
 ---
 # <a name="azure-resource-health-overview"></a>Azure 資源健康狀態概觀
  
@@ -28,7 +28,7 @@ ms.locfileid: "30263117"
 [Azure 狀態](https://status.azure.com)會通知您影響大規模客戶的服務問題，而資源健康狀態會提供資源健康狀態的個人化儀表板。 資源健康狀態會顯示您的資源過去因 Azure 服務問題而無法使用的所有時間。 這可讓您更輕鬆了解是否違反 SLA。 
 
 ## <a name="resource-definition-and-health-assessment"></a>資源定義和健康狀態評估
-資源是 Azure 服務的特定執行個體，例如：虛擬機器、Web 應用程式或 SQL 資料庫。
+資源是 Azure 服務的特定執行個體：例如虛擬機器、Web 應用程式或 SQL 資料庫。
 
 資源健康狀態依賴不同的 Azure 服務所發出的訊號，來評估資源健康與否。 如果資源健康狀態不佳，資源健康狀態會分析其他資訊來判斷問題的來源。 它也會識別 Microsoft 為修正這個問題所採取的動作，或您可以採取哪些動作來解決問題的原因。 
 

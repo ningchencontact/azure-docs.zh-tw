@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 2e4a5d9b7ee2a1a88bcfe819be6540385458108f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622358"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496347"
 ---
 # <a name="frequently-asked-questions"></a>常見問題集
 
@@ -25,7 +25,7 @@ ms.locfileid: "51622358"
 
 所有刪除都是永久的，包括問答組、檔案、URL、自訂問答、知識庫或 Azure 資源。 務必先從 [設定] 頁面匯出知識庫，再刪除知識庫的任何部分。 
 
-### <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>為何我的 URL/檔案不會擷取問答組？
+### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>為何我的 URL/檔案不會擷取問答組？
 
 有可能是因為 QnA Maker 無法從有效的常見問題集 URL 自動擷取某些問答 (QnA) 內容。 在這種情況下，您可以將 QnA 內容貼到 .txt 檔案中，並確認工具是否可加以擷取。 或者，您也可以透過 [QnA Maker 入口網站](https://qnamaker.ai) \(英文\) 以編輯方式將內容新增至您的知識庫。
 
@@ -41,13 +41,13 @@ ms.locfileid: "51622358"
 
 共用會在 QnA Maker 服務層級上運作，也就是說，將會共用服務中的所有知識庫。 請參閱[這裡](./How-To/collaborate-knowledge-base.md)以了解如何在知識庫上共同作業。
 
-### <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>是否可以與不屬於相同 AAD 租用戶的參與者共用 KB，以修改該 KB？ 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>是否可以與不屬於相同 AAD 租用戶的參與者共用知識庫，以修改該知識庫？ 
 
 共用是以 Azure 角色型存取控制 (RBAC) 為基礎。 如果您可以與另一個使用者共用 Azure 中的「任何」資源，便代表您也可以共用 QnA Maker。
 
-### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>假設我有具有 5 個 QnAMaker KB 的 App Service 方案。 是否能將讀取/寫入權限指派給 5 個不同的使用者，使他們只能個別存取 1 個 QnAMaker KB？
+### <a name="if-you-have-an-app-service-plan-with-5-qnamaker-knowledge-bases-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-knowledge-base"></a>假設我有有 5 個 QnAMaker 知識庫的 App Service 方案。 是否能將讀取/寫入權限指派給 5 個不同的使用者，使他們只能個別存取 1 個 QnAMaker 知識庫？
 
-您可以共用整個 QnAMaker 服務，但不能共用個別的 KB。
+您可以共用整個 QnAMaker 服務，但不能共用個別的知識庫。
 
 ### <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>如何變更找不到適當相符項目時的預設訊息？
 
@@ -65,8 +65,7 @@ ms.locfileid: "51622358"
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>為什麼我的 SharePoint 連結無法供擷取？
 
-此工具只會剖析公用 URL，且目前並不支援已驗證的資料來源。 或者，您可以下載檔案，並使用檔案上傳選項來擷取問題和解答。
-
+如需詳細資訊，請參閱[資料來源位置](./Concepts/data-sources-supported.md#data-source-locations)。
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>我對知識庫所做的更新並未在發佈時反映。 為什麼？
 
@@ -94,9 +93,13 @@ ms.locfileid: "51622358"
 
 若您懷疑端點金鑰已遭入侵，請加以重新整理。
 
-### <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>我是否可以針對使用多種語言的 KB 使用相同的 Azure 搜尋服務資源？
+### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>我是否可以針對使用多種語言的知識庫使用相同的 Azure 搜尋服務資源？
 
-若要使用多種語言和多個 KB，使用者必須針對每個語言建立 QnA Maker 資源。 這將會針對每個語言建立個別的 Azure 搜尋服務。 在單一 Azure 搜尋服務中混用不同的語言 KB，將會使結果的相關性降低。
+若要使用多種語言和多個知識庫，使用者必須針對每個語言建立 QnA Maker 資源。 這將會針對每個語言建立個別的 Azure 搜尋服務。 在單一 Azure 搜尋服務中混用不同的語言知識庫，將會使結果的相關性降低。
+
+### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>如何變更 QnA Maker 使用之 Azure 搜尋服務資源的名稱？
+
+Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在結尾的隨機字母。 這讓您難以區別 QnA Maker 的多個搜尋服務資源。 建立個別的 Azure 搜尋服務 (以您想要的方式為它命名) 並將它連結到您的 QnA Service。 步驟類似於[升級 Azure 搜尋服務](How-To/upgrade-qnamaker-service.md#upgrade-azure-search-service)所需的步驟。
 
 ## <a name="integrate-with-other-services-including-bots"></a>與其他服務 (包括 Bot) 整合
 
@@ -106,7 +109,7 @@ ms.locfileid: "51622358"
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>如何使用 QnA Maker 建立 Bot？
 
-請遵循[這份](./Tutorials/create-qna-bot.md)文件中的指示，以使用 Azure Bot 服務建立您的 Bot。
+請遵循[此](./Tutorials/create-qna-bot.md)文件中的指示，以使用 Azure Bot 服務建立您的 Bot。
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>我該如何在我的網站中內嵌 QnA Maker 服務？
 

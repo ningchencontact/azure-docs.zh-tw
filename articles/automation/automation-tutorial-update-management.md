@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 6046781f59b64dcec4769686a2acd710c7b68965
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 8a99a784292c4294456296c1f105e5f485689368
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987302"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679897"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>使用 Azure 自動化來管理 Windows 更新
 
@@ -161,7 +161,7 @@ UpdateRunProgress
 
 * **要更新的群組 (預覽)**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建立要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)
 
-* **要更新的機器**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)
+* **要更新的機器**：選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../azure-monitor/platform/computer-groups.md)
 
 * **更新分類**：選取更新部署在部署中包含的軟體類型。 此教學課程中，將所有類型保留選取。
 
@@ -169,7 +169,7 @@ UpdateRunProgress
 
    |作業系統  |類型  |
    |---------|---------|
-   |Windows     | 重大更新</br>安全性更新</br>更新彙總套件</br>Feature Pack</br>Service Pack</br>定義更新</br>工具</br>更新        |
+   | Windows     | 重大更新</br>安全性更新</br>更新彙總套件</br>Feature Pack</br>Service Pack</br>定義更新</br>工具</br>更新        |
    |Linux     | 重大更新和安全性更新</br>其他更新       |
 
    如需分類類型的說明，請參閱[更新分類](automation-update-management.md#update-classifications)。
@@ -196,7 +196,7 @@ UpdateRunProgress
 您會回到狀態儀表板。 選取 [排程更新部署] 可顯示您所建立的部署排程。
 
 > [!NOTE]
-> 更新管理支援部署第一方更新及預先下載的修補程式。 這需要對要修補的系統進行變更，請參閱[ 第一方和預先下載的支援](automation-update-management.md#firstparty-predownload)，以了解如何在系統上配置這些設定。
+> 「更新管理」支援部署第一方更新及預先下載修補程式。 這需要對要修補的系統進行變更，請參閱[ 第一方和預先下載的支援](automation-update-management.md#firstparty-predownload)，以了解如何在系統上配置這些設定。
 
 ## <a name="view-results-of-an-update-deployment"></a>檢視更新部署的結果
 

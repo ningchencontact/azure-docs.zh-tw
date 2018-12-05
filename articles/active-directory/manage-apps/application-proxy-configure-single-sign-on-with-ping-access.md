@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 200c87bdf2f0d686cd2e768d3b6b9a7fe3a5691b
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577181"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282510"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>使用應用程式 Proxy 與 PingAccess 的單一登入之標頭式驗證
 
@@ -42,7 +42,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
 
 ## <a name="publish-your-application-in-azure"></a>在 Azure 中發佈應用程式
 
-本文是針對第一次要以此案例發佈應用程式的人所設計。 除了發佈的步驟之外，並逐步解說如何開始使用應用程式和 PingAccess。 如果您已經設定這兩項服務，但需要在發佈的步驟上重新整理，可以略過連接器安裝，並移至[使用應用程式 Proxy 將您的應用程式新增至 Azure AD](#add-your-app-to-Azure-AD-with-Application-Proxy)。
+此文章是針對第一次要以此案例發佈應用程式的人所設計。 除了發佈的步驟之外，並逐步解說如何開始使用應用程式和 PingAccess。 如果您已經設定這兩項服務，但需要在發佈的步驟上重新整理，可以略過連接器安裝，並移至[使用應用程式 Proxy 將您的應用程式新增至 Azure AD](#add-your-app-to-Azure-AD-with-Application-Proxy)。
 
 >[!NOTE]
 >因為此案例是 Azure AD 和 PingAccess 之間的合作關係，有些指示存在於 Ping 身分識別站台。
@@ -82,7 +82,7 @@ Azure Active Directory 的 PingAccess 是 PingAccess 供應項目，讓您可提
    - **轉譯標頭中的 URL**：否
 
    >[!NOTE]
-   >如果這是您的第一個應用程式，請在變更 PingAccess 設定時，使用連接埠 3000 啟動並返回以更新這項設定。 如果這是您的第二個或更後面的應用程式，則這必須符合您已在 PingAccess 中設定的接聽程式。 深入了解 [PingAccess 中的接聽程式](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)。
+   >如果這是您的第一個應用程式，請在變更 PingAccess 設定時，使用連接埠 3000 啟動並返回以更新此設定。 如果這是您的第二個或更後面的應用程式，則這必須符合您已在 PingAccess 中設定的接聽程式。 深入了解 [PingAccess 中的接聽程式](https://documentation.pingidentity.com/pingaccess/pa31/index.shtml#Listeners.html)。
 
 6. 選取刀鋒視窗底部的 [新增]。 已新增您的應用程式，快速入門功能表隨即開啟。
 7. 在 [快速啟動] 功能表中，選取 [指派測試使用者]，並將至少一個使用者新增至應用程式。 請確定此測試帳戶可存取內部部署應用程式。
@@ -162,10 +162,10 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 >[!NOTE]
 >若要使用自訂宣告，您必須已定義自訂原則且已指派給應用程式。  此原則應包含所有必要的自訂屬性。
 >
->您可以透過 PowerShell、Azure AD Graph Explorer 或 MS Graph 來完成原則定義和指派。  如果您是在 PowerShell 中執行這些項目，您可能需要先使用 `New-AzureADPolicy `，然後使用 `Set-AzureADServicePrincipalPolicy` 將它指派給應用程式。  如需詳細資訊，請參閱 [Azure AD 原則文件](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
+>您可以透過 PowerShell、Azure AD Graph Explorer 或 MS Graph 來完成原則定義和指派。  如果您是在 PowerShell 中執行這些項目，您可能需要先使用 `New-AzureADPolicy `，然後使用 `Set-AzureADServicePrincipalPolicy` 將它指派給應用程式。  如需詳細資訊，請參閱 [Azure AD 原則文件](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 
 ### <a name="optional---use-a-custom-claim"></a>(選用) 使用自訂宣告
-若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已[建立自訂宣告對應原則，並將它指派給應用程式](../active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
+若要讓應用程式使用自訂宣告，並且包含其他欄位，請確定您已[建立自訂宣告對應原則，並將它指派給應用程式](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)。
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>下載 PingAccess 及設定您的應用程式
 

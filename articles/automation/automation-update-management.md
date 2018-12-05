@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/05/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d981d9dc7433d957819d0beb6aa6265882f1890
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: caa1b6f31325cd67aad106f7829bd32a5e7aeb53
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037391"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635810"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure 中的更新管理解決方案
 
@@ -69,7 +69,7 @@ ms.locfileid: "51037391"
 |作業系統  |注意  |
 |---------|---------|
 |Windows Server 2008、Windows Server 2008 R2 RTM    | 僅支援更新評估。         |
-|Windows Server 2008 R2 SP1 和更新版本     |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 和更新版本 (包括 Windows Server 2012 和 2016)    |必須要有 .NET Framework 4.5.1 或更新版本。 ([下載 .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> 必須要有 Windows PowerShell 4.0 或更新的版本。 ([下載 WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> 建議使用 Windows PowerShell 5.1 以增加可靠性。  ([下載 WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 |CentOS 6 (x86/x64) 和 7 (x64)      | Linux 代理程式必須能夠存取更新存放庫。 分類型修補需要 'yum' 才能傳回 CentOS 未內建的安全性資料。         |
 |Red Hat Enterprise 6 (x86/x64) 和 7 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
 |SUSE Linux Enterprise Server 11 (x86/x64) 和 12 (x64)     | Linux 代理程式必須能夠存取更新存放庫。        |
@@ -86,9 +86,9 @@ ms.locfileid: "51037391"
 
 ### <a name="client-requirements"></a>用戶端需求
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
-Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../log-analytics/log-analytics-agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
+Windows 代理程式必須設定為可與 WSUS 伺服器通訊，或必須能夠存取 Microsoft Update。 您可以搭配 System Center Configuration Manager 使用「更新管理」。 若要深入了解整合案例，請參閱[整合 System Center Configuration Manager 與更新管理](oms-solution-updatemgmt-sccmintegration.md#configuration)。 需要 [Windows 代理程式](../azure-monitor/platform/agent-windows.md)。 此代理程式會在您讓 Azure 虛擬機器上線時自動安裝。
 
 #### <a name="linux"></a>Linux
 
@@ -136,7 +136,7 @@ Heartbeat
 | where OSType == "Linux" | summarize arg_max(TimeGenerated, *) by SourceComputerId | top 500000 by Computer asc | render table
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```
 Heartbeat
@@ -148,7 +148,7 @@ Heartbeat
 1. 在 [控制台] 中，開啟 [Microsoft Monitoring Agent]。 在 [Azure Log Analytics] 索引標籤中，代理程式會顯示以下訊息：**Microsoft Monitoring Agent 已成功連線至 Log Analytics**。
 2. 開啟 Windows 事件記錄檔。 移至 [應用程式及服務記錄\Operations Manager] 並從來源 [服務連接器] 搜尋事件識別碼 3000 和事件識別碼 5002。 這些事件表示電腦已向 Log Analytics 工作區註冊，並且正在接收設定。
 
-如果代理程式無法與 Log Analytics 通訊，而且代理程式已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請確認防火牆或 Proxy 伺服器已正確設定。 若要了解如何確認防火牆或 proxy 伺服器已正確設定，請參閱 [Windows 代理程式的網路設定](../log-analytics/log-analytics-agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)。
+如果代理程式無法與 Log Analytics 通訊，而且代理程式已設定為透過防火牆或 Proxy 伺服器來與網際網路通訊，請確認防火牆或 Proxy 伺服器已正確設定。 若要了解如何確認防火牆或 proxy 伺服器已正確設定，請參閱 [Windows 代理程式的網路設定](../azure-monitor/platform/agent-windows.md)或 [Linux 代理程式的網路設定](../log-analytics/log-analytics-agent-linux.md)。
 
 > [!NOTE]
 > 如果您的 Linux 系統已設定為與 Proxy 或「Log Analytics 閘道」進行通訊，而且您要將此解決方案上線，則請更新 *proxy.conf* 權限，以使用下列命令將檔案讀取權限授與 omiuser 群組：
@@ -236,7 +236,7 @@ Heartbeat
 
 下表列出「更新管理」中的更新分類清單，以及每個分類的定義。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 |分類  |說明  |
 |---------|---------|
@@ -323,7 +323,7 @@ https://dev.loganalytics.io/)，了解如何自訂查詢或從不同的用戶端
 
 ##### <a name="missing-updates-summary"></a>缺少的更新摘要
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
@@ -334,7 +334,7 @@ Update
 
 ##### <a name="missing-updates-list"></a>缺少的更新清單
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
@@ -353,7 +353,7 @@ Update
 
 ##### <a name="missing-updates-summary"></a>缺少的更新摘要
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
@@ -364,7 +364,7 @@ Update
 
 ##### <a name="missing-updates-list"></a>缺少的更新清單
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
@@ -381,7 +381,7 @@ Update
 
 ##### <a name="computers-summary"></a>電腦摘要
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
@@ -423,7 +423,7 @@ on SourceComputerId
 
 ##### <a name="missing-updates-summary"></a>缺少的更新摘要
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -447,7 +447,7 @@ Update
 
 ##### <a name="computers-list"></a>電腦清單
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
@@ -494,7 +494,7 @@ on SourceComputerId
 
 ##### <a name="missing-updates-list"></a>缺少的更新清單
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -583,6 +583,6 @@ CentOS 預設並不支援依更新分類來部署更新。 針對 SUSE，只選�
 > [管理 Azure Windows VM 的更新和修補程式](automation-tutorial-update-management.md)
 
 * 使用 [Log Analytics](../log-analytics/log-analytics-log-searches.md) 中的記錄搜尋，檢視詳細的更新資料。
-* 在偵測到電腦缺少重大更新或電腦已停用自動更新時[建立警示](../log-analytics/log-analytics-alerts.md)。
+* 在偵測到電腦缺少重大更新或電腦已停用自動更新時[建立警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
 
 * 若要了解如何透過 REST API 與「更新管理」進行互動，請參閱[軟體更新設定](/rest/api/automation/softwareupdateconfigurations)

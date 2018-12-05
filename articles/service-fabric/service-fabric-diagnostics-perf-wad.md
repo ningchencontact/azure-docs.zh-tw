@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/26/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: bc86ef5a32e08bc00b5a2fa53dccb8d6313f167b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 0675e06564fcacf5f7d14ef6986762f36df18b1b
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230980"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52290317"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>使用 Windows Azure 診斷延伸模組進行效能監視
 
-本文件說明如何以 Windows 叢集的 Windows Azure 診斷 (WAD) 延伸模組逐步設定效能計數器集合。 若為 Linux 叢集，請設定 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)以收集您節點的效能計數器。 
+此文件說明如何以 Windows 叢集的 Windows Azure 診斷 (WAD) 延伸模組逐步設定效能計數器集合。 若為 Linux 叢集，請設定 [Log Analytics 代理程式](service-fabric-diagnostics-oms-agent.md)以收集您節點的效能計數器。 
 
  > [!NOTE]
 > 應該在您的叢集上部署 WAD 延伸模組，以便這些步驟產生效用。 如果未設定，請參閱[使用 Windows Azure 診斷的事件彙總和收集](service-fabric-diagnostics-event-aggregation-wad.md)。  
@@ -106,6 +106,89 @@ ms.locfileid: "50230980"
 
  可視需求修改計數器的採樣速率。 其格式為 `PT<time><unit>`；因此，如果您希望每秒收集計數器，應該設定 `"sampleRate": "PT15S"`。
 
+ 您可以使用 ARM 範本中的變數來收集效能計數器陣列，這在您會針對每個處理序收集效能計數器的情況下很有幫助。 在下列範例中，我們會使用變數來收集每個處理序的處理器時間與記憶體回收行程時間，接著收集節點本身上方的 2 個效能計數器。 
+
+ ```json
+"variables": {
+  "copy": [
+      {
+        "name": "processorTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\Process([parameters('monitoredProcesses')[copyIndex('processorTimeCounters')]])\\% Processor Time",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('processorTimeCounters')],' Processor Time')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      },
+      {
+        "name": "gcTimeCounters",
+        "count": "[length(parameters('monitoredProcesses'))]",
+        "input": {
+          "counterSpecifier": "\\.NET CLR Memory([parameters('monitoredProcesses')[copyIndex('gcTimeCounters')]])\\% Time in GC",
+          "sampleRate": "PT1M",
+          "unit": "Percent",
+          "sinks": "applicationInsights",
+          "annotation": [
+            {
+              "displayName": "[concat(parameters('monitoredProcesses')[copyIndex('gcTimeCounters')],' Time in GC')]",
+              "locale": "en-us"
+            }
+          ]
+        }
+      }
+    ],
+    "machineCounters": [
+      {
+        "counterSpecifier": "\\Memory\\Available Bytes",
+        "sampleRate": "PT1M",
+        "unit": "KB",
+        "sinks": "applicationInsights",
+        "annotation": [
+          {
+            "displayName": "Memory Available Kb",
+            "locale": "en-us"
+          }
+        ]
+      },
+      {
+        "counterSpecifier": "\\Memory\\% Committed Bytes In Use",
+        "sampleRate": "PT15S",
+        "unit": "percent",
+        "annotation": [
+          {
+            "displayName": "Memory usage",
+            "locale": "en-us"
+          }
+        ]
+      }
+    ]
+  }
+....
+"WadCfg": {
+    "DiagnosticMonitorConfiguration": {
+      "overallQuotaInMB": "50000",
+      "Metrics": {
+        "metricAggregation": [
+          {
+            "scheduledTransferPeriod": "PT1M"
+          }
+        ],
+        "resourceId": "[resourceId('Microsoft.Compute/virtualMachineScaleSets', variables('vmNodeTypeApp2Name'))]"
+      },
+      "PerformanceCounters": {
+        "scheduledTransferPeriod": "PT1M",
+        "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
+      },
+....
+```
+
  >[!NOTE]
  >雖然您可以使用 `*` 指定類似命名的效能計數器群組，但透過接收來傳送任何計數器 (至 Application Insights) 則需要單獨宣告。 
 
@@ -115,8 +198,9 @@ ms.locfileid: "50230980"
     New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
-5. 升級完成積存後 (大約需要 15-45 分鐘)，WAD 應該會收集效能計數器，並將其傳送至在與您的叢集有觀的儲存體帳戶中名稱為 WADPerformanceCountersTable 的表格。 藉由[將 AI 接收新增至 Resource Manager 範本](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)，查看 Application Insights 中的效能計數器。
+5. 升級推出完畢後 (大約需要 15-45 分鐘，視其是否為第一次部署，以及您資源群組的大小而定)，WAD 應該會收集效能計數器，並將其傳送至與您叢集相關的儲存體帳戶中，名為 WADPerformanceCountersTable 的表格。 藉由[將 AI 接收新增至 Resource Manager 範本](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)，查看 Application Insights 中的效能計數器。
 
 ## <a name="next-steps"></a>後續步驟
 * 為您的叢集收集更多效能計數器。 請參閱[效能度量](service-fabric-diagnostics-event-generation-perf.md)，以取得您應該收集的計數器清單。
 * [透過 Windows VM 與 Azure Resource Manager 範本使用監視和診斷](../virtual-machines/windows/extensions-diagnostics-template.md)，對 `WadCfg` 做進一步的修改，包括設定診斷資料要傳送到的其他儲存體帳戶。
+* 請造訪 [WadCfg 建立器](http://azure.github.io/azure-diagnostics-tools/config-builder/) \(英文\) 以從頭建置範本，並確定您的語法是正確的。

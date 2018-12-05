@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: spelluru
-ms.openlocfilehash: 9a223c67e0c1f2e71d2953be63924a114e7420af
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018225"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308065"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何搭配使用 Java 訊息服務 (JMS) API 與服務匯流排和 AMQP 1.0
 進階訊息佇列通訊協定 (AMQP) 1.0 是一個有效率且可靠的有線等級訊息通訊協定，可以用來建置強大的跨平台訊息應用程式。
@@ -39,7 +39,7 @@ ms.locfileid: "48018225"
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>下載 AMQP 1.0 JMS 用戶端程式庫
 如需可從哪裡下載最新版 Apache Qpid JMS AMQP 1.0 用戶端程式庫的相關資訊，請造訪 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)。
 
-您使用服務匯流排建立及執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封存將下列 4 個 JAR 檔加入 Java CLASSPATH：
+您使用服務匯流排建立和執行 JMS 應用程式時，必須從 Apache Qpid JMS AMQP 1.0 散發封裝將下列 4 個 JAR 檔加入 Java CLASSPATH：
 
 * geronimo-jms\_1.1\_spec-1.0.jar
 * qpid-jms-client-[版本].jar
@@ -66,7 +66,7 @@ queue.QUEUE = queue1
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>設定 JNDI 內容及設定 ConnectionFactory
 
 參考在 [Azure 入口網站](https://portal.azure.com)的 [共用存取原則] 中，於 [主要連接字串] 下可取得的 [連接字串]
-```
+```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
 // connection string. 
@@ -89,7 +89,7 @@ Destination queue = (Destination) context.lookup("QUEUE");
 在 Qpid 屬性檔案 JNDI 提供者中用來定義目的地的項目使用下列格式：
 
 建立產生者的目的地佇列 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 
@@ -103,7 +103,7 @@ MessageProducer producer = session.createProducer(queue);
 ```
 
 建立取用者的目的地佇列 - 
-```
+```java
 String queueName = "queueName";
 Destination queue = (Destination) queueName;
 

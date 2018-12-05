@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: geg
-ms.openlocfilehash: 7de9d1674860a6369c1dc09462a06def672fbdf2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0d78ae294cea383fbe59a1f7968d8bf18b1942d1
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420518"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422951"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>使用 Azure 入口網站來還原虛擬機器
 於定義的間隔進行資料快照，來保護您的資料。 這些快照稱為復原點，而且儲存在復原服務保存庫中。 如果需要修復或重新建立虛擬機器 (VM)，您可以從任何已儲存的復原點還原 VM。 當您還原復原點時，您可以：
@@ -22,12 +22,12 @@ ms.locfileid: "50420518"
 * 建立新的 VM，作為已備份 VM 的時間點表示。
 * 還原磁碟，並使用程序隨附的範本來自訂還原的 VM，或進行個別檔案復原。
 
-本文說明如何將 VM 還原至新的 VM，或還原所有已備份的磁碟。 關於個別檔案復原，請參閱[從 Azure VM 備份復原檔案](backup-azure-restore-files-from-vm.md)。
+此文章說明如何將 VM 還原至新的 VM，或還原所有已備份的磁碟。 關於個別檔案復原，請參閱[從 Azure VM 備份復原檔案](backup-azure-restore-files-from-vm.md)。
 
 ![三種可從 VM 備份還原的方式](./media/backup-azure-arm-restore-vms/azure-vm-backup-restore.png)
 
 > [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可用來還原使用 Resource Manager 模型部署的 VM。
+> Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 此文章提供的資訊和程序可用來還原使用 Resource Manager 模型部署的 VM。
 >
 >
 
@@ -151,7 +151,7 @@ ms.locfileid: "50420518"
 透過索引標籤 [取代現有] 完成 [就地還原]。
 
 ## <a name="replace-existing-disks-from-a-restore-point"></a>從還原點取代現有磁碟
-[取代現有] 選項可協助將目前 VM 中的現有磁碟取代為選取的還原點。 僅當目前的 VM 存在時才能執行此作業。 如果因任何原因而刪除 VM，則無法執行這項作業；或者，建議您 [新建] VM 或磁碟，以繼續進行還原作業。 在取代現有磁碟作業期間，我們會在起始取代磁碟作業之前先備份資料，以防患未然。 如果還原點中的磁碟多/少於目前的 VM，則還原點中的磁碟數目只會反映在 VM 中。 目前僅支援非受控磁碟和加密 VM 的 [取代現有] 選項。 對於[一般化 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 以及使用[自訂映像](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)建立的 VM，也不支援此功能。  
+[取代現有] 選項可協助將目前 VM 中的現有磁碟取代為選取的還原點。 僅當目前的 VM 存在時才能執行此作業。 如果因任何原因而刪除 VM，則無法執行此作業；或者，建議您 [新建] VM 或磁碟，以繼續進行還原作業。 在此作業期間，我們會在起始取代磁碟作業之前先備份資料，以防患未然。 這會建立快照集，也會在保存庫中建立復原點，而保留期間與已設定之備份原則中所排定的一樣。 如果還原點中的磁碟多/少於目前的 VM，則還原點中的磁碟數目只會反映在 VM 中。 目前僅支援非受控磁碟和加密 VM 的 [取代現有] 選項。 對於[一般化 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 以及使用[自訂映像](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/)建立的 VM，也不支援此功能。  
 
  在 [還原組態] 刀鋒視窗中，唯一需要選取的輸入是 [預備環境位置]。
 

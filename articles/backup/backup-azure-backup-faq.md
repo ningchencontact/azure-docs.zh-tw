@@ -8,15 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61e8a7732b7e6dc7fd521819a135fb1a7a6a13b3
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241254"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261661"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 備份 - 常見問題集
-本文提供「Azure 備份」服務的常見問題解答。
+此文章提供「Azure 備份」服務的常見問題解答。
 
 ## <a name="recovery-services-vault"></a>復原服務保存庫
 
@@ -125,7 +125,7 @@ Windows Storage Server 2012 64 位元 | Standard、Workgroup | 含最新的服�
 Windows Server 2008 R2 SP1 64 位元 | Standard、Enterprise、Datacenter、Foundation | 含最新的更新。
 Windows Server 2008 64 位元 | Standard、Enterprise、Datacenter | 含最新的更新。
 
-針對 Azure VM Linux 備份，「Azure 備份」支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md)，但 CoreOS Linux 除外。  只要 VM 上有 VM 代理程式可用並可支援 Python，其他自備的 Linux 散發套件便可能可以運作。
+針對 Azure VM Linux 備份，Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md)，但 Core OS Linux 和 32 位元作業系統除外。 只要 VM 上有 VM 代理程式可用並可支援 Python，其他自備的 Linux 散發套件便可能可以運作。
 
 
 ## <a name="are-there-size-limits-for-data-backup"></a>資料備份是否有大小限制？

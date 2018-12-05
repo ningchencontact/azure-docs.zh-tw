@@ -8,24 +8,24 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 1d915482a3a8b1f6416b50ab52de997a9d33294f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155599"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262426"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>在 Azure Batch 上執行容器應用程式
 
-Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 Batch 工作可以直接在 Batch 集區中的虛擬機器 (節點) 上執行，但您也可以將 Batch 集區設定為在節點上的 Docker 相容容器中執行工作。 本文會示範如何建立可支援執行中容器工作的運算節點集區，以及如何在集區上執行容器工作。 
+Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 Batch 工作可以直接在 Batch 集區中的虛擬機器 (節點) 上執行，但您也可以將 Batch 集區設定為在節點上的 Docker 相容容器中執行工作。 此文章會示範如何建立可支援執行中容器工作的運算節點集區，以及如何在集區上執行容器工作。 
 
 您應該要熟悉容器概念，以及如何建立 Batch 集區與作業。 程式碼範例使用了 Batch .NET 和 Python SDK。 您也可以使用其他 Batch SDK 和工具，包括 Azure 入口網站，來建立啟用容器的 Batch 集區，並執行容器工作。
 
 ## <a name="why-use-containers"></a>為何要使用容器？
 
-使用容器可讓您輕鬆地執行 Batch 工作，無須管理環境和相依性，即可執行應用程式。 容器會將應用程式部署為輕量、可攜且自給自足的單位，以便在多種不同的環境中執行。 例如，您可以在本機建置及測試容器，然後將容器映像上傳至 Azure 或其他位置中的登錄。 容器部署模型可確保您應用程式的執行階段環境一律會正確地安裝和設定 (無論您的應用程式裝載在何處)。 Batch 中容器型的工作也可利用非容器工作的功能，包括應用程式套件及資源檔和輸出檔案的管理。 
+使用容器可讓您輕鬆地執行 Batch 工作，無須管理環境和相依性，即可執行應用程式。 容器會將應用程式部署為輕量、可攜且自給自足的單位，以便在多種不同的環境中執行。 例如，在本機建置及測試容器，然後將容器映像上傳至 Azure 或其他位置中的登錄。 容器部署模型可確保您應用程式的執行階段環境一律會正確地安裝和設定 (無論您的應用程式裝載在何處)。 Batch 中容器型的工作也可利用非容器工作的功能，包括應用程式套件及資源檔和輸出檔案的管理。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -74,7 +74,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 Bat
 
 * 預先安裝的 NVIDIA GPU 驅動程式，可簡化 Azure N 系列虛擬機器上的部署
 
-* 包含或不包含預先安裝 RDMA 驅動程式的映像；這些驅動程式允許集區節點在具備 RDMA 功能的虛擬機器大小部署時，存取 Azure RDMA 網路  
+* 您選擇的映像，其中不一定含有預先安裝的 RDMA 驅動程式。 這些驅動程式允許集區節點在具備 RDMA 功能的 VM 大小上部署時，存取 Azure RDMA 網路。 
 
 您也可以從與 Batch 相容的其中一個 Linux 發佈上執行 Docker 的虛擬機器建立自訂映像。 如果您選擇提供您自己自訂的 Linux 映像，請參閱[使用受控自訂映像來建立虛擬機器的集區](batch-custom-images.md)中的指示。
 
@@ -89,7 +89,7 @@ Azure Batch 可讓您在 Azure 上執行及縮放大量批次運算作業。 Bat
 
 ## <a name="container-configuration-for-batch-pool"></a>Batch 集區的容器設定
 
-若要啟用 Batch 集區以執行容器工作負載，您必須在集區的 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 物件中指定 [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) 設定。 (本文提供 Batch .NET API 參考的連結。 對應設定位於 [Batch Python](/python/api/azure.batch) API。)
+若要啟用 Batch 集區以執行容器工作負載，您必須在集區的 [VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 物件中指定 [ContainerConfiguration](/dotnet/api/microsoft.azure.batch.containerconfiguration) 設定。 (此文章提供 Batch .NET API 參考的連結。 對應設定位於 [Batch Python](/python/api/azure.batch) API。)
 
 不論是否有預先擷取的容器映像，您都可以建立啟用容器的集區，如下列範例所示。 提取 (或預先擷取) 程序可讓您從 Docker Hub 或網際網路上的另一個容器登錄預先載入容器映像。 為了達到最佳效能，請使用與 Batch 帳戶位於相同區域中的 [Azure 容器登錄](../container-registry/container-registry-intro.md)。
 
@@ -222,41 +222,62 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ...
 ```
 
-
 ## <a name="container-settings-for-the-task"></a>工作的容器設定
 
-若要在計算節點上執行容器工作，您必須指定容器專屬的設定，例如容器執行選項、要使用的映像和登錄。
+若要在已啟用容器的集區上執行容器工作，請指定容器專屬設定。 設定包括要使用的映像、登錄及容器執行選項。
 
-使用工作類別的 `ContainerSettings` 屬性來設定容器專屬設定。 這些設定會由 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 類別定義。
+* 使用工作類別的 `ContainerSettings` 屬性來設定容器專屬設定。 這些設定會由 [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) 類別定義。
 
-如果您在容器映像上執行工作，[雲端工作](/dotnet/api/microsoft.azure.batch.cloudtask)和[作業管理員工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)會需要容器設定。 但是，[啟動工作](/dotnet/api/microsoft.azure.batch.starttask)、[作業準備工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)和[作業解除工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)不需要容器設定 (也就是這些工作可以在容器內容中執行或直接在節點上執行)。
+* 如果您在容器映像上執行工作，[雲端工作](/dotnet/api/microsoft.azure.batch.cloudtask)和[作業管理員工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask)會需要容器設定。 但是，[啟動工作](/dotnet/api/microsoft.azure.batch.starttask)、[作業準備工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)和[作業解除工作](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask)不需要容器設定 (也就是這些工作可以在容器內容中執行或直接在節點上執行)。
 
-選擇性的 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) 對工作執行的 `docker create` 命令是額外的引數。
+### <a name="container-task-command-line"></a>容器工作命令列
+
+當您執行容器工作時，Batch 會自動使用 [docker create](https://docs.docker.com/engine/reference/commandline/create/) \(英文\) 命令，利用工作中指定的映像來建立容器。 Batch 接著會控制容器中的工作執行。 
+
+就像使用非容器的 Batch 工作，您要針對容器工作設定命令列。 由於 Batch 會自動建立容器，因此，命令列只會指定將在容器中執行的一或多個命令。
+
+如果已使用 [ENTRYPOINT](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) \(英文\) 指令碼來設定 Batch 工作的容器映像，您可以設定命令列來使用預設進入點或覆寫它： 
+
+* 若要使用容器映像的預設進入點，請將工作命令列設為空字串 `""`。
+
+* 若要覆寫預設進入點，或者映像沒有進入點，則設定適用於容器的命令列，例如 `/app/myapp` 或 `/bin/sh -c python myscript.py`。
+
+選擇性的 [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) 是您提供給 `docker create` 命令的額外引數，Batch 會使用此命令來建立並執行容器。 例如，若要設定容器的工作目錄，請設定 `--workdir <directory>` 選項。 如需其他選項，請參閱 [docker create](https://docs.docker.com/engine/reference/commandline/create/) \(英文\) 參考。
 
 ### <a name="container-task-working-directory"></a>容器工作工作目錄
 
-Azure Batch 容器工作的命令列是在容器的工作目錄中執行，與 Batch 為一般 (非容器) 工作設定的環境非常類似：
+Batch 容器工作會在容器的工作目錄中執行，與 Batch 為一般 (非容器) 工作設定的目錄非常類似。 請注意，如果此工作目錄設定於映像中，則不同於 [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) \(英文\)，否則為預設的容器工作目錄 (Windows 容器上的 `C:\` 或 Linux 容器上的 `/`)。 
 
-* 以遞迴方式位於 `AZ_BATCH_NODE_ROOT_DIR` (Azure Batch 在節點上的根目錄) 下方的所有目錄都會對應至容器
+針對 Batch 容器工作：
+
+* 以遞迴方式位於主機節點 (Azure Batch 目錄的根目錄) 上 `AZ_BATCH_NODE_ROOT_DIR` 下方的所有目錄都會對應至容器
 * 所有工作環境變數都會對應至容器
-* 應用程式工作目錄會設定為與一般工作相同，因此您可以使用應用程式套件和資源檔等功能
+* 節點上工作的工作目錄 `AZ_BATCH_TASK_WORKING_DIR` 會設定為與一般工作相同，並對應至容器。 
 
-由於 Batch 變更容器中的預設工作目錄，因此工作會在不同於一般容器工作目錄的位置執行 (例如，預設為 `c:\` (Windows 容器上) 或 `/` (Linux 上)，或其他目錄 (如果設定在容器映像中))。 若要確定您的容器應用程式在 Batch 內容中正常執行，請執行下列其中一項動作： 
+這些對應可讓您以與非容器工作相同的方式來使用容器工作。 例如，使用應用程式封裝安裝應用程式、從 Azure 儲存體存取資源檔、使用工作環境設定，以及在容器停止之後保存工作輸出檔案。
 
-* 確定您工作命令列 (或容器工作目錄) 指定絕對路徑 (如果尚未如此設定)。
+### <a name="troubleshoot-container-tasks"></a>進行容器工作的疑難排解
 
-* 在工作的 ContainerSettings 中，在容器執行選項中設定工作目錄。 例如： `--workdir /app`。
+如果您的容器工作並未如預期般執行，您可能需要取得容器映像的 WORKDIR 或進入點設定的相關資訊。 若要查看設定，請執行 [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) \(英文\) 命令。 
 
-下列 Python 程式碼片段顯示的基本命令列，是在提取自 Docker 中樞的 Ubuntu 容器中執行。 在這裡，`--rm` 容器執行選項會在工作完成之後移除容器。
+視需要根據映像來調整容器工作的設定：
+
+* 在工作命令列中指定絕對路徑。 如果針對工作命令列使用映像的預設進入點，請確定會設定絕對路徑。
+
+* 在工作的容器執行選項中，變更工作目錄以符合映像中的 WORKDIR。 例如，設定 `--workdir /app`。
+
+## <a name="container-task-examples"></a>容器工作範例
+
+下列 Python 程式碼片段顯示的基本命令列，會在從提取自 Docker 中樞之虛擬映像建立的容器中執行。 在這裡，`--rm` 容器選項會在工作完成之後移除容器，而 `--workdir` 選項會設定工作目錄。 此命令列會使用簡單殼層命令來覆寫容器進入點，以將小型檔案寫入至主機上工作的工作目錄。 
 
 ```python
 task_id = 'sampletask'
 task_container_settings = batch.models.TaskContainerSettings(
-    image_name='ubuntu', 
-    container_run_options='--rm')
+    image_name='myimage', 
+    container_run_options='--rm --workdir /')
 task = batch.models.TaskAddParameter(
     id=task_id,
-    command_line='/bin/echo hello',
+    command_line='/bin/sh -c \"echo \'hello world\' > $AZ_BATCH_TASK_WORKING_DIR/output.txt\"',
     container_settings=task_container_settings
 )
 
@@ -267,11 +288,11 @@ task = batch.models.TaskAddParameter(
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
-    imageName: "tensorflow/tensorflow:latest-gpu",
-    containerRunOptions: "--rm --read-only"
+    imageName: "myimage",
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (

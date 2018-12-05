@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: cephalin
-ms.openlocfilehash: b5a06cff653007568b4ab2b44624b6314413f8a6
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: cb7b114836c83338f71c85f59299ecf1dc4613a9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636062"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317614"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>在 Azure App Service 中設定預備環境
 <a name="Overview"></a>
@@ -75,6 +75,7 @@ ms.locfileid: "51636062"
 * 處理常式對應
 * 監視與診斷設定
 * WebJobs 內容
+* 混合式連線
 
 **無法交換的設定**：
 
@@ -168,7 +169,7 @@ Azure PowerShell Cmdlet 可供多階段交換的範例，包含在部署位置�
 <a name="Warm-up"></a>
 
 ## <a name="custom-warm-up-before-swap"></a>交換前的自訂準備
-某些應用程式可能需要自訂的準備動作。 web.config 中的 `applicationInitialization` 組態項目可讓您指定收到要求之前要執行的自訂初始化動作。 必須等候此自訂準備完成，才會進行交換作業。 以下是範例 web.config 片段。
+使用[自動交換](#Auto-Swap)時，某些應用程式可能需要自訂的準備動作。 web.config 中的 `applicationInitialization` 組態項目可讓您指定收到要求之前要執行的自訂初始化動作。 必須等候此自訂準備完成，才會進行交換作業。 以下是範例 web.config 片段。
 
     <system.webServer>
         <applicationInitialization>

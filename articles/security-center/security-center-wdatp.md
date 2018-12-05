@@ -1,6 +1,6 @@
 ---
 title: Windows Defender 進階威脅防護與 Azure 資訊安全中心
-description: 本文件會介紹 Azure 資訊安全中心與 Windows Defender 進階威脅防護的整合。
+description: 此文件會介紹 Azure 資訊安全中心與 Windows Defender 進階威脅防護的整合。
 services: security-center
 documentationcenter: na
 author: barclayn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: e7bb7f0c4cb63390b91012e071589611991a2866
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4bd2b72596912d968ad6fc323ce32e620336d932
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068324"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316985"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender 進階威脅防護與 Azure 資訊安全中心
 
 Azure 資訊安全中心正在透過與 [Windows Defender 進階威脅防護](https://www.microsoft.com/en-us/WindowsForBusiness/windows-atp) (ATP) 進行整合，來擴展其雲端工作負載防護平台的服務。
-這項變革可讓端點偵測和回應 (EDR) 功能更臻完善。 進行 Windows Defender ATP 整合後，您可以找出異常狀況。 您也可以偵測及回應 Azure 資訊安全中心監視的伺服器端點上的進階攻擊。
+此變更可讓端點偵測和回應 (EDR) 功能更臻完善。 進行 Windows Defender ATP 整合後，您可以找出異常狀況。 您也可以偵測及回應 Azure 資訊安全中心監視的伺服器端點上的進階攻擊。
 
 Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的功能：
 
@@ -53,7 +53,7 @@ Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的�
 
 ## <a name="platform-support"></a>平台支援
 
-這項功能支援 Windows Server 2012 R2 和 Windows Server 2016 的偵測作業。
+此功能支援 Windows Server 2012 R2 和 Windows Server 2016 的偵測作業。
 
 僅支援標準服務層的訂用帳戶伺服器。
 
@@ -99,12 +99,12 @@ Azure 資訊安全中心的客戶現在可以使用 Windows Defender ATP 中的�
 
 3. 如果命令成功執行，您會在 Azure 資訊安全中心儀表板和 Windows Defender ATP 入口網站看到新的警示。 此警示可能需要幾分鐘才會顯示。
 
-4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** >  **可疑的 Powershell 命令列**。
+4. 若要在資訊安全中心檢閱警示，請前往**安全性警示** >  **可疑的 Powershell 命令列**。
 
 5. 從調查視窗中，選取前往 Windows Defender ATP 入口網站的連結。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+- [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 - [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)：了解建議如何協助保護您的 Azure 資源。
 - [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)：了解如何監視 Azure 資源的健全狀況。

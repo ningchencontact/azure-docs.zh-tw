@@ -10,18 +10,21 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: e0654d6a4696e6f02939cad51a715412fdcfb61a
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645229"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852838"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
-Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 V2 將在 2018 年 4 月 30 日被取代，並將於 2019 年 4 月 30 日中止。
+> [!NOTE]
+> V2 已於 2018 年 4 月 30 日過時，並將於 2019 年 4 月 30 日中止。
 
-本文件結尾處包含多個有用的連結，以供您深入了解。
+Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 此文件提供將應用程式變更為使用 V3 的資訊。 
+
+此文件結尾處包含多個有用的連結，以供您深入了解。
 
 ## <a name="summary-of-features"></a>功能摘要
 

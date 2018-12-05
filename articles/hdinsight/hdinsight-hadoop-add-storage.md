@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 31461e1d316953c2e69d252f1313180c57562dfd
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009186"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496304"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
+了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 此文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
 
 > [!IMPORTANT]
-> 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Hadoop、Spark、Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+> 此文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="how-it-works"></a>運作方式
 
-此指令碼採用下列參數︰
+此指令碼接受下列參數︰
 
 * __Azure 儲存體帳戶名稱__：要新增至 HDInsight 叢集的儲存體帳戶名稱。 執行指令碼之後，HDInsight 可以讀取和寫入此儲存體帳戶中儲存的資料。
 
@@ -43,7 +43,7 @@ ms.locfileid: "51009186"
 
 * 將儲存體帳戶新增至 core-site.xml 檔案。
 
-* 停止並重新啟動 Oozie、YARN、MapReduce2 和 HDFS 服務。 停止並啟動這些服務可讓它們使用新的儲存體帳戶。
+* 停止並重新啟動 [Apache Oozie](https://oozie.apache.org/)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)，以及 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 服務。 停止並啟動這些服務可讓它們使用新的儲存體帳戶。
 
 > [!WARNING]
 > 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
@@ -73,7 +73,7 @@ __需求__：
 
 在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性] 之下的 [儲存體帳戶] 項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 與 Azure 傳統 CLI 也不會顯示其他儲存體帳戶。
 
-沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用這項資訊。
+沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用此資訊。
 
 若要檢視使用此指令碼新增至叢集的儲存體帳戶資訊，請使用 Ambari REST API。 請使用下列命令，為您的叢集擷取此資訊：
 

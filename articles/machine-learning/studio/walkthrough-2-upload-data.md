@@ -1,10 +1,11 @@
 ---
-title: 步驟 2：將資料上傳至 Machine Learning 實驗中 | Microsoft Docs
+title: 步驟 2：將資料上傳至 Machine Learning Studio 實驗中 - Azure | Microsoft Docs
 description: 開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: dfa6ae8011da0299c270035b8b781d70a8e80119
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835785"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311971"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning 實驗中
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning Studio 實驗中
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
 
 1. [建立機器學習服務工作區](walkthrough-1-create-ml-workspace.md)
@@ -40,9 +41,9 @@ ms.locfileid: "34835785"
 
 **german.data** 資料集包含過去 1000 名信用額度申請者的 20 個變數資料列。 這 20 個變數代表資料集的特徵集 (「特徵向量」)，可分別提供每個信用額度申請者的識別特性。 每個資料列另外會有一個資料行代表申請者計算後的信用風險，其中有 700 名申請者被認定為低信用風險，300 名為高風險。
 
-UCI 網站提供了這項資料的特徵向量的屬性描述。 包括財務資訊、信用歷史記錄、工作狀態、個人資訊。 每個申請者都會有一個二進位評等，指出他們屬於低信用風險還是高風險。 
+UCI 網站提供了此資料的特徵向量的屬性描述。 包括財務資訊、信用歷史記錄、工作狀態、個人資訊。 每個申請者都會有一個二進位評等，指出他們屬於低信用風險還是高風險。 
 
-我們將使用這項資料來訓練預測分析模型。 完成之後，我們的模型應能夠接受新申請者的特徵向量，並預測他或她是屬於低信用風險還是高風險。  
+我們將使用此資料來訓練預測分析模型。 完成之後，我們的模型應能夠接受新申請者的特徵向量，並預測他或她是屬於低信用風險還是高風險。  
 
 以下提供一個有趣的論點。 UCI 網站上的資料集描述提及，如果我們錯誤分類一個人的信用風險需付出何種代價。
 如果模型將某個實際為低信用風險的人預測為高信用風險，則此模型做了錯誤分類。

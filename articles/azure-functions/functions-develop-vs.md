@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515364"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275831"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 來開發 Azure Functions  
 
@@ -29,7 +29,7 @@ Azure Functions Tools 提供下列優點：
 * 開發及部署預先編譯的 C# 函數。 預先編譯的函數提供的冷啟動效能比 C# 指令碼型函數更好。 
 * 在 C# 中編寫函數，同時享有 Visual Studio 開發的所有優點。 
 
-本文提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀本文之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
+此文章提供如何使用 Azure Functions Tools for Visual Studio 2017 來開發 C# 函式並將其發佈至 Azure 的詳細資料。 閱讀此文章之前，您應該先完成[適用於 Visual Studio 的 Functions 快速入門](functions-create-your-first-function-visual-studio.md)。 
 
 > [!IMPORTANT]
 > 請勿在相同函式應用程式中混用本機開發與入口網站開發。 當您從本機專案發佈至函式應用程式時，部署程序將會覆寫您在入口網站開發的任何函式。
@@ -207,7 +207,7 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 ## <a name="monitoring-functions"></a>監視函式
 
-若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成這項整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
+若要監視您的函式在 Azure 中的執行情形，建議您整合 Azure Application Insights。 當您在 Azure 入口網站中建立函式應用程式時，系統會依預設為您完成此整合。 不過，當您在 Visual Studio 發佈期間建立函式應用程式時，則不會完成您的函式應用程式在 Azure 中的整合。 您反而會取得內建記錄，但這並非建議做法。
 
 若要為您在 Azure 中的函式應用程式啟用 Application Insights：
 
@@ -225,4 +225,4 @@ For an example of how to test a queue triggered function, see the [queue trigger
 
 若要深入了解 Azure Functions Core Tools，請參閱[在本機撰寫和測試 Azure Functions 程式碼](functions-run-local.md)。
 
-若要深入了解如何將函式開發為 .NET 類別庫，請參閱 [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)。 本文也會連結至範例以示範如何使用屬性宣告 Azure Functions 所支援的各種繫結類型。    
+若要深入了解如何將函式開發為 .NET 類別庫，請參閱 [Azure Functions C# 開發人員參考](functions-dotnet-class-library.md)。 此文章也會連結至範例以示範如何使用屬性宣告 Azure Functions 所支援的各種繫結類型。    

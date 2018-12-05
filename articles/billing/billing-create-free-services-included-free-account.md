@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 84b73d3f1481c0c1a551da50b9f6292cd835d567
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: cwatson
+ms.openlocfilehash: 77022b442a78c8d14284e06af4f156302c1e6ffc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32773741"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584395"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>建立 Azure 免費帳戶隨附的服務
 
@@ -34,6 +34,6 @@ Azure 免費帳戶包含 12 個月數量有限的免費服務。 如需詳細資
 ## <a name="multiple-instances-of-services-can-be-created-within-allowed-limits"></a>在允許的限制內可以建立多個服務執行個體
 只要使用量總和在使用量限制內，您便可以免費建立多個服務執行個體。 例如，Azure 免費帳戶每月免費提供您 750 小時的 B1S Windows 虛擬機器。 您可以採用想要的任何組合方式來使用這 750 小時。 例如，您可以建立 5 部 B1S Windows 虛擬機器，然後每部使用 150 個小時。 
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

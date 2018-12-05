@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
 ms.author: daveba
-ms.openlocfilehash: 58643593970fa00822e79ed54f91d56c45ebba65
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 6f147aa7066db19c1be451b0a5ac49bfce9f571b
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578564"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422928"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>使用 REST API 呼叫在 Azure VM 上設定 Azure 資源受控識別
 
@@ -27,7 +27,7 @@ ms.locfileid: "51578564"
 
 Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供自動受控系統識別。 您可以使用此身分識別來向任何支援 Azure AD 驗證的服務進行驗證，不需要任何您程式碼中的認證。 
 
-在本文中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
+在此文章中，使用 CURL 來呼叫 Azure Resource Manager REST 端點，即可了解如何在 Azure VM 上執行下列 Azure 資源受控識別作業：
 
 - 在 Azure VM 上啟用和停用系統指派受控識別
 - 在 Azure VM 上新增和移除使用者指派受控識別
@@ -69,10 +69,80 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ``` 
 
 4. 使用 CURL 呼叫 Azure Resource Manager REST 端點來建立虛擬機器。 下列範例會建立具有系統指派的受控識別 (如同在要求本文中由 `"identity":{"type":"SystemAssigned"}` 值所識別) 且名為 myVM 的虛擬機器。 將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
- 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-    ```
+
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"SystemAssigned"},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"<SECURE PASSWORD STRING>"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **要求標頭**
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+   
+   **要求本文**
+
+   ```JSON
+     {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"SystemAssigned"
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }  
+   ```
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>在現有 Azure VM 上啟用系統指派的身分識別
 
@@ -90,7 +160,26 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    > 若要確保您不會刪除虛擬機器指派的任何現有使用者指派識別，需要使用下列 CURL 命令來列出使用者指派的受控識別：`curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"`。 如有任何使用者指派的受控識別是指派給回應中 `identity` 值識別的虛擬機器，請跳至步驟 3，此步驟將說明如何保留使用者指派的受控識別，同時在虛擬機器上啟用系統指派的受控識別。
 
    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **要求標頭**
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+   
+   **要求本文**
+    
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned"
+       }
+    }
    ```
 
 3. 若要在有現有使用者指派受控識別的虛擬機器上啟用系統指派的受控識別，您需要將 `SystemAssigned` 新增至 `type` 值。  
@@ -105,11 +194,63 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{  
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{  
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API 版本 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+    
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+   **要求本文**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<<SUBSCRIPTION ID>>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>停用來自 Azure VM 的系統指派受控識別
 
@@ -130,7 +271,27 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
-3. 若要從具有使用者指派受控識別的虛擬機器移除系統指派的受控識別，請從 `{"identity":{"type:" "}}` 值移除 `SystemAssigned`，但同時保留 `UserAssigned` 值和 `userAssignedIdentities` 字典值 (如果您使用 **API 版本 2018-06-01**)。 如果您使用 **API 版本 2017-12-01** 或先前版本，則請保留 `identityIds` 陣列。
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {  
+       "identity":{  
+          "type":"None"
+       }
+    }
+   ```
+
+   若要從具有使用者指派受控識別的虛擬機器移除系統指派的受控識別，請從 `{"identity":{"type:" "}}` 值移除 `SystemAssigned`，但同時保留 `UserAssigned` 值和 `userAssignedIdentities` 字典值 (如果您使用 **API 版本 2018-06-01**)。 如果您使用 **API 版本 2017-12-01** 或先前版本，則請保留 `identityIds` 陣列。
 
 ## <a name="user-assigned-managed-identity"></a>使用者指派的受控識別
 
@@ -162,17 +323,165 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 5. 使用 CURL 呼叫 Azure Resource Manager REST 端點來建立虛擬機器。 下列範例會使用使用者指派的受控識別 `ID1` (如同在要求本文中由 `"identity":{"type":"UserAssigned"}` 值所識別)，在資源群組 myResourceGroup 中建立名為 myVM 的虛擬機器。 將上一個步驟中要求持有人存取權杖時所收到的值用以取代 `<ACCESS TOKEN>`值，`<SUBSCRIPTION ID>` 的值則為適用於您的環境的值。
  
-   
    **API 版本 2018-06-01**
-    
-   ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
-   ``` 
 
+   ```bash   
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+    
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {  
+       "location":"westus",
+       "name":"myVM",
+       "identity":{  
+          "type":"UserAssigned",
+          "identityIds":[  
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{  
+          "hardwareProfile":{  
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{  
+             "imageReference":{  
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{  
+                "caching":"ReadWrite",
+                "managedDisk":{  
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[  
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {  
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{  
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{  
+             "networkInterfaces":[  
+                {  
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{  
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
+
+   ```
+  
    **API 版本 2017-12-01**
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PUT -d '{"location":"westus","name":"myVM","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"hardwareProfile":{"vmSize":"Standard_D2_v2"},"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"name":"myVM3osdisk","createOption":"FromImage"},"dataDisks":[{"diskSizeGB":1023,"createOption":"Empty","lun":0},{"diskSizeGB":1023,"createOption":"Empty","lun":1}]},"osProfile":{"adminUsername":"azureuser","computerName":"myVM","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaces":[{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic","properties":{"primary":true}}]}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "location":"westus",
+       "name":"myVM",
+       "identity":{
+          "type":"UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{
+          "hardwareProfile":{
+             "vmSize":"Standard_D2_v2"
+          },
+          "storageProfile":{
+             "imageReference":{
+                "sku":"2016-Datacenter",
+                "publisher":"MicrosoftWindowsServer",
+                "version":"latest",
+                "offer":"WindowsServer"
+             },
+             "osDisk":{
+                "caching":"ReadWrite",
+                "managedDisk":{
+                   "storageAccountType":"Standard_LRS"
+                },
+                "name":"myVM3osdisk",
+                "createOption":"FromImage"
+             },
+             "dataDisks":[
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":0
+                },
+                {
+                   "diskSizeGB":1023,
+                   "createOption":"Empty",
+                   "lun":1
+                }
+             ]
+          },
+          "osProfile":{
+             "adminUsername":"azureuser",
+             "computerName":"myVM",
+             "adminPassword":"myPassword12"
+          },
+          "networkProfile":{
+             "networkInterfaces":[
+                {
+                   "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myNic",
+                   "properties":{
+                      "primary":true
+                   }
+                }
+             ]
+          }
+       }
+    }
    ```
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>將使用者指派的受控識別指派至現有 Azure VM
@@ -187,11 +496,19 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 
 2.  使用以下找到的指示建立使用者指派的受控識別：[建立使用者指派的受控識別](how-to-manage-ua-identity-rest.md#create-a-user-assigned-managed-identity)。
 
-3.  若要確保您不會刪除指派給虛擬機器的任何現有使用者或系統指派識別，需要使用下列 CURL 命令來列出指派給虛擬機器的識別類型。 若有指派給虛擬機器擴展集的受控識別，則會列在 `identity` 值之下。
+3. 若要確保您不會刪除指派給虛擬機器的任何現有使用者或系統指派識別，需要使用下列 CURL 命令來列出指派給虛擬機器的識別類型。 若有指派給虛擬機器擴展集的受控識別，則會列在 `identity` 值之下。
 
-    ```bash
-    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
-    ```
+   ```bash
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>" 
+   ```
+
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+   **要求標頭**
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
 
     如有任何使用者或系統指派的受控識別是指派給回應中 `identity` 值識別的虛擬機器，請跳至步驟 5，此步驟將說明如何在 VM 上新增使用者指派的受控識別時，同時保留系統指派的受控識別。
 
@@ -205,10 +522,59 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+ 
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API 版本 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+   
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
    ```
 
 5. 如果您將現有的使用者指派或系統指派受控識別指派給 VM：
@@ -223,6 +589,35 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+   
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
+
    **API 版本 2017-12-01**
 
    保留您想要留在 `identityIds` 陣列值內的使用者指派受控識別，同時新增使用者指派的受控識別。
@@ -230,8 +625,33 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    例如，如果您目前將系統指派的受控識別和使用者指派的受控識別 `ID1` 指派給 VM，而且想要在其中新增使用者指派的受控識別 `ID2`： 
 
    ```bash
-   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
+
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```   
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>從 Azure VM 移除使用者指派的受控識別
 
@@ -244,10 +664,20 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    ```
 
 2. 若要確保您不會刪除您要維持指派給虛擬機器的任何現有使用者指派受控識別，或者要移除系統指派的受控識別，需要使用下列 CURL 命令來列出受控識別： 
- 
+
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01' -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
+ 
+   ```HTTP
+   GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。
  
    若您有指派給虛擬機器的受控識別，則會在 `identity` 值的回應中列出。
 
@@ -261,6 +691,30 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":null
+          }
+       }
+    }
+   ```
+
    **API 版本 2017-12-01**
 
    只保留您想要留在 `identityIds` 陣列中的使用者指派受控識別：
@@ -269,10 +723,55 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
+   ```HTTP
+   PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2017-12-01 HTTP/1.1
+   ```
+
+   **要求標頭**
+
+   |要求標頭  |說明  |
+   |---------|---------|
+   |*Content-Type*     | 必要。 設定為 `application/json`。        |
+   |*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        | 
+
+   **要求本文**
+
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```
+
 如果您的虛擬機器同時具有系統指派和使用者指派的受控識別，您可藉由切換為僅使用系統指派的受控識別，移除所有使用者指派的受控識別：
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**要求標頭**
+
+|要求標頭  |說明  |
+|---------|---------|
+|*Content-Type*     | 必要。 設定為 `application/json`。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。 | 
+
+**要求本文**
+
+```JSON
+{
+   "identity":{
+      "type":"SystemAssigned"
+   }
+}
 ```
     
 如果您的虛擬機器只有使用者指派的受控識別，而且您想要全部移除，請使用下列命令：
@@ -280,6 +779,28 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
+```
+
+**要求標頭**
+
+|要求標頭  |說明  |
+|---------|---------|
+|*Content-Type*     | 必要。 設定為 `application/json`。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。| 
+
+**要求本文**
+
+```JSON
+{
+   "identity":{
+      "type":"None"
+   }
+}
+```
+
 ## <a name="next-steps"></a>後續步驟
 
 如需如何使用 REST 建立、列出或刪除使用者指派的受控識別相關資訊，請參閱：

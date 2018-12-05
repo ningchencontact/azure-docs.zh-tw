@@ -3,24 +3,24 @@ title: Java HBase 用戶端 - Azure HDInsight
 description: 了解如何使用 Apache Maven 建置以 Java 為基礎的 Apache HBase 應用程式，然後將它部署至 Azure HDInsight 上的 HBase。
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/30/2018
-ms.author: hrasheed
-ms.openlocfilehash: 677714487aac6e25a0505cce978792c76bb1cee4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 11/27/2018
+ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016075"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445646"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
 
 了解如何在 Java 中建立 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後使用此應用程式搭配 Azure HDInsight 上的 HBase。
 
-本文件中的步驟使用 [Maven](http://maven.apache.org/) 來建立專案。 Maven是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。
+此文件中的步驟使用 [Apache Maven](https://maven.apache.org/) \(英文\) 來建立及建置專案。 Maven是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。
 
 > [!NOTE]
 > 此文件中的步驟最近已在 HDInsight 3.6 中測試過。
@@ -35,9 +35,9 @@ ms.locfileid: "51016075"
     > [!NOTE]
     > HDInsight 3.5 和更新版本需要 Java 8。 舊版的 HDInsight 需要 Java 7。
 
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
-* [具有 HBase 的 Linux 型 Azure HDInsight 叢集](apache-hbase-tutorial-get-started-linux.md#create-hbase-cluster)
+* [具有 Apache HBase 的 Linux 型 Azure HDInsight 叢集](apache-hbase-tutorial-get-started-linux.md#create-apache-hbase-cluster)
 
 ## <a name="create-the-project"></a>建立專案
 
@@ -59,7 +59,7 @@ ms.locfileid: "51016075"
    * **pom.xml**：專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案之資訊和組態的詳細資料。
    * **src**：包含 **main/java/com/microsoft/examples** 目錄的目錄，您將在此處撰寫應用程式。
 
-3. 刪除 `src/test/java/com/microsoft/examples/apptest.java` 檔案。 此範例不會使用此方法。
+3. 刪除 `src/test/java/com/microsoft/examples/apptest.java` 檔案。 此範例不會用到這個檔案。
 
 ## <a name="update-the-project-object-model"></a>更新專案物件模型
 
@@ -81,9 +81,9 @@ ms.locfileid: "51016075"
     此區段指出專案需要 **hbase-client** 和 **phoenix-core** 元件。 在編譯期間，會從預設的 Maven 儲存機制下載這些相依性。 您可以使用 [Maven 中央儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
 
    > [!IMPORTANT]
-   > hbase-client 的版本號碼必須符合隨附於 HDInsight 叢集的 HBase 版本。 您可以使用下表來尋找正確的版本號碼。
+   > hbase-client 的版本號碼必須符合隨附於 HDInsight 叢集的 Apache HBase 版本。 您可以使用下表來尋找正確的版本號碼。
 
-   | HDInsight 叢集版本 | 要使用的 HBase 版本 |
+   | HDInsight 叢集版本 | 要使用的 Apache HBase 版本 |
    | --- | --- |
    | 3.2 |0.98.4-hadoop2 |
    | 3.3、3.4、3.5 和 3.6 |1.1.2 |
@@ -363,7 +363,7 @@ ms.locfileid: "51016075"
 
 ## <a name="upload-the-jar-and-run-jobs-ssh"></a>上傳 JAR 並執行作業 (SSH)
 
-下列步驟使用 `scp` 將 JAR 複製到 HBase on HDInsight 叢集的主要前端節點。 接著，會使用 `ssh` 命令連接到該叢集並直接在前端節點上執行範例。
+下列步驟使用 `scp`，將 JAR 複製到 HDInsight 叢集上 Apache HBase 的主要前端節點。 接著，會使用 `ssh` 命令連接到該叢集並直接在前端節點上執行範例。
 
 1. 若要將 jar 上傳到叢集，請使用下列命令︰
 
@@ -412,7 +412,7 @@ ms.locfileid: "51016075"
 
 ## <a name="upload-the-jar-and-run-jobs-powershell"></a>上傳 JAR 並執行作業 (PowerShell)
 
-下列步驟使用 Azure PowerShell 將 JAR 上傳到您 HBase 叢集的預設儲存體。 接著，會使用 HDInsight Cmdlet 從遠端執行範例。
+下列步驟會使用 Azure PowerShell，將 JAR 上傳到您 Apache HBase 叢集的預設儲存體。 接著，會使用 HDInsight Cmdlet 從遠端執行範例。
 
 1. 安裝並設定 Azure PowerShell 之後，請建立名為 `hbase-runner.psm1` 的檔案。 使用下列文字做為此檔案的內容：
 
@@ -671,7 +671,7 @@ ms.locfileid: "51016075"
 
 ## <a name="delete-the-table"></a>刪除資料表
 
-練習完範例之後，請使用下列命令來刪除在此範例中使用的 **people** 資料表：
+完成範例之後，請使用下列命令來刪除此範例中所使用的 **people** 資料表：
 
 __從 `ssh` 工作階段__：
 
@@ -683,4 +683,4 @@ __從 Azure PowerShell__：
 
 ## <a name="next-steps"></a>後續步驟
 
-[了解如何使用 SQuirreL SQL 搭配 HBase](apache-hbase-phoenix-squirrel-linux.md)
+[了解如何搭配 Apache HBase 使用 SQuirreL SQL](apache-hbase-phoenix-squirrel-linux.md)

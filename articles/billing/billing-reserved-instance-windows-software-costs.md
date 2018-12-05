@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: manshuk
-ms.openlocfilehash: ec4869ed5c4d823a8144ba430ebb29c65c2abc13
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.author: cwatson
+ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302061"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584412"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Windows 軟體的成本不包括在 Azure 保留的虛擬機器執行個體內
 
@@ -62,9 +62,9 @@ ms.locfileid: "43302061"
 - [了解預付型方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
 
 

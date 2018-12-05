@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 651a03f69a7664b68ce3fe5c512c59c01762a505
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 378f52f0418c8c99e9ce6ca393ca10a77504698d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282470"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499589"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站在 HDInsight 中管理以 Windows 為主的 Apache Hadoop 叢集
 
-您可以使用 [Azure 入口網站][azure-portal]，在 Azure HDInsight 中建立以 Windows 為主的 Apache Hadoop 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
+您可以使用 [Azure 入口網站][azure-portal]，在 Azure HDInsight 中建立以 Windows 為主的 [Apache Hadoop](https://hadoop.apache.org/) 叢集、變更 Hadoop 使用者密碼，以及啟用遠端桌面通訊協定 (RDP)，以存取叢集上的 Hadoop 命令主控台。
 
-本文的資訊僅適用於 Windows 型 HDInsight 叢集。 如需管理 Linux 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
+此文章中的資訊僅適用於 Windows 型 HDInsight 叢集。 如需管理 Linux 型叢集的相關資訊，請參閱[使用 Azure 入口網站管理 HDInsight 上的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md)。
 
 [!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="prerequisites"></a>必要條件
 
-開始閱讀本文之前，您必須符合下列必要條件：
+開始閱讀此文章之前，您必須符合下列必要條件：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **Azure 儲存體帳戶** - HDInsight 叢集使用 Azure Blob 儲存體容器做為預設檔案系統。 如需 Azure Blob 儲存體如何提供順暢 HDInsight 叢集使用體驗的詳細資訊，請參閱 [搭配使用 Azure Blob 儲存體與 HDInsight](hdinsight-hadoop-use-blob-storage.md)。 如需建立 Azure 儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](../storage/common/storage-create-storage-account.md)。
@@ -49,11 +49,11 @@ ms.locfileid: "51282470"
 ## <a name="create-clusters"></a>建立叢集
 如需使用入口網站建立的相關指示，請參閱[建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
-HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支援元件的清單，請參閱 [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)(英文)。 您可以使用下列其中一個選項來自訂 HDInsight：
+HDInsight 可以搭配很多 Apache Hadoop 元件使用。 如需已驗證和所支援元件的清單，請參閱 [Azure HDInsight 提供 Apache Hadoop 的什麼版本？](hdinsight-component-versioning.md)。 您可以使用下列其中一個選項來自訂 HDInsight：
 
 * 使用 [指令碼動作] 來執行可自訂叢集的自訂指令碼，以變更叢集組態或安裝自訂元件 (如 Giraph 或 Solr)。 如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。
 * 在叢集建立期間，使用 HDInsight .NET SDK 或 Azure PowerShell 中的叢集自訂參數。 即會在叢集的存留期保留這些組態變更，而且它們不受叢集節點重新製作映像的影響，而 Azure 平台會定期執行重新製作映像以進行維護。 如需使用叢集自訂參數的詳細資訊，請參閱 [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
-* 您可以使用 JAR 檔案形式在叢集上執行一些原生 Java 元件 (例如 Mahout 和 Cascading)。 這些 JAR 檔案可以配送至 Azure Blob 儲存體，並透過 Hadoop 工作提交機制提交至 HDInsight 叢集。 如需詳細資訊，請參閱 [以程式設計方式提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
+* 您可以使用 JAR 檔案形式在叢集上執行一些原生 Java 元件 (例如 [Apache Mahout](https://mahout.apache.org/) 和 [Cascading](https://www.cascading.org/))。 這些 JAR 檔案可以配送至 Azure Blob 儲存體，並透過 Hadoop 工作提交機制提交至 HDInsight 叢集。 如需詳細資訊，請參閱[以程式設計方式提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
   > [!NOTE]
   > 如果您在將 JAR 檔案部署至 HDInsight 叢集或在 HDInsight 叢集上呼叫 JAR 檔案時發生問題，請連絡 [Microsoft 支援](https://azure.microsoft.com/support/options/)。
@@ -91,7 +91,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
    * **Ambari 檢視**：Ambari Web 的連結。
 
      > [!IMPORTANT]
-     > 若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱 [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+     > 若要管理 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱[使用 Apache Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
      >
      >
 
@@ -106,7 +106,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
    * **叢集 AAD 身分識別**：
    * **Azure 儲存體金鑰**：檢視預設儲存體帳戶與其金鑰。 儲存體帳戶是叢集建立程序期間的組態。
    * **叢集登入**：變更叢集 HTTP 使用者名稱和密碼。
-   * **外部中繼存放區**：檢視 Hive 和 Oozie 中繼存放區。 中繼存放區只可以在叢集建立程序期間進行設定。
+   * **外部中繼存放區**：檢視 [Apache Hive](https://hive.apache.org/) 和 [Apache Oozie](https://oozie.apache.org/) 中繼存放區。 中繼存放區只可以在叢集建立程序期間進行設定。
    * **調整叢集**：增加和減少叢集背景工作角色節點的數目。
    * **遠端桌面**： 啟用和停用遠端桌面 (RDP) 存取，以及設定 RDP 使用者名稱。  RDP 使用者名稱必須與 HTTP 使用者名稱不同。
    * **記錄可查夥伴**：
@@ -152,12 +152,12 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 變更 HDInsight 支援的每一種叢集所用的資料節點數目會有何影響：
 
-* Hadoop
+* Apache Hadoop
 
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
 
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 這會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* hbase
+* Apache HBase (英文)
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
@@ -166,13 +166,13 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
         >balancer
 
     如需使用 HBase 殼層的詳細資訊，請參閱 []
-* Storm
+* Apache Storm
 
     您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 但在調整作業順利完成後，您需要重新平衡拓撲。
 
     您可以使用兩種方式來完成重新平衡作業：
 
-  * Storm Web UI
+  * Apache Storm Web UI
   * 命令列介面 (CLI) 工具
 
     如需詳細資訊，請參閱 [Apache Storm 文件](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) 。
@@ -206,7 +206,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 * 使用 Azure Data Factory。 請參閱 [Azure HDInsight 連結服務](../data-factory/compute-linked-services.md)和[使用 Azure Data Factory 進行轉換和分析](../data-factory/transform-data.md)，以取得隨選和自行定義的 HDInsight 連結服務。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure 傳統 CLI。 請參閱[使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)。
-* 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
+* 使用 HDInsight .NET SDK。 請參閱[提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
 
@@ -264,7 +264,7 @@ HDInsight 叢集具有下列 HTTP Web 服務 (所有這些服務都有 RESTful �
 ## <a name="open-hdinsight-query-console"></a>開啟 HDInsight 查詢主控台
 HDInsight 查詢主控台包括下列功能：
 
-* **Hive 編輯器**：用於提交 Hive 工作的 GUI Web 介面。  請參閱 [使用查詢主控台執行 Hive 查詢](hadoop/apache-hadoop-use-hive-query-console.md)。
+* **Hive 編輯器**：用於提交 Hive 工作的 GUI Web 介面。  請參閱[使用查詢主控台執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-query-console.md)。
 
     ![HDInsight portal hive editor](./media/hdinsight-administer-use-management-portal/hdinsight-hive-editor.png)
 * **工作歷程記錄**：監視 Hadoop 工作。  
@@ -301,7 +301,7 @@ HDInsight 查詢主控台包括下列功能：
 HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用帳戶可搭配 HDInsight 使用的核心數目，以及配置給此叢集的核心數目和它們在此叢集中配置給節點的方式。 請參閱 [列出和顯示叢集](#list-and-show-clusters)。
 
 > [!IMPORTANT]
-> 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱 [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+> 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱[使用 Apache Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 >
 >
 
@@ -347,7 +347,7 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 
-    如需 Hadoop 命令的詳細資訊，請參閱 [Hadoop 命令參考](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html)。
+    如需 Hadoop 命令的詳細資訊，請參閱 [Apache Hadoop 命令參考](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/CommandsManual.html)。
 
 在前一個螢幕擷取畫面上，資料夾名稱已內嵌 Hadoop 版本號碼。 版本號碼會根據叢集上所安裝的 Hadoop 元件版本而變更。 您可以使用 Hadoop 環境變數來參照那些資料夾。 例如︰
 
@@ -359,14 +359,14 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
     cd %hcatalog_home%
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何使用入口網站建立 HDInsight 叢集，以及如何開啟 Hadoop 命令列工具。 若要深入了解，請參閱下列文章：
+在此文章中，您已了解如何使用入口網站建立 HDInsight 叢集，以及如何開啟 Apache Hadoop 命令列工具。 若要深入了解，請參閱下列文章：
 
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
 * [使用 Azure 傳統 CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
-* [以程式設計方式提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [以程式設計方式提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
+* [Azure HDInsight 提供 Apache Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Hadoop 命令列"

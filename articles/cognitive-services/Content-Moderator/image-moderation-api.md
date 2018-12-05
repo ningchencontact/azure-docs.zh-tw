@@ -10,16 +10,16 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6c5fed78c67f974a2af11efd133e9a79ec52124b
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 044aa9a127aa8130340719147314961ddb38167a
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219646"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852702"
 ---
 # <a name="image-moderation"></a>影像仲裁
 
-使用內容仲裁的電腦輔助影像仲裁以及[人工檢閱工具](Review-Tool-User-Guide/human-in-the-loop.md)來審核成人和猥褻內容的影像。 掃描影像的文字內容並擷取該文字，然後偵測臉部。 您可以根據自訂清單比對影像，並採取進一步的動作。
+使用內容仲裁的電腦輔助影像仲裁以及[人工審核工具](Review-Tool-User-Guide/human-in-the-loop.md)來審核成人和猥褻內容的影像。 掃描影像的文字內容並擷取該文字，然後偵測臉部。 您可以根據自訂清單比對影像，並採取進一步的動作。
 
 ## <a name="evaluating-for-adult-and-racy-content"></a>評估成人和猥褻內容
 

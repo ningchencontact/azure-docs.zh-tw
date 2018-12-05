@@ -3,7 +3,7 @@ title: 在 Azure 資訊安全中心整合安全性解決方案 | Microsoft Docs
 description: 了解 Azure 資訊安全中心如何與夥伴整合，以提高您 Azure 資源的整體安全性。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 1abf9efb5c0bed205ce5b87b1f055c14a11ce9ec
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/26/2018
+ms.author: rkarlin
+ms.openlocfilehash: bbdda5012e6132940d00ae23a6d26469b0216fd0
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245001"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335431"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>在 Azure 資訊安全中心整合安全性解決方案
-這份文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
+此文件可協助您管理已連線到 Azure 資訊安全中心的安全性解決方案，並且新增新的項目。
 
 ## <a name="integrated-azure-security-solutions"></a>整合式 Azure 安全性解決方案
 資訊安全中心可以使得在 Azure 中啟用整合式安全性解決方案變得簡單。 優點包括：
@@ -47,14 +47,17 @@ ms.locfileid: "51245001"
 | 端點保護               | 平台                             | 資訊安全中心安裝 | 資訊安全中心探索 |
 |-----------------------------------|---------------------------------------|------------------------------|---------------------------|
 | Windows Defender (Microsoft 反惡意程式碼軟體)                  | Windows Server 2016                   | 否，內建於 OS           | 是                       |
-| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 | 透過延伸模組                | 是                       |
+| System Center Endpoint Protection (Microsoft 反惡意程式碼軟體) | Windows Server 2012 R2、2012、2008 R2 (請參閱下列附註) | 透過延伸模組                | 是                       |
 | Trend Micro – 所有版本         | Windows Server 系列                 | 否                           | 是                       |
 | Symantec v12.1.1100+              | Windows Server 系列                 | 否                           | 是                       |
 | McAfee v10+                       | Windows Server 系列                 | 否                           | 是                       |
 | Kaspersky                         | Windows Server 系列                 | 否                           | 否                        |
 | Sophos                            | Windows Server 系列                 | 否                           | 否                        |
 
-
+> [!NOTE]
+> 在 Windows Server 2008 R2 虛擬機器上偵測 System Center Endpoint Protection (SCEP) 需要安裝 SCEP (PowerShell 3.0 或更高版本)。
+>
+>
 
 ## <a name="how-security-solutions-are-integrated"></a>安全性解決方案如何整合
 從資訊安全中心部署的 Azure 安全性解決方案會自動連線。 您也可以連線其他安全性資料來源，包括：
@@ -110,7 +113,7 @@ ms.locfileid: "51245001"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何在資訊安全中心中整合夥伴解決方案。 如要深入了解資訊安全中心，請參閱下列文章：
+在此文章中，您已了解如何在資訊安全中心中整合夥伴解決方案。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心](security-center-ata-integration.md)
 * [將 Azure Active Directory Identity Protection 連線至 Azure 資訊安全中心](security-center-aadip-integration.md)

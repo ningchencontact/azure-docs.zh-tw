@@ -1,7 +1,7 @@
 ---
 title: 快速入門 - 傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API | Microsoft Docs
 titleSuffix: Azure Cognitive Services
-description: 使用本文開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
+description: 使用此文章開始使用以 Python 撰寫的 Bing 當地商家搜尋 API。
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -10,12 +10,12 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 3123de58ea3dc4ab2c426f1393f8eca19542bfbf
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: d48f24048225f4a0571915c2e27b931f858e8f6e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957098"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316954"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>快速入門 - 傳送查詢至以 Python 撰寫的 Bing 當地商家搜尋 API
 
@@ -23,11 +23,11 @@ ms.locfileid: "50957098"
 
 此範例應用程式會從 API 取得搜尋查詢 `hotel in Bellevue` 的當地回應資料。
 
-## <a name="prerequisites"></a>必要條件
+## <a name="prerequisites"></a>先決條件
 
 * [Python](https://www.python.org/) 2.x 或 3.x
  
-您必須有具備 Bing API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 使用免費試用所提供的存取金鑰。
+您必須有具備 Bing API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 使用免費試用所提供的存取金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
 ## <a name="run-the-complete-application"></a>執行完整應用程式
 
@@ -53,7 +53,7 @@ path = '/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 
-params = '?q=' + urllib.parse.quote (query) + '&appid=' + subscriptionKey + '&traffictype=Internal_monitor&mkt=en-us'
+params = '?q=' + urllib.parse.quote (query) + '&mkt=en-us'
 
 def get_local():
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}

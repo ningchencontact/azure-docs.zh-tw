@@ -1,29 +1,25 @@
 ---
 title: 執行資料科學工作 - Azure Machine Learning | Microsoft Docs
 description: 資料科學家如何以可追蹤、版本控制，以及共同作業的方式執行資料科學專案。
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-ms.assetid: ''
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: deguhath
-ms.openlocfilehash: 19267429510207129b0229dc55fbd46f12977d5d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: tdsp
+ms.custom: (previous author=deguhath, ms.author=deguhath)
+ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112639"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495692"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>執行資料科學工作：探索、模型化和部署
 
-一般資料科學工作包括資料探索、模型化和部署。 本文示範如何使用**互動式資料探索、分析與報告 (IDEAR)** 和**自動模型化與報告 (AMAR)** 公用程式來完成數個常見的資料科學工作，例如互動式資料探索、資料分析、報告和模型建立。 它也會列出使用各種工具組和資料平台，將模型部署到生產環境的選項，如下所示：
+一般資料科學工作包括資料探索、模型化和部署。 此文章示範如何使用**互動式資料探索、分析與報告 (IDEAR)** 和**自動模型化與報告 (AMAR)** 公用程式來完成數個常見的資料科學工作，例如互動式資料探索、資料分析、報告和模型建立。 它也會列出使用各種工具組和資料平台，將模型部署到生產環境的選項，如下所示：
 
 - [Azure Machine Learning](../service/index.yml)
 - [SQL-Server 與 ML 服務](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
@@ -34,13 +30,13 @@ ms.locfileid: "39112639"
 
 資料科學家可以利用許多方式執行探索和報告：使用 Python 可用的程式庫和套件 (例如 matplotlib) 或使用 R (例如 ggplot 或 lattice)。 資料科學家可以自訂這類程式碼，以符合特定情節的資料探索需求。 處理結構化資料與非結構化資料的需求不同，例如文字或影像。 
 
-諸如 Azure Machine Learning Workbench 等產品也提供[進階資料準備](../desktop-workbench/tutorial-bikeshare-dataprep.md)以進行資料討論及探索，包括功能建立。 使用者應決定最符合其需求的工具、程式庫和套件。 
+諸如 Azure Machine Learning 服務等產品也提供[進階資料準備](../service/how-to-transform-data.md)以進行資料討論及探索，包括功能建立。 使用者應決定最符合其需求的工具、程式庫和套件。 
 
 在此階段結尾處的交付項目是資料探索報告。 報告應該提供相當完整的資料檢視，以用於模型化及評估資料是否適合繼續進行模型化步驟。 下列各節中針對半自動探索、模型化和報告所討論的 Team Data Science Process (TDSP) 公用程式也提供標準化的資料探索和模型化報告。 
 
 ### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>使用 IDEAR 公用程式的互動式資料探索、分析和報告
 
-此 R Markdown 型或 Python Notebook 型公用程式提供彈性且互動式的工具，以評估及瀏覽資料集。 使用者可以使用最少的編碼，從資料集快速產生報告。 使用者可以按一下按鈕，將互動式工具中的探索結果匯出至最終報告，這份報告可以傳遞給用戶端，或用來決定要在後續模型化步驟中包含哪些變數。
+此 R Markdown 型或 Python Notebook 型公用程式提供彈性且互動式的工具，以評估及瀏覽資料集。 使用者可以使用最少的編碼，從資料集快速產生報告。 使用者可以按一下按鈕，將互動式工具中的探索結果匯出至最終報告，此報告可以傳遞給用戶端，或用來決定要在後續模型化步驟中包含哪些變數。
 
 目前，此工具只適用於記憶體中的資料框架。 若要指定要探索之資料集的參數，需要 YAML 檔案。 如需詳細資訊，請參閱 [TDSP 資料科學公用程式中的 IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils)。
 
@@ -90,7 +86,7 @@ YAML 檔案是用來指定：
 有許多方法和平台可將模型置入生產環境。 以下提供一些選項：
 
 
-- [在 Azure Machine Learning 中的模型部署](../desktop-workbench/model-management-overview.md)
+- [在 Azure Machine Learning 服務中的模型部署](../service/how-to-deploy-and-where.md)
 - [在 SQL-Server 中部署模型](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 25bec4bdbae5b206d23fa300f139f55f86b8167e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3a1cc0a28ef5a4861d86373ce39258936639baab
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434376"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333337"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Azure 檔案同步 Proxy 和防火牆設定
 Azure 檔案同步會將您的內部部署伺服器連線到 Azure 檔案服務，以啟用多網站同步處理和雲端層功能。 因此，內部部署伺服器必須連線到網際網路。 IT 系統管理員必須決定進入 Azure 雲端服務之伺服器的最佳路徑。
@@ -46,7 +46,7 @@ Azure 檔案同步會運用任何可用的方法來允許連線到 Azure，自�
 ## <a name="proxy"></a>Proxy
 Azure 檔案同步支援應用程式特定和整部電腦的 Proxy 設定。
 
-**應用程式特定的 Proxy 設定**可特別針對 Azure 檔案同步流量允許 Proxy 的組態。 代理程式 3.0.12.0 版或更新版本可支援應用程式特定的 Proxy 設定，且可以在代理程式安裝期間進行設定，或藉由使用 Set-StorageSyncProxyConfiguration PowerShell Cmdlet。
+**應用程式特定的 Proxy 設定**可特別針對 Azure 檔案同步流量允許 Proxy 的組態。 代理程式 4.0.1.0 版或更新版本可支援應用程式特定的 Proxy 設定，且可以在代理程式安裝期間進行設定，或透過使用 Set-StorageSyncProxyConfiguration PowerShell Cmdlet 來設定。
 
 以下 PowerShell 命令可用來設定應用程式特定的 Proxy 設定：
 ```PowerShell
@@ -137,7 +137,7 @@ Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCrede
 > - https://tm-kailani.one.microsoft.com (主要區域的探索 URL)
 
 ## <a name="summary-and-risk-limitation"></a>摘要和風險限制
-本文件中稍早的清單包含 Azure 檔案同步目前與其通訊的 URL。 防火牆必須能夠允許輸出至這些網域的流量。 Microsoft 致力於讓這份清單保持最新狀態。
+此文件中稍早的清單包含 Azure 檔案同步目前與其通訊的 URL。 防火牆必須能夠允許輸出至這些網域的流量。 Microsoft 致力於讓此清單保持最新狀態。
 
 設定網域限制防火牆規則可以提高安全性。 如果使用這些防火牆組態，則必須記住 URL 會新增並甚至可能隨著時間而改變。 請定期查看此文章。
 

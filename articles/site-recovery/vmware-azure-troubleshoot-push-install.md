@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012321"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162527"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
@@ -21,6 +21,7 @@ ms.locfileid: "51012321"
 * 認證/權限錯誤
 * 連線錯誤
 * 不支援的作業系統
+* VSS 安裝失敗
 
 當您啟用複寫時，Azure Site Recovery 會嘗試推送您虛擬機器上的安裝行動服務代理程式。 在這個過程中，組態伺服器會嘗試與虛擬機器連線，並複製代理程式。 若要啟用成功的安裝，請遵循下面所列的逐步疑難排解指引。
 
@@ -40,13 +41,10 @@ ms.locfileid: "51012321"
 ## <a name="connectivity-check-errorid-95117--97118"></a>**連線能力檢查 (錯誤碼：95117 & 97118)**
 
 * 請確定您能夠從組態伺服器偵測來源機器。 如果您已選擇在啟用複寫期間相應放大處理序伺服器，請確保您能夠從處理序伺服器偵測您的來源機器。
-  * 在來源伺服器機器的命令列中，如下所示使用 Telnet 來偵測搭配 https 連接埠 (預設值 9443) 的組態伺服器/相應放大處理序伺服器，以查看是否有任何網路連線問題或防火牆連接埠封鎖問題。
+  * 在來源伺服器機器的命令列中，如下所示使用 Telnet 來偵測搭配 https 連接埠 (135) 的組態伺服器/相應放大處理序伺服器，以查看是否有任何網路連線問題或防火牆連接埠封鎖問題。
 
-     `telnet <CS/ scale-out PS IP address> <port>`
-
-  * 如果您無法連線，請允許組態伺服器/相應放大處理序伺服器上的輸入連接埠 9443。
+     `telnet <CS/ scale-out PS IP address> <135>`
   * 檢查服務狀態 **InMage Scout VX Agent-Sentinel/Outpost**。 如果服務不在執行中，請啟動服務。
-
 * 此外，對於 **Linux VM**，
   * 請檢查是否已安裝最新的 openssh、openssh-server 和 openssl 套件。
   * 請檢查並確定安全殼層 (SSH) 已啟用且正在連接埠 22 上執行。
@@ -95,6 +93,43 @@ ms.locfileid: "51012321"
 失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。
 
 若要深入了解 Azure Site Recovery 支援哪些作業系統，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
+
+## <a name="vss-installation-failures"></a>VSS 安裝失敗
+
+VSS 安裝是行動代理程式安裝的一部分。 此服務是用於產生應用程式一致復原點的程序之中。 在 VSS 安裝期間發生失敗的原因有許多種。 若要識別確切的錯誤，請參閱 **c:\ProgramData\ASRSetupLogs\ASRUnifiedAgentInstaller.log**。 幾個常見錯誤及其解決步驟，將於下列小節中說明。
+
+### <a name="vss-error--2147023170-0x800706be---exit-code-511"></a>VSS 錯誤 -2147023170 [0x800706BE] - 結束代碼 511
+
+此問題最常發生於防毒軟體封鎖 Azure Site Recovery 服務之作業的情況。 若要解決這個問題：
+
+1. 排除[這裡](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)所提到的所有資料夾。
+2. 遵循您的防毒軟體提供者所發佈的指導方針，以解除 Windows 中對 DLL 註冊的封鎖。
+
+### <a name="vss-error-7-0x7---exit-code-511"></a>VSS 錯誤 7 [0x7] - 結束代碼 511
+
+這是執行階段錯誤，且是因記憶體不足以安裝 VSS 所導致。 請提升磁碟空間以成功完成此作業。
+
+### <a name="vss-error--2147023824-0x80070430---exit-code-517"></a>VSS 錯誤 -2147023824 [0x80070430] - 結束代碼 517
+
+此錯誤會在 Azure Site Recovery VSS 提供者服務[被標記為要進行刪除](https://msdn.microsoft.com/en-us/library/ms838153.aspx) \(英文\) 的情況下發生。 請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-error--2147023841-0x8007041f---exit-code-512"></a>VSS 錯誤 -2147023841 [0x8007041F] - 結束代碼 512
+
+此錯誤會在 Azure Site Recovery VSS 提供者服務資料庫[已鎖定](https://msdn.microsoft.com/en-us/library/ms833798.aspx)的情況下發生。請嘗試執行下列命令列來在來源電腦上手動安裝 VSS
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
+
+### <a name="vss-exit-code-806"></a>VSS 結束代碼 806
+
+此錯誤會在用於安裝的使用者帳戶沒有執行 CSScript 命令之權限的情況下發生。 請為該使用者帳戶提供必要權限以執行指令碼，並重試該作業。
+
+### <a name="other-vss-errors"></a>其他 VSS 錯誤
+
+請嘗試執行下列命令列來在來源電腦上手動安裝 VSS 提供者服務
+
+`C:\Program Files (x86)\Microsoft Azure Site Recovery\agent>"C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd"`
 
 ## <a name="next-steps"></a>後續步驟
 

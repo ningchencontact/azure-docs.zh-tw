@@ -1,10 +1,11 @@
 ---
-title: 機器學習演算法小祕技 - Azure | Microsoft Docs
+title: 機器學習演算法小祕技 - Azure Machine Learning Studio | Microsoft Docs
 description: 可列印的機器學習演算法小密技可協助您在 Azure Machine Learning Studio 中選擇適合您預測模型的演算法。
 keywords: 演算法小祕技,小祕技,機器學習演算法
 services: machine-learning
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 4a6fdfec4c4c95ba47f17efeb0dc87521a86c03c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244979"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307404"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的機器學習演算法小祕技
 
@@ -40,7 +41,7 @@ ms.locfileid: "51244979"
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 演算法小祕技的注意事項與詞彙定義
 
-* 這份演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
+* 此演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
 
 * 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](http://gallery.azure.ai/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)。
 

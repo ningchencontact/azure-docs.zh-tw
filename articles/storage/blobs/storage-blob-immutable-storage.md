@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: hux
 ms.component: blobs
-ms.openlocfilehash: 261f66013ab9c0ba493d18b84856d17db953402e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d3d83e240fec692d5aa655923637910006c7a62f
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036986"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261464"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 儲存體中儲存業務關鍵資料
 
@@ -47,7 +47,7 @@ Azure Blob (物件) 的固定儲存體可讓使用者以 WORM (一次寫入，�
 
 ## <a name="how-it-works"></a>運作方式
 
-Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時間為基礎的保留和合法保存。 如需如何建立這些固定原則的詳細資訊，請參閱[使用者入門](#Getting-started)一節。
+Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時間為基礎的保留和合法保存。 如需如何建立這些固定原則的詳細資訊，請參閱[使用者入門](#getting-started)一節。
 
 當容器套用以時間為基礎的保留原則或合法保存時，所有現有的 Blob 都會移至固定 (防寫和防刪保護) 狀態。 所有上傳到容器的新 Blob 也會移至固定狀態。
 
@@ -69,7 +69,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 ### <a name="legal-holds"></a>合法保存
 
-當您設定合法保存時，所有現有和新的 Blob 都會保持固狀態，直到清除合法保存為止。 如需有關如何設定和清除合法保存的詳細資訊，請參閱[使用者入門](#Getting-started)。
+當您設定合法保存時，所有現有和新的 Blob 都會保持固狀態，直到清除合法保存為止。 如需有關如何設定和清除合法保存的詳細資訊，請參閱[使用者入門](#getting-started)。
 
 一個容器可以同時具有合法保存和以時間為基礎的保留原則。 該容器中的所有 Blob 都會保持固定狀態，直到所有合法保存都遭到清除為止 (即使其有效保留期限已過期)。 相反地，Blob 會保持固定狀態，直到有效保留週期到期為止 (即使已清除所有合法保存)。
 
@@ -90,7 +90,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 
 ## <a name="pricing"></a>價格
 
-使用這項功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
+使用此功能不需額外付費。 固定資料的定價方式與一般可變動的資料相同。 如需 Azure Blob 儲存體定價的詳細資料，請參閱 [Azure 儲存體定價頁面](https://azure.microsoft.com/pricing/details/storage/blobs/)。
 
 
 ## <a name="getting-started"></a>開始使用
@@ -145,7 +145,7 @@ Azure Blob 儲存體的固定儲存體支援兩種 WORM 或固定原則：以時
 3. 安裝 AzureRM：`Install-Module AzureRM –Repository PSGallery –AllowClobber`。 同樣可以從這個存放庫安裝 Azure。
 4. 安裝預覽版本的儲存體管理平面 Cmdlet：`Install-Module -Name AzureRM.Storage -AllowPrerelease -Repository PSGallery -AllowClobber`。
 
-本文後面的 [PowerShell 範例程式碼](#sample-powershell-code)一節會說明功能使用情況。
+此文章後面的 [PowerShell 範例程式碼](#sample-powershell-code)一節會說明功能使用情況。
 
 ## <a name="client-libraries"></a>用戶端程式庫
 

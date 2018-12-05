@@ -1,10 +1,11 @@
 ---
-title: 步驟 3：建立新的 Machine Learning 實驗 | Microsoft Docs
+title: 步驟 3：建立新的 Machine Learning Studio 實驗 - Azure | Microsoft Docs
 description: 開發預測解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95000f9fb57b95bf1edcda9abfba3668b5f5b523
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835734"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317523"
 ---
-# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>逐步解說步驟 3：建立新的 Azure Machine Learning 實驗
+# <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>逐步解說步驟 3：建立新的 Azure Machine Learning Studio 實驗
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
 
 1. [建立機器學習服務工作區](walkthrough-1-create-ml-workspace.md)

@@ -12,24 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: aedbc5925a6e101299170843abef79ef6125eafe
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: f9c7a70eae4c49173b3e11b7fbfa901f7e5b89d6
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230415"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291040"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
-Microsoft Azure Application Insights 是監視和診斷應用程式的擴充式平台。 它包含強大的分析和查詢工具、可自訂的儀表板和視覺效果，以及包括自動化警示的進一步選項。 我們建議使用此平台監視和診斷 Service Fabric 應用程式和服務。 本文可協助您解決下列常見問題
+Azure 監視器的組件，Application Insights 是監視和診斷應用程式的擴充式平台。 它包含強大的分析和查詢工具、可自訂的儀表板和視覺效果，以及包括自動化警示的進一步選項。 Application Insights 與 Service Fabric 的整合包括 Visual Studio 和 Azure 入口網站的工具體驗，以及 Service Fabric 特有計量，可提供完整而立即可用的記錄體驗。 Application Insights 雖然會自動為您建立和收集許多記錄，但我們建議您為應用程式新增進一步的自訂記錄，以打造更豐富的診斷體驗。
 
-* 我該如何知道應用程式和服務內發生的事情及收集遙測資料
-* 如何針對我的應用程式進行疑難排解，尤其是針對彼此通訊的多個服務
-* 如何取得有關服務執行方式的計量資訊，例如頁面載入時間、http 要求
+此文章可協助您解決下列常見問題：
 
-本文旨在說明如何從 Application Insights 內取得見解並進行移難排解。 如果您想要了解如何透過 Service Fabric 安裝及設定 Application Insights，請參閱此[教學課程](service-fabric-tutorial-monitoring-aspnet.md)。
+* 我該如何知道應用程式和服務內發生的事情及收集遙測資料？
+* 如何針對我的應用程式進行疑難排解，尤其是針對彼此通訊的多個服務？
+* 如何取得有關服務執行方式的計量資訊，例如頁面載入時間、HTTP 要求？
+
+此文章旨在說明如何從 Application Insights 內取得見解並進行移難排解。 如果您想要了解如何透過 Service Fabric 安裝及設定 Application Insights，請參閱此[教學課程](service-fabric-tutorial-monitoring-aspnet.md)。
 
 ## <a name="monitoring-in-application-insights"></a>Application Insights 中的監視功能
 
@@ -52,7 +54,7 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 >[!NOTE]
 >目前這僅適用於 Windows 叢集。
 
-有兩種主要方式可將資料從 WAD 的傳送至 Azure Application Insights，只要將 Application Insights 接收新增到 WAD 設定中即可，詳細資訊請參閱[本文](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)。
+有兩種主要方式可將資料從 WAD 的傳送至 Azure Application Insights，只要將 Application Insights 接收新增到 WAD 設定中即可，詳細資訊請參閱[此文章](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)。
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>在 Azure 入口網站中建立叢集時新增 Application Insights 檢測金鑰
 
@@ -86,7 +88,7 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 
 上面這兩個程式碼片段都使用 "applicationInsights" 名稱來描述接收。 這不是需求，而是只要在「接收」中包含接收的名稱，就可以在任何字串設定該名稱。
 
-目前，叢集中的記錄會顯示為 Application Insights 記錄檢視器中的**追蹤**。 由於大部分來自平台的追蹤層級都是「資訊」，您也可以考慮將接收設定變更為僅傳送「重大」或「錯誤」類型的記錄。 只要將「通道」新增至接收器即可，如[本文](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)所示。
+目前，叢集中的記錄會顯示為 Application Insights 記錄檢視器中的**追蹤**。 由於大部分來自平台的追蹤層級都是「資訊」，您也可以考慮將接收設定變更為僅傳送「重大」或「錯誤」類型的記錄。 只要將「通道」新增至接收器即可，如[此文章](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)所示。
 
 >[!NOTE]
 >如果您在入口網站或 Resource Manager 範本中使用不正確的 Application Insights 金鑰，您就必須手動變更金鑰，並更新/重新部署叢集。
@@ -112,7 +114,7 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 
 [微服務與容器的 Application Insights 支援](https://azure.microsoft.com/blog/app-insights-microservices/)會顯示一些開發中的新功能 (目前仍為 beta 版)，讓您有更多的 Application Insights 立即可用監視選項。 包括相依性追蹤 (用於建置叢集中所有服務和應用程式的 AppMap 及它們之間的通訊)，以及來自服務的追蹤有更好的相互關聯 (更有助於查明應用程式或服務工作流程中的問題)。
 
-如果您是在 .NET 中進行開發，可能會使用一些 Service Fabric 的程式設計模型，而且是願意使用 Application Insights 做視覺化和分析事件和記錄檔資料的平台，我們建議您在監視和診斷工作流程時透過 Application Insights SDK 路由。 閱讀[本文](../application-insights/app-insights-asp-net-more.md)和[本文](../application-insights/app-insights-asp-net-trace-logs.md)開始使用 Application Insights 來收集和顯示您的記錄檔。
+如果您是在 .NET 中進行開發，可能會使用一些 Service Fabric 的程式設計模型，而且是願意使用 Application Insights 做視覺化和分析事件和記錄檔資料的平台，我們建議您在監視和診斷工作流程時透過 Application Insights SDK 路由。 閱讀[此文章](../application-insights/app-insights-asp-net-more.md)與[此文章](../application-insights/app-insights-asp-net-trace-logs.md)開始使用 Application Insights 來收集和顯示您的記錄檔。
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>在 Azure 入口網站中瀏覽 Application Insights 資源
 

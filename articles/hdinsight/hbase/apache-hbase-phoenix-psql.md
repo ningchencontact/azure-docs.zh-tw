@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: ashishth
-ms.openlocfilehash: 4f4caec33414a9bf644e1b1860686247697b3fb4
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b14550adf89f866cf3b736db049cc671db5b765
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042279"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314502"
 ---
-# <a name="bulk-load-data-into-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Phoenix
+# <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 將資料大量載入至 Apache Phoenix
 
-[Apache Phoenix](http://phoenix.apache.org/) 是一個建置在 [HBase](../hbase/apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可透過 HBase 提供類似 SQL 的查詢。 Phoenix 使用 JDBC 驅動程式，可讓使用者建立、刪除及更改 SQL 資料表、索引、檢視表和序列，以及個別或大量更新插入資料列。 Phoenix 使用 noSQL 原生編譯而不是使用 MapReduce 來編譯查詢，可在 HBase 上建立低延遲的應用程式。 Phoenix 新增了協同處理器，可支援在伺服器的位址空間中執行用戶端提供的程式碼，執行與資料共置的程式碼。 這可將用戶端/伺服器資料傳輸降到最低。  若要在 HDInsight 中使用 Phoenix 來處理資料，請先建立資料表，然後將資料載入至這些資料表。
+[Apache Phoenix](http://phoenix.apache.org/) \(英文\) 是一個建置在 [Apache HBase](../hbase/apache-hbase-overview.md) 上的開放原始碼、大規模平行關聯式資料庫。 Phoenix 可透過 HBase 提供類似 SQL 的查詢。 Phoenix 使用 JDBC 驅動程式，可讓使用者建立、刪除及更改 SQL 資料表、索引、檢視表和序列，以及個別或大量更新插入資料列。 Phoenix 使用 noSQL 原生編譯而不是使用 MapReduce 來編譯查詢，可在 HBase 上建立低延遲的應用程式。 Phoenix 新增了協同處理器，可支援在伺服器的位址空間中執行用戶端提供的程式碼，執行與資料共置的程式碼。 這可將用戶端/伺服器資料傳輸降到最低。  若要在 HDInsight 中使用 Phoenix 來處理資料，請先建立資料表，然後將資料載入至這些資料表。
 
-## <a name="bulk-loading-with-phoenix"></a>使用 Phoenix 進行大量載入
+## <a name="bulk-loading-with-apache-phoenix"></a>使用 Apache Phoenix 進行大量載入
 
 有多個可將資料載入至 HBase 的方法，包括使用用戶端 API、搭配 TableOutputFormat 的 MapReduce 作業，或使用 HBase 殼層來手動輸入資料。 Phoenix 提供兩個可將 CSV 資料載入至 Phoenix 資料表的方法：一個名為 `psql` 的用戶端載入工具，以及一個以 MapReduce 為基礎的大量載入工具。
 
@@ -28,7 +28,7 @@ ms.locfileid: "43042279"
 
 使用 MapReduce 進行的大量載入會用於規模大許多的資料磁碟區，通常是在生產環境案例中使用，因為 MapReduce 會使用多個執行緒。
 
-在您開始載入資料之前，請先確認已啟用 Phoenix 且查詢逾時設定與預期的一樣。  請存取您的 HDInsight 叢集 Ambari 儀表板，然後依序選取 [HBase] 和 [Configuration] \(組態\) 索引標籤。向下捲動以確認 Apache Phoenix 已設定為 `enabled`，如下所示：
+在您開始載入資料之前，請先確認已啟用 Phoenix 且查詢逾時設定與預期的一樣。  請存取您的 HDInsight 叢集 [Apache Ambari](https://ambari.apache.org/) \(英文\) 儀表板，然後依序選取 [HBase] 和 [Configuration] \(設定\) 索引標籤。向下捲動以確認 Apache Phoenix 已設定為 `enabled`，如下所示：
 
 ![Apache Phoenix HDInsight 叢集設定](./media/apache-hbase-phoenix-psql/ambari-phoenix.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "43042279"
     ```
 
     > [!NOTE] 
-    > 若要判斷 `ZookeeperQuorum` 名稱，請在 `/etc/hbase/conf/hbase-site.xml` 檔案中，使用屬性名稱 `hbase.zookeeper.quorum` 來找出 Zookeeper 仲裁字串。
+    > 若要判斷 `ZookeeperQuorum` 名稱，請在 `/etc/hbase/conf/hbase-site.xml` 檔案中，使用屬性名稱 `hbase.zookeeper.quorum` 來找出 [Apache ZooKeeper](https://zookeeper.apache.org/) 仲裁字串。
 
 5. 在 `psql` 作業完成之後，您應該會在命令視窗中看到一則訊息：
 
@@ -142,6 +142,6 @@ ms.locfileid: "43042279"
 ## <a name="next-steps"></a>後續步驟
 
 * [使用 Apache Phoenix 來進行大量資料載入](http://phoenix.apache.org/bulk_dataload.html) \(英文\)
-* [在 HDInsight 中搭配 Linux 型 HBase 叢集使用 Apache Phoenix](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [在 HDInsight 中搭配 Linux 型 Apache HBase 叢集使用 Apache Phoenix](../hbase/apache-hbase-phoenix-squirrel-linux.md)
 * [以 Salt 處理的資料表](https://phoenix.apache.org/salted.html) \(英文\)
 * [Phoenix 文法](http://phoenix.apache.org/language/index.html) \(英文\)

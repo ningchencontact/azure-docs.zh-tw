@@ -1,6 +1,6 @@
 ---
-title: SAP HANA on Azure (大型執行個體) 的儲存體架構 | Microsoft Docs
-description: 如何部署 SAP HANA on Azure (大型執行個體) 的儲存體架構。
+title: Azure 上的 SAP HANA (大型執行個體) 的儲存體架構 | Microsoft Docs
+description: 如何部署 Azure 上的 SAP HANA (大型執行個體) 的儲存體架構。
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 614d6aef4a2b7be551574fd3c8e25e2a3e3c1c07
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e692cc1fd8670cc14b42e4714d84356d4d4c53a2
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44030512"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275984"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA (大型執行個體) 儲存體架構
 
-SAP HANA on Azure (大型執行個體) 的儲存體配置是由傳統部署模型透過 SAP 建議的指引進行設定。 這些指引列載於 [SAP HANA 儲存體需求](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。
+Azure 上的 SAP HANA (大型執行個體) 的儲存體配置是由傳統部署模型根據 SAP 建議的指導方針進行設定。 這些指導方針列載於 [SAP HANA 儲存體需求](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html)白皮書中。
 
 類型 I 類別的 HANA 大型執行個體通常隨附存放磁碟區四倍的記憶體磁碟區。 針對類型 II 類別的 HANA 大型執行個體單位，存放裝置將不會超過四倍。 這些單位會隨附一個用來儲存 HANA 交易記錄備份的磁碟區。 如需詳細資訊，請參閱[在 Azure 上安裝和設定 SAP HANA (大型執行個體)](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -33,6 +33,7 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由傳統部署模�
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
+| S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
@@ -72,18 +73,18 @@ SAP HANA on Azure (大型執行個體) 的儲存體配置是由傳統部署模�
 
 您可以在 HANA 大型執行個體單位上，裝載多個使用中的 SAP HANA 執行個體。 若要提供儲存體快照集和災害復原等功能，這類設定在每個執行個體上都需要一個磁碟區組。 目前可使用下列方式來細分 HANA 大型執行個體單位：
 
-- **S72、S72m、S144、S192**：遞增量為 256 GB，最小起始單位為 256 GB。 不同的遞增量 (例如 256 GB 和 512 GB) 可組合為該單位的記憶體最大值。
+- **S72、S72m、S96、S144、S192**：遞增量為 256 GB，最小起始單位為 256 GB。 不同的遞增量 (例如 256 GB 和 512 GB) 可組合為該單位的記憶體最大值。
 - **S144m 和 S192m**：遞增量為 256 GB，最小單位為 512 GB。 不同的遞增量 (例如 512 GB 和 768 GB) 可組合為該單位的記憶體最大值。
 - **類型 II 類別**：遞增量為 512 GB，最小起始單位為 2 TB。 不同的遞增量 (例如 512 GB、1 TB 和 1.5 TB) 可組合為該單位的記憶體最大值。
 
-執行多個 SAP HANA 執行個體的範例可能顯示如下。
+執行多個 SAP HANA 執行個體的一些範例看起來可能像下面這樣。
 
 | SKU | 記憶體大小 | 儲存體大小 | 具有多個資料庫的大小 |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1x768 GB HANA 執行個體<br /> 或 1x512 GB 執行個體 + 1x256 GB 執行個體<br /> 或 3x256 GB 執行個體 | 
-| S72m | 1.5 TB | 6 TB | 3x512GB HANA 執行個體<br />或 1x512 GB 執行個體 + 1x1 TB 執行個體<br />或 6x256 GB 執行個體<br />或 1x1.5 TB 執行個體 | 
-| S192m | 4 TB | 16 TB | 8x512 GB 執行個體<br />或 4x1 TB 執行個體<br />或 4x512 GB 執行個體 + 2x1 TB 執行個體<br />或 4x768 GB 執行個體 + 2x512 GB 執行個體<br />或 1x4 TB 執行個體 |
-| S384xm | 8 TB | 22 TB | 4x2 TB 執行個體<br />或 2x4 TB 執行個體<br />或 2x3 TB 執行個體 + 1x2 TB 執行個體<br />或 2x2.5 TB 執行個體 + 1x3 TB 執行個體<br />或 1x8 TB 執行個體 |
+| S72 | 768 GB | 3 TB | 1x768-GB HANA 執行個體<br /> 或 1x512-GB 執行個體 + 1x256-GB 執行個體<br /> 或 3x256-GB 執行個體 | 
+| S72m | 1.5 TB | 6 TB | 3x512GB HANA 執行個體<br />或 1x512-GB 執行個體 + 1x1-TB 執行個體<br />或 6x256-GB 執行個體<br />或 1x1.5-TB 執行個體 | 
+| S192m | 4 TB | 16 TB | 8x512-GB 執行個體<br />或 4x1-TB 執行個體<br />或 4x512-GB 執行個體 + 2x1-TB 執行個體<br />或 4x768-GB 執行個體 + 2x512-GB 執行個體<br />或 1x4-TB 執行個體 |
+| S384xm | 8 TB | 22 TB | 4x2-TB 執行個體<br />或 2x4-TB 執行個體<br />或 2x3-TB 執行個體 + 1x2-TB 執行個體<br />或 2x2.5-TB 執行個體 + 1x3-TB 執行個體<br />或 1x8-TB 執行個體 |
 
 
 此外還有其他變化形式。 

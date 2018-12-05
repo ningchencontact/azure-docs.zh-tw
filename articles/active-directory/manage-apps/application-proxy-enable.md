@@ -8,34 +8,52 @@ manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 683b5b24fe8e7da086e000ff38411d3eb1c2f781
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034961"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495738"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>開始使用應用程式 Proxy 並安裝連接器
-本文將逐步引導您完成為 Azure AD 中的雲端目錄啟用 Microsoft Azure AD 應用程式 Proxy 的步驟。
+此文章會逐步引導您在 Azure Active Directory (Azure AD) 中啟用應用程式 Proxy。
 
 如果您還不知道應用程式 Proxy 為您的組織帶來的安全性和生產力優勢，請深入了解[如何為內部部署應用程式提供安全的遠端存取](application-proxy.md)。
 
-## <a name="application-proxy-prerequisites"></a>應用程式 Proxy 先決條件
-您可以啟用並使用應用程式 Proxy 服務之前，必須具備：
+## <a name="prerequisites"></a>必要條件
+若要啟用應用程式 Proxy，您需要：
 
-* Microsoft Azure AD [基本或進階訂用帳戶](../fundamentals/active-directory-whatis.md) 以及您是全域管理員的 Azure AD 目錄。
-* 您可以在執行 Windows Server 2012 R2 或 2016 的伺服器上，安裝應用程式 Proxy 連接器。 伺服器必須能夠連線至雲端中的應用程式 Proxy 服務，以及您所發佈的內部部署應用程式。
-  * 如需使用 Kerberos 限制委派單一登入已發佈的應用程式，這部電腦應該會加入與您要發佈的應用程式相同的 AD 網域中。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
-* 在基礎作業系統上執行的 TLS 1.2。 若要變更為 TLS 1.2，請依照[啟用 Azure TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect) 中的步驟。 雖然內容適用於 Azure AD Connect，但對所有 .NET 用戶端來說，此程序都是一樣的。
+* [Microsoft Azure AD 基本或進階訂用帳戶](https://azure.microsoft.com/pricing/details/active-directory)。 
+* 應用程式系統管理員帳戶。
 
-如果您的組織使用 Proxy 伺服器來連線至網際網路，請參閱[使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md)，以取得如何在開始使用應用程式 Proxy 之前設定伺服器的詳細資訊。
+### <a name="windows-server"></a>Windows 伺服器
+您需要執行 Windows Server 2012 R2 或更新版本的伺服器，您可以在該伺服器上安裝「應用程式 Proxy」連接器。 伺服器需要連線至 Azure 中的「應用程式 Proxy」服務，以及您所發佈的內部部署應用程式。
+
+您安裝「應用程式 Proxy」連接器之前，Windows 伺服器需要先啟用 TLS 1.2。 版本低於 1.5.612.0 的現有連接器可以繼續在先前的 TLS 版本上運作，直到進一步通知。 啟用 TLS 1.2：
+
+1. 設定下列登錄機碼：
+    
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Server] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. 重新啟動伺服器
+
+對於使用 Kerberos 限制委派 (KCD) 的應用程式單一登入，Windows 伺服器和您所發佈的應用程式需要在相同的 Active Directory 網域中。 如需詳細資訊，請參閱[使用應用程式 Proxy 進行單一登入的 KCD](application-proxy-configure-single-sign-on-with-kcd.md)。
+  
+### <a name="proxy-servers"></a>Proxy 伺服器
+
+如果您的組織使用 Proxy 伺服器連線到網際網路，您需要為它們設定應用程式 Proxy。  如需詳細資訊，請參閱[使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md)。 
+
+
 
 ## <a name="open-your-ports"></a>開啟您的連接埠
 

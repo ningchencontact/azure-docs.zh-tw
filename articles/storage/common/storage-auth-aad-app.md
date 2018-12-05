@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/21/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d249753dd954ba610a757a88060c6c0f7c58ad95
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 03dd056363cd99f5354dc10ed5ae328eb39c3ec2
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427088"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291057"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues-preview"></a>從應用程式中使用 Azure Active Directory 進行驗證以存取 Blob 和佇列 (預覽)
 
 搭配使用 Azure Active Directory (Azure AD) 與 Azure 儲存體的主要優點是，您的認證不再需要儲存在程式碼中。 相反地，您可以從 Azure AD 要求 OAuth 2.0 存取權杖。 Azure AD 會針對執行應用程式的安全性主體 (使用者、群組或服務主體) 處理驗證作業。 如果驗證成功，Azure AD 會將存取權杖傳回給應用程式，然後應用程式就可以使用存取權杖來授權存取 Azure 儲存體的要求。
 
-本文將示範如何設定應用程式以使用 Azure AD 進行驗證。 程式碼範例以 .NET 為主，但其他語言也是使用類似的方法。
+此文章將示範如何設定應用程式以使用 Azure AD 進行驗證。 程式碼範例以 .NET 為主，但其他語言也是使用類似的方法。
 
 您必須先設定安全性主體的角色型存取控制 (RBAC)，才能從 Azure 儲存體應用程式中驗證該安全性主體。 Azure 儲存體會定義包容器和佇列權限的 RBAC 角色。 當 RBAC 角色指派給安全性主體時，此安全性主體會獲得存取該資源的權限。 如需詳細資訊，請參閱[使用 RBAC 來管理儲存體資料的存取權限 (預覽)](storage-auth-aad-rbac.md)。
 
@@ -169,10 +169,25 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
+
+blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
 ```
 
 > [!NOTE]
 > Azure AD 與 Azure 儲存體的整合需要您使用 HTTPS 來進行 Azure 儲存體作業。
+
+在上面的範例中，.NET 用戶端程式庫會處理要求的授權以建立區塊 Blob。 其他儲存體用戶端程式庫也會為您處理要求的授權。 不過，若您透過 OAuth 權杖使用 REST API 呼叫 Azure 儲存體作業，則您將必須使用 OAuth 權杖授權該要求。   
+
+若要使用 OAuth 存取權杖呼叫 Blob 與佇列服務作業，請使用 **Bearer** 結構描述在 **Authorization** 標頭中傳遞存取權杖，並指定 2017-11-09 或更高的服務版本，如下列範例所示：
+
+```
+GET /container/file.txt HTTP/1.1
+Host: mystorageaccount.blob.core.windows.net
+x-ms-version: 2017-11-09
+Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
+```
+
+如需有關從 REST 授權 Azure 儲存體作業的詳細資訊，請參閱[使用 Azure Active Directory 進行驗證 (預覽)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 

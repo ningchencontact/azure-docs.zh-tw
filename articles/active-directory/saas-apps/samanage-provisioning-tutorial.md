@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 98a1746804d0d5a9526e264f99d03ed4e8590ad6
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043368"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634501"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程︰設定 Samanage 來自動佈建使用者
 
 本教學課程旨在示範將 Azure AD 設定為可對 Samanage 自動佈建及取消佈建使用者和/或群組時，應在 Samanage 與 Azure Active Directory (Azure AD) 中執行的步驟。
 
 > [!NOTE]
-> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../active-directory-saas-app-provisioning.md)。
+> 本教學課程會說明建置在 Azure AD 使用者佈建服務之上的連接器。 如需此服務的用途、運作方式和常見問題等重要詳細資訊，請參閱[使用 Azure Active Directory 對 SaaS 應用程式自動佈建和取消佈建使用者](../manage-apps/user-provisioning.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -135,13 +135,13 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![Samanage 佈建](./media/samanage-provisioning-tutorial/GroupAttributeMapping.png)
 
-13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../active-directory-saas-scoping-filters.md)中提供的下列指示。
+13. 若要設定範圍篩選，請參閱[範圍篩選教學課程](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)中提供的下列指示。
 
 14. 若要對 Samanage 啟用 Azure AD 佈建服務，請在 [設定] 區段中，將 [佈建狀態] 變更為 [開啟]。
 
     ![Samanage 佈建](./media/samanage-provisioning-tutorial/ProvisioningStatus.png)
 
-15. 透過在 [設定] 區段的 [範圍] 中選擇需要的值，可定義要佈建到 Samanage 的使用者和/或群組。
+15. 透過在 [設定] 區段的 [範圍] 中選擇需要的值，可定義要佈建到 Samanage 的使用者和/或群組。 當選擇 [同步所有使用者與群組] 選項時，請考慮下面**連接器限制**一節中所述的限制。
 
     ![Samanage 佈建](./media/samanage-provisioning-tutorial/ScopeSync.png)
 
@@ -152,7 +152,11 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 此作業會對在 [設定] 區段的 [範圍] 中定義的所有使用者和/或群組，啟動首次同步處理。 初始同步處理會比後續同步處理花費更多時間執行，只要 Azure AD 佈建服務正在執行，這大約每 40 分鐘便會發生一次。 您可以使用 [同步處理詳細資料] 區段來監視進度，並進入佈建活動報告的連結，以透過報告了解 Samanage 上的 Azure AD 佈建服務所執行的所有動作。
 
-如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../active-directory-saas-provisioning-reporting.md)。
+如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
+
+## <a name="connector-limitations"></a>連接器限制
+
+* 如果已選取 [同步所有使用者和群組] 選項並為Samanage **roles** 屬性設定了預設值，請確保 [如果為null，則為預設值 (選擇性)] 欄位下所需的值是以下列格式表示：**{"displayName":"role"}**，其中 role 是所需的預設值。
 
 ## <a name="additional-resources"></a>其他資源
 
@@ -162,7 +166,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ## <a name="next-steps"></a>後續步驟
 
-* [瞭解如何針對佈建活動檢閱記錄和取得報告](../active-directory-saas-provisioning-reporting.md)
+* [瞭解如何針對佈建活動檢閱記錄和取得報告](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

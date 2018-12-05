@@ -1,10 +1,11 @@
 ---
-title: 在 Machine Learning 中解譯模型結果 | Microsoft Docs
+title: 在 Machine Learning Studio 中解譯模型結果 - Azure | Microsoft Docs
 description: 如何針對使用和視覺化評分模型輸出的演算法選擇最佳的參數設定。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6230e5ab-a5c0-4c21-a061-47675ba3342c
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: e62f4716a95a6c1840afde27361eeb756abff335
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: c06b05989270b4199e5d97ca399a1411b73a702b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836999"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310264"
 ---
-# <a name="interpret-model-results-in-azure-machine-learning"></a>在 Azure Machine Learning 中解譯模型結果
+# <a name="interpret-model-results-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中解譯模型結果
 本主題說明如何視覺化和解譯 Azure Machine Learning Studio 中的預測結果。 在您訓練好模型並完成其預測 (「模型評分」) 之後，您必須了解和解譯預測結果。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
@@ -40,7 +41,7 @@ Azure Machine Learning 中有四個主要的機器學習類型：
 * [指派至叢集][assign-to-clusters]模組，用於加入叢集
 * [評分 Matchbox 推薦][score-matchbox-recommender]，用於推薦系統
 
-本文件說明如何針對每個模組解譯預測結果。 如需這些模組的概觀，請參閱[如何選擇參數來最佳化 Azure Machine Learning 中的演算法](algorithm-parameters-optimize.md)。
+此文件說明如何針對每個模組解譯預測結果。 如需這些模組的概觀，請參閱[如何選擇參數來最佳化 Azure Machine Learning 中的演算法](algorithm-parameters-optimize.md)。
 
 本主題說明預測解譯，但是未說明模型評估。 如需如何評估模型的詳細資訊，請參閱[如何在 Azure Machine Learning 中評估模型效能](evaluate-model-performance.md)。
 

@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 11/23/2018
 ms.author: jingwang
-ms.openlocfilehash: c67f6c14dc396367e0179fe5bdb4663fcb7725da
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045961"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309669"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>使用 Azure Data Factory 從 ServiceNow 複製資料
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 ServiceNow 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 ServiceNow 複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文章提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -42,11 +42,11 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**ServiceNow** | yes |
-| endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | yes |
-| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | yes |
-| username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | yes |
-| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | Type 屬性必須設定為：**ServiceNow** | 是 |
+| endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
+| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | 是 |
+| username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
+| password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
 | clientSecret | 用於 OAuth2 驗證的用戶端祕密。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 否 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -104,16 +104,17 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM Actual.alm_asset"`。 | yes |
+| type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 是 |
 
-在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列事項：
+在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列內容，並**參考有關複製效能含意的[效能祕訣](#performance-tips)**。
 
-- **結構描述：** 在 ServiceNow 查詢中，將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) 時，您可以將它視為 `sysparm_display_value` 的參數 (true 或 false)。 
+- **結構描述：** 在 ServiceNow 查詢中，將結構描述指定為 `Actual` 或 `Display`，而在呼叫 [ServiceNow RESTful API](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET) \(英文\) 時，您可以將它視為 `sysparm_display_value` 的參數 (True 或 False)。 
 - **資料行：**`Actual` 結構描述下實際值的資料行名稱為 `[columne name]_value`，而 `Display` 結構描述下顯示值的資料行名稱為 `[columne name]_display_value`。 請注意，資料行名稱必須對應至要在查詢中使用的結構描述。
 
 **範例查詢：**
-`SELECT col_value FROM Actual.alm_asset` 或 `SELECT col_display_value FROM Display.alm_asset`
+`SELECT col_value FROM Actual.alm_asset` 或 
+`SELECT col_display_value FROM Display.alm_asset`
 
 **範例：**
 
@@ -146,6 +147,17 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
     }
 ]
 ```
+## <a name="performance-tips"></a>效能秘訣
+
+### <a name="schema-to-use"></a>要使用的結構描述
+
+ServiceNow 有 2 個不同的結構描述，一個是 **"Actual"** (傳回實際的資料)，另一個則是 **"Display"** (傳回資料的顯示值)。 
+
+如果您的查詢中有一個篩選，請使用 "Actual" 結構描述，此結構描述具有較好的複製效能。 針對 "Actual" 結構描述進行查詢時，ServiceNow 在擷取資料以便只傳回已篩選的結果集時原本就支援篩選，而在查詢 "Display" 結構描述時，ADF 會擷取所有資料並在內部套用篩選。
+
+### <a name="index"></a>索引
+
+ServiceNow 資料表索引可協助改善查詢效能，請參閱[建立資料表索引](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html) \(英文\)。
 
 ## <a name="next-steps"></a>後續步驟
 如需 Azure Data Factory 中的複製活動所支援作為來源和接收器的資料存放區清單，請參閱[支援的資料存放區](copy-activity-overview.md#supported-data-stores-and-formats)。

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure AD 存取權檢閱來檢閱存取權 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 存取權檢閱來檢閱存取權。
+title: 使用 Azure AD 存取權檢閱開始存取權檢閱 | Microsoft Docs
+description: 了解如何使用 Azure Active Directory 存取權檢閱來開始存取權檢閱。
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -14,14 +14,14 @@ ms.component: compliance
 ms.date: 07/16/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 09247a430d2ece44c307297838b7f4dc2819d56d
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 455a4922dfd0832c49729bed007dd696562be07a
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607028"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263412"
 ---
-# <a name="review-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來檢閱存取權
+# <a name="start-an-access-review-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱開始存取權檢閱
 
 Azure Active Directory (Azure AD) 使用稱為存取權檢閱的功能，簡化了企業在 Azure AD 和其他 Microsoft Online Services 中管理應用程式存取權及群組成員的方式。 您可能已收到 Microsoft 的電子郵件，要求您檢閱群組成員或可存取應用程式之使用者的存取權。 
 

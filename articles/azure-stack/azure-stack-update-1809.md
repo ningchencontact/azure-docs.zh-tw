@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/23/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d13d6df1b168183e3794bf357ad86bfcfd77057
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 9afce9c6d4ed4d6dc6fbe5bcfcfedc33bdd7cfdf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567905"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314659"
 ---
 # <a name="azure-stack-1809-update"></a>Azure Stack 1809 更新
 
 「適用於：Azure Stack 整合系統」
 
-本文將說明 1809 更新套件的內容。 此更新套件包括此版 Azure Stack 的改良功能、修正及已知問題。 本文也包含連結，讓您下載更新。 已知問題分為直接與更新程序相關的問題，以及組建 (安裝後) 的相關問題。
+此文章將說明 1809 更新套件的內容。 此更新套件包括此版 Azure Stack 的改良功能、修正及已知問題。 此文章也包含連結，讓您下載更新。 已知問題分為直接與更新程序相關的問題，以及組建 (安裝後) 的相關問題。
 
 > [!IMPORTANT]  
 > 這個更新程式封裝僅適用於 Azure Stack 整合系統。 請勿將此更新套件套用至 Azure Stack 開發套件。
@@ -84,7 +84,11 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 ### <a name="changes"></a>變更
 
-無。
+<!-- 2635202 - IS, ASDK -->
+- 基礎結構備份服務已從[公用基礎結構網路](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-infrastructure-network)移至[公用 VIP 網路](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-network#public-vip-network)。 客戶將必須確定服務已從公用 VIP 網路存取備份儲存體位置。  
+
+> [!IMPORTANT]  
+> 若您的防火牆不允許從公用 VIP 網路到檔案伺服器的連線，此變更將會導致基礎結構備份因「錯誤 53 找不到網路路徑。」而失敗。 這是中斷性變更，因此沒有合理的因應措施。 Microsoft 將會以客戶意見反應為基礎在 Hotfix 中還原此變更。 請檢閱[更新後步驟](#post-update-steps)一節以取得 1809 可用之 Hotfix 的詳細資訊。 一旦 Hotfix 推出，只有在您的網路原則不允許公用 VIP 網路存取基礎結構資源的情況下才在更新到 1809 之後套用它。 在 1811 中，此變更將套用到所有系統。 若您在 1809 中套用該 Hotfix，不需要採取進一步的動作。  
 
 ### <a name="common-vulnerabilities-and-exposures"></a>常見的弱點與漏洞
 
@@ -137,7 +141,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 
 如需有關這些弱點的詳細資訊，請按一下上述連結，或參閱 Microsoft 知識庫文章 [4457131](https://support.microsoft.com/help/4457131) 和 [4462917](https://support.microsoft.com/help/4462917)。
 
-### <a name="prerequisites"></a>必要條件
+### <a name="prerequisites"></a>先決條件
 
 - 在套用 1809 之前，請安裝 1808 的最新 Azure Stack Hotfix。 如需詳細資訊，請參閱 [KB 4471992 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)。
 
@@ -169,7 +173,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 > 讓您的 Azure Stack 部署準備使用延伸主機，這是由後續的更新套件所支援。 使用下列指導方針準備您的系統：[Azure Stack 的延伸主機準備](azure-stack-extension-host-prepare.md)。
 
 在安裝此更新之後，安裝任何適用的 Hotfix。 如需詳細資訊，請檢視下列知識庫文章，以及我們的[服務原則](azure-stack-servicing-policy.md)。  
-- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
+- [KB 4477849 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/help/4477849/)  
 
 ## <a name="known-issues-post-installation"></a>已知問題 (安裝後)
 
@@ -222,7 +226,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
    
   執行 [Test-AzureStack](azure-stack-diagnostic-test.md) Cmdlet 來確認基礎結構角色執行個體的健康情況及縮放單位節點。 如果 [Test-AzureStack](azure-stack-diagnostic-test.md) 偵測不到任何問題，可以忽略這些警示。 如果偵測到問題，可以嘗試使用系統管理員入口網站或 PowerShell 啟動基礎結構角色執行個體或節點。
 
-  此問題已在最新 [1809 Hotfix 版本](https://support.microsoft.com/help/4471993/)中修正，所以如果您遇到此問題，請務必安裝此 Hotfix。 
+  此問題已在最新 [1809 Hotfix 版本](https://support.microsoft.com/help/4477849/)中修正，所以如果您遇到此問題，請務必安裝此 Hotfix。 
 
 <!-- 1264761 - IS ASDK -->  
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
@@ -320,7 +324,7 @@ Azure Stack 1809 更新組建編號為 **1.1809.0.90**。
 ### <a name="usage"></a>使用量  
 
 <!-- TBD - IS ASDK --> 
-- 公用 IP 位址使用計量資料會針對每一筆記錄顯示相同的 EventDateTime 值，而不是建立記錄時顯示的 TimeDate 時間戳記。 目前，您無法使用這項資料來執行公用 IP 位址使用狀況的正確計量。
+- 公用 IP 位址使用計量資料會針對每一筆記錄顯示相同的 EventDateTime 值，而不是建立記錄時顯示的 TimeDate 時間戳記。 目前，您無法使用此資料來執行公用 IP 位址使用狀況的正確計量。
 
 
 <!-- #### Identity -->

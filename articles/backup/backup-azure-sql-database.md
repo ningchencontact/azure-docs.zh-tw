@@ -1,6 +1,6 @@
 ---
 title: 將 SQL Server 資料庫備份至 Azure | Microsoft Docs
-description: 本教學課程說明如何將 SQL Server 備份至 Azure。 本文也將說明 SQL Server 復原。
+description: 本教學課程說明如何將 SQL Server 備份至 Azure。 此文章也將說明 SQL Server 復原。
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6091a3b3506adf87418b529c3cca6b96e9bb2af9
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211497"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317682"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>將 SQL Server 資料庫備份到 Azure
 
 SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要工作負載。 Azure 備份提供不需要任何基礎結構的 SQL Server 備份解決方案：您無需管理複雜的備份伺服器、管理代理程式和備份儲存體。 Azure 備份可針對在所有執行 SQL Server 的伺服器上或甚至不同工作負載上進行的備份，提供集中式管理。
 
-在本文中，您將了解：
+在此文章中，您將了解：
 
 > [!div class="checklist"]
 > * 將 SQL Server 執行個體備份至 Azure 的必要條件。
@@ -36,7 +36,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 > * 如何設定復原點的備份 (或保留) 原則。
 > * 如何還原資料庫。
 
-開始本文中的程序之前，您應該具有在 Azure 中執行的 SQL Server 執行個體。 [使用 SQL Marketplace 虛擬機器快速建立 SQL Server 執行個體](../sql-database/sql-database-get-started-portal.md)。
+開始此文章中的程序之前，您應該具有在 Azure 中執行的 SQL Server 執行個體。 [使用 SQL Marketplace 虛擬機器快速建立 SQL Server 執行個體](../sql-database/sql-database-get-started-portal.md)。
 
 ## <a name="public-preview-limitations"></a>公開預覽限制
 
@@ -54,31 +54,31 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 下列地區支援 Azure 備份：
 
-- 澳大利亞東南部 (ASE) 
+- 澳大利亞東南部 (ASE)
 - 巴西南部 (BRS)
 - 加拿大中部 (CNC)
 - 加拿大東部 (CE)
 - 美國中部 (CUS)
 - 東亞 (EA)
-- 澳大利亞東部 (AE) 
+- 澳大利亞東部 (AE)
 - 美國東部 (EUS)
 - 美國東部 2 (EUS2)
-- 印度中部 (INC) 
+- 印度中部 (INC)
 - 印度南部 (INS)
 - 日本東部 (JPE)
 - 日本西部 (JPW)
 - 南韓中部 (KRC)
 - 南韓 (KRS)
-- 美國中北部 (NCUS) 
-- 北歐 (NE) 
-- 美國中南部 (SCUS) 
+- 美國中北部 (NCUS)
+- 北歐 (NE)
+- 美國中南部 (SCUS)
 - 東南亞 (SEA)
-- 英國南部 (UKS) 
-- 英國西部 (UKW) 
+- 英國南部 (UKS)
+- 英國西部 (UKW)
 - 美國中西部 (WCUS)
-- 西歐 (WE) 
+- 西歐 (WE)
 - 美國西部 (WUS)
-- 美國西部 2 (WUS 2) 
+- 美國西部 2 (WUS 2)
 
 ## <a name="support-for-operating-systems-and-sql-server-versions"></a>作業系統和 SQL Server 版本的支援
 
@@ -108,7 +108,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 - 確認 [SQL 虛擬機器具有網路連線](backup-azure-sql-database.md#establish-network-connectivity)。
 
 > [!NOTE]
-> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用這項功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
+> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用此功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
 >
 
 如果環境中存在這些條件，請繼續[設定 SQL Server 資料庫的備份](backup-azure-sql-database.md#configure-backup-for-sql-server-databases)。 如有任何必要條件不存在，則請繼續閱讀。
@@ -118,7 +118,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
 若要執行所有作業，SQL 虛擬機器需要連線到 Azure 公用 IP 位址。 SQL 虛擬機器作業 (例如資料庫探索、設定備份、排程備份、還原復原點等) 由於未連線到公用 IP 位址而失敗。 使用下列選項之一來提供清楚的備份流量路徑：
 
-- 將 Azure 資料中心 IP 範圍列入白名單：若要將 Azure 資料中心 IP 範圍列入白名單，請使用[下載中心頁面以取得 IP 範圍的詳細資料和指示](https://www.microsoft.com/download/details.aspx?id=41653)。 
+- 將 Azure 資料中心 IP 範圍列入白名單：若要將 Azure 資料中心 IP 範圍列入白名單，請使用[下載中心頁面以取得 IP 範圍的詳細資料和指示](https://www.microsoft.com/download/details.aspx?id=41653)。
 - 部署 HTTP Proxy 伺服器以路由傳送流量：當您在 VM 中備份 SQL 資料庫時，VM 上的備份延伸模組會使用 HTTPS API 將管理命令傳送至 Azure 備份，並將資料傳送至 Azure 儲存體。 備份延伸模組也會使用 Azure Active Directory (Azure AD) 進行驗證。 透過 HTTP Proxy 路由傳送這三項服務的備份延伸模組流量。 延伸模組是唯一為了要存取公用網際網路而設定的元件。
 
 這些選項之間的權衡取捨依據包括管理能力、細微控制和成本。
@@ -157,10 +157,8 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 5. 在 [探索 VM 中的 DB] 底下，選取 [開始探索] 以搜尋訂用帳戶中未受保護的虛擬機器。 搜尋所有虛擬機器可能需要一段時間。 搜尋時間取決於訂用帳戶中未受保護的虛擬機器數目。
 
     ![在搜尋 VM 中的 DB 期間會將備份擱置](./media/backup-azure-sql-database/discovering-sql-databases.png)
- 
-    找到未受保護的虛擬機器之後，該虛擬機器會出現在清單中。 未受保護的虛擬機器會依其虛擬機器名稱和資源群組列出。 多部虛擬機器可能會有相同的名稱。 不過，相同名稱的虛擬機器會屬於不同的資源群組。 如果未列出預期的虛擬機器，請確定是否已為保存庫保護該虛擬機器。
 
-6. 在虛擬機器清單中，選取要備份的 SQL 資料庫所在的 VM，然後選取 [探索 DB]。 
+6. 在虛擬機器清單中，選取要備份的 SQL 資料庫所在的 VM，然後選取 [探索 DB]。
 
     探索程序會在虛擬機器上安裝 **AzureBackupWindowsWorkload** 延伸模組。 延伸模組可讓 Azure 備份服務與虛擬機器通訊，以備份 SQL 資料庫。 安裝延伸模組之後，Azure 備份會在虛擬機器上建立 Windows 虛擬服務帳戶 **NT Service\AzureWLBackupPluginSvc**。 此虛擬服務帳戶需要 SQL 系統管理員權限。 在虛擬服務帳戶安裝過程中，如果您看到錯誤 `UserErrorSQLNoSysadminMembership`，請參閱[修正 SQL 系統管理員權限](backup-azure-sql-database.md#fix-sql-sysadmin-permissions)。
 
@@ -182,7 +180,7 @@ SQL Server 資料庫是需要低復原點目標 (RPO) 和長期保留的重要�
 
     ![在 [登入 - 新增] 對話方塊中，選取 [搜尋]](./media/backup-azure-sql-database/new-login-search.png)
 
-3. Windows 虛擬服務帳戶**NT Service\AzureWLBackupPluginSvc** 已於虛擬機器註冊期間和 SQL 探索階段建立。 請輸入 [輸入要選取的物件名稱] 方塊中所顯示的帳戶名稱。 選取 [檢查名稱] 以解析名稱。 
+3. Windows 虛擬服務帳戶**NT Service\AzureWLBackupPluginSvc** 已於虛擬機器註冊期間和 SQL 探索階段建立。 請輸入 [輸入要選取的物件名稱] 方塊中所顯示的帳戶名稱。 選取 [檢查名稱] 以解析名稱。
 
     ![選取 [檢查名稱] 以解析未知的服務名稱](./media/backup-azure-sql-database/check-name.png)
 
@@ -220,7 +218,7 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
 
     ![輸入並選擇復原服務保存庫](./media/backup-azure-sql-database/all-services.png) <br/>
 
-    隨即會在訂用帳戶中出現 [復原服務保存庫] 清單。 
+    隨即會在訂用帳戶中出現 [復原服務保存庫] 清單。
 
 4. 在 [復原服務保存庫] 清單中，選取要用來保護 SQL 資料庫的保存庫。
 
@@ -235,13 +233,13 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
     ![選取 Azure VM 中的 SQL Server 來進行備份](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
     [備份目標] 功能表會顯示兩個步驟：[探索 VM 中的 DB] 和 [設定備份]。
-    
+
     ![檢閱兩個備份目標步驟](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
 8. 在 [探索 VM 中的 DB] 底下，選取 [開始探索] 以搜尋訂用帳戶中未受保護的虛擬機器。 搜尋所有虛擬機器可能需要一段時間。 搜尋時間取決於訂用帳戶中未受保護的虛擬機器數目。
 
     ![在搜尋 VM 中的 DB 期間會將備份擱置](./media/backup-azure-sql-database/discovering-sql-databases.png)
- 
+
     找到未受保護的虛擬機器之後，該虛擬機器會出現在清單中。 多部虛擬機器可以有相同的名稱。 不過，相同名稱的虛擬機器會屬於不同的資源群組。 未受保護的虛擬機器會依其虛擬機器名稱和資源群組列出。 如果未列出預期的虛擬機器，請確定是否已為保存庫保護該虛擬機器。
 
 9. 在虛擬機器清單中，選取要備份的 SQL 資料庫所在的 VM，然後選取 [探索 DB]。
@@ -252,7 +250,7 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
 
 當您使用 [Discover DBs] \(探索 DB\) 工具時，Azure 備份會在背景執行下列作業：
 
-- 向復原服務保存庫註冊用於工作負載備份的虛擬機器。 已註冊虛擬機器上的所有資料庫只能備份至此復原服務保存庫。 
+- 向復原服務保存庫註冊用於工作負載備份的虛擬機器。 已註冊虛擬機器上的所有資料庫只能備份至此復原服務保存庫。
 
 - 在虛擬機器上安裝 **AzureBackupWindowsWorkload** 延伸模組。 SQL 資料庫的備份是無代理程式解決方案。 此延伸模組會安裝在虛擬機器上，SQL 資料庫上則不會安裝任何代理程式。
 
@@ -262,10 +260,10 @@ Azure 備份會探索 SQL Server 執行個體上的所有資料庫。 您可以�
 
 ## <a name="configure-backup-for-sql-server-databases"></a>設定 SQL Server 資料庫的備份
 
-Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備份工作。 管理和監視功能取決於您的復原服務保存庫。 
+Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備份工作。 管理和監視功能取決於您的復原服務保存庫。
 
 > [!NOTE]
-> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用這項功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
+> 您一次只能使用一個備份解決方案來備份 SQL Server 資料庫。 請先停用所有其他 SQL 備份再使用此功能；否則，備份會受到影響並失敗。 您可以啟用適用於 IaaS VM 的 Azure 備份並搭配 SQL 備份，而不會有任何衝突。
 >
 
 若要為 SQL 資料庫設定保護：
@@ -283,51 +281,53 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
     ![選取 Azure VM 中的 SQL Server 來進行備份](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
     [備份目標] 功能表會顯示兩個步驟：[探索 VM 中的 DB] 和 [設定備份]。
-    
-    如果您已依序完成本文中的步驟，您即已探索到未受保護的虛擬機器，而且此保存庫已向虛擬機器註冊。 您現在可以設定 SQL 資料庫的保護。
-    
+
+    如果您已依序完成此文章中的步驟，您即已探索到未受保護的虛擬機器，而且此保存庫已向虛擬機器註冊。 您現在可以設定 SQL 資料庫的保護。
+
 5. 在 [備份目標] 功能表中，選取 [設定備份]。
 
     ![選取 [設定備份]](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    Azure 備份服務會顯示具有獨立資料庫的所有 SQL Server 執行個體，以及 SQL Server Always On 可用性群組。 若要檢視 SQL Server 執行個體中的獨立資料庫，請選取執行個體名稱左邊的＞形箭號。 下圖顯示獨立執行個體和 AlwaysOn 可用性群組的範例。
+    Azure 備份服務會顯示具有獨立資料庫的所有 SQL Server 執行個體，以及 SQL Server Always On 可用性群組。 若要檢視 SQL Server 執行個體中的獨立資料庫，請選取執行個體名稱左邊的＞形箭號。 同樣地，選取 Always On 可用性群組左邊的＞形箭號以檢視資料庫清單。 下圖是獨立執行個體和 AlwaysOn 可用性群組的範例。
 
-    > [!NOTE]
-    > SQL Server Always On 可用性群組可接受 SQL 備份喜好設定。 但是因為 SQL 平台的限制，完整和差異備份必須從主要節點進行。 備份喜好設定會決定是否記錄備份。 由於這項限制，必須一律為主要節點註冊可用性群組。
-    >
+      ![顯示所有具備獨立資料庫的 SQL Server 執行個體](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
-    ![SQL 執行個體中的資料庫清單](./media/backup-azure-sql-database/discovered-databases.png)
+6. 在資料庫清單中，選取您要保護的所有資料庫，然後按一下 [確定]。
 
-    選取 Always On 可用性群組左邊的＞形箭號以檢視資料庫清單。
+    ![保護資料庫](./media/backup-azure-sql-database/select-database-to-protect.png)
 
-    ![Always On 可用性群組中的資料庫清單](./media/backup-azure-sql-database/discovered-database-availability-group.png)
+    您一次最多可以選取 50 個資料庫。 若要保護的資料庫超過 50 個，請分次進行。 保護前 50 個資料庫之後，請重複此步驟來保護下一組資料庫。
 
-6. 在資料庫清單中，選取要保護的所有資料庫，然後選取 [確定]。
-
-    ![選取要保護的多個資料庫](./media/backup-azure-sql-database/select-multiple-database-protection.png)
-
-    一次最多可選取 50 個資料庫。 若要保護的資料庫超過 50 個，請分次進行。 保護前 50 個資料庫之後，請重複此步驟來保護下一組資料庫。
-
-    > [!Note] 
+    > [!Note]
     > 為了最佳化備份載入，Azure 備份會將大型備份工作分成多個批次。 每個備份工作的資料庫數目上限為 50。
     >
-    >
+
+    或者，您可以藉由在 [自動保護] 欄的對應下拉式清單中選取 [開啟] 選項，在整個執行個體或 Always On 可用性群組上啟用自動保護。 自動保護功能不僅可一次性地在所有現有的資料庫上啟用保護，也會自動保護未來將新增至該執行個體或可用性群組的任何新資料庫。  
+
+      ![在 Always On 可用性群組上啟用自動保護](./media/backup-azure-sql-database/enable-auto-protection.png)
+
+      如果執行個體或可用性群組已經有一些受保護的資料庫，您仍然可以**開啟**自動保護選項。 在此情況下，下一個步驟中所定義的備份原則現在僅適用於未受保護的資料庫，而已經受到保護的資料庫將繼續受到其各自的原則所保護。
+
+      使用自動保護功能一次性選取的資料庫數目並無任何限制 (可以選取和保存庫中一樣多的資料庫數目)。  
+
+      如果您想要將未來新增的任何資料庫自動設定為受到保護，建議您針對所有執行個體和 Always On 可用性群組開啟自動保護。
+
 
 7. 若要建立或選擇備份原則，請在 [備份] 功能表中，選取 [備份原則]。 [備份原則] 功能表隨即開啟。
 
     ![選取備份原則](./media/backup-azure-sql-database/select-backup-policy.png)
 
-8. 在 [選擇備份原則] 下拉式清單方塊中，選擇備份原則，然後選取 [確定]。 如需如何建立備份原則的資訊，請參閱[定義備份原則](backup-azure-sql-database.md#define-a-backup-policy)。
+8. 在 [選擇備份原則] 下拉式清單中，選擇備份原則，然後選取 [確定]。 如需如何建立備份原則的資訊，請參閱[定義備份原則](backup-azure-sql-database.md#define-a-backup-policy)。
 
    > [!NOTE]
    > 在預覽期間，您無法編輯備份原則。 若您想要使用清單上沒有提供的原則，便必須建立該原則。 如需建立新備份原則的相關資訊，請參閱[定義備份原則](backup-azure-sql-database.md#define-a-backup-policy)一節。
 
     ![從清單中選擇備份原則](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
-    在 [備份原則] 功能表的 [選擇備份原則] 下拉式清單方塊中，您可以： 
+    在 [備份原則] 功能表的 [選擇備份原則] 下拉式清單方塊中，您可以：
     - 選取預設原則：**HourlyLogBackup**。
     - 選擇之前為 SQL 建立的現有備份原則。
-    - 根據 RPO 和保留範圍[定義新的原則](backup-azure-sql-database.md#define-a-backup-policy)。 
+    - 根據 RPO 和保留範圍[定義新的原則](backup-azure-sql-database.md#define-a-backup-policy)。
 
     > [!Note]
     > Azure 備份支援以 Grandfather-Father-Son 備份配置為基礎的長期保留。 此配置會將後端儲存體使用量最佳化，同時符合合規性需求。
@@ -346,18 +346,18 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
 備份原則會定義由備份的進行時間和備份的保留時間長度所構成的矩陣。 請使用 Azure 備份來排程 SQL 資料庫的三種備份類型：
 
-* 完整備份：完整資料庫備份會備份整個資料庫。 完整備份包含特定資料庫中的所有資料或是一組檔案群組或檔案，以及用以復原該資料的足夠記錄。 您每天最多可以觸發一次完整備份。 您可以選擇依每日或每週間隔進行完整備份。 
+* 完整備份：完整資料庫備份會備份整個資料庫。 完整備份包含特定資料庫中的所有資料或是一組檔案群組或檔案，以及用以復原該資料的足夠記錄。 您每天最多可以觸發一次完整備份。 您可以選擇依每日或每週間隔進行完整備份。
 * 差異備份：差異備份是以先前最近的完整資料備份為基礎。 差異備份只會擷取自完整備份後已變更的資料。 您每天最多可以觸發一次差異備份。 您無法在同一天設定完整備份和差異備份。
 * 交易記錄備份：記錄備份最高允許特定秒的時間點還原。 您最多可以每隔 15 分鐘設定交易記錄備份一次。
 
-原則會在復原服務保存庫層級建立。 多個保存庫可以使用相同的備份原則，但您必須將備份原則套用至每個保存庫。 建立備份原則時，每日完整備份是預設值。 您可以新增差異備份，但僅限於將完整備份設定為每週進行時。 下列程序說明如何在 Azure 虛擬機器中建立 SQL Server 執行個體的備份原則。 
+原則會在復原服務保存庫層級建立。 多個保存庫可以使用相同的備份原則，但您必須將備份原則套用至每個保存庫。 建立備份原則時，每日完整備份是預設值。 您可以新增差異備份，但僅限於將完整備份設定為每週進行時。 下列程序說明如何在 Azure 虛擬機器中建立 SQL Server 執行個體的備份原則。
 
 > [!NOTE]
 > 在預覽中，您無法編輯備份原則。 您必須改為建立具有所需詳細資料的新原則。  
- 
+
 若要建立備份原則：
 
-1. 在保護 SQL 資料庫的復原服務保存庫中，按一下 [備份原則]，然後按一下 [新增]。 
+1. 在保護 SQL 資料庫的復原服務保存庫中，按一下 [備份原則]，然後按一下 [新增]。
 
    ![開啟建立新備份原則對話方塊](./media/backup-azure-sql-database/new-policy-workflow.png)
 
@@ -389,13 +389,13 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
     復原點會根據其保留範圍標記為保留。 例如，如果您選取每日完整備份，每天只會觸發一次完整備份。 系統會根據每週保留範圍和每週保留設定，標記和保留特定日期的備份。 每月和每年保留範圍會以類似方式運作。
 
-6. 若要新增差異備份原則，請選取 [差異備份]。 [差異備份原則] 功能表隨即開啟。 
+6. 若要新增差異備份原則，請選取 [差異備份]。 [差異備份原則] 功能表隨即開啟。
 
    ![開啟 [差異備份原則] 功能表](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
     在 [差異備份原則] 功能表中，選取 [啟用] 以開啟頻率和保留控制項。 您每天最多可以觸發一次差異備份。
-    
-    > [!Important] 
+
+    > [!Important]
     > 差異備份最多可以保留 180 天。 如果您需要保留更久，則必須使用完整備份。
     >
 
@@ -413,7 +413,7 @@ Azure 備份提供管理服務來保護您的 SQL Server 資料庫及管理備�
 
     Azure 備份在後端使用 SQL 原生備份壓縮。
 
-9. 完成備份原則的編輯之後，請選取 [確定]。 
+9. 完成備份原則的編輯之後，請選取 [確定]。
 
    ![接受新的備份原則](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -436,11 +436,11 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 
     ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。 
+3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。
 
     ![選取 Azure VM 中的 SQL](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-    [備份項目] 功能表會顯示 SQL 資料庫清單。 
+    [備份項目] 功能表會顯示 SQL 資料庫清單。
 
 4. 在 SQL 資料庫清單中，選取要還原的資料庫。
 
@@ -470,7 +470,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 此程序會逐步引導您將資料還原至替代位置。 若要在還原期間覆寫資料庫，請繼續閱讀[還原並覆寫資料庫](backup-azure-sql-database.md#restore-and-overwrite-the-database)。 在此階段，復原服務保存庫已開啟，並可看見 [還原設定] 功能表。 如果您不是在這個階段，請從[還原 SQL 資料庫](backup-azure-sql-database.md#restore-a-sql-database)來開始。
 
 > [!NOTE]
-> 您可以將資料庫還原至相同 Azure 區域中的 SQL Server 執行個體。 目的地伺服器必須註冊到復原服務保存庫。 
+> 您可以將資料庫還原至相同 Azure 區域中的 SQL Server 執行個體。 目的地伺服器必須註冊到復原服務保存庫。
 >
 
 在 [還原設定] 功能表上，[伺服器] 下拉式清單方塊只會顯示已向復原服務保存庫註冊的 SQL Server 執行個體。 如果您需要的伺服器不在清單中，請參閱[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)以尋找伺服器。 在探索過程中，新的伺服器都會註冊到復原服務保存庫。
@@ -503,7 +503,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         選取日期之後，時間軸圖表會顯示連續範圍中可用的復原點。
 
     3. 使用時間軸圖表或 [時間] 對話方塊，指定復原點的特定時間。 選取 [確定] 完成還原點步驟。
-    
+
        ![開啟行事曆](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         這會關閉 [選取還原點] 功能表，並開啟 [進階設定] 功能表。
@@ -530,7 +530,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 
         此功能表會顯示可用復原點的清單。
 
-    2. 從清單中選取復原點，然後選取 [確定] 以完成還原點程序。 
+    2. 從清單中選取復原點，然後選取 [確定] 以完成還原點程序。
 
         ![選擇完整復原點](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
@@ -556,7 +556,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 
 在 [還原設定] 功能表上，[伺服器] 下拉式清單方塊只會顯示已向復原服務保存庫註冊的 SQL Server 執行個體。 如果您需要的伺服器不在清單中，請參閱[探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)以尋找伺服器。 在探索過程中，新的伺服器都會註冊到復原服務保存庫。
 
-1. 在 [還原設定] 功能表中，選取 [覆寫 DB]，然後選取 [確定] 完成設定目的地。 
+1. 在 [還原設定] 功能表中，選取 [覆寫 DB]，然後選取 [確定] 完成設定目的地。
 
    ![選取 [覆寫 DB]](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -579,7 +579,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
         選取日期之後，時間軸圖表會顯示可用的復原點。
 
     3. 使用時間軸圖表或 [時間] 對話方塊，指定復原點的特定時間。 選取 [確定] 完成還原點步驟。
-    
+
        ![開啟行事曆](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
         這會關閉 [選取還原點] 功能表，並開啟 [進階設定] 功能表。
@@ -606,7 +606,7 @@ Azure 備份提供使用交易記錄備份將個別資料庫還原至特定日�
 
         此功能表會顯示可用復原點的清單。
 
-    2. 從清單中選取復原點，然後選取 [確定] 以完成還原點程序。 
+    2. 從清單中選取復原點，然後選取 [確定] 以完成還原點程序。
 
         ![選擇完整復原點](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
 
@@ -644,7 +644,7 @@ Azure 備份會在**備份作業**入口網站中顯示所有手動觸發或臨�
 - 手動觸發的備份作業。
 - 還原作業。
 - 註冊並探索資料庫作業。
-- 停止備份作業。 
+- 停止備份作業。
 
 ![備份作業入口網站](./media/backup-azure-sql-database/jobs-list.png)
 
@@ -675,12 +675,12 @@ backup_finish_date,
 DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
 backup_size AS BackupSizeInBytes
   from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
- 
+
 ```
 
 ### <a name="view-backup-alerts"></a>檢視備份警示
 
-記錄備份會每隔 15 分鐘出現一次，因此監視備份作業有時可能很繁瑣。 Azure 備份可在此情況下提供協助。 所有備份失敗都會觸發電子郵件警示。 這些警示會在資料庫層級依錯誤碼合併。 資料庫第一次備份失敗時，才會傳送電子郵件警示。 登入 Azure 入口網站來監視資料庫的所有失敗。 
+記錄備份會每隔 15 分鐘出現一次，因此監視備份作業有時可能很繁瑣。 Azure 備份可在此情況下提供協助。 所有備份失敗都會觸發電子郵件警示。 這些警示會在資料庫層級依錯誤碼合併。 資料庫第一次備份失敗時，才會傳送電子郵件警示。 登入 Azure 入口網站來監視資料庫的所有失敗。
 
 若要監視備份警示：
 
@@ -688,7 +688,7 @@ backup_size AS BackupSizeInBytes
 
 2. 開啟向 SQL 虛擬機器註冊的復原服務保存庫。
 
-3. 在 [復原服務保存庫] 儀表板上，選取 [警示與事件]。 
+3. 在 [復原服務保存庫] 儀表板上，選取 [警示與事件]。
 
    ![選取 [警示和事件]](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
@@ -703,7 +703,7 @@ backup_size AS BackupSizeInBytes
 * 停止所有未來的備份作業並刪除所有復原點。
 * 停止所有未來的備份作業但保留復原點。
 
-如果您選擇使用保留資料停止備份，則將根據備份原則清除復原點。 您將會產生 SQL 受保護執行個體定價費用，加上所使用的儲存體費用，直到清除所有恢復點。 如需 SQL 之 Azure 備份定價的詳細資訊，請參閱 [Azure 備份定價頁面](https://azure.microsoft.com/pricing/details/backup/)。 
+如果您選擇使用保留資料停止備份，則將根據備份原則清除復原點。 您將會產生 SQL 受保護執行個體定價費用，加上所使用的儲存體費用，直到清除所有恢復點。 如需 SQL 之 Azure 備份定價的詳細資訊，請參閱 [Azure 備份定價頁面](https://azure.microsoft.com/pricing/details/backup/)。
 
 若要停止保護資料庫：
 
@@ -713,11 +713,11 @@ backup_size AS BackupSizeInBytes
 
     ![開啟 [備份項目] 功能表](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
 
-3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。 
+3. 在 [備份項目] 功能表上的 [備份管理類型] 底下，選取 [Azure VM 中的 SQL]。
 
     ![選取 Azure VM 中的 SQL](./media/backup-azure-sql-database/sql-restore-backup-items.png)
 
-    [備份項目] 功能表會顯示 SQL 資料庫清單。 
+    [備份項目] 功能表會顯示 SQL 資料庫清單。
 
 4. 在 SQL 資料庫清單中，選取要停止保護的資料庫。
 
@@ -725,7 +725,7 @@ backup_size AS BackupSizeInBytes
 
     當您選取資料庫時，其功能表隨即開啟。
 
-5. 在所選資料庫的功能表中，選取 [停止備份]。 
+5. 在所選資料庫的功能表中，選取 [停止備份]。
 
     ![選取 [停止備份]](./media/backup-azure-sql-database/stop-db-button.png)
 
@@ -735,11 +735,21 @@ backup_size AS BackupSizeInBytes
 
     ![[停止備份] 功能表](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. 選取 [停止備份] 以停止保護資料庫。 
+7. 選取 [停止備份] 以停止保護資料庫。
+
+  請注意，[停止備份] 選項將不適用於已受自動保護之執行個體中的資料庫。 停止保護此資料庫的唯一方式是暫時在執行個體上停用自動保護，然後在該資料庫的 [備份項目] 下方選擇 [停止備份] 選項。  
+
+  您可以在 [設定備份] 下方，於執行個體或 Alwayson 可用性群組上停用自動保護。 按一下執行個體名稱以開啟右側資訊面板，其會在最上方顯示 [停用自動保護]。 按一下 [停用自動保護]，在該執行個體上停用自動保護。
+
+    ![在該執行個體上停用自動保護](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+該執行個體中的所有資料庫都將繼續受到保護。 不過，此動作會在未來將新增的任何資料庫上停用自動保護。
+
+當您已停用自動保護之後，您可以在 [備份項目] 下方，針對資料庫**停止備份**。 現在可再次啟用執行個體以進行自動保護。
 
 ### <a name="resume-protection-for-a-sql-database"></a>繼續保護 SQL 資料庫
 
-如果在停止保護 SQL 資料庫時選取 [保留備份資料] 選項，則可以繼續保護。 如果未保留備份資料，則無法繼續保護。 
+如果在停止保護 SQL 資料庫時選取 [保留備份資料] 選項，則可以繼續保護。 如果未保留備份資料，則無法繼續保護。
 
 1. 若要繼續保護 SQL 資料庫，請開啟備份項目並選取 [繼續備份]。
 
@@ -774,11 +784,11 @@ backup_size AS BackupSizeInBytes
 
    ![選取 [受保護的伺服器]](./media/backup-azure-sql-database/protected-servers.png)
 
-    [受保護的伺服器] 功能表隨即開啟。 
+    [受保護的伺服器] 功能表隨即開啟。
 
 4. 在 [受保護的伺服器] 功能表中，選取要取消註冊的伺服器。 若要刪除保存庫，您必須將所有伺服器取消註冊。
 
-5. 在 [受保護的伺服器] 功能表中，以滑鼠右鍵按一下受保護的伺服器，然後選取 [刪除]。 
+5. 在 [受保護的伺服器] 功能表中，以滑鼠右鍵按一下受保護的伺服器，然後選取 [刪除]。
 
    ![選取 [刪除]](./media/backup-azure-sql-database/delete-protected-server.png)
 
@@ -820,12 +830,34 @@ backup_size AS BackupSizeInBytes
 
 觸發完整備份。 記錄備份會如預期地開始。
 
-### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>是否可以保護主要複本位於內部部署環境的 SQL Always On 可用性群組？
+### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>我是否可以保護主要複本位於內部部署的 SQL Always On 可用性群組？
 
 否。 Azure 備份會保護在 Azure 中執行的 SQL Server。 如果可用性群組 (AG) 分散在 Azure 與內部部署機器之間，則只有當主要複本是在 Azure 中執行時，才可保護 AG。 此外，Azure 備份只會保護與復原服務保存庫位於相同 Azure 區域中的執行中節點。
 
-### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>我是否可以保護散佈在各個 Azure 區域的 SQL Always On 可用性群組
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>我是否可以保護散佈在各個 Azure 區域的 SQL Always On 可用性群組？
+
 「Azure 備份復原服務保存庫」可以偵測並保護與「復原服務保存庫」位於相同區域中的所有節點。 如果您的「SQL Always On 可用性群組」跨多個 Azure 區域，您就必須從具有主要節點的區域設定備份。 「Azure 備份」將能夠依據備份喜好設定，偵測並保護可用性群組中的所有資料庫。 如果不符合備份喜好設定，備份就會失敗，而您將會收到失敗警示。
+
+### <a name="while-i-want-to-protect-most-of-the-databases-in-an-instance-i-would-like-to-exclude-a-few-is-it-possible-to-still-use-the-auto-protection-feature"></a>儘管我想要保護執行個體中大部分的資料庫，但仍想排除一些資料庫。 是否仍能使用自動保護功能？
+
+否，自動保護適用於整個執行個體。 您無法使用自動保護，選擇性地保護執行個體的資料庫。
+
+### <a name="can-i-have-different-policies-for-different-databases-in-an-auto-protected-instance"></a>我可以在已受自動保護的執行個體中，針對不同資料庫使用不同的原則嗎？
+
+如果您在執行個體中已經有一些受保護的資料庫，它們將繼續受到其各自的原則所保護，即使您已**開啟**自動保護選項也一樣。 不過，所有未受保護的資料庫以及您未來新增的資料庫將只會有單一原則，而您會在選取資料庫之後，於 [設定備份] 下方定義此原則。 事實上，不同於其他受保護的資料庫，您甚至無法在已受自動保護的執行個體下方變更資料庫的原則。
+如果您想要這樣做，唯一的方式是暫時在執行個體上停用自動保護，然後變更該資料庫的原則。 您現在可以針對此執行個體重新啟用自動保護。
+
+### <a name="if-i-delete-a-database-from-an-auto-protected-instance-will-the-backups-for-that-database-also-stop"></a>如果我從已受自動保護的執行個體中刪除某個資料庫，該資料庫的備份也將停止嗎？
+
+否，如果從已受自動保護的執行個體中卸除資料庫，仍會在該資料庫上嘗試進行備份。 這表示已刪除的資料庫會開始在 [備份項目] 下方顯示為狀況不良，且仍被視為受到保護。
+
+停止保護此資料庫的唯一方式是暫時在執行個體上停用自動保護，然後在該資料庫的 [備份項目] 下方選擇 [停止備份] 選項。 您現在可以針對此執行個體重新啟用自動保護。
+
+###  <a name="why-cant-i-see-the-newly-added-database-to-an-auto-protected-instance-under-the-protected-items"></a>為什麼我在受保護的項目下方看不到新增至已受自動保護之執行個體的資料庫？
+
+您可能不會立即看到新增至已受自動保護之執行個體的資料庫受到保護。 這是因為探索通常每隔 8 小時才會執行一次。 不過，使用者可以使用 [復原資料庫] 選項來執行手動探索，以立即探索並保護新的資料庫，如下圖所示：
+
+  ![檢視新增的資料庫](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
 ## <a name="next-steps"></a>後續步驟

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 537ae87fa694a8b0e82cb2830dd8ad1f62986093
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283405"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496441"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Spark 處理推文
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>教學課程：使用 Azure 事件中樞與 HDInsight 中的 Apache Spark 處理推文
 
-在本教學課程中，您會了解如何建立 Apache Spark 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
+在本教學課程中，您會了解如何建立 [Apache Spark](https://spark.apache.org/) \(英文\) 串流應用程式以將推文傳送至 Azure 事件中樞，並建立另一個應用程式以便從事件中樞讀取推文。 如需 Spark 串流的詳細說明，請參閱 [Apache Spark 串流概觀](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview)。 HDInsight 會將相同的串流功能帶入 Azure 上的 Spark 叢集。
 
 在本教學課程中，您了解如何：
 > [!div class="checklist"]
@@ -29,7 +29,7 @@ ms.locfileid: "51283405"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **完成本文[教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢](./apache-spark-load-data-run-query.md)**。
+* **完成此文章[教學課程：在 Azure HDInsight 中的 Apache Spark 叢集上載入資料和執行查詢](./apache-spark-load-data-run-query.md)**。
 
 ## <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
@@ -102,7 +102,7 @@ ms.locfileid: "51283405"
 
 您需要建立一個 Jupyter Notebook，並將其命名為 **SendTweetsToEventHub**。 
 
-1. 執行下列程式碼，以新增外部 Maven 程式庫：
+1. 執行下列程式碼，以新增外部 Apache Maven 程式庫：
 
     ```
     %%configure
@@ -184,7 +184,7 @@ ms.locfileid: "51283405"
 
 您需要建立另一個 Jupyter Notebook，並將其命名為 **ReadTweetsFromEventHub**。 
 
-1. 執行下列程式碼，以新增外部 Maven 程式庫：
+1. 執行下列程式碼，以新增外部 Apache Maven 程式庫：
 
     ```
     %%configure -f

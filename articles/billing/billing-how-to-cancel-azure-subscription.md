@@ -4,7 +4,7 @@ description: 說明如何取消 Azure 訂用帳戶，例如免費試用訂用帳
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: genli
-ms.openlocfilehash: 0bd0fca54ae5bf4292564a15adf38b7586768450
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.author: cwatson
+ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145446"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584344"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>取消您的 Azure 訂用帳戶
 
@@ -44,7 +44,7 @@ ms.locfileid: "39145446"
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>取消訂用帳戶之後會發生什麼情況？
 
-當您取消之後，計費會立即停止。 不過，可能需要最多 10 分鐘的時間，取消作業才會出現在入口網站中。
+當您取消之後，計費會立即停止。 不過，最多可能需要 10 分鐘，取消作業才會在入口網站中顯示。
 
 在這之後，您的服務將會停用。 這表示系統會解除配置您的虛擬機器、釋出暫時 IP 位址，且儲存體會變成唯讀。
 
@@ -58,6 +58,6 @@ ms.locfileid: "39145446"
 
 如果您的訂用帳戶不是隨用隨付類型，請在取消後 90 天內與支援服務連絡，以重新啟動您的訂用帳戶。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您仍有問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

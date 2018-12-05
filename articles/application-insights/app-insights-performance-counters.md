@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 92cbd3570d48bf12d603f68593465aafed62985c
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960101"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852311"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系統效能計數器
 Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) (例如 CPU 使用、記憶體、磁碟和網路使用量)。 您也可以自行定義。 如果應用程式是在您具有系統管理存取權的內部部署主機或虛擬機器上於 IIS 下執行，則 [Application Insights](app-insights-overview.md) 可以顯示這些效能計數器。 這些圖表指出即時應用程式可用的資源，而且有助於識別伺服器執行個體之間的不平衡負載。
@@ -41,7 +41,7 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 若要在一個地方查看所有最常用的圖表，請建立[儀表板](app-insights-dashboards.md)，並在其中固定這些圖表。
 
 ## <a name="add-counters"></a>新增計數器
-如果您想要的效能計數器未顯示在計量清單中，則原因是 Application Insights SDK 未在 Web 伺服器中收集它。 您可以設定它執行這項作業。
+如果您想要的效能計數器未顯示在計量清單中，則原因是 Application Insights SDK 未在 Web 伺服器中收集它。 您可以設定它執行此作業。
 
 1. 在伺服器上使用這個 PowerShell 命令，以找出伺服器中可用的計數器：
    
@@ -96,7 +96,7 @@ Windows 提供多種[效能計數器](http://www.codeproject.com/Articles/8590/A
 ## <a name="performance-counters-in-analytics"></a>Analytics 中的效能計數器
 您可以搜尋並顯示 [Analytics](app-insights-analytics.md) 中的效能計數器報告。
 
-**PerformanceCounters** 結構描述會公開每個效能計數器的 `category`、`counter` 名稱和 `instance` 名稱。  在每個應用程式的遙測中，您只會看到該應用程式的計數器。 例如，若要查看哪些計數器可用︰ 
+**PerformanceCounters** 結構描述會公開每個效能計數器的 `category`、`counter` 名稱和 `instance` 名稱。  在每個應用程式的遙測中，您將只會看到該應用程式的計數器。 例如，若要查看哪些計數器可用︰ 
 
 ![Application Insights 分析中的效能計數器](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

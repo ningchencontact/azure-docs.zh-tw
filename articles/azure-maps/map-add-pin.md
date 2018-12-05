@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 92d80d9a4d39a3f21539e5e6e498fc52df213a19
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c56ac35f49c364b7b0f2ad26b82b178411419414
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248807"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282680"
 ---
 # <a name="add-symbols-and-markers-to-a-map"></a>在地圖新增符號和標記
 
-本文會示範如何使用資料來源在地圖中新增符號和標記。
+此文章會示範如何使用資料來源在地圖中新增符號和標記。
 
 ## <a name="add-a-symbol-marker"></a>新增符號標記
 
@@ -51,7 +51,7 @@ ms.locfileid: "50248807"
 
 在第二個程式碼區塊中，會定義位置陣列及建立 [MultiPoint](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.multipoint?view=azure-iot-typescript-latest) 物件。 接著使用 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別建立資料來源物件，並將 MultiPoint 物件新增至資料來源。
 
-[泡泡圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)會將[資料來源](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)中包裝的點式資料轉譯為地圖上的圓圈。 最後一個程式碼區塊會建立泡泡圖層，並將其新增至地圖。 請在 [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest) 查看泡泡圖層的屬性。
+[泡泡圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)會將[資料來源](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)中包裝的點式資料轉譯為地圖上的圓圈。 最後一個程式碼區塊會建立泡泡圖層，並將其新增至地圖。 請在 [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions) 查看泡泡圖層的屬性。
 
 MultiPoint 物件 (資料來源) 及泡泡圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保圓形會在地圖完全載入後顯示。
 
@@ -64,16 +64,16 @@ MultiPoint 物件 (資料來源) 及泡泡圖層會在[事件接聽程式](https
 
 第二個程式碼區塊會建立 [point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) 物件。 然後使用 [data source](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 類別建立資料來源物件，並將點新增至資料來源。
 
-[泡泡圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)會將[資料來源](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)中包裝的點式資料轉譯為地圖上的圓圈。 第三個程式碼區塊會建立泡泡圖層，並將其新增至地圖。 請在 [BubblerLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.bubblelayeroptions?view=azure-iot-typescript-latest) 查看泡泡圖層的屬性。
+[泡泡圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)會將[資料來源](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)中包裝的點式資料轉譯為地圖上的圓圈。 第三個程式碼區塊會建立泡泡圖層，並將其新增至地圖。 請在 [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions) 查看泡泡圖層的屬性。
 
-[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。 最後一個程式碼區塊會在地圖上建立及新增符號圖層，以轉譯泡泡的文字標籤。 請在 [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.symbollayeroptions?view=azure-iot-typescript-latest) 上查看符號圖層的屬性。
+[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。 最後一個程式碼區塊會在地圖上建立及新增符號圖層，以轉譯泡泡的文字標籤。 請在 [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions) 上查看符號圖層的屬性。
 
 資料來源及圖層會在[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)函式內建立並新增至地圖，以確保資料會在地圖完全載入後顯示。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解本文使用的類別和方法：
+深入了解此文章使用的類別和方法：
 
 > [!div class="nextstepaction"]
 > [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)

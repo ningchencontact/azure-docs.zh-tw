@@ -1,10 +1,11 @@
 ---
-title: 步驟 1︰建立 Machine Learning 工作區 | Microsoft Docs
+title: 步驟 1：建立 Machine Learning Studio 工作區 | Microsoft Docs
 description: 開發預測解決方案逐步解說的步驟 1：了解如何設定新的 Azure Machine Learning Studio 工作區。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: b3c97e3d-16ba-4e42-9657-2562854a1e04
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: f6f6ed67a1ddde3d8f3102a8f7032dc03b0e91b9
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0990fb6f8166be516b32e1f457f868be16dedcb2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835809"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316953"
 ---
-# <a name="walkthrough-step-1-create-a-machine-learning-workspace"></a>逐步解說步驟 1：建立 Machine Learning 工作區
+# <a name="walkthrough-step-1-create-a-machine-learning-studio-workspace"></a>逐步解說步驟 1：建立 Machine Learning Studio 工作區
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)逐步解說的第一個步驟。
 
 1. **建立機器學習服務工作區**

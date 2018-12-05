@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cfe2620801f743831f77fb76f344c156676966d3
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576989"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635062"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>使用 OAuth 2.0 搭配 Azure Active Directory 與 API 管理來保護 API
 
@@ -100,8 +100,6 @@ ms.locfileid: "39576989"
 
 > [!NOTE]
 > 如果 [Azure Active Directory] 並未列在其他應用程式的權限之下，請選取 [新增] 從清單將其新增。
-> 
-> 
 
 ## <a name="enable-oauth-20-user-authorization-in-the-developer-console"></a>在開發人員主控台中啟用 OAuth 2.0 使用者授權
 
@@ -109,7 +107,7 @@ ms.locfileid: "39576989"
 
 在此範例中，開發人員主控台是用戶端應用程式。 下列步驟說明如何在開發人員主控台中啟用 OAuth 2.0 使用者授權。 
 
-1. 瀏覽至您的 API 管理執行個體。
+1. 在 Azure 入口網站中，瀏覽至您的 API 管理執行個體。
 
 2. 選取 [OAuth 2.0] > [新增]。
 
@@ -120,6 +118,9 @@ ms.locfileid: "39576989"
 5. 針對 [授權授與類型]，選取 [授權碼]。
 
 6. 指定 [授權端點 URL] 和 [權杖端點 URL]。 從 Azure AD 租用戶中的 [端點] 頁面擷取這些值。 瀏覽至 [應用程式註冊] 頁面，然後選取 [端點]。
+
+    >[!NOTE]
+    > 在此處使用 **v1** 端點
 
 7. 複製 [OAuth 2.0 授權端點] 並貼到 [授權端點 URL] 文字方塊中。
 
@@ -154,6 +155,9 @@ ms.locfileid: "39576989"
 5. 選取 [ **儲存**]。
 
 ## <a name="successfully-call-the-api-from-the-developer-portal"></a>從開發人員入口網站成功呼叫 API
+
+> [!NOTE]
+> 本節不適用於不支援開發人員入口網站的**使用**層。
 
 現在 `Echo API` 已啟用 OAuth 2.0 使用者授權，開發人員主控台會先代表使用者取得存取權杖，然後才呼叫 API。
 

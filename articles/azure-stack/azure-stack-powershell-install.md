@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: f6644d8a2e01242937943f8139059abbd65d1913
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2e31b9f88857d84bd0b507ccd1622279e72aa575
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017394"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52282714"
 ---
 # <a name="install-powershell-for-azure-stack"></a>安裝適用於 Azure Stack 的 PowerShell
 
@@ -29,11 +29,11 @@ ms.locfileid: "48017394"
 
 API 設定檔提供一個管理 Azure 與 Azure Stack 之間版本差異的方式。 API 版本設定檔是一組具有特定 API 版本的 Azure Resource Manager PowerShell 模組。 每個雲端平台都有一組支援的 API 版本設定檔。 例如，Azure Stack 支援特定日期的設定檔版本 (例如 **2018-03-01-hybrid**)，而 Azure 則支援**最新的** API 版本設定檔。 當您安裝設定檔時，會安裝與所指定設定檔對應的 Azure Resource Manager PowerShell 模組。
 
-您可以在已連線至網際網路、部分連線或已中斷連線的情況下，安裝與 Azure Stack 相容的 PowerShell 模組。 本文將逐步解說針對這些情況安裝適用於 Azure Stack 之 PowerShell 的詳細指示。
+您可以在已連線至網際網路、部分連線或已中斷連線的情況下，安裝與 Azure Stack 相容的 PowerShell 模組。 此文章將逐步解說針對這些情況安裝適用於 Azure Stack 之 PowerShell 的詳細指示。
 
-## <a name="1-verify-your-prerequisites"></a>1.驗證您的必要條件
+## <a name="1-verify-your-prerequisites"></a>1.驗證您的先決條件
 
-在開始使用 Azure Stack 與 PowerShell 之前，您必須具備下列必要條件：
+在開始使用 Azure Stack 與 PowerShell 之前，您必須具備下列先決條件：
 
 - **PowerShell 版本 5.0** 若要檢查您的版本，請執行 **$PSVersionTable.PSVersion** 並比較**主要**版本。 如果您沒有 PowerShell 5.0，請遵循[安裝 Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)。
 
@@ -73,12 +73,16 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 1. 若要將現有的 AzureRM PowerShell 模組解除安裝，請關閉所有作用中的 PowerShell 工作階段，然後執行下列 Cmdlet：
 
-  ````PowerShell
-    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force
-    Uninstall-Module -Name AzureRM.AzureStackStorage -Force
-    Uninstall-Module -Name AzureStack -Force
-    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force
-  ````
+    ````PowerShell
+    Uninstall-Module -Name AzureRM.AzureStackAdmin -Force 
+    Uninstall-Module -Name AzureRM.AzureStackStorage -Force 
+    Uninstall-Module -Name AzureStack -Force -Verbose
+    Uninstall-Module -Name AzureRM -Force -Verbose
+    Uninstall-Module -Name Azure.Storage -Force -Verbose
+    Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+    Get-Module -Name AzureRM.* -ListAvailable | Uninstall-Module -Force -Verbose
+    ````
+    若您遇到類似「模組已在使用中」的任何錯誤，請關閉使用模組的 PowerShell 工作階段，然後重新執行上面的指令碼。
 
 2. 從 `C:\Program Files\WindowsPowerShell\Modules` 和 `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` 資料夾中刪除開頭為 `Azure` 的所有資料夾。 刪除這些資料夾會移除任何現有的 PowerShell 模組。
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 83155e448f350618446fb22bf52e831b1cc8d499
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 74bfd49fd69353e95a275f31fa0bba9e9b558227
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636538"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632920"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>教學課程︰設定 Slack 來自動佈建使用者
 
@@ -113,6 +113,14 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 如需如何讀取 Azure AD 佈建記錄的詳細資訊，請參閱[關於使用者帳戶自動佈建的報告](../manage-apps/check-status-user-account-provisioning.md)。
 
+## <a name="connector-limitations"></a>連接器限制
+
+  * 設定 Slack 的 **displayName** 屬性時，請留意下列行為： 
+  * 值並非完全唯一 (例如，2 位使用者可以具有相同的顯示名稱)
+  * 支援非英文的字元、空格、大小寫。 
+  * 允許的標點符號是句號、底線、連字號、所有格號、括弧 (例如 **( [ { } ] )**) 和分隔符號 (例如 **, / ;**)。
+  * 只有在 Slack 的工作場所/組織中設定了下列這兩個設定時才會更新：**已啟用設定檔同步處理**及**使用者無法變更其顯示名稱**。
+  * Slack 的 **userName** 屬性必須少於 21 個字元且具備唯一值。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -1,22 +1,22 @@
 ---
 title: 常見問題 - 使用 Azure Site Recovery 進行從 VMware 至 Azure 的災害復原 | Microsoft Docs
-description: 本文摘錄了使用 Azure Site Recovery 設定從內部部署 VMware VM 至 Azure 之災害復原時的常見問題
+description: 此文章摘錄了使用 Azure Site Recovery 設定從內部部署 VMware VM 至 Azure 之災害復原時的常見問題
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636810"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162478"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
-本文將解答部署從內部部署 VMware VM 至 Azure 之災害復原時的常見問題。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
+此文章將解答部署從內部部署 VMware VM 至 Azure 之災害復原時的常見問題。 如果您在閱讀此文章後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
 
 
 ## <a name="general"></a>一般
@@ -47,14 +47,20 @@ ms.locfileid: "51636810"
 ## <a name="on-premises"></a>內部部署
 
 ### <a name="what-do-i-need-on-premises"></a>我的內部部署環境需要什麼？
-在內部部署環境中，您需要安裝在單一 VMware VM 上的 Site Recovery 元件。 您也需要至少有一個 ESXi 主機的 VMware 基礎結構，此外也建議要有 vCenter 伺服器。 此外，您需要一或多個要複寫的 VMware VM。 [深入了解](vmware-azure-architecture.md) VMware 到 Azure 的架構。
 
-可利用以下兩種方式之一部署內部部署設定伺服器
+在內部部署上，您需要：
+- 安裝在單一 VMware VM 上的 Site Recovery 元件。
+- 至少有一個 ESXi 主機的 VMware 基礎結構，此外也建議要有 vCenter 伺服器。
+- 一或多個可複寫的 VMware VM。
 
-1. 使用預先安裝設定伺服器的虛擬機器範本進行部署。 [請在這裡閱讀更多資訊](vmware-azure-tutorial.md#download-the-vm-template)。
-2. 在您選擇的 Windows Server 2016 機器上使用設定進行部署。 [請在這裡閱讀更多資訊](physical-azure-disaster-recovery.md#set-up-the-source-environment)。
+[深入了解](vmware-azure-architecture.md) VMware 到 Azure 的架構。
 
-若要探索在您自己的 Windows Server 機器上部署設定伺服器的入門步驟，請在啟用保護的保護目標中，選擇**至 Azure > 未虛擬化/其他**。
+可使用下列方式來部署內部部署組態伺服器：
+
+- 我們建議您使用 OVA 範本並搭配預先安裝組態伺服器的方式，將組態伺服器部署為 VMware VM。
+- 如果您基於某些原因無法使用範本，則可以手動設定組態伺服器。 [深入了解](physical-azure-disaster-recovery.md#set-up-the-source-environment)。
+
+
 
 ### <a name="where-do-on-premises-vms-replicate-to"></a>內部部署 VM 會複寫到何處？
 資料會複寫到 Azure 儲存體。 當您容錯移轉時，Site Recovery 會從儲存體帳戶自動建立 Azure VM。
@@ -84,10 +90,10 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 從 VMware VM 到 Azure 的複寫會持續執行。
 
 ### <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
-不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出這項功能的要求。
+不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出此功能的要求。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
-不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
+不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出此功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 是的，您可以將磁碟排除於複寫外。

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Active Directory B2C 中使用年齡管制 | Microsoft Docs
+title: 在 Azure Active Directory B2C 中啟用年齡管制 | Microsoft Docs
 description: 了解如何使用應用程式識別未成年人。
 services: active-directory-b2c
 author: davidmu1
@@ -7,52 +7,104 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/29/2018
+ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1020dfcb6c8d312001fbdb1c170987e1216c5d5
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318855"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291091"
 ---
-# <a name="using-age-gating-in-azure-ad-b2c"></a>在 Azure AD B2C 中使用年齡管制
+# <a name="enable-age-gating-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用年齡管制
 
 >[!IMPORTANT]
->這項功能處於個人預覽版狀態。  請參閱我們已發佈的[服務部落格](https://blogs.msdn.microsoft.com/azureadb2c/)以取得詳細資訊，或連絡 AADB2CPreview@microsoft.com。  請「不要」在生產目錄上使用此功能，在公開上市之前使用這些新功能可能會導致資料遺失，且可能會產生非預期的行為變更。  
+>此功能處於公開預覽狀態。 請勿將功能用於生產應用程式。 
 >
 
-## <a name="age-gating"></a>年齡管制
-年齡管制可讓您使用 Azure AD B2C 識別應用程式中的未成年人。  您可以選擇封鎖使用者而使其無法登入應用程式，或讓他們在另行發出宣告而指出使用者的年齡群組和其家長同意狀態後返回應用程式。  
+Azure Active Directory (Azure AD) B2C 中的年齡管制，可讓您識別想要使用您的應用程式的未成年人。 您可以選擇封鎖未成年人，使其無法登入應用程式。 使用者也可以返回應用程式，並確定其年齡群組和家長同意狀態。 Azure AD B2C 可以在不需要家長同意的情況下封鎖未成年人。 Azure AD B2C 也可以設定為允許應用程式決定如何處理未成年人。
 
->[!NOTE]
->家長同意狀態會在名為 `consentProvidedForMinor` 的使用者屬性中受到追蹤。  您可以透過圖形 API 更新此屬性，且系統在更新 `legalAgeGroupClassification` 時將會使用此欄位。
->
+在[使用者流程](active-directory-b2c-reference-policies.md)中啟用年齡管制後，系統會詢問使用者出生日期以及他們所居住的國家/地區。 如果使用者登入先前未輸入資訊，則他們需要在下次登入時輸入該資訊。 每次使用者登入時都會套用這些規則。
 
-## <a name="setting-up-your-directory-for-age-gating"></a>設定年齡管制的目錄
-若要在使用者流程中使用年齡管制，您必須設定目錄，使其具有其他屬性。 您可以透過功能表中的 `Properties` 來執行這項作業 (您必須已註冊個人預覽版，才能使用該項目)。  
-1. 在 Azure AD B2C 擴充功能中，在左側的功能表中按一下您租用戶的 [屬性]。
-2. 在 [年齡管制] 區段下，按一下 [設定] 按鈕。
-3. 等候作業完成，您的目錄將會進行年齡管制的設定。
+Azure AD B2C 會使用使用者輸入的資訊，來確定他們是否為未成年人。 然後，會更新其帳戶中的 **ageGroup** 欄位。 值可為 `null`、`Undefined`、`Minor`、`Adult` 和 `NotAdult`。  然後，**ageGroup** 和 **consentProvidedForMinor** 欄位用於計算 **legalAgeGroupClassification** 的值。
 
-## <a name="enabling-age-gating-in-your-user-flow"></a>在使用者流程中啟用年齡管制
-在您的目錄設定為使用年齡管制後，您即可在預覽版的使用者流量中使用這項功能。  此功能需要進行變更，使其與現有類型的使用者流量不相容。  您可以透過下列步驟啟用年齡管制：
-1. 建立預覽使用者流量。
-2. 建立之後，請移至功能表中的 [屬性]。
-3. 在 [年齡管制] 區段中，按切換按鈕以啟用功能。
-4. 然後，您可以選擇要如何管理識別為未成年人的使用者。
+年齡管制牽涉到兩個年齡值：某人不再被視為未成年人的年齡，以及未成年人必須取得家長同意的年齡。 下表列出可用於定義未成年人和未成年人需要同意的年齡規則。
 
-## <a name="what-does-enabling-age-gating-do"></a>啟用年齡管制的作用為何？
-在使用者流程中啟用年齡管制後，使用者體驗就會變更。  在註冊時，除了為使用者流程設定的使用者屬性以外，此時系統還會要求使用者提供其出生日期和居住地國家/地區。  在登入時，對於先前未曾輸入出生日期和居住地國家/地區的使用者，系統將會在使用者下一次登入時要求這項資訊。  Azure AD B2C 將藉由這兩個值來識別使用者是否為未成年人，並更新 `ageGroup` 欄位，此值可以是 `null`、`Undefined`、`Minor`、`Adult` 和 `NotAdult`。  接著，系統會使用 `ageGroup` 和 `consentProvidedForMinor` 欄位來計算 `legalAgeGroupClassification`。 
+| 國家 (地區) | 國家/地區名稱 | 未成年人同意年齡 | 未成年人年齡 |
+| ------- | ------------ | ----------------- | --------- |
+| 預設值 | 無 | 無 | 18 |
+| AE | 阿拉伯聯合大公國 | 無 | 21 |
+| AT | 奧地利 | 14 | 18 |
+| BE | 比利時 | 14 | 18 |
+| BG | 保加利亞 | 16 | 18 |
+| BH | 巴林 | 無 | 21 |
+| CM | 喀麥隆 | 無 | 21 |
+| CY | 賽浦路斯 | 16 | 18 |
+| CZ | 捷克共和國 | 16 | 18 |
+| DE | 德國 | 16 | 18 |
+| DK | 丹麥 | 16 | 18 |
+| EE | 愛沙尼亞 | 16 | 18 |
+| EG | 埃及 | 無 | 21 |
+| ES | 西班牙 | 13 | 18 |
+| FR | 法國 | 16 | 18 |
+| GB | 英國 | 13 | 18 |
+| GR | 希臘 | 16 | 18 |
+| HR | 克羅埃西亞 | 16 | 18 |
+| HU | 匈牙利 | 16 | 18 |
+| IE | 愛爾蘭 | 13 | 18 |
+| IT | 義大利 | 16 | 18 |
+| KR | 大韓民國 | 14 | 18 |
+| LT | 立陶宛 | 16 | 18 |
+| LU | 盧森堡 | 16 | 18 |
+| LV | 拉脫維亞 | 16 | 18 |
+| MT | 馬爾他 | 16 | 18 |
+| NA | 納米比亞 | 無 | 21 |
+| NL | 荷蘭 | 16 | 18 |
+| PL | 波蘭 | 13 | 18 |
+| PT | 葡萄牙 | 16 | 18 |
+| RO | 羅馬尼亞 | 16 | 18 |
+| SE | 瑞典 | 13 | 18 |
+| SG | 新加坡 | 無 | 21 |
+| SI | 斯洛維尼亞 | 16 | 18 |
+| SK | 斯洛伐克 | 16 | 18 |
+| TD | 查德 | 無 | 21 |
+| TH | 泰國 | 無 | 20 |
+| TW | 台灣 | 無 | 20 | 
+| US | 美國 | 13 | 18 |
 
 ## <a name="age-gating-options"></a>年齡管制選項
-您可以選擇讓 Azure AD B2C 直接封鎖未取得家長同意的未成年人；也可以允許他們進入，而讓應用程式決定要如何處理。  
-
+ 
 ### <a name="allowing-minors-without-parental-consent"></a>允許未取得家長同意的未成年人
-對於允許註冊和/或登入的使用者流量，您可以選擇允許未經同意的未成年人進入您的應用程式。  未取得家長同意的未成年人可以正常登入或註冊，Azure AD B2C 會以 `legalAgeGroupClassification` 宣告發出識別碼權杖。  藉由使用此宣告，您可以選擇這些使用者所將擁有的體驗，例如收集家長同意 (並更新 `consentProvidedForMinor` 欄位) 的體驗。
+
+對於允許註冊和/或登入的使用者流量，您可以選擇允許未經同意的未成年人進入您的應用程式。 未取得家長同意的未成年人可以正常登入或註冊，Azure AD B2C 會以 **legalAgeGroupClassification** 宣告發出識別碼權杖。 此聲明定義了使用者擁有的體驗，例如收集家長同意及更新 **consentProvidedForMinor** 欄位。
 
 ### <a name="blocking-minors-without-parental-consent"></a>封鎖未取得家長同意的未成年人
-對於允許註冊和/或登入的使用者流量，您可以選擇封鎖未經應用程式同意的未成年人。  有兩個選項可處理 Azure AD B2C 中遭封鎖的使用者：
-* 將 JSON 傳回至應用程式 - 此選項會將回應傳回至封鎖未成年人的應用程式。
-* 顯示錯誤頁面 - 使用者將會看見一個頁面，指出他們無法存取應用程式
+
+對於允許註冊和/或登入的使用者流量，您可以選擇封鎖未經應用程式同意的未成年人。 下列選項可用於處理 Azure AD B2C 中被封鎖的使用者：
+
+- 將 JSON 傳回至應用程式 - 此選項會將回應傳回至封鎖未成年人的應用程式。
+- 顯示錯誤頁面 - 使用者會看見一個頁面，指出他們無法存取應用程式。
+
+## <a name="set-up-your-tenant-for-age-gating"></a>設定您的租用戶以進行年齡管制
+
+若要在使用者流程中使用年齡管制，您必須設定租用戶，使其具有其他屬性。
+
+1. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。 選取包含您租用戶的目錄。 
+2. 選取 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
+3. 在左側功能表中為您的租用戶選取 [屬性]。
+2. 在 [年齡管制] 區段下，按一下 [設定]。
+3. 等候作業完成，您的租用戶將會進行年齡管制的設定。
+
+## <a name="enable-age-gating-in-your-user-flow"></a>在使用者流程中啟用年齡管制
+
+在您的租用戶設定為使用年齡管制後，您即可在啟用此功能的[使用者流量](user-flow-versions.md)中使用此功能。 您可以透過下列步驟啟用年齡管制：
+
+1. 建立已啟用年齡管制的使用者流程。
+2. 建立使用者流程之後，請選取功能表中的 [屬性]。
+3. 在 [年齡管制] 區段中，選取 [啟用]。
+4. 然後，您可以決定要如何管理識別為未成年人的使用者。 針對 [註冊或登入]，選取 `Allow minors to access your application` 或 `Block minors from accessing your application`。 如果選取 [封鎖未成年人]，則選擇 `Send a JSON bcak to the application` 或 `Show an error message`。 
+
+
+
+

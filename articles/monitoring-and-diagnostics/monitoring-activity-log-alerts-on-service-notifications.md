@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
 ms.component: alerts
-ms.openlocfilehash: a86a7188c488a634de7b0ac71657bea0105381c7
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 1fcbbce87c822c49882f8e42a1eaccfd389ee310
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961886"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51852923"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
-本文將說明如何使用 Azure 入口網站為服務健康情況通知設定活動記錄警示。  
+此文章將說明如何使用 Azure 入口網站為服務健康情況通知設定活動記錄警示。  
 
 您可以在 Azure 傳送服務健康狀態通知到您的 Azure 訂用帳戶時接收警示。 您可以針對下列設定警示：
 
@@ -70,7 +70,7 @@ ms.locfileid: "50961886"
 
 1. 請提供接收者的下列各項，以定義接收者的清單：
 
-    a. **名稱**：輸入接收者的名稱、別名或識別碼。
+    a. **名稱**：輸入接收者名稱、別名或識別碼。
 
     b. **動作類型**：選取簡訊、電子郵件、Webhook 和 Azure 應用程式等。
 

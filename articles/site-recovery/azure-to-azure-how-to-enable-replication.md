@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Site Recovery 中設定 Azure VM 的複寫 | Microsoft Docs
-description: 本文說明如何使用 Site Recovery，將 Azure VM 從一個 Azure 區域複寫到另一個區域。
+description: 此文章說明如何使用 Site Recovery，將 Azure VM 從一個 Azure 區域複寫到另一個區域。
 services: site-recovery
 author: asgang
 manager: rochakm
@@ -8,18 +8,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: 2f4721155610da3be3ff0db3608d7c1e163aa344
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e73659dca034c0333a73786788c8f342b57598da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211837"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314656"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>將 Azure 虛擬機器複寫到另一個 Azure 區域
 
 
 
-本文說明如何將 Azure VM 從一個 Azure 區域複寫到另一個區域。
+此文章說明如何將 Azure VM 從一個 Azure 區域複寫到另一個區域。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -53,7 +53,15 @@ ms.locfileid: "50211837"
     - **目標儲存體帳戶 (如果您的來源 VM 不使用受控磁碟)**：根據預設，Site Recovery 會建立新的目標儲存體帳戶，以模擬您的來源 VM 儲存體設定。 如果儲存體帳戶已經存在，就會重複使用。
     - **複本受控磁碟 (如果您的來源 VM 使用受控磁碟)**：Site Recovery 會在目標區域中建立新的複本受控磁碟，建立與來源 VM 的受控磁碟相同儲存類型 (標準或進階) 之來源 VM 受控磁碟的鏡像。
     - **快取儲存體帳戶**：Site Recovery 需要在來源區域中有額外的儲存體帳戶 (稱為快取儲存體)。 在來源 VM 上發生的所有變更都會受到追蹤，並傳送到快取儲存體帳戶，然後複寫到目標位置。
-    - **可用性設定組**：根據預設，Azure Site Recovery 會在目標區域中建立名稱尾碼為 "asr" 的新可用性設定組。 如果 Azure Site Recovery 建立的可用性設定組已經存在，則會重複使用。
+    - **目標可用性設定組**：根據預設，Azure Site Recovery 會針對來源區域的可用性設定組中的 VM，在目標區域中建立名稱尾碼為 "asr" 的新可用性設定組。 如果 Azure Site Recovery 建立的可用性設定組已經存在，則會重複使用。
+    - **目標可用性區域**：根據預設，如果目標區域支援可用性區域，則 Site Recovery 會在目標區域中指派與來源區域相同的區域編號。
+
+    如果目標區域不支援可用性區域，則目標 VM 會預設為單一執行個體。 如有需要，您可以按一下 [自訂]，將這類 VM 設定為目標區域中可用性設定組的一部分。
+
+    >[!NOTE]
+    >啟用複寫之後，便無法變更可用性類型 - 單一執行個體、可用性設定組或可用性區域。 您需要停用後再啟用複寫，以變更可用性類型。
+    >
+    
     - **複寫原則**：這會定義復原點保留期歷程記錄和應用程式一致快照集頻率的設定。 根據預設，Azure Site Recovery 會對於復原點保留期使用「24 小時」的預設設定來建立新的複寫原則，並對於應用程式一致快照集頻率使用「60 分鐘」。
 
     ![啟用複寫](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)

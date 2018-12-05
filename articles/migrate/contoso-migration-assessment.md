@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: ea0987eaea8ee558df35ecce6afb5e7bab3ac4de
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6b4b1b74ace534517157edc20c33236d516205c5
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087611"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635011"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso 移轉：評定要移轉至 Azure 的內部部署工作負載
 
@@ -125,8 +125,8 @@ Contoso 和其他使用者都必須符合下列先決條件才能進行評量：
 - 至少兩個內部部署 VMware VM，且其中一個要執行 SQL Server 資料庫。
 - 可在每部 VM 上安裝 Azure Migrate 代理程式的權限。
 - VM 應該要能直接連線到網際網路。  
-        - 您可以限制只能透過網際網路存取[所需的 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)。  
-        - 如果您的 VM 沒有網際網路連線，則 VM 上必須安裝 Azure [Log Analytics 閘道](../log-analytics/log-analytics-oms-gateway.md)，而且代理程式流量會透過該閘道導向。
+    - 您可以限制只能透過網際網路存取[所需的 URL](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites)。  
+    - 如果您的 VM 沒有網際網路連線，則 VM 上必須安裝 Azure [Log Analytics 閘道](../azure-monitor/platform/gateway.md)，並將代理程式流量導向透過該閘道。
 - 執行 SQL Server 執行個體的 VM 所具有的 FQDN，以供評估資料庫。
 - SQL Server VM 上所執行的 Windows 防火牆應該在 TCP 通訊埠 1433 (預設值) 允許外部連線。 此設定可讓 Data Migration Assistant 能夠連線。
 

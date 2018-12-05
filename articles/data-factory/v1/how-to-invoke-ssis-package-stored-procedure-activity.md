@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Data Factory 叫用 SSIS 套件 - 預存程序活動 | Microsoft Docs
-description: 本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 封裝。
+description: 此文章說明如何使用預存程序活動從 Azure Data Factory 管線叫用 SQL Server Integration Services (SSIS) 套件。
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: fe2b509b62884c1cea554bc8dc5df25489205264
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9d35b132a0aa3f0702604444f8a760bf66cf9a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966944"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275576"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>在 Azure Data Factory 使用預存程序活動叫用 SSIS 套件
-本文描述如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
+此文章說明如何使用預存程序活動從 Azure Data Factory 管線叫用 SSIS 封裝。 
 
 > [!NOTE]
-> 本文適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
+> 此文章適用於 Data Factory 第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[使用預存程序活動來叫用 SSIS 套件](../how-to-invoke-ssis-package-stored-procedure-activity.md)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -236,7 +236,7 @@ ms.locfileid: "46966944"
 ### <a name="create-an-output-dataset"></a>建立輸出資料表
 輸出資料集是 Dummy 資料集，可以驅動管線的排程。 請注意，頻率設為 [小時]，間隔設為 [1]。 因此，管線在管線開始與結束時間內會每小時執行一次。 
 
-1. 使用下列內容建立 OuputDataset.json 檔案： 
+1. 使用下列內容建立 OutputDataset.json 檔案： 
     
     ```json
     {

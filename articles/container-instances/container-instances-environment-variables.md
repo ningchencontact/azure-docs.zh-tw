@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4dde10c5cb4a764a268b8b9d3ebfaebc008e13ed
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238143"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162499"
 ---
 # <a name="set-environment-variables"></a>設定環境變數
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-若要修改輸出，請啟動第二個容器，並新增 `--environment-variables` 引數，然後為 NumWords 和 MinLength 變數指定值：
+若要修改輸出，請啟動第二個容器，並新增 `--environment-variables` 引數，然後為 *NumWords* 和 *MinLength* 變數指定值。 (此範例假設您在 Bash 殼層或 Azure Cloud Shell 中執行 CLI。 如果您使用 Windows 命令提示字元，請以雙引號指定變數，例如 `--environment-variables "NumWords"="5" "MinLength"="8"`。)
 
 ```azurecli-interactive
 az container create \

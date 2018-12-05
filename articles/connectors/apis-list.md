@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 3230692208d27ebac073e257266c885b5e03095c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: b320696a56855baaa4af10177d25dfe9973ee73a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233628"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635436"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>適用於 Azure Logic Apps 的連接器
 
@@ -74,7 +74,7 @@ Logic Apps 會提供內建觸發程序和動作，所以您可以建立以排程
 
 |   |   | 
 |---|---| 
-| ![內建圖示][data-operations-icon]<br/>**資料作業** | 執行資料相關作業： <p>- **撰寫**：從多個輸入與各種類型建立單一輸出。 <br>- **建立 CSV 資料表**：從 JSON 物件陣列建立以逗號分隔 (CSV) 的資料表。 <br>- **建立 HTML 資料表**：從 JSON 物件陣列建立 HTML 資料表。 <br>- **篩選陣列**：從符合您準則的另一個陣列建立陣列。 <br>- **加入**：從陣列中的所有項目建立字串，並使用指定的分隔符號來分隔這些項目。 <br>- **剖析 JSON**：從 JSON 內容中的屬性及其值，建立使用者易記的語彙基元，以便在您的工作流程中使用這些屬性。 <br>- **選取**：轉換另一個陣列中的項目或值，並將這些項目對應至指定的屬性，以建立 JSON 物件陣列。 | 
+| [![內建圖示][data-operations-icon]<br/>**資料作業**][data-operations-doc] | 執行資料相關作業： <p>- **撰寫**：從多個輸入與各種類型建立單一輸出。 <br>- **建立 CSV 資料表**：從 JSON 物件陣列建立以逗號分隔 (CSV) 的資料表。 <br>- **建立 HTML 資料表**：從 JSON 物件陣列建立 HTML 資料表。 <br>- **篩選陣列**：從符合您準則的另一個陣列建立陣列。 <br>- **加入**：從陣列中的所有項目建立字串，並使用指定的分隔符號來分隔這些項目。 <br>- **剖析 JSON**：從 JSON 內容中的屬性及其值，建立使用者易記的語彙基元，以便在您的工作流程中使用這些屬性。 <br>- **選取**：轉換另一個陣列中的項目或值，並將這些項目對應至指定的屬性，以建立 JSON 物件陣列。 | 
 | ![內建圖示][date-time-icon]<br/>**日期時間** | 執行時間戳記相關作業： <p>- **新增至時間**：將指定的單位數新增至時間戳記。 <br>- **轉換時區**：將時間戳記從來源時區轉換為目標時區。 <br>- **目前時間**：傳回目前的時間戳記作為字串。 <br>- **取得未來時間**：傳回目前時間戳記加上指定時間單位的結果。 <br>- **取得過去時間**：傳回目前時間戳記減去指定時間單位的結果。 <br>- **從時間減去**：從時間戳記減去時間單位數字。 |
 | [![內建圖示][variables-icon]<br/>**變數**][variables-doc] | 執行變數相關作業： <p>- **附加到陣列變數**：插入一個值，作為變數所儲存陣列中的最後一個項目。 <br>- **附加到字串變數**：插入一個值，作為變數所儲存字串中的最後一個字元。 <br>- **遞減變數**：依常數值遞減變數。 <br>- **遞增變數**：依常數值遞增變數。 <br>- **初始化變數**：建立變數，並宣告其資料類型和初始值。 <br>- **設定變數**：將不同的值指派給現有的變數。 |
 |  |  | 
@@ -193,6 +193,7 @@ Logic Apps 會提供下列幾種觸發程序：
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "將動作組織成案例，這些案例會獲派唯一值。僅執行其值符合運算式、物件或語彙基元結果的案例。如果沒有相符項目存在，請執行預設案例"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "停止或取消邏輯應用程式正在執行中的工作流程"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "重複動作，直到符合指定的條件或某些狀態已改變為止"
+[data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "執行如篩選陣列或建立 CSV 和 HTML 資料表等的資料作業"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "執行變數相關作業，例如初始化、設定、遞增、遞減及附加至字串或陣列變數"
 
 <!--Managed API doc links-->

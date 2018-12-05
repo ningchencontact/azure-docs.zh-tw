@@ -89,56 +89,62 @@ items:
   items:
   - name: 購買模型
     items:
-    - name: 虛擬核心與 DTU
+    - name: 概觀
       href: sql-database-service-tiers.md
-    - name: 以虛擬核心為基礎的購買模型
-      items:
-      - name: 選擇虛擬核心服務層
-        href: sql-database-service-tiers-vcore.md
-      - name: 一般用途/業務關鍵
-        href: sql-database-service-tiers-general-purpose-business-critical.md
-      - name: 超大規模
-        href: sql-database-service-tier-hyperscale.md
-      - name: 超大規模常見問題集
-        href: sql-database-service-tier-hyperscale-faq.md
-    - name: DTU 服務層
+    - name: 以虛擬核心為基礎的模型
+      href: sql-database-service-tiers-vcore.md
+    - name: DTU 模型
       href: sql-database-service-tiers-dtu.md
     - name: 預付保留容量
       href: sql-database-reserved-capacity.md
-  - name: 邏輯伺服器
+  - name: 計算和儲存體
     items:
-    - name: 建立和管理
-      href: sql-database-logical-servers.md
-    - name: 資源限制
-      href: sql-database-resource-limits-logical-server.md
-    - name: 連線架構
-      href: sql-database-connectivity-architecture.md
-    - name: T-SQL 差異
-      href: sql-database-transact-sql-information.md
-    - name: 異動複寫 - 單一 DB 和彈性集區
-      href: replication-to-sql-database.md
+    - name: 概觀
+      href: sql-database-service-tiers-general-purpose-business-critical.md
+    - name: 一般目的/標準
+      href: sql-database-service-tier-general-purpose.md
+    - name: 商務關鍵/進階
+      href: sql-database-service-tier-business-critical.md
+    - name: 超大規模
+      href: sql-database-service-tier-hyperscale.md
+    - name: 超大規模常見問題集
+      href: sql-database-service-tier-hyperscale-faq.md
   - name: 單一資料庫
     items:
+    - name: 單一資料庫
+      href: sql-database-single-index.yml
     - name: 建立和管理
       href: sql-database-single-databases-manage.md
+    - name: 邏輯伺服器
+      items:
+      - name: 建立和管理
+        href: sql-database-logical-servers.md
+      - name: 資源限制
+        href: sql-database-resource-limits-logical-server.md
+      - name: 連線架構
+        href: sql-database-connectivity-architecture.md
+      - name: T-SQL 差異
+        href: sql-database-transact-sql-information.md
+      - name: 異動複寫 - 單一 DB 和彈性集區
+        href: replication-to-sql-database.md
+    - name: 彈性集區
+      items:
+      - name: 彈性集區
+        href: sql-database-elastic-pool.md
+      - name: 建立和管理
+        href: sql-database-elastic-pool-manage.md
+      - name: 以 vCore 為基礎的資源限制
+        href: sql-database-vcore-resource-limits-elastic-pools.md
+      - name: 以 DTU 為基礎的資源限制
+        href: sql-database-dtu-resource-limits-elastic-pools.md
+      - name: 調整資源
+        href: sql-database-elastic-pool-scale.md
     - name: 以 vCore 為基礎的資源限制
       href: sql-database-vcore-resource-limits-single-databases.md
     - name: 以 DTU 為基礎的資源限制
       href: sql-database-dtu-resource-limits-single-databases.md
     - name: 調整資源
       href: sql-database-single-database-scale.md
-  - name: 彈性集區
-    items:
-    - name: 彈性集區
-      href: sql-database-elastic-pool.md
-    - name: 建立和管理
-      href: sql-database-elastic-pool-manage.md
-    - name: 以 vCore 為基礎的資源限制
-      href: sql-database-vcore-resource-limits-elastic-pools.md
-    - name: 以 DTU 為基礎的資源限制
-      href: sql-database-dtu-resource-limits-elastic-pools.md
-    - name: 調整資源
-      href: sql-database-elastic-pool-scale.md
   - name: 受控執行個體
     items:
     - name: 受控執行個體
@@ -656,9 +662,9 @@ items:
     href: /azure/architecture/
   - name: 客戶案例
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 2cc5240aa7302d687f0b7a2fad2af29105e86de0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: ea998e50af9b6b2f4f6331a0f02f84d08eff425c
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840413"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890155"

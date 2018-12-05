@@ -11,21 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/14/2018
+ms.date: 11/21/2018
 ms.author: jingwang
-ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e561a59ebe503e0088362087dbda4d7d89fee4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42312063"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275681"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Oracle 複製資料及將資料複製到該處
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [第 1 版](v1/data-factory-onprem-oracle-connector.md)
 > * [目前的版本](connector-oracle.md)
 
-本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Oracle 資料庫複製資料及將資料複製到該處。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
+此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 Oracle 資料庫複製資料及將資料複製到該處。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -65,11 +65,46 @@ ms.locfileid: "42312063"
 >[!TIP]
 >如果您遇到指出「ORA-01025: UPI 參數超出範圍」的錯誤，而且您的 Oracle 版本為 8i，請將 `WireProtocolMode=1` 新增至連接字串並再試一次。
 
-若要啟用 Oracle 連線加密，您有兩個選項：
+**若要啟用 Oracle 連線加密**，您有兩個選項：
 
-1.  在 Oracle 伺服器端，移至 Oracle 進階安全性 (OAS) 並設定加密設定，其支援三重 DES 加密 (3DES) 和進階加密標準 (AES)，請參閱[這裡](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759)的詳細資料。 ADF Oracle 連接器會自動協商加密方法，以使用建立 Oracle 連線時您在 OAS 中設定的方法。
+1.  若要使用**三重 DES 加密 (3DES) 和進階加密標準 (AES)**，在 Oracle 伺服器端，移至 Oracle 進階安全性 (OAS) 並設定加密設定，請參閱[這裡](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) \(英文\) 的詳細資料。 ADF Oracle 連接器會自動協商加密方法，以使用建立 Oracle 連線時您在 OAS 中設定的方法。
 
-2.  在用戶端，您可以在連接字串中新增 `EncryptionMethod=1`。 這將使用 SSL/TLS 作為加密方法。 若要使用這個方法，您需要在 Oracle 伺服器端的 OAS 中停用非 SSL 加密設定，以避免加密衝突。
+2.  若要使用 **SSL**，請遵循下列步驟：
+
+    1.  取得 SSL 憑證資訊。 取得您 SSL 憑證的 DER 編碼憑證資訊，並將輸出 (----- Begin Certificate … End Certificate -----) 儲存為文字檔。
+
+        ```
+        openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
+        ```
+
+        **範例：** 從 DERcert.cer 擷取憑證資訊，接著將輸出儲存到 cert.txt
+
+        ```
+        openssl x509 -inform DER -in DERcert.cer -text
+        Output:
+        -----BEGIN CERTIFICATE-----
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+        XXXXXXXXX
+        -----END CERTIFICATE-----
+        ```
+    
+    2.  建置金鑰儲存區或信任存放區。 下列命令會建立信任存放區檔案，但不一定要使用 PKCS 12 格式的密碼。
+
+        ```
+        openssl pkcs12 -in [Path to the file created in the previous step] -out [Path and name of TrustStore] -passout pass:[Keystore PWD] -nokeys -export
+        ```
+
+        **範例：** 使用密碼建立名為 MyTrustStoreFile 的 PKCS12 信任存放區檔案
+
+        ```
+        openssl pkcs12 -in cert.txt -out MyTrustStoreFile -passout pass:ThePWD -nokeys -export  
+        ```
+
+    3.  將信任存放區檔案放置於自我裝載 IR 機器上，例如在 C:\MyTrustStoreFile 上。
+    4.  在 ADF 中，使用 `EncryptionMethod=1` 和對應的 `TrustStore`/`TrustStorePassword` 值來設定 Oracle 連接字串，例如 `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;EncryptionMethod=1;TrustStore=C:\\MyTrustStoreFile;TrustStorePassword=<trust_store_password>`。
 
 **範例：**
 

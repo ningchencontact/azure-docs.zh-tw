@@ -43,12 +43,14 @@ items:
       href: contoso-migration-refactor-web-app-sql.md
     - name: 10. Contoso 重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式
       href: contoso-migration-refactor-linux-app-service-mysql.md
-    - name: 11. Contoso 移轉 TFS 至 VSTS
+    - name: 11. Contoso - 將 TFS 遷移至 Azure DevOps Services
       href: contoso-migration-tfs-vsts.md
     - name: 12. Contoso - 在 Azure 容器 和 Azure SQL Database 上重新架構應用程式
       href: contoso-migration-rearchitect-container-sql.md
     - name: 13. Contoso - 在 Azure 重建應用程式
       href: contoso-migration-rebuild.md
+    - name: 14. Contoso - 縮放移轉
+      href: contoso-migration-scale.md
   - name: 探索及評定大型環境
     href: how-to-scale-assessment.md
   - name: 群組機器
@@ -81,9 +83,9 @@ items:
     href: https://azure.microsoft.com/migrate
   - name: Azure 藍圖
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: a16444b1b2441ab58f8500784e668409697cef43
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: c841391db203f8fb6f1ad5eaf9dc9cfc46329fda
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161789"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873512"

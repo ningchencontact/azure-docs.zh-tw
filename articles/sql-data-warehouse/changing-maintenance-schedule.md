@@ -7,22 +7,22 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 10/07/2018
+ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 428b9970471c9365812639e251810c571698a574
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49425949"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51713260"
 ---
 # <a name="change-a-maintenance-schedule"></a>變更維護排程 
 
 ## <a name="portal"></a>入口網站
 維護排程可隨時更新或變更。 如果選取的執行個體正在進行作用中的維護週期，設定將會儲存。 它們將在下一個已識別的維護期間變成作用中。 [深入了解](https://docs.microsoft.com/azure/service-health/resource-health-overview)如何在作用中維護事件期間監視您的資料倉儲。 
 
-儘管 Azure 維護排程處於預覽狀態，您還是可以在七天期間內選取兩個維護時段。 每個維護時段都可以是三到八個小時。 維護可能會在維護時段的任何時間進行，但不會在沒有事先通知的情況下，於時段以外進行。 您也將經歷連線短暫中斷的情況，因為服務會將新的程式碼部署到您的資料倉儲。 
+若要使用維護排程，您必須在七天期間內選取兩個維護時段。 每個維護時段都可以是三到八個小時。 維護可能會在維護時段的任何時間進行，但不會在沒有事先通知的情況下，於時段以外進行。 您也將經歷連線短暫中斷的情況，因為服務會將新的程式碼部署到您的資料倉儲。 
 
 ## <a name="identifying-the-primary-and-secondary-windows"></a>識別主要與次要時段
 

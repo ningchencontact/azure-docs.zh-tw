@@ -1,11 +1,12 @@
 ---
-title: 利用簡單的迴歸模型預測答案 - Azure Machine Learning | Microsoft Docs
+title: 利用簡單的迴歸模型預測答案 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何在「適用於初學者的資料科學」影片 4 中，建立簡單迴歸模型來預測價格。 包含線性迴歸以及目標資料。
 keywords: 建立模型, 簡單模型, 價格預測, 簡單迴歸模型
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: ad1b8369358f7811a02d344fdc0306662413a404
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833820"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309771"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>利用簡單模型預測答案
 ## <a name="video-4-data-science-for-beginners-series"></a>影片 4：適用於初學者的資料科學系列

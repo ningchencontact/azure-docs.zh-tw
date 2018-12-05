@@ -1,6 +1,6 @@
 ---
 title: Azure 中 Windows 虛擬機器上的 SQL Server 常見問題集 | Microsoft Docs
-description: 本文章提供在 Azure VM 上執行 SQL Server 的常見問題解答。
+description: 此文章章提供在 Azure VM 上執行 SQL Server 的常見問題解答。
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-shysun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edddc40b17adde685f875dfaa6b20879c6e61b15
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259151"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495484"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -28,10 +28,10 @@ ms.locfileid: "51259151"
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-本文提供一些最常見關於 [Azure 中 Windows 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 執行問題的解答。
+此文章提供一些最常見關於 [Azure 中 Windows 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 執行問題的解答。
 
 > [!NOTE]
-> 本文將重點放在 Windows VM 上 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
+> 此文章將重點放在 Windows VM 上 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -39,7 +39,7 @@ ms.locfileid: "51259151"
 
 1. **可用的 SQL Server 虛擬機器資源庫映像有哪些？**
 
-   Azure 會針對所有 Windows 和 Linux 版本上所有支援的 SQL Server 主要版本維護虛擬機器映像。 如需詳細資訊，請參閱完整的 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)和 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)清單。
+   Azure 會針對所有 Windows 和 Linux 版本上所有支援的 SQL Server 主要版本維護虛擬機器映像。 如需詳細資訊，請參閱完整的 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)與 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)清單。
 
 1. **現有的 SQL Server 虛擬機器資源庫映像是否已更新？**
 
@@ -73,14 +73,46 @@ ms.locfileid: "51259151"
 
    做法有二種。 您可以佈建其中一個[支援授權的虛擬機器映像](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)，也就是所謂的自備授權 (BYOL)。 另一個選項是將 SQL Server 安裝媒體複製到 Windows Server VM 上，然後在 VM 上安裝 SQL Server。 不過，如果您手動安裝 SQL Server，則不會進行入口網站整合，且不支援 SQL Server IaaS 代理程式擴充功能，因此「自動備份」和「自動修補」等功能在此情況下將無法運作。 基於此原因，建議您使用其中一個 BYOL 資源庫映像。 若要在 Azure VM 上使用 BYOL 或您自己的 SQL Server 媒體，您必須具備 [Azure 上透過軟體保證的授權流動性](https://azure.microsoft.com/pricing/license-mobility/)。 如需詳細資訊，請參閱 [SQL Server Azure VM 的定價指導方針](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
-1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
-
-   否。 您不能從以秒鐘計費授權切換為使用您自己的授權。 因此，請使用其中一個 [BYOL 映像](virtual-machines-windows-sql-server-iaas-overview.md#BYOL)來建立新的 Azure 虛擬機器，然後使用標準 [資料移轉技術](virtual-machines-windows-migrate-sql.md)，將資料庫移轉到新的伺服器。
 
 1. **如果只是用於待命/容錯移轉，需要對 Azure VM 上的 SQL Server 授權付費嗎？**
 
-   如果您有軟體保證並且使用[虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/)中所述的授權機動性，則您不需要對參加為 HA 部署中被動次要複本的一個 SQL Server 授權付費。 否則，您必須支付它的授權費用。
+   如果您有軟體保證並且使用虛擬機器授權常見問題集](https://azure.microsoft.com/pricing/licensing-faq/)中所述的授權機動性，則您不需要對參加為 HA 部署中被動次要複本的一個 SQL Server 授權付費。 否則，您必須支付它的授權費用。
 
+1. **如果是從其中一個隨收隨付資源庫映像建立，可以將 VM 變更為使用自己的 SQL Server 授權嗎？**
+
+   是。 您可以輕鬆地在兩個授權模型中切換，不論原先部署的映像為何。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模型](virtual-machines-windows-sql-ahb.md)。
+
+1. **我應該使用 BYOL 映像或 SQL VM RP 來建立新 SQL VM？**
+
+   自備授權 (BYOL) 映像只針對 EA 客戶提供。 擁有軟體保證的其他客戶應該使用 SQL VM 資源提供者來搭配 [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/) 建立 SQL VM。 
+
+1. **切換授權模型是否必須讓 SQL Server 停機？**
+
+   否。 [變更授權模型](virtual-machines-windows-sql-ahb.md)不需要將 SQL Server 停機，因為變更會立即生效，且不需要重新啟動 VM。 
+
+1. **CSP 訂用帳戶是否能啟用 Azure Hybrid Benefit？**
+
+   是。 [變更授權模型](virtual-machines-windows-sql-ahb.md)適用於 CSP 訂用帳戶。 
+
+1. **使用新的 SQL VM 資源提供者註冊我的 VM 是否會產生額外的成本？**
+
+   否。 SQL VM 資源提供者只會在 Azure VM 上啟用額外的 SQL Server 管理，而不會產生任何額外費用。 
+
+1. **SQL VM 資源提供者是否適用於所有客戶？**
+ 
+   是。 所有客戶都能向新的 SQL VM 資源提供者註冊。 不過，只有具有軟體保證權益的客戶可以在 SQL Server VM 上啟用 [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (或 BYOL)。 
+
+1. *若 VM 資源被移動或捨棄，Microsoft.SqlVirtualMachine* 資源會發生什麼事？** 
+
+   當 Microsoft.Compute/VirtualMachine 資源被捨棄或移動時，系統會通知關聯的 Microsoft.SqlVirtualMachine 資源，讓其以非同步方式複寫作業。
+
+1. **若  _* Microsoft.SqlVirtualMachine_*  資源被卸除，VM 會發生什麼事？**
+
+   當 Microsoft.SqlVirtualMachine 資源被卸除時，Microsoft.Compute/VirtualMachine 資源不會受影響。 不過，授權變更將會還原為預設的原始映像來源。 
+
+1. **是否可以向 SQL VM 資源提供者註冊自我部署 SQL Server VM？**
+
+   是。 若您從自己的媒體部署 SQL Server，您可以向資源提供者註冊您自己的 SQL VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為 PAYG。 
 
 ## <a name="administration"></a>系統管理
 

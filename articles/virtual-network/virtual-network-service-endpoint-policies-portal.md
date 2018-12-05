@@ -1,6 +1,6 @@
 ---
 title: 建立服務端點原則並為其建立關聯 - Azure 入口網站 | Microsoft Docs
-description: 在本文中，了解如何使用 Azure 入口網站設定服務端點原則並為其建立關聯。
+description: 在此文章中，了解如何使用 Azure 入口網站設定服務端點原則並為其建立關聯。
 services: virtual-network
 documentationcenter: virtual-network
 author: anithaa
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 3c28181e1d1a4fd1cdac530ed8f393c7e0c7ea92
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6bd318da5b3cd667d0a39b9c963e8d3ffd472f41
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426291"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633005"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>使用 Azure 入口網站建立、變更或刪除服務端點原則
 
@@ -64,9 +64,9 @@ ms.locfileid: "49426291"
    
    ![建立服務端點原則定義](./media/virtual-network-service-endpoint-policies-portal/virtual-network-endpoint-policies-create-policydefinitionspane.PNG)
    
-5. 選擇性：在 [標記] 中，輸入或選取下列資訊
+5. 選擇性：在 [標記] 中，輸入或選取下列資訊：
    
-   - 索引鍵：為您的原則選取索引鍵。 例如：部門     
+   - 機碼：為您的原則選取機碼。 例如：部門     
    - 值：為索引建輸入值組。 例如：財務
 
 6. 選取 [檢閱 + 建立]。 驗證資訊，然後按一下 [建立]。 若要進一步編輯，請按一下 [上一步]。 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
-ms.openlocfilehash: 602ea8028cf89b23df692d5c2fb9b781f64bcad4
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7062d98d40c15f4e9e873038fc12fc1b104c996d
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341679"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52333474"
 ---
 # <a name="categorizing-images"></a>將影像分類
 
@@ -25,7 +25,7 @@ ms.locfileid: "49341679"
 
 根據下圖中列出的 86 種概念，將影像進行明確或特定範圍的分類。 如需文字格式的完整分類，請參閱[類別分類](category-taxonomy.md)。
 
-![分析類別](./Images/analyze_categories.png)
+![類別分類法中所有類別的分組清單](./Images/analyze_categories-v2.png)
 
 ## <a name="image-categorization-examples"></a>影像分類範例
 

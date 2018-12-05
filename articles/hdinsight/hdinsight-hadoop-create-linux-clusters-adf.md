@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036371"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499554"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-在本文中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 Apache Hadoop 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在本教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
+在此文中，您會了解如何使用 Azure Data Factory，在 Azure HDInsight 中隨選建立 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 接著，您會在 Azure Data Factory 中使用資料管線，以執行 Hive 作業並刪除該叢集。 在本教學課程結束時，您會了解如何讓巨量資料作業執行能夠運作，其中會依排程執行叢集建立、作業執行及叢集刪除。
 
 本教學課程涵蓋下列工作： 
 
@@ -43,7 +43,7 @@ ms.locfileid: "51036371"
 
 ## <a name="create-an-azure-storage-account"></a>建立 Azure 儲存體帳戶
 
-在本節中，您會建立儲存體帳戶，以用來作為隨選建立 HDInsight 叢集的預設儲存體。 這個儲存體帳戶也會包含範例 HiveQL 指令碼 (**hivescript.hql**)，可讓您用來模擬在叢集上執行的範例 Hive 作業。
+在本節中，您會建立儲存體帳戶，以用來作為隨選建立 HDInsight 叢集的預設儲存體。 這個儲存體帳戶也會包含範例 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 指令碼 (**hivescript.hql**)，讓您用來模擬在叢集上執行的範例 [Apache Hive](https://hive.apache.org/) 作業。
 
 本節會使用 Azure PowerShell 指令碼來建立儲存體帳戶，並複製儲存體帳戶內的必要檔案。 本節中的 Azure PowerShell 範例指令碼會執行下列工作：
 
@@ -151,7 +151,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 - [資料移動活動](../data-factory/copy-activity-overview.md)：您可以使用資料移動活動，將資料從來源資料存放區移到目的地資料存放區。
 - [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
 
-在本文中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
+在此文章中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
 
 1. 系統會適時自動建立 HDInsight Hadoop 叢集來處理配量。 
 
@@ -338,7 +338,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何使用 Azure Data Factory 來建立隨選 HDInsight 叢集並執行 Hive 作業。 前往下一篇文章，以了解如何使用自訂設定來建立 HDInsight 叢集。
+在此文章中，您已了解如何使用 Azure Data Factory 來建立隨選 HDInsight 叢集並執行 [Apache Hive](https://hive.apache.org/) 作業。 前往下一篇文章，以了解如何使用自訂設定來建立 HDInsight 叢集。
 
 > [!div class="nextstepaction"]
 >[使用自訂設定來建立 Azure HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)

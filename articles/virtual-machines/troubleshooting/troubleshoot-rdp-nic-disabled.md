@@ -1,6 +1,6 @@
 ---
-title: 因 NIC 停用而無法將遠端桌面連線到 Azure 虛擬機器 | Microsoft Docs
-description: 了解如何排解因 Azure VM 已停用 NIC 而導致 RDP 失敗的問題 | Microsoft Docs
+title: 因 NIC 停用而無法從遠端連線到 Azure 虛擬機器 | Microsoft Docs
+description: 了解針對因 Azure VM 已停用 NIC 而導致 RDP 失敗的問題進行疑難排解 | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6b14530bd6b4c1b6617cb1d5c88d710a32e5372c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9e4731146409f51d16a8c92c01d07a8ff11a7ea
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634812"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314519"
 ---
-#  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>因網路介面已停用而無法將遠端桌面連線到 VM
+#  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>因網路介面已停用而無法使用遠端桌面方式連線到 VM
 
-本文說明如何解決因網路介面已停用而無法將遠端桌面連線到 Azure Windows 虛擬機器 (VM) 的問題。
+此文章說明如何解決因網路介面已停用而無法使用遠端桌面連線方式連線到 Azure Windows 虛擬機器 (VM) 的問題。
 
 > [!NOTE] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。 
+> Azure 建立和處理資源的部署模型有二種：[資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 此文章說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。 
 
 ## <a name="symptoms"></a>徵兆 
 
@@ -51,7 +51,7 @@ ms.locfileid: "51634812"
 
         netsh interface set interface name="interface Name" admin=enabled
 
-    比方說，如果交互作用介面名稱為「乙太網路 2」，請執行下列命令：
+    例如，如果交互作用介面名稱為「乙太網路 2」，請執行下列命令：
 
         netsh interface set interface name=""Ethernet 2" admin=enabled
     
@@ -62,8 +62,8 @@ ms.locfileid: "51634812"
 
     此時您不需要重新啟動 VM。 您可回頭連線 VM。
         
-5.  連線至 VM 並查看問題是否已解決。
+5.  連線到 VM 並查看問題是否已解決。
 
 ## <a name="reset-network-interface"></a>重設網路介面
 
-若要重設網路介面，請使用 Azure 入口網站或 Azure PowerShell 將 IP 位址變更為子網路中其他可用的 IP 位址。 如需詳細資訊，請參閱[重設網路介面](reset-network-interface.md)。 
+若要重設網路介面，請將 IP 位址變更為子網路中可用的其他 IP 位址。 若要這樣做，請使用 Azure 入口網站或 Azure PowerShell。 如需詳細資訊，請參閱[重設網路介面](reset-network-interface.md)。 

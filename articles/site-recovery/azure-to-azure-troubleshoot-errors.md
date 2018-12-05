@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: 040ace1eab4062c011ed82a59e7f5bfb789c256b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945734"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308115"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
-本文說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
+此文章說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 資源配額問題 (錯誤碼 150097)
 您的訂用帳戶應該啟用，才能在要做為災害復原區域的目標區域中建立 Azure VM。 此外，您的訂用帳戶應該已啟用足夠的配額，才能建立特定大小的 VM。 根據預設，Site Recovery 會取用相同大小的目標 VM 做為來源 VM。 如果沒有相符大小，系統會自動挑選最接近的大小。 如果沒有支援來源 VM 組態的相符大小，則會出現下列錯誤訊息：
@@ -150,28 +150,36 @@ ms.locfileid: "49945734"
 
 若要使 Site Recovery 複寫正常運作，VM 需要特定 URL 或 IP 範圍的輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>問題 1：無法向 Site Recovery 註冊 Azure 虛擬機器 (151037) </br>
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>問題 1：無法向 Site Recovery 註冊 Azure 虛擬機器 (151195) </br>
 - **可能的原因** </br>
-  - 您使用 NSG 控制傳出 VM 的存取，而且所需的 IP 範圍並未列在傳出存取的允許清單中。
-  - 您使用第三方防火牆工具，而且所需的 IP 範圍/URL 並未列在允許清單中。
+  - 因 DNS 解析失敗而無法建立與 Site Recovery 端點之間的連線。
+  - 此問題經常會在您已將虛擬機器容錯移轉，但 DR 區域無法連線到 DNS 伺服器的情況下進行重新保護的期間發生。
+  
+- **解決方案**
+   - 如果您是使用自訂 DNS，請確保災害復原區域可以連線到 DNS 伺服器。 若要查看您是否有自訂 DNS，請移至 VM> [災害復原網路] > [DNS 伺服器]。 嘗試從虛擬機器存取 DNS 伺服器。 如果無法存取，請試著對 DNS 伺服器進行容錯移轉，或在 DR 網路和 DNS 之間建立連線。
+  
+    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+ 
 
+### <a name="issue-2-site-recovery-configuration-failed-151196"></a>問題 2：Site Recovery 設定失敗 (151196)
+- **可能的原因** </br>
+  - 無法建立與 Office 365 驗證與身分識別 IP4 端點之間的連線。
 
 - **解決方案**
-   - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。
-   - 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[網路安全性群組指引](azure-to-azure-about-networking.md)。
-   - 若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允許清單中，請依照[網路指引文件](azure-to-azure-about-networking.md)中的步驟進行。
+  - Azure Site Recovery 需要存取 Office 365 IP 範圍以進行驗證。
+    如果您是使用 Azure 網路安全性群組 (NSG) 規則/防火牆 Proxy 來控制 VM 上的輸出網路連線能力，請確保您已允許與 O365 IP 範圍之間的通訊。 建立 [Azure Active Directory (AAD) 服務標籤](../virtual-network/security-overview.md#service-tags)型 NSG 規則，以允許存取對應至 AAD 的所有 IP 位址
+        - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
 
-### <a name="issue-2-site-recovery-configuration-failed-151072"></a>問題 2：Site Recovery 組態失敗 (151072)
+
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>問題 3：	Site Recovery 設定失敗 (151197)
 - **可能的原因** </br>
-  - 無法在連線至 Site Recovery 服務端點
-
+  - 無法在連線至 Azure Site Recovery 服務端點。
 
 - **解決方案**
-   - 如果您使用防火牆 Proxy 控制 VM 上的傳出網路連線能力，請確定必要條件 URL 或資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[防火牆 Proxy 指引](https://aka.ms/a2a-firewall-proxy-guidance)。
-   - 如果您使用 NSG 規則控制 VM 上的傳出網路連線能力，請確定必要條件資料中心 IP 範圍列在允許清單中。 如需資訊，請參閱[網路安全性群組指引](https://aka.ms/a2a-nsg-guidance)。
-   - 若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允許清單中，請依照[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)中的步驟進行。
+  - 根據區域的不同，Azure Site Recovery 需要存取不同的 [Site Recovery IP 範圍](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)。 請確保虛擬機器可存取所需的 IP 範圍。
+    
 
-### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>問題 3：當網路流量通過內部部署 Proxy 伺服器時，A2A 複寫失敗 (151072)
+### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>問題 4：當網路流量通過內部部署 Proxy 伺服器時，A2A 複寫失敗 (151072)
  - **可能的原因** </br>
    - 自訂 Proxy 設定無效，且 ASR 行動服務代理程式未自動偵測到 IE 的 Proxy 設定
 

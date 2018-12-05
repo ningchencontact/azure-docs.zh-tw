@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: a57e7ccedd0c3b776a39c6750a3d5b4b5cc41d88
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685441"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632478"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -43,8 +43,18 @@ ms.locfileid: "51685441"
 
 ### <a name="v2-builds"></a>v2 組建
 
+### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
+* 已新增 ChangeFeedProcessorOptions.StartContinuation 屬性，以支援從要求接續 Token 啟動變更摘要。 只有在租用集合是空的或租用未設定 ContinuationToken 時，才會使用此屬性。 如果租用集合中的租用已設定 ContinuationToken，則會使用 ContinuationToken 並忽略 ChangeFeedProcessorOptions.StartContinuation。
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* 已新增使用自訂存放區來保存每個分割區之接續 Token 的支援。
+  * 例如，自訂的租用存放區可以是利用任何自訂方式所分割的 Azure Cosmos DB 租用集合。
+  * 自訂的租用存放區可以使用新的擴充點 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager) 和 ILeaseStoreManager 公用介面。
+  * 已在多個角色介面中重構 ILeaseManager 介面。
+* 次要重大變更：已移除擴充點 ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager)，改為使用 ChangeFeedProcessorBuilder.WithLeaseStoreManager(ILeaseStoreManager)。
+
 ### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
-* 已修正分割租用集合時處理分割期間可能發生的問題。 此問題可能會導致已刪除分割區的租用未從租用集合中刪除。 此版本已經修正這個問題。
+* 此版本會修正在處理受監視集合中的分割以及使用已分割之租用集合期間所發生的問題。 在處理已分割之分割區的租用時，可能不會刪除對應至該分割區的租用。 此版本已經修正這個問題。
 
 ### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
 * 固定式估算程式計算，適用於多重主機帳戶和新的工作階段權杖格式。

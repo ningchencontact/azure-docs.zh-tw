@@ -1,27 +1,26 @@
 ---
 title: 了解來自 Azure 串流分析的輸出
-description: 本文說明 Azure 串流分析中所提供的資料輸出選項，包括適用於分析結果的 Power BI。
+description: 此文章說明 Azure 串流分析中所提供的資料輸出選項，包括適用於分析結果的 Power BI。
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/22/2018
-ms.openlocfilehash: 2ef599fe704b184e82de2d704753e3fb4a274a2a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/21/2018
+ms.openlocfilehash: 869941781643d3486506b5a3caed4006019fb3b7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257794"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310030"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解來自 Azure 串流分析的輸出
-本文說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。 
+此文章說明適用於 Azure 串流分析作業的不同輸出類型。 輸出可讓您存放並儲存串流分析作業的結果。 透過使用輸出資料，您可以對資料進行進一步的商務分析及資料倉儲處理。 
 
 在您設計串流分析查詢時，請使用 [INTO 子句](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics) \(英文\) 參考輸出的名稱。 您可以針對每個作業使用單一輸出，或視需要在查詢中提供多個 INTO 子句來針對每個串流作業使用多個輸出。
 
-若要建立、編輯及測試串流分析作業輸出，您可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md#configure-output-to-the-job)、[Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)、[.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet) \(英文\)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) \(英文\)，以及 [Visual Studio](stream-analytics-quick-create-vs.md)。
+若要建立、編輯及測試串流分析作業輸出，您可以使用 [Azure 入口網站](stream-analytics-quick-create-portal.md#configure-job-output)、[Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)、[.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet) \(英文\)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) \(英文\)，以及 [Visual Studio](stream-analytics-quick-create-vs.md)。
 
 某些輸出類型支援[資料分割](#partitioning)，且[輸出批次大小](#output-batch-size)會變化以達到最佳輸送量。
 
@@ -70,8 +69,8 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 輸出別名 |此為易記名稱，用於在查詢中將查詢輸出指向這個資料庫。 |
 | 資料庫 | 您傳送輸出的目標資料庫名稱。 |
 | 伺服器名稱 | SQL Database 伺服器名稱。 |
-| 使用者名稱 | 具有寫入資料庫存取權限的使用者名稱。 |
-| 密碼 | 連接到資料庫的密碼 |
+| 使用者名稱 | 具有寫入資料庫存取權限的使用者名稱。 串流分析只支援 SQL 驗證。 |
+| 密碼 | 連線到資料庫的密碼。 |
 | 資料表 | 要在其中寫入輸出的資料表名稱。 資料表名稱會區分大小寫，且資料表的結構描述應該完全符合作業輸出所產生的欄位數目和其類型。 |
 
 > [!NOTE]
@@ -127,7 +126,7 @@ Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前�
 | 格式 | 僅適用於 JSON 序列化。 分隔的行會指定輸出的格式化方式為利用新行分隔每個 JSON 物件。 陣列會指定輸出將會格式化為 JSON 物件的陣列。 只有在作業停止或串流分析已移動到下一個時間範圍時，才會關閉這個陣列。 一般情況下，最好使用分行的 JSON，因為它不需要任何特殊處理，同時仍會寫入輸出檔案。 |
 
 ## <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 這項功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
+[Power BI](https://powerbi.microsoft.com/) 當做串流分析工作的輸出，來為分析結果提供豐富的視覺體驗。 此功能可以用於可運作的儀表板、產生報告，以及度量驅動的報告。
 
 Azure 中國 (21Vianet) 和 Azure 德國 (T-Systems International) 區域目前無法從串流分析產生 Power BI 輸出。
 

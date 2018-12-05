@@ -9,17 +9,16 @@ ms.assetid: 6ccab5d4-34c4-4303-9d3b-a0f1b11e6651
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.custom: mvc
 ms.topic: overview
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 41c8fd0092af035153b3161c4a6c3eb5c5ef3f1d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cb106abaff2446fdbc2d025ae96c95745bc53150
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958894"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728050"
 ---
 # <a name="overview-of-application-insights-for-devops"></a>DevOps 適用的 Application Insights 概觀
 
@@ -176,20 +175,20 @@ Marcela 不會無所事事等候警示。 在每次重新部署之後，她都�
 ## <a name="diagnose-issues"></a>診斷問題
 診斷與偵測不太一樣。 開始追蹤程式碼之前，您應該對問題的原因、位置和發生時機有約略的構念。
 
-**發生時機為何？** 事件和度量圖表提供的歷程檢視可讓您輕鬆將影響與可能原因產生相互關聯。 如果回應時間或例外狀況率中有間歇性的尖峰，請查看要求計數：如果尖峰是在相同時間，則可能是資源問題。 您需要指派更多 CPU 或記憶體嗎？ 或者它是無法管理負載的相依性？
+**發生時機為何？**  事件和度量圖表提供的歷程檢視可讓您輕鬆將影響與可能原因產生相互關聯。 如果回應時間或例外狀況率中有間歇性的尖峰，請查看要求計數：如果尖峰是在相同時間，則可能是資源問題。 您需要指派更多 CPU 或記憶體嗎？ 或者它是無法管理負載的相依性？
 
-**問題在於我們嗎？**  如果特定類型的要求效能突然下降 - 例如客戶想要對帳單時 - 則可能是外部子系統而非 Web 應用程式有問題。 在「計量瀏覽器」中，選取相依性失敗率和相依性期間率，並將其過去幾個小時或幾天的歷程記錄與您偵測到的問題比較。 如果有相互關聯的變更，則外部子系統可能是原因所在。  
+**問題在於我們嗎？**   如果特定類型的要求效能突然下降 - 例如客戶想要對帳單時 - 則可能是外部子系統而非 Web 應用程式有問題。 在「計量瀏覽器」中，選取相依性失敗率和相依性期間率，並將其過去幾個小時或幾天的歷程記錄與您偵測到的問題比較。 如果有相互關聯的變更，則外部子系統可能是原因所在。  
 
 
 ![相依性失敗和對相依性呼叫期間的圖表](./media/app-insights-detect-triage-diagnose/11-dependencies.png)
 
 有些緩慢相依性的問題是地理位置問題。 Fabrikam 銀行使用 Azure virtual 機器，並發現他們誤將 Web 伺服器和帳戶伺服器放置在不同國家/地區。 透過移轉其中一部伺服器獲得明顯的改善。
 
-**我們做了什麼？** 如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。 若要識別應用程式程式碼中哪些行讓效能變慢，請啟用 Application Insights Profiler。 請參閱[使用 Application Insights 來即時分析 Azure Web Apps](./app-insights-profiler.md)。 啟用分析工具之後，您會看到類似下列的追蹤。 在此範例中，很容易就能注意到是方法 *GetStorageTableData* 造成問題。  
+**我們做了什麼？**  如果問題似乎不在於相依性，而且如果不是持續有問題，則可能是由於最近的變更而導致。 度量和事件圖表提供的歷史觀點讓您輕鬆將任何突然的變更與部署產生相互關聯。 它可縮小問題的搜尋範圍。 若要識別應用程式程式碼中哪些行讓效能變慢，請啟用 Application Insights Profiler。 請參閱[使用 Application Insights 來即時分析 Azure Web Apps](./app-insights-profiler.md)。 啟用分析工具之後，您會看到類似下列的追蹤。 在此範例中，很容易就能注意到是方法 *GetStorageTableData* 造成問題。  
 
 ![App Insights Profiler 追蹤](./media/app-insights-detect-triage-diagnose/AppInsightsProfiler.png)
 
-**發生什麼？** 有些問題很少發生，而且透過離線測試可能難以追蹤。 我們能做的是嘗試在問題發生時擷取錯誤。 您可以在例外狀況報告中檢查堆疊傾印。 此外，您可以使用喜好的記錄架構或使用 TrackTrace() 或 TrackEvent() 來編寫追蹤呼叫。  
+**發生什麼？**  有些問題很少發生，而且透過離線測試可能難以追蹤。 我們能做的是嘗試在問題發生時擷取錯誤。 您可以在例外狀況報告中檢查堆疊傾印。 此外，您可以使用喜好的記錄架構或使用 TrackTrace() 或 TrackEvent() 來編寫追蹤呼叫。  
 
 Fabrikam 的帳戶間轉送發生間歇性問題，但只有某些帳戶類型有此情況。 為了更加了解發生的情況，他們在程式碼中的重要點插入了 TrackTrace() 呼叫，附加帳戶類型作為每個呼叫的內容。 那使得要在診斷搜尋中僅篩選掉這些追蹤更為輕鬆。 他們也將參數值附加為追蹤呼叫的屬性和測量。
 

@@ -1,6 +1,6 @@
 ---
 title: 決定您在 Azure Marketplace 中的發佈選項 | Azure
-description: 本文說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
+description: 此文章說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578492"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52261066"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。
@@ -32,7 +32,7 @@ ms.locfileid: "45578492"
 >上表描述您的解決方案或服務如何對應到用來在市集中展示供應項目的店面、發佈選項和供應項目類型。
 
 
-在本文中，您將了解…
+在此文章中，您將了解…
 <ul><li>    如何為解決方案決定適當的店面 </ul></li>
 <ul><li>    每個店面中有哪些發佈選項和呼籲行動可用 </ul></li>
 <ul><li>    每個發佈選項有哪些供應項目類型可用 </ul></li>
@@ -64,26 +64,18 @@ ms.locfileid: "45578492"
 
 可用的發佈選項會提供差異化客戶參與，同時給予您潛在客戶共用和[進入市場權益](https://partner.microsoft.com/en-US/reach-customers/gtm)的存取權。 在使用 Cloud Partner 入口網站建立市集供應項目之前，請從三個可行的發佈選項中選取。 請注意與發佈選項對應的呼籲行動：
 
-**清單** - 應用程式或服務的簡易清單，可讓市集使用者向您要求透過**與我連絡**呼籲行動，與客戶聯繫。
+| **發行選項**    | **說明**  |
+| :------------------- | :-------------------|
+| **清單** | 應用程式或服務的簡易清單，可讓市集使用者向您要求透過**與我連絡**呼籲行動，與客戶聯繫。 |
+| **試用版** | 使用市集來增強曝光度，並且將佈建應用程式的試用體驗自動化，讓潛在使用者在購買之前，在一段有限的時間內免費使用您的 SaaS、IaaS 或 Microsoft 應用程式內體驗。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。 |
+| **交易** | 您的應用程式是在 Azure 上執行，當客戶選取「立即取得」呼籲行動時，可用資源形式直接佈建到客戶的 Azure 訂用帳戶中。 您可以透過客戶選擇的付款方式和條款，選擇性地購買軟體並支付授權費用；也可以讓客戶限時存取**免費軟體試用** (僅適用於 Azure Marketplace)。 |
 
-**試用** - 使用市集來增強曝光度，並且將佈建應用程式的試用體驗自動化，讓潛在使用者在購買之前，在一段有限的時間內免費使用您的 SaaS、IaaS 或 Microsoft 應用程式內體驗。 用於試用發佈選項的呼籲行動有：**免費試用**或**試用產品**。
-
-**交易** - 您的應用程式是在 Azure 上執行，當客戶選取「立即取得」呼籲行動時，可用資源形式直接佈建到客戶的 Azure 訂用帳戶中。 您可以透過客戶選擇的付款方式和條款，選擇性地購買軟體並支付授權費用；也可以讓客戶限時存取**免費軟體試用** (僅適用於 Azure Marketplace)。 
-
-## <a name="select-an-offer-type"></a>選取供應項目類型
-
-一旦您決定發佈選項，就能夠選取要用於展示供應項目的供應項目類型。 
-
-供應項目是您在 Cloud Partner 入口網站中建立、發佈及管理的發佈物件。 供應項目結構 (包括用來在市集中展示供應項目的中繼資料、成品和其他內容)，是由供應項目類型定義的。
-
-您必須先選擇供應項目類型，才能建立供應項目。 供應項目類型會對應至您想要發佈的解決方案、應用程式服務供應項目類型，以及對等的 Microsoft 產品和服務。 
-
-單一供應項目類型可以在 Cloud Partner 入口網站中以不同方式設定，以啟用不同的發佈選項、呼籲行動、佈建或定價。 發佈選項和供應項目類型的組態，也會符合供應項目資格和技術需求。 
-
-在您建立供應項目之前，請務必檢閱此[發行者指南](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)中的供應項目類型資格需求，以及技術發佈需求。
+>[!Note]
+>當使用交易發佈選項時，請務必了解定價、計費、發票處理和付款考量，然後再選取供應項目類型與建立供應項目。 檢閱[市集計費與商業考量文章以深入了解](./marketplace-commercial-transaction-capabilities-and-considerations.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
+*   一旦您決定發佈選項，就能夠選取要用於展示供應項目的[供應項目類型](./publisher-guide-by-offer-type.md)。
 *   請依據供應項目類型區段，檢閱發佈選項中的資格需求，以完成供應項目的選取和設定。
 *   請依據店面檢閱發佈模式，以取得解決方案如何對應至供應項目類型和組態的範例。
 *   請登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以建立及設定您的供應項目。

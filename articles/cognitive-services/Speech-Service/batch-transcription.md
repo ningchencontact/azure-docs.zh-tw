@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035946"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495583"
 ---
-# <a name="use-batch-transcription"></a>使用批次轉譯
+# <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
-如果您的儲存體中有大量音訊，則適合使用 Batch 轉譯。 藉由使用該 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並非同步地接收轉譯。
+如果您的儲存體中有大量音訊，則適合使用 Batch 轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並非同步地接收轉譯。
 
 ## <a name="the-batch-transcription-api"></a>Batch 轉譯 API
 
@@ -36,16 +36,16 @@ Batch 轉譯 API 提供非同步語音轉換文字轉譯及其他功能。 此 R
 
 Batch 轉譯 API 支援下列格式：
 
-名稱| 通道  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  立體聲  | 
-wav |   Mono   |
-wav |  立體聲  |
-opus|   Mono   |
-opus|  立體聲  |
+| 格式 | 轉碼器 | Bitrate | 採樣速率 |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
+| MP3 | PCM | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
+| OGG | OPUS | 16 位元 | 8 或 16 kHz、單聲道、立體聲 |
 
-針對立體聲音訊資料流，Batch 轉譯會在轉譯期間分割左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出，其中包含設定不雅內容過濾和標點符號模型的屬性：
+> [!NOTE]
+> Batch 轉換 API 需要 S0 金鑰 (付費層)。 它無法搭配免費 (f0) 金鑰使用。
+
+針對立體聲音訊資料流，Batch 轉譯 API 會在轉譯期間分離左右聲道。 這會建立兩個 JSON 結果檔案，每個聲道各建立一個。 每個語句的時間戳記可讓開發人員建立排序的最終文字記錄。 下列 JSON 範例顯示聲道的輸出，包括設定不雅內容過濾和標點符號模型的屬性。
 
 ```json
 {
@@ -62,6 +62,16 @@ opus|  立體聲  |
 
 > [!NOTE]
 > Batch 轉譯 API 使用 REST 服務來要求轉譯、其狀態及相關結果。 您可以使用任何語言的 API。 下一節描述 API 的使用方式。
+
+### <a name="query-parameters"></a>查詢參數
+
+REST 要求的查詢字串中可能包括這些參數。
+
+| 參數 | 說明 | 必要/選用 |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | 指定如何處理辨識結果中的不雅內容。 接受的值為 `none` (會停用不雅內容過濾)、`masked` (為以星號取代不雅內容)、`removed` (會移除結果中的所有不雅內容) 或 `tags` (會新增「不雅內容」標記)。 預設設定為 `masked`。 | 選用 |
+| `PunctuationMode` | 指定如何處理辨識結果中的標點符號。 接受的值為`none` (會停用標點符號)、`dictated` (暗示明確的標點符號)、`automatic` (會讓解碼器處理標點符號) 或 `dictatedandautomatic` (暗示口述的標點符號或自動)。 | 選用 |
+
 
 ## <a name="authorization-token"></a>授權權杖
 

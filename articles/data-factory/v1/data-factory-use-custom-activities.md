@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 580dd5bf6a7e905927189f4b1ae42ab49a1cbc80
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b7a2f9350633be5ec0cb8d5a7c6e7cc5048f956a
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730707"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275992"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>在 Azure 資料處理站管線中使用自訂活動
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.locfileid: "45730707"
 > * [第 2 版 (目前的版本)](../transform-data-using-dotnet-custom-activity.md)
 
 > [!NOTE]
-> 本文適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
+> 此文章適用於 Data Factory 的第 1 版。 如果您使用目前版本的 Data Factory 服務，請參閱[第 2 版中的自訂活動](../transform-data-using-dotnet-custom-activity.md)。
 
 您可以在 Azure Data Factory 管線中使用兩種活動。
 
@@ -99,7 +99,7 @@ public IDictionary<string, string> Execute(
 - **活動**。 這個屬性表示目前的活動。 它可以用來存取與自訂活動相關聯的延伸屬性。 如需詳細資訊，請參閱[存取延伸屬性](#access-extended-properties)。
 - **logger**。 此物件可讓您撰寫會呈現為管線的使用者記錄檔的偵錯註解。
 
-此方法會傳回未來可用來將自訂活動鏈結在一起的字典。 尚未實作這項功能，因此會從方法傳回空的字典。  
+此方法會傳回未來可用來將自訂活動鏈結在一起的字典。 尚未實作此功能，因此會從方法傳回空的字典。  
 
 ### <a name="procedure"></a>程序
 1. 建立 **.NET 類別庫** 專案。
@@ -212,7 +212,7 @@ public IDictionary<string, string> Execute(
         foreach (LinkedService ls in linkedServices)
             logger.Write("linkedService.Name {0}", ls.Name);
     
-        // get the first Azure Storate linked service from linkedServices object
+        // get the first Azure Storage linked service from linkedServices object
         // using First method instead of Single since we are using the same
         // Azure Storage linked service for input and output.
         inputLinkedService = linkedServices.First(
@@ -620,7 +620,7 @@ test custom activity Microsoft test custom activity Microsoft
    * activities 區段中有一個活動，它的類型是： **DotNetActivity**。
    * **AssemblyName** 設定為 DLL 的名稱：**MyDotnetActivity.dll**。
    * **EntryPoint** 設定為 **MyDotNetActivityNS.MyDotNetActivity**。
-   * **PackageLinkedService** 設定為 **AzureStorageLinkedService**，它會指向包含自訂活動 zip 檔案的 Blob 儲存體。 如果您將不同的 Azure 儲存體帳戶用於輸入/輸出檔案和自訂活動 zip 檔案，您可以建立另一個 Azure 儲存體連結服務。 本文假設您使用相同的 Azure 儲存體帳戶。
+   * **PackageLinkedService** 設定為 **AzureStorageLinkedService**，它會指向包含自訂活動 zip 檔案的 Blob 儲存體。 如果您將不同的 Azure 儲存體帳戶用於輸入/輸出檔案和自訂活動 zip 檔案，您可以建立另一個 Azure 儲存體連結服務。 此文章假設您使用相同的 Azure 儲存體帳戶。
    * **PackageFile** 設定為 **customactivitycontainer/MyDotNetActivity.zip**。 其格式為：containerforthezip/nameofthezip.zip。
    * 自訂活動會採用 **InputDataset** 做為輸入和 **OutputDataset** 做為輸出。
    * 自訂活動的 linkedServiceName 屬性會指向 **AzureBatchLinkedService**，這會告知 Azure Data Factory 自訂活動必須在 Azure Batch VM 上執行。
@@ -640,7 +640,7 @@ test custom activity Microsoft test custom activity Microsoft
    ![輸出配量](./media/data-factory-use-custom-activities/OutputSlices.png)
 4. 確認 Blob 儲存體的 **adftutorial** 容器中已產生輸出檔案。
 
-   ![自訂活動的輸出][image-data-factory-ouput-from-custom-activity]
+   ![自訂活動的輸出][image-data-factory-output-from-custom-activity]
 5. 如果您開啟輸出檔，您應該會看到類似下面的輸出：
 
     ```
@@ -1063,6 +1063,6 @@ GitHub 上的 [Azure Data Factory - 本機環境](https://github.com/gbrueckl/Az
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [hivewalkthrough]: data-factory-data-transformation-activities.md
 
-[image-data-factory-ouput-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
+[image-data-factory-output-from-custom-activity]: ./media/data-factory-use-custom-activities/OutputFilesFromCustomActivity.png
 
 [image-data-factory-download-logs-from-custom-activity]: ./media/data-factory-use-custom-activities/DownloadLogsFromCustomActivity.png

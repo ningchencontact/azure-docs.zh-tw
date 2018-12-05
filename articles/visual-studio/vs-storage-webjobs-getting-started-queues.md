@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: c3e0bd338c38165d3a372f60e12ff5ddaa05d2a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 899792be583f3b2e2a16e42472fcdf87bf751893
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248277"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52635487"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>開始使用 Azure 佇列儲存體和 Visual Studio 已連接服務 (WebJob 專案)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -35,45 +35,55 @@ Azure 佇列儲存體是一項儲存大量訊息的服務，全球任何地方�
 ### <a name="string-queue-messages"></a>字串佇列訊息
 在下列範例中，佇列包含字串訊息，以便 **QueueTrigger** 套用至名為 **logMessage** 的字串參數，其中包含佇列訊息的內容。 函數會 [將記錄訊息寫入儀表板](#how-to-write-logs)。
 
-        public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            logger.WriteLine(logMessage);
-        }
+```csharp
+public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    logger.WriteLine(logMessage);
+}
+```
 
 除了 **string** 以外，參數可能是位元組陣列、**CloudQueueMessage** 物件或您定義的 POCO。
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 在下列範例中，佇列訊息會包含 **BlobInformation** 物件的 JSON，其中包含 **BlobName** 屬性。 SDK 會自動將物件還原序列化。
 
-        public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
-        {
-            logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
-        }
+```csharp
+public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
+{
+    logger.WriteLine("Queue message refers to blob: " + blobInfo.BlobName);
+}
+```
 
 SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果您在不使用 WebJobs SDK 的程式中建立佇列訊息，您可以撰寫和下面範例類似的程式碼來建立 SDK 能夠剖析的 POCO 佇列訊息。
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "log.txt" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 ### <a name="async-functions"></a>Async 函數
 下面的非同步函式會 [將記錄檔寫入儀表板](#how-to-write-logs)。
 
-        public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
-        {
-            await logger.WriteLineAsync(logMessage);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] string logMessage, TextWriter logger)
+{
+    await logger.WriteLineAsync(logMessage);
+}
+```
 
 Async 函數可能需要取 [消語彙基元](http://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)，如下列範例所示 (會複製 Blob)。 (如需 **queueTrigger** 預留位置的說明，請參閱 [Blob](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) 區段)。
 
-        public async static Task ProcessQueueMessageAsyncCancellationToken(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
-            CancellationToken token)
-        {
-            await blobInput.CopyToAsync(blobOutput, 4096, token);
-        }
+```csharp
+public async static Task ProcessQueueMessageAsyncCancellationToken(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput,
+    CancellationToken token)
+{
+    await blobInput.CopyToAsync(blobOutput, 4096, token);
+}
+```
 
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>適用於 QueueTrigger 屬性的型別
 您可以將 **QueueTrigger** 與下列類型搭配使用：
@@ -109,30 +119,32 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 
 下列範例會將此中繼資料全部寫入至 INFO 應用程式記錄檔。 在範例中，logMessage 和 queueTrigger 包含佇列訊息的內容。
 
-        public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
-            DateTimeOffset expirationTime,
-            DateTimeOffset insertionTime,
-            DateTimeOffset nextVisibleTime,
-            string id,
-            string popReceipt,
-            int dequeueCount,
-            string queueTrigger,
-            CloudStorageAccount cloudStorageAccount,
-            TextWriter logger)
-        {
-            logger.WriteLine(
-                "logMessage={0}\n" +
-            "expirationTime={1}\ninsertionTime={2}\n" +
-                "nextVisibleTime={3}\n" +
-                "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
-                "queue endpoint={7} queueTrigger={8}",
-                logMessage, expirationTime,
-                insertionTime,
-                nextVisibleTime, id,
-                popReceipt, dequeueCount,
-                cloudStorageAccount.QueueEndpoint,
-                queueTrigger);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("logqueue")] string logMessage,
+    DateTimeOffset expirationTime,
+    DateTimeOffset insertionTime,
+    DateTimeOffset nextVisibleTime,
+    string id,
+    string popReceipt,
+    int dequeueCount,
+    string queueTrigger,
+    CloudStorageAccount cloudStorageAccount,
+    TextWriter logger)
+{
+    logger.WriteLine(
+        "logMessage={0}\n" +
+        "expirationTime={1}\ninsertionTime={2}\n" +
+        "nextVisibleTime={3}\n" +
+        "id={4}\npopReceipt={5}\ndequeueCount={6}\n" +
+        "queue endpoint={7} queueTrigger={8}",
+        logMessage, expirationTime,
+        insertionTime,
+        nextVisibleTime, id,
+        popReceipt, dequeueCount,
+        cloudStorageAccount.QueueEndpoint,
+        queueTrigger);
+}
+```
 
 以下是範例程式碼所寫入的範例記錄：
 
@@ -151,22 +163,24 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 
 下列範例示範如何透過函數檢查即將終止的 WebJob。
 
-    public static void GracefulShutdownDemo(
-                [QueueTrigger("inputqueue")] string inputText,
-                TextWriter logger,
-                CancellationToken token)
+```csharp
+public static void GracefulShutdownDemo(
+            [QueueTrigger("inputqueue")] string inputText,
+            TextWriter logger,
+            CancellationToken token)
+{
+    for (int i = 0; i < 100; i++)
     {
-        for (int i = 0; i < 100; i++)
+        if (token.IsCancellationRequested)
         {
-            if (token.IsCancellationRequested)
-            {
-                logger.WriteLine("Function was cancelled at iteration {0}", i);
-                break;
-            }
-            Thread.Sleep(1000);
-            logger.WriteLine("Normal processing for queue message={0}", inputText);
+            logger.WriteLine("Function was cancelled at iteration {0}", i);
+            break;
         }
+        Thread.Sleep(1000);
+        logger.WriteLine("Normal processing for queue message={0}", inputText);
     }
+}
+```
 
 **注意：** 儀表板可能不會正確顯示已關閉之函數的狀態與輸出。
 
@@ -178,37 +192,43 @@ SDK 會實作隨機指數型倒退演算法，以降低閒置佇列輪詢對儲�
 ### <a name="string-queue-messages"></a>字串佇列訊息
 下面的非同步程式碼範例會在名稱為 "outputqueue" 的佇列中建立一個新的佇列訊息，其內容與名為 "inputqueue" 的佇列中收到的佇列訊息相同。 (如需非同步函式，請使用 **IAsyncCollector<T>**，如本節後續內容所示。)
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] out string outputQueueMessage )
-        {
-            outputQueueMessage = queueMessage;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] out string outputQueueMessage )
+{
+    outputQueueMessage = queueMessage;
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 若要建立包含 POCO 物件 (而非字串) 的佇列訊息，請將 POCO 做為輸出參數傳送至 **Queue** 屬性建構函式。
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
-            [Queue("outputqueue")] out BlobInformation blobInfoOutput )
-        {
-            blobInfoOutput = blobInfoInput;
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] BlobInformation blobInfoInput,
+    [Queue("outputqueue")] out BlobInformation blobInfoOutput )
+{
+    blobInfoOutput = blobInfoInput;
+}
+```
 
 SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會建立佇列訊息。
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>建立多個訊息或使用非同步函式
 若要建立多個訊息，將 **ICollector<T>** 或 **IAsyncCollector<T>** 設為輸出佇列的參數類型，如下列範例所示。
 
-        public static void CreateQueueMessages(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            [Queue("outputqueue")] ICollector<string> outputQueueMessage,
-            TextWriter logger)
-        {
-            logger.WriteLine("Creating 2 messages in outputqueue");
-            outputQueueMessage.Add(queueMessage + "1");
-            outputQueueMessage.Add(queueMessage + "2");
-        }
+```csharp
+public static void CreateQueueMessages(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    [Queue("outputqueue")] ICollector<string> outputQueueMessage,
+    TextWriter logger)
+{
+    logger.WriteLine("Creating 2 messages in outputqueue");
+    outputQueueMessage.Add(queueMessage + "1");
+    outputQueueMessage.Add(queueMessage + "2");
+}
+```
 
 呼叫 **Add** 方法時，即會立即建立每個佇列訊息。
 
@@ -228,15 +248,17 @@ SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會�
 
 下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
 
-        public static void CreateQueueMessage(
-            [QueueTrigger("inputqueue")] string queueMessage,
-            IBinder binder)
-        {
-            string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
-            QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
-            CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
-            outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
-        }
+```csharp
+public static void CreateQueueMessage(
+    [QueueTrigger("inputqueue")] string queueMessage,
+    IBinder binder)
+{
+    string outputQueueName = "outputqueue" + DateTime.Now.Month.ToString();
+    QueueAttribute queueAttribute = new QueueAttribute(outputQueueName);
+    CloudQueue outputQueue = binder.Bind<CloudQueue>(queueAttribute);
+    outputQueue.AddMessage(new CloudQueueMessage(queueMessage));
+}
+```
 
 **IBinder** 介面也可以搭配 **Table** 和 **Blob** 屬性使用。
 
@@ -249,13 +271,15 @@ SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會�
 
 下列範例會使用 **Stream** 物件來讀取和寫入 Blob。 佇列訊息提供位於 textblobs 容器中 Blob 的名稱。 會在相同的容器中建立 Blob 的複本，並在其名稱中附加 "-new"。
 
-        public static void ProcessQueueMessage(
-            [QueueTrigger("blobcopyqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void ProcessQueueMessage(
+    [QueueTrigger("blobcopyqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}",FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new",FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 **Blob** 屬性建構函式採用 **blobPath** 參數來指定容器與 Blob 名稱。 如需此預留位置的詳細資訊，請參閱 [如何透過 WebJobs SDK 使用 Azure Blob 儲存體](https://github.com/Azure/azure-webjobs-sdk/wiki)。
 
@@ -263,31 +287,37 @@ SDK 會自動將物件序列化為 JSON。 即使物件是空值，也一律會�
 
 下列範例會使用 **CloudBlockBlob** 物件刪除 Blob。 佇列訊息就是 Blob 的名稱。
 
-        public static void DeleteBlob(
-            [QueueTrigger("deleteblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
-        {
-            blobToDelete.Delete();
-        }
+```csharp
+public static void DeleteBlob(
+    [QueueTrigger("deleteblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}")] CloudBlockBlob blobToDelete)
+{
+    blobToDelete.Delete();
+}
+```
 
 ### <a name="poco-plain-old-clr-objecthttpenwikipediaorgwikiplainoldclrobject-queue-messages"></a>POCO ([簡單的 CLR 物件](http://en.wikipedia.org/wiki/Plain_Old_CLR_Object)) 佇列訊息
 針對以 JSON 格式儲存在佇列訊息中的 POCO，您可以使用 **Queue** 屬性之 **blobPath** 參數中物件的屬性名稱來做為預留位置。 您也可以使用佇列中繼資料屬性名稱做為預留位置。 請參閱 [取得佇列或佇列訊息中繼資料](#get-queue-or-queue-message-metadata)。
 
 下列範例會將 Blob 複製到具有不同副檔名的新 Blob。 佇列訊息是包含 **BlobName** 和 **BlobNameWithoutExtension** 屬性的 **BlobInformation** 物件。 在 **Blob** 屬性的 Blob 路徑中使用屬性名稱做為預留位置。
 
-        public static void CopyBlobPOCO(
-            [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
-            [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlobPOCO(
+    [QueueTrigger("copyblobqueue")] BlobInformation blobInfo,
+    [Blob("textblobs/{BlobName}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{BlobNameWithoutExtension}.txt", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
+```
 
 SDK 會使用 [Newtonsoft.Json NuGet](http://www.nuget.org/packages/Newtonsoft.Json) 封裝來序列化和還原序列化訊息。 如果您在不使用 WebJobs SDK 的程式中建立佇列訊息，您可以撰寫和下面範例類似的程式碼來建立 SDK 能夠剖析的 POCO 佇列訊息。
 
-        BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
-        var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
-        logQueue.AddMessage(queueMessage);
+```csharp
+BlobInformation blobInfo = new BlobInformation() { BlobName = "boot.log", BlobNameWithoutExtension = "boot" };
+var queueMessage = new CloudQueueMessage(JsonConvert.SerializeObject(blobInfo));
+logQueue.AddMessage(queueMessage);
+```
 
 如果您需要先在函式中執行部分工作，然後再將 Blob 繫結至物件，您可以在函式主體中使用屬性，如 [在函式主體中使用 WebJobs SDK 屬性](#use-webjobs-sdk-attributes-in-the-body-of-a-function)中所示。
 
@@ -316,19 +346,21 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 在下列範例中，當佇列訊息包含不存在的 Blob 名稱， **CopyBlob** 函數將會失敗。 發生時，就會從 copyblobqueue 佇列將訊息移至 copyblobqueue-poison 佇列。 接著， **ProcessPoisonMessage** 會記錄有害訊息。
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
-        {
-            blobInput.CopyTo(blobOutput, 4096);
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput)
+{
+    blobInput.CopyTo(blobOutput, 4096);
+}
 
-        public static void ProcessPoisonMessage(
-            [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
-        {
-            logger.WriteLine("Failed to copy blob, name=" + blobName);
-        }
+public static void ProcessPoisonMessage(
+    [QueueTrigger("copyblobqueue-poison")] string blobName, TextWriter logger)
+{
+    logger.WriteLine("Failed to copy blob, name=" + blobName);
+}
+```
 
 下圖顯示這些函數處理有害訊息之後的主控台輸出。
 
@@ -337,21 +369,23 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 ### <a name="manual-poison-message-handling"></a>手動處理有害訊息
 您可以將名為 **dequeueCount** 的 **int** 參數加入到函數中，來取得訊息已被挑選來處理的次數。 然後您可以檢查函數程式碼中的清除佇列計數，並在數目超出臨界值時自行執行有害訊息處理，如下面的範例所示。
 
-        public static void CopyBlob(
-            [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
-            [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
-            [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
-            TextWriter logger)
-        {
-            if (dequeueCount > 3)
-            {
-                logger.WriteLine("Failed to copy blob, name=" + blobName);
-            }
-            else
-            {
-            blobInput.CopyTo(blobOutput, 4096);
-            }
-        }
+```csharp
+public static void CopyBlob(
+    [QueueTrigger("copyblobqueue")] string blobName, int dequeueCount,
+    [Blob("textblobs/{queueTrigger}", FileAccess.Read)] Stream blobInput,
+    [Blob("textblobs/{queueTrigger}-new", FileAccess.Write)] Stream blobOutput,
+    TextWriter logger)
+{
+    if (dequeueCount > 3)
+    {
+        logger.WriteLine("Failed to copy blob, name=" + blobName);
+    }
+    else
+    {
+        blobInput.CopyTo(blobOutput, 4096);
+    }
+}
+```
 
 ## <a name="how-to-set-configuration-options"></a>如何設定組態選項
 您可以使用 **JobHostConfiguration** 類型來設定下列組態選項：
@@ -363,24 +397,26 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 ### <a name="set-sdk-connection-strings-in-code"></a>在程式碼中設定 SDK 連接字串
 在程式碼中設定 SDK 連接字串可讓您在組態檔或環境變數中使用您自己的連接字串名稱，如下面範例所示。
 
-        static void Main(string[] args)
-        {
-            var _storageConn = ConfigurationManager
-                .ConnectionStrings["MyStorageConnection"].ConnectionString;
+```csharp
+static void Main(string[] args)
+{
+    var _storageConn = ConfigurationManager
+        .ConnectionStrings["MyStorageConnection"].ConnectionString;
 
-            var _dashboardConn = ConfigurationManager
-                .ConnectionStrings["MyDashboardConnection"].ConnectionString;
+    var _dashboardConn = ConfigurationManager
+        .ConnectionStrings["MyDashboardConnection"].ConnectionString;
 
-            var _serviceBusConn = ConfigurationManager
-                .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
+    var _serviceBusConn = ConfigurationManager
+        .ConnectionStrings["MyServiceBusConnection"].ConnectionString;
 
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.StorageConnectionString = _storageConn;
-            config.DashboardConnectionString = _dashboardConn;
-            config.ServiceBusConnectionString = _serviceBusConn;
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.StorageConnectionString = _storageConn;
+    config.DashboardConnectionString = _dashboardConn;
+    config.ServiceBusConnectionString = _serviceBusConn;
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="configure-queuetrigger--settings"></a>設定 QueueTrigger 設定
 您可以配置會套用至佇列訊息處理的下列設定：
@@ -391,15 +427,17 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 下列範例示範如何配置這些設定：
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.Queues.BatchSize = 8;
-            config.Queues.MaxDequeueCount = 4;
-            config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.Queues.BatchSize = 8;
+    config.Queues.MaxDequeueCount = 4;
+    config.Queues.MaxPollingInterval = TimeSpan.FromSeconds(15);
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 ### <a name="set-values-for-webjobs-sdk-constructor-parameters-in-code"></a>在程式碼中設定 WebJobs SDK 建構函式參數的值
 有時候您不想要採取硬式編碼的方式，而是在程式碼中指定佇列名稱、Blob 名稱或容器或資料表名稱。 例如，您可能想要在組態檔或環境變數中指定 **QueueTrigger** 的佇列名稱。
@@ -408,54 +446,62 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 例如，假設您想要在測試環境中使用名為 logqueuetest 的佇列，和在生產環境中使用名為 logqueueprod 的佇列。 不用將佇列名稱寫入程式碼，您要在 **appSettings** 集合 (會有實際佇列名稱) 中指定項目名稱。 如果 **appSettings** 索引鍵是 logqueue，您的函數看起來可能如下所示。
 
-        public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
-        {
-            Console.WriteLine(logMessage);
-        }
+```csharp
+public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
+{
+    Console.WriteLine(logMessage);
+}
+```
 
 **NameResolver** 類別接著可以從 **appSettings** 取得佇列名稱，如下列範例所示：
 
-        public class QueueNameResolver : INameResolver
-        {
-            public string Resolve(string name)
-            {
-                return ConfigurationManager.AppSettings[name].ToString();
-            }
-        }
+```csharp
+public class QueueNameResolver : INameResolver
+{
+    public string Resolve(string name)
+    {
+        return ConfigurationManager.AppSettings[name].ToString();
+    }
+}
+```
 
 您可以將 **NameResolver** 類別傳遞至 **JobHost** 物件中，如下列範例所示。
 
-        static void Main(string[] args)
-        {
-            JobHostConfiguration config = new JobHostConfiguration();
-            config.NameResolver = new QueueNameResolver();
-            JobHost host = new JobHost(config);
-            host.RunAndBlock();
-        }
+```csharp
+static void Main(string[] args)
+{
+    JobHostConfiguration config = new JobHostConfiguration();
+    config.NameResolver = new QueueNameResolver();
+    JobHost host = new JobHost(config);
+    host.RunAndBlock();
+}
+```
 
 **注意：** 每次呼叫函式時，都會解析佇列、資料表及 Blob 名稱，但只有在應用程式啟動時才會解析 Blob 容器名稱。 您無法在執行工作時，變更 Blob 容器名稱。
 
 ## <a name="how-to-trigger-a-function-manually"></a>如何手動觸發函數
 若要手動觸發函數，請在 **JobHost** 物件上使用 **Call** 或 **CallAsync** 方法，和在函數上使用 **NoAutomaticTrigger** 屬性，如下列範例所示。
 
-        public class Program
-        {
-            static void Main(string[] args)
-            {
-                JobHost host = new JobHost();
-                host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
-            }
+```csharp
+public class Program
+{
+    static void Main(string[] args)
+    {
+        JobHost host = new JobHost();
+        host.Call(typeof(Program).GetMethod("CreateQueueMessage"), new { value = "Hello world!" });
+    }
 
-            [NoAutomaticTrigger]
-            public static void CreateQueueMessage(
-                TextWriter logger,
-                string value,
-                [Queue("outputqueue")] out string message)
-            {
-                message = value;
-                logger.WriteLine("Creating queue message: ", message);
-            }
-        }
+    [NoAutomaticTrigger]
+    public static void CreateQueueMessage(
+        TextWriter logger,
+        string value,
+        [Queue("outputqueue")] out string message)
+    {
+        message = value;
+        logger.WriteLine("Creating queue message: ", message);
+    }
+}
+```
 
 ## <a name="how-to-write-logs"></a>如何寫入記錄檔
 儀表板會在兩個地方顯示記錄檔：WebJob 的頁面與特定 WebJob 引動過程的頁面。
@@ -476,15 +522,17 @@ SDK 將會呼叫函數最多 5 次以處理佇列訊息。 如果第五次嘗試
 
 下列範例示範寫入記錄檔的數種方式：
 
-        public static void WriteLog(
-            [QueueTrigger("logqueue")] string logMessage,
-            TextWriter logger)
-        {
-            Console.WriteLine("Console.Write - " + logMessage);
-            Console.Out.WriteLine("Console.Out - " + logMessage);
-            Console.Error.WriteLine("Console.Error - " + logMessage);
-            logger.WriteLine("TextWriter - " + logMessage);
-        }
+```csharp
+public static void WriteLog(
+    [QueueTrigger("logqueue")] string logMessage,
+    TextWriter logger)
+{
+    Console.WriteLine("Console.Write - " + logMessage);
+    Console.Out.WriteLine("Console.Out - " + logMessage);
+    Console.Error.WriteLine("Console.Error - " + logMessage);
+    logger.WriteLine("TextWriter - " + logMessage);
+}
+```
 
 在「WebJobs SDK 儀表板」中，當您移至頁面以進行特定函數叫用並選取 [切換輸出] 時，會顯示來自 **TextWriter** 物件的輸出：
 

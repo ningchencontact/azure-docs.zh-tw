@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 1edf87d9ec334845f82c3c0c20c958e27f01e87a
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 81ee681fac4496ad2d5360f01926634373c23075
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585215"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584480"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>了解隨用隨付型方案訂用帳戶的 Azure 保留使用量
 
@@ -105,8 +105,8 @@ CSV 檔案的這個區段會顯示保留的整體使用量。 請對包含 **"Re
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [Windows 軟體成本不包含在 Reservations 內](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 
 

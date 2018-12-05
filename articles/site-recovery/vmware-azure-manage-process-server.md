@@ -1,17 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 來管理處理序伺服器以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 來管理處理序伺服器的設定，以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
+description: 此文章說明如何使用 Azure Site Recovery 來管理處理序伺服器的設定，以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
 author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: d99b5d1fdca39466d5e09ca077329b7ffa8622bc
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568847"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974183"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 
@@ -20,7 +21,7 @@ ms.locfileid: "51568847"
 - 針對大型部署，您可能需要額外的內部部署處理序伺服器才能調整容量。
 - 針對容錯回復，您需要在 Azure 中設定臨時處理序伺服器。 容錯回復完成後，您可以刪除此 VM。 
 
-本文摘要說明這些額外處理序伺服器的一般管理工作。
+此文章摘要說明這些額外處理序伺服器的一般管理工作。
 
 ## <a name="upgrade-a-process-server"></a>升級處理序伺服器
 
@@ -31,7 +32,41 @@ ms.locfileid: "51568847"
 > [!NOTE]
   一般而言，當您為了容錯回復目的，在 Azure 中使用 Azure 資源庫映像來建立處理序伺服器時，它會執行可用的最新版本。 Site Recovery 小組會定期發行修正程式和增強功能，我們建議您將處理序伺服器保持在最新狀態。
 
+## <a name="balance-the-load-on-process-server"></a>對處理序伺服器上的負載進行平衡
 
+若要對兩個處理序伺服器之間的負載進行平衡：
+
+1. 瀏覽至 [復原服務保存庫] > [管理] > [Site Recovery 基礎結構] > [針對 VMware 和實體機器] > [組態伺服器]。
+2. 按一下註冊處理序伺服器的組態伺服器。
+3. 註冊至該組態伺服器的處理序伺服器清單隨即顯示在頁面上。
+4. 按一下您想要修改工作負載的處理序伺服器。
+
+    ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
+5. 您可以視需求使用 [負載平衡] 或 [切換] 選項，如下面所述。
+
+### <a name="load-balance"></a>負載平衡
+
+透過此選項，您可以選取一或多個虛擬機器，並能將它們傳送到另一個處理序伺服器。
+
+1. 按一下 [負載平衡]，從下拉式清單選取目標處理序伺服器。 按一下 [檔案] &gt; [新增] &gt; [專案] 
+
+    ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
+2. 按一下 [選取機器]，選擇您想要從目前的處理序伺服器移至目標處理序伺服器的虛擬機器。 系統會針對每個虛擬機器顯示平均資料變更的詳細資料。
+3. 按一下 [確定]。 您可以在 [復原服務保存庫] > [監視] > [Site Recovery 作業] 之下監視作業進度。
+4. 在此作業成功完成之後，其變更需要 15 分鐘的時間才會反映出來。您也可以[重新整理組態伺服器](vmware-azure-manage-configuration-server.md#refresh-configuration-server)來使變更立即生效。
+
+### <a name="switch"></a>Switch
+
+透過此選項，保護在處理序伺服器之下的整個工作負載，會被移至不同的處理序伺服器。
+
+1. 按一下 [切換]，選取目標處理序伺服器，按一下 [確定]。
+
+    ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
+2. 您可以在 [復原服務保存庫] > [監視] > [Site Recovery 作業] 之下監視作業進度。
+3. 在此作業成功完成之後，其變更需要 15 分鐘的時間才會反映出來。您也可以[重新整理組態伺服器](vmware-azure-manage-configuration-server.md#refresh-configuration-server)來使變更立即生效。
 
 ## <a name="reregister-a-process-server"></a>重新註冊處理序伺服器
 

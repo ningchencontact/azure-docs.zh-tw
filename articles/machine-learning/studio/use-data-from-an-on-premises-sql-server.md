@@ -1,10 +1,11 @@
 ---
-title: 在 Azure Machine Learning 中使用內部部署 SQL Server | Microsoft Docs
-description: 使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning 執行進階分析。
+title: 使用 Azure Machine Learning Studio 的內部部署 SQL Server | Microsoft Docs
+description: 使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning Studio 執行進階分析。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
@@ -15,18 +16,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: 4ea0a247116db521e03d7092be0bb86a6528f44d
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346383"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310951"
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning 執行進階分析
 
 使用內部部署資料的企業通常會想要針對他們的機器學習服務工作負載來利用雲端的範圍和靈活度。 但是他們又不想因為將內部部署資料移至雲端而中斷目前的商務程序和工作流程。 Azure Machine Learning 現在支援從內部部署 SQL Server 資料庫讀取資料，然後利用此資料，針對某個模型進行訓練與評分。 您不再需要手動複製和同步處理雲端與內部部署伺服器之間的資料。 相反地，Azure Machine Learning Studio 中的 **匯入資料** 模組現在可以直接從您的內部部署 SQL Server 資料庫讀取，以進行您的訓練和評分作業。
 
-本文提供如何將內部部署 SQL Server 資料輸入至 Azure Machine Learning 的概觀。 它假設您已熟悉像是工作區、模組、資料集、實驗等 Azure Machine Learning 概念。
+此文章提供如何將內部部署 SQL Server 資料輸入至 Azure Machine Learning Studio 的概觀。 它假設您已熟悉像是工作區、模組、資料集、實驗等 Azure Machine Learning 概念。
 
 > [!NOTE]
 > 此功能不適用於免費的工作區。 如需機器學習服務定價和層級的詳細資訊，請參閱 [Azure 機器學習服務定價](https://azure.microsoft.com/pricing/details/machine-learning/)。
