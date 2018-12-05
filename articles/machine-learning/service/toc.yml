@@ -12,6 +12,9 @@ items:
   - name: Workbench 的現況為何？
     displayName: desktop
     href: overview-what-happened-to-workbench.md
+  - name: 版本資訊
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md
   expanded: true
 - name: 快速入門
   items:
@@ -126,7 +129,7 @@ items:
       href: how-to-consume-web-service.md
   - name: 監視 Web 服務
     items:
-    - name: 收集和評估資料
+    - name: 收集和評估模型資料
       href: how-to-enable-data-collection.md
     - name: 使用 Application Insights 進行監視
       href: how-to-enable-app-insights.md
@@ -155,9 +158,6 @@ items:
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-  - name: 版本資訊
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md
   - name: 已知問題
     href: resource-known-issues.md
   - name: 取得支援
@@ -368,9 +368,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 舊的問題
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 14ba5fa2b31c6695737b3250521d0904c950cf30
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 308c767eb4a4bd332037093e23a1cb53a9fd1dc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264891"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845054"
