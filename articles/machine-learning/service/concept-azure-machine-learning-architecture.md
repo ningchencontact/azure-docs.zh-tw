@@ -9,12 +9,12 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 10/24/2018
-ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210681"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706801"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -156,9 +156,9 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 如需實驗使用範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
 
-## <a name="pipelines"></a>管線
+## <a name="pipeline"></a>管線
 
-管線可用來建立和管理結合了多個機器學習階段的工作流程。 例如，管線可能包含資料準備、模型訓練、模型部署和推斷階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
+機器學習管線可用來建立和管理結合了多個機器學習階段的工作流程。 例如，管線可能包含資料準備、模型訓練、模型部署和推斷階段。 每個階段都可以包含多個步驟，這些步驟各自都可以在各種計算目標中自動執行。
 
 如需機器學習管線與此服務的詳細資訊，請參閱[管線和 Azure Machine Learning](concept-ml-pipelines.md) 一文。
 

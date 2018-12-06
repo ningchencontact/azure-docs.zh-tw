@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 770d8950e25431e1edc496e0710cf199b45e5847
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 4584104e9c9833b5f3f586581dd5a58f420fe0bd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283830"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165334"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>透過服務匯流排傳訊進行分散式追蹤與相互關聯
 
@@ -155,27 +155,27 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 
 | 作業名稱 | 追蹤的 API | 特定的裝載屬性|
 |----------------|-------------|---------|
-| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> Messages：正在傳送之訊息的清單 |
-| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Message Message：正在處理的訊息<br/>DateTimeOffset ScheduleEnqueueTimeUtc：已排程訊息位移<br/>long SequenceNumber：已排程訊息的序號 ('Stop' 事件裝載) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | long SequenceNumber：要取消之訊息的序號 | 
-| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) |int RequestedMessageCount：可接收訊息的數目上限。<br/>IList<Message> Messages：已接收訊息的清單 ('Stop' 事件裝載) |
-| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | int FromSequenceNumber：瀏覽訊息批次的起點。<br/>int RequestedMessageCount：要擷取之訊息的數目。<br/>IList<Message> Messages：已接收訊息的清單 ('Stop' 事件裝載) |
-| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | IEnumerable<long> SequenceNumbers：包含要接收之序號的清單。<br/>IList<Message> Messages：已接收訊息的清單 ('Stop' 事件裝載) |
-| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | IList<string> LockTokens：包含要完成對應訊息之鎖定 Token 的清單。|
-| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | string LockToken：要放棄之對應訊息的鎖定 Token。 |
-| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | string LockToken：要延後之對應訊息的鎖定 Token。 | 
-| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | string LockToken：要進行無效信件處理之對應訊息的鎖定 Token。 | 
-| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | string LockToken：要更新鎖定之對應訊息的鎖定 Token。<br/>DateTime LockedUntilUtc：以 UTC 格式呈現的新鎖定 Token 到期日和時間。 ('Stop' 事件裝載)|
-| Microsoft.Azure.ServiceBus.Process | 於 [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) 中提供的訊息處理常式 Lambda 函式 | Message Message：正在處理的訊息。 |
-| Microsoft.Azure.ServiceBus.ProcessSession | 於 [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) 中提供的訊息工作階段處理常式 Lambda 函式 | Message Message：正在處理的訊息。<br/>IMessageSession Session：正在處理的工作階段 |
-| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | RuleDescription Rule：提供要新增之規則的規則描述。 |
-| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | string RuleName：要移除之規則的名稱。 |
-| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | IEnumerable<RuleDescription> Rules：與訂用帳戶相關聯的所有規則。 (僅限 'Stop' 裝載) |
-| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | string SessionId：存在於訊息中的 sessionId。 |
-| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | string SessionId：存在於訊息中的 sessionId。<br/>byte [] State：工作階段狀態 ('Stop' 事件裝載) |
-| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | string SessionId：存在於訊息中的 sessionId。<br/>byte [] State：工作階段狀態 |
-| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | string SessionId：存在於訊息中的 sessionId。 |
-| Microsoft.Azure.ServiceBus.Exception | 任何經檢測的 API| Exception Exception：例外狀況執行個體 |
+| Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` - 正在傳送之訊息的清單 |
+| Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` - 正在處理的訊息<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - 排定的訊息位移<br/>`long SequenceNumber` - 已排程訊息的序號 ('Stop' 事件裝載) |
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` - 要取消之訊息的序號 | 
+| Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` - 可接收訊息的數目上限。<br/>`IList<Message> Messages` - 已接收訊息的清單 ('Stop' 事件裝載) |
+| Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` - 瀏覽訊息批次的起點。<br/>`int RequestedMessageCount` - 要擷取之訊息的數目。<br/>`IList<Message> Messages` - 已接收訊息的清單 ('Stop' 事件裝載) |
+| Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` - 包含要接收之序號的清單。<br/>`IList<Message> Messages` - 已接收訊息的清單 ('Stop' 事件裝載) |
+| Microsoft.Azure.ServiceBus.Complete | [MessageReceiver.CompleteAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.completeasync) | `IList<string> LockTokens` - 包含要完成對應訊息之鎖定 Token 的清單。|
+| Microsoft.Azure.ServiceBus.Abandon | [MessageReceiver.AbandonAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.abandonasync) | `string LockToken` - 要放棄之對應訊息的鎖定 Token。 |
+| Microsoft.Azure.ServiceBus.Defer | [MessageReceiver.DeferAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deferasync) | `string LockToken` - 要延後之對應訊息的鎖定 Token。 | 
+| Microsoft.Azure.ServiceBus.DeadLetter | [MessageReceiver.DeadLetterAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.deadletterasync) | `string LockToken` - 要進行無效信件處理之對應訊息的鎖定 Token。 | 
+| Microsoft.Azure.ServiceBus.RenewLock | [MessageReceiver.RenewLockAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync) | `string LockToken` - 要更新鎖定之對應訊息的鎖定 Token。<br/>`DateTime LockedUntilUtc` - 以 UTC 格式呈現的新鎖定 Token 到期日和時間。 ('Stop' 事件裝載)|
+| Microsoft.Azure.ServiceBus.Process | 於 [IReceiverClient.RegisterMessageHandler](/dotnet/api/microsoft.azure.servicebus.core.ireceiverclient.registermessagehandler) 中提供的訊息處理常式 Lambda 函式 | `Message Message` - 正在處理的訊息。 |
+| Microsoft.Azure.ServiceBus.ProcessSession | 於 [IQueueClient.RegisterSessionHandler](/dotnet/api/microsoft.azure.servicebus.iqueueclient.registersessionhandler) 中提供的訊息工作階段處理常式 Lambda 函式 | `Message Message` - 正在處理的訊息。<br/>`IMessageSession Session` - 正在處理的工作階段 |
+| Microsoft.Azure.ServiceBus.AddRule | [SubscriptionClient.AddRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.addruleasync) | `RuleDescription Rule` - 提供要新增之規則的規則描述。 |
+| Microsoft.Azure.ServiceBus.RemoveRule | [SubscriptionClient.RemoveRuleAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.removeruleasync) | `string RuleName` - 要移除之規則的名稱。 |
+| Microsoft.Azure.ServiceBus.GetRules | [SubscriptionClient.GetRulesAsync](/dotnet/api/microsoft.azure.servicebus.subscriptionclient.getrulesasync) | `IEnumerable<RuleDescription> Rules` - 與訂用帳戶相關聯的所有規則。 (僅限 'Stop' 裝載) |
+| Microsoft.Azure.ServiceBus.AcceptMessageSession | [ISessionClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.azure.servicebus.isessionclient.acceptmessagesessionasync) | `string SessionId` - 存在於訊息中的 sessionId。 |
+| Microsoft.Azure.ServiceBus.GetSessionState | [IMessageSession.GetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.getstateasync) | `string SessionId` - 存在於訊息中的 sessionId。<br/>`byte [] State` - 工作階段狀態 ('Stop' 事件裝載) |
+| Microsoft.Azure.ServiceBus.SetSessionState | [IMessageSession.SetStateAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.setstateasync) | `string SessionId` - 存在於訊息中的 sessionId。<br/>`byte [] State` - 工作階段狀態 |
+| Microsoft.Azure.ServiceBus.RenewSessionLock | [IMessageSession.RenewSessionLockAsync](/dotnet/api/microsoft.azure.servicebus.imessagesession.renewsessionlockasync) | `string SessionId` - 存在於訊息中的 sessionId。 |
+| Microsoft.Azure.ServiceBus.Exception | 任何經檢測的 API| `Exception Exception` - 例外狀況執行個體 |
 
 在每個事件中，您都可以存取保存目前作業內容的 `Activity.Current`。
 

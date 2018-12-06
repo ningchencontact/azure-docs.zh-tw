@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: bc21e06b704bfe3d25132092efbbf23f342acb14
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0f5eee20b0487fb5fce82047f40d137effb87ead
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669285"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164403"
 ---
 # <a name="enable-support-uploads"></a>啟用支援上傳的功能
 
@@ -24,18 +24,21 @@ ms.locfileid: "50669285"
 1. 瀏覽至頂端的 [Settings] \(設定\) 索引標籤。
 1. 按一下左側的 [Support] \(支援\) 連結，然後接受隱私權原則。
 
-   ![確認接受隱私權原則的螢幕擷取畫面](media/avere-vfxt-privacy-policy.png)
+   ![顯示 Avere Control Panel 的螢幕擷取畫面，以及具有 [Confirm] \(確認\) 按鈕以接受隱私權原則的快顯視窗](media/avere-vfxt-privacy-policy.png)
+
 1. 按一下 [Customer Info] \(客戶資訊\) 左側的三角形以展開該區段。
+1. 按一下 [Revalidate upload information] \(重新驗證上傳資訊\) 按鈕。
 1. 在 [Unique Cluster Name] \(唯一叢集名稱\) 中設定叢集的支援名稱 - 請確定它可讓支援人員唯一識別您的叢集。
 1. 勾選 [Statistics Monitoring] \(統計資料監視\)、[General Information Upload] \(一般資訊上傳\) 及 [Crash Information Upload] \(當機資訊上傳\) 方塊。
-1. 按一下 [Validate upload information] \(驗證上傳資訊\) 按鈕。
 1. 按一下 [提交] 。
+
+   ![包含支援設定頁面上已完成的客戶資訊區段的螢幕擷取畫面](media/avere-vfxt-support-info.png)
+
 1. 按一下 [Secure Proactive Support (SPS)] \(安全的主動式支援 (SPS)\) 左側的三角形以展開該區段。
 1. 勾選 [Enable SPS Link] \(啟用 SPS 連結\) 方塊。
 1. 按一下 [提交] 。
 
-   ![包含啟用支援之所有步驟的螢幕擷取畫面](media/avere-vfxt-support-info-steps.png)
-
+   ![包含支援設定頁面上已完成的安全主動式支援區段的螢幕擷取畫面](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>後續步驟
 

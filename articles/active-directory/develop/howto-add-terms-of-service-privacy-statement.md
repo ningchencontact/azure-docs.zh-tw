@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 2195a43665f99e8388b13fc6dc3e528496bd3901
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: b1276ab227f4bf65483fb2cdec57c759573bc7c5
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242682"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853586"
 ---
 # <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Azure Active Directory 註冊應用程式的服務條款和隱私權聲明
 
@@ -64,10 +64,10 @@ ms.locfileid: "50242682"
 
 如果您之前在 Azure 入口網站中註冊應用程式，請遵循下列步驟。
 
-1. 登入  [Azure 入口網站](https://portal.azure.com/)。
-2. 瀏覽至  **[應用程式註冊]**  區段，然後選取應用程式。
-3. 開啟應用程式的  **[屬性]**  區段。
-4. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
+2. 瀏覽至 [應用程式註冊] 區段，然後選取應用程式。
+3. 開啟應用程式的 [屬性] 區段。
+4. 填妥 [服務條款 URL] 和 [隱私權聲明 URL] 欄位。
 5. 儲存您的變更。
 
     ![具有服務條款和隱私權聲明 URL 的應用程式屬性區段](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
@@ -76,9 +76,9 @@ ms.locfileid: "50242682"
 
 如果您之前在應用程式註冊入口網站或開發人員中心註冊應用程式，請遵循下列步驟。
 
-1. 登入 [應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
-2. 選取應用程式，然後捲動至  **[設定檔]**  區段。
-3. 填寫  **[服務條款 URL]**  和  **[隱私權聲明 URL]**  欄位。
+1. 登入[應用程式註冊入口網站](https://apps.dev.microsoft.com/)。
+2. 選取應用程式，然後捲動至 **[設定檔]** 區段。
+3. 填妥 [服務條款 URL] 和 [隱私權聲明 URL] 欄位。
 4. 儲存您的變更。
 
     ![具有服務條款和隱私權聲明 URL 的應用程式設定檔區段](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)

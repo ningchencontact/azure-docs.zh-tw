@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d29f01c7f953ed211b429e41b844a01c67e41054
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7e3f6d053e9466f07e15b0c2c1092fece76c98a4
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282368"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52160659"
 ---
 # <a name="scaling-throughput-in-azure-cosmos-db"></a>調整 Azure Cosmos DB 的輸送量
 
@@ -23,7 +23,7 @@ ms.locfileid: "51282368"
 
 您可以在 Cosmos 容器或 Cosmos 資料庫上佈建 RU。 佈建於容器上的 RU 僅適用於在該容器上執行的作業。 佈建於資料庫上的 RU 會在該資料庫內的所有容器之間共用 (但任何具有以獨佔方式指派之 RU 的容器除外)。
 
-對於要彈性調整的輸送量，您隨時都能增加或減少佈建的 RU/秒。 如需詳細資訊，請參閱[如何佈建輸送量](set-throughput.md)並彈性調整 Cosmos 容器和資料庫。 對於全域調整的輸送量，您隨時都能新增或移除 Cosmos 帳戶上的區域。 如需詳細資訊，請參閱[如何新增或移除 Cosmos 帳戶的區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)。 在許多案例中，將多個區域與 Cosmos 帳戶產生關聯，對於在世界各地達成低延遲及[高可用性](high-availability.md)而言非常重要。
+對於要彈性調整的輸送量，您隨時都能增加或減少佈建的 RU/秒。 如需詳細資訊，請參閱[如何佈建輸送量](set-throughput.md)並彈性調整 Cosmos 容器和資料庫。 對於全域調整的輸送量，您隨時都能新增或移除 Cosmos 帳戶上的區域。 如需詳細資訊，請參閱[在資料庫帳戶中新增/移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)。 在許多案例中，將多個區域與 Cosmos 帳戶產生關聯，對於在世界各地達成低延遲及[高可用性](high-availability.md)而言非常重要。
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>如何在區域中散發佈建輸送量
 

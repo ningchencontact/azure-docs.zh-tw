@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 8b12e3cdc53b926f660e12b7cf4b79a8cb6f40c2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 25e70b3a685f3b777a74c4cc6bf0e56dd37741a7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960152"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821509"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>在 Azure VM 中對 RDP 一般錯誤進行疑難排解
 
@@ -65,7 +65,7 @@ RDP 接聽程式的設定不正確。
 
 ### <a name="serial-console"></a>序列主控台
 
-#### <a name="step-1-turn-on-remote-desktop"></a>步驟 1：開啟遠端桌面
+#### <a name="step-1-open-cmd-instance-in-serial-console"></a>步驟 1：在序列主控台中開啟 CMD 執行個體
 
 1. 選取 [支援與疑難排解] > [序列主控台 (預覽)] 來存取[序列主控台](serial-console-windows.md)。 如果已在 VM 上啟用此功能，您就能成功連線該 VM。
 

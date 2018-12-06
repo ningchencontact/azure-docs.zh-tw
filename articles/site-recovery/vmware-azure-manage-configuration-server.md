@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 管理 VMware 和實體伺服器災害復原的組態伺服器 | Microsoft Docs
 description: 本文說明如何管理現有的設定伺服器，以使用 Azure Site Recovery 進行將 VMware VM 和實體伺服器復原到 Azure 的災害復原。
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/11/2018
-ms.author: raynew
-ms.openlocfilehash: e8f41ef44adbd72e8ab16329d5fec94c08df2fe7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.author: ramamill
+ms.openlocfilehash: a58de808816bf80cf950d7b032ca042c7913a2e5
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568449"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976378"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>管理 VMware VM 災害復原的設定伺服器
 
@@ -222,7 +222,14 @@ ms.locfileid: "51568449"
 2. 到期日顯示在 [設定伺服器健康情況] 下。
 3. 選取 [更新憑證]。
 
-## <a name="update-windows-licence"></a>更新 Windows 授權
+## <a name="refresh-configuration-server"></a>重新整理組態伺服器
+
+1. 在 Azure 入口網站中，瀏覽至 [復原服務保存庫] > [管理] > [Site Recovery 基礎結構] > [針對 VMware 和實體機器] > [組態伺服器]。
+2. 按一下您想要重新整理的組態伺服器。
+3. 在具有所選組態伺服器詳細資料的刀鋒視窗中，按一下 [更多] > [重新整理伺服器]。
+4. 您可以在 [復原服務保存庫] > [監視] > [Site Recovery 作業] 之下監視作業進度。
+
+## <a name="update-windows-license"></a>更新 Windows 授權
 
 使用 OVF 範本所提供的授權是有效期 180 天的評估授權。 如需不中斷的使用權限，您必須使用購買的授權來啟用 Windows。
 

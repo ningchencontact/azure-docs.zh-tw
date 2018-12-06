@@ -94,7 +94,7 @@
 ## [意見反應](https://feedback.azure.com/forums/556165-azure-analysis-services)
 ## [定價](https://azure.microsoft.com/pricing/details/analysis-services/)
 ## [定價計算機](https://azure.microsoft.com/pricing/calculator/)
-## [Stackoverflow](http://stackoverflow.com/questions/tagged/azure-analysis-services)
+## [Stackoverflow](https://stackoverflow.com/questions/tagged/azure-analysis-services)
 ## [影片](https://azure.microsoft.com/resources/videos/index/?services=analysis-services&sort=newest)
 
 

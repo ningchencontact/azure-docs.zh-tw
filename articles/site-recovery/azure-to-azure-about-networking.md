@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: sujayt
-ms.openlocfilehash: 77c445920041653ffb72d31e1dcfe4c368fb6642
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 37db2dd5908b231b9f04a5c009052d91724f6333
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915920"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976243"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>關於 Azure 中進行 Azure 複寫的網路功能
 
@@ -60,10 +60,9 @@ login.microsoftonline.com | 需要此項目方可進行 Site Recovery 服務 URL
 - 對應至來源區域儲存體帳戶的所有 IP 位址範圍
     - 為這個來源地區建立[儲存體服務標記](../virtual-network/security-overview.md#service-tags)型 NSG 規則。
     - 允許這些位址，方可從 VM 將該資料寫入到快取儲存體帳戶。
-- 對應至 Office 365 [驗證與身分識別 IP V4 端點](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)的所有 IP 位址範圍。
-    - 如果未來將新的位址新增至 Office 365 範圍，您必須建立新的 NSG 規則。
+- 建立 [Azure Active Directory (AAD) 服務標籤](../virtual-network/security-overview.md#service-tags)型 NSG 規則，以允許存取對應至 AAD 的所有 IP 位址
+    - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
 - Site Recovery 服務端點 IP 位址 - 在 [XML 檔案](https://aka.ms/site-recovery-public-ips)中提供，並依據您的目標位置。
--  您可以[下載並使用此指令碼](https://aka.ms/nsg-rule-script) \(英文\)，在 NSG 上自動建立所需的規則。
 - 建議您在測試 NSG 上建立必要的 NSG 規則，並確認沒有問題後，再於生產 NSG 上建立規則。
 
 

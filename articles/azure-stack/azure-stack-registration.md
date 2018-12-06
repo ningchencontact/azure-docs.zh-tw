@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: be88e84c48ba31ce564c31eca1f54f164aeb9f93
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288232"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976361"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -431,7 +431,7 @@ Run: get-azurestackstampinformation
 | resourceGroupName | 字串 |  |
 | ResourceGroupLocation | 字串 |  |
 | BillingModel | 字串 | 您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。 |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | True/False | 判斷是否可在入口網站中使用 Marketplace 管理功能。 如果在有網際網路連線的情況下註冊，則設定為 True。 如果在已中斷連線的環境中註冊，則設定為 False。 若為中斷連線的註冊，[離線摘要整合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)可用於下載 Marketplace 項目。 |
 | UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值為：True、False。 |
 | AgreementNumber | 字串 |  |
 | RegistrationName | 字串 | 如果您要在多個 Azure Stack 執行個體上，使用相同的 Azure 訂用帳戶識別碼執行註冊指令碼，請為註冊設定唯一的名稱。 此參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。 |

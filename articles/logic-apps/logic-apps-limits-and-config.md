@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 10/11/2018
-ms.openlocfilehash: f4d8030918804dc30437aae34de87615ce7e82b5
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.date: 11/16/2018
+ms.openlocfilehash: 62235c0c06621169997cc4ad16816c0a4d638e78
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346690"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853824"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps 的限制和設定資訊
 
@@ -323,9 +323,10 @@ ms.locfileid: "51346690"
 
 ### <a name="managed-connectors"></a>受控連接器
 
-若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請根據您邏輯應用程式的所在區域，設定您的防火牆設定，使其包含下列輸出 IP 位址。
+若要支援 [Microsoft 管理的連接器](../connectors/apis-list.md)所進行的呼叫，請設定防火牆組態，使其包含針對邏輯應用程式所在區域指定的所有輸出 IP 位址。 對於 [Azure Government](/azure-government/documentation-government-welcome) 和 [Azure 中國 21Vianet](/azure/china/china-welcome)，目前無法使用針對連接器保留的 IP 位址。
 
 > [!IMPORTANT]
+> 
 > 如果您有現有的設定，請**在 2018 年 9 月 1 日前儘快**更新這些設定，使其包含並符合此清單中您邏輯應用程式所在區域的 IP 位址。 
 > 
 > Logic Apps 不支援透過防火牆直接連線至 Azure 儲存體帳戶。 若要存取這些儲存體帳戶，請使用以下任一個選項： 

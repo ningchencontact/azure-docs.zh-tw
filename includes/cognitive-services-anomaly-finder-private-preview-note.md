@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 04/13/2018
+ms.date: 11/15/2018
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: 984190176b75c932dcced2c846832428213df32c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973721"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716145"
 ---
 > [!NOTE]
-> 異常搜尋工具現已推出個人預覽版。 請參閱[異常搜尋工具個人預覽版文件](https://aka.ms/AnomalyFinderPrivatePreview) \(英文\) 以取得詳細資訊。 若要加入異常搜尋工具個人預覽版，請[與我們連絡](mailto:kenshoteam@microsoft.com)。
+> 異常搜尋工具已推出個人預覽版。 若要加入異常搜尋工具個人預覽版，請[與我們連絡](mailto:kenshoteam@microsoft.com)。 在您獲得存取權後，請參閱[異常搜尋工具個人預覽版文件](https://aka.ms/AnomalyFinderPrivatePreview) \(英文\) 以取得詳細資訊。

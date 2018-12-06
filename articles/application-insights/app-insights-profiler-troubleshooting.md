@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: fa6e70fe58e5066fcf308425a4c0d104c072a756
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978837"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164298"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>針對啟用或檢視 Application Insights Profiler 的問題進行疑難排解
 
@@ -46,9 +46,6 @@ Profiler 會將追蹤訊息和自訂事件寫入到 Application Insights 資源�
 
 1. 如果 Profiler 執行期間有要求，請確定這些要求會由啟用了 Profiler 的應用程式處理。 應用程式有時候會由多個元件組成，但卻只有其中的某些 (而非全部) 元件啟用了 Profiler。 [設定 Application Insights Profiler] 頁面會顯示已上傳追蹤的元件。
 
-### <a name="net-core-21-bug"></a>.Net Core 2.1 錯誤
-分析工具代理程式中有一個錯誤，使其無法上傳從在 ASP.NET Core 2.1 上執行的應用程式取得的追蹤資料。 我們正努力修正錯誤，盡快讓它準備就緒。 這個錯誤的修正將會在 10 月底部署。
-
 ### <a name="other-things-to-check"></a>需要檢查的其他事項：
 * 應用程式是在 .NET Framework 4.6 上執行。
 * 如果 Web 應用程式是 ASP.NET Core 應用程式，則必須至少執行 ASP.NET Core 2.0。
@@ -69,10 +66,11 @@ Profiler 會將追蹤訊息和自訂事件寫入到 Application Insights 資源�
 ## <a name="troubleshooting-profiler-on-app-services"></a>針對 App Service 上的 Profiler 進行疑難排解
 ### <a name="for-the-profiler-to-work-properly"></a>若要讓 Profiler 正常運作：
 * Web 應用程式服務方案必須至少是「基本」層。
-* Web 應用程式必須已安裝「適用於 App Service 的 Application Insights 擴充功能 (2.6.5)」。
+* 您的 Web 應用程式必須已啟用 Application Insights。
 * 在設定 Web 應用程式的 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定時，所使用的檢測金鑰必須和 Application Insights SDK 所使用的檢測金鑰相同。
 * Web 應用程式必須已定義 **APPINSIGHTS_PROFILERFEATURE_VERSION** 應用程式設定，並將其設定為 1.0.0。
-* **ApplicationInsightsProfiler2** Web 作業必須正在執行。 若要檢查 Web 作業，請前往 [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)，然後開啟 [工具] 功能表底下的 [WebJobs 儀表板]。 如您在以下螢幕擷取畫面所見，只要按一下 [ApplicationInsightsProfiler2] 連結，就可以看到 WebJob 的詳細資料，包括記錄。
+* Web 應用程式必須已定義 **DiagnosticServices_EXTENSION_VERSION** 應用程式設定，並將其值設定為 ~3。
+* **ApplicationInsightsProfiler3** Web 作業必須正在執行。 若要檢查 Web 作業，請前往 [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/)，然後開啟 [工具] 功能表底下的 [WebJobs 儀表板]。 如您在以下螢幕擷取畫面所見，只要按一下 [ApplicationInsightsProfiler2] 連結，就可以看到 WebJob 的詳細資料，包括記錄。
 
     您必須按一下以下連結才能查看 Webjob 詳細資料： 
 
@@ -91,11 +89,7 @@ Profiler 會將追蹤訊息和自訂事件寫入到 Application Insights 資源�
 1. 將 [一律開啟] 設定為 [開啟]。
 1. 新增 **APPINSIGHTS_INSTRUMENTATIONKEY** 應用程式設定，並將值設定為與 SDK 所用相同的檢測金鑰。
 1. 新增 **APPINSIGHTS_PROFILERFEATURE_VERSION** 應用程式設定，並將其值設定為 1.0.0。
-1. 開啟 [進階工具]。
-1. 選取 [執行] 以開啟 Kudu 網站。
-1. 在 Kudu 網站上，選取 [網站延伸模組]。
-1. 從 Azure Web Apps 資源庫安裝 [Application Insights]。
-1. 重新啟動 Web 應用程式。
+1. 新增 **DiagnosticServices_EXTENSION_VERSION** 應用程式設定，並將其值設定為 ~3。
 
 ### <a name="too-many-active-profiling-sessions"></a>太多個使用中分析工作階段
 

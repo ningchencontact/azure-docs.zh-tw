@@ -1,31 +1,33 @@
 ---
-title: 快速入門：使用 Node.js 上傳、下載及列出 Blob - Azure 儲存體
-description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js 的儲存體用戶端程式庫將 blob 上傳至 Azure 儲存體、下載 blob，以及列出容器中的 blob。
+title: 如何使用 Node.js SDK v2 在 Azure 儲存體中建立 Blob
+description: 在物件 (Blob) 儲存體中建立儲存體帳戶和容器。 然後，使用 Node.js v2 適用的 Azure 儲存體用戶端程式庫將 Blob 上傳至 Azure 儲存體、下載 Blob，以及列出容器中的 Blob。
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/20/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 267218b4b958251e6748fbae17ca1ac267cf3287
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140582"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52260762"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>快速入門：使用 Node.js 上傳、下載及列出 Blob
+# <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>如何使用 Node.js SDK v2 上傳、下載及列出 Blob
 
-在本快速入門中，您會了解如何使用 Node.js 以透過 Azure Blob 儲存體上傳、下載及列出 Blob 和管理容器。
+在本操作指南中，您會了解如何使用 Node.js 以透過 Azure Blob 儲存體上傳、下載及列出 Blob 和管理容器。
 
-若要完成本快速入門，您需要 [Azure 訂用帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
+
+在 [Azure 入口網站](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)中建立 Azure 儲存體帳戶。 如需建立帳戶的協助，請參閱[建立儲存體帳戶](../common/storage-quickstart-create-account.md)。
 
 ## <a name="download-the-sample-application"></a>下載範例應用程式
 
-本快速入門中的[應用程式範例](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)是簡單的 Node.js 主控台應用程式。 若要開始，請使用下列命令將存放庫複製到您的機器：
+[應用程式範例](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)是簡單的 Node.js 主控台應用程式。 若要開始，請使用下列命令將存放庫複製到您的機器：
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -72,7 +74,7 @@ Container "demo" is deleted
 Done
 ```
 
-請注意，如果您在本快速入門中使用新的儲存體帳戶，則可能看不到 "Containers" 標籤底下所列的容器名稱。
+如果您在本範例中使用新的儲存體帳戶，則可能不會看到 "*Containers*" 標籤底下有列出任何容器名稱。
 
 ## <a name="understanding-the-code"></a>了解程式碼
 第一個運算式用來載入環境變數的值。
@@ -122,7 +124,7 @@ const listContainers = async () => {
 };
 ```
 
-群組的大小可透過 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 設定。 呼叫 listContainersSegmented 會將 Blob 中繼資料傳回為 [ContainerResult](/nodejs/api/azure-storage/blobresult) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 *continuationToken* 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 listContainersSegment 作為第二個引數。
+群組的大小可透過 [ListContainersOptions](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.listcontaineroptions?view=azure-node-latest) 設定。 呼叫 listContainersSegmented 會將 Blob 中繼資料傳回為 [ContainerResult](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.containerresult?view=azure-node-latest) 執行個體的陣列。 結果會以 5,000 的增量批次 (區段) 傳回。 如果容器中有 5,000 個以上的 Blob，結果中會包含 *continuationToken* 的值。 若要列出 Blob 容器的後續區段，您可以將接續權杖回傳給 listContainersSegment 作為第二個引數。
 
 ### <a name="create-a-container"></a>建立容器
 
@@ -165,7 +167,7 @@ const uploadString = async (containerName, blobName, text) => {
 ```
 ### <a name="upload-a-local-file"></a>上傳本機檔案
 
-uploadLocalFile 函式會使用 [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile) 將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
+uploadLocalFile 函式會使用 [createBlockBlobFromLocalFile](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile-string--string--string--errororresult-blobresult--) 將檔案從檔案系統上傳及寫入或覆寫到 Blob 儲存體。 
 
 ```javascript
 const uploadLocalFile = async (containerName, filePath) => {
@@ -182,11 +184,11 @@ const uploadLocalFile = async (containerName, filePath) => {
     });
 };
 ```
-其他可供將內容上傳至 Blob 的方法包括使用[文字](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText)和[串流](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream)。 若要確認檔案有上傳至您的 Blob 儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來檢視您帳戶中的資料。
+其他可供將內容上傳至 Blob 的方法包括使用[文字](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext-string--string--string---buffer--errororresult-blobresult--)和[串流](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream-string--string--stream-readable--number--errororresult-blobresult--)。 若要確認檔案有上傳至您的 Blob 儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)來檢視您帳戶中的資料。
 
 ### <a name="list-the-blobs"></a>列出 blob
 
-listBlobs 函式會呼叫 [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) 方法以傳回容器中 Blob 中繼資料的清單。 
+listBlobs 函式會呼叫 [listBlobsSegmented](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented-string--continuationtoken--errororresult-listblobsresult--) 方法以傳回容器中 Blob 中繼資料的清單。 
 
 ```javascript
 const listBlobs = async (containerName) => {
@@ -226,7 +228,7 @@ const downloadBlob = async (containerName, blobName) => {
 
 ### <a name="delete-a-blob"></a>刪除 Blob
 
-*deleteBlob* 函式會呼叫 [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists) 函式。 顧名思義，如果 Blob 早已刪除，此函式就不會傳回錯誤。
+*deleteBlob* 函式會呼叫 [deleteBlobIfExists](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists-string--string--errororresult-boolean--) 函式。 顧名思義，如果 Blob 早已刪除，此函式就不會傳回錯誤。
 
 ```javascript
 const deleteBlob = async (containerName, blobName) => {
@@ -353,7 +355,7 @@ console.log(`Container "${containerName}" is deleted`);
 
 ## <a name="next-steps"></a>後續步驟
 
-本快速入門會示範如何使用 Node.js 在本機磁碟和 Azure Blob 儲存體之間上傳檔案。 若要深入了解 Blob 儲存體的用法，請繼續閱讀 GitHub 存放庫。
+本文會示範如何使用 Node.js 在本機磁碟和 Azure Blob 儲存體之間上傳檔案。 若要深入了解 Blob 儲存體的用法，請繼續閱讀 GitHub 存放庫。
 
 > [!div class="nextstepaction"]
 > [適用於 JavaScript 的 Azure 儲存體 SDK 存放庫](https://github.com/Azure/azure-storage-node)

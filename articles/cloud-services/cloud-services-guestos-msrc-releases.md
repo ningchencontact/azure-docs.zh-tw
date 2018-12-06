@@ -11,17 +11,52 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: raiye
-ms.openlocfilehash: 19f9584c86993942e949716e14d2190fc5b31ce0
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: c2ff5d79c59a08c6ed808312027dc69aee910224
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578768"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854266"
 ---
 # <a name="azure-guest-os"></a>Azure 客體作業系統
 下表為適用於 Azure 客體作業系統的 Microsoft Security Response Center (MSRC) 更新。 請搜尋本文章以判斷特定更新是否適用於您使用的客體作業系統。 已引進更新的特定[系列][family-explain]會持續推出更新。
+
+## <a name="november-2018-guest-os"></a>2018 年 11 月客體 OS
+
+>[!NOTE]
+>我們目前正在將 11 月客體 OS 推展到已設定要自動更新的雲端服務 VM。 推展完成時，我們會透過 Azure 入口網站和組態檔來提供此版本，以便您可以手動更新。 下列修補程式會包含在 11 月客體 OS 中。 此清單會隨時變動。
+
+| 產品類別 | 上層知識庫文章 | 弱點說明 | 客體作業系統 | 首次引進日期 |
+| --- | --- | --- | --- | --- |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80、3.67、4.60 | 2018 年 11 月 13 日 |
+| Rel 18-11 | [4467694] | 閃爍 | 3.67、4.60、5.25 | 2018 年 11 月 13 日 |
+| Rel 18-11 | [4467106] | Windows 安全性 | 2.80 | 2018 年 11 月 13 日 |
+| Rel 18-11 | [4467678] | Windows 安全性 | 3.67 | 2018 年 11 月 13 日 |
+| Rel 18-11 | [4467703] | Windows 安全性 | 4.60 | 2018 年 11 月 13 日 |
+| Rel 18-11 | [4467691] | Windows 10 安全性 | 5.25 | 2018 年 11 月 13 日 |
+| N/A | [3173426] | 服務堆疊更新 | 3.67 | 2016 年 7 月 12 日 |
+| N/A | [4465659] | 服務堆疊更新 | 5.25 | 2018 年 11 月 13 日 |
+| N/A | [4462923] | 十月份非安全性彙總套件 | 2.80 | 2018 年 10 月 9 日 |
+| N/A | [4462929] | 十月份非安全性彙總套件 | 3.67 | 2018 年 10 月 9 日 |
+| N/A | [4462926] | 十月份非安全性彙總套件 | 4.60 | 2018 年 10 月 9 日 |
+| N/A | [3109976] | 應用程式相容性填充碼 | 4.60 | 2016 年 4 月 12 日 |
+| N/A | [4457037] | 應用程式相容性填充碼 | 4.60| 2018 年 6 月 12 日 |
+
+[4466536]: http://support.microsoft.com/kb/4466536
+[4467694]: http://support.microsoft.com/kb/4467694
+[4467106]: http://support.microsoft.com/kb/4467106
+[4467678]: http://support.microsoft.com/kb/4467678
+[4467703]: http://support.microsoft.com/kb/4467703
+[4467691]: http://support.microsoft.com/kb/4467691
+[3173426]: http://support.microsoft.com/kb/3173426
+[4465659]: http://support.microsoft.com/kb/4465659
+[4462923]: http://support.microsoft.com/kb/4462923
+[4462929]: http://support.microsoft.com/kb/4462929
+[4462926]: http://support.microsoft.com/kb/4462926
+[3109976]: http://support.microsoft.com/kb/3109976
+[4457037]: http://support.microsoft.com/kb/4457037
 
 ## <a name="october-2018-guest-os"></a>2018 年 10 月客體 OS
 

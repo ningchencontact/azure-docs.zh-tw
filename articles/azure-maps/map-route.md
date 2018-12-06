@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務顯示指示 | Microsoft Docs
 description: 如何在 JavaScript 地圖上顯示兩個位置之間的指示
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 11/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: ed522779f5a86e38ee12a246cea9ac85d0379f9e
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e75fa6f40e3b93231f9da2f72897bd2d176de02d
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729032"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823124"
 ---
 # <a name="show-directions-from-a-to-b"></a>顯示從甲地到乙地的指示
 
@@ -24,22 +24,26 @@ ms.locfileid: "45729032"
 
 ## <a name="query-the-route-via-service-module"></a>透過服務模組查詢路線
 
-<iframe height='500' scrolling='no' title='在地圖上顯示從甲地到乙地的指示 (服務模組)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/RBZbep/'>在地圖上顯示從甲地到乙地的指示 (服務模組)</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
+<iframe height='500' scrolling='no' title='在地圖上顯示從甲地到乙地的指示 (服務模組)' src='//codepen.io/azuremaps/embed/RBZbep/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看畫筆<a href='https://codepen.io/azuremaps/pen/RBZbep/'>在地圖上顯示從甲地到乙地的指示 (服務模組)</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
 </iframe>
 
-程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
+在上述程式碼中，程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-第二個程式碼區塊中的行會具現化服務用戶端。
+第二個程式碼區塊中的程式碼行會具現化用戶端服務。
 
-第三個程式碼區塊會初始化地圖上的[串字圖層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings)。
+第三個會建立 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 物件並將其新增至地圖。
 
-程式碼的第四個區塊會在地圖上建立並新增圖釘，以代表路線的起點和終點。 如需使用 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 的指示，您可以查看[在地圖上新增圖釘](map-add-pin.md)。
+ 線條是 LineString 的[功能](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest)。 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 會將 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的線條物件轉譯為地圖上的線條。 第四個程式碼區塊會建立線條圖層，並將其新增至地圖。 請在 [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。
 
-程式碼的下一個區塊會使用地圖類別的 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) 函式，根據路線的起點和終點設定地圖的週框方塊。
+[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。 第五個程式碼區塊會建立符號圖層，並將其新增至地圖。
 
-第六個程式碼區塊會建構路線查詢。
+第六個程式碼區塊會建立開始和結束[點](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest)物件，並將它們新增至 dataSource 物件。
 
-程式碼的最後一個區塊會透過 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法查詢 Azure 地圖服務路線規劃服務，以取得起點與終點之間的路線。 然後，回應會使用 [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) 方法剖析為 GeoJSON 格式。 它會將這些線條全都新增到地圖上以呈現路線。 如需詳細資訊，您可以查看[在地圖上新增線條](./map-add-shape.md#addALine)。
+第七個程式碼區塊會使用地圖的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性來設定地圖的界限。
+
+最後一個程式碼區塊會查詢 Azure 地圖服務路線規劃服務，這是[服務模組](https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1)的組件。 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) 方法用來取得開始與結束點之間的路線。 然後，回應會使用 [getGeoJsonRouteDirectionsResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) 方法剖析為 GeoJSON 格式。 然後，它會將回應呈現為地圖上的路線。 如需有關將線條新增至地圖的詳細資訊，請參閱[在地圖上新增線條](./map-add-shape.md#addALine)。
+
+路線查詢、資料來源、符號和線條圖層以及觀景窗界限會建立並設定於地圖的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)內，以確保在地圖完全載入後顯示結果。
 
 ## <a name="query-the-route-via-xmlhttprequest"></a>透過 XMLHttpRequest 查詢路線
 
@@ -48,13 +52,19 @@ ms.locfileid: "45729032"
 
 程式碼的第一個區塊會建構地圖物件。 如需相關指示，您可以查看[建立對應](./map-create.md)。
 
-程式碼的第二個區塊會在地圖上建立並新增圖釘，以代表路線的起點和終點。 如需使用 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 的指示，您可以查看[在地圖上新增圖釘](map-add-pin.md)。
+第二個程式碼區塊會建立 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 物件並將其新增至地圖。
 
-程式碼的第三個區塊會使用地圖類別的 [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) 函式，來根據路線的起點和終點設定地圖的週框方塊。
+第三個程式碼區塊會建立路線的起點和目的地點，並將它們新增至資料來源。 如需使用 [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins) 的指示，您可以查看[在地圖上新增圖釘](map-add-pin.md)。
 
-程式碼的第四個區塊會將 [XMLHttpRequest](https://xhr.spec.whatwg.org/) 傳送至 [Azure 地圖服務路線規劃 API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。
+ [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 會將 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中包裝的線條物件轉譯為地圖上的線條。 第四個程式碼區塊會建立線條圖層，並將其新增至地圖。 請在 [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest) 查看線條圖層的屬性。
 
-程式碼的最後一個區塊則會剖析傳入的回應。 對於成功的回應，它會收集每個導航點的經緯度資訊。 它會藉由將每個導航點連接到後續的導航點來建立線條陣列。 它會將這些線條全都新增到地圖上以呈現路線。 如需相關指示，您可以查看[在地圖上新增線條](./map-add-shape.md#addALine)。
+[符號層](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest)會使用文字或圖示，將包裝在 [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) 中的點式資料轉譯為地圖上的符號。 第五個程式碼區塊會建立符號圖層，並將其新增至地圖。 請在 [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 上查看符號圖層的屬性。
+
+下一個程式碼區塊會從起點與目的地點建立 `SouthWest` 和 `NorthEast` 點，並使用地圖的 [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) 屬性來設定地圖的範圍。
+
+最後一個程式碼區塊會將 [XMLHttpRequest](https://xhr.spec.whatwg.org/) 傳送至 [Azure 地圖服務路線規劃 API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)。 它會接著剖析傳入的回應。 而對於成功的回應，它會收集每個路線點的經緯度資訊，並藉由連接這些點來建立線條陣列。 然後它會將所有線條全都新增到 dataSource，以在地圖上呈現路線。 如需相關指示，您可以查看[在地圖上新增線條](./map-add-shape.md#addALine)。
+
+路線查詢、資料來源、符號和線條圖層以及觀景窗界限會建立並設定於地圖的[事件接聽程式](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)內，以確保在地圖完全載入後顯示結果。
 
 ## <a name="next-steps"></a>後續步驟
 

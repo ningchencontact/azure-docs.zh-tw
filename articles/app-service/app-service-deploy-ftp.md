@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: cephalin;dariac
-ms.openlocfilehash: f68bf05ef9749794c78898e4464489e7cfb358ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 32dbef04febb1f3a0cdd8654fc5ec1c5c367439e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231375"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819996"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 將您的應用程式部署至 Azure App Service
 
@@ -66,7 +66,7 @@ ms.locfileid: "51231375"
 
 在 [Azure 入口網站](https://portal.azure.com)中您應用程式的資源頁面中，選取左導覽列中的 [應用程式設定]。
 
-若要停用未加密的 FTP，請選取 [僅限 FTPS]。 若要完全停用 FTP 和 FTPS，請選取 [停用]。 完成時，按一下 [儲存]。 如果使用 [僅限 FTPS]，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.1 或更高版本。 TLS 1.0 不支援 [僅限 FTPS] 功能。
+若要停用未加密的 FTP，請選取 [僅限 FTPS]。 若要完全停用 FTP 和 FTPS，請選取 [停用]。 完成時，按一下 [儲存]。 如果使用 [僅限 FTPS]，您必須瀏覽至 Web 應用程式的 **SSL 設定** 刀鋒視窗，來強制使用 TLS 1.2 或更高版本。 TLS 1.0 和 1.1 不支援 [僅限 FTPS] 功能。
 
 ![停用 FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

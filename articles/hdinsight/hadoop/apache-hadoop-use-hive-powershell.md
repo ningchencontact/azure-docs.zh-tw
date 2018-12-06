@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: d29199c5e1534e3f98fbdbb73799840cf9c9e75f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4927c76c1bb6be6c27d2e559e6d1292008b3643b
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633106"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162313"
 ---
 # <a name="run-apache-hive-queries-using-powershell"></a>使用 PowerShell 執行 Apache Hive 查詢
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -59,7 +59,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Hi
 
         .\hivejob.ps1
 
-    執行指令碼時，系統會提示您輸入叢集名稱和該叢集的 HTTPS/管理帳戶認證。 系統可能也會提示您登入 Azure 訂用帳戶。
+    執行指令碼時，系統會提示您輸入叢集名稱和 HTTPS/叢集管理帳戶認證。 系統可能也會提示您登入 Azure 訂用帳戶。
 
 3. 作業完成時，應該會傳回類似下列文字的資訊：
 

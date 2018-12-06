@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: d88a59d3b9a39a42120b302fd8e7989c968db952
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: f6a818e0f628924342ddd50322bb54bf1d1d6079
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624772"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976652"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure 資訊安全中心的資料收集
 資訊安全中心會從您的 Azure 虛擬機器 (VM) 和非 Azure 電腦收集資料，以監視安全性漏洞與威脅。 資料是使用 Microsoft Monitoring Agent 收集而得，收集的方式是讀取機器的各種安全性相關組態和事件記錄檔，並將資料複製到工作區進行分析。 這類資料的範例包括︰作業系統類型和版本、作業系統記錄檔 (Windows 事件記錄檔)、執行中程序、電腦名稱、IP 位址和已登入的使用者。 Microsoft Monitoring Agent 也會將損毀傾印檔案複製到工作區。
@@ -48,7 +48,7 @@ ms.locfileid: "51624772"
 
 若要啟用 Microsoft Monitoring Agent 的自動佈建：
 1. 在 [資訊安全中心] 主功能表下，選取 [安全性原則]。
-2. 選取訂用帳戶。
+2. 在清單中所需訂用帳戶的 [設定] 資料行中，按一下 [編輯設定]。
 
   ![選取訂用帳戶][7]
 
@@ -135,7 +135,7 @@ ms.locfileid: "51624772"
 
     a.  在 [資訊安全中心] 主功能表中，選取 [安全性原則]。
      
-    b.  選取您要連線代理程式所需的工作區。
+    b.  在清單中所需訂用帳戶的 [設定] 資料行中按一下 [編輯設定]，以選取您要在其中連線代理程式的所需工作區。
         ![選取工作區][8] c. 設定定價層。
         ![選取定價層][9] 
    

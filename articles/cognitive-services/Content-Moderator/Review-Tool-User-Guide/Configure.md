@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a3432a1d8f424fbe78570f47b774c6e7942e16b1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ffed5e561cf9988ec10ecb7e10318d148281057
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367926"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51851532"
 ---
-# <a name="about-review-tool-settings"></a>關於審查工具設定 #
+# <a name="review-tool-settings"></a>檢閱工具設定 #
 
-使用 [審查工具儀表板] 上的 [設定] 索引標籤，可以輕鬆地定義和變更許多元件。
+使用 [審查] 工具儀表板上的 [設定] 索引標籤，可以輕鬆地定義和變更許多元件。
 
 ![Content Moderator 審核設定](images/settings-1.png)
 

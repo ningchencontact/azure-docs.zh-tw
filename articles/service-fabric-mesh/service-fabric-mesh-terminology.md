@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: f72490169149d247a43e2760815d757c3606f1b3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979126"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163719"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 術語
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh 是一個受到完整管理的服務，讓開發人員
 
 **應用程式**：Service Fabric Mesh 應用程式是 Mesh 應用程式部署、版本設定及存留期的單位。 每個應用程式執行個體的生命週期可以獨立進行管理。  應用程式是由一或多個服務程式碼套件和設定組成。 應用程式會使用 Azure 資源模型 (RM) 結構描述來定義。  服務在 RM 範本中描述為應用程式資源的屬性。  應用程式會參考應用程式所使用的網路和磁碟區。  建立應用程式時，會使用 Service Fabric 資源模型來建立應用程式、服務、網路和磁碟區的模型。
 
-**服務**：應用程式中的服務代表微服務，並會執行完整且獨立的功能。 每項服務是由一或多個程式碼套件組成，這些套件會描述執行與程式碼套件建立關聯之容器映像時所需的所有內容。  您可以相應增加及減少應用程式中的服務數目。
+**服務**：應用程式中的服務代表微服務，並會執行完整且獨立的功能。 每項服務是由一或多個程式碼套件組成，這些套件會描述執行與程式碼套件建立關聯之容器映像時所需的所有內容。  您可以相應縮小及放大應用程式中的服務複本數目。
 
 **程式碼套件**：程式碼套件會描述執行與程式碼套件建立關聯之容器映像時所需的所有內容，包括：
 

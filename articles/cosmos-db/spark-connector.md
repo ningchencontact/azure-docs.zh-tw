@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: ramkris
-ms.openlocfilehash: 26479ade27b18e817d7ad03d70d27b0cef687e8d
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 62395ff5370a057ca1888dd135b83be9d6f34f8d
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269406"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707175"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>使用 Apache Spark 至 Azure Cosmos DB 連接器來加速巨量資料分析
  
@@ -83,7 +83,7 @@ Spark 與 Azure Cosmos DB 之間的通訊，僅限在 Spark 主要節點和 Azur
 
 6. 在 [建立 Notebook] 對話方塊中輸入易記的名稱，然後選擇 [Python] 作為程式設計語言。 從下拉式清單中選取您稍早建立的叢集，然後選取 [建立]。  
 
-7. 使用裝載於 "doctorwho" Azure Cosmos DB 帳戶中的航班範例資料來執行幾個 Spark 查詢。 (這個帳戶可公開存取。)[azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 HTML 版的 Notebook。 下載存放庫檔案並移至 `\samples\Documentation_Samples\Read_Batch_PyDocumentDB.html`。 您可以將 Notebook 匯入到您的 Azure Databricks 帳戶並執行它。 下一節將詳細說明程式碼區塊的功能。
+7. 使用裝載於 "doctorwho" Azure Cosmos DB 帳戶中的航班範例資料來執行幾個 Spark 查詢。 這個帳戶可公開存取。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 [Read_Batch_PyDocumentDB](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_PyDocumentDB.ipynb) Notebook。 您可以將 Notebook 匯入至 Azure Databricks 帳戶並加以執行。 下一節將詳細說明程式碼區塊的功能。
 
 下列程式碼片段示範如何匯入 pyDocumentDB SDK，並在 Spark 內容中執行查詢。 如程式碼片段所述，pyDocumentDB SDK 包含連線至 Azure Cosmos DB 帳戶所需的連線參數。 它會匯入必要的程式庫，並設定主要金鑰和主機，以建立 Azure Cosmos DB 用戶端 (pydocumentdb.document_client)。
 
@@ -199,7 +199,7 @@ Spark 與 Azure Cosmos DB 之間的通訊速度大幅提升，這是因為資料
 
 4. 安裝程式庫之後，將它連結至您稍早建立的叢集。 
 
-此文章示範在下列案例中 Spark 連接器 Java SDK 的使用方式：
+本文示範在下列案例中 Spark 連接器 Java SDK 的使用方式：
 
 * 從 Azure Cosmos DB 讀取 Twitter 資料。  
 
@@ -209,7 +209,7 @@ Spark 與 Azure Cosmos DB 之間的通訊速度大幅提升，這是因為資料
 
 ### <a name="read-twitter-data-from-azure-cosmos-db"></a>從 Azure Cosmos DB 讀取 Twitter 資料
  
-在此節中，您會執行 Spark 查詢，從 Azure Cosmos DB 讀取 Twitter 資料的批次。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 HTML 版的 Notebook。 下載存放庫檔案並移至 `\samples\Documentation_Samples\Read_Batch_Twitter_Data.html`。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
+在本節中，您會執行 Spark 查詢，從 Azure Cosmos DB 讀取 Twitter 資料的批次。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 [Read_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Batch_Twitter_Data.ipynb) Notebook。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
 
 1. 移至您的 Azure Databricks 帳戶，然後選取 [工作區] > [建立] > [Notebook]。 
 
@@ -268,7 +268,7 @@ Java SDK 支援下列值來進行設定對應：
 
 ### <a name="read-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>讀取正在串流處理至 Azure Cosmos DB 的 Twitter 資料
 
-在此節中，您會執行 Spark 查詢，以讀取串流處理 Twitter 資料的變更摘要。 當您執行此節中的查詢時，請確定您的 Twitter 摘要應用程式正在執行且會將資料提取到 Azure Cosmos DB。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 HTML 版的 Notebook。 下載存放庫檔案並移至 `\samples\Documentation_Samples\Read_Stream_Twitter_Data.html`。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
+在本節中，您會執行 Spark 查詢，以讀取串流處理 Twitter 資料的變更摘要。 當您執行本節中的查詢時，請確定您的 Twitter 摘要應用程式正在執行且會將資料提取到 Azure Cosmos DB。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 [Read_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Read_Stream_Twitter_Data.scala) Notebook。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
 
 1. 移至您的 Azure Databricks 帳戶，然後選取 [工作區] > [建立] > [Notebook]。  
 
@@ -335,7 +335,7 @@ Java SDK 支援下列連線設定：
 
 ### <a name="write-twitter-data-to-azure-cosmos-db"></a>將 Twitter 資料寫入至 Azure Cosmos DB 
 
-在此節中，您可以執行 Spark 查詢，以將 Twitter 資料批次寫入至相同資料庫中的新集合。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 HTML 版的 Notebook。 下載存放庫檔案並移至 `\samples\Documentation_Samples\Write_Batch_Twitter_Data.html`。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
+在本節中，您可以執行 Spark 查詢，以將 Twitter 資料批次寫入至相同資料庫中的新集合。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 [Write_Batch_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Batch_Twitter_Data.ipynb) Notebook。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
 
 1. 移至您的 Azure Databricks 帳戶，然後選取 [工作區] > [建立] > [Notebook]。  
 
@@ -428,7 +428,7 @@ Java SDK 支援下列值來進行設定對應：
 
 ### <a name="write-twitter-data-that-is-streaming-to-azure-cosmos-db"></a>寫入正在串流處理至 Azure Cosmos DB 的 Twitter 資料 
 
-在此節中，您可以執行 Spark 查詢，以將串流處理 Twitter 資料的變更摘要寫入至相同資料庫中的新集合。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 HTML 版的 Notebook。 下載存放庫檔案並移至 `\samples\Documentation_Samples\Write_Stream_Twitter_Data.html`。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
+在本節中，您可以執行 Spark 查詢，以將串流處理 Twitter 資料的變更摘要寫入至相同資料庫中的新集合。 [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/tree/master) GitHub 存放庫會裝載 [Write_Stream_Twitter_Data](https://github.com/Azure/azure-cosmosdb-spark/blob/master/samples/Documentation_Samples/Write_Stream_Data.scala) Notebook。 您可以將 Notebook 匯入至 Azure Databricks 帳戶，以及更新帳戶 URI、主要金鑰、資料庫和集合名稱。 您可以執行 Notebook，或如下所示建立它：
 
 1. 移至您的 Azure Databricks 帳戶，然後選取 [工作區] > [建立] > [Notebook]。  
 

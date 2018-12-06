@@ -10,22 +10,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
-ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 549be57b52fa88efa8c3850d131563fea2a7c65e
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126307"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706121"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>使用 Batch 服務 API 將工作資料保存到 Azure 儲存體
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-從 2017-05-01 版開始，Batch 服務 API 針對使用虛擬機器設定在集區上執行的工作和作業管理員工作，支援將輸出資料保存到 Azure 儲存體。 當您新增工作時，可以指定 Azure 儲存體中的容器作為工作輸出的目的地。 當工作完成時，Batch 服務就會將任何輸出資料寫入該容器中。
+Batch 服務 API 針對使用虛擬機器設定在集區上執行的工作和作業管理員工作，支援將輸出資料保存到 Azure 儲存體。 當您新增工作時，可以指定 Azure 儲存體中的容器作為工作輸出的目的地。 當工作完成時，Batch 服務就會將任何輸出資料寫入該容器中。
 
-使用 Batch 服務 API 來保存工作輸出的好處，是您不需要修改工作正在執行的應用程式。 相反地，您可以對用戶端應用程式進行幾個簡單的修改，從建立工作的程式碼內保存工作的輸出。   
+使用 Batch 服務 API 來保存工作輸出的好處，是您不需要修改工作正在執行的應用程式。 相反地，對用戶端應用程式進行幾項修改，即可從建立工作的相同程式碼內保存工作的輸出。
 
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>何時使用 Batch 服務 API 來保存工作輸出？
 
@@ -36,7 +36,10 @@ Azure Batch 提供多個方法來保存工作輸出。 使用 Batch 服務 API �
 - 您需要將輸出保存到具有任意名稱的 Azure 儲存體容器。
 - 您需要將輸出保存到根據 [Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)命名的 Azure 儲存體容器。 
 
-如果您的情節與以上所列不同，可能需要考慮不同的方法。 例如，Batch 服務 API 目前不支援在工作執行時將輸出串流至 Azure 儲存體。 若要將輸出串流，請考慮使用適用於 .NET 的 Batch 檔案慣例程式庫。 針對其他語言，您必須實作自己的解決方案。 如需保存工作輸出之其他選項的詳細資訊，請參閱[將作業和工作輸出保存到 Azure 儲存體](batch-task-output.md)。 
+> [!NOTE]
+> Batch 服務 API 不支援的保存資料，是來自使用雲端服務設定建立之集區中執行的工作。 如需從執行雲端服務設定之集區保存工作輸出的相關資訊，請參閱[使用適用於 .NET 的 Batch 檔案慣例程式庫，將作業和工作資料保存到 Azure 儲存體](batch-task-output-file-conventions.md)。
+
+如果您的情節與以上所列不同，可能需要考慮不同的方法。 例如，Batch 服務 API 目前不支援在工作執行時將輸出串流至 Azure 儲存體。 若要將輸出串流，請考慮使用適用於 .NET 的 Batch 檔案慣例程式庫。 針對其他語言，您必須實作自己的解決方案。 如需保存工作輸出之其他選項的詳細資訊，請參閱[將作業和工作輸出保存到 Azure 儲存體](batch-task-output.md)。
 
 ## <a name="create-a-container-in-azure-storage"></a>在 Azure 儲存體中建立容器
 
@@ -64,14 +67,14 @@ string containerSasToken = container.GetSharedAccessSignature(new SharedAccessBl
     Permissions = SharedAccessBlobPermissions.Write
 });
 
-string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken; 
+string containerSasUrl = container.Uri.AbsoluteUri + containerSasToken;
 ```
 
 ## <a name="specify-output-files-for-task-output"></a>指定工作輸出的輸出檔案
 
-若要指定工作的輸出檔案，請建立 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 物件的集合，並當您建立這項工作時，將它指派給 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 屬性。 
+若要指定工作的輸出檔案，請建立 [OutputFile](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile) 物件的集合，並當您建立這項工作時，將它指派給 [CloudTask.OutputFiles](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles#Microsoft_Azure_Batch_CloudTask_OutputFiles) 屬性。
 
-下列 .NET 程式碼範例所建立的工作，會將隨機數字寫入名為 `output.txt` 的檔案。 此範例會建立要寫入容器中的 `output.txt` 之輸出檔案。 此範例也會建立任何比對檔案模式之記錄檔的輸出檔案`std*.txt` (_例如_ 、`stdout.txt` 和 `stderr.txt`)。 容器 URL 需要先前針對容器建立的 SAS。 Batch 服務會使用 SAS 來驗證容器的存取權： 
+下列 C# 程式碼範例所建立的工作，會將隨機數字寫入名為 `output.txt` 的檔案。 此範例會建立要寫入容器中的 `output.txt` 之輸出檔案。 此範例也會建立任何比對檔案模式之記錄檔的輸出檔案`std*.txt` (_例如_ 、`stdout.txt` 和 `stderr.txt`)。 容器 URL 需要先前針對容器建立的 SAS。 Batch 服務會使用 SAS 來驗證容器的存取權：
 
 ```csharp
 new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,100000) DO (ECHO !RANDOM!)) > output.txt\"")
@@ -101,7 +104,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 當您指定輸出檔案時，可以使用 [OutputFile.FilePattern](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) 屬性來指定要進行比對的檔案模式。 檔案模式可能會比對零個檔案、單一檔案或工作所建立的一組檔案。
 
-**FilePattern** 屬性會支援標準檔案系統萬用字元，例如 `*` (適用於非遞迴比對) 和 `**` (適用於遞迴比對)。 例如，上述程式碼範例會指定檔案模式以非遞迴的方式比對 `std*.txt`： 
+**FilePattern** 屬性會支援標準檔案系統萬用字元，例如 `*` (適用於非遞迴比對) 和 `**` (適用於遞迴比對)。 例如，上述程式碼範例會指定檔案模式以非遞迴的方式比對 `std*.txt`：
 
 `filePattern: @"..\std*.txt"`
 
@@ -113,7 +116,7 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 
 [OutputFileUploadOptions.UploadCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.outputfileuploadoptions.uploadcondition#Microsoft_Azure_Batch_OutputFileUploadOptions_UploadCondition) 屬性允許條件式上傳輸出檔案。 常見的情節是，如果工作成功就上傳一組檔案，如果失敗就上傳一組不同的檔案。 例如，只有在工作失敗且以非零結束代碼結束時，您才需要將詳細資訊記錄檔上傳。 同樣地，只有當工作成功時，您才需要將結果檔案上載，因為如果工作失敗，這些檔案可能就會遺失或不完整。
 
-上述程式碼範例會將 **UploadCondition** 屬性設為 **TaskCompletion**。 此設定會指定在工作完成之後才將檔案上傳，無論結束代碼的值為何。 
+上述程式碼範例會將 **UploadCondition** 屬性設為 **TaskCompletion**。 此設定會指定在工作完成之後才將檔案上傳，無論結束代碼的值為何。
 
 `uploadCondition: OutputFileUploadCondition.TaskCompletion`
 
@@ -145,10 +148,9 @@ https://myaccount.blob.core.windows.net/mycontainer/task2/output.txt
 
 如需有關 Azure 儲存體中虛擬目錄的詳細資訊，請參閱[列出容器中的 blob](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container)。
 
-
 ## <a name="diagnose-file-upload-errors"></a>診斷檔案上傳錯誤
 
-如果將輸出檔案上傳至 Azure 儲存體失敗，工作就會移至「**已完成**」狀態，且會設定 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 屬性。 檢查 **FailureInformation** 屬性來判斷所發生的錯誤。 例如，如果找不到容器，就會在檔案上傳時發生以下錯誤： 
+如果將輸出檔案上傳至 Azure 儲存體失敗，工作就會移至「**已完成**」狀態，且會設定 [TaskExecutionInformation.FailureInformation](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskexecutioninformation.failureinformation#Microsoft_Azure_Batch_TaskExecutionInformation_FailureInformation) 屬性。 檢查 **FailureInformation** 屬性來判斷所發生的錯誤。 例如，如果找不到容器，就會在檔案上傳時發生以下錯誤：
 
 ```
 Category: UserError

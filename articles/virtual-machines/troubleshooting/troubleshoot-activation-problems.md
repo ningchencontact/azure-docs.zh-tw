@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 80799eb716e77a4dec02a2daf028c35589c75da0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b14a98ce22979182ec27ba5dc849f9535fa2b387
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235270"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51824297"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>針對 Azure Windows 虛擬機器啟用問題進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "51235270"
 Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 使用此疑難排解指南時，請使用適用於您的區域的適當 KMS 端點。
 
 * Azure 公用雲端區域： kms.core.windows.net:1688
-* Azure 中國國家雲端區域： kms.core.chinacloudapi.cn:1688
+* Azure 中國 21Vianet 國家雲端區域：kms.core.chinacloudapi.cn:1688
 * Azure 德國國家雲端區域： kms.core.chinacloudapi.cn:1688
 * Azure 美國政府國家雲端區域： kms.core.chinacloudapi.cn:1688
 
@@ -84,8 +84,7 @@ Azure 會根據 VM 所在的雲端區域使用不同的端點來啟用 KMS。 �
 3. 確定已將 VM 設定為使用正確的 Azure KMS 伺服器。 若要這樣做，請執行下列命令：
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     此命令應該會傳回：金鑰管理服務電腦名稱已成功設定為 kms.core.windows.net:1688。
 

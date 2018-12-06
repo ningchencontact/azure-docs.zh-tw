@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/04/2018
-ms.openlocfilehash: 70096c8f3a5c07fa757b68494c04519b63435dcd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: fb18507cc9b7aef92a07e6c34c99403e47be1c88
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166889"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977092"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>使用 Intelligent Insights Azure SQL Database 效能診斷記錄
 
@@ -39,9 +39,7 @@ ms.locfileid: "47166889"
 
 ## <a name="issue-id-and-database-affected"></a>問題識別碼和受影響的資料庫
 
-問題識別屬性 (issueId_d) 提供一種以獨特方式追蹤效能問題直到解決為止的方法。 Intelligent Insights 會將每個問題生命週期觀察為：「作用中」、「正在驗證」或「完成」。 透過這每一個狀態階段，Intelligent insights 便可在記錄中記錄多個事件記錄。 這每一個項目的問題識別碼編號都會維持唯一。 Intelligent Insights 會在問題整個生命週期全程追蹤問題，並且每隔 15 分鐘就在診斷記錄中產生一次深入解析。
-
-在偵測到效能問題之後，只要其持續存在，系統就會在狀態 (status_s) 屬性底下將該問題回報為「作用中」。 在偵測到問題已緩和之後，系統就會驗證問題並在狀態 (status_s) 屬性底下回報為「正在驗證」。 如果問題已不存在，狀態 (status_s) 屬性就會將此問題回報為「完成」。
+問題識別屬性 (issueId_d) 提供一種以獨特方式追蹤效能問題直到解決為止的方法。 相同問題的記錄報告狀態中的多筆事件記錄會共用相同的問題識別碼。
 
 除了「問題識別碼」之外，診斷記錄還會回報與診斷記錄中所回報問題相關之特定事件的開始 (intervalStartTime_t) 和結束 (intervalEndTme_t) 時間戳記。
 

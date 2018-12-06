@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: f85ab05e785ea559962490b43e75b196d1602159
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 4ea4479d77e06940bed50859341952ffbcbbda46
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016211"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711050"
 ---
 # <a name="connect-and-authenticate-to-apis"></a>連線至 API 並進行驗證
 
@@ -35,39 +35,18 @@ Windows Azure 驗證程式庫提供許多方式來取得 Active Directory 權杖
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>從中介層 Web API 呼叫 Digital Twins
 
-當開發人員打造 Digital Twins 解決方案時，他們通常會建立中介層應用程式或 API。 應用程式或 API 接著會呼叫 Digital Twins API 下游。 使用者會先驗證中介層應用程式，然後使用代理者權杖流程來呼叫下游。 如需如何協調代理者流程的相關指示，請參閱[此頁面](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)。 您也可以在[此頁面](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) \(英文\) 上檢視程式碼範例。
+當開發人員打造 Digital Twins 解決方案時，他們通常會建立中介層應用程式或 API。 應用程式或 API 接著會呼叫 Digital Twins API 下游。 若要支援此標準 Web 解決方案架構，請確定該使用者先：
 
+1. 向中介層應用程式驗證
 
-## <a name="test-with-the-postman-client"></a>使用 Postman 用戶端測試
+1. 在驗證期間會取得 OAuth 2.0 代理者權杖
 
-若要使用 Digital Twins API 啟動並執行，您可以使用 Postman 之類的用戶端作為 API 環境。 Postman 可協助您快速建立複雜的 HTTP 要求。 下列步驟示範如何取得 Azure AD 權杖，需要有此權杖才能在 Postman UI 內呼叫 Digital Twins。
+1. 所取得的權杖接著用於進行驗證，或使用代理者流程呼叫更下游的 API
 
-
-1. 移至 https://www.getpostman.com/ 以下載應用程式。
-1. 按照[此快速入門](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad)的步驟來建立 Azure AD 應用程式。 或者，您可以重複使用現有的註冊。 
-1. 在 [必要權限] 底下，輸入 “Azure Digital Twins”，然後選取 [委派的權限]。 接著選取 [授與權限]。
-1. 開啟應用程式資訊清單，並將 **oauth2AllowImplicitFlow** 設定為 True。
-1. 將回覆 URL 設定為 [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback)。
-1. 選取 [授權] 索引標籤、選取 [OAuth 2.0]，然後選取 [取得新的存取權杖]。
-
-    |**欄位**  |**值** |
-    |---------|---------|
-    | 授與類型 | 隱含 |
-    | 回呼 URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | 驗證 URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
-    | 用戶端識別碼 | 使用從步驟 2 中建立或重新決定用途之 Azure AD 應用程式的應用程式識別碼。 |
-    | 影響範圍 | 保留空白。 |
-    | State | 保留空白。 |
-    | 用戶端驗證 | 當作基本驗證標頭傳送。 |
-
-1. 選取 [要求權杖]。
-
-    >[!NOTE]
-    >如果您收到錯誤訊息「無法完成 OAuth 2」，請嘗試下列方法：
-    > * 關閉 Postman 後重新開啟，然後再試一次。
-   
-1. 向下捲動，然後選取 [使用權杖]。
+如需如何協調代理者流程的相關指示，請參閱 [OAuth 2.0 代理者流程](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)。 您也可以在[呼叫下游 Web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/) 中檢視程式碼範例。
 
 ## <a name="next-steps"></a>後續步驟
+
+若要使用 OAuth 2.0 隱含授權流程設定及測試 Azure Digital Twins，請閱讀[設定 Postman](./how-to-configure-postman.md)。
 
 若要深入了解 Azure Digital Twins 安全性，請參閱[建立和管理角色指派](./security-create-manage-role-assignments.md)。

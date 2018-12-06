@@ -14,17 +14,32 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 8ca04fef8a17c43c9d1f761e36d8da7f1e07d4d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f3684a1fa22982b62992db28cccd88d67738bc94
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283575"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161696"
 ---
 # <a name="azure-ad-connect-health-version-release-history"></a>Azure AD Connect Health︰版本發行歷程記錄
 Azure Active Directory 團隊會定期以新的特性和功能更新 Azure AD Connect Health。 本文列出已發行的版本和功能。
-Azure AD Connect Health for Sync 會與 Azure AD Connect Health 安裝整合。 深入瞭解 [Azure AD Connect 版本發行歷程記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health for Sync 會與 Azure AD Connect Health 安裝整合。 深入了解 [Azure AD Connect 版本歷程記錄](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history) 如需功能意見反應，請在 [Connnect Health User Voice 頻道](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)投票
 
+## <a name="november-2018"></a>2018 年 11 月
+**新的 GA 功能：** 
+* Azure AD Connect Health for Sync - 診斷及修復入口網站中重複的屬性同步處理錯誤
+
+**代理程式更新：** 
+*  適用於 AD DS 的 Azure AD Connect Health 代理程式 (3.1.24.0 版) 
+1. 傳輸層安全性 (TLS) 通訊協定 1.2 版合規性和強制執行
+2. 減少通用類別警示雜訊
+3. 健康情況代理程式註冊錯誤 (bug) 修正
+
+*   適用於 AD FS 的 Azure AD Connect Health 代理程式 (3.1.24.0 版)
+1. 傳輸層安全性 (TLS) 通訊協定 1.2 版合規性和強制執行
+2. 對當地語系化的作業系統支援 Test-ADFSRequestToken
+3. 已解決的診斷代理程式 EventHandler 鎖定問題
+4. 健康情況代理程式註冊錯誤 (bug) 修正
 
 ## <a name="august-2018"></a>2018 年 8 月 
 *  隨著 Azure AD Connect 1.1.880.0 版發行的 Azure AD Connect Health Agent for Sync (3.1.7.0 版)    

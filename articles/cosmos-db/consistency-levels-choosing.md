@@ -7,14 +7,14 @@ author: markjbrown
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 10/24/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9234a57bdec3dfd7a1ccdba00b90a5c853dc1c5a
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42128a05ad9f82ff6b202eb6566c1fea60caa760
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960952"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52162406"
 ---
 # <a name="choose-the-right-consistency-level-for-your-application"></a>為應用程式選擇正確的一致性層級
 
@@ -52,7 +52,7 @@ ms.locfileid: "50960952"
 
 * 針對其餘的三個一致性層級，過期時段多半取決於您的工作負載。 例如，如果資料庫上沒有任何寫入作業，則具有**最終**、**工作階段**或**一致前置詞**一致性層級的讀取作業可能會產生與具有強式一致性層級的讀取作業相同的結果。
 
-如果您的 Cosmos DB 帳戶是使用強式一致性以外的一致性層級所設定，您可以藉由查看機率性限定過期 (PBS) 計量，來找出用戶端可能針對您的工作負載取得強式且一致性讀取的機率。 此計量會在 Azure 入口網站公開，若要深入了解，請參閱[如何使用 PBS 計量](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)一文。
+如果您的 Cosmos DB 帳戶是使用強式一致性以外的一致性層級所設定，您可以藉由查看機率性限定過期 (PBS) 計量，來找出用戶端可能針對您的工作負載取得強式且一致性讀取的機率。 此計量會在 Azure 入口網站公開，若要深入了解，請參閱[監視機率限定過期 (PBS) 計量](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)。
 
 機率性限定過期會顯示您最終一致性的最終結果。 透過此計量，您就能深入解析取得比您目前已在 Cosmos DB 帳戶上設定之一致性層級更強式一致性的頻率。 換句話說，您可以看到針對寫入和讀取區域的組合取得強式一致性讀取的機率 (以毫秒來測量)。
 
@@ -63,4 +63,4 @@ ms.locfileid: "50960952"
 * [在 Cosmos DB API 上對應的一致性層級](consistency-levels-across-apis.md)
 * [各種一致性層級的可用性和效能權衡取捨](consistency-levels-tradeoffs.md)
 * [如何管理應用程式的工作階段權杖](how-to-manage-consistency.md#utilize-session-tokens)
-* [如何監視機率性限定過期 (PBS) 計量](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)
+* [監視機率限定過期 (PBS) 計量](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric)

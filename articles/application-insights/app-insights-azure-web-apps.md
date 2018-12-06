@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: mbullwin
-ms.openlocfilehash: e88d38e6d95459cc1c41adecee6b7ece659eac99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 17a0b36fffb14f423aba3dd02b5b42d44933309c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957223"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165385"
 ---
 # <a name="monitor-azure-web-app-performance"></a>監視 Azure Web 應用程式效能
 在 [Azure 入口網站](https://portal.azure.com)中，您可以為 [Azure Web 應用程式](../app-service/app-service-web-overview.md)設定應用程式效能監視。 [Azure Application Insights](app-insights-overview.md) 會檢測您的應用程式，將其活動的相關遙測傳送給 Application Insights 服務，以在其中儲存和分析遙測。 該處的度量圖表和搜尋工具可用於協助診斷問題、改善效能，以及評估使用方式。
@@ -43,9 +43,9 @@ ms.locfileid: "50957223"
 
     ![檢測 Web 應用程式](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. 建立您的資源後，請選取 [檢查並更新 Web 應用程式的 Application Insights 擴充功能] 以確認擴充功能為最新狀態。
+2. 在指定要使用的資源之後，您可以選擇要如何讓 Application Insights 收集每個應用程式平台的資料。
 
-     ![檢查並更新網站擴充功能](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![選擇每個平台的選項](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. 安裝 Application Insights 之後，**檢測您的 Web 應用程式**。
 
@@ -64,7 +64,7 @@ ms.locfileid: "50957223"
 
 如何移除 Application Insights，或切換成傳送到另一個資源？
 
-* 在 Azure 中，開啟 Web 應用程式控制刀鋒視窗，在 [開發工具] 下開啟 [擴充功能]。 刪除 Application Insights 延伸模組。 然後在 [監視] 之下，選擇 Application Insights 並建立或選取您想要的資源。
+* 在 Azure 中，開啟 [Web 應用程式控制] 刀鋒視窗，然後在 [設定] 底下開啟 **Application Insights**。 您可以按一下頂端的 [停用] 來關閉 Application Insights，也可以在 [變更資源] 區段中選取新的資源。
 
 ## <a name="build-the-app-with-application-insights"></a>使用 Application Insights 建置應用程式
 Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至您的 App。 特別是，您可以收集追蹤記錄檔、[撰寫自訂遙測](app-insights-api-custom-events-metrics.md)，並取得更詳細的例外狀況報告。
@@ -101,7 +101,7 @@ Application Insights 可以提供更詳細的遙測，方法是將 SDK 安裝至
 * [在即時應用程式上執行分析工具](app-insights-profiler.md)。
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - 使用 Application Insights 監視 Azure Functions
 * [能夠讓 Azure 診斷](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md) 傳送至 Application Insights。
-* [監視服務健康狀態計量](../monitoring/monitoring-data-collection.md)，確保您的服務可用且回應正常。
+* [監視服務健康狀態計量](../azure-monitor/platform/data-collection.md)，確保您的服務可用且回應正常。
 * 每當發生作業事件或計量超過臨界值時，[接收警示通知](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
 * 使用 [JavaScript 應用程式和網頁適用的 Application Insights](app-insights-javascript.md) ，以從造訪網頁的瀏覽器取得用戶端遙測。
 * [設定可用性 Web 測試](app-insights-monitor-web-app-availability.md) ，以在您的網站關閉時發出警示。

@@ -12,26 +12,27 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 3a1c5341e391c8be1af42eea940fbf147b88e7c8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1ae10fb749e671f7a8b5ca48e652711d7dcf98c8
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685696"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52262596"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 合作夥伴客戶使用狀況屬性
 
-身為 Azure 的軟體合作夥伴，您的解決方案需要 Azure 元件或必須直接部署在 Azure 基礎結構上。 部署合作夥伴解決方案並佈建其自有 Azure 資源的客戶會發現深入了解部署狀態以及對 Azure 成長的影響並不容易。 獲得概略的部署狀況資訊之後，您就可獲得與 Microsoft 銷售團隊相同的資訊，並獲得 Microsoft 合作夥伴計劃的信用額度。   
+身為 Azure 的軟體合作夥伴，您的解決方案需要 Azure 元件或必須直接部署在 Azure 基礎結構上。 部署合作夥伴解決方案並佈建其自有 Azure 資源的客戶會發現深入了解部署狀態以及對 Azure 成長的影響並不容易。 獲得概略的部署狀況資訊之後，您就可獲得與 Microsoft 銷售團隊相同的資訊，並獲得 Microsoft 合作夥伴計劃的信用額度。 
 
 Microsoft 現在提供一個模型，協助合作夥伴以更好的方式追蹤客戶在 Azure 上部署之軟體的 Azure 使用狀況。 這個新方法使用 Azure Resource Manager 來協調 Azure 服務的部署。
 
 身為 Microsoft 合作夥伴，您可以將 Azure 使用狀況與您代表客戶佈建的任何 Azure 資源相關聯。 您可以透過 Azure Marketplace、快速入門存放庫、私人 GitHub 存放庫與一對一客戶支援來構成此關聯關係。 若要啟用追蹤，有兩種方法可用：
 
 - Azure Resource Manager 範本：Resource Manager 範本或解決方案範本可部署 Azure 服務以執行合作夥伴的軟體。 合作夥伴可建立 Resource Manager 範本以定義其 Azure 解決方案的基礎結構與設定。 Resource Manager 範本可讓您與您的客戶在其生命週期中部署您的解決方案。 您可以確信您的資源會以一致的狀態部署。 
-
 - Azure Resource Manager API：合作夥伴可直接呼叫 Resource Manager API，來部署 Resource Manager 範本或產生 API 呼叫以直接佈建 Azure 服務。 
+
+在所有發佈至 Azure Marketplace 的[解決方案範本](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md)上，都必須要有客戶使用狀況屬性。 
 
 ## <a name="use-resource-manager-templates"></a>使用 Resource Manager 範本
 

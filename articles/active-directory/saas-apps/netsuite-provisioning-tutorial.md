@@ -1,6 +1,6 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Netsuite 來自動佈建使用者 | Microsoft Docs
-description: 了解如何設定 Azure Active Directory 與 Netsuite 之間的單一登入。
+title: 教學課程︰以 Azure Active Directory 設定 Netsuite OneWorld 來自動佈建使用者 | Microsoft Docs
+description: 了解如何設定 Azure Active Directory 與 Netsuite OneWorld 之間的單一登入。
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,26 +14,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: e14f74f3dd6d49b882dedcb2ae01029a50a459a3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 81e590297283a8fe88d9257e201259056a3e3744
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346741"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823841"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>教學課程︰設定 Netsuite 來自動佈建使用者
 
-本教學課程旨在說明您需要在 Netsuite 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Netsuite。
+本教學課程旨在說明您需要在 Netsuite OneWorld 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 Netsuite。
 
 ## <a name="prerequisites"></a>必要條件
 
 本教學課程中說明的案例假設您已經具有下列項目：
 
 *   Azure Active Directory 租用戶。
-*   啟用 Netsuite 單一登入的訂用帳戶
-*   Netsuite 中具有小組管理員權限的使用者帳戶。
+*   Netsuite OneWorld 訂用帳戶。 請注意，自動使用者佈建目前只透過 NetSuite OneWorld 提供支援。
+*   Netsuite 中具有系統管理員權限的使用者帳戶。
 
-## <a name="assigning-users-to-netsuite"></a>將使用者指派給 Netsuite
+## <a name="assigning-users-to-netsuite-oneworld"></a>將使用者指派給 Netsuite OneWorld
 
 Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使用者應接收對指定應用程式的存取權。 在自動使用者帳戶佈建的內容中，只有「已指派」至 Azure AD 中的應用程式之使用者和群組會進行同步處理。
 
@@ -41,7 +41,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 [將使用者或群組指派給企業應用程式](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
-### <a name="important-tips-for-assigning-users-to-netsuite"></a>將使用者指派給 Netsuite 的重要秘訣
+### <a name="important-tips-for-assigning-users-to-netsuite-oneworld"></a>將使用者指派給 Netsuite OneWorld 的重要秘訣
 
 *   建議將單一 Azure AD 使用者指派給 Netsuite，以測試佈建設定。 其他使用者及/或群組可能會稍後再指派。
 

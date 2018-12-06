@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 378baad0735238dc0921e5e78e2a27b3ae907e19
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 611cd0878e88d2e1c0a988f73b57e391c5a8551d
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628007"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975902"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>將中樞工作區和專案移轉至自訂翻譯工具
 
@@ -134,6 +134,19 @@ ms.locfileid: "51628007"
 
 >[!Note]
 >目前僅支援移轉至有 NMT 語言存在的語言組。 請查看目前[支援的語言 NMT](https://www.microsoft.com/translator/business/languages/) 清單。 對於沒有 NMT 語言存在的語言組，資料將會從中樞移至自訂翻譯工具，但無法對這些語言組進行定型。
+
+## <a name="custom-translator-versus-hub"></a>自訂翻譯工具與中樞
+
+下表比較 Microsoft Translator Hub 與自訂翻譯工具之間的功能。
+
+|   | 中樞 | 自訂翻譯工具 |
+|:-----|:----:|:----:|
+|自訂功能狀態   | 正式運作  | 預覽 |
+| 文字 API 版本  | V2    | V3  |
+| SMT 自訂 | 是   | 否 |
+| NMT 自訂 | 否    | 是 |
+| 新的統一語音服務自訂 | 否    | 是 |
+| 不追蹤 | 是 | 是 |
 
 ## <a name="next-steps"></a>後續步驟
 

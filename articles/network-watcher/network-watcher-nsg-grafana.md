@@ -3,8 +3,8 @@ title: 使用網路監看員和 Grafana 管理網路安全性群組流量記錄 
 description: 使用網路監看員和 Grafana 在 Azure 中管理和分析網路安全性群組流量記錄。
 services: network-watcher
 documentationcenter: na
-author: kumudD
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,17 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: kumud
-ms.openlocfilehash: 44cf074223c88b8fa539144c0d948e68ae6cbd13
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mareat
+ms.openlocfilehash: 9e408b45f47cb86191628916124611735f374d9e
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036523"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51819029"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>使用網路監看員和 Grafana 來管理和分析網路安全性群組流量記錄
 
 [網路安全性群組 (NSG) 流量記錄](network-watcher-nsg-flow-logging-overview.md)提供的資訊可讓您用來了解網路介面上的輸入和輸出 IP 流量。 這些流量記錄會顯示每一個 NSG 規則的輸出和輸入流量、套用流量的 NIC、有關流量的 5 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠、通訊協定)，以及流量是獲得允許還是遭到拒絕。
+
+> [!Warning]  
+> 下列步驟適用於流量記錄第 1 版。 如需詳細資訊，請參閱[網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。 下列指示若未經修改，則不適用於第 2 版的記錄檔。
 
 您可以在已啟用流量記錄的網路中擁有許多個 NSG。 這樣的記錄資料量會讓您在剖析以及從記錄中取得見解時變得很麻煩。 本文提供了可使用 Grafana (開放原始碼的繪圖工具)、ElasticSearch (分散式的搜尋和分析引擎) 以及 Logstash (開放原始碼的伺服器端資料處理管線) 來集中管理這些 NSG 流量記錄的解決方案。  
 
@@ -63,7 +66,7 @@ NSG 流量記錄可使用網路監看員來啟用，並且會儲存在 Azure Blo
 
 3. 將下列內容新增至該檔案。 變更儲存體帳戶名稱和存取金鑰，以反映您的儲存體帳戶詳細資料：
 
-    ```bash
+   ```bash
     input {
       azureblob
       {
@@ -133,9 +136,10 @@ NSG 流量記錄可使用網路監看員來啟用，並且會儲存在 Azure Blo
         index => "nsg-flow-logs"
       }
     }
-    ```
+   ```
 
-所提供的 Logstash 設定檔是由三個部分組成的：輸入、篩選和輸出。 「輸入」區段會指定 Logstash 將要處理之記錄的輸入來源，在此案例中，我們會使用「azureblob」輸入外掛程式 (會於後續步驟中安裝)，它能讓我們存取 Blob 儲存體中所儲存的 NSG 流量記錄 JSON 檔案。 
+所提供的 Logstash 設定檔是由三個部分組成的：輸入、篩選和輸出。
+「輸入」區段會指定 Logstash 將要處理之記錄的輸入來源，在此案例中，我們會使用「azureblob」輸入外掛程式 (會於後續步驟中安裝)，它能讓我們存取 Blob 儲存體中所儲存的 NSG 流量記錄 JSON 檔案。 
 
 「篩選」區段接著會將每個流量記錄壓平合併，讓每個個別的流量 Tuple 和其相關聯的屬性變成個別的 Logstash 事件。
 

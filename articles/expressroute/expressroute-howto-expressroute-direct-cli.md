@@ -1,47 +1,49 @@
 ---
-title: 如何使用 CLI 設定 Azure ExpressRoute Direct | Microsoft Docs
-description: 此頁面可協助您使用 CLI 設定 ExpressRoute Direct (預覽)
+title: 使用 Azure CLI 設定 Azure ExpressRoute Direct | Microsoft Docs
+description: 本文可協助您使用 Azure CLI 設定 ExpressRoute Direct (預覽)
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: 989e96aa00ae65d1206f961a10893e3331670553
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: dfc13d584abcd05cd15b7ce9e3034bbf246f3b8b
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958299"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976600"
 ---
-# <a name="how-to-configure-expressroute-direct-using-cli-preview"></a>如何使用 CLI 設定 ExpressRoute Direct (預覽)
+# <a name="configure-expressroute-direct-by-using-the-azure-cli-preview"></a>使用 Azure CLI 設定 ExpressRoute Direct (預覽)
 
-ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位置，直接連線至 Microsoft 的全球網路。 如需詳細資訊，請參閱[關於 ExpressRoute Direct Connect](expressroute-erdirect-about.md)。
+您可以使用 Azure ExpressRoute Direct 在策略性分散於世界各地的對等互連位置，直接連線至 Microsoft 全球網路。 如需詳細資訊，請參閱[關於 ExpressRoute Direct Connect](expressroute-erdirect-about.md)。
 
 > [!IMPORTANT]
 > ExpressRoute Direct 目前為預覽狀態。
 >
-> 此公開預覽版是在沒有服務等級協定的情況下提供，不得用於生產工作負載。 可能不支援特定功能、可能已經限制功能，或者可能無法在所有 Azure 位置提供使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
+> ExpressRoute Direct 公開預覽版是在沒有服務等級協定的情況下提供。 您不得將 ExpressRoute Direct 預覽版用於生產工作負載。 有些功能可能不受支援、有些功能可能受限，而有些功能則可能無法在所有 Azure 位置使用。 如需詳細資訊，請參閱 [Microsoft Azure 預覽專用的補充使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 ## <a name="resources"></a>建立資源
 
-1. 登入 Azure 並選取訂用帳戶。 ExpressRoute Direct 資源和 ExpressRoute 線路必須位於相同的訂用帳戶中。
+1. 登入 Azure 並選取包含 ExpressRoute 的訂用帳戶。 ExpressRoute Direct 資源和 ExpressRoute 線路必須位於相同的訂用帳戶中。 在 Azure CLI 中，執行下列命令：
 
   ```azurecli
   az login
   ```
 
-  檢查帳戶的訂用帳戶。 
+  檢查帳戶的訂用帳戶： 
 
   ```azurecli
   az account list 
   ```
 
-  選取您想要建立 ExpressRoute 線路的訂用帳戶。
+  選取您想要建立 ExpressRoute 線路的訂用帳戶：
+
   ```azurecli
   az account set --subscription "<subscription ID>"
   ```
-2. 列出支援 ExpressRoute Direct 的所有位置。
+
+2. 列出支援 ExpressRoute Direct 的所有位置：
     
   ```azurecli
   az network express-route port location list
@@ -108,7 +110,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
    }
   ]
   ```
-3. 判斷以上所列的位置是否有可用的頻寬
+3. 判斷前一個步驟中所列的其中一個位置是否具有可用頻寬：
 
   ```azurecli
   az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -134,14 +136,14 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
   "type": "Microsoft.Network/expressRoutePortsLocations"
   }
   ```
-4. 根據以上所選的位置建立 ExpressRoute Direct 資源
+4. 建立 ExpressRoute Direct 資源，該資源是以您在先前步驟中選擇的位置為基礎。
 
-  ExpressRoute Direct 支援 QinQ 與 Dot1Q 封裝。 如果選取 QinQ，則每個 ExpressRoute 線路都會動態獲得指派的 S-Tag，並將成為整個 ExpressRoute Direct 資源中唯一的。 線路上的每個 C-Tag 必須是線路上唯一的，但不是 ExpressRoute Direct 上唯一的。  
+  ExpressRoute Direct 支援 QinQ 與 Dot1Q 封裝。 如果選取 QinQ，則每個 ExpressRoute 線路都會動態獲得指派的 S-Tag，而且是整個 ExpressRoute Direct 資源中唯一的。 線路上的每個 C-Tag 必須是線路上唯一的，但不是 ExpressRoute Direct 資源中唯一的。  
 
-  如果選取 Dot1Q 封裝，您必須管理 C-Tag (VLAN) 在整個 ExpressRoute Direct 資源中的唯一性。  
+  如果您選取 Dot1Q 封裝，則必須管理 C-Tag (VLAN) 在整個 ExpressRoute Direct 資源中的唯一性。  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct 只能是一種封裝類型。 建立 ExpressRoute Direct 之後，就無法變更封裝。
+  > ExpressRoute Direct 只能是一種封裝類型。 在您建立 ExpressRoute Direct 資源之後，便無法變更封裝類型。
   > 
  
   ```azurecli
@@ -149,10 +151,10 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
   ```
 
   > [!NOTE]
-  > 封裝屬性也可以設定為 Dot1Q。 
+  > 您也可以將 [封裝] 屬性設定為 **Dot1Q**。 
   >
 
-  **範例輸出︰**
+  **範例輸出**
 
   ```azurecli
   {
@@ -206,11 +208,11 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
   }  
   ```
 
-## <a name="state"></a>變更連結的系統管理狀態
+## <a name="state"></a>變更連結的 AdminState
 
-此程序應用於進行第 1 層測試，確保每個交叉連線都已在每個主要和次要路由器中正確修補。
+使用此程序來進行第 1 層測試。 確保每個交叉連線都已在主要和次要連接埠的每個路由器中正確修補。
 
-1. 將 [連結] 設定為 [已啟用]。 重複此步驟，將每個連結設定為 [已啟用]。
+1. 將連結設定為 [已啟用]。 重複此步驟，將每個連結設定為 [已啟用]。
 
   連結 [0] 是主要連接埠，而連結 [1] 是次要連接埠。
 
@@ -220,7 +222,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
   ```azurecli
   az network express-route port update -n Contoso-Direct -g Contoso-Direct-rg --set links[1].adminState="Enabled"
   ```
-  **範例輸出︰**
+  **範例輸出**
 
   ```azurecli
   {
@@ -274,25 +276,25 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
   }
   ```
 
-  使用與 `AdminState = “Disabled”` 相同的程序來關閉連接埠。
+  使用 `AdminState = “Disabled”`，可使用相同的程序來關閉連接埠。
 
 ## <a name="circuit"></a>建立線路
 
-根據預設，您可以在 ExpressRoute Direct 資源所在的訂用帳戶中建立 10 個線路。 支援人員可以增加此數目。 您則負責追蹤已佈建和已使用的頻寬。 已佈建的頻寬是 ExpressRoute Direct 資源上所有線路的頻寬總和，而已使用的頻寬則是基礎實體介面的實際使用量。
+根據預設，您可以在包含 ExpressRoute Direct 資源的訂用帳戶中建立 10 個線路。 Microsoft 支援服務可以提高預設限制。 您則負責追蹤已佈建和已使用的頻寬。 已佈建的頻寬是 ExpressRoute Direct 資源上所有線路的頻寬總和。 已使用的頻寬則是基礎實體介面的實際使用量。
 
-ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 這些是：40Gbps 和 100Gbps。
+您只可以在 ExpressRoute Direct 上使用額外線路頻寬來支援以上所述的案例。 頻寬是 40 Gbps 和 100 Gbps。
 
-您可以建立標準或進階線路。 標準線路會納入成本中，而進階線路則是根據所選的頻寬計算成本。 只能依照計量建立線路，因為 ExpressRoute Direct 不支援無限量。
+您可以建立標準或進階線路。 標準線路會包含在服務的成本中。 進階線路的成本則是以您選取的頻寬為基礎。 您只可以依照計量建立線路。 ExpressRoute Direct 不支援無限制的線路。
 
-在 ExpressRoute Direct 資源上建立線路。
+在 ExpressRoute Direct 資源上建立線路：
 
   ```azurecli
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  其他頻寬包含：5 Gbps、10 Gbps 及 40 Gbps
+  其他頻寬包含：5 Gbps、10 Gbps 及 40 Gbps。
 
-  **範例輸出︰**
+  **範例輸出**
 
   ```azurecli
   {

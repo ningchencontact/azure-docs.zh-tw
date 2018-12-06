@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 952d8801c189322161bbf8b795676af48b92c29f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394322"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854249"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
@@ -28,7 +28,7 @@ ms.locfileid: "49394322"
 
 - 在您自己包含 StormEvents 範例資料的叢集上。 如需詳細資訊。請參閱[快速入門：建立 Azure 資料總管叢集與資料庫](create-cluster-database-portal.md)及[將範例資料內嵌至 Azure 資料總管](ingest-sample-data.md)。
 
-StormEvents 範例資料集包含來自[美國國家環境資訊中心](https://www.ncdc.noaa.gov/stormevents/)的氣象相關資料。
+[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>查詢語言概觀
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 *N* 個記錄。
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 *N* 筆記錄。
 
 下列查詢會以少一個運算子的方式，傳回與上方相同的結果。
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：從 HyperLogLog 結果計算 **dcount** (由 [**hll**](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 或 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction) 產生)。
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：從 HyperLogLog 結果計算  **dcount**  (由 [hll](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 或 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)產生)。
 
 下列查詢會使用 HLL 演算法產生計數。
 
@@ -632,7 +632,7 @@ FloodDataSet
 
 ### <a name="percentiles"></a>percentiles()
 
-[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)：針對由運算式定義的母體擴展，傳回該母體擴展之[**最近序數百分位數**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)的估計值。 其精確度取決於百分位數區域中的母體密度。 僅用於 [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 內部彙總的內容。
+[**percentiles()**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction)：針對由運算式定義的母體擴展，傳回該母體擴展之 [**最近序數百分位數**](https://docs.microsoft.com/azure/kusto/query/percentiles-aggfunction) 的估計值。 其精確度取決於百分位數區域中的母體密度。 僅用於 [**summarize**](https://docs.microsoft.com/azure/kusto/query/summarizeoperator) 內部彙總的內容。
 
 下列查詢會計算 storm 持續時間的百分位數。
 
@@ -685,7 +685,7 @@ LightningStorms
 
 ### <a name="join"></a>Join
 
-[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter** **inner**、**innerunique** **leftanti** **leftantisemi** **leftouter**、**leftsemi**、**rightanti**、**rightantisemi** **rightouter** **rightsemi**。
+[**join**](https://docs.microsoft.com/azure/kusto/query/joinoperator)：透過比對每個資料表中所指定資料行的值，來合併兩個資料表的資料列，以形成新的資料表。 Kusto 支援全系列的聯結類型：**fullouter**、 **inner**、 **innerunique**、 **leftanti**、 **leftantisemi**、**leftouter**、 **leftsemi**、 **rightanti**、 **rightantisemi**、 **rightouter**、 **rightsemi**。
 
 下列範例使用內部聯結來聯結兩個資料表。
 
@@ -842,7 +842,7 @@ range _day from _start to _end step 1d
 
 ### <a name="newactivitymetrics-plugin"></a>new_activity_metrics plugin
 
-[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin)：針對新使用者的世代，計算有用的活動計量 (相異計數值、新值的相異計數、保留率及流失率)。 此外掛程式的概念類似 [**activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)，但側重於新使用者。
+[**new_activity_metrics plugin**](https://docs.microsoft.com/azure/kusto/query/new-activity-metrics-plugin)：針對新使用者的世代，計算有用的活動計量 (相異計數值、新值的相異計數、保留率及流失率)。 此外掛程式的概念類似 [**activity_metrics 外掛程式**](https://docs.microsoft.com/azure/kusto/query/activity-metrics-plugin)，但側重於新使用者。
 
 下列查詢會針對新使用者世代 (本週已抵達的使用者) 逐週計算保留率與流失率。
 
@@ -902,7 +902,7 @@ StormEvents
 
 [**funnel_sequence_completion plugin**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin)：計算在不同時段內已完成序列步驟的漏斗圖。
 
-下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`)「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind`。
+下列查詢會檢查序列的完成漏斗圖：在一小時、四小時及一天 (`[1h, 4h, 1d]`) 的「整體」時間中的 `Hail -> Tornado -> Thunderstorm -> Wind` 。
 
 **\[**[**按一下以執行查詢**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -918,7 +918,7 @@ StormEvents
 
 ## <a name="functions"></a>Functions
 
-本節說明[**函式**](https://docs.microsoft.com/azure/kusto/query/functions)：儲存在伺服器上可重複使用的查詢。 函式可由查詢或其他函式叫用 (不支援遞迴函式)。
+本節說明[**函式**](https://docs.microsoft.com/azure/kusto/query/functions)：儲存在伺服器上可重複使用的查詢。 函式可由查詢或其他函式叫用 (不支援遞迴函式)。
 
 > [!NOTE]
 > 您無法在說明叢集上建立函式，因為該叢集是唯讀的。 針對此組件使用您自己的測試叢集。

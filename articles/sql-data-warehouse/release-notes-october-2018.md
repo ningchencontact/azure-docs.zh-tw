@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/11/2018
+ms.date: 11/14/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 82f55c87c54fa5197a2bd5c24ea3863da1700c7b
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51579278"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51705373"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 10 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 10 月導入的新功能和變更。
@@ -49,11 +49,8 @@ Azure SQL 資料倉儲加速資料庫復原 (ADR) 現在處於公開預覽狀態
 - [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 - [sys.dm_pdw_sql_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql)
 
-## <a name="instant-data-movement"></a>即時資料移動 
-除了「隨機顯示」之外，「即時資料移動」現在會延伸到「廣播」和「資料分割」移動。
-
-## <a name="scale-up-column-store-columnstore-metadata-memory-management-sql-server"></a>相應增加資料行存放區：資料行存放區中繼資料記憶體管理 (SQL Server)
-針對資料行存放區中繼資料的最佳化記憶體管理 
+## <a name="columnstore-memory-management"></a>資料行存放區記憶體管理
+隨著壓縮的資料行存放區資料列群組數目增加，管理這些資料列群組的內部資料行區段中繼資料所需的記憶體會隨之增加。  因此，查詢效能和針對某些資料行存放區動態管理檢視 (Dmv) 所執行的查詢可能會降級。  此版本已進行改善，讓這些情況的內部中繼資料大小達到最佳化，進而改善這類查詢的體驗和效能。 
 
 ## <a name="azure-data-lake-storage-gen2-integration-ga"></a>Azure Data Lake Storage Gen2 整合 (GA)
 Azure SQL 資料倉儲 (SQL DW) 現在已與 Azure Data Lake Storage Gen2 原生整合。 客戶現在可以使用 ABFS 中的外部資料表將資料載入至 SQL DW。 這項功能可讓客戶與其 Data Lake Storage Gen2 中的 Data Lake 整合。 

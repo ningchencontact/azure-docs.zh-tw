@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: diberry
-ms.openlocfilehash: 7cc3b6fd5865689df57258dcb2088bbef47b9a90
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: e1582da9a8fea4137d40b3a3855ead467dbbb548
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637948"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52264381"
 ---
 # <a name="prediction-score"></a>預測分數
 預測分數表示 LUIS 對預測結果的信賴程度。 
@@ -62,7 +62,7 @@ ms.locfileid: "49637948"
 如果您的 Chatbot 需要有特定的 LUIS 分數，才能指出對某個意圖的信賴度，您就應該改為使用兩個最高分意圖之間的分數差異。 這樣可以在定型中提供變化的彈性。 
 
 ## <a name="punctuation"></a>標點符號
-標點符號在 LUIS 中是個別的語彙基元。 結尾包含句點的語句與未包含句點的語句是兩個不同的語句，而且可能會收到兩個不同的預測。 請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的 [patterns}(luis-concept-patterns.md) 中處理標點符號：`I am applying for the {Job} position[.]`
+標點符號在 LUIS 中是個別的語彙基元。 結尾包含句點的語句與未包含句點的語句是兩個不同的語句，而且可能會收到兩個不同的預測。 請確定模型會在[範例語句](luis-concept-utterance.md) (含標點符號和不含標點符號) 或在更容易使用特殊語法來忽略標點符號的[模式](luis-concept-patterns.md)中處理標點符號：`I am applying for the {Job} position[.]`
 
 ## <a name="next-steps"></a>後續步驟
 

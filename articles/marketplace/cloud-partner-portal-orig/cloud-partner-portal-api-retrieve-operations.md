@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3f0f087c98f2b6594ab7e841f92ffac7ffe4003e
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805690"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51974462"
 ---
 <a name="retrieve-operations"></a>擷取作業
 ===================
@@ -181,7 +181,7 @@ ms.locfileid: "48805690"
 ```
 
 
-### <a name="response-body-properties"></a>回應本文屬性
+### <a name="response-body-properties"></a>回應主體屬性
 
 |  **名稱**                    |  **說明**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
@@ -189,7 +189,7 @@ ms.locfileid: "48805690"
 |  submissionType              | 識別針對供應項目報告的作業類型，例如 `Publish/GGoLive`      |
 |  createdDateTime             | 建立作業的 UTC 日期時間                                                       |
 |  lastActionDateTime          | 上次更新作業的 UTC 日期時間                                       |
-|  status                      | 作業的狀態，可能是「未啟動 | 執行中 | 失敗 | 完成`. Only one operation can have status `執行」一次。 |
+|  status                      | 作業的狀態：`not started` \| `running` \| `failed` \| `completed`。 一次只有一項作業可以有 `running` 狀態。 |
 |  錯誤                       | 作業失敗的錯誤訊息                                                               |
 |  |  |
 

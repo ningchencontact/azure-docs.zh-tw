@@ -2,22 +2,22 @@
 title: 包含檔案
 description: 包含檔案
 services: virtual-machines-windows, virtual-machines-linux
-author: dlepow
+author: cynthn
 ms.service: multiple
 ms.topic: include
-ms.date: 10/23/2018
-ms.author: danlep;azcspmt;jonbeck
+ms.date: 11/14/2018
+ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 4fde34338d5606a1f431ff4b7f7074d9cd472e90
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: b6df4ada1aa13e20c7ad52d2b58cdf9c783f9e24
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035390"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51716148"
 ---
 GPU 最佳化的 VM 大小，為搭配單一或多個 NVIDIA GPU 提供的特製化虛擬機器。 這些大小是專門針對計算密集型、圖形密集型及視覺效果的工作負載所設計。 本文章提供有關 GPU、vCPU、資料磁碟及 NIC 之數量和類型的資訊。 另說明此群組中每個大小的輸送量和網路頻寬。 
 
-* **NC、NCv2、NCv3 及 ND** 等大小最適合計算密集和高網路用量的應用程式與演算法。 範例包括以 CUDA 和 OpenCL 為基礎的應用程式，以及模擬、AI、深度學習等。 NCv3 系列著重於高效能運算工作負載，採用 NVIDIA 的 Tesla V100 GPU。  ND 系列的目標為深度學習的訓練與推斷案例。 該系列使用了 NVIDIA Tesla P40 GPU。
+* **NC、NCv2、NCv3、ND 及 NDv2** 等大小最適合計算密集和高網路用量的應用程式與演算法。 範例包括以 CUDA 和 OpenCL 為基礎的應用程式，以及模擬、AI、深度學習等。 NCv3 系列著重於高效能運算工作負載，採用 NVIDIA 的 Tesla V100 GPU。  ND 系列的目標為深度學習的訓練與推斷案例。 該系列使用了 NVIDIA Tesla P40 GPU。
 * **NV 和 NVv2** 大小則會針對遠端視覺效果、串流、遊戲、編碼及利用 OpenGL 和 DirectX 這類架構的 VDI 案例進行最佳化和設計。  這些 VM 是由 NVIDIA Tesla M60 GPU 提供支援。
 
 
@@ -86,6 +86,26 @@ NCv3 系列 VM 是由 [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volt
 1 GPU = 一張 V100 卡。
 
 *支援 RDMA
+
+## <a name="ndv2-series-preview"></a>NDv2 系列 (預覽)
+
+
+進階儲存體：支援
+
+進階儲存體快取：支援
+
+Infiniband：不支援
+
+
+NDv2 系列虛擬機器是 GPU 家族的新增項目，專為 HPC、AI 和機器學習工作負載的需求設計而成。 其搭載了 8 個 NVIDIA Tesla V100 NVLINK 互連式 GPU、40 個 Intel Skylake 核心以及 672 GiB 的系統記憶體。 NDv2 執行個體利用了 Cuda、TensorFlow、Pytorch、Caffe 等架構，為 HPC 和 AI 工作負載提供優異的 FP32 和 FP64 效能。
+
+[於預覽期間註冊並存取這些機器](https://aka.ms/ndv2signup)。
+<br>
+
+
+| 大小              | vCPU | GPU              | 記憶體  | NIC (最大) | 最大 磁碟大小           | 最大 資料磁碟 (每個 1023 GB) | 最大網路頻寬 | 
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | 暫存 1344 / 2948XIO | 32    | 24,000 Mbps             | 
 
 ## <a name="nd-series"></a>ND 系列
 

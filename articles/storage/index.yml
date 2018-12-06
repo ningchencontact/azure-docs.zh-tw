@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: c781f99d47da9705e1439af660e9801ecac91665
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 77d3bdd755e7c8d68115e12c6bee318fda652b09
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324267"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972196"
 documentType: LandingData
 title: Azure 儲存體文件
 metadata:
@@ -67,9 +67,9 @@ sections:
       - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
     - title: Data Lake Storage Gen2
       values:
-      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-the-azure-portal
-      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-powershell
-      - href: /azure/storage/data-lake-storage/quickstart-create-account#create-an-account-using-azure-cli
+      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-the-azure-portal
+      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-powershell
+      - href: /azure/storage/blobs/quickstart-create-account#create-an-account-using-azure-cli
       - href: 
       - href: 
       - href: 
@@ -83,7 +83,7 @@ sections:
     - title: Blob
       html: <p>在雲端上傳和處理映像資料</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">在雲端上傳和擷取映像資料</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">觸發 Azure Functions 來處理 Blob</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">保護應用程式資料</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">進行儲存體的監視和疑難排解</a></li></ul><p>針對高可用性設計應用程式</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">讓您的應用程式資料保持高可用性</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">模擬存取讀取權限備援儲存體時失敗</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">搜尋 Azure 儲存體中的非結構化資料</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">使用 Azure Databrick 擷取、轉換和載入資料</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 資料</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料</a></p>
+      html: <p><a href="/azure/storage/blobs/handle-data-using-databricks">使用 Azure Databrick 擷取、轉換和載入資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-use-databricks-spark">使用 Spark 以 DataBricks 存取 Azure Data Lake Storage Gen2 資料</a></p><p><a href="/azure/storage/blobs/data-lake-storage-tutorial-extract-transform-load-hive">使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料</a></p>
 - title: 範例
   items:
   - type: paragraph
@@ -96,6 +96,29 @@ sections:
     - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blob</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">檔案</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">佇列</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">Azure PowerShell</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">Azure CLI</a>
+- title: 透過 Microsoft Learn 增進您的技巧
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Azure 中的資料簡介
+      href: /learn/modules/intro-to-data-in-azure/
+      image:
+        src: /learn/achievements/intro-to-data-in-azure.svg
+        href: //learn/modules/intro-to-data-in-azure/
+    - title: " 在 Azure 中選擇資料儲存方法"
+      href: /learn/modules/choose-storage-approach-in-azure/
+      image:
+        src: /learn/achievements/choose-storage-approach-in-azure.svg
+        href: /learn/modules/choose-storage-approach-in-azure/
+    - title: 建立 Azure 儲存體帳戶
+      href: /learn/modules/create-azure-storage-account/
+      image:
+        src: /learn/achievements/create-azure-storage-account.svg
+        href: /learn/modules/create-azure-storage-account/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure-storage">更多互動式學習...</a>
 - title: 免費 Pluralsight 影片訓練
   items:
   - type: list

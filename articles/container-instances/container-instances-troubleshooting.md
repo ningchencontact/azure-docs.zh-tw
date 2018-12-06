@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 062308622e3170a4eb8f75a96300f04f683a90e7
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978173"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820353"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>在 Azure 容器執行個體中針對常見問題進行疑難排解
 
@@ -205,6 +205,9 @@ Azure 中有各種不同的地區資源負載，因此您在嘗試部署容器�
 ## <a name="cannot-connect-to-underlying-docker-api-or-run-privileged-containers"></a>無法連線到基礎 Docker API 或執行具有特殊權限的容器
 
 Azure 容器執行個體不會公開基礎結構 (其中裝載容器群組) 的直接存取。 這包括 Docker API 的存取權，Docker API 可在容器主機上執行，並且可執行具有特殊權限的容器。 如果您需要 Docker 互動，請查閱 [REST 參考文件](https://aka.ms/aci/rest)，以了解 ACI API 支援的內容。 如果有遺漏的項目，請在 [ACI 意見反應論壇](https://aka.ms/aci/feedback)上提交要求。
+
+## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP 可能因為連接埠不相符而無法存取
+Azure 容器執行個體目前不支援連接埠對應 (像是一般 Docker 組態)，不過這項修正正在規劃中。 如果您發現 IP 無法存取 (但您認為應可存取)，請確定已將容器映像設定為接聽您在容器群組中使用 `ports` 屬性公開的相同連接埠。
 
 ## <a name="next-steps"></a>後續步驟
 深入了解如何[擷取容器記錄和事件](container-instances-get-logs.md)以協助針對您的容器進行偵錯。

@@ -8,22 +8,22 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584161"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820302"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
-此文章提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地將大量資料匯入 Azure 檔案服務。 若要將匯入資料，服務會要求您將包含資料的可支援磁碟機寄送到 Azure 資料中心。  
+本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地將大量資料匯入 Azure 檔案服務。 若要將匯入資料，服務會要求您將包含資料的可支援磁碟機寄送到 Azure 資料中心。  
 
 匯入/匯出服務僅支援將 Azure 檔案服務匯入到 Azure 儲存體。 不支援將 Azure 檔案服務匯出。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
-在建立匯入作業來將資料傳入 Azure 檔案服務之前，請仔細檢閱並完成下列先決條件清單。 您必須：
+在建立匯入作業來將資料傳入 Azure 檔案服務之前，請仔細檢閱並完成下列必要條件清單。 您必須：
 
 - 具有可與匯入/匯出服務搭配使用的有效 Azure 訂用帳戶。
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。
@@ -54,21 +54,21 @@ ms.locfileid: "47584161"
 
         ```
             BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
     - **若要匯入資料夾**：MyFolder2 底下的所有檔案和資料夾會以遞迴方式複製到檔案共用。 資料夾結構會保留。
 
         ```
-            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            
+            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
         ```
     您可以在對應至所匯入資料夾或檔案的相同檔案中製造多個項目。 
 
         ```
-            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-                        
+                        
         ```
     深入了解[準備資料集 CSV 檔案](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
     

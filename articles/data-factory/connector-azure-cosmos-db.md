@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 9a75ae8645503366a490dbc0ea65d2fdc73d7c61
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: c10a933f371bfc84b863413134f2fdf5ff9c0e34
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167285"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161832"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure Cosmos DB 或複製其中的資料
 
@@ -182,8 +182,11 @@ Data Factory 可與 [Azure Cosmos DB 大量執行程式庫](https://github.com/A
 |:--- |:--- |:--- |
 | type | 複製活動接收的 **type** 屬性必須設定為 **DocumentDbCollectionSink**。 |是 |
 | writeBehavior |描述如何將資料寫入至 Azure Cosmos DB。 允許的值：**insert** 和 **upsert**。<br/><br/>如果存在具有相同識別碼的文件，**upsert** 的行為會用來取代文件；否則會插入文字。<br /><br />**注意**：如果未在原始文件中或藉由資料行對應來指定識別碼，則 Data Factory 會自動產生文件的識別碼。 這表示您必須確定，為了讓 **upsert** 如預期般運作，您的文件具有識別碼。 |否<br />(預設值為 **insert**) |
-| writeBatchSize | Data Factory 會使用 [Azure Cosmos DB 大量執行程式庫](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB 中。 **writeBatchSize** 可控制我們提供給程式庫的文件大小。 您可以嘗試增加 **writeBatchSize** 的值來改善效能。 |否<br />(預設值為 **10,000**) |
+| writeBatchSize | Data Factory 會使用 [Azure Cosmos DB 大量執行程式庫](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)將資料寫入 Cosmos DB 中。 **writeBatchSize** 可控制我們提供給程式庫的文件大小。 您可以嘗試增加 **writeBatchSize** 值來改善效能，而如果您的文件大小很大，請嘗試增加此值 - 請參閱以下祕訣。 |否<br />(預設值為 **10,000**) |
 | nestingSeparator |**source** 資料行名稱中用來表示需要巢狀文件的特殊字元。 <br/><br/>例如，當 **nestedSeparator** 是 **.** (點) 時，輸出資料集結構中的 `Name.First` 會在 Azure Cosmos DB 文件中產生下列 JSON 結構： `"Name": {"First": "[value maps to this column from source]"}`  |否<br />(預設值為 **.** (點)) |
+
+>[!TIP]
+>Cosmos DB 會將單一要求的大小限制為 2MB。 公式為要求大小 = 單一文件大小 * 寫入批次大小。 如果您遇到指出「要求大小太大。」的錯誤，請在複製接收組態中**縮小 `writeBatchSize` 值**。
 
 **範例**
 

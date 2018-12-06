@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240098"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51821054"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -102,7 +102,7 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 在開啟 Azure AD Privileged Identity Management 之後，請檢視全域系統管理員、特殊權限角色系統管理員、Exchange Online 系統管理員和 SharePoint Online 系統管理員等目錄角色中的使用者。 如果您的租用戶中沒有 Azure AD PIM，您可以使用 [PowerShell API](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)。 一開始請使用全域管理員角色，因為此角色是通用的：無論是在 Office 365 入口網站還是 Azure 入口網站中指派角色，或是使用適用於 Microsoft PowerShell 的 Azure AD 模組來指派角色，被指派此管理員角色的使用者在您組織所訂閱的所有雲端服務中都具有相同的權限。 
 
-請移除這些角色中不再需要的任何帳戶，並將指派給管理員角色的其餘帳戶分類：
+請移除這些角色中不再需要的任何帳戶。 然後，將指派給管理員角色的其餘帳戶分類：
 
 * 個別指派給系統管理使用者，並且也可用於非系統管理用途 (例如個人電子郵件)
 * 個別指派給系統管理使用者，且指定為僅供系統管理之用
@@ -127,11 +127,11 @@ Azure AD Privileged Identity Management 隨附於 Azure AD Premium P2 或 EMS E5
 
 ![階段 2](./media/directory-admin-roles-secure/stage-two.png)
 
-計劃的階段 2 著重於降低認證竊取和濫用最常用的攻擊技巧，依設計應在大約 2-4 週內實作。 「受保護的特殊權限存取」計劃的這個階段包含下列動作。
+計劃的階段 2 著重於降低認證竊取和濫用最常用的攻擊技巧，可以在大約 2-4 週內實作。 「受保護的特殊權限存取」計劃的這個階段包含下列動作。
 
 ### <a name="general-preparation"></a>一般準備工作
 
-#### <a name="conduct-a-inventory-of-services-owners-and-admins"></a>進行服務、擁有者和系統管理員的清查
+#### <a name="conduct-an-inventory-of-services-owners-and-admins"></a>進行服務、擁有者和系統管理員的清查
 
 隨著「攜帶您自己的裝置 (BYOD)」和在家工作政策的普及，以及企業日漸採用無線連線，監視哪些人連線至您的網路，已成為不可或缺的工作。 有效的安全性稽核常會顯示在您的網路上執行的裝置、應用程式和程式未受到 IT 支援，因此可能不安全。 如需詳細資訊，請參閱 [Azure 安全性管理和監視概觀](../../security/security-management-and-monitoring-overview.md)。 請務必在您的清查程序中納入下列所有工作。 
 
@@ -337,7 +337,7 @@ Cloud App Security SIEM 代理程式可整合 Cloud App Security 與您的 SIEM 
 * 在必要時才授與特殊權限存取權，且不再需要時即應移除 (Just-In-Time)。
 * 保留並檢閱與特殊權限帳戶有關的稽核活動。
 
-如需關於如何建置完整安全性計劃的詳細資訊，請參閱 [Microsoft 雲端 IT 架構資源](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)。 若想進一步了解如何預約 Microsoft 服務以取得前述任一主題的相關協助，請連絡您的 Microsoft 代表，或參閱[建置重要網路防禦機制以保護您的企業](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx)。
+如需關於如何建置完整安全性計劃的詳細資訊，請參閱 [Microsoft 雲端 IT 架構資源](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources)。 若想進一步了解如何預約 Microsoft 服務以取得前述任一主題的相關協助，請連絡您的 Microsoft 代表，或參閱[建置重要網路防禦機制以保護您的企業](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx)。
 
 「受保護的特殊權限存取」計劃的這個最後階段包含下列要項。
 

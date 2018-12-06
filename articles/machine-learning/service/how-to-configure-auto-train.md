@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c75b462c3b1201eb70c1028c748def5da114b92
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008941"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823294"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>設定您的自動化機器學習實驗
 
@@ -192,7 +192,7 @@ cv_splits_indices   | 一連串整數 ||  _選擇性_ 用來分割交叉驗證�
 `max_time_sec` |    限制特定反覆運算所花費的時間量 (秒)。 如果反覆運算超過指定的時間量，則會取消該反覆運算。 如果未設定，則反覆運算會繼續執行直到完成。 |   None
 `n_cross_validations`   |交叉驗證分割數目| None
 `validation_size`   |驗證集的大小，以所有訓練範例的百分比表示。|  None
-`preprocess` | True/False <br/>True 會啟用實驗，以對輸入執行前置處理。 以下是前置處理的子集<li>遺漏資料：插補遺漏資料 - 平均數值，最常出現的文字 </li><li>類別值：如果資料類型是數值，而唯一值的數目小於 5%，則會轉換為 one-hot 編碼 </li><li>如需完整清單，請查看 [GitHub 存放庫](https://aka.ms/aml-notebooks)</li><br/>注意：如果是疏鬆資料，則無法使用 preprocess = true | False | 
+`preprocess` | True/False <br/>True 會啟用實驗，以對輸入執行前置處理。 以下是前置處理的子集<li>遺漏資料：插補遺漏資料 - 平均數值，最常出現的文字 </li><li>類別值：如果資料類型是數值，而唯一值的數目小於 5%，則會轉換為 one-hot 編碼 </li><li>如需完整清單，請查看 [GitHub 存放庫](https://aka.ms/aml-notebooks)</li><br/>注意：如果是疏鬆資料，則無法使用 preprocess = true |  False | 
 `blacklist_algos`   | 自動化 ML 實驗中有許多它會嘗試的不同演算法。 設定自動化 ML 以從實驗中排除特定演算法。 如果您知道特定演算法不適用於您的資料集，則有所幫助。 排除演算法可為您節省計算資源和訓練時間。<br/>允許的分類值<br/><li>羅吉斯迴歸</li><li>SGD 分類器</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>額外樹狀結構</li><li>漸層停駐提升</li><li>lgbm_classifier</li><br/>允許的迴歸值<br/><li>彈性網路</li><li>漸層停駐提升迴歸輸入變數</li><li>DT 迴歸輸入變數</li><li>kNN 迴歸輸入變數</li><li>Lasso lars</li><li>SGD 迴歸輸入變數</li><li>RF 迴歸輸入變數</li><li>額外樹狀結構迴歸輸入變數</li>|   None
 `verbosity` |控制記錄層級，INFO 最詳細，CRITICAL 最簡要。<br/>允許的值包括：<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
 `X` | 所有要用於訓練的特徵 |  None

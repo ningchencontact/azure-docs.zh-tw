@@ -5,23 +5,23 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/15/2018
 ms.author: danlep
-ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632687"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854317"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>執行 ACR 工作中的多步驟建置、測試及修補工作
 
-多步驟工作可藉由多步驟、多容器型工作流程，延伸「ACR 工作」的單一映像建置和推送功能。 您可以使用多步驟工作，以循序或平行方式建置和推送數個映像，然後在單一工作執行內以命令方式執行這些映像。 每個步驟都會定義容器映像建置或推送作業，並且也可以定義容器的執行。 多步驟工作中的每個步驟都會使用某個容器作為其執行環境。
+多步驟工作可藉由多步驟、多容器型工作流程，延伸「ACR 工作」的單一映像建置和推送功能。 您可以使用多步驟工作，以循序或平行方式建置和推送數個映像。 然後在單一工作執行內以命令方式執行這些映像。 每個步驟都會定義容器映像建置或推送作業，並且也可以定義容器的執行。 多步驟工作中的每個步驟都會使用某個容器作為其執行環境。
 
 > [!IMPORTANT]
 > 如果您先前已在預覽期間使用 `az acr build-task` 命令建立工作，則必須使用 [az acr task][az-acr-task] 命令重新建立這些工作。
 
-例如，您可以執行含有可自動執行下列操作之步驟的工作：
+例如，您可以執行含有使下列邏輯自動化之步驟的工作：
 
 1. 建置 Web 應用程式映像
 1. 執行 Web 應用程式容器
@@ -37,11 +37,11 @@ ms.locfileid: "51632687"
 
 ## <a name="common-task-scenarios"></a>常見的工作案例
 
-多步驟工作可讓您進行下列案例：
+多步驟工作可讓您進行諸如下列邏輯的案例：
 
 * 以循序或平行方式建置、標記及推送一或多個容器映像。
 * 執行和擷取單元測試及程式碼涵蓋範圍結果。
-* 執行和擷取功能測試。 「ACR 工作」支援執行多個容器，在它們之間執行一系列要求。
+* 執行和擷取功能測試。 「ACR 工作」支援執行多個容器，並且在其間執行一系列要求。
 * 執行工作型執行，包括容器映像的建置前/建置後步驟。
 * 使用您喜愛的部署引擎將一或多個容器部署到目標環境。
 
@@ -176,5 +176,5 @@ Run ID: yd14 was successful after 19s
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task

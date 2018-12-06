@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 6613def8891109e3a0ddf818111898a893a8035d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628444"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52161867"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>適用於 Linux 上 App Service 的 Java Enterprise 指南
 
@@ -27,13 +27,14 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在完全受控的 Linux 
 
 ## <a name="scale-with-app-service"></a>使用 App Service 調整 
 
-在 Linux 上的 App Service 中執行的 WildFly 應用程式伺服器會以獨立模式執行，而不會在網域設定中執行。 
+在 Linux 上的 App Service 中執行的 WildFly 應用程式伺服器會以獨立模式執行，而不會在網域設定中執行。 當您相應放大 App Service 方案時，每個 WildFly 執行個體會設定為獨立伺服器。
 
- 使用[調整規模規則](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json)以及藉由[增加執行個體計數](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以垂直或水平方式調整您的應用程式。
+ 使用[調整規模規則](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json)以及藉由[增加執行個體計數](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以垂直或水平方式調整您的應用程式。 
 
 ## <a name="customize-application-server-configuration"></a>自訂應用程式伺服器設定
 
-開發人員可以撰寫啟動 Bash 指令碼來執行其應用程式所需的其他設定，例如：
+Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個已啟動的新執行個體，以支援應用程式所需的 Wildfly 組態。
+您可以撰寫啟動 Bash 指令碼來呼叫 WildFly CLI，以便：
 
 - 設定資料來源
 - 設定傳訊提供者
@@ -51,7 +52,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在完全受控的 Linux 
 
 將 Azure 入口網站中的 [啟動指令碼] 欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
 
-使用[應用程式設定](/azure/app-service/web-sites-configure#application-settings)來設定要在指令碼中使用的環境變數。 這些設定均可用於啟動指令碼環境，並使連接字串和其他秘密不會受到版本控制。
+在應用程式組態中提供[應用程式設定](/azure/app-service/web-sites-configure#application-settings)，以傳遞要在指令碼中使用的環境變數。 應用程式設定會保留設定應用程式脫離版本控制所需的連接字串和其他祕密。
 
 ## <a name="modules-and-dependencies"></a>模組和相依性
 

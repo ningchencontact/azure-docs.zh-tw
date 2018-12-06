@@ -12,28 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 06/16/2017
+ms.date: 11/14/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128044"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706597"
 ---
-# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體 
+# <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>使用適用於 .NET 的 Batch 檔案慣例程式庫將作業和工作輸出保存到 Azure 儲存體
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-保存工作資料的其中一個方法是使用[適用於 .NET 的 Azure Batch 檔案慣例程式庫][nuget_package]。 檔案慣例程式庫會簡化將工作輸出資料儲存至 Azure 儲存體並且擷取它的程序。 您可以將檔案慣例程式庫用於工作和用戶端程式碼 &mdash; 在工作程式碼中用來保存檔案，以及在用戶端程式碼中用來列出和擷取檔案。 您的工作程式碼也可以將程式庫用於擷取上游工作的輸出，例如[工作相依性](batch-task-dependencies.md)案例。 
+保存工作資料的其中一個方法是使用[適用於 .NET 的 Azure Batch 檔案慣例程式庫][nuget_package]。 檔案慣例程式庫會簡化將工作輸出資料儲存至 Azure 儲存體並且擷取它的程序。 您可以將檔案慣例程式庫用於工作和用戶端程式碼 &mdash; 在工作程式碼中用來保存檔案，以及在用戶端程式碼中用來列出和擷取檔案。 您的工作程式碼也可以將程式庫用於擷取上游工作的輸出，例如[工作相依性](batch-task-dependencies.md)案例。
 
 若要使用檔案慣例程式庫擷取輸出檔案，您可以藉由依據識別碼和用途列出它們，找到指定作業或工作的檔案。 您不需要知道檔案的名稱或位置。 例如，您可以使用檔案慣例程式庫以列出指定工作的所有中繼檔案，或取得指定作業的預覽檔案。
 
 > [!TIP]
 > 從 2017-05-01 版開始，Batch 服務 API 針對使用虛擬機器設定建立，在集區上執行的工作和作業管理員工作，支援將輸出資料保存到 Azure 儲存體。 Batch 服務 API 提供簡單的方式來保存程式碼內的輸出，該程式碼會建立工作，並且作為檔案慣例程式庫的替代方案。 您可以修改 Batch 用戶端應用程式以保存輸出，而不需要更新您的工作正在執行的應用程式。 如需詳細資訊，請參閱[使用 Batch 服務 API 將工作資料保存到 Azure 儲存體](batch-task-output-files.md)。
-> 
-> 
 
 ## <a name="when-do-i-use-the-file-conventions-library-to-persist-task-output"></a>使用檔案慣例程式庫保存工作輸出的時機？
 
@@ -42,27 +40,27 @@ Azure Batch 提供多個方法來保存工作輸出。 檔案慣例最適合這�
 - 您可以輕鬆地修改您的工作正在執行的應用程式程式碼，使用檔案慣例程式庫來保存檔案。
 - 您在工作還在執行時，想要將資料串流至 Azure 儲存體。
 - 您想要保存的資料是在使用雲端服務設定或虛擬機器設定建立的集區中。
-- 用戶端應用程式或作業中的其他工作必須依識別碼或依用途來尋找及下載工作輸出檔案。 
+- 用戶端應用程式或作業中的其他工作必須依識別碼或依用途來尋找及下載工作輸出檔案。
 - 您想要在 Azure 入口網站中檢視工作輸出。
 
-如果您的情節與以上所列不同，可能需要考慮不同的方法。 如需保存工作輸出之其他選項的詳細資訊，請參閱[將作業和工作輸出保存到 Azure 儲存體](batch-task-output.md)。 
+如果您的情節與以上所列不同，可能需要考慮不同的方法。 如需保存工作輸出之其他選項的詳細資訊，請參閱[將作業和工作輸出保存到 Azure 儲存體](batch-task-output.md)。
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Batch 檔案慣例標準是什麼？
 
 [Batch 檔案慣例標準](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)提供目的地容器的命名配置，以及寫入輸出檔案的 blob 路徑。 保存到 Azure 儲存體 (符合檔案慣例標準) 的檔案會自動可在 Azure 入口網站中檢視。 入口網站知道命名慣例，因此可以顯示符合它的檔案。
 
-適用於 .NET 的檔案慣例程式庫會根據檔案慣例標準，自動命名您的儲存體容器和工作輸出檔案。 檔案慣例程式庫也提供方法來根據作業識別碼、工作識別碼或目的，在 Azure 儲存體中查詢輸出檔案。   
+適用於 .NET 的檔案慣例程式庫會根據檔案慣例標準，自動命名您的儲存體容器和工作輸出檔案。 檔案慣例程式庫也提供方法來根據作業識別碼、工作識別碼或目的，在 Azure 儲存體中查詢輸出檔案。
 
-如果您要使用 .NET 以外的語言進行開發，可以在您的應用程式中自行實作檔案慣例標準。 如需詳細資訊，請參閱[關於 Batch 檔案慣例標準](batch-task-output.md#about-the-batch-file-conventions-standard)。
+如果您要使用 .NET 以外的語言進行開發，可以在您的應用程式中自行實作檔案慣例標準。 如需詳細資訊，請參閱[實作 Batch 檔案慣例標準](batch-task-output.md#implement-the-batch-file-conventions-standard)。
 
 ## <a name="link-an-azure-storage-account-to-your-batch-account"></a>將 Azure 儲存體帳戶連結到您的 Batch 帳戶
 
 若要使用檔案慣例程式庫將輸出資料保存到 Azure 儲存體，您必須先將 Azure 儲存體帳戶連結到您的 Batch 帳戶。 如果您尚未這麼做，請使用 [Azure 入口網站](https://portal.azure.com)將儲存體帳戶連結到您的 Batch 帳戶：
 
-1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。 
-2. 在 [設定] 下，選取 [儲存體帳戶]。
-3. 如果您還沒有與您的 Batch 帳戶相關聯的儲存體帳戶，請按一下 [儲存體帳戶 (無)]。
-4. 從訂用帳戶清單中選取儲存體帳戶。 為了達到最佳效能，使用位於與您執行工作所在之 Batch 帳戶相同區域的 Azure 儲存體帳戶。
+1. 在 Azure 入口網站中瀏覽至您的 Batch 帳戶。
+1. 在 [設定] 下，選取 [儲存體帳戶]。
+1. 如果您還沒有與您的 Batch 帳戶相關聯的儲存體帳戶，請按一下 [儲存體帳戶 (無)]。
+1. 從訂用帳戶清單中選取儲存體帳戶。 為了達到最佳效能，使用位於與您執行工作所在之 Batch 帳戶相同區域的 Azure 儲存體帳戶。
 
 ## <a name="persist-output-data"></a>保存輸出資料
 
@@ -72,8 +70,6 @@ Azure Batch 提供多個方法來保存工作輸出。 檔案慣例最適合這�
 
 > [!WARNING]
 > 使用檔案慣例程式庫保存的所有作業和工作輸出，都會儲存在相同容器中。 如果大量工作同時嘗試保存檔案，可能會強制執行[儲存體節流限制](../storage/common/storage-performance-checklist.md#blobs)。
-> 
-> 
 
 ### <a name="create-storage-container"></a>建立儲存體容器
 
@@ -120,8 +116,6 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg
 
 > [!TIP]
 > 輸出類型也會決定特定檔案出現在 Azure 入口網站的位置：TaskOutput 類別的檔案會出現在 [工作輸出檔案] 底下，而 TaskLog 檔案會出現在 [工作記錄] 底下。
-> 
-> 
 
 ### <a name="store-job-outputs"></a>儲存工作輸出
 
@@ -174,8 +168,6 @@ using (ITrackedSaveOperation stdout =
 
 > [!NOTE]
 > 當您使用 **SaveTrackedAsync** 啟用檔案追蹤時，只有附加到追蹤檔案的資料會保存到 Azure 儲存體。 請只將此方法用於追蹤非輪替記錄檔，或其他使用附加作業寫入至結尾的檔案。
-> 
-> 
 
 ## <a name="retrieve-output-data"></a>擷取輸出資料
 
@@ -206,7 +198,7 @@ Azure 入口網站會顯示使用 [Batch 檔案慣例標準](https://github.com/
 若要讓您的輸出檔案顯示在入口網站中，您必須滿足下列需求：
 
 1. [連結 Azure 儲存體帳戶](#requirement-linked-storage-account) 到您的 Batch 帳戶。
-2. 保存輸出時，依照預先定義的儲存體容器命名與檔案命名慣例。 您可以在檔案慣例程式庫的[讀我檔案][github_file_conventions_readme]中找到這些慣例的定義。 如果您使用 [Azure Batch 檔案慣例][nuget_package]程式庫來保存您的輸出，您的檔案會根據檔案慣例標準進行保存。
+1. 保存輸出時，依照預先定義的儲存體容器命名與檔案命名慣例。 您可以在檔案慣例程式庫的[讀我檔案][github_file_conventions_readme]中找到這些慣例的定義。 如果您使用 [Azure Batch 檔案慣例][nuget_package]程式庫來保存您的輸出，您的檔案會根據檔案慣例標準進行保存。
 
 若要在 Azure 入口網站中檢視工作輸出檔案和記錄，請瀏覽到您對其輸出有興趣的工作，然後按一下 [已儲存的輸出檔案] 或 [已儲存的記錄]。 此影像顯示識別碼為 "007" 之工作的 [已儲存的輸出檔案]  ：
 

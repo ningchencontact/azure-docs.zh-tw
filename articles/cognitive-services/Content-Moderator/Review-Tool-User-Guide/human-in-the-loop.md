@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: 2e1a912f2d2aa8a6f9b165524351f2a16232537c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f1a3a401363866bdd803093e894615d90536f408
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212194"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51854215"
 ---
-# <a name="human-in-the-loop"></a>人機互動
+# <a name="review-tool-overview"></a>檢閱工具概觀
 
 當人機共同進行內容審核時，您就可以得到最佳結果。 機器可有效地擴大人力審核，而其中的預測信賴度必須在真實世界的內容中經過協助或調和。 結果是混合式內容審核程序，其效能會優於人力或機器單獨運作。
 
-## <a name="how-the-review-tool-helps"></a>審查工具有何助益 ##
+## <a name="what-it-does"></a>作用
 
 人力審查工具搭配電腦輔助審核 API 使用時，可讓您完成與內容審核生命週期相關的重要工作。
 

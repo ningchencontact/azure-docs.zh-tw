@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 11/15/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 44cc582bfa0a6940de7eeea9b54e3979735c07e2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bd2efce831fa98b3a4543d67d247d04dc8fc9d04
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998219"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853178"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>建立虛擬網路對等互連 - 不同部署模型、相同訂用帳戶
 
@@ -52,7 +52,7 @@ ms.locfileid: "46998219"
     - **訂用帳戶**︰選取您的訂用帳戶
     - **資源群組**：選取 [新建] 並輸入 *myResourceGroup*
     - **位置**：*美國東部*
-4. 按一下 [+ 新增]。 在 [搜尋 Marketplace] 方塊中，輸入*虛擬網路*。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。 
+4. 按一下 [+ 新增]。 在 [搜尋 Marketplace] 方塊中，輸入*虛擬網路*。 當搜尋結果中出現虛擬網路時，按一下 [虛擬網路]。
 5. 在 [虛擬網路] 刀鋒視窗中，於 [選取部署模型] 方塊中選取 [傳統]，然後按一下 [建立]。
 6. 在 [建立虛擬網路] 刀鋒視窗上，輸入或選取下列設定的值，然後按一下 [建立]：
     - **名稱**： *myVnet2*
@@ -68,7 +68,7 @@ ms.locfileid: "46998219"
 10. 在顯示的 [myVnet1 - 對等互連] 刀鋒視窗中，按一下 [+ 新增]
 11. 在顯示的 [新增對等互連] 刀鋒視窗中，輸入或選取下列選項，然後按一下 [確定]：
      - **名稱**：*myVnet1ToMyVnet2*
-     - **虛擬網路部署模型**︰選取 [傳統]。 
+     - **虛擬網路部署模型**︰選取 [傳統]。
      - **訂用帳戶**︰選取您的訂用帳戶
      - **虛擬網路**：按一下 [選擇虛擬網路]，然後按一下 [myVnet2]。
      - **允許虛擬網路存取**：確定已選取 [啟用]。
@@ -81,7 +81,7 @@ ms.locfileid: "46998219"
 
 ## <a name="cli"></a>建立對等互連 - Azure CLI
 
-使用 Azure 傳統 CLI 與 Azure CLI 完成下列步驟。 您可以從 Azure Cloud Shell 完成這些步驟，只需在下列任一步驟中選取 [試用] 按鈕，或安裝[傳統 CLI](/cli/azure/install-cli-version-1.0.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 與 [CLI](/cli/azure/install-azure-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 並在您的本機電腦上執行命令。
+使用 Azure 傳統 CLI 與 Azure CLI 完成下列步驟。 您可以從 Azure Cloud Shell 完成這些步驟，只需在下列任一步驟中選取 [試用] 按鈕，或安裝[傳統 CLI](/cli/azure/install-cli-version-1.0?toc=%2fazure%2fvirtual-network%2ftoc.json) 與 [CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-network%2ftoc.json) 並在您的本機電腦上執行命令。
 
 1. 如果使用 Cloud Shell，請跳至步驟 2，因為 Cloud Shel l會自動將您登入 Azure。 開啟命令工作階段，然後使用 `azure login` 命令來登入 Azure。
 2. 輸入 `azure config mode asm` 命令來以「服務管理」模式執行 CLI。
@@ -109,10 +109,10 @@ ms.locfileid: "46998219"
      --address-prefix 10.0.0.0/16
    ```
 
-5. 在透過不同部署模型建立的兩個虛擬網路之間，使用 CLI 建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
+5. 在透過不同部署模型建立的兩個虛擬網路之間，使用 CLI 建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。 如果您不知道您的訂用帳戶 ID，請輸入 `az account show` 命令。 輸出中的 **id** 值就是您的訂用帳戶 ID。 請將修改過的指令碼貼到您的 CLI 工作階段中，然後按 `Enter`。
 
    ```azurecli-interactive
-   # Get the id for VNet1.
+   # Get the ID for VNet1.
    vnet1Id=$(az network vnet show \
      --resource-group myResourceGroup \
      --name myVnet1 \
@@ -147,7 +147,7 @@ ms.locfileid: "46998219"
 1. 安裝最新版的 PowerShell [Azure](https://www.powershellgallery.com/packages/Azure) 和 [AzureRm](https://www.powershellgallery.com/packages/AzureRM/) 模組。 如果您不熟悉 Azure PowerShell，請參閱 [Azure PowerShell 概觀](/powershell/azure/overview?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 2. 啟動 PowerShell 工作階段。
 3. 在 PowerShell 中，輸入 `Add-AzureAccount` 命令來登入 Azure。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
-4. 若要使用 PowerShell 來建立虛擬網路 (傳統)，您必須建立一個新的或修改現有的網路設定檔。 了解如何[匯出、更新及匯入網路設定檔](virtual-networks-using-network-configuration-file.md)。 就本教學課程中使用的虛擬網路而言，此檔案應該包含下列 **VirtualNetworkSite** 元素：
+4. 若要使用 PowerShell 來建立虛擬網路 (傳統)，您必須建立一個新的或修改現有的網路組態檔。 了解如何[匯出、更新及匯入網路組態檔](virtual-networks-using-network-configuration-file.md)。 就本教學課程中使用的虛擬網路而言，此檔案應該包含下列 **VirtualNetworkSite** 元素：
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -163,7 +163,7 @@ ms.locfileid: "46998219"
     ```
 
     > [!WARNING]
-    > 匯入變更過的網路設定檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。 
+    > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只新增先前的虛擬網路，並且未變更或移除您訂用帳戶中任何現有的虛擬網路。
 5. 輸入 `Connect-AzureRmAccount` 命令來登入 Azure 以建立虛擬網路 (Resource Manager)。 您登入時使用的帳戶必須擁有必要的權限，才能建立虛擬網路對等互連。 如需權限清單，請參閱[虛擬網路對等互連權限](virtual-network-manage-peering.md#requirements-and-constraints)。
 6. 建立資源群組和虛擬網路 (Resource Manager)。 請複製指令碼並貼到 PowerShell 中，然後按 `Enter`。
 
@@ -179,7 +179,7 @@ ms.locfileid: "46998219"
       -Location eastus
     ```
 
-7. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。如果您不知道您的訂用帳戶 ID，請輸入 `Get-AzureRmSubscription` 命令來檢視它。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請從您的文字編輯器中複製修改過的指令碼，接著在 PowerShell 工作階段中按一下滑鼠右鍵，然後按 `Enter`。
+7. 在透過不同部署模型建立的兩個虛擬網路之間，建立虛擬網路對等互連。 將下列指令碼複製到您電腦上的文字編輯器中。 使用您的訂用帳戶 ID 來取代 `<subscription id>` 。 如果您不知道您的訂用帳戶識別碼，請輸入 `Get-AzureRmSubscription` 命令來檢視它。 傳回之輸出中的 **Id** 值就是您的訂用帳戶 ID。 若要執行指令碼，請從您的文字編輯器中複製修改過的指令碼，接著在 PowerShell 工作階段中按一下滑鼠右鍵，然後按 `Enter`。
 
     ```powershell
     # Peer VNet1 to VNet2.
@@ -204,8 +204,9 @@ ms.locfileid: "46998219"
 
 9. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
 10. **選擇性︰** 若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-powershell)中的步驟。
- 
+
 ## <a name="delete"></a>刪除資源
+
 當您完成本教學課程時，您可能會想刪除您在教學課程中建立的資源，以免產生使用費。 刪除資源群組同時會刪除其內含的所有資源。
 
 ### <a name="delete-portal"></a>Azure 入口網站
@@ -238,7 +239,7 @@ ms.locfileid: "46998219"
     Remove-AzureRmResourceGroup -Name myResourceGroup -Force
     ```
 
-2. 若要使用 PowerShell 來刪除虛擬網路 (傳統)，您必須修改現有的網路設定檔。 了解如何[匯出、更新及匯入網路設定檔](virtual-networks-using-network-configuration-file.md)。 針對本教學課程中使用的虛擬網路，請移除下列 VirtualNetworkSite 元素：
+2. 若要使用 PowerShell 來刪除虛擬網路 (傳統)，您必須修改現有的網路組態檔。 了解如何[匯出、更新及匯入網路組態檔](virtual-networks-using-network-configuration-file.md)。 針對本教學課程中使用的虛擬網路，請移除下列 VirtualNetworkSite 元素：
 
     ```xml
     <VirtualNetworkSite name="myVnet2" Location="East US">
@@ -254,7 +255,7 @@ ms.locfileid: "46998219"
     ```
 
     > [!WARNING]
-    > 匯入變更過的網路設定檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只移除先前的虛擬網路，並且未變更或移除您訂用帳戶中任何其他現有的虛擬網路。 
+    > 匯入變更過的網路組態檔會導致您訂用帳戶中現有的虛擬網路 (傳統) 發生變更。 請確定您只移除先前的虛擬網路，並且未變更或移除您訂用帳戶中任何其他現有的虛擬網路。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,25 +1,18 @@
 ---
 title: 將 ExpressRoute 線路從傳統部署模型移至 Resource Manager | Microsoft Docs
 description: 此頁面提供銜接傳統與 Resource Manager 部署模型的相關概觀。
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carmonm
-editor: ''
-ms.assetid: bdf01217-1a98-4ec0-a08e-d84fd37f78af
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 05/02/2017
 ms.author: ganesr
-ms.openlocfilehash: 7f8386b518ada850fc03e23c5cae3b159b3b213e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b9ac7408f83677ed9898dc37fc234b9b9a6386f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710060"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977024"
 ---
 # <a name="moving-expressroute-circuits-from-the-classic-to-the-resource-manager-deployment-model"></a>將 ExpressRoute 線路從傳統部署模型移至 Resource Manager 部署模型
 本文提供將 Azure ExpressRoute 線路從傳統部署模型移至 Azure Resource Manager 部署模型的概觀。
@@ -64,7 +57,7 @@ ms.locfileid: "22710060"
 * 建立/更新/取得/刪除對傳統虛擬網路的虛擬網路連結
 * 建立/更新/取得/刪除跨訂用帳戶連線的虛擬網路連結授權
 
-當 **allowClassicOperations** 設定為 TRUE 時，您無法執行下列傳統作業：
+不過，當 **allowClassicOperations** 設定為 TRUE 時，您無法執行下列傳統作業：
 
 * 建立/更新/取得/刪除 Azure 私人、Azure 公用和 Microsoft 對等的邊界閘道協定 (BGP) 對等
 * 刪除 ExpressRoute 線路

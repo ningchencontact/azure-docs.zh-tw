@@ -15,18 +15,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 3030fdcec95d91b75974465ad30f707837263367
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 08d3d59d20ea80065e8f0238f90579bb268c3723
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414772"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823039"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>使用網路監看員和 Graylog 在 Azure 中管理和分析網路安全性群組流量記錄
 
 [網路安全性群組流量記錄](network-watcher-nsg-flow-logging-overview.md)提供的資訊可讓您用來了解 Azure 網路介面的輸入和輸出 IP 流量。 流量記錄會顯示每一個網路安全性群組規則的輸出和輸入流量、套用流量的網路介面、有關流量的 5 Tuple 資訊 (來源/目的地 IP、來源/目的地連接埠、通訊協定)，以及流量是獲得允許還是遭到拒絕。
 
 您可以在已啟用流量記錄的網路中擁有許多個網路安全性群組。 已啟用流量記錄的網路安全性群組如果有好幾個，在剖析以及從記錄中取得見解時就會變得很麻煩。 本文提供了可使用 Graylog (開放原始碼的記錄管理和分析工具) 以及 Logstash (開放原始碼的伺服器端資料處理管線) 來集中管理這些網路安全性群組流量記錄的解決方案。
+
+> [!Warning]
+> 下列步驟適用於流量記錄第 1 版。 如需詳細資訊，請參閱[網路安全性群組流量記錄簡介](network-watcher-nsg-flow-logging-overview.md)。 下列指示若未經修改，則不適用於第 2 版的記錄檔。
 
 ## <a name="scenario"></a>案例
 

@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajani-janaki-ram
-ms.openlocfilehash: f351bd715baf86407c249e13aa02cf3c37e374c4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 6827bcc561ced0d346d79e60b3f2b2fde83bc2d8
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212415"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51977041"
 ---
-# <a name="delete-a-site-recovery-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
+# <a name="delete-a-site-recovery-services-vault"></a>刪除 Site Recovery 復原服務保存庫
 
 相依性會阻擋您刪除 Azure Site Recovery 保存庫。 您所須採取的動作，會隨著 Site Recovery 案例而有所不同。 若要刪除 Azure 備份使用的保存庫，請參閱[刪除 Azure 中的備份保存庫](../backup/backup-azure-delete-vault.md)。
 

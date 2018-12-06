@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: c8bad3642f1e98cac3857d536f539554235e1a51
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578631"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52164315"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
@@ -286,7 +286,7 @@ RESOURCE_GROUP=
 * 子網路名稱
 * Azure AD 執行階段角色名稱 - 如果您已依照[建立叢集節點存取角色](#create-the-cluster-node-access-role)中的範例進行操作，請使用 ``avere-cluster``。 
 * 儲存體帳戶名稱 (如果要建立新的 Blob 容器)
-* 叢集名稱 - 您不能在同一個資源群組中有兩個名稱相同的 vFXT 叢集。 
+* 叢集名稱 - 您不能在同一個資源群組中有兩個名稱相同的 vFXT 叢集。 最佳做法是為每個叢集提供唯一的名稱。
 * 管理密碼 - 選擇一個安全密碼來監視及管理叢集。 此密碼會指派給使用者 ``admin``。 
 * 節點執行個體類型 - 如需相關資訊，請參閱 [vFXT 節點大小](avere-vfxt-deploy-plan.md#vfxt-node-sizes)
 * 節點快取大小 - 如需相關資訊，請參閱 [vFXT 節點大小](avere-vfxt-deploy-plan.md#vfxt-node-sizes)

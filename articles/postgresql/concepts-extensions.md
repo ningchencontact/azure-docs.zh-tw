@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/12/2018
-ms.openlocfilehash: 43db0e66c05b6b5c3331d3fba3e4db363d61c9f8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 195a54ab65573a24911169b7dc42de7637ad60f9
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624347"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823804"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>適用於 PostgreSQL 的 Azure 資料庫中的 PostgreSQL 擴充功能
 PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能。 擴充功能可在單一封裝中一併統合多個相關的 SQL 物件，其可使用單一命令從您的資料庫加以載入或移除。 載入資料庫之後，擴充功能就可如內建功能般運作。 如需有關 PostgreSQL 擴充功能的詳細資訊，請參閱 [將相關物件封裝成擴充功能](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)。
@@ -89,6 +89,7 @@ PostgreSQL 提供下列功能：使用擴充功能來擴充您的資料庫功能
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 提供方法來顯示 Tuple 層級統計資料。 |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 可用來存取儲存於外部 PostgreSQL 伺服器之資料的外部資料包裝函式。 |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | 提供方法建立不使用 CPU 或磁碟的假設索引。 |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | 支援從資料庫工作階段連線至其他 PostgreSQL 資料庫的模組。 |
 
 
 ### <a name="postgis-extensions"></a>PostGIS 擴充功能

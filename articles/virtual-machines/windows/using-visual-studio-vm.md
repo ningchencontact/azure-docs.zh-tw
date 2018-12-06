@@ -4,7 +4,7 @@ description: 在 Azure 虛擬機器上使用 Visual Studio。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: PhilLee-MSFT
-manager: sacalla
+manager: cathys
 editor: tysonn
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 1922475056fa79aafbf72c75c09eff19cea2b54b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6861eb54b0f9ccaa0bfaa7b514e9bb3861160fdd
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978432"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165608"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1) 中提供具有各種不同 Visual Studio 設定的系統映像。
@@ -34,14 +34,13 @@ ms.locfileid: "50978432"
 
 | 發行版本                                              | 版本                     |     產品版本     |
 |:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新版 (15.8 版)                    |    Enterprise、Community     |      版本 15.8.7     |
-| Visual Studio 2017：最新預覽版 (15.9 版，預覽版 5) |    Enterprise、Community     |      15.9.0 版     |
+| Visual Studio 2017：最新版 (15.9 版)                    |    Enterprise、Community     |      15.9.0 版     |
 |         Visual Studio 2017：RTW                              |    Enterprise、Community     |      15.0.18 版    |
 |   Visual Studio 2015：最新版 (Update 3)                      |    Enterprise、Community     |  14.0.25431.01 版  |
 |         Visual Studio 2015：RTW                              |             None             | (服務期滿) |
 
 > [!NOTE]
-> 根據 Microsoft 服務原則，Visual Studio 2015 的原始發行 (RTW) 版本服務期已滿。 Visual Studio 2015 Update 3 是為 Visual Studio 2015 產品線提供的唯一留存版本。
+> 根據 Microsoft 服務原則，Visual Studio 2015 的原始發行 (RTW) 版本服務期已滿。 Visual Studio 2015 Update 3 是為 Visual Studio 2015 產品線提供的唯一留存版本。  此外，自 Visual Studio 2017 版本 15.9 發行後，我們已停用包含版本 15.9 預覽的「最新預覽」映像。
 
 如需詳細資訊，請參閱 [Visual Studio 服務原則](https://www.visualstudio.com/productinfo/vs-servicing-vs)。
 

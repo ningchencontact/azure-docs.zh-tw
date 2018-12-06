@@ -1,6 +1,6 @@
 ---
 title: 升級 Azure Service Fabric 叢集 | Microsoft Docs
-description: 升級執行 Service Fabric 叢集的 Service Fabric 程式碼和/或組態，包括設定叢集更新模式、升級憑證、新增應用程式連接埠、修補作業系統等等。 執行升級時，您可以期待些什麼？
+description: 了解如何升級 Azure Service Fabric 叢集的版本或組態。  本文說明如何設定叢集更新模式、升級憑證、新增應用程式連接埠、執行 OS 修補程式，以及執行升級後所能預期的結果
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -12,114 +12,28 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/10/2017
+ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3e5ef2cbc9d7bec82cadc0c7663de52636938505
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207694"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853280"
 ---
-# <a name="upgrade-an-azure-service-fabric-cluster"></a>升級 Azure Service Fabric 叢集
-> [!div class="op_single_selector"]
-> * [Azure 叢集](service-fabric-cluster-upgrade.md)
-> * [獨立叢集](service-fabric-cluster-upgrade-windows-server.md)
-> 
-> 
+# <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升級和更新 Azure Service Fabric 叢集
 
 對於任何現代系統，可升級性的設計是產品達到長期成功的關鍵。 Azure Service Fabric 叢集是您所擁有，但部分由 Microsoft 管理的資源。 本文說明自動管理的部分以及您可以自行設定的部分。
 
 ## <a name="controlling-the-fabric-version-that-runs-on-your-cluster"></a>控制叢集上執行的網狀架構版本
-您可以將叢集設定為在 Microsoft 釋出網狀架構升級時自動接收該升級，或者，您也可以選取您想讓叢集執行的受支援網狀架構版本。
 
-作法是在入口網站上設定 “upgrademode” 叢集組態，或是建立時或稍後在即時叢集上使用 Resource Manager 來設定。 
-
-> [!NOTE]
-> 請務必保持您的叢集一律執行支援的網狀架構版本。 當我們宣布發行新版本的 Service Fabric 時，從當日起至少 60 天後，舊版就會標示為結束支援。 新的版本會於 [Service Fabric 小組部落格上](https://blogs.msdn.microsoft.com/azureservicefabric/)發佈。 那時就有新的版本可選擇。 
-> 
-> 
+請務必保持您的叢集一律執行支援的網狀架構版本。 當我們宣布發行新版本的 Service Fabric 時，從當日起至少 60 天後，舊版就會標示為結束支援。 新的版本會於 Service Fabric 小組部落格上發佈。 那時就有新的版本可選擇。
 
 叢集執行的版本在到期前 14 天會產生健全狀況事件，使您的叢集進入警告健全狀況狀態。 在您升級至支援的網狀架構版本之前，叢集會停留在警告狀態。
 
-### <a name="setting-the-upgrade-mode-via-portal"></a>透過入口網站設定升級模式
-當您建立叢集時，您可以將叢集設為自動或手動。
+您可以將叢集設定為在 Microsoft 釋出網狀架構升級時自動接收該升級，或者，您也可以選取您想讓叢集執行的受支援網狀架構版本。  若要深入了解，請參閱[升級叢集的 Service Fabric 版本](service-fabric-cluster-upgrade-version-azure.md)。
 
-![Create_Manualmode][Create_Manualmode]
-
-在即時叢集上，您可以利用管理體驗將叢集設為自動或手動。 
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-portal"></a>在設定為手動模式的叢集上，透過入口網站升級至新的版本。
-若要升級至新的版本，只需要從下拉式清單中選取可用的版本並儲存即可。 Fabric 升級會自動開始進行。 升級期間會遵守叢集健康狀態原則 (綜合節點健康狀態和所有在叢集中執行之應用程式的健康狀態)。
-
-如果不符合叢集健康狀態原則，則會回復升級。 請往下捲動本文，以深入了解如何設定這些自訂的健康狀態原則。 
-
-在解決導致復原的問題後，您需要依照之前的相同步驟再次起始升級。
-
-![Manage_Automaticmode][Manage_Automaticmode]
-
-### <a name="setting-the-upgrade-mode-via-a-resource-manager-template"></a>透過 Resource Manager 範本設定升級模式
-將 “upgradeMode" 組態新增至 Microsoft.ServiceFabric/clusters 資源定義，並將 “clusterCodeVersion" 設為其中一個支援的網狀架構版本，如下所示，然後部署範本。 “upgradeMode" 的有效值為 “Manual” 或 “Automatic”。
-
-![ARMUpgradeMode][ARMUpgradeMode]
-
-#### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>在設定為手動模式的叢集上，透過 Resource Manager 範本升級至新的版本。
-當叢集處於手動模式時，若要升級至新的版本，請將 “clusterCodeVersion" 變更為支援的版本並部署。 部署範本時會自動展開 Fabric 升級。 升級期間會遵守叢集健康狀態原則 (綜合節點健康狀態和所有在叢集中執行之應用程式的健康狀態)。
-
-如果不符合叢集健康狀態原則，則會回復升級。 請往下捲動本文，以深入了解如何設定這些自訂的健康狀態原則。 
-
-在解決導致復原的問題後，您需要依照之前的相同步驟再次起始升級。
-
-### <a name="get-list-of-all-available-version-for-all-environments-for-a-given-subscription"></a>針對給定的訂用帳戶取得所有環境的所有可用版本清單
-執行下列命令，應該會得到類似如下的輸出。
-
-“supportExpiryUtc” 會告訴您給定的版本即將到期或已過期。 最新版本並無有效日期 - 它的值為 "9999-12-31T23:59:59.9999999"，這只是表示到期日還沒有設定。
-
-```REST
-GET https://<endpoint>/subscriptions/{{subscriptionId}}/providers/Microsoft.ServiceFabric/locations/{{location}}/clusterVersions?api-version=2016-09-01
-
-Example: https://management.azure.com/subscriptions/1857f442-3bce-4b96-ad95-627f76437a67/providers/Microsoft.ServiceFabric/locations/eastus/clusterVersions?api-version=2016-09-01
-
-Output:
-{
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
-
-
-```
-
-## <a name="fabric-upgrade-behavior-when-the-cluster-upgrade-mode-is-automatic"></a>叢集升級模式為自動時的 Fabric 升級行為
+## <a name="fabric-upgrade-behavior-during-automatic-upgrades"></a>自動升級期間的網狀架構升級行為
 Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 視情況需要，我們會對軟體執行受監視的自動升級。 升級的項目可能是程式碼、組態或兩者。 為了確保您的應用程式不受這些升級影響或將影響降到最低，我們會分成下列階段執行升級。
 
 ### <a name="phase-1-an-upgrade-is-performed-by-using-all-cluster-health-policies"></a>階段 1：使用所有叢集健康狀態原則執行升級
@@ -149,7 +63,7 @@ Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 �
 如果符合叢集健康狀態原則，則升級會被視為成功並標示為完成。 在此階段執行初次升級或重新執行任何升級期間，可能會發生這種情形。 執行成功不會有任何電子郵件確認。
 
 ### <a name="phase-3-an-upgrade-is-performed-by-using-aggressive-health-policies"></a>階段 3：使用積極的叢集健康狀態原則執行升級
-此階段的這些健康狀態原則的目的是升級完成，而不是應用程式的健康狀態。 很少叢集升級會最後會變成這個階段。 如果您的叢集進入這個階段，表示您的應用程式很可能會變成狀況不良和 (或) 失去可用性。
+此階段的這些健康狀態原則的目的是升級完成，而不是應用程式的健康狀態。 有些叢集升級會在這個階段結束。 如果您的叢集進入這個階段，表示您的應用程式很可能會變成狀況不良和 (或) 失去可用性。
 
 類似其他兩個階段，階段 3 升級會一次進行一個升級網域。
 
@@ -159,42 +73,21 @@ Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 �
 
 如果符合叢集健康狀態原則，則升級會被視為成功並標示為完成。 在此階段執行初次升級或重新執行任何升級期間，可能會發生這種情形。 執行成功不會有任何電子郵件確認。
 
-## <a name="cluster-configurations-that-you-control"></a>您控制的叢集組態
-除了能夠設定叢集升級模式，您還可以在即時叢集上變更以下的設定。
+## <a name="manage-certificates"></a>管理憑證
+Service Fabric 會使用您建立叢集時指定的 [X.509 伺服器憑證](service-fabric-cluster-security.md)，以保護叢集節點之間的通訊以及驗證用戶端。 您可以在 [Azure 入口網站](https://portal.azure.com)或使用 PowerShell/Azure CLI，新增、更新或刪除叢集和用戶端的憑證。  若要深入了解，請參閱[新增或移除憑證](service-fabric-cluster-security-update-certs-azure.md)
 
-### <a name="certificates"></a>憑證
-您可以透過入口網站輕鬆地新增或刪除叢集和用戶端的憑證。 請參閱 [這份文件了解詳細指示](service-fabric-cluster-security-update-certs-azure.md)
+## <a name="open-application-ports"></a>開啟應用程式連接埠
+您可以透過變更與節點類型相關聯的負載平衡器資源屬性來變更應用程式連接埠。 您可以使用 Azure 入口網站，也可以使用 PowerShell 或 Azure CLI。 如需詳細資訊，請參閱[開啟叢集的應用程式連接埠](create-load-balancer-rule.md)。
 
-![顯示 Azure 入口網站中憑證指紋的螢幕擷取畫面。][CertificateUpgrade]
+## <a name="define-node-properties"></a>定義節點屬性
+有時候您可以確保工作負載只在叢集中的特定節點類型上執行。 例如，某些工作負載可能需要 GPU 或 SSD，而有些則不用。 針對叢集中的每種節點類型，您可以將自訂節點屬性新增至叢集節點。 條件約束是陳述式，會附加至針對一或多個節點屬性選取的個別服務。 放置條件約束會定義應該執行服務的位置。
 
-### <a name="application-ports"></a>應用程式連接埠
-您可以透過變更與節點類型相關聯的負載平衡器資源屬性來變更應用程式連接埠。 您可以使用入口網站，或是直接使用資源管理員 PowerShell。
+如需使用放置條件約束、節點屬性及如何定義它們的詳細資訊，請參閱[節點屬性和放置條件約束](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。
 
-若要在某個節點類型中的所有 VM 上開啟新的連接埠，請執行下列作業：
-
-1. 將新的探查新增至適當的負載平衡器。
-   
-    如果您已使用入口網站部署您的叢集，則負載平衡器會命名為 "LB-name of the Resource group-NodeTypename"，每個節點類型有一個負載平衡器。 因為負載平衡器名稱只有在資源群組中是唯一的，所以最好在特定資源群組下搜尋名稱。
-   
-    ![顯示在入口網站中對負載平衡器新增探查的螢幕擷取畫面。][AddingProbes]
-2. 將新規則加入至負載平衡器。
-   
-    使用您在上一個步驟中建立的探查，對相同的負載平衡器加入新的規則。
-   
-    ![在入口網站中對負載平衡器新增規則。][AddingLBRules]
-
-### <a name="placement-properties"></a>放置屬性
-對於每個節點類型，您可以加入您要在應用程式中使用的自訂放置屬性。 NodeType 是您可使用而不需明確新增的預設屬性。
-
-> [!NOTE]
-> 如需使用放置條件約束、節點屬性及如何定義它們的詳細資訊，請參閱《Service Fabric 叢集 Resource Manager 文件》 [描述您的叢集](service-fabric-cluster-resource-manager-cluster-description.md)中的＜放置條件約束和節點屬性＞一節。
-> 
-> 
-
-### <a name="capacity-metrics"></a>容量度量
+## <a name="add-capacity-metrics"></a>新增容量計量
 對於每個節點類型，您可以加入您要在應用程式中用來報告負載的自訂容量計量。 如需使用容量度量報告負載的詳細資訊，請參閱《Service Fabric 叢集 Resource Manager 文件》的[描述您的叢集](service-fabric-cluster-resource-manager-cluster-description.md)和[度量和負載](service-fabric-cluster-resource-manager-metrics.md)。
 
-### <a name="fabric-upgrade-settings---health-polices"></a>Fabric 升級設 - 健全狀況原則
+## <a name="set-health-policies-for-automatic-upgrades"></a>設定自動升級的健康情況原則
 您可以為網狀架構升級指定自訂的健全狀況原則。 如果已將您的叢集設定為自動網狀架構升級，這些原則會套用於自動網狀架構升級的階段 1。
 如果已將您的叢集設定為手動網狀架構升級，則每當您選取新版本而觸發系統開始在叢集中展開網狀架構升級時，就會套用這些原則。 如果您不覆寫原則，則會使用預設值。
 
@@ -202,13 +95,13 @@ Microsoft 會維護 Azure 叢集中執行的網狀架構程式碼和組態。 �
 
 ![管理自訂的健康狀態原則][HealthPolices]
 
-### <a name="customize-fabric-settings-for-your-cluster"></a>自訂叢集的 Fabric 設定
-請參閱 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md) ，以了解該自訂什麼及如何自訂。
+## <a name="customize-fabric-settings-for-your-cluster"></a>自訂叢集的 Fabric 設定
+在叢集上可以設定許多不同的組態設定，例如叢集和節點屬性的可靠性層級。 如需詳細資訊，請參閱 [Service Fabric 叢集網狀架構設定](service-fabric-cluster-fabric-settings.md)。
 
-### <a name="os-patches-on-the-vms-that-make-up-the-cluster"></a>組成叢集的 VM 上的作業系統修補程式
-請參閱[修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)，可在叢集上部署，以協調的方式從 Windows Update 安裝修補程式，讓服務隨時可供使用。 
+## <a name="patch-the-os-in-the-cluster-nodes"></a>修補叢集節點中的 OS
+修補程式協調流程應用程式 (POA) 是 Service Fabric 應用程式，可在 Service Fabric 叢集上將作業系統修補自動化，而不需要停機。 [適用於 Windows 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application.md)或[適用於 Linux 的修補程式協調流程應用程式](service-fabric-patch-orchestration-application-linux.md)可在叢集上部署，以協調的方式安裝修補程式，同時讓服務隨時可供使用。 
 
-### <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>組成叢集的 VM 上的作業系統升級
+## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>組成叢集的 VM 上的作業系統升級
 如果您必須升級叢集的虛擬機器上的作業系統映像，則必須一次升級一部 VM。 您要負責這項升級，因為目前沒有將這項升級自動化。
 
 ## <a name="next-steps"></a>後續步驟

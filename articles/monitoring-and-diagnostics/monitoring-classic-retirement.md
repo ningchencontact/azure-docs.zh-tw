@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 589aae8321d2c081f09ed46d9def2229d3973ffd
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 35869e0a345299f2b0724f01201154fc8d090e4f
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613190"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51975374"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Azure 監視器中的整合警示和監視取代了傳統警示和監視
 
@@ -53,7 +53,7 @@ Azure 監視器的較新計量平台現在可強化來自 Application Insights �
 - 目前可透過 Azure 入口網站 [[警示 (傳統)] 區段](monitoring-overview-alerts-classic.md)使用的 Application Insights 舊版 (傳統) 平台與自訂計量及警示；且可以 [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) 資源的形式來存取
 - 目前可在 Azure 入口網站以 [Application Insights 中的智慧偵測](../application-insights/app-insights-proactive-diagnostics.md)提供的舊版 (傳統) 失敗異常警示；所設定的警示會顯示於 Azure 入口網站的 [[警示 (傳統)] 區段](monitoring-overview-alerts-classic.md)
 
-所有傳統監視和警示系統 (包括對應的 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)、[PowerShell](insights-alerts-powershell.md)、[CLI](insights-alerts-command-line-interface.md)、Azure 入口網站頁面和[資源範本](monitoring-enable-alerts-using-template.md)在 2019 年 6 月之前仍可繼續使用。 此日期過後，傳統的監視和警示服務就會淘汰且無法再使用；2019 年 6 月之後繼續存在於 [警示 (傳統)] 的警示規則雖可繼續執行，但無法再修改。
+所有傳統監視和警示系統 (包括對應的 [API](https://msdn.microsoft.com/library/azure/dn931945.aspx)、[PowerShell](insights-alerts-powershell.md)、[CLI](insights-alerts-command-line-interface.md)、[Azure 入口網站頁面](alert-metric-classic.md)和[資源範本](monitoring-enable-alerts-using-template.md)) 在 2019 年 6 月之前仍可繼續使用。 此日期過後，傳統的監視和警示服務就會淘汰且無法再使用；2019 年 6 月之後繼續存在於 [警示 (傳統)] 的警示規則雖可繼續執行，但無法再修改。
 
 2019 年 6 月之後仍留在傳統監視和警示平台的警示，將會在 2019 年 7 月由 Microsoft 自動遷移至其在新 Azure 監視器平台的對等位置。 此程序無須停機即可順利進行，並可確保客戶不會遺失任何監視涵蓋範圍。
 

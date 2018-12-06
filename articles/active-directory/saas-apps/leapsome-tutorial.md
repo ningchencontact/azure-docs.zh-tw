@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: jeedes
-ms.openlocfilehash: e55d161b7c95118736f4443c3fed0312418feee7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 898d7cf6cdded08cd09c4b1f1f845473af1650a3
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441930"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51823994"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>教學課程：Azure Active Directory 與 Leapsome 整合
 
@@ -134,7 +134,7 @@ ms.locfileid: "39441930"
     | picture | 員工圖片的 URL | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 
     > [!Note]
-    > 圖片屬性值不是真實的值。 使用實際的圖片 URL 更新此值。 若要取得此值，請連絡 [Leapsome 用戶端支援小組](mailto:support@leapsome.com)。
+    > 圖片屬性值不是真實的值。 使用實際的圖片 URL 更新此值。 若要取得此值，請連絡  [Leapsome 用戶端支援小組](mailto:support@leapsome.com)。
     
     a. 按一下 [新增屬性] 來開啟 [新增屬性] 對話方塊。
 
@@ -218,7 +218,7 @@ ms.locfileid: "39441930"
  
 ### <a name="create-a-leapsome-test-user"></a>建立 Leapsome 測試使用者
 
-在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com)合作，新增需要在 Leapsome 平台中設定為允許清單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您要在 Leapsome 中建立名為 Britta Simon 的使用者。 與 [Leapsome 用戶端支援小組](mailto:support@leapsome.com) 合作，新增需要在 Leapsome 平台中設定為允許清單的使用者或網域。 如果是由小組新增網域，使用者將會自動佈建到 Leapsome 平台中。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -255,7 +255,7 @@ ms.locfileid: "39441930"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 Leapsome 圖格時，應該會自動登入 Leapsome 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

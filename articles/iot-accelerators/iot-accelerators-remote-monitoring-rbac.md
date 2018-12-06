@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 56fbb5d45e55e63ae887d915367cfc649e531095
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364290"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51820217"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>在遠端監視解決方案加速器中設定角色型存取控制
 
@@ -23,29 +23,33 @@ ms.locfileid: "46364290"
 
 當您第一次部署遠端監視解決方案時，有兩個角色：**管理員**和**唯讀**。
 
-擁有 [管理員] 角色的任何使用者具有解決方案的完整存取權。 擁有 [唯讀] 角色的使用者無法執行下列任何工作：
+擁有 [管理員] 角色的任何使用者具有解決方案的完整存取權，包括下列權限。 具備 [唯讀] 角色的使用者只能夠檢視解決方案。
 
-- 更新警示
-- 刪除警示
-- 建置裝置
-- 更新裝置
-- 刪除裝置
-- 建立裝置群組
-- 更新裝置群組
-- 刪除裝置群組
-- 建立規則
-- 更新規則
-- 刪除規則
-- 建立作業
-- 更新 SIM 管理
+| 權限            | Admin | 唯讀 |
+|----------------       |-------|-----------|
+| 檢視解決方案         | 是   | 是       |
+| 更新警示         | 是   | 否        |
+| 刪除警示         | 是   | 否        |
+| 建置裝置        | 是   | 否        |
+| 更新裝置        | 是   | 否        |
+| 刪除裝置        | 是   | 否        |
+| 建立裝置群組  | 是   | 否        |
+| 更新裝置群組  | 是   | 否        |
+| 刪除裝置群組  | 是   | 否        |
+| 建立規則          | 是   | 否        |
+| 更新規則          | 是   | 否        |
+| 刪除規則          | 是   | 否        |
+| 建立作業           | 是   | 否        |
+| 更新 SIM 管理 | 是   | 否        |
 
-部署遠端監視解決方案的人員會自動指派給 [管理員] 角色而且是 Azure Active Directory 應用程式擁有者。 應用程式擁有者可以將角色指派給 Azure 入口網站中的其他使用者。
+根據預設，部署解決方案的使用者會自動指派給 [管理員] 角色，而且是 Azure Active Directory 應用程式擁有者。 應用程式擁有者可以透過 Azure 入口網站將角色指派給其他使用者。 如果您希望另一位使用者在解決方案中指派角色，他們也必須設定為 Azure 入口網站中的應用程式擁有者。
 
-如果您希望另一位使用者在解決方案中指派角色，他們也必須設定為 Azure 入口網站中的應用程式擁有者。
+> [!NOTE]
+> 部署解決方案的使用者是**唯一**可以在解決方案建立後立即加以檢視的人員。 若要授與其他人存取權，讓他們能以「唯讀」、「系統管理員」或「自訂」角色檢視應用程式，請參閱下列關於新增或移除使用者的指示。
 
 ## <a name="add-or-remove-users"></a>新增或移除使用者
 
-使用 Azure 入口網站在遠端監視解決方案中新增或移除使用者。 下列步驟會使用當您部署遠端監視解決方案時所建立的 [Azure Active Directory 企業應用程式](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)。
+Azure Active Directory 應用程式擁有者可以使用 Azure 入口網站，從遠端監視解決方案新增或移除使用者的角色。 下列步驟會使用當您部署遠端監視解決方案時所建立的 [Azure Active Directory 企業應用程式](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 

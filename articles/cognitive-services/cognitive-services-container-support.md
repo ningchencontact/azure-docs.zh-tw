@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: b66d6bc93f9d2df3eccabf0f0f9edb0384bab70f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 05a364cc66d18909c7833138d351dc02bace32c2
+ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635080"
+ms.lasthandoff: 11/16/2018
+ms.locfileid: "51822104"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
-Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的相同豐富 API，並同時享有 [Docker 容器](https://www.docker.com/what-container) \(英文\) 所帶來的彈性。 容器支援現為預覽階段，提供給部分 Azure 認知服務使用，包括[電腦視覺](Computer-vision/Home.md)、[臉部](Face/Overview.md)和[文字分析](text-analytics/overview.md)。
+Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的相同豐富 API，並同時享有 [Docker 容器](https://www.docker.com/what-container) \(英文\) 所帶來的部署及裝載服務彈性。 容器支援現為預覽階段，提供給部分 Azure 認知服務使用，包括[電腦視覺](Computer-vision/Home.md)、[臉部](Face/Overview.md)和[文字分析](text-analytics/overview.md)。
 
 容器化是散發軟體的方法，它會將應用程式或服務 (包括其相依性及設定) 一起封裝成容器映像。 在只需要小幅修改或不修改的情況下，便可將容器映像部署在容器主機上。 容器之間會彼此隔離，也會與基礎作業系統隔離，這使其磁碟使用量比虛擬機器更小。 容器可以從容器映像具現化以進行短期工作，並於不再需要時移除。
 

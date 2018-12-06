@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
+ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430024"
+ms.lasthandoff: 11/17/2018
+ms.locfileid: "51853348"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -135,6 +135,7 @@ Authorization: Bearer <Base64-access_token>
 | 403000| 不允許此作業。|
 | 403001| 不允許此作業，因為訂用帳戶已超出其可用配額。|
 | 405000| 要求方法不是所要求資源支援的方法。|
+| 408001| 所要求的自訂翻譯系統尚無法使用。 請稍待數分鐘後重試。|
 | 415000| Content-Type 標頭遺漏或無效。|
 | 429000、429001、429002| 伺服器拒絕要求，因為用戶端傳送太多要求。 請降低要求的頻率以避免節流。|
 | 500000| 發生意外錯誤。 如果錯誤持續存在，請回報錯誤並提供錯誤的日期/時間、來自回應標頭 X-RequestId 的要求識別碼，以及來自要求標頭 X-ClientTraceId 的用戶端識別碼。|

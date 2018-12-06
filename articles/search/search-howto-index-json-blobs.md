@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
+ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405697"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51711067"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
 本文說明如何設定 Azure 搜尋服務 Blob 索引子，從 Azure Blob 儲存體中的 JSON blob 擷取結構化的內容。
@@ -24,11 +24,8 @@ Azure Blob 儲存體中的 JSON blob 通常是單一 JSON 文件或 JSON 陣列�
 | JSON 文件 | parsingMode | 說明 | 可用性 |
 |--------------|-------------|--------------|--------------|
 | 一個 blob 一個 | `json` | 將 JSON blob 當作單一文字區塊來剖析。 每一個 JSON blob 會變成單一 Azure 搜尋服務文件。 | 通常可以在 [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) 和 [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API 中使用。 |
-| 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 預覽版中，使用 [REST api-version=`2017-11-11-Preview`](search-api-2017-11-11-preview.md) 和 [.NET SDK Preview](https://aka.ms/search-sdk-preview)。 |
+| 一個 blob 多個 | `jsonArray` | 剖析 blob 中的 JSON 陣列，陣列的每個元素會變成不同的 Azure 搜尋服務文件。  | 通常可以在 [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) 和 [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) API 中使用。 |
 
-> [!Note]
-> 預覽版 API 是針對測試與評估，不應該用於生產環境。
->
 
 ## <a name="setting-up-json-indexing"></a>設定 JSON 編製索引
 JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中所有索引子通用的三步驟工作流程。
@@ -103,9 +100,9 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 
 如前所述，不一定要使用欄位對應。 指定索引的 "text"、"datePublished"、"tags" 欄位，blob 索引子可以推斷正確的對應，故要求中不需要欄位對應。
 
-## <a name="how-to-parse-json-arrays-preview"></a>如何剖析 JSON 陣列 (預覽版)
+## <a name="how-to-parse-json-arrays"></a>如何剖析 JSON 陣列
 
-或者，您可以選擇 JSON 陣列預覽版功能。 當 blob 包含「JSON 物件的陣列」，且您希望陣列的每個元素成為個別的 Azure 搜尋服務文件，這個功能特別實用。 以下列 JSON blob 為例，您可以將 Azure 搜尋服務索引填入三個不同的文件，每個都具有 "id" 和 "text" 欄位。  
+或者，您可以選擇 JSON 陣列功能。 當 blob 包含「JSON 物件的陣列」，且您希望陣列的每個元素成為個別的 Azure 搜尋服務文件，這個功能特別實用。 以下列 JSON blob 為例，您可以將 Azure 搜尋服務索引填入三個不同的文件，每個都具有 "id" 和 "text" 欄位。  
 
     [
         { "id" : "1", "text" : "example 1" },
@@ -115,9 +112,9 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 
 ### <a name="indexer-definition-for-a-json-array"></a>JSON 陣列的索引子定義
 
-若採用 JSON 陣列，索引子要求會使用預覽版 API 和 `jsonArray` 剖析器。 這兩個是編製 JSON blob 索引時的陣列專屬必要做法。
+若採用 JSON 陣列，索引子要求會使用 `jsonArray` 剖析器。 這兩個是編製 JSON blob 索引時的陣列專屬必要做法。
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
+    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
     Content-Type: application/json
     api-key: [admin key]
 

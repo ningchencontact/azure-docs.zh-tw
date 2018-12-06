@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 3ecbef3b3063ceb413b852f8000b44a85d28d08e
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8bd64aaa51faf968c0c7ae374daad3de4ca3a343
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142719"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706852"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>在 Azure 實驗室服務中建立和管理教室範本
 實驗室中的範本是所有使用者的虛擬機器據以建立的基底虛擬機器映像。 設定範本虛擬機器以便能確實設定您要提供給實驗室使用者的虛擬機器。 您可以提供要給實驗室使用者查看的範本名稱與描述。 然後，發佈範本以便讓範本 VM 的執行個體可供實驗室使用者使用。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。
@@ -88,16 +88,14 @@ ms.locfileid: "50142719"
 ## <a name="set-up-a-template-after-creating-a-lab"></a>在建立實驗室之後設定範本 
 您也可以在建立實驗室之後設定範本。   
 
-### <a name="set-template-title-and-description"></a>設定範本標題和描述
-1. 在 [範本] 區段中，針對範本選取 [編輯] (鉛筆圖示)。 
-2. 在 [使用者檢視] 視窗中，輸入範本的**標題**。
-3. 輸入範本的**描述**。
-4. 選取 [ **儲存**]。
+## <a name="set-or-update-template-title-and-description"></a>設定或更新範本標題和描述
+使用下列步驟，第一次設定標題和描述，且稍後加以更新。 
 
-    ![教室實驗室描述](../media/how-to-manage-classroom-labs/lab-description.png)
+1. 在 [範本] 區段中，將滑鼠移到範本的**名稱**或範本的**描述**上方，並加以選取。 
+2. 輸入範本的**新名稱**或**新描述**，並按下 **ENTER**。
 
-### <a name="set-up-the-template-vm"></a>設定範本 VM
- 您可連線到範本 VM，在其上安裝任何必要的軟體，再將它提供給您的學生使用。 
+## <a name="set-up-or-update-a-template-vm"></a>設定或更新範本 VM
+ 您可連線到範本 VM，在其上安裝任何必要的軟體，再將它提供給您的學生使用。 使用下列步驟，第一次設定範本 VM或更新 VM。 
 
 1. 請等候範本虛擬機器準備就緒。 準備就緒時，應會啟用 [啟動] 按鈕。 若要啟動 VM，請選取 [啟動]。
 
@@ -112,7 +110,7 @@ ms.locfileid: "50142719"
     ![停止範本 VM](../media/tutorial-setup-classroom-lab/stop-template-vm.png)
 
 
-## <a name="publish-the-template"></a>發佈範本 
+## <a name="publish-the-template-vm"></a>發佈範本 VM
 如果您未在建立實驗室時發行範本，也可以之後再發佈。 在發佈之前，請先連線至範本 VM，然後為其更新軟體。 當您發佈範本時，Azure 實驗室服務會使用範本在實驗室中建立 VM。 在此程序中建立的 VM 數目與實驗室中允許的使用者數量上限相同 (此上限可在實驗室的使用原則中設定)。 所有虛擬機器都有與範本相同的設定。 
 
 1. 選取 [範本] 區段中的 [發佈]。 
@@ -147,7 +145,9 @@ ms.locfileid: "50142719"
     ![重新發佈成功](../media/how-to-create-manage-template/republish-success.png)
 
 ## <a name="next-steps"></a>後續步驟
-使用 Azure 實驗室服務以設定實驗室的入門：
+請參閱下列文章：
 
-- [設定教室實驗室](how-to-manage-classroom-labs.md)
-- [設定實驗室](../tutorial-create-custom-lab.md)
+- [以管理員身分建立及管理實驗室帳戶](how-to-manage-lab-accounts.md)
+- [以實驗室擁有者身分建立及管理實驗室](how-to-manage-classroom-labs.md)
+- [以實驗室擁有者身分設定及控制實驗室的使用方式](how-to-configure-student-usage.md)
+- [以實驗室使用者的身分存取教室實驗室](how-to-use-classroom-lab.md)

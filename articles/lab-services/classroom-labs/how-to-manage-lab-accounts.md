@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: 6f9b85ec4821ff2454970136b3c8af2cb0f92154
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140818"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51707124"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 實驗室服務中的實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是受控實驗室 (例如教室實驗室) 的容器。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -114,7 +114,9 @@ ms.locfileid: "50140818"
 
 
 ## <a name="next-steps"></a>後續步驟
-使用 Azure 實驗室服務以設定實驗室的入門：
+請參閱下列文章：
 
-- [設定教室實驗室](tutorial-setup-classroom-lab.md)
-- [設定實驗室](../tutorial-create-custom-lab.md)
+- [以實驗室擁有者身分建立及管理實驗室](how-to-manage-classroom-labs.md)
+- [以實驗室擁有者身分設定及發佈範本](how-to-create-manage-template.md)
+- [以實驗室擁有者身分設定及控制實驗室的使用方式](how-to-configure-student-usage.md)
+- [以實驗室使用者的身分存取教室實驗室](how-to-use-classroom-lab.md)

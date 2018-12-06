@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 8ce75efae2d735c5653f9dae72c670b0714351ac
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e2fa822698f3888e1168ab7773d87e41db9eb5c
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567945"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165640"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>可保護身分識別基礎結構的五個步驟
 
@@ -77,6 +77,9 @@ Microsoft 建議採用下列根據 [NIST 指導方針](https://pages.nist.gov/80
 * 發生內部部署中斷 (例如遭遇勒索軟體攻擊) 時，您將能切換成使用[採用密碼雜湊同步處理的雲端驗證](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)。此備用驗證方法可讓您繼續存取已設定為使用 Azure Active Directory 進行驗證的應用程式，包括 Office 365。 在此情況下，在解決內部部署中斷之前，IT 員工將不需要被迫使用個人電子郵件帳戶來共用資料。
 
 深入了解[密碼雜湊同步處理](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)的運作方式。
+
+> [!NOTE]
+> 如果您啟用密碼雜湊同步處理，並且要使用 Azure AD Domain Services，則 Kerberos (AES 256) 雜湊以及選擇性地 NTLM (RC4，沒有 salt) 雜湊也會加密並同步處理至 Azure AD。 
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>實作 AD FS 外部網路智慧鎖定
 

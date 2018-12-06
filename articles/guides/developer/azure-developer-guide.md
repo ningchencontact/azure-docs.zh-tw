@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 4c56a1164a589af5d325d1378f331a7d0ee138b7
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 55d4f53a23c92bb96934e84c0400bc182bc3d87e
+ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956427"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51976803"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -92,7 +92,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 Azure Service Fabric 是分散式系統平台，可讓您輕鬆建置、封裝、部署和管理可調整和可信賴的微服務。 還提供完整的應用程式管理功能，以佈建、部署、監視、升級/修補及刪除所部署的應用程式。 在共用電腦集區上執行的應用程式可以從小規模著手，然後視需要調整為成千上萬部電腦。
 
-Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。 它提供在 Linux 上建置服務的 .NET Core 和 Java SDK。 若要深入了解 Service Fabric，請參閱 [Service Fabric 學習路徑](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)。
+Service Fabric 支援具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 的 WebAPI。 它提供在 Linux 上建置服務的 .NET Core 和 Java SDK。 若要深入了解 Service Fabric，請參閱 [Service Fabric 文件](https://docs.microsoft.com/en-us/azure/service-fabric/)。
 
 >**使用時機**：當您建立應用程式或重新撰寫現有的應用程式以使用微服務架構時，Service Fabric 是不錯的選擇。 當您需要更充分地控制或直接存取基礎結構時，請使用 Service Fabric。
 

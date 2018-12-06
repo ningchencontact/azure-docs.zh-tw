@@ -6,36 +6,36 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: 24b6beec8ecda993667464be5c74dab50fd93201
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278883"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263888"
 ---
-# <a name="provision-throughput-for-cosmos-db-containers-and-databases"></a>佈建 Cosmos DB 容器和資料庫的輸送量
+# <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>在 Azure Cosmos 容器和資料庫上佈建輸送量
 
-Cosmos 資料庫是一組容器的管理單位。 資料庫是由一組無從驗證結構描述的容器所組成的。 Cosmos 容器是適用於輸送量和儲存體的延展性單位。 容器會跨 Azure 區域內的一組機器進行水平分割，並散發到與您 Cosmos 帳戶相關聯的所有 Azure 區域。
+Azure Cosmos 資料庫是一組容器的管理單位。 資料庫是由一組無從驗證結構描述的容器所組成的。 Azure Cosmos 容器是適用於輸送量和儲存體的延展性單位。 容器會跨 Azure 區域內的一組機器進行水平分割，並散發到與您 Azure Cosmos 帳戶相關聯的所有 Azure 區域。
 
-Azure Cosmos DB 可讓您在下列兩個資料粒度上設定輸送量：**Cosmos 容器**和 **Cosmos 資料庫**。
+Azure Cosmos DB 可讓您在下列兩個資料粒度上設定輸送量：**Azure Cosmos 容器**和 **Azure Cosmos 資料庫**。
 
-# <a name="setting-throughput-on-a-cosmos-container"></a>在 Cosmos 容器上設定輸送量  
+# <a name="setting-throughput-on-a-azure-cosmos-container"></a>在 Azure Cosmos 容器上設定輸送量  
 
-在 Cosmos 容器上佈建的輸送量是專為該容器保留的。 該容器隨時都可接收佈建輸送量。 容器上的佈建輸送量在財務方面會由 SLA 所支援。 若要在容器上設定輸送量，請參閱[如何在 Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
+在 Azure Cosmos 容器上佈建的輸送量是專為該容器保留的。 該容器隨時都可接收佈建輸送量。 容器上的佈建輸送量在財務方面會由 SLA 所支援。 若要在容器上設定輸送量，請參閱[如何在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
 
 在容器上設定佈建輸送量是廣泛使用的選項。 雖然您可藉由佈建任意數目的輸送量 (RU) 來彈性調整容器的輸送量，但您無法選擇性地指定邏輯分割區的輸送量。 當邏輯分割區上執行的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 
 當您想要保證容器的效能時，建議您在容器資料粒度上設定輸送量。
 
-Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割區。 由於資源分割區會裝載容器的一或多個邏輯分割區，因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 下圖示範資源分割區如何裝載容器的一或多個邏輯分割區：
+Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割區。 由於資源分割區會裝載容器的一或多個邏輯分割區，因此，實體分割區專屬於該容器並支援該容器上佈建的輸送量。 下圖示範資源分割區如何裝載容器的一或多個邏輯分割區：
 
 ![資源分割區](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-cosmos-database"></a>在 Cosmos 資料庫上設定輸送量
+# <a name="setting-throughput-on-a-azure-cosmos-database"></a>在 Azure Cosmos 資料庫上設定輸送量
 
-當您在 Cosmos 資料庫上佈建輸送量時，除非已在特定容器上指定佈建輸送量，否則，輸送量會在資料庫中的所有容器上共用。 在其容器之間共用資料庫輸送量，相當於在機器叢集上裝載資料庫。 由於資料庫共用內的所有容器都會共用機器上可用的資源，因此，您自然不會取得任何特定容器上的可預測效能。 若要在資料庫上設定輸送量，請參閱[如何在 Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)。
+當您在 Azure Cosmos 資料庫上佈建輸送量時，除非已在特定容器上指定佈建輸送量，否則，輸送量會在資料庫中的所有容器上共用。 在其容器之間共用資料庫輸送量，相當於在機器叢集上裝載資料庫。 由於資料庫共用內的所有容器都會共用機器上可用的資源，因此，您自然不會取得任何特定容器上的可預測效能。 若要在資料庫上設定輸送量，請參閱[如何在 Azure Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)。
 
-在 Cosmos 資料庫上設定輸送量，保證您隨時都能接收到佈建輸送量。 由於資料庫共用內的所有容器都會共用佈建輸送量，因此，Cosmos DB 不會針對該資料庫中的特定容器提供任何可預測的輸送量保證。 特定容器可接收的輸送量部分取決於：
+在 Azure Cosmos 資料庫上設定輸送量，保證您隨時都能接收到佈建輸送量。 由於資料庫共用內的所有容器都會共用佈建輸送量，因此，Azure Cosmos DB 不會針對該資料庫中的特定容器提供任何可預測的輸送量保證。 特定容器可接收的輸送量部分取決於：
 
 * 容器數目
 * 對於各種容器所選擇的分割區索引鍵，以及
@@ -43,9 +43,9 @@ Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割�
 
 當您想要在多個容器之間共用輸送量，但不想讓輸送量專屬於任何特定容器時，建議您在資料庫上設定輸送量。 以下是一些最好在資料庫層級佈建輸送量的範例：
 
-* 在一組容器上共用資料庫的佈建輸送量非常適用於多租用戶應用程式。 每位使用者都可透過不同的 Cosmos 容器來表示。
+* 在一組容器上共用資料庫的佈建輸送量非常適用於多租用戶應用程式。 每位使用者都可透過不同的 Azure Cosmos 容器來表示。
 
-* 當您將從 VM 叢集或從內部部署實體伺服器裝載的 NoSQL 資料庫 (例如 MongoDB、Cassandra) 移轉到 Cosmos DB 時，在一組容器之間共用資料庫的佈建輸送量就很實用。 您可以將 Cosmos 資料庫上設定的佈建輸送量想像為 MongoDB 或 Cassandra 叢集計算容量之佈建輸送量的邏輯對等項目 (但更符合成本效益且更具彈性)。  
+* 當您將從 VM 叢集或從內部部署實體伺服器裝載的 NoSQL 資料庫 (例如 MongoDB、Cassandra) 移轉到 Azure Cosmos DB 時，在一組容器之間共用資料庫的佈建輸送量就很實用。 您可以將 Azure Cosmos 資料庫上設定的佈建輸送量想像為 MongoDB 或 Cassandra 叢集計算容量之佈建輸送量的邏輯對等項目 (但更符合成本效益且更具彈性)。  
 
 在任何指定的時間點，配置給資料庫內容器的輸送量都會散發到該容器的所有邏輯分割區。 當您的容器會共用資料庫上的佈建輸送量時，您就無法選擇性地將輸送量套用到特定容器或邏輯分割區。 如果邏輯分割區上的工作負載所取用的輸送量超過配置給特定邏輯分割區的輸送量時，您的作業將會受到速率限制。 發生速率限制時，您可以提高整個容器的輸送量或重試此作業。 如需有關分割的詳細資訊，請參閱[邏輯分割區](partition-data.md)。
 
@@ -53,11 +53,11 @@ Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割�
 
 ![資源分割區](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-cosmos-database-and-a-container"></a>在 Cosmos 資料庫和容器上設定輸送量
+## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>在 Azure Cosmos 資料庫和容器上設定輸送量
 
-您可以結合這兩個模型，就能同時在資料庫和容器上佈建輸送量。 下列範例示範如何在 Cosmos 資料庫和容器上佈建輸送量：
+您可以結合這兩個模型，就能同時在資料庫和容器上佈建輸送量。 下列範例示範如何在 Azure Cosmos 資料庫和容器上佈建輸送量：
 
-* 您可以使用 'K' 個 RU 的佈建輸送量來建立名為 'Z' 的 Cosmos 資料庫。 
+* 您可以使用 'K' 個 RU 的佈建輸送量來建立名為 'Z' 的 Azure Cosmos 資料庫。 
 * 接下來，在資料庫中建立五個容器，名稱分別為 A、B、C、D 和 E。
 * 您可以明確地在容器 'B' 上設定 'P' 個 RU 的佈建輸送量。
 * 'K' 個 RU 的輸送量會在這四個容器 (A、C、D 和 E) 上共用。可供 A、C、D 或 E 使用的輸送量確切數目將有所不同，而且沒有適用於每個個別容器輸送量的 SLA。
@@ -67,7 +67,6 @@ Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割�
 
 |**配額**  |**資料庫上佈建的輸送量**  |**容器上佈建的輸送量**|
 |---------|---------|---------|
-|延展性單位|容器|容器|
 |RU 數目下限 |400 |400|
 |每個容器的 RU 數目下限|100|400|
 |取用 1 GB 儲存體所需的 RU 數目下限|40|40|
@@ -80,6 +79,6 @@ Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯分割�
 ## <a name="next-steps"></a>後續步驟
 
 * 深入了解[邏輯分割區](partition-data.md)
-* 了解[如何在 Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)
-* 了解[如何在 Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)
+* 了解[如何在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)
+* 了解[如何在 Azure Cosmos 資料庫上佈建輸送量](how-to-provision-database-throughput.md)
 
