@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567021"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284637"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>了解 IoT Edge 裝置、模組及子裝置的延伸離線功能 (預覽)
 
@@ -48,7 +48,7 @@ Azure IoT Edge 支援 IoT Edge 裝置上的延伸離線作業，也可以讓非 
 
 本文描述的延伸離線功能適用於 [IoT Edge 1.0.4 版或更高版本](https://github.com/Azure/azure-iotedge/releases)。 先前版本具備一部分的離線功能。 不具備延伸離線功能的現有 IoT Edge 裝置無法透過變更執行階段版本來進行升級，而必須使用新的 IoT Edge 裝置識別重新設定，才能獲得這些功能。 
 
-延伸離線支援適用於所有可使用 IoT 中樞的區域 (美國東部與西歐除外)。 
+延伸離線支援適用於所有可使用 IoT 中樞的區域 (美國東部**除外**)。
 
 只有非 Edge IoT 裝置才能作為子裝置新增。 
 
@@ -65,6 +65,19 @@ IoT Edge 裝置及其受指派的子裝置可在一開始的首次同步處理�
    ![從 IoT Edge 裝置詳細資料頁面管理子裝置](./media/offline-capabilities/manage-child-devices.png)
 
 父裝置可擁有多個子裝置，但子裝置只能擁有一個父裝置。
+
+### <a name="specifying-dns-servers"></a>指定 DNS 伺服器 
+
+若要改善穩定性，建議您指定您環境中使用的 DNS 伺服器位址。 例如，在 Linux 上，更新 **/etc/docker/daemon.json** (您可能需要建立檔案) 來包含：
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+如果您使用本機 DNS 伺服器，請將 1.1.1.1 取代為本機 DNS 伺服器的 IP 位址。 重新啟動 Docker 服務以讓變更生效。
+
 
 ## <a name="optional-offline-settings"></a>選擇性離線設定
 

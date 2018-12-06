@@ -3,6 +3,7 @@ title: 將 Azure 帳戶連結至合作夥伴識別碼 | Microsoft Docs
 description: 將合作夥伴識別碼連結至您用來管理客戶資源的使用者帳戶，以追蹤與 Azure 客戶的互動情況。
 services: billing
 author: dhirajgandhi
+manager: dhgandhi
 ms.author: cwatson
 ms.date: 03/12/2018
 ms.service: billing
@@ -10,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 57ffb30296e5dbede11e23c40041c42e00444c4c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686989"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274174"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結至您的 Azure 帳戶
 
@@ -43,7 +44,7 @@ ms.locfileid: "51686989"
 
 2. 登入 Azure 入口網站。
 
-3. 輸入 Microsoft 合作夥伴識別碼。合作夥伴識別碼是您組織的 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com/) 識別碼。
+3. 輸入 Microsoft 合作夥伴識別碼。 合作夥伴識別碼是您組織的 [Microsoft 合作夥伴網路 (MPN)](https://partner.microsoft.com/) 識別碼。
 
   ![顯示連結合作夥伴識別碼的螢幕擷取畫面](./media/billing-link-partner-id/link-partner-ID.PNG)
 
@@ -124,7 +125,7 @@ C:\ az managementpartner delete --partner-id 12345
 
 **誰可以連結合作夥伴識別碼？**
 
-夥伴組織中負責管理客戶資源的任何使用者，都可以將合作夥伴識別碼連結至帳戶。
+夥伴組織中負責管理客戶 Azure 資源的任何使用者，都可以將合作夥伴識別碼連結至帳戶。
 
 **合作夥伴識別碼在連結之後可以變更嗎？**
 

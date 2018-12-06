@@ -7,13 +7,13 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 4209ce8d15bf53381825e8bb3e47f0a16366a436
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 11/21/2018
+ms.openlocfilehash: 5124e06296962f1b673c77bfe318ff48d7fb11aa
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346361"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291318"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>對 Azure 串流分析輸出進行疑難排解
 
@@ -29,7 +29,7 @@ ms.locfileid: "49346361"
       - 如果該作業使用事件中樞，請檢查訊息本文是否為 *Null*。
       
     - 若資料轉換錯誤 > 0 且持續增加中，則可能符合下列情況：
-      - 作業可能無法還原序列化事件。
+      - 輸出事件不符合目標接收器的結構描述。 
       - 事件結構描述可能與查詢中事件的定義或預期結構描述不相符。
       - 事件中某些欄位的資料類型可能不符合預期類型。
       

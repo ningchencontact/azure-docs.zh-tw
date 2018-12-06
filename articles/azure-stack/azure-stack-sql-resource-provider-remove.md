@@ -11,40 +11,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b7af23ccdd379aac9959bb9993fc1781a44e705e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684021"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275022"
 ---
 # <a name="remove-the-sql-resource-provider"></a>移除 SQL 資源提供者
 
 在您移除 SQL 資源提供者之前，必須先移除所有提供者相依性。 您還需要一份用來安裝資源提供者的部署套件複本。
 
-  |最低 Azure Stack 版本|SQL RP 版本|
-  |-----|-----|
-  |1808 版 (1.1808.0.97)|[SQL RP 1.1.30.0 版](https://aka.ms/azurestacksqlrp11300)|
-  |1804 版 (1.0.180513.1)|[SQL RP 1.1.24.0 版](https://aka.ms/azurestacksqlrp11240)
-  |     |     |
+> [!NOTE]
+> 您可以在[部署資源提供者必要條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到資源提供者安裝程式的下載連結。
+
+移除 SQL 資源提供者並不會從主控伺服器刪除租用戶資料庫。
 
 ## <a name="dependency-cleanup"></a>相依性清除
 
 在您執行 DeploySqlProvider.ps1 指令碼來移除資源提供者之前，需要執行幾項清除工作。
 
-Azure Stack 租用戶使用者負責執行下列清除工作：
-
-* 從資源提供者刪除其所有資料庫。 (刪除租用戶資料庫並不會刪除資料)。
-* 取消註冊提供者命名空間。
-
 Azure Stack 操作員負責執行下列清除工作：
 
-* 從 MySQL 介面卡刪除主控伺服器。
-* 刪除任何參照 MySQL 介面卡的方案。
-* 刪除任何與 MySQL 配接器相關聯的配額。
+* 刪除任何參照 SQL 配接器的方案。
+* 刪除任何與 SQL 配接器相關聯的配額。
 
 ## <a name="to-remove-the-sql-resource-provider"></a>移除 SQL 資源提供者
 
@@ -53,9 +46,9 @@ Azure Stack 操作員負責執行下列清除工作：
    > [!NOTE]
    > 即使相依資源目前正在使用資源提供者，解除安裝 SQL 資源提供者的作業仍會繼續。
   
-2. 取得一份 SQL 資源提供者複本，然後執行自我解壓縮程式，以將內容解壓縮至暫存目錄。
+2. 取得一份 SQL 資源提供者安裝套件複本，然後執行自我解壓縮程式，以將內容解壓縮至暫存目錄。
 
-3. 開啟新的已提升權限 PowerShell 主控台視窗，然後變更至您解壓縮 SQL 資源提供者二進位檔的目錄。
+3. 開啟已提升權限的新 PowerShell 主控台視窗，然後變更至您解壓縮 SQL 資源提供者安裝檔的目錄。
 
 4. 使用下列參數來執行 DeploySqlProvider.ps1 指令碼：
 

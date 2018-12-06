@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038463"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284824"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -198,7 +198,9 @@ ms.locfileid: "51038463"
 
 * Azure PowerShell 6.6.0 版或更新版本 (AzureRM.DataFactoryV2、0.5.7 版或更新版本) 支援這項功能。
 
-* 為了授與權限，使用者需要在已共用 IR 所在的資料處理站中具備「擁有者」角色或繼承「擁有者」角色。 
+* 為了授與權限，使用者需要在已共用 IR 所在的資料處理站中具備「擁有者」角色或繼承「擁有者」角色。
+
+* 共用功能只適用於相同 Azure Active Directory 租用戶內的 Data Factory。
 
 * Active Directory 的[來賓使用者](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews)[無法使用](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits) UI 中的搜尋功能 (使用搜尋關鍵字列出所有資料處理站)。 但只要來賓使用者是資料處理站的「擁有者」，則可以在共用 IR 而無需搜尋功能，方法是在 [指派權限] 文字方塊中直接輸入 IR 須共用的資料處理站的 MSI，然後在 Azure Data Factory UI 中選取 [新增]。 
 

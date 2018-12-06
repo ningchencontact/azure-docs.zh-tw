@@ -3,7 +3,7 @@ title: 管理 Azure 資訊安全中心調查中找到的使用者資料 | Micros
 description: " 了解如何管理 Azure 資訊安全中心調查功能中的使用者資料。 "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
-ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 11/20/2018
+ms.author: rkarlin
+ms.openlocfilehash: d9bf3618b32ce7c5ba7a300a929428dd0614743d
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301645"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276239"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>管理 Azure 資訊安全中心調查中找到的使用者資料
 本文提供有關如何管理 Azure 資訊安全中心調查功能中找到的使用者資料的資訊。 調查資料會儲存在 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 中，並在資訊安全中心中公開。 管理使用者資料包含了刪除或匯出資料的能力。
@@ -58,3 +58,4 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ## <a name="next-steps"></a>後續步驟
 如需有關如何管理使用者資料的詳細資訊，請參閱[管理 Azure 資訊安全中心中的使用者資料](security-center-privacy.md)。
+若要深入了解如何刪除 Log Analytics 中的私人資料，請參閱[如何匯出及刪除私人資料](../log-analytics/log-analytics-personal-data-mgmt.md#how-to-export-and-delete-private-data)。

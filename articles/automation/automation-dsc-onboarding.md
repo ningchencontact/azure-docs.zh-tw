@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: fea0a0dfd2e138fa4f33f4f489be74f5038b4ca6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 50f8fea04da3b1e414917a6404cb3f6e838bf716
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244520"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284807"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>將機器上架交由 Azure Automation State Configuration 管理
 
@@ -42,7 +42,7 @@ Azure Automation State Configuration 可以用來管理各種不同的機器：
 
 ### <a name="azure-portal"></a>Azure 入口網站
 
-在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [瀏覽] -> [虛擬機器 (傳統)]。 選取您要上架的 Windows VM。 在虛擬機器的儀表板刀鋒視窗上，按一下 [所有設定] -> [擴充功能] -> [新增] -> [Azure Automation DSC] -> [建立]。
+在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [瀏覽] -> [虛擬機器 (傳統)]。 選取您要上架的 Windows VM。 在虛擬機器的儀表板刀鋒視窗上，按一下 [所有設定] -> [擴充功能] -> [新增] -> [Azure Automation DSC] -> [建立]。
 輸入您的使用情況所需的 [PowerShell DSC 本機設定管理員值](/powershell/dsc/metaconfig4)、自動化帳戶的註冊金鑰和註冊 URL，並選擇性地輸入要指派給 VM 的節點組態。
 
 ![適用於 DSC 的 Azure VM 擴充功能](./media/automation-dsc-onboarding/DSC_Onboarding_1.png)
@@ -132,7 +132,7 @@ Azure Automation State Configuration 可讓您使用 Azure 入口網站、Azure 
 
 在 [註冊]下，輸入您的使用情況所需的 [PowerShell DSC 本機 Configuration Manager 值](/powershell/dsc/metaconfig4)，並選擇性地輸入要指派給 VM 的節點組態。
 
-![](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![上架](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 

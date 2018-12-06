@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: c1eeee35869f29170a7f15b1d9e2c1ee69a6314d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622511"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284756"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
@@ -36,7 +36,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  en-GB | 英文 (英國) | 否 | yes | 是
  en-IN | 英文 (印度) | 是 | 是 | 是
  en-NZ | 英文 (紐西蘭) | 否 | yes | 是  
- zh-TW | 英文 (美國) | 是 | 是 | 是
+ en-US | 英文 (美國) | 是 | 是 | 是
  es-ES | 西班牙文 (西班牙) | 否 | 是 | 否
  es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否
  fi-FI | 芬蘭文 (芬蘭) | 否 | 否 | 否
@@ -70,7 +70,6 @@ ar-SA | 阿拉伯文 (沙烏地阿拉伯) | 男性 | "Microsoft Server Speech Te
 bg-BG | 保加利亞文 | 男性 | "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)"
 ca-ES | 加泰蘭文 (西班牙) | 女性 | "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)"
 cs-CZ | 捷克文 | 男性 | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)"
-cs-CZ | 捷克文 | 男性 | "Microsoft Server Speech Text to Speech Voice (cs-CZ, Vit)"
 da-DK | 丹麥文 | 女性 | "Microsoft Server Speech Text to Speech Voice (da-DK, HelleRUS)"
 de-AT | 德文 (奧地利) | 男性 | "Microsoft Server Speech Text to Speech Voice (de-AT, Michael)"
 de-CH | 德文 (瑞士) | 男性 | "Microsoft Server Speech Text to Speech Voice (de-CH, Karsten)"
@@ -86,7 +85,6 @@ en-GB | 英文 (英國) | 女性 | "Microsoft Server Speech Text to Speech Voice
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (en-GB, HazelRUS)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (en-GB, George, Apollo)"
 en-IE | 英文 (愛爾蘭) |男性 | "Microsoft Server Speech Text to Speech Voice (en-IE, Sean)"
-en-IE | 英文 (愛爾蘭) |男性 | "Microsoft Server Speech Text to Speech Voice (en-IE, Shaun)"
 en-IN | 英文 (印度) | 女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Heera, Apollo)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (en-IN, PriyaRUS)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (en-IN, Ravi, Apollo)"
@@ -153,10 +151,10 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ### <a name="customization"></a>自訂
 
-目前提供美式英文 (en-US)、簡體中文 (zh-CN) 和義大利文 (it-IT) 的語音自訂功能。
+目前提供美式英文 (en-US)、簡體中文 (zh-CN)、法文 (fr-FR)、德文 (de-DE) 和義大利文 (it-IT) 的語音自訂功能。
 
 > [!NOTE]
-> 義大利文語音訓練會從有 2,000 個以上語句的資料集開始。 中文-英文雙語模型也支援使用有 2,000 個以上語句的初始資料集。
+> 法文、德文和義大利文語音訓練會從有 2,000 個以上語句的資料集開始。 中文-英文雙語模型也支援使用有 2,000 個以上語句的初始資料集。
 
 ## <a name="speech-translation"></a>語音翻譯
 

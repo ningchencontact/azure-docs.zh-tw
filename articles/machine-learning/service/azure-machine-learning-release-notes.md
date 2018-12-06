@@ -9,16 +9,52 @@ author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 10/24/2018
-ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
+ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261562"
+ms.lasthandoff: 11/22/2018
+ms.locfileid: "52291335"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。 
+
+## <a name="2018-11-20"></a>2018-11-20
+
+### <a name="azure-machine-learning-sdk-for-python-v0180"></a>Azure Machine Learning SDK for Python v0.1.80
+
++ **重大變更** 
+  * azureml.train.widgets 命名空間已移至 azureml.widgets。
+  * azureml.core.compute.AmlCompute 取代了下列類別 - azureml.core.compute.BatchAICompute 和 azureml.core.compute.DSVMCompute。 第二個類別將會在後續版本中移除。 AmlCompute 類別現在有更簡易的定義，只需 vm_size 和 max_nodes 即可，並且會在提交作業時自動將叢集規模調整為 0 到 max_nodes。 我們已上傳包含此資訊的 [Notebook 範例] (https://github.com/Azure/MachineLearningNotebooks/tree/master/training)，而且會提供如何使用此作業的範例給您。 希望您喜歡此簡化功能和後續版本中的許多有趣功能！
+
+### <a name="azure-machine-learning-data-prep-sdk-v051"></a>Azure Machine Learning Data Prep SDK v0.5.1 
+
+若要深入了解 Data Prep SDK，請閱讀[參考文件](https://aka.ms/data-prep-sdk)。
++ **新功能**
+   * 建立新的 DataPrep CLI 來執行 DataPrep 套件，並檢視資料集或資料流程的資料設定檔
+   * 重新設計 SetColumnType API 以改善可用性
+   * 將 smart_read_file 重新命名為 auto_read_file
+   * 資料設定檔現在包含偏度和峰度
+   * 可透過分層取樣來取樣
+   * 可從包含 CSV 檔案的 zip 檔案讀取
+   * 可使用隨機劃分來分割資料列取向的資料集 (例如測試-訓練集)
+   * 可以藉由呼叫 .dtypes 從資料流程或資料設定檔取得所有資料行的資料類型
+   * 可以藉由呼叫 .row_count 從資料流程或資料設定檔取得資料列計數
+
++ **錯誤修正**
+   * 修正長時間的雙重轉換 
+   * 修正新增任何資料行之後的判斷提示 
+   * 修正 FuzzyGrouping 在某些情況下無法偵測到群組的問題
+   * 修正排序函式以遵循多欄排列順序
+   * 將 and/or 運算式修正為類似於 Pandas 處理它們的方式
+   * 修正從 dbfs 路徑讀取的方式
+   * 讓錯誤訊息變得更容易了解 
+   * 現在使用 AML 權杖讀取遠端計算目標時不會再失敗
+   * Linux DSVM 現在不會再有失敗狀況
+   * 現在字串述詞中有非字串值時不會再發生損毀
+   * 現在能在資料流程發生正常的失敗時，處理判斷提示錯誤
+   * 現在支援 Azure Databricks 上掛接 dbutils 的儲存位置
 
 ## <a name="2018-11-05"></a>2018-11-05
 

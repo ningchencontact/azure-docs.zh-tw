@@ -14,12 +14,12 @@ ms.date: 10/26/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c5da669d490bf295c4066854ac1173bcc79ad5e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 5c880ca15eea6ccf77f93f74c9e1ca41f7fc01ee
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686121"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52276715"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的系統管理員角色權限
 
@@ -174,15 +174,11 @@ ms.locfileid: "51686121"
   * Azure AD 外部其他服務 (例如，Exchange Online、Office 安全性與合規性中心和人力資源系統) 中的系統管理員。
   * 非系統管理員，例如主管、法律顧問和人力資源員工，他們可以存取機密或私人資訊。
 
+## <a name="role-permissions"></a>角色權限
 下表說明 Azure Active Directory 中賦予每個角色的特定權限。 某些角色在 Azure Active Directory 以外的 Microsoft 服務中可能有額外的權限。
 
 ### <a name="application-administrator"></a>應用程式系統管理員
 能夠建立及管理應用程式註冊與企業應用程式的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
 | **動作** | **說明** |
 | --- | --- |
@@ -223,11 +219,6 @@ ms.locfileid: "51686121"
 ### <a name="application-developer"></a>應用程式開發人員
 可建立與 [使用者可註冊應用程式] 設定不相關的應用程式註冊。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/applications/createAsOwner | 在 Azure Active Directory 中建立應用程式。 建立者會新增為第一個擁有者，而建立的物件會算在建立者的 250 個建立物件配額中。 |
@@ -237,11 +228,6 @@ ms.locfileid: "51686121"
 
 ### <a name="billing-administrator"></a>計費管理員
 能夠執行一般計費相關工作，例如更新付款資訊。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -263,11 +249,6 @@ ms.locfileid: "51686121"
 可存取及管理桌面管理工具與服務 (含 Intune)。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -283,11 +264,6 @@ ms.locfileid: "51686121"
 
 ### <a name="cloud-application-administrator"></a>雲端應用程式系統管理員
 能夠建立及管理應用程式註冊與企業應用程式的所有層面，但應用程式 Proxy 除外。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
 | **動作** | **說明** |
 | --- | --- |
@@ -327,11 +303,6 @@ ms.locfileid: "51686121"
 ### <a name="cloud-device-administrator"></a>雲端裝置管理員
 在 Azure AD 中管理裝置的完整存取。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/devices/delete | 刪除 Azure Active Directory 中的 devices。 |
@@ -344,11 +315,6 @@ ms.locfileid: "51686121"
 
 ### <a name="company-administrator"></a>公司系統管理員
 可管理使用 Azure AD 身分識別的 Azure AD 與 Microsoft 服務的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -411,11 +377,6 @@ ms.locfileid: "51686121"
 可讀取和管理合規性設定及 Azure AD 與 Office 365 中的報告。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -435,11 +396,6 @@ ms.locfileid: "51686121"
 ### <a name="conditional-access-administrator"></a>條件式存取系統管理員
 可管理條件式存取功能。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/policies/conditionalAccess/basic/read | 讀取 Azure Active Directory 中的 policies.conditionalAccess 屬性。 |
@@ -452,11 +408,6 @@ ms.locfileid: "51686121"
 
 ### <a name="crm-service-administrator"></a>CRM 服務管理員
 可管理 Dynamics 365 產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -476,11 +427,6 @@ ms.locfileid: "51686121"
 可核准 Microsoft 支援要求，以存取客戶組織的資料。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -493,11 +439,6 @@ ms.locfileid: "51686121"
 ### <a name="device-administrators"></a>裝置系統管理員
 此角色的成員會新增至已加入 Azure AD 的裝置上的本機系統管理員群組群組。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/groupSettings/basic/read | 讀取 Azure Active Directory 中 groupSettings 的基本屬性。 |
@@ -505,11 +446,6 @@ ms.locfileid: "51686121"
 
 ### <a name="directory-readers"></a>目錄讀取器
 可讀取基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
-
-  > [!NOTE]
-  > 此角色會繼承角色的其他權限。
-  >
-  >
 
 | **動作** | **說明** |
 | --- | --- |
@@ -570,11 +506,6 @@ ms.locfileid: "51686121"
 ### <a name="directory-synchronization-accounts"></a>目錄同步處理帳戶
 僅供 Azure AD Connect 服務使用。
 
-  > [!NOTE]
-  > 此角色會繼承角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/organization/dirSync/update | 更新 Azure Active Directory 中的 organization.dirSync 屬性。 |
@@ -604,11 +535,6 @@ ms.locfileid: "51686121"
 ### <a name="directory-writers"></a>目錄撰寫者
 可讀取和寫入基本目錄資訊。 用來授與應用程式的存取權，不適用於使用者。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/groups/create | 在 Azure Active Directory 中建立 groups。 |
@@ -630,11 +556,6 @@ ms.locfileid: "51686121"
 
 ### <a name="exchange-service-administrator"></a>Exchange 服務管理員
 可管理 Exchange 產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -659,11 +580,6 @@ ms.locfileid: "51686121"
 ### <a name="guest-inviter"></a>來賓邀請者
 能夠邀請不受 [成員能夠邀請來賓] 設定限制的來賓使用者。
 
-  > [!NOTE]
-  > 此角色會繼承角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/users/appRoleAssignments/read | 讀取 Azure Active Directory 中的 users.appRoleAssignments 屬性。 |
@@ -682,11 +598,6 @@ ms.locfileid: "51686121"
 ### <a name="helpdesk-administrator"></a>服務台系統管理員
 能夠為非系統管理員與技術服務人員系統管理員重設密碼。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/users/invalidateAllRefreshTokens | 使 Azure Active Directory 中的所有使用者重新整理權杖失效。 |
@@ -699,11 +610,6 @@ ms.locfileid: "51686121"
 
 ### <a name="information-protection-administrator"></a>資訊保護管理員
 可管理 Azure 資訊保護產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -720,11 +626,6 @@ ms.locfileid: "51686121"
 
 ### <a name="intune-service-administrator"></a>Intune 服務管理員
 可管理 Intune 產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -761,11 +662,6 @@ ms.locfileid: "51686121"
 ### <a name="license-administrator"></a>授權管理員
 可管理使用者和群組的產品授權。
 
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
 | **動作** | **說明** |
 | --- | --- |
 | microsoft.aad.directory/users/assignLicense | 管理 Azure Active Directory 中的使用者授權。 |
@@ -776,11 +672,6 @@ ms.locfileid: "51686121"
 
 ### <a name="lync-service-administrator"></a>Lync 服務管理員
 可管理商務用 Skype 產品的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -800,11 +691,6 @@ ms.locfileid: "51686121"
 只可在 Office 365 訊息中心讀取及更新其組織的訊息。 
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -816,11 +702,6 @@ ms.locfileid: "51686121"
 
 ### <a name="partner-tier1-support"></a>合作夥伴第 1 層支援
 請勿使用 - 不適用於一般用途。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -853,11 +734,6 @@ ms.locfileid: "51686121"
 
 ### <a name="partner-tier2-support"></a>合作夥伴第 2 層支援
 請勿使用 - 不適用於一般用途。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -895,11 +771,6 @@ ms.locfileid: "51686121"
 可管理 Power BI 產品的所有層面。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -917,11 +788,6 @@ ms.locfileid: "51686121"
 能夠管理 Azure AD 中的角色指派，以及 Privileged Identity Management 的所有層面。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -933,11 +799,6 @@ ms.locfileid: "51686121"
 
 ### <a name="reports-reader"></a>報告讀者
 可讀取登入與稽核報告。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -954,11 +815,6 @@ ms.locfileid: "51686121"
 
 ### <a name="security-administrator"></a>安全性系統管理員
 能夠讀取安全性資訊與報表，以及管理 Azure AD 與 Office 365 中的設定。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -988,11 +844,6 @@ ms.locfileid: "51686121"
 可讀取安全性資訊及 Azure AD 與 Office 365 中的報告。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -1012,11 +863,6 @@ ms.locfileid: "51686121"
 可讀取服務健康情況資訊及管理支援票證。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -1031,11 +877,6 @@ ms.locfileid: "51686121"
 
 ### <a name="sharepoint-service-administrator"></a>SharePoint 服務管理員
 可管理 SharePoint 服務的所有層面。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1061,11 +902,6 @@ ms.locfileid: "51686121"
 能夠管理 Microsoft Teams 服務內的呼叫和會議功能。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -1084,11 +920,6 @@ ms.locfileid: "51686121"
 能夠使用進階工具針對 Microsoft Teams 內的通訊問題進行疑難排解。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -1104,11 +935,6 @@ ms.locfileid: "51686121"
 能夠使用基本工具針對 Microsoft Teams 內的通訊問題進行疑難排解。
 
   > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
-
-  > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
   >
   >
@@ -1122,11 +948,6 @@ ms.locfileid: "51686121"
 
 ### <a name="teams-service-administrator"></a>Microsoft Teams 服務管理員
 能夠管理 Microsoft Teams 服務。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
   > [!NOTE]
   > 此角色具有 Azure Active Directory 以外的其他權限。 如需詳細資訊，請參閱前述角色說明。
@@ -1152,11 +973,6 @@ ms.locfileid: "51686121"
 
 ### <a name="user-account-administrator"></a>使用者帳戶管理員
 能夠管理使用者與群組的所有層面，包含為受限制的管理員重設密碼。
-
-  > [!NOTE]
-  > 此角色會繼承目錄讀取者角色的其他權限。
-  >
-  >
 
 | **動作** | **說明** |
 | --- | --- |

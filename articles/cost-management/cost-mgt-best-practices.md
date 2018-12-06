@@ -8,14 +8,14 @@ ms.author: banders
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom: ''
-ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515347"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52273794"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>如何透過 Azure 成本管理將雲端投資最佳化
 
@@ -105,7 +105,7 @@ Azure 會提供工具來協助您評估程序。 這些工具可讓您了解啟�
 
 ## <a name="estimate-the-cost-of-your-solution"></a>預估解決方案的成本
 
-部署任何基礎架構之前，請評估解決方案的費用。 評估將有助於為貴組織前期的工作負載建立預算。 接著，您可以使用預算一段時間，來衡量您初始估計有效性的基準。 此外，您可以將其與已部署之解決方案的實際成本相比較。
+部署任何基礎架構之前，請評估解決方案的費用。 評估將有助於為貴組織前期的工作負載建立預算。 接著，您可以使用預算一段時間，來衡量初始估計有效性的基準。 此外，您可以將其與已部署之解決方案的實際成本相比較。
 
 ### <a name="azure-pricing-calculator"></a>Azure 定價計算機
 
@@ -157,7 +157,7 @@ Azure Migrate 是一種服務，可評估貴組織在內部部署資料中心內
 
 ### <a name="cut-out-waste"></a>減少浪費
 
-在 Azure 中部署基礎架構之後，務必確定正在使用它。 立即開始儲存最簡單的方式是檢閱您的資源，並移除未在使用的所有資源。 您應該從該處判斷盡可能有效率地使用您的資源。
+在 Azure 中部署基礎架構之後，務必確定正在使用它。 立即開始儲存最簡單的方式是檢閱您的資源，並移除未在使用的所有資源。 您應該從該處判斷資源是否已盡可能有效率地使用。
 
 #### <a name="azure-advisor"></a>Azure Advisor
 

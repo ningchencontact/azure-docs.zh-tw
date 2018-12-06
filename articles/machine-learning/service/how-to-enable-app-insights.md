@@ -1,6 +1,6 @@
 ---
-title: 在生產環境中啟用 Azure Machine Learning Services 的 Application Insights
-description: 了解如何設定 Application Insights 以便讓 Azure Machine Learning 服務部署至 Azure Kubernetes Service
+title: 啟用 Azure Machine Learning 服務的 Application Insights
+description: 了解如何為透過 Azure Machine Learning 服務部署的服務設定 Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 285486d5fe641d49ee21d7340b62f83d75862553
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578292"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52275049"
 ---
-# <a name="monitor-your-azure-machine-learning-models-in-production-with-application-insights"></a>使用 Application Insights 監視您生產環境中的 Azure Machine Learning 模型
+# <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
 
 在本文中，您會了解如何針對 Azure Machine Learning 服務設定 Azure Application Insights。 Application Insights 可讓您監視：
 * 要求速率、回應時間和失敗率。
@@ -30,16 +30,55 @@ ms.locfileid: "51578292"
 
 
 ## <a name="prerequisites"></a>必要條件
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree)。
 * 已安裝 Azure Machine Learning 工作區、包含指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 若要了解如何取得這些必要條件，請參閱[如何設定開發環境](how-to-configure-environment.md)。
-* 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
-* [AKS 叢集](how-to-deploy-to-aks.md)。
+* 要部署至 Azure Kubernetes Service (AKS) 或 Azure Container 執行個體 (ACI) 的已訓練機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
+
+## <a name="enable-and-disable-from-the-sdk"></a>從 SDK 啟用及停用
+
+### <a name="update-a-deployed-service"></a>更新已部署的服務
+1. 識別您工作區中的服務。 `ws` 的值是工作區的名稱。
+
+    ```python
+    from azureml.core.webservice import Webservice
+    aks_service= Webservice(ws, "my-service-name")
+    ```
+2. 更新您的服務，並啟用 Application Insights。 
+
+    ```python
+    aks_service.update(enable_app_insights=True)
+    ```
+
+### <a name="log-custom-traces-in-your-service"></a>記錄您服務中的自訂追蹤
+如果您想要記錄自訂追蹤，請遵循 [AKS](how-to-deploy-to-aks.md) 或 [ACI](how-to-deploy-to-aci.md) 的標準部署程序。 然後：
+
+1. 新增 print 陳述式以更新評分檔案。
+    
+    ```python
+    print ("model initialized" + time.strftime("%H:%M:%S"))
+    ```
+
+2. 更新服務組態。
+    
+    ```python
+    config = Webservice.deploy_configuration(enable_app_insights=True)
+    ```
+
+3. 建置映像並將其部署在 [AKS](how-to-deploy-to-aks.md) 或 [ACI](how-to-deploy-to-aci.md) 上。  
+
+### <a name="disable-tracking-in-python"></a>在 Python 中停用追蹤
+
+若要停用 Application Insights，請使用下列程式碼：
+
+```python 
+## replace <service_name> with the name of the web service
+<service_name>.update(enable_app_insights=False)
+```
+    
 ## <a name="enable-and-disable-in-the-portal"></a>在入口網站中啟用及停用
 
 您可以在 Azure 入口網站中啟用及停用 Application Insights。
-
-### <a name="enable"></a>啟用
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您的工作區。
 
@@ -68,47 +107,7 @@ ms.locfileid: "51578292"
    [![已清除啟用診斷的核取方塊](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. 選取螢幕底部的 [更新] 以套用變更。 
-
-## <a name="enable-and-disable-from-the-sdk"></a>從 SDK 啟用及停用
-
-### <a name="update-a-deployed-service"></a>更新已部署的服務
-1. 識別您工作區中的服務。 `ws` 的值是工作區的名稱。
-
-    ```python
-    aks_service= Webservice(ws, "my-service-name")
-    ```
-2. 更新您的服務，並啟用 Application Insights。 
-
-    ```python
-    aks_service.update(enable_app_insights=True)
-    ```
-
-### <a name="log-custom-traces-in-your-service"></a>記錄您服務中的自訂追蹤
-如果您想要記錄自訂追蹤，請遵循 [AKS 的標準部署程序](how-to-deploy-to-aks.md)。 然後：
-
-1. 新增 print 陳述式以更新評分檔案。
-    
-    ```python
-    print ("model initialized" + time.strftime("%H:%M:%S"))
-    ```
-
-2. 更新 AKS 組態。
-    
-    ```python
-    aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
-    ```
-
-3. [建置映像並加以部署](how-to-deploy-to-aks.md)。  
-
-### <a name="disable-tracking-in-python"></a>在 Python 中停用追蹤
-
-若要停用 Application Insights，請使用下列程式碼：
-
-```python 
-## replace <service_name> with the name of the web service
-<service_name>.update(enable_app_insights=False)
-```
-    
+ 
 
 ## <a name="evaluate-data"></a>評估資料
 服務資料會儲存在您的 Application Insights 帳戶中，這個帳戶位於與 Azure Machine Learning 服務相同的資源群組內。

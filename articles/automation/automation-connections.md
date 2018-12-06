@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1e9ca18d2075d40f6f55bc84723f79ae7e10850b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261208"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284535"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自動化中的連接資產
 
@@ -102,11 +102,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 
 透過在圖形化編輯器 [文件庫] 窗格的連接上按一下滑鼠右鍵，然後選取 [加入至畫布]，即可將 **Get-AutomationConnection** 活動加入至圖形化 Runbook。
 
-![](media/automation-connections/connection-add-canvas.png)
+![加入至畫布](media/automation-connections/connection-add-canvas.png)
 
 下圖顯示在圖形化 Runbook 中使用連接的範例。  這是如上所述，使用執行身分帳戶與文字 Runbook 進行驗證的相同範例。  這個範例會對使用連接物件進行驗證的 **Get RunAs Connection** 活動使用 **Constant value** 資料集。  在此處使用[管線連結](automation-graphical-authoring-intro.md#links-and-workflow)，是因為 ServicePrincipalCertificate 參數集預期的是單一物件。
 
-![](media/automation-connections/automation-get-connection-object.png)
+![取得連線](media/automation-connections/automation-get-connection-object.png)
 
 ### <a name="python2-runbook-sample"></a>Python2 Runbook 範例
 下列範例會示範如何使用 Python2 Runbook 中的「執行身分」連線進行驗證。

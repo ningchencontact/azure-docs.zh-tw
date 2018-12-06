@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 47cf32a57fc4a2d0e20a9f2c242db1f3dec96fe5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bc4c0617ebf9b400260a217462abbcc439ae440
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228533"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284671"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>沒有要進行疑難排解的資料 - Application Insights for .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>我遺失了部分遙測
@@ -175,8 +175,14 @@ ApplicationInsights.config 中的檢測金鑰會控制遙測傳送的位置。 �
 
 您可以停用它，但是這不是建議的作法。 取樣經過設計，以便能正確傳輸相關的遙測，供診斷之用。 
 
-## <a name="client-ip-address-is-0000"></a>用戶端 IP 位址為 0.0.0.0 
-我們已在 2018 年 2 月[宣布](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/02/01/all-octets-of-ip-address-will-be-set-to-zero/) \(英文\) 我們已移除記錄用戶端 IP 位址的功能。 這不會影響地理位置。
+## <a name="client-ip-address-is-0000"></a>用戶端 IP 位址為 0.0.0.0
+
+我們已在 2018 年 2 月 5 日宣布我們已移除記錄用戶端 IP 位址的功能。 這不會影響地理位置。
+
+> [!NOTE]
+> 如果您需要 IP 位址的前 3 個八位元，可以使用[遙測初始設定式](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)來新增自訂屬性。
+> 這不會影響到 2018 年 2 月 5 日以前收集的資料。
+
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>使用者遙測中錯誤的地理資料
 城市、區域和國家/地區維度衍生自 IP 位址，而且不一定準確。 這些 IP 位址會先針對位置進行處理，然後變更為 0.0.0.0 以進行儲存。

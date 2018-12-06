@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/22/2017
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 083cb4eb84746f4a61b51f3573a0bf66110fe1ee
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
+ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435043"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52274733"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>使用條件式存取來管理 Azure 管理的存取
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD) 中的條件式存取會根據您指定的特�
 
 ![Azure 管理的條件式存取](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-您建立的原則會套用至所有的 Azure 管理端點，包括傳統 Azure 入口網站、Azure 入口網站、Azure Resource Manager 提供者、傳統服務管理 API 和 Azure PowerShell。
+您建立的原則會套用至所有的 Azure 管理端點，包括傳統 Azure 入口網站、Azure 入口網站、Azure Resource Manager 提供者、傳統服務管理 API 和 Azure PowerShell。 請注意，此原則適用於可呼叫 Azure Resource Manager API 的 Azure PowerShell。 不適用於呼叫 Microsoft Graph 的[Azure AD PowerShell](/powershell/azure/active-directory/install-adv2)。
 
 > [!CAUTION]
 > 在設定原則來管理 Azure 管理的存取之前，務必了解條件式存取的運作方式。 請確定您未建立可能會封鎖您自己存取入口網站的條件。
