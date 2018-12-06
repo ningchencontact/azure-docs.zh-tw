@@ -1,10 +1,11 @@
 ---
-title: 部署機器學習 Web 服務 | Microsoft Docs
-description: 如何將訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Azure Machine Learning Web 服務發佈。
+title: 部署 Machine Learning Studio Web 服務 - Azure | Microsoft Docs
+description: 如何將訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Azure Machine Learning Studio Web 服務發佈。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 73a3e9c6-00d0-41d4-8cf1-2ec87713867e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: 0f22f22d40410b258b3945d9e78938384ce64767
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d96755f00aa5023d57c9c4c2b2457902c337e29d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128387"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314263"
 ---
-# <a name="deploy-an-azure-machine-learning-web-service"></a>部署 Azure Machine Learning Web 服務
+# <a name="deploy-an-azure-machine-learning-studio-web-service"></a>部署 Azure Machine Learning Studio Web 服務
 Azure Machine Learning 可讓您建置、測試以及部署預測性分析解決方案。
 
 從高階觀點而言，由下列三個步驟完成這個動作：

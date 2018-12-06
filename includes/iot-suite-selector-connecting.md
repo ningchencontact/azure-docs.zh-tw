@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 218fc33390575a3df96d0b7d7696b3085c38c8f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264153"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620756"
 ---
 > [!div class="op_single_selector"]
 > * [Windows 上的 C](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -37,7 +37,7 @@ ms.locfileid: "51264153"
 * 回應從解決方案中的**裝置**頁面觸發的動作。
 * 回應從解決方案中的**裝置**頁面傳送的設定變更。
 
-若要完成此教學課程，您需要一個有效的 Azure 帳戶。 如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
+若要完成此教學課程，您需要一個有效的 Azure 帳戶。  如果您沒有帳戶，只需要幾分鐘的時間就可以建立免費試用帳戶。 如需詳細資料，請參閱 [Azure 免費試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="before-you-start"></a>開始之前
 
@@ -56,7 +56,7 @@ ms.locfileid: "51264153"
 > [!NOTE]
 > 如果您已經在解決方案中新增裝置，則可以略過此步驟。 不過，下一個步驟需要您裝置的連接字串。 您可以從 [Azure 入口網站](https://portal.azure.com)或使用 [az iot](https://docs.microsoft.com/cli/azure/iot?view=azure-cli-latest) CLI 工具來擷取裝置的連線字串。
 
-對於連線到解決方案加速器的裝置，該裝置必須使用有效的認證向 IoT 中樞識別自己。 當您新增裝置解決方案時，會有機會儲存包含這些認證的裝置連接字串。 稍後在本教學課程中，您會將裝置連接字串包含在您的用戶端應用程式中。
+對於連線到解決方案加速器的裝置，該裝置必須使用有效的認證向 IoT 中樞識別自己。 當您將裝置新增至解決方案時，會有機會儲存包含這些認證的裝置連接字串。 稍後在本教學課程中，您會將裝置連接字串包含在您的用戶端應用程式中。
 
 若要在您的遠端監視解決方案中新增裝置，請在解決方案**裝置**頁面中完成下列步驟：
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 58f4827910d863aef14171574d40e4b3acfc04d9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037663"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498689"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印
 
@@ -39,7 +39,7 @@ ms.locfileid: "51037663"
 
 ## <a name="configuration"></a>了解堆積傾印組態
 
-堆積傾印的啟用方式，是在服務啟動時將選項 (有時稱為參數) 傳遞至 JVM。 就大部分的 Hadoop 服務而言，您可以修改用於啟動服務的殼層指令碼以略過這些選項。
+堆積傾印的啟用方式，是在服務啟動時將選項 (有時稱為參數) 傳遞至 JVM。 就大部分的 [Apache Hadoop](https://hadoop.apache.org/) 服務而言，您可以修改用於啟動服務的殼層指令碼以略過這些選項。
 
 在每個指令碼中，有一項 **\*\_OPTS** 匯出，其中含有傳遞至 JVM 的選項。 例如，在 **hadoop-env.sh** 指令碼中，以 `export HADOOP_NAMENODE_OPTS=` 為開頭的那一行即含有 NameNode 服務的選項。
 
@@ -49,7 +49,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> 我們建議使用 Apache Ambari 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。 如需特定的步驟，請參閱 [使用 Ambari](#using-ambari) 一節。
+> 我們建議使用 [Apache Ambari](https://ambari.apache.org/) 來修改指令碼和 mapred-site.xml 設定，因為 Ambari 會處理叢集中跨節點的複寫變更。 如需特定的步驟，請參閱 [使用 Apache Ambari](#using-apache-ambari) 一節。
 
 ### <a name="enable-heap-dumps"></a>啟用堆積傾印
 
@@ -57,7 +57,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     -XX:+HeapDumpOnOutOfMemoryError
 
-**+** 表示已啟用此選項。 預設值為停用。
+ **+** 表示已啟用此選項。 預設值為停用。
 
 > [!WARNING]
 > 根據預設不會在 HDInsight 上啟用 Hadoop 服務的堆積傾印，因為傾印檔案可能會很龐大。 如果您為了進行疑難排解而啟用它們，請記得在重現問題並收集傾印檔案之後將其停用。
@@ -77,11 +77,11 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> 由於 Hadoop 是分散式系統，因此所有使用的指令碼都必須放置在服務所在叢集中的所有節點上。
+> 由於 Apache Hadoop 是分散式系統，因此所有使用的指令碼都必須放置在服務執行所在叢集中的所有節點上。
 > 
 > 指令碼也必須位於服務所屬的帳戶可以存取的位置中，而且必須提供執行權限。 例如，您可能想要在 `/usr/local/bin` 中存放指令碼，並用 `chmod go+rx /usr/local/bin/filename.sh` 授與讀取和執行權限。
 
-## <a name="using-ambari"></a>使用 Ambari
+## <a name="using-apache-ambari"></a>使用 Apache Ambari
 
 若要修改服務的組態，請依照下列步驟進行：
 

@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/18/2018
+ms.date: 11/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 81fd5ea082fe05c9908b2eb0689aba9a4fe4e789
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 0324a6f71a0a30fc9f3005a041b4c5413e6af8da
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307127"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317297"
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Azure SQL 資料倉儲最佳做法
 本文集合讓您從 Azure SQL 資料倉儲獲得最佳效能的最佳做法。  文章中有些基本概念很容易說明，有些概念則更進階，我們在文中只做概述。  這篇文章的目的是要提供您一些基本指引，以及讓您對建立資料倉儲時需注意的重要領域有所認知。  每一節都會介紹一個概念，並提供您哪裡可以閱讀深度討論的詳細文章。
@@ -29,7 +29,7 @@ ms.locfileid: "43307127"
 
 
 ## <a name="maintain-statistics"></a>維護統計資料
-不同於 SQL Server (會自動偵測資料行並建立或更新資料行上的統計資料)，SQL 資料倉儲需要手動維護統計資料。  我們計劃在未來改進這一點，但現在您仍需要維護您的統計資料，以確保 SQL 資料倉儲的計劃最佳化。  最佳化工具建立的計劃只能利用可用的統計資料。  **建立每個資料行的範本統計資料是開始使用統計資料的簡單方式。**  更新統計資料和對您的資料做重大變更一樣重要。  保守的作法是每天或每次載入之後更新統計資料。  建立和更新統計資料的效能與成本之間總有一些取捨。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇哪些資料行要加以統計資料、哪些資料行需要頻繁更新。  例如，您可能想要更新您每天都要加入新值的日期資料行。 **對牽涉聯結的資料行、WHERE 子句中使用的資料行、在 GROUP BY 中找到的資料行加以統計資料，可以獲得最大效益。**
+不同於 SQL Server (會自動偵測資料行並建立或更新資料行上的統計資料)，SQL 資料倉儲需要手動維護統計資料。  我們計劃在未來改進這一點，但現在您仍需要維護您的統計資料，以確保 SQL 資料倉儲的計劃最佳化。  最佳化工具建立的計劃只能利用可用的統計資料。  **建立每個資料行的範本統計資料是開始使用統計資料的簡單方式。**   更新統計資料和對您的資料做重大變更一樣重要。  保守的作法是每天或每次載入之後更新統計資料。  建立和更新統計資料的效能與成本之間總有一些取捨。 如果您發現維護所有統計資料所需時間太長，可能要更謹慎選擇哪些資料行要加以統計資料、哪些資料行需要頻繁更新。  例如，您可能想要更新您每天都要加入新值的日期資料行。 **對牽涉聯結的資料行、WHERE 子句中使用的資料行、在 GROUP BY 中找到的資料行加以統計資料，可以獲得最大效益。**
 
 另請參閱[管理資料表的統計資料][Manage table statistics]、[CREATE STATISTICS][CREATE STATISTICS]、[UPDATE STATISTICS][UPDATE STATISTICS]
 
@@ -39,7 +39,7 @@ ms.locfileid: "43307127"
 另請參閱 [INSERT][INSERT]
 
 ## <a name="use-polybase-to-load-and-export-data-quickly"></a>使用 PolyBase 將資料快速載入及匯出
-SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase、BCP) 來載入及匯出資料。  若是小量的資料，效能不是那麼重要，任何工具都可以滿足您的需求。  不過，當您要載入或匯出大量資料，或者需要快速的效能時，PolyBase 是最佳選擇。  PolyBase 利用 SQL 資料倉儲的 MPP (大量平行處理) 架構，因此載入及匯出巨量資料的速度比其他任何工具更快。  您可使用 CTAS 或 INSERT INTO 來執行 PolyBase 載入。  **使用 CTAS 可以減少交易記錄，是載入資料最快的方法。**  Azure Data Factory 也支援 PolyBase 載入。  PolyBase 支援各種不同的檔案格式，包括 Gzip 檔案。  **若要在使用 gzip 文字檔案時獲得最大的輸送量，將檔案分成 60 個以上的檔案讓載入有最大化的平行處理。**  如需更快的總輸送量，請考慮同時載入資料。
+SQL 資料倉儲支援透過數種工具 (包括 Azure Data Factory、PolyBase、BCP) 來載入及匯出資料。  若是小量的資料，效能不是那麼重要，任何工具都可以滿足您的需求。  不過，當您要載入或匯出大量資料，或者需要快速的效能時，PolyBase 是最佳選擇。  PolyBase 利用 SQL 資料倉儲的 MPP (大量平行處理) 架構，因此載入及匯出巨量資料的速度比其他任何工具更快。  您可使用 CTAS 或 INSERT INTO 來執行 PolyBase 載入。  **使用 CTAS 可以減少交易記錄，是載入資料最快的方法。**  Azure Data Factory 也支援 PolyBase 載入，並且可以達到與 CTAS 類似的效能。  PolyBase 支援各種不同的檔案格式，包括 Gzip 檔案。  **若要在使用 gzip 文字檔案時獲得最大的輸送量，將檔案分成 60 個以上的檔案讓載入有最大化的平行處理。**   如需更快的總輸送量，請考慮同時載入資料。
 
 另請參閱[載入資料][Load data]、[PolyBase 使用指南][Guide for using PolyBase]、[Azure SQL 資料倉儲載入模式和策略][Azure SQL Data Warehouse loading patterns and strategies]、[使用 Azure Data Factory 載入資料][Load Data with Azure Data Factory]、[使用 Azure Data Factory 移動資料][Move data with Azure Data Factory]、[CREATE EXTERNAL FILE FORMAT][CREATE EXTERNAL FILE FORMAT]、[Create table as select (CTAS)][Create table as select (CTAS)]
 

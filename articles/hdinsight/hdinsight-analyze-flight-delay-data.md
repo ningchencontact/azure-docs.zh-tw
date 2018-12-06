@@ -9,23 +9,23 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3e792eb9ab2e2902bfc9c84db7c1c344fb0cf67f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 93929df86057b48e132048a0879bc7347402652a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622332"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497749"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>在 HDInsight 上使用 Hadoop 分析航班延誤資料
-Hive 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 Apache Hadoop MapReduce 作業，可用來彙總、查詢和分析大量資料。
+# <a name="analyze-flight-delay-data-by-using-apache-hive-in-hdinsight"></a>在 HDInsight 中使用 Apache Hive 分析航班延誤資料
+[Apache Hive](https://hive.apache.org/) 可透過一種類似 SQL 的指令碼語言 (稱為 *[HiveQL][hadoop-hiveql]*) 來執行 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 作業，可用來彙總、查詢和分析大量資料。
 
 > [!IMPORTANT]
-> 此文件中的步驟需要 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需與 Linux 叢集搭配使用的步驟，請參閱 [在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
+> 此文件中的步驟需要 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)。
 
 Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 HDInsight 使用 Azure Blob 儲存體來儲存資料。 典型的工作包含三個部分：
 
 1. **將資料儲存在 Azure Blob 儲存體中。**  例如，將天氣資料、感應器資料、Web 記錄，以及此案例中的航班延誤資料儲存到 Azure Blob 儲存體中。
-2. **執行工作。** 在處理該資料時，您就要執行 Windows PowerShell 指令碼 (或用戶端應用程式) 來建立 HDInsight 叢集、執行工具，然後刪除叢集。 工作會將輸出資料儲存至 Azure Blob 儲存體。 即使在刪除叢集之後，輸出資料仍會保留。 因此，您只需要對已耗用的部分付費。
+2. **執行工作。**  在處理該資料時，您就要執行 Windows PowerShell 指令碼 (或用戶端應用程式) 來建立 HDInsight 叢集、執行工具，然後刪除叢集。 工作會將輸出資料儲存至 Azure Blob 儲存體。 即使在刪除叢集之後，輸出資料仍會保留。 因此，您只需要對已耗用的部分付費。
 3. **從 Azure Blob 儲存體擷取輸出**，或在此教學課程中將資料匯出至 Azure SQL Database。
 
 下圖說明本教學課程的案例和結構：
@@ -44,7 +44,7 @@ Azure HDInsight 的其中一個主要優點就是區隔資料儲存和運算。 
 在附錄中，您可以找到上傳航班延誤資料、建立/上傳 Hive 查詢字串和針對 Sqoop 工作準備 Azure SQL Database 的指示。
 
 > [!NOTE]
-> 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
+> 此文件中的步驟是針對以 Windows 為基礎的 HDInsight 叢集。 如需與 Linux 叢集搭配使用的步驟，請參閱[在 HDInsight (Linux) 中使用 Apache Hive 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>必要條件
 開始進行本教學課程之前，您必須具備下列項目：
@@ -76,7 +76,7 @@ PowerShell 指令碼其中一部分會將資料從公用 Blob 容器複製到叢
 
 ## <a name="create-cluster-and-run-hivesqoop-jobs"></a>建立叢集和執行 Hive/Sqoop 工作
 Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益的方法是建立工作的叢集，並於工作完成之後刪除工作。 下列指令碼涵蓋整個程序。
-如需有關建立 HDInsight 叢集和執行 Hive 工作的詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]和[搭配 HDInsight 使用 Hive][hdinsight-use-hive]。
+如需建立 HDInsight 叢集和執行 Hive 作業的詳細資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision]和[搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]。
 
 **使用 Azure PowerShell 執行 Hive 查詢**
 
@@ -237,10 +237,10 @@ Hadoop MapReduce 是批次處理。 執行 Hive 工作時，最具成本效益�
 - - -
 
 ## <a id="appendix-a"></a>附錄 A - 將航班誤點資料上傳至 Azure Blob 儲存體
-上傳資料檔案和 HiveQL 指令碼檔案之前 (請參閱 [附錄 B](#appendix-b)) 需要一些規劃。 作法是在建立 HDInsight 叢集之前儲存資料檔案和 HiveQL 檔案，並執行 Hive 工作。 您有兩個選擇：
+上傳資料檔案和 [HiveQL](#appendix-b) 指令碼檔 (請參閱[附錄 B](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)) 需要一些規劃。 作法是在建立 HDInsight 叢集之前儲存資料檔案和 HiveQL 檔案，並執行 Hive 工作。 您有兩個選擇：
 
-* **使用 HDInsight 將使用的相同 Azure 儲存體帳戶，作為預設檔案系統。** 由於 HDInsight 叢集將具有儲存體帳戶存取金鑰，您將不需進行任何額外的變更。
-* **使用與 HDInsight 叢集預設檔案系統不同的 Azure 儲存體帳戶。** 如果是這樣，您必須修改 Windows PowerShell 指令碼的建立部分 (可在 [建立 HDInsight 叢集和執行 Hive/Sqoop 工作](#runjob) 中找到)，以將儲存體帳戶納入為額外的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision]。 HDInsight 叢集便會知道儲存體帳戶的存取金鑰。
+* **使用 HDInsight 將使用的相同 Azure 儲存體帳戶，作為預設檔案系統。**  由於 HDInsight 叢集將具有儲存體帳戶存取金鑰，您將不需進行任何額外的變更。
+* **使用與 HDInsight 叢集預設檔案系統不同的 Azure 儲存體帳戶。** 如果是這樣，您必須修改 Windows PowerShell 指令碼的建立部分 (可在 [建立 HDInsight 叢集和執行 Apache Hive/Sqoop 作業](#runjob) 中找到)，以連結儲存體帳戶作為額外的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision]。 HDInsight 叢集便會知道儲存體帳戶的存取金鑰。
 
 > [!NOTE]
 > 資料檔案的 Blob 儲存體路徑會在 HiveQL 指令碼檔案中硬式編碼。 您必須據以更新。
@@ -359,7 +359,7 @@ tutorials/flightdelay/data 路徑是您在上傳檔案時所建立的虛擬資�
 - - -
 
 ## <a id="appendix-b"></a>附錄 B - 建立及上傳 HiveQL 指令碼
-使用 Azure PowerShell 可讓您逐一執行多個 HiveQL 陳述式，或將 HiveQL 陳述式封裝到指令碼檔案中。 本節說明如何建立 HiveQL 指令碼，以及使用 Azure PowerShell 將指令碼上傳至 Azure Blob 儲存體。 Hive 要求 HiveQL 指令碼必須儲存在 Azure Blob 儲存體中。
+使用 Azure PowerShell 可讓您逐一執行多個 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 陳述式，或將 HiveQL 陳述式封裝到指令碼檔中。 本節說明如何建立 HiveQL 指令碼，以及使用 Azure PowerShell 將指令碼上傳至 Azure Blob 儲存體。 Hive 要求 HiveQL 指令碼必須儲存在 Azure Blob 儲存體中。
 
 HiveQL 指令碼將執行下列作業：
 
@@ -367,9 +367,9 @@ HiveQL 指令碼將執行下列作業：
 2. **建立 delays_raw 外部 Hive 資料表** (指向含有航班誤點檔案的 Blob 儲存體位置)。 此查詢會指定欄位將以 "," 分隔，且每一行都會以 "\n" 結尾。 如此，當欄位值含有逗號時，就會產生問題，因為 Hive 無法區分作為欄位分隔符號的逗號，與屬於欄位值的逗號 (在 ORIGIN\_CITY\_NAME 和 DEST\_CITY\_NAME 的欄位值中，就會出現此狀況)。 為解決此問題，查詢會建立 TEMP 資料行來放置不當分割為資料行的資料。
 3. **捨棄 delays 資料表**(若此資料表已存在)。
 4. **建立 delays 資料表**。 此資料表有助於您在進一步處理之前先清除資料。 此查詢會從 delays_raw 資料表建立新資料表 *delays*。 請注意，TEMP 資料行 (如前所述) 並不會複製，並且會使用 **substring** 函數來移除資料中的引號。
-5. **計算天候誤點平均值，並依城市名稱將結果分組。** 此作業也會將結果輸出至 Blob 儲存體。 請注意，查詢將會移除資料中的上標號並將排除 **weather_delay** 值為 null 的資料列。 這是必要動作，因為 Sqoop (稍後使用於本教學課程) 預設不會正常處理這些值。
+5. **計算天候誤點平均值，並依城市名稱將結果分組。**  此作業也會將結果輸出至 Blob 儲存體。 請注意，查詢將會移除資料中的上標號並將排除 **weather_delay** 值為 null 的資料列。 這是必要動作，因為 Sqoop (稍後使用於本教學課程) 預設不會正常處理這些值。
 
-如需 HiveQL 命令的完整清單，請參閱 [Hive 資料定義語言][hadoop-hiveql]。 每個 HiveQL 命令都必須以分號結尾。
+如需 HiveQL 命令的完整清單，請參閱 [Apache Hive 資料定義語言][hadoop-hiveql]。 每個 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 命令都必須以分號結尾。
 
 **建立 HiveQL 指令碼檔案**
 
@@ -712,13 +712,13 @@ HiveQL 指令碼將執行下列作業：
 5. 驗證指令碼輸出。 請確定指令碼已成功執行。
 
 ## <a id="nextsteps"></a> 後續步驟
-現在您已了解如何將檔案上傳至 Azure Blob 儲存體、如何使用 Azure Blob 儲存體中的資料填入 Hive 資料表、如何執行 Hive 查詢，以及如何使用 Sqoop 將資料從 HDFS 匯出至 Azure SQL Database。 若要深入了解，請參閱下列文章：
+現在您已了解如何將檔案上傳至 Azure Blob 儲存體、如何使用 Azure Blob 儲存體中的資料填入 Apache Hive 資料表、如何執行 Hive 查詢，以及如何使用 Sqoop 將資料從 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 匯出至 Azure SQL Database。 若要深入了解，請參閱下列文章：
 
 * [開始使用 HDInsight][hdinsight-get-started]
-* [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
-* [搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]
-* [搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
+* [搭配 HDInsight 使用 Apache Oozie][hdinsight-use-oozie]
+* [搭配 HDInsight 使用 Apache Sqoop][hdinsight-use-sqoop]
+* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

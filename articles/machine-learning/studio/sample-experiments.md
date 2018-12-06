@@ -1,11 +1,12 @@
 ---
-title: 從機器學習服務範例建立實驗 - Azure | Microsoft Docs
-description: 了解如何透過 Azure AI 資源庫和 Azure Machine Learning 使用範例機器學習服務實驗來建立新的實驗。
+title: 從範例建立 Machine Learning Studio 實驗 - Azure | Microsoft Docs
+description: 了解如何透過 Azure AI 資源庫和 Azure Machine Learning Studio 使用範例機器學習服務實驗來建立新的實驗。
 keywords: 機器學習服務範例, 範例實驗, 機器學習服務範例, AI 範例
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
@@ -16,12 +17,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: f93d0d4e12d97fadb23476afc3199599b3268580
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998044"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306675"
 ---
 # <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立機器學習服務實驗
 
@@ -47,7 +48,7 @@ ms.locfileid: "46998044"
 3. 有幾種不同方式可以找到符合您需求的實驗︰
    * **選取左邊的篩選。** 例如，若要瀏覽使用以 PCA 為基礎之異常偵測演算法的實驗，請按一下 [類別] 之下的 [實驗]。 然後，在 [使用的演算法] 之下，按一下 [全部顯示]，並在對話方塊中選擇 [以 PCA 為基礎的異常偵測]。 您可能必須捲動才能看到它。<br></br>
      ![選取篩選條件](./media/sample-experiments/choose-an-algorithm.png)
-   * **使用 [搜尋] 方塊。** 例如，若要尋找 Microsoft 所提出並使用二級支援向量機器演算法的數字辨識相關實驗，請在 [搜尋] 方塊中輸入「數字辨識」。 然後選取篩選器 [實驗]、[僅包含 Microsoft 內容] 和 [二級支援向量機器]：<br></br>
+   * **使用 [搜尋] 方塊。**  例如，若要尋找 Microsoft 所提出並使用二級支援向量機器演算法的數字辨識相關實驗，請在 [搜尋] 方塊中輸入「數字辨識」。 然後選取篩選器 [實驗]、[僅包含 Microsoft 內容] 和 [二級支援向量機器]：<br></br>
      ![使用搜尋方塊](./media/sample-experiments/search-for-experiments.png)
 4. 按一下實驗，以深入了解相關資訊。
 5. 若要執行和 (或) 修改實驗，請按一下實驗頁面上的 [在 Studio 中開啟]  。 <br></br>

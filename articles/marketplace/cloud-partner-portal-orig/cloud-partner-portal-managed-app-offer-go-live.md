@@ -1,5 +1,5 @@
 ---
-title: 標題 | Microsoft Docs
+title: Azure 應用程式供應項目於 Azure Marketplace 上線 | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 643b7d674de3d51f98b69d6f0659478c9893e3b1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 18a8e6ae8ab3bd4299c6a014f938e73a2a021492
+ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805674"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52263582"
 ---
 <a name="make-your-azure-application-offer-live-on-azure-marketplace"></a>Azure 應用程式供應項目於 Azure Marketplace 上線 
 ===========================================================
@@ -33,7 +33,7 @@ ms.locfileid: "48805674"
 <a name="publishing-process"></a>發佈程序 
 ------------------
 
-若要啟動發行程序，請按一下 [編輯器] 索引標籤底下的 [發行]。
+按一下 [編輯器] 索引標籤底下的 [發行]\"\"，即可啟動發行程序。
 
 ![供應項目上線順序 1 - 發行](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
@@ -43,9 +43,12 @@ ms.locfileid: "48805674"
 
 在發行程序中的任何時間點，您也可以登入並按一下 [所有供應項目] 索引標籤，以檢視任何供應項目的最新狀態。 您可以直接按一下供應項目的狀態，以查看供應項目在發佈程序中的進度詳細資料。
 
-讓我們逐步解說每個發行步驟，討論每個步驟會發生什麼情況，以及您應該估計每個步驟會需要的時間長度。
+> [!WARNING]
+> 如果客戶使用狀況屬性未啟用，您就會在發行程序期間收到下列錯誤訊息：「一或多個 Azure Resource Manager 範本中遺漏 Azure 合作夥伴客戶使用狀況屬性。 若要解決，請在下列方案的 mainTemplate.json 套件中，將追蹤 GUID 新增至其中的 Azure Resource Manager 範本：servicenow。 如需詳細資訊，請參閱 http://aka.ms/customerusageattribution。」 
 
-### <a name="validate-pre-requisites-1-day"></a>驗證必要元件 (\<1 天) 
+讓我們逐步解說每個發行步驟，並討論每個步驟會發生什麼情況，以及您應該估計每個步驟會需要的時間長度。
+
+### <a name="validate-prerequisites-1-day"></a>驗證必要條件 (\<1 天) 
 
 當您按一下 [發行] 時，將會進行自動化檢查，確保您已填入供應項目的所有必要欄位。 如果未填入所有的欄位，欄位旁邊會出現警告，您必須正確填入它，然後再按一下 [發行]。
 
@@ -59,7 +62,7 @@ ms.locfileid: "48805674"
 
 由於此步驟可能需要數天的時間，所以您可登出 Cloud Partner 入口網站。 如果有任何錯誤，我們將傳送電子郵件通知給您。 如果所有項目均順利通過，此程序會自動移至「佈建」步驟。
 
-### <a name="packaging-and-lead-generation-registration-1-hour"></a>封裝和潛在客戶開發註冊 (\<1 小時) 
+### <a name="packaging-and-lead-generation-registration-1-hour"></a>封裝和潛在客戶產生註冊 (\<1 小時) 
 
 在這個階段，我們會將技術與行銷內容合併於網站的產品頁面。
 
@@ -83,7 +86,7 @@ ms.locfileid: "48805674"
 
 您的供應項目現在已在 Azure Marketplace 和 Azure 入口網站上線。 您的客戶將能夠在其 Azure 訂用帳戶中檢視及部署您的 Azure 受控應用程式。 您可以按一下 [所有供應項目] 索引標籤，查看右欄列出的所有供應項目狀態。 您可以按一下狀態，以查看供應項目的詳細發佈流程狀態。
 
-### <a name="error-handling"></a>處理錯誤 
+### <a name="error-handling"></a>錯誤處理 
 
 如果遇到錯誤，您會收到一封通知電子郵件，通知您發生錯誤以及後續步驟的指示。 您也可以按一下 [狀態] 索引標籤，在此過程中隨時查看錯誤。您會看到程序中發生錯誤的時間點，以及概述需要解決什麼狀況的錯誤訊息。
 
@@ -93,4 +96,4 @@ ms.locfileid: "48805674"
 
 ### <a name="canceling-the-publishing-request"></a>取消發佈要求
 
-您可以啟動發佈程序，並且需要取消您的要求。 您只能在發佈要求觸達「發行者登出」步驟時取消發佈要求。 若要取消，請按一下 [取消發行]。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並依照狀態中的步驟執行。
+您可以啟動發佈程序，並且需要取消您的要求。 您只能在發佈要求觸達「發行者登出」步驟時取消發佈要求。 若要取消，請按一下 [取消發行]\'\'。 發佈狀態會重設為步驟 1，若要重新發行，您應該按一下 [發佈] 並遵循狀態中的步驟。

@@ -5,17 +5,17 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
-ms.openlocfilehash: a3de0df8fde3b271b7ba9bb9aab01dbcd5c3bf08
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.topic: conceptual
+ms.openlocfilehash: 10dfa9812a0546f3a8c57e28227851b6f72657fc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991208"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582406"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>利用管理群組來管理您的資源
 
@@ -203,11 +203,11 @@ az account management-group show --name 'Contoso'
 
    ![移動](./media/move_small_context.png)
 
-1. 選取 [儲存]。
+1. 選取 [ **儲存**]。
 
 ### <a name="move-subscriptions-in-powershell"></a>在 PowerShell 中移動訂用帳戶
 
-若要在 PowerShell 中移動訂用帳戶，您可以使用 Add-AzureRmManagementGroupSubscription 命令。  
+若要在 PowerShell 中移動訂用帳戶，您可以使用 New-AzureRmManagementGroupSubscription 命令。  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -272,12 +272,26 @@ Update-AzureRmManagementGroup -GroupName 'Contoso' -ParentName 'ContosoIT'
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
+
+若要透過此 API 追蹤管理群組，請使用[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)。 目前無法使用 PowerShell、CLI 或 Azure 入口網站來追蹤管理群組活動。。
+
+1. 以 Azure AD 租用戶的租用戶管理員身分[提高存取權](../../role-based-access-control/elevate-access-global-admin.md)，然後將 `/providers/microsoft.insights/eventtypes/management`範圍的「讀者」角色指派給稽核使用者。
+1. 以稽核使用者身分呼叫[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)，以查看管理群組活動。 您可以依資源提供者 **Microsoft.Management** 篩選所有管理群組活動。  範例：
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> 若要以便利的方式從命令列呼叫此 API，請嘗試 [ARMClient](https://github.com/projectkudu/ARMClient)。
+
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解管理群組，請參閱：
 
-- [使用 Azure 管理群組來組織資源](overview.md)
 - [建立管理群組以組織 Azure 資源](create.md)
-- 安裝 [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups) 模組
-- [檢閱 REST API 規格](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [安裝 Azure CLI 擴充功能](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [如何變更、刪除或管理您的管理群組](manage.md)
+- [檢閱 Azure PowerShell 資源模組中的管理群組](https://aka.ms/mgPSdocs)
+- [檢閱 REST API 中的管理群組](https://aka.ms/mgAPIdocs)
+- [檢閱 Azure CLI 中的管理群組](https://aka.ms/mgclidoc)

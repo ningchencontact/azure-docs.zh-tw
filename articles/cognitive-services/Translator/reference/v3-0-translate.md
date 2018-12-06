@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bebe9b6565d618cb773de0379122a17bf7f70403
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914289"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165411"
 ---
 # <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0 翻譯
 
@@ -83,6 +83,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <tr>
     <td>toScript</td>
     <td>選擇性參數。<br/>指定翻譯文字的指令碼。</td>
+  </tr>
+  <tr>
+    <td>allowFallback</td>
+    <td>選擇性參數。<br/>指出服務可在自訂系統不存在時，回復為一般系統。 可能的值為：`true` (預設) 或 `false`。<br/><br/>`allowFallback=false` 會指出翻譯只應該使用針對要求所指定的 `category` 而進行訓練的系統。 如果從語言 X 翻譯為語言 Y 需要透過樞紐語言 E 來鏈結，則鏈結中的所有系統 (X->E 和 E->Y) 都必須是自訂的，且具有相同類別。 如果沒有找到具有特定類別的系統，則要求會傳回 400 狀態碼。 `allowFallback=true` 會指出服務可在自訂系統不存在時，回復為一般系統。
+</td>
   </tr>
 </table> 
 
@@ -164,6 +169,21 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 [範例](#examples)一節提供 JSON 回應的範例。
 
+## <a name="response-headers"></a>回應標頭
+
+<table width="100%">
+  <th width="20%">headers</th>
+  <th>說明</th>
+    <tr>
+    <td>X-RequestId</td>
+    <td>服務產生的值，用於識別要求。 作為疑難排解之用。</td>
+  </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>指出要求進行翻譯的每個 'to' 語言翻譯所使用的系統類型。 此值是以逗號分隔的字串清單。 每個字串代表一種類型：<br/><ul><li>自訂 - 要求中包含自訂系統，且在翻譯期間使用了至少一個自訂系統。</li><li>小組 - 所有其他要求</li></td>
+  </tr>
+</table> 
+
 ## <a name="response-status-codes"></a>回應狀態碼
 
 以下是要求傳回的可能 HTTP 狀態碼。 
@@ -186,6 +206,10 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   <tr>
     <td>403</td>
     <td>要求未經授權。 請查看詳細錯誤訊息。 這通常表示試用訂用帳戶提供的所有免費翻譯都已用完。</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>無法完成要求，因為資源有所遺漏。 請查看詳細錯誤訊息。 當使用自訂 `category` 時，這通常表示自訂翻譯系統尚無法用來處理要求。 要求應該在一段等待期間 (例如 1 分鐘) 之後重試。</td>
   </tr>
   <tr>
     <td>429</td>
@@ -348,7 +372,7 @@ Translator 服務通常會在翻譯中保留存在於來源的粗話。 粗話�
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>動作</th>
+  <th> 動作</th>
   <tr>
     <td>`NoAction`</td>
     <td>此為預設行為。 粗話會從來源傳遞到目標。<br/><br/>

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264272"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52585656"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -137,6 +137,10 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 就受控磁碟而言，您無法將其重新命名。 不過，針對非受控磁碟，只要該磁碟目前未連接至 VHD 或 VM，您便可以將其重新命名。
 
+**我可以在 Azure 磁碟上使用 GBT 分割嗎？**
+
+GBT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
+
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 
 **Azure 標準 SSD 磁碟是什麼？**
@@ -171,7 +175,7 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 如需如何使用範本建立標準 SSD 磁碟的完整範本範例，請參閱[從具有標準 SSD 資料磁碟的 Windows 映像建立虛擬機器](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/)。
 
 **是否可以將我現有的磁碟轉換成標準的 SSD？**
-是，您可以這麼做。 如需轉換受控磁碟的一般指導方針，請參閱[將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 此外，使用下列值，將磁碟類型更新為標準 SSD。
+ 是，您可以這麼做。 如需轉換受控磁碟的一般指導方針，請參閱[將 Azure 受控磁碟儲存體從標準轉換至進階，反之亦然](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage)。 此外，使用下列值，將磁碟類型更新為標準 SSD。
 -AccountType StandardSSD_LRS
 
 **使用標準 SSD 磁碟而不使用 HDD 有何優點？**
@@ -300,7 +304,7 @@ Azure 針對作業系統磁碟所支援的磁碟分割類型是主開機記錄 (
 
 **支援的分頁 Blob 大小上限是多少？**
 
-Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至虛擬機器作為資料或作業系統磁碟時，頁面部落格大小最大值是 4 TiB (4,095 GiB)。
+Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作為資料或作業系統磁碟時，分頁 Blob 大小上限為 4 TiB (4,095 GiB)。
 
 **我是否需要使用新版 Azure 工具來建立磁碟、連結磁碟、調整磁碟大小及上傳大於 1 TiB 的磁碟？**
 

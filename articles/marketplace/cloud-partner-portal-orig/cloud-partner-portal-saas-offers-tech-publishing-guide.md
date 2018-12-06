@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e648d6d3bd8d8ac14fb3f9723f4667c1cc33ac6
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228890"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620178"
 ---
 <a name="saas-application-technical-publishing-guide"></a>SaaS 應用程式技術發行指南
 ===========================================
@@ -32,7 +32,7 @@ ms.locfileid: "51228890"
 <a name="what-are-pre-requisites-for-publishing-a-saas-app"></a>發行 SaaS 應用程式的先決條件有哪些？
 -------------------------------------------------
 
-發行入口網站提供對入口網站的角色型存取，可讓多個人就發行供應項目共同作業。 如需詳細資訊，請參閱[管理使用者](./cloud-partner-portal-manage-users.md)。 
+[Cloud Partner 入口網站](https://cloudpartner.azure.com)提供對入口網站的角色型存取，可讓多個人就發行供應項目共同作業。 如需詳細資訊，請參閱[管理使用者](./cloud-partner-portal-manage-users.md)。 
 
 在代表發行者帳戶發行供應項目之前，必須有一個具有「擁有者」角色的人同意遵守[使用規定](https://azure.microsoft.com/support/legal/website-terms-of-use/)、[Microsoft 隱私權聲明](https://www.microsoft.com/privacystatement/default.aspx)與 [Microsoft Azure 認證方案合約](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
@@ -58,7 +58,7 @@ SaaS 應用程式供應項目有五個區段組成，如下表所述：
 
 ### <a name="creating-a-new-offer"></a>建立新的供應項目
 
-登入 Cloud Partner 入口網站之後，請選取左側功能表列 (其中顯示可用供應項目功能表) 上的 [新增供應項目] 項目。 下圖顯示這些供應項目的範例：
+登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)之後，請選取左側功能表列 (其中顯示可用供應項目功能表) 上的 [新增供應項目] 項目。 下圖顯示這些供應項目的範例：
 
 ![SaaS 新增供應項目](media/cpp-creating-saas-offers/saas-new-offer.png)
 
@@ -154,7 +154,7 @@ SaaS 應用程式需要摘要的前兩節以及您為應用程式提供的相關
 
 | **供應項目欄位** | **說明**                                                                                                          |
 |------------------| ------------------------------------------------------------------------------------------------------------------------ |
-| 標誌            | 若您**透過 Azure 銷售** SaaS 應用程式，您應該提供所有標誌影像。 若您只是陳列，則只需要 2 個標誌。 在 Cloud Partner 入口網站中上傳的所有標誌都必須遵循下列指導方針：     <br/> - 保持標誌上具有最少的主要和次要色彩數目。 Azure 設計具有簡單的調色盤。     <br/> - 避免使用黑色或白色做為您標誌的背景色彩。 Azure 入口網站的佈景主題色彩是黑色與白色。 您應該改為使用會讓您的標誌在 Azure 入口網站顯得突出的某些色彩。 建議您使用簡單的主要色彩。 如果您使用透明背景，請確定標誌與文字不是黑色、白色或藍色。     <br/> - 不要在標誌上使用漸層背景。     <br/> - 避免在標誌上放置文字 (即使是公司或品牌名稱)。 您標誌的外觀與風格應該是「一般」，而且應該避免漸層。    <br/> - 標誌不應該延展。                   |
+| 標誌            | 若您**透過 Azure 銷售** SaaS 應用程式，您應該提供所有標誌影像。 若您只是陳列，則只需要 2 個標誌。 在 [Cloud Partner 入口網站](https://cloudpartner.azure.com)中上傳的所有標誌都必須遵循下列指導方針：     <br/> - 保持標誌上具有最少的主要和次要色彩數目。 Azure 設計具有簡單的調色盤。     <br/> - 避免使用黑色或白色做為您標誌的背景色彩。 Azure 入口網站的佈景主題色彩是黑色與白色。 您應該改為使用會讓您的標誌在 Azure 入口網站顯得突出的某些色彩。 建議您使用簡單的主要色彩。 如果您使用透明背景，請確定標誌與文字不是黑色、白色或藍色。     <br/> - 不要在標誌上使用漸層背景。     <br/> - 避免在標誌上放置文字 (即使是公司或品牌名稱)。 您標誌的外觀與風格應該是「一般」，而且應該避免漸層。    <br/> - 標誌不應該延展。                   |
 | 影片           | 可讓您新增供應項目的影片連結。 您可以使用 YouTube 和/或 Vimeo 影片的連結，這會隨著您的供應項目顯示給客戶。 您也需要輸入影片的縮圖影像，它必須是大小為 1280x720 個像素的 PNG 影像。 您最多可以為每個供應項目新增四個影片。 |
 | 文件        | 可讓您新增行銷文件到您的供應項目。 所有文件都必須是 PDF 格式，而且每個供應項目最多可以有三份文件。                                                                                                                                                      |
 | 螢幕擷取畫面      | 可讓您新增您供應項目的螢幕擷取畫面。 您可以為每個供應項目新增最多五個螢幕擷取畫面。 螢幕大小上限是 1280x720 個像素。                                                                                                                                             |

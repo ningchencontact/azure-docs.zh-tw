@@ -14,18 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 0f27b6b529c2591e37d48e3386190077fc8efc32
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8c21ed737cab98c9136e1c1991997ff3931a4c9d
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "29378151"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447192"
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Azure API 管理範本資料模型參考
 本主題說明在 Azure API 管理的開發人員入口網站範本資料模型中，所使用之一般項目的實體和類型表示法。  
   
  如需有關使用範本的詳細資訊，請參閱[如何使用範本自訂 API 管理開發人員入口網站](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)。  
-  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+使用層不提供開發人員入口網站。
+
+## <a name="reference"></a>參考
+
 -   [API](#API)  
 -   [API 摘要](#APISummary)  
 -   [應用程式](#Application)  
@@ -207,7 +213,7 @@ ms.locfileid: "29378151"
 |--------------|----------|-----------------|  
 |ApiId|字串|目前 API 的識別碼。|  
 |CurrentOperationId|字串|目前作業的識別碼。|  
-|動作|字串|功能表類型。|  
+| 動作|字串|功能表類型。|  
 |MenuItems|[作業功能表項目](#MenuItem)實體的集合。|目前 API 的作業。|  
   
 ##  <a name="MenuItem"></a>作業功能表項目  
