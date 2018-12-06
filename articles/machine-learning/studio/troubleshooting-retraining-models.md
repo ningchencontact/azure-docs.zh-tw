@@ -1,10 +1,11 @@
 ---
-title: 針對重新訓練 Azure Machine Learning Classic Web 服務進行疑難排解 | Microsoft Docs
-description: 找出您在為 Azure Machine Learning Web 服務重新訓練模型時所遇到的常見問題，並加以修正。
+title: 對 Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解 - Azure | Microsoft Docs
+description: 找出您在為 Azure Machine Learning Studio Web 服務重新訓練模型時所遇到的常見問題，並加以修正。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 989bf010320501050a37fbf2f0799f50a5a3e2ba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835768"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52307197"
 ---
-# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-classic-web-service"></a>針對 Azure Machine Learning 傳統 Web 服務的重新訓練進行疑難排解
+# <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>對 Azure Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解
 ## <a name="retraining-overview"></a>重新訓練概觀
 當您將預測性實驗部署為評分 Web 服務時，它會是靜態模型。 當有新資料可用或 API 取用者有自己的資料時，模型就必須重新訓練。 
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: f3086f09e29664b816ba709fc5cda75d7b11d1b4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035244"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335395"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帳戶和撰寫金鑰
 LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登入資訊是在 [account.microsoft.com](https://account.microsoft.com) 進行管理的。 您的撰寫金鑰是從 [LUIS](luis-reference-regions.md) 網站的 [設定] 頁面進行管理的。 
@@ -24,7 +24,7 @@ LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登�
 
 這個單一且區域專屬的撰寫金鑰位於 [設定] 頁面上，可讓您從 [LUIS](luis-reference-regions.md) 網站以及[撰寫 API](https://aka.ms/luis-authoring-api) 撰寫所有應用程式。 為了方便起見，允許撰寫金鑰每個月建立[有限](luis-boundaries.md)數量的端點查詢。 
 
-![LUIS 設定頁面](./media/luis-how-to-account-settings/account-settings.png)
+[![LUIS 設定頁面](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 撰寫金鑰是用於您所擁有的任何應用程式，以及任何您被列為共同作業者的應用程式。
 

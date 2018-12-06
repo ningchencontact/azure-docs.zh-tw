@@ -8,16 +8,16 @@ ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 703dedc69e491377ce0890610a2882ab95ae6e5a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 61da3b8e139cf5091aec4c1ab835c23fe319ea46
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565066"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446229"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>使用虛擬 TPM 在 Linux 虛擬機器上建立及佈建 Edge 裝置
 
-Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。 
+Azure IoT Edge 裝置可使用[裝置佈建服務](../iot-dps/index.yml)來自動佈建，就像未啟用 Edge 的裝置一樣。 如果您不熟悉自動佈建程序，請先檢閱[自動佈建概念](../iot-dps/concepts-auto-provisioning.md)，再繼續作業。 
 
 本文將說明如何藉由下列步驟，在模擬 Edge 裝置上測試自動佈建： 
 
@@ -65,7 +65,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
    2. **設定網路功能**：將 [連線] 的值設定為您在上一節中建立的虛擬交換器。 
    3. **安裝選項**：選取 [從可開機映像檔安裝作業系統]，並瀏覽至您在本機儲存的磁碟映像檔。
 
-建立 VM 可能需要幾分鐘的時間。 
+系統可能需要幾分鐘的時間來建立新的 VM。 
 
 ### <a name="enable-virtual-tpm"></a>啟用虛擬 TPM
 
@@ -105,7 +105,7 @@ Azure IoT Edge 裝置可用[裝置佈建服務](../iot-dps/index.yml)來自動�
 
 從您的虛擬機器擷取佈建資訊，並使用該資訊在裝置佈建服務中建立個別的註冊。 
 
-當您在 DPS 中建立註冊時，您有機會宣告**初始裝置對應項狀態**。 在裝置對應項中，您可以根據解決方案中需要的任何計量 (例如區域、環境、位置或裝置類型) 來設定標記，進而將裝置分組。 這些標記會用來建立[自動部署](how-to-deploy-monitor.md)。 
+在 DPS 中建立註冊時，您就有機會宣告**初始裝置對應項狀態**。 在裝置對應項中，您可以根據解決方案中需要的任何計量 (例如區域、環境、位置或裝置類型) 來設定標記，進而將裝置分組。 這些標記會用來建立[自動部署](how-to-deploy-monitor.md)。 
 
 
 1. 在 [Azure 入口網站](https://portal.azure.com) 中，瀏覽至 IoT 中樞裝置佈建服務的執行個體。 
@@ -136,7 +136,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 若要讓 IoT Edge 執行階段自動佈建您的裝置，該執行階段必須能夠存取 TPM。 
 
-請使用下列步驟提供 TPM 存取權。 或者，您可以覆寫 systemd 設定讓 *iotedge* 服務能夠以 Root 的形式執行，以達到相同的目的。 
+您可以覆寫 systemd 設定，授予對 IoT Edge 執行階段的 TPM 存取權，讓 *iotedge* 服務有根權限。 如果不想提高服務權限，也可以使用下列步驟，手動提供 TPM 存取權。 
 
 1. 尋找 TPM 硬體模組在您裝置上的檔案路徑，並將其儲存為本機變數。 
 
@@ -180,8 +180,10 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
    成功的輸出顯示如下：
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   如果未發現正確權限套用完成，請嘗試重新啟動電腦，以重新整理 udev。 
 
 8. 開啟 IoT Edge 執行階段複寫檔案。 
 
@@ -234,7 +236,7 @@ IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 其元件會在容
 
 ## <a name="verify-successful-installation"></a>確認安裝成功
 
-如果執行階段順利啟動，您可以移至您的 IoT 中樞，並看到新裝置已自動佈建，且已可執行 IoT Edge 模組。 
+如果執行階段順利啟動，您可以移至您的 IoT 中樞，並看到新裝置已自動佈建。 現在您的裝置已準備好執行 IoT Edge 模組。 
 
 檢查 IoT Edge 精靈的狀態。
 
@@ -257,4 +259,4 @@ iotedge list
 
 ## <a name="next-steps"></a>後續步驟
 
-佈建新裝置時，裝置佈建服務註冊程序可讓您同時設定裝置識別碼和裝置對應項標記。 您可以使用這些值來鎖定要使用自動裝置管理的個別裝置或裝置群組。 了解如何[使用 Azure 入口網站大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)，或[使用 Azure CLI](how-to-deploy-monitor-cli.md) 執行相同作業
+佈建新裝置時，裝置佈建服務註冊程序可讓您同時設定裝置識別碼和裝置對應項標記。 您可以使用這些值來鎖定要使用自動裝置管理的個別裝置或裝置群組。 了解如何[使用 Azure 入口網站大規模部署和監視 IoT Edge 模組](how-to-deploy-monitor.md)，或[使用 Azure CLI](how-to-deploy-monitor-cli.md) 執行相同作業。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 4bf77cd34ba985dfcfa568db0543150c0510c406
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 86d2f013567d768437e589df366c5c131e1bcf50
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300093"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52421904"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>使用 REST API 呼叫建立、列出和刪除使用者指派的受控識別
 
@@ -44,8 +44,6 @@ Azure 資源的受控識別能夠讓 Azure 服務向支援 Azure AD 驗證的服
 
 若要建立使用者指派的受控識別，您的帳戶需要[受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色指派。
 
-若要建立使用者指派的受控識別，請使用 Azure Resource Manager API 的下列 CURL 要求。 以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>`、`<USER ASSIGNED IDENTITY NAME>`、`<LOCATION>` 和 `<ACCESS TOKEN>` 值：
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```bash
@@ -54,20 +52,44 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**要求標頭**
+
+|要求標頭  |說明  |
+|---------|---------|
+|*Content-Type*     | 必要。 設定為 `application/json`。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+
+**要求本文**
+
+|名稱  |說明  |
+|---------|---------|
+|location     | 必要。 資源位置。        |
+
 ## <a name="list-user-assigned-managed-identities"></a>列出使用者指派的受控識別
 
 若要列出/讀取使用者指派的受控識別，您的帳戶需要[受控識別操作者](/azure/role-based-access-control/built-in-roles#managed-identity-operator)或[受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色指派。
 
-若要列出使用者指派的受控識別，請使用 Azure Resource Manager API 的下列 CURL 要求。 以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<ACCESS TOKEN>` 值：
-
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
+
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|要求標頭  |說明  |
+|---------|---------|
+|*Content-Type*     | 必要。 設定為 `application/json`。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+
 ## <a name="delete-a-user-assigned-managed-identity"></a>刪除使用者指派的受控識別
 
 若要刪除使用者指派的受控識別，您的帳戶需要[受控識別參與者](/azure/role-based-access-control/built-in-roles#managed-identity-contributor)角色指派。
-
-若要刪除使用者指派的受控識別，請使用 Azure Resource Manager API 的下列 CURL 要求。 以您自己的值取代 `<SUBSCRIPTION ID>`、`<RESOURCE GROUP>` 和 `<ACCESS TOKEN>` 參數：
 
 > [!NOTE]
 > 將使用者指派的受控識別從受指派的任何資源中刪除，並不會移除參考。 若要使用 CURL 從虛擬機器移除使用者指派的受控識別，請參閱[從 Azure VM 移除使用者指派的識別](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm)。
@@ -77,8 +99,14 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview' -X DELETE -H "Authorization: Bearer <ACCESS TOKEN>"
 ```
 
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|要求標頭  |說明  |
+|---------|---------|
+|*Content-Type*     | 必要。 設定為 `application/json`。        |
+|*授權*     | 必要。 設定為有效的 `Bearer` 存取權杖。        |
+
 ## <a name="next-steps"></a>後續步驟
 
 如需如何使用 CURL 將使用者指派的受控識別指派給 Azure VM/VMSS 的資訊，請參閱[使用 REST API 呼叫在 Azure VM 上設定 Azure 資源的受控識別](qs-configure-rest-vm.md#user-assigned-managed-identity) (英文) 和[使用 REST API 呼叫在虛擬機器擴展集上設定 Azure 資源的受控識別](qs-configure-rest-vmss.md#user-assigned-managed-identity) \(英文\)。
-
-

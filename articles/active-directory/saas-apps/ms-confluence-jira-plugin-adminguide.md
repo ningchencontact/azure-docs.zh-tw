@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 49516523abdd927c3ae60235fcd74473689c6856
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48020614"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426871"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>適用於 Azure Active Directory 的 Atlassian Jira 和 Confluence 管理員指南
 
@@ -52,7 +52,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 * 從公司網路外部也可以使用 Jira 或 Confluence。
 * 外掛程式只能在內部部署版本的 Jira 和 Confluence 中運作。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 安裝外掛程式之前，請注意下列資訊：
 
@@ -67,19 +67,33 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 此外掛程式支援下列 Jira 和 Confluence 版本：
 
-* Jira 核心和軟體：6.0 到 7.8
-* Jira Service Desk：3.0 到 3.2
+* JIRA Core 和 JIRA Software：6.0 到 7.12
+* JIRA Service Desk：3.0.0 到 3.5.0
+* JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence：5.0 到 5.10
+* Confluence：6.0.1
+* Confluence：6.1.1
+* Confluence：6.2.1
+* Confluence：6.3.4
+* Confluence：6.4.0
+* Confluence：6.5.0
+* Confluence：6.6.2
+* Confluence：6.7.0
+* Confluence：6.8.1
+* Confluence：6.9.0
+* Confluence：6.10.0
+* Confluence：6.11.0
+* Confluence：6.12.0
 
 ## <a name="installation"></a>安裝
 
-若要安裝外掛程式，請依照下列步驟執行：
+若要安裝外掛程式，請遵循下列步驟：
 
 1. 以管理員身分登入 Jira 或 Confluence 執行個體。
 
 2. 移至 Jira/Confluence 管理主控台，選取 [附加元件]。
 
-3. 在 Atlassian Marketplace 中搜尋 **Microsoft SAML SSO 外掛程式**。
+3. 從 Microsoft 下載中心，下載[適用於 JIRA 的 Microsoft SAML SSO 外掛程式](https://www.microsoft.com/download/details.aspx?id=56506)/ [適用於 Confluence 的 Microsoft SAML SSO 外掛程式](https://www.microsoft.com/download/details.aspx?id=56503)。
 
    搜尋結果中會顯示適當的外掛程式版本。
 
@@ -133,7 +147,7 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
   * 針對 Jira，預設會啟用安全的系統管理員工作階段 (也就是確認密碼後才能存取管理功能)。 如果您想要在 Jira 執行個體中移除這個功能，在 jira-config.propertie 檔案中指定以下這一行：`ira.websudo.is.disabled = true`
 
-  * 針對 Confluence，請依照 [Confluence支援網站](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)上的步驟執行。
+  * 針對 Confluence，請遵循 [Confluence支援網站](https://confluence.atlassian.com/doc/configuring-secure-administrator-sessions-218269595.html)上的步驟。
 
 * **中繼資料 URL 應該填入的欄位未填入資料**：
 
@@ -159,9 +173,9 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 此外掛程式提供適用於 Atlassian Jira (包括 Jira 核心、Jira 軟體、Jira 服務台) 和 Confluence 內部部署軟體的單一登入 (SSO) 功能。 此外掛程式搭配 Azure Active Directory (Azure AD) 使用，成為識別提供者 (IdP)。
 
-### <a name="which-atlassian-products-does-the-plug-in-work-with"></a>此外掛程式可與哪些 Atlassian 產品搭配使用？
+### <a name="which-atlassian-products-does-the-plug-in-work-with"></a>此外掛程式與哪些 Atlassian 產品搭配使用？
 
-此外掛程式可與內部部署版本的 Jira 和 Confluence 搭配使用。
+此外掛程式與內部部署版本的 Jira 和 Confluence 搭配使用。
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>此外掛程式可否在雲端版本上運作？
 
@@ -171,9 +185,23 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 此外掛程式支援這些版本：
 
-* Jira 核心和軟體：6.0 到 7.8
-* Jira Service Desk：3.0 到 3.2
+* JIRA Core 和 JIRA Software：6.0 到 7.12
+* JIRA Service Desk：3.0.0 到 3.5.0
+* JIRA 也支援 5.2。 如需詳細資訊，請按一下[適用於 JIRA 5.2 的 Microsoft Azure Active Directory 單一登入](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
 * Confluence：5.0 到 5.10
+* Confluence：6.0.1
+* Confluence：6.1.1
+* Confluence：6.2.1
+* Confluence：6.3.4
+* Confluence：6.4.0
+* Confluence：6.5.0
+* Confluence：6.6.2
+* Confluence：6.7.0
+* Confluence：6.8.1
+* Confluence：6.9.0
+* Confluence：6.10.0
+* Confluence：6.11.0
+* Confluence：6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>此外掛程式是免費還是需付費？
 
@@ -207,8 +235,8 @@ Azure Active Directory (Azure AD) 單一登入 (SSO) 外掛程式可讓 Microsof
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>此外掛程式支援叢集版本的 Jira 和 Confluence 嗎？
 
-否。 此外掛程式可與內部部署版本的 Jira 和 Confluence 搭配使用。
+否。 此外掛程式與內部部署版本的 Jira 和 Confluence 搭配使用。
 
-### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>此外掛程式是否可與 HTTP 版本的 Jira 和 Confluence 搭配使用？
+### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>此外掛程式能與 HTTP 版本的 Jira 和 Confluence 搭配使用嗎？
 
 否。 此外掛程式只能與已啟用 HTTPS 的安裝搭配運作。

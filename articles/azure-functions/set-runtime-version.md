@@ -2,19 +2,18 @@
 title: 如何設定 Azure Functions 執行階段目標版本
 description: Azure Functions 支援多個執行階段版本。 了解如何指定 Azure 中裝載之函式應用程式的執行階段版本。
 services: functions
-documentationcenter: ''
 author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/26/2018
 ms.author: glenga
-ms.openlocfilehash: 6d89746c0a2d4642e5025789d352803195c0a3b9
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a0f66f5a1ba64c955fe0669d3ed215ee7c2895c0
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886802"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498403"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何設定 Azure Functions 執行階段目標版本
 
@@ -37,23 +36,13 @@ Functions 可讓您使用函式應用程式中的 `FUNCTIONS_EXTENSION_VERSION` 
 
 ## <a name="view-and-update-the-current-runtime-version"></a>檢視並更新目前的執行階段版本
 
-請使用下列程序，檢視函式應用程式目前使用的執行階段版本。
+您可以變更函數應用程式所使用的執行階段版本。 由於可能會發生重大變更，因此您只能在函數應用程式中已建立任何函式之前變更執行階段版本。 雖然執行階段版本取決於 `FUNCTIONS_EXTENSION_VERSION` 設定，但您應該在 Azure 入口網站中進行這項變更，而不是直接變更該設定。 這是因為入口網站會驗證您的變更，並視需要進行其他相關變更。
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至函式應用程式。
+### <a name="from-the-azure-portal"></a>從 Azure 入口網站
 
-1. 在 [設定的功能] 下，選擇 [函式應用程式設定]。
+[!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-    ![選取函數應用程式設定](./media/set-runtime-version/add-update-app-setting.png)
-
-1. 在 [函數應用程式設定] 索引標籤上，找到 [執行階段版本]。 請注意特定的執行階段版本和要求的主要版本。 在下列範例中，版本設定為 `~2`。
-
-   ![選取函數應用程式設定](./media/set-runtime-version/function-app-view-version.png)
-
-1. 若要將函式應用程式釘選至 1.x 版執行階段，請在 [執行階段版本] 下方選擇 [~1]。 應用程式中有函式時，此開關會停用。
-
-1. 如果您已變更執行階段版本，請回到 [概觀] 索引標籤，然後選擇 [重新啟動] 來重新啟動應用程式。  函式應用程式會重新開始在 1.x 版執行階段上執行，且當您建立函式時，所使用的會是 1.x 版範本。
-
-## <a name="view-and-update-the-runtime-version-using-azure-cli"></a>使用 Azure CLI 檢視並更新執行階段版本
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>從 Azure CLI
 
 您也可以從 Azure CLI 檢視並設定 `FUNCTIONS_EXTENSION_VERSION`。
 

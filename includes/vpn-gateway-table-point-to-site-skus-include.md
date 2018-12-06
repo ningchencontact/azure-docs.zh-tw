@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 03/21/2018
+ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6d1a0e66cff415d25e7019e163e5ae42be205888
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 4cd1d143151e61c7c767ffdc4acb172b06dd0e43
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30197664"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52585643"
 ---
-| **SKU** | **P2S 連線**| **彙總輸送量基準** | **RADIUS 驗證** | **IKEv2 P2S VPN** |
-|---|---|---|---| --- |
-| VpnGw1 | 128 | 650 Mbps  | 支援     | 支援 |
-| VpnGw2 | 128 | 1 Gbps     | 支援     | 支援 |
-| VpnGw3 | 128 | 1.25 Gbps | 支援     | 支援 |
-| 基本  | 128 | 100 Mbps  | 不支援 | 不支援 |
+|**SKU**   | **S2S/VNet-to-VNet<br>通道** | **P2S<br> SSTP 連線** | **P2S<br> IKEv2 連線** | **彙總<br>輸送量基準測試** |
+|---       | ---        | ---       | ---            | ---       |
+|**VpnGw1**| 最大 30   | 最大 128  | 最大 250       | 650 Mbps  |
+|**VpnGw2**| 最大 30  | 最大 128  | 最大 500       | 1 Gbps    |
+|**VpnGw3**| 最大 30   | 最大 128  | 最大 1000      | 1.25 Gbps |
+|**基本** | 最大 10    | 最大 128  | 不支援  | 100 Mbps  | 

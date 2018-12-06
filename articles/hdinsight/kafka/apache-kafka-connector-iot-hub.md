@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 8941a7332c19b1a9d5c04abb0e4b03ae83e98016
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 143df8a8c82e84b193bdb48a3d41682fca19156b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260477"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315422"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>搭配使用 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞
 
-了解如何使用 [Kafka Connect Azure IoT 中樞](https://github.com/Azure/toketi-kafka-connect-iothub)連接器在 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞之間移動資料。 在本文件中，您將了解如何從叢集中的邊緣節點執行 IoT 中樞連接器。
+了解如何使用 [Apache Kafka Connect Azure IoT 中樞](https://github.com/Azure/toketi-kafka-connect-iothub)連接器在 HDInsight 上的 Apache Kafka 與 Azure IoT 中樞之間移動資料。 在本文件中，您將了解如何從叢集中的邊緣節點執行 IoT 中樞連接器。
 
-Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資料從 Kafka 推送至另一個系統的連接器。 [Kafka Connect Azure IoT 中樞](https://github.com/Azure/toketi-kafka-connect-iothub)是會將資料從 Azure IoT 中樞提取到 Kafka 中的連接器。 它也可以將資料從 Kafka 推送到 IoT 中樞。 
+Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資料從 Kafka 推送至另一個系統的連接器。 [Apache Kafka Connect Azure IoT 中樞](https://github.com/Azure/toketi-kafka-connect-iothub)是會將資料從 Azure IoT 中樞提取到 Kafka 中的連接器。 它也可以將資料從 Kafka 推送到 IoT 中樞。 
 
 從 IoT 中樞提取時，您會使用__來源__連接器。 推送至 IoT 中樞時，您會使用__接收__連接器。 IoT 中樞連接器同時提供來源和接收連接器。
 
@@ -84,7 +84,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 >
 >    此命令會在專案的 `target/scala-2.11` 目錄中建立名為 `kafka-connect-iothub-assembly_2.11-0.6.jar` 的檔案。
 
-## <a name="configure-kafka"></a>設定 Kafka
+## <a name="configure-apache-kafka"></a>設定 Apache Kafka
 
 透過邊緣節點的 SSH 連線，使用下列步驟設定在獨立模式中執行連接器的 Kafka：
 
@@ -111,7 +111,7 @@ Kafka Connect API 可讓您實作持續將資料提取到 Kafka 中，或將資�
 
     `wn0-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092,wn1-kafka.w5ijyohcxt5uvdhhuaz5ra4u5f.ex.internal.cloudapp.net:9092`
 
-4. 取得 Zookeeper 節點的位址。 叢集中可能會有數個 Zookeeper 節點，但您只需要參考其中一或兩個。 若要取得兩個 Zookeeper 節點的位址，請使用下列命令：
+4. 取得 Apache Zookeeper 節點的位址。 叢集中可能會有數個 Zookeeper 節點，但您只需要參考其中一或兩個。 若要取得兩個 Zookeeper 節點的位址，請使用下列命令：
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
@@ -335,7 +335,7 @@ t.runtime.WorkerSinkTask:262)
     > [!WARNING]
     > 由於這是新的 SSH 連線，`$KAFKABROKERS` 變數並未包含任何資訊。 若要加以設定，請使用下列其中一個方法：
     >
-    > * 使用[設定 Kafka](#configure-kafka) 一節中的前三個步驟。
+    > * 使用[設定 Apache Kafka](#configure-apache-kafka) 一節中的前三個步驟。
     > * 使用先前 SSH 連線中的 `echo $KAFKABROKERS` 以取得值，並在下列命令中將 `$KAFKABROKERS` 取代為實際值。
 
     ```bash
@@ -367,7 +367,7 @@ t.runtime.WorkerSinkTask:262)
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，您已了解如何使用 Kafka Connect API 在 HDInsight 上啟動 IoT Kafka Connector。 使用下列連結來探索使用 Kafka 的其他方式︰
+在本文件中，您已了解如何使用 Apache Kafka Connect API 在 HDInsight 上啟動 IoT Kafka Connector。 使用下列連結來探索使用 Kafka 的其他方式︰
 
-* [使用 Apache Spark 搭配 Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [使用 Apache Storm 搭配 HDInsight 上的 Kafka](../hdinsight-apache-storm-with-kafka.md)
+* [在 HDInsight 上搭配使用 Apache Spark 與 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
+* [在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)

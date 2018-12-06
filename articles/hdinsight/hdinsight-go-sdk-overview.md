@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f018130ca94c7efb7a9c6c873c150dcc382dbc4c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901901"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498296"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 管理 SDK 預覽
 
@@ -22,7 +22,7 @@ HDInsight Go SDK 提供可讓您管理 HDInsight 叢集的類別和函式。 它
 > [!NOTE]
 >此 SDK 的 GoDoc 參考資料也可以在[這裡取得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 一個 Azure 帳戶。 如果您沒有帳戶，請[取得免費試用帳戶](https://azure.microsoft.com/free/)。
 * [Go](https://golang.org/dl/)
@@ -75,7 +75,7 @@ az account set -s <name or ID of subscription>
 >az provider register --namespace Microsoft.HDInsight
 >```
 
-接下來，請選擇服務主體的名稱，並使用下列命令建立它：
+接下來，請選擇服務主體的名稱，並使用下列命令加以建立：
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth
@@ -133,7 +133,7 @@ func main() {
 ## <a name="cluster-management"></a>叢集管理
 
 > [!NOTE]
-> 此節假設您已通過驗證並建構 `ClusterClient` 執行個體，將其儲存在稱為 `client` 的變數中。 驗證及取得 `ClusterClient` 的指示可在先前＜驗證＞一節中找到。
+> 本節假設您已通過驗證並建構 `ClusterClient` 執行個體，將其儲存在稱為 `client` 的變數中。 驗證及取得 `ClusterClient` 的指示可在先前＜驗證＞一節中找到。
 
 ### <a name="create-a-cluster"></a>建立叢集
 
@@ -141,7 +141,7 @@ func main() {
 
 #### <a name="example"></a>範例
 
-此範例示範如何使用 2 個前端節點和 1 個背景工作節點來建立 Spark 叢集。
+此範例示範如何使用 2 個前端節點和 1 個背景工作節點來建立 [Apache Spark](https://spark.apache.org/) 叢集。
 
 > [!NOTE]
 > 您必須先建立資源群組和儲存體帳戶，說明如下。 如果您已建立這些項目，則可以略過這些步驟。

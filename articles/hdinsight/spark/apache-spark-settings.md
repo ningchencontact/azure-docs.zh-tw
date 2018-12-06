@@ -9,24 +9,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: b31be534641f2777bcbfaaa33497d96b457db191
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 127bd965fdce93ae44fbb38a037477174c9cb3fe
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684081"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583239"
 ---
-# <a name="configure-spark-settings"></a>設定 Spark 設定
+# <a name="configure-apache-spark-settings"></a>設定 Apache Spark 設定
 
-HDInsight Spark 叢集包含 Apache Spark 程式庫的安裝。  每個 HDInsight 叢集都包含其所有已安裝服務的預設組態參數，包括 Spark。  管理 HDInsight Hadoop 叢集的重要環節之一，是要監視工作負載 (包括 Spark 作業)，以確定作業以可預測的方式執行。 若要以最佳方式執行 Spark 作業，在決定如何最佳化叢集的邏輯組態時，請考慮使用實體叢集組態。
+HDInsight Spark 叢集包含 [Apache Spark](https://spark.apache.org/) 程式庫的安裝。  每個 HDInsight 叢集都包含其所有已安裝服務的預設組態參數，包括 Spark。  管理 HDInsight Apache Hadoop 叢集的重要環節之一，是要監視工作負載 (包括 Spark 作業)，以確定作業以可預測的方式執行。 若要以最佳方式執行 Spark 作業，在決定如何最佳化叢集的邏輯組態時，請考慮使用實體叢集組態。
 
-預設 HDInsight Apache Spark 叢集包含下列節點：三個 ZooKeeper 節點、兩個前端節點，和一或多個背景工作角色節點：
+預設 HDInsight Apache Spark 叢集包含下列節點：三個 [Apache ZooKeeper](https://zookeeper.apache.org/) 節點、兩個前端節點，以及一或多個背景工作節點：
 
 ![Spark HDInsight 架構](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
 HDInsight 叢集中各個節點的虛擬機器數目和大小也可能對您的 Spark 組態產生影響。 非預設 HDInsight 組態值通常需要非預設 Spark 組態值。 在建立 HDInsight Spark 叢集時，您會看到系統針對每個元件建議的虛擬機器大小。 目前，Azure 的[記憶體最佳化 Linux 虛擬機器大小](../../virtual-machines/linux/sizes-memory.md)是 D12 v2 或更高。
 
-## <a name="spark-versions"></a>Spark 版本
+## <a name="apache-spark-versions"></a>Apache Spark 版本
 
 使用最適合您的叢集的 Spark 版本。  HDInsight 服務包含數種版本的 Spark 和 HDInsight。  每個版本的 Spark 都包含一組預設叢集設定。  
 
@@ -52,7 +52,7 @@ Apache Spark 有三個系統組態位置：
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-上方顯示的範例會覆寫五個 Spark 設定參數的數個預設值。  它們分別是壓縮轉碼器、Hadoop MapReduce 分割大小下限和 parquet 區塊大小，以及 Spar SQL 資料分割和開啟檔案大小的預設值。  之所以會選擇這些設定變更，是因為相關聯的資料和作業 (在此範例中為基因組資料) 具有特定特性，而在使用這些自訂組態設定時會有較好的執行效能。
+上方顯示的範例會覆寫五個 Spark 設定參數的數個預設值。  它們分別是壓縮轉碼器、Apache Hadoop MapReduce 分割大小下限和 parquet 區塊大小，以及 Spar SQL 分割區和開啟檔案大小的預設值。  之所以會選擇這些設定變更，是因為相關聯的資料和作業 (在此範例中為基因組資料) 具有特定特性，而在使用這些自訂組態設定時會有較好的執行效能。
 
 ---
 
@@ -60,7 +60,7 @@ Apache Spark 有三個系統組態位置：
 
 在叢集上執行效能最佳化之前，請先確認目前的 HDInsight 叢集組態設定。 按一下 Spark 叢集窗格上的 [儀表板] 連結，從 Azure 入口網站啟動 HDInsight 儀表板。 使用叢集系統管理員的使用者名稱和密碼登入。
 
-Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量的儀表板檢視。  Ambari 儀表板會顯示 Apache Spark 組態，和其他您已安裝的服務。 儀表板會包含 [設定歷程記錄] 索引標籤，您可以在其中檢視所有已安裝的服務 (包括 Spark) 設定資訊。
+Apache Ambari Web UI 隨即出現，並顯示主要叢集資源使用率計量的儀表板檢視。  Ambari 儀表板會顯示 Apache Spark 組態，和其他您已安裝的服務。 儀表板會包含 [設定歷程記錄] 索引標籤，您可以在其中檢視所有已安裝的服務 (包括 Spark) 設定資訊。
 
 若要檢視 Apache Spark 的設定值，請選取 [設定歷程記錄]，然後選取 [Spark2]。  選取 [設定] 索引標籤，然後選取服務清單中的 `Spark` (或 `Spark2`，視您的版本而定) 連結。  您會看到叢集的設定值清單：
 
@@ -96,13 +96,13 @@ Spark 執行程式所使用之資源的另一個相關資訊來源，是 Spark �
 
 ![Spark 執行程式](./media/apache-spark-settings/spark-executors.png)
 
-或者，您可以使用 Ambari REST API，以程式設計方式驗證 HDInsight 和 Spark 叢集組態設定。  您可以透過 [GitHub 上的 Ambari API 參考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)取得詳細資訊。
+或者，您可以使用 Ambari REST API，以程式設計方式驗證 HDInsight 和 Spark 叢集組態設定。  您可以在 [GitHub 上的 Apache Ambari API 參考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)取得詳細資訊。
 
 根據您的 Spark 叢集工作負載，您可能會判定非預設 Spark 設定可提供最佳化程度較高的 Spark 作業執行。  您應使用範例工作負載執行基準測試，來驗證任何非預設叢集設定。  您可以考慮調整某些通用參數：
 
 * `--num-executors` 設定執行程式數目。
 * `--executor-cores` 設定每個執行程式的核心數目。 建議您使用中型執行程式，因為其他程序也會耗用部分的可用記憶體。
-* `--executor-memory` 會控制 YARN 上每個執行程式的記憶體大小 (堆積大小)，且您將必須為執行的額外負荷保留一些記憶體。
+* `--executor-memory` 會控制 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 上每個執行程式的記憶體大小 (堆積大小)，且您將必須為執行的額外負荷保留一些記憶體。
 
 下列範例說明兩個使用不同設定值的背景工作角色節點：
 
@@ -125,8 +125,8 @@ YARN 會控制每個 Spark 節點上所有容器所使用的記憶體最大總�
 
 * Spark Core - Spark Core、Spark SQL、Spark 串流 API、GraphX 和 MLlib
 * Anaconda - Python 套件管理員
-* Livy - Apache Spark REST API，用以將遠端作業提交至 HDInsight Spark 叢集
-* Jupyter 和 Zeppelin Notebook - 互動式的瀏覽器型 UI，用來與您的 Spark 叢集互動
+* [Apache Livy](https://livy.incubator.apache.org/) - Apache Spark REST API，用於將遠端作業提交到 HDInsight Spark 叢集
+* [Jupyter](https://jupyter.org/) 和 [Apache Zeppelin Notebook](https://zeppelin.apache.org/) - 互動式的瀏覽器型 UI，用來與您的 Spark 叢集互動
 * ODBC 驅動程式 - 將 HDInsight 中的 Spark 叢集連線至商業智慧 (BI) 工具，例如 Microsoft Power BI 和 Tableau
 
 對於在 Jupyter Notebook 中執行的應用程式，請使用 `%%configure` 命令從 Notebook 本身進行設定變更。 這些設定變更將會套用至從您 Notebook 執行個體執行的 Spark 作業。 您應先在開始使用應用程式時進行此類變更，再執行您的第一個程式碼單元。 變更的設定會在 Livy 工作階段建立時套用至其中。
@@ -147,8 +147,8 @@ YARN 會控制每個 Spark 節點上所有容器所使用的記憶體最大總�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [可以與 HDInsight 搭配使用的 Hadoop 元件和版本？](../hdinsight-component-versioning.md)
-* [在 HDInsight 上管理 Spark 叢集的資源](apache-spark-resource-manager.md)
-* [使用 Hadoop、Spark 及 Kafka 等工具在 HDInsight 中設定叢集](../hdinsight-hadoop-provision-linux-clusters.md)
+* [可以與 HDInsight 搭配使用的 Apache Hadoop 元件和版本？](../hdinsight-component-versioning.md)
+* [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Apache Spark 設定](https://spark.apache.org/docs/latest/configuration.html)
-* [在 YARN 上執行 Spark](https://spark.apache.org/docs/latest/running-on-yarn.html)
+* [在 Apache Hadoop YARN 上執行 Apache Spark](https://spark.apache.org/docs/latest/running-on-yarn.html)

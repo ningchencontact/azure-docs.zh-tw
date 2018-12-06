@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: ecb613dd2f624b9e0910a0ddcdf931f4b266aa96
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036575"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499431"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI 偵錯 Tez 作業
-Tez UI 可用來對使用 Tez 作為執行引擎的 Hive 作業進行偵錯。 Tez UI 把作業視覺化為已連接項目的圖表，可以深入每個項目、取得統計資料及記錄資訊。
+[Apache TEZ](https://tez.apache.org/) UI 可用來對使用 Tez 作為執行引擎的 [Apache Hive](https://hive.apache.org/) 作業進行偵錯。 Tez UI 把作業視覺化為已連接項目的圖表，可以深入每個項目、取得統計資料及記錄資訊。
 
 > [!IMPORTANT]
 > 本文件中的步驟需要一個使用 Windows 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -32,7 +32,7 @@ Tez UI 可用來對使用 Tez 作為執行引擎的 Hive 作業進行偵錯。 T
 * 以 Windows 為基礎的遠端桌面用戶端。
 
 ## <a name="understanding-apache-tez"></a>了解 Apache Tez
-Tez 是 Apache Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 MapReduce 處理方式還要快。 將下列文字加入 Hive 查詢可以啟用 Tez：
+Tez 是 Apache Hadoop 中資料處理用的可延伸架構，資料處理的速度比傳統的 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 處理方式還要快。 將下列文字加入 Hive 查詢可以啟用 Tez：
 
     set hive.execution.engine=tez;
 
@@ -134,6 +134,6 @@ Tez UI 包含正在或曾經使用 Tez 引擎來執行之作業的資料。 簡�
     ![作業詳細資料](./media/hdinsight-debug-tez-ui/taskdetails.png)
 
 ## <a name="next-steps"></a>後續步驟
-既然您已了解如何使用 Tez 檢視，請深入了解 [在 HDInsight 上使用 Hive](hadoop/hdinsight-use-hive.md)。
+既然您已了解如何使用 [Apache TEZ](https://tez.apache.org/) 檢視，請深入了解[在 HDInsight 上使用 Apache Hive](hadoop/hdinsight-use-hive.md)。
 
-如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Tez 頁面](http://hortonworks.com/hadoop/tez/)。
+如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](http://hortonworks.com/hadoop/tez/)。

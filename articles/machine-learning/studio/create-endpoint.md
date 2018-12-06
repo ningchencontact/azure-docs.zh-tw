@@ -1,10 +1,11 @@
 ---
-title: 在 Machine Learning 中建立 Web 服務端點 | Microsoft Docs
+title: 在機器學習中建立 Web 服務端點 - Azure Machine Learning Studio | Microsoft Docs
 description: 在 Azure Machine Learning 中建立 Web 服務端點
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
@@ -15,14 +16,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 8cdf8c5ac3676d8abc9084fc842484aca5b6d1c7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833541"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314008"
 ---
-# <a name="creating-endpoints"></a>建立端點
+# <a name="creating-endpoints"></a>建立端點 
 > [!NOTE]
 >  此主題描述適用於**傳統** Machine Learning Web 服務的技巧。
 > 
@@ -30,7 +31,7 @@ ms.locfileid: "34833541"
 
 當您建立會進而銷售給客戶的 Web 服務時，必須為每位客戶提供仍連結至建立 Web 服務之實驗的定型模型。 此外，實驗的任何更新都應可以選擇性地套用到整個端點，而不會覆寫自訂項目。
 
-為了達到這個目的，Azure Machine Learning 允許您為已部署的 Web 服務建立多個端點。 Web 服務的每個端點都是個別定址、節流以及管理。 每個端點是一個唯一 URL 和授權金鑰，您可散發給您的客戶。
+為了達到這個目的，Azure Machine Learning Studio 允許您為已部署的 Web 服務建立多個端點。 Web 服務的每個端點都是個別定址、節流以及管理。 每個端點是一個唯一 URL 和授權金鑰，您可散發給您的客戶。
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

@@ -4,7 +4,7 @@ description: 說明 Azure 消費限制的運作方式及如何移除此限制
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 ms.service: billing
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423080"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583512"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
@@ -68,7 +68,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ### <a name="how-do-i-turn-on-the-spending-limit-after-removing-it"></a>如何在移除消費限制之後再將其開啟？
 
-唯有無限期移除消費限制時，才能使用此功能。 請將它變更為在下一個計費週期開始時自動開啟。
+唯有無限期移除消費限制時，才能使用這項功能。 請將它變更為在下一個計費週期開始時自動開啟。
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
 1. 按一下黃色橫幅以變更消費限制選項。
@@ -84,6 +84,6 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 ![Marketplace 購買警告](./media/billing-understand-your-azure-marketplace-charges/marketplace-warning.PNG)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

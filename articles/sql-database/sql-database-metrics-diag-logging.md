@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 8f66c95202e0ccdef86f9630f7a98c20023a8955
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b903d0ddbccac8fe4fa8b251d409bd8addebb435
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087741"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52425994"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 計量和診斷記錄 
 
@@ -101,7 +101,7 @@ Azure SQL Database、彈性集區、受控執行個體，以及受控執行個�
    ![設定 SQL Database 的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 
 > [!NOTE]
-> 稽核記錄無法從資料庫 [診斷] 設定啟用。 若要啟用稽核記錄串流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，也請參閱 [Azure Log Analytics 和 Azure 事件中樞中的 SQL 稽核記錄](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
+> 您無法從資料庫的 [診斷] 設定啟用安全性稽核記錄。 若要啟用稽核記錄串流，請參閱[設定資料庫的稽核](sql-database-auditing.md#subheading-2)，也請參閱 [Azure Log Analytics 和 Azure 事件中樞中的 SQL 稽核記錄](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/)。
 >
 
 > [!TIP]
@@ -182,7 +182,7 @@ Azure SQL Database、彈性集區、受控執行個體，以及受控執行個�
 2. 選取 [診斷設定]
 3. 如果沒有先前的設定存在，請選取 [開啟診斷]，或者選取 [編輯設定] 來編輯先前的設定
 
-   ![啟用受控執行個體的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
+   ![啟用受控執行個體的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 4. 輸入設定名稱，以供您自己參考
 5. 選取要將彈性集區的診斷資料串流處理到哪個資源：**封存至儲存體帳戶**、**串流至事件中樞**或**傳送至 Log Analytics**
@@ -190,7 +190,7 @@ Azure SQL Database、彈性集區、受控執行個體，以及受控執行個�
 7. 選取執行個體診斷遙測 **ResourceUsageStats** 的核取方塊
 8. 按一下 [儲存] 
 
-   ![設定受控執行個體的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![設定受控執行個體的診斷功能](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
 > [!TIP]
 > 針對您想要監視的每個受控執行個體重複執行上述步驟。

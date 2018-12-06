@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/18/2018
-ms.openlocfilehash: 65dd4b172c0913e11bb7f25909eb062e93a4a03a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e78f0d2012cf4f6152e69fff1bab04f827c0eef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015225"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310883"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何將 HDInsight 上的 Apache Kafka 設定為自動建立主題
 
-根據預設，HDInsight 上的 Kafka 不會啟用自動建立主題。 您可以使用 Ambari，針對現有的叢集啟用自動建立主題。 您也可以在使用 Azure Resource Manager 範本建立新的 Kafka 叢集時，啟用自動建立主題。
+根據預設，HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 不會啟用自動建立主題。 您可以使用 [Apache Ambari](https://ambari.apache.org/)，針對現有的叢集啟用自動建立主題。 您也可以在使用 Azure Resource Manager 範本建立新的 Kafka 叢集時，啟用自動建立主題。
 
-## <a name="ambari-web-ui"></a>Ambari Web UI
+## <a name="apache-ambari-web-ui"></a>Apache Ambari Web UI
 
 若要透過 Ambari Web UI 針對現有的叢集啟用自動建立主題，請使用下列步驟：
 
@@ -56,7 +56,7 @@ ms.locfileid: "51015225"
     ![重新啟動選取項目的影像](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]
-> 您也可以透過 Ambari REST API 設定 Ambari 值。 這通常更困難，因為您必須進行多個 REST 呼叫以擷取目前的設定、修改它等。如需詳細資訊，請參閱[使用 Ambari REST API 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari-rest-api.md)文件。
+> 您也可以透過 Ambari REST API 設定 Ambari 值。 這通常更困難，因為您必須進行多個 REST 呼叫以擷取目前的設定、修改它等。如需詳細資訊，請參閱[使用 Apache Ambari REST API 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari-rest-api.md)文件。
 
 ## <a name="resource-manager-templates"></a>Resource Manager 範本
 
@@ -79,7 +79,7 @@ ms.locfileid: "51015225"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文件中，您已了解如何針對 HDInsight 上的 Kafka 啟用自動建立主題。 若要深入了解 Kafka 的使用方式，請參閱下列連結：
+在本文件中，您已了解如何針對 HDInsight 上的 Apache Kafka 啟用自動建立主題。 若要深入了解 Kafka 的使用方式，請參閱下列連結：
 
-* [分析 Kafka 日誌](apache-kafka-log-analytics-operations-management.md)
-* [在Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)
+* [分析 Apache Kafka 記錄](apache-kafka-log-analytics-operations-management.md)
+* [在 Apache Kafka 叢集之間複寫資料](apache-kafka-mirroring.md)

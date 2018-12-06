@@ -1,10 +1,11 @@
 ---
-title: 在 Azure Machine Learning 中為模型偵錯 | Microsoft Docs
-description: 如何在 Azure Machine Learning 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
+title: 在 Azure Machine Learning Studio 中為模型偵錯 | Microsoft Docs
+description: 如何在 Azure Machine Learning Studio 中，針對定型模型和計分模型模組所產生的錯誤進行偵錯。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 629dc45e-ac1e-4b7d-b120-08813dc448be
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
-ms.openlocfilehash: 144edca6d2e6fc8d0d8e59e6cff1d3f37eb233aa
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: bb1a3e778dcbcfacbc9e605ebf2d855786d71510
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834306"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312590"
 ---
-# <a name="debug-your-model-in-azure-machine-learning"></a>在 Azure Machine Learning 中為模型偵錯
+# <a name="debug-your-model-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中為模型偵錯
 
 本文將說明為什麼執行模型時可能會發生以下任一個失敗的潛在原因：
 

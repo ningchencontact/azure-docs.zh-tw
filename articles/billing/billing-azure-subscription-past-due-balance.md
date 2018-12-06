@@ -4,7 +4,7 @@ description: 描述如果 Azure 訂用帳戶有逾期未付帳款要如何付款
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: jureid
 editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: fbc1f906812c0fb40a173fd90eac315753c893ef
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 19fd83f19a8eb8c24beeade650544fbe03ca5b6a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393226"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580939"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>收到 Azure 寄來的電子郵件之後，處理 Azure 訂用帳戶的逾期未付帳款
 
@@ -48,6 +48,6 @@ ms.locfileid: "47393226"
 
 服務遭到取消，您的資源便無法使用。 服務終止 90 天後，就會刪除您的 Azure 資料。 若要深入了解，請參閱 [Microsoft 信任中心 - 我們如何管理您的資料](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409) \(英文\)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

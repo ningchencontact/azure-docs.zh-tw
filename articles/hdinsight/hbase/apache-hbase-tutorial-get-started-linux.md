@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e6c4097f4886213bde8adcaac51f36a3bfef702
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010284"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311036"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
-了解如何使用 Hive 在 HDInsight 中建立 HBase 叢集、建立 HBase 資料表，以及查詢資料表。 如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+了解如何使用 [Apache Hive](https://hive.apache.org/) 在 HDInsight 中建立 [Apache HBase](http://hbase.apache.org/) 叢集、建立 HBase 資料表，以及查詢資料表。  如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "51010284"
 * [安全殼層 (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 
 * [cURL](http://curl.haxx.se/download.html)。
 
-## <a name="create-hbase-cluster"></a>建立 HBase 叢集
+## <a name="create-apache-hbase-cluster"></a>建立 Apache HBase 叢集
 下列程序會使用 Azure Resource Manager 範本建立 HBase 叢集和相依的預設 Azure 儲存體帳戶。 若要了解此程序與其他叢集建立方法中使用的參數，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
 1. 按一下以下影像，在 Azure 入口網站中開啟範本。 範本位在 [Azure 快速入門範本](https://azure.microsoft.com/resources/templates/)。
@@ -56,13 +56,13 @@ ms.locfileid: "51010284"
 > 
 
 ## <a name="create-tables-and-insert-data"></a>建立資料表和插入資料
-您可以使用 SSH 來連線到 HBase 叢集，然後使用 HBase Shell 來建立 HBase 資料表、插入及查詢資料。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+您可以使用 SSH 來連線到 HBase 叢集，然後使用 [Apache HBase Shell](http://hbase.apache.org/0.94/book/shell.html) 來建立 HBase 資料表、插入及查詢資料。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 對大多數人而言，資料會以表格形式出現：
 
 ![HDInsight HBase 表格式資料][img-hbase-sample-data-tabular]
 
-在 HBase (實作 BigTable) 中，相同的資料看起來如下：
+在 HBase (實作 [Cloud BigTable](https://cloud.google.com/bigtable/)) 中，相同的資料看起來如下：
 
 ![HDInsight HBase BigTable 資料][img-hbase-sample-data-bigtable]
 
@@ -100,7 +100,7 @@ ms.locfileid: "51010284"
    
     您會看到與使用掃描命令相同的結果，因為只有一個資料列。
    
-    如需 HBase 資料表結構描述的詳細資訊，請參閱 [HBase 結構描述設計簡介][hbase-schema]。 如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
+    如需 HBase 資料表結構描述的詳細資訊，請參閱 [Apache HBase 結構描述設計簡介][hbase-schema]。 如需其他 HBase 命令，請參閱 [Apache HBase 參考指南][hbase-quick-start]。
 5. 結束 Shell
    
     ```hbaseshell
@@ -124,7 +124,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
     4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
     16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
-您可以選擇性地建立文字檔，並將檔案上載至自己的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中將 Hadoop 工作的資料上傳][hdinsight-upload-data]。
+您可以選擇性地建立文字檔，並將檔案上載至自己的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中將 Apache Hadoop 作業的資料上傳][hdinsight-upload-data]。
 
 > [!NOTE]
 > 此程序會使用您在上一個程序中建立的連絡人 HBase 資料表。
@@ -144,9 +144,9 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
 
 3. 您可以開啟 HBase Shell，並使用掃描命令來列出資料表內容。
 
-## <a name="use-hive-to-query-hbase"></a>使用 Hive 查詢 HBase
+## <a name="use-apache-hive-to-query-apache-hbase"></a>使用 Apache Hive 查詢 Apache HBase
 
-您可以使用 Hive 查詢 HBase 資料表中的資料。 在本節中，您會建立對應至 HBase 資料表的 Hive 資料表，並用以查詢您 HBase 資料表中的資料。
+您可以使用 [Apache Hive](https://hive.apache.org/) 查詢 HBase 資料表中的資料。 在本節中，您會建立對應至 HBase 資料表的 Hive 資料表，並用以查詢您 HBase 資料表中的資料。
 
 1. 開啟 **PuTTY**，然後連線到叢集。  請參閱先前程序中的指示。
 2. 在 SSH 工作階段中，使用以下命令啟動 Beeline：
@@ -157,7 +157,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
 
     如需有關 Beeline 的詳細資訊，請參閱[利用 Beeline 搭配使用 Hive 與 HDInsight 中的 Hadoop](../hadoop/apache-hadoop-use-hive-beeline.md)。
        
-3. 執行下列 HiveQL 指令碼以建立對應到 HBase 資料表的 Hive 資料表。 在執行此陳述式前，請確定您已使用 HBase Shell 建立參考先前本教學課程的範例資料表。
+3. 執行下列 [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual) 指令碼以建立對應到 HBase 資料表的 Hive 資料表。 在執行此陳述式前，請確定您已使用 HBase Shell 建立參考先前本教學課程的範例資料表。
 
     ```hiveql   
     CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
@@ -268,13 +268,14 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您已了解如何建立 HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。 您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
+在本文中，您已了解如何建立 Apache HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。 您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
 
 若要深入了解，請參閱：
 
-* [HDInsight HBase 概觀][hdinsight-hbase-overview]：HBase 是建置於 Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+* [HDInsight HBase 概觀][hdinsight-hbase-overview]：Apache HBase 是建置於 Apache Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
+
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 [hbase-reference]: http://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf

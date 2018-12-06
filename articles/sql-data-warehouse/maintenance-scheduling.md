@@ -7,19 +7,19 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
-ms.date: 09/20/2018
+ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: c2ed79673af3563ae62f516057a174770cda99e9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427857"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498020"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用維護排程管理服務更新和維護
 
-Azure SQL 資料倉儲維護排程現在處於預覽狀態。 此功能會整合服務健康狀態計劃性維護通知、資源健康狀態檢查監視器，以及 Azure SQL 資料倉儲維護排程服務。
+維護排程現在正式推出到所有 Azure SQL 資料倉儲區域。 此功能會整合服務健康狀態計劃性維護通知、資源健康狀態檢查監視器，以及 Azure SQL 資料倉儲維護排程服務。
 
 您會使用維護排程來選擇時段，方便您接收新功能、升級與修補程式。 您可以在七天期間內選擇主要和次要維護時段。 範例中的主要時段是星期六 22:00 到星期日 01:00，而次要時段為星期三 19:00 到 22:00。 如果 SQL 資料倉儲無法在主要維護時段執行維護，它將在次要維護時段再次試著進行維護。
 
@@ -27,7 +27,7 @@ Azure SQL 資料倉儲維護排程現在處於預覽狀態。 此功能會整合
 
 每個維護時段都可以是三到八個小時。 維護可能會在該時段內的任何時間進行。 您應該預期連線可能短暫中斷，因為服務會將新的程式碼部署到您的資料倉儲。 
 
-在功能預覽期間，您必須在個別的日期範圍內找出主要和次要時段。 所有的維護作業都應該在排程的維護時段內完成。 如果沒有事先通知，就不會在指定的維護時段以外進行維護。 如果您的資料倉儲已在排程維護期間暫停，它將會在繼續作業期間更新。  
+若要使用這項功能，您必須在個別的日期範圍內找出主要和次要時段。 所有的維護作業都應該在排程的維護時段內完成。 如果沒有事先通知，就不會在指定的維護時段以外進行維護。 如果您的資料倉儲已在排程維護期間暫停，它將會在繼續作業期間更新。  
 
 
 ## <a name="alerts-and-monitoring"></a>警示和監視
@@ -51,6 +51,7 @@ Azure SQL 資料倉儲維護排程現在處於預覽狀態。 此功能會整合
 - [深入了解](changing-maintenance-schedule.md)如何變更維護排程。
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage)如何使用 Azure 監視器來建立、檢視和管理警示。
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)適用於記錄警示規則的 Webhook 動作。
+- [深入了解](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)如何建立及管理動作群組。
 - [深入了解](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure 服務健康狀態。
 
 

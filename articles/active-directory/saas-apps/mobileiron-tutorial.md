@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 53cec59841fbda49e4e410f069882ea76996f9fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428286"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584106"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教學課程：Azure Active Directory 與 MobileIron 整合
 
@@ -106,22 +106,21 @@ MobileIron 與 Azure AD 整合提供下列優點：
  
     ![單一登入對話方塊](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
-1. 如果您想要以 **IDP** 起始模式設定應用程式，請在 [MobileIron 網域及 URL] 區段上執行下列步驟：
+1. 如果您想要以  **IDP**  起始模式設定應用程式，請在 [MobileIron 網域及 URL] 區段上執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入資訊](./media/mobileiron-tutorial/tutorial_mobileiron_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.mobileiron.com/<key>`
+    1. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.mobileiron.com/<key>`
 
-    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
+    1. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<host>.mobileiron.com/saml/SSO/alias/<key>`
 
-1. 如果您想要以 **SP** 起始模式設定應用程式，請勾選 [顯示進階 URL 設定]，然後執行下列步驟：
+1. 如果您想要以  **SP**  起始模式設定應用程式，請勾選 [顯示進階 URL 設定] **** ，然後執行下列步驟：
 
     ![MobileIron 網域及 URL 單一登入](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
-    在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<host>.mobileiron.com/user/login.html`
+    在 [登入 URL] ****  文字方塊中，以下列模式輸入 URL： `https://<host>.mobileiron.com/user/login.html`
     
-    > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
+    > [!NOTE]  這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -174,13 +173,13 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
     ![[使用者] 對話方塊](./media/mobileiron-tutorial/create_aaduser_04.png)
 
-    a. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
+    1. 在 [名稱] 方塊中，輸入 **BrittaSimon**。
 
-    b. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
+    1. 在 [使用者名稱] 方塊中，輸入使用者 Britta Simon 的電子郵件地址。
 
-    c. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
+    1. 選取 [顯示密碼] 核取方塊，然後記下 [密碼] 方塊中顯示的值。
 
-    d. 按一下頁面底部的 [新增] 。
+    1. 按一下頁面底部的 [新增] 。
   
 ### <a name="create-a-mobileiron-test-user"></a>建立 MobileIron 測試使用者
 
@@ -199,13 +198,13 @@ MobileIron 需以手動方式佈建。
 
     ![設定單一登入使用者新增按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_useradd.png)
 
-    a. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
+    1. 在 [電子郵件地址] 文字方塊中，輸入使用者的電子郵件，例如 brittasimon@contoso.com。
 
-    b. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
+    1. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
-    c. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
+    1. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
     
-    d. 按一下 [完成] 。  
+    1. 按一下 [完成] 。  
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -242,7 +241,7 @@ MobileIron 需以手動方式佈建。
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 MobileIron 磚時，應該會自動登入您的 MobileIron 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

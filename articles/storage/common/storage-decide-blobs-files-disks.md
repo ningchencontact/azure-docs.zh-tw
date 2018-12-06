@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/28/2018
+ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091705"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498750"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -42,7 +42,7 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 |端點|`http://myaccount.blob.core.windows.net/mycontainer/myblob`|`\\myaccount.file.core.windows.net\myshare\myfile.txt`<br /><br /> `http://myaccount.file.core.windows.net/myshare/myfile.txt`|  
 |目錄|一般命名空間|真實目錄物件|  
 |名稱區分大小寫|區分大小寫|不區分大小寫，但保留大小寫|  
-|Capacity|最高可達 500 TiB 的容器|5 TiB 的檔案共用|  
+|Capacity|最高可達 2 PiB 的帳戶限制 |5 TiB 的檔案共用|  
 |Throughput|每個區塊 Blob 最高可達每秒 60 MiB|每個共用最高可達每秒 60 MiB|  
 |物件大小|每個區塊 Blob 最高約可達 4.75 TiB|每個檔案最高可達 1 TiB|  
 |計費的容量|根據寫入的位元組|根據檔案大小|  

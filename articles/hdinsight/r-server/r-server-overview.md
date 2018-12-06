@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 74d8629eb8fc29f3cb572be0b1ccb8b6149ab971
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f53d87d6de76c0ff6954c9bd38d95e05981d822
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016279"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499475"
 ---
 # <a name="introduction-to-ml-services-and-open-source-r-capabilities-on-hdinsight"></a>HDInsight 上的 ML 服務與開放原始碼 R 功能簡介
 
@@ -27,7 +27,7 @@ ms.locfileid: "51016279"
 
 HDInsight 上的 ML 服務所提供的最新功能，適用於幾乎任何大小的資料集上所進行的 R 型分析，且不論資料集是載入 Azure Blob 或 Data Lake 儲存體。 ML 服務叢集是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以運用 8000 多個開放原始碼 R 套件中的任何一個。 ScaleR 中的常式與 Microsoft 的巨量資料分析套件亦可供使用。
 
-叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 ScaleR 的平行分散式函數。 您也可以使用 ScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函數。
+叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 ScaleR 的平行分散式函數。 您也可以使用 ScaleR 的 Hadoop Map Reduce 或 Apache Spark 計算內容，跨越叢集的節點來執行這些函數。
 
 可以下載分析所產生的模型或預測，以便在內部部署使用。 它們也可以在 Azure 中的其他地方實際運作，特別是透過 [Azure Machine Learning Studio](http://studio.azureml.net) [Web 服務](../../machine-learning/studio/publish-a-machine-learning-web-service.md)。
 
@@ -114,7 +114,7 @@ HDInsight 叢集 HDFS 檔案系統的預設儲存體可以與 Azure 儲存體帳
 
 在這種情況下，您可以在建立叢集之後，使用指令碼動作來安裝其他套件。 如需詳細資訊，請參閱[管理 HDInsight 叢集中的 ML 服務](r-server-hdinsight-manage.md)。
 
-### <a name="change-hadoop-mapreduce-memory-settings"></a>變更 Hadoop MapReduce 記憶體設定
+### <a name="change-apache-hadoop-mapreduce-memory-settings"></a>變更 Apache Hadoop MapReduce 記憶體設定
 
 您可以在執行 MapReduce 作業時，修改叢集以變更 ML 服務的可用記憶體數量。 若要修改叢集，請使用可透過叢集的 Azure 入口網站刀鋒視窗存取的 Apache Ambari UI。 如需如何存取叢集的 Ambari UI 的指示，請參閱[使用 Ambari Web UI 管理 HDInsight 叢集](../hdinsight-hadoop-manage-ambari.md)。
 

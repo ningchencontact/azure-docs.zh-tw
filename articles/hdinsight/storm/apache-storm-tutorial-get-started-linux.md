@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d2181fb22079112c84e3e7c65575b12aa0c867ac
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 900180c9991932f4efaa07f9881e9f3f897cd99e
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006544"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498270"
 ---
 # <a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>使用 storm-starter 範例在 HDInsight 上開始使用 Apache Storm
 
-了解如何使用 storm-starter 範例，在 HDInsight 中使用 Apache Storm。
+了解如何使用 storm-starter 範例，在 HDInsight 中使用 [Apache Storm](http://storm.apache.org/)。
 
 Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運算系統。 在 Storm on Azure HDInsight 中，您可以建立雲端式 Storm 叢集，以執行即時的巨量資料分析。
 
@@ -34,7 +34,7 @@ Apache Storm 是一個可處理資料串流的分散式、容錯、即時的運�
 
 * **熟悉 SSH 和 SCP**。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="create-a-storm-cluster"></a>建立 Storm 叢集
+## <a name="create-an-apache-storm-cluster"></a>建立 Apache Storm 叢集
 
 請使用下列步驟建立 Storm on HDInsight 叢集：
 
@@ -139,7 +139,7 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
     * **停用** ：暫停執行中拓撲。
 
-    * **重新平衡** ：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 重新平衡調整平行處理原則，以彌補叢集中增加/減少的節點數目。 如需詳細資訊，請參閱 [了解 Storm 拓撲的平行處理原則](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+    * **重新平衡** ：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 重新平衡調整平行處理原則，以彌補叢集中增加/減少的節點數目。 如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
 
     * **終止 (Kill)** ：在指定的逾時之後終止 Storm 拓撲。
 
@@ -187,15 +187,15 @@ Storm UI 提供 Web 介面來處理執行中的拓撲，包含在您的 HDInsigh
 
 ## <a id="next"></a>接續步驟
 
-在本 Apache Storm 教學課程中，您已了解使用 Storm on HDInsight 的基本概念。 接下來，了解如何 [使用 Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)。
+在本 Apache Storm 教學課程中，您已了解使用 Storm on HDInsight 的基本概念。 接下來，了解如何[使用 Apache Maven 開發以 Java 為基礎的拓撲](apache-storm-develop-java-topology.md)。
 
 如果您已熟悉開發 Java 型拓撲，請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](apache-storm-deploy-monitor-topology-linux.md)文件。
 
-如果您是 .NET 開發人員，您可以使用 Visual Studio 建立 C# 或混合式 C#/Java 拓撲。 如需詳細資訊，請參閱 [使用 Visual Studio 的 Hadoop 工具開發 Apache Storm on HDInsight 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
+如果您是 .NET 開發人員，您可以使用 Visual Studio 建立 C# 或混合式 C#/Java 拓撲。 如需詳細資訊，請參閱[使用 Visual Studio 的 Apache Hadoop 工具開發適用於 HDInsight 上 Apache Storm 的 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 
 如需可搭配 Storm on HDInsight 使用的拓撲範例，請參閱下列範例︰
 
-* [Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
+* [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html

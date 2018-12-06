@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 9402147e2dab7fbf52fc893f339f6f3b8e112377
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515636"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309339"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
@@ -93,6 +93,7 @@ ms.locfileid: "51515636"
 
 >[!Note] 
 >針對已註冊的裝置，建議您將裝置清除，以確保使用者無法存取該資源。 如需詳細資訊，請參閱[註冊裝置以在 Intune 中管理](https://docs.microsoft.com/intune/deploy-use/enroll-devices-in-microsoft-intune)。 
+
 ---
 
 # <a name="azure-ad-join-faq"></a>Azure AD Join 常見問題集
@@ -103,6 +104,20 @@ ms.locfileid: "51515636"
 - 針對已加入 Azure AD 的混合式裝置，請務必關閉自動註冊，這樣的話，已排定的工作就不會再次註冊裝置。 接著，以系統管理員身分開啟命令提示字元，然後輸入 `dsregcmd.exe /debug /leave`。 或者，可跨多個裝置以指令碼方式執行此命令，以進行大量退出。
 
 - 針對純粹已加入 Azure AD 的裝置，確定您具有離線的本機系統管理員帳戶 (若無帳戶則請建立)，因為您將無法使用任何 Azure AD 使用者認證進行登入。 接下來，移至 [設定] > [帳戶] > [存取公司或學校資源]。 選取您的帳戶，然後按一下 [中斷連線]。 遵循提示，然後在系統提示您時提供本機系統管理員認證。 重新啟動裝置以完成退出程序。
+
+---
+
+**問：我的使用者是否可以登入已加入 Azure AD、但已在 Azure AD 中刪除或停用的裝置？**
+**答：** 是。 Windows 具有快取登入功能，可讓先前曾登入的使用者快速存取桌面，即使沒有網路連線亦然。 當裝置在 Azure AD 中遭到刪除或停用時，Windows 裝置並不知道此一狀況。 因此，先前曾登入的使用者將可使用快取的登入繼續存取桌面。 不過，當裝置遭到刪除或停用後，使用者將無法存取任何受到裝置型條件式存取保護的資源。 
+
+尚未登入的使用者將無法存取裝置，因為並沒有快取的登入可供其使用。 
+
+---
+
+**問：已停用或刪除的使用者是否可以登入已加入 Azure AD 的裝置？**
+**答：** 是，但有時間限制。 當使用者在 Azure AD 中遭到刪除或停用時，Windows 裝置並不會立即得知此一狀況。 因此，先前曾登入的使用者將可使用快取的登入來存取桌面。 一旦裝置認知到使用者狀態 (通常在 4 小時內)，Windows 即會封鎖這些使用者對桌面的存取。 當使用者在 Azure AD 中遭到刪除或停用後，使用者所有的權杖都將撤銷，因此無法存取任何資源。 
+
+先前未曾登入、且已遭刪除或停用的使用者將無法存取裝置，因為並沒有快取的登入可供其使用。 
 
 ---
 

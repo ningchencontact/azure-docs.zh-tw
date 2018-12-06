@@ -10,17 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 81344d388fbba0db034b8adb06adab6797ec2ce1
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4a2af832fda8a85ee8a4aba395a8f436172153ed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166737"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308557"
 ---
 # <a name="write-data-using-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來寫入資料
-您可以在資料流程的任何時間點寫出資料。 這些寫入作業會新增為所產生資料流程的步驟，並會在每次資料流程執行時執行。 資料會寫入多個分割區檔案，以允許平行寫入。
 
-由於管線中的寫入步驟數目沒有任何限制，因此您能輕鬆地新增其他寫入步驟，取得要進行疑難排解或針對其他管線使用的中繼結果。 
+在本文中，您將了解使用 Azure Machine Learning 資料準備 SDK 來寫入資料的不同方法。 輸出資料可以隨時寫入資料流程，而寫入作業會新增為所產生資料流程的步驟，並在每次資料流程執行時執行。 資料會寫入多個分割區檔案，以允許平行寫入。
+
+由於管線中的寫入步驟數目沒有任何限制，因此您能輕鬆地新增其他寫入步驟，取得要進行疑難排解或針對其他管線使用的中繼結果。
 
 每次執行寫入步驟時，就會完整提取資料流程中的資料。 例如，具有三個寫入步驟的資料流程會讀取及處理資料集中的每一筆記錄三次。
 
@@ -36,21 +37,23 @@ ms.locfileid: "47166737"
 + Azure Data Lake 儲存體
 
 ## <a name="spark-considerations"></a>Spark 考量
+
 在 Spark 中執行資料流程時，您必須寫入空白的資料夾。 嘗試寫入現有資料夾的動作導致失敗。 請確定您的目標資料夾是空的，或針對每次執行使用不同的目標位置，否則寫入將會失敗。
 
 ## <a name="monitoring-write-operations"></a>監視寫入作業
+
 為了方便起見，在完成寫入之後，會產生名為 SUCCESS 的標記檔案。 它的存在可協助您識別中繼寫入何時完成，而不需要等待整個管線完成。
 
 ## <a name="example-write-code"></a>範例寫入程式碼
 
-針對此範例，一開始先將資料載入資料流程。 我們會以不同的格式重複使用此資料。
+針對此範例，一開始先將資料載入資料流程。 您可以不同的格式重複使用此資料。
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 範例輸出︰
 |   |  Column1 |    Column2 | Column3 | Column4  |Column5   | Column6 | Column7 | Column8 | Column9 |
@@ -68,7 +71,7 @@ t.head(10)
 
 ### <a name="delimited-file-example"></a>以符號分隔的檔案範例
 
-在此節中，您可以看到使用 `write_to_csv` 函式寫入以符號分隔之檔案的範例。
+下列程式碼會使用 `write_to_csv` 函式將資料寫入分隔檔案中。
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -95,9 +98,9 @@ written_files.head(10)
 |8| 10020.0|    99999.0|    ERROR |   否| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   否| SV|     |77000.0|   15500.0|    120.0|
 
-您可以在上面的輸出中看到由於未正確剖析的數字之故，數值欄中出現數個錯誤。 寫入 CSV 時，這些 Null 值預設會取代為字串 "ERROR"。 
+在上面的輸出中，由於未正確剖析數字，因此數值欄中出現數個錯誤。 寫入 CSV 時，Null 值預設會取代為字串 "ERROR"。
 
-您可以新增參數作為寫入呼叫的一部分，並指定要用來代表 Null 值的字串。 例如︰
+請新增參數作為寫入呼叫的一部分，並指定要用來代表 Null 值的字串。
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -122,7 +125,6 @@ written_files.head(10)
 |8| 10020.0|    99999.0|    BadData |   否| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   否| SV|     |77000.0|   15500.0|    120.0|
 
-
 ### <a name="parquet-file-example"></a>Parquet 檔案範例
 
 類似於 `write_to_csv`，`write_to_parquet` 函式會傳回具有寫入 Parquet 步驟的新資料流程，該步驟是在資料流程執行時執行。
@@ -132,9 +134,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-接下來，您可以執行資料流程，以開始寫入作業。
+執行資料流程，以開始寫入作業。
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')

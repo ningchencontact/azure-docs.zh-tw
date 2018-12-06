@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: 37e43e4bb8b2aea21e0fa396dd197ca41793469d
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: e20faa36f14e681b6eb81203024e79a649f47c95
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394160"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582542"
 ---
 # <a name="avoid-getting-charged-for-your-azure-free-account"></a>避免產生 Azure 免費帳戶的費用
 
@@ -62,6 +62,6 @@ Azure 免費帳戶提供使用量有限的每個月免費服務。 免費使用�
 
 您的免費服務與數量到期之後，Azure 會針對您使用的任何服務收取預付型方案費率。 您可以使用 Azure 入口網站，對於不使用的服務刪除資源。 如果您不想要使用任何 Azure 服務，可以[取消訂閱](billing-how-to-cancel-azure-subscription.md)。
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

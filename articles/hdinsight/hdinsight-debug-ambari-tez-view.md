@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: c85ad59acc8e307de05f41365855f3a9669ac2b5
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034671"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494961"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
 
-適用於 HDInsight 的 Apache Ambari Web UI 包含 Apache Tez 檢視，可用來了解使用 Tez 的作業，和為該類型作業偵錯。 Tez 檢視可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
+適用於 HDInsight 的 [Apache Ambari](https://ambari.apache.org/) Web UI 包含 [Apache TEZ](https://tez.apache.org/) 檢視，可用來了解使用 Tez 的作業，和為該類型作業偵錯。 Tez 檢視可讓您把作業視覺化有已連接項目的圖表、深入每個項目、取得統計資料，以及記錄資訊。
 
 > [!IMPORTANT]
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -101,8 +101,8 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已了解如何使用 Tez 檢視，請深入了解 [在 HDInsight 上使用 Hive](hadoop/hdinsight-use-hive.md)。
+既然您已了解如何使用 Apache Tez 檢視，請深入了解 [在 HDInsight 上使用 Apache Hive](hadoop/hdinsight-use-hive.md)。
 
-如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Tez 頁面](http://hortonworks.com/hadoop/tez/)。
+如需 Apache Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](http://hortonworks.com/hadoop/tez/)。
 
-如需如何搭配 HDInsight 來使用 Ambari 的詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+如需如何搭配 HDInsight 來使用 Apache Ambari 的詳細資訊，請參閱 [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)

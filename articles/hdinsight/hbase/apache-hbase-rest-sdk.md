@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
-ms.openlocfilehash: af3b87fbe79624143b6c2b7e0a3c50852e532524
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 89c74b0c2144776d3bbc8a87f660b546ad40987f
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042116"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495401"
 ---
-# <a name="use-the-hbase-net-sdk"></a>使用 HBase .NET SDK
+# <a name="use-the-net-sdk-for-apache-hbase"></a>使用 .Net SDK for Apache HBase
 
-[HBase](apache-hbase-overview.md) 提供兩大資料處理選擇：[Hive 查詢，以及呼叫 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
+[Apache HBase](apache-hbase-overview.md) 提供兩大資料處理選擇：[Apache Hive 查詢，以及呼叫 HBase 的 RESTful API](apache-hbase-tutorial-get-started-linux.md)。 您可以使用 `curl` 命令或類似公用程式，直接使用 REST API。
 
 對於 C# 和 .NET 應用程式，[Microsoft HBase REST Client Library for .NET](https://www.nuget.org/packages/Microsoft.HBase.Client/) 還提供了 HBase REST API 以外的用戶端程式庫。
 
@@ -37,7 +37,7 @@ var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdins
 client = new HBaseClient(credentials);
 ```
 
-將 CLUSTERNAME 更改為您的 HDInsight HBase 叢集名稱，並將 USERNAME 和 PASSWORD 更改為建立叢集時指定的 Hadoop 認證。 預設 Hadoop 使用者名稱為 **admin**。
+將 CLUSTERNAME 更改為您的 HDInsight HBase 叢集名稱，並將 USERNAME 和 PASSWORD 更改為建立叢集時指定的 Apache Hadoop 認證。 預設 Hadoop 使用者名稱為 **admin**。
 
 ## <a name="create-a-new-table"></a>建立新的資料表
 
@@ -113,7 +113,7 @@ set.rows.Add(row);
 await client.StoreCellsAsync("RestSDKTable", set);
 ```
 
-HBase 會實作 BigTable，因此資料格式如下所示：
+HBase 會實作[雲端 BigTable](https://cloud.google.com/bigtable/)，因此資料格式如下所示：
 
 ![具有 [叢集使用者] 角色的使用者](./media/apache-hbase-rest-sdk/table.png)
 
@@ -189,4 +189,4 @@ finally
 ## <a name="next-steps"></a>後續步驟
 
 * [開始使用 HDInsight 中的 Apache HBase 範例](apache-hbase-tutorial-get-started-linux.md)
-* 透過[使用 HBase 分析即時 Twitter 情感](../hdinsight-hbase-analyze-twitter-sentiment.md)建立端對端應用程式
+* 透過[使用 Apache HBase 分析即時 Twitter 情感](../hdinsight-hbase-analyze-twitter-sentiment.md)建立端對端應用程式

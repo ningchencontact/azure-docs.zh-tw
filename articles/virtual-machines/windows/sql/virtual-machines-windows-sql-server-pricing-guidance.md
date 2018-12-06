@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003554"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496469"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定價指導方針
 
@@ -37,7 +37,7 @@ ms.locfileid: "40003554"
 
 如果您想要開發、測試或建置某項概念證明，請使用免費授權的 **SQL Server Developer Edition**。 此版本包含 SQL Server Enterprise Edition 的所有功能，可讓您建置並測試任何類型的應用程式。 不過，您無法在生產環境中執行 Developer Edition。 SQL Server Developer Edition VM 只會產生 VM 成本的費用，因為沒有任何相關聯的 SQL Server 授權成本。
 
-如果您想要以生產環境執行輕量型工作負載 (< 4 個核心、< 1 GB 記憶體、< 10 GB/資料庫)，請使用免費授權的 **SQL Server Express Edition**。 SQL Server Express Edition VM 也只會產生 VM 成本的費用。
+如果您希望以生產環境執行輕量型工作負載 (< 4 個核心、< 1 GB 記憶體、< 10 GB/資料庫)，請使用免費授權的 **SQL Server Express Edition**。 SQL Server Express Edition VM 也只會產生 VM 成本的費用。
 
 針對這些開發/測試和輕量型生產環境工作負載，您也可以選擇符合這些工作負載的較小 VM 大小來節省成本。 在某些情況下，DS1v2 可能是理想的選擇。
 
@@ -90,6 +90,9 @@ ms.locfileid: "40003554"
 >
 >不包含其他 SQL Server 的 Web、Standard 和 Enterprise 版本的授權成本。 若要取得最精確的定價估計，請在 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) 或 [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 適用的定價頁面上，選取您的作業系統和 SQL Server 版本。
 
+> [!NOTE]
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
+
 ## <a id="byol"></a> 自備授權 (BYOL)
 
 **透過「授權行動性」自備 SQL Server 授權** (也稱為 **BYOL**) 意謂著在 Azure VM 中使用現有的「SQL Server 大量授權」搭配「軟體保證」。 使用 BYOL 的 SQL Server VM 只會收取執行 VM 的費用，不會收取 SQL Server 授權費用，但前提是您已經透過「大量授權」方案取得授權和「軟體保證」。
@@ -123,7 +126,9 @@ ms.locfileid: "40003554"
 > 請在 10 天內告訴我們您將在 Azure 中使用多少個 SQL Server 授權。 上述映像的連結包含如何這麼做的相關指示。
 
 > [!NOTE]
-> 不可能將支付 SQL Server VM 的每秒鐘付費授權模式變更成使用自己的授權。 在此情況下，您必須建立新的 BYOL VM，並將資料庫移轉到新的 VM。
+> 現在已可將授權模式從依使用量付費變更成自備授權 (BYOL)，反之亦然。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md)。 
+
+
 
 ## <a name="reduce-costs"></a>降低成本
 

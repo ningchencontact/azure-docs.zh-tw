@@ -8,18 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 32ef8ba2f6416e1b59fc98595f1b204e94bd2ead
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830985"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580945"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
 您可以將功能新增到 LUIS 應用程式來改善它的準確性。 這些功能協助 LUIS 的方式是提供某些字組和片語屬於某個應用程式網域詞彙的提示。 
+
+[片語清單](luis-concept-feature.md)包含一組屬於相同類別的值 (單字或片語)，而且必須以類似的方式處理 (例如城市或產品的名稱)。 LUIS 對於其中一個值的認識也會自動套用到其他值。 這個清單不是相符文字的封閉清單實體 (全文相符項目)。
+
+片語清單會新增至應用程式網域的詞彙，作為向 LUIS 指示這些字的第二個信號。
 
 ## <a name="add-phrase-list"></a>新增片語清單
 
@@ -47,9 +51,6 @@ ms.locfileid: "48830985"
 
 > [!Note]
 > 您可以從 [片語清單] 頁面上的關聯式工具列刪除或停用片語清單。
-
-## <a name="pattern-regular-expression-feature"></a>模式 (規則運算式) 功能 
-**此功能已被取代**。 新的模式功能無法新增到 LUIS。 任何現有的模式功能均支援到 2018 年 5 月為止。 將與 PR 進行比對的標準 LUIS 規則運算式提供給 [Recognizers-Text Github 存放庫](https://github.com/Microsoft/Recognizers-Text) \(英文\)。 
 
 ## <a name="next-steps"></a>後續步驟
 

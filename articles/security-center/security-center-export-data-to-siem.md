@@ -1,5 +1,5 @@
 ---
-title: 將 Azure 安全性資料匯出至 SIEM - 管線設定 [預覽] | Microsoft Docs
+title: 將 Azure 安全性資料匯出至 SIEM - 管線設定 | Microsoft Docs
 description: 本文記載將 Azure 資訊安全中心記錄移至 SIEM 的程序
 services: security-center
 documentationcenter: na
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2018
+ms.date: 11/26/2018
 ms.author: barclayn
-ms.openlocfilehash: aede60a729fe9c0594ded485e189c0b467e34271
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4cc9478197b39198a94ace1cbefab81de3cdb32b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298228"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306721"
 ---
-# <a name="azure-security-data-export-to-siem--pipeline-configuration-preview"></a>將 Azure 安全性資料匯出至 SIEM - 管線設定 [預覽]
+# <a name="azure-security-data-export-to-siem-pipeline-configuration"></a>將 Azure 安全性資料匯出至 SIEM - 管線設定
 
 本文件詳述將 Azure 資訊安全中心的安全性資料匯出到至 SIEM 的程序。
 
@@ -37,11 +37,11 @@ ms.locfileid: "44298228"
 
 ## <a name="what-is-the-azure-security-data-exposed-to-siem"></a>公開至 SIEM 的 Azure 安全性資料為何？
 
-在此預覽版本中，我們會公開[安全性警示](../security-center/security-center-managing-and-responding-alerts.md)。 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
+在此版本中，我們會公開[安全性警示](../security-center/security-center-managing-and-responding-alerts.md)。 在即將發行版本中，我們將使用安全性建議來擴充此資料集。
 
-## <a name="how-to-setup-the-pipeline"></a>如何設定管線？ 
+## <a name="how-to-setup-the-pipeline"></a>如何設定管線
 
-### <a name="create-an-event-hub"></a>建立事件中心 
+### <a name="create-an-event-hub"></a>建立事件中心
 
 開始之前，您必須[建立事件中樞命名空間](../event-hubs/event-hubs-create.md)。 此命名空間和事件中樞是所有監視資料的目的地。
 

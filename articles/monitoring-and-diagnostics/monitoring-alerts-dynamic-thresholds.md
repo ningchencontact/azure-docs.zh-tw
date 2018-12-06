@@ -1,22 +1,22 @@
 ---
 title: 在 Azure 監視器中建立具有動態閾值的警示
 description: 建立警示，內含以機器學習為基礎的動態閾值
-author: antonfrMSFT
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.author: mbullwin
-ms.reviewer: antonfr
+ms.date: 11/29/2018
+ms.author: Yaniv.Lavi
+ms.reviewer: mbullwin
 ms.component: alerts
-ms.openlocfilehash: 1b47e3804d8be36e3c6c8c570fec06f542e8dbf2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: af9f85014ea16dd266c56a71f13b4dce2adccc9a
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233961"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619696"
 ---
-# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-public-preview"></a>在 Azure 監視器中具有動態閾值的警示 (有限的公開預覽)
+# <a name="alerts-with-dynamic-thresholds-in-azure-monitor-limited-private-preview"></a>在 Azure 監視器中具有動態閾值的警示 (有限的個人預覽版)
 
 具有動態閾值的警示是對於 Azure 監視器中 Azure 計量警示的增強功能，它會利用進階的機器學習 (ML) 功能，學習計量的歷史行為，以自動計算基準線並且使用它們作為警示閾值。
 

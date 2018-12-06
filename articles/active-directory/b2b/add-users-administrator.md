@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/26/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
-ms.reviewer: sasubram
-ms.openlocfilehash: fef4615517da08262cc5845aaa076472c3874b34
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: mal
+ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984283"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52335056"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -83,11 +83,11 @@ ms.locfileid: "45984283"
 7. 在 [新增指派] 下，選取 [使用者和群組]。
 8. 執行下列其中一項：
    - 如果目錄中已有來賓使用者，請搜尋 B2B 使用者。 選取使用者，按一下 [選取]，然後按一下 [指派] 將使用者新增至應用程式中。
-   - 如果目錄中還沒有來賓使用者，請選取 [邀請]。
+   - 如果來賓使用者尚不在目錄中，請在 [選取成員或邀請外部使用者] 下方輸入使用者的電子郵件地址。 在訊息方塊中，輸入選擇性的個人訊息。 在訊息方塊下方，按一下 [邀請]。
            
        ![用來新增來賓成員的新增邀請按鈕](./media/add-users-administrator/AppInviteUsers.png)
    
-      在 [邀請來賓] 下輸入電子郵件地址，選擇性鍵入輸入個人訊息，然後選取 [邀請]。 按一下 [選取]，然後按一下 [指派] 將使用者新增至應用程式中。 邀請會自動傳送給受邀的使用者。
+      按一下 [選取]，然後按一下 [指派] 將使用者新增至應用程式中。 邀請會自動傳送給受邀的使用者。
 
 9. 來賓使用者會出現在應用程式的 [使用者和群組] 清單中，具有 [預設存取] 的指派角色。 如果您想要變更角色，請執行下列作業：
    - 選取來賓使用者，然後選取 [編輯]。 

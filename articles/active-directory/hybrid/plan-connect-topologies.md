@@ -12,15 +12,15 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 74b2cea8e3adfb6689d4ac7049e7892f8f0ecf4a
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158851"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582627"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Azure AD Connect 的拓撲
 本文說明使用 Azure AD Connect 同步處理做為重要整合解決方案的各種內部部署和 Azure Active Directory (Azure AD) 拓撲。 本文包含受支援和不受支援的組態。
@@ -84,7 +84,9 @@ Azure AD Connect 同步處理中的預設組態假設：
 
 不支援超過一部的 Azure AD Connect 同步處理伺服器連線到單一 Azure AD 租用戶。 例外狀況是使用 [預備伺服器](#staging-server)。
 
-### <a name="multiple-forests-separate-topologies"></a>多個樹系，個別拓撲
+此拓撲與下列拓撲的不同之處，在於不支援**多部同步伺服器**連線到單一 Azure AD 租用戶。
+
+### <a name="multiple-forests-single-sync-server-users-are-represented-in-only-one-directory"></a>多個樹系、單一同步伺服器、使用者只會以一個目錄表示
 ![跨所有目錄僅顯示使用者一次的選項](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
 ![多個樹系和個別拓撲的描述](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)

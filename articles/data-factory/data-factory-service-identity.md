@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/28/2018
 ms.author: jingwang
-ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 892fa32f73cec86e5d10a0d67da3d80bedd539aa
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249208"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619856"
 ---
 # <a name="azure-data-factory-service-identity"></a>Azure Data Factory 服務識別
 
-此文章協助您了解資料處理站的服務識別及其運作方式。
+本文協助您了解資料處理站的服務識別及其運作方式。
 
 ## <a name="overview"></a>概觀
 
@@ -30,7 +30,8 @@ ms.locfileid: "48249208"
 資料處理站的服務識別有助於下列功能：
 
 - [在 Azure Key Vault 中存放認證](store-credentials-in-key-vault.md)，在此案例中，資料處理站服務識別是用於 Azure Key Vault 驗證。
-- 連接器，包括 [Azure Blob 儲存體](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、[Azure SQL Database](connector-azure-sql-database.md), 和 [Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md)。
+- 連接器，包括 [Azure Blob 儲存體](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)、[Azure Data Lake Storage Gen2 ](connector-azure-data-lake-storage.md)、[Azure SQL Database](connector-azure-sql-database.md)，以及 [Azure SQL 資料倉儲](connector-azure-sql-data-warehouse.md)。
+- [網路活動](control-flow-web-activity.md)。
 
 ## <a name="generate-service-identity"></a>產生服務識別
 
@@ -44,6 +45,7 @@ ms.locfileid: "48249208"
 
 - [使用 PowerShell 產生服務識別](#generate-service-identity-using-powershell)
 - [使用 REST API 產生服務識別](#generate-service-identity-using-rest-api)
+- [使用 Azure Resource Manager 範本產生服務識別](#generate-service-identity-using-resource-management-template)
 - [使用 SDK 產生服務識別](#generate-service-identity-using-sdk)
 
 >[!NOTE]
@@ -92,7 +94,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ```json
 {
-    "name": "ADFV2DemoFactory",
+    "name": "<dataFactoryName>",
     "tags": {},
     "properties": {
         "provisioningState": "Succeeded",
@@ -107,7 +109,27 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
     },
     "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
     "type": "Microsoft.DataFactory/factories",
-    "location": "EastUS"
+    "location": "<region>"
+}
+```
+
+### <a name="generate-service-identity-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本產生服務識別
+
+**Template**: add "identity": { "type": "SystemAssigned" }.
+
+```json
+{
+    "contentVersion": "1.0.0.0",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "resources": [{
+        "name": "<dataFactoryName>",
+        "apiVersion": "2018-06-01",
+        "type": "Microsoft.DataFactory/factories",
+        "location": "<region>",
+        "identity": {
+            "type": "SystemAssigned"
+        }
+    }]
 }
 ```
 

@@ -1,9 +1,9 @@
 ---
-title: Azure AI 資源庫產業特有的解決方案 | Microsoft Docs
-description: 探索 Azure AI 資源庫中的產業解決方案。
+title: Azure AI 資源庫產業解決方案 - Azure Machine Learning Studio | Microsoft Docs
+description: Azure AI 資源庫的 [產業] 區段集結了零售、製造、金融和醫療保健等產業特有的各種資源。
 services: machine-learning
 documentationcenter: ''
-author: garyericson
+author: ericlicoding
 manager: jhubbard
 editor: cgronlun
 ms.assetid: fd2ecf9a-ff76-4a0f-8d68-7f762249648c
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.author: garye
-ms.openlocfilehash: d64395314f73c5d359b30c15ef11bfd3078e068f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.custom: (previous ms.author=garye, author=garyericson)
+ms.author: amlstudiodocs
+ms.openlocfilehash: 760f47bf42be32201eea86748d69875b0bf04ce4
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346298"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317393"
 ---
 # <a name="discover-industry-specific-solutions-in-the-azure-ai-gallery"></a>探索 Azure AI 資源庫中產業特有的解決方案
 

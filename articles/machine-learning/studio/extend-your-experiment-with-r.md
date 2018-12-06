@@ -1,10 +1,11 @@
 ---
-title: 透過 R 擴展您的經驗 | Microsoft Docs
+title: 使用 R 擴充您的實驗 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何利用「執行 R 指令碼」模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1f05119d94611df2e75afc3a56d9682d1149326c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834469"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311003"
 ---
-# <a name="extend-your-experiment-with-r"></a>透過 R 擴展您的經驗
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio：使用 R 擴充您的實驗 
 您可以利用[執行 R 指令碼][execute-r-script]模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。
 
 此模組接受多個輸入資料集，並產生單一資料集作為輸出。 您可以將 R 指令碼輸入[執行 R 指令碼][execute-r-script]模組的 **R 指令碼**參數中。
@@ -32,7 +33,7 @@ ms.locfileid: "34834469"
     dataset1 <- maml.mapInputPort(1)
 
 ## <a name="listing-all-currently-installed-packages"></a>列出所有目前安裝的封裝
-可以變更已安裝的封裝清單。 目前已安裝套件的清單位於 [Azure Machine Learning 支援的 R 套件](https://msdn.microsoft.com/library/azure/mt741980.aspx)中。
+可以變更已安裝的封裝清單。 目前已安裝套件的清單位於 [Azure Machine Learning Studio 支援的 R 套件](https://msdn.microsoft.com/library/azure/mt741980.aspx)中。
 
 請將下列程式碼輸入[執行 R 指令碼][execute-r-script]模組，取得目前已安裝套件的最新完整清單︰
 

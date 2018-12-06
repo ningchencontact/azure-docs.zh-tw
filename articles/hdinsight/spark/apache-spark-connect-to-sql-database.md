@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: b8494150a060e02145eab3674bdd2dd62cdda225
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 603aa8d85d42167accd2a5e71c4ab3e5245f5d07
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277285"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499267"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 叢集對 Azure SQL 資料庫讀取及寫入資料
 
-了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 Jupyter Notebook 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。 
+了解如何連線 Azure HDInsight 中的 Apache Spark 叢集與 Azure SQL 資料庫，然後將資料讀取、寫入和串流到 SQL 資料庫中。 本文中的指示使用 [Jupyter Notebook](https://jupyter.org/) 執行 Scala 程式碼片段。 不過，您可以在 Scala 或 Python 中建立獨立應用程式，並執行相同的工作。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -32,19 +32,14 @@ ms.locfileid: "51277285"
 
 * **SQL Server Management Studio**。 請依照[使用 SSMS 進行連線及查詢資料](../../sql-database/sql-database-connect-query-ssms.md)中的指示操作。
 
-## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook
+## <a name="create-a-jupyter-notebook"></a>建立 Jupyter Notebook 
 
-首先請建立與 Spark 叢集相關聯的 Jupyter Notebook。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
+首先請建立與 Spark 叢集相關聯的 [Jupyter Notebook](https://jupyter.org/)。 您可以使用此 Notebook 執行本文中使用的程式碼片段。 
 
-1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。 
+1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟您的叢集。
+1. 在右側選取 [叢集儀表板] 下方的 **Jupyter Notebook**。  如果您沒有看見 [叢集儀表板]，請按一下刀鋒視窗上左側功能表中的 [概觀]。 出現提示時，輸入叢集的系統管理員認證。
 
-1. 從 [快速連結] 區段按一下 [叢集儀表板]，以開啟 [叢集儀表板] 檢視。  如果您沒有看見 [快速連結]，請按一下刀鋒視窗上左側功能表中的 [概觀]。
-
-    ![Spark 上的叢集儀表板](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Spark 上的叢集儀表板") 
-
-1. 按一下 [Jupyter Notebook]。 出現提示時，輸入叢集的系統管理員認證。
-
-    ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Spark 上的 Jupyter Notebook")
+    ![Spark 上的 Jupyter Notebook](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Spark 上的 Jupyter Notebook")
    
    > [!NOTE]
    > 您也可以在瀏覽器中開啟下列 URL，以存取 Spark 叢集上的 Jupyter Notebook。 使用您叢集的名稱取代 **CLUSTERNAME** ：
@@ -242,4 +237,4 @@ ms.locfileid: "51277285"
 
 * [使用 HDInsight Spark 叢集分析 Data Lake Store 中的資料](apache-spark-use-with-data-lake-store.md)
 * [使用 EventHub 處理結構化串流事件](apache-spark-eventhub-structured-streaming.md)
-* [搭配使用 Spark 結構化串流與 HDInsight 上的 Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
+* [將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)

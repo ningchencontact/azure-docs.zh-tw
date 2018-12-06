@@ -9,21 +9,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: e132ceb857b05f24664c93729dd43d75b5a19ac2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1e01a3db2c0ca1f9024afb3faecf677ac4e3131b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015055"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52494477"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>在 HDInsight 上計算 ML 服務的內容選項
 
 Azure HDInsight 上的 ML 服務控制如何透過設定計算內容來執行呼叫。 此文章概述可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。
 
-叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 RevoScaleR 的平行分散式函式。 您也可以使用 RevoScaleR 的 Hadoop Map Reduce 或 Spark 計算內容，跨越叢集的節點來執行這些函式。
+叢集的邊緣節點提供便利的地方，以便連線到叢集以及執行 R 指令碼。 有了邊緣節點之後，即可選擇跨邊緣節點伺服器的核心，執行 RevoScaleR 的平行分散式函式。 您也可以使用 RevoScaleR 的 Hadoop Map Reduce 或 Apache Spark 計算內容，跨越叢集的節點來執行這些函式。
 
 ## <a name="ml-services-on-azure-hdinsight"></a>Azure HDInsight 上的 ML 服務
-[Azure HDInsight 上的 ML 服務](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上之 HDFS 容器中的資料。 ML 服務是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) (ML 服務隨附的 Microsoft 巨量資料分析套件) 中的常式。  
+[Azure HDInsight 上的 ML 服務](r-server-overview.md)可提供最新的 R 型分析功能。 它可以使用儲存在 [Azure Blob](../../storage/common/storage-introduction.md "Azure Blob 儲存體") 儲存體帳戶、Data Lake Store 或本機 Linux 檔案系統上 Apache Hadoop HDFS 容器中的資料。 ML 服務是根據開放原始碼 R 所建置，因此您建置的 R 型應用程式可以套用 8000 多個開放原始碼 R 套件中的任何一個。 它們也可以使用 [RevoScaleR](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/revoscaler) (ML 服務隨附的 Microsoft 巨量資料分析套件) 中的常式。  
 
 ## <a name="compute-contexts-for-an-edge-node"></a>邊緣節點的計算內容
 一般而言，在邊緣節點上 ML 服務叢集中執行的 R 指令碼會在該節點上的 R 解譯器內執行。 但呼叫 RevoScaleR 函式的步驟則屬例外狀況。 RevoScaleR 呼叫會在計算環境中執行，該環境是由您設定 RevoScaleR 計算內容的方式所決定。  當您從邊緣節點執行 R 指令碼時，可能的計算內容值為：
@@ -52,7 +52,7 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 - 如果資料位於本機，且是 XDF 格式，則重複分析會比較快。
 - 建議您從文字資料來源串流少量資料。 如果資料量比較大，請在分析之前先將它轉換為 XDF。
 - 對於非常大量的資料，將資料複製或串流至邊緣節點以進行分析的額外負荷會變得難以管理。
-- Spark 在 Hadoop 中的分析速度較 Map Reduce 快。
+- ApacheSpark 在 Hadoop 中的分析速度較 Map Reduce 快。
 
 在給定這些原則的情況下，以下各節提供一些有關選取計算內容的一般準則。
 
@@ -60,10 +60,10 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 * 如果要分析的資料量很小，而且不需要重複分析，請使用 local 或 localpar 直接將它串流到分析常式。
 * 如果要分析的資料量很小或是中等大小，而且需要重複分析，請將它複製到本機檔案系統、匯入至 XDF，然後透過 local 或 localpar 分析。
 
-### <a name="hadoop-spark"></a>Hadoop Spark
+### <a name="apache-spark"></a>Apache Spark
 * 如果要分析的資料量很大，請使用 **RxHiveData** 或 **RxParquetData** 將它匯入到 Spark DataFrame，或匯入到 HDFS 中的 XDF (除非儲存體會是問題)，然後使用 Spark 計算內容分析。
 
-### <a name="hadoop-map-reduce"></a>Hadoop Map Reduce
+### <a name="apache-hadoop-map-reduce"></a>Apache Hadoop Map Reduce
 * 只有在您使用 Spark 計算內容發生無法克服的問題時才使用 Map Reduce 計算內容，因為它的速度通常會比較慢。  
 
 ## <a name="inline-help-on-rxsetcomputecontext"></a>rxSetComputeContext 的內嵌說明
@@ -76,7 +76,7 @@ local 和 localpar 選項的差別只在於執行 **rxExec** 呼叫的方式。 
 ## <a name="next-steps"></a>後續步驟
 在此文章中，您可以了解可用於指定是否以及如何跨邊緣節點核心或 HDInsight 叢集將執行作業平行化的選項。 若要深入了解如何使用 HDInsight 叢集上的 ML 服務，請參閱下列主題：
 
-* [適用於 Hadoop 的 ML 服務概觀](r-server-overview.md)
-* [開始使用適用於 Hadoop 的 ML 服務](r-server-get-started.md)
+* [適用於 Apache Hadoop 的 ML 服務概觀](r-server-overview.md)
+* [開始使用適用於 Apache Hadoop 的 ML 服務](r-server-get-started.md)
 * [HDInsight 上適用於 ML 服務的 Azure 儲存體選項](r-server-storage.md)
 

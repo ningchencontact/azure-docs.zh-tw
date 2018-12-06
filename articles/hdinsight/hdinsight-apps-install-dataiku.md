@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 4ba1e325ec978114016682aaee35be35a20ec028
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038258"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499127"
 ---
 # <a name="install-published-application---dataiku-dds"></a>安裝已發佈的應用程式 - Dataiku DDS
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [Dataiku DDS](https://www.dataiku.com/) \(英文\) 已發佈的 Apache Hadoop 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [Dataiku DDS](https://www.dataiku.com/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-dataiku-dss"></a>關於 Dataiku DSS
 
@@ -26,9 +26,9 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 您可以使用 DSS，從資料的擷取、準備及處理開始，實作完整的分析解決方案。 DSS 解決方案也可以包含訓練和套用機器學習模型、視覺效果，然後使其能夠實際運作。
 
-您可以使用 Hadoop 或 Spark 叢集來安裝 HDInsight 上的 DSS。 您可以在現有的執行中叢集上安裝 DSS，或在建立新叢集時安裝 DSS。 DSS 也支援使用 Azure Blob 儲存體作為讀取資料的連接器。
+您可以使用 [Apache Hadoop](https://hadoop.apache.org/) 或 [Apache Spark](https://spark.apache.org/) 叢集來安裝 HDInsight 上的 DSS。 您可以在現有的執行中叢集上安裝 DSS，或在建立新叢集時安裝 DSS。 DSS 也支援使用 Azure Blob 儲存體作為讀取資料的連接器。
 
-您可以使用 DSS 來建置專案，然後這些專案將可以產生 MapReduce 或 Spark 作業。 這些作業會在 HDInsight 上以一般 MapReduce 或 Spark 作業的形式執行，因此您可以視需要調整叢集規模。
+您可以使用 DSS 來建置專案，然後這些專案將可以產生 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 或 Spark 作業。 這些作業會在 HDInsight 上以一般 MapReduce 或 Spark 作業的形式執行，因此您可以視需要調整叢集規模。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -40,7 +40,7 @@ Dataiku [Data Science Studio (DSS)](https://www.dataiku.com/dss/features/connect
 
 ## <a name="install-the-dataiku-dss-published-application"></a>安裝 Dataiku DSS 已發佈的應用程式
 
-如需有關安裝這個 ISV 應用程式和其他可用 ISV 應用程式的逐步指示，請參閱[安裝協力廠商 Hadoop 應用程式](hdinsight-apps-install-applications.md)。
+如需安裝這個 ISV 應用程式和其他可用 ISV 應用程式的逐步指示，請參閱[安裝協力廠商 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。
 
 ## <a name="launch-dataiku-dss"></a>啟動 Dataiku DSS
 

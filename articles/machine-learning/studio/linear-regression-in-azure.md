@@ -1,11 +1,12 @@
 ---
-title: 在 Machine Learning 中使用線性迴歸 | Microsoft Docs
+title: 在 Machine Learning Studio 中使用線性迴歸 - Azure | Microsoft Docs
 description: 在 Excel 和 Azure Machine Learning Studio 中的線性迴歸模型的比較
 metakeywords: ''
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
@@ -16,14 +17,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 162fc96c44db3c92103e12922de14b543daec9bf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836220"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311053"
 ---
-# <a name="using-linear-regression-in-azure-machine-learning"></a>在 Azure Machine Learning 中使用線性迴歸
+# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用線性迴歸
 > *Kate Baroni* 和 *Ben Boatman* 是 Microsoft 的 Data Insights Center of Excellence 的企業解決方案架構設計人員。 在本文章中，他們將說明使用 Azure Machine Learning 將現有的迴歸分析套件移轉至雲端式解決方案的經驗。 
 > 
 > 

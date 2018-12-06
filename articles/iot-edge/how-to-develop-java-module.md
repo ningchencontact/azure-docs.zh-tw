@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d72ffd849f9e1e6e661b0e54b7182b02a16c8024
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 3e50bf42076132f69fcb655da61a790fe207b949
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568983"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444404"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-java-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 Java 模組以及對其進行偵錯
 
@@ -64,7 +64,7 @@ ms.locfileid: "51568983"
 7. 選擇 [Java 模組] 作為解決方案中第一個模組的範本。
 8. 提供模組的名稱。 選擇容器登錄內唯一的名稱。 
 8. 提供 groupId 的值，或接受預設值 **com.edgemodule**。
-9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。
+9. 提供模組的映像存放庫。 VS Code 會自動填寫模組名稱，因此您只需要將 **localhost:5000** 取代為自己的登錄資訊即可。 如果您使用本機 Docker 登錄來進行測試，則可以使用 localhost。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 最終字串看起來會像 \<登錄名稱\>.azurecr.io/\<modulename\>。
 
    ![提供 Docker 映像存放庫](./media/how-to-develop-node-module/repository.png)
 
@@ -79,6 +79,8 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
    >環境檔案只會在您為模組提供了映像存放庫時才會建立。 如果您接受 localhost 預設值，並且在本機進行測試和偵錯，則不需要宣告環境變數。 
 
 * 一個 **deployment.template.json** 檔案，它會列出新的模組以及一個範例 **tempSensor** 模組，此範例模組會模擬可用於測試的資料。 如需部署資訊清單運作方式的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
+* **deployment.debug.template.json** 檔案包含您模組映像的偵錯版本與適當容器選項。
+
 
 ## <a name="develop-your-module"></a>開發您的模組
 
@@ -90,6 +92,14 @@ Visual Studio Code 支援 Java。 深入了解[如何在 VS Code 中使用 Java]
 
 ## <a name="launch-and-debug-module-code-without-container"></a>啟動並偵錯模組程式碼，而不需要容器
 IoT Edge Java 模組相依於 Azure IoT Java 裝置 SDK。 在預設模組程式碼中，您應使用環境設定和輸入名稱來初始化 **ModuleClient**，這表示 IoT Edge Java 模組需要環境設定才能啟動並執行，而且您也需要將訊息傳送或路由至輸入通道。 您的預設 Java 模組僅包含一個輸入通道，且其名稱為 **input1**。
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
+
+在您的開發電腦中，您可以藉由啟動 IoT Edge 模擬器來執行 IoT Edge 解決方案，而不安裝 IoT Edge 安全性精靈。 
+
+1. 在左側的裝置總管中，以滑鼠右鍵按一下您的 IoT Edge 裝置識別碼，然後選取 [設定 IoT Edge 模擬器] 以使用裝置連接字串啟動模擬器。
+
+2. 您可以在整合式終端機中看到 IoT Edge 模擬器已成功設定。
 
 ### <a name="setup-iot-edge-simulator-for-single-module-app"></a>設定單一模組應用程式的 IoT Edge 模擬器
 
@@ -132,7 +142,7 @@ IoT Edge Java 模組相依於 Azure IoT Java 裝置 SDK。 在預設模組程式
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>建置要偵錯的模組容器，並在附加模式中偵錯
 
-您的預設解決方案包含兩個模組，一個是模擬溫度感應器模組，另一個則是 Java 管道模組。 模擬溫度感應器會持續將訊息傳送至 Java 管道模組，然後訊息會輸送至 IoT 中樞。 在您已建立的模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 Java 模組目前只支援在 linux-amd64 及 linux-arm32v7 容器中進行偵錯。
+您的預設解決方案包含兩個模組，一個是模擬溫度感應器模組，另一個則是 Java 管道模組。 模擬溫度感應器會持續將訊息傳送至 Java 管道模組，然後訊息會輸送至 IoT 中樞。 在您已建立的模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 根據預設，**deployment.debug.template.json** 包含映像的偵錯版本。 Java 模組目前只支援在 linux-amd64 及 linux-arm32v7 容器中進行偵錯。 您可以在 VS Code 狀態列中切換您的 Azure IoT Edge 預設平台。
 
 ### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>設定 IoT Edge 解決方案的 IoT Edge 模擬器
 
@@ -144,12 +154,9 @@ IoT Edge Java 模組相依於 Azure IoT Java 裝置 SDK。 在預設模組程式
 
 ### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>建置並執行要偵錯的容器，並在附加模式中偵錯
 
-1. 在 VS Code 中，瀏覽至 `deployment.template.json` 檔案。 在結尾加上 **.debug**，以更新您的模組映像 URL。
+1. 瀏覽至 `App.java`。 在此檔案中新增中斷點。
 
-2. 將 **deployment.template.json** 中的 Java 模組 createOptions 取代為以下內容並儲存此檔案： 
-    ```json
-    "createOptions":"{\"HostConfig\":{\"PortBindings\":{\"5005/tcp\":[{\"HostPort\":\"5005\"}]}}}"
-    ```
+2. 在 VS Code 檔案總管中，在內容功能表中為您的解決方案選取 `deployment.debug.template.json` 檔案，然後按一下 [在模擬器中建置並執行 IoT Edge 解決方案]。 您可以在相同的視窗中查看所有模組容器記錄。 您也可以瀏覽至 Docker 總管以查看容器狀態。
 
 5. 瀏覽至 VS Code 偵錯檢視。 為您的模組選取偵錯組態檔。 偵錯選項名稱應該類似 **ModuleName 遠端偵錯 (Java)**。
 

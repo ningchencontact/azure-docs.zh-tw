@@ -9,17 +9,17 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: tyfox
-ms.openlocfilehash: d5d4c951bb104159730814f9b1b5820cb17f9f1a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4de4674d8a4c2b573df12648739971e460531636
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234777"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495095"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 來管理 HDInsight 中的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-了解如何使用 [Azure 傳統 CLI](../cli-install-nodejs.md) 來管理 Azure HDInsight 中的 Apache Hadoop 叢集。 傳統 CLI 實作於 Node.js 中。 此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
+了解如何使用 [Azure 傳統 CLI](../cli-install-nodejs.md) 來管理 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 叢集。 傳統 CLI 實作於 Node.js 中。 此工具可在任何支援 Node.js 的平台上使用，包括 Windows、Mac 和 Linux。
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -74,7 +74,7 @@ azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>調整叢集
-若要變更 Hadoop 叢集大小：
+若要變更 Apache Hadoop 叢集大小：
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>

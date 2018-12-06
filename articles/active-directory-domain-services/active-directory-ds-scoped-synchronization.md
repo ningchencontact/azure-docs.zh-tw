@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 7726a28e0254f4316759c3d8c74f57db6a9e399e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 1df9b07d5a0a9e5018fc024038e65723c606ef71
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242189"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52442976"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>設定從 Azure AD 到受控網域的限域同步處理
 此文章說明如何設定只將特定使用者帳戶從 Azure AD 目錄同步至 Azure AD Domain Services 受控網域。
@@ -47,7 +47,12 @@ ms.locfileid: "50242189"
 >
 
 
-## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization"></a>建立新的受控網域並啟用群組型限域同步處理
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-azure-portal"></a>使用 Azure 入口網站，建立新的受控網域並啟用群組型限域同步處理
+
+1. 遵循[使用者入門指南](active-directory-ds-getting-started.md)，以建立受控網域。
+2. 在 Azure AD Domain Services 建立精靈的同步處理樣式選取範圍期間，選擇 [限域]。
+
+## <a name="create-a-new-managed-domain-and-enable-group-based-scoped-synchronization-using-powershell"></a>使用 PowerShell，建立新的受控網域並啟用群組型限域同步處理
 請使用 PowerShell 來完成這組步驟。 請參考指示以[使用 PowerShell 啟用 Azure Active Directory Domain Services](active-directory-ds-enable-using-powershell.md)。 此文章中的一些步驟已經過些微修改來設定限域同步處理。
 
 請完成下列步驟來設定對受控網域的群組型限域同步處理：

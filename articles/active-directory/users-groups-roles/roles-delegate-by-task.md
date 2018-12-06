@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: b4704e9f078b248ef1835babb3b63c378b011c4e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51516473"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52445016"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>在 Azure Active Directory 中依身分識別工作的系統管理員角色
 
@@ -147,7 +147,7 @@ Task | 最低特殊權限角色 | 其他角色
 建立群組 | 使用者帳戶管理員 | 
 建立、更新或刪除群組或應用程式的存取權檢閱 | 使用者帳戶管理員 | 
 管理群組到期日 | 使用者帳戶管理員 | 
-管理群組設定 | 使用者帳戶管理員 | 
+管理群組設定 | 全域管理員 | 
 讀取所有設定 (隱藏的成員資格除外) | 目錄讀取器 | 預設使用者角色 ([請參閱文件](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 讀取隱藏的成員資格 | 群組成員 | 群組擁有者、密碼管理員、Exchange 系統管理員、SharePoint 系統管理員、Teams 管理員、使用者帳戶管理員
 讀取具有隱藏成員資格之群組的成員資格 | 服務台系統管理員 | 使用者帳戶管理員、Teams 管理員

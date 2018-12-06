@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 066734c88890d5f1a6e42c5350db47d1a398b60a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f6393d15572eadb376cbd88dc94c3de0fd8fa80b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277574"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495574"
 ---
 # <a name="apache-hadoop-architecture-in-hdinsight"></a>HDInsight 上的 Apache Hadoop 架構
 
-Apache Hadoop 包含兩個核心元件：提供儲存體的 Hadoop 分散式檔案系統 (HDFS)，和提供處理功能的 Yet Another Resource Negotiator (YARN)。 利用儲存體和處理功能，叢集變成能夠執行 MapReduce 程式以進行所需的資料處理。
+[Apache Hadoop](https://hadoop.apache.org/) 包含兩個核心元件：提供儲存體的 [Apache Hadoop 分散式檔案系統 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html)，和提供處理功能的 [Apache Hadoop Yet Another Resource Negotiator (YARN)](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)。 利用儲存體和處理功能，叢集變成能夠執行 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html) 程式以進行所需的資料處理。
 
 > [!NOTE]
 > 通常不會在 HDInsight 叢集內部署 HDFS 來提供儲存體。 相反地，Hadoop 元件使用 HDFS 相容的介面層。 實際的儲存體功能是由 Azure 儲存體或 Azure Data Lake Store 提供。 對於 Hadoop，在 HDInsight 叢集上執行的 MapReduce 作業會像 HDFS 存在一般運作，因此不需要變更即可支援其儲存需求。 在 HDInsight 上的 Hadoop 中，儲存體是外部的，但 YARN 處理仍然是核心元件。 如需詳細資訊，請參閱 [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)。
 
 本文會介紹 YARN 以及 YARN 是如何協調 HDInsight 上應用程式的執行工作。
 
-## <a name="apache-yarn-basics"></a>Apache YARN 基本概念 
+## <a name="apache-hadoop-yarn-basics"></a>Apache Hadoop YARN 基本概念 
 
 YARN 掌管並協調 Hadoop 中的資料處理。 YARN 有兩種核心服務，在叢集節點上作為流程執行： 
 
@@ -50,5 +50,5 @@ NodeManagers 會執行組成應用程式的各項工作，然後將其進度和�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 HDInsight 上的 Hadoop 中使用 MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hadoop/hdinsight-use-mapreduce.md)
 * [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)

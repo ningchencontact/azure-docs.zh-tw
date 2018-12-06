@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 59c89c81f618876de48de66a38e1063eb658fba4
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742953"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314774"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>預覽：Azure AD 密碼保護內部部署 - 常見問題集
 
@@ -50,7 +50,7 @@ FRS (DFSR 之前的技術) 有許多已知問題，而且在更新版本的 Wind
 
 [將 sysvol 複寫移轉至 DFSR 的案例](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr) \(英文\)
 
-[DRS 終章將至](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) \(英文\)
+[FRS 終章將至](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) \(英文\)
 
 **問：為什麼需要重新開機才能安裝或升級 DC 代理程式軟體？**
 

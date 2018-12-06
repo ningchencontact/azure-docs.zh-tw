@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 400f266b1f63de675b9cefae289878dbef0a278c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 77872ab809f4375523a91f4ebc9b24f8606e6c94
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685645"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619807"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory 傳遞驗證：常見問題集
 
@@ -34,7 +34,7 @@ ms.locfileid: "51685645"
 
 傳遞驗證是免費功能。 不需要任何付費的 Azure AD 版本即可使用。
 
-## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpwwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](http://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供傳遞驗證功能？
+## <a name="is-pass-through-authentication-available-in-the-microsoft-azure-germany-cloudhttpswwwmicrosoftdecloud-deutschland-and-the-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>[Microsoft Azure 德國雲端](https://www.microsoft.de/cloud-deutschland)和 [Microsoft Azure Government 雲端](https://azure.microsoft.com/features/gov/)是否有提供傳遞驗證功能？
 
 否。 只有全球版的 Azure AD 執行個體會提供傳遞驗證功能。
 
@@ -44,7 +44,7 @@ ms.locfileid: "51685645"
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>傳遞驗證支援以「替代識別碼」而非「userPrincipalName」來作為使用者名稱嗎？
 
-是。 當您在 Azure AD Connect 中設定了傳遞驗證時，傳遞驗證支援以 `Alternate ID` 作為使用者名稱。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
+是，在 Azure AD Connect 中設定時，傳遞驗證支援使用 `Alternate ID` 作為使用者名稱。 作為必要條件，Azure AD Connect 需要將內部部署 Active Directory `UserPrincipalName` 屬性同步到 Azure AD。 如需詳細資訊，請參閱[自訂 Azure AD Connect 安裝](how-to-connect-install-custom.md)。 並非所有 Office 365 應用程式都支援 `Alternate ID`。 請參閱支援陳述式的特定應用程式文件。
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>密碼雜湊同步處理是否會作為傳遞驗證的遞補？
 
@@ -119,6 +119,10 @@ ms.locfileid: "51685645"
 
 是。 如果 Active Directory 樹系之間有樹系信任且名稱尾碼路由已正確設定，就支援多樹系環境。
 
+## <a name="does-pass-through-authentication-provide-load-balancing-across-multiple-authentication-agents"></a>傳遞驗證是否提供跨多個驗證代理程式的負載平衡？
+
+否，安裝多個傳遞驗證代理程式只能確保[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。 它不會在驗證代理程式之間提供決定性的負載平衡。 任何驗證代理程式 (隨機) 都可以處理特定使用者登入要求。
+
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>我需要安裝幾個傳遞驗證代理程式？
 
 安裝多個傳遞驗證代理程式可確保[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。 但是，它不會在驗證代理程式之間提供確定性的負載平衡。
@@ -132,7 +136,7 @@ ms.locfileid: "51685645"
 對大多數客戶來說，總計中兩個或三個驗證代理程式已足以因應高可用性和容量。 應在靠近網域控制站的地方安裝驗證代理程式，以改善登入的延遲情形。
 
 >[!NOTE]
->系統限制每個租用戶只能有 12 個驗證代理程式。
+>系統限制每個租用戶只能有 40 個驗證代理程式。
 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>是否可以在不同於 Azure AD Connect 執行所在伺服器的某個伺服器上安裝第一個傳遞驗證代理程式？
 
@@ -149,6 +153,22 @@ ms.locfileid: "51685645"
 ## <a name="what-happens-when-i-uninstall-a-pass-through-authentication-agent"></a>解除安裝傳遞驗證代理程式會發生什麼事？
 
 如果從伺服器解除安裝傳遞驗證代理程式，會讓該伺服器停止接受登入要求。 為了避免中斷租用戶上的使用者登入功能，務必要有另一個驗證代理程式正在執行，才能解除安裝傳遞驗證代理程式。
+
+## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>我有原先使用 AD FS 設定的較舊租用戶。  我們最近已遷移到 PTA，但現在卻無法看到我們的 UPN 變更與 Azure AD 同步。  為何我們的 UPN 變更無法同步？
+
+答：在下列情況下您的內部部署 UPN 變更可能不會同步：
+
+- 您的 Azure AD 租用戶建立時間在 2015 年 6 月 15 日之前
+- 您一開始使用 AD FS 進行驗證來同盟您的 Azure AD 租用戶
+- 您切換到使用 PTA 進行驗證來擁有受控使用者
+
+這是因為 2015 年 6 月 15 日之前所建立租用戶的預設行為是封鎖 UPN 變更。  若您需要解除封鎖 UPN 變更，您需要執行下列 PowerShell Cmdlet：  
+
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+
+2015 年 6 月 15 日之後建立的租用戶，其預設行為便是同步 UPN 變更。   
+
+
 
 ## <a name="next-steps"></a>後續步驟
 - [目前的限制](how-to-connect-pta-current-limitations.md)：了解支援的情節和不支援的情節。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 72f85761db08652f0dff7f36fbcb2ef90654e078
+ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42141676"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52334392"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell 的疑難排解和限制
 
@@ -70,6 +70,8 @@ ms.locfileid: "42141676"
 - **解決方式**：關閉並重新開啟殼層。
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>針對 Azure VM 遠端管理進行疑難排解
+> [!NOTE]
+> Azure VM 必須具有公用 IP 位址。
 
 - **詳細資料**：基於 WinRM 的預設 Windows 防火牆設定，使用者可能會看到下列錯誤：`Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
 - **解決方式**：執行 `Enable-AzureRmVMPSRemoting`，在所有目標機器上啟用 PowerShell 遠端所有層面的功能。
@@ -105,7 +107,7 @@ Cloud Shell 支援下列最新版的瀏覽器：
 
 ### <a name="copy-and-paste"></a>複製和貼上
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>針對指定的使用者，只能有一個殼層作用中
 

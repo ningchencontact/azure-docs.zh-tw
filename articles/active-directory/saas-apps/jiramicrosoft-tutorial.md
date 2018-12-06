@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
-ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 608269a05ae1ed699954cd301aa03056e089fa8a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010723"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426096"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>教學課程：Azure Active Directory 與 JIRA SAML SSO by Microsoft 整合
 
@@ -154,11 +154,26 @@ JIRA SAML SSO by Microsoft 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. 安裝外掛程式之後，它會出現在 [管理附加元件] 區段的 [使用者安裝的附加元件] 區段中。 按一下 [設定] 來設定新的外掛程式。
+9. 若要執行 JIRA 反向 Proxy 案例或是負載平衡器案例，請執行以下步驟：
+
+    > [!NOTE]
+    > 請先按照以下說明來設定伺服器，再安裝外掛程式。
+
+    a. 在 JIRA 伺服器應用程式的 **server.xml** 檔案中，於**連接器**連接埠新增下列屬性。
+
+    `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+    ![設定單一登入](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+    b. 根據 Proxy/負載平衡器，變更**系統設定**中的**基底 URL**。
+
+    ![設定單一登入](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. 安裝外掛程式之後，它會出現在 [管理附加元件] 區段的 [使用者安裝的附加元件] 區段中。 按一下 [設定] 來設定新的外掛程式。
 
     ![設定單一登入](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. 在設定頁面上執行下列步驟：
+11. 在設定頁面上執行下列步驟：
 
     ![設定單一登入](./media/jiramicrosoft-tutorial/addon52.png)
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 36099a49cc9e6c810727606bb73d2669f1e0df79
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985687"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52422505"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
 
@@ -42,7 +42,7 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間
 
-每個 SQL Database 備份都具有預設保留週期，此週期是依據資料庫的服務層，而且在 [DTU 購買模型](sql-database-service-tiers-dtu.md)與 [vCore 購買模型](sql-database-service-tiers-vcore.md) 之間有所不同。 您可以更新資料庫的備份保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
+每個 SQL Database 有 7 到 35 天的預設備份保留期限，這取決於[購買模式和服務層級](#pitr-retention-period)而定。 您可以更新 Azure 邏輯伺服器上的資料庫備份保留期限 (這項功能將於近期在受控執行個體中啟用)。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
 
 如果您刪除資料庫，則 SQL Database 會以保存線上資料庫備份的相同方式保存備份。 例如，如果您刪除保留期間為七天的基本資料庫，則為期四天的備份還會再儲存三天。
 

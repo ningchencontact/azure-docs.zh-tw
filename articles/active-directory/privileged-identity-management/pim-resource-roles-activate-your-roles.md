@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/31/2018
+ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 59bce2c61db5838bb21a29757d4e354311ecffd5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666242"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497317"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>在 PIM 中啟用我的 Azure 資源角色
 
@@ -67,9 +67,25 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
 
 1. 按一下 [啟用]。
 
-    如果角色不需要核准，它現在就會啟用，角色會出現在使用中角色的清單中。 如果[角色需要核准](pim-resource-roles-approval-workflow.md)才能啟用，通知會出現在瀏覽器右上角，通知您要求正在等待核准。
+    如果角色不需核准，就會啟動並新增至使用中角色的清單。 如果您想要立即使用角色，請遵循下一節的步驟。
+
+    如果[角色需要核准](pim-resource-roles-approval-workflow.md)才能啟用，通知會出現在瀏覽器右上角，通知您要求正在等待核准。
 
     ![要求擱置通知](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-notification.png)
+
+## <a name="use-a-role-immediately-after-activation"></a>啟用後可立即使用角色
+
+當您在 PIM 中啟動角色之後，至少需等候 10 分鐘才能存取所需的系統管理入口網站，或在特定系統管理工作負載內執行函式。 若要強制更新您的權限，請使用 [應用程式存取] 頁面，如下列步驟中所述。
+
+1. 開啟 Azure AD Privileged Identity Management。
+
+1. 按一下 [應用程式存取] 頁面。
+
+    ![PIM 應用程式存取 - 螢幕擷取畫面](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. 按一下 [Azure 資源] 連結，即可重新開啟入口網站的 [所有資源] 頁面。
+
+    當您按一下此連結時，就會使目前的權杖失效，並強制 Azure 入口網站取得應包含您已更新之權限的新權杖。
 
 ## <a name="view-the-status-of-your-requests"></a>檢視要求狀態
 
@@ -82,20 +98,6 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
     ![Azure AD 目錄角色與 Azure 資源角色 - 我的要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. 捲動至右側可檢視 [要求狀態] 欄。
-
-## <a name="use-a-role-immediately-after-activation"></a>啟用後可立即使用角色
-
-因為快取的關係，啟用不會立即在 Azure 入口網站中生效，必須重新整理畫面。 如果您需要降低啟用角色之後的延遲機率，您可以使用入口網站中的**應用程式存取**頁面。 從此頁面存取的應用程式會立即檢查新的角色指派。
-
-1. 開啟 Azure AD Privileged Identity Management。
-
-1. 按一下 [應用程式存取] 頁面。
-
-    ![PIM 應用程式存取 - 螢幕擷取畫面](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
-
-1. 按一下 [Azure 資源]，即可重新開啟入口網站的 [所有資源] 頁面。
-
-    當您按一下此連結後，即可強制重新整理，並檢查新的 Azure 資源角色指派。
 
 ## <a name="cancel-a-pending-request"></a>取消擱置要求
 
@@ -110,6 +112,21 @@ Azure 資源的合格角色成員可使用 Azure AD Privileged Identity Manageme
     當您按一下 [取消] 時，要求將會取消。 若要再次啟用角色，您必須提交新的啟用要求。
 
    ![取消擱置要求](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
+
+## <a name="troubleshoot"></a>疑難排解
+
+### <a name="permissions-not-granted-after-activating-a-role"></a>啟動角色之後未授與權限
+
+當您在 PIM 中啟動角色之後，至少需等候 10 分鐘才能存取所需的系統管理入口網站，或在特定系統管理工作負載內執行函式。 若要強制更新您的權限，請使用 [應用程式存取] 頁面，如稍早在[啟用後可立即使用角色](#use-a-role-immediately-after-activation)中所述。
+
+如需其他疑難排解步驟，請參閱[針對較高的權限進行疑難排解](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) \(英文\)。
+
+### <a name="cannot-activate-a-role-due-to-a-resource-lock"></a>由於資源鎖定，因此無法啟動角色
+
+如果您收到一則訊息，顯示出當您嘗試啟動角色時有 Azure 資源遭到鎖定，則可能是因為角色指派範圍內有鎖定的資源。 鎖定可保護資源，以免遭到意外刪除或非預期的變更。 鎖定也可防止 PIM 在啟動期間結束時，移除資源上的角色指派。 由於套用資源鎖定時，PIM 無法正常運作，因此 PIM 會禁止使用者啟動資源上的角色。 解決此問題的方式有兩種：
+
+- 依[鎖定資源以防止非預期的變更](../../azure-resource-manager/resource-group-lock-resources.md)所述，將鎖定刪除。
+- 如果您想要保持鎖定，請讓角色指派變成永久，或使用急用帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

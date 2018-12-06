@@ -9,22 +9,22 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 4627593e4ab96c63423a7afd6152f3a004bc6c3f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 349298ba30de5540d5c86c81f483a1bd344dba9c
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042358"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497279"
 ---
-# <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>使用擴充的 Spark 記錄伺服器對 Spark 應用程式進行偵錯和診斷
+# <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>使用擴充的 Apache Spark 記錄伺服器對 Apache Spark 應用程式進行偵錯和診斷
 
-此文章將說明如何使用擴充的 Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料] 索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
+本文將說明如何使用擴充的 Apache Spark 記錄伺服器，對已完成和執行中的 Spark 應用程式進行偵錯及診斷。 此延伸模組包含 [資料] 索引標籤和 [圖表] 索引標籤和 [診斷] 索引標籤。在 [資料] 索引標籤上，使用者可以檢查 Spark 作業的輸入與輸出。 在 [圖表] 索引標籤上，使用者可以檢查資料流程，並重新執行作業圖表。 在 [診斷] 索引標籤上，使用者可以參考 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
 
-## <a name="get-access-to-spark-history-server"></a>存取 Spark 歷程記錄伺服器
+## <a name="get-access-to-apache-spark-history-server"></a>存取 Apache Spark 歷程記錄伺服器
 
-「Spark 記錄伺服器」是已完成和執行中 Spark 應用程式的 Web UI。 
+「Apache Spark 記錄伺服器」是已完成和執行中 Spark 應用程式的 Web UI。 
 
-### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Spark 歷程記錄伺服器 Web UI
+### <a name="open-the-apache-spark-history-server-web-ui-from-azure-portal"></a>從 Azure 入口網站開啟 Apache Spark 歷程記錄伺服器 Web UI
 
 1. 從 [Azure 入口網站](https://portal.azure.com/)，開啟 Spark 叢集。 如需詳細資訊，請參閱[列出和顯示叢集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。
 2. 從 [快速連結]，按一下 [叢集儀表板]，然後按一下 [Spark 記錄伺服器]。 出現提示時，輸入 Spark 叢集的系統管理員認證。 
@@ -87,7 +87,7 @@ ms.locfileid: "47042358"
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="graph-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [圖表] 索引標籤
+## <a name="graph-tab-in-apache-spark-history-server"></a>Apache Spark 歷程記錄伺服器中的 [圖表] 索引標籤
 選取作業識別碼，然後按一下工具功能表上的 [圖表]，以取得作業圖表檢視。
 
 + 透過產生的作業圖表來檢查您的作業概觀。 
@@ -158,7 +158,7 @@ ms.locfileid: "47042358"
     ![圖表的意見反應](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="diagnosis-tab-in-spark-history-server"></a>Spark 歷程記錄伺服器中的 [診斷] 索引標籤
+## <a name="diagnosis-tab-in-apache-spark-history-server"></a>Apache Spark 歷程記錄伺服器中的 [診斷] 索引標籤
 選取作業識別碼，然後按一下工具功能表上的 [診斷]，以取得作業診斷檢視。 [診斷] 所有標籤包括 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
     
 + 透過選取對應的索引標籤以查看 [資料扭曲]、[時間扭曲] 與 [執行程式使用狀況分析]。
@@ -326,8 +326,8 @@ ms.locfileid: "47042358"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 HDInsight 上管理 Spark 叢集的資源](apache-spark-resource-manager.md)
-* [設定 Spark 設定](apache-spark-settings.md)
+* [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [設定 Apache Spark 設定](apache-spark-settings.md)
 
 
 ## <a name="contact-us"></a>與我們連絡

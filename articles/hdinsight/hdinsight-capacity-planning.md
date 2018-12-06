@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
-ms.openlocfilehash: c3bdad6f1c199dda867370126eb7dcf5c296a12d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230422"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499130"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -61,7 +61,7 @@ Azure 儲存體有某些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="choose-a-cluster-type"></a>選擇叢集類型
 
-叢集類型會決定您 HDInsight 叢集設定要執行的工作負載，例如 Hadoop、Storm、Kafka 或 Spark。 如需可用叢集類型的詳細說明，請參閱 [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每個叢集類型都有特定的部署拓撲，其中包含節點數目和大小的需求。
+叢集類型會決定您 HDInsight 叢集設定要執行的工作負載，例如 [Apache Hadoop](https://hadoop.apache.org/)、[Apache Storm](https://storm.apache.org/)、[Apache Kafka](https://kafka.apache.org/) 或 [Apache Spark](https://spark.apache.org/)。 如需可用叢集類型的詳細說明，請參閱 [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每個叢集類型都有特定的部署拓撲，其中包含節點數目和大小的需求。
 
 ## <a name="choose-the-vm-size-and-type"></a>選擇 VM 大小與類型
 
@@ -79,7 +79,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ## <a name="choose-the-cluster-scale"></a>選擇叢集縮放比例
 
-叢集的縮放比例取決於其 VM 節點的數量。 針對所有的叢集類型，有些叢集類型具有特定的縮放比例，以及支援相應放大的節點類型。例如，叢集可能需要正好三個 ZooKeeper 節點或兩個 Head 節點。 以分散式方式進行資料處理的背景工作節點可受益於相應放大，方法是新增其他背景工作節點。
+叢集的縮放比例取決於其 VM 節點的數量。 針對所有的叢集類型，有些叢集類型具有特定的縮放比例，以及支援相應放大的節點類型。例如，叢集可能需要正好三個 [Apache ZooKeeper](https://zookeeper.apache.org/) 節點或兩個前端節點。 以分散式方式進行資料處理的背景工作節點可受益於相應放大，方法是新增其他背景工作節點。
 
 根據您的叢集類型，增加背景工作節點數可新增額外的計算容量 (例如更多核心)，但也可以新增至整個叢集所需的記憶體總數，以支援記憶體內正在進行處理的資料儲存體。 如同 VM 大小和類型的選擇，通常會使用模擬的工作負載或 Canary 查詢，以實證方式達到選取正確的叢集縮放比例。
 
@@ -90,7 +90,7 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 叢集的存留期需要收費。 如果您只需要叢集在特定時間開機及執行，可以[使用 Azure Data Factory 來建立隨需叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。 您也可以建立 PowerShell 指令碼來佈建和刪除您的叢集，並使用 [Azure 自動化](https://azure.microsoft.com/services/automation/)來排程這些指令碼。
 
 > [!NOTE]
-> 刪除叢集時，也會刪除其預設的 Hive 中繼存放區。 若要保存中繼存放區以進行下一次重新建立叢集，請使用外部中繼資料存放區，例如 Azure 資料庫或 Oozie。
+> 刪除叢集時，也會刪除其預設的 Hive 中繼存放區。 若要保存中繼存放區以進行下一次重新建立叢集，請使用外部中繼資料存放區，例如 Azure 資料庫或 [Apache Oozie](https://oozie.apache.org/)。
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>找出叢集作業錯誤
@@ -109,5 +109,5 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
+* [使用 Apache Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Apache Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
 * [監視叢集效能](hdinsight-key-scenarios-to-monitor.md)：了解重要情節，以監視可能會影響叢集容量的 HDInsight 叢集。

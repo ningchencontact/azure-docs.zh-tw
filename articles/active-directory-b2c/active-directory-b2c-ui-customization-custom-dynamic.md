@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4e7cc47bddf3663cbc1c8bb5c4470020a84073e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441646"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582882"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 
@@ -23,7 +23,7 @@ ms.locfileid: "37441646"
 
 使用 Azure Active Directory B2C (Azure AD B2C) 自訂原則，您可以在查詢字串中傳送參數。 將參數傳遞至您的 HTML 端點，即可動態變更網頁內容。 例如，視您從 Web 或行動裝置應用程式傳遞的參數而定，您可以變更 Azure AD B2C 註冊或登入背景影像。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 本文著重於如何使用自訂原則，自訂具有「動態內容」的 Azure AD B2C 使用者介面。 一開始，請參閱[自訂原則中的 UI 自訂](active-directory-b2c-ui-customization-custom.md)。 
 
 >[!NOTE]
@@ -165,7 +165,7 @@ ms.locfileid: "37441646"
 
     完成建立程序之後，精靈會將 ASP.NET Web 應用程式發佈至 Azure，然後在預設瀏覽器中啟動該應用程式。
 
-5. 複製 unified 頁面的 URL (例如，https://<app_name>.azurewebsites.net/home/unified)。
+5. 複製 unified 頁面的 URL (例如， https://<app_name>.azurewebsites.net/home/unified)。
 
 ## <a name="step-3-configure-cors-in-azure-app-service"></a>步驟 3：在 Azure App Service 中設定 CORS
 1. 從 [Azure 入口網站](https://portal.azure.com/)中，選取 [應用程式服務]，然後選取 API 應用程式的名稱。
@@ -178,7 +178,7 @@ ms.locfileid: "37441646"
 
 3. 在 [CORS] 視窗的 [允許的來源] 方塊中，執行下列其中一項：
 
-    * 輸入您想要允許的一或多個 JavaScript 呼叫來源 URL。
+    * 輸入您想要允許的一或多個 JavaScript 呼叫來源 URL。 您輸入的 URL 中必須全部使用小寫字母。
     * 輸入星號 (*) 來指定接受所有的原始網域。
 
 4. 選取 [ **儲存**]。

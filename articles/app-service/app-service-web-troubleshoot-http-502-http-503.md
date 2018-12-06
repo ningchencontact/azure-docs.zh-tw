@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1a64e40b13b05fc7f9fdb6f5aa99c8d8cc47c471
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d0d1efcdaab07e77d835319544fc70eb8687702f
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251605"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316339"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>對您的 Azure Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」的 HTTP 錯誤進行疑難排解
 在裝載於 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)的 Web 應用程式中「502 不正確的閘道」和「503 服務無法使用」是常見的錯誤。 本文可協助您對這些錯誤進行疑難排解。
@@ -74,22 +74,10 @@ ms.locfileid: "51251605"
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2.收集資料
-#### <a name="use-the-azure-app-service-support-portal"></a>使用 Azure App Service 支援入口網站
-Web Apps 透過查看 HTTP 記錄檔、事件記錄檔、處理序傾印等，提供您疑難排解 Web 應用程式相關問題的能力。 您可以利用我們位於 **http://&lt;your app name>.scm.azurewebsites.net/Support** 的支援入口網站，存取所有這方面的資訊。
+#### <a name="use-the-diagnostics-tool"></a>使用診斷工具
+App Service 提供智慧型和互動式的體驗，可協助您對 Web 應用程式進行疑難排解，而且不需設定。 當您的 Web 應用程式發生問題時，診斷工具將找出問題，並以正確的資訊引導您更輕鬆且快速地對問題進行疑難排解並解決。
 
-Azure App Service 支援入口網站提供三個不同的索引標籤，支援常見疑難排解案例的三個步驟：
-
-1. 觀察目前的行為
-2. 藉由收集診斷資訊與執行內建分析器進行分析
-3. 減輕問題
-
-若問題現在正好發生，請按一下 [分析][診斷] >  > [立即診斷]，將為您建立診斷工作階段，該工作階段會收集 HTTP 記錄檔、事件檢視器記錄檔、記憶體傾印、PHP 錯誤記錄檔和 PHP 處理序報告。
-
-完成資料收集後，將對資料執行分析並提供您一份 HTML 報告。
-
-若您想下載資料，根據預設，資料會儲存在 D:\home\data\DaaS 資料夾中。
-
-如需有關 Azure App Service 支援入口網站的詳細資訊，請參閱 [支援 Azure 網站的網站擴充功能最新更新](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites)。
+若要存取 App Service 診斷，請在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 App Service 應用程式或 App Service Environment。 在左方導覽列中，按一下 [診斷並解決問題]。
 
 #### <a name="use-the-kudu-debug-console"></a>使用 Kudu 偵錯主控台
 Web Apps 隨附可用於偵錯、探索、上傳檔案的偵錯主控台，以及可以取得您環境相關資訊的 JSON 端點。 這稱為 Web 應用程式的 *Kudu 主控台*或 *SCM 儀表板*。

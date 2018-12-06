@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: maxluk
-ms.openlocfilehash: 7470783ba3ebac652c83c397ba2bbe683023c657
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 23702c12f5ec538da4b980ed42fe2282dea69409
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041580"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582208"
 ---
-# <a name="overview-of-spark-structured-streaming"></a>Spark 結構化串流的概觀
+# <a name="overview-of-apache-spark-structured-streaming"></a>Apache Spark 結構化串流的概觀
 
-Spark 結構化串流可讓您實作可擴充且高輸送量的容錯應用程式來處理資料流。 結構化串流建置於 Spark SQL 引擎，以及從 Spark SQL 資料框架和資料集的建構中進行改良，因此您可以使用撰寫批次查詢的方式來撰寫串流查詢。  
+[Apache Spark](https://spark.apache.org/) 結構化串流可讓您實作可調整且高輸送量的容錯應用程式來處理資料流。 結構化串流建置於 Spark SQL 引擎，以及從 Spark SQL 資料框架和資料集的建構中進行改良，因此您可以使用撰寫批次查詢的方式來撰寫串流查詢。  
 
-結構化串流應用程式會在 HDInsight Spark 叢集上執行，並從 Kafka、TCP 通訊端 (適用於偵錯)、Azure 儲存體或 Azure Data Lake Store 連線到串流資料。 後面兩個選項依賴外部儲存體服務，可讓您監看新增至儲存體的新檔案，並處理其內容，彷彿檔案已經過串流處理。 
+結構化串流應用程式會在 HDInsight Spark 叢集上執行，並從 [Apache Kafka](https://kafka.apache.org/)、TCP 通訊端 (適用於偵錯)、Azure 儲存體或 Azure Data Lake Store 連線到串流資料。 後面兩個選項依賴外部儲存體服務，可讓您監看新增至儲存體的新檔案，並處理其內容，彷彿檔案已經過串流處理。 
 
 結構化串流會建立長時間執行的查詢，在這期間您會將作業套用到輸入資料，例如選取項目、投影、彙總，視窗化，以及將串流的 DataFrame 與參考 DataFrame 聯結。 接下來，您會使用自訂程式碼 (例如 SQL Database 或 Power BI) 將結果輸出到檔案儲存體 (Azure 儲存體 Blob 或 Data Lake Store) 或任何資料存放區。 結構化串流也會提供輸出至主控台，以便在本機進行偵錯，並且會提供輸出至記憶體內部資料表，讓您可以在 HDInsight 中看到為偵錯而產生的資料。 
 
@@ -124,7 +124,7 @@ Spark 結構化串流會將資料流表示為無限深度的資料表，也就�
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...  |95 |   96.980971 | 99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...  |95 |   96.965997 | 99 |  
 
-如需深入了解 Spark 結構化串流 API 和其支援的輸入資料來源、作業和輸出接收，請參閱 [Spark 結構化串流程式設計指南](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)。
+如需深入了解 Spark 結構化串流 API 及其支援的輸入資料來源、作業和輸出接收，請參閱 [Apache Spark Structured Streaming Programming Guide](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) (Apache Spark 結構化串流程式設計指南)。
 
 ## <a name="checkpointing-and-write-ahead-logs"></a>檢查點與預寫記錄檔
 
@@ -132,14 +132,14 @@ Spark 結構化串流會將資料流表示為無限深度的資料表，也就�
 
 ## <a name="deploying-spark-streaming-applications"></a>部署 Spark 串流處理應用程式
 
-您通常會在本機將 Spark 串流應用程式組建成 JAR 檔案，然後藉由將此 JAR 檔案複製到預設的儲存體 (已連結至您的 HDInsight 叢集)，來將其部署至 HDInsight 上的 Spark。 您可以使用 POST 作業，藉由叢集提供的 LIVY REST API 來啟動您的應用程式。 POST 的主體包含 JSON 文件，此文件會提供 JAR 路徑、類別名稱 (此類別的主要方法會定義和執行串流應用程式) 和選擇性的作業資源要求 (例如執行程式、記憶體及核心的數量)，以及您應用程式程式碼所需的任何組態設定。
+您通常會在本機將 Spark 串流應用程式組建成 JAR 檔案，然後藉由將此 JAR 檔案複製到預設的儲存體 (已連結至您的 HDInsight 叢集)，來將其部署至 HDInsight 上的 Spark。 您可以使用 POST 作業，藉由叢集提供的 [Apache Livy](https://livy.incubator.apache.org/) REST API 來啟動您的應用程式。 POST 的主體包含 JSON 文件，此文件會提供 JAR 路徑、類別名稱 (此類別的主要方法會定義和執行串流應用程式) 和選擇性的作業資源要求 (例如執行程式、記憶體及核心的數量)，以及您應用程式程式碼所需的任何組態設定。
 
 ![部署 Spark 串流應用程式](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
+您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 Apache LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 中建立 Apache Spark 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark 結構化串流程式設計指南](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
-* [使用 LIVY 從遠端啟動 Spark](apache-spark-livy-rest-interface.md)
+* [Apache Spark 結構化串流程式設計指南](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [使用 Apache LIVY 遠端啟動 Apache Spark 作業](apache-spark-livy-rest-interface.md)

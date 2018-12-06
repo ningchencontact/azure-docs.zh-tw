@@ -12,77 +12,23 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 7a80693090b92db55ad2feed52fdbb2a455e3c39
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884488"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497912"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
-此文章說明如何自訂 Service Fabric 叢集的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 針對獨立叢集，您會透過更新 ClusterConfig.json 檔案並在叢集上執行設定升級來自訂設定。 
+本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
 
-> [!NOTE]
-> 並非所有設定都可以在入口網站中使用。 若下列設定無法透過入口網站使用，請使用 Azure Resource Manager 範本自訂它。
-> 
-
-## <a name="description-of-the-different-upgrade-policies"></a>不同升級原則說明
+有三個不同的升級原則：
 
 - **動態** – 更改動態設定不會導致 Service Fabric 處理序或服務主機處理序出現任何處理序重新啟動的情形。 
 - **靜態** – 更改靜態設定將導致 Service Fabric 節點重新啟動以因應更改。 節點上的服務會重新啟動。
 - **不允許** – 無法修改這些設定。 變更這些設定需要終結叢集並建立新叢集。 
-
-## <a name="customize-cluster-settings-using-resource-manager-templates"></a>使用 Resource Manager 範本自訂叢集設定
-下列步驟示範如何使用 Azure 資源總管將新設定 *MaxDiskQuotaInMB* 新增至 [Diagnostics] 區段。
-
-1. 移至 https://resources.azure.com。
-2. 瀏覽至您的訂用帳戶，方法為展開 [訂用帳戶] -> **\<您的訂用帳戶>** -> **resourceGroups** -> **\<您的資源群組>** -> [提供者] -> **Microsoft.ServiceFabric** -> [叢集] -> **\<您的叢集名稱>**
-3. 選取右上角的 [讀取/寫入]。
-4. 選取 [編輯]，並更新 `fabricSettings` JSON 元素，然後新增元素：
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-您也可以使用 Azure Resource Manager 透過下列其中一種方式自訂叢集設定：
-
-- 使用 [Azure 入口網站](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template)來匯出並更新 Resource Manger 範本。
-- 使用 [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 來匯出並更新 Resource Manger 範本。
-- 使用 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) 來匯出並更新 Resource Manger 範本。
-- 使用 Azure RM PowerShell [Set-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) 和 [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) 命令來直接修改設定。
-- 使用 Azure CLI [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) 命令來直接修改設定。
-
-## <a name="customize-cluster-settings-for-standalone-clusters"></a>自訂獨立叢集的叢集設定
-獨立叢集需透過 ClusterConfig.json 檔案來進行設定。 若要深入了解，請參閱[獨立 Windows 叢集的組態設定](./service-fabric-cluster-manifest.md)。
-
-您可以在 ClusterConfig.json 中 [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) 區段底下的 `fabricSettings` 區段中新增、更新或移除設定。 
-
-例如，下列 JSON 會將新設定 *MaxDiskQuotaInMB* 新增至 `fabricSettings` 底下的 [Diagnostics] 區段：
-
-```json
-      {
-        "name": "Diagnostics",
-        "parameters": [
-          {
-            "name": "MaxDiskQuotaInMB",
-            "value": "65536"
-          }
-        ]
-      }
-```
-
-在您修改 ClusterConfig.json 檔案中的設定之後，請依照[升級叢集設定](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration)中的指示將設定套用至叢集。 
-
 
 下列是您可自訂的網狀架構設定清單，並依區段分組。
 
@@ -116,11 +62,11 @@ ms.locfileid: "48884488"
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
-|MinReplicaSetSize|整數，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
+|MinReplicaSetSize|int，預設值為 0|靜態|BackupRestoreService 的 MinReplicaSetSize |
 |PlacementConstraints|字串，預設值為 ""|靜態|  BackupRestore 服務的 PlacementConstraints |
 |SecretEncryptionCertThumbprint|字串，預設值為 ""|動態|祕密加密 X509 憑證的指紋 |
 |SecretEncryptionCertX509StoreName|字串，預設值為 "My"|   動態|    這表示要用於認證加密和解密的憑證。用於加密及解密備份還原服務所用存放區認證的 X.509 憑證存放區名稱 |
-|TargetReplicaSetSize|整數，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
+|TargetReplicaSetSize|int，預設值為 0|靜態| BackupRestoreService 的 TargetReplicaSetSize |
 
 ## <a name="clustermanager"></a>ClusterManager
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
@@ -423,7 +369,7 @@ ms.locfileid: "48884488"
 |SharedLogId |字串，預設值為 "" |靜態|共用記錄容器的唯一 GUID。 若使用位於網狀架構資料根目錄下的預設路徑，則使用 ""。 |
 |SharedLogPath |字串，預設值為 "" |靜態|用以放置共用記錄容器之位置的路徑和檔案名稱。 使用 "" 可使用位於網狀架構資料根目錄下的預設路徑。 |
 |SharedLogSizeInMB |整數，預設值為 8192 |靜態|要在共用記錄容器中配置的 MB 數。 |
-|SharedLogThrottleLimitInPercentUsed|整數，預設值為 0 | 靜態 | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 值介於 1 到 99 時，表示指定超出時將進行節流的記錄使用量百分比；例如，如果共用記錄為 10 GB，而此值為 90，則當使用達 9 GB 時，就會進行節流。 建議使用預設值。|
+|SharedLogThrottleLimitInPercentUsed|int，預設值為 0 | 靜態 | 將引發節流的共用記錄使用量百分比。 值應介於 0 到 100。 值為 0 時，表示使用預設百分比值。 值為 100 時，表示完全不節流。 值介於 1 到 99 時，表示指定超出時將進行節流的記錄使用量百分比；例如，如果共用記錄為 10 GB，而此值為 90，則當使用達 9 GB 時，就會進行節流。 建議使用預設值。|
 |WriteBufferMemoryPoolMaximumInKB | 整數，預設值為 0 |動態|允許寫入緩衝區記憶體集區成長達到的 KB 數目。 使用 0 表示無限制。 |
 |WriteBufferMemoryPoolMinimumInKB |整數，預設值為 8388608 |動態|一開始要為寫入緩衝區記憶體集區配置的 KB 數目。 使用 0 表示無限制。預設值應與下面的 SharedLogSizeInMB 一致。 |
 
@@ -867,7 +813,4 @@ ms.locfileid: "48884488"
 |X509StoreName | 字串，預設值為 "My"|動態|UpgradeService 的 X509StoreName。 |
 
 ## <a name="next-steps"></a>後續步驟
-如需有關叢集管理的詳細資訊，請參閱下列文件︰
-
-[新增、變換、移除 Azure 叢集的憑證 ](service-fabric-cluster-security-update-certs-azure.md) 
-
+如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)和[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。

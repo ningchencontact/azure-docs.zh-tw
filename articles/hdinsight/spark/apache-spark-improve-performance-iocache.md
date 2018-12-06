@@ -7,16 +7,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 3616183b5ea34b8a14712d2c449de87950443111
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 724e6c57f10fb85b4b91c2236d17a64899953d67
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954499"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581930"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>使用 Azure HDInsight IO 快取改進 Apache Spark 工作負載效能 (Preview)
 
-IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache Spark 作業效能。 IO 快取也可搭配 Tez 與 Hive 工作負載使用，這些工作負載可在 Spark 叢集上執行。 IO 快取使用稱為 RubiX 的開放原始碼快取元件。 RubiX 是可搭配巨量資料分析引擎使用的本機磁碟快取，這些引擎通常會從雲端儲存體系統存取資料。 RubiX 在快取系統中是獨一無二的，因為它針對快取用途使用固態硬碟 (SSDs) 而非保留作業記憶體。 IO 快取服務會在叢集的每個背景工作角色上啟動並管理 RubiX 中繼資料伺服器。 它也會設定叢集的所有服務，在背景使用 RubiX 快取。
+IO 快取是適用於 Azure HDInsight 的資料快取服務，可改進 Apache Spark 作業效能。 IO 快取也可搭配 [Apache TEZ](https://tez.apache.org/) 與 [Apache Hive](https://hive.apache.org/) 工作負載使用，這些工作負載可在 [Apache Spark](https://spark.apache.org/) 叢集上執行。 IO 快取使用稱為 RubiX 的開放原始碼快取元件。 RubiX 是可搭配巨量資料分析引擎使用的本機磁碟快取，這些引擎通常會從雲端儲存體系統存取資料。 RubiX 在快取系統中是獨一無二的，因為它針對快取用途使用固態硬碟 (SSDs) 而非保留作業記憶體。 IO 快取服務會在叢集的每個背景工作角色上啟動並管理 RubiX 中繼資料伺服器。 它也會設定叢集的所有服務，在背景使用 RubiX 快取。
 
 大部分的 SSD 都提供每秒超過 1 GB 的頻寬。 此頻寬加上作業系統記憶體內檔案快取的幫助，提供足夠的頻寬來載入巨量資料計算處理引擎，例如 Apache Spark。 作業系統會保留給 Apache Spark 來處理耗用大量記憶體的繁重工作，例如輪換。 擁有專屬的作業記憶體使用權讓 Apache Spark 可以達成最佳資源使使用狀況。  
 
@@ -52,7 +52,7 @@ Azure HDInsight IO 快取在預覽版中預設是停用的。 您可以在 Azure
   
 啟用 IO 快取之後，執行 Spark 作業時可能會發生磁碟空間錯誤。 發生這些錯誤的原因是 Spark 在輪換作業期間也使用本機磁碟儲存體來存放資料。 當 IO 快取已啟用且用於 Spark 儲存體的空間減少時，Spark 可能會用盡 SSD 空間。 IO 快取所使用的空間量預設是總 SSD 空間的一半。 您可以在 Ambari 中設定 IO 快取的磁碟空間使用量。 若發生磁碟空間錯誤，請減少用於 IO 快取的 SSD 空間量，並重新啟動服務。 若要變更為 IO 快取設定的空間，請執行下列步驟：
 
-1. 在 Ambari 中，選取左邊的 **HDFS** 服務。
+1. 在 Apache Ambari 中，選取左邊的 **HDFS** 服務。
 
 1. 選取 [設定] 與 [進階] 索引標籤。
 

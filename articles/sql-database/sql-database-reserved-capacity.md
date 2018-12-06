@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: e9edbc2a3bbc878f7a3cf99a3ca6efb4e69797ad
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394705"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584146"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>預付具有 Azure SQL Database 保留容量的 SQL Database 計算資源
 
@@ -28,7 +28,7 @@ ms.locfileid: "47394705"
 您可以在 [Azure 入口網站](https://portal.azure.com)購買 Azure SQL Database 保留容量。 若要購買 SQL Database 保留容量：
 - 您必須至少為一個企業或預付型方案訂用帳戶的擁有者角色。
 - 若為企業訂用帳戶，您必須在 [EA 入口網站](https://ea.azure.com)中啟用 Azure 保留容量購買。
--  針對雲端解決方案提供者 (CSP) 方案，則只有系統管理員代理人或銷售人員可以購買 SQL Database 保留容量。
+-  若為雲端解決方案提供者 (CSP) 方案，則只有系統管理員代理人或銷售人員可以購買 SQL Database 保留容量。
 
 有關如何向企業客戶和隨用隨付型方案客戶收取預訂費用的詳細資料，請參閱[了解 Enterprise 註冊的 Azure 保留使用量](../billing/billing-understand-reserved-instance-usage-ea.md)與[了解隨用隨付型方案訂用帳戶的 Azure 保留使用量](../billing/billing-understand-reserved-instance-usage.md)。
 
@@ -55,7 +55,7 @@ ms.locfileid: "47394705"
     |區域      |SQL Database 保留容量所涵蓋的 Azure 區域。|    
     |部署類型|您要為其購買保留容量的 SQL 資源類型。|
     |效能層級|SQL Database 執行個體的服務層。
-    |期間        |一年或三年。|
+    |詞彙        |一年或三年。|
     |數量    |SQL Database 保留容量內所購買的執行個體數目。 數量是可以取得帳單折扣的執行中 SQL Database 執行個體數目。 例如，如果您在美國東部執行 10 個 SQL Database 執行個體，那麼您會指定數量為 10，以最大化所有執行中機器的效益。 |
 
 5. 檢閱 [成本] 區段中 SQL Database 保留容量的成本。
@@ -66,7 +66,7 @@ ms.locfileid: "47394705"
 
 如果您需要取消保留 SQL Database 保留容量，可能會有 12% 的提前解約金。 退款以您的購買價格或目前保留的價格為準，視孰者為低。 每年的退款金額上限為 50,000 美元。 您收到的退款是按比例計算的餘額扣除 12% 提前解約金的金額。 若要要求取消，請移至 Azure 入口網站中的保留區，並選取 [退款] 以建立支援要求。
 
-如果您需要將 [SQL Database 保留容量] 保留區變更為另一個區域、部署類型、效能層級或期間，您可以將它與等值或更高價值的另一個保留區交換。 新保留區的期間開始日期不會延續自交換的保留區。 1 或 3 年的期間會從您建立新的保留區時起算。 若要要求交換，請移至 Azure 入口網站中的保留區，並選取 [交換] 以建立支援要求。
+如果您需要將 [SQL Database 保留容量] 保留區變更為另一個區域、部署類型、效能層級或期間，您可以將它與等值或更高價值的另一個保留區交換。 新保留區的期間開始日期不會延續自交換的保留區。 1 或 3 年的期限會從您建立新的保留時起算。 若要要求交換，請移至 Azure 入口網站中的保留區，並選取 [交換] 以建立支援要求。
 
 ## <a name="vcore-size-flexibility"></a>vCore 大小彈性
 
@@ -87,7 +87,7 @@ vCore 大小彈性可協助您在效能層級和區域內相應增加或相應�
 - [了解 Enterprise 註冊的保留項目使用量](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [合作夥伴中心雲端解決方案提供者 (CSP) 計畫中的 Azure 保留項目](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
-如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 

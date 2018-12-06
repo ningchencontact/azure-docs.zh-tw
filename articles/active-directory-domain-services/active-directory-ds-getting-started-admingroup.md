@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: 0dc4019d2b3f33bfc92d73aeadadc0c64ecaab3b
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158511"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446853"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
@@ -42,6 +42,22 @@ ms.locfileid: "50158511"
 
 3. 完成時，按一下 [確定] 以繼續前往精靈的 [摘要] 分頁。
 
+## <a name="configure-synchronization"></a>設定同步處理
+
+Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用者和群組，或者，您可以選取限域同步處理，以僅同步處理特定的群組。 如果您選擇完整的同步處理，之後就**無法**選擇限域同步處理。 若要深入了解限域同步處理，請參閱 [Azure AD Domain Services 限域同步處理](active-directory-ds-scoped-synchronization.md)一文。
+
+### <a name="full-synchronization"></a>完整同步處理
+
+1. 如需完整同步處理，只要按一下畫面底部的 [確定] 即可選擇完整同步處理。
+    ![完整同步處理](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+
+### <a name="scoped-synchronization"></a>限域同步處理
+
+1. 將 [同步處理] 按鈕切換為 [限域]，隨即出現 [選取群組] 頁面。 您可以在此處查看哪些群組已選取要同步處理至您的受控網域。
+    ![限域同步處理](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+2. 按一下頂端導覽列中的 [選取群組]。 此處側邊會跳出一個群組選擇器。 您可以使用這個選擇器，選取要同步至 Azure AD Domain Services 的所有其他群組。 完成後，按一下 [選取] 關閉群組選擇器，並將這些群組新增至選取的清單。
+    ![限域同步處理的 [選取群組]](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+3. 按一下 [確定] 以移至 [摘要] 頁面。
 
 ## <a name="deploy-your-managed-domain"></a>部署受控網域
 

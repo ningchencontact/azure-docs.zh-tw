@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649307"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284365"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -60,6 +60,16 @@ Cortana 預先建置的應用程式已在 2017 年被取代。 它們不再受�
 
 ## <a name="luis-endpoint"></a>LUIS 端點
 
+### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>端點查詢傳回非預期的結果。 我該怎麼辦？
+
+非預期查詢預測結果是根據已發佈模型的狀態而定。 若要更正模型，您可能需要變更模型、定型和重新發行。 
+
+模型更正要先從[主動式學習](luis-how-to-review-endoint-utt.md)開始。
+
+您可以更新[應用程式版本設定 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)，移除非確定性的定型，以便使用所有定型資料。 
+
+如需其他提示，請檢閱[最佳做法](luis-concept-best-practices.md)。 
+
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>為什麼 LUIS 在查詢周圍或字組中間新增空格？
 LUIS 會根據[文化特性 (Culture)](luis-language-support.md#tokenization) 將語句[權杖化](luis-glossary.md#token)。 原始值和權杖化值可供[資料擷取](luis-concept-data-extraction.md#tokenized-entity-returned)。
 
@@ -67,7 +77,7 @@ LUIS 會根據[文化特性 (Culture)](luis-language-support.md#tokenization) �
 Azure 中針對[服務](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)層級[建立端點金鑰](luis-how-to-azure-subscription.md#create-luis-endpoint-key)。 在 **[金鑰和端點](luis-how-to-manage-keys.md)** 頁面上[指派金鑰](luis-how-to-manage-keys.md#assign-endpoint-key)。 此動作沒有任何對應的 API。 您接著必須將 HTTP 要求變更為端點，以[使用新端點金鑰](luis-concept-keys.md#use-endpoint-key-in-query)。
 
 ### <a name="how-do-i-interpret-luis-scores"></a>如何解譯 LUIS 分數？
-您的系統應該使用最高分數意圖，而不論其值為何。 例如，低於 0.5 (小於 50%) 的分數不一定表示 LUIS 具有低的信賴度。 提供更多訓練資料有助於提高最可能意圖的分數。
+您的系統應該使用最高分數意圖，而不論其值為何。 例如，低於 0.5 (小於 50%) 的分數不一定表示 LUIS 具有低的信賴度。 提供更多定型資料有助於提高最可能意圖的[分數](luis-concept-prediction-score.md)。
 
 ### <a name="why-dont-i-see-my-endpoint-hits-in-my-apps-dashboard"></a>為什麼在應用程式儀表板中看不到我的端點叫用？
 應用程式儀表板中的端點叫用總數均會定期更新，但會更頻繁地更新 Azure 入口網站中與 LUIS 端點金鑰相關聯的計量。

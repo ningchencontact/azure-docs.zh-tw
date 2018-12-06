@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c63e2e3ec922d2cf26603fe19606008b1e8d3f45
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255912"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498182"
 ---
 # <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習
 
@@ -22,9 +22,9 @@ ms.locfileid: "51255912"
 
 深入學習的影響遍及醫療保健到傳輸到製造商等等。 公司轉型為深度學習來解決艱難的問題，例如[影像分類](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/)、[語音辨識](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html)、物件辨識和機器翻譯。 
 
-有[許多受歡迎的架構](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，包括 [Microsoft 認知工具組](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)MXNet、Theano 等等。Caffe 是其中一個最著名的非符號 (必要) 類神經網路架構，並廣泛用在許多方面，包括電腦視覺。 此外，[CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
+有[許多受歡迎的架構](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software)，包括 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/)、[Tensorflow](https://www.tensorflow.org/)、[Apache MXNet](https://mxnet.apache.org/)、Theano 等等。[Caffe](http://caffe.berkeleyvision.org/) 是其中一個最著名的非符號 (命令式) 類神經網路架構，並廣泛用在許多方面，包括電腦視覺。 此外，[CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) 使用 Apache Spark 結合了 Caffe，這樣的深入學習可以輕鬆地使用在現有的 Hadoop 叢集。 您可以使用結合 Spark ETL 管線的深入學習，降低系統複雜性和延遲，以學習完整的解決方案。
 
-[HDInsight](https://azure.microsoft.com/services/hdinsight/) 是雲端 Hadoop 供應項目，為 Spark、Hive、Hadoop、HBase、Storm、Kafka 和 ML 服務提供最佳化開放原始碼分析叢集。 HDInsight 受 99.9% SLA 的支援。 每個巨量資料技術及 ISV 應用程式都可輕鬆部署為受控叢集，以提供企業所需的安全性和監視功能。
+[HDInsight](https://azure.microsoft.com/services/hdinsight/) 是雲端 Apache Hadoop 供應項目，為 Apache Spark、Apache Hive、Apache Hadoop、Apache HBase、Apache Storm、Apache Kafka 和 ML 服務提供最佳化開放原始碼分析叢集。 HDInsight 受 99.9% SLA 的支援。 每個巨量資料技術及 ISV 應用程式都可輕鬆部署為受控叢集，以提供企業所需的安全性和監視功能。
 
 本文示範如何為 HDInsight 叢集安裝 [Caffe on Spark](https://github.com/yahoo/CaffeOnSpark)。 本文也會使用內建 MNIST 示範，說明如何使用 HDInsight Spark 在 CPU 上使用分散式深入學習。
 
@@ -69,7 +69,7 @@ ms.locfileid: "51255912"
 ![安裝相依性的指令碼動作](./media/apache-spark-deep-learning-caffe/Script-Action-1.png)
 
 
-## <a name="step-2-build-caffe-on-spark-for-hdinsight-on-the-head-node"></a>步驟 2︰在前端節點上建置適用於 HDInsight 的 Spark Caffe
+## <a name="step-2-build-caffe-on-apache-spark-for-hdinsight-on-the-head-node"></a>步驟 2︰在前端節點上建置適用於 HDInsight 的 Apache Spark Caffe
 
 第二個步驟是在前端節點上建立 Caffe，然後將已編譯的程式庫傳送到所有背景工作角色節點。 在此步驟中，您必須[使用 SSH 連線到前端節點](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)。 完成之後，您必須遵循 [CaffeOnSpark 建置程序](https://github.com/yahoo/CaffeOnSpark/wiki/GetStarted_yarn) \(英文\)。 使用以下指令碼，加上幾個額外步驟，就能建置 CaffeOnSpark。 
 
@@ -294,8 +294,8 @@ SampleID 代表 MNIST 資料集的識別碼，且標籤是此模型識別的數�
 * [概觀：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>案例
-* [Spark 和機器學習：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和機器學習：使用 HDInsight 中的 Spark 來預測食物檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="manage-resources"></a>管理資源
 * [在 Azure HDInsight 中管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)

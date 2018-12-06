@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 159d3d1576ab3a38baaba94594b3abf04ef3ad56
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287977"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496146"
 ---
-# <a name="use-apache-spark-structured-streaming-with-kafka-and-azure-cosmos-db"></a>搭配 Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
+# <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
-了解如何使用「Apache Spark 結構化串流」從 Azure HDInsight 上的 Apache Kafka 讀取資料，然後將資料儲存至 Azure Cosmos DB。
+了解如何使用 [Apache Spark](https://spark.apache.org/) [結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)從 Azure HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取資料，然後將資料儲存至 Azure Cosmos DB。
 
-Azure Cosmos DB 是全域散發的多模型資料庫。 此範例使用 SQL API 資料庫模型。 如需詳細資訊，請參閱[歡迎使用 Azure Cosmos DB](../cosmos-db/introduction.md) 文件。
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 是全域散發的多模型資料庫。 此範例使用 SQL API 資料庫模型。 如需詳細資訊，請參閱[歡迎使用 Azure Cosmos DB](../cosmos-db/introduction.md) 文件。
 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 如需有關結構化串流的詳細資訊，請參閱 Apache.org 的[結構化串流程式設計手冊](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) \(英文\)。
 
@@ -143,7 +143,7 @@ az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query p
 > [!IMPORTANT]
 > 儲存端點與索引鍵值，因為在 Jupyter Notebooks 中需要它們。
 
-## <a name="get-the-kafka-brokers"></a>取得 Kafka 代理程式
+## <a name="get-the-apache-kafka-brokers"></a>取得 Apache Kafka 代理程式
 
 在此範例中的程式碼會連線到 Kafka 叢集中的 Kafka 代理程式主機。 若要尋找這兩個 Kafka 代理程式主機的位址，請使用下列 PowerShell 或 Bash 範例：
 
@@ -201,12 +201,12 @@ curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUST
 
 ## <a name="process-taxi-data-using-spark-structured-streaming"></a>使用 Spark 結構化串流來處理 taxi 資料
 
-從 Jupyter Notebook 首頁，選取 [Stream-data-from-Kafka-to-Cosmos-DB.ipynb] 項目。 請依照 Notebook 中的步驟，使用「Spark 結構化串流」將資料從 Kafka 串流至 Azure Cosmos DB。
+從 [Jupyter Notebook](https://jupyter.org/) 首頁，選取 __Stream-data-from-Kafka-to-Cosmos-DB.ipynb__ 項目。 請依照 Notebook 中的步驟，使用「Spark 結構化串流」將資料從 Kafka 串流至 Azure Cosmos DB。
 
 ## <a name="next-steps"></a>後續步驟
 
-既然您已學會如何使用「Spark 結構化串流」，接著請參閱下列文件，以深入了解有關使用 Spark、Kafka 及 Azure Cosmos DB 的方式：
+現在您已學會如何使用「Apache Spark 結構化串流」，接著請參閱下列文件，以深入了解有關使用 Apache Spark、Apache Kafka 及 Azure Cosmos DB 的方式：
 
-* [如何搭配 Kafka 使用 Spark 串流 (DStream)](hdinsight-apache-spark-with-kafka.md)。
-* [開始使用 Jupyter Notebook 與 HDInsight 上的 Spark](spark/apache-spark-jupyter-spark-sql.md)
+* [如何搭配 Apache Kafka 使用 Apache Spark 串流 (DStream) ](hdinsight-apache-spark-with-kafka.md)。
+* [開始使用 Jupyter Notebook 與 HDInsight 上的 Apache Spark](spark/apache-spark-jupyter-spark-sql.md)
 * [歡迎使用 Azure Cosmos DB](../cosmos-db/introduction.md)

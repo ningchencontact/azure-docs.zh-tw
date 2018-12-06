@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 31070d03711891353823a72ed9c805995d36024b
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415180"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633158"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>網路效能監控解決方案常見問題集
 
@@ -26,7 +26,7 @@ ms.locfileid: "50415180"
 
 本文集結了一些 Azure 內網路效能監控 (NPM) 相關的常見問題 (常見問題集)。
 
-[網路效能監控](/azure/networking/network-monitoring-overview)是雲端式的[混合網路監視](log-analytics-network-performance-monitor-performance-monitor.md)解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視[服務和應用程式端點](log-analytics-network-performance-monitor-service-endpoint.md)的網路連線能力，以及[監視 Azure ExpressRoute 的效能](log-analytics-network-performance-monitor-expressroute.md)。 
+[網路效能監控](/azure/networking/network-monitoring-overview)是雲端式的[混合網路監視](../azure-monitor/insights/network-performance-monitor-performance-monitor.md)解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視[服務和應用程式端點](../azure-monitor/insights/network-performance-monitor-service-endpoint.md)的網路連線能力，以及[監視 Azure ExpressRoute 的效能](../azure-monitor/insights/network-performance-monitor-expressroute.md)。 
 
 網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 
@@ -47,21 +47,21 @@ ms.locfileid: "50415180"
 若要在節點虛擬機器上執行 NPM 解決方案以監控網路，節點至少需要具有 500 MB 記憶體和一個核心。 不需要使用不同的節點執行 NPM。 執行該解決方案的節點同時也可以執行其他工作負載。 該解決方案可在 CPU 使用量超過 5% 時，停止監視流程。
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>若要使用 NPM，我是否應該以直接代理程式連線節點，還是透過 System Center Operations Manager 連線節點？
-效能監控和服務連線能力監視的功能可支援[以直接代理程式連線](log-analytics-agent-windows.md)的節點，也可[透過 Operations Manager 連線](log-analytics-om-agents.md)節點。
+效能監控和服務連線能力監視的功能可支援[以直接代理程式連線](../azure-monitor/platform/agent-windows.md)的節點，也可[透過 Operations Manager 連線](log-analytics-om-agents.md)節點。
 
 至於 ExpressRoute 監視的功能，請僅以直接代理程式連線 Azure 節點。 不支援透過 Operations Manager 連線的 Azure 節點。 至於內部部署節點，以直接代理程式連線的節點，以及透過 Operations Manager 連線的節點，兩者均支援監視 ExpressRoute 線路。
 
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>應該選擇監視 TCP 還是 ICMP 通訊協定？
 如果您要使用 Windows Server 型節點監視您的網路，建議使用精確度較佳的 TCP 作為監視通訊協定。 
 
-建議將 ICMP 用於以 Windows 桌面/用戶端作業系統為基礎的節點。 此平台不允許透過原始通訊端傳送 TCP 資料，NPM 可以透過原始通訊端探索網路拓撲。
+建議將 ICMP 用於以 Windows 桌面/用戶端作業系統為基礎的節點。 此平台不允許透過原始通訊端傳送 TCP 資料，NPM 可以使用原始通訊端探索網路拓撲。
 
-您可以在[此處](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol)取得有關各種通訊協定彼此優勢所在的詳細資料。
+您可以在[此處](../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)取得有關各種通訊協定彼此優勢所在的詳細資料。
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>如何使用 TCP 通訊協定設定節點以支援監視？
 對於支援使用 TCP 通訊協定進行監視的節點： 
 * 請確定節點平台為 Windows Server (2008 SP1 或更新版本)。
-* 執行節點上的 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 指令碼。 如需詳細資料，請參閱[指示](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)。
+* 執行節點上的 [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell 指令碼。 如需詳細資料，請參閱[指示](../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring)。
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>如何變更 NPM 用於監視的 TCP 通訊埠？
@@ -126,10 +126,10 @@ NPM 只會識別來源 IP 和目的地 IP 之間的基礎網路躍點 (交換器
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM 的效能監控支援哪些區域？
-NPM 可以從其中一個[支援區域](log-analytics-network-performance-monitor.md#supported-regions)中裝載的工作區中，監控世界各地網路之間的連線情形
+NPM 可以從其中一個[支援區域](../azure-monitor/insights/network-performance-monitor.md#supported-regions)中裝載的工作區中，監控世界各地網路之間的連線情形
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>NPM 服務連線能力監視支援哪些區域？
-NPM 可使用在其中一個[支援區域](log-analytics-network-performance-monitor.md#supported-regions)裝載的工作區，監視世界各地服務的連線情形
+NPM 可使用在其中一個[支援區域](../azure-monitor/insights/network-performance-monitor.md#supported-regions)裝載的工作區，監視世界各地服務的連線情形
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM 的 ExpressRoute 監視可支援哪些區域？
 NPM 可以監控位於任何 Azure 區域的 ExpressRoute 線路。 若要開始使用 NPM，需要一個裝載在其中一個[支援區域](/azure/expressroute/how-to-npm#regions)中的 Log Analytics 工作區
@@ -222,4 +222,4 @@ NPM 會在 UI 中四捨五入延遲數，並以毫秒為單位。 相同的資�
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需深入了解網路效能監控，請參閱 [Azure 中的網路效能監控解決方案](log-analytics-network-performance-monitor.md)。
+- 如需深入了解網路效能監控，請參閱 [Azure 中的網路效能監控解決方案](../azure-monitor/insights/network-performance-monitor.md)。

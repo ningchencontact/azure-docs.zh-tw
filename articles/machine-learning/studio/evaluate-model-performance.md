@@ -1,10 +1,11 @@
 ---
-title: 在 Machine Learning 中評估模型效能 | Microsoft Docs
-description: 說明如何在 Azure Machine Learning 中評估模型效能
+title: 評估模型效能 - Azure Machine Learning Studio | Microsoft Docs
+description: 本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: bb49fd2fe7f72e211fbbda7cffdd2308c2c36fba
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834228"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311481"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中評估模型效能
 本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。 提供三種常見的受監督的學習案例： 
@@ -38,7 +39,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 ## <a name="evaluation-vs-cross-validation"></a>評估與交叉驗證
 評估與交叉驗證是測量模型效能的標準方式。 它們都會產生您可以對照其他模型的度量檢查或比較的評估度量。
 
-[評估模型][evaluate-model]需要一個計分資料集作為輸入 (如果您想要比較 2 個不同模型的效能，則需要 2 個計分資料集)。 這表示，您需要先使用[訓練模型][train-model]模組來訓練模型，並使用[計分模型][score-model]模組在一些資料集上進行預測，然後才能評估結果。 評估是以評分標籤/機率及真實性標籤為基礎，這些全都由[評分模型][score-model]模組來輸出。
+[評估模型][evaluate-model]需要一個計分資料集作為輸入 (如果您想要比較兩個不同模型的效能，則需要 2 個計分資料集)。 這表示，您需要先使用[訓練模型][train-model]模組來訓練模型，並使用[計分模型][score-model]模組在一些資料集上進行預測，然後才能評估結果。 評估是以評分標籤/機率及真實性標籤為基礎，這些全都由[評分模型][score-model]模組來輸出。
 
 或者，您可以使用交叉驗證，對不同的輸入資料子集自動執行一「訓練-評分-評估」作業 (10 次交疊)。 輸入資料會分割成 10 個部分，其中 1 個部分保留供測試之用，其他 9 個部分則供訓練之用。 此程序會重複 10 次，然後取得評估度量的平均值。 這有助於判斷將模型一般化為新資料集的程度。 [交叉驗證模型][cross-validate-model]模組接受非定型模型和一些標註的資料集，除了輸出平均結果，還會輸出各有 10 次交疊的評估結果。
 
@@ -65,7 +66,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 ### <a name="inspecting-the-evaluation-results"></a>檢查評估結果
 執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果。 適用於迴歸模型的評估度量包括：「平均絕對誤差」、「平均根絕對誤差」、「相對絕對誤差」、「相對平方誤差」和「決定係數」。
 
-「誤差」一詞代表預測的值和真正的值之間的差異。 系統通常會計算這項差異的絕對值或平方來擷取所有案例中的總誤差大小，因為在某些情況下，預測的值和真正的值之間的差異可能是負數。 誤差度量會根據預測與真正的值之間的平均偏差，測量迴歸模型的預測性效能。 誤差值越低，表示進行預測的模型越精確。 整體誤差度量為 0 時，表示模型完全符合資料。
+「誤差」一詞代表預測的值和真正的值之間的差異。 系統通常會計算這項差異的絕對值或平方來擷取所有案例中的總誤差大小，因為在某些情況下，預測的值和真正的值之間的差異可能是負數。 誤差度量會根據預測與真正的值之間的平均偏差，測量迴歸模型的預測性效能。 誤差值越低，表示進行預測的模型越精確。 整體誤差度量為零時，表示模型完全符合資料。
 
 決定係數亦稱為「R 平方值」，也是測量模型對於資料的適用程度的一種標準方式。 它可以解譯為模型所說明的變化的比例。 在此情況下，比例越高越好，其中 1 表示完全符合。
 
@@ -74,7 +75,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 圖 2. 線性迴歸評估度量。
 
 ### <a name="using-cross-validation"></a>使用交叉驗證
-如先前所述，您可以使用[交叉驗證模型][cross-validate-model]模組，自動執行反覆的訓練、計分和評估。 在這種情況下，您只需要一個資料集、一個非定型模型，以及一個[交叉驗證模型][cross-validate-model]模組 (請參閱下圖)。 請注意，您必須在[交叉驗證模型][cross-validate-model]模組的屬性中，將 [標籤] 資料行設定為 [價格]。
+如先前所述，您可以使用[交叉驗證模型][cross-validate-model]模組，自動執行反覆的訓練、計分和評估。 在這種情況下，您只需要一個資料集、一個非定型模型，以及一個[交叉驗證模型][cross-validate-model]模組 (請參閱下圖)。 您必須在[交叉驗證模型][cross-validate-model]模組的屬性中，將 [標籤] 資料行設定為 [價格]。
 
 ![交叉驗證迴歸模型](./media/evaluate-model-performance/3.png)
 
@@ -87,7 +88,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 圖 4. 迴歸模型的交叉驗證結果。
 
 ## <a name="evaluating-a-binary-classification-model"></a>評估二進位分類模型
-例如，在二元分類的情況下，目標變數只有兩個可能的結果：{0, 1} 或 {false, true}, {negative, positive}。 假設您有一個成人員工的資料集，其中包含一些人口統計和就業變數，而且您必須預測收入層級，也就是包含值 {“<=50K”, “>50K”} 的二元變數。 換句話說，負數類別表示年收入低於或等於 5 萬元的員工，而正數類別則表示其他所有員工。 如同在迴歸情況下，我們會訓練模型、為某些資料評分，並評估結果。 此處的主要差異在於 Azure Machine Learning 計算和輸出的度量選擇。 為說明收入層級的預測情況，我們將使用 [成人](http://archive.ics.uci.edu/ml/datasets/Adult) 資料集來建立 Azure Machine Learning 實驗，並評估二元羅吉斯迴歸模型 (這是一種常用的二元分類器) 的效能。
+例如，在二元分類的情況下，目標變數只有兩個可能的結果：{0, 1} 或 {false, true}, {negative, positive}。 假設您有一個成人員工的資料集，其中包含一些人口統計和就業變數，而且您必須預測收入層級，也就是包含值 {“<=50 K”, “>50 K”} 的二元變數。 換句話說，負數類別表示年收入低於或等於 5 萬元的員工，而正數類別則表示其他所有員工。 如同在迴歸情況下，我們會訓練模型、為某些資料評分，並評估結果。 此處的主要差異在於 Azure Machine Learning 計算和輸出的度量選擇。 為說明收入層級的預測情況，我們將使用 [成人](http://archive.ics.uci.edu/ml/datasets/Adult) 資料集來建立 Azure Machine Learning 實驗，並評估二元羅吉斯迴歸模型 (這是一種常用的二元分類器) 的效能。
 
 ### <a name="creating-the-experiment"></a>建立實驗
 將下列模組加入至您在 Azure Machine Learning Studio 中的工作區：
@@ -115,7 +116,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 
 圖 6. 二進位分類混淆矩陣。
 
-回到收入分類問題，我們會想要提出幾個評估問題，幫助我們了解所使用的分類器的效能。 很自然的問題是：「在模型預測收入 5 萬元以上 (TP+FP) 的個人中，有多少人的分類正確 (TP)？ 」 透過查看模型的 **精確度** ，也就是正確分類的正數比例，可以回答這個問題：TP/(TP+FP)。 另一個常見問題是：「在收入高於 5 萬元 (TP+FN) 的高收入員工中，分類器正確分類的員工有多少 (TP)？ 」實際上，這是 **回收**，或真肯定比率：分類器的 TP/(TP+FN)。 您可能會注意到在精確度與回收之間有明顯的取捨。 例如，假設是相當對稱資料集，預測大部分是正案例的分類器會有高回收，但是因為許多負案例分類錯誤造成的精確度低會導致大量的誤肯定。 若要查看這兩個度量如何變化的繪圖，您可以按一下 [評估結果輸出] 頁面中的「精確度/回收」曲線 (圖 7 的左側部分)。
+回到收入分類問題，我們會想要提出幾個評估問題，幫助我們了解所使用的分類器的效能。 很自然的問題是：「在模型預測收入 5 萬元以上 (TP+FP) 的個人中，有多少人的分類正確 (TP)？ 」 透過查看模型的 **精確度** ，也就是正確分類的正數比例，可以回答這個問題：TP/(TP+FP)。 另一個常見問題是：「在收入高於 5 萬元 (TP+FN) 的高收入員工中，分類器正確分類的員工有多少 (TP)？ 」實際上，這是 **回收**，或真肯定比率：分類器的 TP/(TP+FN)。 您可能會注意到在精確度與回收之間有明顯的取捨。 例如，假設是相當對稱資料集，預測大部分是正案例的分類器會有高回收，但是因為許多負案例分類錯誤造成的精確度低會導致大量的誤肯定。 若要查看這兩個度量如何變化的繪圖，您可以按一下 [評估結果輸出] 頁面中的**精確度/回收**曲線 (圖 7 的左側部分)。
 
 ![二元分類評估結果](./media/evaluate-model-performance/7.png)
 

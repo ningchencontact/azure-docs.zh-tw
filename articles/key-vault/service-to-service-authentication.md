@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 09/05/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: d9fc845316d6e785d8215ac738b893ebc080d911
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1eadea53dda60ef5ac8bbbc3d9e9cfe4b5b373dc
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300965"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423587"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>使用 .NET 進行 Azure Key Vault 的服務對服務驗證
 
@@ -183,18 +183,16 @@ az account list
 
 1. 建立[服務主體憑證](/azure/azure-resource-manager/resource-group-authenticate-service-principal)。 
 
-2. 將憑證部署至 _LocalMachine_ 或 _CurrentUser_ 存放區。 
+2. 將憑證部署至 *LocalMachine* 或 *CurrentUser* 存放區。 
 
 3. 將名為 **AzureServicesAuthConnectionString** 的環境變數設定為：
 
     ```
     RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint={Thumbprint};
-          CertificateStoreLocation={LocalMachine or CurrentUser}
+          CertificateStoreLocation={CertificateStore}
     ```
  
-    使用步驟 1 產生的值取代 _{AppId}_、_{TenantId}_ 和 _{Thumbprint}_。
-
-    根據您的部署計劃，**CertificateStoreLocation**必須是 _CurrentUser_ 或 _LocalMachine_。
+    使用步驟 1 產生的值取代 *{AppId}*、*{TenantId}* 和 *{Thumbprint}*。 請根據您的部署計劃將 *{CertificateStore}* 取代為 `LocalMachine` 或 `CurrentUser`。
 
 4. 執行應用程式。 
 

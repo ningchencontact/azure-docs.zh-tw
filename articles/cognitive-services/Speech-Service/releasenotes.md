@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 706f51ae1e2d81e2003f2fcd637def95c7a42f8e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567531"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317886"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -31,7 +31,7 @@ ms.locfileid: "51567531"
 
 * 已在辨識器設定中新增其他驗證，及新增其他錯誤訊息。
 * 已改善對音訊檔案中長時間無聲之部分的處理。
-* NuGet 套件：針對 .NET Framework 專案會防止使用 AnyCPU 設定來建置。
+* NuGet 套件：針對 .NET Framework 專案，其可防止使用 AnyCPU 設定來建置。
 
 **錯誤修正**
 

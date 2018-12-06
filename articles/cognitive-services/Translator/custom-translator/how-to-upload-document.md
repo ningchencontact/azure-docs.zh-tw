@@ -9,16 +9,18 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: bb84a3ddfba54c47cdf91aa72889a960722cdbd3
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627889"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633243"
 ---
 # <a name="upload-a-document"></a>上傳文件
 
 在[自訂翻譯工具](https://portal.customtranslator.azure.ai)中，您可以上傳平行文件來訓練您的翻譯模型。 [平行文件](what-are-parallel-documents.md)是配對文件，其中的一份文件是另一份文件的翻譯。 該配對中的一份文件會包含原始語言的句子，而另一分文件會包含已翻譯成目標語言的這些句子。
+
+上傳文件之前，請先檢閱[文件格式和命名慣例指引](document-formats-naming-convention.md)，確保自訂翻譯工具支援您的檔案格式。
 
 ## <a name="how-to-upload-document"></a>如何上傳文件？
 

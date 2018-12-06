@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f0c2108ee75f843e8285c5e2c5c55834643dc7da
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984368"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620535"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 入口網站在 Azure 中建立 Service Fabric 叢集
 > [!div class="op_single_selector"]
@@ -117,13 +117,13 @@ ms.locfileid: "45984368"
 1. 選擇節點類型的名稱 (1 到 12 個字元，只能包含字母和數字)。
 2. 主要節點類型的 VM **大小**下限取決於您為叢集選擇的**持久性**層級。 持久性層級的預設值為 Bronze。 如需關於持久性的詳細資訊，請參閱[如何選擇 Service Fabric 叢集持久性][service-fabric-cluster-durability]。
 3. 選取**虛擬機器大小**。 D 系列 VM 擁有 SSD 磁碟機，且強烈建議用於具狀態應用程式。 請勿使用任何只有部分核心或可用磁碟容量少於 10 GB 的 VM SKU。 如需有關選取 VM 大小的說明，請參閱 [Service Fabric 叢集規劃考量文件][service-fabric-cluster-capacity]。
-4. 選擇節點類型的**初始 VM 擴展集容量**。 您可以在稍後將節點類型中的 VM 數目相應增加或相應減少，但在主要節點類型上，生產工作負載的數目下限是五個。 其他節點類型可以有 1 個 VM 的下限。 叢集的**可靠性**取決於主要節點類型的 VM **數目**下限。  
-5. **單一節點叢集與三個節點叢集**僅供測試使用。 這些節點叢集不支援任何執行中的生產工作負載。
+4.  **單一節點叢集與三個節點叢集**僅供測試使用。 這些節點叢集不支援任何執行中的生產工作負載。
+5. 選擇節點類型的**初始 VM 擴展集容量**。 您可以在稍後將節點類型中的 VM 數目相應增加或相應減少，但在主要節點類型上，生產工作負載的數目下限是五個。 其他節點類型可以有 1 個 VM 的下限。 叢集的**可靠性**取決於主要節點類型的 VM **數目**下限。  
 6. 設定**自訂端點**。 此欄位可讓您輸入以逗號區隔的連接埠清單，您可以透過 Azure Load Balancer 針對您的應用程式向公用網際網路公開這些連接埠。 例如，如果您計劃對您的叢集部署 Web 應用程式，請在這裡輸入「80」來允許連接埠 80 的流量進入您的叢集。 如需端點的詳細資訊，請參閱[與應用程式通訊][service-fabric-connect-and-communicate-with-services]
 7. **啟用反向 Proxy**。  [Service Fabric 反向 Proxy](service-fabric-reverseproxy.md) 可協助在 Service Fabric 叢集中執行的微服務進行探索，並與其他擁有 http 端點的服務通訊。
-8. 在 [+ 顯示選用設定] 下，設定叢集**診斷**。 預設會在您的叢集上啟用診斷功能，以協助排解疑難問題。 如果您要停用診斷，請將其 [狀態] 切換至 [關閉]。 **不**建議將診斷關閉。 如果您已經建立了 Application Insights 專案，那麼請提供其密鑰，以便將應用程式追蹤透過路由方式傳送至該專案。
+8. 回到 [叢集設定] 刀鋒視窗，在 [+ 顯示選用設定] 下，設定叢集**診斷**。 預設會在您的叢集上啟用診斷功能，以協助排解疑難問題。 如果您要停用診斷，請將其 [狀態] 切換至 [關閉]。 **不**建議將診斷關閉。 如果您已經建立了 Application Insights 專案，那麼請提供其密鑰，以便將應用程式追蹤透過路由方式傳送至該專案。
 9. **包含 DNS 服務**。  [DNS 服務](service-fabric-dnsservice.md)可讓您尋找使用 DNS 通訊協定的其他服務所用的選用服務。
-10. 選取您想要為叢集設定的 **Fabric 升級模式**。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動] 。 如果您想要選擇支援的版本，將模式設定為 [手動] 。 如需 Fabric 升級模式的詳細資訊，請參閱 [service-fabric-cluster-upgrade 文件][service-fabric-cluster-upgrade]。
+10. 選取您想要為叢集設定的 **Fabric 升級模式**。 如果您要讓系統自動挑選最新可用的版本，並嘗試將叢集升級到此版本，請選取 [自動] 。 如果您想要選擇支援的版本，將模式設定為 [手動] 。 如需 Fabric 升級模式的詳細資訊，請參閱 [Service Fabric 叢集升級文件][service-fabric-cluster-upgrade]。
 
 > [!NOTE]
 > 我們支援的叢集限於執行支援的 Service Fabric 版本。 如果選取 [手動]  模式，您必須負責將叢集升級到支援的版本。
@@ -158,10 +158,10 @@ ms.locfileid: "45984368"
 
 ![SecurityCustomOption]
 
-您需要 CertificateThumbprint、SourceVault 和 CertificateURL 資訊，以完成安全性頁面。 如果您不方便取得，請在另一個瀏覽器視窗中開啟，並執行下列動作
+您需要來源金鑰保存庫、憑證 URL 和憑證指紋資訊，以完成安全性頁面。 如果您手邊沒有這些資訊，請開啟另一個瀏覽器視窗，然後在 Azure 入口網站中執行下列動作
 
-1. 瀏覽至您的金鑰保存庫，並選取憑證。 
-2. 選取 [屬性] 索引標籤，並將「資源 ID」複製到其他瀏覽器視窗上的「來源金鑰保存庫」 
+1. 巡覽至您的金鑰保存庫服務。
+2. 選取 [屬性] 索引標籤，然後將 [資源識別碼] 複製到另一個瀏覽器視窗的 [來源金鑰保存庫] 中 
 
     ![CertInfo0]
 
@@ -171,8 +171,8 @@ ms.locfileid: "45984368"
 
     ![CertInfo1]
 
-6. 您現在應該在如下所示的畫面中。 將「指紋」複製到其他瀏覽器視窗上的「憑證指紋」
-7. 將「祕密識別碼」資訊複製到其他瀏覽器視窗上的「憑證 URL」。
+6. 您現在應該在如下所示的畫面中。 將十六進位 SHA-1 指紋複製到另一個瀏覽器視窗的 [憑證指紋] 中
+7. 將 [祕密識別碼] 複製到另一個瀏覽器視窗的 [憑證 URL] 中。
 
     ![CertInfo2]
 
@@ -186,7 +186,7 @@ ms.locfileid: "45984368"
 
 ![總結]
 
-您可以在通知功能中看到叢集的建立進度。 (請按一下畫面右上角狀態列附近的鈴噹圖示。)如果您在建立叢集時按了 [釘選到「開始面板」]，您會看到 [部署 Service Fabric 叢集] 已釘選到 [開始] 面板。
+您可以在通知功能中看到叢集的建立進度。 (請按一下畫面右上角狀態列附近的鈴噹圖示。)如果您在建立叢集時按了 [釘選到「開始面板」]，您會看到 [部署 Service Fabric 叢集] 已釘選到 [開始] 面板。 此程序需要一些時間。 
 
 若要使用 Powershell 或 CLI 在您的叢集上執行管理作業，您需要連接至叢集，請參閱如何[連接至您的叢集](service-fabric-connect-to-secure-cluster.md)，了解更多資訊。
 

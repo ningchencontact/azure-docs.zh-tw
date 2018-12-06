@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/26/2018
-ms.openlocfilehash: 8f680b60a8f457e1a8619ac044798ff02df15694
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9898a56991a44f3ac87fde4c34676943b1ab8341
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013644"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581896"
 ---
-# <a name="create-high-availability-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Spark 串流作業
+# <a name="create-high-availability-apache-spark-streaming-jobs-with-yarn"></a>使用 YARN 建立高可用性 Apache Spark 串流作業
 
-Spark 串流可讓您實作可擴充、高輸送量、容錯應用程式，以便進行資料流處理。 您可以將 HDInsight Spark 叢集上的 Spark 串流應用程式連線到各種資料來源，例如 Azure 事件中樞、Azure IoT 中樞、Kafka、Flume、Twitter、ZeroMQ、原始 TCP 通訊端，或藉由監視 HDFS 檔案系統的變更。 Spark 串流可支援容錯，並保證任何指定的事件只會處理一次，即使節點失敗亦然。
+[Apache Spark](https://spark.apache.org/) 串流可讓您實作可擴充、高輸送量、容錯應用程式，以便進行資料流處理。 您可以將 HDInsight Spark 叢集上的 Spark 串流應用程式連線到各種資料來源，例如 Azure 事件中樞、Azure IoT 中樞、[Apache Kafka](https://kafka.apache.org/)[Apache Flume](https://flume.apache.org/)Twitter、[ZeroMQ](http://zeromq.org/)、原始 TCP 通訊端，或藉由監視 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) 檔案系統的變更。 Spark 串流可支援容錯，並保證任何指定的事件只會處理一次，即使節點失敗亦然。
 
 Spark 串流會建立長時間執行的作業，您可在這段期間將轉換套用至資料，然後將結果推送至檔案系統、資料庫、儀表板和主控台。 Spark 串流會先收集定義的時間間隔內的事件批次，藉此處理資料微批次。 接著會傳送該批次以進行處理和輸出。 批次時間間隔通常是以幾分之一秒定義。
 
@@ -54,7 +54,7 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 若要建立可處理每個事件一次 (且僅只一次) 的應用程式，請考慮在發生問題後如何重新啟動所有系統故障點，以及如何避免遺失資料。 一次性語意要求任何時間點都不會遺失任何資料，而且不論發生失敗的位置為何，都可以重新開始進行訊息處理。 請參閱[透過一次性事件處理來建立 Spark 串流作業](apache-spark-streaming-exactly-once.md)。
 
-## <a name="spark-streaming-and-yarn"></a>Spark 串流和 YRAN
+## <a name="spark-streaming-and-apache-hadoop-yarn"></a>Spark 串流和 Apache Hadoop YARN
 
 在 HDInsight 中，叢集工作是由 *Yet Another Resource Negotiator* (YARN) 協調。 設計高可用性的 Spark 串流時包含 Spark 串流技術，以及 YARN 元件技術。  使用 YARN 的組態範例如下所示。 
 
@@ -120,8 +120,8 @@ RDD 有數個可協助高可用性和容錯的 Spark 串流作業的屬性：
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Spark 串流概觀](apache-spark-streaming-overview.md)
-* [透過一次性事件處理來建立 Spark 串流作業](apache-spark-streaming-exactly-once.md)
-* [YARN 上長時間執行的 Spark 串流作業](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) 
+* [Apache Spark 串流概觀](apache-spark-streaming-overview.md)
+* [透過一次性事件處理來建立 Apache Spark 串流作業](apache-spark-streaming-exactly-once.md)
+* [YARN 上長時間執行的 Apache Spark 串流作業](http://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/) (英文) 
 * [結構化串流：容錯語意](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
 * [離散化串流：可擴充串流處理的容錯模型](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

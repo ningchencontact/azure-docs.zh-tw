@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2371f52591db667498398daa889ebc14708a9674
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037749"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499220"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -228,7 +228,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 這也可以透過入口網站完成。 請參閱[使用 Azure 入口網站管理 HDInsight][hdinsight-admin-portal]。
 
 ## <a name="update-http-user-credentials"></a>更新 HTTP 使用者認證
-與[授與/撤銷 HTTP 存取權](#grant/revoke-access)程序一樣。若已授與叢集 HTTP 存取權，則必須先將其撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
+這是與[授與/撤銷 HTTP 存取權](#grant/revoke-access)相同的程序。  如果已將 HTTP 存取權授與叢集，您必須先將它撤銷。  然後再使用新的 HTTP 使用者認證授與存取權。
 
 ## <a name="find-the-default-storage-account"></a>尋找預設的儲存體帳戶
 下列程式碼片段示範如何取得叢集的預設儲存體帳戶名稱和預設儲存體帳戶金鑰。
@@ -242,25 +242,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>提交工作
-**提交 MapReduce 作業**
+**提交 Apache Hadoop MapReduce 作業**
 
-請參閱 [在 HDInsight 中執行 Hadoop MapReduce 範例](hadoop/apache-hadoop-run-samples-linux.md)。
+請參閱 [在 HDInsight 中執行 Apache Hadoop MapReduce 範例](hadoop/apache-hadoop-run-samples-linux.md)。
 
 **提交 Apache Hive 作業** 
 
-請參閱 [使用 .NET SDK 執行 Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
+請參閱[使用 .NET SDK 執行 Apache Hive 查詢](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
 **提交 Apache Pig 作業**
 
-請參閱 [使用 .NET SDK 執行 Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
+請參閱[使用 .NET SDK 執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
 
 **提交 Apache Sqoop 作業**
 
-請參閱 [在 HDInsight 上使用 Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
+請參閱[搭配 HDInsight 使用 Apache Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
 
 **提交 Apache Oozie 作業**
 
-請參閱 [在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)。
+請參閱[在 HDInsight 上搭配 Hadoop 使用 Apache Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="upload-data-to-azure-blob-storage"></a>將資料上傳至 Azure Blob 儲存體
 請參閱[將資料上傳至 HDInsight][hdinsight-upload-data]。

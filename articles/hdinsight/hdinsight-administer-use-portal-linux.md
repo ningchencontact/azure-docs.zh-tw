@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: b96712c3a920a70e121f0a72954680ced2ba96ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252287"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499386"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-使用 [Azure 入口網站][azure-portal]，您可以管理 Azure HDInsight 中的 Apache Hadoop 叢集。 使用上述的索引標籤選取器，以取得使用其他工具管理 HDInsight 中 Hadoop 叢集的詳細資訊。
+使用 [Azure 入口網站][azure-portal]，您可以管理 [Azure HDInsight](https://hadoop.apache.org/) 中的 Apache Hadoop 叢集。 使用上述的索引標籤選取器，以取得使用其他工具管理 HDInsight 中 Hadoop 叢集的詳細資訊。
 
 **先決條件**
 
@@ -46,7 +46,7 @@ ms.locfileid: "51252287"
 ## <a name="create-clusters"></a>建立叢集
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支援元件的清單，請參閱 [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md) 如需一般叢集建立的資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支援元件的清單，請參閱 [Azure HDInsight 提供 Apache Hadoop 的什麼版本？](hdinsight-component-versioning.md) 如需一般叢集建立的資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ### <a name="access-control-requirements"></a>存取控制需求
 
@@ -99,7 +99,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
     * **屬性**：檢視叢集屬性。
 * **鎖定**︰新增鎖定以防止叢集遭到修改或刪除。
-    * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+    * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
 **監視**
 * **警示**：管理警示和動作。
     * **計量**：監視 Azure Log Analytics 中的叢集計量。
@@ -159,12 +159,12 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 變更資料節點數目的影響會因為 HDInsight 支援的各種類型叢集而有所不同：
 
-* Hadoop
+* Apache Hadoop
 
     您可以順暢地增加正在執行的 Hadoop 叢集中背景工作節點數目，而不會影響任何擱置或執行中的工作。 您也可以在作業進行當中提交新工作。 系統會順暢處理失敗的調整作業，讓叢集永保正常運作狀態。
 
     減少資料節點數目以縮減 Hadoop 叢集時，系統會重新啟動叢集中的部分服務。 此行為會導致所有執行中和擱置的工作在調整作業完成時失敗。 但您可以在作業完成後重新提交這些工作。
-* hbase
+* Apache HBase (英文)
 
     您可以順暢地在 HBase 叢集運作時對其新增或移除資料節點。 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 但是，您也可以手動平衡區域伺服器，方法是登入叢集的前端節點，然後從命令提示字元視窗執行下列命令：
 
@@ -176,7 +176,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
     如需使用 HBase 殼層的詳細資訊，請參閱[開始使用 HDInsight 中的 Apache HBase 範例](hbase/apache-hbase-tutorial-get-started-linux.md)。
 
-* Storm
+* Apache Storm
 
     您可以順暢地在 Storm 叢集運作時對其新增或移除資料節點。 不過，在調整作業順利完成後，您需要重新平衡拓撲。
 
@@ -208,10 +208,10 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 有許多方法可以設計程序：
 
-* 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md) 。
+* 使用 Azure Data Factory。 如需建立隨選 HDInsight 連結服務，請參閱 [使用 Azure Data Factory 在 HDInsight 中建立 Linux 型隨選 Apache Handooop 叢集](hdinsight-hadoop-create-linux-clusters-adf.md)。
 * 使用 Azure PowerShell。  請參閱 [分析航班延誤資料](hdinsight-analyze-flight-delay-data.md)。
 * 使用 Azure 傳統 CLI。 請參閱[使用 Azure CLI 管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-command-line.md)。
-* 使用 HDInsight .NET SDK。 請參閱 [提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
+* 使用 HDInsight .NET SDK。 請參閱[提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)。
 
 如需定價資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。 若要從入口網站刪除叢集，請參閱 [刪除叢集](#delete-clusters)
 
@@ -223,7 +223,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 
 請參閱[將 HDInsight 叢集升級為更新的版本](./hdinsight-upgrade-cluster.md)。
 
-## <a name="open-the-ambari-web-ui"></a>開啟 Ambari Web UI
+## <a name="open-the-apache-ambari-web-ui"></a>開啟 Apache Ambari Web UI
 
 Ambari 提供一個以其 RESTful API 為後盾的 Hadoop 管理 Web UI，此 UI 相當直覺式且容易使用。 Ambari 可讓系統管理員管理和監視 Hadoop 叢集。
 
@@ -236,7 +236,7 @@ Ambari 提供一個以其 RESTful API 為後盾的 Hadoop 管理 Web UI，此 UI
 
     ![HDInsight Hadoop Ambari Web UI](./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-ambari-web-ui.png)
 
-如需詳細資訊，請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+如需詳細資訊，請參閱 [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="change-passwords"></a>變更密碼
 HDInsight 叢集可以有兩個使用者帳戶。 HDInsight 叢集使用者帳戶 (A.K.A. HTTP 使用者帳戶) 以及 SSH 使用者帳戶都會在建立程序期間建立。 您可以使用 Ambari Web UI 來變更叢集使用者帳戶的使用者名稱、密碼，以及用於變更 SSH 使用者帳戶的指令碼動作。
@@ -323,7 +323,7 @@ HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存�
 
 若要列出 Data Lake Store 帳戶，請按一下上一個螢幕擷取畫面中的 [Data Lake Store 存取]。
 
-## <a name="run-hive-queries"></a>執行 Hive 查詢
+## <a name="run-apache-hive-queries"></a>執行 Apache Hive 查詢
 您無法直接從 Azure 入口網站執行 Hive 作業，但您可以使用 Ambari Web UI 上的 Hive 檢視。
 
 **使用 Ambari Hive 檢視執行 Hive 查詢**
@@ -337,7 +337,7 @@ HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存�
 4. 在 [查詢編輯器] 中輸入 Hive 查詢，然後按一下 [執行]。
 
 ## <a name="monitor-jobs"></a>監視工作
-請參閱 [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md#monitoring)。
+請參閱[使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md#monitoring)。
 
 ## <a name="browse-files"></a>瀏覽檔案
 使用 Azure 入口網站時，您可以瀏覽預設容器的內容。
@@ -354,11 +354,11 @@ HDInsight 叢集使用 Azure 儲存體帳戶或 Azure Data Lake Store 來儲存�
 HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用帳戶可搭配 HDInsight 使用的核心數目，以及配置給此叢集的核心數目和它們在此叢集中配置給節點的方式。 請參閱 [列出和顯示叢集](#list-and-show-clusters)。
 
 > [!IMPORTANT]
-> 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱 [使用 Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+> 若要監視 HDInsight 叢集所提供的服務，您必須使用 Ambari Web 或 Ambari REST API。 如需使用 Ambari 的詳細資訊，請參閱[使用 Apache Ambari 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 
 ## <a name="connect-to-a-cluster"></a>連接到叢集
 
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [搭配使用 SSH 與 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 ## <a name="next-steps"></a>後續步驟
@@ -368,13 +368,13 @@ HDInsight 叢集刀鋒視窗的 [使用量] 區段會顯示以下資訊：訂用
 * [使用 Azure PowerShell 管理 HDInsight](hdinsight-administer-use-powershell.md)
 * [使用 Azure 傳統 CLI 管理 HDInsight](hdinsight-administer-use-command-line.md)
 * [建立 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
-* [深入了解使用 Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
-* [使用 Ambari REST API 的詳細資料](hdinsight-hadoop-manage-ambari-rest-api.md)
-* [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
-* [在 HDInsight 中使用 Sqoop](hadoop/hdinsight-use-sqoop.md)
+* [深入了解使用 Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari REST API 的詳細資料](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [在 HDInsight 中使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Apache Pig](hadoop/hdinsight-use-pig.md)
+* [在 HDInsight 中使用 Apache Sqoop](hadoop/hdinsight-use-sqoop.md)
 * [開始使用 Azure HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Azure HDInsight 提供 Hadoop 的什麼版本？](hdinsight-component-versioning.md)
+* [Azure HDInsight 提供 Apache Hadoop 的什麼版本？](hdinsight-component-versioning.md)
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-portal-linux/hdinsight-hadoop-command-line.png "Hadoop 命令列"

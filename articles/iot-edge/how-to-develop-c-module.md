@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b8d8223647d42213eff53c2ff8310bed0cfe6cdb
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566018"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52446733"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>使用 Visual Studio Code 來開發適用於 Azure IoT Edge 的 C 模組以及針對其進行偵錯
 
@@ -59,7 +59,7 @@ ms.locfileid: "51566018"
 
 7. 輸入模組的名稱。 選擇容器登錄內唯一的名稱。 
 
-8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 
+8. 提供模組映像存放庫的名稱。 VS Code 會自動以 **localhost:5000** 填入模組名稱。 請使用您自己的登錄資訊加以取代。 如果您使用本機 Docker 登錄來進行測試，則可以使用 **localhost**。 如果您使用 Azure Container Registry，則請使用登錄設定中的登入伺服器。 登入伺服器看起來像**\<登錄名稱\>.azurecr.io**。 僅取代字串的 localhost 部分即可，不要刪除您的模組名稱。 最終字串的看起來像 \<登錄名稱\>.azurecr.io/\<模組名稱\>。
 
    ![提供 Docker 映像存放庫](./media/how-to-develop-c-module/repository.png)
 
@@ -87,20 +87,11 @@ VS Code 會採用您提供的資訊、建立 IoT Edge 解決方案，然後將�
 
 在每個模組資料夾中，會有不同容器類型的多個 Docker 檔案。 請使用任何副檔名為 **.debug** 的檔案來建置測試用模組。 目前，C 模組只支援在 Linux amd64 容器中進行偵錯。
 
-1. 在 VS Code 中，瀏覽至 `deployment.template.json` 檔案。 在結尾加上 **.debug**，以更新您的模組映像 URL。
-
-    ![請將 **.debug** 新增至映像名稱](./media/how-to-develop-c-module/image-debug.png)
-
-2. 將 **deployment.template.json** 中的 C 模組 createOptions 取代為以下內容並儲存此檔案： 
-    
-    ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
-    ```
-
+1. 在 VS Code 中，瀏覽至 `deployment.debug.template.json` 檔案。 此檔案包含您模組映像的偵錯版本與適當的建立選項。 
 2. 在 VS Code 命令選擇區中，輸入並執行 **Azure IoT Edge: Build and Push IoT Edge solution** 命令。
-3. 從命令選擇區中，為您的解決方案選取 `deployment.template.json` 檔案。 
+3. 從命令選擇區中，為您的解決方案選取 `deployment.debug.template.json` 檔案。 
 4. 在 Azure IoT 中樞 Device Explorer 中，以滑鼠右鍵按一下 IoT Edge 裝置識別碼。 然後選取 [建立單一裝置的部署]。 
-5. 開啟解決方案的 **config** 資料夾。 然後選取 `deployment.json` 檔案。 選擇 [選取 Edge 部署資訊清單]。 
+5. 開啟解決方案的 **config** 資料夾。 然後選取 `deployment.debug.amd64.json` 檔案。 選擇 [選取 Edge 部署資訊清單]。 
 
 您會看到部署已順利建立，而且 VS Code 整合式終端機中會有部署識別碼。
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913983"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632784"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -43,18 +43,33 @@ ms.locfileid: "50913983"
 
 身分識別的安全性界限，是指身分識別所連結到的資源。 例如，對於 Azure 資源適用受控識別已啟用的虛擬機器而言，其安全性界限就是虛擬機器。 在該虛擬機器上執行的任何程式碼，都能呼叫 Azure 資源適用受控識別與要求權杖。 此體驗類似於其他支援 Azure 資源適用受控識別的資源。
 
+### <a name="what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request"></a>如果未在要求中指定身分識別，則 IMDS 的身分識別將預設為何？
+
+- 如果啟用了系統指派的受控識別，且要求中沒有指定任何身分識別，IMDS 將會預設為系統指派的受控識別。
+- 如果未啟用系統指派的受控識別，且只有一個使用者指派的受控識別，IMDS 將會預設為該單一使用者指派的受控識別。 
+- 如果未啟用系統指派的受控識別，且有多個使用者指派的受控識別，則必須在要求中指定受控識別。
+
 ### <a name="should-i-use-the-managed-identities-for-azure-resources-vm-imds-endpoint-or-the-vm-extension-endpoint"></a>我應該使用 Azure 資源適用受控識別虛擬機器 IMDS 端點，或虛擬機器擴充功能端點？
 
 將 Azure 資源適用受控識別搭配虛擬機器使用時，建議使用 Azure 資源適用受控識別 IMDS 端點。 Azure 執行個體中繼資料服務是透過 Azure Resource Manager建立之所有 IaaS VM 可存取的 REST 端點。 透過 IMDS 使用 Azure 資源適用受控識別有許多優點，像是：
-
-1. 所有 Azure IaaS 支援的作業系統皆可透過 IMDS 使用 Azure 資源適用受控識別。 
-2. 不再需要將擴充功能安裝在虛擬機器上，就能夠啟用 Azure 資源適用受控識別。 
-3. 虛擬機器中不再有 Azure 資源適用受控識別使用的憑證。 
-4. IMDS 端點是眾所周知的非可路由 IP 位址，且只能從 VM 內取得。 
+    - 所有 Azure IaaS 支援的作業系統皆可透過 IMDS 使用 Azure 資源適用受控識別。
+    - 不再需要將擴充功能安裝在虛擬機器上，就能夠啟用 Azure 資源適用受控識別。 
+    - 虛擬機器中不再有 Azure 資源適用受控識別使用的憑證。
+    - IMDS 端點是眾所周知的非可路由 IP 位址，且只能從 VM 內取得。
 
 Azure 資源適用受控識別虛擬機器擴充功能目前仍可供使用，但往後我們會預設為使用 IMDS 端點。 Azure 資源適用受控識別 VM 擴充功能將在 2019 年 1 月淘汰。 
 
 如需 Azure Instance Metadata Service 的詳細資訊，請參閱 [IMDS 文件](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+
+### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>如果我將訂用帳戶移到另一個目錄，系統是否會自動重新建立受控識別？
+
+否。 如果您將訂用帳戶移到另一個目錄，則必須手動重新建立受控識別，並重新授與 Azure RBAC 角色指派。
+    - 若為系統指派的受控識別：停用然後重新啟用。
+    - 若為使用者指派的受控識別：加以刪除、重新建立，然後重新連結至所需的資源 (例如虛擬機器)
+
+### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>可以使用受控識別來存取不同目錄/租用戶中的資源嗎？
+
+否。 受控識別目前不支援跨目錄案例。 
 
 ### <a name="what-are-the-supported-linux-distributions"></a>支援的 Linux 散發套件有哪些？
 

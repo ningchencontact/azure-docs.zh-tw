@@ -8,14 +8,14 @@ ms.author: nitinver
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 7/7/2017
-ms.openlocfilehash: e25a2dcaf9b7c820f5d7e0312fb2cb55fc558882
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593894"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317223"
 ---
-# <a name="troubleshoot-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 HBase 進行疑難排解
+# <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache HBase 進行疑難排解
 
 了解在 Apache Ambari 中使用 Apache HBase 承載時最常發生的問題及其解決方法。
 
@@ -30,7 +30,7 @@ ms.locfileid: "39593894"
 若要讓未指派的區域回復正常狀態，請完成下列步驟：
 
 1. 使用 SSH 登入 HDInsight HBase 叢集。
-2. 若要使用 ZooKeeper Shell 進行連線，請執行 `hbase zkcli` 命令。
+2. 若要使用 Apache ZooKeeper Shell 進行連線，請執行 `hbase zkcli` 命令。
 3. 執行 `rmr /hbase/regions-in-transition` 命令或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 4. 若要結束 `hbase zkcli` Shell，請使用 `exit` 命令。
 5. 開啟 Apache Ambari UI，然後重新啟動 Active HBase Master 服務。
@@ -46,7 +46,7 @@ ms.locfileid: "39593894"
 ### <a name="resolution-steps"></a>解決步驟
 
 1. 使用 SSH 登入 HDInsight HBase 叢集。
-2. 若要使用 ZooKeeper Shell 進行連線，請執行 `hbase zkcli` 命令。
+2. 若要使用 Apache ZooKeeper Shell 進行連線，請執行 `hbase zkcli` 命令。
 3. 執行 `rmr /hbase/regions-in-transition` 或 `rmr /hbase-unsecure/regions-in-transition` 命令。
 4. 若要結束 `hbase zkcli` Shell，請使用 `exit` 命令。
 5. 在 Ambari UI 中，重新啟動 Active HBase Master 服務。
@@ -56,7 +56,7 @@ ms.locfileid: "39593894"
 
 ### <a name="issue"></a>問題
 
-本機 Hadoop 分散式檔案系統 (HDFS) 在 HDInsight 叢集上卡在安全模式中。
+本機 Apache Hadoop 分散式檔案系統 (HDFS) 在 HDInsight 叢集上卡在安全模式中。
 
 ### <a name="detailed-description"></a>詳細描述
 
@@ -211,7 +211,7 @@ HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接
 
 ### <a name="resolution-steps"></a>解決步驟
 
-若要與 Phoenix 連線，您必須提供使用中 ZooKeeper 節點的 IP 位址。 請確定 sqlline.py 嘗試連線的 ZooKeeper 服務已啟動並執行。
+若要與 Apache Phoenix 連線，您必須提供使用中 Apache ZooKeeper 節點的 IP 位址。 請確定 sqlline.py 嘗試連線的 ZooKeeper 服務已啟動並執行。
 1. 使用 SSH 登入 HDInsight 叢集。
 2. 輸入下列命令：
                 
@@ -247,7 +247,7 @@ HDInsight 叢集已相應減少為極少數節點。 此節點數目低於或接
    ```apache
            ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
    ```
-6. 在 Ambari UI 中完成下列步驟，在所有 ZooKeeper 節點上重新啟動 HMaster 服務：
+6. 在 Apache Ambari UI 中完成下列步驟，在所有 ZooKeeper 節點上重新啟動 HMaster 服務：
 
     1. 在 HBase 的 [摘要] 區段中，移至 [HBase] > [Active HBase Master]。 
     2. 在 [元件] 區段中，重新啟動 HBase Master 服務。
@@ -331,7 +331,7 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
   
 ### <a name="resolution-steps"></a>解決步驟
 
-1. 在 Ambari UI 中，移至 [HBase] > [設定]。 在自訂 hbase-site.xml 檔案中，新增下列設定： 
+1. 在 Apache Ambari UI 中，移至 [HBase] > [設定]。 在自訂 hbase-site.xml 檔案中，新增下列設定： 
 
    ```apache
    Key: hbase.master.namespace.init.timeout Value: 2400000  
@@ -344,9 +344,9 @@ HMaster 逾時，並發生類似如下的嚴重例外狀況：「java.io.IOExcep
 
 ### <a name="issue"></a>問題
 
-區域伺服器上的重新啟動失敗可透過遵循最佳做法來加以防止。 建議您在計劃重新啟動 HBase 區域伺服器時暫停工作負載過重的活動。 如果進行關機時應用程式繼續與區域伺服器連線，區域伺服器重新啟動作業會變慢幾分鐘。 此外，先排清所有資料表也是不錯的做法。 如需如何排清資料表的參考，請參閱 [HDInsight HBase: How to improve the HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HDInsight HBase：如何藉由排清資料表來改善 HBase 叢集重新啟動時間)。
+區域伺服器上的重新啟動失敗可透過遵循最佳做法來加以防止。 建議您在計劃重新啟動 HBase 區域伺服器時暫停工作負載過重的活動。 如果進行關機時應用程式繼續與區域伺服器連線，區域伺服器重新啟動作業會變慢幾分鐘。 此外，先排清所有資料表也是不錯的做法。 如需如何排清資料表的參考，請參閱 [HDInsight HBase：如何藉由排清資料表來改善 Apache HBase 叢集重新啟動時間](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/)。
 
-如果您從 Ambari UI 對 HBase 區域伺服器起始重新啟動作業，您會立即看到區域伺服器關機，但未立即重新啟動。 
+如果您從 Apache Ambari UI 對 HBase 區域伺服器起始重新啟動作業，您會立即看到區域伺服器關機，但未立即重新啟動。 
 
 以下是幕後發生的情況： 
 

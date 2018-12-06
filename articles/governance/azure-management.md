@@ -1,5 +1,5 @@
 ---
-title: Azure 管理
+title: Azure 管理概觀
 description: 管理 Azure 應用程式與資源的區域概觀，並提供 Azure 管理工具內容的連結。
 author: DCtheGeek
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: governance
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.openlocfilehash: 268526277dc935ccffc30120f2bb170ad3ff3ef1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978213"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582268"
 ---
 # <a name="management-in-azure"></a>在 Azure 中管理
 
@@ -43,7 +43,7 @@ ms.locfileid: "46978213"
 
 ## <a name="secure"></a>安全
 
-管理應用程式、資源與資料的安全性涉及多種動作的組合，其中包括評估威脅、收集並分析安全性資料，以及確保您的應用程式與資源是以安全方式來設計及設定的。 安全性監視和威脅分析是由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 另請參閱 [Azure 安全性簡介](../security/azure-security.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。
+管理應用程式、資源與資料的安全性涉及多種動作的組合，其中包括評估威脅、收集並分析安全性資料，以及確保您的應用程式與資源是以安全方式來設計及設定的。 安全性監視和威脅分析是由 Azure 資訊安全中心所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 另請參閱 [Azure 安全性簡介](../security/azure-security.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。
 
 ## <a name="protect"></a>Protect
 

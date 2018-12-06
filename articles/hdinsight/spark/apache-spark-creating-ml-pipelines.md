@@ -9,14 +9,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd27438247b801e384b80d96ba288896b4c5aae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d422b56acd56f87cb855c5e045e3a91666eee571
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234217"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499393"
 ---
-# <a name="create-a-spark-machine-learning-pipeline"></a>建立 Spark 機器學習管線
+# <a name="create-an-apache-spark-machine-learning-pipeline"></a>建立 Apache Spark 機器學習服務管線
 
 Apache Spark 可調整機器學習服務程式庫 (MLlib) 可將模型化功能引進分散式環境。 Spark 封裝 [`spark.ml`](http://spark.apache.org/docs/latest/ml-pipeline.html) 是 DataFrame 上建立的一組高階 API。 這些 API 可協助您建立及調整實用的機器學習服務管線。  *Spark 機器學習服務*是指以 MLlib DataFrame 為基礎的 API，而不是之前以 RDD 為基礎的管線 API。
 
@@ -131,4 +131,4 @@ only showing top 20 rows
 
 ## <a name="see-also"></a>另請參閱
 
-* [在 Azure 上使用 Scala 與 Spark 的資料科學](../../machine-learning/team-data-science-process/scala-walkthrough.md)
+* [在 Azure 上使用 Scala 與 Apache Spark 的資料科學](../../machine-learning/team-data-science-process/scala-walkthrough.md)

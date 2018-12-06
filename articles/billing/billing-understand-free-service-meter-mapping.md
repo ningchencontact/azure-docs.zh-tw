@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: amberb
-ms.openlocfilehash: 3019fe5f8b44eaa32d4ab309f296d6b4574df1d3
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061365"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581574"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>了解免費帳戶與計量的對應
 
@@ -53,10 +53,6 @@ ms.locfileid: "37061365"
 
 \** 可透過多個服務取用共用計量。 例如，虛擬機器和儲存體遵循資料傳出 (GB) 計量發出使用量。
 
+## <a name="need-help-contact-us"></a>需要協助嗎？ 歡迎與我們連絡。
 
-
-
-
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員
-
-如果需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

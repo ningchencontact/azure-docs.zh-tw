@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e2cd03f28e4a3cd8176f6126817c61508697af94
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007785"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315829"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 
-了解如何設定 Kafka 主題的磁碟分割複本，以利用基礎硬體機架組態。 此組態可確保在 HDInsight 上 Apache Kafka 中儲存之資料的可用性。
+了解如何設定 Apache Kafka 主題的磁碟分割複本，以利用基礎硬體機架組態。 此組態可確保在 HDInsight 上 Apache Kafka 中儲存之資料的可用性。
 
-## <a name="fault-and-update-domains-with-kafka"></a>容錯和更新網域與 Kafka
+## <a name="fault-and-update-domains-with-apache-kafka"></a>容錯和更新網域與 Apache Kafka
 
 容錯網域是 Azure 資料中心內基礎硬體的邏輯群組。 每個容錯網域會共用通用電源和網路交換器。 實作 HDInsight 叢集內節點的虛擬機器和受控磁碟會分散於這些容錯網域。 此架構會限制實體硬體故障的潛在影響。
 
@@ -44,15 +44,15 @@ ms.locfileid: "51007785"
 
 如果您必須使用只包含兩個容錯網域的區域，請使用複寫因子 4 將複本平均分散於兩個容錯網域。
 
-如需建立主題及設定複寫因子的範例，請參閱[開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)文件。
+如需建立主題及設定複寫因子的範例，請參閱[開始使用 HDInsight 上的 Apache Kafka](apache-kafka-get-started.md)文件。
 
 ## <a name="how-to-rebalance-partition-replicas"></a>如何重新平衡磁碟分割複本
 
-使用 [Kafka 磁碟割區重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)來重新平衡所選的主題。 必須從 Kafka 叢集前端節點的 SSH 工作階段執行此工具。
+使用 [Apache Kafka 磁碟分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)來重新平衡所選的主題。 必須從 Kafka 叢集前端節點的 SSH 工作階段執行此工具。
 
 如需使用 SSH 連線至 HDInsight 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [HDInsight 上的 Kafka 延展性](apache-kafka-scalability.md)
-* [使用 HDInsight 上的 Kafka 進行鏡像處理](apache-kafka-mirroring.md)
+* [HDInsight 上的 Apache Kafka 延展性](apache-kafka-scalability.md)
+* [對 HDInsight 上的 Apache Kafka 進行鏡像](apache-kafka-mirroring.md)

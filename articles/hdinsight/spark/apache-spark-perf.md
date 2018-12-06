@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 4a7777be01cc15ed5cc4c9c091230afe1ddfa897
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: dc1fe8a3d9a1f0da0a190275b4fbb8bd18fff610
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047437"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499151"
 ---
-# <a name="optimize-spark-jobs"></a>最佳化 Spark 作業
+# <a name="optimize-apache-spark-jobs"></a>最佳化 Apache Spark 作業
 
-了解如何特定工作負載最佳化 Spark 叢集設定。  最常見的挑戰是記憶體壓力，因為不正確的設定 (特別是錯誤大小的執行程式)、長時間執行的作業，以及導致笛卡兒作業的工作。 您可以使用適當的快取，並允許[資料扭曲](#optimize-joins-and-shuffles)，以便作業加速執行。 為了達到最佳效能，必須監視和檢閱長時間執行而且耗用資源的 Spark 作業執行。
+了解如何特定工作負載最佳化 [Apache Spark](https://spark.apache.org/) 叢集設定。  最常見的挑戰是記憶體壓力，因為不正確的設定 (特別是錯誤大小的執行程式)、長時間執行的作業，以及導致笛卡兒作業的工作。 您可以使用適當的快取，並允許[資料扭曲](#optimize-joins-and-shuffles)，以便作業加速執行。 為了達到最佳效能，必須監視和檢閱長時間執行而且耗用資源的 Spark 作業執行。
 
 下列各節描述常見的 Spark 作業最佳化和建議。
 
@@ -94,7 +94,7 @@ Spark 的運作方式是將資料放入記憶體，因此管理記憶體資源�
 
 ### <a name="spark-memory-considerations"></a>Spark 記憶體考量
 
-如果您使用 YARN，則 YARN 會控制每個 Spark 節點上的所有容器使用的記憶體最大總和。  下圖顯示索引鍵物件及其關聯性。
+如果您使用 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)，則 YARN 會控制每個 Spark 節點上的所有容器使用的記憶體最大總和。  下圖顯示索引鍵物件及其關聯性。
 
 ![YARN Spark 記憶體管理](./media/apache-spark-perf/yarn-spark-memory.png)
 
@@ -212,9 +212,9 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 
 ## <a name="next-steps"></a>後續步驟
 
-* [對 Azure HDInsight 上執行的 Spark 作業進行偵錯](apache-spark-job-debugging.md)
-* [在 HDInsight 上管理 Spark 叢集的資源](apache-spark-resource-manager.md)
-* [使用 Spark REST API 將遠端作業提交至 Spark 叢集](apache-spark-livy-rest-interface.md)
-* [調整 Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [如何實際調整 Spark 作業，以便這些作業運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
+* [對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯](apache-spark-job-debugging.md)
+* [在 HDInsight 上管理 Apache Spark 叢集的資源](apache-spark-resource-manager.md)
+* [使用 Apache Spark REST API 將遠端作業提交至 Apache Spark 叢集](apache-spark-livy-rest-interface.md)
+* [調整 Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [如何實際調整 Apache Spark 作業，以便這些作業運作](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Kryo 序列化](https://github.com/EsotericSoftware/kryo)

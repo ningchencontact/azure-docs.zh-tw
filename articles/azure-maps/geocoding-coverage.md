@@ -8,16 +8,22 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d7c1eaa26edef830ca156eef943fcb256d737d77
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 664d52a96f1e724502f82f5f72567f87c74e716b
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989872"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444251"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Azure 地圖地理編碼涵蓋範圍
 
 當您使用 Azure 地圖搜尋某個地點時，搜尋服務會取用您的搜尋詞彙，並傳回緯度和經度座標，此程序稱為地理編碼。 不過，地圖並未對所有區域和國家提供相同層級的資訊和精確度。 請參考本文，以判斷您在各個區域中能夠可靠地搜尋何種地點。 
+
+在國家/地區中地理編碼的能力仰賴道路資料涵蓋範圍，以及地理編碼服務的地理編碼精確度。 下列類別會用來指定每個國家/地區中的地理編碼支援層級。
+* **地址點** - 地址資料可解析為地址地塊 (屬性界限) 內的緯度/經度座標。 有時稱為「屋頂」精確。 這是地址可用的最高層級精確度。 
+* **門牌號碼** - 地址會插入到街道上的緯度/經度座標。
+* **街道層級** - 地址會解析為包含地址的街道緯度/經度座標。 可能不會處理門牌號碼。
+* **縣 (市) 層級** - 支援城市位置的名稱。
 
 ## <a name="americas"></a>美洲
 
@@ -52,6 +58,7 @@ ms.locfileid: "38989872"
 | 哥德洛普|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | 關島                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 瓜地馬拉                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| 蓋亞那        |                |             |           |      ✓     |                 |
 | 海地                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | 宏都拉斯                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | 牙買加                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -101,6 +108,7 @@ ms.locfileid: "38989872"
 | 赫德島及麥唐納群島                   |                 |                |              |      ✓     |          ✓         |
 | 香港                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | 印尼                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| 印度       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | 日本                                               |                 |                |              |      ✓     |          ✓         |
 | 吉里巴斯                                            |                 |                |              |      ✓     |          ✓         |
 | 寮國                                                |                 |                |              |      ✓     |          ✓         |

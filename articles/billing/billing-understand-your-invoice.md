@@ -4,7 +4,7 @@ description: 了解如何閱讀並了解 Azure 訂用帳戶的使用情形和帳
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: jureid
 editor: ''
 tags: billing
 ms.service: billing
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
-ms.openlocfilehash: 6601ade7db52043de8150a3fca671591b9b469fd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.author: cwatson
+ms.openlocfilehash: 50909a51786bf6118c4fb867f2482c93bf59c28e
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063454"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581543"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>了解您 Microsoft Azure 發票上的字詞
 
@@ -99,7 +99,7 @@ ms.locfileid: "37063454"
 
 | 詞彙 |說明 |
 | --- | --- |
-| Name |識別使用量的最上層服務 |
+| 名稱 |識別使用量的最上層服務 |
 | 類型 |定義可能會影響費率的 Azure 服務類型 |
 | 資源 |識別耗用計量的量值單位 |
 | 區域 |針對以資料中心位置作為基礎所定價的某些服務，識別資料中心的位置 |
@@ -114,5 +114,6 @@ ms.locfileid: "37063454"
 ## <a name="how-do-i-make-sure-that-the-charges-in-my-invoice-are-correct"></a>如何確定我發票中的費用是否正確？
 如果您需要發票費用的更多詳細資料，請參閱[了解您的 Microsoft Azure 帳單。](billing-understand-your-bill.md)
 
-## <a name="need-help-contact-support"></a>需要協助嗎？ 請連絡支援人員。
-如果仍需要協助，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
+
+如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

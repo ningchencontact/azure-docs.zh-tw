@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 97f6339e5c9532250245a97a81dade12db139e98
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 09ecd46837a12f5f1a8278b1644dc099701bcd00
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227362"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584718"
 ---
 # <a name="billing-and-cost-management-automation-scenarios"></a>計費和成本管理自動化案例
 
@@ -83,7 +83,7 @@ ms.locfileid: "47227362"
 ### <a name="enterprise-consumption"></a>企業使用量
 (僅限所有企業 API)
 
--   **餘額摘要**：使用[餘額摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 來取得餘額、新購買項目、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。 您可以取得目前計費期間或任何過去期間的此資訊。 企業可以使用此資料來執行與手動計算之摘要費用的比較。 此 API 不提供資源特定資訊或成本的彙總檢視。
+-   **餘額摘要**：使用[餘額摘要 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) 來取得餘額、新購買項目、Azure Marketplace 服務費用、調整，以及超額部分費用的每月摘要資訊。 您可以取得目前計費期間或任何過去期間的這項資訊。 企業可以使用此資料來執行與手動計算之摘要費用的比較。 此 API 不提供資源特定資訊或成本的彙總檢視。
 -   **使用量詳細資料**：使用[使用量詳細資料 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) 來取得目前月份、特定計費期間或自訂日期期間的第一方 Azure 使用量詳細資訊。 企業可以使用此資料根據費率和使用量來手動計算帳單，也可以使用存在的部門/組織資訊來歸類組織內的成本。 此資料提供使用量/成本的資源特定檢視。
 -   **Marketplace 網上商店費用**：使用 [Marketplace 網上商店費用 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) 來取得目前月份、特定計費期間或自訂日期期間的協力廠商 Azure 使用量詳細資訊。 企業可以使用此資料根據費率和使用量來手動計算帳單，也可以使用存在的部門/組織資訊來歸類組織內的成本。 Marketplace 商店費用 API 提供使用量/成本的資源特定檢視。
 -   **價位表**：[價位表 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 可針對指定註冊和計費期間的每個計量提供適用的費率。 您可以使用此費率資訊搭配使用量詳細資料和 Marketplace 使用量資訊來手動計算預期的帳單。
@@ -122,4 +122,4 @@ ms.locfileid: "47227362"
 
 - 如需使用 Azure API 以程式設計方式取得 Azure 使用量見解的資訊，請參閱 [Azure 使用量 API 概觀](billing-consumption-api-overview.md)和 [Azure 計費 API 概觀](billing-usage-rate-card-overview.md)。
 - 若要比較包含每日詳細使用量檔案的發票與 Azure 入口網站中的成本管理報告，請參閱[了解 Microsoft Azure 帳單](billing-understand-your-bill.md)。
-- 如果您仍有其他問題，請[連絡支援人員](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)以快速解決您的問題。
+- 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

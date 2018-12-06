@@ -1,10 +1,11 @@
 ---
-title: Azure AI 資源庫集合 | Microsoft Docs
-description: 探索與分享 Azure AI 資源庫中的集合。
+title: Azure AI 資源庫集合 - Azure Machine Learning Studio | Microsoft Docs
+description: 您可以使用 Azure AI 資源庫中的集合，將用於處理特定解決方案或概念的實驗、API 和其他資源庫項目劃分為同一個群組。 您可以將它們分組使用、儲存以供日後參考，或進行共用。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: b586639cc6c9d4e25d65fa9f3a510e22789acfb2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: cc70405655cd07d87ca5b1004b7666d3b45bc649
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346030"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308676"
 ---
 # <a name="discover-and-share-collections-in-azure-ai-gallery"></a>探索與分享 Azure AI 資源庫中的集合
 

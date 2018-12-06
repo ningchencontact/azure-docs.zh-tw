@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 7ce577901530856690754f3db18ba9f40bfb8a51
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019802"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>教學課程：Azure Active Directory 與 Infinite Campus 整合
 
@@ -48,6 +48,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
 - 除非必要，否則請勿使用生產環境。
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
+- 您至少需成為 Azure Active Directory 系統管理員才能完成設定。
 
 ## <a name="scenario-description"></a>案例描述
 
@@ -110,7 +111,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](common/editconfigure.png)
 
-5. 如果您有**服務提供者中繼資料檔案**，請在 [基本 SAML 設定] 區段上執行下列步驟：
+5. 如果您有**服務提供者中繼資料檔案** (步驟 **11.b**)，請在 [基本 SAML 設定] 區段上執行下列步驟：
 
     a. 按一下 [上傳中繼資料檔案]。
 
@@ -124,7 +125,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![映像](./media/infinitecampus-tutorial/tutorial_infinitecampus_url.png)
 
-    d. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    d. 在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL (網域會隨著主控模型而異)：`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
     > 您會在 [Infinite Campus SSO 服務提供者設定] 頁面上取得**服務提供者中繼資料檔案**，本教學課程稍後會予以說明。
@@ -143,7 +144,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![憑證下載連結](./media/infinitecampus-tutorial/tutorial_infinitecampus_certificate.png) 
 
-7. 在 [設定 Infinite Campus] 區段中，依據您的需求複製適當的 URL。
+7. 在 [設定 Infinite Campus] 區段中上傳或使用 Azure 中繼資料檔案/URL 時，使用下列各值來驗證。
 
     a. 登入 URL
 
@@ -169,7 +170,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     a. 選取 [啟用 SAML 單一登入]。
 
-    b. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼別] 和 [回覆 URL] 值。
+    b. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼] 和 [回覆 URL] 值 (請參閱步驟 5)。
 
     c. 在 [選取選項以擷取識別提供者 (IDP) 伺服器資料] 區段中，選取 [中繼資料 URL] 並在文字方塊中貼上**應用程式同盟中繼資料 Url**，然後按一下 [同步]。
 
@@ -179,7 +180,7 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
-本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
+本節的目標是要在 Azure 入口網站中建立_一個_稱為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
@@ -234,8 +235,7 @@ Infinite Campus 具備以人口統計為中心的架構。 請連絡 [Infinite C
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
-當您在「存取面板」中按一下 Infinite Campus 圖格時，應該會自動登入您的 Infinite Campus 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+當您在「存取面板」中按一下 Infinite Campus 圖格時，應該會自動登入您的 Infinite Campus 應用程式。 如果您在管理 Azure AD 的同一個瀏覽器中登入 Infinite Camnpus 應用程式，請務必以測試使用者身分登入 Azure AD。 如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

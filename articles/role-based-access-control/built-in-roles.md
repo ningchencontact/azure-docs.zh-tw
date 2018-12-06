@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 72a8a09d04dc009598dafc35b65304662b7b8915
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955904"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52499647"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -39,7 +39,7 @@ ms.locfileid: "49955904"
 | [AcrImageSigner](#acrimagesigner) | ACR 影像簽署者 |
 | [AcrQuarantineReader](#acrquarantinereader) | ACR 隔離資料讀取者 |
 | [AcrQuarantineWriter](#acrquarantinewriter) | ACR 隔離資料寫入者 |
-| [API 管理服務參與者](#api-management-service-contributor) | 可讓您管理 API 管理服務，但無法加以存取。 |
+| [API 管理服務參與者](#api-management-service-contributor) | 可管理服務與 API |
 | [API 管理服務操作員角色](#api-management-service-operator-role) | 可管理服務，但無法管理 API |
 | [API 管理服務讀取者角色](#api-management-service-reader-role) | 具有服務與 API 的唯讀存取權 |
 | [Application Insights 元件參與者](#application-insights-component-contributor) | 可以管理 Application Insights 元件 |
@@ -53,7 +53,7 @@ ms.locfileid: "49955904"
 | [備份參與者](#backup-contributor) | 可讓您管理備份服務，但無法建立保存庫及為其他人提供存取權 |
 | [備份操作員](#backup-operator) | 可讓您管理備份服務，但無法移除備份、建立保存庫及為其他人提供存取權 |
 | [備份讀取者](#backup-reader) | 可以檢視備份服務，但無法進行變更 |
-| [帳單讀取器](#billing-reader) | 可讓您讀取計費資料 |
+| [帳單讀取器](#billing-reader) | 允許對計費資料進行讀取存取 |
 | [BizTalk 參與者](#biztalk-contributor) | 可讓您管理 BizTalk 服務，但無法存取它們。 |
 | [CDN 端點參與者](#cdn-endpoint-contributor) | 可管理 CDN 端點，但無法對其他使用者授與存取權。 |
 | [CDN 端點讀者](#cdn-endpoint-reader) | 可檢視 CDN 端點，但無法進行變更。 |
@@ -70,12 +70,14 @@ ms.locfileid: "49955904"
 | [成本管理讀者](#cost-management-reader) | 可檢視成本資料和組態 (例如預算、匯出) |
 | [資料箱參與者](#data-box-contributor) | 可讓您管理資料箱服務下的所有項目，為他人賦予存取權除外。 |
 | [資料箱讀者](#data-box-reader) | 可讓您管理資料箱服務，建立訂單或編輯訂單詳細資料和為他人賦予存取權除外。 |
-| [Data Factory 參與者](#data-factory-contributor) | 可讓您管理 Data Factory，但無法加以存取。 |
+| [Data Factory 參與者](#data-factory-contributor) | 建立和管理 Data Factory，以及其中的子資源。 |
 | [Data Lake Analytics 開發人員](#data-lake-analytics-developer) | 可讓您提交、監視及管理您自己的作業，但無法建立或刪除 Data Lake Analytics 帳戶。 |
 | [資料清除者](#data-purger) | 可清除分析資料 |
-| [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟動及關閉 Azure DevTest Labs 中的虛擬機器。 |
+| [DevTest Labs 使用者](#devtest-labs-user) | 可讓您連線、啟動、重新啟及關閉您 Azure DevTest Labs 中的虛擬機器。 |
 | [DNS 區域參與者](#dns-zone-contributor) | 可讓您管理 Azure DNS 中的 DNS 區域與記錄集，但無法讓您控制誰可存取它們。 |
 | [DocumentDB 帳戶參與者](#documentdb-account-contributor) | 可以管理 Azure Cosmos DB 帳戶。 Azure Cosmos DB 先前稱為 DocumentDB。 |
+| [EventGrid EventSubscription 參與者 (預覽)](#eventgrid-eventsubscription-contributor-preview) | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
+| [EventGrid EventSubscription 讀者 (預覽)](#eventgrid-eventsubscription-reader-preview) | 可讓您讀取 EventGrid 事件訂用帳戶。 |
 | [HDInsight 網域服務參與者](#hdinsight-domain-services-contributor) | 可讀取、建立、修改和刪除 HDInsight 企業安全性套件所需的網域服務相關作業 |
 | [Intelligent Systems 帳戶參與者](#intelligent-systems-account-contributor) | 可讓您管理「智慧型系統」帳戶，但無法存取它們。 |
 | [Key Vault 參與者](#key-vault-contributor) | 可讓您管理金鑰保存庫，但無法存取它們。 |
@@ -101,7 +103,7 @@ ms.locfileid: "49955904"
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) | 可讓您管理「排程器」工作集合，但無法存取它們。 |
 | [搜尋服務參與者](#search-service-contributor) | 可讓您管理「搜尋」服務，但無法存取它們。 |
 | [安全性系統管理員](#security-admin) | 僅限資訊安全中心：可檢視安全性原則、檢視安全性狀態、編輯安全性原則、檢視警示和建議、關閉警示和建議 |
-| [安全性管理員](#security-manager) | 可讓您管理安全性元件、安全性原則及虛擬機器 |
+| [安全性管理員 (舊版)](#security-manager-legacy) | 此為舊版角色。 請改用安全性系統管理員 |
 | [安全性讀取者](#security-reader) | 僅限資訊安全中心：可檢視建議和警示、檢視安全性原則、檢視安全性狀態，但無法進行變更 |
 | [Site Recovery 參與者](#site-recovery-contributor) | 可讓您管理 Site Recovery 服務，但無法建立保存庫和指派角色 |
 | [Site Recovery 操作員](#site-recovery-operator) | 可讓您容錯移轉及容錯回復，但無法執行其他 Site Recovery 管理作業 |
@@ -165,8 +167,7 @@ ms.locfileid: "49955904"
 > | **說明** | ACR 影像簽署者 |
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **動作** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
+> | Microsoft.ContainerRegistry/registries/sign/write | 推送/提取容器登錄的內容信任中繼資料。 |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -175,7 +176,7 @@ ms.locfileid: "49955904"
 > | **說明** | ACR 隔離資料讀取者 |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **動作** |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 從容器登錄中提取或取得隔離的映像 |
 
 ## <a name="acrquarantinewriter"></a>AcrQuarantineWriter
 > [!div class="mx-tableFixed"]
@@ -184,14 +185,14 @@ ms.locfileid: "49955904"
 > | **說明** | ACR 隔離資料寫入者 |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **動作** |  |
-> | Microsoft.ContainerRegistry/registries/*/write |  |
-> | Microsoft.ContainerRegistry/registries/*/read |  |
+> | Microsoft.ContainerRegistry/registries/quarantineRead/read | 從容器登錄中提取或取得隔離的映像 |
+> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | 寫入/修改已隔離映像的隔離狀態 |
 
 ## <a name="api-management-service-contributor"></a>API 管理服務參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您管理 API 管理服務，但無法加以存取。 |
+> | **說明** | 可管理服務與 API |
 > | **Id** | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | **動作** |  |
 > | Microsoft.ApiManagement/service/* | 建立和管理 API 管理服務 |
@@ -536,7 +537,7 @@ ms.locfileid: "49955904"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您讀取計費資料 |
+> | **說明** | 允許對計費資料進行讀取存取 |
 > | **Id** | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -813,7 +814,7 @@ ms.locfileid: "49955904"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您管理 Data Factory，但無法加以存取。 |
+> | **說明** | 建立和管理 Data Factory，以及其中的子資源。 |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -872,7 +873,7 @@ ms.locfileid: "49955904"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您連線、啟動、重新啟動及關閉 Azure DevTest Labs 中的虛擬機器。 |
+> | **說明** | 可讓您連線、啟動、重新啟及關閉您 Azure DevTest Labs 中的虛擬機器。 |
 > | **Id** | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -883,13 +884,14 @@ ms.locfileid: "49955904"
 > | Microsoft.Compute/virtualMachines/restart/action | 重新啟動虛擬機器 |
 > | Microsoft.Compute/virtualMachines/start/action | 啟動虛擬機器 |
 > | Microsoft.DevTestLab/*/read | 讀取實驗室的屬性 |
-> | Microsoft.DevTestLab/labs/createEnvironment/action | 在實驗室中建立虛擬機器。 |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | 在實驗室中宣告隨機的可宣告虛擬機器。 |
+> | Microsoft.DevTestLab/labs/createEnvironment/action | 在實驗室中建立虛擬機器。 |
 > | Microsoft.DevTestLab/labs/formulas/delete | 刪除公式。 |
 > | Microsoft.DevTestLab/labs/formulas/read | 讀取公式。 |
 > | Microsoft.DevTestLab/labs/formulas/write | 新增或修改公式。 |
 > | Microsoft.DevTestLab/labs/policySets/evaluatePolicies/action | 評估實驗室原則。 |
 > | Microsoft.DevTestLab/labs/virtualMachines/claim/action | 取得現有虛擬機器的擁有權 |
+> | Microsoft.DevTestLab/labs/virtualmachines/listApplicableSchedules/action | 列出適用的啟動/停止排程 (若有的話)。 |
 > | Microsoft.Network/loadBalancers/backendAddressPools/join/action | 加入負載平衡器的後端位址集區 |
 > | Microsoft.Network/loadBalancers/inboundNatRules/join/action | 加入負載平衡器的輸入 NAT 規則 |
 > | Microsoft.Network/networkInterfaces/*/read | 讀取網路介面的屬性 (例如網路介面所屬的所有負載平衡器) |
@@ -936,6 +938,37 @@ ms.locfileid: "49955904"
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription 參與者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您管理 EventGrid 事件訂用帳戶作業。 |
+> | **Id** | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.EventGrid/eventSubscriptions/* |  |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 依主題類型列出全域事件訂用帳戶 |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 列出區域事件訂用帳戶 |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 依主題類型列出區域事件訂用帳戶 |
+> | Microsoft.Insights/alertRules/* | 建立和管理 Insights 警示規則 |
+> | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
+> | Microsoft.Support/* | 建立和管理支援票證 |
+
+## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription 讀者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讓您讀取 EventGrid 事件訂用帳戶。 |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | **動作** |  |
+> | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
+> | Microsoft.EventGrid/eventSubscriptions/read | 讀取 eventSubscription |
+> | Microsoft.EventGrid/topicTypes/eventSubscriptions/read | 依主題類型列出全域事件訂用帳戶 |
+> | Microsoft.EventGrid/locations/eventSubscriptions/read | 列出區域事件訂用帳戶 |
+> | Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read | 依主題類型列出區域事件訂用帳戶 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 取得或列出資源群組。 |
 
 ## <a name="hdinsight-domain-services-contributor"></a>HDInsight 網域服務參與者
 > [!div class="mx-tableFixed"]
@@ -1089,6 +1122,7 @@ ms.locfileid: "49955904"
 > | **說明** | 可讓您讀取受控應用程式資源及對其執行動作 |
 > | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | **動作** |  |
+> | */read | 讀取密碼以外的所有類型的資源。 |
 > | Microsoft.Solutions/applications/read | 擷取應用程式清單。 |
 
 ## <a name="managed-applications-reader"></a>受控應用程式讀者
@@ -1185,7 +1219,6 @@ ms.locfileid: "49955904"
 > | Microsoft.Support/* | 建立和管理支援票證 |
 > | Microsoft.WorkloadMonitor/monitors/* |  |
 > | Microsoft.WorkloadMonitor/notificationSettings/* |  |
-> | Microsoft.WorkloadMonitor/workloadInsights/* |  |
 
 ## <a name="monitoring-metrics-publisher"></a>監視計量發行者
 > [!div class="mx-tableFixed"]
@@ -1332,15 +1365,17 @@ ms.locfileid: "49955904"
 > | Microsoft.Security/locations/tasks/activate/action | 啟用安全性建議 |
 > | Microsoft.Security/locations/tasks/dismiss/action | 關閉安全性建議 |
 > | Microsoft.Security/policies/write | 更新安全性原則 |
-> | Microsoft.Security/securityContacts/write | 更新安全性連絡人 |
+> | Microsoft.Security/pricings/write | 更新該範圍的定價設定 |
+> | Microsoft.Security/pricings/delete | 刪除該範圍的定價設定 |
 > | Microsoft.Security/securityContacts/delete | 刪除安全性連絡人 |
+> | Microsoft.Security/securityContacts/write | 更新安全性連絡人 |
 > | Microsoft.Support/* | 建立和管理支援票證 |
 
-## <a name="security-manager"></a>安全性管理員
+## <a name="security-manager-legacy"></a>安全性管理員 (舊版)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您管理安全性元件、安全性原則及虛擬機器 |
+> | **說明** | 此為舊版角色。 請改用安全性系統管理員 |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
@@ -1559,11 +1594,13 @@ ms.locfileid: "49955904"
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | 建立和管理 SQL Server 稽核原則 |
 > | Microsoft.Sql/servers/auditingSettings/* | 建立和管理 SQL Server 稽核設定 |
+> | Microsoft.Sql/servers/extendedAuditingSettings/read | 擷取指定伺服器上所設定之擴充伺服器 Blob 稽核原則的詳細資料 |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | 建立和管理 SQL Server 資料庫稽核原則 |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | 建立和管理 SQL Server 資料庫稽核設定 |
 > | Microsoft.Sql/servers/databases/auditRecords/read | 讀取稽核記錄 |
 > | Microsoft.Sql/servers/databases/connectionPolicies/* | 建立和管理 SQL Server 資料庫連接原則 |
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | 建立和管理 SQL Server 資料庫資料遮罩原則 |
+> | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | 擷取指定資料庫上所設定之擴充 Blob 稽核原則的詳細資料 |
 > | Microsoft.Sql/servers/databases/read | 傳回資料庫清單，或取得指定資料庫的屬性。 |
 > | Microsoft.Sql/servers/databases/schemas/read | 擷取資料庫的結構描述清單 |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 擷取資料表的資料行清單 |

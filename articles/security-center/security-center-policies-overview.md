@@ -1,6 +1,6 @@
 ---
-title: Azure 資訊安全中心的安全性原則設定 | Microsoft Docs
-description: 設定 Azure 資訊安全中心的安全性原則設定。
+title: Azure 資訊安全中心設定 | Microsoft Docs
+description: 設定 Azure 資訊安全中心設定。
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,23 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3d2687f56b69174fde783060d994e3c01763ec94
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2aa4545aa79260bea792392e1bebf4166253fc87
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256624"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315710"
 ---
-# <a name="security-policy-settings"></a>安全政策設定
-本文提供資訊安全中心的安全性原則設定概觀。
+# <a name="security-center-settings"></a>資訊安全中心設定
+本文提供資訊安全中心的設定概觀。
 
-## <a name="what-are-security-policies"></a>什麼是安全性原則？
-安全性原則會定義工作負載的所需設定，並且協助確保符合公司或法規安全性需求。 在資訊安全中心，您可以為 Azure 訂用帳戶定義原則，並按照工作負載的類型或資料的機密性訂定這些原則。 例如，對於使用個人識別資訊等規範資料的應用程式，其需要的安全性層級可能比工作負載還高。
-
-您可以在安全性原則下設定以下內容：
+您可以在 [安全性原則] 下方找到下列設定：
 
 - **資料收集**：決定代理程式佈建和[資料收集](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)設定。
-- **安全性原則**：決定何者控制資訊安全中心監視和建議。 您可以編輯資訊安全中心的[安全性原則](security-center-policies.md)。 您也可以使用 [Azure 原則](security-center-azure-policy.md)建立新的定義、定義額外的原則，並在管理群組指派原則。 
+- **安全性原則**：決定何者控制資訊安全中心監視和建議。 您可以編輯資訊安全中心的[安全性原則](security-center-azure-policy.md)。 您也可以使用 [Azure 原則](security-center-azure-policy.md)建立新的定義、定義額外的原則，並在管理群組指派原則。 
 - **電子郵件通知**：決定安全性連絡人和[電子郵件通知](security-center-provide-security-contact-details.md)設定。
 - **定價層**：定義免費或標準[選取項目](security-center-pricing.md)。 您選擇的一層將決定範圍中的資源可用的資訊安全中心功能。 您可以指定一層用於訂閱、資源群組和工作區。
 
@@ -49,7 +46,7 @@ ms.locfileid: "51256624"
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解 Azure 資訊安全中心安全性原則的相關資訊。 若要深入了解「Azure 資訊安全中心」，請參閱下列文章：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-policies.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)：了解資訊安全中心建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)：了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理與回應安全性警示。

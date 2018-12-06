@@ -1,9 +1,10 @@
 ---
-title: 如何選擇機器學習演算法 | Microsoft Docs
+title: 如何選擇機器學習演算法 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何在叢集、分類或迴歸實驗中選擇適用於經指導和未經指導學習的 Azure Machine Learning Studio 演算法。
 services: machine-learning
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
@@ -12,12 +13,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262296"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52312413"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>如何選擇 Azure Machine Learning Studio 的演算法
 

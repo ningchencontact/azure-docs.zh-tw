@@ -1,10 +1,11 @@
 ---
-title: Net# 類神經網路規格語言指南 - Azure Machine Learning | Microsoft Docs
-description: Net# 類神經網路規格語言的語法，以及如何使用 Net# 建立自訂類神經網路模型的範例
+title: Net# 類神經網路 - Azure Machine Learning Studio | Microsoft Docs
+description: Net# 類神經網路規格語言的語法，以及如何使用 Net# 與 Azure Machine Learning Studio 建立自訂類神經網路模型的範例。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 8a96cfdedcde9b4037627f3e61af862c0600ca20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258472"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52315302"
 ---
-# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>適用於 Azure Machine Learning 的 Net# 類神經規格語言指南
+# <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
 Net# 是由 Microsoft 所開發的語言，可用來定義類神經網路架構。 使用 Net# 定義類神經網路的結構，可讓您定義如深度類神經網路或任意維度的迴旋，而這些項目都可改善影像、音訊或視訊等資料的學習。
 

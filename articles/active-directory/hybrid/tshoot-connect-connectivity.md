@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f34b0015a4a6d7b8c2c23f539cf21232adaec58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304667"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52310662"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>對 Azure AD Connect 的連線問題進行疑難排解
 這篇文章說明 Azure AD Connect 與 Azure AD 之間的連線的運作方式，以及如何疑難排解連線問題。 這些問題最有可能出現在具有 Proxy 伺服器的環境中。
@@ -46,7 +46,7 @@ Proxy 伺服器也必須開啟必要的 URL。 如需官方清單，請參閱 [O
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |用來下載 CRL 清單。 |
 | \*.verisign.com |HTTP/80 |用來下載 CRL 清單。 |
-| \*.entrust.com |HTTP/80 |用來下載 MFA 的 CRL 清單。 |
+| \*.entrust.net |HTTP/80 |用來下載 MFA 的 CRL 清單。 |
 | \*.windows.net |HTTPS/443 |用來登入 Azure AD。 |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |用於 MFA。 |
 | \*.microsoftonline.com |HTTPS/443 |用來設定您的 Azure AD 目錄及匯入/匯出資料。 |

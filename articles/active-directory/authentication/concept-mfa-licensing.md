@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 09/01/2018
+ms.date: 11/27/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320640"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52495188"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -63,14 +63,13 @@ ms.locfileid: "49320640"
 | 自訂的通話來電者 ID | | |● |
 | 信任的 IP | | |● |
 | 記住受信任裝置的 MFA |● |● |● |
-| MFA SDK | | |● (已過時) | 
 | 內部部署應用程式的 MFA | | |● |
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>如何開啟 Azure AD 系統管理員適用的 Azure Multi-Factor Authentication
 
 Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 Azure AD 全域系統管理員帳戶啟用雙步驟驗證，而不需要額外收費。 如果您使用 Microsoft 帳戶，則可以使用在 Microsoft 帳戶支援文章[關於雙步驟驗證](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification)中找到的指導方針，來註冊多重要素驗證。 如果您不是使用 Microsoft 帳戶，則請使用[如何要求使用者或群組使用雙步驟驗證](howto-mfa-userstates.md)文章中找到的指導方針，開啟全域系統管理員的多重要素驗證。
 
-## <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
+## <a name="how-to-purchase-azure-multi-factor-authentication"></a>如何購買 Azure Multi-Factor Authentication
 
 如果您想要 Azure Multi-Factor Authentication 所提供的完整功能，有數個選項︰
 
@@ -78,14 +77,11 @@ Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 A
 
 購買隨附 Azure Multi-Factor Authentication 的授權 (例如 Azure Active Directory Premium 或是包括 Azure AD Premium 的授權配套)，並將其指派給您 Azure Active Directory 中的使用者。
 
-如果您使用此選項，則僅在需要為一些沒有授權的使用者提供雙步驟驗證時，才需建立 Azure Multi-Factor Authentication 提供者。 否則，您可能會被計費兩次。
-
 ### <a name="option-2---mfa-consumption-based-model"></a>選項 2 - MFA 耗用量為基礎的模型
 
-> [!NOTE]
-> 自 2018 年 9 月 1 日起，不再建立新的驗證提供者。 現有的驗證提供者可繼續使用與更新。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
+此選項已無法再提供給新客戶，2018 年 9 月 1 日起生效。
 
-在 Azure 訂用帳戶中建立 Azure Multi-Factor Authentication 提供者。 Azure MFA 提供者都是針對企業合約、Azure 貨幣承諾或信用卡 (如所有其他 Azure 資源) 進行計費的 Azure 資源。 這些提供者只能建立在完整的 Azure 訂用帳戶中，不限於具有 $0 消費限制的 Azure 訂用帳戶。 當您啟用授權時會建立有限的訂用帳戶，像是選項 1。
+自 2018 年 9 月 1 日起，不再建立新的驗證提供者。 現有的驗證提供者可繼續使用與更新。 多重要素驗證將繼續為 Azure AD Premium 授權中的可用功能。
 
 使用 Azure Multi-Factor Authentication 提供者時，有兩種使用量模型可透過您的 Azure 訂用帳戶計費：
 

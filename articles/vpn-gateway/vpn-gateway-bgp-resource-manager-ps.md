@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
-ms.openlocfilehash: 4eb62786522dd1ad7cbf1d5668a4c4493028733c
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684327"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52632580"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>如何使用 PowerShell 在 Azure VPN 閘道上設定 BGP
 本文將逐步引導您進行使用 Resource Manager 部署模型和 PowerShell 在跨單位網站間 (S2S) VPN 連線和 VNet 對 VNet 連線上啟用 BGP 的步驟。
@@ -167,7 +167,7 @@ $BGPPeerIP5 = "10.52.255.254"
 關於區域網路閘道參數，有幾件事要注意︰
 
 * 區域網路閘道可以位於與 VPN 閘道相同或不同的位置和資源群組中。 此範例會顯示它們位於不同位置的不同資源群組中。
-* 您需要針對區域網路閘道宣告的最小前置詞是 VPN 裝置上 BGP 對等 IP 位址的主機位址。 在此情況下是 "10.52.255.254/32" 的前置詞 /32。
+* 您需要針對區域網路閘道宣告的前置詞是 VPN 裝置上 BGP 對等 IP 位址的主機位址。 在此情況下是 "10.52.255.254/32" 的前置詞 /32。
 * 提醒您，您必須在內部部署網路與 Azure VNet 之間使用不同的 BGP ASN。 在兩者相同的情況下，如果內部部署 VPN 裝置已經使用 ASN 來與其他 BGP 芳鄰建立對等連線，您就需要變更您的 VNet ASN。
 
 繼續之前，請先確定您仍然與訂用帳戶 1 保持連線。

@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, justhu
 ms.custom: aaddev
-ms.openlocfilehash: da8eebb2fc6b87b8916e944495679b45aa34dbf2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5283782188eaebe3997b6de31b087da74cf10486
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960323"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620127"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Azure Active Directory v2.0 端點中的權限和同意
 
@@ -64,13 +64,13 @@ Microsoft 身分識別平台會實作 [OAuth 2.0](active-directory-v2-protocols.
 
 Microsoft 身分識別平台支援兩種類型的權限：**委派權限**和**應用程式權限**。
 
-- **委派權限**供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫目標資源時以登入使用者的身分行事。 有些委派權限可由非系統管理使用者同意，但有些較高的特定權限則需要[系統管理員的同意](v2-permissions-and-consent.md#admin-restricted-scopes)。  
+* **委派權限**供已有登入使用者的應用程式使用。 針對這些應用程式，使用者或系統管理員要同意應用程式所要求的權限，然後對應用程式委派權限，讓其在呼叫目標資源時以登入使用者的身分行事。 有些委派權限可由非系統管理使用者同意，但有些較高的特定權限則需要[系統管理員的同意](v2-permissions-and-consent.md#admin-restricted-scopes)。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
 
-- **應用程式權限**供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。  應用程式權限只能[由系統管理員同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。 
+* **應用程式權限**供沒有登入使用者的應用程式在執行時使用；例如，當作背景服務或精靈來執行的應用程式。  應用程式權限只能[由系統管理員同意](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)。
 
 _有效權限_是應用程式向目標資源提出要求時所將具備的權限。 請務必了解為您的應用程式授與的委派權限和應用程式權限有何差異，並了解應用程式在呼叫目標資源時所具備的有效權限。
 
-- 就委派權限來說，應用程式的_有效權限_是應用程式 (透過同意) 所獲得授與的委派權限和目前已登入使用者的權限二者的最小權限交集。 應用程式絕對不會擁有已登入使用者權限以外的權限。 在組織內，已登入使用者的權限會由原則或是一或多個系統管理員角色的成員資格決定。 如需有關系統管理員角色的詳細資訊，請參閱[在 Azure Active Directory 中指派系統管理員角色](../users-groups-roles/directory-assign-admin-roles.md)。
+- 就委派權限來說，應用程式的_有效權限_是應用程式 (透過同意) 所獲得授與的委派權限和目前已登入使用者的權限二者的最小權限交集。 應用程式絕對不會擁有已登入使用者權限以外的權限。 在組織內，已登入使用者的權限會由原則或是一或多個系統管理員角色的成員資格決定。 若要了解哪些系統管理員角色可同意委派權限，請參閱 [Azure AD 中的系統管理員角色權限](../users-groups-roles/directory-assign-admin-roles.md)。
   例如，假設已經對您的應用程式授與 _User.ReadWrite.All_ 委派權限。 此權限名義上會對應用程式授與讀取及更新組織中每個使用者設定檔的權限。 如果已登入使用者是全域管理員，應用程式便能夠更新組織中每個使用者的設定檔。 不過，如果已登入使用者不是全域管理員角色，應用程式則只能更新該已登入使用者的設定檔。 應用程式有權代表其行事的使用者沒有這些權限，因此應用程式無法更新組織中其他使用者的設定檔。
   
 - 就應用程式權限來說，應用程式的_有效權限_將是權限所隱含的完整層級權限。 例如，具有 _User.ReadWrite.All_ 應用程式權限的應用程式可以更新組織中每個使用者的設定檔。 
@@ -93,7 +93,7 @@ v2.0 的 OpenID Connect 實作有一些定義妥善但不會套用至特定資�
 
 ### <a name="offlineaccess"></a>offline_access
 
-[`offline_access` 範圍](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在工作帳戶同意畫面上，此範圍會顯示為「隨時存取您的資料」權限。 在個人 Microsoft 帳戶同意頁面上，它會顯示為「隨時存取您的資訊」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
+[`offline_access` 範圍](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)可延長您應用程式代表使用者存取資源的時間。 在工作帳戶同意畫面上，此範圍會顯示為「隨時存取您的資料」權限。 在個人 Microsoft 帳戶同意頁面上，它會顯示為「隨時存取您的資訊」權限。 當使用者核准 `offline_access` 範圍時，您的應用程式將可從 v2.0 權杖端點收到重新整理權杖。 重新整理權杖是長期權杖。 您的應用程式可以在舊存取權杖到期時取得新的存取權杖。
 
 如果您的應用程式未要求 `offline_access` 範圍，則不會收到重新整理權杖。 這意謂著當您在 [OAuth 2.0 授權碼流程](active-directory-v2-protocols.md)中兌換授權碼時，您只會從 `/token` 端點收到存取權杖。 存取權杖的有效期短。 存取權杖的有效期通常在一小時內。 屆時，您的應用程式將必須把使用者重新導向回 `/authorize` 端點，以擷取新的授權碼。 在此重新導向期間，視應用程式的類型而定，使用者可能需要重新輸入其認證或重新同意權限。
 

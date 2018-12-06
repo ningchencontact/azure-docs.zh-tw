@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: aad23f1b50a3156d01ce127270e29368f82d18b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 569030cc6d72d206411a73703ec0d359e033bef7
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014035"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311665"
 ---
-# <a name="use-azure-kubernetes-service-with-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Kafka
+# <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>使用 Azure Kubernetes Service 搭配 HDInsight 上的 Apache Kafka
 
-了解如何使用 Azure Kubernetes Service (AKS) 搭配 HDInsight 叢集上的 Kafka。 本文件中的步驟使用 AKS 中裝載的 Node.js 應用程式來確認與 Kafka 的連線能力。 此應用程式使用 [kafka-node](https://www.npmjs.com/package/kafka-node) 套件來與 Kafka 通訊。 它會使用 [Socket.io](https://socket.io/)，在瀏覽器用戶端與 AKS 中裝載的後端之間進行事件驅動傳訊。
+了解如何使用 Azure Kubernetes Service (AKS) 搭配 HDInsight 叢集上的 [Apache Kafka](https://kafka.apache.org/)。 本文件中的步驟使用 AKS 中裝載的 Node.js 應用程式來確認與 Kafka 的連線能力。 此應用程式使用 [kafka-node](https://www.npmjs.com/package/kafka-node) 套件來與 Kafka 通訊。 它會使用 [Socket.io](https://socket.io/)，在瀏覽器用戶端與 AKS 中裝載的後端之間進行事件驅動傳訊。
 
 [Apache Kafka](https://kafka.apache.org) 是開放原始碼分散式串流平台，可用來建置即時串流資料管線和應用程式。 Azure Kubernetes Service 會管理您裝載的 Kubernetes 環境，並讓您快速且輕鬆地部署容器化的應用程式。 使用 Azure 虛擬網路，您可以連接這兩項服務。
 
@@ -93,14 +93,14 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
     讓所有其他欄位保留預設值，然後選取 [確定] 來設定對等互連。
 
-## <a name="install-kafka-on-hdinsight"></a>安裝 Kafka on HDInsight
+## <a name="install-apache-kafka-on-hdinsight"></a>在 HDInsight 上安裝 Apache Kafka
 
 在建立 Kafka on HDInsight 叢集時，您必須加入稍早為 HDInsight 建立的虛擬網路。 如需有關建立 Kafka 叢集的詳細資訊，請參閱[建立 Kafka 叢集](apache-kafka-get-started.md)文件。
 
 > [!IMPORTANT]
 > 在建立叢集時，您必須使用 [進階設定] 來加入您為 HDInsight 建立的虛擬網路。
 
-## <a name="configure-kafka-ip-advertising"></a>設定 Kafka IP 通告
+## <a name="configure-apache-kafka-ip-advertising"></a>設定 Apache Kafka IP 通告
 
 使用下列步驟將 Kafka 設定為通告 IP 位址 (而不是網域名稱)︰
 
@@ -152,7 +152,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 此時，Kafka 與 Azure Kubernetes Service 會透過對等互連的虛擬網路進行通訊。 若要測試此連線，請使用下列步驟：
 
-1. 建立測試應用程式所使用的 Kafka 主題。 如需有關建立 Kafka 主題的詳細資訊，請參閱[建立 Kafka 叢集](apache-kafka-get-started.md)文件。
+1. 建立測試應用程式所使用的 Kafka 主題。 如需有關建立 Kafka 主題的詳細資訊，請參閱[建立 Apache Kafka 叢集](apache-kafka-get-started.md)文件。
 
 2. 從 [https://github.com/Blackmist/Kafka-AKS-Test](https://github.com/Blackmist/Kafka-AKS-Test) 下載範例應用程式。
 
@@ -161,7 +161,7 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
     * `var topic = 'mytopic'`：將 `mytopic` 取代為此應用程式使用的 Kafka 主題名稱。
     * `var brokerHost = '176.16.0.13:9092`：將 `176.16.0.13` 取代為您叢集的其中一部訊息代理程式主機的內部 IP 位址。
 
-        若要尋找叢集中訊息代理程式主機 (背景工作節點) 的內部 IP 位址，請參閱 [Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes)文件。 挑選其中一個項目的 IP 位址，其中網域名稱開頭為 `wn`。
+        若要尋找叢集中訊息代理程式主機 (背景工作節點) 的內部 IP 位址，請參閱 [Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-internal-ip-address-of-cluster-nodes)文件。 挑選其中一個項目的 IP 位址，其中網域名稱開頭為 `wn`。
 
 4. 從命令列，在 `src` 目錄中安裝相依項目，並使用 Docker 來建置可供部署的映像：
 
@@ -224,12 +224,12 @@ HDInsight 和 AKS 均使用 Azure 虛擬網路作為計算資源的容器。 若
 
 使用下列連結以了解如何使用 HDInsight 上的 Apache Kafka：
 
-* [開始使用 HDInsight 上的 Kafka](apache-kafka-get-started.md)
+* [開始使用 Apache Kafka on HDInsight](apache-kafka-get-started.md)
 
-* [使用 MirrorMaker 建立 Apache Kafka on HDInsight 複本](apache-kafka-mirroring.md)
+* [使用 MirrorMaker 在 HDInsight 上建立 Apache Kafka 複本](apache-kafka-mirroring.md)
 
-* [使用 Apache Storm 搭配 HDInsight 上的 Kafka](../hdinsight-apache-storm-with-kafka.md)
+* [在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka](../hdinsight-apache-storm-with-kafka.md)
 
-* [使用 Apache Spark 搭配 Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [在 HDInsight 上搭配使用 Apache Spark 與 Apache Kafka](../hdinsight-apache-spark-with-kafka.md)
 
-* [透過 Azure 虛擬網路連線到 Kafka](apache-kafka-connect-vpn-gateway.md)
+* [透過 Azure 虛擬網路連線到 Apache Kafka](apache-kafka-connect-vpn-gateway.md)

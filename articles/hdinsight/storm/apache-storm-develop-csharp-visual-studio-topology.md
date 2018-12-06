@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5dcc9dcada981a6a4174ce34748356d49582f598
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6f26ec6f1743a72a4a396ba245d80227f6f75913
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237565"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584276"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 開發 Apache Storm 的 C# 拓撲
 
-了解如何使用 Azure Data Lake (Hadoop) Tools for Visual Studio 來建立 C# Storm 拓撲。 這份文件逐步解說如何在 Visual Studio 中建立 Storm 專案，在本機測試該專案，並將它部署至 Azure HDInsight 叢集上的 Apache Storm。
+了解如何使用 Azure Data Lake (Apache Hadoop) Tools for Visual Studio 來建立 C# Apache Storm 拓撲。 這份文件逐步解說如何在 Visual Studio 中建立 Storm 專案，在本機測試該專案，並將它部署至 Azure HDInsight 叢集上的 Apache Storm。
 
 您也會學習如何建立使用 C# 和 Java 元件的混合式拓撲。
 
@@ -27,7 +27,7 @@ ms.locfileid: "51237565"
 
 若要搭配使用 C# 拓撲與以 Linux 為基礎的叢集，您必須將專案使用的 Microsoft.SCP.Net.SDK NuGet 套件更新為 0.10.0.6 版或更新版本。 套件版本也必須符合 HDInsight 上安裝的 Storm 主要版本。
 
-| HDInsight 版本 | Storm 版本 | SCP.NET 版本 | 預設 Mono 版本 |
+| HDInsight 版本 | Apache Storm 版本 | SCP.NET 版本 | 預設 Mono 版本 |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.3 |0.10.x |0.10.x.x</br>(僅限以 Windows 為基礎的 HDInsight) | NA |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
@@ -97,7 +97,7 @@ namespace ConsoleApplication2
 }
 ```
 
-## <a name="storm-templates"></a>Storm 範本
+## <a name="apache-storm-templates"></a>Apache Storm 範本
 
 Data Lake Tools for Visual Studio 提供下列範本：
 
@@ -119,7 +119,7 @@ Data Lake Tools for Visual Studio 提供下列範本：
 
 在這份文件的步驟中，您會使用基本 Storm 應用程式專案類型來建立拓撲。
 
-### <a name="hbase-templates-notes"></a>HBase 範本注意事項
+### <a name="apache-hbase-templates-notes"></a>Apache HBase 範本注意事項
 
 HBase 讀取器和寫入器範本會使用 HBase REST API (而不是 HBase Java API) 來與 HDInsight 叢集上的 HBase 通訊。
 
@@ -754,14 +754,14 @@ Context.Logger.Info("Component started");
 **Apache Storm on HDInsight**
 
 * [使用 Apache Storm on HDInsight 部署和監視拓撲](apache-storm-deploy-monitor-topology.md)
-* [Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
+* [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)
 
 **Apache Hadoop on HDInsight**
 
-* [搭配 HDInsight 上的 Hadoop 使用 Hive](../hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 上的 Hadoop 使用 Pig](../hadoop/hdinsight-use-pig.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](../hadoop/hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](../hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](../hadoop/hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hadoop MapReduce](../hadoop/hdinsight-use-mapreduce.md)
 
 **Apache HBase on HDInsight**
 
-* [開始使用 HBase on HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)
+* [開始使用 HDInsight 上的 Apache HBase](../hbase/apache-hbase-tutorial-get-started-linux.md)

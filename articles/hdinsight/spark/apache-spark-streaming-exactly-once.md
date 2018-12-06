@@ -8,14 +8,14 @@ ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 78d18bfe0f47517067fbb053a2d7e076b15761a7
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241306"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52580995"
 ---
-# <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Spark 串流作業
+# <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>透過一次性事件處理來建立 Apache Spark 串流作業
 
 在系統發生錯誤後，串流處理應用程式會採取不同的方法來處理再處理 (re-processing) 訊息：
 
@@ -25,7 +25,7 @@ ms.locfileid: "51241306"
 
 本文說明如何設定 Spark 串流以進行一次性處理。
 
-## <a name="exactly-once-semantics-with-spark-streaming"></a>使用 Spark 串流的一次性語意
+## <a name="exactly-once-semantics-with-apache-spark-streaming"></a>使用 Apache Spark 串流的一次性語意
 
 首先，請考慮發生問題後如何重新啟動所有系統故障點，以及如何避免遺失資料。 Spark 串流應用程式具有：
 
@@ -41,11 +41,11 @@ ms.locfileid: "51241306"
 
 Spark 串流應用程式讀取事件的來源必須「可重新使用」。 這表示在已擷取訊息，但接著在可保存或處理訊息之前系統卻發生失敗的情況下，來源必須再次提供相同的訊息。
 
-在 Azure 中，HDInsight 上的 Azure 事件中樞和 Kafka 都會提供可重新使用的來源。 可重新使用來源的另一個例子是容錯檔案系統，例如 HDFS、Azure 儲存體 Blob 或 Azure Data Lake Store，其中所有資料都會永久保留，您隨時都可以重新讀取完整的資料。
+在 Azure 中，Azure 事件中樞和 HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 都會提供可重新使用的來源。 可重新使用來源的另一個例子是容錯檔案系統，例如 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)、Azure 儲存體 Blob 或 Azure Data Lake Store，其中所有資料都會永久保留，您隨時都可以重新讀取完整的資料。
 
 ### <a name="reliable-receivers"></a>可靠的接收器
 
-在 Spark 串流中，Event Hub 和 Kafka 之類的來源具有「可靠的接收器」，而每個接收器都可追蹤其讀取來源的進度。 可靠的接收器會將其狀態保存在容錯儲存體中 (在寫入 HDFS 的 ZooKeeper或 Spark 串流檢查點中)。 如果這類收件器故障且稍後重新啟動，它可以挑選其中斷的位置。
+在 Spark 串流中，Event Hub 和 Kafka 之類的來源具有「可靠的接收器」，而每個接收器都可追蹤其讀取來源的進度。 可靠的接收器會將其狀態保存在容錯儲存體中 (在寫入 HDFS 的 [Apache ZooKeeper](https://zookeeper.apache.org/) 或 Spark 串流檢查點中)。 如果這類收件器故障且稍後重新啟動，它可以挑選其中斷的位置。
 
 ### <a name="use-the-write-ahead-log"></a>使用預寫記錄檔
 
@@ -89,5 +89,5 @@ Spark 串流支援使用預寫記錄檔，其中每個收到的事件會先寫�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Spark 串流概觀](apache-spark-streaming-overview.md)
-* [在 YARN 中建立高可用性 Spark 串流作業](apache-spark-streaming-high-availability.md)
+* [Apache Spark 串流概觀](apache-spark-streaming-overview.md)
+* [在 Apache Hadoop YARN 中建立高可用性 Apache Spark 串流作業](apache-spark-streaming-high-availability.md)

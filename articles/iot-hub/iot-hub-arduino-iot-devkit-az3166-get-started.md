@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 08/27/2018
 ms.author: rangv
-ms.openlocfilehash: 360937d335eadb6d235eb52c0d7df42f896a0de0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2ece10c43f25ac637a29324f46a88e50d9655431
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344726"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52620433"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>將 IoT DevKit AZ3166 連線至 Azure IoT 中樞
 
@@ -119,38 +119,43 @@ IoT 專案依賴網際網路連線。 請使用下列指示設定 DevKit，使�
 
 我們建議使用適用於 Visual Studio Code 的 [Azure IoT Workbench](https://aka.ms/iot-workbench) 擴充功能，以在 DevKit 上進行開發。
 
-Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有助於使用 Azure IoT 和其他服務進行裝置和雲端開發。 您可以觀看此 Channel9 影片，大致了解其功用。
+Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有助於使用 Azure IoT 和其他服務進行裝置和雲端開發。 您可以觀看此 [Channel 9 影片](https://channel9.msdn.com/Shows/Internet-of-Things-Show/IoT-Workbench-extension-for-VS-Code)，大致了解其功用。
 
 請遵循下列步驟以準備 DevKit 的開發環境：
 
 1. 下載及安裝 [Arduino IDE](https://www.arduino.cc/en/Main/Software)。 它會提供必要的工具鏈，以便編譯和上傳 Arduino 程式碼。
-    * **Windows**：使用 Windows Installer 版本。
+    * **Windows**：使用 Windows Installer 版本。 請勿從 App Store 安裝。
     * **macOS**：將解壓縮的 **Arduino.app** 拖放到 `/Applications` 資料夾中。
     * **Ubuntu**：將它解壓縮到 `$HOME/Downloads/arduino-1.8.5` 之類的資料夾中
 
-1. 安裝 [Visual Studio Code](https://code.visualstudio.com/)，這是具有強大開發人員工具 (例如 IntelliSense 程式碼完成和偵錯) 的跨平台原始程式碼編輯器。
+2. 安裝 [Visual Studio Code](https://code.visualstudio.com/)，這是具有強大開發人員工具 (例如 IntelliSense 程式碼完成和偵錯) 的跨平台原始程式碼編輯器。
 
-1. 在擴充功能市集中尋找 **Azure IoT Workbench** 並加以安裝。
+3. 在擴充功能市集中尋找 **Azure IoT Workbench** 並加以安裝。
     ![安裝 Azure IoT Workbench](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-workbench.png) 搭配 IoT Workbench，將會安裝其他相依擴充功能。
 
-1. 開啟 [檔案] > [喜好設定] > [設定] 並新增下列幾行來設定 Arduino。
-    * **Windows**：
-    ```javascript
+4. 設定 Arduino
+    * **Windows**：在 **Windows** 上，開啟 [檔案] > [喜好設定] > [設定]，按一下 [...] 並開啟 settings.json，然後新增下列幾行來設定 Arduino。 
+      
+    ```json
     "arduino.path": "C:\\Program Files (x86)\\Arduino",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
-    * **macOS**：
-    ```javascript
+
+    * **macOS**：在 **macOS** 上，開啟 [Code] \(程式碼\) > [Preferences] \(喜好設定\) > [Settings] \(設定\)，按一下 [...] 並開啟 settings.json，然後新增下列幾行來設定 Arduino
+
+    ```json
     "arduino.path": "/Applications",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
+
     * **Ubuntu**：
-    ```javascript
+
+    ```json
     "arduino.path": "/home/{username}/Downloads/arduino-1.8.5",
     "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
     ```
 
-1. 按一下 `F1` 開啟命令選擇區，輸入並選取 [Arduino: Board Manager]。 搜尋 **AZ3166** 並安裝最新版本。
+5. 按一下 `F1` 開啟命令選擇區，輸入並選取 [Arduino: Board Manager]。 搜尋 **AZ3166** 並安裝最新版本。
     ![安裝 DevKit SDK](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/install-sdk.png)
 
 ### <a name="install-st-link-drivers"></a>安裝 ST-Link 驅動程式
@@ -190,7 +195,7 @@ Azure IoT Workbench 會提供開發 IoT 解決方案的整合式體驗。 它有
 1. 在新開啟的專案視窗中，按一下 `F1` 以開啟命令選擇區，輸入並選取 [IoT Workbench: 雲端]，然後選取 [Azure 佈建]。 遵循逐步指南，完成您的 Azure IoT 中樞佈建並建立裝置。
     ![雲端佈建](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. 按一下 `F1` 以開啟命令選擇區，輸入並選取 [IoT Workbench: 裝置]，然後選取 [設定裝置設定] > [選取 IoT 中樞裝置連接字串]。
+1. 按一下 `F1` 鍵開啟命令選擇區，鍵入並選取 [IoT Workbench：裝置]，然後選取 [設定裝置設定] > [設定裝置連接字串] > [選取 IoT 中樞裝置連接字串]。
 
 1. 在 DevKit 上，按住**按鈕 A**，按下再放開 [重設] 按鈕，然後放開**按鈕 A**。您的 DevKit 會進入設定模式並儲存連接字串。
     ![連接字串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)
@@ -244,4 +249,4 @@ DevKit 會重新開機，然後開始執行程式碼。
 
 您已成功將 MXChip IoT DevKit 連線到 IoT 中樞，並將擷取到的感應器資料傳送至 IoT 中樞。
 
-[!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
+[!INCLUDE [iot-hub-get-started-az3166-next-steps](../../includes/iot-hub-get-started-az3166-next-steps.md)]

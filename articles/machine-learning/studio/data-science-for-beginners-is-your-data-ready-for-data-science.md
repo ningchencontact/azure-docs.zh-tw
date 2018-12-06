@@ -1,11 +1,12 @@
 ---
-title: 已備妥資料來進行資料科學嗎？ 資料評估 - Azure Machine Learning | Microsoft Docs
+title: 已備妥資料來進行資料科學嗎？ 資料評估 - Azure Machine Learning Studio | Microsoft Docs
 description: 您資料備妥可進行資料科學前，必須符合的四個準則。 這段影片提供具體範例，可協助進行基本的資料評估。
 keywords: 相關的資料, 評估資料, 準備資料, 資料準則, 備妥資料
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
@@ -16,12 +17,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 5ab3c7716485053432240cb74be8ebc60c9ad274
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5e7949edb13bfec72fa7d80d86d2e77214ceaa37
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834612"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52316203"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>已備妥資料來進行資料科學嗎？
 ## <a name="video-2-data-science-for-beginners-series"></a>影片 2：適用於初學者的資料科學系列

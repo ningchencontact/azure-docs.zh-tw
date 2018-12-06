@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6752f9127a176eef9fd03e7ffddfa7450772def
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037648"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497340"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -28,6 +28,10 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 ## <a name="logging-and-debugging-apps"></a>記錄和偵錯應用程式
 
 透過 Azure 入口網站，可以取得每個應用程式的效能報表、流量視覺化和健康狀態檢查。 如需如何存取和使用這些診斷工具的詳細資訊，請參閱 [Azure App Service 診斷概觀](/azure/app-service/app-service-diagnostics)。
+
+## <a name="application-performance-monitoring"></a>應用程式效能監視
+
+請參閱 [Linux 上 Azure App Service 之 Java 應用程式的應用程式效能監視工具](how-to-java-apm-monitoring.md) (英文)，以瞭解如何在 Linux 上使用於應用程式服務上執行的 Java 應用程式，來設定 New Relic 與 AppDynamics。
 
 ### <a name="ssh-console-access"></a>SSH 主控台存取 
 
@@ -124,7 +128,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 </appSettings> 
 ```
 
-## <a name="secure-application"></a>保護應用程式
+## <a name="secure-applications"></a>保護應用程式
 
 在 App Service for Linux 中執行之 Java 應用程式會有一組與其他應用程式相同的[安全性最佳做法](/azure/security/security-paas-applications-using-app-services)。 
 
@@ -168,7 +172,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 1. 請將 `context.xml` 檔案 (若不存在) 新增至 Web 應用程式，並在建置專案時於其中新增 WAR 檔案的 `META-INF` 目錄。
 
-2. 在此檔案中，新增 `Context` 路徑項目，以將資料來源連結至 JNDI 位址。 此
+2. 在此檔案中，新增 `Context` 路徑項目，以將資料來源連結至 JNDI 位址。
 
     ```xml
     <Context>
@@ -192,7 +196,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 針對共用伺服器層級資源：
 
-1. 如果您尚未設定，則會使用 SSH 將 `/usr/local/tomcat/conf` 的內容複製至 App Service Linux 執行個體上的 `/home/tomcat`。
+1. 如果您尚未設定，則會使用 SSH 將 `/usr/local/tomcat/conf` 的內容複製至 App Service Linux 執行個體上的 `/home/tomcat/conf`。
 
 2. 將內容新增至 `server.xml`
 
@@ -231,7 +235,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
     3. 使用您的 SFTP 用戶端來連線至本機通道連接埠，然後將檔案上傳至 `/home/tomcat/lib` 資料夾。
 
-5. 重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat`，並使用已更新的設定和類別。
+5. 重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat/conf`，並使用已更新的設定和類別。
 
 ## <a name="docker-containers"></a>Docker 容器
 

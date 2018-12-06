@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 11/26/2018
 ms.author: shlo
-ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: e38a0ec39227b0064175c3c39d32bf87970ef9f5
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42140045"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423723"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Azure Data Factory 中的 ForEach 活動
 ForEach 活動定義管線中重複的控制流程。 這個活動用來反覆查詢集合，並在迴圈中執行指定的活動。 此活動的迴圈實作與程式設計語言中的 Foreach 迴圈結構相似。
@@ -572,6 +572,17 @@ batchCount | 批次計數，用於控制平行執行的數目 (當 isSequential 
 ]
 
 ```
+
+## <a name="limitations-and-workarounds"></a>限制和因應措施
+
+以下是 ForEach 活動和建議因應措施的一些限制。
+
+| 限制 | 因應措施 |
+|---|---|
+| 您無法將 ForEach 迴圈內嵌在其他 ForEach 迴圈 (或 Until 迴圈) 內。 | 設計兩個層級的管線，其中外部管線具有外部 ForEach 迴圈，會逐一查看具有巢狀迴圈的內部管線。 |
+| ForEach 活動的平行處理 `batchCount` 上限為 50，最多可處理 100,000 個項目。 | 設計兩個層級的管線，其中外部管線具有 ForEach 活動，會逐一查看內部管線。 |
+| | |
+
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 
 

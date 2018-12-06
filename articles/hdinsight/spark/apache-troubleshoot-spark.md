@@ -7,22 +7,22 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 835a56413a4274a2be2511278b4dedd7f83c54c3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ab7602f7bae4dfb77a733dd7efe011a29b730377
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016670"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581580"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Spark 進行疑難排解
+# <a name="troubleshoot-apache-spark-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Apache Spark 進行疑難排解
 
-了解在 Apache Ambari 中使用 Apache Spark 承載時最常發生的問題及其解決方法。
+了解在 [Apache Ambari](https://ambari.apache.org/) 中使用 [Apache Spark](https://spark.apache.org/) 承載時最常發生的問題及其解決方法。
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>如何使用 Ambari 在叢集上設定 Spark 應用程式？
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-ambari-on-clusters"></a>如何使用 Apache Ambari 在叢集上設定 Apache Spark 應用程式？
 
 ### <a name="resolution-steps"></a>解決步驟
 
-此程序的設定值之前已在 HDInsight 中設定過。 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。 
+此程序的設定值之前已在 HDInsight 中設定過。 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Apache Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。 
 
 1. 在叢集清單中選取 [Spark2]。
 
@@ -84,14 +84,14 @@ ms.locfileid: "51016670"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[提交 HDInsight 叢集上的 Spark 作業](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>如何使用 Jupyter 筆記本在叢集上設定 Spark 應用程式？
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>如何使用 Jupyter Notebook 在叢集上設定 Apache Spark 應用程式？
 
 ### <a name="resolution-steps"></a>解決步驟
 
-1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。
+1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Apache Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。
 
 2. 在 Jupyter 筆記本第一個資料格中的 **%%configure** 指示詞後面，以有效的 JSON 格式指定 Spark 設定。 請視需要變更實際值：
 
@@ -99,14 +99,14 @@ ms.locfileid: "51016670"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[提交 HDInsight 叢集上的 Spark 作業](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>如何使用 Livy 在叢集上設定 Spark 應用程式？
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-apache-livy-on-clusters"></a>如何使用 Apache Livy 在叢集上設定 Apache Spark 應用程式？
 
 ### <a name="resolution-steps"></a>解決步驟
 
-1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。 
+1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Apache Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。 
 
 2. 使用 cURL 等 REST 用戶端，將 Spark 應用程式提交給 Livy。 使用類似下列的命令。 請視需要變更實際值：
 
@@ -116,14 +116,14 @@ ms.locfileid: "51016670"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[提交 HDInsight 叢集上的 Spark 作業](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>如何使用 spark-submit 在叢集上設定 Spark 應用程式？
+## <a name="how-do-i-configure-an-apache-spark-application-by-using-spark-submit-on-clusters"></a>如何使用 spark-submit 在叢集上設定 Apache Spark 應用程式？
 
 ### <a name="resolution-steps"></a>解決步驟
 
-1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。
+1. 若要判斷需要設定哪些 Spark 設定以及設為哪些值，請參閱[造成 Apache Spark 應用程式 OutOfMemoryError 例外狀況的原因](#what-causes-a-spark-application-outofmemoryerror-exception)。
 
 2. 使用類似下列的命令啟動 spark-shell。 請視需要變更設定的實際值： 
 
@@ -133,10 +133,10 @@ ms.locfileid: "51016670"
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-[提交 HDInsight 叢集上的 Spark 作業](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Apache Spark job submission on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/) (提交 HDInsight 叢集上的 Apache Spark 作業)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>造成 Spark 應用程式 OutofMemoryError 例外狀況的原因為何？
+## <a name="what-causes-an-apache-spark-application-outofmemoryerror-exception"></a>造成 Apache Spark 應用程式 OutofMemoryError 例外狀況的原因為何？
 
 ### <a name="detailed-description"></a>詳細描述
 
@@ -217,8 +217,8 @@ java.lang.OutOfMemoryError
 
 ### <a name="additional-reading"></a>其他閱讀資料
 
-- [Spark 記憶體管理概觀](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
-- [Debug a Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Spark 應用程式)
+- [Apache Spark 記憶體管理概觀](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
+- [Debug an Apache Spark application on an HDInsight cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/) (在 HDInsight 叢集上偵錯 Apache Spark 應用程式)
 
 
 ### <a name="see-also"></a>另請參閱

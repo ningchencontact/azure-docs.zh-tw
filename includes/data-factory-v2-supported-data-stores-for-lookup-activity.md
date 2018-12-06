@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 10/19/2018
+ms.date: 11/28/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 3862570426c6cf2ca7e5b54e001a7dacd02a67d9
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 50180a89633dc40fc1bf3850e0297b39cd41507d
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49476334"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52643412"
 ---
 | 類別 | 資料存放區 |
 |:--- |:--- |
@@ -66,8 +66,8 @@ ms.locfileid: "49476334"
 | &nbsp; |[應用程式的常見資料服務](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (預覽)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
+| &nbsp; |[Dynamics AX (預覽)](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) 
 | &nbsp; |[Google AdWords (預覽)](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot (預覽)](../articles/data-factory/connector-hubspot.md) |
 | &nbsp; |[Jira (預覽)](../articles/data-factory/connector-jira.md) |

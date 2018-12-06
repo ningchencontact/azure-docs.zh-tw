@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
-ms.openlocfilehash: 5aaf169418962c08f5f45413f53d4c92588a98bd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f8c296fddaafb8364cc5e0f07b54d850606322d9
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041477"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52581420"
 ---
-# <a name="run-spark-from-the-spark-shell"></a>從 Spark Shell 執行 Spark
+# <a name="run-apache-spark-from-the-spark-shell"></a>從 Spark Shell 執行 Apache Spark
 
-互動式 Spark Shell 會針對執行 Spark 命令 (一次一個) 及查看結果提供 REPL (讀取-執行-列印循環) 環境。 此流程適用於開發和偵錯。 Spark 會為每個支援的語言提供一個殼層：Scala、Python 和 R。
+互動式 [Apache Spark](https://spark.apache.org/) Shell 會提供 REPL (「讀取、求值、輸出」迴圈) 環境，一次執行一個 Spark 命令並查看結果。 此流程適用於開發和偵錯。 Spark 會為每個支援的語言提供一個殼層：Scala、Python 和 R。
 
-## <a name="get-to-a-spark-shell-with-ssh"></a>透過 SSH 使用 Spark Shell
+## <a name="get-to-an-apache-spark-shell-with-ssh"></a>透過 SSH 使用 Apache Spark Shell
 
-使用 SSH 連線到叢集的主要前端節點，來存取 HDInsight 上的 Spark Shell：
+使用 SSH 連線到叢集的主要前端節點，來存取 HDInsight 上的 Apache Spark Shell：
 
      ssh <sshusername>@<clustername>-ssh.azurehdinsight.net
 
@@ -40,7 +40,7 @@ ms.locfileid: "43041477"
 
 如需使用 SSH 連線到 HDInsight 的詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a name="run-a-spark-shell"></a>執行 Spark Shell
+## <a name="run-an-apache-spark-shell"></a>執行 Apache Spark Shell
 
 Spark 會為 Scala (spark-shell)、Python (pyspark) 和 R (sparkR) 提供殼層。 在位於 HDInsight 叢集前端節點的 SSH 工作階段中，請輸入下列命令：
 
@@ -69,7 +69,7 @@ Spark Shell 命令 (`spark-shell`、`pyspark`或 `sparkR`) 支援許多命令列
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需相關簡介，請參閱 [Spark on Azure HDInsight 簡介](apache-spark-overview.md)。
+- 如需概觀，請參閱 [Azure HDInsight 上的 Apache Spark 簡介](apache-spark-overview.md)。
 - 請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)，搭配使用 Spark 叢集和 SparkSQL。
-- 請參閱[何謂 Spark 結構化串流？](apache-spark-streaming-overview.md)，使用 Spark 撰寫可處理串流資料的應用程式。
+- 請參閱[什麼是 Apache Spark 結構化串流](apache-spark-streaming-overview.md)，以使用 Spark 撰寫可處理串流資料的應用程式。
 

@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 4e05d4ff9c090fac0242921e15ef16439d3ed27f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d2e7077e1196ab862d9f610f242fe30dde18ded4
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954444"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52496887"
 ---
-# <a name="authorize-users-for-ambari-views"></a>授權 Ambari 檢視的使用者
+# <a name="authorize-users-for-apache-ambari-views"></a>授權 Apache Ambari 檢視的使用者
 
-[啟用企業安全性套件 (ESP) 的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以將已新增至已獲得存取權之 Azure AD 群組的[新使用者同步](hdinsight-sync-aad-users-to-cluster.md)至叢集，讓這些特定使用者能夠執行特定動作。 ESP HDInsight 叢集和標準 HDInsight 叢集都支援在 Ambari 中運用使用者、群組及權限。
+[啟用企業安全性套件 (ESP) 的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)可提供企業級功能，包括以 Azure Active Directory 為基礎的驗證。 您可以將已新增至已獲得存取權之 Azure AD 群組的[新使用者同步](hdinsight-sync-aad-users-to-cluster.md)至叢集，讓這些特定使用者能夠執行特定動作。 ESP HDInsight 叢集和標準 HDInsight 叢集都支援在 [Apache Ambari](https://ambari.apache.org/) 中運用使用者、群組及權限。
 
-Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 Hue、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
+Active Directory 使用者可以使用其網域認證來登入叢集節點。 他們也可以使用其網域認證來驗證叢集與其他已核准之端點 (例如 [Hue](http://gethue.com/)、Ambari 檢視、ODBC、JDBC、PowerShell 和 REST API) 的互動。
 
 > [!WARNING]
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更密碼會破壞在叢集上使用指令碼動作或執行調整作業的能力。
@@ -29,13 +29,13 @@ Active Directory 使用者可以使用其網域認證來登入叢集節點。 �
 
 ## <a name="access-the-ambari-management-page"></a>存取 Ambari 管理頁面
 
-若要移至 **Ambari 管理頁面**，請在 [Ambari Web UI](hdinsight-hadoop-manage-ambari.md) 上瀏覽至 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
+若要移至 **Ambari 管理頁面**，請在 [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) 上瀏覽至 **`https://<YOUR CLUSTER NAME>.azurehdinsight.net`**。 輸入您建立叢集時所定義的叢集系統管理員使用者名稱和密碼。 接著，從 Ambari 儀表板中，選取 [admin] \(系統管理員\) 功能表底下的 [Manage Ambari] \(管理 Ambari\)：
 
 ![管理 Ambari](./media/hdinsight-authorize-users-to-ambari/manage-ambari.png)
 
-## <a name="grant-permissions-to-hive-views"></a>授與對 Hive 檢視的權限
+## <a name="grant-permissions-to-apache-hive-views"></a>授與對 Apache Hive 檢視的權限
 
-Ambari 隨附 Hive 和 Tez 等等的檢視執行個體。 若要授與對一或多個 Hive 檢視執行個體的存取權，請移至 **Ambari 管理頁面**。
+Ambari 隨附 [Apache Hive](https://hive.apache.org/) 和 [Apache TEZ](https://tez.apache.org/) 等等的檢視執行個體。 若要授與對一或多個 Hive 檢視執行個體的存取權，請移至 **Ambari 管理頁面**。
 
 1. 從管理頁面中，選取左邊 [檢視] \(Views\) 功能表標題底下的 [檢視] \(Views\) 連結。
 
@@ -72,9 +72,9 @@ Ambari 隨附 Hive 和 Tez 等等的檢視執行個體。 若要授與對一或�
 
 當您想要指派權限給使用者來使用該檢視，但不想要讓使用者成為具有額外權限之群組的成員時，將使用者直接新增到檢視會相當有用。 若要降低系統管理額外負擔，將權限指派給群組可能會是更簡單的方式。
 
-## <a name="grant-permissions-to-tez-views"></a>授與對 Tez 檢視的權限
+## <a name="grant-permissions-to-apache-tez-views"></a>授與對 Apache TEZ 檢視的權限
 
-Tez 檢視執行個體可讓使用者對所有 Tez 作業 (由 Hive 查詢和 Pig 指令碼所提交) 進行監視和偵錯。 佈建叢集時，會建立一個預設的 Tez 檢視執行個體。
+[Apache TEZ](https://tez.apache.org/) 檢視執行個體可讓使用者對所有 Tez 作業 (由 [Apache Hive](https://hive.apache.org/) 查詢和 [Apache Pig](https://pig.apache.org/) 指令碼所提交) 進行監視和偵錯。 佈建叢集時，會建立一個預設的 Tez 檢視執行個體。
 
 若要將使用者和群組指派給 Tez 檢視執行個體，請依照先前所述，展開 [Views] \(檢視\) 頁面上的 [TEZ]**TEZ** 資料列。
 
@@ -136,7 +136,7 @@ Tez 檢視執行個體可讓使用者對所有 Tez 作業 (由 Hive 查詢和 Pi
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在有 ESP 的 HDInsight 中設定 Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
+* [在有 ESP 的 HDInsight 中設定 Apache Hive 原則](./domain-joined/apache-domain-joined-run-hive.md)
 * [管理 ESP HDInsight 叢集](./domain-joined/apache-domain-joined-manage.md)
-* [在 HDInsight 中搭配 Hadoop 使用 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
+* [在 HDInsight 中搭配 Apache Hadoop 使用 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)
 * [將 Azure AD 使用者同步至叢集](hdinsight-sync-aad-users-to-cluster.md)

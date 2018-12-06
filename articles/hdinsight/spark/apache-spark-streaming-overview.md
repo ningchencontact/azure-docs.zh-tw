@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 229c3eff0db4f3689f4e2e3fd457410ecccb8ba7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 86d64ef0e9abab4368569c2f7c5ccd633660085c
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041517"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583208"
 ---
-# <a name="overview-of-spark-streaming"></a>Spark 串流的概觀
+# <a name="overview-of-apache-spark-streaming"></a>Apache Spark 串流概觀
 
-Spark 串流可在 HDInsight Spark 叢集上提供資料流處理，並保證無論是否發生節點錯誤，任何輸入事件都可確實地處理一次。 Spark 串流是從廣泛來源接收輸入資料的長時間執行作業，來源包括 Azure 事件中樞、Azure IoT 中樞、Kafka、Flume、Twitter、ZeroMQ、原始 TCP 通訊端，或來自監視 HDFS 檔案系統。 不同於完全事件驅動的流程，Spark 串流會依據時間範圍分批處理輸入資料 (例如 2 秒配量)，然後使用 map、reduce、join 和 extract 作業來轉換每個批次。 Spark 串流會接著將已轉換的資料寫出至檔案系統、資料庫、儀表板及主控台。
+[Apache Spark](https://spark.apache.org/) 串流可在 HDInsight Spark 叢集上提供資料流處理，並保證無論是否發生節點失敗，任何輸入事件都可確實地處理一次。 Spark 串流是從廣泛來源接收輸入資料的長時間執行作業，來源包括 Azure 事件中樞、Azure IoT 中樞、[Apache Kafka](https://kafka.apache.org/)、[Apache Flume](https://flume.apache.org/)、Twitter、[ZeroMQ](http://zeromq.org/)、原始 TCP 通訊端，或來自監視 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 檔案系統。 不同於完全事件驅動的流程，Spark 串流會依據時間範圍分批處理輸入資料 (例如 2 秒配量)，然後使用 map、reduce、join 和 extract 作業來轉換每個批次。 Spark 串流會接著將已轉換的資料寫出至檔案系統、資料庫、儀表板及主控台。
 
 ![使用 HDInsight 和 Spark 串流處理資料流](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
@@ -86,7 +86,7 @@ Spark 串流應用程式是長時間執行的應用程式，其會接收來自�
     ssc.start()            
     ssc.awaitTermination()
 
-如需深入了解 Spark 串流 API 及其支援的事件來源、轉換和輸出作業，請參閱 [Spark 串流程式設計指南](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html) \(英文\)。
+如需深入了解 Spark 串流 API 及其支援的事件來源、轉換和輸出作業，請參閱 [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html) (Apache Spark 串流程式設計指南)。
 
 下列的範例應用程式皆各自獨立，因此您可以在 [Jupyter Notebook](apache-spark-jupyter-notebook-kernels.md) 中加以執行。 此範例會在 DummySource 類別中建立模擬資料來源，此類別會輸出計數器的值，以及每五秒輸出一次目前的時間 (以毫秒為單位)。 新 StreamingContext 物件的批次間隔為 30 秒。 每當批次建立時，串流應用程式都會檢查產生的 RDD、將 RDD 轉換成 Spark DataFrame，然後透過 DataFrame 建立暫存資料表。
 
@@ -211,10 +211,10 @@ Spark 串流應用程式是長時間執行的應用程式，其會接收來自�
 
 ![部署 Spark 串流應用程式](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 
-您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資訊，請參閱[使用 LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
+您也可以藉由 LIVY 端點，使用 GET 要求來檢查所有應用程式的狀態。 最後，您可以對 LIVY 端點發出 DELETE 要求，來終止執行中的應用程式。 如需 LIVY API 的詳細資料，請參閱[使用 Apache LIVY 執行遠端作業](apache-spark-livy-rest-interface.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 中建立 Apache Spark 叢集](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Spark 串流程式設計指南](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html)
-* [使用 LIVY 從遠端啟動 Spark](apache-spark-livy-rest-interface.md)
+* [Apache Spark Streaming Programming Guide](https://people.apache.org/~pwendell/spark-releases/latest/streaming-programming-guide.html) (Apache Spark 串流程式設計指南)
+* [使用 Apache LIVY 遠端啟動 Apache Spark 作業](apache-spark-livy-rest-interface.md)

@@ -1,5 +1,5 @@
 ---
-title: 設定 HBase 和 Phoenix 備份和複寫 - Azure HDInsight
+title: 設定 Apache HBase 和 Apache Phoenix 的備份和複寫 - Azure HDInsight
 description: 設定 HBase 和 Phoenix 的備份和複寫。
 services: hdinsight
 author: ashishthaps
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 0dfb1cf5ce16e9aa30bb7f9fcc43bd24ccb90d76
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 00402b7ba6004d382693d5f6f82c1108a254fba8
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042214"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52283565"
 ---
-# <a name="set-up-backup-and-replication-for-hbase-and-phoenix-on-hdinsight"></a>設定 HDInsight 上 HBase 和 Phoenix 的備份和複寫
+# <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>設定 HDInsight 上的 Apache HBase 和 Apache Phoenix 備份和複寫
 
-HBase 支援數種防範資料遺失的方法：
+Apache HBase 支援數種防範資料遺失的方法：
 
 * 複製 `hbase` 資料夾
 * 匯出然後匯入
@@ -101,7 +101,7 @@ CopyTable 公用程式會將資料從來源資料表逐列複製到現有的目�
 
     <destinationAddress> = <ZooKeeperQuorum>:<Port>:<ZnodeParent>
 
-* `<ZooKeeperQuorum>` 是以逗號分隔的 ZooKeeper 節點清單，例如：
+* `<ZooKeeperQuorum>` 是以逗號分隔的 Apache ZooKeeper 節點清單，例如：
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net
 
@@ -109,7 +109,7 @@ CopyTable 公用程式會將資料從來源資料表逐列複製到現有的目�
 
     zk0-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk4-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net,zk3-hdizc2.54o2oqawzlwevlfxgay2500xtg.dx.internal.cloudapp.net:2181:/hbase-unsecure
 
-如需有關如何為您的 HDInsight 叢集擷取這些值的詳細資訊，請參閱本文中的[手動收集 ZooKeeper 仲裁清單](#manually-collect-the-zookeeper-quorum-list)。
+如需如何為您的 HDInsight 叢集擷取這些值的詳細資料，請參閱本文中的[手動收集 Apache ZooKeeper 仲裁清單](#manually-collect-the-apache-zookeeper-quorum-list)。
 
 CopyTable 公用程式也支援以參數指定要複製的資料列時間範圍，以及以指定資料表中要複製的資料行系列子集。 若要查看 CopyTable 支援的完整參數清單，請在不用任何參數的情形下執行 CopyTable：
 
@@ -120,7 +120,7 @@ CopyTable 會掃描即將複製到目的地資料表的整個來源資料表內�
 > [!NOTE]
 > 若要將資料表間的資料複製自動化，請參閱 GitHub 上 [Azure HBase Utils](https://github.com/Azure/hbase-utils/tree/master/replication) 存放庫中的 `hdi_copy_table.sh` 指令碼。
 
-### <a name="manually-collect-the-zookeeper-quorum-list"></a>手動收集 ZooKeeper 仲裁清單
+### <a name="manually-collect-the-apache-zookeeper-quorum-list"></a>手動收集 Apache ZooKeeper 仲裁清單
 
 當兩個 HDInsight 叢集位於相同虛擬網路時，如先前所述，系統會自動解析內部主機名稱。 若要對經由 VPN 閘道連線的兩個不同虛擬網路中的 HDInsight 叢集使用 CopyTable，您必須在仲裁中提供 Zookeeper 節點的主機 IP 位址。
 
@@ -201,8 +201,8 @@ HBase 複寫會使用非同步機制自動將交易從來源叢集推送至目�
 5. 將現有的資料從來源資料表複製到目的地資料表。
 6. 複寫會自動將來源資料表上新的資料修改複製到目的地資料表。
 
-若要在 HDInsight 上啟用複寫，請對執行中的來源 HDInsight 叢集套用指令碼動作。 如需在叢集中啟用複寫，或在使用 Azure Resource Management 範本在虛擬網路中建立的範例叢集上試驗複寫的逐步解說，請參閱[設定 HBase 複寫](apache-hbase-replication.md)。 這篇文章也包含啟用 Phoenix 中繼資料複寫的指示。
+若要在 HDInsight 上啟用複寫，請對執行中的來源 HDInsight 叢集套用指令碼動作。 如需在叢集中啟用複寫的逐步解說，或要使用 Azure 資源管理範本在虛擬網路中建立的範例叢集上試驗複寫，請參閱[設定 Apache HBase 複寫](apache-hbase-replication.md)。 這篇文章也包含啟用 Phoenix 中繼資料複寫的指示。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [設定 HBase 複寫](apache-hbase-replication.md)
+* [設定 Apache HBase 複寫](apache-hbase-replication.md)

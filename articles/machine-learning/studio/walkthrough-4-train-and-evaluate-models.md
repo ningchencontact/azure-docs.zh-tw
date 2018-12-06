@@ -1,10 +1,11 @@
 ---
-title: 步驟 4：訓練和評估預測分析模型 | Microsoft Docs
+title: 步驟 4：定型預測分析模型 - Azure Machine Learning Studio | Microsoft Docs
 description: 開發預測解決方案逐步解說的步驟 4：在 Azure Machine Learning Studio 中定型、計分和評估多個模型。
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
@@ -15,17 +16,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 95937ee74be3f6facbc482c3cfd80a8af9128ea3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836004"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52313464"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models"></a>逐步解說步驟 4：定型和評估預測分析模型
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>逐步解說步驟 4：在 Machine Learning Studio 中定型和評估預測分析模型
 此主題包含[在 Azure Machine Learning 中開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)逐步解說的第四個步驟
 
-1. [建立機器學習服務工作區](walkthrough-1-create-ml-workspace.md)
+1. [建立 Machine Learning Studio 工作區](walkthrough-1-create-ml-workspace.md)
 2. [上傳現有資料](walkthrough-2-upload-data.md)
 3. [建立新實驗](walkthrough-3-create-new-experiment.md)
 4. **訓練及評估模型**
@@ -40,7 +41,7 @@ ms.locfileid: "34836004"
 有各種不同的模型可供我們選擇。 若要查看可用的模型，請在模組選擇區展開 [機器學習] 節點，然後展開 [初始化模型]，再選擇其下方的節點。 基於本實驗的目的，我們將選取[二元支援向量機器][two-class-support-vector-machine] (SVM) 和[二元促進式決策樹][two-class-boosted-decision-tree]模組。    
 
 > [!TIP]
-> 如需取得說明以決定哪一種機器學習服務演算法最適合您正在嘗試解決的特定問題，請參閱 [如何選擇 Microsoft Azure Machine Learning 的演算法](algorithm-choice.md)。
+> 如需取得說明以決定哪一種機器學習服務演算法最適合您要嘗試解決的特定問題，請參閱[如何選擇 Microsoft Azure Machine Learning Studio 的演算法](algorithm-choice.md)。
 > 
 > 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115517"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443503"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
 
@@ -78,6 +78,8 @@ ms.locfileid: "49115517"
 
 應用程式設定在儲存時一律加密 (待用加密)。
 
+應用程式設定可以透過使用 [Key Vault 參考](app-service-key-vault-references.md)，從 Key Vault 進行解析。
+
 ### <a name="connection-strings"></a>連接字串
 連結資源的連接字串。 
 
@@ -93,6 +95,8 @@ ms.locfileid: "49115517"
 例如，如果 MySql 連接字串命名為 `connectionstring1`，則可透過環境變數 `MYSQLCONNSTR_connectionString1` 加以存取。
 
 連接字串在儲存時一律加密 (待用加密)。
+
+連接字串可以透過使用 [Key Vault 參考](app-service-key-vault-references.md)，從 Key Vault 進行解析。
 
 ### <a name="default-documents"></a>預設文件
 預設文件是顯示於網站根 URL 上的網頁。  系統會使用清單中第一個相符的檔案。 

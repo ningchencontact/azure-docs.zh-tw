@@ -1,10 +1,11 @@
 ---
-title: 管理 Machine Learning 工作區 | Microsoft Docs
+title: 管理機器學習工作區 - Azure Machine Learning Studio | Microsoft Docs
 description: 管理 Azure 機器學習工作區的存取權，並部署和管理 ML API Web 服務
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: daf3d413-7a77-4beb-9a7a-6b4bdf717719
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c470d10b933b31d4cfe151fb541c2182562a2805
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095441"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52314099"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>管理 Azure Machine Learning 工作區
 

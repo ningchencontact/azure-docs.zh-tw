@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 2b057a94022077aa210b1e4ebb6122eaf350a40b
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: dd07ed66b630f541ed3e2001dffdebed150bb71a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457403"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52443027"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -53,9 +53,39 @@ Azure 虛擬網路具有 NSG 流量記錄，可為您了解透過與個別網路
 
 ## <a name="supported-regions"></a>支援區域
 
-您可以在下列任何一個區域中使用 NSG 的流量分析：美國中西部、美國東部、美國東部 2、美國中北部、美國中南部、美國中部、美國西部、美國西部 2、加拿大中部、西歐、北歐、英國西部、英國南部、日本東部、印度中部、澳大利亞東部、澳大利亞東南部和東南亞。 
+您可以在下列任何支援的區域中使用 NSG 的流量分析：
 
-Log Analytics 工作區必須存在於美國中西部、美國東部、西歐、英國南部、加拿大中部、日本東部、印度中部、澳大利亞東南部或東南亞地區。
+* 加拿大中部
+* 美國中西部
+* 美國東部
+* 美國東部 2
+* 美國中北部
+* 美國中南部
+* 美國中部
+* 美國西部
+* 美國西部 2
+* 西歐
+* 北歐
+* 巴西南部
+* 英國西部
+* 英國南部
+* 澳洲東部
+* 澳大利亞東南部
+* 東南亞
+* 印度中部
+* 印度南部
+* 日本東部 
+
+Log Analytics 工作區必須存在於下列區域：
+* 加拿大中部
+* 美國中西部
+* 美國東部
+* 西歐
+* 英國南部
+* 澳大利亞東南部
+* 東南亞
+* 印度中部
+* 日本東部
 
 ## <a name="prerequisites"></a>必要條件
 

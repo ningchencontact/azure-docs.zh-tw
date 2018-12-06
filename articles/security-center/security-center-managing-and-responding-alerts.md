@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/3/2018
+ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: f865a0a609422ae4938a9cccf15d9cd176a9400a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227785"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311223"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
 
 > [!NOTE]
-> 若要啟用進階偵測，請升級至 Azure 資訊安全中心標準。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-policies.md)中的 [定價層]。 若要深入了解，請參閱 [Azure 資訊安全中心價格](security-center-pricing.md)。
+> 若要啟用進階偵測，請升級至 Azure 資訊安全中心標準。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-azure-policy.md)中的 [定價層]。 若要深入了解，請參閱 [Azure 資訊安全中心價格](security-center-pricing.md)。
 >
 >
 
@@ -63,6 +63,20 @@ ms.locfileid: "51227785"
 > [!NOTE]
 > 資訊安全中心產生的安全性警示也會出現在 Azure 活動記錄之下。 如需有關如何存取 Azure 活動記錄的詳細資訊，請參閱[檢視活動記錄以稽核對資源的動作](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)。
 >
+
+
+### <a name="alert-severity"></a>警示嚴重性
+
+> [!NOTE]
+> 警示嚴重性在入口網站和 REST API 中會以不同的方式顯示，其差異註明於下列清單中。
+
+-   **高**：您的資源很可能遭到破壞。 您應立即加以了解。 資訊安全中心在不良意圖和用來發出警示的調查結果方面都具有高信賴度。 例如，偵測有已知惡意工具 (例如 Mimikatz，這是常用來竊取認證的工具) 正在執行的警示。 
+-   **中 (REST API 中的「低」)**：這可能是表示資源遭到破壞的可疑活動。
+資訊安全中心在分析或調查結果方面具有中信賴度，在不良意圖方面的信賴度則為中至高。 這些通常會是以機器學習或異常偵測為基礎的偵測。 例如，從異常位置登入的嘗試。
+-   **低 (REST API 中的「資訊」)**：這有可能是良性確判或已遭封鎖的攻擊。 
+    - 資訊安全中心沒有足夠的信賴度可確定意圖是否屬惡意以及活動是否無害。 例如，清除記錄有可能是攻擊者為了嘗試隱藏其追蹤記錄而執行的動作，但在許多情況下，這也是管理員所執行的例行性作業。
+    - 資訊安全中心在封鎖攻擊時通常不會通知您，除非是我們建議您查看的特殊案例。 
+-   **參考 (REST API 中的「無訊息」)**：當您向下切入至安全性事件時，或使用 REST API 與特定警示識別碼時，才會看到資訊警示。 事件通常由多個警示組成，其中有些警示單獨來看可能僅具參考價值，但若與其他警示交互參照，則可能有進一步詳查的價值。 
 
 ### <a name="filtering-alerts"></a>篩選警示
 您可以根據日期、狀態及嚴重性來篩選警示。 如果您需要縮小顯示的安全性警示檢視範圍，篩選警示會相當有用。 例如，您可能想確認在過去 24 小時發生的安全性警示，因為您正在調查系統中可能的入侵行動。

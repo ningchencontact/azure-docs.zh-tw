@@ -1,11 +1,12 @@
 ---
-title: Azure Machine Learning 常見問題集 (FAQ) | Microsoft Docs
-description: Azure Machine Learning 簡介：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。
+title: Machine Learning Studio 常見問題集 (FAQ) - Azure | Microsoft Docs
+description: Azure Machine Learning Studio：常見問題集，涵蓋計費、功能，以及適用於簡化預測性模型化之雲端服務的限制。
 keywords: 機器學習服務簡介,建立預測模型,什麼是機器學習服務
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
 ms.component: studio
@@ -14,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: 77ae05c240dbb099528d7224a936d90416366816
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247767"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52309135"
 ---
-# <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning 常見問題集：計費、功能、限制及支援
+# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 常見問題集：計費、功能、限制及支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
 
 **是否有您無法在這裡找到的問題？**
@@ -29,12 +30,6 @@ ms.locfileid: "51247767"
 Azure Machine Learning 在 MSDN 上有一個論壇，資料科學社群的成員可在其中詢問有關 Azure Machine Learning 的問題。 此論壇由 Azure Machine Learning 團隊控管。 移至 [Azure Machine Learning 論壇](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)，搜尋答案或張貼您自己的新問題。
 
 ## <a name="general-questions"></a>一般問題
-**什麼是 Azure Machine Learning 服務？**
-
-Azure Machine Learning 是完全受控的服務，可用來建立、測試、操作及管理雲端中的預測分析方案。 僅使用瀏覽器，您即可以登入、上傳資料，以及立即開始機器學習實驗。 拖放式預測性模型化、大型模組和用以啟動範本的程式庫，讓您得以簡便而快速地執行一般機器學習工作。 如需詳細資訊，請參閱 [Azure Machine Learning 服務概觀](https://azure.microsoft.com/services/machine-learning/)。 如需說明重要術語和概念的機器學習服務簡介，請參閱 [Azure Machine Learning 簡介](what-is-machine-learning.md)。
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 **什麼是 Machine Learning Studio？**
 
 Machine Learning Studio 是您利用網頁瀏覽器存取的工作區環境。 Machine Learning Studio 在視覺化結構介面中裝載一組模組，協助您以實驗的形式建置端對端資料科學工作流程。

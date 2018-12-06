@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 463c74638b0e50348b8c9454334b7457e7b570e6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283881"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423342"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB 全域散發 - 運作原理
 
@@ -72,7 +72,7 @@ Cosmos DB 的全域散發依賴兩個關鍵抽象概念：複本集和分割集�
 
 不論您使用單一或多個寫入區域來設定 Cosmos 資料庫，您都可以從五個定義完善的一致性模型中進行選擇。 透過可啟用多個寫入區域的新增支援，以下是數個關於一致性層級且值得注意的層面：  
 
-和先前一樣，限定過期一致性會保證所有讀取將在自任何一個區域中最新寫入起算的 k 個前置詞或 t 秒內。 此外，保證具有限定過期一致性的讀取是單調且具有一致的前置詞保證。 反熵通訊協定會以速率限制的方式運作，並確保前置詞不會累積，而且不必在寫入上套用背壓。 和先前一樣，工作階段一致性會保證全球性的單純讀取、單純寫入、讀取您的寫入、讀取後接寫入，以及一致前置詞保證。 對於使用強式一致性設定的資料庫，系統會藉由指定每個分割區集內的前端項目切換回單一寫入區域。 
+和先前一樣，限定過期一致性會保證所有讀取將在自任何一個區域中最新寫入起算的 k 個前置詞或 t 秒內。 此外，保證具有限定過期一致性的讀取是單調且具有一致的前置詞保證。 反熵通訊協定會以速率限制的方式運作，並確保前置詞不會累積，而且不必在寫入上套用背壓。 和先前一樣，工作階段一致性會保證全球性的單純讀取、單純寫入、讀取您的寫入、讀取後接寫入，以及一致前置詞保證。 設定了強式一致性的資料庫無法受益於多重主機功能 (低寫入延遲、高寫入可用性)，因為區域之間會進行同步複寫。
 
 [此處](consistency-levels.md)說明 Cosmos DB 中五個一致性模型的語意，並使用[此處](https://github.com/Azure/azure-cosmos-tla)的高層級 TLA + 規格以數學方式顯示。
 
@@ -81,5 +81,5 @@ Cosmos DB 的全域散發依賴兩個關鍵抽象概念：複本集和分割集�
 接下來，了解如何使用下列文章來設定全域散發：
 
 * [如何設定多路連接的用戶端](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [如何在資料庫中新增/移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [在資料庫帳戶中新增/移除區域](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [如何建立 SQL API 帳戶的自訂衝突解決原則](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 183f8fd47ea5239e31f03f3aecf420cfb5842098
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009822"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52308931"
 ---
-# <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集
-了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight HBase 叢集。
+# <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集
+了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight Apache HBase 叢集。
 
-由於 HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。 其優點包括：
+由於 Apache HBase 叢集已與虛擬網路整合，因此能夠部署到與您應用程式相同的虛擬網路，讓應用程式得以和 HBase 直接通訊。 其優點包括：
 
 * Web 應用程式可以直接連接到 HBase 叢集節點，因而能夠使用 HBase Java 遠端程序呼叫 (RPC) API 來進行通訊。
 * 透過使流量不須經過多個閘道器及負載平衡器，以提升其效能。
@@ -31,8 +31,8 @@ ms.locfileid: "51009822"
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * **具有 Azure PowerShell 的工作站**。 請參閱 [安裝及使用 Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/)。
 
-## <a name="create-hbase-cluster-into-virtual-network"></a>在虛擬網路上建立 HBase 叢集
-在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+## <a name="create-apache-hbase-cluster-into-virtual-network"></a>在虛擬網路中建立 Apache HBase 叢集
+在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 Apache HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Apache Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
 > 某些屬性已以硬式編碼方式寫入範本。 例如︰
@@ -64,11 +64,11 @@ ms.locfileid: "51009822"
    * **我同意上方所述的條款及條件**：(選取)
 3. 按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。 一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
 
-完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](../hdinsight-administer-use-management-portal.md#delete-clusters)。
+完成本教學課程之後，您可以刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 如需有關刪除叢集的指示，請參閱[使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](../hdinsight-administer-use-management-portal.md#delete-clusters)。
 
-若要開始使用新的 HBase 叢集，您可以使用＜ [開始在 HDInsight 中搭配使用 HBase 與 Hadoop](./apache-hbase-tutorial-get-started-linux.md)＞中提供的程序。
+若要開始使用新的 HBase 叢集，您可以使用[開始在 HDInsight 中搭配使用 Apache HBase 與 Apache Hadoop](./apache-hbase-tutorial-get-started-linux.md) 中提供的程序。
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>使用 HBase Java RPC API 連接到 HBase 叢集
+## <a name="connect-to-the-apache-hbase-cluster-using-apache-hbase-java-rpc-apis"></a>使用 Apache HBase Java RPC API 連線至 Apache HBase 叢集
 1. 相同的 Azure 虛擬網路和相同的子網路中建立基礎結構即服務 (IaaS) 虛擬機器。 如需建立新的 IaaS 虛擬機器的指示，請參閱[建立執行 Windows Server 的虛擬機器](../../virtual-machines/windows/quick-create-portal.md)。 當遵循本文件中的步驟時，您必須針對網路設定使用下列值：
 
    * **虛擬網路**：&lt;叢集名稱>-vnet
@@ -83,7 +83,7 @@ ms.locfileid: "51009822"
 
 2. 使用 Java 應用程式從遠端連接到 HBase 時，您必須使用完整網域名稱 (FQDN)。 若要決定此名稱，您必須取得 HBase 叢集的連線特定 DNS 尾碼。 若要這麼做，您可以使用下列其中一種方法：
 
-   * 使用網頁瀏覽器進行 Ambari 呼叫︰
+   * 使用網頁瀏覽器進行 [Apache Ambari](https://ambari.apache.org/) 呼叫︰
 
      瀏覽至 https://&lt;ClusterName>.azurehdinsight.net/api/v1/clusters/&lt;ClusterName>/hosts?minimal_response=true。 結果是具有 DNS 尾碼的 JSON 檔案。
    * 使用 Ambari 網站︰
@@ -225,7 +225,7 @@ ms.locfileid: "51009822"
 
 若要驗證虛擬機器能夠與 HBase 叢集通訊，請從虛擬機器使用命令 `ping headnode0.<dns suffix>` 。 例如，ping headnode0.mycluster.b1.cloudapp.net。
 
-若要在 Java 應用程式中使用此資訊，您可以依照＜ [使用 Maven 建置在 HDInsight (Hadoop) 上使用 HBase 的 Java 應用程式](./apache-hbase-build-java-maven-linux.md) ＞(英文) 中的步驟來建立應用程式。 若要讓應用程式連接到遠端 HBase 伺服器，請修改此範例中的 **hbase-site.xml** 檔案，以使用 Zookeeper 的 FQDN。 例如︰
+若要在 Java 應用程式中使用此資訊，您可以依照[使用 Apache Maven 建置在 HDInsight (Hadoop) 上使用 Apache HBase 的 Java 應用程式](./apache-hbase-build-java-maven-linux.md)中的步驟來建立應用程式。 若要讓應用程式連接到遠端 HBase 伺服器，請修改此範例中的 **hbase-site.xml** 檔案，以使用 Zookeeper 的 FQDN。 例如︰
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -238,13 +238,13 @@ ms.locfileid: "51009822"
 >
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何建立 HBase 叢集。 若要深入了解，請參閱：
+在本教學課程中，您已了解如何建立 Apache HBase 叢集。 若要深入了解，請參閱：
 
 * [開始使用 HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [在 HDInsight 中使用空白邊緣節點](../hdinsight-apps-use-edge-node.md)
-* [在 HDInsight 中設定 HBase 複寫](apache-hbase-replication.md)
-* [在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-* [開始在 HDInsight 中搭配使用 HBase 與 Hadoop](./apache-hbase-tutorial-get-started-linux.md)
+* [在 HDInsight 中設定 Apache HBase 複寫](apache-hbase-replication.md)
+* [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
+* [開始在 HDInsight 中搭配 Apache Hadoop 使用 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
 
 [1]: http://azure.microsoft.com/services/virtual-network/

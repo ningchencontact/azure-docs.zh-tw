@@ -9,22 +9,22 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: f963ae53e1396b1ef6279f2bd6502e5ab0cd23a1
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ac287f2ee50501d703b7d7b79a436ecb5335d1bd
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034552"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497401"
 ---
 # <a name="install-published-application---streamsets-data-collector"></a>安裝已發佈的應用程式 - StreamSets Data Collector
 
-本文說明如何在 Azure HDInsight 上安裝及執行 [StreamSets Data Collector for HDInsight](https://streamsets.com/) \(英文\) 已發佈的 Apache Hadoop 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
+本文說明如何在 Azure HDInsight 上安裝及執行 [StreamSets Data Collector for HDInsight](https://streamsets.com/) 已發佈的 [Apache Hadoop](https://hadoop.apache.org/) 應用程式。 如需 HDInsight 應用程式平台的概觀，以及可用獨立軟體廠商 (ISV) 已發佈的應用程式清單，請參閱[安裝協力廠商 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。 如需您自己的應用程式的安裝指示，請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
 
 ## <a name="about-streamsets-data-collector"></a>關於 StreamSets Data Collector
 
 StreamSets Data Collector 可部署在 Azure HDInsight 應用程式之上。 StreamSets Data Collector 提供完整功能的整合式開發環境 (IDE)，可讓您設計、測試、部署及管理「任何對任何」內嵌管線。 這些管線可以讓串流和批次資料進行網狀傳輸，並包含各種串流內轉換，而您卻不必撰寫自訂程式碼。
 
-StreamSets Data Collector 可讓您使用許多巨量資料元件 (例如 HDFS、Kafka、Solr、Hive、HBASE 和 Kudu) 來建置資料流程。 一旦 StreamSets Data Collector 在 Edge Server 或者 Hadoop 叢集上執行，您就能即時監控資料異常和資料流程作業。 此監控包括閾值型警示、異常偵測，以及錯誤記錄的自動補救。
+StreamSets Data Collector 可讓您使用許多巨量資料元件 (例如 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html)、[Apache Kafka](https://kafka.apache.org/)、[Apache Solr](https://lucene.apache.org/solr/)、[Apache Hive](https://hive.apache.org/)、[Apache HBase](https://hbase.apache.org/) 和 [Apache Kudu](https://kudu.apache.org/)) 來建置資料流程。 一旦 StreamSets Data Collector 在 Edge Server 或者 Hadoop 叢集上執行，您就能即時監控資料異常和資料流程作業。 此監控包括閾值型警示、異常偵測，以及錯誤記錄的自動補救。
 
 依據設計，StreamSets Data Collector 在邏輯上會隔離管線中的各個階段，讓您不必編碼即可投入新處理器和連接器，且所需停機時間最少，來符合新的商務需求。
 
@@ -46,7 +46,7 @@ StreamSets Data Collector 可讓您使用許多巨量資料元件 (例如 HDFS�
 
 ## <a name="install-the-streamsets-data-collector-published-application"></a>安裝 StreamSets Data Collector 已發佈的應用程式
 
-如需有關安裝這個 ISV 應用程式和其他可用 ISV 應用程式的逐步指示，請參閱[安裝第三方 Hadoop 應用程式](hdinsight-apps-install-applications.md)。
+如需安裝這個 ISV 應用程式和其他可用 ISV 應用程式的逐步指示，請參閱[安裝協力廠商 Apache Hadoop 應用程式](hdinsight-apps-install-applications.md)。
 
 ## <a name="launch-streamsets-data-collector"></a>啟動 StreamSets Data Collector
 

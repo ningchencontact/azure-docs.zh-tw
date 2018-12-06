@@ -1,18 +1,25 @@
 ---
-title: 對容錯移轉至 Azure 進行疑難排解 | Microsoft Docs
-description: 本文說明如何使用 Azure Site Recovery 對容錯移轉至 Azure 期間所發生的常見問題進行疑難排解。
+title: 針對容錯移轉至 Azure 失敗進行疑難排解 | Microsoft Docs
+description: 本文說明如何針對容錯移轉至 Azure 的常見錯誤進行疑難排解
+services: site-recovery
+documentationcenter: ''
 author: ponatara
 manager: abhemraj
+editor: ''
+ms.assetid: ''
 ms.service: site-recovery
+ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
-ms.author: ponatara
-ms.openlocfilehash: 420d061b34734c7b5997f5cdd58fe7faaee9cb82
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/27/2018
+ms.author: mayg
+ms.openlocfilehash: 1e7486dc646843c473cfb355445e194893934a1a
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236751"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52447141"
 ---
 # <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>針對將虛擬機器容錯移轉至 Azure 時的錯誤進行疑難排解
 
@@ -22,7 +29,7 @@ ms.locfileid: "51236751"
 
 Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 它可能會因為下列其中一個原因而發生：
 
-* 沒有足夠的配額可用來建立虛擬機器：您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](https://aka.ms/getazuresupport)來增加配額。
+* 沒有足夠的配額可用來建立虛擬機器：您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](http://aka.ms/getazuresupport)來增加配額。
 
 * 您嘗試在相同的可用性設定組中容錯移轉不同大小系列的虛擬機器。 確保您為相同可用性設定組中的所有虛擬機器，選擇相同的大小系列。 移至虛擬機器的 [計算] 和 [網路] 來變更大小，然後重試容錯移轉。
 
@@ -30,7 +37,7 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 它可�
 
 ## <a name="failover-failed-with-error-id-28092"></a>容錯移轉失敗，錯誤識別碼為 28092
 
-Site Recovery 無法針對已容錯移轉的虛擬機器建立網路介面。 確定您有足夠的配額可用來在訂用帳戶中建立網路介面。 您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](https://aka.ms/getazuresupport)來增加配額。 如果您有足夠的配額，這可能是間歇性問題，請重試一次此作業。 如果即使在重試之後，問題仍然存在，則在本文的結尾留言。  
+Site Recovery 無法針對已容錯移轉的虛擬機器建立網路介面。 確定您有足夠的配額可用來在訂用帳戶中建立網路介面。 您可以移至 [訂用帳戶] -> [使用量 + 配額]，檢查可用的配額。 您可以開啟[新的支援要求](http://aka.ms/getazuresupport)來增加配額。 如果您有足夠的配額，這可能是間歇性問題，請重試一次此作業。 如果即使在重試之後，問題仍然存在，則在本文的結尾留言。  
 
 ## <a name="failover-failed-with-error-id-70038"></a>容錯移轉失敗，錯誤識別碼為 70038
 
@@ -38,7 +45,37 @@ Site Recovery 無法在 Azure 中建立已容錯移轉的傳統虛擬機器。 �
 
 * 其中一個資源 (例如建立虛擬機器所需的虛擬網路) 不存在。 建立如虛擬機器的 [計算] 和 [網路] 設定之下提供的虛擬網路，或將此設定修改為已經存在的虛擬網路，然後重試容錯移轉。
 
-## <a name="unable-to-connectrdpssh---vm-connect-button-grayed-out"></a>無法連線/RDP/SSH - [VM 連線] 按鈕呈現灰色
+## <a name="failover-failed-with-error-id-170010"></a>容錯移轉失敗，錯誤識別碼為 170010
+
+Site Recovery 無法在 Azure 中建立已容錯移轉的虛擬機器。 這可能是因為內部部署虛擬機器的序列化內部活動失敗所造成。
+
+若要在 Azure 中顯示任何機器，Azure 環境需要某些驅動程式處於開機啟動狀態，以及 DHCP 等服務處於自動啟動狀態。 因此，序列化活動會在容錯移轉時，將 **atapi、intelide、storflt、vmbus 和 storvsc 驅動程式**的啟動類型轉換為開機啟動。 它也會將 DHCP 等一些服務的啟動類型轉換為自動啟動。 此活動可能會因為環境特定問題而失敗。 若要手動變更驅動程式的啟動類型，請依照下列步驟進行：
+
+1. [下載](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) no-hydration 指令碼，並如下所示執行。 此指令碼會檢查 VM 是否需要序列化。
+
+    `.\Script-no-hydration.ps1`
+
+    如果需要序列化，則會提供下列結果：
+
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+
+        This system doesn't meet no-hydration requirement.
+
+    如果 VM 符合無序列化需求，指令碼會提供結果：「此系統符合無序列化需求」。 在此情況下，所有驅動程式和服務都會處於 Azure 所需的狀態，而且 VM 上不需要序列化。
+
+2. 如果 VM 不符合無序列化需求，請如下所示執行 no-hydration-set 指令碼。
+
+    `.\Script-no-hydration.ps1 -set`
+    
+    這會轉換驅動程式的啟動類型，並提供類似如下的結果：
+    
+        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
+
+        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+
+        This system is now no-hydration compatible. 
+
+## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>因虛擬機器上的 [連線] 按鈕變成灰色，而無法對容錯移轉的虛擬機器進行連線/RDP/SSH
 
 如果 Azure 中容錯移轉虛擬機器上的 [連線] 按鈕呈現灰色，而您未透過 Express Route 或網站間 VPN 連線來連線到 Azure，則請：
 

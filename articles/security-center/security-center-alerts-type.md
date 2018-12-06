@@ -3,7 +3,7 @@ title: Azure 資訊安全中心不同類型的安全性警示 | Microsoft Docs
 description: 本文討論 Azure 資訊安全中心各種可用的安全性警示。
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: b3e7b4bc-5ee0-4280-ad78-f49998675af1
@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/21/2018
-ms.author: yurid
-ms.openlocfilehash: 0573442568115fc872cc4cf4cf8c369cd635028e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/29/2018
+ms.author: rkarlin
+ms.openlocfilehash: 24c6487ee7ec7d8398f933e29ca51cc9e390f47f
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262109"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52633260"
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>了解 Azure 資訊安全中心的安全性警示
 本文可協助您了解 Azure 資訊安全中心各種可用的安全性警示和相關深入資訊的類型。 如需如何管理警示和事件的詳細資訊，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。
 
-若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-policies.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+若要設定進階偵測，請升級至 Azure 資訊安全中心標準版。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-azure-policy.md) 中的 [定價層]。 若要深入了解，請參閱[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 > [!NOTE]
 > 資訊安全中心已向有限預覽發行一組新的偵測，可運用通用稽核架構的 auditd 記錄來偵測 Linux 電腦上的惡意行為。 請將含有您的訂用帳戶識別碼的電子郵件傳送給[我們](mailto:ASC_linuxdetections@microsoft.com)，以加入預覽。
@@ -57,7 +57,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
     * 執行了具有可疑擴充的程序。
     * 執行了具有可疑雙重擴充的程序。
     * 執行了檔名中具有可疑的從右至左 (RLO) 字元的程序。
-    * 執行了名稱非常類似但不同於非常頻繁執行程序的程序。
+    * 執行了名稱類似但不同於頻繁執行程序的程序
     * 執行了名稱對應至已知攻擊者工具的程序。
     * 執行了具有隨機名稱的程序。
     * 執行了具有可疑擴充的程序。
@@ -82,7 +82,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **可疑的 RDP 資源活動**：攻擊者通常會以開放管理連接埠 (像是具有暴力攻擊的 RDP) 為目標。 這些警示會指出可疑的遠端桌面登入活動，表示：
     * 已嘗試進行遠端桌面登入。
     * 已嘗試使用無效的帳戶進行遠端桌面登入。
-    * 已嘗試進行遠端桌面登入，其中有些能夠成功登入電腦。
+    * 已嘗試進行遠端桌面登入，其中有些能夠成功登入機器。
 * **可疑的 SSH 資源活動**：攻擊者通常會以開放管理連接埠 (像是具有暴力攻擊的 SSH) 為目標。 這些警示會指出可疑的 SSH 登入活動，表示：
     * 已嘗試進行失敗的 SSH 登入。
     * 已嘗試進行 SSH 登入，其中有些登入成功。
@@ -96,7 +96,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **已刪除所有檔案陰影複本**：此警示表示已刪除陰影複本。
 * **可疑的檔案清除命令**：此警示表示用來執行入侵後自助清除活動的 systeminfo 命令組合。  雖然 systeminfo.exe 是合法的 Windows 工具，但連續執行兩次，接著執行刪除命令很少見。
 * **可疑的帳戶建立**：此警示表示已建立與現有內建系統管理權限帳戶非常相似的帳戶。 攻擊者可以使用此技巧來建立 Rouge 帳戶，以免被偵測到。
-* **可疑的磁碟區陰影複製活動**：此警示表示資源上的陰影複本刪除活動。 磁碟區陰影複製 (VSC) 是儲存資料快照集的重要成品。 此活動通常與 Ransowmare 相關聯，但也可能是合法的。
+* **可疑的磁碟區陰影複製活動**：此警示表示資源上的陰影複本刪除活動。 磁碟區陰影複製 (VSC) 是儲存資料快照集的重要成品。 此活動與 Ransowmare 相關聯，但也可能是合法的。
 * **Windows 登錄持續性方法**：此警示表示嘗試在 Windows 登錄中保存可執行檔。 惡意程式碼通常會使用這類技術在開機時倖存。
 * **可疑的新防火牆規則**：此警示表示已透過 netsh.exe 新增防火牆規則，以允許來自可疑位置中可執行檔的流量。
 * **可疑的 XCOPY 執行**：此警示表示一系列的 XCOPY 執行，這可能表示您的其中一部機器已遭入侵且用來傳播惡意程式碼。
@@ -134,7 +134,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 * **可疑的命令列引數**：此警示表示可疑的命令列引數，該命令列引數已搭配活動群組 HYDROGEN 所用的反向 Shell 使用。
 * **可疑的文件認證**：此警示表示惡意程式碼使用一般預先計算的可疑密碼雜湊來執行檔案。
 * **動態 PS 指令碼建構**：此警示表示正在動態建構 PowerShell 指令碼。 攻擊者會使用這項技術來逐漸建置指令碼，以避開 IDS 系統。
-* **Metaploit 指標**：此警示表示與 Metasploit 架構相關聯的活動，可提供各種攻擊者功能和工具。
+* **Metasploit 指標**：此警示表示與 Metasploit 架構相關聯的活動，可提供各種攻擊者功能和工具。
 * **可疑的帳戶活動**：此警示表示嘗試使用最近遭到入侵的帳戶連線到電腦。
 * **建立帳戶**：此警示表示在電腦上建立新的帳戶。
 
@@ -192,7 +192,7 @@ Azure 資訊安全中心可以使用行為分析，根據虛擬機器事件記�
 - 從未知裝置插入的 PNP 裝置
 - 不可採取動作的警示
 - 建立新帳戶
-- 使用 certutil 工具解碼的檔案 
+- 使用 certutil 工具解碼的檔案
 
 ![異常存取警示](./media/security-center-alerts-type/security-center-alerts-type-fig20.png)
 

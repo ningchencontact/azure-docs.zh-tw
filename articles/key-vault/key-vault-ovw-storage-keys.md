@@ -1,6 +1,6 @@
 ---
 ms.assetid: ''
-title: Azure Key Vault 儲存體帳戶金鑰
+title: Azure Key Vault 受控儲存體帳戶 - CLI
 description: 儲存體帳戶金鑰提供 Azure Key Vault 與 Azure 儲存體帳戶的金鑰型存取之間的完美整合。
 ms.topic: conceptual
 services: key-vault
@@ -9,14 +9,14 @@ author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: e62c599d82f488bf1fc30ce503c271084c5ae59d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: e110a24af6a0d49ea949db6bc30ab344c81d0f48
+ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300214"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52619277"
 ---
-# <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault 儲存體帳戶金鑰
+# <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault 受控儲存體帳戶 - CLI
 
 > [!NOTE]
 > [Azure 儲存體現在支援 AAD 授權](https://docs.microsoft.com/azure/storage/common/storage-auth-aad)。 我們建議使用 Azure Active Directory 進行儲存體的驗證和授權，因為使用者不必擔心其儲存體帳戶金鑰的輪替。

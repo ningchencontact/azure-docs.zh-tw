@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a36ad31531e41782f5be457450737a74f476c543
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262330"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584871"
 ---
 # <a name="api-management-advanced-policies"></a>API 管理進階原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -253,7 +253,7 @@ ms.locfileid: "51262330"
 -   **原則範圍：** 所有範圍
 
 ##  <a name="LimitConcurrency"></a> 限制並行
- `limit-concurrency` 原則可防止超過指定之要求數目在指定的時間執行括住的原則。 超出該數目時，新的要求會立即失敗，並產生「429 太多要求」狀態碼。
+ `limit-concurrency` 原則可防止超過指定數目的要求在任何時間執行括住的原則。 超出該數目時，新的要求會立即失敗，並產生「429 太多要求」狀態碼。
 
 ###  <a name="LimitConcurrencyStatement"></a>原則陳述式
 
@@ -649,7 +649,7 @@ status code and media type. If no example or schema found, the content is empty.
 |屬性|說明|必要|預設值|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|判斷這是新要求還是現行要求的複本。 在輸出模式中，mode=copy 不會初始化要求本文。|否|新增|
-|response-variable-name="string"|將會收到回應物件之內容變數的名稱。 如果變數不存在，就會在原則成功執行時建立，而且將可透過 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 集合存取。|是|N/A|
+|response-variable-name="string"|將會收到回應物件之內容變數的名稱。 如果變數不存在，就會在原則成功執行時建立，且將可透過 [`context.Variable`](api-management-policy-expressions.md#ContextVariables) 集合存取。|是|N/A|
 |timeout="integer"|以秒為單位的逾時間隔，URL 的呼叫在經過此間隔後便會失敗。|否|60|
 |ignore-error|如果為 true，則要求會導致錯誤︰<br /><br /> -   如果已指定 response-variable-name，它會包含 null 值。<br />-   如果未指定 response-variable-name，則不會更新 context.Request。|否|false|
 |name|指定要設定之標頭的名稱。|是|N/A|
@@ -876,7 +876,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 42bd8ef95ac1b55e76fe1cf0702b79de91832741
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
+ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870174"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52444373"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>從 Azure Cloud Shell 管理 LUIS 服務的使用量資料
 Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。 
@@ -32,7 +32,7 @@ Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。
 ## <a name="open-cloud-shell"></a>開啟 Cloud Shell
 當您使用 Azure 入口網站 Cloud Shell 時，您一律會保有最新的 PowerShell 版本。 
 
-請使用 [啟動 Cloud Shell] 按鈕開啟 Cloud Shell，或透過 [https://shell.azure.com](https://shell.azure.com) 開啟瀏覽器。 
+請使用 [啟動 Cloud Shell] 按鈕開啟 Cloud Shell，或透過 [https://shell.azure.com](https://shell.azure.com) 開啟瀏覽器。 選取 Power Shell 作為環境。 如果您沒有 Azure 儲存體帳戶，則需要建立一個。 
 
 <a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
 

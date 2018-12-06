@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 3ce7c5111fa176bb7fa734f54084b9e14e7afbef
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1b66f40594d0dd578e2e5680fb0d5bb0f82f1241
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016041"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52311801"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 入口網站中建立和管理動作群組
 ## <a name="overview"></a>概觀 ##
@@ -76,6 +76,8 @@ ms.locfileid: "51016041"
 **ITSM** - 一個「動作群組」中最多可以有 10 個 ITSM 動作。「ITSM 動作」需要「ITSM 連線」。 了解如何建立 [ITSM 連線](../log-analytics/log-analytics-itsmc-overview.md)。
 
 **邏輯應用程式** - 一個「動作群組」中最多可以有 10 個「邏輯應用程式」動作
+
+**函式應用程式** - 在函式應用程式中設定為動作的函式金鑰可透過函式 API 來讀取；要使用此 API，v2 函式應用程式目前必須將應用程式設定 "AzureWebJobsSecretStorageType" 設定為 [檔案]。如需詳細資訊，請參閱 [Functions V2 中的金鑰管理變更]( https://aka.ms/funcsecrets)。
 
 **Runbook** - 一個「動作群組」中最多可以有 10 個 Runbook 動作。如需了解 Runbook 承載的限制，請參閱 [Azure 訂用帳戶服務限制](../azure-subscription-service-limits.md)
 

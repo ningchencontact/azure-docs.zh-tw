@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 69c77896f894201d1419aaef33470a02ac45ff91
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: d044b1ad18df6eee1235e881038bbb9734a999ff
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986283"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52317342"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>快速入門：登入使用者及從 JavaScript 應用程式取得存取權杖
 
@@ -66,7 +66,7 @@ ms.locfileid: "49986283"
 #### <a name="step-3-configure-your-javascript-app"></a>步驟 3：設定您的 JavaScript 應用程式
 
 > [!div renderon="docs"]
-> 編輯 `index.html`，並且使用您剛註冊應用程式的應用程式識別碼取代 `applicationConfig` 之下的 `Enter_the_Application_Id_here`。
+> 編輯 `index.html`，並在 `applicationConfig` 下方設定 `clientID` 和 `authority` 值。
 
 > [!div class="sxs-lookup" renderon="portal"]
 > 編輯 `index.html` 並將 `applicationConfig` 取代為：
@@ -74,13 +74,25 @@ ms.locfileid: "49986283"
 ```javascript
 var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
     graphEndpoint: "https://graph.microsoft.com/v1.0/me"
 };
 ```
+> [!div renderon="docs"]
+>
+> 其中：
+> - `Enter_the_Application_Id_here` - 是您註冊的應用程式所具備的**應用程式 (用戶端) 識別碼**。
+> - `Enter_the_Tenant_Info_Here` - 會設為下列其中一個選項：
+>   - 如果您的應用程式支援 [此組織目錄中的帳戶]，請將此值取代為 [租用戶識別碼] 或 [租用戶名稱] (例如 contoso.microsoft.com)
+>   - 如果您的應用程式支援 [任何組織目錄中的帳戶]，請將此值取代為 `organizations`
+>   - 如果您的應用程式支援 [任何組織目錄中的帳戶及個人的 Microsoft 帳戶]，請將此值取代為 `common`
+>
+> > [!TIP]
+> > 若要尋找 [應用程式 (用戶端) 識別碼]、[目錄 (租用戶) 識別碼] 和 [支援的帳戶類型] 的值，請在 Azure 入口網站中移至應用程式的 [概觀] 頁面。
+
 > [!NOTE]
->如果您使用 [Node.js](https://nodejs.org/en/download/)，則會針對伺服器設定 *server.js* 檔案以開始在連接埠 30662 上接聽。
-> 如果您使用 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)，則會針對伺服器設定程式碼範例的 *.csproj* 檔案以開始在連接埠 30662 上接聽。
+> 伺服器會在 [Node.js](https://nodejs.org/en/download/) 專案的 *server.js* 檔案中和 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 專案的 *.csproj* 檔案中設定為在連接埠 30662 上接聽。
 >
 
 #### <a name="step-4-run-the-project"></a>步驟 4：執行專案
@@ -121,7 +133,7 @@ npm install msal
 快速入門程式碼也會示範如何初始化程式庫：
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, null, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
 ```
 
 > |Where  |  |

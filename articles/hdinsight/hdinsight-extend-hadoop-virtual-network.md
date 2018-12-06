@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 62502e946922928b8b4179d38ce9f9ae55f9930d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 308527bce2048921c2af65aa78a12d8ef2c2bed2
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238976"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52497778"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虛擬網路延伸 Azure HDInsight
 
@@ -25,7 +25,7 @@ ms.locfileid: "51238976"
 
 * 將 HDInsight 連線至 Azure 虛擬網路中的資料存放區。
 
-* 直接存取無法透過網際網路公開使用的 Apache Hadoop 服務。 例如，Kafka API 或 HBase Java API。
+* 直接存取無法透過網際網路公開使用的 [Apache Hadoop](https://hadoop.apache.org/) 服務。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!WARNING]
 > 本文件中的資訊需要了解 TCP/IP 網路。 如果您不熟悉 TCP/IP 網路，則應該與之前在生產網路中修改的人員合作。
@@ -171,11 +171,11 @@ Azure 會針對安裝於虛擬網路中的 Azure 服務提供名稱解析。 這
 
 如需詳細資訊，請參閱 [VM 和角色執行個體的名稱解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文件。
 
-## <a name="directly-connect-to-hadoop-services"></a>直接連線至 Hadoop 服務
+## <a name="directly-connect-to-apache-hadoop-services"></a>直接連線至 Apache Hadoop 服務
 
 您可以連線至位於 https://CLUSTERNAME.azurehdinsight.net 的叢集。 此位址會使用公用 IP，如果您已使用 NSG 限制來自網際網路的傳入流量，則可能無法觸達該 IP。 此外，當您在 VNet 中部署叢集時，可以使用私人端點 https://CLUSTERNAME-int.azurehdinsight.net 來存取該叢集。 此端點會解析至 VNet 內的私人 IP，以便存取叢集。
 
-若要透過虛擬網路連線至 Ambari 和其他網頁，請使用下列步驟：
+若要透過虛擬網路連線至 Apache Ambari 和其他網頁，請使用下列步驟：
 
 1. 若要探索 HDInsight 叢集節點的內部完整網域名稱 (FQDN)，請使用下列其中一種方法：
 
@@ -316,7 +316,7 @@ HDInsight 會在數個連接埠上公開服務。 使用虛擬設備防火牆時
 * 11000-11999
 * 14000-14999
 
-如需特定服務的連接埠清單，請參閱 [HDInsight 上 Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
+如需特定服務的連接埠清單，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
 
 如需虛擬設備防火牆規則的詳細資訊，請參閱[虛擬設備案例](../virtual-network/virtual-network-scenario-udr-gw-nva.md)文件。
 
@@ -660,8 +660,8 @@ $vnet | Set-AzureRmVirtualNetwork
 ## <a name="next-steps"></a>後續步驟
 
 * 如需設定 HDInsight 連線至內部部署網路的端對端範例，請參閱[將 HDInsight 連線至內部部署網路](./connect-on-premises-network.md)。
-* 如需在 Azure 虛擬網路中設定 Hbase 叢集，請參閱[在 Azure 虛擬網路的 HDInsight 上建立 HBase 叢集](hbase/apache-hbase-provision-vnet.md)。
-* 如需設定 HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 HBase 叢集複寫](hbase/apache-hbase-replication.md)。
+* 如需在 Azure 虛擬網路中設定 Apache HBase 叢集，請參閱[在 Azure 虛擬網路的 HDInsight 上建立 Apache HBase 叢集](hbase/apache-hbase-provision-vnet.md)。
+* 如需設定 Apache HBase 異地複寫，請參閱[設定 Azure 虛擬網路中的 Apache HBase 叢集複寫](hbase/apache-hbase-replication.md)。
 * 如需 Azure 虛擬網路的詳細資訊，請參閱 [Azure 虛擬網路概觀](../virtual-network/virtual-networks-overview.md)。
 
 * 如需網路安全性群組的詳細資訊，請參閱[網路安全性群組](../virtual-network/security-overview.md)。

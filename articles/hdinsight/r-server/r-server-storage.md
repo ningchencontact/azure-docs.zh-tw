@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 466cb9ea116030d3f6ee6b41809011dae9acc00b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 578479d43279dc1edb9edd24fd57d6841784166a
+ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011199"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52498144"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>適用於 Azure HDInsight 上 ML 服務的 Azure 儲存體解決方案
 
@@ -26,7 +26,7 @@ HDInsight 上的 ML 服務可以使用數種儲存體解決方案，來保存資
 
 您也可以使用 HDInsight 叢集存取多個 Azure 儲存體帳戶或容器。 「Azure 檔案」儲存體是一個可在邊緣節點上使用的方便資料儲存體選項，可讓您掛接「Azure 儲存體」檔案共用 (例如掛接到 Linux 檔案系統)。 但是，只要是擁有受支援作業系統 (例如 Windows 或 Linux) 的系統，就可以掛接和使用「Azure 檔案」共用。 
 
-當您在 HDInsight 中建立 Hadoop 叢集時，您可以指定一個 **Azure 儲存體**帳戶或一個 **Data Lake Store**。 來自該帳戶的特定儲存體容器，會保留您所建立叢集的檔案系統 (例如，Hadoop 分散式檔案系統)。 如需詳細資訊與指導方針，請參閱：
+當您在 HDInsight 中建立 Apache Hadoop 叢集時，可以指定 **Azure 儲存體**帳戶或 **Data Lake Store**。 來自該帳戶的特定儲存體容器，會保留您所建立叢集的檔案系統 (例如，Hadoop 分散式檔案系統)。 如需詳細資訊與指導方針，請參閱：
 
 - [搭配 HDInsight 使用 Azure 儲存體](../hdinsight-hadoop-use-blob-storage.md)
 - [搭配 Azure HDInsight 叢集使用 Data Lake Store](../hdinsight-hadoop-use-data-lake-store.md)
@@ -170,6 +170,6 @@ Azure 檔案的主要優點是，只要是擁有受支援作業系統 (例如 Wi
 ## <a name="next-steps"></a>後續步驟
 
 * [HDInsight 上的 ML 服務叢集概觀](r-server-overview.md)
-* [開始使用 Hadoop 上的 ML 服務叢集](r-server-get-started.md)
+* [開始使用 Apache Hadoop 上的 ML 服務叢集](r-server-get-started.md)
 * [在 HDInsight 上計算 ML 服務叢集的內容選項](r-server-compute-contexts.md)
 

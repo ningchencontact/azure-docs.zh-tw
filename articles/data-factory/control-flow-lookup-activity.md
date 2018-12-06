@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: shlo
-ms.openlocfilehash: e437e7b7d5298af325ae2a5e2ba689b417bad022
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e682b3780c26da9cf2398e93adc32cb107127d9c
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002915"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52426786"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory 中的查閱活動
 
@@ -54,7 +54,7 @@ ms.locfileid: "39002915"
 ```
 
 ## <a name="type-properties"></a>類型屬性
-Name | 說明 | 類型 | 必要？
+名稱 | 說明 | 類型 | 必要？
 ---- | ----------- | ---- | --------
 資料集 | 提供查閱的資料集參考。 如需詳細資料，請參閱每個對應連接器文章中的＜**資料集屬性**＞一節。 | 索引鍵/值組 | 是
 來源 | 包含資料集特定的來源屬性，與複製活動來源相同。 如需詳細資料，請參閱每個對應連接器文章中的＜**複製活動屬性**＞一節。 | 索引鍵/值組 | 是
@@ -297,6 +297,15 @@ firstRowOnly | 指出是否只傳回第一個資料列或傳回所有資料列�
     }
 ]
 ```
+
+## <a name="limitations-and-workarounds"></a>限制和因應措施
+
+以下是查閱活動和因應措施建議的一些限制。
+
+| 限制 | 因應措施 |
+|---|---|
+| 查閱活動最多可有 5,000 個資料列，大小上限為 2 MB。 | 設計兩個層級的管線，其中外部管線會逐一查看內部管線，並擷取不超過最大資料列或大小的資料。 |
+| | |
 
 ## <a name="next-steps"></a>後續步驟
 請參閱 Data Factory 支援的其他控制流程活動： 

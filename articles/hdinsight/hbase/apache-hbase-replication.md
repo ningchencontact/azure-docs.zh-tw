@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b978adcdcc025c24746167ef5ab92aebe94aca8b
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016228"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52584174"
 ---
-# <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 HBase 叢集複寫
+# <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
-了解如何在虛擬網路內或 Azure 中的兩個虛擬網路之間設定 HBase 複寫。
+了解如何在虛擬網路內或 Azure 中的兩個虛擬網路之間設定 [Apache HBase](http://hbase.apache.org/) 複寫。
 
 叢集複寫會使用來源推入方法。 HBase 叢集可以是來源、目的地，或可同時滿足兩個角色。 複寫不是同步進行。 複寫的目標最終會一致。 如果來源在複寫啟用時接收到資料行系列的編輯，該編輯會傳播到所有目的地叢集。 當資料從一個叢集複寫到另一個時，會追蹤來源叢集和已取用資料的所有叢集，以避免複寫迴圈。
 
@@ -46,16 +46,16 @@ ms.locfileid: "51016228"
 
 您有三個組態選項：
 
-- 有兩個 HBase 叢集位於單一 Azure 虛擬網路中。
-- 有兩個 HBase 叢集位於相同區域但不同的兩個虛擬網路中。
-- 有兩個 HBase 叢集位於不同區域且不同的兩個虛擬網路中 (異地複寫)。
+- 有兩個 Apache HBase 叢集位於單一 Azure 虛擬網路中。
+- 有兩個 Apache HBase 叢集位於相同區域但不同的兩個虛擬網路中。
+- 有兩個 Apache HBase 叢集位於不同區域且不同的兩個虛擬網路中 (異地複寫)。
 
 本文涵蓋異地複寫案例。
 
 為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
 
-- [在 HDInsight 中建立 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-- [在 Azure 虛擬網路上建立 HBase 叢集](apache-hbase-provision-vnet.md)
+- [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
+- [在 Azure 虛擬網路上建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
@@ -256,9 +256,9 @@ ms.locfileid: "51016228"
 sudo service bind9 status
 ```
 
-## <a name="create-hbase-clusters"></a>建立 HBase 叢集
+## <a name="create-apache-hbase-clusters"></a>建立 Apache HBase 叢集
 
-使用下列組態在兩個虛擬網路中各建立一個 HBase 叢集：
+使用下列組態在兩個虛擬網路中各建立一個 [Apache HBase](http://hbase.apache.org/) 叢集：
 
 - **資源群組名稱**︰使用和您在虛擬網路中所建立的名稱相同的資源群組名稱。
 - **叢集類型**：HBase
@@ -274,7 +274,7 @@ sudo service bind9 status
 
 當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
 
-若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
+若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [Apache HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
 
 ## <a name="enable-replication"></a>啟用複寫
 
@@ -293,7 +293,7 @@ sudo service bind9 status
   3.  **前端**：務必選取此項目。 清除其他節點類型。
   4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
-          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
     >[!note]
     >
@@ -317,7 +317,7 @@ sudo service bind9 status
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-t, --table-list | 指定要複寫的資料表。 例如：--table-list="table1;table2;table3"。 如果您未指定資料表，則會複寫所有現有的 HBase 資料表。|
-|-m, --machine | 指定用來執行指令碼動作的前端節點。 值為 **hn1** 或 **hn0**。 因為 **hn0** 前端節點通常較忙碌，我們建議您使用 **hn1**。 如果您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
+|-m, --machine | 指定用來執行指令碼動作的前端節點。 值為 **hn0** 或 **hn1**，且應該根據何者為作用中前端節點加以選擇。 如果您從 HDInsight 入口網站或 Azure PowerShell 以指令碼動作執行 $0 指令碼，則使用此選項。|
 |-cp, -copydata | 在已啟用複寫的資料表上，啟用現有資料的移轉。 |
 |-rpm, -replicate-phoenix-meta | 在 Phoenix 系統資料表上啟用複寫。 <br><br>*請謹慎使用此選項。* 建議您在使用此指令碼前，於複本叢集上重新建立 Phoenix 資料表。 |
 |-h, --help | 顯示使用資訊。 |
@@ -332,19 +332,19 @@ sudo service bind9 status
 
 - **在兩個叢集之間的所有資料表上啟用複寫**。 這種情況下，資料表上不需要複製或移轉現有資料，且不會使用 Phoenix 資料表。 使用下列參數︰
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
 - **在特定資料表上啟用複寫**。 如要在 table1、table2 和 table3 上啟用複寫，請使用下列參數：
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
 - **在特定資料表上啟用複寫，並複製現有資料**。 如要在 table1、table2 和 table3 上啟用複寫，請使用下列參數：
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
 - **在所有資料表上啟用複寫，並將 Phoenix 中繼資料從來源複寫到目的地**。 Phoenix 中繼資料複寫並非萬無一失。 請謹慎使用。 使用下列參數︰
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
+        -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## <a name="copy-and-migrate-data"></a>複製並移轉資料
 
@@ -379,7 +379,7 @@ sudo service bind9 status
 
 若要停用複寫，可從 [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) 使用另一個指令碼動作指令碼。 您可以依照[啟用複寫](#enable-replication)中描述的相同程序，來呼叫指令碼動作。 使用下列參數︰
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
+    -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
 [指令碼](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)的 `print_usage()` 區段有參數的詳細說明。
 
@@ -387,20 +387,20 @@ sudo service bind9 status
 
 - **停用所有資料表上的複寫**：
 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
+        -m hn1 -s <source hbase cluster name> -sp Mypassword\!789 -all
   或
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
+        --src-cluster=<source hbase cluster name> --dst-cluster=<destination hbase cluster name> --src-ambari-user=<source cluster Ambari user name> --src-ambari-password=<source cluster Ambari password>
 
 - **停用特定資料表 (table1、table2 和 table3) 上的複寫**：
 
-        -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+        -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本文中，您已了解如何在虛擬網路內或兩個虛擬網路之間設定 HBase 複寫。 若要深入了解 HDInsight 與 HBase ，請參閱下列文章：
+在本文中，您已了解如何在虛擬網路內或兩個虛擬網路之間設定 Apache HBase 複寫。 若要深入了解 HDInsight 與 Apache HBase，請參閱下列文章：
 
 * [開始使用 HDInsight 中的 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
-* [HDInsight HBase 概觀](./apache-hbase-overview.md)
-* [在 Azure 虛擬網路上建立 HBase 叢集](./apache-hbase-provision-vnet.md)
+* [HDInsight Apache HBase 概觀](./apache-hbase-overview.md)
+* [在 Azure 虛擬網路中建立 Apache HBase 叢集](./apache-hbase-provision-vnet.md)
 

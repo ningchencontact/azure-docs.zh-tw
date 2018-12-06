@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 6bf7ea90bb5351411984110fd8fb05c2f8cb0650
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 01b67cc0c20710fcf7c9a072e0ba3baaf286852a
+ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205156"
+ms.lasthandoff: 11/27/2018
+ms.locfileid: "52423638"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Service Fabric 搭配 Azure API 管理概觀
 
@@ -27,7 +27,13 @@ ms.locfileid: "34205156"
 
 本文是使用「Azure API 管理」作為 Service Fabric 應用程式閘道的簡介。 「API 管理」直接與 Service Fabric 整合，可讓您將具有一組豐富路由規則的 API 發佈至後端 Service Fabric 服務。 
 
+## <a name="availability"></a>可用性
+
+> [!IMPORTANT]
+> 由於這項功能需要支援虛擬網路，因此可用於 API 管理的**進階**與**開發人員**層級。
+
 ## <a name="architecture"></a>架構
+
 常見的 Service Fabric 架構會使用單頁 Web 應用程式，此應用程式會對公開 HTTP API 的後端服務發出 HTTP 呼叫。 [Service Fabric 快速入門範例應用程式](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)說明此架構的範例。
 
 在此案例中，無狀態 Web 服務會作為進入 Service Fabric 應用程式的閘道。 此方法需要您撰寫一個 Web 服務，此服務必須能夠作為 HTTP 要求的 Proxy 來將這些要求傳送到後端服務，如下圖所示：

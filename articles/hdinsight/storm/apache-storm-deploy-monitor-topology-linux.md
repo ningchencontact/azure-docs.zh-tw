@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.openlocfilehash: 6cb3102206174422a3d8b4a0fb18f989d875e093
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61f5f0d0b9e88174f82e960eb5d92db99d0cae71
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259049"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52582835"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-azure-hdinsight"></a>部署和管理 HDInsight 上的 Apache Storm 拓撲 
 
-在本文件中，您可以了解管理和監視在 Storm on HDInsight 叢集上執行之 Storm 拓撲的基本概念。
+在本文件中，您可以了解管理和監視在 Storm on HDInsight 叢集上所執行 [Apache Storm](http://storm.apache.org/) 拓撲的基本概念。
 
 > [!IMPORTANT]
 > 本文中的步驟需要 HDInsight 叢集上以 Linux 為基礎的 Storm。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
@@ -186,7 +186,7 @@ Storm UI 的主頁面會提供下列資訊：
   * **停用**：暫停執行中的拓撲。
   * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這個作業可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
-    如需詳細資訊，請參閱 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">了解 Storm 拓撲的平行處理原則</a>。
+    如需詳細資訊，請參閱 <a href="http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html" target="_blank">Understanding the parallelism of an Apache Storm topology</a> (了解 Apache Storm 拓撲的平行處理原則)。
   * **終止**：在指定的逾時之後結束 Storm 拓撲。
 * **拓撲統計資料**：拓撲的統計資料。 若要設定頁面上其餘項目的時間範圍，請使用 [視窗] 資料行中的連結。
 * **Spout**：拓撲所使用的 Spout。 使用本節中的連結檢視特定 Spout 的詳細資訊。
@@ -208,10 +208,10 @@ Storm UI 的主頁面會提供下列資訊：
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。 您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 [Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Apache Storm UI REST API](http://storm.apache.org/releases/current/STORM-UI-REST-API.html)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 > [!IMPORTANT]
-> Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](../hdinsight-linux-ambari-ssh-tunnel.md)。
+> Storm REST API 不是透過網際網路公開可用，而是必須使用 HDInsight 叢集前端節點的 SSH 通道來存取。 如需建立及使用 SSH 通道的詳細資訊，請參閱[使用 SSH 通道來存取 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Apache Oozie 及其他 Web UI](../hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ### <a name="base-uri"></a>基底 URI
 
@@ -232,10 +232,10 @@ REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢�
 
 ### <a name="return-values"></a>傳回值
 
-從 REST API 傳回的資訊可能只可在叢集中使用。 例如，無法從網際網路存取針對 Zookeeper 伺服器傳回的完整網域名稱 (FQDN)。
+從 REST API 傳回的資訊可能只可在叢集中使用。 例如，無法從網際網路存取針對 [Apache Zookeeper](https://zookeeper.apache.org/) 伺服器傳回的完整網域名稱 (FQDN)。
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何[使用 Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)。
+了解如何[使用 Apache Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)。
 
-若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)。
+若需更多範例拓撲的清單，請參閱 [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)。

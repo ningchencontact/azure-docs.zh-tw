@@ -1,10 +1,11 @@
 ---
-title: 步驟 6：存取 Machine Learning Web 服務 | Microsoft Docs
-description: 開發預測解決方案的逐步解說步驟 6：存取使用中的 Azure Machine Learning Web 服務。
+title: 步驟 6：存取 Machine Learning Studio Web 服務 | Microsoft Docs
+description: 開發預測解決方案的逐步解說步驟 6：存取使用中的 Azure Machine Learning Studio Web 服務。
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 ms.assetid: 6a65c89a-40ab-4673-8dd8-8eee0a150e3b
@@ -15,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: be63a04d0fe71039b19eb6bc0678a319f622a811
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5402f228a650a1a3d3282180a52f9e9f9cc10a3a
+ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836699"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52306449"
 ---
-# <a name="walkthrough-step-6-access-the-azure-machine-learning-web-service"></a>逐步解說步驟 6：存取 Azure Machine Learning Web 服務
+# <a name="walkthrough-step-6-access-the-azure-machine-learning-studio-web-service"></a>逐步解說步驟 6：存取 Azure Machine Learning Studio Web 服務
 
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
 

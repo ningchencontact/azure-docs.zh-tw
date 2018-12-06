@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: 130d0154fc0558ae7284e8407ba88fda3a2a53d5
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
+ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391295"
+ms.lasthandoff: 11/21/2018
+ms.locfileid: "52284007"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>從 Azure VNET 內的虛擬機器存取 Azure Data Lake Storage Gen1
 Azure Data Lake Storage Gen1 是公用網際網路 IP 位址上執行的 PaaS 服務。 可以連線到公用網際網路的任何伺服器，通常也可以連線到 Azure Data Lake Storage Gen1 端點。 根據預設，Azure VNET 中的所有虛擬機器皆可存取網際網路，因此，可以存取 Azure Data Lake Storage Gen1。 不過，也可以將 VNET 中的 VM 設定為無法存取網際網路。 對於這類虛擬機器，也會限制對 Azure Data Lake Storage Gen1 的存取。 封鎖 Azure VNET 中 VM 的公用網際網路存取，可以使用下列任一個方法來完成：
@@ -29,7 +29,7 @@ Azure Data Lake Storage Gen1 是公用網際網路 IP 位址上執行的 PaaS �
 在本文中，您將了解如何從 Azure VM 啟用對 Azure Data Lake Storage Gen1 的存取，Azure VM 僅限於使用前述的三種方法之一存取資源。
 
 ## <a name="enabling-connectivity-to-azure-data-lake-storage-gen1-from-vms-with-restricted-connectivity"></a>從具有受限制連線的 VM 啟用對 Azure Data Lake Storage Gen1 的連線
-若要從這類虛擬機器存取 Azure Data Lake Storage Gen1，您必須設定這些虛擬機器，以存取 Azure Data Lake Storage Gen1 帳戶可用的 IP 位址。 您可以透過解析您帳戶 (`<account>.azuredatalakestore.net`) 的 DNS 名稱來識別 Data Lake Storage Gen1 帳戶的 IP 位址。 若要解析帳戶的 DNS 名稱，您可以使用諸如 **nslookup** 的工具。 在您的電腦上開啟命令提示字元，並執行下列命令：
+若要從這類 VM 存取 Azure Data Lake Storage Gen1，您必須將其設定為存取可使用 Azure Data Lake Storage Gen1 帳戶的區域 IP 位址。 您可以透過解析您帳戶的 DNS 名稱 (`<account>.azuredatalakestore.net`) 來識別 Data Lake Storage Gen1 帳戶區域的 IP 位址。 若要解析帳戶的 DNS 名稱，您可以使用諸如 **nslookup** 的工具。 在您的電腦上開啟命令提示字元，並執行下列命令：
 
     nslookup mydatastore.azuredatalakestore.net
 

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 21b5dae6fda857a3a69aa06e461fdf3b716b5eb8
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670005"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163312"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure 常見問題集
 
@@ -277,4 +277,4 @@ Avere vFXT 不支援私用物件儲存體。
 * [準備建立 Avere vFXT](avere-vfxt-prereqs.md)
 * [部署 vFXT 叢集](avere-vfxt-deploy.md)
 
-若要深入了解 Avere vFXT 的功能與使用案例，請參閱 [Avere vFXT for Azure (預覽)](https://azure.microsoft.com/services/storage/avere-vfxt/)。
+若要深入了解 Avere vFXT 的功能與使用案例，請參閱 [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/)。

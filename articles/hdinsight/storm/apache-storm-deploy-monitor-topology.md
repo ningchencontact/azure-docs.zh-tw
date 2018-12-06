@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53f729e23ced00bd0acb5674308f8c610bff8868
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ce39e3ffce0b7721bde84254c7e5a35ec28465dc
+ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005371"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52583154"
 ---
 # <a name="deploy-and-manage-apache-storm-topologies-on-windows-based-hdinsight"></a>部署和管理以 Windows 為基礎的 HDInsight 上的 Apache Storm 拓撲
 
-Storm Dashboard 可讓您使用網頁瀏覽器輕鬆地部署和執行 Apache Storm 拓撲至 HDInsight 叢集。 您也可以使用儀表板來監視和管理執行中拓撲。 如果您使用 Visual Studio，則 HDInsight Tools for Visual Studio 會提供 Visual Studio 中的類似功能。
+[Apache Storm](http://storm.apache.org/) 儀表板可讓您使用網頁瀏覽器輕鬆部署和執行 Apache Storm 拓撲至 HDInsight 叢集。 您也可以使用儀表板來監視和管理執行中拓撲。 如果您使用 Visual Studio，則 HDInsight Tools for Visual Studio 會提供 Visual Studio 中的類似功能。
 
 HDInsight Tools 的 Storm Dashboard 和 Storm 功能依賴 Storm REST API，此 API 可用來建立您專屬的監視和管理方案。
 
@@ -88,7 +88,7 @@ Storm UI 的主頁面會提供下列資訊：
 
   * **重新平衡**：調整拓撲的平行處理原則。 變更叢集中的節點數目之後，您應該重新平衡執行中拓撲。 這可讓拓撲調整平行處理原則，以彌補叢集中增加或減少的節點數目。
 
-      如需詳細資訊，請參閱[了解 Storm 拓撲的平行處理原則](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+      如需詳細資訊，請參閱 [Understanding the parallelism of an Apache Storm topology](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) (了解 Apache Storm 拓撲的平行處理原則)。
 
   * **終止**：在指定的逾時之後結束 Storm 拓撲。
 
@@ -118,7 +118,7 @@ Storm UI 的主頁面會提供下列資訊：
 
 ## <a name="hdinsight-tools-for-visual-studio"></a>HDInsight Tools for Visual Studio
 
-HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 下列步驟使用範例應用程式。 如需使用 HDInsight Tools 建立您專屬拓撲的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
+[HDInsight 工具](https://azure.microsoft.com/resources/videos/hdinsight-tools-for-visual-studio/)可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 下列步驟使用範例應用程式。 如需使用 HDInsight Tools 建立您專屬拓撲的詳細資訊，請參閱 [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)。
 
 使用下列步驟，將範例部署至 Storm on HDInsight 叢集，然後檢視和管理拓撲。
 
@@ -159,7 +159,7 @@ HDInsight Tools 可以用來將 C# 或混合式拓撲提交至 Storm 叢集。 �
 
 Storm UI 是以 REST API 為建置基礎，因此您可以使用 REST API 執行類似的管理和監視功能。 您可以使用 REST API 建立自訂工具來管理和監視 Storm 拓撲。
 
-如需詳細資訊，請參閱 [Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
+如需詳細資訊，請參閱 [Apache Storm UI REST API](https://github.com/apache/storm/blob/0.9.3-branch/STORM-UI-REST-API.md)。 下列資訊專用於搭配使用 REST API 與 Apache Storm on HDInsight。
 
 ### <a name="base-uri"></a>基底 URI
 
@@ -174,7 +174,7 @@ REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢�
 
 ### <a name="return-values"></a>傳回值
 
-從 REST API 傳回的資訊只能從叢集或與叢集相同之 Azure 虛擬網路上的虛擬機器內使用。 例如，無法從網際網路存取針對 Zookeeper 伺服器所傳回的完整網域名稱 (FQDN)。
+從 REST API 傳回的資訊只能從叢集或與叢集相同之 Azure 虛擬網路上的虛擬機器內使用。 例如，無法從網際網路存取針對 [Apache Zookeeper](https://zookeeper.apache.org/) 伺服器所傳回的完整網域名稱 (FQDN)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -182,9 +182,9 @@ REST API 的要求必須使用 **基本驗證**，因此請使用 HDInsight 叢�
 
 * [使用 HDInsight Tools for Visual Studio 開發 C# 拓撲](apache-storm-develop-csharp-visual-studio-topology.md)
 
-* [使用 Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)
+* [使用 Apache Maven 開發 Java 型拓撲](apache-storm-develop-java-topology.md)
 
-若需更多範例拓撲的清單，請參閱 [Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)。
+若需更多範例拓撲的清單，請參閱 [Apache Storm on HDInsight 的範例拓撲](apache-storm-example-topology.md)。
 
 [hdinsight-dashboard]: ./media/apache-storm-deploy-monitor-topology/dashboard-link.png
 [storm-dashboard-submit]: ./media/apache-storm-deploy-monitor-topology/submit.png
