@@ -1,6 +1,6 @@
 ---
 title: 設定 Azure MFA NPS 延伸模組 | Microsoft Docs
-description: 安裝 NPS 延伸模組之後，請使用下列步驟進行進階設定，例如 IP 白名單和 UPN 取代。
+description: 安裝 NPS 延伸模組之後，請使用下列步驟進行進階設定，例如 IP 允許清單和 UPN 取代。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
@@ -41,13 +41,13 @@ ms.locfileid: "39160605"
 
 如果您需要監視伺服器可用性 (例如，如果負載平衡器確認哪些伺服器在傳送工作負載之前執行)，則不會想要驗證要求封鎖這些檢查。 相反地，建立一份您知道服務帳戶所使用的 IP 位址清單，並停用該清單的 Multi-Factor Authentication 需求。 
 
-若要設定 IP 白名單，請移至 `HKLM\SOFTWARE\Microsoft\AzureMfa`，然後設定下列登錄值： 
+若要設定 IP 允許清單，請移至 `HKLM\SOFTWARE\Microsoft\AzureMfa`，然後設定下列登錄值： 
 
 | Name | 類型 | 預設值 | 說明 |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | 字串 | 空白 | 提供 IP 位址清單 (以分號分隔)。 包含產生服務要求之機器的 IP 位址，例如 NAS/VPN 伺服器。 不支援 IP 範圍和子網路。 <br><br> 例如，*10.0.0.1;10.0.0.2;10.0.0.3*。
 
-從白名單中的 IP 位址傳入要求時，會跳過雙步驟驗證。 IP 允許清單會與 RADIUS 要求之 *ratNASIPAddress* 屬性中所提供的 IP 位址進行比較。 如果傳入沒有 ratNASIPAddress 屬性的 RADIUS 要求，則會記錄下列警告：「P_WHITE_LIST_WARNING::IP 白名單將會予以忽略，因為 RADIUS 要求的 NasIpAddress 屬性中遺漏來源 IP」。
+從允許清單中的 IP 位址傳入要求時，會跳過雙步驟驗證。 IP 允許清單會與 RADIUS 要求之 *ratNASIPAddress* 屬性中所提供的 IP 位址進行比較。 如果傳入沒有 ratNASIPAddress 屬性的 RADIUS 要求，則會記錄下列警告：「P_WHITE_LIST_WARNING::IP 允許清單將會予以忽略，因為 RADIUS 要求的 NasIpAddress 屬性中遺漏來源 IP」。
 
 ## <a name="next-steps"></a>後續步驟
 
