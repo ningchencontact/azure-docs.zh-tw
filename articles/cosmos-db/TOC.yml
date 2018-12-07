@@ -114,6 +114,10 @@ items:
     items:
     - name: 與資料庫、容器和項目搭配使用
       href: databases-containers-items.md
+    - name: SQL 語言參考
+      href: sql-api-sql-query-reference.md
+    - name: SQL 查詢範例
+      href: how-to-sql-query.md
     - name: 編製索引
       items:
       - name: 概觀
@@ -262,8 +266,6 @@ items:
         href: /rest/api/cosmos-db/
       - name: REST 資源提供者
         href: /rest/api/cosmos-db-resource-provider/
-      - name: SQL 語言語法
-        href: sql-api-sql-query-reference.md
   - name: MongoDB API 文件
     items:
     - name: 簡介
@@ -445,8 +447,6 @@ items:
       href: how-to-create-container.md
     - name: 查詢容器
       href: how-to-query-container.md
-    - name: 使用 SQL 查詢來查詢資料
-      href: how-to-sql-query.md
   - name: 編製索引
     items:
     - name: 設定索引編製
@@ -583,9 +583,9 @@ items:
       href: use-cases.md
     - name: 社交媒體應用程式
       href: social-media-apps.md
-ms.openlocfilehash: b3094d99c13b228a4a4165a1a1a49a97a7517cb0
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413ec7cc09f748948cab92dd10495b667be06f40
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833715"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961224"
