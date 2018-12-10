@@ -125,8 +125,6 @@ items:
         href: sql-database-connectivity-architecture.md
       - name: T-SQL 差異
         href: sql-database-transact-sql-information.md
-      - name: 異動複寫 - 單一 DB 和彈性集區
-        href: replication-to-sql-database.md
     - name: 彈性集區
       items:
       - name: 彈性集區
@@ -171,8 +169,6 @@ items:
         href: sql-database-managed-instance-connect-app.md
     - name: T-SQL 差異
       href: sql-database-managed-instance-transact-sql-information.md
-    - name: 異動複寫
-      href: replication-with-sql-database-managed-instance.md
   - name: 平台即服務
     items:
     - name: 平台即服務
@@ -231,10 +227,8 @@ items:
         href: sql-database-data-discovery-and-classification.md
       - name: 弱點評估
         href: sql-vulnerability-assessment.md
-      - name: 威脅偵測 - SQL Database
-        href: sql-database-threat-detection.md
-      - name: 威脅偵測 - 受控執行個體
-        href: sql-database-managed-instance-threat-detection.md
+      - name: 威脅偵測
+        href: sql-database-threat-detection-overview.md
     - name: 防火牆規則
       items:
       - name: 建立和管理
@@ -473,16 +467,30 @@ items:
       href: sql-database-in-memory-oltp-migration.md
 - name: 使用說明指南
   items:
-  - name: 移轉至 SQL Database
+  - name: 單一資料庫
     items:
     - name: 移轉至 SQL Database
       href: sql-database-cloud-migrate.md
+    - name: 移轉後管理 SQL Database
+      href: sql-database-manage-after-migration.md
+    - name: 設定異動複寫
+      href: replication-to-sql-database.md
+    - name: 設定威脅偵測
+      href: sql-database-threat-detection.md
+    - name: 管理檔案空間
+      href: sql-database-file-space-management.md
+    - name: 使用資源健康狀態了解連線問題
+      href: sql-database-resource-health.md
+  - name: 受控執行個體
+    items:
     - name: 移轉至受控執行個體
       href: sql-database-managed-instance-migrate.md
     - name: 將 TDE 憑證遷移至受控執行個體
       href: sql-database-managed-instance-migrate-tde-certificate.md
-    - name: 移轉後管理 SQL Database
-      href: sql-database-manage-after-migration.md
+    - name: 異動複寫
+      href: replication-with-sql-database-managed-instance.md
+    - name: 設定威脅偵測
+      href: sql-database-managed-instance-threat-detection.md
   - name: 載入和移動資料
     items:
     - name: 在 Azure 中複製 DB
@@ -509,10 +517,6 @@ items:
       href: sql-database-load-from-csv-with-bcp.md
     - name: 使用 ADF 載入資料
       href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-  - name: 管理檔案空間
-    href: sql-database-file-space-management.md
-  - name: 使用資源健康狀態了解連線問題
-    href: sql-database-resource-health.md
   - name: 開發應用程式
     items:
     - name: 連線能力
@@ -662,9 +666,9 @@ items:
     href: /azure/architecture/
   - name: 客戶案例
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 8c32468bf7b21cd2545f85226758879cc5b657e8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 6ae879edcd2b835cb52e20f070d6d8c0998ba610
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961972"
+ms.locfileid: "52994578"

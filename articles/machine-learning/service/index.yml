@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1add464c85d30622bf0940bf20a483ae22d07ea6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 03e626eeac70ad3b77da80b599e92949d2194b4e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865313"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013845"
 documentType: LandingData
 title: Azure Machine Learning 服務文件
 metadata:
-  title: Azure Machine Learning 文件 – 教學課程和 API 參考 | Microsoft Docs
-  meta.description: Learn how to build intelligent algorithms into apps and websites. Use Scikit-learn, Tensorflow, Pytorch or any other Python-based framework to build your machine learning model and train it locally or in the cloud. Tutorials, quickstarts, API references, and examples show you how.
+  title: Azure Machine Learning 服務文件 - 教學課程和 API 參考 | Microsoft Docs
+  description: 了解如何將智慧型演算法建置到應用程式與網站中。 使用 Scikit-learn、Tensorflow、Pytorch 或任何其他 Python 型架構在本機或雲端建置您的機器學習模型並進行定型。 教學課程、快速入門和 API 參考和範例示範。
   services: machine-learning
   author: j-martens
   manager: jhubbard
@@ -20,6 +20,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/24/2018
   ms.author: jmartens
+  ms.custom: seodec18
 abstract:
   description: 了解如何將智慧型演算法建置到應用程式與網站中。 使用 Scikit-learn、Tensorflow、Pytorch 或任何其他 Python 型架構在本機或雲端建置您的機器學習模型並進行定型。 教學課程、快速入門和 API 參考和範例示範。
 sections:

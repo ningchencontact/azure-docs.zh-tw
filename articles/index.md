@@ -6,12 +6,12 @@ description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功�
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 5860d828a4edffa130ecfd2f5cf37c236b3cf3fc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: c7babd4a6f5a62bb3d284bc37086e908613eb429
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963786"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017795"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -458,9 +458,9 @@ Azure 服務和功能導覽 </a>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis 快取</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -3095,7 +3095,7 @@ Azure 服務和功能導覽 </a>
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3105,7 +3105,7 @@ Azure 服務和功能導覽 </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis 快取</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>讓應用程式具備高輸送量及低延遲資料存取</p>
                                                 </div>
                                             </div>

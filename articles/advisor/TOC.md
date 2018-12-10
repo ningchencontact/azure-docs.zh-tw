@@ -19,7 +19,7 @@
 # 相關參考
 ## [資訊安全中心](https://azure.microsoft.com/services/security-center/)
 ## [SQL DB Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)
-## [Redis 快取](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
+## [Azure Cache for Redis](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)
 ## [App Service](https://azure.microsoft.com/documentation/articles/app-service-best-practices/)
 
 # 資源
