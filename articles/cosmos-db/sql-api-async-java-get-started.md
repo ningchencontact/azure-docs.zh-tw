@@ -1,28 +1,29 @@
 ---
-title: 使用 Async Java SDK 建置 Java 應用程式來管理 Azure Cosmos DB SQL API 資料 | Microsoft Docs
+title: 使用 Async Java SDK 建置 Java 應用程式來管理 Azure Cosmos DB SQL API 資料
 description: 本教學課程說明如何透過非同步 Java 應用程式，使用 Azure Cosmos DB SQL API 帳戶來儲存和存取資料。
 keywords: nosql 教學課程, 線上資料庫, java 主控台應用程式
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: 0c458892c56634c97eec92a9439059c087a32144
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d9adaaaaf64204e27c07b0728ae4bbc473a5c70a
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165470"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875547"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教學課程：使用 Async Java SDK 建置 Java 應用程式來管理 Azure Cosmos DB SQL API 資料
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
+> * [.NET (預覽)](sql-api-dotnet-get-started-preview.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
+> * [.NET Core (預覽)](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [非同步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)

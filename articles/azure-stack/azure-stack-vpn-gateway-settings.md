@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: sethm
-ms.openlocfilehash: 2fa062621e551ce7182facc45ec84b39d4c2dad7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a770c88b294de24eb9e0f482681038e4d36b1d6f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078744"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874595"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 閘道組態設定
 
@@ -185,7 +185,7 @@ New-AzureRmLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg
 |加密與雜湊演算法 (加密)     | GCMAES256|
 |加密與雜湊演算法 (驗證) | GCMAES256|
 |SA 存留期 (時間)  | 27,000 秒  |
-|SA 存留期 (位元組) | 33,553,408     |
+|SA 存留期 (KB) | 33,553,408     |
 |完整轉寄密碼 (PFS) |無<sup>請參閱附註 1</sup> |
 |停用的對等偵測 | 支援|  
 

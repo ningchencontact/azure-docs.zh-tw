@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 19e7506dac82e4d12d5aecbdb5ae1c14fb944c29
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961530"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877661"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立異地分散應用程式解決方案
 
@@ -81,7 +81,7 @@ ms.locfileid: "46961530"
 
 > [!div class="checklist"]
 > - 建立 Web 應用程式並發佈
-> - 將程式碼新增至 VSTS 專案
+> - 將程式碼新增至 Azure Repos
 > - 將應用程式組建指向多個雲端目標。
 > - 管理和設定 CD 程序
 
@@ -108,9 +108,9 @@ ms.locfileid: "46961530"
 > [!Note]  
 > 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](/articles/azure-stack/azure-stack-app-service-before-you-get-started)」區段。
 
-#### <a name="add-code-to-vsts-project"></a>將程式碼新增至 VSTS 專案
+#### <a name="add-code-to-azure-repos"></a>將程式碼新增至 Azure Repos
 
-1. 使用在 VSTS 上**具有專案建立權限的帳戶**登入 Visual Studio。
+1. 使用在 Azure Repos 上具有專案建立權限的**帳戶**登入 Visual Studio。
 
     混合式持續整合/持續傳遞 (CI/CD) 可同時套用至應用程式程式碼和基礎結構程式碼。 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/)進行私用與託管的雲端開發。
 
@@ -126,13 +126,13 @@ ms.locfileid: "46961530"
 
     ![替代文字](media\azure-stack-solution-geo-distributed\image3.png)
 
-1.  使用 Team Explorer **將程式碼簽入 VSTS 中**。
+1.  使用 Team Explorer **將程式碼簽入 Azure Repos 中**。
 
-2.  確認**應用程式程式碼**已簽入 Visual Studio Team Services 中。
+2.  確認**應用程式程式碼**已簽入 Azure Repos 中。
 
 ### <a name="create-the-build-definition"></a>建立組建定義
 
-1. **登入 VSTS** 以確認能夠建立組建定義。
+1. **登入 Azure Pipelines** 以確認能夠建立組建定義。
 
 2. 新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 
@@ -142,11 +142,11 @@ ms.locfileid: "46961530"
 
 **使用 Azure 託管的代理程式**
 
-在 VSTS 中使用託管的代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行維護和升級，以支援持續而不間斷的開發、測試和部署。
+在 Azure Pipelines 中使用託管的代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行維護和升級，以支援持續而不間斷的開發、測試和部署。
 
 ### <a name="manage-and-configure-the-cd-process"></a>管理和設定 CD 程序
 
-Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、QA 和生產環境)；包括特定階段需要核准。
+Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、QA 和生產環境)；包括特定階段需要核准。
 
 #### <a name="create-release-definition"></a>建立發行定義
 

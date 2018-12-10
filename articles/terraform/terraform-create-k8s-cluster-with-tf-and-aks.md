@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/08/2018
-ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: d723eea6fff54b3a2f90478fcb209df76a6a776e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232319"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872912"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>以 Azure Kubernetes Service 和 Terraform 建立 Kubernetes 叢集
 [Azure Kubernetes Service (AKS)](/azure/aks/) 可以管理裝載 Kubernetes 的環境；因此，您不需具備容器協調流程專業知識，就能快速、輕鬆地部署及管理容器化應用程式。 也可透過佈建、升級與依需求調整資源，以無需讓應用程式離線的方式來消除進行中作業及維護之間的界線。
@@ -82,7 +82,6 @@ ms.locfileid: "51232319"
     terraform {
         backend "azurerm" {}
     }
-
     ```
 
 1. 選取 **Esc** 鍵結束插入模式。
@@ -112,6 +111,26 @@ ms.locfileid: "51232319"
         location = "${var.location}"
     }
 
+    resource "azurerm_log_analytics_workspace" "test" {
+        name                = "${var.log_analytics_workspace_name}"
+        location            = "${var.log_analytics_workspace_location}"
+        resource_group_name = "${azurerm_resource_group.k8s.name}"
+        sku                 = "${var.log_analytics_workspace_sku}"
+    }
+
+    resource "azurerm_log_analytics_solution" "test" {
+        solution_name         = "ContainerInsights"
+        location              = "${azurerm_log_analytics_workspace.test.location}"
+        resource_group_name   = "${azurerm_resource_group.k8s.name}"
+        workspace_resource_id = "${azurerm_log_analytics_workspace.test.id}"
+        workspace_name        = "${azurerm_log_analytics_workspace.test.name}"
+
+        plan {
+            publisher = "Microsoft"
+            product   = "OMSGallery/ContainerInsights"
+        }
+    }
+
     resource "azurerm_kubernetes_cluster" "k8s" {
         name                = "${var.cluster_name}"
         location            = "${azurerm_resource_group.k8s.location}"
@@ -122,14 +141,14 @@ ms.locfileid: "51232319"
             admin_username = "ubuntu"
 
             ssh_key {
-            key_data = "${file("${var.ssh_public_key}")}"
+                key_data = "${file("${var.ssh_public_key}")}"
             }
         }
 
         agent_pool_profile {
-            name            = "default"
+            name            = "agentpool"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_DS2_v2"
+            vm_size         = "Standard_DS1_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
@@ -137,6 +156,13 @@ ms.locfileid: "51232319"
         service_principal {
             client_id     = "${var.client_id}"
             client_secret = "${var.client_secret}"
+        }
+
+        addon_profile {
+            oms_agent {
+            enabled                    = true
+            log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+            }
         }
 
         tags {
@@ -198,6 +224,20 @@ ms.locfileid: "51232319"
     variable location {
         default = "Central US"
     }
+
+    variable log_analytics_workspace_name {
+        default = "testLogAnalyticsWorkspaceName"
+    }
+
+    # refer https://azure.microsoft.com/global-infrastructure/services/?products=monitor for log analytics available regions
+    variable log_analytics_workspace_location {
+        default = "eastus"
+    }
+
+   # refer https://azure.microsoft.com/pricing/details/monitor/ for log analytics pricing 
+   variable log_analytics_workspace_sku {
+        default = "PerGB2018"
+   }
     ```
 
 1. 選取 **Esc** 鍵結束插入模式。
@@ -367,6 +407,9 @@ Kubernetes 工具可用來驗證新建立的叢集。
     您可查看背景工作角色節點的詳細資料，這些節點應該都處於 [就緒] 狀態，如下圖所示：
 
     ![kubectl 工具可讓您驗證 Kubernetes 叢集的健康情況](./media/terraform-create-k8s-cluster-with-tf-and-aks/kubectl-get-nodes.png)
+
+## <a name="monitor-health-and-logs"></a>監視健康情況和記錄檔
+建立 AKS 叢集時，啟用了監視功能來擷取叢集節點和 pod 的健康狀態計量。 在 Azure 入口網站中可取得這些健康狀態度量。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes Service 健康情況](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview)。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您可了解如何使用 Terraform 和 AKS 建立 Kubernetes 叢集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 

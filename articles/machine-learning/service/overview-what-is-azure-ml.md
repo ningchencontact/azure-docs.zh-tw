@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure Machine Learning 服務？
-description: 說明雲端中的機器學習服務基本概念，描述它的使用用途，並定義機器學習服務詞彙。 Azure Machine Learning 概觀 - 一整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
+description: 雲端中的 Machine Learning 和其用途。 Azure Machine Learning 服務的概觀 - 一整合的端對端資料科學解決方案，可供專業資料科學家進行雲端規模的開發、實驗及部署先進的分析應用程式。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +8,17 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: fc241b284ab9370e03debf3e0851394c32087a57
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244931"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870685"
 ---
-# <a name="what-is-azure-machine-learning-service-preview"></a>什麼是 Azure Machine Learning 服務 (預覽)？
+# <a name="what-is-azure-machine-learning-service"></a>什麼是 Azure Machine Learning 服務？
 
-Azure Machine Learning 服務 (預覽) 是一項雲端服務，您可用其開發及部署機器學習服務模型。 您可以使用 Azure Machine Learning 服務，一路在建置、定型、部署及管理模型期間，進行追蹤以及管理，廣泛到涵蓋雲端所提供的範圍。
+Azure Machine Learning 服務是可用來定型、部署、自動化及管理機器學習模型的雲端服務，而這一切都在雲端所提供的廣泛規模下進行。
 
 ## <a name="what-is-machine-learning"></a>什麼是機器學習？
 
@@ -33,33 +33,34 @@ Azure Machine Learning 服務提供雲端架構的環境，可用於開發、定
 [ ![Azure 機器學習服務工作流程](./media/overview-what-is-azure-ml/aml.png) ] (./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning 服務完全支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，與像是 TensorFlow 與 scikit-learn 等機器學習服務元件。
-工具相當豐富 (例如 [Jupyter notebook](http://jupyter.org) 或 [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/))，可輕鬆地以互動方式瀏覽資料及加以轉換，然後再開發及測試模型。
+支援各種工具 (例如 [Jupyter Notebook](http://jupyter.org) 或[適用於 Visual Studio Code 的 Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) 擴充功能)，可輕鬆地以互動方式瀏覽資料及加以轉換，然後再開發及測試模型。
 Azure Machine Learning 服務也包含[自動產生模型與微調](tutorial-auto-train-models.md)的功能，可協助您輕鬆且具效率地正確建立模型。
 
-您可利用 Azure Machine Learning 服務，開始訓練您的本機電腦，然後向外延展到雲端。 具備 [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) 的原生支援，以及[先進的超參數微調服務](how-to-tune-hyperparameters.md)，使用雲端的威力，您可更快速地建置更佳的模型。 
+您可利用 Azure Machine Learning 服務，開始訓練您的本機電腦，然後向外延展到雲端。 透過許多可用的[計算目標](how-to-set-up-training-targets.md) (例如 Azure Machine Learning Compute 和 [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)) 及[進階的超參數微調服務](how-to-tune-hyperparameters.md)，您可以使用雲端功能更快地建置更好的模型。
 
 當您有正確的模型時，即可輕鬆地將其部署在像是 Docker 等容器中。 這表示很容易即可部署到 [Azure Container Instances](how-to-deploy-to-aci.md) 或是 [Azure Kubernetes Service](how-to-deploy-to-aks.md)，或在您自己的部署中，於內部部署或雲端內使用該容器。
 您可管理已部署的模型，並在進行實驗以找出最佳解決方案的過程中，追蹤多次回合。
+一旦部署之後，您的模型可[即時](how-to-consume-web-service.md)或[非同步](how-to-run-batch-predictions.md)地傳回大量資料上的預測。
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+另外，透過進階的[機器學習管線](concept-ml-pipelines.md)，您可以在資料準備、模型訓練與評估和部署的所有步驟上共同作業。
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>可利用 Azure Machine Learning 服務做什麼？
 
-Azure Machine Learning 服務可自動產生模型及為您自動調整。
+Azure Machine Learning 服務可自動定型模型及自動調整模型。
 例如，請參閱[教學課程：使用自動化的 Azure Machine Learning 自動定型分類模型](tutorial-auto-train-models.md)。
 
-或者，使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 服務工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
+使用開放原始碼 Python 套件時，搭配適用於 Python 的 Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>，即可自行於 Azure Machine Learning 服務工作區中，建置及定型高精確度的機器學習服務與深度學習模型。
 您可選擇開放原始碼 Python 套件中所提供的許多機器學習服務元件，如下所示：
 
-- <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
+- <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
-有了模型之後，即可使用該模型建立容器 (例如 Docker)，於本機部署進行測試，然後再到 [Azure Container Instances](how-to-deploy-to-aci.md) 或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) 中的生產 Web 環境中。
+一旦擁有模型後，即可使用此模型來建立容器 (例如 Docker)，並將容器部署在本機以進行測試。 完成測試之後，您就可以在 [Azure Container 執行個體](how-to-deploy-to-aci.md)或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) 中將模型部署為生產 Web 服務。
 
-接著，您可以使用 [Azure 入口網站](https://portal.azure.com/)或 [Azure Machine Learning CLI 延伸模組](reference-azure-machine-learning-cli.md) 管理所部署的模型。
+接著，您可以使用[適用於 Python 的 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 或 [Azure 入口網站](https://portal.azure.com/)管理所部署的模型。
 您可以評估模型計量、重新定型及重新部署新版本的模型，還能同時追蹤模型的實驗。
 
 若要開始使用 Azure Machine Learning 服務，請參閱以下的[後續步驟](#next-steps)。
@@ -76,21 +77,21 @@ Azure Machine Learning Studio 是可進行共同作業的拖放式視覺化工�
 > 在 Azure Machine Learning Studio 中所建立的模型，無法由 Azure Machine Learning 服務進行部署或管理。
 
 ## <a name="free-trial"></a>免費試用
-如果您不是訂閱者，可以[免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或者，您也可以[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。
+如果您不是訂閱者，可以[免費申請 Azure 帳戶](https://aka.ms/amlfree)。 即可取得用於 Azure 服務的點數。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。 或者，您也可以[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)，此服務會每月提供額度，您可以用於 Azure 付費服務。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 運用[使用 Azure 入口網站開始入門](quickstart-get-started.md)一文，建立機器學習服務工作區
- 
-- 完成整個教學課程，[利用 Azure Machine Learning 定型影像分類模型](tutorial-train-models-with-aml.md)，以了解如何利用 Azure Machine Learning 服務，定型及部署模型
+- 使用 [Azure 入口網站](quickstart-get-started.md)或 [Python](quickstart-create-workspace-with-python.md) 建立 Machine Learning 服務工作區以開始作業。
 
-- 如需允許 Azure Machine Learning 自動產生及自動調整模型的相關資訊，請參閱[教學課程：利用自動化的 Azure Machine Learning 定型分類模型](tutorial-auto-train-models.md)
+- 遵循完整教學課程：[使用 Azure Machine Learning 定型及部署影像分類模型](tutorial-train-models-with-aml.md)。
+
+- [使用 Azure Machine Learning 來自動產生及自動調整模型](tutorial-auto-train-models.md)。
 
 - 了解用來建置、最佳化及管理機器學習案例的[機器學習管線](/azure/machine-learning/service/concept-ml-pipelines)。
 
-- 如需服務的技術與深入解析，請參閱 [Azure Machine Learning 服務架構與概念](concept-azure-machine-learning-architecture.md)
+- 進一步閱讀 [Azure Machine Learning 服務的架構和概念](concept-azure-machine-learning-architecture.md)一文。
 
-- 如需 Microsoft 其他機器學習產品的詳細資訊，請參閱[其他 Microsoft 機器學習產品](./overview-more-machine-learning.md)
+- 如需 Microsoft 其他機器學習產品的詳細資訊，請參閱[其他 Microsoft 機器學習產品](./overview-more-machine-learning.md)。
 
 
 <!-- 

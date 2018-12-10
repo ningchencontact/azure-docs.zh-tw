@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 19285bf7a1323e9698fe408566304d0596d1c983
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311257"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867893"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>什麼是角色型存取控制 (RBAC)？
 
@@ -50,13 +50,14 @@ RBAC 可讓您區隔小組內的職責，而僅授與使用者執行作業所需
 
 ### <a name="security-principal"></a>安全性主體
 
-「安全性主體」是一個物件，代表要求存取 Azure 資源的使用者、群組或服務主體。
+「安全性主體」是一個物件，代表要求存取 Azure 資源的使用者、群組、服務主體或受控識別。
 
 ![角色指派的安全性主體](./media/overview/rbac-security-principal.png)
 
 - 使用者 - 在 Azure Active Directory 中具有設定檔的個人。 您也可以指派角色給其他租用戶中的使用者。 如需有關其他組織中使用者的資訊，請參閱 [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md)。
 - 群組 - 在 Azure Active Directory 中建立的一組使用者。 當您將角色指派給群組時，該群組內的所有使用者都具有該角色。 
 - 服務主體 - 應用程式或服務用來存取特定 Azure 資源的安全性身分識別。 您可以將它視為應用程式的「使用者身分識別」(使用者名稱和密碼或憑證)。
+- 受控識別 (MSI) - 在 Azure Active Directory 中由 Azure 自動管理的身分識別。 您通常會在開發雲端應用程式來管理 Azure 服務驗證所需的認證時，使用[受控識別](../active-directory/managed-identities-azure-resources/overview.md)。
 
 ### <a name="role-definition"></a>角色定義
 
@@ -91,7 +92,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ### <a name="role-assignments"></a>角色指派
 
-「角色指派」是一個繫結程序，其為了授與存取權，而將角色定義繫結至特定範圍的使用者、群組或服務主體。 建立角色指派可授與存取權，而移除角色指派則可撤銷存取權。
+「角色指派」是一個連結程序，其為了授與存取權，而將角色定義連結至特定範圍的使用者、群組、服務主體或受控識別。 建立角色指派可授與存取權，而移除角色指派則可撤銷存取權。
 
 下圖顯示角色指派的範例。 在此範例中，行銷群組已被指派醫藥銷售資源群組的[參與者](built-in-roles.md#contributor)角色。 這表示行銷群組中的使用者可以建立或管理醫藥銷售資源群組中的任何 Azure 資源。 行銷使用者無法存取醫藥銷售資源群組外的資源，除非他們具有另一個角色指派。
 
@@ -101,9 +102,7 @@ Azure 引進了可讓您授與物件內資料存取權的資料作業 (目前處
 
 ## <a name="deny-assignments"></a>拒絕指派
 
-在以前，RBAC 為不含拒絕的僅允許模型，但現在，RBAC 會以有限方式支援拒絕指派。 與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來繫結一組在特定範圍內拒絕使用者、群組或服務主體的動作。 角色指派會定義一組「允許」的動作，而拒絕指派會定義一組「不允許」的動作。 換句話說，拒絕指派會封鎖使用者執行指定的動作，即使角色指派授與他們存取權也一樣。 拒絕指派的優先順序高於角色指派。
-
-目前，拒絕指派是**唯讀的**，而且只能由 Azure 設定。 即使您無法建立自己的拒絕指派，還是可以列出拒絕指派，因為它們可能會影響您的有效權限。 若要取得拒絕指派的相關資訊，您必須擁有 `Microsoft.Authorization/denyAssignments/read` 權限，此權限包含於大部分的[內建角色](built-in-roles.md#owner)中。 如需詳細資訊，請參閱[了解拒絕指派](deny-assignments.md)。
+在以前，RBAC 為不含拒絕的僅允許模型，但現在，RBAC 會以有限方式支援拒絕指派。 與角色指派相同，「拒絕指派」也會基於拒絕存取權的目的來連結一組在特定範圍內拒絕使用者、群組、服務主體或受控識別的動作。 角色指派會定義一組「允許」的動作，而拒絕指派會定義一組「不允許」的動作。 換句話說，拒絕指派會封鎖使用者執行指定的動作，即使角色指派授與他們存取權也一樣。 拒絕指派的優先順序高於角色指派。 目前，拒絕指派是**唯讀的**，而且只能由 Azure 設定。 如需詳細資訊，請參閱[了解拒絕指派](deny-assignments.md)和[使用 Azure 入口網站檢視拒絕指派](deny-assignments-portal.md)。
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>RBAC 如何判斷使用者是否有權存取資源
 

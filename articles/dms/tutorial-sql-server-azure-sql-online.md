@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: be6a5c444444c9482b921ea7fd68bf26ac10a2a2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958928"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872205"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 移轉至 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -30,6 +30,9 @@ ms.locfileid: "50958928"
 > * 執行移轉。
 > * 監視移轉。
 > * 下載移轉報告。
+
+> [!NOTE]
+> 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據進階 (預覽) 定價層來建立執行個體。
 
 > [!IMPORTANT]
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。

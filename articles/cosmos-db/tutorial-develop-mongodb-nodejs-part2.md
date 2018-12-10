@@ -1,10 +1,8 @@
 ---
-title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 2 部分 | Microsoft Docs
+title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 2 部分
 description: 本教學課程系列的第 2 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
 services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
@@ -12,12 +10,12 @@ ms.topic: tutorial
 ms.date: 09/05/2017
 ms.author: jopapa
 ms.custom: mvc
-ms.openlocfilehash: 99fc6c7dc43f66d92b17f25ad0fba52ce8f34413
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8e2bce1943096613dab3975863f787fcc904f827
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41918065"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868118"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-2-create-a-nodejs-express-app-with-the-angular-cli"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 2 部分：使用 Angular CLI 建立 Node.js Expres 應用程式 
 

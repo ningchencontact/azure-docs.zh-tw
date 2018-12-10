@@ -1,21 +1,19 @@
 ---
-title: 了解如何為透過 MongoDB API 建立的 Azure Cosmos DB 文件設定存留時間值，以在經過一段時間之後自動從系統中清除文件。
-description: MongoDB 個別文件 TTL 功能的說明文件。
+title: Azure Cosmos DB 中的 MongoDB 個別文件 TTL 功能
+description: 了解如何為透過 MongoDB API 建立的 Azure Cosmos DB 文件設定存留時間值，以在經過一段時間之後自動從系統中清除文件。
 services: cosmos-db
 author: orestis-ms
-manager: kfile
-editor: ''
+ms.author: orkostak
 ms.service: cosmos-db
 ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/10/2018
-ms.author: orkostak
-ms.openlocfilehash: 8679da0dfe92b1d611fd0b61b9f7404256b2b688
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 547ee489581b7e7e9203151fbfcdaad45dca8ea1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239860"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868748"
 ---
 # <a name="expire-data-in-azure-cosmos-db-mongodb-api"></a>讓 Azure Cosmos DB MongoDB API 中的資料到期
 

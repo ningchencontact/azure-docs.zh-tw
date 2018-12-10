@@ -8,13 +8,13 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
-ms.openlocfilehash: 182504373795b3cb0f2794acbed5e253ac6bc95c
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.date: 12/04/2018
+ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419554"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872539"
 ---
 # <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Microsoft 有哪些機器學習產品選項？
 
@@ -22,22 +22,22 @@ Microsoft 提供了多種用來建置、部署及管理機器學習模型的產�
 
 | 機器學習產品 | 內容 | 產品用途 |
 |-|-|-|
-| 在雲端 | | |
+| ***在雲端*** | | |
 | [Azure Machine Learning 服務](#azure-machine-learning-services) | 適用於 ML 的受控雲端服務  | 使用 Python 和 CLI 在 Azure 中訓練、部署及管理模型 |
 | [Azure Machine Learning Studio](#azure-machine-learning-studio) | ML 的拖放功能視覺介面 | 使用預先設定的演算法來建置、實驗及部署模型 |
 | [Azure Databricks](#azure-databricks) | 以 Spark 為基礎的分析平台 | 建置及部署模型和資料工作流程 |
 | [Azure 認知服務](#azure-cognitive-services) | 預先建置了 AI 和 ML 模型的 Azure 服務 | 輕鬆地將智慧型功能新增至您的應用程式 |
 | [Azure 資料科學虛擬機器](#azure-data-science-virtual-machine) | 預先安裝了資料科學工具的虛擬機器 | 在預先設定的環境中開發 ML 解決方案 |
-| 內部部署 | | |
+| ***內部部署***<br>(內部部署伺服器也可能會在雲端中的虛擬機器內執行) | | |
 | [SQL Server Machine Learning 服務](#sql-server-machine-learning-services) | 內嵌在 SQL 中的分析引擎 | 在 SQL Server 內建置及部署模型 |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | 適用於預測分析的獨立企業伺服器 | 使用 R 和 Python 建置和部署模型 |
-| 開發人員工具 | | |
+| ***開發人員工具*** | | |
 | [ML.NET](#mlnet) | 開放原始碼的跨平台工具 ML SDK | 開發適用於 .NET 應用程式的 ML 解決方案 |
 | [Windows ML](#windows-ml) | Windows 10 ML 平台 | 在 Windows 10 裝置上評估已定型的模型 |
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning 服務
 
-[Azure Machine Learning 服務](overview-what-is-azure-ml.md) (預覽) 是完全受控的雲端服務，可用來大規模地訓練、部署及管理 ML 模型。 此服務可完整支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，例如 TensorFlow、PyTorch 與 scikit-learn。 此外也有齊備的工具 (例如 [Azure Notebooks](https://notebooks.azure.com/)、[Jupyter Notebooks](http://jupyter.org) 或 [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/)) 可供您輕鬆地瀏覽和轉換資料，然後訓練和部署模型。 Azure Machine Learning 服務包含自動產生模型的功能，並可讓您輕鬆、有效率且正確地進行調整。
+[Azure Machine Learning 服務](overview-what-is-azure-ml.md)是完全受控的雲端服務，可用來大規模地訓練、部署及管理 ML 模型。 此服務可完整支援開放原始碼技術，因此您可以使用數以萬計的開放原始碼 Python 套件，例如 TensorFlow、PyTorch 與 scikit-learn。 此外也有齊備的工具 (例如 [Azure Notebooks](https://notebooks.azure.com/)、[Jupyter Notebooks](http://jupyter.org) 或[適用於 Visual Studio Code 的 Azure Machine Learning](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/) 擴充功能) 可供您輕鬆地瀏覽和轉換資料，然後訓練和部署模型。 Azure Machine Learning 服務包含自動產生模型的功能，並可讓您輕鬆、有效率且正確地進行調整。
 
 使用 Azure Machine Learning 服務，可利用 Python 和 CLI 在雲端上大規模地訓練、部署及管理 ML 模型。
 
@@ -74,9 +74,10 @@ Microsoft 提供了多種用來建置、部署及管理機器學習模型的產�
 ## <a name="azure-data-science-virtual-machine"></a>Azure 資料科學虛擬機器
 
 [Azure 資料科學虛擬機器](../data-science-virtual-machine/overview.md)是 Microsoft Azure 雲端上的自訂虛擬機器環境，專為進行資料科學建置。 它已預先安裝和預先設定許多常用的資料科學和其他工具，以開始建置智慧應用程式進行進階分析。
-資料科學虛擬機器適用於 Windows 和 Linux Ubuntu 的版本 (Linux CentOS 不支援 Azure Machine Learning 服務)。
-如需特定版本資訊及其內含項目的清單，請參閱 [Azure 資料科學虛擬機器簡介](../data-science-virtual-machine/overview.md)。
+
 目前支援以資料科學虛擬機器作為 Azure Machine Learning 服務的目標。
+這適用於 Windows 和 Linux Ubuntu 的版本 (Linux CentOS 不支援 Azure Machine Learning 服務)。
+如需特定版本資訊及其內含項目的清單，請參閱 [Azure 資料科學虛擬機器簡介](../data-science-virtual-machine/overview.md)。
 
 當您需要在單一節點上執行或裝載您的作業時，請使用資料科學 VM。 或者，如果您需要從遠端相應增加在單一機器上的處理。
 

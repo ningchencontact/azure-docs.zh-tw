@@ -8,19 +8,19 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 11/21/2018
-ms.openlocfilehash: 53de4715a458c5713a31541da64a4a671bf8c132
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496213"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879480"
 ---
 # <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程 #1：使用 Azure Machine Learning 服務將影像分類模型定型
 
-在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務 (預覽) 定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
+在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
-本教學課程可讓您使用 [MNIST](http://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](http://scikit-learn.org) 與 Azure Machine Learning 服務定型簡單的羅吉斯迴歸。  MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像是 28x28 個像素的手寫數字，代表 0 至 9 的數字。 目標是要建立多類別分類器，來識別特定影像代表的數字。 
+本教學課程可讓您使用 [MNIST](https://yann.lecun.com/exdb/mnist/) 資料集，並搭配 [scikit-learn](https://scikit-learn.org) 與 Azure Machine Learning 服務定型簡單的羅吉斯迴歸。  MNIST 是熱門的資料集，由 70,000 個灰階影像所組成。 每個影像是 28x28 個像素的手寫數字，代表 0 至 9 的數字。 目標是要建立多類別分類器，來識別特定影像代表的數字。 
 
 了解如何：
 
@@ -36,16 +36,14 @@ ms.locfileid: "52496213"
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
 
 >[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.79 版進行測試
+> 本文中的程式碼使用 Azure Machine Learning SDK 1.0.2 版進行測試
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://aka.ms/aml-notebook-tut-01) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `01.train-models.ipynb` Notebook。
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `tutorials/img-classification-part1-training.ipynb` Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
->[!NOTE]
-> 本教學課程使用 Azure Machine Learning SDK 0.1.74 版進行測試 
 
 ## <a name="set-up-your-development-environment"></a>設定開發環境
 
@@ -94,11 +92,11 @@ from azureml.core import Experiment
 exp = Experiment(workspace=ws, name=experiment_name)
 ```
 
-### <a name="create-remote-compute-target"></a>建立遠端計算目標
+### <a name="create-or-attach-existing-amlcompute"></a>建立或附加現有 AMlCompute
 
-Azure ML 受控計算是一項受控服務，可讓資料科學家在 Azure 虛擬機器 (包括具有 GPU 支援的 VM) 叢集上定型機器學習模型。  在本教學課程中，您可以建立 Azure 受控計算叢集作為定型環境。 此程式碼會為您建立叢集，如果它尚未存在於您的工作區。 
+Azure Machine Learning 受控計算 (AmlCompute) 是一項受控服務，可讓資料科學家在 Azure 虛擬機器 (包括具有 GPU 支援的 VM) 叢集上定型機器學習模型。  在本教學課程中，您可以建立 AmlCompute 作為訓練環境。 此程式碼會為您建立計算叢集，如果它尚未存在於您的工作區。
 
- **建立叢集需要大約 5 分鐘的時間。** 如果叢集已在工作區中，此程式碼會使用它，並略過建立程序。
+ **建立計算需要大約 5 分鐘的時間。** 如果計算已在工作區中，此程式碼會使用它，並略過建立程序。
 
 
 ```python
@@ -107,12 +105,17 @@ from azureml.core.compute import ComputeTarget
 import os
 
 # choose a name for your cluster
-compute_name = os.environ.get("BATCHAI_CLUSTER_NAME", "cpucluster")
-compute_min_nodes = os.environ.get("BATCHAI_CLUSTER_MIN_NODES", 0)
-compute_max_nodes = os.environ.get("BATCHAI_CLUSTER_MAX_NODES", 4)
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
+import os
+
+# choose a name for your cluster
+compute_name = os.environ.get("AML_COMPUTE_CLUSTER_NAME", "cpucluster")
+compute_min_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MIN_NODES", 0)
+compute_max_nodes = os.environ.get("AML_COMPUTE_CLUSTER_MAX_NODES", 4)
 
 # This example uses CPU VM. For using GPU VM, set SKU to STANDARD_NC6
-vm_size = os.environ.get("BATCHAI_CLUSTER_SKU", "STANDARD_D2_V2")
+vm_size = os.environ.get("AML_COMPUTE_CLUSTER_SKU", "STANDARD_D2_V2")
 
 
 if compute_name in ws.compute_targets:
@@ -132,7 +135,7 @@ else:
     # if no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current AmlCompute status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
@@ -320,11 +323,10 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 請注意指令碼取得資料並儲存模型的方式：
 
 + 定型指令碼會讀取引數，以尋找包含資料的目錄。  當您稍後提交工作時，您會指向這個引數的資料存放區：`parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`
-    
+
 + 定型指令碼會將模型儲存到名為 outputs 的目錄。 <br/>
 `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`<br/>
 寫入此目錄之任何項目會自動上傳到您的工作區。 稍後在本教學課程中，您會從這個目錄存取您的模型。
-
 會從定型指令碼參考檔案 `utils.py`，以便正確載入資料集。  請將這個指令碼複製到指令碼資料夾中，以便可以存取它，以及遠端資源上的定型指令碼。
 
 
@@ -340,12 +342,12 @@ shutil.copy('utils.py', script_folder)
 
 * 估計工具物件的名稱，`est`
 * 包含指令碼的目錄。 在此目錄中的所有檔案都會上傳到叢集節點以便執行。 
-* 計算目標。  在此情況下，您將使用您所建立的 Batch AI 叢集
+* 計算目標。  在此案例中，您將使用您所建立的 Azure Machine Learning 計算叢集
 * 定型指令碼名稱，train.py
 * 來自定型指令碼的必要參數 
 * 定型所需的 Python 套件
 
-在本教學課程中，這個目標會是 Batch AI 叢集。 在指令碼資料夾中的所有檔案都會上傳到叢集節點以便執行。 data_folder 會設定為使用資料存放區 (`ds.as_mount()`)。
+在本教學課程中，這個目標會是 AmlCompute。 在指令碼資料夾中的所有檔案都會上傳到叢集節點以便執行。 data_folder 會設定為使用資料存放區 (`ds.as_mount()`)。
 
 ```python
 from azureml.train.estimator import Estimator

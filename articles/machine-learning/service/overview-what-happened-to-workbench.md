@@ -8,19 +8,19 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: b8263c399f287be79590860cce7036207ef2e3f7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243738"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879429"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning-preview"></a>Azure Machine Learning (預覽) 中的 Workbench 發生什麼事？
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Azure Machine Learning 中的 Workbench 發生什麼事？
 
-Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中遭到取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
+Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中淘汰並由其他項目取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
 
-在本文中，您將了解變更的項目為何，以及它們如何影響使用 Azure Machine Learning 服務的既有工作。
+在本文中，您將了解變更的項目為何，以及它們如何影響使用 Azure Machine Learning Workbench 和其 API 的既有工作。
 
 ## <a name="what-changed"></a>變更的項目為何？
 
@@ -44,10 +44,10 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 您可以在 2018 年 9 月之後繼續使用實驗和模型管理帳戶以及 Workbench 應用程式一段時間。 發行後 3-4 個月內會逐漸移除對下列資源的支援。 您仍然可以在[目錄](../desktop-workbench/tutorial-classifying-iris-part-1.md)底部的＜資源＞一節中，找到舊版功能的文件。
 
-|階段|舊版功能的支援詳細資料|
+|淘汰&nbsp;階段|舊版功能的支援詳細資料|
 |:---:|----------------|
-|1|在 Azure 入口網站中或從 CLI 端建立「Azure Machine Learning 測試帳戶」和「模型管理帳戶」的能力。 從 CLI 建立 ML Compute 環境的能力也會終止。 如果您目前有帳戶，CLI 和桌面 Workbench 在此階段會繼續運作。|
-|2|在此階段中，對其他項目 (包括其餘 API 和桌面 Workbench) 的支援會終止。|
+|2018 年 12 月 4 日|已終止在 Azure 入口網站中或從 CLI 端建立「Azure Machine Learning 測試帳戶」和「模型管理帳戶」的能力。 從 CLI 建立 ML Compute 環境的能力也已終止。 如果您目前有帳戶，CLI 和桌面 Workbench 在此階段會繼續運作。|
+|2019 年 1 月 9 日|對其他項目 (包括其餘 API 和桌面 Workbench) 的支援也會在這一天終止。|
 
 立即[開始遷移](how-to-migrate.md)。 使用新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>、[CLI](reference-azure-machine-learning-cli.md) 和[入口網站](quickstart-get-started.md)存取所有最新功能。
 
@@ -92,15 +92,15 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
 
 ## <a name="what-about-the-old-sdk--cli"></a>那麼舊的 SDK 和 CLI 呢？
 
-是，它們會繼續運作一段時間 (請參閱上述的[時間表](#timeline))。 建議您開始使用最新的 SDK 和/或 CLI 來建立新的實驗和模型。
+是，它們會繼續運作到一月 (請參閱上述的[時間表](#timeline))。 建議您開始使用最新的 SDK 和/或 CLI 來建立新的實驗和模型。
 
 在最新版本中，新的 Python SDK 可讓您在任何 Python 環境中與 Azure Machine Learning 服務互動。 了解如何安裝最新的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>。  您也可以使用[更新的Azure CLI 機器學習擴充功能](reference-azure-machine-learning-cli.md)，其中包含豐富的 `az ml` 命令集，可在任何命令列環境 (包括 Azure 入口網站 Cloud Shell) 中與服務互動。
 
-## <a name="what-about-vs-code-tools-for-ai"></a>那麼 VS Code Tools for AI 呢？
+## <a name="what-about-azure-machine-learning-for-visual-studio-code"></a>那麼適用於 Visual Studio Code 的 Azure Machine Learning 呢？
 
-在此最新的版本中，Visual Studio (VS) Code Tools for AI 擴充功能已經過擴充和改善，以和上述的新功能搭配使用。
+在此最新的版本中，適用於 Visual Studio (VS) Code 的 Azure Machine Learning 已經過擴充和改善，以和上述的新功能搭配使用。
 
-[ ![Visual Studio Code Tools for AI](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[ ![適用於 Visual Studio Code 的 Azure Machine Learning](./media/overview-what-happened-to-workbench/vscode.png) ] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>那麼領域套件呢？
 

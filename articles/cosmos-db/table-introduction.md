@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB 資料表 API 簡介 | Microsoft Docs
+title: Azure Cosmos DB 資料表 API 簡介
 description: 了解如何透過受歡迎的 OSS MongoDB API，使用 Azure Cosmos DB 來儲存及查詢大量機碼值資料 (低延遲)。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 07c1edd53ff30cc3128443cb8984d1a5467c4395
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 5d50b50d05877b213f0211a6ca8fa89f69231f52
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240047"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866486"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
 

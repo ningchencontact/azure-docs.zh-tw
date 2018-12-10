@@ -4,18 +4,16 @@ description: 如何使用 Cosmos DB 模擬器建置工作，在 Azure DevOps 中
 services: cosmos-db
 keywords: Azure Cosmos DB 模擬器
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
-ms.openlocfilehash: 782975cfa548d214515761e45b8f79a2219831e2
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 8b64142a7d693e8e48e1739a61978abbab740e3d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036966"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875207"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>使用 Azure Cosmos DB 模擬器建置工作在 Azure DevOps 中設定 CI/CD 管線
 
@@ -23,7 +21,7 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
 
 適用於 Azure DevOps 的 Azure Cosmos DB 模擬器建置工作，可讓您執行與在 CI 環境中相同的工作。 您可以使用建置工作，在建置和發行工作流程當中，針對模擬器執行測試。 工作會啟動 Docker 容器，且模擬器已在執行中，並提供可由組建定義其餘部分使用的端點。 您可以視需要建立及啟動任意數量的模擬器執行個體，每個執行個體會在個別的容器中執行。 
 
-本文示範如何在 Azure DevOps 中，針對使用 Cosmos DB 模擬器建置工作執行測試的 ASP.NET 應用程式，設定 CI 管線。 
+本文示範如何在 Azure DevOps 中，針對使用 Cosmos DB 模擬器建置工作執行測試的 ASP.NET 應用程式，設定 CI 管線。 您可以使用類似的方法為 Node.js 或 Python 應用程式設定 CI 管線。 
 
 ## <a name="install-the-emulator-build-task"></a>安裝模擬器建置工作
 
@@ -82,6 +80,8 @@ Azure Cosmos DB 模擬器提供了一個模擬 Azure Cosmos DB 服務的本機�
   </TestRunParameters>
 </RunSettings>
 ```
+
+如果您要為使用 Azure Cosmos DB MongoDB API 的應用程式設定 CI/CD 管線，MongoDB 連接字串會預設包含連接埠號碼 10255。 不過，此連接埠目前未開放，您應改為使用連接埠 10250 來建立連線。 除非支援的連接埠號碼是 10250 而不是 10255，否則 MongoDB API 連接字串會維持不變。
 
 這些參數 `TestRunParameters` 會透過應用程式測試專案中的 `TestContext` 屬性進行參考。 以下是針對 Cosmos DB 執行測試的範例。
 

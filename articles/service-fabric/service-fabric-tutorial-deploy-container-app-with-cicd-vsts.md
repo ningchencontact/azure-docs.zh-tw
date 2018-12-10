@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: twhitney
 ms.custom: mvc
-ms.openlocfilehash: 06bc4be6ee485e61523d210b692c3fe2567cc62c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2320aaf2d502280a29562a49dfff1e4e9244d079
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443486"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872963"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將具有 CI/CD 的容器應用程式部署到 Service Fabric 叢集
 
@@ -65,7 +65,7 @@ Visual Studio 右上角的狀態列上，選取 [新增至原始檔控制] -> [G
 
 發佈存放庫將在帳戶中建立與本機存放庫名稱相同的新 Team 專案。 若要在現有的 Team 專案中建立存放庫，請按一下**存放庫名稱**旁邊的 [進階]，並選取 Team 專案。 您可以選取**在網路上檢視**，在網路上檢視您的程式碼。
 
-## <a name="configure-continuous-delivery-with-vsts"></a>設定 VSTS 的持續傳遞
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>設定 Azure Pipelines 的持續傳遞
 
 Azure DevOps 組建定義描述由一組循序執行的組建步驟所組成的工作流程。 建立產生 Service Fabric 應用程式封裝的組建定義，以及其他構件，以便部署到 Service Fabric 叢集。 深入了解 [Azure DevOps 組建定義](https://www.visualstudio.com/docs/build/define/create)。 
 

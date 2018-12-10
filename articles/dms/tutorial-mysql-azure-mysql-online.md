@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 10/06/2018
-ms.openlocfilehash: 8b0e15ac6cd59a77e283d9256ab5fa4542dfc9a9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: 3c3127c7fd94ae0f66cd083e8a83dd9119f71dcb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960509"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867931"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>教學課程：使用 DMS 在線上將 MySQL 移轉至適用於 MySQL 的 Azure 資料庫
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 MySQL 執行個體移轉至[適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在本教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **Employees** 範例資料庫從內部部署的 MySQL 5.7 執行個體移轉至適用於 MySQL 的 Azure 資料庫。
@@ -28,6 +28,9 @@ ms.locfileid: "50960509"
 > * 使用 Azure 資料庫移轉服務來建立移轉專案。
 > * 執行移轉。
 > * 監視移轉。
+
+> [!NOTE]
+> 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據進階 (預覽) 定價層來建立執行個體。
 
 > [!IMPORTANT]
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。

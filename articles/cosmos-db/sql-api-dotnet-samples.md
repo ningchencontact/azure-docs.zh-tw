@@ -1,22 +1,19 @@
 ---
-title: Azure Cosmos DB：適用於 SQL API 的 .NET 範例 | Microsoft Docs
+title: Azure Cosmos DB：適用於 SQL API 的 .NET 範例
 description: 在 GitHub 上尋找適合使用 Azure Cosmos DB SQL API 執行之一般工作 (包括 CRUD 作業) 的 C# .NET 範例。
 keywords: NoSQL 範例
-services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
-ms.devlang: na
 ms.topic: sample
 ms.date: 02/22/2017
 ms.author: rnagpal
-ms.openlocfilehash: 5cee4a736232e7734be85b2940ce457bfbfd1613
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 39eacca1e5ddb4c7024c5195dc1823f2c3c651e7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262276"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875258"
 ---
 # <a name="azure-cosmos-db-net-examples-for-the-sql-api"></a>Azure Cosmos DB：適用於 SQL API 的 .NET 範例
 > [!div class="op_single_selector"]
@@ -29,10 +26,12 @@ ms.locfileid: "52262276"
 > 
 > 
 
-[azure-documentdb-dotnet](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples) GitHub 存放庫中包含可對 Azure Cosmos DB 資源執行 CRUD 作業和其他常見作業的最新範例解決方案。 本文提供：
+[azure-cosmos-dotnet-v2](https://github.com/Azure/azure-cosmos-dotnet-v2/tree/master/samples/code-samples) GitHub 存放庫中包含可對 Azure Cosmos DB 資源執行 CRUD 作業和其他常見作業的最新範例解決方案。 本文提供：
 
 * 每個範例 C# 專案檔中各項工作的連結。 
 * 相關 API 參考內容的連結。
+
+如需.NET SDK 3.0 版 (預覽) 的程式碼範例，請參閱 [azure cosmos-dotnet v3](https://github.com/Azure/azure-cosmos-dotnet-v3) GitHub 存放庫中的最新範例。 
 
 **先決條件**
 

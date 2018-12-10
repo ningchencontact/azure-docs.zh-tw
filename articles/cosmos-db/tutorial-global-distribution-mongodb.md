@@ -1,23 +1,21 @@
 ---
-title: 適用於 MongoDB API 的 Azure Cosmos DB 全域散發教學課程 | Microsoft Docs
+title: 適用於 MongoDB API 的 Azure Cosmos DB 全域散發教學課程
 description: 了解如何使用 MongoDB API 來設定 Azure Cosmos DB 全域散發。
 services: cosmos-db
 keywords: 全域散發, MongoDB
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/10/2017
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 1885c979fe2532d26b2e7b59111675bebee8ec05
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 27fa9849c13de151f6922e829514cc8838f295ea
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668083"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874752"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-mongodb-api"></a>使用 MongoDB API 來設定 Azure Cosmos DB 全域散發
 

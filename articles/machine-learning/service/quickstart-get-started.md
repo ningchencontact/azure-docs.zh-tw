@@ -8,13 +8,13 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
-ms.date: 09/24/2018
-ms.openlocfilehash: 7ed45b5e8a8c3cab26c0998260055ffd7a0f0c5d
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710251"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875309"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
@@ -35,7 +35,7 @@ ms.locfileid: "51710251"
   - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
   - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)
 
-您所建立的資源可用來作為其他 Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於與 Machine Learning 相關聯的特定資源有一些限制。 例如，Azure Batch AI 叢集大小。 如需預設限制以及如何增加配額的資訊，請參閱[這篇文章](how-to-manage-quotas.md)。
+您所建立的資源可用來作為其他 Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於與 Machine Learning 相關聯的特定資源有一些限制，例如計算叢集大小。 深入了解[預設限制及如何增加配額](how-to-manage-quotas.md)。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
 
@@ -69,7 +69,7 @@ Azure Notebooks 會為 Jupyter Notebook 提供免費的雲端平台，其會利�
 
 您的組織可能需要[系統管理員的同意](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent)，您才能登入。
 
-登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 選取 `Clone`
+登入之後，即會開啟新索引標籤並出現 `Clone Library` 提示。 選取 `Clone`。
 
 
 ### <a name="run-the-notebook"></a>執行 Notebook
