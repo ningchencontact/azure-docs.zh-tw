@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 27e4c8f6ac24d40a6afacf10175413745f5151d9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06a7ce6301af6e5a7c04ac5c5a0a1240c21f834e
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997007"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887503"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-application-running-in-your-local-development-cluster"></a>教學課程：對在本機開發叢集中執行的 Service Fabric Mesh 應用程式進行偵錯
 
@@ -74,7 +74,9 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 
 在本機部署完成，且 Visual Studio 正在執行您的應用程式後，瀏覽器視窗將會開啟並顯示預設範例網頁。
 
-**偵錯秘訣**
+## <a name="debugging-tips"></a>偵錯秘訣
+
+依照[將 Visual Studio 效能最佳化](service-fabric-mesh-howto-optimize-vs.md)中的指示操作，大幅加快您執行第一次偵錯 (F5) 的速度。
 
 目前有問題會導致對 `using (HttpResponseMessage response = client.GetAsync("").GetAwaiter().GetResult())` 的呼叫無法連線至服務。 當您的主機 IP 位址變更時，就可能發生此問題。 若要解決這個問題：
 
@@ -96,7 +98,7 @@ git clone https://github.com/azure-samples/service-fabric-mesh
 3. 回到瀏覽器並重新整理頁面。 您會在 Web 前端 `OnGet()` 方法中叫用中斷點。 您可以檢查 `backendUrl` 變數，以查看您在 **service.yaml** 檔案中定義的環境變數如何結合到用來聯繫後端服務的 URL 中。
 4. 逐步執行 (F10) `client.GetAsync(backendUrl).GetAwaiter().GetResult())` 呼叫，您將會叫用控制器的 `Get()` 中斷點。 在此方法中，您可以查看從記憶體內部清單擷取待辦事項項目清單的方式。
 5. 完成作業後，請按 **Shift+F5**，以停止對 Visual Studio 中的專案進行偵錯。
- 
+
 ## <a name="next-steps"></a>後續步驟
 
 在教學課程的這個部分中，您已了解：
