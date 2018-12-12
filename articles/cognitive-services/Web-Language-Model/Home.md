@@ -50,6 +50,6 @@ Web 語言模型 API 支援四個查閱作業：
 
 下列文件詳述這些語言模型的開發，使用這項服務的研究出版品中應該會加以引用：
 
-- [An Overview of Microsoft Web N-gram Corpus and Applications](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+- [Microsoft Web n-gram 主體和應用程式的概觀](https://research.microsoft.com/apps/pubs/default.aspx?id=130762)， NAACL-HLT 2010
 
 按一下[此處](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0)來取得引用此著作的最新文件清單。
