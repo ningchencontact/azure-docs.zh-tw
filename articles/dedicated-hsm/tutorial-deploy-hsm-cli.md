@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 279c850875757750956947d29bba222011fa2889
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318713"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679642"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程 – 使用 CLI 將 HSM 部署至現有的虛擬網路
 

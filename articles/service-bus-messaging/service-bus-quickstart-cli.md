@@ -7,14 +7,14 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: 279f71496cc408ba991c4335f98eff649ad1b923
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8beabfb8c77d4d62b9b15dca8ae3146c34c3b20a
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983985"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634807"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>快速入門：使用 Azure CLI 和 Java 傳送和接收訊息
 
@@ -57,7 +57,7 @@ az servicebus queue create --resource-group myResourceGroup \
 # Get the connection string for the namespace
 connectionString=$(az servicebus namespace authorization-rule keys list \
    --resource-group myResourceGroup \
-   --namespace-name  $namespaceName \
+   --namespace-name $namespaceName \
    --name RootManageSharedAccessKey \
    --query primaryConnectionString --output tsv)
 ```

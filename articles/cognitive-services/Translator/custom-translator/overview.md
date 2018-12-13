@@ -9,14 +9,14 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: overview
-ms.openlocfilehash: 76e6bc006ff6049b631409a3515628fbd169f713
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f845c064ec3625d205ec346ddfc90c3a1b2c3d8d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976973"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874833"
 ---
-# <a name="what-is-custom-translator-preview"></a>什麼是自訂翻譯工具 (預覽)？
+# <a name="what-is-custom-translator"></a>什麼是自訂翻譯工具？
 
 [自訂翻譯工具](https://portal.customtranslator.azure.ai)是 Microsoft Translator 服務的功能，可讓翻譯工具企業、應用程式開發人員和語言服務提供者建置自訂的類神經機器翻譯 (NMT) 系統。 自訂的翻譯系統會順暢地整合到現有應用程式、工作流程和網站。 [自訂翻譯工具](https://portal.customtranslator.azure.ai/)所提供的功能，類似於 [Microsoft Translator Hub](https://hub.microsofttranslator.com/) 針對統計機器翻譯 (SMT) 所提供的功能，但前者專供類神經機器翻譯 (NMT) 系統來使用。
 

@@ -3,7 +3,7 @@ title: 使用 PowerShell 建立 Azure SQL Database 彈性作業代理程式 | Mi
 description: 了解如何使用 PowerShell 建立彈性作業代理程式。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: tutorial
@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 56dd6eff7744ddddf57b747574ee9800174d6365
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 9b38e1b6ba55fab46965fdc7a73ab608e1e6b754
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055487"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877797"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 建立彈性作業代理程式
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7d376ab958a1fb56753e033129ece84bc1c439c2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6dbe4e0da011e29c88415bbd628b1a25a75d4e3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044691"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875241"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>使用 Azure PowerShell 建立裝載多個網站的應用程式閘道
 
@@ -282,7 +282,7 @@ Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublic
 
 ## <a name="test-the-application-gateway"></a>測試應用程式閘道
 
-在瀏覽器的網址列中輸入您的網域名稱。 例如，http://www.contoso.com。
+在瀏覽器的網址列中輸入您的網域名稱。 例如， http://www.contoso.com。
 
 ![在應用程式閘道中測試 contoso 網站](./media/tutorial-multiple-sites-powershell/application-gateway-iistest.png)
 

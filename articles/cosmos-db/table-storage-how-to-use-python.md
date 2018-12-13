@@ -1,21 +1,20 @@
 ---
-title: 以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API | Microsoft Docs
-description: 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
+title: 以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
+description: 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 9778911d56f55ea83b542d6fbe5c31b646d85d2d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b24116e72091fc3814df9936c311ee3f96a6b6cc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976463"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872742"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>以 Python 開始使用 Azure 表格儲存體和 Azure Cosmos DB 資料表 API
 

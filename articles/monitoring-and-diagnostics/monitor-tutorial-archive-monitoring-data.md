@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: metrics
-ms.openlocfilehash: ac8be998a70b31af9829eeeab24902c62fd2fe37
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: ab91ac3eb115504727e5ee9e912d070262027cc7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961498"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834072"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 儲存體封存 Azure 計量和記錄資料
 
@@ -198,4 +198,4 @@ Azure 環境的許多層會產生記錄和計量資料，可封存至 Azure 儲�
 為了更妥善利用您的資料和衍生額外的深入解析，也請將資料傳送到 Log Analytics。
 
 > [!div class="nextstepaction"]
-> [開始使用 Log Analytics](../log-analytics/log-analytics-queries.md)
+> [開始使用 Log Analytics](../azure-monitor/log-query/log-query-overview.md)

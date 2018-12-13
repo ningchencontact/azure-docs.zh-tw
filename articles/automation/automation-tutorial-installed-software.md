@@ -11,12 +11,12 @@ ms.service: automation
 ms.component: change-inventory-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ad9fc7deb73cdcbcf83cc10b9b28f7d7e4ac7661
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6ff8bccc7037782b2709340312f0602b4cd7ab1f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52283786"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834327"
 ---
 # <a name="discover-what-software-is-installed-on-your-azure-and-non-azure-machines"></a>探索您的 Azure 電腦和非 Azure 電腦上安裝了哪些軟體
 
@@ -70,7 +70,7 @@ ms.locfileid: "52283786"
 
 ## <a name="onboard-a-non-azure-machine"></a>讓非 Azure 機器上線
 
-若要新增非 Azure 機器，請安裝 [Windows](../log-analytics/log-analytics-agent-windows.md) 或 [Linux](automation-linux-hrw-install.md) 的代理程式 (視作業系統而定)。 安裝代理程式之後，瀏覽至您的自動化帳戶，然後移至 [組態管理] 下的 [清查]。 當您按一下 [管理機器] 時，您會看到向 Log Analytics 工作區回報的機器清單，而其中並沒有啟用解決方案。 為您的環境選取適當選項。
+若要新增非 Azure 機器，請安裝 [Windows](../azure-monitor/platform/agent-windows.md) 或 [Linux](automation-linux-hrw-install.md) 的代理程式 (視作業系統而定)。 安裝代理程式之後，瀏覽至您的自動化帳戶，然後移至 [組態管理] 下的 [清查]。 當您按一下 [管理機器] 時，您會看到向 Log Analytics 工作區回報的機器清單，而其中並沒有啟用解決方案。 為您的環境選取適當選項。
 
 * **在所有可用機器上啟用** - 此選項可在此時向您 Log Analytics 工作區回報的所有機器上，啟用解決方案。
 * **在所有可用機器和未來機器上啟用** - 此選項可在向您 Log Analytics 工作區回報的所有機器上，以及之後會新增至工作區的所有未來機器上，啟用解決方案。
@@ -113,7 +113,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](../log-analytics/log-analytics-queries.md)。
+若要深入了解在 Log Analytics 中執行和搜尋記錄檔，請參閱 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md)。
 
 ### <a name="single-machine-inventory"></a>單一電腦清查
 

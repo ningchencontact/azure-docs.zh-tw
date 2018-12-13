@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2e3cec4564c509cd225a9bcd43185f6f5b344e8c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026513"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833445"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>在 Azure Stack 中佈建虛擬器的磁碟儲存體
 
@@ -65,7 +64,7 @@ ms.locfileid: "44026513"
 
 您所新增的每個非授控磁碟都應該放在不同的容器中。
 
->[!NOTE]
+>[!NOTE]  
 >Azure 所建立並管理的磁碟稱為[受控磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview)。
 
 ### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>使用入口網站建立並連結新的資料磁碟
