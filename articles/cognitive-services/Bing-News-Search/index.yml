@@ -1,12 +1,13 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: aa53bfd0028813479b99e84638eaf6f39dac5008
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c6b8df95149824f78d9809d14b4b9ebf67728fcb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456281"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255392"
 documentType: LandingData
-title: Bing 新聞搜尋文件
+title: Bing 新聞搜尋 API 文件
+titleSuffix: Azure Cognitive Services
 metadata:
   title: Bing 新聞搜尋文件 - 教學課程、快速入門和 API 參考 | Microsoft Docs
   description: 了解如何使用 Bing 新聞搜尋 API 取得與使用者查詢相關的 Web 新聞。 教學課程會示範如何建置使用此服務的應用程式。

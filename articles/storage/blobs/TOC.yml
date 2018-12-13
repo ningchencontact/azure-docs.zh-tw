@@ -56,16 +56,8 @@ items:
         href: storage-secure-access-application.md
       - name: 4 - 進行儲存體的監視和疑難排解
         href: storage-monitor-troubleshoot-storage-application.md
-    - name: 雲端儲存體中適用於高可用性的設計
-      items:
-      - name: 1 - 讓您的應用程式保持高可用性
-        href: storage-create-geo-redundant-storage.md
-      - name: 2 - 模擬 RA-GRS 儲存體失敗
-        href: storage-simulate-failure-ragrs-account-app.md
     - name: 使用 AzCopy 將資料遷移至雲端
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: 搜尋雲端儲存體中的非結構化資料
-      href: storage-unstructured-search.md
     - name: 最佳化儲存體應用程式效能和延展性
       items:
       - name: 1 - 建立虛擬機器和儲存體帳戶
@@ -76,6 +68,20 @@ items:
         href: storage-blob-scalable-app-download-files.md
       - name: 4 - 驗證輸送量和延遲計量
         href: storage-blob-scalable-app-verify-metrics.md
+    - name: 託管靜態網站
+      items:
+      - name: 1 - 建立靜態網站
+        href: storage-blob-static-website-host.md
+      - name: 2 - 使用 SSL 啟用自訂網域
+        href: storage-blob-static-website-custom-domain.md
+    - name: 雲端儲存體中適用於高可用性的設計
+      items:
+      - name: 1 - 讓您的應用程式保持高可用性
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 - 模擬 RA-GRS 儲存體失敗
+        href: storage-simulate-failure-ragrs-account-app.md
+    - name: 搜尋雲端儲存體中的非結構化資料
+      href: storage-unstructured-search.md
   - name: 範例
     items:
     - name: .NET
@@ -127,7 +133,7 @@ items:
     - name: 存取層級
       href: storage-blob-storage-tiers.md
     - name: 管理 Azure Blob 儲存體生命週期
-      href: ../common/storage-lifecycle-managment-concepts.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: storage-lifecycle-management-concepts.md
     - name: 回應事件
       href: storage-blob-event-overview.md
     - name: 擴充和效能目標
@@ -209,6 +215,17 @@ items:
         href: ../common/storage-security-tls.md
       - name: 合規性供應項目
         href: ../common/storage-compliance-offerings.md
+    - name: 比較資料轉送解決方案
+      href: ../common/storage-choose-data-transfer-solution.md
+      items:
+      - name: 大型資料集、低網路頻寬
+        href: ../common/storage-solution-large-dataset-low-network.md
+      - name: 大型資料集、中至高網路頻寬
+        href: ../common/storage-solution-large-dataset-moderate-high-network.md
+      - name: 小型資料集、低至中網路頻寬
+        href: ../common/storage-solution-small-dataset-low-moderate-network.md
+      - name: 定期資料轉送
+        href: ../common/storage-solution-periodic-data-transfer.md
     - name: 監視及疑難排解
       items:
       - name: 疑難排解教學課程
@@ -504,66 +521,6 @@ items:
           href: /rest/api/storagerp
         - name: 匯入/匯出
           href: /rest/api/storageimportexport
-    - name: 資源
-      items:
-      - name: Azure 藍圖
-        href: https://azure.microsoft.com/roadmap/?category=storage
-      - name: Azure 儲存體用戶端工具
-        href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: 論壇
-        href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
-      - name: 價格
-        href: https://azure.microsoft.com/pricing/details/storage/blobs/
-      - name: 定價計算機
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: 服務更新
-        href: https://azure.microsoft.com/updates/?product=storage
-      - name: 堆疊溢位
-        href: http://stackoverflow.com/questions/tagged/windows-azure-storage
-      - name: 影片
-        href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-      - name: Azure 儲存體總管
-        items:
-        - name: 儲存體總管
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 儲存體總管版本資訊
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 針對儲存體總管進行疑難排解
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: 儲存體總管協助工具
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: NuGet 套件
-        items:
-        - name: 適用於 .NET 的 Azure 儲存體用戶端程式庫
-          href: https://www.nuget.org/packages/WindowsAzure.Storage/
-        - name: Azure 儲存體資料移動程式庫
-          href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-        - name: Azure 組態管理員
-          href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-      - name: 原始程式碼
-        items:
-        - name: .NET
-          items:
-          - name: Blob、佇列、資料表及檔案
-            href: https://github.com/Azure/azure-storage-net
-          - name: 資料移動
-            href: https://github.com/Azure/azure-storage-net-data-movement
-          - name: 資源提供者
-            href: https://github.com/Azure/azure-sdk-for-net
-        - name: Node.js
-          href: http://azure.github.io/azure-storage-node/
-        - name: Java
-          href: https://github.com/Azure/azure-storage-java
-        - name: C++
-          href: https://github.com/Azure/azure-storage-cpp
-        - name: PHP
-          href: https://github.com/Azure/azure-storage-php
-        - name: Python
-          href: https://github.com/Azure/azure-storage-python
-        - name: Ruby
-          href: https://github.com/Azure/azure-storage-ruby
-        - name: iOS
-          href: https://github.com/Azure/azure-storage-ios
 - name: Data Lake Storage Gen2
   items:
   - name: 切換至 Data Lake Storage Gen1 文件
@@ -618,8 +575,6 @@ items:
         items:
         - name: 使用 RBAC 管理存取權限
           href: ../common/storage-auth-aad-rbac.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Data Lake Storage Gen2 評估
-      href: ../blobs/data-lake-storage-evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: 作法
     items:
     - name: 使用 Azure 儲存體總管設定權限
@@ -650,6 +605,8 @@ items:
         href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: 連線到 Azure Databricks
       href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
+    - name: 連接到 Azure SQL 資料倉儲
+      href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
   - name: 參考
     items:
     - name: REST
@@ -674,9 +631,9 @@ items:
       href: http://stackoverflow.com/questions/tagged/windows-azure-storage
     - name: 影片
       href: https://azure.microsoft.com/documentation/videos/index/?services=storage
-ms.openlocfilehash: bda06ecb2adbcf4aeea5e2877f37b4ddf2761d80
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0c9bc9f6c1d47d6f53d0d8ec46939e11d47ac8b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957516"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258809"

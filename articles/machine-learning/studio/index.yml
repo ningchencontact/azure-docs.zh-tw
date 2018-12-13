@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bd9988925b3c9a253d8c7e4632fea303a070fe38
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: bdd2e3bd8175b5fd9a26e78979a804da65e255f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782858"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275120"
 documentType: LandingData
 title: Azure Machine Learning Studio 文件
 metadata:
@@ -12,17 +12,26 @@ metadata:
   description: 了解如何使用 Azure Machine Learning Studio。
   services: machine-learning
   author: j-martens
-  manager: cgronlun
   ms.service: machine-learning
   ms.component: studio
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2018
+  ms.date: 09/24/2018
   ms.author: jmartens
 abstract:
   description: Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 教學課程、影片和模型範例會示範如何使用 Studio 來建置和部署機器學習模型。
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: 開始了解 Azure Machine Learning Studio
+      href: create-experiment
+      image:
+        src: /azure/machine-learning/media/index/machine-learning-studio.svg
+        href: create-experiment
 - title: 5 分鐘快速入門
   items:
   - type: paragraph
@@ -43,7 +52,7 @@ sections:
     items:
     - html: <a href="walkthrough-develop-predictive-solution">建立和部署預測解決方案</a>
     - html: <a href="azure-ml-customer-churn-scenario">客戶流失範例</a>
-- title: 更多的 Azure Machine Learning 技術
+- title: 更多 Azure Machine Learning 技術
   items:
   - type: paragraph
     text: Azure Machine Learning 中其他可用的技術：

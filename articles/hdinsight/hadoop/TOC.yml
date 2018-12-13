@@ -3,12 +3,12 @@ items:
   href: /azure/hdinsight
 - name: 概觀
   items:
-  - name: 關於 HDInsight 上的 Hadoop
+  - name: 關於 HDInsight 上的 Apache Hadoop
     href: apache-hadoop-introduction.md
-  - name: HDInsight 上的 Hadoop 架構
+  - name: HDInsight 上的 Apache Hadoop 架構
     href: ../hdinsight-hadoop-architecture.md
     maintainContext: true
-  - name: HDInsight 上的 Hadoop 元件
+  - name: HDInsight 上的 Apache Hadoop 元件
     href: ../hdinsight-component-versioning.md
     maintainContext: true
   - name: HDInsight 4.0
@@ -16,9 +16,9 @@ items:
     maintainContext: true
 - name: 快速入門
   items:
-  - name: 建立 Hadoop 叢集 - 入口網站
+  - name: 建立 Apache Hadoop 叢集 - 入口網站
     href: apache-hadoop-linux-create-cluster-get-started-portal.md
-  - name: 建立 Hadoop 叢集 - Resource Manager
+  - name: 建立 Apache Hadoop 叢集 - Resource Manager
     href: apache-hadoop-linux-tutorial-get-started.md
 - name: 教學課程
   items:
@@ -41,7 +41,7 @@ items:
     maintainContext: true
 - name: 作法
   items:
-  - name: 使用 Hadoop 沙箱
+  - name: 使用 Apache Hadoop 沙箱
     href: apache-hadoop-emulator-get-started.md
   - name: 使用叢集儲存體
     items:
@@ -51,9 +51,9 @@ items:
     - name: 使用 Azure Data Lake Store
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
-  - name: 使用 Hadoop 進行批次查詢
+  - name: 使用 Apache Hadoop 進行批次查詢
     items:
-    - name: 使用 Hadoop 的 Hive
+    - name: Apache Hive 搭配 Apache Hadoop
       href: hdinsight-use-hive.md
       items:
       - name: 使用適用於 VSCode 的 HDInsight 工具
@@ -61,7 +61,7 @@ items:
         maintainContext: true
       - name: 使用 HDInsight tools for Visual Studio
         href: apache-hadoop-use-hive-visual-studio.md
-      - name: 使用 Hive 檢視
+      - name: 使用 Apache Hive 檢視
         href: apache-hadoop-use-hive-ambari-view.md
       - name: 使用 BeeLine
         href: apache-hadoop-use-hive-beeline.md
@@ -77,7 +77,7 @@ items:
         href: apache-hadoop-use-hive-query-console.md
     - name: 搭配使用 Java UDF 與 Hive
       href: apache-hadoop-hive-java-udf.md
-    - name: 搭配使用 MapReduce 與 Hadoop
+    - name: 使用 MapReduce 搭配 Apache Hadoop
       href: hdinsight-use-mapreduce.md
       items:
       - name: 使用 SSH
@@ -92,10 +92,10 @@ items:
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: 執行 MapReduce 範例
         href: apache-hadoop-run-samples-linux.md
-    - name: 搭配 Hadoop 使用 Pig
+    - name: 使用 Apache Pig 搭配 Apache Hadoop
       href: hdinsight-use-pig.md
       items:
-      - name: 使用 SSH 和 Pig
+      - name: 使用 SSH 和 Apache Pig
         href: apache-hadoop-use-pig-ssh.md
       - name: 使用 Azure PowerShell
         href: apache-hadoop-use-pig-powershell.md
@@ -105,13 +105,13 @@ items:
         href: apache-hadoop-use-pig-curl.md
       - name: 使用遠端桌面
         href: apache-hadoop-use-pig-remote-desktop.md
-    - name: 搭配使用 DataFu 與 Pig
+    - name: 使用 DataFu 搭配 Apache Pig
       href: apache-hadoop-use-pig-datafu-udf.md
-    - name: 提交 Hadoop 工作
+    - name: 提交 Apache Hadoop 作業
       href: submit-apache-hadoop-jobs-programmatically.md
   - name: 開發
     items:
-    - name: 執行自訂 MapReduce 程式
+    - name: 執行自訂 Apache Hadoop MapReduce 程式
       href: apache-hadoop-run-custom-programs.md
     - name: 開發 C# 串流 MapReduce 程式
       href: apache-hadoop-dotnet-csharp-mapreduce-streaming.md
@@ -132,7 +132,7 @@ items:
       href: apache-hadoop-dotnet-avro-serialization.md
     - name: 使用 C# 使用者定義函式
       href: apache-hadoop-hive-pig-udf-dotnet-csharp.md
-    - name: 搭配 Hive 與 Pig 來使用 Python
+    - name: 使用 Python with Peache Hive 和 Apache Pig
       href: python-udf-hdinsight.md
     - name: 建立非互動式驗證 .NET HDInsight 應用程式
       href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
@@ -155,20 +155,20 @@ items:
     - name: 將 Power BI 與互動式查詢連線
       href: ../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
       maintainContext: true
-    - name: 將 Power BI 連線到 Hadoop
+    - name: 將 Power BI 連線到 Apache Hadoop
       href: apache-hadoop-connect-hive-power-bi.md
-    - name: 將 Excel 連接到 Hadoop
+    - name: 將 Excel 連線到 Apache Hadoop
       href: apache-hadoop-connect-excel-hive-odbc-driver.md
-    - name: 使用 Hive JDBC 驅動程式進行連線
+    - name: 使用 Apache Hive JDBC 驅動程式連線
       href: apache-hadoop-connect-hive-jdbc-driver.md
     - name: 分析儲存的感應器資料
       href: apache-hive-analyze-sensor-data.md
     - name: 分析儲存的推文
       href: ../hdinsight-analyze-twitter-data-linux.md
       maintainContext: true
-    - name: 使用 Mahout 產生建議
+    - name: 使用 Apache Mahout 產生建議
       href: apache-hadoop-mahout-linux-mac.md
-    - name: 使用 Hive 分析網站記錄
+    - name: 使用 Apache Hive 分析網站記錄
       href: apache-hive-analyze-website-log.md
     - name: 分析 Application Insights 遙測記錄
       href: ../spark/apache-spark-analyze-application-insight-logs.md
@@ -204,16 +204,16 @@ items:
     - name: 新增 Hive 程式庫
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
-    - name: 使用 Giraph
+    - name: 使用 Apache Giraph
       href: ../hdinsight-hadoop-giraph-install-linux.md
       maintainContext: true
     - name: 使用 Hue
       href: ../hdinsight-hadoop-hue-linux.md
       maintainContext: true
-    - name: 使用 Solr
+    - name: 使用 Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: 使用 Zeppelin
+    - name: 使用 Apache Zeppelin
       href: ../hdinsight-apache-spark-zeppelin-notebook.md
       maintainContext: true
     - name: 建置 HDInsight 應用程式
@@ -252,7 +252,7 @@ items:
     - name: 限制對資料的存取
       href: ../hdinsight-storage-sharedaccesssignature-permissions.md
       maintainContext: true
-    - name: 授權 Ambari 檢視的使用者
+    - name: 授權 Apache Ambari 檢視的使用者
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
   - name: 移轉
@@ -299,7 +299,7 @@ items:
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       maintainContext: true
-    - name: 管理 Hadoop 叢集
+    - name: 管理 Apache Hadoop 叢集
       href: ../hdinsight-administer-use-portal-linux.md
       items:
       - name: 使用 .NET SDK
@@ -312,13 +312,13 @@ items:
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
       maintainContext: true
-    - name: 使用 Ambari Web UI 管理叢集
+    - name: 使用 Apache Ambari web UI 管理叢集
       href: ../hdinsight-hadoop-manage-ambari.md
       items:
-      - name: 使用 Ambari Web UI 最佳化叢集
+      - name: 使用 Apache Ambari web UI 最佳化叢集
         href: ../hdinsight-changing-configs-via-ambari.md
         maintainContext: true
-      - name: 使用 Ambari REST API
+      - name: 使用 Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
       maintainContext: true
@@ -334,13 +334,13 @@ items:
     - name: 新增儲存體帳戶
       href: ../hdinsight-hadoop-add-storage.md
       maintainContext: true
-    - name: 上傳 Hadoop 工作的資料
+    - name: 上傳 Apache Hadoop 作業的資料
       href: ../hdinsight-upload-data.md
       maintainContext: true
     - name: 搭配 Data Lake Store 的多個 HDInsight 叢集
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
-    - name: 使用 Sqoop 匯入和匯出資料
+    - name: 使用 Apache Sqoop 匯入和匯出資料
       href: hdinsight-use-sqoop.md
       items:
       - name: 使用 SSH 連線
@@ -354,10 +354,10 @@ items:
     - name: 使用資料分析管線進行作業
       href: ../hdinsight-operationalize-data-pipeline.md
       maintainContext: true
-    - name: 工作流程使用 Oozie
+    - name: 使用 Apache Oozie 進行工作流程
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
-    - name: 使用以時間為基礎的 Oozie 協調器
+    - name: 使用以時間為基礎的 Apache Oozie 協調器
       href: ../hdinsight-use-oozie-coordinator-time.md
       maintainContext: true
     - name: 叢集和服務的連接埠和 URI
@@ -378,13 +378,13 @@ items:
     - name: 針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
       href: ../hdinsight-troubleshoot-failed-cluster.md
       maintainContext: true
-    - name: HDFS 疑難排解
+    - name: Apache Hadoop HDFS 疑難排解
       href: ../hdinsight-troubleshoot-hdfs.md
       maintainContext: true
-    - name: HIVE 疑難排解
+    - name: Apache HIVE 疑難排解
       href: ../hdinsight-troubleshoot-hive.md
       maintainContext: true
-    - name: YARN 疑難排解
+    - name: Apache Hadoop YARN 疑難排解
       href: ../hdinsight-troubleshoot-yarn.md
       maintainContext: true
     - name: 資源
@@ -392,25 +392,25 @@ items:
       - name: 在 Linux 上使用 HDInsight 的相關資訊
         href: ../hdinsight-hadoop-linux-information.md
         maintainContext: true
-      - name: Hadoop 記憶體和效能
+      - name: Apache Hadoop 記憶體和效能
         href: ../hdinsight-hadoop-stack-trace-error-messages.md
         maintainContext: true
-      - name: 存取 Linux 上的 YARN 應用程式記錄
+      - name: 存取 Linux 上的 Apache Hadoop YARN 應用程式記錄
         href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
         maintainContext: true
-      - name: 啟用 Hadoop 適用的服務堆積傾印
+      - name: 啟用 Apache Hadoop 適用的服務堆積傾印
         href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
         maintainContext: true
       - name: 了解並解決 WebHCat 錯誤
         href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
         maintainContext: true
-      - name: 記憶體不足錯誤的 Hive 設定修正
+      - name: 記憶體不足錯誤的 Apache Hive 設定修正
         href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
         maintainContext: true
-      - name: 使用 Ambari 檢視為 Tez 作業偵錯
+      - name: 使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
         href: ../hdinsight-debug-ambari-tez-view.md
         maintainContext: true
-      - name: 最佳化 Hive 查詢
+      - name: 最佳化 Apache Hive 查詢
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
     maintainContext: true
@@ -430,7 +430,7 @@ items:
     - name: 使用 Azure AD DS 在 HDInsight 中設定企業安全性
       href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
       maintainContext: true
-    - name: 設定 Hive 原則
+    - name: 設定 Apache Hive 原則
       href: ../domain-joined/apache-domain-joined-run-hive.md
       maintainContext: true
     - name: 以企業安全性管理叢集
@@ -458,7 +458,7 @@ items:
     - name: 監視叢集效能
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-    - name: 分析 Hadoop 記錄
+    - name: 分析 Apache Hadoop 記錄
       href: apache-hadoop-debug-jobs.md
 - name: 參考
   items:
@@ -474,13 +474,13 @@ items:
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
   - name: Go SDK
     href: ../hdinsight-go-sdk-overview.md
-  - name: .NET (HBase)
+  - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
     href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
-  - name: REST (Spark)
+  - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
 - name: 相關參考
   items:
@@ -492,34 +492,34 @@ items:
     - name: 將 .NET 解決方案移轉至 Linux 叢集
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md
       maintainContext: true
-    - name: 執行 Hadoop MapReduce 範例
+    - name: 執行 Apache Hadoop MapReduce 範例
       href: ../hdinsight-run-samples.md
       maintainContext: true
-    - name: 叢集上的 Solr
+    - name: 使用叢集上的 Apache Solr
       href: ../hdinsight-hadoop-solr-install-linux.md
       maintainContext: true
-    - name: 使用 Giraph 處理大規模圖形
+    - name: 使用 Apache Giraph 處理大規模圖形
       href: ../hdinsight-hadoop-giraph-install.md
       maintainContext: true
-    - name: 工作流程使用 Oozie
+    - name: 使用 Apache Oozie 進行工作流程
       href: ../hdinsight-use-oozie.md
       maintainContext: true
-    - name: 部署和管理 Storm 拓撲
+    - name: 部署和管理 Apache Storm 拓撲
       href: ../storm/apache-storm-deploy-monitor-topology.md
       maintainContext: true
-    - name: 使用 Maven 建置 Java 應用程式
+    - name: 使用 Apache Maven 建置 Java 應用程式
       href: ../hdinsight-hbase-build-java-maven.md
       maintainContext: true
-    - name: 使用 Tez UI 為 Tez 作業偵錯
+    - name: 使用 Apache Tez UI 為 Tez 作業偵錯
       href: ../hdinsight-debug-tez-ui.md
       maintainContext: true
     - name: 使用指令碼動作來自訂
       href: ../hdinsight-hadoop-customize-cluster.md
       maintainContext: true
-    - name: 存取 YARN 應用程式記錄檔
+    - name: 存取 Apache Hadoop YARN 應用程式記錄
       href: ../hdinsight-hadoop-access-yarn-app-logs.md
       maintainContext: true
-    - name: 使用 Mahout 來產生電影推薦
+    - name: 使用 Apache Mahout 來產生電影推薦
       href: ../hdinsight-mahout.md
       maintainContext: true
     - name: 分析班機延誤資料
@@ -534,7 +534,7 @@ items:
     - name: 使用 Azure 入口網站管理叢集
       href: ../hdinsight-administer-use-management-portal.md
       maintainContext: true
-    - name: 使用 Ambari API 監視叢集
+    - name: 使用 Apache Ambari API 監視叢集
       href: ../hdinsight-monitor-use-ambari-api.md
       maintainContext: true
 - name: 資源
@@ -559,9 +559,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 99ee7d4fd5830c9416ff9a9ffaf37afa1504096e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 43ebb63bdda8c484ce1c2d2828293032ea90013c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962608"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321147"

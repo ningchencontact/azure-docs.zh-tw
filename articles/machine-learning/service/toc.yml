@@ -4,30 +4,32 @@ items:
 - name: 概觀
   items:
   - name: 什麼是 Azure Machine Learning 服務？
-    displayName: AML, services, overview
+    displayName: AML services overview
     href: overview-what-is-azure-ml.md
   - name: 服務 的運作方式
-    displayName: architecture
+    displayName: architecture concepts definitions
     href: concept-azure-machine-learning-architecture.md
   - name: Workbench 的現況為何？
-    displayName: desktop
+    displayName: desktop ui
     href: overview-what-happened-to-workbench.md
   - name: 版本資訊
-    displayName: what's new
+    displayName: what's new issues bugs
     href: azure-machine-learning-release-notes.md
   expanded: true
 - name: 快速入門
   items:
   - name: 開始使用 - 入口網站
+    displayName: install sdk workspace
     href: quickstart-get-started.md
   - name: 開始使用 - Python
-    displayName: create workspace
+    displayName: create workspace install sdk
     href: quickstart-create-workspace-with-python.md
 - name: 教學課程
   items:
   - name: 影像分類 (MNIST 資料)
     items:
     - name: 1. 將模型定型
+      displayName: build modeling
       href: tutorial-train-models-with-aml.md
     - name: 2. 部署模型
       href: tutorial-deploy-models-with-aml.md
@@ -43,6 +45,9 @@ items:
   href: samples-notebooks.md
 - name: 概念
   items:
+  - name: 自動化機器學習
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: 模型管理
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
@@ -68,7 +73,6 @@ items:
         href: how-to-vscode-train-deploy.md
   - name: 準備資料
     displayName: data prep, etl, elt, data preparation
-    href: how-to-data-prep.md
     items:
     - name: 載入資料
       href: how-to-load-data.md
@@ -79,17 +83,16 @@ items:
   - name: 將模型定型
     items:
     - name: 設定訓練環境
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
       href: how-to-set-up-training-targets.md
     - name: 存取訓練資料
       href: how-to-access-data.md
-    - name: 建立估算器
+    - name: 在訓練中建立估算器
       href: how-to-train-ml-models.md
-      items:
-      - name: PyTorch
-        href: how-to-train-pytorch.md
-      - name: TensorFlow
-        href: how-to-train-tensorflow.md
+    - name: 使用 PyTorch
+      href: how-to-train-pytorch.md
+    - name: 使用 TensorFlow
+      href: how-to-train-tensorflow.md
     - name: 微調超參數
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -97,11 +100,11 @@ items:
       href: how-to-track-experiments.md
   - name: 將機器學習自動化
     displayName: automl, auto ml
-    href: how-to-automated-ml.md
     items:
     - name: 設定自動訓練
       href: how-to-configure-auto-train.md
     - name: 使用遠端計算目標
+      displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
   - name: ONNX 模型
     items:
@@ -110,18 +113,10 @@ items:
   - name: 部署模型
     items:
     - name: 部署模型的位置
-      displayName: publish
+      displayName: publish azure kubernetes azure container instances
       href: how-to-deploy-and-where.md
-    - name: 部署到 ACI
-      displayName: Azure Container Instances
-      href: how-to-deploy-to-aci.md
-    - name: 部署到 AKS
-      displayName: Azure Kubernetes
-      href: how-to-deploy-to-aks.md
-    - name: 部署到 FPGA
+    - name: FPGA
       href: how-to-deploy-fpga-web-service.md
-    - name: 部署到 IoT Edge
-      href: how-to-deploy-to-iot.md
     - name: 疑難排解
       href: how-to-troubleshoot-deployment.md
     - name: 使用 SSL 保護
@@ -129,7 +124,7 @@ items:
   - name: 取用 Web 服務
     items:
     - name: 即時取用
-      displayName: create client, client, consume
+      displayName: create client consume
       href: how-to-consume-web-service.md
     - name: 執行批次預測
       href: how-to-run-batch-predictions.md
@@ -145,18 +140,18 @@ items:
     displayName: limits
     href: how-to-manage-quotas.md
   - name: 使用 Machine Learning CLI
-    displayName: cli, command line, command-line, az,
+    displayName: cli command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
 - name: 參考
   items:
   - name: 機器學習 SDK
-    displayName: api, core, package
+    displayName: api core package python
     href: https://aka.ms/aml-sdk
   - name: 資料準備 SDK
-    displayName: api, preparation, package
+    displayName: api preparation package python
     href: https://aka.ms/data-prep-sdk
   - name: 監視 SDK
-    displayName: api, package
+    displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
 - name: 資源
   items:
@@ -167,6 +162,7 @@ items:
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
   - name: 已知問題
+    displayName: bugs errors troubleshoot
     href: resource-known-issues.md
   - name: 取得支援
     href: support-for-aml-services.md
@@ -175,8 +171,8 @@ items:
     href: how-to-export-delete-data.md
   - name: 已被取代的文件
     items:
-    - name: 如何移轉
-      displayName: Workbench, upgrade, update, transfer
+    - name: 從 Workbench 移轉
+      displayName: Workbench upgrade update transfer
       href: how-to-migrate.md
     - name: 匯出或刪除帳戶資料 (已取代)
       href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
@@ -374,9 +370,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: 舊的問題
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 087d101a655d87bdb4c8f7de2b39a5358c21e00e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cf7216271dea4bcdda7bea91c1b386a4ba612f8f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962540"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310499"

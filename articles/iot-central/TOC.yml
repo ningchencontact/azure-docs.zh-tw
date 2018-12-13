@@ -80,6 +80,11 @@ items:
       href: howto-trigger-azure-functions.md
     - name: 匯出您的資料
       href: howto-export-data.md
+      items:
+      - name: 匯出至事件中樞和服務匯流排
+        href: howto-export-data-event-hubs-service-bus.md
+      - name: 匯出至 Blob 儲存體
+        href: howto-export-data-blob-storage.md
     - name: 在 Power BI 中將資料視覺化
       href: howto-connect-powerbi.md
     - name: 連線其他 IoT 雲端
@@ -128,9 +133,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: 支援的瀏覽器
     href: iot-central-supported-browsers.md
-ms.openlocfilehash: 59ca634e96dc1ca47bb4a1c1f550a9fd07317f90
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 691a3c5da906a66d4773ebaf458c3e99e6a03f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52998966"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316313"

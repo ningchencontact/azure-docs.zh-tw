@@ -1,77 +1,71 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0ecc7a9e89168ed57c75ab24c3233692d77151
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 865f7421172c3302333b1cbf465f66806b296759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863562"
-documentType: LandingData
-title: Azure Machine Learning 文件
-metadata:
-  title: Azure Machine Learning 文件 – 教學課程和 API 參考 | Microsoft Docs
-  description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。
-  services: machine-learning
-  author: j-martens
-  ms.service: machine-learning
-  ms.component: core
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 12/04/2018
-  ms.author: jmartens
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314375"
 abstract:
   description: 了解如何使用 Azure Machine Learning 產品，將智慧型演算法建置到應用程式與網站中。  教學課程、快速入門和 API 參考和範例示範。
+documentType: LandingData
+metadata:
+  author: j-martens
+  description: 了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。
+  ms.author: jmartens
+  ms.component: core
+  ms.date: 12/04/2018
+  ms.devlang: na
+  ms.service: machine-learning
+  ms.tgt_pltfrm: na
+  ms.topic: landing-page
+  services: machine-learning
+  title: Azure Machine Learning 文件 – 教學課程和 API 參考 | Microsoft Docs
 sections:
 - items:
-  - type: list
-    style: cards
-    className: cardsM
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/machine-learning/service/overview-what-is-azure-ml
-      html: <p>了解這項服務能如何強化資料科學家的能力，<br/> 以使用 CLI 及 Python 工具和程式庫搭配各種 Azure 資料和計算服務，開發及管理 AI 解決方案。 深入了解...</p>
+      html: <p>了解這項服務能如何強化資料科學家的能力，<br/> 使用 Azure CLI 及 Python 工具和程式庫搭配各種 Azure 資料和計算服務，開發及管理 AI 解決方案。 深入了解...</p>
       image:
         src: /azure/machine-learning/media/index/i_machine-learning.svg
       title: Azure Machine Learning 服務
-- title: 快速入門與教學課程
-  items:
-  - type: paragraph
-    text: 了解如何快速設定及使用 Azure 機器學習服務：
-  - type: table
-    style: dataMatrix
-    columns:
-    - image:
-        src: media/index/i_machine-learning.svg
-    rows:
-    - title: 開始使用 Azure 入口網站中的服務
-      values:
-      - href: /azure/machine-learning/service/quickstart-get-started
-    - title: 開始使用 Python 中的服務
-      values:
-      - href: /azure/machine-learning/service/quickstart-create-workspace-with-python
-    - title: 準備資料以進行模型化
-      values:
-      - href: /azure/machine-learning/service/tutorial-data-prep
-    - title: 建立自己的機器學習模型
-      values:
-      - href: /azure/machine-learning/service/tutorial-train-models-with-aml
-    - title: 自動產生和微調演算法
-      values:
-      - href: /azure/machine-learning/service/tutorial-auto-train-models
-    - title: 將模型部署為 Web 服務
-      values:
-      - href: /azure/machine-learning/service/tutorial-deploy-models-with-aml
-    - title: 取用機器學習模型
-      values:
-      - href: /azure/machine-learning/service/how-to-consume-web-service
-    - title: 建置及管理機器學習管線
-      values:
-      - href: /azure/machine-learning/service/how-to-create-your-first-pipeline
-- title: 其他 Microsoft 機器學習技術
-  items:
-  - type: list
     style: cards
-    className: cardsM
+    type: list
+- items:
+  - text: 安裝並開始使用 Azure Machine Learning 服務：
+    type: paragraph
+  - text: <b>快速入門：</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/quickstart-create-workspace-with-python">透過 Python 開始使用</a>
+    - html: <a href="service/quickstart-get-started">透過 Azure 入口網站開始使用</a>
+    style: unordered
+    type: list
+  - text: <b>MNIST 資料的影像分類教學課程：</b>
+    type: paragraph
+  - items:
+    - html: 第 1 部分：<a href="service/tutorial-train-models-with-aml">讓自有模型定型</a>
+    - html: 第 2 部分：<a href="service/tutorial-deploy-models-with-aml">部署該模型</a>
+    style: unordered
+    type: list
+  - text: <b>紐約市計程車資料的迴歸模型教學課程：</b>
+    type: paragraph
+  - items:
+    - html: 第 1 部分：<a href="service/tutorial-data-prep">準備資料以進行模型化</a>
+    - html: 第 2 部分：<a href="service/tutorial-auto-train-models">讓自動化 ML 將模型定型</a>
+    style: unordered
+    type: list
+  - text: <b>取用您的模型：</b>
+    type: paragraph
+  - items:
+    - html: <a href="service/how-to-consume-web-service">要求-回應模型取用</a>
+    - html: <a href="service/how-to-run-batch-predictions">以 ML 管線進行批次預測</a>
+    style: unordered
+    type: list
+  title: 快速入門與教學課程
+- items:
+  - className: cardsM
     columns: 2
     items:
     - href: /azure/cognitive-services/
@@ -80,7 +74,7 @@ sections:
         src: /azure/machine-learning/media/index/cognitive-services.png
       title: 認知服務
     - href: /azure/machine-learning/studio/
-      html: <p>了解如何使用這項共同作業式的拖放工具，依據您的資料建置、測試及部署預測分析解決方案。 深入了解... &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+      html: <p>共同作業式的拖放工具，依據您的資料透過 R 或 Python 建置、測試及部署預測分析解決方案。 </p>
       image:
         src: /azure/machine-learning/media/index/machine-learning-studio.svg
       title: Azure Machine Learning Studio
@@ -104,3 +98,7 @@ sections:
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: 資料科學虛擬機器
+    style: cards
+    type: list
+  title: 其他 Microsoft 機器學習技術
+title: Azure Machine Learning 文件
