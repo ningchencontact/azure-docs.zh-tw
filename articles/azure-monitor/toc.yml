@@ -26,9 +26,9 @@ items:
   - name: 虛擬機器
     items:
     - name: 收集 - Azure VM
-      href: ../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-azurevm.md
     - name: 收集 - Linux 電腦
-      href: ../log-analytics/log-analytics-quick-collect-linux-computer.md?toc=/azure/azure-monitor/toc.json
+      href: learn/quick-collect-linux-computer.md
     - name: 收集 - Windows 電腦
       href: learn/quick-collect-windows-computer.md
   expanded: true
@@ -57,7 +57,7 @@ items:
 - name: 範例
   items:
   - name: Azure PowerShell
-    href: ../log-analytics/powershell-samples.md?toc=/azure/azure-monitor/toc.json
+    href: platform/powershell-samples.md
 - name: 概念
   items:
   - name: Azure 管理
@@ -79,13 +79,13 @@ items:
     - name: 記錄檔資料擷取時間
       href: platform/data-ingestion-time.md
     - name: 自訂計量至計量存放區
-      href: ../monitoring-and-diagnostics/metrics-custom-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/metrics-custom-overview.md
     - name: 資料安全性
       items:
       - name: 記錄資料
         href: platform/data-security.md
       - name: 個人記錄檔資料處理
-        href: ../log-analytics/log-analytics-personal-data-mgmt.md?toc=/azure/azure-monitor/toc.json
+        href: platform/personal-data-mgmt.md
       - name: 應用程式資料收集、保留和儲存
         href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
   - name: 深入解析
@@ -115,25 +115,25 @@ items:
     - name: OMS 入口網站轉換
       items:
       - name: 概觀
-        href: ../log-analytics/log-analytics-oms-portal-transition.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-transition.md
       - name: 常見問題
-        href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
+        href: platform/oms-portal-faq.md
   - name: 回應事件
     items:
     - name: 警示
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
     - name: 傳統警示
-      href: ../monitoring-and-diagnostics/monitoring-overview-alerts-classic.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-classic.overview.md
     - name: 智慧群組
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts-smartgroups.md?toc=/azure/azure-monitor/toc.json
     - name: Autoscale
       href: ../monitoring-and-diagnostics/monitoring-overview-autoscale.md?toc=/azure/azure-monitor/toc.json
     - name: 度量警示
-      href: ../monitoring-and-diagnostics/alert-metric-overview.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-overview.md
     - name: 記錄警示
-      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-unified-log.md
     - name: 活動記錄警示
-      href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/activity-log-alerts.md
   - name: 顯現資料
     href: visualizations.md?toc=/azure/azure-monitor/toc.json
   - name: 合作夥伴整合
@@ -153,7 +153,7 @@ items:
       - name: 角色權限與安全性
         href: ../monitoring-and-diagnostics/monitoring-roles-permissions-security.md?toc=/azure/azure-monitor/toc.json
       - name: 工作區
-        href: ../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json
+        href: platform/manage-access.md
       - name: '[應用程式]'
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 位址
@@ -166,8 +166,6 @@ items:
         href: ../application-insights/app-insights-web-monitor-performance.md?toc=/azure/azure-monitor/toc.json
       - name: 區分開發、測試及生產環境
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
-      - name: 監視具有多個元件的應用程式
-        href: ../application-insights/app-insights-monitor-multi-role-apps.md?toc=/azure/azure-monitor/toc.json
       - name: 我如何在 Application Insights 中...？
         href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
     - name: 管理工作區
@@ -181,7 +179,7 @@ items:
         - name: 使用 Azure PowerShell
           href: learn/quick-create-workspace-posh.md
       - name: 刪除工作區
-        href: ../log-analytics/log-analytics-manage-del-workspace.md?toc=/azure/azure-monitor/toc.json
+        href: platform/delete-workspace.md
       - name: 服務提供者的設計
         href: platform/service-providers.md
   - name: 收集資料
@@ -209,27 +207,27 @@ items:
       - name: Azure 診斷擴充功能
         items:
         - name: 概觀
-          href: ../monitoring-and-diagnostics/azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-overview.md
         - name: 傳送到 Azure 儲存體
-          href: ../monitoring-and-diagnostics/azure-diagnostics-storage.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-storage.md
         - name: 傳送至 Application Insights
-          href: ../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-to-application-insights.md
         - name: 傳送至事件中樞
-          href: ../monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-stream-event-hubs.md
         - name: 疑難排解
-          href: ../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md?toc=/azure/azure-monitor/toc.json
+          href: platform/diagnostics-extension-troubleshooting.md
         - name: 使用 Resource Manager 範本啟用診斷設定
           href: ../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: 準備使用 JSON Lines 診斷記錄格式
           href: ../monitoring-and-diagnostics/monitor-diagnostic-logs-append-blobs.md?toc=/azure/azure-monitor/toc.json
         - name: VM 來賓至計量存放區
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vm.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
         - name: VM 擴展集來賓至計量存放區
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-resource-manager-vmss.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: VM 傳統來賓至計量存放區
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-vm.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-vm-classic.md
         - name: 雲端服務來賓至計量存放區
-          href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json
+          href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
       - name: 疑難排解
         items:
         - name: Log Analytics VM 延伸模組
@@ -433,11 +431,11 @@ items:
       - name: 計量存放區 REST API
         href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
       - name: GuestOS 至記錄存放區 Linux VM (Telegraf)
-        href: ../monitoring-and-diagnostics/metrics-store-custom-linux-telegraf.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-custom-metrics-linux-telegraf.md
     - name: System Center
       items:
       - name: 組態管理員
-        href: ../log-analytics/log-analytics-sccm.md?toc=/azure/azure-monitor/toc.json
+        href: platform/collect-sccm.md
       - name: 使用 SCOM 的應用程式效能監視
         href: ../application-insights/app-insights-scom.md?toc=/azure/azure-monitor/toc.json
     - name: 路由傳送資料
@@ -529,8 +527,10 @@ items:
           href: insights/container-insights-analyze.md
         - name: 停用監視
           href: insights/container-insights-optout.md
-        - name: 升級代理程式
-          href: insights/container-insights-agent-upgrade.md
+        - name: 檢視容器即時記錄
+          href: insights/container-insights-live-logs.md
+        - name: 代理程式管理
+          href: insights/container-insights-manage-agent.md
         - name: 疑難排解
           href: insights/container-insights-troubleshoot.md
       - name: Docker 和 Windows 容器監視
@@ -562,7 +562,7 @@ items:
         - name: 價格
           href: insights/network-performance-monitor-pricing-faq.md
         - name: 常見問題集
-          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/network-performance-monitor-faq.md
     - name: 監視虛擬機器
       items:
       - name: 適用於 VM 的 Azure 監視器
@@ -647,7 +647,7 @@ items:
     - name: Power BI
       items:
       - name: 匯出記錄檔資料
-        href: ../log-analytics/log-analytics-powerbi.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powerbi.md
       - name: 匯出應用程式資料
         href: ../application-insights/app-insights-export-power-bi.md?toc=/azure/azure-monitor/toc.json
     - name: 將資料傳送到 Grafana
@@ -734,11 +734,11 @@ items:
       - name: 使用計量警示
         items:
         - name: 在 Azure 監視器中建立、檢視及管理計量警示
-          href: ../monitoring-and-diagnostics/alert-metric.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-metric.md
         - name: 在 Azure 監視器中建立、檢視及管理傳統計量警示
-          href: ../monitoring-and-diagnostics/alert-metric-classic.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-classic-portal.md
         - name: 搭配動態閾值的警示
-          href: ../monitoring-and-diagnostics/monitoring-alerts-dynamic-thresholds.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-dynamic-thresholds.md
         - name: 在記錄檔上設定計量警示
           href: ../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md?toc=/azure/azure-monitor/toc.json
         - name: 使用 Resource Manager 範本建立較新的計量警示
@@ -746,23 +746,23 @@ items:
         - name: 使用 Resource Manager 範本建立傳統計量警示
           href: ../monitoring-and-diagnostics/monitoring-enable-alerts-using-template.md?toc=/azure/azure-monitor/toc.json
         - name: 讓傳統計量警示呼叫 Webhook
-          href: ../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-webhooks.md
       - name: 使用記錄警示
         items:
         - name: 在分析查詢上設定警示
-          href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log.md
         - name: Webhook 動作記錄警示
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-log-webhook.md
         - name: 針對記錄警示進行疑難排解
           href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
       - name: 使用活動記錄警示
         items:
         - name: 在活動記錄事件中設定警示
-          href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log.md
         - name: 移轉至活動記錄警示
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: 設定服務通知警示
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-activity-log-service-notifications.md
       - name: 使用應用程式警示
         items:
         - name: 可用性
@@ -772,9 +772,9 @@ items:
       - name: 使用動作群組搭配警示
         items:
         - name: 建立動作群組
-          href: ../monitoring-and-diagnostics/monitoring-action-groups.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups.md
         - name: 了解 Webhook 結構描述
-          href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md?toc=/azure/azure-monitor/toc.json
+          href: platform/activity-log-alerts-webhook.md
         - name: SMS 警示行為
           href: ../monitoring-and-diagnostics/monitoring-sms-alert-behavior.md?toc=/azure/azure-monitor/toc.json
         - name: 警示速率限制
@@ -782,13 +782,13 @@ items:
         - name: 使用 Resource Manager 建立動作群組
           href: ../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: 實作邏輯應用程式動作
-          href: ../monitoring-and-diagnostics/monitoring-action-groups-logic-app.md?toc=/azure/azure-monitor/toc.json
+          href: platform/action-groups-logic-app.md
       - name: 來自 Operations Manager 的警示
         href: platform/alert-management-solution.md
       - name: 管理警示
         items:
         - name: 管理警示執行個體
-          href: ../monitoring-and-diagnostics/monitoring-alerts-managing-alert-instances.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alerts-managing-alert-instances.md
         - name: 管理智慧群組
           href: ../monitoring-and-diagnostics/monitoring-alerts-managing-smart-groups.md?toc=/azure/azure-monitor/toc.json
         - name: 管理警示與智慧群組狀態
@@ -802,25 +802,25 @@ items:
       - name: 了解自動調整設定
         href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
       - name: 最佳作法
-        href: ../monitoring-and-diagnostics/insights-autoscale-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-best-practices.md
       - name: 常見計量
-        href: ../monitoring-and-diagnostics/insights-autoscale-common-metrics.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-common-metrics.md
       - name: 常見模式
         href: ../monitoring-and-diagnostics/monitoring-autoscale-common-scale-patterns.md?toc=/azure/azure-monitor/toc.json
       - name: 使用自訂計量來自動調整規模
         href: ../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md?toc=/azure/azure-monitor/toc.json
       - name: 使用 Resource Manager 範本自動調整 VM 擴展集
-        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-virtual-machine-scale-sets.md
       - name: 在 VM 擴展集內自動縮放機器
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json?toc=/azure/azure-monitor/toc.json
       - name: 設定自動調整規模的 Webhook 與電子郵件通知
-        href: ../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-webhook-email.md
     - name: 服務通知
       items:
       - name: 檢視服務通知
         href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
       - name: 設定服務通知警示
-        href: ../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/alerts-activity-log-service-notifications.md
     - name: IT 服務管理
       items:
       - name: IT 服務管理連接器
@@ -838,9 +838,9 @@ items:
     - name: 應用程式企業方案詳細資料
       href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
     - name: 記錄資料磁碟區與保留期
-      href: ../log-analytics/log-analytics-manage-cost-storage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/manage-cost-storage.md
     - name: 記錄資料監視使用量
-      href: ../log-analytics/log-analytics-usage.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-usage.md
   - name: 自動化
     items:
     - name: PowerShell
@@ -848,7 +848,7 @@ items:
       - name: Azure PowerShell 範例
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell Cmdlet
-        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/powershell-workspace-configuration.md
       - name: '[應用程式]'
         items:
         - name: 建立 Application Insights 資源
@@ -860,7 +860,7 @@ items:
         - name: 取得 Azure 診斷
           href: ../application-insights/app-insights-powershell-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
     - name: Azure CLI 範例
-      href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
+      href: platform/cli-samples.md
     - name: Resource Manager 範本
       href: platform/template-workspace-configuration.md
     - name: API
@@ -868,7 +868,7 @@ items:
       - name: 逐步解說如何使用 REST API
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: 警示 API
-        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
+        href: platform/api-alerts.md
     - name: '[應用程式]'
       items:
       - name: 透過 Microsoft Flow 進行自動化
@@ -962,14 +962,14 @@ items:
     - name: 活動記錄事件結構描述
       href: ../monitoring-and-diagnostics/monitoring-activity-log-schema.md?toc=/azure/azure-monitor/toc.json
     - name: Azure 診斷延伸結構描述
-      href: ../monitoring-and-diagnostics/azure-diagnostics-schema.md?toc=/azure/azure-monitor/toc.json
+      href: platform/diagnostics-extension-schema.md
       items:
       - name: 1.3 和更新版本
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot3.md
       - name: "1.2"
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot2.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot2.md
       - name: "1"
-        href: ../monitoring-and-diagnostics/azure-diagnostics-schema-1dot0.md?toc=/azure/azure-monitor/toc.json
+        href: platform/diagnostics-extension-schema-1dot0.md
   - name: 功能與 API 淘汰
     items:
     - name: 傳統警示與計量
@@ -977,9 +977,9 @@ items:
     - name: 傳統警示和監視
       href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
     - name: 將警示從 Log Analytics 延伸至 Azure
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-extend.md
     - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
-      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-extend-tool.md
 - name: 資源
   items:
   - name: Azure 藍圖
@@ -1010,9 +1010,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: ee2702e834ce782f5b690cbfc78d300efa1ee602
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 06ea6e43343a0cf9982a6161fbd60d5bfce6b0ba
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968164"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322545"

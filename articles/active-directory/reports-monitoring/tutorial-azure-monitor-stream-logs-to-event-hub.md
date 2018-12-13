@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7582c578e91fb3e36d7a0ecc1da7ede0cefc0f4c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 941e914e6ce99082abdd920bd7171644f3575a38
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623755"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849389"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>教學課程：將 Azure Active Directory 記錄串流到 Azure 事件中樞 (預覽)
 
@@ -77,7 +77,7 @@ ms.locfileid: "51623755"
 * **設定支援的 SIEM 工具**。 為了讀取事件中樞內的資料，大部分工具皆需要事件中樞連接字串和 Azure 訂用帳戶的特定權限。 第三方工具與 Azure 監視器的整合包括但不限於：
     * **Splunk**：如需如何將 Azure AD 記錄與 Splunk 整合在一起的詳細資訊，請參閱[如何使用 Azure 監視器將 Azure AD 記錄與 Splunk 整合在一起](tutorial-integrate-activity-logs-with-splunk.md)。
     
-    * **IBM QRadar**：DSM 與 Azure 事件中樞通訊協定均可在 [IBM 支援](http://www.ibm.com/support)中下載取得。 如需有關與 Azure 整合的詳細資訊，請移至 [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 網站。
+    * **IBM QRadar**：DSM 與 Azure 事件中樞通訊協定均可在 [IBM 支援](https://www.ibm.com/support)中下載取得。 如需有關與 Azure 整合的詳細資訊，請移至 [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) 網站。
     
     * **Sumo Logic**：若要將 Sumo Logic 設定為從事件中樞取用資料，請參閱[安裝 Azure AD 應用程式及檢視儀表板](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards)。 
 
