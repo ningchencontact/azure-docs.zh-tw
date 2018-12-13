@@ -1,21 +1,20 @@
 ---
-title: 如何使用 PHP 的 Azure 儲存體表格服務或 Azure Cosmos DB 資料表 API | Microsoft Docs
-description: 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
+title: 如何使用 PHP 的 Azure 儲存體表格服務或 Azure Cosmos DB 資料表 API
+description: 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 7ca8e786a8284fd958948e313b79e34a6f502120
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 14cb684b0cc3e93992c6ed78c53e8794214c85a8
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41920960"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879709"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>如何使用 PHP 的 Azure 儲存體表格服務或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -178,8 +177,7 @@ catch(ServiceException $e){
 
 如需有關資料表屬性和類型的資訊，請參閱[了解表格服務資料模型][table-data-model]。
 
-
-  **TableRestProxy** 類別提供兩種插入實體的替代方法：**insertOrMergeEntity** 和 **insertOrReplaceEntity**。 若要使用這些方法，請建立一個新的 **Entity** ，然後將它當做參數傳遞給其中一個方法。 只要實體不存在，每個方法都會插入實體。 如果實體已經存在，**insertOrMergeEntity** 會在屬性已經存在時更新屬性值，並在屬性不存在時新增屬性，而 **insertOrReplaceEntity** 則是會完全取代現有的實體。 下列範例示範如何使用 **insertOrMergeEntity**。 如果 `PartitionKey` 為「tasksSeattle」且 `RowKey` 為「1」的實體尚未存在，便會將之插入。 不過，如果先前已經插入 insertOrMergeEntity (如上述範例所示)，方法便會更新 `DueDate` 屬性並新增 `Status` 屬性。 `Description` 和 `Location` 屬性也會更新，但是所使用的值實際上會讓它們保持不變。 如果如範例中所示並未新增後面兩個屬性，但這兩個屬性存在於目標實體上，它們現有的值就會保持不變。
+**TableRestProxy** 類別提供兩種插入實體的替代方法：**insertOrMergeEntity** 和 **insertOrReplaceEntity**。 若要使用這些方法，請建立一個新的 **Entity** ，然後將它當做參數傳遞給其中一個方法。 只要實體不存在，每個方法都會插入實體。 如果實體已經存在，**insertOrMergeEntity** 會在屬性已經存在時更新屬性值，並在屬性不存在時新增屬性，而 **insertOrReplaceEntity** 則是會完全取代現有的實體。 下列範例示範如何使用 **insertOrMergeEntity**。 如果 `PartitionKey` 為「tasksSeattle」且 `RowKey` 為「1」的實體尚未存在，便會將之插入。 不過，如果先前已經插入 insertOrMergeEntity (如上述範例所示)，方法便會更新 `DueDate` 屬性並新增 `Status` 屬性。 `Description` 和 `Location` 屬性也會更新，但是所使用的值實際上會讓它們保持不變。 如果如範例中所示並未新增後面兩個屬性，但這兩個屬性存在於目標實體上，它們現有的值就會保持不變。
 
 ```php
 require_once 'vendor/autoload.php';
