@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7a71873e5129d8aa4522e44daa4017202cd6c34c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: ea162cbf26ee853551dbac6b36a21b27fb1ca783
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497390"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092021"
 documentType: LandingData
 title: Team Data Science Process 文件
 metadata:
   title: Team Data Science Process 文件
-  meta.description: Learn how to use the Team Data Science Process, an agile, iterative data science methodology to deliver predictive analytics solutions and intelligent applications efficiently. TDSP helps improve team collaboration and learning. It contains a distillation of the best practices and structures from Microsoft and others in the industry that facilitate the successful implementation of data science initiatives. The goal is to help companies fully realize the benefits of their analytics program.
+  description: 了解如何使用 Team Data Science Process 這種敏捷式反覆資料科學方法，有效產出預測分析解決方案和智慧型應用程式。 TDSP 有助於改善團隊共同作業和學習。 其中包含 Microsoft 及業界其他公司的最佳做法和結構，有助於順利實作資料科學計劃。 目標是協助公司完全了解其分析程式的優點。
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
