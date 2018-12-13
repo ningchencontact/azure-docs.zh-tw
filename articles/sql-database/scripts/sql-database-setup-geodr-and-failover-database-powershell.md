@@ -3,7 +3,7 @@ title: PowerShell 範例 - 作用中異地複寫 - 單一 Azure SQL Database | M
 description: 為單一 Azure SQL Database 設定作用中異地複寫並且進行容錯移轉的 Azure PowerShell 範例指令碼。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.date: 09/07/2018
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 428bcde30b87d1e81d0eeb43bd865bfe0827e0b8
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3a9a3fc0413ebf0eb46487624dfc000df07f48d5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054926"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877896"
 ---
 # <a name="use-powershell-to-configure-active-geo-replication-for-a-single-azure-sql-database"></a>使用 PowerShell 為單一 Azure SQL Database 設定作用中異地複寫
 

@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB：如何使用 MongoDB API 來進行查詢？ | Microsoft Docs
+title: Azure Cosmos DB：如何使用 MongoDB API 來進行查詢？
 description: 了解如何使用適用於 Azure Cosmos DB 的 MongoDB API 來進行查詢
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2018
-ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: e941eb27e9c55f9a4b0e7af8d4cd8efa0220616b
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.date: 03/29/2018
+ms.openlocfilehash: 8c865ab7fa997b169e481612ce791d960688da56
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841501"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-mongodb-api"></a>教學課程：使用 MongoDB API 查詢 Azure Cosmos DB
 
@@ -67,7 +65,7 @@ Azure Cosmos DB [適用於 MongoDB 的 API](mongodb-introduction.md) 支援 [Mon
 
 **查詢**
     
-    db.families.find({ id: “WakefieldFamily”})
+    db.families.find({ id: "WakefieldFamily"})
 
 **結果**
 
@@ -117,7 +115,7 @@ Azure Cosmos DB [適用於 MongoDB 的 API](mongodb-introduction.md) 支援 [Mon
 
 **查詢**
     
-    db.families.find( { id: “WakefieldFamily” }, { children: true } )
+    db.families.find( { id: "WakefieldFamily" }, { children: true } )
 
 **結果**
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c69a91ce360b5476541de29dc52ea89057aa726c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 334fd01568b05cd16ff6f85725a799234fefda48
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037629"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871824"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教學課程 - 使用 Azure PowerShell 管理 Azure 磁碟
 
@@ -144,10 +144,10 @@ Update-AzureRmVM -ResourceGroupName "myResourceGroupDisk" -VM $vm
 建立虛擬機器的 RDP 連線。 開啟 PowerShell 並執行這個指令碼。
 
 ```azurepowershell
-Get-Disk | Where partitionstyle -eq 'raw' | `
-Initialize-Disk -PartitionStyle MBR -PassThru | `
-New-Partition -AssignDriveLetter -UseMaximumSize | `
-Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
+Get-Disk | Where partitionstyle -eq 'raw' |
+    Initialize-Disk -PartitionStyle MBR -PassThru |
+    New-Partition -AssignDriveLetter -UseMaximumSize |
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel "myDataDisk" -Confirm:$false
 ```
 
 ## <a name="verify-the-data-disk"></a>驗證資料磁碟

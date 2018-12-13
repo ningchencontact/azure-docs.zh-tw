@@ -1,6 +1,6 @@
 ---
 title: 什麼是 Azure 時間序列深入解析？ | Microsoft Docs
-description: Azure 時間序列深入解析簡介，此新服務可用於時間序列資料分析和 IoT 解決方案。
+description: Azure 時間序列深入解析簡介，這項新服務可用於時間序列資料分析和 IoT 解決方案。
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 85436fedacc765dcdf6a8005cf96f3d63312504c
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365565"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868798"
 ---
 # <a name="what-is-azure-time-series-insights"></a>什麼是 Azure 時間序列深入解析？
 
@@ -34,7 +34,7 @@ ms.locfileid: "46365565"
 
 如果您不確定您的資料是否為時間序列，您應該知道下列資訊。  時間序列資料代表資產或處理程序如何隨著時間改變。  它的特色是具有時間戳記，而且以時間軸呈現最有意義。  時間序列資料通常會依照時間順序送達，而且通常會被視為插入資料庫，而不是更新資料庫。  因為時間序列深入解析會擷取每個新事件並儲存為一個資料列，所以會隨著時間測量變更，讓您回顧和預測未來變更。  在大型磁碟區中，儲存、編製索引、查詢、分析並以視覺化方式呈現時間序列資料可能具有挑戰性。  
 
-## <a name="video"></a>視訊： 
+## <a name="video"></a>影片
 
 ### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>在此影片中，我們提供時間序列深入解析這個雲端式 IoT 分析平台的概觀。</br>
 
@@ -59,18 +59,18 @@ ms.locfileid: "46365565"
 
 ## <a name="capabilities"></a>功能
 
-- **快速上手**：Azure 時間序列深入解析不必事先準備資料。 在短短幾分鐘內連線至 Azure IoT 中樞或事件中樞內的數百萬個事件。 連線後即可與感應器資料互動並將其視覺化，進而快速驗證您的 IoT 解決方案。 您不需撰寫程式碼，即可與您的資料互動。
+- **快速上手**：Azure 時間序列深入解析不必事先準備資料。 在短短幾分鐘內連線至 Azure IoT 中樞或事件中樞內的數百萬個事件。 連線後即可與感應器資料互動並加以視覺化，進而快速驗證您的 IoT 解決方案。 您不需撰寫程式碼，即可與您的資料互動。
 您不需要學習新的語言，因為時間序列深入解析會為進階使用者提供細微且可輸入任意文字的查詢介面，並提供點選探索功能。
 - **近乎即時的深入解析**：時間序列深入解析每天可以擷取數百萬個感應器事件，其延遲時間只有一分鐘。 時間序列深入解析協助您深入了解感應器資料，它會協助您找出趨勢和異常狀況，進行根本原因分析，並避免耗費成本的停機時間。 藉由將即時和歷史的資料相互關聯，Time Series Insights 協助您了解其資料中隱藏的趨勢。
 - **建置自訂解決方案**：將 Azure 時間序列深入解析資料內嵌到現有應用程式中，或使用時間序列深入解析 REST API 來建立新的自訂解決方案。 建立可以分享的個人化檢視，以便其他人瀏覽您的深入解析。
-- **延展性**︰時間序列深入解析是為了大規模支援 IoT 而設計。 它每天可以輸入 1 百萬到 1 億個事件，預設的保留時間長度是 31 天。 您可以用近乎即時的方式，將即時資料流和歷史資料視覺化並進行分析。 往後，我們也會增加輸入和保留速率，以順應企業規模。
+- **延展性**︰時間序列深入解析是為了大規模支援 IoT 而設計。 它每天可以輸入 1 百萬到 1 億個事件，預設的保留時間長度是 31 天。 您可以用近乎即時的方式，將即時資料流和歷史資料視覺化並加以分析。 往後，我們也會增加輸入和保留速率，以順應企業規模。
 
 ## <a name="getting-started"></a>開始使用
 開始使用的時間少於 5 分鐘。 
 
 1.  若要開始使用，請在 Azure 入口網站中佈建時間序列深入解析環境。 
 2.  連線 Azure IoT 中樞或事件中樞等事件來源。  
-3.  上傳參考資料 (這不是一個額外的服務)。
+3.  上傳參考資料 (這不是一項額外的服務)。
 4.  在幾分鐘內使用時間序列深入解析總管查看您的資料。
 
 ## <a name="time-series-insights-explorer"></a>時間序列深入解析總管

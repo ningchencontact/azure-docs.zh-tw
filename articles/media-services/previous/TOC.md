@@ -126,13 +126,13 @@
 ### [處理長時間執行的作業](media-services-dotnet-long-operations.md)
 ### [分散式 MP4 即時內嵌規格](media-services-fmp4-live-ingest-overview.md)
 
-## [裁剪內容](media-services-azure-media-clipper-overview.md)
-### [開始使用](media-services-azure-media-clipper-getting-started.md)
-### [載入影片](media-services-azure-media-clipper-load-assets.md)
-### [設定鍵盤快速鍵](media-services-azure-media-clipper-keyboard-shortcuts.md)
-### [設定當地語系化](media-services-azure-media-clipper-localization.md)
-### [提交裁剪作業](media-services-azure-media-clipper-submit-job.md)
-### [Azure 入口網站](media-services-azure-media-clipper-portal.md)
+<!-- ## [Clip content](media-services-azure-media-clipper-overview.md)
+### [Getting started](media-services-azure-media-clipper-getting-started.md)
+### [Load videos](media-services-azure-media-clipper-load-assets.md)
+### [Configure keyboard shortcuts](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Configure localization](media-services-azure-media-clipper-localization.md)
+### [Submit clipping jobs](media-services-azure-media-clipper-submit-job.md)
+### [Azure portal](media-services-azure-media-clipper-portal.md) -->
 
 ## [保護內容](media-services-content-protection-overview.md)
 ### [儲存體加密](media-services-rest-storage-encryption.md)

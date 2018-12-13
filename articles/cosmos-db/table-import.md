@@ -1,21 +1,19 @@
 ---
-title: 匯入資料以用於 Azure Cosmos DB 資料表 API | Microsoft Docs
+title: 匯入資料以用於 Azure Cosmos DB 資料表 API
 description: 了解如何匯入資料以用於 Azure Cosmos DB 資料表 API。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: 8614bf7009afab8c005d2ffb8b1a78f3694d2af7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: d277df3fa98564ebec92e548fa070e92cf76f200
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247504"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874034"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>將您的資料移轉至 Azure Cosmos DB 資料表 API 帳戶
 

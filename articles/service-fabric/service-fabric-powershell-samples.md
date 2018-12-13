@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 04/09/2018
+ms.date: 11/29/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 65f6252ecfa4e5850824fc7aa2e6eca2bdb88692
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5d8137b2ca6c47713b7a681090963dd2749dd1f2
+ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205751"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52634042"
 ---
 # <a name="azure-powershell-samples"></a>Azure PowerShell 範例
 
@@ -33,7 +33,6 @@ ms.locfileid: "34205751"
 |-|-|
 | **建立叢集** ||
 | [建立叢集 (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| 建立 Azure Service Fabric 叢集。 |
-|[建立測試叢集 (Azure)](./scripts/service-fabric-powershell-create-test-cluster.md)| 在 Azure 上建立三節點測試 Service Fabric 叢集。|
 | **管理叢集、節點和基礎結構** ||
 | [新增應用程式憑證](./scripts/service-fabric-powershell-add-application-certificate.md)| 將應用程式的 X.509 憑證加入到叢集中的所有節點。 |
 | [更新叢集 VM 上的 RDP 連接埠範圍](./scripts/service-fabric-powershell-change-rdp-port-range.md)|對已部署之叢集中的叢集節點 VM 變更 RDP 連接埠範圍。|

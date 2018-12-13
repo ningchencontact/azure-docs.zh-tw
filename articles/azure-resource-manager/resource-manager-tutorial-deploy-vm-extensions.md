@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2f5cffa0b31d46d76564565001aaed678eb1a649
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 7e0b3fff0ed60d5eb77194e7f9081d35f2e38571
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613567"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869632"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能
 
@@ -116,7 +116,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="deploy-the-template"></a>部署範本
 
-請參閱[部署範本](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)一節，以了解部署程序。 建議您對虛擬機器系統管理員帳戶使用產生的密碼。 請參閱[必要條件](#prerequisites)。
+請參閱[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)一節，以了解部署程序。 建議您對虛擬機器系統管理員帳戶使用產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="verify-the-deployment"></a>驗證部署
 

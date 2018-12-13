@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e72a7b967ef314dcdcfb2773627ce3d020e2fdcb
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: dfdad89d628fda476ecef1c43246ce3927927555
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614220"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863494"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
@@ -213,7 +213,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="deploy-the-template"></a>部署範本
 
-請參閱[部署範本](./resource-manager-tutorial-create-multiple-instances.md#deploy-the-template)一節，以了解部署程序。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
+請參閱[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)一節，以了解部署程序。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
