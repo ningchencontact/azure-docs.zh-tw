@@ -157,14 +157,8 @@ items:
       href: sql-database-managed-instance-create-manage.md
     - name: 資源限制
       href: sql-database-managed-instance-resource-limits.md
-    - name: VNET 組態
-      items:
-      - name: VNET 組態
-        href: sql-database-managed-instance-vnet-configuration.md
-      - name: 連線架構
-        href: sql-database-managed-instance-connectivity-architecture.md
-      - name: 管理端點
-        href: sql-database-managed-instance-management-endpoint.md
+    - name: 連線架構
+      href: sql-database-managed-instance-connectivity-architecture.md
     - name: T-SQL 差異
       href: sql-database-managed-instance-transact-sql-information.md
   - name: 平台即服務
@@ -287,34 +281,28 @@ items:
       href: elastic-jobs-overview.md
   - name: SQL 功能比較
     href: sql-database-features.md
-  - name: 監視和效能微調
+  - name: 監視和微調
     items:
-    - name: 監視和微調概觀
+    - name: 監視和效能微調
       href: sql-database-monitor-tune-overview.md
-    - name: 智慧效能
+    - name: 效能監視
       items:
-      - name: 微調動作和建議
-        href: sql-database-performance.md
       - name: 查詢效能深入解析
         href: sql-database-query-performance.md
-      - name: 資料庫建議程式效能建議
-        href: sql-database-advisor.md
-    - name: 進階監視
-      items:
       - name: Azure SQL 分析監視
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: 診斷遙測記錄
         href: sql-database-metrics-diag-logging.md
-    - name: 將 Intelligent Insights 納入效能
-      href: sql-database-intelligent-insights.md
-    - name: 自動微調
-      href: sql-database-automatic-tuning.md
-    - name: 智慧查詢處理
+    - name: 智慧效能
       items:
-      - name: 智慧查詢處理
-        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
-      - name: 自適性查詢處理
-        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+      - name: 自動微調
+        href: sql-database-automatic-tuning.md
+      - name: 將 Intelligent Insights 納入效能
+        href: sql-database-intelligent-insights.md
+      - name: 微調動作和建議
+        href: sql-database-performance.md
+      - name: 資料庫建議程式效能建議
+        href: sql-database-advisor.md
   - name: 資料庫功能
     items:
     - name: 資料庫功能
@@ -409,10 +397,20 @@ items:
       href: sql-database-managed-instance-migrate.md
     - name: 將 TDE 憑證遷移至受控執行個體
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: 決定受控執行個體子網路大小
+      href: sql-database-managed-instance-determine-size-vnet-subnet.md
+    - name: 為受控執行個體建立新的 VNet 和子網路
+      href: sql-database-managed-instance-create-vnet-subnet.md
+    - name: 為受控執行個體設定現有的 VNet 和子網路
+      href: sql-database-managed-instance-configure-vnet-subnet.md
     - name: 設定自訂 DNS
       href: sql-database-managed-instance-custom-dns.md
     - name: 同步網路組態
       href: sql-database-managed-instance-sync-network-configuration.md
+    - name: 尋找管理端點 IP 位址
+      href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+    - name: 確認具備內建防火牆保護
+      href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
     - name: 異動複寫
       href: replication-with-sql-database-managed-instance.md
     - name: 設定威脅偵測
@@ -668,9 +666,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: 解除安裝彈性工作 (取代)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: bb051db62acda98e40be09c174216208578afccc
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d94f4fb39ccdee60fae434204369fd844aedeb20
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320960"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384270"

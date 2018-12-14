@@ -83,21 +83,6 @@
 ### [發佈 VM 供應項目](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
 ### [更新現有供應項目](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
-<!-- Following legacy VM section was replaced.  -->
-<!-- 
-## Virtual machines
-### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
-### [Author virtual machine offer](./cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md)
-### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
-### [SEO guidance](./cloud-partner-portal-orig/cloud-partner-portal-seo-guidance.md)
-### [Make offer live](./cloud-partner-portal-orig/cloud-partner-portal-make-offer-live-on-Azure-Marketplace.md)
-### [Update existing offer](./cloud-partner-portal-orig/cloud-partner-portal-update-existing-offer.md)
-### [Delete offer](./cloud-partner-portal-orig/cloud-partner-portal-delete-an-offer.md)
-### [Migrate offers](./cloud-partner-portal-orig/cloud-partner-portal-how-to-migrate-to-the-new-cloud-partner-portal.md)
-### [Automate offer publishing](./cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md)
--->
-<!-- new section for Azure apps -->
-
 ## [Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-azure-app-offer.md)
 ### [先決條件](./cloud-partner-portal/azure-applications/cpp-prerequisites.md)
 ### [建立 Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-create-offer.md)
@@ -201,7 +186,16 @@
 ### [BPM 和方法](./cloud-partner-portal-orig/bpm-and-methodologies.md)
 ### [說明 Wiki](./cloud-partner-portal-orig/help-wiki.md)
 
-## [諮詢服務](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+<!--
+## [Consulting services](./cloud-partner-portal-orig/cloud-partner-portal-consulting-services-publishing-offer.md)
+-->
+## [諮詢服務](./cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md)
+### [先決條件](./cloud-partner-portal/consulting-services/cpp-consulting-service-prerequisites.md)
+### [建立諮詢服務供應項目](./cloud-partner-portal/consulting-services/cpp-consulting-service-create-offer.md)
+#### [供應項目設定索引標籤](./cloud-partner-portal/consulting-services/cpp-consulting-service-define-offer-settings.md)
+#### [店面詳細資料索引標籤](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
+### [發佈諮詢服務供應項目](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
+
 ## [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
 ## [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
 ## [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
