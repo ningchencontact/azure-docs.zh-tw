@@ -177,8 +177,8 @@
 ### [利用 Content Moderator](media-services-content-moderation.md)
 
 ## [設定遙測](media-services-telemetry-overview.md)
-###[.NET](media-services-dotnet-telemetry.md)
-###[REST](media-services-rest-telemetry.md)
+### [.NET](media-services-dotnet-telemetry.md)
+### [REST](media-services-rest-telemetry.md)
 
 ## 調整
 ### [媒體處理](media-services-scale-media-processing-overview.md)

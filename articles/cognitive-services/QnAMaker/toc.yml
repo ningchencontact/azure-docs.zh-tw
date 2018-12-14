@@ -7,6 +7,10 @@ items:
     href: Overview/overview.md
 - name: 快速入門
   items:
+  - name: 建立新的知識庫
+    href: How-To/create-knowledge-base.md
+  - name: 發佈知識庫
+    href: How-To/publish-knowledge-base.md
   - name: 從知識庫中獲得答案
     items:
     - name: 使用 Postman
@@ -80,8 +84,6 @@ items:
     - name: 建立和發佈知識庫
       href: Quickstarts/create-publish-knowledge-base.md
     - name: 建立知識庫
-      href: How-To/create-knowledge-base.md
-    - name: 在知識庫中新增閒聊
       href: How-to/chit-chat-knowledge-base.md
     - name: 從預覽移轉知識庫
       href: Tutorials/migrate-knowledge-base.md
@@ -91,8 +93,6 @@ items:
       href: How-To/collaborate-knowledge-base.md
     - name: 以不同語言建立知識庫
       href: How-To/language-knowledge-base.md
-    - name: 發佈知識庫
-      href: How-To/publish-knowledge-base.md
     - name: 測試知識庫
       href: How-To/test-knowledge-base.md
   - name: 使用知識庫
@@ -174,9 +174,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: 部落格
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: f4323dcd58b35fefcfa91864bd58ce2129f1a53c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a7edca422a935ff98c823a50ef62e62683729687
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272434"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343542"
