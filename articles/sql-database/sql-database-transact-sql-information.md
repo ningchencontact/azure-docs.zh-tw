@@ -71,7 +71,7 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 
 ### <a name="about-the-applies-to-tags"></a>關於「適用於」標記
 
-Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關文章。 文章標題下方是圖示列，列出四個 SQL Server 平台並指出適用性。 例如，可用性群組是在 SQL Server 2012 中導入。  [建立可用性群組](https://msdn.microsoft.com/library/ff878399.aspx) 一文指出陳述式會套用至 **SQL Server (從 2012 年開始)**。 陳述式不適用於 SQL Server 2008、SQL Server 2008 R2、Azure SQL Database、Azure SQL 資料倉儲或平行資料倉儲。
+Transact-SQL 參考包括從 SQL Server 版本 2008 到目前版本的相關文章。 文章標題下方是圖示列，列出四個 SQL Server 平台並指出適用性。 例如，可用性群組是在 SQL Server 2012 中導入。   [建立可用性群組](https://msdn.microsoft.com/library/ff878399.aspx) 一文指出陳述式會套用至 **SQL Server (從 2012 年開始)**。 陳述式不適用於 SQL Server 2008、SQL Server 2008 R2、Azure SQL Database、Azure SQL 資料倉儲或平行資料倉儲。
 
 在某些情況下，文章的一般主旨可用於產品中，但產品之間會有些微的差異。 依適當情況會在文章的中間點指出差異。 在某些情況下，文章的一般主旨可用於產品中，但產品之間會有些微的差異。 依適當情況會在文章的中間點指出差異。 例如，SQL Database 中有提供 CREATE TRIGGER 文章。 但伺服器層級觸發程序的 **ALL SERVER** 選項指出無法在 SQL Database 中使用伺服器層級的觸發程序。 請改用資料庫層級的觸發程序。
 
