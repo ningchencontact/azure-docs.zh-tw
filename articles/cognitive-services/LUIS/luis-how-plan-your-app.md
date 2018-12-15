@@ -1,21 +1,22 @@
 ---
-title: 規劃您的 Language Understanding (LUIS) 應用程式
-titleSuffix: Azure Cognitive Services
+title: 規劃您的應用程式
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 概述相關的應用程式意圖和實體，然後在 Language Understanding Intelligent Service (LUIS) 中建立應用程式計畫。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/26/2018
 ms.author: diberry
-ms.openlocfilehash: a7e137c864d216b6b936181c3482358bd10f175a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e14b9f2930ed9c170f31bd654829efe3b5a99446
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037264"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091276"
 ---
 # <a name="plan-your-luis-app"></a>規劃 LUIS 應用程式
 

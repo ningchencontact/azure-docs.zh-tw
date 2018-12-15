@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5be556ca13b9e4f681239998205aac073cc0fb99
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7d593a992d0ff189d23185b3422dee86a55308d1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974750"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309445"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>將 Windows IoT 核心版裝置連線到 Azure IoT 中心應用程式
 
@@ -57,9 +57,9 @@ ms.locfileid: "51974750"
 
 ### <a name="what-youll-need"></a>您所需的項目
 
-若要設定實體 Windows 10 IoT 核心版裝置，您必須先具有執行 Windows 10 IoT 核心版的裝置。 [在此](https://docs.microsoft.com/en-us/windows/iot-core/tutorials/quickstarter/devicesetup)了解如何設定 Windows 10 IoT 核心版裝置。
+若要設定實體 Windows 10 IoT 核心版裝置，您必須先具有執行 Windows 10 IoT 核心版的裝置。 [在此](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup)了解如何設定 Windows 10 IoT 核心版裝置。
 
-您也需要可與 Azure IoT 中心通訊的用戶端應用程式。 您可以使用 Azure SDK 建置自己的自訂應用程式，並使用 Visual Studio 將它部署到您的裝置，ㄝ可以下載[預先建立的範例](https://developer.microsoft.com/en-us/windows/iot/samples)且只需在裝置上部署和執行該範例。 
+您也需要可與 Azure IoT 中心通訊的用戶端應用程式。 您可以使用 Azure SDK 建置自己的自訂應用程式，並使用 Visual Studio 將它部署到您的裝置，ㄝ可以下載[預先建立的範例](https://developer.microsoft.com/windows/iot/samples)且只需在裝置上部署和執行該範例。 
 
 ### <a name="deploying-the-sample-client-application"></a>部署範例用戶端應用程式
 

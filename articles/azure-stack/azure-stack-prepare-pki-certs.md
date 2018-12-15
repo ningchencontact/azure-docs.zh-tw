@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: ef9fe0e05343f9c99656634a075b1bd464a13c7e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c26dcbc2fab7cff3134846234cafaa481fd5ba1a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379582"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972022"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-deployment"></a>準備 Azure Stack PKI 憑證以進行部署
 必須使用與 Azure Stack 憑證需求符合的屬性，來匯入和匯出[取自您所選 CA 的](azure-stack-get-pki-certs.md)憑證檔案。
@@ -38,15 +38,15 @@ ms.locfileid: "44379582"
 
 1. 在 [憑證匯入精靈] 中，選取 [本機電腦] 作為匯入位置。 選取 [下一步] 。 在下列畫面上，再次按一下 [下一步]。
 
-    ![本機電腦匯入位置](.\media\prepare-pki-certs\1.png)
+    ![本機電腦匯入位置](./media/prepare-pki-certs/1.png)
 
 1.  選擇 [將所有憑證放在下列存放區中]，然後選取 [企業信任] 作為位置。 按一下 [確定] 以關閉 [憑證存放區選取項目] 對話方塊，然後按 [下一步]。
 
-    ![設定憑證存放區](.\media\prepare-pki-certs\3.png)
+    ![設定憑證存放區](./media/prepare-pki-certs/3.png)
 
     a. 如果您要匯入 PFX，將會看到一個額外的對話方塊。 在 [私密金鑰保護] 頁面上，輸入您憑證檔案的密碼，然後啟用 [將此索引鍵標示為可匯出。這可讓您在稍後備份或傳輸索引鍵] 選項。 選取 [下一步] 。
 
-    ![將索引鍵標示為可匯出](.\media\prepare-pki-certs\2.png)
+    ![將索引鍵標示為可匯出](./media/prepare-pki-certs/2.png)
 
 1. 按一下 [完成] 完成匯入。
 
@@ -58,11 +58,11 @@ ms.locfileid: "44379582"
 
 1. 按一下 [檔案]、[新增/移除嵌入式管理單元]，然後選取 [憑證]，並按一下 [新增]。
 
-    ![新增憑證嵌入式管理單元](.\media\prepare-pki-certs\mmc-2.png)
+    ![新增憑證嵌入式管理單元](./media/prepare-pki-certs/mmc-2.png)
  
 1. 選取 [電腦帳戶]，並按一下 [下一步]，然後依序選取 [本機電腦] 和 [完成]。 按一下 [確定] 以關閉 [新增/移除嵌入式管理單元] 頁面。
 
-    ![新增憑證嵌入式管理單元](.\media\prepare-pki-certs\mmc-3.png)
+    ![新增憑證嵌入式管理單元](./media/prepare-pki-certs/mmc-3.png)
 
 1. 瀏覽至 [憑證] > [企業信任] > [憑證位置]。 請確認在右側看到您的憑證。
 

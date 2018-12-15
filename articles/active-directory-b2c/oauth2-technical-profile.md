@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3f1e34b4d527d076a0bac2e0cb6ef3a901296c57
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cc09998a982f319cfc1d60924d2175a3c17c8465
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612470"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836674"
 ---
 # <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自訂原則中定義 OAuth2 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供者的支援。 這是用於授權和委派驗證的主要通訊協定。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](http://tools.ietf.org/html/rfc6749)。 使用 OAuth2 技術設定檔時，您可以與 OAuth2 式識別提供者 (例如 Facebook 和 Live.com) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
+Azure Active Directory (Azure AD) B2C 可提供 OAuth2 通訊協定識別提供者的支援。 這是用於授權和委派驗證的主要通訊協定。 如需詳細資訊，請參閱 [RFC 6749 The OAuth 2.0 授權架構](https://tools.ietf.org/html/rfc6749)。 使用 OAuth2 技術設定檔時，您可以與 OAuth2 式識別提供者 (例如 Facebook 和 Live.com) 同盟，讓您的使用者夠使用其現有的社交或企業識別來登入。
 
 ## <a name="protocol"></a>通訊協定
 

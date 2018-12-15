@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7be724a93eb951a3f9e35048a3c70571e43e79cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959813"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184741"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>利用 Resource Manager 範本建立 Windows 虛擬機器
 
@@ -42,7 +42,7 @@ ms.locfileid: "50959813"
 1. 取得可以建立資源的可用位置清單。
    
     ```powershell   
-    Get-AzureRmLocation | sort DisplayName | Select DisplayName
+    Get-AzureRmLocation | sort-object DisplayName | Select DisplayName
     ```
 
 2. 在您選取的位置中建立資源群組。 此範例示範如何在 [West US] \(美國西部\) 位置中建立名為 **myResourceGroup** 的資源群組：

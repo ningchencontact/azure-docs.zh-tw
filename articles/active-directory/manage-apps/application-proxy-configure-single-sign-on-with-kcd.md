@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: dbb7fca08e8d5c59842f7ddfb02b463a42efadb7
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 565e7379ad12222e459bd61ed50fa38f9f9b12fc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422278"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136235"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>可供使用應用程式 Proxy 單一登入應用程式的 Kerberos 限制委派
 
@@ -75,7 +75,7 @@ ms.locfileid: "52422278"
 Sharepointserviceaccount 可以是 SPS 電腦帳戶，或是用來執行 SPS 應用程式集區的服務帳戶。
 
 ## <a name="configure-single-sign-on"></a>設定單一登入 
-1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory] 作為 [預先驗證方法]。
+1. 根據 [使用應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)中的所述指示來發佈您的應用程式。 請務必選取 [Azure Active Directory] 作為 [預先驗證方法]。
 2. 應用程式出現於企業應用程式清單後，將其選取並按一下 [單一登入]。
 3. 將單一登入模式設定為 [整合式 Windows 驗證]。  
 4. 輸入應用程式伺服器的 [內部應用程式 SPN]  。 在此範例中，已發佈應用程式的 SPN 為 http/www.contoso.com。 此 SPN 必須在連接器可以呈送委派認證的服務清單中。 

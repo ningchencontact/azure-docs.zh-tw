@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023741"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342233"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure 自動化中的原始檔控制整合
 
@@ -50,7 +50,7 @@ Azure 自動化支援三種類型的原始檔控制：
 |屬性  |說明  |
 |---------|---------|
 |原始檔控制名稱     | 原始檔控制的易記名稱        |
-|原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
+|原始檔控制類型     | 原始檔控制來源的類型。 可用選項包括：</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |存放庫     | 存放庫或專案的名稱。 此值提取自原始檔控制存放庫。 範例：$/ContosoFinanceTFVCExample         |
 |分支     | 此分支可從中提取原始程式檔。 分支目標不適用於 TFVC 原始檔控制類型。          |
 |資料夾路徑     | 包含要同步處理之 Runbook 的資料夾。範例：/Runbooks         |
@@ -62,7 +62,7 @@ Azure 自動化支援三種類型的原始檔控制：
 
 ## <a name="syncing"></a>同步處理
 
-如果在設定原始檔控制整合時設定自動同步處理，初始同步處理就會自動啟動。 如果未設定自動同步處理，請從 [原始檔控制 (預覽)] 頁面上的表格中選取來源。 按一下 [開始同步處理] 開始同步處理程序。  
+如果在設定原始檔控制整合時設定自動同步處理，初始同步處理就會自動啟動。 如果未設定自動同步處理，請從 [原始檔控制 (預覽)] 頁面上的表格中選取來源。 按一下 [開始同步處理] 開始同步處理程序。
 
 您可以按一下 [同步處理作業] 索引標籤，以檢視目前或先前同步處理作業的狀態。在 [原始檔控制] 下拉式清單中選取原始檔控制。
 

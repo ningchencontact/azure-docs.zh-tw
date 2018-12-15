@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 04/01/2018
-ms.openlocfilehash: f48bab5cec1e8c3836ab5044fbff1a843ede249b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f4e7a911e98ea09376b4b6ac56e9441fe98e426
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978367"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135180"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中備份和還原伺服器
 
@@ -71,9 +71,10 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 `az mysql server restore` 命令需要下列參數：
-| 設定 | 建議的值 | 說明  |
+
+| 設定 | 建議的值 | 說明  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
+| resource-group |  myresourcegroup |  來源伺服器所在的資源群組。  |
 | name | mydemoserver-restored | 還原命令所建立之新伺服器的名稱。 |
 | restore-point-in-time | 2018-03-13T13:59:00Z | 選取要還原的時間點。 這個日期和時間必須在來源伺服器的備份保留期限內。 請使用 ISO8601 日期和時間格式。 例如，您可以使用自己的當地時區，例如 `2018-03-13T05:59:00-08:00`。 您也可以使用 UTC Zulu 格式，例如 `2018-03-13T13:59:00Z`。 |
 | source-server | mydemoserver | 要進行還原的來源伺服器之名稱或識別碼。 |
@@ -108,7 +109,8 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 ```
 
 `az mysql server georestore` 命令需要下列參數：
-| 設定 | 建議的值 | 說明  |
+
+| 設定 | 建議的值 | 說明  |
 | --- | --- | --- |
 |resource-group| myresourcegroup | 新伺服器將所屬的資源群組名稱。|
 |name | mydemoserver-georestored | 新伺服器的名稱。 |

@@ -9,18 +9,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/20/2017
-ms.openlocfilehash: 2688f148185b1c1523178d190a7a2a76e6ceabef
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: fac56117c4c70e2735580abb52d05e008d660003
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908780"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089408"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以程式設計方式來建立串流分析工作監視
 
 本文示範如何為串流分析工作啟用監視。 透過 REST API、Azure SDK 或 PowerShell 建立的串流分析作業預設不會啟用監視。 您可以在 Azure 入口網站中前往該作業的 [監視] 頁面，然後按一下 [啟用] 按鈕來手動啟用，或是按照本文中的步驟執行，將此程序自動化。 串流分析工作的監視資料將會顯示在 Azure 入口網站的 [計量] 區域中。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 開始此程序之前，您必須有下列項目：
 
@@ -33,14 +33,14 @@ ms.locfileid: "30908780"
 1. 建立 Visual Studio C# .NET 主控台應用程式。
 2. 在 Package Manager Console 中，執行下列命令以安裝 NuGet 封裝。 第一個是 Azure 串流分析管理 .NET SDK。 第二個是將用來啟用監視功能的 Azure 監視器 SDK。 最後一個是驗證要使用的 Azure Active Directory 用戶端。
    
-   ```
+   ```powershell
    Install-Package Microsoft.Azure.Management.StreamAnalytics
    Install-Package Microsoft.Azure.Insights -Pre
    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
    ```
 3. 將下列 appSettings 區段加入至 App.config 檔案。
    
-   ```
+   ```csharp
    <appSettings>
      <!--CSM Prod related values-->
      <add key="ResourceGroupName" value="RESOURCE GROUP NAME" />
@@ -57,12 +57,12 @@ ms.locfileid: "30908780"
    ```
    以您的 Azure 訂用帳戶 ID 和租用戶識別碼取代 *SubscriptionId* 和 *ActiveDirectoryTenantId* 的值。 您可以藉由執行下列 PowerShell Cmdlet 來取得這些值：
    
-   ```
+   ```powershell
    Get-AzureAccount
    ```
 4. 將下列 using 陳述式加入至專案的原始程式檔 (Program.cs) 中。
    
-   ```
+   ```csharp
      using System;
      using System.Configuration;
      using System.Threading;
@@ -74,7 +74,8 @@ ms.locfileid: "30908780"
      using Microsoft.IdentityModel.Clients.ActiveDirectory;
    ```
 5. 新增驗證協助程式方法。
-   
+
+```csharp   
      public static string GetAuthorizationHeader()
    
          {
@@ -111,11 +112,13 @@ ms.locfileid: "30908780"
    
              throw new InvalidOperationException("Failed to acquire token");
      }
+```
 
 ## <a name="create-management-clients"></a>建立管理用戶端
 
 下列程式碼將設定必要的變數與管理用戶端。
 
+```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -133,6 +136,7 @@ ms.locfileid: "30908780"
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>為現有串流分析作業啟用監視
 
@@ -148,7 +152,7 @@ ms.locfileid: "30908780"
 > 用來取代下方程式碼中 `<YOUR STORAGE ACCOUNT NAME>` 的儲存體帳戶名稱應該是與您為其啟用監視功能的「串流分析」作業屬於相同訂用帳戶的儲存體帳戶。
 > 
 > 
-
+```csharp
     // Get an existing Stream Analytics job
     JobGetParameters jobGetParameters = new JobGetParameters()
     {
@@ -165,7 +169,7 @@ ms.locfileid: "30908780"
             }
     };
     insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
-
+```
 
 
 ## <a name="get-support"></a>取得支援

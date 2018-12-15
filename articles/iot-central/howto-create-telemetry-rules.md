@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a5475ad2f487bca90f600406ca9bb8f0925a4988
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005728"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964810"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立遙測規則並設定通知
 
@@ -36,19 +36,19 @@ ms.locfileid: "51005728"
 
 1. 如果您尚未建立任何規則，您將會看到下列畫面：
 
-    ![還沒有規則](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
+    ![還沒有規則](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
 
 1. 在 [規則] 索引標籤上，依序按一下 [編輯範本] 和 [+ 新增規則]，以查看您可以建立的規則類型。
 
 1. 按一下 [遙測]，以建立規則來監視裝置遙測。
 
-    ![規則類型](media\howto-create-telemetry-rules\Rule_Types.png)
+    ![規則類型](media/howto-create-telemetry-rules/Rule_Types.png)
 
 1. 輸入名稱來協助您識別此裝置範本中的規則。
 
 1. 若要立即為針對此範本建立的所有裝置啟用規則，請切換 [為此範本的所有裝置啟用規則]。
 
-   ![規則詳細資訊](media\howto-create-telemetry-rules\Rule_Detail.png)
+   ![規則詳細資訊](media/howto-create-telemetry-rules/Rule_Detail.png)
     
     此規則會自動套用到裝置範本下的所有裝置。
     
@@ -61,7 +61,7 @@ ms.locfileid: "51005728"
 
 1. 從 [量測] 下拉式清單中選取想要監視的遙測。
 
-   ![條件](media\howto-create-telemetry-rules\Aggregate_Condition_Filled_Out.png)
+   ![條件](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
 
 1. 接下來，選擇 [彙總]、[操作員]，並提供**閾值**。
     - 彙總為選擇性的。 如果沒有彙總，規則就會在每個遙測資料點符合條件時觸發。 例如，如果將規則設定為在溫度超過 80 時觸發，則此規則將幾乎會在裝置報告溫度 > 80 時立即觸發。
@@ -78,14 +78,14 @@ ms.locfileid: "51005728"
 
 1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。  
 
-    ![新增動作](media\howto-create-telemetry-rules\Add_Action.png)
+    ![新增動作](media/howto-create-telemetry-rules/Add_Action.png)
 
 1. 選擇 [傳送電子郵件] 動作，在 [收件者] 欄位中輸入有效的電子郵件地址，然後提供當此規則觸發時要在電子郵件本文中出現的附註。
 
     > [!NOTE]
     > 只有已新增至應用程式且至少已登入一次的使用者才會收到電子郵件。 深入了解 Azure IoT Central 中的[使用者管理](howto-administer.md)。
 
-   ![設定動作](media\howto-create-telemetry-rules\Configure_Action.png)
+   ![設定動作](media/howto-create-telemetry-rules/Configure_Action.png)
 
 1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的遙測。 符合規則中指定的條件時，規則就會觸發所設定的電子郵件動作。
 

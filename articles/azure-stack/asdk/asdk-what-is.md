@@ -16,15 +16,15 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 62eccba1b876ca8272dacbbd97a1d28c8b796081
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 345d62f4045e7b9279d52acf70cc340d088f5db0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138305"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961326"
 ---
 # <a name="what-is-the-azure-stack-development-kit"></a>何謂 Azure Stack 開發套件？
-[Microsoft Azure Stack 整合系統](.\.\azure-stack-poc.md)的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。
+[Microsoft Azure Stack 整合系統](../azure-stack-poc.md)的大小範圍為 4 到 16 個節點，並且由硬體合作夥伴與 Microsoft 共同支援。 您可以使用 Azure Stack 整合系統，來為生產環境工作負載啟用新案例。 如果您是管理整合系統基礎結構並提供服務的 Azure Stack 操作員，請參閱我們的[操作員文件](https://docs.microsoft.com/azure/azure-stack)。
 
 Azure Stack 開發套件 (ASDK) 是 Azure Stack 的單一節點部署，供您**免費**下載並使用。 所有的 ASDK 元件會安裝在單一主機伺服器電腦上所執行的虛擬機器中，且此電腦必須符合或超過[最低硬體需求](asdk-deploy-considerations.md#hardware)。 ASDK 旨在提供一個環境，讓您評估 Azure Stack 並使用 API 以及與「非生產」環境中相同的 Azure 工具來開發現代化的應用程式。 
 
@@ -48,9 +48,9 @@ ASDK 的設計目的是要為下列人員提供 Azure 一致的混合式雲端�
 |說明|ASDK|多節點 Azure Stack|
 |-----|-----|-----|
 |**調整**|所有元件都安裝在單一節點伺服器電腦上。|其大小範圍可為 4 到 16 個節點。|
-|**恢復功能**|單一節點組態未提供高可用性|支援[高可用性](.\.\azure-stack-key-features.md#high-availability-for-azure-stack)功能。|
-|**網路功能**|ASDK 使用名為 AzS-BGPNAT01 的 VM 來路由傳送所有 ASDK 網路流量。 不需要任何其他參數。|AzS-BGPNAT01 VM 不存在於多節點部署中。 需要更複雜的[網路路由基礎結構](.\.\azure-stack-network.md#network-infrastructure)，包括機架頂端 (TOR)、基礎板管理控制器 (BMC) 和界限 (資料中心網路) 交換器。|
-|**修補和更新程序**|若要移至新版 ASDK，您必須在開發套件主機電腦上重新部署 ASDK。|[修補和更新](.\.\azure-stack-updates.md)程序可用來更新已安裝的 Azure Stack 版本。|
+|**恢復功能**|單一節點組態未提供高可用性|支援[高可用性](../azure-stack-key-features.md#high-availability-for-azure-stack)功能。|
+|**網路功能**|ASDK 使用名為 AzS-BGPNAT01 的 VM 來路由傳送所有 ASDK 網路流量。 不需要任何其他參數。|AzS-BGPNAT01 VM 不存在於多節點部署中。 需要更複雜的[網路路由基礎結構](../azure-stack-network.md#network-infrastructure)，包括機架頂端 (TOR)、基礎板管理控制器 (BMC) 和界限 (資料中心網路) 交換器。|
+|**修補和更新程序**|若要移至新版 ASDK，您必須在開發套件主機電腦上重新部署 ASDK。|[修補和更新](../azure-stack-updates.md)程序可用來更新已安裝的 Azure Stack 版本。|
 |**支援**|MSDN Azure Stack 論壇。 非生產環境「不」支援 Microsoft 客戶服務及支援 (CSS)。|[MSDN Azure Stack 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack)和完整的 CSS 支援。|
 | | |
 
@@ -61,7 +61,7 @@ ASDK 的設計目的是要為下列人員提供 Azure 一致的混合式雲端�
 依預設，當您部署 ASDK 時，Azure Stack 會包含下列的「基礎服務」：
 - 計算
 - 儲存體
-- 網路功能
+- 網路
 - Key Vault
 
 利用這些基礎服務，您可用最少的設定，將基礎結構即服務 (IaaS) 提供給您的使用者。

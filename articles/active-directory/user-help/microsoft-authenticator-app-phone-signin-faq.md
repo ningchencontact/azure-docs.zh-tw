@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: b2483d93fdc83970ca1568326f4bc728de16f77c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038862"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962212"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用您的電話而不是您的密碼登入
 Microsoft Authenticator 應用程式不僅可藉由在您輸入密碼之後執行雙步驟驗證來協助您保護帳戶安全，現在它還可以完全取代您 Microsoft 帳戶的密碼。
@@ -43,13 +43,13 @@ Microsoft Authenticator 應用程式不僅可藉由在您輸入密碼之後執�
 
     輸入您的使用者名稱之後，您將會看到一個包含 2 個數字的頁面，要求您透過 Microsoft Authenticator 應用程式核准登入。 如果您不想使用這個登入方法，您可以選取 [改為使用您的密碼]，然後使用您的密碼登入。
 
-    ![核准登入方塊](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![核准登入方塊](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
 2. 在 Microsoft Authentication 應用程式中，您將會收到通知，要求您**核准登入**。 如果您可以辨識該登入嘗試，請選擇 [核准]。 否則，請選擇 [拒絕]。 
 
 3. 點選您在 [核准登入] 畫面上看到的相同號碼。 使用您手機的 PIN 或生物識別金鑰來完成驗證。
 
-    ![包含可選數字的核准登入方塊](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![包含可選數字的核准登入方塊](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>為您的個人帳戶開啟手機登入 
 您可以針對個人的 Microsoft 帳戶開啟手機登入，例如，您用來登入 Outlook.com、Xbox 或 Skype 的帳戶。

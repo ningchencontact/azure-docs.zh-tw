@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/07/2018
 ms.author: bwren
-ms.openlocfilehash: 30898be58db228484bcd85e8896da10d0bfc29dd
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 29daa447be051af3df86ba9211bc2e4871d8c71e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277455"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965100"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 監視
 
@@ -38,7 +37,7 @@ ms.locfileid: "51277455"
 監視係指收集和分析資料來判斷您商務應用程式及其相依資源之效能、健康情況和可用性的行為。 有效的監視策略將可協助您了解應用程式不同元件的詳細作業，並主動通知您重大問題，讓您能夠在這些問題變成問題之前便將其解決，以提升正常運作時間。 在 Azure 中監視主要是由 [Azure 監視器](../azure-monitor/overview.md)提供服務，它會提供一般存放區以便儲存監視資料、多個資料來源以便從支援您應用程式的不同層次收集資料，以及用於分析及回應所收集資料的功能。
 
 ## <a name="configure"></a>設定
-設定是指應用程式及資源的初始部署和設定，以及透過修補程式和更新所持續進行的維護。  您可以透過指令碼和原則將這些工作自動化，以免於重複進行各項工作、將投注的時間及精力降至最低，並增加正確性和效率。  [Azure 自動化](..\automation\automation-intro.md)提供自動化設定工作的主要服務。  它除了讓流程自動化的 Runbook，還提供設定和更新管理，可協助您透過原則管理設定，以及協助識別和部署更新。
+設定是指應用程式及資源的初始部署和設定，以及透過修補程式和更新所持續進行的維護。  您可以透過指令碼和原則將這些工作自動化，以免於重複進行各項工作、將投注的時間及精力降至最低，並增加正確性和效率。  [Azure 自動化](../automation/automation-intro.md)提供自動化設定工作的主要服務。  它除了讓流程自動化的 Runbook，還提供設定和更新管理，可協助您透過原則管理設定，以及協助識別和部署更新。
 
 ## <a name="govern"></a>治理
 治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。  它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。  在 Azure 中的治理主要是透過兩個服務進行實作。  [Azure 原則](../governance/policy/overview.md)可讓您建立、指派和管理會對資源強制執行不同規則和動作的原則定義，讓這些資源能符合公司標準和服務等級協定的規範。 針對您的 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，[Cloudyn 的 Azure 成本管理](../cost-management/overview.md)可讓您追蹤雲端使用量和費用。

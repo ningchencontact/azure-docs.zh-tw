@@ -2,21 +2,20 @@
 title: 適用於 Functions 1.x 的 Azure Cosmos DB 繫結
 description: 了解如何在 Azure Functions 中使用 Azure Cosmos DB 觸發程序和繫結。
 services: functions
-documentationcenter: na
 author: craigshoemaker
+ms.author: cshoe
 manager: jeconnoc
 keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架構
 ms.service: azure-functions; cosmos-db
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: cshoe
-ms.openlocfilehash: 3d4c9e974f92f26b93900318c01dc8a659d8edbe
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 2a501129720447462d1e6e961597b51fa683dc1e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276205"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136200"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>適用於 Azure Functions 1.x 的 Azure Cosmos DB 繫結
 
@@ -24,10 +23,10 @@ ms.locfileid: "52276205"
 > * [第 1 版](functions-bindings-cosmosdb.md)
 > * [第 2 版](functions-bindings-cosmosdb-v2.md)
 
-此文章說明如何在 Azure Functions 中使用 [Azure Cosmos DB](..\cosmos-db\serverless-computing-database.md) 繫結。 Azure Functions 支援適用於 Azure Cosmos DB 的觸發程序、輸入和輸出繫結。
+本文說明如何在 Azure Functions 中使用 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 繫結。 Azure Functions 支援適用於 Azure Cosmos DB 的觸發程序、輸入和輸出繫結。
 
 > [!NOTE]
-> 此文章適用於 Azure Functions 1.x。  如需如何在 Functions 2.x 中使用這些繫結的資訊，請參閱[適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結](functions-bindings-cosmosdb-v2.md)。
+> 本文適用於 Azure Functions 1.x。  如需如何在 Functions 2.x 中使用這些繫結的資訊，請參閱[適用於 Azure Functions 2.x 的 Azure Cosmos DB 繫結](functions-bindings-cosmosdb-v2.md)。
 >
 >這個繫結最初命名為 DocumentDB。 在 Functions 1.x 版中，只有觸發程序已重新命名為 Cosmos DB；輸入繫結、輸出繫結和 NuGet 套件則保留 DocumentDB 名稱。
 
@@ -38,7 +37,7 @@ ms.locfileid: "52276205"
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet 套件 1.x 版中，提供適用於 Functions 1.x 版的 Azure Cosmos DB 繫結。 繫結的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB) NuGet 套件 1.x 版中，提供適用於 Functions 1.x 版的 Azure Cosmos DB 繫結。 繫結的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.DocumentDB) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -895,7 +894,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, Docume
 
 本區段包含下列範例：
 
-* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-string-javascript)
+* [佇列觸發程序，從 JSON 中查閱識別碼](#queue-trigger-look-up-id-from-json-javascript)
 * [HTTP 觸發程序，從查詢字串中查閱識別碼](#http-trigger-look-up-id-from-query-string-javascript)
 * [HTTP 觸發程序，從路由資料中查閱識別碼](#http-trigger-look-up-id-from-route-data-javascript)
 * [佇列觸發程序，使用 SqlQuery 取得多個文件](#queue-trigger-get-multiple-docs-using-sqlquery-javascript)
@@ -1177,7 +1176,7 @@ module.exports = function (context, req, toDoItem) {
 
 在 C# 和 F# 函式中，當函式順利結束時，系統會自動保留透過具名輸入參數對輸入文件所做的任何變更。 
 
-在 JavaScript 函數中，不會在函數結束時自動執行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 [JavaScript 範例](#input---javascript-example)。
+在 JavaScript 函數中，不會在函數結束時自動執行更新。 請改用 `context.bindings.<documentName>In` 和 `context.bindings.<documentName>Out` 來進行更新。 請參閱 [JavaScript 範例](#input---javascript-examples)。
 
 ## <a name="output"></a>輸出
 
@@ -1571,7 +1570,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
     }
 ```
 
-如需完整範例，請參閱[輸出 - C# 範例](#output---c-example)。
+如需完整範例，請參閱[輸出 - C# 範例](#output---c-examples)。
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
@@ -1593,7 +1592,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 ## <a name="output---usage"></a>輸出 - 使用方式
 
-根據預設，當您在函式中寫入輸出參數時，會在資料庫中建立文件。 此文件已自動產生 GUID 作為文件識別碼。 您可以藉由在傳遞至輸出參數的 JSON 物件中指定 `id` 屬性，來指定輸出文件的文件識別碼。 
+根據預設，當您在函式中寫入輸出參數時，會在資料庫中建立文件。 這份文件已自動產生 GUID 作為文件識別碼。 您可以藉由在傳遞至輸出參數的 JSON 物件中指定 `id` 屬性，來指定輸出文件的文件識別碼。 
 
 > [!Note]  
 > 當您指定現有文件的識別碼時，新的輸出文件會覆寫現有文件。 
@@ -1606,7 +1605,7 @@ public static async Task Run(ToDoItem[] toDoItemsIn, IAsyncCollector<ToDoItem> t
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解使用 Cosmos DB 的無伺服器資料庫](..\cosmos-db\serverless-computing-database.md)
+* [深入了解使用 Cosmos DB 的無伺服器資料庫](../cosmos-db/serverless-computing-database.md)
 * [深入了解 Azure Functions 觸發程序和繫結](functions-triggers-bindings.md)
 
 <!---

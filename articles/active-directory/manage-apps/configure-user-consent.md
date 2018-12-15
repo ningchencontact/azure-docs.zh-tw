@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 25f5d79b900cf15a9bdcb8f037fa95494c63b7e1
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 991199747f51f379ee6f3efe8009ab9166c33ac7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088247"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832001"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>在 Azure Active Directory 設定使用者同意應用程式的方式
 了解如何設定使用者同意應用程式權限的方式。 您可以授與管理員同意，以簡化使用者體驗。 本文提供不同的方式供您設定使用者同意。 這些方法適用於 Azure Active Directory (Azure AD) 租用戶中的所有使用者。 
@@ -73,4 +73,4 @@ ms.locfileid: "50088247"
 
 [適用於 AzureAD v2.0 交集應用程式的同意與權限](../develop/active-directory-v2-scopes.md)
 
-[AzureAD StackOverflow (英文)](http://stackoverflow.com/questions/tagged/azure-active-directory)
+[AzureAD StackOverflow (英文)](https://stackoverflow.com/questions/tagged/azure-active-directory)

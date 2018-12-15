@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ece5700965018a8a9a98e16a1577309a909b7b7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 419160ea8a91672d9c948c57b9c3ffd70180ab66
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334988"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187716"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>如何使用適用於 VM 的 Azure 監視器 (預覽) 來繪製效能圖表
 適用於 VM 的 Azure 監視器包含一組以關鍵效能指標 (KPI) 為目標的效能圖表，可協助您判斷虛擬機器的執行狀況。 那些圖表會顯示一段時間的資源使用率，讓您能夠找出瓶頸、異常狀況，或切換至列出每部機器的檢視方塊，以根據所選計量來檢視資源使用率。 雖然在處理效能時要考量許多元素，不過適用於 VM 的 Azure 監視器著重於作業系統，如透過處理器、記憶體、網路介面卡和磁碟所顯示的。 效能可彌補健康狀態監視功能，並有助於揭示可能導致系統元件故障的問題、支援調整和最佳化以實現效率，或支援容量規劃。  
@@ -33,7 +32,7 @@ ms.locfileid: "52334988"
 
 ![VM Insights 效能 N 大排行榜檢視](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-在 [N 大排行榜] 索引標籤上，如果您具有多個 Log Analytics 工作區，請從頁面頂端的 [工作區] 選取器選擇已可處理解決方案的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../../log-analytics/log-analytics-computer-groups.md)與電腦的虛擬機器擴展集，供您進一步篩選此頁面上的圖表所顯示的結果，和其他頁面上的結果。 您的選取只會套用至「效能」功能，而不會擴及「健康情況」或「對應」。  
+在 [N 大排行榜] 索引標籤上，如果您具有多個 Log Analytics 工作區，請從頁面頂端的 [工作區] 選取器選擇已可處理解決方案的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../../azure-monitor/platform/computer-groups.md)與電腦的虛擬機器擴展集，供您進一步篩選此頁面上的圖表所顯示的結果，和其他頁面上的結果。 您的選取只會套用至「效能」功能，而不會擴及「健康情況」或「對應」。  
 
 根據預設，圖表會顯示過去 24 小時。 使用 [TimeRange] 選取器，您可以查詢最多 30 天的歷程記錄時間範圍，以顯示過去的效能狀況。   
 
@@ -106,7 +105,7 @@ ms.locfileid: "52334988"
 ## <a name="alerting-and-alert-management"></a>警示和警示管理 
 啟用作為「適用於 VM 的 Azure 監視器」一部分的效能計量不會包含預先設定的警示規則。 在您的 Azure VM 上偵測到對應於效能問題的[健康情況警示](vminsights-health.md#alerting-and-alert-management)時 (例如，CPU 使用率偏高、可用記憶體不足、磁碟 I/O、磁碟空間不足等)，這些健康情況警示只會套用到與「適用於 VM 的 Azure 監視器」所啟用的相同 Log Analytics 工作區連線的所有 VM。 
 
-然而，我們只會在 Log Analytics 工作區收集並儲存您需要的效能計量子集。 如果監視策略需有包含其他效能計量的分析或警示，以有效評估虛擬機器的容量或健康情況，或者您需要能夠彈性指定自己的警示標準或邏輯，您可以在 Log Analytics 設定[效能計數器集合](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)，並設定[記錄警示](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json)。 雖然 Log Analytics 可讓您執行其他資料類型的複雜分析，並提供較長保留期以進行趨勢分析，但另一方面，計量所佔空間不大，且能夠支援近乎即時的情節。 [Azure 診斷代理程式](../../virtual-machines/windows/monitor.md)會收集計量，並儲存於 Azure 監視器計量存放區，讓您能以較少延遲和較低成本建立警示。
+然而，我們只會在 Log Analytics 工作區收集並儲存您需要的效能計量子集。 如果監視策略需有包含其他效能計量的分析或警示，以有效評估虛擬機器的容量或健康情況，或者您需要能夠彈性指定自己的警示標準或邏輯，您可以在 Log Analytics 設定[效能計數器集合](../../azure-monitor/platform/data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json)，並設定[記錄警示](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json)。 雖然 Log Analytics 可讓您執行其他資料類型的複雜分析，並提供較長保留期以進行趨勢分析，但另一方面，計量所佔空間不大，且能夠支援近乎即時的情節。 [Azure 診斷代理程式](../../virtual-machines/windows/monitor.md)會收集計量，並儲存於 Azure 監視器計量存放區，讓您能以較少延遲和較低成本建立警示。
 
 請參閱[使用 Azure 監視器收集計量和記錄](../../azure-monitor/platform/data-collection.md?toc=/azure/azure-monitor/toc.json)概觀，深入了解本質上的不同，以及設定收集其他計量和設定警示規則前的注意事項。  
 

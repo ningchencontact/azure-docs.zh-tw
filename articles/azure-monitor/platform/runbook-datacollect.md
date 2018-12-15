@@ -10,19 +10,18 @@ ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: 87ceb682f35626c5bf468afd83a2f4a35901ef2b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 2ecb50bdf44b93e8620d6d98a98fc735da6e87c3
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632342"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186713"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自動化 Runbook 在 Log Analytics 中收集資料
-您可以在 Log Analytics 中收集來自各種來源 (包括代理程式上的[資料來源](../../azure-monitor/platform/agent-data-sources.md)) 的大量資料，以及[收集自 Azure 的資料](../../log-analytics/log-analytics-azure-storage.md)。  在某些情況下，您需要收集無法透過這些標準來源存取到的資料。  在這些案例中，您可以使用 [HTTP 資料收集器 API](../../log-analytics/log-analytics-data-collector-api.md) 將資料從任何 REST API 用戶端寫入 Log Analytics。  執行此資料收集的常見方法是在 Azure 自動化中使用 Runbook。   
+您可以在 Log Analytics 中收集來自各種來源 (包括代理程式上的[資料來源](../../azure-monitor/platform/agent-data-sources.md)) 的大量資料，以及[收集自 Azure 的資料](../../azure-monitor/platform/collect-azure-metrics-logs.md)。  在某些情況下，您需要收集無法透過這些標準來源存取到的資料。  在這些案例中，您可以使用 [HTTP 資料收集器 API](../../azure-monitor/platform/data-collector-api.md) 將資料從任何 REST API 用戶端寫入 Log Analytics。  執行此資料收集的常見方法是在 Azure 自動化中使用 Runbook。   
 
 本教學課程會逐步解說在 Azure 自動化中建立和排程 Runbook 以將資料寫入 Log Analytics 的程序。
 
@@ -30,7 +29,7 @@ ms.locfileid: "52632342"
 ## <a name="prerequisites"></a>必要條件
 此案例要求您在 Azure 訂用帳戶中設定以下資源。  兩者都可以是免費帳戶。
 
-- [Log Analytics 工作區](../../log-analytics/log-analytics-quick-create-workspace.md)。
+- [Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。
 - [Azure 自動化帳戶](../..//automation/automation-quickstart-create-account.md)。
 
 ## <a name="overview-of-scenario"></a>案例概觀
@@ -41,7 +40,7 @@ ms.locfileid: "52632342"
 
 
 ## <a name="1-install-data-collector-api-module"></a>1.安裝資料收集器 API 模組
-[來自 HTTP 資料收集器 API 的每個要求](../../log-analytics/log-analytics-data-collector-api.md#create-a-request)都必須適當地格式化，並包含授權標頭。  您可以在 Runbook 中執行這項作業，但可以減少使用可簡化此程序之模型所需的程式碼數量。  您可以使用的其中一個模組是 PowerShell 資源庫中的 [OMSIngestionAPI 模組](https://www.powershellgallery.com/packages/OMSIngestionAPI)。
+[來自 HTTP 資料收集器 API 的每個要求](../../azure-monitor/platform/data-collector-api.md#create-a-request)都必須適當地格式化，並包含授權標頭。  您可以在 Runbook 中執行這項作業，但可以減少使用可簡化此程序之模型所需的程式碼數量。  您可以使用的其中一個模組是 PowerShell 資源庫中的 [OMSIngestionAPI 模組](https://www.powershellgallery.com/packages/OMSIngestionAPI)。
 
 若要在 Runbook 中使用[模組](../../automation/automation-integration-modules.md)，則必須將它安裝在自動化帳戶中。  相同帳戶中的任何 Runbook 接著可以在模組中使用函式。  在自動化帳戶中選取 [資產] > [模組] > [新增模組]，即可安裝新的模組。  
 
@@ -66,7 +65,7 @@ PowerShell 資源庫提供快速選項讓您將模組直接部署至自動化帳
 
 | 屬性 | 工作區識別碼值 | 工作區索引鍵值 |
 |:--|:--|:--|
-| 名稱 | WorkspaceId | WorkspaceKey |
+| Name | WorkspaceId | WorkspaceKey |
 | 類型 | 字串 | 字串 |
 | 值 | 貼入 Log Analytics 工作區的工作區識別碼。 | 貼入 Log Analytics 工作區的主要或次要索引鍵。 |
 | 已加密 | 否 | 是 |
@@ -145,7 +144,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
     ![張貼輸出](media/runbook-datacollect/post-output.png)
 
 ## <a name="5-verify-records-in-log-analytics"></a>5.確認 Log Analytics 中的記錄
-在 Runbook 完成測試並確認成功收到輸出之後，即可確認已使用 [Log Analytics 中的記錄搜尋](../../log-analytics/log-analytics-queries.md)來建立記錄。
+在 Runbook 完成測試並確認成功收到輸出之後，即可確認已使用 [Log Analytics 中的記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)來建立記錄。
 
 ![記錄輸出](media/runbook-datacollect/log-output.png)
 
@@ -185,7 +184,7 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 
 | 屬性 | 值 |
 |:--|:--|
-| 名稱 | AutomationJobs-Hourly |
+| Name | AutomationJobs-Hourly |
 | 啟動 | 選取至少超過目前時間 5 分鐘的任何時間。 |
 | 週期性 | 週期性 |
 | 重複頻率 | 1 小時 |
@@ -216,4 +215,4 @@ Azure 自動化包含可在發佈之前[測試 Runbook](../../automation/automat
 - 將 Runbook 封裝到[管理解決方案](../../azure-monitor/insights/solutions-creating.md)，以散發給客戶。
 - 深入了解 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/)。
 - 深入了解 [Azure 自動化](https://docs.microsoft.com/azure/automation/)。
-- 深入了解 [HTTP 資料收集器 API](../../log-analytics/log-analytics-data-collector-api.md)。
+- 深入了解 [HTTP 資料收集器 API](../../azure-monitor/platform/data-collector-api.md)。

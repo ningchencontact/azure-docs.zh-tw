@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: 110f487d486ccd2f1a26065aa225838a3a83c197
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 6fc3fc0b7717242b6949d93f0668d7c56525ac49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167217"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342811"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>SAP NetWeaver on Red Hat Enterprise Linux 的 Azure 虛擬機器高可用性
 
@@ -157,10 +157,10 @@ Azure Marketplace 包含 Red Hat Enterprise Linux 的映像，您可用來部署
 1. 建立可用性設定組  
    設定更新網域上限
 1. 建立虛擬機器 1  
-   至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    選取稍早建立的「可用性設定組」  
 1. 建立虛擬機器 2  
-   至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
+   至少使用 RHEL 7，本範例中使用 Red Hat Enterprise Linux 7.4 映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74-ARM>  
    選取稍早建立的「可用性設定組」  
 1. 將至少一個資料磁碟新增至兩部虛擬機器  
    資料磁碟用於 /usr/sap/`<SAPSID`> 目錄

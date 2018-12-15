@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 709a8eb9b5e2ab1a3a9deb10e35a5e996c8f9d93
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: eff7ccc40cd31e604cc4e54b6da9421d1d0b4f4e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52585644"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53439211"
 ---
 ### <a name="how-many-vpn-client-endpoints-can-i-have-in-my-point-to-site-configuration"></a>在我的點對站台組態中可以有多少個 VPN 用戶端端點？
 
@@ -76,11 +76,11 @@ Windows 10 和 Server 2016 都支援 IKEv2。 不過，若要使用 IKEv2，您�
 
 1. 安裝更新。
 
-  | 作業系統版本 | 日期 | 號碼/連結 |
-  |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-  |  |  |  |  |
+   | 作業系統版本 | 日期 | 號碼/連結 |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   |  |  |  |  |
 
 2. 設定登錄機碼值。 在登入中建立 “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD 機碼或將其設定為 1。
 

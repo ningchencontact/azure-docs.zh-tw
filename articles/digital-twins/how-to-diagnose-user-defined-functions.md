@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: stefanmsft
-ms.openlocfilehash: ac7664e94c6e02ab90dbb1b32a54c8234614afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 9476db888a4bfae2d43ae4eec340972d4c2eb714
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636266"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413008"
 ---
 # <a name="how-to-debug-issues-with-user-defined-functions-in-azure-digital-twins"></a>如何為 Azure Digital Twins 中使用使用者定義函式的問題偵錯
 
@@ -25,7 +25,7 @@ ms.locfileid: "51636266"
 
 ### <a name="enable-log-analytics-for-your-instance"></a>啟用適用於您執行個體的 Log Analytics
 
-Azure Digital Twins 執行個體的記錄和計量是透過 Azure 監視器公開的。 下列文件假設您已透過 [Azure 入口網站](../log-analytics/log-analytics-quick-create-workspace.md)、[Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md) 或 [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md) 建立 [Azure Log Analytics](../log-analytics/log-analytics-queries.md) 工作區。
+Azure Digital Twins 執行個體的記錄和計量是透過 Azure 監視器公開的。 下列文件假設您已透過 [Azure 入口網站](../azure-monitor/learn/quick-create-workspace.md)、[Azure CLI](../azure-monitor/learn/quick-create-workspace-cli.md) 或 [PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md) 建立 [Azure Log Analytics](../azure-monitor/log-query/log-query-overview.md) 工作區。
 
 > [!NOTE]
 > 當您第一次將事件傳送到 **Log Analytics** 時，可能會經歷 5 分鐘的延遲。
@@ -42,7 +42,7 @@ Azure Digital Twins 執行個體的記錄和計量是透過 Azure 監視器公�
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
+| where CorrelationId == 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
 | 查詢值 | 更換為 |
@@ -53,7 +53,7 @@ AzureDiagnostics
 
 ```Kusto
 AzureDiagnostics
-| where Category = 'UserDefinedFunction'
+| where Category == 'UserDefinedFunction'
 ```
 
 如需有關強大的查詢作業的詳細資訊，請參閱[開始使用查詢](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries)。

@@ -12,16 +12,16 @@ ms.date: 11/26/2018
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 2d50e4c2352444d29bdb090bc9a2a7947ecc6a50
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6daa29b4e8f09a4f8a40c3b92d2e2e86a5dea6aa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496037"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993171"
 ---
 # <a name="create-an-openapi-definition-for-a-function"></a>為函式建立 OpenAPI 定義
 
-REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。
+REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](https://swagger.io/) 檔案) 來描述。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。
 
 在本教學課程中，您會建立一個函式，來判斷風力渦輪機的緊急修復是否符合成本效益。 然後，您會為函式應用程式建立 OpenAPI 定義，以便從其他應用程式和服務呼叫函式。
 
@@ -123,7 +123,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
 ## <a name="generate-the-openapi-definition"></a>產生 OpenAPI 定義
 
-您現在已經準備好產生 OpenAPI 定義。 此定義可供其他 Microsoft 技術使用 (例如 API Apps、[PowerApps](functions-powerapps-scenario.md) 和 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md))，以及供協力廠商開發人員工具使用 (例如 [Postman](https://www.getpostman.com/docs/importing_swagger) 和[許多其他封裝](http://swagger.io/tools/))。
+您現在已經準備好產生 OpenAPI 定義。 此定義可供其他 Microsoft 技術使用 (例如 API Apps、[PowerApps](functions-powerapps-scenario.md) 和 [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md))，以及供協力廠商開發人員工具使用 (例如 [Postman](https://www.getpostman.com/docs/importing_swagger) 和[許多其他封裝](https://swagger.io/tools/))。
 
 1. 只選取您的 API 支援的「指令動詞」(在本例中為 POST)。 這會讓產生的 API 定義更清楚。
 
@@ -141,7 +141,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
 
     ![API 定義來源](media/functions-openapi-definition/api-definition-source.png)
 
-    此步驟會為您的函式應用程式啟用一組 OpenAPI 選項，包含裝載來自您函式應用程式網域之 OpenAPI 檔案的端點、[OpenAPI 編輯器](http://editor.swagger.io)的內嵌複本，以及 API 定義範本產生器。
+    此步驟會為您的函式應用程式啟用一組 OpenAPI 選項，包含裝載來自您函式應用程式網域之 OpenAPI 檔案的端點、[OpenAPI 編輯器](https://editor.swagger.io)的內嵌複本，以及 API 定義範本產生器。
 
 1. 按一下 [產生 API 定義範本] > [儲存]。
 
@@ -168,7 +168,7 @@ REST API 通常會使用 OpenAPI 定義 (之前稱為 [Swagger](http://swagger.i
         parameters: []
         description: >-
             Replace with Operation Object
-            #http://swagger.io/specification/#operationObject
+            #https://swagger.io/specification/#operationObject
         responses:
             '200':
             description: Success operation

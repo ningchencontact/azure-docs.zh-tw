@@ -3,18 +3,18 @@ title: 避免 Azure 串流分析作業中發生服務中斷
 description: 本文說明可讓串流分析作業升級具有彈性的指引。
 services: stream-analytics
 author: jseb225
-manager: kfile
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 47ccfe99d2ee6576dbb70324eb383f52d2a1b2e7
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 7375fb2763ad83e049b1ef30a623f164e059a792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902706"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090798"
 ---
 # <a name="guarantee-stream-analytics-job-reliability-during-service-updates"></a>在服務更新期間確保串流分析工作可靠性
 
@@ -29,3 +29,11 @@ ms.locfileid: "30902706"
 關於**[可用性與配對區域](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)** 的文章提供了有關配對區域的最新資訊。
 
 建議客戶在兩個配對區域都部署相同的工作。 除了「串流分析」內部監視功能之外，也建議客戶將「兩個」工作都當作生產環境工作來監視。 如果中斷情況經識別是「串流分析」服務更新所造成，請適當地呈報此問題，並將所有下游取用者容錯移轉至狀況良好的工作輸出。 向支援服務呈報此問題將可防止配對區域受到新部署作業影響，並可維護配對工作的完整性。
+
+## <a name="next-steps"></a>後續步驟
+
+* [串流分析介紹](stream-analytics-introduction.md)
+* [開始使用串流分析](stream-analytics-real-time-fraud-detection.md)
+* [調整串流分析作業](stream-analytics-scale-jobs.md)
+* [串流分析查詢語言參考](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [串流分析管理 REST API 參考](https://msdn.microsoft.com/library/azure/dn835031.aspx)

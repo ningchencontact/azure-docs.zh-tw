@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: operations-management-suite
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e5011dbaad5e5935f3aa792bd3a3ed2b271f23bc
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d6d2414935bb5d1f095ad2b200acafa97b3b9b32
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632428"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192683"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中建立管理解決方案的最佳做法 (預覽)
 > [!NOTE]
@@ -28,7 +27,7 @@ ms.locfileid: "52632428"
 本文提供在 Azure 中[建立管理解決方案檔](solutions-solution-file.md)的最佳做法。  本資訊會在識別出其他最佳作法時更新。
 
 ## <a name="data-sources"></a>資料來源
-- 資料來源可以[使用 Resource Manager 範本設定](../../log-analytics/log-analytics-template-workspace-configuration.md)，但不應該將資源來源包含在解決方案檔中。  原因是設定資料來源目前並非等冪，這表示您的解決方案可能會覆寫使用者工作區中現有的設定。<br><br>例如，您的解決方案可能需要來自應用程式事件記錄檔的警告和錯誤事件。  如果您在解決方案中將此指定為資料來源，在使用者已在其工作區中設定此項的情況下，會有移除資訊事件的風險。  如果您包含所有的事件，則可能會收集使用者工作區中過多的資訊事件。
+- 資料來源可以[使用 Resource Manager 範本設定](../../azure-monitor/platform/template-workspace-configuration.md)，但不應該將資源來源包含在解決方案檔中。  原因是設定資料來源目前並非等冪，這表示您的解決方案可能會覆寫使用者工作區中現有的設定。<br><br>例如，您的解決方案可能需要來自應用程式事件記錄檔的警告和錯誤事件。  如果您在解決方案中將此指定為資料來源，在使用者已在其工作區中設定此項的情況下，會有移除資訊事件的風險。  如果您包含所有的事件，則可能會收集使用者工作區中過多的資訊事件。
 
 - 如果您的解決方案需要來自其中一個標準資料來源的資料，則您應該將此定義為必要條件。  請在文件中表示客戶必須自行設定資料來源。  
 - 將[資料流程驗證](../../azure-monitor/platform/view-designer-tiles.md)訊息新增至解決方案中的任何檢視，以指示使用者關於需要設定以收集必要資料的資料來源資訊。  找不到必要資料時，此訊息會顯示在檢視的圖格中。

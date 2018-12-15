@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 0e46caf855bca184ff8a714d2c93d573b910fea8
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227339"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399815"
 ---
-當您使用[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure 監視器的自動調整功能](../articles/monitoring-and-diagnostics/monitoring-overview-autoscale.md)時，可以輕鬆地[自動縮放](../articles/monitoring-and-diagnostics/insights-autoscale-best-practices.md)您的[虛擬機器 (VM)](../articles/virtual-machines/windows/overview.md)。 您的 VM 必須是擴展集的成員才能自動縮放。 本文提供的資訊可讓您深入了解如何使用自動和手動方法，以垂直和水平方式調整 VM。
+當您使用[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure 監視器的自動調整功能](../articles/azure-monitor/platform/autoscale-overview.md)時，可以輕鬆地[自動縮放](../articles/azure-monitor/platform/autoscale-best-practices.md)您的[虛擬機器 (VM)](../articles/virtual-machines/windows/overview.md)。 您的 VM 必須是擴展集的成員才能自動縮放。 本文提供的資訊可讓您深入了解如何使用自動和手動方法，以垂直和水平方式調整 VM。
 
 ## <a name="horizontal-or-vertical-scaling"></a>水平和垂直調整
 
@@ -35,7 +35,7 @@ Azure 監視器的自動調整功能只會水平調整，亦即增加 (相應放
  
 ### <a name="metrics"></a>度量
 
-Azure 監視器的自動調整功能可讓您以[計量](../articles/monitoring-and-diagnostics/insights-autoscale-common-metrics.md)作為基礎，將執行中的 VM 數目相應增加或相應減少。 根據預設，VM 會提供磁碟、網路和 CPU 使用量的基本主機層級計量。 當您使用診斷擴充功能設定診斷資料的集合時，其他的客體 OS 效能計數器就可供磁碟、CPU 和記憶體使用。
+Azure 監視器的自動調整功能可讓您以[計量](../articles/azure-monitor/platform/autoscale-common-metrics.md)作為基礎，將執行中的 VM 數目相應增加或相應減少。 根據預設，VM 會提供磁碟、網路和 CPU 使用量的基本主機層級計量。 當您使用診斷擴充功能設定診斷資料的集合時，其他的客體 OS 效能計數器就可供磁碟、CPU 和記憶體使用。
 
 ![計量準則](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -49,7 +49,7 @@ Azure 監視器的自動調整功能可讓您以[計量](../articles/monitoring-
  
 ### <a name="notifications"></a>通知
 
-您可以[設定觸發程序](../articles/monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md)，從而以您所建立的自動調整規則作為基礎，呼叫特定的 web URL 或傳送電子郵件。 Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。
+您可以[設定觸發程序](../articles/azure-monitor/platform/autoscale-webhook-email.md)，從而以您所建立的自動調整規則作為基礎，呼叫特定的 web URL 或傳送電子郵件。 Webhook 可讓您將 Azure 警示通知路由到其他系統進行後處理或自訂通知。
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>在擴展集中手動調整 VM 大小
 

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: ryanwi
-ms.openlocfilehash: e4c3bf627c4a5e01c4d9001fcbb0feed0b92209f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e41e5d48141b120ec1f80b0faa899bda07a2934e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008037"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962058"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>開啟 Service Fabric 叢集的連接埠
 
 此負載平衡器會隨 Azure Service Fabric 叢集一起部署，以將流量導向至節點上所執行的應用程式。 如果您變更應用程式以使用不同的連接埠，您必須在 Azure Load Balancer 中公開該連接埠 (或路由不同的連接埠)。
 
-當您將 Service Fabric 叢集部署至 Azure 時，系統會自動為您建立負載平衡器。 如果您沒有負載平衡器，請參閱[設定網際網路面向的負載平衡器](..\load-balancer\load-balancer-get-started-internet-portal.md)。
+當您將 Service Fabric 叢集部署至 Azure 時，系統會自動為您建立負載平衡器。 如果您沒有負載平衡器，請參閱[設定網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-portal.md)。
 
 ## <a name="configure-service-fabric"></a>設定 Service Fabric
 
@@ -33,7 +33,7 @@ ms.locfileid: "39008037"
 
 ## <a name="create-a-load-balancer-rule"></a>建立負載平衡器規則
 
-負載平衡器規則會開啟網際網路面向的連接埠，並將流量轉送至您的應用程式所使用的內部節點連接埠。 如果您沒有負載平衡器，請參閱[設定網際網路面向的負載平衡器](..\load-balancer\load-balancer-get-started-internet-portal.md)。
+負載平衡器規則會開啟網際網路面向的連接埠，並將流量轉送至您的應用程式所使用的內部節點連接埠。 如果您沒有負載平衡器，請參閱[設定網際網路面向的負載平衡器](../load-balancer/load-balancer-get-started-internet-portal.md)。
 
 若要建立負載平衡器規則，您需要收集下列資訊：
 
@@ -68,7 +68,7 @@ Azure CLI 命令有幾個參數，如下表所述：
 
 
 >[!NOTE]
->如需如何使用 Azure CLI 建立負載平衡器的詳細資訊，請參閱[使用 Azure CLI 建立負載平衡器](..\load-balancer\load-balancer-get-started-internet-arm-cli.md)。
+>如需如何使用 Azure CLI 建立負載平衡器的詳細資訊，請參閱[使用 Azure CLI 建立負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-cli.md)。
 
 ## <a name="powershell"></a>PowerShell
 
@@ -104,7 +104,7 @@ $lb | Set-AzureRmLoadBalancer
 至於 `New-AzureRmLoadBalancerRuleConfig` 命令，`-FrontendPort` 代表負載平衡器公開給外部連線的連接埠，而 `-BackendPort` 代表 Service Fabric 應用程式正在接聽的連接埠。
 
 >[!NOTE]
->如需如何使用 PowerShell 建立負載平衡器的詳細資訊，請參閱[使用 PowerShell 建立負載平衡器](..\load-balancer\load-balancer-get-started-internet-arm-ps.md)。
+>如需如何使用 PowerShell 建立負載平衡器的詳細資訊，請參閱[使用 PowerShell 建立負載平衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -2,18 +2,18 @@
 title: Microsoft Azure 備份伺服器的新功能
 description: Microsoft Azure 備份伺服器可提供您經過強化的備份功能，讓您保護 VM、檔案和資料夾以及工作負載等項目。 了解如何安裝或升級為 Azure 備份伺服器 V3。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e963f675dfe2a57fc19f3169beeb1d7d4066af93
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: adigan
+ms.openlocfilehash: 01709bf7bdf4812802ab983729cc628101810f43
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315591"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869614"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure 備份伺服器的新功能
 

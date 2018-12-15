@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: zarhoads
-ms.openlocfilehash: dc7bb0eab9004b9c818a4a7cbbf6102f01b24f45
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e794c191737f14fb06351e345f70edb9f7cddb7c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465218"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322051"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>安裝和設定 Azure 上的 PostgreSQL
 PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它包含企業用功能，例如完整的 ACID 的相容性、可靠的交易式程序，以及多版本的並行控制。 它也支援標準，例如 ANSI SQL 和 SQL/MED (包括 Oracle、MySQL、MongoDB 和許多其他項目的外部資料包裝函式)。 其高度可擴充性支援超過 12 種程序性語言、GIN 和 GiST 索引、空間資料支援和多個類似 NoSQL 的功能，適用於 JSON 或以索引鍵-值為基礎的應用程式。
@@ -76,7 +76,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 ## <a name="configure-postgresql"></a>設定 PostgreSQL
 1. (選擇性) 建立符號連結來縮短 PostgreSQL 參考，使其不包含版本號碼：
    
-        # ln -s /opt/pgsql9.3.5 /opt/pgsql
+        # ln -s /opt/postgresql-9.3.5 /opt/pgsql
 2. 建立資料庫的目錄：
    
         # mkdir -p /opt/pgsql_data
@@ -119,6 +119,7 @@ PostgreSQL 是與 Oracle 和 DB2 類似的進階開放原始碼資料庫。 它�
 7. 您也可以檢查 PostgreSQL 版本：
    
         $ psql -V
+
 8. 初始化資料庫：
    
         $ initdb -D $PGDATA -E UTF8 --locale=C -U postgres -W

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: b8cd389bee98058e5362a217268fb53d6aaf3424
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: c0040958cbf748d3eafb3ee60806b064e4e0b1ba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634476"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435781"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面在 HDInsight 上的 Apache Hadoop 中使用 MapReduce
 [!INCLUDE [mapreduce-selector](../../../includes/hdinsight-selector-use-mapreduce.md)]
 
 在本文中，您將了解如何使用遠端桌面連線至 HDInsight 叢集上的 Apache Hadoop，然後使用 Hadoop 命令執行 MapReduce 作業。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 只有在 Windows 型 HDInsight 叢集上才能使用「遠端桌面」。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
 > 針對 HDInsight 3.4 或更新版本，請參閱[使用 MapReduce 搭配 SSH](apache-hadoop-use-mapreduce-ssh.md)，以了解如何連線到 HDInsight 叢集及執行 MapReduce 工作。
@@ -40,7 +40,7 @@ ms.locfileid: "51634476"
 
 1. 從 HDInsight 桌面，啟動 **Hadoop 命令列**。 這會在 **c:\apps\dist\hadoop-&lt;version number>** 目錄中開啟新的命令提示字元。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 版本號碼會隨著 Hadoop 更新而變更。 **HADOOP_HOME** 環境變數可用來尋找路徑。 例如， `cd %HADOOP_HOME%` 會將目錄變更為 Hadoop 目錄，而您並不需要知道版本號碼。
    >
    >
@@ -94,5 +94,5 @@ ms.locfileid: "51634476"
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)

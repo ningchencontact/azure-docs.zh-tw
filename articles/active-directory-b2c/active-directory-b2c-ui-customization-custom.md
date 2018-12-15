@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 237d22054ecb4eea58494c1b5066eb8e00ecd2fc
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583444"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833936"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -31,7 +31,7 @@ ms.locfileid: "52583444"
 
 您可以使用頁面 UI 自訂功能，自訂任何自訂原則的外觀與風格。 您也可以維護應用程式與 Azure AD B2C 之間的品牌和視覺一致性。
 
-運作方式如下：Azure AD B2C 會在客戶的瀏覽器中執行程式碼並使用稱為[跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/) 的新式方法。 首先，在自訂原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併 UI 元素與從您 URL 載入的 HTML 內容，然後對客戶顯示此頁面。
+其運作方式如下：Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 首先，在自訂原則中使用自訂 HTML 內容指定 URL。 Azure AD B2C 會合併 UI 元素與從您 URL 載入的 HTML 內容，然後對客戶顯示此頁面。
 
 ## <a name="create-your-html5-content"></a>建立您的 HTML5 內容
 
@@ -111,7 +111,7 @@ ms.locfileid: "52583444"
 
 執行下列作業來驗證您已準備就緒：
 
-1. 移至 [www.test-cors.org](http://www.test-cors.org/) 網站，然後在 [遠端 URL] 方塊中貼上 URL。
+1. 移至 [www.test-cors.org](https://www.test-cors.org/) 網站，然後在 [遠端 URL] 方塊中貼上 URL。
 2. 按一下 [傳送要求]。  
     如果您收到錯誤，請確定您的 [CORS 設定](#configure-cors)正確無誤。 您也可能需要清除瀏覽器快取，或按 Ctrl+Shift+P 來開啟 InPrivate 瀏覽工作階段。
 

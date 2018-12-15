@@ -1,22 +1,19 @@
 ---
-title: 匯出 Azure Cosmos DB 模擬器憑證 | Microsoft Docs
+title: 匯出 Azure Cosmos DB 模擬器憑證
 description: 不使用 Windows 憑證存放區的語言和執行階段進行開發時，您必須匯出和管理 SSL 憑證。 這篇文章提供逐步指示。
 services: cosmos-db
 keywords: Azure Cosmos DB 模擬器
 author: David-Noble-at-work
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.author: danoble
-ms.openlocfilehash: 45a909b910fe45d87833b0f3c6ba652503a1d212
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b7a6649fab8b0203c20b93bee9e941614828a99b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920520"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091793"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs"></a>匯出 Azure Cosmos DB 模擬器憑證以與 Java、Python 和 Node.js 搭配使用
 
@@ -79,7 +76,7 @@ Azure Cosmos DB 本機模擬器中的憑證會在模擬器第一次執行時產�
 
 遵循[新增憑證至 Java CA 憑證存放區](https://docs.microsoft.com/azure/java-add-certificate-ca-store)中的指示，將 X.509 憑證匯入預設的 Java 憑證存放區。 請記住，執行 keytool 時您會在 %JAVA_HOME% 目錄中工作。
 
-"CosmosDBEmulatorCertificate" SSL 憑證安裝好之後，應用程式應該就能夠連線，並使用本機 Azure Cosmos DB 模擬器。 如果您仍然遇到問題，請遵循[為 SSL/TLS 連線進行偵錯](http://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) (英文) 文章中的指示進行。 很有可能是未將憑證安裝至 %JAVA_HOME%/jre/lib/security/cacerts 存放區。 例如，如果您安裝多個 Java 版本，您的應用程式使用的 cacerts 存放區可能與您更新的不同。
+"CosmosDBEmulatorCertificate" SSL 憑證安裝好之後，應用程式應該就能夠連線，並使用本機 Azure Cosmos DB 模擬器。 如果您仍然遇到問題，請遵循[為 SSL/TLS 連線進行偵錯](https://docs.oracle.com/javase/7/docs/technotes/guides/security/jsse/ReadDebug.html) (英文) 文章中的指示進行。 很有可能是未將憑證安裝至 %JAVA_HOME%/jre/lib/security/cacerts 存放區。 例如，如果您安裝多個 Java 版本，您的應用程式使用的 cacerts 存放區可能與您更新的不同。
 
 ## <a name="how-to-use-the-certificate-in-python"></a>如何在 Python 中使用憑證
 

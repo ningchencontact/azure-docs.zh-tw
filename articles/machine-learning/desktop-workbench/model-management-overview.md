@@ -2,20 +2,20 @@
 title: Azure Machine Learning 模型管理的概念性概觀 | Microsoft Docs
 description: 本文件說明 Azure Machine Learning 的模型管理概念。
 services: machine-learning
-author: hjerezmsft
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: d3f7e206e7f4aa61a8ec1272ff2670d81bb7a33e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b89e80051ec53649a3da8fadcf412c58c177525c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974675"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260203"
 ---
 # <a name="azure-machine-learning-model-management"></a>Azure Machine Learning 模型管理
 

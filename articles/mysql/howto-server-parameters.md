@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 07/18/2018
-ms.openlocfilehash: 686db4dc15eb42abead3eef6798ed2b83e248811
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.date: 12/06/2018
+ms.openlocfilehash: 451316b32bcda43d62bbabf0c4f73d239698c85b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136446"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078717"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 入口網站，在適用於 MySQL 的 Azure 資料庫中設定伺服器參數
 
@@ -42,9 +42,9 @@ InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](c
 
 |定價層| **計算世代**|**vCore(s)**|**InnoDB 緩衝集區 (MB)**| **連線數目上限**|
 |---|---|---|---|--|
-|基本| Gen 4| 1| 1024| 50|
+|基本| Gen 4| 1| 960| 50|
 |基本| Gen 4| 2| 2560| 100|
-|基本| Gen 5| 1| 1024| 50|
+|基本| Gen 5| 1| 960| 50|
 |基本| Gen 5| 2| 2560| 100|
 |一般用途| Gen 4| 2| 3584| 300|
 |一般用途| Gen 4| 4| 7680| 625|
@@ -56,10 +56,12 @@ InnoDB 緩衝集區和連線數目上限無法設定，且與您的[定價層](c
 |一般用途| Gen 5| 8| 15360| 1250|
 |一般用途| Gen 5| 16| 31232| 2500|
 |一般用途| Gen 5| 32| 62976| 5000|
+|一般用途| Gen 5| 64| 125952| 10000|
 |記憶體最佳化| Gen 5| 2| 7168| 600|
 |記憶體最佳化| Gen 5| 4| 15360| 1250|
 |記憶體最佳化| Gen 5| 8| 30720| 2500|
 |記憶體最佳化| Gen 5| 16| 62464| 5000|
+|記憶體最佳化| Gen 5| 32| 125952| 10000|
 
 這些額外的伺服器參數皆無法在系統中設定：
 

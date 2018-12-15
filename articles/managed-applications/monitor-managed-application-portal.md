@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: ea9f55d7c6002aaba2fd4fdc2a76b93f98e1d6b0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 754d2a246a86585e9f05f8a070c51e158f73affd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805685"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342590"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>監視受控應用程式的已部署執行個體
 
@@ -48,7 +48,7 @@ ms.locfileid: "48805685"
 
    ![建立警示](./media/monitor-managed-application-portal/create-new-alert.png)
 
-您可以針對受控應用程式執行個體或受控應用程式中的資源建立警示。 如需建立警示的相關資訊，請參閱 [Microsoft Azure 中的警示概觀](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
+您可以針對受控應用程式執行個體或受控應用程式中的資源建立警示。 如需建立警示的相關資訊，請參閱 [Microsoft Azure 中的警示概觀](../azure-monitor/platform/alerts-overview.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

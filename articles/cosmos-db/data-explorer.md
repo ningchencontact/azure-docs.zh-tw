@@ -1,19 +1,18 @@
 ---
-title: 使用 Azure Cosmos DB 總管來管理資料 | Microsoft Docs
+title: 使用 Azure Cosmos DB 總管來管理資料
 description: Azure Cosmos DB 總管是一個獨立的 Web 介面，可讓您檢視和管理 Azure Cosmos DB 中儲存的資料。
 services: cosmos-db
 author: deborahc
-manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: Deborah.Chen
-ms.openlocfilehash: 844193a3753f76d47a76252386489c9b0fe58911
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.author: dech
+ms.openlocfilehash: 6e1317084ce60fb8dce64ccd7d1d93fe1ae1d9e9
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116948"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140746"
 ---
 # <a name="use-azure-cosmos-db-explorer-to-manage-your-data"></a>使用 Azure Cosmos DB 總管來管理資料 
 
@@ -52,4 +51,4 @@ Azure Cosmos DB Gremlin 和資料表 API 帳戶目前尚未支援可讓您暫時
 ## <a name="next-steps"></a>後續步驟
 既然您已了解如何開始使用 Azure Cosmos DB 總管來管理資料，接著您可以：
 
-* 開始使用 SQL 語法來定義[查詢](sql-api-sql-query-reference.md)，並使用預存程序、UDF、觸發程序來執行[伺服器端程式設計](programming.md)。 
+* 開始使用 SQL 語法來定義[查詢](sql-api-query-reference.md)，並使用預存程序、UDF、觸發程序來執行[伺服器端程式設計](programming.md)。 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: fa3548affade23e134860fb8e347c7813094aa12
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 696047479a4d61398e0f978b89a6453b4ea5ea34
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996871"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000469"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-the-azure-cli"></a>使用 Azure CLI 建立具有外部重新導向的應用程式閘道
 
@@ -101,7 +101,7 @@ az network application-gateway redirect-config create \
   --gateway-name myAppGateway \
   --resource-group myResourceGroupAG \
   --type Temporary \
-  --target-url "http://bing.com"
+  --target-url "https://bing.com"
 ```
 
 ### <a name="add-a-listener-and-routing-rule"></a>新增接聽程式和路由規則

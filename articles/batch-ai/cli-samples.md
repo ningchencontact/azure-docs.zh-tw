@@ -16,14 +16,17 @@ ms.workload: ''
 ms.date: 07/27/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 704952b9c1330e372047be06f61bce9a15a90b92
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 740c2ea894fd3493d0e47480784a90e9021ecbeb
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058091"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410494"
 ---
 # <a name="azure-cli-examples-for-azure-batch-ai"></a>適用於 Azure Batch AI 的 Azure CLI 範例
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 下表包含適用於 Azure Batch AI 的 Azure CLI 範例連結。
 

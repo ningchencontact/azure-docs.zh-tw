@@ -10,16 +10,15 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 4255b70746eb1d307617a66714301fa7f8609a77
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5a40e215c6dd5bf4dc1178595716f95ae21adcb4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634263"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438195"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 監視代理程式概觀 
 Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或其他雲端提供者中，且執行 Microsoft Windows 和 Linux 的虛擬機器收集不同類型的資料。 三種可用來監視 VM 的代理程式類型為：
@@ -31,7 +30,7 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 本文說明這些代理程式的差異和功能，以便您判斷哪個代理程式可支援您的 IT 服務管理或一般監視需求。  
 
 ## <a name="azure-diagnostic-extension"></a>Azure 診斷擴充功能
-[Azure 診斷擴充功能](../../monitoring-and-diagnostics/azure-diagnostics.md)這個代理程式先前稱為 Windows Azure Diagnostic (WAD) 或 Linux Azure Diagnostic (LAD) 擴充功能 (於 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure 計算資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。 放入儲存體後，您便選擇使用其中一個可用工具進行檢視，例如 [Visual Studio 中的伺服器總管](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)和 [Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)。
+[Azure 診斷擴充功能](../../azure-monitor/platform/diagnostics-extension-overview.md)這個代理程式先前稱為 Windows Azure Diagnostic (WAD) 或 Linux Azure Diagnostic (LAD) 擴充功能 (於 2010 年 Azure 雲端服務正式推出後提供)，可供從 Azure 計算資源 (例如 VM) 簡單收集診斷資料，並將它保存到 Azure 儲存體。 放入儲存體後，您便選擇使用其中一個可用工具進行檢視，例如 [Visual Studio 中的伺服器總管](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)和 [Azure 儲存體總管](../../vs-azure-tools-storage-manage-with-storage-explorer.md)。
 
 您可以選擇收集：
 
@@ -45,8 +44,8 @@ Microsoft Azure 提供了多種方法，可從裝載於 Azure、資料中心或�
 當您想要執行下列作業時，即應使用 Azure 診斷代理程式：
 
 * 將記錄和計量封存到 Azure 儲存體
-* 整合監視資料與第三方工具。 這些工具可使用多種不同的方法，包括查詢儲存體帳戶、轉送給[事件中樞](../../event-hubs/event-hubs-about.md)，或使用 [Azure 監視 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md) 進行查詢
-* 將資料上傳至 Azure 監視器以在 Azure 入口網站中建立計量圖表，或建立幾近即時的[計量警示](../../monitoring-and-diagnostics/alert-metric-overview.md)。 
+* 整合監視資料與第三方工具。 這些工具可使用多種不同的方法，包括查詢儲存體帳戶、轉送給[事件中樞](../../event-hubs/event-hubs-about.md)，或使用 [Azure 監視 REST API](../../azure-monitor/platform/rest-api-walkthrough.md) 進行查詢
+* 將資料上傳至 Azure 監視器以在 Azure 入口網站中建立計量圖表，或建立幾近即時的[計量警示](../../azure-monitor/platform/alerts-metric-overview.md)。 
 * 根據客體 OS 計量自動調整虛擬機器擴展集和傳統雲端服務。
 * 使用[開機診斷](../../virtual-machines/troubleshooting/boot-diagnostics.md)調查 VM 的開機問題。
 * 使用 [Application Insights](../../azure-monitor/overview.md) 了解您的應用程式表現如何，並主動識別對其造成影響的問題。

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: kumud
-ms.openlocfilehash: d9a0342332c2483b859e916b50fd05c9cb1e3395
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 521a9dd49abee8fdeaa42b1ea8c13b9a648f1875
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986758"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187356"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>在流量管理員中設定多值路由方法
 
@@ -39,14 +39,15 @@ ms.locfileid: "49986758"
 
 1. 在畫面的左上方，選取 [建立資源] > [網路] > [流量管理員設定檔] > [建立]。
 2. 在 [建立流量管理員設定檔] 中，輸入或選取下列資訊、接受其餘設定的預設值，然後選取 [建立]：
+    
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
+    | Name                   | 此名稱在 trafficmanager.net 區域內必須是唯一的，而且會產生 DNS 名稱 trafficmanager.net，用以存取您的流量管理員設定檔。                                   |
     | 路由方法          | 選取 [多值] 路由方法。                                       |
     | 訂用帳戶            | 選取您的訂用帳戶。                          |
     | 資源群組          | 選取 [myResourceGroupTM1]。 |
     | 位置                | 這項設定是指資源群組的位置，完全不影響將部署到全球的流量管理員設定檔。                              |
-    |
+    
   
     ![建立流量管理員設定檔](./media/traffic-manager-multivalue-routing-method/create-traffic-manager-profile.png)
 
@@ -61,7 +62,7 @@ ms.locfileid: "49986758"
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
     | 類型                    | 外部端點                                   |
-    | 名稱           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | 完網域名稱 (FQDN) 或 IP           | 輸入您希望新增至此流量管理員設定檔之端點的公用 IP 位址                         |
     |        |           |
 

@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: c3dbecfcaf40a85c57b9f795d7f2d9b76d27c195
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2740da5a51e95a327a868734a7f009dddf40219a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274062"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964929"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>移除 MySQL 資源提供者
 
 在您移除 MySQL 資源提供者之前，必須先移除所有提供者相依性。 您還需要一份用來安裝資源提供者的部署套件複本。
 
 > [!NOTE]
-> 您可以在[部署資源提供者必要條件](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites)中找到資源提供者安裝程式的下載連結。
+> 您可以在[部署資源提供者必要條件](./azure-stack-mysql-resource-provider-deploy.md#prerequisites)中找到資源提供者安裝程式的下載連結。
 
 移除 MySQL 資源提供者並不會從主控伺服器刪除租用戶資料庫。
 

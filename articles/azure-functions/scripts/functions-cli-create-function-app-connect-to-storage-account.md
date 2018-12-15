@@ -12,16 +12,16 @@ ms.topic: sample
 ms.date: 04/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: deddfe16e4ad3eeee099ce1d7b53b9f15cbf85d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 48f6124373d80d22766d319ec58ed4ad7adaf6f5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956674"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963363"
 ---
 # <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>建立可連線至 Azure 儲存體帳戶的函式應用程式
 
-這個 Azure Functions 範例指令碼會建立函式應用程式，並將函式連線至 Azure 儲存體帳戶。 包含連線的所建立應用程式設定可以搭配[儲存體觸發程序或繫結](..\functions-bindings-storage-blob.md)使用。 
+這個 Azure Functions 範例指令碼會建立函式應用程式，並將函式連線至 Azure 儲存體帳戶。 包含連線的所建立應用程式設定可以搭配[儲存體觸發程序或繫結](../functions-bindings-storage-blob.md)使用。 
 
 [!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 

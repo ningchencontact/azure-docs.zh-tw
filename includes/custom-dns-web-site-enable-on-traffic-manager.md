@@ -4,17 +4,17 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 2e6697b07f305a78ef4cc3f462c76804160a9d12
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 67b9c0ba2566206b0e70db51844b21e5d5d3c261
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571926"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344582"
 ---
 傳播網域名稱的記錄後，您應該要能夠使用瀏覽器來確認您自訂的網域名稱可用來存取 Azure App Service 中的 Web 應用程式。
 
 > [!NOTE]
-> 需要一些時間，CNAME 才能傳播至整個 DNS 系統。 您可以使用 <a href="http://www.digwebinterface.com/">http://www.digwebinterface.com/</a> 之類的服務來驗證 CNAME 已可用。
+> 需要一些時間，CNAME 才能傳播至整個 DNS 系統。 您可以使用 <a href="https://www.digwebinterface.com/">https://www.digwebinterface.com/</a> 之類的服務來驗證 CNAME 已可用。
 > 
 > 
 

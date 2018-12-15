@@ -9,16 +9,15 @@ ms.assetid: f0082c9b-43ad-4576-a417-4ea8e0daf3d9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: c6ef869bd211b156ba17d2aa8f384d15269b6d59
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: ccc3ced06a6b5ac36df9e7294a9b4cf17d0dedf3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632206"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723154"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>建立 Application Insights 資源的 PowerShell 指令碼
 

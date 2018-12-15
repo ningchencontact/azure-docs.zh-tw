@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 09/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13894bc6601b6e371d4d907651c00de6aecfe825
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5614832863fa801f931fc5cf08ca7ebf7c317488
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724752"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997658"
 ---
 # <a name="what-is-application-insights"></a>什麼是 Application Insights？
 Application Insights 是多個平台上的 Web 開發人員所適用的可延伸「應用程式效能管理」(APM) 服務。 您可以使用它來監視即時 Web 應用程式。 它將會自動偵測效能異常。 其中包括強大的分析工具可協助您診斷問題，並了解使用者實際如何運用您的應用程式。  它是設計來協助您持續改善效能和可用性。 它適用於各種不同平台上的應用程式，包括裝載在內部部署或雲端的 .NET、Node.js 和 J2EE。 它可與您的 DevOps 程序整合，並有各種開發工具的連接點。 透過與 Visual Studio App Center 整合，還可以從行動應用程式監視並分析遙測資料。
@@ -100,7 +100,7 @@ Application Insights 是以開發小組為目標，以協助您了解您的應�
 * 讓下一個開發週期以遙測的真憑實據做為根據。
 
 ## <a name="get-started"></a>開始使用
-Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙測資料會送至該處進行分析及呈現。 所以在執行任何動作前，您需要 [Microsoft Azure](http://azure.com)訂用帳戶。 您可免費註冊，而且如果選擇 Application Insights 的基本[價格方案](https://azure.microsoft.com/pricing/details/application-insights/)，在您的應用程式成長到有大量使用量之前，不會有任何變更。 如果您的組織已經有訂用帳戶，他們可能會將您的 Microsoft 帳戶新增至其中。
+Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙測資料會送至該處進行分析及呈現。 所以在執行任何動作前，您需要 [Microsoft Azure](https://azure.com)訂用帳戶。 您可免費註冊，而且如果選擇 Application Insights 的基本[價格方案](https://azure.microsoft.com/pricing/details/application-insights/)，在您的應用程式成長到有大量使用量之前，不會有任何變更。 如果您的組織已經有訂用帳戶，他們可能會將您的 Microsoft 帳戶新增至其中。
 
 有數種方式可以開始使用。 從最適合您的方式著手。 您可以稍後新增其他帳戶。
 
@@ -134,7 +134,7 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 * 疑難排解與問題：
   * [疑難排解][qna]
   * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
-  * [StackOverflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+  * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * 您的建議：
   * [UserVoice](https://feedback.azure.com/forums/357324-application-insights/filters/top)
 * 部落格：
@@ -158,6 +158,6 @@ Application Insights 是 Microsoft Azure 中裝載的多項服務之一，而遙
 [java]: app-insights-java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: app-insights-platforms.md
-[portal]: http://portal.azure.com/
+[portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [redfield]: app-insights-monitor-performance-live-website-now.md

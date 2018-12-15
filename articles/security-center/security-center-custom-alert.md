@@ -3,7 +3,7 @@ title: Azure 資訊安全中心內的自訂警示規則 | Microsoft Docs
 description: 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: f335d8c4-0234-4304-b386-6f1ecda07833
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
-ms.author: terrylan
-ms.openlocfilehash: 23e7ec45f4f1bdfdeeabff11a63c976f4df605d1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: rkarlin
+ms.openlocfilehash: 48fcaca94e2a71ace66e5ea2d3e905962a9ced42
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248600"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956273"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 資訊安全中心內的自訂警示規則 (預覽)
 本文件可協助您在 Azure 資訊安全中心內建立自訂警示規則。

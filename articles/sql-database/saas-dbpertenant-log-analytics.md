@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: b207af3bed40f6287f60b25638f3091fa187aa6f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 58a354950e303eda8158ca072870bfecbf33a89f
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405067"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890206"
 ---
 # <a name="set-up-and-use-log-analytics-with-a-multitenant-sql-database-saas-app"></a>設定及使用 Log Analytics 搭配多租用戶 SQL Database SaaS 應用程式
 
@@ -151,4 +151,4 @@ SQL Database 的 Log Analytics 會根據工作區中的資料量收費。 在本
 ## <a name="additional-resources"></a>其他資源
 
 * [以每一租用戶一個資料庫的初始 Tickets SaaS 應用程式部署為基礎的其他教學課程](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md)
+* [Azure Log Analytics](../azure-monitor/insights/azure-sql.md)

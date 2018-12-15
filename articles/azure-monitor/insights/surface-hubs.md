@@ -10,17 +10,15 @@ ms.assetid: 8b4e56bc-2d4f-4648-a236-16e9e732ebef
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 761140b1022f5a1c1cd523c6e0e52193ff2a9700
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a006e9a9eb3fe4d9dc049e29eb404e5edf8f35c9
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429983"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342131"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>使用 Log Analytics 監視 Surface Hub 來追蹤其健全狀況
 
@@ -35,7 +33,7 @@ ms.locfileid: "52429983"
 
 * 可支援您需要監視之裝置數目的 [Log Analytics 訂用帳戶](https://azure.microsoft.com/pricing/details/log-analytics/)層級。 Log Analytics 的定價取決於已註冊的裝置數目，以及所要處理的資料量。 規劃使用 Surface Hub 時請將這一點列入考慮。
 
-接下來，您要新增現有的 Log Analytics 工作區，或建立新的工作區。 如需使用任一種方法的詳細指示，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../log-analytics/log-analytics-quick-create-workspace.md)。 設定 Log Analytics 工作區之後，有兩種方式可以註冊 Surface Hub 裝置：
+接下來，您要新增現有的 Log Analytics 工作區，或建立新的工作區。 如需使用任一種方法的詳細指示，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。 設定 Log Analytics 工作區之後，有兩種方式可以註冊 Surface Hub 裝置：
 
 * 自動透過 Intune 註冊
 * 在 Surface Hub 裝置上手動透過 [設定] 註冊
@@ -84,8 +82,8 @@ Intune 接著會將 Log Analytics 設定與目標群組中的裝置同步處理�
 
    ![Surface Hub 的儀表板](./media/surface-hubs/surface-hub-dashboard.png)
 
-您可以根據現有或自訂的記錄檔搜尋來建立[警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
+您可以根據現有或自訂的記錄檔搜尋來建立[警示](../../azure-monitor/platform/alerts-overview.md)。 您可以使用 Log Analytics 從 Surface Hub 所收集的資料，來搜尋有關您為裝置所定義之條件的問題和警示。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄檔搜尋](../../log-analytics/log-analytics-queries.md)來檢視詳細的 VMware 資料。
-* 建立[警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)在 Surface Hub 發生問題時通知您。
+* 使用 [Log Analytics 中的記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md)來檢視詳細的 VMware 資料。
+* 建立[警示](../../azure-monitor/platform/alerts-overview.md)在 Surface Hub 發生問題時通知您。

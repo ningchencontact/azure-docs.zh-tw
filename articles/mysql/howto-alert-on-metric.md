@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 3accc31f433e6db40c7d1de2b56dfbd4180b4933
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 6db451ab7de50039c38b59612dd2ab1c61c35e7b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265164"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271224"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 入口網站來設定適用於 MySQL 之 Azure 資料庫的計量警示 
 
@@ -29,8 +29,8 @@ ms.locfileid: "35265164"
 
 您可以透過下列方式，來設定及取得警示規則的相關資訊：
 * [Azure 入口網站](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [命令列介面 (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
+* [PowerShell](../azure-monitor/platform/alerts-classic-portal.md)
+* [命令列介面 (CLI)](../azure-monitor/platform/alerts-classic-portal.md)
 * [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>從 Azure 入口網站建立計量的警示規則
@@ -82,5 +82,5 @@ ms.locfileid: "35265164"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解 [在警示中設定 webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
+* 深入了解 [在警示中設定 webhook](../azure-monitor/platform/alerts-webhooks.md)。
 * 依照 [計量集合概觀](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) 中的做法，確保您的服務可使用且有回應。

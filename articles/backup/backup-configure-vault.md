@@ -2,19 +2,19 @@
 title: 使用 Azure 備份代理程式來備份檔案和資料夾
 description: 使用 Microsoft Azure 備份代理程式，可將 Windows 檔案和資料夾備份至 Azure。 建立復原服務保存庫、安裝備份代理程式、定義備份原則，並對檔案和資料夾執行初始備份。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 備份保存庫；備份 Windows Server；備份Windows；
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
-ms.author: markgal
-ms.openlocfilehash: 8107af53a78960d29f506c77f8ba9697c7a49d1c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 4e138311b58d56f3a188347d43ed12287d43e1bd
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252899"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874000"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>使用資源管理員部署模型將 Windows Server 或用戶端備份至 Azure
 本文說明如何 Resource Manager 部署模型將 Windows Server (或 Windows 用戶端) 檔案和資料夾備份至 Azure。

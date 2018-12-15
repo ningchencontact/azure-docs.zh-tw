@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 6f538fa821e546d12c5a2bdb9585cc85871241fa
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094147"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262447"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>多容器應用程式和服務資訊清單範例
 以下舉例說明多容器 Service Fabric 應用程式的應用程式和服務資訊清單。 這些範例的目的是要說明有哪些設定可供使用以及要如何使用。 這些應用程式和服務資訊清單是以 [Windows Server 2016 容器範例](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows)的資訊清單作為基礎。
@@ -295,7 +295,7 @@ ms.locfileid: "47094147"
 要從中提取映像之容器映像存放庫的認證。 如需詳細資訊，請參閱 [RepositoryCredentials 元素](service-fabric-service-model-schema-elements.md#RepositoryCredentialsElementRepositoryCredentialsTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="portbinding-element"></a>PortBinding 元素
-指定哪些端點資源要繫結至公開的容器連接埠。 如需詳細資訊，請參閱 [PortBinding 元素](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
+指定哪些端點資源要繫結至公開的容器連接埠。 如需詳細資訊，請參閱 [PortBinding 元素](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="volume-element"></a>Volume 元素
 指定要繫結至容器的磁碟區。 如需詳細資訊，請參閱 [Volume 元素](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
@@ -313,7 +313,7 @@ Windows Server 容器在不同的 OS 版本之間可能不相容。  每個容�
  如需詳細資訊，請參閱 [EnvironmentOverrides 元素](service-fabric-service-model-schema-elements.md#EnvironmentOverridesElementEnvironmentOverridesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="certificateref-element"></a>CertificateRef 元素
 指定要對容器環境公開之 X509 憑證的相關資訊。 此憑證必須安裝在所有叢集節點的 LocalMachine 存放區中。
@@ -356,7 +356,7 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。 
 將環境變數傳遞到您的容器或 exe。  如需詳細資訊，請參閱 [EnvironmentVariables 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage 元素
 宣告 Name 屬性所命名的資料夾，其中包含 Settings.xml 檔案。 此檔案包含程序可以在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有 ConfigPackage 版本已變更，則不會重新啟動執行中程序。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 如需詳細資訊，請參閱 [ConfigPackage 元素](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
@@ -403,7 +403,7 @@ https://hub.docker.com 或 Azure Container Registry 上的存放庫和映像。 
 將環境變數傳遞到您的容器或 exe。  如需詳細資訊，請參閱 [EnvironmentVariables 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
 
 ### <a name="environmentvariable-element"></a>EnvironmentVariable 元素
-環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexTypeDefinedInEnvironmentVariablesTypecomplexType)
+環境變數。 如需詳細資訊，請參閱 [EnvironmentVariable 元素](service-fabric-service-model-schema-elements.md#EnvironmentVariableElementEnvironmentVariableOverrideTypeComplexTypeDefinedInEnvironmentOverridesTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage 元素
 宣告 Name 屬性所命名的資料夾，其中包含 Settings.xml 檔案。 此檔案包含程序可以在執行階段讀回的使用者定義、成對的索引鍵/值設定等區段。 在升級期間，如果只有 ConfigPackage 版本已變更，則不會重新啟動執行中程序。 相反地，回呼會通知程序組態設定已變更，因此它們可以動態方式重新載入。 如需詳細資訊，請參閱 [ConfigPackage 元素](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)

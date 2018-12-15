@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9a8c39864d05a4e2b89da7bdfc937f8d2e5dbec9
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038411"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872831"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 建立 Apache Hadoop 叢集
 
@@ -353,19 +353,19 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 既然您已成功建立 HDInsight 叢集，請使用下列內容來了解如何使用您的叢集。
 
-### <a name="hadoop-clusters"></a>Hadoop 叢集
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 叢集
 
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
-* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 叢集
+### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 
-* [開始在 HDInsight 上使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
+* [開始使用 HDInsight 上的 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [開發適用於 HDInsight 上 Apache HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 叢集
+### <a name="apache-storm-clusters"></a>Apache Storm 叢集
 
-* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
-* [在 HDInsight 上的 Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
-* [在 HDInsight 上使用 Storm 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
+* [開發適用於 HDInsight 上 Apache Storm 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Apache Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
+* [使用 Apache Storm on HDInsight 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)

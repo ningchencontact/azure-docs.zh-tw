@@ -9,25 +9,25 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: 15bfe871731f5a6a04cae623faf0bd27cdba27fc
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7a32abe52e6f1109becc18c84b19d0ccd69719c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233186"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385460"
 ---
 # <a name="monitor-b2b-messages-with-azure-log-analytics-in-azure-logic-apps"></a>在 Azure Logic Apps 中使用 Azure Log Analytics 監視 B2B 訊息
 
 當您在整合帳戶中的交易夥伴之間設定了 B2B 通訊之後，那些合作夥伴就可以彼此交換訊息。 若要檢查此通訊會以您預期的方式運作，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md)，針對您的整合帳戶監視 AS2、X12 和 EDIFACT 訊息並設定診斷記錄。 此服務會監視您的雲端和內部部署環境，協助您維護其可用性和效能，並收集執行階段詳細資料和事件，以進行更豐富的偵錯。 您也可以[將此資料與其他服務搭配使用](#extend-diagnostic-data)，例如 Azure 儲存體和 Azure 事件中樞。
 
 > [!NOTE]
-> 此頁面可能仍會參考 Microsoft Operations Management Suite (OMS) (此套件將[在 2019 年 1 月淘汰](../log-analytics/log-analytics-oms-portal-transition.md))，但將盡可能地使用 Azure Log Analytics 來取代那些步驟。 
+> 此頁面可能仍會參考 Microsoft Operations Management Suite (OMS) (此套件將[在 2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md))，但將盡可能地使用 Azure Log Analytics 來取代那些步驟。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 已設定診斷記錄的邏輯應用程式。 了解[如何建立邏輯應用程式](quickstart-create-first-logic-app-workflow.md)和[如何設定該邏輯應用程式的記錄](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
-* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 監視和追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
+* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 監視和追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 * 連結至邏輯應用程式的整合帳戶。 了解[如何建立具有邏輯應用程式連結的整合帳戶](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)。
 
@@ -121,10 +121,10 @@ ms.locfileid: "50233186"
 
 使用 Azure Log Analytics，即可延伸如何搭配使用邏輯應用程式的診斷資料與其他 Azure services，例如： 
 
-* [在 Azure 儲存體中封存 Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../log-analytics/log-analytics-powerbi.md)。 例如︰
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如︰
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)

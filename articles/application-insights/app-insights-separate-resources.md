@@ -9,16 +9,15 @@ ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 83852333d8e66c76f2d2710b1813a4400622e624
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 77c0baba1c30153730e87181e24137d9a20ea6b1
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417305"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012465"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>區分開發、測試及生產環境的遙測
 
@@ -33,7 +32,7 @@ ms.locfileid: "50417305"
 在不同情況下，您一般可以選擇使用不同資源或單一的共用資源︰
 
 * 獨立的不同應用程式 - 為每個應用程式使用不同的資源和 ikey。
-* 單一商務應用程式的多個元件或角色 - 為所有元件應用程式使用[單一的共用資源](app-insights-monitor-multi-role-apps.md)。 透過 cloud_RoleName 屬性即可篩選或區隔遙測。
+* 單一商務應用程式的多個元件或角色 - 為所有元件應用程式使用[單一的共用資源](app-insights-app-map.md)。 透過 cloud_RoleName 屬性即可篩選或區隔遙測。
 * 開發、測試和發行 - 在生產「戳記」或階段，為各個系統版本使用不同的資源和 ikey。
 * A | B 測試 - 使用單一資源。 建立 TelemetryInitializer 即可在遙測中新增屬性來識別變體。
 
@@ -114,7 +113,7 @@ iKey 也會用在您的應用程式網頁中，在 [您從快速啟動刀鋒視�
     ```XML
 
     <?xml version="1.0" encoding="utf-8"?>
-    <DeploymentEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
+    <DeploymentEvent xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/VisualStudio/DeploymentEvent/2013/06">
       <ProjectName>AppVersionExpt</ProjectName>
       <Build type="MSBuild">
         <MSBuild>

@@ -10,16 +10,15 @@ ms.assetid: 59df5bec-d959-457d-8731-7b20f7f1013e
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: adigan;
-ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.author: adigan
+ms.openlocfilehash: 65ab497b2467846a324d10f8487ab384a01441ee
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267285"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968880"
 ---
 # <a name="update-the-azure-backup-central-reporting-content-pack"></a>更新 Azure 備份集中報告內容套件 
 
@@ -42,30 +41,30 @@ Azure Backup 內容套件會更新以支援更多工作負載。 工作負載包
 
 ### <a name="summary"></a>總結
    
-![總結](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Summary.png)
+![總結](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Summary.png)
 
 ### <a name="billing"></a>計費
 
-![計費](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Billing.png)
+![計費](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Billing.png)
 
-### <a name="compliance"></a>合規性
+### <a name="compliance"></a>法規遵循
 
-![合規性](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Compliance.png)
+![法規遵循](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Compliance.png)
 
 ### <a name="storage"></a>儲存體
 
-![儲存體](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Storage.png)
+![儲存體](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Storage.png)
 
 ### <a name="backup-items"></a>備份項目
-![備份項目](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-BackupItem.png)
+![備份項目](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-BackupItem.png)
 
 ### <a name="alerts"></a>警示
 
-![警示](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Alerts.png)
+![警示](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Alerts.png)
 
 ### <a name="jobs"></a>工作
 
-![工作](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
+![工作](./media/backup-azure-central-reporting/AzBackup-Central-Reporting-Jobs.png)
     
 
 ## <a name="next-steps"></a>後續步驟

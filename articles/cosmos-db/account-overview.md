@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e73c295c214728bf07b65ae4402c3b5abe21932f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 9f237d9eed5b8500f0f80b8b73d638f374bf5ca9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165283"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999518"
 ---
 # <a name="working-with-azure-cosmos-account"></a>與 Azure Cosmos 帳戶搭配使用
 
@@ -38,7 +38,7 @@ Azure Cosmos DB 容器是延展性的基本單位。 您在容器上可佈建的
 * [全球發佈](distribute-data-globally.md)
 * [一致性層級](consistency-levels.md)
 * [使用 Azure Cosmos 容器和項目](databases-containers-items.md)
-* [Azure Cosmos 帳戶的 VNET 服務端點](firewall-support.md)
-* [Azure Cosmos 帳戶的 IP 防火牆](vnet-service-endpoint.md)
+* [Azure Cosmos 帳戶的 VNET 服務端點](vnet-service-endpoint.md)
+* [Azure Cosmos 帳戶的 IP 防火牆](firewall-support.md)
 * [如何在 Azure Cosmos 帳戶中新增和移除 Azure 區域](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

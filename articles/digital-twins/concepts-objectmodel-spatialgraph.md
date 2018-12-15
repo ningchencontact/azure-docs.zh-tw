@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/14/2018
 ms.author: alinast
-ms.openlocfilehash: 95f01c9338afbf2ab5381001e4ab480185cedaeb
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 912a3ed558f8fabfcad517aeb7b7e864cf8f359e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636878"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436920"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>了解 Digital Twins 物件模型和空間智慧圖形
 
@@ -48,11 +48,11 @@ Digital Twins 物件模型支援下列主要物件類別：
 - **角色**是為空間圖形中的使用者和裝置指派的權限集，例如 `Space Administrator`、`User Administrator`及 `Device Administrator`。
 - **角色指派**是空間圖形中角色和物件之間的關聯。 例如，使用者或服務主體可以被授與權限，以管理空間圖形中的特定空間。
 - **安全性金鑰存放區**可為指定空間物件下之階層內所包含的所有裝置提供安全性金鑰，使裝置能夠安全地與 Digital Twins 進行通訊。
-- **使用者定義函式** (UDF) 可允許在空間圖形內進行可自訂感應器遙測的處理。 例如，UDF 可以： 
-    - 設定感應器值。 
-    - 執行以感應器讀數為基礎的自訂邏輯，並將輸出設定至空間。 
-    - 將中繼資料附加至空間。 
-    - 在符合預先定義的條件時傳送通知。 目前可以用 JavaScript 撰寫 UDF。
+- **使用者定義函式** (UDF) 可允許在空間圖形內進行可自訂感應器遙測的處理。 例如，UDF 可以：
+  - 設定感應器值。
+  - 執行以感應器讀數為基礎的自訂邏輯，並將輸出設定至空間。
+  - 將中繼資料附加至空間。
+  - 在符合預先定義的條件時傳送通知。 目前可以用 JavaScript 撰寫 UDF。
 - **比對器**是可決定針對指定遙測訊息應執行哪些 UDF 的物件。
 - **端點**是可路由遙測訊息和 Digital Twins 事件的位置，例如 `Event Hub`、`Service Bus`及 `Event Grid`。
 
@@ -82,7 +82,7 @@ Digital Twins 物件模型支援下列主要物件類別：
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 名稱 | 更換為 |
+| Name | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |
@@ -103,9 +103,9 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
 ## <a name="next-steps"></a>後續步驟
 
-* 若要了解裝置連線能力，以及如何將遙測訊息傳送至 Digital Twins，請參閱 [Azure Digital Twins 裝置連線能力和遙測輸入](concepts-device-ingress.md)。
+- 若要了解裝置連線能力，以及如何將遙測訊息傳送至 Digital Twins，請參閱 [Azure Digital Twins 裝置連線能力和遙測輸入](concepts-device-ingress.md)。
 
-* 若要深入了解管理 API 的限制和節流，請參閱 [Azure Digital Twins API 管理和限制](concepts-service-limits.md)。
+- 若要深入了解管理 API 的限制和節流，請參閱 [Azure Digital Twins API 管理和限制](concepts-service-limits.md)。
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png

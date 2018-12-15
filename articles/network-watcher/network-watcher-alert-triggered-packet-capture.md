@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 4c96ca70b9b6a82dcccec443ac0b1e06f96a2396
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2035d342a89ace6d286fc205c346591b29646c5d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597406"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270129"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>使用封包擷取搭配警示和 Azure Functions 進行主動式網路監視
 
@@ -33,7 +33,7 @@ ms.locfileid: "31597406"
 
 ![案例][scenario]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 最新版的 [Azure PowerShell](/powershell/azure/install-azurerm-ps)。
 * 網路監看員的現有執行個體。 如果您還沒有，請[建立網路監看員執行個體](network-watcher-create.md)。
@@ -331,7 +331,7 @@ $Encryptedpassword
 
     ![複製函式 URL][2]
 
-如果您在 Webhook POST 要求的承載中需要自訂屬性，請參閱[針對 Azure 計量警示設定 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
+如果您在 Webhook POST 要求的承載中需要自訂屬性，請參閱[針對 Azure 計量警示設定 Webhook](../azure-monitor/platform/alerts-webhooks.md)。
 
 ## <a name="configure-an-alert-on-a-vm"></a>在 VM 上設定警示
 

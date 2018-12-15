@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3da22c635fa780a7bba44f3c5ab481181eeab202
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 1e1401d7f7f383f60b37a3af3a18569bd5a2520a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314570"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336913"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>使用 Azure 資訊安全中心管理端點保護
 Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端點保護問題] 刀鋒視窗下報告此狀態。 資訊安全中心會強調問題所在，例如偵測到威脅和防護不足，這些問題會造成虛擬機器 (VM) 和電腦容易遭受反惡意程式碼軟體威脅。 您可以使用 [端點保護問題] 的資訊，找出可解決找出的問題的方案。
@@ -104,7 +104,7 @@ Azure 資訊安全中心會監視反惡意程式碼軟體的狀態，並在 [端
 
 若要深入了解資訊安全中心，請參閱下列文件：
 
-* [設定 Azure 資訊安全中心的安全性原則](security-center-azure-policy.md) -- 了解如何設定安全性原則。
+* [設定 Azure 資訊安全中心的安全性原則](tutorial-security-policy.md) -- 了解如何設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。

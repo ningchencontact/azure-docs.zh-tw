@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
-ms.openlocfilehash: 73e95f6259c916b06fe61cb47fd36beac4c7a427
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 212e45a7b593a9607aa19a10efdf2aaf61c78d17
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51571909"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344581"
 ---
 網域名稱系統 (DNS) 是用來尋找網際網路上的資訊。 例如，當您在瀏覽器中輸入位址，或按一下網頁上的連結時，它會使用 DNS 將網域轉譯成 IP 位址。 IP 位址如同街道地址，但它不是很容易使用。 例如，記憶像 **contoso.com** 的 DNS 名稱，比記憶如 192.168.1.88 或 2001:0:4137:1f67:24a2:3888:9cce:fea3 之類的 IP 位址容易得多。
 
@@ -32,7 +32,7 @@ CNAME 記錄將特定的 DNS (例如 **mail.contoso.com** 或 **www.contoso.com*
 一旦流量到達流量管理員，流量管理員接著會使用針對其設定的負載平衡方法，將流量路由到您的網站。 這對網站的訪客而言完全是透明的。 訪客只會在其瀏覽器中看到自訂的網域名稱。
 
 > [!NOTE]
-> 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。 如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、<a href="http://en.wikipedia.org/wiki/CNAME_record">維基百科 CNAME 記錄條目</a>，或 <a href="http://tools.ietf.org/html/rfc1035">IETF 網域名稱 - 實作與規格</a>文件。
+> 使用 CNAME 記錄時，某些網域註冊機構只允許您對應子網域 (如 **www.contoso.com**)，而不是根名稱 (如 **contoso.com**)。 如需 CNAME 記錄的詳細資訊，請參閱註冊機構提供的文件、<a href="https://en.wikipedia.org/wiki/CNAME_record">維基百科 CNAME 記錄條目</a>，或 <a href="https://tools.ietf.org/html/rfc1035">IETF 網域名稱 - 實作與規格</a>文件。
 > 
 > 
 

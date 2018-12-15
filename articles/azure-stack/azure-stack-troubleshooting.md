@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: c463599190c5bfaac47a70dbca7b8a67dc830f3a
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363470"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957635"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Microsoft Azure Stack 疑難排解
 
@@ -43,7 +43,7 @@ ms.locfileid: "49363470"
 在 Azure Stack 中部署 VM 之前，必須先新增 Windows Server 映像與資源庫項目。
 
 ### <a name="after-restarting-my-azure-stack-host-some-vms-may-not-automatically-start"></a>重新啟動我的 Azure Stack 主機之後，某些 VM 可能不會自動啟動。
-將您的主機重新開機之後，您可能會注意到 Azure Stack 服務並非立即可用。  這是因為 Azure Stack [基礎結構 VM](..\azure-stack\asdk\asdk-architecture.md#virtual-machine-roles) 與資源提供者需要一些時間來檢查一致性，但最終將會自動啟動。
+將您的主機重新開機之後，您可能會注意到 Azure Stack 服務並非立即可用。  這是因為 Azure Stack [基礎結構 VM](../azure-stack/asdk/asdk-architecture.md#virtual-machine-roles) 與資源提供者需要一些時間來檢查一致性，但最終將會自動啟動。
 
 您可能也會注意到當 Azure Stack 開發套件主機重新開機之後，租用戶 VM 未自動重新啟動。 這是已知問題，而且只需要手動執行一些步驟就能讓它們上線：
 

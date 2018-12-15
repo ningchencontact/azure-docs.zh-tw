@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 427c3601d6a4ca65407a98d54b0206cde9af4235
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 18c35070707408f43fd0e5dfc5e3330ef62a914d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638393"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343151"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>如何以 WebJobs 的形式執行長期函式
 
@@ -35,7 +35,7 @@ ms.locfileid: "52638393"
 
 * [安裝 Visual Studio 2017 15.6 版或更新版本](https://docs.microsoft.com/visualstudio/install/)與 **Azure 開發**工作負載。
 
-  如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能] 來新增該工作負載。 
+  如果您已有 Visual Studio 但沒有該工作負載，請選取 [工具] > [取得工具和功能] 來新增該工作負載。
 
   (您可以改為使用 [Visual Studio Code](https://code.visualstudio.com/)，但某些指示是 Visual Studio 特有的。)
 
@@ -43,7 +43,7 @@ ms.locfileid: "52638393"
 
 ## <a name="webjobs-sdk-versions"></a>WebJobs SDK 版本
 
-本文說明如何開發 WebJobs SDK 2.x 專案 (相當於 Azure Functions 1.x 版)。 如需 3.x 版的資訊，請參閱本文稍後的 [WebJobs SDK 3.x](#webjobs-sdk-3x)。 
+本文說明如何開發 WebJobs SDK 2.x 專案 (相當於 Azure Functions 1.x 版)。 如需 3.x 版的資訊，請參閱本文稍後的 [WebJobs SDK 3.x](#webjobs-sdk-3x)。
 
 ## <a name="create-console-app"></a>建立主控台應用程式
 
@@ -190,9 +190,9 @@ while (true)
 
 1. 在本機執行時，如果您想要在 Application Insights 中看到記錄：
 
-  a. 建立 Application Insights 資源，應用程式輸入 [一般]。
+    a. 建立 Application Insights 資源，應用程式輸入 [一般]。
 
-  b. 將檢測金鑰儲存在 App.config 檔案。
+    b. 將檢測金鑰儲存在 App.config 檔案。
 
 1. 執行專案。
 
@@ -216,8 +216,8 @@ while (true)
 
 1. 選擇下列套件的發行前版本 3.x：
 
-  * `Microsoft.Azure.WebJobs.Extensions`
-  * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
+    * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
 1. 變更 `Main` 方法程式碼，以使用 .NET Core 組態架構從 appsettings.json 檔案取得儲存體連接字串和 Application Insights 檢測金鑰。  以下是範例：
 
@@ -235,7 +235,7 @@ while (true)
            var config = new JobHostConfiguration();
 
            config.DashboardConnectionString = "";
-           config.StorageConnectionString = 
+           config.StorageConnectionString =
                appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
            var instrumentationKey =
                appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
@@ -258,4 +258,3 @@ while (true)
 ## <a name="next-steps"></a>後續步驟
 
 若要深入了解 WebJobs SDK，請參閱[如何使用 WebJobs SDK](../../app-service/webjobs-sdk-how-to.md)。
-

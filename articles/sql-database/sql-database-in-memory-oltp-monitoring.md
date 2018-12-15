@@ -3,7 +3,7 @@ title: 監視 XTP 記憶體內儲存體 | Microsoft Docs
 description: 估計和監視 XTP 記憶體內儲存體使用量、容量；解決容量錯誤 41823
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: genemi
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2a9c01eb2c237a7c79464b930c9258f791d8f3ce
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ac7b568d95b9a2c382b1c167965942f0733012c4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161619"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52874918"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>監視記憶體內部 OLTP 儲存體
 使用 [記憶體內部 OLTP](sql-database-in-memory.md)時，記憶體最佳化資料表中的資料和資料表變數位於記憶體內部 OLTP 儲存體中。 每個進階和商務關鍵性服務層都具備記憶體內部 OLTP 儲存體大小上限。 請參閱[以 DTU 為基礎的資源限制 - 單一資料庫](sql-database-dtu-resource-limits-single-databases.md)、[以 DTU 為基礎的資源限制 - 彈性集區](sql-database-dtu-resource-limits-elastic-pools.md)、[以虛擬核心為基礎的資源限制 - 單一資料庫](sql-database-vcore-resource-limits-single-databases.md)及[以虛擬核心為基礎的資源限制 - 彈性集區](sql-database-vcore-resource-limits-elastic-pools.md)。

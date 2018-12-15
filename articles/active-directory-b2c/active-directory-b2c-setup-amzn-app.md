@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5bc1e0faf01125f498eb339bba841b96f6de9d82
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cec84b5be64f82d4edd286127330ae3bdebc6367
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181799"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842563"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以 Amazon 帳戶登入
 
 ## <a name="create-an-amazon-application"></a>建立 Amazon 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用 Amazon 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 Amazon 帳戶，可以至 [http://www.amazon.com/](http://www.amazon.com/) 取得。
+若要在 Azure Active Directory (Azure AD) B2C 中使用 Amazon 帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有 Amazon 帳戶，可以至 [https://www.amazon.com/](https://www.amazon.com/) 取得。
 
 1. 以您的 Amazon 帳戶認證登入 [Amazon Developer Center (Amazon 開發人員中心)](https://login.amazon.com/)。
 2. 若您尚未執行此動作，請按一下 [註冊] 、遵循開發人員註冊步驟，並接受原則。
@@ -34,7 +34,7 @@ ms.locfileid: "47181799"
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>將 Amazon 帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 輸入 [名稱]。 例如，輸入 *Amazon*。

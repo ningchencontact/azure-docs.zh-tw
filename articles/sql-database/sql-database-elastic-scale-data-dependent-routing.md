@@ -3,7 +3,7 @@ title: 使用 Azure SQL Database 的資料相依路由 | Microsoft Docs
 description: 如何在 .NET 應用程式中將 ShardMapManager 類別用於資料相依路由 (Azure SQL Database 中的分區化資料庫的一項功能)
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: d40d0aff62492a01694eecac0a3650fcba69c448
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 60e00868805342c1399c3b44f3e944311af0f3b7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242920"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870566"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>使用資料相依路由將查詢路由至適當的資料庫
 

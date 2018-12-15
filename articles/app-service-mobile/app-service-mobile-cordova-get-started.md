@@ -16,12 +16,12 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 07/07/2017
 ms.author: crdun
-ms.openlocfilehash: 223e9e35fcab347f9b5b8db01a9fd667b9f5d55d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0c00709417f3b393e8505dc7232abd5541c4e961
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488641"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954964"
 ---
 # <a name="create-an-apache-cordova-app"></a>建立 Apache Cordova 應用程式
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "38488641"
 
 所有其他 Apache Cordova 教學課程只要是與使用 Azure App Service 中的 Mobile Apps 功能相關，都必須先完成本教學課程。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要下列必要條件：
 
 * 具有 [Visual Studio Community 2017] 或更新版本的電腦。
@@ -74,7 +74,7 @@ ms.locfileid: "38488641"
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2017]: http://www.visualstudio.com/
+[Visual Studio Community 2017]: https://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [離線資料]: app-service-mobile-offline-data-sync.md
 [驗證]: app-service-mobile-auth.md

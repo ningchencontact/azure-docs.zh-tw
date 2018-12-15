@@ -15,12 +15,12 @@ ms.date: 09/05/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 1269dfb3aec33e781601a1d885004ddf80127160
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 83f32cc18f1237d5d28e8340177fd6e2fae4e173
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367193"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133633"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>透過 Microsoft Teams 存取內部部署應用程式
 
@@ -31,7 +31,7 @@ Azure Active Directory Application Proxy 可讓您從任何地方單一登入內
 
 ## <a name="install-the-application-proxy-connector-and-publish-your-app"></a>安裝 Application Proxy 連接器並發佈您的應用程式
 
-如果您尚未這麼做，請[設定租用戶的 Application Proxy 並安裝連接器](application-proxy-enable.md)。 然後，[發佈內部部署應用程式](application-proxy-publish-azure-portal.md)以供遠端存取。 當您要發佈應用程式時，請記下外部 URL，因為這會用於將應用程式新增至 Teams。
+如果您尚未這麼做，請[設定租用戶的 Application Proxy 並安裝連接器](application-proxy-add-on-premises-application.md)。 然後，[發佈內部部署應用程式](application-proxy-add-on-premises-application.md)以供遠端存取。 當您要發佈應用程式時，請記下外部 URL，因為這會用於將應用程式新增至 Teams。
 
 如果您已經發佈應用程式，但不記得其外部 URL，請在 [Azure 入口網站](https://portal.azure.com)中查閱。 登入，然後瀏覽至 [Azure Active Directory] > [企業應用程式] > [所有應用程式] > 選取您的應用程式 > [Application Proxy]。
 

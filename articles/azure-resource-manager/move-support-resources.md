@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5bb820d816115dccf470b6c32d080862495e8310
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 6f1869b83f46f97d0c54eb874a8879521a43b1e2
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434971"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387058"
 ---
 # <a name="move-operation-support-for-resources"></a>資源的移動作業支援
 
@@ -35,7 +35,7 @@ Get-AzureRmResource -ResourceGroupName demogroup | Select Name, ResourceType | F
 對於 Azure CLI，請使用：
 
 ```azurecli-interactive
-az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
+az resource list -g demogroup --query '[].{name:name, resourceType:type}' --output table
 ```
 
 傳回資源類型時，會以 `<resource-provider>/<resource-type-name>` 格式傳回。 因此，`Microsoft.OperationalInsights/workspaces` 值的資源提供者為 **Microsoft.OperationalInsights**，而資源類型名稱則為 **workspaces**。
@@ -89,14 +89,6 @@ az resource list -g demogroup --query '[].{name:name, reourcetype:type}'
 | 資源類型 | 資源群組 | 訂用帳戶 |
 | ------------- | -------------- | ------------ |
 | batchaccounts | 是 | 是 |
-
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-| 資源類型 | 資源群組 | 訂用帳戶 |
-| ------------- | -------------- | ------------ |
-| clusters | 否 | 否 |
-| fileservers | 否 | 否 |
-| jobs | 否 | 否 |
-| workspaces | 否 | 否 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 | 資源類型 | 資源群組 | 訂用帳戶 |

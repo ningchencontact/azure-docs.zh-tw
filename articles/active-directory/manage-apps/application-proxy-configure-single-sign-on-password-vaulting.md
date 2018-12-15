@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 8cdb5b89bf43d3265f3f9c73d29708f11e17b21c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6ae7cff42a9b744409fa454199155796c8c06713
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624024"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138927"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>使用應用程式 Proxy 進行單一登入的密碼保存庫
 
@@ -26,7 +26,7 @@ Azure Active Directory 應用程式 Proxy 可發佈內部部署應用程式，�
 
 應用程式 Proxy 支援數個[單一登入模式](what-is-single-sign-on.md#choosing-a-single-sign-on-method)。 密碼型登入適用於使用使用者名稱/密碼組合進行驗證的應用程式。 當您設定應用程式的密碼型登入您時，您的使用者必須登入一次內部部署應用程式。 之後，Azure Active Directory 會儲存登入資訊，並且會在您的使用者從遠端存取時，自動將登入資訊提供給應用程式。 
 
-您應該已經使用應用程式 Proxy 發行並測試您的應用程式。 如果還沒，請依照[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)的步驟操作，然後回到這裡。 
+您應該已經使用應用程式 Proxy 發行並測試您的應用程式。 如果還沒，請依照[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)的步驟操作，然後回到這裡。 
 
 ## <a name="set-up-password-vaulting-for-your-application"></a>為應用程式設定密碼儲存庫存
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: rtiberiu
-ms.openlocfilehash: 1ef20dc35b069c5f12c2f31d0979949be27271e0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: be793fa5d346d05e6b7bd9f93f1108b7a3542fa6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323618"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959167"
 ---
 # <a name="azure-stack-vm-update-and-management"></a>Azure Stack VM 更新與管理
 您可以使用下列 Azure 自動化解決方案功能來管理使用 Azure Stack 部署的 Windows VM：
@@ -41,7 +41,7 @@ ms.locfileid: "49323618"
 若要針對 Azure Stack Windows VM 使用清查、變更追蹤及更新管理等 Azure 自動化功能，必須先在 Azure 中啟用這些解決方案。
 
 > [!TIP]
-> 如果您已在 Azure VM 上啟用這些功能，便可使用原本既有的 LogAnalytics 工作區認證。 如果您已經擁有想使用的 LogAnalytics WorkspaceID 和主索引鍵，請直接跳到[下一節](.\vm-update-management.md#in-the-azure-stack-administration-portal)。 若尚未擁有，請繼續依照本節的說明，建立新的 LogAnalytics 工作區和自動化帳戶。
+> 如果您已在 Azure VM 上啟用這些功能，便可使用原本既有的 LogAnalytics 工作區認證。 如果您已經擁有想使用的 LogAnalytics WorkspaceID 和主索引鍵，請直接跳到[下一節](./vm-update-management.md#in-the-azure-stack-administration-portal)。 若尚未擁有，請繼續依照本節的說明，建立新的 LogAnalytics 工作區和自動化帳戶。
 
 啟用解決方案的第一個步驟，是在 Azure 訂用帳戶中[建立 LogAnalytics 工作區](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。 Log Analytics 工作區都是唯一的 Log Analytics 環境，有自己的資料存放庫、資料來源和解決方案。 建立工作區之後，請記下 WorkspaceID 和金鑰。 若要檢視此資訊，請前往工作區刀鋒視窗、按一下 [進階設定]，然後查看 [工作區 ID] 和 [主索引鍵] 的值。 
 

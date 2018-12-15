@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: zhiweiw
-ms.openlocfilehash: c077e8592157b5c09dd1bc99934afd9f687b1da1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8841a4d216160af4ed731570b40754307ffbb5a4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282521"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996052"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>對重複屬性同步處理錯誤進行診斷和修復
 
@@ -28,7 +28,7 @@ ms.locfileid: "51282521"
 - 可提供診斷程序，來縮小重複屬性同步處理錯誤的範圍。 此外，還可提供特定的修正方法。
 - 只要一個步驟，即可對 Azure AD 中特有的案例套用修正方法，以解決錯誤。
 - 無須升級或設定即可啟用這項功能。
-如需 Azure AD 的詳細資訊，請參閱[身分識別同步處理和重複屬性恢復功能](https://aka.ms/dupattributeresdocs)。
+如需 Azure AD 的詳細資訊，請參閱[身分識別同步處理和重複屬性恢復功能](how-to-connect-syncservice-duplicate-attribute-resiliency.md)。
 
 ## <a name="problems"></a>問題
 ### <a name="a-common-scenario"></a>常見案例

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: fdcc230171006c6388e75b947e10a73fb953001a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294669"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970173"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>使用來自 Azure API 管理服務的外部服務
 Azure API 管理服務中可用的原則可純粹根據傳入的要求、傳出的回應及基本組態資訊來進行各式各樣的有用工作。 不過，能夠與來自 API 管理原則的外部服務進行互動，可開啟更多的機會。
@@ -68,13 +68,13 @@ Slack 具有傳入 Web 攔截的概念。 在設定輸入 Web Hook 時，Slack �
 `send-request` 原則能夠使用外部服務來執行複雜的處理函式，並將資料傳回 API 管理服務，此服務可用來進一步處理原則。
 
 ### <a name="authorizing-reference-tokens"></a>授權參考權杖
-API 管理的主要功能是保護後端資源。 如果您的 API 所使用的授權伺服器會建立 [JWT 權杖](http://jwt.io/) 做為其 OAuth2 流程的一部分，當 [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) 這樣做時，則您可以使用 `validate-jwt` 原則來驗證權杖的有效性。 某些授權伺服器會建立所謂的[參考權杖](http://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)，此類權杖無法在不對授權伺服器進行回呼的情況下進行驗證。
+API 管理的主要功能是保護後端資源。 如果您的 API 所使用的授權伺服器會建立 [JWT 權杖](https://jwt.io/) 做為其 OAuth2 流程的一部分，當 [Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md) 這樣做時，則您可以使用 `validate-jwt` 原則來驗證權杖的有效性。 某些授權伺服器會建立所謂的[參考權杖](https://leastprivilege.com/2015/11/25/reference-tokens-and-introspection/)，此類權杖無法在不對授權伺服器進行回呼的情況下進行驗證。
 
 ### <a name="standardized-introspection"></a>將自我檢查標準化
 過去一直沒有標準化的方式可使用授權伺服器來驗證參考權杖。 不過，IETF 最近發佈的提議標準 [RFC 7662](https://tools.ietf.org/html/rfc7662) 定義了資源伺服器如何驗證權杖的有效性。
 
 ### <a name="extracting-the-token"></a>擷取權杖
-第一個步驟是從授權標頭擷取權杖。 根據 [RFC 6750](http://tools.ietf.org/html/rfc6750#section-2.1)，標頭值應依序使用 `Bearer` 授權配置、單一空格和授權權杖進行格式化。 不過，有一些情況需要省略授權配置。 在剖析時為了因應這一點，API 管理會使用空格來分割標頭值，並從字串的傳回陣列中選取最後一個字串。 這樣可為格式錯誤的授權標頭提供因應措施。
+第一個步驟是從授權標頭擷取權杖。 根據 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-2.1)，標頭值應依序使用 `Bearer` 授權配置、單一空格和授權權杖進行格式化。 不過，有一些情況需要省略授權配置。 在剖析時為了因應這一點，API 管理會使用空格來分割標頭值，並從字串的傳回陣列中選取最後一個字串。 這樣可為格式錯誤的授權標頭提供因應措施。
 
 ```xml
 <set-variable name="token" value="@(context.Request.Headers.GetValueOrDefault("Authorization","scheme param").Split(' ').Last())" />
@@ -118,7 +118,7 @@ API 管理的主要功能是保護後端資源。 如果您的 API 所使用的�
 </choose>
 ```
 
-根據說明應如何使用 `bearer` 權杖的 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3)，API 管理也會傳回 `WWW-Authenticate` 標頭以及 401 回應。 WWW 驗證的目的是指示用戶端如何建構適當授權的要求。 由於有各式各樣可能具備 OAuth2 架構的處理方法，因此很難傳達所有必要的資訊。 幸好我們仍持續努力來協助 [用戶端探索如何適當地將要求授權給資源伺服器](http://tools.ietf.org/html/draft-jones-oauth-discovery-00)。
+根據說明應如何使用 `bearer` 權杖的 [RFC 6750](https://tools.ietf.org/html/rfc6750#section-3)，API 管理也會傳回 `WWW-Authenticate` 標頭以及 401 回應。 WWW 驗證的目的是指示用戶端如何建構適當授權的要求。 由於有各式各樣可能具備 OAuth2 架構的處理方法，因此很難傳達所有必要的資訊。 幸好我們仍持續努力來協助 [用戶端探索如何適當地將要求授權給資源伺服器](https://tools.ietf.org/html/draft-jones-oauth-discovery-00)。
 
 ### <a name="final-solution"></a>最終解決方案
 最後，您會取得下列原則：

@@ -14,26 +14,25 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 82a5ef86d1ca35cddb05cb4e126e64cc3759bcc0
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 12ed395855b9d870f8f6e3564dc5b3b899b9c6c1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805499"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313865"
 ---
-<a name="troubleshooting-common-authentication-errors"></a>針對常見驗證錯誤進行疑難排解
-------------------------------------------
+# <a name="troubleshooting-common-authentication-errors"></a>針對常見驗證錯誤進行疑難排解
 
 此文章提供了使用 Cloud Partner 入口網站 API 時常見驗證錯誤的幫助。
 
-### <a name="unauthorized-error"></a>未經授權錯誤
+## <a name="unauthorized-error"></a>未經授權錯誤
 
 如果您不斷遇到 `401 unauthorized` 錯誤，請確認您是否擁有有效的存取權杖。  如果您尚未這麼做，請依照[使用入口網站來建立可存取資源的 Azure Active Directory 應用程式和服務主體](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)中所述，建立基本的 Azure Active Directory (Azure AD) 應用程式和服務主體。 然後，使用應用程式或簡單的 HTTP POST 要求來驗證您的存取權。  您將包含租用戶識別碼、應用程式識別碼、物件識別碼和祕密金鑰以取得存取權杖，如下圖所示：
 
 ![疑難排解 401 錯誤](./media/cloud-partner-portal-api-troubleshooting-authentication-errors/troubleshooting-401-error.jpg)
 
 
-### <a name="forbidden-error"></a>禁止錯誤
+## <a name="forbidden-error"></a>禁止錯誤
 
 如果您遇到 `403 forbidden` 錯誤，請確保已在 Cloud Partner 入口網站中將正確的服務主體加入到您的發行者帳戶中。
 請依照[先決條件](./cloud-partner-portal-api-prerequisites.md)頁面中的步驟，將服務主體加入到入口網站。

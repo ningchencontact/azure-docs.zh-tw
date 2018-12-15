@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a76b22feee84820f3acc963af70ec24669a216d7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194159"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>適用於 Windows 的 Azure 效能診斷 VM 擴充功能
 
 Azure 效能診斷 VM 擴充功能可協助從 Windows VM 收集效能診斷資料。 此擴充功能可執行分析和提供結果與建議報告，以識別並解決虛擬機器上的效能問題。 此擴充功能會安裝名為 [PerfInsights](https://aka.ms/perfinsights) 的疑難排解工具。
 
 > [!NOTE]
-    > 如果您想要從 Azure 入口網站在您的 VM 上針對非傳統 VM 執行診斷，建議使用新體驗。 如需詳細資訊，請參閱 [Azure 虛擬機器的效能診斷](performance-diagnostics.md) 
+> 如果您想要從 Azure 入口網站在您的 VM 上針對非傳統 VM 執行診斷，建議使用新體驗。 如需詳細資訊，請參閱 [Azure 虛擬機器的效能診斷](performance-diagnostics.md) 
 
 ## <a name="prerequisites"></a>必要條件
 

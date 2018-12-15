@@ -1,13 +1,11 @@
 ---
-title: 使用 Azure CLI 在多個 IP 組態上進行負載平衡 | Microsoft Docs
+title: 使用 Azure CLI 在多個 IP 組態上進行負載平衡
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 對虛擬機器指派多個 IP 位址。
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: f9cd6405f5c3c87cdf004f8a71b9e72d58532a12
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1e8911847a555e3b6326f15d15a09344a4472f2c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37108919"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165500"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-using-azure-cli"></a>使用 Azure CLI 在多個 IP 組態上進行負載平衡
 
@@ -32,7 +30,7 @@ ms.locfileid: "37108919"
 
 請完成下列步驟來達成本文所述案例︰
 
-1. [安裝和設定 Azure CLI]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest))，方法是遵循所連結文章內的步驟並登入 Azure 帳戶。
+1. [安裝和設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，方法是遵循所連結文章內的步驟並登入 Azure 帳戶。
 2. 如下所述[建立資源群組](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) (稱為 *contosofabrikam*)。
 
     ```azurecli

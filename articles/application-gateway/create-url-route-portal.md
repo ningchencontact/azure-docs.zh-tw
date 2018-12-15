@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
-ms.openlocfilehash: 0c59405cc6d46bcaffbab0e2a746467eec26de69
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: e106094ce94b7f232fd5687988af2bd11b971e3f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024115"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001950"
 ---
 # <a name="create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>使用 Azure 入口網站建立包含 URL 路徑型路由規則的應用程式閘道
 
@@ -39,7 +39,7 @@ ms.locfileid: "50024115"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 上登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 

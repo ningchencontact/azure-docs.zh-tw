@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 62499c35fd71d83f80a60e0511e6a27ce0109275
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: da105be19f7d546e530298f87974fe7f3f78989f
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495871"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012210"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-windows-based-hdinsight"></a>存取 Windows 型 HDInsight 上的 Apache Hadoop YARN 應用程式記錄檔
 此文件說明如何針對已在 Azure HDInsight 的 Windows 型 Apache Hadoop 叢集上完成的 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) \(英文\) 應用程式存取記錄。
 
 > [!IMPORTANT]
-> 此文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 型 HDInsight 叢集上 YARN 記錄的相關資訊，請參閱[在 HDInsight 中以 Linux 為基礎之 Apache Hadoop 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
+> 本文件中的資訊僅適用於 Windows 型 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需存取 Linux 型 HDInsight 叢集上 YARN 記錄的相關資訊，請參閱[在 HDInsight 中以 Linux 為基礎之 Apache Hadoop 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 >
 
 
@@ -40,7 +40,7 @@ ms.locfileid: "52495871"
 * 為完成應用程式而進行之嘗試的相關資訊
 * 任何指定之應用程式嘗試所使用的容器
 
-在 HDInsight 叢集上，此資訊會由 Azure Resource Manager 儲存。 資訊會儲存到叢集預設儲存體中的歷程記錄存放區。 透過 REST API 即可抓取這個已完成之應用程式的相關泛型資料：
+在 HDInsight 叢集上，這項資訊會由 Azure Resource Manager 儲存。 資訊會儲存到叢集預設儲存體中的歷程記錄存放區。 透過 REST API 即可抓取這項已完成之應用程式的相關泛型資料：
 
     GET on https://<cluster-dns-name>.azurehdinsight.net/ws/v1/applicationhistory/apps
 
@@ -76,7 +76,7 @@ YARN ResourceManager UI 是在叢集前端節點上執行，並可透過 Azure �
 4. 在 [HDInsight 查詢主控台] 上，按一下 [Yarn UI]。
 
 [YARN-timeline-server]:http://hadoop.apache.org/docs/r2.4.0/hadoop-yarn/hadoop-yarn-site/TimelineServer.html
-[log-aggregation]:http://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
+[log-aggregation]:https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/
 [T-file]:https://issues.apache.org/jira/secure/attachment/12396286/TFile%20Specification%2020081217.pdf
 [binary-format]:https://issues.apache.org/jira/browse/HADOOP-3315
-[YARN-concepts]:http://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/
+[YARN-concepts]:https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/

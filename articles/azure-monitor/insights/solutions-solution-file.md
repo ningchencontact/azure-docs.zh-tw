@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 34161251ac52323bc3eff66cfe30f3de34bdf60c
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: ae310ac35afed06881eb85fabc92d68e256ca5e7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714002"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189763"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中建立管理解決方案檔 (預覽)
 > [!NOTE]
@@ -169,7 +168,7 @@ Azure 中的管理解決方案會實作為 [Resource Manager 範本](../../azure
 **dependsOn** 元素指定對另一個資源的[相依性](../../azure-resource-manager/resource-group-define-dependencies.md)。  安裝解決方案時，直到所有相依性建立後才會建立資源。  例如，解決方案可能會在使用[作業資源](solutions-resources-automation.md#automation-jobs)安裝時[啟動 Runbook](solutions-resources-automation.md#runbooks)。  作業資源會相依於 Runbook 資源，以確保在建立作業前建立 Runbook。
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 工作區和自動化帳戶
-管理解決方案需要 [Log Analytics 工作區](../../log-analytics/log-analytics-manage-access.md)來包含檢視，以及[自動化帳戶](../../automation/automation-security-overview.md#automation-account-overview)來包含 Runbook 和相關資源。  這些項目必須在建立解決方案中的資源前取得，且不得定義於解決方案本身。  使用者將會在部署解決方案時[指定工作區和帳戶](solutions.md#log-analytics-workspace-and-automation-account)，但身為作者，您應該考慮下列幾點。
+管理解決方案需要 [Log Analytics 工作區](../../azure-monitor/platform/manage-access.md)來包含檢視，以及[自動化帳戶](../../automation/automation-security-overview.md#automation-account-overview)來包含 Runbook 和相關資源。  這些項目必須在建立解決方案中的資源前取得，且不得定義於解決方案本身。  使用者將會在部署解決方案時[指定工作區和帳戶](solutions.md#log-analytics-workspace-and-automation-account)，但身為作者，您應該考慮下列幾點。
 
 
 ## <a name="solution-resource"></a>解決方案資源

@@ -8,18 +8,17 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: aac6ca2db815aa3ca427b281e146874dc142107a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: a2f654043146536ecf543ae2a0aa49537c2223e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714168"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344016"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>使用適用於 VM 的 Azure 監視器 (預覽) 來了解 Azure 虛擬機器的健康情況
 Azure 包含多個服務，它們可在監視空間中分別執行特定的角色或工作，但無法用來為裝載於 Azure 虛擬機器的作業系統提供深入的健康情況檢視方塊。  雖然您可以使用 Log Analytics 或 Azure 監視器來監視不同的情況，但它們並不是設計來呈現核心元件的健康情況或虛擬機器的整體健康情況或為其設定模型。  透過適用於 VM 的 Azure 監視器健康情況功能，它會利用一個模型主動監視 Windows 或 Linux 客體 OS 的可用性和效能，該模型代表重要元件及其關聯性、指定如何測量那些元件健康情況的準則，並在偵測到狀況不良的情況時向您發出警示。  
@@ -119,7 +118,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 * 有多少部 VM 因為處理器、磁碟、記憶體或網路介面卡偵測到問題 (依健康狀態分類) 而處於狀況不良的狀態？  
 * 有多少部 VM 因為核心作業系統服務偵測到問題 (依健康狀態分類) 而處於狀況不良的狀態？
 
-您可以在這裡快速地識別由主動監視 VM 的健康情況準則所偵測到的前幾個重大問題，並檢閱 VM 健康情況警示的詳細資料，以及旨在協助診斷並修復問題的相關知識文章。  選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) 頁面。
+您可以在這裡快速地識別由主動監視 VM 的健康情況準則所偵測到的前幾個重大問題，並檢閱 VM 健康情況警示的詳細資料，以及旨在協助診斷並修復問題的相關知識文章。  選取任何嚴重性以開啟依照該嚴重性篩選的 [所有警示](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) 頁面。
 
 [依作業系統的 VM 分佈] 清單會顯示依 Windows 版本或 Linux 發行版本列出的 VM 及其版本。 在每個作業系統分類中，都會根據 VM 的健康情況進一步細分 VM。 
 
@@ -247,7 +246,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 若要查看更新的健康狀態，您可以按一下 [重新整理] 連結，重新整理 [健康情況診斷] 頁面。  如果要基於預先定義的輪詢間隔來更新健康情況準則的健康狀態，此工作可讓您避免等候，並反映最新的健康狀態。  [健康情況準則狀態] 是一個篩選條件，可允許您根據所選取的健康情況狀態 (狀況良好、警告、重大、未知及全部) 來設定結果範圍。  右上角的**上次更新**時間表示上次重新整理 [健康情況診斷] 頁面時的時間。  
 
 ## <a name="alerting-and-alert-management"></a>警示和警示管理 
-適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
+適用於 VM 的 Azure 監視器健康情況功能會與 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)整合，並在預先定義的健康情況準則於偵測到狀況時從狀況良好變更為狀況不良狀態時引發警示。 警示會依嚴重性 (嚴重性 0 到 4，嚴重性 0 表示最高的嚴重性層級) 分類。  
 
 依嚴重性分類的 VM 健康情況警示總數可在 [健康情況] 儀表板的 [警示] 區段下方取得。 當您選取警示總數或對應到嚴重性層級的數字時，[警示] 頁面隨即開啟並列出所有符合您選取項目的警示。  例如，如果您選取了對應至**嚴重性層級 1** 的資料列，則會看到下列檢視：
 
@@ -255,7 +254,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 
 [警示] 頁面上不僅可顯示與您的選取項目相符的警示，也可藉由**資源類型**的篩選而僅顯示虛擬機器資源所引發的健康情況警示。  這會反映在警示清單的 [目標資源] 資料行下方，其中顯示在符合特定健康情況準則的狀況不良條件時已引發警示的 Azure VM。  
 
-來自其他資源類型或服務的警示不會包含在此檢視中，例如以 Log analytics 查詢為基礎的記錄警示，或是您通常會從預設 Azure 監視器的 [所有警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) 頁面檢視的計量警示。 
+來自其他資源類型或服務的警示不會包含在此檢視中，例如以 Log analytics 查詢為基礎的記錄警示，或是您通常會從預設 Azure 監視器的 [所有警示](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) 頁面檢視的計量警示。 
 
 您可以選取頁面頂端下拉式功能表中的值來篩選此檢視。
 
@@ -271,7 +270,7 @@ Azure 包含多個服務，它們可在監視空間中分別執行特定的角�
 |監視器服務 |選取服務，或選取 [所有] 以包含所有服務。 此功能僅支援來自 VM Insights 的警示。| 
 |時間範圍| 只有在所選時間範圍內引發的警示才會包含在檢視中。 支援的值為過去 1 小時、過去 24 小時、過去 7 天和過去 30 天。 | 
 
-[警示詳細資料] 頁面會在您選取警示時顯示，以提供警示的詳細資料並讓您變更其狀態。 若要深入了解如何管理警示，請參閱[使用 Azure 監視器來建立、檢視及管理警示](../../monitoring-and-diagnostics/alert-metric.md)。  
+[警示詳細資料] 頁面會在您選取警示時顯示，以提供警示的詳細資料並讓您變更其狀態。 若要深入了解如何管理警示，請參閱[使用 Azure 監視器來建立、檢視及管理警示](../../azure-monitor/platform/alerts-metric.md)。  
 
 >[!NOTE]
 >目前並不支援根據健康情況準則建立新的警示，或從入口網站修改 Azure 監視器中現有的健康情況警示規則。  

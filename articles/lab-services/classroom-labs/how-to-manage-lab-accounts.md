@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: spelluru
-ms.openlocfilehash: c672634e79cbc0850edfe7f7fbdb0a880d5cf0d8
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 20412efac553458f3028f873bcc6d918a673f261
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707124"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838804"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>管理 Azure 實驗室服務中的實驗室帳戶 
 在 Azure 實驗室服務中，實驗室帳戶是受控實驗室 (例如教室實驗室) 的容器。 系統管理員會使用 Azure 實驗室服務來設定實驗室帳戶，並向可以在帳戶中建立實驗室的實驗室擁有者提供存取權。 本文說明如何建立實驗室帳戶、檢視所有實驗室帳戶，或刪除實驗室帳戶。
@@ -47,12 +47,8 @@ ms.locfileid: "51707124"
 ## <a name="add-a-user-to-the-lab-creator-role"></a>將使用者新增至實驗室建立者角色
 若要在實驗室帳戶中設定教室實驗室，使用者必須是實驗室帳戶中的 [實驗室建立者] 角色的成員。 您用來建立實驗室帳戶的帳戶會自動新增至此角色。 如果您打算使用相同的使用者帳戶建立教室實驗室，您可以略過此步驟。 若要使用其他使用者帳戶來建立教室實驗室，請執行下列步驟： 
 
-1. 在 [實驗室帳戶] 頁面上，選取 [存取控制] \(IAM\)，然後按一下工具列上的 [+新增]。 
-
-    ![[實驗室帳戶] 頁面](../media/tutorial-setup-lab-account/access-control.png)
-2. 在 [新增權限] 頁面上，針對 [角色] 選取 [實驗室建立者]，選取您要新增到實驗室建立者角色的使用者，然後選取 [儲存]。 
-
-    ![將使用者新增至實驗室建立者角色](../media/tutorial-setup-lab-account/add-user-to-lab-creator-role.png)
+1. 在 [實驗室帳戶] 頁面上，選取 [存取控制] \(IAM\)，然後按一下工具列上的 [+新增角色指派]。 
+2. 在 [新增權限] 頁面上，針對 [角色] 選取 [實驗室建立者]，選取您要新增到實驗室建立者角色的使用者，然後選取 [儲存]。
 
 ## <a name="specify-marketplace-images-available-to-lab-owners"></a>指定適用於實驗室擁有者的 Marketplace 映像
 身為實驗室帳戶擁有者的您，可以指定實驗室建立者可用來在實驗室帳戶中建立實驗室的 Marketplace 映像。 

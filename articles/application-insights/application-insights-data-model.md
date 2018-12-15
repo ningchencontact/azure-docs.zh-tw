@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: aaff60e847e0e9908a4cd9c07cb6cd47630c5e3a
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 261bf1435680eb5fa25e5743f1eb44bbe53bf27f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35632793"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724990"
 ---
 # <a name="application-insights-telemetry-data-model"></a>Application Insights 遙測資料模型
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e2e78eae924cf079ccc03d3f907cd64194b98921
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622628"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139019"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>使用連接器群組在個別的網路和位置上發佈應用程式
 
@@ -32,7 +32,7 @@ ms.locfileid: "51622628"
 >如果您有大規模的應用程式 Proxy 部署，請勿將任何應用程式指派給預設連接器群組。 如此一來，新的連接器便不會收到任何即時流量，除非您將新連接器指派給作用中的連接器群組。 此設定也可以將連接器移回預設群組的方式，藉此讓連接器進入閒置模式，如此您便可以在不影響使用者的情況下執行維護。
 
 ## <a name="prerequisites"></a>必要條件
-若要將連接器組成群組，您必須確定 [已安裝多個連接器](application-proxy-enable.md)。 當您安裝新的連接器時，它會自動加入「預設」  連接器群組。
+若要將連接器組成群組，您必須確定 [已安裝多個連接器](application-proxy-add-on-premises-application.md)。 當您安裝新的連接器時，它會自動加入「預設」  連接器群組。
 
 ## <a name="create-connector-groups"></a>建立連接器群組
 使用以下步驟建立您所要的連接器群組，數量不拘。 

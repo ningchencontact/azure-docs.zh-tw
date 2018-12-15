@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ac117994140f96ec993e4fed739626f736ad7efc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6a099fe371198da7d3cda3146bbd9668c4d49285
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965274"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343644"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>使用警示來觸發 Azure 自動化 Runbook
 
-您可以使用 [Azure 監視器](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json)來監視 Azure 中大多數服務的基準層級計量和記錄。 您可以使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md?toc=%2fazure%2fautomation%2ftoc.json)或使用傳統警示來呼叫 Azure 自動化 Runbook，以根據警示來自動執行工作。 本文示範如何使用警示來設定及執行 Runbook。
+您可以使用 [Azure 監視器](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json)來監視 Azure 中大多數服務的基準層級計量和記錄。 您可以使用[動作群組](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json)或使用傳統警示來呼叫 Azure 自動化 Runbook，以根據警示來自動執行工作。 本文示範如何使用警示來設定及執行 Runbook。
 
 ## <a name="alert-types"></a>警示類型
 
@@ -31,9 +31,9 @@ ms.locfileid: "46965274"
 
 |警示  |說明|承載結構描述  |
 |---------|---------|---------|
-|[傳統計量警示](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |當任何平台層級計量符合特定條件時，便傳送通知。 例如，當 VM 上 [CPU %] 的值在過去 5 分鐘大於 **90**時。| [類別計量警示承載結構描述](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
-|[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當 Azure 活動記錄中的任何新事件符合特定條件時，便傳送通知。 例如，當 **myProductionResourceGroup** 中發生 `Delete VM` 作業時，或出現狀態為 [作用中] 的新「Azure 服務健康狀態」事件時。| [活動記錄警示承載結構描述](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)        |
-|[近乎即時計量警示](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當一或多個平台層級的計量符合指定的條件時，便以比計量警示快的速度傳送通知。 例如，當在過去 5 分鐘 VM 上 [CPU %] 的值大於 **90**，且 [網路輸入] 的值大於 **500 MB** 時。| [近乎即時計量警示承載結構描述](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
+|[傳統計量警示](../monitoring-and-diagnostics/insights-alerts-portal.md?toc=%2fazure%2fautomation%2ftoc.json)    |當任何平台層級計量符合特定條件時，便傳送通知。 例如，當 VM 上 [CPU %] 的值在過去 5 分鐘大於 **90**時。| [類別計量警示承載結構描述](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)         |
+|[活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當 Azure 活動記錄中的任何新事件符合特定條件時，便傳送通知。 例如，當 **myProductionResourceGroup** 中發生 `Delete VM` 作業時，或出現狀態為 [作用中] 的新「Azure 服務健康狀態」事件時。| [活動記錄警示承載結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
+|[近乎即時計量警示](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |當一或多個平台層級的計量符合指定的條件時，便以比計量警示快的速度傳送通知。 例如，當在過去 5 分鐘 VM 上 [CPU %] 的值大於 **90**，且 [網路輸入] 的值大於 **500 MB** 時。| [近乎即時計量警示承載結構描述](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fautomation%2ftoc.json#payload-schema)          |
 
 由於每種類型的警示所提供的資料不同，因此每種警示類型的處理方式也不同。 在下一節中，您將了解如何建立 Runbook 來處理不同類型的警示。
 
@@ -211,7 +211,7 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
    ![新增動作群組分頁](./media/automation-create-alert-triggered-runbook/add-action-group.png)
 1. 若要建立動作群組，請選取 [確定]。
 
-您可以在所建立的[活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)和[近乎即時警示](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)中使用此動作群組。
+您可以在所建立的[活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)和[近乎即時警示](../azure-monitor/platform/alerts-overview.md?toc=%2fazure%2fautomation%2ftoc.json)中使用此動作群組。
 
 ## <a name="classic-alert"></a>傳統警示
 
@@ -230,5 +230,5 @@ Runbook 會使用**AzureRunAsConnection** [執行身分帳戶](automation-create
 
 * 如需有關使用 Webhook 來啟動「自動化」Runbook 的詳細資訊，請參閱[從 Webhook 啟動 Runbook](automation-webhooks.md)。
 * 如需以不同方式啟動 Runbook 的詳細資訊，請參閱 [啟動 Runbook](automation-starting-a-runbook.md)。
-* 若要了解如何建立活動記錄警示，請參閱[建立活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)。
-* 若要了解如何建立近乎即時計量警示，請參閱[在 Azure 入口網站中建立警示規則](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=%2fazure%2fautomation%2ftoc.json#create-an-alert-rule-with-the-azure-portal)。
+* 若要了解如何建立活動記錄警示，請參閱[建立活動記錄警示](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)。
+* 若要了解如何建立近乎即時計量警示，請參閱[在 Azure 入口網站中建立警示規則](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json)。
