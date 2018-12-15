@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4bb423dc5eddde0fd2d2b9b4f263ab39dbd801f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 580955d3c6fd7a33c152e49e601d8078eb169a22
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284977"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409661"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 資源的標記支援
 本文將說明資源類型是否支援[標記](resource-group-using-tags.md)。
@@ -68,18 +68,6 @@ ms.locfileid: "52284977"
 | 資源類型 | 支援標記 |
 | ------------- | ----------- |
 | batchAccounts | 是 | 
-
-## <a name="batch-ai"></a>Batch AI
-| 資源類型 | 支援標記 |
-| ------------- | ----------- |
-| clusters | 是 | 
-| jobs | 是 | 
-| fileservers | 是 | 
-| workspaces | 是 | 
-| workspaces/clusters | 否 | 
-| workspaces/fileservers | 否 | 
-| workspaces/experiments | 否 | 
-| workspaces/experiments/jobs | 否 | 
 
 ## <a name="bing-maps"></a>Bing 地圖
 | 資源類型 | 支援標記 |

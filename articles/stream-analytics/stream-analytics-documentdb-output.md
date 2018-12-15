@@ -2,18 +2,19 @@
 title: Azure 串流分析輸出至 Cosmos DB
 description: 本文說明如何使用 Azure 串流分析將輸出儲存至 JSON 輸出的 Azure Cosmos DB，以針對非結構化 JSON 資料進行資料封存和低延遲查詢。
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2017
-ms.openlocfilehash: 9bdb012db2e7502d765fd342a636591bbbcb2c6c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: c5017817c0f823a149dd0f9bced48ecca9f3c488
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311733"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106561"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure 串流分析輸出至 Azure Cosmos DB  
 「串流分析」可以將 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 設定為 JSON 輸出的目標，讓您能夠針對非結構化的 JSON 資料進行資料封存和低延遲查詢。 本文件涵蓋實作這種組態的一些最佳作法。

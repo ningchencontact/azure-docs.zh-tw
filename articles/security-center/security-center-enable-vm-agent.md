@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a059cd5c22306c42adc4c7c8fcc4e52c3ebcd00
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c4fff902614b3979fcc28833c5352afe2bdd84b0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313566"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341488"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>在 Azure 資訊安全中心啟用 VM 代理程式
 VM 代理程式必須安裝在虛擬機器 (VM) 上，才能 [啟用資料收集](security-center-enable-data-collection.md)。  Azure 資訊安全中心可讓您查看哪些 VM 需要 VM 代理程式，而且會建議您在那些 VM 上啟用 VM 代理程式。
@@ -40,7 +40,7 @@ VM 代理程式必須安裝在虛擬機器 (VM) 上，才能 [啟用資料收集
 ## <a name="see-also"></a>另請參閱
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)--了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)--了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)-- 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)-- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)-- 了解如何管理與回應安全性警示。

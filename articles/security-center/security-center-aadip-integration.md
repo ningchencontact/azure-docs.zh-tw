@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/29/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2ed5791b352ee4b19f707e52bc6f8f78e1f0e5b5
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8c0e90436cf030f1280b3c50f3fdc91c7429d542
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635300"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340295"
 ---
 # <a name="connecting-azure-active-directory-identity-protection-to-azure-security-center"></a>將 Azure Active Directory Identity Protection 連線至 Azure 資訊安全中心
 本文件可協助您設定 Azure Active Directory (AD) Identity Protection 與 Azure 資訊安全中心之間的整合。
@@ -48,7 +48,7 @@ ms.locfileid: "52635300"
 在本文件中，您已了解如何將 Azure AD Identity Protection 連線至資訊安全中心。 如要深入了解資訊安全中心，請參閱下列文章：
 
 * [將 Microsoft Advanced Threat Analytics 連線至 Azure 資訊安全中心](security-center-ata-integration.md)
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) — 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) — 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) — 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) — 了解如何管理與回應安全性警示。

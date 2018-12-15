@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1e9a4c6355c60b18bb78aae362c1e2f142e2d864
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615598"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407995"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>使用 Azure 儲存體儲存 Batch AI 作業輸入和輸出
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 本指南說明如何在執行作業時使用 Azure 儲存體來儲存輸入和輸出檔案。 Azure 儲存體是 Batch AI 支援的數個儲存體選項之一。 Batch AI 會與 Azure 儲存體整合，方法是將 Azure 儲存體系統裝載到 Batch AI 作業或叢集檔案系統，以便順利存取雲端中儲存的檔案。 
 

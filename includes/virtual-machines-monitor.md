@@ -4,14 +4,14 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 109f4621af3e3ca617dfe521575d9352f22c5917
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: a65dbbcfddf33692ee179755b4306019ffa8863e
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226751"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53399810"
 ---
-您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/application-insights/app-insights-overview.md) 和 [Log Analytics](../articles/log-analytics/log-analytics-queries.md)。
+您可以利用許多機會，藉由收集、檢視及分析診斷和記錄資料來監視 VM。 若要執行簡單的 VM [監視](../articles/azure-monitor/overview.md)，您可以在 Azure 入口網站中使用 VM 的 [概觀] 畫面。 您可以使用[擴充功能](../articles/virtual-machines/windows/extensions-features.md)來設定 VM 診斷，以收集其他計量資料。 您也可以使用更進階的監視選項，例如 [Application Insights](../articles/application-insights/app-insights-overview.md) 和 [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md)。
 
 ## <a name="diagnostics-and-metrics"></a>診斷和計量 
 
@@ -31,7 +31,7 @@ ms.locfileid: "50226751"
 
 ## <a name="alerts"></a>警示
 
-您可以根據特定效能計量來建立[警示](../articles/monitoring-and-diagnostics/monitoring-overview-alerts.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 或 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)，在 [Azure 入口網站](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)中設定警示。
+您可以根據特定效能計量來建立[警示](../articles/azure-monitor/platform/alerts-overview.md)。 舉例來說，當平均 CPU 使用量超過特定臨界值，或可用的磁碟空間低於特定數量時，您即可接獲問題的警示。 您可以使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-alerts-powershell.md) 或 [Azure CLI](../articles/monitoring-and-diagnostics/insights-alerts-command-line-interface.md)，在 [Azure 入口網站](../articles/monitoring-and-diagnostics/insights-alerts-portal.md)中設定警示。
 
 ## <a name="azure-service-health"></a>Azure 服務健康狀態
 
@@ -50,7 +50,7 @@ ms.locfileid: "50226751"
 - [根據活動記錄事件建立警示](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
 - [將活動記錄串流至事件中樞](../articles/monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
 - 使用 [PowerBI 內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/)在 PowerBI 中進行分析。
-- [將活動記錄儲存到儲存體帳戶](../articles/monitoring-and-diagnostics/monitoring-archive-activity-log.md)，以供封存或手動檢查。 您可以使用記錄設定檔來指定保留時間 (以天為單位)。
+- [將活動記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-activity-log.md)，以供封存或手動檢查。 您可以使用記錄設定檔來指定保留時間 (以天為單位)。
 
 您也可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/)、[Azure CLI](https://docs.microsoft.com/cli/azure/monitor) 或[監視器 REST API](https://docs.microsoft.com/rest/api/monitor/)，存取活動記錄資料。
 
@@ -58,7 +58,7 @@ ms.locfileid: "50226751"
 
 您可以利用診斷記錄進行的事項包括：
 
-- [將診斷記錄儲存到儲存體帳戶](../articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用 [資源診斷設定] 來指定保留時間 (以天為單位)。
+- [將診斷記錄儲存到儲存體帳戶](../articles/azure-monitor/platform/archive-diagnostic-logs.md)以利稽核或手動檢查。 您可以使用 [資源診斷設定] 來指定保留時間 (以天為單位)。
 - [將診斷記錄串流至事件中樞](../articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)，以供第三方服務或自訂的分析解決方案 (如 PowerBI) 擷取。
 - 使用 [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md) 分析診斷記錄。
 

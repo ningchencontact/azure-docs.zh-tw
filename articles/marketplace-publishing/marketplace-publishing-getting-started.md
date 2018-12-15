@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.openlocfilehash: 3556384d71649391d094172a136b863ed26fd2ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c8c97d8f5477e7640df87030ed6ef27c4c7b979
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227394"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310074"
 ---
+# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>在 Azure Marketplace 中發佈和管理供應項目
+
 > [!NOTE]
 > 本文件並非最新版本，且資訊並不準確。 如需在 Azure Marketplace 發佈供應項目的說明資訊，請改至 Azure Marketplace [賣方指南](https://docs.microsoft.com/azure/marketplace/seller-guide/cloud-partner-portal-seller-guide)。
 
-# <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>在 Azure Marketplace 中發佈和管理供應項目
 此文章可協助開發人員建立解決方案、部署並管理他們在 Azure Marketplace 中列出的解決方案，讓其他 Azure 客戶與合作夥伴可進行購買及使用。
 
 ## <a name="marketplace-publishing"></a>Marketplace 發佈

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: hrasheed
-ms.openlocfilehash: fc5f27ee17ba750e47c5609d9deb94d7f7c9dd8a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 074e2dd932cada5ae46ee0423dbc29fc8bc7495d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51631552"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016771"
 ---
 # <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>開始使用 Apache Hadoop 沙箱，它是虛擬機器上的模擬器
 
@@ -27,7 +27,7 @@ ms.locfileid: "51631552"
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>下載並安裝虛擬機器
-1. 瀏覽至 [Hortonworks 下載](http://hortonworks.com/downloads/#sandbox)。
+1. 瀏覽至 [Hortonworks 下載](https://hortonworks.com/downloads/#sandbox)。
 
 2. 按一下 [DOWNLOAD FOR VIRTUALBOX]\(適用於 VIRTUALBOX 的下載項目\)，以下載最新的 VM 上「Hortonworks 沙箱」。 系統會提示您向 Hortonworks 註冊，然後才能開始下載。 下載需要一到兩個小時的時間，視您的網路速度而定。
    
@@ -78,6 +78,6 @@ ms.locfileid: "51631552"
 
 ## <a name="next-steps"></a>後續步驟
 * [了解如何搭配使用 Visual Studio 與 Hortonworks 沙箱](../hdinsight-hadoop-emulator-visual-studio.md)
-* [了解 Hortonworks 沙箱的訣竅](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
-* [Hadoop 教學課程 - 開始使用 HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [了解 Hortonworks 沙箱的訣竅](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Hadoop 教學課程 - 開始使用 HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

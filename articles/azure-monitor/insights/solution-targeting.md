@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1f054a4e-6243-4a66-a62a-0031adb750d8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: bwren
-ms.openlocfilehash: e4e0ff288b9d5539a0110fb157e32b4f23d06bb6
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: d82c42fa734932655f536d4fc04a50b4d6904ac5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713977"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192748"
 ---
 # <a name="targeting-management-solutions-in-azure-preview"></a>在 Azure 中設定管理解決方案目標 (預覽)
 當您將管理解決方案新增至訂用帳戶時，預設會將該解決方案自動部署到與您 Log Analytics 工作區連線的所有 Windows 與 Linux 代理程式。  您可能會想要管理您的成本，並透過將解決方案限制在一組特定的代理程式，來限制針對該解決方案所收集的資料量。  本文說明如何使用**設定解決方案目標**，此功能可讓您將範圍套用至解決方案。
@@ -29,7 +28,7 @@ ms.locfileid: "51713977"
 
 
 ### <a name="1-create-a-computer-group"></a>1.建立電腦群組
-您可以透過在 Log Analytics 中建立[電腦群組](../../log-analytics/log-analytics-computer-groups.md)，來指定您想要包含在範圍內的電腦。  電腦群組可以是根據記錄搜尋，或者從其他來源匯入 (例如 Active Directory 或 WSUS 群組)。 [如同下面所述](#solutions-and-agents-that-cant-be-targeted)，只有直接連線至 Log Analytics 的電腦才會包含在範圍內。
+您可以透過在 Log Analytics 中建立[電腦群組](../../azure-monitor/platform/computer-groups.md)，來指定您想要包含在範圍內的電腦。  電腦群組可以是根據記錄搜尋，或者從其他來源匯入 (例如 Active Directory 或 WSUS 群組)。 [如同下面所述](#solutions-and-agents-that-cant-be-targeted)，只有直接連線至 Log Analytics 的電腦才會包含在範圍內。
 
 一旦您在工作區中建立電腦群組，便可將它包含在可套用至一或多個解決方案的範圍設定中。
  
@@ -75,4 +74,4 @@ ms.locfileid: "51713977"
 
 ## <a name="next-steps"></a>後續步驟
 - 在[將 Azure Log Analytics 管理解決方案新增至您的工作區](solutions.md)中深入了解管理解決方案，包含可在您的環境中安裝的可用解決方案。
-- 在 [Log Analytics 記錄檔搜尋中的電腦群組](../../log-analytics/log-analytics-computer-groups.md)中深入了解建立電腦群組。
+- 在 [Log Analytics 記錄檔搜尋中的電腦群組](../../azure-monitor/platform/computer-groups.md)中深入了解建立電腦群組。

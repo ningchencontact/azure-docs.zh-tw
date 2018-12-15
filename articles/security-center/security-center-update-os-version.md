@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cd89d861a758d51788dc4180af10882f0144977
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a4072e71d1e4ee54c4cffc3d16aa7c9b8e265cb8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317359"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337661"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Azure 資訊安全中心的更新作業系統版本
 對於雲端服務中的虛擬機器 (VM)，如果有更新的版本可用，則 Azure 資訊安全中心會建議更新作業系統 (OS)。  只監視生產位置中執行的雲端服務 Web 角色和背景工作角色。
@@ -43,7 +43,7 @@ ms.locfileid: "52317359"
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。

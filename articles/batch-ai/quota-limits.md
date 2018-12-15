@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ROBOTS: NOINDEX
+ms.openlocfilehash: 16032ec5ba1e613462f92b86281ce93153b70923
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391805"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409712"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI 服務配額和限制
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 如同使用其他 Azure 服務，對於與 Batch AI 服務相關聯的特定資源有一些限制。 在 Batch AI 中，限制就是套用在[可提供](https://azure.microsoft.com/global-infrastructure/services/)服務的各區域訂用帳戶層級上的預設配額。 本文將討論這些預設值，以及如何申請加大配額。
 

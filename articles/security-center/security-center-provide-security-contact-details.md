@@ -3,7 +3,7 @@ title: 在 Azure 資訊安全中心提供安全性連絡人詳細資料 | Micros
 description: 本文件說明如何在 Azure 資訊安全中心提供安全性連絡人詳細資料。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 26b5dcb4-ce3f-4f22-8d56-d2bf743cfc90
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/20/2018
-ms.author: terrylan
-ms.openlocfilehash: 530bde33035d6e702c15d2f4efbe9c97a77bb855
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: rkarlin
+ms.openlocfilehash: 1948cee033ecb8b50fdd75513a07766490568600
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306075"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337252"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>在 Azure 資訊安全中心提供安全性連絡人詳細資料
 Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全性連絡人詳細資料 (如果您還沒有這麼做)。 如果 Microsoft 安全性回應中心 (MSRC) 發現您的客戶資料遭到非法或未經授權的對象存取，Microsoft 會使用此資訊連絡您。 MSRC 執行 Azure 網路和基礎結構的選取安全性監視，並接收來自協力廠商的威脅情報和濫用客訴。
@@ -48,7 +48,7 @@ Azure 資訊安全中心會建議您針對您的 Azure 訂用帳戶提供安全�
 ## <a name="see-also"></a>另請參閱
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助保護您的 Azure 資源。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。

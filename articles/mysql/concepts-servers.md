@@ -9,14 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 9d94f897546ea1e1190aab91e80eb9868224e5a7
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 0ddab6a982f54f0309e87d3b74a7f21c0bb67ced
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955508"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql"></a>適用於 MySQL 的 Azure 資料庫中的伺服器概念
+
 本文提供使用「適用於 MySQL 的 Azure 資料庫」伺服器的考量和指導方針。
 
 ## <a name="what-is-an-azure-database-for-mysql-server"></a>什麼是適用於 MySQL 的 Azure 資料庫伺服器？
@@ -39,7 +40,7 @@ ms.locfileid: "35265454"
 ## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-mysql-server"></a>如何連接及驗證適用於 MySQL 的 Azure 資料庫伺服器？
 
 下列項目有助於確保對資料庫的安全存取。
-|||
+|     |     |
 | :-- | :-- |
 | **驗證和授權** | 適用於 MySQL 的 Azure 資料庫伺服器支援原生的 MySQL 驗證。 您可以利用伺服器的管理員登入來連接和驗證伺服器。 |
 | **通訊協定** | 此服務支援 MySQL 所使用的訊息架構通訊協定。 |
@@ -48,9 +49,11 @@ ms.locfileid: "35265454"
 | **SSL** | 此服務支援在您的應用程式和資料庫伺服器之間強制執行 SSL 連接。  請參閱[在您的應用程式中設定 SSL 連線能力，以安全地連線至適用於 MySQL 的 Azure 資料庫](./howto-configure-ssl.md)。 |
 
 ## <a name="how-do-i-manage-a-server"></a>如何管理伺服器？
+
 您可以使用 Azure 入口網站或 Azure CLI，來管理適用於 MySQL 的 Azure 資料庫伺服器。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 如需服務的概觀，請參閱[適用於 MySQL 的 Azure 資料庫概觀](./overview.md)
 - 如需以您**服務層**為依據之特定資源配額和限制的相關資訊，請參閱[服務層](./concepts-service-tiers.md)
 - 如需連接到服務的相關資訊，請參閱[適用於 MySQL 的 Azure 資料庫的連線庫](./concepts-connection-libraries.md)。

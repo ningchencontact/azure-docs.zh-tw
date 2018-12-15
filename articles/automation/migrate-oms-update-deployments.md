@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d0b380aa6046daa235098516a8c93d3ba72533a6
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5380372cc1f2928b79b0d20f4dd46e429a93dc5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141072"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992265"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>將您的 OMS 更新部署遷移至 Azure
 
-Operations Management Suite (OMS) 入口網站已被[取代](../log-analytics/log-analytics-oms-portal-transition.md)。 OMS 入口網站中可供更新管理使用的所有功能都可在 Azure 入口網站中使用。 本文提供您遷移至 Azure 入口網站所需的資訊。
+Operations Management Suite (OMS) 入口網站已被[取代](../azure-monitor/platform/oms-portal-transition.md)。 OMS 入口網站中可供更新管理使用的所有功能都可在 Azure 入口網站中使用。 本文提供您遷移至 Azure 入口網站所需的資訊。
 
 ## <a name="key-information"></a>重要資訊
 
@@ -43,7 +43,7 @@ Operations Management Suite (OMS) 入口網站已被[取代](../log-analytics/lo
 
 ## <a name="recreate-existing-deployments"></a>重新建立現有的部署
 
-在 OMS 入口網站中建立的所有更新部署都有一個[已儲存的搜尋](../log-analytics/log-analytics-computer-groups.md) (也稱為電腦群組)，且名稱與現有的更新部署相同。 已儲存的搜尋包含已在更新部署中排程的電腦清單。
+在 OMS 入口網站中建立的所有更新部署都有一個[已儲存的搜尋](../azure-monitor/platform/computer-groups.md) (也稱為電腦群組)，且名稱與現有的更新部署相同。 已儲存的搜尋包含已在更新部署中排程的電腦清單。
 
 ![更新管理](media/migrate-oms-update-deployments/oms-deployment.png)
 
@@ -59,9 +59,9 @@ Operations Management Suite (OMS) 入口網站已被[取代](../log-analytics/lo
 
 | 屬性 | 說明 |
 | --- | --- |
-|名稱 |用以識別更新部署的唯一名稱。 |
+|Name |用以識別更新部署的唯一名稱。 |
 |作業系統| 選取 [Linux] 或 [Windows]。|
-|要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md) |
+|要更新的機器 |選取已儲存的搜尋、已匯入的群組，或從下拉式清單中選擇 [機器]，然後選取個別的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。</br> 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../azure-monitor/platform/computer-groups.md) |
 |更新分類|選取您需要的所有更新分類。 CentOS 預設不支援這種更新分類。|
 |要排除的更新|輸入要排除的更新。 針對 Windows，輸入不含 **KB** 前置詞的 KB 文章。 針對 Linux，輸入套件名稱或使用萬用字元。  |
 |排程設定|選取開始時間，然後選取 [一次] 或 [週期性] 以定期執行。|| 維護時間範圍 |為更新設定的分鐘數。 此值不可小於 30 分鐘，且不可超過 6 小時。 |

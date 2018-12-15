@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c43497a69b3188b4bc38e91b6ff9b1cc8b6bd21a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: e81b87a6cbaddf61492fa1fc41e66950eb7ce1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624143"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191616"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>補救 Azure Active Directory 入口網站中標幟為有風險的使用者
 
@@ -31,7 +31,7 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 ## <a name="access-the-users-flagged-for-risk-report"></a>存取標幟為有風險的使用者報告
 
-您可以透過 Azure 入口網站中的[有風險的使用者報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk)，檢閱標幟為有風險的使用者。 如果您沒有 Azure AD，則可以在 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) 註冊免費版。 
+您可以透過 Azure 入口網站中的[有風險的使用者報告](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RiskyUsers)，檢閱標幟為有風險的使用者。 如果您沒有 Azure AD，則可以在 [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD) 註冊免費版。 
 
 從標幟為有風險的使用者報告，您可以為每位使用者採取下列動作：
 
@@ -58,9 +58,9 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 採取下列動作來協助改正受影響的帳戶以及保護您的環境：
 
-1.  [驗證正確的資訊](http://aka.ms/MFAValid)，以進行多重要素驗證和自助式密碼重設。 
-2.  對所有使用者[啟用多重要素驗證](http://aka.ms/MFAuth)。 
-3.  對每個受影響的帳戶使用此[補救指令碼](http://aka.ms/remediate)，以自動執行下列步驟： 
+1.  [驗證正確的資訊](https://aka.ms/MFAValid)，以進行多重要素驗證和自助式密碼重設。 
+2.  對所有使用者[啟用多重要素驗證](https://aka.ms/MFAuth)。 
+3.  對每個受影響的帳戶使用此[補救指令碼](https://aka.ms/remediate)，以自動執行下列步驟： 
 
     a. 重設密碼以保護帳戶及刪除作用中的工作階段。
 
@@ -84,10 +84,10 @@ Microsoft 致力於協助保護您的環境。 為此承諾，Microsoft 會持�
 
 此外，您應該：
 
-- 讀取及實作這個[關於處理異常活動的指引](http://aka.ms/fixaccount)。 
-- [啟用稽核管線](http://aka.ms/improvesecurity)可協助您分析租用戶中的活動。 完成後，您的稽核存放區會開始填入活動記錄。 此時，您也能夠運用[安全性和規範中心的搜尋與調查資源](http://aka.ms/sccsearch)。 
-- 使用此[指令碼來為所有帳戶啟用信箱稽核](http://aka.ms/mailboxaudit1)。 
-- 檢閱您所有信箱的委派權限和郵件轉寄規則。 您可以使用此 [PowerShell 指令碼](http://aka.ms/delegateforwardrules)來執行此工作。 
+- 讀取及實作這個[關於處理異常活動的指引](https://aka.ms/fixaccount)。 
+- [啟用稽核管線](https://aka.ms/improvesecurity)可協助您分析租用戶中的活動。 完成後，您的稽核存放區會開始填入活動記錄。 此時，您也能夠運用[安全性和規範中心的搜尋與調查資源](https://aka.ms/sccsearch)。 
+- 使用此[指令碼來為所有帳戶啟用信箱稽核](https://aka.ms/mailboxaudit1)。 
+- 檢閱您所有信箱的委派權限和郵件轉寄規則。 您可以使用此 [PowerShell 指令碼](https://aka.ms/delegateforwardrules)來執行此工作。 
 
 ## <a name="next-steps"></a>後續步驟
 

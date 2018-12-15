@@ -5,14 +5,14 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 3f661ab5ff2a127ba7507a64bb4520cbad740473
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e965848b0c3c009444762dafdf42acc080b6915e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213282"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834942"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>在容錯移轉至 Azure 之後將機器重新保護和容錯回復至內部部署網站
 
@@ -40,7 +40,7 @@ ms.locfileid: "50213282"
 
     ![容錯移轉和容錯回復的端點](./media/vmware-azure-reprotect/failover-failback.png)
 
-- 詳盡閱讀[連接埠和 URL 白名單的先決條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
+- 詳盡閱讀[連接埠和 URL 允許清單的先決條件](vmware-azure-deploy-configuration-server.md#prerequisites)。
 
 ## <a name="deploy-a-process-server-in-azure"></a>在 Azure 中部署處理序伺服器
 

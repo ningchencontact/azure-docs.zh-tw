@@ -10,17 +10,15 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 9729c7313f275201fc61bb5c7552066eecb13373
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f68e2d9c303b6df0d4a2a355dd9d41ac1616be9f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637983"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185965"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理程式收集記錄資料
 
@@ -36,7 +34,7 @@ Azure Log Analytics (OMS) 代理程式先前稱為 Microsoft Monitoring Agent (M
 
 適用於 Linux 與 Windows 的代理程式會透過 TCP 連接埠 443 對外與 Log Analytics 服務通訊，且如果機器連線至防火牆或 Proxy 伺服器以透過網際網路通訊，請檢閱下面的需求，以了解所需的網路設定。 如果您的 IT 安全性原則不允許網路上的電腦連線到網際網路，您可以設定 [Log Analytics 閘道](gateway.md)，然後將代理程式設定為透過閘道連線至 Log Analytics。 接著，代理程式就可以接收設定資訊，並傳送根據您所啟用的資料收集規則和監視解決方案而收集的資料。 
 
-如果您已使用 System Center Operations Manager 2012 R2 或更新版本來監視電腦，則該電腦可以具有多重主目錄，並使用 Log Analytics 服務來收集資料並轉送到該服務，且仍然受到 [Operations Manager](../../log-analytics/log-analytics-om-agents.md) 監視。 由與 Log Analytics 整合之 Operations Manager 管理群組監視的 Linux 電腦不會收到資料來源設定並透過管理群組轉送收集的資料。 Windows 代理程式可以回報到最多四個 Log Analytics 工作區，而 Linux 代理程式只支援回報到單一工作區。  
+如果您已使用 System Center Operations Manager 2012 R2 或更新版本來監視電腦，則該電腦可以具有多重主目錄，並使用 Log Analytics 服務來收集資料並轉送到該服務，且仍然受到 [Operations Manager](../../azure-monitor/platform/om-agents.md) 監視。 由與 Log Analytics 整合之 Operations Manager 管理群組監視的 Linux 電腦不會收到資料來源設定並透過管理群組轉送收集的資料。 Windows 代理程式可以回報到最多四個 Log Analytics 工作區，而 Linux 代理程式只支援回報到單一工作區。  
 
 適用於 Linux 與 Windows 的代理程式不僅可用於連線到 Log Analytics，也支援「Azure 自動化」以裝載「混合式 Runbook」背景工作角色與其他服務，例如[變更追蹤](../../automation/automation-change-tracking.md)與[更新管理](../../automation/automation-update-management.md)。 如需有關「混合式 Runbook」背景工作角色的詳細資訊，請參閱 [Azure 自動化混合式 Runbook 背景工作](../../automation/automation-hybrid-runbook-worker.md)。  
 
@@ -73,7 +71,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 >
 
 ## <a name="tls-12-protocol"></a>TLS 1.2 通訊協定
-為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將代理程式設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12)。 
+為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將代理程式設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ## <a name="network-firewall-requirements"></a>網路防火牆需求
 下列資訊列出 Linux 和 Windows 代理程式與 Log Analytics 通訊所需的 Proxy 和防火牆設定資訊。  
@@ -115,15 +113,15 @@ Windows 和 Linux 代理程式支援使用 HTTPS 通訊協定，透過 Proxy 伺
 
 |來源 | 方法 | 說明|
 |-------|-------------|-------------|
-|Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>- [從 Azure 入口網站手動執行](../../log-analytics/log-analytics-quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)。 | 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Azure 監視器工作區中註冊這些機器。|
+|Azure VM| - 適用於 [Windows](../../virtual-machines/extensions/oms-windows.md) 或 [Linux](../../virtual-machines/extensions/oms-linux.md) 的 Log Analytics VM 擴充功能，使用 Azure CLI 或 Azure Resource Manager 範本<br>- [從 Azure 入口網站手動執行](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)。 | 擴充功能會在 Azure 虛擬機器上安裝 Log Analytics 代理程式，並且在現有的 Azure 監視器工作區中註冊這些機器。|
 | 混合式 Windows 電腦|- [手動安裝](agent-windows.md)<br>- [Azure 動化 DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [搭配 Azure Stack 的資源管理員範本](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |從命令列或使用自動化方法 (例如 Azure 自動化 DSC、[System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications)) 來安裝 Microsoft Monitoring 代理程式，或者如果您已經在您的資料中心部署 Microsoft Azure Stack，請使用 Azure Resource Manager 範本。| 
-| 混合式 Linux 電腦| [手動安裝](../../log-analytics/log-analytics-quick-collect-linux-computer.md)|安裝適用於 Linux 的代理程式需要 GitHub 上裝載的包裝函式指令碼。 | 
-| System Center Operations Manager|[將 Operations Manager 與 Log Analytics 整合](../../log-analytics/log-analytics-om-agents.md) | 設定 Operations Manager 與 Log Analytics 之間的整合，以將收集的資料從 Linux 與 Windows 電腦報告轉送到管理群組。|  
+| 混合式 Linux 電腦| [手動安裝](../../azure-monitor/learn/quick-collect-linux-computer.md)|安裝適用於 Linux 的代理程式需要 GitHub 上裝載的包裝函式指令碼。 | 
+| System Center Operations Manager|[將 Operations Manager 與 Log Analytics 整合](../../azure-monitor/platform/om-agents.md) | 設定 Operations Manager 與 Log Analytics 之間的整合，以將收集的資料從 Linux 與 Windows 電腦報告轉送到管理群組。|  
 
 ## <a name="next-steps"></a>後續步驟
 
 * 檢閱[資料來源](../../azure-monitor/platform/agent-data-sources.md)以了解可用於從您的 Windows 或 Linux 系統收集資料的資料來源。 
 
-* 了解[記錄查詢](../../log-analytics/log-analytics-queries.md)，以分析從資料來源和解決方案收集到的資料。 
+* 了解[記錄查詢](../../azure-monitor/log-query/log-query-overview.md)，以分析從資料來源和解決方案收集到的資料。 
 
 * 了解可將功能新增至 Azure 監視器，並會將資料收集到 Log Analytics 工作區的[監視解決方案](../../azure-monitor/insights/solutions.md)。
