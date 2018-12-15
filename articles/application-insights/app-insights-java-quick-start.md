@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: b36e4598f5ff20b921c5cd150ae19be233cc2d14
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 45d1275ac3b78836cbb77c4e1508d0689c215d69
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246508"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998594"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>開始監視 Java Web 應用程式
 
@@ -29,7 +29,7 @@ Azure Application Insights 可讓您輕鬆監視 Web 應用程式的可用性、
 若要完成本快速入門：
 
 - 安裝 JRE 1.7 或 1.8
-- 安裝[免費的 Eclipse IDE for Java EE Developers](http://www.eclipse.org/downloads/)。 本快速入門使用 Eclipse Oxygen (4.7)
+- 安裝[免費的 Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/)。 本快速入門使用 Eclipse Oxygen (4.7)
 - 您需要 Azure 訂用帳戶和現有的 Java 動態 Web 專案
  
 如果您沒有 Java 動態 Web 專案，請參閱[建立 Java Web 應用程式快速入門](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)來建立。
@@ -67,7 +67,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
    ![新增 App Insights 資源表單](./media/app-insights-java-quick-start/000-j.png)
 
-2. 將 ```http://dl.microsoft.com/eclipse``` 複製到 [運用] 欄位 > 勾選 [Azure Toolkit for Java] > 選取 [Application Insights Plugin for Java] > **取消選取 [安裝期間連絡所有更新網站以尋找所需軟體]**。
+2. 將 ```https://dl.microsoft.com/eclipse``` 複製到 [運用] 欄位 > 勾選 [Azure Toolkit for Java] > 選取 [Application Insights Plugin for Java] > **取消選取 [安裝期間連絡所有更新網站以尋找所需軟體]**。
 
 3. 當安裝完成之後，系統會提示您**重新啟動 Eclipse**。
 
@@ -130,7 +130,7 @@ Application Insights 可以從任何連上網際網路的應用程式收集遙�
 
    ![伺服器計量圖表](./media/app-insights-java-quick-start/livemetricsjava.png)
 
-若要深入了解監視 Java，請參閱[其他 App Insights Java 文件](.\app-insights-java-get-started.md)。
+若要深入了解監視 Java，請參閱[其他 App Insights Java 文件](./app-insights-java-get-started.md)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/26/2018
-ms.openlocfilehash: 9df51626a1bd36b0ea171c89c67a5c1ca79d60e6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0d593e52c8dc3bc961df706ccef2da9da2f3f778
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52873695"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087128"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>使用彈性資料庫作業管理資料庫群組
 
@@ -127,7 +127,7 @@ ms.locfileid: "52873695"
 
 ![目標群組範例](media/elastic-jobs-overview/targetgroup-examples2.png)
 
-**範例 5** 和*範例 6* 顯示進階案例，其中 Azure SQL 伺服器、彈性集區和資料庫都可使用包含及排除規則來結合。<br>
+**範例 5** 和**範例 6** 顯示進階案例，其中 Azure SQL 伺服器、彈性集區和資料庫都可使用包含及排除規則來結合。<br>
 **範例 7** 顯示分區對應中的分區也可在作業執行階段進行評估。
 
 ### <a name="job"></a>工作 (Job)

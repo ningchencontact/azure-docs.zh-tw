@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: de08538750f704ddc85ba69bd64742b3e68c8a3c
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: b396c0e485d4eb6c4ee541074f86357634c264c1
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156743"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184435"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>使用 Node.js 服務 SDK 向 IoT 中樞裝置佈建服務註冊 TPM 裝置
 
@@ -74,7 +74,7 @@ ms.locfileid: "50156743"
     1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。 
     2. 按一下 [共用存取原則]，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則] 視窗中，複製並記下主要索引鍵連接字串。 
 
-    ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
+       ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
 2. 您還需要裝置的簽署金鑰。 如果您已遵循[建立及佈建模擬裝置](quick-create-simulated-device.md)快速入門建立模擬的 TPM 裝置，請使用針對該裝置建立的金鑰。 否則，若要建立範例個別註冊，您可以使用下列隨 SDK 提供的簽署金鑰：

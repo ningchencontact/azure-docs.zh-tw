@@ -1,9 +1,8 @@
 ---
-title: 使用 Java 建立 Azure Cosmos DB 文件資料庫 | Microsoft Docs'
+title: 使用 Java 建立 Azure Cosmos DB 文件資料庫
 description: 提供 Java 程式碼範例，您可用來連線及查詢 Azure Cosmos DB SQL API
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.custom: quick start connect, mvc, devcenter
@@ -11,17 +10,18 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: moderakh
-ms.openlocfilehash: 399db2d7ed5d1c94fe359cb55e9b90df3d99e003
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 5f66623c8e37f0663da7defc10d87d89bd0ad99d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421283"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105773"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>使用 Java 應用程式來建立和管理 Azure Cosmos DB SQL API 帳戶的資源
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
+> * [.NET (預覽)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -39,7 +39,7 @@ ms.locfileid: "50421283"
 * [Java Development Kit (JDK) 1.8+](https://aka.ms/azure-jdks) \(英文\)
     * 在 Ubuntu 上，執行 `apt-get install default-jdk` 來安裝 JDK。
     * 務必設定 JAVA_HOME 環境變數，以指向 JDK 安裝所在的資料夾。
-* [下載](http://maven.apache.org/download.cgi)和[安裝 ](http://maven.apache.org/install.html) [Maven](http://maven.apache.org/) 二進位封存檔
+* [下載](https://maven.apache.org/download.cgi)和[安裝 ](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二進位封存檔
     * 在 Ubuntu 上，您可以執行 `apt-get install maven` 來安裝 Maven。
 * [Git](https://www.git-scm.com/)
     * 在 Ubuntu 上，您可以執行 `sudo apt-get install git` 來安裝 Git。

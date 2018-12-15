@@ -3,18 +3,18 @@ title: 使用 Azure 地圖服務進行搜尋 | Microsoft Docs
 description: 使用 Azure 地圖服務來搜尋附近景點
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/22/2018
+ms.date: 12/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c6513c3a92fdf509d9e81d76d1b3547048b2fd8d
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c11274b8f9d6c3b8c934201b4ec4acd6842d7c0b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262052"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435356"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>使用 Azure 地圖服務來搜尋附近景點
 
@@ -103,7 +103,7 @@ ms.locfileid: "52262052"
          margin: 0;
       }
 
-      #map {
+      #myMap {
          width: 100%;
          height: 100%;
       }

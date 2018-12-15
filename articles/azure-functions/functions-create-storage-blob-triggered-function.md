@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: fcc5052d73d921a8181ad068453111e5ead4361a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113847"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999879"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>建立 Azure Blob 儲存體所觸發的函式
 
@@ -27,7 +27,7 @@ ms.locfileid: "49113847"
 
 ## <a name="prerequisites"></a>必要條件
 
-+ 下載並安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。
++ 下載並安裝 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)。
 + Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="create-an-azure-function-app"></a>建立 Azure 函數應用程式
@@ -76,7 +76,7 @@ ms.locfileid: "49113847"
 
     ![取得儲存體帳戶的連線認證。](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. 執行 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)工具，按一下左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後按 [下一步]。
+1. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，按一下左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後按 [下一步]。
 
     ![執行「儲存體帳戶總管」工具。](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 

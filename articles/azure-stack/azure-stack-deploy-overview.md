@@ -16,29 +16,29 @@ ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.custom: mvc
 ms.reviewer: misainat
-ms.openlocfilehash: 8b33937a4da807578d371a95f2c06de451404036
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 44fed3311234e1a64cb46c3403f39a9e269d189b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037459"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956920"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>快速入門：評估 Azure Stack 開發套件
 
-[Azure Stack 開發套件 (ASDK)](.\asdk\asdk-what-is.md) 是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要開始使用 ASDK，您需要準備主機電腦硬體，然後再執行一些指令碼 (安裝須花費數小時)。 之後，您就可以登入系統管理員或使用者入口網站，開始使用 Azure Stack。
+[Azure Stack 開發套件 (ASDK)](./asdk/asdk-what-is.md) 是一個測試和部署環境，可供您部署以評估及示範 Azure Stack 的功能和服務。 若要開始使用 ASDK，您需要準備主機電腦硬體，然後再執行一些指令碼 (安裝須花費數小時)。 之後，您就可以登入系統管理員或使用者入口網站，開始使用 Azure Stack。
 
 ## <a name="prerequisites"></a>必要條件
 
 ### <a name="asdk-host-computer-requirements"></a>ASDK 主機電腦需求
 
-安裝 ASDK前，您需要準備將裝載開發套件的電腦。 開發套件主機電腦必須符合**[檢閱 ASDK 部署規劃考量](.\asdk\asdk-deploy-considerations.md)** 中所述的硬體、軟體及網路需求。
+安裝 ASDK前，您需要準備將裝載開發套件的電腦。 開發套件主機電腦必須符合**[檢閱 ASDK 部署規劃考量](./asdk/asdk-deploy-considerations.md)** 中所述的硬體、軟體及網路需求。
 
 > [!TIP]
 > 安裝作業系統之後，您可以在開發套件主機電腦上使用 [Azure Stack 部署需求檢查工具](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)，來確認您的硬體符合所有需求。
 
 ### <a name="account-requirements"></a>帳戶需求
 
-您也需要選擇使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為部署的識別解決方案。 檢閱**[部署規劃考量](.\asdk\asdk-deploy-considerations.md#account-requirements)** 中的帳戶需求
+您也需要選擇使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為部署的識別解決方案。 檢閱**[部署規劃考量](./asdk/asdk-deploy-considerations.md#account-requirements)** 中的帳戶需求
 
 ## <a name="download-and-extract-the-deployment-package"></a>下載部署套件並解壓縮
 
@@ -46,22 +46,22 @@ ms.locfileid: "51037459"
 
 您可以將部署套件下載到開發套件主機或另一部電腦。 解壓縮後的部署檔案會佔用 60 GB 的可用磁碟空間，因此使用另一部電腦可協助降低開發套件主機上的儲存體需求。
 
-**[下載 Azure Stack 開發套件 (ASDK) 並解壓縮](.\asdk\asdk-download.md)**
+**[下載 Azure Stack 開發套件 (ASDK) 並解壓縮](./asdk/asdk-download.md)**
 
 ## <a name="prepare-the-host-computer"></a>準備主機電腦
 
 必須先備妥主機環境，並將系統設定為從開發套件 VHD 開機，才可以安裝 ASDK。 當您重新啟動主機時，它會從 CloudBuilder.vhdx 開機，然後您就可以開始部署 ASDK。
 
-**[準備 ASDK 主機電腦](.\asdk\asdk-prepare-host.md)**
+**[準備 ASDK 主機電腦](./asdk/asdk-prepare-host.md)**
 
 ## <a name="install-the-asdk-on-the-host-computer"></a>在主機電腦上安裝 ASDK
 
-主機電腦從 VHD 開機之後，您就可以在 Cloudbuilder 虛擬環境中部署開發套件。 您可以使用藉由執行 asdk-installer.ps1 PowerShell 指令碼所提供的圖形化使用者介面 (GUI) 來部署 ASDK，也可以從 [PowerShell 命令列](.\asdk\asdk-deploy-powershell.md)進行部署。
+主機電腦從 VHD 開機之後，您就可以在 Cloudbuilder 虛擬環境中部署開發套件。 您可以使用藉由執行 asdk-installer.ps1 PowerShell 指令碼所提供的圖形化使用者介面 (GUI) 來部署 ASDK，也可以從 [PowerShell 命令列](./asdk/asdk-deploy-powershell.md)進行部署。
 
 > [!NOTE]
-> 在主機從 Cloudbuilder.vhdx 映像開機後，您可以選擇在安裝 ASDK 前，先設定 [Azure Stack 遙測設定](.\asdk\asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。
+> 在主機從 Cloudbuilder.vhdx 映像開機後，您可以選擇在安裝 ASDK 前，先設定 [Azure Stack 遙測設定](./asdk/asdk-telemetry.md#set-telemetry-level-in-the-windows-registry)。
 
-**[安裝 Azure Stack 開發套件 (ASDK)](.\asdk\asdk-install.md)**
+**[安裝 Azure Stack 開發套件 (ASDK)](./asdk/asdk-install.md)**
 
 ## <a name="perform-post-deployment-configurations"></a>執行部署後設定
 
@@ -80,15 +80,15 @@ ms.locfileid: "51037459"
 您應該重設密碼到期原則，以確保開發套件主機的密碼不會在評估期間結束前到期。
 
 > [!NOTE]
-> 您也可以選擇在安裝 ASDK 後，再設定 [Azure Stack 遙測設定](.\asdk\asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)。
+> 您也可以選擇在安裝 ASDK 後，再設定 [Azure Stack 遙測設定](./asdk/asdk-telemetry.md#enable-or-disable-telemetry-after-deployment)。
 
-**[部署 ASDK 後的工作](.\asdk\asdk-post-deploy.md)**
+**[部署 ASDK 後的工作](./asdk/asdk-post-deploy.md)**
 
 ## <a name="register-with-azure"></a>向 Azure 註冊
 
-您必須向 Azure 註冊 Azure Stack，如此您才能夠[將 Azure 市集項目下載到 Azure Stack](.\asdk\asdk-marketplace-item.md)。
+您必須向 Azure 註冊 Azure Stack，如此您才能夠[將 Azure 市集項目下載到 Azure Stack](./asdk/asdk-marketplace-item.md)。
 
-**[向 Azure 註冊 Azure Stack](.\asdk\asdk-register.md)**
+**[向 Azure 註冊 Azure Stack](./asdk/asdk-register.md)**
 
 ## <a name="next-steps"></a>後續步驟
 

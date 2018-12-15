@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: bc2fbf7aadf99a2f765def2d352819dfa6cd5fa4
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: dc0c6a37e11574cef857a7af773a9d90bea57357
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266000"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972060"
 ---
 # <a name="interactive-feature-verification-testing"></a>互動式功能驗證測試  
 
@@ -48,7 +48,7 @@ ms.locfileid: "52266000"
 
 3.  選取 [測試進行] 圖格中的 [開始]。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image1.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image1.png)
 
 4.  輸入**測試進行**工作流程的名稱。
 
@@ -63,7 +63,7 @@ ms.locfileid: "52266000"
 > [!Note]  
 > 在磁碟識別互動式功能驗證測試中，必須指定網域管理使用者和密碼。
 
-![替代文字](media\azure-stack-vaas-interactive-feature-verification\image2.png)
+![替代文字](media/azure-stack-vaas-interactive-feature-verification/image2.png)
 
 ## <a name="select-the-test"></a>選取測試
 
@@ -72,51 +72,51 @@ ms.locfileid: "52266000"
     > [!Note]  
     > 測試版本會在測試附屬項目有所改善時進行累加。 除非 Microsoft 另有指定，否則應該一律使用最高的版本。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image4.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image4.png)
 
 2.  選取 [編輯]，以提供網域管理使用者名稱和密碼。
 
 3.  選取適當的測試執行代理程式/DVM 來作為啟動測試的位置。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image5.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image5.png)
 
 4.  選取 [提交] 來啟動測試。
 
-![替代文字](media\azure-stack-vaas-interactive-feature-verification\image6.png)
+![替代文字](media/azure-stack-vaas-interactive-feature-verification/image6.png)
 
 ## <a name="start-the-test"></a>開始測試
 
 電腦上會顯示執行 VaaS 代理程式的磁碟識別測試提示。 這通常是 Azure Stack 執行個體的 DVM 或 Jumpbox。
 
-![替代文字](media\azure-stack-vaas-interactive-feature-verification\image8.png)
+![替代文字](media/azure-stack-vaas-interactive-feature-verification/image8.png)
 
 ## <a name="choose-the-actions"></a>選擇動作
 
 1.  請遵循**文件**和**驗證**連結，以檢閱 Microsoft 上有關如何執行此案例的指示。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image9.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image9.png)
 
 2.  選取 [下一步] 。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image10.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image10.png)
 
 3.  請依照指示來執行前置檢查指令碼。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image11.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image11.png)
 
 4.  成功完成前置檢查指令碼之後，請依照 [資訊] 索引標籤上的**文件**和**驗證**連結，執行手動案例 (磁碟更換)。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image12.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image12.png)
 
 5.  當您執行手動案例時，請不要關閉對話方塊。
 
 6.  當您完成執行手動案例後，請依照指示執行後置檢查指令碼。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image13.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image13.png)
 
 7.  當手動案例 (更換磁碟) 成功完成時，選取 [下一步]。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image14.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image14.png)
 
 > [!Important]  
 > 如果您關閉視窗，則測試會在完成之前停止。
@@ -125,7 +125,7 @@ ms.locfileid: "52266000"
 
 1.  測試完成時，系統會要求您提供意見反應。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image15.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image15.png)
 
 2.  這些問題將有助於 Microsoft 評估案例的成功率和發行品質。
 
@@ -133,7 +133,7 @@ ms.locfileid: "52266000"
 
 1.  附加任何您想要提交給 Microsoft 的記錄。
 
-    ![替代文字](media\azure-stack-vaas-interactive-feature-verification\image16.png)
+    ![替代文字](media/azure-stack-vaas-interactive-feature-verification/image16.png)
 
 2.  接受意見反應提交的 EULA。
 

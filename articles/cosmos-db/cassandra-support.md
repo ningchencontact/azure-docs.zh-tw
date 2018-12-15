@@ -9,16 +9,16 @@ ms.service: cosmos-db
 ms.component: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a12a65e03e7ac104eb7b09b116f7c463bbb5b98
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: f62afc91f5cb92bd6f8faa866320fdd23b2c818b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240710"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089236"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支援的 Apache Cassandra 功能 
 
-Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以透過 Cassandra 查詢語言 (CQL) v4 [有線通訊協定](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec)合規性開放原始碼 Cassandra 用戶端[驅動程式](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)與 Azure Cosmos DB Cassandra API 通訊。 
+Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以透過 Cassandra 查詢語言 (CQL) v4 [有線通訊協定](https://github.com/apache/cassandra/blob/trunk/doc/native_protocol_v4.spec)合規性開放原始碼 Cassandra 用戶端[驅動程式](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver)與 Azure Cosmos DB Cassandra API 通訊。 
 
 透過使用 Azure Cosmos DB Cassandra API，您可以享受 Apache Cassandra API 的好處，以及 Azure Cosmos DB 所提供的企業功能。 企業功能包括[全域散發](distribute-data-globally.md)、[自動相應放大分割處理](partition-data.md)、可用性與延遲保證、靜態資料加密、備份等。
 

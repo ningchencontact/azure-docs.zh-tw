@@ -12,16 +12,16 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 3e4bbef18da224e41646e583e3cec0197dd00eba
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 79c059f45e3962a86ca6c8252ca0699a85bb743a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056415"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960255"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-sql-elastic-pool-in-azure-sql-database"></a>使用 PowerShell 在 Azure SQL Database 中監視和調整 SQL 彈性集區
 
-此 PowerShell 指令碼範例會監視彈性集區的效能計量、將其調整為較高計算大小，並對其中一個效能計量建立警示規則。 
+此 PowerShell 指令碼範例會監視彈性集區的效能計量、將其調整為較高計算大小，並對其中一個效能計量建立警示規則。
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3c7a1dd9ba688c5cc9776dbfba0841c9a06065dc
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6447061e79946abf8070daf29eeb57bad7b6fa55
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419685"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184962"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 Java 裝置和服務 SDK 以及註冊群組來建立及佈建模擬 X.509 裝置
 
@@ -49,20 +49,20 @@ ms.locfileid: "50419685"
             - 選取您剛建立的 **_RootCA.pem_** 檔案。
             - 完成後，按一下 [儲存] 按鈕。
 
-        ![新增憑證](./media/tutorial-group-enrollments/add-certificate.png)
+           ![新增憑證](./media/tutorial-group-enrollments/add-certificate.png)
 
         1. 選取新建立的憑證：
             - 按一下 [產生驗證碼]。 複製已產生的程式碼。
             - 執行驗證步驟。 輸入_驗證碼_，或按一下滑鼠右鍵，在您執行中的 PowerShell 視窗中貼上。  按 **Enter** 鍵。
             - 在 Azure 入口網站中選取新建立的 **_verifyCert4.pem_** 檔案。 按一下 [確認]。
 
-            ![驗證憑證](./media/tutorial-group-enrollments/validate-certificate.png)
+              ![驗證憑證](./media/tutorial-group-enrollments/validate-certificate.png)
 
     1. 執行這些步驟來建立您的裝置憑證和清除資源，以完成作業。
 
-    > [!NOTE]
-    > 建立裝置憑證時，請務必在您的裝置名稱中使用小寫英數字元和連字號。
-    >
+       > [!NOTE]
+       > 建立裝置憑證時，請務必在您的裝置名稱中使用小寫英數字元和連字號。
+       >
 
 
 ## <a name="create-a-device-enrollment-entry"></a>建立裝置註冊項目
