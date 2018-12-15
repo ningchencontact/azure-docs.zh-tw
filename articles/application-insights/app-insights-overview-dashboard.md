@@ -9,16 +9,15 @@ ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: mbullwin
-ms.openlocfilehash: 313be519662570debdd7c78a43bbfe7c27e63296
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: cd8bcc9345ec73f95e8e742446522ec41c1f0f65
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344625"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956935"
 ---
 # <a name="application-insights-overview-dashboard"></a>Azure Application Insights 概觀儀表板
 
@@ -28,17 +27,17 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 新的概觀儀表板目前會依預設啟動：
 
-![概觀預覽窗格](.\media\app-insights-overview-dashboard\overview.png)
+![概觀預覽窗格](./media/app-insights-overview-dashboard/overview.png)
 
 ## <a name="better-performance"></a>效能更佳
 
 已將時間範圍選取功能簡化為輕鬆的單鍵介面。
 
-![時間範圍](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-03.png)
+![時間範圍](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-03.png)
 
 整體效能已大幅提升。 只要按一下，就能存取常用功能，例如**搜尋**和**分析**。 預設的每個動態更新 KPI 圖格均可讓您了解對應的 Application Insights 功能。 若要深入了解失敗的要求，請選取 [調查] 標題下的 [失敗]：
 
-![失敗](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-04.png)
+![失敗](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-04.png)
 
 ## <a name="application-dashboard"></a>應用程式儀表板
 
@@ -46,11 +45,11 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 若要使用預設儀表板，請選取左上角的 [應用程式儀表板]。
 
-![儀表板檢視](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-05.png)
+![儀表板檢視](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-05.png)
 
 如果這是您第一次使用儀表板，便會啟動預設檢視：
 
-![儀表板檢視](.\media\app-insights-overview-dashboard\0001-dashboard.png)
+![儀表板檢視](./media/app-insights-overview-dashboard/0001-dashboard.png)
 
 如果您喜歡預設檢視，即可保持原狀繼續使用。 您也可以在儀表板上新增和刪除項目，盡可能滿足小組的需求。
 
@@ -59,7 +58,7 @@ Application Insights 一直以來都在提供摘要概覽窗格，以便一眼�
 
 若要回到概觀的畫面，只需選取：
 
-![[概觀] 按鈕](.\media\app-insights-overview-dashboard\app-insights-overview-dashboard-07.png)
+![[概觀] 按鈕](./media/app-insights-overview-dashboard/app-insights-overview-dashboard-07.png)
 
 ## <a name="next-steps"></a>後續步驟
 

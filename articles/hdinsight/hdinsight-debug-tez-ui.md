@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: c96e195d425cff640a4961e34305c1af447f6f28
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 1e529b2276d2e68c67696ba9d142760f5881a25e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499431"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012805"
 ---
 # <a name="use-the-apache-tez-ui-to-debug-tez-jobs-on-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI 偵錯 Tez 作業
 [Apache TEZ](https://tez.apache.org/) UI 可用來對使用 Tez 作為執行引擎的 [Apache Hive](https://hive.apache.org/) 作業進行偵錯。 Tez UI 把作業視覺化為已連接項目的圖表，可以深入每個項目、取得統計資料及記錄資訊。
@@ -136,4 +136,4 @@ Tez UI 包含正在或曾經使用 Tez 引擎來執行之作業的資料。 簡�
 ## <a name="next-steps"></a>後續步驟
 既然您已了解如何使用 [Apache TEZ](https://tez.apache.org/) 檢視，請深入了解[在 HDInsight 上使用 Apache Hive](hadoop/hdinsight-use-hive.md)。
 
-如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](http://hortonworks.com/hadoop/tez/)。
+如需 Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](https://hortonworks.com/hadoop/tez/)。

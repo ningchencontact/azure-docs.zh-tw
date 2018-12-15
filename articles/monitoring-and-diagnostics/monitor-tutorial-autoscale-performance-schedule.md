@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: b63e1fa316e9ebeaa564731b8bb0bc3ed5ba9036
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: adf3fdf694216353c5e6a0df8726cb5cd337ddf8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264056"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385987"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>根據效能資料或排程建立自動調整 Azure 資源規模設定
 
@@ -28,7 +28,7 @@ ms.locfileid: "35264056"
 > * 觸發相應縮小動作，觀察執行個體的數目的減少
 > * 清除資源
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -181,7 +181,7 @@ ms.locfileid: "35264056"
 > * 清除資源
 
 
-若要深入了解自動調整規模設定，請繼續閱讀[自動調整規模概觀](monitoring-overview-autoscale.md)。
+若要深入了解自動調整規模設定，請繼續閱讀[自動調整規模概觀](../azure-monitor/platform/autoscale-overview.md)。
 
 > [!div class="nextstepaction"]
 > [封存監視資料](monitor-tutorial-archive-monitoring-data.md)

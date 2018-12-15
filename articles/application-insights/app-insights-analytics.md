@@ -9,16 +9,15 @@ ms.assetid: 0a2f6011-5bcf-47b7-8450-40f284274b24
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2018
 ms.author: mbullwin
-ms.openlocfilehash: 170cd76c72e8aeb5de48c711ae4637a0244742fb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e389ff0d664403704f120f5ff424b3d5d19baa8a
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294195"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682209"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的分析
 Analytics 是 [Application Insights](app-insights-overview.md) 強大的搜尋和查詢工具。 Analytics 是 web 工具，不需要設定。 如果已經為您的其中一個應用程式設定 Application Insights，則您可以從應用程式的[概觀刀鋒視窗](app-insights-dashboards.md)開啟 Analytics 來分析應用程式的資料。
@@ -48,9 +47,9 @@ requests
 
 這個語言具有許多吸引人的功能︰
 
-* [篩選](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator) 未經處理的應用程式遙測，包括您的自訂屬性和計量。
-* [加入](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/join-operator) 多個資料表 – 將要求與頁面檢視、相依性呼叫、例外狀況和記錄追蹤相互關聯。
-* 功能強大的統計 [彙總](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions)。
+* [篩選](/azure/kusto/query/whereoperator) 未經處理的應用程式遙測，包括您的自訂屬性和計量。
+* [加入](/azure/kusto/query/joinoperator) 多個資料表 – 將要求與頁面檢視、相依性呼叫、例外狀況和記錄追蹤相互關聯。
+* 功能強大的統計 [彙總](/azure/kusto/query/summarizeoperator)。
 * 立即且功能強大的視覺效果。
 * [REST API](https://dev.applicationinsights.io/)，可讓您以程式設計方式 (例如從 PowerShell) 執行查詢。
 

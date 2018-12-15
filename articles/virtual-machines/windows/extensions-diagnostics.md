@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: db4208c8fef27d2e2085e63ba3a986456d0544bf
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: fe24307f7ed01c64217bcb1f9f7645a30bce7f44
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429111"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322818"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>適用於 Windows VM 的 Azure 診斷延伸模組
 
@@ -37,7 +37,7 @@ ms.locfileid: "49429111"
 
 ## <a name="extension-schema"></a>擴充功能結構描述
 
-[本文件說明 Azure 診斷延伸模組結構描述和屬性值。](../../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md)
+[本文件說明 Azure 診斷延伸模組結構描述和屬性值。](../../azure-monitor/platform/diagnostics-extension-schema-1dot3.md)
 
 ## <a name="template-deployment"></a>範本部署
 
@@ -80,12 +80,12 @@ Set-AzureRmVMDiagnosticsExtension -ResourceGroupName $vm_resourcegroup `
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-如需「Azure 診斷」延伸模組的更詳盡疑難排解指南，請[參閱這篇文章](../../monitoring-and-diagnostics/azure-diagnostics-troubleshooting.md)。
+如需「Azure 診斷」延伸模組的更詳盡疑難排解指南，請[參閱這篇文章](../../azure-monitor/platform/diagnostics-extension-troubleshooting.md)。
 
 ### <a name="support"></a>支援
 
 如果您在本文中有任何需要協助的地方，您可以連絡 [MSDN Azure 和 Stack Overflow 論壇](https://azure.microsoft.com/support/forums/)上的 Azure 專家。 或者，您可以提出 Azure 支援事件。 請移至 [Azure 支援網站](https://azure.microsoft.com/support/options/)，然後選取 [取得支援]。 如需使用 Azure 支援的資訊，請參閱 [Microsoft Azure 支援常見問題集](https://azure.microsoft.com/support/faq/)。
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解 Azure 診斷延伸模組](../../monitoring-and-diagnostics/azure-diagnostics.md)
-* [檢閱擴充功能結構描述和版本](../../monitoring-and-diagnostics/azure-diagnostics-schema.md)
+* [深入了解 Azure 診斷延伸模組](../../azure-monitor/platform/diagnostics-extension-overview.md)
+* [檢閱擴充功能結構描述和版本](../../azure-monitor/platform/diagnostics-extension-schema.md)

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 40922080857563b86d538586b90513381edb5d89
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9a20b8df1f0d9cddbde4c4886e11967bc8c04160
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382664"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842402"
 ---
 # <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定義 Azure Active Directory B2C 自訂原則中的 OpenId Connect 技術設定檔
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](http://openid.net/2015/04/17/openid-connect-certification-program/) 通訊協定識別提供者。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。  透過 OpenId Connect 技術設定檔，您可以與 OpenId Connect 式識別提供者 (例如 Azure AD) 形成同盟，讓使用者能夠使用其現有的社交或企業身分識別登入。
+Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) 通訊協定識別提供者。 OpenID Connect 1.0 會定義 OAuth 2.0 上的身分識別層，是先進新式驗證通訊協定的代表。  透過 OpenId Connect 技術設定檔，您可以與 OpenId Connect 式識別提供者 (例如 Azure AD) 形成同盟，讓使用者能夠使用其現有的社交或企業身分識別登入。
 
 ## <a name="protocol"></a>通訊協定
 
@@ -58,8 +58,8 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](http://openid.n
 
 技術設定檔也會傳回識別提供者未傳回的宣告：
 
-- **identityProvider** 宣告，其包含識別提供者的名稱。
-- **authenticationSource** 宣告，包含 **socialIdpAuthentication** 的預設值。
+- 包含識別提供者名稱的 **identityProvider** 宣告。
+- 具有 **socialIdpAuthentication** 預設值的 **authenticationSource** 宣告。
 
 ```xml
 <OutputClaims>
@@ -80,7 +80,7 @@ Azure Active Directory (Azure AD) B2C 可支援 [OpenId Connect](http://openid.n
 | METADATA | 是 | 根據 OpenID Connect Discovery 規格 (也就是已知的 openid 設定端點)，指向 JSON 設定文件的 URL。 |
 | ProviderName | 否 | 識別提供者的名稱。 |
 | response_types | 否 | 根據 OpenID Connect Core 1.0 規格的回應類型。 可能的值：`id_token`、`code` 或 `token`。 |
-| response_mode | 否 | 識別提供者用於將結果傳送回 Azure AD B2C 的方法。 可能的值：`query`、`form_post` (預設) 或 `fragment`。 |
+| response_mode | 否 | 識別提供者用來將結果傳送回 Azure AD B2C 的方法。 可能的值：`query`、`form_post` (預設值) 或 `fragment`。 |
 | scope | 否 | 根據 OpenID Connect Core 1.0 規格定義之存取要求的範圍。 例如，`openid`, `profile` 和 `email`。 |
 | HttpBinding | 否 | 繫結至存取權杖和宣告權杖端點的預期 HTTP。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 此金鑰可在使用多租戶識別提供者 (例如 Azure Active Directory) 時，用於登入每個租用戶。 |

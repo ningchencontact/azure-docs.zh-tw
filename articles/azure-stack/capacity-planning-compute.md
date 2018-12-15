@@ -16,22 +16,22 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: b98879483d35a91810c9e9ab5e0ac81151bde52f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46369715"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962176"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack 計算容量規劃
-[Azure Stack 中支援的虛擬機器大小](.\user\azure-stack-vm-sizes.md)屬於 Azure 支援的虛擬機器 (VM) 的一小部分。 Azure 會在許多方面施加資源限制，來避免資源 (伺服器本機和服務層級) 過度耗用。 若未加以限制租用戶的耗用量，當其他租用戶過度耗用資源時，租用戶的體驗就會受到影響。 對於 VM 的網路輸出，在 Azure Stack 上已有符合 Azure 限制的頻寬上限。 至於儲存體資源，已在 Azure Stack 上實施儲存體的 IOP 限制，以免租用戶為了存取儲存體而造成基本的資源過度耗用。  
+[Azure Stack 中支援的虛擬機器大小](./user/azure-stack-vm-sizes.md)屬於 Azure 支援的虛擬機器 (VM) 的一小部分。 Azure 會在許多方面施加資源限制，來避免資源 (伺服器本機和服務層級) 過度耗用。 若未加以限制租用戶的耗用量，當其他租用戶過度耗用資源時，租用戶的體驗就會受到影響。 對於 VM 的網路輸出，在 Azure Stack 上已有符合 Azure 限制的頻寬上限。 至於儲存體資源，已在 Azure Stack 上實施儲存體的 IOP 限制，以免租用戶為了存取儲存體而造成基本的資源過度耗用。  
 
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>VM 放置與虛擬至實體核心的過度佈建
 在 Azure Stack 中，租用戶無法指定放置 VM 所用的特定伺服器。 放置 VM 的唯一考量是，主機是否有足夠的記憶體可供該 VM 類型使用。 Azure Stack 不會過量使用記憶體；但允許過量使用核心數目。 由於放置演算法不會將現有的虛擬至實體核心過度佈建比率視為因素之一，因此每部主機的比率可能各不相同。 
 
 為了達到 Azure 中多 VM 生產環境的高可用性，會將 VM 放在可用性設定組中，以便將 VM 分散在多個容錯網域中。 這表示放在可用性設定組中的 VM 實體上在機架中彼此隔離，而可提供失敗復原能力，如下圖所示：
 
-![容錯和更新網域](media\azure-stack-capacity-planning\domains.png)
+![容錯和更新網域](media/azure-stack-capacity-planning/domains.png)
 
 
 雖然 Azure Stack 的基礎結構具備失敗復原能力，但在發生硬體故障時，基礎技術 (容錯移轉叢集) 仍然會造成受影響實體伺服器上的 VM 產生一些停機時間。 目前，Azure Stack 支援的可用性設定組最多可以有三個容錯網域 (與 Azure 一致)。 系統會將放在可用性設定組中的 VM 儘可能平均分散到多個容錯網域 (Azure Stack 節點)，讓這些 VM 在實體上彼此隔離。 當發生硬體故障時，失敗容錯網域中的 VM 會在其他節點中重新啟動，但可能的話，會放在與相同可用性設定組中其他 VM 不同的容錯網域中。 當硬體回到線上時，系統會將 VM 重新平衡以保持高可用性。

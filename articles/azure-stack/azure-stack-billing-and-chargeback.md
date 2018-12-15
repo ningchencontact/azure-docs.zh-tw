@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: a5f3b206b83beb15ee3b29d5d5b9e389e85a91fb
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 32d0e0f48a99b5c06b1efa61e6e1a53cf5b0e61b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466982"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971788"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用量與計費
 
@@ -35,9 +35,9 @@ Azure Stack 中的每個資源提供者都會依據資源使用情況張貼使�
 
 如果您已[向 Azure 註冊 Azure Stack 執行個體](azure-stack-register.md)，則 Azure Stack 已設定為將該使用量資料傳送給 Azure Commerce。 將該資料上傳到 Azure 之後，您便可以透過計費入口網站或使用 Azure 資源使用量 API 來存取它。 若要深入了解會向 Azure 回報哪些使用量資料，請參閱[使用量資料回報](azure-stack-usage-reporting.md)。  
 
-下圖顯示使用量管線中的主要元件： 
+下圖顯示使用量管線中的主要元件：
 
-![使用量管線](media\azure-stack-billing-and-chargeback\usagepipeline.png)
+![使用量管線](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
 ## <a name="what-usage-information-can-i-find-and-how"></a>我可以找到哪些使用量資訊，以及如何尋找？
 

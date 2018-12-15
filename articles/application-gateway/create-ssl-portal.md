@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: c64754595ef67b7c083ee8d47da5b412467c191b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 814c3ebec326ab1c17f4fea7f11b2bacaa6b42d9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195908"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997618"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>使用 Azure 入口網站設定包含 SSL 終止的應用程式閘道
 
@@ -32,7 +32,7 @@ ms.locfileid: "34195908"
 
 ## <a name="log-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 上登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站
 
 ## <a name="create-a-self-signed-certificate"></a>建立自我簽署憑證
 

@@ -10,34 +10,34 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4600ec9d76f682f0dedf8c802d23b32fd6126481
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: b0044387698e6b7b682061d48249d6e635b32cd5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181493"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842436"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 設定註冊，並以微博帳戶登入
 
 > [!NOTE]
-> 此功能處於預覽狀態。
+> 這項功能處於預覽狀態。
 > 
 
 ## <a name="create-a-weibo-application"></a>建立 Weibo 應用程式
 
-若要在 Azure Active Directory (Azure AD) B2C 中使用微博帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有微博帳戶，可以在 [http://weibo.com/signup/signup.php?lang=en-us](http://weibo.com/signup/signup.php?lang=en-us) 中取得。
+若要在 Azure Active Directory (Azure AD) B2C 中使用微博帳戶做為識別提供者，您需要在代表該帳戶的租用戶中建立應用程式。 如果您還沒有微博帳戶，可以在 [https://weibo.com/signup/signup.php?lang=en-us](https://weibo.com/signup/signup.php?lang=en-us) 中取得。
 
-1. 使用您的微博帳戶認證登入[微博開發人員入口網站](http://open.weibo.com/)。
+1. 使用您的微博帳戶認證登入[微博開發人員入口網站](https://open.weibo.com/)。
 2. 登入之後，在右上角選取您的顯示名稱。
 3. 在下拉式清單中，選取 [编辑开发者信息] \(編輯開發人員資訊)。
 4. 輸入必要資訊，並選取 [提交]。
 5. 完成電子郵件驗證程序。
-6. 移至[識別驗證頁面](http://open.weibo.com/developers/identity/edit)。
+6. 移至[識別驗證頁面](https://open.weibo.com/developers/identity/edit)。
 7. 輸入必要資訊，並選取 [提交]。
 
 ### <a name="register-a-weibo-application"></a>註冊 Weibo 應用程式
 
-1. 移至[新的 Weibo 應用程式註冊頁面](http://open.weibo.com/apps/new)。
+1. 移至[新的 Weibo 應用程式註冊頁面](https://open.weibo.com/apps/new)。
 2. 輸入必要的應用程式資訊。
 3. 選取 [创建]\(建立\)。
 4. 複製**應用程式金鑰**和**應用程式密碼**的值。 您需要這兩個值，才能將識別提供者新增至您的租用戶。
@@ -51,7 +51,7 @@ ms.locfileid: "47181493"
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>將微博帳戶設為識別提供者
 
 1. 以 Azure AD B2C 租用戶的全域管理員身分登入 [Azure 入口網站](https://portal.azure.com/)。
-2. 按一下頂端功能表中的**目錄和訂用帳戶篩選**，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
+2. 按一下頂端功能表中的 [目錄和訂用帳戶] 篩選，然後選擇包含您租用戶的目錄，以確定您使用的是包含 Azure AD B2C 租用戶的目錄。
 3. 選擇 Azure 入口網站左上角的 [所有服務]，搜尋並選取 [Azure AD B2C]。
 4. 選取 [識別提供者]，然後選取 [新增]。
 5. 提供 [名稱]。 例如，輸入*微博*。

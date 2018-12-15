@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: accb7b84793b9fc98bc20f1637ec30f97a7f4a87
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649936"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962075"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Ansible 模組和版本對照表
 
@@ -133,4 +133,4 @@ Ansible 隨附於許多模組，這些模組可以直接在遠端主機上或透
 azure_preview_module 劇本角色每三週發行一次。
 
 ## <a name="next-steps"></a>後續步驟
-如需劇本角色的相關詳細資訊，請參閱[建立可重複使用的劇本](http://docs.ansible.com/ansible/latest/playbooks_reuse.html)。 
+如需劇本角色的相關詳細資訊，請參閱[建立可重複使用的劇本](https://docs.ansible.com/ansible/latest/playbooks_reuse.html)。 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/05/2018
 ms.author: jejiang
-ms.openlocfilehash: 537c94976dbb4f7753b7fafb3b6c94e97cc2cc17
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 6cc4a5d5bfc2056f2517bcbcecb19b9f6b2f437a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126321"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966257"
 ---
 # <a name="manage-azure-data-lake-storage-gen1-resources-by-using-storage-explorer"></a>使用儲存體總管管理 Azure Data Lake Storage Gen1 資源
 
@@ -31,7 +31,7 @@ ms.locfileid: "46126321"
 若要完成本文中的步驟，您必須符合下列先決條件︰
 
 *   Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/pricing/free-trial)。
-*   Data Lake Storage Gen1 帳戶。 如需如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
+*   Data Lake Storage Gen1 帳戶。 如需有關如何建立帳戶的指示，請參閱[開始使用 Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal)。
 
 ## <a name="install-storage-explorer"></a>安裝儲存體總管
 
@@ -136,7 +136,7 @@ Data Lake Storage Gen1 帳戶的資源包含資料夾和檔案。
 
    ![上傳正在進行中的對話方塊](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-upload-folder-drag.png) 
 
-> [!NOTE] 
+> [!NOTE]
 > 您也可以直接拖曳本機電腦上的檔案和資料夾，以開始上傳。 
        
 ### <a name="download-folders-or-files-to-your-local-computer"></a>將資料夾或檔案下載到本機電腦
@@ -164,7 +164,7 @@ Data Lake Storage Gen1 帳戶的資源包含資料夾和檔案。
 
 ![複製資料夾的選取項目](./media/data-lake-store-in-storage-explorer/storageexplorer-adls-copy-paste.png)
 
-> [!NOTE] 
+> [!NOTE]
 > 不支援跨儲存體類型的複製 / 貼上作業。 您可以複製 Data Lake Storage Gen1 資料夾或檔案，並將它們貼到另一個 Data Lake Storage Gen1 帳戶中。 但是您*無法*複製 Data Lake Storage Gen1 資料夾或檔案，並將它們貼到 Azure Blob 儲存體中，反之亦然。
 > 
 > 複製 / 貼上作業的運作方式，是先將資料夾或檔案下載到本機電腦，然後將它們上傳至目的地。 此工具「不會」在後端執行此動作。 大型檔案的複製 / 貼上作業速度很慢。 高效能檔案的複製 / 移動正在進行最佳化。

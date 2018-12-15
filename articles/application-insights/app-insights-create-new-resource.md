@@ -9,16 +9,15 @@ ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: mbullwin
-ms.openlocfilehash: 59bb8564613e9a0cebda00c2c847283ff218b882
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 3c3ff606958503efcf2df5fd99b6e52e4687de4a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294712"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996247"
 ---
 # <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用程式的相關資料。 因此，建立新的資源是屬於[設定 Application Insights 以監視新應用程式][start]的一環。 在許多情況下，建立資源可以由 IDE 自動完成。 但在某些情況下，您需要手動建立資源 - 例如，讓應用程式的開發和生產組建有各自可用的資源。
@@ -26,11 +25,11 @@ Azure Application Insights 會在 Microsoft Azure「資源」中顯示您應用�
 建立資源後，您會取得其檢測金鑰，並將該金鑰用來設定應用程式中的 SDK。 資源索引鍵會將遙測連結到資源。
 
 ## <a name="sign-up-to-microsoft-azure"></a>註冊 Microsoft Azure
-如果您還沒有 [Microsoft 帳戶，請立即申請](http://live.com)。 (如果您使用 Outlook.com、OneDrive、Windows Phone 或 XBox Live 等服務，就會有 Microsoft 帳戶)。
+如果您還沒有 [Microsoft 帳戶，請立即申請](https://live.com)。 (如果您使用 Outlook.com、OneDrive、Windows Phone 或 XBox Live 等服務，就會有 Microsoft 帳戶)。
 
-此外您也需要 [Microsoft Azure](http://azure.com) 訂用帳戶。 如果您的小組或組織擁有 Azure 訂用帳戶，則擁有者就可以使用您的 Windows Live ID 將您加入該訂用帳戶。 您只需針對使用的項目付費。 預設的基本方案有一定的免費數量可作為實驗用途。
+此外您也需要 [Microsoft Azure](https://azure.com) 訂用帳戶。 如果您的小組或組織擁有 Azure 訂用帳戶，則擁有者就可以使用您的 Windows Live ID 將您加入該訂用帳戶。 您只需針對使用的項目付費。 預設的基本方案有一定的免費數量可作為實驗用途。
 
-當您可以存取訂用帳戶時，請在 [http://portal.azure.com](https://portal.azure.com) 中使用您的 Live ID 登入 Application Insights。
+當您可以存取訂用帳戶時，請在 [https://portal.azure.com](https://portal.azure.com) 中使用您的 Live ID 登入 Application Insights。
 
 ## <a name="create-an-application-insights-resource"></a>建立 Application Insights 資源
 在 [portal.azure.com](https://portal.azure.com)中新增 Application Insights 資源：

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467713"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867575"
 ---
 # <a name="creating-custom-voice-fonts"></a>建立客製化聲音音調
 
@@ -87,7 +87,7 @@ ms.locfileid: "49467713"
 自訂語音系統會透過將文字轉換成小寫並移除無關的標點符號，來標準化文字記錄。 文字記錄必須是對應的錄音 100% 正確的轉譯。
 
 > [!TIP]
-> 建立生產用文字轉換語音的語音時，選取語句 (或撰寫腳本)，並考量注音涵蓋範圍和效率。 無法取得想要的結果嗎？ 請[連絡自訂語音小組](mailto:tts@microsoft.com)，在我們的諮詢下找出更多相關資訊。
+> 建立生產用文字轉換語音的語音時，選取語句 (或撰寫腳本)，並考量注音涵蓋範圍和效率。 無法取得想要的結果嗎？ 請[連絡自訂語音小組](mailto:speechsupport@microsoft.com)，在我們的諮詢下找出更多相關資訊。
 
 ## <a name="upload-your-datasets"></a>上傳您的資料集
 

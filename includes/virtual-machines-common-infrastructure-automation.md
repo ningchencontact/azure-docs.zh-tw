@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: efca5c4155372456100126671e7d5cd1ccf0cbbc
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981359"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53027907"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中使用基礎結構自動化工具搭配虛擬機器
 若要以一致的方式大規模建立並管理 Azure 虛擬機器 (VM)，通常需要某種形式的自動化。 有許多工具和解決方案可讓您將完整的 Azure 基礎結構部署及管理生命週期自動化。 本文介紹的一些基礎結構自動化工具可供您在 Azure 中使用。 這些工具通常符合下列其中一種方法：
@@ -23,7 +23,7 @@ ms.locfileid: "50981359"
     - [Azure 自動化](#azure-automation)可在整個 Azure 和內部部署基礎結構內執行動作。
 
 - 將應用程式部署和傳遞自動化
-    - 範例包括 [Azure DevOps Services](#visual-studio-team-services) 和 [Jenkins](#jenkins)。
+    - 範例包括 [Azure DevOps Services](#azure-devops-services) 和 [Jenkins](#jenkins)。
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) 是設定管理、建立 VM 或應用程式部署的自動化引擎。 Ansible 會使用無代理程式的模型，通常是使用 SSH 金鑰來驗證及管理目標電腦。 設定工作會定義在劇本中，並有幾個可用來執行特定工作的 Ansible 模組。 如需詳細資訊，請參閱 [Ansible 的運作方式](https://www.ansible.com/how-ansible-works)。

@@ -1,28 +1,24 @@
 ---
-title: 使用 Azure Cosmos DB 中的計量進行監視及偵錯 | Microsoft Docs
+title: 使用 Azure Cosmos DB 中的計量進行監視及偵錯
 description: 使用 Azure Cosmos DB 中的計量偵錯常見問題及監控資料庫。
-keywords: metrics
 services: cosmos-db
-author: kanshiG
-manager: kfile
-editor: ''
 ms.service: cosmos-db
-ms.devlang: na
+author: kanshiG
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: govindk
-ms.openlocfilehash: 5e2ff89c45797e8453a3a3e4da4ac7cbe1ee6f16
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8461797e0c3b8d92466c37c5564df895e494ce74
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852872"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957584"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的計量進行監視及偵錯
 
 Azure Cosmos DB 為輸送量、儲存體、一致性、可用性和延遲提供計量。 [Azure 入口網站](https://portal.azure.com)會提供這些計量的彙總檢視。 如需更細微的計量，則可使用用戶端 SDK 和[診斷記錄](./logging.md)。
 
-此文章將逐步解說常見的使用案例，以及如何使用 Azure Cosmos DB 計量來分析和偵錯這些問題。 系統每隔五分鐘就會收集計量一次並保留七天。
+本文將逐步解說常見的使用案例，以及如何使用 Azure Cosmos DB 計量來分析和偵錯這些問題。 系統每隔五分鐘就會收集計量一次並保留七天。
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>了解有多少要求成功或導致錯誤
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: bc03a5f43ef65ec8feaccb82fc3d31debbc6e7b9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f7b73fa4d1f596e0221c2cec3c6c7417ceb767a4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523371"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275681"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>在 Azure 入口網站中監視儲存體帳戶
 
@@ -98,7 +98,7 @@ ms.locfileid: "39523371"
 3. 為新的警示規則輸入 [名稱] 和 [描述]。
 4. 選取要為其新增警示的 [計量]、警示 [條件] 和 [閾值]。 閾值的單位類型會隨您所選擇的計量而變更。 例如，「計數」是 ContainerCount 的單位類型，PercentNetworkError 計量的單位則是百分比。
 5. 選取 [期間]。 在期間內達到或超過閾值的計量會觸發警示。
-6. (選擇性) 設定 [電子郵件] 和 [Webhook] 通知。 如需 Webhook 的詳細資訊，請參閱[針對 Azure 度量警示設定 Webhook](../../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 如果未設定電子郵件或 Webhook 通知，則警示只會出現在 Azure 入口網站。
+6. (選擇性) 設定 [電子郵件] 和 [Webhook] 通知。 如需 Webhook 的詳細資訊，請參閱[針對 Azure 度量警示設定 Webhook](../../azure-monitor/platform/alerts-webhooks.md)。 如果未設定電子郵件或 Webhook 通知，則警示只會出現在 Azure 入口網站。
 
 ![Azure 入口網站中的 [新增警示規則] 刀鋒視窗](./media/storage-monitor-storage-account/add-alert-rule.png)
 

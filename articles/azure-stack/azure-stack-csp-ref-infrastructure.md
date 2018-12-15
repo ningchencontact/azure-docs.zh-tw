@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9526385eaea8a88f0c22e6420ba39a33f7166f96
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 4d7d1407ff57c5adcc4790db4d2f47b70737fece
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633719"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250480"
 ---
-## <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>適月於雲端服務提供者的使用方式報告基礎結構
+# <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>適月於雲端服務提供者的使用方式報告基礎結構
 
 Azure Stack 包含使用量發生時可加以追蹤並轉送至 Azure 所需的基礎結構。 在 Azure 中，Azure Commerce 會處理使用量資料，並向適當的 Azure 訂用帳戶收取使用量費用。 此作業的運作方式與在全域 Azure 雲端中監視使用量追蹤一樣。
 

@@ -1,23 +1,23 @@
 ---
 title: 刪除 Azure 中的復原服務保存庫
-description: 此文章說明如何刪除復原服務保存庫。 此文章包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
+description: 本文說明如何刪除復原服務保存庫。 本文包含當您嘗試刪除保存庫卻無法做到時的疑難排解步驟。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
-ms.author: markgal
-ms.openlocfilehash: e5bc68b55fdefc07b9764b8393ea6f4062468252
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.author: raynew
+ms.openlocfilehash: d7617ce96181a0708dfa4731c07d581e332bdff4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816458"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873096"
 ---
 # <a name="delete-a-recovery-services-vault"></a>刪除復原服務保存庫
 
-此文章將說明如何從復原服務保存庫中移除所有項目，然後刪除該保存庫。 如果復原服務保存庫已向伺服器註冊並保留備份資料，則無法刪除該保存庫。 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
+本文將說明如何從復原服務保存庫中移除所有項目，然後刪除該保存庫。 如果復原服務保存庫已向伺服器註冊並保留備份資料，則無法刪除該保存庫。 如果您嘗試刪除保存庫，但是無法刪除，則保存庫仍會設定為接收備份資料。
 
 若要了解如何刪除保存庫，請參閱[從 Azure 入口網站刪除保存庫](backup-azure-delete-vault.md#delete-a-vault-from-azure-portal)一節。 如果您不要保留復原服務保存庫中的任何資料，並且想刪除保存庫，請參閱[強制刪除保存庫](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force)一節。 如果您不確定保存庫中有什麼，但必須確認您可以刪除保存庫，請參閱[移除保存庫相依性並刪除保存庫](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault)。
 
@@ -60,7 +60,7 @@ ms.locfileid: "48816458"
 
 1. 登入您的 Azure 帳戶。
 
-   使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並依照畫面上的指示執行。
+   使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶並遵循畫面上的指示。
 
    ```powershell
     Connect-AzureRmAccount

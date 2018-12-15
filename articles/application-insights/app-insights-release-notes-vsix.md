@@ -9,17 +9,16 @@ ms.assetid: 2001db30-efc5-417a-a413-93c1b218975f
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2017
 ms.reviewer: aruna
 ms.author: mbullwin
-ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: e9a8c6345ca45234ffcec1588a98bf1b8d634e06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303739"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000692"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Developer Analytics 工具的版本資訊
 
@@ -181,7 +180,7 @@ ASP.NET 5 RC1 和 ASP.NET Core RC2 專案也會在 [診斷工具] 視窗中提�
 
 ![HockeyApp 入口網站](./media/app-insights-release-notes-vsix/HockeyAppPortal.png)
 
-如需應用程式管理的詳細資訊，請參閱 [HockeyApp 知識庫](http://support.hockeyapp.net/kb/app-management-2) 。
+如需應用程式管理的詳細資訊，請參閱 [HockeyApp 知識庫](https://support.hockeyapp.net/kb/app-management-2) 。
 
 ### <a name="windows-forms-apps"></a>Windows Forms 應用程式
 Windows Forms 專案節點的內容功能表現在包含將組建上傳至 HockeyApp 的選項。

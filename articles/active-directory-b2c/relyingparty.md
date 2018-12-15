@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8f56f287fde9e17d2a17298ca04eda63b69e3636
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159919"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835083"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -28,8 +28,8 @@ ms.locfileid: "47159919"
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
   TenantId="your-tenant.onmicrosoft.com"
@@ -159,7 +159,7 @@ ms.locfileid: "47159919"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| 名稱 | 是 | 金鑰值組的名稱。 |
+| Name | 是 | 金鑰值組的名稱。 |
 
 如需詳細資訊，請參閱[使用自訂原則設定具有動態內容的 UI](active-directory-b2c-ui-customization-custom-dynamic.md)
 
@@ -169,7 +169,7 @@ ms.locfileid: "47159919"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- | 
-| Id | 是 | 值必須是 `PolicyProfile`。 |
+| id | 是 | 值必須是 `PolicyProfile`。 |
 
 **TechnicalProfile** 包含下列元素：
 
@@ -186,7 +186,7 @@ ms.locfileid: "47159919"
 
 | 屬性 | 必要 | 說明 |
 | --------- | -------- | ----------- |
-| 名稱 | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OpenIdConnect` 或 `SAML2`。 `OpenIdConnect` 值代表以每個 OpenID 基礎規格為依據的 OpenID Connect 1.0 通訊協定標準。 `SAML2` 代表以每個 OASIS 規格為依據的 SAML 2.0 通訊協定標準。 請勿在生產環境中使用 SAML 權杖。 |
+| Name | 是 | Azure AD B2C 所支援的有效通訊協定名稱，可用來作為技術設定檔的一部分。 可能的值：`OpenIdConnect` 或 `SAML2`。 `OpenIdConnect` 值代表以每個 OpenID 基礎規格為依據的 OpenID Connect 1.0 通訊協定標準。 `SAML2` 代表以每個 OASIS 規格為依據的 SAML 2.0 通訊協定標準。 請勿在生產環境中使用 SAML 權杖。 |
 
 ## <a name="outputclaims"></a>OutputClaims
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/19/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 8b5b94c959ae9820cab338f3ee3317fb3ee166d6
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c1e8f94a0131ace6354d070e932e414a1897260e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286596"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166297"
 ---
 # <a name="planning-for-maintenance-on-your-azure-sql-data-warehouse"></a>規劃 Azure SQL 資料倉儲的維護
 
@@ -32,9 +32,9 @@ ms.locfileid: "43286596"
 
 ## <a name="setting-up-alerts"></a>設定警示
 
-我們建議使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)來設定計劃性維護記錄警示。 警示可協助您規劃必要的維護，以對您的業務造成最小影響。 
+我們建議使用 [Azure 監視器](../azure-monitor/platform/alerts-activity-log-service-notifications.md)來設定計劃性維護記錄警示。 警示可協助您規劃必要的維護，以對您的業務造成最小影響。 
 
-若要設定通知，請使用這些[記錄警示指示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 
+若要設定通知，請使用這些[記錄警示指示](../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
 
 ## <a name="next-steps"></a>後續步驟
 如需有關監視的詳細資訊，請參閱[監視您的工作負載](sql-data-warehouse-manage-monitor.md)。

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2018
+ms.date: 12/06/2018
 ms.topic: troubleshooting
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 8add92c5a65e4ddbd83dbe0836820fae1e88f557
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 4118e0bb0e42a1eec707b2fdb6682333400e2e1a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274682"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099829"
 ---
 # <a name="create-a-support-request-for-cloudyn"></a>建立 Cloudyn 的支援要求
 
@@ -43,7 +43,7 @@ ms.locfileid: "52274682"
 
 若要查看已歸檔事件的狀態，請參閱[所有支援要求](../azure-supportability/how-to-create-azure-support-request.md#all-support-requests)。
 
-如果您是沒有 Azure 帳戶的舊版 Cloudyn 使用者，您可以在 http://support.microsoft.com/oas/default.aspx?prid=16451 上開啟支援要求。
+如果您是沒有 Azure 帳戶的舊版 Cloudyn 使用者，您可以在 https://support.microsoft.com/oas/default.aspx?prid=16451 上開啟支援要求。
 
 
 ## <a name="next-steps"></a>後續步驟
