@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: dccbd2d87b5a5616c25caed070a337eff9fa753e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255722"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956647"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>將 MXChip IoT DevKit 裝置連線到您的 Azure IoT Central 應用程式
 
@@ -49,12 +49,12 @@ ms.locfileid: "51255722"
     * 輸入裝置識別碼**<span style="color:Red"> (應為小寫)</span>**，或使用建議的裝置識別碼。
     * 輸入裝置名稱，或使用建議的名稱
     
-    ![新增裝置](media\concepts-connectivity\add-device.png)
+    ![新增裝置](media/concepts-connectivity/add-device.png)
 
 
 1. 取得所新增裝置的連線詳細資料 (例如**範圍識別碼、裝置識別碼和主要金鑰**)，方法是按一下裝置頁面上的 [連線]。
  
-    ![連線詳細資料](media\concepts-connectivity\device-connect.PNG)
+    ![連線詳細資料](media/concepts-connectivity/device-connect.PNG)
 
 3. 請務必儲存這些詳細資料，因為在準備 DevKit 裝置時會暫時中斷與網際網路的連線。 
 
@@ -203,12 +203,12 @@ git clone https://github.com/Azure/iot-central-firmware
 
 
 #### <a name="states"></a>狀態 
-| 名稱          | 顯示名稱   | 正常 | 警告 | 危險 | 
+| Name          | 顯示名稱   | 正常 | 警告 | 危險 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
 | DeviceState   | 裝置狀態   | 綠色  | 橙色  | 紅色    | 
 
 #### <a name="events"></a>活動 
-| 名稱             | 顯示名稱      | 
+| Name             | 顯示名稱      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 按下按鈕 B  | 
 

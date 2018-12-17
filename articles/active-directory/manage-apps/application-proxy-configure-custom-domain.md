@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 090df19861e00a99f0bb63bf20eb2f26dc6761fd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b0ad4aa63dbeefce6b55e099fd51d3608ae3abb8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368476"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133344"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 中的自訂網域
 
@@ -40,7 +40,7 @@ ms.locfileid: "39368476"
 設定自訂網域之前，請確定您已備妥下列需求： 
 - [新增至 Azure Active Directory 的已驗證網域](../fundamentals/add-custom-domain.md)。
 - 網域的自訂憑證 (採用 PFX 檔格式)。 
-- [透過應用程式 Proxy 發佈](application-proxy-publish-azure-portal.md)的內部部署應用程式。
+- [透過應用程式 Proxy 發佈](application-proxy-add-on-premises-application.md)的內部部署應用程式。
 
 ### <a name="configure-your-custom-domain"></a>設定自訂網域
 

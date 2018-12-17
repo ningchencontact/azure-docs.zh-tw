@@ -9,17 +9,16 @@ ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 7e6aad6f6a0664d7834e6ea889dba14c1cbcdf0a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095356"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720961"
 ---
 # <a name="monitor-performance-in-web-applications"></a>監視 Web 應用程式的效能
 
@@ -140,7 +139,7 @@ HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
 ![取得客戶/詳細資料，7 天範圍的時段中三個持續時間高峰](./media/app-insights-web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
-## <a name="next"></a>後續步驟
+## <a name="next"></a>接續步驟
 [Web 測試][availability] - 定期從全世界傳送 Web 要求給應用程式。
 
 [擷取及搜尋診斷追蹤][diagnostic] - 插入追蹤呼叫並詳查結果，以便找出問題所在。

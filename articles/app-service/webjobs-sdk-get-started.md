@@ -1,5 +1,5 @@
 ---
-title: 開始使用 Azure WebJobs SDK
+title: 開始使用 WebJobs SDK - Azure
 description: 使用 WebJobs SDK 進行事件驅動幕後處理的簡介。 了解如何存取 Azure 服務和第三方服務中的資料。
 services: app-service\web, storage
 documentationcenter: .net
@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: b0f4ef5079ac689827cb49884fa1c6a51529ea83
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 034f182cc282f50eb3a4a1de05331f42957f49fe
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140344"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339802"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>開始使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -63,9 +63,9 @@ public static void Run(
 
 1. 在 Visual Studio 中，選取 [檔案] -> [新增專案]。
 
-1. 選取 [Windows 傳統桌面] > [主控台應用程式] \(.NET Framework\)。
+2. 選取 [Windows 傳統桌面] > [主控台應用程式] \(.NET Framework\)。
 
-1. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
+3. 將專案命名為 WebJobsSDKSample，然後選取 [確定]。
 
    ![[新增專案] 對話方塊](./media/webjobs-sdk-get-started/new-project.png)
 
@@ -318,13 +318,13 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 1. 在 [連接字串] 中，新增下列項目。
 
-   |名稱  |連接字串  |資料庫類型|
+   |Name  |連接字串  |資料庫類型|
    |---------|---------|------|
    |AzureWebJobsStorage | {您先前複製的儲存體連接字串}|自訂|
    
 1. 如果 [應用程式設定] 方塊沒有 Application Insights 檢測金鑰，請新增您先前複製的檢測金鑰。 (視您建立 App Service 應用程式的方式而言，檢測金鑰可能已經存在。)
 
-   |名稱  |值  |
+   |Name  |值  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {檢測金鑰} |
 
@@ -396,7 +396,7 @@ WebJobs SDK 會在 [應用程式設定] 集合中尋找儲存體連接字串。 
 
 您會在本節中再度於本機執行，確認記錄資料現在正移至 Application Insights 和主控台。
 
-1. 在 Visual Studio 中使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function)一樣，但輸入 Hello App Insights! 作為訊息文字。
+1. 在 Visual Studio 中使用 [伺服器總管] 建立佇列訊息，做法如[稍早](#trigger-the-function-in-azure)一樣，但輸入 Hello App Insights! 作為訊息文字。
 
 1. 執行專案。
 

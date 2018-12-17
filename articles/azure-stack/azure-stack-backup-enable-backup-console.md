@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038360"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962557"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
-透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](.\azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。
+透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](./azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。
 
 不過，基礎結構備份服務不會備份 IaaS VM、網路設定和儲存體資源 (例如儲存體帳戶、Blob、資料表等)，因此雲端復原完成之後登入的使用者將不會看到其先前存在的任何資源。 服務也不會備份平台即服務 (PaaS) 資源和資料。 
 
@@ -58,31 +58,31 @@ ms.locfileid: "51038360"
     ```
 10. 選取 [確定] 以儲存備份控制器設定。
 
-    ![Azure Stack - 備份控制器設定](media\azure-stack-backup\backup-controller-settings.png)
+    ![Azure Stack - 備份控制器設定](media/azure-stack-backup/backup-controller-settings.png)
 
 ## <a name="start-backup"></a>開始備份
 若要開始備份，請按一下 [立即備份] 來開始隨選備份。 隨選備份不會修改下一個已排定備份的時間。 在工作完成之後，您可以在 [基本資訊]中確認設定：
 
-![Azure Stack - 隨選備份](media\azure-stack-backup\scheduled-backup.png)
+![Azure Stack - 隨選備份](media/azure-stack-backup/scheduled-backup.png)
 
 您也可以在 Azure Stack 系統管理電腦上執行 PowerShell Cmdlet **Start-AzsBackup**。 如需詳細資訊，請參閱[備份 Azure Stack](azure-stack-backup-back-up-azure-stack.md)。
 
 ## <a name="enable-or-disable-automatic-backups"></a>啟用或停用自動備份
 當您啟用備份時，便會自動排定備份。 您可以在 [基本資訊] 中查看下一個排程備份時間。 
 
-![Azure Stack - 隨選備份](media\azure-stack-backup\on-demand-backup.png)
+![Azure Stack - 隨選備份](media/azure-stack-backup/on-demand-backup.png)
 
 如果您需要停用未來的已排定備份，請按一下 [停用自訂備份]。 停用自動備份會保留已設定的備份設定，並且會保留備份排程。 此動作只是告訴排程器略過未來的備份。 
 
-![Azure Stack - 停用已排定的備份](media\azure-stack-backup\disable-auto-backup.png)
+![Azure Stack - 停用已排定的備份](media/azure-stack-backup/disable-auto-backup.png)
 
 確認在 [基本資訊] 中已停用未來的已排定備份：
 
-![Azure Stack - 確認已停用備份](media\azure-stack-backup\confirm-disable.png)
+![Azure Stack - 確認已停用備份](media/azure-stack-backup/confirm-disable.png)
 
 按一下 [啟用自動備份] 以通知排程器在排定的時間開始未來的備份。 
 
-![Azure Stack - 啟用已排定的備份](media\azure-stack-backup\enable-auto-backup.png)
+![Azure Stack - 啟用已排定的備份](media/azure-stack-backup/enable-auto-backup.png)
 
 
 > [!Note]  

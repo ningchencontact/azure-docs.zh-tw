@@ -9,16 +9,15 @@ ms.assetid: 97783cc6-67d6-465f-9926-cb9821f4176e
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1951f001de1b9d0667e5d4430454b32b5a3c890e
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2f9b61a212251332cd94379b40f93eb52d49c729
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957483"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870059"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中探索 HockeyApp 資料
 
@@ -61,7 +60,7 @@ HockeyApp 橋接器欄位隨即出現。
 
 ![分析](./media/app-insights-hockeyapp-bridge-app/05.png)
 
-* [深入了解分析](../log-analytics/query-language/get-started-analytics-portal.md)
+* [深入了解分析](../azure-monitor/log-query/get-started-portal.md)
 
 ## <a name="continuous-export"></a>連續匯出
 連續匯出可讓您將資料匯出至 Azure Blob 儲存體容器。 如果您的資料所需的保留時間超過 Application Insights 目前提供的保留期間，這就非常有用。 您可以將資料保留在 Blob 儲存體中，將它處理到 SQL Database 或您慣用的資料倉儲解決方案中。
@@ -69,5 +68,5 @@ HockeyApp 橋接器欄位隨即出現。
 [深入了解連續匯出](app-insights-export-telemetry.md)
 
 ## <a name="next-steps"></a>後續步驟
-* [將分析套用到資料](../log-analytics/query-language/get-started-analytics-portal.md)
+* [將分析套用到資料](../azure-monitor/log-query/get-started-portal.md)
 

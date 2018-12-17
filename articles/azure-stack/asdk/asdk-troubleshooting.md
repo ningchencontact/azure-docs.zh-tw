@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 999017e24f6c4c24735b7e0cc818bf20aaabab62
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3caa45064c41b641aa913e210aa698d818d5355e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338568"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970258"
 ---
 # <a name="microsoft-azure-stack-development-kit-asdk-troubleshooting"></a>Microsoft Azure Stack 開發套件 (ASDK) 疑難排解
 此文件提供 ASDK 的常見疑難排解資訊。 若您遇到未記載的問題，請務必檢查 [Azure Stack MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以取得進一步的協助與資訊。  
@@ -64,7 +64,7 @@ ms.locfileid: "49338568"
 
 若您看到「孤立」的 VHD，您必須知道它是否屬於已刪除之儲存體帳戶的資料夾。 若該儲存體帳戶未被刪除，則它們仍然存在於該處就是正常情況。
 
-您可以在[管理儲存體帳戶](.\.\azure-stack-manage-storage-accounts.md)中深入了解如何設定保留閾值與隨選回收。
+您可以在[管理儲存體帳戶](../azure-stack-manage-storage-accounts.md)中深入了解如何設定保留閾值與隨選回收。
 
 ## <a name="storage"></a>儲存體
 ### <a name="storage-reclamation"></a>儲存體回收
@@ -72,4 +72,3 @@ ms.locfileid: "49338568"
 
 ## <a name="next-steps"></a>後續步驟
 [造訪 Azure Stack 支援論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)
-

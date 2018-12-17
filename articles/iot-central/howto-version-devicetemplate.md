@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e6148a35540b08916a4f0468af39e0f088453286
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009203"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958861"
 ---
 # <a name="create-a-new-device-template-version"></a>建立新的裝置範本版本
 
@@ -61,7 +61,7 @@ Azure IoT Central 可讓您快速開發 IoT 應用程式。 您可藉由新增�
 1. 選擇 [移轉裝置]。
 1. 選取您希望裝置移轉至的版本號碼並選擇 [移轉]。
 
-![如何移轉裝置](media\howto-version-devicetemplate\pick-version.png)
+![如何移轉裝置](media/howto-version-devicetemplate/pick-version.png)
 
 ## <a name="next-steps"></a>後續步驟
 

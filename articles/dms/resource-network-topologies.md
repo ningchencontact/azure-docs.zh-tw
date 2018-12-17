@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/8/2018
-ms.openlocfilehash: 9b036b74141ce2091d2e68b68d10c44a56a8696d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: cd62b60718a35aed9129db61413086266bb9f2c7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971074"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務進行 Azure SQL DB 受控執行個體移轉的網路拓樸
 本文會討論 Azure 資料庫移轉服務進行內部部署 SQL Server 到 Azure SQL Database 受控執行個體移轉時，用於提供全面移轉體驗的各種網路拓撲。
@@ -24,7 +24,7 @@ ms.locfileid: "51300687"
 ## <a name="azure-sql-database-managed-instance-configured-for-hybrid-workloads"></a>針對混合式工作負載設定 Azure SQL Database 受控執行個體 
 如果您的 Azure SQL Database 受控執行個體是連線到內部部署網路，請使用此拓撲。 這種方法提供最簡單的網路路由，並在移轉期間產生最大的資料輸送量。
 
-![混合式工作負載的網路拓撲](media\resource-network-topologies\hybrid-workloads.png)
+![混合式工作負載的網路拓撲](media/resource-network-topologies/hybrid-workloads.png)
 
 **需求**
 - 在此案例中，Azure SQL Database 受控執行個體和 Azure 資料庫移轉服務執行個體是建立在相同 Azure VNET 中，但是會使用不同的子網路。  
@@ -36,7 +36,7 @@ ms.locfileid: "51300687"
 - 如果角色型存取控制 (RBAC) 原則已就緒，而您必須限制使用者存取裝載 Azure SQL Database 受控執行個體的相同訂用帳戶。
 - Azure SQL Database 受控執行個體和 Azure 資料庫移轉服務使用的 VNET 位於不同訂用帳戶。
 
-![受控執行個體與內部部署網路分開的網路拓撲](media\resource-network-topologies\mi-isolated-workload.png)
+![受控執行個體與內部部署網路分開的網路拓撲](media/resource-network-topologies/mi-isolated-workload.png)
 
 **需求**
 - 此案例中 Azure 資料庫移轉服務使用的 VNET 也必須使用 https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 或 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) 來連線到內部部署網路。
@@ -47,7 +47,7 @@ ms.locfileid: "51300687"
 
 如果來源 SQL Server 裝載於 Azure VM，而且與 Azure SQL Database 受控執行個體及 Azure 資料庫移轉服務共用相同的 VNET，則請使用此拓撲。
 
-![使用共用的 VNET 進行雲端至雲端移轉的網路拓撲](media\resource-network-topologies\cloud-to-cloud.png)
+![使用共用的 VNET 進行雲端至雲端移轉的網路拓撲](media/resource-network-topologies/cloud-to-cloud.png)
 
 **需求**
 - 沒有其他需求。
@@ -59,7 +59,7 @@ ms.locfileid: "51300687"
 - 如果角色型存取控制 (RBAC) 原則已就緒，而您必須限制使用者存取裝載 Azure SQL Database 受控執行個體的相同訂用帳戶。
 - Azure SQL Database 受控執行個體和 Azure 資料庫移轉服務使用的 VNET 位於不同訂用帳戶。
 
-![使用隔離的 VNET 進行雲端至雲端移轉的網路拓撲](media\resource-network-topologies\cloud-to-cloud-isolated.png)
+![使用隔離的 VNET 進行雲端至雲端移轉的網路拓撲](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 
 **需求**
 - 在 Azure SQL Database 受控執行個體和 Azure 資料庫移轉服務使用的 VNET 之間設定 [VNET 網路對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。

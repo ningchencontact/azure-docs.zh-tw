@@ -7,13 +7,13 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/05/2018
-ms.openlocfilehash: 77c761ce72449f91cf91c66219ebc815d1620e94
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/04/2018
+ms.openlocfilehash: 637afab45e04c68777f8d1b42817c912cdc09941
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343669"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133735"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure 串流分析預覽功能
 
@@ -22,10 +22,6 @@ ms.locfileid: "49343669"
 ## <a name="public-previews"></a>公開預覽
 
 下列功能目前處於公開預覽狀態。 您目前可以利用這些功能，但請勿將其用於生產環境。
-
-### <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
-
-Azure IoT Edge 串流分析可讓開發人員在 IoT Edge 裝置上部署近乎即時的分析。 如需詳細資訊，請參閱 [Azure IoT Edge 串流分析](stream-analytics-edge.md)文件。
 
 ### <a name="integration-with-azure-machine-learning"></a>與 Azure Machine Learning 整合
 

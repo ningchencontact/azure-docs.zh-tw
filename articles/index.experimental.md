@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Microsoft Azure 文件
 description: 了解如何使用 Microsoft Azure 雲端服務建置和管理功能強大的應用程式。 取得文件、程式碼範例、教學課程等資訊。
-ms.openlocfilehash: f60d41e2e6333c9d6331f18d4639ababaf748d89
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: c8ba57b9173fbbfa4e00472972921073f32cb2f7
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426320"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017785"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -321,9 +321,9 @@ ms.locfileid: "52426320"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/redis-cache/">
+                                            <a href="/azure/azure-cache-for-redis/">
                                                 <img src="media/index/RedisCache.svg" alt="" />
-                                                <p>Redis 快取</p>
+                                                <p>Azure Cache for Redis</p>
                                             </a>
                                         </li>
                                         <li>
@@ -434,7 +434,7 @@ ms.locfileid: "52426320"
                                     </ul>
                                 </div>
                                 <div class="group">
-                                    <h3>網路功能</h3>
+                                    <h3>網路</h3>
                                     <ul>
                                         <li>
                                             <a href="/azure/networking/networking-overview">
@@ -740,7 +740,7 @@ ms.locfileid: "52426320"
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
-                                                <p>資料湖分析</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1874,7 +1874,7 @@ ms.locfileid: "52426320"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/redis-cache/">
+                                <a href="/azure/azure-cache-for-redis/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1884,7 +1884,7 @@ ms.locfileid: "52426320"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Redis 快取</h3>
+                                                    <h3>Azure Cache for Redis</h3>
                                                     <p>高輸送量、低延遲資料存取，可讓您建置快速、可擴充的應用程式</p>
                                                 </div>
                                             </div>
@@ -2160,7 +2160,7 @@ ms.locfileid: "52426320"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>資料湖分析</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>分散式分析服務讓巨量資料更容易上手</p>
                                                 </div>
                                             </div>

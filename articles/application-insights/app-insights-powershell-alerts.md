@@ -9,21 +9,20 @@ ms.assetid: 05d6a9e0-77a2-4a35-9052-a7768d23a196
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: 2a5717f95e5e40fe04f4fa22eaedf168539e20f3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dda4e26de74dbd5579f2dd45ea47f42c904f028f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309224"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271720"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>在 Application Insights 中使用 PowerShell 設定警示
 您可以在 [Application Insights](app-insights-overview.md) 中自動設定[警示](app-insights-alerts.md)的組態。
 
-此外，您可以[設定 webhook 以自動回應至警示](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
+此外，您可以[設定 webhook 以自動回應至警示](../azure-monitor/platform/alerts-webhooks.md)。
 
 > [!NOTE]
 > 如果您想要同時建立資源和警示，請考慮[使用 Azure Resource Manager 範本](app-insights-powershell.md)。
@@ -133,10 +132,10 @@ GUID 是該訂用帳戶的 ID (而非應用程式的檢測金鑰)。
 | request、<br/>requestFailed |[伺服器要求](app-insights-configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>Webhook
-您可以[自動回應至警示](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。 Azure 會在出現警示時呼叫您選擇的網址。
+您可以[自動回應至警示](../azure-monitor/platform/alerts-webhooks.md)。 Azure 會在出現警示時呼叫您選擇的網址。
 
 ## <a name="see-also"></a>另請參閱
 * [用來設定 Application Insights 的指令碼](app-insights-powershell-script-create-resource.md)
 * [從範本建立 Application Insights 和 Web 測試資源](app-insights-powershell.md)
 * [自動化 Microsoft Azure 診斷與 Application Insights 的耦合](app-insights-powershell-azure-diagnostics.md)
-* [自動回應至警示](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
+* [自動回應至警示](../azure-monitor/platform/alerts-webhooks.md)

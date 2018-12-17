@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
 ms.author: crdun
-ms.openlocfilehash: 71cb39465bd6c180861325ab451aa11be14a80e0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f2c58d64a662a6e2be355c1f672c01e5a679b3f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231664"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993230"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>將推播通知新增至 Xamarin.Android 應用程式
 
@@ -36,7 +36,7 @@ ms.locfileid: "51231664"
 本教學課程需要下列設定：
 
 * 有效的 Google 帳戶。 您可以在 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)註冊 Google 帳戶。
-* [Google Cloud Messaging 用戶端元件](http://components.xamarin.com/view/GCMClient/)。
+* [Google Cloud Messaging 用戶端元件](https://components.xamarin.com/view/GCMClient/)。
 
 ## <a name="configure-hub"></a>設定通知中樞
 
@@ -80,5 +80,5 @@ ms.locfileid: "51231664"
 
 <!-- URLs. -->
 [Xamarin.Android quick start]: app-service-mobile-xamarin-android-get-started.md
-[Google Cloud Messaging Client Component]: http://components.xamarin.com/view/GCMClient/
-[Azure Mobile Services Component]: http://components.xamarin.com/view/azure-mobile-services/
+[Google Cloud Messaging Client Component]: https://components.xamarin.com/view/GCMClient/
+[Azure Mobile Services Component]: https://components.xamarin.com/view/azure-mobile-services/

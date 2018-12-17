@@ -14,15 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 2d75a432e84c3490186da6f8342562fddcaa32e1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c0109839144775e9064db4f8396f19688fcc13e8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805460"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308629"
 ---
-<a name="lcs-subscription"></a>LCS 訂用帳戶
-================
+# <a name="lcs-subscription"></a>LCS 訂用帳戶
 
 在此教學課程中，您將了解如何建立訂用帳戶。 此訂用帳戶將能為您提供 Microsoft Online 測試租用戶及 Microsoft Dynamics 週期服務專案，以供您部署環境。 您也會在 Microsoft Online 租用戶中設定額外的使用者，並取得下列服務管理功能的使用經驗。 以下是您將會學到的技能：
 
@@ -32,8 +31,7 @@ ms.locfileid: "48805460"
 - 將額外的使用者新增至 Microsoft Azure Active Directory 及用戶端上。
 - 檢視訂用帳戶電子郵件中的資源。
 
-<a name="key-terms"></a>主要詞彙
-=========
+## <a name="key-terms"></a>主要詞彙
 
 **Microsoft Online Services 租用戶**：租用戶是由您組織的所有訂用帳戶和使用者所組成的群組。 租用戶會和您在 Microsoft Online Services 中的首個訂用帳戶一起建立。
 

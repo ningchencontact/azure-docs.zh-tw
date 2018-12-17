@@ -3,23 +3,23 @@ title: Azure 資訊安全中心搜尋 | Microsoft Docs
 description: 了解 Azure 資訊安全中心如何使用 Log Analytics 搜尋來擷取和分析您的安全性資料。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
-ms.author: terrylan
-ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rkarlin
+ms.openlocfilehash: 19aed3d3da1250e6ad47bf9266f2e57aa255156a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040433"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963771"
 ---
 # <a name="azure-security-center-search"></a>Azure 資訊安全中心搜尋
 Azure 資訊安全中心使用 [Log Analytics 搜尋](../log-analytics/log-analytics-log-searches.md)來擷取和分析您的安全性資料。 Log Analytics 包含可快速擷取及彙總資料的查詢語言。 您可以從安全性中心利用 Log Analytics 搜尋來建構查詢，並分析收集的資料。

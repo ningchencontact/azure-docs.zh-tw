@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 633597785d42f8bdd150a3b4a839a9595ebde7a4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: e1a52dffe0b87b140ee8f0da9379a33f8b071f39
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852566"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960663"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 SQL Server 資源提供者
 
@@ -33,7 +33,7 @@ ms.locfileid: "51852566"
 您必須先滿足數個先決條件，才能部署 Azure Stack SQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成下列步驟：
 
 - 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
-- 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
+- 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](./azure-stack-powershell-install.md)。
 - 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。
 - 下載 SQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至暫存目錄。 資源提供者會有最低限度的相對應 Azure Stack 組建。
 
@@ -54,7 +54,7 @@ ms.locfileid: "51852566"
 
 ### <a name="certificates"></a>憑證
 
-_僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI 需求](.\azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。 不要提供 ASDK 系統的憑證。
+_僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI 需求](./azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。 不要提供 ASDK 系統的憑證。
 
 ## <a name="deploy-the-sql-resource-provider"></a>部署 SQL 資源提供者
 
@@ -111,7 +111,7 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

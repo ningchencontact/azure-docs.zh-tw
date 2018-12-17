@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 197b15baee81c7ceff5d76dd21ceb6db1f0f5fdf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b05a8bfd46800c5b0b0126adcf2acb4852bb6683
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424658"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339751"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>使用 Azure IoT 中樞偵測連線中斷並進行疑難排解
 
@@ -50,7 +50,7 @@ IoT 裝置的連線問題可能因為有許多可能的失敗點而難以排解�
 
    ![建議的計量警示][3]
 
-若要深入了解，請參閱[什麼是 Microsoft Azure 中的傳統警示？](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。
+若要深入了解，請參閱[什麼是 Microsoft Azure 中的傳統警示？](../azure-monitor/platform/alerts-overview.md)。
 
 ## <a name="resolve-connectivity-errors"></a>解決連線錯誤
 

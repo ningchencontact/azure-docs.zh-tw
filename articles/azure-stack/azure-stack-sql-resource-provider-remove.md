@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b79d64cc063105cb8ecce537a09a7f39a78eef4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8b6257519c3b1db2180335523047e8dc55558d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275022"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52954567"
 ---
 # <a name="remove-the-sql-resource-provider"></a>移除 SQL 資源提供者
 
 在您移除 SQL 資源提供者之前，必須先移除所有提供者相依性。 您還需要一份用來安裝資源提供者的部署套件複本。
 
 > [!NOTE]
-> 您可以在[部署資源提供者必要條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到資源提供者安裝程式的下載連結。
+> 您可以在[部署資源提供者必要條件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中找到資源提供者安裝程式的下載連結。
 
 移除 SQL 資源提供者並不會從主控伺服器刪除租用戶資料庫。
 

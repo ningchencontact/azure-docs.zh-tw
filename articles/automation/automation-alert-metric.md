@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959815"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185852"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>使用度量警示來監視 Runbook
 
@@ -51,7 +51,7 @@ ms.locfileid: "50959815"
 
 ### <a name="define-the-action-to-take"></a>定義要採取的動作
 
-1. 在 [3. 定義動作群組] 下，按一下 [+ 新增動作群組]。 動作群組是一組可讓您跨多個警示使用的動作。 其中可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)
+1. 在 [3. 定義動作群組] 下，按一下 [+ 新增動作群組]。 動作群組是一組可讓您跨多個警示使用的動作。 其中可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../azure-monitor/platform/action-groups.md)
 
 1. 在 [動作群組名稱] 方塊中，為它提供易記名稱和簡短名稱。 使用這個群組傳送通知時，會使用簡短名稱來取代完整的動作群組名稱。
 

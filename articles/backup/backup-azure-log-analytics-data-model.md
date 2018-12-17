@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9cdb11bad5d4aa94fdc083a0fc7dc6a2c5787cd
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635147"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877576"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>適用於 Azure 備份資料的 Log Analytics 資料模型
 您可以使用 Log Analytics 資料模型來建立報告。 透過資料模型，您可以依照自己的需求建立自訂查詢和儀表板，或自訂 Azure 備份資料。
@@ -30,7 +30,7 @@ ms.locfileid: "52635147"
 | AlertUniqueId_s |文字 |所產生警示的唯一識別碼 |
 | AlertType_s |文字 |警示的類型，例如備份 |
 | AlertStatus_s |文字 |警示狀態 (例如，作用中) |
-| AlertOccurenceDateTime_s |日期/時間 |建立警示的日期和時間 |
+| AlertOccurrenceDateTime_s |日期/時間 |建立警示的日期和時間 |
 | AlertSeverity_s |文字 |警示嚴重性 (例如，重大) |
 | EventName_s |文字 |活動的名稱。 一律為 AzureBackupCentralReport |
 | BackupItemUniqueId_s |文字 |與警示相關聯的備份項目所具備的唯一識別碼 |

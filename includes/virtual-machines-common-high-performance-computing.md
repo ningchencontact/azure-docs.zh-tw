@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 8f43edfe468958bbc4a6fde14e8e03e5b4d4e0f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 88aeaf1246583345d1d28218e8e91b3ecbcd166b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264024"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53429930"
 ---
 組織有大規模的運算需求。 這些 Big Compute 工作負載包括工程設計和分析、財務風險計算、影像轉譯、複雜模型、Monte Carlo 模擬等等。 
 
@@ -86,7 +86,6 @@ ms.locfileid: "51264024"
 
 ### <a name="ai-and-deep-learning"></a>AI 和深入學習
 
-* 深入學習模型的 [Batch AI](../articles/batch-ai/overview.md) 訓練
 * [Microsoft 辨識工具組](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
 * [深入學習 VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [深入學習的 Batch Shipyard 訣竅](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
@@ -168,10 +167,9 @@ Azure 虛擬機器、虛擬機器擴展集、Batch 和相關的運算服務是�
 
 ### <a name="ai-and-machine-learning"></a>AI 和機器學習
 * [機器學習服務](../articles/machine-learning/service/overview-what-is-azure-ml.md)
-* [Batch AI](../articles/batch-ai/overview.md)
 * [Genomics](../articles/genomics/overview-what-is-genomics.md)
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 * [虛擬網路](../articles/virtual-network/virtual-networks-overview.md)
 * [ExpressRoute](../articles/expressroute/expressroute-introduction.md)
 

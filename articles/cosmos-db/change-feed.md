@@ -2,16 +2,17 @@
 title: 使用 Azure Cosmos DB 中的變更摘要支援
 description: 使用 Azure Cosmos DB 的變更摘要支援來追蹤文件中的變更，並執行以事件為基礎的處理 (例如觸發程序)，以及讓快取和分析系統保持最新狀態。
 author: rafats
+ms.author: rafats
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.author: rafats
-ms.openlocfilehash: 4edf637d97070416c0dc2970f4bed483e5f4f34d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.custom: seodec18
+ms.openlocfilehash: 0519bb78b01cd7cab6abaf453efd7a4595101ef4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621304"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133742"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Azure Cosmos DB 中變更摘要
 
@@ -82,7 +83,7 @@ _etag 格式是作為內部之用，因為該格式可以隨時變更，請別�
 
 以下是您可以使用變更摘要輕鬆實作的一些案例：
 
-* 在您的 [serverless](http://azure.com/serverless) Web 和行動應用程式內，您可以追蹤像是對客戶設定檔、喜好設定或其位置等所做之所有變更的事件，並觸發特定動作，例如使用 [Azure Functions](#azure-functions) 傳送推播通知到客戶裝置。 
+* 在您的 [serverless](https://azure.microsoft.com/en-us/solutions/serverless/) Web 和行動應用程式內，您可以追蹤像是對客戶設定檔、喜好設定或其位置等所做之所有變更的事件，並觸發特定動作，例如使用 [Azure Functions](change-feed-functions.md) 傳送推播通知到客戶裝置。
 
 * 例如，如果您使用 Azure Cosmos DB 來建置遊戲，就可以根據完成遊戲的分數，使用變更摘要來實作即時排行榜。
 

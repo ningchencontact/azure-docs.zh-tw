@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 7c67cac7a5579386921b2b949e9312cb4e5da172
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 2aa59bcf0d56358601b81730abe330a56ca35d02
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984667"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966903"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用傾印和還原來移轉 PostgreSQL 資料庫
 您可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 將 PostgreSQL 資料庫擷取到傾印檔案，並使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 從 pg_dump 所建立的封存檔案還原 PostgreSQL 資料庫。
@@ -71,7 +71,7 @@ pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=
     ```
 
 ### <a name="for-the-restore"></a>進行還原
-- 建議您將備份檔案移至 Azure VM，而其和您即將移轉到的適用於 PostgreSQL 的 Azure 資料庫伺服器位於相同區域，然後從該 VM 執行 pg_restore，以減少網路延遲。 我們也建議您建立 VM 時，啟用[加速網路](..\virtual-network\create-vm-accelerated-networking-powershell.md)。
+- 建議您將備份檔案移至 Azure VM，而其和您即將移轉到的適用於 PostgreSQL 的 Azure 資料庫伺服器位於相同區域，然後從該 VM 執行 pg_restore，以減少網路延遲。 我們也建議您建立 VM 時，啟用[加速網路](../virtual-network/create-vm-accelerated-networking-powershell.md)。
 - 根據預設，這應已完成，但請開啟傾印檔案，確認 Create Index 陳述式位在插入的資料之後。 若非如此，請將 Create Index 陳述式移至插入的資料之後。
 - 還原時使用參數-Fc 和-j *#*，可對還原進行平行處理。 *#* 是目標伺服器上的核心數目。 您也可以嘗試將 *#* 設定為目標伺服器核心數目的兩倍，以查看所產生的影響。 例如︰
 

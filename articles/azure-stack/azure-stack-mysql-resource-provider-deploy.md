@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 2017e08361c9ff060fde96b78549133d48372e34
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: da88be76d01b246e273739566d629348895b68b6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853892"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971992"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>在 Azure Stack 上部署 MySQL 資源提供者
 
@@ -32,8 +32,8 @@ ms.locfileid: "51853892"
 
 您必須先滿足數個先決條件，才能部署 Azure Stack MySQL 資源提供者。 為了滿足這些需求，請在能夠存取具特殊權限端點 VM 的電腦上完成本文中的步驟。
 
-* 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](.\azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
-* 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](.\azure-stack-powershell-install.md)。
+* 如果您尚未這麼做，請向 Azure [註冊 Azure Stack](./azure-stack-registration.md)，以便下載 Azure Marketplace 項目。
+* 您必須在將執行此安裝所在的系統上，安裝 Azure 和 Azure Stack PowerShell 模組。 該系統必須是包含最新版 .NET 執行階段的 Windows 10 或 Windows Server 2016 映像。 請參閱[安裝適用於 Azure Stack 的 PowerShell](./azure-stack-powershell-install.md)。
 * 透過下載 **Windows Server 2016 Datacenter - Server Core** 映像，將必要的 Windows Server Core VM 新增到 Azure Stack Marketplace。
 
 * 下載 MySQL 資源提供者二進位檔，然後執行自我解壓縮程式，以將內容解壓縮到至暫存目錄。
@@ -60,7 +60,7 @@ ms.locfileid: "51853892"
 
 ### <a name="certificates"></a>憑證
 
-_僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI 需求](.\azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。 不要提供 ASDK 系統的憑證。
+_僅適用於整合式系統安裝_。 您必須提供 [Azure Stack 部署 PKI 需求](./azure-stack-pki-certs.md#optional-paas-certificates)中選擇性 PaaS 憑證一節所述的 SQL PaaS PKI 憑證。 請將 .pfx 檔案放在 **DependencyFilesLocalPath** 參數所指定的位置中。 不要提供 ASDK 系統的憑證。
 
 ## <a name="deploy-the-resource-provider"></a>部署資源提供者
 

@@ -4,14 +4,14 @@ description: 本文能協助您搭配 System Center Configuration Manager 將行
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 8cf657b17b7607a8b56869edeabe37e1c5caf219
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: cd50a957894c2c6c4944b0ba3768a00754abaa15
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012270"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835075"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>使用 System Center Configuration Manager 自動進行行動服務安裝
 
@@ -172,7 +172,7 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
   | **參數名稱** | **值** |
   |--|--|
-  | 名稱 | 安裝 Microsoft Azure 行動服務 (Windows) |
+  | Name | 安裝 Microsoft Azure 行動服務 (Windows) |
   | 命令列 | install.bat |
   | 程式可以執行 | 使用者是否登入 |
 
@@ -397,7 +397,7 @@ cd /tmp
 
     | **參數名稱** | **值** |
   |--|--|
-  | 名稱 | 安裝 Microsoft Azure 行動服務 (Linux) |
+  | Name | 安裝 Microsoft Azure 行動服務 (Linux) |
   | 命令列 | ./install_linux.sh |
   | 程式可以執行 | 使用者是否登入 |
 

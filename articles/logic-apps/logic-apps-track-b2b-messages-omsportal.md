@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 0bfb652d9e64b9dbf61ad4032f1449fd484cc80a
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad58257313c60b4757c83793886ce32a2997332b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233546"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996551"
 ---
 # <a name="track-b2b-messages-with-azure-log-analytics"></a>使用 Azure Log Analytics 追蹤 B2B 訊息
 
@@ -27,7 +27,7 @@ ms.locfileid: "50233546"
 * 搜尋功能
 
 > [!NOTE]
-> 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../log-analytics/log-analytics-oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
+> 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -37,11 +37,11 @@ ms.locfileid: "50233546"
 
 * 如果您還沒有這麼做，請[將診斷資料發佈至 Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)。
 
-* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
+* 當您符合上述需求之後，也需要一個 Log Analytics 工作區，用以透過 Log Analytics 追蹤 B2B 通訊。 如果您沒有 Log Analytics 工作區，請了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 ## <a name="install-logic-apps-b2b-solution"></a>安裝 Logic Apps B2B 解決方案
 
-若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，請將 **Logic Apps B2B** 解決方案新增至 Log Analytics。 深入了解[將解決方案新增至 Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)。
+若要讓 Log Analytics 追蹤邏輯應用程式的 B2B 訊息，請將 **Logic Apps B2B** 解決方案新增至 Log Analytics。 深入了解[將解決方案新增至 Log Analytics](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [所有服務]。 在搜尋方塊中，尋找「log analytics」，然後選取 [Log Analytics]。
 

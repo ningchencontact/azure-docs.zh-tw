@@ -8,19 +8,18 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fd36d58574b60e3e6351cba03c68b9217bc703d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 44335137eedb67d7ceca420a061880767b895cad
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632461"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339275"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中設計和建置管理解決方案 (預覽)
 > [!NOTE]
@@ -46,19 +45,19 @@ ms.locfileid: "52632461"
 
 有數種方式可以將資料來源收集在 Log Analytics 存放庫中，您可以在 [Log Analytics 中的資料來源](../../azure-monitor/platform/agent-data-sources.md)中看到其說明。  這包括 Windows 事件記錄中的事件或 Syslog 所產生的事件，以及 Windows 和 Linux 用戶端的效能計數器。  您也可以從 Azure 監視器所收集的 Azure 資源來收集資料。  
 
-如果您需要的資料無法透過任何可用的資料來源取得，可以使用 [HTTP 資料收集器 API](../../log-analytics/log-analytics-data-collector-api.md)，這個 API 可讓您從任何可以呼叫 REST API 的用戶端，將資料寫入 Log Analytics 存放庫。  若要在管理解決方案中自訂資料收集，最常見的方法是建立 [Azure 自動化中的 Runbook](../../automation/automation-runbook-types.md)，以從 Azure 或外部資源收集所需的資料，並使用資料收集器 API 將資料寫入存放庫中。  
+如果您需要的資料無法透過任何可用的資料來源取得，可以使用 [HTTP 資料收集器 API](../../azure-monitor/platform/data-collector-api.md)，這個 API 可讓您從任何可以呼叫 REST API 的用戶端，將資料寫入 Log Analytics 存放庫。  若要在管理解決方案中自訂資料收集，最常見的方法是建立 [Azure 自動化中的 Runbook](../../automation/automation-runbook-types.md)，以從 Azure 或外部資源收集所需的資料，並使用資料收集器 API 將資料寫入存放庫中。  
 
 ### <a name="log-searches"></a>記錄檔搜尋
-[記錄搜尋](../../log-analytics/log-analytics-queries.md)可用來擷取和分析 Log Analytics 存放庫中的資料。  除了讓使用者能夠對存放庫中的資料執行特定分析外，記錄搜尋也可供檢視和警示使用。  
+[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)可用來擷取和分析 Log Analytics 存放庫中的資料。  除了讓使用者能夠對存放庫中的資料執行特定分析外，記錄搜尋也可供檢視和警示使用。  
 
 您應該定義您認為會對使用者有幫助的任何查詢，即使沒有任何檢視或警示使用這些查詢也是如此。  在入口網站中，這些查詢會以「已儲存搜尋」的形式提供給使用者來使用，而您也可以將這些查詢包含在自訂檢視中的[查詢清單視覺效果部分](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part)。
 
 ### <a name="alerts"></a>警示
-[Log Analytics 中的警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
+[Log Analytics 中的警示](../../azure-monitor/platform/alerts-overview.md)可透過對存放庫中的資料進行[記錄搜尋](#log-searches)來識別問題。  它們會通知使用者，或自動執行回應中的動作。 您應該識別應用程式的不同警示條件，並在解決方案檔中包含對應的警示規則。
 
 如果問題有可能透過自動化程序加以修正，您通常會在 Azure 自動化中建立 Runbook 以執行此修復。  大部分 Azure 服務都可使用 [Cmdlet](/powershell/azure/overview) 來管理，Runbook 會運用這些 Cmdlet 來執行這類功能。
 
-如果您的解決方案需要外部功能以對警示做出回應，您可以使用 [Webhook 回應](../../monitoring-and-diagnostics/alert-metric.md)。  這可讓您呼叫外部 Web 服務，以從警示傳送資訊。
+如果您的解決方案需要外部功能以對警示做出回應，您可以使用 [Webhook 回應](../../azure-monitor/platform/alerts-metric.md)。  這可讓您呼叫外部 Web 服務，以從警示傳送資訊。
 
 ### <a name="views"></a>Views
 Log Analytics 中的檢視可以視覺方式呈現 Log Analytics 儲存機制中的資料。  每個解決方案通常會有一個檢視，這個檢視具有[圖格](../../azure-monitor/platform/view-designer-tiles.md)，並且會顯示在使用者的主要儀表板上。  檢視可以包含任意數目的[視覺效果部分](../../azure-monitor/platform/view-designer-parts.md)，以便為使用者提供不同的視覺效果來呈現收集到的資料。

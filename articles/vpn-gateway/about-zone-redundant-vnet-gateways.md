@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: 27bac5265a5e884b808c4ccb58fda0b2fffeb774
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d3dda3bb5fd39b844f50044c1262008e3610e301
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975644"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871399"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>關於在 Azure 可用性區域中的區域備援虛擬網路閘道
 
@@ -86,7 +86,7 @@ ms.locfileid: "46975644"
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>我可以在哪些區域中使用新的 SKU？
 
-新的 SKU 可在具有 Azure 可用性區域的 Azure 區域 (美國中部、法國中部和西歐區域) 中取得。 接下來，我們會在其他 Azure 公用區域中推出區域備援閘道。
+新的 SKU 可在具有 Azure 可用性區域的 Azure 區域 (美國中部、法國中部、北歐、西歐和美國西部 2 區域) 中取得。 接下來，我們會在其他 Azure 公用區域中推出區域備援閘道。
 
 ### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>我可以將現有的虛擬網路閘道變更/遷移/升級為區域備援或分區閘道嗎？
 

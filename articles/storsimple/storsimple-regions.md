@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: d47109d541a3df93d9234e27e53d1538f6bc4c6e
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2017
-ms.locfileid: "24879053"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969663"
 ---
 # <a name="available-regions-for-your-storsimple"></a>您的 StorSimple 的可用區域
 
@@ -47,7 +47,7 @@ Azure 資料中心在全球多個地區運行，以滿足客戶對資料位置�
 
 ![storsimple-device-manager-service-regions](./media/storsimple-region/storsimple-device-manager-service-regions.png)
 
-針對 Azure Government 雲端，StorSimple 裝置管理員服務在美國愛荷華州政府和美國維吉尼亞州政府資料中心內提供。
+針對 Azure Government 雲端，StorSimple 裝置管理員服務在 US Gov 愛荷華州和 US Gov 維吉尼亞州資料中心內提供。
 
 ## <a name="region-availability-for-data-stored-in-storsimple"></a>儲存在 StorSimple 中之資料的區域可用性
 
@@ -85,7 +85,7 @@ StorSimple 資料實際儲存在 Azure 儲存體帳戶中，且這些帳戶在�
 | 14 | 德國        | 29 | 墨西哥      | 44 | 斯洛伐克     | 59 | 越南              |
 | 15 | 希臘         | 30 | 荷蘭 | 45 | 斯洛維尼亞     | 60 | 克羅埃西亞              |
 
-加入更多國家/地區時，此清單會變更。 如需最新的地理位置清單，請移至[產品條款](https://www.microsoft.com/en-us/Licensing/product-licensing)中的＜儲存體陣列條款附錄＞。
+加入更多國家/地區時，此清單會變更。 如需最新的地理位置清單，請移至[產品條款](https://www.microsoft.com/en-us/licensing/product-licensing/products)中的＜儲存體陣列條款附錄＞。
 
 Microsoft 可以在前述清單中的地理位置寄送實體硬體，並提供 StorSimple 的硬體備用零件更換。
 

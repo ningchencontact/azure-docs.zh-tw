@@ -11,14 +11,17 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 61294d8b6b84b03b1e0c8d79b4d2855452c7f0e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 9af8ce84805e48dd3c91dd7fb4fcf0b136fbfc60
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056705"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410086"
 ---
 # <a name="work-with-batch-ai-clusters"></a>使用 Batch AI 叢集 
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 本文說明如何在 Azure Batch AI 中使用叢集。 文中會介紹叢集的概念、可行的組態類型，以及範例。 本文中用來建立和管理叢集的範例大多使用 Azure CLI。 不過，您也可以使用其他工具 (包括 Azure 入口網站和 Azure Batch AI SDK) 來使用叢集。
 

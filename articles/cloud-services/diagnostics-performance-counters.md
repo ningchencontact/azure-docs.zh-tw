@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: d3aeb930dcb325aebc8c6b0a9dfde3602312618b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001458"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322938"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>為您的 Azure 雲端服務收集效能計數器
 
@@ -127,7 +127,7 @@ Application Insights 會自動收集下列效能計數器：
 
 您想要收集的效能計數器會在 **diagnostics.wadcfgx** 檔案中定義。 在 Visual Studio 中開啟此檔案 (針對每個角色定義) 並且尋找 **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters** 元素。 新增新的 **PerformanceCounterConfiguration** 元素作為子項目。 這個元素具有兩個屬性：`counterSpecifier` 和 `sampleRate`。 `counterSpecifier` 屬性會定義要收集哪個系統效能計數器集合 (在上一節中概述)。 `sampleRate` 值表示該值輪詢的頻率。 整體而言，所有效能計數器都會根據父代 `PerformanceCounters` 元素的 `scheduledTransferPeriod` 屬性值，傳送到 Azure。
 
-如需有關 `PerformanceCounters` 結構描述元素的詳細資訊，請參閱 [Azure 診斷結構描述](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)。
+如需有關 `PerformanceCounters` 結構描述元素的詳細資訊，請參閱 [Azure 診斷結構描述](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)。
 
 `sampleRate` 屬性定義的期間會使用 XML 持續時間資料類型來表示效能計數器輪詢的頻率。 在下列範例中，速率設為 `PT3M`，表示 `[P]eriod[T]ime[3][M]inutes`：每隔三分鐘。
 
@@ -297,4 +297,4 @@ counterServiceUsed.Increment();
 - [Azure 雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
 - [Application Insights 中的系統效能計數器](../application-insights/app-insights-performance-counters.md)
 - [指定計數器路徑](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure 診斷結構描述 - 效能計數器](../monitoring-and-diagnostics/azure-diagnostics-schema-1dot3-and-later.md#performancecounters-element)
+- [Azure 診斷結構描述 - 效能計數器](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

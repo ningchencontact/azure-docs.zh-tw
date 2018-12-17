@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 136279a94d64b846247c436eb7a5fb487e05b41a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d095be8c5d921001ab4a492d2385938020fa8ce0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946896"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967209"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Application Insights 中記錄型和預先彙總的計量
 
@@ -55,7 +55,7 @@ ms.locfileid: "46946896"
 
 您使用 [trackMetric](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackmetric) 或 [GetMetric 和 TrackValue](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#getmetric) API 呼叫傳送的所有計量，都會自動儲存在記錄和計量存放區中。 不過，雖然記錄型自訂計量版本一律會保留所有維度，但是預先彙總的計量版本儲存時預設不含任何維度。 您可以藉由勾選 [啟用自訂計量維度警示]，在[使用量和估計成本](https://docs.microsoft.com/azure/application-insights/app-insights-pricing)索引標籤上開啟自訂計量的維度收集： 
 
-![使用量和估計成本](.\media\pre-aggregated-metrics-log-metrics\001-cost.png)
+![使用量和估計成本](./media/pre-aggregated-metrics-log-metrics/001-cost.png)
 
 ## <a name="why-is-collection-of-custom-metrics-dimensions-turned-off-by-default"></a>自訂計量維度的收集為何預設會關閉？
 
@@ -65,7 +65,7 @@ ms.locfileid: "46946896"
 
 使用 Azure 監視器計量瀏覽器，根據預先彙總和記錄型計量繪製圖表，以及編寫具有圖表的儀表板。 選取所需的 Application Insights 資源之後，使用命名空間選擇器在標準 (預覽) 與記錄型計量之間切換，或選取自訂計量命名空間：
 
-![計量命名空間](.\media\pre-aggregated-metrics-log-metrics\002-metric-namespace.png)
+![計量命名空間](./media/pre-aggregated-metrics-log-metrics/002-metric-namespace.png)
 
 ## <a name="next-steps"></a>後續步驟
 

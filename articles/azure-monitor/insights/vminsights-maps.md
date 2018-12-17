@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 3e8230ea7b2d6d0e44468bd90289ee82d5a82367
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f460c063ded489c8ec0ef23b35ab304c62943a98
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713985"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337065"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>使用適用於 VM 的 Azure 監視器 (預覽) 對應來了解應用程式元件
 檢視在 Azure 中執行之 Windows 和 Linux 虛擬機器上探索到的應用程式元件，可搭配適用於 VM 的 Azure 監視器使用下列兩種方式來觀測您的環境：直接從虛擬機器，或者從 Azure 監視器跨 VM 群組進行。 
@@ -52,7 +51,7 @@ ms.locfileid: "51713985"
 - 包含依電腦群組的子句，例如，**by Computer interval 1 minute** (依 1 分鐘的電腦間隔)。
 - 選擇依據計量量值來發出警示。
 
-如需 Azure 警示和建立警示規則的詳細資訊，請參閱 [Azure 監視器中的整合警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+如需 Azure 警示和建立警示規則的詳細資訊，請參閱 [Azure 監視器中的整合警示](../../azure-monitor/platform/alerts-overview.md)
 
 右上角的 [圖例] 選項會說明對應的符號和角色。  若要放大以進一步查看您的對應並四處移動它，可使用頁面右下角的縮放控制項來設定縮放層級，並使頁面符合目前頁面的大小。  
 
@@ -107,7 +106,7 @@ ms.locfileid: "51713985"
 
 ![Azure 監視器多部 VM 對應概觀](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-在頁面頂端的 [工作區] 選取器中，如果您有多個 Log Analytics 工作區，請選擇已可處理解決方案、且有虛擬機器要向其報告的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../../log-analytics/log-analytics-computer-groups.md)與電腦的 VM 擴展集。 您的選取只會套用至「對應」功能，而不會擴及「效能」或「健康情況」。
+在頁面頂端的 [工作區] 選取器中，如果您有多個 Log Analytics 工作區，請選擇已可處理解決方案、且有虛擬機器要向其報告的工作區。 [群組] 選取器會傳回與選取的工作區有關的訂用帳戶、資源群組、[電腦群組](../../azure-monitor/platform/computer-groups.md)與電腦的 VM 擴展集。 您的選取只會套用至「對應」功能，而不會擴及「效能」或「健康情況」。
 
 根據預設，對應會顯示過去 30 分鐘。 使用 [時間範圍] 選取器，可查詢過往時間範圍 (最長可達一小時)，以顯示相依性的過往情形 (例如在事件發生期間或變更發生之前)。   
 

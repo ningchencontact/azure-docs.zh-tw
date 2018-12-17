@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b1531e23d0e5fd34eff59868055ccd855b423e4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444298"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877128"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 備份報告的資料模型
 本文說明用於建立 Azure 備份報告的 Power BI 資料模型。 透過此資料模型，您就可以根據相關欄位來篩選現有報告，而且更重要的是，可以在模型中使用資料表和欄位來建立您自己的報告。 
@@ -33,7 +33,7 @@ Power BI 提供了自訂功能，以供您[使用資料模型來建立報告](ht
 | #AlertsCreatedInPeriod |整數 |所選時段內建立的警示數目 |
 | %ActiveAlertsCreatedInPeriod |百分比 |所選時段內作用中警示的百分比 |
 | %CriticalAlertsCreatedInPeriod |百分比 |所選時段內重大警示的百分比 |
-| AlertOccurenceDate |日期 |警示的建立日期 |
+| AlertOccurrenceDate |日期 |警示的建立日期 |
 | AlertSeverity |文字 |警示嚴重性 (例如，重大) |
 | AlertStatus |文字 |警示狀態 (例如，作用中) |
 | AlertType |文字 |所產生的警示類型 (例如，備份) |

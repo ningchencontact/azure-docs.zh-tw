@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 03d51cfb03de071f63578717a65eeda4b119bf0d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497850"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191575"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 HDInsight 叢集
 
@@ -80,7 +80,7 @@ ms.locfileid: "52497850"
     * 以資源群組名稱取代 `groupname`。
     * 使用儲存體帳戶名稱取代 `storagename`。
 
-     在傳回的資料中，儲存 `key1` 的 `key` 值。
+      在傳回的資料中，儲存 `key1` 的 `key` 值。
 
 6. 建立 HDInsight 叢集。
 
@@ -90,8 +90,8 @@ ms.locfileid: "52497850"
 
     * 將 `Hadoop` 取代為您想要建立的叢集類型。 例如，`Hadoop`、`HBase`、`Kafka`、`Spark` 或 `Storm`。
 
-     > [!IMPORTANT]
-     > HDInsight 叢集有各種不同類型，這些類型各自對應到叢集微調時所針對的工作負載或技術。 沒有任何支援方法可建立結合多個類型的叢集，例如在一個叢集上並存 Storm 和 HBase。
+      > [!IMPORTANT]
+      > HDInsight 叢集有各種不同類型，這些類型各自對應到叢集微調時所針對的工作負載或技術。 沒有任何支援方法可建立結合多個類型的叢集，例如在一個叢集上並存 Storm 和 HBase。
 
     * 以與前述步驟中使用的相同位置取代 `location`。
 
@@ -105,12 +105,12 @@ ms.locfileid: "52497850"
 
     * 以當您使用 SSH 存取叢集時所要使用的使用者名稱和密碼取代 `sshuser` 和 `sshuserpassword`。
 
-    > [!IMPORTANT]
-    > 此範例使用兩個背景工作角色節點建立叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
-    >
-    > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
-
-    可能需要數分鐘的時間，才能完成叢集建立程序。 通常大約 15 分鐘。
+      > [!IMPORTANT]
+      > 此範例使用兩個背景工作角色節點建立叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
+      >
+      > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
+      
+      可能需要數分鐘的時間，才能完成叢集建立程序。 通常大約 15 分鐘。
 
 ## <a name="troubleshoot"></a>疑難排解
 

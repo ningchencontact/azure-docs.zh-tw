@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: d2b6b7a5d2baf9e46cca18aec97f31beda1e2a38
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736728"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867596"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>使用 StorSimple 裝置管理員來管理 StorSimple Virtual Array 的儲存體帳戶認證
 
@@ -148,7 +148,7 @@ ms.locfileid: "45736728"
     
 4. 在 StorSimple 裝置管理員服務中，您需要更新先前在 Microsoft Azure 儲存體服務中變更的金鑰。 在 [同步儲存體帳戶金鑰] 刀鋒視窗中，如果主要存取金鑰已變更 (重新產生)，請按一下 [主要]，然後按一下 [同步金鑰]。 如果次要金鑰已變更，請按一下 [次要]，然後按一下 [同步金鑰]。
    
-    ![同步存取金鑰](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)
+    ![同步存取金鑰](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-access-key.png)
 
 ## <a name="next-steps"></a>後續步驟
 * 了解如何 [管理 StorSimple Virtual Array](storsimple-ova-web-ui-admin.md)。

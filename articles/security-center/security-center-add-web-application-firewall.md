@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
+ms.date: 12/13/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7b633b1787fc34658a84a2810de6673f9530cbf3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5e6d7dffb831e4e6541b5ef91cfc4ae4bbe88167
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310645"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343134"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 資訊安全中心新增 Web 應用程式防火牆
 Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web 應用程式防火牆 (WAF)，以保護您 Web 應用程式的安全。 本文件逐步解說如何套用此建議的範例。
@@ -46,7 +46,9 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 
 6. [新增 Web 應用程式防火牆] 隨即開啟，您可以在此視窗中執行 [VM 組態] 步驟並提供 [WAF 資訊]。 選取 [VM 組態]。
 7. 在 [VM 組態] 之下，輸入啟動要執行 WAF 之虛擬機器所需的資訊。
-   ![VM configuration][4]
+
+   ![VM 設定][4]
+   
 8. 返回 [新增 Web 應用程式防火牆]，然後選取 [WAF 資訊]。 在 [WAF 資訊] 之下，設定 WAF 本身。 步驟 7 可讓您設定要執行 WAF 的虛擬機器，而步驟 8 則可讓您佈建 WAF 本身。
 
 ## <a name="finalize-application-protection"></a>完成應用程式保護
@@ -73,7 +75,7 @@ Azure 資訊安全中心可能會建議您從 Microsoft 合作夥伴新增 Web �
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) --了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) --了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md) -- 了解如何監視 Azure 資源的健全狀況。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md) -- 了解建議如何協助您保護您的 Azure 資源。

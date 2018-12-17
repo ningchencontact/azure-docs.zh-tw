@@ -1,19 +1,19 @@
 ---
 title: 在 Azure IoT Central 應用程式中建立和管理事件規則 | Microsoft Docs
 description: Azure IoT Central 事件規則可讓您近乎即時地監視裝置，以及在觸發規則時自動叫用動作，例如傳送電子郵件。
-author: ankitgupta
+author: ankitscribbles
 ms.author: ankitgup
 ms.date: 08/14/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: af85ff8272853be82bae5c79622295fddfc60ade
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730145"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337269"
 ---
 # <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>在 Azure IoT Central 應用程式中建立事件規則並設定通知
 
@@ -36,7 +36,7 @@ ms.locfileid: "45730145"
 
 1. 如果您尚未建立任何規則，您會看到下列畫面：
 
-    ![還沒有規則](media\howto-create-event-rules\Rules_Landing_Page.png)
+    ![還沒有規則](media/howto-create-event-rules/Rules_Landing_Page.png)
 
 
 1. 在 [規則] 索引標籤上，依序按一下 [編輯範本] 和 [+ 新增規則]，以查看您可以建立的規則類型。
@@ -44,14 +44,14 @@ ms.locfileid: "45730145"
 
 1. 按一下 [事件] 圖格，以建立事件監視規則。
 
-    ![規則類型](media\howto-create-event-rules\Rule_Types.png)
+    ![規則類型](media/howto-create-event-rules/Rule_Types.png)
 
     
 1. 輸入名稱來協助您識別此裝置範本中的規則。
 
 1. 若要立即為透過此範本所建立的所有裝置啟用規則，請切換 [為此範本的所有裝置啟用規則]。
 
-    ![規則詳細資訊](media\howto-create-event-rules\Rule_Detail.png)
+    ![規則詳細資訊](media/howto-create-event-rules/Rule_Detail.png)
 
     此規則會自動套用到裝置範本下的所有裝置。
 
@@ -63,7 +63,7 @@ ms.locfileid: "45730145"
 
 1. 從量測下拉式清單中選擇想要監視的事件。 此範例選取了**風扇馬達錯誤**事件。
 
-   ![條件](media\howto-create-event-rules\Condition_Filled_Out.png) 
+   ![條件](media/howto-create-event-rules/Condition_Filled_Out.png) 
 
 
 1. (選擇性) 您也可以將 [計數] 設定為 [彙總]，並提供對應的閾值。
@@ -73,7 +73,7 @@ ms.locfileid: "45730145"
  
     比方說，如果您想要在 5 分鐘內發生三個以上的裝置事件時發出警示，請在選取事件後，將彙總函式設定為 [計數]，將運算子設定為 [大於]，以及將 [閾值] 設定為 3。 將 [彙總期間] 設定為 [5 分鐘]。 如果裝置在 5 分鐘內傳送三個以上的事件時，規則就會觸發。 規則評估頻率與**彙總時間範圍**相同，這表示，在此範例中，此規則會每隔 5 分鐘評估一次。 
 
-    ![新增事件條件](media\howto-create-event-rules\Aggregate_Condition_Filled_Out.png)
+    ![新增事件條件](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
     >[!NOTE] 
     >您可以在**條件**下新增多個事件量測。 若指定多個條件，就必須符合所有條件才會觸發規則。 每個條件都會透過 'AND' 子句隱含地加入。 使用彙總時，必須彙總每個量測。
@@ -84,14 +84,14 @@ ms.locfileid: "45730145"
 
 1. 選擇 [動作] 旁的 [+]。 在此，您會看到可用動作的清單。 
 
-    ![新增動作](media\howto-create-event-rules\Add_Action.png)
+    ![新增動作](media/howto-create-event-rules/Add_Action.png)
 
 1. 選擇 [傳送電子郵件] 動作，在 [收件者] 欄位中輸入有效的電子郵件地址，然後提供當此規則觸發時要在電子郵件本文中出現的附註。
 
     > [!NOTE]
     > 只有已新增至應用程式且至少已登入一次的使用者才會收到電子郵件。 深入了解 Azure IoT Central 中的[使用者管理](howto-administer.md)。
 
-   ![設定動作](media\howto-create-event-rules\Configure_Action.png)
+   ![設定動作](media/howto-create-event-rules/Configure_Action.png)
 
 1. 若要儲存規則，請選擇 [儲存]。 幾分鐘內，規則就會生效，並開始監視傳送至應用程式的事件。 當規則中指定的條件相符時，規則就會觸發所設定的電子郵件動作。
 

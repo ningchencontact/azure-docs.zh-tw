@@ -9,19 +9,18 @@ ms.assetid: 7f13ea66-09dc-450f-b8f9-f40fdad239f2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6e19735f604fdcd6d6642814e776fd9987d11fde
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 83dfd77c311e1b3324540d352432ec7a6b706d78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499494"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993366"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>從 Application Insights 提供 Power BI
-[Power BI](http://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。
+[Power BI](https://www.powerbi.com/) 是一套商務工具，可協助您分析資料及分享見解。 每個裝置上都提供豐富的儀表板。 您可以結合許多來源的資料，包含來自 [Azure Application Insights](app-insights-overview.md) 的「分析」查詢。
 
 有三種方法可將 Application Insights 資料匯出至 Power BI：
 
@@ -41,7 +40,7 @@ ms.locfileid: "52499494"
 安裝 [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/)。
 
 ### <a name="export-an-analytics-query"></a>匯出 Analytics 查詢
-1. [開啟 Analytics 並撰寫查詢](../log-analytics/query-language/get-started-analytics-portal.md)。
+1. [開啟 Analytics 並撰寫查詢](../azure-monitor/log-query/get-started-portal.md)。
 2. 測試並精簡查詢，直到您滿意結果。 請先確定查詢在 Analytics 中正確執行，再將它匯出。
 3. 在 [匯出] 功能表上，選擇 [Power BI (M)]。 儲存文字檔案。
    
@@ -52,18 +51,18 @@ ms.locfileid: "52499494"
 
     ![Power BI Desktop 的螢幕擷取畫面，並已醒目顯示進階編輯器](./media/app-insights-export-power-bi/power-bi-import-analytics-query.png)
 
-1. 若要讓 Power BI 能夠存取 Azure，您可能必須提供認證。 使用**組織帳戶**來以 Microsoft 帳戶進行登入。
+5. 若要讓 Power BI 能夠存取 Azure，您可能必須提供認證。 使用**組織帳戶**來以 Microsoft 帳戶進行登入。
    
     ![Power BI [查詢設定] 對話方塊的螢幕擷取畫面](./media/app-insights-export-power-bi/power-bi-import-sign-in.png)
 
     如果您需要驗證認證，請使用查詢編輯器中的 [資料來源設定] 功能表命令。 請務必要指定用於 Azure 的認證，此認證有可能與您用於 Power BI 的認證不同。
-2. 選擇查詢的視覺效果，然後選取 x 軸、y 軸與分割維度的欄位。
+6. 選擇查詢的視覺效果，然後選取 x 軸、y 軸與分割維度的欄位。
    
     ![Power BI Desktop 視覺效果選項的螢幕擷取畫面](./media/app-insights-export-power-bi/power-bi-analytics-visualize.png)
-3. 將報表發佈至 Power BI 雲端工作區。 您可以從該處將同步版本內嵌至其他網頁。
+7. 將報表發佈至 Power BI 雲端工作區。 您可以從該處將同步版本內嵌至其他網頁。
    
     ![Power BI Desktop 的螢幕擷取畫面，並已醒目顯示 [發佈] 按鈕](./media/app-insights-export-power-bi/publish-power-bi.png)
-4. 不時手動重新整理報表，或在選項頁面上設定排定的重新整理。
+8. 不時手動重新整理報表，或在選項頁面上設定排定的重新整理。
 
 ### <a name="export-a-funnel"></a>匯出漏斗圖
 1. [建立您的漏斗圖](usage-funnels.md)。
@@ -153,6 +152,6 @@ ms.locfileid: "52499494"
 初始匯入之後，儀表板和報告會持續每日更新。 您可以控制資料集上的重新整理排程。
 
 ## <a name="next-steps"></a>後續步驟
-* [Power BI - 了解](http://www.powerbi.com/learning/)
-* [Analytics 教學課程](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Power BI - 了解](https://www.powerbi.com/learning/)
+* [Analytics 教學課程](../azure-monitor/log-query/get-started-portal.md)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: spelluru
-ms.openlocfilehash: 99caf04698226de8daa9cfb8f60662e5cb0f8b49
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450388"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956325"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>在 Azure DevTest Labs 的實驗室中刪除實驗室或 VM
 本文章說明如何在實驗室中刪除實驗室或 VM。
@@ -34,16 +34,16 @@ ms.locfileid: "39450388"
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 從左側功能表中選取 [所有資源]，選取 [DevTest Labs] 作為類型服務，然後選取實驗室。
 
-    ![選取您的實驗室](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![選取您的實驗室](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. 在 [DevTest Lab] 頁面上，按一下工具列上的 [刪除]。 
 
-    ![刪除按鈕](media\devtest-lab-delete-lab-vm\delete-button.png)
+    ![刪除按鈕](media/devtest-lab-delete-lab-vm/delete-button.png)
 4. 在 [確認] 頁面上，輸入您實驗室的**名稱**，然後選取 [刪除]。 
 
-    ![確認](media\devtest-lab-delete-lab-vm\confirm-delete.png)
+    ![確認](media/devtest-lab-delete-lab-vm/confirm-delete.png)
 5. 若要查看作業狀態，請選取 [通知] 圖示 (鈴鐺)。 
 
-    ![通知](media\devtest-lab-delete-lab-vm\delete-status.png)
+    ![通知](media/devtest-lab-delete-lab-vm/delete-status.png)
 
  
 ## <a name="delete-a-vm-in-a-lab"></a>在實驗室中刪除 VM
@@ -59,16 +59,16 @@ ms.locfileid: "39450388"
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 從左側功能表中選取 [所有資源]，選取 [DevTest Labs] 作為類型服務，然後選取實驗室。
 
-    ![選取您的實驗室](media\devtest-lab-delete-lab-vm\select-lab.png)
+    ![選取您的實驗室](media/devtest-lab-delete-lab-vm/select-lab.png)
 3. 在 VM 清單中選取 VM 的 **... (省略符號)**，然後選取 [刪除]。 
 
-    ![在功能表中刪除 VM](media\devtest-lab-delete-lab-vm\delete-vm-menu-in-list.png)
+    ![在功能表中刪除 VM](media/devtest-lab-delete-lab-vm/delete-vm-menu-in-list.png)
 4. 在**確認**對話方塊上，選取 [確定]。 
 5. 若要查看作業狀態，請選取 [通知] 圖示 (鈴鐺)。 
 
 若要從 [虛擬機器] 頁面中刪除 VM，請選取工具列中的 [刪除]，如下圖所示：
 
-![從 VM 頁面刪除 VM](media\devtest-lab-delete-lab-vm\delete-from-vm-page.png) 
+![從 VM 頁面刪除 VM](media/devtest-lab-delete-lab-vm/delete-from-vm-page.png) 
 
 
 ## <a name="next-steps"></a>後續步驟

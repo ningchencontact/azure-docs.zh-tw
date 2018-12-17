@@ -10,16 +10,15 @@ ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 7f0334bdd1922c6ec410ca912ccfbf639e5c770f
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14f373b5459aaa7a9e51ba284f6a30094c4e7617
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634433"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194176"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中管理解決方案的資料收集詳細資料
 本文包含 Microsoft 所提供的[管理解決方案清單](solutions.md)，以及其詳細文件的連結。  此外，還提供資料收集到 Log Analytics 中的方法和頻率相關資訊。  您可以使用本文中的資訊來識別不同的可用解決方案，以及了解不同管理解決方案的資料流程和連線需求。 
@@ -31,17 +30,17 @@ ms.locfileid: "52634433"
 各欄的說明如下所示：
 
 - **Microsoft Monitoring Agent** - Windows 和 Linux 上的代理程式，可用於從 SCOM 執行管理組件以及從 Azure 執行管理解決方案。 在此組態中，代理程式會直接連線到 Log Analytics，而不需連線至 Operations Manager 管理群組。 
-- **Operations Manager** - 與 Microsoft Monitoring Agent 相同的代理程式。 在此組態中，它會[連線到 Operations Manager 管理群組](../../log-analytics/log-analytics-om-agents.md)，而該管理群組已連線到 Log Analytics。 
+- **Operations Manager** - 與 Microsoft Monitoring Agent 相同的代理程式。 在此組態中，它會[連線到 Operations Manager 管理群組](../../azure-monitor/platform/om-agents.md)，而該管理群組已連線到 Log Analytics。 
 -  **Azure 儲存體** - 解決方案會從 Azure 儲存體帳戶收集資料。 
 - **是否需要 Operations Manager？** - 管理解決方案需要已連線的 Operations Manager 管理群組才能收集資料。 
-- **透過管理群組傳送的 Operations Manager 代理程式資料** - 如果代理程式[已連線到 SCOM 管理群組](../../log-analytics/log-analytics-om-agents.md)，則會從管理伺服器將資料傳送到 Log Analytics。 在此情況下，代理程式不需要直接連線到 Log Analytics。 如果未選取此方塊，即使代理程式已連線到 SCOM 管理群組，也會從代理程式直接將資料傳送到 Log Analytics。 它必須能夠透過 [Log Analytics 閘道](../../azure-monitor/platform/gateway.md)與 Log Analytics 通訊。
+- **透過管理群組傳送的 Operations Manager 代理程式資料** - 如果代理程式[已連線到 SCOM 管理群組](../../azure-monitor/platform/om-agents.md)，則會從管理伺服器將資料傳送到 Log Analytics。 在此情況下，代理程式不需要直接連線到 Log Analytics。 如果未選取此方塊，即使代理程式已連線到 SCOM 管理群組，也會從代理程式直接將資料傳送到 Log Analytics。 它必須能夠透過 [Log Analytics 閘道](../../azure-monitor/platform/gateway.md)與 Log Analytics 通訊。
 - **收集頻率** - 指定管理解決方案收集資料的頻率。 
 
 
 
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| [活動 Log Analytics](../../log-analytics/log-analytics-activity.md) | Azure | | | | | | 與通知同時 |
+| [活動 Log Analytics](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | 與通知同時 |
 | [AD 評估](../../azure-monitor/insights/ad-assessment.md) | Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
 | [AD 複寫狀態](../../azure-monitor/insights/ad-replication-status.md) | Windows |&#8226; |&#8226; | | |&#8226; |5 天 |
 | [代理程式健全狀況](solution-agenthealth.md) | Windows 和 Linux | &#8226; | &#8226; | | | &#8226; | 1 分鐘 |
@@ -49,17 +48,17 @@ ms.locfileid: "52634433"
 | [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 分鐘 |
 | [警示管理](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) | Windows | |&#8226; | |&#8226; |&#8226; |3 分鐘 |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
-| [Application Insights Connector (預覽)](../../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | 與通知同時 |
+| [Application Insights Connector (預覽)](../../azure-monitor/platform/app-insights-connector.md) | Azure | | | |  |  | 與通知同時 |
 | [自動化混合式背景工作角色](../../automation/automation-hybrid-runbook-worker.md) |  Windows | &#8226; | &#8226; |  |  |  | n/a |
 | [Azure 應用程式閘道分析](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
 | **管理解決方案** | **平台** | **Microsoft Monitoring Agent** | **Operations Manager 代理程式** | **Azure 儲存體** | **是否需要 Operations Manager？** | **透過管理群組傳送的 Operations Manager 代理程式資料** | **收集頻率** |
 | [Azure 網路安全性群組分析 (已淘汰)](../../azure-monitor/insights/azure-networking-analytics.md) | Azure |  |  |  |  |  | 與通知同時 |
-| [Azure SQL Analytics (預覽)](../../log-analytics/log-analytics-azure-sql.md) |  Windows | | | | | | 1 分鐘 |
+| [Azure SQL Analytics (預覽)](../../azure-monitor/insights/azure-sql.md) |  Windows | | | | | | 1 分鐘 |
 | [備份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 與通知同時 |
 | [容量與效能 (預覽)](../../azure-monitor/insights/capacity-performance.md) | Windows |&#8226; |&#8226; | | |&#8226; |與抵達同時 |
 | [變更追蹤](../../automation/automation-change-tracking.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
 | [變更追蹤](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |每小時 |
-| [容器](../../log-analytics/log-analytics-containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
+| [容器](../../azure-monitor/insights/containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分鐘 |
 | [金鑰保存庫分析](../../azure-monitor/insights/azure-key-vault.md) | Windows | | | | | |與通知同時 |
 | [惡意程式碼評估](../../security-center/security-center-install-endpoint-protection.md) | Windows |&#8226; |&#8226; | | |&#8226; |每小時 |
 | [網路效能監視器](../../azure-monitor/insights/network-performance-monitor.md) |  Windows | &#8226; | &#8226; |  |  |  | TCP 會每 5 秒交握一次，而資料會每 3 分鐘傳送一次 |
@@ -79,4 +78,4 @@ ms.locfileid: "52634433"
 
 
 ## <a name="next-steps"></a>後續步驟
-* 了解如何[建立查詢](../../log-analytics/log-analytics-queries.md)，以分析管理解決方案所收集的資料。
+* 了解如何[建立查詢](../../azure-monitor/log-query/log-query-overview.md)，以分析管理解決方案所收集的資料。

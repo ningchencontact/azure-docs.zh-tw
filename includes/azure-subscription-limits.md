@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: fe457acc2b9787526be448880c57448af1226b08
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be75b982d3e63ecb1edd7398e32150156a06995d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264394"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886382"
 ---
 | 資源 | 預設限制 | 上限 |
 | --- | --- | --- |
@@ -24,7 +24,6 @@ ms.locfileid: "51264394"
 | [區域網路](https://msdn.microsoft.com/library/jj157100.aspx)  |10 |500 |
 | 每一訂閱的 DNS 伺服器 |9 |100 |
 | 每一訂用帳戶的保留 IP |20 |100 |
-| 每一訂用帳戶託管服務的憑證 |199 |199 |
 | 每一訂用帳戶[同質群組](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |256 |256 |
 
 

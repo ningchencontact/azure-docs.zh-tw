@@ -1,5 +1,5 @@
 ---
-title: 如何對適用於容器的 Azure 監視器 (預覽) 進行疑難排解 | Microsoft Docs
+title: 如何對適用於容器的 Azure 監視器進行疑難排解 | Microsoft Docs
 description: 本文說明如何對適用於容器的 Azure 監視器問題進行疑難排解並解決問題。
 services: azure-monitor
 documentationcenter: ''
@@ -8,20 +8,19 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2018
+ms.date: 11/30/2018
 ms.author: magoedte
-ms.openlocfilehash: da35f88550bb7bd1a4543f03936dcd52ddd926d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5a9211abdbc4c9ea7907dfac00d449317dd13089
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308354"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190742"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>對適用於容器的 Azure 監視器 (預覽) 進行疑難排解
+# <a name="troubleshooting-azure-monitor-for-containers"></a>對適用於容器的 Azure 監視器進行疑難排解
 
 當您設定使用適用於容器的 Azure 監視器來監視 Azure Kubernetes Service (AKS) 叢集時，您可能會遇到阻止資料收集或報告狀態的問題。 本文將詳細說明一些常見問題與疑難排解步驟。
 
@@ -99,7 +98,7 @@ ms.locfileid: "52308354"
 | 錯誤訊息  |  動作 |  
 | ---- | --- |  
 | 錯誤訊息 `No data for selected filters`  | 為新建立的叢集打造監視資料流程可能需要點時間。 至少需 10 到 15 分鐘才會出現叢集的資料。 |   
-| 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 Log Analytics 工作區遭刪除或消失時可能會發生此錯誤。 請查看[管理存取權](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)，檢查工作區是否可使用。 如果工作區消失，您必須使用適用於容器的 Azure 監視器，將叢集重新上架。 若要重新上架，您必須[停用](container-insights-optout.md)對叢集的監視，並再次[啟用](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)適用於容器的 Azure 監視器。 |  
+| 錯誤訊息 `Error retrieving data` | 雖然 Azure Kubenetes Service 叢集是為監視健康情況和效能而設定，但這個叢集和 Azure Log Analytics 工作區之間有所連結。 Log Analytics 工作區是用來儲存叢集的所有監視資料。 Log Analytics 工作區遭刪除或消失時可能會發生此錯誤。 請查看[管理存取權](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json#workspace-information)，檢查工作區是否可使用。 如果工作區消失，您必須使用適用於容器的 Azure 監視器，將叢集重新上架。 若要重新上架，您必須[停用](container-insights-optout.md)對叢集的監視，並再次[啟用](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json#enable-monitoring-for-a-new-cluster)適用於容器的 Azure 監視器。 |  
 | 透過 az aks cli 新增適用於容器的 Azure 監視器後，會出現 `Error retrieving data` | 使用 `az aks cli` 上架時，適用於容器的 Azure 監視器罕見地無法正常上架。 檢查這個解決方案是否已上架。 若要檢查，請前往 Log Analytics 工作區，選取左側窗格的 [Solutions (解決方案)]，查看解決方案是否可使用。 若要解決此問題，您必須按照[如何部署適用於容器的 Azure 監視器](container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json)的指示，重新部署這個解決方案 |  
 
 為協助診斷問題，[在此](https://github.com/Microsoft/OMS-docker/tree/ci_feature_prod/Troubleshoot#troubleshooting-script)提供疑難排解指令碼。  
