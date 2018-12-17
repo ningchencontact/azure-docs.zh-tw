@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 3df6951129f7beda7970e394ffdd32c7e02304dd
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37060302"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994931"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>啟用 Windows 應用程式離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -42,7 +42,7 @@ ms.locfileid: "37060302"
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新用戶端應用程式以支援離線功能
 Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與本機資料庫互動。 若要在您的應用程式中使用這些功能，您必須將 [SyncContext][synccontext] 初始化至本機存放區。 接著，請透過 [IMobileServiceSyncTable][IMobileServiceSyncTable] 介面參考您的資料表。 SQLite 可做為裝置上的本機存放區。
 
-1. 安裝 [適用於通用 Windows 平台的 SQLite 執行階段](http://sqlite.org/2016/sqlite-uwp-3120200.vsix)。
+1. 安裝 [適用於通用 Windows 平台的 SQLite 執行階段](https://sqlite.org/2016/sqlite-uwp-3120200.vsix)。
 2. 在 Visual Studio 中，針對您在[建立 Windows 應用程式]教學課程中完成的專案，開啟 NuGet 封裝管理員。
     搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
 3. 在 [方案總管] 中，以滑鼠右鍵按一下 [參考] > [新增參考...]> [通用 Windows] >[擴充功能]，然後啟用 [適用於通用 Windows 平台的 SQLite] 和 [適用於通用 Windows 平台應用程式的 Visual C++ 2015 執行階段]。
@@ -107,9 +107,9 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 <!-- URLs. -->
 [Azure Mobile Apps 中的離線資料同步處理]: app-service-mobile-offline-data-sync.md
 [建立 Windows 應用程式]: app-service-mobile-windows-store-dotnet-get-started.md
-[SQLite for Windows 8.1]: http://go.microsoft.com/fwlink/?LinkID=716919
-[SQLite for Windows Phone 8.1]: http://go.microsoft.com/fwlink/?LinkID=716920
-[SQLite for Windows 10]: http://go.microsoft.com/fwlink/?LinkID=716921
+[SQLite for Windows 8.1]: https://go.microsoft.com/fwlink/?LinkID=716919
+[SQLite for Windows Phone 8.1]: https://go.microsoft.com/fwlink/?LinkID=716920
+[SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
 [IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx

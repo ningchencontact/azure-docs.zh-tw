@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
 ms.author: mbullwin
-ms.openlocfilehash: ddfcb90090d82d8fe947292737163a81c715b32d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f5f42ae5068440c3a90bf3b374238e18781b9770
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972822"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970581"
 ---
 # <a name="local-forwarder"></a>本機轉送工具
 
@@ -28,7 +27,7 @@ ms.locfileid: "46972822"
 
 本機轉送工具是 [GitHub 上的開放原始碼專案](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases)。 在多個平台上執行本機轉送工具的方式有很多種。
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 #### <a name="windows-service"></a>Windows 服務
 
@@ -40,7 +39,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 1. 在 GitHub 上的[本機轉送工具版本頁面](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases)中，下載 LF.WindowsServiceHost.zip 檔案。
 
-    ![本機轉送工具版本下載頁面的螢幕擷取畫面](.\media\opencensus-local-forwarder\001-local-forwarder-windows-service-host-zip.png)
+    ![本機轉送工具版本下載頁面的螢幕擷取畫面](./media/opencensus-local-forwarder/001-local-forwarder-windows-service-host-zip.png)
 
 2. 為了方便示範，在此範例中我們會將 .zip 檔案直接擷取到此路徑：`C:\LF-WindowsServiceHost`。
 
@@ -56,7 +55,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     若要透過服務 GUI 檢查您的新服務，請輸入 ``services.msc``
         
-     ![本機轉送工具服務的螢幕擷取畫面](.\media\opencensus-local-forwarder\002-services.png)
+     ![本機轉送工具服務的螢幕擷取畫面](./media/opencensus-local-forwarder/002-services.png)
 
 3. **以滑鼠右鍵按一下**新的本機轉送工具，然後選取 [啟動]。 您的服務現在會進入執行狀態。
 
@@ -74,7 +73,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
 6. 若要確認您所需的設定是否已就緒，以及本機轉送工具是否正如預期般接聽追蹤資料，請檢查 ``LocalForwarder.log`` 檔案。 您應該會在檔案底部看到類似下列的影像：
 
-    ![LocalForwarder.log 檔案的螢幕擷取畫面](.\media\opencensus-local-forwarder\003-log-file.png)
+    ![LocalForwarder.log 檔案的螢幕擷取畫面](./media/opencensus-local-forwarder/003-log-file.png)
 
 #### <a name="console-application"></a>主控台應用程式
 

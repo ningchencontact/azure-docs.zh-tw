@@ -14,15 +14,15 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 25eb5c732927dcfb18bfd92991391ff99d4e3629
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918253"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278593"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>將您現有的 .NET Azure 行動服務升級為 App Service
-App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [什麼是 Mobile Apps？]
+App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [何謂 Mobile Apps？]
 
 本主題說明如何將現有的 .NET 後端應用程式從 Azure 行動服務升級為新的 App Service Mobile Apps。 執行此升級時，您現有的行動服務應用程式可以繼續運作。   如果您需要升級 Node.js 後端應用程式，請參閱[升級 Node.js 行動服務](app-service-mobile-node-backend-upgrading-from-mobile-services.md)。
 
@@ -68,7 +68,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 接下來，依照 [.NET 後端建立指示](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#create-app)建立第二個應用程式執行個體。 當系統提示選取您的 App Service 方案或「主控方案」時，請選擇已移轉之應用程式的方案。
 
-您可能會想要使用與行動服務中相同的資料庫和通知中心。 您可以複製這些值，方法是開啟 [Azure 入口網站]、瀏覽至原始的應用程式，然後依序按一下 [設定] > [應用程式設定]。 在 [連接字串] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。 針對您的應用程式需要的任何其他應用程式設定重複執行此程序。 如果不使用移轉的服務，您可以從 [Azure 傳統入口網站]上 [行動服務] 區段的 [設定] 索引標籤，讀取連接字串和 app 設定。
+您可能會想要使用與行動服務中相同的資料庫和通知中心。 您可以複製這些值，方法是開啟 [Azure 入口網站]、瀏覽至原始的應用程式，然後依序按一下 [設定] > [應用程式設定]。 在 [連接字串] 下，複製 `MS_NotificationHubConnectionString` 和 `MS_TableConnectionString`。 瀏覽至新的升級網站並將它們貼上，覆寫任何現有的值。 針對您的應用程式需要的任何其他應用程式設定重複執行此程序。
 
 針對您的應用程式製作 ASP.NET 專案的複本，然後將它發佈到新的網站。 透過利用新 URL 更新的用戶端應用程式複本，驗證一切運作正常。
 
@@ -84,18 +84,23 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 ### <a name="base-configuration"></a>基本組態
 然後，在 WebApiConfig.cs 中，您可以取代：
 
-        // Use this class to set configuration options for your mobile service
-        ConfigOptions options = new ConfigOptions();
+```csharp
+// Use this class to set configuration options for your mobile service
+ConfigOptions options = new ConfigOptions();
 
-        // Use this class to set WebAPI configuration options
-        HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+// Use this class to set WebAPI configuration options
+HttpConfiguration config = ServiceConfig.Initialize(new ConfigBuilder(options));
+```
 
 取代為
 
-        HttpConfiguration config = new HttpConfiguration();
-        new MobileAppConfiguration()
-            .UseDefaultConfiguration()
-        .ApplyTo(config);
+```csharp
+HttpConfiguration config = new HttpConfiguration();
+new MobileAppConfiguration()
+    .UseDefaultConfiguration()
+.ApplyTo(config);
+
+```
 
 > [!NOTE]
 > 如果您想要深入了解新的 .NET 伺服器 SDK 以及如何從您的 app 新增/移除功能，請參閱 [如何使用 .NET 伺服器 SDK] 主題。
@@ -110,8 +115,10 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 確定 `Configuration()` 方法的結尾：
 
-        app.UseWebApi(config)
-        app.UseAppServiceAuthentication(config);
+```csharp
+app.UseWebApi(config)
+app.UseAppServiceAuthentication(config);
+```
 
 有一些其他與驗證相關的變更，這些內容涵蓋於下列的完整驗證章節中。
 
@@ -120,7 +127,9 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 
 若要確定您的結構描述與之前參考的一樣，請使用下列內容來設定 DbContext 中適用於您應用程式的結構描述：
 
-        string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```csharp
+string schema = System.Configuration.ConfigurationManager.AppSettings.Get("MS_MobileServiceName");
+```
 
 如果您執行了上述設定，請確定您具有 MS_MobileServiceName。 如果您的應用程式先前已自訂這個結構描述，您也可以提供另一個結構描述名稱。
 
@@ -167,33 +176,35 @@ Mobile Apps 用戶端 SDK 會使用新的系統屬性名稱，因此不需要對
 
 例如，下列範例會定義 `TodoItem` 且不使用任何系統屬性：
 
-    using System.ComponentModel.DataAnnotations.Schema;
+```csharp
+using System.ComponentModel.DataAnnotations.Schema;
 
-    public class TodoItem : ITableData
-    {
-        public string Text { get; set; }
+public class TodoItem : ITableData
+{
+    public string Text { get; set; }
 
-        public bool Complete { get; set; }
+    public bool Complete { get; set; }
 
-        public string Id { get; set; }
+    public string Id { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? CreatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? CreatedAt { get; set; }
 
-        [NotMapped]
-        public DateTimeOffset? UpdatedAt { get; set; }
+    [NotMapped]
+    public DateTimeOffset? UpdatedAt { get; set; }
 
-        [NotMapped]
-        public bool Deleted { get; set; }
+    [NotMapped]
+    public bool Deleted { get; set; }
 
-        [NotMapped]
-        public byte[] Version { get; set; }
-    }
+    [NotMapped]
+    public byte[] Version { get; set; }
+}
+```
 
 附註：如果您收到有關 `NotMapped` 的錯誤，請將參考新增至組件 `System.ComponentModel.DataAnnotations`。
 
 ### <a name="cors"></a>CORS
-行動服務藉由包裝 ASP.NET CORS 解決方案，來包含一些適用於 CORS 的支援。 這個包裝層級已移除，以便讓開發人員擁有更多控制權，因此，您可以直接運用 [ASP.NET CORS 支援](http://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
+行動服務藉由包裝 ASP.NET CORS 解決方案，來包含一些適用於 CORS 的支援。 這個包裝層級已移除，以便讓開發人員擁有更多控制權，因此，您可以直接運用 [ASP.NET CORS 支援](https://www.asp.net/web-api/overview/security/enabling-cross-origin-requests-in-web-api)。
 
 而使用 CORS 的主要考量，在於您必須允許使用 `eTag` 和 `Location` 標頭，用戶端 SDK 才能正常運作。
 
@@ -208,12 +219,16 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
 `ApiServices` 物件不再是 SDK 的一部分。 若要存取行動應用程式設定，您可以使用下列：
 
-    MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```csharp
+MobileAppSettingsDictionary settings = this.Configuration.GetMobileAppSettingsProvider().GetMobileAppSettings();
+```
 
 同樣地，現在已使用標準 ASP.NET 追蹤寫入完成記錄︰
 
-    ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
-    traceWriter.Info("Hello, World");  
+```csharp
+ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
+traceWriter.Info("Hello, World");  
+```
 
 ## <a name="authentication"></a>驗證考量
 行動服務的驗證元件現在已移到 App Service 驗證/授權功能中。 您可以閱讀 [將驗證新增至您行動應用程式](app-service-mobile-ios-get-started-users.md) 一文，以了解如何為網站啟用此功能。
@@ -227,11 +242,15 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 ### <a name="getting-additional-user-information"></a>取得其他使用者資訊
 您可以取得其他使用者資訊，包括透過 `GetAppServiceIdentityAsync()` 方法存取權杖：
 
-        FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```csharp
+FacebookCredentials creds = await this.User.GetAppServiceIdentityAsync<FacebookCredentials>();
+```
 
 此外，如果您的應用程式依存於使用者識別碼 (例如，將它們儲存於資料庫中)，請務必注意，行動服務和 App Service Mobile Apps 之間的使用者識別碼是不同的。 不過，您仍然可以取得行動服務使用者識別碼。 所有的 ProviderCredentials 子類別都具有 UserId 屬性。 因此，繼續之前的範例：
 
-        string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```csharp
+string mobileServicesUserId = creds.Provider + ":" + creds.UserId;
+```
 
 如果您的應用程式依存於使用者識別碼，請務必盡可能使用相同的身分識別提供者註冊。 使用者識別碼的範圍通常限定在已使用的應用程式註冊，因此引入新的註冊，可能會讓使用者在比對其資料時發生問題。
 
@@ -243,9 +262,11 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 
 版本間的其中一個主要變更是建構函式不再需要應用程式金鑰。 您現在只需傳入行動 App 的 URL。 例如，在 .NET 用戶端上， `MobileServiceClient` 建構函式現在是：
 
-        public static MobileServiceClient MobileService = new MobileServiceClient(
-            "https://contoso.azurewebsites.net", // URL of the Mobile App
-        );
+```csharp
+public static MobileServiceClient MobileService = new MobileServiceClient(
+    "https://contoso.azurewebsites.net", // URL of the Mobile App
+);
+```
 
 您可以透過下列連結，閱讀有關安裝新的 SDK 以及使用新結構的相關資訊：
 
@@ -259,17 +280,11 @@ Mobile Apps 中並未內建排程的工作，因此您在 .NET 後端中的任�
 <!-- URLs. -->
 
 [Azure 入口網站]: https://portal.azure.com/
-[Azure 傳統入口網站]: https://manage.windowsazure.com/
-[什麼是 Mobile Apps？]: app-service-mobile-value-prop.md
-[I already use web sites and mobile services – how does App Service help me?]: /en-us/documentation/articles/app-service-mobile-value-prop-migration-from-mobile-services
-[行動應用程式伺服器 SDK]: http://www.nuget.org/packages/microsoft.azure.mobile.server
-[Create a Mobile App]: app-service-mobile-xamarin-ios-get-started.md
-[Add push notifications to your mobile app]: app-service-mobile-xamarin-ios-get-started-push.md
+[何謂 Mobile Apps？]: app-service-mobile-value-prop.md
+[行動應用程式伺服器 SDK]: https://www.nuget.org/packages/microsoft.azure.mobile.server
 [Add authentication to your mobile app]: app-service-mobile-xamarin-ios-get-started-users.md
 [Azure 排程器]: /azure/scheduler/
 [Web 工作]: https://github.com/Azure/azure-webjobs-sdk/wiki
 [如何使用 .NET 伺服器 SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
-[Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service 定價]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET 伺服器 SDK 概觀]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md

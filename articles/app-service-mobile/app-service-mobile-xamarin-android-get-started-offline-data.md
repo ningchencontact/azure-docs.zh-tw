@@ -14,17 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e0146be345215701cf1afe86345afc286933d51b
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: ca0eaf9e47b88bc0df8e7f050d8558c23d884f78
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36750963"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999295"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>啟用您 Xamarin.Android 行動應用程式的離線同步處理
+
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 ## <a name="overview"></a>概觀
+
 此教學課程介紹適用於 Xamarin.Android 之Azure 行動應用程式的離線同步處理功能。 離線同步處理可讓使用者與行動應用程式進行互動--檢視、新增或修改資料--即使沒有網路連線進也可行。 變更會儲存在本機資料庫中。
 裝置恢復上線後，這些變更就會與遠端服務進行同步處理。
 
@@ -33,6 +35,7 @@ ms.locfileid: "36750963"
 若要深入了解離線同步處理功能，請參閱 [Azure Mobile Apps 中的離線資料同步處理]主題。
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新用戶端應用程式以支援離線功能
+
 Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與本機資料庫互動。 若要在您的應用程式中使用這些功能，您必須將 [SyncContext] 初始化至本機存放區。 然後透過 [IMobileServiceSyncTable](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) 介面參考您的資料表。 SQLite 可做為裝置上的本機存放區。
 
 1. 在 Visual Studio 中，在您於[建立 Xamarin Android 應用程式]教學課程中完成的專案中開啟 NuGet 封裝管理員。  搜尋並安裝 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 套件。
@@ -40,6 +43,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 3. 在 Visual Studio 中按 **F5** 鍵，以重新建置並執行用戶端應用程式。 應用程式的運作方式和啟用離線同步處理之前的方式相同。不過，本機資料庫現在會填入可在離線案例下使用的資料。
 
 ## <a name="update-sync"></a>更新應用程式以使其與後端中斷連線
+
 在本節中，您將中斷與行動應用程式後端的連線，以模擬離線狀態。 當您新增資料項目時，您的例外狀況處理常式會指出應用程式處於離線模式。 處於此狀態時，新項目會新增到本機存放區，並且會在推送於連線狀態執行時，同步處理至行動應用程式後端。
 
 1. 編輯共用專案中的 ToDoActivity.cs。 變更 **applicationURL** 以指向無效的 URL：
@@ -54,6 +58,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 6. (選擇性) 使用 REST 工具 (例如 Fiddler 或 Postman) 來查詢您的行動後端 (使用表單 `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`中的 GET 查詢)。
 
 ## <a name="update-online-app"></a>更新應用程式以重新連線您的行動應用程式後端
+
 在本節中，您會將應用程式重新連接至行動應用程式後端。 當您第一次執行應用程式時，`OnCreate` 事件處理常式會呼叫 `OnRefreshItemsSelected`。 這個方法會呼叫 `SyncAsync` 來同步處理您的本機存放區與後端資料庫。
 
 1. 在共用專案中，開啟 ToDoActivity.cs，並還原您對 **applicationURL** 屬性所做的變更。
@@ -64,6 +69,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
    `CheckItem` 會呼叫 `SyncAsync`，以便與行動應用程式後端同步處理每個已完成的項目。 `SyncAsync` 會同時呼叫推送與提取。 **每當您對用戶端已變更的資料表執行提取時，一定會執行自動推送**。 這可確保本機存放區中的所有資料表和關聯性都保持一致。 此行為可能會導致非預期的推送。 如需此行為的詳細資訊，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
 ## <a name="review-the-client-sync-code"></a>檢閱用戶端同步處理程式碼
+
 當您完成 [建立 Xamarin Android 應用程式] 教學課程時所下載的 Xamarin 用戶端專案，已經包含了使用本機 SQLite 資料庫支援離線同步處理的程式碼。 以下是已經包含在教學課程程式碼中之內容的簡要概觀。 如需此功能的概念性概觀，請參閱 [Azure Mobile Apps 中的離線資料同步處理]。
 
 * 必須先初始化本機存放區，才可以執行資料表作業。 當 `ToDoActivity.OnCreate()` 執行 `ToDoActivity.InitLocalStoreAsync()` 時會初始化本機存放區資料庫。 這個方法會使用 Azure Mobile Apps 用戶端 SDK 所提供的 `MobileServiceSQLiteStore` 類別，建立本機 SQLite 資料庫。
@@ -87,7 +93,7 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
 
             // Uses the default conflict handler, which fails on conflict
             // To use a different conflict handler, pass a parameter to InitializeAsync.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
+            // For more details, see https://go.microsoft.com/fwlink/?LinkId=521416.
             await client.SyncContext.InitializeAsync(store);
         }
 * `ToDoActivity` 的 `toDoTable` 成員屬於 `IMobileServiceSyncTable` 類型而非 `IMobileServiceTable`。 IMobileServiceSyncTable 會將所有建立、讀取、更新和刪除 (CRUD) 資料表作業導向至本機存放區資料庫。
@@ -112,12 +118,13 @@ Azure 行動應用程式的離線功能可讓您在離線狀態時，仍可與�
         }
 
 ## <a name="additional-resources"></a>其他資源
+
 * [Azure Mobile Apps 中的離線資料同步處理]
 * [Azure Mobile Apps .NET SDK HOWTO][8]
 
 <!-- URLs. -->
-[建立 Xamarin Android 應用程式]: ../app-service-mobile-xamarin-android-get-started.md
-[Azure Mobile Apps 中的離線資料同步處理]: ../app-service-mobile-offline-data-sync.md
+[建立 Xamarin Android 應用程式]: ./app-service-mobile-xamarin-android-get-started.md
+[Azure Mobile Apps 中的離線資料同步處理]: ./app-service-mobile-offline-data-sync.md
 
 <!-- Images -->
 

@@ -5,9 +5,8 @@ keywords: python 機器學習服務,pandas,python pandas,python 指令碼, 執�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: ee9eb764-0d3e-4104-a797-19fc29345d39
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 958dd91277a81a9082a4149d2b0026fc11bf882a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f0fa2401e37e15137e9d5387d1395baf64b0fe61
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317580"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274066"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中執行 Python 機器學習服務指令碼
 
@@ -52,7 +51,7 @@ Python 是在工作流程的所有階段中使用 (通常使用於機器學習�
 
 Azure Machine Learning Studio 支援將 Python 指令碼內嵌至機器學習實驗的各個部分，並且順暢地將其發佈為 Microsoft Azure 上的 Web 服務。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 ## <a name="design-principles-of-python-scripts-in-machine-learning"></a>在 Machine Learning 中設計 Python 指令碼的原則
@@ -67,7 +66,7 @@ Azure Machine Learning Studio 支援將 Python 指令碼內嵌至機器學習實
 
 Azure ML Studio 中的[執行 Python 指令碼][execute-python-script]模組最多接受三個輸入，而且最多產生兩個輸出 (於下一節中討論)，就像其同類的 R 一樣：[執行 R 指令碼][execute-r-script]模組。 要執行的 Python 程式碼會輸入至稱為 `azureml_main` 之特殊命名進入點函式的參數方塊。 以下是用來實作此模組的關鍵設計原則：
 
-1. *必須是 Python 使用者慣用的。* 大多數 Python 使用者將其程式碼視為模組中的函式。 因此，將大量的可執行陳述式放在最上層的模組相當罕見。 因此，指令碼方塊也會採用特殊命名的 Python 函式，而不是採用一系列的陳述式。 在函式中公開的物件是標準 Python 程式庫類型 (例如 [Pandas](http://pandas.pydata.org/)資料框架和 [NumPy](http://www.numpy.org/) 陣列)。
+1. *必須是 Python 使用者慣用的。* 大多數 Python 使用者將其程式碼視為模組中的函式。 因此，將大量的可執行陳述式放在最上層的模組相當罕見。 因此，指令碼方塊也會採用特殊命名的 Python 函數，而不是採用一系列的陳述式。 在函式中公開的物件是標準 Python 程式庫類型 (例如 [Pandas](http://pandas.pydata.org/)資料框架和 [NumPy](http://www.numpy.org/) 陣列)。
 2. *必須在本機和雲端執行之間具有高畫質。* 用來執行 Python 程式碼的後端是以 [Anaconda](https://store.continuum.io/cshop/anaconda/) (廣為使用的跨平台科學 Python 發行版本) 為基礎。 它隨附將近 200 個最常見的 Python 套件。 因此，資料科學家可在其本機 Azure Machine Learning 相容的 Anaconda 環境中，對程式碼進行偵錯與限定。 然後使用現有的開發環境 (例如 [IPython](http://ipython.org/) 筆記本或[適用於 Visual Studio 的 Python 工具](https://aka.ms/ptvs)) 來執行它，以作為 Azure ML 實驗的一部分執行。 此外，`azureml_main` 進入點是原始 Python 函式，因此****不需要 Azure ML 特定程式碼或安裝 SDK 即可編寫。
 3. *必須可以順暢地與其他 Azure Machine Learning 模組組合。* [執行 Python 指令碼][execute-python-script]模組接受標準 Azure Machine Learning 資料集作為輸入和輸出。 底層架構明確而有效率地橋接了 Azure ML 和 Python 執行階段。 因此，Python 可以用於與現有 Azure ML 工作流程接合，包括呼叫 R 和 SQLite 的那些工作流程。 因此，資料科學家可以撰寫執行下列工作的工作流程：
    * 使用 Python 和 Pandas 進行資料前處理和清除
