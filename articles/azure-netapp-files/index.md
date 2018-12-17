@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 04/23/2018
 ms.author: b-juche
-ms.openlocfilehash: 6869d60bfadbeb3f3ed9c7b67d3560e49c73e65b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 23ec6d3a91dea91fba8565280bcce4e9385f49ae
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010237"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413230"
 ---
 # <a name="azure-netapp-files-documentation"></a>Azure NetApp 檔案文件
 
 了解如何使用 Azure NetApp Files 來建立和管理 NetApp 帳戶、容量集區和磁碟區，並設定匯出原則、裝載虛擬機器磁碟區，以及管理快照集。
 
 > [!IMPORTANT] 
-> 您需要加入「公開預覽計畫」並可存取 Microsoft.NetApp Azure 資源提供者，才能進行本文件中所說明的所有工作。 如需有關加入「公開預覽」方案的詳細資訊，請參閱 [Azure NetApp Files 公開預覽註冊頁面](https://aka.ms/nfspublicpreview)。 
+> 您需要加入「公開預覽計畫」並可存取 Microsoft.NetApp Azure 資源提供者，才能進行本文件中所說明的所有工作。 若要要求加入公開預覽方案，請參閱[註冊 Azure NetApp Files](azure-netapp-files-register.md)。 
 
 <ul class="panelContent cardsFTitle">
     <li>

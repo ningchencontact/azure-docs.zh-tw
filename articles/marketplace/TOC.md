@@ -91,7 +91,7 @@
 #### [試用產品索引標籤](./cloud-partner-portal/azure-applications/cpp-testdrive-tab.md)
 #### [Marketplace 索引標籤](./cloud-partner-portal/azure-applications/cpp-marketplace-tab.md)
 #### [支援索引標籤](./cloud-partner-portal/azure-applications/cpp-support-tab.md)
-<!-- ### [Create technical assets](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md) -->
+### [建立 VM 技術資產](./cloud-partner-portal/azure-applications/cpp-create-technical-assets.md)
 ### [發佈 Azure 應用程式供應項目](./cloud-partner-portal/azure-applications/cpp-publish-offer.md)
 ### [更新現有供應項目](./cloud-partner-portal/azure-applications/cpp-update-existing-offer.md)
 
