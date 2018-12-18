@@ -55,7 +55,7 @@
 ### [無伺服器應用程式](https://docs.microsoft.com/azure/azure-functions/functions-reference)
 ### [微服務叢集](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-portal)
 ## 部署
-### [從原始檔控制 Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/app-service-continuous-deployment)
+### [從原始檔控制 Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/deploy-continuous-deployment)
 ### [本機微服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-with-a-local-cluster)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
