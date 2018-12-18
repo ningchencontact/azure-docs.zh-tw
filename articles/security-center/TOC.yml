@@ -15,8 +15,6 @@ items:
     href: quick-onboard-windows-computer.md
   - name: Linux 電腦
     href: quick-onboard-linux-computer.md
-  - name: 安全性解決方案
-    href: quick-security-solutions.md
   expanded: true
 - name: 教學課程
   items:
@@ -30,6 +28,10 @@ items:
     href: security-center-permissions.md
   - name: 資料安全性
     href: security-center-data-security.md
+  - name: 事件回應
+    href: security-center-incident-response.md
+  - name: 使用增強安全性的建議
+    href: security-center-using-recommendations.md
 - name: 使用說明指南
   items:
   - name: 改善您的安全分數
@@ -44,6 +46,10 @@ items:
     href: tutorial-security-policy.md
   - name: 自訂資訊保護原則
     href: security-center-info-protection-policy.md
+  - name: 管理安全性解決方案
+    href: security-center-partner-integration.md
+  - name: 使用 PowerShell 進行自動上線
+    href: security-center-powershell-onboarding.md
   - name: 資訊安全中心設定
     href: security-center-policies-overview.md
     items:
@@ -66,50 +72,11 @@ items:
       href: security-center-monitoring.md
     - name: 保護您的機器和應用程式
       href: security-center-virtual-machine-protection.md
-      items:
-      - name: 套用磁碟加密
-        href: security-center-apply-disk-encryption.md
-      - name: 套用系統更新
-        href: security-center-apply-system-updates.md
-      - name: 啟用儲存體帳戶加密
-        href: security-center-enable-encryption-for-storage-account.md
-      - name: 啟用 VM 代理程式
-        href: security-center-enable-vm-agent.md
-      - name: 安裝端點保護
-        href: security-center-install-endpoint-protection.md
-      - name: 在系統更新之後重新開機
-        href: security-center-apply-system-updates.md#reboot-after-system-updates
-      - name: 修復安全性設定
-        href: security-center-remediate-os-vulnerabilities.md
-      - name: 更新作業系統版本
-        href: security-center-update-os-version.md
-      - name: 未安裝弱點評估
-        href: security-center-vulnerability-assessment-recommendations.md
-      - name: 新增 Web 應用程式防火牆
-        href: security-center-add-web-application-firewall.md
-      - name: 完成應用程式保護
-        href: security-center-add-web-application-firewall.md#finalize-application-protection
     - name: 保護網路資源
       href: security-center-network-recommendations.md
-      items:
-      - name: 新增新一代防火牆
-        href: security-center-add-next-generation-firewall.md
-      - name: 啟用網路安全性群組
-        href: security-center-enable-network-security-groups.md
-      - name: 透過網際網路面向端點限制存取
-        href: security-center-restrict-access-through-internet-facing-endpoints.md
-      - name: 僅透過 NGFW 路由傳送流量
-        href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
     - name: 保護 SQL 服務和資料
       href: security-center-sql-service-recommendations.md
-      items:
-      - name: 在 SQL 資料庫上啟用稽核與威脅偵測
-        href: security-center-enable-auditing-on-sql-databases.md
-      - name: 在 SQL 伺服器上啟用稽核與威脅偵測
-        href: security-center-enable-auditing-on-sql-servers.md
-      - name: 啟用透明資料加密
-        href: security-center-enable-transparent-data-encryption.md
-    - name: 監視身分識別和存取
+    - name: 管理身分識別和存取
       href: security-center-identity-access.md
   - name: 套用雲端防禦
     items:
@@ -119,38 +86,61 @@ items:
       href: security-center-adaptive-application.md
     - name: 檔案完整性監視
       href: security-center-file-integrity-monitoring.md
-  - name: 管理安全性解決方案
-    href: security-center-partner-integration.md
-    items:
-    - name: 連線的解決方案
-      href: security-center-partner-solutions.md
-    - name: 探索到的解決方案
-      href: security-center-partner-integration.md#discovered-solutions
-    - name: 連線外部解決方案
-      href: quick-security-solutions.md
-    - name: 連線應用程式閘道
-      href: security-center-connect-application-gateway.md
-    - name: 連線 Microsoft ATA
-      href: security-center-ata-integration.md
-    - name: 連線 Azure AD Identity Protection
-      href: security-center-aadip-integration.md
-    - name: 將資料匯出至 SIEM
-      href: security-center-export-data-to-siem.md
-  - name: 調查威脅
+  - name: 偵測威脅
     href: security-center-detection-capabilities.md
     items:
     - name: 安全性警示
       href: security-center-managing-and-responding-alerts.md
     - name: 安全性事件
       href: security-center-incident.md
-    - name: 威脅報告
-      href: security-center-threat-report.md
     - name: 警示類型
       href: security-center-alerts-type.md
-    - name: 自訂警示
-      href: security-center-custom-alert.md
     - name: 警示驗證
       href: security-center-alert-validation.md
+    - name: Azure 資源和使用者的 UEBA
+      href: security-center-ueba-mcas.md
+  - name: 封存
+    items:
+    - name: 套用磁碟加密
+      href: security-center-apply-disk-encryption.md
+    - name: 套用系統更新
+      href: security-center-apply-system-updates.md
+    - name: 啟用儲存體帳戶加密
+      href: security-center-enable-encryption-for-storage-account.md
+    - name: 啟用 VM 代理程式
+      href: security-center-enable-vm-agent.md
+    - name: 安裝端點保護
+      href: security-center-install-endpoint-protection.md
+    - name: 在系統更新之後重新開機
+      href: security-center-apply-system-updates.md#reboot-after-system-updates
+    - name: 修復安全性設定
+      href: security-center-remediate-os-vulnerabilities.md
+    - name: 更新作業系統版本
+      href: security-center-update-os-version.md
+    - name: 未安裝弱點評估
+      href: security-center-vulnerability-assessment-recommendations.md
+    - name: 新增 Web 應用程式防火牆
+      href: security-center-add-web-application-firewall.md
+    - name: 完成應用程式保護
+      href: security-center-add-web-application-firewall.md#finalize-application-protection
+    - name: 新增新一代防火牆
+      href: security-center-add-next-generation-firewall.md
+    - name: 啟用網路安全性群組
+      href: security-center-enable-network-security-groups.md
+    - name: 透過網際網路面向端點限制存取
+      href: security-center-restrict-access-through-internet-facing-endpoints.md
+    - name: 僅透過 NGFW 路由傳送流量
+      href: security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only
+    - name: 在 SQL 資料庫上啟用稽核與威脅偵測
+      href: security-center-enable-auditing-on-sql-databases.md
+    - name: 在 SQL 伺服器上啟用稽核與威脅偵測
+      href: security-center-enable-auditing-on-sql-servers.md
+    - name: 啟用透明資料加密
+      href: security-center-enable-transparent-data-encryption.md
+    - name: 威脅報告
+      href: security-center-threat-report.md
+    - name: 自訂警示
+      href: security-center-custom-alert.md
     - name: 警示信賴分數
       href: security-center-confidence-score.md
     - name: 安全性警示地圖和威脅情報
@@ -159,30 +149,12 @@ items:
       href: security-center-investigation.md
     - name: 管理調查使用者資料
       href: security-center-investigation-user-data.md
-    - name: Azure 資源和使用者的 UEBA
-      href: security-center-ueba-mcas.md
-  - name: 將安全性工作流程自動化
-    items:
     - name: Logic Apps 手冊
       href: security-center-playbooks.md
     - name: 檢視事件
       href: security-center-events-dashboard.md
     - name: Search
       href: security-center-search.md
-    - name: 檢視合規性 (REST)
-      href: security-center-review-policy-compliance.md
-    - name: 評估訂用帳戶 (REST)
-      href: security-center-compliance-rest-api.md
-    - name: 使用 PowerShell 進行自動上線
-      href: security-center-powershell-onboarding.md
-  - name: 案例
-    items:
-    - name: 事件回應
-      href: security-center-incident-response.md
-    - name: 使用增強安全性的建議
-      href: security-center-using-recommendations.md
-  - name: 疑難排解
-    href: security-center-troubleshooting-guide.md
 - name: 參考
   items:
   - name: REST API
@@ -213,13 +185,13 @@ items:
     href: https://azure.microsoft.com/documentation/videos/index/?services=security-center
   - name: 價格
     href: https://azure.microsoft.com/pricing/details/security-center/
-  - name: 服務更新
-    href: https://azure.microsoft.com/updates/?product=security-center
   - name: 區域可用性
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 28b701fcb85bd8deac5c0442d98730dfb10e8cd2
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+  - name: 疑難排解
+    href: security-center-troubleshooting-guide.md
+ms.openlocfilehash: e843dc5b29d441f4d1592a935bd35b295150f861
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338680"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545496"
