@@ -87,10 +87,22 @@ items:
     href: active-directory-b2c-reference-mfa.md
   - name: 身分識別體驗架構
     items:
-    - name: 建立自訂原則
-      href: active-directory-b2c-get-started-custom.md
     - name: 使用 Application Insights 收集記錄
       href: active-directory-b2c-troubleshoot-custom.md
+    - name: 設定使用者輸入
+      href: active-directory-b2c-configure-signup-self-asserted-custom.md
+    - name: 建立自訂原則
+      href: active-directory-b2c-get-started-custom.md
+    - name: 自訂 UI
+      href: active-directory-b2c-ui-customization-custom.md
+    - name: 以動態方式自訂 UI
+      href: active-directory-b2c-ui-customization-custom-dynamic.md
+    - name: 自訂權杖
+      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+    - name: 定義自訂屬性
+      href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
+    - name: 啟用讓我保持登入
+      href: active-directory-b2c-reference-kmsi-custom.md
     - name: 整合 RESTful API
       items:
       - name: 驗證使用者輸入
@@ -119,8 +131,14 @@ items:
         href: active-directory-b2c-custom-setup-msa-idp.md
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
-      - name: 透過存取權杖傳遞
-        href: idp-pass-through-custom.md
+    - name: 網頁合約
+      href: page-contract.md
+    - name: 透過存取權杖傳遞
+      href: idp-pass-through-custom.md
+    - name: 密碼複雜度
+      href: active-directory-b2c-reference-password-complexity-custom.md
+    - name: 密碼變更
+      href: active-directory-b2c-reference-password-change-custom.md
     - name: SAML 提供者
       items:
       - name: ADFS
@@ -129,24 +147,6 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: 追蹤使用者行為
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: 使用者流程
-      items:
-      - name: 設定使用者輸入
-        href: active-directory-b2c-configure-signup-self-asserted-custom.md
-      - name: 自訂屬性
-        href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
-      - name: 自訂 UI
-        href: active-directory-b2c-ui-customization-custom.md
-      - name: 以動態方式自訂 UI
-        href: active-directory-b2c-ui-customization-custom-dynamic.md
-      - name: 自訂權杖
-        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
-      - name: 密碼複雜度
-        href: active-directory-b2c-reference-password-complexity-custom.md
-      - name: 密碼變更
-        href: active-directory-b2c-reference-password-change-custom.md
-      - name: 啟用讓我保持登入
-        href: active-directory-b2c-reference-kmsi-custom.md
     - name: 參考
       items:
       - name: 宣告解析程式
@@ -222,6 +222,8 @@ items:
           href: userjourneys.md
         - name: RelyingParty
           href: relyingparty.md
+      - name: JavaScript 範例
+        href: javascript-samples.md
       - name: 版本資訊
         href: active-directory-b2c-developer-notes-custom.md
       - name: 信任 Framework 定義
@@ -322,9 +324,9 @@ items:
     href: active-directory-b2c-support.md
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: f46d54408e62f04519bc8e93f619d5e8d6d8640b
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: d61d6726d388fd7bf18f1bcbc168078afadd1a71
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720502"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579799"

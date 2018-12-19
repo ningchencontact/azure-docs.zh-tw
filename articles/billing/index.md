@@ -12,19 +12,16 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 1e44f79fea337a79f3c30f60db7eb9a55182db6c
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ed792b03a79d2dcbb77142a51ae2641c8d0bd3ad
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986571"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583318"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Azure 計費與成本管理文件
 
 學習如何了解 Azure 計費方式、如何監視使用量和成本，以及管理帳戶和訂用帳戶。
-
-> [!div class="nextstepaction"]
-> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 <ul class="panelContent cardsF">
     <li>

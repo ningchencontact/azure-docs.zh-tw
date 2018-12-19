@@ -6,7 +6,7 @@
 ## [什麼是資源健康狀態？](resource-health-overview.md)
 # 作法
 ## [設定適用於服務健康情況事件的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
-### [使用 Azure 入口網站檢視服務健康情況通知](../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
+### [使用 Azure 入口網站檢視服務健康情況通知](../azure-monitor/platform/service-notifications.md?toc=%2fazure%2fservice-health%2ftoc.json)
 ## [使用 Webhook 設定服務健康情況通知](service-health-alert-webhook-guide.md)
 ### [以 ServiceNow 設定](service-health-alert-webhook-servicenow.md)
 ### [以 PagerDuty 設定](service-health-alert-webhook-pagerduty.md)

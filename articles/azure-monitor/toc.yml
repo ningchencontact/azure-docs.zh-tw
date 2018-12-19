@@ -39,11 +39,11 @@ items:
   - name: 在 Log Analytics 中將資料視覺化
     href: learn/tutorial-logs-dashboards.md
   - name: 封存平台計量和記錄資料
-    href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-archive-data.md
   - name: 記錄資料警示
     href: learn/tutorial-response.md
   - name: 針對效能和排程自動調整規模
-    href: ../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md?toc=/azure/azure-monitor/toc.json
+    href: learn/tutorial-autoscale-performance-schedule.md
   - name: 尋找應用程式執行階段例外狀況
     href: ../application-insights/app-insights-tutorial-runtime-exceptions.md?toc=/azure/azure-monitor/toc.json
   - name: 尋找應用程式效能問題
@@ -367,8 +367,6 @@ items:
           href: ../application-insights/app-insights-sharepoint.md?toc=/azure/azure-monitor/toc.json
         - name: Dynamics CRM
           href: ../application-insights/app-insights-sample-mscrm.md?toc=/azure/azure-monitor/toc.json
-        - name: 其他平台
-          href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
       - name: 智慧型偵測
         href: ../application-insights/app-insights-proactive-diagnostics.md?toc=/azure/azure-monitor/toc.json
         items:
@@ -426,10 +424,8 @@ items:
         href: platform/data-collector-api.md
       - name: Log Analytics 資料收集器 API 管線範例
         href: platform/create-pipeline-datacollector-api.md
-      - name: 應用程式資料
-        href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
       - name: 計量存放區 REST API
-        href: ../monitoring-and-diagnostics/metrics-store-custom-rest-api.md?toc=/azure/azure-monitor/toc.json
+        href: platform/metrics-store-custom-rest-api.md
       - name: GuestOS 至記錄存放區 Linux VM (Telegraf)
         href: platform/collect-custom-metrics-linux-telegraf.md
     - name: System Center
@@ -447,9 +443,9 @@ items:
       - name: 存放診斷記錄
         href: platform/diagnostic-logs-stream-log-store.md
       - name: 將活動記錄串流至事件中樞
-        href: ../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/activity-logs-stream-event-hubs.md
       - name: 記錄檔與計量到事件中樞
-        href: ../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md?toc=/azure/azure-monitor/toc.json
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: 診斷記錄到事件中樞
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: 應用程式資料到 Log Analytics
@@ -538,7 +534,7 @@ items:
       - name: 監視 Docker 應用程式
         href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
     - name: 監視資源群組
-      href: ../monitoring-and-diagnostics/resource-group-insights.md?toc=/azure/azure-monitor/toc.json
+      href: insights/resource-group-insights.md
     - name: 監視資料庫
       items:
       - name: Azure SQL
@@ -659,7 +655,7 @@ items:
     - name: 檢視活動記錄中的事件
       href: ../azure-resource-manager/resource-group-audit.md?toc=/azure/azure-monitor/toc.json
     - name: 檢視服務通知
-      href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+      href: platform/service-notifications.md
     - name: 查詢記錄檔資料
       items:
       - name: 查詢語言文件
@@ -754,7 +750,7 @@ items:
         - name: Webhook 動作記錄警示
           href: platform/alerts-log-webhook.md
         - name: 針對記錄警示進行疑難排解
-          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: platform/alert-log-troubleshoot.md
       - name: 使用活動記錄警示
         items:
         - name: 在活動記錄事件中設定警示
@@ -800,7 +796,7 @@ items:
       - name: 自動調整規模的逐步解說
         href: platform/autoscale-get-started.md
       - name: 了解自動調整設定
-        href: ../monitoring-and-diagnostics/monitoring-understanding-autoscale-settings.md?toc=/azure/azure-monitor/toc.json
+        href: platform/autoscale-understanding-settings.md
       - name: 最佳作法
         href: platform/autoscale-best-practices.md
       - name: 常見計量
@@ -818,7 +814,7 @@ items:
     - name: 服務通知
       items:
       - name: 檢視服務通知
-        href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
+        href: platform/service-notifications.md
       - name: 設定服務通知警示
         href: platform/alerts-activity-log-service-notifications.md
     - name: IT 服務管理
@@ -846,7 +842,7 @@ items:
     - name: PowerShell
       items:
       - name: Azure PowerShell 範例
-        href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
+        href: platform/powershell-quickstart-samples.md
       - name: PowerShell Cmdlet
         href: platform/powershell-workspace-configuration.md
       - name: '[應用程式]'
@@ -915,6 +911,8 @@ items:
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: NuGet 套件
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
+    - name: 平台支援
+      href: ../application-insights/app-insights-platforms.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights 資料模型
     items:
     - name: 概觀
@@ -954,7 +952,7 @@ items:
     - name: 支援的計量
       href: platform/metrics-supported.md
     - name: 較新警示的支援計量
-      href: ../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md?toc=/azure/azure-monitor/toc.json
+      href: platform/alerts-metric-near-real-time.md
   - name: 結構描述
     items:
     - name: 診斷記錄服務、類別和結構描述
@@ -975,7 +973,7 @@ items:
     - name: 傳統警示與計量
       href: ./platform/classic-api-retirement-metrics-autoscale.md
     - name: 傳統警示和監視
-      href: ../monitoring-and-diagnostics/monitoring-classic-retirement.md?toc=/azure/azure-monitor/toc.json
+      href: platform/monitoring-classic-retirement.md
     - name: 將警示從 Log Analytics 延伸至 Azure
       href: platform/alerts-extend.md
     - name: 將警示從 OMS 入口網站複製到 Azure 入口網站
@@ -1010,9 +1008,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 31569287fa00f123d3462d6d3dc5bf35a3650d19
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 0187e9a74da758a5756ce3841953141093aa203c
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549440"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53601010"
