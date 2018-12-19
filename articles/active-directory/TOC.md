@@ -275,6 +275,7 @@
 ##### [在設定使用者佈建資源庫應用程式的情況下儲存管理員認證時發生問題](manage-apps/application-provisioning-config-problem-storage-limit.md)
 ##### [未佈建使用者 - 資源庫應用程式](manage-apps/application-provisioning-config-problem-no-users-provisioned.md)
 ##### [佈建錯誤的使用者 - 資源庫應用程式](manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md)
+##### [SCIM 相容性問題 - 非資源庫應用程式](manage-apps/application-provisioning-config-problem-scim-compatibility.md)
 
 #### 單一登入
 ##### [選擇方法](manage-apps/single-sign-on-modes.md)
@@ -321,10 +322,10 @@
 ## [疑難排解](fundamentals/active-directory-troubleshooting-support-howto.md)
 
 ## 部署 Azure AD 概念證明 (PoC)
-### [PoC 腳本：簡介](active-directory-playbook-intro.md)
-### [PoC 腳本：因素](active-directory-playbook-ingredients.md)
-### [PoC 腳本：實作](active-directory-playbook-implementation.md)
-### [PoC 腳本：建置區塊](active-directory-playbook-building-blocks.md)
+### [PoC 劇本：簡介](active-directory-playbook-intro.md)
+### [PoC 劇本：組成要素](active-directory-playbook-ingredients.md)
+### [PoC 劇本：實作](active-directory-playbook-implementation.md)
+### [PoC 劇本：建置區塊](active-directory-playbook-building-blocks.md)
 
 # 參考
 ## [程式碼範例](https://azure.microsoft.com/resources/samples/?service=active-directory)

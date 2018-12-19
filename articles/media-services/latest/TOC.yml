@@ -12,20 +12,14 @@ items:
   expanded: true
 - name: 教學課程
   items:
-  - name: 上傳、編碼和串流
-    items:
-    - name: 透過 .NET
-      href: stream-files-tutorial-with-api.md
-    - name: 透過 REST
-      href: stream-files-tutorial-with-rest.md
-  - name: 即時串流
-    items:
-    - name: 透過 .NET Core
-      href: stream-live-tutorial-with-api.md
-  - name: 分析您的影片
-    items:
-    - name: 透過 .NET
-      href: analyze-videos-tutorial-with-api.md
+  - name: 遠端檔案編碼和串流影片 - REST
+    href: stream-files-tutorial-with-rest.md
+  - name: 已上傳檔案編碼和串流影片 - REST
+    href: stream-files-tutorial-with-api.md
+  - name: 即時串流 - .NET
+    href: stream-live-tutorial-with-api.md
+  - name: 分析影片 - .NET
+    href: analyze-videos-tutorial-with-api.md
 - name: 範例
   items:
   - name: Azure 程式碼範例
@@ -186,9 +180,9 @@ items:
     href: limits-quotas-constraints.md
   - name: 常見問題集
     href: frequently-asked-questions.md
-ms.openlocfilehash: 9c42d463bc88ae936e0fbe965fd4039a716e3052
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 49c15b2540b33a3f37f4f276b435ce3f4508b513
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
 ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557167"
+ms.locfileid: "53582502"
