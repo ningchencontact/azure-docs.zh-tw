@@ -66,7 +66,7 @@ ms.locfileid: "49363989"
 > [!NOTE]
 > 本教學課程依設計會使用下列端點中可見區域的訂用帳戶金鑰。 請務必讓 API 金鑰與區域 Uri 相符，否則，金鑰可能不適用於下列端點：
 
-         // Your API keys
+        // Your API keys
         public const string ContentModeratorKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string ComputerVisionKey = "XXXXXXXXXXXXXXXXXXXX";
         public const string CustomVisionKey = "XXXXXXXXXXXXXXXXXXXX";
@@ -128,11 +128,11 @@ ms.locfileid: "49363989"
 4. 若要登入，請從可用的網際網路帳戶清單中選擇。
 5. 請記下服務頁面上顯示的 API 金鑰。
     
-   ![電腦視覺 API 金鑰](images/tutorial-computer-vision-keys.PNG)
+    ![電腦視覺 API 金鑰](images/tutorial-computer-vision-keys.PNG)
     
 6. 請參閱專案的原始程式碼，以取得會使用電腦視覺 API 掃描影像的函式。
 
-         public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
+        public static bool EvaluateComputerVisionTags(string ImageUrl, string ComputerVisionUri, string ComputerVisionKey, ref KeyValuePair[] ReviewTags)
         {
             var File = ImageUrl;
             string Body = $"{{\"URL\":\"{File}\"}}";
@@ -149,7 +149,7 @@ ms.locfileid: "49363989"
                 ComputerVisionPrediction CVObject = JsonConvert.DeserializeObject<ComputerVisionPrediction>(Response.Content.ReadAsStringAsync().Result);
 
                 if ((CVObject.categories[0].detail != null) && (CVObject.categories[0].detail.celebrities.Count() > 0))
-                {                 
+                {
                     ReviewTags[2].Value = "true";
                 }
             }
@@ -161,7 +161,7 @@ ms.locfileid: "49363989"
 
 1. [登入](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/)至[自訂視覺 API 預覽版](https://www.customvision.ai/)。
 2. 使用[快速入門](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier)來建置自訂分類器，以偵測可能出現的國旗、玩具和筆。
-   ![自訂視覺訓練影像](images/tutorial-ecommerce-custom-vision.PNG)
+    ![自訂視覺訓練影像](images/tutorial-ecommerce-custom-vision.PNG)
 3. 針對自訂分類器[取得預測端點 URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api)。
 4. 請參閱專案的原始程式碼，以查看會呼叫自訂分類器預測端點以掃描影像的函式。
 
@@ -179,13 +179,15 @@ ms.locfileid: "49363989"
                 SaveCustomVisionTags(response.Content.ReadAsStringAsync().Result, ref ReviewTags);
             }
             return response.IsSuccessStatusCode;
-        }       
+        }
  
 ## <a name="reviews-for-human-in-the-loop"></a>人機互動檢閱
 
 1. 在前面幾節中，您掃描了傳入的影像中是否有成人和猥褻 (內容仲裁)、名人 (電腦視覺) 和國旗 (自訂版本)。
 2. 根據每個掃描的相符閾值，在檢閱工具中讓細微的案例可供進行人工檢閱。
-        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata) {
+
+        public static bool CreateReview(string ImageUrl, KeyValuePair[] Metadata)
+        {
 
             ReviewCreationRequest Review = new ReviewCreationRequest();
             Review.Item[0] = new ReviewItem();
@@ -207,7 +209,10 @@ ms.locfileid: "49363989"
 
 1. 本教學課程會假設有一個 "C:Test" 目錄，以及一個有影像 Url 清單的文字檔。
 2. 下列程式碼會檢查該檔案是否存在，並將所有 Url 讀入記憶體。
-            // 檢查測試目錄中是否有內含所要掃描影像 URL 清單的文字檔，var topdir = @"C:\test\"; var Urlsfile = topdir + "Urls.txt";
+
+            // 檢查測試目錄中是否有內含所要掃描影像 URL 清單的文字檔，
+            var topdir = @"C:\test\";
+            var Urlsfile = topdir + "Urls.txt";
 
             if (!Directory.Exists(topdir))
                 return;
@@ -224,7 +229,12 @@ ms.locfileid: "49363989"
 
 1. 這個最上層函式會對先前所述文字檔中的所有影像 URL 執行迴圈。
 2. 它會使用每個 API 來掃描 URL，如果相符可信度落在條件內，則會建立人工仲裁審核。
-             // for each image URL in the file... foreach (var Url in Urls) { // Initiatize a new review tags array ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
+
+            // for each image URL in the file...
+            foreach (var Url in Urls)
+            {
+                // Initiatize a new review tags array
+                ReviewTags = new KeyValuePair[MAXTAGSCOUNT];
 
                 // Evaluate for potential adult and racy content with Content Moderator API
                 EvaluateAdultRacy(Url, ref ReviewTags);
