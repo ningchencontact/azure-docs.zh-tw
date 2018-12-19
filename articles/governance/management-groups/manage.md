@@ -274,7 +274,7 @@ az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 
 ## <a name="audit-management-groups-using-activity-logs"></a>使用活動記錄稽核管理群組
 
-若要透過此 API 追蹤管理群組，請使用[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)。 目前無法使用 PowerShell、CLI 或 Azure 入口網站來追蹤管理群組活動。。
+若要透過此 API 追蹤管理群組，請使用[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)。 目前無法使用 PowerShell、CLI 或 Azure 入口網站來追蹤管理群組活動。
 
 1. 以 Azure AD 租用戶的租用戶管理員身分[提高存取權](../../role-based-access-control/elevate-access-global-admin.md)，然後將 `/providers/microsoft.insights/eventtypes/management`範圍的「讀者」角色指派給稽核使用者。
 1. 以稽核使用者身分呼叫[租用戶活動記錄 API](/rest/api/monitor/tenantactivitylogs)，以查看管理群組活動。 您可以依資源提供者 **Microsoft.Management** 篩選所有管理群組活動。  範例：
