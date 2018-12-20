@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 1d82809a4ed88ee5f84b812955e6979df2ae6070
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 5477b1b3dc14a94713074a72751b732262880258
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322068"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53650957"
 ---
 <h1>Azure 認知服務文件</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">了解如何在應用程式、網站和 Bot 中融入智慧型演算法，透過自然的溝通方式，來查看、聆聽、述說及了解您的使用者需求。 教學課程、快速入門和 API 參考和範例示範。</p>
@@ -297,8 +297,8 @@ ms.locfileid: "53322068"
                     <div class="cardText">
                         <h3>視覺 API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">電腦視覺</a></p>
-                        <p><a href="/azure/cognitive-services/content-moderator/overview">內容仲裁</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/home"><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/content-moderator/">內容仲裁</a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>自訂視覺服務&nbsp;<sup style="font-size:70%">預覽</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/face/">臉部 API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">影片索引子</a></p>
                         <p><a href="/azure/cognitive-services/emotion/home"><span>表情 API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
