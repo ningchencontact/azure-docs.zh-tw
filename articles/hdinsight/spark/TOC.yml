@@ -42,7 +42,7 @@ items:
     - name: 使用 Azure 儲存體
       href: ../hdinsight-hadoop-use-blob-storage.md
       maintainContext: true
-    - name: 使用 Azure Data Lake Store
+    - name: 使用 Azure Data Lake Storage
       href: ../hdinsight-hadoop-use-data-lake-store.md
       maintainContext: true
   - name: 開發
@@ -93,14 +93,14 @@ items:
       href: apache-spark-zeppelin-notebook.md
   - name: 搭配其他 Azure 服務使用
     items:
-    - name: 搭配 Data Lake Store 使用
+    - name: 使用 Data Lake Storage
       href: apache-spark-use-with-data-lake-store.md
     - name: 連線到 Azure SQL 資料庫
       href: apache-spark-connect-to-sql-database.md
     - name: 使用 Apache Spark 和 Cosmos DB 實作 Lambda 架構
       href: ../../cosmos-db/lambda-architecture.md
       maintainContext: true
-  - name: Spark 串流
+  - name: Apache Spark 串流
     items:
     - name: 串流概觀
       href: apache-spark-streaming-overview.md
@@ -281,7 +281,7 @@ items:
     - name: 上傳 Apache Hadoop 作業的資料
       href: ../hdinsight-upload-data.md
       maintainContext: true
-    - name: 搭配 Data Lake Store 的多個 HDInsight 叢集
+    - name: 搭配 Data Lake Storage 的多個 HDInsight 叢集
       href: ../hdinsight-multiple-clusters-data-lake-store.md
       maintainContext: true
     - name: 使用 Apache Sqoop 匯入和匯出資料
@@ -300,7 +300,7 @@ items:
         href: ../hadoop/apache-hadoop-use-sqoop-powershell.md
         maintainContext: true
       maintainContext: true
-    - name: 工作流程使用 Oozie
+    - name: 使用 Apache Oozie 進行工作流程
       href: ../hdinsight-use-oozie-linux-mac.md
       maintainContext: true
     - name: 使用以時間為基礎的 Apache Oozie 協調器
@@ -456,9 +456,9 @@ items:
   - name: HDInsight 適用的 Windows 工具
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 35ef5face0f64b6766993eeb7f546923726bd166
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 550e028ec66d9f82fd8b1102c6f56b62b9aad8b9
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584327"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630711"

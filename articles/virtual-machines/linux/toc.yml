@@ -117,7 +117,7 @@ items:
       href: disk-scalability-targets.md
     - name: 磁碟備份和災害復原
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-  - name: 網路功能
+  - name: 網路
     href: network-overview.md
   - name: 自動調整應用程式
     href: autoscale.md
@@ -282,6 +282,8 @@ items:
       href: capture-image.md
     - name: 使用 Packer 建置映像
       href: build-image-with-packer.md
+    - name: Azure 中的 RHEL 映像
+      href: rhel-images.md
     - name: 下載現有磁碟
       href: download-vhd.md
   - name: 可用性和級別
@@ -546,9 +548,9 @@ items:
     href: faq.md
 - name: 疑難排解
   href: ../troubleshooting/index.md
-ms.openlocfilehash: e6420c4777e86cecacb1177270c8e5ea9445744d
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: fbf98c5c016d6a64c68c4459b4d27ce5c2f46da6
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52890631"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652645"
