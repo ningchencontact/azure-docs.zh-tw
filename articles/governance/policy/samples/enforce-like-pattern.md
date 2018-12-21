@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 強制執行 like 模式
+title: 範例 - 強制執行 like 模式
 description: 此範例原則會要求資源符合命名慣例的 like 模式。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: c895c92617245f8b60daf463798fac78117a36a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 47ade1081317addadb40fca94bd6c3c5de066f74
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955413"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311570"
 ---
 # <a name="enforce-like-pattern-for-naming-conventions"></a>強制執行命名慣例的 like 模式
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](index.md)檢閱更多範例
+- 在 [Azure 原則範例](index.md)中檢閱更多範例

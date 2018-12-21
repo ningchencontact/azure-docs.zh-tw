@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a4b8d930a2176c16bb9d1cbcd3b67e6f919575ed
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124975"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162217"
 ---
-# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教學課程︰設定 Jenkins 環境以便在 Service Fabric 上啟用 Java 應用程式的 CI/CD
+# <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>教學課程：設定 Jenkins 環境以便在 Service Fabric 上啟用 Java 應用程式的 CI/CD
 
-本教學課程是一個系列的第五部分。 它會示範如何使用 Jenkins 將升級部署至您的應用程式。 在此教學課程中，Service Fabric Jenkins 外掛程式會搭配裝載 Voting 應用程式的 Github 存放庫使用，以將應用程式部署至叢集。
+本教學課程是一個系列的第五部分。 它會示範如何使用 Jenkins 將升級部署至您的應用程式。 在此教學課程中，Service Fabric Jenkins 外掛程式會搭配裝載 Voting 應用程式的 GitHub 存放庫使用，以將應用程式部署至叢集。
 
 在本系列的第五部分中，您了解如何：
 > [!div class="checklist"]
@@ -84,7 +84,7 @@ ms.locfileid: "43124975"
 
 ## <a name="create-and-configure-a-jenkins-job"></a>建立及設定 Jenkins 作業
 
-1. 首先，如果您沒有可用於在 Github 上裝載 Voting 專案的存放庫，請建立一個。 在本教學課程的其餘部分中，存放庫稱為 **dev_test**。
+1. 首先，如果您沒有可用於在 GitHub 上裝載 Voting 專案的存放庫，請建立一個。 在本教學課程的其餘部分中，存放庫稱為 **dev_test**。
 
 1. 在 Jenkins 儀表板上建立**新項目**，網址是 ``http://<HOST-IP>:8080``。
 
@@ -181,7 +181,7 @@ ms.locfileid: "43124975"
     </CodePackage>
     ```
 
-1. 若要初始化可執行應用程式升級的 Jenkins 作業，請將您的新變更推送至您的 Github 存放庫。
+1. 若要初始化可執行應用程式升級的 Jenkins 作業，請將您的新變更推送至您的 GitHub 存放庫。
 
 1. 在 Service Fabric 總管中，按一下 [應用程式] 下拉式清單。 若要查看您的升級狀態，請按一下 [進行中的升級] 索引標籤。
 

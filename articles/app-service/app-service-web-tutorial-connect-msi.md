@@ -1,5 +1,5 @@
 ---
-title: 使用受控識別保護來自 App Service 的 Azure SQL Database 連線 | Microsoft Docs
+title: 使用受控識別保護 SQL Database 連線 - Azure App Service | Microsoft Docs
 description: 了解如何使用受控識別，讓資料庫連線更加安全，以及如何將此受控服務識別套用到其他 Azure 服務。
 services: app-service\web
 documentationcenter: dotnet
@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 42a25d6c13fe1052f4aa14696a66c9c7f1fb4d65
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b7d8a9b0ef48f7daed74fb15263e516d820a6a38
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685679"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259064"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教學課程：使用受控識別保護來自 App Service 的 Azure SQL Database 連線
 
@@ -44,7 +44,7 @@ ms.locfileid: "51685679"
 
 ## <a name="prerequisites"></a>必要條件
 
-本文繼續進行您未完成的[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)。 如果您還沒這麼做，請先依照該教學課程進行。 或者，您可以使用 SQL Database 針對自己的 ASP.NET 應用程式調整步驟。
+本文會從您結束[教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式](app-service-web-tutorial-dotnet-sqldatabase.md)的地方繼續下去。 如果您還沒這麼做，請先依照該教學課程進行。 或者，您可以使用 SQL Database 針對自己的 ASP.NET 應用程式調整步驟。
 
 <!-- ![app running in App Service](./media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png) -->
 
@@ -95,11 +95,10 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 ## <a name="modify-aspnet-code"></a>修改 ASP.NET 程式碼
 
-在 Visual Studio 的 **DotNetAppSqlDb** 專案中，開啟 packages.config 並在套件清單中新增下列一行。
+在 Visual Studio 中，開啟套件管理員主控台，並新增 NuGet 套件 [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)：
 
-```xml
-<package id="Microsoft.Azure.Services.AppAuthentication" version="1.1.0-preview" targetFramework="net461" />
-<package id="Microsoft.IdentityModel.Clients.ActiveDirectory" version="3.14.2" targetFramework="net461" />
+```PowerShell
+Install-Package Microsoft.Azure.Services.AppAuthentication -Version 1.1.0-preview
 ```
 
 開啟 Models\MyDatabaseContext.cs，然後將下列 `using` 陳述式新增至檔案頂端：
@@ -174,6 +173,10 @@ az ad group member list -g $groupid
 ### <a name="reconfigure-azure-ad-administrator"></a>重新設定 Azure AD 管理員
 
 先前，您將受控識別指派為 SQL Database 的 Azure AD 管理員。 您無法使用這個身分識別進行互動式登入 (以新增資料庫使用者)，所以您必須使用真實的 Azure AD 使用者。 若要新增 Azure AD 使用者，請遵循[為 Azure SQL Database 伺服器佈建 Azure Active Directory 管理員](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)的步驟。 
+
+> [!IMPORTANT]
+> 新增之後，除非您想要讓 Azure AD 完全無法從所有的 Azure AD 帳戶存取 SQL Database，否則請勿針對您的 SQL Database 移除此 Azure AD 系統管理員。
+> 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>將權限授與 Azure Active Directory 群組
 

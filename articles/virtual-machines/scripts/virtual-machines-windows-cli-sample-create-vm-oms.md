@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 建立具有 Log Analytics 監視的 Windows Server 2016 VM | Microsoft Docs
-description: Azure CLI 指令碼範例 - 建立具有 Log Analytics 監視的 Windows Server 2016 VM
+title: Azure CLI 範例 - 建立執行 Log Analytics 監視的 Azure VM | Microsoft Docs
+description: Azure CLI 範例 - 建立執行 Windows Server 2016 VM 和 Log Analytics 監視的 Azure VM。
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -15,13 +15,13 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.custom: mvc
-ms.openlocfilehash: d4b73981e3cb21f7b4caefaf443014853929b708
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: mvc,seodec18
+ms.openlocfilehash: a3dcb7a7c15c3bf8e5578371e05519e802355fdc
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403384"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188158"
 ---
 # <a name="monitor-a-vm-with-log-analytics"></a>透過 Log Analytics 監視 VM
 

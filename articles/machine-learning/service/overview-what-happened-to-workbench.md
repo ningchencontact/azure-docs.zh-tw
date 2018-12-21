@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning Workbench 發生什麼事？ | Microsoft Docs
-description: 了解 Workbench 應用程式發生什麼事、Azure Machine Learning 中有什麼變更，以及支援時間表為何。
+title: Workbench 有什麼改變？
+titleSuffix: Azure Machine Learning service
+description: 了解 Workbench 應用程式發生什麼事、Azure Machine Learning 服務中有什麼變更，以及支援時間表為何。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: db09203e86c32a7e03b4b2c4bcc670d16583ab20
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c9559e07cc70cbd7adafd75c23b9e67d45bee48a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879429"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184300"
 ---
-# <a name="what-is-happening-to-workbench-in-azure-machine-learning"></a>Azure Machine Learning 中的 Workbench 發生什麼事？
+# <a name="what-is-happening-to-workbench-in-azure-machine-learning-service"></a>Azure Machine Learning 服務中的 Workbench 發生什麼事？
 
 Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本中淘汰並由其他項目取代，以便為改善的[架構](concept-azure-machine-learning-architecture.md)做準備。 該版本中包含了許多由客戶意見反應所提示的重大更新，這些更新可改善您的體驗。 從實驗執行到模型部署的核心功能沒有變更，但您現在可以使用健全的 <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> 和 [CLI](reference-azure-machine-learning-cli.md) 來完成機器學習工作和管線。  
 
@@ -82,13 +84,13 @@ Workbench 應用程式和一些其他早期的功能已在 2018 年 9 月版本�
  
 如果您要繼續使用在舊模型登錄中註冊的模型，您必須將它們遷移到新工作區。 若要這麼做，您可以[下載模型並在新的工作區中重新註冊它們](how-to-migrate.md)。 
 
-您在舊映像登錄中建立的映像，必須在新工作區中重新建立才能繼續使用它們。 若要這麼做，您可以按照[建立 Docker 映像](how-to-deploy-to-aci.md#configure-an-image)一節中的步驟來操作。 
+您在舊映像登錄中建立的映像，必須在新工作區中重新建立才能繼續使用它們。 您可以按照[設定與建立映像](how-to-deploy-and-where.md#configureimage)章節中的步驟來達成這個目的。 
 
 ## <a name="what-about-deployed-web-services"></a>那麼已部署的 Web 服務呢？
 
 只要 Azure Container Service (ACS) 仍受支援，您使用模型管理帳戶部署為 Web 服務的模型就會繼續運作。 那些 Web 服務甚至會在對模型管理帳戶的支援結束之後繼續運作。 不過，當對舊 CLI 的支援結束時，您管理那些 Web 服務的能力也會結束。
 
-在較新的版本中，部署為 Web 服務的模型會部署至 [Azure 容器執行個體](how-to-deploy-to-aci.md) (ACI) 或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) 叢集。 您也可以[部署至 FPGA 或 IoT Edge](how-to-deploy-and-where.md)。 您可以使用新的 SDK 或 CLI 重新部署您的模型，而不用變更任何評分檔案、相依性和結構描述。 
+在較新的版本中，模型會當作 Web 服務，部署至 Azure Container Instances(ACI) 或 Azure Kubernetes Service (AKS) 叢集。 您也可以部署至 FPGA 或 IoT Edge。 如需詳細資訊，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。 您可以使用新的 SDK 或 CLI 重新部署您的模型，而不用變更任何評分檔案、相依性和結構描述。 
 
 ## <a name="what-about-the-old-sdk--cli"></a>那麼舊的 SDK 和 CLI 呢？
 

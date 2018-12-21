@@ -1,6 +1,6 @@
 ---
-title: 查詢索引 (REST API - Azure 搜尋服務) | Microsoft Docs
-description: 在 Azure 搜尋服務中建立搜尋查詢，並使用搜尋參數來篩選及排序搜尋結果。
+title: 使用 REST API 以程式碼查詢索引 - Azure 搜尋服務
+description: 可在 Azure 搜尋服務中建置搜尋查詢的 HTTP 命令和 REST API 程式碼。 新增搜尋參數以篩選和排序搜尋結果。
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 035dc4ac349513867253e5593e01fab4fec62f6b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: ccdb872646dded34cb50cd64f56733445132c4b7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316915"
 ---
 # <a name="query-your-azure-search-index-using-the-rest-api"></a>使用 REST API 查詢 Azure 搜尋服務索引
 > [!div class="op_single_selector"]

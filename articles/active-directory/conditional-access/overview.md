@@ -14,19 +14,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 2673a0ec1e9ed66c9a1bb6e369ad5300a570ba0a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f0ba365096808954c24beb073f3570499fd23523
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240438"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408271"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>什麼是 Azure Active Directory 中的條件式存取？
 
 安全性是使用雲端之組織的首要考量。 就管理雲端資源而言，雲端安全性的關鍵層面就是身分識別和存取。 在行動優先、雲端至上的世界中，使用者可以使用各種裝置和應用程式、從任何位置存取您組織的資源。 因此，只將焦點放在誰可以存取資源，已不再足夠。 為了掌控安全性與生產力之間的平衡，您在進行存取控制決策時，也必須考量資源存取方式因素。 有了 Azure Active Directory (Azure AD) 條件式存取，您就能夠因應這項需求。 條件式存取是 Azure Active Directory 的功能。 使用條件式存取，您便可以實作會根據條件存取雲端應用程式的自動化存取控制決定。 
+
+完成第一個要素驗證之後，即會強制執行條件式存取原則。 換句話說，條件式存取不適合用來作為計數器衡量拒絕服務 (DoS) 攻擊之類的機制。  
 
 ![控制](./media/overview/81.png)
 
@@ -51,11 +53,16 @@ ms.locfileid: "51240438"
 
 - **[網路位置](location-condition.md)**：從任何位置都可以存取 Azure AD。 如果執行存取嘗試的來源網路位置不在您的 IT 部門控制下，該怎麼辦？ 針對來自公司網路的存取嘗試，使用使用者名稱與密碼的組合可能就足以作為身分識別證明。 如果針對從世界上其他非預期國家或地區起始的存取嘗試，您要求提供更強力的證明，該怎麼辦？ 當您甚至想要封鎖來自特定位置的存取嘗試時，又該怎麼辦？  
 
-- **[裝置管理](conditions.md#device-platforms)** 在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？ 
+- **[裝置管理](conditions.md#device-platforms)**：在 Azure AD 中，使用者可以從種類廣泛的裝置 (包括行動裝置，還有個人裝置) 存取雲端應用程式。 如果您要求只有使用您 IT 部門所管理裝置的人才能嘗試存取，該怎麼辦？ 當您甚至想要封鎖特定裝置類型存取您環境中的雲端應用程式時，又該怎麼辦？ 
 
 - **[用戶端應用程式](conditions.md#client-apps)**：現今，您可以使用各種不同的應用程式類型 (例如 Web 型應用程式、行動應用程式或傳統型應用程式) 來存取許多雲端應用程式。 如果存取嘗試是使用造成已知問題的用戶端應用程式類型來執行的，該怎麼辦？ 如果您要求必須使用 IT 部門所管理的裝置才能使用某些應用程式類型，又該怎麼辦？ 
 
 這些問題和相關解答代表了 Azure AD 條件式存取的常見存取案例。 條件式存取是 Azure Active Directory 的功能，可讓您使用以原則為基礎的方法來處理存取案例。
+
+  
+
+
+> [!VIDEO https://www.youtube.com/embed/eLAYBwjCGoA]
 
 
 ## <a name="conditional-access-policies"></a>條件式存取原則
@@ -107,7 +114,5 @@ ms.locfileid: "51240438"
     - 存取控制，請參閱 [Azure Active Directory 條件式存取中的存取控制](controls.md)。
 
 - 如果您想要取得設定條件式存取原則的某些經驗，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
-
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
 
 - 如果您想要具有建議原則的逐步部署計劃，請參閱[條件式存取部署計劃](https://aka.ms/conditionalaccessdeploymentplan)

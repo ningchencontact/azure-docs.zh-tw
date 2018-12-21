@@ -1,5 +1,6 @@
 ---
-title: Azure 負載平衡器概觀 | Microsoft Docs
+title: 什麼是 Azure Load Balancer？
+titlesuffix: Azure Load Balancer
 description: Azure 負載平衡器功能、架構和實作的概觀。 了解 Load Balancer 的運作方式，並將其用於雲端。
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer service and what I can use it for.
 ms.devlang: na
 ms.topic: overview
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/2018
 ms.author: kumud
-ms.openlocfilehash: 6368b47400f6ea06babfe538cf6f58b18cc49117
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 3b1f2374618a0fdb446c4d0bf59fa14a828639ea
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219574"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185608"
 ---
 # <a name="what-is-azure-load-balancer"></a>什麼是 Azure Load Balancer？
 
@@ -62,7 +64,7 @@ Load Balancer 為 TCP 和 UDP 應用程式提供下列基本功能：
 
     ![雜湊型分散](./media/load-balancer-overview/load-balancer-distribution.png)
 
-    *圖：雜湊型分送*
+    *圖：雜湊型分散*
 
 * **連接埠轉送**
 
@@ -129,7 +131,7 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 
 ![公用 Load Balancer 範例](./media/load-balancer-overview/IC727496.png)
 
-圖：使用公用 Load Balancer 來進行網路流量負載平衡
+*圖：使用公用 Load Balancer 來進行網路流量負載平衡*
 
 當網際網路用戶端在 TCP 通訊埠 80 上傳送網頁要求至 Web 應用程式的公用 IP 位址時，Azure Load Balancer 會在負載平衡集中，將要求分配至這三部 VM。 如需 Load Balancer 演算法的詳細資訊，請參閱本文的 [Load Balancer 功能](load-balancer-overview.md##fundamental-load-balancer-features)一節。
 
@@ -143,12 +145,12 @@ Load Balancer 支援基本和標準 SKU，兩者在案例規模、功能、價�
 
 * **虛擬網路內**：從虛擬網路中的 VM 至一組位於相同虛擬網路內之 VM 的負載平衡。
 * **在跨單位虛擬網路中**：從內部部署電腦至一組位於相同虛擬網路內之 VM 的負載平衡。 
-* **多層應用程式**：網際網路對向多層式應用程式 (其中的後端層並非網際網路對向) 的負載平衡。 後端層需要來自網際網路對向層的流量負載平衡 (請見下一張圖)。
-* **針對企業營運應用程式**：在 Azure 中代管的企業營運應用程式的負載平衡，而不額外負載平衡器硬體或軟體。 此情節包括流量已負載平衡之電腦集合中的內部部署伺服器。
+* **多層式應用程式**：網際網路對向多層式應用程式 (其中的後端層並非網際網路對向) 的負載平衡。 後端層需要來自網際網路對向層的流量負載平衡 (請見下一張圖)。
+* **針對企業營運應用程式**：在 Azure 中代管的企業營運應用程式的負載平衡，而不需要額外的負載平衡器硬體或軟體。 此情節包括流量已負載平衡之電腦集合中的內部部署伺服器。
 
 ![內部 Load Balancer 範例](./media/load-balancer-overview/IC744147.png)
 
-圖：使用公用和內部 Load Balancer 來進行多層式應用程式負載平衡
+*圖：使用公用和內部 Load Balancer 來進行多層式應用程式負載平衡*
 
 ## <a name="pricing"></a>價格
 標準 Load Balancer 使用量的收費是根據設定的負載平衡規則數量，以及處理輸入和輸出的資料量而定。 如需標準 Load Balancer 的定價資訊，請瀏覽 [Load Balancer 定價](https://azure.microsoft.com/pricing/details/load-balancer/)頁面。

@@ -10,15 +10,15 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: 004db061e721f0169491e98bd8e7cdd86e08bb01
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.date: 12/04/2018
+ms.openlocfilehash: 8780e145845d820ef0c6ff2c43891287c1902e2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963582"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000919"
 ---
-# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：使用 DMS 在線上將 PostgreSQL 移轉至適用於 PostgreSQL 的 Azure 資料庫
+# <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教學課程：在線上使用 DMS 將 PostgreSQL 移轉至適用於 PostgreSQL 的 Azure 資料庫
 您可以使用 Azure 資料庫移轉服務，在最短的停機時間內將資料庫從內部部署 PostgreSQL 執行個體移轉至[適用於 PostgreSQL 的 Azure 資料庫](https://docs.microsoft.com/azure/postgresql/)。 換句話說，移轉可在最短的應用程式停止運作時間內完成。 在此教學課程中，您會在 Azure 資料庫移轉服務中使用線上移轉活動，將 **DVD 出租**範例資料庫從內部部署的 PostgreSQL 9.6 執行個體移轉至適用於 PostgreSQL 的 Azure 資料庫。
 
 在本教學課程中，您了解如何：
@@ -29,13 +29,16 @@ ms.locfileid: "50963582"
 > * 執行移轉。
 > * 監視移轉。
 
+> [!NOTE]
+> 使用 Azure 資料庫移轉服務來執行線上移轉，需要根據進階 (預覽) 定價層來建立執行個體。
+
 > [!IMPORTANT]
 > 為了獲得最佳的移轉體驗，Microsoft 建議在目標資料庫所在的同一個 Azure 區域中，建立 Azure 資料庫移轉服務的執行個體。 跨區域或地理位置移動資料可能使移轉程序變慢，並產生錯誤。
 
 ## <a name="prerequisites"></a>必要條件
 若要完成本教學課程，您需要：
 
-- 下載並安裝 [PostgreSQL 社群版](https://www.postgresql.org/download/) 9.5、9.6 或 10.3。 來源 PostgreSQL 伺服器版本必須是 9.5.11、9.6.7，10.3 或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)一文。
+- 下載並安裝 [PostgreSQL 社群版](https://www.postgresql.org/download/) 9.5、9.6 或 10。 來源 PostgreSQL 伺服器版本必須是 9.5.11、9.6.7、10 或更新版本。 如需詳細資訊，請參閱[支援的 PostgreSQL 資料庫版本](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions)一文。
 
     此外，內部部署 PostgreSQL 版本必須符合適用於 PostgreSQL 的 Azure 資料庫版本。 例如，PostgreSQL 9.5.11.5 只能移轉至「適用於 PostgreSQL 的 Azure 資料庫」9.5.11，而無法移轉至 9.6.7。
 
@@ -49,7 +52,7 @@ ms.locfileid: "50963582"
 - 叫用 CLI 有兩種方法：
     - 在 Azure 入口網站右上角，選取 [Cloud Shell] 按鈕：
  
-       ![Azure 入口網站中的 [Cloud Shell] 按鈕](media\tutorial-postgresql-to-azure-postgresql-online\cloud-shell-button.png)
+       ![Azure 入口網站中的 [Cloud Shell] 按鈕](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
  
     - 在本機安裝並執行 CLI。 CLI 2.0 是可用於管理 Azure 資源的命令列工具。
      

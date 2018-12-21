@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: ee6b93c26918b4f70eb23e7055db813f35d3787d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 2cce962058357e104ee2f8b8677af8fa4a31f80a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445730"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409270"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>搭配 Windows 使用 Azure 檔案共用
 [Azure 檔案服務](storage-files-introduction.md)是 Microsoft 易於使用的雲端檔案系統。 Azure 檔案共用可在 Windows 和 Windows Server 中順暢地使用。 本文討論搭配 Windows 和 Windows Server 使用 Azure 檔案共用的考量。
@@ -41,15 +41,24 @@ ms.locfileid: "52445730"
 > 我們一律建議針對您的 Windows 版本採取最新的 KB。
 
 ## <a name="prerequisites"></a>必要條件 
-* **儲存體帳戶名稱**：若要掛接 Azure 檔案共用，您需要儲存體帳戶的名稱。
+* **儲存體帳戶名稱**：若要掛接 Azure 檔案共用，您將需要儲存體帳戶的名稱。
 
-* **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您需要主要 (或次要) 金鑰。 掛接目前不支援 SAS 金鑰。
+* **儲存體帳戶金鑰**：若要掛接 Azure 檔案共用，您將需要主要 (或次要) 儲存體金鑰。 掛接目前不支援 SAS 金鑰。
 
-* **確定已開啟連接埠 445**：SMB 通訊協定要求 TCP 連接埠 445 為開啟狀態；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 請記得將 `your-storage-account-name` 取代為您儲存體帳戶的相關名稱。
+* **請確定已開啟連接埠 445**：使用 SMB 通訊協定時必須開啟 TCP 連接埠 445；如果連接埠 445 遭到封鎖，連線將會失敗。 您可以使用 `Test-NetConnection` Cmdlet，查看您的防火牆是否封鎖連接埠 445。 下列 PowerShell 程式碼假設您已安裝 AzureRM PowerShell 模組，請參閱[安裝 Azure PowerShell 模組](/powershell/azure/install-azurerm-ps)以獲得詳細資訊。 請記得以儲存體帳戶的相關名稱取代 `<your-storage-account-name>` 和 `<your-resoure-group-name>`。
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
-    
+    $resourceGroupName = "<your-resource-group-name>"
+    $storageAccountName = "<your-storage-account-name>"
+
+    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # already logged in.
+    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
+    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
+    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
+    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
     ```
 
     如果連線成功，您應會看見下列輸出：

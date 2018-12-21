@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
 ms.author: daveba
-ms.openlocfilehash: 5d67d25912df5040665b3a04858be0f3807e8112
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ee4b504cf26456baa7d10eab05305eee5e36c35a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623820"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191898"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>教學課程：使用 Windows VM 系統指派的受控識別來存取 Azure SQL
 
@@ -63,6 +63,8 @@ ms.locfileid: "51623820"
 
 - [SQL Database 和 SQL 資料倉儲的通用驗證 (MFA 的 SSMS 支援)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [使用 SQL Database 或 SQL 資料倉儲設定和管理 Azure Active Directory 驗證](/azure/sql-database/sql-database-aad-authentication-configure)
+
+SQL DB 需要唯一的 AAD 顯示名稱。 因此，AAD 帳戶 (例如使用者、群組和服務主體 (應用程式)) 和針對受控識別啟用的 VM 名稱，在 AAD 中都必須具有唯一定義的顯示名稱。 SQL DB 會在這類使用者的 T-SQL 建立期間檢查 AAD 顯示名稱，如果這不是唯一的名稱，則命令無法要求對指定的帳戶提供唯一的 AAD 顯示名稱。
 
 1.  啟動 SQL Server Management Studio。
 2.  在 [連線到伺服器] 對話方塊中，在 [伺服器名稱] 欄位中輸入您的 SQL 伺服器名稱。

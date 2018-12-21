@@ -1,5 +1,5 @@
 ---
-title: '教學課程：在 HDInsight 上搭配使用 Apache Kafka 與 Apache Storm - Azure '
+title: 教學課程：使用 Apache Storm 搭配 Apache Kafka 來讀取和寫入資料 - Azure HDInsight
 description: 了解如何在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka 以建立串流管線。 在本教學課程中，您會使用 KafkaBolt 與 KafkaSpout 元件從 Kafka 串流處理資料。
 services: hdinsight
 author: hrasheed-msft
@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 05/21/2018
-ms.openlocfilehash: 74cdaed91624e9d0602ce6a85ccc5cd341b9519e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/06/2018
+ms.openlocfilehash: 1c2a61ba936fa86bb3acb560909b29cda762693c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496636"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166569"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教學課程：在 HDInsight 上搭配使用 Apache Storm 與 Apache Kafka
 
@@ -565,11 +565,11 @@ Kafka 會將資料儲存到_主題_中。 在啟動 Storm 拓撲之前，您必�
 
     此命令使用的參數如下：
 
-    * `org.apache.storm.flux.Flux`︰使用 Flux 來設定及執行此拓撲。
+    * `org.apache.storm.flux.Flux`：使用 Flux 來設定及執行此拓撲。
 
     * `--remote`：將拓撲提交至 Nimbus。 拓撲會分散於叢集中的背景工作節點。
 
-    * `-R /writer.yaml`︰使用 `writer.yaml` 檔案來設定拓撲。 `-R` 表示此資源包含在 jar 檔案中。 剛檔案位於 jar 的根目錄中，所以 `/writer.yaml` 是它的路徑。
+    * `-R /writer.yaml`：使用 `writer.yaml` 檔案來設定拓撲。 `-R` 表示此資源包含在 jar 檔案中。 剛檔案位於 jar 的根目錄中，所以 `/writer.yaml` 是它的路徑。
 
     * `--filter`：使用 `dev.properties` 檔案的值填入 `writer.yaml` 拓撲的項目。 例如，使用檔案的 `kafka.topic` 項目值取代拓撲定義的 `${kafka.topic}` 項目。
 

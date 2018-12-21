@@ -1,21 +1,22 @@
 ---
-title: 使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
-description: 使用 PowerShell 建立 Azure 原則指派，以識別不相容資源。
+title: 建立原則，以便使用 Azure CLI 識別不相容資源
+description: 使用 Azure CLI 建立 Azure 原則指派，以識別不相容資源。
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
-ms.openlocfilehash: 4954ca42af1755ea62e7142048d48805397b6a0a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+manager: carmonm
+ms.custom: seodec18
+ms.openlocfilehash: 99e8b782f3f52ed89b5188de19d70cb276a0eb84
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968476"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315821"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>使用 Azure CLI 建立原則指派，以識別 Azure 環境中的不相容資源
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>建立原則指派，以便使用 Azure CLI 識別不相容資源
 
 了解 Azure 中合規性的第一個步驟是識別您資源的狀態。
 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
@@ -32,7 +33,7 @@ Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。
 
 ## <a name="prerequisites"></a>必要條件
 
-使用 Azure CLI 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權執行資源提供者的註冊動作作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
+使用 Azure CLI 註冊 Policy Insights 資源提供者。 註冊資源提供者，以確保您的訂用帳戶可搭配它使用。 若要註冊資源提供者，您必須有權註冊資源提供者作業。 這項作業包含在「參與者」和「擁有者」角色中。 執行下列命令以註冊資源提供者：
 
 ```azurecli-interactive
 az provider register --namespace 'Microsoft.PolicyInsights'
@@ -49,14 +50,14 @@ az provider register --namespace 'Microsoft.PolicyInsights'
 執行下列命令以建立原則指派：
 
 ```azurecli-interactive
-az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit Virtual Machines without Managed Disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
+az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit VMs without managed disks Assignment' --scope '<scope>' --policy '<policy definition ID>'
 ```
 
 上述命令會使用下列資訊：
 
 - **Name** - 指派的實際名稱。  例如，我們使用了 audit-vm-manageddisks。
-- **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用 Audit Virtual Machines without Managed Disks (稽核沒有受控磁碟指派的虛擬機器)。
-- **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義「Audit VMs that do not use managed disks (稽核沒有受控磁碟的虛擬機器)」的 ID。 若要取得原則定義識別碼，請執行此命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **DisplayName** - 原則指派的顯示名稱。 在此案例中，您會使用*稽核沒有受控磁碟指派的虛擬機器*。
+- **原則** – 原則定義識別碼，這是您用來建立指派的根基。 在此案例中，即為原則定義*稽核沒有受控磁碟的虛擬機器*的 ID。 若要取得原則定義識別碼，請執行此命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **範圍** – 範圍會決定在哪些資源或資源群組上強制執行原則指派。 範圍從訂用帳戶到資源群組。 請務必將 &lt;scope&gt; 取代為您的資源群組。
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源
@@ -64,7 +65,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 若要檢視這個新指派之下不符合規範的資源，請執行下列命令來取得原則指派識別碼：
 
 ```azurepowershell-interactive
-$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit Virtual Machines without Managed Disks Assignment' }
+$policyAssignment = Get-AzureRmPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
 $policyAssignment.PolicyAssignmentId
 ```
 
@@ -106,7 +107,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 
 ## <a name="clean-up-resources"></a>清除資源
 
-此集合中的其他指南是以本快速入門為基礎。 如果您打算繼續進行後續的教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請藉由執行以下命令來刪除您所建立的指派：
+若要移除建立的指派，請使用下列命令：
 
 ```azurecli-interactive
 az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptions/<subscriptionID>/<resourceGroupName>'
@@ -116,7 +117,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 在這個快速入門中，您指派原則定義以識別 Azure 環境中的不相容資源。
 
-若要深入了解如何指派原則並確保您在**未來**建立的資源符合規範，請繼續進行教學課程：
+若要深入了解指派原則，以驗證新資源是相容的，請繼續進行以下的教學課程：
 
 > [!div class="nextstepaction"]
 > [建立及管理原則](./tutorials/create-and-manage.md)

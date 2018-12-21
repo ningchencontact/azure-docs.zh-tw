@@ -1,5 +1,5 @@
 ---
-title: 建立 Azure 時間序列深入解析單一頁面 Web 應用程式
+title: 建立 Azure 時間序列深入解析單一頁面 Web 應用程式 | Microsoft Docs
 description: 了解如何建立會從 TSI 環境查詢及轉譯資料的單一頁面 Web 應用程式。
 author: ashannon7
 ms.service: time-series-insights
@@ -7,12 +7,13 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
-ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: fccd509d4f16cee86d30feb0e838f1493cae4e0b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626750"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275834"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>教學課程：建立 Azure 時間序列深入解析單一頁面 Web 應用程式
 
@@ -90,8 +91,8 @@ ms.locfileid: "39626750"
    > [!NOTE]
    > 根據瀏覽器，您在儲存檔案前可能必須先更正副檔名 (變更為 HTML 或 CSS)。
 
-   - **index.html**：頁面的 HTML 和 JavaScript：https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
-   - **sampleStyles.css**：CSS 樣式表：https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
+   - **index.html**：頁面的 HTML 和 JavaScript： https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
+   - **sampleStyles.css：** CSS 樣式表： https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
 1. 啟動並登入 Visual Studio，以建立 Web 應用程式的專案。 在 [檔案] 功能表上，選取 [開啟]、[網站] 選項。 在 [開啟網站] 對話方塊上，選取您用來儲存 HTML 和 CSS 檔案的工作目錄，然後按一下 [開啟]：
 

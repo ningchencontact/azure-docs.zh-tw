@@ -1,6 +1,7 @@
 ---
-title: 教學課程：使用 Azure Machine Learning 服務在 Azure 容器執行個體 (ACI) 中部署影像分類模型
-description: 本教學課程會示範如何使用 Azure Machine Learning 服務，搭配 scikit-learn 在 Python Jupyter Notebook 中部署影像分類模型。  本教學課程是兩部分系列的第二部分。
+title: 映像分類教學課程：部署模型
+titleSuffix: Azure Machine Learning service
+description: 本教學課程會示範如何使用 Azure Machine Learning 服務，搭配 scikit-learn 在 Python Jupyter Notebook 中部署影像分類模型。 本教學課程是兩部分系列的第二部分。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,40 +10,43 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 841448f477accb8a73d543447cd317bb9b427408
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: ea446c89fc74fca444793a5e0f803a54fa251ed1
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497589"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312165"
 ---
-# <a name="tutorial-2--deploy-an-image-classification-model-in-azure-container-instance-aci"></a>教學課程 #2：在 Azure 容器執行個體 (ACI) 中部署影像分類模型
+# <a name="tutorial--deploy-an-image-classification-model-in-azure-container-instance"></a>教學課程：在 Azure 容器執行個體中部署映像分類模型
 
 本教學課程是**兩部分教學課程系列的第二部分**。 在[先前的教學課程](tutorial-train-models-with-aml.md)中，您定型了機器學習模型，並在您的雲端工作區內註冊模型。  
 
-現在，您已準備好將模型作為 Web 服務，於 [Azure 容器執行個體](https://docs.microsoft.com/azure/container-instances/) (ACI) 中進行部署。 Web 服務是一種封裝評分邏輯和模型本身的映像 (在此案例中為 Docker 映像)。 
+現在，您已準備好將模型作為 Web 服務，於 [Azure 容器執行個體](https://docs.microsoft.com/azure/container-instances/)中進行部署。 Web 服務是一種封裝評分邏輯和模型本身的映像 (在此案例中為 Docker 映像)。 
 
-在教學課程的這一部分中，您會使用 Azure Machine Learning 服務 (預覽) 來：
+在本教學課程中，您可以使用 Azure Machine Learning 服務來：
 
 > [!div class="checklist"]
 > * 設定您的測試環境
 > * 從您的工作區擷取模型
 > * 於本機測試模型
-> * 將模型部署至 ACI
+> * 將模型部署到容器執行個體
 > * 測試已部署的模型
 
-ACI 不適合用於生產環境部署，但非常適合用來測試及了解工作流程。 如需可調整的生產環境部署，請考慮使用 [Azure Kubernetes Service](how-to-deploy-to-aks.md)。
+容器執行個體不適合用於生產環境部署，但非常適合用來測試及了解工作流程。 如需可調整的生產環境部署，請考慮使用 Azure Kubernetes Service。 如需詳細資訊，請參閱[部署方法和位置](how-to-deploy-and-where.md)。
 
 ## <a name="get-the-notebook"></a>取得 Notebook
 
-為了方便起見，此教學課程以 [Jupyter Notebook](https://aka.ms/aml-notebook-tut-02) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `02.deploy-models.ipynb` Notebook。
+為了方便起見，此教學課程以 [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part2-deploy.ipynb) 形式提供。 在 Azure Notebooks 或您自己的 Jupyter Notebook 伺服器中執行 `tutorials/img-classification-part2-deploy.ipynb` Notebook。
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
+>[!NOTE]
+> 本文中的程式碼使用 Azure Machine Learning SDK 1.0.2 版進行測試。
 
 ## <a name="prerequisites"></a>必要條件
 
-完成[教學課程 #1：使用 Azure Machine Learning 服務定型影像分類模型](tutorial-train-models-with-aml.md) Notebook中的模型定型。  
+在下列 Notebook 中完成模型訓練：[教學課程 1：使用 Azure Machine Learning 服務將映像分類模型定型](tutorial-train-models-with-aml.md)。  
 
 
 ## <a name="set-up-the-environment"></a>設定 Azure 環境
@@ -146,7 +150,7 @@ print('Overall accuracy:', np.average(y_hat == y_test))
 使用 `matplotlib`，將混淆矩陣作為圖表顯示。 在此圖表中，X 軸代表實際值，Y 軸代表預測值。 每一格中的顏色代表錯誤率。 顏色越淡，表示錯誤率越高。 例如，很多 5 都錯誤分類為 3。 因此，您會在 (5,3) 看到明亮的方格。
 
 ```python
-# normalize the diagnal cells so that they don't overpower the rest of the cells when visualized
+# normalize the diagonal cells so that they don't overpower the rest of the cells when visualized
 row_sums = conf_mx.sum(axis=1, keepdims=True)
 norm_conf_mx = conf_mx / row_sums
 np.fill_diagonal(norm_conf_mx, 0)
@@ -166,23 +170,23 @@ plt.savefig('conf.png')
 plt.show()
 ```
 
-![混淆矩陣](./media/tutorial-deploy-models-with-aml/confusion.png)
+![顯示混淆矩陣的圖表](./media/tutorial-deploy-models-with-aml/confusion.png)
 
 ## <a name="deploy-as-web-service"></a>作為 Web 服務部署
 
-當您測試完模型，並且對結果感到滿意之後，便可將模型作為 ACI 中的託管 Web 服務進行部署。 
+當您測試完模型，並且對結果感到滿意之後，便可將模型作為容器執行個體中的託管 Web 服務進行部署。 
 
-若要建置正確的 ACI 環境，請提供下列項目：
+若要建置正確的容器執行個體環境，請提供下列項目：
 * 示範如何使用模型的評分指令碼
 * 顯示需要安裝哪些套件的環境檔案
-* 用於建置 ACI 的設定檔
+* 用於建置容器執行個體的設定檔
 * 您之前定型的模型
 
 <a name="make-script"></a>
 
 ### <a name="create-scoring-script"></a>建立評分指令碼
 
-建立稱為 score.py 的評分指令碼。Web 服務呼叫會使用此指令碼示範如何使用模型。
+建立稱為 score.py 的評分指令碼。 Web 服務呼叫會使用此指令碼來說明如何使用模型。
 
 您必須在評分指令碼中包含兩個必要函式：
 * `init()` 函式，通常會將模型載入全域物件。 此函式只會在 Docker 容器啟動時執行一次。 
@@ -237,7 +241,7 @@ with open("myenv.yml","r") as f:
 
 ### <a name="create-configuration-file"></a>建立組態檔
 
-建立部署設定檔，並指定您 ACI 容器所需要的 CPU 數量及 RAM GB 數。 雖然這取決於您的模型，但預設的 1 核心及 1 GB RAM 通常對許多模型來說便已足夠。 若您稍後需要更多，您需要重新建立映像並重新部署服務。
+建立部署設定檔，並指定您容器執行個體容器所需要的 CPU 數量及 RAM GB 數。 雖然這取決於您的模型，但預設的 1 核心及 1 GB RAM 通常對許多模型來說便已足夠。 若您稍後需要更多，您需要重新建立映像並重新部署服務。
 
 ```python
 from azureml.core.webservice import AciWebservice
@@ -248,18 +252,18 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores=1,
                                                description='Predict MNIST with sklearn')
 ```
 
-### <a name="deploy-in-aci"></a>在 ACI 中部署
+### <a name="deploy-in-container-instances"></a>在容器執行個體中部署
 **預估完成時間：7 到 8 分鐘**
 
 設定映像並部署。 下列程式碼會執行這些步驟：
 
 1. 使用以下程式碼建置映像：
-   * 評分檔案 (`score.py`)
-   * 環境檔案 (`myenv.yml`)
-   * 模型檔案
+   * 評分檔案 (`score.py`)。
+   * 環境檔案 (`myenv.yml`)。
+   * 模型檔案。
 1. 在工作區下註冊該映像。 
-1. 將映像傳送至 ACI 容器。
-1. 使用映像在 ACI 中啟動容器。
+1. 將映像傳送到容器執行個體容器。
+1. 使用映像在容器執行個體中啟動容器。
 1. 取得 Web 服務 HTTP 端點。
 
 
@@ -282,7 +286,7 @@ service = Webservice.deploy_from_model(workspace=ws,
 service.wait_for_deployment(show_output=True)
 ```
 
-取得評分 Web 服務的 HTTP 端點，該端點會接受 REST 用戶端呼叫。 此端點可和任何想要測試 Web 服務，或想要整合應用程式與服務的人共用。 
+取得評分 Web 服務的 HTTP 端點，該端點會接受 REST 用戶端呼叫。 您可以和任何想要測試 Web 服務，或想要將 Web 服務整合至應用程式的使用者共用此端點。 
 
 ```python
 print(service.scoring_uri)
@@ -294,7 +298,7 @@ print(service.scoring_uri)
 先前您已使用模型的本機版本，對所有測試資料進行評分。 現在，您可以使用來自測試資料的 30 個影像隨機樣本測試已部署模型。  
 
 下列程式碼會執行這些步驟：
-1. 將資料作為 JSON 陣列傳送至 ACI 中的託管 Web 服務。 
+1. 將資料作為 JSON 陣列傳送至容器執行個體中的託管 Web 服務。 
 
 1. 使用 SDK 的 `run` API 叫用服務。 您也可以使用 HTTP 工具 (例如 curl) 進行原始呼叫。
 
@@ -335,7 +339,7 @@ for s in sample_indices:
 plt.show()
 ```
 
-此為其中一個測試影像隨機樣本的結果：![結果](./media/tutorial-deploy-models-with-aml/results.png)
+此為其中一個測試影像隨機樣本的結果：![顯示結果的圖形](./media/tutorial-deploy-models-with-aml/results.png)
 
 您也可以傳送原始 HTTP 要求來測試 Web 服務。
 
@@ -363,7 +367,7 @@ print("prediction:", resp.text)
 
 ## <a name="clean-up-resources"></a>清除資源
 
-若要保留資源群組及工作區，以用於其他教學課程和探索，您可以使用此 API 呼叫，只刪除 ACI 部署：
+若要保留資源群組及工作區，以用於其他教學課程和探索，您可以使用此 API 呼叫，只刪除容器執行個體部署：
 
 ```python
 service.delete()
@@ -374,13 +378,6 @@ service.delete()
 
 ## <a name="next-steps"></a>後續步驟
 
-在本 Azure Machine Learning 服務教學課程中，您使用了 Python 來：
++ 了解所有的 [Azure Machine Learning 服務部署選項](how-to-deploy-and-where.md)，包括 ACI、Azure Kubernetes Service、FPGA 和 IoT Edge。
 
-> [!div class="checklist"]
-> * 設定您的測試環境
-> * 從您的工作區擷取模型
-> * 於本機測試模型
-> * 將模型部署至 ACI
-> * 測試已部署的模型
- 
-您也可以試試[自動選取演算法](tutorial-auto-train-models.md)教學課程，了解 Azure Machine Learning 服務為您模型自動選取及調整最佳演算法，並為您建置該模型的方式。
++ 了解 Azure Machine Learning 服務如何為您的模型自動選取及調整最佳演算法，並為您建置該模型。 請試試[自動選取演算法](tutorial-auto-train-models.md)教學課程。 

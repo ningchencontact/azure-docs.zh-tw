@@ -1,24 +1,27 @@
 ---
-title: Azure Kubernetes 叢集的服務主體
+title: (已被取代) Azure Kubernetes 叢集的服務主體
 description: 在 Azure Container Service 中建立和管理 Kubernetes 叢集的 Azure Active Directory 服務主體
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 53bb09824a88980a171fa4067a9efd2fc067a898
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992153"
 ---
-# <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
+# <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(已被取代) 在 Container Service 中設定 Kubernetes 叢集的 Azure AD 服務主體
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需本文中使用 Azure Kubernetes Service 的更新版本，請參閱[服務主體與 Azure Kubernetes Service (AKS)](../../aks/kubernetes-service-principal.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 在 Azure Container Service 中，Kubernetes 叢集需要 [Azure Active Directory 服務主體](../../active-directory/develop/app-objects-and-service-principals.md)，才能與 Azure API 進行互動。 需要服務主體，才能以動態方式管理資源，例如[使用者定義的路由](../../virtual-network/virtual-networks-udr-overview.md)及[第 4 層 Azure Load Balancer](../../load-balancer/load-balancer-overview.md)。
 
@@ -94,7 +97,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>選項 2︰在使用 `az acs create` 建立叢集時產生服務主體
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>選項 2：在使用 `az acs create` 建立叢集時產生服務主體
 
 如果您執行 [`az acs create`](/cli/azure/acs#az-acs-create) 命令來建立 Kubernetes 叢集，您可以選擇自動產生服務主體。
 

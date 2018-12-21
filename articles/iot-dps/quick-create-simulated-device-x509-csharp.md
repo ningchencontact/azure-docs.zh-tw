@@ -10,17 +10,17 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d9b4777067ed1ee9f253714bc82c2a20aaa0d127
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156454"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997034"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 X.509 裝置
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
 
-這些步驟示範如何在執行 Windows OS 的開發機器上建置 [Azure IoT 中樞 C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) 所模擬的 X.509 裝置範例，並將模擬的裝置與裝置佈建服務和 IoT 中樞連線。
+這些步驟會示範如何使用[適用於 C# 的 Azure IoT 範例](https://github.com/Azure-Samples/azure-iot-samples-csharp)，在執行 Windows OS 的開發電腦上，模擬 X.509 裝置。 此範例也會使用裝置佈建服務，將模擬的裝置連線至 IoT 中樞。
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
@@ -35,14 +35,14 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 確定您已在電腦上安裝 [.Net Core SDK](https://www.microsoft.com/net/download/windows)。 
+1. 確定您已在電腦上安裝 [.Net Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
 
 1. 確定 `git` 已安裝在電腦上，並已新增至命令視窗可存取的環境變數。 請參閱[軟體自由保護協會的 Git 用戶端工具](https://git-scm.com/download/)以取得所要安裝的最新版 `git` 工具，其中包括 **Git Bash** (您可用來與本機 Git 存放庫互動的命令列應用程式)。 
 
-4. 開啟命令提示字元或 Git Bash。 複製 [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub 存放庫：
+1. 開啟命令提示字元或 Git Bash。 複製 C# GitHub 存放庫的 Azure IoT 範例：
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="create-a-self-signed-x509-device-certificate-and-individual-enrollment-entry"></a>建立自我簽署的 X.509 裝置憑證和個別的註冊項目
@@ -52,13 +52,13 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 * 自我簽署憑證僅適用於測試，不應該用於生產環境。
 * 自我簽署憑證的預設到期日為一年。
 
-您會使用[適用於 .NET 的 Azure IoT SDK](https://github.com/Azure/azure-iot-sdk-csharp.git) 中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
+您將會使用[佈建裝置用戶端範例 - X.509 證明](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample)中的範例程式碼建立憑證，以便與模擬裝置的個別註冊項目搭配使用。
 
 
 1. 在命令提示字元中，將目錄變更到 X.509 裝置佈建範例的專案目錄。
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientX509
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample
     ```
 
 2. 範例程式碼設定為使用儲存在受密碼保護之 PKCS12 格式檔案 (certificate.pfx) 內的 X.509 憑證。 此外，您需要公開金鑰憑證檔案 (certificate.cer)，稍後才能在本快速入門中建立個別的註冊。 若要產生自我簽署的憑證及其相關聯的 .cer 和 .pfx 檔案，請執行下列命令：

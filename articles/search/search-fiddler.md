@@ -1,5 +1,5 @@
 ---
-title: 在 Fiddler 或 Postman 中探索 REST API (Azure 搜尋服務 REST) | Microsoft Docs
+title: 在 Fiddler 或 Postman Web HTTP 測試工具中探索 REST API - Azure 搜尋服務
 description: 如何使用 Fiddler 或 Postman 以對 Azure 搜尋服務發出 HTTP 要求和 REST API 呼叫。
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
 ms.author: heidist
-ms.openlocfilehash: eba41086da645c2ff5cee65f9395267227cb1c11
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: f73ec81686575efde70b7f90239299ec4deca00c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190180"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312970"
 ---
 # <a name="explore-azure-search-rest-apis-using-fiddler-or-postman"></a>使用 Fiddler 或 Postman 探索 Azure 搜尋服務 REST API
 
@@ -110,13 +111,13 @@ REST 呼叫需要服務 URL 和每個要求的存取金鑰。 搜尋服務是同
 
 ### <a name="fiddler"></a>Fiddler
 
-將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下左上方的 [執行] 以傳送完成的要求。
+將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [執行] 以傳送完成的要求。
 
 ![Fiddler 要求本文][7]
 
 ### <a name="postman"></a>postman
 
-將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下左上方的 [傳送] 以傳送完成的要求。
+將索引定義複製到要求本文，類似於以下螢幕擷取畫面，然後按一下右上方的 [傳送] 以傳送完成的要求。
 
 ![Postman 要求本文][8]
 

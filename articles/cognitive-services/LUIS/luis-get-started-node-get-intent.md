@@ -1,23 +1,26 @@
 ---
-title: Node.js 快速入門 - 預測意圖 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 Node.js，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
+title: 取得意圖 (Node.js)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 Node.js，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 37a94b217e2b9c0d417ad0bdd7678b13e333305d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92e10b1f4ec8be1dc67ff449df32ef76e365b5f2
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038913"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162659"
 ---
-# <a name="quickstart-get-intent-using-nodejs"></a>快速入門：使用 Node.js 來取得意圖
+# <a name="quickstart-get-intent-using-nodejs"></a>快速入門：使用 Node.js 取得意圖
+
+在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -31,7 +34,7 @@ ms.locfileid: "47038913"
 
 
 > [!NOTE] 
-> 從 [**LUIS-Samples** Github 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node)可以取得完整 Node.js 解決方案。
+> 從 [**LUIS-Samples** GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/analyze-text/node)可取得完整的 Node.js 解決方案。
 
 ## <a name="get-luis-key"></a>取得 LUIS 金鑰
 

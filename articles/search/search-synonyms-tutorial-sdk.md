@@ -1,6 +1,6 @@
 ---
-title: Azure 搜尋服務的同義字 C# 教學課程 | Microsoft Docs
-description: 在本教學課程中，會將同義字功能新增至 Azure 搜尋服務中的索引。
+title: 同義字 C# 教學課程 - Azure 搜尋服務
+description: 在這個 C# 教學課程中，您會了解如何將同義字功能新增至 Azure 搜尋服務中的索引。 同義字對應是一份對等詞彙清單。 支援同義字的欄位會展開查詢，以包含使用者提供的詞彙和所有相關的同義字。
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: 8340c4dc2a855911073905a3aea93e19fc7b520d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990556"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309224"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Azure 搜尋服務的同義字 C# 教學課程
+# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>教學課程：在 C# 中新增 Azure 搜尋服務的同義字
 
 同義字可藉由比對在語意上視為等於輸入詞彙的詞彙來展開查詢。 例如，您可能希望 "car" 比對包含 "automobile" 或 "vehicle" 詞彙的文件。 
 

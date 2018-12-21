@@ -1,5 +1,5 @@
 ---
-title: 比較 Microsoft 的機器學習產品選項 - Azure | Microsoft Docs
+title: 比較 Microsoft 的機器學習產品選項
 description: 比較 Microsoft 各種用來建置、部署及管理機器學習模型的不同產品。 決定您要為解決方案選擇哪些產品。
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 12/04/2018
-ms.openlocfilehash: ad6cb53bd69218d2af801cb56f882f5ffde3026c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bae28fd24cfbbf9fe36a626af1f0ec9359c8cda0
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872539"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274103"
 ---
-# <a name="what-are-the-machine-learning-product-options-from-microsoft"></a>Microsoft 有哪些機器學習產品選項？
+# <a name="what-are-the-machine-learning-products-at-microsoft"></a>Microsoft 有哪些機器學習產品？
 
 Microsoft 提供了多種用來建置、部署及管理機器學習模型的產品選項。 請比較這些產品，然後選擇可讓您最有效率地開發機器學習解決方案的產品。
 
@@ -41,8 +41,7 @@ Microsoft 提供了多種用來建置、部署及管理機器學習模型的產�
 
 使用 Azure Machine Learning 服務，可利用 Python 和 CLI 在雲端上大規模地訓練、部署及管理 ML 模型。
 
->[!Note]
-> 您可以免費試用 Azure Machine Learning。 無需信用卡或 Azure 訂用帳戶。 立即開始使用。 https://azure.microsoft.com/free/
+立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 ## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
 

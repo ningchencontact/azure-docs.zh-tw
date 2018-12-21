@@ -1,23 +1,24 @@
 ---
-title: Java 快速入門 - 變更模型及訓練 LUIS 應用程式
-titleSuffix: Azure Cognitive Services
-description: 在此 Java 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。 範例語句是對應到意圖的交談使用者文字。 您可以藉由提供與意圖相關的範例語句，教導 LUIS 哪些種類的使用者提供文字屬於哪種意圖。
+title: 變更、定型應用程式 (Java)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在此 Java 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfe4aae25a34799370e52c8677871a62935ab5c2
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 206b345fedb033a6b98e350fec8c66a3496f5236
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419736"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080821"
 ---
-# <a name="quickstart-change-model-using-java"></a>快速入門：使用 Java 來變更模型 
+# <a name="quickstart-change-model-using-java"></a>快速入門：使用 Java 變更模型 
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -71,14 +72,14 @@ ms.locfileid: "50419736"
 
 使用相依性編譯 AddUtterance
 
-```CMD
+```console
 > javac -classpath gson-2.8.2.jar AddUtterances.java
 ```
 
 ## <a name="run-code"></a>執行程式碼
 不使用任何引數來呼叫 `AddUtterance`，會將 LUIS 語句新增至此應用程式，但不會加以訓練。
 
-```CMD
+```console
 > java -classpath .;gson-2.8.2.jar AddUtterances
 ```
 

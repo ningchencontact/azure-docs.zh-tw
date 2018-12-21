@@ -10,18 +10,18 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/12/2018
 ms.author: aahi
-ms.openlocfilehash: e37cb9b9412d257ab238f23b90e4a1077070b2b6
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e2013b28e8c829d49efe662a9b0eba245c6d5fab
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297446"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253947"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>教學課程：使用 Bing 影像搜尋 API 來建立單頁應用程式
 
 「Bing 影像搜尋 API」可讓您搜尋 Web 來尋找高品質的相關影像。 您可以使用此教學課程來建置可將搜尋查詢傳送給該 API 並在網頁內顯示結果的單頁 Web 應用程式。 此教學課程與「Bing Web 搜尋」的[相對應教學課程](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md)類似。
 
-此教學課程應用程式說明如何：
+本教學課程應用程式說明如何：
 
 > [!div class="checklist"]
 > * 在 JavaScript 中執行 Bing 影像搜尋 API 呼叫
@@ -31,7 +31,7 @@ ms.locfileid: "46297446"
 
 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Image-Search) 上有此教學課程的完整原始程式碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 最新版的 [Node.js](https://nodejs.org/)。
 * 適用於 Node.js 的 [Express.js](https://expressjs.com/) 架構。 GitHub 範例讀我檔案中會提供原始程式碼的安裝指示。
@@ -381,7 +381,7 @@ searchItemRenderers = {
 
 其次，Bing 可能會隨機選取使用者來體驗新功能，再廣泛提供這些功能。 在每個要求中提供相同的用戶端識別碼，可確保已選擇看到功能的使用者一律會看到功能。 若沒有用戶端識別碼，使用者可能會在其搜尋結果中隨機看到功能出現並消失。
 
-瀏覽器安全性原則 (CORS) 可防止將 `X-MSEdge-ClientID` 標頭提供給 JavaScript 使用。 當搜尋回應的來源與要求回應的頁面不同時，就會發生此限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
+瀏覽器安全性原則 (CORS) 可防止將 `X-MSEdge-ClientID` 標頭提供給 JavaScript 使用。 當搜尋回應的來源與要求回應的頁面不同時，就會發生這項限制。 在生產環境中，您應該裝載伺服器端指令碼，在與網頁相同的網域上執行 API 呼叫，以處理此原則。 由於指令碼的來源與網頁相同，因此 `X-MSEdge-ClientID` 標頭會接著提供給 JavaScript 使用。
 
 > [!NOTE]
 > 在生產 Web 應用程式中，無論如何都應該執行要求伺服器端。 否則，您的 Bing 搜尋 API 金鑰必須包含在網頁中，以提供給檢視來源的任何人。 您會根據 API 訂用帳戶金鑰的所有使用量付費，即使是未經授權的合作對象所提出的要求，因此請務必不要公開您的金鑰。

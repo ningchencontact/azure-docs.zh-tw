@@ -1,21 +1,22 @@
 ---
-title: 教學課程：在 QnA Maker 入口網站中建立、發佈知識庫及從中提供答案
+title: 在 QnA Maker 中建立、發佈、回答
 titleSuffix: Azure Cognitive Services
 description: 這個以入口網站為基礎的教學課程會逐步引導您以程式設計方式建立及發佈知識庫，然後從知識庫回答問題。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 08f708f740b90f27af5443b46c5d03bef688bd45
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9853e84ffd2de8a1dfd6d9c4f32f58bb36b16403
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50221723"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164427"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>教學課程：透過 QnA Maker 入口網站建立知識庫然後回答問題
 
@@ -30,7 +31,7 @@ ms.locfileid: "50221723"
 * 使用 Curl 查詢知識庫
 
 > [!NOTE] 
-> 本教學課程的程式設計版本可從 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)連同完整的解決方案取得。
+> 本教學課程的程式設計版本可從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)連同完整的解決方案取得。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -96,7 +97,7 @@ ms.locfileid: "50221723"
 
 在發佈知識庫後，即會顯示端點
 
-![發佈](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
+![發佈頁面的端點設定](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>使用 Curl 查詢常見問題集的答案
 

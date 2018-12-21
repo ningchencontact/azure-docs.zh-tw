@@ -15,14 +15,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
-ms.openlocfilehash: 8b9daa0fbbf84e0f602498a0847c9e120f709b17
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057479"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408930"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站建立 Batch AI 訓練作業的叢集
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 本快速入門說明如何使用 Azure 入口網站來建立 Batch AI 叢集，以供用來訓練 AI 和機器學習模型。 Batch AI 是一項受控服務，可讓資料科學家和 AI 研究人員在 Azure 虛擬機器的叢集上大規模地訓練 AI 和機器學習模型。
 
@@ -91,7 +94,7 @@ Batch AI 檔案伺服器是單一節點 NFS，可自動掛接在叢集節點上�
    |**VM 大小**     |標準 NC6|
    |**目標節點數目**     |1|
 
-3. 輸入 [系統管理員使用者名稱]，並將 SSH 公用金鑰檔案的內容複製到 [SSH 金鑰]。 接受這個頁面上其餘值的預設值，然後選取 [下一步: 節點設定]。
+3. 輸入 [系統管理員使用者名稱]，並將 SSH 公用金鑰檔案的內容複製到 [SSH 金鑰]。 接受這個頁面上其餘值的預設值，然後選取 [下一步: **節點設定]**。
 
    ![輸入基本的叢集資訊](./media/quickstart-create-cluster-portal/create-cluster.png)
 

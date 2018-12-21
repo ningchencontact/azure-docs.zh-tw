@@ -1,24 +1,27 @@
 ---
-title: 快速入門 - 適用於 Linux 的 Azure Kubernetes 叢集
+title: (已淘汰) 快速入門 - 適用於 Linux 的 Azure Kubernetes 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 的 Kubernetes 叢集。
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 2186bd8c28851552bdbd80a74ba7cefd9f7a82d7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5c5320a541e189043fc27f5c4bcd29afd5d7c70f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950347"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994148"
 ---
-# <a name="deploy-kubernetes-cluster-for-linux-containers"></a>部署適用於 Linux 容器的 Kubernetes 叢集
+# <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(已淘汰) 部署適用於 Linux 容器的 Kubernetes 叢集
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需本快速入門中使用 Azure Kubernetes Service 的更新版本，請參閱[快速入門：部署 Azure Kubernetes Service (AKS) 叢集](../../aks/kubernetes-walkthrough.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 本快速入門中會使用 Azure CLI 來部署 Kubernetes 叢集。 接著，在叢集上部署和執行多容器應用程式，其中包含 Web 前端和 Redis 執行個體。 完成後，即可透過網際網路來存取應用程式。 
 

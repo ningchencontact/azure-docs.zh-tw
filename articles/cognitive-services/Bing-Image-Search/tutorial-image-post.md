@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 C# 擷取影像詳細資料 - Bing 影像搜尋 API
+title: 教學課程：使用 Bing 影像搜尋 API 和 C# 來擷取影像詳細資料
 titleSuffix: Azure Cognitive Services
 description: 使用此文章建立 C# 應用程式，以使用 Bing 影像搜尋 API 來擷取影像詳細資料。
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: tutorial
 ms.date: 9/14/2018
 ms.author: aahi
-ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 36996ebed25d159cdc2a1908b5c9f1f5447c823f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297651"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259761"
 ---
-# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>教學課程：使用 Bing 影像搜尋 API 和 C# 擷取影像詳細資料
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>教學課程：使用 Bing 影像搜尋 API 和 C# 來擷取影像詳細資料
 
 有多個[端點](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint)可透過 Bing 影像搜尋 API 來取得。 `/details` 端點會接受含有影像的 POST 要求，並可傳回有關該影像的各種不同詳細資料。 這個 C# 應用程式會使用此 API 傳送影像，並顯示由 Bing 傳回的詳細資料，也就是 JSON 物件，如下所示：
 
@@ -32,9 +32,9 @@ ms.locfileid: "46297651"
 > * 上傳影像資料並傳送 `POST` 要求
 > * 將 JSON 結果列印到主控台
 
-此範例的原始程式碼位於 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs)。
+[GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs) 上有此範例的原始程式碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 的任意版本。
 

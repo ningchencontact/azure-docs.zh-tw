@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6ad839b9cf1179e282b9163df5a38e13417408e2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 7e11affece7e7eb133aa22e159ec07d4f15e96f7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706223"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999605"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入門：使用 Azure 應用程式閘道引導網路流量 - Azure 入口網站
 
@@ -25,7 +25,7 @@ ms.locfileid: "51706223"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站
+在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站
 
 ## <a name="create-an-application-gateway"></a>建立應用程式閘道
 
@@ -87,10 +87,10 @@ ms.locfileid: "51706223"
     - azureuser - 作為系統管理員使用者名稱。
     - *Azure123456!* 作為密碼。
 
-   接受其他預設值，然後按 [下一步: 磁碟]。
-4. 接受磁碟預設值，然後按 [下一步: 網路]。
+   接受其他預設值，然後按 [下一步:磁碟]。
+4. 接受磁碟預設值，然後按 [下一步:網路]。
 5. 確定您已選取 [myVNet] 作為虛擬網路，而且子網路是 [myBackendSubnet]。
-6. 接受其他預設值，然後按 [下一步: 管理]。
+6. 接受其他預設值，然後按 [下一步:管理]。
 7. 按一下 [關閉] 來停用開機診斷。 接受其他預設值，然後按一下 [檢閱 + 建立]。
 8. 檢閱 [摘要] 頁面上的設定，然後按一下 [建立]。
 9. 請等候虛擬機器建立完成，再繼續操作。

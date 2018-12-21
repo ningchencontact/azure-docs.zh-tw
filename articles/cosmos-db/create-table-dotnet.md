@@ -1,9 +1,8 @@
 ---
-title: 快速入門：資料表 API 與 .NET - Azure Cosmos DB | Microsoft Docs
+title: 快速入門：資料表 API 與 .NET - Azure Cosmos DB
 description: 本快速入門示範如何使用 Azure Cosmos DB 資料表 API，以使用 Azure 入口網站與 .NET 建立應用程式
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
@@ -11,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 9cda2c165d7d00ebb92907d54217a30d62df6c18
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22b2f247de97a0bf0b4a145062c7b92fec61ee9a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700030"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074973"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 與 Azure Cosmos DB 建置資料表 API 應用程式 
 
@@ -88,7 +87,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [連接字串]。 
 
     使用視窗右方的複製按鈕來複製**主要連接字串**。
 

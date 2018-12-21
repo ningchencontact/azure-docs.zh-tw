@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB 簡介 | Microsoft Docs
+title: Azure Cosmos DB 簡介
 description: 了解 Azure Cosmos DB。 這個全域散發的多模型資料庫是針對低延遲、彈性的延展性和高可用性而建置的，並且提供 NoSQL 資料的原生支援。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 717a0234f0155229597c6fc4fe70a7868a536975
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 50abe2b067770976f19ae9b70c97c2df8354640f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091573"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>歡迎使用 Azure Cosmos DB
 
@@ -40,7 +38,7 @@ Azure Cosmos DB 是一個全球分散式多模型資料庫服務，可讓您輕�
         * [SQL API](sql-api-introduction.md)：具有豐富 SQL 查詢功能的無結構描述 JSON 資料庫引擎。
         * [MongoDB API](mongodb-introduction.md)：由 Azure Cosmos DB 平台所提供、可大幅調整的 *MongoDB 即服務*。 與現有 MongoDB 程式庫、驅動程式、工具和應用程式相容。
         * [Cassandra API](cassandra-introduction.md)：由 Azure Cosmos DB 平台所提供的全球分散式 Cassandra 即服務。 與現有 [Apache Cassandra](https://cassandra.apache.org/) 程式庫、驅動程式、工具和應用程式相容。
-        * [Gremlin API](graph-introduction.md)：完全受控、可水平調整的圖表資料庫服務，可讓您輕鬆地組建並執行應用程式，以便使用可支援 Open Gremlin API 且緊密連接的資料集 (以 [Apache TinkerPop 規格](http://tinkerpop.apache.org/) (英文) Apache Gremlin 為基礎)。
+        * [Gremlin API](graph-introduction.md)：完全受控、可水平調整的圖形資料庫服務，可讓您輕鬆地建置並執行應用程式，以便使用可支援 Open Gremlin API 且緊密連接的資料集 (以 [Apache TinkerPop 規格](https://tinkerpop.apache.org/) (英文) Apache Gremlin 為基礎)。
         * [資料表 API](table-introduction.md)：為了在不必進行任何應用程式變更的情況下，就能對現有的 Azure 資料表儲存體應用程式提供進階功能 (例如，自動編製索引、保證低延遲、全球分散)，而建置的索引鍵-值資料庫服務。
         * 其他資料模型和 API 即將登場！
 

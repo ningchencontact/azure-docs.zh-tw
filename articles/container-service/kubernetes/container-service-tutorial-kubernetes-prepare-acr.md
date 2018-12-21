@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 教學課程 - 準備 ACR
+title: (已被取代) Azure Container Service 教學課程 - 準備 ACR
 description: Azure Container Service 教學課程 - 準備 ACR
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 735aca5509373f840c56e28887088f7a696ca137
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: c3e5e7c4fb46b3f68013ac857dcad2e5434a978d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024081"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998319"
 ---
-# <a name="deploy-and-use-azure-container-registry"></a>部署和使用 Azure Container Registry
+# <a name="deprecated-deploy-and-use-azure-container-registry"></a>(已被取代) 部署和使用 Azure Container Registry
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需本教學課程中使用 Azure Kubernetes Service 的更新版本，請參閱[教學課程：部署和使用 Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure Container Registry (ACR) 是以 Azure 為基礎的私人登錄，用於裝載 Docker 容器映像。 本教學課程 (2/7 部分) 逐步解說如何部署 Azure Container Registry 執行個體，以及將容器映像推送至該執行個體。 完成的步驟包括：
 

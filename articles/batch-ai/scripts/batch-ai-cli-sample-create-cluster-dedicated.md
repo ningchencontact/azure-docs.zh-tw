@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 07/26/2018
 ms.author: danlep
-ms.openlocfilehash: 10f3444f81dfaeac4331f0b7798ade7eefbd29fb
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 643d2a5a600d018912f09d01f2e018100767f147
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058079"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410120"
 ---
 # <a name="cli-example-create-and-manage-a-batch-ai-cluster-of-dedicated-nodes"></a>CLI 範例：建立和管理專用節點的 Batch AI 叢集
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 此指令碼會示範一些可在 Azure CLI 中用來建立和管理 Batch AI 叢集 (由專用節點 (虛擬機器) 所組成) 的命令。
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 25fa099bcd6fa3843deadb3dc39d4250624ead06
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 2d83bab3686d274b9f37c0b0f7c92515801dbe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274580"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086448"
 ---
 # <a name="tutorial-forecast-future-spending"></a>教學課程：預測未來的花費
 
@@ -37,11 +37,11 @@ Cloudyn 包含成本預估報告，可協助您以一段時間的使用量作為
 
 「當月預估成本」報告會顯示您服務的成本。 它會使用月份開頭和前一個月的成本來顯示預估的成本。 在入口網站頂端的 [報告] 功能表上，按一下 [成本] > [預估和預算] > [當月預估成本]。 下圖說明一個範例。
 
-![當月預估成本](./media/tutorial-forecast-spending/project-month01.png)
+![當月預估成本報告中顯示的範例資訊](./media/tutorial-forecast-spending/project-month01.png)
 
 在範例中，您可以查看哪些服務的花費最大。 Azure 的成本低於 AWS 成本。 如果您需要查看 Azure VM 的成本預估詳細資料，請在 [篩選] 清單中選取 [Azure/VM]。
 
-![Azure VM 當月預估成本](./media/tutorial-forecast-spending/project-month02.png)
+![顯示 Azure VM 當月預估成本的範例](./media/tutorial-forecast-spending/project-month02.png)
 
 請遵循相同的基本上述步驟，看看您感興趣的其他服務每月成本預估。
 
@@ -49,11 +49,11 @@ Cloudyn 包含成本預估報告，可協助您以一段時間的使用量作為
 
 在入口網站頂端的 [報告] 功能表上，按一下 [成本] > [預估和預算] > [年度預估成本]。 下圖說明一個範例。
 
-![年度預估成本報告](./media/tutorial-forecast-spending/project-annual01.png)
+![顯示年度預估成本報告的範例](./media/tutorial-forecast-spending/project-annual01.png)
 
 在範例中，您可以查看哪些服務的花費最大。 如同每月範例，Azure 成本低於 AWS 成本。 如果您需要查看 Azure VM 的成本預估詳細資料，請在 [篩選] 清單中選取 [Azure/VM]。
 
-![VM 的年度預估成本](./media/tutorial-forecast-spending/project-annual02.png)
+![顯示 VM 年度預估成本的範例](./media/tutorial-forecast-spending/project-annual02.png)
 
 在上圖中，Azure VM 的年度預估成本為 $28,374。
 

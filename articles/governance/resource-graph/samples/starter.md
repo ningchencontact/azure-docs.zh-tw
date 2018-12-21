@@ -1,5 +1,5 @@
 ---
-title: 入門 Azure Resource Graph 查詢
+title: 入門查詢範例
 description: 使用 Azure Resource Graph 執行一些入門查詢。
 services: resource-graph
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: d5b2bb719bcd5c2145740a02bc408385953ff739
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: a1e54c4f78f502c6ae354ecdf4dd3c4b48a3457b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084525"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310176"
 ---
 # <a name="starter-resource-graph-queries"></a>入門 Resource Graph 查詢
 

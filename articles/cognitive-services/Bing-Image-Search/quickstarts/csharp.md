@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 C# 來執行影像搜尋 - Bing 影像搜尋 API
+title: 快速入門：搜尋影像 - Bing 影像搜尋 REST API 和 C#
 titleSuffix: Azure Cognitive Services
-description: 使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並從 JSON 回應檢視搜尋結果。 這個簡單的 C# 應用程式會將 HTTP 影像搜尋查詢傳送給 API，並顯示所傳回第一個影像的 URL。
+description: 使用此快速入門以運用 C# 來傳送影像搜尋要求給「Bing 影像搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 3819b476c5d3638f409b4195d6340920032d7b99
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67dd91d7555ebd1e72cea168fc8b841bf4ed9175
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307486"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249510"
 ---
-# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>快速入門：使用 Bing 影像搜尋 API 和 C# 來傳送搜尋查詢
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-c"></a>快速入門：使用 Bing 影像搜尋 REST API 和 C# 來搜尋影像
 
 使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並從 JSON 回應檢視搜尋結果。 這個簡單的 C# 應用程式會將 HTTP 影像搜尋查詢傳送給 API，並顯示所傳回第一個影像的 URL。
 

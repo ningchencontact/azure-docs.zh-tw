@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute 概觀：透過私人連線將內部部署網路延伸至 Azure | Microsoft Docs
+title: 透過私人連線將內部部署網路延伸至 Azure - ExpressRoute 概觀：Azure | Microsoft Docs
 description: 此「ExpressRoute 技術概觀」說明 ExpressRoute 連線如何透過私人連線，將內部部署網路延伸至 Azure。
 services: expressroute
 author: mialdrid
@@ -7,19 +7,20 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 10/18/2018
 ms.author: mialdrid
-ms.openlocfilehash: fb3e7ac449934fe9fa36b1683bda20ff3e07f0f4
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.custom: seodec18
+ms.openlocfilehash: 56baabb95a7873b48a27943a58b8e26c56efb6b7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429400"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139549"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概欟
-Microsoft Azure ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure、Office 365 和 Dynamics 365。
+ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部部署網路延伸至 Microsoft 雲端。 透過 ExpressRoute，您可以建立 Microsoft 雲端服務的連線，例如 Microsoft Azure、Office 365 和 Dynamics 365。
 
 從任意點對任意點 (IP VPN) 網路、點對點乙太網路，或在共置設施上透過連線提供者的虛擬交叉連接，都可以進行連線。 ExpressRoute 連線不會經過公用網際網路。 相較於一般網際網路連線，這可讓 ExpressRoute 連線提供更可靠、更快速、延遲更短和更安全的連線。 如需如何使用 ExpressRoute 將您的網路連接至 Microsoft 的詳細資訊，請參閱 [ExpressRoute 連線模型](expressroute-connectivity-models.md)。
 
-![](./media/expressroute-introduction/expressroute-connection-overview.png)
+![ExpressRoute 連線概觀](./media/expressroute-introduction/expressroute-connection-overview.png)
 
 ## <a name="key-benefits"></a>主要權益
 
@@ -77,7 +78,7 @@ ExpressRoute Direct 讓客戶有機會在策略性分散於世界各地的對等
 ExpressRoute Direct 提供的主要功能包括但不限於：
 
 * 將資料大量擷取至儲存體與 Cosmos DB 等服務
-* 實體隔離適用於受規範且需要專用隔離連線的產業，例如：銀行、政府與零售
+* 實體隔離適用於受規範且需要專用隔離連線的產業，例如：銀行、政府與零售業
 * 根據業務單位決定的細微線路分散控制
 
 如需詳細資訊，請參閱[關於 ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973)。

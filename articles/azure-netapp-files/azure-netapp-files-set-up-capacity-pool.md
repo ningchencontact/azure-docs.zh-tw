@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 0e9203f5b4e2a9043e242b804c82017cf6fc3ee1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 55a1d16ce1617ecf7bc28c7c62de8557ceeea311
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010798"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412906"
 ---
 # <a name="set-up-a-capacity-pool"></a>設定容量集區
 設定容量集區可讓您在其中建立磁碟區。  
@@ -55,6 +55,6 @@ ms.locfileid: "39010798"
 
 ## <a name="next-steps"></a>後續步驟 
 
-1. [建立適用於 Azure NetApp Files 的磁碟區](azure-netapp-files-create-volumes.md)
-2. [設定磁碟區的匯出原則 (選用)](azure-netapp-files-configure-export-policy.md)
+[將子網路委派至 Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
 

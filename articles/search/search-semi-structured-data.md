@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中從 Azure 雲端儲存體搜尋半結構化資料的教學課程 | Microsoft Docs
+title: 在 Azure 雲端儲存體中搜尋半結構化資料的教學課程 - Azure 搜尋服務
 description: 在本教學課程，了解如何使用 Azure 搜尋服務搜尋半結構化的 Azure blob 資料。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/12/2018
 ms.author: heidist
-ms.openlocfilehash: a7b006bd8469ddce1415ab6cb7c52c0171ae11cd
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: 5608495ff2975cabefdb83e5794a7d92b318b5a5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005072"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313814"
 ---
 # <a name="tutorial-search-semi-structured-data-in-azure-cloud-storage"></a>教學課程：在 Azure 雲端儲存體中搜尋半結構化資料
 

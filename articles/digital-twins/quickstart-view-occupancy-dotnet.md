@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e11ae90655e1d4ce7a2475f0eacefb25491416da
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: ab1e879a7c145699779f6af3a97cef0ee6b5d219
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582389"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105507"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>快速入門：使用 Azure Digital Twins 尋找空閒會議室
 
@@ -71,7 +71,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 - 一個自訂函式。 
 - 一個角色指派。
  
-此空間圖形會使用 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 檔案來加以佈建。
+此空間圖形會使用 [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) 檔案來加以佈建。 
 
 1. 執行 `dotnet run ProvisionSample`。
     >[!NOTE]
@@ -88,6 +88,9 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 1. 執行結束時，請複製裝置的 `ConnectionString` 以便用於裝置模擬器範例。 您只需要複製下圖所述的字串。
 
     ![佈建範例][1]
+
+    >[!TIP]
+    > 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer) 檢視和修改空間圖形。
 
 ## <a name="send-sensor-data"></a>傳送感應器資料
 
@@ -132,7 +135,7 @@ Azure Digital Twins 服務可讓您重新建立實體環境的數位影像。 �
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| 名稱 | 更換為 |
+| Name | 更換為 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 執行個體的名稱 |
 | YOUR_LOCATION | 裝載您執行個體的伺服器區域 |

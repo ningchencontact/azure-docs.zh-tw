@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/07/2018
+ms.date: 12/04/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: e40c18edadebae1f92cf811ea054503b9cd6b1ae
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c35c16e1414b1287fa891d1ce1f65ca8eff3d2c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277965"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434948"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>教學課程：設定適用於同盟網域的混合式 Azure Active Directory Join
 
@@ -53,9 +53,12 @@ ms.locfileid: "51277965"
 -  [如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
 
 
+
 若要設定本教學課程中的案例，您需要：
 
 - 使用 AD FS 的 Windows Server 2012 R2
+
+- 一個結構描述層級為 85 或更新版本的內部部署 Active Directory (AD)。 如需詳細資訊，請參閱[升級您的 Active Directory 結構描述](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema)。
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0 版或更新版本。 
  
@@ -167,7 +170,7 @@ ms.locfileid: "51277965"
 
 
     
-下列原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
+以下原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
 
 ![註冊裝置](./media/hybrid-azuread-join-federated-domains/23.png)
 

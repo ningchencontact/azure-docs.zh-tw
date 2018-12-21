@@ -1,21 +1,21 @@
 ---
-title: 教學課程 - 使用 Azure Container Registry 工作在基底映像更新時自動執行容器映像建置
-description: 在本教學課程中，您將了解如何設定在基底映像更新時可在雲端中自動觸發容器映像建置的工作。
+title: 教學課程 - 在基底映像更新時自動執行容器映像建置 - Azure Container Registry 工作
+description: 在本教學課程中，您將了解如何設定 Azure Container Registry 工作，以在基底映像更新時自動觸發雲端中的容器映像建置。
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 54e8892787fa2b7b093609ee5d09f3a87e103411
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: b3d8c3aea4955d6f95ead69d5bed147cc486e7c8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856576"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254032"
 ---
-# <a name="tutorial-automate-image-builds-on-base-image-update-with-azure-container-registry-tasks"></a>教學課程：使用 Azure Container Registry 工作在基底映像更新時自動執行映像建置
+# <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-an-azure-container-registry"></a>教學課程：在 Azure Container Registry 中更新基底映像時自動執行容器映像建置 
 
 ACR 工作支援在容器的基底映像更新時自動執行建置，例如，當您在其中一個基底映像中修補作業系統或應用程式架構時。 在本教學課程中，您將了解如何在 ACR 工作中建立工作，以在容器的基底映像已推送至登錄時於雲端中觸發建置。
 
@@ -128,7 +128,7 @@ az acr task run --registry $ACR_NAME --name taskhelloworld
 
 工作完成後，如果您想要完成下列選擇性步驟，請記下**回合識別碼** (例如 "da6")。
 
-### <a name="optional-run-application-container-locally"></a>選擇性：在本機執行應用程式容器
+### <a name="optional-run-application-container-locally"></a>選用：在本機執行應用程式容器
 
 如果您在本機工作 (而不是在 Cloud Shell 中)，且您已安裝 Docker，請先執行容器以檢視在網頁瀏覽器中呈現的應用程式，再重建其基底映像。 如果您使用 Cloud Shell，請略過本節 (Cloud Shell 不支援 `az acr login` 或 `docker run`)。
 
@@ -214,7 +214,7 @@ da1                       Linux       Succeeded  Manual        2018-09-17T22:29:
 
 如果您想要執行下列選擇性步驟以執行新建置的容器，並查看更新的版本號碼，請記下映像更新觸發之組建的 **RUN ID** 值 (在上述輸出中，其值為 "da8")。
 
-### <a name="optional-run-newly-built-image"></a>選擇性：執行新建置的映像
+### <a name="optional-run-newly-built-image"></a>選用：執行新建置的映像
 
 如果您在本機工作 (而不是在 Cloud Shell 中)，且您已安裝 Docker，請在新的應用程式映像建置完成後執行該映像。 請將 `<run-id>` 取代為您在上一個步驟中取得的 RUN ID。 如果您使用 Cloud Shell，請略過本節 (Cloud Shell 不支援 `docker run`)。
 

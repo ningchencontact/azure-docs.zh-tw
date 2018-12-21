@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/16/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 2a8a00ab034016e7121e4601b3ff5a16d8c721ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 84bdc560a135f8f1eb7d6c86fe4f3749135ff7e1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395067"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139039"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>使用 DRM 動態加密與授權傳遞服務
 
@@ -58,7 +59,7 @@ ms.locfileid: "49395067"
 
 本文中說明的範例會產生下列結果：
 
-![使用 DRM 保護](./media/protect-with-drm/ams_player.png)
+![含受 DRM 保護影片的 AMS](./media/protect-with-drm/ams_player.png)
 
 ## <a name="prerequisites"></a>必要條件
 

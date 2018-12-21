@@ -1,30 +1,22 @@
 ---
-title: Azure SignalR 服務無伺服器快速入門 - JavaScript | Microsoft Docs
+title: Azure SignalR 服務無伺服器快速入門 - JavaScript
 description: 說明如何使用 Azure SignalR 服務與 Azure Functions 來建立聊天室的快速入門。
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: javascript
 ms.topic: quickstart
-ms.tgt_pltfrm: Node.js
-ms.workload: tbd
 ms.date: 09/23/2018
 ms.author: zhshang
-ms.openlocfilehash: 12ac64a89f27744e1e731633d784135c97c423e0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f0044ca206d15762d44d8d4ea2d58c93950c5e1e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991023"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252451"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>快速入門：使用 JavaScript 搭配 Azure Functions 與 SignalR 服務來建立聊天室
 
 Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。 Azure Functions 是無伺服器平台，可讓您在不需要管理任何基礎結構的情況下執行您的程式碼。 在此快速入門中，了解如何使用 SignalR 服務與 Functions 來建置無伺服器的即時聊天應用程式。
-
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,16 +30,13 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-
 ## <a name="log-in-to-azure"></a>登入 Azure
 
 使用您的 Azure 帳戶登入 Azure 入口網站 (<https://portal.azure.com/>)。
 
-
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
-
 
 ## <a name="configure-and-run-the-azure-function-app"></a>設定及執行 Azure Function 應用程式
 
@@ -86,9 +75,7 @@ Azure SignalR 服務可讓您輕鬆地新增即時功能到您的應用程式。
 
     ![建立 SignalR 服務](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
-
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
-
 
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 

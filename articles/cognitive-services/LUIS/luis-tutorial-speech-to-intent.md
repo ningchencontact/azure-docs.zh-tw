@@ -1,21 +1,22 @@
 ---
-title: 使用語音 C# SDK 搭配 LUIS
+title: 使用語音 C# SDK
 titleSuffix: Azure Cognitive Services
-description: 語音服務可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 NuGet 封裝 (已隨附提供參考)。
+description: 語音服務可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/10/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 1bc3b9e016bed59f6453c26371cce7bd089568aa
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139076"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162626"
 ---
 # <a name="integrate-speech-service"></a>整合語音服務
 [語音服務](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/)可讓您使用單一要求接收音訊並傳回 LUIS 預測 JSON 物件。 在本文中，您將在 Visual Studio 中下載與使用 C# 專案，對麥克風說話，並接收 LUIS 預測資訊。 該專案會使用語音 [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) 封裝 (已隨附提供參考)。 
@@ -26,7 +27,7 @@ ms.locfileid: "50139076"
 在 Azure 入口網站中，[建立 ](luis-how-to-azure-subscription.md#create-luis-endpoint-key)**Language Understanding** (LUIS) 金鑰。 
 
 ## <a name="import-human-resources-luis-app"></a>匯入 Human Resources LUIS 應用程式
-本文中的意圖和語句，皆來自位於 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) Github 存放庫中的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
+本文中的意圖和語句皆來自 [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples) GitHub 存放庫中所提供的 Human Resources LUIS 應用程式。 下載 [HumanResources.json](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources.json) 檔案、以 `.json` 副檔名儲存該檔案，然後將它[匯入](luis-how-to-start-new-app.md#import-new-app) LUIS。 
 
 此應用程式具有與人力資源領域相關的意圖、實體和語句。 語句範例包括：
 
@@ -65,7 +66,7 @@ ms.locfileid: "50139076"
 
 已隨附語音 SDK 供參考。 
 
-[![](./media/luis-tutorial-speech-to-intent/nuget-package.png "顯示 Microsoft.CognitiveServices.Speech NuGet 封裝的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面](./media/luis-tutorial-speech-to-intent/nuget-package.png "顯示 Microsoft.CognitiveServices.Speech NuGet 套件的 Visual Studio 2017 螢幕擷取畫面")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>修改 C# 程式碼
 開啟 `Program.cs` 檔案，並變更下列變數：

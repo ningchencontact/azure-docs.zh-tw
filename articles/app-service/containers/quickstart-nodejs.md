@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上的 Azure App Service 中建立 Node.js | Microsoft Docs
+title: 在 Linux 上建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
 description: 短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/07/2017
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: 44c3f8ce05854e993ad551a025eec447d882c326
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.custom: seodec18
+ms.openlocfilehash: 22a022b12e931fd4edf139038eb7506e69422f8e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969539"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253560"
 ---
 # <a name="create-a-nodejs-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建立 Node.js Web 應用程式
 

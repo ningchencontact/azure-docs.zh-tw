@@ -1,5 +1,5 @@
 ---
-title: 將現有的自訂 DNS 名稱對應至 Azure Web Apps | Microsoft Docs
+title: 對應現有的自訂 DNS 名稱 - Azure App Service | Microsoft Docs
 description: 學習如何將現有的自訂 DNS 網域名稱 (虛名網域) 新增至 Azure App Service 中的 Web 應用程式、行動裝置應用程式後端或 API 應用程式。
 keywords: 應用程式服務, Azure 應用程式服務, 網域對應, 網域名稱, 現有的網域, 主機名稱
 services: app-service\web
@@ -15,13 +15,13 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.custom: seodec18
+ms.openlocfilehash: 2debb52c703aaa25b2ff0a182bed3e07431b6f48
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43664882"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270258"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>教學課程：將現有的自訂 DNS 名稱對應至 Azure Web Apps
 
@@ -52,7 +52,7 @@ ms.locfileid: "43664882"
 
 ## <a name="prepare-the-app"></a>準備應用程式
 
-若要將自訂 DNS 名稱對應至 Web 應用程式，Web 應用程式的 [App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須是付費層 (**共用**、**基本**、**標準**或**進階**)。 在此步驟中，您要確定 App Service 應用程式位於支援的定價層。
+若要將自訂 DNS 名稱對應至 Web 應用程式，Web 應用程式的 [App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須是付費層 (若為 Azure Functions，則為**共用**、**基本**、**標準**、**進階**或**取用**)。 在此步驟中，您要確定 App Service 應用程式位於支援的定價層。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 

@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 06/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: a731c1e0617fe0ccf9d571dd2b7d0c2ad107bc9e
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 68fdb158a7d4c723bffb54f33203120afb72a8ef
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385392"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過網路安全性群組篩選網路流量
 
@@ -38,9 +38,9 @@ ms.locfileid: "37901393"
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-在 https://portal.azure.com 上登入 Azure 入口網站。
+在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="create-a-virtual-network"></a>建立虛擬網路
 

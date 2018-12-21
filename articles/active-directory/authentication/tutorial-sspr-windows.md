@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277761"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437141"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>教學課程：從登入畫面重設 Azure AD 密碼
 
@@ -29,8 +29,8 @@ ms.locfileid: "51277761"
 ## <a name="prerequisites"></a>必要條件
 
 * Windows 10 2018 年 4 月更新，或符合下列條件的較新用戶端：
-   * [已加入 Azure AD](../device-management-azure-portal.md) 或 
-   * [已加入混合式 Azure AD](../device-management-hybrid-azuread-joined-devices-setup.md)
+   * [已加入 Azure AD 的機器](../device-management-azure-portal.md)或
+   * [已加入混合式 Azure AD 的機器](../device-management-hybrid-azuread-joined-devices-setup.md) (可透過網路連線至網域控制站)。
 * 必須啟用 Azure AD 自助式密碼重設。
 
 ## <a name="configure-reset-password-link-using-intune"></a>使用 Intune 來設定重設密碼連結
@@ -101,25 +101,35 @@ ms.locfileid: "51277761"
 
 您的使用者將在[重設您的工作或學校密碼](../user-help/active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)中發現使用這項功能的指引
 
-## <a name="common-issues"></a>常見問題
+Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
+
+![Azure AD 稽核記錄中的範例登入畫面密碼重設](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+## <a name="limitations"></a>限制
 
 使用 Hyper-V 測試這項功能時，不會出現 [重設密碼] 連結。
 
 * 移至您用來測試的 VM，按一下 [檢視]，然後取消核取 [增強的工作階段]。
 
-使用遠端桌面測試這項功能時，不會出現 [重設密碼] 連結。
+使用遠端桌面或增強的 VM 工作階段測試這項功能時，不會出現 [重設密碼] 連結。
 
 * 目前不支援從遠端桌面進行密碼重設。
 
-如果使用登錄機碼或群組原則停用 Windows 鎖定畫面，將無法使用 [重設密碼]。
-
 如果原則需要 Ctrl+Alt+Del，或鎖定螢幕通知已關閉，[重設密碼]將無法運作。
 
-Azure AD 稽核記錄會包含 IP 位址相關資訊以及發生密碼重設的 ClientType。
+已知下列原則設定會影響重設密碼的能力
 
-![Azure AD 稽核記錄中的範例登入畫面密碼重設](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+   * HideFastUserSwitching 設定為已啟用或 1
+   * DontDisplayLastUserName 設定為已啟用或 1
+   * NoLockScreen 設定為已啟用或 1
+   * EnableLostMode 已設定於裝置上
+   * Explorer.exe 會取代為自訂殼層
+
+此功能不適用於已部署 802.1x 網路驗證及使用 [在使用者登入後立即執行] 選項的網路。 針對已部署 802.1x 網路驗證的網路，建議您使用機器驗證來啟用此功能。
 
 如果您的 Windows 10 機器是在 Proxy 伺服器或防火牆後面，應該允許對 passwordreset.microsoftonline.com 和 ajax.aspnetcdn.com 的 HTTPS 流量 (443)。
+
+針對「已加入混合式網域」的案例，有一種案例是 SSPR 工作流程無需 Active Directory 網域控制站即可完成。 第一次使用新密碼時，必須要能夠與網域控制站連線。
 
 ## <a name="clean-up-resources"></a>清除資源
 

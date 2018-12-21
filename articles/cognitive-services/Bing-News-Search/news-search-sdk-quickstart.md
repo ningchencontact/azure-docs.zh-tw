@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 新聞搜尋 SDK，C#
+title: 快速入門：執行新聞搜尋 - 適用於 C# 的 Bing 新聞搜尋 SDK
 titleSuffix: Azure Cognitive Services
-description: 設定 Bing 新聞搜尋 SDK 主控台應用程式。
+description: 使用此快速入門以運用「適用於 Python 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 447c59d45e3b1614ce8dbddc56f9dba0dd156e90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: d116f2553ce35c2d4041f37cc3fe4567e1595adc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317053"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258758"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-c"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 C#
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
 Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功能。 
 

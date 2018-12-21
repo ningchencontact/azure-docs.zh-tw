@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 1c50b1bc362a66b17097575336bcb2c9bd4856ca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 0bab289fedbbceb2d5cb763bd0f55e455bb60a29
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866078"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093010"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教學課程：建置 SQL API Java 主控台應用程式
 
@@ -56,14 +56,14 @@ ms.locfileid: "52866078"
 
 * [Git](https://git-scm.com/downloads)。
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)。
-* [Maven](http://maven.apache.org/download.cgi).
+* [Maven](https://maven.apache.org/download.cgi).
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步驟 1：建立 Azure Cosmos DB 帳戶
 讓我們來建立 Azure Cosmos DB 帳戶。 如果您已經擁有想要使用的帳戶，就可以跳到[複製 GitHub 專案](#GitClone)。 如果您是使用 Azure Cosmos DB 模擬器，請遵循 [Azure Cosmos DB 模擬器](local-emulator.md)的步驟來設定模擬器，並請直接跳到[複製 GitHub 專案](#GitClone)。
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a id="GitClone"></a>步驟 2︰複製 GitHub 專案
+## <a id="GitClone"></a>步驟 2：複製 GitHub 專案
 您可以先從複製[開始使用 Azure Cosmos DB 和 Java](https://github.com/Azure-Samples/documentdb-java-getting-started) 的 GitHub 存放庫著手。 例如，請從本機目錄執行下列命令將範例專案擷取到本機。
 
     git clone git@github.com:Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -78,7 +78,7 @@ ms.locfileid: "52866078"
         <version>LATEST</version>
     </dependency>
 
-## <a id="Connect"></a>步驟 3：連接至 Azure Cosmos DB 帳戶
+## <a id="Connect"></a>步驟 3：連線至 Azure Cosmos DB 帳戶
 接下來，回到 [Azure 入口網站](https://portal.azure.com)擷取您的端點和主要金鑰。 必須提供 Azure Cosmos DB 端點 URL 和主要金鑰，您的應用程式才能了解所要連線的位置，而 Azure Cosmos DB 才會信任您的應用程式連線。
 
 在 Azure 入口網站中，瀏覽至 Azure Cosmos DB 帳戶，然後按一下 [金鑰]。 從入口網站複製 URI，並將它貼到 Program.java 檔案的 `https://FILLME.documents.azure.com` 中。 然後從入口網站複製主要金鑰，並將它貼到 `FILLME`中。
@@ -140,7 +140,7 @@ ms.locfileid: "52866078"
 
 ![說明 NoSQL 教學課程用來建立 Java 主控台應用程式之帳戶、線上資料庫、集合和文件之間階層式關聯性的圖表](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
-## <a id="Query"></a>步驟 7︰查詢 Azure Cosmos DB 資源
+## <a id="Query"></a>步驟 7：查詢 Azure Cosmos DB 資源
 Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查詢](how-to-sql-query.md)。  下列範例程式碼示範如何使用 SQL 語法與 [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments) 方法來查詢 Azure Cosmos DB 中的文件。
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
@@ -153,7 +153,7 @@ Azure Cosmos DB 支援針對儲存於每個集合的 JSON 文件進行豐富[查
         System.out.println(String.format("\tRead %s", family));
     }
 
-## <a id="ReplaceDocument"></a>步驟 8︰取代 JSON 文件
+## <a id="ReplaceDocument"></a>步驟 8：取代 JSON 文件
 Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument) 方法來更新 JSON 文件。
 
     // Update a property
@@ -164,7 +164,7 @@ Azure Cosmos DB 支援使用 [replaceDocument](/java/api/com.microsoft.azure.doc
         andersenFamily,
         null);
 
-## <a id="DeleteDocument"></a>步驟 9︰刪除 JSON 文件
+## <a id="DeleteDocument"></a>步驟 9：刪除 JSON 文件
 同樣地，Azure Cosmos DB 支援使用 [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument) 方法來將 JSON 文件刪除。  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);

@@ -1,21 +1,22 @@
 ---
-title: 快速入門：發佈知識庫 - REST (Go) - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: 這個以 REST 為基礎的快速入門會逐步引導您發佈知識庫，以將經過測試的最新版知識庫推送至代表已發佈知識庫的專用 Azure 搜尋服務索引。 它也會建立可在您的應用程式或聊天機器人中呼叫的端點。
+title: 發佈知識庫，REST (Go)
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: 這個以 Go REST 為基礎的快速入門會逐步引導您發佈知識庫，以將經過測試的最新版知識庫推送至代表已發佈知識庫的專用 Azure 搜尋服務索引。 它也會建立可在您的應用程式或聊天機器人中呼叫的端點。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: b10180ad89890c314aec7059347186fa66b354f6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: e7f0d3c756988cc890b6560181727b5c80b5548d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165076"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162081"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>快速入門：使用 Go 在 QnA Maker 中發佈知識庫
 
@@ -36,7 +37,7 @@ ms.locfileid: "52165076"
     如果您還沒有知識庫，可以建立要用於本快速入門的範例知識庫：[建立新的知識庫](create-new-kb-csharp.md)。
 
 > [!NOTE] 
-> 從 [**Azure-Samples/cognitive-services-qnamaker-go** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base)可取得完整的解決方案檔案。
+> 從 [**Azure-Samples/cognitive-services-qnamaker-go** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base)可取得完整的解決方案檔。
 
 ## <a name="create-a-go-file"></a>建立 Go 檔案
 
@@ -62,10 +63,10 @@ func main() {
 
 ## <a name="add-required-constants"></a>新增必要的常數
 
-在 **main** 函式內部，新增必要常數以存取 QnA Maker。
+在 **main**
 
 
- function, add the required constants to access QnA Maker. 使用您自己的值加以取代。
+ 函式內部，新增必要常數以存取 QnA Maker。 使用您自己的值加以取代。
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
 

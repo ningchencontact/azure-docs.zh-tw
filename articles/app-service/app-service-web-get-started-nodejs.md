@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立 Node.js Web 應用程式
+title: 建立 Node.js Web 應用程式 - Azure App Service | Microsoft Docs
 description: 短短幾分鐘內在 Azure App Service Web Apps 中部署第一個 Node.js Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/30/2018
 ms.author: cephalin;msangapu
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 6d3f367ce21e9574282805737f2eff6c83ea6157
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.custom: seodec18
+ms.openlocfilehash: 4646456acb44f3054ef948a17d3db330e4e1e727
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248183"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257962"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中建立 Node.js Web 應用程式
 
@@ -119,10 +119,10 @@ az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name
 az webapp config appsettings set --resource-group myResourceGroup --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
-瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 _&lt;app name>_。
+瀏覽至您剛建立的 Web 應用程式。 以唯一的應用程式名稱取代 `<app_name>`。
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 新的 Web 應用程式看起來應該像這樣：

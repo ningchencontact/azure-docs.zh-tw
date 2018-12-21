@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry 教學課程 - 準備異地複寫的 Azure Container Registry
+title: 教學課程 - 在 Azure 中建立異地複寫的 Docker 登錄
 description: 建立 Azure Container Registry、設定異地複寫、準備 Docker 映像並將其部署至登錄。 三段式教學課程的第一段。
 services: container-registry
 author: dlepow
@@ -7,13 +7,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 9d1371dc02f37889b15b3448d82c62d76472f847
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: db00672c7cbb39002c4a40eb7397af76e4c8189a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854298"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261308"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>教學課程：準備異地複寫的 Azure Container Registry
 
@@ -49,8 +49,8 @@ Azure Cloud Shell 不包括完成本教學課程每個步驟所需的 Docker 元
 
 為新的登錄進行以下設定：
 
-* **登錄名稱**：建立登錄名稱，其必須在 Azure 中全域唯一且包含 5-50 個英數字元
-* **資源群組**：**建立新的** > `myResourceGroup`
+* **登錄名稱**：建立登錄名稱，其必須在 Azure 中是全域唯一且包含 5-50 個英數字元
+* **資源群組**：**新建** > `myResourceGroup`
 * **位置**：`West US`
 * **管理員使用者**：`Enable` (必要項目；可讓用於容器的 Web 應用程式提取映像)
 * **SKU**：`Premium` (異地複寫的必要項目)

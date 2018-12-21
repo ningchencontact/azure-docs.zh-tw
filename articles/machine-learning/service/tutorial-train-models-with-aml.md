@@ -1,5 +1,6 @@
 ---
-title: 教學課程：使用 Azure Machine Learning 服務將影像分類模型定型
+title: 映像分類教學課程：將模型定型
+titleSuffix: Azure Machine Learning service
 description: 本教學課程會示範如何使用 Azure Machine Learning 服務，搭配 scikit-learn 在 Python Jupyter Notebook 中將影像分類模型定型。 本教學課程是兩部分系列的第一部分。
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ author: hning86
 ms.author: haining
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 8d3dd87adaad168d193b53507dbbb40efab57810
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: a2208e160d641d762b57668cdc635fe877677ff5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879480"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310108"
 ---
-# <a name="tutorial-1-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程 #1：使用 Azure Machine Learning 服務將影像分類模型定型
+# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>教學課程：使用 Azure Machine Learning 服務將映像分類模型定型
 
 在本教學課程中，您會在本機和遠端計算資源，將機器學習模型定型。 您將使用 Python Jupyter Notebook 中的 Azure Machine Learning 服務定型和部署工作流程。  然後，您可以使用 Notebook 作為範本，以自己的資料將您自己的機器學習服務模型定型。 本教學課程是**兩部分教學課程系列的第一部分**。  
 
@@ -33,7 +35,7 @@ ms.locfileid: "52879480"
 
 您稍後將在[本教學課程的第二部分](tutorial-deploy-models-with-aml.md)了解如何選取模型並部署它。 
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 >[!NOTE]
 > 本文中的程式碼使用 Azure Machine Learning SDK 1.0.2 版進行測試

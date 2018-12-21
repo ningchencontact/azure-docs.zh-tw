@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/05/2018
 ms.author: wesmc
-ms.openlocfilehash: 66c1380070c9f9732369cb0d209e428525d53ce8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d90595d3d557293bfbc6b06aca638eb1b7c08d30
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427645"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164308"
 ---
 # <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>快速入門：從 Android 裝置傳送 IoT 遙測
 
@@ -31,11 +31,11 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="prerequisites"></a>必要條件
 
-* 從 https://developer.android.com/studio/取得的 Android Studio。 如需有關安裝 Android Studio 的詳細資訊，請參閱 [android-installation](https://developer.android.com/studio/install)。 
+* 從 https://developer.android.com/studio/ 取得的 Android Studio。 如需有關安裝 Android Studio 的詳細資訊，請參閱 [android-installation](https://developer.android.com/studio/install)。 
 
 * 本中的範例會使用 Android SDK 27。 
 
-* 您在本快速入門中執行的 [Android 應用程式範例](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample)屬於 Github 上的 azure-iot-samples-java 存放庫。 下載或複製 [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫。
+* 您在本快速入門中執行的 [Android 應用程式範例](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample)屬於 GitHub 上的 azure-iot-samples-java 存放庫。 下載或複製 [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫。
 
 
 
@@ -74,7 +74,7 @@ IoT 中樞是一項 Azure 服務，可讓您從 IoT 裝置將大量的遙測擷�
 
 ## <a name="send-telemetry"></a>傳送遙測
 
-1. 在 Android Studio 中開啟 github 的 Android 專案範例。 專案會位在 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫副本 (已複製或下載) 的下列目錄中。
+1. 在 Android Studio 中開啟 GitHub 的 Android 專案範例。 專案會位在 [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存放庫副本 (已複製或下載) 的下列目錄中。
 
         \azure-iot-samples-java\iot-hub\Samples\device\AndroidSample
 

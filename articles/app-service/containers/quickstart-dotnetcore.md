@@ -1,5 +1,5 @@
 ---
-title: 建立 NET Core Web 應用程式並部署至 Linux 上的 App Service | Microsoft Docs
+title: 在 Linux 上建立 .NET Core Web 應用程式 - Azure App Service | Microsoft Docs
 description: 將您的第一個 .NET Core Hello World 應用程式部署到 Linux 上的 App Service，只要幾分鐘。
 keywords: azure app service, Web 應用程式, dotnet, core, linux, oss
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/11/2018
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5aff783735d38a2707f42efe8a1632bd5aaafc4b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: f074c6184652ced133a7253bee3cc7a8a556c574
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316764"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251788"
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立.NET Core Web 應用程式
 

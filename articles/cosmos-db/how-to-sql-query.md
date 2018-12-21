@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: f7b3826e1e77933b49f0a742ebf8dfb994bf7ea9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fb8e2b11ce6178c10fb9dc7d13c5c7d817ece821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848726"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344103"
 ---
-# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>使用 SQL 查詢來查詢 Azure Cosmos DB 資料
+# <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>從 Azure Cosmos DB 查詢資料的 SQL 查詢範例
 
 Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) 作為 JSON 查詢語言來查詢項目。 為 Azure Cosmos DB 設計查詢語言時，下列兩項是我們的考量目標：
 
@@ -21,7 +21,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 * Azure Cosmos DB 會使用 JavaScript 的程式設計模型作為查詢語言的基礎。 SQL API 是以 JavaScript 的類型系統、運算式評估和函式叫用為基礎。 這除了其他功能之外，還進而提供自然程式設計模型來進行關聯式投射、跨 JSON 項目的階層式導覽、自我聯結、空間查詢，以及叫用完全以 JavaScript 撰寫的使用者定義函式 (UDF)。
 
-本文會透過簡單的 JSON 項目引導您執行一些 SQL 查詢範例。 若要深入了解 Azure Cosmos DB SQL 語言語法，請參閱 [SQL 語法參考](sql-api-sql-query-reference.md)文章。
+本文會透過簡單的 JSON 項目引導您執行一些 SQL 查詢範例。 若要深入了解 Azure Cosmos DB SQL 語言語法，請參閱 [SQL 語法參考](sql-api-query-reference.md)文章。
 
 ## <a id="GettingStarted"></a>開始使用 SQL 命令
 
@@ -86,7 +86,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 現在，讓我們嘗試對此資料執行一些查詢，以了解 Azure Cosmos DB SQL 查詢語言的一些重要部分。
 
-**查詢 1**：例如，下列查詢會傳回 id 欄位符合 `AndersenFamily` 的項目。 由於它是一個 `SELECT *`，所以查詢的輸出是完整的 JSON 項目，若要了解此語法，請參閱 [SELECT 陳述式](sql-api-sql-query-reference.md#select-query)：
+**查詢 1**：例如，下列查詢會傳回 id 欄位符合 `AndersenFamily` 的項目。 由於它是一個 `SELECT *`，所以查詢的輸出是完整的 JSON 項目，若要了解此語法，請參閱 [SELECT 陳述式](sql-api-query-reference.md#select-query)：
 
 ```sql
     SELECT *
@@ -116,7 +116,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
     }]
 ```
 
-**查詢 2**：現在，請考慮我們需要以不同形式來重新格式化 JSON 輸出的情況。 當地址所在城市的名稱與省/市的名稱相同時，此查詢會投射具有兩個所選欄位 (Name 和 City) 的新 JSON 物件。 在此情況下，"NY, NY" 相符。
+**查詢 2：** 現在，請考慮我們需要以不同形式來重新格式化 JSON 輸出的情況。 當地址所在城市的名稱與省/市的名稱相同時，此查詢會投射具有兩個所選欄位 (Name 和 City) 的新 JSON 物件。 在此情況下，"NY, NY" 相符。
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -166,7 +166,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 ## <a id="SelectClause"></a> 子句
 
-根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 項目的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 若要深入了解語法，請參閱 [SELECT 語法](sql-api-sql-query-reference.md#bk_select_query)。
+根據 ANSI-SQL 標準，每個查詢都會包含 SELECT 子句以及選擇性的 FROM 和 WHERE 子句。 針對每個查詢，通常都會列舉 FROM 子句中的來源。 接著，會對來源套用 WHERE 子句中的篩選，以擷取 JSON 項目的子集。 最後，使用 SELECT 子句來投射選取清單中所要求的 JSON 值。 若要深入了解語法，請參閱 [SELECT 語法](sql-api-query-reference.md#bk_select_query)。
 
 下列範例示範一般的 SELECT 查詢。
 
@@ -260,7 +260,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 ## <a id="FromClause"></a>FROM 子句
 
-除非稍後會在查詢中篩選或投射來源，否則 FROM <from_specification> 子句為選用子句。 若要深入了解語法，請參閱 [FROM 語法](sql-api-sql-query-reference.md#bk_from_clause)。 類似 `SELECT * FROM Families` 的查詢指出整個 Families 容器是要列舉的來源。 可使用特殊識別碼 ROOT 來代表此容器，而不使用容器名稱。
+除非稍後會在查詢中篩選或投射來源，否則 FROM <from_specification> 子句為選用子句。 若要深入了解語法，請參閱 [FROM 語法](sql-api-query-reference.md#bk_from_clause)。 類似 `SELECT * FROM Families` 的查詢指出整個 Families 容器是要列舉的來源。 可使用特殊識別碼 ROOT 來代表此容器，而不使用容器名稱。
 下列清單包含會針對每個查詢強制執行的規則：
 
 * 您可以為容器設定別名，例如 `SELECT f.id FROM Families AS f` 或只是 `SELECT f.id FROM Families f`。 此處的 `f` 即等於 `Families`。 `AS` 是對識別碼進行別名處理的選用關鍵字。  
@@ -313,7 +313,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
     ]
 ```
 
-雖然上述範例使用陣列作為來源，但物件也可用來作為來源，即下列範例中顯示的內容：可在來源中找到的任何有效的 JSON 值 (已定義的)，均會被視為查詢結果中的包含項目。 如果有些家族沒有 `address.state` 值，則會在查詢結果中予以排除。
+雖然上面的範例使用陣列做為來源，但是也可以使用物件做為來源 (如下列範例所示)：您可以考慮將所有可在來源中找到的有效 JSON 值 (非 Undefined) 納入查詢結果中。 如果有些家族沒有 `address.state` 值，則會在查詢結果中予以排除。
 
 **查詢**
 
@@ -333,7 +333,7 @@ Azure Cosmos DB 支援在 SQL API 帳戶上使用 SQL (結構化查詢語言) �
 
 ## <a id="WhereClause"></a>WHERE 子句
 
-WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。 它會指定條件，而且來源所提供的 JSON 項目必須滿足這些條件才能併入為結果的一部分。 任何 JSON 項目都必須將指定的條件評估為 "true"，才能視為結果。 索引層使用 WHERE 子句，來判斷可為結果一部分的來源項目的絕對最小子集。 若要深入了解語法，請參閱 [WHERE 語法](sql-api-sql-query-reference.md#bk_where_clause)。
+WHERE 子句 (**`WHERE <filter_condition>`**) 是選用的。 它會指定條件，而且來源所提供的 JSON 項目必須滿足這些條件才能併入為結果的一部分。 任何 JSON 項目都必須將指定的條件評估為 "true"，才能視為結果。 索引層使用 WHERE 子句，來判斷可為結果一部分的來源項目的絕對最小子集。 若要深入了解語法，請參閱 [WHERE 語法](sql-api-query-reference.md#bk_where_clause)。
 
 下列查詢會要求包含名稱屬性且其值為 `AndersenFamily` 的項目。 沒有名稱屬性或值不符合 `AndersenFamily` 的任何其他項目都會予以排除。
 
@@ -1411,14 +1411,14 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 | **使用量** | **說明** |
 |-----------|------------|
-| [IS_ARRAY (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_array) | 傳回布林值，表示值的類型是否為陣列。 |
-| [IS_BOOL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_bool) | 傳回布林值，表示值的類型是否為布林值。 |
-| [IS_NULL (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_null) | 傳回布林值，表示值的類型是否為 null。 |
-| [IS_NUMBER (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_number) | 傳回布林值，表示值的類型是否為數字。 |
-| [IS_OBJECT (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_object) | 傳回布林值，表示值的類型是否為 JSON 物件。 |
-| [IS_STRING (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_string) | 傳回布林值，表示值的類型是否為字串。 |
-| [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | 傳回布林值，表示屬性是否已經指派值。 |
-| [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | 傳回布林值，表示值的類型是字串、數字、布林值或 Null。 |
+| [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | 傳回布林值，表示值的類型是否為陣列。 |
+| [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | 傳回布林值，表示值的類型是否為布林值。 |
+| [IS_NULL (expr)](sql-api-query-reference.md#bk_is_null) | 傳回布林值，表示值的類型是否為 null。 |
+| [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | 傳回布林值，表示值的類型是否為數字。 |
+| [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | 傳回布林值，表示值的類型是否為 JSON 物件。 |
+| [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | 傳回布林值，表示值的類型是否為字串。 |
+| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | 傳回布林值，表示屬性是否已經指派值。 |
+| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | 傳回布林值，表示值的類型是字串、數字、布林值或 Null。 |
 
 藉由使用這些函數，您現在可以執行如下列範例所示的查詢：
 
@@ -1440,22 +1440,22 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 | 使用量 | 說明 |
 | --- | --- |
-| [LENGTH (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_length) | 傳回指定字串運算式的字元數目 |
-| [CONCAT (str_expr, str_expr [, str_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
-| [SUBSTRING (str_expr, num_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_substring) | 傳回字串運算式的一部分。 |
-| [STARTSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_startswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭 |
-| [ENDSWITH (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_endswith) | 傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
-| [CONTAINS (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_contains) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
-| [INDEX_OF (str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_index_of) | 傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。 |
-| [LEFT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_left) | 傳回具有指定字元數目的字串左側部分。 |
-| [RIGHT (str_expr, num_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_right) | 傳回具有指定字元數目的字串右側部分。 |
-| [LTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_ltrim) | 傳回移除開頭空白之後的字串運算式。 |
-| [RTRIM (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_rtrim) | 傳回截斷所有結尾空白之後的字串運算式。 |
-| [LOWER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_lower) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
-| [UPPER (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_upper) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
-| [REPLACE (str_expr, str_expr, str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_replace) | 使用其他字串值取代指定的字串值的所有項目。 |
+| [LENGTH (str_expr)](sql-api-query-reference.md#bk_length) | 傳回指定字串運算式的字元數目 |
+| [CONCAT (str_expr, str_expr [, str_expr])](sql-api-query-reference.md#bk_concat) | 傳回字串，該字串是串連兩個或多個字串值的結果。 |
+| [SUBSTRING (str_expr, num_expr, num_expr)](sql-api-query-reference.md#bk_substring) | 傳回字串運算式的一部分。 |
+| [STARTSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_startswith) | 傳回布林值，表示第一個字串運算式是否以第二個字串運算式開頭 |
+| [ENDSWITH (str_expr, str_expr)](sql-api-query-reference.md#bk_endswith) | 傳回布林值，表示第一個字串運算式是否以第二個結束字串運算式做為結束 |
+| [CONTAINS (str_expr, str_expr)](sql-api-query-reference.md#bk_contains) | 傳回布林值，表示第一個字串運算式是否包含第二個字串運算式。 |
+| [INDEX_OF (str_expr, str_expr)](sql-api-query-reference.md#bk_index_of) | 傳回第一個指定的字串運算式中，第二個字串運算式第一次出現的開始位置，或者如果找不到字串，則為 -1。 |
+| [LEFT (str_expr, num_expr)](sql-api-query-reference.md#bk_left) | 傳回具有指定字元數目的字串左側部分。 |
+| [RIGHT (str_expr, num_expr)](sql-api-query-reference.md#bk_right) | 傳回具有指定字元數目的字串右側部分。 |
+| [LTRIM (str_expr)](sql-api-query-reference.md#bk_ltrim) | 傳回移除開頭空白之後的字串運算式。 |
+| [RTRIM (str_expr)](sql-api-query-reference.md#bk_rtrim) | 傳回截斷所有結尾空白之後的字串運算式。 |
+| [LOWER (str_expr)](sql-api-query-reference.md#bk_lower) | 傳回將大寫字元資料轉換成小寫之後的字串運算式。 |
+| [UPPER (str_expr)](sql-api-query-reference.md#bk_upper) | 傳回將小寫字元資料轉換成大寫之後的字串運算式。 |
+| [REPLACE (str_expr, str_expr, str_expr)](sql-api-query-reference.md#bk_replace) | 使用其他字串值取代指定的字串值的所有項目。 |
 | [REPLICATE (str_expr, num_expr)](https://docs.microsoft.com/azure/cosmos-db/sql-api-sql-query-reference#bk_replicate) | 將字串值重複指定的次數。 |
-| [REVERSE (str_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_reverse) | 傳回反向順序的字串值。 |
+| [REVERSE (str_expr)](sql-api-query-reference.md#bk_reverse) | 傳回反向順序的字串值。 |
 
 藉由使用這些函數，您現在可以執行下列查詢。 例如，您可以傳回大寫的家族名稱，如下所示：
 
@@ -1522,10 +1522,10 @@ Cosmos DB 也支援一些適用於一般作業的內建函式，這些函式可�
 
 | 使用量 | 說明 |
 | --- | --- |
-| [ARRAY_LENGTH (arr_expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_length) |傳回指定陣列運算式的元素數目。 |
-| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |
-| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_contains) |傳回布林值，表示陣列是否包含指定值。 可以指定要進行完整或部分比對。 |
-| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_array_slice) |傳回陣列運算式的一部分。 |
+| [ARRAY_LENGTH (arr_expr)](sql-api-query-reference.md#bk_array_length) |傳回指定陣列運算式的元素數目。 |
+| [ARRAY_CONCAT (arr_expr, arr_expr [, arr_expr])](sql-api-query-reference.md#bk_array_concat) |傳回串連兩個或多個陣列值之結果的陣列。 |
+| [ARRAY_CONTAINS (arr_expr, expr [, bool_expr])](sql-api-query-reference.md#bk_array_contains) |傳回布林值，表示陣列是否包含指定值。 可以指定要進行完整或部分比對。 |
+| [ARRAY_SLICE (arr_expr, num_expr [, num_expr])](sql-api-query-reference.md#bk_array_slice) |傳回陣列運算式的一部分。 |
 
 陣列函數可用來管理 JSON 中的陣列。 例如，以下是傳回其中一位父母是 "Robin Wakefield" 之所有項目的查詢。 
 
@@ -1627,7 +1627,7 @@ LINQ 是一種 .NET 程式設計模型，此模型會將運算表示為對物件
 
 ### <a name="net-and-json-mapping"></a>.NET 和 JSON 對應
 
-.NET 物件與 JSON 項目之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。 請考量下列範例：建立的 Family 物件會對應至 JSON 項目 (如下所示)。 而反之亦然，JSON 項目會對應回 .NET 物件。
+.NET 物件與 JSON 項目之間的對應是自然的，亦即每個資料成員欄位都會對應至 JSON 物件，其中欄位名稱對應至物件的「索引鍵」部分，而「值」部分則遞迴地對應至物件的值部分。 請思考下列範例：建立的 Family 物件對應至 JSON 項目 (如下所示)。 而反之亦然，JSON 項目會對應回 .NET 物件。
 
 **C# 類別**
 
@@ -1742,10 +1742,10 @@ Cosmos DB 查詢提供者會盡力將 LINQ 查詢對應至 Cosmos DB SQL 查詢�
 * 彙總的 **Count**、**Sum**、**Min**、**Max** 與 **Average** 運算子，以及其非同步對應項 **CountAsync**、**SumAsync**、**MinAsync**、**MaxAsync** 與 **AverageAsync**。
 * **CompareTo**：轉譯為範圍比較。 通常用於字串，因為字串在 .NET 中是無法比較的
 * **Take**：轉譯為 SQL TOP，以限制查詢的結果
-* **數學函數**：支援從 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan、Truncate 轉譯為對等的 SQL 內建函式。
-* **字串函數**：支援從 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 轉譯為對等的 SQL 內建函式。
-* **陣列函數**：支援從 .NET 的 Concat、Contains 和 Count 轉譯為對等的 SQL 內建函式。
-* **地理空間擴充函數**：支援從虛設常式方法 Distance、Within、IsValid 及 IsValidDetailed 轉譯為對等的 SQL 內建函式。
+* **數學函式**：支援從 .NET 的 Abs、Acos、Asin、Atan、Ceiling、Cos、Exp、Floor、Log、Log10、Pow、Round、Sign、Sin、Sqrt、Tan、Truncate 轉譯為對等的 SQL 內建函式。
+* **字串函式**：支援從 .NET 的 Concat、Contains、EndsWith、IndexOf、Count、ToLower、TrimStart、Replace、Reverse、TrimEnd、StartsWith、SubString、ToUpper 轉譯為對等的 SQL 內建函式。
+* **陣列函式**：支援從 .NET 的 Concat、Contains 和 Count 轉譯為對等的 SQL 內建函式。
+* **地理空間擴充函式**：支援從虛設常式方法 Distance、Within、IsValid 及 IsValidDetailed 轉譯為對等的 SQL 內建函式。
 * **使用者定義函式的擴充函式**：支援從 Stub 方法 UserDefinedFunctionProvider.Invoke 轉譯為對應的使用者定義函式。
 * **其他**：支援聯合和條件式運算子的轉譯。 可根據內容將 Contains 轉譯為字串 CONTAINS、ARRAY_CONTAINS 或 SQL IN。
 
@@ -2117,7 +2117,7 @@ Cosmos DB 提供透過 HTTP 的開放 RESTful 程式設計模型。 可以使用
 
 如果容器上所設定的編製索引原則無法支援指定的查詢，Azure Cosmos DB 伺服器就會傳回 400「錯誤的要求」。 針對範圍查詢 (針對雜湊 (相等) 查閱所設定的路徑) 以及明確地排除不進行編製索引的路徑，會傳回此錯誤訊息。 `x-ms-documentdb-query-enable-scan` 標頭可以指定成允許查詢在無法使用索引時執行掃描。
 
-您也可以藉由將 `x-ms-documentdb-populatequerymetrics` 標頭設為 `True`，在查詢執行期間取得詳細的計量。 如需詳細資訊，請參閱[適用於 Azure Cosmos DB 的 SQL 查詢計量](sql-api-sql-query-metrics.md)。
+您也可以藉由將 `x-ms-documentdb-populatequerymetrics` 標頭設為 `True`，在查詢執行期間取得詳細的計量。 如需詳細資訊，請參閱[適用於 Azure Cosmos DB 的 SQL 查詢計量](sql-api-query-metrics.md)。
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 
@@ -2253,18 +2253,18 @@ Cosmos DB 提供一個程式設計模型，可使用預存程序和觸發程序�
 ## <a id="References"></a>參考
 
 1. [Azure Cosmos DB 簡介][introduction]
-2. [Azure Cosmos DB SQL 規格](http://go.microsoft.com/fwlink/p/?LinkID=510612)
+2. [Azure Cosmos DB SQL 規格](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 3. [Azure Cosmos DB .NET 範例](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Azure Cosmos DB 一致性層級][consistency-levels]
-5. ANSI SQL 2011 [http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](http://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
-6. JSON [http://json.org/](http://json.org/)
-7. Javascript 規格 [http://www.ecma-international.org/publications/standards/Ecma-262.htm](http://www.ecma-international.org/publications/standards/Ecma-262.htm) 
-8. LINQ [http://msdn.microsoft.com/library/bb308959.aspx](http://msdn.microsoft.com/library/bb308959.aspx) 
-9. 大型資料庫的查詢評估技術 [http://dl.acm.org/citation.cfm?id=152611](http://dl.acm.org/citation.cfm?id=152611)
+5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
+6. JSON [https://json.org/](https://json.org/)
+7. Javascript 規格 [https://www.ecma-international.org/publications/standards/Ecma-262.htm](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
+8. LINQ [https://msdn.microsoft.com/library/bb308959.aspx](https://msdn.microsoft.com/library/bb308959.aspx) 
+9. 大型資料庫的查詢評估技術 [https://dl.acm.org/citation.cfm?id=152611](https://dl.acm.org/citation.cfm?id=152611)
 10. 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)
 11. Lu, Ooi, Tan, 平行關聯式資料庫系統中的查詢處理 (IEEE Computer Society Press，1994 年)。
-12. Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：資料處理的 Not-So-Foreign 語言，SIGMOD 2008。
-13. G. Graefe。 The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
+12. Christopher Olston、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar、Andrew Tomkins：Pig Latin：A Not-So-Foreign Language for Data Processing (用於資料處理的非陌生語言)，SIGMOD 2008。
+13. G. Graefe。 The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3):1995。
 
 [1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md

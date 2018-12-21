@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 教學課程 - 部署叢集
+title: (已被取代) Azure Container Service 教學課程 - 部署叢集
 description: Azure Container Service 教學課程 - 部署叢集
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 8403e5d8dd3bad07e412b08709dcb8c28201bcdf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d77396cdcaa3f2f291aff52dfd1e6793aee4039c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434419"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997850"
 ---
-# <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>在 Azure Container Service 中部署 Kubernetes 叢集
+# <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(已被取代) 在 Azure Container Service 中部署 Kubernetes 叢集
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需本教學課程中使用 Azure Kubernetes Service 的更新版本，請參閱[教學課程：部署 Azure Kubernetes Service (AKS) 叢集](../../aks/tutorial-kubernetes-deploy-cluster.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Kubernetes 會提供容器化應用程式的分散式平台。 透過 Azure Container Service，可簡單又快速地佈建生產環境就緒 Kubernetes 叢集。 在本教學課程的第 3 和第 7 部分中，已部署一個 Azure Container Service Kubernetes 叢集。 完成的步驟包括：
 

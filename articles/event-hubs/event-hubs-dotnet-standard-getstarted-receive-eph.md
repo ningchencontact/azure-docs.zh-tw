@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET Standard 程式庫從 Azure 事件中樞接收事件 | Microsoft Docs
-description: 開始使用 .NET Standard 中的 EventProcessorHost 接收訊息
+title: 使用 .NET Core 接收事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文會逐步解說如何建立 .NET Core 應用程式，以透過 EventProcessorHost 接收訊息。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9adbd8b9e7934ebe454d14ac6e47fe96898c9184
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 18b37fd7c85fced4cc57b57320daf195f6f33e3e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234386"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082375"
 ---
-# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>開始使用 .NET Standard 中的事件處理器主機來接收訊息
+# <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-core"></a>開始使用 .NET Core 中的事件處理器主機來接收訊息
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
 本教學課程說明如何撰寫一個使用[事件處理器主機](event-hubs-event-processor-host.md)從事件中樞接收訊息的 .NET Core 主控台應用程式。 [事件處理器主機](event-hubs-event-processor-host.md)是一個 .NET 類別，透過管理持續檢查點以及來自事件中樞的平行接收，簡化來自事件中樞的事件接收作業。 使用事件處理器主機，可讓您將事件分割到多個接收者，即使裝載於不同的節點時也是一樣。 此範例說明單一接收者如何使用事件處理器主機。 [相應放大事件處理][使用事件中樞相應放大事件處理] 範例說明如何搭配使用事件處理器主機與多個接收者。
@@ -206,7 +207,7 @@ ms.locfileid: "51234386"
 > 本教學課程使用單一 [EventProcessorHost](event-hubs-event-processor-host.md)執行個體。 若要增加輸送量，建議您執行多個 [EventProcessorHost](event-hubs-event-processor-host.md) 執行個體 (如[相應放大事件處理](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3)範例所示)。 在這些情況下，多個執行個體會自動彼此協調，以對已接收的事件進行負載平衡。 
 
 ## <a name="next-steps"></a>後續步驟
-在此快速入門中，您已建立可從事件中樞接收訊息的 .NET Standard 應用程式。 若要了解如何使用 .NET Standard 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)。
+在此快速入門中，您已建立可從事件中樞接收訊息的 .NET Core 應用程式。 若要了解如何使用 .NET Core 將事件傳送到事件中樞，請參閱[從事件中樞傳送事件 - .NET Core](event-hubs-dotnet-standard-getstarted-send.md)。
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/event-hubs-python1.png
 [2]: ./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png

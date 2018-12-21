@@ -1,21 +1,22 @@
 ---
-title: 教學課程 9：在 LUIS 中包括正面、負面和中性的情感分析
+title: 情感分析
 titleSuffix: Azure Cognitive Services
 description: 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。 情感是從整個語句決定。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 60c4b280033e110f6b8b2a3ce720934e118c8479
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d93c7619bb670a81372ab83359836a78b8956b09
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424845"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098914"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>教學課程 9：擷取整體語句的情感
 在本教學課程中，建立一個應用程式，示範如何從語句中擷取正面、負面和中性人氣。 情感是從整個語句決定。
@@ -94,7 +95,7 @@ ms.locfileid: "52424845"
 
 2. 切換 [情感分析] 以啟用這項設定。 
 
-    ![](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
+    ![開啟情感分析作為發佈設定](./media/luis-quickstart-intent-and-sentiment-analysis/turn-on-sentiment-analysis-as-publish-setting.png)
 
 ## <a name="publish"></a>發佈
 
@@ -106,7 +107,7 @@ ms.locfileid: "52424845"
 
 2. 移至位址中的 URL 結尾並輸入 `Jill Jones work with the media team on the public portal was amazing`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有所擷取情感分析的 `EmployeeFeedback` 意圖。
     
-    ```JSON
+    ```json
     {
       "query": "Jill Jones work with the media team on the public portal was amazing",
       "topScoringIntent": {

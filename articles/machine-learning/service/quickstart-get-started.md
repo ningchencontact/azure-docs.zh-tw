@@ -1,24 +1,26 @@
 ---
-title: 快速入門：在 Azure 入口網站中建立機器學習服務工作區 - Azure Machine Learning
-description: 使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Azure Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。
+title: 透過 Azure 入口網站快速入門
+titleSuffix: Azure Machine Learning service
+description: 開始使用 Azure Machine Learning 服務。 使用 Azure 入口網站建立工作區，此工作區是雲端中用來實驗、訓練及部署機器學習模型的基礎區塊。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: quickstart
 ms.reviewer: sgilley
-author: rastala
-ms.author: roastala
+author: hning86
+ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: 59887c46e3ce06eae250e106a01239a1ba969e7f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: c215a3947069e572f73692ea54010c77d78ae4fd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875309"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273556"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning
 
-在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter Notebook 伺服器，請參閱[快速入門：利用 Python 開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。
+在本快速入門中，您會使用 Azure 入口網站來建立 Azure Machine Learning 工作區。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 本快速入門使用雲端資源，因此不需要安裝。 若要改為設定您自己的 Jupyter 筆記本伺服器，請參閱[快速入門：使用 Python 來開始使用 Azure Machine Learning](quickstart-create-workspace-with-python.md)。
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -37,7 +39,7 @@ ms.locfileid: "52875309"
 
 您所建立的資源可用來作為其他 Machine Learning 服務教學課程和操作說明文章的必要條件。 如同使用其他 Azure 服務，對於與 Machine Learning 相關聯的特定資源有一些限制，例如計算叢集大小。 深入了解[預設限制及如何增加配額](how-to-manage-quotas.md)。
 
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
+如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 
 ## <a name="create-a-workspace"></a>建立工作區 

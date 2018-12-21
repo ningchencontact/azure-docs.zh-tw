@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5d209d0290d8ca813101b531f18fc0f08a6edf8a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b03a0538e92ac126a50a1346eb1bf7fb003189f9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246883"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966852"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>教學課程：使用 Azure 入口網站和主題/訂用帳戶來更新庫存
 
@@ -70,7 +70,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 1. 按一下 [所有資源]，然後按一下新建立的命名空間名稱。
 2. 在命名空間視窗中，按一下 [共用存取原則]。
 3. 在 [共用存取原則] 畫面中，按一下 **RootManageSharedAccessKey**。
-4. 在 [原則: RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。
+4. 在 [原則：RootManageSharedAccessKey] 視窗中，按一下 [主要連接字串] 旁邊的 [複製] 按鈕，將連接字串複製到剪貼簿以供後續使用。 將此值貼到記事本或一些其他暫存位置。
 
     ![connection-string][connection-string]
 5. 重複前一個步驟，複製 [主要金鑰] 的值並貼到暫存位置以供後續使用。
@@ -91,7 +91,7 @@ Microsoft Azure 服務匯流排是一項多租用戶雲端傳訊服務，可在�
 
 ## <a name="create-filter-rules-on-subscriptions"></a>在訂用帳戶上建立篩選規則
 
-佈建命名空間和主題/訂用帳戶，且您已擁有必要的認證之後，您即可在訂用帳戶上建立篩選規則，然後傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted\BasicSendReceiveTutorialwithFilters)中查看程式碼。
+佈建命名空間和主題/訂用帳戶，且您已擁有必要的認證之後，您即可在訂用帳戶上建立篩選規則，然後傳送和接收訊息。 您可以在[此 GitHub 範例資料夾](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/GettingStarted/BasicSendReceiveTutorialwithFilters)中查看程式碼。
 
 ### <a name="send-and-receive-messages"></a>傳送及接收訊息
 

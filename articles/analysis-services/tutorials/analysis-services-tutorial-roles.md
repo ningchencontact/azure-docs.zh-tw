@@ -1,18 +1,19 @@
 ---
-title: 教學課程 - 設定 Azure Analysis Services 伺服器管理員和使用者角色教學課程 | Microsoft Docs
+title: 教學課程 - 設定 Azure Analysis Services 管理員和使用者角色 | Microsoft Docs
+description: 了解如何設定 Azure Analysis Services 角色。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 07/09/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 1c1dd5316eead5e91dd77d3e6b21a7a14d39afeb
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: a1e6e04c4019086d56cc0eb25176a507e514c477
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929224"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000636"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>教學課程：設定伺服器管理員和使用者角色
 
@@ -27,7 +28,7 @@ ms.locfileid: "37929224"
 
 若要深入了解 Azure Analysis Services 中的使用者安全性，請參閱[驗證和使用者權限](../analysis-services-manage-users.md)。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - 訂用帳戶中的 Azure Active Directory。
 - 已在您的訂用帳戶中建立 [Azure Analysis Services 伺服器](../analysis-services-create-server.md)。
@@ -35,7 +36,7 @@ ms.locfileid: "37929224"
 - [新增 adventureworks 範例模型](../analysis-services-create-sample-model.md)至您的伺服器。
 - [安裝最新版本的 SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
 登入[入口網站](https://portal.azure.com/)。
 
@@ -143,5 +144,5 @@ ms.locfileid: "37929224"
 在本教學課程中，您已了解如何連線至 Azure AS 伺服器，並在 SSMS 中瀏覽 adventureworks 範例模型資料庫和屬性。 您也已了解如何使用 SSMS 和 TMSL 指令碼將使用者或群組新增至現有和新的角色。 現在，您已為伺服器和範例模型資料庫設定使用者權限，接下來您和其他使用者即可使用 Power BI 之類的用戶端應用程式連線至該資料庫。 若要深入了解，請繼續進行下一個教學課程。 
 
 > [!div class="nextstepaction"]
-> [教學課程 - 使用 Power BI Desktop 進行連線](analysis-services-tutorial-pbid.md)
+> [教學課程：使用 Power BI Desktop 進行連線](analysis-services-tutorial-pbid.md)
 

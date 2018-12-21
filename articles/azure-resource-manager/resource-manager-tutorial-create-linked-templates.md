@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: dfdad89d628fda476ecef1c43246ce3927927555
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: a861a88c8534fa50405109efd738deb8486081e4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075553"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教學課程：建立連結的 Azure Resource Manager 範本
 
-了解如何建立連結的 Azure Resource Manager 範本。 使用連結的範本，您可以讓一個範本呼叫另一個範本。 此功能非常適合用來將範本模組化時。 在此教學課程中，您會使用與在[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)中使用之範本相同的範本，此範本會建立虛擬機器、虛擬網路與其他相依資源，包括儲存體帳戶。 您會將儲存體帳戶資源分散到連結的範本中。
+了解如何建立連結的 Azure Resource Manager 範本。 使用連結的範本，您可以讓一個範本呼叫另一個範本。 此功能非常適合用來將範本模組化時。 在此教學課程中，您會使用與在[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的相同範本，此範本會建立虛擬機器、虛擬網路與其他相依資源，包括儲存體帳戶。 您會將儲存體帳戶資源建立分散到連結的範本。
 
 本教學課程涵蓋下列工作：
 
@@ -33,6 +33,7 @@ ms.locfileid: "52863494"
 > * 連結到連結的範本
 > * 設定相依性
 > * 部署範本
+> * 其他做法
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -50,7 +51,7 @@ ms.locfileid: "52863494"
 
 ## <a name="open-a-quickstart-template"></a>開啟快速入門範本
 
-Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本教學課程中使用的範本名為[部署簡單的 Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)。 這與在[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)中使用的範本相同。 您儲存相同範本的兩個複本以做為：
+Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋找範例範本並加以自訂，而不要從頭建立範本。 本教學課程中使用的範本名為[部署簡單的 Windows VM](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/)。 這是[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的相同範本。 您儲存相同範本的兩個複本以做為：
 
 * **主範本**：建立所有資源，儲存體帳戶除外。
 * **連結的範本**：建立儲存體帳戶。
@@ -78,10 +79,27 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 連結的範本會建立儲存體帳戶。 連結的範本幾乎與建立儲存體帳戶的獨立範本一模一樣。 在此教學課程中，連結的範本必須將一個值傳遞回主範本。 此值是在 `outputs` 元素中所定義。
 
-1. 在 Visual Studio Code 中開啟 linkedTemplate.json (若尚未開啟)。
+1. 在 Visual Studio Code 中開啟 linkedTemplate.json (如果此檔案尚未開啟)。
 2. 進行下列變更：
 
     * 移除所有資源，儲存體帳戶除外。 您必須移除總共四個資源。
+    * 將儲存體帳戶資源的 **name** 元素值更新為：
+
+        ```json
+          "name": "[parameters('storageAccountName')]",
+        ```
+    * 移除 **variables** 元素及所有的變數定義。
+    * 移除 **location** 以外的所有參數。
+    * 新增稱為 **storageAccountName** 的參數。 儲存體帳戶名稱會以參數形式從主範本傳遞到連結的範本。
+
+        ```json
+        "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+        },
+        ```
     * 更新 **outputs** 元素，讓它看起來像這樣：
 
         ```json
@@ -93,9 +111,6 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         }
         ```
         主範本中的虛擬機器資源定義需要 **storageUri**。  您必須將該值傳遞回主範本做為輸出值。
-    * 移除從未使用的參數。 這些參數下方有綠色波浪線。 您應該只保留一個稱為 **location** 的參數。
-    * 移除 **variables** 元素。 它們在此教學課程中是不必要的。
-    * 新增稱為 **storageAccountName** 的參數。 儲存體帳戶名稱會以參數形式從主範本傳遞到連結的範本。
 
     當您完成時，範本看起來應該像這樣：
 
@@ -143,21 +158,96 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
 ## <a name="upload-the-linked-template"></a>上傳連結的範本
 
-範本必須可從您執行部署的位置存取。 此位置可以是 Azure 儲存體帳戶、Github 或 Dropbox。 若您的範本包含機密資訊，請務必保護其存取。 在此教學課程中，您使用如同您在[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)中使用的 Cloud Shell 部署方法。 主範本 (azuredeploy.json) 已上傳到殼層。 連結的範本 (linkedTemplate.json) 必須在某處共用。  為減少此教學課程中的工作量，在上一節中定義的連結的範本已上傳到 [Azure 儲存體帳戶](https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json)。
+主要範本和連結的範本必須可從您執行部署的位置存取。 在此教學課程中，您使用如同您在[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的 Cloud Shell 部署方法。 主範本 (azuredeploy.json) 已上傳到殼層。 連結的範本 (linkedTemplate.json) 必須在某處安全地共用。 下列 PowerShell 指令碼會建立 Azure 儲存體帳戶、將範本上傳至儲存體帳戶，接著產生 SAS 權杖以授與範本檔案的有限存取權。 為了簡化教學課程，此指令碼會從共用位置下載完整的連結範本。 如果您想要使用您所建立的連結範本，可以使用 [Cloud Shell](https://shell.azure.com) 來上傳連結的範本，然後將指令碼修改為使用連結的範本。
+
+> [!NOTE]
+> 指令碼會限制在 8 小時內使用 SAS 權杖。 如果您需要更多時間才能完成本教學課程，請增加到期時間。
+
+```azurepowershell-interactive
+$projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
+$location = Read-Host -Prompt "Enter a location (i.e. centralus)"
+
+$resourceGroupName = $projectNamePrefix + "rg"
+$storageAccountName = $projectNamePrefix + "store"
+$containerName = "linkedtemplates" # The name of the Blob container to be created.
+
+$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
+
+# Download the tutorial linked template
+Invoke-WebRequest -Uri $linkedTemplateURL -OutFile "$home/$fileName"
+
+# Create a resource group
+New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
+
+# Create a storage account
+$storageAccount = New-AzureRmStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -Location $location `
+    -SkuName "Standard_LRS"
+
+$context = $storageAccount.Context
+
+# Create a container
+New-AzureStorageContainer -Name $containerName -Context $context
+
+# Upload the linked template
+Set-AzureStorageBlobContent `
+    -Container $containerName `
+    -File "$home/$fileName" `
+    -Blob $fileName `
+    -Context $context
+
+# Generate a SAS token
+$templateURI = New-AzureStorageBlobSASToken `
+    -Context $context `
+    -Container $containerName `
+    -Blob $fileName `
+    -Permission r `
+    -ExpiryTime (Get-Date).AddHours(8.0) `
+    -FullUri
+
+echo "You need the following values later in the tutorial:"
+echo "Resource Group Name: $resourceGroupName"
+echo "Linked template URI with SAS token: $templateURI"
+```
+
+1. 選取 [試試看] 綠色按鈕，以開啟 Azure Cloud Shell 窗格。
+2. 選取 [複製] 來複製 PowerShell 指令碼。
+3. 以滑鼠右鍵按一下 Shell 窗格內的任何位置 (深藍色的部分)，然後選取 [貼上]。
+4. 請記下 Shell 窗格結尾的兩個值 (資源群組名稱和連結的範本 URI)。 在本教學課程後續的內容中，您會需要這些值。
+5. 選取 [結束焦點模式] 以關閉 Shell 窗格。
+
+實際上，您會在部署主要範本時產生 SAS 權杖，並提供 SAS 權杖較小的到期時間範圍，讓它更安全。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
 
 ## <a name="call-the-linked-template"></a>呼叫連結的範本
 
 主範本的名稱是 azuredeploy.json。
 
 1. 在 Visual Studio Code 中開啟 azuredeploy.json (若尚未開啟)。
-2. 從範本刪除儲存體帳戶資源定義。
+2. 從範本刪除儲存體帳戶資源定義：
+
+    ```json
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "apiVersion": "2018-07-01",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    ```
 3. 新增下列 json 程式碼片段到您儲存體帳戶定義存放所在之處：
 
     ```json
     {
-      "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
       "properties": {
           "mode": "Incremental",
           "templateLink": {
@@ -176,13 +266,14 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     * 主範本中的 `Microsoft.Resources/deployments` 資源會用來連結到另一個範本。
     * `deployments` 資源的名稱是 `linkedTemplate`。 此名稱會用於[設定相依性](#configure-dependency)。  
     * 呼叫連結的範本時，您只能使用[增量](./deployment-modes.md)部署模式。
-    * `templateLink/uri` 包含連結的範本 URI。 連結的範本已上傳到共用儲存體帳戶。 若您將範本上傳到網際網路上的另一個位置，您可以更新 URI。
+    * `templateLink/uri` 包含連結的範本 URI。 將此值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的 URI。
     * 使用 `parameters` 將值從主範本傳遞到連結的範本。
-4. 儲存變更。
+4. 確定您已將 `uri` 元素的值更新為您上傳連結的範本 (具有 SAS 權杖的範本) 時取得的值。 實際上，您想要提供具有參數的 URI。
+5. 儲存修改過的範本
 
 ## <a name="configure-dependency"></a>設定相依性
 
-回想一下[教學課程：使用 Resource Manager 範本建立多個資源執行個體](./resource-manager-tutorial-create-multiple-instances.md)，虛擬機器資源相依於儲存體帳戶：
+回想一下[教學課程：使用相依資源建立 Azure Resource Manager 範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md)，虛擬機器資源相依於儲存體帳戶：
 
 ![Azure Resource Manager 範本相依性圖表](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -208,12 +299,13 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 
     linkedTemplate 是部署資源的名稱。  
 3. 更新 **properties/diagnosticsProfile/bootDiagnostics/storageUri**，如上一個螢幕擷取畫面所示。
+4. 儲存修改過的範本。
 
 如需詳細資訊，請參閱[在部署 Azure 資源時使用連結與巢狀的範本](./resource-group-linked-templates.md)。
 
 ## <a name="deploy-the-template"></a>部署範本
 
-請參閱[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)一節，以了解部署程序。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
+請參閱[部署範本](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template)一節，以了解部署程序。 使用與儲存體帳戶相同的資源群組名稱來儲存連結的範本。 它可讓您更輕鬆地清除下一節中的資源。 為了提高安全性，請使用為虛擬機器系統管理員帳戶產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="clean-up-resources"></a>清除資源
 
@@ -224,9 +316,16 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
 3. 選取資源群組名稱。  您在資源群組中應該會看到共計六個資源。
 4. 從頂端功能表中選取 [刪除資源群組]。
 
+## <a name="additional-practice"></a>其他做法
+
+若要改善專案，請對完成的專案進行下列其他變更：
+
+1. 修改主要範本 (azuredeploy.json)，使其透過參數取得連結的範本 URI 值。
+2. 您不會在上傳連結的範本時產生 SAS 權杖，而是在部署主要範本產生該權杖。 如需詳細資訊，請參閱[在部署期間提供 SAS 權杖](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+
 ## <a name="next-steps"></a>後續步驟
 
-在此教學課程中，您已開發及部署連結的範本。 若要了解如何使用虛擬機器擴充功能來執行部署後工作，請參閱
+在本教學課程，您已將某個範本模組化成為主要範本和連結的範本。 若要了解如何使用虛擬機器擴充功能來執行部署後工作，請參閱：
 
 > [!div class="nextstepaction"]
-> [部署虛擬機器擴充功能](./deployment-manager-tutorial.md)
+> [部署虛擬機器延伸模組](./deployment-manager-tutorial.md)

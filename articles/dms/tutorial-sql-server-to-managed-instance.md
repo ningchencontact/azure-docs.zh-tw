@@ -1,5 +1,5 @@
 ---
-title: 教學課程：使用 DMS 移轉至 Azure SQL Database 受控執行個體 | Microsoft Docs
+title: 教學課程：使用 DMS 遷移至 Azure SQL Database 受控執行個體 | Microsoft Docs
 description: 了解如何使用 Azure 資料庫移轉服務，從內部部署 SQL Server 遷移至 Azure SQL Database 受控執行個體。
 services: dms
 author: pochiraju
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: f6b77f3a2b78d037e74bbca9a3624c9fa62c5d8b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: e1cce6231fbb31dac6526a01ec402533b3861a21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961869"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956494"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>教學課程：使用 DMS 在離線狀態下將 SQL Server 移轉至 Azure SQL Database 受控執行個體
+# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>教學課程：使用 DMS 將 SQL Server 離線移轉至 Azure SQL Database 受控執行個體
 您可以使用 Azure 資料庫移轉服務，將內部部署 SQL Server 執行個體的資料庫遷移至 [Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance.md)。 如需其他可能需要手動操作的方法，請參閱[將 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體](../sql-database/sql-database-managed-instance-migrate.md)一文。
 
 在本教學課程中，您要使用 Azure 資料庫移轉服務，將 **Adventureworks2012** 資料庫從內部部署 SQL Server 執行個體遷移至 Azure SQL Database 受控執行個體。
@@ -55,25 +55,25 @@ ms.locfileid: "50961869"
 
 1. 登入 Azure 入口網站，選取 [所有服務]，然後選取 [訂用帳戶]。
 
-    ![顯示入口網站訂用帳戶](media\tutorial-sql-server-to-managed-instance\portal-select-subscriptions.png)        
+    ![顯示入口網站訂用帳戶](media/tutorial-sql-server-to-managed-instance/portal-select-subscriptions.png)        
 
 2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]。
 
-    ![顯示資源提供者](media\tutorial-sql-server-to-managed-instance\portal-select-resource-provider.png)
+    ![顯示資源提供者](media/tutorial-sql-server-to-managed-instance/portal-select-resource-provider.png)
 
 3. 搜尋移轉，然後在 [Microsoft.DataMigration] 的右邊，選取 [註冊]。
 
-    ![註冊資源提供者](media\tutorial-sql-server-to-managed-instance\portal-register-resource-provider.png)   
+    ![註冊資源提供者](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>建立 Azure 資料庫移轉服務執行個體
 
 1. 在 Azure 入口網站中，選取 [+ 建立資源]，搜尋 [Azure 資料庫移轉服務]，然後從下拉式清單選取 [Azure 資料庫移轉服務]。
 
-     ![Azure Marketplace](media\tutorial-sql-server-to-managed-instance\portal-marketplace.png)
+     ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance/portal-marketplace.png)
 
 2. 在 [Azure 資料庫移轉服務] 畫面上，選取 [建立]。
 
-    ![建立 Azure 資料庫移轉服務執行個體](media\tutorial-sql-server-to-managed-instance\dms-create1.png)
+    ![建立 Azure 資料庫移轉服務執行個體](media/tutorial-sql-server-to-managed-instance/dms-create1.png)
 
 3. 在 [建立移轉服務] 畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
 
@@ -91,7 +91,7 @@ ms.locfileid: "50961869"
 
     如需成本和定價層的詳細資訊，請參閱[定價分頁](https://aka.ms/dms-pricing)。
    
-    ![建立 DMS 服務](media\tutorial-sql-server-to-managed-instance\dms-create-service2.png)
+    ![建立 DMS 服務](media/tutorial-sql-server-to-managed-instance/dms-create-service2.png)
 
 7.  選取 [建立] 以建立服務。
 
@@ -101,7 +101,7 @@ ms.locfileid: "50961869"
 
 1. 在 Azure 入口網站中，選取 [所有服務]，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]。
 
-    ![找出 Azure 資料庫移轉服務的所有執行個體](media\tutorial-sql-server-to-managed-instance\dms-search.png)
+    ![找出 Azure 資料庫移轉服務的所有執行個體](media/tutorial-sql-server-to-managed-instance/dms-search.png)
 
 2. 在 [Azure 資料庫移轉服務] 畫面上，搜尋您建立的執行個體名稱，然後選取該執行個體。
  
@@ -109,7 +109,7 @@ ms.locfileid: "50961869"
 
 4. 在 [新增移轉專案] 畫面上指定專案名稱、在 [來源伺服器類型] 文字方塊中選取 [SQL Server]、在 [目標伺服器類型] 文字方塊中選取 [Azure SQL Database 受控執行個體]，然後針對 [選擇活動類型]，選取 [離線資料移轉]。
 
-   ![建立 DMS 專案](media\tutorial-sql-server-to-managed-instance\dms-create-project2.png)
+   ![建立 DMS 專案](media/tutorial-sql-server-to-managed-instance/dms-create-project2.png)
 
 5. 選取 [Create] \(建立\) 以建立專案。
 
@@ -124,13 +124,13 @@ ms.locfileid: "50961869"
     > [!CAUTION]
     > 使用自我簽署憑證加密的 SSL 連線不會提供增強式安全性。 這種連線容易受到攔截式攻擊。 在生產環境中，或在連線到網際網路的伺服器上，您不應該仰賴使用自我簽署憑證的 SSL。
 
-   ![來源詳細資料](media\tutorial-sql-server-to-managed-instance\dms-source-details1.png)
+   ![來源詳細資料](media/tutorial-sql-server-to-managed-instance/dms-source-details1.png)
 
 3. 選取 [ **儲存**]。
 
 4. 在 [選取來源資料庫] 畫面上，選取 [Adventureworks2012] 資料庫進行移轉。
 
-   ![選取來源資料庫](media\tutorial-sql-server-to-managed-instance\dms-source-database1.png)
+   ![選取來源資料庫](media/tutorial-sql-server-to-managed-instance/dms-source-database1.png)
 
 5. 選取 [ **儲存**]。
 
@@ -140,7 +140,7 @@ ms.locfileid: "50961869"
 
     如果您尚未佈建 Azure SQL Database 受控執行個體，請選取 [否]，以取得可協助您佈建執行個體的連結。 您仍然可以繼續建立專案，然後在 Azure SQL Database 受控執行個體準備就緒時，返回此特定專案來執行移轉。   
  
-       ![選取目標](media\tutorial-sql-server-to-managed-instance\dms-target-details2.png)
+       ![選取目標](media/tutorial-sql-server-to-managed-instance/dms-target-details2.png)
 
 2.  選取 [ **儲存**]。
 
@@ -148,7 +148,7 @@ ms.locfileid: "50961869"
 
 1. 在 [選取來源資料庫] 畫面上，選取您要遷移的來源資料庫。
 
-    ![選取來源資料庫](media\tutorial-sql-server-to-managed-instance\select-source-databases.png)
+    ![選取來源資料庫](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
 2. 選取 [ **儲存**]。
 
@@ -159,7 +159,7 @@ ms.locfileid: "50961869"
     >[!NOTE]
     >此版本僅支援移轉 SQL 登入。
 
-    ![選取登入](media\tutorial-sql-server-to-managed-instance\select-logins.png)
+    ![選取登入](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
 2. 選取 [ **儲存**]。
  
@@ -176,7 +176,7 @@ ms.locfileid: "50961869"
     |**儲存體帳戶設定** | 此 SAS URI 會向 Azure 資料庫移轉服務提供您儲存體帳戶容器的存取權，此容器會作為服務上傳備份檔案時的目的地，且會用於將資料庫遷移至 Azure SQL Database 受控執行個體。 [了解如何取得 Blob 容器的 SAS URI](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container)。|
     |**TDE 設定** | 如果您要移轉已啟用透明資料加密 (TDE) 的來源資料庫，您必須具備目標 Azure SQL 資料庫受控執行個體的寫入權限。  請從下拉式功能表中選取用來佈建 Azure SQL DB 受控執行個體的訂用帳戶。  在下拉式功能表中選取目標 **Azure SQL 資料庫受控執行個體**。 |
     
-    ![設定移轉設定](media\tutorial-sql-server-to-managed-instance\dms-configure-migration-settings3.png)
+    ![設定移轉設定](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 
 2. 選取 [ **儲存**]。
  
@@ -188,7 +188,7 @@ ms.locfileid: "50961869"
 
 3. 檢閱並確認與移轉專案相關聯的詳細資料。
  
-    ![移轉專案摘要](media\tutorial-sql-server-to-managed-instance\dms-project-summary2.png)
+    ![移轉專案摘要](media/tutorial-sql-server-to-managed-instance/dms-project-summary2.png)
 
 4.  選取 [ **儲存**]。   
 
@@ -202,11 +202,11 @@ ms.locfileid: "50961869"
 
 1. 在移轉活動畫面中，選取 [重新整理] 以更新顯示。
  
-   ![移轉活動進行中](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration1.png)
+   ![移轉活動進行中](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     您可以進一步展開資料庫和登入類別，以監視個別伺服器物件的移轉狀態。
 
-   ![移轉活動進行中](media\tutorial-sql-server-to-managed-instance\dms-monitor-migration-extend.png)
+   ![移轉活動進行中](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration-extend.png)
 
 2. 移轉完成之後，請選取 [下載報告] 以取得報告，其中會列出與移轉程序相關聯的詳細資料。
  

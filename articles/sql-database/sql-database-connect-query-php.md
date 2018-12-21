@@ -1,95 +1,94 @@
 ---
-title: 使用 .PHP 查詢 Azure SQL Database | Microsoft Docs
-description: 本主題說明如何使用 PHP 來建立連線到 Azure SQL Database 的程式，並使用 Transact-SQL 陳述式查詢。
+title: 使用 PHP 查詢 Azure SQL Database | Microsoft Docs
+description: 如何使用 PHP 來建立可連線到 Azure SQL Database 的程式，並使用 T-SQL 陳述式加以查詢。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
 ms.devlang: php
 ms.topic: quickstart
 author: CarlRabeler
 ms.author: carlrab
-ms.reviewer: ''
+ms.reviewer: v-masebo
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 08bbe22cf0435f667e1fd065e9f747c2c9a92c94
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 11/28/2018
+ms.openlocfilehash: b768b50af7ad6736e5cc3c885e6ac5016976f48a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914170"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958537"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>快速入門：使用 PHP 查詢 Azure SQL 資料庫
 
-此快速入門示範如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 建立程式以連線至 Azure SQL 資料庫，並使用 Transact-SQL 陳述式來查詢資料。
+本文示範如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 連線至 Azure SQL 資料庫。 您可以接著使用 T-SQL 陳述式來查詢資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請確定您具備下列項目︰
+若要完成此範例，請確定您具有下列必要條件：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
+- 您所用電腦公用 IP 位址的[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)
 
-- 您已安裝適用於您作業系統的 PHP 和相關軟體：
+- 針對您的作業系統安裝的 PHP 相關軟體：
 
-    - **MacOS**：安裝 Homebrew 和 PHP，安裝 ODBC 驅動程式和 SQLCMD，然後再安裝 PHP Driver for SQL Server。 請參閱[步驟 1.2、1.3 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/mac/)。
-    - **Ubuntu**：安裝 PHP 和其他必要的套件，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1.2 和 2.1](https://www.microsoft.com/sql-server/developer-get-started/php/ubuntu/)。
-    - **Windows**：安裝 PHP for IIS Express 的最新版本、Microsoft Drivers for SQL Server in IIS Express 的最新版本、Chocolatey、ODBC 驅動程式，以及 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。    
+    - **MacOS**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
 
-## <a name="sql-server-connection-information"></a>SQL Server 連線資訊
+    - **Linux**：安裝 PHP、ODBC 驅動程式，然後安裝 PHP Driver for SQL Server。 請參閱[步驟 1、2 和 3](/sql/connect/php/installation-tutorial-linux-mac)。
+
+    - **Windows**：安裝 PHP for IIS Express 和 Chocolatey，然後安裝 ODBC 驅動程式和 SQLCMD。 請參閱[步驟 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/php/windows/)。
+
+## <a name="get-database-connection"></a>取得資料庫連線
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
-    
-## <a name="insert-code-to-query-sql-database"></a>插入程式碼以查詢 SQL 資料庫
 
-1. 在您慣用的文字編輯器中，建立新的檔案 **sqltest.php**。  
+## <a name="add-code-to-query-database"></a>新增程式碼以查詢資料庫
 
-2. 使用下列程式碼取代內容，並為您的伺服器、資料庫、使用者和密碼新增適當的值。
+1. 在您慣用的文字編輯器中，建立新的檔案 *sqltest.php*。  
+
+1. 以下列程式碼取代其內容。 然後，為您的伺服器、資料庫、使用者和密碼新增適當的值。
 
    ```PHP
    <?php
-   $serverName = "your_server.database.windows.net";
-   $connectionOptions = array(
-       "Database" => "your_database",
-       "Uid" => "your_username",
-       "PWD" => "your_password"
-   );
-   //Establishes the connection
-   $conn = sqlsrv_connect($serverName, $connectionOptions);
-   $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
-           FROM [SalesLT].[ProductCategory] pc
-           JOIN [SalesLT].[Product] p
-        ON pc.productcategoryid = p.productcategoryid";
-   $getResults= sqlsrv_query($conn, $tsql);
-   echo ("Reading data from table" . PHP_EOL);
-   if ($getResults == FALSE)
-       echo (sqlsrv_errors());
-   while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
-   }
-   sqlsrv_free_stmt($getResults);
+       $serverName = "your_server.database.windows.net"; // update me
+       $connectionOptions = array(
+           "Database" => "your_database", // update me
+           "Uid" => "your_username", // update me
+           "PWD" => "your_password" // update me
+       );
+       //Establishes the connection
+       $conn = sqlsrv_connect($serverName, $connectionOptions);
+       $tsql= "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+            FROM [SalesLT].[ProductCategory] pc
+            JOIN [SalesLT].[Product] p
+            ON pc.productcategoryid = p.productcategoryid";
+       $getResults= sqlsrv_query($conn, $tsql);
+       echo ("Reading data from table" . PHP_EOL);
+       if ($getResults == FALSE)
+           echo (sqlsrv_errors());
+       while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
+        echo ($row['CategoryName'] . " " . $row['ProductName'] . PHP_EOL);
+       }
+       sqlsrv_free_stmt($getResults);
    ?>
    ```
 
 ## <a name="run-the-code"></a>執行程式碼
 
-1. 在命令提示字元中，執行下列命令：
+1. 在命令提示字元中，執行應用程式。
 
-   ```php
+   ```bash
    php sqltest.php
    ```
 
-2. 請確認前 20 個資料列已傳回，然後關閉應用程式視窗。
+1. 請確認前 20 個資料列已傳回，然後關閉應用程式視窗。
 
 ## <a name="next-steps"></a>後續步驟
+
 - [設計您的第一個 Azure SQL Database](sql-database-design-first-database.md)
+
 - [Microsoft PHP Drivers for SQL Server](https://github.com/Microsoft/msphpsql/)
+
 - [回報問題或發問](https://github.com/Microsoft/msphpsql/issues)
-- [重試邏輯範例：使用 PHP 彈性連接到 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
 
-
-<!-- Link references. -->
-
-[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
-
+- [重試邏輯範例：使用 PHP 復原連線 SQL](/sql/connect/php/step-4-connect-resiliently-to-sql-with-php)

@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 1eae992785eac18727c138b4e31369f1cf57f93e
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: aad21bd4003f789a0a315d6514bf428a4ef3f9f5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157236"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187333"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>快速入門：使用 Python 向裝置佈建服務註冊 X.509 裝置
 
@@ -48,13 +48,13 @@ ms.locfileid: "50157236"
  
 1. 開啟命令提示字元或 Git Bash 殼層中，並切換至電腦上的工作資料夾。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+   此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
-  測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
+   測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
 
 2. 依照[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的步驟操作。 
 

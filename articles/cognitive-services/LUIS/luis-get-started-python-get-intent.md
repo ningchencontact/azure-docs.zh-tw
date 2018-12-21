@@ -1,23 +1,24 @@
 ---
-title: Python 快速入門 - 預測意圖 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您會了解如何使用 Python 來呼叫 LUIS 應用程式。
+title: 取得意圖 (Python)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bec438933e83bfc0abf4930935f74a1af731565c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e4601b5b6156ace897df65cd42159a1193f8194a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422332"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100118"
 ---
-# <a name="quickstart-get-intent-using-python"></a>快速入門：使用 Python 來取得意圖
+# <a name="quickstart-get-intent-using-python"></a>快速入門：使用 Python 取得意圖
 在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]

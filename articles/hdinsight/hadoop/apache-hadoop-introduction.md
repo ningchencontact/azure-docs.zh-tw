@@ -1,30 +1,32 @@
 ---
-title: 什麼是 HDInsight 及 Apache Hadoop 與 Apache Spark 技術堆疊？ - Azure
+title: 什麼是 Apache Hadoop 與 Apache Spark 技術堆疊？ - Azure HDInsight
 description: HDInsight 及 Apache Hadoop 與 Apache Spark 技術堆疊和元件簡介，包括用於巨量資料分析的 Kafka、Hive、Storm 和 HBase。
 keywords: azure hadoop, hadoop azure, hadoop 簡介, hadoop 簡介, hadoop 技術堆疊, hadoop 簡介, hadoop 簡介, 什麼是 hadoop 叢集, 什麼是 hadoop 叢集, 什麼是 hadoop
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017, mvc
+ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
-ms.date: 05/07/2018
-ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/07/2018
+ms.openlocfilehash: ca247fc5d5eab925e352fe717365c382427b05b1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634510"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438773"
 ---
 # <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什麼是 Azure HDInsight 和 Apache Hadoop 技術堆疊
 
-本文提供 Azure HDInsight 上的 Apache Hadoop 簡介。 Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 您可以使用開放原始碼架構，例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等等。 
+本文提供 Azure HDInsight 上的 Apache Hadoop 簡介。 Azure HDInsight 是供企業使用的完全受控、全方位的開放原始碼分析服務。 您可以使用開放原始碼架構，例如 Hadoop、Apache Spark、Apache Hive、LLAP、Apache Kafka、Apache Storm、R 等等。 
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什麼是 HDInsight 和 Hadoop 技術堆疊？
 
-[Apache Hadoop](http://hadoop.apache.org/) 是原始的開放原始碼建構，用於分散式處理和分析叢集上的巨量資料集。 Hadoop 技術堆疊包含相關的軟體和公用程式，其中包括 Apache Hive、HBase、Spark、Kafka 和其他許多軟體。
+
+[Apache Hadoop](https://hadoop.apache.org/) 是原始的開放原始碼建構，用於分散式處理和分析叢集上的巨量資料集。 Hadoop 技術堆疊包含相關的軟體和公用程式，其中包括 Apache Hive、Apache HBase、Spark、Kafka 等等。
+
 
 Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) 中 Hadoop 元件的雲端發佈。 Azure HDInsight 可輕鬆快速地處理大量資料，同時節省成本。 您可以使用最熱門的開放原始碼架構，例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等等。 透過這些架構，您可以啟用各種案例，例如擷取、轉換和載入 (ETL)、資料倉儲、機器學習和 IoT。
 
@@ -82,25 +84,28 @@ Azure HDInsight 可在巨量資料處理的各種案例中使用。 它可以是
 ![HDInsight 架構：混合式](./media/apache-hadoop-introduction/hdinsight-architecture-hybrid.png "HDInsight 混合式架構")
 
 ## <a name="cluster-types-in-hdinsight"></a>HDInsight 中的叢集類型
+
 HDInsight 包含特定叢集類型和叢集自訂功能，例如新增元件、公用程式及語言的功能。 HDInsight 提供下列叢集類型：
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**︰使用 HDFS、YARN 資源管理和簡單 MapReduce 程式設計模型的架構，用來平行處理和分析批次資料。
+* **[Apache Hadoop](https://wiki.apache.org/hadoop)**：使用 HDFS、YARN 資源管理和簡單 MapReduce 程式設計模型的架構，用來平行處理和分析批次資料。
 
-* **[Apache Spark](http://spark.apache.org/)** \(英文\)：一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 請參閱[什麼是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)。
+* **[Apache Spark](https://spark.apache.org/)**：一個開放原始碼平行處理架構，可支援記憶體內部處理，大幅提升巨量資料分析應用程式的效能。 請參閱[什麼是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)。
 
-* **[Apache HBase](http://hbase.apache.org/)**：建置於 Hadoop 上的 NoSQL 資料庫，可針對大量非結構化及半結構化資料 (可能是數十億的資料列乘以數百萬的資料行)，提供隨機存取功能和強大一致性。 請參閱[什麼是 HDInsight 上的 HBase？](../hbase/apache-hbase-overview.md)
+* **[Apache HBase](https://hbase.apache.org/)**：建置於 Hadoop 上的 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性 - 可能是數十億的資料列乘以數十億的資料行。 請參閱[什麼是 HDInsight 上的 HBase？](../hbase/apache-hbase-overview.md)
 
-* **[ML 服務](https://msdn.microsoft.com/microsoft-r/rserver)**︰可用來裝載和管理並行、分散式 R 程序的伺服器。 這項新功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。 請參閱 [HDInsight 上的 ML 服務概觀](../r-server/r-server-overview.md)。
+* **[ML 服務](https://msdn.microsoft.com/microsoft-r/rserver)**：可用來裝載和管理並行、分散式 R 程序的伺服器。 這項新功能可讓資料科學家、統計學家以及 R 程式設計人員隨其所需存取 HDInsight 上可調整大小的分散式分析方法。 請參閱 [HDInsight 上的 ML 服務概觀](../r-server/r-server-overview.md)。
 
 * **[Apache Storm](https://storm.incubator.apache.org/)**：分散式、即時的運算系統，可快速處理大型的資料串流。 Storm 以受控叢集的形式在 HDInsight 中提供。 請參閱＜ [使用 Storm 和 Hadoop 來分析即時感應器資料](../storm/apache-storm-sensor-data-analysis.md)＞。
 
-* **[Apache 互動式查詢預覽 (也稱為︰Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**︰更快速之互動式 Hive 查詢的記憶體內快取。 請參閱[在 HDInsight 中使用互動式查詢](../interactive-query/apache-interactive-query-get-started.md)。
+* **[Apache 互動式查詢預覽 (又稱為：Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**：更快速之互動式 Hive 查詢的記憶體內快取。 請參閱[在 HDInsight 中使用互動式查詢](../interactive-query/apache-interactive-query-get-started.md)。
 
-* **[Apache Kafka](https://kafka.apache.org/)**︰用來建立串流資料管線和應用程式的開放原始碼平台。 Kafka 也提供訊息佇列功能，可讓您發佈和訂閱資料串流。 請參閱 [HDInsight 上的 Apache Kafka 簡介](../kafka/apache-kafka-introduction.md)。
+* **[Apache Kafka](https://kafka.apache.org/)**：用來建立串流資料管線和應用程式的開放原始碼平台。 Kafka 也提供訊息佇列功能，可讓您發佈和訂閱資料串流。 請參閱 [HDInsight 上的 Apache Kafka 簡介](../kafka/apache-kafka-introduction.md)。
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight 中的開放原始碼元件
 
-Azure HDInsight 可讓您透過開放原始碼架構 (例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、HBase 和 R) 建立叢集。根據預設，這些叢集隨附其他開放原始碼元件，例如 [Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)、[Avro](http://avro.apache.org/docs/current/spec.html)[Hive](http://hive.apache.org)[HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/)[Mahout](https://mahout.apache.org/)[MapReduce](http://wiki.apache.org/hadoop/MapReduce)[YARN](http://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)[Phoenix](http://phoenix.apache.org/)[Pig](http://pig.apache.org/)、[Sqoop](http://sqoop.apache.org/)[Tez](http://tez.apache.org/)、[Oozie](http://oozie.apache.org/)[ZooKeeper](http://zookeeper.apache.org/)。  
+
+Azure HDInsight 可讓您透過開放原始碼架構 (例如 Hadoop、Spark、Hive、LLAP、Kafka、Storm、HBase 和 R) 建立叢集。根據預設，這些叢集隨附叢集上包含的其他開放原始碼元件，例如 [Apache Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)、[Avro](https://avro.apache.org/docs/current/spec.html)、[Apache Hive](https://hive.apache.org)、[HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog/)、[Apache Mahout](https://mahout.apache.org/)、[Apache Hadoop MapReduce](https://wiki.apache.org/hadoop/MapReduce)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Phoenix](https://phoenix.apache.org/)、[Apache Pig](https://pig.apache.org/)、[Apache Sqoop](https://sqoop.apache.org/)、[Apache Tez](https://tez.apache.org/)、[Apache Oozie](https://oozie.apache.org/)、[Apache ZooKeeper](https://zookeeper.apache.org/)。  
+
 
 
 ## <a name="programming-languages-in-hdinsight"></a>HDInsight 中的程式設計語言
@@ -112,9 +117,9 @@ HDInsight 叢集 (包括 Spark、HBase、Kafka、Hadoop 等) 支援許多種程�
 |預設的程式設計語言支援     | 根據預設，HDInsight 叢集可支援：<ul><li>Java</li><li>Python</li></ul> 您可以使用[指令碼動作](../hdinsight-hadoop-script-actions-linux.md)來安裝其他語言。       |
 |Java 虛擬機器 (JVM) 語言     | Java 虛擬機器 (JVM) 上可以執行許多 Java 以外的語言。 不過，如果您要執行這些語言，您可能必須在叢集上安裝其他元件。 HDInsight 叢集上支援下列以 JVM 為基礎的語言： <ul><li>Clojure</li><li>Jython (適用於 Java 的 Python)</li><li>Scala</li></ul>     |
 |Hadoop 專屬語言     | HDInsight 叢集支援下列 Hadoop 技術堆疊專屬語言： <ul><li>適用於 Pig 工作的 Pig Latin</li><li>適用於 Hive 工作和 SparkSQL 的 HiveQL</li></ul>        |
- 
 
-## <a name="development-tools-for-hdinsight"></a>適用於 HDInsight 的開發工具 
+## <a name="development-tools-for-hdinsight"></a>適用於 HDInsight 的開發工具
+
 您可以使用 HDInsight 開發工具 (包括 IntelliJ、Eclipse、Visual Studio Code 和 Visual Studio)，透過與 Azure 的完美整合，以撰寫並提交 HDInsight 資料查詢和作業。
 
 * [適用於 IntelliJ 的 Azure 工具組](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-intellij-tool-plugin)
@@ -126,30 +131,32 @@ HDInsight 叢集 (包括 Spark、HBase、Kafka、Hadoop 等) 支援許多種程�
 * [適用於 Visual Studio 的 Azure Data Lake 工具](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-visual-studio-tools-get-started)
 
 ## <a name="business-intelligence-on-hdinsight"></a>HDInsight 上的商業智慧
+
 熟悉的商業智慧 (BI) 工具可使用 Power Query 增益集或 Microsoft Hive ODBC 驅動程式來擷取、分析和報告與 HDInsight 整合的資料：
 
 * [使用資料視覺效果工具搭配 Azure HDInsight 的 Apache Spark BI](../spark/apache-spark-use-bi-tools.md)
 
-* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md) 
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md) 
 
 * [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)
 
-* [使用 Power Query 將 Excel 連線到 Hadoop](apache-hadoop-connect-excel-power-query.md) (需要 Windows) 
 
-* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Hadoop](apache-hadoop-connect-excel-hive-odbc-driver.md) (需要 Windows) 
+* [使用 Power Query 將 Excel 連線到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md) (需要 Windows) 
+
+
+* [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 Apache Hadoop](apache-hadoop-connect-excel-hive-odbc-driver.md) (需要 Windows) 
 
 * [使用 SQL Server Analysis Services 搭配 HDInsight](https://msdn.microsoft.com/library/dn749857.aspx) \(英文\)
 
 * [使用 SQL Server Reporting Services 搭配 HDInsight](https://msdn.microsoft.com/library/dn749856.aspx) \(英文\)
-
 
 ## <a name="next-steps"></a>後續步驟
 
 在本文中，您已了解什麼是 Azure HDInsight，以及它如何在 Azure 上提供 Hadoop 和其他叢集類型。 繼續前往下一篇文章，以了解如何在 HDInsight 中建立 Apache Hadoop 叢集。
 
 > [!div class="nextstepaction"]
-> [建立 HDInsight 中的 Hadoop 叢集](apache-hadoop-linux-create-cluster-get-started-portal.md)
+> [在 HDInsight 中建立 Apache Hadoop 叢集](apache-hadoop-linux-create-cluster-get-started-portal.md)
 
 
 [component-versioning]: ../hdinsight-component-versioning.md
-[zookeeper]: http://zookeeper.apache.org/
+[zookeeper]: https://zookeeper.apache.org/

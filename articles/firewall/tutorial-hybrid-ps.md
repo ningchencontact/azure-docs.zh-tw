@@ -5,14 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/27/2018
+ms.date: 12/14/2018
 ms.author: victorh
-ms.openlocfilehash: d69bd055c95592961216f5da1efaedc4a642fd63
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
+ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316390"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435560"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>教學課程：使用 Azure PowerShell 在混合式網路中部署及設定 Azure 防火牆
 
@@ -24,7 +25,7 @@ ms.locfileid: "52316390"
 
 - **VNet-Hub** - 防火牆位於此虛擬網路中。
 - **VNet-Spoke** - 輪輻虛擬網路代表位於 Azure 的工作負載。
-- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際部署中，它可經由 VPN 或 Express Route 連線來連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的虛擬網路用來代表內部部署網路。
+- **VNet-Onprem** - 內部部署虛擬網路代表內部部署網路。 在實際的部署中，可藉由 VPN 或路由連線來與其連線。 為了簡單起見，本教學課程使用 VPN 閘道連線，而位於 Azure 的虛擬網路用來代表內部部署網路。
 
 ![混合式網路中的防火牆](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -54,6 +55,12 @@ ms.locfileid: "52316390"
 - 請務必在將 VNet-Hub 對等互連至 VNet-Spoke 時設定 **AllowGatewayTransit**，以及在將 VNet-Spoke 對等互連至 VNet-Hub 時設定 **UseRemoteGateways**。
 
 請參閱本教學課程中的[建立路由](#create-routes)一節，了解如何建立這些路由。
+
+>[!NOTE]
+>「Azure 防火牆」必須能夠直接連線到網際網路。 如果您已啟用透過 ExpressRoute 或「應用程式閘道」以強制通道連線至內部部署環境的功能，就必須搭配將 **NextHopType** 值設定為 **Internet** 來設定 UDR 0.0.0.0/0，然後將其指派給 **AzureFirewallSubnet**。
+
+>[!NOTE]
+>即使 UDE 指向「Azure 防火牆」作為預設閘道，系統仍會直接路由傳送直接對等互連之 VNet 間的流量。 在此案例中若要將子網路對子網路流量傳送到防火牆，UDR 必須在這兩個子網路上同時明確包含目標子網路網路首碼。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

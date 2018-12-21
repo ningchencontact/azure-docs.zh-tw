@@ -1,9 +1,8 @@
 ---
-title: 使用 Gremlin API 來組建 Azure Cosmos DB Node.js 應用程式 | Microsoft Docs
+title: 使用 Gremlin API 建置 Azure Cosmos DB Node.js 應用程式
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Node.js 程式碼範例。
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,14 +10,14 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: 5f7e2a30ee4ea069e8c08187312f09e33a5a921a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 58fca9e66b0be12992d7762824df4ceb9a22e614
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073409"
 ---
-# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 來組建 Node.js 應用程式
+# <a name="azure-cosmos-db-build-a-nodejs-application-by-using-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 建置 Node.js 應用程式
 
 > [!div class="op_single_selector"]
 > * [Gremlin 主控台](create-graph-gremlin-console.md)
@@ -37,7 +36,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 您必須具備下列必要條件，才能執行此範例：
 * [Node.js](https://nodejs.org/en/) 0.10.29 版或更新版本
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

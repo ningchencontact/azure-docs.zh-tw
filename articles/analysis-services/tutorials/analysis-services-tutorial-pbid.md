@@ -2,19 +2,20 @@
 title: 教學課程 - 使用 Power BI Desktop 連線至 Azure Analysis Services | Microsoft Docs
 author: minewiskan
 manager: kfile
+description: 了解如何使用 Power BI Desktop 連線到 Azure Analysis Services。
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: ad97fd7569690d0d199b0ce1a82f31f8dfa64c26
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0025655b3df8ddfb91857bbd56c04507ac6bca5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426120"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993970"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>教學課程 - 使用 Power BI Desktop 進行連線
+# <a name="tutorial-connect-with-power-bi-desktop"></a>教學課程：使用 Power BI Desktop 進行連線
 
 在本教學課程中，您會使用 Power BI Desktop 連線至伺服器上的 adventureworks 範例模型資料庫。 您所完成的工作會模擬一般使用者對模型的連線，並從模型資料建立基本報告。
 
@@ -29,7 +30,7 @@ ms.locfileid: "49426120"
 - 具有 adventureworks 範例模型資料庫的[*讀取*](../analysis-services-server-admins.md)權限。
 - [安裝最新的 Power BI Desktop](https://powerbi.microsoft.com/desktop)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站
 在本教學課程中，您會登入入口網站並僅取得伺服器名稱。 一般而言，使用者會取得伺服器管理員所提供的伺服器名稱。
 
 登入[入口網站](https://portal.azure.com/)。
@@ -51,7 +52,7 @@ ms.locfileid: "49426120"
 
    ![指定伺服器名稱和模型資料庫](./media/analysis-services-tutorial-pbid/aas-pbid-connect-aas-servername.png)
 
-3. 出現提示時，請輸入您的登入認證。 您所輸入的帳戶至少必須具有 adventureworks 範例模型資料庫的讀取權限。
+3. 出現提示時，請輸入您的認證。 您所輸入的帳戶至少必須具有 adventureworks 範例模型資料庫的讀取權限。
 
     adventureworks 模型會在 Power BI Desktop 中開啟，並在 [報告] 檢視中顯示一個空白報告。 [欄位] 清單會顯示所有非隱藏的模型物件。 連線狀態會顯示在右下角。
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/12/2018
 ms.author: yexu
-ms.openlocfilehash: f06094fb82f10276f7a41d1b22f6dd99836a497f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: eaafc8acb73dd48e213d05d953d9ada457c53132
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095505"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957260"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -171,7 +171,7 @@ ms.locfileid: "43095505"
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署 Data Factory**。 
 
     ![部署資料處理站圖格](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
@@ -322,7 +322,7 @@ ms.locfileid: "43095505"
 ### <a name="review-the-results"></a>檢閱結果
 您會在 `adftutorial` 容器的 `incchgtracking` 資料夾中看到名為 `incremental-<GUID>.txt` 的檔案。 
 
-![完整複製的輸出檔案](media\tutorial-incremental-copy-change-tracking-feature-portal\full-copy-output-file.png)
+![完整複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-output-file.png)
 
 此檔案應該會有 Azure SQL Database 中的資料：
 
@@ -411,7 +411,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
     2. 選取 [匯入參數]。 
     3. 在 [預存程序參數] 區段中，指定參數的下列值： 
 
-        | 名稱 | 類型 | 值 | 
+        | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | CurrentTrackingVersion | Int64 | @{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion} | 
         | TableName | 字串 | @{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName} | 
@@ -445,7 +445,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ### <a name="review-the-results"></a>檢閱結果
 您會在 `adftutorial` 容器的 `incchgtracking` 資料夾中看到第二個檔案。 
 
-![累加複製的輸出檔案](media\tutorial-incremental-copy-change-tracking-feature-portal\incremental-copy-output-file.png)
+![累加複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-output-file.png)
 
 此檔案應該只會有 Azure SQL Database 中的差異資料。 具有 `U` 的記錄是資料庫中更新的資料列，具有 `I` 的記錄則是一個新增的資料列。 
 

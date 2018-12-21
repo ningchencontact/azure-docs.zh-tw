@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 Android 上以 Java 辨識語音
+title: 快速入門：辨識語音，Java (Android) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音服務 SDK 在 Android 上以 Java 辨識語音
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 0785383d8b5a8ab282d8097d5229fa5a8aade06f
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: afe0cfe61779e95fc9a65a1f4928ddae4b7af267
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219421"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090103"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Android 上以 Java 辨識語音
 
@@ -42,7 +42,7 @@ ms.locfileid: "51219421"
 
    ![建立新專案精靈的螢幕擷取畫面](media/sdk/qs-java-android-02-create-android-project.png)
 
-1. 在 [目標 Android 裝置] 畫面中，僅選取 [手機和平板電腦]。 在其下的下拉式清單中，選擇 [API 23：Android 6.0 (Marshmallow)]，然後選取 [下一步]。
+1. 在 [目標 Android 裝置] 畫面中，僅選取 [手機和平板電腦]。 在其下方的下拉式清單中，選擇 [API 23：Android 6.0 (Marshmallow)]，然後選取 [下一步]。
 
    ![建立新專案精靈的螢幕擷取畫面](media/sdk/qs-java-android-03-target-android-devices.png)
 
@@ -63,7 +63,7 @@ Android Studio 需要一些時間來準備您新的 Android 專案。 接著，�
 適用於 Android 的語音 SDK 封裝成 [AAR (Android 程式庫)](https://developer.android.com/studio/projects/android-library)，其中包含必要的程式庫，以及使用它的必要 Android 權限。
 它會裝載在位於 https://csspeechstorage.blob.core.windows.net/maven/ 的 Maven 存放庫中。
 
-將您的專案設定為使用語音 SDK。 從 Android Studio 功能表列中選擇 [檔案] > [專案結構]，以開啟 [專案結構] 視窗。 在 [專案結構] 視窗中，進行下列變更： 
+將您的專案設定為使用語音 SDK。 從 Android Studio 功能表列中選擇 [檔案] > [專案結構]，以開啟 [專案結構] 視窗。 在 [專案結構] 視窗中，進行下列變更：
 
 1. 在位於視窗左側的清單中，選取 [專案]。 在單引號中附加逗號和我們的 Maven 存放庫 URL，以編輯 [預設程式庫存放庫]。 'https://csspeechstorage.blob.core.windows.net/maven/'
 
@@ -118,7 +118,7 @@ UI 的文字和圖形化表示法現在應會顯示如下。
    [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
    * `onCreate` 方法包含要求麥克風和網際網路權限，以及初始化原生平台繫結的程式碼。 原生平台繫結只需要設定一次。 此設定應該在應用程式初始化期間即已完成。
-   
+
    * 如先前所述，方法 `onSpeechButtonClicked` 是按鈕點擊處理常式。 按下按鈕就會觸發語音轉換文字的轉譯。
 
 1. 在相同檔案中，以您的訂用帳戶金鑰取代 `YourSubscriptionKey` 字串。

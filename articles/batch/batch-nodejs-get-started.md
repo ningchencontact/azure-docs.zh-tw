@@ -11,12 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 807fd49a54c82b0930134beb8413e14c1c28b278
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115556"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164614"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>開始使用適用於 Node.js 的 Batch SDK
 
@@ -85,7 +85,7 @@ Node.js 用戶端會使用準備工作部署批次作業 (稍後詳細說明) �
 
 複製並儲存要在後續步驟中使用的金鑰。
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>步驟 3︰建立 Azure Batch 服務用戶端
+### <a name="step-3-create-an-azure-batch-service-client"></a>步驟 3：建立 Azure Batch 服務用戶端
 下列程式碼片段會先匯入 azure-batch Node.js 模組，然後建立 Batch 服務用戶端。 您必須先使用從上一個步驟複製的 Batch 帳戶金鑰來建立 SharedKeyCredentials 物件。
 
 ```nodejs
@@ -119,7 +119,7 @@ var batch_client = new batch.ServiceClient(credentials,accountUrl);
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>步驟 4︰建立 Azure Batch 集區
+### <a name="step-4-create-an-azure-batch-pool"></a>步驟 4：建立 Azure Batch 集區
 Azure Batch 集區是由多個 VM (也稱為 Batch 節點) 所組成。 Azure Batch 服務會在這些節點上部署工作並加以管理。 您可以為您的集區定義下列組態參數。
 
 * 虛擬機器映像的類型
@@ -254,7 +254,7 @@ var cloudPool = batch_client.pool.get(poolid,function(error,result,request,respo
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>步驟 4︰提交 Azure Batch 作業
+### <a name="step-4-submit-an-azure-batch-job"></a>步驟 4：提交 Azure Batch 作業
 Azure Batch 作業是相似工作的邏輯群組。 在我們的案例中，這是「將 csv 處理成 JSON」。 這裡的每個工作都可能會處理每個 Azure 儲存體容器中存在的 csv 檔案。
 
 這些工作會以平行方式執行並且部署於多個節點 (由 Azure Batch 服務協調)。
@@ -279,9 +279,9 @@ Azure Batch 作業是相似工作的邏輯群組。 在我們的案例中，這�
 
 準備工作是在 Azure Batch 作業提交期間指定。 以下是準備工作組態參數︰
 
-* **識別碼**︰準備工作的唯一識別碼
-* **命令列**︰要執行工作可執行檔的命令列
-* **resourceFiles**︰提供執行此工作所需下載之檔案詳細資料的物件陣列。  其選項如下：
+* **ID**：準備工作的唯一識別碼
+* **commandLine**：要執行工作可執行檔的命令列
+* **resourceFiles**：提供執行此工作所需下載之檔案詳細資料的物件陣列。  其選項如下：
     - blobSource︰檔案的 SAS URI
     - filePath︰要下載並儲存檔案的本機路徑
     - fileMode︰僅適用於 Linux 節點，fileMode 為八進位格式 (預設值是 0770)
@@ -311,14 +311,14 @@ var job_prep_task_config = {id:"installprereq",commandLine:"sudo sh startup_prer
 ```
 
 
-### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>步驟 5︰提交作業的 Azure 批次工作
+### <a name="step-5-submit-azure-batch-tasks-for-a-job"></a>步驟 5：提交作業的 Azure Batch 工作
 
 現在已建立處理 csv 作業，讓我們為該作業建立工作。 假設我們有四個容器，我們必須建立四項工作，每個容器一項工作。
 
 如果我們查看 [Python 指令碼](https://github.com/shwetams/azure-batchclient-sample-nodejs/blob/master/processcsv.py)，它接受兩個參數︰
 
-* 容器名稱︰要從中下載檔案的儲存體容器
-* 模式︰檔案名稱模式的選擇性參數
+* 容器名稱：要從中下載檔案的儲存體容器
+* 模式：檔案名稱模式的選擇性參數
 
 假設我們有四個容器 "con1"、"con2"、"con3"、"con4"，下列程式碼顯示如何將工作提交至我們稍早建立的 Azure 批次作業「處理 csv」。
 

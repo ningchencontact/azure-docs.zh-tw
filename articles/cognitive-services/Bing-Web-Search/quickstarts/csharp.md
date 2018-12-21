@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 C# 執行搜尋 - Bing Web 搜尋 API
+title: 快速入門：使用 C# 來執行 Web 搜尋 - Bing Web 搜尋 REST API
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將學習如何使用 C# 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
+description: 使用此快速入門以運用 C# 來傳送要求給「Bing Web 搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: d868bec1e19ddde556f3c387646c5d7aa898b7d9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 844fe2f65b59caba41697db00e809e34e1fe1017
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313481"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258656"
 ---
-# <a name="quickstart-use-c-to-call-the-bing-web-search-api"></a>快速入門：使用 C# 來呼叫 Bing Web 搜尋 API  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>快速入門：使用 Bing Web 搜尋 REST API 和 C# 來搜尋 Web
 
 使用本快速入門以第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。  
 
@@ -28,8 +29,8 @@ ms.locfileid: "52313481"
 ## <a name="prerequisites"></a>必要條件
 以下是執行本快速入門之前的幾個必備項目：
 
-* Windows：[Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS：[Mono](http://www.mono-project.com/) (英文)  
+* Windows:[Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* Linux/macOS：[Mono](http://www.mono-project.com/)  
 * 訂用帳戶金鑰
 
 這個範例程式只使用 .NET Core 類別。

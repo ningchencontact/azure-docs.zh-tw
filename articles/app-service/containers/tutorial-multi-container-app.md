@@ -1,5 +1,5 @@
 ---
-title: 在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
+title: 在用於容器的 Web App 中建立多容器應用程式 - Azure App Service
 description: 了解如何透過 Docker Compose 和 Kubernetes 組態檔以及 WordPress 與 MySQL 應用程式在 Azure 上使用多個容器。
 keywords: azure 應用程式服務, web 應用程式, linux, docker, compose, 多容器, 多重容器, 適用於容器的 web 應用程式, 多個容器, 容器, kubernetes, wordpress, 適用於 mysql 的 azure db, 具有容器的生產資料庫
 services: app-service
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
-ms.custom: mvc
-ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 7feb168d9cbcb9fc19e6fcd320bbf87c15077a50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390205"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251635"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>教學課程：在適用於容器的 Web 應用程式中建立多容器 (預覽) 應用程式
 
@@ -235,7 +235,7 @@ az mysql db create --resource-group myResourceGroup --server-name <mysql_server_
 
 ### <a name="configure-database-variables-in-wordpress"></a>設定 WordPress 中的資料庫變數
 
-若要將 WordPress 應用程式連線至這個新的 MySQL 伺服器，您必須設定幾個 WordPress 專屬環境變數，包括 `MYSQL_SSL_CA` 所定義的 SSL CA 路徑。 下方的[自訂映像](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)中提供來自 [DigiCert](http://www.digicert.com/) 的 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)。
+若要將 WordPress 應用程式連線至這個新的 MySQL 伺服器，您必須設定幾個 WordPress 專屬環境變數，包括 `MYSQL_SSL_CA` 所定義的 SSL CA 路徑。 下方的[自訂映像](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations)中提供來自 [DigiCert](https://www.digicert.com/) 的 [Baltimore CyberTrust Root](https://www.digicert.com/digicert-root-certificates.htm)。
 
 若要進行這些變更，請在 Cloud Shell 中使用 [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) 命令。 應用程式設定為區分大小寫和空格分隔。
 

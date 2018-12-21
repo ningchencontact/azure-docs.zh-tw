@@ -1,9 +1,8 @@
 ---
-title: 快速入門：Gremlin API 搭配 Python - Azure Cosmos DB | Microsoft Docs
+title: 快速入門：Gremlin API 與 Python - Azure Cosmos DB
 description: 本快速入門說明如何使用 Azure Cosmos DB Gremlin API，並搭配 Azure 入口網站與 Python，以建立主控台應用程式
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,14 +10,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: d01ee78c4e3fdf0eab694deaeed03e0f61989851
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b8a26164145360bdd46656a86817b8ec61bcb56c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699442"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081484"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB︰使用 Python 和 Azure 入口網站建立圖形資料庫
+# <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB：使用 Python 和 Azure 入口網站建立圖形資料庫
 
 > [!div class="op_single_selector"]
 > * [Gremlin 主控台](create-graph-gremlin-console.md)
@@ -43,7 +42,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 此外：
 * [Python](https://www.python.org/downloads/) \(英文\) 3.5 版或更新版本
 * [pip 套件管理員](https://pip.pypa.io/en/stable/installing/) \(英文\)
-* [Git](http://git-scm.com/)
+* [Git](https://git-scm.com/)
 * [適用於 Gremlin 的 Python 驅動程式](https://github.com/apache/tinkerpop/tree/master/gremlin-python) \(英文\)
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
@@ -102,7 +101,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連線資訊，並將其複製到應用程式中。 這些設定可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [金鑰]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [金鑰]。 
 
     複製 URI 值的第一個部分。
 

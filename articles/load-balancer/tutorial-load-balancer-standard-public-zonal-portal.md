@@ -1,14 +1,11 @@
 ---
-title: 教學課程：區域內的 Load Balancer VM--Azure 入口網站 | Microsoft Docs
+title: 教學課程：區域內的 Load Balancer VM--Azure 入口網站
+titlesuffix: Azure Load Balancer
 description: 本教學課程示範如何使用 Azure 入口網站以區域前端建立 Standard Load Balancer，以平衡可用性區域內的 VM 負載
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: 580015b7f8b1f894c69ddec0f26daeb524932e4b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.custom: seodec18
+ms.openlocfilehash: dd4600d77373894cdc9d6225ae008a8bd677fb59
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34637288"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262090"
 ---
 # <a name="tutorial-load-balance-vms-within-an-availability-zone-with-standard-load-balancer-by-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站透過 Standard Load Balancer 來平衡可用性區域內的 VM 負載
 
@@ -53,7 +50,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
 2. 在 [建立負載平衡器] 頁面中，輸入負載平衡器的下列值：
     - [myLoadBalancer] 作為負載平衡器的名稱。
     - [公用] 作為負載平衡器的類型。
-     - [myPublicIPZonal] 作為您建立的新公用 IP 位址。 選取 [選擇公用 IP 位址] 。 然後選取 [建立新的] 。 針對名稱，輸入 **myPublicIP**。 SKU 預設為 [標準]。 針對 [可用性區域]，選取 [區域 1]。
+      - [myPublicIPZonal] 作為您建立的新公用 IP 位址。 選取 [選擇公用 IP 位址] 。 然後選取 [建立新的] 。 針對名稱，輸入 **myPublicIP**。 SKU 預設為 [標準]。 針對 [可用性區域]，選取 [區域 1]。
     - [myResourceGroupZLB] 作為您新建立的資源群組的名稱。
     - [westeurope] 作為位置。
 3. 選取 [建立] 以建立負載平衡器。
@@ -81,7 +78,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
     - [myNetworkSecurityGroup] 作為網路安全性群組的名稱。
     - [myResourceGroupLBAZ] 作為現有資源群組的名稱。
    
-    ![建立網路安全性群組](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
+     ![建立網路安全性群組](./media/tutorial-load-balancer-standard-zonal-portal/create-network-security-group.png)
 
 ### <a name="create-nsg-rules"></a>建立 NSG 規則
 
@@ -100,7 +97,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
     - [允許 HTTP] 作為 [描述]。
 4. 選取 [確定] 。
  
- ![建立 NSG 規則](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![建立 NSG 規則](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 
 5. 重複步驟 2 到 4，以建立名為 [myRDPRule] 的另一個規則。 此規則允許使用連接埠 3389 的輸入 RDP 連線，採用下列值：
     - [服務標記] 作為 [來源]。
@@ -112,7 +109,7 @@ Standard Load Balancer 只支援標準公用 IP 位址。 當您在建立負載�
     - [myRDPRule] 作為 [名稱]。
     - [允許 RDP] 作為 [描述]。
 
-    ![建立 RDP 規則](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
+      ![建立 RDP 規則](./media/tutorial-load-balancer-standard-zonal-portal/create-rdp-rule.png)
 
 ### <a name="create-virtual-machines"></a>建立虛擬機器
 

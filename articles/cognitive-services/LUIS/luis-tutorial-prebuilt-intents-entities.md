@@ -1,21 +1,22 @@
 ---
-title: 教學課程 2：預先建置的意圖和實體 - 使用預先建置的常見語句 - 擷取 LUIS 中的常見資料
+title: 預先建置的意圖和實體
 titleSuffix: Azure Cognitive Services
 description: 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 您不需使用預先建置的實體來標示任何語句。 系統會自動偵測實體。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 3bad68d1a388a5bc8780df633313206afaadcef9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6fb603b84cdcf3cb0f75d0020fa2047a0a838d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422417"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074057"
 ---
 # <a name="tutorial-2-identify-common-intents-and-entities"></a>教學課程 2：找出常見的意圖和實體
 在本教學課程中，修改人力資源應用程式。 將預先建置的意圖和實體新增至「人力資源」教學課程應用程式，以快速預測意圖及擷取資料。 您不需使用預先建置的實體來標示任何語句，因為系統會自動偵測實體。
@@ -90,7 +91,7 @@ LUIS 提供數個預先建置的實體來擷取常見的資料。
 
 2. 移至瀏覽器位址列中的 URL 結尾並輸入 `I want to cancel on March 3`。 最後一個查詢字串參數是 `q`，也就是語句**查詢**。 
 
-    ```JSON
+    ```json
     {
       "query": "I want to cancel on March 3",
       "topScoringIntent": {

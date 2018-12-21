@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.date: 09/29/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 2a60084577255b9aa88700509129b8d917c43a79
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f08de2398174363604576874627026dcc6199ac5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282493"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104657"
 ---
-# <a name="automate-resizing-uploaded-images-using-event-grid"></a>使用 Event Grid 自動調整已上傳映像的大小
+# <a name="tutorial-automate-resizing-uploaded-images-using-event-grid"></a>教學課程：使用 Event Grid 自動調整已上傳映像的大小
 
 [Azure Event Grid](overview.md) 是一項雲端事件服務。 Event Grid 可讓您建立由 Azure 服務或協力廠商資源引發之事件的訂閱。  
 
-本教學課程是一系列儲存體教學課程的第二部分。 它延伸了[上一個儲存體教學課程][previous-tutorial]，以使用 Azure Event Grid 與 Azure Functions 新增無伺服器自動縮圖產生。 Event Grid 可讓 [Azure Functions](..\azure-functions\functions-overview.md) 回應 [Azure Blob 儲存體](..\storage\blobs\storage-blobs-introduction.md)事件，並產生上傳映像的縮圖。 針對 Blob 儲存體建立事件建立事件訂閱。 當 blob 加入特定的 Blob 儲存體容器時，會呼叫函式端點。 從 Event Grid 傳遞至函式繫結的資料用於存取 Blob 並產生縮圖映像。
+本教學課程是一系列儲存體教學課程的第二部分。 它延伸了[上一個儲存體教學課程][previous-tutorial]，以使用 Azure Event Grid 與 Azure Functions 新增無伺服器自動縮圖產生。 Event Grid 可讓 [Azure Functions](../azure-functions/functions-overview.md) 回應 [Azure Blob 儲存體](../storage/blobs/storage-blobs-introduction.md)事件，並產生上傳映像的縮圖。 針對 Blob 儲存體建立事件建立事件訂閱。 當 blob 加入特定的 Blob 儲存體容器時，會呼叫函式端點。 從 Event Grid 傳遞至函式繫結的資料用於存取 Blob 並產生縮圖映像。
 
 您可以使用 Azure CLI 與 Azure 入口網站，將調整大小功能加入現有的映像上傳應用程式。
 
@@ -40,7 +40,7 @@ ms.locfileid: "51282493"
 
 若要完成本教學課程：
 
-您必須先完成上一個 Blob 儲存體教學課程：[使用 Azure 儲存體上傳雲端中的映像資料][previous-tutorial]。
+您必須已完成先前的 Blob 儲存體教學課程︰[使用 Azure 儲存體在雲端中上傳影像資料][previous-tutorial]。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -200,6 +200,6 @@ az functionapp deployment source config --name <function_app> \
 > [保護雲端中應用程式資料的存取權](../storage/blobs/storage-secure-access-application.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 + 如需深入了解 Event Grid，請參閱 [Event Grid 的簡介](overview.md)。 
-+ 若要嘗試另一個隨附 Azure Functions 的教學課程，請參閱[建立與 Azure Logic Apps 整合的函式](..\azure-functions\functions-twitter-email.md)。 
++ 若要嘗試另一個隨附 Azure Functions 的教學課程，請參閱[建立與 Azure Logic Apps 整合的函式](../azure-functions/functions-twitter-email.md)。 
 
 [previous-tutorial]: ../storage/blobs/storage-upload-process-images.md

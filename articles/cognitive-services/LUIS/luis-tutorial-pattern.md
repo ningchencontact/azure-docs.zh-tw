@@ -1,21 +1,22 @@
 ---
-title: 教學課程 3：改善 LUIS 預測的模式
+title: 模式
 titleSuffix: Azure Cognitive Services
 description: 提供較少的語句範例時，使用模式來提升意圖和實體預測使用模式。 模式可透過範本語句範例的方式來提供，其中包含用來識別實體及可忽略文字的語法。
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 7ba5db8e50e8da5b274f73046d56f7816ca8834d
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 346d8a83661c487a1d9a11e4da7d7bb67843e0b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138322"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075517"
 ---
 # <a name="tutorial-3-add-common-utterance-formats"></a>教學課程 3：新增通用的語句格式
 
@@ -106,7 +107,7 @@ ms.locfileid: "50138322"
 
 2. 移至位址中的 URL 結尾並輸入 `Who is the boss of Jill Jones?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -229,7 +230,7 @@ ms.locfileid: "50138322"
 
 當 LUIS 將預測傳回用戶端應用程式之後，意圖名稱就可用來作為用戶端應用程式中的函式名稱，而員工實體可用來作為該函式的參數。
 
-```Javascript
+```nodejs
 OrgChartManager(employee){
     ///
 }
@@ -277,7 +278,7 @@ OrgChartManager(employee){
 
 3. 移至位址中的 URL 結尾並輸入 `Who is the boss of Jill Jones?` 作為語句。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-    ```JSON
+    ```json
     {
         "query": "who is the boss of jill jones?",
         "topScoringIntent": {
@@ -392,9 +393,9 @@ OrgChartManager(employee){
 
 **問題：為什麼所有 `w` 字母 (每個範本語句的第一個字母) 都是小寫？不能選擇大寫或小寫嗎？** 用戶端應用程式提交至查詢端點的語句會轉換成小寫。 範本語句可以是大寫或小寫，而端點語句也可以是大寫或小寫。 但比對一律會在轉換成小寫之後完成。
 
-**問題：如果 March 3 (3 月 3 日) 會預測為數字 `3` 及日期 `March 3`，那為什麼預先建置的號碼不是範例語句的一部份？** 根據上下文，此範本語句使用的是日期，日期可以是常值 (`March 3`) 或抽象表示 (`in a month`)。 日期可以包含數字，但數字不一定會被視為日期。 每次使用實體時，該實體應要最能代表要在預測 JSON 結果中傳回的類型。  
+**問題：如果 March 3 (3 月 3 日) 會預測為數字 `3` 及日期 `March 3`，為什麼預先建置的號碼不是範例語句的一部分？** 根據上下文，此範本語句使用的是日期，日期可以是常值 (`March 3`) 或抽象表示 (`in a month`)。 日期可以包含數字，但數字不一定會被視為日期。 每次使用實體時，該實體應要最能代表要在預測 JSON 結果中傳回的類型。  
 
-**問題：為什麼剖析如 `Who will {Employee}['s] manager be on March 3?` 的語句時，效果很差。** 文法上，不同動詞時態必須是新的範本語句 (例如此處的 `will` 和 `be` 是分開的)。 現有範本語句並不符合此原則。 雖然語句的意圖沒有變更，但字組在語句中的位置已變更。 此變更會影響 LUIS 中的預測。
+**問題：為什麼剖析 `Who will {Employee}['s] manager be on March 3?` 之類的語句時，效果很差。** 文法上，不同動詞時態必須是新的範本語句 (例如此處的 `will` 和 `be` 是分開的)。 現有範本語句並不符合此原則。 雖然語句的意圖沒有變更，但字組在語句中的位置已變更。 此變更會影響 LUIS 中的預測。
 
 **請記住：系統會先找出實體，然後比對模式。**
 

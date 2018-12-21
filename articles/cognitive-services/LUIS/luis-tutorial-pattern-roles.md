@@ -1,7 +1,8 @@
 ---
-title: 教學課程 4：內容相關資料的模式角色
+title: 模式角色
 titleSuffix: Azure Cognitive Services
 description: 使用模式來從正確格式的語句範本擷取資料。 語句範本會使用簡單的實體和角色來擷取相關資料，例如原始位置和目的地位置。
+ms.custom: seodec18
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: d13d77fdb741f7f7cf16e3d25c755f4363e56f93
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b6d800705509edc31b410d1e9cd30f8b53702010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427483"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094401"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>教學課程 4：擷取內容相關的模式
 
@@ -28,7 +29,7 @@ ms.locfileid: "52427483"
 
 新進員工和家人需要從目前的城市搬遷到虛構公司所在的城市。 由於新進員工可能來自任何城市，因此，必須先探索位置。 諸如清單實體之類的集合清單不會有任何作用，因為只會擷取清單中的城市。
 
-與來源和目的地城市相關聯的角色名稱在所有實體中必須是唯一的。 確定角色是唯一的簡單方式是透過命名策略，將它們繫結至包含實體。 **NewEmployeeRelocation** 實體是一個簡單實體且含有兩個角色：**NewEmployeeReloOrigin** 和 **NewEmployeeReloDestination**。 Relo 是 relocation (重新配置) 的簡寫。
+與來源和目的地城市相關聯的角色名稱在所有實體中必須是唯一的。 確定角色是唯一的簡單方式是透過命名策略，將它們繫結至包含實體。 **NewEmployeeRelocation** 實體是含有兩個角色的簡單實體：**NewEmployeeReloOrigin** 和 **NewEmployeeReloDestination**。 Relo 是 relocation (重新配置) 的簡寫。
 
 由於範例語句 `Move new employee Robert Williams from Sacramento and San Francisco` 只具備機器學習的實體，因此，請務必為意圖提供足夠的範例語句，如此才能偵測到實體。  
 
@@ -128,7 +129,7 @@ ms.locfileid: "52427483"
 
 2. 移至位址中的 URL 結尾並輸入 `Move Wayne Berry from Miami to Mount Vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Newark to Columbus",
       "topScoringIntent": {
@@ -258,7 +259,7 @@ ms.locfileid: "52427483"
 
 2. 移至位址中的 URL 結尾並輸入 `Move wayne berry from miami to mount vernon`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
 
-    ```JSON
+    ```json
     {
       "query": "Move Wayne Berry from Miami to Mount Vernon",
       "topScoringIntent": {

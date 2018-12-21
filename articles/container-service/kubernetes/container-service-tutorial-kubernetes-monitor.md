@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 教學課程 - 監視 Kubernetes
+title: (即將淘汰) Azure Container Service 教學課程 - 監視 Kubernetes
 description: Azure Container Service 教學課程 - 使用 Log Analytics 監視 Kubernetes
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 04/05/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2243851d62cc17dc52407dce051cc2e0f4bcb12
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52889188"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001602"
 ---
-# <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>使用 Log Analytics 監視 Kubernetes 叢集
+# <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(即將淘汰) 使用 Log Analytics 監視 Kubernetes 叢集
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[適用於容器的 Azure 監視器 (預覽) 概觀](../../azure-monitor/insights/container-insights-overview.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 監視 Kubernetes 叢集和容器很重要，尤其在您使用多個應用程式大規模管理生產叢集時。
 

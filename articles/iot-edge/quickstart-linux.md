@@ -1,6 +1,6 @@
 ---
-title: 快速入門 Azure IoT Edge + Linux | Microsoft Docs
-description: 在本快速入門中，請了解如何將預先建置的程式碼從遠端部署至 IoT Edge 裝置。
+title: 快速入門：在 Linux 上建立 Azure IoT Edge 裝置 | Microsoft Docs
+description: 在本快速入門中，了解如何建立 IoT Edge 裝置，然後從 Azure 入口網站遠端部署預先建置的程式碼。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 4e53d0d492213373794821e14d4c08ec9db2ad5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6757438512c03ad7b5a80c08babf5a37417dbe49
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495449"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339496"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -27,7 +27,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 3. 在裝置上安裝並啟動 IoT Edge 執行階段。
 4. 將模組從遠端部署到 IoT Edge 裝置。
 
-![快速入門架構](./media/quickstart-linux/install-edge-full.png)
+![圖表 - 裝置和雲端的快速入門架構](./media/quickstart-linux/install-edge-full.png)
 
 本快速入門會讓 Linux 電腦或虛擬機器變成 IoT Edge 裝置。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。
 
@@ -67,7 +67,7 @@ IoT Edge 裝置：
 
 使用 Azure CLI 建立 IoT 中樞，開始進行此快速入門。
 
-![建立 IoT 中樞](./media/quickstart-linux/create-iot-hub.png)
+![圖表 - 在雲端建立 IoT 中樞](./media/quickstart-linux/create-iot-hub.png)
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
@@ -82,7 +82,7 @@ IoT Edge 裝置：
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
 
 向新建立的 IoT 中樞註冊 IoT Edge 裝置。
-![註冊裝置](./media/quickstart-linux/register-device.png)
+![圖表 - 使用 IoT 中樞身分識別註冊裝置](./media/quickstart-linux/register-device.png)
 
 建立模擬裝置的裝置身分識別，以便與 IoT 中樞通訊。 裝置身分識別存在於雲端，您可以使用唯一的裝置連接字串，讓實體裝置與裝置身分識別建立關聯。 
 
@@ -107,7 +107,7 @@ IoT Edge 裝置：
 ## <a name="install-and-start-the-iot-edge-runtime"></a>安裝並啟動 IoT Edge 執行階段
 
 在您的 IoT Edge 裝置上安裝並啟動 Azure IoT Edge 執行階段。 
-![註冊裝置](./media/quickstart-linux/start-runtime.png)
+![圖表 - 在裝置上啟動執行階段](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。 
 
@@ -228,7 +228,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 ## <a name="deploy-a-module"></a>部署模組
 
 從雲端管理您的 Azure IoT Edge 裝置，以部署會將遙測資料傳送到 IoT 中樞的模組。
-![註冊裝置](./media/quickstart-linux/deploy-module.png)
+![圖表 - 將模組從雲端部署到裝置](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -254,7 +254,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 如果您在記錄中看到的最後一行是 `Using transport Mqtt_Tcp_Only`，則表示溫度感應器模組可能正在等候連線至 Edge 中樞。 請嘗試終止此模組，並讓 Edge 代理程式重新啟動模組。 您可以使用 `sudo docker stop tempSensor` 命令來終止模組。
 
-您也可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，查看送達 IoT 中樞的訊息。 
+您也可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，查看送達 IoT 中樞的訊息。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

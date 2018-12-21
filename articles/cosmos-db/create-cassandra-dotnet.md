@@ -10,12 +10,12 @@ ms.custom: quick start connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3708027b766ff9070831dd3677e821565e0dd4fa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 50c2362e961d882afc109a0554303d364d52384b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994950"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089416"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-and-azure-cosmos-db"></a>快速入門：使用 .NET 和 Azure Cosmos DB 建置 Cassandra 應用程式
 
@@ -26,7 +26,7 @@ ms.locfileid: "46994950"
 > * [Python](create-cassandra-python.md)
 >  
 
-本快速入門示範如何使用 .NET 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 本快速入門也會示範如何使用 Web 型 Azure 入口網站來建立 Azure Cosmos DB 帳戶。
+本快速入門示範如何使用 .NET 與 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)，以藉由從 GitHub 複製範例來建置設定檔應用程式。 此快速入門也會示範如何使用 Web 型 Azure 入口網站來建立 Azure Cosmos DB 帳戶。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、資料表、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
@@ -96,7 +96,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * 使用 IMapper 物件搭配連線到 uprofile keyspace 的新工作階段來插入使用者實體。
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * 取得所有使用者資訊的查詢。
@@ -118,7 +118,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 連接字串資訊可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，選取 [連接字串]。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，選取 [連接字串]。
 
     使用 ![[複製] 按鈕](./media/create-cassandra-dotnet/copy.png) 位於螢幕右側的按鈕來複製 [使用者名稱] 值。
 
@@ -161,7 +161,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
     按 CTRL + C 來停止執行程式，並關閉主控台視窗。 
     
-4. 在 Azure 入口網站中，開啟 [資料總管] 以查詢、修改及使用這項新資料。
+4. 在 Azure 入口網站中，開啟 [資料總管] 以查詢、修改及使用這個新資料。
 
     ![在資料總管中檢視資料](./media/create-cassandra-dotnet/data-explorer.png)
 

@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Node.js 執行搜尋 - Bing Web 搜尋 API
+title: 快速入門：使用 Node.js 來執行 Web 搜尋 - Bing Web 搜尋 REST API
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將學習如何使用 Node.js 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
+description: 使用此快速入門以運用 Node.js 來傳送要求給「Bing Web 搜尋 REST API」，並接收 JSON 回應
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 9/26/2018
 ms.author: aahi
-ms.openlocfilehash: 4c6e74d4ce9e3c1f9d81e640f7fa8071f73ec776
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 3d8b323a316dcef10a0d7beb5d1d2dd122b0e2ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309289"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255579"
 ---
-# <a name="quickstart-use-nodejs-to-call-the-bing-web-search-api"></a>快速入門：使用 Node.js 來呼叫 Bing Web 搜尋 API  
+# <a name="search-the-web-using-the-bing-web-search-rest-api-and-nodejs"></a>使用 Bing Web 搜尋 REST API 和 Node.js 來搜尋 Web
 
 本快速入門可讓您在 10 分鐘內完成第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
 

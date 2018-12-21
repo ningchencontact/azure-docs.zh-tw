@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: 342fdce9a0e9b47380a8d8c975703ebb7f57e3b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: e31f35aadfa7e46426a1779cdc057691bef91336
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43087124"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965542"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -43,7 +43,7 @@ ms.locfileid: "43087124"
 ## <a name="overview"></a>概觀
 高階解決方案圖表如下： 
 
-![以累加方式載入資料](media\tutorial-Incremental-copy-portal\incrementally-load.png)
+![以累加方式載入資料](media/tutorial-Incremental-copy-portal/incrementally-load.png)
 
 以下是建立此解決方案的重要步驟： 
 
@@ -172,7 +172,7 @@ END
 5. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 6. 選取 [釘選到儀表板]。     
 7. 按一下頁面底部的 [新增] 。      
-8. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+8. 在儀表板上，您會看到狀態如下的下列圖格︰**部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
 9. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
@@ -306,7 +306,7 @@ END
     1. 針對 [預存程序名稱]，選取 **sp_write_watermark**。 
     2. 若要指定預存程序參數的值，請按一下 [匯入參數]，然後輸入參數的下列值： 
 
-        | 名稱 | 類型 | 值 | 
+        | Name | 類型 | 值 | 
         | ---- | ---- | ----- | 
         | LastModifiedtime | Datetime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | 字串 | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |

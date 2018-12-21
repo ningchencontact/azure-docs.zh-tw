@@ -1,6 +1,6 @@
 ---
-title: 使用 .NET Standard 傳送事件至 Azure 事件中樞 | Microsoft Docs
-description: 開始在 .NET Standard 中傳送事件至事件中樞
+title: 使用 .NET Core 傳送事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文會逐步解說如何建立 .NET Core 應用程式，以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 633d29d3e2e8a8ab0b746549f126ad45ea781d6e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b645b444d62ae0f1834006a41190c417cee35963
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227887"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081688"
 ---
-# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-standard"></a>開始在 .NET Standard 中傳送訊息至 Azure 事件中樞
+# <a name="get-started-sending-messages-to-azure-event-hubs-in-net-core"></a>開始在 .NET Core 中傳送訊息至 Azure 事件中樞
 「事件中樞」是一種服務，可處理來自連接裝置和應用程式的大量事件資料 (遙測)。 收集資料至「事件中樞」之後，可以使用存放裝置叢集來儲存資料，或使用即時分析提供者進行轉換。 此大規模事件收集和處理功能是新型應用程式架構 (包括物聯網 (IoT)) 的重要元件。 如需事件中樞的詳細概觀，請參閱[事件中樞概觀](event-hubs-about.md)和[事件中樞功能](event-hubs-features.md)。
 
 本教學課程會示範如何透過 .NET Core 使用以 C# 撰寫的主控台應用程式，將事件傳送至事件中樞。 
@@ -34,7 +35,9 @@ ms.locfileid: "51227887"
 * [.NET Core Visual Studio 2015 或 2017 工具](https://www.microsoft.com/net/core)。 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。
+
+遵循以下文章中的指示，取得事件中樞命名空間的連接字串：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您稍後會在本教學課程中使用連接字串。 
 
 ## <a name="create-a-console-application"></a>建立主控台應用程式
 
@@ -44,7 +47,7 @@ ms.locfileid: "51227887"
 
 ## <a name="add-the-event-hubs-nuget-package"></a>新增事件中樞 NuGet 封裝
 
-遵循下列幾個步驟，將 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET 標準程式庫 NuGet 套件新增至您的專案： 
+遵循下列幾個步驟，將 [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) .NET Core 程式庫 NuGet 套件新增至您的專案： 
 
 1. 以滑鼠右鍵按一下新建立的專案，然後選取 [管理 NuGet 套件]。
 2. 按一下 [瀏覽] 索引標籤，然後搜尋「Microsoft.Azure.EventHubs」並選取 [Microsoft.Azure.EventHubs] 套件。 按一下 [安裝]  完成安裝作業，然後關閉此對話方塊。
@@ -194,6 +197,6 @@ ms.locfileid: "51227887"
 恭喜！ 您現在已將傳送訊息到事件中樞。
 
 ## <a name="next-steps"></a>後續步驟
-在本快速入門中，您已使用 .NET Standard 將訊息傳送到事件中樞。 若要了解如何使用 .NET Standard 從事件中樞接收事件，請參閱[ - .NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)。
+在此快速入門中，您已使用 .NET Core 將訊息 傳送到事件中樞。 若要了解如何使用 .NET Core 從事件中樞接收事件，請參閱[從事件中樞接收事件 - .NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)。
 
 [1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

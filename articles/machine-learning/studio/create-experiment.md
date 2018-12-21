@@ -1,13 +1,12 @@
 ---
-title: Machine Learning Studio 中的簡易實驗 | Microsoft Docs
+title: 簡易實驗 - Azure Machine Learning Studio | Microsoft Docs
 description: 此機器學習服務教學課程會引導您輕鬆進行資料科學實驗。 我們將使用迴歸演算法預測汽車價格。
 keywords: 實驗、線性迴歸、機器學習服務演算法、機器學習服務教學課程、預測性模型技術、資料科學實驗
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cgronlun
 ms.assetid: b6176bb2-3bb6-4ebf-84d1-3598ee6e01c6
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2017
-ms.openlocfilehash: 7ee1df8c38ac2dbfc6618febd223d5c4bbf32be6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b3d8aa709fefcf0eb8c16117f62cbe3bab8e319a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425705"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262413"
 ---
-# <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>機器學習服務教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
+# <a name="tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗
 
 如果您從未使用過 **Azure Machine Learning Studio**，本教學課程很適合您。
 
@@ -68,7 +67,7 @@ Machine Learning Studio 可讓您輕鬆地使用以預測性模型技術預先�
 
 - **建立模型**
     - [步驟 1：取得資料]
-    - [步驟 2︰ 準備資料]
+    - [步驟 2：準備資料]
     - [步驟 3：定義功能]
 - **訓練模型**
     - [步驟 4：選擇及套用學習演算法]
@@ -76,7 +75,7 @@ Machine Learning Studio 可讓您輕鬆地使用以預測性模型技術預先�
     - [步驟 5：預測新的汽車價格]
 
 [步驟 1：取得資料]: #step-1-get-data
-[步驟 2︰ 準備資料]: #step-2-prepare-the-data
+[步驟 2：準備資料]: #step-2-prepare-the-data
 [步驟 3：定義功能]: #step-3-define-features
 [步驟 4：選擇及套用學習演算法]: #step-4-choose-and-apply-a-learning-algorithm
 [步驟 5：預測新的汽車價格]: #step-5-predict-new-automobile-prices
@@ -124,7 +123,7 @@ Machine Learning Studio 隨附多個範例資料集供您使用，或者，您�
 
 按一下右上角的 "**x**"，以關閉視覺化視窗。
 
-## <a name="step-2-prepare-the-data"></a>步驟 2︰準備資料
+## <a name="step-2-prepare-the-data"></a>步驟 2：準備資料
 
 資料集通常必須先經過某些前置處理，才能進行分析。 例如，您可能已經注意到在各種不同資料列的資料行中有遺漏的值。 必須清除這些遺漏的值，讓模型才能正確地分析資料。 在我們的案例中，我們將移除含有遺漏值的所有資料列。 此外， **自負虧損** 資料行含有比例很高的遺漏值，因此我們會將該資料行從模型中完全排除。
 
@@ -304,7 +303,7 @@ Machine Learning Studio 隨附多個範例資料集供您使用，或者，您�
 
 我們的模型會顯示下列統計資料：
 
-- **平均絕對誤差** (MAE)：絕對誤差的平均值 ( *誤差* 是指預測值與實際值之間的差異)。
+- **平均絕對誤差** (MAE)：絕對誤差的平均值 (「誤差」是指預測值與實際值之間的差異)。
 - **均方根誤差** (RMSE)：對測試資料集所做之預測的平方誤差的評分根平均值。
 - **相對絕對誤差**：相對於實際值與所有實際值之平均值之間的絕對差異的絕對誤差平均值。
 - **相對平方誤差**：相對於實際值與所有實際值之平均值之間的平方差異的平方誤差平均值。

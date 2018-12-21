@@ -1,22 +1,21 @@
 ---
-title: Azure 容器執行個體教學課程 - 部署應用程式
-description: Azure 容器執行個體教學課程第 3 部分 (共 3 部分) - 部署應用程式
+title: 將容器應用程式部署至 Azure 容器執行個體
+description: Azure 容器執行個體教學課程第 3 部分 (共 3 部分) - 將容器應用程式部署至 Azure 容器執行個體
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 5a68baa0c04dd90236e99cf010c96b1876fb4638
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 54fcbe9adc8fbf4a8fba6eabbd7c2f8802fd933a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425705"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191084"
 ---
-# <a name="tutorial-deploy-a-container-to-azure-container-instances"></a>教學課程：將容器部署至 Azure Container Instances
+# <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>教學課程：將容器應用程式部署至 Azure 容器執行個體
 
 這是三部分系列的最後一個教學課程。 在系列的較前段，我們[已建立容器映像](container-instances-tutorial-prepare-app.md)並[推送至 Azure Container Registry](container-instances-tutorial-prepare-acr.md)。 本文會將容器部署至 Azure Container Instances，以完成本系列。
 
@@ -53,10 +52,10 @@ az acr credential show --name <acrName> --query "passwords[0].value"
 
 ### <a name="deploy-container"></a>部署容器
 
-現在使用 [az container create][az-container-create] 命令來部署容器。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。 以您的容器登錄名稱取代 `<acrName>`。
+現在使用 [az container create][az-container-create] 命令來部署容器。 以您從先前兩個命令取得的值取代 `<acrLoginServer>` 和 `<acrPassword>`。 請使用容器登錄的名稱取代 `<acrName>`，並使用所需的 DNS 名稱取代 `<aciDnsLabel>`。
 
 ```azurecli
-az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label aci-demo --ports 80
+az container create --resource-group myResourceGroup --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-login-server <acrLoginServer> --registry-username <acrName> --registry-password <acrPassword> --dns-name-label <aciDnsLabel> --ports 80
 ```
 
 在幾秒內，您應該會從 Azure 收到首次回應。 `--dns-name-label` 值在您建立容器執行個體所在的 Azure 區域中必須是唯一的。 如果您在執行命令時收到 **DNS 名稱標籤**錯誤訊息，請修改上方命令中的值。

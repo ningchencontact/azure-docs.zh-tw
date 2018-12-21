@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: f2cb5d33b8d7a7442da16a38e268c56de363a9c6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: secdec18
+ms.openlocfilehash: 9a27efe7908b2a15ceb823d7a85c4a12603731ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274063"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075976"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>使用 Cloudyn 啟動 Azure 訂用帳戶與帳戶
 
@@ -41,7 +41,7 @@ ms.locfileid: "52274063"
 3. 在 Azure Active Directory 中，選取 [使用者設定]。
 4. 檢查 [應用程式註冊] 選項。
     - 如果設定為 [是]，則非系統管理使用者可以註冊 AD 應用程式。 這個設定表示 Azure AD 租用戶中的任何使用者都可以註冊應用程式。  
-    ![應用程式註冊](./media/activate-subs-accounts/app-register.png)
+    ![選取 [使用者] 設定中的 [應用程式註冊]](./media/activate-subs-accounts/app-register.png)
     - 若將 [應用程式註冊] 選項設定為 [否]，則只有租用戶系統管理使用者可以註冊 Azure Active Directory 的應用程式。 您的租用戶系統管理員必須註冊 CloudynCollector 應用程式。
 
 
@@ -53,12 +53,12 @@ ms.locfileid: "52274063"
 
 1. 在 Cloudyn 入口網站中，按一下右上角的齒輪符號並選取 [雲端帳戶]。
 2. 按一下 [新增帳戶]，[新增帳戶] 方塊隨即出現。 輸入必要資訊。  
-    ![新增帳戶方塊](./media/activate-subs-accounts//add-new-account.png)
+    ![在 [新增帳戶] 方塊中輸入必要的資訊](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>更新訂用帳戶
 
 1. 如果您想要在 [帳戶管理] 中更新 Cloudyn 中已存在的_未啟動_訂用帳戶，請按一下父代 [租用戶 GUID] 右側的編輯鉛筆符號。 訂用帳戶會分組歸類在一個父代租用戶之下，因此請避免個別啟用訂用帳戶。
-    ![重新探索訂用帳戶](./media/activate-subs-accounts/existing-sub.png)
+    ![在 [重新探索訂用帳戶] 方塊中選取您的租用戶識別碼](./media/activate-subs-accounts/existing-sub.png)
 2. 如有必要，請輸入租用戶識別碼。 如果您不知道您的租用戶識別碼，請使用下列步驟來尋找它：
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 在 Azure 入口網站中，選取 [Azure Active Directory]。
@@ -106,7 +106,7 @@ ms.locfileid: "52274063"
 只有 Azure 服務系統管理員可以啟用 Cloudyn。 共同管理員的權限不足。 不過，您可以因應系統管理員需求。 您可以要求 Azure Active Directory 系統管理員授與透過 PowerShell 指令碼授權 **CloudynAzureCollector** 的權限。 下列指令碼授與註冊 Azure Active Directory 服務主體 **CloudynAzureCollector** 的權限。
 
 
-```
+```powershell
 #THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #Tenant - enter your tenant ID or Name

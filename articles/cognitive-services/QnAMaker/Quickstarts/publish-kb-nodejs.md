@@ -1,21 +1,22 @@
 ---
-title: 快速入門：發佈知識庫 - REST (Node.js) - QnA Maker
-titleSuffix: Azure Cognitive Services
-description: 本快速入門會逐步引導您以程式設計方式發佈知識庫 (KB)。 發佈作業會將最新版的知識庫推送到專用 Azure 搜尋服務索引，並建立端點以供應用程式或聊天機器人呼叫。
+title: 發佈知識庫，REST (Node.js)
+titleSuffix: QnA Maker - Azure Cognitive Services
+description: 這個 Node.js 快速入門會逐步引導您以程式設計方式發佈知識庫 (KB)。 發佈作業會將最新版的知識庫推送到專用 Azure 搜尋服務索引，並建立端點以供應用程式或聊天機器人呼叫。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3d96beee881df560fc616cd975502f062275e9eb
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 5970cb0b4f5e38862d41fc0db84847b1bb92c173
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162019"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164172"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-nodejs"></a>快速入門：使用 Node.js 在 QnA Maker 中發佈知識庫
 
@@ -36,7 +37,7 @@ ms.locfileid: "52162019"
 
 
 > [!NOTE] 
-> 從 [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short)可取得完整的解決方案檔案。
+> 從 [**Azure-Samples/cognitive-services-qnamaker-nodejs** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short)可取得完整的解決方案檔。
 
 ## <a name="create-a-knowledge-base-nodejs-file"></a>建立知識庫 Node.js 檔案
 

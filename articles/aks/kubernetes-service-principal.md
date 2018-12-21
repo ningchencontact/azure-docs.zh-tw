@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 2bc0579d3dd60d66a23a29dabff7e43ca8dfee76
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578344"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435390"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>服務主體與 Azure Kubernetes Service (AKS)
 
@@ -93,7 +93,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 如果您使用 Azure Container Registry (ACR) 作為您的容器映像存放區，則必須對 AKS 叢集授與可讀取和提取映像的權限。 AKS 叢集的服務主體必須獲派登錄上的「讀者」角色。 如需詳細步驟，請參閱[對 AKS 授與 ACR 的存取權][aks-to-acr]。
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 
 您可以使用進階網路功能，其中虛擬網路和子網路或公用 IP 位址都在另一個資源群組中。 指派下列一組角色權限：
 
@@ -113,6 +113,10 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
   - *Microsoft.Compute/disks/read*
   - *Microsoft.Compute/disks/write*
 - 或是，指派資源群組上的內建[儲存體帳戶參與者][rbac-storage-contributor]角色
+
+### <a name="azure-container-instances"></a>Azure Container Instances
+
+如果您使用 Virtual Kubelet 來與 AKS 整合，並選擇在與 AKS 叢集不同的資源群組中執行「Azure 容器執行個體」(ACI)，就必須將 ACI 資源群組的「參與者」權限授與 AKS 服務主體。
 
 ## <a name="additional-considerations"></a>其他考量
 

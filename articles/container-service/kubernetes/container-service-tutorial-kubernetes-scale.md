@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 教學課程 - 調整應用程式
+title: (即將淘汰) Azure Container Service 教學課程 - 調整應用程式
 description: Azure Container Service 教學課程 - 調整應用程式
 services: container-service
 author: dlepow
@@ -9,16 +9,19 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 792d9b1409b9571474f47da4940724df7a764d82
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429877"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993084"
 ---
-# <a name="scale-kubernetes-pods-and-kubernetes-infrastructure"></a>調整 Kubernetes Pod 和 Kubernetes 基礎結構
+# <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(即將淘汰) 調整 Kubernetes Pod 和 Kubernetes 基礎結構
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[教學課程：調整 Azure Kubernetes Service (AKS) 中的應用程式](../../aks/tutorial-kubernetes-scale.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 如果您一直都依照教學課程操作，就會在 Azure Container Service 中有一個正常運作 Kubernetes 叢集，並已部署「Azure 投票」應用程式。 
 

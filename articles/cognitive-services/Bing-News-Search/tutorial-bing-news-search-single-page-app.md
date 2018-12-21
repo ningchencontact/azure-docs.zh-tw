@@ -1,7 +1,7 @@
 ---
-title: 教學課程：Bing 新聞搜尋單頁應用程式
+title: 教學課程：建立單頁 Web 應用程式 - Bing 新聞搜尋 API
 titlesuffix: Azure Cognitive Services
-description: 說明如何在單頁 Web 應用程式中使用 Bing 新聞搜尋 API。
+description: 使用此教學課程來建置可將搜尋查詢傳送給「Bing 新聞 API」並在網頁內顯示結果的單頁 Web 應用程式。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 1d27751d12c82736ca519bb3a0e9bcd49bef4a47
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 311abe4583d29098ebd26dfcf2214553aa1fe1c9
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803642"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262039"
 ---
-# <a name="tutorial-single-page-news-search-app"></a>教學課程：單頁新聞搜尋應用程式
+# <a name="tutorial-create-a-single-page-web-app"></a>教學課程：建立單頁 Web 應用程式
+
 Bing 新聞搜尋 API 可讓您搜尋網頁，並取得與搜尋查詢相關的新聞類型結果。 在本教學課程中，我們會建置單頁 Web 應用程式，以使用 Bing 新聞搜尋 API 在頁面中顯示搜尋結果。 該應用程式包含 HTML、CSS 和 JavaScript 元件。
 
 <!-- Remove until we can replace it with sanitized copy

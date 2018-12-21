@@ -10,12 +10,12 @@ keywords: azure 自動化, DSC, powershell, Desired State Configuration, 更新�
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 8f6473603bb6e6ae734bde722742c58514d777c8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428091"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958690"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自動化簡介
 
@@ -40,18 +40,26 @@ Azure 自動化 [Desired State Configuration](automation-dsc-overview.md) 是適
 
 使用 Azure 自動化跨混合式環境更新 Windows 和 Linux 系統。 您可以看見 Azure、內部部署和其他雲端之間的更新相容性。 您可以建立排程部署，在協調定義維護時間內的更新安裝。 如果電腦上不應該安裝更新，您可以從部署中排除這些更新。
 
-### <a name="shared-capabilities"></a>共用功能
+### <a name="shared-resources"></a>共用資源
 
 Azure 自動化包含一組共用資源，讓您能更輕鬆地自動化，並大量設定您的環境。
 
-* **[角色型存取控制](automation-role-based-access-control.md)** - 使用自動化操作員角色來控制帳戶的存取權，使工作在不提供撰寫功能的情況下執行。
-* **[變數](automation-variables.md)** - 提供一個方式來保存可在 Runbook 和設定之間使用的內容。 您不必修改任何參考它們的 Runbook 及設定就可以變更值。
-* **[認證](automation-credentials.md)** - 安全地儲存可供 Runbook 和設定在執行階段使用的機密資訊。
-* **[憑證](automation-certificates.md)** - 在執行階段儲存並提供使用，讓它們可以用於驗證及保護部署的資源。
-* **[連線](automation-connections.md)** - 儲存資訊的名稱 / 值組，當中包含在連線資源中連線到系統時的通用資訊。 連線是由模組建立者所定義，可在執行階段中用於 Runbook 和設定。
 * **[排程](automation-schedules.md)** - 用來在服務中於預先定義的時間觸發自動化。
-* **[與原始檔控制整合](automation-source-control-integration.md)** - 將設定升階為程式碼，Runbook 或設定可在其中簽入原始檔控制系統。
-* **[PowerShell 模組](automation-integration-modules.md)** - 模組可用來管理 Azure 和其他系統。 匯入適用於 Microsoft、第三方、社群或自訂定義 Cmdlet 和 DSC 資源的自動化帳戶中。
+* **[模組](automation-integration-modules.md)** - 模組可用來管理 Azure 和其他系統。 匯入適用於 Microsoft、第三方、社群或自訂定義 Cmdlet 和 DSC 資源的自動化帳戶中。
+* **[模組資源庫](automation-runbook-gallery.md)** - 原生整合至 PowerShell 資源庫，以檢視 Runbook 並將它們匯入自動化帳戶。
+* **[Python 2 套件](python-packages.md)** - 將 Python 2 套件新增到您的自動化帳戶，以便在您的 Python Runbook 中使用。
+* **[認證](automation-credentials.md)** - 安全地儲存可供 Runbook 和設定在執行階段使用的機密資訊。
+* **[連線](automation-connections.md)** - 儲存資訊的名稱 / 值組，當中包含在連線資源中連線到系統時的通用資訊。 連線是由模組建立者所定義，可在執行階段中用於 Runbook 和設定。
+* **[憑證](automation-certificates.md)** - 在執行階段儲存並提供使用，讓它們可以用於驗證及保護部署的資源。
+* **[變數](automation-variables.md)** - 提供一個方式來保存可在 Runbook 和設定之間使用的內容。 您不必修改任何參考它們的 Runbook 及設定就可以變更值。
+
+### <a name="source-control-integration"></a>原始檔控制整合
+
+Azure 自動化能夠[與原始檔控制整合](source-control-integration.md)，來將設定升階為程式碼，Runbook 或設定可在其中簽入原始檔控制系統。
+
+### <a name="role-based-access-control"></a>角色型存取控制
+
+Azure 自動化支援角色型存取控制來控制對自動化帳戶及其資源的存取，若要深入了解如何在您的自動化帳戶、Runbook 及作業上設定 RBAC，請參閱[適用於 Azure 自動化的角色型存取控制](automation-role-based-access-control.md)。
 
 ### <a name="windows-and-linux"></a>Windows 和 Linux
 

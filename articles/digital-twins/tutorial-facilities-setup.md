@@ -7,12 +7,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: dkshir
-ms.openlocfilehash: 4491ec4661c93570893e5fafd5524715e0773d8c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 61b81602342b910a50c0cc6318746ec85a659a92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582303"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080584"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>教學課程：部署 Azure Digital Twins 及設定空間圖形
 
@@ -153,7 +153,7 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 - **devices**：空間可以包含 `devices`，這是可管理許多感應器的實體或虛擬實體。 例如，裝置可能是使用者的電話、Raspberry Pi 感應器 Pod 或閘道。 在您範例的虛構建築物中，請注意名為「聚焦會議室」(Focus Room) 且包含 Raspberry Pi 3 A1 裝置的會議室。 每個裝置節點都是以唯一的 `hardwareId` 識別，這已在範例中硬式編碼。 若要針對實際生產環境設定這個範例，請以您設定中的值取代這些值。  
 
-- **sensors**：裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion 和 CarbonDioxide。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature。 請注意，在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
+- **sensors**:裝置可以包含多個 `sensors`。 其可偵測並記錄實體變更，例如溫度、移動和電力。 每個感應器節點都是以 `hardwareId` 唯一識別 (已在此硬式編碼)。 對於實際應用程式，請使用設定中感應器的唯一識別碼來取代這些值。 provisionSample.yaml 檔案有兩個感應器可記錄 Motion 和 CarbonDioxide。 在 CarbonDioxide 感應器的程式碼行下面新增下列幾行，以新增另一個感應器來記錄 Temperature。 請注意，在 provisionSample.yaml 中，這幾行已註解化。 您可以藉由移除每一行前面的 `#` 字元來將該行取消註解。 
 
     ```yaml
             - dataType: Temperature
@@ -163,6 +163,9 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
     > 請確定 `dataType` 和 `hardwareId` 索引鍵與此程式碼片段上方的陳述式相符。 此外確定您的編輯器不會以空格取代標籤。 
 
 儲存並關閉 provisionSample.yaml 檔案。 在下一個教學課程中，您會在此檔案中新增更多資訊，然後佈建 Azure Digital Twins 範例建築物。
+
+> [!TIP]
+> 您可以使用 [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer)來檢視和修改空間圖。
 
 
 ## <a name="clean-up-resources"></a>清除資源

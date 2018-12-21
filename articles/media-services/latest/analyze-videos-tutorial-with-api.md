@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體服務分析影片 | Microsoft Docs
+title: 透過媒體服務分析影片 - Azure | Microsoft Docs
 description: 請遵循本教學課程的步驟，使用 Azure 媒體服務分析影片。
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 11/08/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 3f0d6784f7b7c476313c5cc4190cacd99e4c3973
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 42ffecec896265f99a8f1f0b43b47c1988a493d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133888"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-apis"></a>教學課程：透過媒體服務 v3 使用 API 分析影片
 

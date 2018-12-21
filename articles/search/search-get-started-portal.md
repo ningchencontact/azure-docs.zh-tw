@@ -1,5 +1,5 @@
 ---
-title: 使用入口網站在 Azure 搜尋服務中進行編製索引、查詢和篩選的教學課程 | Microsoft Docs
+title: 在 Azure 入口網站中編製索引、查詢和篩選的教學課程 - Azure 搜尋服務
 description: 在本教學課程中，會使用 Azure 入口網站和預先定義的範例資料在 Azure 搜尋服務中產生索引。 探索全文檢索搜尋、篩選器、面向、模糊搜尋、地理搜尋功能等等。
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: aac579da3aaf6ab1507bbc12d79a5b183a82d665
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.custom: seodec2018
+ms.openlocfilehash: d8b95aaab99fc4f0aa5df21374d6ec023f869b7d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592750"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314018"
 ---
-# <a name="tutorial-use-built-in-tools-for-azure-search-indexing-and-queries"></a>教學課程：使用內建工具進行 Azure 搜尋服務的編製索引和查詢
+# <a name="tutorial-use-built-in-portal-tools-for-azure-search-indexing-and-queries"></a>教學課程：使用內建入口網站工具進行 Azure 搜尋服務的編製索引和查詢
 
 如需快速檢閱和進一步了解 Azure 搜尋服務的概念，您可以使用 Azure 入口網站中的 [Azure 搜尋服務] 頁面中，所提供的內建工具。 這些工具可能不會提供 .NET 和 REST API 的完整功能。 但是，其中的精靈和編輯器會提供免程式碼的 Azure 搜尋服務簡介，讓您能夠立即針對資料集範例撰寫有趣的查詢。
 
@@ -55,7 +56,7 @@ ms.locfileid: "39592750"
 
 在本教學課程中，我們使用可以透過 [匯入資料] 精靈使用[索引子](search-indexer-overview.md)編目的內建資料集範例。 索引子是來源特定的編目程式，可以從支援的 Azure 資料來源讀取中繼資料和內容。 在入口網站中，您可以透過 [匯入資料] 精靈看到這些索引子。 稍候，您可以透過程式設計方式將索引子當作獨立資源來加以建立及管理。
 
-### <a name="step-1-start-the-import-data-wizard"></a>步驟 1︰啟動匯入資料精靈
+### <a name="step-1-start-the-import-data-wizard"></a>步驟 1：啟動匯入資料精靈
 
 1. 從 Azure 搜尋服務儀表板，按一下命令列上的 [匯入資料]，以啟動精靈。 此精靈會協助您建立並填入搜尋索引。
 

@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e48eac4cdc1e98e21a122850b1dc7d3e8f4efe07
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854519"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995526"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>使用 Functions 在 Azure 儲存體佇列中新增訊息
 
@@ -31,7 +31,7 @@ ms.locfileid: "48854519"
 
 * 請遵循[從 Azure 入口網站建立您的第一個函式](functions-create-first-azure-function.md)中的指示，但是不要進行**清除資源**步驟。 該快速入門會建立您可以在這裡使用的函式應用程式和函式。
 
-* 安裝 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)。 這是您用來檢查您的輸出繫結建立之佇列訊息的工具。
+* 安裝 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)。 這是您用來檢查您的輸出繫結建立之佇列訊息的工具。
 
 ## <a name="add-binding"></a>新增輸出繫結
 
@@ -67,7 +67,7 @@ ms.locfileid: "48854519"
 
 ## <a name="add-code-that-uses-the-output-binding"></a>新增會使用輸出繫結的程式碼
 
-在本節中，您會將撰寫訊息的程式碼新增至輸出佇列。 此訊息包含值，該值會傳遞至查詢字串中的 HTTP 觸發程序。 例如，如果查詢字串包含 `name=Azure`，則佇列訊息會是「Name passed to the function: Azure」。
+在本節中，您會將撰寫訊息的程式碼新增至輸出佇列。 此訊息包含值，該值會傳遞至查詢字串中的 HTTP 觸發程序。 例如，如果查詢字串包含 `name=Azure`，則佇列訊息將會是 *Name passed to the function:Azure*。
 
 1. 選取函式以在編輯器中顯示函式程式碼。
 
@@ -122,7 +122,7 @@ ms.locfileid: "48854519"
 
 如果您已安裝儲存體總管並且連線到您在本快速入門使用的儲存體帳戶，請略過本節。
 
-2. 執行 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
+2. 執行 [Microsoft Azure 儲存體總管](https://storageexplorer.com/)工具，選取左側的 [連線] 圖示，選擇 [使用儲存體帳戶名稱和金鑰]，然後選取 [下一步]。
 
     ![執行「儲存體帳戶總管」工具。](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -150,7 +150,7 @@ ms.locfileid: "48854519"
 
 1. 展開 [佇列] 節點，然後選取名為 **outqueue** 的佇列。 
 
-   佇列包含訊息，該訊息將您執行 HTTP 觸發程序函式時建立的輸出繫結排入佇列。 如果您叫用具有預設 `name` 值為 Azure 的函式，佇列訊息是：Name passed to the function: Azure。
+   佇列包含訊息，該訊息將您執行 HTTP 觸發程序函式時建立的輸出繫結排入佇列。 如果您已叫用預設 `name` 值為 *Azure* 的函式，則佇列訊息是 *Name passed to the function:Azure*。
 
     ![儲存體總管中顯示的佇列訊息](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 

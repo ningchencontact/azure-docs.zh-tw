@@ -1,22 +1,22 @@
 ---
-title: Azure Container Instances 概觀
-description: 了解 Azure Container Instances
+title: 什麼是 Azure Container Instances？
+description: Azure Container Instances 服務提供最簡單快速的方法，讓您無需管理虛擬機器或採用更高層級的協調器，就能在 Azure 中執行隔離的容器。
 services: container-instances
 author: seanmck
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 10/02/2018
+ms.date: 11/30/2018
 ms.author: seanmck
-ms.custom: mvc
-ms.openlocfilehash: 33d6d89e91ecdec00c1b17ecddf91128e9d07526
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec18, mvc
+ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48802095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187189"
 ---
-# <a name="azure-container-instances"></a>Azure Container Instances
+# <a name="what-is-azure-container-instances"></a>什麼是 Azure Container Instances？
 
 容器即將成為封裝、部署及管理雲端應用程式的慣用方法。 Azure Container Instances 提供更簡單快速的方法，讓您無需管理任何虛擬機器或採用更高層級的服務，就能在 Azure 中執行容器。
 
@@ -37,6 +37,8 @@ Azure Container Instances 可讓您利用 IP 位址和完整網域名稱 (FQDN)�
 ## <a name="custom-sizes"></a>自訂大小
 
 容器通常已最適合只執行單一應用程式，但這些應用程式的確切需求可能明顯不同。 Azure Container Instances 允許使用明確的 CPU 核心和記憶體規格，以提供最佳的使用率。 您可根據所需的數量付費並採用以秒計費方式，因此能夠根據實際的需求來微調您的費用。
+
+對於計算密集型作業 (例如機器學習)，Azure Container Instances 可排程 Linux 容器以使用 NVIDIA Tesla [GPU 資源](container-instances-gpu.md) (預覽)。
 
 ## <a name="persistent-storage"></a>永續性儲存體
 
@@ -59,7 +61,7 @@ Azure Container Instances 支援排程共用主機、區域網路、儲存體和
 Azure 容器執行個體的這個功能 (目前處於預覽狀態) 可以[將容器執行個體部署至 Azure 虛擬網路](container-instances-vnet.md)。 藉由將容器執行個體部署至您虛擬網路內的子網路，這些執行個體可以安全地與虛擬網路中的其他資源通訊，包括內部部署的資源 (透過 [VPN 閘道](../vpn-gateway/vpn-gateway-about-vpngateways.md)或 [ExpressRoute](../expressroute/expressroute-introduction.md))。
 
 > [!IMPORTANT]
-> 將容器群組部署至虛擬網路目前處於預覽狀態，而且有一些[限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，此功能的某些領域可能會變更。
+> Azure Container Instances 的某些功能為預覽狀態，而且[適用一些限制](container-instances-vnet.md#preview-limitations)。 若您同意[補充的使用規定][terms-of-use]，即可取得預覽。 在公開上市 (GA) 之前，這些功能的某些領域可能會變更。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d04d27ee6136edec8d9af16f9133cf9a7cc0720c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223552"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311553"
 ---
 # <a name="quickstart-self-service-password-reset"></a>快速入門：自助式密碼重設
 
@@ -25,7 +25,7 @@ ms.locfileid: "39223552"
 
 * 可運作且至少已啟用試用版授權的 Azure AD 租用戶。
 * 具有全域系統管理員權限的帳戶。
-* 您已知其密碼的非系統管理員測試使用者；如果您需要建立使用者，請參閱[快速入門：將新的使用者新增至 Azure Active Directory](../add-users-azure-active-directory.md) 一文。
+* 您已知其密碼的非系統管理員測試使用者；如果您需要建立使用者，請參閱[快速入門：將新的使用者新增到 Azure Active Directory](../add-users-azure-active-directory.md) 一文。
 * 該名非系統管理員測試使用者所屬的測試用試驗群組；如果您需要建立群組，請參閱[在 Azure Active Directory 中建立群組和新增使用者](../active-directory-groups-create-azure-portal.md)一文。
 
 ## <a name="enable-self-service-password-reset"></a>啟用自助式密碼重設
@@ -48,7 +48,7 @@ ms.locfileid: "39223552"
     ![驗證][Authentication]
 
 4. 在 [註冊] 頁面中，選擇下列項目：
-   * 登入時要求使用者註冊：**是**
+   * 要求使用者在登入時註冊：**是**
    * 設定要求使用者重新確認其驗證資訊的等候天數：**365**
 
 ## <a name="test-self-service-password-reset"></a>測試自助式密碼重設
@@ -64,7 +64,7 @@ ms.locfileid: "39223552"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-要停用自助式密碼重設很容易。 開啟您的 Azure AD 租用戶並移至 [密碼重設] > [屬性]，然後選取 [已啟用自助式密碼重設] 之下的 [無]。
+要停用自助式密碼重設很容易。 開啟您的 Azure AD 租用戶並移至 [屬性] > [密碼重設]，然後選取 [已啟用自助式密碼重設] 下方的 [無]。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure IoT Edge部署 Azure Machine Learning | Microsoft Docs
+title: 將 Azure Machine Learning 部署至裝置的教學課程 - Azure IoT Edge | Microsoft Docs
 description: 在本教學課程中，將 Azure Machine Learning 當作模組部署至邊緣裝置
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: c98dc9019421133b83ab9aec29f725852315f6ba
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: mvc, seodec18
+ms.openlocfilehash: db8318e94b646d57c00bc2e6958ba9e7f46ec7af
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977196"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344009"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>教學課程：將 Azure Machine Learning 部署為 IoT Edge 模組 (預覽)
 
@@ -115,7 +115,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 1. 在 [登錄設定] 區段中，新增您從 Azure Container Registry 複製得到的認證。 
 
-   ![新增登錄認證](./media/tutorial-deploy-machine-learning/registry-settings.png)
+   ![將登錄認證新增至資訊清單](./media/tutorial-deploy-machine-learning/registry-settings.png)
 
 1. 如果您先前在 IoT Edge 裝置上部署過 tempSensor 模組，可能會自動填入。 如果尚未在模組清單中，請新增它。
 
@@ -174,7 +174,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>檢視抵達 IoT 中樞的資料
 
-您可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，檢視 IoT 中樞接收的裝置到雲端訊息。
+您可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，來檢視 IoT 中樞所收到的裝置到雲端訊息。
 
 下列步驟說明如何設定 Visual Studio Code 來監視抵達 IoT 中樞的裝置到雲端訊息。 
 
@@ -182,7 +182,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 
 2. 從功能表選取 [...]，然後選取 [設定 IoT 中樞連接字串]。
 
-   ![IoT 中樞裝置更多功能表](./media/tutorial-deploy-machine-learning/set-connection.png)
+   ![設定 IoT 中樞連接字串](./media/tutorial-deploy-machine-learning/set-connection.png)
 
 3. 在頁面頂端開啟的文字方塊中，輸入 IoT 中樞的 iothubowner 連接字串。 您的 IoT Edge 裝置應該會出現在 IoT 中樞裝置清單中。
 

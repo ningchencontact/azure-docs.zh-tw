@@ -1,21 +1,21 @@
 ---
-title: 教學課程 - 使用 Azure Container Registry 工作自動執行容器映像建置
-description: 在本教學課程中，您將了解如何設定將原始程式碼認可至 Git 存放庫時可在雲端中自動觸發容器映像建置的工作。
+title: 教學課程 - 自動執行容器映像建置 - Azure Container Registry 工作
+description: 在本教學課程中，您會了解如何設定「Azure Container Registry 工作」，以在您將原始程式碼認可至 Git 存放庫時，自動在雲端觸發容器映像建置。
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 27dbee3b292a9139ce53ef7b09a4cceba56082e4
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 3dc602589dc3a909ea2a2cf2925d37df0a97605b
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857222"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436240"
 ---
-# <a name="tutorial-automate-container-image-builds-with-azure-container-registry-tasks"></a>教學課程：使用 Azure Container Registry 工作自動執行容器映像建置
+# <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教學課程：於認可原始程式碼時在雲端自動執行容器映像建置
 
 除了[快速工作](container-registry-tutorial-quick-task.md)以外，ACR 工作也支援透過「建置工作」的自動化 Docker 容器映像建置。 在本教學課程中，您會使用 Azure CLI 建立工作，以在將原始程式碼認可至 Git 存放庫時在雲端中自動觸發映像建置。
 
@@ -155,7 +155,7 @@ $ az acr task create \
           "branch": "master",
           "repositoryUrl": "https://github.com/gituser/acr-build-helloworld-node",
           "sourceControlAuthProperties": null,
-          "sourceControlType": "Github"
+          "sourceControlType": "GitHub"
         },
         "sourceTriggerEvents": [
           "commit"

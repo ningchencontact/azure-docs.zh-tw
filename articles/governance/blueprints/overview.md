@@ -4,17 +4,17 @@ description: 「Azure 藍圖」是 Azure 中的服務，可讓您用來建立、
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 12/05/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a48876adc853ca94f606f58f7eeb13c3d1a57ce8
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: f1ebbc10109563b771c5417a0449efec12138526
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498604"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967686"
 ---
 # <a name="what-is-azure-blueprints"></a>什麼是 Azure 藍圖？
 
@@ -111,7 +111,7 @@ Azure 藍圖服務由散佈於世界各地的 [Azure Cosmos DB](../../cosmos-db/
 > [!NOTE]
 > 因為藍圖指派是在訂用帳戶上建立，所以藍圖指派和取消指派權限必須在訂用帳戶範圍上授與，或是在訂用帳戶範圍上繼承。
 
-除了藍圖指派權限以外，這些權限也包含在**擁有者**角色和**參與者**角色中。 如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
+所有上述權限都會納入 [擁有者] 角色。 [參與者] 角色已建立藍圖並刪除藍圖權限，但是沒有藍圖指派權限。 如果這些內建角色不符合您的安全性需求，請考慮建立[自訂角色](../../role-based-access-control/custom-roles.md)。
 
 > [!NOTE]
 > Azure 藍圖的服務主體在指派的訂用帳戶上需要**擁有者**角色才能進行部署。 如果使用入口網站，會針對部署自動授與此角色並撤銷。 如果使用 REST API，必須手動授與此角色，但在部署完成之後仍會自動撤銷。

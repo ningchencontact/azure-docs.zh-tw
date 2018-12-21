@@ -1,21 +1,22 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 UWP 應用程式中以 C# 辨識語音
+title: 快速入門：辨識語音，C# (UWP) - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用語音服務 SDK 在 UWP 應用程式中辨識語音
+description: 在本文中，您會使用認知服務語音 SDK，來建立 C# 通用 Windows 平台 (UWP) 應用程式。 您會將來自裝置麥克風的語音即時轉譯為文字。 應用程式是使用語音 SDK NuGet 套件與 Microsoft Visual Studio 2017 所建置的。
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 11/06/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7b132ea9fea7591d32b693ef9c95acf7626c8fff
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.custom: seodec18
+ms.openlocfilehash: 55988ef65e223c76a485c3cbec13626abf68d3b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218883"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104624"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 UWP 應用程式中辨識語音
 
@@ -34,7 +35,7 @@ ms.locfileid: "51218883"
 
 1. 啟動 Visual Studio 2017。
 
-1. 確定可以使用**通用 Windows 平台開發**工作負載。 從 Visual Studio 功能表列選擇 [工具] > [取得工具和功能]，以開啟 Visual Studio 安裝程式。 如果已啟用此工作負載，請關閉對話方塊。 
+1. 確定可以使用**通用 Windows 平台開發**工作負載。 從 Visual Studio 功能表列選擇 [工具] > [取得工具和功能]，以開啟 Visual Studio 安裝程式。 如果已啟用此工作負載，請關閉對話方塊。
 
     ![Visual Studio 安裝程式的螢幕擷取畫面，其中 [工作負載] 索引標籤已醒目提示](media/sdk/vs-enable-uwp-workload.png)
 

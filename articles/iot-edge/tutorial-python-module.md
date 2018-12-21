@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge Python 教學課程 | Microsoft Docs
+title: 建立自訂 Python 模組的教學課程 - Azure IoT Edge | Microsoft Docs
 description: 本教學課程說明如何使用 Python 程式碼建立 IoT Edge 模組，並將其部署到邊緣裝置。
 services: iot-edge
 author: shizn
@@ -8,13 +8,13 @@ ms.author: xshi
 ms.date: 11/25/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 00e04f4cab11b33dc0d7bf718ac15009c673727f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: mvc, seodec18
+ms.openlocfilehash: a8edf8d67c55cad856eacf883a6449606e594887
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312811"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343763"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>教學課程：開發 Python IoT Edge 模組並部署到您的模擬裝置
 
@@ -103,14 +103,14 @@ Azure IoT Edge 裝置：
 
 3. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
 
-4. 請在命令選擇區中，輸入並執行命令 **Azure: Sign in**，然後依照指示登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
+4. 在 [命令選擇區] 中，輸入並執行命令 **Azure:Sign in**，然後遵循指示來登入您的 Azure 帳戶。 如果您已登入，則可以略過此步驟。
 
-5. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
+5. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge:New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
 
    | 欄位 | 值 |
    | ----- | ----- |
    | 選取資料夾 | 選擇開發機器上可供 VS Code 建立解決方案檔案的位置。 |
-   | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **SqlSolution**。 |
+   | 提供解決方案名稱 | 輸入解決方案的描述性名稱或接受預設值 **EdgeSolution**。 |
    | 選取模組範本 | 選擇 [Python 模組]。 |
    | 提供模組名稱 | 將模組命名為 **PythonModule**。 |
    | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串看起來如下：\<登錄名稱\>.azurecr.io/pythonmodule. |
@@ -243,9 +243,9 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 ## <a name="deploy-and-run-the-solution"></a>部署並執行解決方案
 
-在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您可以使用 Visual Studio Code 的 Azure IoT 工具組擴充功能來部署模組。 您已備妥您的案例所需的部署資訊清單，即 **deployment.json** 檔案。 現在您只需選取要接收部署的裝置即可。
+在您用來設定 IoT Edge 裝置的快速入門文章中，您使用 Azure 入口網站部署了模組。 您也可以使用適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能 (先前稱為 Azure IoT 工作組擴充功能) 來部署模組。 您已備妥您的案例所需的部署資訊清單，即 **deployment.json** 檔案。 現在您只需選取要接收部署的裝置即可。
 
-1. 在 VS Code 命令選擇區中，執行 [Azure IoT 中樞：選取 IoT 中樞]。 
+1. 在 VS Code 命令選擇區中，執行 **Azure IoT Hub:Select IoT Hub**。 
 
 2. 選擇您要設定的 IoT Edge 裝置所屬的訂用帳戶和 IoT 中樞。 
 
@@ -273,7 +273,7 @@ VS Code 視窗會載入您的 IoT Edge 方案工作區。 解決方案工作區�
 
 1. 若要監視抵達 IoT 中樞的資料，請選取省略符號 (**...**)，然後選取 [開始監視 D2C 訊息]。
 2. 若要監視特定裝置的 D2C 訊息，請以滑鼠右鍵按一下清單中的裝置，然後選取 [開始監視 D2C 訊息]。
-3. 若要停止監視資料，請在命令選擇區中執行命令 **Azure IoT Hub: Stop monitoring D2C message**。 
+3. 若要停止監視資料，請在命令選擇區中執行命令 **Azure IoT Hub:Stop monitoring D2C message**。 
 4. 若要檢視或更新模組對應項，請以滑鼠右鍵按一下清單中的模組，然後選取 [編輯模組對應項]。 若要更新模組對應項，請儲存對應項 JSON 檔案，並以滑鼠右鍵按一下編輯器區域，然後選取 [更新模組對應項]。
 5. 若要檢視 Docker 記錄，請安裝適用於 VS Code 的 [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)。 您可以在本機的 Docker 總管中，找到您執行中的模組。 在操作功能表中，選取 [顯示記錄]，以在整合式終端機中進行檢視。 
 

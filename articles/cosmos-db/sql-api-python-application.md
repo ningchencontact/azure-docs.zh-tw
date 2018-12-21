@@ -1,10 +1,9 @@
 ---
-title: Azure Cosmos DB 的 Python Flask Web 應用程式教學課程 | Microsoft Docs
+title: Azure Cosmos DB 的 Python Flask Web 應用程式教學課程
 description: 檢閱資料庫教學課程，了解如何使用 Azure Cosmos DB，來儲存和存取 Azure 上所託管的 Python Flask Web 應用程式資料。 尋找應用程式開發解決方案。
 keywords: 應用程式部署、python flask、python Web 應用程式、python Web 開發
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
@@ -12,12 +11,12 @@ ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9470df09c2724bf89a371ec62e7fb8a7e2132c6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2c7b7c5dc68bb96e0b54dc89f2c170cdb20c792
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953917"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081899"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 建置 Python Flask Web 應用程式
 
@@ -437,4 +436,4 @@ def vote():
 
 如需 Azure、Visual Studio 及 Python 的詳細資訊，請參閱 [Python 開發人員中心](https://azure.microsoft.com/develop/python/)。 
 
-如需其他的 Python Flask 教學課程，請參閱 [Flask 教學課程庫，第一部分：Hello, World!](http://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)。 
+如需其他的 Python Flask 教學課程，請參閱 [Flask 教學課程庫的第一部分：Hello, World!](https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-i-hello-world)。 

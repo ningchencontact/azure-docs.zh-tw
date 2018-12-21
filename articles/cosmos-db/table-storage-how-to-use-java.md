@@ -1,21 +1,20 @@
 ---
-title: 如何從 Java 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API | Microsoft Docs
-description: 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
+title: 如何從 Java 使用 Azure 表格儲存體或 Azure Cosmos DB 資料表 API
+description: 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API 將結構化資料儲存在雲端。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: Java
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: f4ebcf51ab6682009190e467ca9dbf67caf1c182
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e6bae31f0e3558f274ee638c380e69c15b7c3889
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797891"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079308"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>如何從 Java 使用 Azure 資料表儲存體或 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -456,7 +455,7 @@ catch (Exception e)
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>查詢實體屬性的子集
-一項資料表查詢可以只擷取實體的少數屬性。 這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。 結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。 您可以在 [Azure 資料表：插入和查詢投影簡介][Azure Tables: Introducing Upsert and Query Projection]中進一步了解投影。 請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
+一項資料表查詢可以只擷取實體的少數屬性。 這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 下列程式碼中的查詢會使用 **select** 方法，只傳回資料表中之實體的電子郵件地址。 結果會在 **EntityResolver** (負責對從伺服器傳回的實體執行類型轉換) 的幫助下投影至 **String** 的集合中。 您可以進一步了解投影：[Azure 資料表：插入和查詢投影簡介][Azure 資料表：插入和查詢投影簡介]。 請注意，投射並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。
 
 ```java
 try
@@ -498,7 +497,7 @@ catch (Exception e)
 ```
 
 ## <a name="insert-or-replace-an-entity"></a>插入或取代實體
-您經常會想要新增實體至資料表，但不知道它是否已在資料表中。 插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。 以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。 建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。 此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。 若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。 請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。 您可以在這個 [Azure 資料表：插入和查詢投影簡介][Azure Tables: Introducing Upsert and Query Projection]中進一步了解插入或取代和插入或合併。
+您經常會想要新增實體至資料表，但不知道它是否已在資料表中。 插入或取代實體允許您透過單一要求，如果實體不存在便插入它，若是存在則取代現有實體。 以先前的範例為基礎，下列程式碼會插入或取代 "Walter Harp" 的實體。 建立新實體之後，此程式碼會呼叫 **TableOperation.insertOrReplace** 方法。 此程式碼接著會以資料表以及插入或取代資料表操作當作參數，在 **CloudTable** 物件上呼叫 **execute**。 若只要更新實體的某一部分，可以改用 **TableOperation.insertOrMerge** 方法。 請注意，插入或取代並不支援在本機儲存體模擬器上進行，因此此程式碼唯有在使用資料表服務上的帳戶時才會執行。 您可以進一步了解插入或取代和插入或合併：[Azure 資料表：插入和查詢投影簡介][Azure 資料表：插入和查詢投影簡介]。
 
 ```java
 try
@@ -597,16 +596,14 @@ catch (Exception e)
 * [開始使用 Java 中的 Azure 表格服務](https://github.com/Azure-Samples/storage-table-java-getting-started)
 * [Microsoft Azure 儲存體總管](../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一個免費的獨立應用程式，可讓您在 Windows、MacOS 和 Linux 上以視覺化方式處理 Azure 儲存體資料。
 * [Azure Storage SDK for Java][Azure Storage SDK for Java]
-* [Azure 儲存體用戶端 SDK 參考][azure 儲存體用戶端 sdk 參考]
+* [Azure 儲存體用戶端 SDK 參考][Azure 儲存體用戶端 SDK 參考]
 * [Azure 儲存體 REST API][Azure Storage REST API]
 * [Azure 儲存體團隊部落格][Azure Storage Team Blog]
 
 如需詳細資訊，請瀏覽[適用於 Java 開發人員的 Azure](/java/azure)。
 
-[Azure SDK for Java]: http://go.microsoft.com/fwlink/?LinkID=525671
+[Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure 儲存體用戶端 SDK 參考]: http://azure.github.io/azure-storage-java/
+[Azure 儲存體用戶端 SDK 參考]: https://azure.github.io/azure-storage-java/
 [Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
-[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
-[Azure Tables: Introducing Upsert and Query Projection]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx

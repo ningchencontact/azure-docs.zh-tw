@@ -9,32 +9,32 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4784672364e2bdf44f0415ab4e1e386a5a80076b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228397"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313049"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>使用 Terraform 來建立 Azure 虛擬機器擴展集
 
-[Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets)可讓您建立和管理一組完全相同、經過負載平衡的虛擬機器，其中的虛擬機器執行個體數目可以自動增加，或回應要求或定義的排程而減少。 
+[Azure 虛擬機器擴展集](/azure/virtual-machine-scale-sets)可讓您建立和管理一組完全相同、經過負載平衡的虛擬機器，其中的虛擬機器執行個體數目可以自動增加，或回應要求或定義的排程而減少。
 
 在本教學課程中，您會了解如何使用 [Azure Cloud Shell](/azure/cloud-shell/overview) 來執行下列工作：
 
 > [!div class="checklist"]
 > * 設定 Terraform 部署
-> * 針對 Terraform 部署使用變數和輸出 
+> * 針對 Terraform 部署使用變數和輸出
 > * 建立和部署網路基礎結構
 > * 建立和部署虛擬機器擴展集，並將它連接到網路
 > * 建立和部署 Jumpbox 以透過 SSH 連線到 VM
 
 > [!NOTE]
-> 本文中使用的最新版本 Terraform 組態檔位於 [Github 上很棒的 Terraform 存放庫](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)中。
+> 本文中使用的最新版本 Terraform 組態檔位於 [GitHub 上很棒的 Terraform 存放庫](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss)中。
 
 ## <a name="prerequisites"></a>必要條件
 
-- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
+- **Azure 訂用帳戶**：如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 。
 
 - **安裝 Terraform**：請遵循 [Terraform 和設定 Azure 的存取](/azure/virtual-machines/linux/terraform-install-configure)一文中的指示
 
@@ -122,7 +122,8 @@ ms.locfileid: "51228397"
 
 1. 選取 I 鍵輸入插入模式。
 
-1. 請將下列程式碼貼到編輯器，以公開虛擬機器的完整網域名稱 (FQDN)。 ：
+1. 請將下列程式碼貼到編輯器，以公開虛擬機器的完整網域名稱 (FQDN)。
+：
 
   ```JSON
     output "vmss_public_ip" {
@@ -139,9 +140,9 @@ ms.locfileid: "51228397"
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>在範本中定義網路基礎結構
-在本節中，您要在新的 Azure 資源群組中建立下列網路基礎結構： 
+在本節中，您要在新的 Azure 資源群組中建立下列網路基礎結構：
 
-  - 一個具有 10.0.0.0/16 位址空間的虛擬網路 (VNET) 
+  - 一個具有 10.0.0.0/16 位址空間的虛擬網路 (VNET)
   - 一個具有 10.0.2.0/24 位址空間的子網路
   - 兩個公用 IP 位址。 其中一個是用於虛擬機器擴展集負載平衡器，另一個用於連線到 SSH Jubmox。
 
@@ -155,7 +156,7 @@ ms.locfileid: "51228397"
 
 1. 選取 I 鍵輸入插入模式。
 
-1. 請將下列程式碼貼到檔案的結尾，以公開虛擬機器的完整網域名稱 (FQDN)。 
+1. 請將下列程式碼貼到檔案的結尾，以公開虛擬機器的完整網域名稱 (FQDN)。
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -210,7 +211,7 @@ ms.locfileid: "51228397"
 1. 初始化 Terraform。
 
   ```bash
-  terraform init 
+  terraform init
   ```
 
 1. 執行下列命令，以在 Azure 中部署定義的基礎結構。
@@ -235,8 +236,8 @@ ms.locfileid: "51228397"
 在本節中，您會了解如何將下列資源新增到範本：
 
 - Azure 負載平衡器，以及用以提供務應用程式，並將負載平衡器連結到本文中稍早所設定公用 IP 位址的規則
-- Azure 後端位址集區，並將其指派給負載平衡器 
-- 應用程式所使用且在負載平衡器上設定的健康情況探查連接埠 
+- Azure 後端位址集區，並將其指派給負載平衡器
+- 應用程式所使用且在負載平衡器上設定的健康情況探查連接埠
 - 位在負載平衡器幕後的虛擬機器擴展集，在本文中稍早部署的 VNET 上執行
 - 在使用 [cloud-init](http://cloudinit.readthedocs.io/en/latest/) 的虛擬機器擴展集節點上的 [Nginx](http://nginx.org/)。
 
@@ -359,7 +360,7 @@ ms.locfileid: "51228397"
     :wq
     ```
 
-1. 建立名為 `web.conf` 的檔案，作為擴展集所屬虛擬機器的 cloud-init 組態。 
+1. 建立名為 `web.conf` 的檔案，作為擴展集所屬虛擬機器的 cloud-init 組態。
 
     ```bash
     vi web.conf
@@ -407,7 +408,7 @@ ms.locfileid: "51228397"
   variable "admin_password" {
       description = "Default password for admin account"
   }
-  ``` 
+  ```
 
 1. 選取 Esc 鍵結束插入模式。
 
@@ -430,14 +431,14 @@ ms.locfileid: "51228397"
 1. 在 Azure 中部署新的資源。
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
   此命令的輸出應類似下列螢幕擷取畫面：
 
   ![Terraform 虛擬機器擴展集資源群組](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. 開啟瀏覽器並連線到命令傳回的 FQDN。 
+1. 開啟瀏覽器並連線到命令傳回的 FQDN。
 
   ![瀏覽至 FQDN 的結果](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
@@ -545,7 +546,7 @@ SSH jumpbox 是您在存取網路上其他伺服器時所「跳躍」通過的�
 1. 部署 Jumpbox。
 
   ```bash
-  terraform apply 
+  terraform apply
   ```
 
 部署完成之後，資源群組的內容會類似於下列螢幕擷取畫面所示：
@@ -555,7 +556,7 @@ SSH jumpbox 是您在存取網路上其他伺服器時所「跳躍」通過的�
 > [!NOTE]
 > 在 Jumpbox 和您部署的虛擬機器擴展集上，已停用以密碼登入的功能。 請使用 SSH 登入來存取虛擬機器。
 
-## <a name="environment-cleanup"></a>環境清除 
+## <a name="environment-cleanup"></a>環境清除
 
 若要刪除本教學課程中所建立的 Terraform 資源，請將下列命令輸入 Cloud Shell 中：
 
@@ -566,9 +567,9 @@ terraform destroy
 解構程序可能需要幾分鐘的時間才能完成。
 
 ## <a name="next-steps"></a>後續步驟
-在本文中，您會了解如何使用 Terraform 來建立 Azure 虛擬機器擴展集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform： 
+在本文中，您會了解如何使用 Terraform 來建立 Azure 虛擬機器擴展集。 以下有一些額外的資源，可協助您深入了解 Azure 上的 Terraform：
 
- [Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure 提供者文件](https://aka.ms/terraform)  
- [Terraform Azure 提供者來源](https://aka.ms/tfgit)  
- [Terraform Azure 模組](https://aka.ms/tfmodules)
+[Microsoft.com 中的 Terraform 中樞](https://docs.microsoft.com/azure/terraform/)
+[Terraform Azure 提供者文件](https://aka.ms/terraform)
+[Terraform Azure 提供者來源](https://aka.ms/tfgit)
+[Terraform Azure 模組](https://aka.ms/tfmodules)

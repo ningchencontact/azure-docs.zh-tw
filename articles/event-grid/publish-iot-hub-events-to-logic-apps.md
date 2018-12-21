@@ -4,22 +4,22 @@ description: 使用 Azure Event Grid 的事件路由服務，建立自動化程�
 services: iot-hub
 documentationcenter: ''
 author: kgremban
-manager: timlt
+manager: philmea
 editor: ''
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2018
+ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: c91dad17016cd9619d2d42a3fcee04a7d14b5eab
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242514"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135010"
 ---
-# <a name="send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>教學課程：使用 Logic Apps 來傳送 Azure IoT 中樞事件的相關電子郵件通知
 
 Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回應 IoT 中樞中的事件。
 
@@ -37,19 +37,16 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 ### <a name="create-a-logic-app-resource"></a>建立邏輯應用程式資源
 
-1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [整合] > [邏輯應用程式]。
+1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [整合] > [邏輯應用程式]。
 
    ![建立邏輯應用程式](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
 2. 在訂用帳戶中為邏輯應用程式指定唯一的名稱，然後選取與您的 IoT 中樞相同的訂用帳戶、資源群組和位置。 
-3. 當您準備就緒，選取 [釘選到儀表板]，然後選擇 [建立]。
+3. 選取 [建立] 。
 
-   您現在已經為您的應用程式邏輯建立一項 Azure 資源。 在 Azure 部署您的邏輯應用程式之後，Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。
+4. 建立資源後，請瀏覽到您的邏輯應用程式。 
 
-   > [!NOTE] 
-   > 當您選取 [釘選到儀表板] 時，邏輯應用程式會自動在 Logic Apps 設計工具中開啟。 不然，您可以手動尋找並開啟您的邏輯應用程式。
-
-4. 在 [範本] 下的 [邏輯應用程式設計工具] 中，選擇 [空白邏輯應用程式]，以便從頭建置邏輯應用程式。
+5. Logic Apps 設計工具會顯示常見模式的範本，以便您更快開始使用。 在 [範本] 下的 [邏輯應用程式設計工具] 中，選擇 [空白邏輯應用程式]，以便從頭建置邏輯應用程式。
 
 ### <a name="select-a-trigger"></a>選取觸發程序
 
@@ -66,51 +63,51 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
 4. 將下列 JSON 程式碼範例貼到文字方塊中，然後選取 [完成]：
 
-```json
-[{
-  "id": "56afc886-767b-d359-d59e-0da7877166b2",
-  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
-  "subject": "devices/LogicAppTestDevice",
-  "eventType": "Microsoft.Devices.DeviceCreated",
-  "eventTime": "2018-01-02T19:17:44.4383997Z",
-  "data": {
-    "twin": {
-      "deviceId": "LogicAppTestDevice",
-      "etag": "AAAAAAAAAAE=",
-      "deviceEtag": "null",
-      "status": "enabled",
-      "statusUpdateTime": "0001-01-01T00:00:00",
-      "connectionState": "Disconnected",
-      "lastActivityTime": "0001-01-01T00:00:00",
-      "cloudToDeviceMessageCount": 0,
-      "authenticationType": "sas",
-      "x509Thumbprint": {
-        "primaryThumbprint": null,
-        "secondaryThumbprint": null
-      },
-      "version": 2,
-      "properties": {
-        "desired": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        },
-        "reported": {
-          "$metadata": {
-            "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
-          },
-          "$version": 1
-        }
-      }
-    },
-    "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
+   ```json
+   [{
+     "id": "56afc886-767b-d359-d59e-0da7877166b2",
+     "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>",
+     "subject": "devices/LogicAppTestDevice",
+     "eventType": "Microsoft.Devices.DeviceCreated",
+     "eventTime": "2018-01-02T19:17:44.4383997Z",
+     "data": {
+       "twin": {
+         "deviceId": "LogicAppTestDevice",
+         "etag": "AAAAAAAAAAE=",
+         "deviceEtag": "null",
+         "status": "enabled",
+         "statusUpdateTime": "0001-01-01T00:00:00",
+         "connectionState": "Disconnected",
+         "lastActivityTime": "0001-01-01T00:00:00",
+         "cloudToDeviceMessageCount": 0,
+         "authenticationType": "sas",
+         "x509Thumbprint": {
+           "primaryThumbprint": null,
+           "secondaryThumbprint": null
+         },
+         "version": 2,
+         "properties": {
+           "desired": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           },
+           "reported": {
+             "$metadata": {
+               "$lastUpdated": "2018-01-02T19:17:44.4383997Z"
+             },
+             "$version": 1
+           }
+         }
+       },
+       "hubName": "egtesthub1",
+       "deviceId": "LogicAppTestDevice"
+     },
+     "dataVersion": "1",
+     "metadataVersion": "1"
+   }]
+   ```
 
 5. 您可能會收到快顯通知，指出**請務必在您的要求中加入 Content-Type 標頭，並將其設為 application/json。** 您可以放心地忽略這項建議，並移至下一節。 
 
@@ -119,13 +116,17 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 動作是在觸發程序啟動邏輯應用程式工作流程之後發生的任何步驟。 在本教學課程中，從電子郵件提供者傳送電子郵件通知就是一個動作。 
 
 1. 選取 [新增步驟]。 這會開啟 [選擇動作] 的視窗。
+
 2. 搜尋**電子郵件**。
+
 3. 根據您的電子郵件提供者，尋找並選取相符的連接器。 本教學課程使用 **Office 365 Outlook**。 其他電子郵件提供者的步驟很類似。 
 
    ![選取電子郵件提供者連接器](./media/publish-iot-hub-events-to-logic-apps/o365-outlook.png)
 
 4. 選取 [傳送電子郵件] 動作。 
+
 5. 如果出現提示，請登入您的電子郵件帳戶。 
+
 6. 建立您的電子郵件範本。 
    * **收件者**：輸入要收到通知電子郵件的電子郵件地址。 在本教學課程中，使用您可以存取的電子郵件帳戶進行測試。 
    * **主旨**和**本文**：撰寫電子郵件內容。 從選取器工具選取 JSON 屬性，以根據事件資料納入動態內容。  
@@ -166,17 +167,19 @@ Azure Event Grid 可讓您在下游商務應用程式中觸發動作，進而回
 
     ![選取端點 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件格線結構描述]
-
-  您可以在這裡儲存事件訂用帳戶，並接收在 IoT 中樞內建立之每個裝置的通知。 但在此教學課程中，我們可使用選用欄位來篩選特定裝置： 
-
-  * **主旨開頭**：輸入 `devices/Building1_` 以篩選出建築物 1 中的裝置事件。
-  * **主旨結尾**：輸入 `_Temperature` 以篩選出與溫度相關的裝置事件。
+    * **事件訂用帳戶詳細資料**：提供描述性的名稱，然後選取 [事件方格結構描述]。
 
   當您完成時，表單看起來應如下列範例所示： 
 
     ![事件訂用帳戶表單範例](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
-    
+
+5. 您可以在這裡儲存事件訂用帳戶，並接收在 IoT 中樞內建立之每個裝置的通知。 但在此教學課程中，我們可使用選用欄位來篩選特定裝置。 選取表單頂端的 [其他功能]。 
+
+6. 建立下列篩選條件：
+
+  * **主旨開頭為**：輸入 `devices/Building1_` 以篩選建築物 1 中的裝置事件。
+  * **主旨結尾為**：輸入 `_Temperature` 以篩選與溫度相關的裝置事件。
+
 5. 選取 [建立] 以儲存事件訂用帳戶。
 
 ## <a name="create-a-new-device"></a>建立新的裝置

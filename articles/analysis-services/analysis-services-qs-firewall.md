@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 96141ddeeb73c7483935d5da49b9341436c10c18
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0351ab3213ac75559cc025f2ef71e2f098a7504c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429682"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993191"
 ---
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入門：設定伺服器防火牆 - 入口網站
 
@@ -24,7 +24,7 @@ ms.locfileid: "49429682"
 - 訂用帳戶中的 Analysis Services 伺服器。 若要深入了解，請參閱[快速入門：建立伺服器 - 入口網站](analysis-services-create-server.md)或[快速入門：建立伺服器 - PowerShell](analysis-services-create-powershell.md)
 - 用戶端電腦的一或多個 IP 位址範圍 (如有需要)。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站 
+## <a name="sign-in-to-the-azure-portal"></a>登入 Azure 入口網站 
 
 [登入入口網站](https://portal.azure.com)
 

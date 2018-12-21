@@ -1,6 +1,6 @@
 ---
-title: 在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL Web 應用程式 | Microsoft Docs
-description: 了解如何取得在 Azure 中運作的 PHP 應用程式，並連線至 Azure 中的 MySQL 資料庫。
+title: 在 Linux 上建置搭配 MySQL 的 PHP Web 應用程式- Azure App Service |Microsoft Docs
+description: 了解如何讓 PHP 應用程式在 Linux 上的 Azure App Service 中運作，並連線至 Azure 中的 MySQL 資料庫。
 services: app-service\web
 author: cephalin
 manager: erikre
@@ -10,13 +10,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 91beef3076005fc7b95b1ffd208be238e23a7b8b
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: 5d9843eecfed56f09c3a6d659976ca1ce5f42d80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291482"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342353"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 PHP 和 MySQL Web 應用程式
 
@@ -45,9 +45,9 @@ ms.locfileid: "52291482"
 若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)
-* [安裝 PHP 5.6.4 或更新版本](http://php.net/downloads.php)
+* [安裝 PHP 5.6.4 或更新版本](https://php.net/downloads.php)
 * [安裝編輯器](https://getcomposer.org/doc/00-intro.md)
-* 啟用下列 PHP 擴充功能 Laravel 需求︰OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
+* 啟用 Laravel 所需的下列 PHP 擴充功能：OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
 * [下載並啟動 MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>準備本機 MySQL
@@ -194,7 +194,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_n
 > [僅使用您的應用程式所用的輸出 IP 位址](../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips)，讓您的防火牆規則更具限制性。
 >
 
-在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](http://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
+在 Cloud Shell 中，將 *\<您的 IP 位址>* 取代為[您的本機 IPv4 IP 位址](https://www.whatsmyip.org/)並再次執行命令，以允許從您的本機電腦進行存取。
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
@@ -350,7 +350,7 @@ Laravel 應用程式會在 /public 目錄中啟動。 App Service 的預設 PHP 
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-您可以使用 PHP [getenv](http://php.net/manual/en/function.getenv.php) 方法來存取這些設定。 Laravel 程式碼會透過 PHP `getenv` 使用 [env](https://laravel.com/docs/5.4/helpers#method-env) 包裝函式。 例如，在 _config/database.php_ 中的 MySQL 設定看起來像這樣︰
+您可以使用 PHP [getenv](https://php.net/manual/en/function.getenv.php) 方法來存取這些設定。 Laravel 程式碼會透過 PHP `getenv` 使用 [env](https://laravel.com/docs/5.4/helpers#method-env) 包裝函式。 例如，在 _config/database.php_ 中的 MySQL 設定看起來像這樣︰
 
 ```php
 'mysql' => [

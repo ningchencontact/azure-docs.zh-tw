@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/02/2018
 ms.author: sethm
-ms.openlocfilehash: 860f1181a84ef87fe0e66c2746b76b800a326354
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 86fcec0321e8f1b92fdc554532cb8f949b1b1569
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496207"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081382"
 ---
 # <a name="about-vpn-gateway-for-azure-stack"></a>關於 Azure Stack 的 VPN 閘道
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您必須先為您的虛擬網路建立虛擬網路閘道，才能傳送 Azure 虛擬網路和內部部署網站之間的網路流量。
 
@@ -108,9 +108,9 @@ Azure Stack 不支援專門搭配 Express Route 使用的超效能閘道 SKU。
 
 |   | VPN 閘道輸送量 *(1)* | VPN 閘道最大 IPsec 通道數 *(2)* |
 |-------|-------|-------|
-|**基本 SKU** ***(3)***    | 100 Mbps  | 10    |
-|**標準 SKU**       | 100 Mbps  | 10    |
-|**高效能 SKU** | 200 Mbps    | 5 |
+|**基本 SKU** ***(3)***    | 100 Mbps  | 20    |
+|**標準 SKU**       | 100 Mbps  | 20    |
+|**高效能 SKU** | 200 Mbps    | 10    |
 
 **資料表附註：**
 

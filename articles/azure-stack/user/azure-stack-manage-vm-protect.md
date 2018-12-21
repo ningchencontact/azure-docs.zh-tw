@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/15/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ab55ed73c7364b48f3159672ebee5d934365c92c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341832"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191524"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保護部署在 Azure Stack 上的虛擬機器
 
@@ -55,10 +55,10 @@ Azure Stack 雲端操作員則負責建立 Azure Stack 基礎結構和服務的�
 
 |  | 全域 Azure | Azure Stack 部署在 CSP 資料中心內，且由 CSP 操作 | Azure Stack 部署在客戶資料中心內，且由客戶操作 |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack 部署在 CSP 資料中心內，且由 CSP 操作** | 使用者 VM 部署在由 CSP 操作的 Azure Stack 中。 使用者 VM 會直接從備份還原至 Azure 或容錯移轉至 Azure。 | CSP 會在自有的資料中心內，操作 Azure Stack 的主要和次要執行個體。 使用者 VM 會在兩個 Azure Stack 執行個體間進行還原或容錯移轉。 | CSP 會在主要站台中操作 Azure Stack。 客戶的資料中心是還原或容錯移轉的目標。 |
-| **Azure Stack 部署在客戶資料中心內，且由客戶操作** | 使用者 VM 部署在由客戶操作的 Azure Stack 中。 使用者 VM 會直接從備份還原至 Azure 或容錯移轉至 Azure。 | 客戶會在自有的資料中心內，操作 Azure Stack 的主要和次要執行個體。 使用者 VM 會在兩個 Azure Stack 執行個體間進行還原或容錯移轉。 | 客戶會在主要站台中操作 Azure Stack。 CSP 的資料中心是還原或容錯移轉的目標。 |
+| **Azure Stack 部署在 CSP 資料中心內，且由 CSP 操作** | 使用者 VM 部署在由 CSP 操作的 Azure Stack 中。<br><br>使用者 VM 會直接從備份還原至 Azure 或容錯移轉至 Azure。 | CSP 會在自有的資料中心內，操作 Azure Stack 的主要和次要執行個體。<br><br>使用者 VM 會在兩個 Azure Stack 執行個體間進行還原或容錯移轉。 | CSP 會在主要站台中操作 Azure Stack。<br><br>客戶的資料中心是還原或容錯移轉的目標。 |
+| **Azure Stack 部署在客戶資料中心內，且由客戶操作** | 使用者 VM 部署在由客戶操作的 Azure Stack 中。<br><br>使用者 VM 會直接從備份還原至 Azure 或容錯移轉至 Azure。 | 客戶會在主要站台中操作 Azure Stack。<br><br>CSP 的資料中心是還原或容錯移轉的目標。 | 客戶會在自有的資料中心內，操作 Azure Stack 的主要和次要執行個體。<br><br>使用者 VM 會在兩個 Azure Stack 執行個體間進行還原或容錯移轉。 |
 
-![來源-目標組合](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![來源-目標組合](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## <a name="application-recovery-objectives"></a>應用程式復原目標
 
@@ -77,7 +77,7 @@ RTO 和 RPO 是商務需求。 進行風險評量可定義應用程式的 RTO �
 
 虛擬機器型應用程式上最常見的保護配置就是使用備份軟體。 備份 VM 通常包含作業系統、作業系統組態、應用程式二進位檔和應用程式資料。 備份是使用磁碟區、磁碟或整個 VM 的快照集所建立的。 透過 Azure Stack，您可以彈性地從客體作業系統的環境中，或從 Azure Stack 儲存體和計算 API 中進行備份。 Azure Stack 不支援使用 Hypervisor 層級上的備份。
  
-![備份 - 還原](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![備份 - 還原](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 復原應用程式需要將一個或多個 VM 還原至相同雲端或新的雲端。 您可以鎖定您資料中心內的雲端或公用雲端。 您選擇的雲端會完全由您控制，且會以您的資料隱私權和主權需求為基礎。
  
@@ -107,7 +107,7 @@ RTO 和 RPO 是商務需求。 進行風險評量可定義應用程式的 RTO �
 
 透過這個方法，應用程式會部署在某個雲端中，它的 VM 則會複寫到另一個雲端。 如果觸發了容錯移轉，次要 VM 就必須在第二個雲端中開啟。 在某些情況下，容錯移轉會建立 VM，並將磁碟連結到 VM。 此程序可能會需要長時間來完成，特別是需要特定啟動順序的多層式應用程式。 在應用程式準備好開始處理要求之前，可能也會有必須先執行的步驟。
 
-![複寫 - 手動容錯移轉](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![複寫 - 手動容錯移轉](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO：以分鐘計算的停機時間
  - RPO：變數資料遺失 (視複寫頻率而定)

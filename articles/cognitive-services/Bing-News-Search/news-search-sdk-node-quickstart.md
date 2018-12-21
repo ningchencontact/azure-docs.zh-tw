@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 新聞搜尋 SDK，Node
+title: 快速入門：執行新聞搜尋 - 適用於 Node.js 的 Bing 新聞搜尋 SDK
 titleSuffix: Azure Cognitive Services
-description: 設定 Bing 新聞搜尋 SDK 主控台應用程式
+description: 使用此快速入門以運用「適用於 Node.js 的 Bing 新聞搜尋 SDK」來搜尋新聞，並處理回應。
 services: cognitive-services
 author: mikedodaro
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
-ms.openlocfilehash: 075ce771b6fa92663f172734aabf57b089b294a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 0fa78474d6400f890626859c32915c8657f92d4e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316934"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249340"
 ---
-# <a name="quickstart-bing-news-search-sdk-with-node"></a>快速入門：搭配使用 Bing 新聞搜尋 SDK 與 Node
+# <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>快速入門：使用適用於 Node.js 的 Bing 新聞搜尋 SDK 來執行新聞搜尋
 
 Bing 新聞搜尋 SDK 包含用於新聞查詢以及剖析結果的 REST API 功能。 
 
@@ -51,10 +52,10 @@ client.newsOperations.search('Winter Olympics').then((result) => {
 
 ```
 程式碼會將 `result.value` 項目列印到主控台，而不會剖析任何文字。 各個類別的結果 (若有的話) 將會包含：
-- _type：'NewsArticle'
-- _type：'WebPage'
-- _type：'VideoObject'
-- _type：'ImageObject'
+- _type:'NewsArticle'
+- _type:'WebPage'
+- _type:'VideoObject'
+- _type:'ImageObject'
 
 <!-- Remove until we can replace with santized version
 ![News results](media/node-sdk-quickstart-results.png)

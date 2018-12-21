@@ -1,21 +1,21 @@
 ---
-title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 3 部分
+title: 使用 MongoB API 的 Node.Js、Angular 應用程式 (第 3 部分)
+titleSuffix: Azure Cosmos DB
 description: 本教學課程系列的第 3 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式。
-services: cosmos-db
 author: johnpapa
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: fc60e66a2e4433ca1dc44470789fe2fc091c46d7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: b34155fc8f40a1dc51aaf236a78da5f5ee0511ae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870209"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134500"
 ---
 # <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-3-build-the-ui-with-angular"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 3 部分：使用 Angular 建置 UI
 

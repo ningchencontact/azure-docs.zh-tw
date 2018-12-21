@@ -1,24 +1,22 @@
 ---
-title: 使用 Node.js 將 MongoDB 應用程式連線至 Azure Cosmos DB | Microsoft Docs
-description: 了解如何將現有的 Node.js MongoDB 應用程式連線至 Azure Cosmos DB
-services: cosmos-db
+title: 將 Node.js MongoDB 應用程式連線至 Azure Cosmos DB
+description: 本快速入門示範如何將以 Node.js 撰寫的現有 MongoDB 應用程式連線到 Azure Cosmos DB。
 author: SnehaGunda
-manager: kfile
+ms.author: sngun
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/19/2017
-ms.author: sngun
-ms.openlocfilehash: 00824dc7a4fa7589fd01568b82351a68e1d44faa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d9754cf66b05059c986c7ffbff94290e207f706a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983560"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141369"
 ---
-# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB︰移轉現有的 Node.js MongoDB Web 應用程式 
+# <a name="azure-cosmos-db-migrate-an-existing-nodejs-mongodb-web-app"></a>Azure Cosmos DB：移轉現有的 Node.js MongoDB Web 應用程式 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -46,13 +44,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
-除了 Azure CLI，您還需要在本機安裝 [Node.js](https://nodejs.org/) 和 [Git](http://www.git-scm.com/downloads)，才能執行 `npm` 和 `git` 命令。
+除了 Azure CLI，您還需要在本機安裝 [Node.js](https://nodejs.org/) 和 [Git](https://www.git-scm.com/downloads)，才能執行 `npm` 和 `git` 命令。
 
 您應具備 Node.js 的使用知識。 本快速入門通常不是為了協助您開發 Node.js 應用程式。
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-執行下列命令來複製範例存放庫。 此範例存放庫包含預設 [MEAN.js](http://meanjs.org/) 應用程式。
+執行下列命令來複製範例存放庫。 此範例存放庫包含預設 [MEAN.js](https://meanjs.org/) 應用程式。
 
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
@@ -181,7 +179,7 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>擷取金鑰
 
-若要連線至 Azure Cosmos DB 資料庫，您需要資料庫金鑰。 使用 [az cosmosdb list-keys](/cli/azure/cosmosdb#list-keys) 命令來擷取主要金鑰。
+若要連線至 Azure Cosmos DB 資料庫，您需要資料庫金鑰。 使用 [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) 命令來擷取主要金鑰。
 
 ```azurecli-interactive
 az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"

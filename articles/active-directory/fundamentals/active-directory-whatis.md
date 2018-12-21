@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 概觀 | Microsoft Docs
+title: 什麼是 Azure Active Directory？ | Microsoft Docs
 description: 了解 Azure Active Directory，包括必要的術語、對象、授權基本概念和相關聯的功能。
 services: active-directory
 author: eross-msft
@@ -8,12 +8,13 @@ ms.service: active-directory
 ms.topic: overview
 ms.date: 11/13/2018
 ms.author: lizross
-ms.openlocfilehash: 1b1561ed8470c39b13def72774e253db28bf58d8
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 80c3108d468465e68d554b3d36c527c5ccd4a13c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686580"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085921"
 ---
 # <a name="what-is-azure-active-directory"></a>什麼是 Azure Active Directory？ 
 Azure Active Directory (Azure AD) 是 Microsoft 的雲端式身分識別和存取管理服務。 Azure AD 可協助員工登入和存取下列資源：
@@ -51,7 +52,7 @@ Office 365 或 Microsoft Azure 等 Microsoft Online 業務服務需要 Azure AD 
 
 - **「預付型方案」功能授權。** 您也可以取得其他功能授權，例如 Azure Active Directory 企業對消費者 (B2C)。 B2C 可協助您提供適用於消費者面向應用程式的身分識別和存取管理解決方案。 如需詳細資訊，請參閱 [Azure Active Directory B2C 文件](../../active-directory-b2c/index.yml)。
 
-如需如何讓 Azure 訂用帳戶與 Azure AD 建立關聯的詳細資訊，請參閱[如何：關聯或新增 Azure 訂用帳戶到 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)，如需如何將授權指派給使用者的詳細資訊，請參閱[做法：指派或移除 Azure Active Directory 授權](license-users-groups.md)。
+如需如何將 Azure 訂用帳戶關聯至 Azure AD 的詳細資訊，請參閱[操作說明：將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)，以及如需如何將授權指派給使用者的詳細資訊，請參閱[操作說明：指派或移除 Azure Active Directory 授權](license-users-groups.md)。
 
 ## <a name="terminology"></a>術語
 若要深入了解 Azure AD 及其文件，請檢閱下列詞彙。

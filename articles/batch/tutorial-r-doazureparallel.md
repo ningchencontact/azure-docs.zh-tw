@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: fb616dc95cc7dd7dbb25f2deb832b517d0747ae4
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30315445"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164678"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教學課程：使用 Azure Batch 執行平行 R 模擬 
 
@@ -30,7 +30,7 @@ ms.locfileid: "30315445"
 > * 建立 Batch 集區作為 R 工作階段的平行後端
 > * 在集區上執行平行模擬範例
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 已安裝 [R](https://www.r-project.org/) 散發版本，例如 [Microsoft R Open](https://mran.microsoft.com/open)。 使用 R 3.3.1 版或更新版本。
 
@@ -45,7 +45,7 @@ ms.locfileid: "30315445"
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>安裝 doAzureParallel
 
-在 RStudio 主控台中，安裝 [doAzureParallel Github 套件](http://www.github.com/Azure/doAzureParallel)。 下列命令會在目前的 R 工作階段中，下載並安裝此套件及其相依項目： 
+在 RStudio 主控台中，安裝 [doAzureParallel GitHub 套件](http://www.github.com/Azure/doAzureParallel)。 下列命令會在目前的 R 工作階段中，下載並安裝此套件及其相依項目： 
 
 ```R
 # Install the devtools package  

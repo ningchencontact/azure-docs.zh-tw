@@ -1,5 +1,5 @@
 ---
-title: 探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
+title: 探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫 | Microsoft Docs
 description: 了解 Azure 時間序列深入解析 JavaScript 用戶端程式庫和相關的程式設計模型。
 author: ashannon7
 manager: cshankar
@@ -8,12 +8,13 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 06/05/2018
 ms.author: anshan
-ms.openlocfilehash: 5f31dce98cd873a0bf4b750934384e1bf6d2564a
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 33dcf6f69d1287b4e040b3cccf4164667db2b75f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706988"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269969"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教學課程：探索 Azure 時間序列深入解析 JavaScript 用戶端程式庫
 
@@ -82,7 +83,7 @@ ms.locfileid: "51706988"
 
 3. 展開 `<div class="chartsWrapper">` 元素，您會發現更多子 `<div>` 元素。 這些元素會用來定位每個圖表控制項範例。 請注意其中有好幾對 `<div>` 元素，每個圖表範例各會使用一對：
 
-   - 第一個 (`class="rowOfCardsTitle"`) 元素包含用來彙總圖表所述項目的敘述性標題。 例如：「靜態折線圖與完整大小的圖例」。
+   - 第一個 (`class="rowOfCardsTitle"`) 元素包含用來彙總圖表所述項目的敘述性標題。 例如︰「靜態折線圖與完整大小的圖例。」
    - 第二個 (`class="rowOfCards"`) 元素是父系，包含其他用來將資料列中實際圖表控制項定位的子 `<div>` 元素。
 
    ![主體 div 元素](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-divs.png)

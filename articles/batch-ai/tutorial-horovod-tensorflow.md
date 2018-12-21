@@ -9,14 +9,17 @@ ms.topic: tutorial
 ms.date: 09/03/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: de19b20865127fd37cd7bc1ac854288a95a68091
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 45255845d8645391ee33471830ac2ef27870a40d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44058080"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408624"
 ---
 # <a name="tutorial-train-a-distributed-model-with-horovod"></a>教學課程：使用 Horovod 訓練分散式模型
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 在本教學課程中，您將會藉由跨 Batch AI 叢集的多個節點平行執行分散式的深度學習模型，來對該模型進行訓練。 Batch AI 是受控服務，可在 Azure GPU 的叢集上大規模地訓練機器學習和 AI 模型。 
 

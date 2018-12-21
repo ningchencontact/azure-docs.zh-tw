@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/11/2018
-ms.openlocfilehash: c1e38064e8abe53c96a70fb189b3d9e4cc4bc4e4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 049fc711d0cf6a69b584ad3926bd9e9c0fc9e27d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413990"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408369"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 將應用程式部署至 Azure 中的虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 將應用程式部署至 Azure。 本文說明如何將 Java 應用程式部署至 Azure 虛擬機器擴展集 (VMSS)。  
@@ -35,7 +35,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 請下列範例腳本儲存為 `get-hosts-tasks.yml`： 
 
-  ```yaml
+  ```yml
   - name: Get facts for all Public IPs within a resource groups
     azure_rm_publicipaddress_facts:
       resource_group: "{{ resource_group }}"
@@ -63,7 +63,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 在本節中，您會使用 git 從 GitHub 複製 Java 範例專案，然後建置專案。 請下列腳本儲存為 `app.yml`：
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       repo_url: https://github.com/spring-guides/gs-spring-boot.git
@@ -87,7 +87,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 ansible-playbook 命令的輸出會顯示如下，在其中您可以看到，此命令建置了從 GitHub 複製的範例應用程式：
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -110,7 +110,7 @@ Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上�
 
 (請將 `admin_password` 變更為您自己的密碼。)
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -167,7 +167,7 @@ Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上�
 
 執行 ansible-playbook 命令的輸出會指出範例 Java 應用程式已安裝至虛擬機器擴展集的主機群組：
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -208,4 +208,4 @@ Ansible 腳本中的下一節會在名為 **saclesethosts** 的主機群組上�
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
-> [VMSS 的 Ansible 範例腳本](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [使用 Ansible 自動調整虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

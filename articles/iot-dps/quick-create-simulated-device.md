@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c2f5ff778b49ffb544c53b41cf515e820d646249
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 3ae454be8327c1f9ce605899e4b26105d44ab0f6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157848"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189297"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>快速入門：使用 Azure IoT C SDK 佈建模擬 TPM 裝置
 
@@ -142,15 +142,15 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 
 3. 在 [新增註冊] 上，輸入下列資訊，然後按一下 [儲存] 按鈕。
 
-    - **機制**：選取 [TPM] 作為身分識別證明「機制」。
-    - **簽署金鑰：** 輸入您執行 *tpm_device_provision* 專案而為 TPM 裝置產生的「簽署金鑰」。
-    - **註冊識別碼：** 輸入您執行 *tpm_device_provision* 專案而為 TPM 裝置產生的「註冊識別碼」。
+    - **機制：** 選取 [TPM] 作為身分識別證明「機制」。
+    - **簽署金鑰：** 執行 *tpm_device_provision* 專案，以輸入您為 TPM 裝置產生的*簽署金鑰*。
+    - **註冊識別碼：** 執行 *tpm_device_provision* 專案，以輸入您為 TPM 裝置產生的*註冊識別碼*。
     - **IoT Edge 裝置：** 選取 [停用]。
     - **IoT 中樞裝置識別碼：** 輸入 **test-docs-device** 作為裝置的識別碼。
 
-    ![在入口網站中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
+      ![在入口網站中輸入裝置註冊資訊](./media/quick-create-simulated-device/enter-device-enrollment.png)  
 
-    註冊成功時，您裝置的「登錄識別碼」將會出現在「個別註冊」索引標籤之下的清單中。 
+      註冊成功時，您裝置的「登錄識別碼」將會出現在「個別註冊」索引標籤之下的清單中。 
 
 
 <a id="firstbootsequence"></a>

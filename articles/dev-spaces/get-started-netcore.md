@@ -10,12 +10,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: bb3ddb0ffe16746a44318ea8d0bf0f1e3b3c3de1
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: b5de5ccdf98d6d0a2952a694a253feaac9d6e07d
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705577"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413620"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>在使用 .NET Core 的 Azure 開發人員空間上開始使用
 
@@ -31,7 +31,7 @@ ms.locfileid: "51705577"
 您現在可以在 Azure 中建立以 Kubernetes 為基礎的開發人員空間。
 
 ## <a name="install-the-azure-cli"></a>安裝 Azure CLI
-Azure 開發人員空間需要基本的本機電腦設定。 大部分開發人員空間的組態都會儲存在雲端，而且可與其他使用者共用。 本機電腦可以執行 Windows、Mac 或 Linux。 若為 Linux，支援的散發套件如下：Ubuntu (18.04、16.04 和 14.04)、Debian 8 和 9、RHEL 7、Fedora 26+、CentOS 7、openSUSE 42.2 和 SLES 12。
+Azure 開發人員空間需要基本的本機電腦設定。 大部分開發人員空間的組態都會儲存在雲端，而且可與其他使用者共用。 本機電腦可以執行 Windows、Mac 或 Linux。 若是 Linux，則支援下列散發套件：Ubuntu (18.04、16.04 和 14.04)、Debian 8 和 9、RHEL 7、Fedora 26+、CentOS 7、openSUSE 42.2，以及 SLES 12。
 
 從下載和執行 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 著手。 
 
@@ -72,7 +72,7 @@ az group create --name MyResourceGroup --location <region>
 使用下列命令來建立 Kubernetes 叢集：
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 建立叢集需要幾分鐘的時間。

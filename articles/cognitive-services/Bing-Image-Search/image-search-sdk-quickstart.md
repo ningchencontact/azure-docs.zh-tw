@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用適用於 C# 的 Bing 影像搜尋 SDK 來搜尋影像
+title: 快速入門：搜尋影像 - 適用於 C# 的 Bing 影像搜尋 SDK
 description: Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以透過此快速入門，完成初次使用此 SDK 進行的影像搜尋。 這個簡單的 C# 應用程式會傳送影像搜尋查詢、剖析 JSON 回應，以及顯示第一個傳回影像的 URL。
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
@@ -10,14 +10,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 2df767ef92ca056535e2d70a53a1588c9e89c647
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 2d81c7b22e5d7cae0beb8a549d4e44f3a1ebc132
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316781"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261240"
 ---
-# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-c"></a>快速入門：使用 Bing 影像搜尋 SDK 和 C# 來搜尋影像
+# <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-c"></a>快速入門：使用適用於 C# 的 Bing 影像搜尋 SDK 來搜尋影像
 
 Bing 影像搜尋 SDK 是 API 的包裝函式，而且功能相同，您可以透過此快速入門，完成初次使用此 SDK 進行的影像搜尋。 這個簡單的 C# 應用程式會傳送影像搜尋查詢、剖析 JSON 回應，以及顯示第一個傳回影像的 URL。
 
@@ -53,8 +54,12 @@ string subscriptionKey = "ENTER YOUR KEY HERE";
 Images imageResults = null;
 // the image search term to be used in the query
 string searchTerm = "canadian rockies";
+
 //initialize the client
-var client = new ImageSearchAPI(new ApiKeyServiceClientCredentials(subscriptionKey));
+//NOTE: If you're using version 1.2.0 or below for the Bing Image Search SDK, 
+// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+
+var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
 ```
 
 ## <a name="send-a-search-query-using-the-client"></a>使用用戶端傳送搜尋查詢

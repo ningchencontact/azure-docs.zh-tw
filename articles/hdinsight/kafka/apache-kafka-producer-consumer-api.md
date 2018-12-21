@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: 947eb76f84f865135e87803b53fa94e20eecb78c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd4c077e23170a295a29a75df08cf8f29f8ba3e4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313807"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413348"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教學課程：使用 Apache Kafka Producer 和 Consumer API
 
@@ -49,7 +49,7 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
 
 * `JAVA_HOME` - 應指向已安裝 JDK 的目錄。
 * `PATH` - 應該包含下列路徑：
-  
+
     * `JAVA_HOME` (或對等的路徑)。
     * `JAVA_HOME\bin` (或對等的路徑)。
     * 已安裝 Maven 的目錄。
@@ -92,7 +92,7 @@ Kafka Producer API 可讓應用程式將資料流傳送至 Kafka 叢集。 Kafka
 
 ### <a name="producerjava"></a>Producer.java
 
-產生者會與 Kafka 訊息代理程式主機 (背景工作節點) 通訊，並將資料傳送至 Kafka 主題。 下列程式碼片段取自 [github 存放庫](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)中的 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 檔案，可說明如何設定產生者屬性：
+產生者會與 Kafka 訊息代理程式主機 (背景工作節點) 通訊，並將資料傳送至 Kafka 主題。 下列程式碼片段取自 [GitHub 存放庫](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)中的 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 檔案，可說明如何設定產生者屬性：
 
 ```java
 Properties properties = new Properties();
@@ -145,11 +145,11 @@ consumer = new KafkaConsumer<>(properties);
     此命令會建立名為 `target` 的目錄，其中包含名為 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 的檔案。
 
 3. 使用下列命令將 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 檔案複製到 HDInsight 叢集：
-   
+
     ```bash
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
     ```
-   
+
     以叢集的 SSH 使用者取代 **USERNAME**，並以叢集的名稱取代 **CLUSTERNAME**。 出現提示時，請輸入 SSH 使用者的密碼。
 
 ## <a id="run"></a> 執行範例
@@ -190,11 +190,11 @@ consumer = new KafkaConsumer<>(properties);
     ```
 
 4. 產生器完成後，請使用下列命令從主題讀取︰
-   
+
     ```bash
     java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
     ```
-   
+
     已讀取的記錄以及記錄計數隨即顯示。
 
 5. 使用 __Ctrl + C__ 來結束取用者。
@@ -204,7 +204,7 @@ consumer = new KafkaConsumer<>(properties);
 Kafka 取用者會在讀取記錄時使用取用者群組。 多個取用者使用相同群組會導致從主題讀取負載平衡。 群組中的每個取用者都會收到一部分的記錄。
 
 取用者應用程式接受作為群組識別碼的參數。 例如，下列命令會使用 `mygroup` 的群組識別碼啟動取用者：
-   
+
 ```bash
 java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
 ```

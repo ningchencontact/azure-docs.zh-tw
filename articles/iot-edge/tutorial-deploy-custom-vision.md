@@ -1,6 +1,6 @@
 ---
-title: 將自訂視覺部署到 Azure IoT Edge 裝置 | Microsoft Docs
-description: 了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
+title: 教學課程：將自訂視覺分類器部署到裝置 - Azure IoT Edge | Microsoft Docs
+description: 在本教學課程中，了解如何使用自訂視覺和 IoT Edge，讓電腦視覺模型以容器的形式執行。
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -8,13 +8,13 @@ ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: a8f72c62393f6ba470c31a55668382ae0beb290e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566477"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075823"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教學課程：使用自訂視覺服務在邊緣執行影像分類
 
@@ -72,7 +72,7 @@ Azure IoT Edge 裝置：
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | 名稱 | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
+   | Name | 提供專案名稱，例如 **EdgeTreeClassifier**。 |
    | 說明 | 選擇性的專案描述。 |
    | 資源群組 | 接受預設值**有限的試用版**。 |
    | 專案類型 | **分類** |
@@ -99,7 +99,7 @@ Azure IoT Edge 裝置：
 
 5. 選取 [上傳 10 個檔案]。 
 
-   ![上傳加上鐵杉標記的檔案](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![將 hemlock 標記檔案上傳到自訂視覺](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. 當影像上傳成功時，選取 [完成]。
 
@@ -117,7 +117,7 @@ Azure IoT Edge 裝置：
 
 1. 分類器完成訓練後，選取分類器 [效能] 頁面上的 [匯出]。 
 
-   ![匯出影像分類器](./media/tutorial-deploy-custom-vision/export.png)
+   ![匯出定型的影像分類器](./media/tutorial-deploy-custom-vision/export.png)
 
 2. 選取 [DockerFile] 平台。 
 
@@ -151,7 +151,7 @@ Azure IoT Edge 裝置：
 
 3. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。 
 
-4. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+4. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -201,7 +201,7 @@ Visual Studio Code 中的 Python 模組範本包含一些程式碼範例，可�
 
 在本節中，您會在相同的 CustomVisionSolution 中新增模組，並提供程式碼以建立模擬觀景窗。 
 
-1. 在同一個 Visual Studio Code 視窗中，使用命令選擇區來執行 **Azure IoT Edge: Add IoT Edge Module**。 在命令選擇區中，為新模組提供下列資訊： 
+1. 在同一個 Visual Studio Code 視窗中，使用命令選擇區來執行 [Azure IoT Edge:新增 IoT Edge 模組]。 在命令選擇區中，為新模組提供下列資訊： 
 
    | Prompt | 值 | 
    | ------ | ----- |
@@ -423,7 +423,7 @@ Visual Studio Code 的 IoT Edge 擴充功能會在每個 IoT Edge 解決方案�
 
 接下來，從 Visual Studio Code 中設定 IoT 中樞的存取權。 
 
-1. 在 VS Code 命令選擇區中，選取 [Azure IoT 中樞: 選取 IoT 中樞]。
+1. 在 VS Code 命令選擇區中，選取 [Azure IoT 中樞:選取 IoT 中樞]。
 2. 依照提示來登入您的 Azure 帳戶。 
 3. 在命令選擇區中選取您的 Azure 訂用帳戶，然後選取 IoT 中樞。 
 

@@ -1,6 +1,6 @@
 ---
-title: 教學課程 – 使用 CLI 將 Azure 專用 HSM 部署至現有的虛擬網路 | Microsoft Docs
-description: 示範如何使用 CLI 部署專用 HSM 的教學課程
+title: 教學課程：使用 Azure CLI 部署到現有的虛擬網路中 - Azure 專用 HSM | Microsoft Docs
+description: 示範如何使用 CLI 將專用 HSM 部署到現有虛擬網路中的教學課程
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,19 +8,19 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: ca30dc9d86db8faabfdd3791b74b9f86c9480ea5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: d8171a3c506ed53c986db6cddd959411f0a146aa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679642"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080311"
 ---
-# <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程 – 使用 CLI 將 HSM 部署至現有的虛擬網路
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>教學課程：使用 CLI 將 HSM 部署至現有的虛擬網路
 
 Azure 專用 HSM 提供實體裝置以供單獨客戶使用，其具有完整的系統管理控制權和完整的管理責任。 使用實體裝置創造了 Microsoft 控制裝置配置的需求，以確保有效率地管理容量。 因此，在 Azure 訂用帳戶內，通常看不見可供佈建資源的專用 HSM 服務。 任何需要存取專用 HSM 服務的 Azure 客戶都必須先連絡其 Microsoft 客戶代表，要求註冊專用 HSM 服務。 唯有順利完成此程序，才可能進行佈建。 
 
@@ -130,7 +130,7 @@ HSM 會佈建到客戶的虛擬網路中，所以需要虛擬網路和子網路�
 
 命令殼層在工具列上有上傳/下載選項，您應該選取此選項以將範本和參數檔案上載至您的檔案共用：
 
-![訂用帳戶狀態](media/tutorial-deploy-hsm-cli/file-share.png)
+![檔案共用](media/tutorial-deploy-hsm-cli/file-share.png)
 
 上傳檔案後，您就準備好建立資源。 建立新的 HSM 資源之前，有一些您應確保已備妥的必要資源。 您必須具有虛擬網路，內含適用於計算、HSM 和閘道的子網路範圍。 下列命令可作為建立這類虛擬網路的範例。
 
@@ -177,7 +177,7 @@ az group deployment create \
 
 ![佈建狀態](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-當部署順利完成時，會顯示 “provisioningState”: “Succeeded”。 您可以連線到現有的虛擬機器，並使用 SSH 來確保 HSM 裝置的可用性。
+當部署順利完成時，會顯示 “provisioningState”:“Succeeded”。 您可以連線到現有的虛擬機器，並使用 SSH 來確保 HSM 裝置的可用性。
 
 ## <a name="verifying-the-deployment"></a>驗證部署
 
@@ -191,7 +191,7 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![佈建狀態](media/tutorial-deploy-hsm-cli/progress-status2.png)
+![佈建輸出](media/tutorial-deploy-hsm-cli/progress-status2.png)
 
 您現在也可以使用 [Azure 資源總管](https://resources.azure.com/)來查看資源。   在總管中，依序展開左側的 [訂用帳戶]、專用 HSM 的特定訂用帳戶、資源群組、您所使用的資源群組，最後選取 [資源] 項目。
 

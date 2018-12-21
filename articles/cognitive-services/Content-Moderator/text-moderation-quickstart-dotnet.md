@@ -1,5 +1,5 @@
 ---
-title: 快速入門：在 C# 中分析令人反感的文字內容
+title: 快速入門：使用 C# 分析文字內容中的不當題材
 titlesuffix: Azure Cognitive Services
 description: 如何使用 Content Moderator SDK for .NET 分析各種令人反感的文字內容
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: content-moderator
 ms.topic: quickstart
 ms.date: 10/31/2018
 ms.author: sajagtap
-ms.openlocfilehash: 0540a81db93570928dd33b66a69b6883b2df0cd9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 74c2142e8f6839422446767cd0c70b34daa3f1ad
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007683"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103242"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：在 C# 中分析令人反感的文字內容 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>快速入門：使用 C# 分析文字內容中的不當題材 
 
 本文提供可協助您開始使用 [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的資訊和程式碼範例。 您將了解如何執行文字內容的字詞型篩選和分類，以仲裁可能令人反感的內容。
 
@@ -45,61 +45,21 @@ ms.locfileid: "51007683"
 
 ### <a name="include-namespaces"></a>包含命名空間
 
-在 *Program.cs* 檔案的最上方新增下列 `using` 陳述式。
+在 *Program.cs* 檔案的頂端新增下列 `using` 陳述式。
 
-```csharp
-using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading;
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=1-8)]
 
 ### <a name="create-the-content-moderator-client"></a>建立 Content Moderator 用戶端
 
 在您的 *Program.cs* 檔案中新增下列程式碼，為您的訂用帳戶建立 Content Moderator 用戶端提供者。 在相同命名空間中的 **Program** 類別旁新增程式碼。 您必須以區域識別碼和訂用帳戶金鑰的值更新 **AzureRegion** 和 **CMSubscriptionKey** 欄位。
 
-```csharp
-// Wraps the creation and configuration of a Content Moderator client.
-public static class Clients
-{
-    // The region/location for your Content Moderator account, 
-    // for example, westus.
-    private static readonly string AzureRegion = "YOUR API REGION";
-
-    // The base URL fragment for Content Moderator calls.
-    private static readonly string AzureBaseURL =
-        $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-    // Your Content Moderator subscription key.
-    private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-    // Returns a new Content Moderator client for your subscription.
-    public static ContentModeratorClient NewClient()
-    {
-        // Create and initialize an instance of the Content Moderator API wrapper.
-        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-        client.Endpoint = AzureBaseURL;
-        return client;
-    }
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=54-77)]
 
 ### <a name="set-up-input-and-output-targets"></a>設定輸入和輸出目標
 
 將下列靜態欄位新增至 _Program.cs_ 中的 **Program** 類別。 這些項目會指定輸入文字內容和輸出 JSON 內容的檔案。
 
-```csharp
-// The name of the file that contains the text to evaluate.
-private static string TextFile = "TextFile.txt";
-
-// The name of the file to contain the output from the evaluation.
-private static string OutputFile = "TextModerationOutput.txt";
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
 您必須建立 *TextFile.txt* 輸入檔，並據以更新其路徑 (相對於執行目錄的相對路徑)。 開啟 _TextFile.txt_ 並新增要仲裁的文字。 本快速入門會使用下列範例文字：
 
@@ -119,34 +79,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 
 若要深入了解這些作業的功用，請進入[後續步驟](#next-steps)一節中的連結。
 
-```csharp
-// Load the input text.
-string text = File.ReadAllText(TextFile);
-Console.WriteLine("Screening {0}", TextFile);
-
-text = text.Replace(System.Environment.NewLine, " ");
-byte[] byteArray = System.Text.Encoding.UTF8.GetBytes(text);
-MemoryStream stream = new MemoryStream(byteArray);
-
-// Save the moderation results to a file.
-using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
-{
-    // Create a Content Moderator client and evaluate the text.
-    using (var client = Clients.NewClient())
-    {
-        // Screen the input text: check for profanity,
-        // autocorrect text, check for personally identifying
-        // information (PII), and classify the text into three categories
-        outputWriter.WriteLine("Autocorrect typos, check for matching terms, PII, and classify.");
-        var screenResult =
-        client.TextModeration.ScreenText("text/plain", stream, "eng", true, true, null, true);
-        outputWriter.WriteLine(
-                JsonConvert.SerializeObject(screenResult, Formatting.Indented));
-    }
-    outputWriter.Flush();
-    outputWriter.Close();
-}
-```
+[!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=23-48)]
 
 ## <a name="run-the-program"></a>執行程式
 

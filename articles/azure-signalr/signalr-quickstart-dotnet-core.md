@@ -1,27 +1,20 @@
 ---
-title: 了解如何使用 Azure SignalR 服務的快速入門 | Microsoft Docs
+title: 了解如何使用 Azure SignalR 服務的快速入門
 description: 適用於使用 Azure SignalR 服務搭配 ASP.NET Core MVC 應用程式建立聊天室的快速入門。
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: b667f38c4e3d2a3fad323171a3b3b49ed3619fd9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 805f8d55b1627ad12ce58e8a64728a42867a858e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959473"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260611"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>快速入門：搭配 SignalR 服務建立聊天室
+# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>快速入門：使用 SignalR 服務建立聊天室
 
 
 Azure SignalR 服務是可以協助開發人員使用即時功能輕鬆地建置 Web 應用程式的 Azure 服務。 此服務是以[適用於 ASP.NET Core 2.0 的 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction) \(機器翻譯\) 為基礎。

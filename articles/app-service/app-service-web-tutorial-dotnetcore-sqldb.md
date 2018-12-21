@@ -1,5 +1,5 @@
 ---
-title: 在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式 | Microsoft Docs
+title: 建置搭配 SQL Database 的 .NET Core 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何讓 .NET Core 應用程式在 Azure App Service 中運作，並連線至 SQL Database。
 services: app-service\web
 documentationcenter: dotnet
@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: f870902e5bd5ef92d12d1e5e846696c4b26362a3
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 775d7595e80c02bcfbc1c3d6abc687d5e335d7da
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425097"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261002"
 ---
 # <a name="tutorial-build-a-net-core-and-sql-database-web-app-in-azure-app-service"></a>教學課程：在 Azure App Service 中建置 .NET Core 和 SQL Database Web 應用程式
 
@@ -215,6 +215,10 @@ services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate
 如果此程式碼偵測到正在生產環境 (表示 Azure 環境) 中執行，則它會使用您設定的連接字串，連線到 SQL Database。
 
 `Database.Migrate()` 呼叫可在於 Azure 中執行時協助您，因為它會根據其移轉設定，自動建立您的 .NET Core 應用程式需要的資料庫。 
+
+> [!IMPORTANT]
+> 對於需要相應放大的生產應用程式，請遵循[在生產環境中套用移轉](/aspnet/core/data/ef-rp/migrations#applying-migrations-in-production)中的最佳做法。
+> 
 
 儲存變更，然後將變更認可至 Git 存放庫中。 
 

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 24887e39b98c41cbafbe962cb81391571d8b86b9
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 4f6418602fcf1de6ea98c45635029f71aa6fdf06
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247873"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999278"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 和 Python 來直譯文字
+# <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來直譯文字
 
 在本快速入門中，您會了解如何搭配使用 Python 和翻譯工具文字 REST API，將文字從一個字集直譯 (轉換) 成另一個字集。 在所提供的範例中，日文會直譯為使用拉丁字母。
 
@@ -69,7 +69,7 @@ else:
 `params` 用來設定輸入語言以及輸入和輸出字集。 在此範例中，我們會從日文翻譯為拉丁字母。
 
 >[!NOTE]
-> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：直譯](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)。
+> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：音譯](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate)。
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
@@ -151,7 +151,7 @@ python transliterate-text.py
 
 ## <a name="see-also"></a>另請參閱
 
-除了文字直譯外，請了解如何使用翻譯工具文字 API 執行下列作業：
+了解如何使用翻譯工具文字 API 來執行下列動作：
 
 * [翻譯文字](quickstart-python-translate.md)
 * [從輸入識別語言](quickstart-python-detect.md)

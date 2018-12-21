@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: 請勿在未諮詢 SEO 之前新增或編輯關鍵字。
 author: rwike77
 ms.author: ryanwi
-ms.date: 08/24/2018
+ms.date: 11/27/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d50ebeef686de7e467e2a71b6bb33f207414bcc8
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 4be24b00c3ac4ffadf7eafdc7397f59113ec03b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541461"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088355"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>快速入門：將 Hello World 部署至 Service Fabric Mesh
 
@@ -48,14 +48,32 @@ az group create --name myResourceGroup --location eastus
 使用 `az mesh deployment create` 命令在資源群組中建立您的應用程式。  執行下列命令：
 
 ```azurecli-interactive
-az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json --parameters "{'location': {'value': 'eastus'}}" 
+az mesh deployment create --resource-group myResourceGroup --template-uri https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json --parameters "{'location': {'value': 'eastus'}}" 
 ```
 
-上述命令會使用 [mesh_rp.linux.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.linux.json)來部署 Linux 應用程式。 如果您想要部署 Windows 應用程式，請使用 [mesh_rp.windows.json 範本](https://sfmeshsamples.blob.core.windows.net/templates/helloworld/mesh_rp.windows.json)。 Windows 容器映像比 Linux 容器映像大，因此部署時可能需要較多時間。
+上述命令會使用 [linux.json 範本](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.linux.json)來部署 Linux 應用程式。 如果您想要部署 Windows 應用程式，請使用 [windows.json 範本](https://raw.githubusercontent.com/Azure-Samples/service-fabric-mesh/master/templates/helloworld/helloworld.windows.json)。 Windows 容器映像比 Linux 容器映像大，因此部署時可能需要較多時間。
 
-此命令會在幾分鐘內傳回：
+此命令會產生如下所示的 JSON 程式碼片段。 在 JSON 輸出的 ```outputs``` 區段下方，複製 ```publicIPAddress``` 屬性。
 
-`helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
+```json
+"outputs": {
+    "publicIPAddress": {
+    "type": "String",
+    "value": "40.83.78.216"
+    }
+}
+```
+
+這項資訊來自於 ARM 範本中的 ```outputs``` 區段。 如下所示，此區段會參考閘道資源以擷取公用 IP 位址。 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
+```
 
 ## <a name="open-the-application"></a>開啟應用程式
 在應用程式成功部署後，請從 CLI 輸出中複製服務端點的公用 IP 位址。 請在網頁瀏覽器中開啟該 IP 位址。 此時會顯示含有 Azure Service Fabric Mesh 標誌的網頁。

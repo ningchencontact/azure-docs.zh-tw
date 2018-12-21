@@ -1,21 +1,22 @@
 ---
-title: 教學課程 5：父代/子系關聯性 - LUIS 透過內容學習資料的階層式實體
+title: 階層式實體
 titleSuffix: Azure Cognitive Services
 description: 根據內容尋找相關的資料片段。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: d3b8d0597f0732a4a3cfab79125a885b2d141c9f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a79c0091220e2980101471abaaa0aaf4c0a898ca
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424693"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104402"
 ---
 # <a name="tutorial-5-extract-contextually-related-data"></a>教學課程 5：擷取內容相關的資料
 在本教學課程中，根據內容尋找相關的資料片段。 例如，從一個建築物和辦公室移到另一個建築物和辦公室的實體移動原點和目的地位置會相關。 若要產生一份工單，則需要這兩個資料片段，而且兩者彼此相關。  
@@ -32,7 +33,6 @@ ms.locfileid: "52424693"
 
 **在本教學課程中，您將了解如何：**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * 使用現有的教學課程應用程式
 > * 新增意圖 
@@ -55,7 +55,7 @@ ms.locfileid: "52424693"
 3. 從 [管理] 區段的 [版本] 索引標籤上，複製版本並將它命名為 `hier`。 複製是一個既可測試各種 LUIS 功能又不影響原始版本的絕佳方式。 因為版本名稱會作為 URL 路由的一部分，所以此名稱不能包含任何在 URL 中無效的字元。 
 
 ## <a name="remove-prebuilt-number-entity-from-app"></a>從應用程式中移除預先建立的數字實體
-若要查看整個語句並標記階層式子系，請暫時移除預先建立的數字實體。
+若要查看整個語句並標記階層式子系，請[暫時移除預先建立的數字實體](luis-prebuilt-entities.md#marking-entities-containing-a-prebuilt-entity-token)。 
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
@@ -90,7 +90,7 @@ LUIS 必須藉由在語句中標記原點和目的地，進而了解位置為何
 
 請考慮使用下列語句：
 
-```JSON
+```json
 mv Jill Jones from a-2349 to b-1298
 ```
 
@@ -100,19 +100,19 @@ mv Jill Jones from a-2349 to b-1298
 
 1. 在 `Displace 425-555-0000 away from g-2323 toward hh-2345` 語句中，選取 `g-2323` 這個字。 隨即出現頂端有文字方塊的下拉式功能表。 在文字方塊中輸入實體名稱 `Locations`，然後在下拉式功能表中選取 [建立新的實體]。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
+    [![在意圖頁面上建立新實體的螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png "在意圖頁面上建立新實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-1.png#lightbox)
 
 2. 在快顯視窗中，選取 [階層式] 實體類型，並使用 `Origin` 和 `Destination` 作為子實體。 選取 [完成] 。
 
-    ![](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "新位置實體的實體建立快顯對話方塊螢幕擷取畫面")
+    ![適用於新位置實體的實體建立快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-create-new-entity-2.png "適用於新位置實體的實體建立快顯對話方塊螢幕擷取畫面")
 
 3. `g-2323` 的標籤標示為 `Locations`，因為 LUIS 不知道該字詞是出發或目的地位置，或兩者皆非。 選取 `g-2323`，然後選取 [位置]，接著遵循右側功能表並選取 `Origin`。
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "用以變更位置實體子系的實體標記快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
+    [![用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png "用於變更位置實體子系的實體標籤快顯對話方塊螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-label-entity.png#lightbox)
 
 5. 選取語句中的建築物和辦公室，然後選取 [位置]，並遵循右側功能表來選取 `Origin` 或 `Destination`以標示所有其他語句中的其他位置。 標示所有位置後，[語彙基元檢視] 中的語句就開始看起來像是一個模式。 
 
-    [![](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "語句中已標記位置實體的螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
+    [![在語句上標示的位置實體螢幕擷取畫面](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png "在語句上標示的位置實體螢幕擷取畫面")](media/luis-quickstart-intent-and-hier-entity/hr-entities-labeled.png#lightbox)
 
 ## <a name="add-prebuilt-number-entity-to-app"></a>將預先建立的數字實體新增至應用程式
 將預先建立的數字實體新增回應用程式。
@@ -140,7 +140,7 @@ mv Jill Jones from a-2349 to b-1298
 
 2. 移至位址中的 URL 尾端並輸入 `Please relocation jill-jones@mycompany.com from x-2345 to g-23456`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何已標記的語句都不同，因此這是一個良好的測試，而應該會將 `MoveEmployee` 意圖與所擷取的階層式實體一起傳回。
 
-    ```JSON
+    ```json
     {
       "query": "Please relocation jill-jones@mycompany.com from x-2345 to g-23456",
       "topScoringIntent": {

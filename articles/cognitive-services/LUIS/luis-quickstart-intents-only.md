@@ -1,21 +1,22 @@
 ---
-title: 教學課程 1：在自訂 LUIS 應用程式中尋找用意
+title: 預測用意
 titleSuffix: Azure Cognitive Services
 description: 建立自訂應用程式來預測使用者的用意。 此應用程式不會擷取語句文字中的各種資料元素 (例如電子郵件地址或日期)，因此是最簡單的 LUIS 應用程式類型。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 30c9f572d77caacbeecf5f15d74fd8517e9fa883
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b1a9718fdf7222dae06f7fe9b3a0f14b50293c08
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426854"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097789"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>教學課程 1：建置自訂應用程式來判斷使用者的用意
 
@@ -43,11 +44,11 @@ ms.locfileid: "52426854"
 
 2. 選取 [建立新的應用程式]。  
 
-    [![](media/luis-quickstart-intents-only/app-list.png "Language Understanding (LUIS) 我的應用程式頁面的螢幕擷取畫面")](media/luis-quickstart-intents-only/app-list.png#lightbox)
+    [![Language Understanding (LUIS) [我的應用程式] 頁面的螢幕擷取畫面](media/luis-quickstart-intents-only/app-list.png "Language Understanding (LUIS) [我的應用程式] 頁面的螢幕擷取畫面")](media/luis-quickstart-intents-only/app-list.png#lightbox)
 
 3. 在快顯對話方塊中，輸入名稱 `HumanResources`，並保留預設文化特性 [英文]。 讓描述保留空白。
 
-    ![LUIS 新增應用程式](./media/luis-quickstart-intents-only/create-app.png)
+    ![建立 LUIS 的新 HumanResources 應用程式](./media/luis-quickstart-intents-only/create-app.png)
 
     接著，應用程式會顯示 [None] 意圖的 [意圖] 頁面。
 
@@ -55,7 +56,7 @@ ms.locfileid: "52426854"
 
 1. 選取 [Create new intent] \(建立新意圖\)。 輸入新的意圖名稱 `GetJobInformation`。 每當使用者想要知道公司內職缺的相關資訊時，系統就會預測此意圖。
 
-    ![](media/luis-quickstart-intents-only/create-intent.png "Language Understanding (LUIS) 新增意圖對話方塊的螢幕擷取畫面")
+    ![Language Understanding (LUIS) [新增意圖] 對話方塊的螢幕擷取畫面](media/luis-quickstart-intents-only/create-intent.png "Language Understanding (LUIS) [新增意圖] 對話方塊的螢幕擷取畫面")
 
 2. 藉由提供_範例語句_，您可訓練 LUIS 應針對此意圖預測哪些種類的語句。 將您預期使用者會要求的數個範例語句新增至此意圖，例如：
 
@@ -69,7 +70,7 @@ ms.locfileid: "52426854"
     |有新職位嗎？|
     |西雅圖辦公室是否有任何新職位？|
 
-    [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "針對 MyStore 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
+    [![針對 MyStore 意圖輸入新語句的螢幕擷取畫面](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "針對 MyStore 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -150,7 +151,7 @@ ms.locfileid: "52426854"
     |這是我的履歷， 應徵的職位是 654234|
     |職位 567890 和我的文件|
 
-    [![](media/luis-quickstart-intents-only/utterance-applyforjob.png "針對 ApplyForJob 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
+    [![針對 ApplyForJob 意圖輸入新語句的螢幕擷取畫面](media/luis-quickstart-intents-only/utterance-applyforjob.png "針對 ApplyForJob 意圖輸入新語句的螢幕擷取畫面")](media/luis-quickstart-intents-only/utterance-applyforjob.png#lightbox)
 
     LUIS 目前不確定意圖是否正確，所以標示的意圖會有紅色外框。 請訓練應用程式，讓 LUIS 知道語句位於正確意圖。 
 
@@ -168,7 +169,7 @@ ms.locfileid: "52426854"
 
 2. 在新的瀏覽器視窗中，於 URL 結尾輸入 `Can I submit my resume for job 235986`。 
 
-    ```JSON
+    ```json
     {
       "query": "Can I submit my resume for job 235986",
       "topScoringIntent": {

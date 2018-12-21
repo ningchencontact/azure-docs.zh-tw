@@ -1,5 +1,5 @@
 ---
-title: 快速入門：如何以 Java 辨識語音 (Windows 或 Linux)
+title: 快速入門：辨識語音 (Java) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何以 Java 辨識語音 (Windows 或 Linux)
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: fmegen
-ms.openlocfilehash: 2b39084443690b99391268acb6352763657e2a3c
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 7d1f26a43866025c3b542fc10a3f316ad0d1dc37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218571"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103110"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 Windows 或 Linux 上以 Java 辨識語音
 

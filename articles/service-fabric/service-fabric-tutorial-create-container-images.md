@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 0dc92524843f47b1327af5e9d3f237656cad2a37
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2e8ce7dc6102471f95f6332d9cb01a6cb4f4f54
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947528"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313780"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>教學課程：在 Linux Service Fabric 叢集上建立容器映像
 
@@ -208,7 +208,7 @@ azure-vote-front
 
 ## <a name="next-steps"></a>後續步驟
 
-本教學課程會從 Github 提取應用程式，然後建立容器映像並推送到登錄。 已完成下列步驟：
+本教學課程會從 GitHub 提取應用程式，然後建立容器映像並推送到登錄。 已完成下列步驟：
 
 > [!div class="checklist"]
 > * 從 GitHub 複製應用程式來源

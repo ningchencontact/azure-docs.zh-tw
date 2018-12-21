@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: fe405416e166b69ebe6b72e519ace4930c3062d8
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 390cdddf09f6880368d4d199eef41be19b54d9f0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871716"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339241"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>快速入門：使用 Azure 資料總管 Python 程式庫內嵌資料
 
@@ -73,7 +73,7 @@ KUSTO_INGEST_URI = "https://ingest-<ClusterName>.<Region>.kusto.windows.net:443/
 KUSTO_DATABASE  = "<DatabaseName>"
 ```
 
-現在，請建構連接字串。 此範例使用服務驗證來存取叢集。 您也可以使用 AAD 應用程式憑證、AAD 應用程式金鑰，以及 AAD 使用者和密碼。
+現在，請建構連接字串。 此範例使用服務驗證來存取叢集。 您也可以使用 [AAD 應用程式憑證](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L24)、[AAD 應用程式金鑰](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L20)，以及 [AAD 使用者和密碼](https://github.com/Azure/azure-kusto-python/blob/master/azure-kusto-data/tests/sample.py#L34)。
 
 您可以在稍後的步驟中建立目的地資料表和對應。
 
@@ -105,7 +105,7 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 
 ## <a name="create-a-table-on-your-test-cluster"></a>在測試叢集上建立資料表
 
-建立符合 StormEvents.csv 檔案中資料結構描述的資料表。 此程式碼執行時，會傳回與下列類似的訊息：若要登入，請使用網頁瀏覽器開啟頁面 https://microsoft.com/devicelogin，並輸入程式碼 F3W4VWZDM 來驗證。 請遵循下列步驟來登入，然後返回執行下一個程式碼區塊。 建立連線的後續程式碼區塊需要您重新登入。
+建立符合 StormEvents.csv 檔案中資料結構描述的資料表。 此程式碼執行時，它會傳回類似以下的訊息：*若要登入，請使用網頁瀏覽器開啟頁面 https://microsoft.com/devicelogin，並輸入代碼 F3W4VWZDM 以進行驗證*。 請遵循下列步驟來登入，然後返回執行下一個程式碼區塊。 建立連線的後續程式碼區塊需要您重新登入。
 
 ```python
 KUSTO_CLIENT = KustoClient(KCSB_DATA)

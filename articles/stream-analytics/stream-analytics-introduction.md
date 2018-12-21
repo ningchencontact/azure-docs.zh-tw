@@ -4,21 +4,20 @@ description: 了解串流分析，這是可協助您即時分析物聯網 (IoT) 
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
 ms.workload: data-services
-ms.custom: mvc
-ms.date: 03/27/2018
-ms.openlocfilehash: 7b38548ce3266d74ffd51ce75ffa92bdb4ac24b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.custom: seodec18
+ms.date: 12/07/2018
+ms.openlocfilehash: 9cd1a8a095c697c4baeaa435f80c136ce49e0313
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437615"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098571"
 ---
-# <a name="what-is-stream-analytics"></a>什麼是串流分析？
+# <a name="what-is-azure-stream-analytics"></a>Azure 串流分析是什麼？
 
 Azure 串流分析是事件處理引擎，可讓您檢查來自裝置的大量資料流。 傳入的資料可能來自裝置、感應器、網站、社交媒體摘要和應用程式等。 它也支援從資料流擷取資訊，識別模式和關聯性。 然後，您可以使用這些模式來觸發其他動作下游 (例如警示)、將資訊提供給報告工具，或是儲存資訊以供之後使用。
 
@@ -32,7 +31,7 @@ Azure 串流分析是事件處理引擎，可讓您檢查來自裝置的大量�
 
 ## <a name="how-does-stream-analytics-work"></a>串流分析如何運作？
 
-要進行 Azure 串流分析必須先有串流資料的來源，這些資料可能是內嵌至 Azure 事件中樞、Azure IoT 中樞，或來自 Azure Blob 儲存體等資料存放區。 若要檢查資料流，您可以建立串流分析作業以指定會串流資料的輸入來源。 此作業也會指定轉換查詢，以定義如何尋找資料、模式或關聯性。 轉換查詢會利用類似 SQL 的查詢語言，以便篩選、排序、彙總和聯結一段時間內的串流資料。 在執行作業時，您可以調整事件排序選項，而在執行彙總作業時則可調整時間範圍的持續時間。
+要進行 Azure 串流分析必須先有串流資料的來源，這包括了內嵌於 Azure 事件中樞或Azure IoT 中樞的資料，以及來自 Azure Blob 儲存體等資料存放區的資料。 若要檢查資料流，您可以建立串流分析作業以指定會串流資料的輸入來源。 此作業也會指定轉換查詢，以定義如何尋找資料、模式或關聯性。 轉換查詢會利用類似 SQL 的查詢語言，以便篩選、排序、彙總和聯結一段時間內的串流資料。 在執行作業時，您可以調整事件排序選項，而在執行彙總作業時則可調整時間範圍的持續時間。
 
 在分析傳入的資料後，您可以指定所轉換資料的輸出，並可控制所要採取的動作以回應您所分析的資訊。 例如，您可以採取下列動作：
 
@@ -42,13 +41,13 @@ Azure 串流分析是事件處理引擎，可讓您檢查來自裝置的大量�
 
 下圖說明串流分析管線，您的串流分析作業可以使用所有輸入和輸出，也可以使用一組選定的輸入和輸出。 下圖顯示如何將資料傳送至串流分析、加以分析並傳送，以進行儲存或呈現等其他動作：
 
-![串流分析流程](./media/stream-analytics-introduction/stream_analytics_intro_pipeline.png)
+![串流分析流程簡介](./media/stream-analytics-introduction/stream-analytics-intro-pipeline.png)
 
 ## <a name="key-capabilities-and-benefits"></a>主要功能和優點
 
 Azure 串流分析的設計訴求是方便使用、具靈活性、可靠，以及適用於任何作業大小。 其可跨多個資料中心以及主權雲端來使用。 下圖說明 Azure 串流分析的重要功能：
 
-![串流分析的重要功能](./media/stream-analytics-introduction/stream_analytics_key_capabilities.png)
+![串流分析的重要功能](./media/stream-analytics-introduction/stream-analytics-key-capabilities.png)
 
 ## <a name="ease-of-getting-started"></a>輕鬆開始使用
 

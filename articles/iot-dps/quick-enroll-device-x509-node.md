@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 67ed6f2039bad90716edadb2ecdb5e9ac9faa172
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 852e250d60d112ca7a8e8a98d93121762e2fde4d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156233"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187002"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入門：使用 Node.js 向裝置佈建服務註冊 X.509 裝置
 
@@ -46,13 +46,13 @@ ms.locfileid: "50156233"
  
 1. 開啟命令提示字元或 Git Bash 殼層中，並切換至電腦上的工作資料夾。 執行下列命令以複製 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 存放庫：
     
-  ```cmd/sh
-  git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-  ```
+   ```cmd/sh
+   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+   ```
 
-  此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
+   此存放庫的大小目前約為 220 MB。 預期此作業需要幾分鐘的時間才能完成。
 
-  測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
+   測試工具位於您所複製的存放庫 *azure-iot-sdk-c/tools/CACertificates* 中。    
 
 2. 依照[管理用於範例和教學課程的測試 CA 憑證](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)中的步驟操作。 
 
@@ -115,7 +115,7 @@ ms.locfileid: "50156233"
     1. 登入 Azure 入口網站，按一下左側功能表上的 [所有資源] 按鈕，然後開啟您的裝置佈建服務。 
     2. 按一下 [共用存取原則]，然後按一下您要用來開啟其屬性的存取原則。 在 [存取原則] 視窗中，複製並記下主要索引鍵連接字串。 
 
-    ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
+       ![從入口網站取得佈建服務連接字串](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
 3. 如[準備測試憑證](quick-enroll-device-x509-node.md#prepare-test-certificates)中所述，您還需要 .pem 檔案，且其中必須包含先前已上傳至佈建服務、並已向佈建服務驗證的 X.509 中繼或根 CA 憑證。 若要檢查您的憑證是否已上傳和驗證，請在 Azure 入口網站的 [裝置佈建服務摘要] 頁面上，按一下 [憑證]。 找出需要用於群組註冊的憑證，並確認其狀態值已驗證。

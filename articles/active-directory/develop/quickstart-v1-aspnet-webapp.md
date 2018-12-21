@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
-ms.openlocfilehash: a421527de275d38650c314d3722a7d2f93e8331d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 10de179c6055feb46439792ea74a0a3131f39646
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285011"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970640"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入門：將「使用 Microsoft 登入」新增至 ASP.NET Web 應用程式
 
@@ -56,7 +56,7 @@ ms.locfileid: "52285011"
 | [Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/) | 可讓應用程式使用 OpenIdConnect 進行驗證的中介軟體 |
 | [Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies) |可讓應用程式使用 Cookie 維持使用者工作階段的中介軟體 |
 | [Microsoft.Owin.Host.SystemWeb](https://www.nuget.org/packages/Microsoft.Owin.Host.SystemWeb) | 可讓 OWIN 型應用程式使用 ASP.NET 要求管線在 IIS 上執行 |
-|  |  | 
+|  |  |
 
 ## <a name="step-1-set-up-your-project"></a>步驟 1：設定專案
 
@@ -104,11 +104,11 @@ ms.locfileid: "52285011"
 
 1. 將 *OWIN* 和 *Microsoft.IdentityModel* 命名空間新增至 `Startup.cs`：
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=AddedNameSpaces "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=AddedNameSpaces "Startup.cs")]
 
 2. 以下列程式碼取代 Startup 類別：
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Startup.cs?name=Startup "Startup.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Startup.cs?name=Startup "Startup.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
@@ -129,11 +129,11 @@ ms.locfileid: "52285011"
 4.  將它命名為 `HomeController` 並選取 [新增]。
 5.  將 **OWIN** 命名空間新增至類別：
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=AddedNameSpaces "HomeController.cs")]
 
 6. 新增下列方法，以透過經由程式碼起始驗證挑戰的方式，處理對控制器的登入和登出：
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/HomeController.cs?name=SigInAndSignOut "HomeController.cs")]
 
 ## <a name="step-6-create-the-apps-home-page-to-sign-in-users-via-a-sign-in-button"></a>步驟 6：建立應用程式的首頁來透過登入按鈕將使用者登入
 
@@ -158,11 +158,11 @@ ms.locfileid: "52285011"
 1. 將它命名為 **ClaimsController**。
 1. 以下列程式碼取代您控制器類別的程式碼 - 這會將 `[Authorize]` 屬性新增至類別：
 
-    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet\Controllers\ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
+    [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
 <!--start-collapse-->
 > [!NOTE]
-> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未通過驗證而嘗試存取控制器，OWIN 就會起始驗證挑戰並強制使用者進行驗證。 上述程式碼會查看使用者的宣告集合，以尋找使用者權杖中所包含的特定屬性。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」，這代表使用者所屬組織的識別碼。 
+> 因為使用了 `[Authorize]` 屬性，所以此控制器的所有方法都只能在使用者已通過驗證的情況下才能執行。 如果使用者未通過驗證而嘗試存取控制器，OWIN 就會起始驗證挑戰並強制使用者進行驗證。 上述程式碼會查看使用者的宣告集合，以尋找使用者權杖中所包含的特定屬性。 這些屬性包括使用者的完整名稱和使用者名稱，以及全域使用者識別元主體。 它也包含「租用戶識別碼」，這代表使用者所屬組織的識別碼。
 <!--end-collapse-->
 
 ## <a name="step-8-create-a-view-to-display-the-users-claims"></a>步驟 8：建立檢視來顯示使用者的宣告
@@ -187,7 +187,7 @@ ms.locfileid: "52285011"
     <add key="ClientId" value="Enter_the_Application_Id_here" />
     <add key="RedirectUrl" value="Enter_the_Redirect_Url_here" />
     <add key="Tenant" value="common" />
-    <add key="Authority" value="https://login.microsoftonline.com/{0}" /> 
+    <add key="Authority" value="https://login.microsoftonline.com/{0}" />
     ```
 2. 在 [方案總管] 中，選取專案並查看 [屬性]<i></i> 視窗 (如果您沒有看到 [屬性] 視窗，請按 F4)
 3. 將 [SSL 已啟用] 變更為 <code>True</code>
@@ -227,10 +227,12 @@ ms.locfileid: "52285011"
 此選項為企業營運應用程式的常見案例。
 
 如果您想要讓應用程式只接受特定 Azure AD 執行個體的成員帳戶進行登入 (包括該執行個體的*來賓帳戶*)，請遵循下列步驟：
+
 1. 將 *web.config* 中的 `Tenant` 參數從 `Common` 取代為組織的租用戶名稱，例如 *contoso.onmicrosoft.com*。
 1. 將您 [*OWIN 啟動類別*](#configure-the-authentication-pipeline) 中的 `ValidateIssuer` 引數變更為 `true`。
 
 若要只允許一系列特定組織的成員使用者登入，請遵循下列步驟：
+
 1. 將 `ValidateIssuer` 設定為 True。
 1. 使用 `ValidIssuers` 參數來指定組織清單。
 
@@ -286,7 +288,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 | 屬性 | 值 | 說明 |
 |---|---|---|
-| 名稱 | {使用者完整名稱} | 使用者的名字和姓氏 |
+| Name | {使用者完整名稱} | 使用者的名字和姓氏 |
 | 使用者名稱 | <span>user@domain.com</span> | 用來識別已登入使用者的使用者名稱 |
 | 主體| {主體} |用來跨網站唯一識別使用者登入的字串 |
 | 租用戶識別碼 | {Guid} | 唯一代表使用者 Azure AD 組織的 *guid* |

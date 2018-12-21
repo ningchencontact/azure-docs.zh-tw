@@ -1,9 +1,8 @@
 ---
-title: 快速入門：Gremlin API 搭配 PHP - Azure Cosmos DB | Microsoft Docs
+title: 快速入門：Gremlin API 搭配 PHP - Azure Cosmos DB
 description: 本快速入門說明如何使用 Azure Cosmos DB Gremlin API，並搭配 Azure 入口網站與 PHP，以建立主控台應用程式
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,14 +10,14 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 06f54429957a84de81e3dfaae00c6126b5340b74
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: f6ff46f391ce03f67619ef685f841dcf95a1fd92
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702488"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089461"
 ---
-# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB︰使用 PHP 和 Azure 入口網站建立圖形資料庫
+# <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB：使用 PHP 和 Azure 入口網站建立圖形資料庫
 
 > [!div class="op_single_selector"]
 > * [Gremlin 主控台](create-graph-gremlin-console.md)
@@ -38,7 +37,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]或者，您可以[免費試用 Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/)，無須 Azure 訂用帳戶，也無須任何費用和約定付款。
 
 此外：
-* [PHP](http://php.net/) \(英文\) 5.6 或更新版本
+* [PHP](https://php.net/) \(英文\) 5.6 或更新版本
 * [Composer](https://getcomposer.org/download/)
 
 ## <a name="create-a-database-account"></a>建立資料庫帳戶
@@ -105,7 +104,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連線資訊，並將其複製到應用程式中。 這些設定可讓您的應用程式與託管資料庫進行通訊。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [金鑰]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [金鑰]。 
 
     複製 URI 值的第一個部分。
 

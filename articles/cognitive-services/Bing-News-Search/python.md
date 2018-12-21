@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 新聞搜尋 API，Python
+title: 快速入門：使用 Python 來執行新聞搜尋 - Bing 新聞搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 新聞搜尋 API。
+description: 使用此快速入門以運用 Python 來傳送要求給「Bing 新聞搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,16 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: 738b139cb2070f2244442311d3670757caac6541
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 8ce8353df9a6f8354c56d9c9115645c0b7f2136a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308812"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251652"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-python"></a>Bing 新聞搜尋 API 的 Python 快速入門
+# <a name="quickstart-perform-a-news-search-using-python-and-the-bing-news-search-rest-api"></a>快速入門：使用 Python 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
+
 本逐步解說示範呼叫 Bing 新聞搜尋 API，以及對產生的 JSON 物件進行後處理的簡單範例。 如需詳細資訊，請參閱 [Bing 新聞搜尋文件](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) \(英文\)。  
 
 您可以按一下 [launch Binder] \(啟動 Binder\) 徽章，在 [MyBinder](https://mybinder.org) \(英文\) 上以 Jupyter Notebook 執行此範例： 

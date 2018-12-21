@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 使用 Azure CLI 在 Azure 中建立私用的 Docker 登錄
+title: 快速入門 - 在 Azure 中建立私人 Docker 登錄 - Azure CLI
 description: 快速了解如何使用 Azure CLI 建立私用的 Docker 容器登錄。
 services: container-registry
 author: dlepow
@@ -7,15 +7,15 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 03/03/2018
 ms.author: danlep
-ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 57c72056b669865278fa8109cd7f4963a1f0887a
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, H1Hack27Feb2017, mvc
+ms.openlocfilehash: e75a2d126680c71542aa04bae5a30ea7c376cea1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855233"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255919"
 ---
-# <a name="quickstart-create-a-container-registry-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立容器登錄
+# <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立私人容器登錄
 
 Azure Container Registry 是用於儲存私用 Docker 容器映像的受控 Docker 容器登錄服務。 本指南詳述如何使用 Azure CLI 建立 Azure Container Registry 執行個體、將容器映像推送到登錄中，最後將容器從登錄部署至 Azure 容器執行個體 (ACI)。
 

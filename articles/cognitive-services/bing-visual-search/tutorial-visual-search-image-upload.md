@@ -1,5 +1,5 @@
 ---
-title: 教學課程：如何上傳影像像 - Bing 圖像式搜尋
+title: 教學課程：如何上傳影像 - Bing 圖像式搜尋
 titleSuffix: Azure Cognitive Services
 description: 分析將影像上傳到 Bing 的程序以取得深入見解，然後剖析並顯示回應。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: b13f2e5c96ba50fc76d7bfae256e5fcc1c8b56ce
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 24b4bacd6a369812a07095b1d9c114f557d10d57
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443452"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960052"
 ---
 # <a name="tutorial-breaking-down-bing-visual-search-upload"></a>教學課程：分析 Bing 圖像式搜尋上傳
 
@@ -1340,4 +1340,4 @@ buildDiv 函式會呼叫 addDivContent 函式，以建置每個標籤之可摺�
 
 ## <a name="next-steps"></a>後續步驟
 
-若要使用見解權杖查看取得見解的運作方式，請參閱 [Bing 圖像式搜尋 SDK ImageInsightsToken 教學課程](.\tutorial-visual-search-insights-token.md)。
+若要使用見解權杖查看取得見解的運作方式，請參閱 [Bing 圖像式搜尋 SDK ImageInsightsToken 教學課程](./tutorial-visual-search-insights-token.md)。

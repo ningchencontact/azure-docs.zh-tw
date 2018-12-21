@@ -1,25 +1,23 @@
 ---
-title: 適用於 Azure 的 MongoDB、Angular 及 Node 教學課程 - 第 6 部分 | Microsoft Docs
+title: 使用 MongoB API 的 Node.Js、Angular 應用程式 (第 6 部分)
+titleSuffix: Azure Cosmos DB
 description: 本教學課程系列的第 6 部分，有關使用您用於 MongoDB 的完全相同 API，以 Azure Cosmos DB 上的 Angular 和 Node 建立 MongoDB 應用程式
-services: cosmos-db
 author: johnpapa
-manager: kfile
-editor: ''
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/17/2018
+ms.date: 12/06/2018
 ms.author: jopapa
-ms.custom: mvc
-ms.openlocfilehash: 667c1fbce398e06f9f2a6edca21935ae1062a737
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec18
+ms.openlocfilehash: ec6fc4237fd2be11d1e937ec6aed12898689e73f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740565"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139974"
 ---
-# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-post-put-and-delete-functions-to-the-app"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 6 部分：將 Post、Put 和 Delete 函式新增至應用程式
+# <a name="create-a-mongodb-app-with-angular-and-azure-cosmos-db---part-6-add-crud-functions-to-the-app"></a>使用 Angular 和 Azure Cosmos DB 建立 MongoDB 應用程式 - 第 6 部分：將 CRUD 函式新增至應用程式
 
 此多部分的教學課程示範如何使用 Express 和 Angular，建立以 Node.js 撰寫的新 [MongoDB API](mongodb-introduction.md) 應用程式，然後將它連線至您的 Azure Cosmos DB 資料庫。
 

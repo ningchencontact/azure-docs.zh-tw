@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 84aaa5534c629554074544b4bb56ae8da8825397
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986441"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993848"
 ---
 # <a name="tutorial-offer-highly-available-mysql-databases"></a>教學課程：提供高可用性 MySQL 資料庫
 
@@ -46,7 +46,7 @@ ms.locfileid: "49986441"
 > 必須備妥下列各項，才能建立 MySQL 叢集。
 
 - [具備複寫功能的 MySQL](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster)。 這是將用來部署 MySQL 叢集的 Bitnami 解決方案範本。
-- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/credativ.Debian8backports?tab=Overview)。 由 credativ 所提供、含有適用於 Microsoft Azure 之反向移植核心的 Debian 8 "Jessie"。 Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian)。 由 credativ 所提供、含有適用於 Microsoft Azure 之反向移植核心的 Debian 8 "Jessie"。 Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。
 - [適用於 Linux 的自訂指令碼 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview)。 「自訂指令碼延伸模組」是一個工具，可用來執行佈建 VM 後的 VM 自訂工作。 將此延伸模組新增至虛擬機器後，它便可從 Azure 儲存體下載指令碼，並在 VM 上執行這些指令碼。 您也可以使用 Azure PowerShell Cmdlet 和「Azure 跨平台命令列介面」(xPlat CLI) 將「自訂指令碼延伸模組」工作自動化。
 - 適用於 Linux 的 VM 存取延伸模組 1.4.7。 此 VM 存取延伸模組可讓您重設密碼、SSH 金鑰或 SSH 設定，以便重新取得 VM 存取權。 您也可以使用此延伸模組來新增具有密碼或 SSH 金鑰的新使用者，或刪除使用者。 此延伸模組的目標為 Linux VM。
 

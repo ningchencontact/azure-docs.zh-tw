@@ -1,21 +1,21 @@
 ---
-title: 連線 Apache Spark 應用程式與已啟用 Kafka 的 Azure 事件中樞 | Microsoft Docs
-description: 搭配使用 Apache Spark 與適用於 Kafka 的 Azure 事件中樞。
+title: 與 Apache Spark 應用程式連線 - Azure 事件中樞 | Microsoft Docs
+description: 本文提供有關如何將 Apache Spark 與「適用於 Kafka 的 Azure 事件中樞」搭配使用的資訊。
 services: event-hubs
 documentationcenter: .net
 author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
-ms.custom: ''
-ms.date: 10/30/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: a2ab9a77728509b794c2f5b810fb939f6d1a16e3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 93fdd85d1fd1b91e01d8f38b4890e1b588a5c704
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286770"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091232"
 ---
 # <a name="connect-your-apache-spark-application-with-kafka-enabled-azure-event-hubs"></a>連線 Apache Spark 應用程式與已啟用 Kafka 的 Azure 事件中樞
 本教學課程會引導您將 Spark 應用程式連線至已啟用 Kafka 的事件中樞，以進行即時串流。 這項整合可讓您無須變更通訊協定用戶端或執行您自己的 Kafka 或 Zookeeper 叢集，即可進行串流。 本教學課程需要 Apache Spark v2.4+ 和 Apache Kafka v2.0+。
@@ -120,4 +120,4 @@ df.writeStream
 - [將 Apache Flink 連線到已啟用 Kafka 的事件中樞](event-hubs-kafka-flink-tutorial.md)
 - [整合 Kafka Connect 與已啟用 Kafka 的事件中樞](event-hubs-kafka-connect-tutorial.md)
 - [將 Akka Streams 連線到已啟用 Kafka 的事件中樞](event-hubs-kafka-akka-streams-tutorial.md)
-- [在 GitHub 上探索範例](https://github.com/Azure/azure-event-hubs-for-kafka)
+- [在 GitHub 上探索範例](https://github.com/Azure/azure-event-hubs-for-kafka) \(英文\)

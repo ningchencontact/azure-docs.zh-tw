@@ -1,25 +1,25 @@
 ---
-title: 建置處理電子郵件和附件的工作流程 - Azure Logic Apps | Microsoft Docs
-description: 本教學課程說明如何建立自動化工作流程，以讓您使用 Azure Logic Apps、Azure 儲存體和 Azure Functions 來處理電子郵件和附件
+title: 教學課程 - 自動處理電子郵件和附件 - Azure Logic Apps | Microsoft Docs
+description: 教學課程 - 使用 Azure Logic Apps、Azure 儲存體和 Azure Functions，建立用來處理電子郵件和附件的自動化工作流程
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.reviewer: klam, LADocs
-ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cc3a2e96222e06324500e2203d870c06d0f3e8c0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231963"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140501"
 ---
-# <a name="process-emails-and-attachments-with-azure-logic-apps"></a>使用 Azure Logic Apps 來處理電子郵件和附件
+# <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>教學課程：使用 Azure Logic Apps 自動處理電子郵件和附件
 
-Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式與內部部署系統的資料。 此教學課程說明如何建置[邏輯應用程式](../logic-apps/logic-apps-overview.md)，用以處理內送電子郵件和任何附件。 此邏輯應用程式可處理該內容、將內容儲存至 Azure 儲存體，以及傳送檢閱該內容的通知。 
+Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務、Microsoft 服務和其他軟體即服務 (SaaS) 應用程式與內部部署系統的資料。 此教學課程說明如何建置[邏輯應用程式](../logic-apps/logic-apps-overview.md)，用以處理內送電子郵件和任何附件。 此邏輯應用程式可分析電子郵件內容、將內容儲存至 Azure 儲存體，以及傳送檢閱該內容的通知。 
 
 在本教學課程中，您了解如何：
 
@@ -68,7 +68,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **效能** | 標準 | 此設定會指定支援的資料類型和用來儲存資料的媒體。 請參閱[儲存體帳戶類型](../storage/common/storage-introduction.md#types-of-storage-accounts)。 | 
    | **需要安全傳輸** | 已停用 | 此設定會指定連線要求所需的安全性。 請參閱[需要安全傳輸](../storage/common/storage-require-secure-transfer.md)。 | 
    | **訂用帳戶** | <your-Azure-subscription-name> | Azure 訂用帳戶的名稱 | 
-   | **資源群組** | LA-Tutorial-RG | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 <p>**注意：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 | 
+   | **資源群組** | LA-Tutorial-RG | 用來組織及管理相關資源的 [Azure 資源群組](../azure-resource-manager/resource-group-overview.md)的名稱。 <p>**附註：** 資源群組會存在於某個特定區域內。 雖然此教學課程中提及的項目可能並非適用於所有區域，但請盡可能使用相同的區域。 | 
    | **設定虛擬網路** | 已停用 | 在此教學課程中，請保留 [停用] 設定。 | 
    |||| 
 
@@ -144,7 +144,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
    | **資源群組** | LA-Tutorial-RG | 您先前使用的相同 Azure 資源群組 | 
    | **主控方案** | 取用方案 | 此設定會決定如何配置和調整執行函式應用程式所需的資源，例如運算能力。 請參閱[主控方案比較](../azure-functions/functions-scale.md)。 | 
    | **位置** | 美國西部 | 您先前使用的相同區域 | 
-   | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**注意：** 此儲存體帳戶包含您的函式應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 | 
+   | **儲存體** | cleantextfunctionstorageacct | 為您的函式應用程式建立儲存體帳戶。 請一律使用小寫字母和數字。 <p>**附註：** 此儲存體帳戶包含您的函式應用程式，且不同於您先前為電子郵件附件建立的儲存體帳戶。 | 
    | **Application Insights** | 關閉 | 可開啟 [Application Insights](../application-insights/app-insights-overview.md) 的應用程式監視功能，但在此教學課程中，請選擇 [關閉] 設定。 | 
    |||| 
 
@@ -246,7 +246,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
 ## <a name="monitor-incoming-email"></a>監視內送電子郵件
 
-1. 在設計工具的搜尋方塊中，輸入「新的電子郵件送達時」作為篩選條件。 請為您的電子郵件提供者選取此觸發程序：**新的電子郵件送達時 - <*your-email-provider*>**
+1. 在設計工具的搜尋方塊中，輸入「新的電子郵件送達時」作為篩選條件。 為電子郵件提供者選取此觸發程序：**新的電子郵件送達時 - <*your-email-provider*>**
 
    例如︰
 
@@ -274,7 +274,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
       | 設定 | 值 | 說明 | 
       | ------- | ----- | ----------- | 
-      | **具有附件** | 是 | 僅取得含附件的電子郵件。 <p>**注意：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
+      | **具有附件** | 是 | 僅取得含附件的電子郵件。 <p>**附註：** 觸發程序並不會從您的帳戶移除任何電子郵件，而只會檢查新的訊息及處理符合主旨篩選條件的電子郵件。 | 
       | **包含附件** | 是 | 取得附件並作為工作流程的輸入，而非只是檢查是否有附件。 | 
       | **主旨篩選** | ```Business Analyst 2 #423501``` | 要在電子郵件主旨中尋找的文字 | 
       |  |  |  | 
@@ -328,7 +328,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
          "and": [ {
             "equals": [
                "@triggerBody()?['HasAttachment']",
-                 "True"
+                 "true"
             ]
          } ]
       },
@@ -385,7 +385,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![選取您的 Azure 函式應用程式](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function-app.png)
 
-4. 現在，選取您的函式：**RemoveHTMLFunction**
+4. 現在選取您的函式：**RemoveHTMLFunction**
 
    ![選取您的 Azure 函式](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
@@ -518,7 +518,7 @@ Azure Logic Apps 可協助您自動執行工作流程，並整合 Azure 服務�
 
    ![將動作新增至迴圈](./media/tutorial-process-email-attachments-workflow/for-each-add-action.png)
 
-2. 在搜尋方塊中，輸入「建立 Blob」作為篩選條件，然後選取下列動作：**建立 Blob - Azure Blob 儲存體**
+2. 在搜尋方塊中，輸入「建立 Blob」作為篩選條件，然後選取此動作：**建立 Blob - Azure Blob 儲存體**
 
    ![新增建立 Blob 的動作](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 

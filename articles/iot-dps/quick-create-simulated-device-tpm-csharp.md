@@ -9,18 +9,20 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f574c85252614fd24734657affe3264d72130dd3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157884"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996994"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>使用適用於 IoT 中樞裝置佈建服務的 C# 裝置 SDK 來建立及佈建模擬 TPM 裝置
 
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-tpm](../../includes/iot-dps-selector-quick-create-simulated-device-tpm.md)]
 
-這些步驟示範如何在執行 Windows OS 的開發機器上建置 Azure IoT 中樞 C# SDK 所模擬的 TPM 裝置範例，並將模擬的裝置與裝置佈建服務和 IoT 中樞連線。 此程式碼範例會使用 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)。 
+這些步驟會示範如何使用[適用於 C# 的 Azure IoT 範例](https://github.com/Azure-Samples/azure-iot-samples-csharp)，在執行 Windows OS 的開發電腦上，模擬 TPM 裝置。 此範例也會使用裝置佈建服務，將模擬的裝置連線至 IoT 中樞。 
+
+此程式碼範例會使用 Windows TPM 模擬器作為裝置的[硬體安全性模組 (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)。 
 
 如果您不熟悉自動佈建程序，請務必也要檢閱[自動佈建概念](concepts-auto-provisioning.md)。 繼續之前，請務必完成[使用 Azure 入口網站設定 IoT 中樞裝置佈建服務](./quick-setup-auto-provision.md)中的步驟。 
 
@@ -35,14 +37,14 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 <a id="setupdevbox"></a>
 ## <a name="prepare-the-development-environment"></a>準備開發環境 
 
-1. 確定您已在電腦上安裝 [.Net Core SDK](https://www.microsoft.com/net/download/windows)。 
+1. 確定您已在電腦上安裝 [.Net Core 2.1 SDK 或更新版本](https://www.microsoft.com/net/download/windows)。 
 
 1. 確定 `git` 已安裝在電腦上，並已新增至命令視窗可存取的環境變數。 請參閱[軟體自由保護協會的 Git 用戶端工具](https://git-scm.com/download/)以取得所要安裝的最新版 `git` 工具，其中包括 **Git Bash** (您可用來與本機 Git 存放庫互動的命令列應用程式)。 
 
-4. 開啟命令提示字元或 Git Bash。 複製 Azure IoT SDK for C# GitHub 存放庫：
+1. 開啟命令提示字元或 Git Bash。 複製 C# GitHub 存放庫的 Azure IoT 範例：
     
     ```cmd
-    git clone --recursive https://github.com/Azure/azure-iot-sdk-csharp.git
+    git clone https://github.com/Azure-Samples/azure-iot-samples-csharp.git
     ```
 
 ## <a name="provision-the-simulated-device"></a>佈建模擬的裝置
@@ -56,7 +58,7 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
 2. 在命令提示字元中，將目錄變更到 TPM 裝置佈建範例的專案目錄。
 
     ```cmd
-    cd .\azure-iot-sdk-csharp\provisioning\device\samples\ProvisioningDeviceClientTpm
+    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
     ```
 
 2. 輸入下列命令以建置並執行 TPM 裝置佈建範例。 使用佈建服務的識別碼範圍取代 `<IDScope>` 值。 
@@ -65,21 +67,22 @@ Azure IoT 裝置佈建服務支援兩種類型的註冊：
     dotnet run <IDScope>
     ```
 
-1. 命令視窗會顯示裝置註冊所需的 [簽署金鑰]、[註冊識別碼] 和建議的 [裝置識別碼]。 請記下這些值。 
+    此命令會在個別的命令提示字元下啟動 TPM 晶片模擬器。  
+
+1. 命令視窗會顯示裝置註冊所需的 [簽署金鑰]、[註冊識別碼] 和建議的 [裝置識別碼]。 記下這些值。 您將使用這些值，在裝置佈建服務執行個體中建立個別註冊。 
    > [!NOTE]
    > 請勿將包含命令輸出的視窗與包含 TPM 模擬器之輸出的視窗混淆。 您可能必須按一下命令視窗才能讓其出現在前景。
 
     ![命令視窗輸出](./media/quick-create-simulated-device-tpm-csharp/output1.png) 
 
-
 4. 在 Azure 入口網站的 [裝置佈建服務摘要] 刀鋒視窗上，選取 [管理註冊]。 選取 [個別註冊] 索引標籤，然後按一下頂端的 [新增個別註冊] 按鈕。 
 
 5. 在 [新增註冊] 之下，輸入下列資訊：
     - 選取 [TPM] 作為身分識別證明「機制」。
-    - 輸入 TPM 裝置的 [註冊識別碼] 和 [簽署金鑰]。 
+    - 輸入先前所記下的 TPM 裝置 [註冊識別碼] 和 [簽署金鑰]。
     - (選擇性) 選取與佈建服務連結的 IoT 中樞。
     - 輸入唯一的裝置識別碼。 您可以輸入輸出範例中所建議的裝置識別碼，或輸入您自己的裝置識別碼。 如果您使用自己的裝置識別碼，則在替裝置命名時，請務必要避免使用敏感性資料。 
-    - 使用裝置所需的初始組態更新**初始裝置對應項狀態**。
+    - 選擇性地使用裝置所需的初始組態，更新**初始裝置對應項狀態**。
     - 完成後，按一下 [儲存] 按鈕。 
 
     ![在入口網站刀鋒視窗中輸入裝置註冊資訊](./media/quick-create-simulated-device-tpm-csharp/enterdevice-enrollment.png)  

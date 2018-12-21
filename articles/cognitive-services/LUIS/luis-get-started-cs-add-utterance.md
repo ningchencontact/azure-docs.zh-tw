@@ -1,23 +1,24 @@
 ---
-title: C# 快速入門 - 變更模型及訓練 LUIS 應用程式
-titleSuffix: Azure Cognitive Services
-description: 在此 C# 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。 範例語句是對應到意圖的交談使用者文字。 您可以藉由提供與意圖相關的範例語句，教導 LUIS 哪些種類的使用者提供文字屬於哪種意圖。
+title: 變更、定型應用程式 (C#)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在此 C# 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aab9651092f7ad5dbc78c31db8df4ef3538fedfc
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 23692bd6a0c708b2747a3cc211b8238d30dfe5db
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039967"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161741"
 ---
-# <a name="quickstart-change-model-using-c"></a>快速入門：使用 C# 來變更模型
+# <a name="quickstart-change-model-using-c"></a>快速入門：使用 C# 變更模型
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
@@ -28,7 +29,7 @@ ms.locfileid: "47039967"
 * 安裝 C# 程式設計語言。
 * [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) (英文) 和 [CommandLine](https://www.nuget.org/packages/CommandLineParser/) (英文) NuGet 套件
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 
@@ -56,7 +57,7 @@ Visual Studio 專案需要 **JsonFormatterPlus** 和 **CommandLineParser**。 �
 ### <a name="write-the-c-code"></a>撰寫 C# 程式碼
 **Program.cs 檔案**應該是：
 
-```CSharp
+```C#
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -98,9 +99,7 @@ namespace ConsoleApp3
 
 將檔案方法的範例語句新增至 **Program** 類別。
 
-   [!code-csharp[Add example utterances from file.
-](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.
-")]
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
 
 在變更套用至模型之後，將模型定型。 將方法新增至 **Program** 類別。
 
@@ -128,7 +127,7 @@ namespace ConsoleApp3
 
 在專案的 /bin/Debug 目錄中，從命令列執行應用程式。 
 
-```CMD
+```console
 ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
 ```
 

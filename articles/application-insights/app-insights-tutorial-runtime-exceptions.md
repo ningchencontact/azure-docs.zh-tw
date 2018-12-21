@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230592"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084001"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 
@@ -75,20 +75,20 @@ Application Insights 會收集應用程式中的任何失敗，並可讓您檢�
     ![例外狀況詳細資料](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>識別失敗的程式碼
-快照集偵錯工具會收集您應用程式中最常見之例外狀況的快照集，以協助您診斷生產環境中的根本原因。  您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 您可接著下載該快照集並在 Visual Studio 2017 中開啟，以對原始程式碼進行偵錯。
+快照集偵錯工具會收集您應用程式中最常見之例外狀況的快照集，以協助您診斷生產環境中的根本原因。  您可以檢視入口網站中的偵錯快照集，以查看呼叫堆疊並檢查每個呼叫堆疊框架的變數。 接著，您可選擇下載該快照集並在 Visual Studio 2017 Enterprise 中開啟，以對原始程式碼進行偵錯。
 
 1. 在例外狀況的內容中，按一下 [開啟偵錯快照集]。
 2. [偵錯快照集] 面板隨即開啟，並顯示要求的呼叫堆疊。  按一下任一方法，即可檢視所有區域變數在要求時的值。  從這個範例最上方的方法開始，我們可以看到沒有值的區域變數。
 
     ![偵錯快照集](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-01.png)
 
-4. 具有有效值的第一個呼叫是 **ValidZipCode**，我們可以看到提供的郵遞區號含有無法轉譯成整數的字母。  這似乎是程式碼中需要修正的錯誤。
+3. 具有有效值的第一個呼叫是 **ValidZipCode**，我們可以看到提供的郵遞區號含有無法轉譯成整數的字母。  這似乎是程式碼中需要修正的錯誤。
 
     ![偵錯快照集](media/app-insights-tutorial-runtime-exceptions/debug-snapshot-02.png)
 
-5. 若要將此快照集下載至 Visual studio，以在其中尋找需要修正的實際程式碼，請按一下 [下載快照集]。
-6. 快照集就會載入到 Visual Studio。
-7. 您可以立即在 Visual Studio 中執行偵錯工作階段，以快速地識別造成例外狀況的程式碼。
+4. 您可以接著選擇將此快照集下載至 Visual Studio，以在其中尋找需要修正的實際程式碼。 若要這麼做，請按一下 [下載快照集]。
+5. 快照集就會載入到 Visual Studio。
+6. 您可以立即在 Visual Studio Enterprise 中執行偵錯工作階段，以快速地識別造成例外狀況的程式碼。
 
     ![程式碼中的例外狀況](media/app-insights-tutorial-runtime-exceptions/exception-code.png)
 

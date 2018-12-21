@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 使用受控磁碟來建立 VM
+title: 範例 - 使用受控磁碟來建立 VM
 description: 此範例原則會要求虛擬機器使用受控磁碟。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 9939451c1665f975dd651f97fee5ef079a842e83
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a123734f9ee44718723f8e932d645ac54c599ebf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978366"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310659"
 ---
 # <a name="create-vm-using-managed-disk"></a>使用受控磁碟來建立 VM
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](index.md)檢閱更多範例
+- 在 [Azure 原則範例](index.md)中檢閱更多範例

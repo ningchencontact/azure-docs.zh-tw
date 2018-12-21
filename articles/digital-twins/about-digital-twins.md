@@ -3,18 +3,18 @@ title: Azure Digital Twins 概觀 | Microsoft Docs
 description: 深入了解 Azure Digital Twins，一個關於空間智慧的 Azure IoT 解決方案。
 author: julieseto
 ms.author: jseto
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 84f329c0a97d0f79a5f612fb3054b82a182e4da9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 2848f9ce97c2bdad59d86031c5894219875b6059
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287365"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437107"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 概觀
 
@@ -27,12 +27,12 @@ Azure Digital Twins 是一項 Azure IoT 服務，其可建立完整的實體環�
 - 最佳化辦公室的可用空間利用。
 
 Azure Digital Twins 適用於所有類型的環境。 像是倉儲、辦公室、學校、醫院和銀行等等。 甚至可以用於運動場、工廠、停車場、公園、智慧電網和城市。 可使用 Azure Digital Twins 來完成的範例案例如下：
- 
-- 追蹤各種狀態的每日溫度。 
+
+- 追蹤各種狀態的每日溫度。
 - 監視忙碌的無人機路徑。
-- 識別自動型交通工具。 
-- 分析建築物的佔用層級。 
-- 找出您店裡最忙碌的收銀機。 
+- 識別自動型交通工具。
+- 分析建築物的佔用層級。
+- 找出您店裡最忙碌的收銀機。
 
 無論實際的商業案例為何，都可以透過 Azure Digital Twins 佈建對應的數位執行個體。
 
@@ -94,7 +94,7 @@ Azure Digital Twins 可用來表示真實世界和其許多關聯性。 其簡�
 
 Azure Digital Twins 會使用 Azure IoT 中樞來連接 IoT 裝置和感應器，讓一切資訊隨時符合真實世界的最新情形。 下圖顯示 Azure Digital Twins 與其他 Azure IoT 服務的關聯性。
 
-![Azure Digital Twins 是建置在 Azure IoT 中樞之上的服務](./media/overview/azure-digital-twins-in-iot-ecosystem.png)
+![Azure Digital Twins 是建置在 Azure IoT 中樞之上的服務][1]
 
 如需有關 IoT 的詳細資訊，請參閱 [Azure IoT 技術和解決方案](https://docs.microsoft.com/azure/iot-fundamentals/iot-services-and-technologies)。
 
@@ -102,15 +102,18 @@ Azure Digital Twins 會使用 Azure IoT 中樞來連接 IoT 裝置和感應器�
 
 移至 Azure Digital Twins 的簡短示範：
 
-> [!div class="nextstepaction"]
-> [快速入門：使用 Azure Digital Twins 尋找空閒會議室](./quickstart-view-occupancy-dotnet.md)
+>[!div class="nextstepaction"]
+>[快速入門：使用 Azure Digital Twins 尋找空閒會議室](./quickstart-view-occupancy-dotnet.md)
 
 深入探索使用 Azure Digital Twins 的設施管理應用程式：
 
-> [!div class="nextstepaction"]
-> [教學課程：部署 Azure Digital Twins 及設定空間圖形](./tutorial-facilities-setup.md)
+>[!div class="nextstepaction"]
+>[教學課程：部署 Azure Digital Twins 及設定空間圖形](./tutorial-facilities-setup.md)
 
 了解 Azure Digital Twins 的核心概念：
 
-> [!div class="nextstepaction"]
-> [了解 Digital Twins 物件模型和空間智慧圖形](./concepts-objectmodel-spatialgraph.md)
+>[!div class="nextstepaction"]
+>[了解 Digital Twins 物件模型和空間智慧圖形](./concepts-objectmodel-spatialgraph.md)
+
+<!-- Images -->
+[1]: media/overview/azure-digital-twins-in-iot-ecosystem.png

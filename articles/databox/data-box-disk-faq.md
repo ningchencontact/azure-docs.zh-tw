@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/30/2018
+ms.date: 12/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f437f1fd61cfdaa4d2ff908f6e294fa0c679b9a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238126"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273047"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>什麼是 Azure 資料箱磁碟？ (預覽)
 
@@ -59,7 +59,7 @@ A.  在預覽階段期間，資料箱磁碟適用於美國、加拿大、澳大�
 A. 在預覽期間，美國、加拿大、澳大利亞、西歐和北歐內的所有區域均支援資料箱磁碟。 只有 Azure 公用雲端區域受到支援。 Azure Government 或其他主權雲端不受支援。
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>問： 如果遇到任何資料箱磁碟方面的問題，該與誰連絡？
-A. 如果您遇到任何資料箱磁碟方面的問題，請連絡[資料箱磁碟支援部門](mailto:expresspodsupport@microsoft.com)。
+A. 如果您遇到任何資料箱磁碟方面的問題，請[連絡 Microsoft 支援服務](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support)。
 
 ## <a name="configure-and-connect"></a>設定和連線
  
@@ -108,7 +108,7 @@ A.  使用 SMB 複製工具 (例如 Robocopy、Diskboss) 甚或 Windows 檔案�
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>問： 是否有任何秘訣可加快複製資料的速度？
 A.  若要加快複製程序：
 
-- 使用多個資料複製串流。 例如，採用 Robocopy 時，請使用多執行緒選項。 如需與使用的確切命令有關的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱磁碟並確認](data-box-disk-deploy-copy-data.md#copy-data-to-disks)。
+- 使用多個資料複製串流。 例如，採用 Robocopy 時，請使用多執行緒選項。 如需與使用之確切命令有關的詳細資訊，請移至[教學課程：將資料複製到 Azure 資料箱磁碟並確認](data-box-disk-deploy-copy-data.md#copy-data-to-disks)。
 - 使用多個工作階段。
 - 不透過網路共用進行複製 (此方式可能會受限於網路速度)，而是一律將資料放置在磁碟所連線到的本機電腦上。
 - 確定您的整個複製程序均使用 USB 3.0 或更新版本。 請下載並使用 [USBView 工具](https://docs.microsoft.com/windows-hardware/drivers/debugger/usbview)，以識別連線至電腦的 USB 控制器和 USB 裝置。

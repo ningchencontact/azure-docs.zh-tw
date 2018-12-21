@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: ead8c1d445bf32ecaaf236b4e73c2a583c755049
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223933"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255426"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>教學課程：使用 Content Moderator 進行 Facebook 內容仲裁
 

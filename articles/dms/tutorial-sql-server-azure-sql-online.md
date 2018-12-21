@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/04/2018
-ms.openlocfilehash: 2df899d1e9db0e2936d69636f4c9d5cd463e68c7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: aea6b9628ffff4ba5075338c48340b88c95b6174
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872205"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956852"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-online-using-dms"></a>教學課程：使用 DMS 在線上將 SQL Server 移轉至 Azure SQL Database
 您可以使用 Azure 資料庫移轉服務，在最短的停止運作時間內將資料庫從內部部署 SQL Server 執行個體移轉至 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/)。 在本教學課程中，您要使用 Azure 資料庫移轉服務，將已還原至內部部署 SQL Server 2016 (或更新版本) 執行個體的 **Adventureworks2012** 資料庫移轉到 Azure SQL Database。
@@ -59,7 +59,7 @@ ms.locfileid: "52872205"
 - 確定用來連線至目標 Azure SQL DB 執行個體的認證，在目標 Azure SQL 資料庫上具有 CONTROL DATABASE 權限。
 - 來源 SQL Server 版本必須是 SQL Server 2005 或更新版本。 若要確認您的 SQL Server 執行個體正在執行的版本，請參閱[如何判斷 SQL Server 及其元件的版本、版次及更新層級](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an)一文。
 - 資料庫必須處於大量記錄或完整復原模式。 若要確認您為 SQL Server 執行個體設定的復原模式，請參閱[檢視或變更資料庫的復原模式 (SQL Server)](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server?view=sql-server-2017) 一文。
-- 確實製作資料庫的完整資料庫備份。 若要建立完整資料庫備份，請參閱[如何： 建立完整資料庫備份 (Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105)) 一文。
+- 確實製作資料庫的完整資料庫備份。 若要建立完整資料庫備份，請參閱[如何：建立完整資料庫備份 (Transact-SQL)](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms191304(v=sql.105))。
 - 若有任何資料表沒有主索引鍵，請在資料庫和特定資料表上啟用異動資料擷取 (CDC)。
     > [!NOTE]
     > 您可以使用下列指令碼來尋找任何沒有主索引鍵的資料表。
@@ -120,7 +120,7 @@ ms.locfileid: "52872205"
 
     評估完成時，結果會如下圖所示：
 
-    ![評估資料移轉](media\tutorial-sql-server-to-azure-sql-online\dma-assessments.png)
+    ![評估資料移轉](media/tutorial-sql-server-to-azure-sql-online/dma-assessments.png)
 
     對於 Azure SQL Database，評估會識別功能同位問題，以及阻礙移轉的問題。
 
@@ -143,52 +143,52 @@ ms.locfileid: "52872205"
 
     執行先前的步驟之後，DMA 介面應會如下圖所示：
     
-    ![建立 Data Migration Assistant 專案](media\tutorial-sql-server-to-azure-sql-online\dma-create-project.png)
+    ![建立 Data Migration Assistant 專案](media/tutorial-sql-server-to-azure-sql-online/dma-create-project.png)
 
 4.  選取 [Create] \(建立\) 以建立專案。
 5.  在 DMA 中，為您的 SQL Server 指定來源連線詳細資料，選取 [連線]，然後選取 [AdventureWorks2012] 資料庫。
 
-    ![Data Migration Assistant 來源連線詳細資料](media\tutorial-sql-server-to-azure-sql-online\dma-source-connect.png)
+    ![Data Migration Assistant 來源連線詳細資料](media/tutorial-sql-server-to-azure-sql-online/dma-source-connect.png)
 
 6.  在 [連線到目標伺服器] 下方選取 [下一步]，指定 Azure SQL Database 的目標連線詳細資料、選取 [連線]，然後選取您已在 Azure SQL Database 中預先佈建的 [AdventureWorksAzure] 資料庫。
 
-    ![Data Migration Assistant 目標連線詳細資料](media\tutorial-sql-server-to-azure-sql-online\dma-target-connect.png)
+    ![Data Migration Assistant 目標連線詳細資料](media/tutorial-sql-server-to-azure-sql-online/dma-target-connect.png)
 
 7.  選取 [Next] \(下一步\) 前進到 [Select objects] \(選取物件\) 畫面，您可以指定 **AdventureWorks2012** 資料庫中需要部署至 Azure SQL Database 的結構描述物件。
 
     預設會選取所有物件。
 
-    ![產生 SQL 指令碼](media\tutorial-sql-server-to-azure-sql-online\dma-assessment-source.png)
+    ![產生 SQL 指令碼](media/tutorial-sql-server-to-azure-sql-online/dma-assessment-source.png)
 
 8.  選取 [Generate SQL script] \(產生 SQL 指令碼\) 來建立 SQL 指令碼，然後檢閱指令碼是否有任何錯誤。
 
-    ![結構描述指令碼](media\tutorial-sql-server-to-azure-sql-online\dma-schema-script.png)
+    ![結構描述指令碼](media/tutorial-sql-server-to-azure-sql-online/dma-schema-script.png)
 
 9.  選取 [Deploy schema] \(部署結構描述\) 以將結構描述部署至 Azure SQL Database，並在結構描述部署好之後，檢查目標伺服器是否有任何異常狀況。
 
-    ![部署結構描述](media\tutorial-sql-server-to-azure-sql-online\dma-schema-deploy.png)
+    ![部署結構描述](media/tutorial-sql-server-to-azure-sql-online/dma-schema-deploy.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>註冊 Microsoft.DataMigration 資源提供者
 1. 登入 Azure 入口網站，選取 [所有服務]，然後選取 [訂用帳戶]。
  
-   ![顯示入口網站訂用帳戶](media\tutorial-sql-server-to-azure-sql-online\portal-select-subscription1.png)
+   ![顯示入口網站訂用帳戶](media/tutorial-sql-server-to-azure-sql-online/portal-select-subscription1.png)
        
 2. 選取您要在其中建立 Azure 資料庫移轉服務執行個體的訂用帳戶，然後選取 [資源提供者]。
  
-    ![顯示資源提供者](media\tutorial-sql-server-to-azure-sql-online\portal-select-resource-provider.png)
+    ![顯示資源提供者](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
     
 3.  搜尋移轉，然後在 [Microsoft.DataMigration] 的右邊，選取 [註冊]。
  
-    ![註冊資源提供者](media\tutorial-sql-server-to-azure-sql-online\portal-register-resource-provider.png)    
+    ![註冊資源提供者](media/tutorial-sql-server-to-azure-sql-online/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>建立執行個體
 1.  在 Azure 入口網站中，選取 [+ 建立資源]，搜尋「Azure 資料庫移轉服務」，然後從下拉式清單選取 [Azure 資料庫移轉服務]。
 
-    ![Azure Marketplace](media\tutorial-sql-server-to-azure-sql-online\portal-marketplace.png)
+    ![Azure Marketplace](media/tutorial-sql-server-to-azure-sql-online/portal-marketplace.png)
 
 2.  在 [Azure 資料庫移轉服務] 畫面上，選取 [建立]。
  
-    ![建立 Azure 資料庫移轉服務執行個體](media\tutorial-sql-server-to-azure-sql-online\dms-create1.png)
+    ![建立 Azure 資料庫移轉服務執行個體](media/tutorial-sql-server-to-azure-sql-online/dms-create1.png)
   
 3.  在 [建立移轉服務] 畫面上，指定服務的名稱、訂用帳戶，以及新的或現有的資源群組。
 
@@ -206,7 +206,7 @@ ms.locfileid: "52872205"
 
     如果您需要選擇適當 Azure 資料庫移轉服務層的協助，請參閱張貼在[這裡](https://go.microsoft.com/fwlink/?linkid=861067)的建議。  
 
-     ![設定 Azure 資料庫移轉服務執行個體設定](media\tutorial-sql-server-to-azure-sql-online\dms-settings2.png)
+     ![設定 Azure 資料庫移轉服務執行個體設定](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7.  選取 [建立] 以建立服務。
 
@@ -215,17 +215,17 @@ ms.locfileid: "52872205"
 
 1. 在 Azure 入口網站中，選取 [所有服務]，搜尋 Azure 資料庫移轉服務，然後選取 [Azure 資料庫移轉服務]。
  
-      ![找出 Azure 資料庫移轉服務的所有執行個體](media\tutorial-sql-server-to-azure-sql-online\dms-search.png)
+      ![找出 Azure 資料庫移轉服務的所有執行個體](media/tutorial-sql-server-to-azure-sql-online/dms-search.png)
 
 2. 在 [Azure 資料庫移轉服務] 畫面上，搜尋您建立的 Azure 資料庫移轉服務執行個體名稱，然後選取該執行個體。
  
-     ![找出您的 Azure 資料庫移轉服務執行個體](media\tutorial-sql-server-to-azure-sql-online\dms-instance-search.png)
+     ![找出您的 Azure 資料庫移轉服務執行個體](media/tutorial-sql-server-to-azure-sql-online/dms-instance-search.png)
  
 3. 選取 [+ 新增移轉專案]。
 4. 在 [新增移轉專案] 畫面上指定專案名稱，並在 [來源伺服器類型] 文字方塊中中選取 [SQL Server]，然後在 [目標伺服器類型] 文字方塊中選取 [Azure SQL Database]。
 5. 在 [選擇活動類型] 區段中，選取 [線上資料移轉]
 
-    ![建立資料庫移轉服務專案](media\tutorial-sql-server-to-azure-sql-online\dms-create-project3.png)
+    ![建立資料庫移轉服務專案](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
     > 或者，您可以選擇 [僅建立專案] 以立即建立移轉專案，並於後續再執行移轉。
@@ -234,7 +234,7 @@ ms.locfileid: "52872205"
 
 7. 選取 [建立及執行活動]，以建立專案並執行移轉活動。
 
-    ![建立並執行資料庫移轉服務活動](media\tutorial-sql-server-to-azure-sql-online\dms-create-and-run-activity.png)
+    ![建立並執行資料庫移轉服務活動](media/tutorial-sql-server-to-azure-sql-online/dms-create-and-run-activity.png)
  
 ## <a name="specify-source-details"></a>指定來源詳細資料
 1. 在 [移轉來源詳細資料] 畫面上，指定來源 SQL Server 執行個體的連線詳細資料。
@@ -248,55 +248,55 @@ ms.locfileid: "52872205"
     > [!CAUTION]
     > 使用自我簽署憑證加密的 SSL 連線不會提供增強式安全性。 這種連線容易受到攔截式攻擊。 在生產環境中，或在連線到網際網路的伺服器上，您不應該仰賴使用自我簽署憑證的 SSL。
 
-   ![來源詳細資料](media\tutorial-sql-server-to-azure-sql-online\dms-source-details3.png)
+   ![來源詳細資料](media/tutorial-sql-server-to-azure-sql-online/dms-source-details3.png)
 
 ## <a name="specify-target-details"></a>指定目標詳細資料
 1. 選取 [儲存]，然後在 [移轉目標詳細資料] 畫面上指定目標 Azure SQL Database 伺服器的連線詳細資料，此伺服器是使用 DMA 將 **AdventureWorks2012** 結構描述部署到的預先佈建 Azure SQL Database。
 
-    ![選取目標](media\tutorial-sql-server-to-azure-sql-online\dms-select-target3.png)
+    ![選取目標](media/tutorial-sql-server-to-azure-sql-online/dms-select-target3.png)
 
 2. 選取 [儲存]，然後在 [對應到目標資料庫] 畫面上，對應要進行移轉的來源和目標資料庫。
 
     如果目標資料庫包含與來源資料庫相同的資料庫名稱，Azure 資料庫移轉服務依預設會選取目標資料庫。
 
-    ![對應到目標資料庫](media\tutorial-sql-server-to-azure-sql-online\dms-map-targets-activity3.png)
+    ![對應到目標資料庫](media/tutorial-sql-server-to-azure-sql-online/dms-map-targets-activity3.png)
 
 3. 在 [選取資料表] 畫面上選取 [儲存]，展開資料表清單，然後檢閱受影響欄位的清單。
 
     Azure 資料庫移轉服務會自動選取存在於目標 Azure SQL Database 執行個體上的所有空來源資料表。 如果您想要重新移轉已包含資料的資料表，就必須在此刀鋒視窗上明確地選取資料表。
 
-    ![選取資料表](media\tutorial-sql-server-to-azure-sql-online\dms-configure-setting-activity3.png)
+    ![選取資料表](media/tutorial-sql-server-to-azure-sql-online/dms-configure-setting-activity3.png)
 
 4.  選取 [儲存]，在 [移轉摘要] 畫面的 [活動名稱] 文字方塊中，指定移轉活動的名稱，然後檢閱摘要，以確定來源和目標詳細資料都與您先前的指定相符。
 
-    ![移轉摘要](media\tutorial-sql-server-to-azure-sql-online\dms-migration-summary.png)
+    ![移轉摘要](media/tutorial-sql-server-to-azure-sql-online/dms-migration-summary.png)
 
 ## <a name="run-the-migration"></a>執行移轉
 - 選取 [執行移轉]。
 
     [移轉活動] 視窗隨即出現，且活動的 [狀態] 為 [正在初始化]。
 
-    ![活動狀態 - 正在初始化](media\tutorial-sql-server-to-azure-sql-online\dms-activity-status2.png)
+    ![活動狀態 - 正在初始化](media/tutorial-sql-server-to-azure-sql-online/dms-activity-status2.png)
 
 ## <a name="monitor-the-migration"></a>監視移轉
 1. 在移轉活動畫面上，選取 [重新整理] 以更新顯示，直到移轉的 [狀態] 顯示為 [執行中] 為止。
 
 2. 按一下特定資料庫，以顯示 [載入完整資料] 和 [累加式資料同步] 作業的移轉狀態。
 
-    ![活動狀態 - 進行中](media\tutorial-sql-server-to-azure-sql-online\dms-activity-in-progress.png)
+    ![活動狀態 - 進行中](media/tutorial-sql-server-to-azure-sql-online/dms-activity-in-progress.png)
 
 ## <a name="perform-migration-cutover"></a>執行完全移轉
 初始完整載入完成後，資料庫會標示為 [已可執行完全移轉]。
 
 1. 當您準備好要完成資料庫移轉後，請選取 [開始完全移轉]。
 
-    ![開始完全移轉](media\tutorial-sql-server-to-azure-sql-online\dms-start-cutover.png)
+    ![開始完全移轉](media/tutorial-sql-server-to-azure-sql-online/dms-start-cutover.png)
  
 2.  確實停止所有傳入來源資料庫的交易；等到 [暫止的變更] 計數器顯示為 **0** 為止。
 3.  選取 [確認]，然後選取 [套用]。
 4. 當資料庫移轉狀態顯示為 [已完成] 後，請將應用程式連線至新的目標 Azure SQL Database。
  
-    ![活動狀態 - 已完成](media\tutorial-sql-server-to-azure-sql-online\dms-activity-completed.png)
+    ![活動狀態 - 已完成](media/tutorial-sql-server-to-azure-sql-online/dms-activity-completed.png)
 
 ## <a name="next-steps"></a>後續步驟
 - 如需在線上移轉至「適用於 MySQL 的 Azure 資料庫」時的已知問題和限制，請參閱 [Azure SQL Database 線上移轉的已知問題和因應措施](known-issues-azure-sql-online.md)一文。

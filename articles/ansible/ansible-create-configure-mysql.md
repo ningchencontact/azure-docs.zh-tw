@@ -1,5 +1,5 @@
 ---
-title: 使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器 (預覽)
+title: 使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 description: 深入了解如何使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 ms.service: ansible
 keywords: ansible, azure, devops, bash, 劇本, mysql, 資料庫
@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/23/2018
-ms.openlocfilehash: b549aeaf24bd774245ee1f2ff6924ac1f6dbeee3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6fd08e21fe0573d48ae7752eb410845062932b5e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427891"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255936"
 ---
-# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible-preview"></a>使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器 (預覽)
+# <a name="create-and-configure-an-azure-database-for-mysql-server-by-using-ansible"></a>使用 Ansible 來建立及設定適用於 MySQL 的 Azure 資料庫伺服器
 [適用於 MySQL 的 Azure 資料庫](https://docs.microsoft.com/azure/mysql/)是一個受控服務，您可用來在雲端執行、管理及調整高可用性 MySQL 資料庫。 Ansible 可讓您將環境中的資源部署和設定自動化。 
 
 本快速入門說明如何使用 Ansible 來建立適用於 MySQL 的 Azure 資料庫伺服器，並設定其防火牆規則。 您可以使用 Azure 入口網站，在大約五分鐘內完成這些工作。
@@ -25,7 +25,7 @@ ms.locfileid: "49427891"
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。 您可以藉由執行 `sudo pip install ansible[azure]==2.7.0rc2` 來安裝 Ansible 2.7 RC 版。 Ansible 2.7 發行後，您就不需要指定版本，因為預設版本將是 2.7。
+> 必須使用 Ansible 2.7，才能執行此教學課程中的下列範例劇本。 
 
 ## <a name="create-a-resource-group"></a>建立資源群組
 資源群組是一種邏輯容器，您會在其中部署與管理 Azure 資源。  

@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: ad8cc550ce69e4dc4c19a569718fa873a65b3620
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda5f21a535c6256d534bfdaa6cf30ae710ba075
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010339"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413178"
 ---
 # <a name="create-a-netapp-account"></a>建立 NetApp 帳戶
 建立 NetApp 帳戶可讓您設定容量集區，並接著建立磁碟區。 您可以使用 [Azure NetApp Files] 刀鋒視窗來建立新的 NetApp 帳戶。
 
 ## <a name="before-you-begin"></a>開始之前
-您必須已加入白名單，才能存取 Microsoft.NetApp Azure 資源提供者，並且設定以使用 Azure NetApp Files 服務。  
+您必須註冊您的訂用帳戶，以使用 NetApp 資源提供者和公開預覽功能。
 
-[Azure NetApp Files 公開預覽註冊頁面](https://aka.ms/nfspublicpreview)。 
+[註冊 Azure NetApp Files](azure-netapp-files-register.md)
 
 ## <a name="steps"></a>步驟 
 
@@ -60,6 +60,5 @@ ms.locfileid: "39010339"
 
 ## <a name="next-steps"></a>後續步驟  
 
-1. [設定容量集區](azure-netapp-files-set-up-capacity-pool.md)
-2. [建立適用於 Azure NetApp Files 的磁碟區](azure-netapp-files-create-volumes.md)
-3. [設定磁碟區的匯出原則 (選用)](azure-netapp-files-configure-export-policy.md)
+[設定容量集區](azure-netapp-files-set-up-capacity-pool.md)
+

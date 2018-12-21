@@ -8,20 +8,19 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 08/09/2018
+ms.date: 12/06/2018
 ms.author: barbkess
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b0180f162996c5fc4647071feaf02d42320b7c9a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: aceacdea8b3c86a5c4f26a5f082f4c6cf0b3805d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036283"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011972"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>教學課程：為應用程式設定透過 Azure Active Directory 進行的 SAML 型單一登入
 
-本教學課程會使用 [Azure 入口網站](https://portal.azure.com)為應用程式設定透過 Azure Active Directory (Azure AD) 進行的 SAML 型單一登入。 請使用本教學課程來設定沒有[應用程式專用教學課程](../saas-apps/tutorial-list.md)的應用程式。 
-
+本教學課程會使用 [Azure 入口網站](https://portal.azure.com)為應用程式設定透過 Azure Active Directory (Azure AD) 進行的 SAML 型單一登入。 當沒有[應用程式特定教學課程](../saas-apps/tutorial-list.md)可用時，請使用此教學課程。 
 
 本教學課程會使用 Azure 入口網站執行下列動作：
 
@@ -36,13 +35,13 @@ ms.locfileid: "40036283"
 
 ## <a name="before-you-begin"></a>開始之前
 
-1. 如果應用程式未新增至您的 Azure AD 租用戶，請參閱[快速入門：將應用程式新增至 Azure AD 租用戶](add-application-portal.md)。
+1. 如果尚未將應用程式新增至您的 Azure AD 租用戶，請參閱[快速入門：將應用程式新增至 Azure AD 租用戶](add-application-portal.md)。
 
 2. 要求您的應用程式廠商提供[設定網域和 URL](#configure-domain-and-urls)中所說明的資訊。
 
 3. 若要測試本教學課程中的步驟，我們建議您使用非生產環境。 如果您沒有 Azure AD 的非生產環境，您可以[取得為期一個月的試用版](https://azure.microsoft.com/pricing/free-trial/)。
 
-4. 以 Azure AD 租用戶全域管理員、雲端應用程式系統管理員或應用程式系統管理員的身分登入 [Azure 入口網站](https://portal.azure.com)。
+4. 以雲端應用程式系統管理員或 Azure AD 租用戶的應用程式系統管理員身分登入 [Azure 入口網站](https://portal.azure.com)。
 
 ## <a name="select-a-single-sign-on-mode"></a>選取單一登入模式
 
@@ -56,7 +55,7 @@ ms.locfileid: "40036283"
 
 3. 在 [應用程式類型] 功能表中，選取 [所有應用程式]，然後按一下 [套用]。
 
-4. 輸入要設定單一登入的應用程式名稱。 您可以選擇自己的應用程式，或使用在[新增應用程式](add-application-portal.md)快速入門中新增的 GitHub 測試應用程式。
+4. 輸入要設定單一登入的應用程式名稱。 請選擇您自己的應用程式，或輸入 **GitHub-test** 以設定您在[新增應用程式](add-application-portal.md)快速入門中新增的應用程式。
 
 5. 按一下 [單一登入]。 在 [單一登入模式] 下方，[SAML 型登入] 會顯示為預設選項。 
 
@@ -72,8 +71,8 @@ ms.locfileid: "40036283"
 
     | 組態設定 | SP 起始 | idP 起始 | 說明 |
     |:--|:--|:--|:--|
-    | 登入 URL | 必要 | 請勿指定 | 當使用者開啟此 URL 時，服務提供者會重新導向至 Azure AD 以進行驗證，並將使用者登入。 Azure AD 會使用此 URL 從 Office 365 和 Azure AD 存取面板中啟動應用程式。 如果空白，則在使用者從 Office 365、Azure AD 存取面板或 Azure AD 單一登入 URL 啟動應用程式時，Azure AD 會執行 idP 起始的單一登入。|
-    | 識別碼 (實體識別碼) | 某些應用程式需要 | 某些應用程式需要 | 可唯一識別要設定單一登入的應用程式。 Azure AD 會將識別碼傳回至應用程式作為 SAML 權杖的 Audience 參數，且應用程式應會加以驗證。 在應用程式中提供的任何 SAML 中繼資料中，此值也會顯示為實體識別碼。|
+    | 登入 URL | 必要 | 請勿指定 | 當使用者開啟此 URL 時，服務提供者會重新導向至 Azure AD 以進行驗證，並將使用者登入。 Azure AD 會使用此 URL 從 Office 365 和 Azure AD「存取面板」中啟動應用程式。 如果空白，當使用者啟動應用程式時，Azure AD 會倚賴識別提供者來起始單一登入。|
+    | 識別碼 (實體識別碼) | 某些應用程式需要 | 某些應用程式需要 | 可唯一識別要設定單一登入的應用程式。 Azure AD 會將識別碼傳送給應用程式作為 SAML 權杖的 Audience 參數。 應用程式應該會對其進行驗證。 在應用程式中提供的任何 SAML 中繼資料中，此值也會顯示為實體識別碼。|
     | 回覆 URL | 選用 | 必要 | 指定應用程式預期要接收 SAML 權杖的位置。 此回覆 URL 也稱為判斷提示取用者服務 (ACS) URL。 |
     | 轉送狀態 | 選用 | 選用 | 對應用程式指定在驗證完成後應將使用者重新導向到的位置。 此值通常是用程式有效的 URL，但有些應用程式會以不同方式使用此欄位。 如需詳細資訊，請詢問應用程式廠商。
 
@@ -83,11 +82,11 @@ ms.locfileid: "40036283"
 
 3. 在刀鋒視窗頂端，按一下 [儲存]。
 
-4. 此區段中會出現 [測試 SAML 設定] 按鈕。 請在本教學課程稍後[測試單一登入](#test-single-sign-on)一節中執行此測試。
+4. 此區段中有一個 [測試 SAML 設定] 按鈕。 請在本教學課程稍後[測試單一登入](#test-single-sign-on)一節中執行此測試。
 
 ## <a name="configure-user-attributes"></a>設定使用者屬性
 
-使用者屬性可讓您控制 Azure AD 會將哪些資訊傳送至應用程式。 例如，Azure AD 可將使用者的名稱、電子郵件和員工識別碼傳送至應用程式。 Azure AD 會在每次使用者登入時，在 SAML 權杖中將使用者屬性傳送至應用程式。 
+使用者屬性可讓您控制每次使用者登入時，Azure AD 會在 SAML 權杖中傳送給應用程式的資訊。 例如，Azure AD 可將使用者的名稱、電子郵件和員工識別碼傳送至應用程式。 
 
 這些屬性可能是單一登入正常運作所需的必要或選擇性屬性。 如需詳細資訊，請參閱[應用程式專用教學課程](../saas-apps/tutorial-list.md)，或洽詢應用程式廠商。
 
@@ -115,7 +114,7 @@ Azure AD 會使用憑證來簽署它傳送至應用程式的 SAML 權杖。
 
 2. 若要設定憑證，請按一下 [建立新憑證]。
 
-3. 在 [建立新憑證] 刀鋒視窗中設定到期日，然後按一下 [儲存]。
+3. 在 [建立新憑證] 刀鋒視窗中設定 [到期日]，然後按一下 [儲存]。
 
 4. 按一下 [使新憑證成為使用中]。
 
@@ -146,7 +145,7 @@ Microsoft 建議您先對數個使用者或群組測試單一登入，再對您�
     ![設定應用程式](media/configure-single-sign-on-portal/configure-app.png)
 
 2. 在入口網站中按一下 [設定應用程式]，並依照指示操作。
-3. 在應用程式中手動建立要用來測試單一登入的使用者帳戶。 建立您在[上一節](#assign-users-to-the-application)中指派給應用程式的使用者帳戶。   當您準備好要對組織推出應用程式時，建議您使用自動使用者佈建，自動在應用程式中建立使用者帳戶。
+3. 在應用程式中手動建立使用者帳戶以測試單一登入。 建立您在[上一節](#assign-users-to-the-application)中指派給應用程式的使用者帳戶。 
 
 ## <a name="test-single-sign-on"></a>測試單一登入
 
@@ -158,12 +157,12 @@ Microsoft 建議您先對數個使用者或群組測試單一登入，再對您�
 
     ![測試單一登入選項](media/configure-single-sign-on-portal/test-single-sign-on.png) 
 
-3. 按一下 [以目前使用者身分登入]。 這可讓您先以管理員身分確認單一登入是否正常運作。
+3. 按一下 [以目前使用者身分登入]。 此測試可讓您先看看單一登入對您這個系統管理員來說是否有效。
 4. 如果發生錯誤，將會出現錯誤訊息。 請將訊息內容複製並貼到 [錯誤的描述為何?] 方塊中。
 
     ![取得解決方案指引](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. 按一下 [取得解決方案指引]。 此時會出現根本原因和解決方案指引。  在此範例中，使用者未指派給應用程式。
+5. 按一下 [取得解決方案指引]。 隨即會顯示根本原因和解決方法指引。  在此範例中，未將使用者指派給應用程式。
 
     ![修正錯誤](media/configure-single-sign-on-portal/fix-error.png)
 
@@ -174,7 +173,7 @@ Microsoft 建議您先對數個使用者或群組測試單一登入，再對您�
 
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您使用 Azure 入口網站為應用程式設定了透過 Azure AD 進行的單一登入。 您找到單一登入組態設定頁面，並設定了單一登入設定。 完成設定後，您將使用者指派給應用程式，並將應用程式設定為使用 SAML 型單一登入。 當這項工作全部完成後，您驗證了 SAML 登入可正常運作。
+在本教學課程中，您已為應用程式設定單一登入設定。 完成設定後，您將使用者指派給應用程式，並將應用程式設定為使用 SAML 型單一登入。 當這項工作全部完成後，您驗證了 SAML 登入可正常運作。
 
 您進行了下列事項：
 > [!div class="checklist"]
@@ -183,12 +182,12 @@ Microsoft 建議您先對數個使用者或群組測試單一登入，再對您�
 > * 設定使用者屬性
 > * 建立 SAML 簽署憑證
 > * 手動將使用者或群組指派給應用程式
-> * 設定應用程式使用單一登入
+> * 將應用程式設定成使用 Azure AD 作為 SAML 識別提供者
 > * 測試 SAML 型單一登入
 
-若要對組織中的更多使用者推出應用程式，建議使用自動佈建。
+若要對組織中的更多使用者推出應用程式，建議您使用自動使用者佈建。
 
 > [!div class="nextstepaction"]
->[了解如何使用自動佈建指派使用者](configure-automatic-user-provisioning-portal.md)
+>[了解如何使用自動佈建來指派使用者](configure-automatic-user-provisioning-portal.md)
 
 

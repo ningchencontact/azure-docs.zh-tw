@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 564a12de2a0823372ce267f9ff2759ab17199a80
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086031"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993822"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入門：使用翻譯工具文字 API 搭配 Python 來偵測文字語言
+# <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來偵測文字語言
 
 在此快速入門中，您將了解如何搭配使用 Python 與翻譯工具文字 REST API 來偵測所提供文字的語言。
 
@@ -163,7 +163,7 @@ python detect.py
 
 ## <a name="see-also"></a>另請參閱
 
-除了語言偵測外，請了解如何使用翻譯工具文字 API 執行下列作業：
+了解如何使用翻譯工具文字 API 來執行下列動作：
 
 * [翻譯文字](quickstart-python-translate.md)
 * [進行文字音譯](quickstart-python-transliterate.md)

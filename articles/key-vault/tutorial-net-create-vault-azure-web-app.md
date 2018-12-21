@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: defe1a109381c7ee44c6fc5e5db4c6f6ecc5ac6f
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 50a7f3166d677fe1af961866ccae4445a3d810b8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706835"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322136"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>教學課程：在 .NET 中透過 Azure Web 應用程式使用 Azure Key Vault
 
@@ -90,7 +90,7 @@ Azure 資源群組是在其中部署與管理 Azure 資源的邏輯容器。
 
 * 金鑰保存庫名稱：可以只包含數字、字母和連字號的 3 到 24 個字元的字串 (例如：0-9、a-z、A-Z 和 - )
 * 資源群組名稱
-* 位置：**美國西部**
+* 位置：美國西部
 
 在 Azure CLI 中輸入下列命令：
 
@@ -132,7 +132,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. 在 About.cshtml.cs 檔案中匯入下列程式碼：
 
-   ```
+   ```csharp
     using Microsoft.Azure.KeyVault;
     using Microsoft.Azure.KeyVault.Models;
     using Microsoft.Azure.Services.AppAuthentication;
@@ -140,7 +140,7 @@ az keyvault secret show --name "AppSecret" --vault-name "<YourKeyVaultName>"
 
 4. 您在 AboutModel 類別中的程式碼如下所示：
 
-   ```
+   ```csharp
     public class AboutModel : PageModel
     {
         public string Message { get; set; }
@@ -220,7 +220,7 @@ Azure Key Vault 可安全地儲存認證和其他祕密，但是您的程式碼�
 
 1. 當您將應用程式發佈至 Azure 時，請記下 `PrincipalId`。 步驟 1 中命令的輸出格式應該如下：
 
-   ```
+   ```json
    {
      "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
      "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",

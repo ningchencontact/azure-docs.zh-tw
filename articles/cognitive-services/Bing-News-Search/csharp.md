@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 新聞搜尋 API，C#
+title: 快速入門：使用 C# 來執行新聞搜尋 - Bing 新聞搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 新聞搜尋 API。
+description: 使用此快速入門以運用 C# 來傳送要求給「Bing 新聞搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: b69e00a31d5746b7f25ef6156b703a4505a89630
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 20a5e24a4fce2bb8dc817cb74c2a58a1bc304fae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314829"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250411"
 ---
-# <a name="quickstart-bing-news-search-api-with-c"></a>快速入門：搭配使用 Bing 新聞搜尋 API 與 C#
+# <a name="quickstart-perform-a-news-search-using-c-and-the-bing-news-search-rest-api"></a>快速入門：使用 C# 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
 本文示範如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 搜尋 API。 雖然本文是以 C# 部署，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。 
 

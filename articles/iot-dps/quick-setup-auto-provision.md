@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cad0ec8c2e2f8972cd856b34b8abdd5afd3a6316
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 15d243218632ce9010d0f4542fb97f311e8a3166
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515194"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53182633"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>使用 Azure 入口網站設定 IoT 中樞裝置佈建服務
 
@@ -41,7 +41,7 @@ ms.locfileid: "51515194"
     * **資源群組：** 此欄位可讓您建立新的資源群組，或選擇現有群組以包含新的執行個體。 選擇包含您先前所建立 IoT 中樞的相同資源群組，例如 **TestResources**。 您可以將所有相關資源一起放在群組中，一併加以管理。 例如，刪除資源群組時，將會刪除該群組中包含的所有資源。 如需詳細資訊，請參閱[使用資源群組管理您的 Azure 資源](../azure-resource-manager/resource-group-portal.md)。
     * **位置：** 選取最接近裝置的位置。
 
-    ![在入口網站刀鋒視窗中輸入關於裝置佈建服務執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+      ![在入口網站刀鋒視窗中輸入關於裝置佈建服務執行個體的基本資訊](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. 按一下通知按鈕，以監視資源執行個體的建立情形。 在服務成功部署後，按一下 [釘選到儀表板]，然後按 [移至資源]。
 
@@ -59,9 +59,9 @@ ms.locfileid: "51515194"
 
     * **訂用帳戶：** 選取訂用帳戶，其中包含您想要與新「裝置佈建服務」執行個體連結的 IoT 中樞。
     * **IoT 中樞：** 選取要與新「裝置佈建服務」執行個體連結的 IoT 中樞。
-    * **存取原則：** 選取 [iothubowner] 作為認證，以建立與 IoT 中樞的連結。  
+    * **存取原則：** 選取 **iothubowner** 作為認證，以建立與 IoT 中樞的連結。  
 
-    ![在入口網站刀鋒視窗中連結中樞名稱，以連結至裝置佈建服務執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+      ![在入口網站刀鋒視窗中連結中樞名稱，以連結至裝置佈建服務執行個體](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. 您現在應會在 [連結的 IoT 中樞] 刀鋒視窗之下看到所選的中樞。 您可能需要按一下 [重新整理] 以顯示 [連結的 IoT 中樞]。
 

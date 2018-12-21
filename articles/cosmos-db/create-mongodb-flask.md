@@ -1,22 +1,21 @@
 ---
-title: Azure Cosmos DB︰使用 Python 和 Azure Cosmos DB MongoDB API 建置 Flask Web 應用程式 | Microsoft Docs
+title: Azure Cosmos DB：使用 Python 和 Azure Cosmos DB MongoDB API 建置 Flask Web 應用程式
 description: 提供 Python Flask 程式碼範例，可讓您用來連線及查詢 Azure Cosmos DB MongoDB API
 services: cosmos-db
 author: slyons
-manager: kfile
+ms.author: sclyon
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, seodec18
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/02/2017
-ms.author: sclyon
-ms.openlocfilehash: 4416af7c1afede89063c1d4289ad2603f7b2c5d0
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09c19f57a2993c0faad3dca708f67526f99d13df
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248518"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165107"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB：使用 MongoDB API 建置 Flask 應用程式
 
@@ -47,7 +46,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-現在讓我們從 GitHub 複製 Flask-MongoDB API 應用程式，設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。
+現在讓我們從 GitHub 複製 Flask-MongoDB API 應用程式、設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。
 
 1. 開啟命令提示字元，建立名為 git-samples 的新資料夾，然後關閉命令提示字元。
 
@@ -121,7 +120,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 如果您想要針對即時 Azure Cosmos DB 帳戶測試程式碼，請移至 Azure 入口網站以建立帳戶，並取得您的連接字串資訊。 接著將它複製到應用程式。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，於您 Azure Cosmos DB 帳戶的左側瀏覽區中，按一下 [連接字串]，然後按一下 [讀寫金鑰]。 在下一個步驟中，您將使用畫面右側的複製按鈕，將使用者名稱、密碼和主機複製到 Dal.cs 檔案中。
 
 2. 開啟根目錄中的 **app.py** 檔案。
 
@@ -135,7 +134,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ## <a name="deploy-to-azure"></a>部署至 Azure
 
-若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)，以在 Azure 中搭配 GitHub 設定持續部署。
+若要部署此應用程式，您可以在 Azure 中建立新的 Web 應用程式，並搭配此 GitHub 存放庫的分支啟用持續部署。 請遵循此[教學課程](https://docs.microsoft.com/azure/app-service-web/app-service-continuous-deployment)，在 Azure 中搭配 GitHub 設定持續部署。
 
 部署至 Azure 時，您應該移除應用程式金鑰，並確定以下區段未註解化：
 
@@ -150,7 +149,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 如果您不想要建立此存放庫的分支，也可以按一下下方的 [部署至 Azure] 按鈕。 接著，您應該移至 Azure 並使用 Cosmos DB 帳戶資訊設定應用程式設定。
 
 <a href="https://deploy.azure.com/?repository=https://github.com/heatherbshapiro/To-Do-List---Flask-MongoDB-Example" target="_blank">
-<img src="http://azuredeploy.net/deploybutton.png"/>
+<img src="https://azuredeploy.net/deploybutton.png" alt="Click to Deploy to Azure">
 </a>
 
 > [!NOTE]

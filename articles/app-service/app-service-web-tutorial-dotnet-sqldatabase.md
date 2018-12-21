@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式 | Microsoft Docs
+title: 建置搭配 SQL Database 的 ASP.NET 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何將採用 SQL Server 資料庫的 C# ASP.NET 應用程式部署到 Azure。
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 783bf93c8507e76717a4293b2b29a9c11e9a1eed
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: 14dbd723772caa0045e9744ddb726060e3a1b8cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353811"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257772"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教學課程：在 Azure 中搭配 SQL Database 來建置 ASP.NET 應用程式
 

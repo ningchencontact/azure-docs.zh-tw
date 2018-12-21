@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案 | Microsoft Docs
-description: 了解如何使用 SQL Database 擴充功能透過 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
+description: 了解如何使用 SQL Database 擴充功能透過 Azure Resource Manager 範本匯入 SQL BACPAC 檔案。
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/04/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9f1b3ea74c59383561b019d32a80f1502716b29e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 249356644772ae75b12f5c940ff5f9ed49b2c795
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879208"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994998"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教學課程：使用 Azure Resource Manager 範本匯入 SQL BACPAC 檔案
 
-了解如何使用 Azure SQL Database 擴充功能匯入 BACPAC 檔案。 在本教學課程中，您將建立一個範本，以部署 Azure SQL Server、SQL Database 和 BACPAC 檔案。 如需使用 Azure Resource Manager 範本來部署 Azure 虛擬機器擴充功能的相關資訊，請參閱 [# 教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能](./resource-manager-tutorial-deploy-vm-extensions.md)。
+了解如何使用 Azure SQL Database 擴充功能透過 Azure Resource Manager 範本匯入 BACPAC 檔案。 除了完成部署所需的主要範本檔案以外，部署成品可以是任何檔案。 BACPAC 檔案是成品。 在本教學課程中，您將建立一個範本，以部署 Azure SQL Server、SQL Database，以及匯入 BACPAC 檔案。 如需使用 Azure Resource Manager 範本來部署 Azure 虛擬機器擴充功能的相關資訊，請參閱 [# 教學課程：使用 Azure Resource Manager 範本部署虛擬機器擴充功能](./resource-manager-tutorial-deploy-vm-extensions.md)。
 
 本教學課程涵蓋下列工作：
 
@@ -68,12 +68,13 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     * `Microsoft.Sql/servers` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers)。
     * `Microsoft.SQL/servers/securityAlertPolicies` 。 請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies)。
     * `Microsoft.SQL.servers/databases` 。  請參閱[範本參考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)。
+
     自訂範本之前，最好能初步了解範本。
 4. 選取 [檔案]>[另存新檔]，以名稱 **azuredeploy.json** 將檔案的複本儲存至您的本機電腦。
 
 ## <a name="edit-the-template"></a>編輯範本
 
-您必須將兩個額外的資源新增至範本。
+將兩個額外的資源新增至範本。
 
 * 若要讓 SQL 資料庫擴充功能匯入 BACPAC 檔案，您必須允許存取 Azure 服務。 將下列 JSON 新增至 SQL 伺服器定義：
 
@@ -82,7 +83,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
         "type": "firewallrules",
         "name": "AllowAllAzureIps",
         "location": "[parameters('location')]",
-        "apiVersion": "2014-04-01",
+        "apiVersion": "2015-05-01-preview",
         "dependsOn": [
             "[variables('databaseServerName')]"
         ],
@@ -130,7 +131,7 @@ Azure 快速入門範本是 Resource Manager 範本的存放庫。 您可以尋�
     * **storageKeyType**：要使用的儲存體金鑰類型。 其值可以是 `StorageAccessKey` 或 `SharedAccessKey`。 由於 BACPAC 檔案可在具有公用存取權的 Azure 儲存體帳戶上共用，因此在此處會使用 `SharedAccessKey'。
     * **storageKey**：要使用的儲存體金鑰。 如果儲存體金鑰類型為 SharedAccessKey，則前面必須加上 "?"。
     * **storageUri**：要使用的儲存體 URI。 如果您選擇不使用提供的 BACPAC 檔案，則必須更新值。
-    * **administratorLoginPassword**：SQL 系統管理員的密碼。 建議您使用產生的密碼。 請參閱[必要條件](#prerequisites)。
+    * **administratorLoginPassword**：SQL 系統管理員的密碼。 使用所產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="deploy-the-template"></a>部署範本
 
@@ -151,7 +152,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
     -TemplateFile azuredeploy.json
 ```
 
-建議您使用產生的密碼。 請參閱[必要條件](#prerequisites)。
+使用所產生的密碼。 請參閱[必要條件](#prerequisites)。
 
 ## <a name="verify-the-deployment"></a>驗證部署
 
@@ -170,7 +171,7 @@ New-AzureRmResourceGroupDeployment -Name $deploymentName `
 
 ## <a name="next-steps"></a>後續步驟
 
-在本教學課程中，您已部署 Azure SQL Server、SQL Database 並匯入 BACPAC 檔案。 若要了解如何跨多個區域部署 Azure 資源，以及如何使用安全的部署實務，請參閱
+在本教學課程中，您已部署 Azure SQL Server、SQL Database 並匯入 BACPAC 檔案。 BACPAC 檔案會儲存在 Azure 儲存體帳戶中。 任何具有 URL 的人員都可以存取該檔案。 若要了解如何保護 BACPAC 檔案 (成品)，請參閱
 
 > [!div class="nextstepaction"]
-> [使用 Azure 部署管理員](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [保護成品](./resource-manager-tutorial-secure-artifacts.md)

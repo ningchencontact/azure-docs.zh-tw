@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568949"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259540"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>快速入門：使用 Azure 入口網站在 Azure Databricks 上執行 Spark 作業
 
@@ -86,12 +86,12 @@ ms.locfileid: "51568949"
 ## <a name="download-a-sample-data-file"></a>下載範例資料檔案
 下載範例 JSON 資料檔案，並將其儲存到 Azure Blob 儲存體中。
 
-1. 將此範例 JSON 資料檔案[從 Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 下載到本機電腦上。 按一下滑鼠右鍵，再按一下 [另存新檔]，將原始檔案儲存在本機上。
+1. 將此範例 JSON 資料檔案[從 GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) 下載到本機電腦上。 按一下滑鼠右鍵，再按一下 [另存新檔]，將原始檔案儲存在本機上。
 
 2. 如果您還沒有儲存體帳戶，請建立一個。
     - 在 Azure 入口網站中，選取 [建立資源]。 選取 [儲存體] 類別，然後選取 [儲存體帳戶]
     - 提供儲存體帳戶的唯一名稱。
-    - 選取 [帳戶類型]：[Blob 儲存體]
+    - 選取 [帳戶種類]：**Blob 儲存體**
     - 選取 [資源群組] 名稱。 請使用您在 Databricks 工作區中建立的相同資源群組。
     
     如需詳細資訊，請參閱[建立 Azure Blob 儲存體帳戶](../storage/common/storage-quickstart-create-account.md)。
@@ -200,7 +200,7 @@ ms.locfileid: "51568949"
 
 ![停止 Databricks 叢集](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "停止 Databricks 叢集")
 
-如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動\_\_分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
+如果您不手動終止叢集，叢集將會自動停止，但前提是您已在建立叢集時選取 [在停止活動 \_\_ 分鐘後終止] 核取方塊。 在這種情況下，叢集將會在停止運作達指定時間後自動停止。
 
 ## <a name="next-steps"></a>後續步驟
 

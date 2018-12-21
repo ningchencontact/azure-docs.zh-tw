@@ -1,17 +1,17 @@
 ---
-title: Azure CLI 指令碼 - 取得 Azure Cosmos DB 的帳戶金鑰 | Microsoft Docs
+title: Azure CLI 指令碼：取得 Azure Cosmos DB 的帳戶金鑰
 description: Azure CLI 指令碼範例 - 取得 Azure Cosmos DB 的帳戶金鑰
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 342c874fc3ada6f9a2480db2632a74cd51031305
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 354184313e541dfa0cbe32c36abbd097c9a97b3c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005169"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965883"
 ---
 # <a name="get-account-keys-for-azure-cosmos-db-using-the-azure-cli"></a>使用 Azure CLI 取得 Azure Cosmos DB 的帳戶金鑰
 

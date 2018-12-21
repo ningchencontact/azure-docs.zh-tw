@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 搜尋服務中呼叫認知搜尋 API 的教學課程 | Microsoft Docs
-description: 在此教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
+title: 呼叫認知搜尋 API 的教學課程 - Azure 搜尋服務
+description: 在本教學課程中，將逐步說明資料擷取和轉換的 Azure 搜尋服務索引中，資料擷取、自然語言和影像 AI 處理的範例。
 manager: pablocas
 author: luiscabrer
 services: search
@@ -9,23 +9,24 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730659"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386225"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
 
-在此教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 認知技能是會擷取影像的文字和文字表示法，並偵測語言、實體、關鍵片語等項目的自然語言處理 (NLP) 和影像分析作業。 其最終結果是，認知搜尋索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
+在本教學課程中，您將了解在 Azure 搜尋服務中使用*認知技能*進行資料擴充程式設計的機制。 認知技能是會擷取影像的文字和文字表示法，並偵測語言、實體、關鍵片語等項目的自然語言處理 (NLP) 和影像分析作業。 其最終結果是，認知搜尋索引管線會在 Azure 搜尋服務索引中建立豐富的額外內容。 
 
-在此教學課程中，您會發出 REST API 呼叫以執行下列工作：
+在本教學課程中，您會發出 REST API 呼叫以執行下列工作：
 
 > [!div class="checklist"]
 > * 建立對索引路由中的範例資料進行擴充的索引管線
 > * 套用內建的技能：實體辨識、語言偵測、文字操作和關鍵片語擷取
-> * 了解如何藉由將技能集的輸入對應至輸出，將多個技術串聯在一起
+> * 了解如何藉由將技能集的輸入對應至輸出，將多項技術串聯在一起
 > * 執行要求並檢閱結果
 > * 重設索引和索引子以進行進一步開發
 
@@ -34,9 +35,11 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
 > [!NOTE]
-> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣布這些功能的定價。 
+> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 剛開始使用認知搜尋嗎？ 請閱讀[「什麼是認知搜尋？」](cognitive-search-concept-intro.md) 以取得概念，或嘗試以[入口網站快速入門](cognitive-search-quickstart-blob.md)取得重要概念的實際操作簡介。
 
@@ -52,22 +55,23 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 1. 按一下 [建立資源]，搜尋「Azure Search 搜尋服務」，然後按一下 [建立]。 如果您是第一次設定搜尋服務，請參閱[在入口網站中建立 Azure 搜尋服務](search-create-service-portal.md)。
 
-  ![儀表板入口網站](./media/cognitive-search-tutorial-blob/create-service-full-portal.png "在入口網站中建立 Azure 搜尋服務")
+  ![儀表板入口網站](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "在入口網站中建立 Azure 搜尋服務")
 
-1. 針對資源群組建立資源群組，以包含您在此教學課程中建立的所有資源。 這可讓您在完成教學課程後能夠更輕鬆地清除資源。
+1. 針對資源群組建立資源群組，以包含您在本教學課程中建立的所有資源。 這可讓您在完成教學課程後能夠更輕鬆地清除資源。
 
-1. 針對 [位置]，選擇 [美國中南部] 或 [西歐]。 預覽版本目前只能在這些區域中使用。
+1. 針對位置，請選擇其中一個[支援的區域](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions)以進行認知搜尋。
 
 1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
 
   「免費」服務僅限使用 3 個索引、上限為 16 MB 的 Blob 大小，以及 2 分鐘的索引編製，這對執行完整認知搜尋功能而言是不夠的。 若要檢視不同層級的限制，請參閱[服務限制](search-limits-quotas-capacity.md)。
 
-  > [!NOTE]
-  > 認知搜尋目前為公開預覽狀態。 目前，在所有層級中都可執行技能集，包括免費層。 我們將在不久後宣布此功能的定價。
+  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service1.png "入口網站中的服務定義頁面")
+  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service2.png "入口網站中的服務定義頁面")
 
+ 
 1. 將服務釘選到儀表板，以快速存取服務資訊。
 
-  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service.png "入口網站中的服務定義頁面")
+  ![入口網站中的服務定義頁面](./media/cognitive-search-tutorial-blob/create-search-service3.png "入口網站中的服務定義頁面")
 
 1. 建立服務之後，請收集下列資訊：[概觀] 頁面中的 [URL]，以及 [金鑰] 頁面中的 [API 金鑰] (主要或次要)。
 
@@ -75,7 +79,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>設定 Azure Blob 服務並載入範例資料
 
-擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
+擴充管線會從 Azure 資料來源中提取資料。 來源資料必須來自 [Azure 搜尋服務索引子](search-indexer-overview.md)支援的資料來源類型。 請注意，認知服務不支援 Azure 資料表儲存體。 針對此練習，我們會使用 Blob 儲存體來展現多個內容類型。
 
 1. [載入範例資料](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)。 下載由不同類型的小型檔案集組成的範例資料。 
 
@@ -97,7 +101,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 現在，您的服務和來源檔案皆已備妥，您可以開始組合索引管線的元件。 首先請從[資料來源物件](https://docs.microsoft.com/rest/api/searchservice/create-data-source)開始；此物件會指示 Azure 搜尋服務如何擷取外部來源資料。
 
-在此教學課程中，請使用可編寫及傳送 HTTP 要求的 REST API 和工具，例如 PowerShell、Postman 或 Fiddler。 在要求標頭中，提供您在建立 Azure 搜尋服務時所使用的服務名稱，以及為您的搜尋服務產生的 API 金鑰。 在要求本文中，指定 Blob 容器名稱和連接字串。
+在本教學課程中，請使用可編寫及傳送 HTTP 要求的 REST API 和工具，例如 PowerShell、Postman 或 Fiddler。 在要求標頭中，提供您在建立 Azure 搜尋服務時所使用的服務名稱，以及為您的搜尋服務產生的 API 金鑰。 在要求本文中，指定 Blob 容器名稱和連接字串。
 
 ### <a name="sample-request"></a>範例要求
 ```http
@@ -124,18 +128,18 @@ api-key: [admin key]
 
   ![入口網站中的資料來源圖格](./media/cognitive-search-tutorial-blob/data-source-tile.png "入口網站中的資料來源圖格")
 
-如果發生 403 或 404 錯誤，請檢查要求建構：`api-version=2017-11-11-Preview` 位於端點上，`api-key` 應位於標頭中的 `Content-Type` 後面，且其值必須是適用於搜尋服務的值。 您可以在此教學課程的其餘步驟中重複使用該標頭。
+如果發生 403 或 404 錯誤，請檢查要求建構：`api-version=2017-11-11-Preview` 位於端點上，`api-key` 應位於標頭中的 `Content-Type` 後面，且其值必須是適用於搜尋服務的值。 您可以在本教學課程的其餘步驟中重複使用該標頭。
 
 > [!TIP]
-> 在您執行多個工作之前，建議您於此時確認搜尋服務正在其中一個提供預覽功能的支援位置上執行：美國中南部或西歐。
+> 在您執行多項工作之前，建議您於此時確認搜尋服務正在其中一個提供預覽功能的支援位置上執行：美國中南部或西歐。
 
 ## <a name="create-a-skillset"></a>建立技能集
 
-在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 此教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
+在此步驟中，您會定義一組要套用至資料的擴充步驟。 我們將每個擴充步驟稱為*技能*，一組擴充步驟則稱之為*技能集*。 本教學課程會使用為技能集[預先定義的認知技能](cognitive-search-predefined-skills.md)：
 
 + [語言偵測](cognitive-search-skill-language-detection.md)，用以識別內容的語言。
 
-+ [文字分割](cognitive-search-skill-textsplit.md)，用以在呼叫關鍵片語擷取技能之前，將大型內容分成較小的區塊。 關鍵片語擷取可接受不超過 50,000 個字元的輸入。 此有些範例檔案需要進行分割，以符合此限制。
++ [文字分割](cognitive-search-skill-textsplit.md)，用以在呼叫關鍵片語擷取技能之前，將大型內容分成較小的區塊。 關鍵片語擷取可接受不超過 50,000 個字元的輸入。 有些範例檔案需要進行分割，以符合這項限制。
 
 + [具名實體辨識](cognitive-search-skill-named-entity-recognition.md)，用以從 Blob 容器中的內容擷取組織名稱。
 
@@ -144,7 +148,7 @@ api-key: [admin key]
 ### <a name="sample-request"></a>範例要求
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此要求會建立技能集。 在此教學課程的其餘部分請參考技能集名稱 ```demoskillset```。
+此要求會建立技能集。 在本教學課程的其餘部分請參考技能集名稱 ```demoskillset```。
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
@@ -234,7 +238,7 @@ Content-Type: application/json
 
 #### <a name="about-the-request"></a>關於要求
 
-請留意每個頁面套用關鍵片語擷取技能的情形。 透過將內容設定為 ```"document/pages/*"```，將可擴充每個文件/頁面陣列成員 (文件中的每個頁面) 的此執行。
+請留意每個頁面套用關鍵片語擷取技能的情形。 藉由將內容設定為 ```"document/pages/*"```，將可擴充每個文件/頁面陣列成員 (文件中的每個頁面) 的這項執行。
 
 每項技術會分別對文件的內容執行。 在處理期間，Azure 搜尋服務會萃取每份文件，以讀取不同檔案格式的內容。 找到來自來源檔案的文字時，會將文字放入產生的 ```content``` 欄位中，每份文件一個欄位。 據此，請將輸入設定為 ```"/document/content"```。
 
@@ -260,7 +264,7 @@ Content-Type: application/json
 ### <a name="sample-request"></a>範例要求
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此要求會建立索引。 在此教學課程的其餘部分請使用索引名稱 ```demoindex```。
+此要求會建立索引。 在本教學課程的其餘部分請使用索引名稱 ```demoindex```。
 
 ```http
 PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
@@ -331,7 +335,7 @@ Content-Type: application/json
 
 在您進行此 REST 呼叫前，如果您的工具不會在呼叫間保留要求標頭，請記得在下方的要求中取代服務名稱和管理金鑰。 
 
-此外也請提供索引子的名稱。 在此教學課程的其餘部分，您可以將其參照為 ```demoindexer```。
+此外也請提供索引子的名稱。 在本教學課程的其餘部分，您可以將其參照為 ```demoindexer```。
 
 ```http
 PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
@@ -415,7 +419,7 @@ Content-Type: application/json
 
 回應會指出索引子是否正在執行。 索引編製完成後，請對 STATUS 端點使用另一個 HTTP GET (如上所列)，以查看在擴充期間是否發生任何錯誤和警告的報告。  
 
-某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在此教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間所發出警告的詳細資訊。
+某些來源檔案和技能的組合常會出現警告，這並不一定表示有問題。 在本教學課程中，警告是良性的 (例如，沒有來自 JPEG 檔案的文字輸入)。 您可以檢閱狀態回應，以取得在索引編製期間所發出警告的詳細資訊。
  
 ## <a name="verify-content"></a>驗證內容
 
@@ -515,15 +519,15 @@ Content-Type: application/json
 
 ## <a name="reset-and-rerun"></a>重設並重新執行
 
-在管線開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼重建它們。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱重新建立它。
+在管線開發的早期實驗階段中，設計反覆項目最實用的方法是從 Azure 搜尋服務中刪除物件，並讓您的程式碼加以重建。 資源名稱是唯一的。 刪除物件可讓您使用相同的名稱加以重新建立。
 
 若要使用新的定義為您的文件重新編製索引：
 
-1. 刪除索引以移除保存的資料。 刪除索引子以在服務上重新建立它。
+1. 刪除索引以移除保存的資料。 刪除索引子以在服務上重新加以建立。
 2. 修改技能集和索引定義。
 3. 在服務上重新建立索引和索引子以執行管線。 
 
-您可以使用入口網站來刪除索引和索引子。 技能集只能透過 HTTP 命令來刪除 (如果您決定將其刪除)。
+您可以使用入口網站來刪除索引、索引子和技能集。
 
 ```http
 DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
@@ -537,7 +541,7 @@ Content-Type: application/json
 
 ## <a name="takeaways"></a>重要心得
 
-此教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
+本教學課程示範了藉由建立下列元件組件來建置擴充索引管線的基本步驟：資料來源、技能集、索引和索引子。
 
 [預先定義的技能](cognitive-search-predefined-skills.md)已透過輸入和輸出連同技能集定義和鏈結技能的機制一起導入。 您也已了解在將管線中的擴充值路由至 Azure 搜尋服務上的可搜尋索引時，索引子定義中必須要有 `outputFieldMappings`。
 

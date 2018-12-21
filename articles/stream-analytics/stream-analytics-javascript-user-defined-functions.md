@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
 ms.author: rodrigoa
-ms.openlocfilehash: 56ac08593d29a9003f5509f2be52f50fa250bd75
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431590"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088869"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教學課程：Azure 串流分析 JavaScript 使用者定義函式
  
@@ -58,7 +58,7 @@ JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純
 4.  在 [新增函式] 刀鋒視窗中，針對 [函式類型]，選取 [JavaScript]。 預設的函式範本會出現在編輯器中。
 5.  針對 **UDF 別名**，輸入 **hex2Int**，並變更函式實作，如下所示：
 
-    ```
+    ```javascript
     // Convert Hex value to integer.
     function hex2Int(hexValue) {
         return parseInt(hexValue, 16);
@@ -73,7 +73,7 @@ JavaScript 使用者定義的函式支援無狀態且只做為計算用途的純
 1. 在查詢編輯器中，於 [作業拓撲] 下，選取 [查詢]。
 2.  編輯您的查詢，然後呼叫使用者定義函式，就像這樣：
 
-    ```
+    ```SQL
     SELECT
         time,
         UDF.hex2Int(offset) AS IntOffset
@@ -129,14 +129,14 @@ JavaScript 執行階段錯誤會被視為嚴重問題，並顯示在活動記錄
 
 **JavaScript 使用者定義函式定義：**
 
-```
+```javascript
 function main(x) {
 return JSON.stringify(x);
 }
 ```
 
 **範例查詢︰**
-```
+```SQL
 SELECT
     DataString,
     DataValue,

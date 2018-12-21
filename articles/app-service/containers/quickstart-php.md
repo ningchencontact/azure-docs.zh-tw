@@ -1,5 +1,5 @@
 ---
-title: 建立 PHP Web 應用程式並部署至 Linux 上的 App Service | Microsoft Docs
+title: 在 Linux 上建立 PHP Web 應用程式 - Azure App Service | Microsoft Docs
 description: 短短幾分鐘內在 Linux 上的 App Service 中部署第一個 PHP Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 5fdf277eb8f99f2d52600140601b413b51bcdfd8
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.custom: seodec18
+ms.openlocfilehash: 2c9586bb5abce66e4043e3df80b420174a582cbb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885900"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257364"
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>在 Linux 上的 App Service 中建立 PHP Web 應用程式
 

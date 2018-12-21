@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2d8741f6c65002d7f3701784e5fffe67b0e9bf50
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 7f7ae858f633a910b796f544ed69a582e749beaf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51287229"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311060"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入門：從 Android 應用程式登入使用者並呼叫 Microsoft Graph API
 
@@ -30,7 +30,7 @@ ms.locfileid: "51287229"
 
 如果您正在開發 Android 應用程式，Microsoft 提供了簡單直接的 Azure Active Directory (Azure AD) 使用者登入方式。 Azure AD 讓您的應用程式可透過 Microsoft Graph 或是您自己的受保護 Web 應用程式開發介面 (API) 來存取使用者資料。
 
-Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用業界標準的 OAuth 2.0 和 OpenID Connect 來支援 [Microsoft Azure Active Directory 帳戶](https://azure.microsoft.com/services/active-directory/)，以開始使用 [Microsoft Azure 雲端](https://cloud.microsoft.com) & [Microsoft Graph API](https://developer.microsoft.com/graph) \(英文\)。
+Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用業界標準的 OAuth 2.0 和 OpenID Connect 來支援 [Microsoft Azure Active Directory 帳戶](https://azure.microsoft.com/services/active-directory/)，以開始使用 [Microsoft Azure 雲端](https://cloud.microsoft.com) 和 [Microsoft Graph API](https://developer.microsoft.com/graph) \(英文\)。
 
 在本快速入門中，您將了解如何：
 
@@ -51,23 +51,23 @@ Azure AD 驗證程式庫 (ADAL) Android 程式庫可讓您的應用程式使用�
 
 ## <a name="sample-code"></a>範例程式碼
 
-您可以在 [GitHub](https://github.com/Azure-Samples/active-directory-android) 上找到完整的範例程式碼。
+您可以[在 GitHub 上](https://github.com/Azure-Samples/active-directory-android) \(英文\) 找到完整的範例程式碼。
 
 ```Java
 // Initialize your app with MSAL
 AuthenticationContext mAuthContext = new AuthenticationContext(
-        MainActivity.this, 
-        AUTHORITY, 
+        MainActivity.this,
+        AUTHORITY,
         false);
 
 
 // Perform authentication requests
 mAuthContext.acquireToken(
-    getActivity(), 
-    RESOURCE_ID, 
-    CLIENT_ID, 
-    REDIRECT_URI,  
-    PromptBehavior.Auto, 
+    getActivity(),
+    RESOURCE_ID,
+    CLIENT_ID,
+    REDIRECT_URI,
+    PromptBehavior.Auto,
     getAuthInteractiveCallback());
 
 // ...
@@ -95,7 +95,7 @@ mAuthResult.getAccessToken()
     - 選取 [新增]，在 [選取 API] 內選取 [Microsoft Graph]。
     - 選取 [登入與讀取使用者設定檔]，然後按下 [選取] 以儲存。
         - 此權限會對應至 `User.Read` 範圍。
-    - (選擇性) 在 [必要權限] > [Windows Azure Active Directory] 內，移除選取的 [登入與讀取使用者設定檔] 權限。 這可避免使用者同意頁面將該權限列出兩次。
+    - 選用：在 [必要權限] > [Windows Azure Active Directory] 內，移除選取的權限 [登入及讀取使用者個人檔案]。 這可避免使用者同意頁面將該權限列出兩次。
 
 4. 恭喜！ 您的應用程式已成功設定完成。 在下一節中，您必須：
     - `Application ID`
@@ -110,7 +110,7 @@ mAuthResult.getAccessToken()
 2. 在 Android Studio 中開啟範例。
     - 選取 [開啟現有 Android Studio 專案]。
 
-## <a name="step-3-configure-your-code"></a>步驟 3：設定您的程式碼
+## <a name="step-3-configure-your-code"></a>步驟 3：設定程式碼
 
 您可以在 ***src/main/java/com/azuresamples/azuresampleapp/MainActivity.java*** 檔案中找到此程式碼範例的所有設定。
 

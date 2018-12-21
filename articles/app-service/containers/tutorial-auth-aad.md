@@ -1,6 +1,6 @@
 ---
-title: 在 Linux 上的 Azure App Service 中端對端驗證和授權使用者 | Microsoft Docs
-description: 了解如何使用 App Service 驗證和授權來保護您的 App Service 應用程式，包括對遠端 API 的存取。
+title: 在 Linux 上對使用者進行端對端驗證和授權 - Azure App Service | Microsoft Docs
+description: 了解如何使用 App Service 驗證和授權來保護您在 Linux 上執行的 App Service 應用程式，包括對遠端 API 的存取。
 keywords: App Service, Azure App Service, authN, authZ, 保護, 安全性, 多層式, Azure Active Directory, Azure AD
 services: app-service\web
 documentationcenter: dotnet
@@ -14,14 +14,15 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/26/2018
 ms.author: cephalin
-ms.openlocfilehash: a468c5d0f73cc182927f26ea9b7a85e2c5afb7c8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 65c503c96305cf23b97511dd06a56b5eb6fcc1be
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766354"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409382"
 ---
-# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>教學課程：在 Linux 上的 Azure App Service 中端對端驗證和授權使用者
+# <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>教學課程：在 Linux 上的 Azure App Service 中對使用者進行端對端驗證和授權
 
 [Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 此外，App Service 具有[使用者驗證和授權](../app-service-authentication-overview.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)的內建支援。 本教學課程說明如何使用 App Service 驗證和授權來保護您的應用程式。 它會搭配使用 ASP.NET Core 應用程式與 Angular.js 前端，但僅供範例之用。 App Service 驗證和授權支援所有語言執行階段，且您可以透過本教學課程了解如何將其套用至您偏好的語言。
 
@@ -50,7 +51,7 @@ ms.locfileid: "33766354"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
@@ -237,7 +238,7 @@ git push frontend master
 
 在此步驟中，您會為兩個應用程式啟用驗證和授權。 您也會設定前端應用程式，以產生可用來對後端應用程式發出已驗證呼叫的存取權杖。
 
-您會以 Azure Active Directory 作為身分識別提供者。 如需詳細資訊，請參閱[為您的 App Service 應用程式設定 Azure Active Directory 驗證](../app-service-mobile-how-to-configure-active-directory-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+您會以 Azure Active Directory 作為身分識別提供者。 如需詳細資訊，請參閱[為您的 App Service 應用程式設定 Azure Active Directory 驗證](../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>為後端應用程式啟用驗證和授權
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Event Grid 與 Azure 入口網站的 Blob 儲存體事件 | Microsoft Docs
-description: 使用 Azure Event Grid 和 Azure 入口網站來建立 Blob 儲存體帳戶，並訂閱其事件。
+title: 將 Blob 儲存體事件傳送至 Web 端點 - 入口網站 | Microsoft Docs
+description: 使用 Azure Event Grid 和 Azure 入口網站來建立 Blob 儲存體帳戶，並訂閱其事件。 將事件傳送到 Webhook。
 services: event-grid
 keywords: ''
 author: tfitzmac
@@ -8,14 +8,15 @@ ms.author: tomfitz
 ms.date: 10/17/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 44e258069515ad6c409c193312f3a714a5096541
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: 6fd48ecd6def6a4fcd56751b6a137f75b16896ef
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404217"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086958"
 ---
-# <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>使用 Azure 入口網站和 Event Grid 建立和路由傳送 Blob 儲存體
+# <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入門：使用 Azure 入口網站將 Blob 儲存體事件路由傳送至 Web 端點
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您會使用 Azure 入口網站建立 Blob 儲存體帳戶、訂閱該 Blob 儲存體的事件，以及觸發事件以檢視結果。 通常，您會將事件傳送至可處理事件資料及採取行動的端點。 不過，若要簡化這篇文章，您可將事件傳送至可收集及顯示訊息的 Web 應用程式。
 

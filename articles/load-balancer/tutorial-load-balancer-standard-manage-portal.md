@@ -1,14 +1,11 @@
 ---
-title: 教學課程：針對網際網路至 VM 的流量進行負載平衡 - Azure 入口網站 | Microsoft Docs
+title: 教學課程：VM 的負載平衡網際網路流量 - Azure 入口網站
+titlesuffix: Azure Load Balancer
 description: 本教學課程說明如何使用 Azure 入口網站建立和管理標準負載平衡器。
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create and Standard Load balancer so that I can load balance internet traffic to VMs and add and remove VMs from the load-balanced set.
-ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: tutorial
@@ -16,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 76d7f0b959037808c3358c2b78b837a783117457
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687298"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259999"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>教學課程：使用 Azure 入口網站針對網際網路至 VM 的流量進行負載平衡
 
@@ -51,7 +48,7 @@ ms.locfileid: "51687298"
     
     | 設定                 | 值                                              |
     | ---                     | ---                                                |
-    | 名稱                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | 類型          | 公開                                        |
     | SKU           | 標準                          |
     | 公用 IP 位址 | 選取 [新建]，並在文字方塊中輸入 *myPublicIP*。 依預設會為公用 IP 位址選取標準 SKU。 針對 [可用性區域]，選取 [區域備援]。 |
@@ -70,7 +67,7 @@ ms.locfileid: "51687298"
 1. 在 Azure 入口網站左上方選取 [建立資源] > [網路] > [虛擬網路]，然後輸入虛擬網路的下列值：
     |設定|值|
     |---|---|
-    |名稱|輸入 *myVNet*。|
+    |Name|輸入 *myVNet*。|
     |訂用帳戶| 選取您的訂用帳戶。|
     |資源群組| 選取 [使用現有的]，然後選取 [myResourceGroupSLB]。|
     |子網路名稱| 輸入 *myBackendSubnet*。|

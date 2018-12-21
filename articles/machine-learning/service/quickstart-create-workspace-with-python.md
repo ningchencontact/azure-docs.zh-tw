@@ -1,6 +1,7 @@
 ---
-title: 快速入門：使用 Python SDK 來建立機器學習服務工作區 - Azure Machine Learning
-description: 開始使用 Azure Machine Learning。 安裝 Python SDK，並使用它來建立工作區。 此工作區是雲端中使用 Azure Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。
+title: 快速入門：在 Python 中開始使用
+titleSuffix: Azure Machine Learning service
+description: 在 Python 中開始使用 Azure Machine Learning 服務。 使用 Python SDK 建立工作區，此工作區是雲端中用來實驗、訓練及部署機器學習模型的基礎區塊。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +10,17 @@ ms.reviewer: sgilley
 author: hning86
 ms.author: haining
 ms.date: 12/04/2018
-ms.openlocfilehash: f16d39238b46a811f34fdfe291d6c09bee662b9a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 3ab55cec4b8483cf254ec3d9fe68521baca9cdf5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870058"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268492"
 ---
-# <a name="quickstart-use-python-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python 來開始使用 Azure Machine Learning
+# <a name="quickstart-use-python-sdk-to-get-started-with-azure-machine-learning"></a>快速入門：使用 Python SDK 來開始使用 Azure Machine Learning
 
-在此快速入門中，您會使用適用於 Python 的 Azure Machine Learning 來建立及使用 Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 在本快速入門中，您會先設定自己的 Python 環境和 Jupyter Notebook 伺服器。 若要在無安裝的情況下執行，請參閱[快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning](quickstart-get-started.md)。
+在此快速入門中，您會使用適用於 Python 的 Azure Machine Learning 來建立及使用 Machine Learning 服務[工作區](concept-azure-machine-learning-architecture.md)。 此工作區是雲端中使用 Machine Learning 來實驗、訓練及部署機器學習模型的基礎區塊。 在本快速入門中，您會先設定自己的 Python 環境和 Jupyter Notebook 伺服器。 若要在未安裝的情況下執行，請參閱[快速入門：利用 Azure 入口網站開始使用 Azure Machine Learning](quickstart-get-started.md)。
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -38,14 +40,12 @@ ms.locfileid: "52870058"
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure 金鑰保存庫](https://azure.microsoft.com/services/key-vault/)
 
->[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 1.0.2 版進行測試 
-
-
-如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
-
+如果您沒有 Azure 訂用帳戶，請在開始前建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 ## <a name="install-the-sdk"></a>安裝 SDK
+
+>[!NOTE]
+> 本文中的程式碼需要使用 Azure Machine Learning SDK 1.0.2 版或更新版本。 
 
 *如果您使用 2018 年 9 月 27 日之後建立的資料科學虛擬機器，請略過本節。* 這些資料科學虛擬機器會隨附預先安裝的 Python SDK。
 

@@ -7,22 +7,22 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: overview
 ms.date: 10/04/2018
-ms.openlocfilehash: ade162d0261b765336cbff9ea8a6429f9bd2d871
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 34582e66dec3b2f97efba7856ccfbf678f8f1f63
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801810"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408080"
 ---
 # <a name="hdinsight-40-overview-preview"></a>HDInsight 4.0 概觀 (預覽)
 
-Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Hadoop 與 Spark 分析使用。 HDInsight (HDI) 4.0 是 [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) \(英文\) 中 Hadoop 元件的雲端發佈。 本文提供有關最新 Azure HDInsight 版本及如何升級的資訊。
+Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Apache Hadoop 與 Apache Spark 分析使用。 HDInsight (HDI) 4.0 是 [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html) \(英文\) 中 Apache Hadoop 元件的雲端發佈。 本文提供有關最新 Azure HDInsight 版本及如何升級的資訊。
 
 ## <a name="whats-new-in-hdi-40"></a>HDI 4.0 的新功能為何？
 
-### <a name="hive-30-and-llap"></a>Hive 3.0 和 LLAP
+### <a name="apache-hive-30-and-llap"></a>Apache Hive 3.0 和 LLAP
 
-Hive 低度延遲分析處理 (LLAP) 會使用永續性查詢伺服器和記憶體中的快取，提供針對遠端雲端儲存體中的資料所進行的快速 SQL 查詢結果。 Hive LLAP 會利用一組永續性精靈來執行 Hive 查詢的片段。 LLAP 上的查詢執行類似於沒有 LLAP 的 Hive，其中含有要在 LLAP 精靈 (而非容器) 內執行的背景工作。
+Apache Hive 低度延遲分析處理 (LLAP) 會使用永續性查詢伺服器和記憶體中的快取，提供針對遠端雲端儲存體中的資料所進行的快速 SQL 查詢結果。 Hive LLAP 會利用一組永續性精靈來執行 Hive 查詢的片段。 LLAP 上的查詢執行類似於沒有 LLAP 的 Hive，其中含有要在 LLAP 精靈 (而非容器) 內執行的背景工作。
 
 Hive LLAP 的權益包括：
 
@@ -72,7 +72,7 @@ HDInsight 4.0 上的 Apache Spark 支援下列案例：
 深入了解 [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html) \(英文\)。
 
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
 Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
 
@@ -90,7 +90,7 @@ Apache Oozie 4.3.1 隨附於 HDI 4.0，並包含下列變更：
 
 ## <a name="limitations"></a>限制
 
-* HDI 4.0 不支援 MapReduce。 請改用 Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
+* HDI 4.0 不支援 MapReduce。 請改用 Apache Tez。 深入了解 [Apache Tez](https://tez.apache.org/) \(英文\)。
 
 * HDI 4.0 中已不再提供 Hive 檢視。 
 
