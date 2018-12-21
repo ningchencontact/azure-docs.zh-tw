@@ -1,5 +1,5 @@
 ---
-title: 建立及使用內部負載平衡器與 Azure App Service Environment
+title: 使用 App Service 環境建立內部負載平衡器 - Azure
 description: 如何建立及使用與網際網路隔離的 Azure App Service Environment 的詳細資料
 services: app-service
 documentationcenter: na
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
-ms.custom: mvc
-ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.custom: seodec18
+ms.openlocfilehash: b6c04c5b167eb963e9b2befa57e270ac454f5d74
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378273"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344273"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>建立及使用內部負載平衡器與 App Service Environment #
 
@@ -56,19 +56,19 @@ ms.locfileid: "44378273"
 
 若要建立 ILB ASE：
 
-1. 在 Azure 入口網站中，選取 [建立資源] > [Web] > [App Service 環境]。
+1. 在 Azure 入口網站中，選取 [建立資源] **** > [Web] > [App Service 環境]。
 
-1. 選取您的訂用帳戶。
+2. 選取您的訂用帳戶。
 
-1. 選取或建立資源群組。
+3. 選取或建立資源群組。
 
-1. 選取或建立 VNet。
+4. 選取或建立 VNet。
 
-1. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/24`，具有 256 個位址，而且可以處理最大大小的 ASE 和任何縮放需求。 
+5. 如果您選取現有的 VNet，則需要建立子網路來存放 ASE。 確定將子網路的大小設為足以容納 ASE 的任何未來成長。 建議的大小是 `/24`，具有 256 個位址，而且可以處理最大大小的 ASE 和任何縮放需求。 
 
-1. 選取 [虛擬網路/位置]  >  [虛擬網路設定]， 並將 [VIP 類型] 設定為 [內部]。
+6. 選取 [虛擬網路/位置] ****  > [虛擬網路設定]， 並將 [VIP 類型] 設定為 [內部]。
 
-1. 輸入網域名稱。 這個網域會成為在此 ASE 中建立之應用程式所使用的網域。 有某些限制。 不能是：
+7. 輸入網域名稱。 這個網域會成為在此 ASE 中建立之應用程式所使用的網域。 有某些限制。 不能是：
 
     * net   
 
@@ -96,14 +96,14 @@ ms.locfileid: "44378273"
 
 選取 [內部] 之後，系統會移除把更多 IP 位址新增至您 ASE 的功能。 取而代之的是您必須提供 ASE 的網域。 在使用外部 VIP 的 ASE 中，ASE 的名稱會在網域中用於在該 ASE 中建立的 app。
 
-如果您將 [VIP 類型] 設定為 [內部]，您的 ASE 名稱不會在 ASE 的網域中使用。 您可以明確地指定網域。 如果您的網域是 contoso.corp.net 而您在該 ASE 中建立一個名為 timereporting 的應用程式，該應用程式的 URL 會是 timereporting.contoso.corp.net。
+如果您將 [VIP 類型] 設定為 [內部]，您的 ASE 名稱不會在 ASE 的網域中使用。 您可以明確地指定網域。 如果您的網域是 *contoso.corp.net* ，而您在該 ASE 中建立一個名為 *timereporting* 的應用程式，該應用程式的 URL 會是 timereporting.contoso.corp.net。
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>在 ILB ASE 中建立應用程式： ##
 
 在 ILB ASE 中建立應用程式的做法，與在 ASE 中建立應用程式相同。
 
-1. 在 Azure 入口網站中，選取 [建立資源] >  [Web + 行動] > [Web 應用程式]。
+1. 在 Azure 入口網站中，選取 [建立資源] **** >  [Web + 行動] > [Web 應用程式]。
 
 1. 輸入應用程式的名稱。
 
@@ -117,7 +117,7 @@ ms.locfileid: "44378273"
 
 1. 選取或建立 App Service 方案。 如果您想建立新的 App Service 方案，請選取您的 ASE 作為位置。 選取您想要建立 App Service 方案的背景工作集區。 當您建立 App Service 方案時，選取您的 ASE 作為位置與背景工作角色集區。 指定應用程式的名稱時，會看見您的應用程式名稱底下的網域已被您的 ASE 網域取代。
 
-1. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，選取 [釘選到儀表板] 核取方塊。
+1. 選取 [建立] 。 如果希望應用程式顯示在儀表板上，請選取 [釘選到儀表板] **** 核取方塊。
 
     ![App Service 方案建立][2]
 
@@ -127,14 +127,14 @@ ms.locfileid: "44378273"
 
 ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理自己的 DNS。 您也必須提供您自己的 HTTPS 連線憑證。
 
-建立 ASE 之後，網域名稱會顯示您所指定的網域。 在 [設定] 功能表中會出現新的項目 [ILB 憑證]。 ASE 使用憑證建立，該憑證未指定 ILB ASE 網域。 如果您使用 ASE 與該憑證，您的瀏覽器會告訴您它是無效的。 此憑證可讓您更輕鬆地測試 HTTPS，但您必須上傳您自己的繫結至 ILB ASE 網域的憑證。 無論您的憑證是自我簽署或是從憑證授權單位取得，這個步驟都是必要的。
+建立 ASE 之後，網域名稱會顯示您所指定的網域。 [設定] **** 功能表中會出現名為 **ILB 憑證**的新項目。 ASE 使用憑證建立，該憑證未指定 ILB ASE 網域。 如果您使用 ASE 與該憑證，您的瀏覽器會告訴您它是無效的。 此憑證可讓您更輕鬆地測試 HTTPS，但您必須上傳您自己的繫結至 ILB ASE 網域的憑證。 無論您的憑證是自我簽署或是從憑證授權單位取得，這個步驟都是必要的。
 
 ![ILB ASE 網域名稱][3]
 
 您的 ILB ASE 需要有效的 SSL 憑證。 使用內部憑證授權單位、向外部簽發者購買憑證、或使用自我簽署的憑證。 無論 SSL 憑證的來源，都需要正確設定下列憑證屬性︰
 
-* **Subject**︰此屬性必須設為 *.your-root-domain-here。
-* **Subject Alternative Name**︰此屬性必須同時包含 *.your-root-domain-here 和 *.scm.your-root-domain-here。 系統將使用 your-app-name.scm.your-root-domain-here 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
+* **主體**：此屬性必須設定為 *.your-root-domain-here。
+* **主體別名**：此屬性必須同時包含 **.your-root-domain-here* 和 **.scm.your-root-domain-here*。 系統將使用 your-app-name.scm.your-root-domain-here 形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
 將 SSL 憑證轉換/儲存為 .pfx 檔案。 .pfx 檔案必須包含所有中繼和根憑證。 使用密碼保護其安全。
 
@@ -154,7 +154,7 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
 若要上傳您自己的憑證並測試存取：
 
-1. 建立 ASE 之後，移至 ASE UI。 選取 [ASE]  >  [設定]  >  [ILB 憑證]。
+1. 建立 ASE 之後，移至 ASE UI。 選取 [ASE]  >  [設定]  >  [ILB 憑證]。
 
 1. 若要設定 ILB 憑證，選取憑證的 .pfx 檔案並輸入密碼。 這個步驟需要一些處理時間。 會出現訊息指出上傳作業正在進行中。
 
@@ -174,9 +174,9 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您需要管理�
 
     b. 若要測試 Web 部署發佈或存取進階主控台，建立 mytestapp.scm.ilbase.com 的記錄。
 
-1. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的 Web 應用程式。)
+1. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 (或移至任何名稱含您的網域的 Web 應用程式。)
 
-1. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
+1. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果您使用自我簽署憑證，就必須接受安全性不足。
 
     您的 ILB IP 位址列在 [IP 位址] 底下。 此清單中也有外部 VIP 使用的 IP 位址以及用於輸入管理流量的 IP 位址。
 
@@ -222,13 +222,9 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 ## <a name="get-started"></a>開始使用 ##
 
 * 若要開始使用ASE，請參閱 [App Service Environment 簡介][Intro]。
- 
+ 
 <!--Image references-->
-[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png
-[2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png
-[3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png
-[4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png
-[5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
+[1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png [2]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-webapp.png [3]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate.png [4]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-certificate2.png [5]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-ipaddresses.png
 
 <!--Links-->
 [Intro]: ./intro.md
@@ -244,10 +240,10 @@ Azure App Service 提供許多安全性措施來保護您的系統。 它們也�
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
