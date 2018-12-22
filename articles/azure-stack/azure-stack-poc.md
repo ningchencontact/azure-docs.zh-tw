@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 041d679cfc428278737a5668887e73f13ac694b1
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137048"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959530"
 ---
 # <a name="what-is-azure-stack"></a>什麼是 Azure Stack？
 
@@ -34,7 +34,7 @@ Azure Stack 整合系統是透過 Microsoft 與[硬體合作夥伴](https://azur
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack 開發套件
 
-Microsoft [Azure Stack 開發套件 (ASDK)](.\asdk\asdk-what-is.md) 是單一節點的 Azure Stack 部署，您可以用來評估和瞭解 Azure Stack。  您也可以使用 ASDK 作為開發人員環境，來使用與 Azure 一致的 API 和工具建置應用程式。
+Microsoft [Azure Stack 開發套件 (ASDK)](./asdk/asdk-what-is.md) 是單一節點的 Azure Stack 部署，您可以用來評估和瞭解 Azure Stack。  您也可以使用 ASDK 作為開發人員環境，來使用與 Azure 一致的 API 和工具建置應用程式。
 
 >[!Note]
 >ASDK 的目的並非要在生產環境中使用。
@@ -49,4 +49,4 @@ ASDK 有下列限制：
 
 [重要功能與概念](azure-stack-key-features.md)
 
-[Azure Stack：Azure 的擴充 (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack：Azure 的擴充 (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/) \(英文\)

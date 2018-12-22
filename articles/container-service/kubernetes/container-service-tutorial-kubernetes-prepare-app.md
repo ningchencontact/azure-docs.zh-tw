@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 教學課程 - 準備應用程式
+title: (即將淘汰) Azure Container Service 教學課程 - 準備應用程式
 description: Azure Container Service 教學課程 - 準備應用程式
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2fe160652bf8df289d590722ef4024f0b3dd397c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a003248104c45fa2bcc1020e0ad8ea895d759457
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164345"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992385"
 ---
-# <a name="create-container-images-to-be-used-with-azure-container-service"></a>建立要搭配 Azure Container Service 使用的容器映像
+# <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(即將淘汰) 建立要與 Azure Container Service 搭配使用的容器映像
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[教學課程：準備 Azure Kubernetes Service (AKS) 的應用程式](../../aks/tutorial-kubernetes-prepare-app.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 在本教學課程 (七個章節的第一部分) 中，多容器應用程式已準備好用於 Kubernetes。 完成的步驟包括：  
 

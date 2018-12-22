@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
 ms.author: pafarley
-ms.openlocfilehash: c1b25db440023618d3d633f9a2b2ebcd5c0a6293
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: c0323c215e83850dc53acd5e350d7eeeeb9a05b1
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852481"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413212"
 ---
-# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 擷取文字
+# <a name="quickstart-extract-text-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來擷取文字
 
 在本快速入門中，您會使用電腦視覺 Windows 用戶端程式庫，擷取影像中的手寫或列印文字。
 
@@ -30,7 +30,7 @@ ms.locfileid: "51852481"
 ## <a name="recognizetextasync-method"></a>RecognizeTextAsync 方法
 
 > [!TIP]
-> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
+> 從 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `RecognizeTextAsync` 和 `RecognizeTextInStreamAsync` 方法可分別針對遠端和本機影像包裝[辨識文字 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) (英文)。 `GetTextOperationResultAsync` 方法會包裝[取得辨識文字作業結果 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201) (英文)。  您可以使用這些方法來偵測影像中的文字，然後將辨識出的字元擷取到電腦可使用的字元資料流中。
 
@@ -188,7 +188,7 @@ namespace ExtractText
 
 成功的回應會顯示每個影像的可辨識文字行數。
 
-請參閱[快速入門：擷取手寫文字 - REST、C#](../QuickStarts/CSharp-hand-text.md#examine-the-response)，以取得原始 JSON 輸出的範例。
+請參閱[快速入門：擷取手寫文字 - REST、C#](../QuickStarts/CSharp-hand-text.md#examine-the-response)，以取得原始 JSON 輸出範例。
 
 ```cmd
 Calling GetHandwritingRecognitionOperationResultAsync()

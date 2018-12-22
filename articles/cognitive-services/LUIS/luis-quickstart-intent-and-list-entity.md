@@ -1,21 +1,22 @@
 ---
-title: 教學課程 4：完全相符的文字項目 - LUIS 清單實體
+title: 完全相符的文字項目
 titleSuffix: Azure Cognitive Services
 description: 取得符合預先定義項目清單的資料。 清單上的每個項目可以擁有也完全相符的同義字
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: a4e294687b6c3ea2ba6ff8003e7a8f1ac69ea639
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 5706e0b124bb9ceaf1abf7228faf088dc4e510ce
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425066"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096684"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>教學課程 4：擷取完全相符的文字項目
 在本教學課程中，了解如何取得與預先定義的項目清單相符的資料。 清單上的每個項目可以包含同義字清單。 在人力資源應用程式中，員工的識別可以透過數個關鍵資訊來實現，例如姓名、電子郵件、電話號碼和美國聯邦稅務識別碼。 
@@ -93,7 +94,7 @@ ms.locfileid: "52425066"
 
 |同義字用途|同義字值|
 |--|--|
-|名稱|John W. Smith|
+|Name|John W. Smith|
 |電子郵件地址|john.w.smith@mycompany.com|
 |電話分機|x12345|
 |個人行動電話號碼|425-555-1212|
@@ -106,23 +107,23 @@ ms.locfileid: "52425066"
 
 3. 在實體快顯對話方塊中，輸入 `Employee` 作為實體名稱，以及輸入 [清單] 作為實體類型。 選取 [完成] 。  
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "建立新實體快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
+    [![建立新實體快顯對話方塊的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png "建立新實體快顯對話方塊的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-list-entity-ddl.png#lightbox)
 
 4. 在 [員工實體] 頁面上，輸入 `Employee-24612` 作為新值。
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "輸入值的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
+    [![輸入值的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "輸入值的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
 
 5. 針對 [同義字]，新增下列值：
 
     |同義字用途|同義字值|
     |--|--|
-    |名稱|John W. Smith|
+    |Name|John W. Smith|
     |電子郵件地址|john.w.smith@mycompany.com|
     |電話分機|x12345|
     |個人行動電話號碼|425-555-1212|
     |美國聯邦社會安全碼|123-45-6789|
 
-    [![](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "輸入同義字的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
+    [![輸入同義字的螢幕擷取畫面](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "輸入同義字的螢幕擷取畫面")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 6. 輸入 `Employee-45612` 作為新值。
 
@@ -130,7 +131,7 @@ ms.locfileid: "52425066"
 
     |同義字用途|同義字值|
     |--|--|
-    |名稱|Jill Jones|
+    |Name|Jill Jones|
     |電子郵件地址|jill-jones@mycompany.com|
     |電話分機|x23456|
     |個人行動電話號碼|425-555-0000|
@@ -150,7 +151,7 @@ ms.locfileid: "52425066"
 
 2. 移至位址中的 URL 結尾並輸入 `shift 123-45-6789 from Z-1242 to T-54672`。 最後一個 querystring 參數是 `q`，也就是 **q**uery 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `MoveEmployee` 意圖及所擷取的 `Employee`。
 
-  ```JSON
+  ```json
   {
     "query": "shift 123-45-6789 from Z-1242 to T-54672",
     "topScoringIntent": {

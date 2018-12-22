@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 215cc45f09e15c74a39347e3a62945b45eafa130
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877661"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965388"
 ---
-# <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立異地分散應用程式解決方案
+# <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立異地分散應用程式解決方案
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 了解如何根據各種計量，使用異地分散應用程式模式將流量導向至特定端點。 使用以地理位置為基礎的路由和端點組態來建立流量管理員設定檔，可確保資訊會根據區域需求、公司與國際法規和您的資料需求路由至端點。
 
@@ -61,13 +61,13 @@ ms.locfileid: "52877661"
 
 -   **應用程式的自訂網域：** 客戶將用來存取應用程式的自訂網域名稱為何？ 範例應用程式的自訂網域名稱是 *www.scalableasedemo.com*。
 
--   **流量管理員網域：** 建立 [Azure 流量管理員設定檔](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)時必須選擇網域名稱。 此名稱會與 *trafficmanager.net* 尾碼結合，以註冊流量管理員所管理的網域項目。 就範例應用程式而言，選擇的名稱是 *scalable-ase-demo*。 因此，流量管理員所管理的完整網域名稱是 *scalable-ase-demo.trafficmanager.net*。
+-   **流量管理員網域：** 建立 [Azure 流量管理員設定檔](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-manage-profiles)時，必須選擇一個網域名稱。 此名稱會與 *trafficmanager.net* 尾碼結合，以註冊流量管理員所管理的網域項目。 就範例應用程式而言，選擇的名稱是 *scalable-ase-demo*。 因此，流量管理員所管理的完整網域名稱是 *scalable-ase-demo.trafficmanager.net*。
 
 -   **調整應用程式使用量的策略：** 應用程式使用量是否會分散到單一區域中的多個 App Service 環境？ 多個區域嗎？ 兩種方法混用嗎？ 決策依據應來自於客戶流量的來源位置，以及其餘應用程式的支援後端基礎結構的可調整性。 例如，對於 100% 無狀態的應用程式，可以使用每一 Azure 區域多個 App Service 環境的組合，乘以跨多個 Azure 區域部署的 App Service 環境數，來大幅調整應用程式。 由於有 15 個以上的全球 Azure 區域可供選擇，客戶將可真正建置全球性超高延展性的應用程式使用量。 在本文所使用的範例應用程式中，有三個 App Service 環境建立在單一 Azure 區域 (美國中南部) 中。
 
--   **App Service 環境的命名慣例：** 每個 App Service 環境都需要唯一名稱。 有兩個或更多 App Service 環境時，命名慣例將有助於識別每個 App Service 環境。 範例應用程式中使用簡單的命名慣例。 三個 App Service 環境的名稱分別是 fe1ase、fe2ase 和 fe3ase。
+-   **App Service 環境的命名慣例：** 每個「App Service 環境」都需要一個唯一的名稱。 有兩個或更多 App Service 環境時，命名慣例將有助於識別每個 App Service 環境。 範例應用程式中使用簡單的命名慣例。 三個 App Service 環境的名稱分別是 fe1ase、fe2ase 和 fe3ase。
 
--   **應用程式的命名慣例：** 由於將會部署多個應用程式執行個體，每個部署的應用程式執行個體都要有名稱。 使用 App Service 環境時，多個 App Service 環境可以使用相同的應用程式名稱。 由於每個 App Service 環境都有唯一的網域尾碼，開發人員可以選擇在每個環境中重複使用相同的應用程式名稱。 例如，開發人員可以將應用程式命名如下：myapp.foo1.p.azurewebsites.net、myapp.foo2.p.azurewebsites.net、myapp.foo3.p.azurewebsites.net，依此類推。就此案例中的應用程式而言，每個應用程式執行個體都有唯一名稱。 所使用的應用程式執行個體名稱是 webfrontend1、webfrontend2 和 webfrontend3。
+-   **應用程式的命名慣例：** 由於將會部署多個應用程式執行個體，因此每個部署的應用程式執行個體都需要一個名稱。 使用 App Service 環境時，多個 App Service 環境可以使用相同的應用程式名稱。 由於每個 App Service 環境都有唯一的網域尾碼，開發人員可以選擇在每個環境中重複使用相同的應用程式名稱。 例如，開發人員可以將應用程式命名如下：myapp.foo1.p.azurewebsites.net、myapp.foo2.p.azurewebsites.net、myapp.foo3.p.azurewebsites.net，依此類推。就此案例中的應用程式而言，每個應用程式執行個體都有唯一名稱。 所使用的應用程式執行個體名稱是 webfrontend1、webfrontend2 和 webfrontend3。
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
@@ -114,17 +114,17 @@ ms.locfileid: "52877661"
 
     混合式持續整合/持續傳遞 (CI/CD) 可同時套用至應用程式程式碼和基礎結構程式碼。 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/)進行私用與託管的雲端開發。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image1.JPG)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image1.JPG)
 
 2. 建立並開啟預設 Web 應用程式以**複製存放庫**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image2.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image2.png)
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>在這兩個雲端中建立 Web 應用程式部署
 
-1.  編輯 **WebApplication.csproj** 檔案：選取 [Runtimeidentifier]，然後新增 **win10-x64**。 (請參閱[獨立式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。)
+1.  編輯 **WebApplication.csproj**檔案：選取 [Runtimeidentifier] 並新增 **win10-x64**。 (請參閱[獨立式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。)
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image3.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image3.png)
 
 1.  使用 Team Explorer **將程式碼簽入 Azure Repos 中**。
 
@@ -136,7 +136,7 @@ ms.locfileid: "52877661"
 
 2. 新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image4.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image4.png)
 
 3. **執行組建**。 [獨立的部署組建](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)程序將會發佈可在 Azure 和 Azure Stack 上執行的成品。
 
@@ -151,87 +151,87 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 #### <a name="create-release-definition"></a>建立發行定義
 
 
-![替代文字](media\azure-stack-solution-geo-distributed\image5.png)
+![替代文字](media/azure-stack-solution-geo-distributed/image5.png)
 
 1.  在 Visual Studio Online (VSO) 的 [建置及發行] 頁面的 [發行] 索引標籤下選取**加號**按鈕，以新增發行。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image6.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image6.png)
 
 2. 套用 **Azure App Service 部署**範本。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image7.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image7.png)
 
 3. 在 [新增成品] 下拉式功能表中，為 Azure 雲端建置應用程式**新增成品**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image8.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image8.png)
 
 4. 在 [管線] 索引標籤下選取環境的 [階段]、[工作] 連結，並設定 Azure 雲端環境值。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image9.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image9.png)
 
 5. 設定 [環境名稱]，並選取 Azure 雲端端點的 Azure**訂用帳戶**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image10.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image10.png)
 
 6. 在 [環境名稱] 下設定所需的 **Azure App Service 名稱**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image11.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image11.png)
 
 7. 在 Azure 雲端託管環境的代理程式佇列下輸入 **Hosted VS2017**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image12.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image12.png)
 
 8. 在 [部署 Azure App Service] 功能表中，為環境選取有效的**套件或資料夾**。 對**資料夾位置**選取 [確定]。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image13.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image13.png)
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image14.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image14.png)
 
 9. 儲存所有變更，並返回**發行管線**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image15.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image15.png)
 
 10. 選取 Azure Stack 應用程式的組建，以新增**新成品**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image16.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image16.png)
 
 11. 再新增一個套用 **Azure App Service 部署**的環境。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image17.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image17.png)
 
 12. 將新環境命名為 **Azure Stack**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image18.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image18.png)
 
 13. 在 [工作] 索引標籤下找出 Azure Stack 環境。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image19.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image19.png)
 
 14. 選取 Azure Stack 端點的**訂用帳戶**。
 
-  ![替代文字](media\azure-stack-solution-geo-distributed\image20.png)
+  ![替代文字](media/azure-stack-solution-geo-distributed/image20.png)
 
 15. 將 Azure Stack Web 應用程式名稱設定為 **App Service 名稱**。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image21.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image21.png)
 
 16. 選取 [Azure Stack 代理程式]。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image22.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image22.png)
 
 17. 在 [部署 Azure App Service] 區段下，為環境選取有效的**套件或資料夾**。 對**資料夾位置**選取 [確定]。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image23.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image23.png)
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image24.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image24.png)
 
 18. 在 [變數] 索引標籤下新增名為 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的變數，並將其值設定為 `true`，範圍設定為 `Azure Stack`。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image25.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image25.png)
 
 19. 選取兩個成品中的 [持續部署觸發程序] 圖示，並啟用**持續**部署觸發程序。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image26.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image26.png)
 
 20. 選取 Azure Stack 環境中的 [預先部署] 條件圖示，並將觸發程序設定為 [發行之後]。
 
@@ -244,7 +244,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 [Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) 提供可高度擴充、自我修復的 Web 主機服務。 
 
-![替代文字](media\azure-stack-solution-geo-distributed\image27.png)
+![替代文字](media/azure-stack-solution-geo-distributed/image27.png)
 
 > [!div class="checklist"]
 > - 將現有的自訂 DNS 名稱對應至 Azure Web Apps
@@ -296,7 +296,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 下列螢幕擷取畫面是 DNS 記錄頁面的範例：
 
-![DNS 記錄頁面範例](media\azure-stack-solution-geo-distributed\image28.png)
+![DNS 記錄頁面範例](media/azure-stack-solution-geo-distributed/image28.png)
 
 1.  在 [網域名稱註冊機構] 中，選取 [新增或建立] 以建立記錄。 某些提供者有不同的連結來新增其他記錄類型。 請參閱提供者的文件。
 
@@ -306,7 +306,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 新增 CNAME 之後，DNS 記錄分頁看起來如下列範例所示：
 
-![入口網站瀏覽至 Azure 應用程式](media\azure-stack-solution-geo-distributed\image29.png)
+![入口網站瀏覽至 Azure 應用程式](media/azure-stack-solution-geo-distributed/image29.png)
 
 ### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中啟用 CNAME 記錄對應
 
@@ -348,9 +348,9 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
   可能需要一些時間，新的主機名稱才會反映在應用程式的 [自訂網域] 頁面中。 嘗試重新整理瀏覽器以更新資料。
   
-  ![替代文字](media\azure-stack-solution-geo-distributed\image31.png) 
+  ![替代文字](media/azure-stack-solution-geo-distributed/image31.png) 
   
-  如果發生錯誤，頁面底部會出現驗證錯誤通知。 ![驗證錯誤](media\azure-stack-solution-geo-distributed\image32.png)
+  如果發生錯誤，頁面底部會出現驗證錯誤通知。 ![驗證錯誤](media/azure-stack-solution-geo-distributed/image32.png)
 
 > [!Note]  
 >  您可以重複執行上述步驟，以對應萬用字元網域 (\*.northwindcloud.com)。 如此即可直接將其他子網域新增至此應用程式服務，而無須為每個子網域建立個別的 CNAME 記錄。 請依照註冊機構的指示進行此設定。
@@ -404,17 +404,17 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 2.  從左側功能表中選取 [App Service]，然後選取 Web 應用程式名稱。
 
-![選取 Web 應用程式](media\azure-stack-solution-geo-distributed\image33.png)
+![選取 Web 應用程式](media/azure-stack-solution-geo-distributed/image33.png)
 
 #### <a name="check-the-pricing-tier"></a>檢查定價層
 
 1.  在 Web 應用程式頁面的左側導覽中，捲動到 [設定] 區段，然後選取 [相應增加 (App Service 方案)]。
 
-    ![相應增加功能表](media\azure-stack-solution-geo-distributed\image34.png)
+    ![相應增加功能表](media/azure-stack-solution-geo-distributed/image34.png)
 
 1.  確定 Web 應用程式不在**免費**或**共用** 層中。 系統會以深藍色方塊醒目顯示 Web 應用程式目前的層。
 
-    ![檢查定價層](media\azure-stack-solution-geo-distributed\image35.png)
+    ![檢查定價層](media/azure-stack-solution-geo-distributed/image35.png)
 
 **免費**和**共用**層中不支援自訂 SSL。 若要升級，請依照下一節中的步驟操作，或**選擇您的定價層**頁面，然後跳至[上傳並繫結 SSL 憑證](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)。
 
@@ -424,11 +424,11 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 2.  選取 [選取] 。
 
-![選擇定價層](media\azure-stack-solution-geo-distributed\image36.png)
+![選擇定價層](media/azure-stack-solution-geo-distributed/image36.png)
 
 顯示通知時，表示調整作業已完成。
 
-![相應增加通知](media\azure-stack-solution-geo-distributed\image37.png)
+![相應增加通知](media/azure-stack-solution-geo-distributed/image37.png)
 
 #### <a name="bind-your-ssl-certificate-and-merge-intermediate-certificates"></a>繫結您的 SSL 憑證，並合併中繼憑證
 
@@ -491,11 +491,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 5.  選取 [上傳] 。
 
-![Upload certificate](media\azure-stack-solution-geo-distributed\image38.png)
+![Upload certificate](media/azure-stack-solution-geo-distributed/image38.png)
 
 當 App Service 完成憑證上傳作業時，憑證會出現在 [SSL 設定] 頁面中。
 
-![替代文字](media\azure-stack-solution-geo-distributed\image39.png)
+![替代文字](media/azure-stack-solution-geo-distributed/image39.png)
 
 #### <a name="bind-your-ssl-certificate"></a>繫結 SSL 憑證
 
@@ -514,11 +514,11 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     1.  選取 [新增繫結]。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image40.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image40.png)
 
 當 App Service 完成憑證的上傳時，憑證會出現在 [SSL 繫結] 區段中。
 
-![替代文字](media\azure-stack-solution-geo-distributed\image41.png)
+![替代文字](media/azure-stack-solution-geo-distributed/image41.png)
 
 #### <a name="remap-the-a-record-for-ip-ssl"></a>將 IP SSL 的 A 記錄重新對應
 
@@ -534,7 +534,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在不同的瀏覽器中瀏覽至 https://<your.custom.domain>，以確定可存取 Web 應用程式。
 
-![替代文字](media\azure-stack-solution-geo-distributed\image42.png)
+![替代文字](media/azure-stack-solution-geo-distributed/image42.png)
 
 > [!Note]  
 > 如果發生憑證驗證錯誤，這可能是自我簽署的憑證所致，或是在匯出至 PFX 檔案時遺漏了中繼憑證。
@@ -545,7 +545,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 在 [Web 應用程式] 頁面中，選取 [SSL 設定]。 然後，在 [僅限 HTTPS] 中選取 [開啟]。
 
-![強制使用 HTTPS](media\azure-stack-solution-geo-distributed\image43.png)
+![強制使用 HTTPS](media/azure-stack-solution-geo-distributed/image43.png)
 
 當作業完成時，請瀏覽至指向應用程式的任何 HTTP URL。 例如︰
 
@@ -561,7 +561,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 2.  在 [TLS 版本] 中，選取最低的 TLS 版本。
 
-![強制使用 TLS 1.1 或 1.2](media\azure-stack-solution-geo-distributed\image44.png)
+![強制使用 TLS 1.1 或 1.2](media/azure-stack-solution-geo-distributed/image44.png)
 
 ### <a name="create-a-traffic-manager-profile"></a>建立流量管理員設定檔
 
@@ -583,7 +583,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
     7.  當流量管理員設定檔的全球部署完成時，它會列為個別資源群組的其中一個資源。
 
-    ![替代文字](media\azure-stack-solution-geo-distributed\image45.png)
+    ![替代文字](media/azure-stack-solution-geo-distributed/image45.png)
 
 ### <a name="add-traffic-manager-endpoints"></a>新增流量管理員端點
 
@@ -632,7 +632,7 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 1.  這兩個端點新增完畢後，它們會顯示在 [流量管理員設定檔] 中，而且監視狀態是 [線上]。
 
-  ![替代文字](media\azure-stack-solution-geo-distributed\image46.png)
+  ![替代文字](media/azure-stack-solution-geo-distributed/image46.png)
 
 **國際企業需依賴 Azure 異地分散功能**
 

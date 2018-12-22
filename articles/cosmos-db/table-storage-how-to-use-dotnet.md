@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: fd437e42c404bec71036e760b95aef7e005d3fd9
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 23ee4142dbf3d3c07eb89640554a464d0ac51822
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880194"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102991"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>以 .NET 開始使用 Azure 資料表儲存體和 Azure Cosmos DB 資料表 API
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -78,7 +78,7 @@ ms.locfileid: "52880194"
 
 * [適用於 .NET 的 Microsoft Azure Cosmos DB 表格文件庫](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)。 此套件可供以程式設計方式存取 Azure 表格儲存體帳戶或 Azure Cosmos DB 表格 API 帳戶中的資料資源。 此文件庫目前僅適用於 .NET Standard，尚不適用於 .NET Core。
 
-* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)︰此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
+* [適用於 .NET 的 Microsoft Azure Configuration Manager 程式庫](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)：此套件提供一個類別，無論您的應用程式於何處執行，均可用來剖析組態檔中的連接字串。
 
 若要取得 NuGet 套件，請遵循下列步驟：
 
@@ -88,7 +88,7 @@ ms.locfileid: "52880194"
 4. 線上搜尋 "WindowsAzure.ConfigurationManager"，然後選取 [安裝] 以安裝 Microsoft Azure Configuration Manager Library。
 
 > [!NOTE]
-> 適用於 .NET 的儲存體通用程式庫中的 ODataLib 相依性現由 ODataLib 套件解析，該套件可在 NuGet 上取得而非由 WCF 資料服務提供。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 Storage Client Library 使用的特定 ODataLib 封裝有 [OData](http://nuget.org/packages/Microsoft.Data.OData/)、[Edm](http://nuget.org/packages/Microsoft.Data.Edm/)，以及 [Spatial](http://nuget.org/packages/System.Spatial/)。 這些程式庫雖由 Azure 表格儲存體類別使用，它們同時也是使用儲存體通用程式庫進行程式設計的必要相依項目。
+> 適用於 .NET 的儲存體通用程式庫中的 ODataLib 相依性現由 ODataLib 套件解析，該套件可在 NuGet 上取得而非由 WCF 資料服務提供。 您可以直接下載 ODataLib 程式庫，或是由您的程式碼專案透過 NuGet 參照這些程式庫。 Storage Client Library 使用的特定 ODataLib 封裝有 [OData](https://nuget.org/packages/Microsoft.Data.OData/)、[Edm](https://nuget.org/packages/Microsoft.Data.Edm/)，以及 [Spatial](https://nuget.org/packages/System.Spatial/)。 這些程式庫雖由 Azure 表格儲存體類別使用，它們同時也是使用儲存體通用程式庫進行程式設計的必要相依項目。
 > 
 > 
 
@@ -453,7 +453,7 @@ table.Execute(insertOrReplaceOperation);
 ```
 
 ## <a name="query-a-subset-of-entity-properties"></a>查詢實體屬性的子集
-一項資料表查詢可以只擷取實體的少數屬性而非所有屬性。 這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 下列程式碼中的查詢只會傳回資料表中各實體的電子郵件地址。 這是使用 [DynamicTableEntity][dotnet_DynamicTableEntity] 以及 [EntityResolver][dotnet_EntityResolver] 的查詢所完成的。 您可以在[更新插入和查詢投影簡介的部落格文章][blog_post_upsert]中進一步了解投影。 儲存體模擬器並不支援投影，因此此程式碼只有在資料表服務中使用帳戶時才會執行。
+一項資料表查詢可以只擷取實體的少數屬性而非所有屬性。 這項稱為「投射」的技術可減少頻寬並提高查詢效能 (尤其是對大型實體而言)。 下列程式碼中的查詢只會傳回資料表中各實體的電子郵件地址。 這是使用 [DynamicTableEntity][dotnet_DynamicTableEntity] 以及 [EntityResolver][dotnet_EntityResolver] 的查詢所完成的。 儲存體模擬器並不支援投影，因此此程式碼只有在資料表服務中使用帳戶時才會執行。
 
 ```csharp
 // Retrieve the storage account from the connection string.
@@ -576,9 +576,6 @@ do
 * [使用 .NET (C#) 連接到 SQL Database ](../sql-database/sql-database-develop-dotnet-simple.md) 以儲存關聯式資料。
 
 [Download and install the Azure SDK for .NET]: /develop/net/
-[Creating an Azure Project in Visual Studio]: http://msdn.microsoft.com/library/azure/ee405487.aspx
-
-[blog_post_upsert]: http://blogs.msdn.com/b/windowsazurestorage/archive/2011/09/15/windows-azure-tables-introducing-upsert-and-query-projection.aspx
 
 [dotnet_api_ref]: https://msdn.microsoft.com/library/azure/mt347887.aspx
 [dotnet_CloudTableClient]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.cloudtableclient.aspx

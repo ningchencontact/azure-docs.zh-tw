@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/02/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: b4b81546a267e6fd082f83db8b23010f0742771f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: d63faf63012360d4448166ac5d69eba6ede9d0ed
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237892"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969527"
 ---
-# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 建立暫存資料分析解決方案 
+# <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立暫存資料分析解決方案 
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 了解如何使用內部部署和公用雲端環境來滿足有許多設備的企業需求。 Azure Stack 提供快速、安全且彈性的解決方案來收集、處理、儲存和散發本機及遠端資料，尤其會用在安全性、機密性、公司政策和法規需求在位置和使用者之間有所差異的時候。
 
@@ -49,7 +49,7 @@ ms.locfileid: "48237892"
 
 建置此解決方案需要一些準備項目：
 
--   已安裝且正常運作的 Azure Stack (詳細資訊在此：[Azure Stack 概觀](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
+-   已安裝且正常運作的 Azure Stack (如需詳細資訊，請參閱：[Azure Stack 概觀](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-storage-overview))
 
 -   Azure 訂用帳戶。 ([建立免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
@@ -81,29 +81,29 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 3.  請使用下列帳戶資訊：
 
-    a.  名稱：**由您決定**
+    a.  名稱：您的選擇
 
     b.  部署模型：**Resource Manager**
 
-    c.  帳戶種類：**儲存體 (一般用途 V1)**
+    c.  帳戶類型：**儲存體 (一般用途 V1)**
 
-    d.  位置：**美國西部**
+    d.  位置：美國西部
 
     e.  複寫：**本地備援儲存體 (LRS)**
 
     f.  效能：**標準**
 
-    g.  需要安全傳輸：**停用**
+    g.  需要安全傳輸：**Disabled**
 
-    h.  訂用帳戶：選擇一個訂用帳戶
+    h.  訂用帳戶：選擇一個帳戶
 
     i.  資源群組：指定新的資源群組，或選取現有的資源群組
 
-    j.  設定虛擬網路：**停用**
+    j.  設定虛擬網路：**Disabled**
 
 4.  選取 [建立] 以建立儲存體帳戶。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image1.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image1.png)
 
 5.  建好後，選取儲存體帳戶的名稱。
 
@@ -111,11 +111,11 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 7.  在刀鋒視窗的頂端，選取 [+ 容器]，然後選取**容器**。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image2.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image2.png)
 
-8.  名稱：**由您決定**
+8.  名稱：**您的選擇**
 
-9.  公用存取層級：**容器** (容器和 Blob 的匿名讀取權限)
+9.  公用存取層級：**容器** (適用於容器和 Blob 的匿名讀取存取)
 
 10.  選取 [確定] 。
 
@@ -146,31 +146,31 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
     **範例：**
 
-    ![定義新的函式應用程式設定](media\azure-stack-solution-staged-data-analytics\image6.png)
+    ![定義新的函式應用程式設定](media/azure-stack-solution-staged-data-analytics/image6.png)
 
 5.  選取 [建立] 以佈建並部署函式應用程式。
 
 6.  選取入口網站右上角的 [通知] 圖示，查看是否有**部署成功**訊息。
 
-    ![定義新的函式應用程式設定](media\azure-stack-solution-staged-data-analytics\image7.png)
+    ![定義新的函式應用程式設定](media/azure-stack-solution-staged-data-analytics/image7.png)
 
 7.  選取 [前往資源]，以檢視新的函式應用程式。
 
-![已成功建立函式應用程式。](media\azure-stack-solution-staged-data-analytics\image8.png)
+![已成功建立函式應用程式。](media/azure-stack-solution-staged-data-analytics/image8.png)
 
 ### <a name="add-a-function-to-the-azure-stack-function-app"></a>將函式新增至 Azure Stack 函式應用程式
 
 1.  按一下 [函式]，然後按一下 [+ 新增函式] 按鈕，即可建立新的函式。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image3.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image3.png)
 
 2.  選取 [計時器觸發程序]。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image4.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image4.png)
 
-3.  選取 [C\#] 作為語言，並將函式命名為：`upload-to-azure`  將排程設定為 `0 0 * * * *`，這在 CRON 標記法中是指一小時一次。
+3.  選取 **C\#** 作為 [語言] 並將函式命名為：`upload-to-azure`。將排程設定為 `0 0 * * * *`，這在 CRON 標記法中是指一小時一次。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image5.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image5.png)
 
 ## <a name="create-a-blob-storage-triggered-function"></a>建立由 Blob 儲存體所觸發的函式
 
@@ -178,7 +178,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 2.  在 [搜尋] 欄位中，輸入 `blob`，然後選擇需要的 **Blob 觸發程序**範本語言。
 
-  ![選擇 Blob 儲存體觸發程序範本。](media\azure-stack-solution-staged-data-analytics\image10.png)
+  ![選擇 Blob 儲存體觸發程序範本。](media/azure-stack-solution-staged-data-analytics/image10.png)
 
 3.  使用下列表格中所指定的設定：
 
@@ -190,7 +190,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
     **範例：**
 
-    ![建立由 Blob 儲存體所觸發的函式。](media\azure-stack-solution-staged-data-analytics\image11.png)
+    ![建立由 Blob 儲存體所觸發的函式。](media/azure-stack-solution-staged-data-analytics/image11.png)
 
 4.  選取 [建立] 以建立函式。
 
@@ -202,7 +202,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 3.  依序展開儲存體帳戶、**Blob 容器**，和您稍早建立的 Blob。 依序選取 [上傳] 和 [上傳檔案]。
 
-    ![將檔案上傳至 Blob 容器。](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![將檔案上傳至 Blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  在 [上傳檔案] 對話方塊中，選取 [檔案] 欄位。 瀏覽至本機電腦上的檔案 (例如影像檔)，加以選取，然後依序選取 [開啟] 和 [上傳]。
 
@@ -210,7 +210,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
     **範例：**
 
-    ![檢視記錄中的訊息。](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![檢視記錄中的訊息。](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="create-an-azure-stack-storage-account"></a>建立 Azure Stack 儲存體帳戶
 
@@ -232,9 +232,9 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 4.  選取 [確認]。
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image14.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image14.png)
 
-    ![替代文字](media\azure-stack-solution-staged-data-analytics\image15.png)
+    ![替代文字](media/azure-stack-solution-staged-data-analytics/image15.png)
 
 ## <a name="create-a-queue-triggered-function"></a>建立由佇列觸發的函式
 
@@ -252,13 +252,13 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
 ## <a name="test-the-queue-triggered-function"></a>測試由佇列觸發的函式
 
-1.  在 Azure 入口網站中瀏覽至函式。 展開頁面底部的**記錄**，並確定記錄串流並未暫停。
+1.  在 Azure Stack 入口網站中，瀏覽至函式。 展開頁面底部的**記錄**，並確定記錄串流並未暫停。
 
 2.  開啟 [儲存體總管] 並連線至本節開頭所建立的儲存體帳戶。
 
 3.  依序展開儲存體帳戶、**Blob 容器**，和您稍早建立的 Blob。 依序選取 [上傳] 和 [上傳檔案]。
 
-    ![將檔案上傳至 Blob 容器。](media\azure-stack-solution-staged-data-analytics\image12.png)
+    ![將檔案上傳至 Blob 容器。](media/azure-stack-solution-staged-data-analytics/image12.png)
 
 4.  在 [上傳檔案] 對話方塊中，選取 [檔案] 欄位。 瀏覽至本機電腦上的檔案 (例如影像檔)，加以選取，然後依序選取 [開啟] 和 [上傳]。
 
@@ -266,7 +266,7 @@ Azure 函式及儲存體解決方案會進行縮放，以滿足資料量和處�
 
   **範例：**
 
-    ![檢視記錄中的訊息。](media\azure-stack-solution-staged-data-analytics\image13.png)
+    ![檢視記錄中的訊息。](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>安全地儲存和存取符合規範的資料
 

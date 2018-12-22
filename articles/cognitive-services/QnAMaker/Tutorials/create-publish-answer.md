@@ -1,23 +1,24 @@
 ---
-title: 教學課程：建立、發佈知識庫及從中提供答案 - REST、C# - QnA Maker
-titleSuffix: Azure Cognitive Services
+title: 建立、發佈、回答
+titleSuffix: QnA Maker - Azure Cognitive Services
 description: 這個以 REST 為基礎的教學課程會逐步引導您以程式設計方式建立及發佈知識庫，然後從知識庫回答問題。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: 013b74165afe6eafee337bd00ca88b1034ad5662
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299553"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162931"
 ---
-# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 建立知識庫然後回答問題
+# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 
 本教學課程會逐步引導您以程式設計方式建立及發佈知識庫 (KB)，然後使用知識庫回答客戶的問題。 
 
@@ -43,7 +44,7 @@ ms.locfileid: "51299553"
 * 您必須有 [QnA Maker 服務](../How-To/set-up-qnamaker-service-azure.md)。 若要擷取您的金鑰，請選取儀表板中 [資源管理] 下方的 [金鑰]。 
 
 > [!NOTE] 
-> 從 [**Azure-Samples/cognitive-services-qnamaker-csharp** Github 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)可取得完整的解決方案檔案。
+> 從 [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub 存放庫](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base)可取得完整的解決方案檔。
 
 ## <a name="create-a-knowledge-base-project"></a>建立知識庫專案
 

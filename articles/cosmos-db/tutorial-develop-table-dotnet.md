@@ -1,23 +1,23 @@
 ---
-title: Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
-description: 了解如何使用 .NET 搭配 Azure Cosmos DB 的「資料表 API」進行開發
-services: cosmos-db
+title: 使用 .NET SDK 搭配資料表 API 進行開發
+titleSuffix: Azure Cosmos DB
+description: 了解如何使用 .NET SDK 搭配 Azure Cosmos DB 中的「資料表 API」進行開發
 author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 12/18/2017
+ms.date: 12/07/2018
 ms.author: sngun
-ms.custom: mvc
-ms.openlocfilehash: 02c4ead0f41463a70cc7123427193f835d9cca94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: f10cb17f0300b6bd21d17b1e2ff204d57e4a7988
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877730"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251176"
 ---
-# <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發
+# <a name="develop-with-azure-cosmos-dbs-table-api-using-net-sdk"></a>使用 .NET SDK 搭配 Azure Cosmos DB 的「資料表 API」進行開發
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 
 ## <a name="clone-the-sample-application"></a>複製範例應用程式
 
-現在，我們將從 Github 複製「資料表」應用程式、設定連接字串，然後執行它。 您會看到，以程式設計方式來處理資料有多麼的容易。 
+現在，我們將從 GitHub 複製「資料表」應用程式、設定連接字串，然後加以執行。 您會看到，以程式設計方式來處理資料有多麼的容易。 
 
 1. 開啟 git 終端機視窗 (例如 git bash)，並使用 `cd` 命令變更至要安裝範例應用程式的資料夾。 
 
@@ -97,7 +97,7 @@ Azure Cosmos DB 針對需要無結構描述設計之索引鍵-值存放區的應
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。 這可讓您的應用程式與託管資料庫進行通訊。 
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，按一下 [連接字串]。 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，按一下 [連接字串]。 
 
     使用畫面右方的複製按鈕來複製主要連接字串。
 
@@ -180,7 +180,8 @@ CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 將此用戶端初始化時，會使用 `TableConnectionMode`、`TableConnectionProtocol`、`TableConsistencyLevel` 及 `TablePreferredLocations` 組態值 (如果在應用程式設定中指定)。
 
 ## <a name="create-a-table"></a>建立資料表
-然後，您需使用 `CloudTable` 來建立資料表。 Azure Cosmos DB 中的「資料表」可以就儲存體和輸送量方面獨立調整，而資料分割則是由服務自動處理。 Azure Cosmos DB 同時支援固定大小和無限制的資料表。 如需詳細資料，請參閱 [Azure Cosmos DB 中的資料分割](partition-data.md)。 
+
+然後，您需使用 `CloudTable` 來建立資料表。 Azure Cosmos DB 中的「資料表」可以就儲存體和輸送量方面獨立調整，而資料分割則是由服務自動處理。 
 
 ```csharp
 CloudTable table = tableClient.GetTableReference("people");

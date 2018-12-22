@@ -1,45 +1,50 @@
 ---
-title: 保護 Azure SQL Database | Microsoft Docs
-description: 深入了解保護 Azure SQL Database 的技術和功能。
+title: 保護 Azure SQL Database 中的單一資料庫 | Microsoft Docs
+description: 了解用來對 Azure SQL Database 中的單一資料庫進行保護的技術和功能。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: tutorial
-author: DRediske
-ms.author: daredis
-ms.reviewer: vanto, carlrab
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: 827b3b6776656619314af3053cb05f8cfc3754c0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/13/2018
+ms.openlocfilehash: 814d558efee4a72a25d956828e0db237424cab24
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914369"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409763"
 ---
-# <a name="tutorial-secure-your-azure-sql-database"></a>教學課程：保護 Azure SQL Database
+# <a name="tutorial-secure-a-single-database-in-azure-sql-database"></a>教學課程：保護 Azure SQL Database 中的單一資料庫
 
-SQL Database 保護您資料的方式： 
-- 使用防火牆規則限制資料庫的存取權 
+SQL Database 可藉由下列方式保護單一 Azure SQL 資料庫中的資料：
+
+- 使用防火牆規則限制資料庫的存取權
 - 使用需要其身分識別的驗證機制
-- 透過以角色為基礎的成員資格和權限進行資料授權 
+- 透過以角色為基礎的成員資格和權限進行資料授權
 - 資料列層級安全性
 - 動態資料遮罩
 
-SQL Database 也具有複雜的監視、稽核和威脅偵測功能。 
+SQL Database 也具有複雜的監視、稽核和威脅偵測功能。
 
-只需要幾個簡單步驟，您就可以讓資料庫預防惡意使用者或未經授權的存取。 您會在本教學課程中學到： 
+> [!IMPORTANT]
+> Azure SQL Database 可使用網路安全性群組規則和私人端點來保護受控執行個體中的資料庫。 如需詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance-index.yml)和 [Azure SQL Database 受控執行個體連線架構](sql-database-managed-instance-connectivity-architecture.md)。
+
+只需要幾個簡單步驟，您就可以讓資料庫預防惡意使用者或未經授權的存取。 您會在本教學課程中學到：
 
 > [!div class="checklist"]
-> * 在 Azure 入口網站中，為伺服器設定伺服器層級的防火牆規則
-> * 使用 SSMS 為資料庫設定資料庫層級的防火牆規則
-> * 使用安全的連接字串來與資料庫連線
-> * 管理使用者的存取
-> * 使用加密來保護您的資料
-> * 啟用 SQL Database 稽核
-> * 啟用 SQL Database 威脅偵測
+> - 在 Azure 入口網站中，為伺服器設定伺服器層級的防火牆規則
+> - 使用 SSMS 為資料庫設定資料庫層級的防火牆規則
+> - 使用安全的連接字串來與資料庫連線
+> - 設定 Azure SQL 的 Azure Active Directory 系統管理員
+> - 管理使用者的存取
+> - 使用加密來保護您的資料
+> - 啟用 SQL Database 稽核
+> - 啟用 SQL Database 威脅偵測
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
@@ -47,9 +52,12 @@ SQL Database 也具有複雜的監視、稽核和威脅偵測功能。
 
 若要完成本教學課程，請確定您具有下列項目︰
 
-- 已安裝最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。 
+- 已安裝最新版的 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 - 已安裝 Microsoft Excel
-- 已建立 Azure SQL Server 和 SQL Database - 請參閱[在 Azure 入口網站中建立 Azure SQL Database](sql-database-get-started-portal.md)、[使用 Azure CLI 建立單一 Azure SQL Database](sql-database-cli-samples.md) 和[使用 PowerShell 建立單一 Azure SQL Database](sql-database-powershell-samples.md)。 
+- 已建立 Azure SQL Server 和 SQL Database - 請參閱[在 Azure 入口網站中建立 Azure SQL Database](sql-database-get-started-portal.md)、[使用 Azure CLI 建立單一 Azure SQL Database](sql-database-cli-samples.md) 和[使用 PowerShell 建立單一 Azure SQL Database](sql-database-powershell-samples.md)。
+
+> [!NOTE]
+> 本教學課程假設您已設定 Azure Active Directory，或您使用初始的 Azure Active Directory 受控網域。 如需針對各種案例設定 Azure Active Directory 的相關資訊，請參閱[整合內部部署身分識別與 Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md)、[將您自己的網域名稱新增至 Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)、[Microsoft Azure 現在支援與 Windows Server Active Directory 同盟](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)、[管理您的 Azure AD 目錄](../active-directory/fundamentals/active-directory-administer.md)、[使用 Windows PowerShell 管理 Azure AD](/powershell/azure/overview?view=azureadps-2.0) 和[混合式身分識別所需的連接埠和通訊協定](../active-directory/hybrid/reference-connect-ports.md)。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -61,21 +69,20 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 
 最安全的設定是將「允許存取 Azure 服務」設定為「關閉」。 如果您需要從 Azure VM 或雲端服務連線到資料庫，您應建立[保留的 IP (傳統部署)](../virtual-network/virtual-networks-reserved-public-ip.md)，並僅允許保留的 IP 位址可通過防火牆進行存取。 如果您使用 [Resource Manager](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) 部署模型，將會對資源指派專用的公用 IP 位址，而您應該允許此 IP 位址通過防火牆。
 
-遵循以下步驟建立 [SQL Database 伺服器層級防火牆規則](sql-database-firewall-configure.md)，以讓您的伺服器允許來自特定 IP 位址的連線。 
+遵循以下步驟建立 [SQL Database 伺服器層級防火牆規則](sql-database-firewall-configure.md)，以讓您的伺服器允許來自特定 IP 位址的連線。
 
 > [!NOTE]
 > 如果您已使用先前其中一個教學課程或快速入門在 Azure 中建立範例資料庫，而且您執行此教學課程的電腦與逐步進行那些教學課程時的電腦有相同的 IP 位址，表示您已建立伺服器層級的防火牆規則，所以您就可以略過此步驟。
->
 
 1. 按一下左側功能表上的 [SQL Database]，然後在 [SQL Database] 頁面上按一下您要設定防火牆規則的資料庫。 資料庫的概觀頁面隨即開啟，其中會顯示完整伺服器名稱 (例如 **mynewserver20170313.database.windows.net**)，並提供進一步的組態選項。
 
-      ![伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule.png) 
+      ![伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule.png)
 
-2. 如先前映像所示，按一下工具列上的 [設定伺服器防火牆]。 SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。 
+2. 如先前映像所示，按一下工具列上的 [設定伺服器防火牆]。 SQL Database 伺服器的 [防火牆設定] 頁面隨即開啟。
 
 3. 按一下工具列上的 [新增用戶端 IP]，新增與入口網站連線的電腦公用 IP 位址，或手動輸入防火牆規則並按一下 [儲存]。
 
-      ![設定伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule-set.png) 
+      ![設定伺服器防火牆規則](./media/sql-database-security-tutorial/server-firewall-rule-set.png)
 
 4. 依序按一下 [確定] 和 [X] 以關閉 [防火牆設定] 頁面。
 
@@ -87,7 +94,7 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 
 ## <a name="create-a-database-level-firewall-rule-using-ssms"></a>使用 SSMS 建立資料庫層級防火牆規則
 
-資料庫層級防火牆規則可讓您在相同邏輯伺服器內為不同資料庫建立不同的防火牆設定，以及建立具有可攜性的防火牆規則 - 表示這些規則在[容錯移轉](sql-database-geo-replication-overview.md)期間是跟隨著資料庫而不是儲存在 SQL Server 中。 資料庫層級的防火牆規則只能使用 Transact-SQL 陳述式設定，且僅可在您已設定第一個伺服器層級防火牆規則之後進行設定。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](sql-database-firewall-configure.md)
+資料庫層級防火牆規則可讓您在相同邏輯伺服器內為不同資料庫建立不同的防火牆設定，以及建立具有可攜性的防火牆規則 - 表示這些規則在容錯移轉期間是跟隨著資料庫而不是儲存在 SQL Server 中。 資料庫層級的防火牆規則只能使用 Transact-SQL 陳述式設定，且僅可在您已設定第一個伺服器層級防火牆規則之後進行設定。 如需詳細資訊，請參閱 [Azure SQL Database 伺服器層級和資料庫層級防火牆規則](sql-database-firewall-configure.md)
 
 請依照下列步驟來建立資料庫專屬的防火牆規則。
 
@@ -108,7 +115,7 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 若要確保用戶端應用程式與 SQL Database 之間有安全且加密的連線，連接字串必須設定為：
 
 - 要求加密的連線，並且
-- 不要信任伺服器憑證。 
+- 不要信任伺服器憑證。
 
 此動作會建立使用傳輸層安全性 (TLS) 的連線，並降低發生攔截式攻擊的風險。 從 Azure 入口網站，您可以取得受支援用戶端驅動程式的 SQL Database 連接字串 (已正確設定)，如同此螢幕截圖中的 ADO.net 所示。 如需 TLS 和連線能力的相關資訊，請參閱 [TLS 考量](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 
@@ -120,15 +127,36 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 
     ![ADO.NET 連接字串](./media/sql-database-security-tutorial/adonet-connection-string.png)
 
+## <a name="provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server"></a>為 Azure SQL Database 伺服器佈建 Azure Active Directory 系統管理員
+
+在 Azure 入口網站中佈建 Azure SQL Server 的 Azure Active Directory 系統管理員。
+
+1. 在 [Azure 入口網站](https://portal.azure.com/)的右上角，選取您的連線以顯示可能的 Active Directory 下拉式清單。 選擇正確的 Active Directory 做為預設 Azure AD。 此步驟會連結與訂用帳戶相關聯的 Active Directory 和 Azure SQL 伺服器，確定 Azure AD 和 SQL Server 使用相同的訂用帳戶。 (Azure SQL 伺服器可以裝載 Azure SQL Database 或 Azure SQL 資料倉儲。)
+
+    ![choose-ad](./media/sql-database-aad-authentication/8choose-ad.png)
+
+2. 在 [SQL Server] 頁面上選取 [Active Directory 系統管理員]，並在 [Active Directory 系統管理員] 頁面上選取 [設定系統管理員]。![選取 Active Directory](./media/sql-database-aad-authentication/select-active-directory.png)  
+
+3. 在 [新增系統管理員] 頁面中，搜尋使用者，選取要成為系統管理員的使用者或群組，然後選取 [選取]。 [Active Directory 系統管理員] 頁面會顯示您 Active Directory 的所有成員和群組。 呈現灰色的使用者或群組無法選取，因為他們不受支援成為 Azure AD 系統管理員。 (請在[利用 SQL Database 或 SQL 資料倉儲使用 Azure Active Directory 驗證來驗證](sql-database-aad-authentication.md)的＜Azure AD 功能和限制＞節中參閱支援的系統管理員清單。)以角色為基礎的存取控制 (RBAC) 只會套用至入口網站，並且不會傳播至 SQL Server。
+    ![選取系統管理員](./media/sql-database-aad-authentication/select-admin.png)  
+
+4. 在 [Active Directory 系統管理員] 頁面頂端，選取 [儲存]。
+    ![儲存系統管理員](./media/sql-database-aad-authentication/save-admin.png)
+
+變更系統管理員的程序可能需要幾分鐘的時間。 接著，新的系統管理員就會出現在 [Active Directory 系統管理員]  方塊中。
+
+   > [!NOTE]
+   > 設定 Azure AD 系統管理員時，新的系統管理員名稱 (使用者或群組) 不可以已經存在於虛擬主要資料庫中作為 SQL Server 驗證使用者。 如果存在，Azure AD 系統管理員設定將會失敗；其中會復原其建立並指出這樣的系統管理員 (名稱) 已經存在。 由於這類 SQL Server 驗證使用者並非 Azure AD 的成員，因此使用 Azure AD 驗證來連線到伺服器的一切努力都會失敗。
+
 ## <a name="creating-database-users"></a>建立資料庫使用者
 
-建立任何使用者之前，您必須先選取一個或兩個 Azure SQL Database 支援的驗證類型： 
+建立任何使用者之前，您必須先選取一個或兩個 Azure SQL Database 支援的驗證類型：
 
-**SQL 驗證**，使用登入作業和使用者適用的使用者名稱和密碼，而登入作業和使用者僅在邏輯伺服器內的特定資料庫環境中有效。 
+**SQL 驗證**，使用登入作業和使用者適用的使用者名稱和密碼，而登入作業和使用者僅在邏輯伺服器內的特定資料庫環境中有效。
 
-**Azure Active Directory 驗證**，使用由 Azure Active Directory 管理的身分識別。 
+**Azure Active Directory 驗證**，使用由 Azure Active Directory 管理的身分識別。
 
-如果您想要使用 [Azure Active Directory](./sql-database-aad-authentication.md) 對 SQL Database 進行驗證，則必須有填入的 Azure Active Directory 才可繼續。
+### <a name="create-a-user-using-sql-authentication"></a>使用 SQL 驗證建立使用者
 
 請遵循以下步驟使用 SQL Authentication 建立使用者：
 
@@ -153,12 +181,32 @@ Azure 的防火牆會保護 SQL Database。 依預設，伺服器與其內部資
 
 若要在資料庫層級建立這些非系統管理員帳戶來與您資料庫連線，這是最佳的作法，除非您需要執行如建立新使用者的系統管理員工作。 請檢閱 [Azure Active Directory 教學課程](./sql-database-aad-authentication-configure.md)以了解如何使用 Azure Active Directory 進行驗證。
 
+### <a name="create-a-user-using-azure-active-directory-authentication"></a>使用 Azure Active Directory 驗證建立使用者
+
+Azure Active Directory 驗證需要建立資料庫使用者做為自主資料庫使用者。 以 Azure AD 身分識別為基礎的自主資料庫使用者係指在 master 資料庫中沒有登入身分的資料庫使用者，並且此使用者會對應至 Azure AD 目錄中與資料庫關聯的身分識別。 Azure AD 身分識別可以是個別的使用者帳戶或群組。 如需有關自主資料庫使用者的詳細資訊，請參閱 [自主資料庫使用者 - 使資料庫可攜](https://msdn.microsoft.com/library/ff929188.aspx)。
+
+> [!NOTE]
+> 您無法使用 Azure 入口網站建立資料庫使用者 (系統管理員除外)。 RBAC 角色不會傳播至 SQL Server、SQL Database 或「SQL 資料倉儲」。 Azure RBAC 角色可用來管理 Azure 資源，並不會套用到資料庫權限。 例如，「SQL Server 參與者」  角色不會授與可連線到 SQL Database 或「SQL 資料倉儲」的存取權。 存取權限必須使用 Transact-SQL 陳述式直接在資料庫中授與。
+> [!WARNING]
+> 不支援在 T-SQL CREATE LOGIN 和 CREATE USER 陳述式中的使用者名稱內使用冒號 `:` 或 `&` 等特殊字元。
+
+1. 使用至少具有 **ALTER ANY USER** 權限的 Azure Active Directory 帳戶連線至您的 Azure SQL Server。
+2. 在物件總管中，以滑鼠右鍵按一下您要新增使用者的資料庫，然後按一下[新增查詢]。 隨即開啟已連線到所選資料庫的空白查詢視窗。
+
+3. 在查詢視窗中輸入下列查詢，並將 `<Azure_AD_principal_name>` 修改為 Azure AD 使用者的適當使用者主體名稱或 Azure AD 群組的顯示名稱：
+
+   ```sql
+   CREATE USER <Azure_AD_principal_name> FROM EXTERNAL PROVIDER;
+   ```
+
+   > [!NOTE]
+   > Azure AD 使用者會在資料庫中繼資料中標示為類型 E (EXTERNAL_USER)，而群組則標示為類型 X (EXTERNAL_GROUPS)。 如需詳細資訊，請參閱 [sys.database_principals](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql)。
 
 ## <a name="protect-your-data-with-encryption"></a>使用加密來保護您的資料
 
 Azure SQL Database 透明資料加密 (TDE) 會自動為您的待用資料加密，且應用程式不須做任何變更來存取加密的資料庫。 如果是新建立的資料庫，TDE 預設為開啟。 若要為您的資料庫啟用 TDE，或確認已開啟 TDE，請遵循下列步驟：
 
-1. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。 
+1. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。
 
 2. 按一下 [透明資料加密] 以開啟 TDE 的組態頁面。
 
@@ -166,13 +214,13 @@ Azure SQL Database 透明資料加密 (TDE) 會自動為您的待用資料加密
 
 3. 如有必要，請將 [資料加密] 設為「開啟」，然後按一下 [儲存]。
 
-加密程序會在背景中啟動。 使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 連線至 SQL Database，以及查詢 [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 檢視的 encryption_state 資料欄，即可監視進度。 狀態 3 表示資料庫已加密。 
+加密程序會在背景中啟動。 使用 [SQL Server Management Studio](./sql-database-connect-query-ssms.md) 連線至 SQL Database，以及查詢 [sys.dm_database_encryption_keys](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017) 檢視的 encryption_state 資料欄，即可監視進度。 狀態 3 表示資料庫已加密。
 
 ## <a name="enable-sql-database-auditing-if-necessary"></a>啟用 SQL Database 稽核 (如有必要)
 
 Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲存體帳戶中的稽核記錄。 稽核可協助您保持法規合規性、了解資料庫活動，以及深入了解可能指出潛在安全違規的不一致和異常。 請遵循下列步驟為 SQL Database 建立預設的稽核原則︰
 
-1. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。 
+1. 從左側功能表中選取 [SQL Database]，按一下 [SQL Database] 頁面上您的資料庫。
 
 2. 在 [設定] 刀鋒視窗中，選取 [稽核和威脅偵測]。 請注意，伺服器層級稽核已停用，而且有一個**檢視伺服器設定**連結，可讓您從此內容檢視或修改伺服器稽核設定。
 
@@ -182,11 +230,10 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
     ![開啟稽核](./media/sql-database-security-tutorial/auditing-get-started-turn-on.png)
 
-4. 選取 [儲存體詳細資料] 以開啟 [稽核記錄儲存體] 刀鋒視窗。 選取將儲存記錄的 Azure 儲存體帳戶，以及將舊記錄刪除之前的保留期間，然後按一下底部的 [確定]。 
+4. 選取 [儲存體詳細資料] 以開啟 [稽核記錄儲存體] 刀鋒視窗。 選取將儲存記錄的 Azure 儲存體帳戶，以及將舊記錄刪除之前的保留期間，然後按一下底部的 [確定]。
 
    > [!TIP]
    > 讓所有稽核的資料庫都使用相同的儲存體帳戶，以充分利用稽核報告範本。
-   > 
 
 5. 按一下 [檔案] 。
 
@@ -241,20 +288,20 @@ Azure SQL Database 稽核會追蹤資料庫事件並將事件寫入您 Azure 儲
 
 11. 結果會出現在 [SQL 稽核記錄檔]  工作表，可讓您對偵測到的異常活動執行更深入的分析，減輕應用程式中的安全性事件造成的影響。
 
-
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解只需要幾個簡單步驟，就可以讓資料庫預防惡意使用者或未經授權的存取。  您已了解如何︰ 
+
+在本教學課程中，您已了解只需要幾個簡單步驟，就可以讓資料庫預防惡意使用者或未經授權的存取。  您已了解如何︰
 
 > [!div class="checklist"]
-> * 設定伺服器和資料庫的防火牆規則
-> * 使用安全的連接字串來與資料庫連線
-> * 管理使用者的存取
-> * 使用加密來保護您的資料
-> * 啟用 SQL Database 稽核
-> * 啟用 SQL Database 威脅偵測
+> - 設定伺服器和資料庫的防火牆規則
+> - 使用安全的連接字串來與資料庫連線
+> - 設定 Azure SQL 的 Azure Active Directory 系統管理員
+> - 管理使用者的存取
+> - 使用加密來保護您的資料
+> - 啟用 SQL Database 稽核
+> - 啟用 SQL Database 威脅偵測
 
 前進至下一個教學課程，以了解如何實作異地分散式資料庫。
 
 > [!div class="nextstepaction"]
 >[實作異地分散式資料庫](sql-database-implement-geo-distributed-database.md)
-

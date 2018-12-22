@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 Windows 上以 C++ 辨識語音
+title: 快速入門：辨識語音，C++ (Windows) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解如何使用語音服務 SDK 在 Windows 桌面上以 C++ 辨識語音
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 8947ba3f39cebf51e956db0d841e393963832bc4
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 454b84f4ba5e492f61daf67c980b204c82a2090d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218726"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075182"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>快速入門：使用語音 SDK 在 Windows 上以 C++ 辨識語音
 
@@ -31,11 +31,11 @@ ms.locfileid: "51218726"
 
 1. 啟動 Visual Studio 2017。
 
-1. 請確定**使用 C++ 進行桌面開發**工作負載可供使用。 從 Visual Studio 功能表列選擇 [工具]  >  [取得工具和功能]，以開啟 Visual Studio 安裝程式。 如果已啟用此工作負載，請跳至下一個步驟。 
+1. 請確定**使用 C++ 進行桌面開發**工作負載可供使用。 從 Visual Studio 功能表列選擇 [工具]  >  [取得工具和功能]，以開啟 Visual Studio 安裝程式。 如果已啟用此工作負載，請跳至下一個步驟。
 
     ![Visual Studio 工作負載索引標籤的螢幕擷取畫面](media/sdk/vs-enable-cpp-workload.png)
 
-    否則，請核取 [使用 C++ 進行桌面開發] 旁邊的方塊。 
+    否則，請核取 [使用 C++ 進行桌面開發] 旁邊的方塊。
 
 1. 請確定 **NuGet 套件管理員**元件可用。 切換至 Visual Studio 安裝程式對話方塊的 [個別元件] 索引標籤，如果 [NuGet 套件管理員] 尚未啟用，則加以選取。
 

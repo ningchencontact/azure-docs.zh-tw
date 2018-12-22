@@ -8,12 +8,12 @@ ms.component: cosmosdb-table
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: sngun
-ms.openlocfilehash: 5d50b50d05877b213f0211a6ca8fa89f69231f52
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2647065d251caea571e2bfcd5703bbb3bec08345
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52866486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074298"
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Azure Cosmos DB 簡介：資料表 API
 
@@ -23,7 +23,7 @@ ms.locfileid: "52866486"
 * 全球[專用的輸送量](partition-data.md)。
 * 99 百分位數的單一數字毫秒延遲。
 * 保證高可用性。
-* [自動次要索引](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
+* [自動次要索引](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)。
 
 針對 Azure 資料表儲存體所撰寫的應用程式可使用資料表 API (不變更程式碼) 來移轉至 Azure Cosmos DB，並且利用進階功能。 資料表 API 具有適用於 .NET、Java、Python 和 Node.js 的用戶端 SDK。
 

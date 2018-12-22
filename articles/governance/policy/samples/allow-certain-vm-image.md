@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 只允許特定的 VM 平台映像
+title: 範例 - 只允許特定的 VM 平台映像
 description: 此範例原則會要求虛擬機器使用特定版本的 UbuntuServer。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: 3038f9694fd6dce3350b3b060851f00324975ba3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1e21834fb46fa43008220741384d7cb1f57f3dd2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991771"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315089"
 ---
 # <a name="only-allow-a-certain-vm-platform-image"></a>只允許特定的 VM 平台映像
 

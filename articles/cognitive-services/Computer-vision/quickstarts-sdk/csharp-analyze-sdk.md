@@ -10,14 +10,14 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/14/2018
 ms.author: pafarley
-ms.openlocfilehash: 7de7a87c73c2dabddf2268a6a0bc2992d6017e4d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0983978221e9872e92ca366edd3bd3f2bfd9c3f4
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853926"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413314"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>本快速入門：使用電腦視覺 SDK 和 C# 來分析影像
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>快速入門：使用電腦視覺 SDK 和 C# 來分析影像
 
 在本快速入門中，您使用電腦視覺 Windows 用戶端程式庫，來分析要擷取視覺功能的本機與遠端影像。
 
@@ -30,7 +30,7 @@ ms.locfileid: "51853926"
 ## <a name="analyzeimageasync-method"></a>AnalyzeImageAsync 方法
 
 > [!TIP]
-> 從 [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
+> 從 [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) 取得最新程式碼作為 Visual Studio 解決方案。
 
 `AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法可分別針對遠端和本機影像包裝[分析影像 API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (英文)。 您可以使用這些方法，根據影像內容來擷取視覺功能，並且選擇要傳回哪些功能，包括：
 
@@ -162,7 +162,7 @@ namespace ImageAnalyze
 
 成功的回應會顯示每個影像的最相關標題。
 
-請參閱 [API 快速入門：使用 C# 分析本機影像](../QuickStarts/CSharp-analyze.md#examine-the-response)，以取得未經處理 JSON 輸出的範例。
+請參閱 [API 快速入門：使用 C# 來分析本機影像](../QuickStarts/CSharp-analyze.md#examine-the-response)，以取得原始 JSON 輸出範例。
 
 ```
 http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg

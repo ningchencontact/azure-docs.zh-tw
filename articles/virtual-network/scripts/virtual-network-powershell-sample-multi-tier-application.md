@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 03/20/2018
+ms.date: 12/13/2018
 ms.author: jdial
-ms.openlocfilehash: 3a57827616e4722b8520dcddb64e4e67fa8c79c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: ebc0e18ecea61705ea8cb925a25d4233bfc9a2cb
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599884"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340499"
 ---
 # <a name="create-a-network-for-multi-tier-applications-script-sample"></a>為多層式應用程式建立網路的指令碼範例
 
@@ -32,10 +32,11 @@ ms.locfileid: "31599884"
 
 ## <a name="sample-script"></a>範例指令碼
 
+<!-- gitHub issue https://github.com/MicrosoftDocs/azure-docs/issues/17748 --> 子網路識別碼會在虛擬網路建好後指派；具體來說，會使用 New-AzureRmVirtualNetwork Cmdlet 搭配 -Subnet 選項。 如果您在呼叫 New-AzureRmVirtualNetwork 前使用 New-AzureRmVirtualNetworkSubnetConfig Cmdlet 設定子網路，您就不會看到子網路識別碼，直到您呼叫 New-AzureRmVirtualNetwork 後才能看到。
 
 [!code-azurepowershell-interactive[main](../../../powershell_scripts/virtual-network/virtual-network-multi-tier-application/virtual-network-multi-tier-application.ps1  "Virtual network for multi-tier application")]
 
-## <a name="clean-up-deployment"></a>清除部署 
+## <a name="clean-up-deployment"></a>清除部署
 
 執行下列命令來移除資源群組、VM 和所有相關資源：
 

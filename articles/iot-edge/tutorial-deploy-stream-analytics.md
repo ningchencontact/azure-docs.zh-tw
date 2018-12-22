@@ -1,5 +1,5 @@
 ---
-title: 教學課程 - 將 ASA 作業部署至 Azure IoT Edge 裝置 | Microsoft Docs
+title: 教學課程：將 Azure 串流分析作業部署到裝置 - Azure IoT Edge | Microsoft Docs
 description: 在本教學課程中，將 Azure 串流分析作為模組部署至 IoT Edge 裝置
 author: kgremban
 manager: philmea
@@ -7,16 +7,15 @@ ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
-services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566936"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139806"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組 (預覽)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教學課程：將 Azure 串流分析部署為 IoT Edge 模組
 
 許多 IoT 解決方案皆使用分析服務，來深入了解資料從 IoT 裝置送達雲端時的相關情形。 透過 Azure IoT Edge，您可以採取 [Azure 串流分析](https://docs.microsoft.com/azure/stream-analytics/)邏輯並將其運用於裝置本身。 藉由處理 Edge 上的遙測資料流，您將可減少上傳的資料量，並縮短將見解付諸行動的所需時間。
 
@@ -34,11 +33,9 @@ Azure 串流分析針對雲端中或 IoT Edge 上的資料，提供了豐富結�
 > * 從 Azure 入口網站將 Azure 串流分析作業部署至 IoT Edge 裝置。
 
 <center>
-![教學課程架構圖](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+![圖表 - 教學課程架構、階段和部署 ASA 作業](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
->[!NOTE]
->IoT Edge 上的 Azure 串流分析模組目前為[公開預覽版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,7 +64,7 @@ Azure IoT Edge 裝置：
 
    | 欄位 | 值 |
    | ----- | ----- |
-   | 名稱 | 提供儲存體帳戶的唯一名稱。 | 
+   | Name | 提供儲存體帳戶的唯一名稱。 | 
    | 位置 | 選擇接近您的位置。 |
    | 訂用帳戶 | 選擇與您的 IoT 中樞相同的訂用帳戶。 |
    | 資源群組 | 建議您對於在 IoT Edge 快速入門和教學課程中建立的所有測試資源，使用相同的資源群組。 例如 **IoTEdgeResources**。 |
@@ -100,7 +97,7 @@ Azure IoT Edge 裝置：
 
 1. 在 [作業拓撲] 下方選取 [輸入]，然後選取 [新增串流輸入]。
 
-   ![Azure 串流分析輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
+   ![Azure 串流分析新增輸入](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
 1. 從下拉式清單中選擇 [Edge 中樞]。
 
@@ -110,7 +107,7 @@ Azure IoT Edge 裝置：
 
 1. 在 [作業拓撲] 下方開啟 [輸出]，然後選取 [新增]。
 
-   ![Azure 串流分析輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
+   ![Azure 串流分析新增輸出](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
 1. 從下拉式清單中選擇 [Edge 中樞]。
 
@@ -207,7 +204,7 @@ Azure IoT Edge 裝置：
 
     您應該會看到新的串流分析模組正在與 IoT Edge 代理程式模組和 IoT Edge 中樞一起執行。
 
-    ![模組輸出](./media/tutorial-deploy-stream-analytics/module_output2.png)
+    ![依裝置報告的 tempSensor 和 ASA 模組](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>檢視資料
 
@@ -229,7 +226,7 @@ Azure IoT Edge 裝置：
 
 您應該能夠看到機器的溫度逐漸上升，直到在 30 秒內到達 70 度。 接著串流分析模組會觸發程序重設，且機器溫度降回為 21 度。 
 
-   ![Docker 記錄](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![將命令輸出重設到模組記錄中](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>清除資源 
 

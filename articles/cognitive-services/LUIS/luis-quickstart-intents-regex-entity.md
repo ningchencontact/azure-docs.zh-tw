@@ -1,37 +1,37 @@
 ---
-title: 教學課程 3：與規則運算式相符的資料 - 擷取格式正確的資料
+title: 規則運算式實體
 titleSuffix: Azure Cognitive Services
 description: 使用規則運算式實體從語句擷取格式一致的資料。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5e8345deb629d293d9673819893181e652d5dbb9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d4deeec2c5af5047fa16a2d80f0992409d517910
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423410"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135571"
 ---
-# <a name="tutorial-3-extract-well-formatted-data"></a>教學課程 3：擷取格式正確的資料
+# <a name="tutorial-3-extract-well-formatted-data"></a>教學課程 3：擷取已正確格式化的資料
 在本教學課程中，修改人力資源應用程式，使其使用**規則運算式**實體來從語句擷取格式一致的資料。
 
 實體的目的是要擷取語句中包含的重要資料。 此應用程式會使用規則運算式實體來提取語句中的格式化人力資源 (HR) 表單編號。 雖然語句的意圖一定會由機器學習決定，但此特定實體類型不會進行機器學習。 
 
 **語句範例包括：**
 
-```
-Where is HRF-123456?
-Who authored HRF-123234?
-HRF-456098 is published in French?
-HRF-456098
-HRF-456098 date?
-HRF-456098 title?
-```
+|範例語句|
+|--|
+|HRF-123456 在哪裡？|
+|HRF-123234 的作者是誰？|
+|HRF-456098 是以法文發佈的嗎？|
+|HRF-456098|
+|HRF-456098 的日期？|
  
 在下列情況下，規則運算式是這類資料的好選擇：
 
@@ -129,7 +129,7 @@ HRF 代表 `human resources form`。
 
 2. 移至位址中的 URL 結尾並輸入 `When were HRF-123456 and hrf-234567 published in the last year?`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回具有兩種表單編號 `HRF-123456` 和 `hrf-234567` 的 `FindForm` 意圖。
 
-    ```JSON
+    ```json
     {
       "query": "When were HRF-123456 and hrf-234567 published in the last year?",
       "topScoringIntent": {

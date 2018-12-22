@@ -1,5 +1,5 @@
 ---
-title: 進階 Azure Resource Graph 查詢
+title: 進階查詢範例
 description: 使用 Azure Resource Graph 執行一些進階查詢。
 services: resource-graph
 author: DCtheGeek
@@ -8,13 +8,13 @@ ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 43cf9f5ec0f9c265efa0e59eadbf6c9bbe4f7c3f
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 8599d535a3a522d742207a655a8f4098d6f3f18f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51682874"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309368"
 ---
 # <a name="advanced-resource-graph-queries"></a>進階 Resource Graph 查詢
 

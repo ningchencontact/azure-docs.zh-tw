@@ -1,23 +1,23 @@
 ---
-title: 快速入門 - 在 Azure Container Instances 中執行應用程式
-description: 在本快速入門中，您會使用 Azure CLI 將 Docker 容器中所執行的應用程式部署至 Azure Container Instances
+title: 快速入門 - 在 Azure Container Instances 中執行應用程式 - CLI
+description: 在本快速入門中，您會使用 Azure CLI 部署 Docker 容器應用程式，以便在 Azure Container Instances 中隔離的容器內執行
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 7db3d9a076fe9ff5b8bbf970705b82a3f0d5ce54
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 70d1bc9003d98f0154b9f38738f1b8e82b0c506d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855658"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189603"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中執行應用程式
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-with-the-azure-cli"></a>快速入門：使用 Azure CLI，在 Azure Container Instances 中執行容器應用程式
 
-使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至執行中的應用程式：
+使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure CLI 在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 執行單一部署命令的幾秒之後，您可以瀏覽至執行中的應用程式：
 
 ![在瀏覽器中檢視部署至 Azure Container Instances 的應用程式][aci-app-browser]
 

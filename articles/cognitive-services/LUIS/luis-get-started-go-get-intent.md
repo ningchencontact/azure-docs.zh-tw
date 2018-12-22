@@ -1,23 +1,26 @@
 ---
-title: Go 語言快速入門 - 預測意圖 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 GO，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
+title: 取得意圖 (Go)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在這個 Go 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f19c46fcc7dcff2e02786bb3a03082f831e880a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9768e7945a94c5b28a1f28ea0264108cd47865d6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032728"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104708"
 ---
-# <a name="quickstart-get-intent-using-go"></a>快速入門：使用 Go 來取得意圖
+# <a name="quickstart-get-intent-using-go"></a>快速入門：使用 Go 取得意圖
+
+在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

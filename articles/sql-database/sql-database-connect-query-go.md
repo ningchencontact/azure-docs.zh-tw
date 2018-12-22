@@ -11,27 +11,27 @@ author: David-Engel
 ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: c270fef40b732f170add32ef52eeadc790d8cd83
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/07/2018
+ms.openlocfilehash: 34b3ee54c48040eaa6f7b7569921678869baa84b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913489"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092361"
 ---
 # <a name="quickstart-use-go-to-query-an-azure-sql-database"></a>快速入門：使用 Go 查詢 Azure SQL 資料庫
 
-本快速入門示範如何使用 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) 連線至 Azure SQL 資料庫。 也會示範用以查詢及修改資料的 TRANSACT-SQL 陳述式。
+此快速入門示範如何使用 [Go](https://godoc.org/github.com/denisenkom/go-mssqldb) 程式設計語言連線至 Azure SQL 資料庫，並執行 Transact-SQL 陳述式來查詢和修改資料。 [Go](https://golang.org/) 是一種開放原始碼程式設計語言，可輕鬆建置簡單、可靠又有效的軟體。  
 
 ## <a name="prerequisites"></a>必要條件
 
-若要完成本快速入門，請確定您具備下列必要條件︰
+若要完成本教學課程，您需要：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- 在此快速入門中，您所使用電腦的公用 IP 位址[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
+- 為電腦的公用 IP 位址設定[伺服器層級防火牆規則](sql-database-get-started-portal-firewall.md)。
 
-- 您已安裝適用於您作業系統的 Go 和相關軟體：
+- 安裝適用於您作業系統的 Go 和相關軟體：
 
     - **MacOS**：安裝 Homebrew 和 GoLang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/mac/)。
     - **Ubuntu**：安裝 GoLang。 請參閱[步驟 1.2](https://www.microsoft.com/sql-server/developer-get-started/go/ubuntu/)。
@@ -49,7 +49,7 @@ ms.locfileid: "50913489"
    mkdir SqlServerSample
    ```
 
-2. 將目錄變更為 **SqlServerSample**，然後取得並安裝適用於 Go 的 SQL Server 驅動程式：
+2. 將目錄變更為 **SqlServerSample**，然後安裝適用於 Go 的 SQL Server 驅動程式。
 
    ```bash
    cd SqlServerSample
@@ -59,7 +59,7 @@ ms.locfileid: "50913489"
 
 ## <a name="create-sample-data"></a>建立範例資料
 
-1. 使用您慣用的文字編輯器，在 **SqlServerSample** 資料夾中建立名為 **CreateTestData.sql** 的檔案。 複製下列 T-SQL 程式碼並在該檔案中貼上。 此程式碼會建立結構描述、資料表，並插入幾個資料列。
+1. 在您慣用的文字編輯器中，於 **SqlServerSample** 資料夾中建立名為 **CreateTestData.sql** 的檔案。 在檔案中，複製和貼上下列 T-SQL 程式碼，這會建立結構描述、資料表，並插入幾個資料列。
 
    ```sql
    CREATE SCHEMA TestSchema;
@@ -82,7 +82,7 @@ ms.locfileid: "50913489"
    GO
    ```
 
-2. 使用 sqlcmd 連線到資料庫，並執行 SQL 指令碼來建立結構描述、資料表，並插入幾個資料列。 將您的伺服器、資料庫、使用者和密碼取代為適當的值。
+2. 使用 `sqlcmd` 連線到資料庫，並執行新建立的 SQL 指令碼。 將您的伺服器、資料庫、使用者和密碼取代為適當的值。
 
    ```bash
    sqlcmd -S your_server.database.windows.net -U your_username -P your_password -d your_database -i ./CreateTestData.sql
@@ -92,7 +92,7 @@ ms.locfileid: "50913489"
 
 1. 在 **SqlServerSample** 資料夾中建立名為 **sample.go** 的檔案。
 
-2. 開啟檔案，並以下列程式碼取代其內容。 為您的伺服器、資料庫、使用者和密碼新增適當的值。 本範例會使用 GoLang Context 方法，以確保與資料庫伺服器的連線是作用中狀態。
+2. 開啟該檔案，並貼上下列程式碼。 為您的伺服器、資料庫、使用者和密碼新增適當的值。 本範例會使用 GoLang Context 方法，以確保與資料庫伺服器的連線是作用中狀態。
 
    ```go
    package main
@@ -288,13 +288,13 @@ ms.locfileid: "50913489"
 
 ## <a name="run-the-code"></a>執行程式碼
 
-1. 在命令提示字元中，執行下列命令：
+1. 在命令提示字元中，執行下列命令。
 
    ```bash
    go run sample.go
    ```
 
-2. 確認輸出：
+2. 驗證輸出。
 
    ```text
    Connected!

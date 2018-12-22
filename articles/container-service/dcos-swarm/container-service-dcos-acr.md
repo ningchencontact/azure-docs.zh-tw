@@ -1,5 +1,5 @@
 ---
-title: 搭配 Azure DC/OS 叢集使用 ACR
+title: (已被取代) 搭配 Azure DC/OS 叢集使用 ACR
 description: 在 Azure Container Service 中搭配使用 Azure Container Registry 與 DC/OS 叢集
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 81b5bd18ea367b68adfc41ee97768b3b28967a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a27f6c017d9d648414637f900e0cf7c4be147bfe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986622"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996338"
 ---
-# <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
+# <a name="deprecated-use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>(已被取代) 搭配使用 ACR 與 Azure DC/OS 叢集以部署應用程式
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 本文探討如何搭配使用 Azure Container Registry 與 DC/OS 叢集。 使用 ACR 可讓您私下儲存和管理容器映像。 本教學課程涵蓋下列工作：
 

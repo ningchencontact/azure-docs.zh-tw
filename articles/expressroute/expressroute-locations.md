@@ -1,5 +1,5 @@
 ---
-title: 連線提供者和位置︰Azure ExpressRoute |Microsoft Docs
+title: 連線提供者和位置：Azure ExpressRoute | Microsoft Docs
 description: 本文提供提供服務所在位置以及如何連線到 Azure 區域的詳細概觀。 依連線提供者排序。
 services: expressroute
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/23/2018
+ms.date: 12/13/2018
 ms.author: pareshmu
-ms.openlocfilehash: 817dd1ec5cd047035099fb88d998f79cd8c39078
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 0e683fefd0905eb48149e676b26341b47ccd9abf
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276052"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409780"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作夥伴和對等互連位置
 
@@ -42,16 +42,16 @@ ms.locfileid: "52276052"
 
 | **地緣政治區域** | **區域** | **Azure 區域** | **ExpressRoute 位置** |
 | --- | --- | --- | --- |
-| **澳洲政府** |區域 1 | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
-| **歐洲** |區域 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、都柏林、倫敦、馬賽、紐波特 (威爾斯)、巴黎 |
-| **北美洲** |區域 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、蒙特婁、魁北克市、多倫多 |
-| **亞洲** |區域 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2 |
-| **澳大利亞** |區域 2 |澳洲東南部、澳洲東部 |墨爾本、雪梨 | 
-| **印度** |區域 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
-| **日本** |區域 2 |日本西部、日本東部 |大阪、東京 |
-| **南韓** |區域 2 |南韓中部、南韓南部 |釜山、首爾|
-| **南非** |區域 3 |[南非西部+、南非北部+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |開普敦、約翰尼斯堡 |
-| **南美洲** |區域 3 |巴西南部 |聖保羅 |
+| **澳洲政府** | 1 | 澳大利亞中部、澳大利亞中部 2 |坎培拉、坎培拉 2 |
+| **歐洲** | 1 |法國中部、法國南部、北歐、西歐、英國西部、英國南部 |阿姆斯特丹、阿姆斯特丹2、都柏林、倫敦、馬賽、紐波特 (威爾斯)、巴黎 |
+| **北美洲** | 1 |美國東部、美國西部、美國東部 2、美國西部 2、美國中部、美國中南部、美國中北部、美國中西部、加拿大中部、加拿大東部 |亞特蘭大、芝加哥、達拉斯、丹佛、拉斯維加斯、洛杉磯、邁阿密、紐約、聖安東尼奧、西雅圖、矽谷、華盛頓特區、蒙特婁、魁北克市、多倫多 |
+| **亞洲** | 2 |東亞、東南亞 |香港特別行政區、吉隆坡、新加坡、新加坡2 |
+| **澳大利亞** | 2 |澳洲東南部、澳洲東部 |墨爾本、雪梨 | 
+| **印度** | 2 |印度西部、印度中部、印度南部 |辰內、辰內 2、孟買、孟買 2 |
+| **日本** | 2 |日本西部、日本東部 |大阪、東京 |
+| **南韓** | 2 |南韓中部、南韓南部 |釜山、首爾|
+| **南非** | 3 |[南非西部+、南非北部+](https://blogs.microsoft.com/blog/2017/05/18/microsoft-deliver-microsoft-cloud-datacenters-africa/) |開普敦、約翰尼斯堡 |
+| **南美洲** | 3 |巴西南部 |聖保羅 |
 
 
  **+** 表示即將推出
@@ -62,8 +62,8 @@ ms.locfileid: "52276052"
 | **地緣政治區域** | **Azure 區域** | **ExpressRoute 位置** |
 | --- | --- | --- |
 | **美國政府雲端** |US Gov 亞利桑那州、US Gov 愛荷華州、US Gov 德克薩斯州、US Gov 維吉尼亞州、US DoD 中部、US DoD 東部  |芝加哥、達拉斯、紐約、鳳凰城、聖安東尼奧、西雅圖、矽谷、華盛頓特區 |
-| **中國東部** |中國東部、中國東部 2 |上海 |
-| **中國北部** |中國北部、中國北部 2 |北京 |
+| **中國東部** |中國東部、中國東部 2 |上海、上海 2 |
+| **中國北部** |中國北部、中國北部 2 |北京、北京 2 |
 | **德國** |德國中部、德國東部 |柏林、法蘭克福 |
 
 標準 ExpressRoute SKU 不支援跨地緣政治區域的連線。 您必須啟用 ExpressRoute 進階附加元件，以支援全球連線。 不支援連線至國家雲端環境。 如果有需要的話，您可以聯絡您的連線提供者。
@@ -160,6 +160,7 @@ ms.locfileid: "52276052"
 | **服務提供者** | **Microsoft Azure** | **Office 365** | **位置** |
 | --- | --- | --- | --- |
 | **China Telecom** |支援 |不支援 |北京、上海 |
+| **GDS** |支援 |不支援 |北京 2、上海 2 |
 
 若要深入了解，請參閱 [ExpressRoute (中國)](http://www.windowsazure.cn/home/features/expressroute/)。
 

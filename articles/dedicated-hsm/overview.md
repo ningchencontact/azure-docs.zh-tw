@@ -1,6 +1,6 @@
 ---
-title: 專用硬體安全模組 (HSM) 是什麼？ | Microsoft Docs
-description: Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供金鑰儲存功能，以符合 FIPS 140-2 等級 3 認證
+title: 專用硬體安全模組 (HSM) 是什麼？ - Azure 專用硬體安全模組 (HSM) | Microsoft Docs
+description: Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供符合 FIPS 140-2 等級 3 認證的金鑰儲存功能概觀
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
@@ -10,19 +10,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.custom: mvc
-ms.date: 11/26/2018
+ms.custom: mvc, seodec18
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 92d77ec886a0f37c28f5e3031a7e14f63299c8aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 1eeafa33c8c1cdbcd7d0e55e3860dda1b8d451fe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427109"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080073"
 ---
-# <a name="what-is-dedicated-hsm"></a>專用硬體安全模組 (HSM) 是什麼？
+# <a name="what-is-azure-dedicated-hsm"></a>什麼是 Azure 專用硬體安全模組 (HSM)？
 
-Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供密碼編譯金鑰儲存體，以符合最嚴格的安全性需求。 若客戶需要通過 FIPS 140-2 等級 3 驗證的裝置，以及完整且專屬的 HSM 設備控制權，則專用硬體安全模組 (HSM) 是理想的解決方案。 硬體安全模組 (HSM) 裝置可跨數個 Azure 區域進行全域部署，並可輕鬆地佈建為一對裝置及設定高可用性。 硬體安全模組 (HSM) 也可跨區域進行佈建，以確保能提供區域層級的容錯移轉。 Microsoft 已使用 Gemalto 中的 [SafeNet Luna 網路 HSM 7 (A790 型號)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) 設備來提供專用硬體安全模組 (HSM) 服務。 此裝置會提供最高層級的效能及密碼編譯整合選項。 佈建時，硬體安全模組 (HSM) 會直接連線到客戶的虛擬網路，並可藉由設定點對站或站對站 VPN 連線來讓內部部署應用程式和管理工具存取 HSM。 客戶會從 Gemalto 的支援入口網站取得設定及管理 HSM 裝置所需的軟體和文件。
+Azure 專用硬體安全模組 (HSM) 是一種 Azure 服務，可在 Azure 中提供密碼編譯金鑰儲存功能。 專用 HSM 符合最嚴格的安全性需求。 若客戶需要通過 FIPS 140-2 等級 3 驗證的裝置，以及完整且專屬的 HSM 設備控制權，則它是理想的解決方案。 硬體安全模組 (HSM) 裝置可跨數個 Azure 區域進行全域部署，並可輕鬆地佈建為一對裝置及設定高可用性。 硬體安全模組 (HSM) 也可跨區域進行佈建，以確保能提供區域層級的容錯移轉。 Microsoft 已使用 Gemalto 中的 [SafeNet Luna 網路 HSM 7 (A790 型號)](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/) 設備來提供專用硬體安全模組 (HSM) 服務。 此裝置會提供最高層級的效能及密碼編譯整合選項。 佈建時，硬體安全模組 (HSM) 會直接連線到客戶的虛擬網路，並可藉由設定點對站或站對站 VPN 連線來讓內部部署應用程式和管理工具存取 HSM。 客戶會從 Gemalto 的支援入口網站取得設定及管理 HSM 裝置所需的軟體和文件。
 
 ## <a name="why-use-azure-dedicated-hsm"></a>為何使用 Azure 專用硬體安全模組 (HSM)？
 

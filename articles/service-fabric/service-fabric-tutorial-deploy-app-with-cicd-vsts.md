@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 中使用持續整合 (Azure DevOps Services) 部署 Service Fabric 應用程式 | Microsoft Docs
-description: 在本教學課程中，您會了解如何使用 Azure DevOps Services 設定 Service Fabric 應用程式的持續整合和部署。
+title: 在 Azure 中使用持續整合和 Azure Pipelines 來部署 Service Fabric 應用程式 | Microsoft Docs
+description: 在本教學課程中，您會了解如何使用 Azure Pipelines 來設定 Service Fabric 應用程式的持續整合和部署。
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -12,26 +12,26 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/15/2018
+ms.date: 12/02/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5d53250ebdc14b7b6631e2f419b5b24ac98f3038
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 766c0c780807ff7627ae9fb96aca4a896918f9c6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853723"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094945"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>教學課程：將搭配 CI/CD 的應用程式部署到 Service Fabric 叢集
 
-本教學課程是系列中的第四部分，說明如何使用 Azure DevOps 設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
+本教學課程是一個系列中的第四部分，說明如何使用 Azure Pipelines 來設定 Azure Service Fabric 應用程式的持續整合和部署。  需要現有的 Service Fabric 應用程式，在[建置 .NET 應用程式](service-fabric-tutorial-create-dotnet-app.md)中建立的應用程式將做為範例。
 
 在系列的第三部分中，您將了解如何：
 
 > [!div class="checklist"]
 > * 將原始檔控制新增至專案
-> * 在 Azure DevOps 中建立組建管線
-> * 在 Azure DevOps 中建立發行管線
+> * 在 Azure Pipelines 中建立組建管線
+> * 在 Azure Pipelines 中建立發行管線
 > * 自動部署和升級應用程式
 
 在本教學課程系列中，您將了解如何：
@@ -50,7 +50,7 @@ ms.locfileid: "51853723"
 * [安裝 Visual Studio 2017](https://www.visualstudio.com/) 並安裝 **Azure 開發**以及 **ASP.NET 和 Web 開發**工作負載。
 * [安裝 Service Fabric SDK](service-fabric-get-started.md)
 * 在 Azure 上建立 Windows Service Fabric 叢集，例如[遵循本教學課程](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* 建立 [Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) 組織。
+* 建立 [Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student) 組織。 這可讓您在 Azure DevOps 中建立專案並使用 Azure Pipelines。
 
 ## <a name="download-the-voting-sample-application"></a>下載投票應用程式範例
 
@@ -62,7 +62,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="prepare-a-publish-profile"></a>下載發行設定檔
 
-您現在已經[建立應用程式](service-fabric-tutorial-create-dotnet-app.md)，而且已經[將應用程式部署到 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)，可以準備設定持續整合。  首先，在應用程式中準備部署程序使用的發行設定檔 (於 Azure DevOps 內執行)。  發行設定檔應設定為以先前建立的叢集為目標。  啟動 Visual Studio，並開啟現有的 Service Fabric 應用程式專案。  在 [方案總管] 中，以滑鼠右鍵按一下應用程式並選取 [發佈...]。
+您現在已經[建立應用程式](service-fabric-tutorial-create-dotnet-app.md)，而且已經[將應用程式部署到 Azure](service-fabric-tutorial-deploy-app-to-party-cluster.md)，可以準備設定持續整合。  首先，在應用程式中準備發行設定檔，以供在 Azure Pipelines 內執行的部署程序使用。  發行設定檔應設定為以先前建立的叢集為目標。  啟動 Visual Studio，並開啟現有的 Service Fabric 應用程式專案。  在 [方案總管] 中，以滑鼠右鍵按一下應用程式並選取 [發佈...]。
 
 在您的應用程式專案內選擇要使用於持續整合工作流程 (例如雲端) 的目標設定檔。  指定叢集連線端點。  勾選**升級應用程式**核取方塊，讓您的應用程式對於 Azure DevOps 中的每個部署升級。  按一下 [儲存] 超連結，將設定儲存至發行設定檔，然後按一下 [取消] 關閉對話方塊。
 
@@ -84,11 +84,11 @@ Visual Studio 右上角的狀態列上，選取 [新增至原始檔控制] -> [G
 
 發佈儲存機制將在帳戶中建立與本機儲存機制名稱相同的新專案。 若要在現有專案中建立存放庫，請按一下**存放庫名稱**旁邊的 [進階]，並選取專案。 您可以選取**在網路上檢視**，在網路上檢視您的程式碼。
 
-## <a name="configure-continuous-delivery-with-azure-devops"></a>設定 Azure DevOps 的持續傳遞
+## <a name="configure-continuous-delivery-with-azure-pipelines"></a>設定 Azure Pipelines 的持續傳遞
 
-Azure DevOps 組建管線描述由一組循序執行的組建步驟所組成的工作流程。 建立產生 Service Fabric 應用程式封裝的組建管線，以及其他構件，以便部署到 Service Fabric 叢集。 深入了解 [Azure DevOps 組建管線](https://www.visualstudio.com/docs/build/define/create)。 
+Azure Pipelines 組建管線描述由一組循序執行的組建步驟所組成的工作流程。 建立產生 Service Fabric 應用程式封裝的組建管線，以及其他構件，以便部署到 Service Fabric 叢集。 深入了解 [Azure Pipelines 組建管線](https://www.visualstudio.com/docs/build/define/create)。 
 
-Azure DevOps 發行管線描述將應用程式封裝部署到叢集的工作流程。 一起使用時，組建管線和發行管線可以執行整個工作流程；從來源檔案開始，並以叢集中的執行中應用程式結束。 深入了解 Azure DevOps [發行管線](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition)。
+Azure Pipelines 發行管線描述一個會將應用程式套件部署到叢集的工作流程。 一起使用時，組建管線和發行管線可以執行整個工作流程；從來源檔案開始，並以叢集中的執行中應用程式結束。 深入了解 [Azure Pipelines 發行管線](https://www.visualstudio.com/docs/release/author-release-definition/more-release-definition) \(英文\)。
 
 ### <a name="create-a-build-pipeline"></a>建立組建管線
 
@@ -156,11 +156,11 @@ Azure DevOps 發行管線描述將應用程式封裝部署到叢集的工作流�
 
 ![全部認可][changes]
 
-選取 [未發行的變更] 狀態列圖示 (![未發行的變更][unpublished-changes]) 或 Team Explorer 中的 [同步] 檢視。 選取 [推送] 更新 Azure DevOps Services/TFS 中的程式碼。
+選取 [未發行的變更] 狀態列圖示 (![未發行的變更][unpublished-changes]) 或 Team Explorer 中的 [同步] 檢視。 選取 [推送] 以更新 Azure Pipelines 中的程式碼。
 
 ![推送變更][push]
 
-自動將變更推送至 Azure DevOps 觸發組建。  組建管線成功完成時，發行就會自動建立，並開始升級叢集上的應用程式。
+將變更推送至 Azure Pipelines 會自動觸發組建。  組建管線成功完成時，發行就會自動建立，並開始升級叢集上的應用程式。
 
 若要檢查組建進度，請切換到 **Team Explorer** Visual Studio 中的 [組建] 索引標籤。  一旦確認組建執行成功，請定義將應用程式部署至叢集的發行管線。
 

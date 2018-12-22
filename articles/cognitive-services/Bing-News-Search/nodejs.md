@@ -1,7 +1,7 @@
 ---
-title: 快速入門：Bing 新聞搜尋 API，Node.js
+title: 快速入門：使用 Node.js 來執行新聞搜尋 - Bing 新聞搜尋 REST API
 titlesuffix: Azure Cognitive Services
-description: 取得資訊和程式碼範例，以協助您快速開始使用 Bing 新聞搜尋 API。
+description: 使用此快速入門以運用 Node.js 來傳送要求給「Bing 新聞搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: aahi
-ms.openlocfilehash: d0bb2d9b35c93d8730ca17fbf70e41df5deb1834
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 17307aaac531924b02c92ac37151d10bfbc48143
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316900"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252298"
 ---
-# <a name="quickstart-for-bing-news-search-api-with-nodejs"></a>搭配使用 Bing 新聞搜尋 API 與 Node.js 的快速入門
+# <a name="quickstart-perform-a-news-search-using-nodejs-and-the-bing-news-search-rest-api"></a>快速入門：使用 Node.js 和 Bing 新聞搜尋 REST API 來執行新聞搜尋
 
 本文說明如何在 Azure 上使用屬於 Microsoft 認知服務的 Bing 新聞搜尋 API。 雖然本文使用 Node.js，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求及剖析 JSON。 
 

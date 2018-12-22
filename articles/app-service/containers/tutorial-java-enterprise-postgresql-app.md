@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上的 Azure App Service 中建置 Java Enterprise Web 應用程式 | Microsoft Docs
+title: 在 Linux 上建置 Java Enterprise Web 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何在 Linux 上，讓 Java Enterprise 應用程式在 Azure App Service 上的 Wildfly 中運作。
 author: JasonFreeberg
 manager: routlaw
@@ -10,16 +10,17 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
-ms.openlocfilehash: 0772dbb1aaa6b00994bd653c19b006114377dc5f
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165453"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344222"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
-本教學課程會說明如何在 Azure App Service 上建立 Java Enterprise Edition (EE) Web 應用程式，並將其連線至 Postgres 資料庫。 當您完成後，在 [Azure App Service for Linux](app-service-linux-intro.md) 上執行的 [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) 中會有一個儲存資料的 [Wildfly](http://www.wildfly.org/about/) 應用程式。
+本教學課程會說明如何在 Azure App Service 上建立 Java Enterprise Edition (EE) Web 應用程式，並將其連線至 Postgres 資料庫。 當您完成後，在 [Azure App Service for Linux](app-service-linux-intro.md) 上執行的 [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) 中會有一個儲存資料的 [Wildfly](https://www.wildfly.org/about/) 應用程式。
 
 在本教學課程中，您將了解如何：
 > [!div class="checklist"]
@@ -32,8 +33,8 @@ ms.locfileid: "52165453"
 ## <a name="prerequisites"></a>必要條件
 
 1. [下載並安裝 Git](https://git-scm.com/)
-1. [下載並安裝 Maven 3](https://maven.apache.org/install.html)
-1. [下載並安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+2. [下載並安裝 Maven 3](https://maven.apache.org/install.html)
+3. [下載並安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 ## <a name="clone-and-edit-the-sample-app"></a>複製並編輯應用程式範例
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中編製 Azure SQL Database 索引的教學課程 | Microsoft Docs
+title: 在 Azure 入口網站中對 Azure SQL 資料庫編製索引的教學課程 - Azure 搜尋服務
 description: 在本教學課程中，對 Azure SQL 資料庫進行編目，以擷取可搜尋的資料，並填入 Azure 搜尋服務索引。
 author: HeidiSteen
 manager: cgronlun
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: b40d3a74904d6814eb01b5d41d10632e8c9af5be
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988790"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312046"
 ---
-# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>教學課程：使用 Azure 搜尋索引子對 Azure SQL 資料庫進行編目
+# <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>教學課程：使用 Azure 搜尋索引子搜耙 Azure SQL 資料庫
 
 本教學課程示範如何設定索引子，以便從範例 Azure SQL Database 擷取可搜尋的資料。 [索引子](search-indexer-overview.md)是 Azure 搜尋服務的元件，可搜耙外部資料來源，以內容填入[搜尋索引](search-what-is-an-index.md)。 在所有索引子中，Azure SQL Database 的索引子最廣泛使用。 
 
@@ -90,7 +91,7 @@ ms.locfileid: "38988790"
 4. 複製並貼上該服務名稱，作為您在 Visual Studio 的 **appsettings.json** 中輸入的第一項資料。
 
   > [!Note]
-  > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 看起來像這個範例：https://your-service-name.search.windows.net
+  > 服務名稱屬於包含 search.windows.net 的端點。 如果您很好奇，您可以在 [概觀] 頁面上的 [基本資訊] 中查看完整 URL。 URL 看起來像這個範例： https://your-service-name.search.windows.net
 
 5. 在左側的 [設定] > [金鑰] 中，複製其中一個系統管理金鑰並將它當作第二個項目貼到 **appsettings.json** 中。 金鑰是在佈建期間為您的服務產生的英數字元字串，而且是獲得授權存取服務作業的必要項目。 
 

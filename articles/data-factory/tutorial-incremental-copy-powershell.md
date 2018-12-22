@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 08bce244dc4eafcd423123b1230fe4aa8b4ed04e
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 09ba81e4d895afeccf41617039732ae3e72147d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092034"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972417"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從 Azure SQL Database 中的資料表載入到 Azure Blob 儲存體。 
@@ -37,7 +37,7 @@ ms.locfileid: "43092034"
 ## <a name="overview"></a>概觀
 高階解決方案圖表如下： 
 
-![以累加方式載入資料](media\tutorial-Incrementally-copy-powershell\incrementally-load.png)
+![以累加方式載入資料](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
 以下是建立此解決方案的重要步驟： 
 

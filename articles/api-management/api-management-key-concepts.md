@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: cded90d4f36e353241bb594bae35b7c7e03599b9
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435995"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965150"
 ---
 # <a name="what-is-api-management"></a>什麼是 API 管理？
 
@@ -32,10 +32,8 @@ ms.locfileid: "37435995"
 為了使用 API 管理，管理員會建立 API。 每個 API 都包含一或多個作業，而每個 API 則可加入至一或多個產品。 為了使用 API，開發人員會訂閱包含該 API 的產品，而且他們之後可呼叫 API 的作業，但需受限於可能生效的任何使用原則。 常見案例包括：
 
 * **保護行動基礎結構** 。
-* 
-  **促成 ISV 合作夥伴生態系統** 。
-* 
-  **執行內部 API 方案**。
+* **促成 ISV 合作夥伴生態系統** 。
+* **執行內部 API 方案**。
 
 系統是由下列元件所組成：
 
@@ -61,7 +59,7 @@ ms.locfileid: "37435995"
   * 建立帳戶，並訂閱以取得 API 金鑰。
   * 存取他們的使用量分析資料。
 
-如需詳細資訊，請參閱 [雲端式 API 管理：如何運用 API 的威力](http://j.mp/ms-apim-whitepaper) PDF 白皮書 (英文)。 這份 CITO Research 發表的簡介白皮書涵蓋： 
+如需詳細資訊，請參閱[雲端式 API 管理：充分利用 API](https://j.mp/ms-apim-whitepaper) \(英文\) PDF 白皮書。 這份 CITO Research 發表的簡介白皮書涵蓋： 
  
  * 常見的 API 需求與挑戰
  * 解構 API 並呈現其外貌

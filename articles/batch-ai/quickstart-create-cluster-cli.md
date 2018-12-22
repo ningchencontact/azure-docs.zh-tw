@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 0d4ba7edfb22a6710222c854ceb2bf86284d2d77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 1ea12c9a544704ea91b85ae944e611e6769b5592
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057489"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407128"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-cli"></a>快速入門：使用 Azure CLI 建立 Batch AI 訓練作業的叢集
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 本快速入門說明如何使用 Azure CLI 來建立 Batch AI 叢集，以供用來訓練 AI 和機器學習模型。 Batch AI 是一項受控服務，可讓資料科學家和 AI 研究人員在 Azure 虛擬機器的叢集上大規模地訓練 AI 和機器學習模型。
 

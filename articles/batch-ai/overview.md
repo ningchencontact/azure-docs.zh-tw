@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 08/01/2018
 ms.author: danlep
-ms.openlocfilehash: 98497812e75d07fc153e0e351331c05484164fdd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ROBOTS: NOINDEX
+ms.openlocfilehash: 37f1bf5dc20d097f7f5f560e3bf1fdd25dc38045
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052694"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408046"
 ---
 # <a name="what-is-azure-batch-ai"></a>什麼是 Azure Batch AI？
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 Azure Batch AI 是受控服務，可協助資料科學家和 AI 研究人員在 Azure 中大規模地將機器學習和 AI 模型定型，無需管理複雜的基礎結構。 您只需要描述計算資源、想要執行的作業，以及要在哪裡儲存模型的輸入和輸出，Batch AI 便會完成其餘工作。
 
@@ -49,7 +52,7 @@ Batch AI 可協助您以數種方式大規模地訓練模型。 例如︰
 
 ## <a name="how-it-works"></a>運作方式
 
-使用 Batch AI SDK、命令列指令碼或 Azure 入口網站，來管理計算資源並排定作業來訓練和測試 AI： 
+使用 Batch AI SDK、命令列指令碼或 Azure 入口網站，來管理計算資源並排定作業來訓練和測試 AI： 
 
 * **佈建和調整 VM 叢集** - 選擇節點 (VM) 數目，然後選取符合訓練需求的具 GPU 功能 VM 大小或其他 VM 大小。 以自動或手動方式相應增加或減少節點數目，以便只在需要時使用資源。 
 

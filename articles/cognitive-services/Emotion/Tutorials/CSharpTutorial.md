@@ -1,5 +1,5 @@
 ---
-title: 教學課程：辨識影像中的臉部表情 - 表情 API，C#
+title: 教學課程：辨識影像中的臉部表情 - 表情 API (C#)
 titlesuffix: Azure Cognitive Services
 description: 探索用來辨識影像中臉部表情的基本 Windows 應用程式。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2017
 ms.author: anroth
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3a84a68718fba29e2a4b2fae057e68976119c95
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: da605ec4013fb11606f99f3d9a2dcfcfcab00d3b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237019"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163322"
 ---
 # <a name="tutorial-recognize-emotions-on-a-face-in-an-image"></a>教學課程：辨識影像中的臉部表情。
 
@@ -57,14 +57,14 @@ ms.locfileid: "48237019"
   ![表情功能介面](../Images/EmotionKey.png)
 
 3.  在 [選取案例] 下方，按一下以使用 [使用資料流來偵測表情] 案例或 [使用 URL 來偵測表情] 案例，然後依照畫面上的指示執行。 Microsoft 會收到您上傳的影像，並可能會使用它們來改善表情 API 及相關服務。 藉由提交影像，即表示您確認自己已遵守我們的[開發人員管理辦法](https://azure.microsoft.com/support/legal/developer-code-of-conduct/)。
-4.  有一些範例影像可供搭配這個範例應用程式使用。 您可以在[臉部 API Github 存放庫](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) \(英文\) 的 **Data** 資料夾底下找到這些影像。 請注意，這些影像的使用是基於「合理使用」的協議進行授權，這表示這些影像可用於測試本範例，但不得用於重新發行的用途上。
+4.  有一些範例影像可供搭配這個範例應用程式使用。 您可以在[臉部 API GitHub 存放庫](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) \(英文\) 的 **Data** 資料夾底下找到這些影像。 請注意，這些影像的使用是基於「合理使用」的協議進行授權，這表示這些影像可用於測試本範例，但不得用於重新發行的用途上。
 
 ## <a name="Review">檢閱和學習</a>
 現在您已有一個可執行的應用程式，讓我們檢閱此範例應用程式如何與 Microsoft 認知服務整合。 這可以讓您更輕鬆地使用 Microsoft 表情 API 繼續建置此應用程式，或是開發屬於自己的應用程式。
 
 此範例應用程式會使用表情 API 用戶端程式庫，它是 Microsoft 表情 API 的精簡 C# 用戶端包裝函式。 當您按照上述步驟建置範例應用程式時，會從 NuGet 套件取得該用戶端程式庫。 您可以在 **Emotion**、**Windows**、**Client Library** 底下標題為 [Client Library](https://github.com/Microsoft/Cognitive-Emotion-Windows/tree/master/ClientLibrary) \(英文\) 的資料夾中，檢閱用戶端程式庫原始程式碼，這是上述[先決條件](#Prerequisites)中所提及已下載檔案存放庫的一部分。
 
-您也可以在 [方案總管] 中了解使用用戶端程式庫程式碼的方式：在 [EmotionAPI WPF_Samples] 底下，展開 **DetectEmotionUsingStreamPage.xaml** 來找出 **DetectEmotionUsingStreamPage.xaml.cs** (用來瀏覽儲存在本機的檔案)，或是展開 **DetectEmotionUsingURLPage.xaml** 來尋找 **DetectEmotionUsingURLPage.xaml.cs** (用來上傳影像 URL)。 按兩下 .xaml.cs 檔案，以在 Visual Studio 的新視窗中開啟這些檔案。
+您也可以在 [方案總管] 中了解使用用戶端程式庫程式碼的方式：在 [EmotionAPI-WPF_Samples] 底下，展開 **DetectEmotionUsingStreamPage.xaml** 來找出 **DetectEmotionUsingStreamPage.xaml.cs** (用來瀏覽儲存在本機的檔案)，或是展開 **DetectEmotionUsingURLPage.xaml** 來尋找 **DetectEmotionUsingURLPage.xaml.cs** (用來上傳影像 URL)。 按兩下 .xaml.cs 檔案，以在 Visual Studio 的新視窗中開啟這些檔案。
 
 為了檢閱表情用戶端程式庫在我們範例應用程式中的使用方式，我們來看看來自 **DetectEmotionUsingStreamPage.xaml.cs** 和 **DetectEmotionUsingURLPage.xaml.cs** 的兩個程式碼片段。 每個檔案都包含註明 “KEY SAMPLE CODE STARTS HERE” 和 “KEY SAMPLE CODE ENDS HERE” 的程式碼註解，以協助您找到以下重新產生的程式碼片段。
 

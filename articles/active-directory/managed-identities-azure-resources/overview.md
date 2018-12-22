@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 6b1eb36ae661d758f78f98de37f33c4b56741f89
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987255"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320773"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>什麼是適用於 Azure 資源的受控識別？
 
@@ -34,7 +34,15 @@ Azure 訂用帳戶的 Azure AD 可免費使用適用於 Azure 資源的受控識
 > [!NOTE]
 > 先前稱為「受控服務識別」(MSI) 的服務，其新名稱為「Azure 資源適用受控識別」。
 
-## 此功能如何運作？<a name="how-does-it-work"></a>
+## <a name="terminology"></a>術語
+
+下列字詞適用於 Azure 資源文件集的所有受控識別：
+
+- **用戶端識別碼**：Azure AD 所產生的唯一識別碼，會在其初始佈建期間繫結至應用程式和服務主體。
+- **主體識別碼**：適用於您受控識別之服務主體物件的物件識別碼，可用來將角色型存取授與 Azure 資源。
+- **Azure Instance Metadata Service (IMDS)**：透過 Azure Resource Manager 建立之所有 IaaS VM 可存取的 REST 端點。 端點可以在已知的非可路由 IP 位址 (169.254.169.254) 取得，該位址只能從 VM 內存取。
+
+## 適用於 Azure 資源的受控識別如何運作？<a name="how-does-it-work"></a>
 
 受控身分識別有兩種：
 

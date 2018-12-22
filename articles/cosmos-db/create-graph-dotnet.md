@@ -1,9 +1,8 @@
 ---
-title: 使用 Gremlin API 來建置 Azure Cosmos DB .NET Framework 或 Core 應用程式 | Microsoft Docs
+title: 使用 Gremlin API 來建置 Azure Cosmos DB .NET Framework 或 Core 應用程式
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 .NET Framework/Core 程式碼範例
 services: cosmos-db
 author: luisbosquez
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-graph
 ms.custom: quick start connect, mvc
@@ -11,14 +10,14 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: e6166bc815c3065f4c204122b982ffb3c752d489
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c44936604d0dcea2f00f237f27d27a03491c532e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574353"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407672"
 ---
-# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 來建置 .NET Framework 或 Core 應用程式
+# <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-gremlin-api"></a>Azure Cosmos DB：使用 Gremlin API 建置 .NET Framework 或 Core 應用程式
 
 > [!div class="op_single_selector"]
 > * [Gremlin 主控台](create-graph-gremlin-console.md)
@@ -31,7 +30,7 @@ ms.locfileid: "45574353"
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。 
 
-本快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [Gremlin API](graph-introduction.md) 帳戶、資料庫和圖表 (容器)。 您會接著使用開放原始碼 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 來建置和執行主控台應用程式。  
+本快速入門示範如何使用 Azure 入口網站建立 Azure Cosmos DB [Gremlin API](graph-introduction.md) 帳戶、資料庫和圖表 (容器)。 您會接著使用開放原始碼 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 來建置和執行主控台應用程式。  
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -143,14 +142,13 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 * 使用 `GremlinClient` 物件搭配非同步工作 (第 63 行)，執行每個 Gremlin 查詢。 這將從以上 (第 26 行) 定義的字典讀取 Gremlin 查詢：
 
     ```csharp
-    var task = gremlinClient.SubmitAsync<dynamic>(query.Value);
-    task.Wait();
+    var results = await gremlinClient.SubmitAsync<dynamic>(query.Value);
     ```
 
 * 使用 Newtonsoft.Json 中的 `JsonSerializer` 類別，擷取結果並讀取已格式化為字典的值：
 
     ```csharp
-    foreach (var result in task.Result)
+    foreach (var result in results)
     {
         // The vertex results are formed as dictionaries with a nested dictionary for their properties
         string output = JsonConvert.SerializeObject(result);
@@ -162,7 +160,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 現在，返回 Azure 入口網站以取得連接字串資訊，並將它複製到應用程式中。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您的圖形資料庫帳戶。 在 [概觀] 索引標籤中，您可以看到兩個端點： 
+1. 在 [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您的圖形資料庫帳戶。 在 [概觀] 索引標籤中，您可以看到兩個端點： 
  
    **.Net SDK URI** - 當您使用 Microsoft.Azure.Graphs 程式庫連線至圖形帳戶時，將會使用此值。 
 

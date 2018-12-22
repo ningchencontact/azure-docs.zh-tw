@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/17/2018
 ms.author: erhopf
-ms.openlocfilehash: 3ba8064a6d13cfe9d2a2ae2ac496cfa8302989cd
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: db2328d09f9e06ccabdc2408327a342fe94fefe0
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085972"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999593"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入門：搭配使用翻譯工具文字 API 和 Python 翻譯字串
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來翻譯字串
 
 在本快速入門中，您將了解如何搭配使用 Python 和翻譯工具文字 REST API 將文字字串從英文翻譯成義大利文和德文。
 
@@ -161,7 +161,7 @@ python translate-text.py
 
 ## <a name="see-also"></a>另請參閱
 
-除了文字翻譯外，請了解如何使用翻譯工具文字 API 執行下列作業：
+了解如何使用翻譯工具文字 API 來執行下列動作：
 
 * [進行文字音譯](quickstart-python-transliterate.md)
 * [從輸入識別語言](quickstart-python-detect.md)

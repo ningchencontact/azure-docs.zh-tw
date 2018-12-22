@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cf8c82f597cd659911cd66b0b7db8139e8d9d1a5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416880"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135333"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>教學課程：使用 IoT 中樞設定訊息路由
 
@@ -56,6 +56,10 @@ ms.locfileid: "50416880"
 1. 建立[資源群組](../azure-resource-manager/resource-group-overview.md)。 
 
 2. 在 S1 層建立 IoT 中樞。 將取用者群組新增至 IoT 中樞。 Azure 串流分析會在擷取資料時使用取用者群組。
+
+   > [!NOTE]
+   > 您必須使用付費層中的 IoT 中樞，才能完成本教學課程。 免費層只能讓您設定一個端點，而本教學課程需要多個端點。
+   > 
 
 3. 透過 Standard_LRS 複寫來建立標準 V1 儲存體帳戶。
 
@@ -366,9 +370,9 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，按一下 [+ 建立資源]。 在 [搜尋] 方塊中輸入**邏輯應用程式**，然後按一下 Enter。 從顯示的搜尋結果中選取邏輯應用程式，然後按一下 [建立] 繼續前往 [建立邏輯應用程式] 窗格。 填寫欄位。 
 
-   **名稱**︰此欄位是邏輯應用程式的名稱。 本教學課程使用 **ContosoLogicApp**。 
+   **名稱**：此欄位是邏輯應用程式的名稱。 本教學課程使用 **ContosoLogicApp**。 
 
-   **訂用帳戶**：選取您的 Azure 訂用帳戶。
+   訂用帳戶：選取 Azure 訂用帳戶。
 
    **資源群組**：按一下 [使用現有的] 並選取您的資源群組。 本教學課程使用 **ContosoResources**。 
 
@@ -424,9 +428,9 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 2. 輸入作業的以下資訊。
 
-   **作業名稱**：作業名稱。 此名稱必須是全域唯一的。 本教學課程使用 **contosoJob**。
+   **作業名稱**：作業的名稱。 此名稱必須是全域唯一的。 本教學課程使用 **contosoJob**。
 
-   **資源群組**︰使用 IoT 中樞所用的相同資源群組。 本教學課程使用 **ContosoResources**。 
+   **資源群組**：使用 IoT 中樞所用的相同資源群組。 本教學課程使用 **ContosoResources**。 
 
    **位置**：使用安裝指令碼中使用的相同位置。 本教學課程使用**美國西部**。 
 
@@ -442,13 +446,13 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
    **輸入別名**：本教學課程使用 **contosoinputs**。
 
-   **訂用帳戶**︰選取您的訂用帳戶。
+   訂用帳戶：選取您的訂用帳戶。
 
    **IoT 中樞**：選取 IoT 中樞。 本教學課程使用 **ContosoTestHub**。
 
    **端點**：選取 [傳訊]。 (如果您選取「作業監視」，則您會取得有關 IoT 中樞的遙測資料，而不是您要傳送的資料。) 
 
-   **共用存取原則名稱**：選取 **iothubowner**。 入口網站會為您填入共用存取原則金鑰。
+   **共用存取原則名稱**：選取 [iothubowner]。 入口網站會為您填入共用存取原則金鑰。
 
    **取用者群組**：選取您稍早建立的取用者群組。 本教學課程使用 **contosoconsumers**。
    
@@ -464,11 +468,11 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 2. 在 [輸出] 窗格中，按一下 [新增]，然後選取 [Power BI]。 在顯示的畫面上，填寫下列欄位：
 
-   **輸出別名**︰輸出的唯一別名。 本教學課程使用 **contosooutputs**。 
+   **輸出別名**：輸出的唯一別名。 本教學課程使用 **contosooutputs**。 
 
    **資料集名稱**：Power BI 中要使用的資料集名稱。 本教學課程使用 **contosodataset**。 
 
-   **表格名稱**：Power BI 中要使用的表格名稱。 本教學課程使用 **contosotable**。
+   **資料表名稱**：Power BI 中要使用的資料表名稱。 本教學課程使用 **contosotable**。
 
    對於其餘欄位，請採用預設值。
 

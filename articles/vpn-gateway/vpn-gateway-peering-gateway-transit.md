@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: cced9a313664eaeaed4dd1298488670960b76413
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0d57e251b241297c461b117edec8fee6316b337b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195765"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098027"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>為虛擬網路對等互連設定 VPN 閘道傳輸
 
@@ -79,7 +79,7 @@ ms.locfileid: "32195765"
     - 設定 [使用遠端閘道] 選項
     - 按一下 [確定]
 
-    ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
+      ![spokerm-to-hubrm](./media/vpn-gateway-peering-gateway-transit/spokerm-hubrm-peering.png)
 
 2. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [使用遠端閘道] 選項，如同步驟 (1) 所示的螢幕擷取畫面
 
@@ -90,7 +90,7 @@ ms.locfileid: "32195765"
     - 設定 [允許閘道傳輸] 選項
     - 按一下 [確定]
 
-    ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
+      ![hubrm-to-spokerm](./media/vpn-gateway-peering-gateway-transit/hubrm-spokerm-peering.png)
 
 4. 如果已建立對等互連，請瀏覽至對等互連的資源，然後啟用 [允許閘道傳輸] 選項，如同步驟 (3) 所示的螢幕擷取畫面
 

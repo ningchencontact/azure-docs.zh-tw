@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 274de7ac63df0afc1a59e197deebeb7929cf1ef8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: b65972b79fd16b912abfbd2e35642ef5d9f5adc4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51855008"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438467"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>教學課程：使用 Jenkins 持續整合和部署從 GitHub 部署至 Azure App Service
 
@@ -43,7 +43,7 @@ ms.locfileid: "51855008"
 
 * 已在 Azure Linux VM 上安裝 Java Development Kit (JDK) 和 Maven 工具的 [Jenkins](https://jenkins.io/) 伺服器
 
-  如果您沒有 Jenkins 伺服器，請先在 Azure 入口網站中完成下列步驟：[在 Azure Linux VM 上建立 Jenkins 伺服器](/azure/jenkins/install-jenkins-solution-template)
+  如果您沒有 Jenkins 伺服器，請立即在 Azure 入口網站中完成下列步驟：[在 Azure Linux VM 上建立 Jenkins 伺服器](/azure/jenkins/install-jenkins-solution-template)
 
 * 一個 [GitHub](https://github.com)帳戶，以便您取得範例 Java Web 應用程式的工作複本 ([分支](#fork))。 
 
@@ -92,7 +92,7 @@ ms.locfileid: "51855008"
 > 
 > 這些步驟會使用您的 GitHub 使用者名稱和密碼，建立讓 Jenkins 與 GitHub 搭配運作的個人存取權杖認證。 
 > 不過，如果您的 GitHub 帳戶使用雙因素驗證，請在 GitHub 中建立權仗，並將 Jenkins 設定為使用該權仗。 
-> 如需詳細資料，請參閱 [Jenkins GitHub 外掛程式](https://wiki.jenkins.io/display/JENKINS/Github+Plugin)文件。
+> 如需詳細資料，請參閱 [Jenkins GitHub 外掛程式](https://wiki.jenkins.io/display/JENKINS/GitHub+Plugin)文件。
 
 1. 在 [管理 Jenkins] 頁面中，選取 [設定系統]。 
 
@@ -164,7 +164,7 @@ az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourS
 
    | 屬性 | 值 | 說明 | 
    |----------|-------|-------------| 
-   | **訂用帳戶識別碼** | <*yourAzureSubscription-ID*> | 您 Azure 訂用帳戶的 GUID 值 <p>**祕訣**：如果您不知道 Azure 訂用帳戶識別碼，請從命令列或在 Cloud Shell 中執行此 Azure CLI 命令，然後使用 `id` GUID 值： <p>`az account list` | 
+   | **訂用帳戶識別碼** | <*yourAzureSubscription-ID*> | 您 Azure 訂用帳戶的 GUID 值 <p>**秘訣**：如果您不知道您的 Azure 訂用帳戶 ID，請從命令列或在 Cloud Shell 中執行下列 Azure CLI 命令，然後使用 `id` GUID 值： <p>`az account list` | 
    | **用戶端識別碼** | <*yourAzureServicePrincipal-ID*> | 先前為您的 Azure 服務主體產生的 `appId` GUID 值 | 
    | **用戶端祕密** | <*yourSecurePassword*> | 您為 Azure 服務主體提供的 `password` 值或「祕密」 | 
    | **租用戶識別碼** | <*yourAzureActiveDirectoryTenant-ID*> | 您 Azure Active Directory 租用戶的 `tenant` GUID 值 | 

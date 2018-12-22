@@ -1,5 +1,5 @@
 ---
-title: Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
+title: Azure Cosmos DB：使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 description: 提供可用來連線及查詢 Azure Cosmos DB 的 Golang 程式碼範例
 services: cosmos-db
 author: slyons
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/21/2017
 ms.author: sclyon
 ms.custom: mvc
-ms.openlocfilehash: 04149e12e2926888bab82495a0924df94d6e3450
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a05ca8602ad3b5ea3135ad2ce915bdc38359bfd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836163"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089554"
 ---
-# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure CosmosDB︰使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
+# <a name="azure-cosmos-db-build-a-mongodb-api-console-app-with-golang-and-the-azure-portal"></a>Azure Cosmos DB：使用 Golang 和 Azure 入口網站建置 MongoDB API 主控台應用程式
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -63,7 +63,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
     go get gopkg.in/mgo.v2
     ```
 
-[mgo](http://labix.org/mgo) 驅動程式是 [Go 語言](http://golang.org/)的 [MongoDB](http://www.mongodb.org/) 驅動程式，它可在非常簡單且符合標準 Go 慣用語的 API 之下實作豐富且經過妥善測試的精選功能。
+[mgo](https://labix.org/mgo) 驅動程式是 [Go 語言](https://golang.org/)的 [MongoDB](https://www.mongodb.com/) 驅動程式，它可在非常簡單且符合標準 Go 慣用語的 API 之下實作豐富且經過妥善測試的精選功能。
 
 <a id="connection-string"></a>
 
@@ -95,7 +95,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 ### <a name="connecting-the-go-app-to-azure-cosmos-db"></a>將 Go 應用程式連線到 Azure Cosmos DB
 
-Azure Cosmos DB 支援啟用 SSL 的 MongoDB。 若要連線至啟用 SSL 的 MongoDB，您需要在 [mgo.DialInfo](http://gopkg.in/mgo.v2#DialInfo) 中定義 **DialServer** 函式，並利用 [tls.*Dial*](http://golang.org/pkg/crypto/tls#Dial) 函式執行連線。
+Azure Cosmos DB 支援啟用 SSL 的 MongoDB。 若要連線至啟用 SSL 的 MongoDB，您需要在 [mgo.DialInfo](https://godoc.org/gopkg.in/mgo.v2#DialInfo) 中定義 **DialServer** 函式，並利用 [tls.*Dial*](https://golang.org/pkg/crypto/tls#Dial) 函式執行連線。
 
 下列 Golang 程式碼片段會透過 Azure Cosmos DB MongoDB API 連線到 Go 應用程式。 DialInfo 類別保存可供建立 MongoDB 叢集之工作階段的選項。
 

@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Java 執行搜尋 - Bing Web 搜尋 API
+title: 快速入門：使用 Java 來執行 Web 搜尋 - Bing Web 搜尋 REST API
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將學習如何使用 Java 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
+description: 使用此快速入門以運用 Java 來傳送要求給「Bing Web 搜尋 REST API」，並接收 JSON 回應
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: bd6630f67e151dd2ee1e60654352f3070466899b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: f56d64151f36216652c21067d5f3c64270ca266c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312658"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260968"
 ---
-# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>快速入門：使用 Java 來呼叫 Bing Web 搜尋 API  
+# <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-java"></a>快速入門：使用 Bing Web 搜尋 REST API 和 Java 來搜尋 Web
 
 使用本快速入門以第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。  
 

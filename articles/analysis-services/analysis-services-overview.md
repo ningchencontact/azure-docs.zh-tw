@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3cdc4a8a670b5af43e72b38d7a3b6d9aafdac348
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429434"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970190"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -23,13 +23,13 @@ Azure Analysis Services 是完全受控的平台即服務 (PaaS)，可在雲端�
 
 ![資料來源](./media/analysis-services-overview/aas-overview-overall.png)
 
-**影片：** 請觀看 [Azure Analysis Services 概觀](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4)，以了解 Azure Analysis Services 有多麼適合 Microsoft 的整體 BI 功能。
+**影片：** 請觀看 [Azure Analysis Services 概觀](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) \(英文\)，以了解 Azure Analysis Services 有多麼適合 Microsoft 的整體 BI 功能。
 
 ## <a name="get-up-and-running-quickly"></a>快速啟動並執行
 
 您可以在短短幾分鐘內，於 Azure 入口網站中[建立伺服器](analysis-services-create-server.md)。 此外，若是使用 Azure Resource Manager [範本](../azure-resource-manager/resource-manager-create-first-template.md)和 PowerShell，您可以使用宣告式範本來建立伺服器。 在單一範本中，您可以部署伺服器資源以及其他 Azure 元件 (例如儲存體帳戶和 Azure Functions)。 
 
-**影片：** 請觀看[讓部署自動進行](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)，以深入了解如何使用 Azure 自動化來加快伺服器建立速度。
+**影片：** 請觀看[讓部署自動進行](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) \(英文\)，以深入了解如何使用 Azure 自動化來加快伺服器建立速度。
 
 Azure Analysis Services 與許多 Azure 服務整合，讓您能建置複雜的分析解決方案。 與 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 整合可對重要資料提供安全的角色型存取。 納入可將資料載入模型中的活動，進而與 [Azure Data Factory](../data-factory/introduction.md) 管線整合。 [Azure 自動化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 可用於使用自訂程式碼之模型的輕量型協調流程。 
 
@@ -182,7 +182,7 @@ Analysis Services 會使用[角色型授權](https://docs.microsoft.com/sql/anal
 
 ### <a name="azure-governance"></a>Azure 控管
 
-Azure Analysis Services 受 [Microsoft Online Services 條款](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft 隱私權聲明](https://privacy.microsoft.com/privacystatement)控管。
+Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft 隱私權聲明](https://privacy.microsoft.com/privacystatement)控管。
 若要深入了解「Azure 資訊安全」，請參閱 [Microsoft 信任中心](https://www.microsoft.com/trustcenter)。
 
 ## <a name="use-the-tools-you-already-know"></a>使用您已知的工具

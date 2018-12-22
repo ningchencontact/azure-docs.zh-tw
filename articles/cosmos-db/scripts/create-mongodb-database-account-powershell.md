@@ -1,27 +1,22 @@
 ---
-title: Azure PowerShell 指令碼 - 建立 Azure Cosmos DB MongoDB API 帳戶 | Microsoft Docs
+title: Azure PowerShell 指令碼 - 建立 Azure Cosmos DB MongoDB API 帳戶
 description: Azure PowerShell 指令碼範例 - 建立 Azure Cosmos DB MongoDB API 帳戶
 services: cosmos-db
-documentationcenter: cosmosdb
-author: SnehaGunda
-manager: kfile
-tags: azure-service-management
 ms.service: cosmos-db
+author: SnehaGunda
+ms.author: sngun
 ms.custom: mvc
 ms.devlang: PowerShell
 ms.topic: sample
-ms.tgt_pltfrm: cosmosdb
-ms.workload: database
 ms.date: 05/29/2018
-ms.author: sngun
-ms.openlocfilehash: d3f73651dda3dd57740d61fd341baf5700a20964
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 1df8749f0032f60bc3d18f6d8352712e74c53fd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920817"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963891"
 ---
-# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 建立 MongoDB API 帳戶
+# <a name="azure-cosmos-db-create-a-mongodb-api-account-using-powershell"></a>Azure Cosmos DB：使用 PowerShell 來建立 MongoDB API 帳戶
 
 此範例 PowerShell 指令碼會建立 Azure Cosmos DB MongoDB API 帳戶。 
 

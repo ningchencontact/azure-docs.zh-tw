@@ -9,23 +9,23 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: a914a95831176a51cc6b5e2c5bf69ef1ad60bcc0
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: a218cf9b3d89236128c83d8b879691940e432a55
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035900"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341553"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>開始使用 Azure Stack 儲存體開發工具
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Microsoft Azure Stack 提供一組儲存體服務，包括 Blob、資料表和佇列儲存體。
 
 使用本文作為開始使用 Azure Stack 儲存體開發工具的指南。 您可以在對應的 Azure 儲存體教學課程中，找到更詳細的資訊和範例程式碼。
 
-> [!NOTE]  
-> Azure Stack 儲存體與 Azure 儲存體之間有一些已知的差異，包括每個平台的特定需求。 例如，Azure Stack 有特定的用戶端程式庫以及特定的端點尾碼需求。 如需詳細資訊，請參閱 [Azure Stack 儲存體：差異與注意事項](azure-stack-acs-differences.md)。
+> [!NOTE]
+> Azure Stack 儲存體與 Azure 儲存體之間有一些已知的差異，包括每個平台的特定需求。 例如，Azure Stack 有特定的用戶端程式庫以及特定的端點尾碼需求。 如需詳細資訊，請參閱 [Azure Stack 儲存體：差異與考量](azure-stack-acs-differences.md)。
 
 ## <a name="azure-client-libraries"></a>Azure 用戶端程式庫
 

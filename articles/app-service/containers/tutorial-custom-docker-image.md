@@ -1,5 +1,5 @@
 ---
-title: 針對 Web App for Containers 使用自訂 Docker 映像 - Azure | Microsoft Docs
+title: 針對用於容器的 Web App 使用自訂 Docker 映像 - Azure App Service | Microsoft Docs
 description: 如何針對用於容器的 Web 應用程式使用自訂 Docker 映像。
 keywords: azure app service, web 應用程式, linux, docker, 容器
 services: app-service
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
-ms.custom: mvc
-ms.openlocfilehash: 517926a3c78e9c95a9ecef9ae058c33e47566adb
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.custom: seodec18
+ms.openlocfilehash: ae9da43ac40a3da188e6030659cfb6de166c53bb
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432602"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256072"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>針對用於容器的 Web 應用程式使用自訂 Docker 映像
 
@@ -292,7 +292,7 @@ SSH 可讓容器和用戶端之間進行安全通訊。 您必須將自訂的 Do
     > [!NOTE]
     > 此設定不允許容器的外部連線。 SSH 只能透過 Kudu/SCM 站台提供。 Kudu/SCM 站台會向發佈認證進行驗證。
 
-* [複製](https://docs.docker.com/engine/reference/builder/#copy)指示會指示 Docker 引擎將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 /etc/ssh/ 目錄。 您的組態檔應該以 [這個 sshd_config 檔案](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)作為基礎。
+* [複製](https://docs.docker.com/engine/reference/builder/#copy)指示會指示 Docker 引擎將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 /etc/ssh/ 目錄。 您的組態檔應該以 [這個 sshd_config 檔案](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config)作為基礎。
 
     ```docker
     COPY sshd_config /etc/ssh/

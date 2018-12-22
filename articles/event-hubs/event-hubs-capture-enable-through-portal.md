@@ -1,6 +1,6 @@
 ---
-title: 透過入口網站啟用 Azure 事件中樞擷取功能 | Microsoft Docs
-description: 使用 Azure 入口網站啟用事件中樞擷取功能。
+title: 使用 Azure 入口網站擷取串流事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文說明如何才能使用 Azure 入口網站透過 Azure 事件中樞擷取事件串流。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -10,18 +10,19 @@ ms.assetid: ''
 ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7f57e75f90511ace45198d7516a5d2550123d9be
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409113"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075109"
 ---
-# <a name="enable-event-hubs-capture-using-the-azure-portal"></a>使用 Azure 入口網站啟用事件中樞擷取功能
+# <a name="enable-capturing-of-events-streaming-through-azure-event-event-hubs"></a>能夠透過 Azure 事件中樞擷取事件串流
 
 Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流資料自動傳遞至您選擇的 [Azure Blob 儲存體](https://azure.microsoft.com/services/storage/blobs/)或 [Azure Data Lake Store](https://azure.microsoft.com/services/data-lake-store/) 帳戶。
 
@@ -35,7 +36,7 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 預設時間範圍為 5 分鐘。 最小值是 1，最大值是 15。 **大小** 範圍為 10-500 MB。
 
-![][1]
+![擷取的時間範圍][1]
 
 ## <a name="capture-data-to-an-azure-data-lake-store-account"></a>將資料擷取至 Azure Data Lake Store 帳戶
 
@@ -52,7 +53,7 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 2. 在 [建立事件中樞] 入口網站頁面中，從 [擷取提供者] 方塊選取 [Azure Data Lake Store]。
 3. 在 [選取 Data Lake Store] 中，指定您先前建立的 Data Lake Store 帳戶，以及在 [Data Lake 路徑] 欄位中，輸入您建立之資料資料夾的路徑。
 
-    ![][3]
+    ![選取 Data Lake Storage 帳戶][3]
 
 ## <a name="add-or-configure-capture-on-an-existing-event-hub"></a>在現有的事件中樞上新增或設定擷取功能
 
@@ -60,11 +61,11 @@ Azure [事件中樞擷取][capture-overview]可讓您將事件中樞內的串流
 
 ### <a name="azure-blob-storage"></a>Azure Blob 儲存體
 
-![][2]
+![設定 Azure Blob 儲存體][2]
 
 ### <a name="azure-data-lake-store"></a>Azure Data Lake Store
 
-![][4]
+![設定 Azure Data Lake Storage][4]
 
 [1]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture1.png
 [2]: ./media/event-hubs-capture-enable-through-portal/event-hubs-capture2.png

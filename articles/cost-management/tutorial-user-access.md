@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 19cb1e414ba4a486139a502034e958907d027470
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 64e56233546a22804036b43d9769247678036049
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275261"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099438"
 ---
 # <a name="tutorial-assign-access-to-cloudyn-data"></a>教學課程：指派對 Cloudyn 資料的存取權
 
@@ -47,7 +47,7 @@ ms.locfileid: "52275261"
 輸入使用者的相關資訊。 **登入識別碼**必須是有效的電子郵件地址。 選擇允許「使用者管理」的權限，以便使用者建立和修改其他使用者。 「收件者清單管理」可允許使用者編輯收件者清單。 當您選取 [透過電子郵件通知使用者] 時，系統就會透過電子郵件從 Cloudyn 將含有登入資訊的連結傳送給使用者。 第一次登入時，使用者需設定密碼。
 
 在 [使用者具有系統管理員存取權] 之下，已選取您組織的根實體。 讓根實體保留已選取狀態，然後儲存使用者資訊。 選取根實體，可讓使用者不只擁有樹狀目錄中根實體的系統管理員權限，也擁有其下所有實體的系統管理員權限。  
-  ![新增具有系統管理員存取權的使用者](.\media\tutorial-user-access\new-admin-access.png)
+  ![在 [新增新使用者] 方塊中顯示管理員存取權的範例](./media/tutorial-user-access/new-admin-access.png)
 
 ## <a name="create-a-user-with-user-access"></a>建立具有使用者存取權的使用者
 需要 Cloudyn 資料 (如儀表板與報告) 存取權的一般使用者，應該具有使用者存取權才能檢視這些資料。 建立具有使用者存取權的新使用者，類似於您建立具有系統管理員存取權的使用者，但有下列差異：
@@ -56,7 +56,7 @@ ms.locfileid: "52275261"
 - 在 [使用者具有使用者存取權] 清單中選取使用者需要存取的實體。
 - 您也可以視需要允許系統管理員存取特定實體。
 
-![新增具有使用者存取權的使用者](.\media\tutorial-user-access\new-user-access.png)
+![在 [新增新使用者] 方塊中顯示使用者存取的範例](./media/tutorial-user-access/new-user-access.png)
 
 若要觀看有關新增使用者的教學課程影片，請觀看[將使用者新增至 Cloudyn](https://youtu.be/Nzn7GLahx30) \(英文\)。
 
@@ -88,11 +88,11 @@ ms.locfileid: "52275261"
 
 在 Cloudyn 入口網站中，按一下右上角的齒輪符號並選取 [雲端帳戶]。 您可從單一實體 (根目錄) 開始，並在根目錄下建置您的實體樹狀目錄。 以下是樹狀目錄完成後的實體階層範例，這可能類似於許多 IT 組織：
 
-![實體樹狀目錄](.\media\tutorial-user-access\entity-tree.png)
+![在 [帳戶管理] 頁面上顯示的實體樹狀目錄範例](./media/tutorial-user-access/entity-tree.png)
 
 按一下 [實體] 旁邊的 [新增實體]。 輸入您想新增之人員或部門的相關資訊。 [全名] 和 [電子郵件] 欄位不必與現有的使用者相符。 如果您想要檢視存取層級清單，請在說明中搜尋「新增實體」。
 
-![新增實體](.\media\tutorial-user-access\add-entity.png)
+![在 [新增實體] 方塊中顯示實體名稱和存取層級的範例](./media/tutorial-user-access/add-entity.png)
 
 在完成時 [儲存] 實體。
 

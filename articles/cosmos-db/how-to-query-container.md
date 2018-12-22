@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 5d64aa8b50cdde23d1bb8980510cfac202204f9a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11c68b61802f6c7b3755da71c176ea777f171e4c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262449"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409831"
 ---
 # <a name="query-containers-in-azure-cosmos-db"></a>查詢 Azure Cosmos DB 中的容器
 
@@ -20,7 +20,7 @@ ms.locfileid: "51262449"
 
 ## <a name="in-partition-query"></a>分割區內查詢
 
-當您查詢容器中的資料時，Cosmos DB 會自動將查詢路由到與篩選中指定的分割區索引鍵值 (如果有的話) 對應的分割區。 例如，此查詢只會路由傳送至包含資料分割索引鍵 "XMS-0001" 的資料分割。
+當您查詢容器中的資料時，如果查詢已指定分割區索引鍵篩選，則 Azure Cosmos DB 會自動將查詢路由到與篩選中指定的分割區索引鍵值對應的分割區。 例如，下列查詢會路由到 DeviceId 分割區，其中包含對應至分割區索引鍵值 "XMS-0001" 的所有文件。
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

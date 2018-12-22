@@ -1,6 +1,6 @@
 ---
 title: 快速入門 - 使用 Azure PowerShell 為 Windows IaaS VM 加密 | Microsoft Docs
-description: 在本快速入門中，您將了解如何使用 Azure PowerShell 為 Windows 虛擬機器加密。
+description: 在本快速入門中，可了解如何使用 Azure PowerShell 為 Azure 中的 Windows IaaS VM 加密。
 services: security
 documentationcenter: na
 author: mestew
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 531da9af871595e6f8bf5d22832367bbfb301dab
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.custom: seodec18
+ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245866"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087859"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>快速入門：使用 Azure PowerShell 為 Windows IaaS VM 加密
 
-Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加密。 此解決方案可與 Azure Key Vault 整合，協助您控制及管理磁碟加密金鑰和祕密。 使用 Azure 磁碟加密時，您將可確保 VM 會透過業界標準的加密技術受到保護。 在本快速入門中，您將建立 Windows Server 2016 VM，並為 OS 磁碟加密。 
+Azure 磁碟加密可協助您為 Windows 和 Linux IaaS 虛擬機器磁碟加密。 此解決方案可與 Azure Key Vault 整合，協助您控制及管理磁碟加密金鑰和祕密。 使用 Azure 磁碟加密時，您將可確保 VM 會透過業界標準的加密技術受到保護。 在本快速入門中，您將建立 Windows Server 2016 VM，並為 OS 磁碟加密。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 

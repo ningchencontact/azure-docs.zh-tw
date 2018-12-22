@@ -1,22 +1,21 @@
 ---
-title: Azure Container Registry 教學課程 - 將更新的映像推送至區域部署
-description: 將修改的 Docker 映像推送至您進行地理複寫的 Azure Container Registry，然後查看變更自動部署至多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。
+title: 教學課程 - 將更新的容器映像推送至區域 Azure 應用程式部署
+description: 將修改的 Docker 映像推送至進行異地複寫的 Azure Container Registry，然後查看變更自動部署至在多個區域中執行的 Web 應用程式。 這是三段式教學課程的第三段。
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 04/30/2018
-ms.author: marsma
-ms.custom: mvc
-ms.openlocfilehash: 8edb35b91327bde1fa824ec456b8a98962adb7ce
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: danlep
+ms.custom: seodec18, mvc
+ms.openlocfilehash: d9faa89d33dde7da35ad4490b78b9a1d023274ae
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634082"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256616"
 ---
-# <a name="tutorial-push-an-updated-image-to-regional-deployments"></a>教學課程：將更新的映像推送至區域部署
+# <a name="tutorial-push-an-updated-container-image-to-a-geo-replicated-container-registry-for-regional-web-app-deployments"></a>教學課程：將更新的容器映像推送至進行異地複寫的容器登錄以進行區域 Web 應用程式部署
 
 這是三段式教學課程系列的第三段。 [上一個教學課程](container-registry-tutorial-deploy-app.md)是針對兩個不同區域的 Web 應用程式部署設定地理複寫。 在本教學課程中，您要先修改應用程式，然後建立新的容器映像，再將它推送至您進行地理複寫的登錄中。 最後，您要檢視由 Azure Container Registry Webhook 在兩個 Web 應用程式執行個體中自動部署的變更。
 
@@ -134,11 +133,11 @@ Webhook 會通知 Web 應用程式新的映像已推送至登錄，此作業會�
 
 在本教學課程中，您更新了 Web 應用程式容器，並將新版推送到您進行地理複寫的登錄。 Azure Container Registry 中的 Webhook 將該項更新通知了「用於容器的 Web 應用程式」執行個體，因而觸發從最靠近的登錄複本進行本機提取。
 
-### <a name="acr-build-automated-image-build-and-patch"></a>ACR Build：自動映像建置和修補
+### <a name="acr-build-automated-image-build-and-patch"></a>ACR 組建：自動化映像建置和修補
 
 除了異地複寫之外，ACR Build 是 Azure Container Registry 另一項有助於最佳化容器部署管線的功能。 若要了解 ACR Build 的功能，請從 ACR Build 概觀開始：
 
-[使用 ACR Build 自動進行作業系統和架構修補](container-registry-build-overview.md)
+[使用 ACR Build 自動進行作業系統和架構修補](container-registry-tasks-overview.md)
 
 <!-- IMAGES -->
 [deployed-app-eastus-modified]: ./media/container-registry-tutorial-deploy-update/deployed-app-eastus-modified.png

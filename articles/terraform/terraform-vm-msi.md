@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: a162d0c19bef28e6e4566d39c2dc3b82a87a4aa9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6fef56d780fe664e79f66fa23be526aec71d7e7b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242087"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971159"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>使用 Azure Marketplace 映像透過 Azure 資源的受控識別來建立 Terraform Linux 虛擬機器
 
@@ -37,7 +37,7 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 
 3. 在右下方的 Terraform 詳細資料索引標籤中，選取 **建立** 按鈕。
 
-    ![建立 Terraform 虛擬機器](media\terraformmsi.png)
+    ![建立 Terraform 虛擬機器](media/terraformmsi.png)
 
 4. 下列各節提供精靈中每個步驟的輸入資訊，可用來建立 Terraform Linux 虛擬機器。 下一節列出設定每個步驟所需的輸入資訊。
 
@@ -48,9 +48,9 @@ Terraform Marketplace 映像可讓您輕鬆地在 Azure 上開始使用 Terrafor
 1. **基本概念**
     
    * **名稱**：Terraform 虛擬機器的名稱。
-   * **使用者名稱**：第一個帳戶登入識別碼。
+   * **使用者名稱：** 第一個帳戶登入識別碼。
    * **密碼**：第一個帳戶密碼。 (您可以使用 SSH 公開金鑰而不使用密碼。)
-   * **訂用帳戶**：要用來建立虛擬機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
+   * 訂用帳戶：要用來建立虛擬機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
    * **資源群組**：新的或現有的資源群組。
    * **位置**：最適合的資料中心。 通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
 

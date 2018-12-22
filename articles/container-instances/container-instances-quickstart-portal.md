@@ -1,21 +1,21 @@
 ---
-title: 快速入門 - 在 Azure Container Instances 中執行應用程式
-description: 在本快速入門中，您會使用 Azure 入口網站將 Docker 容器中所執行的應用程式部署至 Azure Container Instances
+title: 快速入門 - 在 Azure Container Instances 中執行應用程式 - 入口網站
+description: 在本快速入門中，您會使用 Azure 入口網站部署 Docker 容器應用程式，以便在 Azure Container Instances 中隔離的容器內執行
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: 6ab7680559400c0a270142563ecf7e251c2cd1b8
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 8f547977e544854e281e1c6be442607d55149e5e
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857715"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190283"
 ---
-# <a name="quickstart-run-an-application-in-azure-container-instances"></a>快速入門：在 Azure Container Instances 中執行應用程式
+# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>快速入門：在 Azure 入口網站的 Azure Container Instances 中執行容器應用程式
 
 使用 Azure Container Instances 在 Azure 中簡潔且快速地執行 Docker 容器。 您不需要部署虛擬機器，也不需要使用完整的容器協調流程平台，如 Kubernetes。 在本快速入門中，您會使用 Azure 入口網站在 Azure 中建立容器，並使用完整網域名稱 (FQDN) 讓其應用程式可供使用。 在設定一些設定並部署容器之後，您可以瀏覽至執行中的應用程式：
 
@@ -37,7 +37,7 @@ ms.locfileid: "48857715"
 
 * 容器名稱：`mycontainer`
 * 容器映像：`microsoft/aci-helloworld`
-* 資源群組：**建立新的** > `myResourceGroup`
+* 資源群組：**新建** > `myResourceGroup`
 
 ![在 Azure 入口網站中設定新容器執行個體的基本設定][aci-portal-03]
 

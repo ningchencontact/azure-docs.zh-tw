@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure IoT Edge 部署 Azure Function | Microsoft Docs
-description: 在本教學課程中，將 Azure Function 當作模組部署至邊緣裝置。
+title: 教學課程：將 Azure 函式部署到裝置 - Azure IoT Edge | Microsoft Docs
+description: 在本教學課程中，您會將 Azure 函式部署為 IoT Edge 模組，然後將它部署至邊緣裝置。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,15 +8,15 @@ ms.date: 10/19/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: d0ae009db0d9470942a4ff5d7c09e2cdd7bcdd53
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1488f6aff202f8b307b883d8a795d7df20066661
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165609"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081875"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure Functions 部署為 IoT Edge 模組
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教學課程：將 Azure 函式部署為 IoT Edge 模組
 
 您可以使用 Azure Functions 來部署程式碼，直接在 Azure IoT Edge 裝置上實作您的商務邏輯。 本教學課程會逐步引導您建立並部署 Azure 函式，能在模擬的 IoT Edge 裝置上篩選感應器資料。 您將會使用模擬的 IoT Edge 裝置，其建立方法詳述於在 [Windows](quickstart.md) 或 [Linux](quickstart-linux.md) 中的模擬裝置上部署 Azure IoT Edge 的快速入門中。 在本教學課程中，您了解如何：     
 
@@ -27,7 +27,7 @@ ms.locfileid: "52165609"
 > * 檢視已篩選的資料。
 
 <center>
-![教學課程架構圖](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+![圖表 - 教學課程架構、階段和部署函式模組](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
@@ -63,7 +63,7 @@ Azure IoT Edge 裝置：
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [建立資源] > [容器] > [容器登錄]。
 
-    ![建立容器登錄庫](./media/tutorial-deploy-function/create-container-registry.png)
+    ![在 Azure 入口網站中建立容器登錄](./media/tutorial-deploy-function/create-container-registry.png)
 
 2. 提供下列值以建立您的容器登錄：
 
@@ -90,7 +90,7 @@ Azure IoT Edge 裝置：
 
 2. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 
-3. 在 [命令選擇區] 中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 依照命令選擇區中的提示建立解決方案。
+3. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:新增 IoT Edge 解決方案。 依照命令選擇區中的提示建立解決方案。
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -225,9 +225,9 @@ Azure IoT Edge 裝置：
 
 1. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 
-2. 搜尋並執行命令 **Azure: Sign in**。 依照指示登入 Azure 帳戶。 
+2. 搜尋並執行命令 [Azure:登入]。 依照指示登入 Azure 帳戶。 
 
-3. 在命令選擇區中，搜尋並執行命令 **Azure IoT Hub: Select IoT Hub**。 
+3. 在命令選擇區中，搜尋並執行命令 [Azure IoT Hub:選取 IoT 中樞]。 
 
 4. 選取 IoT 中樞所在的訂用帳戶，然後選取您要存取的 IoT 中樞。
 
@@ -243,11 +243,11 @@ Azure IoT Edge 裝置：
 
 ## <a name="view-generated-data"></a>檢視產生的資料
 
-您可以在命令選擇區中執行 **Azure IoT Hub: Start Monitoring D2C Message**，以檢視所有送達 IoT 中樞的訊息。
+您可以在命令選擇區中執行 [Azure IoT Hub:開始監視 D2C 訊息]，以查看所有送達 IoT 中樞的訊息。
 
 您也可以篩選檢視來查看所有從特定裝置送達 IoT 中樞的訊息。 請以滑鼠右鍵按一下 [Azure IoT 中樞裝置] 區段中的裝置，然後選取 [開始監視 D2C 訊息]。
 
-若要停止監視訊息，請在命令選擇區中執行命令 **Azure IoT Hub: Stop monitoring D2C message**。 
+若要停止監視訊息，請在命令選擇區中執行命令 [Azure IoT Hub:停止監視 D2C 訊息]。 
 
 
 ## <a name="clean-up-resources"></a>清除資源

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 246b423e69fa8fb73db45f44fa17c1bc65407681
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: be08740024e87179a48f3dfd6f8406fa6a2bbca6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090720"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963516"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>使用變更追蹤資訊，以累加方式將資料從 Azure SQL Database 載入到 Azure Blob 儲存體 
 在本教學課程中，您會建立一個 Azure Data Factory 並讓其具有管線，以根據來源 Azure SQL Database 中的**變更追蹤**資訊，將差異資料載入到 Azure Blob 儲存體。  
@@ -198,7 +198,7 @@ ms.locfileid: "43090720"
 ### <a name="create-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務。
 在此步驟中，您會將您的 Azure 儲存體帳戶連結到 Data Factory。
 
-1. 在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中，使用下列內容建立名為 **AzureStorageLinkedService.json** 的 JSON 檔案：(如果資料夾尚不存在，請加以建立)。 儲存檔案之前，以您的 Azure 儲存體帳戶名稱和金鑰取代 `<accountName>`、`<accountKey>`。
+1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureStorageLinkedService.json** 的 JSON 檔案：(如果資料夾尚不存在，請建立該資料夾)。 儲存檔案之前，以您的 Azure 儲存體帳戶名稱和金鑰取代 `<accountName>`、`<accountKey>`。
 
     ```json
     {
@@ -215,7 +215,7 @@ ms.locfileid: "43090720"
     }
     ```
 2. 在 **Azure PowerShell** 中，切換至 **C:\ADFTutorials\IncCopyChgTrackingTutorial** 資料夾。
-3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureStorageLinkedService**。 在下列範例中，您會傳遞 **ResourceGroupName** 和 **DataFactoryName** 參數的值。 
+3. 執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立已連結的服務：**AzureStorageLinkedService**。 在下列範例中，您會傳遞 **ResourceGroupName** 和 **DataFactoryName** 參數的值。 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -233,7 +233,7 @@ ms.locfileid: "43090720"
 ### <a name="create-azure-sql-database-linked-service"></a>建立 Azure SQL Database 連結服務。
 在此步驟中，您會將您的 Azure SQL Database 連結到您的 Data Factory。
 
-1. 在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中，使用下列內容建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：將 **&lt;server&gt;、&lt;database name&gt;、&lt;user id&gt; 和 &lt;password&gt;** 替換為 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，再儲存檔案。 
+1. 使用下列內容，在 **C:\ADFTutorials\IncCopyChangeTrackingTutorial** 資料夾中建立名為 **AzureSQLDatabaseLinkedService.json** 的 JSON 檔案：儲存檔案之前，以您的 Azure SQL Server 名稱、資料庫名稱、使用者識別碼和密碼，取代 **&lt;server&gt;、&lt;database name **、&lt;user id&gt; 和 &lt;password&gt;**。 
 
     ```json
     {
@@ -249,7 +249,7 @@ ms.locfileid: "43090720"
         }
     }
     ```
-2. 在 **Azure PowerShell** 中，執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立連結服務：**AzureSQLDatabaseLinkedService**。 
+2. 在 **Azure PowerShell**中，執行 **Set-AzureRmDataFactoryV2LinkedService** Cmdlet 來建立已連結的服務：**AzureSQLDatabaseLinkedService**。 
 
     ```powershell
     Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -387,7 +387,7 @@ ms.locfileid: "43090720"
 ## <a name="create-a-pipeline-for-the-full-copy"></a>建立完整複本的管線
 在此步驟中，您會使用複製活動建立管線，將整個資料從來源資料存放區 (Azure SQL Database) 複製到目的地資料存放區 (Azure Blob 儲存體)。
 
-1. 在相同的資料夾中，使用下列內容建立 JSON 檔案 FullCopyPipeline.json： 
+1. 建立 JSON 檔案：FullCopyPipeline.json - 在相同的資料夾中，使用下列內容來建立此檔案： 
 
     ```json
     {
@@ -434,7 +434,7 @@ ms.locfileid: "43090720"
    ```
  
 ### <a name="run-the-full-copy-pipeline"></a>執行完整的複製管線
-使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 執行管線：**FullCopyPipeline**。 
+執行管線：**FullCopyPipeline** - 使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 來執行此管線。 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
@@ -445,26 +445,26 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGr
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 按一下 [所有服務]，以 `data factories` 關鍵字進行搜尋，然後選取 [資料處理站]。 
 
-    ![Data Factory 功能表](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-data-factories-menu-1.png)
+    ![Data Factory 功能表](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
 3. 在 Data Factory 清單中搜尋**您的 Data Factory**，然後加以選取以啟動 [Data Factory] 頁面。 
 
-    ![搜尋您的 Data Factory](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-search-data-factory-2.png)
+    ![搜尋您的 Data Factory](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
 4. 在資料管理站頁面上，按一下 [監視及管理] 圖格。 
 
-    ![監視及管理圖格](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-monitor-manage-tile-3.png)    
+    ![監視及管理圖格](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
 5. **資料整合應用程式**會在不同的索引標籤中啟動。您可以看到所有**管線執行**及其狀態。 請注意，在下列範例中，管線執行狀態是 [成功]。 按一下 [參數] 資料行中的連結，即可檢查傳遞到管線的參數。 如果有錯誤，您就會在 [錯誤] 資料行中看到連結。 按一下 [動作] 資料行中的連結。 
 
-    ![管線執行](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-4.png)    
+    ![管線執行](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
 6. 當您按一下 [動作] 資料行中的連結時，您會看到下列頁面，其中顯示管線的所有**活動執行**。 
 
-    ![活動執行](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-5.png)
+    ![活動執行](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
 7. 若要切換回 [管線執行] 檢視，請按一下 [管線]，如下圖所示。 
 
 
 ### <a name="review-the-results"></a>檢閱結果
 您會在 `adftutorial` 容器的 `incchgtracking` 資料夾中看到名為 `incremental-<GUID>.txt` 的檔案。 
 
-![完整複製的輸出檔案](media\tutorial-incremental-copy-change-tracking-feature-powershell\full-copy-output-file.png)
+![完整複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
 此檔案應該會有 Azure SQL Database 中的資料：
 
@@ -495,7 +495,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>建立差異複本的管線
 在此步驟中，您會建立具有下列活動的管線，並定期執行此管線。 **查閱活動**會從 Azure SQL Database 取得舊的和新的 SYS_CHANGE_VERSION，並將它傳遞給複製活動。 **複製活動**會將兩個 SYS_CHANGE_VERSION 值之間所插入/更新/刪除的資料，從 Azure SQL Database 複製到 Azure Blob 儲存體。 **預存程序活動**會更新下一次管線執行的 SYS_CHANGE_VERSION 值。
 
-1. 在相同的資料夾中，使用下列內容建立 JSON 檔案 IncrementalCopyPipeline.json： 
+1. 建立 JSON 檔案：IncrementalCopyPipeline.json - 在相同的資料夾中，使用下列內容來建立此檔案： 
 
     ```json
     {
@@ -623,7 +623,7 @@ SET [Age] = '10', [name]='update' where [PersonID] = 1
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>執行累加複製管線
-使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 執行管道：**IncrementalCopyPipeline**。 
+執行管線：**IncrementalCopyPipeline** - 使用 **Invoke-AzureRmDataFactoryV2Pipeline** Cmdlet 來執行此管線。 
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
@@ -633,16 +633,16 @@ Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -Res
 ### <a name="monitor-the-incremental-copy-pipeline"></a>監視累加複製管線
 1. 在**資料整合應用程式**中，重新整理 [管線執行] 檢視。 確認您有在清單中看到 IncrementalCopyPipeline。 按一下 [動作] 資料行中的連結。  
 
-    ![管線執行](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-pipeline-runs-6.png)    
+    ![管線執行](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
 2. 當您按一下 [動作] 資料行中的連結時，您會看到下列頁面，其中顯示管線的所有**活動執行**。 
 
-    ![活動執行](media\tutorial-incremental-copy-change-tracking-feature-powershell\monitor-activity-runs-7.png)
+    ![活動執行](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
 3. 若要切換回 [管線執行] 檢視，請按一下 [管線]，如下圖所示。 
 
 ### <a name="review-the-results"></a>檢閱結果
 您會在 `adftutorial` 容器的 `incchgtracking` 資料夾中看到第二個檔案。 
 
-![累加複製的輸出檔案](media\tutorial-incremental-copy-change-tracking-feature-powershell\incremental-copy-output-file.png)
+![累加複製的輸出檔案](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
 此檔案應該只會有 Azure SQL Database 中的差異資料。 具有 `U` 的記錄是資料庫中更新的資料列，具有 `I` 的記錄則是一個新增的資料列。 
 

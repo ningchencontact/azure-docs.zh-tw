@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure AD 中的身分識別安全分數？ - 預覽 | Microsoft Docs
-description: 了解如何使用身分識別安全分數來改善 Azure AD 租用戶的安全性狀態。
+title: 什麼是身分識別安全分數？ - Azure Active Directory (公開預覽) | Microsoft Docs
+description: 關於如何使用身分識別安全分數來改善 Azure AD 租用戶的安全性狀態的指示。
 services: active-directory
 keywords: 身分識別安全分數, Azure AD, 對公司資源的安全存取
 documentationcenter: ''
@@ -16,14 +16,15 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a9bb22cae2e9fcd607a81d442f4fb51f12c43454
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.custom: it-pro
+ms.openlocfilehash: 5a133d0a38852ca3e95e3ae07716c4fbd3c87f5d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224132"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092060"
 ---
-# <a name="what-is-the-identity-secure-score-in-azure-ad---preview"></a>什麼是 Azure AD 中的身分識別安全分數？ - 預覽
+# <a name="what-is-the-identity-secure-score-in-azure-active-directory-public-preview"></a>什麼是 Azure Active Directory 中的身分識別安全分數？ (公開預覽)
 
 您的 Azure AD 租用戶有多安全？ 如果您不知道如何回答這個問題，請閱讀本文以了解身分識別安全分數如何協助您監視和改善身分識別安全性狀態。 
 

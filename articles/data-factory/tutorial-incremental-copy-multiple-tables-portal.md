@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 95f2947a30499ce563d5943dfa423ee89a172f47
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e25cdd0677efce0ea8d40ad1c8ae07a5d071a67f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614510"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969782"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>以累加方式將 SQL Server 中多個資料表的資料載入到 Azure SQL Database
 在本教學課程中，您會建立 Azure Data Factory 與管線，以將差異資料從內部部署 SQL Server 中的多個資料表，載入到 Azure SQL Database。    
@@ -61,7 +61,7 @@ ms.locfileid: "51614510"
 
     高階解決方案圖表如下： 
 
-    ![以累加方式載入資料](media\tutorial-incremental-copy-multiple-tables-portal\high-level-solution-diagram.png)
+    ![以累加方式載入資料](media/tutorial-incremental-copy-multiple-tables-portal/high-level-solution-diagram.png)
 
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
@@ -248,7 +248,7 @@ END
 1. 選取 Data Factory 的 [位置]  。 只有受到支援的位置會顯示在下拉式清單中。 資料處理站所使用的資料存放區 (Azure 儲存體、Azure SQL Database 等) 和計算 (HDInsight 等) 可位於其他區域。
 1. 選取 [釘選到儀表板]。     
 1. 按一下頁面底部的 [新增] 。      
-1. 在儀表板上，您會看到狀態如下的下列圖格︰**正在部署資料處理站**。 
+1. 在儀表板上，您會看到狀態如下的下列圖格︰**部署資料處理站**。 
 
     ![部署資料處理站圖格](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. 建立完成之後，您會看到如圖中所示的 [Data Factory] 頁面。
@@ -509,7 +509,7 @@ END
     1. 選取 [匯入參數]。 
     1. 指定參數的下列值︰ 
 
-        | 名稱 | 類型 | 值 | 
+        | Name | 類型 | 值 | 
         | ---- | ---- | ----- |
         | LastModifiedtime | Datetime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | 字串 | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

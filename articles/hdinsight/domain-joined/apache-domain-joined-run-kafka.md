@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 0d9ad11ab9a53cf5de51dd3f262dc16054be5d85
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633031"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438603"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>教學課程：使用企業安全性套件在 HDInsight 中設定 Apache Kafka 原則 (預覽)
 
@@ -39,7 +39,7 @@ ms.locfileid: "51633031"
 
 1. 從瀏覽器中，使用 URL `https://<ClusterName>.azurehdinsight.net/Ranger/` 連線到 Ranger 管理員使用者介面。 請記得將 `<ClusterName>` 變更為 Kafka 叢集的名稱。
 
-    > [!NOTE] 
+    > [!NOTE]  
     > Ranger 認證與 Hadoop 叢集認證並非相同。 若要避免瀏覽器使用快取的 Hadoop 認證，請使用新的 InPrivate 瀏覽器視窗連線至 Ranger 管理員 UI。
 
 2. 使用您的 Azure Active Directory (AD) 管理員認證登入。 Azure AD 管理員認證與 HDInsight 叢集認證或 Linux HDInsight 節點 SSH 認證並非相同。
@@ -74,7 +74,7 @@ ms.locfileid: "51633031"
 
    ![Apache Ranger 管理員 UI 建立原則](./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png)   
 
-   >[!NOTE] 
+   >[!NOTE]   
    >如果 [選取使用者] 未自動填入網域使用者，請稍候 Ranger 與 Azure AD 同步處理。
 
 4. 按一下 [新增] 以儲存規則。
@@ -113,17 +113,17 @@ ms.locfileid: "51633031"
    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
    ```
 
-3. 下列命令可用來取得 Kafka 訊息代理程式主機和 Zookeeper 主機。 出現提示時，輸入叢集管理員帳戶的密碼。
+3. 使用下列命令來取得 Kafka 訊息代理程式主機和 Apache Zookeeper 主機。 出現提示時，輸入叢集管理員帳戶的密碼。
 
    ```bash
    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
    ```
-> [!Note]
+> [!Note]  
 > 繼續操作之前，您可能需要設定開發環境 (如果您尚未設定)。 您將需要 Java JDK、Apache Maven 和具有 SCP 的 SSH 用戶端等元件。 如需詳細資訊，請參閱下列[設定指示](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
 1. 下載[已加入 Apache Kafka 網域的產生者/取用者範例](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer)。
 
-1. 請遵循[教學課程：使用 Apache Kafka Producer 和 Consumer API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) 中的**建置和部署範例**下方的步驟 2 和 3
+1. 依照**建置並部署範例**底下的步驟 2 和 3 進行操作 (在[教學課程：使用 Apache Kafka Producer 和 Consumer API](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-producer-consumer-api#build-and-deploy-the-example) 中)
 
 1. 執行下列命令：
 
@@ -132,7 +132,7 @@ ms.locfileid: "51633031"
    java -jar -Djava.security.auth.login.config=/usr/hdp/current/kafka-broker/config/kafka_client_jaas.conf kafka-producer-consumer.jar create marketingspend $KAFKABROKERS
    ```
 
-   >[!NOTE] 
+   >[!NOTE]   
    >只有 Kafka 服務的程序所有人 (例如根使用者) 才能寫入 Zookeeper znode `/config/topics`。 非特殊權限使用者建立主題時，不會強制執行Ranger 原則。 這是因為 `kafka-topics.sh` 指令碼會直接與 Zookeeper 進行通訊來建立主題。 雖然訊息代理程式端上的監看員會監看並據此建立主題，但是項目仍會加入到 Zookeeper 節點。 無法透過 Ranger 外掛程式進行授權，而且會透過 Kafka 訊息代理程式使用 `sudo` 執行上述命令。
 
 
@@ -210,5 +210,5 @@ ms.locfileid: "51633031"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [自備 Kafka 的金鑰](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
-* [使用企業安全性套件維護 Hadoop 安全性的簡介](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)
+* [將您自己的金鑰攜帶至 Apache Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok)
+* [使用企業安全性套件維護 Apache Hadoop 安全性的簡介](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction)

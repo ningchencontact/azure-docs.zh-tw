@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 建立 ACS DC/OS 叢集 | Microsoft Docs
 description: Azure CLI 指令碼範例 - 建立 ACS DC/OS 叢集
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: db136fb1c68c243086d3e83424ed2c9864638c8f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 2d9f58527908a17dd445b6afecbcd7e93f70de2c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433380"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001623"
 ---
-# <a name="create-an-azure-container-service-dcos-cluster"></a>建立 Azure Container Service DC/OS 叢集
+# <a name="deprecated-create-an-azure-container-service-dcos-cluster"></a>(即將淘汰) 建立 Azure Container Service DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 這個範例會建立執行 DCOS 的 Azure Container Service 叢集。
 

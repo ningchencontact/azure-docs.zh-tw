@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 已核准的 VM 映像
+title: 範例 - 已核准的 VM 映像
 description: 此範例原則會要求只能在環境中部署已核准的自訂映像。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: d4216c785155ac5462dbcb1b48bf58e7bc718601
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efec6c4e0a677681fd9f1132f4573d99b35236d4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965361"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312658"
 ---
 # <a name="approved-vm-images"></a>已核准的 VM 映像
 
@@ -54,7 +53,7 @@ ms.locfileid: "46965361"
 
 ## <a name="parameters"></a>參數
 
-|名稱 |類型 |欄位 |說明 |
+|Name |類型 |欄位 |說明 |
 |---|---|---|---|
 |imageIds |陣列 |Microsoft.Compute/imageIds |已核准的 VM 映像清單|
 
@@ -220,10 +219,10 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 | 服務 | 群組 | 作業 | 注意 |
 |---|---|---|---|
-| 資源管理 | 原則定義 | [建立](/rest/api/resources/policydefinitions/createorupdate) | 在訂用帳戶建立新的 Azure 原則定義。 替代方法：[建立管理群組](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| 資源管理 | 原則定義 | [建立](/rest/api/resources/policydefinitions/createorupdate) | 在訂用帳戶建立新的 Azure 原則定義。 替代方法：[在管理群組建立](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | 資源管理 | 原則指派 | [建立](/rest/api/resources/policyassignments/create) | 建立新的 Azure 原則指派。 在此範例中，我們會未它提供定義，但它也可以採取主動。 |
 | 資源管理 | 原則指派 | [刪除](/rest/api/resources/policyassignments/delete) | 移除現有的 Azure 原則指派。 |
-| 資源管理 | 原則定義 | [刪除](/rest/api/resources/policydefinitions/delete) | 移除現有的 Azure 原則定義。 替代方法：[刪除管理群組](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| 資源管理 | 原則定義 | [刪除](/rest/api/resources/policydefinitions/delete) | 移除現有的 Azure 原則定義。 替代方法：[在管理群組刪除](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 01b1a770959b29969fbfd0b4575a45b9c53318b6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bdfe390314f2d2174a26e9b321022a3589a06467
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867965"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086534"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 來建置 Java Web 應用程式
 
@@ -49,10 +49,10 @@ ms.locfileid: "52867965"
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
 * [Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)。
-* [Eclipse IDE for Java EE Developers。](http://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
+* [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已啟用某個 Java Runtime Environment (例如 Tomcat 或 Jetty) 的 Azure 網站。](../app-service/app-service-web-get-started-java.md)
 
-如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html) 一文中的 [快速入門] 區段。
+如果您是第一次安裝這些工具，coreservlets.com 提供了安裝程序的的逐步解說，請參閱其 [教學課程：安裝 TomCat7 並與 Eclipse 搭配使用](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文中的 [快速入門] 一節。
 
 ## <a id="CreateDB"></a>步驟 1：建立 Azure Cosmos DB 帳戶
 我們將從建立 Azure Cosmos DB 帳戶開始著手。 如果您已經擁有帳戶，或如果您正在使用 Azure Cosmos DB 模擬器來進行本教學課程，可以跳到[步驟 2：建立 Java JSP 應用程式](#CreateJSP)。
@@ -84,7 +84,7 @@ ms.locfileid: "52867965"
     ![Hello World – Java 應用程式教學課程](./media/sql-api-java-application/image12.png)
 
 ## <a id="InstallSDK"></a>步驟 3：安裝 SQL Java SDK
-導入 SQL Java SDK 及其相依性的最簡單方式就是透過 [Apache Maven](http://maven.apache.org/)。
+導入 SQL Java SDK 及其相依性的最簡單方式就是透過 [Apache Maven](https://maven.apache.org/)。
 
 若要這樣做，您必須完成下列步驟以將專案轉換成 maven 專案：
 
@@ -118,7 +118,7 @@ ms.locfileid: "52867965"
             private String name;
         }
    
-    在此專案中，您會使用 [Project Lombok](http://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。 或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
+    在此專案中，您會使用 [Project Lombok](https://projectlombok.org/) 來產生建構函式、getter、setter 及產生器。 或者，您也可以手動撰寫此程式碼，或讓 IDE 產生它。
 2. 若要叫用 Azure Cosmos DB 服務，您必須將新的 **DocumentClient**具現化。 一般而言，最好是重複使用 **DocumentClient** ，而不要針對每個後續要求建構新的用戶端。 我們可以將用戶端包裝在 **DocumentClientFactory**中以重複使用用戶端。 您必須在 DocumentClientFactory.java 中，貼上您在[步驟 1](#CreateDB) 中儲存到剪貼簿的 URI 和主要金鑰值。 將 [YOUR\_ENDPOINT\_HERE] 以您的 URI 取代，並將 [YOUR\_KEY\_HERE] 以您的主要金鑰取代。
    
         private static final String HOST = "[YOUR_ENDPOINT_HERE]";
@@ -729,7 +729,7 @@ Azure 網站讓部署 Java 應用程式變得相當簡單，您只需將應用�
 ## <a id="GetProject"></a>從 GitHub 取得的專案
 本教學課程中的所有範例都包含在 GitHub 上的 [待辦事項](https://github.com/Azure-Samples/documentdb-java-todo-app) 專案中。 若要將 todo 專案匯入 Eclipse，請確認您擁有 [必要條件](#Prerequisites) 區段中所列出的軟體和資源，然後執行下列動作：
 
-1. 安裝 [專案 Lombok](http://projectlombok.org/)。 Lombok 可用來在專案中產生建構函式、getter、setter。 下載 lombok.jar 檔案之後，請連按兩下進行安裝，或從命令列進行安裝。
+1. 安裝 [專案 Lombok](https://projectlombok.org/)。 Lombok 可用來在專案中產生建構函式、getter、setter。 下載 lombok.jar 檔案之後，請連按兩下進行安裝，或從命令列進行安裝。
 2. 如果 Eclipse 為開啟狀態，請將它關閉並重新啟動以載入 Lombok。
 3. 在 Eclipse 的 [檔案] 功能表上，按一下 [匯入]。
 4. 在 [匯入] 視窗中，依序按一下 [Git]、[使用 Git 的專案] 和 [下一步]。

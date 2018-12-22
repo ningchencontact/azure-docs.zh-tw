@@ -1,6 +1,7 @@
 ---
-title: 快速入門：使用 Ruby 來執行影像搜尋 - Bing 影像搜尋 API
-description: 使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 Ruby 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
+title: 快速入門：搜尋影像 - Bing 影像搜尋 REST API 和 Ruby
+titleSuffix: Azure Cognitive Services
+description: 使用此快速入門以運用 Ruby 來傳送影像搜尋要求給「Bing 影像搜尋 REST API」，並接收 JSON 回應。
 services: cognitive-services
 documentationcenter: ''
 author: aahill
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 8/20/2018
 ms.author: aahi
-ms.openlocfilehash: d5772b46c167b873ed4f5d60a110d31a5c8308a5
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4a5b0c6e67ce4d7a533ad35023261a3c02601a83
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315931"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257653"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-ruby"></a>快速入門：使用 REST API 和 Ruby 傳送搜尋查詢
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-ruby"></a>快速入門：使用 Bing 影像搜尋 REST API 和 Ruby 來搜尋影像
 
 使用本快速入門來進行您對「Bing 影像搜尋 API」的第一次呼叫，並接收 JSON 回應。 這個簡單的 Ruby 應用程式會將搜尋查詢傳送給 API，並顯示原始結果。
 

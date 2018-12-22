@@ -1,22 +1,22 @@
 ---
-title: 在傳送至 Azure 事件中樞的即時事件中視覺化資料異常 | Microsoft Docs
+title: 將即時事件中的資料異常視覺化 - Azure 事件中樞 | Microsoft Docs
 description: 教學課程 - 在傳送至 Microsoft Azure 事件中樞的即時事件中視覺化資料異常
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.author: shvija
-ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
-ms.custom: mvc
-ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.openlocfilehash: add88a24da2e217d705065274f26382c1ffe8e17
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004108"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091674"
 ---
-# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：在傳送至 Azure 事件中樞的即時事件中視覺化資料異常
+# <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>教學課程：將傳送給 Azure 事件中樞之即時事件中的資料異常視覺化
 
 透過 Azure 事件中樞，您可以使用 Azure 串流分析檢查內送資料並提取異常，然後在 Power BI 中視覺化這些異常。 假設您有數千部裝置不斷地將即時資料傳送到事件中樞，並且每秒新增多達數百萬個事件。 您要如何在這麼多資料中檢查出異常或錯誤？ 例如，裝置正在傳送信用卡交易，而您需要擷取每 5 秒就在多個國家/地區中進行多個交易的位置，這該怎麼做呢？ 會發生此狀況可能是因為有人竊取信用卡，然後同時使用這些信用卡在世界各地購買物品。 
 
@@ -176,11 +176,11 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
    **作業名稱**：使用 **contosoEHjob**。 此欄位是作業的名稱，必須具有全域唯一性。
 
-   **訂用帳戶**︰選取您的訂用帳戶。
+   訂用帳戶：選取您的訂用帳戶。
 
-   **資源群組**︰使用事件中樞所用的相同資源群組 (**ContosoResourcesEH**)。
+   **資源群組**：使用事件中樞所用的相同資源群組 (**ContosoResourcesEH**)。
 
-   **位置**：使用安裝指令碼中使用的相同位置 (**West US**)。
+   **位置**：使用安裝指令碼中所用的相同位置 (**West US**)。
 
    ![顯示如何建立新 Azure 串流分析作業的螢幕擷取畫面。](./media/event-hubs-tutorial-visualize-anomalies/stream-analytics-add-job.png)
 
@@ -201,15 +201,15 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
    **輸入別名**：使用 **contosoinputs**。 此欄位是輸入資料流的名稱，會在定義資料的查詢時使用。
 
-   **訂用帳戶**︰選取您的訂用帳戶。
+   訂用帳戶：選取您的訂用帳戶。
 
-   **事件中樞命名空間**：選取您的事件中樞命名空間 ($**eventHubNamespace**)。 
+   **事件中樞命名空間**：選取您的「事件中樞」命名空間 ($**eventHubNamespace**)。 
 
-   **事件中樞名稱**：按一下 [使用現有項目]，然後選取事件中樞 ($**eventHubName**)。
+   **事件中樞名稱**：按一下 [使用現有項目]，然後選取您的事件中樞 ($**eventHubName**)。
 
    **事件中樞原則名稱**：選取 [RootManageSharedAccessKey]。
 
-   **事件中樞取用者群組**：將此欄位保留空白，以使用預設的取用者群組。
+   **事件中樞取用者群組**：若要使用預設取用者群組，請將此欄位保留空白。
 
    對於其餘欄位，請採用預設值。
 

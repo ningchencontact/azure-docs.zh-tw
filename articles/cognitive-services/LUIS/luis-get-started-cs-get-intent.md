@@ -1,23 +1,24 @@
 ---
-title: C# 快速入門 - 預測意圖 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 C#，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
+title: 取得意圖 (C#)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在這個 C# 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 51c23029cc771db5351575ce329944a9f06dd286
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 0e58fb35fa29cde16b1ccf50dc20dacc693a4757
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035839"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141759"
 ---
-# <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 來取得意圖
+# <a name="quickstart-get-intent-using-c"></a>快速入門：使用 C# 取得意圖
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -46,11 +47,11 @@ ms.locfileid: "47035839"
 
 1. 在 Visual Studio 中建立新的主控台應用程式。 
 
-    ![LUIS 使用者設定功能表存取](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ![在 Visual Studio 中建立新的主控台應用程式](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
 2. 在 Visual Studio 專案的 [方案總管] 中，選取 [新增參考]，然後從 [組件] 索引標籤選取 [System.Web]。
 
-    ![LUIS 使用者設定功能表存取](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+    ![選取 [新增參考]，然後從 [組件] 索引標籤中選取 [System.Web]](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
 3. 使用下列程式碼覆寫 Program.cs：
     

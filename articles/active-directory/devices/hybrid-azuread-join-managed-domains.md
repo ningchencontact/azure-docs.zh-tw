@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 48bedff0cd09c3f0dbffdabe6a94847d035a0cf9
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b8d45e72e15ff86b53f7355634e8f197b94260bd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963926"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435424"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>教學課程：設定適用於受控網域的混合式 Azure Active Directory Join
 
@@ -53,7 +53,11 @@ ms.locfileid: "50963926"
 -  [如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)
   
 
-若要設定本文中的的案例，您必須安裝[最新版的 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 或更新版本)。 
+若要設定本文中的案例，您需要：
+
+- 一個結構描述層級為 85 或更新版本的內部部署 Active Directory (AD)。 如需詳細資訊，請參閱[升級您的 Active Directory 結構描述](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-device-based-conditional-access-on-premises#upgrade-your-active-directory-schema)。
+
+- 安裝[最新版 Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 或更新版本)。 
 
 確認 Azure AD Connect 已將您要加入混合式 Azure AD 之裝置的電腦物件同步處理至 Azure AD。 如果電腦物件屬於特定組織單位 (OU)，則您也必須在 Azure AD Connect 中設定這些 OU 的同步處理。
 
@@ -140,6 +144,8 @@ ms.locfileid: "50963926"
  
 - 設定裝置註冊的近端內部網路設定
 
+- 設定無縫單一登入 (SSO)
+
 - 控制舊版 Windows 裝置 
 
 
@@ -151,7 +157,7 @@ ms.locfileid: "50963926"
 
 
     
-下列原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
+以下原則必須設定為 [全部]：**使用者可以向 Azure AD 註冊其裝置**
 
 ![註冊裝置](media/hybrid-azuread-join-managed-domains/23.png)
 
@@ -166,6 +172,11 @@ ms.locfileid: "50963926"
 - `https://autologon.microsoftazuread-sso.com` 。
 
 此外，您必須在使用者的近端內部網路區域中啟用 [允許透過指令碼更新狀態列]。
+
+
+### <a name="configure-seamless-sso"></a>設定無縫 SSO
+
+若要在使用傳遞驗證 (PTA) 或密碼雜湊同步 (PHS) 作為 Azure AD 雲端驗證方法的受控網域中順利完成舊版 Windows 裝置的混合式 Azure AD Join，您也必須[設定無縫 SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature)。 
 
 
 ### <a name="control-windows-down-level-devices"></a>控制舊版 Windows 裝置 

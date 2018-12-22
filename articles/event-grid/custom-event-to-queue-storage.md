@@ -1,21 +1,22 @@
 ---
-title: 將 Azure 事件方格的自訂事件傳送至儲存體佇列 | Microsoft Docs
+title: 將自訂事件傳送至儲存體佇列 - 事件方格、Azure CLI
 description: 使用 Azure 事件格線和 Azure CLI 來發佈主題，以及訂閱該事件。 儲存體佇列會用於端點。
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: c9b5e33f7994209bf1530200cf14d812fa1cf67d
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.custom: seodec18
+ms.openlocfilehash: 065ace2f34f95cf0813f0088a188c7fdb1d66d2e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299141"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093959"
 ---
-# <a name="route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列
+# <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>快速入門：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 佇列
 
 Azure Event Grid 是一項雲端事件服務。 Azure 佇列儲存體是其中一個支援的事件處理常式。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱自訂主題，以及觸發事件來檢視結果。 您會將事件傳送至佇列儲存體。
 
@@ -86,7 +87,7 @@ az eventgrid event-subscription create \
   --expiration-date "<yyyy-mm-dd>"
 ```
 
-建立事件訂用帳戶的帳戶必須具有佇列儲存體的寫入權限。 請留意到訂用帳戶已設定[到期日](concepts.md#event-subscription-expiration)。
+建立事件訂用帳戶的帳戶必須具有佇列儲存體的寫入權限。 請留意到已針對訂閱設定[到期日](concepts.md#event-subscription-expiration)。
 
 如果您使用 REST API 來建立訂用帳戶時，可以傳遞儲存體帳戶的識別碼和佇列的名稱作為個別參數。
 

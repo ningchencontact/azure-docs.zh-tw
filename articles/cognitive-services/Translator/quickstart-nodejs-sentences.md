@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/29/2018
 ms.author: erhopf
-ms.openlocfilehash: 08c01f8c73f8d25b824a97d31f1681d9a7eb302e
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 09d0c855aada753b0a3e594055ec188c2698e677
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249096"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999002"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>快速入門：使用翻譯工具文字 API 搭配 Node.js 來判斷句子長度
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-with-nodejs"></a>快速入門：搭配使用翻譯工具文字 API 與 Node.js 來判斷句子長度
 
 在此快速入門中，您將了解如何搭配使用 Node.js 與翻譯工具文字 REST API 來判斷句子長度 (以字元為單位)。
 
@@ -68,7 +68,7 @@ if (!subscriptionKey) {
 `request()` 方法 (可透過要求模組取得) 可讓我們傳遞 HTTP 方法、URL、要求參數、標頭和 JSON 內文作為 `options` 物件。 在此程式碼片段中，我們將設定要求：
 
 >[!NOTE]
-> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：字典斷句](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)。
+> 如需關於端點、路由和要求參數的詳細資訊，請參閱[翻譯工具文字 API 3.0：中斷句子](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence)。
 
 ```javascript
 let options = {

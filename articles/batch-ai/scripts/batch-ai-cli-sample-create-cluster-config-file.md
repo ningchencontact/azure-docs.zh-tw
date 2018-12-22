@@ -14,14 +14,17 @@ ms.tgt-pltfrm: multiple
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: danlep
-ms.openlocfilehash: 01281c0328fab85814ff93c73f9ea25e0d4c1b08
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ROBOTS: NOINDEX
+ms.openlocfilehash: 41a3a801214ff00c01397034e26fde6946ab97f0
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232795"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407808"
 ---
-# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI 範例：使用叢集設定檔來建立 Batch AI 叢集
+# <a name="cli-example-create-a-batch-ai-cluster-using-a-cluster-configuration-file"></a>CLI 範例：使用叢集組態檔來建立 Batch AI 叢集
+
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
 
 此指令碼會示範如何使用 JSON 設定檔來指定 Batch AI 叢集的設定。 請對 `az batchai cluster create` 使用這些設定，而非使用對應的命令列參數。 當您需要在叢集節點上裝載多個檔案系統，或想要在數個叢集使用相同的設定時，就很適合使用設定檔。
 

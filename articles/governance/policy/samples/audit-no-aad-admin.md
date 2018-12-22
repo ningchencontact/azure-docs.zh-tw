@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 在沒有 Azure AD 系統管理員時稽核
+title: 範例 - 在沒有 Azure AD 系統管理員時稽核
 description: 此範例原則會在 SQL Server 沒有指派的 Azure Active Directory 系統管理員時稽核。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: f85653f57d5052c60ca2a6170370513c88c3b8cf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ca215fbb905eed22b1e1911d25a773e236fe4c2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965291"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311740"
 ---
 # <a name="audit-no-azure-active-directory-administrator"></a>在沒有 Azure Active Directory 系統管理員時稽核
 

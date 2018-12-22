@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/27/2018
+ms.date: 12/12/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 439a3338d5b2104d20e8de99a83fe19c6935a5ac
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 87ccc80d36022361ad6191aaf674d38d0f632f10
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499476"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321727"
 ---
 # <a name="what-is-azure-virtual-network"></a>什麼是 Azure 虛擬網路？
 
@@ -61,14 +61,14 @@ Azure 資源可透過下列其中一種方式安全地相互通訊：
 
 ## <a name="filter-network-traffic"></a>篩選網路流量
 您可以使用下列一個或兩個選項，篩選子網路之間的網路流量︰
-- **網路安全性群組：** 網路安全性群組可包含多個輸入和輸出安全性規則，讓您依照來源和目的地 IP 位址、連接埠和通訊協定篩選資源收送的流量。 若要深入了解，請參閱[網路安全性群組](security-overview.md#network-security-groups)。
+- **安全性群組：** 網路安全性群組可包含多個輸入和輸出安全性規則，讓您依照來源和目的地 IP 位址、連接埠和通訊協定篩選資源收送的流量。 若要深入了解，請參閱[網路安全性群組](security-overview.md#network-security-groups)或[應用程式安全性群組](security-overview.md#application-security-groups)。
 - **網路虛擬設備：** 網路虛擬設備是執行網路功能的 VM，例如防火牆、WAN 最佳化或其他網路功能。 若要檢視可在虛擬網路中部署的網路虛擬設備，請參閱 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances)。
 
 ## <a name="route-network-traffic"></a>路由網路流量
 
 Azure 依預設會路由子網路、連線的虛擬網路、內部部署網路和網際網路之間的流量。 您可以實作下列一個或兩個選項，覆寫 Azure 所建立的預設路由︰
 - **路由資料表︰** 您可以建立自訂路由表，其中的路由可控制每個子網路的流量會路由傳送至的位置。 深入了解[路由表](virtual-networks-udr-overview.md#user-defined)。
-- **邊界閘道協定 (BGP) 路由︰** 如果您使用 Azure VPN 閘道或 ExpressRoute 連線將虛擬網路連線至內部部署網路，您可以將內部部署 BGP 路由傳播至虛擬網路。 深入了解如何透過 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange) 使用 BGP。
+- **邊界閘道協定 (BGP) 路由：** 如果您使用 Azure VPN 閘道或 ExpressRoute 連線將虛擬網路連線至內部部署網路，則可將您的內部部署 BGP 路由傳播至虛擬網路。 深入了解如何透過 [Azure VPN 閘道](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#dynamic-route-exchange) 使用 BGP。
 
 ## <a name="connect-virtual-networks"></a>連線虛擬網路
 

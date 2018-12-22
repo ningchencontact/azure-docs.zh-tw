@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 36637137741aef6b34ab8e70109d692f5399043a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280736"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967056"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>教學課程：將應用程式部署至 Azure 和 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 了解如何使用混合式持續整合/持續傳遞 (CI/CD) 管線，將應用程式部署至 Azure 和 Azure Stack。
 
@@ -126,27 +126,27 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 1. 在 Azure Active Directory 中，從 [應用程式註冊]選取您的應用程式。
 
-    ![選取應用程式](media\azure-stack-solution-hybrid-pipeline\000_01.png)
+    ![選取應用程式](media/azure-stack-solution-hybrid-pipeline/000_01.png)
 
 2. 記下 [應用程式識別碼] 的值。 在 Azure DevOps Services 中設定服務端點時，將會使用該值。
 
-    ![應用程式識別碼](media\azure-stack-solution-hybrid-pipeline\000_02.png)
+    ![應用程式識別碼](media/azure-stack-solution-hybrid-pipeline/000_02.png)
 
 3. 若要產生驗證金鑰，請選取 [設定]。
 
-    ![編輯應用程式設定](media\azure-stack-solution-hybrid-pipeline\000_03.png)
+    ![編輯應用程式設定](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
 4. 若要產生驗證金鑰，請選取 [金鑰]。
 
-    ![設定金鑰設定](media\azure-stack-solution-hybrid-pipeline\000_04.png)
+    ![設定金鑰設定](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
 5. 提供金鑰的描述，並設定金鑰的持續時間。 完成時，選取 [儲存]。
 
-    ![金鑰的描述和持續時間](media\azure-stack-solution-hybrid-pipeline\000_05.png)
+    ![金鑰的描述和持續時間](media/azure-stack-solution-hybrid-pipeline/000_05.png)
 
     儲存金鑰之後，就會顯示金鑰**值**。 請複製此值，否則之後就無法再取得此值。 您需要提供**金鑰值**和應用程式識別碼，以應用程式身分登入。 將金鑰值儲存在應用程式可擷取的地方。
 
-    ![金鑰值](media\azure-stack-solution-hybrid-pipeline\000_06.png)
+    ![金鑰值](media/azure-stack-solution-hybrid-pipeline/000_06.png)
 
 ### <a name="get-the-tenant-id"></a>取得租用戶識別碼
 
@@ -154,15 +154,15 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 1. 選取 **Azure Active Directory**。
 
-    ![租用戶的 Azure Active Directory](media\azure-stack-solution-hybrid-pipeline\000_07.png)
+    ![租用戶的 Azure Active Directory](media/azure-stack-solution-hybrid-pipeline/000_07.png)
 
 2. 若要取得租用戶識別碼，請選取 Azure AD 租用戶的 [屬性]。
 
-    ![檢視租用戶屬性](media\azure-stack-solution-hybrid-pipeline\000_08.png)
+    ![檢視租用戶屬性](media/azure-stack-solution-hybrid-pipeline/000_08.png)
 
 3. 複製 [目錄識別碼]。 這個值是您的租用戶識別碼。
 
-    ![目錄識別碼](media\azure-stack-solution-hybrid-pipeline\000_09.png)
+    ![目錄識別碼](media/azure-stack-solution-hybrid-pipeline/000_09.png)
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>授與在 Azure Stack 訂用帳戶中部署資源的服務主體權限
 
@@ -172,27 +172,27 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 1. 瀏覽至您想要讓應用程式指派至的範圍層級。 例如，若要在訂用帳戶範圍指派角色，請選取 [訂用帳戶]。
 
-    ![選取訂用帳戶](media\azure-stack-solution-hybrid-pipeline\000_10.png)
+    ![選取訂用帳戶](media/azure-stack-solution-hybrid-pipeline/000_10.png)
 
 2. 在 [訂用帳戶] 中，選取 [Visual Studio Enterprise]。
 
-    ![Visual Studio Enterprise](media\azure-stack-solution-hybrid-pipeline\000_11.png)
+    ![Visual Studio Enterprise](media/azure-stack-solution-hybrid-pipeline/000_11.png)
 
 3. 在 [Visual Studio Enterprise] 中，選取 [存取控制 (IAM)]。
 
-    ![存取控制 (IAM)](media\azure-stack-solution-hybrid-pipeline\000_12.png)
+    ![存取控制 (IAM)](media/azure-stack-solution-hybrid-pipeline/000_12.png)
 
 4. 選取 [新增] 。
 
-    ![加](media\azure-stack-solution-hybrid-pipeline\000_13.png)
+    ![加](media/azure-stack-solution-hybrid-pipeline/000_13.png)
 
 5. 在 [新增權限] 中，選取您要指派給應用程式的角色。 在此範例中為**擁有者**角色。
 
-    ![擁有者角色](media\azure-stack-solution-hybrid-pipeline\000_14.png)
+    ![擁有者角色](media/azure-stack-solution-hybrid-pipeline/000_14.png)
 
 6. 根據預設，Azure Active Directory 應用程式不會顯示在可用選項中。 若要尋找應用程式，您必須在 [選取] 欄位中提供其名稱，以進行搜尋。 選取應用程式。
 
-    ![應用程式搜尋結果](media\azure-stack-solution-hybrid-pipeline\000_16.png)
+    ![應用程式搜尋結果](media/azure-stack-solution-hybrid-pipeline/000_16.png)
 
 7. 選取 [儲存] 以完成角色指派。 您在使用者清單中看到應用程式已指派給該範圍的角色。
 
@@ -212,37 +212,37 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 2. 選取 [管理安全性] 以存取權杖建立頁面。
 
-    ![使用者登入](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![使用者登入](media/azure-stack-solution-hybrid-pipeline/000_17.png)
 
-    ![選取專案](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![選取專案](media/azure-stack-solution-hybrid-pipeline/000_18.png)
 
-    ![新增個人存取權杖](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
+    ![新增個人存取權杖](media/azure-stack-solution-hybrid-pipeline/000_18a.png)
 
-    ![建立權杖](media\azure-stack-solution-hybrid-pipeline\000_18b.png)
+    ![建立權杖](media/azure-stack-solution-hybrid-pipeline/000_18b.png)
 
 3. 複製權杖。
 
     > [!Note]
     > 儲存權杖資訊。 這項資訊不會儲存，當您離開網頁後就不會再次顯示。
 
-    ![個人存取權杖](media\azure-stack-solution-hybrid-pipeline\000_19.png)
+    ![個人存取權杖](media/azure-stack-solution-hybrid-pipeline/000_19.png)
 
 ### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>在裝載 Azure Stack 的組建伺服器上安裝 Azure DevOps Services 組建代理程式
 
 1. 連線至您在 Azure Stack 主機上部署的組建伺服器。
 2. 下載組建代理程式並使用您的個人存取權杖 (PAT) 以服務的形式加以部署，然後以 VM 管理員帳戶執行。
 
-    ![下載組建代理程式](media\azure-stack-solution-hybrid-pipeline\010_downloadagent.png)
+    ![下載組建代理程式](media/azure-stack-solution-hybrid-pipeline/010_downloadagent.png)
 
 3. 瀏覽至已解壓縮的組建代理程式所在的資料夾。 從提升權限的命令提示字元執行 **config.cmd** 檔案。
 
-    ![已解壓縮的組建代理程式](media\azure-stack-solution-hybrid-pipeline\000_20.png)
+    ![已解壓縮的組建代理程式](media/azure-stack-solution-hybrid-pipeline/000_20.png)
 
-    ![註冊組建代理程式](media\azure-stack-solution-hybrid-pipeline\000_21.png)
+    ![註冊組建代理程式](media/azure-stack-solution-hybrid-pipeline/000_21.png)
 
 4. 當 config.cmd 完成時，組建代理程式資料夾會以其他檔案加以更新。 含有已解壓縮內容的資料夾應如下所示：
 
-    ![組建代理程式資料夾更新](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
+    ![組建代理程式資料夾更新](media/azure-stack-solution-hybrid-pipeline/009_token_file.png)
 
     您可以在 Azure DevOps Services 資料夾中看到代理程式。
 
@@ -250,23 +250,23 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 藉由建立端點，Visual Studio Online (VSTO) 組建可以將 Azure 服務應用程式部署到 Azure Stack。 Azure DevOps Services 會連線至組建代理程式，後者再連線至 Azure Stack。
 
-![VSTO 中的 NorthwindCloud 應用程式範例](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
+![VSTO 中的 NorthwindCloud 應用程式範例](media/azure-stack-solution-hybrid-pipeline/012_securityendpoints.png)
 
 1. 登入 VSTO 並瀏覽至 [應用程式設定] 頁面。
 2. 在 [設定] 上，選取 [安全性]。
 3. 在 [Azure DevOps Services 群組] 中，選取 [端點建立者]。
 
-    ![NorthwindCloud 端點建立者](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
+    ![NorthwindCloud 端點建立者](media/azure-stack-solution-hybrid-pipeline/013_endpoint_creators.png)
 
 4. 在 [成員] 索引標籤上，選取 [新增]。
 
-    ![新增成員](media\azure-stack-solution-hybrid-pipeline\014_members_tab.png)
+    ![新增成員](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. 在 [新增使用者和群組] 中，輸入使用者名稱，然後從使用者清單中選取該使用者。
 6. 選取 [儲存變更]。
 7. 在 [Azure DevOps Services 群組] 清單中，選取 [端點管理員]。
 
-    ![NorthwindCloud 端點管理員](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
+    ![NorthwindCloud 端點管理員](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. 在 [成員] 索引標籤上，選取 [新增]。
 9. 在 [新增使用者和群組] 中，輸入使用者名稱，然後從使用者清單中選取該使用者。
@@ -282,7 +282,7 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 您可以使用下列對應來建立服務連線：
 
-| 名稱 | 範例 | 說明 |
+| Name | 範例 | 說明 |
 | --- | --- | --- |
 | 連接名稱 | Azure Stack Azure AD | 連線的名稱。 |
 | 環境 | AzureStack | 您的環境名稱。 |
@@ -297,17 +297,17 @@ Azure DevOps Services 會使用服務主體對 Azure Resource Manager 進行驗�
 
 現在已建立端點，所以 DevOps 到 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 DevOps 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
 
-![組建代理程式 Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+![組建代理程式 Azure AD](media/azure-stack-solution-hybrid-pipeline/016_save_changes.png)
 
 ### <a name="create-an-endpoint-for-ad-fs"></a>建立 AD FS 的端點
 
 Azure DevOps 的最新更新可讓您使用以憑證進行驗證的服務主體建立服務連線。 以 AD FS 作為識別提供者部署 Azure Stack 時，就必須這麼做。 
 
-![組建代理程式 AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+![組建代理程式 AD FS](media/azure-stack-solution-hybrid-pipeline/image06.png)
 
 您可以使用下列對應來建立服務連線：
 
-| 名稱 | 範例 | 說明 |
+| Name | 範例 | 說明 |
 | --- | --- | --- |
 | 連接名稱 | Azure Stack ADFS | 連線的名稱。 |
 | 環境 | AzureStack | 您的環境名稱。 |
@@ -342,17 +342,17 @@ Azure DevOps 的最新更新可讓您使用以憑證進行驗證的服務主體�
 
 1. 使用在 Azure Stack 上具有專案建立權限的組織登入 Azure DevOps Services。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
 
-    ![連線到專案](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
+    ![連線到專案](media/azure-stack-solution-hybrid-pipeline/017_connect_to_project.png)
 
 2. 建立並開啟預設 Web 應用程式以**複製存放庫**。
 
-    ![複製存放庫](media\azure-stack-solution-hybrid-pipeline\018_link_arm.png)
+    ![複製存放庫](media/azure-stack-solution-hybrid-pipeline/018_link_arm.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>為這兩個雲端中的應用程式服務建立獨立的 Web 應用程式部署
 
-1. 編輯 **WebApplication.csproj** 檔案：選取 **Runtimeidentifier**，然後新增 `win10-x64.`。如需詳細資訊，請參閱[獨立的部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。
+1. 編輯 **WebApplication.csproj**檔案：選取 [Runtimeidentifier]，然後新增 `win10-x64.`。如需詳細資訊，請參閱[自封式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。
 
-    ![設定 Runtimeidentifier](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
+    ![設定 Runtimeidentifier](media/azure-stack-solution-hybrid-pipeline/019_runtimeidentifer.png)
 
 2. 使用 Team Explorer 將程式碼簽入 Azure DevOps Services 中。
 
@@ -366,7 +366,7 @@ Azure DevOps 的最新更新可讓您使用以憑證進行驗證的服務主體�
 
 3. 在 [引數] 中，新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 
-    ![新增引數組建管線](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![新增引數組建管線](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 
 4. 執行組建。 [獨立的部署組建](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)程序將會發佈可在 Azure 和 Azure Stack 上執行的成品。
 
@@ -385,89 +385,89 @@ Azure DevOps Services 和 Team Foundation Server (TFS) 提供具有高度設定�
 1. 登入 Azure DevOps Services，並瀏覽至 **Azure Pipelines** 以找出您的專案。
 2. 在 [發行] 索引標籤上，選取 **\[ + ]**，然後挑選 [建立發行定義]。
 
-   ![建立發行管線](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![建立發行管線](media/azure-stack-solution-hybrid-pipeline/021a_releasedef.png)
 
 3. 在 [選取範本] 中，選擇 [Azure App Service 部署]，然後選取 [套用]。
 
-    ![套用範本](media\azure-stack-solution-hybrid-pipeline\102.png)
+    ![套用範本](media/azure-stack-solution-hybrid-pipeline/102.png)
 
 4. 在 [新增成品] 上，從 [來源 (組建定義)] 下拉式功能表選取 [Azure 雲端建置應用程式]。
 
-    ![新增成品](media\azure-stack-solution-hybrid-pipeline\103.png)
+    ![新增成品](media/azure-stack-solution-hybrid-pipeline/103.png)
 
 5. 在 [管線] 索引標籤上，選取 [檢視環境工作] 的 [1 階段 1 個工作] 連結。
 
-    ![管線檢視工作](media\azure-stack-solution-hybrid-pipeline\104.png)
+    ![管線檢視工作](media/azure-stack-solution-hybrid-pipeline/104.png)
 
 6. 在 [工作] 索引標籤上，輸入「Azure」作為 [環境名稱]，然後從 [Azure 訂用帳戶] 下拉式清單選取 [AzureCloud Traders-Web EP]。
 
-    ![設定環境變數](media\azure-stack-solution-hybrid-pipeline\105.png)
+    ![設定環境變數](media/azure-stack-solution-hybrid-pipeline/105.png)
 
 7. 輸入 [Azure App Service 名稱]，也就是下一個螢幕擷取畫面中的「northwindtraders」。
 
-    ![App Service 名稱](media\azure-stack-solution-hybrid-pipeline\106.png)
+    ![App Service 名稱](media/azure-stack-solution-hybrid-pipeline/106.png)
 
 8. 在 [代理程式階段] 中，從 [代理程式佇列] 下拉式清單中選取 [Hosted VS2017]。
 
-    ![裝載的代理程式](media\azure-stack-solution-hybrid-pipeline\107.png)
+    ![裝載的代理程式](media/azure-stack-solution-hybrid-pipeline/107.png)
 
 9. 在 [部署 Azure App Service] 中，為環境選取有效的**套件或資料夾**。
 
-    ![選取套件或資料夾](media\azure-stack-solution-hybrid-pipeline\108.png)
+    ![選取套件或資料夾](media/azure-stack-solution-hybrid-pipeline/108.png)
 
 10. 在 [選取檔案或資料夾] 中，對 [位置] 選取 [確定]。
 
-    ![Alt 鍵文字](media\azure-stack-solution-hybrid-pipeline\109.png)
+    ![Alt 鍵文字](media/azure-stack-solution-hybrid-pipeline/109.png)
 
 11. 儲存所有變更，並返回 [管線]。
 
-    ![Alt 鍵文字](media\azure-stack-solution-hybrid-pipeline\110.png)
+    ![Alt 鍵文字](media/azure-stack-solution-hybrid-pipeline/110.png)
 
 12. 在 [管線] 索引標籤上，選取 [新增成品]，然後從 [來源 (組建定義)] 下拉式清單選擇 [NorthwindCloud Traders-Vessel]。
 
-    ![新增成品](media\azure-stack-solution-hybrid-pipeline\111.png)
+    ![新增成品](media/azure-stack-solution-hybrid-pipeline/111.png)
 
 13. 在 [選取範本] 上，新增另一個環境。 挑選 [Azure App Service 部署]，然後選取 [套用]。
 
-    ![選取範本](media\azure-stack-solution-hybrid-pipeline\112.png)
+    ![選取範本](media/azure-stack-solution-hybrid-pipeline/112.png)
 
 14. 輸入「Azure Stack」作為 [環境名稱]。
 
-    ![環境名稱](media\azure-stack-solution-hybrid-pipeline\113.png)
+    ![環境名稱](media/azure-stack-solution-hybrid-pipeline/113.png)
 
 15. 在 [工作] 索引標籤上，尋找並選取 Azure Stack。
 
-    ![Azure Stack 環境](media\azure-stack-solution-hybrid-pipeline\114.png)
+    ![Azure Stack 環境](media/azure-stack-solution-hybrid-pipeline/114.png)
 
 16. 從 [Azure 訂用帳戶] 下拉式清單中，選取「AzureStack Traders-Vessel EP」作為 Azure Stack 端點。
 
-    ![Alt 鍵文字](media\azure-stack-solution-hybrid-pipeline\115.png)
+    ![Alt 鍵文字](media/azure-stack-solution-hybrid-pipeline/115.png)
 
 17. 輸入 Azure Stack Web 應用程式名稱作為 [App Service 名稱]。
 
-    ![App Service 名稱](media\azure-stack-solution-hybrid-pipeline\116.png)
+    ![App Service 名稱](media/azure-stack-solution-hybrid-pipeline/116.png)
 
 18. 在 [代理程式選擇] 底下，從 [代理程式佇列] 下拉式清單中挑選「AzureStack -bDouglas Fir」。
 
-    ![挑選代理程式](media\azure-stack-solution-hybrid-pipeline\117.png)
+    ![挑選代理程式](media/azure-stack-solution-hybrid-pipeline/117.png)
 
 19. 在 [部署 Azure App Service] 中，為環境選取有效的**套件或資料夾**。 在 [選取檔案或資料夾] 中，對 [位置] 資料夾選取 [確定]。
 
-    ![挑選套件或資料夾](media\azure-stack-solution-hybrid-pipeline\118.png)
+    ![挑選套件或資料夾](media/azure-stack-solution-hybrid-pipeline/118.png)
 
-    ![核准位置](media\azure-stack-solution-hybrid-pipeline\119.png)
+    ![核准位置](media/azure-stack-solution-hybrid-pipeline/119.png)
 
 20. 在 [變數] 索引標籤上，尋找名為 **VSTS_ARM_REST_IGNORE_SSL_ERRORS** 的變數。 將變數值設定為 **true**，並將其範圍設定為 [Azure Stack]。
 
-    ![設定變數](media\azure-stack-solution-hybrid-pipeline\120.png)
+    ![設定變數](media/azure-stack-solution-hybrid-pipeline/120.png)
 
 21. 在 [管線] 索引標籤上，選取 NorthwindCloud Traders-Web 成品的 [持續部署觸發程序] 圖示，並將 [持續部署觸發程序] 設定為 [啟用]。  針對 "NorthwindCloud Traders-Vessel" 成品執行相同的動作。
 
-    ![設定持續部署觸發程序](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![設定持續部署觸發程序](media/azure-stack-solution-hybrid-pipeline/121.png)
 
 22. 針對 Azure Stack 環境，選取 [部署前的條件] 圖示，將觸發程序設定為 [發行之後]。
 
-    ![設定部署前的條件觸發程序](media\azure-stack-solution-hybrid-pipeline\122.png)
+    ![設定部署前的條件觸發程序](media/azure-stack-solution-hybrid-pipeline/122.png)
 
 23. 儲存您的所有變更。
 
@@ -480,15 +480,15 @@ Azure DevOps Services 和 Team Foundation Server (TFS) 提供具有高度設定�
 
 1. 在 [管線] 索引標籤上，開啟 [發行] 下拉式清單，然後選擇 [建立發行]。
 
-    ![建立發行](media\azure-stack-solution-hybrid-pipeline\200.png)
+    ![建立發行](media/azure-stack-solution-hybrid-pipeline/200.png)
 
 2. 輸入發行的說明，確認已選取正確的成品，然後選擇 [建立]。 幾分鐘之後將會出現一個橫幅，指出新的發行已建立，且發行名稱會顯示為連結。 選擇連結以查看 [發行摘要] 頁面。
 
-    ![發行建立橫幅](media\azure-stack-solution-hybrid-pipeline\201.png)
+    ![發行建立橫幅](media/azure-stack-solution-hybrid-pipeline/201.png)
 
 3. [發行摘要] 頁面會顯示有關發行的詳細資料。 在下列 "Release-2" 螢幕擷取畫面中，[環境] 區段會顯示 Azure 的 [部署狀態] 為 [進行中]，Azure Stack 的狀態為 [成功]。 當 Azure 環境的部署狀態變更為 [成功] 時，便會出現橫幅指出發行已可供核准。 對部署若擱置或失敗，將會顯示藍色的 **(i)** 資訊圖示。 將滑鼠暫留在圖示上，即可查看快顯，其中會包含延遲或失敗的原因。
 
-    ![發行摘要頁面](media\azure-stack-solution-hybrid-pipeline\202.png)
+    ![發行摘要頁面](media/azure-stack-solution-hybrid-pipeline/202.png)
 
 其他檢視 (例如發行清單) 也會顯示指出核准擱置中的圖示。 這個圖示的快顯會顯示環境名稱以及更多與部署相關的詳細資料。 系統管理員可輕鬆地查看發行的整體進度，以及查看哪些版本正在等待核准。
 
@@ -502,7 +502,7 @@ Azure DevOps Services 和 Team Foundation Server (TFS) 提供具有高度設定�
 
 2. 部署完成後，整個記錄檔會顯示在右窗格中。 您可以在左窗格中選取任何 [步驟]，以查看單一步驟的記錄檔，例如「初始化作業」。 能夠查看個別記錄，可讓您輕鬆地針對整體部署的各個部分進行追蹤和偵錯。 您也可以 [儲存] 步驟的記錄檔，或是 [將所有記錄下載為 zip]。
 
-    ![發行記錄](media\azure-stack-solution-hybrid-pipeline\203.png)
+    ![發行記錄](media/azure-stack-solution-hybrid-pipeline/203.png)
 
 3. 開啟 [摘要] 索引標籤可查看發行的一般資訊。 此檢視會顯示組建的詳細資料、組件所部署到的環境、部署狀態，以及其他關於發行的資訊。
 

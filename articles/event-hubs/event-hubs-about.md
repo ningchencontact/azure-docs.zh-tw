@@ -1,5 +1,5 @@
 ---
-title: Azure 事件中樞是什麼？ | Microsoft Docs
+title: Azure 事件中樞是什麼？ - 巨量資料擷取服務 | Microsoft Docs
 description: 深入了解 Azure 事件中樞，這是一個每秒可內嵌數百萬個事件的巨量資料串流服務。
 services: event-hubs
 documentationcenter: na
@@ -7,17 +7,17 @@ author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: overview
-ms.custom: mvc
-ms.date: 08/01/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: f3f9abfb8373e7257237b39d16dfb3f36259ddd5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: cffa9f566c6b2f4feb0fd7426eeea54a4644fda8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281909"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140144"
 ---
-# <a name="what-is-azure-event-hubs"></a>Azure 事件中樞是什麼？
+# <a name="azure-event-hubs---a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure 事件中樞 - 巨量資料串流平台和事件擷取服務
 
 Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可接收和處理數百萬個事件。 事件中樞可以處理及儲存分散式軟體和裝置所產生的事件、資料或遙測。 傳送至事件中樞的資料可以透過任何即時分析提供者或批次/儲存體配接器來轉換和儲存。 
 
@@ -66,11 +66,11 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 
 事件中樞提供訊息串流處理能力，但特性迴異於傳統企業傳訊。 事件中樞功能是以高輸送量和事件處理案例為重點。 事件中樞包含下列[重要元件](event-hubs-features.md)：
 
-- **事件產生者**：任何將資料傳送至事件中樞的實體。 事件發佈者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka (1.0 版或更新版本) 發佈事件
+- **事件產生者**：將資料傳送至事件中樞的任何實體。 事件發佈者可以使用 HTTPS、AMQP 1.0 或 Apache Kafka (1.0 版或更新版本) 發佈事件
 - **分割區**：每一個取用者只會讀取訊息資料流的特定子集或分割區。
 - **取用者群組**：檢視整個事件中樞 (狀態、位置或位移) 的窗口。 取用者群組能讓多個取用應用程式擁有自己的事件串流檢視，以及按照自己的步調及運用自己的位移自行讀取串流。
 - **輸送量單位**：預先購買的容量單位，可控制事件中樞的輸送量容量。
-- **事件接收者**：任何從事件中樞讀取事件資料的實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。 所有 Kafka 取用者都是透過 Kafka 通訊協定 1.0 和更新版本連線。
+- **事件接收者**：從事件中樞讀取事件資料的任何實體。 所有事件中樞取用者都透過 AMQP 1.0 工作階段連線，而可供取用的事件都透過工作階段傳遞。 所有 Kafka 取用者都是透過 Kafka 通訊協定 1.0 和更新版本連線。
 
 下圖顯示事件中樞串流處理架構︰
 
@@ -82,8 +82,8 @@ Azure 事件中樞也整合了 [Azure Functions](/azure/azure-functions/) 來達
 若要開始使用事件中樞，請參閱下列文章：
 
 1. **建立事件中樞**：[Azure 入口網站](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure Resource Manager 範本](event-hubs-resource-manager-namespace-event-hub.md)
-2. **將事件傳送至事件中樞**：[.NET Standard](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
-3. **從事件中樞接收事件**：[.NET Standard](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)   
+2. **將事件傳送至事件中樞**：[.NET Core](event-hubs-dotnet-standard-getstarted-send.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)、[Java](event-hubs-java-get-started-send.md)、[Python](event-hubs-python-get-started-send.md)、[Node.js](event-hubs-node-get-started-send.md)、[Go](event-hubs-go-get-started-send.md)、[C](event-hubs-c-getstarted-send.md)
+3. **從事件中樞接收事件**：[.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md)、[.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md)、[Java](event-hubs-java-get-started-receive-eph.md)、[Python](event-hubs-python-get-started-receive.md)、[Node.js](event-hubs-node-get-started-receive.md)、[Go](event-hubs-go-get-started-receive-eph.md)、[Apache Storm](event-hubs-storm-getstarted-receive.md)   
 
 若要深入了解事件中樞，請參閱下列文章：
 

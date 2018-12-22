@@ -1,7 +1,7 @@
 ---
-title: 快速入門：使用 Python 執行搜尋 - Bing Web 搜尋 API
+title: 快速入門：使用 Python 來執行搜尋 - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，您將學習如何使用 Python 來第一次呼叫 Bing Web 搜尋 API，並接收 JSON 回應。
+description: 使用此快速入門以運用 Python 來傳送要求給「Bing Web 搜尋 REST API」，並接收 JSON 回應
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 8/16/2018
 ms.author: aahi
-ms.openlocfilehash: 0f6f3991e01e4eb6919d958002ef6230a2570dbe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec2018
+ms.openlocfilehash: 4c42461c31e821128c8aa583b5620c1274a9e955
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309448"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260050"
 ---
 # <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>快速入門：使用 Python 來呼叫 Bing Web 搜尋 API  
 在「搜尋」下取得[認知服務存取金鑰](https://azure.microsoft.com/try/cognitive-services/)。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
@@ -80,7 +81,7 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
-## <a name="sample-code-on-github"></a>GitHub 上的程式碼範例
+## <a name="sample-code-on-github"></a>GitHub 上的範例程式碼
 
 如果您想要在本機執行此程式碼，完整的[範例在 GitHub 上](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js) (英文)。
 

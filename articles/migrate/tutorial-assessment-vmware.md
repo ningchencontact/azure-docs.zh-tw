@@ -4,15 +4,15 @@ description: 說明如何使用 Azure Migrate 服務，探索及評估要移轉�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/23/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 18e1ecd4896277f0dd0dfc2ceac2185cbdd09b93
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04bc43093a6edc66cdbb661a94989f5980445027
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241101"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257806"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>探索及評估要移轉到 Azure 的內部部署 VMware VM
 
@@ -26,24 +26,21 @@ ms.locfileid: "50241101"
 > * 設定內部部署收集器虛擬機器 (VM)，以探索要評估的內部部署 VMware VM。
 > * 將 VM 分組並建立評估。
 
-
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/pricing/free-trial/) 。
-
 
 ## <a name="prerequisites"></a>必要條件
 
-- **VMWare**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。
+- **VMware**：您計劃移轉的虛擬機器必須透過執行版本 5.5、6.0 或 6.5 的 vCenter Server 來管理。 此外，您還需要一部執行版本 5.0 或更新版本的 ESXi 主機來部署收集器 VM。
 - **vCenter Server 帳戶**：您需要一個唯讀帳戶來存取 vCenter Server。 Azure Migrate 會使用此帳戶來探索內部部署 VM。
 - **權限**：在 vCenter Server 上，您需要權限，方可藉由匯入 .OVA 格式的檔案來建立 VM。
-- **統計資料設定**：此先決條件僅適用於單次探索模型。 若要使單次探索能夠運作，vCenter Server 的統計資料設定應該先設為層級 3，再開始部署。 如果低於層級 3，還是能進行評估，但不會收集儲存體和網路的效能資料。 在此情況下，將根據 CPU 和記憶體的效能資料以及磁碟和網路介面卡的組態資料來提出大小建議。
 
 ## <a name="create-an-account-for-vm-discovery"></a>建立用於 VM 探索的帳戶
 
 Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評量。 建立具有下列屬性的 VMware 帳戶。 您會在 Azure Migrate 設定過程中指定此帳戶。
 
 - 使用者類型：至少是唯讀使用者
-- 權限：資料中心物件 –> 傳播至子物件、角色=唯讀
-- 詳細資訊：在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。
+- 權限：資料中心物件 –> 傳播至子物件、role=Read-only
+- 詳細資料：在資料中心層級指派的使用者，且能夠存取資料中心內的所有物件。
 - 如果要限制存取權，請將具備 [傳播至子物件] 權限的 [沒有存取權] 角色指派給子物件 (vSphere 主機、資料存放區、VM 與網路)。
 
 
@@ -57,9 +54,14 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 2. 搜尋 **Azure Migrate**，然後在搜尋結果中選取 [Azure Migrate] 服務。 接著，按一下 [建立]。
 3. 指定專案名稱，以及專案的 Azure 訂用帳戶。
 4. 建立新的資源群組。
-5. 指定要建立專案的地理位置，然後按一下 [建立]。 您只能在美國地理位置建立 Azure Migrate 專案。 不過，您仍能針對任何目標 Azure 位置規劃移轉。 針對專案所指定的地理位置，僅會用於儲存從內部部署虛擬機器收集的中繼資料。
+5. 指定要建立專案的地理位置，然後按一下 [建立]。 您只能在下列地理位置建立 Azure Migrate 專案。 不過，您仍能針對任何目標 Azure 位置規劃移轉。 針對專案所指定的地理位置，僅會用於儲存從內部部署虛擬機器收集的中繼資料。
 
-    ![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
+**地理位置** | **儲存位置**
+--- | ---
+美國 | 美國中西部或美國東部
+Azure Government | 美國政府維吉尼亞州
+
+![Azure Migrate](./media/tutorial-assessment-vmware/project-1.png)
 
 
 ## <a name="download-the-collector-appliance"></a>下載收集器設備
@@ -67,20 +69,21 @@ Azure Migrate 需要存取 VMware 伺服器，才能自動探索 VM 以進行評
 Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM 會探索內部部署 VMware VM，並將其相關中繼資料傳送至 Azure Migrate 服務。 若要設定收集器設備，您可以下載 .OVA 檔案，並將它匯入內部部署 vCenter Server，以建立 VM。
 
 1. 在 Azure Migrate 專案中，按一下 [開始使用] > [探索及評定] > [探索機器]。
-2. 在 [探索電腦] 中，有兩個選項可供設備使用。按一下 [下載] 以根據您的需求下載適當的設備。
+2. 在 [探索機器] 中，按一下 [下載] 以下載設備。
 
-    a. **單次探索**：此模型的設備會與 vCenter Server 通訊，以收集 VM 的相關中繼資料。 針對 VM 的效能資料收集，它會仰賴儲存在 vCenter Server 中的歷史效能資料，並收集上一個月的效能歷程記錄。 在此模型中，Azure Migrate 會收集每個計量的平均計數器 (相對於尖峰計數器)，[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected)。 由於它是單次探索，因此在探索之後將不會繼續反映出內部部署環境中的變更。 如果您想要反映變更，便必須針對相同的專案重新進行相同環境的探索。
-
-    b. **連續探索**：此模型的設備會持續剖析內部部署環境，以收集每個 VM 的即時使用量資料。 在此模型中，會收集每個計量 (CPU 使用量、記憶體使用量等) 的尖峰計數器。 此模型並不需仰賴 vCenter Server 的統計資料設定來收集效能資料。 您可以隨時從設備停止持續性的剖析。
-
-    請注意，設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
-
-    1. 新增項目 (VM、磁碟、核心等)：若要在 Azure 入口網站中反映這些變更，您可以從設備停止探索，然後重新啟動。 這可確保所做的變更會在 Azure Migrate 專案中更新。
-
-    2. 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
+    Azure Migrate 設備會 vCenter Server 與通訊，並持續剖析內部部署環境，以收集每部 VM 的即時使用量資料。 它會收集每個計量 (CPU 使用量、記憶體使用量等) 的尖峰計數器。 此模型並不需仰賴 vCenter Server 的統計資料設定來收集效能資料。 您可以隨時從設備停止持續性的剖析。
 
     > [!NOTE]
-    > 連續探索功能目前處於預覽狀態。 我們建議您使用此方法，因為此方法會收集較細微的效能資料，讓您藉此完成精確的大小調整。
+    > 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
+
+    **立即滿足：** 透過持續探索設備，探索完成後 (視 VM 數目而定，需要幾個小時)，您可以立即建立評量。 由於效能資料收集會在您開始探索時開始進行，如果您要尋求立即滿足，則應將評量中的調整大小準則選取為「內部部署」。 對於以效能為基礎的評量，建議等待至少一天後開始探索，以取得可靠的大小建議。
+
+    設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是，新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
+
+    - 新增項目 (VM、磁碟、核心等)：若要在 Azure 入口網站中反映這些變更，您可以從設備停止探索，然後重新啟動。 這可確保所做的變更會在 Azure Migrate 專案中更新。
+
+    - 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
+
 
 3. 在 [複製專案認證] 中，複製專案識別碼和金鑰。 在設定收集器時，您會需要這些資料。
 
@@ -96,7 +99,28 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
     - 使用方式範例：```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. 產生的雜湊應符合這些設定。
 
-#### <a name="one-time-discovery"></a>單次探索
+#### <a name="continuous-discovery"></a>連續探索
+
+  OVA 1.0.10.9 版
+
+  **演算法** | **雜湊值**
+  --- | ---
+  MD5 | 169f6449cc1955f1514059a4c30d138b
+  SHA1 | f8d0a1d40c46bbbf78cd0caa594d979f1b587c8f
+  SHA256 | d68fe7d94be3127eb35dd80fc5ebc60434c8571dcd0e114b87587f24d6b4ee4d
+
+  OVA 1.0.10.4 版
+
+  **演算法** | **雜湊值**
+  --- | ---
+  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
+
+
+#### <a name="one-time-discovery-deprecated-now"></a>單次探索 (現在已被取代)
+
+此模型目前已被取代，將會提供現有設備的支援。
 
   OVA 1.0.9.15 版
 
@@ -122,33 +146,6 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
   SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
   SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
-  OVA 1.0.9.8 版
-
-  **演算法** | **雜湊值**
-  --- | ---
-  MD5 | b5d9f0caf15ca357ac0563468c2e6251
-  SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-  SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
-
-
-  若為 OVA 1.0.9.7 版
-
-  **演算法** | **雜湊值**
-  --- | ---
-  MD5 | d5b6a03701203ff556fa78694d6d7c35
-  SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-  SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
-
-#### <a name="continuous-discovery"></a>連續探索
-
-  OVA 1.0.10.4 版
-
-  **演算法** | **雜湊值**
-  --- | ---
-  MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
-  SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
-  SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
-
 ## <a name="create-the-collector-vm"></a>建立收集器 VM
 
 將下載的檔案匯入 vCenter Server。
@@ -172,12 +169,13 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 3. 在桌面上，按一下 [執行收集器] 捷徑。
 4. 按一下收集器 UI 頂端列中的 [檢查更新]，並確認收集器正在最新版本上執行。 如果沒有，您可以選擇從連結下載最新的升級套件並更新收集器。
 5. 在 Azure Migrate 收集器中，開啟 [設定必要條件]。
+    - 選取您打算作為遷移目的地的 Azure 雲端 (Azure Global 或 Azure Government)。
     - 接受授權條款，並閱讀第三方資訊。
     - 收集器會確認 VM 是否能夠存取網際網路。
-    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity)網際網路連線需求和收集器存取的 URL 清單。
+    - 如果 VM 能夠透過 Proxy 存取網際網路，請按一下 [Proxy 設定]，然後指定 Proxy 位址和接聽連接埠。 如果 Proxy 需要驗證，請指定認證。 [深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites)網際網路連線需求和收集器存取的 [URL 清單](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls)。
 
-    > [!NOTE]
-    > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
+      > [!NOTE]
+      > 必須在表單 http://ProxyIPAddress 或 http://ProxyFQDN 中輸入 Proxy 位址。 僅支援 HTTP Proxy。 如果您有攔截 Proxy，且您未匯入 Proxy 憑證，則初始的網際網路連線可能會失敗；請[深入了解](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy)如何藉由將 Proxy 憑證匯入作為收集器 VM 上的信任憑證，以解決此問題。
 
     - 收集器會檢查收集器服務是否正在執行。 根據預設，收集器 VM 上會安裝此服務。
     - 下載並安裝 VMware PowerCLI。
@@ -195,12 +193,9 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 > 如果您對所要評估的機器變更設定，觸發程序將在您執行評估之前再次探索。 請在收集器中使用 [重新開始收集] 選項來執行此動作。 收集完成後，請在入口網站中選取 [重新計算] 選項進行評估，以取得更新的評估結果。
 
 
-
 ### <a name="verify-vms-in-the-portal"></a>在入口網站中確認 VM
 
-針對單次探索，探索時間取決於您要探索的 VM 數目。 以 100 個 VM 作為例子，在收集器能停止執行之前，通常需要大約一小時的時間來完成設定及收集效能資料。 您可以在探索完成後立即建立評量 (同時包括以效能為基礎的評量，以及內部部署評量)。
-
-針對連續探索 (處於預覽狀態)，收集器將會持續對內部部署環境進行剖析，並會持續以一小時為間隔傳送效能資料。 在開始探索的一小時後，您便可以在入口網站中檢閱電腦。 強烈建議您至少先等候一天的時間，再針對 VM 建立以效能為基礎的評量。
+收集器設備將會持續對內部部署環境進行剖析，並會持續以一小時為間隔傳送效能資料。 在開始探索的一小時後，您便可以在入口網站中檢視電腦。
 
 1. 在移轉專案中，按一下 [管理] > [機器]。
 2. 確認您想要探索的 VM 出現在入口網站內。
@@ -208,7 +203,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 
 ## <a name="create-and-view-an-assessment"></a>建立和檢視評估
 
-探索到 VM 之後，您可以將它們分組，並建立評估。
+在入口網站中探索到 VM 之後，您可以將它們分組並建立評量。 在入口網站中探索到 VM 後，您就可以立即建立內部評量。 建議您至少先等候一天的時間，再建立以效能為基礎的評量，以取得可靠的大小建議。
 
 1. 在專案的 [概觀] 頁面中，按一下 [+建立評估]。
 2. 按一下 [檢視全部] 來檢閱評估屬性。
@@ -219,7 +214,7 @@ Azure Migrate 會建立稱為「收集器設備」的內部部署 VM。 此 VM �
 7. 按一下 [匯出評估]，將其下載為 Excel 檔案。
 
 > [!NOTE]
-> 針對持續探索，強烈建議您在開始探索後，至少先等候一天的時間再建立評量。 如果您想要以最新的效能資料更新現有的評量，則可以對評量使用 [重新計算] 命令來更新它。
+> 強烈建議您在開始探索後，至少先等候一天的時間再建立評量。 如果您想要以最新的效能資料更新現有的評量，則可以對評量使用 [重新計算] 命令來更新它。
 
 ### <a name="assessment-details"></a>評量詳細資料
 
@@ -272,22 +267,14 @@ Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評
 
 由於下列原因，評量可能沒有所有可用資料點：
 
-**單次探索**
-
-- vCenter Server 中統計資料設定未設為等級 3。 由於單次探索模型仰賴 vCenter Server 的統計資料設定，如果 vCenter Server 中的統計資料設定低於層級 3，便不會從 vCenter Server 收集磁碟與網路的效能資料。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議是以使用率為基礎。 若不考量磁碟的 IOPS/輸送量，Azure Migrate 便無法識別磁碟在 Azure 中是否需要進階磁碟，因此在此情況下，Azure Migrate 會針對所有磁碟建議標準磁碟。
-- vCenter Server 中的統計資料設定已設定為層級 3，以縮短探索開始前的持續時間。 例如，讓我們考慮以下案例：您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索。 如果您要建立一天的評量，您可擁有所有資料點，且評量的信賴評等會是 5 顆星。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。
-
-**連續探索**
-
 - 您未針對正在建立評量的持續時間剖析環境。 例如，如果您要建立的評量將效能持續時間設定為 1 天，您需要至少等待一天後再開始探索，才能收集到所有資料點。
 
-**常見原因**  
-
 - 少數虛擬機器在評量計算期間關閉。 如果有任何 VM 在某段期間內電源關閉，則無法收集這段時間的效能資料。
+
 - 少數虛擬機器在評量計算期間才建立。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在這種情況下，新虛擬機器的效能記錄不會在整段期間中出現。
 
 > [!NOTE]
-> 如果任何評量的信賴評等低於 4 顆星，針對單次探索模型，建議您將 vCenter Server 的統計資料設定層級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 針對連續探索模型，請至少等待一天讓設備剖析環境，然後對評量使用 [重新計算] 命令。 如果無法完成上述動作，則以效能為基礎的大小調整可能不可靠，且建議您變更評量屬性以切換至*內部部署大小調整*。
+> 如果任何評量的信賴評等低於 5 顆星，請至少等待一天，讓設備剖析環境，然後「重新計算」評量。 如果無法完成上述動作，則以效能為基礎的大小調整可能不可靠，且建議您變更評量屬性以切換至*內部部署大小調整*。
 
 ## <a name="next-steps"></a>後續步驟
 

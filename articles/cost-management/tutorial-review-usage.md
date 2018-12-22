@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7b9c9a600d105d4b7fbbeb4f52ee42b5eb2bcaaa
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275865"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093602"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -51,15 +51,15 @@ Cloudyn 會顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不
 
 以下是範例報表：
 
-![範例報表](./media/tutorial-review-usage/actual-cost01.png)
+![隨時間變化的實際成本範例報表](./media/tutorial-review-usage/actual-cost01.png)
 
 該報表顯示過去 30 天的所有消費。 若只要檢視 Azure 服務的消費，請套用服務群組，然後篩選出所有 Azure 服務。 下圖顯示經過篩選的服務。
 
-![經過篩選的服務](./media/tutorial-review-usage/actual-cost02.png)
+![顯示已篩選之 Azure 服務的範例](./media/tutorial-review-usage/actual-cost02.png)
 
 在上述範例中，金額支出自 2018年 10 月 29 日起開始變低。 不過，過多的資料行可能會不易凸顯明顯的趨勢。 您可以將報表檢視變更為折線圖或區域圖，來查看以其他檢視顯示的資料。 下圖可更加清楚地顯示趨勢。
 
-![報表中的趨勢](./media/tutorial-review-usage/actual-cost03.png)
+![顯示下降之 Azure VM 成本趨勢的範例](./media/tutorial-review-usage/actual-cost03.png)
 
 接續此範例，您可以看到 Azure VM 的成本下降。 其他 Azure 服務的成本也在那一天開始下降。 造成消費降低的原因為何？ 在此範例中，由於大型工作專案已完成，許多 Azure 服務的耗用量也因此下降。
 
@@ -77,15 +77,15 @@ Cloudyn 會顯示使用量和成本，讓您可以追蹤趨勢、偵測效率不
 
 在入口網站頂端的功能表上，按一下 [最佳化工具] > [調整大小最佳化] > [符合成本效益的大小調整建議]。 如果有用，請套用篩選條件以縮減結果。 以下是範例影像。
 
-![Azure VM](./media/tutorial-review-usage/sizing01.png)
+![Azure VM 之符合成本效益的大小調整建議報表](./media/tutorial-review-usage/sizing01.png)
 
 在此範例中，藉由遵循變更 VM 執行個體類型的建議，即可省下 2,382 美元。 按一下 [詳細資料] 下的加號 (+)，以展開第一個建議。 以下是第一個建議的相關詳細資料。
 
-![建議的詳細資料](./media/tutorial-review-usage/sizing02.png)
+![顯示建議詳細資料的範例](./media/tutorial-review-usage/sizing02.png)
 
 按一下 [List of Candidates] \(候選項目清單) 旁的加號，以檢視 VM 執行個體識別碼。
 
-![候選項目清單](./media/tutorial-review-usage/sizing03.png)
+![顯示要調整大小之 VM 候選項目清單的範例](./media/tutorial-review-usage/sizing03.png)
 
 若要觀看有關偵測使用效益不彰情形的教學指導影片，請參閱[在 Cloudyn 中最佳化 VM 大小](https://youtu.be/1xaZBNmV704)。
 
@@ -99,7 +99,7 @@ Azure 成本管理也會提供 Azure 服務的成本節省建議。 如需詳細
 
 在 [儲存或排程此報告] 方塊中，使用 [排程] 索引標籤，以您想要的頻率傳送報表電子郵件給自己。 務必要選取 [透過電子郵件傳送]。 您所使用的任何標記、群組和篩選都會包含在以電子郵件傳送的報表中。 按一下 [閾值] 索引標籤，然後選取 [Actual Cost vs. Threshold] \(實際成本與閾值)。 如果您的總預算為 20,000 美元，而且想要在成本接近大約一半時收到通知，請在 10,000 美元處建立**紅色警示**，並在 9,000 美元處建立**黃色警示**。 不要在您輸入的值內包含逗號。 然後，選擇連續警示數目。 當您收到所指定的警示總數時，不會再傳送其他警示。 儲存排程報表。
 
-![範例報表](./media/tutorial-review-usage/schedule-alert01.png)
+![根據費用閾值顯示紅色警示和黃色警示的範例](./media/tutorial-review-usage/schedule-alert01.png)
 
 您也可以選擇 [Cost Percentage vs.Budget] \(成本百分比與預算) 閾值計量來建立警示。 透過該計量，您就可以使用預算百分比，而不是貨幣值。
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 609f48d0c2ba41d658850ade367d9b225941b105
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 992abf97751695c10f28f355e1086a12530b9456
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982603"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165226"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>什麼是 Azure Active Directory B2B 中的來賓使用者存取權？
 
@@ -73,7 +73,7 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 
 讓您的外部合作夥伴以針對您組織需求量身打造的方式上線使用
 - 使用 [B2B 共同作業邀請 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) 來自訂上架體驗，包括建立自助式註冊入口網站。 
-- 使用我們在 [Github](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) 提供自助式入口網站的範例程式碼。
+- 使用我們在 [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web) \(英文\) 上針對自助入口網站提供的範例程式碼。
 
 ![註冊入口網站](media/what-is-b2b/sign-up-portal.png)
 
@@ -82,4 +82,4 @@ Azure Active Directory (Azure AD) 企業對企業 (B2B) 共同作業，可讓您
 - [Azure AD B2B 共同作業授權指導方針](licensing-guidance.md)
 - [在入口網站中新增 B2B 共同作業來賓使用者](add-users-administrator.md)
 - [了解邀請兌換程序](redemption-experience.md)
-- 一如往常，如有任何意見反應、討論及建議，請透過我們的 [Microsoft 技術社群 ](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b) (英文) 與產品小組聯繫。
+- 一如往常，如有任何意見反應、討論及建議，請透過我們的 [Microsoft 技術社群 (英文)](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)，與產品小組聯繫。

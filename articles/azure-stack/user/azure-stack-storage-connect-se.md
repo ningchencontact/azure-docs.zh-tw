@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/15/2018
+ms.date: 12/14/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 2f974b7773e7a4cbc0eda32a267bb5ab939644d8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095111"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386769"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>將儲存體總管連線到 Azure Stack 訂用帳戶或儲存體帳戶
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 在本文中，您將了解如何使用儲存體總管連線到 Azure Stack 訂用帳戶和儲存體帳戶。 Azure 儲存體總管是一個獨立應用程式，可讓您在 Windows、macOS 和 Linux 上輕鬆使用 Azure Stack 儲存體資料。
 
@@ -45,9 +45,16 @@ ms.locfileid: "47095111"
 
 2. 在 [檔案] 中，選取 [新增/移除嵌入式管理單元]，然後新增 [憑證] 以管理 [我的使用者帳戶]。
 
-3. 在 **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** 之下尋找 **AzureStackSelfSignedRootCert**。
+3.  在 [主控台根目錄]\[憑證 (本機電腦)]\[受信任的根憑證授權單位]\[憑證] 底下。
 
-    ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+    - 針對 ASDK，尋找 **AzureStackSelfSignedRootCert**。
+
+        ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png)
+
+    - 針對整合式系統，尋找您外部憑證的根憑證。 
+    
+        ![透過 mmc.exe 載入 Azure Stack 根憑證](./media/azure-stack-storage-connect-se/azure-stack-storage-cert-location-is.png)
+        
 
 4. 以滑鼠右鍵按一下憑證，選取 [所有工作] > [匯出]，然後依照指示，匯出 **Base-64 encoded X.509 (.CER)** 憑證。
 

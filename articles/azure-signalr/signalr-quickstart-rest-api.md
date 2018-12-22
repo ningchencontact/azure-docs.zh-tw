@@ -1,25 +1,18 @@
 ---
-title: 快速入門 - Azure SignalR 服務 REST API | Microsoft Docs
+title: 快速入門 - Azure SignalR 服務 REST API
 description: 使用 Azure SignalR 服務 REST API 的快速入門。
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET
-ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 36fb87d3255149c041c4288d13c54eaff8425e06
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: fdbdbe77c6541d62acef0d23d599d9687f5301b1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024331"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251856"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入門：從主控台應用程式廣播即時訊息
 
@@ -30,17 +23,15 @@ Azure SignalR 服務能提供 [REST API](https://github.com/Azure/azure-signalr/
 ## <a name="prerequisites"></a>必要條件
 
 此快速入門可以在 macOS、Windows 或 Linux 上執行。
+
 * [.NET Core SDK](https://www.microsoft.com/net/download/core)
 * 您偏好的文字編輯器或程式碼編輯器。
 
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
 使用您的 Azure 帳戶登入 Azure 入口網站 (<https://portal.azure.com/>)。
-
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
@@ -68,6 +59,7 @@ Azure SignalR 服務能提供 [REST API](https://github.com/Azure/azure-signalr/
 ### <a name="build-the-executable-file"></a>建置可執行檔
 
 我們會使用 macOS osx.10.13-x64 作為範例。 您可以尋找[參考](https://docs.microsoft.com/dotnet/core/rid-catalog)以了解如何在其他平台上建置。
+
 ```bash
 cd AzureSignalR-samples/samples/Serverless/
 
@@ -108,7 +100,7 @@ dotnet run -- client <ClientName> -c "<ConnectionString>" -h <HubName>
 
 ## <a name="usage"></a>使用量
 
-在伺服器啟動之後，使用下列命令來傳送訊息
+在伺服器啟動之後，使用下列命令來傳送訊息：
 
 ```
 send user <User Id>
@@ -121,8 +113,11 @@ broadcast
 您可以啟動具不同用戶端名稱的多個用戶端。
 
 ## <a name="usage"> </a> 與第三方服務整合
+
 Azure SignalR 服務可讓第三方服務與系統整合。
-### <a name="usage"> </a> 技術規格的定義
+
+### <a name="definition-of-technical-specifications"></a>技術規格的定義
+
 下表顯示目前所支援的所有 REST API 版本。 您也可以找到每個特定版本的定義檔
 
 版本 | API 狀態 | 門 | 特定
@@ -136,14 +131,15 @@ API | `1.0-preview` | `1.0`
 --- | --- | ---
 [廣播到所有目標](#broadcast) | :heavy_check_mark: | :heavy_check_mark:
 [廣播到群組](#broadcast-group) | :heavy_check_mark: | :heavy_check_mark:
-廣播到部分群組 | :heavy_check_mark: (已淘汰) | `N / A`
+廣播到部分群組 | :heavy_check_mark:(已被取代) | `N / A`
 [傳送給特定使用者](#send-user) | :heavy_check_mark: | :heavy_check_mark:
-傳送給部分使用者 | :heavy_check_mark: (已淘汰) | `N / A`
+傳送給部分使用者 | :heavy_check_mark:(已被取代) | `N / A`
 [將使用者新增至群組](#add-user-to-group) | `N / A` | :heavy_check_mark:
 [從群組中移除使用者](#remove-user-from-group) | `N / A` | :heavy_check_mark:
 
 <a name="broadcast"> </a>
 ### <a name="broadcast-to-everyone"></a>廣播給所有人
+
 版本 | API HTTP 方法 | 要求 URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -151,6 +147,7 @@ API | `1.0-preview` | `1.0`
 
 <a name="broadcast-group"> </a>
 ### <a name="broadcast-to-a-group"></a>廣播到群組
+
 版本 | API HTTP 方法 | 要求 URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/group/<group-name>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -158,6 +155,7 @@ API | `1.0-preview` | `1.0`
 
 <a name="send-user"> </a>
 ### <a name="sending-to-specific-users"></a>傳送給特定使用者
+
 版本 | API HTTP 方法 | 要求 URL | Request body
 --- | --- | --- | ---
 `1.0-preview` | `POST` | `https://<instance-name>.service.signalr.net:5002/api/v1-preview/hub/<hub-name>/user/<user-id>` | `{"target": "<method-name>", "arguments": [...]}`
@@ -165,12 +163,14 @@ API | `1.0-preview` | `1.0`
 
 <a name="add-user-to-group"> </a>
 ### <a name="adding-a-user-to-a-group"></a>將使用者新增至群組
+
 版本 | API HTTP 方法 | 要求 URL
 --- | --- | ---
 `1.0` | `PUT` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`
 
 <a name="remove-user-from-group"> </a>
 ### <a name="removing-a-user-from-a-group"></a>從群組中移除使用者
+
 版本 | API HTTP 方法 | 要求 URL
 --- | --- | ---
 `1.0` | `DELETE` | `https://<instance-name>.service.signalr.net/api/v1/hubs/<hub-name>/groups/<group-name>/users/<userid>`

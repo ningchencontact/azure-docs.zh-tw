@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 服務的概觀。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 12/05/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 85873dc023e63b7cc9f5ba3ff87214c49ac16e34
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fcf26b8a5eff407d6dde092ae645084fb20a14a8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246730"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250564"
 ---
 # <a name="about-azure-migrate"></a>關於 Azure Migrate
 
@@ -22,7 +22,7 @@ Azure Migrate 服務會評估要移轉至 Azure 的內部部署工作負載。 �
 
 Azure Migrate 可協助您：
 
-- **評估 Azure 整備程度**：評估您的內部部署機器是否適合在 Azure 中執行。
+- **評估 Azure 整備程度**：評估內部部署機器是否適合在 Azure 中執行。
 - **取得大小建議**：根據內部部署 VM 的效能歷程記錄，取得 Azure VM 的大小建議。
 - **預估每月成本**：取得在 Azure 中執行內部部署機器的估計成本。  
 - **安心地移轉**：將內部部署機器的相依性視覺化，以建立您將一起評估和移轉的機器群組。
@@ -34,10 +34,14 @@ Azure Migrate 可協助您：
 - 您可以在單一探索中探索多達 1500 個 VM，並在單一專案中探索多達 1500 個 VM。 此外，您還可以在單一評估中評估多達 1500 個 VM。
 - 如果您想要探索較大的環境，您可以分割探索並建立多個專案。 [深入了解](how-to-scale-assessment.md)。 Azure Migrate 支援每個訂閱最多 20 個專案。
 - Azure Migrate 只支援將受控磁碟用於進行移轉評估。
--  您只能在美國地理位置建立 Azure Migrate 專案。 不過，您可以針對任何目標 Azure 位置規劃移轉。
-    - 只有從內部部署環境中發現的中繼資料會儲存在移轉專案區域。
-    - 中繼資料會儲存在地理位置中的其中一個區域：美國中西部/美國東部。
-    - 如果您透過 Log Analytics 工作區使用相依性視覺效果，工作區會建立在專案的所在區域。
+-  您只能在下列地理位置建立 Azure Migrate 專案。 不過，這不會限制您建立其他目標 Azure 位置評量的能力。
+    **地理位置** | **儲存位置**
+    --- | ---
+    美國 | 美國中西部或美國東部
+    Azure Government | 美國政府維吉尼亞州
+
+    與移轉專案相關聯的地理位置會用來儲存在內部部署環境中發現的中繼資料。 中繼資料會根據針對移轉專案指定的地理位置，儲存在其中一個區域。 如果您藉由建立新的 Log Analytics 工作區來使用相依性視覺效果，則會在與專案相同的區域中建立工作區。
+- 在 Azure Government 中無法使用相依性視覺效果功能。
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>我需要支付多少費用？
@@ -51,18 +55,18 @@ Azure Migrate 可協助您：
 
 **屬性** | **詳細資料**
 --- | ---
-**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 30 個區域。 [查看區域](https://azure.microsoft.com/global-infrastructure/services/)。 根據預設，目標區域會設定為美國西部 2。
-**儲存體類型** | 您要在 Azure 中配置的磁碟類型。 當調整大小準則為「作為內部部署」時，即適用此屬性。 您可以將目標磁碟類型指定為進階受控磁碟 (預設值) 或標準受控磁碟。 若以效能為基礎調整大小，則會根據 VM 的效能資料自動建議磁碟大小。
-**調整大小準則** | 您可以根據內部部署 VM 的「效能歷程記錄」來調整大小，或使用「作為內部部署」(預設值)，而不考量效能歷程記錄。
+**目標位置** | 要作為移轉目的地的 Azure 位置。<br/><br/>Azure Migrate 目前支援 33 個區域作為移轉目標位置。 [查看區域](https://azure.microsoft.com/global-infrastructure/services/)。 根據預設，目標區域會設定為美國西部 2。
+**儲存體類型** | 您想要為屬於評估的所有 VM 配置的受控磁碟類型。 如果調整大小準則為「作為內部部署調整大小」，您可以將目標磁碟類型指定為進階磁碟 (預設值)、標準 SSD 磁碟或標準 HDD 磁碟。 對於「效能型調整大小」，以及上述選項，您也可以選取 [自動] 選項，該選項會確保根據 VM 的效能資料自動建議磁碟大小。 例如，如果您想要達成 [99.9% 的單一執行個體 VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)，則可能需要將儲存體類型指定為進階受控磁碟，如此可確保將評估中的所有磁碟建議為進階受控磁碟。 請注意，Azure Migrate 只支援將受控磁碟用於進行移轉評估。
+**保留執行個體** |  您在 Azure 中是否有[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)。 Azure Migrate 會據以預估成本。
+**調整大小準則** | 您可以根據內部部署 VM (預設值) 的**效能歷程記錄**來調整大小，或使用**作為內部部署**，而不考量效能歷程記錄。
+**效能歷程記錄** | 根據預設，Azure Migrate 會使用最後一天的效能歷程記錄 (95% 百分位數值) 來評估內部部署機器的效能。
+**緩和因數** | Azure Migrate 會在評估期間考量緩衝區 (緩和因數)。 此緩衝區適用於 VM 的機器使用量資料 (CPU、記憶體、磁碟和網路)。 緩和因數會考量各個問題，例如季節性使用量、簡短的效能歷程記錄，以及未來可能增加的使用量。<br/><br/> 以 10 核心的 VM 為例，如果使用率為 20%，一般即相當於一個 2 核心的 VM。 但如果緩和因數為 2.0 x，則結果為 4 核心的 VM。 預設緩和設定為 1.3x。
+**VM 系列** | 用來估計大小的 VM 系列。 例如，如果您不打算將生產環境移轉至 Azure 中的 A 系列虛擬機器，則可以從清單或系列排除 A 系列。 大小調整只會根據選取的系列執行。   
+**貨幣** | 帳單貨幣。 預設值為美元。
+**折扣 (%)** | 針對 Azure 供應項目所能獲得的任何訂用帳戶特定折扣。 預設設定為 0%。
+**VM 運作時間** | 如果 VM不會在 Azure 中全天候執行，您可以指定其執行的持續時間 (每月天數和每天時數)，成本預估會據此來計算。 預設值是每月 31 天和每天 24 小時。
 **Azure 供應項目** | 您所註冊的 [Azure 供應項目](https://azure.microsoft.com/support/legal/offer-details/)。 Azure Migrate 會據以預估成本。
 **Azure Hybrid Benefit** | 您是否擁有軟體保證，以及是否符合 [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) 的資格而享有折扣。
-**保留執行個體** |  您在 Azure 中是否有[保留執行個體](https://azure.microsoft.com/pricing/reserved-vm-instances/)。 Azure Migrate 會據以預估成本。
-**VM 運作時間** | VM 將在 Azure 中執行的持續時間。 成本估計會據以完成。
-**定價層** | 目標 Azure VM 的[定價層 (基本/標準)](../virtual-machines/windows/sizes-general.md)。 例如，如果您打算移轉生產環境，您可以考慮使用標準層，這會提供低延遲的 VM，但成本可能較高。 另一方面，在測試環境中，則可使用延遲較高、成本較低的基本層。 預設會使用[標準](../virtual-machines/windows/sizes-general.md)層。
-**效能歷程記錄** | 根據預設，Azure Migrate 會使用最後一天的效能歷程記錄 (95% 百分位數值) 來評估內部部署機器的效能。
-**VM 系列** | 用來估計大小的 VM 系列。 例如，如果您不打算將生產環境移轉至 Azure 中的 A 系列虛擬機器，則可以從清單或系列排除 A 系列。 大小調整只會根據選取的系列執行。   
-**緩和因數** | Azure Migrate 會在評估期間考量緩衝區 (緩和因數)。 此緩衝區適用於 VM 的機器使用量資料 (CPU、記憶體、磁碟和網路)。 緩和因數會考量各個問題，例如季節性使用量、簡短的效能歷程記錄，以及未來可能增加的使用量。<br/><br/> 以 10 核心的 VM 為例，如果使用率為 20%，一般即相當於一個 2 核心的 VM。 但如果緩和因數為 2.0 x，則結果為 4 核心的 VM。 預設緩和設定為 1.3x。
-
 
 ## <a name="how-does-azure-migrate-work"></a>Azure Migrate 如何運作？
 

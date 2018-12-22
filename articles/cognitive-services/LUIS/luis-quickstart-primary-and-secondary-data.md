@@ -1,23 +1,24 @@
 ---
-title: 教學課程 7：LUIS 中具有片語清單的簡單實體
+title: 簡單實體、片語清單
 titleSuffix: Azure Cognitive Services
-description: 從語句中擷取機器學習的資料
+description: 在本教學課程中，使用簡單實體，從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: f3e931344d2d2294c03756d630c688df1e5da9a8
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e8a1575527f906fab130e08cda715f6c8e904275
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425236"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166263"
 ---
-# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>教學課程 7：利用簡單實體和片語清單擷取名稱
+# <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>教學課程 7：使用簡單實體和片語清單來擷取名稱
 
 在本教學課程中，使用**簡單**實體從語句中擷取雇用職位名稱的機器學習資料。 若要增加擷取精確度，請新增簡單實體特有的字詞片語清單。
 
@@ -92,7 +93,7 @@ ms.locfileid: "52425236"
 
 3. 在語句 `I want to apply for the new accounting job` 中選取 [`accounting`]，於快顯功能表最上面的欄位中輸入 `Job`，然後選取快顯功能表中的 [建立新實體]。 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "已醒目提示 [ApplyForJob] 意圖與建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "針對 'ApplyForJob' 意圖使用已醒目提示之建立實體步驟的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 4. 在快顯視窗中，確認實體名稱和類型，然後選取 [完成]。
 
@@ -100,7 +101,7 @@ ms.locfileid: "52425236"
 
 5. 在語句 `Submit resume for engineering position` 中，將 `engineering` 這個字組標記為 [職位] 實體。 選取 `engineering` 字組，然後從快顯功能表中選取 [職位]。 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "已醒目提示並標記職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
+    [![標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "標示已醒目提示之職位實體的 LUIS 螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
     所有語句都會加上標籤，但只有五個語句不足以讓 LUIS 認識職位相關字組和片語。 使用編號值的職位會使用規則運算式實體，因此不需要更多範例。 屬於字組或片語的職位需要至少 15 個以上的範例。 
 
@@ -157,7 +158,7 @@ ms.locfileid: "52425236"
 
 2. 移至位址中的 URL 結尾並輸入 `Here is my c.v. for the programmer job`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 此語句與任何標示的語句都不同，因此這是很好的測試，且應該傳回 `ApplyForJob` 語句。
 
-    ```JSON
+    ```json
     {
       "query": "Here is my c.v. for the programmer job",
       "topScoringIntent": {
@@ -226,7 +227,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 在下列 JSON 中，LUIS 會回應正確意圖 `ApplyForJob`，但未擷取 `lead welder` 職位名稱。 
 
-```JSON
+```json
 {
   "query": "This is the lead welder paperwork.",
   "topScoringIntent": {
@@ -283,7 +284,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 ## <a name="to-boost-signal-add-phrase-list"></a>若要提升訊號，請新增片語清單
 
-從 LUIS-Samples Github 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過一千個職位字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
+從 LUIS-Samples GitHub 存放庫開啟 [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此清單有超過一千個職位字組和片語。 請看一下清單以找出對您有意義的職位字組清單。 如果清單中沒有您的字組或片語，請自行新增。
 
 1. 在 LUIS 應用程式的 [建置] 區段中，選取 [提升應用程式效能] 功能表底下的 [片語清單]。
 
@@ -291,13 +292,13 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
 3. 將新的片語清單命名為 `Job`，然後將 jobs-phrase-list.csv 中的清單複製到 [值] 文字方塊。 選取 Enter 鍵。 
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "[建立新的片語清單] 對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     如果您想在片語清單中新增更多字組，請檢閱**相關值**，並新增相關字組。 
 
 4. 選取 [儲存] 以啟動該片語清單。
 
-    [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "[建立新的片語清單] 對話方塊快顯與片語清單值方塊中字組的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "使用片語清單值方塊中的字組來建立新的片語清單對話方塊快顯的螢幕擷取畫面")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 5. 重新[訓練](#train)並[發行](#publish)應用程式以使用片語清單。
 
@@ -305,7 +306,7 @@ LUIS 應用程式深信它找到了正確的意圖，並擷取出職位名稱，
 
     JSON 回應包含所擷取的實體：
 
-    ```JSON
+    ```json
     {
         "query": "This is the lead welder paperwork.",
         "topScoringIntent": {

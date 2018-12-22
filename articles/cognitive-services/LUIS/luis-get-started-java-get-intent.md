@@ -1,22 +1,25 @@
 ---
-title: Java 快速入門 - 預測意圖 - LUIS
-titleSuffix: Azure Cognitive Services
-description: 在本快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的意圖。 使用 Java，以文字形式將使用者的意圖傳送至公用應用程式的 HTTP 預測端點。 在端點，LUIS 會套用公用應用程式的模型來分析自然語言文字的意義、判斷整體意圖，並擷取與應用程式主體網域相關的資料。
+title: 取得意圖 (Java)
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 在這個 Java 快速入門中，使用可用的公用 LUIS 應用程式，從交談文字判斷使用者的用意。
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c492a0d0a9d90a79b0e05d4e7de6f5ef0796184a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c55721e803b85c536067a90019f75dd5aa0f7845
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417526"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085343"
 ---
-# <a name="quickstart-get-intent-using-java"></a>快速入門：使用 Java 來取得意圖
+# <a name="quickstart-get-intent-using-java"></a>快速入門：使用 Java 取得意圖
+
+在本快速入門中，會將將語句傳遞至 LUIS 端點，並取回意圖和實體。
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 

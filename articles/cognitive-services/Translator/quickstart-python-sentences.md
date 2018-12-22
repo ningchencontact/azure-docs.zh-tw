@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 1d7ba50bf57a5c7f88f4380c4874d6053f07082e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086126"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992598"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入門：使用翻譯工具文字 API 搭配 Python 來判斷句子長度
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來判斷句子長度
 
 在此快速入門中，您將了解如何搭配使用 Python 與翻譯工具文字 REST API 來判斷句子長度 (以字元為單位)。
 
@@ -153,7 +153,7 @@ python sentence-length.py
 
 ## <a name="see-also"></a>另請參閱
 
-除了文字翻譯外，請了解如何使用翻譯工具文字 API 執行下列作業：
+了解如何使用翻譯工具文字 API 來執行下列動作：
 
 * [翻譯文字](quickstart-python-translate.md)
 * [進行文字音譯](quickstart-python-transliterate.md)

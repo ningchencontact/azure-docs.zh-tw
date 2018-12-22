@@ -1,21 +1,21 @@
 ---
-title: Azure 容器執行個體教學課程 - 準備 Azure Container Registry
-description: Azure 容器執行個體教學課程第 2 部分 (共 3 部分) - 準備 Azure Container Registry
+title: 教學課程 - 準備 Azure 容器執行個體的容器登錄
+description: Azure 容器執行個體教學課程第 2 部分 (共 3 部分) - 準備 Azure Container Registry 並推送映像
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: e7cf9c5fad6219e71205c181b2dbb6828595afdd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: eeb0fe5b19f23e101eab9393dca64e1e13bf6922
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855437"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188909"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>教學課程：部署和使用 Azure Container Registry
+# <a name="tutorial-deploy-an-azure-container-registry-and-push-a-container-image"></a>教學課程：部署 Azure Container Registry 並推送容器映像
 
 這是三段式教學課程的第二段。 本教學課程的[第一部分](container-instances-tutorial-prepare-app.md)已建立 Node.js Web 應用程式的 Docker 容器映像。 在本教學課程中，您會將此映像推送至 Azure Container Registry。 如果您尚未建立容器映像，請回到[教學課程 1 – 建立容器映像](container-instances-tutorial-prepare-app.md)。
 

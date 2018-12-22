@@ -1,24 +1,27 @@
 ---
-title: Azure Container Service 教學課程 - 更新應用程式
+title: (即將淘汰) Azure Container Service 教學課程 - 更新應用程式
 description: Azure Container Service 教學課程 - 更新應用程式
 services: container-service
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.author: nepeters
+ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9cb5769d7f54a1036bf14199c87961c95ed2e7ce
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 99e282b720bb29ed5fb94ad2c9779ae56a019836
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432401"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993523"
 ---
-# <a name="update-an-application-in-kubernetes"></a>在 Kubernetes 中更新應用程式
+# <a name="deprecated-update-an-application-in-kubernetes"></a>(即將淘汰) 更新 Kubernetes 中的應用程式
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需使用 Azure Kubernetes Service 的本教學課程更新版本，請參閱[教學課程：更新 Azure Kubernetes Service (AKS) 中的應用程式](../../aks/tutorial-kubernetes-app-update.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 在 Kubernetes 中部署應用程式之後，您可以藉由指定新的容器映像或映像版本來進行更新。 當您更新應用程式時，更新會分段進行，所以只有一部分的部署會同時更新。 此分段更新方式可讓應用程式在更新期間保持運作， 此外也能當作部署失敗時的復原機制。 
 

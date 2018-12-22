@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 645a32f56ee2bdc4132377f2d56f61b963104e42
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 57624133b249a8ec2ece90eac4a64729e4d15151
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334885"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968198"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教學課程：使用 Azure 建立跨雲端縮放解決方案
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 了解如何建立可提供手動觸發程序的跨雲端解決方案，以透過流量管理員使用自動縮放功能，從 Azure Stack 託管的 Web 應用程式切換到 Azure 託管的 Web 應用程式，藉此確保雲端公用程式在處理負載時具有彈性且可調整。
 
@@ -60,7 +60,7 @@ ms.locfileid: "52334885"
 
 -   建立租用戶訂用帳戶中建立 Web 應用程式。 記下新的 Web 應用程式 URL，以供後續使用。
 
--   在租用戶訂用帳戶中部署 VSTS 虛擬機器。
+-   在租用戶訂用帳戶中部署 Azure Pipelines 虛擬機器。
 
 -   需要具有 .NET 3.5 的 Windows Server 2016 VM。 此 VM 將會建置在 Azure Stack 上的租用戶訂用帳戶中，作為私用組建代理程式。
 
@@ -99,140 +99,142 @@ ms.locfileid: "52334885"
 > [!Note]  
 > 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](../azure-stack-app-service-before-you-get-started.md)」區段。
 
-### <a name="add-code-to-visual-studio-team-services-project"></a>將程式碼新增至 Visual Studio Team Services 專案
+### <a name="add-code-to-azure-repos"></a>將程式碼新增至 Azure Repos
 
-1. 使用在 Visual Studio Team Services (VSTS) 上具有專案建立權限的帳戶登入 VSTS。
+Azure Repos
+
+1. 使用在 Azure Repos 上具有專案建立權限的帳戶登入 Azure Repos。
 
     混合式 CI/CD 可同時套用至應用程式程式碼和基礎結構程式碼。 使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/)進行私用與託管的雲端開發。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image1.JPG)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image1.JPG)
 
 2. 建立並開啟預設 Web 應用程式以**複製存放庫**。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image2.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image2.png)
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>為這兩個雲端中的應用程式服務建立獨立的 Web 應用程式部署
 
 1.  編輯 **WebApplication.csproj** 檔案。 選取 [Runtimeidentifier] 並新增 **win10-x64**。 (請參閱[獨立式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。) 
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image3.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image3.png)
 
-2.  使用 Team Explorer 將程式碼簽入 VSTS 中。
+2.  使用 Team Explorer 將程式碼簽入 Azure Repos 中。
 
-3.  確認應用程式程式碼已簽入 Visual Studio Team Services 中。
+3.  確認應用程式程式碼已簽入 Azure Repos 中。
 
 ## <a name="create-the-build-definition"></a>建立組建定義
 
-1. 登入 VSTS 以確認能夠建立組建定義。
+1. 登入 Azure Pipelines 以確認能夠建立組建定義。
 
 2. 新增 **-r win10-x64** 程式碼。 這是觸發 .Net Core 的獨立部署時所需的程式碼。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image4.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image4.png)
 
 3. 執行組建。 [獨立的部署組建](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)程序將會發佈可在 Azure 和 Azure Stack 上執行的成品。
 
 ## <a name="use-an-azure-hosted-agent"></a>使用 Azure 託管的代理程式
 
-在 VSTS 中使用託管的代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行維護和升級，以支援持續而不間斷的開發、測試和部署。
+在 Azure Pipelines 中使用託管的代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行維護和升級，以支援持續而不間斷的開發、測試和部署。
 
 ### <a name="manage-and-configure-the-cd-process"></a>管理和設定 CD 程序
 
-Visual Studio Team Services 和 Team Foundation Server (TFS) 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、QA 和生產環境)；包括特定階段需要核准。
+Azure Pipelines 和 Azure DevOps Server 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、QA 和生產環境)；包括特定階段需要核准。
 
 ## <a name="create-release-definition"></a>建立發行定義
 
-![替代文字](media\azure-stack-solution-cloud-burst\image5.png)
+![替代文字](media/azure-stack-solution-cloud-burst/image5.png)
 
 1.  在 VSO 的 [建置及發行] 頁面的 [發行] 索引標籤下選取**加號**，以新增發行。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image6.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image6.png)
 
 2. 套用 Azure App Service 部署範本。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image7.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image7.png)
 
 3. 在 [新增成品] 下，為 Azure 雲端建置應用程式新增成品。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image8.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image8.png)
 
 4. 在 [管線] 索引標籤下選取環境的 [階段]、[工作] 連結，並設定 Azure 雲端環境值。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image9.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image9.png)
 
 5. 設定 [環境名稱]，並選取 Azure 雲端端點的 Azure**訂用帳戶**。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image10.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image10.png)
 
 6. 在 [環境名稱] 下設定所需的 **Azure App Service 名稱**。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image11.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image11.png)
 
 7. 在 Azure 雲端託管環境的代理程式佇列下輸入 **Hosted VS2017**。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image12.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image12.png)
 
 8. 在 [部署 Azure App Service] 功能表中，為環境選取有效的**套件或資料夾**。 對**資料夾位置**選取 [確定]。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image13.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image13.png)
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image14.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image14.png)
 
 9. 儲存所有變更，並返回**發行管線**。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image15.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image15.png)
 
 10. 選取 Azure Stack 應用程式的組建，以新增成品。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image16.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image16.png)
 
 11. 再新增一個套用 Azure App Service 部署的環境。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image17.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image17.png)
 
 12. 將新環境命名為 Azure Stack。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image18.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image18.png)
 
 13. 在 [工作] 索引標籤下找出 Azure Stack 環境。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image19.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image19.png)
 
 14. 選取 Azure Stack 端點的訂用帳戶。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image20.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image20.png)
 
 15. 將 Azure Stack Web 應用程式名稱設定為 App Service 名稱。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image21.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image21.png)
 
 16. 選取 [Azure Stack 代理程式]。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image22.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image22.png)
 
 17. 在 [部署 Azure App Service] 區段下，為環境選取有效的**套件或資料夾**。 對資料夾位置選取 [確定]。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image23.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image23.png)
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image24.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image24.png)
 
 18. 在 [變數] 索引標籤下新增名為 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的變數，並將其值設定為 **true**，範圍設定為 Azure Stack。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image25.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image25.png)
 
 19. 選取兩個成品中的 [持續部署觸發程序] 圖示，並啟用**持續**部署觸發程序。
 
-    ![替代文字](media\azure-stack-solution-cloud-burst\image26.png)
+    ![替代文字](media/azure-stack-solution-cloud-burst/image26.png)
 
 20. 選取 Azure Stack 環境中的 [預先部署] 條件圖示，並將觸發程序設定為 [發行之後]。
 
 21. 儲存所有變更。
 
 > [!Note]  
-> 工作的某些設定可能已在從範本建立發行定義時自動定義為[環境變數](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)。 這些設定無法在工作設定中修改；而是必須選取父環境項目才能編輯這些設定
+> 工作的某些設定可能已在從範本建立發行定義時自動定義為[環境變數](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables)。 這些設定無法在工作設定中修改；而是必須選取父環境項目才能編輯這些設定
 
 ## <a name="publish-to-azure-stack-via-visual-studio"></a>透過 Visual Studio 發佈至 Azure Stack
 
-藉由建立端點，Visual Studio Online (VSTO) 組建可以將 Azure 服務應用程式部署到 Azure Stack。 VSTS 會連線至組建代理程式，後者再連線至 Azure Stack。
+藉由建立端點，Visual Studio Online (VSTO) 組建可以將 Azure 服務應用程式部署到 Azure Stack。 Azure Pipelines 會連線至組建代理程式，後者再連線至 Azure Stack。
 
 1.  登入 VSTO 並瀏覽至 [應用程式設定] 頁面。
 
@@ -254,32 +256,32 @@ Visual Studio Team Services 和 Team Foundation Server (TFS) 提供具有高度�
 
 10. 選取 [儲存變更]。
 
-端點資訊已存在，所以 VSTS 對 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 VSTS 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
+端點資訊已存在，所以 Azure Pipelines 對 Azure Stack 的連線已可供使用。 Azure Stack 中的組建代理程式會取得來自 Azure Pipelines 的指示，然後代理程式會傳達與 Azure Stack 進行通訊所需的端點資訊。
 
 ## <a name="develop-the-application-build"></a>開發應用程式組建
 
 > [!Note]  
 > 需要適當映像聯合執行的 Azure Stack (Windows Server 和 SQL) 及 App Service 部署。 檢閱 App Service 文件中適用於 Azure Stack 操作員的「[開始使用 Azure Stack 上的 App Service 之前](../azure-stack-app-service-before-you-get-started.md)」區段。
 
-請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 VSTS 的 Web 應用程式程式碼) 以部署至這兩個雲端。
+請使用 [Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/) (例如來自 Azure Repos 的 Web 應用程式程式碼) 以部署至這兩個雲端。
 
-### <a name="add-code-to-a-vsts-project"></a>將程式碼新增至 VSTS 專案
+### <a name="add-code-to-a-azure-repos-project"></a>將程式碼新增至 Azure Repos 專案
 
-1.  使用在 Azure Stack 上具有專案建立權限的帳戶登入 VSTS。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
+1.  使用在 Azure Stack 上具有專案建立權限的帳戶登入 Azure Repos。 下一個螢幕擷取畫面顯示如何連線至 HybridCICD 專案。
 
 2.  建立並開啟預設 Web 應用程式以**複製存放庫**。
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>為這兩個雲端中的應用程式服務建立獨立的 Web 應用程式部署
 
-1.  編輯 **WebApplication.csproj** 檔案：選取 [Runtimeidentifier]，然後新增 win10-x64。 如需詳細資訊，請參閱[獨立式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。
+1.  編輯 **WebApplication.csproj**檔案：選取 [Runtimeidentifier]，然後新增 win10-x64。 如需詳細資訊，請參閱[獨立式部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文件。
 
-2.  使用 Team Explorer 將程式碼簽入 VSTS。
+2.  使用 Team Explorer 將程式碼簽入 Azure Repos 中。
 
-3.  確認應用程式程式碼已簽入 Visual Studio Team Services 中。
+3.  確認應用程式程式碼已簽入 Azure Repos 中。
 
 ### <a name="create-the-build-definition"></a>建立組建定義
 
-1.  使用可以建立組建定義的帳戶來登入 VSTS。
+1.  使用可建立組建定義的帳戶登入 Azure Pipelines。
 
 2.  巡覽至專案的 [組建 Web 應用程式] 頁面。
 
@@ -289,23 +291,23 @@ Visual Studio Team Services 和 Team Foundation Server (TFS) 提供具有高度�
 
 #### <a name="use-an-azure-hosted-build-agent"></a>使用 Azure 託管的組建代理程式
 
-在 VSTS 中使用託管的組建代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行代理程式的維護和升級，以支援持續而不間斷的開發週期。
+在 Azure Pipelines 中使用託管的組建代理程式，是建置及部署 Web 應用程式的便利選項。 Microsoft Azure 會自動執行代理程式的維護和升級，以支援持續而不間斷的開發週期。
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>設定持續部署 (CD) 程序
 
-Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、品質保證 (QA) 和生產環境)。 此程序中可以包括在應用程式生命週期的特定階段要求核准。
+Azure Pipelines 和 Azure DevOps Server 提供具有高度設定和管理能力的管線，可用於對多個環境的發行 (例如開發、暫存、品質保證 (QA) 和生產環境)。 此程序中可以包括在應用程式生命週期的特定階段要求核准。
 
 #### <a name="create-release-definition"></a>建立發行定義
 
 建立發行定義是應用程式建置程序的最後一個步驟。 這個發行定義可用來建立發行並部署組建。
 
-1.  登入 VSTS，並瀏覽至專案的 [建置與發行]。
+1.  登入 Azure Pipelines，並瀏覽至專案的 [組建和發行]。
 
 2.  在 [發行] 索引標籤上，選取 [ + ]，然後挑選 [建立發行定義]。
 
 3.  在 [選取範本] 中，選擇 [Azure App Service 部署]，然後選取 [套用]。
 
-4.  在 [新增成品] 上，從**來源 (組建定義) 中選取 [Azure 雲端建置應用程式]。
+4.  在 [新增成品] 上，從 [來源 (組建定義)] 中選取 [Azure 雲端] 建置應用程式。
 
 5.  在 [管線] 索引標籤上，選取 [檢視環境工作] 的 [1 階段 1 個工作] 連結。
 
@@ -321,7 +323,7 @@ Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有
 
 11. 儲存所有變更，並返回 [管線]。
 
-12. 在 [管線] 索引標籤上，選取 [新增成品]，然後從**來源 (組建定義) **清單選擇 [NorthwindCloud Traders-Vessel]。
+12. 在 [管線] 索引標籤上，選取 [新增成品]，然後從 [來源 (組建定義)] 清單中選擇 [NorthwindCloud Traders-Vessel]。
 
 13. 在 [選取範本] 上，新增另一個環境。 挑選 [Azure App Service 部署]，然後選取 [套用]。
 
@@ -346,7 +348,7 @@ Visual Studio Team Services (VSTS) 和 Team Foundation Server (TFS) 提供具有
 23. 儲存所有變更。
 
 > [!Note]  
-> 發行工作的某些設定已在從範本建立發行定義時自動定義為[環境變數](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables)。 這些設定無法在工作設定中修改，但是可以在父環境項目中修改。
+> 發行工作的某些設定已在從範本建立發行定義時自動定義為[環境變數](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts&tabs=batch#custom-variables)。 這些設定無法在工作設定中修改，但是可以在父環境項目中修改。
 
 ## <a name="create-a-release"></a>建立發行
 

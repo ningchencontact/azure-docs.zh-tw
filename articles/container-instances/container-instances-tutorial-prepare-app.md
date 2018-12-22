@@ -1,21 +1,21 @@
 ---
-title: Azure Container Instances 教學課程 - 準備您的應用程式
-description: Azure 容器執行個體教學課程第 1 部分 (共 3 部分) - 準備應用程式以部署至 Azure 容器執行個體
+title: 教學課程 - 準備 Azure 容器執行個體的容器映像
+description: Azure 容器執行個體教學課程第 1 部分 (共 3 部分) - 在容器映像中準備應用程式以部署至 Azure 容器執行個體
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: dfe494eba64f546616e4e6cc9898f9d63d81eaa2
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: 029b4f2d0f0f88f56ca1f3e282d8c80e76f4d5c7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854774"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186407"
 ---
-# <a name="tutorial-create-container-for-deployment-to-azure-container-instances"></a>教學課程：建立容器以部署至 Azure Container Instances
+# <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>教學課程：建立容器影像以部署至 Azure 容器執行個體
 
 Azure Container Instances 能夠將 Docker 容器部署至 Azure 基礎結構，而不需要佈建任何虛擬機器，或採用較高層級的服務。 在本教學課程中，您會將小型 Node.js Web 應用程式封裝在可使用 Azure Container Instances 執行的容器中。
 

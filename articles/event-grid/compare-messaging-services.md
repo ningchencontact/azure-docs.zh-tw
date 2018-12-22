@@ -1,21 +1,22 @@
 ---
-title: Azure 傳訊服務比較
-description: 比較 Azure Event Grid、事件中樞，以及服務匯流排。 建議針對不同案例挑選服務。
+title: Azure 訊息比較 - 事件方格、事件中樞、服務匯流排
+description: 描述三個 Azure 訊息服務 - Azure 事件方格、事件中樞和服務匯流排。 建議針對不同案例挑選服務。
 services: event-grid
 author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 07/05/2018
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 28f80dc71afd7d4865763561682ce54de1b118ab
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.custom: seodec18
+ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852192"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166518"
 ---
-# <a name="choose-between-azure-services-that-deliver-messages"></a>在傳遞訊息的 Azure 服務之間進行選擇
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>選擇 Azure 訊息服務 - 事件方格、事件中樞和服務匯流排
 
 Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 這些服務為：
 
@@ -33,7 +34,7 @@ Azure 提供三種服務，協助在整個解決方案中傳遞事件訊息。 �
 
 事件是狀況或狀態變更的輕量級通知。 事件發行者不會預期事件的處理方式。 事件取用者會決定要如何處理通知。 事件可以是離散單位或系列的一部分。
 
-離散事件會報告狀態變更並可採取動作。 若要採取下一個步驟，取用者只需要知道發生狀況。 事件資料包含所發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知取用者檔案已建立。 通知中可能具有關於檔案的一般資訊，但不包含檔案本身。 離散事件非常適合需要調整的無伺服器解決方案。
+離散事件會報告狀態變更並可採取動作。 若要採取下一個步驟，取用者只需要知道發生狀況。 事件資料包含所發生事件的資訊，但沒有觸發該事件的資料。 例如，事件會通知取用者檔案已建立。 通知中可能具有關於檔案的一般資訊，但不包含檔案本身。 離散事件非常適合需要調整的[無伺服器](http://azure.com/serverless)解決方案。
 
 系列事件會報告狀況且可進行分析。 事件會依時間排序且相互關聯。 取用者需要循序的事件系列，才能分析所發生的狀況。
 

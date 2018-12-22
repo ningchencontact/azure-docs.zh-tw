@@ -1,6 +1,6 @@
 ---
-title: 在入口網站中建立 Azure 搜尋服務 | Microsoft Docs
-description: 在入口網站中佈建 Azure 搜尋服務。
+title: 在入口網站中建立 Azure 搜尋服務 - Azure 搜尋服務
+description: 在 Azure 入口網站中佈建 Azure 搜尋服務。 選擇資源群組、區域、SKU 或定價層。
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.custom: seodec2018
+ms.openlocfilehash: 2055ad9baff0c6acc05c9287ca1b8fb08731f8bc
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39713922"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315973"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>在入口網站中建立 Azure 搜尋服務
 
@@ -58,8 +59,7 @@ ms.locfileid: "39713922"
 做為 Azure 服務，Azure 搜尋服務可以裝載於世界各地的資料中心。 請注意，各地理位置的[價格可能不同](https://azure.microsoft.com/pricing/details/search/) 。
 
 ## <a name="select-a-pricing-tier-sku"></a>選取定價層 (SKU)
-
-  [Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
+[Azure 搜尋服務目前提供多個定價層](https://azure.microsoft.com/pricing/details/search/)︰免費、基本或標準。 每一層都有自己的[容量和限制](search-limits-quotas-capacity.md)。 請參閱[選擇定價層或 SKU](search-sku-tier.md) 以取得指導方針。
 
 一般對於生產工作負載通常會選擇標準服務，但大部分的客戶一開始都會使用免費服務。
 

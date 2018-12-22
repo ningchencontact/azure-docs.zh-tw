@@ -1,6 +1,6 @@
 ---
-title: 如何註冊 Azure Active Directory Premium 版本 | Microsoft Docs
-description: 如何註冊 Azure Active Directory Premium 版本的逐步指引。
+title: 註冊 Premium 版本 - Azure Active Directory | Microsoft Docs
+description: 關於如何註冊 Azure Active Directory Premium 版本的指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.custom: it-pro
-ms.openlocfilehash: a0a992e62e7b1e375ff2591aa82bdc7733e9d26f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 23778a56cfa6440442bd7aab67c5441094a633ae
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394692"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073987"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-premium"></a>如何：註冊 Azure Active Directory Premium
-您可以搭配您的 Azure 訂用帳戶購買 Azure Active Directory (Azure AD) Premium 並與其相關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
+# <a name="sign-up-for-azure-active-directory-premium-editions"></a>註冊 Azure Active Directory Premium 版本
+您可以使用您的 Azure 訂用帳戶來購買 Azure Active Directory (Azure AD) Premium 版本並與其產生關聯。 如果您需要建立新的 Azure 訂用帳戶，您也需要啟用授權方案及 Azure AD 服務存取。
 
 > [!NOTE]
 >Azure AD Premium 和 Basic 版本適用於使用全球 Azure Active Directory 執行個體的中國客戶。 由 21Vianet 在中國營運的 Azure 服務目前不支援 Azure AD Premium 和 Basic 版本。 如需詳細資訊，請使用 [Azure Active Directory 論壇](https://feedback.azure.com/forums/169401-azure-active-directory/) \(英文\) 與我們連絡。

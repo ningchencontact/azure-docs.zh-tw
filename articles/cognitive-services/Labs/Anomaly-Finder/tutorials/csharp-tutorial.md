@@ -1,5 +1,5 @@
 ---
-title: 教學課程：異常偵測 C#
+title: 教學課程：異常偵測 (C#)
 titlesuffix: Azure Cognitive Services
 description: 探索會使用異常偵測 API 的 C# 應用程式。 將原始資料點傳送到 API，並取得預期的值和異常點。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: f99ce765c1d9417fd5ca88b49214eca8a3b0bf49
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ea9083d530d9a94825b8c568ef4c3dbc847c44c0
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887644"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162455"
 ---
 # <a name="tutorial-anomaly-detection-with-c-application"></a>教學課程：使用 C# 應用程式進行異常偵測
 
@@ -35,7 +35,7 @@ ms.locfileid: "48887644"
 
 ## <a name="get-and-use-the-example"></a>取得和使用範例
 
-您可以將異常偵測範例應用程式從 [Github](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git) \(英文\) 複製到您的電腦。 
+您可以將異常偵測範例應用程式從 [GitHub](https://github.com/MicrosoftAnomalyDetection/csharp-sample.git) \(英文\) 複製到您的電腦。 
 <a name="Step1"></a>
 ### <a name="install-the-example"></a>安裝範例
 

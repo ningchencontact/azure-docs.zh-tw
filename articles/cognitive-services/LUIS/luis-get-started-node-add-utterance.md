@@ -1,23 +1,24 @@
 ---
-title: Node.js 快速入門 - 變更模型及訓練 LUIS 應用程式
+title: 變更、定型應用程式 (Node.js)
 titleSuffix: Azure Cognitive Services
-description: 在此 Node.js 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。 範例語句是對應到意圖的交談使用者文字。 您可以藉由提供與意圖相關的範例語句，教導 LUIS 哪些種類的使用者提供文字屬於哪種意圖。
+description: 在此 Node.js 快速入門中，會將範例語句新增至「家庭自動化」應用程式，並且將應用程式定型。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a487f44e164830928367d9f6ea737e793e38c0a8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8f1ff88dc917c665d04f7500c8022e6baf4c94bf
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036145"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164461"
 ---
-# <a name="quickstart-change-model-using-nodejs"></a>快速入門：使用 Node.js 來變更模型
+# <a name="quickstart-change-model-using-nodejs"></a>快速入門：使用 Node.js 變更模型
 
 [!INCLUDE [Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
@@ -28,7 +29,7 @@ ms.locfileid: "47036145"
 * 本文的 NPM 相依性：[**request**](https://www.npmjs.com/package/request)、[**request-promise**](https://www.npmjs.com/package/request-promise)、[**fs-extra**](https://www.npmjs.com/package/fs-extra)。  
 * [Visual Studio Code](https://code.visualstudio.com/)。
 
-[!INCLUDE [Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 
@@ -78,7 +79,7 @@ ms.locfileid: "47036145"
 
 呼叫 `npm start` 會新增語句、定型及取得定型狀態。
 
-```CMD
+```console
 > npm start 
 ```
 

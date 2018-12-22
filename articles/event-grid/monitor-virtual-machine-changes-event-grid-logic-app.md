@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 06fa9b9191104db3b141b6268a90a7c8f206280e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957917"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106068"
 ---
-# <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
+# <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>教學課程：使用 Azure Event Grid 和 Logic Apps 監視虛擬機器變更
 
 當 Azure 資源或第三方資源發生特定事件時，您可以啟動自動化[邏輯應用程式工作流程](../logic-apps/logic-apps-overview.md)。 這些資源可以將這些事件發佈至 [Azure Event Grid](../event-grid/overview.md)。 接著，Event Grid 會將這些事件發送給以佇列、Webhook 或[事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)作為端點的訂閱者。 身為訂閱者，邏輯應用程式可以先等待來自 Event Grid 的這些事件，再執行自動化工作流程來執行工作 - 您無須等待任何程式碼。
 
@@ -101,7 +101,7 @@ ms.locfileid: "49957917"
    | **訂用帳戶** | {virtual-machine-Azure-subscription} | 選取事件發行者的 Azure 訂用帳戶。 在本教學課程中，選取虛擬機器的 Azure 訂用帳戶。 | 
    | **資源類型** | Microsoft.Resources.resourceGroups | 選取事件發行者的資源類型。 在本教學課程中，選取指定的值，讓您的邏輯應用程式只監視資源群組。 | 
    | **資源名稱** | {virtual-machine-resource-group-name} | 選取發行者的資源名稱。 在此教學課程中，選取虛擬機器的資源群組名稱。 | 
-   | 針對選擇性設定，選擇 [顯示進階選項]。 | {see descriptions} | * **前置詞篩選條件**：在此教學課程中，將此設定保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，特定資源的路徑和參數。 <p>* **後置詞篩選條件**：在此教學課程中，將此設定保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，副檔名 (如果只想要特定檔案類型)。<p>* **訂用帳戶名稱**：提供事件訂用帳戶的唯一名稱。 |
+   | 針對選擇性設定，選擇 [顯示進階選項]。 | {see descriptions} | * **前置詞篩選**：在此教學課程中，將此設定保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，特定資源的路徑和參數。 <p>* **後置詞篩選**：在此教學課程中，將此設定保留空白。 預設行為會比對所有的值。 不過，您可以指定前置詞字串作為篩選條件，例如，副檔名 (如果只想要特定檔案類型)。<p>* **訂用帳戶名稱**：提供事件訂用帳戶的唯一名稱。 |
    | | | 
 
    當您完成時，Event Grid 觸發程序可能如此範例所示︰

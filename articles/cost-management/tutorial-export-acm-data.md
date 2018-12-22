@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: e671c75b1ceee0e42b3af9ddc149edf2f3b0040c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.custom: seodec18
+ms.openlocfilehash: 4614a1417213ed8b4d57c3b7ab21ac7424d75949
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087928"
 ---
-# <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立及管理匯出的資料
+# <a name="tutorial-create-and-manage-exported-data"></a>教學課程：建立和管理匯出的資料
 
 若您已閱讀過成本分析教學課程，您便已對手動下載成本管理資料相當熟悉。 但是，您可以建立週期性工作，每天、每週或每個月自動將您的成本管理資料匯出至 Azure 儲存體。 匯出的資料格式為 CSV，其中包含所有由成本管理收集的資訊。 您接著可以在 Azure 儲存體中，搭配外部系統使用匯出的資料，並與您擁有的自訂資料合併。 您也可以在外部系統 (例如儀表板或其他財務系統) 中使用您的匯出資料。
 
@@ -50,11 +50,11 @@ ms.locfileid: "51822349"
 
 輸入匯出的名稱，然後選取 [每日匯出月初至今的成本] 選項。 按 [下一步] 。
 
-![新的匯出：匯出類型](./media/tutorial-export-acm-data/basics_exports.png)
+![顯示匯出類型的新匯出範例](./media/tutorial-export-acm-data/basics_exports.png)
 
 為您的 Azure 儲存體帳戶名稱指定訂用帳戶，然後選取您的儲存體帳戶。  指定您希望匯出檔案移至的儲存體容器和目錄路徑。  按 [下一步] 。
 
-![新的匯出：儲存體](./media/tutorial-export-acm-data/storage_exports.png)
+![顯示儲存體帳戶詳細資料的新匯出範例](./media/tutorial-export-acm-data/storage_exports.png)
 
 檢閱匯出詳細資料，然後按一下 [建立]。
 
@@ -68,15 +68,15 @@ ms.locfileid: "51822349"
 
 在匯出清單中，按一下儲存體帳戶名稱。 在儲存體帳戶頁面上，按一下 [Open in Explorer] \(在總管中開啟\)。 若您看見確認方塊，請按一下 [是] 以在 Azure 儲存體總管中開啟檔案。
 
-![儲存體帳戶頁面](./media/tutorial-export-acm-data/storage-account-page.png)
+![顯示範例資訊和 [在總管中開啟] 連結的儲存體帳戶頁面](./media/tutorial-export-acm-data/storage-account-page.png)
 
 在 [儲存體總管] 中，巡覽至您想要開啟的容器，然後選取對應到目前月份的資料夾。 隨即顯示 CSV 檔案清單。 選取其中一個，然後按一下 [開啟]。
 
-![儲存體總管](./media/tutorial-export-acm-data/storage-explorer.png)
+![[儲存體總管] 中顯示的範例訊息](./media/tutorial-export-acm-data/storage-explorer.png)
 
 檔案隨即便會使用設為開啟 CSV 檔案副檔名的程式或應用程式開啟。 以下是 Excel 中的範例。
 
-![範例匯出資料](./media/tutorial-export-acm-data/example-export-data.png)
+![Excel 中顯示的範例匯出 CSV 資料](./media/tutorial-export-acm-data/example-export-data.png)
 
 ## <a name="access-exported-data-from-other-systems"></a>從其他系統存取匯出資料
 

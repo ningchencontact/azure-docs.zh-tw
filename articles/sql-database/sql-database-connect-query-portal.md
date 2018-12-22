@@ -12,87 +12,89 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/01/2018
-ms.openlocfilehash: d7b5c6b95cd11cd90f9d326e03e787a7196dcfd0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.date: 12/05/2018
+ms.openlocfilehash: fa46260fdd5623ba32da9979aaea8470139096b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913150"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091385"
 ---
-# <a name="quickstart-azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>快速入門：Azure 入口網站：使用 SQL 查詢編輯器進行連線並查詢資料
+# <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>快速入門：使用 Azure 入口網站的 SQL 查詢編輯器進行連線並查詢資料
 
-SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢，且不需要離開 Azure 入口網站。 此快速入門會示範如何使用查詢編輯器來連線至 SQL Database，然後使用 Transact-SQL 陳述式來查詢、插入、更新和刪除資料庫中的資料。
+SQL 查詢編輯器是 Azure 入口網站瀏覽器工具，提供簡單的方法在您的 Azure SQL Database 或 Azure SQL 資料倉儲上執行 SQL 查詢。 此快速入門會示範如何使用查詢編輯器連線至 SQL Database，然後使用 Transact-SQL 陳述式查詢、插入、更新及刪除資料。
 
 ## <a name="prerequisites"></a>必要條件
 
-本快速入門可作為在其中一個快速入門中所建立資源的起點︰
+若要完成本教學課程，您需要：
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
 > [!NOTE]
 > 在 SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的資料庫和資料倉儲。
 
-## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
+## <a name="sign-in-the-azure-portal"></a>登入 Azure 入口網站
 
 登入 [Azure 入口網站](https://portal.azure.com/)。
 
-
 ## <a name="connect-using-sql-authentication"></a>使用 SQL 驗證進行連線
 
-1. 從左側功能表中按一下 [SQL 資料庫]，然後按一下您要查詢的資料庫。
+1. 從左側功能表選取 [SQL Database]，然後選取 **mySampleDatabase**。
 
-2. 在您資料庫的 SQL 資料庫頁面上，尋找並按一下左側功能表中的 [查詢編輯器 (預覽)]。
+2. 在左側功能表中，尋找並選取 [查詢編輯器 (預覽)]。 此時會顯示 [登入] 頁面。
 
     ![尋找查詢編輯器](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. 按一下 [登入]，然後在出現提示時選取 [SQL Server 驗證]，接著提供建立資料庫時提供的伺服器管理員登入和密碼。
+3. 從 [授權類型] 下拉式選單中，選取 [SQL Server 驗證] 並輸入建立資料庫時所用伺服器系統管理員帳戶的使用者識別碼和密碼。
 
-    ![登入](./media/sql-database-connect-query-portal/login-menu.png)
+    ![登入](./media/sql-database-connect-query-portal/login-menu.png) 
 
-4. 按一下 [確定] 以登入。
+4. 選取 [確定] 。
 
 
-## <a name="connect-using-azure-ad"></a>使用 Azure AD 進行連線
+## <a name="connect-using-azure-active-directory"></a>使用 Azure Active Directory 連線
 
-設定 Active Directory 管理員，可讓您使用單一識別身分登入 Azure 入口網站和您的 SQL 資料庫。 請遵循下列步驟，為您建立的 SQL Server 設定 Active Directory 管理員。
+設定 Active Directory (AD) 系統管理員，可讓您使用單一識別身分登入 Azure 入口網站和您的 SQL 資料庫。 請遵循以下步驟設定您 SQL Server 的 AD 系統管理員。
 
 > [!NOTE]
-> 不支援使用電子郵件帳戶 (例如 outlook.com、hotmail.com、live.com、gmail.com 或 yahoo.com) 作為 Active Directory 管理員。 請務必選擇在 Azure Active Directory 原生建立的使用者，或是 Azure Active Directory 的同盟使用者。
+* AD 系統管理員尚未支援電子郵件帳戶 (例如 outlook.com、gmail.com、yahoo.com 等等)。 請務必選擇使用者在 Azure AD 中原生建立，或與 Azure AD 同盟的 AD 系統管理員。
+* Azure AD 系統管理員登入無法搭配已啟用 2 雙因素驗證的帳戶使用。
 
-1. 從左側功能表中選取 [SQL Server]，並從伺服器清單中選取您的 SQL Server。
+1. 請從左側功能表選取 [所有資源]，然後選取您的 SQL Server。
 
-2. 在 SQL Server 的設定功能表中，選取 [Active Directory 管理員] 設定。
+2. 從您 SQL Server 的 [設定] 功能表，選取 [Active Directory 系統管理員]。
 
-3. 在 [Active Directory 管理員] 刀鋒視窗中，按一下 [設定管理員] 命令，然後選取將成為 Active Directory 管理員的使用者或群組。
+3. 從 AD 系統管理員頁面工具列，選取 [設定系統管理員] 並選擇使用者或群組做為您的 AD 系統管理員。
 
     ![選取 Active Directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. 在 [Active Directory 管理員] 刀鋒視窗的頂端，按一下 [儲存] 命令，來設定您的 Active Directory 管理員。
+4. 從 AD 系統管理員頁面工具列，選取 [儲存]。
 
-瀏覽至您要查詢的 SQL 資料庫，從左側功能表按一下 [資料總管 (預覽)]。 資料總管分頁隨即開啟，並會自動將您連線至資料庫。
+5. 瀏覽至 **mySampleDatabase** 資料庫，然後從左側功能表選取 [查詢編輯器 (預覽)]。 此時會顯示 [登入] 頁面。 如果您是 AD 系統管理員，右側 [Active Directory 單一登入] 底下就會顯示說明您已經登入的訊息。 
+   
+6. 選取 [確定] 。
 
 
-## <a name="run-query-using-query-editor"></a>使用查詢編輯器執行查詢
+## <a name="view-data"></a>檢視資料
 
-經過驗證後，在查詢編輯器窗格中輸入下列查詢，即可查詢到依類別分類的前 20 個產品。
+1. 經過驗證後，在查詢編輯器中貼上以下 SQL，即可擷取到依類別分類的前 20 個產品。
 
-```sql
- SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
- FROM SalesLT.ProductCategory pc
- JOIN SalesLT.Product p
- ON pc.productcategoryid = p.productcategoryid;
-```
+   ```sql
+    SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName
+    FROM SalesLT.ProductCategory pc
+    JOIN SalesLT.Product p
+    ON pc.productcategoryid = p.productcategoryid;
+   ```
 
-按一下 [執行]，然後在 [結果] 窗格中檢閱查詢結果。
+2. 在工具列上，選取 [執行]，然後檢閱 [結果] 窗格中的輸出結果。
 
 ![查詢編輯器結果](./media/sql-database-connect-query-portal/query-editor-results.png)
 
-## <a name="insert-data-using-query-editor"></a>使用查詢編輯器插入資料
+## <a name="insert-data"></a>插入資料
 
-使用下列程式碼，藉由使用 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式將新產品插入 SalesLT.Product 資料表中。
+使用以下 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 陳述式在 `SalesLT.Product` 資料表中加入新產品。
 
-1. 在查詢視窗中，以下列查詢取代先前的查詢︰
+1. 使用此查詢取代先前的查詢。
 
    ```sql
    INSERT INTO [SalesLT].[Product]
@@ -114,13 +116,15 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
            ,GETDATE() );
    ```
 
-2. 在工具列上，按一下 [執行] 以在 Product 資料表中插入新資料列。
 
-## <a name="update-data-using-query-editor"></a>使用查詢編輯器更新資料
+2. 選取 [執行] 以在 Product 資料表中插入新資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
-使用下列程式碼，藉由使用 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式更新您先前新增的產品。
 
-1. 在查詢視窗中，以下列查詢取代先前的查詢︰
+## <a name="update-data"></a>更新資料
+
+使用以下 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 陳述式修改您的新產品。
+
+1. 使用此查詢取代先前的查詢。
 
    ```sql
    UPDATE [SalesLT].[Product]
@@ -128,45 +132,39 @@ SQL 查詢編輯器是瀏覽器查詢工具，可讓您有效率且輕鬆地在 
    WHERE Name = 'myNewProduct';
    ```
 
-2. 在工具列上，按一下 [執行] 以在 Product 資料表中更新指定的資料列。
+2. 選取 [執行] 以在 Product 資料表中更新指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
-## <a name="delete-data-using-query-editor"></a>使用查詢編輯器刪除資料
+## <a name="delete-data"></a>刪除資料
 
-使用下列程式碼，藉由使用 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 陳述式刪除您先前新增的產品。
+使用以下 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 陳述式移除您的新產品。
 
-1. 在查詢視窗中，以下列查詢取代先前的查詢︰
+1. 使用此查詢取代先前的查詢：
 
    ```sql
    DELETE FROM [SalesLT].[Product]
    WHERE Name = 'myNewProduct';
    ```
 
-2. 在工具列上，按一下 [執行] 以在 Product 資料表中刪除指定的資料列。
+2. 選取 [執行] 以在 Product 資料表中刪除指定的資料列。 [訊息] 窗格會顯示**成功的查詢：受影響的資料列：1**。
 
 
-## <a name="query-editor-considerations"></a>查詢編輯器的考量
+## <a name="query-editor-considerations"></a>查詢編輯器考量
 
-使用查詢編輯器時，有一些使用事項須注意：
+使用查詢編輯器時，有一些使用事項須注意。
 
-1. 在 Azure SQL Server 防火牆設定中，確定 [允許存取 Azure 服務] 選項已設為 [開啟]。 此選項會允許 SQL 查詢編輯器存取您的 SQL 資料庫和資料倉儲。
+* 您無法在虛擬網路中使用查詢編輯器查詢 SQL Server 資料庫。
 
-2. 如果 SQL 伺服器位於虛擬網路中，則無法使用查詢編輯器來查詢該伺服器中的資料庫。
+* 按下 F5 可重新整理查詢編輯器頁面，而且任何正在進行的查詢都會遺失。
 
-3. 按 F5 鍵將會重新整理 [查詢編輯器] 頁面，但會遺失正在處理的查詢。 使用工具列上的 [執行] 按鈕來執行查詢。
+* 查詢編輯器不支援連線到主要資料庫。
 
-4. 查詢編輯器不支援與主要 DB 連線
+* 查詢執行的逾時時間是 5 分鐘。
 
-5. 查詢執行的逾時時間是 5 分鐘。
+* 查詢編輯器僅支援地理資料類型的圓柱形投影。
 
-6. Azure Active Directory 管理員登入不適用於啟用雙因素驗證的帳戶。
-
-7. 不支援使用電子郵件帳戶 (例如 outlook.com、hotmail.com、live.com、gmail.com 或 yahoo.com) 作為 Active Directory 管理員。 請務必選擇在 Azure Active Directory 原生建立的使用者，或是 Azure Active Directory 的同盟使用者
-
-8. 查詢編輯器僅支援地理資料類型的圓柱形投影。
-
-9. 不支援用於資料庫表格和檢視的 IntelliSense。 不過，編輯器支援已輸入名稱的自動完成功能。
+* 不支援用於資料庫表格和檢視的 IntelliSense。 但編輯器支援已輸入名稱的自動完成功能。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若要深入了解 Azure SQL 資料庫中的 Transact-SQL 支援，請參閱 [SQL 資料庫中的 Transact-SQL 差異](sql-database-transact-sql-information.md)。
+若要深入了解 Azure SQL 資料庫中支援的 Transact-SQL，請參閱[解析移轉至 SQL 資料庫時的 Transact-SQL 差異](sql-database-transact-sql-information.md)。

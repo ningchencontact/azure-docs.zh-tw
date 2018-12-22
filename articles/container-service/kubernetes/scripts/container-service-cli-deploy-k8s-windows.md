@@ -3,7 +3,7 @@ title: Azure CLI 指令碼範例 - 建立 ACS Windows Kubernetes 叢集 | Micros
 description: Azure CLI 指令碼範例 - 建立 ACS Windows Kubernetes 叢集
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: iainfoulds
 manager: jeconnoc
 editor: ''
 tags: acs, azure-container-service
@@ -15,15 +15,17 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
-ms.author: nepeters
-ms.openlocfilehash: 7078b79685cbb8c593de4832377e841914082abe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: iainfou
+ms.openlocfilehash: 1f24f036858f9c77ed6b07af27617d3e3706bba2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447253"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001579"
 ---
-# <a name="create-an-azure-container-service-kubernetes-windows-cluster"></a>建立 Azure Container Service Kubernetes Windows 叢集
+# <a name="deprecated-create-an-azure-container-service-kubernetes-windows-cluster"></a>(即將淘汰) 建立 Azure Container Service Kubernetes Windows 叢集
+
+[!INCLUDE [ACS deprecation](../../../../includes/container-service-kubernetes-deprecation.md)]
 
 這個範例會針對以 Windows 為基礎的容器建立執行 Kubernetes 的 Azure Container Service 叢集。
 

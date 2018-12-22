@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 0a187bbc476738294e2f7f31de4e11ea92e604f9
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6a89333f32fb4ccc8fc4d4710266157fca16fe02
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977987"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164155"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>從 Azure 串流分析作業執行 Azure Functions 
 
@@ -35,34 +35,34 @@ ms.locfileid: "50977987"
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>設定串流分析作業以執行函式 
 
-本節示範如何設定串流分析作業，以執行將資料寫入至 Azure Redis 快取的函式。 串流分析作業會從 Azure 事件中樞讀取事件，並執行叫用函式的查詢。 此函式會從串流分析作業讀取資料，並將資料寫入至 Azure Redis 快取。
+本節示範如何設定串流分析作業，以執行可將資料寫入至 Azure Cache for Redis 的函式。 串流分析作業會從 Azure 事件中樞讀取事件，並執行叫用函式的查詢。 此函式會從串流分析作業讀取資料，並將資料寫入至 Azure Cache for Redis。
 
 ![顯示 Azure 服務之間關聯性的圖表](./media/stream-analytics-with-azure-functions/image1.png)
 
 完成這項工作的必要步驟如下：
 * [使用事件中樞做為輸入，建立串流分析工作](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* [建立 Azure Redis 快取執行個體](#create-an-azure-redis-cache-instance)  
-* [在 Azure Functions 中建立可將資料寫入至 Azure Redis Cache 的函式](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [建立 Azure Cache for Redis 執行個體](#create-an-azure-redis-cache-instance)  
+* [在 Azure Functions 中建立可將資料寫入至 Azure Cache for Redis 的函式](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
 * [使用函式做為輸出，更新串流分析作業](#update-the-stream-analytics-job-with-the-function-as-output)  
-* [檢查 Azure Redis 快取尋找結果](#check-azure-redis-cache-for-results)  
+* [檢查 Azure Cache for Redis 尋找結果](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>使用事件中樞做為輸入，建立串流分析作業
 
 請遵循[即時詐欺偵測](stream-analytics-real-time-fraud-detection.md)教學課程的說明，建立事件中樞，並啟動事件的產生器應用程式，再建立串流分析作業。 (略過建立查詢及輸出的步驟， 改為參閱以下幾節來設定 Functions 輸出。)
 
-## <a name="create-an-azure-redis-cache-instance"></a>建立 Azure Redis 快取執行個體
+## <a name="create-an-azure-cache-for-redis-instance"></a>建立 Azure Cache for Redis 執行個體
 
-1. 使用在[建立快取](../redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中所述的步驟，在 Azure Redis 快取中建立快取。  
+1. 使用在[建立快取](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中所述的步驟，在 Azure Cache for Redis 中建立快取。  
 
 2. 建立快取後，請在 [設定] 底下，選取 [存取金鑰]。 記下**主要連接字串**。
 
-   ![Azure Redis 快取連接字串的螢幕擷取畫面](./media/stream-analytics-with-azure-functions/image2.png)
+   ![Azure Cache for Redis 連接字串的螢幕擷取畫面](./media/stream-analytics-with-azure-functions/image2.png)
 
-## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache"></a>在 Azure Functions 中建立可將資料寫入至 Azure Redis Cache 的函式
+## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>在 Azure Functions 中建立可將資料寫入至 Azure Cache for Redis 的函式
 
 1. 請參閱 Functions 文件的[建立函式應用程式](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)一節。 這將逐步引導您使用 CSharp 語言建立函式應用程式和 [Azure Functions 中的 HTTP 觸發函式](../azure-functions/functions-create-first-azure-function.md#create-function)。  
 
-2. 瀏覽至 **run.csx** 函式。 將它更新為下列程式碼。 (請務必將「\<此處為您的 redis 快取連接字串\>」取代為您在上一節中擷取的 Azure Redis 快取主要連接字串。)  
+2. 瀏覽至 **run.csx** 函式。 將它更新為下列程式碼。 (請務必將「\<此處為您的 Azure Cache for Redis 連接字串\>」取代為您在上一節中擷取的 Azure Cache for Redis 主要連接字串。)  
 
    ```csharp
    using System;
@@ -85,7 +85,7 @@ ms.locfileid: "50977987"
       {        
          return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
       }
-      var connection = ConnectionMultiplexer.Connect("<your redis cache connection string goes here>");
+      var connection = ConnectionMultiplexer.Connect("<your Azure Cache for Redis connection string goes here>");
       log.Info($"Connection string.. {connection}");
     
       // Connection refers to a property that returns a ConnectionMultiplexer
@@ -185,17 +185,17 @@ ms.locfileid: "50977987"
     
 6.  啟動串流分析作業。
 
-## <a name="check-azure-redis-cache-for-results"></a>檢查 Azure Redis 快取尋找結果
+## <a name="check-azure-cache-for-redis-for-results"></a>檢查 Azure Cache for Redis 尋找結果
 
-1. 瀏覽至 Azure 入口網站，並找出您的 Azure Redis 快取。 選取 [主控台]。  
+1. 瀏覽至 Azure 入口網站，並找出您的 Azure Cache for Redis。 選取 [主控台]。  
 
-2. 使用 [Redis 快取命令](https://redis.io/commands)確認您的資料在 Redis 快取中。 (此命令接受 Get {key} 的格式。)例如︰
+2. 使用 [Azure Cache for Redis 命令](https://redis.io/commands)，確認您的資料在 Azure Cache for Redis 中。 (此命令接受 Get {key} 的格式。)例如︰
 
    **Get "12/19/2017 21:32:24 - 123414732"**
 
    此命令應該會列出指定索引鍵的值：
 
-   ![Azure Redis 快取輸出的螢幕擷取畫面](./media/stream-analytics-with-azure-functions/image5.png)
+   ![Azure Cache for Redis 輸出的螢幕擷取畫面](./media/stream-analytics-with-azure-functions/image5.png)
    
 ## <a name="error-handling-and-retries"></a>錯誤處理和重試
 如果在將事件傳送至 Azure Functions 時作業失敗，串流分析會進行重試以完成作業。 不過，某些失敗發生之後並不會進行重試，說明如下：
@@ -207,6 +207,8 @@ ms.locfileid: "50977987"
 ## <a name="known-issues"></a>已知問題
 
 在 Azure 入口網站中，您嘗試將最大批次大小/最大批次計數值重設為空 (預設值) 時，值將儲存時變更回先前輸入的值。 在此情況下，請手動將預設值輸入欄位。
+
+串流分析目前不支援在 Azure Functions 上使用 [Http 路由](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)。
 
 ## <a name="clean-up-resources"></a>清除資源
 

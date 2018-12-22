@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/31/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom: ''
+ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 7d319c82da09ec5c960e1f40bc26edce8ee372b9
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274418"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083558"
 ---
-# <a name="tutorial-manage-costs-by-using-cloudyn"></a>教學課程：使用 Cloudyn 來管理成本
+# <a name="tutorial-manage-costs-by-using-cloudyn"></a>教學課程：使用 Cloudyn 管理成本
 
 在 Cloudyn 中，您可以透過根據標記配置成本的方式，來管理成本並產生回報報告。 成本配置的程序會將成本指派給已使用的雲端資源。 當所有的資源都搭配標記完成分類之後，成本便會被完全配置。 在成本完成配置之後，您可以透過儀表板和報表為使用者提供回報或退款。 不過，當您開始使用 Cloudyn 時，有許多資源可能會被取消標記或是無法標記。
 
@@ -53,13 +53,11 @@ Cloudyn 會從 Azure 取得資源群組標記資料，並自動將標記資訊�
 
 若要建立自訂的成本配置模型，請選取報告功能表上的 [成本] &gt; [成本管理] &gt; [成本配置 360°]。
 
-![選取 [Cost Allocation 360] \(成本配置 360\)](./media/tutorial-manage-costs/cost-allocation-360.png)
+![顯示可供選取 Cost Allocation 360 的儀表板範例](./media/tutorial-manage-costs/cost-allocation-360.png)
 
 在 [Cost Allocation 360] \(成本配置 360\) 頁面上，選取 [Add] \(新增\)，然後輸入成本模型的名稱和描述。 您可以選取所有的帳戶，或是個別的帳戶。 如果您想要使用個別的帳戶，便可以選取來自多個雲端服務提供者的多個帳戶。 接下來，按一下 [Categorization] \(分類\) 來選擇能分類您成本資料的已探索標記。 選擇您想要包含在模型中的標記 (類別)。 下例中選取了 [Unit] \(單位\) 標記。
 
-![範例成本模型分類](./media/tutorial-manage-costs/cost-model01.png)
-
-
+![顯示成本模型分類的範例](./media/tutorial-manage-costs/cost-model01.png)
 
 範例顯示有 $19,680 美元是沒有分類的 (沒有標記)。
 
@@ -97,7 +95,7 @@ Cloudyn 會從 Azure 取得資源群組標記資料，並自動將標記資訊�
 
 下列影像顯示針對名為 **Work-Load** 的新類別所建立之規則的範例：
 
-![範例類別](./media/tutorial-manage-costs/category01.png)
+![顯示新工作負載類別的範例](./media/tutorial-manage-costs/category01.png)
 
 ### <a name="tag-sources-and-reports"></a>標記來源和報表
 
@@ -124,7 +122,7 @@ Cloudyn 實體標記和您手動建立的標記會出現在所有成本報表中
 
 若要檢視成本配置的結果，請開啟 [Cost Analysis] \(成本分析\) 報表，並選取您所建立的成本模型。 接著，依據一或多個於成本模型中選取的標記來新增群組。
 
-![[Cost Analysis] \(成本分析\) 報表](./media/tutorial-manage-costs/cost-analysis.png)
+![顯示新成本資料範例的成本分析報告](./media/tutorial-manage-costs/cost-analysis.png)
 
 您可以輕鬆建立並儲存著重於由特定群組所使用之特定服務的報表。 例如，您可能有一個會廣泛使用 Azure VM 的部門。 您可以建立針對 Azure VM 進行篩選的報表，以顯示使用情況和成本。
 

@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: 變更, 追蹤, 自動化
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e4ea8f92a562ea4bc90df98d6e459377b9886777
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1df3fcad8a30b0d79f40aecc353684b7356fe061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844901"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190011"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>針對您環境中的變更進行疑難排解
 
@@ -117,7 +117,7 @@ ConfigurationChange
 |群組     | 用於將檔案以邏輯方式分組的群組名稱        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"         |
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
 
 ### <a name="add-a-linux-file"></a>新增 Linux 檔案
 
@@ -135,7 +135,7 @@ ConfigurationChange
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄<br>**遵循** - 遵循遞迴期間的符號連結，而且包含參考的檔案/目錄<br>**管理** - 遵循符號連結並允許變更所傳回內容的處理方式      |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
 
    > [!NOTE]
    > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。
@@ -177,12 +177,11 @@ ConfigurationChange
 
 若要在 Azure 入口網站中針對停止的服務新增警示，請移至 [監視器]。 然後在 [共用服務] 下選取 [警示]，並按一下 [+ 新增警示規則]
 
-在 [1. 定義警示條件] 下，按一下 [+ 選取目標]。 在 [依資源類型篩選] 下，選取 [Log Analytics]。 選取您的 Log Analytics 工作區，然後選取 [完成]。
+按一下 [選取] 來選擇資源。 在 [選取資源] 頁面上，從 [依資源類型篩選] 下拉式清單中選取 [Log Analytics]。 選取您的 Log Analytics 工作區，然後選取 [完成]。
 
 ![選取資源](./media/automation-tutorial-troubleshoot-changes/select-a-resource.png)
 
-選取 [+ 新增準則]。
-在 [設定訊號邏輯] 之下的資料表中，選取 [自訂記錄檔搜尋]。 在 [搜尋查詢] 文字方塊中，輸入下列查詢：
+按一下 [新增條件]，在 [設定訊號邏輯] 頁面的資料表中，選取 [自訂記錄搜尋]。 在 [搜尋查詢] 文字方塊中，輸入下列查詢：
 
 ```loganalytics
 ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName == "W3SVC" and SvcState == "Stopped" | summarize by Computer
@@ -194,11 +193,9 @@ ConfigurationChange | where ConfigChangeType == "WindowsServices" and SvcName ==
 
 ![設定訊號邏輯](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-在 **2.** 定義警示詳細資料 之下，輸入警示的名稱和描述。 將 [嚴重性] 設定為 [資訊 (Sev 2)]、[警告 (Sev 1)] 或 [重大 (Sev 0)]。
+在 [動作群組] 下方，選取 [新建]。 動作群組是一組可讓您跨多個警示使用的動作。 這些動作可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../azure-monitor/platform/action-groups.md)。
 
-![定義警示詳細資料](./media/automation-tutorial-troubleshoot-changes/define-alert-details.png)
-
-在 [3. 定義動作群組] 之下，選取 [新增動作群組]。 動作群組是一組可讓您跨多個警示使用的動作。 這些動作可包括 (但不限於) 電子郵件通知、Runbook、Webhook 和等多種項目。 若要深入了解動作群組，請參閱[建立及管理動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)。
+在 [警示詳細資料] 之下，輸入警示的名稱和描述。 將 [嚴重性] 設定為 [資訊 (Sev 2)]、[警告 (Sev 1)] 或 [重大 (Sev 0)]。
 
 在 [動作群組名稱] 方塊中，輸入警示名稱和簡短名稱。 使用這個群組傳送通知時，會使用簡短名稱來取代完整的動作群組名稱。
 

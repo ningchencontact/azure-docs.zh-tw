@@ -1,5 +1,5 @@
 ---
-title: 在 Azure (預覽) 中執行自訂 Windows 容器 | Microsoft Docs
+title: 執行自訂 Windows 容器 (預覽) - Azure App Service | Microsoft Docs
 description: 了解如何將自訂 Windows 容器部署至 Azure App Service。
 services: app-service\web
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 09/17/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: e2d058cfe6d6a31f557708277902063e51f54bc5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.custom: seodec18
+ms.openlocfilehash: 0883784d5c7f833556a07f2bc6431470febdc4c7
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971360"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384151"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>在 Azure (預覽) 中執行自訂 Windows 容器
 
-[Azure App Service](app-service-web-overview.md) 會在 Windows 上提供預先定義的應用程式堆疊 (例如 ASP.NET 或 Node.js)，執行於 IIS 上。 預先設定的 Windows 環境會鎖定作業系統的系統管理存取、軟體安裝、對全域組件快取的變更等作業 (請參閱 [Azure App Service 上的作業系統功能](web-sites-available-operating-system-functionality.md))。 如果您的應用程式需要的存取超出預先設定的環境所允許的，您可以改為部署自訂 Windows 容器。 此快速入門說明如何將 Windows 映像中的 ASP.NET 應用程式從 Visual Studio 部署到至 [Docker Hub](https://hub.docker.com/)，並在 Azure App Service 中使用自訂容器執行它。
+[Azure App Service](app-service-web-overview.md) 會在 Windows 上提供預先定義的應用程式堆疊 (例如 ASP.NET 或 Node.js)，執行於 IIS 上。 預先設定的 Windows 環境會鎖定作業系統的系統管理存取、軟體安裝、對全域組件快取的變更等作業 (請參閱 [Azure App Service 上的作業系統功能](operating-system-functionality.md))。 如果您的應用程式需要的存取超出預先設定的環境所允許的，您可以改為部署自訂 Windows 容器。 此快速入門說明如何將 Windows 映像中的 ASP.NET 應用程式從 Visual Studio 部署到至 [Docker Hub](https://hub.docker.com/)，並在 Azure App Service 中使用自訂容器執行它。
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
@@ -52,7 +52,7 @@ ms.locfileid: "46971360"
 
 選取 [啟用 Docker Compose 支援]。
 
-選取 [確定]。
+選取 [確定] 。
 
 ![[新增 ASP.NET 專案] 對話方塊](./media/app-service-web-get-started-windows-container/select-mvc-template.png)
 

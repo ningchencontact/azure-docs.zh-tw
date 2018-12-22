@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Translator Text API？
+title: 什麼是 Translator Text API？ - 翻譯工具文字 API
 titlesuffix: Azure Cognitive Services
 description: 將翻譯工具文字 API 整合到您的應用程式、網站、工具與其他解決方案，以提供多語言使用者體驗。
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
-ms.date: 05/10/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 9d1c5fac9e305e397e0184653e6d8965f9098ee3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.custom: seodec18
+ms.openlocfilehash: eed06d64e81196bbd6964aa33840f37dc5f14dbc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037442"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091606"
 ---
 # <a name="what-is-translator-text-api"></a>什麼是翻譯工具文字 API？
 

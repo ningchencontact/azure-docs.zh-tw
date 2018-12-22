@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用 Python SDK 偵測並框出影像中的人臉
+title: 快速入門：使用 Python SDK 來偵測並框出影像中的臉部
 titleSuffix: Azure Cognitive Services
 description: 在此快速入門中，您會建立簡單的 Python 指令碼，以使用臉部 API 來偵測並框出遠端影像中的人臉。
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: dc84014f3dce027c830f3f46b4aba16b775251d8
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 1e35d650f6fc99bff5bf49e517e2b38fcdc58dde
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853144"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076996"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入門：建立 Python 指令碼來偵測並框出影像中的臉部
 
@@ -28,14 +28,18 @@ ms.locfileid: "51853144"
 - 臉部 API 訂用帳戶金鑰。 您可以從[試用認知服務](https://azure.microsoft.com/try/cognitive-services/?api=face-api)取得免費的試用訂用帳戶金鑰。 或是，依照[建立認知服務帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)中的指示訂閱臉部 API 服務並取得金鑰。
 - [Python 2.7+ 或 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) 工具
-- 臉部 API Python SDK。 您可以執行下列命令來安裝它：
-    ```bash
-    pip install cognitive_face
-    ```
+
+## <a name="get-the-face-sdk"></a>取得臉部 SDK
+
+透過開啟命令提示字元並執行下列命令，來安裝臉部 Python SDK：
+
+```shell
+pip install cognitive_face
+```
 
 ## <a name="detect-faces-in-an-image"></a>偵測影像中的人臉
 
-建立新的 Python 指令碼 (FaceQuickstart.py)。 新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
+建立名為 _FaceQuickstart.py_ 的新 Python 指令碼，並新增下列程式碼。 這是臉部偵測的核心功能。 您必須使用您的金鑰值取代 `<Subscription Key>`。 您可能也需要變更 `BASE_URL` 的值，以使用金鑰的正確區域識別碼 (請參閱[臉部 API 文件](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)以取得所有區域端點的清單)。 **westus** 區域會產生免費試用的訂用帳戶金鑰。 (選擇性) 將 `img_url` 設定為所要使用影像的 URL。
 
 此指令碼會藉由呼叫 **cognitive_face.face.detect** 方法來偵測臉部，此方法會包裝[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API，並傳回臉部清單。
 

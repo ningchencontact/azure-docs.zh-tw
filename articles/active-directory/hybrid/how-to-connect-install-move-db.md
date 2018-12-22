@@ -10,12 +10,12 @@ ms.topic: get-started-article
 ms.date: 03/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a42deb6bc039602c4bda523d2ab1ee5a69bb5644
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbc86405225cca0d5144b48b113cf41607ce16f4
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303531"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434115"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>將 Azure AD Connect 資料庫從 SQL Server Express 移至 SQL Server 
 
@@ -30,7 +30,7 @@ ms.locfileid: "46303531"
 使用下列步驟將 Azure AD Connect 資料庫移至遠端 SQL Server。
 
 1.  在 Azure AD Connect 伺服器上，移至 [服務] 並停止 [Microsoft Azure AD 同步] 服務。
-2. 找到 **%Program Files%\Microsoft Azure AD Sync/Data/** 資料夾，然後將 **ADSync.mdf** 和 **ADSync_log.mdf** 檔案複製到遠端 SQL Server。
+2. 找出 **%Program Files%\Microsoft Azure AD Sync/Data/** 資料夾，然後將 **ADSync.mdf** 和 **ADSync_log.ldf** 檔案複製到遠端 SQL Server。
 3. 在 Azure AD Connect 伺服器上重新啟動 [Microsoft Azure AD 同步] 服務。
 4. 移至 [控制台] -> [程式] -> [程式和功能]，將 Azure AD Connect 解除安裝。  選取 Microsoft Azure AD Connect 並按一下最上方的 [解除安裝]。
 5. 在遠端 SQL Server 上，開啟 SQL Server Management Studio。

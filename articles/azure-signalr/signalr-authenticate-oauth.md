@@ -1,33 +1,26 @@
 ---
-title: Azure SignalR 服務用戶端驗證教學課程 | Microsoft Docs
+title: Azure SignalR 服務用戶端驗證教學課程
 description: 在本教學課程中，您將會了解如何驗證 Azure SignalR 服務用戶端
-services: signalr
-documentationcenter: ''
 author: sffamily
-manager: cfowler
-editor: ''
-ms.assetid: ''
 ms.service: signalr
-ms.workload: tbd
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
 ms.author: zhshang
-ms.openlocfilehash: 8751e3485b97b67fd8dd4821480fecd7735c08cd
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: beaedf754df2b1c4739c5dfb2abcdc40c163dc81
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268507"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254117"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>教學課程：Azure SignalR 服務驗證
 
-本教學課程會以快速入門中所介紹的聊天室應用程式為基礎。 如果您尚未完成[使用 SignalR 服務建立聊天室](signalr-quickstart-dotnet-core.md)，請先完成該項練習。 
+本教學課程會以快速入門中所介紹的聊天室應用程式為基礎。 如果您尚未完成[使用 SignalR 服務建立聊天室](signalr-quickstart-dotnet-core.md)，請先完成該項練習。
 
-在本教學課程中，您將了解如何實作自己的驗證，並讓它與 Microsoft Azure SignalR 服務進行整合。 
+在本教學課程中，您將了解如何實作自己的驗證，並讓它與 Microsoft Azure SignalR 服務進行整合。
 
-對於真實案例來說，快速入門的聊天室應用程式最初所使用的驗證服務過於簡單。 該應用程式可讓每個用戶端宣告其身分，而伺服器就只會接受該項宣告。 這個方法不太適用於真實應用程式，因為惡意使用者會模擬其他人來存取敏感性資料。 
+對於真實案例來說，快速入門的聊天室應用程式最初所使用的驗證服務過於簡單。 該應用程式可讓每個用戶端宣告其身分，而伺服器就只會接受該項宣告。 這個方法不太適用於真實應用程式，因為惡意使用者會模擬其他人來存取敏感性資料。
 
 [GitHub](https://github.com/) 會根據常用的業界標準通訊協定 [OAuth](https://oauth.net/) 來提供驗證 API。 這些 API 可讓第三方應用程式驗證 GitHub 帳戶。 在本教學課程中，您會使用這些 API 透過 GitHub 帳戶實作驗證，接著再允許用戶端登入聊天室應用程式。 在驗證 GitHub 帳戶後，系統便會將帳戶資訊新增為 Cookie 以供 Web 用戶端用來驗證。
 
@@ -37,9 +30,7 @@ ms.locfileid: "48268507"
 
 本教學課程的程式碼可於 [AzureSignalR-samples GitHub 存放庫](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/GitHubChat)下載。
 
-
 ![OAuth 已在 Azure 中完成裝載](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
-
 
 在本教學課程中，您了解如何：
 
@@ -56,10 +47,9 @@ ms.locfileid: "48268507"
 
 * 已在 [GitHub](https://github.com/) 建立帳戶
 * [Git](https://git-scm.com/)
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows) 
+* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
 * [已設定 Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* 下載或複製 [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub 存放庫。
-
+* 下載或複製 [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) \(英文\) GitHub 存放庫。
 
 ## <a name="create-an-oauth-app"></a>建立 OAuth 應用程式
 
@@ -80,7 +70,6 @@ ms.locfileid: "48268507"
 
         dotnet user-secrets set GitHubClientId Your_GitHub_Client_Id
         dotnet user-secrets set GitHubClientSecret Your_GitHub_Client_Secret
-
 
 ## <a name="implement-the-oauth-flow"></a>實作 OAuth 流程
 
@@ -127,7 +116,7 @@ ms.locfileid: "48268507"
         });
     ```
 
-4. 將 `GetUserCompanyInfoAsync` 協助程式方法新增至 `Startup` 類別。    
+4. 將 `GetUserCompanyInfoAsync` 協助程式方法新增至 `Startup` 類別。
 
     ```csharp
     private static async Task GetUserCompanyInfoAsync(OAuthCreatingTicketContext context)
@@ -149,14 +138,14 @@ ms.locfileid: "48268507"
             });
             context.Principal.AddIdentity(companyIdentity);
         }
-    }        
+    }
     ```
 
 5. 使用下列程式碼更新啟動類別的 `Configure` 方法，然後儲存檔案。
 
-        app.UseAuthentication();
-
-
+    ```csharp
+    app.UseAuthentication();
+    ```
 
 ### <a name="add-an-authentication-controller"></a>新增驗證控制器
 
@@ -189,14 +178,14 @@ ms.locfileid: "48268507"
                 return Redirect("/");
             }
         }
-    }    
+    }
     ```
 
-3. 儲存您的變更。    
+3. 儲存您的變更。
 
 ### <a name="update-the-hub-class"></a>更新中樞類別
 
-依預設，當 Web 用戶端嘗試連線到 SignalR 服務時，系統會根據內部所提供的存取權杖來授與連線。 此存取權杖與已驗證的身分識別沒有關聯。 這項存取實際上是匿名存取。 
+依預設，當 Web 用戶端嘗試連線到 SignalR 服務時，系統會根據內部所提供的存取權杖來授與連線。 此存取權杖與已驗證的身分識別沒有關聯。 這項存取實際上是匿名存取。
 
 在本節中，您會開啟實際的驗證，方法是在中樞類別中新增 `Authorize` 屬性，並將中樞方法更新為從已驗證使用者的宣告讀取使用者名稱。
 
@@ -265,7 +254,7 @@ ms.locfileid: "48268507"
         }
         return '';
     }
-    var username = getCookie('githubchat_username');    
+    var username = getCookie('githubchat_username');
     ```
 
 2. 在為了使用 Cookie 所新增的程式碼正下方，針對 `appendMessage` 函式新增下列定義：
@@ -327,8 +316,8 @@ ms.locfileid: "48268507"
             messageInput.focus();
             event.preventDefault();
         });
-    }    
-    ```    
+    }
+    ```
 
 4. 在 index.html 底部，如下所示地更新 `connection.start()` 的錯誤處理常式，以提示使用者登入。
 
@@ -349,13 +338,11 @@ ms.locfileid: "48268507"
         });
     ```
 
-5. 儲存您的變更。    
-
-
+5. 儲存您的變更。
 
 ## <a name="build-and-run-the-app-locally"></a>於本機建置並執行應用程式
 
-1. 儲存所有檔案的變更。 
+1. 儲存所有檔案的變更。
 
 2. 使用 .NET Core CLI 建置應用程式，在命令殼層中執行下列命令：
 
@@ -371,22 +358,21 @@ ms.locfileid: "48268507"
         Hosting environment: Production
         Content root path: E:\Testing\chattest
         Now listening on: http://localhost:5000
-        Application started. Press Ctrl+C to shut down.    
+        Application started. Press Ctrl+C to shut down.
 
-4. 啟動瀏覽器視窗並瀏覽至 `http://localhost:5000`。 按一下頂端的**這裡**連結以使用 GitHub 登入。 
+4. 啟動瀏覽器視窗並瀏覽至 `http://localhost:5000`。 按一下頂端的**這裡**連結以使用 GitHub 登入。
 
     ![OAuth 已在 Azure 中完成裝載](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
 
-    系統會提示您授權聊天應用程式存取您的 GitHub 帳戶。 按一下 [授權] 按鈕。 
-    
+    系統會提示您授權聊天應用程式存取您的 GitHub 帳戶。 按一下 [授權] 按鈕。
+
     ![授權 OAuth 應用程式](media/signalr-authenticate-oauth/signalr-authorize-oauth-app.png)
-    
+
     系統會將您重新導向回到聊天應用程式，並讓您使用您的 GitHub 帳戶名稱登入。 Web 應用程式會藉由使用您所新增的驗證來對您進行驗證，以決定您的帳戶名稱。
 
     ![已識別帳戶](media/signalr-authenticate-oauth/signalr-oauth-account-identified.png)
 
-    聊天應用程式現在會使用 GitHub 執行驗證，並將驗證資訊儲存為 Cookie，所以您接著應該將其部署至 Azure，讓其他使用者可以使用他們的帳戶進行驗證，並從其他工作站進行通訊。 
-
+    聊天應用程式現在會使用 GitHub 執行驗證，並將驗證資訊儲存為 Cookie，所以您接著應該將其部署至 Azure，讓其他使用者可以使用他們的帳戶進行驗證，並從其他工作站進行通訊。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -401,7 +387,6 @@ az extension add -n signalr
 ```
 
 在建立下列資源時，請務必使用 SignalR 服務資源所在的相同資源群組。 當您之後想要移除所有資源時，這種方法會讓清除作業變得更容易。 所提供的範例假設您使用先前教學課程中所建議的群組名稱 SignalRTestResources。
-
 
 ### <a name="create-the-web-app-and-plan"></a>建立 Web 應用程式和方案
 
@@ -426,18 +411,13 @@ az appservice plan create --name $WebAppPlan --resource-group $ResourceGroupName
 # Create the new Web App
 az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
-
-
 ```
-
 
 | 參數 | 說明 |
 | -------------------- | --------------- |
-| resourceGroupName | 這是先前的教學課程中所建議的資源群組名稱。 您最好將所有教學課程的資源群組在一起。 使用您在先前的教學課程中所使用的相同資源群組。 | 
-| WebAppPlan | 輸入全新且唯一的 App Service 方案名稱。 | 
-| WebAppName | 這會是新 Web 應用程式的名稱，並且是 URL 的一部分。 使用唯一名稱。 例如，signalrtestwebapp22665120。   | 
-
-
+| resourceGroupName | 這是先前的教學課程中所建議的資源群組名稱。 您最好將所有教學課程的資源群組在一起。 使用您在先前的教學課程中所使用的相同資源群組。 |
+| WebAppPlan | 輸入全新且唯一的 App Service 方案名稱。 |
+| WebAppName | 這會是新 Web 應用程式的名稱，並且是 URL 的一部分。 使用唯一名稱。 例如，signalrtestwebapp22665120。   |
 
 ### <a name="add-app-settings-to-the-web-app"></a>在 Web 應用程式中新增應用程式設定
 
@@ -467,7 +447,7 @@ WebAppName=myWebAppName
 signalRhostname=$(az signalr show --name $SignalRServiceResource \
     --resource-group $ResourceGroupName --query hostName -o tsv)
 
-# Get the SignalR primary key 
+# Get the SignalR primary key
 signalRprimarykey=$(az signalr key list --name $SignalRServiceResource \
     --resource-group $ResourceGroupName --query primaryKey -o tsv)
 
@@ -477,27 +457,24 @@ connstring="Endpoint=https://$signalRhostname;AccessKey=$signalRprimarykey;"
 #Add an app setting to the web app for the SignalR connection
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "Azure__SignalR__ConnectionString=$connstring" 
+    --settings "Azure__SignalR__ConnectionString=$connstring"
 
 #Add the app settings to use with GitHub authentication
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "GitHubClientId=$GitHubClientId" 
+    --settings "GitHubClientId=$GitHubClientId"
 az webapp config appsettings set --name $WebAppName \
     --resource-group $ResourceGroupName \
-    --settings "GitHubClientSecret=$GitHubClientSecret" 
-
+    --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
 | 參數 | 說明 |
 | -------------------- | --------------- |
 | GitHubClientId | 對此變數指派您 GitHub OAuth 應用程式的祕密用戶端識別碼。 |
 | GitHubClientSecret | 對此變數指派您 GitHub OAuth 應用程式的祕密密碼。 |
-| resourceGroupName | 將此變數更新為您在上一節中所使用的相同資源群組名稱。 | 
-| SignalRServiceResource | 使用您在快速入門中所建立的 SignalR 服務資源名稱來更新此變數。 例如，signalrtestsvc48778624。 | 
-| WebAppName | 使用您在上一節中所建立的新 Web 應用程式名稱來更新此變數。 | 
-
-
+| resourceGroupName | 將此變數更新為您在上一節中所使用的相同資源群組名稱。 |
+| SignalRServiceResource | 使用您在快速入門中所建立的 SignalR 服務資源名稱來更新此變數。 例如，signalrtestsvc48778624。 |
+| WebAppName | 使用您在上一節中所建立的新 Web 應用程式名稱來更新此變數。 |
 
 ### <a name="configure-the-web-app-for-local-git-deployment"></a>設定本機 Git 部署的 Web 應用程式
 
@@ -524,19 +501,16 @@ az webapp deployment user set --user-name $DeploymentUserName \
 az webapp deployment source config-local-git --name $WebAppName \
     --resource-group $ResourceGroupName \
     --query [url] -o tsv
-
 ```
 
 | 參數 | 說明 |
 | -------------------- | --------------- |
 | DeploymentUserName | 選擇新的部署使用者名稱。 |
 | DeploymentUserPassword | 選擇新的部署使用者密碼。 |
-| resourceGroupName | 使用您在上一節中所使用的相同資源群組名稱。 | 
-| WebAppName | 這會是您先前所建立的新 Web 應用程式的名稱。 | 
-
+| resourceGroupName | 使用您在上一節中所使用的相同資源群組名稱。 |
+| WebAppName | 這會是您先前所建立的新 Web 應用程式的名稱。 |
 
 記下從這個命令傳回的 Git 部署 URL。 您稍後會用到這個 URL。
-
 
 ### <a name="deploy-your-code-to-the-azure-web-app"></a>將您的程式碼部署至 Azure Web 應用程式
 
@@ -544,24 +518,32 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 1. 瀏覽至您專案目錄的根目錄。 如果您沒有使用 Git 存放庫所初始化的專案，請執行下列命令：
 
-        git init
+    ```bash
+    git init
+    ```
 
 2. 針對您稍早所記下的 Git 部署 URL 新增遠端：
 
-        git remote add Azure <your git deployment url>
+    ```bash
+    git remote add Azure <your git deployment url>
+    ```
 
 3. 將所有檔案暫存在已初始化的存放庫中，然後新增認可。
 
-        git add -A
-        git commit -m "init commit"
+    ```bash
+    git add -A
+    git commit -m "init commit"
+    ```
 
-4. 將您的程式碼部署至 Azure 中的 Web 應用程式。        
+4. 將您的程式碼部署至 Azure 中的 Web 應用程式。
 
-        git push Azure master
+    ```bash
+    git push Azure master
+    ```
 
     系統會提示您進行驗證，以將程式碼部署至 Azure。 輸入您在上面針對部署使用者所建立的使用者名稱和密碼。
 
-### <a name="update-the-github-oauth-app"></a>更新 GitHub OAuth 應用程式 
+### <a name="update-the-github-oauth-app"></a>更新 GitHub OAuth 應用程式
 
 您需要執行的最後一件事是將 GitHub OAuth 應用程式的**首頁 URL** 和**授權回呼 URL** 更新為指向新裝載的應用程式。
 
@@ -574,33 +556,27 @@ az webapp deployment source config-local-git --name $WebAppName \
     | 首頁 URL | https://signalrtestwebapp22665120.azurewebsites.net/home |
     | 授權回呼 URL | https://signalrtestwebapp22665120.azurewebsites.net/signin-github |
 
-
 3. 瀏覽至您的 Web 應用程式 URL，並測試應用程式。
 
     ![OAuth 已在 Azure 中完成裝載](media/signalr-authenticate-oauth/signalr-oauth-complete-azure.png)
-
 
 ## <a name="clean-up-resources"></a>清除資源
 
 如果您準備繼續進行下一個教學課程，則可以保留在本快速入門中所建立的資源，並在下一個教學課程中重複使用它們。
 
-否則，如果您已完成快速入門範例應用程式，便可以將在此快速入門中所建立的 Azure 資源刪除，以避免衍生費用。 
+否則，如果您已完成快速入門範例應用程式，便可以將在此快速入門中所建立的 Azure 資源刪除，以避免衍生費用。
 
 > [!IMPORTANT]
 > 刪除資源群組是無法回復的動作，資源群組和其內的所有資源將會永久刪除。 請確定您不會不小心刪除錯誤的資源群組或資源。 如果您是在包含有需要保留之資源的現有資源群組內，建立用來裝載此範例的資源，則可以從每個資源各自的刀鋒視窗中個別刪除每個資源，而不必刪除正個資源群組。
-> 
-> 
 
 登入 [Azure 入口網站](https://portal.azure.com)，然後按一下 [資源群組]。
 
 在 [依名稱篩選...] 文字方塊中，輸入您的資源群組名稱。 本文的指示是使用名為 SignalRTestResources 的資源群組。 在結果清單中的目標資源群組上方，按一下 **...**，然後按一下 [刪除資源群組]。
 
-   
 ![刪除](./media/signalr-authenticate-oauth/signalr-delete-resource-group.png)
 
-
 系統將會要求您確認是否刪除資源。 輸入您的資源群組名稱來確認，然後按一下 [刪除]。
-   
+
 片刻過後，系統便會刪除該資源群組及其所有內含的資源。
 
 ## <a name="next-steps"></a>後續步驟

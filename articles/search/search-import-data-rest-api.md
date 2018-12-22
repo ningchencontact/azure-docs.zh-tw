@@ -1,6 +1,6 @@
 ---
-title: 上傳資料 (REST API - Azure 搜尋服務) | Microsoft Docs
-description: 了解如何使用 REST API 將資料上傳至 Azure 搜尋服務中的索引。
+title: 使用搜尋服務 REST API 以程式碼上傳資料 - Azure 搜尋服務
+description: 了解如何使用 HTTP 要求與 REST API，將資料上傳至 Azure 搜尋服務中全文檢索的可搜尋索引。
 author: brjohnstmsft
 manager: jlembicz
 ms.author: brjohnst
@@ -9,11 +9,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 04/20/2018
-ms.openlocfilehash: 53b20c9db7efe1f8876eec7c0167dc151aa38786
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.custom: seodec2018
+ms.openlocfilehash: b3044ec3fb21e77c5174ebd5a6b2dabd2282240f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312845"
 ---
 # <a name="upload-data-to-azure-search-using-the-rest-api"></a>使用 REST API 將資料上傳至 Azure 搜尋服務
 > [!div class="op_single_selector"]

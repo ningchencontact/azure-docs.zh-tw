@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2018
+ms.date: 12/11/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: f8f7d43d4b42f5236c6c8d25c88314043053b0cc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 9085bea06553bcb2b8cf871153ddd1fb767c04f4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445699"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277738"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：利用成本分析探索及分析成本
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>快速入門：使用成本分析探索及分析成本
 
 您必須先了解成本源自組織內的何處，才能正確地控制 Azure 成本並進行最佳化。 了解您服務成本的價值，以及支援哪些環境和系統也很實用。 使各個層面的成本透明化，對於精確地了解組織費用模式而言至關重要。 費用模式可用於強制執行成本控制機制 (例如預算)。
 
@@ -43,7 +43,7 @@ ms.locfileid: "52445699"
 
 ## <a name="sign-in-to-azure"></a>登入 Azure
 
-- 在 http://portal.azure.com 登入 Azure 入口網站。
+- 在 https://portal.azure.com 登入 Azure 入口網站。
 
 ## <a name="review-costs-in-cost-analysis"></a>在成本分析中檢閱成本
 
@@ -63,7 +63,7 @@ ms.locfileid: "52445699"
 
 **樞紐分析圖 (環圈圖)** – 提供動態樞紐分析，將總成本依一組常用的標準屬性進行細分。 其會以最高到最低的方式，顯示當月累算的成本。 您隨時都可選取不同的樞紐分析表來變更樞紐分析圖。 成本分類依據：服務 (計量類別)、位置 (區域)，以及子範圍 (預設)。 例如，計費帳戶下的註冊帳戶、訂用帳戶下的資源群組，以及資源群組下的資源。
 
-![成本分析的最初檢視](./media/quick-acm-cost-analysis/cost-analysis-01.png)
+![Azure 入口網站中的成本分析初始檢視](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
 ## <a name="customize-cost-views"></a>自訂成本檢視
 
@@ -76,21 +76,23 @@ ms.locfileid: "52445699"
 
 成本分析預設會顯示當月的資料。 使用日期選取器可快速切換到：上個月、這個月、這個曆季、這個曆年或您選擇的自訂日期範圍。 選取上個月是分析最新 Azure 發票並輕鬆核對費用的最快速方式。 當季和當年選項有助於針對較長期的預算追蹤成本。 您也可以選取其他日期範圍。 例如，您可選取單一天、過去七天，或是當月之前一年內的任何日期範圍。
 
-![日期選取器](./media/quick-acm-cost-analysis/date-selector.png)
+![顯示本月份範例選取項目的日期選取器](./media/quick-acm-cost-analysis/date-selector.png)
 
 此外，成本分析預設會顯示**累積**的成本。 累積的成本包含除了前幾天之外每一天的所有成本，適用於對您每日累算的成本進行持續成長的檢視。 此檢視已經過最佳化，可顯示對照於所選時間範圍，您的預算趨勢為何。
 
 另外，還有**每日**檢視，可顯示每一天的成本。 每日檢視並不會顯示成長趨勢。 因為成本尖峰或下降每日各有不同，所以該檢視設計為可顯示異常。 若您選取了預算，則每日檢視也會顯示每日預算的估計值。 若您的每日成本持續高於估計的每日預算，則您可預期將會超過每月預算。 估計的每日預算只是協助您在較低層級將預算視覺化的一種方法。 當您的每日成本出現波動時，則相較於您的每月預算，估計的每日預算較不精準。
 
-![每日檢視](./media/quick-acm-cost-analysis/daily-view.png)
+一般而言，您可以預期在八小時內看到已耗用資源的資料或通知。
+
+![顯示目前月份每日成本範例的每日檢視](./media/quick-acm-cost-analysis/daily-view.png)
 
 您可以**分組**，以選取群組類別來變更顯示於最上方總計區域圖表中的資料。 分組可讓您快速查看費用如何依據常見資源和使用方式屬性 (例如資源群組或資源標記) 來分類。 若要依據標記分組，請選取您要作為分組依據的標記索引鍵，您將會看到每個標記值的成本細項及一個額外區段，此區段會顯示未套用該標記的資源。 請注意，只有在資源標記直接套用到資源的那天起，成本管理才會支援資源標記。 目前不支援資源群組標記。 以下是上個月檢視的 Azure 服務成本檢視。
 
-![已分組的每日累積檢視](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
+![已分組的每日累積檢視，顯示上個月的 Azure 服務成本範例](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
 主要圖表下的樞紐分析圖會顯示不同的群組，可讓您用更廣泛的視角來檢視所選期間和篩選條件下的整體成本。 選取屬性或標記來檢視以任何維度彙總的成本。 總檢視的完整資料集位於畫面底部，可藉由展開 [資料] 隱藏式選單，或在畫面頂端選取 [匯出] > [下載 CSV] 來加以檢視。 以下是資源群組的 [資料] 隱藏式選單範例。
 
-![目前檢視的完整資料](./media/quick-acm-cost-analysis/full-data-set.png)
+![目前檢視的完整資料，顯示資源群組名稱](./media/quick-acm-cost-analysis/full-data-set.png)
 
 上圖顯示資源群組名稱。 雖然您可以依標記分組來檢視每個標記的總成本，但您無法在任何成本分析檢視中檢視每個資源或資源群組的所有標記。
 

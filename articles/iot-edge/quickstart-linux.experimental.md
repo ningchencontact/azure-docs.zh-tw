@@ -1,6 +1,6 @@
 ---
-title: 快速入門 Azure IoT Edge + Linux | Microsoft Docs
-description: 在本快速入門中，請了解如何將預先建置的程式碼從遠端部署至 IoT Edge 裝置。
+title: 快速入門：在 Linux 上建立 Azure IoT Edge 裝置 | Microsoft Docs
+description: 在本快速入門中，了解如何建立 IoT Edge 裝置，然後從 Azure 入口網站遠端部署預先建置的程式碼。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,13 +8,13 @@ ms.date: 10/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 639eea43f9302ab5a4f298da3777b1b4d5259987
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 1bc7425d1979b2e1a35884c0800117455aebe9b6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52500202"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338051"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>快速入門：將您的第一個 IoT Edge 模組部署至 Linux x64 裝置
 
@@ -27,7 +27,7 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 3. 在裝置上安裝並啟動 IoT Edge 執行階段。
 4. 將模組從遠端部署到 IoT Edge 裝置。
 
-![快速入門架構](./media/quickstart-linux/install-edge-full.png)
+![圖表 - 裝置和雲端的快速入門架構](./media/quickstart-linux/install-edge-full.png)
 
 本快速入門會讓 Linux 電腦或虛擬機器變成 IoT Edge 裝置。 接著，您可以從 Azure 入口網站將模組部署至裝置。 您在本快速入門中部署的模組是一個模擬感應器，會產生溫度、溼度和壓力資料。 其他 Azure IoT Edge 教學課程會以您在此所做的工作為基礎，部署模組來分析模擬資料以產生商業見解。
 
@@ -55,19 +55,23 @@ Azure IoT Edge 會將雲端的強大功能移至您的物聯網裝置。 在本�
 
 IoT Edge 裝置：
 
-* 當作 IoT Edge 裝置的 Linux 裝置或虛擬機器。 如果您想要在 Azure 中建立虛擬機器，請使用下列命令快速展開作業：
+* 當作 IoT Edge 裝置的 Linux 裝置或虛擬機器。 建議您使用 Microsoft 提供的 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 虛擬機器，它會預先安裝 IoT Edge 執行階段。 請使用下列命令建立此虛擬機器：
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   當您建立新的虛擬機器時，請記住在建立命令輸出中提供的 **publicIpAddress**。 您稍後會在本快速入門中使用此公用 IP 位址來連線到虛擬機器。
+   當您建立新的虛擬機器時，請記住在建立命令輸出中提供的 **publicIpAddress**。 您稍後將在本快速入門中使用此公用 IP 位址來連線到虛擬機器。
+
+* 如果您想要在本機系統上執行 Azure IoT Edge 執行階段，請依照[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)的指示操作。
+
+* 如果您想要使用 ARM32 型裝置 (例如 Raspberry Pi)，請依照[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)的指示操作。
 
 ## <a name="create-an-iot-hub"></a>建立 IoT 中樞
 
 使用 Azure CLI 建立 IoT 中樞，開始進行此快速入門。
 
-![建立 IoT 中樞](./media/quickstart-linux/create-iot-hub.png)
+![圖表 - 在雲端建立 IoT 中樞](./media/quickstart-linux/create-iot-hub.png)
 
 此快速入門適用於 IoT 中樞的免費層級。 如果您在過去已使用過 IoT 中樞，並已建立可用的中樞，您可以使用該 IoT 中樞。 每個訂用帳戶只能有一個免費的 IoT 中樞。 
 
@@ -82,7 +86,7 @@ IoT Edge 裝置：
 ## <a name="register-an-iot-edge-device"></a>註冊 IoT Edge 裝置
 
 向新建立的 IoT 中樞註冊 IoT Edge 裝置。
-![註冊裝置](./media/quickstart-linux/register-device.png)
+![圖表 - 使用 IoT 中樞身分識別註冊裝置](./media/quickstart-linux/register-device.png)
 
 建立模擬裝置的裝置身分識別，以便與 IoT 中樞通訊。 裝置身分識別存在於雲端，您可以使用唯一的裝置連接字串，讓實體裝置與裝置身分識別建立關聯。 
 
@@ -104,91 +108,30 @@ IoT Edge 裝置：
 
 3. 複製連接字串，並加以儲存。 您將在下一節中使用此值設定 IoT Edge 執行階段。 
 
-## <a name="install-and-start-the-iot-edge-runtime"></a>安裝並啟動 IoT Edge 執行階段
+## <a name="connect-the-iot-edge-device-to-iot-hub"></a>將 IoT Edge 裝置連線至 IoT 中樞
 
 在您的 IoT Edge 裝置上安裝並啟動 Azure IoT Edge 執行階段。 
-![註冊裝置](./media/quickstart-linux/start-runtime.png)
+![圖表 - 在裝置上啟動執行階段](./media/quickstart-linux/start-runtime.png)
 
 IoT Edge 執行階段會在所有 IoT Edge 裝置上部署。 它有三個元件。 **IoT Edge 安全性精靈**會在每次 Edge 裝置開機時啟動，並藉由啟動 IoT Edge 代理程式來啟動該裝置。 **IoT Edge 代理程式**有助於在 IoT Edge 裝置 (包括 IoT Edge 中樞) 上部署及監視模組。 **IoT Edge 中樞**會管理 IoT Edge 裝置上的模組通訊，以及裝置與 IoT 中樞之間的通訊。 
 
 在執行階段設定期間，您必須提供裝置連接字串。 請使用您從 Azure CLI 擷取到的字串。 這個字串會讓實體裝置與 Azure 中的 IoT Edge 裝置身分識別建立關聯。 
 
-### <a name="connect-to-your-iot-edge-device"></a>連線到 IoT Edge 裝置
+### <a name="set-the-connection-string-on-the-iot-edge-device"></a>設定 IoT Edge 裝置的連接字串
 
-本節中的步驟全都在 IoT Edge 裝置上進行。 如果您使用自己的機器作為 IoT Edge 裝置，則可略過這個部分。 如果您使用虛擬機器或次要硬體，您會想要立即連線到該機器。 
+* 如果您要在 Ubuntu 虛擬機器上使用 Azure IoT Edge，請使用您稍早複製的裝置連接字串，從遠端設定您的 IoT Edge 裝置：
 
-如果您為此快速入門建立了 Azure 虛擬機器，請擷取建立命令所輸出的公用 IP 位址。 您也可在 Azure 入口網站中您虛擬機器的 [概觀] 頁面上找到該公用 IP 位址。 使用下列命令連線到您的虛擬機器。 以您的電腦位址取代 **{publicIpAddress}**。 
-
-```azurecli-interactive
-ssh azureuser@{publicIpAddress}
-```
-
-### <a name="register-your-device-to-use-the-software-repository"></a>註冊裝置以使用軟體存放庫
-
-要執行 IoT Edge 執行階段所需的套件可於軟體存放庫中進行管理。 請設定 IoT Edge 裝置以存取此存放庫。 
-
-本節中的步驟適用於執行 **Ubuntu 16.04** 的x64 裝置。 若要存取其他 Linux 版本或裝置架構上的軟體存放庫，請參閱[在 Linux (x64) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux.md)或[在 Linux (ARM32v7/armhf) 上安裝 Azure IoT Edge 執行階段](how-to-install-iot-edge-linux-arm.md)。
-
-1. 在要作為 IoT Edge 裝置的機器上，安裝存放庫組態。
-
-   ```bash
-   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
+   ```azurecli-interactive
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
    ```
 
-2. 安裝用以存取存放庫的公開金鑰。
+   在其餘的步驟中，請擷取建立命令所輸出的公用 IP 位址。 您也可在 Azure 入口網站中您虛擬機器的 [概觀] 頁面上找到該公用 IP 位址。 使用下列命令連線到您的虛擬機器。 以您的電腦位址取代 **{publicIpAddress}**。 
 
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   ```azurecli-interactive
+   ssh azureuser@{publicIpAddress}
    ```
 
-### <a name="install-a-container-runtime"></a>安裝容器執行階段
-
-IoT Edge 執行階段是一組容器，而部署至 IoT Edge 裝置的邏輯會封裝為容器。 安裝容器執行階段，讓您的裝置準備好使用這些元件。
-
-1. 更新 **apt-get**。
-
-   ```bash
-   sudo apt-get update
-   ```
-
-2. 安裝 **Moby**，此為容器執行階段。
-
-   ```bash
-   sudo apt-get install moby-engine
-   ```
-
-3. 安裝 Moby 的 CLI 命令。 
-
-   ```bash
-   sudo apt-get install moby-cli
-   ```
-
-### <a name="install-and-configure-the-iot-edge-security-daemon"></a>安裝並設定 IoT Edge 安全性精靈
-
-安全性精靈會安裝為系統服務，以便在每次裝置開機時啟動 IoT Edge 執行階段。 此安裝也包含某個版本的 **hsmlib**，它可讓安全性精靈與裝置的硬體安全性互動。 
-
-1. 下載並安裝 IoT Edge 安全性精靈。 
-
-   ```bash
-   sudo apt-get update
-   sudo apt-get install iotedge
-   ```
-
-2. 開啟 IoT Edge 組態檔。 此檔案受到保護，因此您可能必須使用提高的權限才能加以存取。
-   
-   ```bash
-   sudo nano /etc/iotedge/config.yaml
-   ```
-
-3. 新增 IoT Edge 裝置連接字串。 找出 **device_connection_string** 變數，並使用您在註冊裝置時複製的字串來更新其值。 這個連接字串會讓實體裝置與您在 Azure 中建立的裝置身分識別產生關聯。
-
-4. 儲存並關閉檔案。 
-
-   `CTRL + X`、`Y`, `Enter`
-
-5. 重新啟動 IoT Edge 安全性精靈，以套用您的變更。
+* 如果您要在本機電腦或 ARM32 裝置上執行 IoT Edge，請開啟位於 /etc/iotedge/config.yaml 的組態檔，並以您稍早複製的值更新 **device_connection_string** 變數，然後重新啟動 IoT Edge 安全性精靈以套用您的變更：
 
    ```bash
    sudo systemctl restart iotedge
@@ -228,7 +171,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 ## <a name="deploy-a-module"></a>部署模組
 
 從雲端管理您的 Azure IoT Edge 裝置，以部署會將遙測資料傳送到 IoT 中樞的模組。
-![註冊裝置](./media/quickstart-linux/deploy-module.png)
+![圖表 - 將模組從雲端部署到裝置](./media/quickstart-linux/deploy-module.png)
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
@@ -236,7 +179,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 在此快速入門中，您可以建立新的 IoT Edge 裝置，並在其中安裝 IoT Edge 執行階段。 然後，您會使用 Azure 入口網站來推送 IoT Edge 模組，讓其無須變更裝置本身就能在裝置上執行。 在此案例中，您推送的模組會建立可在教學課程中使用的環境資料。
 
-在您的 IoT Edge 裝置上再次開啟命令提示字元。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
+在您的 IoT Edge 裝置上再次開啟命令提示字元，或從 Azure CLI 使用 SSH 連線。 確認從雲端部署的模組正在 IoT Edge 裝置上執行：
 
    ```bash
    sudo iotedge list
@@ -254,7 +197,7 @@ IoT Edge 裝置現已設定完成。 並已準備好執行雲端部署的模組�
 
 如果您在記錄中看到的最後一行是 `Using transport Mqtt_Tcp_Only`，則表示溫度感應器模組可能正在等候連線至 Edge 中樞。 請嘗試終止此模組，並讓 Edge 代理程式重新啟動模組。 您可以使用 `sudo docker stop tempSensor` 命令來終止模組。
 
-您也可以使用[適用於 Visual Studio Code 的 Azure IoT 工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)，查看送達 IoT 中樞的訊息。 
+您也可以使用[適用於 Visual Studio Code 的 Azure IoT 中樞工具組擴充功能](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為 Azure IoT 工具組擴充功能)，查看送達 IoT 中樞的訊息。 
 
 ## <a name="clean-up-resources"></a>清除資源
 

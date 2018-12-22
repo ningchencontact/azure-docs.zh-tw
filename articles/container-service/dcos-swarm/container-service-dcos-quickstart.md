@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 快速入門 - 部署 DC/OS 叢集
+title: (已淘汰) Azure Container Service 快速入門 - 部署 DC/OS 叢集
 description: Azure Container Service 快速入門 - 部署 DC/OS 叢集
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4cd7f2284f3449fe8abdf1a6f8e85b9b0b712d7a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: efaf82c3f378f572c289b587dbe5df1923a58c62
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998554"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000525"
 ---
-# <a name="deploy-a-dcos-cluster"></a>部署 DC/OS 叢集
+# <a name="deprecated-deploy-a-dcos-cluster"></a>(已淘汰) 部署 DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS 所提供的分散式平台可執行現代及容器化的應用程式。 透過 Azure Container Service 可簡單又快速地佈建生產環境就緒 DC/OS 叢集。 本快速入門將詳細說明部署 DC/OS 叢集和執行基本工作負載所需的基本步驟。
 

@@ -15,16 +15,16 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: Thomas.Roettinger
-ms.openlocfilehash: a914d20f61b5b632e792ca29f6c201964db4a203
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0516ee7a8319b85765280b4c84f5febec8343ada
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452134"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965610"
 ---
 # <a name="manage-physical-memory-capacity-for-azure-stack"></a>管理 Azure Stack 的實際記憶體容量
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 若要提高 Azure Stack 的總可用記憶體容量，您可以新增其他記憶體。 在 Azure Stack 中，您的實體伺服器也稱為「縮放單位節點」。 所有屬於單一縮放單位成員的縮放單位節點都必須具有相同的記憶體數量。
 
@@ -33,7 +33,7 @@ ms.locfileid: "47452134"
 
 下列流程圖顯示將記憶體新增至每個縮放單位節點的一般程序。
 
-![將記憶體新增至每個縮放單位節點](media\azure-stack-manage-storage-physical-capacity\process-to-add-memory-to-scale-unit.png)
+![將記憶體新增至每個縮放單位節點](media/azure-stack-manage-storage-physical-capacity/process-to-add-memory-to-scale-unit.png)
 
 ## <a name="add-memory-to-an-existing-node"></a>將記憶體新增至現有的節點
 下列步驟提供新增記憶體程序的高階概觀。 

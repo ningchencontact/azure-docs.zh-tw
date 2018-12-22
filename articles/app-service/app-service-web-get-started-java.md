@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建立第一個 Java Web 應用程式
+title: 建立 Java Web 應用程式 - Azure App Service
 description: 藉由部署基本 Java 應用程式，了解如何在 App Service 中執行 Web 應用程式。
 services: app-service\web
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 854ae54992a1389ec7c7f7892c738d070421264d
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.custom: seodec18
+ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283923"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253149"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](http://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
+[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
 
 > [!NOTE]
 >
-> 本快速入門中的步驟示範如何使用 Eclipse IDE，來 Java Web 應用程式發佈至 App Service，但是您可以使用 IntelliJ IDEA Ultimate Edition 或 Community Edition。 如需詳細資訊，請參閱[使用 IntelliJ 建立 Azure Hello World Web 應用程式](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)。
+> 本快速入門中的步驟示範如何使用 Eclipse IDE，來將 Java Web 應用程式發佈至 App Service，但是您也可以使用 IntelliJ IDEA Ultimate Edition 或 Community Edition。 如需詳細資訊，請參閱[使用 IntelliJ 建立 Azure Hello World Web 應用程式](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app)。
 >
 
 當您完成本快速入門，在網頁瀏覽器中檢視您的應用程式時，看起來會如下圖所示：
@@ -41,7 +41,7 @@ ms.locfileid: "30283923"
 
 若要完成本快速入門，請安裝：
 
-* 免費的 <a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>。 本快速入門使用 Eclipse Neon。
+* 免費的 <a href="https://www.eclipse.org/downloads/" target="_blank">Eclipse IDE for Java EE Developers</a>。 本快速入門使用 Eclipse Neon。
 * <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">適用於 Eclipse 的 Azure 工具組</a>。
 
 > [!NOTE]
@@ -87,7 +87,7 @@ ms.locfileid: "30283923"
 
 > [!NOTE]
 >
-> 如果您在參照遺失 Java Servlet 類別的第 1 行上看到錯誤，您可以忽略它。
+> 如果您在第 1 行看到錯誤，指出有 Java Servlet 類別遺失，請直接忽略即可。
 > 
 > ![良性 Java Servlet 錯誤](./media/app-service-web-get-started-java/java-servlet-benign-error.png)
 >
@@ -121,8 +121,8 @@ ms.locfileid: "30283923"
 * 選取 Azure 訂用帳戶。
 * 在 [App Service 方案] 索引標籤上：
 
-  * **新建**：保留預設值，這是 App Service 方案的名稱。
-  * **位置**︰選取 [西歐]，或您附近的區域。
+  * **建立新項目**：保留預設值，這是 App Service 方案的名稱。
+  * **位置**：選取 [西歐] 或您附近的區域。
   * **定價層**：選取免費選項。 如需詳細資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)。
 
    ![建立 App Service 對話方塊](./media/app-service-web-get-started-java/create-app-service-dialog-box.png)

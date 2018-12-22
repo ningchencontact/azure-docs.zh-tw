@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中建置 PHP 和 MySQL Web 應用程式 | Microsoft Docs
+title: 建置搭配 MySQL 的 PHP 應用程式- Azure App Service |Microsoft Docs
 description: 了解如何取得在 Azure 中運作的 PHP 應用程式，並連線至 Azure 中的 MySQL 資料庫。
 services: app-service\web
 documentationcenter: php
@@ -14,13 +14,13 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 9a1468c27e668663ca9079f5f1c9e5e97e51d2d5
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.custom: seodec18
+ms.openlocfilehash: a20373e43780cea10e550ae968deb2a8720b9a9f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291278"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251669"
 ---
 # <a name="tutorial-build-a-php-and-mysql-web-app-in-azure"></a>教學課程：在 Azure 中建置 PHP 和 MySQL Web 應用程式
 
@@ -49,9 +49,9 @@ ms.locfileid: "52291278"
 若要完成本教學課程：
 
 * [安裝 Git](https://git-scm.com/)
-* [安裝 PHP 5.6.4 或更新版本](http://php.net/downloads.php)
+* [安裝 PHP 5.6.4 或更新版本](https://php.net/downloads.php)
 * [安裝編輯器](https://getcomposer.org/doc/00-intro.md)
-* 啟用下列 PHP 擴充功能 Laravel 需求︰OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
+* 啟用 Laravel 所需的下列 PHP 擴充功能：OpenSSL、PDO-MySQL、Mbstring、Tokenizer、XML
 * [下載並啟動 MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## <a name="prepare-local-mysql"></a>準備本機 MySQL
@@ -598,9 +598,9 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 若要隨時停止記錄資料流，輸入 `Ctrl`+`C`。
 
 > [!TIP]
-> PHP 應用程式可以使用標準 [error_log()](http://php.net/manual/function.error-log.php) 輸出到主控台。 範例應用程式會在 _app/Http/routes.php_ 中使用這種方法。
+> PHP 應用程式可以使用標準 [error_log()](https://php.net/manual/function.error-log.php) 輸出到主控台。 範例應用程式會在 _app/Http/routes.php_ 中使用這種方法。
 >
-> 如同 web 架構，[Laravel 會使用 Monolog](https://laravel.com/docs/5.4/errors) 作為記錄提供者。 若要了解如何使 Monolog 將訊息輸出至主控台，請參閱 [PHP︰如何使用 Monolog 記錄至主控台 (php://out)](http://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)。
+> 如同 web 架構，[Laravel 會使用 Monolog](https://laravel.com/docs/5.4/errors) 作為記錄提供者。 若要查看如何讓 Monolog 將訊息輸出至主控台，請參閱 [PHP:如何使用 Monolog 來記錄至主控台 (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out)。
 >
 >
 

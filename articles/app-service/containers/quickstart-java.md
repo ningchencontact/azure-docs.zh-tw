@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上的 Azure App Service 中建立 Java Web 應用程式的快速入門
+title: 在 Linux 上建立 Java Web 應用程式 - Azure App Service
 description: 在本快速入門中，您將在短短幾分鐘內在 Linux 上的 Azure App Service 中部署第一個 Java Hello World。
 services: app-service\web
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 03/07/2018
+ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e286942f092d2e8c22824a18f5a6503d04a1be0c
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: d27491d84d4df1757f77a403cd754496bbff6887
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247550"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252604"
 ---
 # <a name="quickstart-create-a-java-web-app-in-app-service-on-linux"></a>快速入門：在 Linux 上的 App Service 中建立 Java Web 應用程式
 
@@ -108,8 +108,10 @@ mvn package azure-webapp:deploy
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您已使用 Maven 建立 Java Web 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 若要了解如何連接資料庫、設定記錄和監視、設定安全性，以及設定執行階段選項，請繼續參閱 Linux 上的 App Service 適用的 Java 開發人員指南。
+在本快速入門中，您已使用 Maven 建立 Java Web 應用程式、設定[適用於 Azure Web Apps 的 Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)，然後將以網頁封存封裝的 Java 應用程式部署至 Linux 上的 App Service。 如需在 Linux 上的 App Service 中裝載 Java 應用程式的詳細資訊，請參閱下列教學課程和操作說明文章。
 
-> [!div class="nextstepaction"]
-> [Linux 上的 App Service 適用的 Java 開發人員指南](app-service-linux-java.md)
+- [教學課程：使用 PostgreSQL 部署 Java Enterprise 應用程式](tutorial-java-enterprise-postgresql-app.md)
+- [設定 Tomcat 資料來源](app-service-linux-java.md#connecting-to-data-sources)
+- [使用 Jenkins 的 CI/CD](/azure/jenkins/deploy-jenkins-app-service-plugin)
+- [設定應用程式效能監視工具](how-to-java-apm-monitoring.md)
 

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: f3b08c41d3bf083c7cca5897cee11a1a4b9c9092
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8dacfb054a36801c076435037a530daa87c4a89c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918570"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409380"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>使用 Ansible 在 Azure 中建立虛擬機器擴展集
 Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使用 Ansible 在 Azure 中管理虛擬機器擴展集 (VMSS)，就像管理任何其他 Azure 資源一樣。 本文說明如何使用 Ansible 來建立及相應放大虛擬機器擴展集。 
@@ -37,7 +37,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 輸入您自己的密碼作為 *admin_password* 值。
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -141,7 +141,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 執行腳本後，類似於下列範例的輸出會顯示虛擬機器擴展集已成功建立：
 
-  ```bash
+  ```Output
   PLAY [localhost] ***********************************************************
 
   TASK [Gathering Facts] *****************************************************
@@ -190,7 +190,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 現在，我們要從兩個執行個體擴充為三個執行個體。 下列 Ansible 腳本程式碼會擷取虛擬機器調整的相關資訊，並將其容量從兩個變更為三個。 
 
-  ```yaml
+  ```yml
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
@@ -225,7 +225,7 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 執行 Ansible 腳本後的輸出會顯示虛擬機器擴展集已成功相應放大：
 
-  ```bash
+  ```Output
   PLAY [localhost] **********************************************************
 
   TASK [Gathering Facts] ****************************************************
@@ -275,4 +275,6 @@ Ansible 可讓您將環境中的資源部署和設定自動化。 您可以使�
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"] 
-> [VMSS 的 Ansible 範例腳本](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [使用 Ansible 將應用程式部署至虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
+
+> [使用 Ansible 自動調整虛擬機器擴展集](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

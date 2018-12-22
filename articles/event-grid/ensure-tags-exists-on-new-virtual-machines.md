@@ -3,25 +3,21 @@ title: 整合 Azure 自動化與事件格線 | Microsoft Docs
 description: 了解如何在新的 VM 建立時自動加入標記，並傳送通知給 Microsoft Teams。
 keywords: 自動化, Runbook, 小組, 事件格線, 虛擬機器, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9da40508c6f8fec1122ab116786ed726b576a639
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049859"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106697"
 ---
-# <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>將 Azure 自動化與事件格線和 Microsoft Teams 整合
+# <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>教學課程：將 Azure 自動化與事件格線和 Microsoft Teams 整合
 
 在本教學課程中，您了解如何：
 
@@ -87,28 +83,30 @@ ms.locfileid: "39049859"
 
     ![設定 Webhook 參數](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. 選取 [確定] 以建立自動化 Runbook Webhook。
-
+5. 選取 [建立] 以建立自動化 Runbook Webhook。
 
 ## <a name="create-an-event-grid-subscription"></a>建立事件格線訂用帳戶
+
 1. 在 [自動化帳戶] 概觀頁面上，選取 [事件格線]。
 
     ![選取 Event Grid](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. 選取 [+ 事件訂閱] 按鈕。
+2. 按一下 [+ 事件訂閱]。
 
 3. 使用下列資訊來設定訂用帳戶：
 
-    *   輸入 **AzureAutomation** 作為名稱。
-    *   在 [主題類型] 中，選取 [Azure 訂用帳戶]。
-    *   清除 [訂閱所有事件類型] 核取方塊。
-    *   在 [事件類型] 中，選取 [資源寫入成功]。
-    *   在 [訂閱者端點] 中，輸入 Watch-VMWrite Runbook 的 Webhook URL。
-    *   在 [前置詞篩選] 中，輸入您要在其中建立新 VM 的訂用帳戶和資源群組。 它看起來應該像：`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * 針對 [主題類型]，選取 [Azure 訂用帳戶]。
+   * 取消核取 [訂閱所有事件類型] 核取方塊。
+   * 輸入 **AzureAutomation** 作為名稱。
+   * 在 [定義的事件類型] 下拉式清單中，取消核取 [資源寫入成功] 以外的所有選項。
+   * 針對 [端點類型]，選取 [Webhook]。
+   * 按一下 [選取端點]。 在開啟的 [選取 Web Hook] 頁面上，貼上您為 Watch-VMWrite Runbook 建立的 Webhook URL。
+   * 在 [篩選] 下方，輸入您要在其中建立新 VM 的訂用帳戶和資源群組。 它看起來應該像：`/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. 選取 [建立] 以儲存事件格線訂用帳戶。
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>建立觸發 Runbook 的 VM
+
 1. 在事件格線訂用帳戶 [前置詞篩選] 中您所指定的資源群組內，建立新的 VM。
 
 2. 這應該會呼叫 Watch-VMWrite Runbook，並將新的標記新增至 VM。
@@ -120,6 +118,7 @@ ms.locfileid: "39049859"
     ![Microsoft Teams 通知](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>後續步驟
+
 在本教學課程中，您將設定事件格線和自動化之間的整合。 您已了解如何︰
 
 > [!div class="checklist"]

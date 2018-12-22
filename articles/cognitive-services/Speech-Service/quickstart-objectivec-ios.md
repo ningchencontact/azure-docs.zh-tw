@@ -1,5 +1,5 @@
 ---
-title: 快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
+title: 快速入門：辨識語音 (Objective-C) - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 了解入核使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: chlandsi
-ms.openlocfilehash: 7d1e05e13e55b8b7bc07eda71d63f96f12c81ff9
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eaa44f942082c6bd062599dbdd0401fe4505daf4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219183"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090192"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>快速入門：使用語音服務 SDK 在 iOS 上以 Objective-C 辨識語音
 
@@ -25,8 +25,11 @@ ms.locfileid: "51219183"
 
 ## <a name="prerequisites"></a>必要條件
 
-* 語音服務適用的訂用帳戶金鑰。 請參閱[免費試用語音服務](get-started.md)。
-* 以已安裝 Xcode 9.4.1 的 Mac 作為 iOS 開發環境。 本教學課程以 iOS 11.4 版為目標。 如果您還沒有 Xcode，可以從 [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) 加以安裝。
+開始之前，以下為必要條件清單：
+
+* 語音服務的[訂用帳戶金鑰](get-started.md)
+* 具有 [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) \(英文\) 或更新版本的 macOS 機器
+* 將目標設定為 iOS 版本 11.4 或更新版本
 
 ## <a name="get-the-speech-sdk-for-ios"></a>取得適用於 iOS 的語音 SDK
 
@@ -37,7 +40,7 @@ ms.locfileid: "51219183"
 適用於 Mac 和 iOS 的認知服務語音 SDK 目前以 Cocoa Framework 的形式散發。
 您可以從 https://aka.ms/csspeech/iosbinary 加以下載。 請將檔案下載到您的主目錄。
 
-## <a name="create-an-xcode-project"></a>建立 Xcode 專案 
+## <a name="create-an-xcode-project"></a>建立 Xcode 專案
 
 啟動 Xcode，然後按一下 [檔案] > [新增] > [專案] 以啟動新專案。
 在範本選取對話方塊中，選擇「iOS 單一檢視應用程式」範本。
@@ -54,7 +57,7 @@ ms.locfileid: "51219183"
     1. 選擇用來放置專案的主目錄。 這會在您的主目錄中建立 `helloworld` 目錄，其中包含 Xcode 專案檔的所有檔案。
     1. 停用為此範例專案建立 Git 存放庫的功能。
     1. 在 [專案設定] 中調整 SDK 的路徑。
-        1. 在 [一般] 索引標籤中的 [內嵌的二進位檔案] 標頭下方，新增 SDK 程式庫作為架構：[新增內嵌的二進位檔] > [新增其他...] > 瀏覽至您的主目錄，然後選擇檔案 `MicrosoftCognitiveServicesSpeech.framework`。 這也會自動將 SDK 程式庫新增至 [連結的架構和程式庫] 標頭。
+        1. 在 [內嵌的二進位檔] 標頭下方的 [一般] 索引標籤中，新增 SDK 程式庫作為架構：[新增內嵌的二進位檔] > [新增其他...] > 瀏覽至您的主目錄，然後選擇檔案 `MicrosoftCognitiveServicesSpeech.framework`。 這也會自動將 SDK 程式庫新增至 [連結的架構和程式庫] 標頭。
         ![新增的架構](media/sdk/qs-objectivec-framework.png)
         1. 移至 [組建設定] 索引標籤，然後啟動 [所有] 設定。
         1. 將目錄 `$(SRCROOT)/..` 新增至 [搜尋路徑] 標題下方的 [架構搜尋路徑]。
@@ -62,7 +65,7 @@ ms.locfileid: "51219183"
 
 ## <a name="set-up-the-ui"></a>設定 UI
 
-範例應用程式會提供一個非常簡單的 UI：以檔案或是麥克風輸入啟動語音辨識的兩個按鈕，以及顯示結果的文字標籤。
+範例應用程式將提供一個非常簡單的 UI：以檔案或是麥克風輸入啟動語音辨識的兩個按鈕，以及顯示結果的文字標籤。
 此 UI 可在專案的 `Main.storyboard` 部分中設定。
 以滑鼠右鍵按一下專案樹狀結構的 `Main.storyboard` 項目，然後選取 [開啟形式...] > [原始程式碼]，以開啟分鏡腳本的 XML 檢視。
 請將自動產生的 XML 取代為下列內容：
@@ -103,4 +106,3 @@ ms.locfileid: "51219183"
 
 > [!div class="nextstepaction"]
 > [取得我們的範例](speech-sdk.md#get-the-samples)
-

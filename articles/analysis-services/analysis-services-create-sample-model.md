@@ -1,19 +1,19 @@
 ---
-title: 教學課程 - 使用入口網站將基本範例模型新增至 Azure Analysis Services 伺服器 | Microsoft Docs
+title: 教學課程 - 將範例模型新增至 Azure Analysis Services 伺服器 | Microsoft Docs
 description: 在本教學課程中，了解如何在 Azure Analysis Services 中新增範例模型。
 author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: def7ee54390a716027fcacb433b99826d3650f6f
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6a492085984eba165bc7cfc5839fa4e1705e823c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428687"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001647"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>教學課程：從入口網站新增範例模型
 

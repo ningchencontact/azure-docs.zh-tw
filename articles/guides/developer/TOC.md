@@ -36,7 +36,7 @@
 
 # 概念
 ## [帳單及訂用帳戶](https://docs.microsoft.com/azure/billing/billing-getting-started)
-## [主機比較](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm)
+## [主機比較](https://docs.microsoft.com/azure/app-service/overview-compare)
 ## [什麼是 App Service？](https://docs.microsoft.com/azure/app-service/overview)
 ## 虛擬機器
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/overview)
@@ -76,11 +76,11 @@
 ### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl)
 
 ## Backup 
-### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/manage-backup)
 ### [虛擬機器](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction)
 
 ## 監視
-### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/web-sites-enable-diagnostic-log)
+### [Web 和行動裝置應用程式](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs)
 ### [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-monitoring)
 ### [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-monitoring)
 ### [微服務](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-overview)

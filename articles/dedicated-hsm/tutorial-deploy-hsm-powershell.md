@@ -1,6 +1,6 @@
 ---
-title: 教學課程 – 使用 PowerShell 將 Azure 專用 HSM 部署至現有的虛擬網路 | Microsoft Docs
-description: 使用 PowerShell 將 HSM 部署至現有的虛擬網路
+title: 教學課程：使用 PowerShell 部署到現有的虛擬網路 -Azure 專用 HSM | Microsoft Docs
+description: 示範如何使用 PowerShell 將專用 HSM 部署到現有虛擬網路中的教學課程
 services: dedicated-hsm
 documentationcenter: na
 author: barclayn
@@ -8,17 +8,17 @@ manager: mbaldwin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: a714a52ecd6398fde459c5814b8a6cf223655eff
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3f165b5d372168ef3ce6fea75547513a0148ae5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318752"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086297"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>教學課程 – 使用 PowerShell 將 HSM 部署至現有的虛擬網路
 
@@ -37,7 +37,7 @@ Azure 專用 HSM 服務提供實體裝置以供單獨客戶使用，其具有完
 
 ## <a name="prerequisites"></a>必要條件
 
-Azure 入口網站目前不提供 Azure 專用 HSM ，因此與服務的所有互動都是透過命令列或使用 PowerShell 進行。 本教學課程會在 Azure Cloud Shell 中使用 PowerShell。 如果您不熟悉 PowerShell，請遵循以下的入門指示：[Azure PowerShell 使用者入門](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0)。
+Azure 入口網站目前不提供 Azure 專用 HSM ，因此與服務的所有互動都是透過命令列或使用 PowerShell 進行。 本教學課程會在 Azure Cloud Shell 中使用 PowerShell。 如果您不熟悉 PowerShell，請遵循以下的使用者入門指示：[Azure PowerShell 使用者入門](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0)。
 
 假設：
 
@@ -143,6 +143,14 @@ $delegation = New-AzureRmDelegation `
 ```
 
 ```powershell
+$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+  -Name hsmsubnet ` 
+  -AddressPrefix 10.2.1.0/24 ` 
+  -Delegation $delegation 
+
+```
+
+```powershell
 
 $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
@@ -179,7 +187,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
 
 ![佈建狀態](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-“provisioningState”: “Succeeded” 表示順利完成時，您可以連線到現有的虛擬機器，並使用 SSH 來確保 HSM 裝置的可用性。
+順利完成時 (顯示 “provisioningState”:“Succeeded”)，您可以登入現有的虛擬機器，並使用 SSH 來確保 HSM 裝置的可用性。
 
 ## <a name="verifying-the-deployment"></a>驗證部署
 

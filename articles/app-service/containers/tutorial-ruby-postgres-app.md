@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 上的 Azure App Service 中建置 Ruby 和 Postgres Web 應用程式 | Microsoft Docs
+title: 在 Linux 上建置搭配 Postgres 的 Ruby Web 應用程式 - Azure App Service | Microsoft Docs
 description: 了解如何取得在 Azure 中運作的 Ruby 應用程式，並連線至 Azure 中的 PostgreSQL 資料庫。
 services: app-service\web
 documentationcenter: ''
@@ -11,17 +11,17 @@ ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: cephalin
-ms.custom: mvc
-ms.openlocfilehash: 925537b3dff852921aad1e74d009e09fc90c394a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 247c4f24869901f0f50b081d8f57b7e3841a8e8a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445071"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271023"
 ---
 # <a name="build-a-ruby-and-postgres-web-app-in-azure-app-service-on-linux"></a>在 Linux 上的 Azure App Service 中建置 Ruby 和 Postgres Web 應用程式
 
-[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Ruby Web 應用程式，並將它連線到 PostgreSQL 資料庫。 完成後，Linux 上將有一個在 App Service 上執行的 [Ruby on Rails](http://rubyonrails.org/) 應用程式。
+[Linux 上的 App Service](app-service-linux-intro.md) 使用 Linux 作業系統提供可高度擴充、自我修復的 Web 主機服務。 本教學課程示範如何建立 Ruby Web 應用程式，並將它連線到 PostgreSQL 資料庫。 完成後，Linux 上將有一個在 App Service 上執行的 [Ruby on Rails](https://rubyonrails.org/) 應用程式。
 
 ![在 Azure App Service 中執行的 Ruby on Rails 應用程式](./media/tutorial-ruby-postgres-app/complete-checkbox-published.png)
 
@@ -43,7 +43,7 @@ ms.locfileid: "39445071"
 
 * [安裝 Git](https://git-scm.com/)
 * [安裝 Ruby 2.3](https://www.ruby-lang.org/en/documentation/installation/)
-* [安裝 Ruby on Rails 5.1](http://guides.rubyonrails.org/v5.1/getting_started.html)
+* [安裝 Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
 * [安裝及執行 PostgreSQL](https://www.postgresql.org/download/)
 
 ## <a name="prepare-local-postgres"></a>準備本機 Postgres
@@ -92,7 +92,7 @@ bundle install --path vendor/bundle
 
 ### <a name="run-the-sample-locally"></a>在本機執行範例
 
-執行 [Rails 移轉](http://guides.rubyonrails.org/active_record_migrations.html#running-migrations)來建立應用程式所需的資料表。 若要查看移轉中會建立哪些資料表，請查看 Git 存放庫中的 _db/migrate_ 目錄。
+執行 [Rails 移轉](https://guides.rubyonrails.org/active_record_migrations.html#running-migrations)來建立應用程式所需的資料表。 若要查看移轉中會建立哪些資料表，請查看 Git 存放庫中的 _db/migrate_ 目錄。
 
 ```bash
 rake db:create

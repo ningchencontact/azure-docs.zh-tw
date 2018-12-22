@@ -1,21 +1,22 @@
 ---
-title: 教學課程 8：LUIS 中的關鍵片語擷取
+title: 關鍵片語擷取
 titleSuffix: Azure Cognitive Services
 description: 使用預先建立的實體 keyPhrase，從語句中擷取關鍵主題。 您不需使用預先建置的實體來標示任何語句。 系統會自動偵測實體。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: fafb6a6cb986b5bcd795c9bac0fadfce2827c667
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0a064966f118925d2a08e0ff1ce6efc7683cac96
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424807"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096922"
 ---
 # <a name="tutorial-8-extract-key-phrases-of-utterance"></a>教學課程 8：擷取語句的關鍵片語
 在本教學課程中，您將使用預先建置的 keyPhrase 實體，從語句中擷取關鍵主題。 您不需使用預先建置的實體來標示任何語句。 系統會自動偵測實體。
@@ -31,7 +32,6 @@ ms.locfileid: "52424807"
 
 **在本教學課程中，您將了解如何：**
 
-<!-- green checkmark -->
 > [!div class="checklist"]
 > * 使用現有的教學課程應用程式
 > * 新增 KeyPhrase 實體 
@@ -84,7 +84,7 @@ ms.locfileid: "52424807"
 
 2. 移至位址中的 URL 結尾並輸入 `does form hrf-123456 cover the new dental benefits and medical plan`。 最後一個 querystring 參數是 `q`，也就是 **query** 語句。 
     
-    ```JSON
+    ```json
     {
       "query": "does form hrf-123456 cover the new dental benefits and medical plan",
       "topScoringIntent": {

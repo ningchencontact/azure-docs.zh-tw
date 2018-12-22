@@ -1,6 +1,6 @@
 ---
-title: 什麼是 Azure 搜尋服務 | Microsoft Docs
-description: Azure 搜尋服務是完全受控的託管雲端搜尋服務。 深入了解此功能概觀。
+title: 何謂 Azure 搜尋服務 - Azure 搜尋服務
+description: Azure 搜尋服務是完全受控的託管雲端搜尋服務。 檢閱功能描述、開發工作流程、比較 Azure 搜尋服務與其他搜尋產品優缺點，以及如何開始使用。
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: overview
 ms.date: 11/09/2018
 ms.author: heidist
-ms.openlocfilehash: 85a071017f4394f4ccde297fb229f7786d9249b3
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec2018
+ms.openlocfilehash: 81b9aef553b4cdc214fbcc681a2e5a91b833e6be
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285130"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313491"
 ---
 # <a name="what-is-azure-search"></a>何謂 Azure 搜尋服務？
 Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提供 API 和工具，透過 Web、行動和企業應用程式中的私用和異質內容來增添豐富的搜尋體驗。 查詢是透過使用者定義的索引而執行的。
@@ -63,7 +64,7 @@ Azure 搜尋服務是搜尋即服務雲端解決方案，可為開發人員提�
 
 推送模式是透過 SDK 或 REST API 來提供，可用來將已更新的文件傳送到索引。 使用 JSON 格式，您幾乎可以從任何資料集發送資料。 如需載入資料的指引，請參閱[新增、更新或刪除文件](/rest/api/searchservice/addupdate-or-delete-documents)或[如何使用 .NET SDK](search-howto-dotnet-sdk.md)。
 
-### <a name="step-4-search"></a>步驟 4︰搜尋
+### <a name="step-4-search"></a>步驟 4：Search
 填入索引後，您可以透過 REST API 或 .NET SDK，使用簡單的 HTTP 要求對服務端點[發出搜尋查詢](/rest/api/searchservice/Search-Documents)。
 
 ## <a name="how-it-compares"></a>比較的結果
@@ -105,7 +106,7 @@ Azure 訂閱者可以[在免費層中佈建服務](search-create-service-portal.
 
 如果您不是訂閱者，可以[免費申請 Azure 帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)。 您會獲得信用額度來試用 Azure 付費服務。 信用額度用完之後，您可以保留帳戶並使用[免費的 Azure 服務](https://azure.microsoft.com/free/)。 除非您明確變更您的設定且同意付費，否則我們絕對不會從您的信用卡收取任何費用。
 
-或者，您也可以[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。 
+或者，您可以[啟用 MSDN 訂閱者權益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)：您的 MSDN 訂用帳戶每月會提供您額度，您可以用在 Azure 付費服務。 
 
 ## <a name="how-to-get-started"></a>如何開始使用
 

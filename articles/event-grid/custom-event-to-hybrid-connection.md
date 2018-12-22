@@ -1,21 +1,22 @@
 ---
-title: 將 Azure 事件方格的自訂事件傳送至混合式連線 | Microsoft Docs
+title: 將自訂事件傳送至混合式連線 - 事件方格、Azure CLI
 description: 使用 Azure 事件格線和 Azure CLI 來發佈主題，以及訂閱該事件。 混合式連線用於端點。
 services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 12/07/2018
 ms.topic: tutorial
 ms.service: event-grid
-ms.openlocfilehash: 488f4e09e329ee41fb307dc3579e76b5378d3a9f
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec18
+ms.openlocfilehash: 1f66c75333b41cf399a72b801a7e362672744775
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747774"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099577"
 ---
-# <a name="route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>教學課程：使用 Azure CLI 和事件方格將自訂事件路由至 Azure 轉送混合式連線
 
 Azure Event Grid 是一項雲端事件服務。 Azure 轉送混合式連線是支援的事件處理常式之一。 當您需要從沒有公用端點的應用程式處理事件時，您可以使用混式連線作為事件處理常式。 這些應用程式可能位在您公司的企業網路中。 在本文中，您可使用 Azure CLI 建立自訂主題、訂閱自訂主題，以及觸發事件來檢視結果。 您將事件傳送到混合式連線。
 
@@ -76,7 +77,7 @@ az eventgrid event-subscription create \
   --expiration-date "<yyyy-mm-dd>"
 ```
 
-請留意到訂用帳戶已設定[到期日](concepts.md#event-subscription-expiration)。
+請留意到已針對訂閱設定[到期日](concepts.md#event-subscription-expiration)。
 
 ## <a name="create-application-to-process-events"></a>建立應用程式來處理事件
 

@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 10/21/2018
 ms.author: erhopf
-ms.openlocfilehash: 6e75ceb388b3111ea9ec31ba6bffded4077a019b
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: ab8a6d5b6d4bb52863e77b844a4008bb80d840be
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248655"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993940"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>快速入門：搭配使用翻譯工具文字 API 和 Python 取得替代的翻譯
+# <a name="quickstart-use-the-translator-text-api-to-get-alternate-translations-using-python"></a>快速入門：搭配使用翻譯工具文字 API 與 Python 來取得替代的翻譯
 
 在本快速入門中，您將了解如何搭配使用 Python 和翻譯工具文字 REST API 尋找指定文字的替代翻譯和使用範例。
 
@@ -167,7 +167,7 @@ python dictionary-lookup.py
 
 ## <a name="see-also"></a>另請參閱
 
-除了文字翻譯外，請了解如何使用翻譯工具文字 API 執行下列作業：
+了解如何使用翻譯工具文字 API 來執行下列動作：
 
 * [翻譯文字](quickstart-python-translate.md)
 * [進行文字音譯](quickstart-python-transliterate.md)

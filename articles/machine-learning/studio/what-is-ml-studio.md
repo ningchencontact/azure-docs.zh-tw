@@ -1,12 +1,12 @@
 ---
-title: 什麼是 Azure Machine Learning Studio？ | Microsoft Docs
+title: 概觀 - Azure Machine Learning Studio | Microsoft Docs
 description: 從已準備就緒可供使用之演算法與模組的程式庫快速建置模型的拖放工具 - Azure ML Studio 概觀。
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
 ms.component: studio
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: d893a0817be6ae8a271d403ed0477fa04238954b
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264398"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250513"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>什麼是 Azure Machine Learning Studio？
 Microsoft Azure Machine Learning Studio 是共同作業式的拖放工具，您可以用來依據您的資料建置、測試及部署預測分析解決方案。 Machine Learning Studio 會以 Web 服務方式發佈模型，讓自訂應用程式或 BI 工具 (例如 Excel) 都能夠很容易地使用。
@@ -147,17 +147,17 @@ Machine Learning Studio 讓資料科學、預測分析、雲端資源和您的�
 
 ## <a name="other-common-machine-learning-terms"></a>其他常見的機器學習服務詞彙
 * **演算法**：透過資料處理、數學運算或自動推論來解決問題的一組獨立規則。
-* **異常偵測**︰標幟不尋常的事件或值並協助您找出問題的模型。 例如，信用卡詐騙偵測會尋找不尋常的購買情況。
+* **異常偵測**：標幟不尋常的事件或值並協助您找出問題的模型。 例如，信用卡詐騙偵測會尋找不尋常的購買情況。
 * **分類資料**：依類別來組織並可分組的資料。 例如，汽車的類別資料集可指定年份、廠牌、車型和價格。
 * **分類**：根據資料集的哪個類別群組為已知，將資料點組織成不同類別的模型。
-* **特性工程設計**：擷取或選取與資料集相關的特性，以便增強資料集並改善結果的程序。 例如，飛機票價資料可透過星期幾和假日來增強。 請參閱 [Azure Machine Learning 中的特性選取和工程設計](../team-data-science-process/create-features.md)。
+* **特徵工程設計**：擷取或選取與資料集相關的特性，以便增強資料集並改善結果的程序。 例如，飛機票價資料可透過星期幾和假日來增強。 請參閱 [Azure Machine Learning 中的特性選取和工程設計](../team-data-science-process/create-features.md)。
 * **模組**：Machine Learning Studio 模型中的功能部分，例如可輸入及編輯小型資料集的輸入資料模組。 演算法也是 Machine Learning Studio 的一種模組類型。
 * **模型**：監督式學習模型是機器學習服務實驗的產物，其中包含定型資料、一個演算法模組，以及功能模組 (例如「計分模型」模組)。
 * **數值資料**：代表度量 (連續資料) 或計數 (離散資料) 的資料。 也稱為「量化資料」 。
 * **分割**：用來將資料分成多個樣本的方法。 如需詳細資訊，請參閱 [資料分割和取樣](https://msdn.microsoft.com/library/azure/dn905960.aspx) 。
 * **預測**：預測是來自機器學習服務模型的一個或多個預測值。 您也可能會看到「預測的計分」一詞。 不過，預測的計分不是模型的最終輸出。 計分之後還會評估模型。
 * **迴歸**：根據獨立變數來預測值的模型，例如根據汽車的年份和廠牌來預測汽車價格。
-* **分數**：使用 Machine Learning Studio 中的 [「計分模型」模組](https://msdn.microsoft.com/library/azure/dn905995.aspx) ，從定型分類或迴歸模型產生的預測值。 分類模型也會傳回預測值的機率分數。 從模型產生分數之後，即可使用 [「評估模型」模組](https://msdn.microsoft.com/library/azure/dn905915.aspx)來評估模型的正確性。
+* **分數**：使用 Machine Learning Studio 中的[「計分模型」模組](https://msdn.microsoft.com/library/azure/dn905995.aspx)，從定型分類或迴歸模型產生的預測值。 分類模型也會傳回預測值的機率分數。 從模型產生分數之後，即可使用 [「評估模型」模組](https://msdn.microsoft.com/library/azure/dn905915.aspx)來評估模型的正確性。
 * **樣本**：用來代表整體的一部分資料集。 您可以隨機取樣，或根據資料集的特定特徵進行取樣。
 
 ## <a name="next-steps"></a>後續步驟

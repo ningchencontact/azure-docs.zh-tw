@@ -15,14 +15,17 @@ ms.devlang: CLI
 ms.topic: quickstart
 ms.date: 09/03/2018
 ms.author: danlep
-ms.openlocfilehash: 99d864a5d519ce56a559bea4db7fe89a113e47b9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ROBOTS: NOINDEX
+ms.openlocfilehash: 979253021f5503295e0572759b510e074ceb1a6b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157917"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408063"
 ---
-# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>快速入門：使用 Batch AI 訓練深度學習模型
+# <a name="quickstart-train-a-deep-learning-model-with-batch-ai"></a>快速入門：使用 Batch AI 為深度學習模型定型
+
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 本快速入門說明如何在 Batch AI 所管理的具 GPU 功能虛擬機器上，訓練深度學習模型範例。 Batch AI 是一項受控服務，可讓資料科學家和 AI 研究人員在 Azure 虛擬機器的叢集上大規模地訓練 AI 和機器學習模型。 
 

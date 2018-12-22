@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 0b4e334ea9a423ed4eb9a0830d68ad7f4b843a88
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 6075086b390a14e807e493bd574ac889b81272bf
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833636"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437345"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>快速入門：部署 Azure Kubernetes Service (AKS) 叢集
 
@@ -36,27 +36,27 @@ ms.locfileid: "52833636"
 若要建立 AKS 叢集，請完成下列步驟：
 
 1. **基本** - 設定下列選項：
-    - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 myResourceGroup。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
-    - 叢集詳細資料：選取 AKS 叢集的地區、Kubernetes 版本及 DNS 名稱前置詞。
-    - 級別：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
+    - 專案詳細資料：選取 Azure 訂用帳戶，然後選取或建立 Azure 資源群組，例如 *myResourceGroup*。 輸入 **Kubernetes 叢集名稱**，例如 myAKSCluster。
+    - 叢集詳細資料：選取 AKS 叢集的區域、Kubernetes 版本及 DNS 名稱前置詞。
+    - 調整大小：選取 AKS 節點的 VM 大小。 VM 大小**無法**在 AKS 叢集部署完畢後變更。
         - 選取要部署到叢集的節點數目。 本快速入門將 [節點計數] 設為「1」。 節點計數**可以**在叢集部署完畢後調整。
     
     ![建立 AKS 叢集 - 提供基本資訊](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-    完成時，選取 [下一步: 驗證]。
+    完成時，選取 [下一步:驗證]。
 
-1. **驗證** - 設定下列選項：
+1. **驗證**：設定下列選項：
     - 建立新的服務主體，或「設定」為使用現有服務主體。 使用現有的 SPN 時，您需要提供 SPN 用戶端識別碼和祕密。
     - 啟用 Kubernetes 角色型存取控制 (RBAC) 的選項。 這些控制項可針對 AKS 叢集中部署的 Kubernetes 資源提供更細部的存取控管。
 
-    完成時，請選取 [下一步: 網路功能]。
+    完成時，選取 [下一步:網路]。
 
-1. **網路**：設定下列網路功能選項，建議您保留這些選項的預設值：
+1. **網路**：設定下列網路功能選項：
     
     - **HTTP 應用程式路由** - 選取 [是]，設定可自動建立公用 DNS 名稱的整合式輸入控制站。 如需 HTTP 路由的詳細資訊，請參閱 [AKS HTTP 路由和 DNS][http-routing]。
     - **網路設定** - 選取使用 [kubenet][kubenet] Kubernetes 外掛程式的**基本**網路設定，而不是使用 [Azure CNI][azure-cni] 的進階網路設定。 如需有關網路功能選項的詳細資訊，請參閱 [AKS 網路功能概觀][aks-network]。
     
-    完成時，選取 [下一步: 監視]。
+    完成時，選取 [下一步:監視]。
 
 1. 部署 AKS 叢集時，可以設定適用於容器的 Azure 監視器來監視 AKS 叢集及在該叢集上所執行 Pod 的健康情況。 如需容器健康情況監視的詳細資訊，請參閱[監視 Azure Kubernetes 服務健康情況][aks-monitor]。
 
@@ -88,7 +88,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-下列輸出範例會顯示上一個步驟中建立的單一節點。
+下列輸出範例會顯示上一個步驟中建立的單一節點。 請確定節點的狀態為 "Ready"。
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION

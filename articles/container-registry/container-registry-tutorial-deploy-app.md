@@ -1,21 +1,21 @@
 ---
-title: Azure Container Registry 教學課程 - 從 Azure Container Registry 部署 Web 應用程式
-description: 使用異地複寫的 Azure Container Registry 中的容器映像，部署以 Linux 為基礎的 Web 應用程式。 這是三段式教學課程的第二段。
+title: 教學課程 - 從 Azure 中的異地複寫 Docker 登錄部署應用程式
+description: 使用異地複寫 Azure Container Registry 中的容器映像，將以 Linux 為基礎的 Web 應用程式部署至兩個不同的 Azure 區域。 這是三段式教學課程的第二段。
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
-ms.custom: mvc
-ms.openlocfilehash: d1924d730f2c2a64063496d4be759194cef99175
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18, mvc
+ms.openlocfilehash: e5a38e2b6550d763f30c2462944b154f76bbe92c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48853856"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253828"
 ---
-# <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>教學課程：從 Azure Container Registry 部署 Web 應用程式
+# <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>教學課程：從異地複寫的 Azure Container Registry 部署 Web 應用程式
 
 這是三段式教學課程系列的第二段。 在[第一段](container-registry-tutorial-prepare-registry.md)中，已建立異地複寫的容器登錄，也已從來源建立容器映像並推送至登錄中。 在本文中，您要將容器部署至兩個不同 Azure 區域中的 Web 應用程式執行個體，以便獲得異地複寫的登錄因網路位置接近的好處。 接著，每個執行個體將從最接近的登錄提取容器映像。
 

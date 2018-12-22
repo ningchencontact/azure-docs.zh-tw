@@ -1,20 +1,20 @@
 ---
-title: Azure CLI 指令碼：建立 Azure Cosmos DB MongoDB API 帳戶、資料庫和集合 | Microsoft Docs
+title: Azure CLI 指令碼：建立 Azure Cosmos DB MongoDB API 帳戶、資料庫和集合
 description: Azure CLI 指令碼範例：建立 Azure Cosmos DB MongoDB API 帳戶、資料庫和集合
 author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.topic: sample
 ms.date: 10/26/2018
-ms.author: mjbrown
-ms.openlocfilehash: 6ca603a324dddf243927cf5bb67556edfb1cf7e6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 7c7f3f6907f0c21e3c66a3d814dc355476bec553
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007123"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958344"
 ---
-# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 建立 MongoDB API 帳戶
+# <a name="azure-cosmos-db-create-an-mongodb-api-account-using-azure-cli"></a>Azure Cosmos DB：使用 Azure CLI 來建立 MongoDB API 帳戶
 
 這個範例 CLI 指令碼會建立 Azure Cosmos DB MongoDB API 帳戶、資料庫和集合。
 

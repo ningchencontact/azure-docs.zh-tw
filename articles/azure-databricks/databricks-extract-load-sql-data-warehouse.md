@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 11/19/2018
-ms.openlocfilehash: 5a6d3265fde3b7633036ddc4cae0a5ea7d246957
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 48b2cdb26994d01dfced8216bb70493802f672a7
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265251"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413671"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>教學課程：使用 Azure Databrick 擷取、轉換和載入資料
 
@@ -44,9 +44,9 @@ ms.locfileid: "52265251"
 ## <a name="prerequisites"></a>必要條件
 
 開始本教學課程之前，請確定您符合下列需求：
-- 建立 Azure SQL 資料倉儲、建立伺服器層級的防火牆規則，並以伺服器管理員的身分連線至伺服器。請依照[快速入門：建立 Azure SQL 資料倉儲](../sql-data-warehouse/create-data-warehouse-portal.md)中的指示操作
+- 建立 Azure SQL 資料倉儲、建立伺服器層級的防火牆規則，並以伺服器管理員的身分連線至伺服器。請依照[快速入門：建立 Azure SQL 資料倉儲](../sql-data-warehouse/create-data-warehouse-portal.md)的指示操作
 - 建立 Azure SQL 資料倉儲的資料庫主要金鑰。 請依照[建立資料庫主要金鑰](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key)中的指示操作。
-- 建立 Azure Blob 儲存體帳戶和其中所含的容器。 此外，擷取用來存取儲存體帳戶的存取金鑰。 請依照[快速入門：建立 Azure Blob 儲存體帳戶](../storage/blobs/storage-quickstart-blobs-portal.md)中的指示操作。
+- 建立 Azure Blob 儲存體帳戶和其中所含的容器。 此外，擷取用來存取儲存體帳戶的存取金鑰。 請依照[快速入門：建立 Azure Blob 儲存體帳戶](../storage/blobs/storage-quickstart-blobs-portal.md)的指示操作。
 
 ## <a name="log-in-to-the-azure-portal"></a>登入 Azure 入口網站
 
@@ -54,7 +54,7 @@ ms.locfileid: "52265251"
 
 ## <a name="create-an-azure-databricks-workspace"></a>建立 Azure Databricks 工作區
 
-在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。 
+在本節中，您會使用 Azure 入口網站建立 Azure Databricks 工作區。
 
 1. 在 Azure 入口網站中，選取 [建立資源] > [資料 + 分析] > [Azure Databricks]。
 
@@ -65,7 +65,7 @@ ms.locfileid: "52265251"
     ![建立 Azure Databricks 工作區](./media/databricks-extract-load-sql-data-warehouse/create-databricks-workspace.png "建立 Azure Databricks 工作區")
 
     提供下列值：
-     
+    
     |屬性  |說明  |
     |---------|---------|
     |**工作區名稱**     | 提供您 Databricks 工作區的名稱        |
@@ -106,11 +106,11 @@ ms.locfileid: "52265251"
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [建立資源] > [儲存體] > [Data Lake Store]。
 3. 在 [新增 Data Lake Store] 刀鋒視窗中，提供如以下螢幕擷取畫面所示的值：
-   
+
     ![建立新的 Azure Data Lake Store 帳戶](./media/databricks-extract-load-sql-data-warehouse/create-new-datalake-store.png "建立新的 Azure Data Lake 帳戶")
 
-    提供下列值： 
-     
+    提供下列值：
+    
     |屬性  |說明  |
     |---------|---------|
     |**名稱**     | 輸入 Data Lake Store 帳戶的唯一名稱。        |
@@ -125,7 +125,7 @@ ms.locfileid: "52265251"
 您現在將建立 Azure Active Directory 服務主體，並與您建立的 Data Lake Store 產生關聯。
 
 ### <a name="create-an-azure-active-directory-service-principal"></a>建立 Azure Active Directory 服務主體
-   
+
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取 [所有服務]，然後搜尋 **Azure Active Directory**。
 
 2. 選取 [應用程式註冊]。
@@ -193,7 +193,7 @@ ms.locfileid: "52265251"
 
 ## <a name="upload-data-to-data-lake-store"></a>將資料上傳至 Data Lake Store
 
-在本節中，您會將資料檔案範例上傳至 Data Lake Store。 您稍後可以在 Azure Databricks 中使用此檔案來執行部分轉換。 您可以在此 [Github 存放庫](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)中取得本教學課程中使用的資料範例 (**small_radio_json.json**)。
+在本節中，您會將資料檔案範例上傳至 Data Lake Store。 您稍後可以在 Azure Databricks 中使用此檔案來執行部分轉換。 您可以在此 [GitHub 存放庫](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json)中取得本教學課程中使用的資料範例 (**small_radio_json.json**)。
 
 1. 從 [Azure 入口網站](https://portal.azure.com)，選取您建立的 Data Lake Store 帳戶。
 
@@ -378,7 +378,7 @@ ms.locfileid: "52265251"
 
 如先前所述，在 Azure Databricks 和 Azure SQL 資料倉儲之間上傳資料時，SQL 資料倉儲連接器會使用 Azure Blob 儲存體作為暫時儲存位置。 因此，一開始您需提供要連線到儲存體帳戶的組態。 您必須已建立屬於本文必要條件的帳戶。
 
-1. 提供可從 Azure Databricks 存取 Azure 儲存體帳戶的組態。 如果您從入口網站複製 Blob 儲存體的 URL，請務必移除開頭的 https://。 
+1. 提供可從 Azure Databricks 存取 Azure 儲存體帳戶的組態。 如果您從入口網站複製 Blob 儲存體的 URL，請務必移除開頭的 https://。
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
@@ -410,7 +410,7 @@ ms.locfileid: "52265251"
         spark.conf.set(
           "spark.sql.parquet.writeLegacyFormat",
           "true")
-        
+    
         renamedColumnsDf.write
             .format("com.databricks.spark.sqldw")
             .option("url", sqlDwUrlSmall)

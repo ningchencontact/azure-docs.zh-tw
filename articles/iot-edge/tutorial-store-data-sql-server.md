@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure IoT Edge SQL 模組儲存資料 | Microsoft Docs
+title: 教學課程：使用 SQL 模組儲存資料 - Azure IoT Edge | Microsoft Docs
 description: 了解如何使用 SQL Server 模組將資料儲存在 IoT Edge 裝置的本機上
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/19/2018
+ms.date: 12/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
-ms.custom: mvc
-ms.openlocfilehash: 95041ca77930d87bff6ea31e2eab89a6634cfcf5
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: mvc, seodec18
+ms.openlocfilehash: 0193d79dec663b089184099c2a4d275c91380c8b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442959"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163407"
 ---
-# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在 Edge 上儲存資料
+# <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教學課程：使用 SQL Server 資料庫在邊緣儲存資料
 
 使用 Azure IoT Edge 和 SQL Server 儲存和查詢 Edge 上的資料。 Azure IoT Edge 有基本儲存體功能，可在裝置離線時快取訊息，然後在連線重新建立時轉送訊息。 不過，您可能想要有更進階的儲存體功能，例如能夠在本機查詢資料。 藉由納入本機資料庫，您的 IoT Edge 裝置將可執行更複雜的計算，而無須保有 IoT 中樞的連線。 例如，機器上的感應器會每月一次地將資料上傳至雲端，以建立報表和改良機器學習模組。 不過，如果現場技術人員是在該機器上作業，則他們可以在本機存取過去幾天的感應器資料。
 
@@ -36,7 +36,7 @@ ms.locfileid: "52442959"
 
 Azure IoT Edge 裝置：
 
-* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。
+* 您可以遵循 [Linux](quickstart-linux.md) 或 [Windows 裝置](quickstart.md)快速入門中的步驟，使用您的開發電腦或虛擬機器作為邊緣裝置。 
 
 雲端資源：
 
@@ -87,7 +87,7 @@ Azure IoT Edge 裝置：
 
 2. 選取 [檢視] > [命令選擇區]，以開啟 VS Code 命令選擇區。
 
-3. 在命令選擇區中，輸入並執行命令 **Azure IoT Edge: New IoT Edge solution**。 在命令選擇區中提供下列資訊，以建立解決方案： 
+3. 在命令選擇區中，輸入並執行命令 Azure IoT Edge:新增 IoT Edge 解決方案。 在命令選擇區中提供下列資訊，以建立解決方案： 
 
    | 欄位 | 值 |
    | ----- | ----- |
@@ -97,9 +97,13 @@ Azure IoT Edge 裝置：
    | 提供模組名稱 | 將模組命名為 **sqlFunction**。 |
    | 提供模組的 Docker 映像存放庫 | 映像存放庫包含容器登錄名稱和容器映像名稱。 系統會預先填入上一個步驟的容器映像。 將 **localhost:5000** 取代為 Azure Container Registry 的登入伺服器值。 您可以在 Azure 入口網站中，從容器登錄的 [概觀] 頁面擷取登入伺服器。 最終字串看起來會類似於：\<登錄名稱\>.azurecr.io/sqlFunction。 |
 
-   VS Code 視窗會載入您的 IoT Edge 解決方案工作區：\.vscode 資料夾、模組資料夾、部署資訊清單範本檔案。 和 \.env 檔案。 
+   VS Code 視窗會載入您的 IoT Edge 方案工作區。 
    
-4. 每當您建立新的 IoT Edge 解決方案時，VS Code 會提示您提供 \.env 檔案中的登錄認證。 這是 git 會忽略的檔案，而 IoT Edge 擴充功能稍後會使用此檔案來提供 IoT Edge 裝置的登錄存取。 開啟 \..env 檔案。 
+4. 在您的 IoT Edge 解決方案中開啟 \.env 檔案。 
+
+   每當您建立新的 IoT Edge 解決方案時，VS Code 會提示您提供 \.env 檔案中的登錄認證。 這是 git 會忽略的檔案，而 IoT Edge 擴充功能稍後會使用此檔案來提供 IoT Edge 裝置的登錄存取。 
+
+   如果您未在前一個步驟中提供容器登錄，但接受了預設 localhost:5000，則不會有 \.env 檔案。
 
 5. 在 .env 檔案中，為 IoT Edge 執行階段提供您的登錄認證，使其能夠存取您的模組映像。 找出 **CONTAINER_REGISTRY_USERNAME** 和 **CONTAINER_REGISTRY_PASSWORD** 區段，在等號後面插入您的認證： 
 
@@ -159,7 +163,7 @@ Azure IoT Edge 裝置：
                        {
                            //Execute the command and log the # rows affected.
                            var rows = await cmd.ExecuteNonQueryAsync();
-                           log.Info($"{rows} rows were updated");
+                           logger.LogInformation($"{rows} rows were updated");
                        }
                    }
 
@@ -207,6 +211,16 @@ Azure IoT Edge 裝置：
 
 7. 儲存 **sqlFunction.cs** 檔案。 
 
+8. 開啟 **sqlFunction.csproj** 檔案。
+
+9. 尋找套件參考群組，然後新增一個要包含 sqlclient 的新群組。 
+
+   ```csproj
+   <PackageReference Include="System.Data.SqlClient" Version="4.5.1"/>
+   ```
+
+10. 儲存 **sqlFunction.csproj** 檔案。
+
 ## <a name="add-a-sql-server-container"></a>新增 SQL Server 容器
 
 [部署資訊清單](module-composition.md)會宣告 IoT Edge 執行階段會在 IoT Edge 裝置上安裝哪些模組。 您在上一節中提供了用來建立自訂函式模組的程式碼，但 SQL Server 模組已內建。 您只需要指示 IoT Edge 執行階段納入該模組，然後在裝置上加以設定即可。 
@@ -225,38 +239,38 @@ Azure IoT Edge 裝置：
 
    ```json
    "sql": {
-       "version": "1.0",
-       "type": "docker",
-       "status": "running",
-       "restartPolicy": "always",
-       "env":{},
-       "settings": {
-           "image": "",
-           "createOptions": ""
-       }
+     "version": "1.0",
+     "type": "docker",
+     "status": "running",
+     "restartPolicy": "always",
+     "env":{},
+     "settings": {
+       "image": "",
+       "createOptions": ""
+     }
    }
    ```
 
-   ![新增 SQL Server 容器](./media/tutorial-store-data-sql-server/view_json_sql.png)
+   ![將 SQL 伺服器模組新增到資訊清單](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
 5. 請根據您 IoT Edge 裝置上的 Docker 容器類型，使用下列程式碼更新 **sql** 模組參數：
    * Windows 容器：
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "microsoft/mssql-server-windows-developer",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "microsoft/mssql-server-windows-developer",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "C:\\\\mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -264,19 +278,19 @@ Azure IoT Edge 裝置：
 
       ```json
       "env": {
-         "ACCEPT_EULA": {"value": "Y"},
-         "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-       },
-       "settings": {
-          "image": "mcr.microsoft.com/mssql/server:latest",
-          "createOptions": {
-              "HostConfig": {
-                  "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-                  "PortBindings": {
-                      "1433/tcp": [{"HostPort": "1401"}]
-                  }
-              }
+        "ACCEPT_EULA": {"value": "Y"},
+        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
+      },
+      "settings": {
+        "image": "mcr.microsoft.com/mssql/server:latest",
+        "createOptions": {
+          "HostConfig": {
+            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
+            "PortBindings": {
+              "1433/tcp": [{"HostPort": "1401"}]
+            }
           }
+        }
       }
       ```
 
@@ -295,7 +309,7 @@ Azure IoT Edge 裝置：
     docker login -u <ACR username> <ACR login server>
     ```
     
-    系統會提示您輸入密碼。 將您的密碼貼到提示字元中 (基於安全考量，您的密碼會隱藏)，然後按 [Enter]。 
+    系統會提示您輸入密碼。 將您的密碼貼到提示字元中 (基於安全考量，您的密碼會隱藏)，然後按 **Enter**。 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -310,7 +324,7 @@ Azure IoT Edge 裝置：
 
 您可以透過 IoT 中樞在裝置上設定模組，但您也可以透過 Visual Studio Code 存取 IoT 中樞和裝置。 在本節中，您會設定對 IoT 中樞的存取，然後使用 VS Code 將解決方案部署至您的 IoT Edge 裝置。 
 
-1. 在 VS Code 命令選擇區中，選取 [Azure IoT 中樞: 選取 IoT 中樞]。
+1. 在 VS Code 命令選擇區中，選取 [Azure IoT 中樞:選取 IoT 中樞]。
 
 2. 依照提示來登入您的 Azure 帳戶。 
 
@@ -322,11 +336,11 @@ Azure IoT Edge 裝置：
 
    ![建立單一裝置的部署](./media/tutorial-store-data-sql-server/create-deployment.png)
 
-6. 在檔案總管中，瀏覽至解決方案內的 **config** 資料夾，然後選擇 **deployment.json**。 按一下 [選取 Edge 部署資訊清單]。 
+6. 在檔案總管中，瀏覽至解決方案內的 **config** 資料夾，然後選擇 **deployment.amd64**。 按一下 [選取 Edge 部署資訊清單]。 
 
-如果部署成功，確認訊息會列印在 VS Code 輸出中。 
+如果部署成功，VS Code 輸出中便會列印出確認訊息。 
 
-您也可以查看並確認所有模組均已在裝置上啟動並執行。 在 IoT Edge 裝置上執行下列命令，以查看模組的狀態。 可能需要數分鐘的時間。
+在 VS Code 的 [Azure IoT 中樞裝置] 區段中，重新整理裝置的狀態。 新的模組會列出，而且在接下來幾分鐘，會隨著容器安裝並啟動而開始回報為執行中。 您也可以查看並確認所有模組均已在裝置上啟動並執行。 在 IoT Edge 裝置上執行下列命令，以查看模組的狀態。 
 
    ```cmd/sh
    iotedge list
@@ -334,11 +348,11 @@ Azure IoT Edge 裝置：
 
 ## <a name="create-the-sql-database"></a>建立 SQL 資料庫
 
-當您將部署資訊清單套用至裝置時，您會有三個執行中的模組。 tempSensor 模組會產生模擬的環境資料。 sqlFunction 模組會取用資料，並針對資料庫加以格式化。 
+當您將部署資訊清單套用至裝置時，您會有三個執行中的模組。 tempSensor 模組會產生模擬的環境資料。 sqlFunction 模組會取用資料，並針對資料庫加以格式化。 本節會引導您設定 SQL 資料庫，以便儲存溫度資料。 
 
-本節會引導您設定 SQL 資料庫，以便儲存溫度資料。 
+在您的 IoT Edge 裝置上執行下列命令。 這些命令會連線到在您裝置上執行的 **sql** 模組，並建立資料庫和資料表，以保存正傳送給它的溫度資料。 
 
-1. 在命令列工具中連線到您的資料庫。 
+1. 在 IoT Edge 裝置的命令列工具中，連線到您的資料庫。 
    * Windows 容器：
    
       ```cmd
@@ -402,7 +416,7 @@ Azure IoT Edge 裝置：
    GO
    ```
 
-   ![檢視本機資料](./media/tutorial-store-data-sql-server/view-data.png)
+   ![檢視本機資料庫的內容](./media/tutorial-store-data-sql-server/view-data.png)
 
 
 

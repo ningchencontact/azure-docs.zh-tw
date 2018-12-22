@@ -1,33 +1,33 @@
 ---
-title: 建立原則指派，以識別 Azure 中的不相容資源
+title: 建立原則以識別不相容資源
 description: 這篇文章會引導您逐步完成建立原則定義來識別不相容的資源。
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ee22208f9f55840b80392ef2b0a9fce0da4c4db7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: ddf30f6a7bc00be9ac24952adf0ba41e6151bd10
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584684"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311162"
 ---
-# <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>建立原則指派，以識別 Azure 環境中的不相容資源
+# <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>建立原則指派以識別不相容資源
 
 了解 Azure 中合規性的第一個步驟是識別您資源的狀態。
 本快速入門會逐步引導您完成程序來建立原則指派，以識別出未使用受控磁碟的虛擬機器。
 
-在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們不符合原則指派的規範。
+在此程序結束時，您將會成功識別出未使用受控磁碟的虛擬機器。 它們「不符合」原則指派的規範。
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-a-policy-assignment"></a>建立原則指派
 
-在本快速入門中，您會建立一個原則指派，並且指派「稽核沒有受控磁碟的虛擬機器」原則定義。
+在本快速入門中，您會建立一個原則指派，並且指派 [稽核未使用受控磁碟的虛擬機器] 原則定義。
 
 1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
@@ -53,7 +53,7 @@ ms.locfileid: "52584684"
    - 套用標籤和其值
    - 需要 SQL Server 12.0 版
 
-   如需所有可用內建原則的完整清單，請參閱[原則範例](./samples/index.md)。
+   如需可用內建原則的部分清單，請參閱[原則範例](./samples/index.md)。
 
 1. 搜尋原則定義清單以尋找「稽核未使用受控磁碟的 VM」定義。 按一下該原則，然後按一下 [選取]。
 
@@ -61,7 +61,7 @@ ms.locfileid: "52584684"
 
 1. [指派名稱] 會自動填入您選取的原則名稱，但您可加以變更。 在此範例中，請保留「稽核未使用受控磁碟的 VM」。 您也可以新增選擇性的 [描述]。 描述會提供有關此原則指派的詳細資料。 **指派者**將根據登入者自動填入。 這是選擇性欄位，因此可以輸入自訂值。
 
-1. 讓 [建立受控識別] 保持未選取狀態。 但是，當要指派的原則或方案包含具有 [deployIfNotExists](./concepts/effects.md#deployifnotexists) 效果的原則時，「必須」勾選此項目。 由於本快速入門中所使用的原則並未包含該效果，因此請將其保留為空白。 如需詳細資訊，請參閱[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](./how-to/remediate-resources.md#how-remediation-security-works)。
+1. 讓 [建立受控識別] 保持未選取狀態。 但是，當要原則或計畫包含具有 [deployIfNotExists](./concepts/effects.md#deployifnotexists) 效果的原則時，_必須_核取此方塊。 由於本快速入門所使用的原則並未包含該效果，因此請將其保留為空白。 如需詳細資訊，請參閱[受控識別](../../active-directory/managed-identities-azure-resources/overview.md)和[補救安全性的運作方式](./how-to/remediate-resources.md#how-remediation-security-works)。
 
 1. 按一下 [指派]。
 
@@ -69,7 +69,7 @@ ms.locfileid: "52584684"
 
 ## <a name="identify-non-compliant-resources"></a>識別不相容的資源
 
-選取分頁左半部的 [合規性]，並找出您所建立的 [稽核不是使用受控磁碟的 VM] 原則指派。
+選取頁面左側的 [合規性]。 接著，找出您所建立的 [稽核未使用受控磁碟的虛擬機器] 原則指派。
 
 ![原則相容性](./media/assign-policy-portal/policy-compliance.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "52584684"
 
 ## <a name="clean-up-resources"></a>清除資源
 
-此集合中的其他指南是以本快速入門為基礎。 如果您打算繼續進行後續的教學課程，請勿清除在此快速入門中建立的資源。 如果您不打算繼續，請使用下列步驟，在 Azure 入口網站中刪除本快速入門所建立的所有資源。
+若要移除所建立的指派，請遵循下列步驟：
 
 1. 選取 Azure 原則分頁左半部的 [合規性] (或 [指派])，並找出您所建立的 [稽核不是使用受控磁碟的 VM] 原則指派。
 
@@ -98,9 +98,9 @@ ms.locfileid: "52584684"
 
 ## <a name="next-steps"></a>後續步驟
 
-在本快速入門中，您會將原則定義指派至範圍，並評估其更新狀態報告。 原則定義可確保範圍中的所有資源都符合規範，並且識別哪些資源不符合。
+在本快速入門中，您會將原則定義指派至範圍，並評估其更新狀態報告。 原則定義可驗證範圍中的所有資源都符合規範，並且識別哪些資源不符合。
 
-若要深入了解指派原則，以確保所建立的**未來**資源是相容的，請繼續進行教學課程：
+若要深入了解指派原則，以驗證新資源是相容的，請繼續進行以下的教學課程：
 
 > [!div class="nextstepaction"]
 > [建立及管理原則](./tutorials/create-and-manage.md)

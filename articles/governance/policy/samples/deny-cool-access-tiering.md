@@ -1,5 +1,5 @@
 ---
-title: Azure 原則範例 - 針對儲存體帳戶拒絕使用非經常性存取層處理
+title: 範例 - 針對儲存體帳戶拒絕使用非經常性存取層處理
 description: 此範例原則會針對 Blob 儲存體帳戶禁止使用非經常性存取層處理。
 services: azure-policy
 author: DCtheGeek
@@ -8,13 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 09/18/2018
 ms.author: dacoulte
-ms.custom: mvc
-ms.openlocfilehash: dedf280a6aa704971d54de4677f90685dfccbdb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c6b8e293b42d209a8556e85c4348596023dd3fdf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946046"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308544"
 ---
 # <a name="deny-cool-access-tiering-for-storage-accounts"></a>針對儲存體帳戶拒絕使用非經常性存取層處理
 
@@ -71,4 +70,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>後續步驟
 
-- 在 [Azure 原則範例](index.md)檢閱更多範例
+- 在 [Azure 原則範例](index.md)中檢閱更多範例

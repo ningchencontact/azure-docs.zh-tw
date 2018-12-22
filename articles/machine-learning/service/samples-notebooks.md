@@ -1,5 +1,6 @@
 ---
-title: Jupyter Notebook 中的 Azure Machine Learning 服務教學課程
+title: 範例 Jupyter Notebook
+titleSuffix: Azure Machine Learning service
 description: 尋找並使用 Jupyter Notebook 範例在 Python 中探索 Azure Machine Learning 服務。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ author: sdgilley
 ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
-ms.openlocfilehash: 5ec010d6e0539e9ba316b48dc02110dc19e4b13e
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.custom: seodec18
+ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883710"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434523"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>使用 Jupyter Notebook 探索 Azure Machine Learning 服務
 
@@ -96,8 +98,8 @@ ms.locfileid: "52883710"
    >[!NOTE]
    >您可以使用現有的 Conda，前提是版本必須是 4.4.10 或更高版本。 使用 `conda -V` 來顯示版本。 您可以使用此命令來更新 Conda 版本：`conda update conda`。 無須特別安裝 mini-conda。
 
-1. 從 [Github](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
-) 下載 Notebook 範例 (zip)，並將內容解壓縮至本機目錄。 自動化機器學習 Notebook 位於 `how-to-use-azureml/automated-machine-learning` 資料夾。
+1. 從 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning
+) 下載範例 Notebook (zip 檔)，並將內容解壓縮至本機目錄。 自動化機器學習 Notebook 位於 `how-to-use-azureml/automated-machine-learning` 資料夾。
 
 1. 設定新的 Conda 環境。 
    1. 在本機電腦上開啟 Conda 提示字元。
@@ -114,9 +116,10 @@ ms.locfileid: "52883710"
       + 設定小工具
       + 啟動 Jupyter Notebook
       
-      指令碼會將 Conda 環境名稱當作選擇性參數。 預設的 Conda 環境名稱是 `azure_automl`。 確切的命令視作業系統而定。 
+   >[!NOTE]
+   > 指令碼會將 Conda 環境名稱當作選擇性參數。 預設的 Conda 環境名稱是 `azure_automl`。 確切的命令視作業系統而定。 如果您要建立新環境或升級至新版本，這會相當有用。 例如，您可以使用 'automl_setup.cmd azure_automl_sandbox' 來建立環境名稱 azure_automl_sandbox。 
       
-      完成指令碼之後，您會在瀏覽器中看到 Jupyter Notebook 首頁。
+1. 完成指令碼之後，您會在瀏覽器中看到 Jupyter Notebook 首頁。
 
 1. 瀏覽至儲存 Notebook 的路徑。 
 

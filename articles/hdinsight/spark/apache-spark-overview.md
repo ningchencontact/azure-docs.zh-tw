@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Azure HDInsight 中的 Apache Spark
+title: 什麼是 Apache Spark - Azure HDInsight
 description: 本文提供 HDInsight 中的 Spark 簡介，以及您可以在 HDInsight 中使用 Spark 叢集的各種案例。
 services: hdinsight
 author: hrasheed-msft
@@ -7,21 +7,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: overview
-ms.date: 05/07/2018
+ms.date: 12/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: afd40298679375ed5dffcd35cdf5c877277dab8c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 35c063435e5524b5be473f6a71d8aa64ed74513c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498117"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166416"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>什麼是 Azure HDInsight 中的 Apache Spark
 
-*Apache Spark* 會平行處理可支援記憶體內部處理的架構，以大幅提升巨量資料分析應用程式的效能。 Azure HDInsight 中的 Apache Spark 是 Microsoft 在雲端的 Apache Spark 實作。 HDInsight 讓您能夠更輕鬆地在 Azure 中建立並設定 Spark 叢集。 HDInsight 中的 Spark 叢集也能與 Azure 儲存體和 Azure Data Lake Store 相容。 因此，您可以使用 HDInsight Spark 叢集來處理儲存於 Azure 的資料。 如需元件和版本資訊，請參閱 [Azure HDInsight 中的 Apache Hadoop 元件和版本](../hdinsight-component-versioning.md)。
+*Apache Spark* 是一個平行處理架構，可支援記憶體內部處理的，以大幅提升巨量資料分析應用程式的效能。 Azure HDInsight 中的 Apache Spark 是 Microsoft 在雲端的 Apache Spark 實作。 HDInsight 讓您能夠更輕鬆地在 Azure 中建立並設定 Spark 叢集。 HDInsight 中的 Spark 叢集也能與 Azure 儲存體和 Azure Data Lake Store 相容。 因此，您可以使用 HDInsight Spark 叢集來處理儲存於 Azure 的資料。 如需元件和版本資訊，請參閱 [Azure HDInsight 中的 Apache Hadoop 元件和版本](../hdinsight-component-versioning.md)。
 
 ![Spark：統一架構](./media/apache-spark-overview/hdinsight-spark-overview.png)
-
 
 ## <a name="what-is-spark"></a>什麼是 Spark？
 
@@ -88,7 +87,7 @@ HDInsight 中的 Spark 叢集適用於下列重要案例：
 - Spark 串流和即時資料分析
 
     HDInsight 上的 Spark 叢集提供豐富的支援供您建置即時分析解決方案。 雖然 Spark 已附有從 Kafka、Flume、Twitter、ZeroMQ 或 TCP 通訊端等眾多來源擷取資料的連接器，不過 HDInsight 中的 Spark 仍加入首屈一指的支援，供您從 Azure 事件中樞擷取資料。 事件中樞是 Azure 上最廣泛使用的佇列服務。 擁有立即可用的事件中樞支援，讓 HDInsight 中的 Spark 叢集成為建置即時分析管線的理想平台。
-    
+
 ## <a name="where-do-i-start"></a>我該從哪裡開始？
 
 您可以使用下列文章來深入了解 HDInsight 中的 Apache Spark：
@@ -104,4 +103,3 @@ HDInsight 中的 Spark 叢集適用於下列重要案例：
 在本概觀中，您已對 Azure HDInsight 中的 Apache Spark 有了一些基本了解。 請前往下一篇文章，以了解如何建立 HDInsight Spark 叢集以及執行某些 Spark SQL 查詢：
 
 - [在 HDInsight 中建立 Apache Spark 叢集](./apache-spark-jupyter-spark-sql.md)
-

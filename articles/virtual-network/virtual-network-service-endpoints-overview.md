@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 8150774a630e6888dcd3bb5a4d219cfbf2c2c477
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395202"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310159"
 ---
 # <a name="virtual-network-service-endpoints"></a>虛擬網路服務端點
 
@@ -32,17 +32,18 @@ ms.locfileid: "49395202"
 
 - **[Azure 儲存體](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**：已在所有 Azure 區域正式推出。
 - **[Azure SQL Database](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 區域正式推出。
-- **[適用於 PostgreSQL 伺服器的 Azure 資料庫](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
-- **[適用於 MySQL 伺服器的 Azure 資料庫](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
+- **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 區域正式推出。
+- **[適用於 PostgreSQL 的 Azure 資料庫伺服器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
+- **[適用於 MySQL 的 Azure 資料庫伺服器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在有提供資料庫服務的 Azure 區域中正式推出。
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
-- **[Azure Key Vault](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)** (英文)：已在所有 Azure 公用雲端區域正式推出。
+- **[Azure 金鑰保存庫](https://blogs.technet.microsoft.com/kv/2018/06/25/announcing-virtual-network-service-endpoints-for-key-vault-preview/)**：已在所有 Azure 公用雲端區域正式推出。
+- **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
+- **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：已在所有 Azure 公用雲端區域正式推出。
 
-<bpt id="p1">**</bpt>Preview<ept id="p1">**</ept>
+**預覽**
 
 - **[Azure SQL 資料倉儲](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在所有 Azure 公用雲端區域以預覽版提供。
-- **[Azure 服務匯流排](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
-- **[Azure 事件中樞](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
-- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：可供預覽。
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**：在預覽版中提供。
 
 如需最新通知，請查看 [Azure 虛擬網路更新](https://azure.microsoft.com/updates/?product=virtual-network)頁面。
 
@@ -50,7 +51,7 @@ ms.locfileid: "49395202"
 
 服務端點可提供下列優點：
 
-- **改善您 Azure 服務資源的安全性**：VNet 私人位址空間可以重疊，因此無法只用此項目來識別從您 VNet 輸出的流量。 服務端點藉由將 VNet 身分識別延伸至服務，提供能在虛擬網路中保護 Azure 服務資源的能力。 一旦在您的虛擬網路中啟用服務端點，即可將虛擬網路規則新增至資源，以將 Azure 服務資源放到虛擬網路保護。 這樣可以藉由完全移除這些資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，來改善安全性。
+- **改善 Azure 服務資源的安全性**：VNet 私人位址空間可以重疊，因此無法只用此項目來識別從您 VNet 輸出的流量。 服務端點藉由將 VNet 身分識別延伸至服務，提供能在虛擬網路中保護 Azure 服務資源的能力。 一旦在您的虛擬網路中啟用服務端點，即可將虛擬網路規則新增至資源，以將 Azure 服務資源放到虛擬網路保護。 這樣可以藉由完全移除這些資源的公用網際網路存取，而且只允許來自您虛擬網路的流量，來改善安全性。
 - **來自虛擬網路之 Azure 服務流量的最佳路由**：現在，虛擬網路中強制網際網路流量通過內部部署和 (或) 虛擬設備的任何路由 (也稱為強制通道)，也會強制 Azure 服務流量採用與網際網路流量相同的路由。 服務端點可提供 Azure 流量的最佳路由。 
 
   端點一律會直接採用從虛擬網路到 Microsoft Azure 骨幹網路上服務的服務流量。 Keeping traffic on the Azure backbone network 可讓您透過強制通道，繼續稽核和監視來自虛擬網路的輸出網際網路流量，而不會影響服務流量。 深入了解[使用者定義的路由和強制通道](virtual-networks-udr-overview.md)。
@@ -74,7 +75,7 @@ ms.locfileid: "49395202"
 
   根據預設，從內部部署網路無法觸達放到虛擬網路保護的 Azure 服務資源。 如果需要允許來自內部部署的流量，您也必須允許內部部署或 ExpressRoute 中的 NAT IP 位址。 透過 Azure 服務資源的 IP 防火牆設定，可以新增這些 IP 位址。
 
-  ExpressRoute：如果您使用來自內部部署環境的 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 進行公用對等互連或 Microsoft 對等互連，您必須識別所用的 NAT IP 位址。 在公用對等互連中，每個 Expressroute 線路預設都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 在 Microsoft 對等互連中，所用的 NAT IP 位址是由客戶提供或由服務提供者提供。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這些公用 IP 位址。 若要尋找您的公用對等互連 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 深入了解 [ExpressRoute 公用與 Microsoft 對等互連的 NAT。](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
+  ExpressRoute：如果您使用來自內部部署的 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 進行公用對等互連或 Microsoft 對等互連，您將必須識別所使用的 NAT IP 位址。 在公用對等互連中，每個 Expressroute 線路預設都會使用兩個 NAT IP 位址，而這兩個位址會在流量進入 Microsoft Azure 網路骨幹時套用至 Azure 服務流量。 在 Microsoft 對等互連中，所用的 NAT IP 位址是由客戶提供或由服務提供者提供。 若要允許存取您的服務資源，就必須在資源 IP 防火牆設定中允許這些公用 IP 位址。 若要尋找您的公用對等互連 ExpressRoute 線路 IP 位址，請透過 Azure 入口網站[開啟有 ExpressRoute 的支援票證](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)。 深入了解 [ExpressRoute 公用與 Microsoft 對等互連的 NAT。](../expressroute/expressroute-nat.md?toc=%2fazure%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)
 
 ![將 Azure 服務放到虛擬網路保護](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -100,7 +101,7 @@ ms.locfileid: "49395202"
 ### <a name="scenarios"></a>案例
 
 - **對等互連、已連線或多個虛擬網路**：若要將 Azure 服務放到一個虛擬網路或多個虛擬網路內的多個子網路保護，您可以獨立啟用每個子網路上的服務端點，並將 Azure 服務資源放到所有子網路保護。
-- **Filtering outbound traffic from a virtual network to Azure services**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+- **篩選從虛擬網路到 Azure 服務的輸出流量**：如果您想檢查或篩選從虛擬網路送到 Azure 服務的流量，則可以在虛擬網路內部署網路虛擬設備。 接著，可以將服務端點套用到網路虛擬設備部署所在的子網路，只將 Azure 服務資源放到此子網路保護。 如果您想要使用網路虛擬設備篩選，讓來自虛擬網路的 Azure 服務存取只限於特定 Azure 資源，則此案例可能有幫助。 如需詳細資訊，請參閱[使用網路虛擬設備輸出](/azure/architecture/reference-architectures/dmz/nva-ha#egress-with-layer-7-nvas.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 - **將 Azure 資源放到直接部署至虛擬網路的服務保護**：可以將各種 Azure 資源直接部署至虛擬網路中的特定子網路。 在受控服務子網路上設定服務端點，即可將 Azure 服務資源放到[受控服務](virtual-network-for-azure-services.md)子網路保護。
 - **來自 Azure 虛擬機器的磁碟流量**：對受控/非受控磁碟而言，虛擬機器磁碟流量 (包括掛接和卸載、diskIO) 不會因為 Azure 儲存體的服務端點路徑變更而受到影響。 您可以透過服務端點和 [Azure 儲存體網路規則](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，將分頁 Blob 的 REST 存取限制為選取網路。 
 
@@ -133,11 +134,21 @@ ms.locfileid: "49395202"
 
 對於 Azure 服務資源 (例如，Azure 儲存體帳戶)，服務可能會強制執行用來保護資源的子網路數目限制。 如需詳細資料，請參閱[後續步驟](#next-steps)中各種服務的文件。
 
+## <a name="virtual-network-service-endpoint-policies"></a>虛擬網路服務端點原則 
+
+虛擬網路服務端點原則可讓您篩選流向 Azure 服務的虛擬網路流量，以僅允許特定 Azure 服務資源經過服務端點。 服務端點原則可針對流向 Azure 服務的虛擬網路流量提供更細微的存取控制。 其他資訊：[虛擬網路服務端點原則](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
+
+## <a name="faqs"></a>常見問題集
+
+如需常見問題集，請參閱[虛擬網路服務端點常見問題集](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
+
 ## <a name="next-steps"></a>後續步驟
 
 - 了解如何[設定虛擬網路服務端點](tutorial-restrict-network-access-to-resources.md)
 - 了解如何[將 Azure 儲存體帳戶放到虛擬網路保護](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - 了解如何[將 Azure SQL Database 放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- 了解如何[將 Azure SQL 資料倉儲放到虛擬網路保護](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - 了解[虛擬網路中的 Azure 服務整合](virtual-network-for-azure-services.md)
+- 了解[虛擬網路服務端點原則](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 -  快速入門：[Azure Resource Manager 範本](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)可設定 VNet 子網路上的服務端點，並保護該子網路的 Azure 儲存體帳戶。
 

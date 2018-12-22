@@ -4,21 +4,21 @@ description: 了解如何在 Visual Studio 中針對串流分析 Edge 作業撰�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5597109a65a8af88bf286977d039656635565ed9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389063"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086893"
 ---
-# <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>教學課程：在 Visual Studio 中針對 Azure 串流分析 Edge 作業撰寫 C# 使用者定義的函式 (預覽)
+# <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-edge-job-preview"></a>教學課程：針對 Azure 串流分析 Edge 作業撰寫 C# 使用者定義的函式 (預覽)
 
-在 Visual Studio 中建立的 C# 使用者定義函式 (UDF)，可讓您使用自己的函式來延伸 Azure 串流分析查詢語言。 您可以重複使用現有的程式碼 (包括 DLL)，並利用 C# 來使用數學或複雜的邏輯。 有三種方式可用來實作 UDF：串流分析專案中的 CodeBehind 檔案、來自本機 C# 專案的 UDF 或來自儲存體帳戶之現有套件的 UDF。 此教學課程會使用 CodeBehind 方法來實作基本的 C# 函式。 適用於串流分析 Edge 作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
+在 Visual Studio 中建立的 C# 使用者定義函式 (UDF)，可讓您使用自己的函式來延伸 Azure 串流分析查詢語言。 您可以重複使用現有的程式碼 (包括 DLL)，並利用 C# 來使用數學或複雜的邏輯。 有三種方式可以實作 UDF：串流分析專案中的 CodeBehind 檔案、來自本機 C# 專案的 UDF 或來自儲存體帳戶之現有套件的 UDF。 此教學課程會使用 CodeBehind 方法來實作基本的 C# 函式。 適用於串流分析 Edge 作業的 UDF 功能目前為預覽狀態，不應該用於生產環境工作負載。
 
 在本教學課程中，您了解如何：
 
@@ -115,11 +115,11 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 
 2. 在 [方案總管] 中，展開 [輸入]、以滑鼠右鍵按一下 [Input.json]，然後選取 [新增本機輸入]。
 
-   ![在 Visual Studio 中將本機輸入新增至 Azure 串流分析作業](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
+   ![在 Visual Studio 中將本機輸入新增至串流分析作業](./media/stream-analytics-edge-csharp-udf/stream-analytics-add-local-input.png)
 
 3. 為您下載的範例資料指定本機輸入檔案路徑並**儲存**。
 
-    ![Visual Studio 中適用於 Azure 串流分析作業的本機輸入設定](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
+    ![Visual Studio 中適用於串流分析作業的本機輸入設定](./media/stream-analytics-edge-csharp-udf/stream-analytics-local-input-config.png)
 
 4. 在指令碼編輯器中，按一下 [在本機執行]。 一旦本機執行已成功儲存輸出結果之後，按下任意鍵以查看表格格式的結果。 
 
@@ -134,11 +134,11 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 
 1. 在 C# 函式中新增中斷點。
 
-    ![在 Visual Studio 中針對 Edge 作業在 Azure 串流分析使用者定義的函式中新增中斷點](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
+    ![將中斷點新增至 Visual Studio 中串流分析使用者定義的函式](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-breakpoints.png)
 
 2. 按 **F5** 開始偵錯。 程式將如預期般地在您的中斷點處停止。
 
-    ![在 Visual Studio 中針對 Edge 作業檢視 Azure 串流分析使用者定義函式的偵錯結果](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
+    ![檢視串流分析使用者定義的函式偵錯結果](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-debug.png)
 
 ## <a name="publish-your-job-to-azure"></a>將您的作業發佈至 Azure
 一旦在本機測試過您的查詢之後，請在指令碼編輯器中選取 [提交至 Azure]，以將作業發佈到 Azure。
@@ -155,4 +155,4 @@ CodeBehind 檔案是與單一 ASA Edge 查詢指令碼相關聯的 C# 檔案。 
 若要深入了解針對串流分析 Edge 作業使用 C# 使用者定義函式的不同方式，請繼續閱讀此文章：
 
 > [!div class="nextstepaction"]
-> [針對 Azure 串流分析撰寫 C# 使用者定義的函式](stream-analytics-edge-csharp-udf-methods.md)
+> [針對 Azure 串流分析撰寫 C# 函式](stream-analytics-edge-csharp-udf-methods.md)

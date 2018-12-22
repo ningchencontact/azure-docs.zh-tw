@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 指令碼範例 - 將受控磁碟的基礎 VHD 匯出/複製到儲存體帳戶 | Microsoft Docs
-description: Azure CLI 指令碼範例 - 將受控磁碟的基礎 VHD 匯出/複製到儲存體帳戶
+title: Azure CLI 範例 - 將受控磁碟複製到儲存體帳戶
+description: Azure CLI 範例 - 將受控磁碟匯出或複製到儲存體帳戶。
 services: virtual-machines-linux
 documentationcenter: storage
 author: ramankumarlive
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/17/2018
 ms.author: ramankum
-ms.custom: mvc
-ms.openlocfilehash: c5f06a8c8fb707a2bf0451f8e9ed391ac0c5bad9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.custom: mvc,seodec18
+ms.openlocfilehash: 4ee8b9dbb22e4530beb81bea9735867ecf21a1d4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48045231"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53183025"
 ---
-# <a name="exportcopy-the-underlying-vhd-of-a-managed-disk-to-a-storage-account-with-cli"></a>使用 CLI 將受控磁碟的基礎 VHD 匯出/複製到儲存體帳戶
+# <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 將受控磁碟匯出/複製到儲存體帳戶
 
 此指令碼會將受控磁碟的基礎 VHD 匯出到相同或不同區域的儲存體帳戶。 它會先產生受控磁碟的 SAS URI，然後用它來將 VHD 複製到儲存體帳戶。 使用此指令碼複製受控磁碟以進行區域擴充。 
 

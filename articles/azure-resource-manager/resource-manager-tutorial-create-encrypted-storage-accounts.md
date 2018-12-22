@@ -1,6 +1,6 @@
 ---
-title: 建立用來部署加密儲存體帳戶的 Azure Resource Manager 範本 | Microsoft Docs
-description: 您可以使用 Visual Studio Code 建立用來部署加密儲存體帳戶的範本。
+title: 利用 Resource Manager 範本參考 | Microsoft Docs
+description: 利用 Azure Resource Manager 範本參考來建立範本，以便部署加密的儲存體帳戶。
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,17 +10,18 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c75c0ce7d12f65878ec8cde0f265022c7beeb29
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.custom: seodec18
+ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613506"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097585"
 ---
-# <a name="tutorial-deploy-an-encrypted-azure-storage-account-with-resource-manager-template"></a>教學課程：使用 Resource Manager 範本部署加密的 Azure 儲存體帳戶
+# <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教學課程：利用 Azure Resource Manager 範本參考
 
 了解如何尋找範本結構描述資訊，以及使用此資訊來建立 Azure Resource Manager 範本。
 
@@ -77,9 +78,11 @@ ms.locfileid: "51613506"
 
 1. 瀏覽至 [Azure 範本](https://docs.microsoft.com/azure/templates/)。
 2. 在 [依標題篩選] 中，輸入**儲存體帳戶**。
-3. 選取 [參考/範本參考/儲存體/儲存體帳戶]，如下列螢幕擷取畫面所示：
+3. 選取 [參考/範本參考/儲存體/<Version>/儲存體帳戶]，如下列螢幕擷取畫面所示：
 
     ![Resource Manager 範本參考儲存體帳戶](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    如果您不知道要選擇哪個版本，請使用最新版本。
 
 4. 尋找加密相關的定義資訊。  
 

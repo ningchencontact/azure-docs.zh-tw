@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 叢集的檔案共用
+title: (已被取代) Azure DC/OS 叢集的檔案共用
 description: 建立檔案共用並將它掛接到 Azure Container Service 中的 DC/OS 叢集
 services: container-service
 author: julienstroheker
@@ -9,14 +9,16 @@ ms.topic: tutorial
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 4e03a0b450c9806edfb81a867fba97052659ec44
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 728f8ddbda35f27c0f89e1d72e98fd2d7669320e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973491"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999852"
 ---
-# <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>建立檔案共用並將它掛接到 DC/OS 叢集
+# <a name="deprecated-create-and-mount-a-file-share-to-a-dcos-cluster"></a>(已被取代) 建立檔案共用並將它掛接到 DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 本教學課程詳細說明如何在 Azure 上建立檔案共用，並將它掛接到 DC/OS 叢集的每個代理程式和主機。 設定檔案共用能使在整個叢集上共用檔案 (例如設定、存取、記錄等等) 變得更容易。 在本教學課程中，會完成下列工作：
 
