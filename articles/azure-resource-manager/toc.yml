@@ -20,6 +20,8 @@ items:
     href: resource-manager-tutorial-create-encrypted-storage-accounts.md
   - name: 建立多個執行個體
     href: resource-manager-tutorial-create-multiple-instances.md
+  - name: 移動資源
+    href: resource-manager-tutorial-move-resources.md
   - name: 設定資源部署順序
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md
   - name: 使用條件
@@ -44,9 +46,10 @@ items:
     href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: 概念
   items:
-  - name: 範本結構
-    href: resource-group-authoring-templates.md
+  - name: 範本
     items:
+    - name: 範本檔案結構
+      href: resource-group-authoring-templates.md
     - name: 參數
       href: resource-manager-templates-parameters.md
     - name: 變數
@@ -57,17 +60,21 @@ items:
       href: resource-manager-templates-resources.md
     - name: 輸出
       href: resource-manager-templates-outputs.md
+  - name: 指引
+    items:
+    - name: 範本最佳做法
+      href: template-best-practices.md
+    - name: 訂用帳戶治理
+      href: /azure/architecture/cloud-adoption/appendix/azure-scaffold
+      maintainContext: true
+    - name: 雲端一致性範本
+      href: templates-cloud-consistency.md
   - name: 資源提供者和類型
     href: resource-manager-supported-services.md
   - name: 管理群組
     href: management-groups-overview.md
   - name: 部署管理員
     href: deployment-manager-overview.md
-  - name: 訂用帳戶治理
-    href: /azure/architecture/cloud-adoption-guide/subscription-governance
-    maintainContext: true
-  - name: 雲端一致性範本
-    href: templates-cloud-consistency.md
   - name: 部署模式
     href: deployment-modes.md
   - name: 資源刪除
@@ -235,9 +242,9 @@ items:
     href: resource-manager-personal-data.md
   - name: 影片
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: 47766ce1bd0250c1eeaa269c4bc2436a2e117f02
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 71ea002b3f29952521a79ef5165e5432a48e72d6
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600939"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714452"
