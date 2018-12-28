@@ -1,6 +1,6 @@
 ---
-title: Azure Resource Manager 可刪除資源群組
-description: 描述刪除資源群組時，Azure Resource Manager 如何排列刪除資源的順序。
+title: '刪除資源群組和資源 - Azure Resource Manager '
+description: 描述刪除資源群組時，Azure Resource Manager 如何排列刪除資源的順序。 其會描述回應碼和資源管理員的處理方式，以判斷刪除作業是否成功。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8b0711cab07584aa84ab437a2a4efb5aab92f3d1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: b8c4fdc942af291e912a4c1e74d1292279cf9f8c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318907"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132324"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure Resource Manager 資源群組刪除
 
@@ -68,4 +69,4 @@ Resource Manager 會在嘗試刪除的每個資源上發出 GET 呼叫。 此 GE
 ## <a name="next-steps"></a>後續步驟
 
 * 若要了解 Resource Manager 概念，請參閱 [Azure Resource Manager 概觀](resource-group-overview.md)。
-* 若要檢視資源提供者的作業，請參閱 [Azure REST API](/rest/api/)。
+* 如需刪除命令，請參閱 [PowerShell](/powershell/module/azurerm.resources/Remove-AzureRmResourceGroup)、[Azure CLI](/cli/azure/group?view=azure-cli-latest#az-group-delete) 和 [REST API](/rest/api/resources/resourcegroups/delete)。

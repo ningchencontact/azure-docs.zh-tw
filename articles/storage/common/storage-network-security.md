@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: cfa0a91e74dba7a17b03a76dd70fc09a264decf8
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 8801954ec5ff0277614f65217b9abab6bfb67035
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284586"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098601"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>設定 Azure 儲存體防火牆和虛擬網路
 
@@ -350,11 +350,11 @@ Azure 儲存體提供分層的安全性模型。 此模型可讓您設定一組�
 |Azure 備份|Microsoft.Backup|在 IAAS 虛擬機器中執行未受控磁碟備份與還原。 (若為受控磁碟則非必要)。 [深入了解](/azure/backup/backup-introduction-to-azure-backup)。|
 |Azure Site Recovery|Microsoft.SiteRecovery |藉由啟用 Azure IaaS 虛擬機器的複寫來設定災害復原。 如果您使用已啟用防火牆的快取儲存體帳戶、來源儲存體帳戶或目標儲存體帳戶，則這會是必要項目。  [深入了解](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)。|
 |Azure DevTest Labs|Microsoft.DevTestLab|自訂映像建立和成品安裝。 [深入了解](/azure/devtest-lab/devtest-lab-overview)。|
-|Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈。 [深入了解](/azure/event-grid/overview)。|
+|Azure Event Grid|Microsoft.EventGrid|啟用 Blob 儲存體事件發佈，並允許事件方格發佈到儲存體佇列。 深入了解 [Blob 儲存體事件](/azure/event-grid/event-sources)及[發佈至佇列](/azure/event-grid/event-handlers)。|
 |Azure 事件中心|Microsoft.EventHub|使用事件中樞擷取封存資料。 [深入了解](/azure/event-hubs/event-hubs-capture-overview)。|
 |Azure 網路|Microsoft.Networking|儲存及分析網路流量記錄檔。 [深入了解](/azure/network-watcher/network-watcher-packet-capture-overview)。|
 |Azure 監視器|Microsoft.Insights|允許將監視資料寫入受保護的儲存體帳戶 [深入了解](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks)。|
-|
+|Azure SQL 資料倉儲|Microsoft.Sql|允許使用 PolyBase 匯入和匯出案例。 [深入了解](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>儲存體分析資料存取
 

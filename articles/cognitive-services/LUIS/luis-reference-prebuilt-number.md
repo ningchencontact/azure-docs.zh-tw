@@ -1,27 +1,28 @@
 ---
-title: LUIS 預先建置的 number 實體參考 - Azure| Microsoft Docs
+title: 數字預先建置的實體
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 number 實體資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: b3ac42f5ecd1dc14055b0767e057a1da093042f9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd42fbb85468ab652741573731515e499fe453da
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334562"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165668"
 ---
-# <a name="number-entity"></a>Number 實體
+# <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的數字預先建置實體
 數值用來量化、表達及描述各項資訊的方式眾多。 本文只涵蓋部分可能的範例。 LUIS 可解譯使用者語句的變化，並傳回一致的數值。 因為此實體已經定型，所以您不需要將包含數字的範例語句加入應用程式意圖。 
 
 ## <a name="types-of-number"></a>數字類型
-數字可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 儲存機制管理
+數字可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml) GitHub 存放庫管理
 
 ## <a name="examples-of-number-resolution"></a>數字解析範例
 
@@ -42,7 +43,7 @@ LUIS 會在所傳回 JSON 回應的 `resolution` 欄位中，包含 **`builtin.n
 ## <a name="resolution-for-prebuilt-number"></a>解析預先建置的數字
 下列範例顯示來自 LUIS 的 JSON 回應，其中包含「兩打」語句的值 24。
 
-```JSON
+```json
 {
   "query": "order two dozen eggs",
   "topScoringIntent": {

@@ -4,15 +4,15 @@ description: 提供 Azure Migrate 中收集器設備的相關資訊。
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 255f5b34e53ddfb1a503130f0bccbac16a420f9a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241186"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255970"
 ---
 # <a name="about-the-collector-appliance"></a>關於收集器設備
 
@@ -20,21 +20,9 @@ ms.locfileid: "50241186"
 
 「Azure Migrate 收集器」是一個輕量型設備，可用來探索內部部署 vCenter 環境，目的是要在移轉至 Azure 之前，先使用 [Azure Migrate](migrate-overview.md) 服務進行評量。  
 
-## <a name="discovery-methods"></a>探索方法
+## <a name="discovery-method"></a>探索方法
 
-有兩種可供收集器設備使用的方法：單次探索或連續探索。
-
-### <a name="one-time-discovery"></a>單次探索
-
-收集器設備會與 vCenter Server 進行單次通訊以收集 VM 的相關中繼資料。 使用此方法時：
-
-- 設備不會持續連線至 Azure Migrate 專案。
-- 探索完成之後，內部部署環境中的變更並不會反映在 Azure Migrate 中。 若要反映任何變更，您必須再次於相同的專案中探索相同的環境。
-- 收集 VM 的效能資料時，設備會倚賴儲存在 vCenter Server 中的歷史效能資料。 它會收集過去一個月的效能歷程記錄。
-- 針對歷史效能資料收集，您必須將 vCenter Server 中的統計資料設定設為層級 3。 將層級設定為 3 之後，您需要等待至少一天，讓 vCenter 收集效能計數器。 因此，建議您在至少一天後再執行探索。 如果您想要根據 1 週或 1 個月的效能資料來評估環境，則您需要等候相對應的時間。
-- 在此探索方法中，Azure Migrate 會收集每個計量的平均計數器 (而非尖峰計數器)，這可能會導致大小不足。 我們建議您使用連續探索選項，以取得更準確的大小結果。
-
-### <a name="continuous-discovery"></a>連續探索
+先前有兩種可供收集器設備使用的方法：單次探索和連續探索。 單次探索模型現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料收集 (要求的統計資料設定為 3 級)，而且收集的平均效能計數器 (而不是尖峰) 會導致大小不足。 連續探索模型可確保更細微的資料收集，且因為收集的是尖峰計數器，所以會產生正確的大小。 其運作方式如下：
 
 收集器設備會持續連線至 Azure Migrate 專案，並持續收集 VM 的效能資料。
 
@@ -44,21 +32,23 @@ ms.locfileid: "50241186"
 - 此模型並不倚賴 vCenter Server 統計資料設定來收集效能資料。
 - 您可以隨時從收集器停止連續分析。
 
-請注意，設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
+**立即滿足：** 透過連續探索設備，探索完成後 (視 VM 數目而定，需要幾個小時)，您可以立即建立評量。 由於效能資料收集會在您開始探索時開始進行，如果您要尋求立即滿足，則應將評量中的調整大小準則選取為「內部部署」。 對於以效能為基礎的評量，建議等待至少一天後開始探索，以取得可靠的大小建議。
+
+設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
 
 - 新增項目 (VM、磁碟、核心等)：若要在 Azure 入口網站中反映這些變更，您可以從設備停止探索，然後重新啟動。 這可確保所做的變更會在 Azure Migrate 專案中更新。
 
 - 刪除 VM：基於設備的設計方式，刪除 VM 並不會有所反映，即使您停止探索後再重新啟動也一樣。 這是因為後續探索中的資料會附加至較舊的探索，而且不會受到覆寫。 在此情況下，您可以藉由從群組中移除 VM 並重新計算評定，以直接忽略入口網站中的 VM。
 
 > [!NOTE]
-> 連續探索功能為預覽版。 我們建議您使用此方法，因為此方法會收集較細微的效能資料，讓您藉此完成精確的大小調整。
+> 單次探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
 
 ## <a name="deploying-the-collector"></a>部署收集器
 
 您需使用 OVF 範本來部署收集器設備：
 
 - 您從 Azure 入口網站中的 Azure Migrate 專案下載 OVF 範本。 您將所下載的檔案匯入至 vCenter Server 以設定收集器設備 VM。
-- VMware 從 OVF 設定一個具有 4 個核心、8 GB RAM 及一個 80 GB 磁碟的 VM。 作業系統是 Windows Server 2012 R2 (64 位元)。
+- VMware 從 OVF 設定一個具有 8 個核心、16 GB RAM 及一個 80 GB 磁碟的 VM。 作業系統是 Windows Server 2016 (64 位元)。
 - 當您執行收集器時，會執行一些先決條件檢查，以確定收集器可以連線至 Azure Migrate。
 
 - [深入了解](tutorial-assessment-vmware.md#create-the-collector-vm)如何建立收集器。
@@ -68,14 +58,18 @@ ms.locfileid: "50241186"
 
 收集器必須通過幾個先決條件檢查，以確保它可以透過網際網路連線到 Azure Migrate 服務，並上傳探索到的資料。
 
+- **驗證 Azure 雲端**：收集器必須知道您打算移轉到哪個 Azure 雲端。
+    - 如果您打算移轉至 Azure Government 雲端，請選取 [Azure Government]。
+    - 如果您打算移轉至商業 Azure 雲端，請選取 [Azure 全球]。
+    - 根據這裡指定的雲端，應用裝置會將探索到的中繼資料傳送到個別的端點。
 - **檢查網際網路連線**：收集器可以直接或透過 Proxy 連線至網際網路。
     - 先決條件檢查會確認是否能夠與[必要和選擇性 URL](#connect-to-urls) 連線。
     - 如果您可以直接連線至網際網路，則除了確定收集器可以連線至必要的 URL 之外，無須採取任何特定動作。
     - 如果您透過 Proxy 進行連線，請注意[下列需求](#connect-via-a-proxy)。
-- **確認時間同步處理**：收集器應該與網際網路時間伺服器同步，以確保會驗證對服務提出的要求。
+- **驗證時間同步處理**：收集器應該與網際網路時間伺服器保持同步，以確保會驗證服務的要求。
     - 您應該可以從收集器觸達 portal.azure.com url，以便驗證時間。
     - 如果機器未同步，您就必須將收集器 VM 的時間變更成與目前時間相符。 若要這樣做，請在 VM 上開啟管理員提示，執行 **w32tm /tz** 以檢查時區。 執行 **w32tm /resync** 以同步時間。
-- **檢查收集器服務是否正在執行**：「Azure Migrate 收集器」服務應該正在收集器 VM 上執行。
+- **檢查收集器服務是否在執行中**：Azure Migrate 收集器服務應在收集器 VM 上執行。
     - 此服務會在機器開機時自動啟動。
     - 如果收集器服務未處於執行中，請從 [控制台] 啟動它。
     - 收集器服務會連線至 vCenter Server、收集 VM 中繼資料和效能資料，然後將資料傳送給 Azure Migrate 服務。
@@ -117,7 +111,8 @@ ms.locfileid: "50241186"
 
 **URL** | **詳細資料**  | **先決條件檢查**
 --- | --- | ---
-*.portal.azure.com | 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
+*.portal.azure.com | 適用於 Azure 全球。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
+*.portal.azure.us | 僅適用於 Azure Government。 檢查是否能夠與 Azure 服務連線及時間是否同步。 | 必須具備 URL 存取權。<br/><br/> 如果無法連線，先決條件檢查就會失敗。
 *.oneget.org:443<br/><br/> *.windows.net:443<br/><br/> *.windowsazure.com:443<br/><br/> *.powershellgallery.com:443<br/><br/> *.msecnd.net:443<br/><br/> *.visualstudio.com:443| 用來下載 PowerShell vCenter PowerCLI 模組。 | 不一定要具備 URL 存取權。<br/><br/> 先決條件檢查不會失敗。<br/><br/> 收集器 VM 上的自動模組安裝將會失敗。 您將必須手動安裝模組。
 
 
@@ -211,7 +206,7 @@ RDP | TCP 3389 |
 
 ### <a name="collected-metadata"></a>所收集的中繼資料
 
-收集器設備會探索下列 VM 靜態中繼資料：
+收集器設備會探索下列每個 VM 的設定中繼資料。 VM 的設定資料會在您開始探索後 1 小時可供使用。
 
 - VM 顯示名稱 (在 vCenter Server 上)
 - VM 的清查路徑 (vCenter Server 中的主機/資料夾)
@@ -224,26 +219,18 @@ RDP | TCP 3389 |
 
 #### <a name="performance-counters"></a>效能計數器
 
-- **單次探索**：針對單次探索收集計數器時，請注意項列事項：
+ 收集器設備會以 20 秒的間隔，從 ESXi 主機收集下列每個 VM 的效能計數器。 這些計數器是 vCenter 計數器，雖然術語說明是平均計數器，但 20 秒範例是即時計數器。 啟動探索兩小時之後，就可以在入口網站上取得 VM 效能資料。 強烈建議您至少先等候一天的時間，再建立以效能為基礎的評量，以取得正確的適當大小建議。 如果您要尋求立即滿足，則可以使用「內部部署」作為調整大小準則來建立評量，這不會考慮適當大小的效能資料。
 
-    - 最多可能需要 15 分鐘的時間，才能收集設定描述資料並傳送給專案。
-    - 收集設定資料之後，最多可能需要一小時的時間，入口網站才會提供效能資料。
-    - 在入口網站提供中繼資料之後，會出現 VM 清單，而您便可以開始建立用於評量的群組。
-- **連續探索**：針對連續探索，請注意下列事項：
-    - VM 的設定資料會在您開始探索後 1 小時可供使用
-    - 效能資料會在 2 小時後可供使用。
-    - 在您開始探索之後，請至少等候 一天讓設備分析環境，然後才建立評量。
-
-**計數器** | **Level** | **個別裝置層級** | **對評量的影響**
---- | --- | --- | ---
-cpu.usage.average | 1 | NA | 建議的虛擬機器大小和成本  
-mem.usage.average | 1 | NA | 建議的虛擬機器大小和成本  
-virtualDisk.read.average | 2 | 2 | 計算磁碟大小、儲存成本、VM 大小
-virtualDisk.write.average | 2 | 2  | 計算磁碟大小、儲存成本、VM 大小
-virtualDisk.numberReadAveraged.average | 1 | 3 |  計算磁碟大小、儲存成本、VM 大小
-virtualDisk.numberReadAveraged.average | 1 | 3 |   計算磁碟大小、儲存成本、VM 大小
-net.received.average | 2 | 3 |  計算 VM 大小                          |
-net.transmitted.average | 2 | 3 | 計算 VM 大小     
+**計數器** |  **對評量的影響**
+--- | ---
+cpu.usage.average | 建議的虛擬機器大小和成本  
+mem.usage.average | 建議的虛擬機器大小和成本  
+virtualDisk.read.average | 計算磁碟大小、儲存成本、VM 大小
+virtualDisk.write.average | 計算磁碟大小、儲存成本、VM 大小
+virtualDisk.numberReadAveraged.average | 計算磁碟大小、儲存成本、VM 大小
+virtualDisk.numberReadAveraged.average | 計算磁碟大小、儲存成本、VM 大小
+net.received.average | 計算 VM 大小                          
+net.transmitted.average | 計算 VM 大小     
 
 ## <a name="next-steps"></a>後續步驟
 

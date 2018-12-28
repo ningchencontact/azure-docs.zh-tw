@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure VM 上的 SQL Server 建置與部署機器學習模型 | Microsoft Docs
-description: 進階分析程序和技術實務
+title: 建置與部署 SQL Server VM-Team Data Science Process 中的模型
+description: 使用 SQL Server 在具有公用且可用的資料集 Azure VM 上，建置與部署機器學習模型。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: cad56d2e8de071feb9a02e0cfc6bcc884eebe91a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445458"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141402"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process 實務：使用 SQL Server
 在這個教學課程中，您將遵循逐步解說，使用 SQL Server 和可公開取得的資料集 ([NYC Taxi Trips (NYC 計程車車程)](http://www.andresmh.com/nyctaxitrips/) 資料集)，完成建置和部署機器學習服務模型的程序。 程序會遵循標準的資料科學工作流程︰包括擷取和瀏覽資料，以及設計功能以加快學習，接著建置和部署模型。
@@ -46,15 +46,15 @@ ms.locfileid: "52445458"
 ## <a name="mltasks"></a>預測工作的範例
 我們將根據 *tip\_amount* 編寫三個預測問題的公式，公式如下：
 
-1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tip\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. 多類別分類：預測已針對該車程支付的小費的金額範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
+1. 二元分類：預測是否已支付某趟車程的小費，例如大於美金 $0 元的 *tipp\_amount* 為正面範例，而等於美金 $0 元的 *tip\_amount* 為負面範例。
+2. 多元分類：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
+3. 迴歸工作：預測針對某趟車程支付的小費金額。  
 
 ## <a name="setup"></a>設定適用於進階分析的 Azure 資料科學環境
 誠如您在《 [規劃您的環境](plan-your-environment.md) 》指南中所見，在 Azure 中使用「NYC 計程車車程」資料集時，有數個選項可以採用：
@@ -79,7 +79,7 @@ ms.locfileid: "52445458"
    > 
    > 
 
-根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 \#5：本機檔案中的大型資料集、Azure VM 中的目標 SQL Server](plan-sample-scenarios.md#largelocaltodb)。
+根據資料集大小、資料來源位置，以及選取的 Azure 目標環境，此案例的類似案例為[案例 \#5：本機資料中的大型資料集，Azure VM](plan-sample-scenarios.md#largelocaltodb) 中的目標 SQL Server。
 
 ## <a name="getdata"></a>從公用來源取得資料
 若要從 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/)資料集的公用位置取得該資料集，您可以使用[從 Azure Blob 儲存體來回移動資料](move-azure-blob.md)中所述的任何一種方法，將資料複製到新的虛擬機器。
@@ -87,7 +87,7 @@ ms.locfileid: "52445458"
 使用 AzCopy 複製資料：
 
 1. 登入您的虛擬機器 (VM)
-2. 在 VM 的資料磁碟中建立新的目錄 (注意：請勿使用 VM 隨附的「暫存磁碟」做為資料磁碟)。
+2. 在 VM 資料磁碟中建立新目錄 (注意：請勿將 VM 隨附的暫存磁碟，用作資料磁碟)。
 3. 在 [命令提示字元] 視窗中，執行下列 AzCopy 命令列，使用您在 (2) 中建立的 [資料] 資料夾來取代 <path_to_data_folder>：
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -137,7 +137,7 @@ ms.locfileid: "52445458"
 12. 「NYC 計程車車程」資料會載入兩個不同的資料表。 若要改善聯結作業，強烈建議您為資料表編製索引。 指令碼範例 **create\_partitioned\_index.sql** 會在複合聯結索引鍵 **medallion、hack\_license 和 pickup\_datetime** 上建立資料分割索引。
 
 ## <a name="dbexplore"></a>SQL Server 中的資料探索和功能工程
-在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱： **TaxiNYC**不同，請修改指令碼變更該名稱。
+在本節中，我們將使用先前建立的 SQL Server 資料庫，直接在 **SQL Server Management Studio** 中執行 SQL 查詢，藉此探索資料和產生功能。 名為 **sample\_queries.sql** 的指令碼範例位於 [指令碼範例] 資料夾中。 若資料庫名稱與預設名稱 **TaxiNYC** 不同，請修改指令碼以變更該名稱。
 
 在這個練習中，我們將：
 
@@ -172,7 +172,7 @@ ms.locfileid: "52445458"
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據 medallion 和 hack_license 的車程分佈
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據計程車牌照和計程車駕照的車程分佈
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -191,7 +191,7 @@ ms.locfileid: "52445458"
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費和未支付小費的車程分佈
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費 vs.未支付小費的車程分佈
 此範例會尋找在指定期間內 (或者，如果涵蓋一整年，則是在整個資料庫中)，已收到小費及未收到小費的車程數目。 此分佈會反映二進位標籤分佈，以便稍後用來將二進位分類模型化。
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -456,7 +456,7 @@ ms.locfileid: "52445458"
         cursor.execute(nyctaxi_one_percent_update_col)
         cursor.commit()
 
-#### <a name="feature-engineering-count-features-for-categorical-columns"></a>功能工程：適用於類別資料行的計數功能
+#### <a name="feature-engineering-count-features-for-categorical-columns"></a>特徵設計：適用於類別資料行的計數功能
 此範例會將類別欄位轉換為數值欄位，方法是使用它在資料中發生的計數來取代每個類別。
 
     nyctaxi_one_percent_insert_col = '''
@@ -486,7 +486,7 @@ ms.locfileid: "52445458"
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>功能工程：適用於數字資料行的收納組功能
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>特徵設計：適用於數值資料行的間隔功能
 此範例會將連續的數值欄位轉換成預設的類別範圍，亦即，將數值欄位轉換到類別欄位。
 
     nyctaxi_one_percent_insert_col = '''
@@ -514,7 +514,7 @@ ms.locfileid: "52445458"
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>功能工程：從十進位經緯度擷取位置功能
+#### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>特徵設計：從十進位緯度/經度擷取位置功能
 此範例會將緯度和/或經度欄位的十進位表示法細分為資料粒度不同的多個區域欄位，例如國家/地區、城市、城鎮、街區等。請注意，新的地理位置欄位不會對應到實際的位置。 如需對應地理編碼位置的資訊，請參閱 [Bing 地圖服務 REST 服務](https://msdn.microsoft.com/library/ff701710.aspx)。
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ ms.locfileid: "52445458"
 
 我們現在已準備好在 [Azure Machine Learning](https://studio.azureml.net)中建置和部署模型。 資料已經準備好用於稍早所識別的任何預測問題，也就是：
 
-1. 二進位分類：預測是否已支付某趟車程的小費。
-2. 多類別分類：根據先前定義的類別，預測所支付的小費範圍。
-3. 迴歸工作：預測已針對某趟車程支付的小費金額。  
+1. 二元分類：預測是否已支付某趟車程的小費。
+2. 多元分類：根據先前定義的類別，預測所支付的小費範圍。
+3. 迴歸工作：預測針對某趟車程支付的小費金額。  
 
 ## <a name="mlmodel"></a>在 Azure Machine Learning 中建置模型
 若要開始進行模型化練習，請登入 Azure Machine Learning 工作區。 如果您尚未建立機器學習服務工作區，請參閱 [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)。

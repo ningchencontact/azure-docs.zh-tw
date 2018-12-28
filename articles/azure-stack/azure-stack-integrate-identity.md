@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: b59d503b8aadef9e8f9c2d7db71ff60aee3b6387
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 9d9e97d81e33487a5f23197912eba3802e83a32e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300705"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257371"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 資料中心整合 - 身分識別
 您可以使用 Azure Active Directory (Azure AD) 或 Active Directory Federation Services (AD FS) 作為識別提供者來部署 Azure Stack。 請先選擇識別提供者，才能部署 Azure Stack。 使用 AD FS 的部署也稱為在中斷連線模式中部署 Azure Stack。
@@ -43,7 +43,7 @@ ms.locfileid: "51300705"
 
 現有的 AD FS 是帳戶安全性權杖服務 (STS)，會將宣告傳送至 Azure Stack AD FS (資源 STS)。 在 Azure Stack 中，自動化會對現有 AD FS 的中繼資料端點建立宣告提供者信任。
 
-在現有 AD FS 中，必須設定一個信賴憑證者信任。 這個步驟不是由自動化完成，而是必須由操作員設定。 Azure Stack 中繼資料端點已記錄在 AzureStackStampDeploymentInfo.JSON 檔案中，或透過執行命令 `Get-AzureStackInfo` 的特殊權限端點。
+在現有 AD FS 中，必須設定一個信賴憑證者信任。 這個步驟不是由自動化完成，而是必須由操作員設定。 Azure Stack 中繼資料端點已記錄在 AzureStackStampDeploymentInfo.JSON 檔案中，或透過執行命令 `Get-AzureStackInfo` 的具特殊權限端點。
 
 信賴憑證者信任設定也會要求您設定由 Microsoft 提供的宣告轉換規則。
 
@@ -101,7 +101,7 @@ Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹�
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. 您已連接到特殊權限端點，請執行下列命令： 
+2. 您已連接到具特殊權限端點，請執行下列命令： 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -110,7 +110,7 @@ Graph 僅支援單一 Active Directory 樹系的整合。 如果存在多個樹�
    出現提示時，指定要用於 Graph 服務的使用者帳戶之認證 (例如 graphservice)。 Register-DirectoryService Cmdlet 的輸入必須是樹系名稱 / 樹系中的根網域，而不是樹系中的其他網域。
 
    > [!IMPORTANT]
-   > 等待認證快顯 (特殊權限端點中不支援 Get-Credential)，然後輸入 Graph 服務帳戶認證。
+   > 等待認證快顯 (具特殊權限端點中不支援 Get-Credential)，然後輸入 Graph 服務帳戶認證。
 
 #### <a name="graph-protocols-and-ports"></a>Graph 通訊協定和連接埠
 
@@ -131,7 +131,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 |參數|說明|範例|
 |---------|---------|---------|
-|CustomAdfsName|宣告提供者的名稱。<cr>在 AD FS 登陸頁面上的顯示方式。|Contoso|
+|CustomAdfsName|宣告提供者的名稱。<br>在 AD FS 登陸頁面上的顯示方式。|Contoso|
 |CustomAD<br>FSFederationMetadataEndpointUri|同盟中繼資料連結|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
 
 
@@ -139,14 +139,14 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 針對此程序，請使用能夠與 Azure Stack 中具特殊權限端點通訊的電腦。 預期 Azure Stack 會信任帳戶 **STS AD FS** 所使用的憑證。
 
-1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到特殊權限端點。
+1. 開啟已提高權限的 Windows PowerShell 工作階段，然後連線到具特殊權限端點。
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-2. 既然您已連接到特殊權限端點，請使用適用於您環境的參數執行下列命令：
+2. 既然您已連接到具特殊權限端點，請使用適用於您環境的參數執行下列命令：
 
    ```PowerShell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
@@ -215,7 +215,7 @@ Azure Stack 中的 Graph 服務會使用下列通訊協定和連接埠來與目�
 
 Microsoft 提供可設定信賴憑證者信任 (包括宣告轉換規則) 的指令碼。 使用指令碼是選擇性的，因為您可以手動執行命令。
 
-您可以從 Github 上的 [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity) 下載協助程式指令碼。
+您可以從 GitHub 上的 [Azure Stack 工具](https://github.com/Azure/AzureStack-Tools/tree/vnext/DatacenterIntegration/Identity)下載協助程式指令碼。
 
 如果您決定要手動執行命令，請遵循下列步驟：
 

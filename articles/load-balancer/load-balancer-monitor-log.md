@@ -1,5 +1,6 @@
 ---
-title: 監視公用 Basic Load Balancer 的作業、事件和計數器 | Microsoft Docs
+title: 監視公用基礎負載平衡器的作業、事件和計數器
+titlesuffix: Azure Load Balancer
 description: 了解如何啟用 Basic Load Balancer 的警示事件和探查健康情況狀態記錄
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: e8d38aaff2e7f20a3935608bcf4d610828d2b84f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261497"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164121"
 ---
 # <a name="log-analytics-for-public-basic-load-balancer"></a>適用於公用 Basic Load Balancer 的 Log Analytics
 
@@ -25,9 +27,9 @@ ms.locfileid: "51261497"
 
 您可以在 Azure 中使用不同類型的記錄來管理 Basic Load Balancer，並對其進行疑難排解。 透過入口網站可以存取其中一些記錄檔。 從 Azure Blob 儲存體可以擷取所有記錄，並且在不同的工具中進行檢視 (例如 Excel 和 PowerBI)。 您可以從下列清單進一步了解不同類型的記錄檔。
 
-* **稽核記錄檔︰** 您可以使用 [Azure 稽核記錄檔](../monitoring-and-diagnostics/insights-debugging-with-events.md) (之前稱為「作業記錄檔」) 來檢視提交至您 Azure 訂用帳戶的所有作業及其狀態。 預設會啟用稽核記錄檔，並可在 Azure 入口網站中進行檢視。
-* **警示事件記錄：** 您可以使用此記錄來檢視負載平衡器所引發的警示。 系統每五分鐘會收集一次負載平衡器的狀態。 只有在引發負載平衡器警示事件時，才會寫入此記錄檔。
-* **健康狀態探查記錄︰** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
+* **稽核記錄：** 您可以使用 [Azure 稽核記錄檔](../monitoring-and-diagnostics/insights-debugging-with-events.md) (之前稱為「作業記錄檔」) 來檢視提交至您 Azure 訂用帳戶的所有作業及其狀態。 預設會啟用稽核記錄檔，並可在 Azure 入口網站中進行檢視。
+* **警示事件記錄檔：** 您可以使用此記錄來檢視負載平衡器所引發的警示。 系統每五分鐘會收集一次負載平衡器的狀態。 只有在引發負載平衡器警示事件時，才會寫入此記錄檔。
+* **健全狀況探查記錄檔：** 您可以使用此記錄來檢視健康狀態探查所偵測到的問題，例如後端集區中因為健康狀態探查失敗，而未從負載平衡器接收要求的執行個體數目。 健康狀態探查狀態發生變更時會寫入此記錄。
 
 > [!IMPORTANT]
 > 記錄分析目前僅適用於公用的 Basic 負載平衡器。 記錄檔僅適用於在資源管理員部署模型中部署的資源。 您無法將記錄檔使用於傳統部署模型中的資源。 如需這些部署模型的詳細資訊，請參閱[了解 Resource Manager 部署和傳統部署](../azure-resource-manager/resource-manager-deployment-model.md)。
@@ -131,8 +133,8 @@ JSON 輸出在屬性欄位中顯示了探查健全狀況狀態的基本資訊。
 
 您可以使用下列任何方法，檢視和分析稽核記錄檔資料：
 
-* **Azure 工具︰** 透過 Azure PowerShell、Azure 命令列介面 (CLI)、Azure REST API 或 Azure Preview 入口網站，從稽核記錄擷取資訊。 [稽核作業與資源管理員](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
-* **Power BI︰** 如果您還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 稽核記錄檔內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，您可以使用預先設定的儀表板來分析資料，或根據您的需求自訂檢視。
+* **Azure 工具：** 透過 Azure PowerShell、Azure 命令列介面 (CLI)、Azure REST API 或 Azure Preview 入口網站，從稽核記錄擷取資訊。 [稽核作業與資源管理員](../azure-resource-manager/resource-group-audit.md) 一文會詳述每個方法的逐步指示。
+* **Power BI：** 如果您還沒有 [Power BI](https://powerbi.microsoft.com/pricing) 帳戶，您可以免費試用。 使用 [Power BI 的 Azure 稽核記錄檔內容套件](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)，您可以使用預先設定的儀表板來分析資料，或根據您的需求自訂檢視。
 
 ## <a name="view-and-analyze-the-health-probe-and-event-log"></a>檢視和分析健全狀況探查與事件記錄檔
 

@@ -1,21 +1,22 @@
 ---
-title: LUIS 的 Azure Cloud Shell 使用量資料
-titleSuffix: Azure Cognitive Services
+title: 使用量資料 - Cloud Shell
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解如何在 Azure Cloud Shell 中取得 LUIS 的使用量資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: aca81bd529fe6151dce7aba6754874355189fc59
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4f1a76fe587a34448cf218dbfef10f6b0e2ea46
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444373"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133466"
 ---
 # <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>從 Azure Cloud Shell 管理 LUIS 服務的使用量資料
 Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。 
@@ -34,7 +35,7 @@ Azure 入口網站可讓您透過 PowerShell Cmdlet 來使用 LUIS 資源。
 
 請使用 [啟動 Cloud Shell] 按鈕開啟 Cloud Shell，或透過 [https://shell.azure.com](https://shell.azure.com) 開啟瀏覽器。 選取 Power Shell 作為環境。 如果您沒有 Azure 儲存體帳戶，則需要建立一個。 
 
-<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" /></a>
+<a style="cursor:pointer" onclick='javascript:window.open("https://shell.azure.com", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,menubar=no,location=no,status=no")'><image src="https://shell.azure.com/images/launchcloudshell.png" alt="Start powershell" /></a>
 
 ## <a name="luis-endpoint-usage-information"></a>LUIS 端點使用量資訊
 
@@ -42,7 +43,7 @@ PowerShell 6.x Cmdlet `Get-AzureRmCognitiveServicesAccountUsage` 會針對包含
 
 命令語法為：
 
-```
+```powershell
 Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -Name my-luis-service-name
 ```
 
@@ -50,7 +51,7 @@ Get-AzureRmCognitiveServicesAccountUsage -ResourceGroupName my-resource-group -N
 
 此 Cmdlet 會傳回為期 30 天、結束日期為 6 月 7 日的期間內所使用的 16 次端點叫用 (共計 10,000 次) 的使用量資訊：
 
-```
+```powershell
 CurrentValue  : 16
 Name          : LUIS.Calls
 Limit         : 10000

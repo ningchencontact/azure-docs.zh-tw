@@ -4,17 +4,17 @@ description: 了解如何設定 Azure 串流分析中的資料連線。 輸入�
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/27/2018
-ms.openlocfilehash: 2bd2a90c6bac280b6f68bde378b7f7d32b7fcd38
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 66e57d95125bd6404ec23302e4c336ab0b71ea78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248739"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099727"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>將資料作為輸入串流處理至串流分析中
 
@@ -26,10 +26,10 @@ ms.locfileid: "50248739"
 這些輸入來源可存在於與串流分析作業相同的 Azure 訂用帳戶中，也可存在於不同的訂用帳戶。
 
 ### <a name="compression"></a>壓縮
-串流分析支援跨所有資料流輸入來源的壓縮。 目前支援的參考類型為：[無]、[GZip] 和 [Deflate] 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
+串流分析支援跨所有資料流輸入來源的壓縮。 目前支援的參考類型為：無、GZip 及 Deflate 壓縮。 支援壓縮無法用於參考資料。 如果輸入格式為已壓縮的 Avro 資料，資料將以透明的方式處理。 您不需要使用 Avro 序列化來指定壓縮類型。 
 
 ## <a name="create-edit-or-test-inputs"></a>建立、編輯或測試輸入
-您可以使用 [Azure 入口網站](https://portal.azure.com)來[建立新的輸入](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job)，並檢視或編輯串流作業上的現有輸入。 您也可以測試輸入連線並透過範例資料[測試查詢](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query)。 當您撰寫查詢時，您會在 FROM 子句中列出輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
+您可以使用 [Azure 入口網站](https://portal.azure.com)來[建立新的輸入](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-job-input)，並檢視或編輯串流作業上的現有輸入。 您也可以測試輸入連線並透過範例資料[測試查詢](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query)。 當您撰寫查詢時，您會在 FROM 子句中列出輸入。 您可以從入口網站的 [查詢] 頁面取得可用輸入的清單。 如果您想要使用多個輸入，則可 `JOIN` 它們或撰寫多個 `SELECT` 查詢。
 
 
 ## <a name="stream-data-from-event-hubs"></a>來自事件中樞的串流資料

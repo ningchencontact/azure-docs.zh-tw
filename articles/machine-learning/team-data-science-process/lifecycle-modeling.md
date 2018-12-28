@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 生命週期的模型化階段 - Azure | Microsoft Docs
+title: Team Data Science Process 生命週期的模型化階段
 description: 資料科學專案模型化階段的目標、工作和交付項目
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b486083e4dc76f6d9ebc5e24e7d52b5ef3b99f3a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442400"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139942"
 ---
-# <a name="modeling"></a>模型化
+# <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的模型化階段
 
 本文將概要說明與 Team Data Science Process (TDSP) 模型化階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
@@ -41,8 +41,8 @@ ms.locfileid: "52442400"
 ## <a name="how-to-do-it"></a>作法
 此階段會解決三項主要工作︰
 
-  * **特徵設計**︰從未經處理資料建立資料特徵，以便訓練模型。
-  * **模型訓練**︰比較各個模型的成功標準，以找出最能精確回答問題的模型。
+  * **特徵設計**：從未經處理資料建立資料特徵，以便訓練模型。
+  * **模型訓練**：比較各個模型的成功標準，以找出最能精確回答問題的模型。
   * 判斷您的模型是否**適用於生產環境**
 
 ### <a name="feature-engineering"></a>特徵設計
@@ -63,7 +63,7 @@ ms.locfileid: "52442400"
    * 比較替代方法之間的成功標準，以**決定用來回答問題的「最佳」方案**。
 
 > [!NOTE]
-> **避免外洩**︰如果您納入訓練資料集以外的資料，可能會造成資料外洩，而讓模型或機器學習演算法做出誤以為良好的預測。 當資料科學家取得好得過頭的預測結果時，會讓他們感到不安的常見原因就是資料外洩。 這些相依性很難察覺。 為了避免外洩，通常會需要反覆建置分析資料集、建立模型，然後評估結果的精確度。 
+> **避免外洩**：如果您納入訓練資料集以外的資料，可能會造成資料外洩，而讓模型或機器學習演算法做出誤以為良好的預測。 當資料科學家取得好得過頭的預測結果時，會讓他們感到不安的常見原因就是資料外洩。 這些相依性很難察覺。 為了避免外洩，通常會需要反覆建置分析資料集、建立模型，然後評估結果的精確度。 
 > 
 > 
 
@@ -72,9 +72,9 @@ ms.locfileid: "52442400"
 ## <a name="artifacts"></a>構件
 此階段所產生的成品包括︰
 
-   * [特徵集](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets) \(英文\)：**Data definition** 報告的 **Feature sets** 區段會說明針對模型化所開發的特徵。 它包含產生特徵的程式碼指標，以及特徵產生方式的描述。
-   * [模型報告](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) \(英文\)：每個嘗試過的模型，都會產生一個標準的範本型報告，提供每項實驗的詳細資料。
-   * **檢查點決策**︰評估模型的效能是否良好到足以將它部署到生產系統。 需要詢問的一些重要問題是︰
+   * [功能集](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets)：**資料定義**報告的**功能集**區段會說明針對模型化所開發的功能。 它包含產生特徵的程式碼指標，以及特徵產生方式的描述。
+   * [模型報表](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md)：每個嘗試過的模型，都會產生一個標準的範本型報告，提供每項實驗的詳細資料。
+   * **檢查點決策**：評估模型的效能是否良好到足以將其部署到生產系統。 需要詢問的一些重要問題是︰
      * 在給訂測試資料的情況下，模型是否有足夠的信心來回答問題？ 
      * 您應該嘗試任何替代方法嗎？ 您應該收集其他資料、進行更多特徵設計，或實驗其他演算法嗎？
 

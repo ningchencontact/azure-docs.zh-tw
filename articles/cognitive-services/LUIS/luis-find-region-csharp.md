@@ -1,27 +1,28 @@
 ---
-title: 在 LUIS 中尋找使用 C# 的端點區域
-titleSuffix: Azure Cognitive Services
-description: 使用 LUIS 的端點金鑰和應用程式識別碼，以程式設計方式尋找發佈區域。
+title: 端點區域，C#
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 使用 C#，以端點金鑰和 LUIS 的應用程式識別碼尋找發佈區域。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 53c3d1abb24ae0d5b33a2a100dda07fd20ae92d1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5d4c564ac797f40d7f6e9b169a6c864d3ef8147b
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039627"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165158"
 ---
 # <a name="find-endpoint-region-with-c"></a>尋找使用 C# 的端點區域 
 如果您有 LUIS 應用程式識別碼和 LUIS 訂用帳戶識別碼，可以尋找哪個區域要用於端點查詢。
 
 > [!NOTE] 
-> 從 [**LUIS-Samples** Github 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/)可以取得完整 C# 解決方案。
+> 從 [**LUIS-Samples** GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/find-region/csharp/)可以取得完整 C# 解決方案。
 
 ## <a name="luis-endpoint-query-strategy"></a>LUIS 端點查詢策略
 每個 LUIS 端點查詢都需要：

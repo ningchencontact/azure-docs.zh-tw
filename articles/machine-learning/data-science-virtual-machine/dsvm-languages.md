@@ -1,11 +1,13 @@
 ---
-title: Azure 上適用於資料科學虛擬機器的語言 | Microsoft Docs
-description: Azure 上適用於資料科學虛擬機器的語言
+title: 資料科學虛擬機器的支援語言
+titleSuffix: Azure
+description: 深入了解預先安裝在資料科學虛擬機器上的程式語言和相關工具。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 411729155f5135c7e45588b69995274c9cac1315
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 8cc5d1a2d78179624ee1ba17482e9d1892625d6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418310"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104283"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的語言 
 
@@ -191,7 +193,7 @@ R 是安裝在 DSVM 上可由所有使用者讀取的全域環境中。 但只�
 | ------------- | ------------- |
 | 支援的語言版本 | 0.6 |
 | 支援的 DSVM 版本      | Linux、Windows     |
-| 它是如何在 DSVM 上設定/安裝的？  | Windows：安裝於 `C:\JuliaPro-VERSION`<br /> Linux：安裝於 `/opt/JuliaPro-VERSION`    |
+| 它是如何在 DSVM 上設定/安裝的？  | Windows:安裝在 `C:\JuliaPro-VERSION`<br /> Linux：安裝在 `/opt/JuliaPro-VERSION`    |
 | 範例的連結      | 已包含適用於 Julia 的範例 Jupyter 筆記本     |
 | DSVM 上的相關工具      | Python、R      |
 ### <a name="how-to-use--run-it"></a>如何使用/執行它？    

@@ -1,5 +1,5 @@
 ---
-title: 影像搜尋端點 - Bing 影像搜尋 API
+title: Bing 影像搜尋 API 的端點
 titleSuffix: Azure Cognitive Services
 description: Bing 影像搜尋 API 的可用端點清單。
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cb6213bbb27fc1a7086ccecafa7ae7b12040ac0a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295915"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250615"
 ---
-# <a name="image-search-endpoints"></a>影像搜尋端點
+# <a name="endpoints-for-the-bing-image-search-api"></a>Bing 影像搜尋 API 的端點
 
 **影像搜尋 API** 包含三個端點。  端點 1 會根據查詢從 Web 傳回影像。 端點 2 會傳回 [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse)。  端點 3 會傳回發燒影像。
 ## <a name="endpoints"></a>端點
-若要使用 Bing API 取得影像結果，請將要求傳送至下列其中一個端點。 使用標頭和 URL 參數以定義進一步的規格。
+若要使用 Bing API 取得影像結果，請將要求傳送至下列其中一個端點。 使用標頭和 URL 參數以進一步定義規格。
 
 **端點 1：** 傳回 `?q=""` 所定義使用者搜尋查詢的相關影像。
 ```
@@ -49,7 +49,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/trending
 影像搜尋要求的回應包含作為 JSON 物件的結果。 如需結果剖析的範例，請參閱[教學課程](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app)和[原始程式碼](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app-source)。
 
 ## <a name="next-steps"></a>後續步驟
-**Bing** API 支援根據類型傳回結果的搜尋動作。 所有搜尋端點會傳回作為 JSON 回應物件的結果。  所有端點均可支援依照經度、緯度和搜尋半徑傳回特定語言及/或位置的查詢。
+**Bing** API 支援根據類型傳回結果的搜尋動作。 所有搜尋端點會傳回作為 JSON 回應物件的結果。  所有端點均可支援依照經度、緯度和搜尋半徑傳回特定語言及/或位置的查詢。
 
 如需每個端點支援的參數完整相關資訊，請參閱每種類型的參考頁面。
 如需透過範例了解使用影像搜尋 API 的基本要求，請參閱[影像搜尋快速入門](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/search-the-web)。

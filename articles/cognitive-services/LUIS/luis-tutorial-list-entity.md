@@ -1,5 +1,5 @@
 ---
-title: 使用 Nodejs 以清單實體自動標記實體 | Microsoft Docs
+title: Extact 文字比對實體
 description: 了解如何新增清單實體以協助 LUIS 標記字組或片語的差異。
 services: cognitive-services
 author: diberry
@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42fde2b24f851129e24257bbfe6d65a96e235485
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: be2c7aea356f6d7b73438499b7e4d680ed4bad7c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036774"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259234"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用清單實體增加實體偵測 
 本教學課程將示範如何使用[清單實體](luis-concept-entity-types.md)增加實體偵測。 清單實體不需要標籤，因為其與字詞完全相符。  
@@ -35,9 +35,9 @@ ms.locfileid: "47036774"
 > * LUIS 應用程式的 [AuthoringKey](luis-concept-keys.md#authoring-key)、[EndpointKey](luis-concept-keys.md#endpoint-key) (如果查詢多次)、應用程式識別碼、版本識別碼和[區域](luis-reference-regions.md)。
 
 > [!Tip]
-> 如果您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
+> 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-此教學課程中的所有程式碼皆位於 [LUIS 範例 github 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity)。 
+此教學課程中的所有程式碼皆位於 [LUIS 範例 GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-list-entity)。 
 
 ## <a name="use-homeautomation-app"></a>使用 HomeAutomation 應用程式
 HomeAutomation 應用程式可讓您控制許多裝置，例如燈和娛樂系統，以及控制環境，例如升溫或降溫。 這些系統有許多不同名稱，其中可能包含製造商名稱、別名、暱稱、首字母縮寫和俚語。 
@@ -81,15 +81,16 @@ HomeAutomation.Device 實體最適合用於少數裝置或少數名稱差異。 
 
 使用下列命令來安裝 NPM 相依項目，並執行程式碼來建立清單實體：
 
-```Javascript
+```console
 npm install && node add-entity-list.js
 ```
 
 此執行的輸出是清單實體的識別碼：
 
-```Javascript
+```console
 026e92b3-4834-484f-8608-6114a83b03a6
 ```
+
 ## <a name="train-the-model"></a>訓練模型
 訓練 LUIS 是為了讓新清單影響查詢結果。 訓練包含兩個部分的訓練程序，然後會在訓練完成時檢查狀態。 有多個模型的應用程式可能需要幾分鐘的時間來訓練。 下列程式碼會訓練應用程式，然後等候訓練成功。 程式碼會使用「等候並重試」策略以避免發生「要求太多」的 429 錯誤。 
 
@@ -99,13 +100,13 @@ npm install && node add-entity-list.js
 
 使用下列命令以執行程式碼來訓練應用程式：
 
-```Javascript
+```console
 node train.js
 ```
 
 此執行的輸出是每次 LUIS 模型訓練的反覆項目狀態。 下列執行只需一次訓練檢查：
 
-```Javascript
+```console
 1 trained = true
 [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
     details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
@@ -130,13 +131,13 @@ node train.js
 
 使用下列命令以執行程式碼來查詢應用程式：
 
-```Javascript
+```console
 node publish.js
 ```
 
 下列輸出會包含所有查詢的端點 url。 實際的 JSON 結果會包含實際的 appID。 
 
-```JSON
+```json
 { 
   versionId: null,
   isStaging: false,
@@ -157,13 +158,13 @@ node publish.js
 
 使用下列命令以執行程式碼和查詢應用程式：
 
-```Javascript
+```console
 node train.js
 ```
 
 此輸出為查詢結果。 由於程式碼已新增 **verbose** 名稱/值配對組到查詢字串中，因此此輸出會包含所有意圖及其分數：
 
-```JSON
+```json
 {
   "query": "turn up the heat",
   "topScoringIntent": {

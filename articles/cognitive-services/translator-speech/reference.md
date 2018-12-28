@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978704"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259421"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 此服務提供串流處理 API，將交談語音從某種語言謄寫為另一種語言的文字。 此 API 也會整合文字轉換語音功能，以說出翻譯的文字。 翻譯工具語音 API 會啟用 Skype Translator 中即時翻譯交談這類情節。
 
@@ -48,7 +49,7 @@ ms.locfileid: "46978704"
 ## <a name="5-process-the-results"></a>5.處理結果
 **處理從服務串流處理回的結果。** 下面的 `/speech/translate` 作業文件描述局部結果、最終結果和文字轉換語音音訊區段的格式。
 
-您可以從 [Microsoft Translator Github 網站](https://github.com/MicrosoftTranslator)取得示範翻譯工具語音 API 使用方式的程式碼範例。
+您可以從 [Microsoft Translator GitHub 網站](https://github.com/MicrosoftTranslator)取得示範翻譯工具語音 API 使用方式的程式碼範例。
 
 ## <a name="implementation-notes"></a>實作附註
 
@@ -87,6 +88,9 @@ GET /speech/translate 建立語音翻譯的工作階段
 請注意，檔案大小總計 (位元組 4-7) 和「資料」大小 (位元組 40-43) 設定為零。 這適用於不一定事先知道總大小的串流處理情節。
 
 傳送 WAV (RIFF) 標頭之後，用戶端會傳送數個區塊的音訊資料。 用戶端通常會串流處理代表固定期間的固定大小區塊 (例如一次串流處理 100 毫秒的音訊)。
+
+### <a name="signal-the-end-of-the-utterance"></a>表示語句結束
+翻譯工具語音 API 會在您傳送音訊時，傳回音訊資料流的文字記錄和翻譯。 最終文字記錄、最終翻譯及翻譯的音訊只會在語句結束之後傳回給您。 在某些情況下，您可能想要強制結束語句。 請傳送 2.5 秒的靜音以強制結束語句。 
 
 ### <a name="final-result"></a>最終結果
 在語句結尾會產生最終語音辨識結果。 結果會使用文字類型的 WebSocket 訊息從服務傳輸至用戶端。 訊息內容是具有下列屬性之物件的 JSON 序列化：
@@ -170,7 +174,7 @@ GET /speech/translate 建立語音翻譯的工作階段
 |voice|(空白)|識別要用於翻譯文字之文字轉換語音轉譯的聲音。 此值是 Languages API 回應中來自 tts 範圍 的其中一個語音識別碼。 若未指定語音，則系統會在啟用文字轉換語音功能時自動選擇語音。|query|字串|
 |format|(空白)|指定服務所傳回的文字轉換語音音訊資料流格式。 可用選項包括：<ul><li>`audio/wav`：Waveform 音訊資料流。 用戶端應該會使用 WAV 標頭，適當地解譯音訊格式。 文字轉換語音的 WAV 音訊是取樣率為 24kHz 或 16 kHz 的 16 位元單一通道 PCM。</li><li>`audio/mp3`：MP3 音訊資料流。</li></ul>預設值為 `audio/wav`。|query|字串|
 |ProfanityAction    |(空白)    |指定服務應該如何處理語音中所辨識的粗話。 有效的動作包括︰<ul><li>`NoAction`：粗話會保持原狀。</li><li>`Marked`：粗話會取代為標記。 請參閱 `ProfanityMarker` 參數。</li><li>`Deleted`：刪除粗話。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a .".`</li></ul>預設值是 Marked。|query|字串|
-|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`：粗話會取代為字串 `***`。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`：粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|字串|
+|ProfanityMarker|(空白)    |指定 `ProfanityAction` 設定為 `Marked` 時如何處理偵測到的粗話。 有效的選項包括：<ul><li>`Asterisk`：粗話會以字串 `***` 取代。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a ***.".`</li><li>`Tag`：粗話會括上 profanity XML 標籤。 例如，若將 `"jackass"` 這個字視為粗話，則片語 `"He is a jackass."` 會變成 `"He is a <profanity>jackass</profanity>."`。</li></ul>預設值為 `Asterisk`。|query|字串|
 |Authorization|(空白)  |指定用戶端持有人權杖的值。 使用 `Bearer` 字首，後面接著驗證權杖服務所傳回 `access_token` 值的值。|頁首   |字串|
 |Ocp-Apim-Subscription-Key|(空白)|若未指定 `Authorization` 標頭，則為必要項目。|頁首|字串|
 |access_token|(空白)   |傳遞有效 OAuth 存取權杖的替代方式。 持有人權杖通常會與 `Authorization` 標頭一起提供。 部分 WebSocket 程式庫不允許用戶端程式碼設定標頭。 在這種情況下，用戶端可以使用 `access_token` 查詢參數來傳遞有效的權杖。 使用存取權杖驗證時，若未設定 `Authorization` 標頭，則必須設定 `access_token`。 若同時設定標頭和查詢參數，則會忽略查詢參數。 用戶端應該只使用一種方法來傳遞權杖。|query|字串|

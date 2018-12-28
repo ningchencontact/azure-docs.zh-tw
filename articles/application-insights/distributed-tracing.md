@@ -10,16 +10,16 @@ ms.date: 09/17/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9594ccd0449cf68a63c770cfdee03f255aa2beae
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: aa163d215f4b9c396585dbba63883a3d1beff457
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164257"
 ---
 # <a name="what-is-distributed-tracing"></a>什麼是分散式追蹤？
 
-新式雲端和微服務架構的問世造就了可獨立部署的簡單服務，協助您降低成本，同時提高可用性和輸送量。 這些變動雖然整體上讓個別服務更容易了解，但是讓整體系統更難以理解和偵錯。
+新式雲端和[微服務](http://azure.com/microservices)架構的問世，造就了可獨立部署的簡單服務，協助您降低成本，同時提高可用性和輸送量。 這些變動雖然整體上讓個別服務更容易了解，但是讓整體系統更難以理解和偵錯。
 
 在單體式架構中，我們已習慣透過呼叫堆疊進行偵錯。 呼叫堆疊是很出色的工具，可用來顯示執行的流程 (方法 A 呼叫方法 B，方法 B 呼叫方法 C)，以及有關每個呼叫的詳細資料和參數。 非常適合於在單一程序中執行的單體或服務，但我們如何在呼叫跨越程序界限 (不只限於本機堆疊上的參考) 時進行偵錯？ 
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2017
+ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e3c5a581b02f1dd7b7415ebd93de0e425ac2f8ae
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 85aab429fd59afd36cd026e6d8aef2b7e6f6e122
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358360"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140450"
 ---
 # <a name="outputs-section-in-azure-resource-manager-templates"></a>Azure Resource Manager 範本中的 Outputs 區段
 在輸出區段中，您可以指定從部署傳回的值。 例如，您可以傳回 URI 以存取所部署的資源。
@@ -48,7 +48,9 @@ ms.locfileid: "34358360"
 az group deployment show -g <resource-group-name> -n <deployment-name> --query properties.outputs.resourceID.value
 ```
 
-您也可以使用 [reference](resource-group-template-functions-resource.md#reference) 函式，從連結的範本中擷取輸出值。 若要從連結的範本取得輸出值，請使用如下語法擷取屬性值：`"[reference('<name-of-deployment>').outputs.<property-name>.value]"`。
+您也可以使用 [reference](resource-group-template-functions-resource.md#reference) 函式，從連結的範本中擷取輸出值。 若要從連結的範本取得輸出值，請使用如下語法擷取屬性值：`"[reference('deploymentName').outputs.propertyName.value]"`。
+
+從連結的範本取得輸出屬性時，屬性名稱不能包含連字號。
 
 例如，您可以藉由從連結的範本中擷取值，在負載平衡器上設定 IP 位址。
 
@@ -58,7 +60,7 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 }
 ```
 
-您無法在[巢狀範本](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 區段中使用 `reference` 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結的範本。
+您無法在[巢狀範本](resource-group-linked-templates.md#link-or-nest-a-template)的輸出區段中使用 `reference` 函式。 若要傳回巢狀範本中已部署資源的值，請將巢狀範本轉換成連結範本。
 
 ## <a name="available-properties"></a>可用屬性
 
@@ -75,9 +77,9 @@ az group deployment show -g <resource-group-name> -n <deployment-name> --query p
 
 | 元素名稱 | 必要 | 說明 |
 |:--- |:--- |:--- |
-| outputName |yes |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
-| type |yes |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
-| value |yes |評估並傳回做為輸出值的範本語言運算式。 |
+| outputName |是 |輸出值的名稱。 必須是有效的 JavaScript 識別碼。 |
+| type |是 |輸出值的類型。 輸出值支援與範本輸入參數相同的類型。 |
+| value |是 |評估並傳回做為輸出值的範本語言運算式。 |
 
 ## <a name="recommendations"></a>建議
 

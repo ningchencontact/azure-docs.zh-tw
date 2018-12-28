@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure Active Directory 中從另一個群組新增或移除群組 | Microsoft Docs
-description: 如何使用 Azure Active Directory 從另一個群組新增或移除群組。
+title: 從另一個群組新增或移除群組 - Azure Active Directory | Microsoft Docs
+description: 關於如何使用 Azure Active Directory 從另一個群組新增或移除群組的指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 12f557e9453db0d8bff2ab91fe8453e026e0320c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468020"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104266"
 ---
-# <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>做法：如何使用 Azure Active Directory 從另一個群組新增或移除群組
+# <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>使用 Azure Active Directory 從另一個群組新增或移除群組
 本文可協助您使用 Azure Active Directory 從另一個群組新增或移除群組。
 
 >[!Note]
@@ -29,7 +29,7 @@ ms.locfileid: "49468020"
 您可以將現有的安全性群組新增到另一個現有安全性群組中 (也稱為巢狀群組)，如此一來會建立一個成員群組 (子群組) 和一個父群組。 成員群組會繼承父群組的屬性與內容，為您省下設定時間。
 
 >[!Important]
->我們目前不支援：<ul><li>將安全性群組新增至 Office 365 群組</li><li>將 Office 365 群組新增至安全性群組或其他 Office 365 群組</li><li>將應用程式指派給巢狀群組</li><li>將授權套用至巢狀群組</li></ul>
+>我們目前不支援：<ul><li>將群組新增至與內部部署 Active Directory 同步的群組</li><li>將安全性群組新增至 Office 365 群組</li><li>將 Office 365 群組新增至安全性群組或其他 Office 365 群組</li><li>將應用程式指派給巢狀群組</li><li>將授權套用至巢狀群組</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>若要新增群組作為另一個群組的成員
 

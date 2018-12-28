@@ -1,6 +1,6 @@
 ---
-title: 如何使用 Azure Active Directory 來編輯群組資訊 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 來編輯群組的資訊。
+title: 編輯群組資訊 - Azure Active Directory | Microsoft Docs
+description: 關於如何使用 Azure Active Directory 來編輯群組資訊的指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: lizross
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: a02987fdce3a15cd5d416234e3717df6d33622ec
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: b857b0bd56b479d4301535a4e1f734d8002dcc8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731337"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099047"
 ---
-# <a name="how-to-edit-your-group-information-using-azure-active-directory"></a>做法：使用 Azure Active Directory 來編輯群組資訊
+# <a name="edit-your-group-information-using-azure-active-directory"></a>使用 Azure Active Directory 來編輯群組資訊
 
-您可以使用 Azure Active Directory 來編輯群組的設定，包括更新其名稱、描述或成員資格類型。
+您可以使用 Azure Active Directory (Azure AD) 來編輯群組的設定，包括更新其名稱、描述或成員資格類型。
 
 ## <a name="to-edit-your-group-settings"></a>若要編輯群組設定
 1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
@@ -50,7 +50,7 @@ ms.locfileid: "45731337"
 
     - **群組類型。** 群組類型一旦建立便無法變更。 若要變更 [群組類型]，您必須先刪除群組再建立新群組。
     
-    - **成員資格類型。** 變更成員資格類型。 如需各種可用成員資格類型的詳細資訊，請參閱[做法：使用 Azure Active Directory 入口網站建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)
+    - **成員資格類型。** 變更成員資格類型。 如需各種可用成員資格類型的詳細資訊，請參閱[如何：使用 Azure Active Directory 建立基本群組並新增成員](active-directory-groups-create-azure-portal.md)
     
     - **物件識別碼。** 物件識別碼無法變更，但可以將它複製以便在 PowerShell 命令中用於群組。 如需使用 PowerShell Cmdlet 的詳細資訊，請參閱[用於進行群組設定的 Azure Active Directory Cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)。
 

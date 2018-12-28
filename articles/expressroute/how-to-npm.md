@@ -1,29 +1,23 @@
 ---
-title: 設定 Azure ExpressRoute 線路的網路效能監控 | Microsoft Docs
+title: 設定 ExpressRoute 線路的網路效能監控 - Azure | Microsoft Docs
 description: 設定 Azure ExpressRoute 線路的雲端式網路監視 (NPM)。 這包括透過 ExpressRoute 私人對等互連和 Microsoft 對等互連進行監視。
-documentationcenter: na
 services: expressroute
 author: cherylmc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec18
+ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104725"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>設定 ExpressRoute 的網路效能監控
 
-「網路效能監視器」(NPM) 是一個雲端式網路監視解決方案，可監視 Azure 雲端部署與內部部署位置 (分公司等) 之間的連線。 NPM 是 Log Analytics 的一部分。 NPM 為 ExpressRoute 提供擴充功能，可讓您透過已設定為使用私人對等互連和 Microsoft 對等互連的 ExpressRoute 線路監視網路效能。 設定 ExpressRoute 的 NPM 時，您可以偵測網路問題來予以識別並排除。 此服務也可用於 Azure Government 雲端。
+本文可協助您設定網路效能監控擴充功能來監視 ExpressRoute。 「網路效能監視器」(NPM) 是一個雲端式網路監視解決方案，可監視 Azure 雲端部署與內部部署位置 (分公司等) 之間的連線。 NPM 是 Log Analytics 的一部分。 NPM 為 ExpressRoute 提供擴充功能，可讓您透過已設定為使用私人對等互連和 Microsoft 對等互連的 ExpressRoute 線路監視網路效能。 設定 ExpressRoute 的 NPM 時，您可以偵測網路問題來予以識別並排除。 此服務也可用於 Azure Government 雲端。
 
 您可以：
 
@@ -62,7 +56,7 @@ ms.locfileid: "49404336"
    >您可以建立新的工作區，或使用現有的工作區。 如果您想要使用現有的工作區，必須確定工作區已移轉至新的查詢語言。 [詳細資訊...](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-upgrade)
    >
 
-   ![入口網站](.\media\how-to-npm\3.png)<br><br>
+   ![入口網站](./media/how-to-npm/3.png)<br><br>
 2. 在 [網路效能監視器] 主頁面底部，按一下 [建立] 以開啟 [網路效能監視器 - 建立新的解決方案] 頁面。 按一下 [Log Analytics 工作區 - 選取工作區] 以開啟 [工作區] 頁面。 按一下 [+ 建立新工作區] 以開啟 [工作區] 頁面。
 3. 在 [Log Analytics 工作區] 頁面上，選取 [新建]，然後設定下列設定：
 
@@ -76,11 +70,11 @@ ms.locfileid: "49404336"
     >ExpressRoute 線路可以位於世界上任何位置。 不一定要與工作區位於相同區域中。
     >
   
-    ![工作區](.\media\how-to-npm\4.png)<br><br>
+    ![工作區](./media/how-to-npm/4.png)<br><br>
 4. 按一下 [確定] 以儲存並部署設定範本。 在範本驗證之後，按一下 [建立] 以部署工作區。
 5. 部署工作區之後，瀏覽至您所建立的 [NetworkMonitoring (名稱)] 資源。 驗證設定，然後按一下 [解決方案需要其他設定]。
 
-   ![其他設定](.\media\how-to-npm\5.png)
+   ![其他設定](./media/how-to-npm/5.png)
 
 ## <a name="agents"></a>步驟 2：安裝及設定代理程式
 
@@ -90,7 +84,7 @@ ms.locfileid: "49404336"
 2. 接著，將 [工作區識別碼] 和 [主要金鑰] 複製到 [記事本]。
 3. 從 [設定 Log Analytics 代理程式以使用 TCP 通訊協定進行監視] 區段中，下載 Powershell 指令碼。 此 PowerShell 指令碼將協助您開啟 TCP 交易的相關防火牆連接埠。
 
-  ![PowerShell 指令碼](.\media\how-to-npm\7.png)
+  ![PowerShell 指令碼](./media/how-to-npm/7.png)
 
 ### <a name="installagent"></a>2.2：在每部監視伺服器上安裝監視代理程式 (在您要監視的每個 VNET 上)
 
@@ -108,16 +102,16 @@ ms.locfileid: "49404336"
 
   * 如果您選擇連線到 [Azure Log Analytics]，請貼上您在上一節複製到「記事本」中的 [工作區識別碼] 和 [工作區金鑰 (主要金鑰)]。 然後按 [下一步] 。
 
-    ![識別碼和金鑰](.\media\how-to-npm\8.png)
+    ![識別碼和金鑰](./media/how-to-npm/8.png)
   * 如果您選擇連線到 [Operations Manager]，請在 [管理群組設定] 頁面上，輸入 [管理群組名稱]、[管理伺服器]及 [管理伺服器連接埠]。 然後按 [下一步] 。
 
-    ![Operations Manager](.\media\how-to-npm\9.png)
+    ![Operations Manager](./media/how-to-npm/9.png)
   * 在 [代理程式動作帳戶] 頁面上，選擇 [本機系統] 帳戶或 [網域或本機電腦] 帳戶。 然後按 [下一步] 。
 
-    ![帳戶](.\media\how-to-npm\10.png)
+    ![帳戶](./media/how-to-npm/10.png)
 6. 在 [安裝準備就緒] 頁面上，檢閱您的選擇，然後按一下 [安裝]。
 7. 在 [設定成功完成] 頁面上，按一下 [完成]。
-8. 完成時，[Microsoft Monitoring Agent] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式是否已連線到 Azure Log Analytics。 連線後，代理程式會顯示訊息︰**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。
+8. 完成時，[Microsoft Monitoring Agent] 會出現在 [控制台] 中。 您可以在該處檢閱您的設定，並確認代理程式是否已連線到 Azure Log Analytics。 當連線時，代理程式會顯示訊息，指出：**Microsoft Monitoring Agent 已成功連線到 Microsoft Operations Management Suite 服務**。
 
 9. 請針對您需要監視的每個 VNET 重複此程序。
 
@@ -132,7 +126,7 @@ ms.locfileid: "49404336"
 3. 按一下 [ **Proxy 設定** ] 索引標籤。
 4. 選取 [使用 Proxy 伺服器]，然後輸入 URL 和連接埠號碼 (如果需要)。 如果您的 Proxy 伺服器需要驗證，請輸入使用者名稱與密碼以存取 Proxy 伺服器。
 
-  ![proxy](.\media\how-to-npm\11.png)
+  ![proxy](./media/how-to-npm/11.png)
 
 ### <a name="verifyagent"></a>2.4：確認代理程式連線能力
 
@@ -143,7 +137,7 @@ ms.locfileid: "49404336"
 3. 按一下 [Azure Log Analytics] 索引標籤。
 4. 在 [狀態] 資料行中，您應該會看到代理程式已成功連線到 Log Analytics。
 
-  ![status](.\media\how-to-npm\12.png)
+  ![status](./media/how-to-npm/12.png)
 
 ### <a name="firewall"></a>2.5：開啟監視代理程式伺服器上的防火牆連接埠
 
@@ -160,7 +154,7 @@ ms.locfileid: "49404336"
 
 在代理程式伺服器上，以系統管理權限開啟 PowerShell 視窗。 執行 [EnableRules](https://aka.ms/npmpowershellscript) PowerShell 指令碼 (您先前所下載)。 請勿使用任何參數。
 
-![PowerShell 指令碼](.\media\how-to-npm\script.png)
+![PowerShell 指令碼](./media/how-to-npm/script.png)
 
 ## <a name="opennsg"></a>步驟 3：設定網路安全性群組規則
 
@@ -176,13 +170,13 @@ ms.locfileid: "49404336"
 
 1. 移至 [所有資源] 頁面並按一下已加入允許清單的 NPM 作區，以瀏覽至 [網路效能監控] 概觀圖格。
 
-  ![NPM 工作區](.\media\how-to-npm\npm.png)
+  ![NPM 工作區](./media/how-to-npm/npm.png)
 2. 按一下 [網路效能監視器] 概觀圖格以顯示儀表板。 此儀表板包含 ExpressRoute 頁面，當中顯示 ExpressRoute 處於「尚未設定的狀態」。 請按一下 [功能設定] 來開啟「網路效能監視器」設定頁面。
 
-  ![功能設定](.\media\how-to-npm\npm2.png)
+  ![功能設定](./media/how-to-npm/npm2.png)
 3. 在設定頁面上，瀏覽至位於左側面板上的 [ExpressRoute 對等互連] 索引標籤。 接下來，按一下 [立即探索]。
 
-  ![探索](.\media\how-to-npm\13.png)
+  ![探索](./media/how-to-npm/13.png)
 4. 探索完成時，您會看到包含下列項目的清單：
   * ExpressRoute 線路中所有與此訂用帳戶相關聯的 Microsoft 對等互連連線。
   * 所有連線到 VNet 的私人對等互連連線，而這些 VNet 須與此訂用帳戶相關聯。
@@ -195,7 +189,7 @@ ms.locfileid: "49404336"
 
 針對私人對等互連，當探索完成時，您會看到獨特**線路名稱**和 **VNet 名稱**的規則。 這些規則一開始處於停用狀態。
 
-![規則](.\media\how-to-npm\14.png)
+![規則](./media/how-to-npm/14.png)
 
 1. 請核取 [監視此對等互連] 核取方塊。
 2. 選取 [啟用此對等互連的健康情況監視] 核取方塊。
@@ -211,10 +205,10 @@ ms.locfileid: "49404336"
 1. 請核取 [監視此對等互連] 核取方塊。 
 2. (選擇性) 您可以變更設為目標的 Microsoft 服務端點。 根據預設，NPM 會選擇一個 Microsoft 服務端點作為目標。 NPM 監視可透過 ExpressRoute 監視內部部署伺服器到此目標端點的連線。 
     * 若要變更此目標端點，請按一下 [目標：] 底下的 **(編輯)** 連結，並從 URL 清單中選取其他 Microsoft 服務目標端點。
-      ![編輯目標](.\media\how-to-npm\edit_target.png)<br>
+      ![編輯目標](./media/how-to-npm/edit_target.png)<br>
 
     * 您可以使用自訂 URL 或 IP 位址。 如果您使用 Microsoft 對等互連來連線到 Azure PaaS 服務，例如 Azure 儲存體、SQL 資料庫和公用 IP 位址上提供的網站，則此選項特別重要。 若要這樣做，請按一下 URL 清單底部的 **改用自訂 URL 或 IP 位址)** 連結，然後輸入透過 ExpressRoute Microsoft 對等互連連線的 Azure PaaS 服務公用端點。
-    ![自訂 URL](.\media\how-to-npm\custom_url.png)<br>
+    ![自訂 URL](./media/how-to-npm/custom_url.png)<br>
 
     * 如果您正在使用這些選擇性設定，請確定此處只選取 Microsoft 服務端點。 端點必須已連線到 ExpressRoute，並且可讓內部部署代理程式觸達。
 3. 選取 [啟用此對等互連的健康情況監視] 核取方塊。
@@ -227,37 +221,37 @@ ms.locfileid: "49404336"
 
 看到監視圖格之後，即表示 NPM 正在監視您的 ExpressRoute 線路和連線資源。 您可以按一下 [Microsoft 對等互連] 圖格以向下切入至 Microsoft 對等互連連線的健康情況。
 
-![監視圖格](.\media\how-to-npm\15.png)
+![監視圖格](./media/how-to-npm/15.png)
 
 ### <a name="dashboard"></a>網路效能監視器頁面
 
 NPM 頁面包含 ExpressRoute 頁面，當中顯示 ExpressRoute 線路和對等互連的健康情況。
 
-![儀表板](.\media\how-to-npm\dashboard.png)
+![儀表板](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>線路清單
 
 若要檢視所有受監視的 ExpressRoute 線路清單，請按一下 [ExpressRoute 線路] 圖格。 您可以選取某個線路，然後檢視其健全狀態，以及封包遺失、頻寬使用率和延遲的趨勢圖表。 這些圖表是互動式圖表。 您可以選取一個自訂的時間範圍來繪製圖表。 您可以在圖表上以滑鼠拖曳出一個區域，以放大並查看更細微的資料點。
 
-![線路清單](.\media\how-to-npm\circuits.png)
+![線路清單](./media/how-to-npm/circuits.png)
 
 #### <a name="trend"></a>遺失、延遲及輸送量的趨勢
 
 頻寬、延遲及遺失圖表是互動式圖表。 您可以使用滑鼠控制項將這些圖表的任何部分放大。 您也可以按一下位於左上方 [動作] 按鈕底下的 [日期/時間]，以查看其他間隔的頻寬、延遲及遺失資料。
 
-![趨勢](.\media\how-to-npm\16.png)
+![趨勢](./media/how-to-npm/16.png)
 
 ### <a name="peerings"></a>清單
 
 按一下儀表板上的 [私人對等互連] 圖格，即可檢視透過私人對等互連連線到虛擬網路的所有連線清單。 在這裡，您可以選取某個虛擬網路連線，然後檢視其健全狀態，以及封包遺失、頻寬使用率和延遲的趨勢圖表。
 
-![線路清單](.\media\how-to-npm\peerings.png)
+![線路清單](./media/how-to-npm/peerings.png)
 
 ### <a name="nodes"></a>節點檢視
 
 若要針對所選的 ExpressRoute 對等互連連線，檢視內部部署節點與 Azure VM/Microsoft 服務端點之間的所有連結清單，請按一下 [檢視節點連結]。 您可以檢視每個連結的健康情況，以及與其相關的遺失和延遲趨勢。
 
-![節點檢視](.\media\how-to-npm\nodes.png)
+![節點檢視](./media/how-to-npm/nodes.png)
 
 ### <a name="topology"></a>線路拓撲
 
@@ -265,9 +259,9 @@ NPM 頁面包含 ExpressRoute 頁面，當中顯示 ExpressRoute 線路和對等
 
 您可以藉由移動 [篩選] 底下的滑動軸，將可見性層級提升到包含內部部署躍點。 將滑動軸向左或向右移動，將可增加或減少拓撲圖表中的躍點數目。 您可以看見每個區段的延遲，這可讓您更快速隔離網路上的高延遲區段。
 
-![filters](.\media\how-to-npm\topology.png)
+![filters](./media/how-to-npm/topology.png)
 
 #### <a name="detailed-topology-view-of-a-circuit"></a>電路的詳細拓撲檢視
 
 此檢視會顯示 VNet 連線。
-![詳細拓撲](.\media\how-to-npm\17.png)
+![詳細拓撲](./media/how-to-npm/17.png)

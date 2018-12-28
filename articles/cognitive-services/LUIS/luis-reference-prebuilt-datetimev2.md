@@ -1,23 +1,24 @@
 ---
-title: LUIS 預先建置的實體 datetimeV2 參考 - Azure| Microsoft Docs
+title: DatetimeV2 預先建置的實體
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中 datetimeV2 預先建置的實體資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: bd28981ae0c5b4d6ccff3168f92f0f99be768b10
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0e2353107d6554a8ecbbd2e4d9850f8d8b5fda5c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335771"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165175"
 ---
-# <a name="datetimev2-entity"></a>DatetimeV2 實體
+# <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的 DatetimeV2 預先建置實體
 
 **datetimeV2** 預先建置的實體會擷取日期和時間值。 這些值會以標準化格式解析，以供用戶端程式取用。 當語句中有不完整的日期或時間時，LUIS 會在端點回應中包括「過去與未來值」。 因為此實體已經定型，所以您不需要將包含 datetimeV2 的範例語句加入應用程式意圖。 
 
@@ -27,7 +28,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 ## <a name="example-json"></a>範例 JSON 
 下列範例 JSON 回應有子類型為 `datetime` 的 `datetimeV2` 實體。 如需其他 datetimeV2 實體類型的範例，請參閱 [datetimeV2 子類型](#subtypes-of-datetimev2)</a>。
 
-```JSON
+```json
 "entities": [
   {
     "entity": "8am on may 2nd 2017",
@@ -103,7 +104,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 下列範例顯示「5 月 2 日」實體的解析。 此解析假設今天的日期介於 2017 年 5 月 2 日到 2018 年 5 月 1 日之間。
 `timex` 欄位中包含 `X` 的欄位，是語句中未明確指定的日期部分。
 
-```JSON
+```json
   "entities": [
     {
       "entity": "may 2nd",
@@ -132,7 +133,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 `datetimeV2` 實體會擷取日期和時間範圍。 `start` 和 `end` 欄位可指定範圍的開頭和結尾。 針對「5 月 2 日至 5 月 5 日」語句，LUIS 會提供目前年度與明年的 **daterange** 值。 在 `timex` 欄位中，`XXXX` 值表示年份的語意模糊。 `P3D` 表示時間週期長達三天。
 
-```JSON
+```json
 "entities": [
     {
       "entity": "may 2nd to may 5th",
@@ -163,7 +164,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 下列範例示範 LUIS 如何使用 **datetimeV2** 解析「星期二至星期四」語句。 在此範例中，目前日期為 6 月 19 日。 LUIS 包含兩個日期範圍的 **daterange** 值，分別在目前日期之前與之後。
 
-```JSON
+```json
   "entities": [
     {
       "entity": "tuesday to thursday",
@@ -196,7 +197,7 @@ DatetimeV2 可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Te
 
 下列範例示範 LUIS 如何使用 **datetimeV2** 解析有時間範圍的語句。
 
-```
+```json
   "entities": [
     {
       "entity": "6pm to 7pm",

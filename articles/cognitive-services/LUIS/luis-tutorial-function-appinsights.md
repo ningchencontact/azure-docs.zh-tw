@@ -1,23 +1,24 @@
 ---
-title: 使用 Node.js 取得來自 LUIS 的 Application Insights 資料
+title: Application Insights，Node.js
 titleSuffix: Azure Cognitive Services
 description: 使用 Node.js 建置與 LUIS 應用程式和 Application Insights 整合的 Bot。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 6199e4a681f7f58ea0cf57b575afb2a63d160eee
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 4f1372f8b15670472146efc1c4f3a341f4a97c71
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321949"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255596"
 ---
-# <a name="add-luis-results-to-application-insights"></a>將 LUIS 結果新增至 Application Insights
+# <a name="add-luis-results-to-application-insights-and-azure-functions"></a>將 LUIS 結果新增至 Application Insights 和 Azure 函式
 本教學課程將 LUIS 要求和回應資訊新增至 [Application Insights](https://azure.microsoft.com/services/application-insights/) 遙測資料存放區。 在您擁有該資料之後，即可使用 Kusto 語言或 PowerBi 查詢它，以即時分析、彙總以及報告意圖和語句實體。 此分析可協助您判斷應該新增還是編輯 LUIS 應用程式的意圖和實體。
 
 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
@@ -36,7 +37,7 @@ ms.locfileid: "49321949"
 > [!Tip]
 > 若您還沒有訂用帳戶，則可以註冊[免費帳戶](https://azure.microsoft.com/free/)。
 
-本教學課程中的所有程式碼都是位於 [LUIS-Samples github 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)，而且與本教學課程建立關聯的每一行都會加上 `//APPINSIGHT:` 註解。 
+本教學課程中的所有程式碼都是位於 [LUIS-Samples GitHub 存放庫](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/tutorial-web-app-bot-application-insights/nodejs)，而且與本教學課程建立關聯的每一行都會加上 `//APPINSIGHT:` 註解。 
 
 ## <a name="web-app-bot-with-luis"></a>含 LUIS 的 Web 應用程式 Bot
 本教學課程假設您的程式碼與下面類似，或您已完成[其他教學課程](luis-nodejs-tutorial-build-bot-framework-sample.md)： 
@@ -58,7 +59,7 @@ ms.locfileid: "49321949"
 
 3. 在主控台中，輸入下列命令以安裝 Application Insights 和 Underscore 套件：
 
-    ```
+    ```console
     cd site\wwwroot && npm install applicationinsights && npm install underscore
     ```
 
@@ -66,7 +67,7 @@ ms.locfileid: "49321949"
 
     等候安裝套件：
 
-    ```
+    ```console
     luisbot@1.0.0 D:\home\site\wwwroot
     `-- applicationinsights@1.0.1 
       +-- diagnostic-channel@0.2.0 
@@ -142,7 +143,7 @@ Application Insights 可讓您使用 [Kusto](https://docs.microsoft.com/azure/ap
 
 3. 若要拉出最上層意圖、分數和語句，請在查詢視窗中於最後一行正上方新增下列項目：
 
-    ```SQL
+    ```kusto
     | extend topIntent = tostring(customDimensions.LUIS_intent_intent)
     | extend score = todouble(customDimensions.LUIS_intent_score)
     | extend utterance = tostring(customDimensions.LUIS_text)

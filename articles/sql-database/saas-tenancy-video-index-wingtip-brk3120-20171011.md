@@ -12,19 +12,19 @@ ms.author: genemi
 ms.reviewer: billgib
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: b472baf77cc8f253337aa0780321a6e7dd3fecac
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056676"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163968"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>影片索引與註解，適用主題為使用 Azure SQL Database 的多租用戶 SaaS 應用程式之影片
 
 就主題為 SaaS 租用模型或模式的影片，本文已將其 81 分鐘的片長編製成數個時間點的索引，並附上註解。 本文可讓您向後或向前跳到影片中感興趣的部分。 影片說明 Azure SQL Database 上多租用戶資料庫應用程式的主要設計選項。 該影片包括示範、管理程式碼的逐步解說，也會不時詳談書面文件中不曾有過的經驗。
 
 影片詳述以下書面文件中的資訊： 
-- *概念：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
+- *概念文件：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
 - *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 影片與文章說明在雲端的 Azure SQL Database 上建立多租用戶應用程式的許多階段。 Azure SQL Database 的特殊功能可更輕鬆地開發和實作多租用戶應用程式，同時易於管理且兼顧效能。
@@ -63,8 +63,8 @@ ms.locfileid: "47056676"
 - [17.Canonical 混合式多租用戶 SaaS 應用程式，0:47:33](#anchor-image-wtip-min04733)
 - [18.Wingtip SaaS 範例應用程式，0:48:10](#anchor-image-wtip-min04810)
 - [19.在教學課程中探索的案例和模式，0:49:10](#anchor-image-wtip-min04910)
-- [20.教學課程與 Github 存放庫示範，0:50:18](#anchor-image-wtip-min05018)
-- [21.Github 存放庫 Microsoft/WingtipSaaS，0:50:38](#anchor-image-wtip-min05038)
+- [20.教學課程與 GitHub 存放庫示範，0:50:18](#anchor-image-wtip-min05018)
+- [21.GitHub 存放庫 Microsoft/WingtipSaaS，0:50:38](#anchor-image-wtip-min05038)
 - [22.探索模式，0:56:20](#anchor-image-wtip-min05620)
 - [23.佈建租用戶並上線，0:57:44](#anchor-image-wtip-min05744)
 - [24.佈建租用戶和應用程式連線，0:58:58](#anchor-image-wtip-min05858)
@@ -199,13 +199,13 @@ ms.locfileid: "47056676"
 
 
 &nbsp; <a name="anchor-image-wtip-min05018"/>
-#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20.教學課程與 Github 存放庫示範，0:50:12
-[![教學課程與 Github 存放庫示範][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### <a name="20-demo-of-tutorials-and-github-repository-05012"></a>20.教學課程與 GitHub 存放庫示範，0:50:12
+[![教學課程與 GitHub 存放庫示範][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp; <a name="anchor-image-wtip-min05038"/>
-#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21.Github 存放庫 Microsoft/WingtipSaaS，0:50:32
-[![Github 存放庫 Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### <a name="21-github-repo-microsoftwingtipsaas-05032"></a>21.GitHub 存放庫 Microsoft/WingtipSaaS，0:50:32
+[![GitHub 存放庫 Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp; <a name="anchor-image-wtip-min05620"/>
@@ -294,14 +294,14 @@ ms.locfileid: "47056676"
 
 - [部落格文章，2017 年 5 月 22 日][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *概念：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
+- *概念文件：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
 
 - *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
-- Wingtip 票證 SaaS 租用戶應用程式的 Github 存放庫：
-    - [Github 存放庫：獨立應用程式模型][github-wingtip-standaloneapp]。
-    - [Github 存放庫：每一租用戶一個資料庫模型][github-wingtip-dbpertenant]。
-    - [Github 存放庫：多租用戶資料庫模型][github-wingtip-multitenantdb]。
+- Wingtip 票證 SaaS 租用戶應用程式的 GitHub 存放庫：
+    - [GitHub 存放庫：獨立應用程式模型][github-wingtip-standaloneapp]。
+    - [GitHub 存放庫：每一租用戶一個資料庫模型][github-wingtip-dbpertenant]。
+    - [GitHub 存放庫：多租用戶資料庫模型][github-wingtip-multitenantdb]。
 
 
 
@@ -354,9 +354,9 @@ ms.locfileid: "47056676"
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "在教學課程中探索的案例和模式"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "教學課程與 Github 存放庫示範"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "教學課程與 GitHub 存放庫示範"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github 存放庫 Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "GitHub 存放庫 Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "探索模式"
 

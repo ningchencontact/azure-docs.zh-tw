@@ -1,6 +1,6 @@
 ---
-title: Azure 非同步作業 | Microsoft Docs
-description: 描述如何在 Azure 中追蹤非同步作業。
+title: 非同步作業的狀態 - Azure Resource Manager
+description: 描述如何在 Azure 中追蹤非同步作業。 其會顯示您用來取得長時間執行作業狀態的值。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.custom: seodec18
+ms.openlocfilehash: 1b05ed50f08ddbf2eb5da8e08f5bf623596e1f9b
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42139891"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135452"
 ---
 # <a name="track-asynchronous-azure-operations"></a>追蹤非同步 Azure 作業
 某些 Azure REST 作業因為無法快速完成，而以非同步方式執行。 本文說明如何透過回應中傳回的值，以追蹤非同步作業的狀態。  

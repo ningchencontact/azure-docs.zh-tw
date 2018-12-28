@@ -1,20 +1,20 @@
 ---
-title: Java HBase 用戶端 - Azure HDInsight
+title: 建置使用 Apache Maven 的 Java HBase 用戶端 - Azure HDInsight
 description: 了解如何使用 Apache Maven 建置以 Java 為基礎的 Apache HBase 應用程式，然後將它部署至 Azure HDInsight 上的 HBase。
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.openlocfilehash: 721e37349b406705a2cdfb52c64b5796cb590d78
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: dbcb031b49c529bc2b2524cd0984bbef1945d485
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164053"
 ---
 # <a name="build-java-applications-for-apache-hbase"></a>建置 Apache HBase 的 Java 應用程式
 
@@ -56,7 +56,7 @@ ms.locfileid: "52445646"
 
     此命令會利用與 **artifactID** 參數 (此範例中為 **hbaseapp**) 相同的名稱來建立目錄。此目錄包含下列項目：
 
-   * **pom.xml**：專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案之資訊和組態的詳細資料。
+   * **pom.xml**：專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案的資訊和組態詳細資料。
    * **src**：包含 **main/java/com/microsoft/examples** 目錄的目錄，您將在此處撰寫應用程式。
 
 3. 刪除 `src/test/java/com/microsoft/examples/apptest.java` 檔案。 此範例不會用到這個檔案。

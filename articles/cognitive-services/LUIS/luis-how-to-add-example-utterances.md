@@ -1,21 +1,22 @@
 ---
-title: 在 LUIS 應用程式中新增範例語句
-titleSuffix: Azure Cognitive Services
-description: 了解如何在 Language Understanding (LUIS) 應用程式中新增語句。
+title: 新增範例語句
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 範例語句是使用者問題或命令的文字範例。 若要教導 Language Understanding (LUIS)，您需要將範例語句新增至意圖。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: caf8628569481149ee41e8253f4759e15e49150f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33c941f84952faca1961bb65687b4098b837a2fd
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139118"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139160"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>將實體新增至範例語句 
 
@@ -89,7 +90,7 @@ Does John Smith work in Seattle?
 
 1. 在下拉式清單中輸入複合實體名稱。
 
-    ![輸入實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
+    ![在下拉式清單中，輸入複合實體名稱的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-create-composite-2.png)
 
     當您正確地包裝實體時，整個片語下方會有綠色線條。
 
@@ -117,7 +118,7 @@ Does John Smith work in Seattle?
 
 1. 語句中的字組已標上父階層式實體。 您需要將字組指派給子實體。 返回至意圖詳細資料頁面上的語句。 選取字組，並從下拉式清單中選擇您所建立的實體名稱，然後遵循右側的功能表來選擇正確的子實體。
 
-    ![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示 ToLocation 實體)](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
+    ![您要將文字指派給子實體的意圖詳細資料頁面螢幕擷取畫面](./media/luis-how-to-add-example-utterances/hr-hier-3.png)
 
     >[!CAUTION]
     >在單一應用程式的所有實體中，子實體名稱必須是唯一的。 兩個不同的階層式實體不能包含同名的子實體。 
@@ -134,7 +135,7 @@ Does John Smith work in Seattle?
 
 如果有預測差異，實體方塊會顯示具有紅色驚嘆號的 [實體狀態]。 若要查看實體狀態和有關標示實體和預測實體之間的差異資訊，請選取 [實體狀態]，然後選取右邊的項目。
 
-![實體狀態預測差異的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-status.png)
+![選取正確項目，以修正預測差異的螢幕擷取畫面](./media/luis-how-to-add-example-utterances/entity-status.png)
 
 可能出現紅線的時機如下：
 

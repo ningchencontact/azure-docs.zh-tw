@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092605"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164767"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>使用 Draft 搭配 Azure Kubernetes Service (AKS)
 
-Draft 是開放原始碼工具，可協助在 Kubernetes 叢集中封裝和部署應用程式容器，讓您自由地專注於開發週期--集中開發的「內部迴圈」。 Draft 會在程式碼開發期間，但在認可至版本控制之前運作。 當程式碼變更時，您可以使用 Draft 將應用程式快速地重新部署到 Kubernetes。 如需有關 Draft 的詳細資訊，請參閱 [Github 上的 Draft 文件][draft-documentation]。
+Draft 是開放原始碼工具，可協助在 Kubernetes 叢集中封裝和部署應用程式容器，讓您自由地專注於開發週期--集中開發的「內部迴圈」。 Draft 會在程式碼開發期間，但在認可至版本控制之前運作。 當程式碼變更時，您可以使用 Draft 將應用程式快速地重新部署到 Kubernetes。 如需有關 Draft 的詳細資訊，請參閱 [GitHub 上的 Draft 文件][draft-documentation]。
 
 本文說明如何在 AKS 上搭配使用 Draft 與 Kubernetes 叢集。
 
@@ -139,7 +139,7 @@ $ draft connect
 Connect to java:4567 on localhost:49804
 [java]: SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
 [java]: SLF4J: Defaulting to no-operation (NOP) logger implementation
-[java]: SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[java]: SLF4J: See https://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
 [java]: == Spark has ignited ...
 [java]: >> Listening on 0.0.0.0:4567
 ```
@@ -268,6 +268,6 @@ Hello World, I'm Java in AKS!
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-helm]: ./kubernetes-helm.md
-[kubernetes-ingress]: ./ingress.md
+[kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [az-acr-login]: /cli/azure/acr#az-acr-login

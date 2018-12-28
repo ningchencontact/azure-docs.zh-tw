@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務中的資產 | Microsoft Docs
+title: 媒體服務中的資產 - Azure | Microsoft Docs
 description: 本文解釋資產是什麼，以及 Azure 媒體服務用它們來做什麼。
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: f9a6f0963ce8f45da567bb4f6326e9fcc8f435ef
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085781"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140127"
 ---
 # <a name="assets"></a>Assets
 
@@ -34,7 +35,7 @@ ms.locfileid: "50085781"
 
 下表顯示資產屬性並提供其定義。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|資源的完整資源識別碼。|
 |name|資源名稱。|
@@ -72,14 +73,14 @@ ms.locfileid: "50085781"
 
 下表顯示這些選項可如何套用至資產屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id|||
-|name|支援：Eq、Gt、Lt|支援：遞增和遞減|
+|name|支援：Eq、 Gt、 Lt|支援：遞增和遞減|
 |properties.alternateId |支援：Eq||
 |properties.assetId |支援：Eq||
 |properties.container |||
-|properties.created|支援：Eq、Gt、Lt| 支援：遞增和遞減|
+|properties.created|支援：Eq、 Gt、 Lt| 支援：遞增和遞減|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||

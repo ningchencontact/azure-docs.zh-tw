@@ -1,23 +1,24 @@
 ---
-title: 在 LUIS 應用程式中新增意圖
-titleSuffix: Azure Cognitive Services
+title: 新增對應方式
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 將意圖新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 3e6064b4c202c36e4b63d6e06edfbf3149f6665f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139908"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139852"
 ---
-# <a name="add-intents"></a>新增意圖 
+# <a name="add-intents"></a>新增對應方式 
 
 將[意圖](luis-concept-intent.md)新增至 LUIS 應用程式，以識別具有相同用意的問題或命令群組。 
 
@@ -57,7 +58,7 @@ ms.locfileid: "50139908"
 
 意圖中的語句在所選意圖與預測分數之間，可能會有意圖預測差異。 LUIS 會在範例語句的資料列上以紅色方塊圍住 [加上標籤的意圖] 來指出此差異。 
 
-![意圖詳細資料頁面的螢幕擷取畫面 (已醒目提示語句)](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+![意圖詳細資料頁面的螢幕擷取畫面，包含語句預測差異錯誤](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
 在頂端導覽列中，選取 [定型]。 預測差異現在已消失。
 
@@ -106,7 +107,7 @@ ms.locfileid: "50139908"
 
 * 編輯：變更語句的文字
 * 刪除：從意圖中移除語句。 如果您仍想要語句，最好的方法是將其移至 **None** 意圖。 
-* 新增模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
+* 加入模式：模式可讓您採用一般語句，並標示可取代的文字和可忽略的文字，藉此減少意圖中更多語句的需求。 
 
 [加上標籤的意圖] 資料行可讓您變更語句的意圖。
 

@@ -11,19 +11,22 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 102a00ac79c91ac4d571c0254570f14e8f2af46f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d801ed309b0d79dd6655c7dd59ebd17bd37de222
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239078"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164393"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database 購買模型
 
 Azure SQL Database 可讓您輕鬆地購買符合您效能和成本需求且完全受控的 PaaS 資料庫引擎。 您可以根據 Azure SQL Database 的部署模型，選擇符合您需求的購買模型：
+- [以 V 核心形式的購買模型](sql-database-service-tiers-vcore.md) (建議)，可讓您選擇確切的儲存體容量，並計算所需的工作負載。
+- [以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)，可讓您針對常見的工作負載，選擇搭配平衡的計算和儲存體套件。
 
-- [Azure SQL Database](sql-database-technical-overview.md) 中的[邏輯伺服器](sql-database-logical-servers.md)針對計算、儲存體和 IO 資源提供了兩種購買模型：[DTU 形式的購買模型](sql-database-service-tiers-dtu.md)和[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。 在此購買模型內，您可以選擇[單一資料庫](sql-database-single-databases-manage.md)或[彈性集區](sql-database-elastic-pool.md)。
+Azure SQL Database 部署模型提供不同的購買模型：
+- [Azure SQL Database](sql-database-technical-overview.md) 中的[邏輯伺服器](sql-database-logical-servers.md)提供以 [DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以 V 核心形式的購買模型](sql-database-service-tiers-vcore.md)。 在此購買模型內，您可以選擇[單一資料庫](sql-database-single-databases-manage.md)或[彈性集區](sql-database-elastic-pool.md)。
 - Azure SQL Database 中的[受控執行個體](sql-database-managed-instance.md)僅提供[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
 > [!IMPORTANT]
@@ -51,7 +54,7 @@ Azure SQL Database 可讓您輕鬆地購買符合您效能和成本需求且完�
 
 > [!IMPORTANT]
 > 計算、IO、資料和記錄儲存體則依每個資料庫或彈性集區來收費。 備份儲存體是依每個資料庫來收費。 如需受控執行個體費用的詳細資訊，請參閱 [Azure SQL Database 受控執行個體](sql-database-managed-instance.md)。
-> **區域限制：** 下列區域尚未提供虛擬核心形式的購買模型：西歐、法國中部、英國南部、英國西部和澳大利亞東南部。
+> **區域限制：** 下列區域尚未提供以 V 核心形式的購買模型：西歐、法國中部、英國南部、英國西部及澳大利亞東南部。
 
 如果您的資料庫或彈性集區耗用超過 300 DTU，則轉換成虛擬核心或許能降低成本。 您可以使用您所選擇的 API 或使用 Azure 入口網站來進行轉換，而不需停機。 但您不一定要轉換。 如果 DTU 購買模型符合您的效能和商務需求，請繼續使用即可。 如果您決定從 DTU 模型轉換成虛擬核心模型，請使用下列經驗法則選取計算大小：標準層中每 100 DTU 需要一般用途層至少 1 個虛擬核心，而進階層中每 125 DTU 需要商務關鍵性層至少 1 個虛擬核心。
 

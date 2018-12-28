@@ -1,21 +1,22 @@
 ---
-title: 將 Bing 拼字檢查 API v7 新增至 LUIS 查詢 | Microsoft Docs
+title: 更正拼錯的字組
 titleSuffix: Azure
 description: 將 Bing 拼字檢查 API V7 新增至 LUIS 端點查詢，可更正語句中拼錯的字組。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d197b014d6936b12b34a6d8783d1ebd29dfa28a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478970c6b5f4035949c8b6579f1021dfa161fd39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443324"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096786"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用 Bing 拼字檢查更正拼錯的字組
 
@@ -75,7 +76,7 @@ LUIS 中有兩個地點可使用金鑰。 第一個是在[測試面板](luis-int
 
 4. LUIS 會以 JSON 結果回應 `How far is the mountain?`。 如果 Bing 拼字檢查 API v7 偵測到拼錯，LUIS 應用程式的 JSON 回應中的 `query` 欄位包含原始查詢，而 `alteredQuery` 欄位包含傳送至 LUIS 的更正後查詢。
 
-```
+```json
 {
   "query": "How far is the mountainn?",
   "alteredQuery": "How far is the mountain?",

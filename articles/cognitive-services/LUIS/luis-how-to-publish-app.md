@@ -1,21 +1,22 @@
 ---
-title: 將 LUIS 應用程式發佈至預測端點
+title: 發佈應用程式
 titleSuffix: Azure Cognitive Services
 description: 當您完成作用中 LUIS 應用程式的建置和測試時，將它發佈至端點以供用戶端應用程式使用。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 54d3b66f6a452e97e1d354fa75eb1b21065ab3e2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 73788b05cad3abac19b1ef509f1250542d10dba2
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031266"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136642"
 ---
 # <a name="publish-your-trained-app"></a>發佈訓練的應用程式
 
@@ -37,7 +38,7 @@ ms.locfileid: "47031266"
 
 成功發佈應用程式時，綠色成功通知會顯示在瀏覽器上方。 綠色通知列也包含端點的連結。 
 
-![發佈快顯視窗](./media/luis-how-to-publish-app/publish-success.png)
+![發佈連結至端點的快顯視窗](./media/luis-how-to-publish-app/publish-success.png)
 
 如果您需要端點 URL，請選取此連結。 您也可以選取頂端功能表中的 [管理]，然後選取左側功能表中的 [金鑰和端點]，以取得端點 URL。 
 

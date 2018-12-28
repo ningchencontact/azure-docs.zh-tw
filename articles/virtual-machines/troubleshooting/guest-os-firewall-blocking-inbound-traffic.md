@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 3ddd2f122de832654be295c5978a88bec702558c
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 19ba7013b461917c4aea8ae96f689d7e39859652
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319017"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134432"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM 客體 OS 防火牆封鎖輸入流量
 
@@ -31,25 +31,25 @@ ms.locfileid: "52319017"
 
 ## <a name="cause"></a>原因
 
-### <a name="cause-1"></a>原因 1 
+### <a name="cause-1"></a>原因 1
 
 未將 RDP 規則設定為允許 RDP 流量。
 
-### <a name="cause-2"></a>原因 2 
+### <a name="cause-2"></a>原因 2
 
 客體系統的防火牆設定檔設定為封鎖所有輸入連線，包括 RDP 流量。
 
 ![防火牆設定](./media/guest-os-firewall-blocking-inbound-traffic/firewall-advanced-setting.png)
 
-## <a name="solution"></a>解決方法 
+## <a name="solution"></a>解決方法
 
-在遵循下列步驟之前，請先擷取受影響 VM 的系統磁碟快照集作為備份。 如需詳細資訊，請參閱 [擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
+在按照下列步驟進行之前，請先擷取受影響虛擬機器系統磁碟的快照集作為備份。 如需詳細資訊，請參閱 [擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
 若要修正此問題，請使用[如何使用遠端工具對 Azure VM 問題進行疑難排解](remote-tools-troubleshoot-azure-vm-issues.md)的其中一種方法來遠端連線至 VM，然後編輯客體作業系統的防火牆規則，以**允許** RDP 流量。
 
 ### <a name="online-troubleshooting"></a>線上疑難排解
 
-連線至[序列主控台，然後開啟 PowerShell 執行個體](serial-console-windows.md#open-cmd-or-powershell-in-serial-console)。 如果 VM 上未啟用序列主控台，請移至[修復離線的 VM](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)。
+連線至[序列主控台，然後開啟 PowerShell 執行個體](serial-console-windows.md#use-cmd-or-powershell-in-serial-console)。 如果 VM 上未啟用序列主控台，請移至[修復離線的 VM](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)。
 
 #### <a name="mitigation-1"></a>緩解措施 1
 
@@ -80,7 +80,7 @@ ms.locfileid: "52319017"
     ```cmd
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
     ```
-    
+
     反之，若要開啟特定遠端桌面 (TCP-In) 規則，請執行下列命令：
 
     ```cmd
@@ -94,7 +94,7 @@ ms.locfileid: "52319017"
     ```
 
     在完成疑難排解並正確設定防火牆後，請重新啟用防火牆。
-    
+
     > [!Note]
     > 您不需要重新啟動 VM 以套用這些變更。
 
@@ -128,11 +128,11 @@ ms.locfileid: "52319017"
     ```
 
     > [!Note]
-    > 您不需要重新啟動 VM 以套用變更。 
+    > 您不需要重新啟動 VM 以套用變更。
 
 4.  再次嘗試透過 RDP 存取您的 VM。
 
-### <a name="offline-mitigations"></a>離線緩解措施 
+### <a name="offline-mitigations"></a>離線緩解措施
 
 1.  [將系統磁碟連結至復原 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
@@ -159,7 +159,7 @@ ms.locfileid: "52319017"
     robocopy f:\windows\system32\config f:\windows\system32\config.BACK /MT
 
     REM Mount the hive
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM 
+    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
 
     REM Delete the keys to block all inbound connection scenario
     REG DELETE "HKLM\BROKENSYSTEM\ControlSet001\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile" /v DoNotAllowExceptions

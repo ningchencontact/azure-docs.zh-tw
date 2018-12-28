@@ -1,23 +1,24 @@
 ---
-title: 在 LUIS 入口網站中測試您的 LUIS 應用程式
-titleSuffix: Azure Cognitive Services
+title: 在 LUIS 入口網站中測試應用程式
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用 Language Understanding (LUIS) 來持續調整您的應用程式，以改善應用程式及提升其語言理解能力。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6bb03975e36e93c2496eb4c6013be21ebc891ed1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 836449dad621cf6a0efe6c8534edc9f3982869b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039696"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141572"
 ---
-# <a name="test-your-luis-app"></a>測試 LUIS 應用程式
+# <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中測試您的 LUIS 應用程式
 <a name="train-your-app"></a>
 [測試](luis-concept-test.md)應用程式是一種反覆程序。 在您定型 LUIS 應用程式之後，請使用範例語句來測試它，查看它是否能正確地辨識意圖和實體。 如果為否，請更新 LUIS 應用程式，然後重新進行定型和測試。 
 

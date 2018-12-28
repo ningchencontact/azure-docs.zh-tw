@@ -1,18 +1,19 @@
 ---
-title: 建立和修改 ExpressRoute 線路：PowerShell：Azure Resource Manager | Microsoft Docs
-description: 本文說明如何建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
+title: 建立和修改 ExpressRoute 線路 - PowerShell：Azure | Microsoft Docs
+description: 建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: f95bdfe9a61a271825ff9bbe5ca7f84330c98df5
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: ff86c87690f5dd4a919929f0deef4af739cbe4d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257447"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104997"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>使用 PowerShell 建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -23,7 +24,7 @@ ms.locfileid: "51257447"
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
 
-本文說明如何使用 PowerShell Cmdlet 和 Azure Resource Manager 部署模型來建立 Azure ExpressRoute 線路。 本文也會示範如何檢查線路的狀態、加以更新，或是加以刪除及取消佈建。
+本文會協助您使用 PowerShell Cmdlet 和 Azure Resource Manager 部署模型來建立 ExpressRoute 線路。 您也可以檢查狀態、更新、刪除或取消佈建線路。
 
 ## <a name="before-you-begin"></a>開始之前
 
@@ -65,7 +66,7 @@ Get-AzureRmExpressRouteServiceProvider
 
 請檢查是否列出您的連線服務提供者。 記下下列資訊，稍後當您建立線路時將會用到：
 
-* 名稱
+* Name
 * PeeringLocations
 * BandwidthsOffered
 

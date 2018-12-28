@@ -1,12 +1,11 @@
 ---
-title: 使用 Azure Machine Learning Studio 分析客戶流失 | Microsoft Docs
+title: 分析客戶流失 - Azure Machine Learning Studio | Microsoft Docs
 description: 使用 Azure Machine Learning Studio 開發整合式模型以分析及評分客戶流失的案例研究。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 0ab398cc87472e3ede361f48f8e755ef294746da
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 48e3ca0b9910b673491e20e834b38170308aa132
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314979"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272162"
 ---
 # <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>使用 Azure Machine Learning Studio 分析客戶流失
 ## <a name="overview"></a>概觀
@@ -31,11 +30,11 @@ ms.locfileid: "52314979"
 這項實驗是由 Microsoft 的首席資料科學家 Serge Berger 和 Microsoft Azure Machine Learning 的前產品經理 Roger Barga 共同開發和測試。 Azure 文件小組高度認可其專業知識，並感謝他們分享這份白皮書。
 
 > [!NOTE]
-> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的[售業客戶流失模型範本](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)
+> 這項實驗中使用的資料無法公開使用。 如需如何建置客戶流失分析的機器學習模型範例，請參閱︰[Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的[零售業客戶流失模型範本](https://gallery.cortanaintelligence.com/Collection/Retail-Customer-Churn-Prediction-Template-1)
 > 
 > 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="the-problem-of-customer-churn"></a>客戶流失的問題
 消費者市場和所有企業產業中的公司都必須處理客戶流失的問題。 有時，客戶流失太多會影響政策決定。 傳統的解決方案是預測流失傾向較高的客戶，透過特別禮遇、行銷活動或給予特殊待遇，滿足他們的需求。 這些作法隨著產業而不同， 甚至在同一產業的不同消費群之間也會有所不同 (例如電信業)。
@@ -66,7 +65,7 @@ ms.locfileid: "52314979"
 
 ![][2]
 
-*圖 4：多模型整合原型*  
+*圖 4︰多模型整合原型*  
 
 如果要對客戶維繫提出一套全面性解決辦法，則不同模型之間的互動是關鍵。 每個模型必然隨著時間而退化；因此，架構是一種隱性的環路 (類似於以 CRISP-DM 資料採礦標準所設定的原型，[***3***])。  
 
@@ -85,7 +84,7 @@ ms.locfileid: "52314979"
 
 ![][3]
 
-*圖 5：客戶流失模型建構方法的原型*  
+*圖 5︰客戶流失模型建構方法的原型*  
 
 以下幾節提供我們使用 Machine Learning Studio 實作的原型評分模型的詳細資料。  
 
@@ -104,11 +103,11 @@ ms.locfileid: "52314979"
 
 ![][4]
 
-*圖 6：資料來源摘錄 (經過模糊處理)*  
+*圖 6︰資料來源摘錄 (經過模糊處理)*  
 
 ![][5]
 
-*圖 7：從資料來源擷取的特徵*
+*圖 7︰從資料來源擷取的特徵*
  
 
 > 請注意，這項資料為私人所有，因此不能分享模型和資料。
@@ -130,7 +129,7 @@ ms.locfileid: "52314979"
 
 ![][6]  
 
-*圖 8：在 Machine Learning Studio 中建立模型*  
+*圖 8︰在 Machine Learning Studio 中建立模型*  
 
 ### <a name="scoring-methods"></a>評分方法
 我們使用已標示的訓練資料集來對這四種模型評分。  
@@ -147,7 +146,7 @@ ms.locfileid: "52314979"
 
 ![][7]
 
-*圖 9：Passau 原型曲線下面積*
+*圖 9︰Passau 原型曲線下面積*
 
 ### <a name="using-auc-to-compare-results"></a>使用 AUC 來比較結果
 曲線下面積 (AUC) 是一種度量，代表正負母體的計分分布之間「可分性」  的總體量測。 它類似傳統的「受測者操作特徵」(ROC) 圖形，但一項重要的差別是 AUC 度量不需要您選擇臨界值。 它會總結「所有」  可能選擇的結果。 反之，傳統 ROC 圖會在垂直軸顯示正比率，在水平軸顯示誤判率，而分類臨界值會變化。   
@@ -168,14 +167,14 @@ AUC 通常用來判斷不同演算法 (或不同系統) 是否有用處，因為
 
 ![][8]
 
-*圖 10：正確性和準確度之間的取捨*
+*圖 10︰正確性和準確度之間的取捨*
 
 ### <a name="accuracy-and-precision-results-for-boosted-decision-tree-model"></a>推進式決策樹模型的正確性與準確度結果
 下列圖表針對推進式決策樹模型，列出利用 Machine Learning Studio 原型來評分所得出的原始結果，剛好就是四種模型中最正確的模型：  
 
 ![][9]
 
-*圖 11：推進式決策樹模型的特性*
+*圖 11︰推進式決策樹模型的特性*
 
 ## <a name="performance-comparison"></a>表現比較
 我們使用 Machine Learning Studio 模型和一個以 SAS Enterprise Miner 12.1 桌上型版本建立的比較模型，比較資料評分的速度。  
@@ -217,13 +216,13 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
  
 
 ## <a name="references"></a>參考
-[1] Predictive Analytics: Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。  
+[1] Predictive Analytics:Beyond the Predictions (預測性分析：超出預測)，W. McKnight，資訊管理，2011 年 7 月/8 月，第 18-20 頁。  
 
-[2] 維基百科文章：[正確性與準確度](http://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2]維基百科文章：[正確性和準確度](http://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0：資料採礦逐步指南](http://www.the-modeling-agency.com/crisp-dm.pdf)   
 
-[4] [巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
+[4][ 巨量資料行銷：更有效地吸引您的客戶和促進價值](http://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
 [5] [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的[電信公司客戶流失模型範本](http://gallery.cortanaintelligence.com/Experiment/Telco-Customer-Churn-5) 
  
@@ -231,7 +230,7 @@ Azure Machine Learning 中另一項吸引人的功能是可以將自訂模組加
 ## <a name="appendix"></a>附錄
 ![][10]
 
-*圖 12：客戶流失原型的簡報擷取畫面*
+*圖 12︰客戶流失原型的簡報擷取畫面*
 
 [1]: ./media/azure-ml-customer-churn-scenario/churn-1.png
 [2]: ./media/azure-ml-customer-churn-scenario/churn-2.png
