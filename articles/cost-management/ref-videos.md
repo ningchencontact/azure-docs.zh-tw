@@ -5,24 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: fab9d8639a81a4d5e7fbcddb36b975109ba636a7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 13d1548e9b9c721d44c8d5af99bfdcc691c4866d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276630"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100611"
 ---
-# <a name="cloudyn-training-videos"></a>Cloudyn 訓練影片
+# <a name="cloudyn-walk-through-training-videos"></a>Cloudyn 逐步解說訓練影片
 
 下列影片提供示範來引導您開始使用 Cloudyn並運用其功能。 Cloudyn 支援多重雲端成本追蹤和最佳化，包括 Microsoft Azure、Amazon Web Services 與 Google Cloud Platform。
+
+## <a name="overview-video"></a>概觀影片
 
 [Cloudyn 簡介](https://youtu.be/NWIRny6Wpsk) \(英文\)
 
 >[!VIDEO https://www.youtube.com/embed/NWIRny6Wpsk]
+
+## <a name="walk-through-videos"></a>逐步解說影片
 
 [使用 Cloudyn 分析您的雲端計費資料與時間](https://youtu.be/7LsVPHglM0g) \(英文\)
 

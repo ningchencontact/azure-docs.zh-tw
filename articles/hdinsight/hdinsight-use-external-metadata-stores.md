@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 288ee46e9a5741a49ddcec1ef155c6f08b7b6cbc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 9c35a4a811925abaf8dcb64d3e7060bbb1f91cce
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016162"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408318"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>在 Azure HDInsight 中使用外部中繼資料存放區
 
-HDInsight 中的 Hive 中繼存放區是 Hadoop 架構不可或缺的一部分。 中繼存放區是中央結構描述存放庫，可以由其他巨量資料存取工具使用，例如 Spark、互動式查詢 (LLAP)、Presto 或 Pig。 HDInsight 使用 Azure SQL Database 作為 Hive 中繼存放區。
+HDInsight 中的 Apache Hive 中繼存放區是 Apache Hadoop 架構不可或缺的一部分。 中繼存放區是中央結構描述存放庫，可供其他巨量資料存取工具使用，例如 Apache Spark、互動式查詢 (LLAP)、Presto 或 Apache Pig。 HDInsight 使用 Azure SQL Database 作為 Hive 中繼存放區。
 
 ![HDInsight Hive 中繼資料存放區架構](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -72,12 +72,12 @@ HDInsight 也支援自訂中繼存放區，這是針對生產叢集建議的中�
 - 針對現有自訂中繼存放區資料庫建立 Azure HDInsight 的更高新版本時，系統會升級中繼存放區的結構描述，此動作需要從備份還原資料庫才能復原。
 - 如果您在多個叢集間共用中繼存放區，請確定所有叢集都是相同的 HDInsight 版本。 不同的 Hive 版本會使用不同的中繼存放區資料庫結構描述。 例如，您無法在 Hive 1.2 和 Hive 2.1 版本叢集間共用中繼存放區。 
 
-## <a name="oozie-metastore"></a>Oozie 中繼存放區
+##  <a name="apache-oozie-metastore"></a>Apache Oozie 中繼存放區
 
 Apache Oozie 是一個可管理 Hadoop 作業的工作流程協調系統。  Oozie 支援 Apache MapReduce、Pig、Hive 等等的 Hadoop 作業。  Oozie 使用中繼存放區來儲存目前和已完成工作流程的相關詳細資料。 為提升使用 Oozie 時的效能，您可以使用 Azure SQL Database 作為自訂中繼存放區。 在您刪除叢集後，中繼存放區也可提供 Oozie 作業資料的存取。
 
-如需使用 Azure SQL Database 建立 Oozie 中繼存放區的指示，請參閱[工作流程使用 Oozie](hdinsight-use-oozie-linux-mac.md)。
+如需有關使用 Azure SQL Database 來建立 Oozie 中繼存放區的指示，請參閱[使用 Apache Oozie 來處理工作流程](hdinsight-use-oozie-linux-mac.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-- [使用 Hadoop、Spark 及 Kafka 等工具在 HDInsight 中設定叢集](./hdinsight-hadoop-provision-linux-clusters.md)
+- [使用 Apache Hadoop、Apache Spark、Apache Kafka 及其他工具在 HDInsight 中設定叢集](./hdinsight-hadoop-provision-linux-clusters.md)

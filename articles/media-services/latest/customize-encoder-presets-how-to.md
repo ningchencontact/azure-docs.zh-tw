@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體服務 v3 對自訂轉換進行編碼 | Microsoft Docs
+title: 使用媒體服務 v3 對自訂轉換進行編碼 - Azure | Microsoft Docs
 description: 本主題說明如何使用 Azure 媒體服務 v3 對自訂轉換進行編碼。
 services: media-services
 documentationcenter: ''
@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: c3318020b54beb121ac48d993a8ce794ac8e377f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c62d9132cdd7eb2ebcbecc3c417ad30d368a278a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376630"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138699"
 ---
 # <a name="how-to-encode-with-a-custom-transform"></a>如何對自訂轉換進行編碼
 

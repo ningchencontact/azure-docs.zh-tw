@@ -10,17 +10,15 @@ ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 5e19c7c1ed15183fdb796a6fa4e537da946b40b9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5236cff7a4afe508a8e11c6d75484fcdc9d43f91
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637333"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194227"
 ---
 # <a name="connect-computers-without-internet-access-using-the-log-analytics-gateway"></a>在無網際網路存取下使用 Log Analytics 閘道連線電腦
 本文件說明如何在直接連線或受 Operations Manager 監視的電腦沒有網際網路存取時，設定使用 Log Analytics 閘道與 Azure 自動化和 Log Analytics 的通訊。  Log Analytics 閘道是使用 HTTP CONNECT 命令支援 HTTP 通道的 HTTP 正向 Proxy，可以代表這些電腦收集資料並傳送給 Azure 自動化和 Log Analytics 服務。  
@@ -82,7 +80,7 @@ Log Analytics 閘道有下列語言版本︰
 - 西班牙文 (國際)
 
 ### <a name="supported-encryption-protocols"></a>支援的加密通訊協定
-Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安全通訊端層 (SSL)。  為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將閘道設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../log-analytics/log-analytics-data-security.md#sending-data-securely-using-tls-12)。 
+Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不支援安全通訊端層 (SSL)。  為了確保資料傳送至 Log Analytics 時的安全性，我們強烈建議您將閘道設定為至少使用傳輸層安全性 (TLS) 1.2。 我們已發現較舊版本的 TLS/安全通訊端層 (SSL) 較易受到攻擊，而且在其目前的運作中仍允許回溯相容性，因此並**不建議使用**這些版本。  如需其它資訊，請檢閱[使用 TLS 1.2 安全地傳送](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12)。 
 
 ### <a name="supported-number-of-agent-connections"></a>支援的代理程式連線數目
 下表強調支援與閘道伺服器通訊的代理程式數目。  此支援是根據代理程式每 6 秒上傳 ~200 KB 資料計算。 測試得出每個代理程式的資料量是每天大約 2.7 GB。
@@ -142,7 +140,7 @@ Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不�
 下一節包含的步驟會說明如何為直接連線的 Log Analytics 代理程式、Operations Manager 管理群組或 Azure 自動化混合式 Runbook 背景工作設定 Log Analytics 閘道以與 Azure 自動化或 Log Analytics 通訊。  
 
 ### <a name="configure-standalone-log-analytics-agent"></a>設定獨立 Log Analytics 代理程式
-若要了解如何在直接連線到 Log Analytics 的 Windows 電腦上安裝 Log Analytics 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](agent-windows.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](../../log-analytics/log-analytics-quick-collect-linux-computer.md)。 您不需在設定代理程式時指定 Proxy 伺服器，而是以 Log Analytics 閘道伺服器的 IP 位址及其連接埠號碼取代該值。  如果您已在網路負載平衡器後方部署了多個閘道伺服器，Log Analytics 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址。  
+若要了解如何在直接連線到 Log Analytics 的 Windows 電腦上安裝 Log Analytics 代理程式的相關需求和步驟，請參閱[將 Windows 電腦連線到 Log Analytics](agent-windows.md)，若是 Linux 電腦，則請參閱[將 Linux 電腦連線到 Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md)。 您不需在設定代理程式時指定 Proxy 伺服器，而是以 Log Analytics 閘道伺服器的 IP 位址及其連接埠號碼取代該值。  如果您已在網路負載平衡器後方部署了多個閘道伺服器，Log Analytics 代理程式 Proxy 組態會是 NLB 的虛擬 IP 位址。  
 
 如需自動化混合式 Runbook 背景工作角色 的相關資訊，請參閱[部署混合式 Runbook 背景工作角色](../../automation/automation-hybrid-runbook-worker.md)。
 
@@ -183,7 +181,7 @@ Log Analytics 閘道僅支援傳輸層安全性 (TLS) 1.0、1.1 及 1.2。  不�
 1. 開啟 Operations Manager 主控台，然後選取 [撰寫] 工作區。  
 1. 在 [撰寫] 工作區中選取 [規則]，然後按一下 Operations Manager 工具列上的 [範圍] 按鈕。 如果此按鈕無法使用，請進行檢查以確定您在 [監視] 窗格中選取的是物件，而非資料夾。 [範圍管理組件物件] 對話方塊會顯示一般會作為目標之類別、群組或物件的清單。 
 1. 在 [尋找] 欄位中輸入**健康狀態服務**，然後從清單中加以選取。  按一下 [確定]。  
-1. 搜尋規則 [Advisor Proxy 設定規則]，在 Operations 主控台工具列中按一下 [覆寫]，然後指向 [覆寫規則\針對下列類別的特定物件︰健康狀態服務]，並從清單中選取特定物件。  (選擇性) 您可以建立自訂群組，在其中包含您想要套用此覆寫之伺服器的健康狀態服務物件，然後對該群組套用覆寫。
+1. 搜尋規則 [Advisor Proxy 設定規則]，在 Operations 主控台工具列中按一下 [覆寫]，然後指向 [覆寫規則\針對下列類別的特定物件:健康狀態服務]，並從清單中選取特定物件。  (選擇性) 您可以建立自訂群組，在其中包含您想要套用此覆寫之伺服器的健康狀態服務物件，然後對該群組套用覆寫。
 1. 在 [覆寫屬性] 對話方塊中，按一下以勾選 [WebProxyAddress] 參數旁的 [覆寫] 資料行。  在 [覆寫值] 欄位中，輸入 Log Analytics 閘道伺服器的 URL，並確保其開頭有 `http://` 前置詞。  
 
     >[!NOTE]
@@ -290,7 +288,7 @@ Cmdlet 可以協助您完成更新 Log Analytics 閘道的組態設定時需執�
 | 103 |已從用戶端接收到 HTTP CONNECT 命令 |
 | 104 |不是 HTTP CONNECT 命令 |
 | 105 |目的地伺服器不在允許的清單中，或目的地連接埠不是安全的連接埠 (443) <br> <br> 請確定您閘道伺服器上的 MMA 代理程式和與閘道通訊的代理程式，是連線到相同的 Log Analytics 工作區。 |
-| 105 |ERROR TcpConnection – 無效的用戶端憑證: CN=Gateway <br><br> 請確定： <br>    <br> &#149; 您是使用版本號碼為 1.0.395.0 或更新版本的閘道。 <br> &#149; 您閘道伺服器上的 MMA 代理程式和與閘道通訊的代理程式，是連線到相同的 Log Analytics 工作區。 |
+| 105 |ERROR TcpConnection – 無效的用戶端憑證:CN=Gateway <br><br> 請確定： <br>    <br> &#149; 您是使用版本號碼為 1.0.395.0 或更新版本的閘道。 <br> &#149; 您閘道伺服器上的 MMA 代理程式和與閘道通訊的代理程式，是連線到相同的 Log Analytics 工作區。 |
 | 106 |Log Analytics 閘道只支援 TLS 1.0、TLS 1.1 和 1.2。  不支援 SSL。 針對任何不支援的 TLS/SSL 通訊協定版本，Log Analytics 閘道會產生事件識別碼 106。|
 | 107 |已經驗證 TLS 工作階段 |
 

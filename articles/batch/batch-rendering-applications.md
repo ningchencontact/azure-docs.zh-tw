@@ -2,16 +2,16 @@
 title: Batch 轉譯應用程式
 description: 預先安裝的 Batch 轉譯應用程式
 services: batch
-author: mscurrell
-ms.author: markscu
-ms.date: 08/02/2018
+author: laurenhughes
+ms.author: lahugh
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 28acd1b7275694d38a52f14d2b2c32b79cc8183e
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 7cc19c8def9e162c752efab776d0b6f5118bfde2
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036749"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320943"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>在轉譯的 VM 映像上預先安裝的應用程式
 
@@ -34,11 +34,11 @@ ms.locfileid: "40036749"
 ## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Windows Server 2016 轉譯節點上的應用程式
 
 * Autodesk Maya I/O 2017 Update 5 (17.4.5459 版)
-* Autodesk Maya I/O 2018 Update 3 (18.3.0.7040 版)  
-* Autodesk 3ds Max I/O 2019 Update 1 (21.10.1314 版)
+* Autodesk Maya I/O 2018 Update 4 (18.4.0.7622 版)  
+* Autodesk 3ds Max I/O 2019 Update 1 (21.2.0.2219 版)
 * Autodesk 3ds Max I/O 2018 Update 4 (20.4.0.4254 版)
-* Autodesk Arnold for Maya (Arnold 5.0.1.1 版) MtoA-2.0.1.1-2017
-* Autodesk Arnold for Maya (Arnold 5.0.1.4 版) MtoA-2.0.2.3-2018
+* Autodesk Arnold for Maya 2017 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018 (Arnold 5.2.0.1 版) MtoA-3.1.0.1-2018
 * Autodesk Arnold for 3ds Max (Arnold 5.0.2.4 版) (1.2.926 版)
 * Chaos Group V-Ray for Maya (3.52.03 版)
 * Chaos Group V-Ray for 3ds Max (3.60.02 版)

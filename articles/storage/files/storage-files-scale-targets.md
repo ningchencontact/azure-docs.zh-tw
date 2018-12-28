@@ -8,16 +8,15 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 57929b23e437e17ceb90196e3cfa59c16d518f5a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af738b655b4070da1cfe7555daff82c0e40ff91c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527432"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138580"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure 檔案服務延展性和效能目標
-
-  [Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文討論 Azure 檔案服務和 Azure 檔案同步的延展性和效能目標。
+[Azure 檔案服務](storage-files-introduction.md)可提供在雲端中完全受控的檔案共用，可透過業界標準 SMB 通訊協定加以存取。 本文討論 Azure 檔案服務和 Azure 檔案同步的延展性和效能目標。
 
 此處所列的延展性和效能目標是高階的目標，但可能會受到部署中的其他變數影響。 例如，檔案的輸送量可能也受限於可用的網路頻寬，而不只是裝載 Azure 檔案服務的伺服器。 我們強烈建議您測試您的使用模式，以判斷 Azure 檔案服務的延展性和效能是否符合您的需求。 我們也保證會隨時間提高這些限制。 歡迎您在底下留言或前往 [Azure 檔案服務 UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files) \(英文\)，提供想要我們提高哪些限制的意見反應。
 
@@ -40,13 +39,14 @@ Azure 檔案共用的父資源是 Azure 儲存體帳戶。 儲存體帳戶代表
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-performance-metrics"></a>Azure 檔案同步效能計量
-由於 Azure 檔案同步代理程式會在連線至 Azure 檔案共用的 Windows Server 機器上執行，因此有效的同步效能將取決於基礎結構中的許多因素：Windows Server 和基礎磁碟組態、伺服器與 Azure 儲存體之間的網路頻寬、檔案大小、資料集大小總計，以及資料集的活動。 由於 Azure 檔案同步會在檔案層級上運作，因此 Azure 檔案同步解決方案的效能特性應以每秒處理的物件 (檔案和目錄) 數來測量，以獲得較精準的結果。 
+由於 Azure 檔案同步代理程式在連線到 Azure 檔案共用的 Windows Server 電腦上執行，有效的同步處理效能取決於基礎結構中的許多因素：Windows Server 和基礎結構磁碟設定、伺服器與 Azure 儲存體之間的網路頻寬、檔案大小、總資料集大小和資料集上的活動。 由於 Azure 檔案同步會在檔案層級上運作，因此 Azure 檔案同步解決方案的效能特性應以每秒處理的物件 (檔案和目錄) 數來測量，以獲得較精準的結果。 
  
 在下列兩個階段中，Azure 檔案同步必須達到高效能：
 1. **初始一次性佈建**：若要讓初始佈建達到最佳效能，請參閱[透過 Azure 檔案同步上架](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync)以取得最佳部署的詳細資料。
 2. **持續同步**：在 Azure 檔案共用中初次植入資料之後，Azure 檔案同步會將多個端點保持在同步狀態。
 
 為了協助您規劃每個階段的部署，以下提供在採用某種組態的系統上進行內部測試期間所觀察到的結果
+
 | 系統組態 |  |
 |-|-|
 | CPU | 具有 64 MiB L3 快取的 64 個虛擬核心 |

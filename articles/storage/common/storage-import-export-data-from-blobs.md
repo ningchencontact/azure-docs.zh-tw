@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: faf8852df8b50c43affe32ede0f1e96d0bb80d3d
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 25ea4f41ac1fa36c7f9b6f64bc7c4eede4702f38
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821237"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315174"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>使用 Azure 匯入/匯出服務匯出 Azure Blob 儲存體中的資料
 本文提供的逐步指示會說明如何使用 Azure 匯入/匯出服務，安全地從 Azure Blob 儲存體匯出大量資料。 此服務需要您將空磁碟機寄送至 Azure 資料中心。 此服務會將您儲存體帳戶的資料匯出至磁碟機，然後將磁碟機寄回給您。
@@ -33,7 +33,7 @@ ms.locfileid: "51821237"
         - [建立 FedEX 帳戶](https://www.fedex.com/en-us/create-account.html) \(英文\)，或 
         - [建立 DHL 帳戶](http://www.dhl-usa.com/en/express/shipping/open_account.html) \(英文\)。
 
-## <a name="step-1-create-an-export-job"></a>步驟 1：建立匯出作業
+## <a name="step-1-create-an-export-job"></a>步驟 1：建立匯出工作
 
 在 Azure 入口網站中執行下列步驟，以建立匯出作業。
 
@@ -67,8 +67,8 @@ ms.locfileid: "51821237"
          ![全部匯出](./media/storage-import-export-data-from-blobs/export-from-blob4.png) 
 
     - 您可以指定要匯出的容器和 Blob。
-        - **若要指定要匯出的 Blob**：使用「**等於**」選取器。 指定 Blob 的相對路徑，開頭為容器名稱。 使用 *$root* 指定根容器。
-        - **若要為所有 Blob 指定開頭的前置詞**：使用「**開始值**」選取器。 指定前置詞，以正斜線 '/' 開頭。 此首碼可以是容器名稱的首碼、完整容器名稱，或是後面接著 Blob 名稱首碼的完整容器名稱。 您必須提供有效格式的 Blob 路徑，以避免在處理期間發生錯誤，如以下螢幕擷取畫面所示。 如需詳細資訊，請參閱[有效 Blob 路徑的範例](#examples-of-valid-blob-paths)。 
+        - **若要指定要匯出的 Blob**：使用 [等於] 選取器。 指定 Blob 的相對路徑，開頭為容器名稱。 使用 *$root* 指定根容器。
+        - **若要指定以某個前置詞開頭的所有 Blob**：使用 [開頭是] 選取器。 指定前置詞，以正斜線 '/' 開頭。 此首碼可以是容器名稱的首碼、完整容器名稱，或是後面接著 Blob 名稱首碼的完整容器名稱。 您必須提供有效格式的 Blob 路徑，以避免在處理期間發生錯誤，如以下螢幕擷取畫面所示。 如需詳細資訊，請參閱[有效 Blob 路徑的範例](#examples-of-valid-blob-paths)。 
    
            ![匯出選取的容器和 Blob](./media/storage-import-export-data-from-blobs/export-from-blob5.png) 
 
@@ -127,7 +127,7 @@ ms.locfileid: "51821237"
 
 此「選擇性」步驟可協助您判斷匯出作業所需的磁碟機數目。 執行此步驟的 Windows 系統必須執行[受支援的 OS 版本](storage-import-export-requirements.md#supported-operating-systems)。
 
-1. 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://www.microsoft.com/en-us/download/details.aspx?id=42659)。 
+1. 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 
 2. 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
 3. 以系統管理權限開啟 PowerShell 或命令列視窗。 若要將目錄變更為解壓縮的資料夾，請執行下列命令：
     

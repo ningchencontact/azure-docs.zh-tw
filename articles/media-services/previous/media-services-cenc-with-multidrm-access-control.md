@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: 69802c6c4246b91f62a0e49ec0c34bdd3a1bec8b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c94c88aa088745a2ed421bff43c8d87382564a43
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958411"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141470"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>使用 Azure 媒體服務設計具有存取控制的內容保護系統
 
@@ -256,7 +256,7 @@ DRM 子系統可能包含下列元件：
 
 * 授與群組成員資格宣告權限。 請確定下列項目位於 Azure AD 應用程式資訊清單檔中： 
 
-    "groupMembershipClaims": "All"    (預設值是 null)
+    "groupMembershipClaims"："All"    (預設值為 null)
 
 * 建立限制需求時，設定適當的 TokenType。
 
@@ -335,7 +335,7 @@ DRM 授權傳遞服務一律會檢查來自 Azure AD 的目前/有效公開金�
 
 2. 為資源應用程式新增金鑰。
 
-3. 更新應用程式資訊清單檔案，讓 groupMembershipClaims 屬性具有下列值："groupMembershipClaims": "All"。
+3. 更新應用程式資訊清單檔案，讓 groupMembershipClaims 屬性具有下列值："groupMembershipClaims":"All"。
 
 4. 在指向播放器 Web 應用程式的 Azure AD 應用程式上，於 [其他應用程式的權限] 區段中，新增已在步驟 1 中新增的資源應用程式。 在 [委派的權限] 底下選取 [存取 [resource_name]]。 此選項可給予 Web 應用程式建立存取權杖的權限，從而存取資源應用程式。 如果您使用 Visual Studio 和 Azure Web 應用程式進行開發，請對本機和已部署版本的 Web 應用程式這麼做。
 
@@ -367,12 +367,12 @@ Azure AD 所簽發的 JWT 是用來存取指標資源的存取權杖。
 
 有兩種類型的安全性金鑰：
 
-* 對稱金鑰：會使用相同的金鑰來產生及驗證 JWT。
+* 對稱金鑰：使用相同的金鑰來產生及驗證 JWT。
 * 非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT，公開金鑰則用來驗證權杖。
 
 > [!NOTE]
 > 如果您使用 .NET Framework/C# 作為開發平台，用於非對稱安全性金鑰的 x509 憑證之金鑰長度必須至少為 2048。 這是 .NET Framework 中的 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 類別的需求。 否則，會擲回下列例外狀況：
-
+> 
 > IDX10630：用於簽署的 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' 不能小於 '2048' 位元。
 
 ## <a name="the-completed-system-and-test"></a>完整的系統和測試

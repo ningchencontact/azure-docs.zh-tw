@@ -1,6 +1,6 @@
 ---
-title: 執行資料科學專案 - Azure Machine Learning | Microsoft Docs
-description: 資料科學家可如何追蹤資料科學專案的進度。
+title: 追蹤資料科學專案的進度 - Team Data Science Process
+description: 資料科學群組管理員、小組租用及專案負責人如何追蹤資料科學專案的進度。
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 202ac89b8a281012dbcf5f4c4df11e97ba2c8c65
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441463"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134296"
 ---
-# <a name="track-progress-of-data-science-projects"></a>追蹤資料科學專案的進度
+# <a name="tracking-the-progress-of-data-science-projects"></a>追蹤資料科學專案的進度
 
 資料科學群組管理員、小組負責人和專案負責人需要追蹤其專案的進度，哪些工作已完成、由誰完成，以及仍然在待辦事項清單上。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "52441463"
 
 其餘窗格會顯示專案的累計流量圖 (CFD)、待執行工作和已完成工作：
 
-- **左下方**：CFD 為給定狀態中的工作數量，以灰色顯示已核准，藍色顯示已認可，綠色顯示完成。
+- **左下方**：CFD 為指定狀態中的工作數量，以灰色顯示已核准、藍色顯示已認可，而綠色顯示完成。
 - **右上方**：待執行工作圖表為剩下未完成的工作與剩餘時間)。
 - **右下方**：已完成工作圖表為已完成的工作與工作總數量。
 

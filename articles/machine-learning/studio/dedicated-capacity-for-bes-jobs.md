@@ -1,12 +1,11 @@
 ---
-title: Machine Learning 批次執行服務作業的專屬功能 - Azure Machine Learning Studio | Microsoft Docs
-description: 適用於 Machine Learning 作業的 Azure Batch 服務概觀。
+title: 適用於 Machine Learning Studio 作業的 Azure Batch 服務 | Microsoft Docs
+description: 適用於 Machine Learning 作業的 Azure Batch 服務概觀。 批次集區處理可讓您建立集區，以便提交批次作業。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.service: machine-learning
 ms.component: studio
@@ -15,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 13e9921b15faff10ac250aa7c19d655ada782ce2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 44b63a51049e663e55cc59a623837cf65cab9ccc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308119"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275188"
 ---
-# <a name="azure-batch-service-for-machine-learning-jobs"></a>適用於 Machine Learning 作業的 Azure Batch 服務
+# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>適用於 Azure Machine Learning Studio 作業的 Azure Batch 服務
 
 Machine Learning 批次集區處理提供客戶管理的 Azure Machine Learning 批次執行服務級別。 機器學習服務的傳統批次處理發生於多租用戶環境中，其限制您可以提交的並行作業數目，而且作業會以先進先出為原則排入佇列中。 這種不確定性，表示您無法準確地預測何時會執行您的作業。
 

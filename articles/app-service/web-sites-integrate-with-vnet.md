@@ -1,5 +1,5 @@
 ---
-title: 將應用程式與 Azure 虛擬網路整合
+title: 將應用程式與 Azure 虛擬網路整合 - Azure App Service
 description: 示範如何將 Azure App Service 中的應用程式連接到新的或現有的 Azure 虛擬網路
 services: app-service
 documentationcenter: ''
@@ -13,15 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
-ms.openlocfilehash: 8a6d7fef902a3bd240b152cb15d6852a5fa0e7c6
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687296"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273342"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>將您的應用程式與 Azure 虛擬網路整合
-本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 
+本文件說明 Azure App Service 虛擬網路整合功能，以及示範如何使用 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)中的應用程式來設定此功能。 [Azure 虛擬網路][VNETOverview] (VNet) 可讓您將許多 Azure 資源，放在非網際網路可路由網路中。 然後，可以使用 VPN 技術，將這些網路連線到您的內部部署網路。 
 
 Azure App Service 具有兩種形式。 
 
@@ -30,7 +31,7 @@ Azure App Service 具有兩種形式。
 
 本文會介紹 VNet 整合功能，該功能適用於多租用戶的 App Service。  如果您的應用程式位於 [App Service 環境][ASEintro]，則它已經在 VNet 中，並且不需要使用 VNet 整合功能來觸達相同 VNet 中的資源。
 
-VNet 整合能讓您的 Web 應用程式存取虛擬網路中的資源，但不授與從虛擬網路存取 Web 應用程式的專用權限。 私人網站存取是指讓您的應用程式只能透過私人網路 (例如從 Azure 虛擬網路中) 存取。 只有使用透過內部負載平衡器 (ILB) 設定的 ASE 才可使用私人網站存取。 如需使用 ILB ASE 的詳細資訊，請從以下的文章開始︰[建立和使用 ILB ASE][ILBASE]。 
+VNet 整合能讓您的 Web 應用程式存取虛擬網路中的資源，但不授與從虛擬網路存取 Web 應用程式的專用權限。 私人網站存取是指讓您的應用程式只能透過私人網路 (例如從 Azure 虛擬網路中) 存取。 只有使用透過內部負載平衡器 (ILB) 設定的 ASE 才可使用私人網站存取。 如需有關使用 ILB ASE 的詳細資訊，請從以下的文章開始著手︰[建立及使用 ILB ASE][ILBASE]。 
 
 VNet 整合通常用於啟用從應用程式到 VNet 中執行之資料庫和 Web 服務的存取。 使用 VNet 整合時，您不需要公開 VM 上應用程式的公用端點，但可以改用專用的非網際網路可路由位址。 
 
@@ -131,9 +132,9 @@ VNet 整合功能是建置在點對站 VPN 技術之上。 Azure App Service 中
 ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet。 您的 App Service 方案中的任意數目的應用程式，最多可以連線到 5 個 VNet。 每個應用程式只能設定一個整合。 若要查看每個 VNet 的詳細資料，按一下您感興趣的 VNet 即可。 您可以在此處執行兩項動作。
 
 * **同步網路**。 同步網路作業可確保您的憑證和網路資訊會保持同步。如果您新增或變更 VNet 的 DNS，則需要執行**同步網路**作業。 這項作業將重新啟動任何使用此 VNet 的應用程式。
-* **新增路由** 新增路由將驅動輸出流量進入 VNet。
+* **新增路由** 新增路由將驅動連出流量進入 VNet。
 
-**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的輸出流量傳送到 VNet，則可以在此處新增這些位址區塊。   
+**路由** VNet 中所定義的路由用於將應用程式中的流量導向至 VNet。 如果需要將額外的連出流量傳送到 VNet，則可以在此處新增這些位址區塊。   
 
 **憑證** 啟用 [VNet 整合] 時，需要交換憑證以確保連線的安全性。 除了憑證以外，還有 DNS 組態、路由，以及其他描述網路的類似項目。
 如果憑證或網路資訊已變更，您需要按一下 [同步網路]。 按一下 [同步處理網路] 時，會導致應用程式與 VNet 之間的連線短暫中斷。 如果應用程式未重新啟動，失去連線會導致您的網站無法正常運作。 
@@ -161,7 +162,7 @@ ASP VNet 整合 UI 會向您顯示 ASP 中的應用程式所使用的所有 VNet
 * 資料傳輸成本
 * VPN 閘道器成本
 
-您的應用程式必須是「標準」、「進階」或「進階 V2」方案。 您可以在這裡看到這些成本的詳細資料：[App Service 價格][ASPricing]。 
+您的應用程式必須是「標準」、「進階」或「進階 V2」方案。 如需有關這些成本的更多詳細資料，請參閱這裡：[App Service 價格][ASPricing]。 
 
 即使 VNet 位於相同的資料中心，也需要對資料輸出收費。 [資料傳輸定價詳細資料][DataPricing]中會說明這些費用。 
 
@@ -307,17 +308,17 @@ App Service 環境功能可讓您在 VNet 中執行 Azure App Service 的單一�
 [8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
-[VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
-[AzurePortal]: http://portal.azure.com/
-[ASPricing]: http://azure.microsoft.com/pricing/details/app-service/
-[VNETPricing]: http://azure.microsoft.com/pricing/details/vpn-gateway/
-[DataPricing]: http://azure.microsoft.com/pricing/details/data-transfers/
-[V2VNETP2S]: http://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
+[VNETOverview]: https://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
+[AzurePortal]: https://portal.azure.com/
+[ASPricing]: https://azure.microsoft.com/pricing/details/app-service/
+[VNETPricing]: https://azure.microsoft.com/pricing/details/vpn-gateway/
+[DataPricing]: https://azure.microsoft.com/pricing/details/data-transfers/
+[V2VNETP2S]: https://azure.microsoft.com/documentation/articles/vpn-gateway-howto-point-to-site-rm-ps/
 [ASEintro]: environment/intro.md
 [ILBASE]: environment/create-ilb-ase.md
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
-[creategateway]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
-[setp2saddresses]: http://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool
+[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
+[setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

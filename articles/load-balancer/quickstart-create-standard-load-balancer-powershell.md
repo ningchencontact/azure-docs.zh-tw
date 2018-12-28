@@ -1,5 +1,6 @@
 ---
-title: 快速入門：建立標準負載平衡器 - Azure PowerShell | Microsoft Docs
+title: 快速入門：建立 Standard Load Balancer - Azure PowerShell
+titlesuffix: Azure Load Balancer
 description: 本快速入門說明如何使用 PowerShell 建立標準負載平衡器
 services: load-balancer
 documentationcenter: na
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
-ms:custom: mvc
-ms.openlocfilehash: e4e66d18f9dcb7f020cdb881226f6e47118e5186
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms:custom: seodec18
+ms.openlocfilehash: 0db575ee6c04c0fb4639ea2e9e095200da781fe8
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578547"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256310"
 ---
-# <a name="get-started"></a>快速入門：使用 Azure PowerShell 建立標準負載平衡器
+# <a name="get-started"></a>快速入門：使用 Azure PowerShell 來建立 Standard Load Balancer
 本快速入門說明如何使用 Azure PowerShell 建立標準負載平衡器。 若要測試負載平衡器，您要部署兩部執行 Windows Server 的虛擬機器 (VM)，並平衡兩部 VM 間 Web 應用程式的負載。 若要深入了解標準負載平衡器，請參閱[什麼是標準負載平衡器](load-balancer-standard-overview.md)。
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]

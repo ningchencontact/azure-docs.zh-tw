@@ -1,25 +1,19 @@
 ---
-title: 適用於 ExpressRoute 的 QoS 需求 |Microsoft Docs
-description: 此頁面提供用來設定和管理適用於 ExpressRoute 循環之 QoS 的詳細需求。
-documentationcenter: na
+title: QoS 需求 - ExpressRoute：Azure | Microsoft Docs
+description: 此頁面提供設定及管理 QoS 的詳細需求。 討論範圍包括「商務用 Skype」/語音服務。
 services: expressroute
 author: cherylmc
-manager: carmonm
-editor: ''
-ms.assetid: db1c1447-0283-4a09-907b-ae481adc40c7
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: c097a9ccba91f59b323215d42d37e6d85e0981ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: e478475ea9b5a34315c9d46c2201263566398008
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22709907"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336657"
 ---
 # <a name="expressroute-qos-requirements"></a>ExpressRoute QoS 需求
 商務用 Skype 具有各種工作負載，其所要求的 QoS 處理方式各有差異。 如果您打算透過 ExpressRoute 取用語音服務，應遵守以下所述的需求。
@@ -37,12 +31,12 @@ ms.locfileid: "22709907"
 | --- | --- | --- |
 | **語音** |EF (46) |Skype / Lync 語音 |
 | **互動式** |AF41 (34) |影片、VBSS |
-| AF21 (18) |APP 共用 | |
+| |AF21 (18) |APP 共用 | 
 | **預設值** |AF11 (10) |檔案傳輸 |
-| CS0 (0) |任何其他項目 | |
+| |CS0 (0) |任何其他項目 |
 
-* 您應將工作負載分類，並標記正確的 DSCP 值。 遵循 [這裡](https://technet.microsoft.com/library/gg405409.aspx) 所提供的指引，以了解如何在您的網路中設定 DSCP 標示。
-* 您應在網路中設定並支援多個 QoS 佇列。 語音必須是獨立的類別，並可接收 RFC 3246 中指定的 EF 處理方式。 
+* 您應將工作負載分類，並標記正確的 DSCP 值。 遵循 [這裡](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/configuring-port-ranges-for-your-skype-clients#configure-quality-of-service-policies-for-clients-running-on-windows-10) 所提供的指引，以了解如何在您的網路中設定 DSCP 標示。
+* 您應在網路中設定並支援多個 QoS 佇列。 語音必須是獨立的類別，並可接收 [RFC 3246](https://www.ietf.org/rfc/rfc3246.txt) 中指定的 EF 處理方式。 
 * 您可以決定適用於每個流量類別的佇列機制、壅塞偵測原則和頻寬配置。 但是必須保留適用於商務用 Skype 工作負載的 DSCP 標示。 如果您使用以上未列出的 DSCP 標示 (例如 AF31 (26))，就必須先將此 DSCP 值重寫為 0，才能將封包傳送給 Microsoft。 Microsoft 只會傳送使用上表所列之 DSCP 值標記的封包。 
 
 ## <a name="next-steps"></a>後續步驟

@@ -1,5 +1,6 @@
 ---
-title: 取得 Azure Machine Learning 服務的支援和訓練
+title: 可用的支援和訓練
+titleSuffix: Azure Machine Learning service
 description: 本文將告訴您如何取得 Azure Machine Learning 服務的支援和訓練
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: a857b813cee86079b96cd2bca297c1cf098819f5
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec18
+ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113898"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192085"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>取得 Azure Machine Learning 服務的支援和訓練
 
@@ -35,7 +37,7 @@ ms.locfileid: "49113898"
 
 查看這些支援資源：
 
-+ **技術支援**：造訪 [Azure 技術支援](https://azure.microsoft.com/support/options/)並選取 [Machine Learning]。 
++ **技術支援**：造訪 [Azure 技術支援](https://azure.microsoft.com/support/options/)並選取 [機器學習服務]。 
 
 + **使用者論壇**：在 [MSDN 上的 Azure Machine Learning 服務支援論壇](https://aka.ms/aml-forum-service)中提出問題、回答問題，以及與其他使用者交流。
 

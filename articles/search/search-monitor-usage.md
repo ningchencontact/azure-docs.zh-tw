@@ -1,5 +1,5 @@
 ---
-title: 監視 Azure 搜尋服務中的使用量和統計資料 | Microsoft Docs
+title: 監視搜尋服務的使用量和統計資料 - Azure 搜尋服務
 description: 追蹤 Azure 搜尋服務 (Microsoft Azure 上之託管的雲端搜尋服務) 的資源耗用量和索引大小。
 author: HeidiSteen
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: 286569eef8e17909ecab017b67b0ffc044a4bfe4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795104"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314154"
 ---
-# <a name="monitoring-an-azure-search-service"></a>監視 Azure 搜尋服務
+# <a name="monitor-an-azure-search-service-in-azure-portal"></a>在 Azure 入口網站中監視 Azure 搜尋服務
 
 Azure 搜尋服務提供各種資源，可追蹤搜尋服務的使用情形和效能。 它可讓您存取 Power BI 上的計量、記錄、索引統計資料和延伸監視功能。 本文說明如何啟用不同的監視策略，以及如何解譯產生的資料。
 
@@ -26,9 +27,9 @@ Azure 搜尋服務提供各種資源，可追蹤搜尋服務的使用情形和�
 
 Azure 搜尋服務會收集三個不同計量的資料︰
 
-* 搜尋延遲︰搜尋服務處理搜尋查詢所需的時間 (每分鐘彙總一次)。
-* 每秒搜尋查詢 (QPS)︰每秒接收的搜尋查詢數 (每分鐘彙總一次)。
-* 節流的搜尋查詢百分比︰已節流處理的搜尋查詢百分比 (每分鐘彙總一次)。
+* 搜尋延遲：搜尋服務處理搜尋查詢所需的時間 (每分鐘彙總一次)。
+* 每秒搜尋查詢 (QPS)：每秒接收的搜尋查詢數 (每分鐘彙總一次)。
+* 節流的搜尋查詢百分比：每分鐘針對搜尋查詢進行節流、彙總的百分比。
 
 ![QPS 活動的螢幕擷取畫面][1]
 
@@ -71,7 +72,7 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 ### <a name="enabling-monitoring"></a>啟用監視
 在 [Azure 入口網站](http://portal.azure.com)的 [啟用監視] 選項下將您的 Azure 搜尋服務開啟。
 
-選擇您想要匯出的資料︰記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將它傳送到事件中樞，或將它匯出成 Log Analytics。
+選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將它傳送到事件中樞，或將它匯出成 Log Analytics。
 
 ![如何在入口網站中啟用監視][3]
 
@@ -95,16 +96,17 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 | Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | 分析 |Datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
-| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>  MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的 ResourceId |
 | operationName |字串 |"Query.Search" |作業的名稱 |
 | operationVersion |字串 |"2015-02-28" |使用的 api-version |
 | category |字串 |"OperationLogs" |常數 |
-| resultType |字串 |"Success" |可能的值：Success 或 Failure |
+| resultType |字串 |"Success" |可能的值：成功或失敗 |
 | resultSignature |int |200 |HTTP 結果碼 |
 | durationMS |int |50 |作業的持續時間 (以毫秒為單位) |
 | properties |物件 |請參閱下表 |包含作業特定資料的物件 |
 
 **屬性結構描述**
+
 | Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
 | 說明 |字串 |"GET /indexes('content')/docs" |作業的端點 |
@@ -113,9 +115,10 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 | IndexName |字串 |"testindex" |與作業相關聯的索引名稱 |
 
 #### <a name="metrics-schema"></a>度量結構描述
+
 | Name | 類型 | 範例 | 注意 |
 | --- | --- | --- | --- |
-| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
+| ResourceId |字串 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |您的資源識別碼 |
 | metricName |字串 |"Latency" |度量的名稱 |
 | 分析 |Datetime |"2015-12-07T00:00:43.6872559Z" |作業的時間戳記 |
 | average |int |64 |度量時間間隔中原始範例的平均值 |

@@ -1,5 +1,5 @@
 ---
-title: 針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特性 | Microsoft Docs
+title: 針對 Hadoop 叢集中的資料建立特徵 - Team Data Science Process
 description: Hive 查詢的範例，產生儲存在 Azure HDInsight Hadoop 叢集中之資料中的特性。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: f63e1aeaca6e19eacb10ed7dc68d311234a31666
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444541"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141878"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>針對使用 Hive 查詢之 Hadoop 叢集中的資料建立特徵
 本文件說明如何使用 Hive 查詢，針對儲存在 Azure HDInsight Hadoop 叢集中的資料建立特徵。 這些 Hive 查詢會使用針對其提供指令碼的內嵌 Hive 使用者定義函式 (UDF)。
@@ -139,7 +139,7 @@ Hive 會和一組 UDF 一起出現，用來處理日期時間欄位。 在 Hive 
 ## <a name="tuning"></a> 進階主題：微調 Hive 參數以提升查詢速度
 Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處理的資料。 本節將討論一些使用者可以微調以提升 Hive 查詢效能的參數。 使用者需要在處理資料的查詢之前新增參數微調查詢。
 
-1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的一項錯誤是**堆積空間不足**。 透過將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值可避免此錯誤。 下列是一個範例：
+1. **Java 堆積空間**：對於涉及聯結大型資料集或處理長記錄的查詢，常見的錯誤之一是**堆積空間不足**。 透過將參數 *mapreduce.map.java.opts* 和 *mapreduce.task.io.sort.mb* 設定為所需的值可避免此錯誤。 下列是一個範例：
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
@@ -151,7 +151,7 @@ Hive 叢集的預設參數設定可能不適合 Hive 查詢以及查詢正在處
 
         set dfs.block.size=128m;
 
-2. **將 Hive 中的聯結作業最佳化**：儘管 Map/Reduce 架構中的聯結作業通常是在縮減階段執行，但有時可藉由在對應階段中排程聯結 (亦稱為 "mapjoin") 來得到大量的收穫。 若要在適當時機引導 Hive 執行這個動作，請設定：
+2. **將 Hive 中的聯結作業最佳化**：儘管 Map/Reduce 架構中的聯結作業通常會在縮減階段執行，但有時可藉由在對應階段中排程聯結 (亦稱為 "mapjoin") 來獲取大量利益。 若要在適當時機引導 Hive 執行這個動作，請設定：
    
        set hive.auto.convert.join=true;
 

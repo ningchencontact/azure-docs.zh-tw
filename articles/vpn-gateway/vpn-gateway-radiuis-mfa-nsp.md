@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 12e2f96e66305370499fbacf9ae6a834a22eb504
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fec5ef3ef190270d22e9a7d0306eb9477b39a8c8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412494"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095224"
 ---
 # <a name="integrate-azure-vpn-gateway-radius-authentication-with-nps-server-for-multi-factor-authentication"></a>整合 Azure VPN 閘道 RADIUS 驗證與 NPS 伺服器以進行多重要素驗證 
 
@@ -40,8 +40,8 @@ ms.locfileid: "50412494"
     ![關於如何新增閘道子網路的影像](./media/vpn-gateway-radiuis-mfa-nsp/gateway-subnet.png)
 3. 藉由指定下列設定建立虛擬網路閘道：
 
-    - 閘道類型︰選取 [VPN]。
-    - **VPN 類型**：選取 [路由型]。
+    - **閘道類型**：選取 [VPN]。
+    - **VPN 類型**：選取 [依路由]。
     - **SKU**：依序需求選取 SKU 類型。
     - **虛擬網路**：選取您在其中建立閘道子網路的虛擬網路。
 
@@ -55,10 +55,10 @@ ms.locfileid: "50412494"
 2. 開啟 NSP 主控台，用滑鼠右鍵按一下 [RADUIS 用戶端]，然後選取 [新增]。 藉由指定下列設定建立 RADUIS 用戶端：
 
     - **易記名稱**：輸入任何名稱。
-    - **位址 (IP 或 DNS)**：輸入您在步驟 1 建立的閘道子網路。
+    - **位址 (IP 或 DNS)**：輸入您在步驟 1 中所建立的閘道子網路。
     - **共用密碼**：輸入任何秘密金鑰，並記住它以方便之後使用。
 
-    ![關於 RADUIS 用戶端設定的影像](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![關於 RADUIS 用戶端設定的影像](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  在 [進階] 索引標籤上，將廠商名稱設定為 [RADIUS 標準] 並確定未選取 [其他選項] 和取方塊。
@@ -73,11 +73,11 @@ ms.locfileid: "50412494"
 2. 開啟您建立的虛擬網路閘道。 確定閘道類型已設定為 **VPN** **路由型**。
 3. 依序按一下 [點對站設定] >  [立即設定]，然後指定以下設定：
 
-    - **位址集區**：輸入您在步驟 1 建立的閘道子網路。
+    - **位址集區**：輸入您在步驟 1 中建立的閘道子網路。
     - **驗證類型**：選取 [RADIUS 驗證]。
     - **伺服器 IP 位址**：輸入 NPS 伺服器的 IP 位址。
 
-    ![關於點對站設定的影像](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![關於點對站設定的影像](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## <a name="next-steps"></a>後續步驟
 

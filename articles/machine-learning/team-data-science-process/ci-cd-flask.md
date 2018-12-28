@@ -1,6 +1,6 @@
 ---
-title: 人工智慧 (AI) 應用程式的 DevOps：使用 Docker、Kubernetes 及 Python Flask 應用程式在 Azure 上建立持續整合管線
-description: 人工智慧 (AI) 應用程式的 DevOps：使用 Docker 和 Kubernetes 在 Azure 上建立持續整合管線
+title: 建立 Azure 持續整合管線 - Team Data Science Process
+description: 適用於人工智慧 (AI) 應用程式的 DevOps：使用 Docker 和 Kubernetes 在 Azure 上建立持續整合管線
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: tdsp
-ms.custom: (previous author=jainr, ms.author=jainr)
-ms.openlocfilehash: c232680d5d1bf0eb761ff974ebf6608b67922f33
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
+ms.openlocfilehash: a3c570d3d22742afcbba86f35a9dd1f6a85c0b8f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496753"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134279"
 ---
-# <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>人工智慧 (AI) 應用程式的 DevOps：使用 Docker 和 Kubernetes 在 Azure 上建立持續整合管線
+# <a name="creating-continous-integration-pipeline-on-azure-using-docker-kubernetes-and-python-flask-application"></a>使用 Docker、Kubernetes 及 Python Flask 應用程式在 Azure 上建立持續整合管線
 就 AI 應用程式而言，有兩個經常性的工作資料流：資料科學家建置機器學習模型，而應用程式開發人員則建置應用程式並將其公開給使用者取用。 在本文中，我們將示範如何實作 AI 應用程式的持續整合 (CI)/持續部署 (CD) 管線。 AI 應用程式是內嵌了預先定型機器學習 (ML) 模型的應用程式碼組合。 針對本文，我們會從私用的 Azure Blob 儲存體帳戶 (也可以是 AWS S3 帳戶) 中擷取一個預先定型的模型。 我們將針對本文使用一個簡單的 Python Flask Web 應用程式。
 
 > [!NOTE]

@@ -1,12 +1,11 @@
 ---
 title: Azure AI 資源庫自訂模組 - Azure Machine Learning Studio | Microsoft Docs
-description: 探索 Azure AI 資源庫中的自訂機器學習服務模組。
+description: 探索 Azure AI 資源庫中的自訂機器學習服務模組。 自訂模組會擴充 Azure Machine Learning Studio 的功能。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 16037a84-dad0-4a8c-9874-a1d3bd551cf0
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
-ms.openlocfilehash: a504bcfbbcd70c1d6fc8402d4c232e7e8a5476b0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 92067a93a1f67711df0312f4daf484a577ff14d1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313736"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273185"
 ---
-# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio：探索 Azure AI 資源庫中的自訂機器學習模組
+# <a name="machine-learning-studio-discover-custom-machine-learning-modules-in-azure-ai-gallery"></a>Machine Learning Studio：探索 Azure AI 資源庫中的自訂機器學習服務模組
 
 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)會提供數個[自訂模組](https://gallery.cortanaintelligence.com/customModules)，可擴充 Azure Machine Learning Studio 的功能。 您可以匯入這些模組用於您的實驗，以便開發更進階的預測性分析解決方案。
 
@@ -94,5 +93,5 @@ Azure AI 資源庫提供兩種匯入模組複本的方式：
 
 **[移至資源庫](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 

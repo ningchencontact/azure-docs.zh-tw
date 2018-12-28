@@ -2,19 +2,20 @@
 title: 在 Azure 搜尋服務中建立多租用戶模型 | Microsoft Docs
 description: 了解使用「Azure 搜尋服務」時常見的多租用戶 SaaS 應用程式設計模式。
 manager: jlembicz
-author: ashmaka
+author: LiamCavanagh
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
-ms.author: ashmaka
-ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: liamca
+ms.custom: seodec2018
+ms.openlocfilehash: 1da9756df4fa05b367665a5fe024528939f22578
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232370"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313032"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>多租用戶 SaaS 應用程式與 Azure 搜尋服務的設計模式
 多租用戶應用程式是為不能查看或共用任何其他租用戶之資料的租用戶提供相同服務和功能的應用程式，其中租用戶的數目並無限制。 本文件將討論以「Azure 搜尋服務」建置的多租用戶應用程式的租用戶隔離策略。
@@ -57,11 +58,11 @@ S3 HD 會以使用資料分割相應放大索引的能力換取在單一服務�
 ## <a name="considerations-for-multitenant-applications"></a>多租用戶應用程式的考量
 多租用戶應用程式必須有效地將資源分散到各個租用戶中，同時又在各個租用戶之間保留某種程度的隱私性。 設計這類應用程式的架構時，有幾個考量︰
 
-* *租用戶隔離︰* 應用程式開發人員需要採取適當措施，以確保沒有任何租用戶能夠在未經授權或不需要的情況下存取其他租用戶的資料。 除了資料隱私性的觀點以外，租用戶隔離策略還需要有效的共用資源管理，以及對吵雜鄰居的防範。
-* *雲端資源成本︰* 與任何其他應用程式一樣，軟體解決方案作為多租用戶應用程式的元件，必須保有成本競爭力。
+* *租用戶隔離：* 應用程式開發人員需要採取適當措施，以確保沒有任何租用戶能夠在未經授權或不需要的情況下存取其他租用戶的資料。 除了資料隱私性的觀點以外，租用戶隔離策略還需要有效的共用資源管理，以及對吵雜鄰居的防範。
+* *雲端資源成本：* 與任何其他應用程式一樣，軟體解決方案作為多租用戶應用程式的元件，必須保有成本競爭力。
 * *操作輕鬆︰* 開發多租用戶架構時，對應用程式的作業與複雜性的影響是很重要的考量。 Azure 搜尋服務具有 [99.9% 的 SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/)。
 * *遍佈全球︰* 多租用戶應用程式可能需要有效地為分散在全球各地的租用戶提供服務。
-* *延展性︰* 應用程式開發人員需要考慮到要如何讓應用程式不要太複雜，而又要能設計應用程式來依租用戶數目及租用戶資料和工作負載大小做調整。
+* *延展性：* 應用程式開發人員需要考慮到要如何讓應用程式不要太複雜，而又要能設計應用程式來依租用戶數目及租用戶資料和工作負載大小做調整。
 
 「Azure 搜尋服務」提供一些可用來隔離租用戶資料和工作負載的界限。
 

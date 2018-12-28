@@ -1,6 +1,6 @@
 ---
-title: 如何在 Azure 時間序列深入解析中監視及降低節流 | Microsoft Docs
-description: 本文描述如何監視、診斷和減少會在 Azure 時間序列深入解析中造成延遲和節流的效能問題。
+title: Azure 時間序列深入解析效能與節流 - 如何在 Azure 時間序列深入解析中監視及降低節流 | Microsoft Docs
+description: 此文章說明如何監視、診斷和減少會在 Azure 時間序列深入解析中造成延遲和節流的效能問題。
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: 34f7128a6ab86a23d911f9bc92908102df4dee92
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364976"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278418"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>監視與降低節流，以減少 Azure 時間序列深入解析中的延遲
 當內送資料的數量超過您的環境設定時，可能會在 Azure 時間序列深入解析中發生延遲或節流。
@@ -56,9 +57,9 @@ ms.locfileid: "46364976"
 |**輸入接收的無效訊息**     | 從所有的 Azure 事件中樞或 Azure IoT 中樞事件來源讀取的無效訊息計數。      |
 |**輸入接收的訊息**   | 從所有事件中樞或 IoT 中樞事件來源讀取的訊息計數。        |
 |**輸入儲存的位元組**     | 已儲存且可供查詢的事件總大小。 只能計算屬性值的大小。        |
-|**輸入儲存的事件**     |   已儲存且可供查詢的壓平合併事件計數。      |
-|**輸入接收的訊息時間延遲**    |  訊息在事件來源中加入佇列的時間與在輸入中處理的時間之間的差異 (以秒為單位)。      |
-|**輸入接收的訊息計數延遲**    |  事件來源資料分割中最後加入佇列之訊息的序號與輸入中所處理訊息的序號之間的差異。      |
+|**輸入儲存的事件**     |   已儲存且可供查詢的壓平合併事件計數。      |
+|**輸入接收的訊息時間延遲**    |  訊息在事件來源中加入佇列的時間與在輸入中處理的時間之間的差異 (以秒為單位)。      |
+|**輸入接收的訊息計數延遲**    |  事件來源資料分割中最後加入佇列之訊息的序號與輸入中所處理訊息的序號之間的差異。      |
 
 
 ![Latency](media/environment-mitigate-latency/latency.png)

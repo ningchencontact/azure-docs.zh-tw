@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 5de7496d73ebe1c89ce27ef27df73b197f34e7c7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52636983"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407961"
 ---
 # <a name="using-a-cloud-dvr"></a>使用雲端 DVR
 
-[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 可讓您控制傳出即時資料流的屬性，例如錄製了多少資料流 (例如雲端 DVR 的容量)，以及檢視者是否可以開始觀看即時資料流。 **LiveEvent** 和其 **LiveOutput** 之間的關聯性就像傳統的電視廣播，其中頻道 (**LiveEvent**) 表示持續的視訊資料流，而錄製 (**LiveOutput**) 的範圍限制在特定時間區段 (例如下午 6:30 至下午 7:00 的晚間新聞)。 您可以使用數位視訊錄影機 (DVR) 錄製電視，而 LiveEvent 中對等的功能是透過 ArchiveWindowLength 屬性來管理。 它是 ISO-8601 時間範圍持續時間 (例如 PTHH:MM:SS)，可指定 DVR 的容量，並且可設定為最小 3 分鐘至最大 25 小時的值。
+[LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) 可讓您控制傳出即時資料流的屬性，例如錄製了多少資料流 (例如雲端 DVR 的容量)，以及檢視者是否可以開始觀看即時資料流。 **LiveEvent** 和其 **LiveOutput** 之間的關聯性類似於傳統的電視廣播，其中頻道 (**LiveEvent**) 表示持續的視訊資料流，而錄製 (**LiveOutput**) 的範圍限制在特定時間區段 (例如下午 6:30 至下午 7:00 的晚間新聞)。 您可以使用數位視訊錄影機 (DVR) 錄製電視，而 LiveEvent 中對等的功能是透過 ArchiveWindowLength 屬性來管理。 它是 ISO-8601 時間範圍持續時間 (例如 PTHH:MM:SS)，可指定 DVR 的容量，並且可設定為最小 3 分鐘至最大 25 小時的值。
 
 ## <a name="liveoutput"></a>LiveOutput
 

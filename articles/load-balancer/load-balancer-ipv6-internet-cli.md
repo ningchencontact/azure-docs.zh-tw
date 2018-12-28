@@ -1,5 +1,6 @@
 ---
-title: 建立使用 IPv6 的公用負載平衡器 - Azure CLI | Microsoft Docs
+title: 建立採用 IPv6 的公用負載平衡器 - Azure CLI
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 建立採用 IPv6 的公用負載平衡器。
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行�
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: kumud
-ms.openlocfilehash: e3d6611c8a5c6faf3d1e070d1bafa2027adfc0cb
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1caa8e7554024c3b2e3d86436d3d494d7995169a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739826"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53142014"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>使用 Azure CLI 建立採用 IPv6 的公用負載平衡器
 
@@ -44,11 +46,11 @@ Azure 負載平衡器是第 4 層 (TCP、UDP) 負載平衡器。 負載平衡器
 
 若要部署負載平衡器，請建立並設定下列物件：
 
-* **前端 IP 組態**：包含傳入網路流量的公用 IP 位址。
+* **前端 IP 設定**：包含連入網路流量的公用 IP 位址。
 * **後端位址集區**：包含虛擬機器的網路介面 (NIC)，可從負載平衡器接收網路流量。
-* **負載平衡規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中的連接埠的規則。
+* **負載平衡規則**：包含將負載平衡器上的公用連接埠對應至後端位址集區中連接埠的規則。
 * **輸入 NAT 規則**：包含網路位址轉譯 (NAT) 規則，可將負載平衡器上的公用連接埠對應至後端位址集區中特定虛擬機器的連接埠。
-* **探查**：包含用來檢查後端位址集區中虛擬機器執行個體可用性的健全狀況探查。
+* **探查**：包含用來檢查後端位址集區中虛擬機器執行個體可用性的健康狀態探查。
 
 ## <a name="set-up-azure-cli"></a>設定 Azure CLI
 

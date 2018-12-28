@@ -1,11 +1,12 @@
 ---
 title: 在資料科學虛擬機器上安全地儲存存取認證 - Azure | Microsoft Docs
-description: 在資料科學虛擬機器上安全地儲存存取認證。
+description: 了解如何在「資料科學虛擬機器」上安全地儲存存取認證。 您將了解如何使用受控服務識別和 Azure Key Vault 來儲存存取認證。
 keywords: 深度學習, 資料科學工具, 資料科學虛擬機器, 地理空間分析, 小組資料科學流程
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 1bf3150fc79f86e196be120fef78b76be8e47f63
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: d7d68e784aab371503e4828ce51387b86502de62
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344501"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103433"
 ---
 # <a name="store-access-credentials-on-the-data-science-virtual-machine-securely"></a>在資料科學虛擬機器上安全地儲存存取認證
 

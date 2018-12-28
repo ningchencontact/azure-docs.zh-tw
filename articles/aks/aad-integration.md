@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979245"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437600"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>整合 Azure Active Directory 與 Azure Kubernetes Service
 
@@ -149,7 +149,7 @@ az aks create \
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱。 此範例讓帳戶可以完整存取叢集的所有命名空間：
+接下來，使用下列資訊清單來建立 Azure AD 帳戶的 ClusterRoleBinding。 此範例讓帳戶可以完整存取叢集的所有命名空間。 建立 *rbac-aad-user.yaml* 等的檔案，並貼上下列內容。 以 Azure AD 租用戶中的使用者名稱來更新使用者名稱：
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -166,7 +166,13 @@ subjects:
   name: "user@contoso.com"
 ```
 
-此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 Azure AD 群組是使用群組物件識別碼所指定的，如下列範例所示：
+使用 [kubectl apply][kubectl-apply] 命令套用繫結，如下列範例所示：
+
+```console
+kubectl apply -f rbac-aad-user.yaml
+```
+
+此外，也可以為 Azure AD 群組的所有成員建立角色繫結。 Azure AD 群組是使用群組物件識別碼所指定的，如下列範例所示。 建立 *rbac-aad-group.yaml* 等的檔案，並貼上下列內容。 以 Azure AD 租用戶中的群組物件識別碼來更新使用者名稱。
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -181,6 +187,12 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
    kind: Group
    name: "894656e1-39f8-4bfe-b16a-510f61af6f41"
+```
+
+使用 [kubectl apply][kubectl-apply] 命令套用繫結，如下列範例所示：
+
+```console
+kubectl apply -f rbac-aad-group.yaml
 ```
 
 如需有關使用 RBAC 保護 Kubernetes 叢集的詳細資訊，請參閱[使用 RBAC 授權][rbac-authorization]。
@@ -221,6 +233,7 @@ error: You must be logged in to the server (Unauthorized)
 <!-- LINKS - external -->
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [rbac-authorization]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create

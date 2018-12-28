@@ -2,8 +2,8 @@
 title: Azure Machine Learning 模型管理 Web 服務取用 | Microsoft Docs
 description: 本文件說明在 Azure Machine Learning 中取用以模型管理所部署之 Web 服務有關的步驟和概念。
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c01198a78a32c460bd147e1e160358271b80eef5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bbd36e5389208b21704f1749beee016e30cc4ec5
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950615"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253845"
 ---
 # <a name="consuming-web-services"></a>取用 Web 服務
 
@@ -60,7 +60,7 @@ az ml service run realtime -i <web service id> -d "Your input data"
 ```
 az ml service keys realtime -i <web service id>
 ```
-在建立 HTTP 要求時，請使用授權標頭 "Authorization": "Bearer <key>" 中的金鑰
+建立 HTTP 要求時，請在授權標頭中使用該金鑰："Authorization":"Bearer <key>"
 
 ## <a name="get-the-service-swagger-description"></a>取得服務 Swagger 的說明
 如果有提供服務 API 結構描述，則服務端點會在 ```http://<ip>/api/v1/service/<service name>/swagger.json``` 中公開 Swagger 文件。 Swagger 文件可用來自動產生服務用戶端，並瀏覽預期的輸入資料和關於服務的其他詳細資料。

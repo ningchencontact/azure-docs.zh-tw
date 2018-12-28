@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: ce10e2c24e89140357df3fa6b724a1f89f389a50
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494351"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275477"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 管理獨立 Service Fabric 叢集。
@@ -63,18 +63,18 @@ ms.locfileid: "39494351"
 
 |引數|說明|
 | --- | --- |
-| --cluster-config            [必要] | 叢集將要套用的叢集組態。 |
+| --cluster-config            [必要] | 叢集設定。 |
 | --application-health-policies | 引發錯誤之前，應用程式類型名稱和健康情況不良最大百分比組合的 JSON 編碼目錄。 |
 | --delta-unhealthy-nodes | 在叢集升級期間，可允許的差異健康情況衰退百分比上限。 允許的值為 0 到 100 的整數值。 |
 | --health-check-retry | 當應用程式或叢集狀況不良時，嘗試執行健康情況檢查的間隔時間長度。  預設值：PT0H0M0S。 |
-| --health-check-stable | 應用程式或叢集必須保持狀況良好的時間長度。  預設值：PT0H0M0S。 |
+| --health-check-stable | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。  預設值：PT0H0M0S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 | --health-check-wait | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。  預設值：PT0H0M0S。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --unhealthy-applications | 在升級期間，可允許的狀況不良應用程式百分比上限。 允許的值為 0 到 100 的整數值。 |
 | --unhealthy-nodes | 在升級期間，可允許的狀況不良節點百分比上限。 允許的值為 0 到 100 的整數值。 |
 | --upgrade-domain-delta-unhealthy-nodes | 在升級期間，可允許的升級網域差異健康情況衰退百分比上限。 允許的值為 0 到 100 的整數值。 |
-| --upgrade-domain-timeout | 升級網域的逾時。  預設值：PT0H0M0S。 |
-| --upgrade-timeout | 升級逾時。  預設值：PT0H0M0S。 |
+| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。  預設值：PT0H0M0S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。  預設值：PT0H0M0S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -88,7 +88,12 @@ ms.locfileid: "39494351"
 
 ### <a name="examples"></a>範例
 
-開始叢集組態更新 sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+啟動叢集組態更新
+
+```
+sfctl sa-cluster config-upgrade --cluster-config <YOUR CLUSTER CONFIG> --application-health-
+policies "{"fabric:/System":{"ConsiderWarningAsError":true}}"
+```
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
 取得 Service Fabric 獨立叢集的叢集設定升級狀態。

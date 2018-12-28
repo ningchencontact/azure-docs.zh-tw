@@ -1,10 +1,12 @@
 ---
-title: 在 Azure 上佈建深入學習資料科學虛擬機器 | Microsoft Docs
+title: 建立深度學習資料科學虛擬機器
+titleSuffix: Azure
 description: 在 Azure 上設定和建立深入學習資料科學虛擬機器以進行分析和機器學習。
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: e1467c0f-497b-48f7-96a0-7f806a7bec0b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6963515958cd55314562e37ffc6ab1d8e0af5bee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229657"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078751"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>在 Azure 上佈建深入學習虛擬機器 
 
@@ -36,21 +38,21 @@ DLVM 包含數個 AI 的工具，包括 GPU 版本的熱門深入學習架構，
    
    1. **基本概念**
       
-      1. **名稱**：您建立的資料科學伺服器名稱。
-      2. **選取深入學習 VM 的作業系統類型**：選擇 Windows 或 Linux (針對 Windows 2016 和 Ubuntu Linux 基底 DSVM)
+      1. **名稱**：您要建立之資料科學伺服器的名稱。
+      2. **選取深度學習 VM 的 OS 類型**：選擇 Windows 或 Linux (針對 Windows 2016 和 Ubuntu Linux 基底 DSVM)
       2. **使用者名稱**：系統管理員帳戶登入識別碼。
       3. **密碼**：系統管理員帳戶密碼。
-      4. **訂用帳戶**：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
-      5. **資源群組**：您可以建立新的群組，或使用訂用帳戶中的**空白**現有 Azure 資源群組。
+      4. 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
+      5. **資源群組**：您可以建立新的群組，也可以使用訂用帳戶中**空白**的現有 Azure 資源群組。
       6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 
       
 > [!NOTE]
 > DLVM 支援所有 NC 和 ND 系列 GPU VM 執行個體。 佈建 DLVM 時，您必須在 Azure 中選擇其中一個具有 GPU 的位置。 請參閱[依區域的 Azure 產品頁面](https://azure.microsoft.com/regions/services/)以取得可用位置，並在 [計算] 下方尋找 [NC 系列]、[NCv2 系列]、[NCv3 系列] 或 [ND 系列]。 
 
-   2. **設定**：選取符合功能性需求和成本條件約束的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   2. **設定**：選取符合您功能性需求和成本限制的其中一個 NC 系列 (NC、NCv2、NCv3) 或 ND 系列 GPU 虛擬機器大小。 為您的 VM 建立儲存體帳戶。  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
    3. **摘要**：請確認您輸入的所有資訊都正確無誤。
-   5. **購買**：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+   5. ：按一下 [購買] 以開始佈建。 會提供一個交易條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
 
 > [!NOTE]
 > 佈建大約 10-20 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。
@@ -77,12 +79,12 @@ Linux DLVM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 �
 1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 2. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
-     * **主機**︰Linux 資料科學 VM 的主機名稱或 IP 位址。
-     * **登入**︰Linux VM 上的使用者名稱。
-     * **SSH 連接埠**︰保留預設值 22。
-     * **工作階段類型**︰將值變更為 **XFCE**。 Linux DSVM 目前僅支援 XFCE 桌面。
-   * **[媒體] 索引標籤**︰您可以關閉聲音支援和用戶端列印，如果不需要使用的話。
-   * **共用資料夾**︰如果您想要用戶端機器的目錄掛接在 Linux VM 上，請在此索引標籤上加入要與 VM 分享的目錄。
+     * **主機**：「Linux 資料科學 VM」的主機名稱或 IP 位址。
+     * **登入**：Linux VM 上的使用者名稱。
+     * **SSH 連接埠**：保留預設值 22。
+     * **工作階段類型**：將值變更為 **XFCE**。 Linux DSVM 目前僅支援 XFCE 桌面。
+   * **媒體索引標籤**：如果您不需要使用聲音支援和用戶端列印，可關閉這些功能。
+   * **共用資料夾**︰如果您想要將來自用戶端機器的目錄掛接在 Linux VM 上，請在此索引標籤上新增要與 VM 共用的用戶端機器目錄。
 
 當您透過 X2Go 用戶端使用 SSH 用戶端或 XFCE 圖形化桌面登入 VM 之後，便可開始使用已安裝並設定於 VM 上的工具。 在 XFCE 上，您可以看到許多工具的應用程式功能表捷徑和桌面圖示。
 

@@ -1,25 +1,19 @@
 ---
-title: 取得 ARP 表格：傳統：Azure ExpressRoute 疑難排解 | Microsoft Docs
-description: 此頁面提供取得適用於 ExpressRoute 線路之 ARP 表格的相關指示。
-documentationcenter: na
+title: 取得 ARP 資料表- 針對 ExpressRoute 問題進行疑難排解：傳統：Azure | Microsoft Docs
+description: 此頁面提供指示，說明如何取得適用於 ExpressRoute 線路 的 ARP 資料表 - 傳統部署模型。
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
-ms.assetid: b5856acf-03c2-4933-8111-6ce12998d92a
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.openlocfilehash: fcc847b7e30fd55ca759830e0254ab7542e7663e
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: seodec18
+ms.openlocfilehash: 367a79b04a8736e2eafb6851b682f2c244e80522
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013163"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272281"
 ---
 # <a name="getting-arp-tables-in-the-classic-deployment-model"></a>在傳統部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]

@@ -1,6 +1,6 @@
 ---
-title: 為 Azure 搜尋服務的 Azure Cosmos DB 資料來源編製索引 | Microsoft Docs
-description: 本文說明如何以 Azure Cosmos DB 資料來源建立 Azure 搜尋服務索引子。
+title: 為 Azure Cosmos DB 資料來源編製索引 - Azure 搜尋服務
+description: 搜耙 Azure Cosmos DB 資料來源，並在 Azure 搜尋服務中的全文檢索搜尋索引中內嵌資料。 索引子可為選取的資料來源 (例如 Azure Cosmos DB) 將資料擷取自動化。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
-ms.openlocfilehash: 07768ee1590fa087a1eb1486cb59ab0f57d02b64
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.custom: seodec2018
+ms.openlocfilehash: 80759394ac920907c74f67cf9ee6dfcb52bfd9a8
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747536"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311808"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>使用索引子連接 Cosmos DB 與 Azure 搜尋服務
 
@@ -96,17 +97,17 @@ ms.locfileid: "50747536"
 要求的主體包含資料來源定義，其中應包含下列欄位：
 
 * **名稱**：選擇任何名稱，以代表您的資料庫。
-* **type**：必須是 `documentdb`。
+* **類型**：必須是 `documentdb`。
 * **認證**：
   
-  * **connectionString**：必要。 請以下列格式指定 Azure Cosmos DB 資料庫的連線資訊：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 針對 MongoDB 集合，將 **ApiKind=MongoDb** 新增至連接字串：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  * **connectionString**：必要。 以下列格式指定 Azure Cosmos DB 資料庫的連接資訊：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` 對於 MongoDB 集合，請將 **ApiKind=MongoDb** 新增至連接字串：`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
   請避免在端點 URL 中使用連接埠號碼。 如果您加入連接埠號碼，Azure 搜尋服務將無法為 Azure Cosmos DB 資料庫編製索引。
 * **容器**：
   
   * **名稱**：必要。 指定要編製索引的資料收集識別碼。
-  * **查詢**：選擇性。 您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋服務可以編製索引的一般結構描述。 針對 MongoDB 集合，不支援查詢。 
+  * **查詢**：選用。 您可以指定查詢將任意 JSON 文件簡維成 Azure 搜尋服務可以編製索引的一般結構描述。 針對 MongoDB 集合，不支援查詢。 
 * **dataChangeDetectionPolicy**：建議使用。 請參閱[索引變更的文件](#DataChangeDetectionPolicy)小節。
-* **dataDeletionDetectionPolicy**：選擇性。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。
+* **dataDeletionDetectionPolicy**：選用。 請參閱[索引刪除的文件](#DataDeletionDetectionPolicy)小節。
 
 ### <a name="using-queries-to-shape-indexed-data"></a>使用查詢來形塑索引的資料
 您可以指定 SQL 查詢來壓平合併巢狀屬性或陣列、投影 JSON 屬性，以及篩選要編製索引的資料。 
@@ -187,7 +188,7 @@ ms.locfileid: "50747536"
 | 字串 |Edm.String |
 | 基本類型的陣列，例如 ["a", "b", "c"] |Collection(Edm.String) |
 | 看起來像是日期的字串 |Edm.DateTimeOffset、Edm.String |
-| GeoJSON 物件，例如 { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
+| GeoJSON 物件，例如 { "type":"Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | 其他 JSON 物件 |N/A |
 
 <a name="CreateIndexer"></a>

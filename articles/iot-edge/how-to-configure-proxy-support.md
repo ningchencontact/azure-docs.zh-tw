@@ -1,5 +1,5 @@
 ---
-title: 針對網路 Proxy 設定 Azure IoT Edge 裝置 | Microsoft Docs
+title: 針對網路 Proxy 設定裝置 - Azure IoT Edge | Microsoft Docs
 description: 如何設定 Azure IoT Edge 執行階段及任何網際網路對應的 IoT Edge 模組，以透過 Proxy 伺服器進行通訊。
 author: kgremban
 manager: ''
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.custom: seodec18
+ms.openlocfilehash: a7d32c98b77568e02fa14b70e969eeb254989062
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913218"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100443"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>設定 IoT Edge 裝置以透過 Proxy 伺服器進行通訊
 
@@ -103,7 +104,7 @@ sudo systemctl restart iotedge
 systemctl show --property=Environment iotedge
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 以系統管理員身分開啟 PowerShell 視窗，並執行下列命令以搭配新的環境變數編輯登錄。 將 **\<proxy url>** 取代為您 Proxy 伺服器的位址和連接埠。 
 
@@ -173,7 +174,7 @@ UpstreamProtocol: "AmqpWs"
 
 將 **https_proxy** 環境變數同時新增至 Edge 代理程式和 Edge 中樞模組定義之中。 如果您已在 IoT Edge 裝置上的 config.yaml 檔案中包含 **UpstreamProtocol** 環境變數，請同時將該環境變數新增至 Edge 代理程式模組定義。 
 
-![設定環境變數](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
+![設定 https_proxy 環境變數](./media/how-to-configure-proxy-support/edgehub-environmentvar.png)
 
 所有其他新增至部署資訊清單的模組都會遵循相同的模式。 在您設定模組名稱和映像的頁面中，會有一個環境變數區段。
 

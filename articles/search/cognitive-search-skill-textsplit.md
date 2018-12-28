@@ -1,5 +1,5 @@
 ---
-title: 文字分割認知搜尋技能 (Azure 搜尋服務) | Microsoft Docs
+title: 文字分割認知搜尋技能 - Azure 搜尋服務
 description: 您可以根據 Azure 搜尋服務擴充管線中的長度，將文字分成文字之區塊或頁面。
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786797"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313848"
 ---
 #   <a name="text-split-cognitive-skill"></a>文字分割認知技能
 
@@ -31,7 +32,7 @@ Microsoft.Skills.Text.SplitSkill
 | 參數名稱     | 說明 |
 |--------------------|-------------|
 | textSplitMode      | 「頁面」或「句子」 | 
-| maximumPageLength | 如果 textSplitMode 設為「頁面」，這是指由 `String.Length` 測量的最大頁面長度。 最小值為 100。 | 
+| maximumPageLength | 如果 textSplitMode 設為「頁面」，這是指由 `String.Length` 測量的最大頁面長度。 最小值為 100。  如果 textSplitMode 設定為 "pages"，演算法會嘗試將文字分割為大小和 "maximumPageLenth" 差不多的區塊。 在這種情況下，演算法會盡量在例句邊界斷句，以讓區塊大小稍微小於 "maximumPageLength"。 | 
 | defaultLanguageCode   | (選用) 以下其中一個語言代碼：`da, de, en, es, fi, fr, it, ko, pt`。 預設值是英文 (en)。 幾點考量事項：<ul><li>如果您傳遞的是 languagecode-countrycode 格式，則只會使用該格式的 languagecode 部分。</li><li>如果語言不在前面的清單中，分割技能會在字元界限拆分文字。</li><li>提供語言代碼有助於避免將無空格語言 (例如中文、日文和韓文) 的字組切成一半。</li></ul>  |
 
 
@@ -131,5 +132,5 @@ Microsoft.Skills.Text.SplitSkill
 
 ## <a name="see-also"></a>另請參閱
 
-+ [預先定義的技能](cognitive-search-predefined-skills.md) (英文)
++ [預先定義的技能](cognitive-search-predefined-skills.md)
 + [如何定義技能集](cognitive-search-defining-skillset.md) (英文)

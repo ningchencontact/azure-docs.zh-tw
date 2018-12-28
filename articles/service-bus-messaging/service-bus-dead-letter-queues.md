@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: df69406bd0a6e09f66262ce66f8eeb7cada2422a
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393974"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338457"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服務匯流排寄不出的信件佇列的概觀
 
@@ -76,7 +76,7 @@ Azure 服務匯流排佇列和主題訂用帳戶提供次要的子佇列，稱�
 
 系統會在下列情況下，將訊息傳送到轉送寄不出的信件佇列：
 
-- 訊息會通過 3 個以上[鏈結在一起](service-bus-auto-forwarding.md)的佇列或主題。
+- 訊息會通過 4 個以上[鏈結在一起](service-bus-auto-forwarding.md)的佇列或主題。
 - 目的地佇列或主題已停用或刪除。
 - 目的地佇列或主題超過最大實體大小。
 

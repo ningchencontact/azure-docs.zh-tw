@@ -1,5 +1,5 @@
 ---
-title: Linux 上的 Azure App Service 支援 SSH | Microsoft Docs
+title: Linux 上的 App Service SSH 支援 - Azure | Microsoft Docs
 description: 了解如何使用 SSH 搭配 Linux 上的 Azure App Service。
 keywords: azure app service, web 應用程式, linux, oss
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 631933647e27428349fc1efeb17f62f4614f7f64
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.custom: seodec18
+ms.openlocfilehash: ff5c18b08a2921efe72a35b9bd982986c1867812
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423301"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251285"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux 上的 Azure App Service 支援 SSH
 
@@ -66,7 +67,7 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
         && echo "root:Docker!" | chpasswd
     ```
 
-1. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](http://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
+2. 將 [`COPY` 指示](https://docs.docker.com/engine/reference/builder/#copy)新增至 Dockerfile，以將 [sshd_config](https://man.openbsd.org/sshd_config) 檔案複製到 */etc/ssh/* 目錄。 組態檔需根據[這裡](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config)的 Azure-App-Service GitHub 存放庫中的 sshd_config 檔案。
 
     > [!NOTE]
     > sshd_config 檔案必須包含下列項目，否則無法連線︰ 
@@ -77,13 +78,13 @@ https://<app_name>.scm.azurewebsites.net/webssh/host
     COPY sshd_config /etc/ssh/
     ```
 
-1. 針對 Dockerfile，請納入 [`EXPOSE` 指示](https://docs.docker.com/engine/reference/builder/#expose) 中的連接埠 2222。 雖然已知根密碼，但無法從網際網路存取連接埠 2222。 它是僅供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。
+3. 針對 Dockerfile，請納入 [`EXPOSE` 指示](https://docs.docker.com/engine/reference/builder/#expose) 中的連接埠 2222。 雖然已知根密碼，但無法從網際網路存取連接埠 2222。 它是僅供內部使用的連接埠，只有私人虛擬網路之橋接網路內的容器可以存取。
 
     ```docker
     EXPOSE 2222 80
     ```
 
-1. 請務必使用殼層指令碼來啟動 SSH 服務 (請參閱位於 [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) 的範例)。
+4. 請務必使用殼層指令碼來啟動 SSH 服務 (請參閱位於 [init_container.sh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) 的範例)。
 
     ```bash
     #!/bin/bash
@@ -202,4 +203,4 @@ Load average: 0.07 0.04 0.08 4/765 45738
 * [如何針對用於容器的 Web 應用程式使用自訂 Docker 映像](quickstart-docker-go.md)
 * [在 Linux 上的 Azure App Service 中使用 .NET Core](quickstart-dotnetcore.md)
 * [在 Linux 上的 Azure App Service 中使用 Ruby](quickstart-ruby.md)
-* [Azure App Service Web App for Containers 常見問題集](app-service-linux-faq.md)
+* [Azure App Service 用於容器的 Web App 常見問題集](app-service-linux-faq.md)

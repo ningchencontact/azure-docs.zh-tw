@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: b0fc10099f1388169146d90efcd7c20dcbe8df27
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 4d957c26bd4e4ae278c0909c9df1476b02954b86
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164943"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138002"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Web 應用程式
 
-Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web 應用程式。 需要基本或更高的服務層，才可使用 Profiler。
+Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web 應用程式。 需要基本或更高的服務層，才可使用 Profiler。 目前僅可透過[這個方法](app-insights-profiler-aspnetcore-linux.md)，在 Linux 上啟用 Profiler。
 
 ## <a id="installation"></a> 為您的 Web Apps 啟用 Profiler
 若要為 Web 應用程式啟用 Profiler，請遵循下列指示。 如果您正在執行不同類型的 Azure 服務，以下是在其他支援的平台上啟用 Profiler 的指示：
@@ -30,11 +29,10 @@ Profiler 目前適用於在 Web Apps 上執行的 ASP.NET 和 ASP.NET Core Web �
 * [Service Fabric 應用程式](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [虛擬機器](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-
 Application Insights Profiler 會在 App Service 執行階段中預先安裝，但是您需要開啟它以取得 Azure Web Apps 的設定檔。 部署 Web 應用程式後，即使您已在原始程式碼中包含 App Insights SDK，仍請執行下列步驟來啟用 Profiler。
 
 1. 移至 Azure 入口網站中的 [App Service] 窗格。
-1. 巡覽至 [設定 > 監視] 窗格。
+1. 瀏覽至 [設定] > [Application Insights] 窗格。
 
    ![在 App Service 入口網站上啟用 Application Insights](./media/app-insights-profiler/AppInsights-AppServices.png)
 

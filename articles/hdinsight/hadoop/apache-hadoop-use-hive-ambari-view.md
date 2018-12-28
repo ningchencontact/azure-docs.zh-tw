@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1328119917276b8135c4a6d4188b67bcff2fc069
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 16c9e1cb568533e8dcad046c4ee21bfeaf19d5b7
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632742"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407842"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Ambari Hive 檢視
 
@@ -26,7 +26,7 @@ ms.locfileid: "51632742"
 
 * HDInsight 叢集 3.4 版或更新版本上以 Linux 為基礎的 Apache Hadoop。
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 網頁瀏覽器
@@ -70,18 +70,18 @@ ms.locfileid: "51632742"
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE`：刪除資料表和資料檔 (如果資料表已存在)。
+   * `DROP TABLE`：刪除資料表和資料檔 (如果資料表已經存在)。
 
    * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。
    外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置。
 
    * `ROW FORMAT`：顯示設定資料格式的方式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
-   * `STORED AS TEXTFILE LOCATION`：顯示資料的儲存位置，且資料會儲存為文字。
+   * `STORED AS TEXTFILE LOCATION`：顯示資料的儲存位置，以及資料是儲存為文字。
 
-   * `SELECT`：選取在資料行 t4 中包含 [ERROR] 值的所有資料列。
+   * `SELECT`：選取 t4 資料行包含 [ERROR] 值之所有資料列的計數。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 將 [資料庫] 選取項目保留為 [預設]。 本文件中的範例使用 HDInsight 隨附的預設資料庫。
 
 5. 若要啟動查詢，請使用工作表下方的 [執行] 按鈕。 按鈕會變成橘色，而且文字會變更為 [停止]。
@@ -93,7 +93,7 @@ ms.locfileid: "51632742"
 
     您可以使用 [記錄] 索引標籤來檢視作業所建立的記錄資訊。
 
-   > [!TIP]
+   > [!TIP]  
    > 從 [查詢程序結果] 區段左上角的 [儲存結果] 下拉式對話方塊下載或儲存結果。
 
 ### <a name="visual-explain"></a>視覺解說
@@ -106,7 +106,7 @@ ms.locfileid: "51632742"
 
 若要顯示查詢的 Tez UI，請選取工作表下方的 [Tez] 索引標籤。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Tez 的用途並非解析所有查詢。 您不需要使用 Tez 便可解析許多查詢。 
 
 如果使用 Tez 來解析查詢，則會顯示有向非循環圖 (DAG)。 如果您想要檢視您已執行過之查詢的 DAG，或想要偵錯 Tez 程序，請改用 [Tez 檢視](../hdinsight-debug-ambari-tez-view.md) 。
@@ -129,7 +129,7 @@ ms.locfileid: "51632742"
 
 ![[儲存的查詢] 索引標籤影像](./media/apache-hadoop-use-hive-ambari-view/saved-queries.png)
 
-> [!TIP]
+> [!TIP]  
 > 已儲存的查詢會存放在預設叢集儲存體中。 您可以路徑 `/user/<username>/hive/scripts` 下找到儲存的查詢。 這些查詢會儲存為純文字 `.hql` 檔案。
 >
 > 如果您刪除該叢集，但保留儲存體，您可以使用 [Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)或 Data Lake 儲存體總管 (從 [Azure 入口網站](https://portal.azure.com)) 之類的公用程式來擷取查詢。
@@ -165,8 +165,8 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 如需在 HDInsight 上搭配 Hive 使用 UDF 的詳細資訊，請參閱下列文章：
 
-* [在 HDInsight 中搭配 Hive 與 Pig 使用 Python](python-udf-hdinsight.md)
-* [如何將自訂 Hive UDF 新增至 HDInsight (英文)](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [在 HDInsight 中搭配 Apache Hive 和 Apache Pig 使用 Python](python-udf-hdinsight.md)
+* [如何將自訂 Apache Hive UDF 新增至 HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx) \(英文\)
 
 ## <a name="hive-settings"></a>Hive 設定
 
@@ -176,9 +176,9 @@ create temporary function myawesomeudf as 'com.myudfs.Awesome';
 
 如需 HDInsight 中 Hive 的一般資訊：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 上的 Apache Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)

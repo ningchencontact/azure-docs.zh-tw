@@ -1,5 +1,5 @@
 ---
-title: 憑證和 Azure App Service Environment
+title: 憑證和 App Service 環境 - Azure
 description: 說明與 ASE 憑證相關的許多主題
 services: app-service
 documentationcenter: na
@@ -13,16 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 3d417d560d8a88100f31def27c7db5f9b2493062
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: bcb0c806d916b9dff4461cad829a1d75e8df7cf6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167673"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271890"
 ---
-# <a name="certificates-and-the-app-service-environment"></a>憑證和 App Service Environment 
+# <a name="certificates-and-the-app-service-environment"></a>憑證和 App Service 環境 
 
-App Service Environment (ASE) 是在 Azure 虛擬網路 (VNet) 內執行之 Azure App Service 的部署。 它可以使用網際網路可存取的應用程式端點，或是使用您 VNet 中的應用程式端點來部署。 如果您使用網際網路可存取的端點來部署 ASE，則該部署稱為外部 ASE。 如果您使用 VNet 中的端點來部署 ASE，則該部署稱為 ILB ASE。 若要深入了解 ILB ASE，請參閱[建立和使用 ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 文件。
+App Service 環境 (ASE) 是在 Azure 虛擬網路 (VNet) 內執行之 Azure App Service 的部署。 它可以使用網際網路可存取的應用程式端點，或是使用您 VNet 中的應用程式端點來部署。 如果您使用網際網路可存取的端點來部署 ASE，則該部署稱為外部 ASE。 如果您使用 VNet 中的端點來部署 ASE，則該部署稱為 ILB ASE。 若要深入了解 ILB ASE，請參閱[建立和使用 ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase) 文件。
 
 ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功能僅提供於 ASE，而未提供於多租用戶的 App Service 中。 
 
@@ -32,8 +33,8 @@ ASE 是單一租用戶系統。 因為它是單一租用戶，所以有一些功
 
 有兩個選項可設定您的 ILB ASE 的憑證。  您可以設定 ILB ASE 的萬用字元預設憑證，或在 ASE 中的個別 Web 應用程式上設定憑證。  無論您的選擇為何，都需要正確設定下列憑證屬性︰
 
-- **Subject**︰針對萬用字元 ILB ASE 憑證，這個屬性必須設為 *.[your-root-domain-here]。 如果在建立應用程式的憑證，它應該是 [appname].[your-root-domain-here]
-- **Subject Alternative Name**：針對萬用字元 ILB ASE 憑證，這個屬性必須包含 *.[your-root-domain-here] 和 *.scm.[your-root-domain-here]。 如果在建立應用程式的憑證，它應該是 [appname].[your-root-domain-here] 和 [appname].scm.[your-root-domain-here]。
+- **主體：** 針對萬用字元 ILB ASE 憑證，此屬性必須設定為 *.[your-root-domain-here]。 如果在建立應用程式的憑證，它應該是 [appname].[your-root-domain-here]
+- **主體別名：** 針對萬用字元 ILB ASE 憑證，此屬性必須同時包含 *.[your-root-domain-here] 和 *.scm.[your-root-domain-here]。 如果在建立應用程式的憑證，它應該是 [appname].[your-root-domain-here] 和 [appname].scm.[your-root-domain-here]。
 
 第三種變化，您可以建立 ILB ASE 憑證，其中包含憑證 SAN 中的所有個別應用程式名稱，而不是使用萬用字元參考。 這個方法的問題在於，您必須事先知道您要放在 ASE 中的應用程式名稱，或者您需要持續更新 ILB ASE 憑證。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure App Service 中進階使用驗證和授權 | Microsoft Docs
+title: 進階使用驗證和授權 - Azure App Service | Microsoft Docs
 description: 示範如何自訂 App Service 中的驗證與授權，以及取得使用者宣告和不同的權杖。
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: 931c1bc68c4e357432081dbfa2df685fcf9fc96d
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685322"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409746"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>在 Azure App Service 中進階使用驗證和授權
 
@@ -26,13 +27,13 @@ ms.locfileid: "51685322"
 
 若要快速開始，請參閱下列其中一個教學課程︰
 
-* [教學課程：在 Azure App Service 中端對端驗證和授權使用者 (Windows)](app-service-web-tutorial-auth-aad.md)
+* [教學課程：在 Azure App Service 中對使用者進行端對端驗證和授權 (Windows)](app-service-web-tutorial-auth-aad.md)
 * [教學課程：在適用於 Linux 的 Azure App Service 中端對端驗證和授權使用者](containers/tutorial-auth-aad.md)
-* [如何設定您的 App 以使用 Azure Active Directory 登入](app-service-mobile-how-to-configure-active-directory-authentication.md)
-* [如何設定 App 以使用 Facebook 登入](app-service-mobile-how-to-configure-facebook-authentication.md)
-* [如何設定 App 以使用 Google 登入](app-service-mobile-how-to-configure-google-authentication.md)
-* [如何設定 App 以使用 Microsoft 帳戶登入](app-service-mobile-how-to-configure-microsoft-authentication.md)
-* [如何設定 App 以使用 Twitter 登入](app-service-mobile-how-to-configure-twitter-authentication.md)
+* [如何設定您的 App 以使用 Azure Active Directory 登入](configure-authentication-provider-aad.md)
+* [如何設定 App 以使用 Facebook 登入](configure-authentication-provider-facebook.md)
+* [如何設定 App 以使用 Google 登入](configure-authentication-provider-google.md)
+* [如何設定 App 以使用 Microsoft 帳戶登入](configure-authentication-provider-microsoft.md)
+* [如何設定 App 以使用 Twitter 登入](configure-authentication-provider-twitter.md)
 
 ## <a name="use-multiple-sign-in-providers"></a>使用多個登入提供者
 
@@ -181,9 +182,9 @@ App Service 會使用特殊標頭，將使用者宣告傳遞至您的應用程�
 
 - **Google**：將 `access_type=offline` 查詢字串參數附加至您的 `/.auth/login/google` API 呼叫。 如果是使用 Mobile Apps SDK，您可以將參數新增至其中一個 `LogicAsync` 多載 (請參閱 [Google 重新整理權杖](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens))。
 - **Facebook**：不提供重新整理權杖。 長時間執行的權杖會在 60 天內到期 (請參閱 [Facebook 到期和存取權杖的擴充功能](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension))。
-- **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/en/docs/basics/authentication/guides/oauth-faq))。
-- **Microsoft 帳戶**：當您[設定 Microsoft 帳戶驗證設定](app-service-mobile-how-to-configure-microsoft-authentication.md)時，請選取 `wl.offline_access` 範圍。
-- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，執行下列步驟：
+- **Twitter**：存取權杖不會到期 (請參閱 [Twitter OAuth 常見問題集](https://developer.twitter.com/en/docs/basics/authentication/FAQ))。
+- **Microsoft 帳戶**：當您[設定 Microsoft 帳戶驗證設定](configure-authentication-provider-microsoft.md)時，請選取 `wl.offline_access` 範圍。
+- **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，請執行下列步驟：
     1. 在頁面的頂端，選取 [讀取/寫入]。
     1. 在左側瀏覽器中，巡覽至 [訂用帳戶] > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
     1. 按一下 [編輯]。

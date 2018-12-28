@@ -1,5 +1,6 @@
 ---
-title: Azure 中的高可用性連接埠概觀 | Microsoft Docs
+title: Azure 中的高可用性連接埠概觀
+titlesuffix: Azure Load Balancer
 description: 深入了解內部負載平衡器上的高可用性連接埠負載平衡。
 services: load-balancer
 documentationcenter: na
@@ -7,26 +8,27 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2018
+ms.date: 12/11/2018
 ms.author: kumud
-ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f1d95534fb553c6a6d1be4d72a3251ad6a573f20
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740326"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317187"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性連接埠概觀
 
 Azure Standard Load Balancer 可協助您在使用內部負載平衡器時，同時對所有連接埠上的 TCP 和 UDP 流量進行負載平衡。 
 
-高可用性 (HA) 連接埠規則是內部 Standard Load Balancer 上所設定負載平衡規則的變化。 您可以透過提供單一規則來對抵達內部 Standard Load Balancer 所有連接埠的所有 TCP 和 UDP 流量進行負載平衡，以簡化對於負載平衡器的使用。 每次都會針對流量進行負載平衡決策。 此動作是以下列五個 Tuple 連線為基礎：來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定。
+高可用性 (HA) 連接埠負載平衡規則是內部 Standard Load Balancer 上所設定之負載平衡規則的變化。 您可以透過提供單一規則來對抵達內部 Standard Load Balancer 所有連接埠的所有 TCP 和 UDP 流量進行負載平衡，以簡化對於負載平衡器的使用。 每次都會針對流量進行負載平衡決策。 此動作會以下列五個 Tuple 連線為基礎：來源 IP 位址、來源連接埠、目的地 IP 位址、目的地連接埠和通訊協定。
 
-HA 連接埠功能可協助您處理重要案例，例如虛擬網路內網路虛擬設備 (NVA) 的高可用性和規模調整。 此功能也可以在必須對大量連接埠進行負載平衡時提供協助。 
+HA 連接埠負載平衡規則可協助您處理危急案例，例如，虛擬網路內部網路虛擬設備 (NVA) 的高可用性和規模調整。 此功能也可以在必須對大量連接埠進行負載平衡時提供協助。 
 
-當您將前端和後端連接埠設定為 **0**，並將通訊協定設定為 [全部] 時，會設定 HA 連接埠功能。 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流量進行平衡，不論連接埠號碼為何。
+當您將前端和後端連接埠設定為 **0**，並將通訊協定設定為 [全部] 時，會設定 HA 連接埠負載平衡規則。 接著，內部負載平衡器資源會對所有 TCP 和 UDP 流程進行平衡，而不論連接埠號碼為何。
 
 ## <a name="why-use-ha-ports"></a>為何要使用 HA 連接埠？
 
@@ -42,8 +44,9 @@ HA 連接埠功能可協助您處理重要案例，例如虛擬網路內網路�
 - 提供 *n*-active 和主動-被動案例
 - 不需要使用複雜的解決方案 (例如，Apache ZooKeeper 節點) 來監視設備
 
-下圖顯示中樞和支點虛擬網路部署。 支點會強制將其通道導向中樞虛擬網路並且透過 NVA，然後再退出信任的空間。 在 HA 連接埠設定中，NVA 位於內部 Standard Load Balancer 後面。 所有流量皆可據以處理並轉送。
+下圖顯示中樞和支點虛擬網路部署。 支點會強制將其通道導向中樞虛擬網路並且透過 NVA，然後再退出信任的空間。 在 HA 連接埠設定中，NVA 位於內部 Standard Load Balancer 後面。 所有流量皆可據以處理並轉送。 以下圖所示的方式進行設定時，HA 連接埠負載平衡規則還會為輸入和輸出流量提供流程對稱。
 
+<a node="diagram"></a>
 ![中樞和支點虛擬網路 (具有以 HA 模式部署的 NVA)](./media/load-balancer-ha-ports-overview/nvaha.png)
 
 >[!NOTE]
@@ -97,7 +100,7 @@ HA 連接埠功能適用於所有全域 Azure 區域。
 
 - HA 連接埠功能不適用於 IPv6。
 
-- 只有單一 NIC 支援 NVA 案例的流程對稱。 請參閱[網路虛擬設備](#nva)的描述和圖表。 不過，如果目的地 NAT 適用於您的案例，您就可以使用它來確定內部負載平衡器會將傳回流量傳送到相同的 NVA。
+- 只有在以如上述[圖表](#diagram)所示的方式使用並使用 HA 連接埠負載平衡規則時，後端執行個體和單一 NIC (以及單一 IP 設定) 才會支援流程對稱 (主要針對 NVA 案例)。 任何其他案例中均不提供此支援。 這表示兩個或多個 Load Balancer 資源及其各自規則均會進行獨立決策，而且絕對不會進行協調。 請參閱[網路虛擬設備](#nva)的描述和圖表。 當您使用多個 NIC 或將 NVA 插入公用和內部 Load Balancer 之間時，無法使用流程對稱。  您可以藉由對輸入流程進行來源 NAT 為應用裝置 IP，以允許回覆到達相同 NVA，來解決這個問題。  不過，我們強烈建議使用單一 NIC 和使用上述[圖表](#diagram)所示的參考架構。
 
 
 ## <a name="next-steps"></a>後續步驟

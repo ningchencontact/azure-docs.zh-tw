@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: ad659cfcf1bfdad440968da5568b993724a5f351
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cd45220326221490b461c5706620df2aab55a5d6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319177"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137832"
 ---
 # <a name="azure-vm-guest-os-firewall-is-misconfigured"></a>Azure 虛擬機器客體作業系統防火牆設定不正確
 
@@ -33,7 +33,7 @@ ms.locfileid: "52319177"
 
 ## <a name="cause"></a>原因
 
-若客體系統防火牆設計不正確，可能會封鎖部分前往 VM 的網路流量，或是將所有類型的流量全數擋下。 
+若客體系統防火牆設計不正確，可能會封鎖部分前往 VM 的網路流量，或是將所有類型的流量全數擋下。
 
 ## <a name="solution"></a>解決方法
 
@@ -43,11 +43,11 @@ ms.locfileid: "52319177"
 
 ## <a name="online-mitigations"></a>線上風險降低措施
 
-請連線至[序列主控台，然後開啟 PowerShell 執行個體](serial-console-windows.md#open-cmd-or-powershell-in-serial-console)。 如果 VM 上未啟用序列主控台，請移至以下Azure文章的〈修復離線的 VM〉一節：
+請連線至[序列主控台，然後開啟 PowerShell 執行個體](serial-console-windows.md#use-cmd-or-powershell-in-serial-console)。 如果 VM 上未啟用序列主控台，請移至以下Azure文章的〈修復離線的 VM〉一節：
 
  [嘗試透過遠端桌面連線至 Azure VM 時發生內部錯誤](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
-可以編輯下列規則，以啟用對 VM 的存取權 (透過 RDP)，或提供更簡單的疑難排解體驗： 
+可以編輯下列規則，以啟用對 VM 的存取權 (透過 RDP)，或提供更簡單的疑難排解體驗：
 
 *   遠端桌面 (TCP-In)：此為標準規則，可允許 Azure 中的 RDP，藉以提供對 VM 的主要存取權。
 
@@ -55,7 +55,7 @@ ms.locfileid: "52319177"
 
 *   檔案及印表機共用 (SMB-in)：此規則可將網路共用存取做為疑難排解的選項之一。
 
-*   檔案及印表機共用 (回應要求 - ICMPv4-In)：此規則可讓您偵測虛擬機器。 
+*   檔案及印表機共用 (回應要求 - ICMPv4-In)：此規則可讓您偵測虛擬機器。
 
 在序列主控台存取執行個體中，可查詢防火牆規則的目前狀態。
 
@@ -83,7 +83,7 @@ ms.locfileid: "52319177"
     netsh advfirewall firewall set rule name="<RULE NAME>" new enable=yes
     ```
 
-*   如需疑難排解，可關閉防火牆設定檔： 
+*   如需疑難排解，可關閉防火牆設定檔：
 
     ```cmd
     netsh advfirewall set allprofiles state off

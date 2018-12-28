@@ -1,5 +1,5 @@
 ---
-title: 設定 Windows 主機的 IPsec 傳輸模式 - Azure ExpressRoute 私人對等互連 | Microsoft Docs
+title: 設定適用於 Windows 主機的 IPsec 傳輸模式 - 私用對等互連：ExpressRoute：Azure | Microsoft Docs
 description: 如何透過 ExpressRoute 私人對等互連使用 GPO 和 OU 在 Azure Windows VM 與內部部署 Windows 主機之間啟用 IPsec 傳輸模式。
 services: expressroute
 author: fabferri
@@ -7,12 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: fabferri
-ms.openlocfilehash: 1b228f0238c678c0cea4a6be2a6c3e0b929ed4d6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec18
+ms.openlocfilehash: 39bbe8a0ec11b90d506ce0d1c0bad37ddba46a5d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394320"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139108"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>設定 ExpressRoute 私人對等互連的 IPsec 傳輸模式
 
@@ -42,7 +43,7 @@ ms.locfileid: "49394320"
 ### <a name="working-with-ipsec-policy"></a>使用 IPsec 原則
 
 在 Windows 中，加密會與 IPsec 原則相關聯。 IPsec 原則會決定要保護的 IP 流量，以及套用至 IP 封包的安全性機制。
-**IPSec 原則**由下列項目所組成：**篩選清單**、**篩選動作**和**安全性規則**。
+**IPSec 原則**是由下列項目所組成：**篩選清單**、**篩選動作** 及**安全性規則**。
 
 設定 IPsec 原則時，請務必了解下列 IPsec 原則術語：
 
@@ -50,9 +51,9 @@ ms.locfileid: "49394320"
 
 * **篩選清單：** 篩選清單是一或多個篩選條件的組合。 一份清單可包含多個篩選條件。 篩選條件會根據 IP 位址範圍、通訊協定或甚至特定的通訊協定連接埠，定義要允許、保護還是封鎖通訊。 每個篩選條件分別會比對一組特定的條件；例如，透過特定目的地連接埠從特定子網路傳送至特定電腦的封包。 當網路條件相符其中一或多個篩選條件時，就會啟動篩選清單。 每個篩選條件都會定義在特定的篩選清單中。 不同的篩選清單之間不可共用篩選條件。 不過，給定的篩選清單可以併入數個 IPsec 原則中。 
 
-* **篩選動作：** 安全性方法會定義電腦在 IKE 交涉期間提供的一組安全性演算法、通訊協定和金鑰。 篩選動作是安全性方法的清單，依偏好程度的順序排名。  當電腦交涉 IPsec 工作階段時，它會根據儲存在篩選動作清單中的安全性設定接受或傳送建議項目。
+* **篩選器動作：** 安全性方法會定義電腦在 IKE 交涉期間提供的一組安全性演算法、通訊協定和金鑰。 篩選動作是安全性方法的清單，依偏好程度的順序排名。  當電腦交涉 IPsec 工作階段時，它會根據儲存在篩選動作清單中的安全性設定接受或傳送建議項目。
 
-* **安全性規則：** 規則可控制 IPsec 原則保護通訊的方法和時機。 它會使用**篩選清單**和**篩選動作**，建立據以建置 IPsec 連線的 IPsec 規則。 每個原則可以有一或多個規則，而這些規則可以全部同時啟用。 每個規則都包含 IP 篩選清單，以及在符合該篩選清單時所將執行的安全性動作集合：
+* **安全性規則：** 規則可控制 IPsec 原則保護通訊的方式和時機。 它會使用**篩選清單**和**篩選動作**，建立據以建置 IPsec 連線的 IPsec 規則。 每個原則可以有一或多個規則，而這些規則可以全部同時啟用。 每個規則都包含 IP 篩選清單，以及在符合該篩選清單時所將執行的安全性動作集合：
   * IP 篩選動作
   * 驗證方法
   * IP 通道設定
@@ -143,7 +144,7 @@ ms.locfileid: "49394320"
 7. 在 [IP 流量和安全性] 頁面上選取 [自訂]，然後按一下 [設定...]。
 
   [![21]][21]
-8. 在 [自訂安全性方法設定] 頁面上，選取 [資料完整性和加密 (ESP)：SHA1、3DES]。 然後按 [下一步] 。
+8. 在 [自訂安全性方法設定] 頁面上，選取 [資料完整性及加密 (ESP):]，然後選取[SHA1]、[3DES]。 然後按 [下一步] 。
 
   [![22]][22]
 9. 在 [管理篩選動作] 頁面上，您會看到 **myEncryption** 篩選條件已成功新增。 按一下 [關閉] 。
@@ -169,7 +170,7 @@ ms.locfileid: "49394320"
 5. 指定 IP 流量的來源位址下方的 [IP 位址或子網路：]，然後按 [下一步]。
 
   [![28]][28]
-6. 指定 [目的地位址：] 下方的 IP 位址或子網路。 然後按 [下一步] 。
+6. 指定 [目的地位址:] 底下的[IP 位址或子網路]。 然後按 [下一步] 。
 
   [![29]][29]
 7. 在 [IP 通訊協定類型] 上，選取 [TCP]。 然後按 [下一步] 。
@@ -251,7 +252,7 @@ ms.locfileid: "49394320"
 6. 選取您先前建立的現有篩選動作 **myEncryption**。
 
   [![46]][46]
-7. Windows 支援四種不同類型的驗證：Kerberos、憑證、NTLMv2 和預先共用金鑰。 由於我們使用已加入網域的主機，請選取 [Active Directory 預設值 (Kerberos V5 通訊協定)]，然後按 [下一步]。
+7. Windows 支援四種不同類型的驗證：Kerberos、憑證、NTLMv2 及預先共用金鑰。 由於我們使用已加入網域的主機，請選取 [Active Directory 預設值 (Kerberos V5 通訊協定)]，然後按 [下一步]。
 
   [![47]][47]
 8. 新的原則會建立安全性規則：**azure-onpremises-HTTP8080**。 按一下 [確定]。

@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 搜尋服務建立、管理及保護系統管理與查詢 API 金鑰 | Microsoft Docs
+title: 建立、管理及保護系統管理與查詢 API 金鑰 - Azure 搜尋
 description: 服務端點的 API 金鑰控制存取權。 系統管理金鑰授與寫入權限。 可針對唯讀存取權建立查詢金鑰。
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 06/20/2018
 ms.author: heidist
-ms.openlocfilehash: 2ec720f26cfbadb9963ff3991ad1795c9b30c136
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.custom: seodec2018
+ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284976"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316910"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>針對 Azure 搜尋服務建立及管理 API 金鑰
 
@@ -65,9 +66,9 @@ API 金鑰是由隨機產生的數字和字母所組成的字串。 透過[角�
 ## <a name="secure-api-keys"></a>保護 API 金鑰
 藉由限制透過入口網站或 Resource Manager 介面 (PowerShell 或命令列介面) 的存取來確保金鑰安全性。 如前所述，訂用帳戶系統管理員可以檢視及重新產生所有的 API 金鑰。 為以防萬一，請檢閱角色指派以了解誰具有管理員金鑰存取權。
 
-+ 在服務儀表板中，按一下 [存取控制 (IAM)] 以檢視您服務的角色指派。
++ 在服務儀表板中，按一下 [存取控制 (IAM)]，然後按一下 [角色指派] 索引標籤，以檢視您服務的角色指派。
 
-下列角色的成員可以檢視及重新產生金鑰：擁有者、參與者、[搜尋服務參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+下列角色的成員可以檢視和重新產生金鑰：擁有者、參與者及[搜尋服務參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > 針對搜尋結果的身分識別型存取，您可以建立安全性篩選，依身分識別修剪結果、移除要求者不應具備存取權的文件。 如需詳細資訊，請參閱[安全性篩選](search-security-trimming-for-azure-search.md)和[使用 Active Directory 保護安全](search-security-trimming-for-azure-search-with-aad.md)。

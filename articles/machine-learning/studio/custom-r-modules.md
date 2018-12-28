@@ -1,12 +1,11 @@
 ---
-title: 定義自訂 R 模組以用於 Azure Machine Learning Studio | Microsoft Docs
-description: 本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning Studio 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。
+title: 定義自訂 R 模組 - Azure Machine Learning Studio | Microsoft Docs
+description: 本主題描述如何在 Azure Machine Learning 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組；
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6cbc628a-7e60-42ce-9f90-20aaea7ba630
 ms.service: machine-learning
@@ -16,18 +15,18 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: b8ab22f1567102ed79ccf6e0bf49dbdbc3f42ea9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2bdc8b7b28bee37ae88e466874d2b3d22dcd7556
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308422"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277925"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>定義自訂 R 模組以用於 Azure Machine Learning Studio
 
 本主題描述如何在 Azure Machine Learning Studio 中撰寫及部署自訂 R 模組。 它說明什麼是自訂 R 模組，以及使用哪些檔案定義這些模組； 並說明如何在 Machine Learning 工作區中建構這些用來定義模組的檔案，以及如何註冊模組以進行部署。 接著，詳細說明用於自訂模組定義中的元素和屬性。 此外，也討論如何使用輔助功能和檔案以及多個輸出。 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="what-is-a-custom-r-module"></a>什麼是自訂 R 模組？
 **自訂模組** 是一種使用者定義的模組，可上傳至您的工作區，並在 Azure Machine Learning 實驗時執行。 **自訂 R 模組** 是執行使用者定義之 R 函數的自訂模組。 **R** 是一種適用於統計運算和圖形的程式設計語言，由實作演算法的統計學家和資料科學家廣泛使用。 目前，R 是自訂模組中唯一支援的語言，但未來版本將新增更多語言的支援。
@@ -96,7 +95,7 @@ ms.locfileid: "52308422"
     </Module>
 
 
-這一點很重要，請注意 XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合在 CustomAddRows.R 檔案中 R 程式碼的函式參數名稱 (在本例中為 *dataset1*、*dataset2* 和 *swap*)。 同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函式名稱 (在本例中為 *CustomAddRows*)。 
+這一點很重要，請注意 XML 檔案中之 **Input** 和 **Arg** 元素的 **id** 屬性值必須完全符合在 CustomAddRows.R 檔案中 R 程式碼的函式參數名稱 (在本例中為 *dataset1*、*dataset2* 和 *swap*)。 同樣地，**Language** 元素的 **entryPoint** 屬性值必須完全符合 R 指令碼中的函式名稱(在本例中為 *CustomAddRows*)。 
 
 相反地，**Output** 元素的 **id** 屬性不會對應至 R 指令碼中的任何變數。 如果需要多個輸入，請直接從 R 函式傳回清單，其中包含的結果會依照 **Output** 元素在 XML 檔案中宣告的*相同順序*來排列。
 
@@ -150,7 +149,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 ### <a name="input-elements"></a>Input 元素
 輸入連接埠可讓您將資料傳遞至 R 函式和工作區。 輸入連接埠支援的 **資料類型** 如下所示： 
 
-**DataTable：** 這個類型會當做 data.frame 傳遞至 R 函數。 事實上，機器學習服務支援之所有與 **DataTable** 相容的類型 (例如 CSV 檔案或 ARFF 檔案)，都會自動轉換成 data.frame。 
+**DataTable：** 這個類型會以 data.frame 形式傳遞至 R 函式。 事實上，機器學習服務支援之所有與 **DataTable** 相容的類型 (例如 CSV 檔案或 ARFF 檔案)，都會自動轉換成 data.frame。 
 
         <Input id="dataset1" name="Input 1" type="DataTable" isOptional="false">
             <Description>Input Dataset 1</Description>
@@ -159,7 +158,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 與每個 **DataTable** 輸入連接埠相關聯的 **id** 屬性都必須有唯一值，而且這個值必須符合其在 R 函數中的對應具名參數。
 未當做實驗輸入傳遞的選擇性 **DataTable** 連接埠，會將 **NULL** 值傳遞至 R 函式，而且如果未連接輸入，則會忽略選擇性 zip 連接埠。 **isOptional** 屬性對於 **DataTable** 和 **Zip** 類型都是選擇性的，而且預設為 *false*。
 
-**Zip：** 自訂模組可以接受 zip 檔案做為輸入。 這個輸入會解壓縮到您函數的 R 工作目錄中
+**Zip：** 自訂模組可以接受 zip 檔案作為輸入。 這個輸入會解壓縮到您函數的 R 工作目錄中
 
         <Input id="zippedData" name="Zip Input" type="Zip" IsOptional="false">
             <Description>Zip files to be extracted to the R working directory.</Description>
@@ -177,7 +176,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
 * 不需要 **Input** 元素的 **isOptional** 屬性值 (而且未指定時預設為 *false*)；如有指定，則必須為 *true* 或 *false*。
 
 ### <a name="output-elements"></a>Output 元素
-**標準輸出連接埠：** 輸出連接埠會對應至 R 函數中的傳回值，後續模組可以接著使用這些值。 *DataTable* 是目前唯一支援的標準輸出連接埠類型。 (即將推出 *Learners* 和 *Transforms* 的支援。)*DataTable* 輸出的定義如下：
+**標準輸出連接埠：** 輸出連接埠會對應至 R 函式中的傳回值，後續模組接著可使用這些值。 *DataTable* 是目前唯一支援的標準輸出連接埠類型。 (即將推出 *Learners* 和 *Transforms* 的支援。)*DataTable* 輸出的定義如下：
 
     <Output id="dataset" name="Dataset" type="DataTable">
         <Description>Combined dataset</Description>
@@ -215,7 +214,7 @@ XML 定義檔中的 **Language** 元素可用來指定自訂模組的語言。 �
     return (list(dataset, dataset1, dataset2)) 
     } 
 
-**視覺效果輸出：** 您也可以指定 *Visualization*類型的輸出連接埠，以顯示 R 圖形裝置的輸出和主控台輸出。 這個連接埠不是 R 函式輸出的一部分，而且不會干擾其他輸出連接埠類型的順序。 若要將視覺效果連接埠新增至自訂模組，請針對其 **type** 屬性新增 *Visualization* 值的 **Output** 元素：
+**視覺效果輸出：** 您也可以指定 *Visualization* 類型的輸出連接埠，以顯示 R 圖形裝置的輸出和主控台輸出。 這個連接埠不是 R 函式輸出的一部分，而且不會干擾其他輸出連接埠類型的順序。 若要將視覺效果連接埠新增至自訂模組，請針對其 **type** 屬性新增 *Visualization* 值的 **Output** 元素：
 
     <Output id="deviceOutput" name="View Port" type="Visualization">
       <Description>View the R console graphics device output.</Description>
@@ -372,6 +371,6 @@ R 指令碼的執行環境使用與 **Execute R Script** 模組相同的 R 版�
 
 **執行環境的限制** 包括：
 
-* 非持續性檔案系統：執行自訂模組時所撰寫的檔案無法在相同模組的多次執行間保留。
+* 非永續性檔案系統：執行自訂模組時所撰寫的檔案無法在相同模組的多次執行之間保留。
 * 無法存取網路
 

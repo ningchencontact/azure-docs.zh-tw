@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a3c5c26f43fddf5d23df3bee0b0511e865b7e71b
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: abd9aeab88dc723ddcdff90ce58268296841dc4e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705917"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413297"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>快速入門：針對 Azure Active Directory 條件式存取偵測到工作階段風險時封鎖存取  
 
@@ -87,17 +87,17 @@ ms.locfileid: "51705917"
 
     ![Azure Active Directory](./media/app-sign-in-risk/02.png)
 
-3. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+3. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
 
     ![條件式存取](./media/app-sign-in-risk/03.png)
  
 4. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增]。
 
-    ![名稱](./media/app-sign-in-risk/108.png)
+    ![Name](./media/app-sign-in-risk/108.png)
 
 5. 在 [新增] 頁面上的 [名稱] 文字方塊中，鍵入**封鎖中等風險等級的存取**。
 
-    ![名稱](./media/app-sign-in-risk/104.png)
+    ![Name](./media/app-sign-in-risk/104.png)
 
 6. 在 [指派] 區段中，按一下 [使用者和群組]。
 

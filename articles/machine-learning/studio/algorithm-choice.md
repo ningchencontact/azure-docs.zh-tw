@@ -1,11 +1,10 @@
 ---
-title: 如何選擇機器學習演算法 - Azure Machine Learning Studio | Microsoft Docs
+title: 如何選擇 Azure Machine Learning Studio 的演算法 | Microsoft Docs
 description: 如何在叢集、分類或迴歸實驗中選擇適用於經指導和未經指導學習的 Azure Machine Learning Studio 演算法。
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 tags: ''
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
@@ -13,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 7ddfb98a884779385cde643e213bebb98b050436
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9e601464f97a7717a2ccef0e60172357d3169697
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312413"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256922"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>如何選擇 Azure Machine Learning Studio 的演算法
 
@@ -44,7 +43,7 @@ ms.locfileid: "52312413"
 有時候則不完全適用。 這些建議通常是來自經驗法則，因此不必擔心是否準確。
 我和一些資料科學家討論過，他們都認為唯有全部試用一次，才能找出最佳的演算法。
 
-以下是 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92)。
+以下是 [Azure AI 資源庫](http://gallery.cortanaintelligence.com/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.cortanaintelligence.com/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
 
 > [!TIP]
 > 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
@@ -245,7 +244,7 @@ VW 背離這裡的歸納，因為它可以學習分類和迴歸問題，甚至�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需描述演算法並提供範例的可下載資訊圖詳細資訊，請參閱[可下載的資訊圖：機器學習服務基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
+* 如需描述演算法並提供範例的可下載資訊圖，請參閱[可下載的資訊圖：機器學習基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
 
 * 如需 Machine Learning Studio 中依類別排序的所有可用機器學習演算法清單，請參閱＜Machine Learning Studio 演算法和模組說明＞中的[起始模型](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/machine-learning-initialize-model)。
 

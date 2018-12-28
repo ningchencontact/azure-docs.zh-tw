@@ -4,19 +4,21 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 04ae28ca566e97570ec64e78d3408ea8bd1e3d42
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88dcc7110acaf42243d0ebb3c1ae25aa6d0bca46
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010315"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257961"
 ---
 # <a name="dependency-visualization"></a>相依性視覺效果
 
 [Azure Migrate](migrate-overview.md) 服務會評估要移轉至 Azure 的內部部署機器群組。 您可以使用 Azure Migrate 的相依性視覺效果功能來建立群組。 本文提供此功能的相關資訊。
 
+> [!NOTE]
+> 在 Azure Government 中無法使用相依性視覺效果功能。
 
 ## <a name="overview"></a>概觀
 
@@ -31,7 +33,13 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+- 與工作區建立關聯時，您可以選擇建立新的工作區，或連結現有的工作區：
+      - 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+      - 當您連結現有的工作區時，您可以如同移轉專案般，在相同訂用帳戶的所有可用工作區中挑選。 請注意，系統只會列出在[支援服務對應](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)所在區域中建立的工作區。 若要能夠連結工作區，請確定您有工作區的「讀取者」存取權。
+
+  > [!NOTE]
+  > 一旦您將工作區連結到專案，您之後便無法變更它。
+
 - 相關聯的工作區會以索引鍵 **Migration Project** 和**專案名稱**的值標記，您可用來在 Azure 入口網站中搜尋。
 - 若要瀏覽到與專案相關聯的工作區，您可以移至專案 [概觀] 頁面的 [基本資訊] 區段，然後存取該工作區
 
@@ -63,7 +71,7 @@ Azure Migrate 的相依性視覺效果可建立用於移轉評估且值得高度
 
 ## <a name="how-do-i-manage-the-workspace"></a>如何管理工作區？
 
-您可以使用 Azure Migrate 外部的 Log Analytics 工作區。 如果您刪除建立工作區的移轉專案，並不會刪除工作區。 如果不再需要工作區中，請手動[刪除工作區](../log-analytics/log-analytics-manage-access.md)。
+您可以使用 Azure Migrate 外部的 Log Analytics 工作區。 如果您刪除建立工作區的移轉專案，並不會刪除工作區。 如果不再需要工作區中，請手動[刪除工作區](../azure-monitor/platform/manage-access.md)。
 
 除非您刪除移轉專案，否則請勿刪除 Azure Migrate 建立的工作區。 如果這樣做，相依性視覺效果功能不會如預期般運作。
 

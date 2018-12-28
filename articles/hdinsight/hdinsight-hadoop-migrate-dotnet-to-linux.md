@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: dc7cfb4df768fb7554bc7b5c772a6a778a8a793a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3681f87780f1ef2a6b42e33bcd6fc2d761994d5c
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008108"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384188"
 ---
 # <a name="migrate-net-solutions-for-windows-based-hdinsight-to-linux-based-hdinsight"></a>將以 Windows 為基礎的 HDInsight 適用的 .NET 方案移轉至以 Linux 為基礎的 HDInsight
 
@@ -26,7 +26,7 @@ ms.locfileid: "51008108"
 
 如需 Mono 與 .NET 之間的相容性詳細資訊，請參閱 [Mono 相容性 (英文) (http://www.mono-project.com/docs/about-mono/compatibility/)](http://www.mono-project.com/docs/about-mono/compatibility/) 文件。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > SCP.NET 架構與 Mono 相容。 如需搭配 Mono 使用 SCP.NET 的詳細資訊，請參閱[使用 Visual Studio 開發適用於 Apache Storm on HDInsight 的 C# 拓撲](storm/apache-storm-develop-csharp-visual-studio-topology.md)。
 
 ## <a name="automated-portability-analysis"></a>自動化的可攜性分析
@@ -47,7 +47,7 @@ ms.locfileid: "51008108"
 
     ![Portability Analyzer 結果對話方塊](./media/hdinsight-hadoop-migrate-dotnet-to-linux/portability-analyzer-results.png)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 分析器無法找出您方案的每個問題。 例如，如果 Mono 是在 Windows 上執行，`c:\temp\file.txt`的檔案路徑就會被視為 [確定]。 相同路徑在 Linux 平台上無效。
 
 ## <a name="manual-portability-analysis"></a>手動的可攜性分析
@@ -64,12 +64,12 @@ ms.locfileid: "51008108"
 
 如需存取記錄的詳細資訊，請參閱下列文件：
 
-* [存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 * [在 HDInsight 上搭配 MapReduce 使用 C#](hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [搭配 Hive 和 Pig 使用 C# 使用者定義函式](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
+* [搭配使用 C# 使用者定義函數與 Apache Hive 和 Apache Pig](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 
-* [開發適用於 Storm on HDInsight 的 C# 拓撲](storm/apache-storm-develop-csharp-visual-studio-topology.md)
+* [開發適用於 HDInsight 上 Apache Storm 的 C# 拓撲](storm/apache-storm-develop-csharp-visual-studio-topology.md)

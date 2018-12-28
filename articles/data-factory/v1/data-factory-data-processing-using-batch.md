@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 0865c8b88788387eff173443d190658cc6488946
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a20ba54226e5cdcec242e29344110840615a0c95
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976854"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317520"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>使用 Data Factory 和 Batch 來處理大型資料集
 > [!NOTE]
@@ -41,7 +41,7 @@ ms.locfileid: "51976854"
 * [Batch 的基本概念](../../batch/batch-technical-overview.md)
 * [Batch 功能概觀](../../batch/batch-api-basics.md)
 
-(選擇性) 若要深入了解 Batch，請參閱 [Batch 文件](https://docs.microsoft.com/en-us/azure/batch/)。
+(選擇性) 若要深入了解 Batch，請參閱 [Batch 文件](https://docs.microsoft.com/azure/batch/)。
 
 ## <a name="why-azure-data-factory"></a>為何使用 Azure Data Factory？
 Data Factory 是雲端架構資料整合服務，用來協調以及自動移動和轉換資料。 您可以使用 Data Factory 來建立受控資料管線，以將資料從內部部署和雲端資料存放區移至集中式資料存放區。 Azure Blob 儲存體便是一個例子。 您可以使用 Data Factory 透過 Azure HDInsight 和 Azure Machine Learning 之類的服務來處理/轉換資料。 您也可以排定讓資料管線以排程方式執行 (例如每小時、每天及每週)。 您一眼就能監視及管理管線來找出問題點並採取行動。
@@ -51,7 +51,7 @@ Data Factory 是雲端架構資料整合服務，用來協調以及自動移動�
 * [Data Factory 服務簡介](data-factory-introduction.md)
 * [建置第一個資料管線](data-factory-build-your-first-pipeline.md)   
 
-(選擇性) 若要深入了解 Data Factory，請參閱 [Data Factory 文件](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory)。
+(選擇性) 若要深入了解 Data Factory，請參閱 [Data Factory 文件](https://docs.microsoft.com/rest/api/datafactory/v1/data-factory-data-factory)。
 
 ## <a name="data-factory-and-batch-together"></a>Data Factory 和 Batch 一起使用
 Data Factory 包含內建的活動。 例如，使用「複製」活動可將資料從來源資料存放區複製/移動到目的地資料存放區。 使用 Hive 活動可透過 Azure 上的 Hadoop 叢集 (HDInsight) 來處理資料。 如需支援的轉換活動清單，請參閱[資料轉換活動](data-factory-data-transformation-activities.md)。
@@ -84,7 +84,7 @@ Data Factory 包含內建的活動。 例如，使用「複製」活動可將資
 ## <a name="implementation-of-the-sample-solution"></a>範例解決方案的實作
 範例解決方案是刻意設計成簡單的解決方案。 其設計目的是要說明如何將 Data Factory 與 Batch 搭配使用來處理資料集。 此解決方案會計算搜尋詞彙 "Microsoft" 在以時間序列組織的輸入檔案中出現的次數。 然後會將此計數輸出至輸出檔案。
 
-**時間**：如果您熟悉 Azure、Data Factory 和 Batch 的基本概念，並已符合下列先決條件，此解決方案將需要 1 到 2 小時的時間來完成。
+**時間：** 如果您熟悉 Azure、Data Factory 及 Batch 的基本概念，並已符合下列先決條件，則此解決方案需要 1 到 2 小時的時間來完成。
 
 ### <a name="prerequisites"></a>必要條件
 #### <a name="azure-subscription"></a>Azure 訂用帳戶
@@ -546,7 +546,7 @@ test custom activity Microsoft test custom activity Microsoft
 
    ![Data Factory 頁面](./media/data-factory-data-processing-using-batch/image6.png)
 
-#### <a name="step-2-create-linked-services"></a>步驟 2：建立連結服務
+#### <a name="step-2-create-linked-services"></a>步驟 2：建立連結的服務
 已連結的服務會將資料存放區或計算服務連結至資料處理站。 在此步驟中，您會將儲存體帳戶和 Batch 帳戶連結至資料處理站。
 
 #### <a name="create-an-azure-storage-linked-service"></a>建立 Azure 儲存體連結服務
@@ -962,7 +962,7 @@ Data Factory 服務會在 Batch 中建立一個名為 `adf-poolname:job-xxx` 的
 * [在 Power BI 中探索資料集](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
 * [開始使用 Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
 * [重新整理 Power BI 中的資料](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
-* [Azure 和 Power BI：基本概觀](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
+* [Azure 與 Power BI：基本概觀](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>參考
 * [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)

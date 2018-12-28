@@ -1,31 +1,31 @@
 ---
 title: 在 Azure 中了解 Cloudyn 成本管理報告 | Microsoft Docs
-description: 本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。
+description: 此文章可協助您了解 Cloudyn 成本管理報告的基本結構和功能。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: b4e1ffa0b7bd524fc9029b21e77b09ea07e1f202
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 10a8d434df376749b76e2cf90212d872f705b209
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276647"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103416"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>了解 Cloudyn 成本管理報告
 
-本文可協助您了解 Cloudyn 成本管理報告的基本結構和功能。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 閱讀完本文之後，就做好了使用所有成本管理報告的準備。 各種不同的報告提供了許多標準功能，讓您可以輕鬆瀏覽報告。 報告可自訂，而且可以選取數個選項來計算和呈現結果。
+此文章可協助您了解 Cloudyn 成本管理報告的基本結構和功能。 大部分 Cloudyn 報告是直覺式的，並且具有一致的外觀及操作。 閱讀完此文章之後，就做好了使用所有成本管理報告的準備。 各種不同的報告提供了許多標準功能，讓您可以輕鬆瀏覽報告。 報告可自訂，而且可以選取數個選項來計算和呈現結果。
 
 ## <a name="report-fields-and-options"></a>報告欄位和選項
 
 以下是成本隨時間變化的報告範例。 大部分 Cloudyn 報告都有類似的版面配置。
 
-![範例報告](./media/understanding-cost-reports/sample-report.png)
+![成本隨時間變化的報告範例，其中包含與描述相對應的已編號區域](./media/understanding-cost-reports/sample-report.png)
 
 下列資訊將詳細說明上述影像中的每個編號區域：
 
@@ -47,11 +47,11 @@ ms.locfileid: "52276647"
 
     使用標記分類依標記區域分組。 功能表中列出的標記是 Azure 部門或成本中心標記，或是 Cloudyn 的成本實體和訂用帳戶標記。 選取標記來篩選結果。 也可以輸入標記名稱 (關鍵字) 來篩選結果。
 
-    ![選取選項](./media/understanding-cost-reports/select-options.png)
+    ![篩選結果時所用標記的清單範例](./media/understanding-cost-reports/select-options.png)
 
     按一下 [新增] 以新增新的篩選條件。
 
-    ![新增篩選條件](./media/understanding-cost-reports/add-filter.png)
+    ![顯示篩選選項與條件的 [新增] 篩選方塊](./media/understanding-cost-reports/add-filter.png)
 
     標記群組或篩選作業與 Azure 資源或資源群組的標記無關。
 
@@ -61,9 +61,9 @@ ms.locfileid: "52276647"
 
     請使用成本分析報告中的群組，來顯示回報的帳單資料中的標準、分項類別。  不過，成本配置報告的群組顯示的是檢視標記型類別。 標記型類別是由計費資料的成本配置模型和標準分項類別所定義。
 
-    ![群組標記](./media/understanding-cost-reports/groups-tags01.png)
+    ![分組時可用標記的第一個清單範例](./media/understanding-cost-reports/groups-tags01.png)
 
-    ![群組標記](./media/understanding-cost-reports/groups-tags02.png)
+    ![分組時可用標記的第二個清單範例](./media/understanding-cost-reports/groups-tags02.png)
 
     在成本配置報告中，標記型群組類別中的群組可能包括：
       - 標記
@@ -73,8 +73,8 @@ ms.locfileid: "52276647"
 
   範例可能包括：
      - 成本中心
-     - department
-     - Application
+     - 部門
+     - 應用程式
      - 環境
      - 成本代碼
 
@@ -166,7 +166,7 @@ ms.locfileid: "52276647"
 
     使用顯示格式選取不同的圖表或資料表檢視。
 
-    ![顯示格式](./media/understanding-cost-reports/display-formats.png)
+    ![您可以選取的顯示格式符號](./media/understanding-cost-reports/display-formats.png)
 
 13. **多色**
 

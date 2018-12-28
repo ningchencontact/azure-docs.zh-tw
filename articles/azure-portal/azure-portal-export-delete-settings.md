@@ -4,18 +4,18 @@ description: 了解如何匯出或刪除 Azure 入口網站中的使用者設定
 services: azure-portal
 keywords: ''
 author: santhoshsomayajula
-ms.author: santhosh.somayajulu
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: e9bf6e69b439f5201d66cabb9bc87fe5c9faa610
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: cwatson
+ms.openlocfilehash: 8bbba504f95233db7cf65556b57148771962f507
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659066"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308578"
 ---
 # <a name="export-or-delete-settings-in-the-azure-portal"></a>匯出或刪除 Azure 入口網站中的設定
 您可以從 Azure 入口網站設定功能表匯出和刪除下列設定：
@@ -29,7 +29,7 @@ ms.locfileid: "34659066"
 
 **匯出或刪除您的入口網站設定**
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在入口網站右上方，選取 [設定]。
 
     ![顯示入口網站設定齒輪圖示的螢幕擷取畫面](media/azure-portal-export-delete-settings/azure-portal-settings-icon.png)

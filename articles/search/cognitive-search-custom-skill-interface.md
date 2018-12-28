@@ -1,5 +1,5 @@
 ---
-title: 認知搜尋管線中自訂技能的介面定義 (Azure 搜尋服務) | Microsoft Docs
+title: 認知搜尋管線中自訂技能的介面定義 - Azure 搜尋服務
 description: Azure 搜尋服務的認知搜尋管線中，web-api 自訂技能的自訂資料擷取介面。
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: luisca
-ms.openlocfilehash: 2218a96702a02a32df18da9640ea9946d05acdb1
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.custom: seodec2018
+ms.openlocfilehash: 1df2a565b1c9e8bd2bea75ce78abc84608c89eea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140884"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314647"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>如何將自訂技能新增至認知搜尋管線
 
@@ -149,6 +150,6 @@ Web API 必須接受要處理的記錄陣列。 每一筆記錄都必須包含�
 ## <a name="next-steps"></a>後續步驟
 
 + [範例：建立翻譯文字 API 的自訂技能](cognitive-search-create-custom-skill-example.md)
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [建立技能集 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [如何對應擴充的欄位](cognitive-search-output-field-mapping.md)

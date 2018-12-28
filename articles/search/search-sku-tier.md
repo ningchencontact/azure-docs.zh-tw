@@ -1,6 +1,6 @@
 ---
-title: 選擇 Azure 搜尋服務的定價層或 SKU | Microsoft Docs
-description: 「Azure 搜尋服務」可以在這些 SKU 佈建︰「免費」、「基本」及「標準」，其中「標準」在各種資源組態和容量層級都有提供。
+title: 選擇 Azure 搜尋服務的定價層或 SKU - Azure 搜尋服務
+description: Azure 搜尋服務可以在這些 SKU 佈建：免費、基本及標準，其中「標準」在各種資源組態和容量層級都有提供。
 services: search
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: heidist
-ms.openlocfilehash: 0e1a0d299fb794c3aa937cb62dba9a6ce12c0570
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.custom: seodec2018
+ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785302"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315548"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>選擇 Azure 搜尋服務的定價層
 
@@ -43,7 +44,7 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
-每個服務都以 1 個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值為 36 個 SU，可以透過多種方式達成：6 個分割區 x 6 個複本，或 3 個分割區 x 12 個複本等等。 
+每個服務都以 1 個 SU (一個複本乘以一個分割區) 作為最小值。 任何服務的最大值均為 36 個 SU，其可透過多種方式達成：6 個資料分割 x 6 複本，或 3 個分割區 x 12 個複本等等。 
 
 使用少於總容量的情況很常見。 例如，3 個複本，3 個分割區，以 9 個 SU 計費。 
 
@@ -78,7 +79,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 ![Azure 搜尋服務層](./media/search-sku-tier/tiers.png "Azure 搜尋服務定價層")
 
-在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指導方針。
+在任一端都有**基本**和 **S3 HD** 可供重要但非典型的耗用量模式使用。 **基本**適用於小型生產工作負載：其提供 SLA、專用資源、高可用性，但適量的儲存體，最多總共可達 2 GB。 此定價層是設計給一直未充分使用可用容量的客戶來使用。 針對 ISV、合作夥伴、[多租用戶解決方案](search-modeling-multitenant-saas-applications.md)或任何會呼叫大量小型索引的任何組態等典型工作負載，則適合使用另一端的 **S3 HD**。 如果**基本**或 **S3 HD** 層合用，情形通常很明顯，但如果您想要確認，請在 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) 張貼文章或[連絡 Azure支援](https://azure.microsoft.com/support/options/)以尋求進一步的指引。
 
 讓我們將焦點轉到更常見的標準層，**S1-S3** 是逐漸增加的容量層級，具有資料分割大小轉折點以及索引、索引子和推論資源數目上限：
 
@@ -134,7 +135,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 1. 在入口網站中[監視儲存體、服務限制、查詢量和延遲](search-monitor-usage.md)。 入口網站會顯示每秒查詢數、節流的查詢和搜尋延遲；這幾點全都能協助您決定所使用的定價層是否合適。 除了入口網站的計量外，您還可以啟用[搜尋流量分析](search-traffic-analytics.md)來設定深層監視，例如點選連結分析。 
 
-對於分析來說，索引數目和大小有同樣的價值，原因是達到上限的條件是完全用盡儲存體 (資料分割) 或資源 (索引、索引子等等)，視何者先達到。 入口網站可協助您追蹤這兩個，在 [概觀] 頁面上並排顯示目前的使用量和最大限制。
+對於分析來說，索引數目和大小有同樣的價值，原因是達到上限的條件是完全用盡儲存體 (資料分割) 或資源 (索引、索引子等等)，視何者先達到。 入口網站可協助您追蹤這兩項，在 [概觀] 頁面上並排顯示目前的使用量和最大限制。
 
 > [!NOTE]
 > 如果文件包含無關的資料，儲存體需求可能會過度膨脹。 理想情況是，文件只包含搜尋體驗所需的資料。 二進位資料不可搜尋，應該分開存放 (或許存放在 Azure 資料表或 Blob 儲存體中)，並且在索引中要有一個欄位用來保存外部資料的 URL 參考。 個別文件的大小上限是 16 MB (如果您在單一要求中大量上傳多個文件，則會小於 16 MB)。 [Azure 搜尋服務中的服務限制](search-limits-quotas-capacity.md)有更多資訊。
@@ -142,9 +143,9 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 **查詢量的考量**
 
-在調整效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有非常大量的查詢，否則此計量通常不是定價層的考量事項。
+在微調效能時，每秒查詢數 (QPS) 計量會顯得重要，但除非您一開始就預期會有非常大量的查詢，否則此計量通常不是定價層的考量事項。
 
-所有標準層都能提供平衡的複本與資料分割，透過額外的複本來達到負載平衡以及額外的資料分割來協助平行處理，以支援更快速的查詢往返。 佈建服務之後，就能對效能進行調整。
+所有標準層都能提供平衡的複本與資料分割，透過額外的複本來達到負載平衡以及額外的資料分割來協助平行處理，以支援更快速的查詢往返。 佈建服務之後，就能對效能進行微調。
 
 一開始就預期會有不斷大量查詢的客戶，應該考慮使用更高的定價層，以獲得更強大硬體的支援。 如果未能發生這些查詢量，您便可以將資料分割和複本離線，或甚至改用較低定價層的服務。 如需如何計算查詢輸送量的詳細資訊，請參閱 [Azure 搜尋服務效能和最佳化](search-performance-optimization.md)。
 
@@ -165,7 +166,7 @@ SU 是服務所用複本和分割區的乘積：**`(R X P = SU)`**
 
 請從**免費**層開始，並使用資料子集建置初始索引來了解其特性。 Azure 搜尋服務中的資料結構是反向索引，其中，反向索引的大小和複雜性取決於內容。 請記住，重複性高的內容所產生的索引，往往會比差異性高的內容所產生的索引小。 因此，決定索引儲存體需求的是內容特性，而不是資料集大小。
 
-對於索引大小有了初步了解後，請在此文章所討論的其中一個定價層 (**基本**或**標準**層) [佈建可計費服務](search-create-service-portal.md)。 放寬資料子集的任何人為條件約束，並[重建索引](search-howto-reindex.md)使其包含所有您實際想要搜尋的資料。
+對於索引大小有了初步了解後，請在本文所討論的其中一個定價層 (**基本**或**標準**層) [佈建可計費服務](search-create-service-portal.md)。 放寬資料子集的任何人為條件約束，並[重建索引](search-howto-reindex.md)使其包含所有您實際想要搜尋的資料。
 
 視需要[配置資料分割和複本](search-capacity-planning.md)，以取得所需的效能和規模。
 

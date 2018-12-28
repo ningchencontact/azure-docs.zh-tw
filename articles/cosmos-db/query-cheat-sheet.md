@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB PDF 查詢速查表 | Microsoft Docs
+title: Azure Cosmos DB PDF 查詢速查表
 description: 可協助您使用 Azure Cosmos DB 之 SQL、MongoDB、圖形及資料表 API 來查詢資料的可列印 PDF 速查表
 keywords: SQL 功能提要、SQL 功能提要 PDF 檔、SQL 查詢功能提要
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: c79a1c0e6449e1ae87c2ed09acdc1ecd380cfaaf
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 21b2ee99fa8f9b22b4dfccadfaadf1d4a10980cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160965"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138138"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查詢速查表
 
@@ -36,7 +34,7 @@ ms.locfileid: "52160965"
 
 ## <a name="next-steps"></a>後續步驟
 如需有關撰寫查詢的更多說明，請參閱下列文章：
-* 針對 SQL API 查詢，請參閱[使用 SQL API 進行查詢](tutorial-query-sql-api.md)、[適用於 Azure Cosmos DB 的 SQL 查詢](how-to-sql-query.md)及 [SQL 語法參考](sql-api-sql-query-reference.md)
+* 針對 SQL API 查詢，請參閱[使用 SQL API 進行查詢](tutorial-query-sql-api.md)、[適用於 Azure Cosmos DB 的 SQL 查詢](how-to-sql-query.md)及 [SQL 語法參考](sql-api-query-reference.md)
 * 針對 MongoDB 查詢，請參閱[使用 MongoDB API 進行查詢](tutorial-query-mongodb.md)和 [MongoDB 功能和語法的 MongoDB API 支援](mongodb-feature-support.md)
 * 針對 Gremlin API 查詢，請參閱[使用 Gremlin API 進行查詢](tutorial-query-graph.md)和 [Azure Cosmos DB Gremlin 圖形支援](gremlin-support.md)
 * 針對「資料表 API」查詢，請參閱[使用資料表 API 進行查詢](tutorial-query-table.md)

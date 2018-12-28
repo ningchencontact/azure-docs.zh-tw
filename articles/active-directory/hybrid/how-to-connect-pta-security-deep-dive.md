@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c0729fd4c6d5e387b38c310a708505c3395ea41f
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284875"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185064"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory 傳遞驗證安全性深入探討
 
@@ -52,8 +52,8 @@ ms.locfileid: "52284875"
 - **Azure AD STS**：無狀態的 Security Token Service (STS)，用以處理登入要求，並在需要時，將安全性權杖核發給使用者的瀏覽器、用戶端或服務。
 - **Azure 服務匯流排**：可為企業傳訊及轉送通訊提供雲端通訊的能力，讓您可以連接內部部署解決方案與雲端。
 - **Azure AD Connect 驗證代理程式**：接聽並回應密碼驗證要求的內部部署元件。
-- **Azure SQL Database**：保存租用戶之驗證代理程式的相關資訊，包括其中繼資料和加密金鑰。
-- **Active Directory**：您的內部部署 Active Directory，其中儲存您的使用者帳戶及其密碼。
+- **Azure SQL Database**：持有租用戶之驗證代理程式的相關資訊，包括其中繼資料和加密金鑰。
+- **Active Directory**：內部部署 Active Directory，其中儲存您的使用者帳戶及其密碼。
 
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>驗證代理程式的安裝和註冊
 
@@ -97,8 +97,8 @@ ms.locfileid: "52284875"
 5. 接著，Azure AD 會簽署數位身分識別憑證，然後將其傳回給驗證代理程式。
     - Azure AD 中的根 CA 會用來簽署憑證。 
 
-     >[!NOTE]
-     > 此 CA「不在」Windows 受信任的根憑證授權單位存放區中。
+      > [!NOTE]
+      > 此 CA「不在」Windows 受信任的根憑證授權單位存放區中。
     - 此 CA 僅供傳遞驗證功能使用。 此 CA 只會在驗證代理程式註冊期間用來簽署 CSR。
     -  沒有任何其他 Azure AD 服務會使用此 CA。
     - 此憑證的主體 (辨別名稱或 DN) 設定為您的租用戶識別碼。 此 DN 是可唯一識別租用戶的 GUID。 此 DN 可將憑證的範圍限制為只能用於您的租用戶。
@@ -212,6 +212,6 @@ Azure AD 會將新版的軟體當作已簽署的 **Windows Installer 套件 (MSI
 - [從 AD FS 遷移到傳遞驗證](https://aka.ms/adfstoptadpdownload) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [運作方式](how-to-connect-pta-how-it-works.md)：了解 Azure AD 傳遞驗證運作方式的基本概念。
-- [常見問題集](how-to-connect-pta-faq.md)：常見問題集的答案。
+- [常見問題集](how-to-connect-pta-faq.md)：取得常見問題的解答。
 - [疑難排解](tshoot-connect-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。
 - [Azure AD 無縫 SSO](how-to-connect-sso.md)：深入了解此互補功能。

@@ -3,7 +3,7 @@ title: Azure SQL Database 自動、異地備援備份 | Microsoft Docs
 description: SQL Database 每隔幾鐘會自動建立一個本機資料庫備份，並使用 Azure 讀取權限異地備援儲存體來進行異地備援。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/25/2018
-ms.openlocfilehash: 9c5cdf6c2baf4197b693b522848fc1fd04db7abf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.date: 12/10/2018
+ms.openlocfilehash: 2d6df569a2b5b813bd832adf5ef2e1d193de9364
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422505"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187563"
 ---
-# <a name="learn-about-automatic-sql-database-backups"></a>了解自動 SQL Database 備份
+# <a name="automated-backups"></a>自動備份
 
-SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS) 來提供異地備援。 這些備份是自動建立的，且不需額外付費。 您不需要執行任何動作來建立備份。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則需要備份可供使用一段時間，您可以設定長期備份保留原則。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
+SQL Database 會自動建立保留 7 到 35 天的資料庫備份，並使用 Azure 讀取權限異地備援儲存體 (RA-GRS)，以確保即使在資料中心都無法使用時可保留它們。 這些備份是自動建立的，且不需額外付費。 您不需要採取任何動作來進行，且您可以[變更備份保留期限](#how-to-change-the-pitr-backup-retention-period)。 資料庫備份可保護資料免於意外損毀或刪除，是商務持續性和災害復原策略中不可或缺的一部分。 如果您的安全性規則需要備份可供使用一段時間 (最長 10 年)，您可以設定[長期保留](sql-database-long-term-retention.md)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
@@ -33,8 +33,8 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 - 將資料庫還原至保留期限內的某一個時間點。 這項作業將會在與原始資料庫相同的伺服器中建立新的資料庫。
 - 將已刪除的資料庫還原至其被刪除的時間，或保留期限內的任何時間。 已刪除的資料庫只能在當中已建立原始資料庫的相同伺服器中還原。
-- 將資料庫還原到另一個地理區域。 這可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。
-- 如果已使用長期保留原則 (LTR) 設定資料庫，請從特定長期備份還原資料庫。 這可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 請參閱[長期保留](sql-database-long-term-retention.md)。
+- 將資料庫還原到另一個地理區域。 異地還原可讓您在無法存取您的伺服器和資料庫時，從地理災害中復原。 在世界各地任何現有的伺服器中建立新的資料庫。
+- 如果已使用長期保留原則 (LTR) 設定資料庫，請從特定長期備份還原資料庫。 LTR 可讓您還原舊版的資料庫來符合規範要求，或執行舊版的應用程式。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 - 若要執行還原，請參閱[從備份還原資料庫](sql-database-recovery-using-backups.md)。
 
 > [!NOTE]
@@ -42,16 +42,16 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 ## <a name="how-long-are-backups-kept"></a>備份會保留多久的時間
 
-每個 SQL Database 有 7 到 35 天的預設備份保留期限，這取決於[購買模式和服務層級](#pitr-retention-period)而定。 您可以更新 Azure 邏輯伺服器上的資料庫備份保留期限 (這項功能將於近期在受控執行個體中啟用)。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
+每個 SQL Database 有 7 到 35 天的預設備份保留期限，這取決於[購買模式和服務層級](#pitr-retention-period)而定。 您可以更新 Azure 邏輯伺服器上資料庫的備份保留週期。 如需詳細資訊，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 如果您刪除資料庫，則 SQL Database 會以保存線上資料庫備份的相同方式保存備份。 例如，如果您刪除保留期間為七天的基本資料庫，則為期四天的備份還會再儲存三天。
 
-如果您需要保留備份的時間超過 PITR 保留週期上限，則可以修改備份的屬性，以將一或多個長期保留週期新增至資料庫。 如需詳細資料，請參閱[長期備份保留](sql-database-long-term-retention.md)。
+如果您需要保留備份的時間超過保留週期上限，則可以修改備份的屬性，以將一或多個長期保留週期新增至資料庫。 如需詳細資訊，請參閱[長期保存](sql-database-long-term-retention.md)。
 
 > [!IMPORTANT]
 > 如果您刪除裝載 SQL 資料庫的 Azure SQL Server，則也會一併刪除所有屬於該伺服器的彈性集區和資料庫，且無法復原。 您無法還原已刪除的伺服器。 但是，如果您已設定長期保留，則不會刪除具有 LTR 之資料庫的備份，而且可以還原這些資料庫。
 
-### <a name="pitr-retention-period"></a>PITR 保留期限
+### <a name="default-backup-retention-period"></a>預設備份保留期限
 
 #### <a name="dtu-based-purchasing-model"></a>以 DTU 為基礎的購買模型
 
@@ -63,12 +63,10 @@ SQL Database 會自動建立資料庫備份，並使用 Azure 讀取權限異地
 
 #### <a name="vcore-based-purchasing-model"></a>以虛擬核心為基礎的購買模型
 
-如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (同時適用於邏輯伺服器和受控執行個體)。
+如果您是使用[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)，預設的備份保留期限是 7 天 (適用於單一、集區和受控執行個體資料庫)。 針對所有 Azure SQL 資料庫 (單一、集區和受控執行個體資料庫)，您可以[將備份保留期限變更為最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
-- 針對單一和集區資料庫，您可以[將備份保留期間變更為最多 35 天](#how-to-change-backup-retention-period)。
-- 變更備份保留期限的功能未在受控執行個體中提供。
-
-如果您降低目前的保留期間，就無法再使用比新保留期間還要舊的所有現有備份。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
+> [!WARNING]
+> 如果您降低目前的保留期間，就無法再使用比新保留期間還要舊的所有現有備份。 如果您延長目前的保留期間，則 SQL Database 將保留現有備份，直到達到較長的保留期間為止。
 
 ## <a name="how-often-do-backups-happen"></a>備份發生頻率為何
 
@@ -96,21 +94,24 @@ PITR 備份為異地備援，並受到 [Azure 儲存體跨區域複寫](../stora
 
 Azure SQL Database 工程小組會持續自動地對服務上所有資料庫，進行自動資料庫備份的還原測試。 一旦還原，資料庫也會收到使用 DBCC CHECKDB 的完整性檢查。 在完整性檢查期間找到的任何問題都會對工程小組發出警示。 如需有關 Azure SQL Database 中資料完整性的詳細資訊，請參閱 [Azure SQL Database 中的資料完整性](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)。
 
-## <a name="how-do-automated-backups-impact-my-compliance"></a>自動化備份對合規性的影響為何
+## <a name="how-do-automated-backups-impact-compliance"></a>自動化備份對合規性的影響為何
 
-當您將資料庫從預設 PITR 保留 35 天的 DTU 型服務層遷移至 vCore 型服務層時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-backup-retention-period)。
+當您將資料庫從預設 PITR 保留 35 天的 DTU 型服務層遷移至 vCore 型服務層時，會保留 PITR 保留，確保不會危害您應用程式的資料復原原則。 如果預設保留週期不符合合規性需求，您可以使用 PowerShell 或 REST API 變更 PITR 保留週期。 如需詳細資料，請參閱[變更備份保留週期](#how-to-change-the-pitr-backup-retention-period)。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="how-to-change-backup-retention-period"></a>如何變更備份保留期間
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>如何變更 PITR 備份保留期間
 
-> [!Note]
-> 無法在受控執行個體上變更預設的備份保留期限 (7 天)。
-
-您可以使用 REST API 或 PowerShell 變更預設保留。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。
+您可以使用 Azure 入口網站、PowerShell 或 REST API 變更預設的 PITR 備份保留期限。 支援的值為：7、14、21、28 或 35 天。 下列範例說明如何將 PITR 保留變更為 28 天。
 
 > [!NOTE]
-> 這些 API 只會影響 PITR 保留期間。 如果您已將資料庫設定為 LTR，則它不受影響。 如需如何變更 LTR 保留期間的詳細資料，請參閱[長期備份保留](sql-database-long-term-retention.md)。
+> 這些 API 只會影響 PITR 保留期間。 如果您已將資料庫設定為 LTR，則它不受影響。 如需如何變更 LTR 保留期間的詳細資訊，請參閱[長期保留](sql-database-long-term-retention.md)。
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 入口網站變更 PITR 備份保留期間
+
+若要使用 Azure 入口網站變更 PITR 備份保留期限，請瀏覽至要變更其保留期限的資料庫，然後按一下**概觀**。
+
+![變更 PITR Azure 入口網站](./media/sql-database-automated-backup/configure-backup-retention.png)
 
 ### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 變更 PITR 備份保留期間
 
@@ -154,7 +155,7 @@ PUT https://management.azure.com/subscriptions/00000000-1111-2222-3333-444444444
 }
 ```
 
-如需詳細資料，請參閱[備份保留 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
+如需詳細資訊，請參閱[備份保留 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
 
 ## <a name="next-steps"></a>後續步驟
 

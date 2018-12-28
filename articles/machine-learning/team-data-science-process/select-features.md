@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 中的特徵選取 | Microsoft Docs
+title: Team Data Science Process 中的特徵選取
 description: 說明機器學習服務的資料增強程序中功能選取的目的，並提供其角色的範例。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b439f7245dd09a2f8a7ffe5f3b3c5396786220af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442365"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138648"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Team Data Science Process (TDSP) 中的特徵選取
 本文說明機器學習服務的資料增強程序中特徵選取的目的，並提供其角色的範例。 這些範例是根據 Azure Machine Learning Studio 繪製。 
@@ -25,8 +25,8 @@ ms.locfileid: "52442365"
 
 特徵的工程設計與選取是[什麼是 Team Data Science Process？](overview.md)中所概述 Team Data Science Process (TDSP) 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。
 
-* **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
-* **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
+* **特徵工程設計**：此程序嘗試從資料中現有的原始特徵來建立其他相關特徵，並提高學習演算法的預測能力。
+* **特徵選取**：此程序會選取原始資料特徵的主要子集，以嘗試縮減定型問題的維度。
 
 通常會先套用**特性工程設計**以產生其他特定，然後執行**特性選取**步驟以排除不相關、多餘或高度相關的特性。
 
@@ -42,21 +42,21 @@ ms.locfileid: "52442365"
 
 Azure Machine Learning Studio 中有針對特性選取而提供的模組。 如下圖所示，這些模組包含[以篩選為基礎的特性選取][filter-based-feature-selection]和[費雪線性判別分析][fisher-linear-discriminant-analysis]。
 
-![特性選取範例](./media/select-features/feature-Selection.png)
+![特徵選取模組](./media/select-features/feature-Selection.png)
 
 例如，請考慮使用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組。 為了方便起見，繼續使用文字採礦範例。 假設在透過[特徵雜湊][feature-hashing]模組建立一組 256 個特徵之後，我們想要建置一個迴歸模型，其回應變數為 "Col1" 並代表 1 至 5 的書籍評論評等。 將 [特性評分方法] 設定為 [皮耳森相關]，則 [目標欄] 會是 "Col1"，而 [所需的特性數] 會是 50。 然後，[以篩選為基礎的特徵選取][filter-based-feature-selection]模組會產生一個包含 50 個特徵且目標屬性為 "Col1" 的資料集。 下圖顯示此實驗的流程以及輸入參數：
 
-![特性選取範例](./media/select-features/feature-Selection1.png)
+![以篩選為基礎的特徵選取模組屬性](./media/select-features/feature-Selection1.png)
 
 下圖顯示產生的結果資料集：
 
-![特性選取範例](./media/select-features/feature-Selection2.png)
+![針對以篩選為基礎的特徵選取模組產生的資料集](./media/select-features/feature-Selection2.png)
 
 每個特性都是根據本身與目標屬性 "Col1" 之間的皮耳森相關進行評分。 系統會保留最高分的特性。
 
 下圖顯示所選特徵的對應評分：
 
-![特性選取範例](./media/select-features/feature-Selection3.png)
+![以篩選為基礎的特徵選取模組的分數](./media/select-features/feature-Selection3.png)
 
 套用[以篩選為基礎的特徵選取][filter-based-feature-selection]模組，以選取 256 個特徵中的 50 個特徵，因為根據「皮耳森相關」評分方法，其具有目標變數 "Col1" 的最相關特徵。
 

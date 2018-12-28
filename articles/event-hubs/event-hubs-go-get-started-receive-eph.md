@@ -1,20 +1,21 @@
 ---
-title: 使用 Go 從 Azure 事件中樞接收事件 | Microsoft Docs
-description: 開始使用 Go 從事件中樞接收事件
+title: 使用 Go 來接收事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文將逐步解說如何建立一個會從「Azure 事件中樞」接收事件的 Go 應用程式。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/23/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 0a8cb349be0ffefecb07bc705391684dc57f1b96
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: db952b82172928e42e951563d98bb32b275e8af7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239486"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084986"
 ---
 # <a name="receive-events-from-event-hubs-using-go"></a>使用 Go 從事件中樞接收事件
 
@@ -80,7 +81,7 @@ import (
 
 ## <a name="create-service-principal"></a>建立服務主體
 
-依照[使用Azure CLI 2.0 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)中的指示建立新的服務主體。 使用下列名稱，將提供的認證儲存在您的環境中：Azure SDK for Go 和事件中樞套件都會預先設定為尋找這些變數名稱。
+依照[使用Azure CLI 2.0 來建立 Azure 服務主體](/cli/azure/create-an-azure-service-principal-azure-cli)中的指示建立新的服務主體。 請使用下列名稱將提供的認證儲存在您的環境中：Azure SDK for Go 與「事件中樞」套件皆已預先設定為會尋找這些變數名稱。
 
 ```bash
 export AZURE_CLIENT_ID=

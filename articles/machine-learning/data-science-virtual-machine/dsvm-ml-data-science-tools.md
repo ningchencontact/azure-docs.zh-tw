@@ -1,11 +1,12 @@
 ---
 title: 機器學習與資料科學工具 - Azure | Microsoft Docs
-description: 機器學習與資料科學工具
+description: 了解預先安裝在「資料科學虛擬機器」上的機器學習工具和架構。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 9308c51c0ff5fc7278eab632f9d23f23cf016a2a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d8c607b5f1d338ca3a2bd3844b26ef51d801c720
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901663"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086065"
 ---
 # <a name="machine-learning-and-data-science-tools"></a>機器學習與資料科學工具
 「Azure 資料科學虛擬機器」具有一組以各種熱門語言提供 (例如 Python、R 及 Julia)、適用於機器學習 (ML) 的豐富工具和程式庫。 
@@ -100,7 +101,7 @@ ms.locfileid: "48901663"
 | 支援的版本      | Linux   |
 | 典型的使用案例      | 一般用途的分散式、可調式 ML   |
 | 如何設定或安裝它？      | H2O 是安裝在 `/dsvm/tools/h2o` 中。      |
-| 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 接著啟動網頁瀏覽器，然後連線至 `http://localhost:54321`。      |
+| 如何使用或執行它      | 使用 X2Go 來連線至 VM。 啟動新的終端機，然後執行 `java -jar /dsvm/tools/h2o/current/h2o.jar`。 然後啟動網頁瀏覽器，並連線至 `http://localhost:54321`。      |
 | 範例的連結      | VM 上 Jupyter 中的 `h2o` 目錄底下有提供範例。      |
 | 相關工具      | Apache Spark、MXNet、XGBoost、Sparkling Water、Deep Water    |
 

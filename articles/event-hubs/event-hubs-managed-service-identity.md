@@ -1,6 +1,6 @@
 ---
-title: Azure 資源的受控識別與 Azure 事件中樞預覽 | Microsoft Docs
-description: 搭配使用 Azure 資源的受控識別與 Azure 事件中樞
+title: Azure 資源的受控識別 - Azure 事件中樞 | Microsoft Docs
+description: 本文提供有關如何將 Azure 資源的受控識別與「Azure 事件中樞」搭配使用的資訊
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -8,14 +8,15 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 815a6ff528e024ed1685b09b66f8fabce4d360c1
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 784d8c9280aeff7224f90ecee0b16c9c30381aeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784548"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087723"
 ---
 # <a name="managed-identities-for-azure-resources-with-event-hubs"></a>Azure 資源的受控識別與事件中樞
 
@@ -41,25 +42,21 @@ ms.locfileid: "48784548"
 
 ### <a name="create-an-app-service-web-application"></a>建立 App Service Web 應用程式
 
-第一個步驟是建立 App Service ASP.NET 應用程式。 如果您不熟悉如何在 Azure 中執行此操作，請依照[此操作指南](../app-service/app-service-web-get-started-dotnet-framework.md)執行。 不過，並非如教學課程所示的建立 MVC 應用程式，而是建立 Web Form 應用程式。
+第一個步驟是建立 App Service ASP.NET 應用程式。 如果您不熟悉如何在 Azure 中執行這項操作，請遵循[本操作說明指南](../app-service/app-service-web-get-started-dotnet-framework.md)。 不過，並非如教學課程所示的建立 MVC 應用程式，而是建立 Web Form 應用程式。
 
 ### <a name="set-up-the-managed-identity"></a>設定受控識別
 
 一旦您建立應用程式，在 Azure 入口網站瀏覽至新建立的 Web 應用程式 (也會在操作說明中顯示)，然後瀏覽至 [受控服務識別] 分頁，並啟用功能： 
 
-![](./media/event-hubs-managed-service-identity/msi1.png)
+![[受控服務識別] 頁面](./media/event-hubs-managed-service-identity/msi1.png)
  
 一旦您啟用此功能，新的服務識別會在您的 Azure Active Directory 中建立，並設定到 App Service 主機。
 
 ### <a name="create-a-new-event-hubs-namespace"></a>建立新的事件中樞命名空間
 
-接下來，在具有 Azure 資源的受控識別預覽支援的其中一個 Azure 區域中[建立事件中樞命名空間](event-hubs-create.md)：**美國東部**、**美國東部 2** 或**西歐**。 
+接下來，在具有 Azure 資源之受控識別預覽支援的其中一個 Azure 區域中[建立事件中樞命名空間](event-hubs-create.md)：**美國東部**、**美國東部 2** 或**西歐**。 
 
-瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。
-
-![](./media/event-hubs-managed-service-identity/msi2.png)
- 
-Web 應用程式的受控識別現在具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。 
+瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。 Web 應用程式的受控識別現在具有事件中樞命名空間的存取權，以及您先前建立之事件中樞的存取權。 
 
 ### <a name="run-the-app"></a>執行應用程式
 
@@ -71,7 +68,7 @@ Web 應用程式的受控識別現在具有事件中樞命名空間的存取權�
 
 當您進行這些變更之後，請發行並執行應用程式。 您可以藉由下載然後在 Visual Studio 中匯入發行設定檔，來取得正確的發行資料：
 
-![](./media/event-hubs-managed-service-identity/msi3.png)
+![匯入發行設定檔](./media/event-hubs-managed-service-identity/msi3.png)
  
 若要傳送或接收訊息，請輸入命名空間名稱和您建立之實體的名稱，然後按一下 [傳送] 或 [接收]。 
  

@@ -1,24 +1,25 @@
 ---
-title: Azure 專用硬體安全模組 (HSM) 部署架構 | Microsoft Docs
-description: Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供金鑰儲存功能，以符合 FIPS 140-2 等級 3 認證
+title: 部署架構 - Azure 專用 HSM | Microsoft Docs
+description: 使用「Azure 專用 HSM」作為應用程式架構之一部分時的設計考量
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 8481f444464135a24d42612f334ac6096cba7b21
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 913be9d1ee6ce92d71f5f0c7eda46a618483ce8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318987"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078288"
 ---
-# <a name="deployment-architecture"></a>部署架構
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 專用 HSM 部署架構
 
 Azure 專用硬體安全模組 (HSM) 可在 Azure 中提供密碼編譯金鑰儲存功能。 它符合嚴格的安全性需求。 當客戶符合下列條件時，即可從使用 Azure 專用硬體安全模組 (HSM) 中獲得助益：
 
@@ -56,7 +57,7 @@ Azure 專用硬體安全模組 (HSM) 可在 Azure 中提供密碼編譯金鑰儲
 
 一旦決定部署架構之後，即會由 Gemalto 提供大部分的設定活動以實作該架構。 這包括裝置設定以及應用程式整合案例。 如需詳細資訊，請使用 [Gemalto 客戶支援](https://supportportal.gemalto.com/csm/)入口網站，並下載管理和設定指南。 Microsoft 合作夥伴網站提供多種整合指南。
 建議您在佈建裝置或設計與部署應用程式之前，先充分了解服務的所有重要概念，例如高可用性和安全性。
-更多概念層級主題：
+更多概念層級的主題：
 
 * [高可用性](high-availability.md)
 * [實體安全性](physical-security.md)

@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/10/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 45f77c3065feeb011a10bc345c22082b6a89529c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5bea4c655e9a8970d8d0d946827cc3e46e7efa7a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582810"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255154"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 檔案同步代理程式的版本資訊
 Azure 檔案同步可讓您將組織的檔案共用集中在「Azure 檔案服務」中，而不需要犧牲內部部署檔案伺服器的靈活度、效能及相容性。 您的 Windows Server 安裝會轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料 (包括 SMB、NFS 和 FTPS)。 您可以視需要存取多個散佈於世界各地的快取。
@@ -25,7 +25,9 @@ Azure 檔案同步代理程式支援下列版本：
 
 | 里程碑 | 代理程式版本號碼 | 發行日期 | 狀態 |
 |----|----------------------|--------------|------------------|
-| V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援 (建議的版本) |
+| 十二月更新彙總套件 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 2018 年 12 月 10 日 | 支援 (建議的版本) |
+| 十二月更新彙總套件 | 4.1.0.0 | 2018 年 12 月 4 日 | 支援 |
+| V4 版本 | 4.0.1.0 | 2018 年 11 月 13 日 | 支援 |
 | 九月更新彙總套件 | 3.3.0.0 | 2018 年 9 月 24 日 | 支援 |
 | 八月更新彙總套件 | 3.2.0.0 | 2018 年 8 月 15 日 | 支援 |
 | 正式運作 | 3.1.0.0 | 2018 年 7 月 19 日 | 支援 |
@@ -42,6 +44,22 @@ Azure 檔案同步代理程式支援下列版本：
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Azure 檔案同步代理程式更新原則
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## <a name="agent-version-4200"></a>代理程式版本 4.2.0.0
+下列版本資訊適用於 Azure 檔案同步代理程式版本 4.2.0.0 (在 2018 年 12 月 10 日發行)。 這些是針對版本 4.0.1.0 所列的版本資訊以外的版本資訊。
+
+此版本修正的問題清單：  
+- 建立 VSS 快照時，可能會發生停止錯誤 0x3B 或停止錯誤 0x1E。  
+- 啟用雲端階層處理時，可能發生記憶體流失  
+
+## <a name="agent-version-4100"></a>代理程式版本 4.1.0.0
+下列版本資訊適用於 Azure 檔案同步代理程式版本 4.1.0.0 (在 2018 年 12 月 4 日發行)。 這些是針對版本 4.0.1.0 所列的版本資訊以外的版本資訊。
+
+此版本修正的問題清單：  
+- 伺服器可能沒有回應，因為雲端階層處理的記憶體流失。  
+- 代理程式安裝失敗並顯示下列錯誤：錯誤 1921。 無法停止服務 'Storage Sync Agent' (FileSyncSvc)。  請確認您有足夠的權限可以停止系統服務。  
+- 儲存體同步代理程式 (FileSyncSvc) 服務可能在記憶體使用量偏高時當機。  
+- 針對雲端階層處理和同步處理的其他可靠性改進。
 
 ## <a name="agent-version-4010"></a>代理程式版本 4.0.1.0
 下列版本資訊適用於 Azure 檔案同步代理程式版本 4.0.1.0 (在 2018 年 11 月 13 日發行)。
@@ -107,7 +125,7 @@ Azure 檔案同步代理程式支援下列版本：
 ## <a name="agent-version-3300"></a>代理程式版本 3.3.0.0
 下列版本資訊適用於 2018 年 9 月 24 日發行的 Azure 檔案同步代理程式 3.3.0.0 版。 這些是針對版本 3.1.0.0 所列的版本資訊以外的版本資訊。
 
-此版本包含下列修正︰
+此版本修正的問題清單：
 - Azure 檔案同步代理程式升級至 3.1 或 3.2 版後，註冊的伺服器狀態為「顯示離線」。
 - 儲存體同步代理程式 (FileSyncSvc) 服務因檔案路徑太長而損毀。
 - 伺服器註冊失敗，錯誤：無法載入檔案或組件 Kailani.Afs.StorageSyncProtocol.V3。

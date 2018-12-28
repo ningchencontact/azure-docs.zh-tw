@@ -1,28 +1,29 @@
 ---
-title: 補救不符合 Azure 原則規範的資源
+title: 補救不相容的資源
 description: 此操作說明將逐步引導您補救不符合「Azure 原則」中原則規範的資源。
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/25/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: adba2322bce5f0884cba51078e65feeaeaf193d9
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.custom: seodec18
+ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392683"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312641"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>補救不符合 Azure 原則規範的資源
 
-您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 若要完成補救，需指示「原則」在您現有的資源上執行所指派原則的 **deployIfNotExists** 效果。 此操作說明將逐步引導您執行完成此任務所需的步驟。
+您可以透過「補救」讓不符合 **deployIfNotExists** 原則規範的資源變成符合規範狀態。 若要完成補救，需指示「原則」在您現有的資源上執行所指派原則的 **deployIfNotExists** 效果。 本文說明了解和完成使用「原則」來進行補救所需的步驟。
 
 ## <a name="how-remediation-security-works"></a>補救安全性的運作方式
 
 當「原則」執行 **deployIfNotExists** 原則定義中的範本時，會使用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)來執行。
-「原則」會為您建立每個指派項目的受控識別，但您必須提供有關要將受控識別授與哪些角色的詳細資料。 如果受控識別遺漏角色，在指派原則或包含原則的方案時，將會顯示此訊息。 使用入口網站時，在起始指派之後，「原則」會自動將所列出的角色授與受控識別。
+「原則」會為每個指派項目建立受控識別，但您必須提供有關要將哪些角色授與受控識別的詳細資料。 如果受控識別缺少角色，在指派原則或方案時，就會顯示此錯誤。 使用入口網站時，在開始指派之後，「原則」會自動將所列出的角色授與受控識別。
 
 ![受控識別 - 遺漏角色](../media/remediate-resources/missing-role.png)
 
@@ -31,8 +32,7 @@ ms.locfileid: "47392683"
 
 ## <a name="configure-policy-definition"></a>設定原則定義
 
-第一步是在原則定義中定義 **deployIfNotExists** 成功部署所含範本內容所需的角色。 請在 **details** 屬性底下，新增 **roleDefinitionIds** 屬性。 這是一個與您環境中角色相符的字串陣列。
-如需完整範例，請參閱 [deployIfNotExists 範例](../concepts/effects.md#deployifnotexists-example)。
+第一步是在原則定義中定義 **deployIfNotExists** 成功部署所含範本內容所需的角色。 請在 **details** 屬性底下，新增 **roleDefinitionIds** 屬性。 此屬性是一個與您環境中角色相符的字串陣列。 如需完整範例，請參閱 [deployIfNotExists 範例](../concepts/effects.md#deployifnotexists-example)。
 
 ```json
 "details": {
@@ -107,7 +107,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 若要將角色新增至指派項目的受控識別，請依照下列步驟進行操作：
 
-1. 透過按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
 1. 選取 Azure 原則分頁左側的 [指派]。
 
@@ -123,17 +123,17 @@ if ($roleDefinitionIds.Count -gt 0)
 
 1. 瀏覽至需要手動新增角色定義的資源或資源父容器 (資源群組、訂用帳戶、管理群組)。
 
-1. 按一下資源頁面中的 [存取控制 (IAM)] 連結，然後按一下存取控制頁面頂端的 [+ 新增]。
+1. 按一下資源頁面中的 [存取控制 (IAM)] 連結，然後按一下存取控制頁面頂端的 [+ 新增角色指派]。
 
 1. 從原則定義中選取符合 **roleDefinitionIds** 的適當角色。 將 [存取權指派對象為] 保留設定為預設的 [Azure AD 使用者、群組或應用程式]。 在 [選取] 方塊中，貼上或輸入稍早找到的指派資源識別碼部分。 在搜尋完成之後，按一下具有相同名稱的物件以選取識別碼，然後按一下 [儲存]。
 
 ## <a name="create-a-remediation-task"></a>建立補救工作
 
-在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此工作會從 **deployIfNotExists** 範本建立部署。
+在評估期間，具有 **deployIfNotExists** 效果的原則指派會判斷是否有不符合規範的資源。 當找到不符合規範的資源時，會在 [補救] 頁面上提供詳細資料。 具有不符合規範之資源的原則清單會隨附一個可觸發**補救工作**的選項。 此選項會從 **deployIfNotExists** 範本建立部署。
 
 若要建立**補救工作**，請依照下列步驟進行操作：
 
-1. 透過按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
+1. 藉由按一下 [所有服務] 然後搜尋並選取 [原則]，在 Azure 入口網站中啟動 Azure 原則服務。
 
    ![搜尋原則](../media/remediate-resources/search-policy.png)
 
@@ -150,7 +150,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
    ![補救 - 選取資源](../media/remediate-resources/select-resources.png)
 
-1. 篩選資源之後，按一下 [補救] 來起始補救工作。 原則合規性頁面將會開啟至 [補救工作] 索引標籤，以顯示工作進度的狀態。
+1. 篩選資源之後，按一下 [補救] 來開始補救工作。 原則合規性頁面將會開啟至 [補救工作] 索引標籤，以顯示工作進度的狀態。
 
    ![補救 - 工作進度](../media/remediate-resources/task-progress.png)
 
@@ -160,7 +160,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
    ![補救 - 資源工作操作功能表](../media/remediate-resources/resource-task-context-menu.png)
 
-透過**補救工作**部署的資源會在短暫延遲之後，新增至原則合規性頁面上的 [已部署資源] 索引標籤中。
+透過**補救工作**部署的資源會新增至原則合規性頁面上的 [已部署資源] 索引標籤中。
 
 ## <a name="next-steps"></a>後續步驟
 

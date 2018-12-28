@@ -4,14 +4,14 @@ description: 解說 Azure Migrate 的相關常見問題
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2018
 ms.author: snehaa
-ms.openlocfilehash: 2f04fe103d010a64a77b7d80730cf80007c3c126
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ebc4393341341b3b73165a166a650ae1a6f431ff
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256370"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257789"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - 常見問題集 (FAQ)
 
@@ -46,9 +46,14 @@ Azure Migrate 是移轉規劃工具，而 Azure Site Recovery 部署規劃工具
 
 **從 VMware/Hyper-V 移轉至 Azure 的災難復原**：如果您預計使用 Azure Site Recovery (Site Recovery) 在 Azure 上執行災難復原 (DR)，請使用 Site Recovery 部署規劃工具進行 DR 規劃。 Site Recovery 部署規劃工具可針對您的內部部署環境進行深層的 ASR 特定評估。 此外，還可針對如何成功執行複寫、虛擬機器容錯移轉等 DR 作業提供必要的 Site Recovery 建議。  
 
-### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 區域？
+### <a name="which-azure-geographies-are-supported-by-azure-migrate"></a>Azure Migrate 支援哪些 Azure 地理區？
 
-Azure Migrate 目前支援以美國東部和美國中西部作為移轉專案位置。 即使您只能在美國中西部和美國東部建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)來評估機器。 專案位置只會用來儲存探索到的資料。
+Azure Migrate 目前支援美國和 Azure Government 作為專案的地理位置。 即使您只能在這些地理區建立移轉專案，您還是可以針對[多個目標位置](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties)評估機器。 專案地理位置只會用來儲存探索到的資料。
+
+**地理位置** | **中繼資料儲存位置**
+--- | ---
+美國 | 美國中西部或美國東部
+Azure Government | 美國政府維吉尼亞州
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>內部部署站台如何連線至 Azure Migrate？
 
@@ -137,9 +142,12 @@ Azure Migrate 支援兩種探索，分別是設備為基礎及代理程式為基
 Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https://azure.microsoft.com/offers/enterprise-agreement-support/)的成本估計。 因應措施是指定「預付型方案」做為供應項目，並在評量屬性的 [折扣] 欄位中手動指定折扣百分比 (適用於訂用帳戶)。
 
   ![折扣](./media/resources-faq/discount.png)
-  
+
 
 ## <a name="dependency-visualization"></a>相依性視覺效果
+
+> [!NOTE]
+> 在 Azure Government 中無法使用相依性視覺效果功能。
 
 ### <a name="what-is-dependency-visualization"></a>什麼是相依性視覺效果？
 
@@ -151,7 +159,7 @@ Azure Migrate 目前不支援 [Enterprise 合約支援方案供應項目](https:
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>我是否需要為相依性視覺效果安裝任何項目？
 
-若要使用相依性視覺效果，您需要在您想要評估的每個內部部署機器上，下載並安裝代理程式。 
+若要使用相依性視覺效果，您需要在您想要評估的每個內部部署機器上，下載並安裝代理程式。
 
 - 必須在每個機器上安裝 [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)。
 - 必須在每個機器上安裝[相依性代理程式](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure)。

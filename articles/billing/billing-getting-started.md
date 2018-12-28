@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: c19769dda281f4346c23b823ea00eac83790b618
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582525"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341655"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
-當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並加以了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。 
+當您註冊 Azure 時，為了深入了解您的支出，有幾件事您可以做。 [定價計算機](https://azure.microsoft.com/pricing/calculator/)可以在您建立 Azure 資源之前提供成本估計值。 [Azure 入口網站](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)可為您提供目前的成本明細和您訂用帳戶的預測。 如果您需要將不同專案或小組的成本分組並加以了解，請查看[資源標記](../azure-resource-manager/resource-group-using-tags.md)。 如果您的組織有您偏好使用的報告系統，請查看[計費 API](billing-usage-rate-card-overview.md)。
 
 - 如果您的訂用帳戶屬於 Enterprise 合約 (EA)，可使用上線的 Azure 入口網站費用公開預覽功能。 如果您透過雲端解決方案提供者 (CSP) 或 Azure 贊助取得訂用帳戶，以下某些功能可能不適用於您。 如需詳細資訊，請參閱[適用於 EA、CSP 和贊助的其他資源](#other-offers)。
 
@@ -75,17 +75,17 @@ ms.locfileid: "52582525"
 
 ![顯示在入口網站中設定標籤的螢幕擷取畫面](./media/billing-getting-started/tags.PNG)
 
-這些標記會顯示在不同的成本報告檢視中。 例如，它們會立即顯示您的[成本分析檢視](#costs)，並在第一次計費期間之後，顯示[詳細使用量.csv](#invoice-and-usage)。
+這些標記會顯示在不同的成本報告檢視中。 例如，它們會立即顯示您的[成本分析檢視](#costs)，並在第一次計費期間之後，顯示詳細使用量 .csv。
 
 如需詳細資訊，請參閱 [使用標記組織您的 Azure 資源](../azure-resource-manager/resource-group-using-tags.md)。
 
 ### <a name="costs"></a>定期查看入口網站以了解成本細分和完工速率
 
-在您的服務開始執行之後，請定期檢查它們花了您多少錢。 您可以在 Azure 入口網站中看到目前的花費和完工速率。 
+在您的服務開始執行之後，請定期檢查它們花了您多少錢。 您可以在 Azure 入口網站中看到目前的花費和完工速率。
 
-1. 檢視 [Azure 入口網站中的 [訂用帳戶] 刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)然後選取您的訂用帳戶。
+1. 瀏覽 [Azure 入口網站中的 [訂用帳戶]](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 然後選取訂用帳戶。
 
-2. 您應該會在快顯刀鋒視窗中看到成本細分和完工速率。 您的供應項目可能不受支援 (靠近頂端處會顯示警告)。
+2. 如果您的訂用帳戶支援，您就會看到成本明細和完工速率。
 
     ![Azure 入口網站中完工速率和成本細分的螢幕擷取畫面](./media/billing-getting-started/burn-rate.PNG)
 
@@ -95,19 +95,19 @@ ms.locfileid: "52582525"
 
 4. 您可以依照不同屬性來篩選，例如[標記](#tags)資源群組和時間範圍。 按一下 [套用] 可確認篩選條件，如果您需要將檢視匯出至逗號分隔值 (.csv) 檔案，請按 [下載]。
 
-5. 此外，您可以按一下資源來查看每日支出記錄，以及每一天的成本是多少。
+5. 此外，您可以按一下資源來查看您的每日支出記錄，以及每一天的成本是多少。
 
     ![Azure 入口網站中消費歷程記錄檢視的螢幕擷取畫面](./media/billing-getting-started/costhistory.PNG)
 
-我們建議您將您看到的成本與您在選取服務時看到的預估進行核對。 如果成本和預估的差異很大，請再次檢查您為您的資源選取的定價方案 (例如 A1 與 A0 VM)。 
+我們建議您將您看到的成本與您在選取服務時看到的預估進行核對。 如果成本和預估的相差很多，請再次檢查您為資源選取的定價方案。
 
 ### <a name="consider-enabling-cost-cutting-features-like-auto-shutdown-for-vms"></a>請考慮啟用成本削減功能，例如 VM 自動關機
 
-根據您的案例，您可以在 Azure 入口網站中設定 VM 自動關機。 如需詳細資訊，請參閱[使用 Azure Resource Manager 的 VM 自動關機 (英文)](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/)。
+視您的案例而定，您可以在 Azure 入口網站中設定 VM 自動關機。 如需詳細資訊，請參閱[使用 Azure Resource Manager 的 VM 自動關機](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) \(英文\)。
 
-![在入口網站的自動關機選項的螢幕擷取畫面](./media/billing-getting-started/auto-shutdown.PNG)
+![在入口網站中的自動關機選項的螢幕擷取畫面](./media/billing-getting-started/auto-shutdown.PNG)
 
-自動關機與您在 VM 中使用電源選項關閉不一樣。 自動關機會停止並解除配置您的 VM，以便停止額外的使用費用。 如需詳細資訊，請參閱 [Linux VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 的定價常見問題，以及 [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)有關 VM 的狀態。
+自動關機與您在 VM 中使用電源選項關閉不一樣。 自動關機會停止並解除配置您的 VM，以停止額外的使用費用。 如需詳細資訊，請參閱 [Linux VM](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) 的定價常見問題，以及 [Windows VM](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)有關 VM 的狀態。
 
 如需更多針對開發和測試環境的成本削減功能，請參閱 [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/)。
 
@@ -144,28 +144,29 @@ ms.locfileid: "52582525"
 
 如果您管理的是大型組織的 IT，我們建議您閱讀 [Azure 企業 Scaffold](/azure/architecture/cloud-adoption-guide/subscription-governance) 和[企業 IT 技術白皮書](https://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf 下載，僅提供英文版)。
 
-#### <a name="EA"></a> 預覽 Azure 入口網站中的 Enterprise 合約費用檢視 
+#### <a name="EA"></a> 預覽 Azure 入口網站中的 Enterprise 合約成本檢視 
 
 企業成本檢視目前只提供公開預覽。 下列為需注意的事項：
-- 訂閱費用是以使用情形計費，不考慮預付金額、超額部分、包含的數量、調整內容和稅金。 系統會在申請時計算實際費用。 
-- 相較於企業版入口網站中的值，Azure 入口網站可能會比較慢才顯示最新金額。  
-- 如果看不到費用，可能是因為下列其中一個原因：
-    - 您在訂用帳戶層級上沒有足夠的 RBAC 權限。 若要查看企業成本檢視，您必須是訂用帳戶層級上的帳單讀者、讀者、參與者或擁有者。
+
+- 訂閱費用是以使用情況計費，不包含預付金額、超額部分、包含的數量、調整內容和稅金。 系統會在申請時計算實際費用。
+- 在 Azure 入口網站中顯示的數量可能與在企業版入口網站中顯示的不同。 在企業版入口網站中的更新可能需要幾分鐘之後才會顯示在 Azure 入口網站中。
+- 如果您沒有看到成本，原因可能為下列其中之一：
+    - 您沒有訂用帳戶層級的權限。 若要查看企業成本檢視，您必須是訂用帳戶層級上的帳單讀者、讀者、參與者或擁有者。
     - 您是帳戶擁有者且您的申請管理員已停用「AO 檢視費用」設定。  請連絡您的申請管理員以取得費用存取權。 
-    - 您是部門管理員且您的申請管理員已停用「DA 檢視費用」設定。  請連絡您的申請管理員以取得存取權。 
-    - 您透過管道夥伴購買 Azure，且該夥伴未發佈價格資訊。  
-- 企業版入口網站中與費用存取權相關的設定更新後，Azure 入口網站會延遲幾分鐘才反映該變更。
+    - 您是部門管理員且您的申請管理員已停用「DA 檢視費用」設定。  請連絡您的註冊管理員以取得存取權。
+    - 您是透過通道合作夥伴購買 Azure，而該合作夥伴未釋出定價資訊。  
+- 如果您在企業版入口網站中更新成本存取相關的設定，則變更可能需要幾分鐘才會在 Azure 入口網站中顯示。
 - 消費限制和發票指導方針不適用於 EA 訂用帳戶。
 
 ### <a name="check-your-subscription-and-access"></a>檢查訂用帳戶和存取權
 
-檢視成本需要[訂用帳戶層級的計費資訊存取權](billing-manage-access.md)，但只有帳戶管理員可以存取[帳戶中心](https://account.azure.com/Subscriptions)、變更計費資訊，以及管理訂用帳戶。 帳戶管理員是完成註冊程序的人員。 如需詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
+若要檢視成本，您必須有[帳單資訊的訂用帳戶層級存取權](billing-manage-access.md)。 只有帳戶管理員可以存取[帳戶中心](https://account.azure.com/Subscriptions)、變更帳單資訊，以及管理訂用帳戶。 帳戶管理員是完成註冊程序的人員。 如需詳細資訊，請參閱[新增或變更管理訂用帳戶或服務的 Azure 系統管理員角色](billing-add-change-azure-subscription-administrator.md)。
 
-若要查看您是否為帳戶管理員，請前往 [Azure 入口網站中的訂用帳戶刀鋒視窗](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)並查看您具有存取權的訂用帳戶清單。 查看 [我的角色] 底下。 如果它顯示*帳戶管理員*，那麼您就是帳戶管理員。 如果它顯示諸如*擁有者*之類的其他角色，則表示您沒有完整權限。
+若要查看您是否為帳戶管理員，請移至 [Azure 入口網站中的訂用帳戶](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。 看看您有存取權的訂用帳戶清單。 查看 [我的角色] 底下。 如果它顯示*帳戶管理員*，那麼您就是帳戶管理員。 如果它顯示諸如*擁有者*之類的其他角色，則表示您沒有完整權限。
 
 ![Azure 入口網站的訂用帳戶檢視中您的角色的螢幕擷取畫面](./media/billing-getting-started/sub-blade-view.PNG)
 
-如果您不是帳戶管理員，則表示有人可能透過 [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md) (RBAC) 授與您部分存取權。 若要管理訂用帳戶及變更帳單資訊，請[找到帳戶管理員](billing-subscription-transfer.md#whoisaa)，並要求他們執行工作或[將訂用帳戶轉移給您](billing-subscription-transfer.md)。
+如果您不是帳戶管理員，則表示有人可能藉由使用 [Azure Active Directory 角色型存取控制](../role-based-access-control/role-assignments-portal.md) (RBAC) 授與您部分存取權。 若要管理訂用帳戶及變更帳單資訊，請[尋找帳戶管理員](billing-subscription-transfer.md#whoisaa)。要求帳戶管理員執行該工作，或[將訂用帳戶移轉給您](billing-subscription-transfer.md)。
 
 如果您的帳戶管理員已不在您組織，而您需要管理帳單，請[與我們連絡](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。
 

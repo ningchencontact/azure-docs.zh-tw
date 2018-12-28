@@ -8,18 +8,18 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/04/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 265314ebf2568bd586934d371e1e6c1d74e0b9bb
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 359594ab91b903033ecc303eccd270988be19810
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637013"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336521"
 ---
 # <a name="overview-of-function-types-and-features-for-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 之函式類型與功能概觀
 
-Azure Durable Functions 提供函式執行之具狀態的協調流程。 長期函式是由不同的 Azure Functions 所組成的解決方案。 每個函式均在協調流程中扮演不同的角色。 以下文件會概略說明長期函式協調流程中涉及的函式類型， 也會提及一些將函式連接在一起的常見模式。  若要立即開始，請使用 [C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md) 建立您的第一個長期函式。
+Durable Functions 提供函式執行之具狀態的協調流程。 長期函式是由不同的 Azure Functions 所組成的解決方案。 每個函式均在協調流程中扮演不同的角色。 以下文件會概略說明長期函式協調流程中涉及的函式類型， 也會提及一些將函式連接在一起的常見模式。  若要立即開始，請使用 [C#](durable-functions-create-first-csharp.md) 或 [JavaScript](quickstart-js-vscode.md) 建立第一個持久的函式。
 
 ![長期函式類型][1]  
 
@@ -27,9 +27,11 @@ Azure Durable Functions 提供函式執行之具狀態的協調流程。 長期�
 
 ### <a name="activity-functions"></a>活動函式
 
-活動函式是長期協調流程中的基工作本單位。  活動函式是在流程中受到協調處理的函式和任務。  例如，您可以建立一個長期函式來處理訂單，用來檢查庫存、向客戶收費、建立出貨等。  這類任務每項都是活動函式。  活動函式對於可在其中進行的工作類型沒有任何限制。  其可使用 Azure Functions 支援的任何語言撰寫。  長期任務架構可確保每個呼叫的活動函式在協調流程期間至少執行一次。
+活動函式是長期協調流程中的基工作本單位。  活動函式是在流程中受到協調處理的函式和任務。  例如，您可以建立一個長期函式來處理訂單，用來檢查庫存、向客戶收費、建立出貨等。  這類任務每項都是活動函式。  活動函式對於可在其中進行的工作類型沒有任何限制。  它們可以使用 [Durable Functions 支援的任何語言](durable-functions-overview.md#language-support)來撰寫。 持久的工作架構保證每個呼叫的活動函式將在協調流程期間至少執行一次。
 
-活動函式必須由[活動觸發程序](durable-functions-bindings.md#activity-triggers)觸發。  此函式會以參數形式接收到 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html)。 您也可以將觸發程式繫結至任何其他物件，以將輸入的資訊傳遞至函式。  活動函式也可以將值傳回協調器。  若活動函式會傳出和傳回許多值，則可[利用元組或陣列](durable-functions-bindings.md#passing-multiple-parameters)。  活動函式只能由協調流程執行個體加以觸發。  雖然活動函式與另一個函式 (例如 HTTP 觸發函式) 之間，可能會共用一些程式碼，每個函式只能有一個觸發程序。
+活動函式必須由[活動觸發程序](durable-functions-bindings.md#activity-triggers)觸發。  .NET 函式將以參數形式接收 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) \(英文\)。 您也可以將觸發程式繫結至任何其他物件，以將輸入的資訊傳遞至函式。 在 JavaScript 中，可透過 [`context.bindings` 物件](../functions-reference-node.md#bindings)上的 `<activity trigger binding name>` 屬性來存取輸入。
+
+活動函式也可以將值傳回協調器。  若活動函式會傳出和傳回許多值，則可[利用元組或陣列](durable-functions-bindings.md#passing-multiple-parameters)。  活動函式只能由協調流程執行個體加以觸發。  雖然活動函式與另一個函式 (例如 HTTP 觸發函式) 之間，可能會共用一些程式碼，每個函式只能有一個觸發程序。
 
 如需更多資訊和範例，請參閱[長期函式中的繫結 (Azure Functions)](durable-functions-bindings.md#activity-triggers)。
 
@@ -79,7 +81,9 @@ Durable Function 協調流程會在程式碼中實作，且可以使用程式設
 
 雖然長期協調流程通常存在於單一函式應用程式的情況下，但仍有模式可以協調跨多個函式應用程式的協調流程。  儘管可以透過 HTTP 進行跨應用程式通訊，但若在每個活動上使用長期框架，就能維持跨兩個應用程式的長期流程。
 
-以下提供以 C# 撰寫之跨函式應用程式協調流程的範例。  一個活將會啟動外部協調流程。 另一個活動則會取出狀態並傳回。  協調器會等待狀態完成後再繼續。
+以下提供以 C# 和 JavaScript 撰寫的跨函式應用程式協調流程範例。  一個活將會啟動外部協調流程。 另一個活動則會取出狀態並傳回。  協調器會等待狀態完成後再繼續。
+
+#### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("OrchestratorA")]
@@ -128,6 +132,64 @@ public static async Task<bool> CheckIsComplete([ActivityTrigger] string statusUr
         return response.StatusCode == HttpStatusCode.OK;
     }
 }
+```
+
+#### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    // Do some work...
+
+    // Call a remote orchestration
+    const statusUrl = yield context.df.callActivity("StartRemoteOrchestration", "OrchestratorB");
+
+    // Wait for the remote orchestration to complete
+    while (true) {
+        const isComplete = yield context.df.callActivity("CheckIsComplete", statusUrl);
+        if (isComplete) {
+            break;
+        }
+
+        const waitTime = moment(context.df.currentUtcDateTime).add(1, "m").toDate();
+        yield context.df.createTimer(waitTime);
+    }
+
+    // B is done. Now go do more work...
+});
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, orchestratorName) {
+    const options = {
+        method: "POST",
+        uri: `https://appB.azurewebsites.net/orchestrations/${orchestratorName}`,
+        body: ""
+    };
+
+    const statusUrl = await request(options);
+    return statusUrl;
+};
+```
+
+```javascript
+const request = require("request-promise-native");
+
+module.exports = async function(context, statusUrl) {
+    const options = {
+        method: "GET",
+        uri: statusUrl,
+        resolveWithFullResponse: true,
+    };
+
+    const response = await request(options);
+    // 200 = Complete, 202 = Running
+    return response.statusCode === 200;
+};
 ```
 
 ## <a name="next-steps"></a>後續步驟

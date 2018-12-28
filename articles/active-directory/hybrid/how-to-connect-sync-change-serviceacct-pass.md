@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 同步處理︰變更 Azure AD Connect 同步處理服務帳戶 | Microsoft Docs
+title: Azure AD Connect 同步：變更 Azure AD Connect 同步服務帳戶 | Microsoft Docs
 description: 本主題文件說明加密金鑰，以及如何在密碼變更後放棄它。
 services: active-directory
 keywords: Azure AD 同步處理服務帳戶, 密碼
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747247"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184894"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>變更 Azure AD Connect 同步處理服務帳戶密碼
 如果您變更 Azure AD Connect 同步服務帳戶密碼，「同步處理服務」將會無法正確啟動，直到您放棄加密金鑰並將 Azure AD Connect 同步服務帳戶密碼重新初始化為止。 
@@ -38,13 +38,13 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 第一件事，您必須在 Windows 服務控制管理員底下變更密碼。  在此問題獲得解決之前，您會看到下列錯誤︰
 
 
-- 如果您嘗試在 Windows 服務控制管理員中啟動同步處理服務，您會收到錯誤「**Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步處理服務**」。 **錯誤 1069︰由於登入失敗，此服務未啟動。**」
-- 在 Windows 事件檢視器底下，系統事件記錄包含**事件識別碼為 7038** 的錯誤和「**ADSync 服務無法使用目前設定的密碼來登入，因為發生下列錯誤︰使用者名稱或密碼不正確**」的訊息。
+- 如果您嘗試在 Windows 服務控制管理員中啟動同步處理服務，您會收到錯誤「**Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步處理服務**」。 **錯誤 1069:登入失敗所以服務無法啟動。**」
+- 在 [Windows 事件檢視器] 底下，系統事件記錄包含**事件識別碼為 7038** 的錯誤和訊息 [ADSync 服務無法使用目前設定的密碼來登入，因為發生下列錯誤:使用者名稱或密碼不正確]。
 
 第二件事，若密碼在特定狀況下做了更新，同步處理服務將無法再透過 DPAPI 擷取加密金鑰。 沒有加密金鑰，同步處理服務就無法將密碼解密，以供用來在內部部署 AD 和 Azure AD 進行同步處理。
 您會看到如下錯誤︰
 
-- 如果您嘗試在 Windows 服務控制管理員底下啟動同步處理服務，但此服務無法擷取加密金鑰，此啟動作業便會失敗，並出現錯誤「**Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步處理。** 如需詳細資訊，請檢閱系統事件記錄。 **如果這不是 Microsoft 服務，請連絡服務供應商，並參考服務特有的錯誤碼 \*\*-21451857952**\*\*」。
+- 如果您嘗試在 Windows 服務控制管理員底下啟動同步處理服務，但此服務無法擷取加密金鑰，此啟動作業便會失敗，並出現錯誤 [Windows 無法在本機電腦上啟動 Microsoft Azure AD 同步。<strong>如需詳細資訊，請檢閱系統事件記錄。</strong>如果這是一項非 Microsoft 服務，請連絡該服務廠商，並參照服務特定錯誤碼 -21451857952]。
 - Windows 事件檢視器底下的應用程式事件記錄包含**事件識別碼為 6028** 的錯誤和錯誤訊息「*無法存取伺服器加密金鑰*」。
 
 若要確保不會收到這些錯誤，請在變更密碼時遵循[放棄 Azure AD Connect 同步處理加密金鑰](#abandoning-the-azure-ad-connect-sync-encryption-key)中的程序。
@@ -121,6 +121,6 @@ Azure AD Connect 是同步處理服務的一部分，會使用加密金鑰來儲
 ## <a name="next-steps"></a>後續步驟
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

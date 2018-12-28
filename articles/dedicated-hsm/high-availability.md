@@ -1,22 +1,23 @@
 ---
-title: Azure 專用 HSM 高可用性 | Microsoft Docs
-description: Azure 專用硬體安全模組 (HSM) 可在 Azure 內提供金鑰儲存功能，以符合 FIPS 140-2 等級 3 認證
+title: 高可用性 - Azure 專用 HSM | Microsoft Docs
+description: 「Azure 專用 HSM」高可用性範例和基本考量
 services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
+ms.custom: mvc, seodec18
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: eb3c6ea64b55d59f261927925d4d4ae87546bf95
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 991482d3d6be4d09b37014e5bb03708987e0f74e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319237"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078169"
 ---
 # <a name="azure-dedicated-hsm-high-availability"></a>Azure 專用 HSM 高可用性
 

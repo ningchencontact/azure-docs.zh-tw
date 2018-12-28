@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Environment 的網路考量
+title: App Service 環境的網路考量 - Azure
 description: 說明 ASE 網路流量與如何使用 ASE 設定 NSG 和 UDR
 services: app-service
 documentationcenter: na
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
-ms.openlocfilehash: 535f70658593ff5a9ae1642ae7a97646e3fefb63
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.custom: seodec18
+ms.openlocfilehash: d9a0ab84e133863092f68cc949c2b7933bc5da31
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288249"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271006"
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment 的網路考量 #
+# <a name="networking-considerations-for-an-app-service-environment"></a>App Service 環境的網路考量 #
 
 ## <a name="overview"></a>概觀 ##
 
- Azure [App Service Environment][Intro] 是將 Azure App Service 部署到您 Azure 虛擬網路 (VNet) 中子網路的一種部署。 App Service Environment (ASE) 有二種部署類型：
+ Azure [App Service 環境][Intro] 是將 Azure App Service 部署到您 Azure 虛擬網路 (VNet) 中子網路的一種部署。 App Service 環境 (ASE) 有兩種部署類型：
 
-- **外部 ASE**：會在可存取網際網路的 IP 位址上公開 ASE 裝載的應用程式。 如需詳細資訊，請參閱[建立外部 ASE][MakeExternalASE]。
+- **外部 ASE**：會在可從網際網路存取的 IP 位址上公開 ASE 裝載的應用程式。 如需詳細資訊，請參閱[建立外部 ASE][MakeExternalASE]。
 - **ILB ASE**：會在您 VNet 內部的 IP 位址上公開 ASE 裝載的應用程式。 內部端點是一個內部負載平衡器 (ILB)，這就是它稱為 ILB ASE 的原因。 如需詳細資訊，請參閱[建立和使用 ILB ASE][MakeILBASE]。
 
-App Service Environment 有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 的資訊，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。 ASEv1 可以部署至傳統或 Resource Manager VNet 中。 ASEv2 只能部署至 Resource Manager VNet 中。
+「App Service 環境」有兩個版本：ASEv1 和 ASEv2。 如需 ASEv1 的資訊，請參閱 [App Service 環境 v1 簡介][ASEv1Intro]。 ASEv1 可以部署至傳統或 Resource Manager VNet 中。 ASEv2 只能部署至 Resource Manager VNet 中。
 
 來自 ASE 並傳送至網際網路的所有呼叫，都會透過為 ASE 指派的 VIP 離開 VNet。 此 VIP 的公用 IP 是來自 ASE 並傳送至網際網路之所有呼叫的來源 IP。 如果 ASE 中的應用程式會呼叫位於 VNet 中或跨 VPN 的資源，則來源 IP 就會是 ASE 所用子網路中的其中一個 IP。 因為 ASE 是位於 VNet 之內，所以它也可以存取 VNet 內的資源，而不需要任何額外設定。 如果 VNet 連線至您的內部部署網路，您 ASE 中的應用程式也擁有該處資源的存取權，而不需其他設定。
 
@@ -90,9 +91,9 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 ### <a name="ase-outbound-dependencies"></a>ASE 連出相依性 ###
 
-對於輸出存取，ASE 取決於多個外部系統。 那些系統相依性中有許多都會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的輸出存取。 
+針對連出存取，ASE 取決於多個外部系統。 那些系統相依性中有許多都會以 DNS 名稱定義，且不會對應至一組固定的 IP 位址。 因此，ASE 需要透過不同的連接埠進行從 ASE 子網路至所有外部 IP 的連出存取。 
 
-連出相依性的完整清單列於說明[鎖定 App Service Environment 連出流量](./firewall-integration.md)的文件中。 如果 ASE 失去對其相依性的存取，就會停止運作。 當停止運作時間達到一定的長度之後，ASE 就會暫停。 
+連出相依性的完整清單列於說明[鎖定 App Service 環境連出流量](./firewall-integration.md)的文件中。 如果 ASE 失去對其相依性的存取，就會停止運作。 當停止運作時間達到一定的長度之後，ASE 就會暫停。 
 
 ### <a name="customer-dns"></a>客戶 DNS ###
 
@@ -136,10 +137,10 @@ ASE 子網路中有許多用於內部元件通訊的連接埠，您可以變更�
 
 ASE 有一些 IP 位址需要注意。 如下：
 
-- **公用輸入 IP 位址**：用於外部 ASE 中的應用程式流量，以及外部 ASE 和 ILB ASE 中的管理流量。
-- **輸出公用 IP**：用來作為 ASE 輸出連線離開 VNet 時的「來源」IP (不會透過 VPN 進行路由)。
-- **ILB IP 位址**：如果您是使用 ILB ASE。
-- **應用程式指派之以 IP 為主的 SSL 位址**：只有在使用外部 ASE 並已設定以 IP 為主的 SSL 時才能使用。
+- **公用連入 IP 位址**：用於「外部 ASE」中的應用程式流量，以及「外部 ASE」和 ILB ASE 中的管理流量。
+- **連出公用 IP**：用來作為 ASE 連出連線離開 VNet 時的「來源」IP (不會透過 VPN 往下路由傳送)。
+- **ILB IP 位址**：如果您使用 ILB ASE。
+- **應用程式指派的 IP 型 SSL 位址**：只有在使用「外部 ASE」並已設定 IP 型 SSL 時，才可使用。
 
 在 Azure 入口網站中，所有這些 IP 位址都可以很容易地在 ASEv2 的 ASE UI 中看出來。 如果您有 ILB ASE，系統便會列出 ILB 的 IP。
 
@@ -162,27 +163,27 @@ ASE 有一些 IP 位址需要注意。 如下：
 
 NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊僅針對 Azure 入口網站說明。 您會在入口網站中的 [網路] 底下，以最上層資源的形式建立及管理 NSG。
 
-將輸入和輸出需求納入考量時，NSG 看起來應類似此範例中顯示的 NSG。 VNet 位址範圍為 _192.168.250.0/23_，且 ASE 所在的子網路為 _192.168.251.128/25_。
+將連入和連出需求納入考量時，NSG 看起來應類似此範例中顯示的 NSG。 VNet 位址範圍為 _192.168.250.0/23_，且 ASE 所在的子網路為 _192.168.251.128/25_。
 
 讓 ASE 能夠運作的前兩個輸入需求顯示在此範例中清單的最上方。 它們能啟用 ASE 管理，並允許 ASE 和自己通訊。 其他項目都是租用戶設定項目，而且可以管理對 ASE 裝載應用程式的網路存取。 
 
 ![輸入安全性規則][4]
 
-預設規則可讓 VNet 中的 IP 與 ASE 子網路通訊。 另一個預設規則可讓負載平衡器 (也稱為公用 VIP) 和 ASE 通訊。 您可以選取 [新增] 圖示旁邊的 [預設規則] 來查看預設規則。 如果您在顯示的 NSG 規則後面加入拒絕其他任何內容的規則，便可以防止 VIP 和 ASE 之間產生流量。 若要防止來自 VNet 內部的流量，請新增您自己的規則來允許輸入。 使用來源等於 AzureLoadBalancer，目的地為 **Any**，以及 **\*** 的連接埠範圍。 由於 NSG 規則是套用至 ASE 子網路，因此不需要特別指定目的地。
+預設規則可讓 VNet 中的 IP 與 ASE 子網路通訊。 另一個預設規則可讓負載平衡器 (也稱為公用 VIP) 和 ASE 通訊。 您可以選取 [新增] 圖示旁邊的 [預設規則] 來查看預設規則。 如果您在顯示的 NSG 規則後面加入拒絕其他任何內容的規則，便可以防止 VIP 和 ASE 之間產生流量。 若要防止來自 VNet 內部的流量，請新增您自己的規則來允許連入。 使用來源等於 AzureLoadBalancer，目的地為 **Any**，以及 **\*** 的連接埠範圍。 由於 NSG 規則是套用至 ASE 子網路，因此不需要特別指定目的地。
 
-如果指派 IP 位址給應用程式，請確定維持開啟連接埠。 若要查看連接埠，請選取 [App Service Environment] > [IP 位址]。  
+如果指派 IP 位址給應用程式，請確定維持開啟連接埠。 若要查看連接埠，請選取 [App Service 環境] > [IP 位址]。  
 
-下列輸出規則中顯示的所有項目都是需要的項目，但不包含最後一個項目。 它們可啟用針對本文章之前所提到之 ASE 相依性的網路存取。 如果封鎖它們任何一項，ASE 會停止運作。 清單中的最後一個項目可讓 ASE 和 VNet 中的其他資源通訊。
+下列連出規則中顯示的所有項目都是需要的項目，但不包含最後一個項目。 它們可啟用針對本文章之前所提到之 ASE 相依性的網路存取。 如果封鎖它們任何一項，ASE 會停止運作。 清單中的最後一個項目可讓 ASE 和 VNet 中的其他資源通訊。
 
-![輸出安全性規則][5]
+![連出安全性規則][5]
 
 定義 NSG 之後，請將它們指派給 ASE 所在的子網路。 如果您不記得 ASE VNet 或子網路，可以從 ASE 入口網站頁面查看。 若要將 NSG 指派給子網路，請移至子網路 UI 並選取 NSG。
 
 ## <a name="routes"></a>路由 ##
 
-強制通道就是您在 VNet 中設定路由，讓輸出流量不會直接流向網際網路，而是流向其他地方，像是 ExpressRoute 閘道、虛擬應用裝置。  如果需要以此方式設定 ASE，請閱讀[為 App Service Environment 設定強制通道][forcedtunnel]文件。  這份文件會告訴您可與 ExpressRoute 和強制通道搭配使用的選項。
+強制通道就是您在 VNet 中設定路由，讓連出流量不會直接流向網際網路，而是流向其他地方，像是 ExpressRoute 閘道、虛擬應用裝置。  如果需要以此方式設定 ASE，請閱讀[為 App Service 環境設定強制通道][forcedtunnel]文件。  這份文件會告訴您可與 ExpressRoute 和強制通道搭配使用的選項。
 
-當您在入口網站中建立 ASE 時，我們也會在隨著 ASE 建立的子網路上建立一組路由資料表。  這些路由只單純指示直接將輸出流量傳送至網際網路。  
+當您在入口網站中建立 ASE 時，我們也會在隨著 ASE 建立的子網路上建立一組路由資料表。  這些路由只單純指示直接將連出流量傳送至網際網路。  
 若要手動建立路由，請依照下列步驟執行︰
 
 1. 移至 Azure 入口網站。 選取 [網路] > [路由表]。
@@ -234,10 +235,10 @@ NSG 可以透過 Azure 入口網站或 PowerShell 來設定。 這裡的資訊�
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [ASEManagement]: ./management-addresses.md

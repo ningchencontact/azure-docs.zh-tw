@@ -1,20 +1,20 @@
 ---
-title: 使用 Python 將事件傳送到 Azure 事件中樞 | Microsoft Docs
-description: 開始使用 Python 將事件傳送到事件中樞
+title: 使用 Python 來傳送事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文將逐步解說如何建立一個會將事件傳送給「Azure 事件中樞」的 Node.js 應用程式。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/16/2018
 ms.author: shvija
-ms.openlocfilehash: 05feab0227633ab52f0865fa7c19a310b612eb1c
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: b7adf3976f5f7e028ffa9ffeb13db22d3d4bba8e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286889"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53102974"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>使用 Python 將事件傳送至事件中樞
 
@@ -29,11 +29,16 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 若要完成本教學課程，您需要下列必要條件：
 
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 - Python 3.4 或更新版本。
 
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。
+
+請依照以下文章中的指示，取得事件中樞的存取金鑰值：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您可以在您於本教學課程稍後撰寫的程式碼中，使用此存取金鑰。 預設的金鑰名稱是：**RootManageSharedAccessKey**。
+
+現在，請繼續進行本教學課程中的下列步驟。
 
 ## <a name="install-python-package"></a>安裝 Python 套件
 

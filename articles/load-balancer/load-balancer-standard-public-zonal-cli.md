@@ -1,13 +1,11 @@
 ---
-title: 使用 Azure CLI 來建立具有區域公用 IP 位址前端的公用 Load Balancer Standard | Microsoft Docs
+title: 使用 Azure CLI 來建立具有區域前端的 Standard Load Balancer
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 來建立具有區域公用 IP 位址前端的公用 Load Balancer Standard
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: kumud
-ms.openlocfilehash: 52834e1ac9768f5207b64ba841a3761f153a9f87
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1a6777a99c2237fc4d201fa5c87eaea88117866
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984444"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185625"
 ---
 #  <a name="create-a-public-load-balancer-standard-with-zonal-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域前端的公用 Load Balancer Standard
 

@@ -1,5 +1,5 @@
 ---
-title: 重建 Azure 搜尋服務索引或重新整理可搜尋內容 | Microsoft Docs
+title: 使用內建索引子相應放大索引 - Azure 搜尋服務
 description: 藉由完整重建或部分累加索引編製來新增元素、更新現有的元素或文件或刪除過時的文件，以重新整理 Azure 搜尋服務索引。
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 0b346756349c483dea32ec31827a653bd9b777cf
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec2018
+ms.openlocfilehash: 5f268de43f4f860458c062cb80e5bea0134b4407
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705934"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316662"
 ---
 # <a name="how-to-scale-out-indexing-in-azure-search"></a>如何在 Azure 搜尋服務中相應放大索引
 

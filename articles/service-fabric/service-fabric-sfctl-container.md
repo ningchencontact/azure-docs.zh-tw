@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 27108d27ee27346e4cba44e6778faff56df70a36
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 455b2a70568566bff5b1ea4c185568a1758f7db3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495123"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274899"
 ---
 # <a name="sfctl-container"></a>sfctl container
 在叢集節點上執行容器相關命令。
@@ -28,22 +28,22 @@ ms.locfileid: "39495123"
 
 |命令|說明|
 | --- | --- |
-| invoke-api | 叫用容器 REST API。 |
-| logs | 擷取容器記錄。 |
+| invoke-api | 針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。 |
+| logs | 針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。 |
 
 ## <a name="sfctl-container-invoke-api"></a>sfctl container invoke-api
-叫用容器 REST API。
+針對指定程式碼封裝，叫用 Service Fabric 節點上所部署容器的容器 API。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --application-id           [必要] | 應用程式識別碼。 |
-| --code-package-instance-id [必要] | 程式碼套件執行個體識別碼，可由 'service code-package-list' 來擷取。 |
-| --code-package-name        [必要] | 程式碼套件名稱。 |
+| --application-id           [必要] | 應用程式的身分識別。 <br><br> 這通常是不含 'fabric\:' URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果應用程式名稱是 "fabric\:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp\~app1"，而在舊版中會是 "myapp/app1"。 |
+| --code-package-instance-id [必要] | 可唯一識別 Service Fabric 節點上所部署程式碼封裝執行個體的識別碼。 <br><br> 可由 'service code-package-list' 來擷取。 |
+| --code-package-name        [必要] | 服務資訊清單中所指定的程式碼套件名稱，此資訊清單已註冊為 Service Fabric 叢集中應用程式類型的一部分。 |
 | --container-api-uri-path   [必要] | 容器 REST API URI 路徑，請使用 '{id}' 來取代容器名稱/識別碼。 |
 | --node-name [必要] | 節點的名稱。 |
-| --service-manifest-name    [必要] | 服務資訊清單名稱。 |
+| --service-manifest-name    [必要] | 在 Service Fabric 叢集中，註冊為應用程式類型中一部分的服務資訊清單名稱。 |
 | --container-api-body | 容器 REST API 的 HTTP 要求本文。 |
 | --container-api-content-type | 容器 REST API 的內容類型，預設為 'application/json'。 |
 | --container-api-http-verb | 容器 REST API 的 HTTP 動詞，預設為 GET。 |
@@ -60,18 +60,18 @@ ms.locfileid: "39495123"
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-container-logs"></a>sfctl container logs
-擷取容器記錄。
+針對指定程式碼套件，取得 Service Fabric 節點上所部署容器的容器記錄。
 
 ### <a name="arguments"></a>引數
 
 |引數|說明|
 | --- | --- |
-| --application-id           [必要] | 應用程式識別碼。 |
+| --application-id           [必要] | 應用程式的身分識別。 <br><br> 這通常是不含 'fabric\:' URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果應用程式名稱是 "fabric\:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp\~app1"，而在舊版中會是 "myapp/app1"。 |
 | --code-package-instance-id [必要] | 程式碼套件執行個體識別碼，可由 'service code-package-list' 來擷取。 |
-| --code-package-name        [必要] | 程式碼套件名稱。 |
+| --code-package-name        [必要] | 服務資訊清單中所指定的程式碼套件名稱，此資訊清單已註冊為 Service Fabric 叢集中應用程式類型的一部分。 |
 | --node-name [必要] | 節點的名稱。 |
-| --service-manifest-name    [必要] | 服務資訊清單名稱。 |
-| --tail | 只從記錄結尾傳回此數目的記錄行。 請以整數指定，或指定 all 來輸出所有記錄行。 預設為 'all'。 |
+| --service-manifest-name    [必要] | 在 Service Fabric 叢集中，註冊為應用程式類型中一部分的服務資訊清單名稱。 |
+| --tail | 要從記錄結尾顯示的行數。 預設值為 100。 'all' 表示顯示完整記錄。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數

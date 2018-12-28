@@ -10,25 +10,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 06/21/2018
+ms.date: 12/11/2018
 ms.author: douglasl
-ms.openlocfilehash: 3c829819748309ecbca248afe35cd59f54b202a6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: d2000e626166304e92556e3c965df175a27046ad
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085405"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321062"
 ---
 # <a name="enable-azure-active-directory-authentication-for-the-azure-ssis-integration-runtime"></a>啟用適用於 Azure-SSIS 整合執行階段的 Azure Active Directory 驗證
 
 本文說明如何使用 Azure Data Factory 服務識別建立 Azure-SSIS IR。 您可以使用 Azure Active Directory (Azure AD) 驗證搭配 Azure Data Factory 的受控識別 (而非使用 SQL 驗證) 來建立 Azure-SSIS 整合執行階段。
 
-如需 ADF 受控識別的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
+如需有關 Data Factory 受控識別的詳細資訊，請參閱 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)。
 
 > [!NOTE]
 > 如果您已建立使用 SQL 驗證的 Azure SSIS 整合執行階段，此時您無法將該 IR 重新設定為透過 PowerShell 使用 Azure AD 驗證。
 
-## <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-adf-a-member-of-the-group"></a>在 Azure AD 中建立群組，並且讓 ADF 受控識別成為此群組的成員
+## <a name="enable-azure-ad-on-azure-sql-database"></a>在 Azure SQL Database 上啟用 Azure AD
+
+Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您可以將 Azure AD 使用者設定為 Active Directory 管理員，然後使用 Azure AD 使用者來登入 SQL Server Management Studio (SSMS)。 接著，您可以建立 Azure AD 群組所包含的使用者，讓 IR 在能夠伺服器上建立 SQL Server Integration Services (SSIS) 目錄。
+
+### <a name="create-a-group-in-azure-ad-and-make-the-managed-identity-for-your-data-factory-a-member-of-the-group"></a>在 Azure AD 中建立群組並讓 Data Factory 的受控識別成為此群組的成員
 
 您可以使用現有的 Azure AD 群組，或使用 Azure AD PowerShell 建立一個新群組。
 
@@ -53,7 +57,7 @@ ms.locfileid: "50085405"
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  將 ADF 的受控識別新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
+3.  將 Data Factory 的受控識別新增至群組。 您可以依照 [Azure Data Factory 服務識別](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)來取得主體服務識別的識別碼 (例如 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc，但是不要將服務識別應用程式識別碼用於此用途)。
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -64,10 +68,6 @@ ms.locfileid: "50085405"
     ```powershell
     Get-AzureAdGroupMember -ObjectId $Group.ObjectId
     ```
-
-## <a name="enable-azure-ad-on-azure-sql-database"></a>在 Azure SQL Database 上啟用 Azure AD
-
-Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您可以將 Azure AD 使用者設定為 Active Directory 管理員，然後使用 Azure AD 使用者登入 SSMS。 接著，您可以建立 Azure AD 群組所包含的使用者，讓 IR 在能夠伺服器上建立 SQL Server Integration Services (SSIS) 目錄。
 
 ### <a name="enable-azure-ad-authentication-for-the-azure-sql-database"></a>啟用 Azure SQL Database 的 Azure AD 驗證
 
@@ -121,21 +121,52 @@ Azure SQL Database 支援由 Azure AD 使用者建立資料庫。 因此，您�
 
 ## <a name="enable-azure-ad-on-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體啟用 Azure AD
 
-Azure SQL Database 受控執行個體不支援由 AD 管理員以外的任何 Azure AD 使用者建立資料庫。因此，您必須將 Azure AD 群組設定為 Active Directory 管理員。您不需要建立內含的使用者。
+「Azure SQL Database 受控執行個體」支援直接使用 MSI 來建立資料庫。 您不需要將 Data Factory MSI 加入 AD 群組，或在 MI 中建立包含的使用者。
 
-您可以使用下列步驟， [為 SQL Database 受控執行個體伺服器設定 Azure AD 驗證](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)：
+### <a name="enable-azure-ad-authentication-for-the-azure-sql-database-managed-instance"></a>為 Azure SQL Database 受控執行個體啟用 Azure AD 驗證
 
-7.  在 Azure 入口網站中，選取左側導覽中的 [所有服務] **** -> [SQL 伺服器] 。
+1.   在 Azure 入口網站中，選取左側導覽中的 [所有服務] -> [SQL 伺服器]。
 
-8.  選取要啟用 Azure AD 驗證的 SQL 伺服器。
+1.   選取要啟用 Azure AD 驗證的 SQL 伺服器。
 
-9.  在刀鋒視窗的 [設定] ****  區段中，選取 [Active Directory 管理員] ****。
+1.   在刀鋒視窗的 [設定] 區段中，選取 [Active Directory 管理員]。
 
-10. 在命令列中選取 [設定管理員] ****。
+1.   在命令列中選取 [設定管理員]。
 
-11. 搜尋並選取 Azure AD 群組 (例如 SSISIrGroup)，然後選取 [選取] ****。
+1.   選取要設定為伺服器管理員的 Azure AD 使用者帳戶，然後選取 [選取]。
 
-12. 在命令列上選取 [儲存] ****。
+1.   在命令列中，選取 [儲存]。
+
+### <a name="add-data-factory-msi-as-a-user-to-the-azure-sql-database-managed-instance"></a>將 Data Factory MSI 新增為 Azure SQL Database 受控執行個體的使用者
+
+1.  啟動 SQL Server Management Studio。
+
+2.  使用 SQL 管理員帳戶或 Active Directory 管理員帳戶登入。
+
+3.  在 [物件總管] 中，展開 [資料庫] -> [系統資料庫] 資料夾。
+
+4.  在 [master] 資料庫上按一下滑鼠右鍵，然後選取 [新增查詢]。
+
+5.  您可以依照 [Azure Data Factory 服務識別](data-factory-service-identity.md)一文的說明，取得主體「服務識別應用程式識別碼」。 (請勿將「服務識別識別碼」用於此目的)。
+
+6.  在查詢視窗中，執行下列指令碼以將「服務識別應用程式識別碼」轉換成二進位類型：
+
+    ```sql
+    DECLARE @applicationId uniqueidentifier = {your service identity application id}
+    select CAST(@applicationId AS varbinary)
+    ```
+
+7.  您可以從結果視窗中取得值。
+
+8.  清除查詢視窗，然後複製下列指令碼：
+
+    ```sql
+    CREATE LOGIN [{MSI name}] FROM EXTERNAL PROVIDER with SID ={your service identity application id in binary type}, TYPE = E
+    ALTER SERVER ROLE [dbcreator] ADD MEMBER [{MSI name}]
+    ALTER SERVER ROLE [securityadmin] ADD MEMBER [{MSI name}]
+    ```
+
+9.  命令順利完成。
 
 ## <a name="provision-the-azure-ssis-ir-in-the-portal"></a>在入口網站中佈建 Azure SSIS IR
 

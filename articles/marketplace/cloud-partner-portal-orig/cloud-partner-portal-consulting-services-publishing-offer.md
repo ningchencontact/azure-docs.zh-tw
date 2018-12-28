@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 7ea4a58f072071f60cf87d1e8817ae19658be5fb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037751"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310414"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 與 Dynamcis 365 諮詢服務供應項目
 
 <table> <tr> <td>本節說明如何將諮詢服務發佈到 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 或 <a href="https://appsource.microsoft.com">AppSource Marketplace</a>。 以 Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>、<a href="https://products.office.com">Office 365</a>、<a href="https://powerbi.microsoft.com">Power BI</a> 及 <a href="https://powerapps.microsoft.com">PowerApps</a> 為基礎的解決方案有資格在 AppSource 上列出。 以其他 Microsoft <a href="https://azure.microsoft.com/services">Azure 服務</a>為基礎的其他供應項目則有資格在 Azure Marketplace 上列出。 </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
 
 
-# <a name="publishing-benefits"></a>發佈的優點
+## <a name="publishing-benefits"></a>發佈的優點
 
 發佈到任一 Microsoft 市集具有相當多的優點：
 
@@ -36,13 +36,11 @@ ms.locfileid: "51037751"
 - 讓 Microsoft 現場和電話銷售團隊推廣您的服務。
 
 
-<a name="define-your-consulting-services-offer"></a>定義您的諮詢服務供應項目
--------------------------------------
+## <a name="define-your-consulting-services-offer"></a>定義您的諮詢服務供應項目
 
 定義您的套裝式諮詢服務供應項目。 專注於固定範圍、固定期間、估計的、固定的價格 (或免費) 和適用於單一客戶的售前導向供應項目。 選取受歡迎且有效為您帶來新業務的可重複套裝式參與活動。
 
-<a name="publish-a-consulting-service-offer"></a>發佈諮詢服務供應項目
-----------------------------------
+## <a name="publish-a-consulting-service-offer"></a>發佈諮詢服務供應項目
 
 下列各節描述發佈諮詢服務供應項目的程序
 
@@ -62,7 +60,7 @@ ms.locfileid: "51037751"
 
 ### <a name="define-offer-settings"></a>定義供應項目設定
 
-在 [新增供應項目] 畫面上，第一步是建立供應項目身分識別。  供應項目身分識別由三個部分組成：**供應項目識別碼**、**發行者識別碼**及**名稱**。  下列各節中涵蓋每個這些部分。
+在 [新增供應項目] 畫面上，第一步是建立供應項目身分識別。  供應項目身分識別由三個部分所組成：**供應項目識別碼**、**發行者識別碼**以及**名稱**。  下列各節中涵蓋每個這些部分。
 
 #### <a name="offer-id"></a>供應項目識別碼
 
@@ -76,7 +74,7 @@ ms.locfileid: "51037751"
 
 此識別碼與您的帳戶相關。 當您登入您的組織帳戶時，您的發行者識別碼會顯示在下拉式功能表中。
 
-#### <a name="name"></a>名稱
+#### <a name="name"></a>Name
 
 此字串是將在 AppSource 或 Azure Marketplace 上顯示為供應項目名稱的字串。
 
@@ -97,15 +95,15 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 -   專業服務的基本資訊：1 小時簡報
 -   雲端移轉平台：1 小時簡報
--   PowerApps 和 Microsoft Flow：1 天工作坊
--   Azure 機器學習服務：3 週 POC
+-   PowerApps 和 Microsoft Flow：1 天研討會
+-   Azure Machine Learning 服務：3 週概念證明
 -   Brick and Click 零售解決方案：1 小時簡報
--   攜帶您自己的資料：1 週工作坊
--   雲端分析：3 天工作坊
--   Power BI 訓練：3 天工作坊
+-   使用您自己的資料：1 週研討會
+-   雲端分析：3 天研討會
+-   Power BI 訓練：3 天研討會
 -   銷售管理解決方案：1 週實作
--   CRM 快速入門：1 天工作坊
--   Dynamics 365 for Sales：2 天評定
+-   CRM 快速入門：1 天研討會
+-   Dynamics 365 for Sales：2 天評量
 
 完成 [供應項目設定] 索引標籤之後，您可以儲存您的提交。 供應項目名稱現在會顯示在編輯器上方，您可以在 [所有供應項目] 中找到它。
 
@@ -131,7 +129,7 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 *範例 1*
 
--   **供應項目名稱：** 雲端分析：3 天工作坊
+-   **供應項目名稱：** 雲端分析：3 天研討會
 -   **供應項目摘要：** Microsoft Azure 和 Power BI 的概觀、環境的評定，以及迷你 POC。
 
 *範例 2*
@@ -146,12 +144,12 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 *範例 4*
 
--   **供應項目名稱：** Power BI 實際應用：4 小時工作坊
+-   **供應項目名稱：** 您世界中的 Power BI：4 小時研討會
 -   **供應項目摘要：** 啟動並執行您的第一個儀表板，並了解最佳做法。 最多 12 個學生 (現場指導)。
 
 *範例 5*
 
--   **供應項目名稱：** Dynamics 和 Projects：3 天評定
+-   **供應項目名稱：** Dynamics 和專案：3 天評量
 -   **供應項目摘要：** 專為專業服務公司及專案導向業務設計之 ERP 解決方案的需求收集與評定。
 
 ##### <a name="offer-description"></a>供應項目描述
@@ -168,11 +166,11 @@ Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式
 
 下列範例示範撰寫良好的 [供應項目描述]，以及其相關名稱和摘要：
 
-**供應項目名稱：** 雲端分析：3 天工作坊
+**供應項目名稱：** 雲端分析：3 天研討會
 
 **供應項目摘要：** Microsoft Azure 和 Power BI 的概觀、環境的評定，以及迷你 POC。
 
-**供應項目描述**：這個 3 天的工作坊適用於技術和業務領導者，並且會在客戶的場地現場舉辦。
+**供應項目描述：** 這個 3 天的工作坊適用於技術和業務領導者，並且會在客戶的場地現場舉辦。
 
 ***議程***
 
@@ -236,11 +234,11 @@ Microsoft 是著重在固定的範圍、固定的期間、估計或固定的價�
 
 下列五種類型的供應項目包含：
 
--   **評定**：對客戶環境的評估，以判斷解決方案的適用性，並提供估計的成本和時間。
--   **簡報**：使用架構、示範和客戶範例引起客戶興趣的解決方案或諮詢服務介紹。 簡報必須是現場進行。
+-   **評量：** 對客戶環境的評估，以判斷解決方案的適用性，並提供估計的成本和時間。
+-   **簡報：** 使用架構、示範和客戶範例引起客戶興趣的解決方案或諮詢服務介紹。 簡報必須是現場進行。
 -   **實作：** 可進行完整安裝以產生完整有效的解決方案。 針對此試驗，Microsoft 建議您將解決方案限制為可在一週 (或更少) 內實作。
 -   **概念證明：** 可以判斷解決方案是否會符合客戶需求的有限範圍實作。
--   **工作坊：** 在客戶場地舉行的互動參與活動，根據客戶的資料或環境而量身打造訓練課程、簡報、評估或示範。
+-   **研討會：** 在客戶場地舉行的互動參與活動，根據客戶的資料或環境而量身打造訓練課程、簡報、評估或示範。
 
 **國家/地區可用性**
 

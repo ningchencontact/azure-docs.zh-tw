@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 搜尋服務對 Azure Blob 儲存體編制索引
-description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字
+title: 為 Azure Blob 儲存體內容編製索引以用於全文檢索搜尋 - Azure 搜尋服務
+description: 了解如何使用 Azure 搜尋服務對 Azure Blob 儲存體編製索引，以及從文件擷取文字。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: d2706d4b10303cb62066f0381f9a69b553c05cb4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406959"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317469"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -69,8 +70,8 @@ blob 索引子可以從下列文件格式擷取文字：
 您可以採取下列其中一種方式提供 blob 容器的認證︰
 
 - **完整存取儲存體帳戶連接字串**：`DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>`。 您可以從 Azure 入口網站取得連接字串︰瀏覽至儲存體帳戶刀鋒視窗 > [設定] > [金鑰] \(傳統儲存體帳戶)，或 [設定] > [存取金鑰] \(Azure Resource Manager 儲存體帳戶)。
-- **儲存體帳戶共用存取簽章** (SAS) 連接字串：`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` SAS 應該有容器和物件 (在此案例中為 Blob) 上的列出和讀取權限。
--  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` SAS 應該有容器上的列出和讀取權限。
+- **儲存體帳戶共用存取簽章** (SAS) 連接字串︰`BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl`SAS 對於容器和物件 (在此案例中為 blob) 應該擁有列出和讀取權限。
+-  **容器共用存取簽章**：`ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl`SAS 對於容器應該擁有列出和讀取權限。
 
 如需儲存體共用存取簽章的詳細資訊，請參閱[使用共用存取簽章](../storage/common/storage-dotnet-shared-access-signature-part-1.md)。
 
@@ -128,7 +129,7 @@ blob 索引子可以從下列文件格式擷取文字：
 * 文件的文字內容會擷取至名為 `content` 的字串欄位。
 
 > [!NOTE]
-> Azure 搜尋服務會根據定價層限制擷取的文字數量：免費層可擷取 32,000 個字元、基本層可擷取 64,000 個字元、標準、標準 S2 與 標準 S3 層可擷取 4 百萬個字元。 在已截斷的文件中，索引子的狀態回應會包含警告。  
+> Azure 搜尋服務會根據定價層來限制其擷取的文字量：免費層為 32,000 個字元、基本層為 64,000 個字元，而標準、標準 S2 及標準 S3 層為 4 百萬個字元。 在已截斷的文件中，索引子的狀態回應會包含警告。  
 
 * 顯示在 blob 中的使用者指定中繼資料屬性 (如果有的話)，會逐字擷取。
 * 標準 blob 中繼資料屬性會擷取到下列欄位：
@@ -333,7 +334,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 您可能會想在索引中「組合」來自多個來源的文件。 例如，您可能會想要將來自 Blob 的文字與儲存在 Cosmos DB 中的其他中繼資料合併。 您甚至可以搭配各種索引子使用推送編製索引 API，以建立來自多個部分的搜尋文件。 
 
-若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：[在 Azure 搜尋服務中將文件與其他資料組合在一起](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) \(英文\)。
+若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：[結合文件與 Azure 搜尋服務中的其他資料](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) \(英文\)。
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>編制純文字的索引 

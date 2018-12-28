@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: hascipio
-ms.openlocfilehash: 26f856059b381be91b9cdd1f98a11dc90813c0c5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf41953300c3042853118c815dbf64e4474106fa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715867"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53194108"
 ---
 # <a name="test-your-vm-offer-for-the-azure-marketplace-in-staging"></a>在預備環境中測試您將發佈到 Azure Marketplace 的 VM 供應項目
 預備環境代表將您的 SKU 部署在私人的「沙箱」中，您可以在部署到 Marketplace 之前在沙箱中測試與驗證其功能。 SKU 會出現在預備環境中，就如同客戶已部署該項目一樣。 您的 VM 映像必須經過認證才能推送至預備環境。
@@ -35,12 +35,12 @@ ms.locfileid: "39715867"
    > 如果是「虛擬機器」和「方案」範本，請 **不要** 將 CSP、DreamSpark 或 Azure in Open 類型的訂用帳戶加入允許清單。
    > 
    > 
+   >
+   > 如果是「虛擬機器」，當您按一下 [推送至預備環境] 按鈕時，會在場景後方執行下列步驟。 您可以在發佈入口網站的 [發佈] 索引標籤下檢視每個步驟的進度。 您必須定期查看此頁面是否有需要您更正的任何失敗資訊 (直到狀態顯示「已預備」為止) 。
 
-    > 如果是「虛擬機器」，當您按一下 [推送至預備環境] 按鈕時，會在場景後方執行下列步驟。 您可以在發佈入口網站的 [發佈] 索引標籤下檢視每個步驟的進度。 您必須定期查看此頁面是否有需要您更正的任何失敗資訊 (直到狀態顯示「已預備」為止) 。
-
-    > - 一開始，您的預備環境要求會送到驗證 VHD 的憑證小組。 不過，如果您的要求只有行銷變更，則會略過憑證步驟。
-    > - 憑證完成後，就會開始跨所有 Azure 資料中心複寫供應項目。 複寫通常需要 24-48 小時才能完成，但依據 VHD 大小而定，最長可能需要一週的時間。 不過，如果您的要求只有行銷變更，複寫會更快速。
-    > - 當複寫完成後，供應項目就會在 [Azure 入口網站](http:/portal.azure.com)公開發行。 屆時在發佈入口網站中的狀態會變成「已預備」。 只有當您使用與預備供應項目所用的訂用帳戶相關的電子郵件識別碼時，才能在 [Azure 入口網站](http:/portal.azure.com) 中看到已預備的供應項目。
+   > - 一開始，您的預備環境要求會送到驗證 VHD 的憑證小組。 不過，如果您的要求只有行銷變更，則會略過憑證步驟。
+   > - 憑證完成後，就會開始跨所有 Azure 資料中心複寫供應項目。 複寫通常需要 24-48 小時才能完成，但依據 VHD 大小而定，最長可能需要一週的時間。 不過，如果您的要求只有行銷變更，複寫會更快速。
+   > - 當複寫完成後，供應項目就會在 [Azure 入口網站](http:/portal.azure.com)公開發行。 屆時在發佈入口網站中的狀態會變成「已預備」。 只有當您使用與預備供應項目所用的訂用帳戶相關的電子郵件識別碼時，才能在 [Azure 入口網站](http:/portal.azure.com) 中看到已預備的供應項目。
 
 1. 使用上一個步驟中列出的其中一個 Azure 訂用帳戶登入 [Azure Preview 入口網站](https://portal.azure.com) 。
 2. 尋找您的供應項目，並驗證您的 VM 映像點：
@@ -58,8 +58,8 @@ ms.locfileid: "39715867"
 > 
 
 ## <a name="next-steps"></a>後續步驟
-現在您的供應項目「預備」好了，您已經測試過它的功能和行銷內容，您可以繼續進行最終的發佈階段，即 **步驟 4**： [將您的供應項目部署至 Marketplace](marketplace-publishing-push-to-production.md)。
+既然您的供應項目已經「預備」好了，而且您已經測試過它的功能和行銷內容，您可以繼續進行最終的發佈階段，即 **步驟 4**：[將您的供應項目部署至 Marketplace](marketplace-publishing-push-to-production.md)。
 
 ## <a name="see-also"></a>另請參閱
-* [使用者入門：如何將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
+* [使用者入門：將供應項目發佈至 Azure Marketplace](marketplace-publishing-getting-started.md)
 

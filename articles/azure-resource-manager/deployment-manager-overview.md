@@ -1,6 +1,6 @@
 ---
-title: Azure 部署管理員概觀 | Microsoft Docs
-description: 描述如何使用 Azure 部署管理員在許多區域中部署服務
+title: 跨區域的安全部署實務 - Azure Deployment Manager
+description: 描述如何使用 Azure 部署管理員在許多區域中部署服務。 它會顯示安全部署實務，以便在推出到所有區域之前確認部署的穩定性。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: eea981800147f24025e01826f7550a95041c107f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427296"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138342"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>使用 Azure 部署管理員啟用安全部署實務 (個人預覽版)
 

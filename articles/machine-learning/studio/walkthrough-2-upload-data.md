@@ -1,12 +1,11 @@
 ---
-title: 步驟 2：將資料上傳至 Machine Learning Studio 實驗中 - Azure | Microsoft Docs
-description: 開發預測解決方案逐步解說步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio 中。
+title: 步驟 2：將資料上傳至 Machine Learning Studio 實驗 - Azure | Microsoft Docs
+description: 開發預測解決方案逐步解說的步驟 2：將儲存的公用資料上傳至 Azure Machine Learning Studio。
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 9f4bc52e-9919-4dea-90ea-5cf7cc506d85
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 0dc39d42e1ad7cc955b0bdc91d9a4c5cb49a2f2e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a73de4177cec74187da852709137d77d60b4d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311971"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261444"
 ---
-# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning Studio 實驗中
+# <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>逐步解說步驟 2：將現有資料上傳至 Azure Machine Learning Studio 實驗
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
 
 1. [建立機器學習服務工作區](walkthrough-1-create-ml-workspace.md)
@@ -41,9 +40,9 @@ ms.locfileid: "52311971"
 
 **german.data** 資料集包含過去 1000 名信用額度申請者的 20 個變數資料列。 這 20 個變數代表資料集的特徵集 (「特徵向量」)，可分別提供每個信用額度申請者的識別特性。 每個資料列另外會有一個資料行代表申請者計算後的信用風險，其中有 700 名申請者被認定為低信用風險，300 名為高風險。
 
-UCI 網站提供了此資料的特徵向量的屬性描述。 包括財務資訊、信用歷史記錄、工作狀態、個人資訊。 每個申請者都會有一個二進位評等，指出他們屬於低信用風險還是高風險。 
+UCI 網站提供了這項資料的特徵向量的屬性描述。 包括財務資訊、信用歷史記錄、工作狀態、個人資訊。 每個申請者都會有一個二進位評等，指出他們屬於低信用風險還是高風險。 
 
-我們將使用此資料來訓練預測分析模型。 完成之後，我們的模型應能夠接受新申請者的特徵向量，並預測他或她是屬於低信用風險還是高風險。  
+我們將使用這項資料來訓練預測分析模型。 完成之後，我們的模型應能夠接受新申請者的特徵向量，並預測他或她是屬於低信用風險還是高風險。  
 
 以下提供一個有趣的論點。 UCI 網站上的資料集描述提及，如果我們錯誤分類一個人的信用風險需付出何種代價。
 如果模型將某個實際為低信用風險的人預測為高信用風險，則此模型做了錯誤分類。
@@ -101,7 +100,7 @@ UCI 網站提供了此資料的特徵向量的屬性描述。 包括財務資訊
 
 如需將其他種資料類型匯入實驗的詳細資訊，請參閱[將訓練資料匯入 Azure Machine Learning Studio](import-data.md)。
 
-**下一步：[建立新實驗](walkthrough-3-create-new-experiment.md)**
+**下一個步驟：[建立新實驗](walkthrough-3-create-new-experiment.md)**
 
 [1]: media/walkthrough-2-upload-data/menu.png
 [2]: media/walkthrough-2-upload-data/add-dataset.png

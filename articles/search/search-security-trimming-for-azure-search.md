@@ -1,19 +1,20 @@
 ---
-title: 在 Azure 搜尋服務中進行安全性篩選以調整結果 | Microsoft Docs
+title: 進行安全性篩選以調整結果 - Azure 搜尋服務
 description: 在 Azure 搜尋服務內容上使用安全性篩選和使用者身分識別進行存取控制。
 ms.service: search
 ms.topic: conceptual
 services: search
 ms.date: 08/07/2017
-author: revitalbarletz
-ms.author: revitalb
+author: brjohnstmsft
+ms.author: brjohnst
 manager: jlembicz
-ms.openlocfilehash: dd26676b74431566b3631b8a79cd06bcf3022518
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 84147b250ea17df9af67cc8a9025cdf6ec59a705
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792795"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314222"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-search"></a>在 Azure 搜尋服務中進行安全性篩選以調整結果
 
@@ -32,7 +33,7 @@ ms.locfileid: "31792795"
 >[!NOTE]
 > 本文件未多加說明擷取主體識別碼的流程。 您應從身分識別服務提供者處取得主體識別碼。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 本文假定您已具有 [Azure 訂用帳戶](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)、[Azure 搜尋服務](https://docs.microsoft.com/azure/search/search-create-service-portal)和 [Azure 搜尋索引](https://docs.microsoft.com/azure/search/search-create-index-portal)。  
 

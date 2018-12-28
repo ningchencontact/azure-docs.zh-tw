@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 3caa4f2dbe36f86c9b15a83303e90b16d06c56fd
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 14b108a836424e92a251f50b42ed93963038a333
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419396"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192051"
 ---
 # <a name="install-the-azure-virtual-machine-agent-in-offline-mode"></a>在離線模式安裝 Azure 虛擬機器代理程式 
 
@@ -76,7 +76,7 @@ Azure 虛擬機器代理程式 (VM 代理程式) 提供有用的功能，例如�
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\WindowsAzureTelemetryService
         - HKEY_LOCAL_MACHINE  \SYSTEM\ControlSet001\Services\RdAgent
 
-        ![匯出登錄子機碼](./media/install-vm-agent-offline/backup-reg.png)
+          ![匯出登錄子機碼](./media/install-vm-agent-offline/backup-reg.png)
 
     2. 編輯登錄檔。 在每個檔案中，將項目值 **SYSTEM** 變更為 **BROKENSYSTEM** (如下列影像所示)，然後儲存檔案。 請記住目前 VM 代理程式的 **ImagePath**。 我們後續必須將對應的資料夾複製到連結的作業系統磁碟。 
 

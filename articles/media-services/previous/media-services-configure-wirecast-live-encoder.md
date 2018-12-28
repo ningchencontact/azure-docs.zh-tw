@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 6cc4c0b01511309766e48c3d671ee897e5d6f326
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: e0e41714f6979a9cd699df70498b9c89a44d5ee1
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669108"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138917"
 ---
 # <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>使用 Wirecast 編碼器來傳送單一位元速率的即時串流
 > [!div class="op_single_selector"]
@@ -69,7 +69,7 @@ ms.locfileid: "43669108"
 >
 >
 
-## <a name="a-idconfigurewirecastrtmp-aconfigure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" /a>設定 Telestream Wirecast 編碼器
+## <a name="a-idconfigurewirecastrtmp-configure-the-telestream-wirecast-encoder"></a><a id="configure_wirecast_rtmp" />設定 Telestream Wirecast 編碼器
 在本教學課程中，我們會使用下列輸出設定。 本章節的其餘部分將詳細說明組態步驟。
 
 **視訊**：
@@ -84,7 +84,7 @@ ms.locfileid: "43669108"
 
 * 轉碼器：AAC (LC)
 * 位元速率：192 kbps
-* 取樣速率：44.1 kHz
+* 採樣速率：44.1 kHz
 
 ### <a name="configuration-steps"></a>組態步驟
 1. 在使用的機器上開啟 Telestream Wirecast 應用程式，並設定 RTMP 串流。
@@ -105,14 +105,14 @@ ms.locfileid: "43669108"
 
    * 編碼器：MainConcept H.264
    * 每秒畫面格數：30
-   * 平均位元速率：5000 kbit/秒 (可視網路限制加以調整)
-   * 設定檔：主要
+   * 平均位元速率：5000 kbits/秒 (可視網路限制加以調整)
+   * 設定檔：主要區段
    * 畫面間隔：60 個畫面
 
     **音訊**
 
    * 目標位元速率：192 kbit/秒
-   * 取樣速率：44.100 kHz
+   * 採樣速率：44.100 kHz
 
      ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast4.png)
 6. 按下 [儲存] 。

@@ -15,12 +15,12 @@ ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 29a2be1735561d31f934f1353a336b5e4d198227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dd42f6317f684fcc5ad9da94c1b09ab1870ccf76
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622188"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408117"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>為不在 Azure Active Directory 應用程式庫中的應用程式設定單一登入
 
@@ -46,7 +46,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 
 在應用程式庫中，如果找不到您想要的應用程式，您可以選取顯示在搜尋結果中的 [不在資源庫內的應用程式] 圖格，以新增未列出的應用程式。 輸入應用程式的名稱之後，您可以設定單一登入選項和行為。 
 
-**快速提示**：最佳作法是使用搜尋函式來查看應用程式是否已存在於應用程式庫中。 如果找到應用程式，且其描述提及「單一登入」，即表示應用程式已支援同盟單一登入。
+**快速提示**：最佳做法是使用搜尋功能來查看應用程式是否已存在於應用程式庫中。 如果找到應用程式，且其描述提及「單一登入」，即表示應用程式已支援同盟單一登入。
 
   ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
@@ -163,7 +163,7 @@ Azure Active Directory 應用程式資源庫提供一份已知能支援單一登
 >
 
 ## <a name="existing-single-sign-on"></a>現有單一登入
-選取此選項，可將應用程式的連結新增至組織的 Azure AD 存取面板或 Office 365 入口網站。 使用此選項，可讓您新增目前使用 Azure Active Directory 同盟服務 (或其他同盟服務)、而不是使用 Azure AD 的自訂 Web 應用程式的連結，以進行驗證。 或者，您可以新增特定 SharePoint 網頁或其他只要出現在使用者存取面板上的網頁的深層連結。 
+選取此選項，可將應用程式的連結新增至組織的 Azure AD 存取面板或 Office 365 入口網站。 使用此選項，可讓您新增目前使用 Active Directory 同盟服務 (或其他同盟服務)、而不是使用 Azure AD 的自訂 Web 應用程式的連結，以進行驗證。 或者，您可以新增特定 SharePoint 網頁或其他只要出現在使用者存取面板上的網頁的深層連結。 
 
 選取 [下一步] 之後，系統會提示您輸入要連結到的應用程式的 URL。 完成之後，使用者和群組即可指派給應用程式，而使應用程式出現在這些使用者的 [Office 365 應用程式啟動器](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/)或 [Azure AD 存取面板](end-user-experiences.md)中。
 

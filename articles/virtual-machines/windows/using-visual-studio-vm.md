@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 6861eb54b0f9ccaa0bfaa7b514e9bb3861160fdd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165608"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437566"
 ---
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
 在預先設定的 Azure 虛擬機器 (VM) 中使用 Visual Studio，是從零開始到建立已啟動並執行中之開發環境的快速簡單方式。 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1) 中提供具有各種不同 Visual Studio 設定的系統映像。
@@ -30,17 +30,18 @@ ms.locfileid: "52165608"
 不熟悉 Azure 嗎？ [建立 Azure 免費帳戶](https://azure.microsoft.com/free)。
 
 ## <a name="what-configurations-and-versions-are-available"></a>有哪些設定和版本可用？
-在 Azure Marketplace 中，您可以找到適用於最新主要版本的映象：Visual Studio 2017 和 Visual Studio 2015。 針對每個主要版本，您會看到原始發行 (RTW) 版本和最新更新版本。 每個版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。 這些映像會每個月至少更新一次，以納入最新的 Visual Studio 和 Windows 更新。 雖然映像的名稱會維持不變，但每個映像的描述會納入已安裝的產品版本和映像的「生效」日期。
+在 Azure Marketplace 中，您可以找到適用於最新主要版本的映象：Visual Studio 2017 和 Visual Studio 2015。  我們最近新增了對即將推出的主要版本 Visual Studio 2019 的預覽版支援。  針對每個已發行的主要版本，您會看到原始發行 (RTW) 版本和最新更新版本。  每個版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。  這些映像會每個月至少更新一次，以納入最新的 Visual Studio 和 Windows 更新。  雖然映像的名稱會維持不變，但每個映像的描述會納入已安裝的產品版本和映像的「生效」日期。
 
-| 發行版本                                              | 版本                     |     產品版本     |
-|:------------------------------------------------------------:|:----------------------------:|:-----------------------:|
-| Visual Studio 2017：最新版 (15.9 版)                    |    Enterprise、Community     |      15.9.0 版     |
-|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      15.0.18 版    |
-|   Visual Studio 2015：最新版 (Update 3)                      |    Enterprise、Community     |  14.0.25431.01 版  |
-|         Visual Studio 2015：RTW                              |             None             | (服務期滿) |
+| 發行版本                                              | 版本                     |     產品版本      |
+|:------------------------------------------------------------:|:----------------------------:|:------------------------:|
+|    Visual Studio 2019：預覽 (預覽 1)                   |           Enterprise         | 16.0.0 版預覽 1 |
+| Visual Studio 2017：最新 (版本 15.9)                    |    Enterprise、Community     |      15.9.4 版      |
+|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      15.0.20 版     |
+|   Visual Studio 2015：最新 (更新 3)                      |    Enterprise、Community     |  14.0.25431.01 版   |
+|         Visual Studio 2015：RTW                              |             None             | (服務期滿)  |
 
 > [!NOTE]
-> 根據 Microsoft 服務原則，Visual Studio 2015 的原始發行 (RTW) 版本服務期已滿。 Visual Studio 2015 Update 3 是為 Visual Studio 2015 產品線提供的唯一留存版本。  此外，自 Visual Studio 2017 版本 15.9 發行後，我們已停用包含版本 15.9 預覽的「最新預覽」映像。
+> 根據 Microsoft 服務原則，Visual Studio 2015 的原始發行 (RTW) 版本服務期已滿。 Visual Studio 2015 Update 3 是為 Visual Studio 2015 產品線提供的唯一留存版本。
 
 如需詳細資訊，請參閱 [Visual Studio 服務原則](https://www.visualstudio.com/productinfo/vs-servicing-vs)。
 
@@ -95,7 +96,7 @@ Visual Studio 會依循 Azure 中的「自備授權」模型。 如同專用硬�
 
 開發環境的範圍很大，而建置出較複雜環境有一些相關的實際成本。 不論您的環境組態為何，您都可以將已設定的 VM 儲存或擷取成「基底映像」，以供日後使用或供其他小組成員使用。 然後，在啟動新 VM 時，從基底映像佈建它，而不是從 Azure Marketplace 映像。
 
-快速總結：使用系統準備工具 (Sysprep) 並關閉執行中的 VM，然後透過 Azure 入口網站的 UI 擷取 VM 作為映像 (圖 1)。 Azure 會將包含該映像的 `.vhd` 檔案儲存在您選擇的儲存體帳戶中。 然後，新的映像就會在您訂用帳戶的資源清單中顯示為映像資源。
+快速摘要：使用系統準備工具 (Sysprep) 並關閉執行中的 VM，然後透過 Azure 入口網站的 UI 擷取 VM 作為映像 (圖 1)。 Azure 會將包含該映像的 `.vhd` 檔案儲存在您選擇的儲存體帳戶中。 然後，新的映像就會在您訂用帳戶的資源清單中顯示為映像資源。
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(圖 1) 透過 Azure 入口網站 UI 擷取映像。*</center>
 

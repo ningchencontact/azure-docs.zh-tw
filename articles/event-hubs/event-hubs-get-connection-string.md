@@ -1,20 +1,21 @@
 ---
-title: Azure 事件中樞取得連接字串 | Microsoft Docs
-description: 取得 Azure 事件中樞連接字串
+title: 取得連接字串 - Azure 事件中樞 | Microsoft Docs
+description: 本文提供指示，說明如何取得可供用戶端連線至「Azure 事件中樞」的連接字串。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 10/15/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfc82f2dc280c3528f38c9cb466473a76328e552
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 263dba970b015d466b3fd46f390a063e87de2e2c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285380"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093298"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>取得事件中樞連接字串
 

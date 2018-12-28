@@ -1,36 +1,35 @@
 ---
-title: Azure Resource Manager 要求限制 | Microsoft Docs
+title: 要求限制和節流設定 - Azure Resource Manager
 description: 描述如何在到達訂用帳戶限制時，對 Azure Resource Manager 要求使用節流。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/10/2018
+ms.date: 12/09/2018
 ms.author: tomfitz
-ms.openlocfilehash: f3dcb0c5036b2cfc38ef2a6a16269a8697bbd9e6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec18
+ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358858"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136884"
 ---
 # <a name="throttling-resource-manager-requests"></a>對 Resource Manager 要求進行節流
-針對每個訂用帳戶和租用戶，Resource Manager 限制每小時只能有 15000 個讀取要求和 1200 個寫入要求。 這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
+針對每個 Azure 訂用帳戶和租用戶，Resource Manager 允許每小時最多有 12,000 個讀取要求和 1,200 個寫入要求。 這些限制之範圍包括提出要求的主體識別碼，以及訂用帳戶識別碼或租用戶識別碼。 如果您的要求來自多個主體識別碼，則訂用帳戶或租用戶之間的限制會大於每小時 12,000 個和 1,200 個。
+
+要求數適用於您的訂用帳戶或您的租用戶。 訂用帳戶要求是涉及傳遞訂用帳戶識別碼的要求，例如擷取訂用帳戶中的資源群組。 租用戶要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
+
+這些限制適用於每個 Azure Resource Manager 執行個體。 每個 Azure 區域中都有多個執行個體，且 Azure Resource Manager 會部署到所有 Azure 區域。  因此，實際上的限制比這些限制還要高，因為通常是由多個不同的執行個體來服務使用者要求。
 
 如果應用程式或指令碼到達這些限制，便需要對要求進行節流。 本文說明如何判斷觸達限制前還剩下多少要求，以及在觸達限制時該如何應對。
 
 當您到達限制時，您會收到 HTTP 狀態碼 **429 太多要求**。
-
-要求數會受訂用帳戶或租用戶所限制。 如果訂用帳戶中有多個並行應用程式提出要求，來自這些應用程式的要求會加總起來，以判斷剩餘的要求數。
-
-受訂用帳戶限制的要求是涉及傳遞訂用帳戶識別碼的要求，例如擷取訂用帳戶中的資源群組。 受租用戶限制的要求則未包含訂用帳戶識別碼，例如擷取有效的 Azure 位置。
 
 ## <a name="remaining-requests"></a>剩餘的要求
 您可以藉由檢查回應標頭來判斷剩餘的要求數。 每個要求都包含剩餘之讀取和寫入要求數的值。 下表描述可供檢查這些值的回應標頭︰
@@ -62,7 +61,9 @@ $r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/re
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
-或者，如果您想要查看可用於偵錯的剩餘要求，您可以在 **PowerShell** Cmdlet 提供 **-Debug** 參數。
+如需完整的 PowerShell 範例，請參閱 [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI) (檢查訂用帳戶的 Resource Manager 限制)。
+
+如果您想要查看可用於偵錯的剩餘要求，您可以在 **PowerShell** Cmdlet 提供 **-Debug** 參數。
 
 ```powershell
 Get-AzureRmResourceGroup -Debug
@@ -144,5 +145,6 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 
 ## <a name="next-steps"></a>後續步驟
 
+* 如需完整的 PowerShell 範例，請參閱 [Check Resource Manager Limits for a Subscription](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI) (檢查訂用帳戶的 Resource Manager 限制)。
 * 如需有關限制和配額的詳細資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 * 若要了解如何處理非同步 REST 要求，請參閱[追蹤非同步 Azure 作業 (英文)](resource-manager-async-operations.md)。

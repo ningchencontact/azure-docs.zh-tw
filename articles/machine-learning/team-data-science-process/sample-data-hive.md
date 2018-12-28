@@ -1,6 +1,6 @@
 ---
-title: 在 Azure HDInsight Hive 資料表中進行資料取樣 | Microsoft Docs
-description: 在 Azure HDInsight (Hadopop) Hive 資料表中進行資料向下取樣
+title: 在 Azure HDInsight Hive 資料表中進行資料取樣 - Team Data Science Process
+description: 使用 Hive 查詢，對 Azure HDInsight Hive 資料表中儲存的資料進行縮減取樣，以將資料縮減為更適合操控分析的大小。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 793431e6e81712bae5033eff1eecddbf448ce120
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6d833dc41677ddb027964ff535b27324e2b0c3da
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446920"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133072"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>在 Azure HDInsight Hive 資料表中進行資料取樣
 本文說明如何使用 Hive 查詢，對 Azure HDInsight Hive 資料表中儲存的資料向下取樣，以縮減至更適合操控分析的大小。 文中討論三個普遍使用的取樣方法：
@@ -28,7 +28,7 @@ ms.locfileid: "52446920"
 **為何要對您的資料進行取樣？**
 如果您規劃分析的資料集很龐大，通常最好是對資料進行向下取樣，將資料縮減為更小但具代表性且更容易管理的大小。 向下取樣有助於資料的了解、探索和功能工程。 它在 Team Data Science Process 中扮演的角色是，能夠快速建立資料處理函式與機器學習服務模型的原型。
 
-這個取樣工作是 [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/)中的一個步驟。
+這個取樣工作是 [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)中的一個步驟。
 
 ## <a name="how-to-submit-hive-queries"></a>如何提交 Hive 查詢
 Hive 查詢可以從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台提交。 若要執行這個動作，請登入 Hadoop 叢集的前端節點、開啟 Hadoop 命令列主控台，然後從該處提交 Hive 查詢。 如需在 Hadoop 命令列主控台中提交 Hive 查詢的相關指示，請參閱[如何提交 Hive 查詢](move-hive-tables.md#submit)。
@@ -81,7 +81,7 @@ Hive 查詢可以從 Hadoop 叢集前端節點上的 Hadoop 命令列主控台�
     on b.catfield=c.catfield
 
 ## <a name="stratified"></a>分層取樣
-若取得的樣本具有的類別值，呈現的比率與它們在母體中的相同，則隨機取樣就會在類別變數方面分層。 使用上述同一個範例，假設您的資料依狀態具有下列觀察：NJ 具有 100 個觀察、NY 具有 60 個觀察，而 WA 具有 300 個觀察。 如果您將分層取樣的比率指定為 0.5，則針對 NJ、NY 及 WA 所獲得的樣本分別應大約有 50、30 及 150 個觀察。
+若取得的樣本具有的類別值，呈現的比率與它們在母體中的相同，則隨機取樣就會在類別變數方面分層。 使用與上述相同的範例，假設您的資料依據狀態有下列觀察：NJ 有 100 個觀察、NY 有 60 個觀察，而 WA 有 300 個觀察。 如果您將分層取樣的比率指定為 0.5，則針對 NJ、NY 及 WA 所獲得的樣本分別應大約有 50、30 及 150 個觀察。
 
 查詢範例如下：
 

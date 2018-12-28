@@ -8,14 +8,14 @@ author: dharmeshkakadia
 ms.author: dharmeshkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
-ms.openlocfilehash: 832fab6c4f183ddad512c5e6e4309d70938a316b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 150f920fb1371eb64181ff69fdad054f989c0845
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600018"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407011"
 ---
-# <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 Hive 進行疑難排解
+# <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache Hive 進行疑難排解
 
 了解在 Apache Ambari 中使用 Apache Hive 承載時最常發生的問題及其解決方法。
 
@@ -104,7 +104,7 @@ ms.locfileid: "39600018"
 - [Hive 設定屬性](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
 
 
-## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何分析叢集關鍵路徑上的 Tez DAG 資料？
+## <a name="how-do-i-analyze-tez-dag-data-on-a-cluster-critical-path"></a>如何分析叢集關鍵路徑上的 Apache Tez DAG 資料？
 
 
 ### <a name="resolution-steps"></a>解決步驟
@@ -129,11 +129,11 @@ ms.locfileid: "39600018"
     - **ContainerReuseAnalyzer**：列印 DAG 中的容器重複使用詳細資料
     - **CriticalPath**：尋找 DAG 的關鍵路徑
     - **LocalityAnalyzer**：列印 DAG 中的位置詳細資料
-    - **ShuffleTimeAnalyzer**：分析 DAG 中的隨機播放時間詳細資料 
+    - **ShuffleTimeAnalyzer**：分析 DAG 中的隨機顯示時間詳細資料
     - **SkewAnalyzer**：分析 DAG 中的扭曲詳細資料
     - **SlowNodeAnalyzer**：列印 DAG 中的節點詳細資料
     - **SlowTaskIdentifier**：列印 DAG 中的低速工作詳細資料
-    - **SlowestVertexAnalyzer**：列印 DAG 中最慢頂點詳細資料
+    - **SlowestVertexAnalyzer**：列印 DAG 中的最慢頂點詳細資料
     - **SpillAnalyzer**：列印 DAG 中的溢出詳細資料
     - **TaskConcurrencyAnalyzer**：列印 DAG 中的工作並行詳細資料
     - **VertexLevelCriticalPathAnalyzer**：在 DAG 的頂點層級中尋找關鍵路徑

@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集 | Microsoft Docs
+title: 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集 - Team Data Science Process
 description: 對採用 HDInsight Hadoop 叢集來建置和部署使用大型 (1 TB) 公開可用資料集模型的端對端案例使用 Team Data Science Process
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3aef1b85a462eea74fbe977e9a48054f11acf47a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135809"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process 實務 - 在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集
 
@@ -33,7 +33,7 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 * 接下來 13 個資料行是數字，以及
 * 最後 26 個資料行是類別資料行
 
-資料行為匿名，並使用一系列的列舉名稱："Col1" (針對標籤資料行) 至 "Col40" (針對最後一個分類資料行)。            
+資料行是匿名的，而且會使用一系列的列舉名稱："Col1" (適用於標籤資料行) 到 "Col40" (適用於最後一個分類資料行)。            
 
 以下是來自這個資料集的兩個觀察 (資料列) 的前 20 個資料行的摘錄：
 
@@ -44,28 +44,28 @@ Criteo 資料是點選預測的資料集，大約是 370 GB 的 gzip 壓縮 TSV 
 
 此資料集中的數值及分類資料行中有遺漏值。 我們會說明用來處理遺漏值的簡單方法。 資料的其他詳細資料會在將它們儲存成 Hive 資料表時加以說明。
 
-**定義：** *點選率 (CTR)：* 這是資料中點選的百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
+**定義：***點選率 (CTR)：* 這是資料中點擊次數的百分比。 在此 Criteo 資料集中，CTR 是大約 3.3%或 0.033。
 
 ## <a name="mltasks"></a>預測工作的範例
 本逐步解說將討論兩個範例預測問題：
 
-1. **二進位分類**：預測使用者是否按下加入：
+1. **二元分類**：預測使用者是否點擊了新增項目：
    
-   * 類別 0：未按一下
-   * 類別 1：按一下
-2. **迴歸**：預測使用者按一下廣告機率的功能。
+   * 類別 0：未點擊
+   * 類別 1：按一下 
+2. **迴歸**：預測使用者特徵點擊廣告的可能性。
 
 ## <a name="setup"></a>為資料科學設定 HDInsight Hadoop 叢集
-**附註：** 這通常是**管理**工作。
+**附註：** 這通常是 **管理** 工作。
 
 設定 Azure 資料科學環境，用於使用 HDInsight 叢集以三個步驟建置預測性的分析解決方案：
 
-1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：此儲存體帳戶用來將資料儲存在 Azure Blob 儲存體中。 HDInsight 叢集中使用的資料會儲存在這裡。
-2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟將會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
+1. [建立儲存體帳戶](../../storage/common/storage-quickstart-create-account.md)：這個儲存體帳戶會用來將資料儲存於 Azure Blob 儲存體。 HDInsight 叢集中使用的資料會儲存在這裡。
+2. [自訂適用於資料科學的 Azure HDInsight Hadoop 叢集](customize-hadoop-cluster.md)：這個步驟會建立已在所有節點上安裝 64 位元 Anaconda Python 2.7 的 Azure HDInsight Hadoop 叢集。 自訂 HDInsight 叢集時有兩個需完成的重要步驟 (如本主題所述)。
    
    * 建立時您必須將步驟 1 中建立的儲存體帳戶與 HDInsight 叢集連結。 此儲存體帳戶用於存取可以在叢集內處理的資料。
    * 建立後，您必須對叢集的前端節點啟用遠端存取。 請記住您在此處指定的遠端存取認證 (與建立時指定叢集的不同)：您需要認證以完成下列程序。
-3. [建立 Azure ML 工作區](../studio/create-workspace.md)：此 Azure Machine Learning 工作區用來在初始資料瀏覽之後建置機器學習模型，並且在 HDInsight 叢集上下載取樣。
+3. [建立 Azure ML 工作區](../studio/create-workspace.md)：這個 Azure Machine Learning 工作區會在 HDInsight 叢集上初始資料探索並縮減取樣之後，用來建置機器學習模型。
 
 ## <a name="getdata"></a>取得並從公用來源取用資料
 [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) 資料集可以透過按一下連結、接受使用條款並提供名稱來存取。 其外觀的快照如下所示：
@@ -157,13 +157,13 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 **有兩種方式可執行任何 Hive 查詢：**
 
-1. **使用 Hive REPL 命令列**：第一個是發出 "hive" 命令，複製查詢並在 Hive REPL 命令列貼上。 若要這樣做，請執行：
+1. **使用 Hive REPL 命令列**：第一種是發出 "hive" 命令，在 Hive REPL 命令列上複製並貼上查詢。 若要這樣做，請執行：
    
         cd %hive_home%\bin
         hive
    
      現在，在 REPL 命令列，剪下和貼上查詢即可執行。
-2. **將查詢儲存到檔案，並執行命令**：第二個是要將查詢儲存為 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) 然後發出下列命令以執行查詢：
+2. **將查詢儲存到檔案並執行命令**：第二種是將查詢儲存到 .hql 檔案 ([sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql))，然後發出下列命令來執行查詢：
    
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -435,13 +435,13 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 1. 對 **資料來源**
 2. 在 [Hive 資料庫查詢] 方塊中，簡單的 SELECT * FROM <your\_database\_name.your\_table\_name> - 就已經足夠。
-3. **Hcatalog 伺服器 URI**：如果您的叢集是 "abc"，那麼就是： https://abc.azurehdinsight.net
+3. **HCatalog 伺服器 URI**：如果您的叢集是 "abc"，則這就是： https://abc.azurehdinsight.net
 4. **Hadoop 使用者帳戶名稱**：委任叢集時選擇的使用者名稱。 (非遠端存取使用者名稱！)
 5. **Hadoop 使用者帳戶密碼**：委任叢集時選擇之使用者名稱的密碼。 (非遠端存取密碼！)
-6. **輸出資料的位置**：選擇 "Azure"
-7. **Azure 儲存體帳戶名稱**：和叢集相關聯的儲存體帳戶
-8. **Azure 儲存體帳戶金鑰**：和叢集相關聯的儲存體帳戶金鑰。
-9. **Azure 容器名稱**：如果叢集名稱是 "abc"，則通常就是 "abc"。
+6. **輸出資料的位置**：選擇 [Azure]。
+7. **Azure 儲存體帳戶名稱**：與叢集相關聯的儲存體帳戶。
+8. **Azure 儲存體帳戶金鑰**︰與叢集相關聯之儲存體帳戶的金鑰。
+9. **Azure 容器名稱**：如果叢集名稱是 "abc"，則這通常就是 "abc"。
 
 在 **匯入資料** 完成資料取得後 (您會在模組上看到綠色勾號)，請將此資料儲存為「資料集」(使用您選擇的名稱)。 看起來像這樣：
 
@@ -454,11 +454,11 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 ![將資料集拖曳到主要面板中](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
-> 為訓練和測試資料集執行這項操作。 此外，請記住要使用您為此目的提供的資料庫名稱和資料表名稱。 在圖中所使用的值僅供說明之用。
+> 為訓練和測試資料集執行這項操作。 此外，請記住要使用您為此目的提供的資料庫名稱和資料表名稱。 在圖中所使用的值僅供說明之用。\**
 > 
 > 
 
-### <a name="step2"></a> 步驟 2：在 Azure Machine Learning 中建立簡單的實驗來預測按一下/未按一下
+### <a name="step2"></a> 步驟 2：在 Azure Machine Learning 中建立簡單的實驗來預測點擊次數/未點擊次數
 我們的 Azure ML 實驗看起來如下所示：
 
 ![Machine Learning 實驗](./media/hive-criteo-walkthrough/xRpVfrY.png)
@@ -478,7 +478,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 ##### <a name="building-counting-transforms"></a>建置計數轉換
 若要建置計數功能，請使用 Azure Machine Learning 中可使用的 [建置計數轉換] 模組。 此模組如下所示：
 
-![建置計數轉換模組](./media/hive-criteo-walkthrough/e0eqKtZ.png)
+![建置計數轉換模組屬性](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![建置計數轉換模組](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
@@ -535,7 +535,7 @@ Hive REPL "hive >" 出現記號後，只需剪下並貼上查詢即可執行。
 
 您現在已準備好使用這些已轉換的資料集建置 Azure Machine Learning 模型。 下一節說明如何完成此作業。
 
-### <a name="step3"></a> 步驟 3：建立、訓練和評分模型
+### <a name="step3"></a> 步驟 3：建置、定型和評分模型
 
 #### <a name="choice-of-learner"></a>選擇學習者
 首先，您必須選擇學習者。 使用兩個類別推進式決策樹作為我們的學習者。 以下是這個學習者的預設選項：

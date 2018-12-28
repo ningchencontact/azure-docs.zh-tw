@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體服務在雲端中編碼 | Microsoft Docs
+title: 使用媒體服務在雲端編碼 - Azure | Microsoft Docs
 description: 本主題說明使用 Azure 媒體服務時的編碼程序
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 0df13e3364cebe7cb5804b840889bca971b36be2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 7c16fc61a8654fa6b7236b9c5252ed4874787d50
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235049"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141742"
 ---
 # <a name="encoding-with-media-services"></a>使用媒體服務編碼
 

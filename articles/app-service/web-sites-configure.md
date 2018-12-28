@@ -1,5 +1,5 @@
 ---
-title: 在 Azure App Service 中設定 Web 應用程式
+title: 設定 Web 應用程式 - Azure App Service
 description: 如何在 Azure App Service 中設定 Web 應用程式
 services: app-service\web
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 73d2da542c4f7da0933187d800f562de76bfb3e6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18
+ms.openlocfilehash: 4286aa9cbaf07743c1d420fb1f5caace91bab7ee
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443503"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269425"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>在 Azure App Service 中設定 Web 應用程式
 
@@ -38,10 +39,10 @@ ms.locfileid: "52443503"
 ### <a name="general-settings"></a>一般設定
 **Framework 版本**。 如果您的應用程式使用下列任何 Framework，請設定下列選項： 
 
-* **.NET Framework**：設定 .NET framework 版本。 
-* **PHP**：設定 PHP 版本，或設為 [關閉] 以停用 PHP。 
-* **Java**：選取 Java 版本，或設為 [關閉] 以停用 Java。 使用 [ **Web 容器** ] 選項來選擇 Tomcat 或 Jetty 版本。
-* **Python**：選取 Python 版本，或設為 [關閉] 以停用 Python。
+* **.NET Framework**：設定 .NET Framework 版本。 
+* **PHP**：設定 PHP 版本，或設定為 [關閉] 以停用 PHP。 
+* **Java**：選取 Java 版本，或設定為 [關閉] 以停用 Java。 使用 [ **Web 容器** ] 選項來選擇 Tomcat 或 Jetty 版本。
+* **Python**：選取 Python 版本，或設定為 [關閉] 以停用 Python。
 
 在技術上，針對您的應用程式啟用 Java 就會停用 .NET、PHP 與 Python 選項。
 
@@ -73,7 +74,7 @@ ms.locfileid: "52443503"
 這一節包含 Web 應用程式將在啟動時載入的名稱/值組。 
 
 * 如果是 .NET 應用程式，這些設定就會在執行階段插入 .NET 設定 `AppSettings` ，並覆寫現有的設定。 
-* 對於 Linux 上的 App Service 或 用於容器的 Web App，如果您的名稱中有巢狀 json 索引鍵結構 (例如 `ApplicationInsights:InstrumentationKey`)，您必須以 `ApplicationInsights__InstrumentationKey` 作為索引鍵名稱。 因此請注意，任何 `:` 都應該由 `__` (也就是雙底線) 取代。
+* 對於 Linux 上的 App Service 或用於容器的 Web App，如果您的名稱中有巢狀 json 機碼結構 (例如 `ApplicationInsights:InstrumentationKey`)，您必須以 `ApplicationInsights__InstrumentationKey` 作為機碼名稱。 因此請注意，任何 `:` 都應該由 `__` (也就是雙底線) 取代。
 * PHP、Python、Java 和 Node 應用程式可以在執行階段以環境變數的形式存取這些設定。 系統會為每個應用程式設定建立兩個環境變數，一個變數具有由應用程式設定項目指定的名稱，另一個則具有 APPSETTING_ 前置詞。 這兩個變數都包含相同的值。
 
 應用程式設定在儲存時一律加密 (待用加密)。
@@ -83,7 +84,7 @@ ms.locfileid: "52443503"
 ### <a name="connection-strings"></a>連接字串
 連結資源的連接字串。 
 
-如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 組態 `connectionStrings` 的設定，並覆寫索引鍵相當於所連結資料庫名稱的現有項目。 
+如果是 .NET 應用程式，這些連接字串就會在執行階段插入 .NET 組態 `connectionStrings` 的設定，並覆寫機碼相當於所連結資料庫名稱的現有項目。 
 
 如果是 PHP、Python、Java 及 Node 應用程式，您可以在執行階段將這些設定視為環境變數使用，並加上連線類型前置詞。 環境變數首碼如以下所示： 
 
@@ -164,7 +165,7 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 ### <a name="monitoring"></a>監視
 在 [基本] 或 [標準] 模式中，您可以測試 HTTP 或 HTTPS 端點的可用性，最多可測試三個分散的地理位置。 如果 HTTP 回應碼為錯誤 (4xx 或 5xx)，或是當回應時間超過 30 秒時，監視測試即告失敗。 如果所有指定位置上的端點監視測試全都成功，表示該端點可用。 
 
-如需詳細資訊，請參閱 [如何監視 Web 端點狀態]。
+如需詳細資訊，請參閱[操作說明：監視 Web 端點狀態]。
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service]，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。
@@ -179,14 +180,14 @@ Web 應用程式可能會使用根據 URL 路由傳送的模組，而非處理�
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure 入口網站]: https://portal.azure.com/
 [在 Azure App Service 中設定自訂網域名稱]: ./app-service-web-tutorial-custom-domain.md
 [將 Azure App Service 中的 Web Apps 部署至預備環境]: ./web-sites-staged-publishing.md
 [針對 Azure App Service 中的 App 啟用 HTTPS]: ./app-service-web-tutorial-custom-ssl.md
-[如何監視 Web 端點狀態]: http://go.microsoft.com/fwLink/?LinkID=279906
+[操作說明：監視 Web 端點狀態]: https://go.microsoft.com/fwLink/?LinkID=279906
 [在 Azure App Service 中監視 Web 應用程式的基本概念]: ./web-sites-monitor.md
-[管線模式]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[管線模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure App Service 中調整 Web 應用程式規模]: ./web-sites-scale.md
 [試用 App Service]: https://azure.microsoft.com/try/app-service/
 

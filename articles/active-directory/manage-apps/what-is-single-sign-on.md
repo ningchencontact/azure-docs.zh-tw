@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: 3012f07d8c56f2581a087bc8e43aa4a089bf9589
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 627bd114504de20517abcd05f45dc6c58fe80117
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633507"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322699"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory 中的單一登入應用程式
 了解在 Azure Active Directory (Azure AD) 中設定應用程式時，如何選擇最適當的單一登入方法。 
@@ -61,14 +61,13 @@ SAML 式單一登入是：
 
 - SAML 2.0
 - WS-同盟
-- OpenID Connect
 
 若要為應用程式設定 SAML 式單一登入，請參閱[設定 SAML 式單一登入](configure-single-sign-on-portal.md)。 此外，許多應用程式都有[應用程式特定的教學課程](../saas-apps/tutorial-list.md)，逐步引導您針對特定應用程式設定 SAML 式單一登入。 
 
 如需 SAML 通訊協定運作方式的詳細資訊，請參閱[單一登入 SAML 通訊協定](../develop/single-sign-on-saml-protocol.md)。
 
 ## <a name="password-based-sso"></a>密碼式 SSO
-使用密碼式登入，應用程式是使用使用者名稱和密碼向應用程式驗證。 使用者在第一次存取應用程式時登入。 第一次登入之後，Azure Active Directory 就會向應用程式提供使用者名稱和密碼。 
+若使用密碼式登入，使用者在第一次存取應用程式時，要以使用者名稱和密碼來登入。 第一次登入之後，Azure Active Directory 就會向應用程式提供使用者名稱和密碼。 
 
 密碼式單一登入使用應用程式所提供的現有驗證程序。 當您為應用程式啟用密碼單一登入時，Azure AD 會收集應用程式的使用者名稱和密碼，並安全地儲存。 使用者認證會以加密的狀態儲存在目錄中。 
 
@@ -178,6 +177,6 @@ Azure AD 應用程式 Proxy 會對使用[整合式 Windows 驗證 (IWA)](/aspnet
 * [整合 SaaS 應用程式與 Azure Active Directory 的教學課程](../saas-apps/tutorial-list.md)
 * [設定單一登入的教學課程](configure-single-sign-on-portal.md)
 * [管理應用程式存取簡介](what-is-access-management.md)
-* 下載連結︰[單一登入部署計劃](http://aka.ms/SSODeploymentPlan) \(英文\)。
+* 下載連結：[單一登入部署計劃](https://aka.ms/SSODeploymentPlan) \(英文\)。
 
 

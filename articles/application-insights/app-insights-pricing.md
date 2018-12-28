@@ -9,27 +9,26 @@ ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 08/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4407322dd415a7c8b2ef8b7ff470a247b8d68f69
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 8a0acbfa18053b6b50bd872d109b02d556a6f5f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319450"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436054"
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>管理 Application Insights 的價格和資料量
 
 > [!NOTE]
 > 本文說明如何在 Application Insights 中分析資料使用量。  請參閱下列文章以了解相關資訊。
-> - [監視使用量和估計成本](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
+> - [監視使用量和估計成本](../azure-monitor/platform/usage-estimated-costs.md)說明如何針對不同的定價模型，檢視多項 Azure 監視功能的使用量和估計成本。 其中也會說明如何變更定價模型。
 
 [Azure Application Insights][start] 的價格是根據每個應用程式的資料量而定。 每項 Application Insights 資源都是個別計費的服務，並且會計入到您的 Azure 訂用帳戶帳單。
 
-Application Insights 有兩種定價方案：「基本」和「企業」。 「基本」定價方案是預設方案。 它包含所有「企業」方案功能，且無須額外付費。 「基本」方案主要是針對內嵌的資料磁碟區計費。 
+Application Insights 有兩個定價方案：基本和企業。 「基本」定價方案是預設方案。 它包含所有「企業」方案功能，且無須額外付費。 「基本」方案主要是針對內嵌的資料磁碟區計費。 
 
 「企業」方案會針對每個節點計費，而每個節點會收到每日資料額度。 在「企業」定價方案中，當擷取的資料超過內含的額度時，便會向您收取費用。 如果您使用 Operations Management Suite，即應該選擇「企業」方案。 
 
@@ -171,4 +170,4 @@ Application Insights 費用會加到您的 Azure 帳單中。 您可以在 Azure
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: app-insights-overview.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/

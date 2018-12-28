@@ -1,57 +1,56 @@
 ---
-title: 了解 Azure 原則效果
+title: 了解效果的運作方式
 description: 「Azure 原則」定義有各種效果，可決定合規性的管理和回報方式。
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/30/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 4668b1fe6e59898d81fc71558e21acd1a89be767
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.custom: seodec18
+ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279487"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310839"
 ---
 # <a name="understand-policy-effects"></a>了解原則效果
 
-「Azure 原則」中的每個原則定義都有單一效果，可決定在掃描期間，於評估原則規則的 **if** 區段以比對所掃描的資源時，會發生什麼情況。 這些效果在針對新資源、已更新的資源或現有的資源時，也可能有不同的行為表現。
+「Azure 原則」中的每個原則定義都有一個效果。 該效果決定了當原則規則評估為相符時會發生的情況。 這些效果在針對新資源、已更新的資源或現有的資源時，各有不同的行為表現。
 
 原則定義中目前支援六種效果：
 
 - Append
-- 稽核
+- Audit
 - AuditIfNotExists
-- 拒絕
+- Deny
 - DeployIfNotExists
-- 已停用
+- Disabled
 
 ## <a name="order-of-evaluation"></a>評估順序
 
-當發出透過 Azure Resource Manager 建立或更新資源的要求時，原則會先處理數個效果，然後才將要求傳遞給適當的資源提供者。
-此做法可避免資源提供者在資源不符合所設計的原則治理控制措施時，進行不必要的處理。 原則會建立依範圍 (減去排除項目) 套用至資源的所有原則定義清單 (由原則或初始指派所指派)，然後準備依據每個定義來評估資源。
+「原則」會先評估透過 Azure Resource Manager 進行的資源建立或更新要求。 「原則」會建立適用於資源的所有指派清單，然後對照每個定義來評估資源。 「原則」會先處理數個效果，然後才處理對適當「資源提供者」的要求。 此做法可避免「資源提供者」在資源不符合所設計的「原則」治理控制措施時，進行不必要的處理。
 
 - 首先會檢查 **Disabled**，以決定是否應評估原則規則。
 - 接著評估的是 **Append**。 由於 Append 可以改變要求，因此 Append 所進行的變更可能會導致無法觸發 Audit 或 Deny 效果。
 - 接著評估的是 **Deny**。 在 Audit 前先評估 Deny 可防止重複記錄不想要的資源。
-- 接著會先評估**Audit**，然後才將要求傳遞給資源提供者。
+- 接著會先評估 **Audit**，然後才將要求傳遞給「資源提供者」。
 
-在將要求提供給資源提供者且資源提供者傳回成功狀態碼之後，便會評估 **AuditIfNotExists** 和 **DeployIfNotExists**，以判斷是否需要進行後續的合規性記錄或動作。
+在「資源提供者」傳回成功碼之後，便會評估 **AuditIfNotExists** 和 **DeployIfNotExists**，以判斷是否需要進行後額外的合規性記錄或動作。
 
-## <a name="disabled"></a>已停用
+## <a name="disabled"></a>Disabled
 
-此效果適用於測試情況，以及在原則定義已將效果參數化時。 您能夠藉由改變效果的指派參數，而非停用原則的所有指派，來停用該原則的單一指派。
+針對測試情況，或當原則定義已將效果參數化時，此效果相當有用。 這個彈性讓您得以停用單一指派，而不是停用該原則的所有指派。
 
 ## <a name="append"></a>Append
 
-Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 這對於在 costCenter 之類的資源上新增標籤，或為儲存體資源指定允許的 IP 來說，可能相當有用。
+Append 可用來在建立或更新所要求的資源時，為資源新增額外的欄位。 其中一個常見的範例就是在資源上新增標籤 (例如 costCenter)，或是為儲存體資源指定允許的 IP。
 
 ### <a name="append-evaluation"></a>Append 評估
 
-如前所述，在建立或更新資源期間，會先評估 Append，然後才由資源提供者處理要求。 Append 會在原則規則的 **if** 條件相符時，為資源新增欄位。 如果 Append 效果會以不同的值覆寫原始要求中的值，則它會充當 Deny 效果而拒絕該要求。
+在建立或更新資源期間，會先由 Append 進行評估，然後才由「資源提供者」處理要求。 Append 會在原則規則的 **if** 條件相符時，為資源新增欄位。 如果 Append 效果會以不同的值覆寫原始要求中的值，則它會充當 Deny 效果而拒絕該要求。
 
 當使用 Append 效果的原則定義在評估週期中執行時，並不會對已經存在的資源進行變更。 取而代之的是，會將符合 **if** 條件的所有資源標示為不符合規範。
 
@@ -73,7 +72,7 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 }
 ```
 
-範例 2：用以附加一組標籤的多個 **field/value** 配對。
+範例 2：用以附加一組標籤的兩個 **field/value** 配對。
 
 ```json
 "then": {
@@ -107,13 +106,13 @@ Append 效果只有一個 **details** 陣列且為必要。 由於 **details** �
 
 ## <a name="deny"></a>拒絕
 
-Deny 可用來透過原則定義防止不符合所需標準的資源要求，並讓該要求失敗。
+Deny 可用來透過原則定義防止不符合所定義標準的資源要求，並讓該要求失敗。
 
 ### <a name="deny-evaluation"></a>Deny 評估
 
-建立或更新資源時，Deny 可在要求被傳送給資源提供者之前先行阻止。 要求會以 403 (禁止) 的形式傳回。 在入口網站中，可將「禁止」視為一種因原則指派而被阻止的部署狀態。
+建立或更新相符的資源時，Deny 可在要求被傳送給「資源提供者」之前先行阻止。 要求會以 `403 (Forbidden)` 的形式傳回。 在入口網站中，可將「禁止」視為原則指派所阻止的部署狀態。
 
-在評估週期期間，會將含有 Deny 效果且與資源相符的原則定義標示為不符合規範，但不會對該資源執行任何動作。
+評估現有資源時，符合 Deny 原則定義的資源會標示為不符合規範。
 
 ### <a name="deny-properties"></a>Deny 屬性
 
@@ -135,7 +134,7 @@ Audit 效果可用來在評估到不符合規範的資源時，在活動記錄�
 
 ### <a name="audit-evaluation"></a>Audit 評估
 
-Audit 效果是在建立或更新資源時，在將要求傳送給資源提供者之前，最後執行的效果。 Audit 對資源要求和評估週期的運作方式相同，並且會對活動記錄執行 `Microsoft.Authorization/policies/audit/action` 作業。 在這兩種情況下，都會將資源標示為不符合規範。
+Audit 是建立或更新資源期間，「原則」所檢查的最後一個效果。 接著，「原則」就會將該資源傳送給「資源提供者」。 Audit 對資源要求和評估週期的運作方式相同。 「原則」會將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄，然後將資源標示為不符合規範。
 
 ### <a name="audit-properties"></a>Audit 屬性
 
@@ -157,7 +156,7 @@ AuditIfNotExists 可讓您稽核符合下列條件的資源：符合 **if** 條�
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists 評估
 
-AuditIfNotExists 的執行順序是在資源提供者已處理對資源的建立或更新要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會觸發此效果。 觸發此效果時，會以和 Audit 效果相同的方式對活動記錄執行 `Microsoft.Authorization/policies/audit/action` 作業。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
+AuditIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行稽核。 「原則」會以和 Audit 效果相同的方式，將 `Microsoft.Authorization/policies/audit/action` 作業新增至活動記錄。 當觸發時，滿足 **if** 條件的資源會是標示為不符合規範的資源。
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists 屬性
 
@@ -188,7 +187,7 @@ AuditIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ### <a name="auditifnotexists-example"></a>AuditIfNotExists 範例
 
-範例：評估虛擬機器以判斷「反惡意程式碼軟體」延伸模組是否存在，然後在遺漏該軟體時進行稽核。
+範例：評估「虛擬機器」以判斷「反惡意程式碼軟體」延伸模組是否存在，然後在遺漏該軟體時進行稽核。
 
 ```json
 {
@@ -225,9 +224,9 @@ DeployIfNotExists 與 AuditIfNotExists 類似，也會在符合條件時執行�
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 評估
 
-DeployIfNotExists 的執行順序也是在資源提供者已處理對資源的建立或更新要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會觸發此效果。 觸發此效果時，會執行範本部署。
+DeployIfNotExists 的執行順序是在「資源提供者」已處理建立或更新資源要求，並且已傳回成功狀態碼之後。 如果沒有任何相關資源，或 **ExistenceCondition** 所定義的資源未評估為 true，就會進行範本部署。
 
-在評估週期期間，會將含有 DeployIfNotExists 效果且與資源相符的原則定義標示為不符合規範，但不會對該資源執行任何動作。
+在評估週期期間，會將含有 DeployIfNotExists 效果且與資源相符的原則定義標示為不符合規範，但不會對該資源採取任何動作。
 
 ### <a name="deployifnotexists-properties"></a>DeployIfNotExists 屬性
 
@@ -242,7 +241,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
   - 允許比對來自不同資源群組的相關資源。
   - 如果 **type** 是一個會在 **if** 條件資源下的資源，則不適用。
   - 預設值為 **if** 條件資源的資源群組。
-  - 如果執行範本部署，則會在此值的資源群組中部署。
+  - 如果執行範本部署，會在此值的資源群組中部署。
 - **ExistenceScope** (選擇性)
   - 允許的值為 _Subscription_ 和 _ResourceGroup_。
   - 設定要從中擷取所要比對之相關資源的位置範圍。
@@ -266,7 +265,7 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ### <a name="deployifnotexists-example"></a>DeployIfNotExists 範例
 
-範例：評估 SQL Server 資料庫，以判斷是否已啟用 transparentDataEncryption。 如果未啟用，則會執行部署來啟用它。
+範例：評估 SQL Server 資料庫，以判斷是否已啟用 transparentDataEncryption。 如果未啟用，則會執行部署來進行啟用。
 
 ```json
 "if": {
@@ -319,21 +318,32 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 
 ## <a name="layering-policies"></a>分層原則
 
-一個資源可能會受到多項指派影響。 這些指派可能在相同範圍 (特定資源、資源群組、訂用帳戶或管理群組)，也可能在不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 無論如何，每個原則的條件和效果 (直接指派或作為初始指派的一部分) 都會以獨立方式評估。 例如，如果原則 1 的條件以 Deny 效果限制在 'westus' 中建立訂用帳戶 A 的資源位置，而原則 2 的條件以 Audit 效果限制在 'eastus' 中建立資源群組 B (在訂用帳戶 A 中) 的資源位置，當同時指派這兩個原則時，產生的結果會是：
+一個資源可能會受到數個指派影響。 這些指派可能屬於相同範圍，也可能屬於不同範圍。 這些指派中的每項指派也可能定義了不同的效果。 針對每個原則的條件和效果，都會以獨立方式進行評估。 例如︰
 
-- 任何已經在資源群組 B 且在 'eastus' 中的資源都符合原則 2 的規範，但會標示為不符合原則 1 的規範。
-- 任何已經在資源群組 B 但不在 'eastus' 中的資源都會標示為不符合原則 2 的規範，且如果不在 'westus' 中，也會標示為不符合原則 1 的規範。
-- 任何在訂用帳戶 A 但不在 'westus' 中的新資源都將被原則 1 拒絕。
-- 任何在訂用帳戶 A/資源群組 B 且在 'westus' 中的新資源都會標示為不符合原則 2 的規範，但仍會建立 (符合原則 1 的規範，而原則 2 為稽核而非拒絕)。
+- 原則 1
+  - 將資源位置限制為 'westus'
+  - 指派給訂用帳戶 A
+  - Deny 效果
+- 原則 2
+  - 將資源位置限制為 'eastus'
+  - 指派給訂用帳戶 A 中的資源群組 B
+  - Audit 效果
+  
+此設定會產生下列結果：
+
+- 任何已經在資源群組 B 且在 'eastus' 中的資源都符合原則 2 的規範，但不符合原則 1 的規範
+- 任何已經在資源群組 B 但不在 'eastus' 中的資源都不符合原則 2 的規範，且如果不在 'westus' 中，則也不符合原則 1 的規範
+- 任何在訂用帳戶 A 但不在 'westus' 中的新資源都會被原則 1 拒絕
+- 任何在訂用帳戶 A 和資源群組 B 且在 'westus' 中的新資源都會建立，但不符合原則 2 的規範
 
 如果原則 1 和原則 2 都採用 Deny 效果，則情況會變成：
 
-- 任何已經在資源群組 B 但不在 'eastus' 中的資源都會標示為不符合原則 2 的規範。
-- 任何已經在資源群組 B 但不在 'westus' 中的資源都會標示為不符合原則 1 的規範。
-- 任何在訂用帳戶 A 但不在 'westus' 中的新資源都將被原則 1 拒絕。
-- 任何在訂用帳戶 A/資源群組 B 中的新資源都將被拒絕 (因為其位置永遠無法同時滿足原則 1 和原則 2)。
+- 任何已經在資源群組 B 但不在 'eastus' 中的資源都不符合原則 2 的規範
+- 任何已經在資源群組 B 但不在 'westus' 中的資源都不符合原則 1 的規範
+- 任何在訂用帳戶 A 但不在 'westus' 中的新資源都會被原則 1 拒絕
+- 任何在訂用帳戶 A 之資源群組 B 中的新資源都會被拒絕
 
-因為會個別評估每項指派，所以不可能因範圍差異而略過某個資源。 因此，分層原則或原則重疊的淨結果會被視為**累計限制最嚴格的**結果。 換句話說，您想要建立的資源可能因原則重疊或衝突而無法建立，像是上述範例中如果原則 1 和原則 2 都具有 Deny 效果的情況。 如果您仍然想要在目標範圍中建立該資源，請檢閱每項指派的相關排除項目，以確保由正確的原則影響正確的範圍。
+針對每個指派都會以獨立方式進行評估。 因此，不可能讓資源從範圍差異的間隙中逃脫。 分層原則或原則重疊的淨結果會被視為**累計限制最嚴格的**結果。 舉例來說，如果原則 1 和原則 2 都具有 Deny 效果，則資源會遭到重疊和衝突原則封鎖。 如果您仍然需要在目標範圍中建立該資源，請檢閱每項指派的相關排除項目，以驗證是由正確的原則影響正確的範圍。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -341,5 +351,5 @@ DeployIfNotExists 效果的 **details** 屬性含有定義所要比對相關資�
 - 檢閱[原則定義結構](definition-structure.md)
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)
-- 探索如何[補救不符合規範的資源](../how-to/remediate-resources.md)
+- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)
 - 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/overview.md)，以了解何謂管理群組

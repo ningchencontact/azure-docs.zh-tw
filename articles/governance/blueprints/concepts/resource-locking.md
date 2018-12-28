@@ -1,5 +1,5 @@
 ---
-title: 了解 Azure 藍圖中的資源鎖定
+title: 了解資源鎖定
 description: 了解在指派藍圖時保護資源的鎖定選項。
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4e71797837927fe5f5233bcf88d35fef98f504e9
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 0e272f7137967b545269a408b6e83552de532682
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139437"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309418"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>了解 Azure 藍圖中的資源鎖定
 
@@ -21,7 +22,7 @@ ms.locfileid: "50139437"
 
 ## <a name="locking-modes-and-states"></a>鎖定模式和狀態
 
-鎖定模式適用於藍圖指派，它只有兩個選項：[無] 或 [所有資源]。 鎖定模式是在藍圖指派期間設定的，一旦指派成功套用至訂用帳戶，就無法變更。
+「鎖定模式」適用於藍圖指派，它只有兩個選項：[無] 或 [所有資源]。 鎖定模式是在藍圖指派期間設定的，一旦指派成功套用至訂用帳戶，就無法變更。
 
 藍圖指派中成品所建立的資源有三種狀態：[未鎖定]、[唯讀] 或 [無法編輯 / 刪除]。 每個成品都可以是 [未鎖定] 狀態。 但是，非資源群組成品具有 [唯讀] 狀態，而資源群組具有 [無法編輯 / 刪除] 狀態。 這項差異是如何管理這些資源的重要區別。
 

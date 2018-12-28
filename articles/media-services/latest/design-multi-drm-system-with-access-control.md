@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 媒體服務設計具有存取控制的多重 DRM 內容保護系統 | Microsoft Docs
+title: 設計具有存取控制的多重 DRM 內容保護系統 - Azure 媒體服務 | Microsoft Docs
 description: 了解如何授權 Microsoft Smooth Streaming Client Porting Kit。
 services: media-services
 documentationcenter: ''
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: willzhan
-ms.openlocfilehash: d65007ed2a0ce5a827eadca31dd9df8704e2c905
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.custom: seodec18
+ms.openlocfilehash: ec354cc91b22905c399d7bb19107db1b94e9925f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136268"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>設計具有存取控制的多重 DRM 內容保護系統 
 
@@ -28,7 +29,7 @@ ms.locfileid: "49958188"
 
 這份文件的目標讀者是使用 OTT 或線上串流/多重螢幕解決方案的 DRM 子系統工程師，或是對於 DRM 子系統有興趣的任何讀者。 假設讀者都熟悉市場上至少一個 DRM 技術，例如 PlayReady、Widevine、FairPlay 或 Adobe Access。
 
-在本文的討論中，我們針對多重 DRM 納入了 Azure 媒體服務所支援的 3 個 DRM：適用於 PlayReady 和 Widevine 的一般加密 (CENC)、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
+在本討論中，我們透過多重 DRM 包含 Azure 媒體服務支援的 3 個 DRM：一般加密 (CENC)，用於 PlayReady 和 Widevine、FairPlay 以及 AES-128 清除金鑰加密。 線上串流和 OTT 產業中的主要趨勢，是在各種用戶端平台上使用原生 DRM。 這個趨勢是從先前趨勢轉移而來，先前的趨勢是將單一 DRM 及其用戶端 SDK 用於各種用戶端平台。 使用 CENC 搭配多重原生 DRM 時，PlayReady 和 Widevine 會依照 [Common Encryption (ISO/IEC 23001-7 CENC)](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=65271/) 規格加密。
 
 使用原生多重 DRM 進行內容保護的優點，是它能夠：
 
@@ -246,7 +247,7 @@ DRM 子系統可能包含下列元件：
 
 * 授與群組成員資格宣告權限。 請確定下列項目位於 Azure AD 應用程式資訊清單檔中： 
 
-    "groupMembershipClaims": "All"    (預設值是 null)
+    "groupMembershipClaims"："All"    (預設值為 null)
 
 * 建立限制需求時，設定適當的 TokenType。
 
@@ -326,7 +327,7 @@ DRM 授權傳遞服務一律會檢查來自 Azure AD 的目前/有效公開金�
 
 2. 為資源應用程式新增金鑰。
 
-3. 更新應用程式資訊清單檔案，讓 groupMembershipClaims 屬性具有下列值："groupMembershipClaims": "All"。
+3. 更新應用程式資訊清單檔案，讓 groupMembershipClaims 屬性具有下列值："groupMembershipClaims":"All"。
 
 4. 在指向播放器 Web 應用程式的 Azure AD 應用程式上，於 [其他應用程式的權限] 區段中，新增已在步驟 1 中新增的資源應用程式。 在 [委派的權限] 底下選取 [存取 [resource_name]]。 此選項可給予 Web 應用程式建立存取權杖的權限，從而存取資源應用程式。 如果您使用 Visual Studio 和 Azure Web 應用程式進行開發，請對本機和已部署版本的 Web 應用程式這麼做。
 
@@ -359,7 +360,7 @@ Azure AD 所簽發的 JWT 是用來存取指標資源的存取權杖。
 
 有兩種類型的安全性金鑰：
 
-* 對稱金鑰：會使用相同的金鑰來產生及驗證 JWT。
+* 對稱金鑰：使用相同的金鑰來產生及驗證 JWT。
 * 非對稱金鑰：搭配使用 x509 憑證中的私密-公開金鑰組，私密金鑰用來加密/產生 JWT，公開金鑰則用來驗證權杖。
 
 > [!NOTE]
@@ -401,15 +402,15 @@ Azure AD 所簽發的 JWT 是用來存取指標資源的存取權杖。
 
 **自訂 Azure AD 租用戶網域帳戶**：自訂 Azure AD 租用戶網域的自訂登入頁面。
 
-![自訂 Azure AD 租用戶網域帳戶](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
+![自訂 Azure AD 租用戶網域帳戶 1](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain1.png)
 
 **採用智慧卡的 Microsoft 網域帳戶**：由 Microsoft Corporate IT 自訂且採用雙因素驗證的登入頁面。
 
-![自訂 Azure AD 租用戶網域帳戶](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
+![自訂 Azure AD 租用戶網域帳戶 2](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain2.png)
 
 **Microsoft 帳戶**：Microsoft 取用者帳戶的登入頁面。
 
-![自訂 Azure AD 租用戶網域帳戶](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
+![自訂 Azure AD 租用戶網域帳戶 3](./media/design-multi-drm-system-with-access-control/media-services-ad-tenant-domain3.png)
 
 ### <a name="use-encrypted-media-extensions-for-playready"></a>使用 PlayReady 的加密媒體擴充功能
 在具有支援 PlayReady 之加密媒體擴充功能 (EME) 的最新瀏覽器 (例如 Windows 8.1 和更新版本上的 Internet Explorer 11，以及 Windows 10 上的 Microsoft Edge 瀏覽器) 上，PlayReady 是 EME 的基本 DRM。

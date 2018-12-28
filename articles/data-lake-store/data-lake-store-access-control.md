@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: eaabb29a492ec6a0ef4c85afe839a9df5f588958
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567480"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087162"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1 中的存取控制
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 存取控制清單 (ACL) 有兩種類型，**存取 ACL** 和**預設 ACL**。
 
-* **存取 ACL**：這些控制物件的存取權。 檔案和資料夾均有存取 ACL。
+* **存取 ACL**：這些可控制對物件的存取權。 檔案和資料夾均有存取 ACL。
 
-* **預設 ACL**：與資料夾相關聯之 ACL 的「範本」，用以判斷再該資料夾下建立的任何子項目的存取 ACL。 檔案沒有預設 ACL。
+* **預設 ACL**：與資料夾相關聯的 ACL「範本」，用以決定該資料夾下所建立任何子項目的「存取 ACL」。 檔案沒有預設 ACL。
 
 
 存取 ACL 和預設 ACL 有相同的結構。
@@ -71,15 +71,15 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 
 以下是一些常見的案例，可協助您了解在 Data Lake Storage Gen1 帳戶上執行某些作業所需的權限。
 
-|    作業             |    /    | Seattle/ | Portland/ | Data.txt     |
-|--------------------------|---------|----------|-----------|--------------|
-| Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
-| Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
-| Delete Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| Create Data.txt          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
-| List /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
-| List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
-| List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
+| 作業 | Object              |    /      | Seattle/   | Portland/   | Data.txt       |
+|-----------|---------------------|-----------|------------|-------------|----------------|
+| 讀取      | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| 附加至 | Data.txt            |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| 刪除    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 建立    | Data.txt            |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| 列出      | /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| 列出      | /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| 列出      | /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -133,7 +133,7 @@ Azure Data Lake Storage Gen1 實作的存取控制模型衍生自 HDFS，而 HDF
 **指派新檔案或資料夾的擁有群組**
 
 * **案例 1**：根資料夾 "/"。 建立 Data Lake Storage Gen1 帳戶時，會建立這個資料夾。 在此情況下，擁有群組會設定為全部為零的 GUID。  這個值不允許任何存取。  將這類時間指派給群組以前，這是一個預留位置。
-* **案例 2** (其他所有案例)：建立新項目時，會從父資料夾複製擁有群組。
+* **案例 2** (每個其他案例)：建立新項目時，會從父資料夾複製擁有群組。
 
 **變更擁有群組**
 

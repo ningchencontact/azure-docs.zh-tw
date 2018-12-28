@@ -1,6 +1,6 @@
 ---
-title: Azure 搜尋服務索引子中的欄位對應
-description: 設定 Azure 搜尋服務索引子欄位對應交代欄位名稱和資料表示的差異
+title: 可使用索引子用於自動編製索引的欄位對應 - Azure 搜尋服務
+description: 設定 Azure 搜尋服務索引子欄位對應，以處理欄位名稱和資料表示法的差異。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 01edc7001ec463cb16d8b6c715794b0028508143
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.custom: seodec2018
+ms.openlocfilehash: 94a7274c0e950661d118ad5421e7c763fe555434
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404712"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312692"
 ---
 # <a name="field-mappings-in-azure-search-indexers"></a>Azure 搜尋服務索引子中的欄位對應
 使用 Azure 搜尋服務索引子時，您偶爾會發現置身於輸入資料不完全符合目標索引結構描述的情況中。 在這些情況下，您可以使用 **欄位對應** 將您的資料轉換成所需的形狀。
@@ -134,7 +135,7 @@ Blob 的自訂中繼資料值必須以 ASCII 編碼。 您可以使用 Base64 �
 <a name="base64details"></a>
 
 ### <a name="details-of-base64-encoding-and-decoding"></a>base64 編碼和解碼的詳細資訊
-Azure 搜尋服務支援兩種 base64 編碼：HttpServerUtility URL 權杖以及 沒有填補的 URL 安全 base64 編碼。 如果您想將文件編碼供查閱、將值編碼讓索引子解碼、或將由索引子編碼的欄位解碼，必須使用和對應函式相同的編碼。
+Azure 搜尋服務支援兩種 base64 編碼：HttpServerUtility URL 權杖以及無填補的 URL 安全 base64 編碼。 如果您想將文件編碼供查閱、將值編碼讓索引子解碼、或將由索引子編碼的欄位解碼，必須使用和對應函式相同的編碼。
 
 如果用於編碼和解碼的 `useHttpServerUtilityUrlTokenEncode` 或 `useHttpServerUtilityUrlTokenDecode` 參數分別設定為 `true`，則 `base64Encode` 的行為會像 [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 且 `base64Decode` 的行為會像 [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)。
 

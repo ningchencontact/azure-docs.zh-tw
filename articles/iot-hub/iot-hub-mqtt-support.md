@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: 53643b185825d4cc03073144e1b3547452629c08
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9df2e8762d546e6115dc1205548e927cfee7bb60
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497621"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341875"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>使用 MQTT 通訊協定來與 IoT 中樞通訊
 
@@ -81,9 +81,9 @@ IoT 中樞不是功能完整的 MQTT 訊息代理程式，而且不支援 MQTT v
 
   如需如何產生 SAS 權杖的詳細資訊，請參閱[使用 IoT 中樞安全性權杖][lnk-sas-tokens]的裝置一節。
 
-  測試時，您也可以使用[適用於 Visual Studio Code 的 Azure IoT Toolkit 延伸模組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) 或 [Device Explorer][lnk-device-explorer] 來快速產生 SAS 權杖，方便您複製並貼到您的程式碼中︰
+  測試時，您也可以使用跨平台的[適用於 Visual Studio Code 的 Azure IoT 中樞工具組延伸模組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (先前稱為「Azure IoT 工具組」延伸模組) 或 [Device Explorer][lnk-device-explorer] 工具，以快速產生可供您複製並貼到您自己程式碼中的 SAS 權杖︰
 
-Azure IoT 工具組：
+針對「Azure IoT 中樞工具組」：
 
   1. 展開 Visual Studio Code 左下角的 [AZURE IOT 中樞裝置] 索引標籤。
   2. 以滑鼠右鍵按一下您的裝置，然後選取 [產生裝置的 SAS 權杖]。

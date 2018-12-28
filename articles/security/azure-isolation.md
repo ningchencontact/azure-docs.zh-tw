@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239044"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310992"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -149,9 +149,7 @@ Azure 的計算平台會以機器虛擬化為基礎，這表示所有客戶程�
 
 每個節點也會有一部特殊的根 VM，其會執行主機 OS。 關鍵界限是隔離客體 VM 與根 VM，以及客體 VM 的彼此隔離 (由 Hypervisor 和根 OS 所管理)。 Hypervisor/根 OS 配對運用 Microsoft 數十年的作業系統安全性體驗，以及最近從 Microsoft Hyper-V 中學到的資訊，來提供客體 VM 的嚴密隔離。
 
-Azure 平台使用虛擬化環境。 使用者執行個體會以無權存取實體主機伺服器的獨立虛擬機器形式運作，而此隔離會使用實體處理器 (信號-0/信號-3) 權限層級來強制執行。
-
-信號 0 是最高權限，3 是最低。 客體 OS 會在權限較低的信號 1 中執行，應用程式則在權限最低的信號 3 中執行。 實體資源的這種虛擬化可讓客體 OS 與 Hypervisor 之間明確區隔，進而使兩者之間的安全性有進一步的區隔。
+Azure 平台使用虛擬化環境。 使用者執行個體以未存取實體主機伺服器的獨立虛擬機器形式運作。
 
 Azure Hypervisor 作用相當於微核心，可將來自客體虛擬機器的所有硬體存取要求傳遞至主機，以使用名為 VMBus 的共用記憶體介面進行處理。 這可以防止使用者取得系統的原始讀取/寫入/執行存取權，並降低共用系統資源的風險。
 
@@ -187,7 +185,7 @@ Hypervisor 與主機 OS 提供網路封包 - 篩選器，以協助保證不受�
 
 以下為要進行程式設計的兩種規則：
 
--   **機器組態或基礎結構規則**：依預設會封鎖所有通訊。 有部分例外狀況可允許虛擬機器傳送與接收 DHCP 和 DNS 流量。 虛擬機器也可以將流量傳送至「公用」網際網路，以及將流量傳送至同一個 Azure 虛擬網路和 OS 啟用伺服器內的其他虛擬機器。 虛擬機器允許的連出目的地清單不包含 Azure 路由器子網路、Azure 管理和其他 Microsoft 屬性。
+-   **機器組態或基礎結構規則**：根據預設，會封鎖所有通訊。 有部分例外狀況可允許虛擬機器傳送與接收 DHCP 和 DNS 流量。 虛擬機器也可以將流量傳送至「公用」網際網路，以及將流量傳送至同一個 Azure 虛擬網路和 OS 啟用伺服器內的其他虛擬機器。 虛擬機器允許的連出目的地清單不包含 Azure 路由器子網路、Azure 管理和其他 Microsoft 屬性。
 
 -   **角色組態檔**：這會根據租用戶的服務模型定義輸入存取控制清單 (ACL)。
 
@@ -215,7 +213,7 @@ Microsoft Azure 的基本設計是將以 VM 為基礎的計算與儲存體分隔
 
 ![使用儲存體存取控制進行隔離](./media/azure-isolation/azure-isolation-fig9.png)
 
-**Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
+ **Azure 儲存體資料 (包括表格)** 可透過 [SAS (共用存取簽章)](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 權杖來控制，該權杖會授與限定範圍的存取權。 SAS 會透過查詢範本 (URL) 來建立，此 URL 是利用 [SAK (儲存體帳戶金鑰)](https://msdn.microsoft.com/library/azure/ee460785.aspx) 簽署的。 該[簽署的 URL](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) 可以提供給另一個程序 (也就是委派)，然後填入查詢的詳細資料，並提出儲存體服務的要求。 SAS 可讓您對用戶端授與限時的存取權，而不需揭露儲存體帳戶的祕密金鑰。
 
 SAS 意謂著我們可以將儲存體帳戶中物件的有限權限授與用戶端，讓該用戶端可以在一段指定的時間內使用一組指定的權限進行存取。 我們可以在不須分享您帳戶存取金鑰的情況下，授與這些有限的權限。
 

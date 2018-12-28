@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 12/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243124"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275103"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>在 Azure Active Directory 中對 Office 365 群組強制執行命名原則 (預覽)
 
@@ -58,6 +58,7 @@ ms.locfileid: "50243124"
 封鎖字組清單是要在群組名稱和別名中封鎖之片語的逗號分隔清單。 系統不會執行子字串搜尋。 群組名稱必須和一或多個自訂封鎖字組完全相符，才會觸發失敗。 由於不會執行子字串搜尋，所以即便「lass」是封鎖字組，使用者仍可使用「Class」之類的一般字組。
 
 封鎖字組清單規則：
+
 - 封鎖字組不區分大小寫。
 - 使用者在輸入封鎖字組來作為群組名稱的一部分時，會看到附上封鎖字組的錯誤訊息。
 - 封鎖字組沒有字元限制。
@@ -120,7 +121,7 @@ ms.locfileid: "50243124"
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>設定命名原則和自訂封鎖字組
 
-1. 在 Azure AD PowerShell 中設定群組名稱前置詞和後置詞。
+1. 在 Azure AD PowerShell 中設定群組名稱前置詞和後置詞。 設定中必須包含 [GroupName]，此功能才能正常運作。
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -166,6 +167,27 @@ $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ````
+
+## <a name="remove-the-naming-policy"></a>移除命名原則
+
+1. 在 Azure AD PowerShell 中將群組名稱前置詞和後置詞設為空的。
+  
+  ````
+  $Setting["PrefixSuffixNamingRequirement"] =""
+  ````
+  
+2. 將自訂封鎖字組設為空的。 
+  
+  ````
+  $Setting["CustomBlockedWordsList"]=""
+  ````
+  
+3. 儲存設定。
+  
+  ````
+  Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+  ````
+
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>跨 Office 365 應用程式的命名原則體驗
 

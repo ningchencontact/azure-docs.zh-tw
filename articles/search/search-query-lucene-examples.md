@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務的 Lucene 查詢範例 | Microsoft Docs
+title: Lucene 查詢範例 - Azure 搜尋服務
 description: Azure 搜尋服務中的模糊搜尋、鄰近搜尋、詞彙提升、規則運算式搜尋與萬用字元搜尋的 Lucene 查詢語法。
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: b5a3e2eac218ba2aa6958ffc56bd59f5b513cf48
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 0ce230bc6a926229ed383c828f83aafd60117471
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42145517"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317147"
 ---
 # <a name="lucene-syntax-query-examples-for-building-advanced-queries-in-azure-search"></a>在 Azure 搜尋服務中建置進階查詢的 Lucene 語法查詢範例
 在建構 Azure 搜尋服務的查詢時，您可以將預設的[簡單查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)取代為更廣泛的 [Lucene 查詢剖析器](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)，以編寫特製化的進階查詢定義。 
@@ -79,7 +80,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 ## <a name="example-1-field-scoped-query"></a>範例 1：欄位範圍查詢
 
-第一個範例不是剖析器特有的，但我們會介紹第一個基本查詢概念：內含項目。 此範例會將查詢執行和回應範圍限定為少數特定欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
+第一個範例不是剖析器專屬的，但我們會介紹第一個基本查詢概念：內含項目。 此範例會將查詢執行和回應範圍限定為少數特定欄位。 當您的工具是 Postman 或搜尋總管時，了解如何建構可讀取的 JSON 回應很重要。 
 
 為求簡潔，查詢僅以 *business_title* 欄位為目標，且指定僅傳回公司職稱。 語法為 **searchFields** 可將執行查詢限制為只有 business_title 欄位，而 **select** 可指定要包含在回應中的欄位。
 
@@ -93,7 +94,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際準則時，您會發現搜尋分數逐漸具有其實質意義。
 
-## <a name="example-2-intra-field-filtering"></a>範例 2：內部欄位篩選範例
+## <a name="example-2-intra-field-filtering"></a>範例 2：內部欄位篩選
 
 完整 Lucene 語法支援在欄位內使用運算式。 此查詢會搜尋包含 senior 詞彙的職稱，而不是包含 junior︰
 
@@ -171,7 +172,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 在設定係數層級時，提升係數越高，該字詞相對於其他搜尋字詞的關聯性也越高。 根據預設，提升係數為 1。 雖然提升係數必須是正數，但是它可能會小於 1 (例如，0.2)。
 
 
-## <a name="example-6-regex"></a>範例 6：Regex
+## <a name="example-6-regex"></a>範例 6︰Regex
 
 規則運算式搜尋會根據正斜線 "/" 之間的內容尋找相符項目，如 [RegExp 類別](http://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html)中所記錄。
 

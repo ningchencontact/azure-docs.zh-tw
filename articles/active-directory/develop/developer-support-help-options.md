@@ -17,14 +17,14 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 60186d44437a866793b40c9d6f0263235803475f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422434"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337133"
 ---
-# <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項 
+# <a name="support-and-help-options-for-developers"></a>開發人員的支援和協助選項
 
 不論您是剛開始整合 Azure Active Directory、Microsoft 身分識別或 Microsoft Graph API，還是在您將新功能實作到應用程式時，您有時會需要從社群取得協助，或是需要了解您身為開發人員所擁有的支援選項。 本文會協助您了解這些選項，以下是本文的摘要：
 
@@ -38,7 +38,7 @@ ms.locfileid: "52422434"
 
 ## <a name="search"></a>Search
 
-如果您有開發相關問題，您可以在我們的文件、[github 範例](https://github.com/azure-samples)，或 [Stack Overflow](https://www.stackoverflow.com) 問題的解答中，找到您需要的答案。
+如果您有開發相關問題，您可以在我們的文件、[GitHub 範例](https://github.com/azure-samples)，或 [Stack Overflow](https://www.stackoverflow.com) 問題的解答中，找到您需要的答案。
 
 ### <a name="scoped-search"></a>限域搜尋
 為了更快獲得結果，請在您[慣用的搜尋引擎](https://bing.com)中使用下列語法，將搜尋範圍限制在 Stack Overflow、我們的文件和我們的程式碼範例：
@@ -76,7 +76,7 @@ Stack Overflow 是開發相關問題的慣用管道，該社群的成員和 Micr
 |與驗證或授權主題相關的其他任何區域 |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
-> 下面的 Stack Overflow 文章包含如何提出問題以及如何新增原始程式碼的訣竅，遵循這些指導方針，會有助於增加社群成員盡速評估問題並做出回應的機率：  
+> 下面的 Stack Overflow 文章包含如何提出問題以及如何新增原始程式碼的訣竅，遵循這些指導方針，會有助於增加社群成員盡速評估問題並做出回應的機率：
 > - [要如何問一個好問題](https://stackoverflow.com/help/how-to-ask)
 > - [如何建立最小、完成且可驗證的範例](https://stackoverflow.com/help/mcve)
 

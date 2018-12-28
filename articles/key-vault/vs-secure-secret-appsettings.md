@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 4c54fe7c9ae5555ad1b8ba6919c70c8f7fa49125
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625448"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252086"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>安全地儲存 Web 應用程式的祕密應用程式設定
 
 ## <a name="overview"></a>概觀
 本文說明如何安全地儲存 Azure 應用程式的秘密應用程式組態設定。
 
-過去，所有 Web 應用程式組態設定都會儲存在組態檔中，例如 Web.config。這種作法會導致雲端認證之類的秘密設定簽入至公用的原始檔控制系統，例如 Github。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。
+過去，所有 Web 應用程式組態設定都會儲存在組態檔中，例如 Web.config。此做法會導致將祕密設定 (例如雲端認證) 簽入至公用原始檔控制系統 (例如 GitHub)。 同時，也可能會因為變更原始程式碼和重新設定開發設定所需的額外負荷，而難以遵循安全性最佳作法。
 
 為了確保開發程序的安全性，必須建立工具和架構程式庫，在最低限度或完全不變更原始程式碼的情況下安全地儲存應用程式秘密設定。
 

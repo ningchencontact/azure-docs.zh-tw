@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 來建立 Azure 媒體服務帳戶 | Microsoft Docs
+title: 使用 Azure CLI 建立媒體服務帳戶 - Azure | Microsoft Docs
 description: 按照本快速入門的步驟來建立 Azure 媒體服務帳戶。
 services: media-services
 documentationcenter: ''
@@ -9,21 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
-ms.date: 11/11/2018
+ms.custom: seodec18
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: cb49b642137517c0ceef7d2fa01994a554db1f4e
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613154"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133361"
 ---
 # <a name="create-an-azure-media-services-account"></a>建立 Azure 媒體服務帳戶
 
 若要在 Azure 中開始加密、編碼、分析、管理和串流處理媒體內容，您需要建立 Media Services 帳戶。 當您建立媒體服務帳戶時，也會在與媒體服務帳戶相同的地理區域中建立相關聯的儲存體帳戶 (或使用現有儲存體帳戶)。
-
-本文說明使用 Azure CLI 來建立新「Azure 媒體服務」帳戶的步驟。  
+Azure 本文說明使用 Azure CLI 來建立新「Azure 媒體服務」帳戶的步驟。  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

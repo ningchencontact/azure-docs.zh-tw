@@ -4,9 +4,8 @@ description: 了解如何在 Azure Machine Learning 中重新定型模型，以�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: d1cb6088-4f7c-4c32-94f2-f7523dad9059
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: 1f2505eda232c518ccb24b32fad91fb36dd11b01
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 614a342dd28b711e3030c19f347fa432e3994a86
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317920"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257575"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>重新定型 Azure Machine Learning Studio 模型
 在 Azure Machine Learning 中進行機器學習服務模型的實作程序時，需要定型並儲存您的模型。 接著，使用它來建立預測性 Web 服務。 接著才能在網站、儀表板及行動應用程式取用 Web 服務。 
@@ -43,7 +42,7 @@ ms.locfileid: "52317920"
 > 
 
 ## <a name="end-to-end-workflow"></a>端對端工作流程
-此程序包含下列部分：訓練實驗以及以 Web 服務形式發佈的預測性實驗。 若要啟用已定型模型的重新定型功能，必須利用定型模型的輸出將訓練實驗發佈為 Web 服務。 這樣做可讓 API 存取模型進行重新定型。 
+此流程包含下列元件：定型實驗與發佈為 Web 服務的預測性實驗。 若要啟用已定型模型的重新定型功能，必須利用定型模型的輸出將訓練實驗發佈為 Web 服務。 這樣做可讓 API 存取模型進行重新定型。 
 
 下列步驟適用於新式和傳統 Web 服務︰
 

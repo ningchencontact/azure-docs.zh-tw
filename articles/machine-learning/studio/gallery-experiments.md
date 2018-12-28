@@ -1,12 +1,11 @@
 ---
 title: Azure AI 資源庫實驗 - Azure Machine Learning Studio | Microsoft Docs
-description: 探索與分享 Azure AI 資源庫中的實驗。
+description: 探索與分享 Azure AI 資源庫中的實驗。 實驗是 Machine Learning Studio 中的畫布，可用來建構預測性分析模型
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: f4248922-c961-4d3a-9e1b-aec743210166
 ms.service: machine-learning
@@ -16,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
-ms.openlocfilehash: 66b5e30a26c57676bdd65b4861d34ca90c0c25af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 12fb45b00848e5e34760ccb0691998c1f72237b8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317461"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269279"
 ---
-# <a name="discover-experiments-in-azure-ai-gallery"></a>探索 Azure AI 資源庫中的實驗
+# <a name="discover-azure-machine-learning-studio-experiments-in-azure-ai-gallery"></a>探索 Azure AI 資源庫中的 Azure Machine Learning Studio 實驗
 
 [Azure AI 資源庫](http://gallery.cortanaintelligence.com)包含各種在 [Azure Machine Learning Studio](https://studio.azureml.net) 中開發的[實驗](https://gallery.cortanaintelligence.com/experiments)。 小至示範特定機器學習服務技術的快速概念證明實驗，大至用於解決複雜機器學習服務問題的完整開發解決方案，都在這些實驗的涵蓋範圍內。
 
 > [!NOTE]
-> ***實驗***是 Machine Learning Studio 中的畫布，可用來建構預測分析模型。 您可以將資料與各種分析模組連接，以建立模型。 您可以嘗試不同的想法、執行試用，最後部署您的模型做為 Azure 中的 Web 服務。 如需建立基本實驗的範例，請參閱[機器學習服務教學課程：在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗](create-experiment.md)。 如需建立預測性分析方案的更完整逐步解說，請參閱[逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案](walkthrough-develop-predictive-solution.md)。
+> ***實驗***是 Machine Learning Studio 中的畫布，可用來建構預測分析模型。 您可以將資料與各種分析模組連接，以建立模型。 您可以嘗試不同的想法、執行試用，最後部署您的模型做為 Azure 中的 Web 服務。 如需如何建立基本實驗的範例，請參閱[機器學習教學課程：在 Azure Machine Learning Studio 中建立您的第一個實驗](create-experiment.md)。 如需如何建立預測性分析解決方案的更完整逐步解說，請參閱[逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)。
 >
 >
 
@@ -82,7 +81,7 @@ Azure AI 資源庫提供兩種匯入實驗複本的方式：
 3. 當您準備好在 Gallery 中發佈實驗時，在實驗畫布下方的動作清單中，選取 [Publish to Gallery (發佈到 Gallery)]。
 
     ![選取 [Publish to Gallery (發佈到 Gallery)]](./media/gallery-experiments/publish-experiment-to-gallery.png)
-4. 在 [Experiment Description (實驗描述)] 頁面上，輸入標題和標記。 讓標題和標記具有描述性。 反白顯示您所使用的技術或您正在解決的實際問題。 舉例來說，「二元分類法：Twitter 情感分析」即為具描述性的實驗標題。
+4. 在 [Experiment Description (實驗描述)] 頁面上，輸入標題和標記。 讓標題和標記具有描述性。 反白顯示您所使用的技術或您正在解決的實際問題。 舉例來說，「二元分類：Twitter 情感分析」即為描述性實驗標題。
 
     ![輸入標題和標記進行發佈](./media/gallery-experiments/experiment-description.png)
 5. 在 [摘要] 方塊中，輸入您的實驗摘要。 簡短說明此實驗要解決的問題，以及您的處理方式。
@@ -189,4 +188,4 @@ Azure AI 資源庫提供兩種匯入實驗複本的方式：
 
 **[移至資源庫](http://gallery.cortanaintelligence.com)**
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+

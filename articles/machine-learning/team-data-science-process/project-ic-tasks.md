@@ -1,5 +1,5 @@
 ---
-title: 個別參與者的 Team 資料科學程序工作 - Azure | Microsoft Docs
+title: Team Data Science Process 中個別參與者的工作
 description: 資料科學 Team 專案上個別參與者工作的概述。
 author: marktab
 manager: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: d8e51dcf8434508664801f53391592aab34d7e4a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 6684cc9a0166df9c6d230f6b2a8c05acec5f91b3
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447056"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136756"
 ---
-# <a name="individual-contributor-tasks"></a>個別參與者工作
+# <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Team Data Science Process 中個別參與者的工作
 
 本主題概述希望個別參與者為其資料科學小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
@@ -37,15 +37,15 @@ ms.locfileid: "52447056"
 
 本教學課程會使用存放庫和目錄的縮寫名稱。 這些名稱讓您更容易遵循存放庫和目錄之間的作業。 這個標記法 (**R** 適用於 Git 存放庫、**D** 適用於您 DSVM 上的本機目錄) 在下列各節中使用：
 
-- **R2**：Git 上的 GroupUtilities 存放庫，由您的群組管理員設定於 Azure DevOps 群組伺服器上。
-- **R4**：Git 上的 TeamUtilities 存放庫，您的小組負責人已設定。
-- **R5**：Git 上的 Project 存放庫，您的專案負責人已設定。
+- **R2**：Git 上的 GroupUtilities 存放庫，已由您的群組管理員設定於 Azure DevOps 群組伺服器上。
+- **R4**：Git 上的 TeamUtilities 存放庫，已由您的小組負責人設定。
+- **R5**：Git 上的 Project 存放庫，已由您的專案負責人設定。
 - **D2**：從 R2 複製的本機目錄。
 - **D4**：從 R4 複製的本機目錄。
 - **D5**：從 R5 複製的本機目錄。
 
 
-## <a name="step-0-prerequisites"></a>步驟-0：必要條件
+## <a name="step-0-prerequisites"></a>步驟 0：必要條件
 
 完成[資料科學小組的群組管理員工作](group-manager-tasks.md)中所述，指派給您的群組管理員的工作，即可滿足必要條件。 簡單來說，就是在您開始小組負責人工作之前，必須符合下列需求： 
 - 您的群組管理員已設定 **GroupUtilities** 存放庫 (如果有的話)。 
@@ -96,7 +96,7 @@ ms.locfileid: "52447056"
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>步驟 4-5：(選擇性) 將 Azure 檔案儲存體掛接至 DSVM
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>步驟 4-5：將 Azure 檔案儲存體裝載至 DSVM (選擇性)
 
 若要將 Azure 檔案儲存體掛接至 DSVM，請參閱[資料科學小組的小組負責人工作](team-lead-tasks.md)中的第 4 節
 

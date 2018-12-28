@@ -1,5 +1,5 @@
 ---
-title: 重建 Azure 搜尋服務索引或重新整理可搜尋內容 | Microsoft Docs
+title: 重建 Azure 搜尋服務索引或重新整理可搜尋內容 - Azure 搜尋服務
 description: 藉由完整重建或部分累加索引編製來新增元素、更新現有的元素或文件或刪除過時的文件，以重新整理 Azure 搜尋服務索引。
 services: search
 author: HeidiSteen
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 374e7601169647f0eb7d3a214cf15567b7b11090
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 9c9af69e45af6a70c5327393a1c10385ba2c2aed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641419"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316891"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>如何重建 Azure 搜尋服務索引
 

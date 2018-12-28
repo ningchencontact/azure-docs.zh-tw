@@ -1,5 +1,5 @@
 ---
-title: 將裝置更新至最新版的 Azure IoT Edge |Microsoft Docs
+title: 更新裝置上的 IoT Edge 版本 - Azure IoT Edge | Microsoft Docs
 description: 如何更新 IoT Edge 裝置以執行最新版的安全性精靈和 IoT Edge 執行階段
 keywords: ''
 author: kgremban
@@ -9,14 +9,15 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1522d9c9bc4fda178d8571fb57cb9c94ed1044ae
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 8b8638d8fa428b1b867e3f126ac8b5cc992cc273
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567786"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095149"
 ---
-# <a name="update-the-iot-edge-runtime"></a>更新 IoT Edge 執行階段
+# <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全性精靈和執行階段
 
 當 IoT Edge 服務發行新版本時，您可以更新 IoT Edge 裝置，使其具有最新功能和安全性增強功能。 本文提供在新版本發行時如何更新 IoT Edge 裝置的相關資訊。 
 
@@ -63,7 +64,7 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 
 使用 `iotedge logs edgeAgent` 或 `iotedge logs edgeHub` 命令，檢查您的裝置上目前的 IoT Edge 代理程式和 Edge 中樞模組的版本。 
 
-  ![檢視容器版本](./media/how-to-update-iot-edge/container-version.png)
+  ![在記錄中尋找容器版本](./media/how-to-update-iot-edge/container-version.png)
 
 ### <a name="understand-iot-edge-tags"></a>了解 IoT Edge 標記
 

@@ -1,6 +1,6 @@
 ---
-title: 對 Azure IoT Edge 進行移難排解 | Microsoft Docs
-description: 解決 Azure IoT Edge 的常見問題及了解其疑難排解技術
+title: 移難排解 - Azure IoT Edge | Microsoft Docs
+description: 使用本文以了解 Azure IoT Edge 的標準診斷技巧，例如擷取元件狀態和記錄，以及解決常見的問題
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a553798a3ac15340805984a0e87312875f82c46c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: cd9ff1a1a7730ae870ef4e80fbca2d934aa5c8e2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567650"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342658"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常見問題和解決方案
 
@@ -100,7 +101,7 @@ ms.locfileid: "51567650"
 
 ### <a name="check-container-logs-for-issues"></a>檢查容器記錄的問題
 
-在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 從您已部署的容器開始著手，然後查看構成 IoT Edge 執行階段的容器：IoT 代理程式和 IoT 中樞。 IoT 代理程式記錄通常會提供每個容器的生命週期相關資訊。 IoT 中樞記錄會提供傳訊和路由的相關資訊。 
+在 IoT Edge 安全性精靈開始執行後，請查看容器的記錄以偵測問題。 從您已部署的容器開始著手，然後查看構成 IoT Edge 執行階段的容器：「Edge 代理程式」和「Edge 中樞」。 IoT 代理程式記錄通常會提供每個容器的生命週期相關資訊。 IoT 中樞記錄會提供傳訊和路由的相關資訊。 
 
    ```cmd
    iotedge logs <container name>
@@ -146,7 +147,7 @@ ms.locfileid: "51567650"
 
 儲存檔案並重新啟動 IoT Edge 安全性管理員。
 
-您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 您可以使用 Visual Studio Code 的 [Azure IoT 工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)擴充功能來檢視這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
+您也可以檢查在 IoT 中樞與 IoT Edge 裝置之間傳送的訊息。 請使用適用於 Visual Studio Code 的 [Azure IoT 中樞工具組](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)延伸模組 (先前稱為「Azure IoT 工作組」延伸模組) 來檢視這些訊息。 如需詳細資訊，請參閱[使用 Azure IoT 進行開發時的便利工具](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)。
 
 ### <a name="restart-containers"></a>重新啟動容器
 檢查過記錄和訊息並取得資訊後，您可以嘗試重新啟動容器：
@@ -243,7 +244,7 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機
 1. 在 Azure 入口網站中，瀏覽至虛擬機器的概觀頁面。 
 2. 選取 DNS 名稱下的 [設定]。 如果虛擬機器已設定 DNS 名稱，則不需要設定新的名稱。 
 
-   ![設定 DNS 名稱](./media/troubleshoot/configure-dns.png)
+   ![設定虛擬機器的 DNS 名稱](./media/troubleshoot/configure-dns.png)
 
 3. 提供 **DNS 名稱標籤**的值，並選取 [儲存]。
 4. 複製新的 DNS 名稱，格式應該是 **\<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com**。
@@ -274,7 +275,7 @@ IoT Edge 執行階段只能支援少於 64 個字元的主機名稱。 實體機
 
 在入口網站中，從 [裝置詳細資料]->[設定模組]->[設定進階 Edge 執行階段設定]，建立名為 OptimizeForPerformance 的環境變數，該變數會針對 [Edge 中樞] 設定為 false。
 
-![optimizeforperformance](./media/troubleshoot/OptimizeForPerformanceFalse.png)
+![將 OptimizeForPerformance 設定為 false](./media/troubleshoot/optimizeforperformance-false.png)
 
 **或**
 

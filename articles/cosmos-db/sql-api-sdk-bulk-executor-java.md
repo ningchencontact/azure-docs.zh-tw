@@ -1,22 +1,20 @@
 ---
-title: Azure Cosmos DB：大量執行程式 Java API、SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB：大量執行程式 Java API、SDK 和資源
 description: 了解所有大量執行程式 Java API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos 大量執行程式 Java SDK 每個版本之間所做的變更。
 services: cosmos-db
 author: tknandu
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/21/2018
 ms.author: ramkris
-ms.openlocfilehash: 3483a2cf30421e96bc408516bab5c3c304fdce0d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b10e9808144c7507571c45dbb2f62982899e12ea
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632499"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336861"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java 大量執行程式程式庫：下載資訊
 
@@ -30,7 +28,7 @@ ms.locfileid: "52632499"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [大量執行程式 - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [大量執行程式 - Java](sql-api-sdk-bulk-executor-java.md)
 

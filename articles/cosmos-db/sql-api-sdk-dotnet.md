@@ -1,10 +1,7 @@
 ---
-title: Azure Cosmos DB：SQL .NET API、SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB：SQL .NET API、SDK 和資源
 description: 全面了解 SQL .NET API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET SDK 每個版本之間的變更。
-services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +9,14 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f7f8af635eb7d5449a242f3a7708d865c13bb448
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 715d67a30bbf2c6d1f50ed7c10a013c0d421f48b
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162801"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337932"
 ---
-# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK for SQL API：下載和版本資訊
+# <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：下載和版本資訊
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +27,7 @@ ms.locfileid: "52162801"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -50,6 +47,24 @@ ms.locfileid: "52162801"
 </table></br>
 
 ## <a name="release-notes"></a>版本資訊
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* 用於公開預覽之 .NET SDK [3.0.0 版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) \(英文\) 的 Preview 1。
+* 目標 .NET Standard (支援 .NET Framework 4.6.1+ 和 .NET Core 2.0+)
+* 新的物件模型，其最上層 CosmosClient 和方法分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間。 
+* 支援資料流。 
+* 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。 
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* 針對直接/TCP 傳輸診斷新增 TransportException，此為 SDK 的內部例外狀況類型。 當此類型存在於例外狀況訊息中時會列印其他資訊，以針對用戶端連線問題進行疑難排解。
+
+* 新增新的建構函式多載，它接受 HttpMessageHandler，此為用來傳送 HttpClient 要求 (例如 HttpClientHandler) 的 HTTP 處理常式堆疊。
+
+* 修正沒有正確處理具 Null 值之標頭的錯誤 (bug)。
+
+* 改善集合快取驗證。
+
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
 * 已將 System.Net.Security 更新至 4.3.2。
@@ -101,7 +116,7 @@ ms.locfileid: "52162801"
 
 ### <a name="a-name12021202"></a><a name="1.20.2"/>1.20.2
 
-* 修正會在競爭情形下發生的錯誤，其是在使用工作階段一致性層級時，導致間歇發生「Microsoft.Azure.Documents.NotFoundException: 讀取工作階段不適用於輸入工作階段權杖」錯誤。
+* 修正會在特定競爭條件下觸發，並會在使用工作階段一致性層級的情況下，導致間歇的「Microsoft.Azure.Documents.NotFoundException:讀取工作階段不適用於輸入工作階段權杖」錯誤 (error) 的錯誤 (bug)。
 
 ### <a name="a-name12011201"></a><a name="1.20.1"/>1.20.1
 
@@ -172,7 +187,7 @@ ms.locfileid: "52162801"
 * 修正來讓 SDK 在某些情況下能夠更有彈性地進行自動容錯移轉。
 
 ### <a name="a-name11221122"></a><a name="1.12.2"/>1.12.2
-* 修正偶爾會造成「WebException: 無法解析遠端名稱」的錯誤。
+* 修正偶爾會造成「WebException:無法解析遠端名稱」的問題。
 * 透過針對 ReadDocumentAsync API 新增多載，以新增直接讀取具類型文件的支援。
 
 ### <a name="a-name11211121"></a><a name="1.12.1"/>1.12.1
@@ -205,7 +220,7 @@ ms.locfileid: "52162801"
 * 支援新的類別和方法以在集合內處理文件的[變更摘要](change-feed.md)。
 * 支援跨資料分割繼續查詢和改善跨資料分割查詢的一些效能。
 * 新增 CreateDatabaseIfNotExistsAsync 和 CreateDocumentCollectionIfNotExistsAsync 方法。
-* 針對下列系統函式支援 LINQ︰IsDefined、IsNull 和 IsPrimitive。
+* 針對下列系統函數的 LINQ 支援：IsDefined、IsNull 及 IsPrimitive。
 * 修正在搭配使用 Nuget 套件和具有 project.json 工具的專案時，自動將 Microsoft.Azure.Documents.ServiceInterop.dll 和 DocumentDB.Spatial.Sql.dll 組件的 bin 放入應用程式的 bin 資料夾的動作。
 * 支援發出用戶端 ETW 追蹤，其可在偵錯案例中幫上忙。
 
@@ -217,7 +232,7 @@ ms.locfileid: "52162801"
 * 多項 SDK 錯誤修正。
 
 ### <a name="a-name195195"></a><a name="1.9.5"/>1.9.5
-* 將造成下列 NotFoundException 的問題修正︰讀取工作階段不適用於輸入工作階段權杖。 查詢異地分散帳戶讀取區域時，在某些情況下發生此例外狀況。
+* 修正會導致下列 NotFoundException 的問題：「讀取工作階段不適用於輸入工作階段權杖」。 查詢異地分散帳戶讀取區域時，在某些情況下發生此例外狀況。
 * 公開 ResourceResponse 類別中的 ResponseStream 屬性，可讓您直接從回應存取基礎資料流。
 
 ### <a name="a-name194194"></a><a name="1.9.4"/>1.9.4
@@ -225,7 +240,7 @@ ms.locfileid: "52162801"
 * 修正了使用自訂 JsonSerializerSettings 物件來序列化資料時，會造成資料分割索引鍵標頭格式不正確的問題。
 
 ### <a name="a-name193193"></a><a name="1.9.3"/>1.9.3
-* 已修正造成長時間執行的查詢失敗，並伴隨「授權權杖目前無效」錯誤的問題。
+* 修正造成長時間執行的查詢失敗，並伴隨下列錯誤的問題：「授權權杖目前無效」。
 * 已修正會從跨資料分割的排名/排序依據查詢中移除原始 SqlParameterCollection 的問題。
 
 ### <a name="a-name192192"></a><a name="1.9.2"/>1.9.2
@@ -260,7 +275,7 @@ ms.locfileid: "52162801"
 * 實作[已分割的集合](partition-data.md)和[使用者定義的效能等級](performance-levels.md)。 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[已修正]** 查詢 Azure Cosmos DB 端點時擲回：「System.Net.Http.HttpRequestException：將內容複製到資料流時發生錯誤」。
+* **[已修正]** 查詢 Azure Cosmos DB 端點時擲回：「System.Net.Http.HttpRequestException:將內容複製到資料流時發生錯誤」。
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * 擴充的 LINQ 支援包括新的分頁、條件式運算式以及範圍比較的運算子。
@@ -335,6 +350,7 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
 | [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
 | [2.1.2](#2.1.2) |2018 年 10 月 4 日 |--- |
 | [2.1.1](#2.1.1) |2018 年 9 月 27 日 |--- |

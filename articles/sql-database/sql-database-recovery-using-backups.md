@@ -3,7 +3,7 @@ title: 從備份還原 Azure SQL Database | Microsoft Docs
 description: 了解還原時間點，其可讓您復原 Azure SQL Database 到先前的時間 (最多 35 天)。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: backup-restore
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: ba6493f77b622a814c970b07fc2a23e7ce1d3624
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4d77f8aad07d2fd4b3e2c4ec42b5b0ec328f779d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987557"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269510"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自動資料庫備份復原 Azure SQL Database
 
@@ -64,7 +64,7 @@ ms.locfileid: "49987557"
 |彈性集區 (每個集區)|4|200|
 ||||
 
-沒有可執行大量還原的內建功能。 [Azure SQL Database: Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 指令碼是其中一種完成這項工作的範例。
+沒有可執行大量還原的內建功能。 [Azure SQL Database:Full Server Recovery](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666) 指令碼是其中一種完成這項工作的範例。
 
 > [!IMPORTANT]
 > 若要使用自動備份復原，您必須是訂用帳戶中 SQL Server 參與者角色的成員或訂用帳戶擁有者 - 請參閱 [RBAC：內建角色](../role-based-access-control/built-in-roles.md)。 您可以使用 Azure 入口網站、PowerShell 或 REST API 來進行復原。 您無法使用 Transact-SQL。
@@ -129,7 +129,7 @@ ms.locfileid: "49987557"
 目前不支援異地次要資料庫上的時間點復原。 只有在主要資料庫上才可進行時間點復原。 如需使用異地還原來從中斷復原的詳細資訊，請參閱[從中斷復原](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 從備份復原是 SQL Database 中最基本的災害復原解決方案，具備最長的復原點目標 (RPO) 和預估復原時間 (ERT)。 對於使用小型資料庫 (例如，基本服務層或彈性集區中的小型租用戶資料庫) 的解決方案，異地還原是常見且合理的 DR 解決方案，且其 ERT 最多為 12 小時 (通常少於 12 小時)。 若使用大型資料庫，且需要較短的復原時間，您應該考慮使用[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)的解決方案。 主動式異地複寫提供明顯較低的 RPO 和 ERT，因為它只需要您起始對連續複寫次要資料庫的容錯移轉。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
+> 從備份復原是 SQL Database 中最基本的災害復原解決方案，具備最長的復原點目標 (RPO) 和預估復原時間 (ERT)。 對於使用小型資料庫 (例如，基本服務層或彈性集區中的小型租用戶資料庫) 的解決方案，異地還原是常見且合理的 DR 解決方案，且其 ERT 最多為 12 小時 (通常少於 12 小時)。 針對使用大型資料庫且需要較短復原時間的解決方案，您應該考慮使用[主動式異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)。 主動式異地複寫提供明顯較低的 RPO 和 ERT，因為它只需要您起始對連續複寫次要資料庫的容錯移轉。 自動容錯移轉群組為一組資料庫啟用自動故障轉移。 如需商務持續性選項的詳細資訊，請參閱[商務持續性概觀](sql-database-business-continuity.md)。
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 入口網站進行異地還原
 
@@ -177,4 +177,4 @@ ms.locfileid: "49987557"
 - 如需商務持續性概觀和案例，請參閱 [商務持續性概觀](sql-database-business-continuity.md)。
 - 若要了解 Azure SQL Database 自動備份，請參閱 [SQL Database 自動備份](sql-database-automated-backups.md)。
 - 若要深入了解長期保留，請參閱[長期保留](sql-database-long-term-retention.md)。
-- 若要了解更快速的復原選項，請參閱[容錯移轉群組和主動式異地複寫](sql-database-geo-replication-overview.md)。
+- 若要了解更快速的復原選項，請參閱[主動式異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)。

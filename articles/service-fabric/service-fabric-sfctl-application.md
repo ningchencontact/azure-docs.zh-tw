@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 40ec204f105b32c8b7d9e2dda6f6f3c3023b2d44
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 0f608dc89d3a9bc8914fc9be142c442246ce13b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495453"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278537"
 ---
 # <a name="sfctl-application"></a>sfctl application
 建立、刪除與管理應用程式和應用程式類型。
@@ -338,7 +338,7 @@ ms.locfileid: "39495453"
 | --remove-when-expired | 指出是否要在報告到期時將報告自健康狀態資料存放區中移除的值。 <br><br> 如果設定為 true，就會在報告到期後，將報告自健康狀態資料存放區中移除。 如果設定為 false，則會在報告到期後，將報告視為錯誤。 此屬性的值預設為 false。 當用戶端會定期回報時，應該將 RemoveWhenExpired 設定為 false (預設值)。 如此一來，如果報告程式發生問題 (例如死結) 而無法回報，在健康情況報告到期時，系統就會將實體評估為錯誤。 這會將實體標幟為處於「錯誤」健康情況狀態。 |
 | --sequence-number | 此健康情況報告的序號 (以數值字串表示)。 <br><br> 健康狀態資料存放區會使用報告序號來偵測過時的報告。 如果未指定，就會在新增報告時，由健康情況用戶端自動產生序號。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
-| --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式來指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
+| --ttl | 此健康情況報告的有效持續時間。 此欄位使用 ISO8601 格式指定持續時間。 <br><br> 當用戶端會定期回報時，其傳送報告的頻率應該高於存留時間。 如果用戶端會針對轉換進行回報，則可以將存留時間設定為無限。 如果 RemoveWhenExpired 為 true，當存留時間到期時，系統會將包含健康情況資訊的健康情況事件自健康狀態資料存放區中移除，如果 RemoveWhenExpired 為 false，則會將該事件評估為錯誤。 如果未指定，存留時間會預設為 infinite 值。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -434,23 +434,23 @@ ms.locfileid: "39495453"
 
 |引數|說明|
 | --- | --- |
-| --application-id      [必要] | 應用程式的身分識別。 <br><br> 這通常是不含 'fabric\:' URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 '\~' 字元分隔。 例如，如果應用程式名稱是 'fabric\:/myapp/app1'，則應用程式識別在 6.0+ 中會是 'myapp\~app1'，而在舊版中會是 'myapp/app1'。 |
-| --application-version [必要] | 目標應用程式版本。 |
+| --application-id      [必要] | 應用程式的身分識別。 <br><br> 這通常是不含 'fabric\:' URI 配置的完整應用程式名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果應用程式名稱是 "fabric\:/myapp/app1"，則應用程式識別在 6.0+ 中會是 "myapp\~app1"，而在舊版中會是 "myapp/app1"。 |
+| --application-version [必要] | 升級應用程式時的目標應用程式類型版本 (在應用程式資訊清單中找到)。 |
 | --parameters          [必要] | 要在升級應用程式時套用的應用程式參數覆寫 JSON 編碼清單。 |
 | --default-service-health-policy | 預設用來評估服務類型健康情況的健康原則 JSON 編碼規格。 |
 | --failure-action | 受監視的升級遇到監視原則或健康原則違規時，所要執行的動作。 |
 | --force-restart | 即使程式碼版本尚未變更，仍然在升級期間強制重新啟動處理序。 |
-| --health-check-retry-timeout | 當應用程式或叢集狀況不良時，在執行失敗動作之前，重試健康情況評估的時間長度。 測量單位：秒。  預設值：PT0H10M0S。 |
-| --health-check-stable-duration | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 測量單位：秒。  預設值：PT0H2M0S。 |
-| --health-check-wait-duration | 完成升級網域之後，在套用健康原則之前，要等待的時間長度。 測量單位：秒。  預設值：0。 |
+| --health-check-retry-timeout | 當應用程式或叢集狀況不良時，嘗試執行健康情況檢查的間隔時間長度。  預設值：PT0H10M0S。 |
+| --health-check-stable-duration | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。  預設值：PT0H2M0S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --health-check-wait-duration | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。  預設值：0。 |
 | --max-unhealthy-apps | 允許的狀況不良已部署應用程式百分比上限。 以介於 0 到 100 之間的數字來表示。 |
 | --mode | 在輪流升級期間用來監視健康情況的模式。  預設值\:UnmonitoredAuto。 |
 | --replica-set-check-timeout | 發生非預期問題時，封鎖處理升級網域並防止遺失可用性的時間長度上限。 測量單位：秒。 |
 | --service-health-policy | 每個服務類型名稱相對於服務類型健康原則的 JSON 編碼對應。 對應預設是空的。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
-| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。 測量單位：秒。  預設值：P10675199DT02H48M05.4775807S。 |
-| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。 測量單位：秒。  預設值：P10675199DT02H48M05.4775807S。 |
-| --warning-as-error | 將健康情況評估警告的嚴重性視為與錯誤相同。 |
+| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。  預設值：P10675199DT02H48M05.4775807S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。  預設值：P10675199DT02H48M05.4775807S。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
 
 ### <a name="global-arguments"></a>全域引數
 

@@ -1,6 +1,6 @@
 ---
-title: 在入口網站中設定 Azure 搜尋服務管理存取權的 RBAC 角色 | Microsoft Docs
-description: Azure 入口網站中的角色型管理控制項。
+title: 在入口網站中設定 Azure 管理存取權的 RBAC 角色 - Azure 搜尋服務
+description: Azure 入口網站中的角色型管理控制項 (RBAC) 可用於控制和委派 Azure 搜尋服務管理的管理工作。
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: heidist
-ms.openlocfilehash: 1a463c9eb52ffe2a667cdeace7478e67233a0806
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 38b8e8a0e413f367d34a4ccf5dbd87817891b8ea
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792921"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313015"
 ---
 # <a name="set-rbac-roles-for-administrative-access"></a>設定系統管理存取權的 RBAC 角色
 

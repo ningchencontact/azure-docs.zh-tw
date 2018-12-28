@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上使用 PySpark 和 Scala 的 HDInsight Spark 逐步解說 | Microsoft Docs
+title: 使用 PySpark 和 Scala 在 HDInsight Spark 上執行分析 - Team Data Science Process
 description: 以 Team Data Science Process 為例，逐步解說如何在 Azure HDInsight Spark 上使用 PySpark 和 Scala 來執行預測性分析。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a7697d2be1a43af93109bb7bbdab50828275f5aa
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f96e273e27e8d9d6a40370c4ed2161c4a828c5c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446393"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135894"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>在 Azure 上使用 PySpark 和 Scala 的 HDInsight Spark 資料科學逐步解說
 
@@ -40,7 +40,7 @@ ms.locfileid: "52446393"
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>在 Azure Spark 上使用 Scala 來預測計程車小費
 
-[在 Azure 上使用 Scala 與 Spark](scala-walkthrough.md) 逐步解說會使用紐約計程車的資料來預測乘客是否會付小費，以及預期會給予的金額範圍。 它會說明如何使用 Scala 搭配 Spark 機器學習程式庫 (MLlib) 和 Azure HDInsight Spark 叢集上的 SparkML 套件，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://aka.ms/datascienceprocess)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 建立的模型包括羅吉斯和線性迴歸、隨機樹系和漸層停駐推進式決策樹。
+[在 Azure 上使用 Scala 與 Spark](scala-walkthrough.md) 逐步解說會使用紐約計程車的資料來預測乘客是否會付小費，以及預期會給予的金額範圍。 它會說明如何使用 Scala 搭配 Spark 機器學習程式庫 (MLlib) 和 Azure HDInsight Spark 叢集上的 SparkML 套件，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 建立的模型包括羅吉斯和線性迴歸、隨機樹系和漸層停駐推進式決策樹。
 
 
 ## <a name="next-steps"></a>後續步驟

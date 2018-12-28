@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: cd41fba675a0814e6f2a1b17576add7811a803eb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e5d415593a510acb81eac65242010d1841044857
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233475"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162642"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>將 Virtual Kubelet 與 Azure Kubernetes Service (AKS) 搭配使用
 
@@ -22,9 +22,9 @@ Azure 容器執行個體 (ACI) 可提供託管環境，以便在 Azure 中執行
 使用 Azure 容器執行個體的 Virtual Kubelet 提供者時，Linux 和 Windows 容器都可以在容器執行個體上排程，宛如標準 Kubernetes 節點一樣。 此組態可讓您善用 Kubernetes 功能，以及容器執行個體的管理價值和成本效益。
 
 > [!NOTE]
+> AKS 現已內建支援排程 ACI (稱為*虛擬節點*) 上的容器。 這些虛擬節點目前支援 Linux 容器執行個體。 如果您需要排程 Windows 容器執行個體，您可以繼續使用 Virtual Kubelet。 否則，您應該使用虛擬節點，而不是如本文所述的手動 Virtual Kubelet 指示。 您可以使用 [Azure CLI][virtual-nodes-cli] 或 [Azure 入口網站][virtual-nodes-portal]，開始使用虛擬節點。
+>
 > Virtual Kubelet 是實驗性開放原始碼專案，應該如此使用。 若要參與、提報問題，以及深入了解 Virtual Kubelet，請參閱[Virtual Kubelet GitHub 專案][vk-github]。
-
-本文件詳細說明如何在 AKS 上設定容器執行個體的 Virtual Kubelet。
 
 ## <a name="prerequisite"></a>必要條件
 
@@ -90,7 +90,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 | `--connector-name` | ACI 連接器的名稱。| 是 |
 | `--name` `-n` | 受控叢集的名稱。 | 是 |
 | `--resource-group` `-g` | 資源群組的名稱。 | 是 |
-| `--os-type` | 容器執行個體的作業系統類型。 允許的值為：兩者、Linux、Windows。 預設值：Linux。 | 否 |
+| `--os-type` | 容器執行個體的作業系統類型。 允許的值：兩者、Linux、Windows。 預設值：Linux。 | 否 |
 | `--aci-resource-group` | 要在其中建立 ACI 容器群組的資源群組。 | 否 |
 | `--location` `-l` | 要建立 ACI 容器群組的位置。 | 否 |
 | `--service-principal` | 用於向 Azure API 驗證的服務主體。 | 否 |
@@ -228,13 +228,15 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 若要了解使用 Virtual Kubelet 時可能會遇到的問題，請參閱[已知異常和因應措施][vk-troubleshooting]。 若要回報有關 Virtual Kubelet 的問題，[請提出 GitHub 問題][vk-issues]。
 
-在 [Virtual Kubelet Github 專案][vk-github]中深入了解 Virtual Kubelet。
+在 [Virtual Kubelet GitHub 專案][vk-github]中深入了解 Virtual Kubelet。
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

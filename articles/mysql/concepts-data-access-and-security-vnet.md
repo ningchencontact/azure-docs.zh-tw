@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: f18f52fc409df769d164607a128caaf02ead5e4b
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 1c159e5c86f713f1f7dbce5cd96cd2ce5d3c22fb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145352"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437964"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>針對適用於 MySQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -91,8 +91,8 @@ ms.locfileid: "42145352"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理員：** &nbsp;開啟端點。
-- **資料庫管理員：**&nbsp;更新存取控制清單 (ACL) 以將指定的子網路新增至適用於 MySQL 的 Azure 資料庫伺服器。
+- **網路管理：**&nbsp;開啟端點。
+- **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MySQL 的 Azure 資料庫伺服器。
 
 RBAC 替代方案：
 
@@ -115,7 +115,7 @@ RBAC 替代方案：
 
 - 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][arm-deployment-model-568f]網路。
 
-- 使用 **Microsoft.Sql** 服務標籤對適用於 MySQL 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database，以及 Azure SQL 資料倉儲。
+- 使用 **Microsoft.Sql** 服務標記對適用於 MySQL 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database 和 Azure SQL 資料倉儲。
 
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
@@ -144,7 +144,7 @@ RBAC 替代方案：
 - [使用 Azure 入口網站建立及管理適用於 MySQL 的 Azure 資料庫的 VNet 規則](howto-manage-vnet-using-portal.md)
 - [使用 Azure CLI 建立及管理適用於 MySQL 的 Azure 資料庫的 VNet 規則](howto-manage-vnet-using-cli.md)
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

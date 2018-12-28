@@ -9,16 +9,15 @@ editor: ''
 ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 14e89d5eab058b9fa42c20811df9c5ac0ceca44a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 54fda4852e986749499b7fc8717308edf81915b2
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633192"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338481"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解決方案 (預覽)
 
@@ -30,7 +29,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
 - 監視系統管理員活動以追蹤設定變更或高權限作業。
 - 偵測並調查的不必要的使用者行為，並可以針對貴組織的需求進行自訂。
 - 示範稽核與合規性。 例如，您可以監視機密檔案的檔案存取作業，以協助進行稽核與合規性流程。
-- 針對組織的 Office 365 活動資料使用[記錄搜尋](../../log-analytics/log-analytics-queries.md)，執行作業疑難排解。
+- 針對組織的 Office 365 活動資料使用[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)，執行作業疑難排解。
 
 ## <a name="prerequisites"></a>必要條件
 安裝和設定此解決方案之前必須先具備下列項目。
@@ -41,7 +40,7 @@ Office 365 管理解決方案可讓您監視 Log Analytics 中的 Office 365 環
  
 
 ## <a name="management-packs"></a>管理組件
-此解決方案不會在[已連線的管理群組](../../log-analytics/log-analytics-om-agents.md)中安裝任何管理組件。
+此解決方案不會在[已連線的管理群組](../../azure-monitor/platform/om-agents.md)中安裝任何管理組件。
   
 ## <a name="install-and-configure"></a>安裝及設定
 一開始先新增 [Office 365 解決方案到您的訂用帳戶](solutions.md#install-a-management-solution)。 新增之後，您必須執行本節中的設定步驟，讓解決方案存取您的 Office 365 訂用帳戶。
@@ -709,6 +708,6 @@ Office 365 解決方案不會從任何 [Log Analytics 代理程式](../../azure-
 
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics](../../log-analytics/log-analytics-queries.md) 中的記錄搜尋，檢視詳細的更新資料。
+* 使用 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 中的記錄搜尋，檢視詳細的更新資料。
 * [建立自己的儀表板](../../azure-monitor/platform/dashboards.md)來顯示您最愛的 Office 365 搜尋查詢。
-* [建立警示](../../monitoring-and-diagnostics/monitoring-overview-alerts.md)來讓系統主動通知您重要的 Office 365 活動。  
+* [建立警示](../../azure-monitor/platform/alerts-overview.md)來讓系統主動通知您重要的 Office 365 活動。  

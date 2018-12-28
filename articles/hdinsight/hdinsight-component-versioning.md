@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: 2ae0450be420edeb4ef18d0c9e5ca6e1dacaf50d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 878d9e635d82e52d8a47d47a135ba865f140c9e9
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497017"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321881"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>可以搭配 HDInsight 使用的 Apache Hadoop 元件和版本有哪些？
 
@@ -28,7 +28,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 下表列出與 HDInsight 叢集版本相關聯的元件版本： 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 服務的預設版本可能會變更，恕不另行通知。 如果您有版本相依性，請在使用 .NET SDK 搭配 Azure PowerShell 和 Azure 傳統 CLI 建立叢集時指定 HDInsight 版本。
 
 | 元件 | HDInsight 4.0 (預覽) | HDInsight 3.6 (預設) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | HDInsight 3.2 | HDInsight 3.1 | HDInsight 3.0 |
@@ -60,9 +60,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 在 HDInsight 的更新中，可能會變更與 HDInsight 叢集版本相關聯的 Hadoop 生態系統元件版本。 若要檢查 Hadoop 元件和驗證叢集所使用的版本，請使用 Ambari REST API。 **GetComponentInformation** 命令會擷取服務元件的相關資訊。 如需詳細資訊，請參閱 [Apache Ambari 文件][ambari-docs]。
 
-針對 Windows 叢集，另一種取得元件版本的方式是使用遠端桌面登入叢集，然後檢查 C:\apps\dist\ 目錄的內容。
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [HDInsight 上的 Windows 停用項目](#hdinsight-windows-retirement)。
 
 ### <a name="release-notes"></a>版本資訊
@@ -78,13 +76,13 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 
 | HDInsight 版本 | HDP 版本 | VM OS | 發行日期 | 支援到期日 | 停用日期 | 高可用性 |  Azure 入口網站上的可用性 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 <br>  (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
+| HDInsight 4.0 <br> (預覽) |HDP 3.0 |Ubuntu 16.0.4 LTS |2018 年 9 月 24 日 | | |是 |是 |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017 年 4 月 4 日 | | |是 |是 |
 | HDInsight 3.5 <br> (Spark)* |HDP 2.6 |Ubuntu 16.0.4 LTS |2016 年 9 月 30 日 |2019 年 3 月 13 日 |2019 年 3 月 13 日 |是 |是 |
 
 *&ast;HDInsight 3.5 支援僅針對 Spark 叢集類型延伸*
 
-> [!NOTE]
+> [!NOTE]  
 > 當版本的支援到期之後，可能就無法透過 Microsoft Azure 入口網站取得它。 不過，您可透過 Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) 命令中的 `Version` 參數和 .NET SDK 持續取得叢集版本，直到版本停用日期為止。
 >
 
@@ -104,7 +102,7 @@ Azure HDInsight 支援多個可隨時部署的 Hadoop 叢集版本。 每一個�
 | HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013 年 10 月 28 日 |2014 年 5 月 12 日 |2015 年 5 月 31 日 |是 |否 |
 | HDInsight 1.6 |HDP 1.1 | |2013 年 10 月 28 日 |2014 年 4 月 26 日 |2015 年 5 月 31 日 |否 |否 |
 
-> [!NOTE]
+> [!NOTE]  
 > 依預設，系統會為 HDInsight 2.1 和更新版本部署具有兩個前端節點的高可用性叢集。 它們不適用於 HDInsight 版本 1.6 叢集。
 
 ## <a name="enterprise-security-package-for-hdinsight"></a>適用於 HDInsight 的企業安全性套件
@@ -198,7 +196,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 「停用日期」是在此日期之後便無法在 HDInsight 上建立叢集版本。 從 2017 年 7 月 31 日開始，您就無法在 HDInsight 叢集的停用日期之後調整叢集。 
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight Windows 叢集 (包括版本 2.1、3.0、3.1、3.2 和 3.3) 均可在 Azure 客體 OS 系列第 4 版上執行，此系列使用 64 位元版的 Windows Server 2012 R2。 Azure 客體 OS 系列第 4 版支援 .NET Framework 版本 4.0、4.5、4.5.1 和 4.5.2。
 
 ## <a name="hortonworks-release-notes-associated-with-hdinsight-versions"></a>與 HDInsight 版本相關聯的 Hortonworks 版本資訊
@@ -214,7 +212,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
   * [Apache Hive 版本資訊](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843) \(英文\) 可從 Apache 網站上取得。
 * HDInsight 叢集 3.2 版採用以 [Hortonworks Data Platform 2.2][hdp-2-2] 為基礎的 Hadoop 散發套件。
 
-  * 特定 Apache 元件的可用版本資訊如下：[Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 及 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
+  * 以下提供特定 Apache 元件的版本資訊：[Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450)、[Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954)、[HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810)、[Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581)、[M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180)、[HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181)、[YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197)、[Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179)、[Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742)、[Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486)、[Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112) 及 [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620)。
 * HDInsight 叢集版本 3.1 使用以 [Hortonworks Data Platform 2.1.7][hdp-2-1-7] 為基礎的 Hadoop 散發套件。 在 2014 年 11 月 7 日之前建立的 HDInsight 3.1 叢集是以 [Hortonworks Data Platform 2.1.1][hdp-2-1-1] 為基礎。
 * HDInsight 叢集 3.0 版採用以 [Hortonworks Data Platform 2.0][hdp-2-0-8] 為基礎的 Hadoop 散發套件。
 * HDInsight 叢集 2.1 版採用以 [Hortonworks Data Platform 1.3][hdp-1-3-0] 為基礎的 Hadoop 散發套件。
@@ -222,41 +220,36 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 
 
-
-
-
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>適用於叢集的預設節點設定和虛擬機器大小
-下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。
+下表列出 HDInsight 叢集的預設虛擬機器 (VM) 大小。  此圖表提供必要資訊，可協助您了解建立 PowerShell 或 Azure CLI 指令碼以部署 HDInsight 叢集時，所要使用的 VM 大小。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您的叢集需要 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
-> 
-> 
 
 * 所有支援的區域，巴西南部和日本西部除外︰
 
-  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark | ML Server |
+  | 叢集類型 | Hadoop | hbase | 互動式查詢 | Storm | Spark  | ML Server |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13, D14 |A4 v2 |D12 v2 |D12 v2 |
-  | 前端：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13, D14 |A4 v2、A8 v2、A2m v2 |D12 v2、D13 v2、D14 v2 |D12 v2、D13 v2、D14 v2 |
-  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13, D14 |D3 v2 |Windows：D12 v2；Linux：D4 v2 |Windows：D12 v2；Linux：D4 v2 |
-  | 背景工作：建議的 VM 大小 |D3 v2、D4 v2、D12 v2 |D3 v2、D4 v2、D12 v2  | D13, D14 |D3 v2、D4 v2、D12 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | 前端：預設 VM 大小 |D3 v2 |D3 v2 | D13、<br/> D14 |A4 v2 |D12 v2 |D12 v2 |
+  | 前端：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |A4 v2、<br/> A8 v2、<br/> A2m v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |D12 v2、<br/> D13 v2、<br/> D14 v2 |
+  | 背景工作：預設 VM 大小 |D3 v2 |D3 v2  | D13、<br/> D14 |D3 v2 |D4 v2 | D4 v2 |
+  | 背景工作：建議的 VM 大小 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D3 v2、<br/> D4 v2、<br/> D12 v2  | D13、<br/> D14 |D3 v2、<br/> D4 v2、<br/> D12 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
   | ZooKeeper：預設 VM 大小 | |A4 v2 | |A2 v2 | | |
-  | ZooKeeper：建議的 VM 大小 | |A4 v2、A8 v2、A2m v2 | | A2 v2、A4 v2、A8 v2 | | |
-  | 邊緣：預設 VM 大小 | | | | | |Windows：D12 v2；Linux：D4 v2 |
-  | 邊緣：建議的 VM 大小 | | | | | |Windows：D12 v2、D13 v2、D14 v2；Linux：D4 v2、D12 v2、D13 v2、D14 v2 |
+  | ZooKeeper：建議的 VM 大小 | |A4 v2、<br/> A8 v2、<br/> A2m v2 | | A2 v2、<br/> A4 v2、<br/> A8 v2 | | |
+  | 邊緣：預設 VM 大小 | | | | | |D4 v2 |
+  | 邊緣：建議的 VM 大小 | | | | | |D4 v2、<br/> D12 v2、<br/> D13 v2、<br/> D14 v2 |
 * 僅限巴西南部和日本西部 (沒有 v2 大小)：
 
   | 叢集類型 | Hadoop | hbase | 互動式查詢 |Storm | Spark | ML 服務 |
   | --- | --- | --- | --- | --- | --- | --- |
-  | 前端：預設 VM 大小 |D3 |D3  | D13, D14 |A3 |D12 |D12 |
-  | 前端：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13, D14 |A3、A4、A5 |D12、D13、D14 |D12、D13、D14 |
-  | 背景工作：預設 VM 大小 |D3 |D3  | D13, D14 |D3 |Windows：D12；Linux：D4 |Windows：D12；Linux：D4 |
-  | 背景工作：建議的 VM 大小 |D3、D4、D12 |D3、D4、D12  | D13, D14 |D3、D4、D12 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
+  | 前端：預設 VM 大小 |D3 |D3  | D13、<br/> D14 |A3 |D12 |D12 |
+  | 前端：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |A3、<br/> A4、<br/> A5 |D12、<br/> D13、<br/> D14 |D12、<br/> D13、<br/> D14 |
+  | 背景工作：預設 VM 大小 |D3 |D3  | D13、<br/> D14 |D3 |D4 |D4 |
+  | 背景工作：建議的 VM 大小 |D3、<br/> D4、<br/> D12 |D3、<br/> D4、<br/> D12  | D13、<br/> D14 |D3、<br/> D4、<br/> D12 |D4、<br/> D12、<br/> D13、<br/> D14 | D4、<br/> D12、<br/> D13、<br/> D14 |
   | ZooKeeper：預設 VM 大小 | |A2 | | A2 | | |
-  | ZooKeeper：建議的 VM 大小 | |A2、A3、A4 | |A2、A3、A4 | | |
-  | 邊緣：預設 VM 大小 | | | | | |Windows：D12；Linux：D4 |
-  | 邊緣：建議的 VM 大小 | | | | | |Windows：D12、D13、D14；Linux：D4、D12、D13、D14 |
+  | ZooKeeper：建議的 VM 大小 | |A2、<br/> A3、<br/> A4 | |A2、<br/> A3、<br/> A4 | | |
+  | 邊緣：預設 VM 大小 | | | | | |D4 |
+  | 邊緣：建議的 VM 大小 | | | | | |D4、<br/> D12、<br/> D13、<br/> D14 |
 
 > [!NOTE]
 > - 前端稱為 Storm 叢集類型的 Nimbus。
@@ -271,7 +264,7 @@ HDInsight Windows 叢集會依原樣執行，但您無法建立新的 HDInsight 
 
 [image-hdi-versioning-versionscreen]: ./media/hdinsight-component-versioning/hdi-versioning-version-screen.png
 
-[wa-forums]: http://azure.microsoft.com/support/forums/
+[wa-forums]: https://azure.microsoft.com/support/forums/
 
 [connect-excel-with-hive-ODBC]: hdinsight-connect-excel-hive-ODBC-driver.md
 

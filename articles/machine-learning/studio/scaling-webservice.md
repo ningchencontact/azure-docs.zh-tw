@@ -4,9 +4,8 @@ description: 了解如何藉由新增其他端點來提高 Azure Machine Learnin
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 keywords: azure 機器學習服務, web 服務, 作業化, 調整, 端點, 並行要求
 ms.assetid: c2c51d7f-fd2d-4f03-bc51-bf47e6969296
@@ -17,14 +16,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.openlocfilehash: 3077afc99e7879b14c36e16cdbed8afb3a07bdb3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 736c27f5c8ad6efb2b4e36f44998ce06d7b69248
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312176"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256344"
 ---
-# <a name="scaling-an-azure-machine-learning-web-service-by-adding-additional-endpoints"></a>藉由新增其他端點來調整 Azure Machine Learning Web 服務
+# <a name="scaling-an-azure-machine-learning-studio-web-service-by-adding-additional-endpoints"></a>藉由新增其他端點來調整 Azure Machine Learning Studio Web 服務
 > [!NOTE]
 > 本主題說明適用於 **Classic** Machine Learning Web 服務的技巧。 
 > 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上執行 Team Data Science Process 的逐步解說 | Microsoft Docs
+title: 在 Azure 上執行 Team Data Science Process 的逐步解說
 description: 如何將雲端和內部部署工具及服務組合成工作流程或管線，以建立智慧型應用程式。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 28586d960bab75704a0aae6e39517ae83a74d60e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5a5a63bfdc9019afe292dd7623051123c3eb2dbf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495895"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132681"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>執行 Team Data Science Process 的逐步解說
 
@@ -42,5 +42,5 @@ ms.locfileid: "52495895"
 
 如需您可以用來結構化資料科學專案之 Team Data Science Process 生命週期的討論，請參閱 [Team Data Science Process 生命週期](lifecycle.md)。 生命週期會概述專案在執行時通常會遵循之從開始到完成的步驟。 
 
-如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [資料科學程序](https://aka.ms/datascienceprocess)。 
+如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。 
 

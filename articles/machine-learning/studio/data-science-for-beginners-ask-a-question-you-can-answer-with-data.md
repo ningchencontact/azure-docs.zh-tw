@@ -4,10 +4,9 @@ description: 了解如何在「適用於初學者的資料科學」影片 3 中�
 keywords: 資料科學問題, 資料科學問題, 制訂問題, 迴歸問題, 分類問題, 明確的問題
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cjgronlund
 ms.assetid: 5b9501e3-9964-417a-8ffc-8913103da77b
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: c6d42ed7920b634994adf5313656c77e2df6dd5b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f117a8c47d7c98f13101efe0ca5147ce8d8c25a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310832"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250972"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>詢問您可以使用資料回答的問題
 ## <a name="video-3-data-science-for-beginners-series"></a>影片 3：適用於初學者的資料科學系列
@@ -39,7 +38,7 @@ ms.locfileid: "52310832"
  是一個資料科學的快速簡介，包含五個簡短影片。
 
 * 影片 1：[資料科學可以回答的 5 個問題](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 分 14 秒)*
-* 影片 2： [您的資料已經可以進行資料科學了嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
+* 影片 2：[已備妥適用於資料科學的資料嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
 * 影片 3：詢問您可以使用資料回答的問題
 * 影片 4：[利用簡單模型預測答案](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 分 42 秒)*
 * 影片 5：[複製其他人的工作進行資料科學](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 分 18 秒)*
@@ -49,7 +48,7 @@ ms.locfileid: "52310832"
 
 您可以從這個影片中獲得一些秘訣，在制訂可以使用資料回答的問題時使用。
 
-如果您已先觀賞過本系列中的前兩個影片，則可從這個影片中獲得更多資訊：「5 個資訊科學可以回答的問題」和「已備妥資料來進行資料科學嗎？」
+如果您先觀看本系列中前兩段影片，就能更充分運用此影片：「資料科學可以回答的 5 個問題」和「已備妥適用於資料科學的資料嗎？」
 
 ## <a name="ask-a-sharp-question"></a>詢問明確的問題
 我們已經討論過資料科學是一個程序，可使用名稱 (亦稱為類別或標籤) 和數字來預測問題的答案， 但不能只是任意的問題，它必須是「明確的問題」。
@@ -62,7 +61,7 @@ ms.locfileid: "52310832"
 
 但如果您詢問明確的問題，例如「我的股票下週售價是多少？」，精靈就不得不給您一個特定的答案並預測銷售價格。
 
-## <a name="examples-of-your-answer-target-data"></a>您的答案範例︰目標資料
+## <a name="examples-of-your-answer-target-data"></a>您的答案範例：目標資料
 一旦制定問題之後，請檢查資料中是否有答案的範例。
 
 如果問題是「我的股票下週售價是多少？ 」，則我們必須確定資料包含股票價格記錄。

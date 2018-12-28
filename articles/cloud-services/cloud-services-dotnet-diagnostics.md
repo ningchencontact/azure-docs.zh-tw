@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: f9f26f14944986bc673a3b7529adb055ad16d058
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 6a22a3dabf1aa71e0d092c4145523da9b0121c8c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003056"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322204"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>在 Azure 雲端服務中啟用 Azure 診斷
 如需有關 Azure 診斷的背景資訊，請參閱 [Azure 診斷概觀](../azure-diagnostics.md) 。
@@ -39,7 +39,7 @@ ms.locfileid: "39003056"
 6. 建置您的解決方案以確認無誤。
 
 ### <a name="step-2-instrument-your-code"></a>步驟 2：實作您的程式碼
-以下列程式碼取代 WorkerRole.cs 的內容。 繼承自 [EventSource 類別][EventSource Class]的 SampleEventSourceWriter 類別實作四種記錄方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。 傳遞至 **WriteEvent** 方法的第一個參數定義個別事件的識別碼。 Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
+以下列程式碼取代 WorkerRole.cs 的內容。 從 [EventSource 類別][EventSource Class]繼承的 SampleEventSourceWriter 類別會實作四個登入方法：**SendEnums**、**MessageMethod**、**SetOther** 和 **HighFreq**。 傳遞至 **WriteEvent** 方法的第一個參數定義個別事件的識別碼。 Run 方法實作一個無限迴圈，每 10 秒呼叫一次在 **SampleEventSourceWriter** 類別中實作的每種記錄方法。
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -171,7 +171,7 @@ namespace WorkerRole1
 ```
 
 ### <a name="step-5-install-diagnostics-on-your-worker-role"></a>步驟 5：在您的背景工作角色上安裝診斷
-用於管理 Web 角色或背景工作角色上之診斷的 PowerShell Cmdlet 為：Set-AzureServiceDiagnosticsExtension、Get-AzureServiceDiagnosticsExtension 和 Remove-AzureServiceDiagnosticsExtension。
+在 Web 或背景工作角色上管理診斷的 PowerShell Cmdlet 為：Set-AzureServiceDiagnosticsExtension、Get-AzureServiceDiagnosticsExtension 和 Remove-AzureServiceDiagnosticsExtension。
 
 1. 開啟 Azure PowerShell。
 2. 執行指令碼，在您的背景工作角色上安裝診斷 (以 wadexample 儲存體帳戶的儲存體帳戶金鑰取代 *StorageAccountKey*，並以 *WadExample.xml* 檔案的路徑取代 *config_path*)：
@@ -197,7 +197,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 如果您遇到困難，請參閱 [Azure 診斷的疑難排解](../azure-diagnostics-troubleshooting.md) ，以解決常見的問題。
 
 ## <a name="next-steps"></a>後續步驟
-[請參閱相關的 Azure 虛擬機器診斷文章清單](../monitoring-and-diagnostics/azure-diagnostics.md#cloud-services-using-azure-diagnostics)，以變更您收集的資料、為問題進行疑難排解，或深入了解一般的診斷。
+[請參閱相關的 Azure 虛擬機器診斷文章清單](../azure-monitor/platform/diagnostics-extension-overview.md#cloud-services-using-azure-diagnostics)，以變更您收集的資料、為問題進行疑難排解，或深入了解一般的診斷。
 
 [EventSource Class]: http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource(v=vs.110).aspx
 

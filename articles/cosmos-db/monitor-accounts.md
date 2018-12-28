@@ -1,22 +1,22 @@
 ---
-title: 監視 Azure Cosmos DB 要求及儲存體 | Microsoft Docs
+title: 監視 Azure Cosmos DB 中的效能和儲存體計量
 description: 了解如何監視 Azure Cosmos DB 帳戶的效能計量 (如要求和伺服器錯誤) 和使用量計量 (如儲存體耗用量)。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/19/2017
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1f4bf4ba660e83be9879c56d04b27c932d563e17
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: fe527e6e9933d25d7f1a16561ce4822d7b9a33ab
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354054"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135877"
 ---
-# <a name="monitor-azure-cosmos-db"></a>監視 Azure Cosmos DB
+# <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>監視 Azure Cosmos DB 中的效能和儲存體計量
+
 您可以在 [Azure 入口網站](https://portal.azure.com/)中監視 Azure Cosmos DB 帳戶。 對於每個 Azure Cosmos DB 帳戶，會提供一套完整的度量，供監視輸送量、儲存體、可用性、延遲和一致性。
 
 您可以在 [帳戶] 頁面、新的 [度量] 頁面，或 Azure 監視器中檢閱度量。

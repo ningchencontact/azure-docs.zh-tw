@@ -1,5 +1,5 @@
 ---
-title: 設定 Azure 虛擬網路中的 HBase 叢集複寫
+title: 設定 Azure 虛擬網路中的 HBase 叢集複寫 - Azure HDInsight
 description: 了解如何針對負載平衡、高可用性、零停機時間移轉和更新，以及災害復原來設定 HDInsight 版本之間的 HBase 複寫。
 services: hdinsight,virtual-network
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 44ed4075af290e3253b3d8f090c289ceba9750a6
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584174"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163822"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
@@ -55,7 +55,7 @@ ms.locfileid: "52584174"
 為了協助您設定環境，我們建立了一些 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-overview.md)。 如果您偏好使用其他方法設定環境，請參閱：
 
 - [在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)
-- [在 Azure 虛擬網路上建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
+- [在 Azure 虛擬網路中建立 Apache HBase 叢集](apache-hbase-provision-vnet.md)
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>在兩個不同區域中設定兩個虛擬網路
 
@@ -261,11 +261,11 @@ sudo service bind9 status
 使用下列組態在兩個虛擬網路中各建立一個 [Apache HBase](http://hbase.apache.org/) 叢集：
 
 - **資源群組名稱**︰使用和您在虛擬網路中所建立的名稱相同的資源群組名稱。
-- **叢集類型**：HBase
+- **叢集類型**：hbase
 - **版本**：HBase 1.1.2 (HDI 3.6)
 - **位置**：使用與虛擬網路相同的位置。  根據預設，vnet1 是「美國西部」，vnet2 是「美國東部」。
-- **儲存體**︰為叢集建立新的儲存體帳戶。
-- **虛擬網路** (從入口網站上的 [進階] 設定)：選取您在上一個程序中所建立的 vnet1。
+- **儲存體**：為叢集建立新的儲存體帳戶。
+- **虛擬網路** (從入口網站上的 [進階設定])：選取您在上一個程序中建立的 vnet1。
 - **子網路**：範本中所使用的預設名稱為 **subnet1**。
 
 若要確定環境的設定是否正確，您必須能夠對兩個叢集之間的前端節點 FQDN 執行 ping。
@@ -274,7 +274,7 @@ sudo service bind9 status
 
 當您複寫叢集時，您必須指定要複寫的資料表。 在本節中，您會把部分資料載入到來源叢集中。 在下一節中，您將會啟用兩個叢集之間的複寫。
 
-若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [Apache HBase 教學課程：開始使用 HDInsight 中的 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
+若要建立一個**連絡人**資料表，並在此資料表中插入一些資料，請依照 [HBase 教學課程：在 HDInsight 中開始使用 Apache HBase](apache-hbase-tutorial-get-started-linux.md) 中的指示進行操作。
 
 ## <a name="enable-replication"></a>啟用複寫
 
@@ -288,9 +288,9 @@ sudo service bind9 status
 4. 在頁面的頂端，選取 [提交新項目] 。
 5. 選取或輸入下列資訊︰
 
-  1. **名稱**：輸入「啟用複寫」。
+  1. **名稱**：輸入**啟用複寫**。
   2. **Bash 指令碼 URL**：輸入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
-  3.  **前端**：務必選取此項目。 清除其他節點類型。
+  3.  **前端**：請務必選取此項目。 清除其他節點類型。
   4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
@@ -303,7 +303,7 @@ sudo service bind9 status
 
 必要的引數︰
 
-|名稱|說明|
+|Name|說明|
 |----|-----------|
 |-s, --src-cluster | 指定來源 HBase 叢集的 DNS 名稱。 例如：-s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | 指定目的地 (複本) HBase 叢集的 DNS 名稱。 例如：-s dsthbcluster, --src-cluster=dsthbcluster |
@@ -312,7 +312,7 @@ sudo service bind9 status
 
 選擇性的引數︰
 
-|名稱|說明|
+|Name|說明|
 |----|-----------|
 |-su, --src-ambari-user | 指定來源 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |
 |-du, --dst-ambari-user | 指定目的地 HBase 叢集上 Ambari 的管理員使用者名稱。 預設值為 **admin**。 |

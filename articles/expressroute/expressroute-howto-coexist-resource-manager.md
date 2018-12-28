@@ -1,19 +1,19 @@
 ---
-title: 設定可以並存的 ExpressRoute 和站對站 VPN 連線：PowerShell：Azure | Microsoft Docs
-description: 本文會引導您使用 PowerShell 為 Resource Manager 模型設定可以並存的 ExpressRoute 和站對站 VPN 連線
+title: 設定 ExpressRoute 和站對站 VPN 連線 - 並存：PowerShell：Azure | Microsoft Docs
+description: 使用 PowerShell 為 Resource Manager 模型設定可以並存的 ExpressRoute 和站對站 VPN 連線。
 services: expressroute
 author: charwen
-manager: rossort
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: charwen
-ms.openlocfilehash: 96e2eb85bc96075e0673359910522f8e35bf5a5c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 1aeb5ca447a3058962483b640f742e4a7ec4a414
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243806"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104028"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 設定 ExpressRoute 和站對站並存連線
 > [!div class="op_single_selector"]
@@ -21,6 +21,9 @@ ms.locfileid: "51243806"
 > * [PowerShell - 傳統](expressroute-howto-coexist-classic.md)
 > 
 > 
+
+
+本文將協助您設定並存的 ExpressRoute 和站對站 VPN 連線。 能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。 您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不是透過 ExpressRoute 連線的網站。 本文中將說明設定這兩個案例的步驟。 本文適用於資源管理員部署模型。
 
 設定站對站 VPN 和 ExpressRoute 並存連線有諸多好處：
 

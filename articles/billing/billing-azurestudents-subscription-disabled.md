@@ -15,20 +15,20 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: cwatson
 ROBOTS: NOINDEX
-ms.openlocfilehash: c8d78d51425ea5a5fc2f3b326710b3c2ad5a6a06
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 0e4c7ca6776e2016bf0d34d856c4c2332a0bece0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581825"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250445"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>我的 Azure for Students 訂用帳戶為何停用，以及如何將它重新啟動？
 
-您的 Azure for Students 訂用帳戶停用的可能原因如下：您已使用所有的點數、點數已過期，或是或您不小心取消了訂用帳戶。 查看您適用的問題，並了解如何讓您的訂用帳戶重新啟動。
+您的 Azure 學生版訂用帳戶停用的可能原因如下：您已使用所有的點數、點數已過期，或是或您不小心取消了訂用帳戶。 查看您適用的問題，並了解如何讓您的訂用帳戶重新啟動。
 
-## <a name="you-have-used-all-of-your-credit"></a>您已使用所有的點數
+## <a name="youve-used-all-of-your-credit"></a>您已使用所有的點數
 
-Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量有限的免費服務。 任何超過免費服務和數量的使用量都會從您的點數中扣除。 一旦點數用完後，Azure 就會停用您的服務和訂用帳戶。 若要繼續使用 Azure 服務，您必須將您的訂用帳戶升級為預付型訂用帳戶，方法是連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)並提供您的信用卡資訊。 升級之後，您的訂用帳戶仍可使用從註冊日期算起 12 個月的免費服務。 您只要支付免費服務和數量以外的使用量。
+Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量有限的免費服務。 任何超過免費服務和數量的使用量都會從您的點數中扣除。 一旦點數用完後，Azure 就會停用您的服務和訂用帳戶。 若要繼續使用 Azure 服務，您必須連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，將訂用帳戶升級為隨用隨付訂用帳戶。 升級之後，您的訂用帳戶仍可使用從註冊日期算起 12 個月的免費服務。 您只要支付免費服務和數量以外的使用量。
 
 您可於 [Microsoft Azure 贊助入口網站](https://www.microsoftazuresponsorships.com/balance)檢查剩餘點數
 
@@ -47,16 +47,14 @@ Azure for Students 帳戶提供美金 100 元的點數，以及 12 個月數量�
 * **服務資源：** 所耗用服務的度量單位。
 * **花費：** 在服務上花費的點數量 (以美元 ($) 計)。
 
-
 ## <a name="your-credit-has-expired"></a>您的點數已到期
 
-您的 Azure for Students 點數會在 12 個月結束時到期。 點數到期後，Azure 就會停用您的訂用帳戶。 若要繼續使用 Azure 服務，您必須將您的訂用帳戶升級為預付型訂用帳戶，方法是連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)並提供您的信用卡資訊。 升級之後，Azure 會對您所使的任何服務收取預付型方案費用。
+您的 Azure for Students 點數會在 12 個月結束時到期。 點數到期後，Azure 就會停用您的訂用帳戶。 若要繼續使用 Azure 服務，您必須連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，將訂用帳戶升級為隨用隨付訂用帳戶。 升級之後，Azure 會對您所使用的任何服務收取隨用隨付費用。
 
+## <a name="youve-accidentally-canceled-your-subscription"></a>您不小心取消了訂用帳戶
 
-## <a name="you-have-accidentally-canceled-your-subscription"></a>您不小心取消了訂用帳戶
+如果您不小心取消了您的 Azure 學生版訂用帳戶，可以連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)將它重新啟用。 重新啟動後，仍可使用剩餘點數和從註冊日期算起 12 個月的免費服務。
 
-如果您不小心取消了您的 Azure for Students 訂用帳戶，可以連絡 [Azure 支援](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)重新啟動它。 重新啟動後，仍可使用剩餘點數和從註冊日期算起 12 個月的免費服務。
-
-## <a name="need-help-contact-us"></a>需要協助嗎？ 歡迎與我們連絡。
+## <a name="need-help-contact-us"></a>需要協助嗎？ 與我們連絡。
 
 如果您有問題或需要協助，請[建立支援要求](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)。

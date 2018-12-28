@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Samanage 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Samanage 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建和取消佈建至 Samanage。
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/28/2018
 ms.author: v-wingf-msft
-ms.openlocfilehash: 53b78231dba4f525410f53dc1ae60901c67f043d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3442710e1e1327dcafc1b4ed6617aeb7ff1bf0f
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634501"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322425"
 ---
-# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程︰設定 Samanage 來自動佈建使用者
+# <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>教學課程：設定 Samanage 來自動佈建使用者
 
 本教學課程旨在示範將 Azure AD 設定為可對 Samanage 自動佈建及取消佈建使用者和/或群組時，應在 Samanage 與 Azure Active Directory (Azure AD) 中執行的步驟。
 
@@ -76,7 +76,9 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="important-tips-for-assigning-users-to-samanage"></a>將使用者指派給 Samanage 的重要秘訣
 
-*   建議將單一 Azure AD 使用者指派給 Samanage，以測試自動使用者佈建的設定。 其他使用者及/或群組可能會稍後再指派。
+*    目前，Samanage 角色會在 Azure 入口網站 UI 中自動且動態地填入。 在將 Samanage 角色指派給使用者之前，請確保已針對 Samanage 完成初始同步，以擷取您 Samanage 租用戶中的最新角色。
+
+*    建議將單一 Azure AD 使用者指派給 Samanage，以測試您的初始自動使用者佈建的設定。 您可於稍後在測試成功之後指派其他使用者及/或群組。
 
 *   將使用者指派給 Samanage 時，您必須在 [指派] 對話方塊中選取任何有效應用程式特有的角色 (如果有的話)。 具有**預設存取**角色的使用者會從佈建中排除。
 

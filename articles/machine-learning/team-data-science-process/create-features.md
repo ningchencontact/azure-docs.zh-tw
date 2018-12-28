@@ -1,5 +1,5 @@
 ---
-title: 資料科學特徵工程設計 | Microsoft Docs
+title: 資料科學中的特徵工程設計 - Team Data Science Process
 description: 說明機器學習服務的資料增強程序中特性工程設計的目的，並提供其角色的範例。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 80e925fddf1aebd9f699ee8e22b96cc496faeba6
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446670"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138946"
 ---
 # <a name="feature-engineering-in-data-science"></a>資料科學特徵工程設計
 本文說明特徵工程設計的目的，並透過提供的範例，顯示它在機器學習服務的資料增強程序中扮演的角色。 用來說明此程序的範例是取自 Azure Machine Learning Studio。 
@@ -25,8 +25,8 @@ ms.locfileid: "52446670"
 
 特徵工程設計藉由以協助學習程序的原始資料來建立特徵，以嘗試增加學習演算法的預測能力。 特徵的工程設計與選取是何謂 [Team Data Science Process 生命週期？](overview.md)中所概述 TDSP 程序的其中一部分。 特徵工程設計和選取屬於 TDSP 的 **開發特徵** 步驟。 
 
-* **特性工程設計**：此程序嘗試從資料中的現有原始特性建立其他相關特性，以及增加學習演算法的預測功效。
-* **特性選取**：此程序嘗試選取主要的原始資料特性子集，以縮小定型問題的維度。
+* **特徵工程設計**：此程序嘗試從資料中現有的原始特徵來建立其他相關特徵，並提高學習演算法的預測能力。
+* **特徵選取**：此程序會選取原始資料特徵的主要子集，以嘗試縮減定型問題的維度。
 
 通常會先套用**特性工程設計**以產生其他特定，然後執行**特性選取**步驟以排除不相關、多餘或高度相關的特性。
 
@@ -71,7 +71,7 @@ ms.locfileid: "52446670"
 
 特性 A+B+C 所呈現的結果最理想。 請注意，當定型資料中包含其他特性集時，錯誤率會降低。 這證實了我們的推測：特徵集 B、C 會針對迴歸工作提供其他相關資訊。 但新增 D 特性似乎不會讓錯誤率降低。
 
-## <a name="example2"></a> 範例 2：在文字採礦中建立特性
+## <a name="example2"></a> 範例 2：在文字採礦中建立特徵
 特性工程設計廣泛運用於文字採礦的相關工作，例如文件分類和情感分析。 例如，當您想要將文件分為數個類別時，通常會假設包含在一個文件類別中的文字/片語比較不可能出現在其他文件類別中。 換言之，文字/片語分配的次數能夠描述不同文件類別的特徵。 在文字採礦應用程式中，因為個別的文字內容通常可作為輸入資料，所以建立文字/片語次數相關特性時需要特性工程設計程序。
 
 為了達成此工作，會套用名為 **特性雜湊** 的技術，有效地將任意文字特性變成索引。 此方法不會將每個文字特性 (文字/片語) 關聯至特定索引，而是將雜湊函數套用至特性並直接使用其雜湊值作為索引。

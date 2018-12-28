@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 4b0491d59e4ac495750a338ad743aab69ff47a4e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cf283803dfa45c362330ccf73fc5eea198d3a5e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494238"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278639"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 選取、管理和操作 Service Fabric 叢集。
@@ -142,7 +142,7 @@ ms.locfileid: "39494238"
 
 下列 API 啟動的錯誤作業可藉由使用 CancelOperation 來取消：StartDataLoss、StartQuorumLoss、StartPartitionRestart、StartNodeTransition。 如果 force 為 false，將會以正常方式停止並清除指定的使用者引發作業。  如果 force 為 true，則會中止命令，而可能遺留某些內部狀態。  將 force 指定為 true 應該謹慎使用。 必須已經在相同的測試命令上先搭配將 force 設定為 false 來呼叫此 API，或除非測試命令的 OperationState 已經是 OperationState.RollingBack，才允許搭配將 force 設定為 true 來呼叫此 API。 
 
- 說明：OperationState.RollingBack 表示系統將會/正在清除執行命令所造成的內部系統狀態。 如果測試命令是用來引發資料遺失，則它將不會還原資料。  例如，如果您呼叫 StartDataLoss，然後呼叫此 API，系統將只會清除從執行命令產生的內部狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原目標分割區的資料。 
+說明：OperationState.RollingBack 表示系統將會/正在清除執行命令所造成的內部系統狀態。  如果測試命令是用來引發資料遺失，則它將不會還原資料。  例如，如果您呼叫 StartDataLoss，然後呼叫此 API，系統將只會清除從執行命令產生的內部狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原目標分割區的資料。 
 
 > [!NOTE]
 > 如果搭配 force==true 來叫用此 API，可能會遺留內部狀態。
@@ -264,7 +264,7 @@ ms.locfileid: "39494238"
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 連線到 Service Fabric 叢集端點。
 
-如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。
+如果連線到安全的叢集，請指定憑證 (.crt) 和金鑰檔案 (.key) 的絕對路徑，或包含兩者之單一檔案 (.pem) 的絕對路徑。 請勿指定兩者。 您也可以在連線到安全的叢集時，視需要一併指定 CA 組合檔案的絕對路徑，或是受信任 CA 憑證目錄的絕對路徑。 如果使用 CA 憑證的目錄，OpenSSL 提供的 `c_rehash <directory>` 必須先執行以計算憑證雜湊，並建立適當的 symbolics 連結。
 
 ### <a name="arguments"></a>引數
 
@@ -340,19 +340,19 @@ ms.locfileid: "39494238"
 | --delta-health-evaluation | 允許在完成每個升級網域之後進行差異健康狀態評估，而不是絕對健康狀態評估。 |
 | --delta-unhealthy-nodes | 在叢集升級期間允許的節點健康情況衰退百分比上限。  預設值\:10。 <br><br> 差異是測量升級開始時節點的狀態和健康情況評估時節點的狀態之間的差異。 每次升級網域升級完成後都會執行檢查，以確保叢集的全域狀態處於容許的限制範圍內。 |
 | --failure-action | 可能的值包括：'Invalid'、'Rollback'、'Manual'。 |
-| --force-restart | 強制重新啟動。 |
-| --health-check-retry | 健康情況檢查重試逾時 (毫秒)。 |
-| --health-check-stable | 健康情況檢查穩定持續時間 (毫秒)。 |
-| --health-check-wait | 健康情況檢查等候持續時間 (毫秒)。 |
-| --replica-set-check-timeout | 升級複本設定檢查逾時 (秒)。 |
+| --force-restart | 即使程式碼版本尚未變更，仍然會在升級期間強制重新啟動處理序。 <br><br> 升級只會變更組態或資料。 |
+| --health-check-retry | 當應用程式或叢集狀況不良時，嘗試執行健康情況檢查的間隔時間長度。 |
+| --health-check-stable | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --health-check-wait | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。 |
+| --replica-set-check-timeout | 發生非預期問題時，封鎖處理升級網域並防止遺失可用性的時間長度上限。 <br><br> 此逾時過期時，無論是否發生可用性遺失問題，升級網域的處理都將繼續。 逾時會在每個升級網域啟動時重設。 有效值介於 0 到 42949672925 (含) 之間。 |
 | --rolling-upgrade-mode | 可能的值包括：'Invalid'、'UnmonitoredAuto'、'UnmonitoredManual'、'Monitored'。  預設值\:UnmonitoredAuto。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --unhealthy-applications | 在報告錯誤之前，允許健康情況不良應用程式的最大百分比。 <br><br> 例如，若要允許 10% 的應用程式健康情況不良，這個值會是 10。 百分比表示在系統將叢集視為錯誤之前，容許應用程式健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的應用程式，則健康情況會評估為 Warning。 此計算是將健康情況不良的應用程式數目除以叢集中應用程式執行個體的總數而得，但不包括 ApplicationTypeHealthPolicyMap 所包含之應用程式類型的應用程式。 針對少量的應用程式數目，計算會四捨五入以容許一個失敗。 |
 | --unhealthy-nodes | 在報告錯誤之前，允許健康情況不良節點的最大百分比。 <br><br> 例如，若要允許 10% 的節點健康情況不良，這個值會是 10。 百分比表示在叢集被視為處於錯誤狀態之前，容許節點健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的節點，則健康情況會評估為 Warning。 百分比是將健康情況不良節點數目除以叢集中的節點總數計算而得。 針對較少的節點數目，計算會四捨五入以容許一個失敗。 在大型叢集中，永遠都有一些節點會關閉或需要修復，因此應設定此百分比來容許這種情形。 |
 | --upgrade-domain-delta-unhealthy-nodes | 在叢集升級期間允許的升級網域節點健康情況衰退百分比上限。  預設值\:15。 <br><br> 差異是測量升級開始時升級網域節點的狀態和健康情況評估時升級網域節點的狀態之間的差異。 每次所有已完成升級網域的升級網域升級完成後都會執行檢查，以確保升級網域的狀態處於容許的限制範圍內。 |
-| --upgrade-domain-timeout | 升級網域逾時 (毫秒)。 |
-| --upgrade-timeout | 升級逾時 (毫秒)。 |
-| --warning-as-error | 具有相同嚴重性的警告會視為錯誤。 |
+| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -440,20 +440,20 @@ ms.locfileid: "39494238"
 | --delta-health-evaluation | 允許在完成每個升級網域之後進行差異健康狀態評估，而不是絕對健康狀態評估。 |
 | --delta-unhealthy-nodes | 在叢集升級期間允許的節點健康情況衰退百分比上限。  預設值\:10。 <br><br> 差異是測量升級開始時節點的狀態和健康情況評估時節點的狀態之間的差異。 每次升級網域升級完成後都會執行檢查，以確保叢集的全域狀態處於容許的限制範圍內。 |
 | --failure-action | 可能的值包括：'Invalid'、'Rollback'、'Manual'。 |
-| --force-restart | 強制重新啟動。 |
-| --health-check-retry | 健康情況檢查重試逾時 (毫秒)。 |
-| --health-check-stable | 健康情況檢查穩定持續時間 (毫秒)。 |
-| --health-check-wait | 健康情況檢查等候持續時間 (毫秒)。 |
-| --replica-set-check-timeout | 升級複本設定檢查逾時 (秒)。 |
+| --force-restart | 即使程式碼版本尚未變更，仍然會在升級期間強制重新啟動處理序。 <br><br> 升級只會變更組態或資料。 |
+| --health-check-retry | 當應用程式或叢集狀況不良時，嘗試執行健康情況檢查的間隔時間長度。 |
+| --health-check-stable | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --health-check-wait | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。 |
+| --replica-set-check-timeout | 發生非預期問題時，封鎖處理升級網域並防止遺失可用性的時間長度上限。 <br><br> 此逾時過期時，無論是否發生可用性遺失問題，升級網域的處理都將繼續。 逾時會在每個升級網域啟動時重設。 有效值介於 0 到 42949672925 (含) 之間。 |
 | --rolling-upgrade-mode | 可能的值包括：'Invalid'、'UnmonitoredAuto'、'UnmonitoredManual'、'Monitored'。  預設值\:UnmonitoredAuto。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --unhealthy-applications | 在報告錯誤之前，允許健康情況不良應用程式的最大百分比。 <br><br> 例如，若要允許 10% 的應用程式健康情況不良，這個值會是 10。 百分比表示在系統將叢集視為錯誤之前，容許應用程式健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的應用程式，則健康情況會評估為 Warning。 此計算是將健康情況不良的應用程式數目除以叢集中應用程式執行個體的總數而得，但不包括 ApplicationTypeHealthPolicyMap 所包含之應用程式類型的應用程式。 針對少量的應用程式數目，計算會四捨五入以容許一個失敗。 |
 | --unhealthy-nodes | 在報告錯誤之前，允許健康情況不良節點的最大百分比。 <br><br> 例如，若要允許 10% 的節點健康情況不良，這個值會是 10。 百分比表示在叢集被視為處於錯誤狀態之前，容許節點健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的節點，則健康情況會評估為 Warning。 百分比是將健康情況不良節點數目除以叢集中的節點總數計算而得。 針對較少的節點數目，計算會四捨五入以容許一個失敗。 在大型叢集中，永遠都有一些節點會關閉或需要修復，因此應設定此百分比來容許這種情形。 |
 | --upgrade-domain-delta-unhealthy-nodes | 在叢集升級期間允許的升級網域節點健康情況衰退百分比上限。  預設值\:15。 <br><br> 差異是測量升級開始時升級網域節點的狀態和健康情況評估時升級網域節點的狀態之間的差異。 每次所有已完成升級網域的升級網域升級完成後都會執行檢查，以確保升級網域的狀態處於容許的限制範圍內。 |
-| --upgrade-domain-timeout | 升級網域逾時 (毫秒)。 |
+| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 | --upgrade-kind | 可能的值包括：'Invalid'、'Rolling'、'Rolling_ForceRestart'。  預設值\:Rolling。 |
-| --upgrade-timeout | 升級逾時 (毫秒)。 |
-| --warning-as-error | 具有相同嚴重性的警告會視為錯誤。 |
+| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -464,6 +464,7 @@ ms.locfileid: "39494238"
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

@@ -1,12 +1,11 @@
 ---
-title: 步驟 4：定型預測分析模型 - Azure Machine Learning Studio | Microsoft Docs
-description: 開發預測解決方案逐步解說的步驟 4：在 Azure Machine Learning Studio 中定型、計分和評估多個模型。
+title: 步驟 4：將預測性分析模型定型 - Azure Machine Learning Studio | Microsoft Docs
+description: 開發預測性解決方案逐步解說的步驟 4：在 Azure Machine Learning Studio 中定型、評分及評估多個模型。
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: d905f6b3-9201-4117-b769-5f9ed5ee1cac
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 4b4ffcf8e6c886a2f182c844f940e53c24d1efa0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2464ef0ba89f138834bedfdc9f29347092e5fe99
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313464"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254508"
 ---
-# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>逐步解說步驟 4：在 Machine Learning Studio 中定型和評估預測分析模型
+# <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>逐步解說步驟 4：在 Machine Learning Studio 中定型和評估預測性分析模型
 此主題包含[在 Azure Machine Learning 中開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)逐步解說的第四個步驟
 
 1. [建立 Machine Learning Studio 工作區](walkthrough-1-create-ml-workspace.md)
@@ -190,7 +189,7 @@ ms.locfileid: "52313464"
 > 
 
 - - -
-**下一步：[部署 Web 服務](walkthrough-5-publish-web-service.md)**
+**下一個步驟：[部署 Web 服務](walkthrough-5-publish-web-service.md)**
 
 [0]: ./media/walkthrough-4-train-and-evaluate-models/train-model-select-column.png
 [1]: ./media/walkthrough-4-train-and-evaluate-models/experiment-with-train-model.png

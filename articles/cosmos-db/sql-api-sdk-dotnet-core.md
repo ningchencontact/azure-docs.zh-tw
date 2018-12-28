@@ -1,10 +1,8 @@
 ---
-title: Azure Cosmos DB：SQL .NET Core API、SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB：SQL .NET Core API、SDK 與資源
 description: 全面了解 SQL .NET Core API 和 SDK，包括發行日期、停用日期及 Azure Cosmos DB .NET Core SDK 每個版本之間的變更。
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
@@ -12,14 +10,14 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5216a4a21fbbded4a10429c658f4842db225657
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d947974575cf996ed880f2c1b5f8f7700b81ffd3
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161713"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413501"
 ---
-# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK for SQL API：版本資訊與資源
+# <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB .NET SDK：版本資訊和資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "52161713"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -52,6 +50,23 @@ ms.locfileid: "52161713"
 ## <a name="release-notes"></a>版本資訊
 
 Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) 類似的功能。
+
+### <a name="a-name3001-preview3001-preview"></a><a name="3.0.0.1-preview"/>3.0.0.1-preview
+* 用於公開預覽之 .NET SDK [3.0.0 版](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) \(英文\) 的 Preview 1。
+* 目標 .NET Standard，其支援 .NET Framework 4.6.1+ 和 .NET Core 2.0+
+* 新的物件模型，具有最上層 CosmosClient，以及分佈在相關 CosmosDatabases、CosmosContainers 與 CosmosItems 類別之間的方法。
+* 支援資料流。
+* 更新來自伺服器的 CosmosResponseMessage 以傳回狀態碼，並只會在沒有傳回回應時擲回例外狀況。
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+
+* 針對直接/TCP 傳輸診斷新增 TransportException，此為 SDK 的內部例外狀況類型。 當此類型存在於例外狀況訊息中時會列印其他資訊，以針對用戶端連線問題進行疑難排解。
+
+* 新增新的建構函式多載，其採用 HttpMessageHandler，此為用來傳送 HttpClient 要求 (例如 HttpClientHandler) 的 HTTP 處理常式堆疊。
+
+* 修正沒有正確處理具 Null 值之標頭的錯誤 (bug)。
+
+* 改善集合快取驗證。
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 
@@ -104,7 +119,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
-* 修正會在競爭情形下發生的錯誤，其是在使用工作階段一致性層級時，導致間歇發生「Microsoft.Azure.Documents.NotFoundException: 讀取工作階段不適用於輸入工作階段權杖」錯誤。
+* 修正使用工作階段一致性層級時，會在特定競爭條件下觸發，並導致間歇「Microsoft.Azure.Documents.NotFoundException:The read session is not available for the input session token」錯誤的錯誤 (bug)。
 
 ### <a name="a-name181181"></a><a name="1.8.1"/>1.8.1
 
@@ -121,7 +136,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
- * 在 API 參考文件、組件中的中繼資料資訊，以及 NuGet 封裝中，將商標從 Azure DocumentDB 變更為 Azure Cosmos DB。 
+ * 在 API 參考文件、組件中的中繼資料資訊，以及 NuGet 封裝中，將商標從 Azure DocumentDB 變更為 Azure Cosmos DB。
  * 將以直接連線模式傳送之請求的回應之診斷資訊和延遲加以公開。 屬性名稱是 ResourceResponse 類別上的 RequestDiagnosticsString 與 RequestLatency。
  * 此 SDK 版本需要使用從 https://aka.ms/cosmosdb-emulator 下載之最新版本的 Azure Cosmos DB 模擬器。
  
@@ -135,8 +150,8 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name150150"></a><a name="1.5.0"/>1.5.0 
 
-* 已新增將 PartitionKeyRangeId 做為 FeedOption 的支援，以供對特定分割區索引鍵範圍值限制查詢結果範圍。 
-* 已新增將 StartTime 做為 ChangeFeedOption 的支援，以開始尋找該時間之後的變更。 
+* 已新增將 PartitionKeyRangeId 做為 FeedOption 的支援，以供對特定分割區索引鍵範圍值限制查詢結果範圍。
+* 已新增將 StartTime 做為 ChangeFeedOption 的支援，以開始尋找該時間之後的變更。
 
 ### <a name="a-name141141"></a><a name="1.4.1"/>1.4.1
 
@@ -177,7 +192,7 @@ Azure Cosmos DB .NET Core SDK 有與最新版 [Azure Cosmos DB .NET SDK](sql-api
 
 ### <a name="a-name112112"></a><a name="1.1.2"/>1.1.2
 
-* 修正偶爾會造成「WebException: 無法解析遠端名稱」的錯誤。
+* 修正偶爾會造成「WebException:The remote name could not be resolved」的問題。
 * 透過針對 ReadDocumentAsync API 新增多載，以新增直接讀取具類型文件的支援。
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
@@ -201,17 +216,18 @@ Azure Cosmos DB .NET Core SDK 可讓您建置快速、跨平台的 [ASP.NET Core
 Azure Cosmos DB .NET Core Preview SDK 可讓您建置快速、跨平台的 [ASP.NET Core](https://www.asp.net/core) 和 [.NET Core](https://www.microsoft.com/net/core#windows) 應用程式，以在 Windows、Mac 和 Linux 上執行。
 
 Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) 的功能類似的功能，並且支援下列項目︰
-* 所有[連接模式](performance-tips.md#networking)︰閘道器模式、直接 TCP 和 Direct HTTPs。 
-* 所有[一致性層級](consistency-levels.md)︰強式、工作階段、限定過期和最終。
-* [資料分割的集合](partition-data.md)。 
+* 所有[連接模式](performance-tips.md#networking)：閘道器模式、直接 TCP 和 Direct HTTPs。
+* 所有[一致性層級](consistency-levels.md)：強式、工作階段，限定過期和最終。
+* [資料分割的集合](partition-data.md)。
 * [多重區域資料庫帳戶和異地複寫](distribute-data-globally.md)。
 
-如果您有與此 SDK 相關的問題，請張貼至 [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb)，或是在 [Github 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/issues)中提出問題。 
+如果您有與此 SDK 相關的問題，請張貼至 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb)，或是在 [GitHub 儲存機制](https://github.com/Azure/azure-documentdb-dotnet/issues)中提出問題。
 
 ## <a name="release--retirement-dates"></a>發行和停用日期
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.0](#2.2.0) |2018 年 12 月 7 日 |--- |
 | [2.1.3](#2.1.3) |2018 年 10 月 15 日 |--- |
 | [2.1.2](#2.1.2) |2018 年 10 月 4 日 |--- |
 | [2.1.1](#2.1.1) |2018 年 9 月 27 日 |--- |
@@ -240,5 +256,5 @@ Azure Cosmos DB .NET Core Preview SDK 有與最新版本 [Azure Cosmos DB .NET S
 | [0.1.0-preview](#0.1.0-preview) |2016 年 11 月 15 日 |2016 年 12 月 31 日 |
 
 ## <a name="see-also"></a>另請參閱
-若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。 
+若要深入了解 Cosmos DB，請參閱 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 服務頁面。
 

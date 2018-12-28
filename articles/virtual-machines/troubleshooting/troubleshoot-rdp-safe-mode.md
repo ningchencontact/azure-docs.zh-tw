@@ -13,21 +13,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 3ff1db9ee7dc34ce529702d61b3ac5970bb5d9df
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0ef4aa988f4adc855051b213013636b4a04f1cca
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309858"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316966"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因為 VM 開機到安全模式而無法連線到 VM
 
 此文章說明如何解決因為 VM 設定為開機到安全模式而無法連線到 Azure Windows 虛擬機器 (VM) 的問題進行疑難排解。
 
-> [!NOTE] 
-> Azure 建立和處理資源的部署模型有二種： [資源管理員和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 此文章說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。 
+> [!NOTE]
+> Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../../azure-resource-manager/resource-manager-deployment-model.md)。 本文說明如何使用 Resource Manager 部署模型，我們建議將它用於新部署，而非用於傳統部署模型。
 
-## <a name="symptoms"></a>徵兆 
+## <a name="symptoms"></a>徵兆
 
 您因為 VM 設定為開機到安全模式而無法透過 RDP 連線或其他連線 (例如 HTTP) 連線到 Azure 中的 VM。 當您檢查 Azure 入口網站中[開機診斷](../troubleshooting/boot-diagnostics.md)的螢幕擷取畫面時，您可能會看到該 VM 正常開機，但網路介面無法使用：
 
@@ -38,7 +38,7 @@ ms.locfileid: "52309858"
 在安全模式中，RDP 服務無法使用。 當 VM 開機到安全模式時，只會載入基本系統程式與服務。 這適用於兩個不同版本的安全模式，亦即「安全模式 (基本)」與「安全模式 (含網路功能)」。
 
 
-## <a name="solution"></a>解決方法 
+## <a name="solution"></a>解決方法
 
 在遵循下列步驟之前，請擷取受影響虛擬機器作業系統磁碟的快照集作為備份。 如需詳細資訊，請參閱[擷取磁碟快照集](../windows/snapshot-copy-managed-disk.md)。
 
@@ -46,9 +46,9 @@ ms.locfileid: "52309858"
 
 ### <a name="use-serial-control"></a>使用序列主控台
 
-1. 連線至[序列主控台並開啟 CMD 執行個體](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
+1. 連線至[序列主控台並開啟 CMD 執行個體](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 )。 如果 VM 上未啟用序列主控台，請參閱[修復離線的 VM](#repair-the-vm-offline)一節。
-2. 檢查開機設定資料： 
+2. 檢查開機設定資料：
 
         bcdedit /enum
 
@@ -65,7 +65,7 @@ ms.locfileid: "52309858"
 3. 刪除 [安全開機] 旗標，這樣 VM 就會開機到標準模式：
 
         bcdedit /deletevalue {current} safeboot
-        
+
 4. 檢查開機設定資料以確定已移除 [安全開機] 旗標：
 
         bcdedit /enum
@@ -77,7 +77,7 @@ ms.locfileid: "52309858"
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>將 OS 磁碟連結至復原 VM
 
 1. [將 OS 磁碟連結至復原 VM](../windows/troubleshoot-recovery-disks-portal.md)。
-2. 啟動復原 VM 的遠端桌面連線。 
+2. 啟動復原 VM 的遠端桌面連線。
 3. 確定該磁碟在磁碟管理主控台中標示為 [線上]。 記下指派給已連結 OS 磁碟的磁碟機代號。
 
 #### <a name="enable-dump-log-and-serial-console-optional"></a>啟用傾印記錄檔和序列主控台 (選擇性)
@@ -111,23 +111,24 @@ ms.locfileid: "52309858"
     REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
 
     reg unload HKLM\BROKENSYSTEM
+    ```
 
-#### Configure the Windows to boot into normal mode
+#### <a name="configure-the-windows-to-boot-into-normal-mode"></a>設定 Windows 開機到標準模式
 
-1. Open an elevated command prompt session (**Run as administrator**).
-2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM. 
+1. 開啟提升權限的命令提示字元工作階段 (**以系統管理員身分執行**)。
+2. 檢查開機設定資料。 在下列命令中，我們假設指派給已連結 OS 磁碟的磁碟機代號是 F。請將此磁碟機代號取代為 VM 的適當值。
 
         bcdedit /store F:\boot\bcd /enum
-    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
+    記下包含 **\windows** 資料夾的分割區識別碼名稱。 根據預設，識別碼名稱為 "Default"。
 
-    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, this article does not apply to your scenario.
+    若 VM 已設定為開機到安全模式，您將會在 [Windows 開機載入器] 區段下看到稱為 [安全開機] 的額外旗標。 如果沒有看到 [安全開機] 旗標，代表此文章不適用於您的案例。
 
-    ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
+    ![開機識別碼的相關影像](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remove the **safeboot** flag, so the VM will boot into normal mode:
+3. 移除 [安全開機] 旗標，VM 就會開機到標準模式：
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
-4. Check the boot configuration data to make sure that the **safeboot** flag is removed:
+4. 檢查開機設定資料以確定已移除 [安全開機] 旗標：
 
         bcdedit /store F:\boot\bcd /enum
-5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+5. [將 OS 磁碟中斷連結並建立 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然後檢查問題是否已解決。

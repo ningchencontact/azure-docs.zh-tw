@@ -9,17 +9,16 @@ ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 11a421a30508774d976def8d5836451743ecb6ea
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282606"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270377"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>監視任何網站的可用性和回應性
 將 Web 應用程式或網站部署至任何伺服器之後，您可以設定測試來監視其可用性和回應性。 [Azure Application Insights](app-insights-overview.md) 會將來自全球各地的 Web 要求定期傳送給您的應用程式。 如果應用程式沒有回應或回應太慢，則會警告您。
@@ -50,9 +49,9 @@ ms.locfileid: "51282606"
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **URL** 可以是您想要測試的任何網頁，但必須可從公用網際網路看見它。 URL 可以包含查詢字串。 例如，您可以訓練一下您的資料庫。 如果 URL 解析為重新導向，我們會跟隨它，最多 10 個重新導向。
-* **剖析相依要求**︰若已核取這個選項，測試會要求影像、指令碼、樣式檔案以及其他屬於受測試網頁的檔案。 記錄的回應時間包含取得這些檔案所需的時間。 如果無法在逾時內為整個測試成功下載所有這些資源，則測試將會失敗。 如果未核取這個選項，測試只會要求您指定之 URL 中的檔案。
+* **剖析相依要求**：如果勾選此選項，測試會要求提供影像、指令碼、樣式檔案，以及其他屬於受測試網頁的檔案。 記錄的回應時間包含取得這些檔案所需的時間。 如果無法在逾時內為整個測試成功下載所有這些資源，則測試將會失敗。 如果未核取這個選項，測試只會要求您指定之 URL 中的檔案。
 
-* **啟用重試**：若已核取這個選項，就會在短時間內進行重試。 只有在連續三次重試失敗後，才會回報失敗。 後續測試則會以一般測試頻率執行。 重試會暫時停止，直到下次成功為止。 此規則可個別套用在每個測試位置。 我們建議使用這個選項。 平均來說，大約 80% 失敗會在重試後消失。
+* **啟用重試**：如果勾選此選項，當測試失敗後，會在短暫間隔後進行重試。 只有在連續三次重試失敗後，才會回報失敗。 後續測試則會以一般測試頻率執行。 重試會暫時停止，直到下次成功為止。 此規則可個別套用在每個測試位置。 我們建議使用這個選項。 平均來說，大約 80% 失敗會在重試後消失。
 
 * **測試頻率**：設定從每個測試位置執行測試的頻率。 預設頻率為 5 分鐘且有五個測試位置，則您的網站平均每一分鐘會執行測試。
 
@@ -64,9 +63,9 @@ ms.locfileid: "51282606"
 
 * **成功準則**：
 
-    **測試逾時**：減少此值以警示回應變慢。 如果未在這段時間內收到您網站的回應，則測試會視為失敗。 如果已選取 [剖析相依要求] ，則必須在這段時間內收到所有映像、樣式檔、指令碼和其他相依資源。
+    **測試逾時**：降低此值可收到有關回應變慢的警示。 如果未在這段時間內收到您網站的回應，則測試會視為失敗。 如果已選取 [剖析相依要求] ，則必須在這段時間內收到所有映像、樣式檔、指令碼和其他相依資源。
 
-    **HTTP 回應**：視為成功的回覆狀態碼。 200 是表示已傳回標準 Web 網頁的代碼。
+    **HTTP 回應**：視為成功的傳回狀態碼。 200 是表示已傳回標準 Web 網頁的代碼。
 
     **內容比對**：字串，例如「歡迎！ 我們會測試每個回應中的區分大小寫完全相符。 必須是單純字串，不含萬用字元。 別忘了，如果頁面內容變更，則可能需要更新。
 
@@ -161,8 +160,8 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 除了未經處理的結果，[計量瀏覽器] 中有兩個可用性計量︰ 
 
-1. 可用性︰所有測試執行中測試成功的百分比。 
-2. 測試持續期間︰所有測試執行中的平均測試持續期間。
+1. 可用性：所有測試執行中測試成功的百分比。 
+2. 測試持續時間：所有測試執行的平均測試持續期間。
 
 您可以對測試名稱、位置套用篩選條件，以分析特定測試及/或位置的趨勢。
 
@@ -183,7 +182,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 * 檢查從伺服器收到的回應。
 * 使用在處理失敗的可用性測試時收集的相關聯伺服器端遙測來診斷失敗。
-* 在 Git 或 VSTS 中記錄問題或工作項目來追蹤問題。 Bug 將包含此事件的連結。
+* 在 Git 或 Azure Boards 中記錄問題或工作項目來追蹤問題。 Bug 將包含此事件的連結。
 * 在 Visual Studio 中開啟 Web 測試結果。
 
 在[這裡](app-insights-transaction-diagnostics.md)深入了解端對端交易診斷體驗。
@@ -203,7 +202,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 ![建立體驗](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
 
-**重要**：藉由[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)，[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)的警示規則嚴重性和通知喜好設定**必須是**在警示體驗中設定。 若不進行下列步驟，您只會收到入口網站內部通知。 
+**重要**：使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，**必須**在警示體驗中設定[動作群組](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)的相關警示規則嚴重性和通知喜好設定。 若不進行下列步驟，您只會收到入口網站內部通知。 
 
 1. 儲存可用性測試之後，按一下新的測試名稱，即可查看其詳細資料。 按一下 [編輯警示] ![儲存後編輯](./media/app-insights-monitor-web-app-availability/editaftersave.png)
 
@@ -218,7 +217,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 ### <a name="alert-on-availability-metrics"></a>可用性度量的警示
 使用[新的整合警示](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)時，您也可以對於分段彙總可用性和測試持續時間計量設定警示：
 
-1. 在計量體驗中，選取 Application Insights 資源，然後選取可用性度量：![可用性計量選取範圍](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+1. 在 [計量] 體驗中選取某個 Application Insights 資源，然後選取 [可用性] 計量：![可用性計量選取項目](./media/app-insights-monitor-web-app-availability/selectmetric.png)
 
 2. 從功能表設定警示選項會帶您前往新的體驗，您可以在其中選取特定測試或位置來設定警示規則。 您也可以在這裡設定此警示規則的動作群組。
     ![可用性警示設定](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
@@ -282,13 +281,13 @@ Web 測試外掛程式提供將時間參數化的方法。
 
 ## <a name="automation"></a>自動化
 * [使用 PowerShell 指令碼自動設定可用性測試](app-insights-powershell.md#add-an-availability-test)。
-* 設定會在產生警示時呼叫的 [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
+* 設定會在產生警示時呼叫的 [webhook](../azure-monitor/platform/alerts-webhooks.md)。
 
 ## <a name="qna"></a>常見問題集
 
 * *網站看似正常，但我看到測試失敗？為什麼 Application Insights 發出警示？*
 
-    * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。 請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
+    * 您的測試是否啟用「剖析相依要求」？ 這會對於指令碼、影像之類的資源進行嚴格的檢查。這種類型的失敗可能在瀏覽器上不明顯。  請檢查所有映像、指令碼、樣式表和頁面載入的任何其他檔案。 如果其中有任何一個失敗，即使主要的 html 頁面載入正常，測試皆會回報為失敗。 若要使這類資源失敗的測試去敏化，只要從測試組態取消核取「剖析相依要求」即可。 
 
     * 若要從暫時性網路標誌等降低雜訊的可能性，請確保已核取 [啟用測試失敗的重試次數] 組態。 您也可以從多個位置進行測試並據以管理警示規則臨界值，以免發生會造成過度警示的特定位置問題。
 
@@ -310,7 +309,7 @@ Web 測試外掛程式提供將時間參數化的方法。
 
     此錯誤 (「通訊協定違規..CR 後面必須接著 LF」) 表示伺服器 (或相依性) 有問題。 這會發生於回應中設定的標頭格式不正確時。 可能是由負載平衡器或 CDN 所造成。 具體來說，某些標頭可能未使用 CRLF 來指出行尾，這違反了 HTTP 規格，因此無法通過 .NET WebRequest 層級的驗證。 檢查回應以找出可能違規的標頭。
     
-    注意：在 HTTP 標頭驗證寬鬆的瀏覽器上，URL 可能不會失敗。 如需問題的詳細說明，請參閱此部落格文章： http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+    注意：在 HTTP 標頭驗證寬鬆的瀏覽器上，此 URL 可能不會失敗。 如需問題的詳細說明，請參閱此部落格文章： http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
 * *我沒看到任何相關的伺服器端遙測可診斷測試失敗？*
     

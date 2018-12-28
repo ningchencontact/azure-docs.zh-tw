@@ -1,5 +1,6 @@
 ---
-title: 在 Azure 中的多個 IP 組態上進行負載平衡 | Microsoft Docs
+title: 在 Azure 中的多個 IP 設定上進行負載平衡
+titlesuffix: Azure Load Balancer
 description: 在主要和次要 IP 組態間進行負載平衡。
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: se0dec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 0f092c471a7908eabe481adc8c722993818840b8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: e6aff89fe45220e1642a91e6a2d31a9da422fdea
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219506"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163526"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>使用 Azure 入口網站在多個 IP 組態上進行負載平衡
 
@@ -56,7 +58,7 @@ ms.locfileid: "51219506"
 
 請完成下列步驟來達成本文所述案例。
 
-### <a name="step-1-configure-the-secondary-nics"></a>步驟 1︰設定次要 NIC
+### <a name="step-1-configure-the-secondary-nics"></a>步驟 1：設定次要 NIC
 
 為虛擬網路中的每部 VM，新增次要 NIC 的 IP 組態︰  
 
@@ -96,7 +98,7 @@ ms.locfileid: "51219506"
 
 開始部署負載平衡器。 部署需要幾分鐘的時間才能順利完成。 部署完成後，負載平衡器會顯示為資源群組中的資源。
 
-### <a name="step-3-configure-the-front-end-ip-pool"></a>步驟 3︰設定前端 IP 集區
+### <a name="step-3-configure-the-front-end-ip-pool"></a>步驟 3：設定前端 IP 集區
 
 針對每個網站 (contoso.com 和 fabrikam.com)，設定負載平衡器上的前端 IP 集區︰
 
@@ -186,7 +188,7 @@ ms.locfileid: "51219506"
 
 設定規則之後，它們會顯示在負載平衡器的 [負載平衡規則] 設定之下。
 
-### <a name="step-7-configure-dns-records"></a>步驟 7︰設定 DNS 記錄
+### <a name="step-7-configure-dns-records"></a>步驟 7：設定 DNS 記錄
 
 在最後一個步驟中，將 DNS 資源記錄設定為指向負載平衡器的個別前端 IP 位址。 您可以在 Azure DNS 中裝載網域。 如需搭配使用 Azure DNS 與 Load Balancer 的詳細資訊，請參閱[使用 Azure DNS 搭配其他 Azure 服務](../dns/dns-for-azure-services.md)。
 

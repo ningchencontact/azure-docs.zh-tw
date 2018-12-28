@@ -1,5 +1,5 @@
 ---
-title: 使用 Spark 資料探索和模型化 | Microsoft Docs
+title: 使用 Spark 執行資料探索和模型化 - Team Data Science Process
 description: 展示了 Azure 上 Spark MLlib 工具組的資料探索和模型化功能。
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: fd02501e0b616ef173faae8c9ea81c3956d69672
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ae498cc6aea573e1c610cb50d96552f30be4d75e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446750"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140875"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>使用 Spark 資料探索和模型化
 
-本逐步解說會使用 HDInsight Spark，在 NYC 計程車車程和費用 2013 資料集上執行資料探索和二進位分類和迴歸模型化。  它將引導您逐步完成 [資料科學程序](https://aka.ms/datascienceprocess)、端對端、使用 HDInsight Spark 叢集處理，並使用 Azure blob 來儲存資料和模型。 程序會探索和視覺化從 Azure 儲存體 Blob 中引進的資料，然後準備資料來建立預測模型。 這些模型是使用 Spark MLlib 工具組來執行二進位分類和迴歸模型工作。
+本逐步解說會使用 HDInsight Spark，在 NYC 計程車車程和費用 2013 資料集上執行資料探索和二進位分類和迴歸模型化。  它將引導您逐步完成 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)、端對端、使用 HDInsight Spark 叢集處理，並使用 Azure blob 來儲存資料和模型。 程序會探索和視覺化從 Azure 儲存體 Blob 中引進的資料，然後準備資料來建立預測模型。 這些模型是使用 Spark MLlib 工具組來執行二進位分類和迴歸模型工作。
 
 * **二進位分類** 工作可預測是否已支付某趟車程的小費。 
 * **迴歸** 工作可根據其他小費功能來預測小費金額。 
@@ -47,14 +47,14 @@ ms.locfileid: "52446750"
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 Notebook
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)：提供如何利用數個不同的演算法來執行資料瀏覽、模型化和評分的相關資訊。
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb)：提供如何使用多種不同演算法來執行資料探索、模型化和評分的相關資訊。
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 Notebook
 使用 Spark 2.0 叢集實作的迴歸和分類工作位於不同的 Notebook，且分類 Notebook 會使用不同的資料集︰
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案使用在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)描述的 NYC 計程車車程和費用資料集，提供如何在 Spark 2.0 叢集中執行資料瀏覽、模型化和評分的相關資訊。 Notebook 可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 如需更多分析 NYC 計程車資料的 Notebook 詳細資訊，請參閱這份清單中的下一個 Notebook。 請參閱此清單之後比較這些 Notebook 的附註。 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb)：這個檔案會顯示如何使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，執行資料爭議 (Spark SQL 和資料框架作業)、瀏覽、模型化和評分。
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb)：這個檔案會顯示如何使用已知的 2011 年和 2012 年航班準時出發資料集，執行資料爭議 (Spark SQL 和資料框架作業)、瀏覽、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來提供如何在 Spark 2.0 叢集中執行資料探索、模型化和評分的相關資訊。 Notebook 可能是很好的起點，可快速瀏覽我們針對 Spark 2.0 所提供的程式碼。 如需更多分析 NYC 計程車資料的 Notebook 詳細資訊，請參閱這份清單中的下一個 Notebook。 請參閱此清單之後比較這些 Notebook 的附註。 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb)：此檔案使用[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)所述的 NYC 計程車車程和費用資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb):此檔案使用 2011 和 2012 年的知名航空公司準時起飛資料集，來示範如何執行資料整頓 (Spark SQL 和資料架構作業)、探索、模型化和評分。 我們在模型化之前將航班資料集與機場天氣資料 (例如風速、溫度、高度等等) 整合，因此可以在模型中包含這些天氣功能。
 
 <!-- -->
 
@@ -72,7 +72,7 @@ ms.locfileid: "52446750"
 <!-- -->
 
 > [!NOTE]
-NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 上述清單中的第一個 Notebook 說明 Notebook 中許多層面的資料瀏覽、視覺效果和 ML 模型訓練，會使用向下取樣 NYC 資料集以較短時間執行，其中計程車和車資檔案已預先聯結︰[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)此 Notebook 會採用較短的時間來完成 (2-3 分鐘)，並可能是快速瀏覽我們針對 Spark 2.0 所提供之程式碼的一個良好起點。 
+NYC 計程車和飛行航班延遲資料集上的 Spark 2.0 Notebook 需要 10 分鐘或更久 (取決於 HDI 叢集的大小) 才能執行。 上述清單中的第一個 Notebook 會顯示 Notebook 中資料探索、視覺效果和 ML 模型定型的許多層面，使用預先聯結之計程車和車資檔案的縮減取樣 NYC 資料集，讓執行時間更短：[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 這個 Notebook 完成所需時間較短 (2-3 分鐘)，而且可能是一個很好的起點，讓您能夠快速探索我們針對 Spark 2.0 所提供的程式碼。 
 
 <!-- -->
 
@@ -206,7 +206,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：**
 
-執行上述儲存格所花費的時間︰51.72 秒
+執行上述儲存格所花費的時間：51.72 秒
 
 ## <a name="data-exploration--visualization"></a>資料探索和虛擬化
 一旦將資料引進 Spark，資料科學程序的下一個步驟是透過探索和虛擬化以更深入瞭解資料。 在本節中，我們會使用 SQL 查詢檢查計程車資料，並繪製目標變數和潛在功能以進行視覺檢查。 具體來說，我們會繪製計程車車程中的乘客計數頻率、小費金額的頻率，及小費如何隨付款金額和類型而異。
@@ -410,7 +410,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：**
 
-執行上述儲存格所花費的時間︰1.28 秒
+執行上述儲存格所花費的時間：1.28 秒
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>建立輸入到 ML 函式的標示點物件
 本節包含程式碼，示範如何將分類的文字資料索引為標示點資料類型並加以編碼，以用來訓練及測試 MLlib 羅吉斯迴歸和其他分類模型。 標示點物件是彈性分散式資料集 (RDD)，其格式化成適合 MLlib 中大部分的 ML 演算法的輸入資料。 [標示點](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) 是本機向量 (密集或疏鬆)，與標籤/回應相關聯。  
@@ -505,7 +505,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：**
 
-執行上述儲存格所花費的時間︰0.24 秒
+執行上述儲存格所花費的時間：0.24 秒
 
 ### <a name="feature-scaling"></a>調整功能
 調整功能，也稱為資料正規化，以確保具廣泛分散值的功能在目標函式中沒有過多權重。 用於調整功能的程式碼會使用 [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) ，將功能調整至單位變異數。 這是由 MLlib 提供，用於使用隨機梯度下降 (SGD) 的線性迴歸，為訓練廣泛的其他機器學習模型的常用演算法，例如正則化迴歸或支援向量機器 (SVM)。
@@ -548,7 +548,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：**
 
-執行上述儲存格所花費的時間︰13.17 秒
+執行上述儲存格所花費的時間：13.17 秒
 
 ### <a name="cache-objects-in-memory"></a>快取記憶體中的物件
 快取用於分類、迴歸和縮放功能的輸入資料框架物件，可降低訓練和測試 ML 演算法所花費的時間。
@@ -579,7 +579,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：** 
 
-執行上述儲存格所花費的時間︰0.15 秒
+執行上述儲存格所花費的時間：0.15 秒
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>使用二進位分類模型來預測是否支付小費
 本節說明如何為二進位分類工作使用三個模型，預測是否支付計程車車程的小費。 顯示模型如下︰
@@ -636,7 +636,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 截距：-0.0111216486893
 
-執行上述儲存格所花費的時間︰14.43 秒
+執行上述儲存格所花費的時間：14.43 秒
 
 **使用標準度量評估二進位分類模型**
 
@@ -698,7 +698,7 @@ ROC 下的領域 = 0.983714670256
 
 F1 分數 = 0.984304060189
 
-執行上述儲存格所花費的時間︰57.61 秒
+執行上述儲存格所花費的時間：57.61 秒
 
 **繪製 ROC 曲線。**
 
@@ -791,7 +791,7 @@ predictionAndLabelsDF 已在先前的儲存格中已註冊為 tmp_results 資料
 
 ROC 下的領域 = 0.985297691373
 
-執行上述儲存格所花費的時間︰31.09 秒
+執行上述儲存格所花費的時間：31.09 秒
 
 ### <a name="gradient-boosting-trees-classification"></a>漸層停駐提升樹狀結構類別
 本節的程式碼顯示如何訓練評估及儲存漸層停駐提升樹狀結構模型，可預測是否針對 NYC 計程車車程和費用資料集的某趟車程支付小費。
@@ -837,7 +837,7 @@ ROC 下的領域 = 0.985297691373
 
 ROC 下的領域 = 0.985297691373
 
-執行上述儲存格所花費的時間︰19.76 秒
+執行上述儲存格所花費的時間：19.76 秒
 
 ## <a name="predict-tip-amounts-for-taxi-trips-with-regression-models"></a>使用迴歸模型預測計程車車程的小費金額
 本節說明如何使用三種迴歸工作模型，根據其他小費功能預測支付的計程車車程的小費金額。 顯示模型如下︰
@@ -909,7 +909,7 @@ RMSE = 1.24190115863
 
 R-sqr = 0.608017146081
 
-執行上述儲存格所花費的時間︰58.42 秒
+執行上述儲存格所花費的時間：58.42 秒
 
 ### <a name="random-forest-regression"></a>隨機樹系迴歸
 本節的程式碼會顯示如何訓練評估及儲存隨機樹系迴歸，可預測 NYC 計程車車程資料的小費金額。
@@ -961,7 +961,7 @@ RMSE = 0.891209218139
 
 R-sqr = 0.759661334921
 
-執行上述儲存格所花費的時間︰49.21 秒
+執行上述儲存格所花費的時間：49.21 秒
 
 ### <a name="gradient-boosting-trees-regression"></a>漸層停駐提升樹狀結構迴歸
 本節的程式碼顯示如何訓練評估及儲存漸層停駐提升樹狀結構模型，可預測 NYC 計程車車程資料的小費金額。
@@ -1012,7 +1012,7 @@ RMSE = 0.908473148639
 
 R-sqr = 0.753835096681
 
-執行上述儲存格所花費的時間︰34.52 秒
+執行上述儲存格所花費的時間：34.52 秒
 
 **圖**
 
@@ -1099,7 +1099,7 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>後續步驟
 現在已使用 Spark MlLib 建立迴歸和分類模型，您已瞭解如何評分及評估這些模型。 進階資料探索和模型化筆記本深入探討到包括交叉驗證、超參數清除和模型評估。 
 
-**模型耗用量︰** 若要瞭解如何評分及評估本主題中所建立的分類和迴歸模型，請參閱 [評分及評估 Spark 建置機器學習服務模型](spark-model-consumption.md)。
+**模型取用量**：若要了解如何評分和評估本主題中所建立的分類和迴歸模型，請參閱[評分及評估 Spark 建置的機器學習模型](spark-model-consumption.md)。
 
-**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠訓練模型的相關資訊，請參閱 [使用 Spark 進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)
+**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠來將模型定型的相關資訊，請參閱[使用 Spark 執行進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)
 

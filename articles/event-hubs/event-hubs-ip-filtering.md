@@ -1,38 +1,36 @@
 ---
-title: Azure 事件中樞 IP 篩選器 | Microsoft Docs
-description: 使用 IP 篩選來封鎖從特定 IP 位址連至 Azure 事件中樞的連線。
+title: Azure 事件中樞防火牆規則 | Microsoft Docs
+description: 使用「防火牆規則」以允許從特定 IP 位址連線至「Azure 事件中樞」。
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
+ms.custom: seodec18
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: d0114821b5239146f64dde0b01652dc320994585
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408144"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268269"
 ---
-# <a name="use-ip-filters"></a>使用 IP 篩選器
+# <a name="use-firewall-rules"></a>使用防火牆規則
 
-如果您遇到只能從特定知名網站存取 Azure 事件中樞的情況，可以使用「IP 篩選器」功能來設定各種規則以拒絕或接受源自特定 IPv4 位址的流量。 例如，這些位址可能是企業 NAT 閘道的位址。
+針對應該只能從特定已知網站存取「Azure 事件中樞」的情況，防火牆規則可讓您設定規則來接受源自特定 IPv4 位址的流量。 例如，這些位址可能是企業 NAT 閘道的位址。
 
 ## <a name="when-to-use"></a>使用時機
 
-以下是兩個重要的使用案例，非常適合封鎖特定 IP 位址的事件中樞：
-
-- 您的事件中樞只應接收來自指定 IP 位址範圍的流量，並拒絕其他所有流量。 例如，您搭配 [Azure Express Route][express-route] 使用事件中樞，以建立連到內部部署基礎結構的私人連線。 
-- 您需要拒絕事件中樞系統管理員認為可疑的 IP 位址所傳來的流量。
+如果您想要設定「事件中樞」命名空間，讓它應該只接收來自某個指定範圍之 IP 位址的流量，而拒絕所有其他流量，則您可以利用「防火牆規則」讓「事件中樞」端點封鎖其他 IP 位址。例如，您可以使用「事件中樞」搭配 [Azure ExpressRoute][express-route] 來建立與您內部部署基礎結構的私人連線。
 
 ## <a name="how-filter-rules-are-applied"></a>篩選器規則的套用方式
 
 IP 篩選器規則會套用在事件中樞命名空間層級。 因此，規則會套用至來自用戶端的所有連接 (使用任何受支援的通訊協定)。
 
-任何來自某一 IP 位址的連接嘗試，只要符合事件中樞命名空間上的拒絕 IP 規則，便視為未經授權而予以拒絕。 回應則不涉及 IP 規則。
+任何來自某個 IP 位址的連線嘗試，只要不符合「事件中樞」命名空間上的允許 IP 規則，系統就會將其視為未經授權而予以拒絕。 回應則不涉及 IP 規則。
 
 ## <a name="default-setting"></a>預設設定
 
@@ -42,68 +40,107 @@ IP 篩選器規則會套用在事件中樞命名空間層級。 因此，規則�
 
 IP 篩選器規則會依序套用，而且第一個符合 IP 位址的規則會決定接受或拒絕動作。
 
-例如，如果您想要接受 70.37.104.0/24 範圍中的位址，並拒絕其他所有位址，則方格中的第一個規則應接受位址範圍 70.37.104.0/24。 下一個規則應使用 0.0.0.0/0 範圍拒絕所有位址。
+>[!WARNING]
+> 實作「防火牆」可防止其他 Azure 服務與「事件中樞」進行互動。
+>
+> 實作「IP 篩選」(防火牆) 時，不支援受信任的 Microsoft 服務，但很快就會提供這項支援。
+>
+> 無法與「IP 篩選」搭配運作的常見 Azure 案例 (請注意，這**不是**完整的清單) -
+> - Azure 監視器
+> - Azure 串流分析
+> - 與 Azure 事件方格的整合
+> - Azure IoT 中樞路由
+> - Azure IoT Device Explorer
+> - Azure 資料總管
+>
+> 虛擬網路上必須有下列 Microsoft 服務
+> - Azure Web Apps 
+> - Azure Functions
 
-> [!NOTE]
-> 拒絕 IP 位址可防止其他 Azure 服務 (例如 Azure 串流分析、Azure 虛擬機器，或入口網站中的裝置總管) 與事件中樞互動。
-
-### <a name="creating-an-ip-filter-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立 IP 篩選器規則
+### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立防火牆規則
 
 > [!IMPORTANT]
-> 事件中樞的**標準**和**專用**層級支援虛擬網路。 基本層中不支援虛擬網路。 
+> 「事件中樞」的**標準**和**專用**層級可支援防火牆規則。 基本層中不支援虛擬網路。
 
 下列 Resource Manager 範本可讓您將 IP 篩選器規則新增至現有的事件中樞命名空間。
 
 範本參數：
 
-- **ipFilterRuleName** 篩選規則名稱必須是唯一的、不區分大小寫的英數字元字串，長度上限為 128 個字元。
-- **ipFilterAction** 是 **拒絕**或**接受**為 IP 篩選器規則套用的動作。
 - **ipMask** 是單一 IPv4 位址或以 CIDR 標記法表示的 IP 位址區塊。 例如，在 CIDR 標記法中，70.37.104.0/24 表示從 70.37.104.0 開始，到 70.37.104.255 為止，總共 256 個 IPv4 位址，而 24 則表示該範圍內的顯著前置詞位元。
 
+> [!NOTE]
+> 雖然無法使用任何拒絕規則，但 Azure Resource Manager 範本是將預設動作設定為不會限制連線的 **"Allow"**。
+> 在建立「虛擬網路」或「防火牆」規則時，我們必須將 ***"defaultAction"***
+> 
+> 從
+> ```json
+> "defaultAction": "Allow"
+> ```
+> 變更為
+> ```json
+> "defaultAction": "Deny"
+> ```
+>
+
 ```json
-{  
-   "$schema":"http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-   "contentVersion":"1.0.0.0",
-   "parameters":{     
-          "namespaceName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the namespace"
-             }
-          },
-          "ipFilterRuleName":{  
-             "type":"string",
-             "metadata":{  
-                "description":"Name of the Authorization rule"
-             }
-          },
-          "ipFilterAction":{  
-             "type":"string",
-             "allowedValues": ["Reject", "Accept"],
-             "metadata":{  
-                "description":"IP Filter Action"
-             }
-          },
-          "IpMask":{  
-             "type":"string",
-             "metadata":{  
-                "description":"IP Mask"
-             }
-          }
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "eventhubNamespaceName": {
+        "type": "string",
+        "metadata": {
+          "description": "Name of the Event Hubs namespace"
+        }
       },
+      "location": {
+        "type": "string",
+        "metadata": {
+          "description": "Location for Namespace"
+        }
+      }
+    },
+    "variables": {
+      "namespaceNetworkRuleSetName": "[concat(parameters('eventhubNamespaceName'), concat('/', 'default'))]",
+    },
     "resources": [
-        {
-            "apiVersion": "2018-01-01-preview",
-            "name": "[concat(parameters('namespaceName'), '/', parameters('ipFilterRuleName'))]",
-            "type": "Microsoft.EventHub/Namespaces/IPFilterRules",
-            "properties": {
-                "FilterName":"[parameters('ipFilterRuleName')]",
-                "Action":"[parameters('ipFilterAction')]",              
-                "IpMask": "[parameters('IpMask')]"
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[parameters('eventhubNamespaceName')]",
+        "type": "Microsoft.EventHub/namespaces",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard",
+          "tier": "Standard"
+        },
+        "properties": { }
+      },
+      {
+        "apiVersion": "2018-01-01-preview",
+        "name": "[variables('namespaceNetworkRuleSetName')]",
+        "type": "Microsoft.EventHub/namespaces/networkruleset",
+        "dependsOn": [
+          "[concat('Microsoft.EventHub/namespaces/', parameters('eventhubNamespaceName'))]"
+        ],
+        "properties": {
+          "virtualNetworkRules": [<YOUR EXISTING VIRTUAL NETWORK RULES>],
+          "ipRules": 
+          [
+            {
+                "ipMask":"10.1.1.1",
+                "action":"Allow"
+            },
+            {
+                "ipMask":"11.0.0.0/24",
+                "action":"Allow"
             }
-        } 
-    ]
-}
+          ],
+          "defaultAction": "Deny"
+        }
+      }
+    ],
+    "outputs": { }
+  }
 ```
 
 若要部署範本，請依照 [Azure Resource Manager][lnk-deploy] 適用的指示執行。

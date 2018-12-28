@@ -4,21 +4,20 @@ description: 可列印的機器學習演算法小密技可協助您在 Azure Mac
 keywords: 演算法小祕技,小祕技,機器學習演算法
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=pakalra, author=pakalra)
+ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: cgronlun
 ms.assetid: e1dc31ec-1acb-463f-ba77-de565d4ddf4d
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 307a2d442fc8cf82630b111b6ea73e180c740c64
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7ddc3a9829dc05ac1c1df450091789e4cad2b2f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307404"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274471"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的機器學習演算法小祕技
 
@@ -26,11 +25,11 @@ ms.locfileid: "52307404"
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) 有來自***迴歸***、***分類***、***叢集***和***異常偵測***系列的大型演算法程式庫。 每項的設計均是用來處理不同類型的機器學習服務問題。
 
-## <a name="download-machine-learning-algorithm-cheat-sheet"></a>下載：機器學習服務演算法小祕技
+## <a name="download-machine-learning-algorithm-cheat-sheet"></a>下載：機器學習演算法速查表
 
-**在此下載小祕技：[機器學習服務演算法小祕技 (11x17 英吋)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**從這裡下載速查表：[機器學習演算法速查表 (11x17 英吋)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)** \(英文\)
 
-![機器學習演算法小祕技：了解如何選擇機器學習演算法。][cheat-sheet]
+![機器學習演算法速查表：了解如何選擇機器學習演算法。][cheat-sheet]
 
 [cheat-sheet]: ./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet-small_v_0_6-01.png
 
@@ -41,9 +40,9 @@ ms.locfileid: "52307404"
 
 ## <a name="notes-and-terminology-definitions-for-the-machine-learning-studio-algorithm-cheat-sheet"></a>Machine Learning Studio 演算法小祕技的注意事項與詞彙定義
 
-* 此演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
+* 這份演算法小祕技中提供的建議是近似經驗法則。 您可以屈從有些建議，也可以公然違反有些建議。 其主要目的是建議起點。 別擔心您的資料上會出現數種演算法間勢均力敵的競爭。 唯有了解每個演算法的原則，以及了解產生您的資料的系統。
 
-* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](http://gallery.azure.ai/)中的實驗範例，該實驗對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92)。
+* 每個機器學習服務演算法都有自己的風格或*歸納偏差*。 對於特定問題，適合的演算法可能有數個，但其中一個演算法可能會比其他演算法更適合。 但不一定能夠事先知道哪一種最適合。 在這類情況下，小祕技中會一起列出數個演算法。 適當策略就是嘗試一個演算法，而如果結果還不滿意，就嘗試其他演算法。 以下是 [Azure AI 資源庫](http://gallery.azure.ai/) \(英文\) 中的實驗範例，該實驗會對相同的資料嘗試數種演算法，並比較其結果：[比較多類別分類器：字母辨識](http://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92) \(英文\)。
 
 * 機器學習有三個主要類別：**經過指導的學習**、**未經指導的學習**和**增強式學習**。
 
@@ -65,7 +64,7 @@ ms.locfileid: "52307404"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 如需描述演算法並提供範例的可下載資訊圖詳細資訊，請參閱[可下載的資訊圖：機器學習服務基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
+* 如需描述演算法並提供範例的可下載資訊圖，請參閱[可下載的資訊圖：機器學習基本概念和演算法範例](basics-infographic-with-algorithm-examples.md)。
 
 * 如需 Machine Learning Studio 中依類別排序的所有可用機器學習演算法的清單，請參閱＜Machine Learning Studio 演算法和模組說明＞中的[起始模型][initialize-model]。
 
@@ -73,7 +72,7 @@ ms.locfileid: "52307404"
 
 * 若要下載並列印提供 Machine Learning Studio 功能概觀的圖表，請參閱 [Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <!-- Module References -->
 [a-z-list]: https://docs.microsoft.com/azure/machine-learning/studio-module-reference/a-z-module-list

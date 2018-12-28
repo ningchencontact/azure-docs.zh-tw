@@ -1,5 +1,5 @@
 ---
-title: 資料科學 Team 專案的平台和工具 - Azure  | Microsoft Docs
+title: 適用於資料科學專案的平台和工具 - Team Data Science Process
 description: 逐項列出及討論可以讓企業對 Team 資料科學程序進行標準化的資料和分析資源。
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 5df2cbabeb704453d71a0ac1db14c618dae352d2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446444"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139162"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>資料科學專案的平台和工具
 
@@ -73,7 +73,7 @@ Azure SQL 資料倉儲可讓您輕鬆地在數秒鐘的時間內調整計算資�
 
 Azure Data Lake 是企業級的存放庫，可於單一位置收集每種資料類型，再正式加上任何需求或結構描述。 這種彈性可讓每種類型的資料都保存在 Data Lake，不論其大小或結構或者它內嵌的速度。 組織可以使用 Hadoop 或進階分析，在這些 Data Lake 中尋找模式。 Data Lake 也可以在策劃資料並且將其移至資料倉儲之前，作為較低成本資料準備的存放庫。
 
-如需有關 Azure Data Lake 的詳細資訊，請參閱[簡介 Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/)。 若要了解如何使用 Azure Data Lake 建置可調整端對端資料科學解決方案，請參閱 [Azure Data Lake 中的可調整資料科學︰端對端逐步解說](data-lake-walkthrough.md)
+如需有關 Azure Data Lake 的詳細資訊，請參閱[簡介 Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/)。 若要了解如何使用 Azure Data Lake 建置可調整之資料科學的完整解決方案，請參閱 [Azure Data Lake 中可調整的資料科學：完整的逐步解說](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive (Hadoop) 叢集
@@ -129,17 +129,17 @@ Microsoft 的 TDSP 小組已發佈兩個端對端逐步解說，示範如何在 
         ssh-keygen
         cat .ssh/id_rsa.pub
 
-![](./media/platforms-and-tools/resources-1-generate_ssh.png)
+![用來產生 SSH 金鑰的命令](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - 複製整個 ssh 金鑰，包括 ssh-rsa。 
 - 登入您的 Azure DevOps Services。 
 - 在分頁右上角，按一下 [<您的名稱\>]，然後按一下 [安全性]。 
     
-    ![](./media/platforms-and-tools/resources-2-user-setting.png)
+    ![按一下您的名稱，然後按一下 [安全性]](./media/platforms-and-tools/resources-2-user-setting.png)
 
 - 按一下 [SSH 公開金鑰]，然後按一下 [+新增]。 
 
-    ![](./media/platforms-and-tools/resources-3-add-ssh.png)
+    ![按一下 [SSH 公開金鑰]，然後按一下 [+新增]](./media/platforms-and-tools/resources-3-add-ssh.png)
 
 - 將剛剛複製的 ssh 金鑰貼至文字方塊，並且儲存。
 

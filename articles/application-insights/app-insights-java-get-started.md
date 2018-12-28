@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: lagayhar
-ms.openlocfilehash: 2538bbf32b41e51796e333c11b7af6c091a71ede
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9f58c8c99fa48c0ffb4c76dd9752993b5e7d092e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309084"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994380"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>在 Java Web 專案中開始使用 Application Insights
 
@@ -75,7 +74,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
     </dependencies>
 ```
 
-* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`<version>2.0.n</version>`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`<version>2.0.n</version>`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *需要更新為新的 SDK？*  請重新整理專案的相依項目。
 
 #### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>如果您使用 Gradle... <a name="gradle-setup" />
@@ -98,7 +97,7 @@ Application Insights 支援 Linux、Unix 或 Windows 上執行的 Java 應用程
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果您使用 Eclipse 建立動態 Web 專案...
 使用 [Java 適用的 Application Insights SDK 外掛程式][eclipse]。 注意：雖然使用此外掛程式可讓您較快啟動並執行 Application Insights (假設您未使用 Maven/Gradle)，但它並不是相依性管理系統。 因此，更新此外掛程式並不會自動更新專案中的 Application Insights 程式庫。
 
-* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](http://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
+* *建置或總和檢查碼驗證錯誤？* 嘗試使用特定版本，例如：`version:'2.0.n'`。 您可以在 [SDK 版本資訊](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)或 [Maven 成品](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)中找到最新版本。
 * *若要更新為新的 SDK* 請重新整理專案的相依項目。
 
 #### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>否則，如果您手動管理相依項目...
@@ -162,7 +161,7 @@ Application Insights SDK 會依此順序尋找此金鑰︰
 
 1. 系統屬性：-DAPPLICATION_INSIGHTS_IKEY=your_ikey
 2. 環境變數：APPLICATION_INSIGHTS_IKEY
-3. 組態檔︰ApplicationInsights.xml
+3. 組態檔：ApplicationInsights.xml
 
 您也可以 [在程式碼中設定](app-insights-api-custom-events-metrics.md#ikey)：
 
@@ -325,7 +324,7 @@ Application Insights 中會顯示兩種類型的資料︰彙總資料 (儲存並
 
 ![](./media/app-insights-java-get-started/7-instance.png)
 
-### <a name="analytics-powerful-query-language"></a>分析︰功能強大的查詢語言
+### <a name="analytics-powerful-query-language"></a>分析：功能強大的查詢語言
 當您累積更多資料時，您就可以執行查詢以彙總資料並找出個別執行個體。  [分析](app-insights-analytics.md) 是一項強大的工具，既可了解效能和使用情況，也可進行診斷。
 
 ![分析的範例](./media/app-insights-java-get-started/025.png)

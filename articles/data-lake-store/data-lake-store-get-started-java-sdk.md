@@ -1,5 +1,5 @@
 ---
-title: Java SDK：Azure Data Lake Storage Gen1 的檔案系統作業 | Microsoft Docs
+title: Java SDK：Azure Data Lake Storage Gen1 上的檔案系統作業 | Microsoft Docs
 description: 使用 Azure Data Lake Storage Gen1 的 Java SDK 在 Data Lake Storage Gen1 上執行檔案系統作業，例如建立資料夾等。
 services: data-lake-store
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: edbaa8fe42c0e6bfda8558e7d9e5cd0ce42bfcc4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129178"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260696"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>使用 Java SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "46129178"
 
 ## <a name="prerequisites"></a>必要條件
 * Java Development Kit (JDK 7 或更新版本，使用 Java 1.7 版或更新版本)
-* Data Lake Storage Gen1 帳戶。 請遵循[利用 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md) 的指示。
+* Data Lake Storage Gen1 帳戶。 請遵循[透過 Azure 入口網站開始使用 Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md) 的指示。
 * [Maven](https://maven.apache.org/install.html). 本教學課程使用 Maven 來處理組建和專案相依性。 雖有可能不使用 Maven 或 Gradle 等組建系統進行建置，但這些系統讓相依性管理變得輕鬆許多。
 * (選擇性) [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) 或 [Eclipse](https://www.eclipse.org/downloads/) 之類的 IDE。
 

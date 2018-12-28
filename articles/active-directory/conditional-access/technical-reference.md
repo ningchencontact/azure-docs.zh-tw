@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2018
+ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 2f9075cef671128cacc37f16e8bf29bf0f60401d
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619634"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408573"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 條件式存取設定參考
 
@@ -148,7 +148,7 @@ ms.locfileid: "52619634"
 |    |    |
 |--- | ---|
 |Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-|名稱 | 1 |
+|Name | 1 |
 |類型 | REG_SZ (字串) |
 |資料 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
@@ -157,7 +157,7 @@ ms.locfileid: "52619634"
 |    |    |
 |--- | ---|
 |Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-|名稱 | 1 |
+|Name | 1 |
 |類型 | REG_SZ (字串) |
 |資料 | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
@@ -179,22 +179,29 @@ ms.locfileid: "52619634"
 |---|---|---|
 |Azure 遠端應用程式|Azure 遠端應用程式服務|Windows 10、Windows 8.1、Windows 7、iOS、Android 和 Mac OS X|
 |Dynamics CRM 應用程式|Dynamics CRM|Windows 10、Windows 8.1、iOS 和 Android|
-|[電子郵件]/[行事曆]/[人員] 應用程式、Outlook 2016、Outlook 2013 (使用新式驗證)|Office 365 Exchange Online|Windows 10|
+|郵件/行事曆/連絡人應用程式、Outlook 2016、Outlook 2013 |Office 365 Exchange Online|Windows 10|
 |應用程式的 MFA 和位置原則。 不支援裝置型原則。 |任何 My Apps 應用程式服務|Android 和 iOS|
 |Microsoft Teams Services - 這會控制支援 Microsoft Teams 及其所有用戶端應用程式的所有服務 - Windows 桌面、iOS、Android、WP 和 Web 用戶端|Microsoft Teams|Windows 10、Windows 8.1、Windows 7、iOS、Android 及 macOS |
-|Office 2016 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1、Windows 7|
-|Office 2016 應用程式、通用 Office 應用程式、Office 2013 (具備新式驗證)、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))、預計未來提供的 Office Groups 支援、預計未來提供的 SharePoint 應用程式支援|Office 365 SharePoint Online|Windows 10|
+|Office 2016 應用程式、Office 2013、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) \(機器翻譯\))|Office 365 SharePoint Online|Windows 8.1、Windows 7|
+|Office 2016 應用程式、通用 Office 應用程式、Office 2013、OneDrive 同步處理用戶端 (請參閱[附註](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e) \(機器翻譯\))、預計未來提供的 Office 群組支援、預計未來提供的 SharePoint 應用程式支援|Office 365 SharePoint Online|Windows 10|
 |macOS 版 Office 2016 (僅限 Word、Excel、PowerPoint、OneNote)。 未來規劃支援商務用 OneDrive|Office 365 SharePoint Online|Mac OS X|
 |Office 行動應用程式|Office 365 SharePoint Online|Android、iOS|
 |Office Yammer 應用程式|Office 365 Yammer|Windows 10、iOS、Android|
 |Outlook 2016 (macOS 版 Office)|Office 365 Exchange Online|Mac OS X|
-|Outlook 2016、Outlook 2013 (已啟用新式驗證)、商務用 Skype (採用新式驗證)|Office 365 Exchange Online|Windows 8.1、Windows 7|
+|Outlook 2016、Outlook 2013、商務用 Skype|Office 365 Exchange Online|Windows 8.1、Windows 7|
 |Outlook 行動應用程式|Office 365 Exchange Online|Android、iOS|
 |PowerBI 應用程式|PowerBI service|Windows 10、Windows 8.1、Windows 7、Android 和 iOS|
 |商務用 Skype|Office 365 Exchange Online|Android、iOS |
 |Azure DevOps 應用程式|Azure DevOps|Windows 10、Windows 8.1、Windows 7、iOS 和 Android|
 
 
+## <a name="support-for-legacy-authentication"></a>支援舊版驗證
+
+藉由選取 [其他用戶端]，您可以指定會影響搭配使用基本驗證和郵件通訊協定 (如 IMAP、MAPI、POP、SMTP) 之應用程式的條件，這些條件也會影響不是使用新式驗證的舊版 Office 應用程式。  
+
+![其他用戶端](./media/technical-reference/11.png)
+
+如需詳細資訊，請參閱[用戶端應用程式](conditions.md#client-apps)。
 
 ## <a name="approved-client-app-requirement"></a>核准的用戶端應用程式需求 
 

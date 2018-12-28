@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 247c12fb15fe8aa82c3a29c4c2d1e704db40e424
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47584093"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141494"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Azure IoT 中樞定價資訊
 
-[Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub)提供關於 IoT 中樞之不同 SKU 和價格的一般資訊。 此文章包含 IoT 中樞如何以訊息的形式來針對各種 IoT 中樞功能進行計量的其他詳細資料。
+[Azure IoT 中樞價格](https://azure.microsoft.com/pricing/details/iot-hub)提供關於 IoT 中樞之不同 SKU 和價格的一般資訊。 本文包含 IoT 中樞如何以訊息的形式來針對各種 IoT 中樞功能進行計量的其他詳細資料。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -35,6 +35,7 @@ ms.locfileid: "47584093"
 | 裝置與模組對應項查詢 | 查詢會依結果大小以 512 位元組的區塊為單位來收費。 |
 | 作業的操作 <br/> (建立、更新、列出、刪除) | 不收費。 |
 | 作業的每一裝置操作 | 作業的操作 (例如對應項更新和方法) 會按正常方式收費。 例如，作業如果產生 1000 個含 1 KB 要求和空白本文回應的方法呼叫，將會收取 1000 則訊息的費用。 |
+| 保持連線訊息 | 使用 AMQP 或 MQTT 通訊協定時，針對為建立連線而交換的訊息及在交涉中交換的訊息，並不收費。 |
 
 > [!NOTE]
 > 所有大小在計算時都會考量到以位元組為單位的承載大小 (通訊協定框架則會忽略)。 針對訊息 (具有屬性和本文)，則會以不限通訊協定的方式計算大小。 如需詳細資訊，請參閱 [IoT 中樞訊息格式](iot-hub-devguide-messages-construct.md)。

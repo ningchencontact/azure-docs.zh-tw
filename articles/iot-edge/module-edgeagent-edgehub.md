@@ -1,5 +1,5 @@
 ---
-title: Azure IoT EdgeAgent 和 EdgeHub 參考資訊 | Microsoft Docs
+title: EdgeAgent 和 EdgeHub 預期屬性參考 - Azure IoT Edge | Microsoft Docs
 description: 檢閱 edgeAgent 和 edgeHub 模組對應項的特定屬性及其值
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 01e1942b12de126aa34130f5a4b77dd0fb958aa6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: a0834e5886a1a088486109f967baf357e375ad05
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100251"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Edge 代理程式和 Edge 中樞模組對應項的屬性
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 3fd0dfb327e925ecb28a7ca12e03b79c873118dc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: a0cfd65aa2444956336e5363d20acab61a404c68
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309339"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309173"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 裝置管理常見問題集
 
-**問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？或為何會針對已加入混合式 Azure AD 的裝置，將裝置擁有者標示為 N/A？**
+**問：我最近註冊了裝置。為什麼在 Azure 入口網站中我的使用者資訊底下看不到該裝置？或為什麼裝置擁有者針對混合式 Azure AD 加入裝置被標示為 N/A？**
 **答：** 已加入混合式 Azure AD 的 Windows 10 裝置不會顯示在 [使用者裝置] 底下。
 您需要在 Azure 入口網站中使用 [所有裝置] 檢視。 您也可以使用 PowerShell [Get-MsolDevice](/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) Cmdlet。
 
@@ -96,7 +96,7 @@ ms.locfileid: "52309339"
 
 ---
 
-# <a name="azure-ad-join-faq"></a>Azure AD Join 常見問題集
+## <a name="azure-ad-join-faq"></a>Azure AD Join 常見問題集
 
 **問：如何在本機裝置上退出已加入 Azure AD 的裝置？**
 
@@ -115,7 +115,7 @@ ms.locfileid: "52309339"
 ---
 
 **問：已停用或刪除的使用者是否可以登入已加入 Azure AD 的裝置？**
-**答：** 是，但有時間限制。 當使用者在 Azure AD 中遭到刪除或停用時，Windows 裝置並不會立即得知此一狀況。 因此，先前曾登入的使用者將可使用快取的登入來存取桌面。 一旦裝置認知到使用者狀態 (通常在 4 小時內)，Windows 即會封鎖這些使用者對桌面的存取。 當使用者在 Azure AD 中遭到刪除或停用後，使用者所有的權杖都將撤銷，因此無法存取任何資源。 
+**答：** 是，但時間有限。 當使用者在 Azure AD 中遭到刪除或停用時，Windows 裝置並不會立即得知此一狀況。 因此，先前曾登入的使用者將可使用快取的登入來存取桌面。 一旦裝置認知到使用者狀態 (通常在 4 小時內)，Windows 即會封鎖這些使用者對桌面的存取。 當使用者在 Azure AD 中遭到刪除或停用後，使用者所有的權杖都將撤銷，因此無法存取任何資源。 
 
 先前未曾登入、且已遭刪除或停用的使用者將無法存取裝置，因為並沒有快取的登入可供其使用。 
 
@@ -123,7 +123,7 @@ ms.locfileid: "52309339"
 
 **問：我的使用者無法從已加入 Azure AD 的裝置搜尋印表機。如何從已加入 Azure AD 的裝置啟用列印功能？**
 
-**答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) (英文)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
+**答：** 關於如何為已加入 Azure AD 的裝置部署印表機，請參閱[混合式雲端列印](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) \(英文\)。 您需要內部部署 Windows Server 才能部署混合式雲端列印。 目前尚無法使用雲端式列印服務。 
 
 ---
 
@@ -134,7 +134,7 @@ ms.locfileid: "52309339"
 
 **問：為什麼我的使用者會看到「您無法從這裡前往該處」？**
 
-**答：** 如果您已設定某些條件式存取規則來要求特定的裝置狀態，而該裝置未符合這些準則，使用者就會遭封鎖並看到此訊息。 請重新評估條件式存取原則規則，確保該裝置能夠符合準則，以避免出現此訊息。
+**答：** 如果您已設定某些條件式存取規則來要求特定的裝置狀態，而該裝置未符合這些準則，使用者就會遭封鎖並看到此訊息。 請評估條件式存取原則規則，確保該裝置能夠符合準則，以避免出現此訊息。
 
 ---
 
@@ -158,9 +158,9 @@ ms.locfileid: "52309339"
 
 ---
 
-**問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」？**
+**問：當我嘗試將電腦加入 Azure AD 時，為什麼會看到「糟糕，發生錯誤!」對話方塊？**
 
-**答：** 這是使用 Intune 來設定 Azure Active Directory 註冊的結果。 請確定嘗試加入 Azure AD 的使用者已獲派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置管理](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)。  
+**答：** 這是使用 Intune 來設定 Azure Active Directory 註冊的結果。 確定嘗試加入 Azure AD 的使用者已獲派正確的 Intune 授權。 如需詳細資訊，請參閱[設定 Windows 裝置管理](https://docs.microsoft.com/intune/deploy-use/set-up-windows-device-management-with-microsoft-intune#azure-active-directory-enrollment)。  
 
 ---
 
@@ -170,9 +170,9 @@ ms.locfileid: "52309339"
 
 ---
 
-# <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
+## <a name="hybrid-azure-ad-join-faq"></a>混合式 Azure AD Join 常見問題集
 
-**問：哪裡可以找到有關診斷 混合式 Azure AD Join 失敗的疑難排解資訊？**
+**問：哪裡可以找到有關診斷混合式 Azure AD Join 失敗的疑難排解資訊？**
 
 **答：** 如需疑難排解資訊，請參閱：
 
@@ -183,7 +183,7 @@ ms.locfileid: "52309339"
 
 ---
 
-# <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
+## <a name="azure-ad-register-faq"></a>Azure AD 註冊常見問題集
 
 **問：可以註冊 Android 或 iOS BYOD 裝置嗎？**
 

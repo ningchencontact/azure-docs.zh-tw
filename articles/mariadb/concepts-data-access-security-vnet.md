@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 31eec9e146c64e2310ab27414952593140f11cb2
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 8c4f14849c39414217837a3c86fb6e067cd87c90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276880"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434336"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>針對適用於 MariaDB 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -39,7 +39,7 @@ ms.locfileid: "52276880"
 
 **虛擬網路服務端點：**[虛擬網路服務端點][vm-virtual-network-service-endpoints-overview-649d]是一個子網路，其屬性值包含一或多個正式的 Azure 服務類型名稱。 本文中我們探討類型名稱 **Microsoft.Sql**，它參考名為 SQL Database 的 Azure 服務。 此服務標籤也會套用至適用於 MariaDB、MySQL 和 PostgreSQL 服務的 Azure 資料庫。 請務必注意，當您將 **Microsoft.Sql** 服務標籤套用到 VNet 服務端點時，它將會針對子網路上的所有 Azure SQL Database、適用於 MariaDB 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫，以及適用於 PostgreSQL 的 Azure 資料庫伺服器設定服務端點流量。
 
-**虛擬網路規則：** 適用於 MariaDB 的 Azure 資料庫伺服器的虛擬網路規則，是列於適用於 MariaDB 的 Azure 資料庫伺服器之存取控制清單 (ACL) 中的子網路。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在適用於 MariaDB 的 Azure 資料庫伺服器的 ACL 中。
+**虛擬網路規則：** 適用於 MariaDB 的 Azure 資料庫伺服器的虛擬網路規則是一個子網路，此子網路會列於適用於 MariaDB 的 Azure 資料庫伺服器的存取控制清單 (ACL) 中。 子網路必須包含 **Microsoft.Sql** 類型名稱，才能列在適用於 MariaDB 的 Azure 資料庫伺服器的 ACL 中。
 
 虛擬網路規則會指示適用於 MariaDB 的 Azure 資料庫伺服器接受來自該子網路上每個節點的通訊。
 
@@ -93,8 +93,8 @@ ms.locfileid: "52276880"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理員：** &nbsp;開啟端點。
-- **資料庫管理員：**&nbsp;更新存取控制清單 (ACL) 以將指定的子網路新增至適用於 MariaDB 的 Azure 資料庫伺服器。
+- **網路管理：**&nbsp;開啟端點。
+- **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，以將指定的子網路新增至適用於 MariaDB 的 Azure 資料庫伺服器。
 
 RBAC 替代方案：
 
@@ -117,7 +117,7 @@ RBAC 替代方案：
 
 - 虛擬網路規則只套用至 Azure Resource Manager 虛擬網路，而不是[傳統部署模型][resource-manager-deployment-model-568f]網路。
 
-- 使用 **Microsoft.Sql** 服務標籤對適用於 MariaDB 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MariaDB 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database，以及 Azure SQL 資料倉儲。
+- 使用 **Microsoft.Sql** 服務標記對適用於 MariaDB 的 Azure 資料庫開啟虛擬網路服務端點，也會對所有 Azure 資料庫服務啟用端點：適用於 MariaDB 的 Azure 資料庫、適用於 MySQL 的 Azure 資料庫、適用於 PostgreSQL 的 Azure 資料庫、Azure SQL Database 和 Azure SQL 資料倉儲。
 
 - VNet 服務端點的支援僅適用於一般用途伺服器和記憶體最佳化伺服器。
 
@@ -149,7 +149,7 @@ RBAC 替代方案：
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)
 -->
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

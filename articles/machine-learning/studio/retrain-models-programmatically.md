@@ -1,12 +1,11 @@
 ---
 title: 以程式設計方式重新定型 Machine Learning Studio 模型 - Azure | Microsoft Docs
-description: 了解如何在 Azure Machine Learning 中以程式設計方式重新定型模型，以及使用新定型的模型來更新 Web 服務。
+description: 了解如何使用 C# 和 Machine Learning 批次執行服務，以程式設計方式重新定型模型。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 7ae4f977-e6bf-4d04-9dde-28a66ce7b664
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: b38143fe6f1f1cf3e65a2989e1b0a71c28530b2a
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 7a1381ce43056607486a27710cd6ee6181b9a5c1
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313380"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257388"
 ---
-# <a name="retrain-machine-learning-studio-models-programmatically"></a>以程式設計方式重新定型 Machine Learning Studio 模型
+# <a name="retrain-azure-machine-learning-studio-models-programmatically"></a>以程式設計方式重新定型 Azure Machine Learning Studio 模型
 在此逐步解說中，您將學習如何以程式設計方式使用 C# 和 Machine Learning 批次執行服務，來重新定型 Azure Machine Learning Studio Web 服務。
 
 重新訓練模型之後，下列逐步解說會說明如何更新預測性 Web 服務中的模型︰
@@ -36,14 +35,14 @@ ms.locfileid: "52313380"
 如果您要開始使用現有新的 Azure Resource Manager 型 Web 服務，請參閱 [Retrain an existing Predictive web service (重新訓練現有預測性 Web 服務)](retrain-existing-resource-manager-based-web-service.md)。
 
 ## <a name="create-a-training-experiment"></a>建立訓練實驗
-針對這個範例，您將使用Microsoft Azure Machine Learning 範例當中的「範例 5：定型、測試、評估二進位分類：成人資料集」。 
+以此範例為例，您將使用 Microsoft Azure Machine Learning 範例中的 [範例 5：定型、測試、評估二元分類：成人資料集]。 
 
 建立實驗：
 
 1. 登入 Microsoft Azure Machine Learning Studio。 
 2. 按一下儀表板右下角的 [新增] 。
 3. 從 Microsoft 範例中，選取 範例 5。
-4. 若要重新命名此實驗，在頂端的實驗畫布上，選取實驗名稱 [範例 5：定型、測試、評估二進位分類：成人資料集]。
+4. 若要將實驗重新命名，在實驗畫布頂端，選取實驗名稱 [範例 5：定型、測試、評估二元分類：成人資料集]。
 5. 輸入「普查模型」。
 6. 在實驗畫布底端，按一下 [執行] 。
 7. 按一下 [設定 Web 服務]，然後選取 [重新訓練 Web 服務]。 
@@ -159,7 +158,7 @@ BES 範例程式碼會將檔案從本機磁碟機 (例如 C:\temp\CensusIpnput.c
 
 ![重新定型輸出][6]
 
-圖 4：重新定型輸出。
+圖表 4：重新定型輸出。
 
 ## <a name="evaluate-the-retraining-results"></a>評估重新定型結果
 當您執行應用程式時，輸出會包含存取評估結果所需的 URL 和 SAS 權杖。

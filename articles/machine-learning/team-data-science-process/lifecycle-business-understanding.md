@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process 生命週期的了解商務階段 - Azure | Microsoft Docs
-description: 資料科學專案了解商務階段的目標、工作和交付項目
+title: Team Data Science Process 中的了解商務階段
+description: 在 Team Data Science Process 中，資料科學專案之了解商務階段的目標、工作和交付項目。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 3d2a6bf5a7e4766ca6205c413dd27fa9a69c16b7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: f45d8a83c323689272313314d0f9ac9b79edecd7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446716"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141657"
 ---
-# <a name="business-understanding"></a>了解商務
+# <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的了解商務階段
 
 本文將概要說明與 Team Data Science Process (TDSP) 了解商務階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
@@ -40,8 +40,8 @@ ms.locfileid: "52446716"
 ## <a name="how-to-do-it"></a>作法
 此階段會解決兩項主要工作︰ 
 
-   * **定義目標**︰與客戶和其他專案關係人合作，以了解並找出企業的問題。 制訂定義資料科學技術可鎖定之商務目標的問題。
-   * **識別資料來源**︰尋找可協助您回答定義出專案目標之問題的相關資料。
+   * **定義目標**：與客戶和其他專案關係人合作，以了解並找出商務問題。 制訂定義資料科學技術可鎖定之商務目標的問題。
+   * **識別資料來源**：尋找可協助您回答定義專案目標之問題的相關資料。
 
 ### <a name="define-objectives"></a>定義目標
 1. 此步驟的中心目標是要識別分析工作需要預測的重要業務變數。 我們把這些變數稱為*模型目標*，我們使用與其相關聯的標準決定專案是否成功。 這類目標的兩個範例是銷售預測或訂單被詐騙的機率。
@@ -77,8 +77,8 @@ ms.locfileid: "52446716"
 ## <a name="artifacts"></a>構件
 以下是此階段的交付項目︰
 
-   * [規範文件](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md)：TDSP 專案結構定義中會提供標準範本。 規範文件是即時文件。 當您進行新的探索，以及當商務需求變更時，您就要更新整個專案的範本。 關鍵在於要反覆審視這份文件，並隨著探索程序的進行，新增更多詳細資料。 讓客戶和其他專案關係人參與變更，並清楚地說明進行這些變更的原因。  
-   * [資料來源](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources) \(英文\)：TDSP 專案 **Data report** 資料夾中 **Data definition** 報告的 **Raw data sources** 區段包含資料來源。 此區段指定未經處理資料的原始位置和目的地位置。 在後面的階段中，您要填入其他詳細資料，例如用來將資料移至分析環境的指令碼。  
+   * [規範文件](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md) \(英文\)：TDSP 專案結構定義中會提供標準範本。 規範文件是即時文件。 當您進行新的探索，以及當商務需求變更時，您就要更新整個專案的範本。 關鍵在於要反覆審視這份文件，並隨著探索程序的進行，新增更多詳細資料。 讓客戶和其他專案關係人參與變更，並清楚地說明進行這些變更的原因。  
+   * [資料來源](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources) \(英文\)：可在 TDSP 專案 **Data report** 資料夾中找到之 **Data definition** 報告的 **Raw data sources** 區段會包含資料來源。 此區段指定未經處理資料的原始位置和目的地位置。 在後面的階段中，您要填入其他詳細資料，例如用來將資料移至分析環境的指令碼。  
    * [資料字典](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries) \(英文\)：本文件提供用戶端所提供之資料的說明。 這些說明包含結構描述的相關資訊 (資料類型、驗證規則相關資訊 (如果有))，以及實體關聯性圖表 (如果有)。
 
 ## <a name="next-steps"></a>後續步驟
@@ -92,5 +92,3 @@ ms.locfileid: "52446716"
    5. [客戶接受度](lifecycle-acceptance.md)
 
 我們也會提供完整的端對端逐步解說，說明特定案例之程序中的所有步驟。 [範例逐步解說](walkthroughs.md)一文提供有連結和縮圖描述的案例清單。 這些逐步解說示範如何將雲端、內部部署工具與服務組合成工作流程或管線，以建立智慧型應用程式。 
-
-如需如何在使用 Azure Machine Learning Studio 的 TDSP 中執行步驟的範例，請參閱[配合使用 Team Data Science Process 與 Azure Machine Learning](https://aka.ms/datascienceprocess)。

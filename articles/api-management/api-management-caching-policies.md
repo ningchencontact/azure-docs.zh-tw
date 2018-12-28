@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: c1fd0f462a3eb960e27b002f4f7c940a6bf978c8
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620569"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310431"
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -80,7 +80,7 @@ ms.locfileid: "52620569"
 ```  
   
 #### <a name="example-using-policy-expressions"></a>使用原則運算式的範例  
- 此範例說明如何設定 API 管理回應快取期間，使其符合備用服務之 `Cache-Control` 指示詞所指定的後端服務回應快取。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 25:25。  
+ 此範例說明如何設定 API 管理回應快取期間，使其符合備用服務之 `Cache-Control` 指示詞所指定的後端服務回應快取。 如需設定和使用此原則的示範，請參閱 [Cloud Cover Episode 177：More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) /(英文/) 並快轉到 25:25。  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -104,7 +104,7 @@ ms.locfileid: "52620569"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |cache-lookup|根元素。|是|  
 |vary-by-header|根據指定標頭 (例如 Accept、Accept-Charset、Accept-Encoding、Accept-Language、Authorization、Expect、From、Host、If-Match) 的值開始快取回應。|否|  
@@ -112,14 +112,14 @@ ms.locfileid: "52620569"
   
 ### <a name="attributes"></a>屬性  
   
-| 名稱                           | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
+| Name                           | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | allow-private-response-caching | 當設定為 `true` 時，可快取包含 Authorization 標頭的要求。                                                                                                                                                                                                                                                                        | 否       | false             |
-| cache-preference               | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
+| cache-preference               | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | downstream-caching-type        | 此屬性必須設為下列其中一個值。<br /><br /> -   none - 不允許下游快取。<br />-   private - 允許下游私人快取。<br />-   public - 允許私人和共用下游快取。                                                                                                          | 否       | None              |
 | must-revalidate                | 當下游快取啟用時，此屬性會開啟或關閉閘道回應中的 `must-revalidate` 快取控制指示詞。                                                                                                                                                                                                                      | 否       | true              |
-| vary-by-developer              | 設定為 `true` 可按照開發人員索引鍵來快取回應。                                                                                                                                                                                                                                                                                                         | 是      |                   |
-| vary-by-developer-groups       | 設定為 `true` 可按照使用者角色來快取回應。                                                                                                                                                                                                                                                                                                             | 是      |                   |  
+| vary-by-developer              | 設定為 `true` 可根據[訂用帳戶金鑰](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions)來快取回應。                                                                                                                                                                                                                                                                                                         | 是      |                   |
+| vary-by-developer-groups       | 設定為 `true` 可按照[使用者群組](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups)來快取回應。                                                                                                                                                                                                                                                                                                             | 是      |                   |  
 
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -159,7 +159,7 @@ ms.locfileid: "52620569"
 ```  
   
 #### <a name="example-using-policy-expressions"></a>使用原則運算式的範例  
- 此範例說明如何設定 API 管理回應快取期間，使其符合備用服務之 `Cache-Control` 指示詞所指定的後端服務回應快取。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 25:25。  
+ 此範例說明如何設定 API 管理回應快取期間，使其符合備用服務之 `Cache-Control` 指示詞所指定的後端服務回應快取。 如需設定和使用此原則的示範，請參閱 [Cloud Cover Episode 177：More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) /(英文/) 並快轉到 25:25。  
   
 ```xml  
 <!-- The following cache policy snippets demonstrate how to control API Management response cache duration with Cache-Control headers sent by the backend service. -->  
@@ -183,13 +183,13 @@ ms.locfileid: "52620569"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |cache-store|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-| 名稱             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
+| Name             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
 | duration         | 快取項目的存留時間，以秒為單位進行指定。                                                                                                                                                                                                                                                                                                   | 是      | N/A               |  
 
@@ -226,15 +226,15 @@ ms.locfileid: "52620569"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |cache-lookup-value|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-| 名稱             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
+| Name             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
+| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | default-value    | 當快取索引鍵查閱沒有結果時，要指派給變數的值。 如果未指定此屬性，則會指派 `null`。                                                                                                                                                                                                           | 否       | `null`            |
 | 索引鍵              | 要在查閱中使用的快取索引鍵值。                                                                                                                                                                                                                                                                                                                       | 是      | N/A               |
 | variable-name    | 查閱成功時，要將查閱到的值指派到之[內容變數](api-management-policy-expressions.md#ContextVariables)的名稱。 如果查閱沒有結果，會對變數指派 `default-value` 屬性的值，如果省略 `default-value` 屬性，則會指派 `null`。                                       | 是      | N/A               |  
@@ -269,15 +269,15 @@ ms.locfileid: "52620569"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |cache-store-value|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-| 名稱             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
+| Name             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
+| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | duration         | 會針對所提供的持續時間值來快取值，以秒為單位進行指定。                                                                                                                                                                                                                                                                                 | 是      | N/A               |
 | 索引鍵              | 用來做為值儲存依據的快取索引鍵。                                                                                                                                                                                                                                                                                                                   | 是      | N/A               |
 | value            | 要快取的值。                                                                                                                                                                                                                                                                                                                                     | 是      | N/A               |
@@ -309,15 +309,15 @@ ms.locfileid: "52620569"
   
 #### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |cache-remove-value|根元素。|是|  
   
 #### <a name="attributes"></a>屬性  
   
-| 名稱             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
+| Name             | 說明                                                                                                                                                                                                                                                                                                                                                 | 必要 | 預設值           |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
-| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
+| cache-preference | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | 索引鍵              | 要從快取中移除之先前快取值的索引鍵。                                                                                                                                                                                                                                                                                        | 是      | N/A               |
   
 #### <a name="usage"></a>使用量  

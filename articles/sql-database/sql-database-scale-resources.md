@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database 調整資源 | Microsoft Docs
-description: 此文章說明如何新增或移除已配置的資源來調整資料庫。
+description: 本文說明如何新增或移除已配置的資源來調整資料庫。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: ede96607e14a43e85c3605e2d710c15ef0495c1f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 5e3c282c198b6a1290e724549a4af30119f9cb04
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868169"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251210"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>在最短停機時間的情況下動態調整資料庫資源
 
@@ -36,7 +36,7 @@ Azure SQL Database 可讓您在最短停機時間的情況下，動態將更多�
 Azure SQL Database 提供[以 DTU 為基礎的購買模型](sql-database-service-tiers-dtu.md)和[以虛擬核心為基礎的購買模型](sql-database-service-tiers-vcore.md)。
 
 - [DTU 購買模型](sql-database-service-tiers-dtu.md)提供在下列三個服務層中混用的計算、記憶體和 IO 資源，以支援各種資料庫工作負載 (輕量型到重量型)：基本、標準和進階。 在各層內的效能層級分別提供這些資源的不同混用方式，而且您可以為其新增額外的儲存體資源。
-- [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。 此購買模型提供三種服務層：一般用途、業務關鍵及超大規模 (預覽)。
+- [虛擬核心形式的購買模式](sql-database-service-tiers-vcore.md)可讓您選擇虛擬核心的數目、記憶體數量，以及儲存體的數量和速度。 此購買模型提供三個服務層：一般用途、業務關鍵和超大規模 (預覽)。
 
 您可以透過基本、標準或一般用途服務層，以較低的每月成本在小型的單一資料庫上建置您的第一個應用程式，並在日後隨時以手動或程式設計方式將服務層變更為進階或業務關鍵服務層，以符合您的解決方案需求。 您的應用程式或客戶皆無須停機，即可調整效能。 動態延展性可讓您的資料庫以透明的方式回應快速變化的資源需求，並且讓您只需支付您所需的資源費用。
 
@@ -62,7 +62,7 @@ Azure SQL Database 的三個特性全部都提供某種動態調整資料庫的�
 
 調整資源是最簡單且最有效的方式，可改善資料庫效能，而不需要變更資料庫或應用程式碼。 在某些情況下，即使是最高服務層、計算大小和效能最佳化可能也無法以成功且具成本效益的方式來處理工作負載。 在該情況下，您有其他選項可調整資料庫：
 
-- [讀取縮放](sql-database-read-scale-out.md)是您收到資料之一個唯讀複本的可用功能，您可以在其中執行要求唯讀查詢 (例如報告)。 僅限紅色複本會處理您的唯讀工作負載，而不影響您主要資料庫上的資源使用狀況。
+- [讀取縮放](sql-database-read-scale-out.md)是您收到資料之一個唯讀複本的可用功能，您可以在其中執行要求唯讀查詢 (例如報告)。 唯讀複本會處理您的唯讀工作負載，而不影響您主要資料庫上的資源使用狀況。
 - [資料庫分區](sql-database-elastic-scale-introduction.md)是一組技術，可讓您將資料分割成數個資料庫，並分別調整它們。
 
 ## <a name="next-steps"></a>後續步驟

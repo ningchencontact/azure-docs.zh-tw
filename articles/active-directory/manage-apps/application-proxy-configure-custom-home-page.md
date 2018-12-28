@@ -15,16 +15,16 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: d098d38c39788dee7f4a3852d07a762b36fd9a4f
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333746"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134311"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 為發佈的應用程式設定自訂首頁
 
-此文章討論如何設定應用程式來將使用者導向自訂首頁。 當您使用應用程式 Proxy 發佈應用程式時，您會設定內部 URL，但有時這不是您的使用者應該先看到的頁面。 設定自訂首頁，讓使用者在存取應用程式時能前往正確的頁面。 不論使用者從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式，都能看到您設定的自訂首頁。
+本文討論如何設定應用程式來將使用者導向自訂首頁。 當您使用應用程式 Proxy 發佈應用程式時，您會設定內部 URL，但有時這不是您的使用者應該先看到的頁面。 設定自訂首頁，讓使用者在存取應用程式時能前往正確的頁面。 不論使用者從 Azure Active Directory 存取面板或 Office 365 應用程式啟動器存取應用程式，都能看到您設定的自訂首頁。
 
 當使用者啟動應用程式時，預設會將他們導向已發佈應用程式的根網域 URL。 登陸頁面通常設定為首頁 URL。 如果您想要讓應用程式使用者登陸應用程式內的特定頁面，請使用 Azure AD PowerShell 模組定義自訂首頁 URL。 
 
@@ -125,7 +125,7 @@ ms.locfileid: "52333746"
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
-4. 使用您在「步驟 1：尋找應用程式的 ObjectID」中複製的 GUID (ObjectID)，進行更新。
+4. 使用您從「步驟 1：尋找應用程式的 ObjectID」複製的 GUID (ObjectID) 來更新。
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage
@@ -142,4 +142,4 @@ ms.locfileid: "52333746"
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure AD 應用程式 Proxy 啟用 SharePoint 的遠端存取](application-proxy-integrate-with-sharepoint-server.md)
-- [在 Azure 入口網站中啟用應用程式 Proxy](application-proxy-enable.md)
+- [在 Azure 入口網站中啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)

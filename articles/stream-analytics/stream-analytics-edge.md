@@ -1,58 +1,55 @@
 ---
-title: IoT Edge 上的 Azure 串流分析 (預覽)
-description: 在 Azure 串流分析中建立 Edge 作業，並將其部署至執行 Azure IoT Edge 的裝置中。
+title: Azure IoT Edge 串流分析
+description: 在 Azure 串流分析中建立 Edge 作業，並將其部署至執行 Azure IoT Edge 的裝置。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/16/2017
-ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: bf290343634f9f9f836a87ab15f13cc1dac6f86f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687430"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141946"
 ---
-# <a name="azure-stream-analytics-on-iot-edge-preview"></a>IoT Edge 上的 Azure 串流分析 (預覽)
-
-> [!IMPORTANT]
-> 這項功能目前為預覽狀態，因此不建議用於生產環境。
+# <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 串流分析
  
 IoT Edge 上的 Azure 串流分析 (ASA) 讓開發人員能夠在更接近 IoT 裝置的地方部署近乎即時的分析智慧，從而使裝置產生的資料充分發揮價值。 Azure 串流分析的設計著眼於低延遲、具復原能力、有效率地使用頻寬和合規性。 企業現在可以部署接近產業作業的控制邏輯，並補充在雲端中完成的巨量資料分析。  
 
-IoT Edge 上的 Azure 串流分析是在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 架構內執行。 在 ASA 中建立作業之後，您可以使用 IoT 中樞來部署及管理 ASA 作業。 這項功能處於預覽狀態。 如果您有任何問題或意見反應，可以使用[此問卷](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)連絡產品小組。 
+IoT Edge 上的 Azure 串流分析是在 [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) 架構內執行。 在 ASA 中建立作業之後，您可以使用 IoT 中樞來部署及管理它。
 
 ## <a name="scenarios"></a>案例
-![高階圖表](media/stream-analytics-edge/ASAedge_highlevel.png)
+![高階 IoT Edge 圖](media/stream-analytics-edge/ASAedge-highlevel-diagram.png)
 
-* **低延遲命令和控制**：例如，製造安全系統必須回應包含超低延遲的作業資料。 透過 IoT Edge 上的 ASA，您可以近乎即時地分析感應器資料，並在偵測到異常時發出命令來停止電腦或觸發程序的警示。
-*   **有限的雲端連線能力**：諸如遠端採礦設備、互連的船隻或離岸鑽井等任務關鍵系統都必須分析和回應資料，即使是當雲端連線斷斷續續時也一樣。 利用 ASA，您的串流邏輯就會獨立執行網路連線，從而能夠選擇傳送至雲端進行進一步處理或儲存體的項目。
+* **低延遲命令與控制**：例如，製造安全系統必須回應具有超低延遲的作業資料。 透過 IoT Edge 上的 ASA，您可以近乎即時地分析感應器資料，並在偵測到異常時發出命令來停止電腦或觸發程序的警示。
+*   **有限的雲端連線能力**：諸如遠端採礦設備、互連的船隻或離岸鑽井等任務關鍵系統都必須分析及回應資料，即使是當雲端連線斷斷續續時也一樣。 利用 ASA，您的串流邏輯就會獨立執行網路連線，從而能夠選擇傳送至雲端進行進一步處理或儲存體的項目。
 * **受限頻寬**：噴射引擎或連線的車輛所產生的資料量可能會很大，在將資料傳送到雲端之前，必須先篩選或預先處理。 您可以使用 ASA 來篩選或彙總必須傳送至雲端的資料。
 * **合規性**：法規合規性可能會要求某些資料在傳送至雲端之前，先在本機進行匿名或彙總。
 
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 串流分析中的 Edge 作業
 ### <a name="what-is-an-edge-job"></a>什麼是 "Edge" 作業？
 
-ASA Edge 作業會作為 [Azure IoT Edge 執行階段](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)內的模組執行。 它們是由兩個部分組成：
+ASA Edge 作業在部署到 [Azure IoT Edge 裝置](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)的容器中執行。 它們是由兩個部分組成：
 1.  負責作業定義的雲端部分：使用者在雲端中定義輸入、輸出、查詢和其他設定 (出問題的事件等)。
-2.  在本機執行之 IoT Edge 模組上的 ASA。 它包含 ASA 複雜事件處理引擎，並會從雲端接收作業定義。 
+2.  在您的 IoT 裝置上執行的模組。 它包含 ASA 引擎，並會從雲端接收作業定義。 
 
 ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部署的詳細資訊可以在這裡看到](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)。
 
-![Edge 作業](media/stream-analytics-edge/ASAedge_job.png)
+![Azure 串流分析 Edge 作業](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
 
 ### <a name="installation-instructions"></a>安裝指示
 下表說明高階步驟。 後面幾節提供詳細資訊。
-|      |步驟   | 位置     | 注意   |
-| ---   | ---   | ---       |  ---      |
-| 1   | **建立儲存體容器**   | Azure 入口網站       | 儲存體容器是用來儲存您的作業定義，您的 IoT 裝置可在其中加以存取。 <br>  您可以重複使用任何現有的儲存體容器。     |
-| 2   | **建立 ASA Edge 作業**   | Azure 入口網站      |  建立新作業，請選取 **Edge** 作為**裝載環境**。 <br> 這些作業會從雲端建立/管理，並在您自己的 IoT Edge 裝置上執行。     |
-| 3   | **在您的裝置上設定 IoT Edge 環境**   | 裝置      | 適用於 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 或 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 的指示。          |
-| 4   | **在 IoT Edge 裝置上部署 ASA**   | Azure 入口網站      |  ASA 作業定義已匯出至先前建立的儲存體容器。       |
+|      |步驟   | 注意   |
+| ---   | ---   |  ---      |
+| 1   | **建立儲存體容器**   | 儲存體容器是用來儲存您的作業定義，您的 IoT 裝置可在其中加以存取。 <br>  您可以重複使用任何現有的儲存體容器。     |
+| 2   | **建立 ASA Edge 作業**   |  建立新作業，請選取 **Edge** 作為**裝載環境**。 <br> 這些作業會從雲端建立/管理，並在您自己的 IoT Edge 裝置上執行。     |
+| 3   | **在您的裝置上設定 IoT Edge 環境**   | 適用於 [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) 或 [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux) 的指示。          |
+| 4   | **在 IoT Edge 裝置上部署 ASA**   |  ASA 作業定義已匯出至先前建立的儲存體容器。       |
 您可以遵循[此逐步教學課程](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)，在 IoT Edge 在部署您的第一個 ASA 作業。 下列影片應可協助您了解在 IoT Edge 裝置上執行串流分析作業的程序：  
 
 
@@ -73,7 +70,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 
 2. 在 [建立] 畫面中，選取 **Edge** 作為 **裝載環境**(請參閱下圖)
 
-   ![建立作業](media/stream-analytics-edge/ASAEdge_create.png)
+   ![在 Edge 上建立串流分析作業](media/stream-analytics-edge/create-asa-edge-job.png)
 3. 作業定義
     1. **定義輸入資料流**。 定義適用於您作業的一或多個輸入資料流。
     2. 定義參考資料 (選擇性)。
@@ -107,7 +104,7 @@ ASA 會使用 IoT 中樞將 Edge 作業部署到裝置。 關於 [IoT Edge 部�
 - 在 Azure 入口網站中開啟 IoT 中樞，瀏覽至 **IoT Edge**，然後在此部署的目標裝置上按一下。
 - 選取 [設定模組]，然後選取 [+ 新增] 並選擇 [Azure 串流分析模組]。
 - 選取訂用帳戶與您建立的 ASA Edge 作業。 按一下 [儲存]。
-![在您的部署中新增 ASA 模組](media/stream-analytics-edge/set_module.png)
+![在您的部署中新增 ASA 模組](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -123,7 +120,8 @@ IoT Edge 提供方法以宣告方式在模組之間及模組與 IoT 中樞之間
 ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。  
 
 ###### <a name="example"></a>範例
-```
+
+```json
 {
 "routes": {                                              
     "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
@@ -134,7 +132,7 @@ ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。
 
 ```
 此範例會顯示下圖中所述情節的路由。 它包含名為 "**ASA**" 的 Edge 作業，以及名為 "**temperature**" 的輸入和名為 "**alert**" 的輸出。
-![路由範例](media/stream-analytics-edge/RoutingExample.png)
+![訊息路由的圖表定義](media/stream-analytics-edge/edge-message-routing-example.png)
 
 這個範例會定義下列路由：
 - 來自 **tempSensor** 的每個訊息都會傳送至名為 **ASA** 的模組到名為 **temperature** 的輸入，
@@ -143,15 +141,15 @@ ASA 作業中建立的輸入和輸出名稱可用來作為路由的端點。
 
 
 ## <a name="technical-information"></a>技術資訊
-### <a name="current-limitations-for-edge-jobs-compared-to-cloud-jobs"></a>相較於雲端作業，Edge 作業的目前限制
-目標是在 Edge 作業和雲端作業之間進行同位檢查。 已支援大部分 SQL 查詢語言的功能。
+### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>相較於雲端作業，IoT Edge 作業的目前限制
+目標是在 IoT Edge 與業和雲端作業之間進行同位檢查。 已支援大部分 SQL 查詢語言的功能。
 不過，Edge 作業尚未支援下列功能：
-* 使用者定義函式 (UDF) 和使用者定義彙總 (UDA)。
-* Azure ML 函式。
+* JavaScript 中的使用者定義函式 (UDF)。 您可以在[適用於 IoT Edge 的 C# 作業](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf) (預覽版) 中找到 UDF。
+* 使用者定義彙總 (UDA)。
+* Azure ML 函式
 * 在單一步驟中使用超過 14 個彙總。
 * 輸入/輸出的 AVRO 格式。 目前僅支援 CSV 和 JSON。
 * 下列 SQL 運算子：
-    * AnomalyDetection
     * 地理空間運算子：
         * CreatePoint
         * CreatePolygon
@@ -197,9 +195,9 @@ ASA Edge 作業可以從 IoT Edge 裝置上執行的其他模組取得輸入和�
 
 3. 在裝置上備妥參考資料檔案。 針對 Windows 容器，請將參考資料檔案放在本機磁碟機上，並將本機磁碟機與 Docker 容器共用。 針對 Linux 容器，請建立 Docker 磁碟區，並在磁碟區上填入資料檔案。
 
-4. 設定檔案路徑。 針對 Windows 裝置，請使用絕對路徑。 針對 Linux 裝置，請使用磁碟區中的路徑。
+4. 設定檔案路徑。 針對 Windows 主機 OS 與 Windows 容器，使用絕對路徑：`E:\<PathToFile>\v1.csv`。 針對 Windows 主機 OS 與 Linux 容器或 Linux OS 與 Linux 容器，使用磁碟區中的路徑：`<VolumeName>/file1.txt`。
 
-![IoT Edge 上的 Azure 串流分析作業的新參考資料輸入](./media/stream-analytics-edge/ReferenceDataNewInput.png)
+![IoT Edge 上的 Azure 串流分析作業的新參考資料輸入](./media/stream-analytics-edge/Reference-Data-New-Input.png)
 
 IoT Edge 上的參考資料更新會由部署觸發。 觸發之後，ASA 模組會挑選更新的資料，且不會停止執行中的作業。
 
@@ -207,10 +205,9 @@ IoT Edge 上的參考資料更新會由部署觸發。 觸發之後，ASA 模組
 * 使用 Azure 入口網站更新您 ASA 作業中的參考資料路徑。
 * 更新 IoT Edge 部署。
 
-
 ## <a name="license-and-third-party-notices"></a>授權和第三方通知
-* [IoT Edge 預覽授權上的 Azure 串流分析](https://go.microsoft.com/fwlink/?linkid=862827). 
-* [IoT Edge 預覽上 Azure 串流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828).
+* [Azure IoT Edge 串流分析授權](https://go.microsoft.com/fwlink/?linkid=862827)。 
+* [Azure IoT Edge 串流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828)。
 
 ## <a name="get-help"></a>取得說明
 如需進一步的協助，請參閱 [Azure 串流分析論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)。
@@ -220,8 +217,8 @@ IoT Edge 上的參考資料更新會由部署觸發。 觸發之後，ASA 模組
 
 * [Azure Iot Edge 的詳細資訊](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
 * [ASA IoT Edge 教學課程](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [使用這個調查將意見反應傳送給小組](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
 * [使用 Visual Studio 工具來開發串流分析 Edge 作業](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [使用 API 實作適用於串流分析的 CI/CD](stream-analytics-cicd-api.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

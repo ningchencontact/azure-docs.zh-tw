@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: cbedb17bb7563620d0d9db81333d9a79301b4ee0
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817503"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409253"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 
@@ -152,7 +152,7 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 
 下列程序會使用 Git 存放庫來下載快速入門專案程式碼：
 
-1. 如果尚未安裝 Git，請先安裝。 安裝 Git 所需的步驟會因作業系統而有所不同。 如需作業系統特定的散發套件和安裝指引，請參閱[安裝 Git](http://git-scm.com/book/en/Getting-Started-Installing-Git) 。
+1. 如果尚未安裝 Git，請先安裝。 安裝 Git 所需的步驟會因作業系統而有所不同。 如需作業系統特定的散發套件和安裝指引，請參閱[安裝 Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) 。
 1. 請參閱[準備您的存放庫](../app-service/app-service-deploy-local-git.md#prepare-your-repository)，啟用後端網站的 Git 存放庫。 請記下部署使用者名稱和密碼。
 1. 在您 Mobile Apps 後端的視窗中，記下 [Git 複製 URL]  設定。
 1. 使用 Git 複製 URL執行 `git clone` 命令。 在需要時輸入您的密碼，如下列範例所示：
@@ -918,7 +918,7 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 
 下列命令可用於資料表的命令列：
 
-* **變更權限**：修改在資料表上讀取、插入、更新和刪除作業的權限。
+* **變更權限**︰修改在資料表上讀取、插入、更新和刪除作業的權限。
  選項包括允許匿名存取、要求驗證，或停用作業的所有存取。
 * **編輯指令碼**：資料表的指令碼檔案會在 App Service 編輯器中開啟。
 * **管理結構描述**：新增或刪除資料行，或變更資料表索引。
@@ -963,11 +963,11 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 [Xamarin.Forms 用戶端快速入門]: app-service-mobile-xamarin-forms-get-started.md
 [Windows 市集用戶端快速入門]: app-service-mobile-windows-store-dotnet-get-started.md
 [離線資料同步]: app-service-mobile-offline-data-sync.md
-[設定 Azure Active Directory 驗證]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
-[設定 Facebook 驗證]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
-[設定 Google 驗證]: ../app-service/app-service-mobile-how-to-configure-google-authentication.md
-[設定 Microsoft 驗證]: ../app-service/app-service-mobile-how-to-configure-microsoft-authentication.md
-[設定 Twitter 驗證]: ../app-service/app-service-mobile-how-to-configure-twitter-authentication.md
+[設定 Azure Active Directory 驗證]: ../app-service/configure-authentication-provider-aad.md
+[設定 Facebook 驗證]: ../app-service/configure-authentication-provider-facebook.md
+[設定 Google 驗證]: ../app-service/configure-authentication-provider-google.md
+[設定 Microsoft 驗證]: ../app-service/configure-authentication-provider-microsoft.md
+[設定 Twitter 驗證]: ../app-service/configure-authentication-provider-twitter.md
 [Azure App Service 部署指南]: ../app-service/app-service-deploy-local-git.md
 [監視 Azure App Service]: ../app-service/web-sites-monitor.md
 [在 Azure App Service 中啟用診斷記錄]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -976,11 +976,11 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 [使用 Node 模組]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps
-[Express]: http://expressjs.com/
-[Swagger]: http://swagger.io/
+[Express]: https://expressjs.com/
+[Swagger]: https://swagger.io/
 
 [Azure 入口網站]: https://portal.azure.com/
-[OData]: http://www.odata.org
+[OData]: https://www.odata.org
 [Promise]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [GitHub 上的 basicapp 範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app
 [GitHub 上的待辦事項範例]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/todo
@@ -989,6 +989,6 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 [QueryJS]: https://github.com/Azure/queryjs
 [Node.js Tools 1.1 for Visual Studio]: https://github.com/Microsoft/nodejstools/releases/tag/v1.1-RC.2.1
 [mssql Node.js 套件]: https://www.npmjs.com/package/mssql
-[Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
-[ExpressJS 中介軟體]: http://expressjs.com/guide/using-middleware.html
+[Microsoft SQL Server 2014 Express]: https://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
+[ExpressJS 中介軟體]: https://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston

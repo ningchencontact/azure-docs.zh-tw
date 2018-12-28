@@ -12,17 +12,16 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 60e3e3d81b07bf7ae681b5cef2d6d9681877a35f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: c4537709181398e401ade67b831bc2d26a99221f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806672"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193581"
 ---
-<a name="lead-management-instructions-for-azure-table"></a>運用 Azure 資料表進行潛在客戶管理之說明
-============================================
+# <a name="lead-management-instructions-for-azure-table"></a>運用 Azure 資料表進行潛在客戶管理之說明
 
 此文章說明如何設定 Azure 資料表以儲存業務潛在客戶。 Azure 資料表能讓您儲存並自訂客戶資訊。
 
@@ -40,142 +39,113 @@ ms.locfileid: "48806672"
     ![Azure 儲存體金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
 您可以使用 [Azure 儲存體總管](http://azurestorageexplorer.codeplex.com/) \(英文\) 或任何其他工具，來檢視儲存體資料表中的資料。 您也可以將 Azure 資料表中的資料匯出。
-data.
+資料。
 
-## <a name="optional-to-use-azure-functions-with-an-azure-table"></a>**(選擇性)** 搭配 Azure 資料表使用 Azure Functions
+## <a name="optional-use-microsoft-flow-with-an-azure-table"></a>**(選擇性)** 使用 Microsoft Flow 搭配 Azure 資料表
 
-如果您想要自訂自己接收潛在客戶的方式，請搭配 Azure 資料表使用 [Azure Functions](https://azure.microsoft.com/services/functions/)。 Azure Functions 服務能讓您將產生潛在客戶的程序自動化。
+您可以使用 [Microsoft Flow](https://docs.microsoft.com/flow/) 在每次有潛在客戶新增至 Azure 資料表時自動通知。 如果您沒有帳戶，可以[註冊一個免費的帳戶](https://flow.microsoft.com/)。
 
-下列步驟示範如何建立使用計時器的 Azure 函式。 該函式每隔五分鐘便會查看 Azure 資料表中是否有新的記錄，並會在有新記錄的情況下使用 SendGrid 服務傳送電子郵件通知。
+### <a name="lead-notification-example"></a>潛在客戶通知範例
 
+使用此範例作為指南，以建立簡單的流程，在新的潛在客戶新增至 Azure 資料表時，自動傳送電子郵件通知。 此範例會設定表格儲存體更新時，每小時傳送潛在客戶資訊的週期。
 
-1.  在您的 Azure 訂閱中[建立](https://portal.azure.com/#create/SendGrid.SendGrid)免費的 SendGrid 服務帳戶。
+1. 登入您的 Microsoft Flow 帳戶。
+2. 在左側導覽列上，選取 [我的流程]。
+3. 在頂端導覽列上，選取 [+ 新增]。  
+4. 在下拉式清單上，選取 [+ 從空白建立]
+5. 在 [從空白建立流程] 底下，選取 [從空白建立]。
 
-    ![建立 SendGrid](./media/cloud-partner-portal-lead-management-instructions-azure-table/createsendgrid.png)
+   ![從空白建立新流程](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-create-from-blank.png)
 
-2.  建立 SendGrid API 金鑰 
-    - 選取 [管理] 以移至 SendGrid UI
-    - 依序選取 [設定] 和 [API 金鑰]，然後建立具有 [郵件傳送] -\> [完整存取] 的金鑰
-    - 儲存該 API 金鑰
+6. 在連接器和觸發程序搜尋頁面上中，選取 [觸發程序]。
+7. 在 [觸發程序] 底下，選取 [週期]。
+8. 在 [週期] 視窗中，保留 [間隔] 的預設設定 1。 從 [頻率] 下拉式清單中，選取 [小時]。
 
+   >[!NOTE] 
+   >雖然此範例使用 1 小時的間隔，但是您可以選取最適合您業務需求的間隔和頻率。
 
-    ![SendGrid API 金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridkey.png)
+   ![設定 1 小時頻率作為週期](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-recurrence-dropdown.png)
 
+9. 選取 [+ 新步驟] 。
+10. 搜尋「取得過去時間」，然後選取 [動作] 底下的 [取得過去時間]。 
 
-3.  使用名為 [使用情況方案] 的 [主控方案] 選項，[建立](https://portal.azure.com/#create/Microsoft.FunctionApp) Azure 函式應用程式。
+    ![尋找並選取取得過去時間動作](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-search-getpasttime.png)
 
-    ![建立 Azure 函式應用程式](./media/cloud-partner-portal-lead-management-instructions-azure-table/createfunction.png)
+11. 在 [取得過去時間] 視窗中，將 [間隔] 設為 1。  從 [時間單位] 下拉式清單中，選取 [小時]。
+    >[!IMPORTANT] 
+    >請確定此間隔及時間單位符合您針對 [週期] 設定的 [間隔] 和 [頻率]。
 
+    ![設定取得過去時間間隔](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getpast-time.png)
 
-4.  建立新的函式定義。
+    >[!TIP] 
+    >您可以隨時檢查您的流程，以確認每個步驟都已正確設定。 若要檢查您的流程，請從 [流程] 功能表列中選取 [流程檢查工具]。
 
-    ![建立 Azure 函式定義](./media/cloud-partner-portal-lead-management-instructions-azure-table/createdefinition.png)
- 
+在下一組步驟中，您將連接至 Azure 資料表，並設定處理邏輯來處理新的潛在客戶。
 
-5.  若要讓函式在特定時間傳送更新，請選取 [TimerTrigger-CSharp] 作為起始選項。
+1. 在「取得過去時間」步驟中，選取 [+ 新步驟]，然後搜尋「取得實體」。
+2. 在 [動作] 底下，選取 [取得實體]，然後選取 [顯示進階選項]。
+3. 在 [取得實體] 視窗中，提供下列欄位的資訊：
 
-     ![Azure 函式時間觸發程序選項](./media/cloud-partner-portal-lead-management-instructions-azure-table/timetrigger.png)
+   - **資料表** – 輸入您 Azure 資料表儲存體的名稱。 下一個螢幕擷取會在針對此範例輸入 “MarketPlaceLeads” 時顯示提示。 
 
+     ![為 Azure 資料表名稱挑選一個自訂值](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-6.  以下列程式碼範例取代 [開發] 程式碼。 以您想要作為寄件者和接收者使用的地址來編輯電子郵件地址。
+   - **篩選查詢** – 按一下此欄位，[取得過去時間] 圖示便會顯示在快顯視窗中。 選取 [過去時間] 以使用這個作為時間戳記來篩選查詢。 或者，您可以將此函式貼到欄位中：`gt datetime'@{body('Get_past_time')}'`
 
-        #r "Microsoft.WindowsAzure.Storage"
-        #r "SendGrid"
-        using Microsoft.WindowsAzure.Storage.Table;
-        using System;
-        using SendGrid;
-        using SendGrid.Helpers.Mail;
-        public class MyRow : TableEntity
-        {
-            public string Name { get; set; }
-        }
-        public static void Run(TimerInfo myTimer, IQueryable<MyRow> inputTable, out Mail message, TraceWriter log)
-        {
-            // UTC datetime that is 5.5 minutes ago while the cron timer schedule is every 5 minutes
-            DateTime dateFrom = DateTime.UtcNow.AddSeconds(-(5 * 60 + 30));
-            var emailFrom = "YOUR EMAIL";
-            var emailTo = "YOUR EMAIL";
-            var emailSubject = "Azure Table Notification";
-            // Look in the table for rows that were added recently
-            var rowsList = inputTable.Where(r => r.Timestamp > dateFrom).ToList();
-            // Check how many rows were added
-            int rowsCount = rowsList.Count;
-            if (rowsCount > 0)
-            {
-                log.Info($"Found {rowsCount} rows added since {dateFrom} UTC");
-                // Configure the email message describing how many rows were added
-                message = new Mail
-                {
-                    From = new Email(emailFrom),
-                    Subject = emailSubject + " (" + rowsCount + " new rows)"
-                };
-                var personalization = new Personalization();
-                personalization.AddTo(new Email(emailTo));
-                message.AddPersonalization(personalization);
-                var content = new Content
-                {
-                    Type = "text/plain",
-                    Value = "Found " + rowsCount + " new rows added since " + dateFrom.ToString("yyyy-MM-dd HH:mm:ss") + " UTC"
-                };
-                message.AddContent(content);
-            }
-            else
-            {
-                // Do not send the email if no new rows were found
-                message = null;
-            }
-        }
+     ![設定篩選查詢函式](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-filterquery.png)
 
-    ![Azure 函式程式碼片段](./media/cloud-partner-portal-lead-management-instructions-azure-table/code.png)
+4. 選取 [新增步驟]，針對新的潛在客戶加入掃描 Azure 資料表的條件。
 
+   ![使用 [新增步驟] 加入掃描 Azure 資料表的條件](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-add-filterquery-new-step.png)
 
-7.  選取 [整合] 和 [輸入] 來定義 Azure 資料表連線。
+5. 在 [選擇動作] 視窗中，選取 [動作]，然後選取 [條件] 控制項。
 
-    ![Azure 函式整合](./media/cloud-partner-portal-lead-management-instructions-azure-table/integrate.png)
+     ![加入條件控制項](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
+6. 在 [條件] 視窗中，選取 [選擇值] 欄位，然後選取快顯視窗中的 [運算式]。
+7. 將 `length(body('Get_entities')?['value'])` 貼入 [fx] 欄位。 選取 [確定] 來新增此函式。 若要完成設定條件：
 
-8.  選取 [新增] 來輸入資料表名稱並定義連接字串。
+   - 從下拉式清單中選取 [大於]。
+   - 輸入 0 作為值 
 
+     ![將函式加入至條件](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-fx0.png)
 
-    ![Azure 函式資料表連接](./media/cloud-partner-portal-lead-management-instructions-azure-table/configtable.png)
+8. 根據條件的結果設定要採取的動作。
 
-9.  現在將輸出定義為 SendGrid，並保留所有預設值。
+     ![根據條件結果設定動作](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-condition-pick-action.png)
 
-    ![SendGrid 輸出](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutput.png)
+9. 如果條件解析為 **If no**，則不會執行任何動作。 
+10. 如果條件解析為 **If yes**，觸發連接 Office 365 帳戶傳送電子郵件的動作。 選取 [新增動作]。
+11. 選取 [傳送電子郵件]。 
+12. 在 [傳送電子郵件] 視窗中，提供下列欄位的資訊：
 
-    ![SendGrid 輸出預設值](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridoutputdefaults.png)
+    - **收件者** - 輸入將會收到此通知的每個人的電子郵件地址。
+    - **主旨** – 提供電子郵件的主旨。 例如︰新的潛在客戶！
+    - **主體**： 加入您想要納入每封電子郵件的文字 (選擇性)，然後貼在本文 `('Get_entities')?['value']` 中，作為要插入潛在客戶資訊的函式。
 
-10. 使用 "SendGridApiKey" 這個名稱，以及從 SendGrid UI 中的 [API 金鑰] 取得的值，將 SendGrid API 金鑰新增至 [函式應用程式設定]
+      >[!NOTE] 
+      >您可以將額外的靜態或動態資料點插入到這封電子郵件的本文。
 
-    ![SendGrid [管理]](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanage.png)
-    ![SendGrid 管理金鑰](./media/cloud-partner-portal-lead-management-instructions-azure-table/sendgridmanagekey.png)
+       ![設定電子郵件，以供潛在客戶通知使用](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-完成設定函式之後，[整合] 區段中的程式碼看起來應該會和下列範例類似。
+13. 選取 [儲存] 以儲存流程。 Microsoft Flow 將會自動測試流程中是否有錯誤。 如果沒有任何錯誤，您的流程會在儲存之後開始執行。
 
-    {
-      "bindings": [
-        {
-          "name": "myTimer",
-          "type": "timerTrigger",
-          "direction": "in",
-          "schedule": "0 */5 * * * *"
-        },
-        {
-          "type": "table",
-          "name": "inputTable",
-          "tableName": "MarketplaceLeads",
-          "take": 50,
-          "connection": "yourstorageaccount_STORAGE",
-          "direction": "in"
-        },
-        {
-          "type": "sendGrid",
-          "name": "message",
-          "apiKey": "SendGridApiKey",
-          "direction": "out"
-        }
-      ],
-      "disabled": false
-    }
+下一個螢幕擷取會顯示最終流程外觀的範例。
 
-11. 最後的步驟是瀏覽至函式的 [開發] UI，然後選取 [執行] 以啟動計時器。 現在，每當有新的潛在客戶時，您便會收到通知。
+ ![最終流程順序](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-end-to-end.png)
+
+### <a name="managing-your-flow"></a>管理流程
+
+執行流程之後加以管理很容易。  您可以完全控制您的流程。 例如，您可以停止流程、編輯流程、查看執行歷程記錄，以及取得分析。 下一個螢幕擷取會顯示可用來管理流程的選項。 
+
+ ![管理流程](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-manage-completed.png)
+
+流程會繼續執行，直到您使用 [關閉流程] 選項停止為止。
+
+如果您未收到任何潛在客戶電子郵件通知，表示新的潛在客戶還未加入至 Azure 資料表。 如果有任何流程失敗，您會收到一封電子郵件，如下一個螢幕擷取中的範例所示。
+
+ ![流程失敗電子郵件通知](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-failure-note.png)
+
+## <a name="next-steps"></a>後續步驟
+
+[設定潛在客戶](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

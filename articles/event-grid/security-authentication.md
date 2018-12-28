@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914034"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413473"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 安全性與驗證 
 
@@ -25,26 +25,28 @@ Azure Event Grid 有三種驗證方法：
 
 ## <a name="webhook-event-delivery"></a>WebHook 事件傳遞
 
-Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的事件準備好時，EventGrid 服務就會對設定的端點發佈 HTTP 要求，並在要求本文內夾帶事件。
+Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新事件準備就緒時，「事件方格」服務就會透過 POST 對所設定的端點發佈 HTTP 要求，並在要求本文內夾帶該事件。
 
-和其他許多支援 Webhook 的服務一樣，EventGrid 也會先要求您證明 Webhook 端點的「擁有權」，才開始將事件傳遞至該端點。 此要求是為了防止非預期的端點成為從 EventGrid 傳遞事件的目標端點。 不過，當您使用下列三種 Azure 服務的任一種時，Azure 基礎結構將會自動處理這項驗證：
+和許多其他支援 Webhook 的服務一樣，「事件方格」也會先要求您證明具有 Webhook 端點的「擁有權」，然後才開始將事件傳遞給該端點。 此需求可避免惡意使用者利用事件癱瘓您的端點。 當您使用下列三種 Azure 服務的任一種時，Azure 基礎結構將會自動處理這項驗證：
 
 * Azure Logic Apps、
 * Azure 自動化、
-* 適用於 EventGrid 觸發程序的 Azure Functions。
+* 適用於事件方格觸發程序的 Azure Functions。
 
-如果您使用任何其他類型的端點 (例如，以 HTTP 觸發程序為基礎的 Azure 函式)，則您的端點程式碼必須參與和 EventGrid 的驗證交握。 EventGrid 支援兩種不同的驗證交握模型：
+如果您使用任何其他類型的端點 (例如以 HTTP 觸發程序為基礎的 Azure 函式)，則您的端點程式碼必須參與和「事件方格」的驗證交握。 「事件方格」支援兩種驗證訂用帳戶的方式。
 
-1. **ValidationCode 交握**：在事件訂閱建立期間，EventGrid 會將「訂閱驗證事件」發佈至您的端點。 此事件的結構描述類似於其他 EventGridEvent，而此事件的資料部分會包含 `validationCode` 屬性。 當您的應用程式確認驗證要求是針對預期的事件訂閱而發出時，應用程式的程式碼必須將驗證碼傳回至 EventGrid，作為回應。 所有 EventGrid 版本都支援此交握機制。
+1. **ValidationCode 交握 (程式設計)**：如果您控制端點的原始程式碼，建議使用此方法。 建立事件訂閱時，「事件方格」會傳送一個訂閱驗證事件給您的端點。 此事件的結構描述類似於任何其他「事件方格」事件。 此事件的資料部分包含 `validationCode` 屬性。 您的應用程式會確認該驗證要求是針對預期的事件訂閱，然後將驗證碼傳回給「事件方格」。 所有「事件方格」版本都支援此交握機制。
 
-2. **ValidationURL 交握 (手動交握)**：在某些情況下，您可能沒有端點原始程式碼的控制權，以實作以 ValidationCode 為基礎的交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) \(英文\) 或 [IFTTT](https://ifttt.com/) \(英文\))，就無法以程式設計方式在回應中提供驗證碼。 從 2018-05-01-preview 版開始，EventGrid 已可支援手動驗證交握。 如果您是以採用 API 2018-05-01-preview 版或更新版本的 SDK 或工具來建立事件訂閱，EventGrid 會傳送 `validationUrl` 屬性作為訂閱驗證事件資料部分的一部分。 若要完成交握，您只需透過 REST 用戶端或使用網頁瀏覽器，對該 URL 執行 GET 要求即可。 提供的驗證 URL 的有效期大約只有 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能開始進行手動驗證。
+2. **ValidationURL 交握 (手動)**：在某些情況下，您無法存取端點的原始程式碼以實作 ValidationCode 交握。 例如，如果您使用第三方服務 (例如 [Zapier](https://zapier.com) 或 [IFTTT](https://ifttt.com/))，就無法透過程式設計方式以驗證碼回應。
 
-此一手動驗證機制目前為預覽狀態。 若要使用它，您必須為 [Azure CLI](/cli/azure/install-azure-cli) 安裝[事件格線延伸模組](/cli/azure/azure-cli-extensions-list)。 您可以使用 `az extension add --name eventgrid` 進行安裝。 若您正使用 REST API，請確定您使用了 `api-version=2018-05-01-preview`。
+   從 2018-05-01-preview 版開始，「事件方格」支援手動驗證交握。 如果您是以採用 API 2018-05-01-preview 版或更新版本的 SDK 或工具來建立事件訂閱，「事件方格」就會在訂閱驗證事件的資料部分中一併傳送 `validationUrl` 屬性。 若要完成交握，請在事件資料中找出該 URL，然後手動將 GET 要求傳送給它。 您可以使用 REST 用戶端或您的網頁瀏覽器。
+
+   所提供 URL 的有效時間為 10 分鐘。 在那段時間，事件訂閱的佈建狀態為 `AwaitingManualAction`。 如果您未在 10 分鐘內完成手動驗證，則會將佈建狀態設為 `Failed`。 您必須再次建立事件訂閱，才能開始進行手動驗證。
 
 ### <a name="validation-details"></a>驗證詳細資料
 
-* 在事件訂閱建立/更新時，事件方格會將訂閱驗證事件發佈至目標端點。 
-* 事件包含標頭值 "aeg-event-type: SubscriptionValidation"。
+* 建立/更新事件訂閱時，「事件方格」會將訂閱驗證事件發佈至目標端點。 
+* 此事件會包含一個標頭值 "aeg-event-type:SubscriptionValidation"。
 * 此事件主體之結構描述與其他 Event Grid 事件相同。
 * 事件的 eventType 屬性是 `Microsoft.EventGrid.SubscriptionValidationEvent`。
 * 事件的資料屬性包含 `validationCode` 屬性，內含隨機產生的字串。 例如，"validationCode: acb13…"。
@@ -78,9 +80,11 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 }
 ```
 
+您必須傳回「HTTP 200 正常」回應狀態碼。 「HTTP 202 已接受」無法辨識為有效的「事件方格」訂閱驗證回應。
+
 或者，您可以藉由將 GET 要求傳送至驗證 URL，以手動方式驗證訂用帳戶。 事件訂用帳戶會保持擱置狀態，直到通過驗證為止。
 
-您可以在 https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs 找到說明如何處理訂閱驗證交握的 C# 範例。
+如需有關處理訂閱驗證交握的範例，請參閱 [C# 範例](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs) \(英文\)。
 
 ### <a name="checklist"></a>檢查清單
 
@@ -93,7 +97,7 @@ Webhook 是從 Azure 事件方格接收事件的眾多方法之一。 當新的�
 
 ### <a name="event-delivery-security"></a>事件傳遞安全性
 
-您可以在建立事件訂閱時將查詢參數新增至 Webhook URL，以保護您的 Webhook 端點。 將這些查詢參數中的其中一個設定為祕密，例如[存取權杖](https://en.wikipedia.org/wiki/Access_token)。 Webhook 可以用來辨識來自事件格線並具有有效權限的事件。 事件格線會在傳遞至 Webhook 的每個事件中包含這些查詢參數。
+您可以在建立事件訂閱時將查詢參數新增至 Webhook URL，以保護您的 Webhook 端點。 將這些查詢參數中的其中一個設定為祕密，例如[存取權杖](https://en.wikipedia.org/wiki/Access_token)。 Webhook 可以使用秘密來辨識事件是否來自「事件方格」且具有有效的權限。 事件格線會在傳遞至 Webhook 的每個事件中包含這些查詢參數。
 
 編輯事件訂閱時，除非在 Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 中使用 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) 參數，否則不會顯示或傳回查詢參數。
 
@@ -288,7 +292,7 @@ Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**：允許限制的張貼動作，但不允許刪除。
+**EventGridNoDeleteListKeysRole.json**：允許執行限制的張貼動作，但不允許執行刪除動作。
 
 ```json
 {
@@ -311,7 +315,7 @@ Azure Event Grid 讓您能控制給予不同使用者進行各種管理作業的
 }
 ```
 
-**EventGridContributorRole.json**：允許所有 Grid 動作。
+**EventGridContributorRole.json**：允許所有事件方格動作。
 
 ```json
 {

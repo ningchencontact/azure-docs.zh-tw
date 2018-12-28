@@ -10,20 +10,18 @@ ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: bbf38d17f2f411fde240a67f6666953b275fb788
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: ec56e21a989fb0e8db7b8bafb1357c6ed64eae75
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637243"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192240"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>在 Log Analytics 中使用檢視設計工具來建立自訂檢視
-藉由使用 [Azure Log Analytics](../../log-analytics/log-analytics-queries.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
+藉由使用 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 中的檢視設計工具，您可以在 Azure 入口網站中建立能協助您將 Log Analytics 工作區中的資料視覺化的各種自訂檢視。 本文提供檢視設計工具的概觀以及建立和編輯自訂檢視的程序。
 
 如需檢視設計工具的詳細資訊，請參閱：
 
@@ -42,7 +40,7 @@ ms.locfileid: "52637243"
 |:--- |:--- |
 | 圖格 | 顯示在您的 Log Analytics 工作區 [概觀] 頁面上。 每個圖格會顯示它所呈現自訂檢視的視覺化摘要。 每個圖格類型提供記錄的不同的視覺效果。 您可以選取圖格來顯示自訂檢視。 |
 | 自訂檢視 | 當您選取圖格時顯示。 每個檢視包含一或多個視覺效果組件。 |
-| 視覺效果組件 | 提供根據一或多個針對 Log Analytics 工作區中資料進行[記錄搜尋](../../log-analytics/log-analytics-queries.md)，所得結果的視覺效果。 大部分組件包含標頭 (提供高階的視覺效果)，以及清單 (顯示前幾名搜尋結果)。 每個組件類型提供 Log Analytics 工作區中不同記錄的視覺效果。 您可以選取組件中的元素來執行記錄檔搜尋以提供詳細的記錄。 |
+| 視覺效果組件 | 提供根據一或多個針對 Log Analytics 工作區中資料進行[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)，所得結果的視覺效果。 大部分組件包含標頭 (提供高階的視覺效果)，以及清單 (顯示前幾名搜尋結果)。 每個組件類型提供 Log Analytics 工作區中不同記錄的視覺效果。 您可以選取組件中的元素來執行記錄檔搜尋以提供詳細的記錄。 |
 
 
 ## <a name="work-with-an-existing-view"></a>使用現有的檢視
@@ -55,7 +53,7 @@ ms.locfileid: "52637243"
 | 選項 | 說明 |
 |:--|:--|
 | 重新整理   | 使用最新資料重新整理檢視。 | 
-| 分析 | 開啟[進階分析入口網站](../../log-analytics/log-analytics-log-search-portals.md)來分析記錄查詢的資料。 |
+| 分析 | 開啟[進階分析入口網站](../../azure-monitor/log-query/portals.md)來分析記錄查詢的資料。 |
 | Edit       | 在檢視表設計工具中開啟檢視以編輯其內容和設定。  |
 | 複製      | 建立新的檢視並且在檢視表設計工具中開啟。 新檢視的名稱與原始檢視的名稱相同，只是再附加*複製*字樣。 |
 | 日期範圍 | 為檢視中包含的資料設定日期和時間範圍篩選條件。 在檢視中設定查詢的任何日期範圍之前，會套用此日期範圍。  |
@@ -73,7 +71,7 @@ ms.locfileid: "52637243"
 
 檢視設計工具有三個窗格： 
 * **設計**：包含您要建立或編輯的自訂檢視。 
-* **控制項**：包含您新增至**設計**窗格的圖格和組件。 
+* **控制項**：包含您新增至 [設計] 窗格的圖格和組件。 
 * **屬性**：顯示圖格或所選組件的屬性。
 
 ![[檢視設計工具]](media/view-designer/view-designer-screenshot.png)

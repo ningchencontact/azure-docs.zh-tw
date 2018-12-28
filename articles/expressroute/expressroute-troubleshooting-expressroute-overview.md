@@ -1,28 +1,22 @@
 ---
-title: 確認連線：Azure ExpressRoute 疑難排解指南 | Microsoft Docs
+title: 確認連線 - ExpressRoute 疑難排解指南：Azure | Microsoft Docs
 description: 此頁面提供 ExpressRoute 路線的端對端連線確認和疑難排解的指示。
-documentationcenter: na
 services: expressroute
 author: rambk
-manager: tracsman
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/26/2017
-ms.author: cherylmc
-ms.openlocfilehash: 10d4779d05d95822ffd487db1ce8992d199c495f
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.author: rambala
+ms.custom: seodec18
+ms.openlocfilehash: a64aa59b205e8986b80a575c50041f826606e16f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36753435"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272800"
 ---
 # <a name="verifying-expressroute-connectivity"></a>確認 ExpressRoute 連線
-ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
+本文將協助您確認 ExpressRoute 連線及針對連線問題進行疑難排解。 ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路擴充至 Microsoft 雲端，涉及三個不同的網路區域：
 
 -   客戶網路
 -   提供者網路
@@ -44,7 +38,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 網路點 3 和 4 可能互換 (第 2 層裝置)，取決於 ExpressRoute 連線模型 (雲端 Exchange 共置、點對點乙太網路連線、或任何對任何 (IPVPN))。 圖中的重要網路點分別是︰
 
 1.  客戶計算裝置 (例如，伺服器或電腦)
-2.  CE︰客戶邊緣路由器 
+2.  CE：客戶邊緣路由器 
 3.  PE (面對 CE)︰面對客戶邊緣路由器的提供者邊緣路由器/交換器。 在本文件中稱為 PE-CE。
 4.  PE (面對 MSEE)︰面對 MSEE 的提供者邊緣路由器/交換器。 在本文件中稱為 PE-MSEE。
 5.  MSEE：Microsoft Enterprise Edge (MSEE) ExpressRoute 路由器
@@ -161,7 +155,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
     Sku                              : Standard
     Status                           : Enabled
 
-若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState : Provisioned Status                           : Enabled
+若要確認 ExpressRoute 路線是否在運作，請特別注意下列欄位︰ServiceProviderProvisioningState :Provisioned Status                           :Enabled
 
 >[!NOTE]
 >如果 Status 不是 enabled，請連絡 [Microsoft 支援服務][Support]。 如果 ServiceProviderProvisioningState 不是 provisioned，請連絡您的服務提供者。
@@ -169,7 +163,7 @@ ExpressRoute 透過連線提供者所提供的私人連線將內部部署網路�
 >
 
 ## <a name="validate-peering-configuration"></a>確認對等互連組態
-服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路可以啟用一、二或三個路由內容︰Azure 私人對等互連 (送至 Azure 中私人虛擬網路的流量)、Azure 公用對等互連 (送至 Azure 中公用 IP 位址的流量) 及 Microsoft 對等互連 (送至 Office 365 和 Dynamics 365 的流量)。 如需有關如何建立及修改路由組態的詳細資訊，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]一文。
+服務提供者已完成 ExpressRoute 路之線佈建後，可以透過 MSEE-PR (4) 和 MSEE (5) 之間的 ExpressRoute 路線建立路由組態。 每個 ExpressRoute 線路可以啟用一個、兩個或三個路由內容：Azure 私用對等互連 (傳送至 Azure 中私人虛擬網路的流量)、Azure 公用對等互連 (傳送至 Azure 中公用 IP 位址的流量) 及 Microsoft 對等互連 (傳送至 Office 365 和 Dynamics 365 的流量)。 如需有關如何建立及修改路由組態的詳細資訊，請參閱[建立和修改 ExpressRoute 路線的路由][CreatePeering]一文。
 
 ### <a name="verification-via-the-azure-portal"></a>透過 Azure 入口網站進行確認
 

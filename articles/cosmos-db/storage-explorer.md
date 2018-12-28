@@ -1,37 +1,32 @@
 ---
-title: 在 Azure 儲存體總管中管理 Azure Cosmos DB
-description: 學習如何在 Azure 儲存體總管中管理 Azure Cosmos DB。
-Keywords: Azure Cosmos DB, Azure Storage Explorer, MongoDB
-services: cosmos-db
+title: 使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
+description: 了解如何使用 Azure 儲存體總管連接到 Azure Cosmos DB 並管理其資源。
 author: Jejiang
-manager: kfile
-editor: ''
 tags: Azure Cosmos DB
 ms.service: cosmos-db
-ms.custom: Azure Cosmos DB active
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 12/07/2018
 ms.author: jejiang
-ms.openlocfilehash: 4a50809c48ba03b7a12689d905e704d3f820ca8a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 1ce483a88c1f57912dfe30efa98f46335e97c01c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162376"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138121"
 ---
-# <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>在 Azure 儲存體總管中管理 Azure Cosmos DB
+# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>使用 Azure 儲存體總管管理 Azure Cosmos DB 資源
 
 在 Azure 儲存體總管中使用 Azure Cosmos DB 可讓使用者管理 Azure Cosmos DB 實體、操縱資料、更新預存程序及觸發程序，以及其他 Azure 實體 (例如儲存體 Blob 及佇列)。 現在您可以使用同一個工具在同一處管理您不同的 Azure 實體。 目前，Azure 儲存體總管支援 SQL、MongoDB、圖表和資料表帳戶。
 
 
 ## <a name="prerequisites"></a>必要條件
 
-SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據[Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 SQL API Web 應用程式](create-sql-api-dotnet.md)中的說明，在 Azure 入口網站中建立帳戶。
+SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳戶，您可以根據 [Azure Cosmos DB：使用 .NET 及 Azure 入口網站建置 SQL API Web 應用程式](create-sql-api-dotnet.md)中的說明，在 Azure 入口網站中建立帳戶。
 
 ## <a name="installation"></a>安裝
 
-在這裡安裝最新的 Azure 儲存體總管位元：[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，我們現在支援 Windows、Linux 及 MAC 版本。
+在此處安裝最新版本的 Azure 儲存體總管：[Azure 儲存體總管](https://azure.microsoft.com/features/storage-explorer/)，我們現在支援 Windows、Linux 及 MAC 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>連線到 Azure 訂用帳戶
 
@@ -227,9 +222,9 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 
 1. 安裝 Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (任一輕裝版即可)
-     - Mac 和 Linux：應該包含在作業系統中
+     - Mac 及 Linux：應該包含在作業系統中
 2. 執行 Open SSL
-    - Windows：移至安裝目錄並找到 **/bin/**，然後按兩下 **openssl.exe**。
+    - Windows:移至安裝目錄並找到 **/bin/**，然後按兩下 **openssl.exe**。
     - Mac 和 Linux：從終端機執行 **openssl**
 3. 執行 `s_client -showcerts -connect microsoft.com:443`
 4. 尋找自我簽署憑證。 如果不確定哪些是自我簽署的憑證，請尋找主旨 ("s:") 和簽發者 ("i:") 相同的所有位置。
@@ -242,11 +237,11 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 
 如果您成功登入之後，卻無法擷取訂用帳戶：
 
-- 透過登入 [Azure 入口網站](http://portal.azure.com/)確認您的帳戶可存取訂用帳戶的項目
-- 確定已使用正確的環境登入 ([Azure](http://portal.azure.com/)、[Azure 中國](https://portal.azure.cn/)、[Azure 德國](https://portal.microsoftazure.de/)、[Azure 美國政府](http://portal.azure.us/)或自訂環境/Azure Stack)
+- 透過登入 [Azure 入口網站](https://portal.azure.com/)確認您的帳戶可存取訂用帳戶的項目
+- 確定已使用正確的環境登入 ([Azure](https://portal.azure.com/)、[Azure 中國](https://portal.azure.cn/)、[Azure 德國](https://portal.microsoftazure.de/)、[Azure 美國政府](https://portal.azure.us/)或自訂環境/Azure Stack)
 - 如果您是在 Proxy 背景，請確定已正確設定儲存體總管的 Proxy
 - 嘗試移除再重新新增帳戶
-- 嘗試從主目錄 (例如：C:\Users\ContosoUser) 刪除下列檔案，再重新新增帳戶：
+- 嘗試從主目錄刪除下列檔案 (例如：C:\Users\ContosoUser)，再重新新增帳戶：
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -310,6 +305,6 @@ SQL API <!--or MongoDB API--> 的 Azure Cosmos DB 帳戶。 若您還沒有帳�
 
 ## <a name="next-steps"></a>後續步驟
 
-* 請觀看下列影片以了解如何在 Azure 儲存體總管中使用 Azure Cosmos DB：[在 Azure 儲存體總管中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
+* 觀看下列影片，以了解如何在 Azure 儲存體總管中使用 Azure Cosmos DB：[在 Azure 儲存體總管中使用 Azure Cosmos DB](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be)。
 * 在[開始使用儲存體總管](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)中深入了解儲存體總管並連線更多服務。
 

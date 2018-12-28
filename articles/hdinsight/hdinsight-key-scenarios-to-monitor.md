@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: arindamc
-ms.openlocfilehash: 727ecdb06f9a43bf3722f82fa10b7a3304cf4958
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22b9a63ab595b4d0b003d999bcd0f131e50aeabf
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255297"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383930"
 ---
 # <a name="monitor-cluster-performance"></a>監視叢集效能
 
 監視 HDInsight 叢集的健康情況和效能對於維護最佳效能與資源使用率而言是不可或缺的。 監視也可以協助您偵測並解決叢集設定錯誤和使用者程式碼問題。
 
-下列各節說明如何監視和最佳化叢集、YARN 佇列上的負載，以及偵測儲存體節流問題。
+下列各節說明如何對叢集、Apache Hadoop YARN 佇列上的負載進行監視和最佳化，以及偵測儲存體節流問題。
 
 ## <a name="monitor-cluster-load"></a>監視叢集負載
 
@@ -43,7 +43,7 @@ ms.locfileid: "51255297"
 
 ![主機詳細資料](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-如需設定警示和檢視計量的詳細資料，請參閱[使用 Ambari Web UI 來管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
+如需有關設定警示和檢視計量的詳細資料，請參閱[使用 Apache Ambari Web UI 來管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="yarn-queue-configuration"></a>YARN 佇列組態
 
@@ -79,14 +79,14 @@ YARN 可讓我們將資源配置給這些佇列，並顯示是否已指派所有
 
 如果您叢集的備份存放區是 Azure Data Lake Store (ADLS)，您的節流很有可能是因為頻寬限制。 在此情況下，透過觀察工作記錄中的節流錯誤即可識別節流。 如需 ADLS，請參閱這些文章中的節流一節以了解適當服務：
 
-* [HDInsight 和 Azure Data Lake Store 上的 Hive 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-hive.md)
+* [HDInsight 和 Azure Data Lake Store 上的 Apache Hive 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [HDInsight 和 Azure Data Lake Store 上的 MapReduce 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
-* [HDInsight 和 Azure Data Lake Store 上的 Storm 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+* [HDInsight 和 Azure Data Lake Store 上的 Apache Storm 效能微調方針](../data-lake-store/data-lake-store-performance-tuning-storm.md)
 
 ## <a name="next-steps"></a>後續步驟
 
 請造訪下列連結以取得關於疑難排解和監視您叢集的詳細資訊：
 
 * [分析 HDInsight 記錄檔](hdinsight-debug-jobs.md)
-* [利用 YARN 記錄為應用程式偵錯](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [利用 Apache Hadoop YARN 記錄為應用程式偵錯](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

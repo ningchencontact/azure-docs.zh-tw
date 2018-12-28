@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 202a68d219bec3a70e50afa68228cbc6bf453518
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011658"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383896"
 ---
-# <a name="install-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Giraph，以及使用 Giraph 來處理大規模圖形
+# <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形
 
 了解如何在 HDInsight 叢集上安裝 Apache Giraph。 HDInsight 的指令碼動作功能可讓您執行 bash 指令碼來自訂叢集。 在叢集建立期間和之後，可利用指令碼來自訂叢集。
 
@@ -33,10 +33,10 @@ ms.locfileid: "51011658"
 
 * 計算網頁的頁面排名。
 
-> [!WARNING]
+> [!WARNING]  
 > 完全支援 HDInsight 叢集隨附的元件 - Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
 
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
@@ -72,13 +72,13 @@ ms.locfileid: "51011658"
 
    * **指令碼 URI**： https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh
 
-   * **HEAD**：勾選此項目
+   * **前端**：勾選此項目。
 
-   * **WORKER**：保持不勾選此項目
+   * **背景工作**：將此項目維持不勾選。
 
-   * **ZOOKEEPER**：保持不勾選此項目
+   * **ZOOKEEPER**：將此項目維持不勾選。
 
-   * **參數**：將此欄位保留空白
+   * **參數**：將此欄位保留空白。
 
 3. 在 [指令碼動作] 底部，使用 [選取] 按鈕以儲存組態。 最後，使用 [選用組態] 區段底部的 [選取] 按鈕，儲存選用組態資訊。
 
@@ -172,4 +172,4 @@ ms.locfileid: "51011658"
 
 * [在 HDInsight 叢集上安裝及使用 Hue](hdinsight-hadoop-hue-linux.md)。
 
-* [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。
+* [在 HDInsight 叢集上安裝 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。

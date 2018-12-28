@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/10/2018
+ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242818"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270394"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database 常見問題集 (FAQ)
 
@@ -196,9 +196,9 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 > [!NOTE]
 > 限時提供免費的備份與 IO。
 
-## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>在彈性集區中使用作用中異地複寫會在我的帳單上如何顯示
+## <a name="how-does-the-use-of-active-geo-replication-or-auto-failover-groups-in-an-elastic-pool-show-up-on-my-bill"></a>為何我的帳單上出現在彈性集區中使用作用中異地複寫或自動容錯移轉群組的記錄
 
-與單一資料庫不同，搭配彈性資料庫使用[作用中異地複寫](sql-database-geo-replication-overview.md)對計費並沒有直接的影響。  您只需要為對每個集區 (主要集區和次要集區) 佈建的資源付費
+與單一資料庫不同，搭配彈性資料庫使用[作用中異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)對計費並沒有直接的影響。 您只需要為對每個集區 (主要集區和次要集區) 佈建的資源付費
 
 ## <a name="how-does-the-use-of-the-auditing-feature-impact-my-bill"></a>使用稽核功能會如何影響帳單
 
@@ -217,7 +217,7 @@ SQL Database 會根據[購買模型](sql-database-service-tiers-dtu.md)以可預
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>如何確保只有授權的 IP 位址可以存取伺服器
 
-請參閱 [如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
+請參閱[如何：在 SQL Database 上進行防火牆設定](sql-database-configure-firewall-settings.md)。
 
 ## <a name="what-is-an-expected-replication-lag-when-geo-replicating-a-database-between-two-regions-within-the-same-azure-geography"></a>在兩個 Azure 地理位置相同的區域之間，針對資料庫進行異地複寫時，預期的複寫延遲是多久
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上使用 T-SQL 和 Python 的 SQL 資料倉儲資料科學逐步解說 | Microsoft Docs
+title: 使用 T-SQL 和 Python 在 SQL 資料倉儲上執行分析 - Team Data Science Process
 description: 舉例逐步解說如何使用 SQL 資料倉儲來執行預測性分析。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 425b28a3bfff46de3cb37562be8c6f868117a421
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7d5b4d5d797b56407712494ca3702586a33c9fca
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444983"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138019"
 ---
 # <a name="sql-data-warehouse-data-science-walkthroughs-using-t-sql-and-python-on-azure"></a>在 Azure 上使用 T-SQL 和 Python 的 SQL 資料倉儲資料科學逐步解說
 

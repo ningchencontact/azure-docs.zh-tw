@@ -1,6 +1,6 @@
 ---
-title: 如何新增或移除 Azure Active Directory 群組擁有者 | Microsoft Docs
-description: 了解如何使用 Azure Active Directory 新增或移除群組擁有者。
+title: 新增或移除群組擁有者 - Azure Active Directory | Microsoft Docs
+description: 有關如何使用 Azure Active Directory 新增或移除群組擁有者的指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,15 +10,15 @@ ms.component: fundamentals
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
-ms.custom: it-pro
-ms.openlocfilehash: fae68bccbeaa54ca1bab9d77510fe6baecd11fcc
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 8c70378993e0155cbe730a5a351848ca1a1daa0a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139715"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53087145"
 ---
-# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>如何：在 Azure Active Directory 中新增或移除群組擁有者
+# <a name="add-or-remove-group-owners-in-azure-active-directory"></a>在 Azure Active Directory 中新增或移除群組擁有者
 Azure Active Directory (Azure AD) 群組是由群組擁有者所擁有及管理。 群組擁有者是由資源擁有者 (系統管理員) 指派來管理群組與其成員。 群組擁有者不需要是該群組的成員。 指派群組擁有者之後，只有資源擁有者可以新增或移除擁有者。
 
 在某些案例中，身為系統管理員的您可能決定不指派群組擁有者。 在此案例中，您會成為群組擁有者。 此外，擁有者可以指派其他擁有者到其群組，除非您已在群組設定中限制這樣做。

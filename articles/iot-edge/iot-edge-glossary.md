@@ -1,21 +1,22 @@
 ---
-title: Azure IoT Edge 術語詞彙 | Microsoft Docs
+title: 術語詞彙 - Azure IoT Edge | Microsoft Docs
 description: 概念 - Azure IoT Edge 相關的常用術語詞彙表。
 author: menchi
-manager: bzurcher
+manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: menchi
-ms.openlocfilehash: 79864b765282f2efbf7016cba7138efa4e1d3dc4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 4267a60911b02615e8482f8616f889ad2c1df02d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597787"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093894"
 ---
-# <a name="glossary-of-iot-edge-terms"></a>IoT Edge 術語詞彙
+# <a name="glossary-of-terms-for-azure-iot-edge"></a>Azure IoT Edge 的術語詞彙
 本文會列出 IoT Edge 文章中使用的一些常見術語。
 
 [!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]

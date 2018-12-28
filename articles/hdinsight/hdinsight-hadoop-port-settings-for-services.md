@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6204933d6b9a4a6b296a141520fc8887c9181f1
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279687"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384134"
 ---
-# <a name="ports-used-by-hadoop-services-on-hdinsight"></a>HDInsight 上 Hadoop 服務所使用的連接埠
+# <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
-本文件提供在以 Linux 為基礎的 HDInsight 叢集上執行的 Hadoop 服務所使用的連接埠清單。 此外，也提供用來連線到使用 SSH 之叢集的連接埠相關資訊。
+本文件提供在 Linux 型 HDInsight 叢集上執行之 Apache Hadoop 服務所使用的連接埠清單。 此外，也提供用來連線到使用 SSH 之叢集的連接埠相關資訊。
 
 ## <a name="public-ports-vs-non-public-ports"></a>公用連接埠與非公用連接埠
 
@@ -26,7 +26,7 @@ ms.locfileid: "51279687"
 
 在內部，HDInsight 由數個在 Azure 虛擬網路上執行的 Azure 虛擬機器 (叢集內的節點) 實作。 您可以從虛擬網路存取不是透過網際網路公開的連接埠。 例如，如果您使用 SSH 連接到其中一個前端節點，您可以從此前端節點直接存取在叢集節點上執行的服務。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您沒有將 Azure 虛擬網路指定為 HDInsight 的設定選項，則會自動建立一個。 不過，您無法將其他電腦 (例如其他 Azure 虛擬機器或用戶端開發電腦) 加入此虛擬網路。
 
 
@@ -41,20 +41,20 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 | sshd |22 |SSH |將用戶端連接到主要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |22 |SSH |將用戶端連接至邊緣節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
 | sshd |23 |SSH |將用戶端連接到次要前端節點上的 sshd。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。 |
-| Ambari |443 |HTTPS |Ambari Web UI。 請參閱 [使用 Ambari Web UI 管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
-| Ambari |443 |HTTPS |Ambari REST API。 請參閱 [使用 Ambari REST API 管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
-| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 Hive 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 Pig 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 MapReduce 與 Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
+| Ambari |443 |HTTPS |Ambari Web UI。 請參閱 [使用 Apache Ambari Web UI 來管理 HDInsight](hdinsight-hadoop-manage-ambari.md) |
+| Ambari |443 |HTTPS |Ambari REST API。 請參閱[使用 Apache Ambari REST API 來管理 HDInsight](hdinsight-hadoop-manage-ambari-rest-api.md) |
+| WebHCat |443 |HTTPS |HCatalog REST API。 請參閱[搭配使用 Apache Hive 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 Apache Pig 與 Curl](hadoop/apache-hadoop-use-pig-curl.md)、[搭配使用 MapReduce 與 Curl](hadoop/apache-hadoop-use-mapreduce-curl.md) |
 | HiveServer2 |443 |ODBC |使用 ODBC 連接至 Hive。 請參閱 [使用 Microsoft ODBC 驅動程式將 Excel 連接到 HDInsight](hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。 |
-| HiveServer2 |443 |JDBC |使用 JDBC 連接至 Hive。 請參閱 [使用 Hive JDBC 驅動程式連接到 HDInsight 上的 Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
+| HiveServer2 |443 |JDBC |使用 JDBC 來連線至 Hive。 請參閱[使用 Hive JDBC 驅動程式來連線至 HDInsight 上的 Apache Hive](hadoop/apache-hadoop-connect-hive-jdbc-driver.md) |
 
 下列各項適用於特定叢集類型︰
 
 | 服務 | Port | 通訊協定 | 叢集類型 | 說明 |
 | --- | --- | --- | --- | --- |
-| Stargate |443 |HTTPS |hbase |HBase REST API。 請參閱 [開始使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
-| Livy |443 |HTTPS |Spark |Spark REST API。 請參閱 [使用 Livy 從遠端提交 Spark 作業](spark/apache-spark-livy-rest-interface.md) |
-| Spark Thrift 伺服器 |443 |HTTPS |Spark |用來提交 Hive 查詢的 Spark Thrift 伺服器。 請參閱[搭配使用 Beeline 與 HDInsight 上的 Hive](hadoop/apache-hadoop-use-hive-beeline.md) |
-| Storm |443 |HTTPS |Storm |Storm Web UI。 請參閱 [部署和管理 HDInsight 上的 Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Stargate |443 |HTTPS |hbase |HBase REST API。 請參閱[開始使用 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
+| Livy |443 |HTTPS |Spark |Spark REST API。 請參閱[使用 Apache Livy 從遠端提交 Apache Spark 作業](spark/apache-spark-livy-rest-interface.md) |
+| Spark Thrift 伺服器 |443 |HTTPS |Spark |用來提交 Hive 查詢的 Spark Thrift 伺服器。 請參閱[使用 Beeline 搭配 HDInsight 上的 Apache Hive](hadoop/apache-hadoop-use-hive-beeline.md) |
+| Storm |443 |HTTPS |Storm |Storm Web UI。 請參閱[部署和管理 HDInsight 上的 Apache Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
 ### <a name="authentication"></a>驗證
 
@@ -67,10 +67,10 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 ## <a name="non-public-ports"></a>非公用連接埠
 
-> [!NOTE]
+> [!NOTE]  
 > 部分服務只能在特定叢集類型上使用。 例如，HBase 只能在 HBase 叢集類型上使用。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 某些服務一次只能在一個前端節點上執行。 如果您嘗試連接到主要前端節點上的服務並收到錯誤，請使用次要前端節點重試。
 
 ### <a name="ambari"></a>Ambari

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 86fdd7b0bd8ac76ddb2ac30ff324b80101c177e8
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353895"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259132"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>監視及管理多租用戶 SaaS 應用程式中 Azure SQL Database 和集區的效能
 
@@ -75,7 +75,7 @@ Wingtip Tickets SaaS Database Per Tenant 應用程式使用單一租用戶資料
 
 指令碼將在五分鐘內部署 17 個租用戶。
 
-*New-TenantBatch* 指令碼會使用建立租用戶批次之 [Resource Manager](../azure-resource-manager/index.md) 範本的巢狀或連結集合，根據預設會複製類別目錄伺服器上的 **basetenantdb** 資料庫，以建立新的租用戶資料庫，然後在類別目錄中註冊這些資料庫，最後則使用租用戶名稱和場地類型將它們初始化。 這與應用程式佈建新租用戶的方式一致。 針對 *basetenantdb* 所做的任何變更會套用至之後所佈建的任何新租用戶。 請參閱[結構描述管理教學課程](saas-tenancy-schema-management.md)，以了解如何針對「現有」租用戶資料庫 (包括 basetenantdb 資料庫) 進行結構描述變更。
+*New-TenantBatch* 指令碼會使用建立租用戶批次之 [Resource Manager](../azure-resource-manager/index.yml) 範本的巢狀或連結集合，根據預設會複製類別目錄伺服器上的 **basetenantdb** 資料庫，以建立新的租用戶資料庫，然後在類別目錄中註冊這些資料庫，最後則使用租用戶名稱和場地類型將它們初始化。 這與應用程式佈建新租用戶的方式一致。 針對 *basetenantdb* 所做的任何變更會套用至之後所佈建的任何新租用戶。 請參閱[結構描述管理教學課程](saas-tenancy-schema-management.md)，以了解如何針對「現有」租用戶資料庫 (包括 basetenantdb 資料庫) 進行結構描述變更。
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>模擬所有租用戶資料庫的使用情形
 
@@ -207,7 +207,7 @@ Wingtip Tickets SaaS Database Per Tenant 是 SaaS 應用程式，而實際 SaaS 
 
 1. 檢查 [彈性集區監視] 圖表，並尋找增加的集區 DTU 使用量。 在一或兩分鐘後，應該會開始產生較高的負載，且您應該會快速看到集區達到 100% 使用率。
 2. 檢查 [彈性資料庫監視] 顯示，它會顯示過去一小時內最熱門的資料庫。 contosoconcerthall 資料庫應該很快會顯示為 5 個最熱門資料庫的其中之一。
-3. **按一下彈性資料庫監視** **圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
+3. **按一下彈性資料庫監視****圖表**，可以開啟 [資料庫資源使用量] 頁面，您可以在其中監視任何資料庫。 這可讓您找出 contosoconcerthall 資料庫的顯示。
 4. 從資料庫清單中，按一下 contosoconcerthall。
 5. 按一下 [定價層 (調整 DTU)] 以開啟 [設定效能] 頁面，您可以在其中設定資料庫的獨立計算大小。
 6. 按一下 [標準] 索引標籤，以開啟標準層中的調整選項。

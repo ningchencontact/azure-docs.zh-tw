@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: bdae72f5ed4ebed87842ade05ec7a6bc21d349dc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 7e84e8e99000e9d8bd7a21d343588b1df777b56d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086636"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994544"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 開發人員參考
 
@@ -81,7 +81,7 @@ public static class SimpleExample
 方法簽章可包含非用於觸發程序屬性的參數。 以下是幾個可以包含在其中的額外參數：
 
 * 以屬性修飾來加以標示的[輸入與輸出繫結](functions-triggers-bindings.md)。  
-* 用於[記錄](#logging)的 `ILogger` 或 `TraceWriter` 參數。
+* 適用於[記錄](#logging)的 `ILogger` 或 `TraceWriter` ([僅限 1.x 版](functions-versions.md#creating-1x-apps)) 參數。
 * 用於[正常關機](#cancellation-tokens)的 `CancellationToken` 參數。
 * 取得觸發程序中繼資料的[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)參數。
 
@@ -154,7 +154,7 @@ public static class BindingExpressionsExample
 
 ## <a name="microsoftnetsdkfunctions"></a>Microsoft.NET.Sdk.Functions
 
-*function.json* 檔案產生是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 
+*function.json* 檔案產生是由 NuGet 套件 [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions) 執行。 
 
 Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1.x 專案與 2.x 專案可依目標架構來區分。 以下是 *.csproj* 檔案的相關部分，顯示不同的目標架構和相同的 `Sdk` 套件：
 
@@ -183,7 +183,7 @@ Functions 執行階段的 1.x 版和 2.x 版都是使用同一個套件。 1.x �
 
 在 `Sdk` 套件相依性中的是觸發程序和繫結。 1.x 專案會參考 1.x 觸發程序和繫結，因為那些項目會將目標設為 .NET Framework，而 2.x 觸發程序和繫結則會將目標設為 .NET Core。
 
-`Sdk` 套件也會相依於 [Newtonsoft.Json](http://www.nuget.org/packages/Newtonsoft.Json) \(英文\)，並間接相依於 [WindowsAzure.Storage](http://www.nuget.org/packages/WindowsAzure.Storage) \(英文\)。 這些相依性可確保您的專案會使用能夠搭配專案所設為目標之 Functions 執行階段版本運作的套件版本。 例如，`Newtonsoft.Json` 含有適用於 .NET Framework 4.6.1 的 11 版，但目標為 .NET Framework 4.6.1 的 Functions 執行階段只能與 `Newtonsoft.Json` 9.0.1 相容。 因此，您在該專案中的函式程式碼也必須使用 `Newtonsoft.Json` 9.0.1。
+`Sdk` 套件也會相依於 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json) \(英文\)，並間接相依於 [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage) \(英文\)。 這些相依性可確保您的專案會使用能夠搭配專案所設為目標之 Functions 執行階段版本運作的套件版本。 例如，`Newtonsoft.Json` 含有適用於 .NET Framework 4.6.1 的 11 版，但目標為 .NET Framework 4.6.1 的 Functions 執行階段只能與 `Newtonsoft.Json` 9.0.1 相容。 因此，您在該專案中的函式程式碼也必須使用 `Newtonsoft.Json` 9.0.1。
 
 適用於 `Microsoft.NET.Sdk.Functions` 的原始程式碼位於 GitHub 存放庫 [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk) \(英文\)。
 
@@ -233,7 +233,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>記錄
 
-若要使用 C# 將輸出記錄至串流記錄，請包含 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 類型的引數。 建議您將它命名為 `log`。 避免在 Azure Functions 中使用 `Console.Write`。
+若要使用 C# 將輸出記錄至串流記錄，請包含 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 類型的引數。 建議您將它命名為 `log`，如下列範例所示：  
 
 ```csharp
 public static class SimpleExample
@@ -248,8 +248,7 @@ public static class SimpleExample
 } 
 ```
 
-> [!NOTE]
-> 如需您可使用之較新記錄架構 (而非 `TraceWriter`) 的資訊，請參閱**監視 Azure Functions** 一文中的[在 C# 函式中寫入記錄](functions-monitoring.md#write-logs-in-c-functions)。
+避免在 Azure Functions 中使用 `Console.Write`。 如需詳細資訊，請參閱**監視 Azure Functions** 文章中的在 [C# 函式中寫入記錄](functions-monitoring.md#write-logs-in-c-functions)。
 
 ## <a name="async"></a>非同步處理
 

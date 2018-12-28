@@ -1,6 +1,6 @@
 ---
-title: 清除並準備 Azure Machine Learning 的資料 | Microsoft Docs
-description: 前置處理和清除資料，為用於機器學習服務做準備。
+title: 清除和準備適用於 Azure Machine Learning 的資料 - Team Data Science Process
+description: 前置處理和清除資料，準備好讓資料可有效用於機器學習。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 52457e19cede5d8d2b74d9c3d81ebf35e3ad06c4
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a926edc3409290a0e8cd89fd909427833f9e1427
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446555"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134364"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>準備增強機器學習服務的資料的工作
 前置處理和清除資料是很重要的工作，必須先執行這些工作，才能有效地將資料集用於機器學習服務。 未經處理的資料通常會有雜訊且不可靠，還可能會有遺漏值。 使用這類資料進行模型化可能會產生誤導的結果。 這些工作屬於 Team Data Science Process (TDSP)，通常會遵循用來探索及計劃所需預先處理的資料集初始探索。 如需更多關於 TDSP 程序的詳細指示，請參閱 [Team Data Science Process](overview.md)中概述的步驟。
@@ -56,8 +56,8 @@ ms.locfileid: "52446555"
 ## <a name="what-are-some-of-the-major-tasks-in-data-pre-processing"></a>資料前置處理中有哪些主要工作？
 * **資料清除**：填入值或遺漏值，偵測並移除雜訊資料和極端值。
 * **資料轉換**：將資料標準化，以減少維度和雜訊。
-* **資料縮減**：取樣資料記錄或屬性，以進行較簡單的資料處理。
-* **資料離散化**：將連續屬性轉換為類別屬性，以方便搭配特定的機器學習服務方法來使用。
+* **資料縮減**：為資料記錄或屬性取樣，以進行較簡單的資料處理。
+* **資料離散化**：將連續屬性轉換為類別屬性，以方便搭配特定的機器學習方法使用。
 * **文字清除**：移除可能造成資料對齊錯誤的內嵌字元，例如，定位鍵分隔的資料檔中的內嵌定位鍵、可能中斷記錄的內嵌新行等。
 
 下列各節將詳細說明一些資料處理步驟。
@@ -65,29 +65,29 @@ ms.locfileid: "52446555"
 ## <a name="how-to-deal-with-missing-values"></a>如何處理遺漏值？
 若要處理遺漏值，最好先識別遺漏值的原因，以便對問題進行更好的控制。 典型的遺漏值處理方法如下：
 
-* **刪除**：移除具有遺漏值的記錄。
-* **虛擬替代**：使用虛擬值來取代遺漏值，例如，對類別值使用 *unknown* ，或對數值使用 0。
+* **刪除**：移除具有遺漏值的記錄
+* **虛擬值替代**：使用虛擬值來取代遺漏值，例如，對類別值使用 *unknown* 或對數值使用 0。
 * **平均值替代**：如果遺漏值是數值，可使用平均值來取代遺漏值。
-* **頻率替代**：如果遺漏值是類別，可使用最常用的項目來取代遺漏值。
+* **頻率替代**：如果遺漏值是類別，可使用最常用的項目來取代遺漏值
 * **迴歸替代**：利用迴歸方法，使用迴歸值來取代遺漏值。  
 
 ## <a name="how-to-normalize-data"></a>如何將資料標準化？
 資料標準化會將數值範圍重新調整為指定的範圍。 常用的資料正規化方法包括：
 
-* **最小值與最大值標準化**：以線性方式將資料轉換為範圍，例如介於 0 和 1 之間時，其中最小值會調整為 0，最大值則調整為 1。
+* **最小值與最大值標準化**：以線性方式將資料轉換為範圍，例如介於 0 和 1 之間，其中最小值會調整為 0，最大值則會調整為 1。
 * **Z 分數標準化**：根據平均值和標準差來調整資料範圍：將資料和平均值之間的差距除以標準差。
 * **小數點調整**：藉由移動屬性值的小數點來調整資料範圍。  
 
 ## <a name="how-to-discretize-data"></a>如何將資料離散化？
 您可以藉由將連續值轉換成名義屬性或間隔來將資料離散化。 以下提供一些執行此動作的方法：
 
-* **等寬分類收納**：將屬性的所有可能值範圍分成 N 個同樣大小的群組，並使用分類收納號碼來指派落於某一個分類收納中的值。
-* **等高分類收納**：將屬性的所有可能值範圍分成 N 個包含相同執行個體數目的群組，然後使用分類收納號碼來指派落於某一個分類收納中的值。  
+* **等寬量化**：將屬性的所有可能值範圍分成 N 個同樣大小的群組，並使用量化號碼來指派落於某個量化內的值。
+* **等高量化**：將屬性的所有可能值範圍分成 N 個包含相同執行個體數目的群組，然後使用量化號碼來指派落於某個量化內的值。  
 
 ## <a name="how-to-reduce-data"></a>如何縮減資料？
 有各種方法可用來縮減資料大小，以便更容易處理資料。 根據資料大小和網域而定，您可以套用下列方法：
 
-* **記錄取樣**：取樣資料記錄，並且只從資料中選擇代表性子集。
+* **記錄取樣**：為資料記錄取樣，並且只從資料中選擇代表性子集。
 * **屬性取樣**：只從資料選取一組最重要的屬性子集。  
 * **彙總**：將資料分組，並儲存每個群組的數目。 例如，可以將某一家連鎖餐廳在過去 20 年的每日營收數字彙總為每月營收，以縮減資料大小。  
 
@@ -97,7 +97,7 @@ ms.locfileid: "52446555"
 **資料探索** 可讓您檢視早期資料。 在此步驟中可以發現一些資料問題，然後套用對應的方法以解決這些問題。  請務必提出問題，例如，問題的來源是什麼，以及問題可能是如何引發的。 這也有助於您決定必須採取以解決這些問題的資料處理步驟。 深入探討某一個想要從資料衍生的類型，也可用來排列資料處理工作的優先順序。
 
 ## <a name="references"></a>參考
-> *Data Mining: Concepts and Techniques*(資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
+> *Data Mining:Concepts and Techniques* (資料採礦：觀念與技術)，第三版，Morgan Kaufmann，2011，Jiawei Han、Micheline Kamber 及 Jian Pei
 > 
 > 
 

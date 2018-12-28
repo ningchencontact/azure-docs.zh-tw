@@ -1,5 +1,5 @@
 ---
-title: 識別 Azure Machine Learning 的進階分析案例 | Microsoft Docs
+title: 識別適用於 Azure Machine Learning 的案例 - Team Data Science Process
 description: 選取適合使用 Team Data Science Process 進行進階預測性分析的案例。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 16d8457e5605ce0e3c10ed95296b5a883a4c602c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 88c3be12647bd73296c214390d3d2fb1fe79ccb4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444829"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138886"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>在 Azure 機器學習中的進階分析案例
 本文概述可以運用 [Team Data Science Process (TDSP)](overview.md)來處理的各種範例資料來源和目標案例。 TDSP 提供系統化的方法，可讓小組共同建置智慧型應用程式。 此處呈現的案例將根據資料特性、來源位置和在 Azure 中的目標儲存機制，來說明資料處理工作流程中可用的選項。
@@ -42,7 +42,7 @@ ms.locfileid: "52444829"
 ## <a name="smalllocal"></a>案例 \#1：本機檔案中的中小型表格式資料集
 ![中小型本機檔案][1]
 
-#### <a name="additional-azure-resources-none"></a>其他 Azure 資源：無
+#### <a name="additional-azure-resources-none"></a>其他 Azure 資源：None
 1. 登入 [Azure 機器學習 Studio](https://studio.azureml.net/)。
 1. 上傳資料集。
 1. 建置從上傳的資料集開始的 Azure 機器學習實驗流程。
@@ -93,7 +93,7 @@ ms.locfileid: "52444829"
    * 建立資料庫和目標資料表。
    * 使用其中一種大量匯入方法，從 VM 本機檔案載入資料。
    
-   選項 \#2：使用 IPython Notebook – 不建議用於中型和大型資料集
+   選項 \#2：使用 IPython Notebook - 不建議用於中型和更大型資料集
    
    <!-- -->    
    * 使用 ODBC 連線字串，存取 VM 上的 SQL Server。
@@ -105,7 +105,7 @@ ms.locfileid: "52444829"
 1. 使用[匯入資料][import-data]模組直接從 SQL Server 讀取資料。 視需要，將可擷取欄位、建立功能及對資料取樣的必要查詢，直接貼到[匯入資料][import-data]查詢中。
 1. 建置從內嵌的資料集開始的 Azure 機器學習實驗流程。
 
-## <a name="largelocaltodb"></a>案例 \#5：本機資料中的大型資料集，目標 Azure VM 中的 SQL Server
+## <a name="largelocaltodb"></a>案例 \#5：本機檔案中的大型資料集，以 Azure VM 中的 SQL Server 為目標
 ![大型本機檔案至 Azure 中的 SQL DB][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>其他 Azure 資源：Azure 虛擬機器 (SQL Server / IPython Notebook 伺服器)
@@ -194,7 +194,7 @@ ms.locfileid: "52444829"
 
 [使用卸離和連結來移動資料庫 (Transact-SQL)](https://technet.microsoft.com/library/ms187858\(v=sql.110\).aspx)
 
-## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，目標 Azure HDInsight Hadoop 叢集中的 Hive 資料庫
+## <a name="largedbtohive"></a>案例 \#7：本機檔案中的巨量資料，以 Azure HDInsight Hadoop 叢集中的 Hive 資料庫為目標
 ![本機目標 Hive 中的巨量資料][9]
 
 #### <a name="additional-azure-resources-azure-hdinsight-hadoop-cluster-and-azure-virtual-machine-ipython-notebook-server"></a>其他 Azure 資源：Azure HDInsight Hadoop 叢集和 Azure 虛擬機器 (IPython Notebook 伺服器)

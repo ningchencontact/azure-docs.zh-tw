@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 13bb128836590fb43e0c6a2f7131f83a99a23eaf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 871abffc07ee29df388205395110e89a85dd7344
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39507799"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promaster-by-inlogik"></a>教學課程：Azure Active Directory 與 ProMaster (by Inlogik) 整合
 
@@ -111,6 +111,7 @@ ms.locfileid: "39507799"
     ![ProMaster (by Inlogik) 網域與 URL 單一登入資訊](./media/promaster-tutorial/tutorial_promaster_url1.png)
 
     a. 在 [識別碼] 文字方塊中，使用下列其中一種 URL 模式：
+
     | |
     | - |-|
     |  `https://secure.inlogik.com/<COMPANYNAME>`|
@@ -118,6 +119,7 @@ ms.locfileid: "39507799"
     | |
 
     b. 在 [回覆 URL] 文字方塊中，使用下列其中一種 URL 模式：
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
@@ -129,6 +131,7 @@ ms.locfileid: "39507799"
     ![ProMaster (by Inlogik) 網域與 URL 單一登入資訊](./media/promaster-tutorial/tutorial_promaster_url2.png)
 
     在 [登入 URL] 文字方塊中，使用下列其中一種 URL 模式：
+
     | |
     | - |-|
     | `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
@@ -182,7 +185,7 @@ ms.locfileid: "39507799"
 
 ### <a name="create-a-promaster-by-inlogik-test-user"></a>建立 ProMaster (by Inlogik) 測試使用者
 
-在本節中，您會在 ProMaster (by Inlogik) 中建立名為 Britta Simon 的使用者。 與 [ProMaster (by Inlogik) 支援小組](mailto:michael.boldiston@inlogik.com)合作，在 ProMaster (by Inlogik) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 ProMaster (by Inlogik) 中建立名為 Britta Simon 的使用者。 與 [ProMaster (by Inlogik) 支援小組](mailto:michael.boldiston@inlogik.com) 合作，在 ProMaster (by Inlogik) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

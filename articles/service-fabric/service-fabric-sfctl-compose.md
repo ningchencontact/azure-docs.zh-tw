@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 3ce0b63c579412d9d8d35b835803becab09f7ef4
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d71b0c020fb9ceb305b56216d466bacb42ad21e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494147"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278146"
 ---
 # <a name="sfctl-compose"></a>sfctl compose
 建立、刪除和管理 Docker Compose 應用程式。
@@ -33,6 +33,7 @@ ms.locfileid: "39494147"
 | remove | 從叢集刪除現有的 Service Fabric Compose 部署。 |
 | status | 取得 Service Fabric Compose 部署的相關資訊。 |
 | 升級 | 開始升級 Service Fabric 叢集中的 Compose 部署。 |
+| upgrade-rollback | 可開始復原 Service Fabric 叢集中的 Compose 部署升級。 |
 | upgrade-status | 取得在此 Service Fabric Compose 部署上執行的最新升級詳細資料。 |
 
 ## <a name="sfctl-compose-create"></a>sfctl compose create
@@ -140,21 +141,43 @@ ms.locfileid: "39494147"
 | --default-svc-type-health-map | 描述用來評估服務健康情況之健康原則的 JSON 編碼字典。 |
 | --encrypted-pass | 使用已經加密的複雜密碼，而不提示輸入容器登錄密碼。 |
 | --failure-action | 可能的值包括：'Invalid'、'Rollback'、'Manual'。 |
-| --force-restart | 強制重新啟動。 |
+| --force-restart | 即使程式碼版本尚未變更，仍然會在升級期間強制重新啟動處理序。 <br><br> 升級只會變更組態或資料。 |
 | --has-pass | 將提示輸入容器登錄的密碼。 |
-| --health-check-retry | 健康情況檢查重試逾時 (毫秒)。 |
-| --health-check-stable | 健康情況檢查穩定持續時間 (毫秒)。 |
-| --health-check-wait | 健康情況檢查等候持續時間 (毫秒)。 |
-| --replica-set-check | 升級複本設定檢查逾時 (秒)。 |
+| --health-check-retry | 當應用程式或叢集狀況不良時，嘗試執行健康情況檢查的間隔時間長度。 |
+| --health-check-stable | 在升級繼續進入下一個升級網域之前，應用程式或叢集必須維持狀況良好的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
+| --health-check-wait | 完成升級網域之後，在開始健康情況檢查流程之前，要等待的時間長度。 |
+| --replica-set-check | 發生非預期問題時，封鎖處理升級網域並防止遺失可用性的時間長度上限。 <br><br> 此逾時過期時，無論是否發生可用性遺失問題，升級網域的處理都將繼續。 逾時會在每個升級網域啟動時重設。 有效值介於 0 到 42949672925 (含) 之間。 |
 | --svc-type-health-map | 針對用來評估各種不同服務類型健康情況的健康原則，描述這些原則的物件 JSON 編碼清單。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --unhealthy-app | 在報告錯誤之前，允許健康情況不良應用程式的最大百分比。 <br><br> 例如，若要允許 10% 的應用程式健康情況不良，這個值會是 10。 百分比表示在系統將叢集視為錯誤之前，容許應用程式健康情況不良的最大百分比。 如果未到達此百分比，但至少有一個健康情況不良的應用程式，則健康情況會評估為 Warning。 其計算方式是將狀況不良的應用程式數目，除以叢集中應用程式執行個體的總數。 |
-| --upgrade-domain-timeout | 升級網域逾時 (毫秒)。 |
+| --upgrade-domain-timeout | 執行 FailureAction 之前，每個升級網域必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 | --upgrade-kind | 預設值\:Rolling。 |
 | --upgrade-mode | 可能的值包括：'Invalid'、'UnmonitoredAuto'、'UnmonitoredManual'、'Monitored'。  預設值\:UnmonitoredAuto。 |
-| --upgrade-timeout | 升級逾時 (毫秒)。 |
+| --upgrade-timeout | 執行 FailureAction 之前，整體升級必須完成的時間長度。 <br><br> 它會先解譯為代表 ISO 8601 持續時間的字串。 如果失敗，則會解譯為代表總毫秒數的數字。 |
 | --user | 連線到容器登錄的使用者名稱。 |
-| --warning-as-error | 具有相同嚴重性的警告會視為錯誤。 |
+| --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
+
+### <a name="global-arguments"></a>全域引數
+
+|引數|說明|
+| --- | --- |
+| --debug | 增加記錄詳細程度以顯示所有偵錯記錄。 |
+| --help -h | 顯示此說明訊息並結束。 |
+| --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
+| --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
+| --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
+## <a name="sfctl-compose-upgrade-rollback"></a>sfctl compose upgrade-rollback
+可開始復原 Service Fabric 叢集中的 Compose 部署升級。
+
+復原 Service Fabric Compose 部署升級。
+
+### <a name="arguments"></a>引數
+
+|引數|說明|
+| --- | --- |
+| --deployment-name [必要] | 部署的識別。 |
+| --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
 

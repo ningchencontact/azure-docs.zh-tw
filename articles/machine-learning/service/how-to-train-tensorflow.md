@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Machine Learning 訓練 TensorFlow 模型
+title: 使用 TensorFlow 將模型定型
+titleSuffix: Azure Machine Learning service
 description: 了解如何使用 TensorFlow 估算器執行 TensorFlow 模型的單一節點與分散式的定型
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: c761d0ac5d2c52241eadd18b2d8b65e00ccb34ba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d15d3ed115009ad1395a85d36e833d85197d4d19
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114974"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094098"
 ---
-# <a name="how-to-train-tensorflow-models"></a>如何將 TensorFlow 模型定型
+# <a name="train-tensorflow-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 TensorFlow 模型定型
 
 為了能使用 TensorFlow 深度訓練類神經網路 (DNN)，Azure Machine Learning 提供了 `Estimator` 的自訂 `TensorFlow` 類別。 Azure SDK 的 `TensorFlow` 估算器 (請勿與 [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) 類別混為一談) 可讓使用者輕鬆地提交 Azure 計算上的單一節點和分散式執行的 TensorFlow 訓練作業。
 
 ## <a name="single-node-training"></a>單一節點定型
 使用 `TensorFlow` 估算器來定型，類似於使用[基礎 `Estimator`](how-to-train-ml-models.md)，因此請先詳讀操作說明文章，並確定已了解文章中說明的概念。
   
-若要執行 TensorFlow 作業，請具現化 `TensorFlow` 物件。 您應該已建立了自己的[計算目標](how-to-set-up-training-targets.md#batch)物件`compute_target`。
+若要執行 TensorFlow 作業，請具現化 `TensorFlow` 物件。 您應該已建立了自己的[計算目標](how-to-set-up-training-targets.md#amlcompute)物件`compute_target`。
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -47,7 +49,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
 --|--
 `source_directory` | 包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算
 `script_params` | 用於指定您的定型指令碼 `entry_script` 命令列引數的字典，格式為 <命令列引數, 值> 組
-`compute_target` | 您的定型指令碼將在其上執行的遠端計算，在此案例中是 [Batch AI](how-to-set-up-training-targets.md#batch) 叢集
+`compute_target` | 您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集
 `entry_script` | 要在遠端計算上執行之定型指令碼的檔案路徑 (相對於 `source_directory`)。 此檔案 (以及此檔案所相依的其他任何檔案) 都應位於此資料夾
 `conda_packages` | 要透過 Conda 安裝的 Python 套件清單 (其中包含您的定型指令碼所需的套件)。 在此情況下，訓練指令碼會使用 `sklearn` 來載入資料，因此請指定安裝此套件。  建構函式有另一個名為 `pip_packages` 的參數，您可以視需要將此參數用於任何 pip 套件
 `use_gpu` | 請將此旗標設定為 `True`，以利用 GPU 進行定型。 預設為 `False`。
@@ -170,16 +172,9 @@ run = exp.submit(tf_est)
 ```
 
 ## <a name="examples"></a>範例
-如需單一節點 TensorFlow 訓練的教學課程，請參閱：
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-如需透過 Horovod 進行分散式 TensorFlow 訓練的教學課程，請參閱：
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-如需原生分散式 TensorFlow 的教學課程，請參閱：
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-取得這些 Notebook：
+如需有關分散式深入學習的 Notebook，請參閱：
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

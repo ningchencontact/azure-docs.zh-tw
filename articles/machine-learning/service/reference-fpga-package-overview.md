@@ -1,6 +1,7 @@
 ---
-title: 適用於 Azure Machine Learning 硬體加速的 FPGA 套件
-description: 了解適用於 Azure Machine Learning 使用者的 Python 套件。
+title: 適用於硬體加速的 FPGA 套件
+titleSuffix: Azure Machine Learning service
+description: 此文章即將淘汰。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,13 +10,14 @@ ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
 ms.date: 05/07/2018
+ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 83c5a788f85fcc47c221f5c8f9e6944c4448fbf9
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 44c0818d7ddb418e34e6e124ddc0b27460bb24a0
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712121"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262073"
 ---
 # <a name="azure-machine-learning-hardware-acceleration-package"></a>Azure Machine Learning 硬體加速套件
 
@@ -32,7 +34,8 @@ Azure Machine Learning 硬體加速套件是適用於 Azure Machine Learning 的
 
 ## <a name="prerequisites"></a>必要條件
 
-1. 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://aka.ms/AMLfree) 。
+>[!Note]
+>如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 1. Azure Machine Learning 模型管理帳戶。 如需有關建立帳戶的詳細資訊，請參閱 [Azure Machine Learning 快速入門和 Workbench 安裝](../desktop-workbench/quickstart-installation.md)文件。 
 

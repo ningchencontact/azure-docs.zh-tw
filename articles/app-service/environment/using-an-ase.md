@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure App Service Environment
-description: 如何在 Azure App Service Environment 中建立、發佈及調整應用程式
+title: 使用 App Service 環境 - Azure
+description: 如何在 Azure App Service 環境中建立、發佈及調整應用程式
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,26 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.custom: seodec18
+ms.openlocfilehash: eca6f7996b05e58614c8f15067dacabb13730396
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303365"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274712"
 ---
-# <a name="use-an-app-service-environment"></a>使用 App Service Environment #
+# <a name="use-an-app-service-environment"></a>使用 App Service 環境 #
 
 ## <a name="overview"></a>概觀 ##
 
-Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛擬網路中子網路的部署。 其中包括：
+Azure App Service 環境 (ASE) 是 Azure App Service 到客戶之 Azure 虛擬網路中子網路的部署。 其中包括：
 
-- **前端**：前端為 App Service Environment (ASE) 中 HTTP/HTTPS 終止的位置。
-- **背景工作**：這些背景工作是裝載應用程式的資源。
-- **資料庫**：資料庫會保留定義環境的資訊。
+- **前端**：前端是 App Service 環境 (ASE) 中 HTTP/HTTPS 終止的位置。
+- **背景工作**：背景工作是裝載應用程式的資源。
+- **資料庫**：資料庫會存放定義環境的資訊。
 - **儲存體**：儲存體可用來裝載客戶發佈的應用程式。
 
 > [!NOTE]
-> App Service Environment 有兩個版本：ASEv1 和 ASEv2。 在 ASEv1 中，您必須先管理資源，才可加以使用。 若要了解如何設定及管理 ASEv1，請參閱[設定 App Service Environment v1][ConfigureASEv1]。 本文的其餘部分著重於 ASEv2。
+> 「App Service 環境」有兩個版本：ASEv1 和 ASEv2。 在 ASEv1 中，您必須先管理資源，才可加以使用。 若要了解如何設定及管理 ASEv1，請參閱[設定 App Service 環境 v1][ConfigureASEv1]。 本文的其餘部分著重於 ASEv2。
 >
 >
 
@@ -45,13 +46,13 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 - 您可以挑選 ASE 作為位置，而不用挑選部署應用程式的地理位置。
 - 在 ASE 中建立的所有 App Service 方案必須在「隔離」定價層中。
 
-如果您沒有 ASE，則可以遵循[建立 App Service Environment][MakeExternalASE] 中的指示來建立一個 ASE。
+如果您沒有 ASE，則可以遵循[建立 App Service 環境][MakeExternalASE]中的指示來建立一個 ASE。
 
 若要在 ASE 中建立 Web 應用程式：
 
 1. 選取 [建立資源]  >  [Web + 行動]  >  [Web 應用程式]。
 
-1. 輸入 Web 應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
+2. 輸入 Web 應用程式的名稱。 如果您已在 ASE 中選取 App Service 方案，則應用程式的網域名稱會反映 ASE 的網域名稱。
 
     ![選取 Web 應用程式名稱][1]
 
@@ -70,7 +71,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
 
     b. 輸入 App Service 方案的名稱。
 
-    c. 在 [位置] 下拉式清單中選取您的 ASE。 在 ASE 中裝載 Linux 應用程式目前只能在 6 個區域中進行：**美國西部、美國東部、西歐、北歐、澳洲東部以及東南亞。** 
+    c. 在 [位置] 下拉式清單中選取您的 ASE。 目前只有 6 個區域允許將 Linux 應用程式裝載在 ASE 中：**美國西部、美國東部、西歐、北歐、澳大利亞東部、東南亞。** 
 
     d. 選取 [隔離] 定價層。 選取 [選取] 。
 
@@ -79,7 +80,7 @@ Azure App Service Environment (ASE) 是 Azure App Service 到客戶之 Azure 虛
     ![隔離定價層][2]
 
     > [!NOTE]
-    > Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+    > Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service 環境中。 
     >
 
 1. 選取 [建立] 。
@@ -110,7 +111,7 @@ App Service 能夠將專用的 IP 位址配置給應用程式。 設定以 IP �
 
 ## <a name="app-access"></a>應用程式存取 ##
 
-在外部 ASE 中，您在建立應用程式時使用的網域，和多租用戶 App Service 的網域是不一樣的。 它包括了 ASE 的名稱。 如需有關如何建立外部 ASE 的詳細資訊，請參閱[建立 App Service Environment][MakeExternalASE]。 外部 ASE 中的網域名稱看起來像 *.&lt;asename&gt;.p.azurewebsites.net*。 例如，如果您的 ASE 名為 _external-ase_，而且您在該 ASE 中裝載名為 _contoso_ 的應用程式，則下列 URL 將可連至該應用程式：
+在外部 ASE 中，您在建立應用程式時使用的網域，和多租用戶 App Service 的網域是不一樣的。 它包括了 ASE 的名稱。 如需有關如何建立外部 ASE 的詳細資訊，請參閱[建立 App Service 環境][MakeExternalASE]。 外部 ASE 中的網域名稱看起來像 *.&lt;asename&gt;.p.azurewebsites.net*。 例如，如果您的 ASE 名為 _external-ase_，而且您在該 ASE 中裝載名為 _contoso_ 的應用程式，則下列 URL 將可連至該應用程式：
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
@@ -158,7 +159,7 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 
 若要刪除 ASE： 
 
-1. 請使用 [App Service Environment] 刀鋒視窗頂端的 [刪除]。 
+1. 請使用 [App Service 環境] 刀鋒視窗頂端的 [刪除]。 
 
 1. 輸入 ASE 的名稱以確認您想要將它刪除。 當您刪除 ASE 時，將同時刪除其中包含的所有內容。 
 
@@ -182,10 +183,10 @@ ILB ASE 中應用程式的發佈端點會使用用來建立 ILB ASE 的網域。
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
 [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
-[Kudu]: http://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
+[Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../app-service-deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

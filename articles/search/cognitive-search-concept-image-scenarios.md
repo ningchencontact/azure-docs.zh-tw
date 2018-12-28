@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中處理影像及從影像擷取文字 | Microsoft Docs
+title: 處理認知搜尋中的影像和從中擷取文字 - Azure 搜尋服務
 description: 在 Azure 搜尋服務的認知搜尋管道中，處理影像並從影像擷取文字和其他資訊。
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 5ee821f3d1e81e581f376d4b14b3e8393a8f190c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: b4829b0da656c648db732b2e7564de6db8fbf2eb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444627"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312607"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>如何在認知搜尋案例中處理影像並從影像擷取資訊
 
@@ -90,7 +91,7 @@ ms.locfileid: "52444627"
 
 ## <a name="image-related-skills"></a>影像相關技術
 
-以下兩種內建的認知技術會以影像作為輸入源：[OCR](cognitive-search-skill-ocr.md) 和[影像分析](cognitive-search-skill-image-analysis.md)。 
+以下兩種內建的認知技術會以影像作為輸入源：[OCR](cognitive-search-skill-ocr.md) 與[影像分析](cognitive-search-skill-image-analysis.md)。 
 
 目前這類技術只適用於文件破解步驟所產生的影像。 因此，唯一支援的輸入為 `"/document/normalized_images"`。
 

@@ -1,13 +1,12 @@
 ---
-title: 將資料從檔案匯入到 Azure Machine Learning Studio | Microsoft Docs
+title: 從檔案匯入資料 - Azure Machine Learning Studio | Microsoft Docs
 description: 了解如何將訓練資料檔案從硬碟上傳到 Azure Machine Learning Studio。 這樣會在工作區中建立資料集模組。
 keywords: 匯入資料、資料格式、資料類型、資料來源、定型資料
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: c0dd9e90-23c4-4f64-8b8f-489ad79f047b
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 057142911d8179fac0ad3e47563a4f49a9ae8d60
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 096d2d4a8c1ee1727b124a5416ec77e8281c97d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263846"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53254855"
 ---
-# <a name="import-training-data-from-a-file-on-your-hard-drive-into-machine-learning-studio"></a>將訓練資料從硬碟上的檔案匯入到 Machine Learning Studio
+# <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>將定型資料從硬碟上的檔案匯入到 Azure Machine Learning Studio
 
 了解如何上傳硬碟上的資料檔案，以在 Azure Machine Learning Studio 中做為訓練資料使用。 透過匯入資料檔案，您就有可在工作區中使用的資料集模組。
 

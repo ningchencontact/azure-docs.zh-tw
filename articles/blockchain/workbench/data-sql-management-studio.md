@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 405104554b4ee8e773b6d2e39966a262f98beb6d
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241225"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259778"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>將 Azure Blockchain Workbench 資料搭配 SQL Server Management Studio 使用
 
-Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Blockhain Workbench 的 SQL DB 測試查詢。 本節提供如何從 SQL Server Management Studio 連線至 Azure Blockchain Workbench 的 SQL Database 的逐步解說。
+Microsoft SQL Server Management Studio 可供快速撰寫查詢並對 Azure Blockchain Workbench 的 SQL DB 測試查詢。 本節提供如何從 SQL Server Management Studio 連線至 Azure Blockchain Workbench 的 SQL Database 的逐步解說。
 
 ## <a name="prerequisites"></a>必要條件
 

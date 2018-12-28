@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 228f5135165cbf8806516e5e932f210586013402
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 12/04/2018
+ms.openlocfilehash: 4059b0f979e7e6856905f1759129167d62d7b5f5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056738"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274423"
 ---
 # <a name="restore-a-single-tenant-with-a-database-per-tenant-saas-application"></a>使用每一租用戶一個資料庫的 SaaS 應用程式還原單一租用戶
 
@@ -26,10 +26,8 @@ ms.locfileid: "47056738"
 在本教學課程中，您將了解兩個資料復原模式：
 
 > [!div class="checklist"]
-
 > * 將資料庫還原到平行資料庫 (並存)。
 > * 就地還原資料庫，取代現有的資料庫。
-
 
 |||
 |:--|:--|
@@ -44,13 +42,13 @@ ms.locfileid: "47056738"
 
 ## <a name="introduction-to-the-saas-tenant-restore-patterns"></a>SaaS 租用戶還原模式簡介
 
-有兩個可還原個別租用戶資料的簡單模式。 由於租用戶資料庫彼此互相隔離，因此還原一個租用戶並不會影響到任何其他租用戶的資料。 Azure SQL Database 的還原時間點 (PITR) 功能可在這兩種模式中使用。 PITR 一律會建立新的資料庫。   
+有兩個可還原個別租用戶資料的簡單模式。 由於租用戶資料庫彼此互相隔離，因此還原一個租用戶並不會影響到任何其他租用戶的資料。 Azure SQL Database 的還原時間點 (PITR) 功能可在這兩種模式中使用。 PITR 一律會建立新的資料庫。
 
-* **平行還原**：在第一個模式中，系統會在租用戶目前的資料庫旁建立新的平行資料庫。 然後租用戶會有此已還原資料庫的唯讀存取權。 您可以檢閱已還原的資料，也可能可以用它來覆寫目前的資料值。 這取決於應用程式設計者決定如何讓用戶端存取還原的資料庫，以及提供哪些復原選項。 在某些情況下，可能只需要允許租用戶檢閱較早時間點的資料。 
+* **平行還原**：在第一個模式中，系統會在租用戶目前的資料庫旁建立新的平行資料庫。 然後租用戶會有此已還原資料庫的唯讀存取權。 您可以檢閱已還原的資料，也可能可以用它來覆寫目前的資料值。 這取決於應用程式設計者決定如何讓用戶端存取還原的資料庫，以及提供哪些復原選項。 在某些情況下，可能只需要允許租用戶檢閱較早時間點的資料。
 
 * **就地還原**：如果資料已遺失或損毀，而租用戶需要還原到較早的時間點，那麼第二個模式就十分實用。 還原資料庫時，租用戶採離線狀態。 原始資料庫會遭到刪除，並重新命名已還原的資料庫。 刪除原始資料庫後，您仍可存取該資料庫的備份鏈結，讓您可以將資料庫還原至更早的時間點 (如有需要)。
 
-如果資料庫使用[異地複寫](sql-database-geo-replication-overview.md)且採用平行還原，建議您從已還原的複本將任何所需的資料複製到原始資料庫。 如果您以已還原的資料庫取代原始資料庫，則必須重新設定並重新同步處理異地複寫。
+如果資料庫使用[主動式異地複寫](sql-database-active-geo-replication.md)且採用平行還原，建議您從已還原的複本將任何所需的資料複製到原始資料庫。 如果您以已還原的資料庫取代原始資料庫，則必須重新設定並重新同步處理異地複寫。
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>取得每一租用戶一個資料庫的 Wingtip Tickets SaaS 應用程式指令碼
 
@@ -74,7 +72,6 @@ ms.locfileid: "47056738"
 
    ![顯示最後一個事件](media/saas-dbpertenant-restore-single-tenant/last-event.png)
 
-
 ### <a name="accidentally-delete-the-last-event"></a>「不小心」刪除最後一個事件
 
 1. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\*Demo-RestoreTenant.ps1*，然後設定下列值：
@@ -88,15 +85,13 @@ ms.locfileid: "47056738"
    ```
 
 3. Contoso 事件頁面隨即開啟。 請向下捲動並確認該事件已消失。 如果該事件仍在清單中，請選取 [重新整理] 並確認它已消失。
-
    ![移除的最後一個事件](media/saas-dbpertenant-restore-single-tenant/last-event-deleted.png)
-
 
 ## <a name="restore-a-tenant-database-in-parallel-with-the-production-database"></a>將租用戶資料庫以與生產環境資料戶平行的方式還原
 
 此練習會將 Contoso Concert Hall 資料庫還原到刪除事件前的時間點。 此案例假設您需要在平行資料庫中檢閱已刪除的資料。
 
- Restore-TenantInParallel.ps1 指令碼會建立一個名為 ContosoConcertHall\_old 的平行租用戶資料庫，以及一個平行目錄項目。 此復原模式最適用於從較不嚴重的資料遺失進行復原。 如果您需要就合規性或稽核用途檢閱資料，也可以使用此模式。 當您使用的是[異地複寫](sql-database-geo-replication-overview.md)時，這是建議採用的方法。
+ Restore-TenantInParallel.ps1 指令碼會建立一個名為 ContosoConcertHall\_old 的平行租用戶資料庫，以及一個平行目錄項目。 此復原模式最適用於從較不嚴重的資料遺失進行復原。 如果您需要就合規性或稽核用途檢閱資料，也可以使用此模式。 當您使用的是[主動式異地複寫](sql-database-active-geo-replication.md)時，這是建議採用的方法。
 
 1. 完成[模擬租用戶不小心刪除資料的情況](#simulate-a-tenant-accidentally-deleting-data)一節。
 2. 在 PowerShell ISE 中開啟 ...\\Learning Modules\\Business Continuity and Disaster Recovery\\RestoreTenant\\_Demo-RestoreTenant.ps1_。
@@ -115,7 +110,6 @@ ms.locfileid: "47056738"
 2. 若要執行指令碼，請按 F5。
 3. *ContosoConcertHall\_old* 項目現在已從目錄中刪除。 請在您的瀏覽器中關閉此租用戶的事件頁面。
 
-
 ## <a name="restore-a-tenant-in-place-replacing-the-existing-tenant-database"></a>就地還原租用戶，取代現有的租用戶資料庫
 
 此練習會將 Contoso Concert Hall 租用戶還原到刪除事件前的時間點。 Restore-TenantInPlace 指令碼會將租用戶資料庫還原到新的資料庫，並刪除原始資料庫。 此復原模式最適用於從嚴重的資料損毀進行復原，以及租用戶可能必須對重大資料遺失有所考慮的情況。
@@ -128,14 +122,13 @@ ms.locfileid: "47056738"
 
 您已成功地將資料庫還原到刪除事件前的時間點。 開啟 [事件] 頁面時，請確認最後一個事件已還原。
 
-在還原資料庫後，還需要 10 到 15 分鐘的時間進行第一次完整備份，以用於再次還原。 
+在還原資料庫後，還需要 10 到 15 分鐘的時間進行第一次完整備份，以用於再次還原。
 
 ## <a name="next-steps"></a>後續步驟
 
 在本教學課程中，您已了解如何：
 
 > [!div class="checklist"]
-
 > * 將資料庫還原到平行資料庫 (並存)。
 > * 就地還原資料庫。
 

@@ -1,6 +1,6 @@
 ---
-title: Team Data Science Process 實務：使用 SQL 資料倉儲 | Microsoft Docs
-description: 進階分析程序和技術實務
+title: 使用 SQL 資料倉儲建置和部署模型 - Team Data Science Process
+description: 使用 SQL 資料倉儲搭配可公開取得的資料集，來建置和部署機器學習模型。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 87c3b0b597a401041b8bf1b6f3997431d8816e92
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: ed3731db88d7f829634a03c55e5ec033c03e4b0f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445698"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139115"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process 實務：使用 SQL 資料倉儲
 在本教學課程中，我們將引導您使用 SQL 資料倉儲 (SQL DW)，針對可公開使用的資料集 ( [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) 資料集) 建置和部署機器學習服務模型。 所建構的二元分類模型可預測是否已針對某趟車程支付小費，並且也會討論預測支付的小費金額分佈的多元分類模型和迴歸模型。
@@ -52,8 +52,8 @@ ms.locfileid: "52445698"
 ## <a name="mltasks"></a>處理三種類型的預測工作
 我們根據 *tip\_amount* 將三個預測問題公式化來說明三種類型的模型化工作：
 
-1. **二元分類**：預測是否已支付某趟車程的小費 (即大於美金 $0 元的 *tip\_amount* 為正面範例)，而等於美金 $0 元的 *tip\_amount* 為負面範例。
-2. **多類別分類**：預測針對該車程所支付之小費的金額範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
+1. **二元分類**：預測是否已支付某趟車程的小費，例如，大於美金 0 元的 *tip\_amount* 為正面範例，而等於美金 0 元的 *tip\_amount* 為負面範例。
+2. **多元分類**：預測針對該趟車程支付的小費範圍。 我們將 tip\_amount 分成五個分類收納組或類別：
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
@@ -117,7 +117,7 @@ ms.locfileid: "52445698"
 
 成功執行之後，目前的工作目錄會變更為 *-DestDir*。 您應該會看到如下畫面：
 
-![][19]
+![目前的工作目錄變更][19]
 
 在 *-DestDir*中，以系統管理員模式執行下列 PowerShell 指令碼：
 
@@ -321,7 +321,7 @@ ms.locfileid: "52445698"
 > 
 > 
 
-![圖 #21][21]
+![來自 AzCopy 的輸出][21]
 
 您可以使用自己的資料。 如果資料位於內部部署電腦的現實應用程式中，您仍可以使用 AzCopy 將內部部署資料上傳至私人 Azure Blob 儲存體。 您只需要在 AzCopy 命令中，將 PowerShell 指令碼檔案中的 **Source** 位置 (`$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`) 變更為包含您的資料的本機目錄。
 
@@ -334,7 +334,7 @@ ms.locfileid: "52445698"
 
 成功執行之後，您會看到如下畫面：
 
-![][20]
+![成功的指令碼執行輸出][20]
 
 ## <a name="dbexplore"></a>Azure SQL 資料倉儲中的資料探索和特徵工程
 在本節中，我們會使用 **Visual Studio Data Tools**直接對 Azure SQL DW 執行 SQL 查詢，以探索資料和產生特徵。 本節中使用的所有 SQL 查詢都能在名為 *SQLDW_Explorations.sql* 的範例指令碼中找到。 PowerShell 指令碼已將此檔案下載到您的本機目錄。 您也可以從 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql) 擷取此檔案。 但 GitHub 中的檔案並未插入 Azure SQL DW 資訊。
@@ -363,9 +363,9 @@ ms.locfileid: "52445698"
     -- Report number of columns in table <nyctaxi_trip>
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = '<nyctaxi_trip>' AND table_schema = '<schemaname>'
 
-**輸出：** 您應該有 173,179,759 個資料列和 14 個資料行。
+**輸出：** 您應該會有 173,179,759 個資料列和 14 個資料行。
 
-### <a name="exploration-trip-distribution-by-medallion"></a>探索：依據 medallion 的車程分佈
+### <a name="exploration-trip-distribution-by-medallion"></a>探索：依據計程車牌照的車程分佈
 此範例查詢可找出在指定期間內完成超過 100 趟車程的計程車牌照 (計程車號碼)。 資料分割資料表存取的條件是以 **pickup\_datetime** 資料分割配置為依據，因為可為查詢帶來好處。 查詢完整資料集也會使用資料分割資料表及 (或) 索引掃描。
 
     SELECT medallion, COUNT(*)
@@ -374,9 +374,9 @@ ms.locfileid: "52445698"
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**輸出：** 查詢應該會傳回包含資料列的資料表，資料列中指出 13,369 個圓形徽章 (計程車) 及它們於 2013 年完成的車程數。 最後一個資料行包含所完成之車程數的計數。
+**輸出：** 此查詢應該會傳回包含資料列的資料表，這些資料列會指出 13,369 個計程車牌照 (計程車) 及它們於 2013 年完成的車程數。 最後一個資料行包含所完成之車程數的計數。
 
-### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據 medallion 和 hack_license 的車程分佈
+### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>探索：依據計程車牌照和計程車駕照的車程分佈
 此範例可找出在指定期間內完成超過 100 趟車程的圓形徽章 (計程車號碼) 和計程車駕照號碼 (司機)。
 
     SELECT medallion, hack_license, COUNT(*)
@@ -385,9 +385,9 @@ ms.locfileid: "52445698"
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-**輸出：** 查詢應該會傳回包含 13,369 個資料列的資料表，資料列中指出於 2013 年完成超過 100 趟車程之 13,369 部車/司機的識別碼。 最後一個資料行包含所完成之車程數的計數。
+**輸出：** 此查詢應該會傳回包含 13,369 個資料列的資料表，這些資料列會指出於 2013 年完成超過 100 趟車程之 13,369 個車輛/司機的識別碼。 最後一個資料行包含所完成之車程數的計數。
 
-### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>資料品質評估：驗證含有不正確經度和/或緯度的記錄
+### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>資料品質評量：驗證含有不正確經度和/或緯度的記錄
 此範例會檢查是否有任何經度和 (或) 緯度欄位包含無效值 (弧度角度應介於-90 和 90 之間)，或是具有 (0，0) 座標。
 
     SELECT COUNT(*) FROM <schemaname>.<nyctaxi_trip>
@@ -399,7 +399,7 @@ ms.locfileid: "52445698"
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-**輸出：** 查詢傳回 837,467 個經度和/或緯度欄位無效的車程。
+**輸出：** 此查詢會傳回 837,467 個經度和/或緯度欄位無效的車程。
 
 ### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>探索：已支付小費和未支付小費的車程分佈
 此範例會尋找在指定期間內 (或者，如果涵蓋一整年，則如這裡所設定是在整個資料集內)，已收到小費的車程數目，以及未收到小費的車程數目。 此分佈會反映二進位標籤分佈，以便稍後用來將二進位分類模型化。
@@ -410,7 +410,7 @@ ms.locfileid: "52445698"
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-**輸出：** 查詢應該會傳回下列 2013 年的小費頻率：90、447、622 已付小費及 82,264,709 未付小費。
+**輸出：** 此查詢應該會傳回下列 2013 年的小費頻率：有 90,447,622 趟車程收到小費，而有 82,264,709 趟未收到小費。
 
 ### <a name="exploration-tip-classrange-distribution"></a>探索：小費類別/範圍分佈
 此範例會計算在指定期間內 (或者，如果涵蓋一整年，則是在整個資料庫中) 小費範圍的分佈。 這是標籤類別的分佈，會在稍後用來將多類別分類模型化。
@@ -531,7 +531,7 @@ ms.locfileid: "52445698"
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**輸出：** 此查詢會產生包含上下車的經緯度及所對應之直接距離 (英里)的資料表 (包含 2,803,538 個資料列) 。 前 3 個資料列的結果如下：
+**輸出：** 此查詢會產生包含上下車的經緯度及所對應之直接距離 (英里) 的資料表 (包含 2,803,538 個資料列)。 前 3 個資料列的結果如下：
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -571,16 +571,16 @@ ms.locfileid: "52445698"
 
 1. 登入 AzureML 工作區，按一下頂端的 [Studio]，然後按一下網頁左側的 [NOTEBOOKS]。
    
-    ![圖 #22][22]
+    ![依序按一下 [Studio] 和 [NOTEBOOK]][22]
 2. 按一下網頁左下角的 [新增]，接著選取 [Python 2]。 然後，提供 Notebook 的名稱，並按一下核取記號以建立新的空白 IPython Notebook。
    
-    ![圖 #23][23]
+    ![按一下 [新增]，然後選取 [Python 2]][23]
 3. 按一下新的 IPython Notebook 左上角的 [Jupyter] 符號。
    
-    ![圖 #24][24]
+    ![按一下 [Jupyter] 符號][24]
 4. 將範例 IPython Notebook 拖放到 AzureML IPython Notebook 服務的 [樹狀結構] 頁面，然後按一下 [上傳]。 然後，範例 IPython Notebook 就會上傳到 AzureML IPython Notebook 服務。
    
-    ![圖 #25][25]
+    ![按一下 [上傳]。][25]
 
 若要執行範例 IPython Notebook 或 Python 指令碼檔案，您需要下列 Python 封裝。 如果您使用 AzureML IPython Notebook 服務，則已預先安裝這些封裝。
 
@@ -684,9 +684,9 @@ ms.locfileid: "52445698"
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
-![圖 #1][1]
+![盒狀圖輸出][1]
 
-### <a name="visualization-distribution-plot-example"></a>視覺效果：分佈的盒狀圖範例
+### <a name="visualization-distribution-plot-example"></a>視覺效果：分佈圖範例
 能以視覺化方式顯示取樣車程距離之分佈和長條圖的繪圖。
 
     fig = plt.figure()
@@ -695,7 +695,7 @@ ms.locfileid: "52445698"
     df1['trip_distance'].plot(ax=ax1,kind='kde', style='b-')
     df1['trip_distance'].hist(ax=ax2, bins=100, color='k')
 
-![圖 #2][2]
+![分佈圖輸出][2]
 
 ### <a name="visualization-bar-and-line-plots"></a>視覺效果：長條圖和折線圖
 在此範例中，我們可以將車程距離分類收納為五個分類收納組，並將分類收納結果視覺化。
@@ -709,26 +709,26 @@ ms.locfileid: "52445698"
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='bar')
 
-![圖 #3][3]
+![長條圖輸出][3]
 
 和
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
-![圖 #4][4]
+![折線圖輸出][4]
 
 ### <a name="visualization-scatterplot-examples"></a>視覺效果：散佈圖範例
 這會顯示 **trip\_time\_in\_secs** 與 **trip\_distance** 之間的散佈圖，供您查看當中是否有任何關聯性
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
-![圖 #6][6]
+![時間和距離之間關聯性的散佈圖輸出][6]
 
 也可以同樣的方式查看 **rate\_code** 與 **trip\_distance** 之間的關聯性。
 
     plt.scatter(df1['passenger_count'], df1['trip_distance'])
 
-![圖 #8][8]
+![代碼和距離之間關聯性的散佈圖輸出][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>在 IPython Notebook 中使用 SQL 查詢對取樣資料進行資料探索
 在本節中，我們將使用前面所建立的新資料表中保存的取樣資料，來探索資料分佈。 請注意，您也可以使用原始資料表執行類似探索。
@@ -758,7 +758,7 @@ ms.locfileid: "52445698"
 
     tip_class_dist = pd.read_sql(query, conn)
 
-#### <a name="exploration-plot-the-tip-distribution-by-class"></a>探索：依類別繪製小費分佈
+#### <a name="exploration-plot-the-tip-distribution-by-class"></a>探索：依據類別繪製小費分佈
     tip_class_dist['tip_freq'].plot(kind='bar')
 
 ![圖 #26][26]
@@ -772,7 +772,7 @@ ms.locfileid: "52445698"
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>探索：根據 medallion 的車程分佈
+#### <a name="exploration-trip-distribution-per-medallion"></a>探索：依據計程車牌照的車程分佈
     query = '''
         SELECT medallion,count(*) AS c
         FROM <schemaname>.<nyctaxi_sample>

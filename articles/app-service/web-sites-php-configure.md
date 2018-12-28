@@ -1,5 +1,5 @@
 ---
-title: 在 Azure App Service Web Apps 中設定 PHP
+title: 設定 PHP 執行階段 - Azure App Service
 description: 了解如何設定預設的 PHP 安裝，或是在 Azure App Service 中新增適用於 Web Apps 的自訂 PHP 安裝。
 services: app-service
 documentationcenter: php
@@ -13,12 +13,13 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 1e5f7ed2fb4c77e0a738cbe6ee6c84b46bc59bb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: d5ad7b392029ae33ee7666b80edfe5b4b7555b41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230830"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273184"
 ---
 # <a name="configure-php-in-azure-app-service-web-apps"></a>在 Azure App Service Web Apps 中設定 PHP
 
@@ -39,10 +40,10 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 1. 在 [Azure 入口網站](https://portal.azure.com)中瀏覽至您的 Web 應用程式，然後按一下 [設定] 按鈕。
 
     ![Web 應用程式設定][settings-button]
-1. 從 [設定] 刀鋒視窗中，選取 [應用程式設定]，並選擇新的 PHP 版本。
+2. 從 [設定] 刀鋒視窗中，選取 [應用程式設定]，並選擇新的 PHP 版本。
 
     ![應用程式設定][application-settings]
-1. 按一下 [Web 應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
+3. 按一下 [Web 應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
 
     ![儲存組態設定。][save-button]
 
@@ -78,7 +79,7 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>作法：變更內建 PHP 組態
+## <a name="how-to-change-the-built-in-php-configurations"></a>作法：變更內建 PHP 設定
 
 對於任一個內建的 PHP 執行階段，您可以遵循下列步驟來變更任何組態選項。 (如需 php.ini 指示詞的資訊，請參閱 [php.ini 指示詞的清單](英文))。
 
@@ -109,7 +110,7 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
         wincache.maxfilesize=512
 1. 重新啟動 Web 應用程式以重新載入變更。
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>作法：在預設 PHP 執行階段中啟用擴充
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>作法：在預設 PHP 執行階段中啟用延伸模組
 
 如同上一個小節所述，若要查看預設 PHP 版本、其預設組態及啟用的擴充，最好的方法是部署呼叫 [phpinfo()]函數的指令碼。 若要啟用其他延伸模組，請依照下列步驟執行：
 
@@ -135,20 +136,20 @@ PHP 7.0 和 PHP 7.2 版本同樣可供使用，但預設並未啟用。 若要�
 
     ![Web 應用程式設定][settings-button]
 1. 從 [設定] 刀鋒視窗中選取 [應用程式設定]，然後捲動至 [應用程式設定] 區段。
-1. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 索引鍵。 此索引鍵的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
+1. 在 [應用程式設定] 區段中，建立 **PHP_EXTENSIONS** 機碼。 此機碼的值是相對於網站根目錄的路徑：**bin\your-ext-file**。
 
     ![啟用應用程式設定中的擴充][php-extensions]
 1. 按一下 [Web 應用程式設定] 刀鋒視窗頂端的 [儲存] 按鈕。
 
     ![儲存組態設定。][save-button]
 
-Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
+Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 機碼。 若要啟用多個擴充功能，請針對應用程式設定值包含以逗號分隔的 `.dll` 檔案清單。
 
-## <a name="how-to-use-a-custom-php-runtime"></a>做法：使用自訂 PHP 執行階段
+## <a name="how-to-use-a-custom-php-runtime"></a>作法：使用自訂 PHP 執行階段
 
 除了預設的 PHP 執行階段之外，App Service Web Apps 也可以使用您提供的 PHP 執行階段來執行 PHP 指令碼。 您提供的執行階段可以由也是您提供的 `php.ini` 檔案加以設定。 若要使用自訂 PHP 執行階段搭配 Web Apps，請依照下列步驟執行。
 
-1. 取得 PHP for Windows 的非安全執行緒 VC9 或 VC11 相容版本。 可以在下列網址找到最新版 PHP for Windows：[http://windows.php.net/download/]。 可以在下列網址的封存中找到較舊版本：[http://windows.php.net/downloads/releases/archives/]。
+1. 取得 PHP for Windows 的非安全執行緒 VC9 或 VC11 相容版本。 可以在下列網址找到最新版 PHP for Windows：[https://windows.php.net/download/]。 可以在下列網址的封存中找到較舊版本：[https://windows.php.net/downloads/releases/archives/]。
 1. 為您的執行階段修改 `php.ini` 檔案。 Web Apps 將忽略僅系統層級指示詞的任何組態設定。 (如需僅系統層級指示詞的資訊，請參閱 [php.ini 指示詞的清單] (英文))。
 1. 或者，將擴充功能新增至 PHP 執行階段，並且在 `php.ini` 檔案中啟用這些擴充功能。
 1. 將 `bin` 目錄新增至根目錄，並在其中放入包含 PHP 執行階段的目錄 (例如，`bin\php`)。
@@ -165,7 +166,7 @@ Zend 擴充功能也支援使用 **PHP_ZENDEXTENSIONS** 索引鍵。 若要啟�
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>做法︰在 Azure 中啟用編輯器自動化
+## <a name="how-to-enable-composer-automation-in-azure"></a>作法：在 Azure 中啟用編輯器自動化
 
 App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執行任何操作。 如果您使用 [Git 部署](app-service-deploy-local-git.md)，您可以透過啟用「編輯器」擴充功能，在 `git push` 期間啟用 composer.json 處理。
 
@@ -196,7 +197,7 @@ App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執
 >
 
 [免費試用]: https://www.windowsazure.com/pricing/free-trial/
-[phpinfo()]: http://php.net/manual/en/function.phpinfo.php
+[phpinfo()]: https://php.net/manual/en/function.phpinfo.php
 [select-php-version]: ./media/web-sites-php-configure/select-php-version.png
 [php.ini 指示詞的清單]: http://www.php.net/manual/en/ini.list.php
 [.user.ini]: http://www.php.net/manual/en/configuration.file.per-user.php
@@ -206,8 +207,8 @@ App Service 預設不會對 composer.json (如果您 PHP 專案中有的話) 執
 [save-button]: ./media/web-sites-php-configure/save-button.png
 [php-extensions]: ./media/web-sites-php-configure/php-extensions.png
 [handler-mappings]: ./media/web-sites-php-configure/handler-mappings.png
-[http://windows.php.net/download/]: http://windows.php.net/download/
-[http://windows.php.net/downloads/releases/archives/]: http://windows.php.net/downloads/releases/archives/
+[https://windows.php.net/download/]: https://windows.php.net/download/
+[https://windows.php.net/downloads/releases/archives/]: https://windows.php.net/downloads/releases/archives/
 [SETPHPVERCLI]: ./media/web-sites-php-configure/ChangePHPVersion-XPlatCLI.png
 [GETPHPVERCLI]: ./media/web-sites-php-configure/ShowPHPVersion-XplatCLI.png
 [SETPHPVERPS]: ./media/web-sites-php-configure/ChangePHPVersion-PS.png

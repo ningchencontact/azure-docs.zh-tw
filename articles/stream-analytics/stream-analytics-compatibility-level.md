@@ -2,18 +2,18 @@
 title: 了解 Azure 串流分析作業的相容性層級
 description: 了解如何為 Azure 串流分析作業設定相容性層級，並了解最新相容性層級中的重大變更
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: 83bbb777f5af6d29736db3b53ca39c449402c78e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50977708"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187308"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 串流分析作業的相容性層級
  
@@ -27,7 +27,7 @@ ms.locfileid: "50977708"
 
 請確定在更新相容性層級之前停止作業。 如果您的作業處於執行中狀態，則無法更新相容性層級。 
 
-![入口網站中的相容性層級](media\stream-analytics-compatibility-level/image1.png)
+![Azure 入口網站中的串流分析相容性層級](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
  
 更新相容性層級時，T-SQL 編譯器會以對應至所選相容性層級的語法來驗證作業。 
@@ -40,11 +40,11 @@ ms.locfileid: "50977708"
 
   * **舊版：** Azure 串流分析使用 DataContractSerializer，因此訊息內容包含 XML 標籤。 例如︰
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
 
   * **目前的版本：** 訊息內容直接包含串流，而不含其他標籤。 例如︰
   
-   { "SensorId":"1", "Temperature":64} 
+    { "SensorId":"1", "Temperature":64} 
  
 * **欄位名稱保持大小寫區分**  
 
@@ -52,18 +52,18 @@ ms.locfileid: "50977708"
 
   * **目前的版本：** 由 Azure 串流分析引擎處理欄位名稱時，欄位名稱可保持大小寫區分。 
 
-  > [!NOTE] 
-  > 使用 Edge 環境所裝載的串流分析作業尚無法使用保持大小寫區分的功能。 因此，如果您的作業裝載在 Edge 上，所有欄位名稱都會轉換為小寫。 
+    > [!NOTE] 
+    > 使用 Edge 環境所裝載的串流分析作業尚無法使用保持大小寫區分的功能。 因此，如果您的作業裝載在 Edge 上，所有欄位名稱都會轉換為小寫。 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **舊版：** CREATE TABLE 命令並未在「浮點數 (FLOAT)」資料行型別中篩選具 NaN (不是數字 (Not-a-Number)。 例如，Infinity, -Infinity) 的事件，因其不符合這些數字的記載範圍。
+  * **舊版：** CREATE TABLE 命令並未在「浮點數 (FLOAT)」資料行型別中篩選具 NaN (不是數字 (Not-a-Number。 例如，Infinity, -Infinity) 的事件，因其不符合這些數字的記載範圍。
 
   * **目前的版本：** CREATE TABLE 可讓您指定強式結構描述。 串流分析引擎會驗證資料是否符合此結構描述。 使用此模型，命令可以篩選具有 NaN 值的事件。 
 
 * **停用 JSON 中日期時間字串的自動向上轉型 (upcast)。**  
 
-  * **舊版：** JSON 剖析器會自動將具有日期/時間/區域資訊的字串值向上轉型 (upcast) 為日期時間型別，再將其轉換成 UTC。 這會導致時區資訊遺失。
+  * **舊版：** JSON 剖析器會自動將具有日期/時間/區域資訊的字串值向上轉型 (upcast) 為日期時間型別，再將它轉換成 UTC。 這會導致時區資訊遺失。
 
   * **目前的版本：** 不再自動將具有日期/時間/區域資訊的字串值向上轉型 (upcast) 為日期時間型別。 如此一來，即可保留時區資訊。 
 

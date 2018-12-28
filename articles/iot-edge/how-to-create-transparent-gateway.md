@@ -1,19 +1,20 @@
 ---
-title: 使用 Azure IoT Edge 建立透明閘道 | Microsoft Docs
-description: 使用 Azure IoT Edge 裝置作為可以為多個裝置處理資訊的透明閘道
+title: 建立透明閘道裝置 - 使用 Azure IoT Edge | Microsoft Docs
+description: 使用 Azure IoT Edge 裝置作為可處理來自下游裝置之資訊的透明閘道
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/01/2018
+ms.date: 11/29/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a867122aef5dd9d2152bca3ac10c11459ffc03f5
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568466"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094350"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -31,7 +32,7 @@ ms.locfileid: "51568466"
 
 您可以建立任何憑證基礎結構，來啟用裝置閘道拓撲所需的信任。 在本文中，我們假設您會使用在 IoT 中樞內用來啟用 [X.509 CA 安全性](../iot-hub/iot-hub-x509ca-overview.md)的相同憑證安裝程式，其中包含與特定 IoT 中樞相關聯的 X.509 CA 憑證 (IoT 中樞擁有者 CA)，以及使用此 CA 和 Edge 裝置的 CA 簽署的一系列憑證。
 
-![閘道安裝](./media/how-to-create-transparent-gateway/gateway-setup.png)
+![閘道憑證設定](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
 閘道在連線起始期間，會向下游裝置出具其 Edge 裝置 CA 憑證。 下游裝置會檢查以確認 Edge 裝置 CA 憑證是由擁有者 CA 憑證所簽署。 此程序可讓下游裝置確認閘道是來自信任的來源。
 
@@ -59,9 +60,9 @@ ms.locfileid: "51568466"
    >[!NOTE]
    >如果您已經在 Windows 裝置上安裝 OpenSSL，則可以略過此步驟，但請確定您的 PATH 環境變數中有 openssl.exe。
 
-* **較容易**：下載並安裝任何[第三方 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries)，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
+* **較簡便：** 下載並安裝任何[第三方 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries)，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
    
-* **建議**：自行下載 OpenSSL 原始程式碼，並在您的電腦上建置二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以輕鬆的步驟完成。
+* **建議使用：** 自行下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以輕鬆的步驟完成。
 
    1. 瀏覽至要安裝 vcpkg 的目錄。 我們將此目錄稱之為 *\<VCPKGDIR>*。 依照指示下載並安裝 [vcpkg](https://github.com/Microsoft/vcpkg)。
    
@@ -258,7 +259,11 @@ certificates:
 6. 在 [檢閱範本] 頁面中，選取 [提交]。
 
 ## <a name="route-messages-from-downstream-devices"></a>從下游裝置路由傳送訊息
-IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 以下路由會用來將下游裝置 `sensor` 送來的訊息，傳送到名為 `ai_insights` 的模組。
+IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像路由傳送從模組送來的訊息一樣。 這可讓您在將任何資料傳送到雲端之前，在執行於閘道的模組中執行分析。 
+
+目前，針對下游裝置所傳送的訊息，您進行路由傳送的方式是將它們與模組所傳送的訊息做區分。 模組所傳送的訊息全都包含名為 **connectionModuleId** 系統屬性，但下游裝置所傳送的訊息則無此屬性。 您可以使用路由的 WHERE 子句來排除任何包含該系統屬性的訊息。 
+
+以下路由會用來將訊息從任何下游裝置傳送給名為 `ai_insights` 的模組。
 
 ```json
 {
@@ -269,7 +274,7 @@ IoT Edge 執行階段可以路由傳送從下游裝置送來的訊息，就像�
 }
 ```
 
-如需訊息路由的詳細資訊，請參閱[模組撰寫](./module-composition.md)。
+如需有關訊息路由的詳細資訊，請參閱[部署模組及建立路由](./module-composition.md#declare-routes)。
 
 [!INCLUDE [iot-edge-extended-ofline-preview](../../includes/iot-edge-extended-offline-preview.md)]
 

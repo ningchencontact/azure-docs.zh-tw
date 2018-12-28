@@ -7,34 +7,33 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/10/2018
 ms.author: juliako
-ms.openlocfilehash: 2261b8fa496beaf2a14c9b949047b6a5cbc6ea32
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: f29adb500401c9f5d6e177a0740ce54719c36a34
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291826"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253199"
 ---
 # <a name="upload-and-index-your-videos"></a>上傳影片及編製影片索引  
 
-本文將說明如何使用 Azure 影片索引器上傳影片。 影片索引器 API 提供兩個上傳選項： 
+使用影片索引器 API 上傳視訊時，您會有兩個上傳選項： 
 
 * 從 URL 上傳您的影片 (首選)、
 * 將影片檔案當作要求本文中的位元組陣列傳送、
 * 藉由提供[資產識別碼](https://docs.microsoft.com/azure/media-services/latest/assets-concept)來使用現有的 Azure 媒體服務資產 (僅支援付費帳戶)。
 
-本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。  
+本文將示範如何根據 URL 使用[上傳影片](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API 來上傳影片及編製影片索引。 文章中的程式碼範例包含加上註解的程式碼，用來說明如何上傳位元組陣列。 <br/>本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
 
-本文也會探討一些可以在 API 上設定的參數，以變更 API 的程序和輸出。
-
-> [!Note]
-> 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 <br/>使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
+上傳您的視訊之後，影片索引器會選擇性地對視訊進行編碼 (如文章中所討論)。 建立影片索引器帳戶時，您可以選擇免費試用帳戶 (您可取得特定的免費編製索引分鐘數) 或付費選項 (您不會受限於配額)。 使用免費試用時，影片索引器最多可為網站使用者提供 600 分鐘的免費編製索引，以及為 API 使用者提供 2400 分鐘的免費索引編製。 使用付費選項時，您建立的影片索引器帳戶會[連線到您的 Azure 訂用帳戶和 Azure 媒體服務帳戶](connect-to-azure.md)。 您需支付已編製索引的分鐘數，以及媒體帳戶相關費用。 
 
 ## <a name="uploading-considerations"></a>上傳考量
     
 - 若根據 URL 上傳影片 (首選)，則必須使用 TLS 1.2 (或更高版本) 來保護端點
-- 位元組陣列選項有 2 GB 的限制，並且會在 30 分鐘後逾時
+- 具有 URL 選項的上傳大小限制為 10 GB
+- 具有位元組陣列選項的上傳大小限制為 2 GB 
+- 位元組陣列選項會在 30 分鐘後逾時
 - 在 `videoURL` 參數中提供的 URL 需要進行編碼
 
 > [!Tip]
@@ -57,7 +56,7 @@ ms.locfileid: "52291826"
 - 索引狀態變更： 
     - 屬性：    
     
-        |名稱|說明|
+        |Name|說明|
         |---|---|
         |id|視訊的識別碼|
         |state|影片狀態|  
@@ -65,7 +64,7 @@ ms.locfileid: "52291826"
 - 在影片中識別到的人員：
     - properties
     
-        |名稱|說明|
+        |Name|說明|
         |---|---|
         |id| 視訊的識別碼|
         |faceId|影片索引中出現的臉部識別碼|
@@ -91,7 +90,7 @@ ms.locfileid: "52291826"
 
 ### <a name="priority"></a>優先順序
 
-影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low (低)**、**Normal** (一般，預設值) 和 **High (高)**。
+影片索引器會根據影片的優先順序來為其編製索引。 請使用 **priority** 參數來指定索引的優先順序。 下列是有效值：**Low**、**Normal** (預設值) 和 **High**。
 
 僅有付費帳戶可支援 **Priority** 參數。
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e4b33552c4b070164b55a84f1d8586422aced2f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c733c148994b06e6d7cd13ee98e1a8157f26010a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446668"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163170"
 ---
-# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C︰收集記錄
+# <a name="azure-active-directory-b2c-collecting-logs"></a>Azure Active Directory B2C：收集記錄檔
 
 本文提供從 Azure AD B2C 收集記錄的步驟，讓您可以診斷自訂原則的問題。
 
@@ -108,7 +108,7 @@ traces | 查看 Azure AD B2C 產生的所有記錄 |
 >[!NOTE]
 >目前，此處所述的詳細活動記錄**僅**針對協助開發自訂原則所設計。 請勿在生產環境中使用開發模式。  記錄會收集往返識別提供者在開發期間所傳送的所有宣告。  如果在生產環境中使用，開發人員會負責他們自己的 App Insights 記錄中收集的 PII (私人識別資訊)。  只有當原則位於**開發模式**時，才會收集這些詳細的記錄。
 
-[Github 用來存放不受支援之自訂原則範例和相關工具的存放庫](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies)
+[GitHub 用來存放不受支援之自訂原則範例和相關工具的存放庫](https://github.com/Azure-Samples/active-directory-b2c-advanced-policies) \(英文\)
 
 
 

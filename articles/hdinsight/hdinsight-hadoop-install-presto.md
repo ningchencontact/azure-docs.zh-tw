@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: ce1e82971f10541bf3a67d46b48c5fc93b5432b4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 4285c633062386657cbea478f327c9a1b088f16a
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687073"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383811"
 ---
 # <a name="install-and-use-presto-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Presto
 
@@ -22,16 +22,16 @@ ms.locfileid: "51687073"
 
 HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集使用。 如需詳細資訊，請參閱[在 Azure HDInsight 上安裝第三方應用程式](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要使用 Linux 的 **HDInsight 3.5 Hadoop 叢集**。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。
 
 ## <a name="what-is-presto"></a>什麼是 Presto？
 [Presto](https://prestodb.io/overview.html) 是巨量資料的快速分散式 SQL 查詢引擎。 Presto 適合數 PB 資料的互動式查詢。 如需 Presto 的元件以及它們共同運作方式的詳細資訊，請參閱 [Presto 概念](https://github.com/prestodb/presto/blob/master/presto-docs/src/main/sphinx/overview/concepts.rst)。
 
-> [!WARNING]
+> [!WARNING]  
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 > 
-> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Presto) 會獲得商務上合理的支援，協助您進一步針對問題進行疑難排解。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
 > 
 > 
 
@@ -52,17 +52,17 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
    
    * **名稱**：輸入指令碼動作的易記名稱。
    * **Bash 指令碼 URI**：`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`
-   * **HEAD**：勾選此選項
-   * **WORKER**：勾選此選項
-   * **ZOOKEEPER**：將此核取方塊保留空白
-   * **參數**：將此欄位保留空白
+   * **前端**：勾選此選項。
+   * **背景工作**：勾選此選項。
+   * **ZOOKEEPER**：將此核取方塊保留空白。
+   * **參數**：將此欄位保留空白。
 
 
 3. 在 [指令碼動作] 區域的底部，按一下 [選取] 按鈕來儲存設定。 最後，按一下 [進階設定] 區域底部的 [選取] 按鈕來儲存設定資訊。
 
 4. 繼續如 [佈建以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述佈建叢集。
 
-    > [!NOTE]
+    > [!NOTE]  
     > Azure PowerShell、Azure 傳統 CLI、HDInsight .NET SDK 或 Azure Resource Manager 範本也可用來套用指令碼動作。 您也可以將指令碼動作套用到執行中的叢集上。 如需詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
     > 
     > 
@@ -86,7 +86,7 @@ HDInsight 也提供 Starburst Presto 應用程式，以供 Apache Hadoop 叢集�
    
         select count (*) from hivesampletable;
    
-    依預設，已設定 Presto 的 [Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 連接器。 Hive 連接器會設定為使用預設已安裝的 Hive 安裝，以便 Hive 的所有資料表都會自動顯示在 Presto 中。
+    根據預設，已設定 Presto 的[Apache Hive](https://prestodb.io/docs/current/connector/hive.html) 和 [TPCH](https://prestodb.io/docs/current/connector/tpch.html) 連接器。 Hive 連接器會設定為使用預設已安裝的 Hive 安裝，以便 Hive 的所有資料表都會自動顯示在 Presto 中。
 
     如需詳細資訊，請參閱 [Presto 文件](https://prestodb.io/docs/current/index.html)。
 
@@ -168,11 +168,11 @@ TPC-DS 是業界標準，可用於測量許多決策支援系統 (包括巨量�
 
 
 ## <a name="see-also"></a>另請參閱
-* [在 HDInsight 叢集上安裝及使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是 Web UI，可讓您更輕鬆地建立、執行及儲存 Pig 和 Hive 作業。
+* [在 HDInsight 叢集上安裝及使用 Hue](hdinsight-hadoop-hue-linux.md)。 Hue 是一個 Web UI，可讓您輕鬆地建立、執行及儲存 Apache Pig 和 Hive 作業。
 
-* [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
+* [在 HDInsight 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
 
-* [在 HDInsight 叢集上安裝 Solr](hdinsight-hadoop-solr-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。 Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
+* [在 HDInsight 叢集上安裝 Apache Solr](hdinsight-hadoop-solr-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Solr。 Solr 可讓您對儲存的資料執行功能強大的搜尋作業。
 
 [hdinsight-install-r]: hdinsight-hadoop-r-scripts-linux.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md

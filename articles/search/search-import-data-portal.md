@@ -1,5 +1,5 @@
 ---
-title: 在入口網站中將資料匯入 Azure 搜尋服務 | Microsoft Docs
+title: 使用 Azure 入口網站將資料匯入搜尋索引 - Azure 搜尋服務
 description: 了解如何在 Azure 入口網站中使用匯入資料精靈，以從 Cosmos DB、Blob 儲存體、表格儲存體、SQL Database 和 Azure VM 上的 SQL Server 對 Azure 資料進行編目。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: dcdc0501d94191cf2c281a4f880ddab3db023fc0
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.custom: seodec2018
+ms.openlocfilehash: ceca9b8e89a963cd9a9226be143d24ed5429747b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004933"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316467"
 ---
 # <a name="how-to-import-data-into-azure-search-index-using-the-azure-portal"></a>如何使用 Azure 入口網站將資料匯入 Azure 搜尋服務索引
 

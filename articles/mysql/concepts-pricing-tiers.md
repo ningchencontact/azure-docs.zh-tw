@@ -8,22 +8,22 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/10/2018
-ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 12/11/2018
+ms.openlocfilehash: 644a3a2fe6bce6ccc99b0c1c99ea07b129676653
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091788"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320841"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>適用於 MySQL 的 Azure 資料庫定價層
 
-適用於 MySQL 的 Azure 資料庫伺服器可建立於三個不同定價層之一 (基本、一般用途和記憶體最佳化)。 定價層的差別在於虛擬核心中可佈建的計算數量、每個虛擬核心的記憶體，以及用來儲存資料的儲存體技術。 所有資源都會佈建在 MySQL 伺服器層級。 一個伺服器可以有一個或多個資料庫。
+您可以在下列三個不同定價層其中之一建立「適用於 MySQL 的 Azure 資料庫」伺服器：「基本」、「一般用途」及「記憶體最佳化」。 定價層的差別在於虛擬核心中可佈建的計算數量、每個虛擬核心的記憶體，以及用來儲存資料的儲存體技術。 所有資源都會佈建在 MySQL 伺服器層級。 一個伺服器可以有一個或多個資料庫。
 
 |    | **基本** | **一般用途** | **記憶體最佳化** |
 |:---|:----------|:--------------------|:---------------------|
 | 計算世代 | Gen 4、Gen 5 | Gen 4、Gen 5 | Gen 5 |
-| 虛擬核心 | 1、2 | 2、4、8、16、32 |2、4、8、16 |
+| 虛擬核心 | 1、2 | 2、4、8、16、32、64 |2、4、8、16、32 |
 | 每個虛擬核心的記憶體 | 2 GB | 5 GB | 10 GB |
 | 儲存體大小 | 5 GB 至 1 TB | 5 GB 至 4 TB | 5 GB 至 4 TB |
 | 儲存體類型 | Azure 標準儲存體 | Azure 進階儲存體 | Azure 進階儲存體 |
@@ -42,6 +42,9 @@ ms.locfileid: "49091788"
 ## <a name="compute-generations-and-vcores"></a>計算世代和虛擬核心
 
 計算資源會以 vCore 的形式提供，vCore 代表了基礎硬體的邏輯 CPU。 目前，有兩個計算世代可供您選擇，即「第 4 代」和「第 5 代」。 「第 4 代」邏輯 CPU 是以 Intel E5-2673 v3 (Haswell) 2.4-GHz 處理器為基礎。 「第 5 代」邏輯 CPU 是以 Intel E5-2673 v4 (Broadwell) 2.3-GHz 處理器為基礎。 「第 4 代」和「第 5 代」在下列區域中可供使用 ("X" 代表可用)。
+
+> [!IMPORTANT]
+> 從 2018 年 12 月 12 日開始，新的客戶將無法在巴西南部、加拿大中部、加拿大東部、東亞、美國東部 2、印度中部、印度西部、日本西部、美國中北部、美國西部佈建第 4 代計算伺服器。 先前在這些區域中建立的第 4 代計算伺服器，將於 2019 年 2 月 1 日移轉到第 5 代計算。
 
 | **Azure 區域** | **第 4 代** | **第 5 代** |
 |:---|:----------:|:--------------------:|

@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
-description: 使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
+title: 為 Azure Blob 索引子的 JSON Blob 編製索引以用於全文檢索搜尋 - Azure 搜尋服務
+description: 使用 Azure 搜尋服務 Blob 索引子，搜耙文字內容的 Azure JSON Blob。 索引子可為選取的資料來源 (例如 Azure Blob 儲存體) 將資料擷取自動化。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: 0dbf8a44007fbba39f6ac4c20e375a6d13ac9021
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec2018
+ms.openlocfilehash: 7eb215271a8d5d21403cc7c5a49028bb366e61fd
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711067"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312522"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>使用 Azure 搜尋服務 Blob 索引子編製索引 JSON Blob
 本文說明如何設定 Azure 搜尋服務 Blob 索引子，從 Azure Blob 儲存體中的 JSON blob 擷取結構化的內容。
@@ -52,7 +53,7 @@ JSON blob 的索引編製類似於一般文件擷取，是 Azure 搜尋服務中
 > [!Note]
 > 在入口網站中透過 **import** 動作公開索引子，可公開有限數目的正式運作索引子。 通常，import 工作流程可以根據來源中的中繼資料建構初步索引。 如需詳細資訊，請參閱[在入口網站中將資料匯入 Azure 搜尋服務](search-import-data-portal.md)。
 
-### <a name="step-3-configure-and-run-the-indexer"></a>步驟 3：設定及執行索引子
+### <a name="step-3-configure-and-run-the-indexer"></a>步驟 3：設定和執行索引子
 
 到目前為止，資料來源和索引的定義都符合不限定 parsingMode 的情況。 不過，在索引子設定的第 3 個步驟，做法將分道揚鑣，取決於您在 Azure 搜尋服務索引中如何剖析及結構化 JSON blob 內容。
 

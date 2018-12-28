@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 54a88188a432a23476af6a1670635a23fb72eea7
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5e185eea6fb1e96f17bf458dbfe2f06226933386
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638203"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341163"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的效能和級別
 
@@ -33,7 +33,7 @@ ms.locfileid: "52638203"
 
 [執行個體] 資料表是另一個 Azure 儲存體資料表，含有工作中樞內所有協調流程執行個體的狀態。 隨著執行個體的建立，此資料表中會新增資料列。 此資料表的資料分割索引鍵是協調流程執行個體識別碼，而資料列索引鍵是固定的常數。 每個協調流程執行個體都有一個資料列。
 
-此資料表用來滿足來自 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API 以及[狀態查詢 HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status) 的執行個體查詢要求。 它終於與先前所述的 [歷程記錄] 資料表內容保持一致。 以這種方式使用不同的 Azure 儲存體資料表有效地滿足執行個體查詢作業，會受到[命令和查詢責任隔離 (CQRS) 模式](https://docs.microsoft.com/azure/architecture/patterns/cqrs)所影響。
+此資料表可用來滿足來自 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) (.NET) 和 `getStatus` (JavaScript) API 以及[狀態查詢 HTTP API](durable-functions-http-api.md#get-instance-status) 的執行個體查詢要求。 它終於與先前所述的 [歷程記錄] 資料表內容保持一致。 以這種方式使用不同的 Azure 儲存體資料表有效地滿足執行個體查詢作業，會受到[命令和查詢責任隔離 (CQRS) 模式](https://docs.microsoft.com/azure/architecture/patterns/cqrs)所影響。
 
 ## <a name="internal-queue-triggers"></a>內部佇列觸發程序
 
@@ -53,10 +53,24 @@ ms.locfileid: "52638203"
 
 Durable Functions 所用的佇列、資料表和 blob 是由已設定的 Azure 儲存體帳戶所建立。 使用 **host.json** 檔案中的 `durableTask/azureStorageConnectionStringName` 設定，可以指定要使用的帳戶。
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "azureStorageConnectionStringName": "MyStorageAccountAppSetting"
+    }
   }
 }
 ```
@@ -67,6 +81,8 @@ Durable Functions 所用的佇列、資料表和 blob 是由已設定的 Azure �
 
 活動函式是無狀態，且經由新增虛擬機器而自動相應放大。 相反地，協調器函式會「分割」至一或多個控制佇列。 控制佇列數目會定義於 **host.json** 檔案中。 下列範例 host.json 程式碼片段會將 `durableTask/partitionCount` 屬性設為 `3`。
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
@@ -74,6 +90,19 @@ Durable Functions 所用的佇列、資料表和 blob 是由已設定的 Azure �
   }
 }
 ```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "partitionCount": 3
+    }
+  }
+}
+```
+
 一個工作中樞可設定為有 1 到 16 個資料分割。 若未指定，則預設資料分割計數為 **4**。
 
 向外延展至多個函式主機執行個體時 (通常在不同的虛擬機器上)，每個執行個體取得其中一個控制佇列的鎖定。 這些鎖定會在內部實作為 blob 儲存體租用，並確保協調流程執行個體一次只會在單一主機執行個體上執行。 如果工作中樞已設定三個控制佇列，則協調流程執行個體最多可以跨三個虛擬機器來平衡負載。 您可以新增更多虛擬機器，以增加容量來執行活動函式。
@@ -106,11 +135,26 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 
 您可以在 **host.json** 檔案中設定活動函式與協調器函式並行限制。 相關的設定分別是 `durableTask/maxConcurrentActivityFunctions` 和 `durableTask/maxConcurrentOrchestratorFunctions`。
 
+### <a name="functions-1x"></a>Functions 1.x
+
 ```json
 {
   "durableTask": {
     "maxConcurrentActivityFunctions": 10,
-    "maxConcurrentOrchestratorFunctions": 10,
+    "maxConcurrentOrchestratorFunctions": 10
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "maxConcurrentActivityFunctions": 10,
+      "maxConcurrentOrchestratorFunctions": 10
+    }
   }
 }
 ```
@@ -121,15 +165,31 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 > 這些設定很有用，有助於管理單一 VM 上的記憶體和 CPU 使用量。 不過，若跨越多部 VM 相應放大，則每部 VM 都會有自己的限制集合。 這些設定不能用來控制全域層級的並行存取。
 
 ## <a name="orchestrator-function-replay"></a>協調器函式重新執行
+
 如先前所述，使用 [歷程記錄] 資料表的內容可重新執行協調器函式。 根據預設，每次從控制佇列中清除一批訊息時，就會重新執行協調器函式程式碼。
 
 啟用**擴充工作階段**，即可停用此積極重新執行行為。 啟用擴充工作階段後，協調器函式執行個體保留在記憶體中的時間更長，而不需完全重新執行即可處理新訊息。 在 **host.json** 檔案中將 `durableTask/extendedSessionsEnabled` 設定為 `true`，就會啟用擴充工作階段。 `durableTask/extendedSessionIdleTimeoutInSeconds` 設定用來控制閒置工作階段會保留在記憶體中多久：
+
+### <a name="functions-1x"></a>Functions 1.x
 
 ```json
 {
   "durableTask": {
     "extendedSessionsEnabled": true,
     "extendedSessionIdleTimeoutInSeconds": 30
+  }
+}
+```
+
+### <a name="functions-2x"></a>Functions 2.x
+
+```json
+{
+  "extensions": {
+    "durableTask": {
+      "extendedSessionsEnabled": true,
+      "extendedSessionIdleTimeoutInSeconds": 30
+    }
   }
 }
 ```
@@ -150,10 +210,10 @@ Azure Functions 支援在單一應用程式執行個體中同時執行多個函�
 
 在規劃將 Durable Functions 用於生產應用程式時，請務必在規劃初期考慮效能需求。 本節涵蓋一些基本使用案例，以及預期的最大輸送量數字。
 
-* **循序活動執行**：這個案例說明的協調器函式會一個接一個執行一系列活動函式。 它最類似於[函式鏈結](durable-functions-sequence.md)範例。
-* **平行活動執行**：這個案例說明的協調器函式會使用[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式平行執行許多活動函式。
-* **平行處理回應**：這個案例是[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式的第二個部份。 它著重於收合傳送的效能。 請務必請注意，不同於展開傳送，收合傳送是由單一協調器函式執行個體進行，因此只能在單一 VM 上執行。
-* **外部事件處理**：這個案例代表為[外部事件](durable-functions-external-events.md)服務的單一協調器函式執行個體 (一次一個)。
+* **循序活動執行**：此案例說明一個會將一系列活動函式逐一執行的協調器函式。 它最類似於[函式鏈結](durable-functions-sequence.md)範例。
+* **平行活動執行**：此案例說明一個會使用[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式平行執行許多活動函式的協調器函式。
+* **平行回應處理**：此案例是[展開傳送、收合傳送](durable-functions-cloud-backup.md)模式的第二個半部。 它著重於收合傳送的效能。 請務必請注意，不同於展開傳送，收合傳送是由單一協調器函式執行個體進行，因此只能在單一 VM 上執行。
+* **外部事件處理**：此案例代表一次為一個[外部事件](durable-functions-external-events.md)服務的單一協調器函式執行個體。
 
 > [!TIP]
 > 不同於展開傳送，收合傳送作業受限制於單一 VM。 如果您的應用程式使用展開傳送、收合傳送模式，而且您很在意收合傳送效能，請考慮將活動函式展開傳送細分到多個[子協調流程](durable-functions-sub-orchestrations.md)。

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 時間序列深入解析查詢中成形 JSON 的最佳做法。
-description: 了解如何改善您的時間序列深入解析查詢效率。
+title: Azure 時間序列深入解析 JSON - 在 Azure 時間序列深入解析查詢中塑形 JSON 的最佳做法 | Microsoft Docs
+description: 了解如何改善您的 Azure 時間序列深入解析查詢效率。
 services: time-series-insights
 author: ashannon7
 manager: cshankar
@@ -8,16 +8,23 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 284bbf435c7940658753e7bbf1daff00a79d57a1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628907"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273840"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>如何成形 JSON 來將查詢效能最大化 
 
 本文提供成形 JSON 來將 Azure 時間序列深入解析 (TSI) 查詢效率最大化的指引。
+
+## <a name="video"></a>視訊： 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>在這段影片中，我們將討論塑造 JSON 以滿足您儲存體需求的最佳做法。</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>最佳作法
 

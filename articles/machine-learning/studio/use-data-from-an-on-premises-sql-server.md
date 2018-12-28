@@ -1,12 +1,11 @@
 ---
-title: 使用 Azure Machine Learning Studio 的內部部署 SQL Server | Microsoft Docs
+title: 內部部署 SQL Server - Azure Machine Learning Studio | Microsoft Docs
 description: 使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning Studio 執行進階分析。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 08e4610d-02b6-4071-aad7-a2340ad8e2ea
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.openlocfilehash: d28c39ef909cffdc1ed907e05b60e61f02353710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dccea7c5d7967af2e81ab4728704a5a104a007b5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310951"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269272"
 ---
-# <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>使用來自內部部署 SQL Server 資料庫的資料，利用 Azure Machine Learning 執行進階分析
+# <a name="perform-analytics-with-azure-machine-learning-studio-using-an-on-premises-sql-server-database"></a>使用內部部署 SQL Server 資料庫，利用 Azure Machine Learning Studio 執行分析
 
 使用內部部署資料的企業通常會想要針對他們的機器學習服務工作負載來利用雲端的範圍和靈活度。 但是他們又不想因為將內部部署資料移至雲端而中斷目前的商務程序和工作流程。 Azure Machine Learning 現在支援從內部部署 SQL Server 資料庫讀取資料，然後利用此資料，針對某個模型進行訓練與評分。 您不再需要手動複製和同步處理雲端與內部部署伺服器之間的資料。 相反地，Azure Machine Learning Studio 中的 **匯入資料** 模組現在可以直接從您的內部部署 SQL Server 資料庫讀取，以進行您的訓練和評分作業。
 
@@ -36,7 +35,7 @@ ms.locfileid: "52310951"
 
 <!-- -->
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="install-the-data-factory-self-hosted-integration-runtime"></a>安裝 Data Factory 自我裝載整合執行階段
 若要在 Azure Machine Learning 中存取 SQL Server ，您必須下載並安裝 Data Factory 自我裝載整合執行階段，原名為資料管理閘道。 當您在 Machine Learning Studio 中設定連線時，會有機會使用 [下載並註冊資料閘道] 對話方塊來下載並安裝整合執行階段 (IR)，如下所述。
@@ -79,7 +78,7 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 > [!NOTE]
 > Azure Data Factory自我裝載整合執行階段原名為資料管理閘道。 逐步教學課程會繼續稱之為閘道。  
 
-### <a name="step-1-create-a-gateway"></a>步驟 1：建立閘道器
+### <a name="step-1-create-a-gateway"></a>步驟 1：建立閘道
 第一個步驟是建立並設定閘道器來存取您的內部部署 SQL 資料庫。
 
 1. 登入 [Azure Machine Learning  Studio](https://studio.azureml.net/Home/)，然後選取您想要使用的工作區。
@@ -126,7 +125,7 @@ Data Factory 自我裝載整合執行階段的必要條件如下：
 
 您可以在 Studio 中針對每個工作區建立和設定多個閘道器。 例如，您可能想要有一個可在開發期間連接到測試資料來源的閘道器，以及另一個適用於生產資料來源的閘道器。 根據貴公司的環境而定，Azure Machine Learning 可讓您彈性地設定多個閘道器。 目前您無法在工作區之間共用一個閘道器，而且單一電腦上只能安裝一個閘道器。 如需詳細資訊，請參閱[利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/tutorial-hybrid-copy-portal.md)。
 
-### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>步驟 2︰使用閘道器讀取來自內部部署資料來源的資料
+### <a name="step-2-use-the-gateway-to-read-data-from-an-on-premises-data-source"></a>步驟 2：使用閘道以讀取來自內部部署資料來源的資料
 設定閘道之後，您可以將 **匯入資料** 模組新增到會輸入來自內部部署 SQL Server 資料庫之資料的實驗。
 
 1. 在 Machine Learning Studio 中，選取 [實驗] 索引標籤，並按一下左下角的 [+新增]，然後選取 [空白實驗] \(或從數個可用的範例實驗中選取其中一個)。

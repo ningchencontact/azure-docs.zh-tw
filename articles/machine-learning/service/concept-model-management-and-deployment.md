@@ -1,26 +1,28 @@
 ---
-title: 在 Azure Machine Learning Service 中管理和部署模型
+title: 管理、註冊、部署和監視 ML 模型
+titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning Service 來部署、管理及監視模型，以持續改善這些模型。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning Service 來定型的模型。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: hjerez
-ms.author: hjerez
+author: chris-lauren
+ms.author: clauren
 ms.date: 09/24/2018
-ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.custom: seodec18
+ms.openlocfilehash: 25f149ad4df43a7e5b443d6abd72be91072cb47f
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885062"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250193"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning Service 來管理、部署及監視模型
 
 在本文中，您會了解如何使用 Azure Machine Learning Service 來部署、管理及監視模型，以持續改善這些模型。 您可以在本機電腦上或從其他來源中，部署使用 Azure Machine Learning 所訓練的模型。 
 
-下圖說明完整部署工作流程：[![Azure Machine Learning 的部署工作流程](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+下圖說明完整的部署工作流程：[ ![Azure Machine Learning 的模型部署](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 部署工作流程包含下列步驟：
 1. 在 Azure Machine Learning Service 工作區所裝載的登錄中**註冊模型**

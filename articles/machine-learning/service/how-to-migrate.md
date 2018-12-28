@@ -1,5 +1,6 @@
 ---
-title: 移轉至 Azure Machine Learning 服務
+title: 從 Workbench 移轉
+titleSuffix: Azure Machine Learning service
 description: 了解如何從舊版本升級或移轉至最新版的 Azure Machine Learning 服務。
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +10,16 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: e2b3545c020f41f25f19843eab158cfb1b419164
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 22e7e513c7ec015b070ae37c1dbdd168404ee768
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253443"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140740"
 ---
-# <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>移轉至最新版的 Azure Machine Learning 服務 
+# <a name="migrate-from-workbench-to-the-latest-version-of-azure-machine-learning-service"></a>從 Workbench 移轉至最新版的 Azure Machine Learning 服務 
 
-**如果您已安裝 Workbench (預覽) 應用程式及/或具有實驗和模型管理預覽帳戶，則請使用本文移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗及/或模型管理帳戶，則不需要移轉任何項目。
+**如果您已安裝 Workbench 應用程式及/或已具有實驗和模型管理預覽帳戶，則請利用本文來移轉至最新版本。**  如果您尚未安裝 Workbench 預覽版，或者沒有實驗及/或模型管理帳戶，則不需要移轉任何項目。
 
 ## <a name="what-can-i-migrate"></a>我可以移轉的項目為何？
 在 Azure Machine Learning 服務的第一個預覽版中建立的大部分成品，都會儲存在您自己的本機或雲端儲存體中。 這些成品將不會消失。 若要移轉，請使用已更新的 Azure Machine Learning 服務再次登錄成品。 
@@ -52,7 +53,7 @@ ms.locfileid: "51253443"
 
 實驗帳戶、模型管理帳戶和機器學習計算環境這類資源無法移轉至最新版的 Azure Machine Learning 服務。 請參閱[時間表](overview-what-happened-to-workbench.md#timeline)，以了解資產將持續運作多長時間。
 
-在 [Azure 入口網站](quickstart-get-started.md)中建立 Azure Machine Learning services 工作區，以開始使用最新版本。 只有在 Edge、Chrome 與 Firefox 瀏覽器上才支援入口網站的工作區儀表板。
+在 [Azure 入口網站](quickstart-get-started.md)中建立 Azure Machine Learning services 工作區，以開始使用最新版本。 只有在 Edge、Chrome 和 Firefox 上才支援入口網站的工作區儀表板。
 
 這個新的工作區是最上層服務資源，並可讓您使用 Azure Machine Learning 服務的所有最新功能。 深入了解此[工作區和架構](concept-azure-machine-learning-architecture.md)。
 
@@ -75,12 +76,11 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 若要移轉 Web 服務，請使用新的 SDK 或 CLI 將模型重新部署至新部署目標。 不需要變更原始評分檔案、模型檔案相依性檔案、環境檔案和結構描述檔案。 
 
-在最新版本中，模型會以 Web 服務形式部署至 [Azure 容器執行個體](how-to-deploy-to-aci.md) (ACI) 或 [Azure Kubernetes Service](how-to-deploy-to-aks.md) (AKS) 叢集。 
+在最新版本中，模型會以 Web 服務形式部署至「Azure 容器執行個體」(ACI) 或 Azure Kubernetes Service (AKS) 叢集。 
 
 請在下列文章中深入了解：
-+ [部署至 ACI](how-to-deploy-to-aci.md)
-+ [部署至 AKS](how-to-deploy-to-aks.md)
-+ [教學課程：使用 Azure Machine Learning 服務部署模型](tutorial-deploy-models-with-aml.md)
++ [部署方式及位置](how-to-deploy-and-where.md)
++ [教學課程：使用 Azure Machine Learning 服務來部署模型](tutorial-deploy-models-with-aml.md)
 
 [支援先前的 CLI 端](overview-what-happened-to-workbench.md#timeline)時，您無法管理原本使用模型管理帳戶所部署的 Web 服務。 不過，只要仍支援 Azure Container Service (ACS)，這些 Web 服務就會繼續運作。
 
@@ -108,7 +108,7 @@ az ml history download
 <a name="dataprep"></a>
 
 ## <a name="data-preparation-files"></a>資料準備檔案
-需要使用 Workbench，才能移植資料準備檔案。 但您仍然可以使用新的 Azure Machine Learning 資料準備 SDK 或使用用於巨量資料集的 Azure Databricks，來準備用於建立模型的任何大小資料集。  [了解如何取得資料準備 SDK](how-to-data-prep.md)。 
+需要使用 Workbench，才能移植資料準備檔案。 但您仍然可以使用新的 Azure Machine Learning 資料準備 SDK 或使用用於巨量資料集的 Azure Databricks，來準備用於建立模型的任何大小資料集。 [了解如何取得資料準備 SDK](https://aka.ms/data-prep-sdk)。
 
 ## <a name="next-steps"></a>後續步驟
 

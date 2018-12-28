@@ -9,44 +9,44 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1324980e173d31803026f9ec93565d4aabd30c85
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: b00982cbc30b2345d9eacea376e3c5164ce1b078
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687243"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408675"
 ---
-# <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在以 Windows 為基礎的 HDInsight 中執行 Hadoop MapReduce 範例
+# <a name="run-apache-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>在 Windows 型 HDInsight 中執行 Apache Hadoop MapReduce 範例
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-我們提供了一組範例，協助您使用 Azure HDInsight 並開始在 Hadoop 叢集上執行 MapReduce 工作。 這些範例可套用在您所建立的每個 HDInsight 受控叢集上。 執行這些範例可協助您熟悉使用 Azure PowerShell Cmdlet 在 Hadoop 叢集上執行作業。
+我們提供了一組範例，可協助您使用 Azure HDInsight 在 Apache Hadoop 叢集上開始執行 MapReduce 作業。 這些範例可套用在您所建立的每個 HDInsight 受控叢集上。 執行這些範例可協助您熟悉使用 Azure PowerShell Cmdlet 在 Hadoop 叢集上執行作業。
 
-* [字數統計][hdinsight-sample-wordcount]：計算文字檔中的文字出現次數。
-* [C# 串流字數統計][hdinsight-sample-csharp-streaming]：使用 Hadoop 串流介面計算文字檔中的文字出現次數。
-* [Pi 估算器][hdinsight-sample-pi-estimator]：使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。
-* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 在 10 GB 檔案上執行一般用途的 GraySort。 有三個工作可執行：Teragen、Terasort 和 Teravalidate，分別用來產生資料、排序資料，以及確認資料已適當排序。
+* [**字數統計**][hdinsight-sample-wordcount]：計算文字檔中的文字出現次數。
+* [**C# 串流字數統計**][hdinsight-sample-csharp-streaming]：使用 Hadoop 串流介面來計算文字檔中的文字出現次數。
+* [**Pi 估算器**][hdinsight-sample-pi-estimator]：使用統計 (擬蒙特卡羅法) 方法來估計 Pi 的值。
+* [**10-GB Graysort**][hdinsight-sample-10gb-graysort]：使用 HDInsight 在 10 GB 檔案上執行一般用途的 GraySort。 要執行的作業有三個：Teragen、Terasort 和 Teravalidate，分別用來產生資料、排序資料，以及確認資料已適當排序。
 
-> [!NOTE]
+> [!NOTE]  
 > 原始程式碼可以在附錄中找到。
 
 網路上有許多 Hadoop 相關技術 (例如 Java 型 MapReduce 程式設計和串流) 的文件可供參考，此外也有適用於 Windows PowerShell 指令碼之 Cmdlet 的相關文件。 如需有關這些資源的詳細資訊，請參閱：
 
-* [在 HDInsight 上開發 Hadoop 的 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [在 HDInsight 上提交 Hadoop 工作](hadoop/submit-apache-hadoop-jobs-programmatically.md)
+* [開發適用於 HDInsight 中 Apache Hadoop 的 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [在 HDInsight 中提交 Apache Hadoop 作業](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Azure HDInsight 簡介][hdinsight-introduction]
 
-時至今日，很多人選擇 Hive 和 Pig 而非 MapReduce。  如需詳細資訊，請參閱
+現今很多人選擇 Apache Hive 和 Apache Pig 而非 MapReduce。  如需詳細資訊，請參閱
 
-* [在 HDInsight 中使用 Hive](hadoop/hdinsight-use-hive.md)
-* [在 HDInsight 中使用 Pig](hadoop/hdinsight-use-pig.md)
+* [在 HDInsight 中使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [在 HDInsight 中使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 
 **必要條件**：
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* **HDInsight 叢集**。 如需可建立此類叢集之各種方式的指示，請參閱 [在 HDInsight 中使用 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+* **HDInsight 叢集**。 如需有關可建立這類叢集之各種方式的指示，請參閱 [在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 * **具有 Azure PowerShell 的工作站**。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，將會在 2017 年 1 月 1 日前移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
     >
     > 請遵循[安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱[移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md)。
@@ -56,7 +56,7 @@ ms.locfileid: "51687243"
 
 原始程式碼可以在 [附錄 A](#apendix-a---the-word-count-MapReduce-program-in-java)中找到。
 
-如需開發 Java MapReduce 程式之程序，請參閱 - [在 HDInsight 中針對 Hadoop 開發 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+如需了解開發 Java MapReduce 程式的程序，請參閱[開發適用於 HDInsight 中 Apache Hadoop 的 Java MapReduce 程式](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **提交字數統計 MapReduce 工作**
 
@@ -120,7 +120,7 @@ ms.locfileid: "51687243"
 ## <a name="hdinsight-sample-csharp-streaming"></a>字數統計 - C# 串流
 Hadoop 提供 MapReduce 一個串流 API，可讓您以 Java 以外的語言撰寫 map 和 reduce 函數。
 
-> [!NOTE]
+> [!NOTE]  
 > 本教學課程的步驟只適用於 Windows HDInsight 叢集。 如需 Linux HDInsight 叢集的串流範例，請參閱 [開發適用於 HDInsight 的 Python 串流程式](hadoop/apache-hadoop-streaming-python.md)。
 
 在範例中，mapper 和 reducer 是從 [stdin][stdin-stdout-stderr] 讀取輸入 (循行) 並將輸出發出到 [stdout][stdin-stdout-stderr] 的可執行檔。 程式會計算內容中的所有文字。
@@ -207,10 +207,10 @@ Pi 估算器會使用統計 (擬蒙特卡羅法) 方法來估計 pi 的值。 �
 ## <a name="next-steps"></a>後續步驟
 透過本文和關於各範例的文章，您已了解如何使用 Azure PowerShell 執行 HDInsight 叢集隨附的範例。 如需透過 HDInsight 使用 Pig、Hive 和 MapReduce 的教學課程，請參閱下列主題：
 
-* [開始在 HDInsight 中搭配 Hive 使用 Hadoop 以分析行動電話使用][hdinsight-get-started]
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
-* [在 HDInsight 中提交 Hadoop 作業][hdinsight-submit-jobs]
+* [開始在 HDInsight 中搭配 Apache Hive 使用 Apache Hadoop 以分析行動電話使用][hdinsight-get-started]
+* [搭配 HDInsight 上的 Apache Hadoop 使用 Apache Pig][hdinsight-use-pig]
+* [搭配 HDInsight 上的 Apache Hadoop 使用 Apache Hive][hdinsight-use-hive]
+* [在 HDInsight 中提交 Apache Hadoop 作業][hdinsight-submit-jobs]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>附錄 A - 字數統計原始程式碼
 
@@ -993,6 +993,6 @@ public class TeraSort extends Configured implements Tool {
 [hdinsight-use-hive]: hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]: hadoop/hdinsight-use-pig.md
 
-[streamreader]: http://msdn.microsoft.com/library/system.io.streamreader.aspx
-[console-writeline]: http://msdn.microsoft.com/library/system.console.writeline
+[streamreader]: https://msdn.microsoft.com/library/system.io.streamreader.aspx
+[console-writeline]: https://msdn.microsoft.com/library/system.console.writeline
 [stdin-stdout-stderr]: https://msdn.microsoft.com/library/3x292kth.aspx

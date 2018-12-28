@@ -1,12 +1,11 @@
 ---
-title: Machine Learning Web 服務：部署和取用 - Azure Machine Learning Studio | Microsoft Docs
+title: 部署和取用 - Azure Machine Learning Studio | Microsoft Docs
 description: 您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 47635376-d1f4-4ea4-a6af-bd1f99f69a69
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.openlocfilehash: a192bb50fe6931130492fad037f83e301e401762
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ed57f80a210cdb9c7ff8e77da2269d8494892fcc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315540"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268422"
 ---
-# <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Azure Machine Learning Web 服務：部署和取用
+# <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio Web 服務：部署和取用
 您可以使用 Azure Machine Learning 來部署機器學習服務的工作流程和模型做為 Web 服務。 然後便可以透過網際網路利用這些 Web 服務從應用程式呼叫機器學習服務模型，進行即時預測或批次模式的預測。 由於 Web 服務為 RESTful，您可以從各種程式設計語言與平台 (如 .NET 與 Java) 和應用程式 (如 Excel) 呼叫它們。
 
 下列章節提供可協助您快速開始的逐步解說、程式碼及文件的連結。
@@ -37,7 +36,7 @@ Machine Learning Studio 和 Microsoft Azure Machine Learning Web 服務入口網
 
 * 如需如何部署以 Azure Resource Manager 為基礎的新 Web 服務的概觀，請參閱 [部署新的 Web 服務](publish-a-machine-learning-web-service.md)。
 * 如需如何部署 Web 服務的逐步解說，請參閱 [部署 Azure Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
-* 如需如何建立和部署 Web 服務的完整逐步解說，請參閱 [逐步解說步驟 1︰建立 Machine Learning 工作區](walkthrough-1-create-ml-workspace.md)。
+* 如需如何建立和部署 Web 服務的完整逐步解說，請參閱[逐步解說步驟 1：建立 Machine Learning 工作區](walkthrough-1-create-ml-workspace.md)。
 * 如需部署 Web 服務的特定範例，請參閱︰
 
   * [逐步解說步驟 5：部署 Azure Machine Learning Web 服務](walkthrough-5-publish-web-service.md)

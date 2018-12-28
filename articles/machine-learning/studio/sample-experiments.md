@@ -5,9 +5,8 @@ keywords: 機器學習服務範例, 範例實驗, 機器學習服務範例, AI �
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 81e6c1d8-682c-4db3-bfd5-d7bfb1150ff3
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/05/2018
-ms.openlocfilehash: 568732c5a1d2abbb9f304b624d885b2a3c692706
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6b2a07b105252ca1fb5eb37c2571601c3eb74179
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306675"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276429"
 ---
-# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立機器學習服務實驗
+# <a name="create-azure-machine-learning-studio-experiments-from-working-examples-in-azure-ai-gallery"></a>從 Azure AI 資源庫中的工作範例建立 Azure Machine Learning Studio 實驗
 
 了解如何從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/)的範例實驗開始，而不是從頭建立機器學習服務實驗。 您可以使用範例來建立自己的機器學習服務解決方案。
 
@@ -32,7 +31,7 @@ ms.locfileid: "52306675"
 
 若要查看如何使用資源庫，請觀看[初學者的資料科學](data-science-for-beginners-the-5-questions-data-science-answers.md)系列中的 3 分鐘影片[複製其他人的工作來進行資料科學](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>在 Azure AI 資源庫中尋找要複製的實驗
 若要查看有哪些可用的實驗，請移至[資源庫](https://gallery.cortanaintelligence.com/)，然後按一下頁面頂端的 [實驗]。
@@ -46,7 +45,7 @@ ms.locfileid: "52306675"
 1. 按一下頁面頂端的 [全部瀏覽]  。
 2. 在左側 [類別] 區段的 [精簡依據] 之下，選取 [實驗] 以查看資源庫中的所有實驗。
 3. 有幾種不同方式可以找到符合您需求的實驗︰
-   * **選取左邊的篩選。** 例如，若要瀏覽使用以 PCA 為基礎之異常偵測演算法的實驗，請按一下 [類別] 之下的 [實驗]。 然後，在 [使用的演算法] 之下，按一下 [全部顯示]，並在對話方塊中選擇 [以 PCA 為基礎的異常偵測]。 您可能必須捲動才能看到它。<br></br>
+   * **選取左邊的篩選。** 例如，若要瀏覽使用 PCA 型異常偵測演算法的實驗：按一下 [類別] 之下的 [實驗]。 然後，在 [使用的演算法] 之下，按一下 [全部顯示]，並在對話方塊中選擇 [以 PCA 為基礎的異常偵測]。 您可能必須捲動才能看到它。<br></br>
      ![選取篩選條件](./media/sample-experiments/choose-an-algorithm.png)
    * **使用 [搜尋] 方塊。**  例如，若要尋找 Microsoft 所提出並使用二級支援向量機器演算法的數字辨識相關實驗，請在 [搜尋] 方塊中輸入「數字辨識」。 然後選取篩選器 [實驗]、[僅包含 Microsoft 內容] 和 [二級支援向量機器]：<br></br>
      ![使用搜尋方塊](./media/sample-experiments/search-for-experiments.png)

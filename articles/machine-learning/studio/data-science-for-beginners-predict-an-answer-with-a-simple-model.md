@@ -1,13 +1,12 @@
 ---
-title: 利用簡單的迴歸模型預測答案 - Azure Machine Learning Studio | Microsoft Docs
+title: 利用迴歸模型預測答案 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何在「適用於初學者的資料科學」影片 4 中，建立簡單迴歸模型來預測價格。 包含線性迴歸以及目標資料。
 keywords: 建立模型, 簡單模型, 價格預測, 簡單迴歸模型
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: a28f1fab-e2d8-4663-aa7d-ca3530c8b525
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-ms.openlocfilehash: 2862310623b2725cbeeaa4f5972a89ffcef44ff6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e2c49b9da215c038cfa47689f11da22b2dffc2dc
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309771"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253568"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>利用簡單模型預測答案
 ## <a name="video-4-data-science-for-beginners-series"></a>影片 4：適用於初學者的資料科學系列
@@ -39,8 +38,8 @@ ms.locfileid: "52309771"
  是一個資料科學的快速簡介，包含五個簡短影片。
 
 * 影片 1：[資料科學可以回答的 5 個問題](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 分 14 秒)*
-* 影片 2： [您的資料已經可以進行資料科學了嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
-* 影片 3：[詢問您可以使用資料回答的問題](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 分 17 秒)*
+* 影片 2：[已備妥適用於資料科學的資料嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
+* 影片 3：[問一個您可以使用資料回答的問題](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 分 17 秒)*
 * 影片 4：利用簡單模型預測答案
 * 影片 5：[複製其他人的工作進行資料科學](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3 分 18 秒)*
 
@@ -66,7 +65,7 @@ ms.locfileid: "52309771"
 * 此外，誠如所見，有 **足夠** 的資料可回答我們的問題
 
 ## <a name="ask-a-sharp-question"></a>詢問明確的問題
-現在我們將以明確的方式提出問題：「要花多少費用才能購買 1.35 克拉的鑽石？」
+現在，我們將以明確的方式提出問題：「購買 1.35 克拉的鑽石需要多少費用？」
 
 我們的清單中沒有 1.35 克拉的鑽石，因此，必須使用剩餘的資料來取得問題的答案。
 
@@ -97,14 +96,14 @@ ms.locfileid: "52309771"
 因為我們正試著回答「多少？」的問題，這就稱為「迴歸」。 而且由於我們使用直線，所以它是「線性迴歸」。
 
 ## <a name="use-the-model-to-find-the-answer"></a>使用模型尋找答案
-現在我們已有模型，接著詢問它一個問題：1.35 克拉的鑽石價值多少？
+現在我們已有模型，接著將對它提出問題：1.35 克拉鑽石的售價如何？
 
-為了回答問題，我們仔細打量出 1.35 克拉的所在位置，並繪製一條垂直線。 在它與模型線交會的地方，我們繪製了一條垂直線到美元軸。 它正好命中 10,000。 碰！ 這就是答案了︰一顆 1.35 克拉的鑽石價值約 10,000 美元。
+為了回答問題，我們仔細打量出 1.35 克拉的所在位置，並繪製一條垂直線。 在它與模型線交會的地方，我們繪製了一條垂直線到美元軸。 它正好命中 10,000。 碰！ 這就是答案：一顆 1.35 克拉的鑽石價值約 10,000 美元。
 
 ![在模型中尋找答案](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>建立信賴區間
-很自然地就想要知道此預測的精確度為何。 了解 1.35 克拉的鑽石是否非常接近 10,000 美元，抑或高出許多或低很多，是非常實用的。 為了理解這一點，讓我們在迴歸線四周畫一條包絡線，其中包含大部分的點。 這條包絡線就稱為「信賴區間」 ︰我們非常確信價格會落在此包絡線內，因為在過去它們大多數都是這樣。 我們可以從 1.35 克拉線與此包絡線頂端和底部交會的地方繪製兩條以上的垂直線。
+很自然地就想要知道此預測的精確度為何。 了解 1.35 克拉的鑽石是否非常接近 10,000 美元，抑或高出許多或低很多，是非常實用的。 為了理解這一點，讓我們在迴歸線四周畫一條包絡線，其中包含大部分的點。 此信封稱為「信賴區間」：我們非常確信價格會落在此信封內，因為它們在過去大多數都如此。 我們可以從 1.35 克拉線與此包絡線頂端和底部交會的地方繪製兩條以上的垂直線。
 
 ![信賴區間](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 

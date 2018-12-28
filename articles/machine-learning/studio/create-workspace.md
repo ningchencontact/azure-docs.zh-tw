@@ -1,11 +1,10 @@
 ---
-title: 建立 Azure Machine Learning Studio 工作區 | Microsoft Docs
+title: 建立工作區 - Azure Machine Learning Studio | Microsoft Docs
 description: 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
@@ -13,18 +12,18 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-ms.openlocfilehash: 8362468d329f12ad8ebf25c8d205ec7d35ac6c28
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e6835afd66d054a79c422a35839d64ae89031de5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307214"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268252"
 ---
-# <a name="create-and-share-an-azure-machine-learning-workspace"></a>建立和共用 Azure Machine Learning 工作區
+# <a name="create-and-share-an-azure-machine-learning-studio-workspace"></a>建立和共用 Azure Machine Learning Studio 工作區
 
 若要使用 Azure Machine Learning Studio，您必須具有 Machine Learning Studio 工作區。 此工作區包含您建立、管理及發行實驗所需的工具。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="to-create-a-workspace"></a>建立工作區
 1. 登入 [Azure 入口網站](https://portal.azure.com/)
@@ -60,7 +59,7 @@ ms.locfileid: "52307214"
     ![開啟實驗](./media/create-workspace/my-experiments.png)
 
 如需管理您的工作區的詳細資訊，請參閱 [管理 Azure Machine Learning 工作區](manage-workspace.md)。
-如果您對於建立您的工作區遇到問題，請參閱 [疑難排解指南：建立及連線至 Machine Learning 工作區](troubleshooting-creating-ml-workspace.md)。
+如果您在建立工作區時遇到問題，請參閱[疑難排解指南：建立及連線至 Machine Learning 工作區](troubleshooting-creating-ml-workspace.md)。
 
 
 ## <a name="sharing-an-azure-machine-learning-workspace"></a>共用 Azure 機器學習服務工作區

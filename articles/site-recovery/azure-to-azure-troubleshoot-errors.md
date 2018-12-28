@@ -5,20 +5,19 @@ services: site-recovery
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/27/2018
 ms.author: sujayt
-ms.openlocfilehash: 7d11460fd1db5ba92725567a41aaaeab9e752adb
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 84462b98e1006cadf34adecf948efd39ad4f69d6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308115"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313967"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 至 Azure VM 複寫問題的疑難排解
 
-此文章說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
+本文說明從一個區域將 Azure 虛擬機器複寫和復原到另一個區域時，關於 Azure Site Recovery 的常見問題，並解說如何進行疑難排解。 如需受支援組態的詳細資訊，請參閱[複寫 Azure VM 的支援矩陣](site-recovery-support-matrix-azure-to-azure.md)。
 
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Azure 資源配額問題 (錯誤碼 150097)
 您的訂用帳戶應該啟用，才能在要做為災害復原區域的目標區域中建立 Azure VM。 此外，您的訂用帳戶應該已啟用足夠的配額，才能建立特定大小的 VM。 根據預設，Site Recovery 會取用相同大小的目標 VM 做為來源 VM。 如果沒有相符大小，系統會自動挑選最接近的大小。 如果沒有支援來源 VM 組態的相符大小，則會出現下列錯誤訊息：
@@ -38,7 +37,7 @@ ms.locfileid: "52308115"
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-151066<br></br>**訊息**：Site Recovery 組態失敗。 | 機器上不存在用於授權和驗證的受信任根憑證。 | - 對於執行 Windows 作業系統的 VM，請確定機器上存在受信任根憑證。 如需資訊，請參閱[設定受信任根目錄和不允許的憑證](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 對於執行 Linux 作業系統的 VM，請依照 Linux 作業系統版本散發者發行的受信任根憑證適用的指引。
+151066<br></br>**訊息**：Site Recovery 設定失敗。 | 機器上不存在用於授權和驗證的受信任根憑證。 | - 對於執行 Windows 作業系統的 VM，請確定機器上存在受信任根憑證。 如需資訊，請參閱[設定受信任根目錄和不允許的憑證](https://technet.microsoft.com/library/dn265983.aspx)。<br></br>- 對於執行 Linux 作業系統的 VM，請依照 Linux 作業系統版本散發者發行的受信任根憑證適用的指引。
 
 ### <a name="fix-the-problem"></a>修正問題
 **Windows**
@@ -61,37 +60,37 @@ ms.locfileid: "52308115"
 
       ``# cd /etc/ssl/certs``
 
-3. 檢查是否有 Symantec 根 CA 憑證。
+1. 檢查是否有 Symantec 根 CA 憑證。
 
       ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. 如果找不到 Symantec 根 CA 憑證，請執行下列命令來下載檔案。 檢查是否有任何錯誤，並遵循適用於網路失敗的建議動作。
+2. 如果找不到 Symantec 根 CA 憑證，請執行下列命令來下載檔案。 檢查是否有任何錯誤，並遵循適用於網路失敗的建議動作。
 
       ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. 檢查是否有 Baltimore 根 CA 憑證。
+3. 檢查是否有 Baltimore 根 CA 憑證。
 
       ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. 如果找不到 Baltimore 根 CA 憑證，請下載憑證。  
+4. 如果找不到 Baltimore 根 CA 憑證，請下載憑證。  
 
     ``# wget http://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. 檢查是否有 DigiCert_Global_Root_CA 憑證。
+5. 檢查是否有 DigiCert_Global_Root_CA 憑證。
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. 如果找不到 DigiCert_Global_Root_CA，請執行下列命令來下載憑證。
+6. 如果找不到 DigiCert_Global_Root_CA，請執行下列命令來下載憑證。
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. 執行 rehash 指令碼，來更新適用於最新下載憑證的憑證主體雜湊。
+7. 執行 rehash 指令碼，來更新適用於最新下載憑證的憑證主體雜湊。
 
     ``# c_rehash``
 
-10. 檢查是否已針對憑證建立主體雜湊作為符號連結。
+8.  檢查是否已針對憑證建立主體雜湊作為符號連結。
 
     - 命令
 
@@ -120,11 +119,11 @@ ms.locfileid: "52308115"
       ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
       -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. 使用檔案名稱 b204d74a.0 建立 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 檔案的複本
+9.  使用檔案名稱 b204d74a.0 建立 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 檔案的複本
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. 使用檔案名稱 653b494a.0 建立 Baltimore_CyberTrust_Root.pem 檔案的複本
+10. 使用檔案名稱 653b494a.0 建立 Baltimore_CyberTrust_Root.pem 檔案的複本
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -171,7 +170,7 @@ ms.locfileid: "52308115"
         - 如果未來將新的位址新增至 Azure Active Directory (AAD)，您必須建立新的 NSG 規則。
 
 
-### <a name="issue-3-site-recovery-configuration-failed-151197"></a>問題 3：	Site Recovery 設定失敗 (151197)
+### <a name="issue-3-site-recovery-configuration-failed-151197"></a>問題 3：Site Recovery 設定失敗 (151197)
 - **可能的原因** </br>
   - 無法在連線至 Azure Site Recovery 服務端點。
 
@@ -185,15 +184,16 @@ ms.locfileid: "52308115"
 
 
  - **解決方案**
-  1.    行動服務代理程式偵測到 IE 的 Proxy 設定 (在 Windows 上) 和 /etc/environment (在 Linux 上)。
-  2.  如果您只想要為 ASR 行動服務設定 Proxy，則可在 ProxyInfo.conf 中提供 Proxy 詳細資料，該檔案位於：</br>
-      - ``/usr/local/InMage/config/`` (在 ***Linux*** 上)
-      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
-  3.    ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。 </br>
+   1.   行動服務代理程式偵測到 IE 的 Proxy 設定 (在 Windows 上) 和 /etc/environment (在 Linux 上)。
+   2.  如果您只想要為 ASR 行動服務設定 Proxy，則可在 ProxyInfo.conf 中提供 Proxy 詳細資料，該檔案位於：</br>
+       - ``/usr/local/InMage/config/`` (在 ***Linux*** 上)
+       - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` (在 ***Windows*** 上)
+   3.   ProxyInfo.conf 應該要有下列 INI 格式的 Proxy 設定。</br>
                    [proxy]</br>
                    Address=http://1.2.3.4</br>
                    Port=567</br>
-  4. ASR 行動服務代理程式僅支援***未驗證的 Proxy***。
+   4. ASR 行動服務代理程式僅支援***未驗證的 Proxy***。
+ 
 
 ### <a name="fix-the-problem"></a>修正問題
 若要將[所需的 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需的 IP 範圍](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入白名單中，請依照[網路指引文件](site-recovery-azure-to-azure-networking-guidance.md)中的步驟進行。
@@ -204,12 +204,12 @@ ms.locfileid: "52308115"
 
 **錯誤碼** | **可能的原因** | **建議**
 --- | --- | ---
-150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>對於 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
+150039<br></br>**訊息**：邏輯單元編號 (LUN) 為 (LUNValue) 的 Azure 資料磁碟 (DiskName) (DiskURI) 未對應到從 LUN 值相同的 VM 內回報的對應磁碟。 | - 新的資料磁碟連接到 VM，但是未初始化。</br></br>- VM 內的資料磁碟不當回報 LUN 值，該磁碟已連接到 VM。| 請確定資料磁碟都已初始化，然後再次嘗試操作。</br></br>若為 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。</br></br>若為 Linux：[在 Linux 中初始化新的資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 ### <a name="fix-the-problem"></a>修正問題
 請確定資料磁碟都已初始化，然後再次嘗試操作：
 
-- 對於 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
+- 若為 Windows：[連接並初始化新的磁碟](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)。
 - 對於 Linux：[在 Linux 中新增資料磁碟](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)。
 
 若問題持續發生，請連絡支援服務。
@@ -260,7 +260,7 @@ Azure Site Recovery 目前要求來源區域資源群組和虛擬機器應該位
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**原因 2︰如果您先前使用 Azure Site Recovery 保護 VM 並停用複寫。**
+**原因 2：如果您先前使用 Azure Site Recovery 保護 VM 並停用複寫。**
  - 停用 VM 的複寫不會刪除網路對應。 您必須從受保護 VM 所在的復原服務保存庫中將其刪除。 </br>
  瀏覽至 [復原服務保存庫] > [Site Recovery 基礎結構] > [網路對應]。 </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)

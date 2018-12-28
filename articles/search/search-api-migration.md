@@ -1,6 +1,6 @@
 ---
-title: 升級至最新的 Azure 搜尋服務 REST API 版本 | Microsoft Docs
-description: 升級至最新的 Azure 搜尋服務 REST API 版本
+title: 升級至最新的 Azure 搜尋服務 REST API 版本 - Azure 搜尋服務
+description: 檢閱 API 版本間的差異，並了解需要進行哪些動作，才能將現有的程式碼移轉至最新的 Azure 搜尋服務 REST API 版本。
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,14 +9,15 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
-ms.openlocfilehash: 2efe7769f68988f3c0d52c8806b78c1b96d8c639
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620224"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312182"
 ---
-# <a name="upgrading-to-the-latest-azure-search-service-rest-api-version"></a>升級至最新的 Azure 搜尋服務 REST API 版本
+# <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>升級至最新的 Azure 搜尋服務 REST API 版本
 如果您正在使用舊版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)，本文將協助您升級應用程式，以使用正式推出的最新 API 版本 2017-11-11。
 
 REST API 的版本 2017-11-11 包含一些較早版本的變更。 這些是大部分具有回溯相容性，因此變更程式碼應該只需要最少的工作 (視您之前使用的版本而定)。 請參閱[升級步驟](#UpgradeSteps)以取得如何變更您的程式碼以使用新的 API 版本的指示。

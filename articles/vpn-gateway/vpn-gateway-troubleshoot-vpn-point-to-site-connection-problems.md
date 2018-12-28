@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 12/05/2018
 ms.author: genli
-ms.openlocfilehash: 937d0be2e86adf00ac2707d5fd57eb905dcea3fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238310"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994187"
 ---
-# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：Azure 點對站連線問題
+# <a name="troubleshooting-azure-point-to-site-connection-problems"></a>疑難排解：點對站連線問題
 
 本文列出您可能遇到的常見點對站連線問題。 文中也會探討這些問題的可能原因和解決方案。
 
@@ -41,7 +41,7 @@ ms.locfileid: "51238310"
 
 若要解決此問題，請遵循下列步驟：
 
-1. 開啟 [憑證管理員]：按一下 [啟動]，輸入**管理電腦憑證**，然後按一下搜尋結果中的**管理電腦憑證**。
+1. 開啟 [憑證管理員]：按一下 [開始]，輸入**管理電腦憑證**，然後按一下搜尋結果中的**管理電腦憑證**。
 
 2. 請確定下列憑證位於正確的位置：
 
@@ -81,7 +81,7 @@ ms.locfileid: "51238310"
 1. 移除閘道子網路上的 UDR。 確定 UDR 會適當地轉送所有流量。
 2. 在 Azure 入口網站中檢查根憑證的狀態，以查看它是否已被撤銷。 如果它未遭撤銷，請嘗試將根憑證刪除，然後重新上傳。 如需詳細資訊，請參閱 [建立憑證](vpn-gateway-howto-point-to-site-classic-azure-portal.md#generatecerts)。
 
-## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 用戶端錯誤：憑證鏈結已處理但被終止 
+## <a name="vpn-client-error-a-certificate-chain-processed-but-terminated"></a>VPN 用戶端錯誤：憑證鏈結已處理，但已終止 
 
 ### <a name="symptom"></a>徵狀 
 
@@ -209,7 +209,7 @@ VPN 閘道類型必須是 **VPN**，且 VPN 類型必須是 **RouteBased**。
 
 此錯誤可能是由暫時性的網路問題所造成。 請在幾分鐘後再重新嘗試下載 VPN 套件。
 
-## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN 閘道升級：所有 點對站用戶端都無法連線
+## <a name="azure-vpn-gateway-upgrade-all-point-to-site-clients-are-unable-to-connect"></a>Azure VPN 閘道升級：所有點對站用戶端都無法連線
 
 ### <a name="cause"></a>原因
 
@@ -300,9 +300,9 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 ### <a name="solution"></a>解決方法
 
-若要解決此問題，請[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)。
+若要解決此問題，請[重設 Azure VPN 閘道](vpn-gateway-resetgw-classic.md)。 若要確保會使用新的路由，成功設定虛擬網路對等互連之後，必須再次下載「點對站」VPN 用戶端。
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>錯誤：「因為撤銷伺服器已離線，所以撤銷功能無法核對撤銷狀況。(錯誤 0x80092013)」
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error:「因為伺服器已離線，所以撤銷功能無法核對撤銷狀況。(錯誤 0x80092013)」
 
 ### <a name="causes"></a>原因
 如果用戶端無法存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，就會出現這個錯誤訊息。  撤銷檢查需要存取這兩個網站。  此問題通常是在已設定 Proxy 伺服器的用戶端上發生。 在某些環境中，如果要求不會經過 Proxy 伺服器，該要求就會在邊緣防火牆中被拒絕。
@@ -311,7 +311,7 @@ VPN 用戶端已連線到 Azure 虛擬網路。 不過，用戶端無法存取�
 
 請檢查 Proxy 伺服器設定，並確定用戶端能夠存取 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
 
-## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 用戶端發生錯誤：因為您 RAS/VPN 伺服器設定的原則，連線被禁止。 (錯誤 812)
+## <a name="vpn-client-error-the-connection-was-prevented-because-of-a-policy-configured-on-your-rasvpn-server-error-812"></a>VPN 用戶端錯誤：因為您 RAS/VPN 伺服器設定的原則，連線被禁止。 (錯誤 812)
 
 ### <a name="cause"></a>原因
 
@@ -343,7 +343,7 @@ NIC 驅動程式已過時。
 4. 如果 Windows 找不到新的驅動程式，您可以嘗試前往裝置製造商的網站尋找，並遵循他們的指示更新驅動程式。
 5. 重新啟動電腦，然後嘗試重新連線。
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>錯誤：「檔案下載錯誤。未指定目標 URI」
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Error:「檔案下載錯誤。未指定目標 URI」
 
 ### <a name="cause"></a>原因
 

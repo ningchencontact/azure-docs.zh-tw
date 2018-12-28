@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 1069b7f9bdc0301f840e796f49fdb4031d297cf2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6040300b4cb569d0e78503d7e5a36507e79de67c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436235"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017435"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-assortment-planning"></a>教學課程：Azure Active Directory 與 Predictix Assortment Planning 整合
 
@@ -111,19 +111,21 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
     ![Predictix Assortment Planning 網域及 URL 單一登入資訊](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰
+
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com/sso/request`|
     | `https://<sub-domain>.dev.ap.predictix.com/`|
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|--|
     | `https://<sub-domain>.ap.predictix.com`|
     | `https://<sub-domain>.dev.ap.predictix.com`|
     
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Predictix Assortment Planning 用戶端支援小組](http://www.infor.com/support)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Predictix Assortment Planning 用戶端支援小組](https://www.infor.com/support)以取得這些值。 
  
 
 
@@ -139,7 +141,7 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
 
     ![Predictix Assortment Planning 設定](./media/predictix-assortment-planning-tutorial/tutorial_predictixassortmentplanning_configure.png) 
 
-1. 若要在 **Predictix Assortment Planning** 端設定單一登入，您必須將已下載的**憑證 (Base64)**、**SAML 實體識別碼**、**SAML 單一登入服務 URL** 及**登出 URL** 傳送至 [Predictix Assortment Planning 支援小組](http://www.infor.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Predictix Assortment Planning** 端設定單一登入，您必須將已下載的**憑證 (Base64)**、**SAML 實體識別碼**、**SAML 單一登入服務 URL** 及**登出 URL** 傳送至 [Predictix Assortment Planning 支援小組](https://www.infor.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -179,7 +181,7 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-predictix-assortment-planning-test-user"></a>建立 Predictix Assortment Planning 測試使用者
 
-在本節中，您要在 Predictix Assortment Planning 中建立名為 Britta Simon 的使用者。 請與 [Predictix Assortment Planning 支援小組](http://www.infor.com/contact/)合作，在 Predictix Assortment Planning 平台新增使用者。
+在本節中，您要在 Predictix Assortment Planning 中建立名為 Britta Simon 的使用者。 請與 [Predictix Assortment Planning 支援小組](https://www.infor.com/contact/)合作，在 Predictix Assortment Planning 平台新增使用者。
  > [!NOTE]
  > Azure Active Directory 帳戶的持有者會收到一封電子郵件，並依照連結在啟用其帳戶前進行確認。
 
@@ -218,7 +220,7 @@ Predictix Assortment Planning 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Predictix Assortment Planning] 圖格時，應該會自動登入 Predictix Assortment Planning 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

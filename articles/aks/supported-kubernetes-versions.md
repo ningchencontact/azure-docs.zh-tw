@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: a17e2fa4bef6890d59f7e66c6ede349f8dee3b8a
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280448"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001818"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS) 中支援的 Kubernetes 版本
 
 Kubernetes 社群大約每隔三個月就會發行次要版本。 這些版本均包含新功能和增強功能。 修補程式版本會更頻繁地發行 (有時每週)，而且僅適用於次要版本中的重要 Bug 修正。 這些修補程式版本包括對於安全性弱點或主要 Bug 的修正，這些安全性弱點或主要 Bug 會影響到根據 Kubernetes 在生產環境中執行的大量客戶和產品。
 
-第一天會在 [acs-engine][acs-engine] 中提供新的 Kubernetes 次要版本。 AKS 服務等級目標 (SLO) 會將目標設定為在 30 天內發行適用於 AKS 叢集的次要版本，具體取決於版本的穩定性。
+第一天會在 [aks-engine][aks-engine] 中提供新的 Kubernetes 次要版本。 AKS 服務等級目標 (SLO) 會將目標設定為在 30 天內發行適用於 AKS 叢集的次要版本，具體取決於版本的穩定性。
 
 ## <a name="kubernetes-version-support-policy"></a>Kubernetes 版本支援原則
 
@@ -41,19 +41,19 @@ AKS 支援 Kubernetes 的四個次要版本：
 az aks get-versions --location eastus --output table
 ```
 
-輸出會類似下列範例，會顯示 Kubernetes 版本 1.11.3 是可用的最新版本：
+輸出會類似下列範例，會顯示 Kubernetes 版本 1.11.5 是可用的最新版本：
 
 ```
 KubernetesVersion    Upgrades
 -------------------  ----------------------
-1.11.3               None available
-1.11.2               1.11.3
-1.10.8               1.11.2, 1.11.3
-1.10.7               1.10.8, 1.11.2, 1.11.3
-1.9.10               1.10.7, 1.10.8
-1.9.9                1.9.10, 1.10.7, 1.10.8
-1.8.15               1.9.9, 1.9.10
-1.8.14               1.8.15, 1.9.9, 1.9.10
+1.11.5               None available
+1.11.4               1.11.5
+1.10.9               1.11.4, 1.11.5
+1.10.8               1.10.9, 1.11.4, 1.11.5
+1.9.11               1.10.8, 1.10.9
+1.9.10               1.9.11, 1.10.8, 1.10.9
+1.8.15               1.9.10, 1.9.11
+1.8.14               1.8.15, 1.9.10, 1.9.11
 ```
 
 ## <a name="faq"></a>常見問題集
@@ -84,7 +84,7 @@ KubernetesVersion    Upgrades
 如需如何升級叢集的相關資訊，請參閱[升級 Azure Kubernetes Service (AKS) 叢集][aks-upgrade]。
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->

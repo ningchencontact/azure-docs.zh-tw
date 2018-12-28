@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 6978360769ba350d85a06116bfee6db9f80b0607
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157355"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256667"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Azure 資料箱閘道的系統需求 (預覽)
 
@@ -27,6 +27,19 @@ ms.locfileid: "50157355"
 > [!IMPORTANT]
 > 資料箱閘道處於預覽狀態。 部署此解決方案之前，請先檢閱[預覽版使用條款](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
 
+## <a name="specifications-for-the-virtual-device"></a>虛擬裝置的規格
+
+「資料箱閘道」的基礎主機系統能夠將下列資源專門用來佈建您的虛擬裝置：
+
+| 規格                                          | 說明              |
+|---------------------------------------------------------|--------------------------|
+| 虛擬處理器 (核心)   | 最少 4 個 |            
+| 記憶體  | 最少 8 GB|
+| 可用性|單一節點|
+| 磁碟| OS 磁碟：250 GB <br> 資料磁碟：最少 2 TB、精簡佈建且必須以 SSD 為後盾|
+| 網路介面|1 或多個虛擬網路介面|
+
+
 ## <a name="supported-os-for-clients-connected-to-device"></a>支援的 OS (適用於連線至裝置的用戶端)
 
 以下是支援的作業系統清單，這些系統適用於連線至資料箱閘道的用戶端或主機。
@@ -34,7 +47,7 @@ ms.locfileid: "50157355"
 | **作業系統/平台** | **版本** |
 | --- | --- |
 | Windows Server |2012 R2 <br> 2016 |
-| Windows |8, 10 |
+|  Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
 | CentOS | 7.0 |

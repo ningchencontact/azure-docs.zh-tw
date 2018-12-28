@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: cf470ad14c27fd36cf60bb540e823b15fc58eded
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 8d3ffa2664c747f5fbbd4269b23ae54850e0d750
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496903"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320994"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>管理雲端中 Azure Multi-Factor Authentication 的使用者設定
 
@@ -30,8 +30,8 @@ ms.locfileid: "52496903"
 
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>如何要求使用者再次提供連絡方法
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-3. 選取 [多重要素驗證]。 多重要素驗證頁面隨即開啟。 
+2. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。
+3. 選取右邊工具列上的 [Multi-Factor Authentication]。 多重要素驗證頁面隨即開啟。 
 4. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項清單隨即出現在右邊。 
 5. 選取 [管理使用者設定]。
 6. 勾選 [要求選取的使用者再次提供連絡方法]  方塊。
@@ -44,8 +44,8 @@ ms.locfileid: "52496903"
 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>如何刪除使用者的現有應用程式密碼
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-3. 選取 [多重要素驗證]。 多重要素驗證頁面隨即開啟。 
+2. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。
+3. 選取右邊工具列上的 [Multi-Factor Authentication]。 多重要素驗證頁面隨即開啟。 
 6. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項清單隨即出現在右邊。 
 7. 選取 [管理使用者設定]。
 8. 勾選 [刪除選定使用者產生的所有現有應用程式密碼]  方塊。
@@ -62,8 +62,8 @@ Azure Multi-Factor Authentication 的可設定功能之一，是讓使用者可�
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>如何還原使用者所有暫停之裝置上的 MFA
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左側，選取 [Azure Active Directory] > [使用者和群組] > [所有使用者]。
-3. 選取 [多重要素驗證]。 多重要素驗證頁面隨即開啟。 
+2. 選取左邊的 [Azure Active Directory] > [使用者] > [所有使用者]。
+3. 選取右邊工具列上的 [Multi-Factor Authentication]。 多重要素驗證頁面隨即開啟。 
 6. 勾選您想要管理之使用者旁邊的方塊。 快速步驟選項清單隨即出現在右邊。 
 7. 選取 [管理使用者設定]。
 8. 勾選 [在所有記住的裝置上還原多重要素驗證]

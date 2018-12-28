@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning 服務的部署疑難排解指南
-description: 了解如何因應和解決 Azure Machine Learning 服務中常見的 Docker 部署錯誤，並對其進行疑難排解。
+title: 部署疑難排解指南
+titleSuffix: Azure Machine Learning service
+description: 了解如何使用 Azure Machine Learning 服務來因應和解決使用 AKS 和 ACI 的常見 Docker 部署錯誤，並對其進行疑難排解。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,18 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: jmartens
-ms.date: 10/01/2018
-ms.openlocfilehash: a10b05e95fa719b80775191e48bd4117e3a785fd
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321677"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100509"
 ---
-# <a name="troubleshooting-azure-machine-learning-service-deployments"></a>針對 Azure Machine Learning 服務部署進行疑難排解
+# <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>針對 Azure Machine Learning 服務 AKS 和 ACI 部署進行疑難排解
 
-在本文中，您將了解如何因應和解決 Azure Machine Learning 服務中常見的 Docker 部署錯誤。
+在本文中，您將了解如何使用 Azure Machine Learning 服務，來因應或解決使用 Azure 容器執行個體 (ACI) 和 Azure Kubernetes Service (AKS) 的常見 Docker 部署錯誤。
 
 在 Azure Machine Learning 服務中部署模型時，系統就會執行數項工作。 這是一系列複雜的事件，而且有時會發生問題。 部署後工作包含：
 
@@ -117,7 +119,7 @@ print(ws.webservices()['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>在本機上對 Docker 映像進行偵錯
-有時候，Docker 記錄發出的資訊不足以找出錯誤原因。 您可以繼續下一步並提取已建置的 Docker 映像，然後啟動本機容器，以互動方式直接在作用中的容器內進行偵錯。 若要啟動本機容器，您必須讓 Docker 引擎在本機執行，而且如果您已安裝 [azure-cli](/cli/azure/install-azure-cli?view=azure-cli-latest)，該程序會簡單很多。
+有時候，Docker 記錄發出的資訊不足以找出錯誤原因。 您可以繼續下一步並提取已建置的 Docker 映像，然後啟動本機容器，以互動方式直接在作用中的容器內進行偵錯。 若要啟動本機容器，您必須讓 Docker 引擎在本機執行，而且如果您已安裝 [azure-cli](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)，該程序會簡單很多。
 
 首先，我們需要找出的映像位置：
 
@@ -216,16 +218,12 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**附註**：從 `run(input_data)` 呼叫傳回錯誤訊息的方式應僅用於偵錯目的。 基於安全性考量，這可能不適合在生產環境中進行。
+**注意**：從 `run(input_data)` 呼叫傳回錯誤訊息的方式應僅用於偵錯目的。 基於安全性考量，這可能不適合在生產環境中進行。
 
 
 ## <a name="next-steps"></a>後續步驟
 
 深入了解部署： 
-* [如何部署至 ACI](how-to-deploy-to-aci.md)
+* [部署方式及位置](how-to-deploy-and-where.md)
 
-* [如何部署至 AKS](how-to-deploy-to-aks.md)
-
-* [教學課程第 1 部分：訓練模型](tutorial-train-models-with-aml.md)
-
-* [教學課程第 2 部分：部署模型](tutorial-deploy-models-with-aml.md)
+* [教學課程：定型與部署模型](tutorial-train-models-with-aml.md)

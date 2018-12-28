@@ -1,5 +1,5 @@
 ---
-title: Linux 上 Azure App Service 的 Java Enterprise 支援 | Microsoft Docs
+title: Linux 上的 Java Enterprise 支援 - Azure App Service | Microsoft Docs
 description: 搭配 Linux 上的 Azure App Service 使用 Wildfly 來部署 Java Enterprise 應用程式的開發人員指南。
 keywords: azure app 服務, web 應用程式, linux, oss, java, wildfly, enterprise
 services: app-service
@@ -12,16 +12,17 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: a6d50e6f405294bf8e91018dd4d7b6008cd49ada
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161867"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338034"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>適用於 Linux 上 App Service 的 Java Enterprise 指南
 
-Linux 上的 Azure App Service 可讓 Java 開發人員在完全受控的 Linux 型服務上，建置、部署和調整 Java Enterprise (JEE) 應用程式。  基礎的 Java Enterprise 執行階段環境是開放原始碼的 [Wildfly](http://wildfly.org/) \(英文\) 應用程式伺服器。
+Linux 上的 Azure App Service 可讓 Java 開發人員在完全受控的 Linux 型服務上，建置、部署和調整 Java Enterprise (JEE) 應用程式。  基礎的 Java Enterprise 執行階段環境是開放原始碼的 [Wildfly](https://wildfly.org/) \(英文\) 應用程式伺服器。
 
 本指南提供 Java Enterprise 開發人員可在適用於 Linux 的 App Service 中使用的重要概念和指示。 如果您從未使用適用於 Linux 的 Azure App Service 部署 Java 應用程式，則應先完成 [Java 快速入門](quickstart-java.md)。 [Java 開發人員指南](app-service-linux-java.md)與 [App Service Linux 常見問題集](app-service-linux-faq.md)中回答了非 Java Enterprise 特定且適用於 Linux 的 App Service 相關問題。
 
@@ -81,7 +82,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 2. 遵循＜模組和相依性＞中概述的步驟，來建立及上傳 XML 模組描述元、JBoss CLI 指令碼、啟動指令碼和 JDBC .jar 相依性。
 
 
-目前提供更多使用 [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) \(英文\)、[MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html) \(英文\) 及 [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) \(英文\) 來設定 Wildfly 的資訊。 您可以使用這些自訂指示以及上述通用方法，來將資料來源定義新增至您的伺服器。
+目前提供更多使用 [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) \(英文\)、[MySQL](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#Using_other_Databases-Using_MySQL_as_the_Default_DataSource) \(英文\) 及 [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) \(英文\) 來設定 Wildfly 的資訊。 您可以使用這些自訂指示以及上述通用方法，來將資料來源定義新增至您的伺服器。
 
 ## <a name="messaging-providers"></a>傳訊提供者
 
@@ -103,7 +104,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 - 如果應用程式執行個體會重新啟動或相應減少，應用程式伺服器中的使用者工作階段狀態將會遺失。
 - 如果應用程式具有很長的工作階段逾時設定或固定的使用者數目，可能需要一些時間，才能自動調整新的執行個體來接收負載，因為只會將新的工作階段路由傳送至最新啟動的執行個體。
 
-您可以設定 Wildfly 來使用外部工作階段存放區，例如 [Redis 快取](/azure/redis-cache/)。 您必須[停用現有的 ARR 執行個體親和性](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) \(英文\) 設定來關閉工作階段 Cookie 型路由，讓設定的 Wildfly 工作階段存放區在不受干擾的情況下運作。
+您可以設定讓 Wildfly 使用外部工作階段存放區，例如 [Azure Redis 快取](/azure/azure-cache-for-redis/)。 您必須[停用現有的 ARR 執行個體親和性](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) \(英文\) 設定來關閉工作階段 Cookie 型路由，讓設定的 Wildfly 工作階段存放區在不受干擾的情況下運作。
 
 ## <a name="enable-web-sockets"></a>啟用 Web 通訊端
 
@@ -114,5 +115,5 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 App Service 會提供工具，以協助您進行應用程式問題的疑難排解。
 
 -   在左側導覽窗格中，按一下 [診斷記錄] 來開啟記錄。 按一下 [檔案系統] 來設定您的儲存體配額和保留期間，並儲存您的變更。 您可以在 `/home/LogFiles/` 下方找到這些記錄。
--   [使用 SSH 連線到應用程式執行個體](/app-service-linux-ssh-support)，以檢視執行中應用程式的記錄。
+-   [使用 SSH 連線到應用程式執行個體](app-service-linux-ssh-support.md)，以檢視執行中應用程式的記錄。
 -   在入口網站的 [診斷記錄] 面板中，或使用下列 Azure CLI 命令，來檢查診斷記錄：` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `

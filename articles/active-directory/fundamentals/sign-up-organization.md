@@ -1,6 +1,6 @@
 ---
-title: 如何以組織身分註冊 Azure Active Directory | Microsoft Docs
-description: 了解如何註冊您的組織，以便使用 Azure 和 Azure Active Directory。
+title: 註冊您的組織以使用 Azure Active Directory | Microsoft Docs
+description: 如何註冊您的組織以使用 Azure 和 Azure Active Directory 的相關指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 53536604ed2f371d1ae7e63b286b17501b260c8c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364766"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100713"
 ---
-# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>如何以組織身分註冊 Azure Active Directory
+# <a name="sign-up-your-organization-to-use-azure-active-directory"></a>註冊您的組織以使用 Azure Active Directory
 請使用下列其中一種選擇，在 Azure Active Directory (Azure AD) 註冊新的 Microsoft Azure 訂用帳戶：
 
 - **Microsoft 帳戶。** 使用您個人的 Microsoft 帳戶存取 Azure 及所有消費者導向的 Microsoft 產品和雲端服務，例如 Outlook (Hotmail)、Messenger、OneDrive、MSN、Xbox LIVE 或 Office 365。 註冊 Outlook.com 信箱時會自動建立 Microsoft 帳戶。 如需詳細資訊，請參閱 [Microsoft 帳戶概觀](https://account.microsoft.com/account)。
