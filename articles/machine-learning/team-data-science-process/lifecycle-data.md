@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 生命週期的資料取得與認知階段 - Azure | Microsoft Docs
+title: 資料取得與認知的 Team Data Science Process
 description: 資料科學專案資料取得與認知階段的目標、工作和交付項目
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 13cbcead381257c87f17dc8ed6666a1b8964d81a
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441564"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141147"
 ---
-# <a name="data-acquisition-and-understanding"></a>資料取得與認知
+# <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>資料取得與認知階段的 Team Data Science Process
 
 本文將概要說明與 Team Data Science Process (TDSP) 資料取得與認知階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
@@ -66,9 +66,9 @@ TDSP 提供自動化公用程式 [IDEAR](https://github.com/Azure/Azure-TDSP-Uti
 ## <a name="artifacts"></a>構件
 以下是此階段的交付項目：
 
-   * [資料品質報告](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md) \(英文\)︰這份報告包含資料摘要、每個屬性與目標之間的關聯性、變數排名等等。 TDSP 中所提供的 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 工具，可在任何表格式資料集 (例如 CSV 檔案或關聯式資料表) 上快速產生這份報告。 
-   * **方案架構**︰在您建置模型後，方案架構可以是用來對新資料執行評分或預測之資料管線的圖表或描述。 它也包含可根據新資料重新訓練模型的管線。 當您使用 TDSP 目錄結構範本時，請將文件儲存在 [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) 目錄中。
-   * **檢查點決策**︰在完整的功能設計和模型建置開始之前，您可以重新評估專案，以判斷預期值是否足以繼續追求此專案。 比方說，您可能已準備好繼續、需要收集更多資料，或是因為不存在可以回答問題的資料而放棄專案。
+   * [資料品質檢查](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md)：這份報告包含資料摘要、每個屬性與目標之間的關聯性、變數排名等等。 TDSP 中所提供的 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 工具，可在任何表格式資料集 (例如 CSV 檔案或關聯式資料表) 上快速產生這份報告。 
+   * **解決方案架構**：在您建置模型後，方案架構可以是用來對新資料執行評分，或預測資料管線的圖表或描述。 它也包含可根據新資料重新訓練模型的管線。 當您使用 TDSP 目錄結構範本時，請將文件儲存在 [Project](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) 目錄中。
+   * **檢查點決策**：在開始完整的功能設計和模型建置之前，您可以重新評估專案，以判斷預期值是否足以繼續追求此專案。 比方說，您可能已準備好繼續、需要收集更多資料，或是因為不存在可以回答問題的資料而放棄專案。
 
 ## <a name="next-steps"></a>後續步驟
 

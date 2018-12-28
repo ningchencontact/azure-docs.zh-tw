@@ -1,7 +1,7 @@
 ---
-title: 取得 .gif 影像 - Bing 影像搜尋 API
+title: 使用 Bing 影像搜尋 API 來搜尋 GIF 影像
 titleSuffix: Azure Cognitive Services
-description: 如何使用 Bing 影像搜尋 API 來取得更多 .gif 的相關資訊。
+description: 使用 Bing 影像搜尋 API 來搜尋 Web 中的 .gif 影像。
 services: cognitive-services
 author: MikeDodaro
 manager: cgronlun
@@ -10,16 +10,17 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh
-ms.openlocfilehash: 82a096ccc1ead9bfb542663ae193539fc227c1fb
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.custom: seodec2018
+ms.openlocfilehash: 7536452d3ed0030b34e4f30deba56d6d8ae1957c
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870242"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249306"
 ---
-# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>使用 Bing 影像搜尋 API 來搜尋 .gif 影像
+# <a name="search-for-gif-images"></a>搜尋 GIF 影像 
 
-Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以在各種交談情節中整合吸引人的 GIF。 
+Bing 影像搜尋 API 可讓您同時跨整個網路搜尋最相關的 .gif 影像。  開發人員可以在各種交談情節中整合吸引人的 GIF。 
 
 下列 URL 是用於動畫 .gif 影像的查詢。
 ````

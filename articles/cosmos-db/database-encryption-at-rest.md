@@ -1,20 +1,18 @@
 ---
-title: 資料庫待用加密：Azure Cosmos DB | Microsoft Docs
-description: 了解 Azure Cosmos DB 如何提供所有資料的預設加密。
-services: cosmos-db
+title: Azure Cosmos DB 中的待用加密
+description: 了解 Azure Cosmos DB 如何提供加密待用資料，以及其實作方式。
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2017
-ms.author: rafats
-ms.openlocfilehash: 2b54f8c7d9f6427f3104d3c64c65cc555f68738a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: 8138a7dcae427d5f5f622170a7825306a7bf8dae
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037982"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140314"
 ---
 # <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB 資料庫待用加密
 
@@ -38,26 +36,26 @@ Cosmos DB 是一種 PaaS 服務，使用起來非常容易。 由於儲存在 Co
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
-### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>問︰如果已啟用儲存體服務加密，Azure 儲存體的成本會多出多少？
-答：沒有任何額外成本。
+### <a name="q-how-much-more-does-azure-storage-cost-if-storage-service-encryption-is-enabled"></a>問題：如果啟用「儲存體服務加密」，Azure 儲存體的成本會增加多少？
+回答：沒有任何額外成本。
 
-### <a name="q-who-manages-the-encryption-keys"></a>問︰誰負責管理加密金鑰？
-答︰金鑰是由 Microsoft 管理。
+### <a name="q-who-manages-the-encryption-keys"></a>問題：誰負責管理加密金鑰？
+回答：金鑰是由 Microsoft 管理。
 
-### <a name="q-how-often-are-encryption-keys-rotated"></a>問︰加密金鑰多久輪替一次？
-答：Microsoft 針對加密金鑰輪替有一套 Cosmos DB 會遵循的內部方針。 不會發佈特定方針。 Microsoft 會發佈[安全性開發週期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，這會視為內部指導方針的子集，其中包含對開發人員很實用的最佳做法。
+### <a name="q-how-often-are-encryption-keys-rotated"></a>問題：加密金鑰多久輪替一次？
+回答：對於加密金鑰輪替，Microsoft 有一套 Cosmos DB 會遵循的內部方針。 不會發佈特定方針。 Microsoft 會發佈[安全性開發週期 (SDL)](https://www.microsoft.com/sdl/default.aspx)，這會視為內部指導方針的子集，其中包含對開發人員很實用的最佳做法。
 
-### <a name="q-can-i-use-my-own-encryption-keys"></a>問︰我是否可以使用自己的加密金鑰？
-答：Cosmos DB 是一種 PaaS 服務，我們也很努力地讓這個服務容易使用。 我們注意到會詢問此問題的使用者，通常是想詢問有關符合如 PCI-DSS 等合規性需求的 Proxy 問題。 建置這項功能時，我們已與合規性稽核人員合作，以確保使用 Cosmos DB 的客戶能夠在不需要自行管理金鑰的情況下滿足他們的需求。
+### <a name="q-can-i-use-my-own-encryption-keys"></a>問題：我可以使用自己的加密金鑰嗎？
+回答：Cosmos DB 是一種 PaaS 服務，我們也很努力地讓這個服務容易使用。 我們注意到會詢問此問題的使用者，通常是想詢問有關符合如 PCI-DSS 等合規性需求的 Proxy 問題。 建置這項功能時，我們已與合規性稽核人員合作，以確保使用 Cosmos DB 的客戶能夠在不需要自行管理金鑰的情況下滿足他們的需求。
 
-### <a name="q-what-regions-have-encryption-turned-on"></a>問：有哪些區域已開啟加密？
-答：所有的 Azure Cosmos DB 區域皆已針對所有使用者資料開啟加密。
+### <a name="q-what-regions-have-encryption-turned-on"></a>問題：有哪些區域已開啟加密？
+回答：所有的 Azure Cosmos DB 區域皆已針對所有使用者資料開啟加密。
 
-### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>問︰加密會影響效能延遲和輸送量 SLA 嗎？
-答︰現在所有現有和新的帳戶都啟用待用加密，但是效能 SLA 沒有任何影響或變化。 您可以在 [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 頁面閱讀更多資訊以查看最新的保證。
+### <a name="q-does-encryption-affect-the-performance-latency-and-throughput-slas"></a>問題：加密會影響效能延遲和輸送量 SLA 嗎？
+回答：現在所有現有和新的帳戶都已啟用待用加密功能，但是效能 SLA 沒有任何影響或變化。 您可以在 [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db) 頁面閱讀更多資訊以查看最新的保證。
 
-### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>問︰本機模擬器支援待用加密嗎？
-答︰模擬器是獨立的開發/測試工具，不使用受控 Cosmos DB 服務所使用的金鑰管理服務。 我們建議您在儲存機密模擬器測試資料的磁碟機上啟用 BitLocker。 [模擬器支援變更預設資料目錄](local-emulator.md)，也支援使用已知位置。
+### <a name="q-does-the-local-emulator-support-encryption-at-rest"></a>問題：本機模擬器支援待用加密嗎？
+回答：模擬器是獨立的開發/測試工具，不使用受控 Cosmos DB 服務所使用的金鑰管理服務。 我們建議您在儲存機密模擬器測試資料的磁碟機上啟用 BitLocker。 [模擬器支援變更預設資料目錄](local-emulator.md)，也支援使用已知位置。
 
 ## <a name="next-steps"></a>後續步驟
 

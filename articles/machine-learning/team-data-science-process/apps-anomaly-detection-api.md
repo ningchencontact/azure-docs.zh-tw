@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 異常偵測 API | Microsoft Docs
+title: Azure Machine Learning 異常偵測 API - Team Data Science Process
 description: 「異常偵測 API」是一個搭配 Microsoft Azure Machine Learning 建置的範例，此 API 使用固定時間間隔的數值，偵測時間序列資料中的異常狀況。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
-ms.custom: (previous author=alokkirpal, ms.author=alok)
-ms.openlocfilehash: 485cf6af9f019bc43ee862627db8549240690247
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
+ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443917"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134789"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 異常偵測 API
 ## <a name="overview"></a>概觀
@@ -24,8 +24,8 @@ ms.locfileid: "52443917"
 
 此 API 可偵測時間序列資料的下列異常模式類型︰
 
-* **正向和負向趨勢**：例如，在監視運算中所使用的記憶體數量時，趨勢向上可能會引起您的注意，因為這可能表示有記憶體流失。
-* **動態範圍值有所變更**：例如，在監視雲端服務所擲回的例外狀況時，若動態範圍值有任何變更，可能表示服務的健康狀態不穩定。
+* **正面和負面趨勢**：例如，在監視運算中所使用的記憶體數量時，趨勢向上可能會引起您的注意，因為這可能表示有記憶體流失。
+* **動態範圍值中的變更**：例如，在監視雲端服務所擲回的例外狀況時，若動態範圍值有任何變更，可能表示服務的健康情況不穩定。
 * **尖峰和下降**：例如，在監視服務的登入失敗數目或電子商務網站的結帳數目時，若有尖峰或下降可能表示發生異常行為。
 
 這些 Machine Learning 偵測器會追蹤數值在不同時間所發生的這一類變化，並以異常分數的形式報告數值正在進行的變化。 它們不需要臨機操作調整臨界值，而且其分數可用來控制偽陽性率。 異常偵測 API 可用在許多案例，例如追蹤不同時間的 KPI 以監視服務、透過搜尋次數、點擊次數等度量來監視使用量、透過不同時間的記憶體、CPU、檔案讀取數等計數器來監視效能。
@@ -37,9 +37,9 @@ ms.locfileid: "52443917"
 > [!NOTE]
 > 請嘗試採用[這個 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) 的 **IT 異常洞察解決方案**
 > 
-> 若要將這個端對端解決方案部署到您的 Azure 訂用帳戶，請<a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**從這裡開始 >**</a>
-> 
->
+<!-- This Solution is no longer available
+> To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
+--> 
 
 ## <a name="api-deployment"></a>API 部署
 若要使用 API，您必須將它部署到 Azure 訂用帳戶，以在其中裝載成 Azure Machine Learning Web 服務。  您可以從 [Azure AI 資源庫](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).\(英文\) 執行此動作。  這會將兩個 AzureML Web 服務 (與其相關的資源) 部署到您的 Azure 訂用帳戶 - 一個用於異常偵測 (含季節性偵測)，另一個則不含季節性偵測。  部署完成後，您就能夠從 [AzureML Web 服務](https://services.azureml.net/webservices/)頁面管理您的 API。  從這個頁面，您可以找到您的端點位置、API 金鑰，以及用於呼叫 API 的範例程式碼。  在[這裡](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)可取得更詳細的指示。
@@ -108,10 +108,10 @@ Web 服務提供透過 HTTPS 的 REST 型 API，可以各種不同方式使用�
 
 | 偵測器類別 | 偵測器 | 說明 | 輸入參數 | 輸出 |
 | --- | --- | --- | --- | --- |
-| 尖峰偵測器 |TSpike 偵測器 |偵測尖峰和下降是根據值與第一個和第三個四分位數的差距 |*tspikedetector.sensitivity*：接受範圍 1 - 10 的整數值，預設值︰3；值愈高，會捕捉到愈極端的值，因此降低敏感度 |TSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
-| 尖峰偵測器 | ZSpike 偵測器 |偵測尖峰和下降是根據資料點與平均數的差距 |*zspikedetector.sensitivity*：接受範圍 1 - 10 的整數值，預設值︰3；值愈高，會捕捉到愈極端的值，而降低敏感度 |ZSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ | |
-| 緩慢趨勢偵測器 |緩慢趨勢偵測器 |根據所設定的敏感度偵測緩慢的正向趨勢 | 偵測器分數的臨界值 (預設值︰3.25，3.25 – 5 是合理值的選取範圍；值愈高，敏感度越低) |tscore︰代表趨勢異常分數的浮動數字 |
-| 層級變更偵測器 | 雙向層級變更偵測器 |根據所設定的敏感度偵測向上和向下層級變更 | 偵測器分數的臨界值 (預設值︰3.25，3.25 – 5 是合理值的選取範圍；值愈高，敏感度越低) |rpscore︰代表向上和向下層級變更異常分數的浮動數字 | |
+| 尖峰偵測器 |TSpike 偵測器 |偵測尖峰和下降是根據值與第一個和第三個四分位數的差距 |*tspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，因而讓敏感度變低 |TSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ |
+| 尖峰偵測器 | ZSpike 偵測器 |偵測尖峰和下降是根據資料點與平均數的差距 |*zspikedetector.sensitivity:* 接受範圍 1 - 10 的整數值，預設值︰3；較高的值將會攔截愈極端的值，讓敏感度變低 |ZSpike︰二進位值 - 如果偵測到尖峰/下降則為 ‘1’，否則為 ‘0’ | |
+| 緩慢趨勢偵測器 |緩慢趨勢偵測器 |根據所設定的敏感度偵測緩慢的正向趨勢 |*trenddetector.sensitivity:* 偵測器分數上的閾值 (預設值：3.25，3.25 – 5 是可選取的合理範圍；值愈高，敏感度就愈低) |tscore︰代表趨勢異常分數的浮動數字 |
+| 層級變更偵測器 | 雙向層級變更偵測器 |根據所設定的敏感度偵測向上和向下層級變更 |*trenddetector.sensitivity:* 偵測器分數上的閾值 (預設值：3.25，3.25 – 5 是可選取的合理範圍；值愈高，敏感度就愈低) |rpscore︰代表向上和向下層級變更異常分數的浮動數字 | |
 
 ### <a name="parameters"></a>參數
 下表列出這些輸入參數的詳細資訊：

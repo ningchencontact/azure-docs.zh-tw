@@ -10,17 +10,15 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: d818b4c045139eace88c3ef6b9675e5199c2ed4b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429533"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186203"
 ---
 # <a name="service-connectivity-monitor"></a>服務連線能力監視
 
@@ -97,7 +95,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 若要判斷應用程式效能低落是因為網路還是因為應用程式提供者端的某些問題所造成，可觀察應用程式回應時間與網路延遲之間的相互關聯。 
 
-* **應用程式問題：** 如果回應時間突然增加，但網路延遲是一致的，則表示網路運作正常，而問題可能是應用程式端的問題所致。 
+* **應用程式識別碼：** 如果回應時間突然增加，但網路延遲是一致的，則表示網路運作正常，而問題可能是應用程式端的問題所致。 
 
     ![服務連線能力監視應用程式問題](media/network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
@@ -131,4 +129,4 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 
 ## <a name="next-steps"></a>後續步驟
-[搜尋記錄檔](../../log-analytics/log-analytics-queries.md)以檢視詳細的網路效能資料記錄。
+[搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的網路效能資料記錄。

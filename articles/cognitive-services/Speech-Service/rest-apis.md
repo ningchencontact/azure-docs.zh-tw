@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: ce9b3df5093d51eac0a151269b486b5f1310700c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: 0b38c61f4fe884137204cba6d99d5e383b3259a0
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584854"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338885"
 ---
 # <a name="speech-service-rest-apis"></a>語音服務 REST API
 
@@ -33,7 +34,7 @@ ms.locfileid: "52584854"
 | 支援的授權標頭 | 語音轉文字 | 文字轉換語音 |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | 是 | 否 |
-| 授權：持有人 | 是 | 是 |
+| 授權：Bearer | 是 | 是 |
 
 當使用 `Ocp-Apim-Subscription-Key` 標頭，只需要提供您的訂用帳戶金鑰。 例如︰
 
@@ -255,7 +256,7 @@ public class Authentication
 
 ### <a name="query-parameters"></a>查詢參數
 
-REST 要求的查詢字串中可能包含這些參數。
+REST 要求的查詢字串中可能包括這些參數。
 
 | 參數 | 說明 | 必要/選用 |
 |-----------|-------------|---------------------|
@@ -321,9 +322,20 @@ Expect: 100-continue
 此程式碼範例說明如何以區塊傳送音訊。 只有第一個區塊應該包含音訊檔案的標頭。 `request` 是連線到適當 REST 端點的 HTTPWebRequest 物件。 `audioFile` 是音訊檔案在磁碟上的路徑。
 
 ```csharp
+
+    HttpWebRequest request = null;
+    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+    request.SendChunked = true;
+    request.Accept = @"application/json;text/xml";
+    request.Method = "POST";
+    request.ProtocolVersion = HttpVersion.Version11;
+    request.Host = host;
+    request.ContentType = @"audio/wav; codec=""audio/pcm""; samplerate=16000";
+    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
+    request.AllowWriteStreamBuffering = false;
+
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-
     /*
     * Open a request stream and write 1024 byte chunks in the stream one at a time.
     */
@@ -423,20 +435,10 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="text-to-speech-api"></a>文字轉語音 API
 
-支援使用 REST API 對以下區域進行文字轉語音。 請確定選取的是符合您訂用帳戶區域的端點。
+文字轉語音 API 支援類神經和標準文字轉語音，且各支援依地區設定所識別的特定語言和方言。
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
-
-語音服務支援 24-KHz 音訊輸出，以及 Bing 語音 API 支援的 16-Khz 輸出。 支援四種 24 KHz 輸出格式和兩種 24 KHz 語音。
-
-### <a name="voices"></a>語音
-
-| 地區設定 | 語言   | 性別 | 對應 |
-|--------|------------|--------|---------|
-| en-US  | 美式英文 | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
-| en-US  | 美式英文 | 男性   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
-
-如需完整的可用語音清單，請參閱[支援的語言](language-support.md#text-to-speech)。
+* 如語音的完整清單，請參閱[ 語言支援](language-support.md#text-to-speech)。
+* 如需區域可用性的詳細資訊，請參閱[區域](regions.md#text-to-speech)。
 
 ### <a name="request-headers"></a>要求標頭
 
@@ -451,7 +453,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ### <a name="audio-outputs"></a>音訊輸出
 
-此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。
+此清單列出了每個要求中系統做為 `X-Microsoft-OutputFormat` 標頭的傳送的支援音訊格式。 每個格式皆包含位元速率和編碼類型。 語音服務支援 24 KHz 和 16 KHz 的音訊輸出。
 
 |||
 |-|-|

@@ -9,28 +9,27 @@ ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 275eb5f32def94fa974f0cb180b9de9dcedf1a00
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abc3d5832cd85cb3297077f2d661ec8fe32fde9e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230915"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105286"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>在執行階段使用 Application Insights 檢測 Web 應用程式
 
-您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 如果您的應用程式是由內部部署 IIS 伺服器裝載，請安裝狀態監視器。 如果這些是 Azure Web 應用程式或在 Azure VM 中執行，您可以從 Azure 控制台切換為 Application Insights 監視。 (我們還提供有關檢測[即時 J2EE Web 應用程式](app-insights-java-live.md)和 [Azure 雲端服務](app-insights-cloudservices.md)的個別文章)。您需要 [Microsoft Azure](http://azure.com) 訂用帳戶。
+您可以使用 Azure Application Insights 檢測即時 Web 應用程式，而不需修改或重新部署您的程式碼。 如果您的應用程式是由內部部署 IIS 伺服器裝載，請安裝狀態監視器。 如果這些是 Azure Web 應用程式或在 Azure VM 中執行，您可以從 Azure 控制台切換為 Application Insights 監視。 (我們還提供有關檢測[即時 J2EE Web 應用程式](app-insights-java-live.md)和 [Azure 雲端服務](app-insights-cloudservices.md)的個別文章)。您需要 [Microsoft Azure](https://azure.com) 訂用帳戶。
 
 ![App Insights 概觀圖表的螢幕擷取畫面，包含失敗的要求、伺服器回應時間和伺服器要求的相關資訊](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 下列三種途徑均可讓您將 Application Insights 套用至 .NET Web 應用程式：
 
 * **建置階段：**[新增 Application Insights SDK][greenbrown] 至您的 Web 應用程式程式碼。
-* **執行階段︰** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
-* **兩者︰** 將 SDK 建置到您的 Web 應用程式程式碼中，同時套用執行階段延伸模組。 集合兩者之優點。
+* **執行階段：** 如下所述，檢測伺服器上的 Web 應用程式，而不需重建並重新部署程式碼。
+* **兩者：** 將 SDK 建置到您的 Web 應用程式程式碼中，同時套用執行階段延伸模組。 集合兩者之優點。
 
 以下是您可在每種途徑中取得的優勢摘要︰
 
@@ -120,6 +119,7 @@ Application Insights JavaScript SDK 現在已插入每個網頁中。
   * 在 IIS 管理員中，選取應用程式集區，開啟 [進階設定]，並記下 [處理序模型] 下的身分識別。
   * 在電腦的管理控制台中，將此身分識別加入至效能監試器使用者群組。
 * 如果您的伺服器上已安裝 MMA/SCOM (Microsoft Operations Management Suite)，某些版本可能會發生衝突。 解除安裝 SCOM 和狀態監視器，重新安裝最新版本。
+* 狀態監視器記錄預設可在以下位置找到："C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log"
 * 請參閱[疑難排解][qna]。
 
 ## <a name="system-requirements"></a>系統需求
@@ -133,9 +133,9 @@ Application Insights JavaScript SDK 現在已插入每個網頁中。
 
 (含最新版 SP 和 .NET Framework 4.5)
 
-在用戶端 Windows 7、8、8.1 和 10 上，一樣需含有 .NET Framework 4.5
+在用戶端：Windows 7、8、8.1 和 10，一樣需含有 .NET Framework 4.5
 
-IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
+IIS 支援為：IIS 7、7.5、8、8.5 (IIS 為必要項)
 
 ## <a name="automation-with-powershell"></a>使用 PowerShell 進行自動化
 您可以在 IIS 伺服器上使用 PowerShell 啟動和停止監視。
@@ -152,9 +152,9 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 * 顯示此 IIS 伺服器中每個 Web 應用程式 (或具名應用程式) 的 Application Insights 監視狀態。
 * 傳回每個應用程式的 `ApplicationInsightsApplication`︰
 
-  * `SdkState==EnabledAfterDeployment`︰應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
-  * `SdkState==Disabled`︰不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
-  * `SdkState==EnabledByCodeInstrumentation`︰已透過將 SDK 加入至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
+  * `SdkState==EnabledAfterDeployment`：應用程式正受到監視，並已在執行階段透過「狀態監視器」工具或 `Start-ApplicationInsightsMonitoring` 進行檢測。
+  * `SdkState==Disabled`：不會針對 Application insights 檢測應用程式。 應用程式從未接受檢測，或「狀態監視器」工具或 `Stop-ApplicationInsightsMonitoring`已停用執行階段監視。
+  * `SdkState==EnabledByCodeInstrumentation`：已透過將 SDK 新增至原始程式碼來檢測應用程式。 其 SDK 無法更新或停止。
   * `SdkVersion` 會顯示正用來監視此應用程式的版本。
   * `LatestAvailableSdkVersion`會顯示 NuGet 資源庫上目前可用的版本。 若要將應用程式升級至此版本，請使用 `Update-ApplicationInsightsMonitoring`。
 
@@ -218,9 +218,12 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
 
 當您選取 Web 應用程式以供狀態監視器檢測時︰
 
-* 下載 Application Insights 組件和 .config 檔案並且放置於 Web 應用程式的 binaries 資料夾中。
-* 修改 `web.config` 以新增 Application Insights HTTP 追蹤模組。
+* 下載 Application Insights 組件和 ApplicationInsights.config 檔案並且放置於 Web 應用程式的 binaries 資料夾中。
 * 啟用 CLR 分析以收集相依性呼叫。
+
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>狀態監視器安裝哪個版本的 Application Insights SDK？
+
+目前，狀態監視器只能安裝 Application Insights SDK 版本 2.3 或 2.4。
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>每次更新應用程式時，是否需要執行狀態監視器？
 
@@ -243,7 +246,7 @@ IIS 支援：IIS 7、7.5、8、8.5 (需要有 IIS)
  * 相依性呼叫 (.NET 4.5)；在相依性呼叫中傳回值 (.NET 4.6)。
  * 例外狀況堆疊追蹤值。
 
-[深入了解](http://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[深入了解](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>影片
 

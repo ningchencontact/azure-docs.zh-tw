@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 837d18a04a0cd22f29a5cbcb8b06b7e3f5fae255
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632801"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>教學課程：Azure Active Directory 與 Infinite Campus 整合
 
@@ -111,11 +111,11 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](common/editconfigure.png)
 
-5. 如果您有**服務提供者中繼資料檔案** (步驟 **11.b**)，請在 [基本 SAML 設定] 區段上執行下列步驟：
+5. 如果您有**服務提供者中繼資料檔案** (跳至步驟 **11.c**)，請在 [基本 SAML 設定] 區段上執行下列步驟：
 
     a. 按一下 [上傳中繼資料檔案]。
 
-    ![映像](common/b9_saml.png)
+        ![image](common/b9_saml.png)
 
     b. 按一下**資料夾圖示**以選取中繼資料檔案，然後按一下 [上傳]。
 
@@ -128,9 +128,9 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
     d. 在 [登入 URL] 文字方塊中，使用下列模式來輸入 URL (網域會隨著主控模型而異)：`https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     > [!NOTE]
-    > 您會在 [Infinite Campus SSO 服務提供者設定] 頁面上取得**服務提供者中繼資料檔案**，本教學課程稍後會予以說明。
+    > 您會在 [Infinite Campus SSO 服務提供者設定] 頁面上取得**服務提供者中繼資料檔案**，本教學課程稍後會予以說明。 如果您開始在 Infinite Campus 中使用新的 SAML 服務提供者組態，請跳至**步驟 11** 以完成匯出服務提供者中繼資料檔案。
 
-6. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟：
+6. 如果您沒有**服務提供者中繼資料檔案**，請執行下列步驟 (請注意，網域會隨著裝載模型而有所不同)：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
@@ -169,10 +169,10 @@ Infinite Campus 與 Azure AD 整合提供下列優點：
     ![sso](./media/infinitecampus-tutorial/tutorial_infinitecampus_sso.png)
 
     a. 選取 [啟用 SAML 單一登入]。
+    
+    b. 在 [選取選項以擷取識別提供者 (IDP) 伺服器資料] 區段中，選取 [中繼資料 URL] 並在方塊中貼上**應用程式同盟中繼資料 Url**，然後按一下 [同步]。
 
-    b. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼] 和 [回覆 URL] 值 (請參閱步驟 5)。
-
-    c. 在 [選取選項以擷取識別提供者 (IDP) 伺服器資料] 區段中，選取 [中繼資料 URL] 並在文字方塊中貼上**應用程式同盟中繼資料 Url**，然後按一下 [同步]。
+    c. 按一下 [服務提供者中繼資料] 連結將**服務提供者中繼資料檔案**儲存至您的電腦，然後在 [基本 SAML 設定] 區段中上傳該檔案，以在 Azure 入口網站中自動填入 [識別碼] 和 [回覆 URL] 值 (請參閱步驟 4 以了解上傳及自動填入值，或者參閱步驟 5 以了解手動輸入)。
 
     d. 按一下 [同步] 後，取得的值會自動填入 [SSO 服務提供者組態] 頁面中。
 

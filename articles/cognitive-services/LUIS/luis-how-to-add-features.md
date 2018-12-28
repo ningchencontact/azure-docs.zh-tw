@@ -1,21 +1,22 @@
 ---
-title: 片語清單可加強實體偵測
-titleSuffix: Azure Cognitive Services
+title: 片語清單
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用 Language Understanding (LUIS) 來新增應用程式功能，可改善對類別和模式進行意圖和實體的偵測或預測
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: feb51cd55801addaf5ce2486e5527542f794bbc5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 39a6ead041b1783a3effcb9659c59ea788cd2bf6
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580945"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139498"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>使用片語清單來提升字組清單訊號
 
@@ -37,11 +38,11 @@ ms.locfileid: "52580945"
 
 4. LUIS 可以提議要新增到片語清單的相關值。 按一下 [建議]，以取得一組語意上與已新增值相關的提議值。 您可以按一下任何提議的值，或按一下 [全部新增] 以將它們全部新增。
 
-    ![片語清單提議的值](./media/luis-add-features/related-values.png)
+    ![片語清單提議的值 - 全部加入](./media/luis-add-features/related-values.png)
 
 5. 如果已新增的片語清單值是可交換使用的替代項，請按一下 [這些值是可交換的]。
 
-    ![片語清單提議的值](./media/luis-add-features/interchangeable.png)
+    ![片語清單建議值 - 選取 [可交換的] 方塊 ](./media/luis-add-features/interchangeable.png)
 
 6. 按一下 [檔案] 。 "Cities" 片語清單會新增到 [片語清單] 頁面。
 

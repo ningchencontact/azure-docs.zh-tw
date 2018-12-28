@@ -4,9 +4,8 @@ description: Net# 類神經網路規格語言的語法，以及如何使用 Net#
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: 3aa364e92dd7ce3742d28ac2b36d9a7f16cbebbf
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315302"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272230"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
@@ -29,7 +28,7 @@ Net# 是由 Microsoft 所開發的語言，可用來定義類神經網路架構�
 
 您可以在這些內容中使用 Net# 架構規格：
 
-+ Microsoft Azure Machine Learning Studio 中的所有類神經網路模組：[多類別類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)、[雙類別類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)和[類神經網路迴歸](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
++ 在 Microsoft Azure Machine Learning Studio 中的所有類神經網路模組︰[多元化類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)，[二元化類神經網路](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)，和[類神經網路迴歸](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
 + MicrosoftML 中的類神經網路功能：針對 R 語言為 [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 和 [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)，針對 Python 為 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network)。
 
 
@@ -39,7 +38,7 @@ Net# 是由 Microsoft 所開發的語言，可用來定義類神經網路架構�
 + Net# 規格語言的語法和關鍵字
 + 使用 Net# 建立的自訂類神經網路範例 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="neural-network-basics"></a>類神經網路基本概念
 

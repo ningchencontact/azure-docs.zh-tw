@@ -15,12 +15,12 @@ ms.date: 01/31/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 428f094dae2b9a69b58912190d2959a7dfc467ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ec5c75b5de912988efeb5167107f6d0dfe07da2e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365257"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139944"
 ---
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>如何為內部部署應用程式提供安全的遠端存取
 
@@ -59,16 +59,16 @@ Azure AD 應用程式 Proxy：
 * 與 Active Directory Authentication Library (ADAL) 整合的豐富型用戶端應用程式
 
 ## <a name="how-does-application-proxy-work"></a>Application Proxy 的運作方式為何？
-需要設定才能使 Application Proxy 運作的兩個元件：連接器和外部端點。 
+需要設定才能讓 Application Proxy 運作的兩個元件：連接器和端點。 
 
 連接器是位於網路內部 Windows 伺服器上的輕量型代理程式。 連接器有助於從雲端中的 Application Proxy 服務到應用程式內部部署的流量流程。 連接器僅使用輸出連線，因此您不需要開啟任何輸入連接埠，或在 DMZ 中放置任何物件。 連接器是無狀態的，且在必要時會從雲端提取資訊。 如需連接器的詳細資訊，例如如何負載平衡和驗證，請參閱[了解 Azure AD 應用程式 Proxy 連接器](application-proxy-connectors.md)。 
 
-外部端點是使用者在網路外部聯繫應用程式的方式。 外部端點可以直接存取您決定的外部 URL，也可以透過 MyApps 入口網站存取應用程式。 使用者存取這些端點的其中一個時，會在 Azure AD 中進行驗證，然後透過連接器路由至內部部署應用程式。
+端點可以是 URL 或[使用者入口網站](end-user-experiences.md)。 使用者可以藉由存取外部 URL，來連線網路外部的應用程式。 您網路內的使用者可以透過 URL 或使用者入口網站存取應用程式。 使用者存取這些端點的其中一個時，會在 Azure AD 中進行驗證，然後透過連接器路由至內部部署應用程式。
 
  ![Azure AD 應用程式 Proxy 圖表](./media/application-proxy/azureappproxxy.png)
 
-1. 使用者會透過應用程式 Proxy 服務存取應用程式，然後被導向 Azure AD 登入頁面進行驗證。
-2. 成功登入之後，系統會產生權杖並傳送給用戶端裝置。
+1. 使用者透過端點存取應用程式之後，系統會將使用者導向至 Azure AD 登入頁面。 
+2. 成功登入之後，系統會產生權杖並傳送給使用者的用戶端裝置。
 3. 用戶端會將權杖傳送至應用程式 Proxy 服務，該服務會取出權杖的使用者主體名稱 (UPN) 和安全性主體名稱 (SPN)，然後將要求導向至應用程式 Proxy 連接器。
 4. 如果您已設定單一登入，則連接器會代表使用者執行其他任何所需的驗證。
 5. 連接器會將要求傳送至內部部署應用程式。  
@@ -88,8 +88,8 @@ Azure AD 應用程式 Proxy 會針對使用整合式 Windows 驗證 (IWA) 的應
 
 開始使用 Application Proxy 有兩個步驟：
 
-1. [啟用應用程式 Proxy 並設定連接器](application-proxy-enable.md)。    
-2. [發佈應用程式](application-proxy-publish-azure-portal.md) ：使用快速且簡單的精靈發佈內部部署應用程式並提供遠端存取。
+1. [啟用應用程式 Proxy 並設定連接器](application-proxy-add-on-premises-application.md)。    
+2. [發佈應用程式](application-proxy-add-on-premises-application.md) ：使用快速且簡單的精靈發佈內部部署應用程式並提供遠端存取。
 
 ## <a name="whats-next"></a>後續步驟
 您發佈第一個應用程式後，應用程式 Proxy 還有其他更多用途：
@@ -100,5 +100,5 @@ Azure AD 應用程式 Proxy 會針對使用整合式 Windows 驗證 (IWA) 的應
 * [使用現有的內部部署 Proxy 伺服器](application-proxy-configure-connectors-with-proxy-servers.md) 
 * [設定自訂首頁](application-proxy-configure-custom-home-page.md)
 
-如需最新消息，請查閱 [應用程式 Proxy 部落格](http://blogs.technet.com/b/applicationproxyblog/)
+如需最新消息，請查閱 [應用程式 Proxy 部落格](https://blogs.technet.com/b/applicationproxyblog/)
 

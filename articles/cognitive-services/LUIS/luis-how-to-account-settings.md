@@ -1,21 +1,22 @@
 ---
-title: 管理您在 LUIS 中的帳戶設定 | Microsoft Docs
-description: 使用 LUIS 網站來管理您的帳戶設定。
-titleSuffix: Azure
+title: 管理設定
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 使用 LUIS 網站來管理您的使用者帳戶設定，並橫跨所有應用程式來使用撰寫金鑰。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: bb41331228e700c55da21c627d617d16faa2dcb9
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: bd6ae88834b45e9e154eb1e5e3ba921f403c7eaa
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335395"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138740"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帳戶和撰寫金鑰
 LUIS 帳戶的兩個重要資訊為使用者帳戶和撰寫金鑰。 您的登入資訊是在 [account.microsoft.com](https://account.microsoft.com) 進行管理的。 您的撰寫金鑰是從 [LUIS](luis-reference-regions.md) 網站的 [設定] 頁面進行管理的。 

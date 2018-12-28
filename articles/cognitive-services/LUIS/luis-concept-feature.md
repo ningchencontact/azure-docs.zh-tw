@@ -1,25 +1,26 @@
 ---
-title: Azure 認知服務中的 LUIS 應用程式特性
-titleSuffix: Azure Cognitive Services
-description: 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。 特性可協助 LUIS 辨識意圖和實體。
+title: 特性
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 43b2b1485e6a33162f7fc08631094f3e975f8cdb
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 62827054a14930cd49f7d80d6c305e60060c0fe6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638249"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271380"
 ---
-# <a name="phrase-list-features-in-luis"></a>LUIS 中的片語清單功能
+# <a name="phrase-list-features-in-your-luis-app"></a>LUIS 應用程式中的片語清單功能
 
-在機器學習中，「特性」是您的系統觀察到的資料特徵或屬性。 
+在機器學習中，*特性*是您的系統觀察到的資料特徵或屬性。 
 
 將特性新增至語言模型，以針對如何辨識您想要標示或分類的輸入，提供相關提示。 特性可協助 LUIS 辨識意圖和實體，但特性不是意圖或實體本身。 相反地，替性可能會提供相關字詞的範例。  
 
@@ -31,9 +32,17 @@ ms.locfileid: "49638249"
 ## <a name="how-to-use-phrase-lists"></a>如何使用片語清單
 在人力資源應用程式的[簡單實體教學課程](luis-quickstart-primary-and-secondary-data.md)中，應用程式會使用工作類型的 **Job** 片語類型，例如程式設計人員、屋頂工和秘書。 如果您將這其中一個值標示為機器學習的實體，LUIS 就會學習辨識其他值。 
 
-片語清單可能可互換或不可互換。 「可交換」的片語清單適用於同義字的值，而「不可交換」的片語清單適用於不是同義字，但在應用程式中仍然需要其他信號的值。 
+片語清單可能可交換或不可交換。 「可交換」片語清單適用於同義字的值，而「不可交換」片語清單則要作為應用程式的特定詞彙清單。 隨著應用程式詞彙片語清單的增加，您可能會發現一些字詞有許多形式 (同義字)。 將這些字詞分解為另一個可交換的片語清單。 
+
+|清單類型|目的|
+|--|--|
+|可交換|同義字或字組 (當變更為清單中的另一個字組時) 具有相同的意圖和實體擷取。|
+|不可交換|應用程式詞彙 (特別是您的應用程式) 通常比該語言中的其他字組還要多。|
+
+片語清單不僅有助於實體偵測也意圖分類，當不可交換的詞彙合理，則可以新增至英文未知的詞彙字組中。
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
+
 ## <a name="phrase-lists-help-identify-simple-interchangeable-entities"></a>片語清單有助於識別簡單的可交換實體
 可交換的片語清單是調整 LUIS 應用程式效能的好方法。 如果您的應用程式無法將語句預測為正確的意圖，或辨識實體，請思考語句是否包含不尋常的字組，或意義可能會模稜兩可的字組。 這些字組是要包含在片語清單中的理想候選項目。
 

@@ -1,23 +1,24 @@
 ---
-title: LUIS (Language Understanding) 中的資料擷取概念
-titleSuffix: Azure Cognitive Services
+title: 資料擷取
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解可以從 Language Understanding (LUIS) 擷取哪些類型的資料
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d8d12662552eaf2d566eebd773c69dfb9817d874
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638336"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53098636"
 ---
-# <a name="data-extraction"></a>資料擷取
+# <a name="data-extraction-from-intents-and-entities"></a>從意圖和實體擷取資料
 LUIS 可讓您從使用者的自然語言語句取得資訊。 此資訊的擷取方式使得它可供程式、應用程式或 Chatbot 用來執行動作。 在下列各節中，您將透過 JSON 範例，了解從意圖和實體會傳回哪些資料。
 
 最難擷取的資料是機器學習資料，因為它不是全文相符的資料。 機器學習[實體](luis-concept-entity-types.md)的資料擷取必須是[撰寫循環](luis-concept-app-iteration.md)的一部分，直到您確信收到預期的資料為止。

@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 388fd812185bc8bd2ef68a1dbcea6303d30dcdf3
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 2afe75045444fbc0ca36ee1cfca3d96f5b218ab0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230783"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135486"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>使用 Azure AD 應用程式 Proxy 發佈遠端桌面
 
@@ -49,7 +49,7 @@ ms.locfileid: "50230783"
 
 - RD Web 和 RD 閘道端點必須位於相同的電腦上，並具有一般的根。 將 RD Web 和 RD 閘道發佈為單一應用程式並搭配應用程式 Proxy，如此便能在這兩個應用程式之間擁有單一登入的體驗。
 
-- 您應該已經[部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) 並[啟用應用程式 Proxy](application-proxy-enable.md)。
+- 您應該已經[部署 RDS](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) 並[啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)。
 
 - 此案例假設您的終端使用者在透過 RD 網頁連線的 Windows 7 或 Windows 10 桌上型電腦上使用 Internet Explorer。 如果您需要支援其他作業系統，請參閱[其他用戶端設定的支援](#support-for-other-client-configurations)。
 
@@ -63,10 +63,10 @@ ms.locfileid: "50230783"
 
 ### <a name="publish-the-rd-host-endpoint"></a>發佈 RD 主機端點
 
-1. 使用下列值[發佈新的應用程式 Proxy 應用程式](application-proxy-publish-azure-portal.md)︰
+1. 使用下列值[發佈新的應用程式 Proxy 應用程式](application-proxy-add-on-premises-application.md)︰
    - 內部 URL：`https://\<rdhost\>.com/`，其中 `\<rdhost\>` 是 RD Web 和 RD 閘道共用的一般根。
-   - 外部 URL︰會根據應用程式名稱自動填入這個欄位，但您可以修改它。 您的使用者在存取 RDS 時，將會移到此 URL。
-   - 預先驗證方法︰Azure Active Directory
+   - 外部 URL：會根據應用程式名稱自動填入這個欄位，但您可以修改。 您的使用者在存取 RDS 時，將會移到此 URL。
+   - 預先驗證方法：Azure Active Directory
    - 轉譯 URL 標頭：否
 2. 將使用者指派給已發佈 RD 應用程式。 並請確定它們都可存取 RDS。
 3. 保留應用程式的單一登入方法，因為 **Azure AD 單一登入已停用**。 系統會要求您的使用者分別驗證一次 Azure AD 及 RD Web，但可單一登入 RD 閘道。

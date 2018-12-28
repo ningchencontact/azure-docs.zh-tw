@@ -1,33 +1,23 @@
 ---
-title: 將 Azure ExpressRoute 上的公用對等互連移至 Microsoft 對等互連 | Microsoft Docs
+title: 將公用對等互連移至 Microsoft 對等互連 - Azure ExpressRoute | Microsoft Docs
 description: 本文會示範在 ExpressRoute 中將公用對等互連移至 Microsoft 對等互連的步驟。
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 03/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: f34fabc95d5b56edc6e37c323bebf60bd98c8b90
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.custom: seodec18
+ms.openlocfilehash: 6b2bce6b488698db0a72c9a17f67c2555c6afa5b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30314294"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100016"
 ---
 # <a name="move-a-public-peering-to-microsoft-peering"></a>將公用互連移至 Microsoft 對等互連
 
-ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS 服務，例如 Azure 儲存體和 Azure SQL Database。 現在存取 Microsoft PaaS 和 SaaS 服務只需要一個路由網域。 您可以使用路由篩選，選擇性地公告您想要使用的 Azure 區域 PaaS 服務首碼。
-
-本文可協助您將公用對等設定移至 Microsoft 對等互連，不需要停機。 如需路由網域和對等互連的詳細資訊，請參閱 [ExpressRoute 線路及路由網域](expressroute-circuit-peerings.md)。
-
+本文可協助您將公用對等設定移至 Microsoft 對等互連，不需要停機。 ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS 服務，例如 Azure 儲存體和 Azure SQL Database。 現在存取 Microsoft PaaS 和 SaaS 服務只需要一個路由網域。 您可以使用路由篩選，選擇性地公告您想要使用的 Azure 區域 PaaS 服務首碼。 如需路由網域和對等互連的詳細資訊，請參閱 [ExpressRoute 線路及路由網域](expressroute-circuit-peerings.md)。
 
 ## <a name="before"></a>開始之前
 
@@ -57,7 +47,7 @@ ExpressRoute 支援使用 Microsoft 對等互連與路由篩選進行 Azure PaaS
 
 根據預設，新的 Microsoft 對等互連不會公告任何首碼，直到路由篩選附加至線路為止。 當您建立路由篩選規則時，您可以指定想要供 Azure PaaS 服務使用的 Azure 區域服務社群清單，如下列的螢幕擷取畫面所示：
 
-![合併公用對等](.\media\how-to-move-peering\public.png)
+![合併公用對等](./media/how-to-move-peering/public.png)
 
 依照下列任一文章來設定路由篩選：
 

@@ -1,24 +1,25 @@
 ---
-title: 從 v1 到 v2 的 API 移轉指南
+title: v1 至 v2 API 移轉
 titleSuffix: Azure Cognitive Services
-description: 了解如何移轉至最新的 API 設定。
+description: 第 1 版的端點和編寫 API 會被取代。 使用本指南可了解如何遷移到第 2 版的端點和編寫 API。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 57742d72c8be0dcd999bc8b73f6d598263429c12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 980470c0f1d24bde52f29c4cd3579e2337898f88
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646570"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138818"
 ---
-# <a name="api-v2-migration-guide"></a>API v2 移轉指南
-第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 將被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
+# <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 應用程式 API v1 至 v2 的移轉指南
+第 1 版的[端點](https://aka.ms/v1-endpoint-api-docs)和[編寫](https://aka.ms/v1-authoring-api-docs) API 會被取代。 使用本指南可了解如何移轉到第 2 版的[端點](https://aka.ms/luis-endpoint-apis)和[編寫](https://aka.ms/luis-authoring-apis) API。 
 
 ## <a name="new-azure-regions"></a>新的 Azure 區域
 LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS 針對區域群組提供不同的網站。 編寫應用程式的區域必須與您預期查詢的區域相同。 應用程式不會自動移轉區域。 您要從一個區域匯出應用程式，然後匯入至另一個區域，才能在新的區域中使用。
@@ -43,7 +44,7 @@ LUIS 針對 LUIS API 提供新的[區域](https://aka.ms/LUIS-regions)。 LUIS �
 
 
 v1 端點成功回應：
-```JSON
+```json
 {
   "odata.metadata":"https://dialogice.cloudapp.net/odata/$metadata#domain","value":[
     {
@@ -54,7 +55,7 @@ v1 端點成功回應：
 ```
 
 v2 端點成功回應：
-```JSON
+```json
 {
   "query": "forward to frank 30 dollars through HSBC",
   "topScoringIntent": {

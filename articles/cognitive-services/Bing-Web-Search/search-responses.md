@@ -1,7 +1,7 @@
 ---
-title: 搜尋回應 - Bing Web 搜尋 API
+title: Bing Web 搜尋 API 回應結構和回應類型
 titleSuffix: Azure Cognitive Services
-description: 了解 Bing Web 搜尋 API 所提供的回答類型和回應。
+description: 深入了解 Bing Web 搜尋 API 所使用的回答類型和回應。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: aahi
-ms.openlocfilehash: c7626f08dcfad76724a4d1f5d88fbd10c78c62c6
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 1d47d8e35a1be28b5610961c1b1c7b5d1492e871
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164760"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250486"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web 搜尋 API 回應結構和回應類型  
 

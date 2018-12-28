@@ -2,19 +2,19 @@
 title: Azure HDInsight 中的叢集容量規劃
 description: 如何指定 HDInsight 叢集的容量和效能。
 services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/22/2017
-ms.author: maxluk
-ms.openlocfilehash: 853bf9cfce458e6f112101b1382dd5bfd5df202d
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.date: 12/04/2018
+ms.author: hrasheed
+ms.openlocfilehash: c8ca936220bf1f4d7f38858c0e09e332cd474077
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499130"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193853"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 叢集的容量規劃
 
@@ -32,7 +32,7 @@ ms.locfileid: "52499130"
 
 Azure 地區決定您叢集實際佈建的位置。 若要將讀取和寫入的延遲降至最低，叢集就應該接近您的資料。
 
-HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的 Azure 產品](https://azure.microsoft.com/regions/services/)中資料 + 分析下的 HDInsight Linux 項目。
+HDInsight 可在多個 Azure 區域中使用。 若要尋找最接近的區域，請參閱[依區域提供的產品](https://azure.microsoft.com/regions/services/)中 *Analytics* 下的 *HDInsight* 項目。
 
 ## <a name="choose-storage-location-and-size"></a>選擇存放位置和大小
 
@@ -97,17 +97,37 @@ VM 大小與類型是由 CPU 處理能力、RAM 大小和網路延遲所決定�
 
 有時會因多個對應平行執行而發生錯誤，從而減少多節點叢集上的元件。 若要協助隔離問題，請嘗試在單一節點叢集上同時執行多個作業的分散式測試，然後延伸這種方法，在包含多個節點的叢集上同時執行多個作業。 若要在 Azure 中建立單一節點 HDInsight 叢集，請使用進階選項。
 
-您也可以在本機電腦上安裝單一節點開發環境，並在該處測試解決方案。 Hortonworks 提供的單一節點本機開發環境適用於以 Hadoop 作為基礎的解決方案，適合初期開發、概念證明及測試。 如需詳細資訊，請參閱 [Hortonworks 沙箱](http://hortonworks.com/products/hortonworks-sandbox/)。
+您也可以在本機電腦上安裝單一節點開發環境，並在該處測試解決方案。 Hortonworks 提供的單一節點本機開發環境適用於以 Hadoop 作為基礎的解決方案，適合初期開發、概念證明及測試。 如需詳細資訊，請參閱 [Hortonworks 沙箱](https://hortonworks.com/products/hortonworks-sandbox/)。
 
-若要識別單一節點本機叢集上的問題，您可以將失敗的作業重新執行及調整輸入資料，或使用較小的資料集。 執行這些作業的方式取決於平台和應用程式類型。
+若要識別單一節點本機叢集上的問題，您可以重新執行失敗的作業及調整輸入資料，或使用較小的資料集。 執行這些作業的方式取決於平台和應用程式類型。
 
 ## <a name="quotas"></a>配額
 
-決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 已觸達之最常見配額限制是 CPU 核心配額，存在於訂用帳戶、區域和 VM 系列層級。 例如，您的訂用帳戶可能有 200 個核心的總計限制，且在您的區域為 30 個核心的限制，以及 VM 執行個體上 30 個核心的限制。 您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
+決定您的目標叢集 VM 大小、縮放比例和類型之後，請檢查您訂用帳戶的目前配額容量限制。 當您觸達配額限制時，可能無法部署新的叢集，或新增更多背景工作節點來將現有的叢集相應放大。 唯一的配額限制是 CPU 核心配額，其存在於每個訂用帳戶區域層級。 例如，您的訂用帳戶在美國東部區域可能有 30 個核心限制。 如果您需要要求增加配額，請執行下列步驟：
+
+1. 移至 Azure 入口網站
+1. 按一下頁面左下方的 [說明及支援]。
+1. 按一下 [新增支援要求]。
+1. 在 [新增支援要求] 頁面的 [基本] 索引標籤上，選取下列選項：
+    - **問題類型**：**服務與訂用帳戶限制 (配額)**
+    - **訂用帳戶**：您需要修改的訂用帳戶
+    - **配額類型**：**HDInsight**
+    
+    ![建立支援要求以提高 HDInsight 核心配額](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+
+1. 按 [下一步] 。
+1. 在 [詳細資料] 頁面中，輸入問題的說明、選取問題的嚴重性，然後選取慣用的連絡方法。
+1. 按 [下一步：檢閱 + 建立]。
+1. 在 [檢閱 + 建立] 索引標籤上，按一下 [建立]。
+
+> [!Note]
+> 如果需要在私人區域中新增 HDInsight 核心配額，請[提交白名單要求](https://aka.ms/canaryintwhitelist)。
+
+您可以[連絡支援人員以要求增加配額](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
 
 不過，有一些固定的配額限制，例如單一 Azure 訂用帳戶最多可以有 10,000 個核心。 如需這些限制的詳細資料，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Apache Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Apache Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
+* [使用 Apache Hadoop、Spark、Kafka 及其他工具在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)：了解如何在 HDInsight 中使用 Apache Hadoop、Spark、Kafka、Interactive Hive、HBase、ML 服務或 Storm 安裝並設定叢集。
 * [監視叢集效能](hdinsight-key-scenarios-to-monitor.md)：了解重要情節，以監視可能會影響叢集容量的 HDInsight 叢集。

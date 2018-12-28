@@ -1,7 +1,7 @@
 ---
-title: 搜尋網路上的發燒影片 - Bing 影像搜尋 API
+title: 使用 Bing 影像搜尋 API 取得發燒影像
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用 Bing 影像搜尋 API 來搜尋網路上的發燒影像。
+description: 使用 Bing 影像搜尋 API 從 Web 搜尋今天的發燒影像
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 8d58c188275dc6b546d418b51835514c99f25d28
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296306"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258962"
 ---
-# <a name="get-trending-images-from-the-bing-image-search-api"></a>從 Bing 影像搜尋 API 取得發燒影像
+# <a name="get-trending-images-from-the-web"></a>從 Web 取得發燒影像
 
 若要取得今天的發燒影像，請傳送下列 GET 要求：  
 

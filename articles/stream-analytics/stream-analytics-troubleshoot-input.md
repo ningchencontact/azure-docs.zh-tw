@@ -7,13 +7,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/11/2018
-ms.openlocfilehash: 2b2dc3ba78cfa682c4a326754bdddfa9bc81f836
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49346183"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164376"
 ---
 # <a name="troubleshoot-input-connections"></a>針對輸入連線進行疑難排解
 
@@ -35,7 +36,7 @@ ms.locfileid: "49346183"
  
 當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知您。 您串流分析作業的 [輸入] 圖格上會顯示警告符號。 只要作業處於執行中狀態，此警告符號就會存在：
 
-![Azure 串流分析輸入圖格](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure 串流分析輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 啟用診斷記錄以檢視警告的詳細資料。 對於格式錯誤的輸入事件，執行記錄包含具有類似以下訊息的項目： 
 <code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
@@ -47,8 +48,8 @@ ms.locfileid: "49346183"
 
 2. 輸入詳細資料圖格會顯示警告清單，以及每個問題的相關詳細資料。 以下的範例警告訊息包含發生 JSON 資料格式不正確的磁碟分割、位移及序號。 
 
-   ![位移的警告訊息](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![具位移的串流分析警告訊息](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. 若要尋找格式錯誤的 JSON 資料，請執行 CheckMalformedEvents.cs 程式碼，該程式碼可從 [GitHub 範例存放庫](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)取得。 此程式碼讀取分割區識別碼、位移，並列印位於該位移的資料。 
 
 4. 一旦您讀取資料後，可以分析並修正序列化格式。
@@ -89,9 +90,9 @@ ms.locfileid: "49346183"
 
 讀取器數量 (每個分割區) 超過事件中樞上限 (5 個) 的情況如下：
 
-* 多個 SELECT 陳述式︰ 如果您使用多個 SELECT 陳述式參照**相同**的事件中樞輸入，則每個 SELECT 陳述式皆會造成新的接收器建立。
-* UNION︰當您使用 UNION 時，就有可能會有多個輸入參照**相同**的事件中樞和取用者群組。
-* SELF JOIN︰當您使用 SELF JOIN 作業時，就可能發生參照**相同**事件中樞多次的情形。
+* 多個 SELECT 陳述式：如果您使用多個 SELECT 陳述式參照**相同**的事件中樞輸入，則每個 SELECT 陳述式皆會造成新的接收器建立。
+* UNION：當您使用 UNION 時，就有可能會有多個輸入參照**相同**的事件中樞和取用者群組。
+* SELF JOIN：當您使用 SELF JOIN 作業時，就可能發生參照**相同**事件中樞多次的情形。
 
 以下最佳做法可減少讀取器數量 (每個分割區) 超過事件中樞上限 (5 個) 的情況。
 
@@ -101,7 +102,7 @@ WITH 子句會指定名為結果集的暫存，並且可由查詢中的 FROM 子
 
 例如，不要使用此查詢︰
 
-```
+```SQL
 SELECT foo 
 INTO output1
 FROM inputEventHub
@@ -114,7 +115,7 @@ FROM inputEventHub
 
 使用此查詢︰
 
-```
+```SQL
 WITH data AS (
    SELECT * FROM inputEventHub
 )

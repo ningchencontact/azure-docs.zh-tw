@@ -1,5 +1,5 @@
 ---
-title: 使用 Git 共同作業撰寫程式碼 - Azure Machine Learning | Microsoft Docs
+title: 使用 Git 共同作業撰寫程式碼 - Team Data Science Process
 description: 如何使用 Git 搭配敏捷式計劃進行資料科學專案的共同作業程式碼開發。
 author: marktab
 manager: cgronlun
@@ -9,13 +9,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 4ea9aa10ba40d734e064d34da2536e28a619201f
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 95285bf82fbf1582abcb5d95424b472d392a7a59
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444234"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134483"
 ---
 # <a name="collaborative-coding-with-git"></a>使用 Git 共同作業撰寫程式碼
 

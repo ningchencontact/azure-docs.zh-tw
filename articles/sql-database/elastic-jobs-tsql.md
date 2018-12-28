@@ -3,7 +3,7 @@ title: 使用 Transact-SQL (T-SQL) 建立及管理 Azure SQL 彈性資料庫作�
 description: 使用 Transact-SQL (T-SQL) 透過彈性資料庫作業代理程式跨多個資料庫執行指令碼。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 49fe1fc79ac94b798cb257b961c36a6258fb00d9
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3c40c6721651864b9e0d64d4eeda415bfd3e181a
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056782"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164512"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 建立及管理彈性資料庫作業
 
@@ -210,9 +210,9 @@ EXEC jobs.sp_add_jobstep
 @credential_name='myjobcred',
 @target_group_name='PoolGroup',
 @output_type='SqlDatabase',
-@output_credential_name=’myjobcred’,
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’<resultsdb>',
+@output_credential_name='myjobcred',
+@output_server_name='server1.database.windows.net',
+@output_database_name='<resultsdb>',
 @output_table_name='<resutlstable>'
 Create a job to monitor pool performance
 --Connect to the job database specified when creating the job agent
@@ -257,8 +257,8 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 @target_group_name='MasterGroup',
 @output_type='SqlDatabase',
 @output_credential_name='myjobcred',
-@output_server_name=’server1.database.windows.net',
-@output_database_name=’resultsdb',
+@output_server_name='server1.database.windows.net',
+@output_database_name='resultsdb',
 @output_table_name='resutlstable'
 ```
 
@@ -330,7 +330,7 @@ EXEC jobs.sp_update_job
 ```sql
 --Connect to the job database specified when creating the job agent
 
---View top-level execution status for the job named ‘ResultsPoolJob’
+--View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
 ORDER BY start_time DESC
@@ -339,7 +339,7 @@ ORDER BY start_time DESC
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
 ORDER BY start_time DESC
 
---View all execution statuses for job named ‘ResultsPoolsJob’
+--View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions 
 WHERE job_name = 'ResultsPoolsJob' 
 ORDER BY start_time DESC
@@ -530,7 +530,7 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 - 「小時」、
 - 「天」、
 - 「週」、
-- 「月」
+- 「月」、
 
 [ **@schedule_interval_count=** ] schedule_interval_count  
 每次執行作業之間所發生的 schedule_interval_count 期間數目。 schedule_interval_count 是 int，預設值為 1。 此值必須大於或等於 1。
@@ -644,10 +644,10 @@ sp_add_job 必須從建立作業代理程式時所指定的作業代理程式資
 [ **@command =** ] 'command'  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 存放在此作業控制資料庫中的資料庫範圍認證名稱，在此步驟執行時用來連線至目標群組內的每個目標資料庫。 credential_name 是 nvarchar(128)。
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 將執行作業步驟的目標資料庫所屬的目標群組名稱。 target_group_name 是 nvarchar(128)。
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -774,10 +774,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **@command =** ] 'command'  
 command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執行。 command 是 nvarchar(max)，預設值為 NULL。
 
-[ **@credential_name =** ] ‘credential_name’  
+[ **@credential_name =** ] 'credential_name'  
 存放在此作業控制資料庫中的資料庫範圍認證名稱，在此步驟執行時用來連線至目標群組內的每個目標資料庫。 credential_name 是 nvarchar(128)。
 
-[ **@target_group_name =** ] ‘target-group_name'  
+[ **@target_group_name =** ] 'target-group_name'  
 將執行作業步驟的目標資料庫所屬的目標群組名稱。 target_group_name 是 nvarchar(128)。
 
 [ **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
@@ -1011,14 +1011,14 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 
 ```sql
 [jobs].sp_add_target_group_member [ @target_group_name = ] 'target_group_name'
-         [ @membership_type = ] ‘membership_type’ ]   
-        [ , [ @target_type = ] ‘target_type’ ]   
-        [ , [ @refresh_credential_name = ] ‘refresh_credential_name’ ]   
-        [ , [ @server_name = ] ‘server_name’ ]   
-        [ , [ @database_name = ] ‘database_name’ ]   
-        [ , [ @elastic_pool_name = ] ‘elastic_pool_name’ ]   
-        [ , [ @shard_map_name = ] ‘shard_map_name’ ]   
-        [ , [ @target_id = ] ‘target_id’ OUTPUT ]
+         [ @membership_type = ] 'membership_type' ]   
+        [ , [ @target_type = ] 'target_type' ]   
+        [ , [ @refresh_credential_name = ] 'refresh_credential_name' ]   
+        [ , [ @server_name = ] 'server_name' ]   
+        [ , [ @database_name = ] 'database_name' ]   
+        [ , [ @elastic_pool_name = ] 'elastic_pool_name' ]   
+        [ , [ @shard_map_name = ] 'shard_map_name' ]   
+        [ , [ @target_id = ] 'target_id' OUTPUT ]
 ```
 
 #### <a name="arguments"></a>引數
@@ -1040,10 +1040,10 @@ command 必須是有效的 T-SQL 指令碼，且後續會由此作業步驟執�
 [ **@database_name =** ] 'database_name'  
 應新增至指定目標群組的資料庫名稱。 當 target_type 為 ‘SqlDatabase’ 時，即應指定 database_name。 database_name 是 nvarchar(128)，沒有預設值。
 
-[ **@elastic_pool_name =** ] ‘elastic_pool_name'  
+[ **@elastic_pool_name =** ] 'elastic_pool_name'  
 應新增至指定目標群組的彈性集區名稱。 當 target_type 為 ‘SqlElasticPool’ 時，即應指定 elastic_pool_name。 elastic_pool_name 是 nvarchar(128)，沒有預設值。
 
-[ **@shard_map_name =** ] ‘shard_map_name'  
+[ **@shard_map_name =** ] 'shard_map_name'  
 應新增至指定目標群組的分區對應集區名稱。 當 target_type 為 ‘SqlSqlShardMap’ 時，即應指定 elastic_pool_name。 shard_map_name 是 nvarchar(128)，沒有預設值。
 
 [ **@target_id =** ] target_group_id OUTPUT  
@@ -1101,7 +1101,7 @@ GO
 
 ```sql
 [jobs].sp_delete_target_group_member [ @target_group_name = ] 'target_group_name'
-        [ , [ @target_id = ] ‘target_id’]
+        [ , [ @target_id = ] 'target_id']
 ```
 
 

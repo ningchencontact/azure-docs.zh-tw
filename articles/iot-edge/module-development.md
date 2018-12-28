@@ -1,6 +1,6 @@
 ---
 title: 開發適用於 Azure IoT Edge 的模組 | Microsoft Docs
-description: 了解如何建立適用於 Azure IoT Edge 的自訂模組
+description: 開發可與執行階段和 IoT 中樞通訊的 Azure IoT Edge 自訂模組
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 50e9c0667761e43c63b03fbaf5f8ce93eb49e749
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567225"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100084"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>了解開發 IoT Edge 模組的需求和工具
 

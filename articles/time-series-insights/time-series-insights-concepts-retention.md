@@ -1,5 +1,5 @@
 ---
-title: 了解 Azure 時間序列深入解析環境中的資料保留 | Microsoft Docs
+title: Azure 時間序列深入解析資料保留 - 了解 Azure 時間序列深入解析環境中的資料保留 | Microsoft Docs
 description: 本文說明「Azure 時間序列深入解析」環境中，控制資料保留的兩個設定。
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: seodec18
+ms.openlocfilehash: c46e385caaa343fe9ba64e1aa4516f1335039cd3
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364099"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272145"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>了解時間序列深入解析中的資料保留
 
@@ -47,7 +48,7 @@ ms.locfileid: "46364099"
 - 最舊的內嵌資料會先清除 (FIFO 方法)。
 
 ### <a name="example-1"></a>範例 1：
-參考保留行為設為 [繼續輸入並清除舊資料] 的範例環境：在這個範例中，[資料保留時間] 是設定為 400 天。 [容量] 是設定為 S1 單位，其中包含 30 GB 的總容量。   假設傳入的資料平均每天會累積至 500 MB。 在給定的資料傳入速率下，此環境只能將資料保留 60 天，因為會在 60 天時達到容量上限。 傳入資料會累積為：500 MB 每天 x 60 天 = 30 GB。 
+考慮具有保留行為 [繼續輸入並清除舊資料] 的範例環境：在這個範例中，[資料保留時間] 設定為：400 天。 [容量] 是設定為 S1 單位，其中包含 30 GB 的總容量。   假設傳入的資料平均每天會累積至 500 MB。 在給定的資料傳入速率下，此環境只能將資料保留 60 天，因為會在 60 天時達到容量上限。 傳入資料累積為：每天 500 MB x 60 天 = 30 GB。 
 
 在這個範例中，在第 61 天時，環境會顯示最新的資料，但會清除 60 天以前的最舊資料。 清除動作可釋出空間供傳入的新資料使用，因此可以繼續瀏覽新資料。 
 

@@ -1,23 +1,24 @@
 ---
-title: 檢閱 Language Understanding (LUIS) 的端點語句
-titleSuffix: Azure Cognitive Services
+title: 檢閱使用者語句
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: LUIS 的突破性功能是主動式學習的概念。 一旦您的 LUIS 有端點查詢，主動式學習就會藉由選取不確定的語句來改善結果品質。 如果您要標示這些語句，進行訓練及發佈，則 LUIS 會更精確地識別語句。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: a5e0dabe251d14389923df3efe41f6ba80f41bdd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 7175463001eac118d2939d3479e61a01b80ba86b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030790"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106544"
 ---
-# <a name="review-endpoint-utterances"></a>檢閱端點語句
+# <a name="how-to-review-endpoint-utterances-in-luis-portal"></a>如何在 LUIS 入口網站中檢閱端點語句
 
 LUIS 的突破性功能是主動式學習的[概念](luis-concept-review-endpoint-utterances.md)。 一旦您的 LUIS 有端點查詢，LUIS 會使用主動式學習來改善結果品質。 在主動式學習過程中，LUIS 會檢查所有端點語句，並選取不可靠的語句。 如果您要標示這些語句，進行訓練及發佈，則 LUIS 會更精確地識別語句。 
 

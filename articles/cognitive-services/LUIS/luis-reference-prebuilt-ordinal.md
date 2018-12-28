@@ -1,32 +1,33 @@
 ---
-title: LUIS 預先建置的 ordinal 實體參考 - Azure| Microsoft Docs
+title: 序數預先建置的實體
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的 ordinal 實體資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: e80b9dc63accec43532116b81e6eb0b9bd52ee22
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 2565a799c5ac33644a06a942cddcc9eb4dad22dc
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335248"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162557"
 ---
-# <a name="ordinal-entity"></a>Ordinal 實體
+# <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的序數預先建置實體
 序號是一組物件內的數值表示法：`first`、`second`、`third`。 因為此實體已經定型，所以您不需要將包含序數的範例語句加入應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援 ordinal 實體。 
 
 ## <a name="types-of-ordinal"></a>序數類型
-序數可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub 儲存機制管理
+序數可從 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) GitHub 存放庫管理
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>解析預先建置的 ordinal 實體
 下列範例顯示解析的 **builtin.ordinal** 實體。
 
-```JSON
+```json
 {
   "query": "Order the second option",
   "topScoringIntent": {

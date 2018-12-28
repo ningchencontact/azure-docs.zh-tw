@@ -1,5 +1,6 @@
 ---
-title: 使用 SSL 保護 Azure Machine Learning Web 服務
+title: 使用 SSL 保護 Web 服務
+titleSuffix: Azure Machine Learning service
 description: 了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制對 Web 服務的存取，以及使用安全通訊端層 (SSL) 和金鑰型驗證來保護用戶端所提交的資料。
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
-ms.openlocfilehash: ec7b956f080837b297bac56e6237ac0672601ce7
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.custom: seodec18
+ms.openlocfilehash: 14350a04326ba22dcc5c8608b6ac6b9180666832
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344479"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101169"
 ---
-# <a name="secure-azure-machine-learning-web-services-with-ssl"></a>使用 SSL 保護 Azure Machine Learning Web 服務
+# <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>使用 SSL 來保護具有 Azure Machine Learning 服務的 Web 服務
 
 在此文章中，您將了解如何保護使用 Azure Machine Learning services 部署的 Web 服務。 您可以限制對 Web 服務的存取，以及使用安全通訊端層 (SSL) 和金鑰型驗證來保護用戶端所提交的資料。
 
@@ -118,7 +120,7 @@ SSL 會加密在用戶端與 Web 服務之間傳送的資料。 用戶端也會�
 
   在 AKS 叢集之 [公用 IP 位址] 的 [設定] 索引標籤底下更新 DNS，如下圖所示。 您可以找到公用 IP 位址，作為在包含 AKS 代理程式節點和其他網路資源之資源群組下方所建立的其中一個資源類型。
 
-  ![Azure Machine Learning services：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
+  ![Azure Machine Learning 服務：使用 SSL 保護 Web 服務](./media/how-to-secure-web-service/aks-public-ip-address.png)
 
 ## <a name="next-steps"></a>後續步驟
 

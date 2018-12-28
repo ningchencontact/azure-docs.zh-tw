@@ -1,21 +1,22 @@
 ---
-title: 在 LUIS 應用程式中新增模式範本而非更多語句
-titleSuffix: Azure Cognitive Services
+title: 新增精確度的模式
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解如何在 Language Understanding (LUIS) 應用程式中新增模式範本，以改善預測準確度。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.technology: luis
-ms.topic: article
+ms.component: language-understanding
+ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: c97092385cdc28ba6e4d916ae8039f065f97d31d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030807"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134993"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>如何新增模式以改善預測準確度
 在 LUIS 應用程式收到端點語句之後，請使用模式的[概念](luis-concept-patterns.md)，以針對在字組順序和字組選擇中顯露模式的語句，改善預測準確度。 模式使用[實體](luis-concept-entity-types.md)及其角色，擷取使用特定模式語法的資料。 
@@ -95,7 +96,7 @@ ms.locfileid: "47030807"
 
 2. [刪除模式] 確認對話方塊隨即出現。 選取 [確定] 以完成刪除。
 
-    ![刪除數個模式的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
+    ![刪除數個模式確認方塊的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/delete-many-patterns-confirmation.png)
 
 ## <a name="filter-pattern-list-by-entity"></a>依實體篩選模式清單
 
@@ -116,7 +117,7 @@ ms.locfileid: "47030807"
 ## <a name="remove-entity-or-intent-filter"></a>移除實體或意圖篩選條件
 篩選模式清單後，實體或意圖名稱會出現在工具列下方。 若要移除篩選條件，請選取名稱。
 
-![依實體篩選模式的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
+![從篩選中移除實體的螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/filter-entities-2.png)
 
 系統會移除篩選條件，並顯示所有模式。 
 
@@ -125,7 +126,7 @@ ms.locfileid: "47030807"
 
 1. 在語句的所選資料列上，選取語句右邊的省略符號 (***...***) 按鈕，然後選取 [新增為模式]。
 
-    [![](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "語句資料表的螢幕擷取畫面 (已醒目提示 [選項] 功能表中的 [新增模式])")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
+    [![選項 功能表中，新增模式反白顯示的談話資料表螢幕擷取畫面](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png "選項功能表中，新增模式反白顯示的談話資料表螢幕擷取畫面")](./media/luis-how-to-model-intent-pattern/add-pattern-from-utterance.png)
 
 2. 根據[語法規則](luis-concept-patterns.md#pattern-syntax)修改模式。 如果您選取的語句已標示實體，則這些實體已經為具有正確語法的模式。
 

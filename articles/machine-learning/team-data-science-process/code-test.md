@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 上使用 UCI 成人收入預測資料集進行資料科學程式碼測試 - Team Data Science Process 和 Azure DevOps Services
-description: 使用 UCI 成人收入預測資料進行資料科學程式碼測試
+title: 使用 Azure DevOps Services - Team Data Science Process 測試資料科學程式碼
+description: 使用 Team Data Science Process 和 Azure DevOps Services，在 Azure 上使用 UIC 成人收入預測資料集，進行資料科學程式碼測試
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: tdsp
-ms.custom: (previous author=weig, ms.author=weig)
-ms.openlocfilehash: d04f50bc3de34c28c10be7ba429f85a99096de47
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
+ms.openlocfilehash: d8c3bafaa42e68eb7f6b5212c055793a1f2b1137
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443945"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134534"
 ---
-# <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>使用 UCI 成人收入預測資料集進行資料科學程式碼測試
+# <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>使用 Team Data Science Process 和 Azure DevOps Services，在 Azure 上進行資料科學程式碼測試
 本文提供在資料科學工作流程中測試程式碼的初步指導方針。 這類測試可提供資料科學家一個系統化且有效率的方式，來檢查其程式碼的品質和預期的結果。 我們會使用 Team Data Science Process (TDSP) [專案 (使用先前發佈的 UCI 成人收入資料集)](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) 來示範如何進行程式碼測試。 
 
 ## <a name="introduction-on-code-testing"></a>程式碼測試簡介

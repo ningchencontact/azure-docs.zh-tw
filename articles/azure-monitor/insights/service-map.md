@@ -8,18 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: c25bc5d577096078694e3af0de74debe0f906251
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: cd55e97edb6cd0b4a2a3eceee406ce5718db8bd4
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827261"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186492"
 ---
 # <a name="using-service-map-solution-in-azure"></a>在 Azure 中使用服務對應解決方案
 服務對應可自動探索 Windows 和 Linux 系統上的應用程式元件，並對應服務之間的通訊。 您可以藉由服務對應，將伺服器視為提供重要服務的互連系統，藉此來檢視伺服器。 不需要進行任何設定，只要安裝了代理程式，服務對應就會顯示橫跨任何 TCP 連線架構的伺服器、處理序、輸入和輸出連線的延遲，和連接埠之間的連線。
@@ -38,13 +37,13 @@ ms.locfileid: "51827261"
 2. 在搜尋列中輸入**服務對應**，然後按 **Enter**。
 3. 在市集搜尋結果頁面的清單中，選取 [服務對應]。<br><br> ![從 Azure Marketplace 搜尋結果中選取服務對應解決方案](./media/service-map/marketplace-search-results.png)<br>
 4. 在 [服務對應] 概觀窗格上，檢閱解決方案詳細資料，然後按一下 [建立] 開始將程序上線到 Log Analytics 工作區。<br><br> ![將服務對應解決方案上線](./media/service-map/service-map-onboard.png)。
-5. 在 [設定解決方案] 窗格中，選取現有的或建立新的 Log Analytics 工作區。  如需如何建立新工作區的進一步資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../log-analytics/log-analytics-quick-create-workspace.md)。 提供必要資訊後，按一下 [建立] 。  
+5. 在 [設定解決方案] 窗格中，選取現有的或建立新的 Log Analytics 工作區。  如需如何建立新工作區的進一步資訊，請參閱[在 Azure 入口網站中建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)。 提供必要資訊後，按一下 [建立] 。  
 
 確認資訊並部署解決方案後，您可以在功能表的 [通知] 底下追蹤其進度。 
 
 您可以在 Azure 入口網站中從 Log Analytics 工作區存取服務對應，然後從左窗格選取 [解決方案] 選項。<br><br> ![在工作區中選取 [解決方案] 選項](./media/service-map/select-solution-from-workspace.png)。<br> 從解決方案清單中，選取 [ServiceMap(workspaceName)]，然後在 [服務對應解決方案概觀] 頁面中，按一下 [服務對應摘要] 圖格。<br><br> ![[服務對應摘要] 圖格](./media/service-map/service-map-summary-tile.png)。
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例︰讓 IT 處理序可以感知相依性
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>使用案例：讓 IT 處理序可以感知相依性
 
 ### <a name="discovery"></a>探索
 服務對應會自動建置跨伺服器、處理程序和協力廠商服務的一般相依性參考對應。 它會探索並對應所有 TCP 相依性，其中會識別非預期的連線、您倚賴的遠端協力廠商系統，以及與傳統網路暗區 (例如 Active Directory) 的相依性。 服務對應可探索到受控系統嘗試進行的失敗網路連線，幫助您識別潛在的伺服器錯誤設定、服務中斷和網路問題。
@@ -277,7 +276,7 @@ Linux：
 ![[機器變更追蹤] 窗格](media/service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Log Analytics 記錄
-服務對應的電腦和處理序清查資料可供在 Log Analytics 中進行[搜尋](../../log-analytics/log-analytics-queries.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+服務對應的電腦和處理序清查資料可供在 Log Analytics 中進行[搜尋](../../azure-monitor/log-query/log-query-overview.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 除了當處理序或電腦啟動時或是新增到服務對應時所產生的記錄外，每小時還會為每個唯一的電腦和處理序產生一筆記錄。 這些記錄具有下表中的屬性。 ServiceMapComputer_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的機器資源欄位。 ServiceMapProcess_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的處理序資源欄位。 ResourceName_s 欄位會符合對應 Resource Manager 資源中的名稱欄位。 
 
@@ -504,7 +503,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 
 ## <a name="next-steps"></a>後續步驟
-深入了解 Log Analytics 中的[記錄搜尋](../../log-analytics/log-analytics-queries.md)，以擷取服務對應所收集的資料。
+深入了解 Log Analytics 中的[記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)，以擷取服務對應所收集的資料。
 
 
 ## <a name="troubleshooting"></a>疑難排解

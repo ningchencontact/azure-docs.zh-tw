@@ -1,5 +1,5 @@
 ---
-title: 使用 Spark 進階資料探索和模型化 | Microsoft Docs
+title: 透過 Spark 進行進階資料探索和模型化 - Team Data Science Process
 description: 使用 HDInsight Spark 並透過交叉驗證和超參數最佳化定型模型，執行資料探索和二進位分類和迴歸模型化。
 services: machine-learning
 author: marktab
@@ -10,17 +10,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: e0fa3d481e18cdb15095968e791bd9eee630f8af
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446325"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135469"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>使用 Spark 進階資料探索和模型化
 
-本逐步解說會使用 HDInsight Spark，在 NYC 計程車車程和費用 2013 資料集的取樣上，使用交叉驗證和超參數最佳化來執行資料探索和定型二進位分類和迴歸模型。 它將引導您逐步完成 [資料科學程序](https://aka.ms/datascienceprocess)、端對端、使用 HDInsight Spark 叢集處理，並使用 Azure blob 來儲存資料和模型。 程序會探索和視覺化從 Azure 儲存體 Blob 中引進的資料，然後準備資料來建立預測模型。 已使用 Python 來編寫解決方案程式碼，並顯示相關的繪圖。 這些模型是使用 Spark MLlib 工具組來執行二進位分類和迴歸模型工作。 
+本逐步解說會使用 HDInsight Spark，在 NYC 計程車車程和費用 2013 資料集的取樣上，使用交叉驗證和超參數最佳化來執行資料探索和定型二進位分類和迴歸模型。 它將引導您逐步完成 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)、端對端、使用 HDInsight Spark 叢集處理，並使用 Azure blob 來儲存資料和模型。 程序會探索和視覺化從 Azure 儲存體 Blob 中引進的資料，然後準備資料來建立預測模型。 已使用 Python 來編寫解決方案程式碼，並顯示相關的繪圖。 這些模型是使用 Spark MLlib 工具組來執行二進位分類和迴歸模型工作。 
 
 * **二進位分類** 工作可預測是否已支付某趟車程的小費。 
 * **迴歸** 工作可根據其他小費功能來預測小費金額。 
@@ -47,16 +47,16 @@ ms.locfileid: "52446325"
 > 
 > 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>設定：Spark 叢集和 Notebook
+## <a name="setup-spark-clusters-and-notebooks"></a>安裝程式：Spark 叢集和 Notebook
 此逐步解說所提供的設定步驟和程式碼適用於使用 HDInsight Spark 1.6。 不過 Jupyter Notebook 可供 HDInsight Spark 1.6 版和 Spark 2.0 叢集兩者使用。 Notebook 的描述及它們的連結已在包含它們的 GitHub 儲存機制的 [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) 中提供。 此外，此處及連結的 Notebook 內的程式碼皆屬泛型程式碼，而且應該能在任何 Spark 叢集上運作。 若您不是使用 HDInsight Spark，叢集設定和管理步驟可能與這裡顯示的稍有不同。 為了方便起見，以下是可讓 Spark 1.6 版和 2.0 版在 Jupyter Notebook 伺服器的 pyspark 核心中執行的 Jupyter Notebook 連結：
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 Notebook
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：包含Notebook #1 中的主題，以及使用超參數微調和交叉驗證的模型開發。
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：包含 notebook #1 ，和使用超參數微調與交叉驗證的模型開發主題。
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 Notebook
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案提供如何在 Spark 2.0 叢集中執行資料瀏覽、模型化和評分的相關資訊。
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb)：此檔案提供有關如何執行資料探索、模型化和在 Spark 2.0 叢集中評分的資訊。
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -998,9 +998,9 @@ ROC 下的領域 = 0.985336538462
 2. **模型評估** 
 3. **儲存模型**    
 
-> AZURE 附註︰交叉驗證未與本節中的三個迴歸模型搭配使用，因為這是用來顯示羅吉斯迴歸模型詳細資料的方法。 本主題的＜附錄＞示範如何針對線性迴歸使用 CV 與 Elastic Net。
+> Azure 附註：交叉驗證未與本節中的三個迴歸模型搭配使用，因為這是用來顯示羅吉斯迴歸模型詳細資料的方法。 本主題的＜附錄＞示範如何針對線性迴歸使用 CV 與 Elastic Net。
 > 
-> AZURE NOTE︰在我們的經驗中，交集的 LinearRegressionWithSGD 模型可能會發生問題，且必須小心變更/最佳化參數以取得有效的模型。 調整變數對於聚合很有用。 本主題中的＜附錄＞所顯示的 Elastic Net 迴歸也可用來取代 LinearRegressionWithSGD。
+> Azure 附註：在我們的經驗中，交集的 LinearRegressionWithSGD 模型可能會發生問題，且必須小心變更/最佳化參數以取得有效的模型。 調整變數對於聚合很有用。 本主題中的＜附錄＞所顯示的 Elastic Net 迴歸也可用來取代 LinearRegressionWithSGD。
 > 
 > 
 
@@ -1198,7 +1198,7 @@ tmp_results 已在先前的儲存格中註冊為 Hive 資料表。 來自資料�
 
 ![Actual-vs-predicted-tip-amounts](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>附錄︰使用交叉驗證與參數掃掠的額外迴歸工作
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>附錄：使用交叉驗證與參數掃掠的額外迴歸工作
 本附錄包含程式碼，示範如何針對線性迴歸使用彈性 net 以執行 CV，以及如何針對隨機樹系迴歸使用自訂程式碼，以參數掃掠執行 CV。
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>針對線性迴歸使用彈性 net 進行交叉驗證
@@ -1408,7 +1408,7 @@ R-sqr = 0.740751197012
 
 **輸出**
 
-PythonRDD[122] at RDD at PythonRDD.scala: 43
+PythonRDD[122] at RDD at PythonRDD.scala：43
 
 **列印出要在耗用量 Notebook 中使用的模型檔案路徑。 **若要耗用與評分獨立資料集，您需要在「耗用量 Notebook」中複製並貼上這些檔案名稱。
 
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-0
 ## <a name="whats-next"></a>後續步驟
 現在已使用 Spark MlLib 建立迴歸和分類模型，您已瞭解如何評分及評估這些模型。
 
-**模型耗用量︰** 若要瞭解如何評分及評估本主題中所建立的分類和迴歸模型，請參閱 [評分及評估 Spark 建置機器學習服務模型](spark-model-consumption.md)。
+**模型耗用量：** 若要瞭解如何評分和評估本主題中，所建立的分類和迴歸模型，請參閱[評分及評估 Spark 建置機器學習服務模型](spark-model-consumption.md)。
 

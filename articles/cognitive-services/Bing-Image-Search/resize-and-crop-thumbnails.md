@@ -1,6 +1,7 @@
 ---
-title: 調整大小和裁剪 Bing 縮圖 - Bing 影像搜尋 API
-description: 了解如何裁剪和調整 Bing 影像搜尋 API 回應內的縮圖大小。
+title: 調整大小和裁剪縮圖映像 - Bing 影像搜尋 API
+titleSuffix: Azure Cognitive Services
+description: 從 Bing 影像搜尋 API 調整大小和裁剪回應中包含的縮圖映像。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.custom: seodec2018
+ms.openlocfilehash: 3bb360cd95dcbfb95464b2b259dcebfce7065256
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296222"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256379"
 ---
-# <a name="resizing-and-cropping-thumbnail-images"></a>調整大小和裁剪縮圖影像
+# <a name="resize-and-crop-thumbnail-images"></a>調整大小和裁剪縮圖映像
 
 在處理搜尋查詢時，Bing 會在其[回應](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format)中產生所有影像的縮圖資訊。 此資訊可用來顯示所有或部分傳回的縮圖。 如果您顯示部分縮圖，請提供用來檢視其餘影像的選項。
 

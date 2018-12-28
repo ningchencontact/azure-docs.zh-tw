@@ -1,21 +1,22 @@
 ---
-title: 了解模式如何提高預測精確度
-titleSuffix: Azure Cognitive Services
-description: 模式設計用來改善數個語句非常類似時的精確度。 模式可讓您取得更精確的意圖，而不需提供更多的語句。
+title: 模式可協助預測
+titleSuffix: Language Understanding - Azure Cognitive Services
+description: 模式可讓您取得更精確的意圖，而不需提供更多的語句。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/10/2018
 ms.author: diberry
-ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 46c9eb99d808874e0f49dee5fa4865a4867873f1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300365"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271516"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可改善預測精確度
 模式設計用來改善數個語句非常類似時的精確度。  模式可讓您取得更精確的意圖，而不需提供更多的語句。 
@@ -43,6 +44,8 @@ ms.locfileid: "51300365"
 ## <a name="patterns-do-not-improve-entity-detection"></a>模式不會改善實體偵測
 雖然模式需要實體時，但模式無助於實體偵測。 模式僅用於協助預測意圖和角色。  
 
+如果將多個語句摺疊成單一模式，則不要期望看到改善的實體預測。 若要引發簡單實體，您需要新增語句或使用清單實體，否則您的模式不會引發。
+
 ## <a name="patterns-use-entity-roles"></a>模式可使用實體角色
 如果模式中有兩個以上的實體與內容相關，則模式會使用實體[角色](luis-concept-roles.md)來擷取關於實體的內容資訊。 這相當於階層式實體子項目，但**僅**適用於模式。 
 
@@ -50,7 +53,7 @@ ms.locfileid: "51300365"
 假設具有足夠的範例語句，LUIS 就能夠在不使用模式的情況下提高預測信賴度。 模式可提高信賴分數，而不需要提供許多語句。  
 
 ## <a name="pattern-matching"></a>模式比對
-模式比對會先偵測模式內的實體，然後驗證其餘字組和模式的字組順序。 模式中必須要有實體，才能比對模式。 
+模式比對會先偵測模式內的實體，然後驗證其餘字組和模式的字組順序。 模式中必須要有實體，才能比對模式。 模式會套用到權杖層級，不是字元層級。 
 
 ## <a name="pattern-syntax"></a>模式語法
 模式語法是語句的範本。 此範本應該包含您要比對的字組和實體，以及您要忽略的字組和標點符號。 它**不是**一個規則運算式。 

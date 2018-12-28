@@ -4,17 +4,17 @@ description: 本文說明如何使用 Visual Studio 監視和管理 Azure 串流
 services: stream-analytics
 author: su-jie
 ms.author: sujie
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/10/2018
-ms.openlocfilehash: 9cc65fc5119bedc816f825b7aae6120f4bca3b12
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: e673d4f1c2d58a61c541cca4f8448dffc003f9fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246586"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100989"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-visual-studio"></a>使用 Visual Studio 監視和管理串流分析工作
 
@@ -31,14 +31,14 @@ ms.locfileid: "40246586"
 
 您可以將 [工作摘要] 摺疊，然後按一下 [工作計量] 索引標籤來檢視包含重要計量的圖表。 選取和取消選取計量類型以將它們新增到圖表或從圖表移除。
 
-![串流分析計量](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
+![Visual Studio 中的串流分析計量](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-metrics.png)
 
 
 ## <a name="error-monitoring"></a>錯誤監視
 
 您也可以在 [錯誤] 索引標籤上按一下來監視錯誤。
 
-![串流分析錯誤](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
+![Visual Studio 中的串流分析錯誤](./media/stream-analytics-monitor-jobs-use-vs/stream-analytics-vs-errors.png)
 
 
 ## <a name="get-support"></a>取得支援

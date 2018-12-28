@@ -1,5 +1,6 @@
 ---
-title: 建立 Azure 內部負載平衡器 - PowerShell 傳統 | Microsoft Docs
+title: 建立內部負載平衡器 - PowerShell 傳統
+titlesuffix: Azure Load Balancer
 description: 了解如何在傳統部署模型中使用 PowerShell 建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: genlin
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms:custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: f8a24a12521d678cee0e255677881760828d1e1f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ef6aac0d97c38798f826304475779ea8059875c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414704"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097976"
 ---
 # <a name="get-started-creating-an-internal-load-balancer-classic-using-powershell"></a>開始使用 PowerShell 建立內部負載平衡器 (傳統)
 
@@ -42,7 +44,7 @@ ms.locfileid: "50414704"
 2. 新增對應到虛擬機器 (將會接收連入流量) 的端點。
 3. 設定即將傳送流量進行負荷平衡的伺服器將其流量傳送到內部負載平衡執行個體的虛擬 IP (VIP) 位址。
 
-### <a name="step-1-create-an-internal-load-balancing-instance"></a>步驟 1︰建立內部負載平衡執行個體
+### <a name="step-1-create-an-internal-load-balancing-instance"></a>步驟 1：建立內部負載平衡執行個體
 
 在現有的雲端服務或在區域虛擬網路下部署的雲端服務中，您可以使用下列 Windows PowerShell 命令來建立內部負載平衡執行個體：
 
@@ -57,7 +59,7 @@ Add-AzureInternalLoadBalancer -ServiceName $svc -InternalLoadBalancerName $ilb �
 
 請注意，使用 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx) Windows PowerShell Cmdlet 會使用 DefaultProbe 參數集。 如需其他參數集的詳細資訊，請參閱 [Add-AzureEndpoint](https://msdn.microsoft.com/library/dn495300.aspx)。
 
-### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>步驟 2：將端點加入至內部負載平衡執行個體
+### <a name="step-2-add-endpoints-to-the-internal-load-balancing-instance"></a>步驟 2：將端點新增至內部負載平衡執行個體
 
 下列是一個範例：
 

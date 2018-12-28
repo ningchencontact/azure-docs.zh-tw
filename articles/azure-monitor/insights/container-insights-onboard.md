@@ -1,5 +1,5 @@
 ---
-title: 如何將適用於容器的 Azure 監視器上線 (預覽) | Microsoft Docs
+title: 如何將適用於容器的 Azure 監視器上線 | Microsoft Docs
 description: 本文說明您如何將適用於容器的 Azure 監視器上線並加以設定，讓您可以了解容器的執行方式，以及已識別出哪些效能相關問題。
 services: azure-monitor
 documentationcenter: ''
@@ -8,40 +8,39 @@ manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/05/2018
+ms.date: 12/06/2018
 ms.author: magoedte
-ms.openlocfilehash: 4893141ec199d21e09bfa2b6a790473d983acd32
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 26337f8d1112c4903ee84e8b4300667b49d1d916
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165402"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186594"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers-preview"></a>如何將適用於容器的 Azure 監視器上線 (預覽) 
+# <a name="how-to-onboard-azure-monitor-for-containers"></a>如何將適用於容器的 Azure 監視器上線  
 本文說明如何設定適用於容器的 Azure 監視器，來監視部署至 Kubernetes 環境並裝載於 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) 上之工作負載的效能。
 
-使用下列受支援方法，即可為新的 AKS 部署啟用適用於容器的 Azure 監視器：
+使用下列受支援的方法，即可為全新、一或多個現有的 AKS 部署啟用適用於容器的 Azure 監視器：
 
-* 從 Azure 入口網站或使用 Azure CLI 部署受控 Kubernetes 叢集
-* 使用 [Terraform 和 AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md) 建立 Kubernetes 叢集
-
-您也可以從 Azure 入口網站或使用 Azure CLI 為一或多個現有 AKS 叢集啟用監視。 
+* 從 Azure 入口網站或使用 Azure CLI
+* 使用 [Terraform 和 AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 ## <a name="prerequisites"></a>必要條件 
 開始之前，請確定您有下列項目：
 
-- Log Analytics 工作區。 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../log-analytics/log-analytics-quick-create-workspace.md)中建立它。
-- 您是用於啟用容器監視的 Log Analytics 參與者角色成員。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../../log-analytics/log-analytics-manage-access.md)。
+- Log Analytics 工作區。 您可以在啟用新 AKS 叢集的監視時建立它，或是讓上線體驗在 AKS 叢集訂用帳戶的預設資源群組中建立預設工作區。 若選擇自行建立它 ，您可以透過 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../azure-monitor/learn/quick-create-workspace.md)中建立它。
+- 您是用於啟用容器監視的 Log Analytics 參與者角色成員。 如需有關如何控制 Log Analytics 工作區存取的詳細資訊，請參閱[管理工作區](../../azure-monitor/platform/manage-access.md)。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 ## <a name="components"></a>元件 
 
-您監視效能的能力需依賴容器化適用於 Linux 的 Log Analytics 代理程式，它會收集叢集中所有節點的效能與事件資料。 在您啟用適用於容器的 Azure 監視器之後，會自動部署並向指定的記錄分析工作區註冊此代理程式。 所部署的版本是 microsoft/oms:ciprod04202018 或更新版本，且會以下列格式的日期呈現：mmddyyyy。 
+監視效能的能力依賴適用於 Linux 的容器化 Log Analytics 代理程式，此代理程式特別為適用於容器的 Azure 監視器所開發。 這個特製化的代理程式會收集叢集中所有節點的效能和事件資料，且會自動部署並在部署期間向指定的 Log Analytics 工作區進行註冊。 代理程式版本是 microsoft/oms:ciprod04202018 或更新版本，且會以下列格式的日期呈現：*mmddyyyy*。 
+
+發行代理程式的新版本時，代理程式會在您裝載於 Azure Kubernetes Service (AKS) 的受控 Kubernetes 叢集上自動升級。 若要遵循所發行的版本，請參閱[代理程式發行公告](https://github.com/microsoft/docker-provider/tree/ci_feature_prod) (英文)。 
 
 >[!NOTE] 
 >如果您已部署 AKS 叢集，則可以使用 Azure CLI 或提供的 Azure Resource Manager 範本來啟用監視，如此文章稍後所示。 您無法使用 `kubectl` 來生集、刪除、重新部署或部署此代理程式。 範本必須部署在叢集所在的資源群組。
@@ -52,13 +51,20 @@ ms.locfileid: "52165402"
 ## <a name="enable-monitoring-for-a-new-cluster"></a>針對新的叢集啟用監視
 在部署期間，您可以在 Azure 入口網站中、使用 Azure CLI 或使用 Terraform 來啟用對新 AKS 叢集的監視。  若要從入口網站啟用，請依照快速入門文章[部署 Azure Kubernetes Service (AKS) 叢集](../../aks/kubernetes-walkthrough-portal.md)中的步驟執行。 在 [監視] 頁面上，針對 [啟用監視] 選項，請選取 [是]，然後選取現有的 Log Analytics 工作區，或是建立新的 Log Analytics 工作區。 
 
+### <a name="enable-using-azure-cli"></a>啟用使用 Azure CLI
 若要使用 Azure CLI 針對建立的新 AKS 叢集啟用監視，請依照快速入門文章中[建立 AKS 叢集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)一節下的步驟執行。  
 
 >[!NOTE]
 >如果您選擇使用 Azure CLI，必須先在本機安裝並使用 CLI。 您必須執行 Azure CLI 2.0.43 版或更新版本。 若要知道您使用的版本，請執行 `az --version`。 如果您需要安裝或升級 Azure CLI，請參閱[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
 >
 
-如果您[使用 Terraform 來部署 AKS 叢集](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)，則也可以藉由納入引數 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) 並指定 **oms_agent** 來啟用適用於容器的 Azure 監視器。  
+### <a name="enable-using-terraform"></a>啟用使用 Terraform
+如果您[使用 Terraform 部署新的 AKS 叢集](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)，若不選擇指定現有的引數，則可以指定設定檔中所需的引數[以建立 Log Analytics 工作區](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html)。 
+
+>[!NOTE]
+>如果您選擇使用 Terraform，則必須執行 Terraform Azure RM Provider 1.17.0 版或以上版本。
+
+若要將適用於容器的 Azure 監視器新增至工作區，請參閱：[azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)，並透過包含 [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) 和指定 **oms_agent** 來完成設定檔。 
 
 啟用監視並順利完成所有設定工作之後，您可以透過兩種方式來監視叢集效能：
 
@@ -97,20 +103,34 @@ az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMana
 provisioningState       : Succeeded
 ```
 
+### <a name="enable-monitoring-using-terraform"></a>使用 Terraform 來啟用監視
+1. 將 **oms_agent** 附加元件設定檔新增至現有的 [azurerm_kubernetes_cluster 資源](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)
+
+   ```
+   addon_profile {
+    oms_agent {
+      enabled                    = true
+      log_analytics_workspace_id = "${azurerm_log_analytics_workspace.test.id}"
+     }
+   }
+   ```
+
+2. 按照 Terraform 文件中的步驟新增 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)。
+
 ### <a name="enable-monitoring-from-azure-monitor"></a>從 Azure 監視器啟用監視
 若要從 Azure 監視器在 Azure 入口網站中啟用 AKS 叢集的監視，請執行下列步驟：
 
-1. 在 Azure 入口網站中，選取 [監視器]。 
-2. 從清單中選取 [容器 (預覽)]。
-3. 在 [監視器 - 容器 (預覽)] 頁面上，選取 [不受監視的叢集]。
+1. 在 Azure 入口網站中，選取 [監視]。 
+2. 從清單中選取 [容器]。
+3. 在 [監視器 - 容器] 頁面上，選取 [不受監視的叢集]。
 4. 從不受監視的叢集清單，在清單中尋找容器，然後按一下 [啟用]。   
-5. 在 [上線以進行容器健康情況與記錄] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  
+5. 在 [適用於容器的 Azure 監視器上線] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請從下拉式清單中加以選取。  
     清單會預先選取訂用帳戶中已部署 AKS 容器的預設工作區和位置。 
 
     ![啟用 AKS 容器深入解析監視](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../../log-analytics/log-analytics-quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
+    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
  
 啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的健康情況計量。 
 
@@ -125,14 +145,14 @@ provisioningState       : Succeeded
     ![[Kubernetes 服務] 連結](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. 在容器清單中，選取容器。
-5. 在容器概觀頁面上，選取 [監視器容器健全狀況]。  
-6. 在 [上線至容器健康狀態與記錄] 頁面上，若您在和叢集相同的訂用帳戶中有現有的 Log Analytics 工作區，請在下拉式清單中選取它。  
+5. 在容器概觀頁面上，選取 [監視容器]。  
+6. 在 [適用於容器的 Azure 監視器上線] 頁面上，如果相同訂用帳戶中有現有 Log Analytics 工作區可作為叢集，請在下拉式清單中選取。  
     清單會預先選取訂用帳戶中已部署 AKS 容器的預設工作區和位置。 
 
     ![啟用 AKS 容器健康情況監視](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../../log-analytics/log-analytics-quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
+    >如果您想要建立新的 Log Analytics 工作區以儲存來自叢集的監視資料，請遵循[建立 Log Analytics 工作區](../../azure-monitor/learn/quick-create-workspace.md)中的指示。 請務必在和部署 AKS 容器相同的訂用帳戶中建立工作區。 
  
 在啟用監視之後，可能需要約 15 分鐘的時間才能檢視叢集的作業資料。 
 
@@ -147,7 +167,7 @@ provisioningState       : Succeeded
 >範本必須部署在叢集所在的資源群組。
 >
 
-Log Analytics 工作區必須手動建立。 若要建立工作區，您可以透過 [Azure Resource Manager](../../log-analytics/log-analytics-template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../log-analytics/log-analytics-quick-create-workspace.md)中設定它。
+Log Analytics 工作區必須手動建立。 若要建立工作區，您可以透過 [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md)、透過 [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json)，或是在 [Azure 入口網站](../../azure-monitor/learn/quick-create-workspace.md)中設定它。
 
 若您不熟悉使用範本來部署資源的概念，請參閱：
 * [使用 Resource Manager 範本與 Azure PowerShell 來部署資源](../../azure-resource-manager/resource-group-template-deploy.md)

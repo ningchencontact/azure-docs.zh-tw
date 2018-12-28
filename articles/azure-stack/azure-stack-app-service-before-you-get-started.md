@@ -12,18 +12,18 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: 4f669d44582c47cc6c7c090627f957288fee0f1a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615869"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275664"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>開始使用 Azure Stack 上的 App Service 之前
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 在部署 Azure Stack 上的 Azure App Service 之前，您必須完成本文中的先決條件步驟。
 
@@ -61,11 +61,11 @@ Azure Stack 1802 更新已增加對容錯網域的支援。 Azure Stack 上的 A
 
 ### <a name="azure-resource-manager-root-certificate-for-azure-stack"></a>適用於 Azure Stack 的 Azure Resource Manager 根憑證
 
-在可以連線到 Azure Stack 整合式系統或 Azure Stack 開發套件主機上特殊權限端點的電腦上，開啟已提高權限的 PowerShell 工作階段。
+在可以連線到 Azure Stack 整合式系統或 Azure Stack 開發套件主機上具特殊權限端點的電腦上，開啟已提高權限的 PowerShell 工作階段。
 
 從您解壓縮協助程式指令碼所在的資料夾執行 *Get-AzureStackRootCert.ps1* 指令碼。 此指令碼會在與 App Service 建立憑證時所需之指令碼相同的資料夾中建立根憑證。
 
-當您執行下列 PowerShell 命令時，必須提供特殊權限的端點和 AzureStack\CloudAdmin 的認證。
+當您執行下列 PowerShell 命令時，必須提供具特殊權限端點和 AzureStack\CloudAdmin 的認證。
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -152,6 +152,12 @@ API 憑證位於管理角色中。 資源提供者會使用它來協助保護 AP
 | 格式 | 範例 |
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
+
+
+### <a name="validate-certificates"></a>驗證憑證
+在部署應用程式服務資源提供者之前，應先使用 [PowerShell 資源庫](https://aka.ms/AzsReadinessChecker)所提供的 Azure Stack 整備檢查工具，來[驗證要使用的憑證](azure-stack-validate-pki-certs.md#perform-platform-as-a-service-certificate-validation)。 Azure Stack 整備檢查工具會驗證產生的 PKI 憑證是否適用於應用程式服務部署。 
+
+最佳做法就是在使用任何必要的 [Azure Stack PKI 憑證](azure-stack-pki-certs.md)時，應該規劃保留足夠的時間以便測試和重新發行憑證 (如有必要)。 
 
 ## <a name="virtual-network"></a>虛擬網路
 
@@ -347,7 +353,7 @@ Azure Stack 上的 Azure App Service 的 SQL Server 執行個體必須能夠從�
 | AzureStackAdminCredential | 必要 | Null | Azure AD Service 管理員的認證。 |
 | CertificateFilePath | 必要 | Null | 稍早產生之身分識別應用程式憑證檔案的**完整路徑**。 |
 | CertificatePassword | 必要 | Null | 協助保護憑證私密金鑰的密碼。 |
-| 環境 | 選用 | AzureCloud | 所支援雲端環境的名稱，此雲端環境提供了目標「Azure Active Directory Graph 服務」。  允許的值為：'AzureCloud'、'AzureChinaCloud'、'AzureUSGovernment'、'AzureGermanCloud'.|
+| 環境 | 選用 | AzureCloud | 所支援雲端環境的名稱，此雲端環境提供了目標「Azure Active Directory Graph 服務」。  允許的值：'AzureCloud'、'AzureChinaCloud'、'AzureUSGovernment'、'AzureGermanCloud'。|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>建立 Active Directory 同盟服務應用程式
 

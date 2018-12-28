@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 10/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: a343b01b89bfbe9bc047c0b8b703b975b21b6290
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cfc191830ddadbbe3258fc1b61fcd4bcc45fdd8c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901868"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186747"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>ASDK 安裝後設定工作
 
-在[安裝 Azure Stack 開發套件 (ASDK)](asdk-install.md) 後，您必須進行一些建議的安裝後設定變更。
+在[安裝 Azure Stack 開發套件 (ASDK)](asdk-install.md) 後，您在 ASDK 主機上以 AzureStack\AzureStackAdmin 身份登錄時，必須進行一些建議的安裝後設定變更。 
 
 ## <a name="install-azure-stack-powershell"></a>安裝 Azure Stack PowerShell
 
@@ -41,7 +41,7 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 不論是否有對 ASDK 的主控電腦的網際網路連線能力，您都可以安裝最新的 Azure Stack PowerShell 模組：
 
 > [!IMPORTANT]
-> 在安裝必要版本之前，請務必[解除安裝任何現有的 Azure PowerShell 模組](.\.\azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
+> 在安裝必要版本之前，請務必[解除安裝任何現有的 Azure PowerShell 模組](../azure-stack-powershell-install.md#3-uninstall-existing-versions-of-the-azure-stack-powershell-modules)。
 
 - **具有來自 ASDK 主機電腦的網際網路連線**。 執行下列 PowerShell 指令碼，以在開發套件安裝上安裝這些模組：
 
@@ -173,7 +173,7 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ## <a name="enable-multi-tenancy"></a>啟用多租用戶
 
-如需使用 Azure AD 來部署，您需要為 ASDK 安裝[啟用多租用戶](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
+如需使用 Azure AD 來部署，您需要為 ASDK 安裝[啟用多租用戶](../azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]  
 > 當登入 Azure Stack 入口網站的系統管理員或使用者帳戶不是來自用來註冊 Azure Stack 的網域名稱時，則必須將用來註冊 Azure Stack 的網域名稱附加到入口網站 URL。 例如，如果使用 fabrikam.onmicrosoft.com 註冊了 Azure Stack，且登入的使用者帳戶是 admin@contoso.com，則用來登入使用者入口網站的 url 會是： https://portal.local.azurestack.external/fabrikam.onmicrosoft.com。
