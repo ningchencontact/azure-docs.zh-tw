@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cec9e5bfea16e5ba11f8cd7324acf15188fb907a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 94f7239bdcdc5ddc91f3ed8b49b59378309711e8
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669355"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844952"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>關於 Azure Active Directory B2C 中的使用者介面自訂
 
@@ -23,13 +23,13 @@ ms.locfileid: "50669355"
 
 根據您在這些體驗方面的需求，您可以透過不同的方式自訂應用程式的 UI。 例如︰
 
-- 如果您要使用[內建原則](active-directory-b2c-reference-policies.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用 [Azure 入口網站來自訂 UI](tutorial-customize-ui.md)。
+- 如果您要使用[使用者流程](active-directory-b2c-reference-policies.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用 [Azure 入口網站來自訂 UI](tutorial-customize-ui.md)。
 - 如果您只要提供登入、及其伴隨的密碼重設頁面和驗證電子郵件方面的體驗，您可以使用在 [Azure AD 登入頁面](../active-directory/fundamentals/customize-branding.md)中使用的相同自訂步驟。
 - 如果客戶嘗試在登入前編輯其設定檔，他們將會重新導向至您使用在自訂 Azure AD 登入頁面時所使用的相同步驟自訂的頁面。
 - 如果您要使用[自訂原則](active-directory-b2c-overview-custom.md)來提供應用程式中的註冊或登入、密碼重設或設定檔編輯的體驗，您可以使用[原則檔案來自訂 UI](active-directory-b2c-ui-customization-custom.md)。
 - 如果您需要根據客戶的決策提供動態內容，您可以根據在查詢字串中傳送的參數使用[可變更頁面內容的自訂原則](active-directory-b2c-ui-customization-custom-dynamic.md)。 例如，Azure AD B2C 註冊或登入頁面的背景影像可根據您從 Web 或行動裝置應用程式傳遞的參數而變更。
 
-Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/) 的新式方法。 在執行階段中，會從您在原則中指定的 URL 載入內容。 您可以對不同的頁面指定不同的 URL。 從您的 URL 載入的內容後，該內容就會與從 Azure AD B2C 插入的 HTML 片段合併，然後向客戶顯示。
+Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 在執行階段中，會從您在使用者流程中指定的 URL 載入內容。 您可以對不同的頁面指定不同的 URL。 從您的 URL 載入的內容後，該內容就會與從 Azure AD B2C 插入的 HTML 片段合併，然後向客戶顯示。
 
 在開始之前，請先檢閱下列指引：
 
@@ -118,6 +118,6 @@ Azure AD B2C 會在客戶的瀏覽器中執行程式碼，並使用名為[跨原
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如果您使用內建原則，您可以使用下列教學課程開始自訂 UI：[在 Azure Active Directory B2C 中自訂應用程式的使用者介面](tutorial-customize-ui.md)。
-- 如果您使用自訂原則，您可以參考下列文章以開始自訂 UI：[在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)。
+- 如果您使用使用者流程，您可以透過以下教學課程開始自訂您的 UI：[在 Azure Active Directory B2C 中自訂應用程式的使用者介面](tutorial-customize-ui.md)。
+- 如果您使用自訂原則，您可以透過以下文章開始自訂 UI：[在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面](active-directory-b2c-ui-customization-custom.md)。
 

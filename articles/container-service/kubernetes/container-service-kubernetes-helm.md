@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Kubernetes 中運用 Helm 部署容器
+title: (已淘汰) 在 Azure Kubernetes 中運用 Helm 部署容器
 description: 使用 Helm 封裝工具， 在 Azure Container Service 中將容器部署在 Kubernetes 叢集
 services: container-service
 author: sauryadas
@@ -9,16 +9,19 @@ ms.topic: article
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 882e785968f94473e80c7a14e5a68498add37735
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38634148"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997893"
 ---
-# <a name="use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>使用 Helm 在 Kubernetes 叢集部署容器
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(已淘汰) 使用 Helm 在 Kubernetes 叢集部署容器
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!TIP]
+> 如需本文中使用 Azure Kubernetes Service 的更新版本，請參閱[使用 Helm 在 Azure Kubernetes Service (AKS) 中安裝應用程式](../../aks/kubernetes-helm.md)。
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 [Helm](https://github.com/kubernetes/helm/) 是開放原始碼的封裝工具，可協助您安裝和管理 Kubernetes 應用程式的生命週期。 Helm 類似於 Apt-get 和 Yum 等 Linux 封裝管理工具，可用於管理 Kubernetes 圖表 (即預先設定的 Kubernetes 資源封裝)。 本文將說明如何在部署於 Azure Container Service 中的 Kubernetes 叢集使用 Helm。
 
@@ -27,7 +30,7 @@ Helm 包含兩個元件︰
 
 * Tiller是在 Kubernetes 叢集執行的伺服器，管理 Kubernetes 應用程式的生命週期 
  
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 * 在 Azure Container Service 中[建立 Kubernetes 叢集](container-service-kubernetes-walkthrough.md)
 

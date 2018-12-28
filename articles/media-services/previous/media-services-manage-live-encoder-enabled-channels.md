@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務執行即時串流，以建立多位元速率串流 | Microsoft Docs
-description: 本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。 串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Streaming、MPEG DASH。
+description: 本主題描述如何設定通道，從內部部署編碼器接收單一位元速率即時串流，再利用媒體服務將此串流即時編碼為自動調整位元速率串流。 串流可以隨即透過一或多個串流端點傳遞給用戶端播放應用程式，使用下列其中一個自動調整串流通訊協定：HLS、Smooth Stream、MPEG DASH。
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 11/29/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 13edef4c02aff167316ccae2755a6ec1b58e2e89
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e7159a8e3acf45105a11cc4574f9474457bed3ea
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262613"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682651"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒體服務執行即時串流，以建立多位元速率串流
 
@@ -92,7 +92,7 @@ ms.locfileid: "52262613"
 > 
 > 
 
-1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出 **單一** 位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 
+1. 將攝影機連接到電腦。 啟動和設定可使用下列其中一種通訊協定輸出**單一**位元速率串流的內部部署即時編碼器：RTMP 或 Smooth Streaming。 
    
     此步驟也可以在您建立通道之後執行。
 2. 建立並啟動通道。 
@@ -214,18 +214,17 @@ ms.locfileid: "52262613"
 
 請注意如果您需要自訂的預設設定，您應該連絡 amslived@microsoft.com。
 
-**Default720p** 會將視訊編碼成下列 7 個層。
+**Default720p** 會將視訊編碼成下列 6 層。
 
 #### <a name="output-video-stream"></a>輸出視訊串流
 | 位元速率 | 寬度 | 高度 | MaxFPS | 設定檔 | 輸出串流名稱 |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |高 |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |主要區段 |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |主要區段 |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |主要區段 |Video_512x288_850kbps |
-| 550 |384 |216 |30 |主要區段 |Video_384x216_550kbps |
-| 350 |340 |192 |30 |基準 |Video_340x192_350kbps |
-| 200 |340 |192 |30 |基準 |Video_340x192_200kbps |
+| 2200 |960 |540 |30 |高 |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |高 |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |高 |Video_512x288_850kbps |
+| 550 |384 |216 |30 |高 |Video_384x216_550kbps |
+| 200 |340 |192 |30 |高 |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>輸出音訊串流
 

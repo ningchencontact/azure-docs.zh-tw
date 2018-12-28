@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: a9248e2310e509bbc4f527608246b47543a03fc4
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502172"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968999"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>檢查 Azure AD Domain Services 受控網域的健康情況
 
@@ -32,7 +32,7 @@ ms.locfileid: "39502172"
 2. 按一下您想要檢視健康情況的網域。
 3. 在左側導覽窗格中，按一下 [健康情況]。
 
-下圖顯示一個範例健康情況頁面：![範例健康情況頁面](.\media\active-directory-domain-services-alerts\health-page.png)
+下圖顯示一個範例健康情況頁面：![範例健康情況頁面](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > 受控網域的評估頻率為每小時一次。 對您的受控網域進行變更之後，必須等到下一個評估週期，才能檢視受控網域的已更新健康情況。 右上角的 [上次評估時間] 時間戳記會顯示上次評估您受控網域健康情況的時間。
@@ -43,10 +43,10 @@ ms.locfileid: "39502172"
 
 | 狀態 | 圖示 | 說明 |
 | --- | :----: | --- |
-| 執行中 | <img src= ".\media\active-directory-domain-services-alerts\running-icon.png" width = "15"> | 您的受控網域執行順暢，沒有任何嚴重或警告警示。 此網域可能有資訊警示。 |
-| 需注意 (警告) | <img src= ".\media\active-directory-domain-services-alerts\warning-icon.png" width = "15"> | 您的受控網域上沒有任何嚴重警示，但有一或多個需要解決的警告警示。 |
-| 需注意 (嚴重) | <img src= ".\media\active-directory-domain-services-alerts\critical-icon.png" width = "15"> | 您的受控網域上有一或多個嚴重警示。 您可能也有警告和/或資訊警示。 |
-| 正在部署 | <img src= ".\media\active-directory-domain-services-alerts\deploying-icon.png" width = "15"> | 您的網域正在部署中。 |
+| 執行中 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15"> | 您的受控網域執行順暢，沒有任何嚴重或警告警示。 此網域可能有資訊警示。 |
+| 需注意 (警告) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15"> | 您的受控網域上沒有任何嚴重警示，但有一或多個需要解決的警告警示。 |
+| 需注意 (嚴重) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15"> | 您的受控網域上有一或多個嚴重警示。 您可能也有警告和/或資訊警示。 |
+| 正在部署 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15"> | 您的網域正在部署中。 |
 
 ## <a name="monitors"></a>監視器
 監視器係指 Azure AD Domain Services 定期監視的受控網域層面。 讓您監視器保持在健全狀態的最佳方法，就是解決受控網域的所有作用中警示。

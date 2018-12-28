@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2354bf02b47c9fbc74dbc0dab07e30ca321279cf
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670096"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725755"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的使用者帳戶概觀
 
@@ -25,7 +25,7 @@ ms.locfileid: "43670096"
 
 - **公司帳戶** - 公司帳戶可存取租用戶中的資源，並可在具有系統管理員角色後管理租用戶。
 - **來賓帳戶** - 來賓帳戶只能是 Microsoft 帳戶或 Azure Active Directory 使用者 (後者必須是可用來存取應用程式或管理租用戶的使用者)。 
-- **取用者帳戶** - 取用者帳戶的建立方式為在 Azure AD B2C 應用程式中進行註冊原則程序，亦可使用 Azure AD 圖形 API 來建立，此帳戶類型可供已向 Azure AD B2C 註冊的應用程式使用者使用。 
+- **取用者帳戶** - 取用者帳戶的建立方式為在 Azure AD B2C 應用程式中進行註冊使用者流程，亦可使用 Azure AD 圖形 API 來建立，此帳戶類型可供已向 Azure AD B2C 註冊的應用程式使用者使用。 
 
 ## <a name="work-account"></a>公司帳戶
 
@@ -73,7 +73,7 @@ ms.locfileid: "43670096"
 
 ## <a name="consumer-user"></a>取用者使用者
 
-取用者使用者可以登入 Azure AD B2C 所保護的應用程式，但無法存取 Azure 資源，例如 Azure 入口網站。  取用者使用者可以使用本機帳戶或同盟帳戶，例如 Facebook 或 Twitter。 您可以使用[註冊或登入原則](../active-directory-b2c/active-directory-b2c-reference-policies.md)來建立取用者帳戶。
+取用者使用者可以登入 Azure AD B2C 所保護的應用程式，但無法存取 Azure 資源，例如 Azure 入口網站。  取用者使用者可以使用本機帳戶或同盟帳戶，例如 Facebook 或 Twitter。 您可以使用[註冊或登入使用者流程](../active-directory-b2c/active-directory-b2c-reference-policies.md)來建立取用者帳戶。
 
 您可以指定使用自訂使用者屬性建立取用者使用者帳戶時所要收集的資料。 如需詳細資訊，請參閱[在 Azure Active Directory B2C 中定義自訂屬性](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md)。
 

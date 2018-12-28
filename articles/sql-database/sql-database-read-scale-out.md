@@ -11,19 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: deadbc8186d80b050fdb40879ecf29fd229c8709
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 12/05/2018
+ms.openlocfilehash: 16737ed525147968c97ca20a9f4e674a0dee34fc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465437"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955049"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>使用唯讀複本對唯讀查詢工作負載進行負載平衡 (預覽)
 
 **讀取縮放**可讓您使用一個唯讀複本的容量對 Azure SQL Database 唯讀工作負載進行負載平衡。
-
-## <a name="overview-of-read-scale-out"></a>讀取相應放大概觀
 
 進階層 ([ DTU 型購買模型](sql-database-service-tiers-dtu.md)) 或業務關鍵層 ([vCore 型購買模型](sql-database-service-tiers-vcore.md)) 中的每個資料庫，都會自動佈建數個 AlwaysOn 複本，以支援可用性 SLA。
 
@@ -47,7 +45,7 @@ ms.locfileid: "49465437"
 > [!NOTE]
 > 區域內的複寫延遲較低，這種情況很罕見。
 
-## <a name="connecting-to-a-read-only-replica"></a>連線至唯讀複本
+## <a name="connect-to-a-read-only-replica"></a>連線至唯讀複本
 
 當您為資料庫啟用讀取相應放大時，用戶端所提供的連接字串中的 `ApplicationIntent` 選項會指出連線應路由至寫入複本還是唯讀複本。 具體來說，如果 `ApplicationIntent` 值為 `ReadWrite` (預設值)，則連線將會導向至資料庫的讀寫複本。 這與現有行為相同。 如果 `ApplicationIntent` 值為 `ReadOnly`，則連線會路由傳送至唯讀的複本。
 
@@ -65,6 +63,8 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
+## <a name="verify-that-a-connection-is-to-a-read-only-replica"></a>確認已連線到唯讀複本
+
 您可以執行下列查詢，確認是否已連線到唯讀複本。 它會在連線到唯讀複本時傳回 READ_ONLY。
 
 ```SQL
@@ -76,9 +76,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>啟用和停用讀取縮放
 
-讀取縮放在[受控執行個體](sql-database-managed-instance.md)商務關鍵性層 (預覽) 中預設為啟用狀態。 您應該在[位於邏輯伺服器上的資料庫](sql-database-logical-servers.md)進階和商務關鍵性層中明確加以啟用。 這裡會說明啟用和停用讀取縮放的方法。
+「讀取縮放」在[受控執行個體](sql-database-managed-instance.md)商務關鍵性層中預設為啟用狀態。 您應該在[位於邏輯伺服器上的資料庫](sql-database-logical-servers.md)進階和商務關鍵性層中明確加以啟用。 這裡會說明啟用和停用讀取縮放的方法。
 
-### <a name="enable-and-disable-read-scale-out-using-azure-powershell"></a>使用 Azure PowerShell 啟用和停用讀取相應放大
+### <a name="powershell-enable-and-disable-read-scale-out"></a>PowerShell：啟用和停用讀取縮放
 
 要在 Azure PowerShell 中管理讀取相應放大，必須使用 2016 年 12 月版的 Azure PowerShell 或更新版本。 如需最新 PowerShell 版本的相關資訊，請參閱 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)。
 
@@ -102,7 +102,7 @@ Set-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserve
 New-AzureRmSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
-### <a name="enabling-and-disabling-read-scale-out-using-the-azure-sql-database-rest-api"></a>使用 Azure SQL Database REST API 啟用和停用讀取相應放大
+### <a name="rest-api-enable-and-disable-read-scale-out"></a>REST API：啟用和停用讀取縮放
 
 若要建立會啟用讀取相應放大的資料庫，或是為現有資料庫啟用或停用讀取相應放大，請將 `readScale` 屬性設為 `Enabled` 或 `Disabled` 以建立或更新對應的資料庫實體，如下列範例要求所示。
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0d2f55538517881ce6cc237885f3bcadfa084520
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 312b476f8809d1d6375cc20035901d8d11c32173
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494961"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012346"
 ---
 # <a name="use-apache-ambari-views-to-debug-apache-tez-jobs-on-hdinsight"></a>在 HDInsight 上使用 Apache Ambari 檢視來為 Apache Tez 作業偵錯
 
@@ -92,7 +92,7 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
     * **查詢詳細資料**：Hive 查詢的相關詳細資料。
     * **時間軸**：每個處理階段所耗費時間的相關資訊。
-    * **設定**：此查詢使用的設定。
+    * **組態**：此查詢使用的組態。
 
     從 [Query Details] \(查詢詳細資料\)，您可以使用連結來尋找和此查詢的 [Application] \(應用程式\) 或 [DAG] 相關的資訊。
     
@@ -103,6 +103,6 @@ Tez 檢視只有在使用 Tez 引擎的作業目前正在執行，或先前曾�
 
 既然您已了解如何使用 Apache Tez 檢視，請深入了解 [在 HDInsight 上使用 Apache Hive](hadoop/hdinsight-use-hive.md)。
 
-如需 Apache Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](http://hortonworks.com/hadoop/tez/)。
+如需 Apache Tez 的詳細技術資訊，請參閱 [Hortonworks 的 Apache Tez 頁面](https://hortonworks.com/hadoop/tez/)。
 
 如需如何搭配 HDInsight 來使用 Apache Ambari 的詳細資訊，請參閱 [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)

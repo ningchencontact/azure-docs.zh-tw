@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 G Suite 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 G Suite 來自動佈建使用者 | Microsoft Docs
 description: 了解如何將使用者帳戶從 Azure AD 針對 G Suite 進行自動佈建和取消佈建。
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346384"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840345"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程︰設定 G Suite 來自動佈建使用者
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>教學課程：設定 G Suite 來自動佈建使用者
 
 本教學課程旨在說明如何將使用者帳戶從 Azure Active Directory (Azure AD) 針對 G Suite 進行自動佈建和取消佈建。
 
@@ -67,7 +67,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 > [!NOTE]
 > 將使用者自動佈建至 G Suite 的另一個可行選項是使用 [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en)。 GADS 會將您的內部部署 Active Directory 身分識別佈建至 G Suite。 相反地，本教學課程中的解決方案會將您的 Azure Active Directory (雲端) 使用者和已啟用電子郵件功能的群組佈建至 G Suite。 
 
-1. 使用您的系統管理員帳戶登入 [Google Apps 管理主控台](http://admin.google.com/)，然後選取 [安全性]。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項] 功能表之下。
+1. 使用您的系統管理員帳戶登入 [Google Apps 管理主控台](https://admin.google.com/)，然後選取 [安全性]。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項] 功能表之下。
    
     ![選取安全性。][10]
 
@@ -110,7 +110,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 1. 您已經向 Azure AD 驗證所有網域，但是您還必須向 Google Apps 再驗證一次。 對於尚未向 Google 註冊的每個網域，請採取下列步驟：
    
-    a. 在 [Google Apps 管理主控台](http://admin.google.com/)中，選取 [網域]。
+    a. 在 [Google Apps 管理主控台](https://admin.google.com/)中，選取 [網域]。
      
      ![選取網域][20]
 
@@ -129,7 +129,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
      > [!WARNING]
      > 如果您變更 G Suite 租用戶的主要網域，且已經搭配 Azure AD 設定單一登入，則必須重複執行[步驟 2：啟用單一登入](#step-two-enable-single-sign-on)下的步驟 #3。
        
-1. 在 [Google Apps 管理主控台](http://admin.google.com/)中，選取 [管理角色]。
+1. 在 [Google Apps 管理主控台](https://admin.google.com/)中，選取 [管理角色]。
    
      ![選取 Google Apps][26]
 

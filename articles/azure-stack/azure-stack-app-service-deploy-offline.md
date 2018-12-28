@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2018
 ms.author: anwestg
-ms.openlocfilehash: 54ceadc8173526e8638e70c8c859109eea157fa7
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 79d78faa53962ea72178281d75cef3c2f61320b1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614033"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971499"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>將 App Service 資源提供者新增至中斷連線且受 AD FS 保護的 Azure Stack 環境
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!IMPORTANT]
 > 在部署 Azure App Service 1.4 之前，請先將 1809 更新套用到您的 Azure Stack 整合式系統，或部署最新的 Azure Stack 開發套件。
@@ -200,10 +200,10 @@ ms.locfileid: "51614033"
 2. 在概觀中，於狀態之下，查看 [狀態] 是否顯示 [所有角色均已就緒]。
 
     ![App Service 管理](media/azure-stack-app-service-deploy/image12.png)
-    
+
 > [!NOTE]
 > 如果您已選擇部署到現有的虛擬網路和內部 IP 位址以連線到您的檔案伺服器，便必須新增輸出安全性規則，以在背景工作角色子網路與檔案伺服器之間啟用 SMB 流量。  若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
-> * 來源：任何
+> * 來源：任意
 > * 來源連接埠範圍：*
 > * 目的地：IP 位址
 > * 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
@@ -221,9 +221,9 @@ ms.locfileid: "51614033"
 > [!NOTE]
 > 您需要在方案內建立含有 Microsoft.Web 命名空間的供應項目。 然後，您需要具有訂閱此供應項目的租用戶訂用帳戶。 如需詳細資訊，請參閱[建立供應項目](azure-stack-create-offer.md)和[建立方案](azure-stack-create-plan.md)。
 >
-您*必須*具有租用戶訂用帳戶，才能建立使用 Azure Stack 上之 App Service 的應用程式。 服務管理員只能在管理入口網站內完成的功能，與 App Service 的資源提供者管理有關。 這些功能包括新增容量、設定部署來源，以及新增背景工作層和 SKU。
+> 您*必須*具有租用戶訂用帳戶，才能建立使用 Azure Stack 上之 App Service 的應用程式。 服務管理員只能在管理入口網站內完成的功能，與 App Service 的資源提供者管理有關。 這些功能包括新增容量、設定部署來源，以及新增背景工作層和 SKU。
 >
-從第三個技術預覽開始，若要建立 Web、API 及 Azure Functions 應用程式，您必須使用租用戶入口網站，並具有租用戶訂用帳戶。
+> 從第三個技術預覽開始，若要建立 Web、API 及 Azure Functions 應用程式，您必須使用租用戶入口網站，並具有租用戶訂用帳戶。
 
 1. 在 Azure Stack 租用戶入口網站中，按一下 [+ 建立資源] > [Web + 行動] > [Web 應用程式]。
 

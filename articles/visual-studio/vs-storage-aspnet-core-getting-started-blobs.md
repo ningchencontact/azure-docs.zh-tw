@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f8de7f7a263a087abb16ed48d05b2cae9834b4ad
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442736"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961105"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>開始使用 Azure Blob 儲存體和 Visual Studio 已連接服務 (ASP.NET Core)
 
@@ -27,7 +27,7 @@ ms.locfileid: "42442736"
 > - [ASP.NET](./vs-storage-aspnet-getting-started-blobs.md)
 > - [ASP.NET Core](./vs-storage-aspnet-core-getting-started-blobs.md)
 
-Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Blob 的服務。 Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。 Blob 儲存體也稱為物件儲存體。
+Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Blob 的服務。 Blob 儲存體可以儲存任何類型的文字或二進位資料，例如文件、媒體檔案或應用程式安裝程式。 Blob 儲存體也稱為物件儲存體。 若要深入了解 Blob 儲存體，請參閱 [Azure Blob 儲存體簡介](../storage/blobs/storage-blobs-introduction.md)。
 
 本教學課程說明如何為一些使用 Blob 儲存體的常見案例撰寫 ASP.NET Core 程式碼。 案例包括建立 blob 容器，以及上傳、列出、下載和刪除 blob。
 
@@ -36,8 +36,6 @@ Azure Blob 儲存體是可將非結構化資料儲存在雲端作為物件或 Bl
 ## <a name="prerequisites"></a>必要條件
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-
-[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
 ## <a name="set-up-the-development-environment"></a>設定開發環境
 

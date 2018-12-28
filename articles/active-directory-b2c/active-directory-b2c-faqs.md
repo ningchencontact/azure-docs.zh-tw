@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8cec3d3695eaff8719757dd022951b969de99f6a
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010638"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842946"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常見問題集 (FAQ) 
 此頁面會回答有關 Azure Active Directory (Azure AD) B2C 的常見問題。 請隨時回來查看最新消息。
@@ -34,12 +34,12 @@ Azure AD B2C 無法用來驗證 Microsoft Office 365 的使用者。  Azure AD �
 
 在 Azure AD B2C 租用戶中，大部分應用程式都希望使用者以任意的電子郵件地址登入 (例如 joe@comcast.net、bob@gmail.com、sarah@contoso.com 或 jim@live.com)。 這種類型的帳戶就是本機帳戶。  我們也支援使用任意的使用者名稱作為本機帳戶 (例如，joe、bob、sarah 或 jim)。 在 Azure 入口網站中設定 Azure AD B2C 的識別提供者時，您可以從這兩個本機帳戶類型中選擇一個。 在 Azure AD B2C 租用戶中按一下 [識別提供者]，然後在 [本機帳戶] 下方選取 [使用者名稱]。 
 
-應用程式的使用者帳戶一律透過註冊原則、註冊或登入原則，或使用 Azure AD 圖形 API 建立。 在 Azure 入口網站中建立的使用者帳戶只能用來管理租用戶。
+應用程式的使用者帳戶一律透過註冊使用者流程、註冊或登入使用者流程，或使用 Azure AD 圖形 API 建立。 在 Azure 入口網站中建立的使用者帳戶只能用來管理租用戶。
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>你們現在支援哪些社交身分識別提供者？ 你們打算在未來支援哪些？
 我們目前支援 Facebook、Google+、LinkedIn、Amazon、Twitter (預覽)、WeChat (預覽)、Weibo (預覽) 和 QQ (預覽)。 根據客戶需求，我們將會增加支援其他熱門的社交身分識別提供者。
 
-Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)的支援。  這些[自訂原則](active-directory-b2c-overview-custom.md)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
+Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)的支援。  這些[自訂原則](active-directory-b2c-overview-custom.md)可讓開發人員使用任何識別提供者建立自己的原則，可支援 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 或 SAML。 
 
 查看我們的[自訂原則入門套件](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack)，開始使用自訂原則。
 
@@ -61,7 +61,7 @@ Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>我如何自訂 Azure AD B2C 傳送的驗證電子郵件 (內容和 [寄件者:] 欄位)？
 您可以使用 [公司商標功能](../active-directory/fundamentals/customize-branding.md) 自訂驗證電子郵件的內容。 明確地說，您可以自訂電子郵件的下列兩個元素：
 
-* **橫幅標幟**：顯示在右下方。
+* **橫幅標誌**：顯示在右下方。
 * **背景色彩**：顯示在頂端。
 
     ![自訂驗證電子郵件的螢幕擷取畫面](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
@@ -79,8 +79,8 @@ Azure AD B2C 也新增了[自訂原則](active-directory-b2c-overview-custom.md)
 ### <a name="how-can-i-migrate-my-existing-user-names-passwords-and-profiles-from-my-database-to-azure-ad-b2c"></a>我如何將現有的使用者名稱、密碼和設定檔從資料庫移轉至 Azure AD B2C？
 您可以使用 Azure AD 圖形 API 來撰寫您的移轉工具。 如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。
 
-### <a name="what-password-policy-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C 中用於本機帳戶的密碼原則為何？
-Azure AD B2C 的本機帳戶密碼原則是以 Azure AD 的原則為基礎。 Azure AD B2C 的註冊、註冊或登入和密碼重設原則會使用「強式」密碼強度，而且不會讓任何密碼到期。 如需更詳細的資料，請閱讀 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx) 。 如需帳戶鎖定和密碼相關資訊，請參閱[管理對 Azure Active Directory B2C 中的資源與資料的威脅](active-directory-b2c-reference-threat-management.md)。
+### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>Azure AD B2C 中用於本機帳戶的密碼使用者流程為何？
+Azure AD B2C 的本機帳戶密碼使用者流程是以 Azure AD 的原則為基礎。 Azure AD B2C 的註冊、註冊或登入和密碼重設使用者流程會使用「強式」密碼強度，而且不會讓任何密碼到期。 如需更詳細的資料，請閱讀 [Azure AD 中的密碼原則](https://msdn.microsoft.com/library/azure/jj943764.aspx) 。 如需帳戶鎖定和密碼相關資訊，請參閱[管理對 Azure Active Directory B2C 中的資源與資料的威脅](active-directory-b2c-reference-threat-management.md)。
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>我可以使用 Azure AD Connect，將儲存於內部部署 Active Directory 的取用者身分識別移轉至 Azure AD B2C 嗎？
 否，Azure AD Connect 不是設計來搭配 Azure AD B2C 一起使用。 請考慮使用[圖形 API](active-directory-b2c-devquickstarts-graph-dotnet.md) 來移轉使用者。  如需詳細資訊，請參閱[使用者移轉指南](active-directory-b2c-user-migration.md)。

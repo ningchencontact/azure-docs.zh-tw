@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 6cee6db66fc4146e9c799394e40c72ab2ce665dc
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2092816946dae20f5b3ae5b0a09179197dda00eb
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092930"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992820"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>要求遙測：Application Insights 資料模型
 
@@ -26,31 +25,31 @@ ms.locfileid: "47092930"
 
 要求遙測會使用自訂 `properties` 和 `measurements`支援標準的擴充性模型。
 
-## <a name="name"></a>名稱
+## <a name="name"></a>Name
 
 要求的名稱代表處理要求所採用的程式碼路徑。 較低的基數值可使群組要求更妥善。 針對 HTTP 要求，它代表 HTTP 方法和 URL 路徑範本，例如無實際 `id` 值的 `GET /values/{id}`。
 
-Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](http://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以在[部落格文章](http://apmtips.com/blog/2015/02/23/request-name-and-url/)閱讀更多由 ASP.Net Web SDK 要求名稱集合的相關資訊。
+Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字母大小寫)。 UI 上的群組會區分大小寫，因此 `GET /Home/Index` 會與 `GET /home/INDEX` 分開計算，即使它們通常會產生相同的控制器和動作執行。 原因是 URL 通常會[區分大小寫](https://www.w3.org/TR/WD-html40-970708/htmlweb.html)。 您可能要查看 URL 出現的所有 `404` 是否都以大寫輸入。 您可以在[部落格文章](https://apmtips.com/blog/2015/02/23/request-name-and-url/)閱讀更多由 ASP.Net Web SDK 要求名稱集合的相關資訊。
 
-最大長度︰1024 個字元
+最大長度：1024 個字元
 
 ## <a name="id"></a>ID
 
 要求呼叫執行個體的識別碼。 用於要求和其他遙測項目之間的相互關聯。 識別碼必須是全域唯一的。 如需詳細資訊，請參閱[相互關聯](application-insights-correlation.md)頁面。
 
-最大長度︰128 個字元
+最大長度：128 個字元
 
 ## <a name="url"></a>Url
 
 包含所有查詢字串參數的要求 URL。
 
-最大長度︰2048 個字元
+最大長度：2048 個字元
 
 ## <a name="source"></a>來源
 
 要求的來源。 範例包括呼叫端的檢測金鑰或呼叫端的 IP 位址。 如需詳細資訊，請參閱[相互關聯](application-insights-correlation.md)頁面。
 
-最大長度︰1024 個字元
+最大長度：1024 個字元
 
 ## <a name="duration"></a>Duration
 
@@ -60,7 +59,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 要求執行的結果。 HTTP 要求的 HTTP 狀態碼。 可能是 `HRESULT` 值或其他要求類型的例外狀況類型。
 
-最大長度︰1024 個字元
+最大長度：1024 個字元
 
 ## <a name="success"></a>成功
 
@@ -70,7 +69,7 @@ Application Insights web SDK 會將要求名稱依「現狀」傳送 (考量字�
 
 部分接受的內容 `206` 可能表示整體要求失敗。 例如，Application Insights 端點會接收一批遙測項目作為單一要求。 當批次中的某些項目未處理成功時，它會傳回 `206`。 `206` 的速率遞增表示有需要調查的問題。 類似的邏輯也適用於 `207` 多狀態，當中成功可能是不同回應代碼的最差狀況。
 
-您可以在[部落格文章](http://apmtips.com/blog/2016/12/03/request-success-and-response-code/)中閱讀更多要求結果碼和狀態碼的相關資訊。
+您可以在[部落格文章](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/)中閱讀更多要求結果碼和狀態碼的相關資訊。
 
 ## <a name="custom-properties"></a>自訂屬性
 

@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/05/2018
-ms.openlocfilehash: 84529e1097678ba7a039ffaeec57a9293c93dafd
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229634"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725143"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>使用 Azure Logic Apps 中的受控識別驗證及存取資源
 
@@ -128,13 +128,13 @@ ms.locfileid: "50229634"
 
 1. 在 Azure 入口網站中，移至您想要針對受控識別指派存取權的 Azure 資源。 
 
-1. 從資源的功能表中，選取 [存取控制 (IAM)]，然後選擇 [新增]。 
+1. 從資源的功能表中，選取 [存取控制 (IAM)]，然後選擇 [新增角色指派]。 
 
-   ![新增權限](./media/create-managed-service-identity/add-permissions-logic-app.png)
+   ![新增角色指派](./media/create-managed-service-identity/add-permissions-logic-app.png)
 
-1. 在 [新增權限] 下方，選取要用於身分識別的**角色**。 
+1. 在 [新增角色指派] 下方，選取要用於身分識別的**角色**。 
 
-1. 在 [存取權指派對象為] 屬性中，選取 [Azure AD 使用者、群組或應用程式] (如果尚未選取)。
+1. 在 [存取權指派對象為] 屬性中，選取 [Azure AD 使用者、群組或服務主體] (如果尚未選取)。
 
 1. 在 [選取] 方塊中，從邏輯應用程式名稱中的第一個字元開始，輸入邏輯應用程式的名稱。 當您的邏輯應用程式出現時，選取該邏輯應用程式。
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ergreenl
-ms.openlocfilehash: cac1814057b5adbb75d9484b332bd3f8aaa31a18
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ec51ba28c81e2aa2dbfe2a3dc55d9940c74ff673
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446853"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959847"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>使用 Azure 入口網站啟用 Azure Active Directory Domain Services
 
-
 ## <a name="task-3-configure-administrative-group"></a>工作 3：設定系統管理群組
+
 在這項設定工作中，您可以在 Azure AD 目錄中建立系統管理群組。 這個特殊的系統管理群組稱為 *AAD DC 系統管理員*。 此群組的成員會獲得電腦的系統管理權限，而這類電腦已加入受控網域。 在加入網域的電腦上，這個群組會新增到系統管理員群組。 此外，此群組的成員可以使用遠端桌面，從遠端連接到已加入網域的電腦。
 
 > [!NOTE]
@@ -49,14 +49,14 @@ Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用
 ### <a name="full-synchronization"></a>完整同步處理
 
 1. 如需完整同步處理，只要按一下畫面底部的 [確定] 即可選擇完整同步處理。
-    ![完整同步處理](./media\active-directory-domain-services-admin-guide\create-sync-all.PNG)
+    ![完整同步處理](./media/active-directory-domain-services-admin-guide/create-sync-all.PNG)
 
 ### <a name="scoped-synchronization"></a>限域同步處理
 
 1. 將 [同步處理] 按鈕切換為 [限域]，隨即出現 [選取群組] 頁面。 您可以在此處查看哪些群組已選取要同步處理至您的受控網域。
-    ![限域同步處理](media\active-directory-domain-services-admin-guide\create-sync-scoped.PNG)
+    ![限域同步處理](media/active-directory-domain-services-admin-guide/create-sync-scoped.PNG)
 2. 按一下頂端導覽列中的 [選取群組]。 此處側邊會跳出一個群組選擇器。 您可以使用這個選擇器，選取要同步至 Azure AD Domain Services 的所有其他群組。 完成後，按一下 [選取] 關閉群組選擇器，並將這些群組新增至選取的清單。
-    ![限域同步處理的 [選取群組]](media\active-directory-domain-services-admin-guide\create-sync-scoped-groupselect.PNG)
+    ![限域同步處理的 [選取群組]](media/active-directory-domain-services-admin-guide/create-sync-scoped-groupselect.PNG)
 3. 按一下 [確定] 以移至 [摘要] 頁面。
 
 ## <a name="deploy-your-managed-domain"></a>部署受控網域
@@ -69,8 +69,8 @@ Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用
 
     ![通知 - 部署進行中](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
-
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>檢查受控網域的部署狀態
+
 佈建受控網域的程序可能需要一小時的時間。
 
 1. 部署進行時，您可以在 [搜尋資源] 搜尋方塊中搜尋「網域服務」。 從搜尋結果選取 [Azure AD Domain Services]。 [Azure AD Domain Services] 刀鋒視窗會列出正在佈建的受控網域。
@@ -96,10 +96,10 @@ Azure AD Domain Services 可完整同步處理 Azure AD 中可用的所有使用
 
     ![Domain Services - 完整佈建後的屬性索引標籤](./media/getting-started/domain-services-provisioned-properties.png)
 
-
 ## <a name="need-help"></a>需要協助嗎？
+
 佈建您的受控網域的兩個網域控制站可能需要一或兩小時的時間。 如果您的部署失敗，或停滯在「擱置中」狀態超過幾個小時，請隨意[連絡產品小組以取得協助](active-directory-ds-contact-us.md)。
 
-
 ## <a name="next-step"></a>後續步驟
+
 [工作 4：更新 Azure 虛擬網路的 DNS 設定](active-directory-ds-getting-started-dns.md)

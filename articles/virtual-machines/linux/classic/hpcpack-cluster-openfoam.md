@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a8744afe3ec3e83e4a543942441118356730347c
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141889"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957236"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>在 Azure 中的 Linux RDMA 叢集以 Microsoft HPC Pack 執行 OpenFoam
 本文說明一個在 Azure 虛擬機器中執行 OpenFoam 的方式。 在這裡，您將在 Azure 上部署一個具有 Linux 計算節點的 Microsoft HPC Pack 叢集，並使用 Intel MPI 來執行 [OpenFoam](http://openfoam.com/) 作業。 您可以使用支援 RDMA 的 Azure VM 作為計算節點，讓計算節點能夠透過 Azure RDMA 網路進行通訊。 其他在 Azure 中執行 OpenFoam 的選項還包括 Marketplace 中所提供已完整設定的市售映像 (例如 UberCloud 的 [OpenFoam 2.3 on CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud))，以及藉由在 [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/) 上執行。 
@@ -46,7 +46,7 @@ Microsoft HPC Pack 提供可在 Microsoft Azure 虛擬機器叢集上執行大�
   * 部署 Linux 節點之後，請透過 SSH 進行連線來執行任何額外的系統管理工作。 您可以在 Azure 入口網站中找到每個 Linux VM 的 SSH 連線詳細資料。  
 * **Intel MPI** - 若要在 Azure 中的 SLES 12 HPC 計算節點上執行 OpenFOAM，您必須從 [Intel.com 網站](https://software.intel.com/en-us/intel-mpi-library/)安裝 Intel MPI Library 5 執行階段。 (Intel MPI 5 已預先安裝在 CentOS 型 HPC 映像上)。在稍後的步驟中，請視需要在 Linux 計算節點上安裝 Intel MPI。 若要為此步驟做準備，請在向 Intel 註冊之後，依循確認電子郵件中的連結前往相關的網頁。 然後，複製適當 Intel MPI 版本之 .tgz 檔案的下載連結。 這篇文章根據 Intel MPI 5.0.3.048 版。
 * **OpenFOAM Source Pack** - 從 [OpenFOAM Foundation 網站](http://openfoam.org/download/2-3-1-source/)下載適用於 Linux 的OpenFOAM Source Pack 軟體。 本文是依據 Source Pack 2.3.1 版 (可透過 OpenFOAM-2.3.1.tgz 的形式下載) 而撰寫的。 請依照本文稍後的指示，在 Linux 計算節點上解壓縮並編譯 OpenFOAM。
-* **EnSight** (選擇性) - 若要查看 OpenFOAM 模擬的結果，請下載並安裝 [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) 視覺效果與分析程式。 授權和下載資訊請見 EnSight 網站。
+* **EnSight** (選擇性) - 若要查看 OpenFOAM 模擬的結果，請下載並安裝 [EnSight](https://www.ansys.com/products/platform/ansys-ensight/data-interfaces) 視覺效果與分析程式。 授權和下載資訊請見 EnSight 網站。
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>設定運算節點之間的相互信任
 在多個 Linux 節點上執行跨節點作業，需要節點相互信任 (藉由 **rsh** 或 **ssh**)。 當您使用 Microsoft HPC Pack IaaS 部署指令碼建立 HPC Pack 叢集時，指令碼會自動為您指定的系統管理員帳戶設定永久相互信任。 針對您在叢集的網域中建立的非系統管理員使用者，您必須在將工作配置給他們時，設定節點間的暫時相互信任，並且在工作完成之後終結關聯性。 若要為每位使用者建立信任，請將 HPC Pack 用於信任關係的 RSA 金鑰組提供給叢集。
@@ -226,7 +226,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 4. 如果您使用此範例的預設參數，其執行時間可能需要數十分鐘，因此您可能會想要修改某些參數，讓它執行得更快。 一個簡單的選擇是修改 system/controlDict 檔案中的時間步階變數 deltaT 和 writeInterval。 此檔案儲存了所有與控制時間以及讀取和寫入解決方案資料有關的輸入資料。 例如，您可以將 deltaT 的值從 0.05 變更為 0.5，以及將 writeInterval 的值從 0.05 變更為 0.5。
    
    ![修改步階變數][step_variables]
-5. 在 system/decomposeParDict 檔案中指定所要的變數值。 此範例使用兩個分別具有 8 個核心的 Linux 節點，因此，請將 numberOfSubdomains 設為 16，以及將 hierarchicalCoeffs 的 n 設為 (1 1 16)，這表示以 16 個處理程序平行執行 OpenFOAM。 如需詳細資訊，請參閱 [OpenFOAM User Guide: 3.4 Running applications in parallel (OpenFOAM 使用者指南：3.4 平行執行應用程式)](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)。
+5. 在 system/decomposeParDict 檔案中指定所要的變數值。 此範例使用兩個分別具有 8 個核心的 Linux 節點，因此，請將 numberOfSubdomains 設為 16，以及將 hierarchicalCoeffs 的 n 設為 (1 1 16)，這表示以 16 個處理程序平行執行 OpenFOAM。 如需詳細資訊，請參閱 [OpenFOAM 使用者指南：3.4 平行執行應用程式](http://cfd.direct/openfoam/user-guide/running-applications-parallel/#x12-820003.4)。
    
    ![分解程序][decompose]
 6. 從 sloshingTank3D 目錄執行下列命令，以準備範例資料。
@@ -362,7 +362,7 @@ clusrun /nodegroup:LinuxNodes cp /openfoam/settings.sh /etc/profile.d/
 10. 工作完成時，請 C:\OpenFoam\sloshingTank3D 下的資料夾中找出工作結果，記錄檔則位於 C:\OpenFoam 上。
 
 ## <a name="view-results-in-ensight"></a>在 EnSight 中檢視結果
-您可以選擇性地使用 [EnSight](http://www.ensight.com/) 來視覺化和分析 OpenFOAM 工作的結果。 如需 EnSight 中的視覺效果和動畫的詳細資訊，請參閱此 [視訊指南](http://www.ensight.com/ensight.com/envideo/)。
+您可以選擇性地使用 [EnSight](http://www.ensight.com/) 來視覺化和分析 OpenFOAM 工作的結果。 
 
 1. 在前端節點上安裝 EnSight 之後，請加以啟動。
 2. 開啟 C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case。

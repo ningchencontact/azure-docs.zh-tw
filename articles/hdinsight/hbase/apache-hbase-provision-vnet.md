@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6c1307fcb472f6c66a95b76ad3c1b1686ce4f998
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308931"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011193"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集
 了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight Apache HBase 叢集。
@@ -42,9 +42,9 @@ ms.locfileid: "52308931"
 > * **叢集背景工作節點計數**：2
 > * **預設儲存體帳戶**：唯一的字串
 > * **虛擬網路名稱**：&lt;叢集名稱>-vnet
-> * **虛擬網路位址空間**10.0.0.0/16
+> * **虛擬網路位址空間**：10.0.0.0/16
 > * **子網路名稱**：subnet1
-> * **子網路位址範圍**：10.0.0.0/24
+> * **子網路位址範圍**︰10.0.0.0/24
 >
 > 使用範本時，&lt;叢集名稱> 會取代為您提供的叢集名稱。
 >
@@ -55,12 +55,12 @@ ms.locfileid: "52308931"
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. 從 [自訂部署] 刀鋒視窗中，輸入下列屬性：
 
-   * **訂用帳戶**︰選取用來建立 HDInsight 叢集、相依儲存體帳戶和 Azure 虛擬網路的 Azure 訂用帳戶。
+   * 訂用帳戶：選取用來建立 HDInsight 叢集、相依儲存體帳戶和 Azure 虛擬網路的 Azure 訂用帳戶。
    * **資源群組**：選取 [新建] 並指定新的資源群組名稱。
    * **位置**：選取資源群組的位置。
    * **ClusterName**：輸入要建立的 Hadoop 叢集的名稱。
-   * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
-   * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將它重新命名。
+   * **叢集登入名稱和密碼**：預設登入名稱為 **admin**。
+   * **SSH 使用者名稱和密碼**：預設的使用者名稱為 **sshuser**。  您可以將它重新命名。
    * **我同意上方所述的條款及條件**：(選取)
 3. 按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。 一旦建立叢集後，您可以在入口網站按一下 [叢集] 刀鋒視窗來開啟它。
 
@@ -247,7 +247,7 @@ ms.locfileid: "52308931"
 * [開始在 HDInsight 中搭配 Apache Hadoop 使用 Apache HBase](./apache-hbase-tutorial-get-started-linux.md)
 * [虛擬網路概觀](../../virtual-network/virtual-networks-overview.md)
 
-[1]: http://azure.microsoft.com/services/virtual-network/
-[2]: http://technet.microsoft.com/library/ee176961.aspx
-[3]: http://technet.microsoft.com/library/hh847889.aspx
+[1]: https://azure.microsoft.com/services/virtual-network/
+[2]: https://technet.microsoft.com/library/ee176961.aspx
+[3]: https://technet.microsoft.com/library/hh847889.aspx
 

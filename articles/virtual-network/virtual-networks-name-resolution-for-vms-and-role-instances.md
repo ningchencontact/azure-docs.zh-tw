@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 53e3a298dd8a3eebca1943d9bade51187f14d722
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 17bcc7ada244484c2c2df5bd81c82f695a8b5342
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038000"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969902"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虛擬網路中的資源名稱解析
 
@@ -125,7 +125,7 @@ options timeout:1 attempts:5
 resolv.conf 檔案通常是自動產生的，且不可編輯。 新增 [選項] 行的特定步驟會因發行版本而有所不同：
 
 *  (使用 resolvconf)：
-  1. 將 options 行新增至 **/etc/resolveconf/resolv.conf.d/head**。
+  1. 將 options 行新增至 **/etc/resolvconf/resolv.conf.d/tail**。
   2. 執行 `resolvconf -u` 以更新。
 *  (使用 netconf)：
   1. 將 timeout:1 attempts:5 新增至 **/etc/sysconfig/network/config** 中的 **NETCONFIG_DNS_RESOLVER_OPTIONS=""** 參數。 

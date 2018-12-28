@@ -9,21 +9,20 @@ ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: fd8c45bf3d7fd9e392d55a82001aa8768fcce8ba
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 528b344063dd9f84720ee55c4b3663c20127e5fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096594"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995040"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 效能計量
 
 
-若要在 [Application Insights](app-insights-overview.md) 中瀏覽 Linux 系統效能度量，請安裝 [collectd](http://collectd.org/) 以及其 Application Insights 外掛程式。 這個開放原始碼解決方案會收集各種系統和網路統計資料。
+若要在 [Application Insights](app-insights-overview.md) 中瀏覽 Linux 系統效能度量，請安裝 [collectd](https://collectd.org/) 以及其 Application Insights 外掛程式。 這個開放原始碼解決方案會收集各種系統和網路統計資料。
 
 如果您已[使用 Application Insights 檢測您的 Java Web 服務][java]，通常您會使用 collectd。 提供給您更多資料來幫助您增強應用程式的效能或診斷問題。 
 
@@ -39,7 +38,7 @@ ms.locfileid: "47096594"
 ## <a name="install-collectd-and-the-plug-in"></a>安裝 collectd 和外掛程式
 在您的 Linux 伺服器機器上：
 
-1. 安裝 [collectd](http://collectd.org/) 5.4.0 版或更新版本。
+1. 安裝 [collectd](https://collectd.org/) 5.4.0 版或更新版本。
 2. 下載 [Application Insights collectd 寫入器外掛程式](https://aka.ms/aijavasdk)。 記下版本號碼。
 3. 將外掛程式 JAR 複製到 `/usr/share/collectd/java`。
 4. 編輯 `/etc/collectd/collectd.conf`：
@@ -129,7 +128,7 @@ ms.locfileid: "47096594"
 
 Application Insights 的「寫入」外掛程式與某些「讀取」外掛程式不相容。 有些外掛程式有時會在 Application Insights 外掛程式預期要有浮點數的位置傳送 "NaN"。
 
-徵狀：collectd 記錄檔會顯示包含下列資訊的錯誤：「AI: ...SyntaxError: 未預期的權杖 N」。
+徵狀：collectd 記錄會顯示包含下列資訊的錯誤：「AI: ...SyntaxError:未預期的權杖 N」。
 
 因應措施：排除有問題的「寫入」外掛程式所收集的資料。 
 

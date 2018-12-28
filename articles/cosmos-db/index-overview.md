@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/10/2018
 ms.author: mjbrown
-ms.openlocfilehash: c0525cfba16fb61f8388ae4d6a693be3bb71674c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0333bc5e95b74fc97cfff3d79adbe28aefff5d40
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628377"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834633"
 ---
 # <a name="indexing-in-azure-cosmos-db"></a>Azure Cosmos DB 中的編製索引
 
@@ -29,7 +29,7 @@ Azure Cosmos DB 是一個無從驗證結構描述的資料庫，可讓您快速�
 
 Azure Cosmos DB 會將項目投影為 JSON 文件，並將索引投影為樹狀結構。 您接著可為樹狀結構中的路徑調整原則。 您可以選擇要在編製索引中包含或排除路徑。 針對事前知道查詢模式的案例，這可改善寫入效能並降低索引儲存體。 如需深入了解，請參閱[索引路徑](index-paths.md)。
 
-## <a name="indexing-under-the-hood"></a>編製索引：背後原理
+## <a name="indexing-under-the-hood"></a>編製索引：幕後
 
 Azure Cosmos 資料庫會為資料套用自動編製索引，除非您設定要排除特定路徑，否則就會為樹狀結構中的每個路徑編製索引。
 

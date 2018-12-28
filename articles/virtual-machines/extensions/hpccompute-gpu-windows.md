@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/15/2018
+ms.date: 12/5/2018
 ms.author: roiyz
-ms.openlocfilehash: ee74d4520e867604f50c70f2b6449f12ff3bd8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 2a29cae6e7f391dfee75e89ea91525268db3fa62
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495978"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971958"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>適用於 Windows 的 NVIDIA GPU 驅動程式擴充功能
 
@@ -71,24 +71,15 @@ ms.locfileid: "52495978"
 
 ### <a name="properties"></a>properties
 
-| 名稱 | 值 / 範例 | 資料類型 |
+| Name | 值 / 範例 | 資料類型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | 日期 |
 | publisher | Microsoft.HpcCompute | 字串 |
 | type | NvidiaGpuDriverWindows | 字串 |
 | typeHandlerVersion | 1.2 | int |
 
-### <a name="settings"></a>設定
-
-所有設定都是選用的。 預設行為是視情況安裝最新支援的驅動程式。
-
-| 名稱 | 說明 | 預設值 | 有效值 | 資料類型 |
-| ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV：GRID 驅動程式版本<br> NC/ND：CUDA 驅動程式版本 | 最新 | GRID："411.81"、"391.81"、"391.58"、"391.03"<br> CUDA："398.75"、"397.44"、"390.85" | 字串 |
-| installGridND | 在 ND 系列 VM 上安裝 GRID 驅動程式 | false | true、false | 布林值 |
 
 ## <a name="deployment"></a>部署
-
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 範本 
 
@@ -135,8 +126,6 @@ Set-AzureRmVMExtension
 
 ### <a name="azure-cli"></a>Azure CLI
 
-下列範例反映上述 ARM 和 PowerShell 範例，而且還新增自訂設定作為非預設驅動程式安裝的範例。 具體來說，它會安裝特定的 GRID 驅動程式，即使正在佈建 ND 系列 VM 也一樣。
-
 ```azurecli
 az vm extension set `
   --resource-group myResourceGroup `
@@ -145,8 +134,6 @@ az vm extension set `
   --publisher Microsoft.HpcCompute `
   --version 1.2 `
   --settings '{ `
-    "driverVersion": "391.03",
-    "installGridND": true
   }'
 ```
 
@@ -176,7 +163,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | :---: | --- | --- |
 | 0 | 作業已順利完成 |
 | 1 | 作業成功。 需要重新開機。 |
-| 100 | 不支援或無法完成作業。 | 可能原因：PowerShell 版本不受支援、VM 大小不是 N 系列 VM、資料下載失敗。 請檢查記錄檔，以判斷錯誤的成因。 |
+| 100 | 不支援或無法完成作業。 | 可能的原因：PowerShell 版本不受支援、VM 大小不是 N 系列 VM、資料下載失敗。 請檢查記錄檔，以判斷錯誤的成因。 |
 | 240、840 | 作業逾時。 | 重試作業。 |
 | -1 | 發生例外狀況。 | 請檢查記錄檔，以判斷例外狀況的成因。 |
 | -5x | 作業因重新開機擱置而中斷。 | 重新啟動 VM。 重新開機後將會繼續安裝。 解除安裝應以手動方式叫用。 |

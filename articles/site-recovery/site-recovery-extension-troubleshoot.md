@@ -5,14 +5,14 @@ author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7a4ff22bbb4c7c13d8c2feae3638ce8e33a8f7ad
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227467"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845819"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>對 Azure Site Recovery 代理程式的問題進行疑難排解
 
@@ -21,39 +21,39 @@ ms.locfileid: "51227467"
 
 ## <a name="azure-site-recovery-extension-time-out"></a>Azure Site Recovery 延伸模組逾時  
 
-錯誤訊息：「追蹤要啟動的延伸模組作業時，工作執行逾時」<br>
+錯誤訊息：「追蹤要啟動的擴充作業時，工作執行逾時」<br>
 錯誤碼："151076"
 
  Azure Site Recovery 會在虛擬機器上安裝延伸模組，以形成保護作業中的一環。 下列任一種狀況都可能會阻止觸發保護，進而使得作業失敗。 請完成下列疑難排解步驟，然後重試作業：
 
-**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3︰[Site Recovery 延伸模組無法更新或載入](#the-site-recovery-extension-fails-to-update-or-load)**  
+**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 3：[Site Recovery 擴充功能無法更新或載入](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-錯誤訊息：「先前的站台復原延伸模組作業所花時間超出預期」。<br>
+錯誤訊息：「先前的站台復原擴充作業所花時間超出預期。」<br>
 錯誤碼："150066"<br>
 
-**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3：[Site Recovery 延伸模組狀態不正確](#the-site-recovery-extension-fails-to-update-or-load)**  
+**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 3：[Site Recovery 擴充功能狀態不正確](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>因為 VM 代理程式沒有回應，而使得保護失敗
 
-錯誤訊息：「追蹤要啟動的延伸模組作業時，工作執行逾時。」<br>
+錯誤訊息：「追蹤要啟動的擴充作業時，工作執行逾時。」<br>
 錯誤碼："151099"<br>
 
 如果虛擬機器中的 Azure 客體代理程式不是處於就緒狀態，就會發生此錯誤。
 您可以在 [Azure 入口網站](https://portal.azure.com/)中檢查 Azure 客體代理程式的狀態。 移至您想要保護的虛擬機器，並在 [VM] > [設定] > [內容] > [代理程式狀態] 中檢查狀態。 重新啟動虛擬機器之後，大部分情況下代理程式狀態便會成為就緒。 不過，如果無法選擇重新開機，或您仍然遇到此問題，則請完成下列疑難排解步驟。
 
-**原因 1：[代理程式已安裝到 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**原因 2︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+**原因 1：[代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
+**原因 2：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
-錯誤訊息：「追蹤要啟動的延伸模組作業時，工作執行逾時。」<br>
+錯誤訊息：「追蹤要啟動的擴充作業時，工作執行逾時。」<br>
 錯誤碼："151095"<br>
 
 當 Linux 機器上的代理程式為舊版時，便會發生此狀況。 請完成下列疑難排解步驟。<br>
-  **原因 1︰[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+  **原因 1：[VM 中安裝的代理程式已過時 (適用於 Linux VM)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>原因和解決方案
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>代理程式已安裝在 VM 中，但沒有回應 (適用於 Windows VM)

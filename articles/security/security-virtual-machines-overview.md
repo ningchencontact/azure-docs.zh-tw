@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: terrylan
-ms.openlocfilehash: fb053cb646d433d1e326747a4b48ed430583b847
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5e024161b55db9662aa288a4d3ff6a7c2b7e6266
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259100"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969680"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虛擬機器安全性概觀
 
@@ -56,7 +56,7 @@ Azure 虛擬機器讓您能夠有彈性地進行虛擬化，而不需購買並�
 * **主動保護**：向 Azure 報告有關偵測到的威脅和可疑資源的遙測中繼資料，以確保能快速回應。 透過 Microsoft Active Protection System (MAPS) 啟用即時的同步簽章傳遞。
 * **範例報告**：將範例提供並報告至適用於 Azure 的 Microsoftt Antimalware 服務，以協助改善其服務並啟用疑難排解。
 * **排除項目**：可讓應用程式和服務管理員設定特定的檔案、處理序及磁碟機，以因應效能及/或其他原因將其從保護和掃描中排除。
-* **事件收集**：記錄作業系統事件記錄檔中反惡意程式碼服務的健康狀況、可疑的活動及其所採取的補救動作，並在 Azure 儲存體帳戶內收集這些資料。
+* **Antimalware 事件收集**：記錄作業系統事件記錄檔中反惡意程式碼服務的健康狀況、可疑的活動及其所採取的補救動作，並在 Azure 儲存體帳戶內收集這些資料。
 
 深入了解反惡意程式碼軟體以協助保護虛擬機器︰
 
@@ -112,7 +112,6 @@ Azure 備份是可調式解決方案，可以不需成本地協助保護您的�
 深入了解：
 
 * [何謂 Azure 備份？](../backup/backup-introduction-to-azure-backup.md)
-* [Azure 備份學習路徑](https://azure.microsoft.com/documentation/learning-paths/backup/)
 * [Azure 備份服務常見問題集](../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
@@ -125,7 +124,7 @@ Azure 備份是可調式解決方案，可以不需成本地協助保護您的�
 * **提供彈性的複寫**：使用 Site Recovery，您就可以複寫 Hyper-V 虛擬機器、VMware 虛擬機器和 Windows/Linux 實體伺服器上執行的工作負載。
 * **支援容錯移轉和復原**：Site Recovery 可提供測試用容錯移轉，既能支援災害復原演練，又不會影響生產環境。 您也可以執行計劃性容錯移轉，因為是預期中的中斷，所以不會遺失任何資料；或是執行非計劃性容錯移轉，以在發生非未預期的災害時將資料損失減到最少 (取決於複寫頻率)。 在容錯移轉之後，您可以容錯回復到主要站台。 Site Recovery 提供了包含指令碼和 Azure 自動化作業手冊的復原計畫，以供您自訂多層式應用程式的容錯移轉和復原。
 * **消除次要資料中心**：您可以複寫至次要內部部署站台或 Azure。 使用 Azure 做為災害復原目的地，可排除次要站台的維護成本和複雜度。 複寫的資料會儲存在 Azure 儲存體。
-* **與現有 BCDR 技術整合**：Site Recovery 能夠與其他應用程式的 BCDR 功能搭配使用。 例如，您可以使用 Site Recovery 來協助保護公司工作負載的 SQL Server 後端。 這包括原生支援 SQL Server Always On 以管理可用性群組的容錯移轉。
+* **與現有的 BCDR 技術整合**：Site Recovery 能夠與其他應用程式的 BCDR 功能搭配使用。 例如，您可以使用 Site Recovery 來協助保護公司工作負載的 SQL Server 後端。 這包括原生支援 SQL Server Always On 以管理可用性群組的容錯移轉。
 
 深入了解：
 
@@ -166,8 +165,8 @@ Azure 虛擬機器經過 FISMA、FedRAMP、HIPAA、PCI DSS Level 1 及其他重�
 
 深入了解：
 
-* [Microsoft 信任中心：法規遵循](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [受信任的雲端：Microsoft Azure 安全性、隱私權及法規遵循](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Microsoft 信任中心：合規性](https://www.microsoft.com/en-us/trustcenter/compliance)
+* [受信任的雲端：Microsoft Azure 安全性、隱私權及合規性](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 
 ## <a name="confidential-computing"></a>機密運算
 

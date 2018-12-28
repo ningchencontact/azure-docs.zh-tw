@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 16e3e73e00af1cc6c2c531575345f12c288f1b69
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8459866aa192f2364ae52d0d5d68eace693e127e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853688"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832678"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>管理 'Azure Marketplace' 與 'AppSource' 發行者設定檔
 
@@ -27,7 +27,7 @@ ms.locfileid: "51853688"
 
 此時，您已完成成為 Azure Marketplace 與 AppSource 發行者的步驟。 發行者設定檔是在 **[Cloud Partner 入口網站](https://cloudpartner.azure.com/)** 上依照您合作夥伴要求核准所註冊。 您的發行者設定檔將會套用到從夥伴註冊期間所使用之帳戶發行的所有供應項目與 SKU。
 
-如果您尚未將貴公司註冊為雲端夥伴，請參閱[開始使用雲端合作夥伴入口網站](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)。
+如果您尚未將貴公司註冊為雲端夥伴，請參閱[開始使用雲端合作夥伴入口網站](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)。
 
 **發行者設定檔**︰您的發行者設定檔會區分 Marketplace 和 AppSource 上的貴公司。 它是由您的發行者識別碼、顯示名稱和擁有者電子郵件所組成。 管理完善的設定檔會增加您的能見度，並協助 Marketplace 使用者輕鬆地找出並選取適當的供應項目。
 

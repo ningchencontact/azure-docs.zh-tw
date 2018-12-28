@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 558df3fa70989aaf9ba182df3a918994c7dc9db6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243704"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834123"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>在 Azure DevTest Labs 中新增擁有者和使用者
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -69,15 +69,11 @@ Azure DevTest Labs 的存取權是由 [Azure 角色型存取控制 (RBAC)](../ro
 3. 從實驗室清單中，選取所需的實驗室。
 4. 在實驗室的刀鋒視窗上，選取 [組態和原則]。 
 5. 請在 [組態和原則] 頁面上，從左側功能表中選取 [存取控制 (IAM)]。 
-6. 在工具列上選取 [新增] 以將使用者新增至角色。
-
-    ![新增使用者](./media/devtest-lab-add-devtest-user/devtest-users-blade.png)
+6. 在工具列上選取 [新增角色指派] 以將使用者新增至角色。
 1. 在 [新增權限] 視窗中，執行下列動作： 
     1. 選取角色 (例如：DevTest Labs 使用者)。 [可在每個角色執行的動作](#actions-that-can-be-performed-in-each-role) 一節列出使用者可在擁有者、DevTest 使用者和參與者角色中執行的各種動作。
     2. 選取要新增至角色的使用者。 
     3. 選取 [ **儲存**]。 
-
-        ![將使用者新增至角色](./media/devtest-lab-add-devtest-user/add-user.png) 
 11. 當您返回 [使用者]  刀鋒視窗時，該使用者已新增。  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>使用 PowerShell 將外部使用者新增至實驗室

@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c26421f848cf25e391589fa791f801e30fd14797
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 77b64f09b7fd1429eb23c4407c729dfc0aafdf2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50208896"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842351"
 ---
 # <a name="set-up-vmware-disaster-recovery-in-a-multi-tenancy-environment-with-the-cloud-solution-provider-csp-program"></a>使用雲端解決方案提供者 (CSP) 方案在多租用戶環境中設定 VMware 災害復原
 
@@ -72,9 +72,13 @@ ms.locfileid: "50208896"
 
       ![租用戶的 CSP 訂用帳戶頁面](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
 
-      b) 現在藉由輸入相關詳細資料並選取權限，或是使用 CSV 檔案上傳使用者清單，來建立新的使用者。
+    b) 現在藉由輸入相關詳細資料並選取權限，或是使用 CSV 檔案上傳使用者清單，來建立新的使用者。
+    
     c) 在您建立新的使用者之後，返回 Azure 入口網站。 在 [訂用帳戶] 頁面中，選取相關的訂用帳戶。
-    d) 選取 [存取控制 (IAM)]，然後按一下 [新增] 以使用相關的存取層級新增使用者。 在按一下存取層級之後開啟的頁面上，會自動顯示透過 CSP 入口網站建立的使用者。
+
+    d) 選取 [存取控制 (IAM)]，然後按一下 [角色指派]。
+
+    e) 按一下 [新增角色指派]，以增加具有相關存取層級的使用者。 透過 CSP 入口網站建立的使用者會顯示在 [角色指派] 索引標籤上。
 
       ![新增使用者](./media/vmware-azure-multi-tenant-csp-disaster-recovery/add-user-subscription.png)
 
@@ -89,7 +93,7 @@ ms.locfileid: "50208896"
 
 * **專用主機服務提供者**：合作夥伴擁有實體基礎結構，但使用專用資源 (如多個 vCenters、實體資料存放區等) 在個別的基礎結構上裝載每個租用戶的虛擬機器。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
 
-* **受控服務提供者 (MSP)** – 客戶擁有裝載虛擬機器的實體基礎結構，而合作夥伴則提供災害復原支援及管理。
+* **受控服務提供者 (MSP)**：客戶擁有裝載虛擬機器的實體基礎結構，而合作夥伴則提供災害復原支援及管理。
 
 依照本文所述，透過設定租用戶訂用帳戶，您可以快速開始在任何相關的多租用戶模型中啟用客戶。 您可以在[這裡](vmware-azure-multi-tenant-overview.md)進一步了解不同的多租用戶模型，和啟用內部部署存取控制的資訊。
 

@@ -11,17 +11,17 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 86e60f339af3d6d467b68d5d3b27d77a9861add1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/03/2018
+ms.openlocfilehash: ff9011dda4a94f323b430a3860eadc8d970a23f7
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244064"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838611"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用適用於 SQL 驗證的 Azure Active Directory Authentication
 
-Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的身分識別來連線到 Azure [SQL Database](sql-database-technical-overview.md) 和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的機制。 
+Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的身分識別來連線到 Azure [SQL Database](sql-database-technical-overview.md)、[受控執行個體](sql-database-managed-instance.md)和 [SQL 資料倉儲](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)的機制。 
 
 > [!NOTE]
 > 本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。
@@ -44,7 +44,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 設定步驟包括以下設定和使用 Azure Active Directory 驗證的程序。
 
 1. 建立和填入 Azure AD。
-2. 選用：和目前與您的 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更
+2. 選用：和目前與 Azure 訂用帳戶相關聯的 Active Directory 產生關聯並加以變更。
 3. 為 Azure SQL Database 伺服器、「受控執行個體」或 [Azure SQL 資料倉儲](https://azure.microsoft.com/services/sql-data-warehouse/)建立 Azure Active Directory 系統管理員。
 4. 設定用戶端電腦。
 5. 在對應至 Azure AD 身分識別的資料庫中建立自主資料庫使用者。
@@ -84,15 +84,7 @@ Azure Active Directory 驗證是使用 Azure Active Directory (Azure AD) 中的�
 - 從其他 Azure AD 匯入，且為原生網域或同盟網域成員者。
 - 建立 Active Directory 群組作為安全性群組。
 
-「受控執行個體」的相關 Azure AD 限制：
-
-- 只有 Azure AD 系統管理員可以建立資料庫，Azure AD 使用者的範圍僅限於單一 DB 而不具備此權限
-- 資料庫擁有權：
-  - Azure AD 主體無法變更資料庫的擁有權 (ALTER AUTHORIZATION ON DATABASE)，也無法被設定為擁有者。
-  - 針對 Azure AD 系統管理員所建立的資料庫，不會設定任何擁有權 (sys.sysdatabases 中的 owner_sid 欄位為 0x1)。
-- 使用 Azure AD 主體登入時，無法管理「SQL 代理程式」。
-- 無法使用 EXECUTE AS 來模擬 Azure AD 系統管理員
-- 使用 Azure AD 主體時，不支援 DAC 連線。
+支援 Azure AD 登入和使用者作為[受控執行個體](sql-database-managed-instance.md)的預覽功能
 
 下列系統函式在 Azure AD 主體下執行時會傳回 NULL：
 

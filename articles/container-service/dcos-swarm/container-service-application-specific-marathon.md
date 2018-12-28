@@ -1,5 +1,5 @@
 ---
-title: 應用程式或使用者特定的 Marathon 服務
+title: (已淘汰) 應用程式或使用者特定的 Marathon 服務
 description: 建立應用程式或使用者特定的 Marathon 服務
 services: container-service
 author: rgardler
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 4ff263fe0ca4f435199127ed64faadee1c2527f9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164535"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996126"
 ---
-# <a name="create-an-application-or-user-specific-marathon-service"></a>建立應用程式或使用者特定的 Marathon 服務
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(已淘汰) 建立應用程式或使用者特定的 Marathon 服務
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 Azure Container Service 提供了一組主要伺服器，供我們在上面預先設定 Apache Mesos 和 Marathon。 這些伺服器可用來協調叢集上的應用程式，但最好不要將主要伺服器用在此目的。 例如，若要調整 Marathon 組態，就必須登入主要伺服器本身並進行變更 -- 這會導致產生與標準組態只有些許不同的獨特主要伺服器，因而需要獨立處理和管理。 此外，某個團隊所需的組態可能不是另一個團隊最適合的組態。
 
@@ -24,7 +26,7 @@ Azure Container Service 提供了一組主要伺服器，供我們在上面預�
 
 由於此服務將隸屬於單一使用者或團隊，因此可以用任何想要的方式加以設定。 此外，Azure 容器服務會確保服務繼續執行。 如果服務失敗，Azure 容器服務會為您重新啟動該服務。 多數時候，您甚至不會發覺它有停機過。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 [部署 Azure Container Service 的執行個體](container-service-deployment.md) (其 Orchestrator 類型為 DCOS)，並[確保您的用戶端可以連線至您的叢集](../container-service-connect.md)。 此外，請執行下列步驟。
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

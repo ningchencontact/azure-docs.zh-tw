@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: cb8644ea4d949e81e4fb68bf572956bfe3444c0c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 04ed8e0e99f0aba4ca067700f8a651b6d6c52423
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997891"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727472"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>建立虛擬網路對等互連 - Resource Manager，不同訂用帳戶
 
@@ -52,13 +52,13 @@ ms.locfileid: "46997891"
     - **名稱**：*myVnetA*
     - **位址空間**：*10.0.0.0/16*
     - **子網路名稱**：*預設值*
-    - **子網路位址範圍**：*10.0.0.0/24*
-    - **訂用帳戶**︰選取訂用帳戶 A。
-    - **資源群組**：選取 [建立新項目]，然後輸入 *myResourceGroupA*
-    - **位置**：*美國東部*
+    - **子網路位址範圍**︰*10.0.0.0/24*
+    - 訂用帳戶：選取訂用帳戶 A。
+    - **資源群組**：選取 [新建]，然後輸入 *myResourceGroupA*
+    - **位置**：美國東部
 4. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetA*。 當 myVnetA 出現在搜尋結果中時，選取 [myVnetA]。 
 5. 從左側的垂直選項清單中選取 [存取控制] \(IAM\)。
-6. 在 [myVnetA - 存取控制] \(IAM\) 之下，選取 [+ 新增]。
+6. 在 [myVnetA - 存取控制] \(IAM\) 之下，選取 [+ 新增角色只太]。
 7. 選取 [角色] 方塊中的 [網路參與者]。
 8. 在 [選取] 方塊中，選取 [UserB]，或輸入 UserB 的電子郵件地址來搜尋它。
 9. 選取 [ **儲存**]。
@@ -69,10 +69,10 @@ ms.locfileid: "46997891"
     - **名稱**：*myVnetB*
     - **位址空間**：*10.1.0.0/16*
     - **子網路名稱**：*預設值*
-    - **子網路位址範圍**：*10.1.0.0/24*
-    - **訂用帳戶**︰選取訂用帳戶 B。
-    - **資源群組**：選取 [建立新項目]，然後輸入 *myResourceGroupB*
-    - **位置**：*美國東部*
+    - **子網路位址範圍**︰*10.1.0.0/24*
+    - 訂用帳戶：選取訂用帳戶 B。
+    - **資源群組**：選取 [新建]，然後輸入 *myResourceGroupB*
+    - **位置**：美國東部
 
 13. 在入口網站頂端的 [搜尋資源] 方塊中，輸入 *myVnetB*。 當 myVnetB 出現在搜尋結果中時，選取 [myVnetB]。
 14. 在 [myVnetB] 下，從左側的垂直選項清單中選取 [屬性]。 複製 [資源識別碼]，在稍後的步驟中將會用到此識別碼。 資源識別碼與以下範例類似：/subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB。
@@ -84,10 +84,10 @@ ms.locfileid: "46997891"
 20. 在 [myVnetA - 對等互連] 下，選取 [+ 新增]
 21. 在 [新增對等互連] 下，輸入或選取下列選項，然後選取 [確定]：
      - **名稱**：*myVnetAToMyVnetB*
-     - **虛擬網路部署模型**：選取 [Resource Manager]。
+     - **虛擬網路部署模型**︰選擇 **資源管理員**。
      - **我知道我的資源識別碼**：核取此方塊。
      - **資源識別碼**：輸入來自步驟 14 的資源識別碼。
-     - **允許虛擬網路存取**：確定已選取 [啟用]。
+     - **允許虛擬網路存取：** 確定已選取 [啟用]。
     本教學課程中不會使用其他設定。 若要了解所有對等互連設定，請閱讀[管理虛擬網路對等互連](virtual-network-manage-peering.md#create-a-peering)。
 22. 在上一個步驟中選取 [確定] 之後，不久就會出現您建立的對等互連。 您所建立之 **myVnetAToMyVnetB** 對等互連的 [對等互連狀態] 資料行中會列出 [已起始]。 您已將 myVnetA 對等互連到 myVnetB，但現在必須將 myVnetB 對等互連到 myVnetA。 必須以建立雙線的對等互連，虛擬網路中的資源才能彼此通訊。
 23. 以 UserA 身分登出入口網站，然後以 UserB 身分登入。
@@ -96,7 +96,7 @@ ms.locfileid: "46997891"
 26. 以 UserB 身分登出入口網站，然後以 UserA 身分登入。
 27. 再次完成步驟 17 到 19。 **myVnetAToVNetB** 對等互連的 [對等互連狀態] 現在也是 [已連線]。 您在對等互連中兩個虛擬網路的 [對等互連狀態] 資料行中看到 [已連線] 之後，對等互連變已建立成功。 您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 28. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-29. **選擇性︰** 若要刪除您在本教學課程中建立的資源，請完成本文之[刪除資源](#delete-portal)一節中的步驟。
+29. **選擇性**：若要刪除您在本教學課程中建立的資源，請完成本文中[刪除資源](#delete-portal)一節的步驟。
 
 ## <a name="cli"></a>建立對等互連 - Azure CLI
 
@@ -174,7 +174,7 @@ ms.locfileid: "46997891"
     > 必須等到兩個虛擬網路的對等互連狀態都變成 **Connected** 之後，才算已建立對等互連。
 
 11. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-12. **選擇性︰** 若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-cli)中的步驟。
+12. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-cli)的步驟。
 
 您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
  
@@ -244,7 +244,7 @@ ms.locfileid: "46997891"
     您在任何一個虛擬網路中建立的任何 Azure 資源現在能夠透過其 IP 位址彼此通訊。 如果您使用虛擬網路的預設 Azure 名稱解析，則虛擬網路中的資源無法跨虛擬網路解析名稱。 如果您想要跨對等互連中的虛擬網路解析名稱，您必須建立自己的 DNS 伺服器。 了解如何設定[使用自己的 DNS 伺服器進行名稱解析](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)。
 
 13. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-14. **選擇性︰** 若要刪除您在本教學課程中所建立的資源，請完成本文之[刪除資源](#delete-powershell)中的步驟。
+14. **選擇性**：若要刪除您在本教學課程中所建立的資源，請完成本文中[刪除資源](#delete-powershell)的步驟。
 
 ## <a name="template"></a>建立對等互連 - Resource Manager 範本
 
@@ -289,7 +289,7 @@ ms.locfileid: "46997891"
     - **識別碼**：將 `<subscription ID>` 取代為 UserB 的訂用帳戶識別碼，並將 *myVnetB* 變更為 *myVnetA*。
 5. 以 UserB 身分登入 Azure，並再次完成步驟 3。
 6. **選擇性**：雖然本教學課程未涵蓋建立虛擬機器，但您可以在每個虛擬網路中建立一部虛擬機器，並從一部虛擬機器連線至另一部來驗證連線。
-7. **選擇性︰** 若要刪除您在本教學課程中建立的資源，請使用 Azure 入口網站、PowerShell 或 Azure CLI 來完成本文之[刪除資源](#delete)一節中的步驟。
+7. **選擇性**：若要刪除您在本教學課程中建立的資源，請使用 Azure 入口網站、PowerShell 或 Azure CLI 來完成本文之[刪除資源](#delete)一節中的步驟。
 
 ## <a name="delete"></a>刪除資源
 當您完成本教學課程時，您可能會想刪除您在教學課程中建立的資源，以免產生使用費。 刪除資源群組同時會刪除其內含的所有資源。

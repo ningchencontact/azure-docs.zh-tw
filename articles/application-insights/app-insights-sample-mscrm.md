@@ -9,17 +9,16 @@ ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.reviewer: mazhar
 ms.author: mbullwin
-ms.openlocfilehash: 5d61c3a3232645fc5f1c18696cf3232bf9b37aa2
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 3106e523e3f8edd17cc27991181267acfab4308b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957701"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002128"
 ---
 # <a name="walkthrough-enabling-telemetry-for-microsoft-dynamics-crm-online-using-application-insights"></a>逐步解說：使用 Application Insights 啟用Microsoft Dynamics CRM Online 遙測
 本文說明如何使用 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 從 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 取得遙測資料。 我們會逐步解說將 Application Insights 指令碼加入至您的應用程式、擷取資料和資料視覺化的完整程序。
@@ -33,7 +32,7 @@ ms.locfileid: "50957701"
 若要監視您的應用程式，請將 Application Insights SDK 加入應用程式。 所有 SDK 均會將遙測資料傳送至 [Application Insights 入口網站](https://portal.azure.com)，您可以在該入口網站中使用我們功能強大的分析與診斷工具，並將資料匯出至儲存體。
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>在 Azure 中建立 Application Insights 資源
-1. 取得 [Microsoft Azure 帳戶](http://azure.com/pricing)。 
+1. 取得 [Microsoft Azure 帳戶](https://azure.com/pricing)。 
 2. 登入 [Azure 入口網站](https://portal.azure.com) 並加入新的 Application Insights 資源。 這是處理與顯示您資料的位置。
 
     ![按一下 [+]、[開發人員服務]、[Application Insights]。](./media/app-insights-sample-mscrm/01.png)

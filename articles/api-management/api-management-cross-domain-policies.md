@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: bd5082d9f66e65bb487c9216131b7e13f825340e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8b43ef81385f1d185fdd63d2a33453c75684fd21
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246645"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969919"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨網域原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -38,7 +38,7 @@ ms.locfileid: "51246645"
 ```xml  
 <cross-domain>  
    <!-Policy configuration is in the Adobe cross-domain policy file format,   
-      see http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
+      see https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html-->  
 </cross-domain>  
 ```  
   
@@ -54,9 +54,9 @@ ms.locfileid: "51246645"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
-|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|  
+|cross-domain|根元素。 子元素必須符合 [Adobe 跨網域原則檔案規格](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)。|是|  
   
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
@@ -123,7 +123,7 @@ ms.locfileid: "51246645"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |cors|根元素。|是|N/A|  
 |allowed-origins|包含可說明跨網域要求之允許來源的 `origin` 元素。 `allowed-origins` 可包含指定了 `*` 以允許任何來源的單一 `origin` 元素，或一或多個包含 URI 的 `origin` 元素。|是|N/A|  
@@ -136,7 +136,7 @@ ms.locfileid: "51246645"
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |allow-credentials|事前回應中的 `Access-Control-Allow-Credentials` 標頭會設定為這個屬性的值，並影響用戶端是否能夠在跨網域要求中提交認證。|否|false|  
 |preflight-result-max-age|事前回應中的 `Access-Control-Max-Age` 標頭會設定為這個屬性的值，並影響使用者代理程式是否能夠快取事前回應。|否|0|  
@@ -144,7 +144,7 @@ ms.locfileid: "51246645"
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  
   
--   **原則區段︰** 輸入  
+-   **原則區段︰** inbound  
 -   **原則範圍︰** API、作業  
   
 ##  <a name="JSONP"></a>JSONP  
@@ -168,13 +168,13 @@ ms.locfileid: "51246645"
   
 ### <a name="elements"></a>元素  
   
-|名稱|說明|必要|  
+|Name|說明|必要|  
 |----------|-----------------|--------------|  
 |jsonp|根元素。|是|  
   
 ### <a name="attributes"></a>屬性  
   
-|名稱|說明|必要|預設值|  
+|Name|說明|必要|預設值|  
 |----------|-----------------|--------------|-------------|  
 |callback-parameter-name|跨網域 JavaScript 函數呼叫，開頭加上函數所在的完整網域名稱。|是|N/A|  
   

@@ -512,7 +512,7 @@ items:
   - name: 網路功能
     tocHref: /azure/networking/
     topicHref: /azure/networking/networking-overview
-  - name: 筆記本
+  - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
   - name: 通知中樞

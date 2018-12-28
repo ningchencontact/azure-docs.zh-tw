@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 9da213525a5921295d6271adfd473b7a05a049a4
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 14513e23aafd05796767e1ae08d4d4c14cecdfbc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497912"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728305"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自訂 Service Fabric 叢集設定
 本文說明您可以為 Service Fabric 叢集自訂的各種網狀架構設定。 針對裝載於 Azure 中的叢集，您可以透過 [Azure 入口網站](https://portal.azure.com)或使用 Azure Resource Manager 範本來自訂設定。 如需詳細資訊，請參閱[升級 Azure 叢集的設定](service-fabric-cluster-config-upgrade-azure.md)。 針對獨立叢集，您會透過更新 *ClusterConfig.json* 檔案並在叢集上執行設定升級來自訂設定。 如需詳細資訊，請參閱[升級獨立叢集的設定](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -139,6 +139,13 @@ ms.locfileid: "52497912"
 |PartitionPrefix|字串，預設值為 "--"|靜態|控制分割服務 DNS 查詢中的分割前置詞字串值。 值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>不能是空字串。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。|
 |PartitionSuffix|字串，預設值為 ""|靜態|控制分割服務 DNS 查詢中的分割後置詞字串值。值： <ul><li>應該要符合 RFC 規範，因為它會包含在 DNS 查詢中。</li><li>不應包含點 '.'，因為點會干擾 DNS 後置詞的行為。</li><li>不得超過 5 個字元。</li><li>如果覆寫 PartitionPrefix 設定，則必須覆寫 PartitionSuffix，反之亦然。</li></ul>如需詳細資訊，請參閱 [Service Fabric DNS 服務](service-fabric-dnsservice.md)。 |
 
+## <a name="eventstore"></a>EventStore
+| **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
+| --- | --- | --- | --- |
+|MinReplicaSetSize|int，預設值為 0|靜態|EventStore 服務的 MinReplicaSetSize |
+|PlacementConstraints|字串，預設值為 ""|靜態|  EventStore 服務的 PlacementConstraints |
+|TargetReplicaSetSize|int，預設值為 0|靜態| EventStore 服務的 TargetReplicaSetSize |
+
 ## <a name="fabricclient"></a>FabricClient
 | **參數** | **允許的值** | **升級原則** | **指引或簡短描述** |
 | --- | --- | --- | --- |
@@ -172,18 +179,18 @@ ms.locfileid: "52497912"
 |ClientAuthX509FindValue |字串，預設值為 "" | 動態|搜尋用來找出預設管理員角色 FabricClient 之憑證的篩選值。 |
 |ClientAuthX509FindValueSecondary |字串，預設值為 "" |動態|搜尋用來找出預設管理員角色 FabricClient 之憑證的篩選值。 |
 |ClientAuthX509StoreName |字串，預設值為 "My" |動態|包含預設管理員角色 FabricClient 之憑證的 X.509 憑證存放區名稱。 |
-|ClusterX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何在以下列 ClusterX509StoreName 支援值所指定的存放區中搜尋叢集憑證："FindByThumbprint"、"FindBySubjectName" 和 "FindBySubjectName"。當有多個相符項目時，會使用到期日最遠者。 |
+|ClusterX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何在下列 ClusterX509StoreName 支援值所指定的存放區中搜尋叢集憑證︰"FindByThumbprint"、"FindBySubjectName" 和 "FindBySubjectName"。當有多個相符項目時，會使用到期日最遠者。 |
 |ClusterX509FindValue |字串，預設值為 "" |動態|搜尋用來找出叢集憑證的篩選值。 |
 |ClusterX509FindValueSecondary |字串，預設值為 "" |動態|搜尋用來找出叢集憑證的篩選值。 |
 |ClusterX509StoreName |字串，預設值為 "My" |動態|包含用來保護叢集間通訊之叢集憑證的 X.509 憑證存放區名稱。 |
 |EndApplicationPortRange |整數，預設值為 0 |靜態|主控子系統所管理之應用程式連接埠的結尾 (不含)。 若主控內的 EndpointFilteringEnabled 為 true，則需要此參數。 |
-|ServerAuthX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何搜尋以下列 ServerAuthX509StoreName 支援值指定之存放區中的伺服器憑證︰FindByThumbprint、FindBySubjectName。 |
+|ServerAuthX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何在下列 ServerAuthX509StoreName 支援值所指定的存放區中搜尋伺服器憑證︰FindByThumbprint、FindBySubjectName。 |
 |ServerAuthX509FindValue |字串，預設值為 "" |動態|搜尋用來找出伺服器憑證的篩選值。 |
 |ServerAuthX509FindValueSecondary |字串，預設值為 "" |動態|搜尋用來找出伺服器憑證的篩選值。 |
 |ServerAuthX509StoreName |字串，預設值為 "My" |動態|包含入場服務之伺服器憑證的 X.509 憑證存放區名稱。 |
 |StartApplicationPortRange |整數，預設值為 0 |靜態|主控子系統所管理之應用程式連接埠的開頭。 若主控內的 EndpointFilteringEnabled 為 true，則需要此參數。 |
 |StateTraceInterval |時間 (秒)，預設值為 300 |靜態|以秒為單位指定時間範圍。 在每個節點追蹤節點狀態以及在 FM/FMM 追蹤執行中節點的間隔。 |
-|UserRoleClientX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何搜尋以下列 UserRoleClientX509StoreName 支援值指定之存放區中的憑證︰FindByThumbprint、FindBySubjectName。 |
+|UserRoleClientX509FindType |字串，預設值為 "FindByThumbprint" |動態|指出如何在下列 UserRoleClientX509StoreName 支援值所指定的存放區中搜尋憑證︰FindByThumbprint、FindBySubjectName。 |
 |UserRoleClientX509FindValue |字串，預設值為 "" |動態|搜尋用來找出預設使用者角色 FabricClient 之憑證的篩選值。 |
 |UserRoleClientX509FindValueSecondary |字串，預設值為 "" |動態|搜尋用來找出預設使用者角色 FabricClient 之憑證的篩選值。 |
 |UserRoleClientX509StoreName |字串，預設值為 "My" |動態|包含預設使用者角色 FabricClient 之憑證的 X.509 憑證存放區名稱。 |
@@ -495,7 +502,7 @@ ms.locfileid: "52497912"
 |PlacementConstraintValidationCacheSize | 整數，預設值為 10000 |動態| 用來進行快速驗證和快取放置條件約束運算式的資料表大小限制。 |
 |PlacementSearchTimeout | 時間 (秒)，預設值為 0.5 |動態| 以秒為單位指定時間範圍。 在放置服務時，至少搜尋這麼長的時間再傳回結果。 |
 |PLBRefreshGap | 時間 (秒)，預設值為 1 |動態| 以秒為單位指定時間範圍。 定義在 PLB 再次重新整理狀態之前，必須經過的時間量下限。 |
-|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2：最佳化、負數︰忽略 |
+|PreferredLocationConstraintPriority | 整數，預設值為 2| 動態|決定慣用位置條件約束的優先順序︰0︰硬式、1︰軟式、2︰最佳化、負數：略過 |
 |PreventTransientOvercommit | 布林值，預設值為 false | 動態|決定 PLB 是否應立即計算所起始之移動將釋放的資源。 根據預設，PLB 可以在相同節點上起始移出和移入，以便能建立暫時性的過量使用。 將此參數設為 true 將會避免這類過量使用，且會停用隨選重組 (也稱為 placementWithMove)。 |
 |ScaleoutCountConstraintPriority | 整數，預設值為 0 |動態| 決定向外擴充計數條件約束的優先順序︰0︰硬式、1︰軟式、負數︰忽略。 |
 |SwapPrimaryThrottlingAssociatedMetric | 字串，預設值為 ""|靜態| 此節流的相關度量名稱。 |
@@ -587,7 +594,7 @@ ms.locfileid: "52497912"
 |CertificateHealthReportingInterval|時間範圍，預設值為 Common::TimeSpan::FromSeconds(3600 * 8)|靜態|以秒為單位指定時間範圍。 指定憑證健康情況報告的間隔，預設為 8 個小時，設定為 0 會停用憑證健康情況報告 |
 |ClientCertThumbprints|字串，預設值為 ""|動態|用戶端用來與叢集通訊的憑證指紋，叢集會使用此指紋來授權連入連線。 這是以逗號分隔的名稱清單。 |
 |ClientClaimAuthEnabled|布林值，預設值為 FALSE|靜態|指出是否在用戶端啟用宣告型驗證，將此參數設定為 true 會隱含設定 ClientRoleEnabled。 |
-|ClientClaims|字串，預設值為 ""|動態|用戶端預期會發出之用來連線至閘道的所有可能宣告。 這是 'OR' 清單：ClaimsEntry\|\| ClaimsEntry \|\|ClaimsEntry ... 每個 ClaimsEntry 都是一個 "AND" 清單：ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
+|ClientClaims|字串，預設值為 ""|動態|用戶端預期會發出之用來連線至閘道的所有可能宣告。 這是 'OR' 清單：ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... 每個 ClaimsEntry 都是一個 "AND" 清單：ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ... |
 |ClientIdentities|字串，預設值為 ""|動態|FabricClient 的 Windows 身分識別，命名閘道會使用此參數來授權連入連線。 它是以逗號分隔的清單，每個項目都是網域帳戶名稱或群組名稱。 為了方便，系統會自動允許執行 fabric.exe 的帳戶，ServiceFabricAllowedUsers 和 ServiceFabricAdministrators 群組也是如此。 |
 |ClientRoleEnabled|布林值，預設值為 FALSE|靜態|指出是否啟用用戶端角色，在設定為 true 時，會根據用戶端的身分識別對其指派角色。 對於 V2，啟用此參數表示不在 AdminClientCommonNames/AdminClientIdentities 內的用戶端只能執行唯讀作業。 |
 |ClusterCertThumbprints|字串，預設值為 ""|動態|允許加入到叢集的憑證指紋，這是以逗號分隔的名稱清單。 |

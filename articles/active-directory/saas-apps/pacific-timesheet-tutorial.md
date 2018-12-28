@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 051e39d0e7a58c79eb00bc3dfb73eaf5389617c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b821da194ce41fc419e769336eeeb5927306684
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448358"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pacific-timesheet"></a>教學課程：Azure Active Directory 與 Pacific Timesheet 整合
 
@@ -112,12 +112,12 @@ Pacific Timesheet 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<InstanceID>.pacifictimesheet.com/timesheet/home.do`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Pacific Timesheet 客戶支援小組](http://www.pacifictimesheet.com/support)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Pacific Timesheet 客戶支援小組](https://www.pacifictimesheet.com/support)以取得這些值。
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -131,7 +131,7 @@ Pacific Timesheet 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/pacific-timesheet-tutorial/tutorial_pacifictimesheet_configure.png) 
 
-1. 若要在 **Pacific Timesheet** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「SAML 單一登入服務 URL」及「SAML 實體識別碼」傳送給 [Pacific Timesheet 支援小組](http://www.pacifictimesheet.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Pacific Timesheet** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「SAML 單一登入服務 URL」及「SAML 實體識別碼」傳送給 [Pacific Timesheet 支援小組](https://www.pacifictimesheet.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -170,7 +170,7 @@ Pacific Timesheet 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-pacific-timesheet-test-user"></a>建立 Pacific Timesheet 測試使用者
 
-在本節中，您要在 Pacific Timesheet 中建立名為 Britta Simon 的使用者。 請與 [Pacific Timesheet 支援小組](http://www.pacifictimesheet.com/support)合作，以在應用程式中建立使用者。
+在本節中，您要在 Pacific Timesheet 中建立名為 Britta Simon 的使用者。 請與 [Pacific Timesheet 支援小組](https://www.pacifictimesheet.com/support)合作，以在應用程式中建立使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

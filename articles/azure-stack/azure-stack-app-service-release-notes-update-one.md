@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: ee6e4397345b4cb169e7e22d951d4c4fdff5b7b7
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078710"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971890"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service on Azure Stack 更新 1 版本資訊
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 這些版本資訊說明 Azure App Service on Azure Stack 更新 1 的增強功能和修正，以及任何已知問題。 已知問題分為直接與部署、更新程序相關的問題，以及組建 (安裝後) 的相關問題。
 
@@ -145,7 +145,7 @@ Get-AzureStackRootCert.ps1 發生錯誤，導致客戶在未安裝 Azure Stack �
 
       # Commit the changes back to NSG
       Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
-      ```
+    ```
 
 2. 在「Azure Stack 系統管理員」入口網站中，瀏覽至 [虛擬機器] 底下的 [CN0-VM]，然後按一下 [連線] 以開啟與控制器執行個體的遠端桌面工作階段。 使用在部署 App Service 期間指定的認證。
 3. **以系統管理員身分啟動 PowerShell**，然後執行下列指令碼
@@ -197,18 +197,20 @@ Get-AzureStackRootCert.ps1 發生錯誤，導致客戶在未安裝 Azure Stack �
         # Commit the changes back to NSG
         Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
     ```
-- 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器。
- 
+
+6. 將應用程式服務部署在現有的虛擬網路中且只能在私人網路上使用檔案伺服器時，背景工作角色無法連線到檔案伺服器。
+
 如果您選擇要部署到現有的虛擬網路並以內部 IP 位址連線到檔案伺服器，便必須新增輸出安全性規則，以啟用背景工作角色子網路與檔案伺服器之間的 SMB 流量。 若要這樣做，請移至管理入口網站中的 WorkersNsg，然後使用下列屬性新增輸出安全性規則：
- * 來源：任何
- * 來源連接埠範圍：*
- * 目的地：IP 位址
- * 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
- * 目的地連接埠範圍：445
- * 通訊協定：TCP
- * 動作：允許
- * 優先順序：700
- * 名稱：Outbound_Allow_SMB445
+
+- 來源：任意
+- 來源連接埠範圍：*
+- 目的地：IP 位址
+- 目的地 IP 位址範圍：檔案伺服器的 IP 範圍
+- 目的地連接埠範圍：445
+- 通訊協定：TCP
+- 動作：允許
+- 優先順序：700
+- 名稱：Outbound_Allow_SMB445
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-app-service-on-azure-stack"></a>雲端管理員操作 Azure App Service on Azure Stack 時的已知問題
 

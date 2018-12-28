@@ -1,28 +1,28 @@
 ---
-title: 在 Azure Active Directory B2C 中設定登入 Azure Active Directory 帳戶的內建原則 | Microsoft Docs
-description: 在 Azure Active Directory B2C 中設定登入 Azure Active Directory 帳戶的內建原則。
+title: 在 Azure Active Directory B2C 中設定 Azure Active Directory 組織的登入 | Microsoft Docs
+description: 在 Azure Active Directory B2C 中設定特定 Azure Active Directory 組織的登入。
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 86e5381096633e58d7a1a28ac94728136273c685
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c48e4696d572b87a4e1553f9d4a2dc9921361388
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312777"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52719907"
 ---
-# <a name="set-up-sign-in-azure-active-directory-accounts-a-built-in-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定登入 Azure Active Directory 帳戶的內建原則
+# <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中設定特定 Azure Active Directory 組織的登入
 
 >[!NOTE]
-> 此功能處於公開預覽狀態。 請勿在生產環境中使用此功能。
+> 這項功能處於公開預覽狀態。 請勿在生產環境中使用這項功能。
 
-此文章說明如何讓特定 Azure Active Directory (Azure AD) 組織中的使用者能夠使用 Azure Active Directory (Azure AD) B2C 中的內建原則登入。
+本文說明如何讓特定 Azure Active Directory (Azure AD) 組織中的使用者能夠使用 Azure Active Directory (Azure AD) B2C 中的使用者流程登入。
 
 ## <a name="create-an-azure-ad-app"></a>建立 Azure AD 應用程式
 

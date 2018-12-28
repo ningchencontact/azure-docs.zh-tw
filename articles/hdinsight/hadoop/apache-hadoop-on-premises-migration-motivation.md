@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 82792414da9df32524e48031089dc18d2dc521cc
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 94dec611a04819580696133c48db66da1ea9c463
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288113"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000440"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>將內部部署 Apache Hadoop 叢集遷移到 Azure HDInsight - 動機和優點
 
@@ -32,7 +32,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 - Apache HBase (英文)
 - R
 
-## <a name="advantages-that-azure-hdinsight-offers-over-on-premises-hadoop"></a>Azure HDInsight 提供勝過內部部署 Hadoop 的優點
+## <a name="azure-hdinsight-advantages-over-on-premises-hadoop"></a>Azure HDInsight 的優勢勝過內部部署 Hadoop
 
 - **低成本** - 可以[依照需求建立群集](../hdinsight-hadoop-create-linux-clusters-adf.md)以降低成本，且只支付您使用的部分。 分離計算和儲存體可以提供更多彈性，因為資料量是獨立於叢集大小之外。
 
@@ -67,7 +67,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 
 - **自我修復程序和元件** - HDInsight 使用自有的監視基礎結構，持續檢查基礎結構和開放原始碼元件。 它也會自動復原重大失敗，例如無法取得開放原始碼元件和節點。 如果任何 OSS 元件失敗，就會在 Ambari 中觸發警示。
 
-如需詳細資訊，請參閱[什麼是 Azure HDInsight 和 Hadoop 技術堆疊](../hadoop/apache-hadoop-introduction.md)一文。
+如需詳細資訊，請參閱[什麼是 Azure HDInsight 和 Apache Hadoop 技術堆疊](../hadoop/apache-hadoop-introduction.md)一文。
 
 ## <a name="migration-planning-process"></a>移轉規劃程序
 
@@ -153,7 +153,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 |平均記憶體使用量 %|75%||
 |磁碟空間使用量|75%||
 |平均網路使用量 %|25%
-|**主題**：**員工**|||
+|**主題**：**人員**|||
 |否。 系統管理員數目|2||
 |否。 開發人員數目|10||
 |否。 使用者數目|100||
@@ -165,20 +165,20 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 需求問卷
 
-|**主題**：**基礎結構** |||
+|**主題**：基礎結構 |||
 |---|---|---|
 |**問題**|**範例**|**回答**|
 | 慣用區域|美國東部||
 |是否慣用 VNet？|是||
 |是否需要 HA / DR？|是||
 |是否與其他雲端服務整合？|ADF、CosmosDB||
-|**主題**：**資料移動**  |||
+|**主題**： **資料移動**  |||
 |初始載入喜好設定|DistCp、Data box、ADF、WANDisco||
 |資料傳輸差異|DistCp、AzCopy||
 |持續增量的資料傳輸|DistCp、Sqoop||
-|**主題**：**監視與警示** |||
+|**主題**： **監視與警示** |||
 |使用 Azure 監視器與警示或整合協力廠商監視|使用 Azure 監視器與警示||
-|**主題**：**安全性喜好設定** |||
+|**主題**： **安全性喜好設定** |||
 |私人且受保護的資料管線？|是||
 |是否使用網域加入叢集 (ESP)？|     是||
 |是否將內部部署 AD 同步處理至雲端？|     是||
@@ -191,7 +191,7 @@ Azure HDInsight 是  [Hortonworks Data Platform (HDP)](https://hortonworks.com/
 |是否需要稽核？|                  是||
 |是否使用待用資料加密？|          是||
 |是否使用傳輸中資料加密？|       是||
-|**主題**：**架構重新設計喜好設定** |||
+|**主題**： **架構重新設計喜好設定** |||
 |單一叢集或特定叢集類型|特定叢集類型||
 |共置儲存體或遠端儲存體？|遠端儲存體||
 |是否因資料儲存在遠端，所以叢集大小較小？|較小的叢集大小||

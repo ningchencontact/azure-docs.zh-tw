@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：加入混合式 Azure AD 後置設定工作 |Microsoft Docs
+title: Azure AD Connect：加入混合式 Azure AD 後置設定工作 | Microsoft Docs
 description: 此文件詳盡說明要完成加入混合式 Azure AD 所需的後置設定工作
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2306c03480956a63859355428cbffe0706f43cbc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46306637"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999240"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>加入混合式 Azure AD 的後置設定工作
 
@@ -69,7 +69,7 @@ ms.locfileid: "46306637"
 若要註冊舊版 Windows 裝置，您必須確定 Azure AD 原則允許使用者註冊裝置。 
 
 * 在 Azure 入口網站中登入您的帳戶。
-* 移至：[Azure Active Directory] > [裝置] > [裝置設定]
+* 請移至：[Azure Active Directory] > [裝置] > [裝置設定]
 * 將 [使用者可以向 Azure AD 註冊其裝置] 設定為 [全部]。
 * 按一下 [Save] \(儲存)。
 
@@ -77,7 +77,7 @@ ms.locfileid: "46306637"
 
 將 Azure AD 裝置驗證端點新增至您舊版 Windows 裝置上的近端內部網路區域，以避免在驗證裝置時出現憑證提示： https://device.login.microsoftonline.com 
 
-如果您使用[無縫式 SSO](https://aka.ms/hybrid/sso)，也請在該區域上啟用 [允許透過指令碼進行狀態列更新]，並新增下列端點： https://autologon.microsoftazuread-sso.com 
+如果您使用[無縫式 SSO](how-to-connect-sso.md)，也請在該區域上啟用 [允許透過指令碼進行狀態列更新]，並新增下列端點： https://autologon.microsoftazuread-sso.com 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9.在舊版的 Windows 裝置上安裝 Microsoft Workplace Join
 

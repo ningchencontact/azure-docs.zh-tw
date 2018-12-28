@@ -14,12 +14,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: cb36c6fea20f5976f159780f3482d9aae669f951
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 40a7552ffd0bfcab173d2e35c52313a94ec3d0bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817951"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960323"
 ---
 # <a name="add-push-notifications-to-your-apache-cordova-app"></a>新增推播通知至您的 Apache Cordova 應用程式
 
@@ -240,11 +240,11 @@ pushRegistration = PushNotification.init({
 
 您現在可以執行應用程式，在 TodoItem 資料表中插入項目，以測試推播通知。 只要是使用相同的後端，您可以從相同的裝置或第二部裝置來測試。 以下列方法之一在 Android 平台上測試 Cordova 應用程式︰
 
-* *在實體裝置上︰* 使用 USB 纜線將 Android 裝置連接至開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
+* *實體裝置︰* 使用 USB 纜線將 Android 裝置連接到開發電腦。  請選取 [裝置]，不要選取 [Google Android 模擬器]。 Visual Studio 會將應用程式部署至裝置，並執行應用程式。 您接著可以在裝置上與應用程式互動。
 
   [Mobizen][20] 等螢幕畫面分享應用程式可協助您開發 Android 應用程式。 Mobizen 會將您的 Android 畫面投射至電腦上的網頁瀏覽器。
 
-* *在 Android 模擬器上︰* 使用模擬器時，還需要其他設定步驟。
+* *在 Android 模擬器上：* 使用模擬器時，還需要其他設定步驟。
 
     請確定您是部署至已將 Google API 設為目標的虛擬裝置，如 Android 虛擬裝置 (AVD) 管理員中所示。
 
@@ -279,7 +279,7 @@ pushRegistration = PushNotification.init({
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="https://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 ```
 
@@ -377,7 +377,7 @@ pushRegistration = PushNotification.init({
 
 確認在加入項目時收到通知。
 
-## <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>接續步驟
 
 * 請參閱[通知中樞][17]，以了解推播通知的相關資訊。
 * 繼續教學課程，在 Apache Cordova 應用程式中[新增驗證][14] (如果尚未這麼做)。
@@ -393,17 +393,17 @@ pushRegistration = PushNotification.init({
 
 <!-- URLs -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: http://www.visualstudio.com/
+[2]: https://www.visualstudio.com/
 [3]: https://azure.microsoft.com/pricing/free-trial/
 [4]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [5]: app-service-mobile-cordova-get-started.md
-[6]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+[6]: https://go.microsoft.com/fwlink/p/?LinkId=268302
 [7]: https://developer.apple.com/programs/
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
 [11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
-[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
+[12]: https://taco.visualstudio.com/en-us/docs/ios-guide/
 [13]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push
 [14]: app-service-mobile-cordova-get-started-users.md
 [15]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -412,4 +412,4 @@ pushRegistration = PushNotification.init({
 [18]: https://console.developers.google.com/home/dashboard
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
-[21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
+[21]: https://taco.visualstudio.com/en-us/docs/build_ios_cloud/

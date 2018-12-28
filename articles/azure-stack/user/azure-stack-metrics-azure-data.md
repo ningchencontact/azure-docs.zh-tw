@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b0cf2d7856a78bbe2aa531c6e872168e8e33b06a
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 45c06afd0d298c467d8f0a3a42b68bf1948c6ed3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021806"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726741"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure 監視器
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合系統*
 
 本文提供 Azure Stack 中 Azure 監視器服務的概觀。 文中會討論 Azure 監視器的作業，以及關於如何在 Azure Stack 上使用 Azure 監視器的其他資訊。 
 

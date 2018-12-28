@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b16ac10e10655bbc7e41d9336378228097ca19ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014715"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724429"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C：設定密碼複雜度需求
 
@@ -26,22 +26,21 @@ Azure Active Directory B2C (Azure AD B2C) 支援的變更密碼複雜度需求�
 
 ## <a name="when-password-rules-are-enforced"></a>當強制執行密碼規則時
 
-在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。  會依每個原則強制執行密碼複雜度規則。  可能在註冊期間一個原則會需要四位數的 PIN，同時另一個原則在註冊期間會需要八個字元字串。  例如，您可能會針對成人的原則與針對兒童的原則使用不同的密碼複雜度。
+在註冊期間或密碼重設期間，使用者必須提供符合複雜度規則的密碼。  依每個使用者流程強制執行密碼複雜度規則。  可能在註冊期間一個使用者流程會需要四位數的 PIN，同時另一個使用者流程在註冊期間會需要八個字元字串。  例如，您可能會針對成人的使用者流程與針對兒童的原則使用不同的密碼複雜度。
 
 登入期間一律不會強制要求密碼複雜度。  系統一律不會在登入時提示使用者變更其密碼，因為它不符合目前的複雜度需求。
 
-以下是可設定密碼複雜度的原則類型：
+以下是可設定密碼複雜度的使用者流程類型：
 
-* 註冊或登入原則
-* 密碼重設原則
+* 註冊或登入使用者流程
+* 密碼重設使用者流程
 * 自訂原則 ([在自訂原則中設定密碼複雜度](active-directory-b2c-reference-password-complexity-custom.md))
 
 ## <a name="how-to-configure-password-complexity"></a>如何設定密碼複雜度
 
-1. 開啟 [註冊或登入原則]。
-2. 選取原則，然後按一下 [編輯]。
-3. 開啟 [密碼複雜度]。
-4. 將這個原則的密碼複雜度變更為 [簡單]、[強式] 或 [自訂]。
+1. 開啟 [使用者流程]。
+2. 選取一個使用者流程，然後按一下 [屬性]。
+3. 在 [密碼複雜度] 之下，將這個使用者流程的密碼複雜度變更為 [簡單]、[強式] 或 [自訂]。
 
 ### <a name="comparison-chart"></a>比較圖表
 

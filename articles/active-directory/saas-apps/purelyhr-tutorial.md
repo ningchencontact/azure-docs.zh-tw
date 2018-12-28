@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: c02dc274c5d22c16b2bda6d7896ee64c41d6e2ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 88388be1a0687c3e56fd39dde2f70e40cf578f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438989"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purelyhr"></a>教學課程：Azure Active Directory 與 PurelyHR 整合
 
@@ -121,7 +121,7 @@ PurelyHR 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://<companyID>.purelyhr.com/sso-initiate`
      
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [PurelyHR 用戶端支援小組](http://support.purelyhr.com/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的回覆 URL 與登入 URL 更新這些值。 請連絡 [PurelyHR 用戶端支援小組](https://support.purelyhr.com/)以取得這些值。 
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 

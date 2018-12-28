@@ -10,16 +10,16 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129123"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967992"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>翻譯工具文字 API 3.0：字典範例
 
-提供範例以說明字典中的字詞在內容中的使用方式。 此作業會與[字典查閱](.\v3-0-dictionary-lookup.md)搭配使用。
+提供範例以說明字典中的字詞在內容中的使用方式。 此作業會與[字典查閱](./v3-0-dictionary-lookup.md)搭配使用。
 
 ## <a name="request-url"></a>要求 URL
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
   </tr>
   <tr>
     <td>from</td>
-    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](.\v3-0-languages.md)之一。</td>
+    <td>必要參數。<br/>指定輸入文字的語言。 來源語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](.\v3-0-languages.md)之一。</td>
+    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `dictionary` 範圍內包含的[支援語言](./v3-0-languages.md)之一。</td>
   </tr>
 </table>
 
@@ -77,9 +77,9 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 要求的本文是 JSON 陣列。 每個陣列元素都是具有下列屬性的 JSON 物件：
 
-  * `Text`：一個字串，指定要查閱的字詞。 此屬性應為先前[字典查閱](.\v3-0-dictionary-lookup.md)要求的反向翻譯中的 `normalizedText` 欄位值。 它也可以是 `normalizedSource` 欄位的值。
+  * `Text`：一個字串，指定要查閱的字詞。 此屬性應為先前[字典查閱](./v3-0-dictionary-lookup.md)要求的反向翻譯中的 `normalizedText` 欄位值。 它也可以是 `normalizedSource` 欄位的值。
 
-  * `Translation`：一個字串，指定[字典查閱](.\v3-0-dictionary-lookup.md)作業先前傳回的翻譯文字。 此屬性應為[字典查閱](.\v3-0-dictionary-lookup.md)回應的 `translations` 清單中包含的 `normalizedTarget` 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
+  * `Translation`：一個字串，指定[字典查閱](./v3-0-dictionary-lookup.md)作業先前傳回的翻譯文字。 此屬性應為[字典查閱](./v3-0-dictionary-lookup.md)回應的 `translations` 清單中包含的 `normalizedTarget` 欄位值。 服務會傳回特定的來源-目標字組配對的範例。
 
 範例如下：
 
@@ -102,7 +102,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
     
   * `normalizedTarget`：一個字串，指定目標字詞的標準化形式。 一般而言，此屬性應等同於要求本文中位於相符清單索引上的 `Translation` 欄位值。
   
-  * `examples`：(來源字詞、目標字詞) 配對的範例清單。 清單的每個元素是具有下列屬性的物件：
+  * `examples`：(來源字詞、目標字詞) 配對的範例清單。 清單的每個項目是具有下列屬性的物件：
 
     * `sourcePrefix`：要在 `sourceTerm` 的值之前串連以形成完整範例的字串。 請勿加入空格字元，因為此字元會在必要時自動加入。 此值可以是空字串。
 

@@ -18,14 +18,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 7a3c3e39792119d296c849c012d4798ec85a0e03
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687345"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845468"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>操作說明：使用 Azure AD Graph API
+# <a name="how-to-use-the-azure-ad-graph-api"></a>作法：使用 Azure AD Graph API
 
 Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，以程式設計方式存取 Azure AD。 應用程式可以使用 Azure AD 圖形 API 來執行有關目錄資料和物件的建立、讀取、更新及刪除 (CRUD) 作業。 例如，您可以使用 Azure AD Graph API 來建立新的使用者、檢視或更新使用者的屬性、變更使用者的密碼、檢查群組成員資格以進行角色型存取、停用或刪除使用者。 如需有關 Azure AD Graph API 功能和應用程式案例的詳細資訊，請參閱 [Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 和 [Azure AD Graph API 先決條件](https://msdn.microsoft.com/library/hh974476.aspx)。
 
@@ -66,7 +66,7 @@ Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，�
 
 ![Azure AD Graph API 總管](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
-**載入 Azure AD Graph 總管**：若要載入此工具，請瀏覽至 [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)。 按一下 [登入]，然後使用 Azure AD 帳戶認證來登入，以針對您的租用戶執行「Azure AD Graph 總管」。 如果您針對自己的租用戶執行「Azure AD Graph 總管」，則您或系統管理員將必須在登入期間表示同意。 如果您擁有 Office 365 訂用帳戶，就會自動擁有 Azure AD 租用戶。 事實上，您用來登入 Office 365 的認證就是 Azure AD 帳戶，而您可以將這些認證與「Azure AD Graph 總管」搭配使用。
+**載入 Azure AD Graph 總管**：若要載入工具，請瀏覽至 [https://graphexplorer.azurewebsites.net/](https://graphexplorer.azurewebsites.net/)。 按一下 [登入]，然後使用 Azure AD 帳戶認證來登入，以針對您的租用戶執行「Azure AD Graph 總管」。 如果您針對自己的租用戶執行「Azure AD Graph 總管」，則您或系統管理員將必須在登入期間表示同意。 如果您擁有 Office 365 訂用帳戶，就會自動擁有 Azure AD 租用戶。 事實上，您用來登入 Office 365 的認證就是 Azure AD 帳戶，而您可以將這些認證與「Azure AD Graph 總管」搭配使用。
 
 **執行查詢**：若要執行查詢，可在要求文字方塊中輸入查詢，然後按一下 [GET] 或 **Enter** 鍵。 結果即會顯示於回應方塊中。 例如，`https://graph.windows.net/myorganization/groups?api-version=1.6` 會列出登入使用者之目錄中的所有群組物件。
 
@@ -82,13 +82,13 @@ Azure Active Directory (Azure AD) Graph API 是透過 OData REST API 端點，�
 
 ## <a name="using-fiddler-to-write-to-the-directory"></a>使用 Fiddler 寫入目錄
 
-基於本快速入門指南的目的，您可以使用「Fiddler Web 偵錯工具」，練習對 Azure AD 目錄執行「寫入」作業。 例如，您可以取得及上傳使用者的設定檔相片 (使用「Azure AD Graph 總管」時無法這麼做)。 如需詳細資訊及了解如何安裝 Fiddler，請參閱 [http://www.telerik.com/fiddler](http://www.telerik.com/fiddler) \(英文\)。
+基於本快速入門指南的目的，您可以使用「Fiddler Web 偵錯工具」，練習對 Azure AD 目錄執行「寫入」作業。 例如，您可以取得及上傳使用者的設定檔相片 (使用「Azure AD Graph 總管」時無法這麼做)。 如需詳細資訊及了解如何安裝 Fiddler，請參閱 [https://www.telerik.com/fiddler](https://www.telerik.com/fiddler) \(英文\)。
 
 在下列範例中，您將使用「Fiddler Web 偵錯工具」，在 Azure AD 目錄中建立新的安全性群組 ‘MyTestGroup’。
 
 **取得存取權杖**：若要存取 Azure AD Graph，用戶端必須先順利通過 Azure AD 的驗證。 如需詳細資訊，請參閱 [Azure AD 的驗證案例](authentication-scenarios.md)。
 
-**撰寫和執行查詢**：請完成下列步驟：
+**撰寫和執行查詢**：完成下列步驟：
 
 1. 開啟 Fiddler Web 偵錯工具，然後切換到 [編輯器]  索引標籤。
 2. 由於您想要建立新的安全性群組，因此，請從下拉式功能表中選取 [Post]  做為 HTTP 方法。 如需有關群組物件的作業與權限詳細資訊，請參閱 [Azure AD Graph REST API 參考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)內的[群組](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity)。

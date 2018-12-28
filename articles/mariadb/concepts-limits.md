@@ -7,19 +7,19 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: ac05a2dcee3adaa93d31e28e5597a788c0159ddd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 4fb774341b19034d3905341a99be2114a0d1e18b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955430"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835704"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫相關限制
-適用於 MariaDB 的 Azure 資料庫服務目前為公開預覽狀態。 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。
+下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。
 
 ## <a name="maximum-connections"></a>最大連線數
-預覽期間，每個定價層和 vCores 的連線數目上限如下所示：
+每個定價層和 vCores 的連線數目上限如下所示：
 
 |定價層|**vCore(s)**| **連線數目上限**|
 |---|---|---|
@@ -36,7 +36,7 @@ ms.locfileid: "46955430"
 |記憶體最佳化| 16| 5000|
 
 當連線超過限制時，則可能會收到下列錯誤：
-> 錯誤 1040 (08004)：太多的連接
+> 錯誤 1040 (08004)：太多連線
 
 ## <a name="storage-engine-support"></a>儲存引擎支援
 

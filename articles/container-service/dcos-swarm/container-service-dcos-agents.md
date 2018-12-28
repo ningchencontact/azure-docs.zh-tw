@@ -1,5 +1,5 @@
 ---
-title: Azure Container Service 的 DC/OS 代理程式集區
+title: (已淘汰) Azure Container Service 的 DC/OS 代理程式集區
 description: 公用和私用代理程式集區如何與 Azure Container Service DC/OS 叢集搭配運作
 services: container-service
 author: iainfoulds
@@ -9,14 +9,17 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9c614d18b96c182fa166a4bc43fb1bb2f8d5d6f5
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: ee1a2a75d6a003a6bc53c5216dd01d379193ea77
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976721"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994944"
 ---
-# <a name="dcos-agent-pools-for-azure-container-service"></a>Azure Container Service 的 DC/OS 代理程式集區
+# <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(已淘汰) Azure Container Service 的 DC/OS 代理程式集區
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
+
 Azure Container Service 中的 DC/OS 叢集包含兩個集區中的代理程式節點，即公用集區和私用集區。 您可以將應用程式部署到其中任一集區，以影響容器服務中電腦之間的存取性。 電腦可以公開至網際網路 (公用) 或保留在內部 (私用)。 本文簡短概述為什麼會有公用集區和私用集區。
 
 

@@ -8,13 +8,13 @@ keywords: 備份和災害復原; 備份服務
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.author: saurse;trinadhk
-ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: trinadhk
+ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239828"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726537"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>關於 Azure 備份代理程式的問題
 本文包含常見問題的解答，可協助您快速了解 Azure 備份代理程式元件。 在某些答案中，有具有完整資訊的文章連結。 您也可以在 [論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup)中張貼有關 Azure 備份服務的問題。
@@ -46,7 +46,7 @@ ms.locfileid: "51239828"
 * 永久連結：不支援並略過
 * 重新分析點：不支援並略過
 * 已加密 + 疏鬆：不支援並略過
-* 已壓縮資料流：不支援並略過
+* 壓縮資料流：不支援並略過
 * 疏鬆資料流：不支援並略過
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>我可以在已由 Azure 備份服務所備份的 Azure VM 上使用 VM 擴充功能來安裝 Azure 備份代理程式嗎？ <br/>
@@ -95,7 +95,7 @@ ms.locfileid: "51239828"
 快取資料夾不建議使用下列位置︰
 
 * 網路共用或卸除式媒體︰快取資料夾必須是在需要使用線上備份進行備份之伺服器的本機位置。 不支援網路位置或卸除式媒體，例如 USB 磁碟機
-* 離線磁碟區︰快取資料夾必須在線上才能使用 Azure 備份代理程式進行預期的備份
+* 離線磁碟區：快取資料夾必須在線上才能使用 Azure 備份代理程式進行預期的備份
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>快取資料夾是否有任何不受支援的屬性？<br/>
 快取資料夾不支援下列屬性或其組合︰

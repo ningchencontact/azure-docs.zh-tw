@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 來管理處理序伺服器以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原 | Microsoft Docs
-description: 此文章說明如何使用 Azure Site Recovery 來管理處理序伺服器的設定，以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
+description: 本文說明如何使用 Azure Site Recovery 來管理處理序伺服器的設定，以便進行從 VMware VM 和實體伺服器至 Azure 的災害復原。
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 180d84f40f3d439419f9667b246b8c4b5c69814a
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 05e77821ffe913a8c6669d58a3145635d230ff2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974183"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846992"
 ---
 # <a name="manage-process-servers"></a>管理處理序伺服器
 
@@ -21,7 +21,7 @@ ms.locfileid: "51974183"
 - 針對大型部署，您可能需要額外的內部部署處理序伺服器才能調整容量。
 - 針對容錯回復，您需要在 Azure 中設定臨時處理序伺服器。 容錯回復完成後，您可以刪除此 VM。 
 
-此文章摘要說明這些額外處理序伺服器的一般管理工作。
+本文摘要說明這些額外處理序伺服器的一般管理工作。
 
 ## <a name="upgrade-a-process-server"></a>升級處理序伺服器
 

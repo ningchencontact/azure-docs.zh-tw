@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f5695e52528c3384c46c49c5c5ec2e451bd0be7c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155978"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998083"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 的 Kubernetes 核心概念
 
@@ -28,7 +28,7 @@ Kubernetes 是一個快速發展中的平台，可管理容器型應用程式及
 
 Kubernetes 屬於開放式平台，可讓您使用慣用的程式設計語言、作業系統、程式庫或訊息匯流排來建置您的應用程式。 現有的持續整合與持續傳遞 (CI/CD) 工具可與 Kubernetes 整合，以排程及部署發行。
 
-Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 以開放原始碼 Azure Container Service 引擎 (acs-engine) 作為建置基礎。
+Azure Kubernetes Service (AKS) 提供受控 Kubernetes 服務，可降低部署和核心管理工作的複雜度，包括協調升級。 AKS 叢集主機由 Azure 平台所管理，且您只需針對執行應用程式的 AKS 節點付費。 AKS 以開放原始碼 Azure Kubernetes Service 引擎 (aks-engine) 作為建置基礎。
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 叢集架構
 
@@ -54,7 +54,7 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 此叢集主機受到管理，這表示您不需要設定高可用性 *etcd* 存放區這類的元件，但也意味著您無法直接存取叢集主機。 Kubernetes 的升級可透過 Azure CLI 或 Azure 入口網站來協調，其程序會先升級叢集主機，再升級節點。 若要對可能的問題進行疑難排解，您可以透過 Azure Log Analytics 檢閱叢集主機記錄。
 
-如果您需要以特定方式設定叢集主機，或需要直接加以存取，您可以使用 [acs-engine][acs-engine] 自行部署 Kubernetes 叢集。
+如果您需要以特定方式設定叢集主機，或需要直接加以存取，您可以使用 [aks-engine][aks-engine] 自行部署 Kubernetes 叢集。
 
 ## <a name="nodes-and-node-pools"></a>節點和節點集區
 
@@ -70,7 +70,7 @@ AKS 提供具有專用 API 伺服器、排程器等項目的單一租用戶叢�
 
 在 AKS 中，您的叢集中各個節點的 VM 映像目前均以 Ubuntu Linux 為基礎。 當您建立 AKS 叢集或相應增加節點數目時，Azure 平台即會依據您要求的數目建立 VM，並加以設定。 沒有手動設定可供執行。
 
-如果您需要使用不同的主機 OS、容器執行階段或要納入自訂套件，您可以使用 [acs-engine][acs-engine] 自行部署 Kubernetes 叢集。 上游 `acs-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用 Docker 以外的 Windows 容器或容器執行階段，您可以使用 `acs-engine` 設定及部署 Kubernetes 叢集，以符合您目前的需求。
+如果您需要使用不同的主機 OS、容器執行階段或要納入自訂套件，您可以使用 [aks-engine][aks-engine] 自行部署 Kubernetes 叢集。 上游 `aks-engine` 會在功能於 AKS 叢集中正式受到支援之前發行這些功能，並提供設定選項。 例如，如果您想要使用 Docker 以外的 Windows 容器或容器執行階段，您可以使用 `aks-engine` 設定及部署 Kubernetes 叢集，以符合您目前的需求。
 
 ### <a name="resource-reservations"></a>資源保留
 
@@ -218,7 +218,7 @@ Kubernetes 資源 (例如 Pod 和部署) 會依邏輯分組到*命名空間*中�
 - [Kubernetes / AKS 調整][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [kubernetes-pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod-overview/
 [kubernetes-pod-lifecycle]: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/
 [kubernetes-deployments]: https://kubernetes.io/docs/concepts/workloads/controllers/deployment/

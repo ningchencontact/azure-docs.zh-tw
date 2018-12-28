@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456485"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957686"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>將 Azure 中的行動服務自動更新至 Azure 複寫
 
@@ -66,11 +66,11 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 
 1. 如果有新的更新可用於 Azure VM 上安裝的行動服務，您會看到一則通知上寫著「有新的 Site Recovery 複寫代理程式更新可用。 按一下以安裝」的通知。
 
-     ![[複寫的項目] 視窗](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 3. 選取該通知以開啟虛擬機器選取頁面。
 4. 選取要升級行動服務的虛擬機器，然後選取 [確定]。
 
-     ![複寫的項目 VM 清單](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 「更新行動服務」會針對每個選取的虛擬機器啟動作業。
 
@@ -81,7 +81,7 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 
 如果您嘗試啟用自動更新而失敗，請參閱下方項目以進行疑難排解。
 
-**錯誤**：您沒有權限，無法建立 Azure 執行身分帳戶 (服務主體) 以及將參與者角色授與服務主體。 
+**錯誤**：您無權建立 Azure 執行身分帳戶 (服務主體)，也無權將參與者角色授與服務主體。 
 - 建議的動作：確定登入的帳戶獲得指派「參與者」，然後再次嘗試作業。 如需指派正確權限的進一步資訊，請參閱[本](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)文件。
  
 一旦開啟自動更新，只需要按一下 [修復] 按鈕，大部分的問題都可以由 Site Recovery 服務修復。
@@ -92,8 +92,8 @@ FREE UNITS INCLUDED (PER MONTH)**   PRICE Job run time    500 minutes ₹0.14/mi
 
  - **錯誤**：執行身分帳戶沒有存取復原服務資源的權限。
 
-    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)，或確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
+    **建議的動作：** 刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)，或確定自動化執行身分帳戶的 Azure Active Directory 應用程式具有復原服務資源的存取權。
 
 - **錯誤**：找不到執行身分帳戶。 下列其中一個項目已刪除或未建立：Azure Active Directory 應用程式、服務主體、角色、自動化憑證資產、自動化連線資產，或憑證與連線之間的指紋不相同。 
 
-    **建議的動作**：刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。
+    **建議的動作：** 刪除然後[重新建立執行身分帳戶](https://docs.microsoft.com/azure/automation/automation-create-runas-account)。

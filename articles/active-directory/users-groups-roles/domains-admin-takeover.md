@@ -14,12 +14,12 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 857d58d31565e413a207162202f1a680d7da7c65
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c07b87d88b884b22f44fe108bb28877cb30f973e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250728"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837166"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>如何以系統管理員身分接管 Azure Active Directory 中非受控目錄
 本文說明接管 Azure Active Directory (Azure AD) 之非受控目錄中 DNS 網域名稱的兩種方式。 當自助使用者註冊使用 Azure AD 的雲端服務時，系統會根據其電子郵件網域將其新增至非受控 Azure AD 目錄。 如需有關自助式或「病毒式」服務註冊的詳細資訊，請參閱[什麼是自助式 Azure Active Directory 註冊？](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-signup)
@@ -108,7 +108,11 @@ ms.locfileid: "50250728"
 
 當非受控租用戶位於不同的區域時，金鑰和範本並不會移動。 例如，非受控租用戶位於歐洲，而您擁有的租用戶位於北美洲。 
 
-雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者是使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本未移動，則在網域接管之後將無法存取該內容。    
+雖然個人版 RMS 是針對支援 Azure AD 驗證來開啟受保護內容所設計，但它並不會阻止使用者同時保護內容。 如果使用者是使用個人版 RMS 訂用帳戶來保護內容，且金鑰和範本未移動，則在網域接管之後將無法存取該內容。
+
+#### <a name="more-information-about-power-bi"></a>Power BI 的詳細資訊
+
+當您執行外部接管時，接管前所建立的 Power BI 內容會置於 [Power BI 封存工作區](/power-bi/service-admin-power-bi-archived-workspace)中。 您必須手動遷移您要使用於新租用戶中的任何內容。
 
 ### <a name="azure-ad-powershell-cmdlets-for-the-forcetakeover-option"></a>Azure AD 的 ForceTakeover 選項 PowerShell Cmdlet
 您可以在 [PowerShell 範例](#powershell-example)中看到使用這些 Cmdlet。

@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 81608dd7281ceddce7e0701535ad99e1c9e44315
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: d96b4a99b2ea66cdeff43f06c1789dd133c2c31a
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142715"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723001"
 ---
 # <a name="configure-application-insights-profiler"></a>設定 Application Insights Profiler
 
@@ -89,7 +88,7 @@ ms.locfileid: "50142715"
 1. 移至 [應用程式服務應用程式設定]，並檢查是否已設定下列設定：
     * **APPINSIGHTS_INSTRUMENTATIONKEY**：取代為 Application Insights 的適當檢測金鑰。
     * **APPINSIGHTS_PORTALINFO**：ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0 如果未設定這些設定，請移至 Application Insights 啟用窗格，來安裝最新的網站延伸模組。
+    * **APPINSIGHTS_PROFILERFEATURE_VERSION**：1.0.0 如果未設定這些設定，請移至 Application Insights 啟用窗格來安裝最新的網站擴充功能。
 
 1. 請移至應用程式服務入口網站中的 Application Insights 窗格。
 

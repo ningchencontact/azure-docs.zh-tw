@@ -8,14 +8,15 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0ed05cab774360c4165e89399ba16f7443debb85
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165152"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970700"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密
+
 Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和合規性承諾。 Azure 儲存體平台保護您資料的其中一種方式，就是透過「儲存體服務加密」(SSE)，它會在將資料寫入至儲存體時加密資料，並在擷取資料時將資料解密。 加密和解密會自動在背景中執行，並且使用 256 位元 [AES 加密](https://wikipedia.org/wiki/Advanced_Encryption_Standard) (可用的最強大區塊編碼器之一)。
 
 您可以搭配 SSE 使用 Microsoft 管理的加密金鑰，或使用自己的加密金鑰。 本文說明如何使用您自己的加密金鑰。 如需有關使用 Microsoft 管理金鑰的詳細資訊，或有關 SSE 的一般資訊，請參閱[待用資料的儲存體服務加密](storage-service-encryption.md)。
@@ -28,23 +29,33 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 為什麼要建立您自己的金鑰？ 自訂金鑰可賦予您更大的彈性，讓您能夠建立、輪替、停用及定義存取控制。 自訂金鑰也可讓您稽核用來保護資料的加密金鑰。
 
 ## <a name="get-started-with-customer-managed-keys"></a>開始使用客戶管理的金鑰
-若要搭配 SSE 使用客戶管理的金鑰，您可以建立新的金鑰保存庫與金鑰，或是使用現有金鑰保存庫與金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。 
+
+若要搭配 SSE 使用客戶管理的金鑰，您可以建立新的金鑰保存庫與金鑰，或是使用現有金鑰保存庫與金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。
 
 ### <a name="step-1-create-a-storage-account"></a>步驟 1：建立儲存體帳戶
+
 如果您還沒有儲存體帳戶，請先建立一個帳戶。 如需詳細資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>步驟 2：為 Blob 和檔案儲存體啟用 SSE
+
 若要啟用使用客戶管理金鑰的 SSE，必須一併在 Azure Key Vault 中啟用兩個金鑰保護功能，即「虛刪除」和「不要清除」。 這些設定可確保金鑰無法被意外或蓄意刪除。 金鑰的最長保留期是設定為 90 天，可保護使用者不受惡意執行者或勒索軟體攻擊。
 
 如果您想要以程式設計方式針對 SSE 啟用客戶管理的金鑰，您可以使用 [Azure 儲存體資源提供者 REST API](https://docs.microsoft.com/rest/api/storagerp) \(英文\)、[適用於 .NET 的儲存體資源提供者用戶端程式庫](https://docs.microsoft.com/dotnet/api)、[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 或 [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli)。
 
-若是搭配 SSE 使用客戶管理的金鑰，您必須為儲存體帳戶指派一個儲存體帳戶身分識別。 您可以執行下列 PowerShell 命令來設定身分識別：
+若是搭配 SSE 使用客戶管理的金鑰，您必須為儲存體帳戶指派一個儲存體帳戶身分識別。 您可以執行下列 PowerShell 或 Azure CLI 命令來設定身分識別：
 
 ```powershell
 Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
-您可以執行下列 PowerShell 命令來啟用「虛刪除」和「不要清除」：
+```azurecli-interactive
+az storage account \
+    --account-name <account_name> \
+    --resource-group <resource_group> \
+    --assign-identity
+```
+
+您可以執行下列 PowerShell 或 Azure CLI 命令來啟用「虛刪除」和「不要清除」：
 
 ```powershell
 ($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
@@ -62,31 +73,44 @@ Set-AzureRmResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
+```azurecli-interactive
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enableSoftDelete=true
+
+az resource update \
+    --id $(az keyvault show --name <vault_name> -o tsv | awk '{print $1}') \
+    --set properties.enablePurgeProtection=true
+```
+
 ### <a name="step-3-enable-encryption-with-customer-managed-keys"></a>步驟 3：使用客戶管理的金鑰來啟用加密
+
 SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口網站](https://portal.azure.com/)來啟用搭配客戶管理金鑰的 SSE。 在儲存體帳戶的 [設定] 刀鋒視窗上，按一下 [加密]。 選取 [使用您自己的金鑰] 選項，如下圖所示。
 
 ![入口網站螢幕擷取畫面顯示 [加密] 選項](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
 
 ### <a name="step-4-select-your-key"></a>步驟 4：選取您的金鑰
+
 您可以採用 URI 形式來指定您的金鑰，或從金鑰保存庫中選取金鑰。
 
 #### <a name="specify-a-key-as-a-uri"></a>以 URI 形式指定金鑰
+
 若要從 URI 指定金鑰，請依照下列步驟進行操作：
 
-1. 選擇 [輸入金鑰 URI] 選項。  
+1. 選擇 [輸入金鑰 URI] 選項。
 2. 在 [金鑰 URI] 欄位中，指定 URI。
 
-    ![顯示 [透過輸入金鑰 URI 來加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
+   ![顯示 [透過輸入金鑰 URI 來加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
+#### <a name="specify-a-key-from-a-key-vault"></a>從金鑰保存庫指定金鑰
 
-#### <a name="specify-a-key-from-a-key-vault"></a>從金鑰保存庫指定金鑰 
 若要從金鑰保存庫指定您的金鑰，請依照下列步驟進行操作：
 
-1. 選擇 [從 Key Vault 選取] 選項。  
+1. 選擇 [從 Key Vault 選取] 選項。
 2. 選擇包含您想要使用之金鑰的金鑰保存庫。
 3. 從金鑰保存庫選擇金鑰。
 
-    ![顯示 [使用您自己的金鑰加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
+   ![顯示 [使用您自己的金鑰加密] 選項的入口網站螢幕擷取畫面](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
 
 如果儲存體帳戶沒有金鑰保存庫的存取權，您可以執行下圖所示的 Azure PowerShell 命令來授予存取權。
 
@@ -94,8 +118,8 @@ SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口�
 
 您也可以透過 Azure 入口網站來授與存取權，方法是瀏覽至 Azure 入口網站中的 Azure Key Vault，然後將存取權授與儲存體帳戶。
 
-
 您可以使用下列 PowerShell 命令，讓上述索引鍵與現有儲存體帳戶產生關聯：
+
 ```powershell
 $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
 $keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
@@ -104,13 +128,16 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storag
 Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
-### <a name="step-5-copy-data-to-storage-account"></a>步驟 5︰將資料複製到儲存體帳戶
+### <a name="step-5-copy-data-to-storage-account"></a>步驟 5：將資料複製到儲存體帳戶
+
 將資料傳送到新的儲存體帳戶，使其加密。 如需詳細資訊，請參閱[儲存體服務加密的常見問題集](storage-service-encryption.md#faq-for-storage-service-encryption)。
 
-### <a name="step-6-query-the-status-of-the-encrypted-data"></a>步驟 6︰查詢加密資料的狀態
+### <a name="step-6-query-the-status-of-the-encrypted-data"></a>步驟 6：查詢加密資料的狀態
+
 查詢加密資料的狀態。
 
 ## <a name="faq-for-sse-with-customer-managed-keys"></a>搭配客戶管理金鑰的 SSE 常見問題集
+
 **我目前使用進階儲存體，是否可以搭配 SSE 使用客戶管理的金鑰？**  
 是，在標準儲存體和進階儲存體上都支援搭配 Microsoft 管理金鑰及客戶管理金鑰的 SSE。
 
@@ -154,6 +181,7 @@ Azure 磁碟加密提供 OS 型解決方案 (例如 BitLocker 及 Dm-crypt) 與 
 如果有儲存體服務加密的相關問題，請連絡 [ssediscussions@microsoft.com](mailto:ssediscussions@microsoft.com)。
 
 ## <a name="next-steps"></a>後續步驟
+
 - 如需協助開發人員建置安全應用程式之全方位安全功能的詳細資訊，請參閱[儲存體安全性指南](storage-security-guide.md)。
 - 如需 Azure Key Vault 的概觀資訊，請參閱[什麼是 Azure Key Vault？](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 - 若要開始使用 Azure Key Vault，請參閱[開始使用 Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started)。

@@ -10,16 +10,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: 9603751db01eaffdf9fbe26164aed53017c5e23c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499533"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840200"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
-了解如何使用[適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具](https://docs.microsoft.com/azure/hdinsight/hdinsight-for-vscode)來建立、提交 [Apache Hive](https://hive.apache.org/) 批次作業、互動式 Apache Hive 查詢和 PySpark 指令碼。 Azure HDInsight 工具可以安裝在 VS Code 所支援的平台上。 這些包括 Windows、Linux 及 MacOS。 您可以找到不同平台的必要條件。
+了解如何使用適用於 Visual Studio Code (VS Code) 的 Azure HDInsight 工具，建立、提交適用於 Apache Spark 的 Apache Hive 批次作業、互動式 Hive 查詢和 PySpark 指令碼。 首先我們會說明如何在 VS Code 中安裝 HDInsight 工具，然後逐步解說如何將作業提交至 Hive 和 Spark。 
+
+Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows、Linux 和 macOS。 您可在下面找到不同平台的必要條件。
 
 
 ## <a name="prerequisites"></a>必要條件
@@ -70,7 +72,7 @@ ms.locfileid: "52499533"
 
 1. 建立新的工作資料夾和新的指令碼檔案 (如果您還沒有這兩個項目)。
 
-2. 以滑鼠右鍵按一下指令碼編輯器，然後從快顯功能表選取 [HDInsight: 登入]。 您也可以輸入 **CTRL+SHIFT+P**，然後輸入 **HDInsight: 登入**。
+2. 以滑鼠右鍵按一下指令碼編輯器，然後從快顯功能表選取 [HDInsight：登入]。 您也可以輸入 **CTRL+SHIFT+P**，然後輸入 [HDInsight：登入]。
 
     ![「適用於 Visual Studio Code 的 HDInsight 工具」登入](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -103,7 +105,7 @@ ms.locfileid: "52499533"
 <h3 id="linkcluster">連結叢集</h3>
 
 您可以使用 [Apache Ambari](https://ambari.apache.org/) 受控使用者名稱來連結正常的叢集，或可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結企業安全性套件保護 Hadoop 叢集。
-1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a Cluster**。
+1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 [HDInsight：連結叢集]。
 
    ![連結叢集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -118,12 +120,12 @@ ms.locfileid: "52499533"
 
    ![連結的叢集](./media/hdinsight-for-vscode/linked-cluster.png)
 
-4. 您也可以從命令選擇區輸入 **HDInsight: Unlink a Cluster** 以取消連結叢集。
+4. 您也可以從命令選擇區輸入 [HDInsight：取消連結叢集] 以取消連結叢集。
 
 
 ### <a name="to-link-a-generic-apache-livy-endpoint"></a>連結泛型 Apache Livy 端點
 
-1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a Cluster**。
+1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 [HDInsight：連結叢集]。
 2. 選取 [泛型 Livy 端點]。
 3. 輸入泛型 Livy 端點，例如： http://10.172.41.42:18080。
 4. 泛用 Livy 端點需要授權時，請選取 [基本]，否則請選擇 [無]。
@@ -140,7 +142,7 @@ ms.locfileid: "52499533"
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>列出 Azure 訂用帳戶底下的 HDInsight 叢集
 1. 開啟工作區，然後連線到 Azure。 如需詳細資訊，請參閱[開啟 HDInsight 工作區](#open-hdinsight-workspace)和[連線到 Azure](#connect-to-hdinsight-cluster)。
 
-2. 以滑鼠右鍵按一下指令碼編輯器，然後從快顯功能表選取 [HDInsight: 列出叢集]。 
+2. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：列出叢集]。 
 
 3. [輸出] 窗格中會出現 HDInsight 叢集。
 
@@ -149,7 +151,7 @@ ms.locfileid: "52499533"
 ## <a name="set-a-default-cluster"></a>設定預設叢集
 1. 開啟工作區，然後連線到 Azure。 請參閱[開啟 HDInsight 工作區](#open-hdinsight-workspace)和[連線到 Azure](#connect-to-hdinsight-cluster)。
 
-2. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [HDInsight: 設定預設叢集]。 
+2. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：設定預設叢集]。 
 
 3. 選取某個叢集來作為目前指令碼檔案的預設叢集。 工具會自動更新組態檔 **.VSCode\settings.json**。 
 
@@ -158,7 +160,7 @@ ms.locfileid: "52499533"
 ## <a name="set-the-azure-environment"></a>設定 Azure 環境
 1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區。
 
-2. 輸入 **HDInsight: 設定 Azure 環境**。
+2. 輸入 [HDInsight：設定 Azure 環境]。
 
 3. 選取作為預設登入項目的環境，例如 "Azure" 或 "AzureChina"。
 
@@ -179,7 +181,7 @@ ms.locfileid: "52499533"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 以滑鼠右鍵按一下指令碼編輯器，然後選取 [HDInsight：Hive 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。選取 [HDInsight：Hive 批次] 以提交指令碼，或使用快速鍵 **Ctrl + Alt + H**。 
+4. 在指令碼編輯器上按一下滑鼠右鍵，選取 [HDInsight：Hive 互動式] 以提交查詢，或使用快速鍵 **Ctrl + Alt + I**。選取 [HDInsight：Hive 批次] 以提交指令碼，或使用快速鍵 **Ctrl + Alt + H**。 
 
 5. 如果您還未指定預設的叢集，請選取叢集。 工具也可讓您使用快顯功能表來提交程式碼區塊，而非整個指令碼檔案。 在幾分鐘之後，查詢結果就會顯示在新的索引標籤中。
 
@@ -187,7 +189,7 @@ ms.locfileid: "52499533"
 
     - [結果] 面板：您可以將整個結果以 CSV、JSON 或 Excel 檔案的形式儲存到本機路徑，或只選取多行。
 
-    - [訊息] 面板：當您選取**行號**時，它就會跳至執行中指令碼的第一行。
+    - [訊息] 面板：當您選取 [行號] 時，它就會跳至執行中指令碼的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交互動式 PySpark 查詢
 
@@ -211,7 +213,7 @@ ms.locfileid: "52499533"
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. 反白顯示此指令碼。 然後，以滑鼠右鍵按一下指令碼編輯器，並選取 [HDInsight：PySpark 互動式]，或使用快速鍵 **Ctrl + Alt + I**。
+4. 反白顯示此指令碼。 在指令碼編輯器上按一下滑鼠右鍵，然後選取 [HDInsight：PySpark 互動式]，或使用捷徑 **Ctrl + Alt + I**。
 
 5. 如果您尚未在 VS Code 中安裝 **Python** 擴充功能，請選取 [安裝] 按鈕，如下圖所示：
 
@@ -286,7 +288,7 @@ Spark 2.2 叢集和 Spark2.3 叢集已不再支援 PySpark3，只有 Python 支�
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. 以滑鼠右鍵按一下指令碼編輯器，並選取 [HDInsight：PySpark 批次]，或使用快速鍵 **Ctrl + Alt + H**。 
+4. 在指令碼編輯器上按一下滑鼠右鍵，然後從快顯功能表選取 [HDInsight：PySpark 批次]，或使用快速鍵 **Ctrl + Alt + H**。 
 
 5. 選取一個叢集來提交 PySpark 作業。 
 
@@ -404,9 +406,9 @@ HDInsight for VS Code 支援下列功能︰
 * [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 與 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>建立和執行應用程式

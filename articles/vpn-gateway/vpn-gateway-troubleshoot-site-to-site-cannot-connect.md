@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: a2330cee3d5ea48f9f679ac02f6889ccce6c1d7c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 18900c4a1dbc25526a3f60c7410ad87e7dd9a9fa
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967839"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>疑難排解：Azure 站對站 VPN 連線無法連線並停止運作
 
@@ -39,7 +39,7 @@ ms.locfileid: "50242750"
 
 2. 檢查 VPN 閘道的 [概觀] 頁面來取得類型資訊。
     
-    ![閘道概觀](media\vpn-gateway-troubleshoot-site-to-site-cannot-connect\gatewayoverview.png)
+    ![閘道概觀](media/vpn-gateway-troubleshoot-site-to-site-cannot-connect/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步驟 1. 檢查內部部署 VPN 裝置是否經過驗證
 
@@ -100,7 +100,7 @@ ms.locfileid: "50242750"
 2. 按一下以略過憑證警告。
 3. 如果您收到回應，表示 VPN 閘道的健康狀態良好。 如果未收到回應，閘道的健康狀態可能有問題，或可能是閘道子網路上的 NSG 造成問題。 下列文字是回應的範例：
 
-    &lt;?xml version="1.0"?> <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">主要執行個體: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string&gt;
+    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance:GatewayTenantWorker_IN_1 GatewayTenantVersion:14.7.24.6</string&gt;
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>步驟 8。 檢查內部部署 VPN 裝置是否已啟用完整轉寄密碼功能
 

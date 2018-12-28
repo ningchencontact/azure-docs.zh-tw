@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c363056fc013cc8b8fd67fb9d656d3550d3bf5a2
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139504"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841620"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>使用自訂原則來自訂使用者旅程的 UI
 
@@ -31,7 +31,7 @@ ms.locfileid: "50139504"
 
 Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與風格，並由 Azure AD B2C 使用您的自訂原則來提供和顯示這些自訂。
 
-為了達成該目的，Azure AD B2C 會在取用者的瀏覽器中執行程式碼，並使用現代且標準的方法 ([跨原始資源共用 (CORS)](http://www.w3.org/TR/cors/)) 來載入自訂內容，內容來源則是您在自訂原則中指定為指向 HTML5/CSS 範本的特定 URL。 CORS 機制可讓您從網頁上受限制資源 (如字型) 來源網域以外的其他網域，對該項資源提出要求。
+為了達成該目的，Azure AD B2C 會在取用者的瀏覽器中執行程式碼，並使用現代且標準的方法 ([跨原始資源共用 (CORS)](https://www.w3.org/TR/cors/)) 來載入自訂內容，內容來源則是您在自訂原則中指定為指向 HTML5/CSS 範本的特定 URL。 CORS 機制可讓您從網頁上受限制資源 (如字型) 來源網域以外的其他網域，對該項資源提出要求。
 
 而在傳統的舊式方法中，範本頁面是由解決方案擁有、您只提供有限的文字和影像、版面配置與風格只提供有限的控制能力，因此會導致更多問題而難以實現順暢體驗，相較之下，CORS 方法則支援 HTML5 及 CSS，因此可讓您︰
 
@@ -69,10 +69,10 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 - 對所有連結和 CSS 內容使用絕對 URL，例如 https://yourdomain/content。
 
 > [!TIP]
-> 若要確認您要用來裝載內容的網站已啟用 CORS 並測試 CORS 要求，您可以使用 http://test-cors.org/ 網站。 由於有此網站，您可以將 CORS 要求傳送到遠端伺服器 (以進行測試，前提是該伺服器支援 CORS)，或將 CORS 要求傳送至測試伺服器 (以瀏覽 CORS 的某些功能)。
+> 若要確認您要用來裝載內容的網站已啟用 CORS 並測試 CORS 要求，您可以使用 https://test-cors.org/ 網站。 由於有此網站，您可以將 CORS 要求傳送到遠端伺服器 (以進行測試，前提是該伺服器支援 CORS)，或將 CORS 要求傳送至測試伺服器 (以瀏覽 CORS 的某些功能)。
 
 > [!TIP]
-> http://enable-cors.org/ 網站也會在 CORS 上構成更有用的資源。
+> https://enable-cors.org/ 網站也會在 CORS 上構成更有用的資源。
 
 由於有此 CORS 式方法，使用者會在您的應用程式與 Azure AD B2C 所提供的頁面之間獲得一致的體驗。
 
@@ -111,7 +111,7 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
     c.  您的儲存體 Blob 儲存體容器 containerName 的名稱，例如 b2c。
     d.  Starter-Pack 範例檔的路徑，例如 ..\B2CTemplates\wingtiptoys。
 
-如果您遵循前述步驟，虛構公司 **wingtiptoys** 的 UI-Customization-Pack 的 HTML5 和 CSS 檔案現在會指向您的儲存體帳戶。  您可以在 Azure 入口網站中開啟相關的容器窗格，以確認該內容已正確上傳。 或者，您也可以從瀏覽器存取頁面來確認該內容已正確上傳。 如需詳細資訊，請參閱 [Azure Active Directory B2C︰用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)。
+如果您遵循前述步驟，虛構公司 **wingtiptoys** 的 UI-Customization-Pack 的 HTML5 和 CSS 檔案現在會指向您的儲存體帳戶。  您可以在 Azure 入口網站中開啟相關的容器窗格，以確認該內容已正確上傳。 或者，您也可以從瀏覽器存取頁面來確認該內容已正確上傳。 如需詳細資訊，請參閱 [Azure Active Directory B2C：用來示範頁面使用者介面 (UI) 自訂功能的協助程式工具](active-directory-b2c-reference-ui-customization-helper-tool.md)。
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>確定儲存體帳戶已啟用 CORS
 
@@ -120,13 +120,13 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 若要確認您要用來裝載內容的儲存體已啟用 CORS，請進行下列步驟︰
 
 1. 開啟瀏覽工作階段，並使用 unified.html 頁面在儲存體帳戶中所在位置的完整 URL `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 來瀏覽至該頁面。 例如： https://contoso369b2c.blob.core.windows.net/b2c/unified.html。
-2. 瀏覽至 http://test-cors.org。這個網站可讓您確認您要使用的頁面已啟用 CORS。  
+2. 瀏覽至 https://test-cors.org。這個網站可讓您確認您要使用的頁面已啟用 CORS。  
 <!--
 ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
 -->
 
 3. 在 [遠端 URL] 中，輸入 unified.html 內容的完整 URL，然後按一下 [傳送要求]。
-4. 確認 [結果] 區段中的輸出包含 XHR status: 200，這表示已啟用 CORS。
+4. 確認 [結果] 區段中的輸出包含「XHR status:*200*，這表示已啟用 CORS。
 <!--
 ![CORS enabled](../../media/active-directory-b2c-customize-ui-of-a-user-journey/cors-enabled.png)
 -->
@@ -168,4 +168,4 @@ Azure AD B2C 可讓您在各種頁面上自訂使用者體驗 (UX) 的外觀與�
 | *api.signuporsignin* | **統一的註冊或登入頁面**。  此頁面可處理使用者的註冊和登入，這些使用者可使用企業識別提供者、社交識別提供者 (例如 Facebook 或 Google+) 或本機帳戶。
 
 ## <a name="next-steps"></a>後續步驟
-[參考︰了解自訂原則如何在 B2C 中使用身分識別體驗架構](active-directory-b2c-reference-custom-policies-understanding-contents.md)
+[參考：了解自訂原則如何在 B2C 中使用身分識別體驗架構](active-directory-b2c-reference-custom-policies-understanding-contents.md)

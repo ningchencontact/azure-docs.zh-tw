@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2351e0cdeb6fd17efbe70fdebb12e6c9776c1fa1
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 899adc8d4fb26ac64cd3fbd7096a8b8387900517
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498333"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722287"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>建立非互動式驗證 .NET HDInsight 應用程式
 您可以使用應用程式本身的身分識別 (非互動式) 或使用應用程式的登入使用者的身分識別 (互動式)，執行 Microsoft .NET Azure HDInsight 應用程式。 本文將說明如何建立非互動式驗證 .NET 應用程式，來連線到 Azure 及管理 HDInsight。 如需互動式應用程式的範例，請參閱[連線至 Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight)。 
@@ -34,11 +34,12 @@ ms.locfileid: "52498333"
 **將擁有者角色新增至 Azure AD 應用程式**
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
-2. 在左功能表上選取 [資源群組]。
+2. 在左功能表中選取 [資源群組]。
 3. 選取資源群組，它包含您稍後在本教學課程中要在其中執行 Hive 查詢的 HDInsight 叢集。 如果您有大量的資源群組，您可以使用篩選來找出您想要的資源群組。
 4. 在資源群組功能表中，選取 [存取控制 (IAM)]。
-5. 在 [使用者] 底下，選取 [新增]。
-6. 依照指示將擁有者角色新增至您的 Azure AD 應用程式。 成功新增角色之後，應用程式會列在 [使用者] 底下，具有擁有者角色。 
+5. 選取 [角色指派] 索引標籤，以查看目前的角色指派。
+6. 在頁面頂端，選取 [新增角色指派]。
+7. 依照指示將擁有者角色新增至您的 Azure AD 應用程式。 成功新增角色之後，應用程式會列在 [擁有者] 角色底下。 
 
 ## <a name="develop-an-hdinsight-client-application"></a>開發 HDInsight 用戶端應用程式
 

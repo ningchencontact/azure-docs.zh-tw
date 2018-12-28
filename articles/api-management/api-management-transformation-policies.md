@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 6796ecd272c7a1ed1d29c89fbe06c87dc2d4601b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 87d2ebcf6a12f51775b15e906ea7813962e3630f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242801"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965371"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理轉換原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -70,13 +70,13 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |json-to-xml|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |apply|此屬性必須設為下列其中一個值。<br /><br /> -   always - 一律套用轉換。<br />-   content-type-json - 只有當回應中的 Content-type 標頭指出 JSON 存在時才轉換。|是|N/A|
 |consider-accept-header|此屬性必須設為下列其中一個值。<br /><br /> -   true - 如果在要求的 Accept 標頭中要求 JSON，才套用轉換。<br />-   false - 一律套用轉換。|否|true|
@@ -114,13 +114,13 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |xml-to-json|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |kind|此屬性必須設為下列其中一個值。<br /><br /> -   javascript-friendly - 轉換後的 JSON 有 JavaScript 開發人員熟悉的格式。<br />-   direct -  | 轉換後的 JSON 可反映原始 XML 文件的結構。|是|N/A|
 |apply|此屬性必須設為下列其中一個值。<br /><br /> -   always - 一律轉換。<br />-   content-type-xml - 只有當回應中的 Content-type 標頭指出 XML 存在時才轉換。|是|N/A|
@@ -150,13 +150,13 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |find-and-replace|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |from|要搜尋的字串。|是|N/A|
 |to|取代字串。 指定零長度的取代字串可移除搜尋字串。|是|N/A|
@@ -188,7 +188,7 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |redirect-content-urls|根元素。|是|
 
@@ -252,13 +252,13 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |set-backend-service|根元素。|是|
 
 ### <a name="attributes"></a>屬性
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |base-url|新的後端服務基底 URL。|否|N/A|
 |backend-id|要傳送至的後端識別碼。|否|N/A|
@@ -334,7 +334,7 @@ ms.locfileid: "51242801"
 ```
 
 #### <a name="filter-response-based-on-product"></a>根據產品篩選回應
- 這個範例示範如何在使用 `Starter` 產品時，移除「從後端服務收到的回應」中的資料元素，藉此執行內容篩選。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 34:30。 從 31:50 處開始觀賞用於本示範的 [The Dark Sky Forecast API](https://developer.forecast.io/) 概觀。
+ 這個範例示範如何在使用 `Starter` 產品時，移除「從後端服務收到的回應」中的資料元素，藉此執行內容篩選。 如需設定和使用此原則的示範，請參閱[雲端報導 177 集：與 Vlad Vinogradsky 一起了解更多 APIM 功能 (More API Management Features with Vlad Vinogradsky)](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) /(英文/) 並快轉到 34:30。 從 31:50 處開始觀賞用於本示範的 [The Dark Sky Forecast API](https://developer.forecast.io/) 概觀。
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -388,13 +388,13 @@ ms.locfileid: "51242801"
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |set-body|根元素。 包含本文文字或會傳回本文的運算式。|是|
 
 ### <a name="properties"></a>properties
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |template|用來變更設定本文原則將在其中執行的範本化模式。 目前唯一支援的值為：<br /><br />- liquid - 設定本文原則將會使用 Liquid 範本化引擎 |否|liquid|
 
@@ -469,7 +469,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>將內容資訊轉寄到後端服務
- 這個範例示範如何在 API 層級套用，以提供後端服務的內容資訊。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 10:30。 12:10 處是在開發人員入口網站中呼叫作業的示範，您可以看到「原則」的運作。
+ 這個範例示範如何在 API 層級套用，以提供後端服務的內容資訊。 如需設定和使用此原則的示範，請參閱[雲端報導 177 集：與 Vlad Vinogradsky 一起了解更多 APIM 功能 (More API Management Features with Vlad Vinogradsky)](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) /(英文/) 並快轉到 10:30。 12:10 處是在開發人員入口網站中呼叫作業的示範，您可以看到「原則」的運作。
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -497,14 +497,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |set-header|根元素。|是|
 |value|指定要設定之標頭的值。 若多個標頭有相同名稱，請額外加入 `value` 元素。|是|
 
 ### <a name="properties"></a>properties
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |exists-action|指定當已指定標頭時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有標頭的值。<br />-   skip - 不取代現有的標頭值。<br />-   append - 將值附加至現有標頭值之後。<br />-   delete - 移除要求中的標頭。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定標頭 (列出多次)；只有列出的值才會設定在結果中。|否|override|
 |name|指定要設定之標頭的名稱。|是|N/A|
@@ -543,7 +543,7 @@ OriginalUrl.
 ```
 
 #### <a name="forward-context-information-to-the-backend-service"></a>將內容資訊轉寄到後端服務
- 這個範例示範如何在 API 層級套用，以提供後端服務的內容資訊。 如需設定和使用此原則的示範，請觀賞 [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/)，快轉到 10:30。 12:10 處是在開發人員入口網站中呼叫作業的示範，您可以看到「原則」的運作。
+ 這個範例示範如何在 API 層級套用，以提供後端服務的內容資訊。 如需設定和使用此原則的示範，請參閱[雲端報導 177 集：與 Vlad Vinogradsky 一起了解更多 APIM 功能 (More API Management Features with Vlad Vinogradsky)](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) /(英文/) 並快轉到 10:30。 12:10 處是在開發人員入口網站中呼叫作業的示範，您可以看到「原則」的運作。
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -557,14 +557,14 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |set-query-parameter|根元素。|是|
 |value|指定要設定之查詢參數的值。 若多個查詢參數有相同名稱，請額外加入 `value` 元素。|是|
 
 ### <a name="properties"></a>properties
 
-|名稱|說明|必要|預設值|
+|Name|說明|必要|預設值|
 |----------|-----------------|--------------|-------------|
 |exists-action|指定當已指定查詢參數時要採取的動作。 此屬性必須具有下列其中一個值。<br /><br /> -   override - 取代現有參數的值。<br />-   skip - 不取代現有的查詢參數值。<br />-   append - 將值附加至現有查詢參數值之後。<br />-   delete - 移除要求中的查詢參數。<br /><br /> 設為 `override` 時，編列多個相同名稱的項目會導致根據所有項目來設定查詢參數 (列出多次)；只有列出的值才會設定在結果中。|否|override|
 |name|指定要設定之查詢參數的名稱。|是|N/A|
@@ -636,7 +636,7 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |rewrite-uri|根元素。|是|
 
@@ -705,11 +705,11 @@ OriginalUrl.
 
 ### <a name="elements"></a>元素
 
-|名稱|說明|必要|
+|Name|說明|必要|
 |----------|-----------------|--------------|
 |xsl-transform|根元素。|是|
 |參數|用於定義轉換中使用的變數|否|
-|xsl:stylesheet|根樣式表元素。 遵循 [XSLT 規格](http://www.w3.org/TR/xslt)標準定義的所有的元素和屬性|是|
+|xsl:stylesheet|根樣式表元素。 遵循 [XSLT 規格](https://www.w3.org/TR/xslt)標準定義的所有的元素和屬性|是|
 
 ### <a name="usage"></a>使用量
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。

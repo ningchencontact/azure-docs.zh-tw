@@ -12,22 +12,26 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/6/2017
+ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 46f9c6129ccf99fb72a285fa4089b7b3f01f7d7b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34643027"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727710"
 ---
-# <a name="back-up-and-restore-reliable-services-and-reliable-actors"></a>備份與還原 Reliable Services 和 Reliable Actors
+# <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>備份與還原 Reliable Services 和 Reliable Actors
 Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態以維護這個高可用性。  因此，即使叢集中的一個節點失敗，服務可以繼續。 雖然這個由平台提供的內建備援對於一些特定情況可能已經足夠，但是服務最好能夠備份資料 (到外部存放區)。
 
 > [!NOTE]
 > 請務必備份和還原您的資料 (以及測試它是否運作正常)，以便您從資料遺失情況下進行復原。
 > 
+
+> [!NOTE]
+> Microsoft 建議使用[定期備份和還原](service-fabric-backuprestoreservice-quickstart-azurecluster.md)，設定可靠具狀態服務和 Reliable Actors 的資料備份。 
 > 
+
 
 例如，服務需要備份資料以在下列情節中提供保護：
 
@@ -40,7 +44,7 @@ Azure Service Fabric 是高可用性平台，跨多個節點之間複寫狀態�
 備份/還原功能可以讓在 Reliable Services API 上建置的服務建立及還原備份。 平台提供的備份 API 可以備份服務分割區狀態，而不會封鎖讀取或寫入作業。 還原 API 可以從所選的備份還原服務分割區的狀態。
 
 ## <a name="types-of-backup"></a>備份類型
-有兩個備份選項︰完整和增量。
+有兩個備份選項：完整和增量。
 完整備份是包含重新建立複本狀態所需的所有資料的備份︰檢查點和所有記錄檔記錄。
 因為它有檢查點和記錄檔，所以可以自行還原完整備份。
 
@@ -82,7 +86,7 @@ await this.BackupAsync(myBackupDescription);
 - 傳遞 `MaxAccumulatedBackupLogSizeInMB` 限制的複本。
 
 使用者可以透過設定 `MinLogSizeInMB` 或 `TruncationThresholdFactor` 來提高能夠進行增量備份的可能性。
-請注意，提高這些值將會增加每個複本磁碟的使用量。
+提高這些值將會增加每個複本磁碟的使用量。
 如需詳細資訊，請參閱 [Reliable Services 組態](service-fabric-reliable-services-configuration.md)
 
 `BackupInfo` 提供備份的相關資訊，包括執行階段儲存備份所在的資料夾位置 (`BackupInfo.Directory`)。 回呼函式可以將 `BackupInfo.Directory` 移到外部存放區或另一個位置。  此函式也會傳回 Bool，指出是否能夠順利將備份資料夾移動至目標位置。
@@ -176,7 +180,7 @@ protected override async Task<bool> OnDataLossAsync(RestoreContext restoreCtx, C
   - 當您還原時，還原的備份很有可能是早於資料遺失之前的分割區狀態。 因此，您應該只能將還原當成最後手段，盡可能復原最多資料。
   - 根據 FabricDataRoot 路徑和應用程式類型名稱的長度而定，代表備份資料夾路徑與備份資料夾內檔案路徑的字串可以大於 255 個字元。 這會造成某些 .NET 方法 (例如 `Directory.Move`) 擲回 `PathTooLongException` 例外狀況。 有個解決方法是直接呼叫 kernel32 API，例如 `CopyFile`。
 
-## <a name="backup-and-restore-reliable-actors"></a>備份與還原 Reliable Actors
+## <a name="back-up-and-restore-reliable-actors"></a>備份與還原 Reliable Actors
 
 
 Reliable Actors 架構以 Reliable Services 為基礎。 裝載動作項目的 ActorService 是具狀態可靠服務。 因此，Reliable Services 中可用的所有備份和還原功能，也可用於 Reliable Actors (狀態供應器特定的行為除外)。 因為是依個別分割區進行備份，將會備份該分割區中所有動作項目的狀態 (還原也一樣依個別分割區進行)。 若要執行備份/還原，服務擁有者應該建立一個衍生自 ActorService 類別的自訂動作項目服務類別，然後進行備份/還原，類似於前面幾節所述的 Reliable Services。
@@ -231,7 +235,7 @@ class MyCustomActorService : ActorService
 > `KvsActorStateProvider` 目前會忽略 RestorePolicy.Safe 選項。 即將推出的版本已規劃支援這項功能。
 > 
 
-## <a name="testing-backup-and-restore"></a>測試備份和還原
+## <a name="testing-back-up-and-restore"></a>測試備份和還原
 請務必確保重要資料正在進行備份，並可進行還原。 在 PowerShell 中叫用會引起特定分割區遺失資料的 `Start-ServiceFabricPartitionDataLoss` Cmdlet，以測試您服務的資料備份和還原功能是否如預期般運作。  此外，也可能以程式設計方式叫用資料遺失，並從該事件進行還原。
 
 > [!NOTE]
@@ -256,10 +260,10 @@ class MyCustomActorService : ActorService
 然後，會在新的主要複本上叫用 `OnDataLossAsync`。
 在服務成功完成此 API (藉由傳回 true 或 false) 並完成相關重新設定之前，將會一次一個地繼續呼叫 API。
 
-`RestoreAsync` 會在過去曾呼叫的主要複本中先卸除所有現有狀態。 然後，可靠的狀態管理員會建立存在於備份資料夾中所有可靠的物件。 接下來，可靠的物件會獲得指示從其備份資料夾中的檢查點還原。 最後，可靠的狀態管理員會從備份資料夾中的記錄檔記錄復原自己的狀態，並執行復原。 做為復原程序的一部分，作業是從「開始點」開始，在備份資料夾中認可記錄檔記錄，並對可靠的物件重新執行。 這個步驟可確保復原的狀態一致。
+`RestoreAsync` 會在過去曾呼叫的主要複本中先卸除所有現有狀態。 然後，可靠的狀態管理員會建立存在於備份資料夾中所有可靠的物件。 接下來，可靠的物件會獲得指示從其備份資料夾中的檢查點還原。 最後，可靠的狀態管理員會從備份資料夾中的記錄檔記錄復原自己的狀態，並執行復原。 在復原程序的過程中，作業是從「開始點」開始，在備份資料夾中認可記錄檔記錄，並對可靠的物件重新執行。 這個步驟可確保復原的狀態一致。
 
 ## <a name="next-steps"></a>後續步驟
-  - [可靠的集合](service-fabric-work-with-reliable-collections.md)
+  - [Reliable Collections](service-fabric-work-with-reliable-collections.md)
   - [Reliable Services 快速入門](service-fabric-reliable-services-quick-start.md)
   - [Reliable Services 通知](service-fabric-reliable-services-notifications.md)
   - [Reliable Services 組態](service-fabric-reliable-services-configuration.md)

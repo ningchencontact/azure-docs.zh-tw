@@ -5,20 +5,20 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/04/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: efbbe048456c969f0045a0588bc5b64d1138ee15
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: e3967319cd41399209bd50886bce88efc8ba6ba6
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976956"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956511"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>關於適用於 VMware VM 和實體伺服器的行動服務
 
 當您使用 [Azure Site Recovery](site-recovery-overview.md) 為 VMware VM 和實體伺服器設定災害復原時，會在每個內部部署 VMware VM 和實體伺服器上安裝 Site Recovery 行動服務。  行動服務會擷取機器上的資料寫入，然後將它們轉送給 Site Recovery 處理伺服器。 您可以使用下列方法來部署「行動服務」︰
 
-[推入安裝](vmware-azure-install-mobility-service.md)：設定 Site Recovery 以執行行動服務推入安裝：若要這樣做，當您設定災害復原時，需一併設定可供 Site Recovery 處理伺服器用來存取 VM 或實體伺服器以安裝該服務的帳戶。
+[推入安裝](vmware-azure-install-mobility-service.md)：設定 Site Recovery 以執行行動服務的推入安裝：若要這樣做，當您設定災害復原時，需一併設定可供 Site Recovery 處理伺服器用來存取 VM 或實體伺服器以安裝該服務的帳戶。
 [手動安裝](vmware-physical-mobility-service-install-manual.md)：您可以使用 UI 或命令提示字元，在每部機器上手動安裝行動服務。
 [自動化部署](vmware-azure-mobility-install-configuration-mgr.md)：您可以使用 System Center Configuration Manager 之類的軟體部署工具來自動執行安裝。
 
@@ -56,11 +56,11 @@ Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 2. 在入口網站中，開啟保存庫 > [複寫的項目]。
 3. 如果設定伺服器已是最新版本，您會看到一則通知，指出「有新的 Site Recovery 複寫代理程式更新可用。 按一下以安裝」的通知。
 
-     ![[複寫的項目] 視窗](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+     ![[複寫的項目] 視窗](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
 4. 按一下通知，然後在 [代理程式更新] 中，選取您想要升級行動服務的機器。 然後按一下 [確定] 。
 
-     ![複寫的項目 VM 清單](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+     ![複寫的項目 VM 清單](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
 5. 「更新行動服務」作業會針對每個選取的機器啟動。
 

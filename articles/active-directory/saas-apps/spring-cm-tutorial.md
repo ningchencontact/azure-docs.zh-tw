@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 034d7b61d4a02ac899c7215a042d47bc7938176d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 777586bc24c0962ec1f0ba3913397bfe26d0d0d5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438142"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841059"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-springcm"></a>教學課程：Azure Active Directory 與 SpringCM 整合
 
@@ -189,7 +189,7 @@ SpringCM 與 Azure AD 整合提供下列優點：
 若要讓 Azure Active Directory 使用者能夠登入 SpringCM，必須將他們佈建到 SpringCM。 SpringCM 需以手動方式佈建。
 
 >[!NOTE]
->如需詳細資訊，請參閱[建立和編輯 SpringCM 使用者](http://knowledge.springcm.com/create-and-edit-a-springcm-user) (英文)。 
+>如需詳細資訊，請參閱[建立和編輯 SpringCM 使用者](https://knowledge.springcm.com/create-and-edit-a-springcm-user) (英文)。 
 
 **若要將使用者帳戶佈建到 SpringCM，請執行下列步驟：**
 
@@ -248,7 +248,7 @@ SpringCM 與 Azure AD 整合提供下列優點：
 ### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
- 
+ 
 當您在「存取面板」中按一下 [SpringCM] 圖格時，應該會自動登入您的 SpringCM 應用程式。
 
 如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 

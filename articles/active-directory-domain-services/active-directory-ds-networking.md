@@ -1,5 +1,5 @@
 ---
-title: Azure AD Domain Services︰網路指導方針 | Microsoft Docs
+title: Azure AD Domain Services：網路指導方針 | Microsoft Docs
 description: Azure Active Directory Domain Services 的網路考量
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/01/2017
 ms.author: ergreenl
-ms.openlocfilehash: eb97e709e18daba3722dc43a869ef034dbe573cf
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: c13a4606219ebdb1d23a83a0bd3bdf14f1a3882e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157423"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970904"
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Azure AD 網域服務的網路考量
 ## <a name="how-to-select-an-azure-virtual-network"></a>如何選取 Azure 虛擬網路
@@ -37,9 +37,9 @@ ms.locfileid: "50157423"
 * 請參閱 [依區域提供的 Azure 服務](https://azure.microsoft.com/regions/#services/) 頁面，以了解可使用 Azure AD 網域服務的 Azure 區域。
 
 ### <a name="requirements-for-the-virtual-network"></a>虛擬網路需求
-* **Azure 工作負載的近接感測**：選取需要存取 Azure AD 網域服務的目前主控/即將主控的虛擬網路。 如果您的工作負載是部署在與受控網域不同的虛擬網路，也可以選擇連線虛擬網路。
+* **Azure 工作負載的近接感測**：選取需要存取 Azure AD Domain Services 的目前主控/即將主控的虛擬網路。 如果您的工作負載是部署在與受控網域不同的虛擬網路，也可以選擇連線虛擬網路。
 * **自訂/自備 DNS 伺服器**：請確定沒有針對虛擬網路設定的自訂 DNS 伺服器。 自訂 DNS 伺服器的範例，是您已部署在虛擬網路中的 Windows Server VM 上執行之 Windows Server DNS 的執行個體。 Azure AD Domain Services 不會與虛擬網路內部署的任何自訂 DNS 伺服器進行整合。
-* **網域名稱相同的現有網域**：請確定現有網域的名稱並未與該虛擬網路上可用的網域名稱相同。 例如，假設您有名為 'contoso.com' 的網域已可用於選取的虛擬網路。 接著，您可嘗試在該虛擬網路上啟用具有相同網域名稱 (即 'contoso.com') 的 Azure AD 網域服務受控網域。 您在嘗試啟用 Azure AD 網域服務時發生錯誤。 這個錯誤是因為名稱與該虛擬網路上的網域名稱衝突。 在此情況下，您必須使用不同的名稱來設定 Azure AD 網域服務受控網域。 或者，您可以解除佈建現有的網域，然後繼續啟用 Azure AD 網域服務。
+* **具有相同的網域名稱的現有網域**：請確定現有網域的名稱並未與該虛擬網路上可用的網域名稱相同。 例如，假設您有名為 'contoso.com' 的網域已可用於選取的虛擬網路。 接著，您可嘗試在該虛擬網路上啟用具有相同網域名稱 (即 'contoso.com') 的 Azure AD 網域服務受控網域。 您在嘗試啟用 Azure AD 網域服務時發生錯誤。 這個錯誤是因為名稱與該虛擬網路上的網域名稱衝突。 在此情況下，您必須使用不同的名稱來設定 Azure AD 網域服務受控網域。 或者，您可以解除佈建現有的網域，然後繼續啟用 Azure AD 網域服務。
 
 > [!WARNING]
 > 在您啟用網域服務之後，便無法將該服務移到不同的虛擬網路。
@@ -102,7 +102,7 @@ ms.locfileid: "50157423"
 
 此外，NSG 也會說明如何透過網際網路來鎖定安全 LDAP 存取。 如果您尚未透過網際網路啟用安全 LDAP 存取至受控網域，請跳過此規則。 NSG 包含一組規則，允許僅從一組指定 IP 位址透過 TCP 連接埠 636 的輸入 LDAPS 存取。 允許從指定的 IP 位址透過網際網路之 LDAPS 存取的 NSG 規則，其優先順序高於 DenyAll NSG 規則。
 
-![透過網際網路之安全 LDAP 存取的範例 NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![透過網際網路之安全 LDAP 存取的範例 NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 **更多資訊** - [建立網路安全性群組](../virtual-network/manage-network-security-group.md)。
 
@@ -130,7 +130,7 @@ Azure AD Domain Services 受控網域只可在 Azure 的單一虛擬網路中啟
 
     [詳細資訊 - 虛擬網路對等互連](../virtual-network/virtual-network-peering-overview.md)
 
-* **使用站對站 VPN 連線的 VNet 對 VNet 連線**：將一個虛擬網路連接到另一個虛擬網路 (VNet 對 VNet) 類似於將虛擬網路連接到內部部署網站位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。
+* **使用站對站 VPN 連線的 VNet 對 VNet 連線**：將一個虛擬網路連接到另一個虛擬網路 (VNet 對 VNet) 類似於將虛擬網路連接到內部部署站台位置。 這兩種連線類型都使用 VPN 閘道提供使用 IPsec/IKE 的安全通道。
 
     ![使用 VPN 閘道的虛擬網路連線](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 

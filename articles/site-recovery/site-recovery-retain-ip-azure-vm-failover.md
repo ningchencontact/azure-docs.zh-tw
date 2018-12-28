@@ -2,16 +2,16 @@
 title: 使用 Azure Site Recovery 在 Azure VM 容錯轉移期間保留的 IP 位址 | Microsoft Docs
 description: 說明如何在容錯移轉 Azure VM 時保留 IP 位址，以便使用 Azure Site Recovery 災害復原至次要區域
 ms.service: site-recovery
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: f7b546e8a0ca52fd2037e471f01787bb64db032d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567395"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842742"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在容錯轉移期間保留 IP 位址
 
@@ -43,7 +43,7 @@ ms.locfileid: "51567395"
         - 東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
         - 東亞的工作負載分為 VNet 中的三個子網路：
             - **子網路 1**：10.1.1.0/24
-            - **子網路 2**：10.1.2.0/24,
+            - **子網路 2**：10.1.2.0/24，
             - **子網路 3**：10.1.3.0/24
     - 次要 (目標) 區域是 Azure 東南亞
         - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。
@@ -131,7 +131,7 @@ ms.locfileid: "51567395"
 -  東亞有一個 VNet (**來源 VNet**)，位址空間為 10.1.0.0/16。
     - 東亞的工作負載分為**來源 VNet** 中的三個子網路：
         - **子網路 1**：10.1.1.0/24
-        - **子網路 2**：10.1.2.0/24,
+        - **子網路 2**：10.1.2.0/24，
         - **子網路 3**：10.1.3.0/24 使用位址空間為 10.1.0.0/16 的 Azure 虛擬網路。 此虛擬網路稱為**來源 VNet**
  - 次要 (目標) 區域是 Azure 東南亞：
     - 東南亞有一個復原 VNet (**復原 VNet**) 與**來源 VNet** 相同。

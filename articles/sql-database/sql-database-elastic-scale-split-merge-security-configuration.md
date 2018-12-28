@@ -3,21 +3,21 @@ title: 分割合併安全性設定 | Microsoft Docs
 description: 透過 Elastic Scale 的分割/合併服務，設定加密的 x409 憑證。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 12/04/2018
+ms.openlocfilehash: 06e9b443c5b0dc1c23b325c7127511f8542a1a11
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231387"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964827"
 ---
 # <a name="split-merge-security-configuration"></a>分割合併安全性設定
 若要使用 Split/Merge 服務，您必須正確地設定安全性。 此服務是 Microsoft Azure SQL Database 的 Elastic Scale 功能的一部分。 如需詳細資訊，請參閱 [Elastic Scale 分割及合併服務教學課程](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -43,7 +43,7 @@ ms.locfileid: "51231387"
     如果已安裝，請移至：
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* 從 [Windows 8.1：下載套件與工具](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)取得 WDK
 
 ## <a name="to-configure-the-ssl-certificate"></a>設定 SSL 憑證
 需要 SSL 憑證，才能將通訊加密和驗證伺服器。 從以下三種案例中選擇最適用的案例，然後執行其所有步驟：
@@ -166,7 +166,7 @@ ms.locfileid: "51231387"
 關於其他支援的值，請參閱「IIS 中的動態 IP 安全性」文件。
 
 ## <a name="operations-for-configuring-service-certificates"></a>設定服務憑證的作業
-本主題僅供參考。 請遵循以下所述的設定步驟：
+本主題僅供參考。 遵循以下所述的設定步驟：
 
 * 設定 SSL 憑證
 * 設定用戶端憑證
@@ -178,7 +178,7 @@ ms.locfileid: "51231387"
       -n "CN=myservice.cloudapp.net" ^
       -e MM/DD/YYYY ^
       -r -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.1" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -sv MySSL.pvk MySSL.cer
 
 自訂：
@@ -239,7 +239,7 @@ ms.locfileid: "51231387"
     -n "CN=MyCA" ^
     -e MM/DD/YYYY ^
      -r -cy authority -h 1 ^
-     -a sha1 -len 2048 ^
+     -a sha256 -len 2048 ^
       -sr localmachine -ss my ^
       MyCA.cer
 
@@ -280,7 +280,7 @@ ms.locfileid: "51231387"
     <Setting name="AdditionalTrustedRootCertificationAuthorities" value="" />
 
 ## <a name="issue-client-certificates"></a>發行用戶端憑證
-每個獲授權存取服務的人應該有發行給他專用的用戶端憑證，而且應該選擇他自己的強式密碼來保護私密金鑰。 
+每個獲授權存取服務的人應該有發行給他們專用的用戶端憑證，而且應該選擇他們自己的強式密碼來保護私密金鑰。 
 
 在產生及儲存自我簽署 CA 憑證的同一部電腦上，必須執行下列步驟：
 
@@ -288,7 +288,7 @@ ms.locfileid: "51231387"
       -n "CN=My ID" ^
       -e MM/DD/YYYY ^
       -cy end -sky exchange -eku "1.3.6.1.5.5.7.3.2" ^
-      -a sha1 -len 2048 ^
+      -a sha256 -len 2048 ^
       -in "MyCA" -ir localmachine -is my ^
       -sv MyID.pvk MyID.cer
 
@@ -316,14 +316,14 @@ ms.locfileid: "51231387"
 * 此憑證的發行對象應該選擇匯出密碼
 
 ## <a name="import-client-certificate"></a>匯入用戶端憑證
-用戶端憑證已發給的每個人，應該在他要用來與服務通訊的電腦中匯入金鑰組：
+用戶端憑證已發給的每個人，應該在他們要用來與服務通訊的電腦中匯入金鑰組：
 
 * 在 Windows 檔案總管中按兩下 .PFX 檔案
 * 至少使用這個選項，將憑證匯入個人存放區：
   * 核取 [包含所有延伸內容]
 
 ## <a name="copy-client-certificate-thumbprints"></a>複製用戶端憑證指紋
-用戶端憑證已發給的每個人必須依照下列步驟，以取得將加入至服務組態檔的憑證指紋：
+已獲得用戶端憑證的每個人必須依照下列步驟，以取得將加入至服務組態檔的憑證指紋：
 
 * 執行 certmgr.exe
 * 選取 [個人] 索引標籤

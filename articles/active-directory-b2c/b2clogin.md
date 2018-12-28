@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7b460efbdc50c5b243c3ef78bad568b720e75e59
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: ffceb8fd6f1afcd054bfc4c4035fb2b8b93ed390
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635552"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720536"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>將 Azure Active Directory B2C 的重新導向 URL 設定為 b2clogin.com
 
@@ -29,7 +29,7 @@ ms.locfileid: "51635552"
 請考慮這些設定在使用 b2clogin.com 時可能需要變更：
 
 - 請將您識別提供者應用程式中的重新導向 URL 設定為使用 b2clogin.com。 
-- 設定讓 Azure AD B2C 應用程式將 b2clogin.com 用於原則參考和權杖端點。 
+- 設定讓 Azure AD B2C 應用程式將 b2clogin.com 用於使用者流程參考和權杖端點。 
 - 如果您使用 MSAL，則必須將 **ValidateAuthority** 屬性設定為 `false`。
 - 請確定您變更在 CORS 設定中針對[使用者介面自訂](active-directory-b2c-ui-customization-custom-dynamic.md)定義的任何**允許的來源**。  
 
@@ -56,7 +56,7 @@ ms.locfileid: "51635552"
 
 ## <a name="update-your-application"></a>更新您的應用程式
 
-您 Azure AD B2C 應用程式可能有數個地方 (例如原則參考和權杖端點) 都會參考 `login.microsoftonline.com`。  請確定您的授權端點、權杖端點及簽發者都已更新成使用 `your-tenant-name.b2clogin.com`。  
+您 Azure AD B2C 應用程式可能有數個地方 (例如使用者流程參考和權杖端點) 都會參考 `login.microsoftonline.com`。  請確定您的授權端點、權杖端點及簽發者都已更新成使用 `your-tenant-name.b2clogin.com`。  
 
 ## <a name="set-the-validateauthority-property"></a>設定 ValidateAuthority 屬性
 

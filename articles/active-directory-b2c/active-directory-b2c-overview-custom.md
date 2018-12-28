@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5634c14ee2b25600d66ff0f2c7385b2aaa9f1810
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699493"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725058"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的自訂原則
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-自訂原則是定義 Azure Active Directory (Azure AD) B2C 租用戶行為的組態檔。 對於最常用的身分識別工作，Azure AD B2C 入口網站中預先定義了內建原則。 身分識別開發人員可以完全編輯自訂原則，以完成許多不同的工作。
+自訂原則是定義 Azure Active Directory (Azure AD) B2C 租用戶行為的組態檔。 對於最常用的身分識別工作，Azure AD B2C 入口網站中預先定義了使用者流程。 身分識別開發人員可以完全編輯自訂原則，以完成許多不同的工作。
 
-## <a name="comparing-built-in-policies-and-custom-policies"></a>比較內建原則和自訂原則
+## <a name="comparing-user-flows-and-custom-policies"></a>比較使用者流程與自訂原則
 
-| | 內建原則 | 自訂原則 |
+| | 使用者流程 | 自訂原則 |
 |-|-------------------|-----------------|
 | 目標使用者 | 所有具備或不具備身分識別專業知識的應用程式開發人員。 | 身分識別專業人員、系統整合人員、顧問和內部身分識別小組。 他們熟悉 OpenIDConnect 流程，也了解身分識別提供者和宣告型驗證。 |
 | 設定方法 | 有使用者介面 (UI) 方便使用的 Azure 入口網站。 | 直接編輯 XML 檔案，然後上傳至 Azure 入口網站。 |
@@ -33,7 +33,7 @@ ms.locfileid: "43699493"
 | 屬性自訂 | 標準和自訂屬性。 | 相同 |
 | 權杖和工作階段管理 | 自訂權杖和多個工作階段選項。 | 相同 |
 | 識別提供者 | 預先定義的本機或社交提供者。 | 標準式 OIDC、OAUTH 和 SAML。 |
-| 身分識別工作 | 使用本機或許多社交帳戶來註冊或登入。<br><br>自助式密碼重設。<br><br>設定檔編輯。<br><br>Multi-Factor Authentication。<br><br>自訂權杖和工作階段。<br><br>存取權杖流程。 | 使用自訂識別提供者完成與內建原則相同的工作，或使用自訂範圍。<br><br>註冊時將使用者帳戶佈建在另一個系統中。<br><br>使用您自己的電子郵件服務提供者傳送歡迎電子郵件。<br><br>使用 Azure AD B2C 外部的使用者存放區。<br><br>使用 API 向受信任的系統驗證使用者所提供的資訊。 |
+| 身分識別工作 | 使用本機或許多社交帳戶來註冊或登入。<br><br>自助式密碼重設。<br><br>設定檔編輯。<br><br>Multi-Factor Authentication。<br><br>自訂權杖和工作階段。<br><br>存取權杖流程。 | 使用自訂識別提供者完成與使用者流程相同的工作，或使用自訂範圍。<br><br>註冊時將使用者帳戶佈建在另一個系統中。<br><br>使用您自己的電子郵件服務提供者傳送歡迎電子郵件。<br><br>使用 Azure AD B2C 外部的使用者存放區。<br><br>使用 API 向受信任的系統驗證使用者所提供的資訊。 |
 
 ## <a name="policy-files"></a>原則檔
 
@@ -43,7 +43,7 @@ ms.locfileid: "43699493"
 - **擴充檔案** - 保存租用戶的唯一組態變更。
 - **信賴憑證者 (RP) 檔案** - 以單一工作為主的檔案，直接由應用程式或服務 (也稱為信賴憑證者) 叫用。 每個唯一的工作需要自己的 RP，而根據品牌需求而定，數目可能是「應用程式總數 x 使用案例總數」。
 
-Azure AD B2C 中的內建原則遵守上述的 3 檔案模式，但開發人員只能看到 RP 檔案，而 Azure 入口網站是在背景中變更擴充檔案。
+Azure AD B2C 中的使用者流程遵守上述的 3 檔案模式，但開發人員只能看到 RP 檔案，而 Azure 入口網站是在背景中變更擴充檔案。
 
 ## <a name="custom-policy-core-concepts"></a>自訂原則的核心概念
 

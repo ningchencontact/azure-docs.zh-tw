@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: procedural
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: cd868996066110c8d0457b177e60523886912dd8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d38fe1cab27cfade3e6e4d2f6764f455896ac470
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52163166"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001961"
 ---
 # <a name="configure-storage"></a>設定儲存體
 
@@ -19,6 +19,12 @@ ms.locfileid: "52163166"
 
 > [!TIP]
 > 如果您已使用 `create-cloudbacked-cluster` 原型指令碼來搭配 Avere vFXT 叢集建立新的 Blob 容器，則該容器已經設定好而可供使用，您並不需要新增儲存體。
+>
+> 不過，如果新的 Blob 容器已使用預設的加密金鑰來加密，則必須從叢集下載金鑰修復檔案，或使用新的金鑰取代預設金鑰鍵，再儲存資料。 預設金鑰僅儲存在叢集中，而且如果叢集遺失或無法使用時則無法擷取金鑰。
+>
+> 連線至 Avere 控制台之後，按一下 [設定] 索引標籤，然後選擇 [核心篩選] > [雲端加密設定]。 在 [本機金鑰存放區] 區段中，選擇以下其中一個選項： 
+> * 使用 [重新下載復原檔案] 按鈕，以取得用於現有金鑰的復原檔案。 復原檔案已使用叢集系統管理密碼進行加密。 請務必將檔案儲存在安全的地方。 
+> * 請依照頁面中＜**產生新主要金鑰**＞一節中的指示，建立您可控制的新加密金鑰。 此選項可讓您指定唯一的複雜密碼，而這需要您上傳並重新下載復原檔案，以驗證複雜密碼檔案組。
 
 如果您已針對您的叢集使用 `create-minimal-cluster` 原型指令碼，或是想要新增額外的硬體或雲端型儲存體系統，請依照下列指示進行操作。
 

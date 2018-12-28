@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: c7626c6edceddcfbd4d95ff6efc4678836a4502c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247988"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844986"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>對 Hyper-V 至 Azure 的複寫和容錯移轉進行疑難排解
 
@@ -125,7 +125,7 @@ ms.locfileid: "51247988"
 1. 檢查事件日誌中是否有 VSS 錯誤和建議：
     - 在 Hyper-V 主機伺服器上，從 [事件檢視器] > [應用程式及服務記錄檔] > [Microsoft] > [Windows] > [Hyper V] > [管理] 開啟 Hyper-V 管理員事件記錄。
     - 確認是否有任何事件指出應用程式一致快照集失敗。
-    - 常見的錯誤是：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
+    - 典型的錯誤為：「Hyper-V 無法產生虛擬機器 'XYZ' 的 VSS 快照集：寫入器發生非暫時性錯誤。 如果 VSS 服務沒有回應，重新啟動服務或許可解決問題」。
 
 2. 若要產生 VM 的 VSS 快照集，請確認已在 VM 上安裝 Hyper-V Integration Services，而且已啟用備份 (VSS) Integration Service。
     - 確定 Integration Services VSS 服務/精靈正在客體上執行，並且處於 [正常] 狀態。

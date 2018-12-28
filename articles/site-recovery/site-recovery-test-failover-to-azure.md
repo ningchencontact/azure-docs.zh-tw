@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 173a64181c1e8c051c6856fa8353f484540917e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cd8a7540b14c9d0896b9b0db2cae91ac54d92f2a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249705"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844680"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>執行 Azure 的災害復原演練 
 
@@ -32,9 +32,9 @@ ms.locfileid: "51249705"
 2. 選取要對其進行容錯移轉的 [復原點]。 您可以使用下列其中一個選項：
     - **最近處理**：此選項會將計劃中所有 VM 容錯移轉到 Site Recovery 所處理的最新復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
     - **最新應用程式一致**：此選項會將計劃中所有 VM 容錯移轉到 Site Recovery 所處理的最新應用程式一致復原點。 若要查看特定 VM 的最新復原點，請檢查 VM 設定中的 [最新復原點]。
-    - **最新**︰此選項會先處理已傳送到 Site Recovery 服務的所有資料，先為每部 VM 建立復原點後再進行容錯移轉。 此選項會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
-    - **已處理最新多部 VM**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 啟用這項設定的 VM 會容錯移轉至最新的一般多部 VM 一致復原點。 其他 VM 會容錯移轉至最新的已處理復原點。  
-    - **最新多部 VM 應用程式一致**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 屬於最新一般多部 VM 應用程式一致復原點的複寫群組容錯移轉一部分的 VM。 對於最新應用程式一致復原點進行的其他 VM 容錯移轉。
+    - **最新**：此選項會先處理已傳送到 Site Recovery 服務的所有資料，先為每部 VM 建立復原點後再進行容錯移轉。 此選項會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
+    - **已處理最新多個 VM**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 啟用這項設定的 VM 會容錯移轉至最新的一般多部 VM 一致復原點。 其他 VM 會容錯移轉至最新的已處理復原點。  
+    - **已處理最新多部 VM**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 屬於最新一般多部 VM 應用程式一致復原點的複寫群組容錯移轉一部分的 VM。 對於最新應用程式一致復原點進行的其他 VM 容錯移轉。
     - **自訂**：使用這個選項來將特定 VM 容錯移轉至特定復原點。
 3. 選取要在其中建立測試 VM 的 Azure 虛擬網路。
 
@@ -55,7 +55,7 @@ ms.locfileid: "51249705"
 1. **必要條件**：程式會進行必要條件檢查，以確保所有容錯移轉所需之條件都已符合。
 2. **容錯移轉**：容錯移轉會處理並且準備資料，以便從中建立 Azure VM。
 3. **最新**：如果您已選擇最新復原點，則會從已傳送至服務的資料建立復原點。
-4. **開始**︰這個步驟會使用上一個步驟中所處理的資料建立 Azure 虛擬機器。
+4. **開始**：這個步驟會使用上一個步驟中所處理的資料建立 Azure 虛擬機器。
 
 ### <a name="failover-timing"></a>容錯移轉時間
 

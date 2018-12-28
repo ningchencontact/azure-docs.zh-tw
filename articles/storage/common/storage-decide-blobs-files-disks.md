@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c7e9c841e7a1d73fcdedd99e210eefb1e52bbf3e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 9819b2bf3c5e5a07d788dc7f51b674a07e6c41ef
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972332"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>決定何時使用 Azure Blob、Azure 檔案服務或 Azure 磁碟
 
@@ -26,7 +26,7 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 | 功能 | 描述  | 使用時機 |
 |--------------|-------------|-------------|
 | **Azure 檔案** | 提供 SMB 介面、用戶端程式庫和 [REST 介面](/rest/api/storageservices/file-service-rest-api)，允許從任何位置存取儲存的檔案。 | 您想要將應用程式「隨即轉移」到雲端，該應用程式已使用原生檔案系統 API 來在它與在 Azure 中執行的其他應用程式之間共用資料。<br/><br/>您想要儲存需要從許多虛擬機器存取的開發和偵錯工具。 |
-| **Azure Blob** | 提供用戶端程式庫和 [REST 介面](/rest/api/storageservices/blob-service-rest-api)，允許在區塊 Blob 中大規模地儲存及存取非結構化資料 。 | 您想要應用程式支援串流及隨機存取案例。<br/><br/>您想要能夠從任何位置存取應用程式資料。 |
+| **Azure Blob** | 提供用戶端程式庫和 [REST 介面](/rest/api/storageservices/blob-service-rest-api)，允許在區塊 Blob 中大規模地儲存及存取非結構化資料。<br/><br/>也支援將 [Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) 用於企業巨量資料分析解決方案。 | 您想要應用程式支援串流及隨機存取案例。<br/><br/>您想要能夠從任何位置存取應用程式資料。<br/><br/>您想要在 Azure 上建置企業 Data Lake，並執行巨量資料分析。 |
 | **Azure 磁碟** | 提供用戶端程式庫和 [REST 介面](/rest/api/compute/manageddisks/disks/disks-rest-api)，允許持續針對連結的虛擬硬碟進行資料的儲存和存取。 | 您想要隨即轉移使用原生檔案系統 API 讀取及寫入資料至永續性磁碟的應用程式。<br/><br/>您想要儲存不需要從連結磁碟的虛擬機器之外存取的資料。 |
 
 ## <a name="comparison-files-and-blobs"></a>比較：檔案和 Blob
@@ -48,7 +48,7 @@ Microsoft Azure 在 Azure 儲存體中提供數種功能，用以在雲端儲存
 |計費的容量|根據寫入的位元組|根據檔案大小|  
 |用戶端程式庫|多種語言|多種語言|  
   
-## <a name="comparison-files-and-disks"></a>比較：Azure 檔案服務和 Azure 磁碟
+## <a name="comparison-files-and-disks"></a>比較：檔案和磁碟
 
 Azure 檔案服務可補強 Azure 磁碟。 磁碟一次只能連結到一部 Azure 虛擬機器。 磁碟是固定格式的 VHD，會在 Azure 儲存體中儲存為分頁 Blob，並由虛擬機器用來儲存持久資料。 Azure 檔案中的檔案共用可透過與存取本機磁碟 (使用原生檔案系統 API) 一樣的方式存取，並可跨許多部虛擬機器共用。  
  

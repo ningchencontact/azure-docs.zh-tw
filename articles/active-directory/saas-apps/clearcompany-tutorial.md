@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 0463a89b8c320b31929bf5e0322079088c2cdeab
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 9cf5092dabf5649f4d063ce05dae169b90228378
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054126"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clearcompany"></a>教學課程：Azure Active Directory 與 ClearCompany 整合
 
@@ -119,7 +119,7 @@ ClearCompany 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.clearcompany.com`
     
     > [!NOTE] 
-    > 登入 URL 的值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [ClearCompany 用戶端支援小組](http://www.clearcompany.com/support)以取得此值。 
+    > 登入 URL 的值不是真正的值。 請使用實際的登入 URL 來更新此值。 請連絡 [ClearCompany 用戶端支援小組](https://www.clearcompany.com/support)以取得此值。 
 
 5. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -133,7 +133,7 @@ ClearCompany 與 Azure AD 整合提供下列優點：
 
     ![ClearCompany 組態](./media/clearcompany-tutorial/tutorial_clearcompany_configure.png) 
 
-8. 若要在 **ClearCompany** 端設定單一登入，您必須將已下載的「憑證 (Base64)」和「SAML 單一登入服務 URL」傳送給 [ClearCompany 支援小組](http://www.clearcompany.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+8. 若要在 **ClearCompany** 端設定單一登入，您必須將已下載的「憑證 (Base64)」和「SAML 單一登入服務 URL」傳送給 [ClearCompany 支援小組](https://www.clearcompany.com/support)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -172,7 +172,7 @@ ClearCompany 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-clearcompany-test-user"></a>建立 ClearCompany 測試使用者
 
-在本節中，您要在 ClearCompany 中建立名為 Britta Simon 的使用者。 配合 [ClearCompany 支援小組](http://www.clearcompany.com/support)在 ClearCompany 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 ClearCompany 中建立名為 Britta Simon 的使用者。 配合  [ClearCompany 支援小組](https://www.clearcompany.com/support) 在 ClearCompany 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -209,7 +209,7 @@ ClearCompany 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [ClearCompany] 磚時，應該會自動登入您的 ClearCompany 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

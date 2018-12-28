@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 71e39c6430231ae8d175f9c09a9059c3da4c9a1e
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854249"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961515"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>撰寫 Azure 資料總管查詢
 
@@ -26,9 +26,9 @@ ms.locfileid: "51854249"
 - 在 Azure 資料總管中，使用我們已設定協助學習的*說明叢集*。
     請使用為 Azure Active Directory 成員的組織電子郵件帳戶[登入叢集](https://dataexplorer.azure.com/clusters/help/databases/samples)。
 
-- 在您自己包含 StormEvents 範例資料的叢集上。 如需詳細資訊。請參閱[快速入門：建立 Azure 資料總管叢集與資料庫](create-cluster-database-portal.md)及[將範例資料內嵌至 Azure 資料總管](ingest-sample-data.md)。
+- 在您自己包含 StormEvents 範例資料的叢集上。 如需詳細資訊，請參閱[快速入門：建立 Azure 資料總管叢集與資料庫](create-cluster-database-portal.md)及[將範例資料內嵌至 Azure 資料總管](ingest-sample-data.md)。
 
-[!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
+    [!INCLUDE [data-explorer-storm-events](../../includes/data-explorer-storm-events.md)]
 
 ## <a name="overview-of-the-query-language"></a>查詢語言概觀
 
@@ -128,7 +128,7 @@ StormEvents
 
 ### <a name="sort"></a>sort
 
-[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator)：按照一個或多個資料行的順序，排序輸入資料表的資料列。
+[**sort**](https://docs.microsoft.com/azure/kusto/query/sortoperator)：按照一個或多個資料行的順序排序輸入資料表的資料列。
 
 下列查詢會依照 `DamageProperty` 的遞減順序排序資料。
 
@@ -147,7 +147,7 @@ StormEvents
 
 ### <a name="top"></a>top
 
-[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 *N* 筆記錄。
+[**top**](https://docs.microsoft.com/azure/kusto/query/topoperator)：傳回按指定資料行排序的前 ** N 筆記錄。
 
 下列查詢會以少一個運算子的方式，傳回與上方相同的結果。
 
@@ -570,7 +570,7 @@ StormEvents
 
 ### <a name="dcounthll"></a>dcount_hll()
 
-[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：從 HyperLogLog 結果計算  **dcount**  (由 [hll](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 或 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)產生)。
+[**dcount_hll()**](https://docs.microsoft.com/azure/kusto/query/dcount-hllfunction)：從 HyperLogLog 結果計算 **dcount**  (由 [hll](https://docs.microsoft.com/azure/kusto/query/hll-aggfunction) 或 [**hll_merge**](https://docs.microsoft.com/azure/kusto/query/hll-merge-aggfunction)產生)。
 
 下列查詢會使用 HLL 演算法產生計數。
 
@@ -741,7 +741,7 @@ StormEvents
 
 ### <a name="cross-database-and-cross-cluster-queries"></a>跨資料庫與跨叢集查詢
 
-[跨資料庫與跨資料集查詢](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries)：您可以查詢相同叢集上的資料庫，做法是將該資料庫稱做 `database("MyDatabase").MyTable`。 您可以查詢遠端叢集上的資料庫，做法是將該資料庫稱做 `cluster("MyCluster").database("MyDatabase").MyTable`。
+[跨資料庫與跨叢集查詢](https://docs.microsoft.com/azure/kusto/query/cross-cluster-or-database-queries)：您可以查詢相同叢集上的資料庫，做法是將該資料庫稱做 `database("MyDatabase").MyTable`。 您可以查詢遠端叢集上的資料庫，做法是將該資料庫稱做 `cluster("MyCluster").database("MyDatabase").MyTable`。
 
 下列查詢是從一個叢集呼叫的，並會查詢 `MyCluster` 叢集中的資料。 若要執行此查詢，請使用您自己的叢集名稱和資料庫名稱。
 

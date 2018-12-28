@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 1edac9f7eac1f47974f4c94f3cae5bb3451f92fd
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e67edf382a49839d890d2c1dec50c44bbb19705a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705373"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966818"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Azure SQL 資料倉儲有哪些最新功能？ 2018 年 10 月
 Azure SQL 資料倉儲會持續改進。 本文說明 2018 年 10 月導入的新功能和變更。
@@ -62,6 +62,7 @@ Azure SQL 資料倉儲 (SQL DW) 現在已與 Azure Data Lake Storage Gen2 原生
 | **在 DW2000 等等的資料倉儲上的小型資源類別中，CETAS to Parquet 失敗** | 此修正程式正確地識別出 Create External Table As to Parquet 程式碼路徑中的 null 參考。 |
 |**在某些 CTAS 作業中，識別資料行值可能會遺失** | 當 CTASed 到另一個資料表時，可能不會保留識別資料行的值。 在部落格中報告：[https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/)。 |
 | **在查詢仍在執行時終止工作階段的某些情況下發生內部失敗** | 如果在查詢仍在執行時終止工作階段，則此修正程序會觸發 InvalidOperationException。 |
+| **(已在 2018 年 11 月部署) 當客戶嘗試使用 PolyBase 從 ADLS (Gen1) 載入多個小型檔案時，會有次佳的效能體驗。** | 系統效能會在 AAD 安全性權杖驗證期間受到阻礙。 效能問題已藉由啟用安全性權杖的快取來降低影響。 |
 
 
 ## <a name="next-steps"></a>後續步驟

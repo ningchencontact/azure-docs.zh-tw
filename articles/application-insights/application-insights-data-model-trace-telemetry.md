@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 2487df93baec80c0e4f7741aa7b052ac89459b3b
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: f87b2d1bd105a9a9b8eabb3f2f6686c36f71e6df
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35633117"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721726"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>追蹤遙測：Application Insights 資料模型
 
@@ -28,7 +27,7 @@ ms.locfileid: "35633117"
 
 追蹤訊息。
 
-最大長度︰32768 個字元
+最大長度：32768 個字元
 
 ## <a name="severity-level"></a>嚴重性層級
 

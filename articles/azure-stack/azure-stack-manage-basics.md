@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 5d3073c3ed499ecdb20243e6db2b217aec3e1448
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254514"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972383"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基本知識
 若您還不熟悉 Azure Stack 管理，有幾件事需要知道。 本指南提供您身為 Azure Stack 操作員的角色概觀，以及您需要告知使用者哪些事項，使他們快速上手。
@@ -32,9 +32,9 @@ ms.locfileid: "51254514"
  
 ### <a name="development-kit"></a>開發套件
 
-如果您使用的是「Azure Stack 開發套件」，請檢閱[什麼是 Azure Stack？](.\asdk\asdk-what-is.md)一文，以確保您了解開發套件的目的及其限制。 您應該將開發套件當作「沙箱」使用，在其中評估 Azure Stack，並在非生產環境中開發和測試您的應用程式。 (如需部署資訊，請參閱 [Azure Stack 開發套件部署](.\asdk\asdk-install.md)一文)。
+如果您使用的是「Azure Stack 開發套件」，請檢閱[什麼是 Azure Stack？](./asdk/asdk-what-is.md)一文，以確保您了解開發套件的目的及其限制。 您應該將開發套件當作「沙箱」使用，在其中評估 Azure Stack，並在非生產環境中開發和測試您的應用程式。 (如需部署資訊，請參閱 [Azure Stack 開發套件部署](./asdk/asdk-install.md)一文)。
 
-就像 Azure 一樣，我們迅速地進行創新。 我們會定期發行新組建。 如果您執行的是開發套件並且想要移至最新的組建，就必須[重新部署 Azure Stack](.\asdk\asdk-redeploy.md)。 您無法套用更新套件。 此流程需要時間，但好處是您可以嘗試最新的功能。 我們網站上的開發套件文件會反映最新發行的組建。
+就像 Azure 一樣，我們迅速地進行創新。 我們會定期發行新組建。 如果您執行的是開發套件並且想要移至最新的組建，就必須[重新部署 Azure Stack](./asdk/asdk-redeploy.md)。 您無法套用更新套件。 此流程需要時間，但好處是您可以嘗試最新的功能。 我們網站上的開發套件文件會反映最新發行的組建。
 
 ## <a name="learn-about-available-services"></a>了解可用的服務
 
@@ -46,7 +46,7 @@ ms.locfileid: "51254514"
 
 - 計算
 - 儲存體
-- 網路功能
+- 網路
 - Key Vault
 
 利用這些基礎服務，您可用最少的設定，將基礎結構即服務 (IaaS) 提供給您的使用者。
@@ -63,7 +63,7 @@ ms.locfileid: "51254514"
 
 **服務藍圖**
 
-Azure Stack 會持續新增對 Azure 服務的支援。 如需了解所規劃的藍圖，請參閱 [Azure Stack：Azure 的延伸](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) \(英文\) 白皮書。 您也可以留意 [Azure Stack 部落格文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)的新宣告。
+Azure Stack 會持續新增對 Azure 服務的支援。 如需計畫藍圖，請參閱 [Azure Stack：Azure 的擴充](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)技術白皮書。 您也可以留意 [Azure Stack 部落格文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)的新宣告。
 
 ## <a name="what-account-should-i-use"></a>我該使用哪個帳戶?
 管理 Azure Stack 時，有幾個您應該注意的帳戶考量。 尤其是在使用 Windows Server「Active Directory 同盟服務」(AD FS) 而不是 Azure Active Directory (Azure AD) 作為身分識別提供者的部署中。 下列帳戶考量同時適用於 Azure Stack 整合式系統和 ASDK 部署：
@@ -108,7 +108,7 @@ Azure Stack 使用 Azure Resource Manager 作為其基礎的部署、管理及�
 
 在使用服務和 Azure Stack 中的應用程式之前，有些資訊您的使用者必須先了解。 例如，有特定的 PowerShell 和 API 版本需求。 此外，在 Azure 中的服務與 Azure Stack 中的對等服務之間有一些功能差異。 請確保您的使用者會檢閱下列文章：
 
-- [關鍵考量：使用 Azure Stack 的服務或組建 Azure Stack 應用程式](user/azure-stack-considerations.md)
+- [主要考量：使用服務或為 Azure Stack 建置應用程式](user/azure-stack-considerations.md)
 - [Azure Stack 中虛擬機器的考量](user/azure-stack-vm-considerations.md)
 - [儲存體：差異和考量](user/azure-stack-acs-differences.md)
 

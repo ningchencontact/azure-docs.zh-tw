@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 77a57afda3859de4a246c15d3b5c0b4ba8e2a8c8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 87003a053823cfc257a3b6f41699feefadbbcc66
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038987"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835160"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>在 PIM 中設定 Azure AD 目錄角色設定
 
@@ -50,7 +50,15 @@ ms.locfileid: "47038987"
 
 ## <a name="notifications"></a>通知
 
-使用 [通知] 的切換，指定是否要讓系統傳送電子郵件給系統管理員來確認他們已啟用角色。 這對偵測未經授權或不合法的啟用而言相當有用。
+使用 [通知] 參數來指定啟動角色時，系統管理員是否會收到電子郵件通知。 這對偵測未經授權或不合法的啟用而言相當有用。
+
+設定為 [已啟用] 時，就會傳送通知給：
+
+- 特殊權限角色管理員
+- 安全性系統管理員
+- 全域管理員
+
+如需詳細資訊，請參閱 [PIM 中的電子郵件通知](pim-email-notifications.md)。
 
 ## <a name="incidentrequest-ticket"></a>事件/要求票證
 
@@ -78,7 +86,7 @@ ms.locfileid: "47038987"
   * 特殊權限角色管理員
   * 安全性系統管理員
   * SharePoint 服務管理員
-  * 商務用 Skype 管理員
+  * 商務用 Skype 的管理員
   * 使用者管理員
 
 如需詳細資訊，請參閱[多重要素驗證 (MFA) 和 PIM](pim-how-to-require-mfa.md)。

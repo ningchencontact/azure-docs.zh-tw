@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: b84992f5deea1135692c368900f63773b51453bb
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4c783c70217a84bbe5ccf15accc4a2bec0b7cca8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669365"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959677"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>依事件識別碼對 Azure VM 的 RDP 連線問題進行疑難排解 
 
@@ -37,7 +37,7 @@ ms.locfileid: "50669365"
 
 ### <a name="create-a-backup-snapshot"></a>建立備份快照集
 
-若要建立備份快照集，請依照[建立磁碟快照集](..\windows\snapshot-copy-managed-disk.md)中的步驟進行操作。
+若要建立備份快照集，請依照[建立磁碟快照集](../windows/snapshot-copy-managed-disk.md)中的步驟進行操作。
 
 ### <a name="connect-to-the-vm-remotely"></a>從遠端連線到 VM
 
@@ -54,38 +54,38 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windo
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Microsoft-Windows-TerminalServices-RemoteConnectionManager'] and EventID=1057 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**記錄名稱：**     系統 <br />
-**來源：**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**記錄名稱：**    系統 <br />
+**來源：**      Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **日期：**          *時間* <br />
-**事件識別碼：**      1058 <br />
-**工作類別：** 無 <br />
-**層級：**         錯誤 <br />
-**關鍵字：**      傳統 <br />
-**使用者：**          N/A <br />
+**事件識別碼：**    1058 <br />
+**工作類別：** None <br />
+**等級：**       Error <br />
+**關鍵字：**    傳統 <br />
+**使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
-**描述：** RD 工作階段主機伺服器無法取代 SSL 連線的 RD 工作階段主機伺服器驗證所使用的自我簽署憑證 (已過期)。 相關的狀態碼為「存取遭到拒絕」。
+**說明：** RD 工作階段主機伺服器無法取代 SSL 連線的 RD 工作階段主機伺服器驗證所使用的自我簽署憑證 (已過期)。 相關的狀態碼為「存取遭到拒絕」。
 
-**記錄名稱：**     系統 <br />
-**來源：**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**記錄名稱：**    系統 <br />
+**來源：**      Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **日期：**          *時間* <br />
-**事件識別碼：**      1058 <br />
-**工作類別：** 無 <br />
-**層級：**         錯誤 <br />
-**關鍵字：**      傳統 <br />
-**使用者：**          N/A <br />
+**事件識別碼：**    1058 <br />
+**工作類別：** None <br />
+**等級：**       Error <br />
+**關鍵字：**    傳統 <br />
+**使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
-**描述：** RD 工作階段主機伺服器無法建立新的自我簽署憑證以用於 SSL 連線的 RD 工作階段主機伺服器驗證，相關的狀態碼為「物件已存在」。
+**說明：** RD 工作階段主機伺服器無法建立新的自我簽署憑證以用於 SSL 連線的 RD 工作階段主機伺服器驗證，相關的狀態碼為「物件已存在」。
 
-**記錄名稱：**     系統 <br />
-**來源：**        Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
+**記錄名稱：**    系統 <br />
+**來源：**      Microsoft-Windows-TerminalServices-RemoteConnectionManager <br />
 **日期：**          *時間* <br />
-**事件識別碼：**      1057 <br />
-**工作類別：** 無 <br />
-**層級：**         錯誤 <br />
-**關鍵字：**      傳統 <br />
-**使用者：**          N/A <br />
+**事件識別碼：**    1057 <br />
+**工作類別：** None <br />
+**等級：**       Error <br />
+**關鍵字：**    傳統 <br />
+**使用者：**        N/A <br />
 **電腦：**      *電腦* <br />
-**描述：** RD 工作階段主機伺服器無法建立新的自我簽署憑證，以用於 SSL 連線的 RD 工作階段主機伺服器驗證。 相關的狀態碼為「金鑰集不存在」
+**說明：** RD 工作階段主機伺服器無法建立新的自我簽署憑證，以用於 SSL 連線的 RD 工作階段主機伺服器驗證。 相關的狀態碼為「金鑰集不存在」
 
 您也可以執行下列命令，以檢查是否有 SCHANNEL 錯誤事件 36872 和 36870：
 
@@ -94,16 +94,16 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and 
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36872 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**記錄名稱：**     系統 <br />
-**來源：**        Schannel <br />
+**記錄名稱：**    系統 <br />
+**來源：**      Schannel <br />
 **日期：**          — <br />
-**事件識別碼：**      36870 <br />
-**工作類別：** 無 <br />
-**層級：**         錯誤 <br />
+**事件識別碼：**    36870 <br />
+**工作類別：** None <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
-**使用者：**          SYSTEM <br />
+**使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
-**描述：** 嘗試存取 SSL 伺服器認證私密金鑰時發生嚴重錯誤。 從密碼編譯模組傳回的錯誤碼為 0x8009030D。  <br />
+**說明：** 嘗試存取 SSL 伺服器認證私密金鑰時發生嚴重錯誤。 從密碼編譯模組傳回的錯誤碼為 0x8009030D。  <br />
 內部錯誤狀態為 10001。
 
 ### <a name="cause"></a>原因
@@ -216,16 +216,16 @@ reg delete "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RD
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Schannel'] and EventID=36871 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**記錄名稱：**     系統 <br />
-**來源：**        Schannel <br />
+**記錄名稱：**    系統 <br />
+**來源：**      Schannel <br />
 **日期：**          — <br />
-**事件識別碼：**      36871 <br />
-**工作類別：** 無 <br />
-**層級：**         錯誤 <br />
+**事件識別碼：**    36871 <br />
+**工作類別：** None <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
-**使用者：**          SYSTEM <br />
+**使用者：**        系統 <br />
 **電腦：**      *電腦* <br />
-**描述：** 建立 TLS 伺服器認證時發生嚴重錯誤。 內部錯誤狀態為 10013。
+**說明：** 建立 TLS 伺服器認證時發生嚴重錯誤。 內部錯誤狀態為 10013。
  
 ### <a name="cause"></a>原因
 
@@ -246,32 +246,32 @@ wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Wind
 wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name=' Microsoft-Windows-TerminalServices-SessionBroker-Client '] and EventID=1296 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 ```
 
-**記錄名稱：**      Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
-**來源：**        Microsoft-Windows-TerminalServices-SessionBroker <br />
+**記錄名稱：**    Microsoft-Windows-TerminalServices-SessionBroker/Operational <br />
+**來源：**      Microsoft-Windows-TerminalServices-SessionBroker <br />
 **日期：**          *時間* <br />
-**事件識別碼：**      2056 <br />
+**事件識別碼：**    2056 <br />
 **工作類別：**(109) <br />
-**層級：**         錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
-**使用者：**          NETWORK SERVICE <br />
+**使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />
-**描述：** 找不到來自 Microsoft-Windows-TerminalServices-SessionBroker 的事件識別碼 2056 的描述。 可能是引發此事件的元件未安裝在您的本機電腦上，或安裝已損毀。 您可以在本機電腦上安裝或修復該元件。 <br />
+**說明：** 找不到來自 Microsoft-Windows-TerminalServices-SessionBroker 的事件識別碼 2056 的描述。 可能是引發此事件的元件未安裝在您的本機電腦上，或安裝已損毀。 您可以在本機電腦上安裝或修復該元件。 <br />
 如果該事件源自於另一部電腦，則必須將顯示資訊連同事件一起儲存。 <br />
 該事件隨附了下列資訊： <br />
 NULL <br />
 NULL <br />
 更新資料庫失敗。
 
-**記錄名稱：**      Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
-**來源：**        Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
+**記錄名稱：**    Microsoft-Windows-TerminalServices-SessionBroker-Client/Operational <br />
+**來源：**      Microsoft-Windows-TerminalServices-SessionBroker-Client <br />
 **日期：**          *時間* <br />
-**事件識別碼：**      1296 <br />
+**事件識別碼：**    1296 <br />
 **工作類別：**(104) <br />
-**層級：**         錯誤 <br />
+**等級：**       Error <br />
 **關鍵字：**       <br />
-**使用者：**          NETWORK SERVICE <br />
+**使用者：**        NETWORK SERVICE <br />
 **電腦：**      *電腦 FQDN* <br />
-**描述：** 找不到來自 Microsoft-Windows-TerminalServices-SessionBroker-Client 的事件識別碼 1296 的描述。 可能是引發此事件的元件未安裝在您的本機電腦上，或安裝已損毀。 您可以在本機電腦上安裝或修復該元件。
+**說明：** 找不到來自 Microsoft-Windows-TerminalServices-SessionBroker-Client 的事件識別碼 1296 的描述。 可能是引發此事件的元件未安裝在您的本機電腦上，或安裝已損毀。 您可以在本機電腦上安裝或修復該元件。
 如果該事件源自於另一部電腦，則必須將顯示資訊連同事件一起儲存。
 該事件隨附了下列資訊：  <br />
 *text* <br />

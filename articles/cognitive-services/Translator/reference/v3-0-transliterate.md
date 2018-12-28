@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 613cdd14ad196058458b090024cc6b9a4b8a80b6
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018616"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967328"
 ---
-# <a name="translator-text-api-30-transliterate"></a>翻譯文字 API 3.0：轉換
+# <a name="translator-text-api-30-transliterate"></a>翻譯工具文字 API 3.0：音譯
 
 將某種語言的文字從某個指令碼轉換成另一個指令碼。
 
@@ -42,15 +42,15 @@ https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>語言</td>
-    <td>必要參數。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](.\v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
+    <td>必要參數。<br/>指定要從某個指令碼轉換成另一個指令碼的文字語言。 向服務查詢其[支援語言](./v3-0-languages.md)而取得的 `transliteration` 範圍列出可能的語言。</td>
   </tr>
   <tr>
     <td>fromScript</td>
-    <td>*必要參數*。<br/>指定輸入文字所使用的指令碼。 使用 `transliteration` 範圍查閱[支援語言](.\v3-0-languages.md)，以尋找可用於所選取語言的輸入指令碼。</td>
+    <td>*必要參數*。<br/>指定輸入文字所使用的指令碼。 使用 `transliteration` 範圍查閱[支援語言](./v3-0-languages.md)，以尋找可用於所選取語言的輸入指令碼。</td>
   </tr>
   <tr>
     <td>toScript</td>
-    <td>*必要參數*。<br/>指定輸出指令碼。 使用 `transliteration` 範圍查閱[支援的語言](.\v3-0-languages.md)，以尋找可用於所選取之輸入語言和輸入指令碼組合的輸出指令碼。</td>
+    <td>*必要參數*。<br/>指定輸出指令碼。 使用 `transliteration` 範圍查閱[支援的語言](./v3-0-languages.md)，以尋找可用於所選取之輸入語言和輸入指令碼組合的輸出指令碼。</td>
   </tr>
 </table> 
 

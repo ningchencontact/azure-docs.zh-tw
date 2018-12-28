@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: e6a3fab0e6b3b092ddb55043882c4d284268abfc
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006837"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012754"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
-Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機虛擬機器中執行的 Hortonworks 沙箱，本文提供搭配使用 Data Lake 工具所需的步驟。
+Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在本機虛擬機器中執行的 Hortonworks 沙箱，本文提供搭配使用 Data Lake 工具所需的步驟。
 
 使用 Hortonworks 沙箱，可讓您在本機開發環境上使用 Hadoop。 開發解決方案之後並想要進行大規模部署時，您可以接著移至 HDInsight 叢集。
 
@@ -34,7 +34,7 @@ Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機�
 
 ## <a name="configure-passwords-for-the-sandbox"></a>設定沙箱的密碼
 
-確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
+確定 Hortonworks 沙箱正在執行。 依照 [Hortonworks 沙箱使用者入門](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords)文件中的步驟執行。 這些步驟會設定 SSH `root` 帳戶以及 Apache Ambari `admin` 帳戶的密碼。 從 Visual Studio 連線至沙箱時會使用這些密碼。
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>將工具連線至沙箱
 
@@ -71,7 +71,7 @@ Azure Data Lake 包含使用於一般 Hadoop 叢集的工具。 針對在本機�
 
 完成這些步驟後，您會發現 [伺服器總管] 的 [HDInsight] 區段下出現 [HDInsight 本機叢集] 項目。
 
-## <a name="write-a-hive-query"></a>撰寫 Hive 查詢
+## <a name="write-an-apache-hive-query"></a>撰寫 Apache Hive 查詢
 
 Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料。 執行下列步驟，了解如何針對本機叢集執行特定查詢。
 
@@ -100,7 +100,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
     當 [作業狀態] 變更為 [已完成] 之後，有向非循環圖 (DAG) 隨即顯示。 此圖說明處理 Hive 查詢時由 Tez 所決定的執行路徑。 Tez 是本機叢集上 Hive 的預設執行引擎。
 
     > [!NOTE]
-    > Tez 也是當您使用 Linux 型 HDInsight 叢集時的預設值。 它不是 Windows 型 HDInsight 的預設值。 若要在該處使用它，您必須將 `set hive.execution.engine = tez;` 行新增到 Hive 查詢的開頭。
+    > Apache Tez 也是當您使用 Linux 型 HDInsight 叢集時的預設值。 它不是 Windows 型 HDInsight 的預設值。 若要在該處使用它，您必須將 `set hive.execution.engine = tez;` 行新增到 Hive 查詢的開頭。
 
     使用 [作業輸出] 連結來檢視輸出。 在此案例中，它是 823，亦即 sample_08 資料表中的資料列數目。 您可以使用 [作業記錄] 和 [下載 YARN 記錄] 連結，檢視作業的相關診斷資訊。
 
@@ -127,7 +127,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
 [Hive 範例] 專案包含兩個指令碼：**WebLogAnalysis.hql** 和 **SensorDataAnalysis.hql**。 您可以使用前述視窗頂端的 [提交] 按鈕提交這些指令碼。
 
-## <a name="create-a-pig-project"></a>建立 Pig 專案
+## <a name="create-an-apache-pig-project"></a>建立 Apache Pig 專案
 
 Hive 提供類似 SQL 的語言來處理結構化的資料，Pig 的運作方式是藉由對資料執行轉換。 Pig 提供可讓您開發轉換管線的語言 (Pig Latin)。 若要搭配本機叢集使用 Pig，請依照這些步驟執行：
 
@@ -200,5 +200,5 @@ Data Lake 工具也可讓您輕鬆地檢視已在 Hadoop 上執行之作業的�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [了解 Hortonworks 沙箱的訣竅](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/) \(英文\)
-* [Hadoop 教學課程 - 開始使用 HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
+* [了解 Hortonworks 沙箱的訣竅](https://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Apache Hadoop 教學課程 - 開始使用 HDP](https://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)

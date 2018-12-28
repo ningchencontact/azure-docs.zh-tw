@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f9ada220a82a2cf9347f02960eeef9c211f37c67
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 6631df4764e16fd2399b231732df3fb1ee475869
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226148"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842640"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-aravo"></a>教學課程：Azure Active Directory 與 Aravo 整合
 
@@ -33,7 +33,7 @@ ms.locfileid: "36226148"
 
 如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要設定 Azure AD 與 Aravo 整合，您需要下列項目：
 
@@ -114,10 +114,10 @@ ms.locfileid: "36226148"
 
     a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`https://<companyname>.aravo.com`
 
-    b. 在 [回覆 URL] 文字方塊中，以下列模式輸入 URL：`https://<companyname>.aravo.com/aems/login.do`
+    b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<companyname>.aravo.com/aems/login.do`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Aravo 支援小組](http://www.aravo.com/about-us/contact/)以取得這些值。
+    > 這些都不是真正的值。 請使用實際的識別碼和回覆 URL 更新這些值。 請連絡 [Aravo 支援小組](https://www.aravo.com/about-us/contact/)以取得這些值。
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -131,7 +131,7 @@ ms.locfileid: "36226148"
 
     ![設定單一登入](./media/aravo-tutorial/tutorial_aravo_configure.png) 
 
-7. 若要在 **Aravo** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」傳送給 [Aravo 支援小組](http://www.aravo.com/about-us/contact/)。 
+7. 若要在 **Aravo** 端設定單一登入，您必須將已下載的「憑證 (Base64)」、「登出 URL」、「SAML 實體識別碼」及「SAML 單一登入服務 URL」傳送給 [Aravo 支援小組](https://www.aravo.com/about-us/contact/)。 
 
 
 > [!TIP]
@@ -170,7 +170,7 @@ ms.locfileid: "36226148"
  
 ### <a name="creating-an-aravo-test-user"></a>建立 Aravo 測試使用者
 
-本節的目標是要在 Aravo 中建立一個名為 Britta Simon 的使用者。 請與 [Aravo 支援小組](http://www.aravo.com/about-us/contact/)合作，在 Aravo 帳戶中新增使用者。
+本節的目標是要在 Aravo 中建立一個名為 Britta Simon 的使用者。 請與 [Aravo 支援小組](https://www.aravo.com/about-us/contact/)合作，在 Aravo 帳戶中新增使用者。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

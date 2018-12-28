@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 07a9d46dff17b43d01a6b411292cf240c32476f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0117a08c76288cda25da2196ec18433b3678e24b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983713"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724633"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>在 Azure Machine Learning Workbench 中漫遊及共同作業
 
@@ -124,9 +124,9 @@ az role assignment create --assignee bob@contoso.com --role Owner --scope <works
 ### <a name="use-the-azure-portal-to-add-users"></a>使用 Azure 入口網站來新增使用者
 <a name="portal"></a>
 
-Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 資源。 若要指派角色，您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [存取控制] 連結。 
+Machine Learning 測試帳戶、工作區及專案都是 Azure Resource Manager 資源。 若要指派角色，您可以使用 [Azure 入口網站](https://portal.azure.com)中的 [存取控制 (IAM)] 連結。 
 
-使用 [所有資源] 檢視來找出要新增使用者的資源。 選取 [存取控制 (IAM)] 連結，然後選取 [新增使用者]。 
+使用 [所有資源] 檢視來找出要新增使用者的資源。 選取 [存取控制 (IAM)] 連結，然後選取 [新增角色指派]。 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 

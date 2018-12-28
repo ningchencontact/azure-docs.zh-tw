@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.author: stbaron
-ms.openlocfilehash: f5e059c4ce375edb50321afb772cce400cb19b92
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 918ff674e57a14f685c7f9ef2aaaca5ca064976e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309424"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012839"
 ---
 # <a name="azure-resource-health-overview"></a>Azure 資源健康狀態概觀
  
@@ -53,7 +53,7 @@ ms.locfileid: "52309424"
 ![由於平台事件而處於 [無法使用] 狀態的虛擬機器](./media/resource-health-overview/Unavailable.png)
 
 #### <a name="non-platform-events"></a>非平台事件
-非平台事件是由使用者的動作所觸發。 例如，停止虛擬機器或達到 Redis 快取的連線數目上限。
+非平台事件是由使用者的動作所觸發。 例如，停止虛擬機器或達到 Azure Cache for Redis 的連線數目上限。
 
 ![由於非平台事件而處於 [無法使用] 狀態的虛擬機器](./media/resource-health-overview/Unavailable_NonPlatform.png)
 

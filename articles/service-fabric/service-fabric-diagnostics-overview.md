@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 82c02c0212fd79d8847d374022b6ac8f862f042a
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 8d6865349f103278131a02c2385557fb53ee24f5
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291108"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720587"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>對 Azure Service Fabric 進行監視和診斷
 
-此文章提供監視和診斷 Azure Service Fabric 的概觀。 不論任何雲端環境，針對工作負載的開發、測試及部署進行監視和診斷都極為重要。 例如，您可以追蹤應用程式被使用的方式、由 Service Fabric 平台所採取的動作、搭配效能計數器的資源使用量，以及叢集的整體健康情況。 您可以使用這些資訊來診斷並修正問題，並防止它們於未來再度發生。 接下來的幾節將會簡要說明應針對生產工作負載考量的每個 Service Fabric 監視區域。 
+本文提供監視和診斷 Azure Service Fabric 的概觀。 不論任何雲端環境，針對工作負載的開發、測試及部署進行監視和診斷都極為重要。 例如，您可以追蹤應用程式被使用的方式、由 Service Fabric 平台所採取的動作、搭配效能計數器的資源使用量，以及叢集的整體健康情況。 您可以使用這些資訊來診斷並修正問題，並防止它們於未來再度發生。 接下來的幾節將會簡要說明應針對生產工作負載考量的每個 Service Fabric 監視區域。 
 
 ## <a name="application-monitoring"></a>應用程式監視
 應用程式監視會追蹤您應用程式的功能與元件使用情況。 您可以監視應用程式，以確定找出影響使用者的問題。 應用程式監視的責任會落在開發應用程式及其服務的使用者身上，因為它會專屬於您應用程式的商務邏輯。 在下列情況，監視應用程式可能非常有用：
@@ -40,9 +40,10 @@ ms.locfileid: "52291108"
 ## <a name="platform-cluster-monitoring"></a>平台 (叢集) 監視
 使用者可以控制應用程式會傳送哪些遙測，因為程式碼本身是使用者所撰寫的。但是來自 Service Fabric 平台的診斷又如何？ Service Fabric 的其中一個目標是讓應用程式在硬體失敗時能夠復原。 這個目標可以透過 平台的系統服務偵測基礎結構問題，並快速地將工作負載容錯移轉到叢集中的其他節點來達成。 但是在這個特殊情況下，如果是系統服務本身有問題，會發生什麼情況？ 或如果在嘗試部署或移動工作負載時違反了設置服務的規則，會發生麼情況？ Service Fabric 能針對這些及其他情況提供診斷，以確保您能夠了解在您叢集中所發生的活動。 叢集監視的一些範例案例包括：
 
-* 以設置應用程式和針對叢集對工作進行平衡而言，Service Fabric 是否依照我預期的方式運作？ 
-* 使用者對您的叢集採取的動作是否已認可並如預期般執行？ 例如 調整、容錯移轉、部署
-* Service Fabric 是否能追蹤有哪些節點是屬於叢集的一部分，並在某個節點發生問題時通知我？
+Service Fabric 提供一組完整的現成事件。 這些 [Service Fabric 事件](service-fabric-diagnostics-events.md)可以透過 EventStore 或作業通道 (平台公開的事件通道) 來存取。 
+* EventStore - EventStore 是平台所提供的功能，提供可在 Service Fabric Explorer 中和透過 REST API 取得的 Service Fabric 平台事件。 您可以看到快照集檢視，其中顯示每個實體 (例如節點、服務、應用程式) 在叢集中發生什麼情況，並根據事件的時間進行查詢。 您也可以在 [EventStore 概觀](service-fabric-diagnostics-eventstore.md)進一步了解 EventStore。    
+
+* Service Fabric 事件通道 - 在 Windows 上，透過一組用來挑選「作業和資料」與「傳訊」通道的相關 `logLevelKeywordFilters`，就能從單一 ETW 提供者取得 Service Fabric 事件 - 這是我們在需要時區分出待篩選傳出 Service Fabric 事件的方法。 在 Linux 上，Service Fabric 事件會經過 LTTng 並放入一個儲存體資料表，您可以視需要從這個資料表篩選事件。 這些通道包含經過策劃、結構化的事件，可用來進一步了解您的叢集狀態。 叢集建立時預設會啟用診斷，這會建立一個 Azure 儲存體表格，來自這些通道的事件會傳送到這個表格，供您將來查詢之用。 
 
 所提供的診斷預設便是以一組詳盡事件的形式提供。 這些 [Service Fabric 事件](service-fabric-diagnostics-events.md)能說明平台針對各種不同的實體 (例如節點、應用程式、服務、分割區等) 所執行的動作。在上述的最後一個案例中，如果節點發生故障，平台將會發出 `NodeDown` 事件，且您所選擇的監視工具將會立即通知您。 其他常見的範例包括容錯移轉期間的 `ApplicationUpgradeRollbackStarted` 或 `PartitionReconfigured`。 **Windows 和 Linux 叢集上都會提供相同的事件。**
 

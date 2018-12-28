@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958154"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726163"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>管理 Azure 自動化執行身分帳戶
 
@@ -358,11 +358,11 @@ Azure 自動化中的執行身分帳戶可用來提供驗證，以使用 Azure C
 
 為了針對 Azure 自動化中的資源控制自動化目標，系統預設會將訂用帳戶中的參與者權限授予執行身分帳戶。 如果您需要限制執行身分服務主體可執行的動作，可以將帳戶從訂用帳戶的參與者角色中移除，並以參與者身分將它新增至您要指定的資源群組。
 
-在 Azure 入口網站中，選取 [訂用帳戶]，並選擇您自動化帳戶的訂用帳戶。 選取 [存取控制 (IAM)]，並搜尋您自動化帳戶的服務主體 (它看起來像是 \<AutomationAccountName\>_unique identifier)。 選取帳戶，然後按一下 [移除] 將它從訂用帳戶中移除。
+在 Azure 入口網站中，選取 [訂用帳戶]，並選擇您自動化帳戶的訂用帳戶。 選取 [存取控制 (IAM)]，然後選取 [角色指派] 索引標籤。搜尋自動化帳戶的服務主體 (它看起來像是 \<AutomationAccountName\>_unique identifier)。 選取帳戶，然後按一下 [移除] 將它從訂用帳戶中移除。
 
 ![訂用帳戶參與者](media/manage-runas-account/automation-account-remove-subscription.png)
 
-若要將服務主體新增至資源群組，請在 Azure 入口網站中選取資源群組，然後選取 [存取控制 (IAM)]。 選取 [新增]，這會開啟 [新增權限] 頁面。 針對 [角色]，選取 [參與者]。 在 [選取] 文字方塊中，輸入您執行身分帳戶的服務主體名稱，並從清單中選取。 按一下 [儲存]  儲存變更。 請針對您想要賦予「Azure 自動化執行身分」服務主體存取權的資源群組，完成這些步驟。
+若要將服務主體新增至資源群組，請在 Azure 入口網站中選取資源群組，然後選取 [存取控制 (IAM)]。 選取 [新增角色指派]，以開啟 [新增角色指派] 頁面。 針對 [角色]，選取 [參與者]。 在 [選取] 文字方塊中，輸入您執行身分帳戶的服務主體名稱，並從清單中選取。 按一下 [儲存]  儲存變更。 請針對您想要賦予「Azure 自動化執行身分」服務主體存取權的資源群組，完成這些步驟。
 
 ## <a name="misconfiguration"></a>設定錯誤
 

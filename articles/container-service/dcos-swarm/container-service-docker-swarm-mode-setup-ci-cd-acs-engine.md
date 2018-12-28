@@ -1,5 +1,5 @@
 ---
-title: 搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD
+title: (已淘汰) 搭配 Azure Container Service 引擎和 Swarm 模式使用 CI/CD
 description: 搭配 Docker Swarm 模式、Azure Container Registry 及 Azure DevOps 使用 Azure Container Service 引擎，以持續傳遞多容器 .NET Core 應用程式
 services: container-service
 author: diegomrtnzg
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: 296c097ee3302eaa39210274b16c6352866eac8a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 52d20004f43b5c553a17c44f3f35d30fd5693286
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299571"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995061"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>使用 Azure DevOps 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(已淘汰) 使用 Azure DevOps 的完整 CI/CD 管線，搭配 ACS 引擎和 Docker Swarm 模式在 Azure Container Service 上部署多容器應用程式
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 *本文是以[使用 Azure DevOps 的完整 CI/CD 管線，搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式](container-service-docker-swarm-setup-ci-cd.md)一文為基礎*
 
@@ -187,7 +189,7 @@ ms.locfileid: "44299571"
 
   ![Azure DevOps - 建置成功](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>步驟 3︰建立發行管線
+## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
 
 Azure DevOps 可讓您[跨環境管理發行](https://www.visualstudio.com/team-services/release-management/)。 您可以啟用持續部署以確保應用程式會順利部署到不同環境 (例如開發、測試、進入生產階段前和生產)。 您可以建立代表 Azure Container Service Docker Swarm 模式叢集的環境。
 

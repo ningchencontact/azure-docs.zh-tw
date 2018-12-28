@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 5ddd28838e7db7b7f2798b18028aba56246fda4c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8b8ff27413888e1745bd9a83e2e2e8c7b77fba34
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437785"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847043"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>教學課程：Azure Active Directory 與 MCM 整合
 
@@ -117,7 +117,7 @@ MCM 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://myaba.co.uk/<companyname>`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [MCM 客戶支援小組](http://mcmtechnology.com/support/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [MCM 客戶支援小組](https://mcmtechnology.com/support/)以取得這些值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -127,7 +127,7 @@ MCM 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/mcm-tutorial/tutorial_general_400.png) 
 
-1. 若要在 **MCM** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [MCM 支援小組](http://mcmtechnology.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **MCM** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [MCM 支援小組](https://mcmtechnology.com/support/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,7 +166,7 @@ MCM 與 Azure AD 整合提供下列優點：
  
 ### <a name="creating-a-mcm-test-user"></a>建立 MCM 測試使用者
 
-在本節中，您要在 MCM 中建立名為 Britta Simon 的使用者。 請與 [MCM 支援小組](http://mcmtechnology.com/support/)合作，在 MCM 平台中新增使用者。
+在本節中，您要在 MCM 中建立名為 Britta Simon 的使用者。 請與 [MCM 支援小組](https://mcmtechnology.com/support/)合作，在 MCM 平台中新增使用者。
 
 > [!NOTE]
 > 您可以使用任何其他的 MCM 使用者帳戶建立工具或 MCM 提供的 API，佈建 AAD 使用者帳戶。

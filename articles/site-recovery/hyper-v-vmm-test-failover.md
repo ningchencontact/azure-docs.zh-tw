@@ -1,18 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 執行從 Hyper-V VM 到次要網站的災害復原演練 | Microsoft Docs
 description: 了解如何使用 Azure Site Recovery 執行從 VMM 雲端中的 Hyper-V VM 到次要內部部署資料中心的 DR 演練。
-author: ponatara
-manager: abhemraj
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ponatara
-ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5e6d155a3efebfc8289263ac703a87e9aa3287cd
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211344"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834752"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>執行從 Hyper-V VM 到次要網站的 DR 演練
 
@@ -30,11 +30,11 @@ ms.locfileid: "50211344"
     - 以現有的網路執行容錯移轉。 建議您不要使用生產環境網路。
     - 執行容錯移轉，並且讓 Site Recovery 自動建立測試網路。 在此情況下，Site Recovery 會自動建立網路，並在測試容錯移轉完成後加以清除。
 - 您必須選取測試容錯移轉的復原點： 
-    - **最近處理**：此選項會將 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
-    - **最新應用程式一致**：此選項會將 VM 容錯移轉至 Site Recovery 所處理的最新應用程式一致復原點。 
+    - **最新處理**︰此選項會將 VM 容錯移轉至 Site Recovery 所處理的最新復原點。 此選項提供低 RTO (復原時間目標)，因為無須花費時間處理未處理的資料。
+    - **最新應用程式一致**︰此選項會將 VM 容錯移轉至 Site Recovery 所處理的最新應用程式一致復原點。 
     - **最新**︰此選項會先處理已傳送到 Site Recovery 服務的所有資料，先為每部 VM 建立復原點後再進行容錯移轉。 此選項會提供最低的 RPO (復原點目標)，因為在容錯移轉後建立的 VM 具有在觸發容錯移轉時複寫到 Site Recovery 的所有資料。
     - **已處理最新多個 VM**：適用於有一或多個 VM 已啟用多個 VM 一致性的復原計劃。 啟用這項設定的 VM 會容錯移轉至最新的一般多部 VM 一致復原點。 其他 VM 會容錯移轉至最新的已處理復原點。
-    - **最新多部 VM 應用程式一致**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 屬於最新一般多部 VM 應用程式一致復原點的複寫群組容錯移轉一部分的 VM。 對於最新應用程式一致復原點進行的其他 VM 容錯移轉。
+    - **已處理最新多部 VM**：此選項適用於一或多部 VM 已啟用多部 VM 一致性的復原計劃。 屬於最新一般多部 VM 應用程式一致復原點的複寫群組容錯移轉一部分的 VM。 對於最新應用程式一致復原點進行的其他 VM 容錯移轉。
     - **自訂**：使用這個選項來將特定 VM 容錯移轉至特定復原點。
 
 

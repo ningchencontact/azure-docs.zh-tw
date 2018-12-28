@@ -1,5 +1,5 @@
 ---
-title: 使用 Marathon REST API 管理 Azure DC/OS 叢集
+title: (已淘汰) 使用 REST API 管理 Azure DC/OS 叢集
 description: 使用 Marathon REST API 將容器部署到 Azure Container Service DC/OS 叢集。
 services: container-service
 author: iainfoulds
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 34fc6f946d172f1431367e84f9d4d8a6855003ed
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 157d70b628ca3583cb8134ec1cccc185c6ff4c8d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901751"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52991723"
 ---
-# <a name="dcos-container-management-through-the-marathon-rest-api"></a>透過 Marathon REST API 的 DC/OS 容器管理
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(已淘汰) 透過 Marathon REST API 的 DC/OS 容器管理
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體抽象化。 在 DC/OS 之上有架構會管理排程和執行計算工作負載。 雖然許多常見的工作負載都有可用的架構，但這份文件只能讓您使用 Marathon REST API 來開始建立及調整容器部署。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 在練習這些範例之前，您需要 Azure 容器服務中設定的 DC/OS 叢集。 您也需要有此叢集的遠端連線。 如需這些項目的詳細資訊，請參閱下列文章。
 

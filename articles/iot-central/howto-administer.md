@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4bfb7dc2b65dc479189ac7920509e1fd8a23ce4f
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 4dba6aff2002c1f17055cd647be94c4d8f644ad7
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50961342"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992212"
 ---
 # <a name="administer-your-iot-central-application"></a>管理您的 IoT Central 應用程式
 
@@ -35,7 +35,7 @@ ms.locfileid: "50961342"
 ### <a name="change-application-name-and-url"></a>變更應用程式名稱和 URL
 在 [應用程式設定] 頁面上，您可以變更應用程式的名稱和 URL，然後選擇 [儲存]。
 
-![[應用程式設定] 頁面](media\howto-administer\image0-a.png)
+![[應用程式設定] 頁面](media/howto-administer/image0-a.png)
 
 > [!Note]
 > 如果您變更 URL，舊的 URL 可能會被其他 Azure IoT Central 客戶所取用。 如果發生這種情況，您將無法再使用該 URL。 當您變更 URL 時，舊的 URL 就不再運作，而您必須通知使用者應使用新的 URL。
@@ -48,18 +48,21 @@ ms.locfileid: "50961342"
 
 按一下 [複製] 按鈕。 在對話方塊中，輸入新預付型方案應用程式的詳細資料。 接著，按一下 [複製] 按鈕來確認您想要繼續進行。 在[建立應用程式](quick-deploy-iot-central.md)快速入門中，深入了解此表單中的欄位。
 
-![[應用程式設定] 頁面](media\howto-administer\appCopy2.png)
+![[應用程式設定] 頁面](media/howto-administer/appCopy2.png)
 
 當應用程式複製作業成功之後，您就可以移至透過使用所出現的連結複製應用程式所建立的新應用程式。
 
-![[應用程式設定] 頁面](media\howto-administer\appCopy3.png)
+![[應用程式設定] 頁面](media/howto-administer/appCopy3.png)
 
 > [!Note]
 > 複製應用程式也會複製規則和動作的定義。 但是，由於不會將可以存取原始應用程式的使用者複製到所複製的應用程式，因此，您必須手動將使用者新增到動作，例如，向必要使用者寄送電子郵件。 一般而言，檢查規則和動作以確定它們在新應用程式中為最新狀態是個不錯的主意。
 
 ### <a name="delete-an-application"></a>刪除應用程式
 
-使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 如此將會永久刪除所有與該應用程式相關聯的資料。 若要刪除應用程式，您必須在建立應用程式時所選擇的 Azure 訂用帳戶中具有刪除資源的權限。 若要深入了解，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
+> [!Note]
+> 若要刪除應用程式，您必須在建立應用程式時所選擇的 Azure 訂用帳戶中具有刪除資源的權限。 若要深入了解，請參閱[使用角色型存取控制來管理 Azure 訂用帳戶資源的存取](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure)。
+
+使用 [刪除] 按鈕可永久刪除您的 IoT Central 應用程式。 如此將會永久刪除所有與該應用程式相關聯的資料。
 
 ## <a name="manage-users"></a>管理使用者
 
@@ -67,17 +70,17 @@ ms.locfileid: "50961342"
 
 每個使用者都必須具有使用者帳戶，才能登入並存取 Azure IoT Central 應用程式。 Azure IoT Central 支援 Microsoft 帳戶 (MSA) 和 Azure Active Directory (Azure AD) 帳戶。 Azure IoT Central 目前不支援 Azure Active Directory 群組。
 
-如需詳細資訊，請參閱 [Microsoft 帳戶說明](https://support.microsoft.com/products/microsoft-account?category=manage-account)和[快速入門：將使用者新增至 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)。
+如需詳細資訊，請參閱 [Microsoft 帳戶說明](https://support.microsoft.com/products/microsoft-account?category=manage-account)和[快速入門：將新的使用者新增到 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory)。
 
 1. 若要將使用者新增至 IoT Central 應用程式，請前往 [管理] 區段中的 [使用者] 頁面。
 
-    ![使用者清單](media\howto-administer\image1.png)
+    ![使用者清單](media/howto-administer/image1.png)
 
 1. 若要新增使用者，在 [使用者] 頁面上，選擇 [+ 新增使用者]。
 
 1. 從 [角色] 下拉式清單中選擇使用者的角色。 請在本文的[管理角色](#manage-roles)一節中深入了解角色。
 
-    ![角色選取](media\howto-administer\image3.png)
+    ![角色選取](media/howto-administer/image3.png)
 
     > [!NOTE]
     >  若要大量新增使用者，請針對所有想要新增的使用者，輸入以分號分隔的使用者識別碼。 從 [角色] 下拉式清單中選擇角色。 然後選取 [儲存]。

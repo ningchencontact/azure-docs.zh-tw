@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: juliako
-ms.openlocfilehash: 634563a2010562e20691abae132dc7540ef8faf2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b51f2850a925fcd9daf3a07d8db66193555df0fa
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632690"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000248"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>使用 Azure 媒體服務 v3 進行即時串流
 
@@ -34,7 +34,7 @@ Azure 媒體服務可讓您在 Azure 雲端上將實況活動傳遞給客戶。 
 
 若要使用媒體服務傳遞隨選或即時串流，至少需要一個 [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints)。 建立媒體服務帳戶時，**預設**的 StreamingEndpoint 會新增至「已停止」狀態的帳戶。 您必須啟動要將內容串流至檢視者的 StreamingEndpoint。 您可以使用預設的 **StreamingEndpoint**，或是使用需要的設定和 CDN 設定建立另一個自訂的 **StreamingEndpoint**。 您可以決定啟用多個 StreamingEndpoint，每個針對的 CDN 都不同，而且可為內容傳遞提供唯一的主機名稱。 
 
-在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責內嵌和處理即時影片摘要。 當您建立 LiveEvent 時系統會建立輸入端點，您可用此端點從遠端編碼器傳送有效的訊號。 遠端即時編碼器使用 [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) 或是 [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。  
+在媒體服務中，[LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) 會負責內嵌和處理即時影片摘要。 當您建立 LiveEvent 時系統會建立輸入端點，您可用此端點從遠端編碼器傳送有效的訊號。 遠端即時編碼器使用 [RTMP](https://www.adobe.com/devnet/rtmp.html) 或是 [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (分散式 MP4) 通訊協定，傳送發佈摘要至該輸入端點。  
 
 一旦 **LiveEvent** 開始接收發佈摘要時，您可以使用其預覽端點 (預覽 URL) 來預覽及驗證是否在進一步發佈之前接收到即時串流。 確認預覽串流良好之後，您就可以使用 LiveEvent 讓即時串流透過一或多個 (預先建立的) **Streamingendpoint** 傳遞。 若要達成此目的，請在 **LiveEvent** 上建立新的 [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs)。 
 

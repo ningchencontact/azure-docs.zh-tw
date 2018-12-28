@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32692cbe7959650d5181c9e9dfcd7dd5ee55a46e
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8bb95ae776c329e67e9f9936213a9f4c2a0c8f62
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024580"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842589"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>針對 Azure AD B2C 自訂原則和身分識別體驗架構進行疑難排解
 
@@ -56,11 +56,11 @@ ms.locfileid: "50024580"
 ## <a name="troubleshoot-the-runtime"></a>針對執行階段進行疑難排解
 
 * 使用 `Run Now` 和 `https://jwt.io`，在不受 Web 或行動應用程式的影響下測試您的原則。 此網站的作用就像信賴憑證者應用程式。 它會顯示 Azure AD B2C 原則所產生的 JSON Web 權杖 (JWT) 內容。 若要在身分識別體驗架構中建立測試應用程式，請使用下列值：
-    * 名稱︰TestApp
-    * Web 應用程式/Web API：無
-    * 原生用戶端︰否
+    * 名稱：TestApp
+    * Web 應用程式 / Web API：否
+    * 原生用戶端：否
 
-* 若要追蹤用戶端瀏覽器和 Azure AD B2C 之間的訊息交換，請使用 [Fiddler](http://www.telerik.com/fiddler)。 它可協助您了解使用者旅程圖在協調流程步驟中的何處失敗。
+* 若要追蹤用戶端瀏覽器和 Azure AD B2C 之間的訊息交換，請使用 [Fiddler](https://www.telerik.com/fiddler)。 它可協助您了解使用者旅程圖在協調流程步驟中的何處失敗。
 
 * 在**開發模式**中，請使用 **Application Insights** 來追蹤身分識別體驗架構使用者旅程圖的活動。 在**開發模式**中，您可以觀察在身分識別體驗架構和各種宣告提供者 (由技術設定檔定義) 之間的宣告交換，這些提供者包括識別提供者、API 型服務、Azure AD B2C 使用者目錄和其他服務 (例如 Azure Multi-Factor-Authentication)。  
 

@@ -1,18 +1,17 @@
 ---
-title: Azure Cosmos DB 中的唯一索引鍵
+title: 使用 Azure Cosmos DB 中的唯一索引鍵
 description: 了解如何在 Azure Cosmos DB 資料庫中使用唯一索引鍵
 author: aliuy
+ms.author: andrl
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.author: andrl
-ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6dcbfcc4773befc291bd360dd14ff4c943d485bf
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624415"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966597"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Azure Cosmos DB 中的唯一索引鍵
 

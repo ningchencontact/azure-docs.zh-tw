@@ -14,18 +14,18 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d3cc1a09963c5f7fee613af24c63fd15b1cfffee
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: bf7d639c682e443f29b31b3c6d7438e89c406fde
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48805491"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838628"
 ---
 # <a name="how-to-publish-a-new-iot-edge-module-in-the-cloud-partner-portal"></a>如何在 Cloud Partner 入口網站中發行新的 IoT Edge 模組
 
 此文章說明發行新的 IoT Edge 模組供應項目的步驟。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 下列先決條件適用於在 Azure Marketplace 中發行 IoT Edge 模組。
 
@@ -53,7 +53,7 @@ ms.locfileid: "48805491"
 -   登入您的 [CPP 帳戶](https://cloudpartner.azure.com/)。
 
 >[!Note]
->如需 Cloud Partner 入口網站的一般資訊，您可以查看[了解文件](https://cloudpartner.azure.com/#learn)
+>如需 Cloud Partner 入口網站的一般資訊，您可以查看[了解文件](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)
 
 -   選取 [新增供應項目]，然後選取 [IoT Edge 模組]。
 
@@ -151,7 +151,7 @@ IoT Edge 模組中繼資料具有儲存在 Azure 容器登錄 (ACR) 的映像參
 
 -   **建議類別** - 最多可選擇五個類別。 它們將顯示在您的產品詳細資料頁面上。 目前，所有的 IoT Edge 模組都顯示在瀏覽頁面中的「物聯網 \> IoT Edge 模組」類別下。
 
--   **標誌** - 以 PNG 格式上傳您的 IoT Edge 模組標誌影像。 請確切使用下列尺寸：40 像素 x 40 像素、90 像素 x 90 像素、115 像素 x 115 像素、255 個像素 x 115 像素。
+-   **標誌** - 以 PNG 格式上傳您的 IoT Edge 模組標誌影像。 使用下列大小：完全採用下列大小：40 像素 x 40 像素、90 像素 x 90 像素、115 像素 x 115 像素、255 個像素 x 115 像素。
 
 -   **螢幕擷取畫面** - 螢幕擷取畫面顯示在您的產品詳細資料頁面上。 它們適合用來以視覺化方式傳達 IoT Edge 模組的功能以及其運作方式。 例如，您可以顯示架構圖表，或針對執行個體使用案例圖。
 

@@ -5,14 +5,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7244aa2c0b665b47d597662b98ec291d6bfeeddd
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 46ec116b357df8cc5de889f64d4620544c062979
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215016"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848335"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署規劃工具中檢閱針對 Azure 進行 VMware 災害復原的成本估計報告
 
@@ -28,7 +28,7 @@ ms.locfileid: "50215016"
  
 您可以檢視每月或每年的成本。 深入了解[支援的目標區域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支援的貨幣](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
 
-**依元件的成本** DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
+**依元件的成本**：DR 總成本分成四個元件：計算、儲存體、網路和 Azure Site Recovery 授權成本。 此成本是根據在複寫期間和在 DR 演練時產生的耗用量來計算，其中涵蓋計算、儲存體 (進階和標準)、在內部部署網站與 Azure 之間設定的 ExpressRoute/VPN，以及 Azure Site Recovery 授權。
 
 **依狀態的成本** 災害復原 (DR) 的總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。 
 
@@ -59,9 +59,9 @@ ms.locfileid: "50215016"
 ### <a name="overall-dr-cost-by-states"></a>依狀態的整體 DR 成本
 DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
-**複寫成本**：在複寫時發生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。 
+**複寫成本**：在複寫時產生的成本。 其中涵蓋儲存體、網路和 Azure Site Recovery 授權的成本。 
 
-**DR 演練成本**：DR 演練時發生的成本。 Azure Site Recovery 會在 DR 演練期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。
+**DR 演練成本**：在 DR 演練時產生的成本。 Azure Site Recovery 會在 DR 演練期間啟動 VM。 DR 演練成本涵蓋執行 VM 的計算和儲存成本。
 一年中的總計 DR 演練持續時間 = DR 演練的數目 x 每個 DR 演練持續時間 (天) 平均 DR 演練成本 (每月) = 總計 DR 演練成本 / 12
 
 ### <a name="storage-cost-table"></a>儲存成本表格：
@@ -72,7 +72,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **ExpressRoute**：根據預設，此工具會選取符合差異複寫所需網路頻寬的最接近 ExpressRoute 計劃。 您可以根據您的需求變更計劃。
 
-**VPN 閘道**：如果您的環境中有任何，請選取 VPN 閘道。 根據預設，這是 NA。
+**VPN 閘道**：如果您的環境中有任何 VPN 閘道，請加以選取。 根據預設，這是 NA。
 
 **目標區域**：針對 DR 指定的 Azure 區域。 報告中針對計算、儲存體、網路和授權使用的價格是以該地區的 Azure 價格為基礎。 
 
@@ -110,11 +110,11 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 4.  按一下 [重新計算成本] 來更新成本。
 
-**VM 名稱**：VM 的名稱。
+**虛擬機器名稱**：VM 的名稱。
 
 **VM 數目**：符合組態的 VM 數目。 如果類似組態的 VM 未經過剖析，但是將會受到保護，您可以更新現有的 VM 數目。
 
-**IaaS 大小 (建議)**：這是工具建議之相容 VM 的 VM 角色大小。 
+**IaaS 大小 (建議)**：工具所建議的相容 VM 的 VM 角色大小。 
 
 **IaaS 大小 (您的選擇)**：根據預設，這與建議的 VM 角色大小一樣。 您可以根據您的需求變更角色。 計算成本是以您選取的 VM 角色大小為基礎。
 
@@ -134,7 +134,7 @@ DR 總成本是根據兩個不同的狀態來分類 - 複寫和 DR 演練。
 
 **Azure 總耗用量**：其中包含您的 DR 的計算、儲存及 Azure Site Recovery 授權成本。 根據您的選取項目，顯示每月或每年的成本。
 
-**穩定狀態複寫成本**：包含複寫的儲存成本。
+**穩定狀態複寫成本**：其中包含複寫的儲存成本。
 
 **DR 演練總成本 (平均)**：其中包含 DR 演練的計算和儲存成本。
 
@@ -148,7 +148,7 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Azure Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|貨幣|名稱||貨幣|名稱||貨幣|名稱|
+|貨幣|Name||貨幣|Name||貨幣|Name|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|

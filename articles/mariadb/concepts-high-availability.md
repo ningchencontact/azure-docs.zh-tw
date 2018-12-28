@@ -7,16 +7,16 @@ editor: jasonwhowell
 services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 2f06c9515c6ee79ea7475452b7000d1babdbecfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 12/03/2018
+ms.openlocfilehash: 043988066cae672225b850b57864bddb3155689c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956518"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833834"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>適用於 MariaDB 的 Azure 資料庫中之高可用性概念
-「適用於 MariaDB 的 Azure 資料庫」服務可提供保證的高可用性等級。 具補償方案的服務等級協定 (SLA) 在正式運作時可達 99.99%。 SLA 不適用於公開預覽。 使用此服務時幾乎不會有應用程式停機時間。
+「適用於 MariaDB 的 Azure 資料庫」服務可提供保證的高可用性等級。 以財務為後盾的服務等級協定 (SLA) 在正式運作時可達 99.99%。 使用此服務時幾乎不會有應用程式停機時間。
 
 ## <a name="high-availability"></a>高可用性
 高可用性 (HA) 模型依據的是發生節點層級中斷時的內建容錯移轉機制。 之所以發生節點層級中斷，可能是因為硬體故障，或為了回應服務部署。
@@ -34,4 +34,4 @@ MariaDB 資料庫應用程式的建置目的是要偵測並重試被捨棄的連
 進行規模調整作業時，會發生資料庫連線中斷。 系統會將用戶端應用程式中斷連線，並將已開啟的未認可交易取消。 一旦用戶端應用程式重試連線或建立新連線，閘道就會將該連線導向到新調整過大小的執行個體。
 
 ## <a name="next-steps"></a>後續步驟
-- 如需服務的概觀，請參閱[適用於 MariaDB 的 Azure 資料庫概觀](overview.md)
+- 如需服務的概觀，請參閱 [適用於 MariaDB 的 Azure 資料庫概觀](overview.md)

@@ -1,5 +1,5 @@
 ---
-title: 監視 Azure DC/OS 叢集 - Dynatrace
+title: (已淘汰) 監視 Azure DC/OS 叢集 - Dynatrace
 description: 使用 Dynatrace 監視 Azure Container Service DC/OS 叢集。 使用 DC/OS 儀表板部署 Dynatrace OneAgent。
 services: container-service
 author: MartinGoodwell
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 3d1bfc3bb61781d487c40831edd5da6fcb5a7df9
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162036"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002007"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>使用 Dynatrace SaaS/受控監視 Azure Container Service DC/OS 叢集
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(已淘汰) 使用 Dynatrace SaaS/受控監視 Azure Container Service DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 在本文中，我們會示範如何部署 [Dynatrace](https://www.dynatrace.com/) OneAgent，以監視 Azure Container Service 叢集中的所有代理程式節點。 您需要 Dynatrace SaaS/受控帳戶以進行這項設定。 
 
@@ -27,7 +29,7 @@ Dynatrace 是高動態容器和叢集環境適用的雲端原生監視解決方�
 
 ![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 [部署](container-service-deployment.md)和[連接](./../container-service-connect.md)至 Azure Container Service 所設定的叢集。 瀏覽 [Marathon UI](container-service-mesos-marathon-ui.md)。 移至 [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) 以設定 Dynatrace SaaS 帳戶。  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>使用 Marathon 設定 Dynatrace 部署

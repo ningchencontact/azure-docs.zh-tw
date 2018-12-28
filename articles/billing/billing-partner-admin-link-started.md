@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 1e2492d978073f63c1c9494d652ec35a7d6565b7
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: a0dad228f23b055d68009eb737e0347ade49e94b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274174"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968043"
 ---
 # <a name="link-partner-id-to-your-azure-accounts"></a>將合作夥伴識別碼連結至您的 Azure 帳戶
 
@@ -30,7 +30,7 @@ ms.locfileid: "52274174"
 
 - **來賓使用者：** 客戶可將您新增為來賓使用者，並指派任何 RBAC 角色。 如需詳細資訊，請參閱[從另一個目錄中新增來賓使用者](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)。
 
-- **目錄帳戶：** 客戶可從您的組織在其目錄中建立新的使用者，並指派任何 RBAC 角色。
+- **目錄帳戶：** 客戶可以在自己的目錄中為您建立新使用者，並指派任何 RBAC 角色。
 
 - **服務主體：** 客戶可從您的組織在其目錄中新增應用程式或指令碼，並指派任何 RBAC 角色。 應用程式或指令碼的身分識別稱為服務主體。
 

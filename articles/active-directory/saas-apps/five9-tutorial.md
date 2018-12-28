@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 8ee04008b62867c8eba68b1525cf50edec881cbc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c8d3364f9de298d19df35846af5f421978fea960
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432628"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-five9-plus-adapter-cti-contact-center-agents"></a>教學課程：Azure Active Directory 與 Five9 Plus Adapter 整合 (CTI，Contact Center Agents)
 
@@ -46,7 +46,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -142,11 +142,11 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 
 1. 若要在 **Five9 Plus Adapter (CTI，Contact Center Agents)** 端設定單一登入，您必須將已下載的 [憑證]\(Base64)\、[登出 URL]、[SAML 實體識別碼] 及 [SAML 單一登入服務 URL] 傳送給 [Five9 Plus Adapter (CTI，Contact Center Agents) 支援小組](https://www.five9.com/about/contact)。 此外，若要進一步設定 SSO，請遵循下列根據配接器的步驟：
 
-    a. 「Five9 Plus Adapter for Agent Desktop Toolkit」系統管理指南：[http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
+    a. 「Five9 Plus Adapter for Agent Desktop Toolkit」系統管理指南：[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/agent-desktop-toolkit/plus-agent-desktop-toolkit-administrators-guide.pdf)
     
-    b. 「Five9 Plus Adapter for Microsoft Dynamics CRM」系統管理指南：[http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
+    b. 「Five9 Plus Adapter for Microsoft Dynamics CRM」系統管理指南：[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/microsoft/microsoft-administrators-guide.pdf)
     
-    c. 「Five9 Plus Adapter for Zendesk」系統管理指南：[http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](http://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
+    c. 「Five9 Plus Adapter for Zendesk」系統管理指南：[https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf](https://webapps.five9.com/assets/files/for_customers/documentation/integrations/zendesk/zendesk-plus-administrators-guide.pdf)
 
 
 > [!TIP]
@@ -186,7 +186,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
  
 ### <a name="creating-a-five9-plus-adapter-cti-contact-center-agents-test-user"></a>建立 Five9 Plus Adapter (CTI，Contact Center Agents) 測試使用者
 
-在本節中，您會在 Five9 Plus Adapter (CTI，Contact Center Agents) 中建立名為 Britta Simon 的使用者。 請與 [Five9 Plus Adapter (CTI，Contact Center Agents) 支援小組](https://www.five9.com/about/contact)合作，在 Five9 Plus Adapter (CTI，Contact Center Agents) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您會在 Five9 Plus Adapter (CTI，Contact Center Agents) 中建立名為 Britta Simon 的使用者。 請與  [Five9 Plus Adapter (CTI，Contact Center Agents) 支援小組](https://www.five9.com/about/contact) 合作，在 Five9 Plus Adapter (CTI，Contact Center Agents) 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -223,7 +223,7 @@ Five9 Plus Adapter (CTI，Contact Center Agents) 與 Azure AD 整合提供下列
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [\Five9 Plus Adapter (CTI，Contact Center Agents)\] 圖格時，應該會自動登入您的 Five9 Plus Adapter (CTI，Contact Center Agents) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 11/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 4ed571d34e5df67f556f39b898e7ae5efc06a3e1
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bcea7848c7331ecd326f0ccb6ab9f543ce972205
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288929"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834684"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>教學課程：Azure Active Directory 與 G Suite 整合
 
@@ -32,7 +32,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 - 您可以讓使用者使用他們的 Azure AD 帳戶自動登入 G Suite (單一登入)。
 - 您可以在 Azure 入口網站中集中管理您的帳戶。
 
-如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)。
+如果您想要了解有關 SaaS 應用程式與 Azure AD 之整合的更多詳細資料，請參閱[什麼是搭配 Azure Active Directory 的應用程式存取和單一登入](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -43,7 +43,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 - Google Apps 訂用帳戶或 Google Cloud Platform 訂用帳戶。
 
 > [!NOTE]
-> 若要測試本教學課程中的步驟，我們不建議使用生產環境。
+> 若要測試本教學課程中的步驟，我們不建議使用生產環境。 本文件是使用新的使用者單一登入體驗所建立。 如果您仍然使用舊版，則安裝程式看起來會不同。 您可以在 G-Suite 應用程式的單一登入設定中啟用新的體驗。 移至 [Azure AD]、[企業應用程式]，選取 [G Suite]，選取 [單一登入]，然後按一下 [試用新的體驗]。
 
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
@@ -54,7 +54,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
 1. **問：這項整合支援 Google Cloud Platform 單一登入與 Azure AD 的整合嗎？**
 
-    答： 會。 Google Cloud Platform 和 Google Apps 共用相同的驗證平台。 因此，為了進行 GCP 整合，您需要設定 Google Apps 單一登入。
+    答：是。 Google Cloud Platform 和 Google Apps 共用相同的驗證平台。 因此，為了進行 GCP 整合，您需要設定 Google Apps 單一登入。
 
 2. **問：Chromebook 及其他 Chrome 裝置是否與 Azure AD 單一登入相容？**
   
@@ -72,10 +72,19 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     答：有兩個選項可允許這樣的情況。 第一個是，使用者可以透過 [Azure Active Directory Join](../device-management-introduction.md)登入 Windows 10 裝置。 另一個是，使用者可以登入已加入某個內部部署 Active Directory 網域的 Windows 裝置，其中此內部部署 Active Directory 已透過 [Active Directory 同盟服務 (AD FS)](../hybrid/plan-connect-user-signin.md) 部署而能夠單一登入到 Azure AD。 這兩個選項都需要您執行下列教學課程的步驟，才能在 Azure AD 與 G Suite 之間啟用單一登入。
 
+6. **錯誤：電子郵件無效**
+
+    此設定需要電子郵件屬性，使用者才能夠登入。 目前無法手動設定此屬性。
+
+    系統針對任何具備有效 Exchange 授權的使用者，自動填入電子郵件屬性。 如果使用者並未啟用電子郵件功能，則會收到此錯誤，因為應用程式需要取得此屬性才能授與存取權。
+
+    您可以使用系統管理員帳戶前往 portal.office.com，然後按一下系統管理中心、帳單、訂用帳戶，選取您的 Office 365 訂用帳戶，然後按一下 [指派使用者]，選取您要檢查其訂用帳戶的使用者，然後在右窗格中按一下編輯授權。
+
+    指派 O365 授權後，可能需要幾分鐘的時間才會套用。 然後，系統會自動填入 user.mail 屬性，此問題應該就解決了。
+
 ## <a name="scenario-description"></a>案例描述
 
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
-本教學課程中說明的案例由二項主要的基本工作組成：
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 G Suite
 2. 設定並測試 Azure AD 單一登入
@@ -88,19 +97,19 @@ G Suite 與 Azure AD 整合提供下列優點：
 
 1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
 
-    ![映像](./media/google-apps-tutorial/selectazuread.png)
+    ![Azure Active Directory 按鈕][1]
 
 2. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
-    ![映像](./media/google-apps-tutorial/a_select_app.png)
+    ![企業應用程式刀鋒視窗][2]
 
 3. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
-    ![映像](./media/google-apps-tutorial/a_new_app.png)
+    ![新增應用程式按鈕][3]
 
 4. 在搜尋方塊中，輸入 **G Suite**，從結果面板中選取 **G Suite**，然後按一下 [新增] 按鈕以新增應用程式。
 
-    ![映像](./media/google-apps-tutorial/a_add_app.png)
+    ![結果清單中的 G Suite](./media/google-apps-tutorial/tutorial_gsuite_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>設定和測試 Azure AD 單一登入
 
@@ -110,35 +119,33 @@ G Suite 與 Azure AD 整合提供下列優點：
 
 若要使用 G Suite 來設定並測試 Azure AD 單一登入，您需要完成下列建置組塊：
 
-1. **[設定 Azure AD 單一登入](#configure-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
-2. **[建立 Azure AD 測試使用者](#create-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
-3. **[建立 G Suite 測試使用者](#create-a-g-suite-test-user)** - 使 G Suite 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
-4. **[指派 Azure AD 測試使用者](#assign-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
-5. **[測試單一登入](#test-single-sign-on)**，驗證組態是否能運作。
+1. **[設定 Azure AD 單一登入](#configuring-azure-ad-single-sign-on)** - 讓您的使用者能夠使用此功能。
+2. **[建立 Azure AD 測試使用者](#creating-an-azure-ad-test-user)** - 使用 Britta Simon 測試 Azure AD 單一登入。
+3. **[建立 G Suite 測試使用者](#creating-a-g-suite-test-user)** - 使 G Suite 中對應的 Britta Simon 連結到該使用者在 Azure AD 中的代表項目。
+4. **[指派 Azure AD 測試使用者](#assigning-the-azure-ad-test-user)** - 讓 Britta Simon 能夠使用 Azure AD 單一登入。
+5. **[測試單一登入](#testing-single-sign-on)** - 驗證組態是否能運作。
 
-### <a name="configure-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
+### <a name="configuring-azure-ad-single-sign-on"></a>設定 Azure AD 單一登入
 
 在本節中，您會在 Azure 入口網站中啟用 Azure AD 單一登入，然後在您的 G Suite 應用程式中設定單一登入。
 
 **若要設定與 G Suite 搭配運作的 Azure AD 單一登入，請執行下列步驟：**
 
-1. 在 [Azure 入口網站](https://portal.azure.com/)的 [G Suite] 應用程式整合頁面上，選取 [單一登入]。
+1. 在 Azure 入口網站的 [G Suite] 應用程式整合頁面上，按一下 [單一登入]。
 
-    ![映像](./media/google-apps-tutorial/b1_b2_select_sso.png)
+    ![設定單一登入連結][4]
 
-2. 按一下畫面頂端的 [變更單一登入模式]，選取 [SAML] 模式。
+2. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
 
-      ![映像](./media/google-apps-tutorial/b1_b2_saml_ssso.png)
+    ![設定單一登入](common/tutorial_general_301.png)
 
-3. 在 [選取單一登入方法] 對話方塊上，按一下 [SAML] 模式的 [選取]，啟用單一登入。
+3. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 圖示以開啟 [基本 SAML 設定] 對話方塊。
 
-    ![映像](./media/google-apps-tutorial/b1_b2_saml_sso.png)
+    ![設定單一登入](common/editconfigure.png)
 
-4. 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [基本 SAML 組態] 對話方塊。
+4. 在 [基本 SAML 組態] 區段上，執行下列步驟：
 
-    ![映像](./media/google-apps-tutorial/b1-domains_and_urlsedit.png)
-
-5. 在 [基本 SAML 組態] 區段上，執行下列步驟：
+    ![G Suite 網域與 URL 單一登入資訊](./media/google-apps-tutorial/tutorial_gsuite_url.png)
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
 
@@ -147,19 +154,17 @@ G Suite 與 Azure AD 整合提供下列優點：
     |--|
     | `google.com/a/<yourdomain.com>` |
     | `google.com` |
-    | `http://google.com` |
-    | `http://google.com/a/<yourdomain.com>` |
-
-    ![映像](./media/google-apps-tutorial/b1-domains_and_urls.png)
+    | `https://google.com` |
+    | `https://google.com/a/<yourdomain.com>` |
 
     > [!NOTE]
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [G Suite 用戶端支援小組](https://www.google.com/contact/)以取得這些值。
 
-6. G Suite 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
+5. G Suite 應用程式需要特定格式的 SAML 判斷提示。 設定此應用程式的下列宣告。 您可以在應用程式整合頁面的 [使用者屬性] 區段中，管理這些屬性的值。 在 [以 SAML 設定單一登入] 頁面上，按一下 [編輯] 按鈕以開啟 [使用者屬性] 對話方塊。
 
     ![映像](./media/google-apps-tutorial/i3-attribute.png)
 
-7. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
+6. 在 [使用者屬性] 對話方塊的 [使用者宣告] 區段中，如上圖所示設定 SAML 權杖屬性，然後執行下列步驟：
 
     a. 按一下 [編輯] 按鈕以開啟 [管理使用者宣告] 對話方塊。
 
@@ -171,13 +176,11 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     c. 按一下 [檔案] 。
 
-8. 在 [以 SAML 設定單一登入] 頁面的 [SAML 簽署憑證] 區段中，按一下 [下載] 以依據您的需求下載適當的憑證，並儲存在電腦上。
+5. 在 [SAML 簽署憑證] 頁面上的 [SAML 簽署憑證] 區段中，按一下 [下載] 以下載**憑證 (Base64)**，然後將憑證檔案儲存在電腦上。
 
-    ![映像](./media/google-apps-tutorial/certificatebase64.png)
+    ![憑證下載連結](./media/google-apps-tutorial/tutorial_gsuite_certificate.png) 
 
-9. 在 [安裝 G Suite] 區段上，依據您的需求複製適當的 URL。
-
-    請注意，URL 可能會顯示下列項目：
+6. 在 [安裝 G Suite] 區段上，依據您的需求複製適當的 URL。
 
     a. 登入 URL
 
@@ -185,29 +188,29 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     c. 登出 URL
 
-    ![映像](./media/google-apps-tutorial/d1_saml.png) 
+    ![G Suite 設定](common/configuresection.png)
 
-10. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [G Suite 管理控制台](http://admin.google.com/)。
+9. 在瀏覽器中開啟新索引標籤，然後使用系統管理員帳戶登入 [G Suite 管理控制台](https://admin.google.com/)。
 
-11. 按一下 [安全性] 。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項]  功能表之下。
+10. 按一下 [安全性] 。 如果您沒有看到連結，它可能隱藏在畫面底部的 [其他控制項]  功能表之下。
 
     ![按一下 [安全性]。][10]
 
-12. 在 [安全性] 頁面上，按一下 [設定單一登入 (SSO)]。
+11. 在 [安全性] 頁面上，按一下 [設定單一登入 (SSO)]。
 
     ![按一下 [SSO]。][11]
 
-13. 執行下列組態變更：
+12. 執行下列組態變更：
 
     ![設定 SSO][12]
 
     a. 選取 [使用第三方識別提供者來設定 SSO]。
 
-    b. 在 G Suite 的 [登入頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登入 URL]  值。
+    b. 在 G Suite 的 [登入頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登入 URL] ****  值。
 
-    c. 在 G Suite 的 [登出頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登出 URL]  值。
+    c. 在 G Suite 的 [登出頁面 URL] 欄位中，貼上您從 Azure 入口網站複製的 [登出 URL] ****  值。
 
-    d. 在 G Suite 的 [變更密碼 URL] 欄位中，貼上您從 Azure 入口網站複製的 [變更密碼 URL]  值。
+    d. 在 G Suite 的 [變更密碼 URL] 欄位中，貼上您從 Azure 入口網站複製的 [變更密碼 URL] ****  值。
 
     e. 在 G Suite 中，請於 [驗證憑證] 上傳您從 Azure 入口網站下載的憑證。
 
@@ -215,21 +218,21 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     g. 按一下 [儲存變更] 。
 
-### <a name="create-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
+### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 
 本節的目標是要在 Azure 入口網站中建立一個名為 Britta Simon 的測試使用者。
 
 1. 在 Azure 入口網站的左窗格中，依序選取 [Azure Active Directory]、[使用者] 和 [所有使用者]。
 
-    ![映像](./media/google-apps-tutorial/d_users_and_groups.png)
+    ![建立 Azure AD 使用者][100]
 
 2. 在畫面頂端選取 [新增使用者]。
 
-    ![映像](./media/google-apps-tutorial/d_adduser.png)
+    ![建立 Azure AD 測試使用者](common/create_aaduser_01.png) 
 
 3. 在 [使用者] 屬性中，執行下列步驟。
 
-    ![映像](./media/google-apps-tutorial/d_userproperties.png)
+    ![建立 Azure AD 測試使用者](common/create_aaduser_02.png)
 
     a. 在 [名稱] 欄位中，輸入 **BrittaSimon**。
   
@@ -240,7 +243,7 @@ G Suite 與 Azure AD 整合提供下列優點：
 
     d. 選取 [建立] 。
 
-### <a name="create-a-g-suite-test-user"></a>建立 G Suite 測試使用者
+### <a name="creating-a-g-suite-test-user"></a>建立 G Suite 測試使用者
 
 本節目標是在 G Suite 軟體中建立名為 Britta Simon 的使用者。 G Suite 支援預設啟用的自動佈建。 在這一節沒有您需要進行的動作。 如果 G Suite 軟體中還沒有使用者，當您嘗試存取 G Suite 軟體時，就會建立新的使用者。
 
@@ -250,31 +253,31 @@ G Suite 與 Azure AD 整合提供下列優點：
 > [!NOTE]
 > 如果您需要手動建立使用者，請連絡 [Google 支援小組](https://www.google.com/contact/)。
 
-### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
+### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 G Suite 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
 1. 在 Azure 入口網站中，依序選取 [企業應用程式] 和 [所有應用程式]。
 
-    ![映像](./media/google-apps-tutorial/d_all_applications.png)
+    ![指派使用者][201]
 
 2. 在應用程式清單中，選取 [G Suite]。
 
-    ![映像](./media/google-apps-tutorial/d_all_proapplications.png)
+    ![設定單一登入](./media/google-apps-tutorial/tutorial_gsuite_app.png)
 
-3. 在左側功能表中，選取 [使用者和群組]。
+3. 在左側功能表中，按一下 [使用者和群組]。
 
-    ![映像](./media/google-apps-tutorial/d_leftpaneusers.png)
+    ![指派使用者][202]
 
-4. 選取 [新增] 按鈕，然後在 [新增指派] 對話方塊中，選取 [使用者和群組]。
+4. 按一下 [新增] 按鈕。 然後選取 [新增指派] 對話方塊上的 [使用者和群組]。
 
-    ![映像](./media/google-apps-tutorial/d_assign_user.png)
+    ![指派使用者][203]
 
 5. 在 [使用者和群組] 對話方塊的 [使用者] 清單中，選取 [Britta Simon]，然後按一下畫面底部的 [選取] 按鈕。
 
 6. 在 [新增指派] 對話方塊中，選取 [指派] 按鈕。
 
-### <a name="test-single-sign-on"></a>測試單一登入
+### <a name="testing-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
@@ -286,6 +289,18 @@ G Suite 與 Azure AD 整合提供下列優點：
 * [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
 * [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
+<!--Image references-->
+
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
+
+[100]: common/tutorial_general_100.png
+
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

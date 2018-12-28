@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 64464772b82a64324a706d1e09e7d2a75b7eb66a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007428"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834310"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>將 VMware/實體伺服器複寫到次要內部部署站台的架構
 
@@ -37,7 +37,7 @@ ms.locfileid: "51007428"
 2. 初始複寫之後，每部機器上的代理程式會將差異複寫變更傳送至處理序伺服器。
 3. 處理序伺服器會最佳化此資料，並且將其傳輸至次要網站上的主要目標伺服器。 設定伺服器會管理複寫程序。
 
-**圖 6：VMware 到 VMware 的複寫**
+**圖 6︰VMware 到 VMware 的複寫**
 
 ![VMware 至 VMware](./media/site-recovery-components/vmware-to-vmware.png)
 

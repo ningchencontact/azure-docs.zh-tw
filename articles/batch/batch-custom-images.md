@@ -2,18 +2,18 @@
 title: 從自訂映像佈建 Azure Batch 集區 | Microsoft Docs
 description: 您可以從自訂映像建立 Batch 集區，以佈建含有您應用程式所需軟體和資料的計算節點。 自訂映像是設定計算節點以執行 Batch 工作負載的有效方式。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 10/04/2018
-ms.author: danlep
-ms.openlocfilehash: 7d0526dd233afd3976b22d257300681db0bfcead
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: lahugh
+ms.openlocfilehash: b296dce0a83971626c8e66ddc314c4d1e07d8602
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885201"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840362"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自訂映像來建立虛擬機器的集區 
 
@@ -35,7 +35,7 @@ ms.locfileid: "48885201"
 - **讓集區變大。** 當您使用受控自訂映像來建立集區時，您無須複製映像 Blob VHD，集區便可以成長。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 - **受控映像資源**。 若要使用自訂映像來建立虛擬機器集區，您必須在與 Batch 帳戶相同的 Azure 訂用帳戶和區域中，擁有或建立受控映像資源。 您應該從 VM 之 OS 磁碟 (以及視需要從其連結之資料磁碟) 的快照集建立該映像。 如需詳細資訊及準備受控映像的步驟，請參閱下一節。 
   - 針對您建立的每個集區使用唯一的自訂映像。
@@ -50,7 +50,13 @@ ms.locfileid: "48885201"
 
 ### <a name="prepare-a-vm"></a>準備 VM 
 
-如果您要為映像建立新 VM，請使用 Batch 所支援的 Azure Marketplace 映像作為受控映像的基底映像，然後自訂它。  若要取得 Azure Batch 所支援的 Azure Marketplace 映像參考清單，請參閱[列出節點代理程式 SKU](/rest/api/batchservice/account/listnodeagentskus) 作業。 您無法使用協力廠商映像作為基底映像。
+如果您要為映像建立新 VM，請使用 Batch 所支援的 Azure Marketplace 映像作為受控映像的基底映像，然後自訂它。  若要取得 Azure Batch 所支援的 Azure Marketplace 映像參考清單，請參閱[列出節點代理程式 SKU](/rest/api/batchservice/account/listnodeagentskus) 作業。 
+
+> [!NOTE]
+> 您無法使用具有額外授權和購買條款的第三方映像作為您的基礎映像。 如需這些 Marketplace 映像的相關資訊，請參閱 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+)或 [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) VM 的指導方針。
+
 
 * 確定使用受控磁碟來建立 VM。 當您建立 VM 時，這是預設的儲存體設定。
 * 不要在 VM 上安裝 Azure 延伸模組，例如「自訂指令碼」延伸模組。 如果映像包含預先安裝的延伸模組，則 Azure 在部署 Batch 集區時可能會遇到問題。

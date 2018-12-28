@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 588ce454248f0577a52515a4327d1e43013d34a5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581794"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842674"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>教學課程：在 Azure Active Directory B2C 中自訂應用程式的使用者介面
 
-針對較常見的使用者體驗，例如註冊、登入和設定檔編輯等，您可以使用 Azure Active Directory (Azure AD) B2C 中的[內建原則](active-directory-b2c-reference-policies.md)。 本教學課程中的資訊可協助您了解如何使用自己的 HTML 和 CSS 檔案，為這些體驗[自訂使用者介面 (UI)](customize-ui-overview.md)。
+針對較常見的使用者體驗，例如註冊、登入和設定檔編輯等，您可以使用 Azure Active Directory (Azure AD) B2C 中的[使用者流程](active-directory-b2c-reference-policies.md)。 本教學課程中的資訊可協助您了解如何使用自己的 HTML 和 CSS 檔案，為這些體驗[自訂使用者介面 (UI)](customize-ui-overview.md)。
 
 在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 建立 UI 自訂檔案
-> * 建立將使用這些檔案的註冊與登入原則
+> * 建立將使用這些檔案的註冊與登入使用者流程
 > * 測試自訂的 UI
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
@@ -61,7 +61,7 @@ ms.locfileid: "52581794"
 
 ### <a name="enable-cors"></a>啟用 CORS
 
- 瀏覽器中的 Azure AD B2C 程式碼會使用最新且標準的方法，從原則中的指定 URL 載入自訂內容。 跨來源資源共用 (CORS) 可允許從其他網域要求網頁上受限制的資源。
+ 瀏覽器中的 Azure AD B2C 程式碼會使用最新且標準的方法，從使用者流程中的指定 URL 載入自訂內容。 跨來源資源共用 (CORS) 可允許從其他網域要求網頁上受限制的資源。
 
 1. 在功能表中，選取 [CORS]。
 2. 針對 [允許的來源]，輸入 `https://your-tenant-name.b2clogin.com`。 將 `your-tenant-name` 取代為您的 Azure AD B2C 租用戶名稱。 例如： `https://fabrikam.b2clogin.com`。 輸入您的租用戶名稱時，必須全部使用小寫字母。
@@ -137,9 +137,9 @@ ms.locfileid: "52581794"
 4. 複製已上傳檔案的 URL，以便稍後在教學課程中使用。
 5. 對 style.css 檔案重複步驟 3 和 4。
 
-## <a name="create-a-sign-up-and-sign-in-policy"></a>建立註冊與登入原則
+## <a name="create-a-sign-up-and-sign-in-user-flow"></a>建立註冊和登入使用者流程
 
-若要完成本教學課程中的步驟，您需要在 Azure AD B2C 中建立測試應用程式及註冊或登入原則。 您可以將此教學課程中所述的原則套用到其他使用者體驗，例如設定檔編輯。
+若要完成本教學課程中的步驟，您需要在 Azure AD B2C 中建立測試應用程式及註冊或登入使用者流程。 您可以將此教學課程中所述的原則套用到其他使用者體驗，例如設定檔編輯。
 
 ### <a name="create-an-azure-ad-b2c-application"></a>建立 Azure AD B2C 應用程式
 
@@ -153,29 +153,34 @@ ms.locfileid: "52581794"
 6. 針對 [Web 應用程式 / Web API] ，選取 `Yes`，然後y在 [回覆 URL] 欄位輸入 `https://jwt.ms`。
 7. 按一下頁面底部的 [新增] 。
 
-### <a name="create-the-policy"></a>建立原則
+### <a name="create-the-user-flow"></a>建立使用者流程
 
-若要測試您的自訂檔案，您可以建立內建的註冊或登入原則，來使用您先前建立的應用程式。
+若要測試您的自訂檔案，您可以建立內建的註冊或登入使用者流程，來使用您先前建立的應用程式。
 
-1. 在 Azure AD B2C 租用戶中，選取 [註冊或登入原則]，然後按一下 [新增]。
-2. 輸入原則的名稱。 例如：signup_signin。 建立原則時，前置詞 B2C_1 會自動加到名稱中。
-3. 選取 [識別提供者]，為本機帳戶設定 [電子郵件註冊]，然後按一下 [確定]。
-4. 選取 [註冊屬性]，選擇註冊期間要向客戶收集的屬性。 例如，設定 [國家/區域]、[顯示名稱] 和 [郵遞區號]，然後按一下 [確定]。
-5. 選取 [應用程式宣告]，選擇成功註冊或登入後，您要在授權權杖中傳回給應用程式的宣告。 例如，選取 [顯示名稱]、[識別提供者]、[郵遞區號]、[使用者是新的] 和 [使用者的物件識別碼]，然後按一下 [確定]。
-6. 選取 [頁面 UI 自訂]、選取 [統一註冊或登入頁面]，然後針對 [使用自訂頁面] 按一下 [是]。
-7. 在 [自訂頁面 URI] 中，輸入您先前記下的 custom-ui.html 檔案 URL，然後按一下 [確定]。
-8. 按一下頁面底部的 [新增] 。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]，然後按一下 [新增使用者流程]。
+2. 在 [建議] 索引標籤上，按一下 [註冊並登入]。
+3. 輸入使用者流程的名稱。 例如：signup_signin。 建立使用者流程時，前置詞 B2C_1 會自動新增到名稱。
+4. 在 [識別提供者] 底下，選取 [電子郵件註冊]。
+5. 在 [使用者屬性和宣告] 底下，按一下 [顯示更多]。
+6. 在 [收集屬性] 欄中，選擇註冊期間要向客戶收集的屬性。 例如，設定 [國家/區域]、[顯示名稱] 和 [郵遞區號]。
+7. 在 [傳回宣告] 欄中，選擇成功註冊或登入後，您要在授權權杖中傳回給應用程式的宣告。 例如，選取 [顯示名稱]、[識別提供者]、[郵遞區號]、[使用者是新的] 和 [使用者的物件識別碼]。
+8. 按一下 [確定]。
+9. 按一下頁面底部的 [新增] 。
+10. 在 [自訂] 下方，選取 [頁面配置]。 選取 [統一註冊或登入頁面]，然後針對 [使用自訂頁面內容] 按一下 [是]。
+11. 在 [自訂頁面 URI] 中，輸入您先前記下的 custom-ui.html 檔案 URL。
+12. 按一下頁面頂端的 [儲存]。
 
-## <a name="test-the-policy"></a>測試原則
+## <a name="test-the-user-flow"></a>測試使用者流程
 
-1. 在 Azure AD B2C 租用戶中，選取 [註冊或登入原則]，然後選取您建立的原則。 例如：B2C_1_signup_signin。
-2. 請確定 [選取應用程式] 中已選取您建立的應用程式，然後按一下 [立即執行]。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]，然後選取您所建立的使用者流程。 例如：B2C_1_signup_signin。
+2. 按一下頁面頂端的 [執行使用者流程]。
+3. 按一下 [執行使用者流程]  按鈕。
 
-    ![執行註冊或登入原則](./media/tutorial-customize-ui/signup-signin.png)
+    ![執行註冊或登入使用者流程](./media/tutorial-customize-ui/run-user-flow.png)
 
     您應該會看到類似下列範例的頁面，而頁面上的置中元素會以您所建立的 CSS 檔案為基礎：
 
-    ![原則結果](./media/tutorial-customize-ui/run-now.png) 
+    ![使用者流程結果](./media/tutorial-customize-ui/run-now.png) 
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -183,7 +188,7 @@ ms.locfileid: "52581794"
 
 > [!div class="checklist"]
 > * 建立 UI 自訂檔案
-> * 建立將使用這些檔案的註冊與登入原則
+> * 建立將使用這些檔案的註冊與登入使用者流程
 > * 測試自訂的 UI
 
 > [!div class="nextstepaction"]

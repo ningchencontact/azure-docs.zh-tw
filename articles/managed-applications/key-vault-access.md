@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 07/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: f091ba44a3170dcc4141829f2f4105d6e7993cdf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035284"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725007"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>在部署 Azure 受控應用程式時存取 Key Vault 秘密
 
@@ -43,7 +43,7 @@ ms.locfileid: "39035284"
 
    ![選取存取控制](./media/key-vault-access/access-control.png)
 
-1. 選取 [新增] 。
+1. 選取 [新增角色指派]。
 
    ![選取 [新增]](./media/key-vault-access/add-access-control.png)
 

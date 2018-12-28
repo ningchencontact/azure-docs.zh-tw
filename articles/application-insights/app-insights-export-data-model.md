@@ -9,16 +9,15 @@ ms.assetid: cabad41c-0518-4669-887f-3087aef865ea
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: mbullwin
-ms.openlocfilehash: ee6597b78ac8de8fc3a7f3796010f22919243b23
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6686b241b93a0ae46b6de134f6f01526bb1a3ad2
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294889"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52723443"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 匯出資料模型
 此表列出從 [Application Insights](app-insights-overview.md) SDK 傳送至入口網站的遙測屬性。
@@ -230,7 +229,7 @@ ms.locfileid: "35294889"
 
 | Path | 類型 | 注意 |
 | --- | --- | --- |
-| 要求 [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如：4 =&gt; 25%。 |
+| 要求 [0] 計數 |integer |100/([取樣](app-insights-sampling.md) 率)。 例如︰4 =&gt; 25%。 |
 | 要求 [0] durationMetric.value |number |從要求抵達到回應的時間。 1e7 == 1s |
 | 要求 [0] id |字串 |作業 id |
 | 要求 [0] 名稱 |字串 |GET/POST + url 基底。  最大長度 250 |
