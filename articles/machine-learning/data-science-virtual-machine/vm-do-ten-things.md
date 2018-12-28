@@ -1,11 +1,13 @@
 ---
-title: 您可以在 Azure 的 Data Science Virtual Machine 上做的十件事 | Microsoft Docs
+title: 使用資料科學虛擬機器進行資料探索和模型分析
+titleSuffix: Azure
 description: 在 Data science Virtual Machine 上執行各種資料探索和模型分析工作。
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 52f0a298b1a9e9f3f209f51c1bc0362b8ddf2c4e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250912"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075673"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>您可以在 Windows Data Science Virtual Machine 上做的十件事
 
@@ -62,7 +64,7 @@ Windows Data Science Virtual Machine (DSVM) 是強大的資料科學開發環境
 
 以下是自訂環境設定在 Visual Studio 中的外觀。
 
-![PTVS 設定](./media/vm-do-ten-things/PTVSSetup.png)
+![已選取適用於 Visual Studio 的 Python 工具的 Visual Studio 螢幕擷取畫面](./media/vm-do-ten-things/PTVSSetup.png)
 
 如需有關如何建立 Python 環境的詳細資訊，請參閱 [PTVS 文件](https://aka.ms/ptvsdocs) 。
 
@@ -249,7 +251,7 @@ DSVM 已在命令列和 GUI 上載入用戶端工具，以便存取 GitHub 存�
 
 您可以在 Visual Studio 中執行相同的複製作業。 下列螢幕擷取畫面示範如何在 Visual Studio 中存取 Git 和 GitHub 工具。
 
-![Visual Studio 中的 Git](./media/vm-do-ten-things/VSGit.PNG)
+![顯示 GitHub 連線的 Visual Studio 螢幕擷取畫面](./media/vm-do-ten-things/VSGit.PNG)
 
 從 github.com 上提供的幾個資源，即可找到透過 Git 使用 GitHub 存放庫的詳細資訊。 [功能提要](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) 是有用的參考資料。
 
@@ -261,12 +263,12 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 * **從 [Azure 入口網站](https://portal.azure.com)建立 Azure Blob 儲存體帳戶。**
 
-![Create_Azure_Blob](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![Azure 入口網站中的儲存體帳戶建立程序的螢幕擷取畫面](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 確認預先安裝的命令列 AzCopy 工具位於 ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe```。 包含 azcopy.exe 的目錄已經您的 PATH 環境變數上，如此便無須在執行此工具時輸入完整的命令路徑。 如需有關 AzCopy 工具的詳細資訊，請參閱 [AzCopy 文件](../../storage/common/storage-use-azcopy.md)
 * 啟動 Azure 儲存體總管工具。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。 
 
-![AzureStorageExplorer_v4](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
+![存取儲存體帳戶的 Azure 儲存體總管的螢幕擷取畫面](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
 **將資料從 VM 移至 Azure Blob：AzCopy**
 
@@ -276,7 +278,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 以您的檔案儲存路徑取代 **C:\myfolder**，以您的 Blob 儲存體帳戶名稱取代 **mystorageaccount**、以容器名稱取代 **mycontainer**，並以您的 Blob 儲存體存取金鑰取代 **storage account key**。 您可以在 [Azure 入口網站](https://portal.azure.com)中尋找您的儲存體帳戶認證。
 
-![StorageAccountCredential_v2](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
+![Azure 入口網站中的儲存體帳戶金鑰和容器資訊的螢幕擷取畫面](./media/vm-do-ten-things/StorageAccountCredential_v2.png)
 
 在 PowerShell 或從命令提示字元執行 AzCopy 命令。 以下是使用 AzCopy 命令的一些範例：
 
@@ -291,20 +293,20 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 執行 AzCopy 命令來複製到 Azure Blob 之後，您會看到檔案隨即出現在「Azure 儲存體總管」中。
 
-![AzCopy_run_finshed_Storage_Explorer_v3](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
+![儲存體帳戶的螢幕擷取畫面，顯示已上傳的 CSV 檔案](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
 **將資料從 VM 移至 Azure Blob：Azure 儲存體總管**
 
 您也可以使用 Azure 儲存體總管，從 VM 中的本機檔案上載資料：
 
-* 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![儲存體總管中的 [上傳]](./media/vm-do-ten-things/storage-accounts.png)
-* 按一下 [檔案] 方塊右邊的 [...]，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳] 以開始上傳檔案。![上傳檔案到 Blob](./media/vm-do-ten-things/upload-files-to-blob.png)
+* 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![Azure 儲存體總管中 [上傳] 按鈕的螢幕擷取畫面](./media/vm-do-ten-things/storage-accounts.png)
+* 按一下 [檔案] 方塊右邊的 [...]，從檔案系統中選取一或多個要上傳的檔案，然後按一下 [上傳] 以開始上傳檔案。![[上傳檔案] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 **從 Azure Blob 讀取資料：Machine Learning 讀取器模組**
 
 在 Azure Machine Learning Studio 中，您可以使用**匯入資料模組**從 Blob 讀取資料。
 
-![AML_ReaderBlob_Module_v3](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
+![Machine Learning Studio 中的匯入資料模組的螢幕擷取畫面](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
 **從 Azure Blob 讀取資料：Python ODBC**
 
@@ -352,7 +354,7 @@ Azure blob 是可靠、划算的雲端儲存體，可存放大型和小型的資
 
 資料以資料框架的形式讀入：
 
-![IPNB_data_readin](./media/vm-do-ten-things/IPNB_data_readin.PNG)
+![前 10 個資料列的螢幕擷取畫面](./media/vm-do-ten-things/IPNB_data_readin.PNG)
 
 ### <a name="azure-data-lake"></a>Azure Data Lake
 Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存機制，與 Hadoop 分散式檔案系統 (HDFS) 相容。 它可以與 Hadoop、Spark 及 Azure Data Lake Analytics 搭配運作。 在本節中，您將了解如何將資料移至 Azure Data Lake Store，然後使用 Azure Data Lake Analytics 來執行分析。
@@ -361,29 +363,29 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 * 在 [Azure 入口網站](https://portal.azure.com)中建立 Azure Data Lake Analytics。
 
-![Azure_Data_Lake_Create_v2](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
+![從 Azure 入口網站建立 Data Lake Analytics 的螢幕擷取畫面](./media/vm-do-ten-things/Azure_Data_Lake_Create_v2.png)
 
 * 在這個[連結](https://www.microsoft.com/download/details.aspx?id=49504)找到之 **Visual Studio** 中的 **Azure Data Lake Tools** 已經安裝在虛擬機器上的 Visual Studio Community Edition 上。 啟動 Visual Studio 並登入您的 Azure 訂用帳戶之後，您應該會在 Visual Studio 的左面板中看到 Azure 資料分析帳戶和儲存體。
 
-![Azure_Data_Lake_PlugIn_v2](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
+![Visual Studio 中的 Data Lake Tools 的螢幕擷取畫面](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**將資料從 VM 移至資料湖：Azure 資料湖總管**
+**將資料從 VM 移至 Data Lake：Azure Data Lake 總管**
 
 您可以使用 **Azure Data Lake Explorer** ，將資料從虛擬機器中的本機檔案上傳至 Data Lake 儲存體。
 
-![Azure_Data_Lake_UploadData](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
+![使用 Data Lake Explorer 上傳檔案的螢幕擷取畫面](./media/vm-do-ten-things/Azure_Data_Lake_UploadData.PNG)
 
 您也可以使用 [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/) 來建置資料管線，以將資料在 Azure Data Lake 的移入和移出操作化。 請參閱這篇[文章](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/) ，以引導您完成建置資料管線的步驟。
 
-**將資料從 Azure Blob 讀取至資料湖：U-SQL**
+**將資料從 Azure Blob 讀取至 Data Lake：U-SQL**
 
 如果您的資料位於 Azure Blob 儲存體中，您可以在 U-SQL 查詢中從 Azure 儲存體 Blob 直接讀取資料。 撰寫 U-SQL 查詢之前，請確定您的 Blob 儲存體帳戶已連結到您的 Azure 資料湖。 移至 **Azure 入口網站**、尋找您的 Azure Data Lake Analytics 儀表板、按一下 [新增資料來源]、選取 [Azure 儲存體] 做為儲存體類型，並插入您的 Azure 儲存體帳戶名稱和金鑰。 然後您可以參考儲存體帳戶中儲存的資料。
 
-![輸入儲存體帳戶和金鑰](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
+![[新增資料來源] 對話方塊的螢幕擷取畫面](./media/vm-do-ten-things/Link_Blob_to_ADLA_v2.PNG)
 
 您可以在 Visual Studio 中，從 Blob 儲存體讀取資料、進行一些資料操作、功能工程，以及將結果資料輸出至 Azure 資料湖或 Azure Blob 儲存體。 當您參考 Blob 儲存體中的資料時，請使用 **wasb://**；當您參考 Azure Data Lake 中的資料時，請使用 **swbhdfs://**
 
-![資料框架](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
+![反白顯示 WASB 項目的查詢螢幕擷取畫面](./media/vm-do-ten-things/USQL_Read_Blob_v2.PNG)
 
 您可以在 Visual Studio 中，使用下列 U-SQL 查詢：
 
@@ -429,19 +431,19 @@ Azure Data Lake 儲存體是巨量資料分析工作負載的超大規模儲存�
 
 將查詢提交至伺服器之後，會顯示一個圖表來顯示您的作業狀態。
 
-![作業狀態圖表](./media/vm-do-ten-things/USQL_Job_Status.PNG)
+![作業對話方塊狀態的螢幕擷取畫面](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**查詢資料湖中的資料：U-SQL**
+**查詢 Data Lake 中的資料：U-SQL**
 
 將資料集擷取到 Azure Data Lake 之後，您可以使用 [U-SQL 語言](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md)來查詢和探索資料。 U-SQL 語言類似於 T-SQL，但結合了 C# 的一些功能，以便使用者撰寫自訂的模組、使用者定義的功能等。您可以在上一個步驟中使用指令碼。
 
 將查詢提交到伺服器之後，很快就可以在 **Azure Data Lake Explorer** 中找到 tripdata_summary.CSV，以滑鼠右鍵按一下該檔案即可預覽資料。
 
-![Azure Data Lake Explorer 中的檔案](./media/vm-do-ten-things/USQL_create_summary.png)
+![Data Lake 總管中 csv 檔案的螢幕擷取畫面](./media/vm-do-ten-things/USQL_create_summary.png)
 
 若要查看檔案資訊：
 
-![檔案摘要](./media/vm-do-ten-things/USQL_tripdata_summary.png)
+![檔案摘要資訊的螢幕擷取畫面](./media/vm-do-ten-things/USQL_tripdata_summary.png)
 
 ### <a name="hdinsight-hadoop-clusters"></a>HDInsight Hadoop 叢集
 Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm 服務。 您可以輕鬆地從資料科學虛擬機器使用 Azure HDInsight 叢集。
@@ -450,7 +452,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
 
 * 從 [Azure 入口網站](https://portal.azure.com)建立 Azure Blob 儲存體帳戶。 此儲存體帳戶用來儲存 HDInsight 叢集的資料。
 
-![建立 Azure Blob 儲存體帳戶](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
+![從 Azure 入口網站建立 HDInsight 的螢幕擷取畫面](./media/vm-do-ten-things/Create_Azure_Blob.PNG)
 
 * 從 [Azure 入口網站](../team-data-science-process/customize-hadoop-cluster.md)
   
@@ -460,7 +462,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
 
 * 在建立叢集後，對前端節點啟用 [遠端存取]。 請記住您在這裡指定的遠端存取認證，在後續程序中將會需要用到它們。
 
-![啟用遠端存取](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
+![啟用 HDInsight 叢集的遠端存取](./media/vm-do-ten-things/Create_HDI_dashboard_v3.PNG)
 
 * 建立 Azure Machine Learning 工作區。 您的機器學習實驗將會儲存在此 Machine Learning 工作區中。 在入口網站中選取反白顯示的選項，如下列螢幕擷取畫面所示：
 
@@ -638,7 +640,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
     results.head(5)
 
 
-![上下車資料表](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
+![上下車資料表的頂端資料列](./media/vm-do-ten-things/Exploration_compute_pickup_dropoff_distance_v2.PNG)
 
     results.columns = ['pickup_longitude', 'pickup_latitude', 'dropoff_longitude',
                        'dropoff_latitude', 'trip_distance', 'trip_time_in_secs', 'direct_distance']
@@ -782,7 +784,7 @@ Azure HDInsight 是在雲端上的受控 Apache Hadoop、Spark、HBase 和 Storm
     pd.read_sql(queryString,connection)
 
 
-![資料表](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
+![資料表中的頂端資料列](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
 **使用 Machine Learning 從 HDI 讀取資料：讀取器模組**
 

@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB 的 Java 效能祕訣 | Microsoft Docs
+title: 適用於 Java 的 Azure Cosmos DB 效能提示
 description: 了解用以改善 Azure Cosmos DB 資料庫效能的用戶端設定選項
 keywords: 如何改善資料庫效能
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: sngun
-ms.openlocfilehash: f0792e220b27ec564c124f610d0616d0873e2d68
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: afbeb8211baea6da363a5e0162e92a0588581346
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446991"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872980"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>Azure Cosmos DB 和 Java 的效能祕訣
 
@@ -29,7 +28,7 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 <a id="direct-connection"></a>
 
 1. **連線模式：使用 DirectHttps**

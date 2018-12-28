@@ -3,7 +3,7 @@ title: 開始使用彈性資料庫工作 | Microsoft Docs
 description: 使用彈性資料庫作業來執行跨越多個資料庫的 T-SQL 指令碼。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,27 +12,27 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 0269a8ea460667d44b6173e4504a9ccb5695d722
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241356"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863528"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>開始使用彈性資料庫工作
 
-
 [!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
-
 
 Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料庫可靠地執行 T-SQL 指令碼，同時自動重試並提供最終完成保證。 如需有關彈性資料庫作業功能的詳細資訊，請參閱[彈性作業](sql-database-elastic-jobs-overview.md)。
 
 本文會延伸[彈性資料庫工具入門](sql-database-elastic-scale-get-started.md)中可找到的範例。 完成時，您會了解如何建立和管理作業，該作業管理一組相關資料庫。 您不需要使用「彈性延展」工具，就能善用彈性工作的優點。
 
 ## <a name="prerequisites"></a>必要條件
+
 下載並執行 [彈性資料庫工具範例入門](sql-database-elastic-scale-get-started.md)。
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>使用範例應用程式建立分區對應管理員
+
 在這裡，您會建立分區對應管理員以及數個分區，接著插入資料至分區。 若您的分區設定中已有分區資料，則可以略過下列步驟並移至下一節。
 
 1. 建置並執行 **彈性資料庫工具入門** 範例應用程式。 遵循步驟，直到[下載及執行範例應用程式](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app)小節的步驟 7。 在步驟 7 結束時，您會看到下列的命令提示字元：
@@ -48,8 +48,9 @@ Azure SQL Database 的彈性資料庫工作 (預覽) 可讓您跨越多個資料
 
 在這裡我們通常會建立分區對應目標，使用 **New-AzureSqlJobTarget** Cmdlet。 分區對應管理員資料庫必須設定為資料庫目標，然後將特定分區對應指定為目標。 相反地，我們列舉伺服器中的所有資料庫，並且將資料庫新增至 master 資料庫除外的新的自訂集合。
 
-## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>建立自訂集合，然後將伺服器中的所有資料庫 (master 除外) 新增至自訂集合目標。
-   ```
+## <a name="creates-a-custom-collection-and-add-all-databases-in-the-server-to-the-custom-collection-target-with-the-exception-of-master"></a>建立自訂集合，然後將伺服器中的所有資料庫 (master 除外) 新增至自訂集合目標
+
+   ```Powershell
     $customCollectionName = "dbs_in_server"
     New-AzureSqlJobTarget -CustomCollectionName $customCollectionName
     $ResourceGroupName = "ddove_samples"
@@ -267,7 +268,7 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
 預設的執行原則會使用下列值：
 
 * 名稱：預設執行原則
-* 工作逾時：1 週
+* 作業逾時：1 週
 * 初始重試間隔：100 毫秒
 * 最大重試間隔：30 分鐘
 * 重試間隔係數：2
@@ -301,23 +302,25 @@ JobTaskExecution 物件包括作業生命週期的屬性和訊息屬性。 如�
    ```
 
 ## <a name="cancel-a-job"></a>取消工作
+
 彈性資料庫工作支援取消工作要求。  如果彈性資料庫作業偵測到目前正在執行作業的取消要求，它會嘗試停止作業。
 
 彈性資料庫工作有兩種不同的方式可以執行取消作業：
 
-1. 取消目前正在執行的工作：如果在工作正在執行時偵測到取消，會在目前正在執行的工作層面內嘗試取消。  例如：當嘗試取消時，如果有長時間執行查詢目前正在執行，會嘗試取消查詢。
+1. 取消目前正在執行的工作：如果在工作正在執行時偵測到取消，會在目前正在執行的工作層面內嘗試取消。  例如︰當嘗試取消時，如果有長時間執行查詢目前正在執行，會嘗試取消查詢。
 2. 取消工作重試：如果控制執行緒在啟動工作執行之前偵測到取消，控制執行緒會避免啟動工作，並且將要求宣告為已取消。
 
 如果針對父作業要求作業取消，則會對父作業和其所有子作業執行取消要求。
 
 若要提交取消要求，請使用 **Stop-AzureSqlJobExecution** Cmdlet 並設定 **JobExecutionId** 參數。
 
-   ```
+   ```Powershell
     $jobExecutionId = "{Job Execution Id}"
     Stop-AzureSqlJobExecution -JobExecutionId $jobExecutionId
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>依據名稱和工作的歷程記錄刪除工作
+
 彈性資料庫工作支援非同步刪除工作。 作業可以標示為刪除，系統將會在作業的作業執行皆已完成之後，刪除作業和其所有作業歷程記錄。 系統不會自動取消作用中的作業執行。  
 
 而是必須叫用 Stop-AzureSqlJobExecution 以取消作用中的工作執行。

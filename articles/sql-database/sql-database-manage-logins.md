@@ -4,7 +4,7 @@ description: 深入了解 SQL Database 和 SQL 資料倉儲安全性管理，特
 keywords: sql 資料庫安全性, 資料庫安全性管理, 登入安全性, 資料庫安全性, 資料庫存取權
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,13 +12,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/07/2018
-ms.openlocfilehash: f2627aab2598a706e717e8e1d18fd2f8c944835c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/29/2018
+ms.openlocfilehash: c234ac95d0e02857fe87afe3a734d77f00954477
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864939"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制及授與 SQL Database 和 SQL 資料倉儲的資料庫存取權
 
@@ -28,7 +28,7 @@ ms.locfileid: "47161455"
 >  本主題適用於 Azure SQL 伺服器，以及在 Azure SQL Server 上建立的 SQL Database 和 SQL 資料倉儲資料庫。 為了簡單起見，參考 SQL Database 和 SQL 資料倉儲時都會使用 SQL Database。 
 
 > [!TIP]
-> 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。
+> 如需教學課程，請參閱[保護 Azure SQL Database](sql-database-security-tutorial.md)。 本教學課程不適用於 **Azure SQL Database 受控執行個體**。
 
 ## <a name="unrestricted-administrative-accounts"></a>不受限制的系統管理帳戶
 做為系統管理員的系統管理帳戶有兩個 (**伺服器管理員**和**Active Directory 管理員**)。 若要識別 SQL server 的系統管理員帳戶，請開啟 Azure 入口網站，然後瀏覽至 SQL server 的屬性。
@@ -68,6 +68,10 @@ ms.locfileid: "47161455"
 
 
 ## <a name="additional-server-level-administrative-roles"></a>其他伺服器層級系統管理角色
+
+>[!IMPORTANT]
+>本節不適用於 **Azure SQL Database 受控執行個體**，因為這些角色專屬於 **Azure SQL Database**。
+
 除了先前所討論的伺服器層級系統管理角色以外，SQL Database 還在可新增使用者帳戶的 master 資料庫中提供兩種受限的系統管理角色，以授與建立資料庫或管理登入的權限。
 
 ### <a name="database-creators"></a>資料庫建立者

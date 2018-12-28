@@ -3,19 +3,19 @@ title: 處理適用於 PostgreSQL 的 Azure 資料庫的暫時性連線錯誤 | 
 description: 了解如何處理「適用於 PostgreSQL 的 Azure 資料庫」的暫時性連線錯誤。
 keywords: postgresql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 0459c8ff31564adfbaa3e1735535cd24c3064663
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 021fad5e59e76444351711fb529c542d428af189
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285420"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890055"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>處理適用於 PostgreSQL 的 Azure 資料庫的暫時性連線錯誤
 
@@ -39,7 +39,7 @@ ms.locfileid: "51285420"
 * 針對接下來的每次重試，依指數遞增等候時間，最多可達 60 秒。
 * 設定應用程式將作業視為失敗的重試次數上限。
 
-當具有作用中交易的連線失敗時，比較難正確地處理復原。 有兩種情況：如果交易本質上是唯讀的，您可以放心地重新開啟連線並重試交易。 不過，如果交易也對資料庫進行寫入，則必須判斷該交易是已被復原，還是在發生暫時性錯誤之前即已成功。 在該情況下，您可能只是尚未收到來自資料庫伺服器的認可收條。
+當具有作用中交易的連線失敗時，比較難正確地處理復原。 有兩種案例：如果交易本質上是唯讀的，您可以放心地重新開啟連線並重試交易。 不過，如果交易也對資料庫進行寫入，則必須判斷該交易是已被復原，還是在發生暫時性錯誤之前即已成功。 在該情況下，您可能只是尚未收到來自資料庫伺服器的認可收條。
 
 其中一種做法是，在用戶端上產生一個用於所有重試的唯一識別碼。 您需將這個唯一識別碼隨著交易一起傳遞給伺服器，並將它與一個唯一條件約束一起儲存在資料行中。 如此一來，您便可以放心地重試交易。 如果先前的交易已復原，且用戶端產生的唯一識別碼尚未存在於系統中，交易便會成功。 如果因先前的交易已順利完成而使得先前已儲存唯一識別碼，交易便會因發生重複索引鍵違規而失敗。
 
@@ -49,4 +49,4 @@ ms.locfileid: "51285420"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)
+* [針對適用於 PostgreSQL 的 Azure 資料庫連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)

@@ -10,18 +10,18 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: bbfffe948080c87feaa8c9f0a46ef9afd90eae96
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229674"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877967"
 ---
 # <a name="customize-your-text-translations"></a>自訂文字翻譯
 
-Microsoft 自訂翻譯工具預覽是 Microsoft 翻譯工具服務的功能，可讓使用者在使用翻譯工具文字 API (僅限第 3 版) 翻譯文字時，自訂 Microsoft 翻譯工具的進階類神經機器翻譯。
+Microsoft 自訂翻譯工具是 Microsoft 翻譯工具服務的功能，可讓使用者在使用翻譯工具文字 API (僅限第 3 版) 翻譯文字時，自訂 Microsoft 翻譯工具的進階類神經機器翻譯。
 
-此功能在搭配使用[認知服務語音預覽](https://docs.microsoft.com/azure/cognitive-services/speech-service/)時，也可用來自訂語音翻譯。
+此功能在搭配使用[認知服務語音](https://docs.microsoft.com/azure/cognitive-services/speech-service/)時，也可用來自訂語音翻譯。
 
 ## <a name="custom-translator"></a>自訂翻譯工具
 
@@ -48,7 +48,7 @@ Microsoft 自訂翻譯工具預覽是 Microsoft 翻譯工具服務的功能，�
 
 |   | **中心** | **自訂翻譯工具**|
 |:-----|:----:|:----:|
-|自訂功能狀態   | 正式運作  | 預覽 |
+|自訂功能狀態   | 正式運作  | 正式運作 |
 | 文字 API 版本  | 僅限第 2 版   | 僅限第 3 版 |
 | SMT 自訂 | 是   | 否 |
 | NMT 自訂 | 否    | 是 |

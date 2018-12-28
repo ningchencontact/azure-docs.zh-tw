@@ -1,28 +1,26 @@
 ---
-title: 使用 Azure Cosmos DB 中的日期 | Microsoft Docs
+title: 使用 Azure Cosmos DB 中的日期
 description: 了解如何使用 Azure Cosmos DB 中的日期。
 services: cosmos-db
-author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
+author: SnehaGunda
+ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: sngun
-ms.openlocfilehash: d85cada87a6934921bf2775f12c016a88d9fbe9e
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 48879eb3ae4fc3a54d50a4e896b4a1eb94acabf9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164008"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073800"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>使用 Azure Cosmos DB 中的日期
-Azure Cosmos DB 透過原生 [JSON](http://www.json.org) 資料模型，提供結構描述的彈性和豐富的索引編製功能。 所有 Azure Cosmos DB 資源 (包括資料庫、容器、文件及預存程序) 都會建立模型，並以 JSON 文件的形式儲存。 為了滿足可攜性需求，JSON (和 Azure Cosmos DB) 僅支援一小組基本類型︰字串、數字、布林值、陣列、物件及 Null。 不過，JSON 具有彈性，讓開發人員和架構可以使用這些基本類型及加以組合為物件或陣列，來表示更複雜的類型。 
+Azure Cosmos DB 透過原生 [JSON](https://www.json.org) 資料模型，提供結構描述的彈性和豐富的索引編製功能。 所有 Azure Cosmos DB 資源 (包括資料庫、容器、文件及預存程序) 都會建立模型，並以 JSON 文件的形式儲存。 為了滿足可攜性需求，JSON (和 Azure Cosmos DB) 僅支援一小組基本類型︰字串、數字、布林值、陣列、物件及 Null。 不過，JSON 具有彈性，讓開發人員和架構可以使用這些基本類型及加以組合為物件或陣列，來表示更複雜的類型。 
 
 除了基本類型，許多應用程式需要 [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) 類型來表示日期和時間戳記。 此文章說明開發人員如何使用 .NET SDK 來儲存、擷取、查詢 Azure Cosmos DB 中的日期。
 
 ## <a name="storing-datetimes"></a>儲存 DateTimes
-根據預設，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 會將 DateTime 值序列化為 [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) 字串。 大部分應用程式可以使用 DateTime 的預設字串表示法，原因如下︰
+根據預設，[Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 會將 DateTime 值序列化為 [ISO 8601](https://www.iso.org/iso/catalogue_detail?csnumber=40874) 字串。 大部分應用程式可以使用 DateTime 的預設字串表示法，原因如下︰
 
 * 可以比較字串，且在將 DateTime 值轉換成字串時會保留這些字元的相對順序。 
 * 這個方法不需要任何自訂程式碼或屬性來進行 JSON 轉換。

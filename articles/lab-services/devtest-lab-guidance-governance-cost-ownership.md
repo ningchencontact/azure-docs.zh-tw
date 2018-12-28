@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 9b83d6ac908be1e62e3c6c2025ae31aa374bdeea
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 47f3e8ab14ecd50e958c57ba4c8f9f098fd5bb7b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975068"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868356"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>治理 Azure DevTest Labs 基礎結構 - 管理成本和擁有權
 當您考慮建置開發和測試環境時，成本和擁有權是主要考量。 在此節中，您會發現可協助您進行成本最佳化，並在環境中配置擁有權的資訊。
@@ -40,7 +40,7 @@ ms.locfileid: "51975068"
  
 僅有效的 Visual Studio 訂閱者 (標準訂用帳戶、年度雲端訂用帳戶及每月雲端訂用帳戶) 能夠使用在 Enterprise 開發/測試訂用帳戶內執行的 Azure 資源。 不過，終端使用者能夠存取應用程式來提供意見反應或執行接受度測試。 此訂用帳戶內的資源僅限用於應用程式的開發與測試，且不附帶正常運作的保證。
 
-如果您決定使用 DevTest 供應項目，請注意，此項權益專門用於應用程式的開發與測試。 訂用帳戶內的使用量不包含財務支援的 SLA，除了使用 Visual Studio Team Services 及 HockeyApp 之外。
+如果您決定使用 DevTest 供應項目，請注意，此項權益專門用於應用程式的開發與測試。 訂用帳戶內的使用量不包含財務支援的 SLA，除了使用 Azure DevOps 及 HockeyApp 之外。
 
 ## <a name="define-a-role-based-access-across-your-organization"></a>定義您整個組織內的角色型存取
 ### <a name="question"></a>問題

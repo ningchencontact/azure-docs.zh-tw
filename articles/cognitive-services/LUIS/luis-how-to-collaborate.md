@@ -1,21 +1,22 @@
 ---
-title: 在 LUIS 應用程式上與其他參與者共同作業
-titleSuffix: Azure Cognitive Services
+title: 與其他人共用作業
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 應用程式擁有者可以將共同作業者新增至應用程式。 這些共同作業者可以修改模型、訓練及發佈應用程式。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b7d108bfc0c4283e7856b93daba3f4f92af4cc5b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d1db8974ce134b50340db500c9ea1b00126fe10a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042188"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086414"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理建立者及共同作業者 
 
@@ -31,7 +32,7 @@ ms.locfileid: "47042188"
 
 2. 從工具列中選取 [新增共同作業者]。
 
-    [![](./media/luis-how-to-collaborate/add-collaborator.png "新增共同作業者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
+    [![新增共同作業者](./media/luis-how-to-collaborate/add-collaborator.png "新增共同作業者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 3. 輸入共同作業者用來登入 LUIS 入口網站的電子郵件地址。
 

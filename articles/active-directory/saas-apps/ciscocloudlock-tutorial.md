@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 9908dae627ae11a42e8e01a9a4f4d11f35ce0f8d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1fe0db2f0c7fea4b24cc23aaa52deb16376012b2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422955"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53092004"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-cloud-security-fabric"></a>教學課程：Azure Active Directory 與 The Cloud Security Fabric 整合
 
@@ -108,12 +108,14 @@ ms.locfileid: "39422955"
     ![The Cloud Security Fabric Domain 網域及 URL 單一登入資訊](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. 在 [登入 URL] 文字方塊中，輸入 URL：
+
     | |
     |--|
     | `https://platform.cloudlock.com` |
     | `https://app.cloudlock.com` |
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |
@@ -166,7 +168,7 @@ ms.locfileid: "39422955"
 
 ### <a name="create-a-the-cloud-security-fabric-test-user"></a>建立 The Cloud Security Fabric 測試使用者
 
-在本節中，您會在 The Cloud Security Fabric 中建立名為 Britta Simon 的使用者。 請與 [The Cloud Security Fabric 支援小組](mailto:support@cloudlock.com)合作，在 The Cloud Security Fabric 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 The Cloud Security Fabric 中建立名為 Britta Simon 的使用者。 請與  [The Cloud Security Fabric 支援小組](mailto:support@cloudlock.com) 合作，在 The Cloud Security Fabric 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -203,7 +205,7 @@ ms.locfileid: "39422955"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [The Cloud Security Fabric] 圖格時，應該會自動登入您的 The Cloud Security Fabric 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 

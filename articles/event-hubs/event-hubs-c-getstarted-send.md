@@ -1,6 +1,6 @@
 ---
-title: 使用 C 將事件傳送至 Azure 事件中樞 | Microsoft Docs
-description: 使用 C 將事件傳送至 Azure 事件中樞
+title: 使用 C 來傳送事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文會逐步解說如何建立 C 應用程式，以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 10/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 32345b0f064aa78dbf1cbb84cb2309138e7bf4f7
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 8c134ae9944517d6ae66fcd22e06bbfc599912b4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49455380"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076387"
 ---
 # <a name="send-events-to-azure-event-hubs-using-c"></a>使用 C 將事件傳送至 Azure 事件中樞
 
@@ -33,6 +34,13 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 
 * C 開發環境。 本教學課程假設 Azure Linux VM上的 gcc 堆疊有 Ubuntu 14.04。
 * [Microsoft Visual Studio](https://www.visualstudio.com/)。
+
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。
+
+請依照以下文章中的指示，取得事件中樞的存取金鑰值：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您可以在您於本教學課程稍後撰寫的程式碼中，使用此存取金鑰。 預設的金鑰名稱是：**RootManageSharedAccessKey**。
+
+現在，請繼續進行本教學課程中的下列步驟。
 
 ## <a name="write-code-to-send-messages-to-event-hubs"></a>撰寫程式碼以便將訊息傳送到事件中樞
 本節示範如何撰寫 C 應用程式，以將事件傳送至事件中樞。 此程式碼會使用 [Apache Qpid 專案](http://qpid.apache.org/)中的 Proton AMQP 程式庫。 這與搭配使用服務匯流排佇列與主題與透過 C 的 AMQP 類似 (如[此範例中](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504)所示)。 如需詳細資訊，請參閱 [Qpid Proton 文件](http://qpid.apache.org/proton/index.html) \(英文\)。

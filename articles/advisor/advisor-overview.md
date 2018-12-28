@@ -3,22 +3,21 @@ title: Azure 建議程式簡介 | Microsoft Docs
 description: 使用 Azure 建議程式將 Azure 部署最佳化。
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: e1d7edef304dc91829066f19b6974f0bcf0be0a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.author: kasparks
+ms.openlocfilehash: 747ce8dc4a4e4c8ac1e26e5b051a431176096d71
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140442"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015971"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure 建議程式簡介
 
@@ -36,10 +35,10 @@ Advisor 是個人化的雲端顧問，可協助您依最佳做法來最佳化您
 
 Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以套用篩選來顯示適用於特定訂用帳戶和資源類型的建議。  建議分為四個類別： 
 
-* **高可用性**：確保和改善業務關鍵應用程式的持續性。 如需詳細資訊，請參閱[建議程式高可用性的建議](advisor-high-availability-recommendations.md)。
-* **安全性**偵測可能導致安全性漏洞的威脅和弱點。 如需詳細資訊，請參閱[建議程式安全性建議](advisor-security-recommendations.md)。
-* **效能**提升應用程式的速度。 如需詳細資訊，請參閱[建議程式效能建議](advisor-performance-recommendations.md)。
-* **成本**：最佳化並降低整體 Azure 費用。 如需詳細資訊，請參閱[建議程式成本建議](advisor-cost-recommendations.md)。
+* **高可用性**：可確保和改善商務關鍵應用程式的持續性。 如需詳細資訊，請參閱[建議程式高可用性的建議](advisor-high-availability-recommendations.md)。
+* **安全性**：可偵測可能導致安全性漏洞的威脅和弱點。 如需詳細資訊，請參閱[建議程式安全性建議](advisor-security-recommendations.md)。
+* **效能**：可提升應用程式的速度。 如需詳細資訊，請參閱[建議程式效能建議](advisor-performance-recommendations.md)。
+* **成本**：可最佳化並降低整體 Azure 費用。 如需詳細資訊，請參閱[建議程式成本建議](advisor-cost-recommendations.md)。
 
   ![建議程式建議類型](./media/advisor-overview/advisor-dashboard.png)
 
@@ -64,7 +63,7 @@ Advisor 儀表板會顯示您所有訂用帳戶的個人化建議。  您可以�
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>建議程式可提供哪些資源的建議？
 
-Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用程式服務、SQL 伺服器和 Redis 快取的建議。
+Advisor 可提供虛擬機器、可用性設定組、應用程式閘道、應用程式服務、SQL 伺服器和 Azure Cache for Redis 的建議。
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>是否可以延期或解除建議？
 

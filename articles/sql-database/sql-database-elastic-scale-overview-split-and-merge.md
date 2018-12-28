@@ -3,7 +3,7 @@ title: 在向外延展的雲端資料庫之間移動資料 | Microsoft Docs
 description: 說明如何使用彈性資料庫 API 透過自我託管服務操作分區和移動資料。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: fb87a67d84588b5199a5d31530530d5afb7985e7
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0f5dc5cc7d981eb162ba101671b1e967ddf4bfff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353677"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868458"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在向外延展的雲端資料庫之間移動資料
 
@@ -212,7 +212,7 @@ ms.locfileid: "49353677"
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 
-分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。 您可以如這裡所述控制診斷組態： [在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下載封裝包含兩個診斷組態 - 一個用於 Web 角色，另一個用於背景工作角色。 其中包含定義來記錄效能計數器、IIS 記錄檔、Windows 事件記錄檔，以及分割合併應用程式事件記錄檔。
+分割合併服務會根據 Azure SDK 2.5 使用 Azure 診斷來監控與診斷。 您可以如這裡所述控制診斷組態：[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。 下載封裝包含兩個診斷組態 - 一個用於 Web 角色，另一個用於背景工作角色。 其中包含定義來記錄效能計數器、IIS 記錄檔、Windows 事件記錄檔，以及分割合併應用程式事件記錄檔。
 
 ## <a name="deploy-diagnostics"></a>部署診斷
 
@@ -230,7 +230,7 @@ ms.locfileid: "49353677"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-您可以在這裡找到有關如何設定和部署診斷設定的詳細資訊： [在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。
+您可以在這裡找到有關如何設定和部署診斷設定的詳細資訊：[在 Azure 雲端服務和虛擬機器中啟用診斷](../cloud-services/cloud-services-dotnet-diagnostics.md)。
 
 ## <a name="retrieve-diagnostics"></a>擷取診斷
 

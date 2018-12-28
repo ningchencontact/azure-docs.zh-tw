@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 複製 Shopify 中的資料 | Microsoft Docs
+title: 使用 Azure Data Factory (預覽) 複製 Shopify 中的資料 | Microsoft Docs
 description: 了解如何使用 Azure Data Factory 管線中的複製活動，將資料從 Shopify 複製到支援的接收資料存放區。
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 21065950a886248dcf3cdbc795d0b77f74eaf808
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: e9271081b36681c4011d96b329de5058aeaf8472
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045179"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090613"
 ---
-# <a name="copy-data-from-shopify-using-azure-data-factory"></a>使用 Azure Data Factory 複製 Shopify 中的資料
+# <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 複製 Shopify 中的資料
 
 本文概述如何使用 Azure Data Factory 中的「複製活動」，從 Shopify 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
@@ -45,9 +45,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**Shopify** | yes |
-| host | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | yes |
-| accessToken | 可以用來存取 Shopify 資料的 API 存取權杖。 如果權杖是離線模式，則不會過期。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**Shopify** | 是 |
+| host | Shopify 伺服器的端點。 (也就是 mystore.myshopify.com)  | 是 |
+| accessToken | 可以用來存取 Shopify 資料的 API 存取權杖。 如果權杖是離線模式，則不會過期。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
 | useHostVerification | 指定在透過 SSL 連線時，是否要求伺服器憑證中的主機名稱符合伺服器的主機名稱。 預設值為 true。  | 否 |
 | usePeerVerification | 指定在透過 SSL 連線時，是否要確認伺服器的身分識別。 預設值為 true。  | 否 |
@@ -74,7 +74,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Shopify 資料集所支援的屬性清單。
 
-若要從 Shopify 複製資料，請將資料集的類型屬性設定為 **ShopifyObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
+若要從 Shopify 複製資料，請將資料集的類型屬性設定為 **ShopifyObject**。 以下是支援的屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 資料集的類型屬性必須設定為：**ShopifyObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -86,7 +91,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "linkedServiceName": {
             "referenceName": "<Shopify linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Shopify 來源所支援的屬性清單。
 
-### <a name="shopifysource-as-source"></a>將 ShopifySource 作為來源
+### <a name="shopify-as-source"></a>以 Shopify 作為來源
 
 若要從 Shopify 複製資料，請將複製活動中的來源類型設定為 **ShopifySource**。 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的類型屬性必須設定為：**ShopifySource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM "Products" WHERE Product_Id = '123'"`。 | yes |
+| type | 複製活動來源的類型屬性必須設定為：**ShopifySource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM "Products" WHERE Product_Id = '123'"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

@@ -1,5 +1,5 @@
 ---
-title: 將 Azure Blob 儲存體事件路由至自訂 Web 端點 - PowerShell | Microsoft Docs
+title: 將 Azure Blob 儲存體事件傳送至 Web 端點 - Powershell | Microsoft Docs
 description: 使用 Azure Event Grid 以訂閱 Blob 儲存體事件。
 services: storage,event-grid
 author: david-stanford
@@ -8,14 +8,15 @@ ms.date: 08/23/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 8482678a9c42fa2d960dee54c9810593cd820553
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec18
+ms.openlocfilehash: c7c8fd487bef0da7da84a23e18a4e999645106b3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731979"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076418"
 ---
-# <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>使用 PowerShell 將 Blob 儲存體事件路由至自訂的 Web 端點
+# <a name="quickstart-route-storage-events-to-web-endpoint-with-powershell"></a>快速入門：使用 Powershell 將儲存體事件路由至 Web 端點
 
 Azure Event Grid 是一項雲端事件服務。 在本文中，您可以使用 Azure PowerShell 來訂閱 Blob 儲存體事件、觸發事件並檢視結果。 
 
@@ -29,9 +30,9 @@ Azure Event Grid 是一項雲端事件服務。 在本文中，您可以使用 A
 
 本文需要您執行最新版本的 Azure PowerShell。 如果您需要安裝或升級，請參閱[安裝和設定 Azure PowerShell](/powershell/azure/install-azurerm-ps)。
 
-## <a name="log-in-to-azure"></a>登入 Azure
+## <a name="sign-in-to-azure"></a>登入 Azure
 
-使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶，並遵循畫面上的指示以進行驗證。
+使用 `Connect-AzureRmAccount` 命令登入 Azure 訂用帳戶，並遵循畫面上的指示進行驗證。
 
 ```powershell
 Connect-AzureRmAccount
@@ -160,7 +161,7 @@ Set-AzureStorageBlobContent -File gridTestFile.txt -Container $containerName -Co
 ```
 
 ## <a name="clean-up-resources"></a>清除資源
-如果您打算繼續使用此儲存體帳戶和事件訂用帳戶，請勿清除在本文中建立的資源。 如果您不打算繼續，請使用下列命令來刪除您在本文建立的資源。
+如果您打算繼續使用此儲存體帳戶和事件訂用帳戶，請勿清除在本文中建立的資源。 如果您不打算繼續，請使用下列命令刪除您在本文建立的資源。
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup

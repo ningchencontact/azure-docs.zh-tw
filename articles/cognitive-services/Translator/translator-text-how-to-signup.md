@@ -1,5 +1,5 @@
 ---
-title: 如何註冊翻譯工具文字 - 翻譯工具文字 API
+title: 開始使用 - 翻譯工具文字 API
 titleSuffix: Azure Cognitive Services
 description: 了解如何註冊「翻譯工具文字 API」及取得訂用帳戶金鑰。
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: e7ba72c95959a0c31ca724f91f519ac705d669fb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 011e1db141c36c44ef51edc62d0123fdf3c036c7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245778"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091546"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>如何註冊翻譯工具文字 API
 
@@ -48,6 +49,8 @@ ms.locfileid: "51245778"
 
 - [GitHub 上的程式碼範例](https://github.com/MicrosoftTranslator)
 - [Microsoft Translator 支援論壇](https://www.aka.ms/TranslatorForum)
+
+Microsoft 翻譯工具通常會在驗證訂用帳戶狀態之前讓您最初的幾個要求通過。 如果前幾個 Microsoft 翻譯工具 API 要求成功，但後續的呼叫失敗，錯誤回應會指出問題。 請記錄 API 回應，以便檢視原因。
 
 ## <a name="pricing-options"></a>定價選項
 

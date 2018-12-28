@@ -6,43 +6,64 @@ author: vhorne
 manager: jpconnock
 ms.service: firewall
 ms.topic: article
-ms.date: 7/11/2018
+ms.date: 12/01/2018
 ms.author: victorh
-ms.openlocfilehash: d32e6e29c287d140c28206743e36dc025b26158b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 86fdbbacf3e8064afe0aaaaebea1d6ef6c25f9d4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991329"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865818"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>使用範本部署 Azure 防火牆
 
-此範本會建立防火牆和測試網路環境。 網路有一個 VNet，包含三個子網路：AzureFirewallSubnet、ServersSubnet 及 JumpboxSubnet。 ServersSubnet 和 JumpboxSubnet 中各有一個 2 核心 Windows Server。
+[建立 AzureFirewall 沙箱設定範本](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)會建立具有防火牆的測試網路環境。 此網路具有一個虛擬網路 (VNet) 和三個子網路：AzureFirewallSubnet、ServersSubnet 和 *JumpboxSubnet*。 ServersSubnet 和 JumpboxSubnet 子網路各有一個雙核心的 Windows Server 虛擬機器。
 
-防火牆位於 AzureFirewallSubnet 中，並使用應用程式規則集合進行設定，其中包含單一規則可允許存取 www.microsoft.com。
+防火牆位於 AzureFirewallSubnet 中並具有應用程式規則集合，集合內有一個規則允許存取 www.microsoft.com。
 
-所建立的使用者定義路由會將 ServersSubnet 中的網路流量指向通過防火牆，該防火牆會套用防火牆規則。
+使用者定義的路由會將來自 ServersSubnet 子網路的網路流量指向通過已套用防火牆規則的防火牆。
+
+如需 Azure 防火牆的詳細資訊，請參閱[使用 Azure 入口網站部署和設定 Azure 防火牆](tutorial-firewall-deploy-portal.md)。
+
+## <a name="use-the-template-to-deploy-azure-firewall"></a>使用範本來部署 Azure 防火牆
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
-## <a name="template-location"></a>範本位置
+**若要使用範本安裝並部署 Azure 防火牆：**
 
-範本位於：
+1. 存取位於 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox) 的範本。
+   
+1. 閱讀簡介，當準備好部署時，請選取 [部署至 Azure]。
+   
+1. 視需要登入 Azure 入口網站。 
 
-[https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox)
-
-閱讀簡介，當準備好部署時，請按一下 [部署至 Azure]。
+1. 在入口網站的 [建立 AzureFirewall 的沙箱設定] 頁面上，輸入或選取下列值：
+   
+   - **資源群組**：選取 [新建]，輸入資源群組的名稱，然後選取 [確定]。 
+   - **虛擬網路名稱**：輸入新 VNet 的名稱。 
+   - **管理使用者名稱**：輸入管理使用者帳戶的使用者名稱。
+   - **管理員密碼**：輸入管理員密碼。 
+   
+1. 讀取條款及條件，然後選取 [我同意上方所述的條款及條件]。
+   
+1. 選取 [購買]。
+   
+   需要幾分鐘的時間才能建立資源。 
+   
+1. 探索使用防火牆所建立的資源。 
 
 ## <a name="clean-up-resources"></a>清除資源
 
-首先探索使用防火牆建立的資源，之後若不再需要，您可以使用 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) 命令來移除資源群組、防火牆和所有相關資源。
+當您不再需要這些資源時，您可以執行 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) PowerShell 命令來移除資源群組、防火牆和所有相關資源。 若要移除名為 MyResourceGroup 的資源群組，請執行： 
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzureRmResourceGroup -Name MyResourceGroup
 ```
+如果您打算繼續進行防火牆監視教學課程，請勿移除資源群組和防火牆。 
+
 ## <a name="next-steps"></a>後續步驟
 
 接下來，您可以監視 Azure 防火牆記錄：
 
-- [教學課程：監視 Azure 防火牆記錄](./tutorial-diagnostics.md)
-
+> [!div class="nextstepaction"]
+> [教學課程：監視 Azure 防火牆記錄](./tutorial-diagnostics.md)

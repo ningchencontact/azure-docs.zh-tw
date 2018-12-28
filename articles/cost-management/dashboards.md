@@ -1,21 +1,21 @@
 ---
 title: 在 Azure 中使用 Cloudyn 儀表板檢視主要計量 | Microsoft Docs
-description: 此文章說明如何在 Cloudyn 中使用儀表板來檢視主要計量。
+description: 本文說明如何在 Cloudyn 中使用儀表板來檢視主要計量。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: e053f2387df5d9a2855ce3242d4d7121452a73d8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: f232ee89993998eb25ecce73e9c2ac8e08f3198b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275933"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094097"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>透過儀表板檢視重要成本計量
 
@@ -43,7 +43,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 若要建立自訂儀表板：
 
 1. 在首頁上，按一下 [新增 +]。 [我的儀表板] 頁面隨即顯示。  
-    ![我的儀表板](./media/dashboards/my-dashboard.png)
+    ![您可在其中新增報告的 [我的儀表板] 頁面](./media/dashboards/my-dashboard.png)
 2. 按一下 [新增報告]。 [新增報告] 方塊隨即顯示。
 3. 選取您要新增至儀表板小工具的報告。 小工具便會新增至儀表板。
 4. 完成儀表板後，請重複上述步驟。
@@ -63,7 +63,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 若要放到 [公用] 共用自訂儀表板：
 
 1. 在儀表板中，按一下 [儀表板設定]。 [儀表板設定] 方塊隨即顯示。  
-    ![儀表板選項](./media/dashboards/dashboard-options.png)
+    ![自訂儀表板的儀表板設定](./media/dashboards/dashboard-options.png)
 2. 在 [儀表板設定] 方塊中，按一下箭頭符號，然後按一下 [公用]。 [公用儀表板] 的確認對話方塊隨即顯示。
 3. 按一下 [是]。 儀表板現在已可供其他人使用。
 
@@ -116,13 +116,13 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 -或-
 
 1. 按一下 [儀表板設定] 以查看可用的儀表板清單，並選取您想要設為預設值的儀表板。  
-    ![儀表板選項](./media/dashboards/dashboard-options.png)
+    ![預設儀表板的儀表板選項](./media/dashboards/dashboard-options.png)
 2. 按一下儀表板那一行中的 [預設]。 [預設儀表板] 確認方塊隨即顯示。
 3. 按一下 [是] 。 此儀表板會設為預設值。
 
 ## <a name="management-dashboard"></a>管理儀表板
 管理 (或 MSP 使用者的 MSP 儀表板) 儀表板包括主要報告類型的重點摘要。  
-![管理儀表板](./media/dashboards/management-dash.png)
+![顯示各種報告的管理儀表板](./media/dashboards/management-dash.png)
 
 ### <a name="cost-entity-summary-enterprise-only"></a>成本實體摘要 (僅限企業版)
 這個小工具會摘要說明受控成本實體，包括實體數目和帳戶數目。
@@ -158,7 +158,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 
 ## <a name="cost-controller-dashboard"></a>成本控制站儀表板
 [成本控制站] 儀表板會顯示預先設定的成本配置重點摘要。  
-![成本控制站儀表板](./media/dashboards/cost-controller-dashboard.png)
+![顯示各種報告的成本控制站儀表板](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>一段時間的成本
 這個小工具可協助您找出成本趨勢。 它會根據過去 30 天的趨勢，醒目提示最後一天的成本。
@@ -198,7 +198,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 ## <a name="asset-controller-dashboard"></a>資產控制站儀表板
 
 此儀表板會顯示執行中執行個體數目、可用和使用中的磁碟、執行個體類型分佈，以及儲存體資訊。  
-![資產控制站儀表板](./media/dashboards/asset-controller-dashboard.png)
+![顯示各種報告的資產控制站儀表板](./media/dashboards/asset-controller-dashboard.png)
 
 ### <a name="compute-instances"></a>計算執行個體
 這個小工具會根據過去 30 天的使用趨勢，顯示執行中的執行個體數目。
@@ -227,7 +227,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 
 ## <a name="optimizer-dashboard"></a>最佳化工具儀表板
 此儀表板會顯示降級建議、未使用的資源以及可能的節省。  
-![最佳化工具儀表板](./media/dashboards/optimizer-dashboard.png)
+![顯示各種報告的最佳化工具儀表板](./media/dashboards/optimizer-dashboard.png)
 
 ### <a name="ri-calculator"></a>RI 計算機
 這個小工具會顯示 RI 購買建議數目，並且醒目提示可能的年度節省。
@@ -257,7 +257,7 @@ Cloudyn 中的儀表板可提供高階的報告檢視。 儀表板可讓您在�
 
 ## <a name="s3-tracker-dashboard"></a>S3 Tracker 儀表板
 S3 Tracker 儀表板可協助您尋找、分析及顯示您目前的儲存體使用量和趨勢。  
-![S3 Tracker 儀表板](./media/dashboards/s3-tracker-dashboard.png)
+![顯示各種報告的 S3 Tracker 儀表板](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>所有貯體
 這個小工具會醒目提示所有貯體的總大小 (以 GB 為單位)，以及您貯體中的物件總數。
@@ -281,7 +281,7 @@ S3 Tracker 儀表板可協助您尋找、分析及顯示您目前的儲存體使
 
 ## <a name="cloud-comparison-dashboard"></a>雲端比較儀表板
 [雲端比較] 儀表板可協助您根據定價、CPU 類型和 RAM 大小，比較不同雲端提供者的成本。  
-![雲端比較儀表板](./media/dashboards/cloud-comparison-dashboard.png)
+![顯示各種報告的雲端比較儀表板](./media/dashboards/cloud-comparison-dashboard.png)
 
 ### <a name="ec2-cost-in-azure-by-instance-type"></a>Azure 中每個執行個體類型的 EC2 成本
 這個小工具會醒目提示過去 30 天的使用量 (以隨選比率表示)。 它會比較目前的 Amazon EC2 成本與 Azure 中的潛在成本。

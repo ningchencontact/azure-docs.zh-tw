@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ee62e81b8c75200f26dfb5f7303083190f83eb8e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262177"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016839"
 ---
 # <a name="securing-paas-deployments"></a>保護 PaaS 部署
 
@@ -84,13 +84,13 @@ PaaS 與傳統內部部署的另一個重大差異在於一個新觀點，就是
 
 以下是管理身分識別周邊的最佳做法。
 
-**最佳做法**：保護金鑰和認證來保護 PaaS 部署。   
+**最佳做法**：保護您用來保護 PaaS 部署的金鑰和認證。   
 **詳細資料**：遺失金鑰和認證是相當常見的問題。 您可以使用集中式解決方案，將金鑰和密碼存放在硬體安全性模組 (HSM) 中。 Azure 藉由 [Azure Key Vault](../key-vault/key-vault-whatis.md) 提供您一個雲端 HSM。
 
 **最佳做法**：不要將認證與其他祕密放在原始程式碼或 GitHub 中。   
-**詳細資料**：唯一比遺失金鑰和認證更糟的情況就是讓未經授權的一方能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼存放庫 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用程式碼存放庫中。
+**詳細資料**：唯一比遺失金鑰和認證更糟的情況，就是讓未經授權者能夠存取這些機密資料。 攻擊者能夠利用 Bot 技術來尋找存放在程式碼存放庫 (例如 GitHub) 中的金鑰和密碼。 請勿將金鑰和密碼放在這些公用程式碼存放庫中。
 
-**最佳做法**：使用可讓您以遠端直接管理這些 VM 的管理介面，保護混合式 PaaS 和 IaaS 服務上的 VM 管理介面。   
+**最佳做法**：使用可讓您從遠端直接管理這些 VM 的管理介面，保護混合式 PaaS 和 IaaS 服務上的 VM 管理介面。   
 **詳細資料**：可以使用遠端管理通訊協定，例如 [SSH](https://en.wikipedia.org/wiki/Secure_Shell)、[RDP](https://support.microsoft.com/kb/186607) 及 [PowerShell 遠端處理](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.core/enable-psremoting)。 一般而言，建議您不要啟用從網際網路直接遠端存取 VM 的功能。
 
 可能的話，請使用替代的方法，例如在 Azure 虛擬網路中使用虛擬私人網路。 如果沒有替代方法可用，則請務必使用複雜密碼和雙因素驗證 (例如 [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md))。
@@ -130,7 +130,7 @@ Microsoft [安全性開發週期](https://www.microsoft.com/en-us/sdl)指定小�
 **詳細資料**：對於想要強制執行資料存取安全性原則的組織來說，限制存取是必須做的事。 您可以使用 RBAC 來將權限指派給特定範圍的使用者、群組及應用程式。 若要深入了解授與使用者的應用程式存取權，請參閱[開始使用存取管理](../role-based-access-control/overview.md)。
 
 **最佳做法**：保護您的金鑰。   
-**詳細資料**：Azure Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](../key-vault/key-vault-whatis.md)。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。
+**詳細資料**：Azure Key Vault 有助於保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 您可以使用金鑰保存庫加密金鑰和密碼 (例如驗證金鑰、儲存體帳戶金鑰、資料加密金鑰、.PFX 檔案和密碼)，方法是使用受硬體安全模組 (HSM) 保護的金鑰。 為了加強保證，您可以在 HSM 中匯入或產生金鑰。 若要深入了解，請參閱 [Azure Key Vault](../key-vault/key-vault-whatis.md)。 您可以使用 Key Vault 藉由自動更新管理 TLS 憑證。
 
 **最佳做法**：限制連入來源 IP 位址。   
 **詳細資料**：[App Service 環境](../app-service/environment/intro.md)具有虛擬網路整合功能，可協助您透過網路安全性群組限制連入來源 IP 位址。 虛擬網路可讓您將 Azure 資源，放在您控制存取權的非網際網路可路由網路中。 若要深入了解，請參閱[將您的應用程式與 Azure 虛擬網路整合](../app-service/web-sites-integrate-with-vnet.md)。
@@ -163,7 +163,7 @@ Application Insights 具有廣泛的工具，能與它所收集的資料進行�
 - [Azure App Service](security-paas-applications-using-app-services.md)
 - [Azure SQL Database 和 Azure SQL Data Warehouse](security-paas-applications-using-sql.md)
 - [Azure 儲存體](security-paas-applications-using-storage.md)
-- Azure REDIS Cache
+- Azure Cache for Redis
 - Azure 服務匯流排
 - Web 應用程式防火牆
 

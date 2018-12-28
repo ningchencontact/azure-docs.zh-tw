@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.reviewer: jeedes
-ms.openlocfilehash: f3bbcbb70759e7a995797cf89ad75a2a39314927
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: bf95b949d6fee4057f67d1e44ded36f363aa5e2b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048475"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-airwatch"></a>教學課程：Azure Active Directory 與 AirWatch 整合
 
@@ -118,7 +118,7 @@ AirWatch 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，以 `AirWatch` 形式輸入值
 
     > [!NOTE] 
-    > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [AirWatch 用戶端支援小組](http://www.air-watch.com/company/contact-us/)以取得這些值。 
+    > 這不是真正的值。 使用實際的「登入 URL」來更新此值。 請連絡 [AirWatch 用戶端支援小組](https://www.air-watch.com/company/contact-us/)以取得這些值。 
  
 4. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將 XML 檔案儲存在您的電腦上。
 

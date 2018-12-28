@@ -1,6 +1,6 @@
 ---
-title: 如何使用 PowerShell 將 MSI 存取權指派給 Azure 資源
-description: 使用 PowerShell 在一個資源上指派 MSI，並存取另一個資源的逐步解說指示。
+title: 如何使用 PowerShell 為受控識別指派對 Azure 資源的存取權
+description: 以下逐步指示說明如何使用 PowerShell 為一項資源的受控識別指派對另一項資源的存取權。
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -12,56 +12,44 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 12/06/2018
 ms.author: daveba
-ms.openlocfilehash: 058578093a91d38f4eed8827888f79b5cc33ce87
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 7ed61ead475acb81da4434c880954e801492351b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "47106441"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081552"
 ---
-# <a name="assign-a-managed-service-identity-msi-access-to-a-resource-using-powershell"></a>使用 PowerShell 將受控服務識別 (MSI) 存取權指派給資源
+# <a name="assign-a-managed-identity-access-to-a-resource-using-powershell"></a>使用 PowerShell 為受控識別指派對資源的存取權
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-一旦已透過 MSI 設定 Azure 資源，您便可以將 MSI 存取權提供給另一個資源，就像任何安全性主體。 此範例將示範如何使用 PowerShell 將 Azure 虛擬機器的 MSI 存取權提供給 Azure 儲存體帳戶。
+以受控識別設定 Azure 資源後，您可以為此受控識別提供對另一項資源的存取權，就像任何安全性主體一樣。 此範例說明如何使用 PowerShell 為 Azure 虛擬機器的受控識別提供對 Azure 儲存體帳戶的存取權。
 
 ## <a name="prerequisites"></a>必要條件
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+- 如果您不熟悉 Azure 資源的受控識別，請參閱[概觀一節](overview.md)。 **請務必檢閱[系統指派和使用者指派受控識別之間的差異](overview.md#how-does-it-work)**。
+- 如果您還沒有 Azure 帳戶，請先[註冊免費帳戶](https://azure.microsoft.com/free/)，再繼續進行。
+- 如果您尚未安裝[最新版的 Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM)，請先安裝。
 
-此外，如果您尚未安裝 [Azure PowerShell 4.3.1 版本](https://www.powershellgallery.com/packages/AzureRM/4.3.1)，則請先安裝。
+## <a name="use-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>使用 RBAC 為受控識別指派對其他資源的存取權
 
-## <a name="use-rbac-to-assign-the-msi-access-to-another-resource"></a>使用 RBAC 將 MSI 存取權指派給另一個資源
+您在 Azure 資源 ([例如 Azure VM](qs-configure-powershell-windows-vm.md)) 上啟用受控識別之後：
 
-您在 Azure 資源上啟用 MSI 之後，[例如 Azure VM](qs-configure-powershell-windows-vm.md)：
-
-1. 請使用 `Connect-AzureRmAccount` Cmdlet 登入 Azure。 使用您已設定 MSI 且與 Azure 訂用帳戶相關聯的帳戶：
+1. 請使用 `Connect-AzureRmAccount` Cmdlet 登入 Azure。 使用與已設定受控識別的 Azure 訂用帳戶相關聯的帳戶：
 
    ```powershell
    Connect-AzureRmAccount
    ```
-2. 在此範例中，我們會將 Azure VM 存取權給予儲存體帳戶。 首先我們使用 [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) 取得 VM 名為 "myVM" 的服務主體，這是我們在啟用 MSI 時所建立的。 然後，我們使用 [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) 將 VM 「讀取」存取權提供給稱為「myStorageAcct」的儲存體帳戶：
+2. 在此範例中，我們會將 Azure VM 存取權給予儲存體帳戶。 首先我們使用 [Get-AzureRMVM](/powershell/module/azurerm.compute/get-azurermvm) 取得 VM `myVM` 的服務主體，這是我們在啟用受控識別時所建立的。 然後，請使用 [New-AzureRmRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment) 提供對儲存體帳戶 `myStorageAcct` 的 VM **讀者**存取權：
 
     ```powershell
     $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
     New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
     ```
 
-## <a name="troubleshooting"></a>疑難排解
+## <a name="next-steps"></a>後續步驟
 
-如果資源的 MSI 沒有顯示在可用的身分識別清單中，請確認已正確啟用 MSI。 在我們的案例中，我們可以返回 [Azure 入口網站](https://portal.azure.com)中的 Azure VM，並且：
-
-- 查看 [設定] 頁面，並確定已啟用的 MSI = "Yes"。
-- 查看 [延伸模組] 頁面，並確定已成功部署 MSI 延伸模組。
-
-如果其中一者不正確，您可能需要再次在資源上重新部署 MSI，或針對部署失敗進行疑難排解。
-
-## <a name="related-content"></a>相關內容
-
-- 如需 MSI 的概觀，請參閱[受控服務識別概觀](overview.md)。
-- 若要在 Azure VM 上啟用 MSI，請參閱[使用 PowerShell 設定 Azure VM 受控服務身分識別 (MSI)](qs-configure-powershell-windows-vm.md)。
-
-使用下列意見區段來提供意見反應，並協助我們改善及設計我們的內容。
-
+- [適用於 Azure 資源的受控識別概觀](overview.md)
+- 若要在 Azure VM 上啟用受控識別，請參閱[使用 PowerShell 在 Azure VM 上設定 Azure 資源的受控識別](qs-configure-powershell-windows-vm.md)。

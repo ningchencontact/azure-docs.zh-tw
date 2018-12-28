@@ -1,5 +1,5 @@
 ---
-title: 語音裝置 SDK 授權合約
+title: 語音裝置 SDK 授權合約 - 語音服務
 titleSuffix: Azure Cognitive Services
 description: 語音裝置 SDK 授權合約。
 services: cognitive-services
@@ -8,18 +8,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: dea27d7363210580d5f040de7ea1db770701d9c9
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b1605337a810c635bfa40cd05e2f9b15d2e5a7e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466115"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078509"
 ---
 # <a name="speech-devices-sdk-license-agreement"></a>語音裝置 SDK 授權合約
 
-## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>Microsoft 軟體授權條款<br>語音裝置軟體開發套件 (SDK) 
+## <a name="microsoft-software-license-termsbrspeech-devices-software-development-kit-sdk"></a>Microsoft 軟體授權條款<br>語音裝置軟體開發套件 (SDK)
 
 > 若　貴用戶居住所在地 (或您的法人主要辦公位置) 為美國，請閱讀以下＜具約束力之仲裁與放棄集體訴訟＞一節。 其內容將影響兩造雙方解決爭議之方式。
 
@@ -57,7 +58,7 @@ f) 貴用戶僅能將此軟體與 Microsoft Azure 認知服務、語音服務搭
 
 **5\. 意見反應。** 倘　貴用戶提供軟體相關之意見反應予 Microsoft，即賦予 Microsoft 得循任何方式基於任何目的無償使用、分享以及商業化　貴用戶意見反應。 貴用戶不會給予受某項授權規範的意見反應，導致 Microsoft 因為將您的意見反應納入其軟體和文件之中，而需將其軟體或文件授權給第三方。 此合約已附帶該等權利。
 
-**6\. 期間。** 貴用戶接受合約之後隨即生效，　貴用戶與 Microsoft 得隨時終止。 
+**6\. 期間。** 貴用戶接受合約之後隨即生效，　貴用戶與 Microsoft 得隨時終止。
 
 **7\. 終止。** 在不損害任何其他權利的情況下，若　貴用戶未遵守本合約的任何條款或條件，Microsoft 得終止本合約。 在此情況下，　貴用戶必須銷毀所有軟體及其所有元件部分。
 

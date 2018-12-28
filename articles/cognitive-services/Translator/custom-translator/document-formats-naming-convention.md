@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: fef4ecd207fd32b5a92a4c072832f3ab45b58300
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627909"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872759"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>文件格式和命名慣例指引
 
@@ -43,11 +43,13 @@ ms.locfileid: "51627909"
 
 文件可分組到單一 ZIP 檔案中並上傳。 自訂翻譯工具支援 ZIP 檔案格式 (ZIP、GZ 和 TGZ)。
 
-ZIP 檔案中的每份文件都必須遵循下列命名慣例：
+副檔名為 TXT、HTML、HTM、PDF、DOCX、ALIGN 的 ZIP 檔案中所含的每份文件都必須遵循下列命名慣例：
 
 {文件名稱}\_{語言代碼}，其中，{文件名稱} 是您的文件名稱，{語言代碼} 是 ISO LanguageID (兩個字元)，表示文件包含該語言的句子。 語言代碼前面必須要有底線 (_)。
 
 例如，若要為英文翻譯成西班牙文的系統上傳 ZIP 檔案內的兩個平行文件，檔案應命名為 “data_en” 和 “data_es”。
+
+翻譯記憶體檔案 (TMX、XLF、XLIFF、LCL、XLSX) 不需要遵循特定語言的命名慣例。  
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -3,7 +3,7 @@ title: 開始使用彈性資料庫工具 - Azure | Microsoft Docs
 description: Azure SQL Database 彈性資料庫工具功能的基本解說，包括易於執行的範例應用程式。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: ''
 manager: craigg
 ms.date: 08/27/2018
-ms.openlocfilehash: ad07b0a9ae2d0c90f63d4f3a842a5d386ac4c59b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 13e9bb045bcce553ba9fdc344baa86ba96260387
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249858"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870226"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>開始使用彈性資料庫工具
 本文將協助您執行範例應用程式，以介紹[彈性資料庫用戶端程式庫](sql-database-elastic-database-client-library.md)的開發人員體驗。 範例應用程式會建立簡易的分區化應用程式，並探討 Azure SQL Database 彈性資料庫工具功能的主要功能。 它著重在[分區對應管理](sql-database-elastic-scale-shard-map-management.md)、[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)和[多分區查詢](sql-database-elastic-scale-multishard-querying.md)的使用案例。 用戶端程式庫可供 .NET 和 Java 取得。 
@@ -125,7 +125,7 @@ ms.locfileid: "51249858"
 * 部落格：[Elastic Scale 公告 (英文)](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * 第 9 頻道：[Elastic Scale 概觀影片 (英文)](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * 討論論壇：[Azure SQL Database 論壇](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
-* 若要測量效能︰ [分區對應管理員的效能計數器](sql-database-elastic-database-client-library.md)
+* 若要測量效能：[分區對應管理員的效能計數器](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->
 [The Elastic Scale Sample Application]: #The-Elastic-Scale-Sample-Application

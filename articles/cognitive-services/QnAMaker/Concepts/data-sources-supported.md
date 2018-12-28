@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: ee88c8dca1521f4cdc2e3ea141d5c1d497061bb4
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 71b0739bacd8df586267b61a9135f448aa76479d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082232"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>QnA Maker 內容的資料來源
 
@@ -44,7 +44,7 @@ QnA Maker 可支援 3 種不同形式的常見問題集網頁：一般常見問�
 
 以下是一般常見問題集網頁的範例：
 
-![一般的常見問題集頁面](../media/qnamaker-concepts-datasources/plain-faq.png) 
+![知識庫的一般常見問題集頁面範例](../media/qnamaker-concepts-datasources/plain-faq.png) 
 
  
 ### <a name="faq-pages-with-links"></a>具有連結的常見問題集網頁 
@@ -53,7 +53,7 @@ QnA Maker 可支援 3 種不同形式的常見問題集網頁：一般常見問�
 
 以下是連結位於相同網頁區段的常見問題集網頁範例：
 
- ![區段連結常見問題集頁面](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
+ ![知識庫的區段連結常見問題集頁面範例](../media/qnamaker-concepts-datasources/sectionlink-faq.png) 
 
 
 ### <a name="faq-pages-with-a-topics-homepage"></a>具有主題首頁的常見問題集網頁
@@ -62,7 +62,7 @@ QnA Maker 可支援 3 種不同形式的常見問題集網頁：一般常見問�
 
 以下是主題首頁上有不同網頁常見問題集區段連結的常見問題集網頁範例。 
 
- ![深層連結常見問題集頁面](../media/qnamaker-concepts-datasources/topics-faq.png) 
+ ![知識庫的深層連結常見問題集頁面範例](../media/qnamaker-concepts-datasources/topics-faq.png) 
 
 
 ## <a name="pdf-doc-files"></a>PDF/DOC 檔
@@ -77,14 +77,14 @@ QnA Maker 可根據視覺線索 (例如字型大小、字型樣式、編號、�
 
 以下是具有索引頁面與階層式內容的手冊範例
 
- ![產品手冊範例](../media/qnamaker-concepts-datasources/product-manual.png) 
+ ![知識庫的產品手冊範例](../media/qnamaker-concepts-datasources/product-manual.png) 
 
 > [!NOTE]
 > 手冊若具有目錄及/或索引頁面，和包含階層式標題的明確結構，擷取將會有最佳效果。
 
 ### <a name="brochures-guidelines-papers-and-other-files"></a>摺頁冊、指導方針、白皮書及其他檔案
 
-許多其他類型的文件經過處理後也能產生問答組合，但前提是這些文件要有明確的結構和版面配置。 這些文件包括：摺頁冊、指導方針、報告、白皮書、科學論文、原則、書籍等。請參閱[這裡](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)的範例。
+許多其他類型的文件經過處理後也能產生問答組合，但前提是這些文件要有明確的結構和版面配置。 其中包含：摺頁冊、指導方針、報告、白皮書、科學論文、原則、書籍等。請參閱[這裡](https://qnamakerstore.blob.core.windows.net/qnamakerdata/docs/Manage%20Azure%20Blob%20Storage.docx)的範例。
 
 以下是沒有索引的半結構化文件範例：
 
@@ -106,7 +106,7 @@ Answer2
 
 以下是結構化 QnA Word 文件的範例：
 
- ![結構化 QnA 文件](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
+ ![知識庫的結構化 QnA 文件範例](../media/qnamaker-concepts-datasources/structured-qna-doc.png) 
 
 ## <a name="structured-txt-tsv-and-xls-files"></a>結構化的 TXT、TSV 和 XLS 檔案
 
@@ -121,7 +121,7 @@ Answer2
 
 以下是具有 HTML 內容的結構化 QnA .xls 檔案範例：
 
- ![結構化 QnA Excel](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+ ![知識庫的結構化 QnA Excel 範例](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
 
 ## <a name="structured-data-format-through-import"></a>透過匯入的結構化資料格式
 

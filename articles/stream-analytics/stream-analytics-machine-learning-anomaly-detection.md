@@ -4,17 +4,17 @@ description: 本文說明如何一起使用 Azure 串流分析和 Azure Machine 
 services: stream-analytics
 author: dubansal
 ms.author: dubansal
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/09/2018
-ms.openlocfilehash: 3f6d6f700ccf232dacb512f22dd1f9fb5d870740
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: df1010be8c9f41684af806885db7587bfcf1c540
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567038"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091215"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Azure 串流分析中的異常偵測
 
@@ -95,7 +95,7 @@ AnomalyDetection 運算子會傳回包含所有三個分數做為輸出的記錄
 
 用圖表表示，其步驟如下所示： 
 
-![訓練模型](media/stream-analytics-machine-learning-anomaly-detection/training_model.png)
+![機器學習訓練模型](media/stream-analytics-machine-learning-anomaly-detection/machine-learning-training-model.png)
 
 |**模型** | **訓練開始時間** | **開始使用其分數的時間** |
 |---------|---------|---------|
@@ -145,15 +145,15 @@ AnomalyDetection 運算子會傳回包含所有三個分數做為輸出的記錄
 
    這顯示於下面使用上限變更的圖 1 和 2 中 (相同的邏輯適用於下限變更)。 在這兩個圖中，波形都屬於異常層級變更。 橙色垂直線表示躍點界限，而且躍點大小與 AnomalyDetection 運算子中指定的偵測時間範圍相同。 綠色線條表示訓練時間範圍的大小。 在圖 1 中，躍點大小與異常持續時間相同。 在圖 2 中，躍點大小是異常持續時間的一半。 在所有情況下，系統都會偵測到向上變更，因為用於評分的模型是使用正常資料進行訓練。 但是，根據雙向層級變更偵測器的運作方式，必須從進行恢復正常狀態評分之模型所用的訓練時間範圍中排除正常值。 在圖 1 中，評分模型的訓練包含一些正常事件，所以無法偵測到恢復正常狀態。 但在圖 2 中，訓練只包含異常部分，以確保偵測到恢復正常狀態。 基於相同的理由，任何小於一半的項目也適用，然而任何較大的項目終將包含少數正常事件。 
 
-   ![時間範圍大小等於異常時間長度的 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_anomaly_length.png)
+   ![時間範圍大小等於異常時間長度的 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-anomaly-length.png)
 
-   ![時間範圍大小等於異常時間長度一半的 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize_equal_half_anomaly_length.png)
+   ![時間範圍大小等於異常時間長度一半的 AD](media/stream-analytics-machine-learning-anomaly-detection/windowsize-equal-half-anomaly-length.png)
 
 2. 在無法預測異常時間長度的情況下，此偵測器會全力運作。 不過，選擇較窄的時間範圍會限制訓練資料，而增加偵測到恢復正常狀態的可能性。 
 
 3. 在下列案例中，並未偵測到時間較長的異常，因為訓練時間範圍已經包含值同樣高的異常。 
 
-   ![大小相同的異常](media/stream-analytics-machine-learning-anomaly-detection/anomalies_with_same_length.png)
+   ![偵測到大小相同的異常](media/stream-analytics-machine-learning-anomaly-detection/anomalies-with-same-length.png)
 
 ## <a name="example-query-to-detect-anomalies"></a>用以偵測異常行為的範例查詢 
 

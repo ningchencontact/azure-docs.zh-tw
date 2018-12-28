@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 1d00dbe23fbd724893ba2b964fc54a3ea9066dcb
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 87baef8ddb5b5d8fc979ba5afb9f9b13cb4fc2ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250724"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876531"
 ---
 # <a name="get-started-with-using-azure-devtest-labs"></a>開始使用 Azure DevTest Labs
 一旦您決定要探索 DevTest Labs 之後，可依循兩個一般途徑繼續前進：概念證明與經過調整的部署。 
@@ -51,7 +51,7 @@ ms.locfileid: "48250724"
 
 - 測試人員可以利用可重複使用的範本和成品，快速佈建 Windows 和 Linux 環境，來測試其最新版的應用程式。
 - 測試人員可以佈建多個測試代理程式，相應增加其負載測試
-- 管理員可以將實驗室連線到 VSTS 來啟用 DevOps 案例
+- 管理員可以將實驗室連線到 Azure DevOps 來啟用 DevOps 案例
 - 系統管理員可以確定下列事項以控制成本：
     - 測試人員無法取得超過所需的 VM
     - VM 不使用時會關機

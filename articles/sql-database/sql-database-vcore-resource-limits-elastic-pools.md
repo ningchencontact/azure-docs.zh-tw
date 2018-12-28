@@ -3,7 +3,7 @@ title: Azure SQL Database 以虛擬核心為基礎的資源限制 - 彈性集區
 description: 此頁面將針對 Azure SQL Database 中的彈性集區，說明一些以虛擬核心為基礎的常見資源限制。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6673fa9d377400d7e80fc95dc7d0ce12f4b2e60e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: f41974c6e2b2b0565f0a2703cfd638777a6bb9eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354167"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878018"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>針對彈性集區，Azure SQL Database 虛擬核心形式的購買模型限制
 
@@ -42,7 +42,7 @@ ms.locfileid: "49354167"
 |H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
 |記憶體 (GB)|7|14|28|56|112|168|
-|資料行存放區支援|是|yes|yes|yes|yes|是|
+|資料行存放區支援|是|是|是|是|是|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |資料大小上限 (GB)|512|756|1536|2048|3584|4096|
@@ -67,7 +67,7 @@ ms.locfileid: "49354167"
 |H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
 |記憶體 (GB)|11|22|44|88|132|176|220|440|
-|資料行存放區支援|是|yes|yes|yes|yes|yes|yes|是|
+|資料行存放區支援|是|是|是|是|是|是|是|是|
 |OLTP 記憶體內部儲存體 (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |儲存體類型|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|進階 (遠端) 儲存體|
 |資料大小上限 (GB)|512|756|1536|2048|3072|4096|4096|4096|
@@ -85,7 +85,7 @@ ms.locfileid: "49354167"
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
-## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>商務關鍵性服務層：儲存體大小和計算大小
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>業務關鍵服務層：儲存體大小和計算大小
 
 ### <a name="generation-4-compute-platform"></a>第 4 代計算平台
 
@@ -94,7 +94,7 @@ ms.locfileid: "49354167"
 |H/W 產生|4|4|4|4|4|4|
 |虛擬核心|1|2|4|8|16|24|
 |記憶體 (GB)|7|14|28|56|112|168|
-|資料行存放區支援|是|yes|yes|yes|yes|是|
+|資料行存放區支援|是|是|是|是|是|是|
 |OLTP 記憶體內部儲存體 (GB)|1|2|4|8|20|36|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
 |資料大小上限 (GB)|1024|1024|1024|1024|1024|1024|
@@ -108,7 +108,7 @@ ms.locfileid: "49354167"
 |每個資料庫最小/最大彈性集區虛擬核心選項|N/A|0, 0.25, 0.5, 1, 2|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|
 |複本數目|3|3|3|3|3|3|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|yes|yes|yes|yes|是|
+|讀取向外延展|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 
@@ -119,7 +119,7 @@ ms.locfileid: "49354167"
 |H/W 產生|5|5|5|5|5|5|5|5|
 |虛擬核心|2|4|8|16|24|32|40|80|
 |記憶體 (GB)|11|22|44|88|132|176|220|440|
-|資料行存放區支援|是|yes|yes|yes|yes|yes|yes|是|
+|資料行存放區支援|是|是|是|是|是|是|是|是|
 |OLTP 記憶體內部儲存體 (GB)|1.571|3.142|6.284|15.768|25.252|37.936|52.22|131.64|
 |儲存體類型|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|本機 SSD|
 |IO 延遲 (大約)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|1-2 毫秒 (寫入)<br>1-2 毫秒 (讀取)|
@@ -133,7 +133,7 @@ ms.locfileid: "49354167"
 |每個資料庫最小/最大彈性集區虛擬核心選項|N/A|0, 0.25, 0.5, 1, 2, 4|0, 0.25, 0.5, 1, 2, 4, 8|0, 0.25, 0.5, 1, 2, 4, 8, 16|0, 0.25, 0.5, 1, 2, 4, 8, 16, 24|0, 0.5, 1, 2, 4, 8, 16, 24, 32|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40|0, 0.5, 1, 2, 4, 8, 16, 24, 32, 40, 80|
 |複本數目|3|3|3|3|3|3|3|3|
 |多重 AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|讀取向外延展|是|yes|yes|yes|yes|yes|yes|是|
+|讀取向外延展|是|是|是|是|是|是|是|是|
 |內含備份儲存體|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|1X DB 大小|
 |||
 

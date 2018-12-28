@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b1a406c15377cb6931f92594f5ce1526a2f2ab99
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388300"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017094"
 ---
 # <a name="trusted-internet-connections-guidance"></a>受信任網際網路連線指導方針
 
@@ -64,9 +64,9 @@ Office 365 使用已啟用 [Microsoft 對等互連](https://docs.microsoft.com/a
 Azure IaaS TIC 合規性分為兩個主要步驟：
 
 - 步驟 1：設定。
-- 步驟 2: 稽核。
+- 步驟 2：稽核。
 
-### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS TIC 合規性：設定
+### <a name="azure-iaas-tic-compliance-configuration"></a>Azure IaaS TIC 合規性：組態
 
 若要以 Azure 設定好符合 TIC 的架構，必須先防止網際網路直接存取您的虛擬網路，然後強制要求網際網路流量必須通過內部部署網路。
 
@@ -85,7 +85,7 @@ Azure 會自動建立系統路由，並將路由指派給虛擬網路中的每�
 
 ![TIC 強制通道](media/tic-diagram-c.png)
 
-離開虛擬網路的所有流量都必須通過內部部署連線，以確保所有流量都會周遊 D/A TIC。 您可以透過建立使用者定義的路由，或透過交換邊界閘道協定 (BGP) 路由，在內部部署網路閘道和 Azure VPN 閘道之間建立自訂路由。 如需有關使用者定義路由詳細資訊，請參閱[虛擬網路流量路由：使用者定義路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined)。 如需有關 BGP 的詳細資訊，請參閱[虛擬網路流量路由：邊界閘道協定](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol)。
+離開虛擬網路的所有流量都必須通過內部部署連線，以確保所有流量都會周遊 D/A TIC。 您可以透過建立使用者定義的路由，或透過交換邊界閘道協定 (BGP) 路由，在內部部署網路閘道和 Azure VPN 閘道之間建立自訂路由。 如需關於使用者定義路由的詳細資訊，請參閱[虛擬網路流量路由：使用者定義的路由](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined)。 如需 BGP 的詳細資訊，請參閱[虛擬網路流量路由：邊界閘道協定](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#border-gateway-protocol)。
 
 #### <a name="add-user-defined-routes"></a>新增使用者定義路由
 
@@ -124,8 +124,8 @@ Azure PaaS 服務 (例如 Azure 儲存體) 可透過網際網路連線的 URL �
 
 當 Azure PaaS 服務與虛擬網路整合時，可從虛擬網路對服務進行私人存取。 您可以透過使用者定義路由或 BGP 來針對 0.0.0.0/0 套用自訂路由。 自訂路由可確保所有網際網路繫結流量會從內部部署環境路由傳送以周遊 TIC。 使用下列模式將 Azure 服務整合到虛擬網路：
 
-- **部署專用的服務執行個體**：可以將越來越多的 PaaS 服務部署為具有虛擬網路附加端點的專用執行個體。 您能以「隔離」模式針對 PowerApps 部署 App Service Environment，讓網路端點可以限制於虛擬網路。 App Service Environment 接著可以裝載許多 Azure PaaS 服務，例如 Azure Web Apps、Azure API Management 與 Azure Functions。
-- **使用虛擬網路服務端點**：越來越多的 PaaS 服務允許將其端點移動到虛擬網路私人 IP，而不是公用位址。
+- **部署專用的服務執行個體**：可以將越來越多的 PaaS 服務部署為具有虛擬網路連結端點的專用執行個體。 您能以「隔離」模式針對 PowerApps 部署 App Service Environment，讓網路端點可以限制於虛擬網路。 App Service Environment 接著可以裝載許多 Azure PaaS 服務，例如 Azure Web Apps、Azure API Management 與 Azure Functions。
+- **使用虛擬網路服務端點**：越來越多的 PaaS 服務允許將其端點移至虛擬網路私人 IP (而不是公用位址) 的選項。
 
 支援將專用執行個體部署到虛擬網路或使用服務端點的服務 (截至 2018 年 5 月為止) 列於下表中。
 
@@ -157,7 +157,7 @@ Azure PaaS 服務 (例如 Azure 儲存體) 可透過網際網路連線的 URL �
 |Azure Active Directory                | GA               |
 |Azure Batch                           | GA               |
 |App Service 環境               | GA               |
-|Azure Redis 快取                     | GA               |
+|Azure Cache for Redis                     | GA               |
 |Azure HDInsight                       | GA               |
 |虛擬機器擴展集             | GA               |
 |Azure 雲端服務                  | GA               |
@@ -165,7 +165,7 @@ Azure PaaS 服務 (例如 Azure 儲存體) 可透過網際網路連線的 URL �
 
 ### <a name="virtual-network-integration-details"></a>虛擬網路整合詳細資料
 
-下圖顯示存取 PaaS 服務的一般網路流程。 會從虛擬網路插入與虛擬網路服務通道處理顯示存取。 如需有關網路服務閘道、虛擬網路與服務標籤的詳細資訊，請參閱[網路與應用程式安全性群組：服務標籤](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
+下圖顯示存取 PaaS 服務的一般網路流程。 會從虛擬網路插入與虛擬網路服務通道處理顯示存取。 如需關於網路服務閘道、虛擬網路與服務標記的詳細資訊，請參閱[網路與應用程式安全性群組：服務標記](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)。
 
 ![TIC 的 PaaS 連線選項](media/tic-diagram-e.png)
 
@@ -263,7 +263,7 @@ Azure 原則以訂用帳戶層級為目標。 服務提供集中式介面，您�
 | 資料庫 | 適用於 PostgreSQL 的 Azure 資料庫 | | | 是 |
 | 資料庫 | Azure SQL 資料倉儲 | | | 是 |
 | 資料庫 | Azure Cosmos DB | | | 是 |
-| 資料庫 | Azure Redis 快取 | | 是 | |
+| 資料庫 | Azure Cache for Redis | | 是 | |
 | 儲存體 | Azure Blob 儲存體 | 是 | | |
 | 儲存體 | Azure 檔案 | 是 | | |
 | 儲存體 | Azure 佇列儲存體 | 是 | | |

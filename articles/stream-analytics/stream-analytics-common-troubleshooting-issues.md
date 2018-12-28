@@ -2,19 +2,19 @@
 title: Azure 串流分析中需要進行疑難排解的常見問題
 description: 本文描述 Azure 串流分析中幾個常見的問題，以及對這些問題進行疑難排解的步驟。
 services: stream-analytics
-author: jasonwhowell
-manager: kfile
+author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 2fe180873f8f410d80b06d29d16881eb49f7fc2a
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: a2c7ceae342124f06fcfe8dc18b1a69f7176f4e1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978431"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090970"
 ---
 # <a name="common-issues-in-stream-analytics-and-steps-to-troubleshoot"></a>串流分析的常見問題以及疑難排解的步驟
 
@@ -24,9 +24,9 @@ ms.locfileid: "50978431"
  
  當串流分析作業從輸入收到格式不正確的訊息時，會捨棄訊息並以警告通知使用者。 警告符號會顯示在串流分析作業的 [輸入] 圖格 (只要作業處於執行中狀態，此警告符號就會一直存在)：
 
-![[輸入] 圖格](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure 串流分析儀表板上的輸入圖格](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-若要參閱詳細資訊，請啟用診斷記錄以檢視警告的詳細資料。 對於格式錯誤的輸入事件，執行記錄包含具有類似以下訊息的項目：「訊息：無法從資源 <blob URI> 將輸入事件還原序列化為 json」。 
+若要參閱詳細資訊，請啟用診斷記錄以檢視警告的詳細資料。 對於格式錯誤的輸入事件，執行記錄包含具有類似以下訊息的項目：「訊息：無法將來自資源 <blob URI> 的輸入事件還原序列化為 Json。」 
 
 ### <a name="troubleshooting-steps"></a>疑難排解步驟
 
@@ -34,7 +34,7 @@ ms.locfileid: "50978431"
 
 2. 輸入詳細資料圖格會顯示一組警告，以及問題的相關詳細資料。 以下是警告訊息範例，警告訊息會顯示發生 JSON 資料格式不正確的磁碟分割、位移及序號。 
 
-   ![位移的警告訊息](media/stream-analytics-malformed-events/warning_message_with_offset.png)
+   ![輸入位移警告訊息](media/stream-analytics-malformed-events/warning-message-with-offset.png)
 
 3. 若要取得具有不正確格式的 JSON 資料，請執行 CheckMalformedEvents.cs 程式碼。 您可以從 [GitHub 範例存放庫](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)取得此範例。 此程式碼讀取分割區識別碼、位移，並列印位於該位移的資料。 
 

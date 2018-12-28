@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 71a8077f2423dd170d08d540edd307c08ed886cc
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: cf566811f1e5fe7fde20d148e68417acf6d42f54
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165490"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073817"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用傳統部署模型設定強制通道
 
@@ -42,8 +42,8 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
 * 每個虛擬網路的子網路皆有內建的系統路由表。 系統路由表具有下列 3 個路由群組：
 
   * **本機 VNet 路由：** 直接連線到相同虛擬網路中的目的地 VM。
-  * **內部部署路由：** 連線到 Azure VPN 閘道。
-  * **預設路由：** 直接連線到網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
+  * **內部部署路由：** 連至 Azure VPN 閘道。
+  * **預設路由：** 直接連至網際網路。 系統將會捨棄尚未由前兩個路由涵蓋之私人 IP 位址目的地的封包。
 * 隨著使用者定義路由的發行，您可以建立路由表以新增預設路由，然後建立路由表與 VNet 子網路的關聯，以啟用那些子網路上的強制通道處理。
 * 您需要在連接到虛擬網路的內部部署本機網站間設定「預設網站」。
 * 強制通道必須與具有動態路由 VPN 閘道 (非靜態閘道) 的 VNet 相關聯。
@@ -104,38 +104,41 @@ Azure 中的強制通道會透過虛擬網路使用者定義路由 (UDR) 進行�
     </VirtualNetworkSite>
 ```
 
-在此範例中，"MultiTier-VNet" 虛擬網路具有三個子網路：「前端」、「中層」和「後端」子網路，包含四個跨單位連線：DefaultSiteHQ 和三個「分支」。 
+在此範例中，虛擬網路 'MultiTier-VNet' 有三個子網路：'Frontend'、'Midtier' 和 'Backend' 子網路，具有四個跨單位連線：'DefaultSiteHQ' 和三個分支。 
 
 這些步驟會將 'DefaultSiteHQ' 設定為強制通道處理的預設網站連線，並設定「中層」和「後端」子網路以使用強制通道處理。
 
 1. 建立路由表。 使用下列 Cmdlet 來建立路由表。
 
-  ```powershell
-  New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
-  ```
+   ```powershell
+   New-AzureRouteTable –Name "MyRouteTable" –Label "Routing Table for Forced Tunneling" –Location "North Europe"
+   ```
+
 2. 將預設路由加入至路由表。 
 
-  下列範例會將預設路由加入至步驟 1 中所建立的路由表。 請注意，唯一支援的路由是到 "VPNGateway" Nexthop 的 "0.0.0.0/0" 目的地前置詞。
+   下列範例會將預設路由加入至步驟 1 中所建立的路由表。 請注意，唯一支援的路由是到 "VPNGateway" Nexthop 的 "0.0.0.0/0" 目的地前置詞。
 
-  ```powershell
-  Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
-  ```
+   ```powershell
+   Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute –RouteTable "MyRouteTable" –RouteName "DefaultRoute" –AddressPrefix "0.0.0.0/0" –NextHopType VPNGateway
+   ```
+
 3. 將路由表關聯至子網路。 
 
-  建立路由表並加入路由之後，使用下列範例將路由表加入或關聯至 VNet 子網路。 此範例會將路由表 "MyRouteTable" 加入至 VNet 多層式 VNet 中的中層和後端子網路。
+   建立路由表並加入路由之後，使用下列範例將路由表加入或關聯至 VNet 子網路。 此範例會將路由表 "MyRouteTable" 加入至 VNet 多層式 VNet 中的中層和後端子網路。
 
-  ```powershell
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
-  Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
-  ```
+   ```powershell
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
+   Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
+   ```
+
 4. 為強制通道指派預設站台。 
 
-  在前述步驟中，範例 Cmdlet 指令碼已建立路由表，並將路由表關聯至兩個 VNet 子網路。 剩餘步驟是選取虛擬網路多網站連接之間的本機網站作為預設的網站或通道。
+   在前述步驟中，範例 Cmdlet 指令碼已建立路由表，並將路由表關聯至兩個 VNet 子網路。 剩餘步驟是選取虛擬網路多網站連接之間的本機網站作為預設的網站或通道。
 
-  ```powershell
-  $DefaultSite = @("DefaultSiteHQ")
-  Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
-  ```
+   ```powershell
+   $DefaultSite = @("DefaultSiteHQ")
+   Set-AzureVNetGatewayDefaultSite –VNetName "MultiTier-VNet" –DefaultSite "DefaultSiteHQ"
+   ```
 
 ## <a name="additional-powershell-cmdlets"></a>其他的 PowerShell Cmdlet
 ### <a name="to-delete-a-route-table"></a>刪除路由表

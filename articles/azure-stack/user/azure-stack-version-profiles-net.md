@@ -12,19 +12,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 35329468ee01d5b70d654c1eb4a908db9d3fcb5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: cfebbdb9b88a1de6a05f06e6ed72ebc9cddddcf6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184398"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074446"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中搭配使用 API 版本設定檔與 .NET
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 適用於 Azure Stack Resource Manager 的 .NET SDK 會提供工具來協助您建置及管理基礎結構。 SDK 中的資源提供者包括計算、網路、儲存體、應用程式服務和 [KeyVault](../../key-vault/key-vault-whatis.md)。 .NET SDK 包含 14 個會合併設定檔資訊的 NuGet 套件，且每次都必須下載到專案解決方案中。 不過，您可以具體下載要用於 2018-03-01-hybrid 或 2017-03-09-profile 的資源提供者，以將應用程式的記憶體最佳化。 每個套件都包含資源提供者、個別的 API 版本和其所屬的 API 設定檔。 .NET SDK 中的 API 設定檔透過協助您在全域 Azure 資源和 Azure Stack 的資源來回切換，提供混合式雲端開發功能。
 
@@ -72,9 +72,9 @@ API 設定檔是資源提供者和 API 版本的組合。 您可以使用 API �
 
 | 值                     | 環境變數   | 說明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租用戶識別碼                 | AZURE_TENANT_ID       | Azure Stack [*租用戶識別碼*][]的值。                                                                          |
+| 租用戶識別碼                 | AZURE_TENANT_ID       | 您 Azure Stack [*租用戶識別碼*][]的值。                                                                          |
 | 用戶端識別碼                 | AZURE_CLIENT_ID       | 在本文上一節建立服務主體時所儲存的服務主體應用程式識別碼。 |
-| 訂用帳戶識別碼           | AZURE_SUBSCRIPTION_ID | [*訂用帳戶識別碼*][]可供您存取 Azure Stack 中的供應項目。                                                      |
+| 訂用帳戶識別碼           | AZURE_SUBSCRIPTION_ID | [*訂用帳戶識別碼*][]是您存取 Azure Stack 中供應項目的方式。                                                      |
 | 用戶端密碼             | AZURE_CLIENT_SECRET   | 建立服務主體時所儲存的服務主體應用程式祕密。                                      |
 | Resource Manager 端點 | ARM_ENDPOINT           | 請參閱 [*Azure Stack Resource Manager 端點*][]。                                                                    |
 
@@ -106,7 +106,7 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 - Azure Stack 開發套件 (ASDK) 中的 **ResourceManagerUrl** 為： https://management.local.azurestack.external/
 
-- 整合系統中的 **ResourceManagerUrl** 為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`。若要擷取所需的中繼資料：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+- 整合系統中的 **ResourceManagerUrl** 為：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` 若要擷取所需的中繼資料：`<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
 
 範例 JSON 檔案：
 
@@ -125,11 +125,11 @@ Microsoft Azure Resource Manager 是可讓系統管理員進行部署、管理�
 
 ## <a name="existing-api-profiles"></a>現有的 API 設定檔
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.ResourceProvider.0.9.0-preview.nupkg**：針對 Azure Stack 所建置的最新設定檔。 只要您是在 1808 以上的戳記上，使用此設定檔就能讓服務與 Azure Stack 有最高的相容性。
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**:針對 Azure Stack 建置的最新設定檔。 只要您是在 1808 以上的戳記上，使用此設定檔就能讓服務與 Azure Stack 有最高的相容性。
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.ResourceProvider.0.9.0-preview.nupkg**：如果您所在的戳記低於 1808 組建，請使用此設定檔。
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**:如果您的戳記低於 1808 組建，請使用此設定檔。
 
-3.  **最新**：包含所有服務最新版本的設定檔。 使用所有服務的最新版本。 此設定檔是 **Microsoft.Azure.Management** NuGet 套件的一部分。
+3.  **最新**︰包含所有服務最新版本的設定檔。 使用所有服務的最新版本。 此設定檔是 **Microsoft.Azure.Management** NuGet 套件的一部分。
 
 如需有關 Azure Stack 和 API 設定檔的詳細資訊，請參閱 [API 設定檔的摘要][]。
 
@@ -193,7 +193,9 @@ public override void InitializeServiceClient<T>(ServiceClient<T> client)
 
 1.  使用下列命令來複製存放庫：
 
-    `git clone <https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject>`
+    ```shell
+    git clone https://github.com/Azure-Samples/hybrid-compute-dotnet-manage-vm.git
+    ```
 
 2.  建立 Azure 服務主體並指派用以存取訂用帳戶的角色。 如需建立服務主體的指示，請參閱[使用 Azure PowerShell 建立具有憑證的服務主體][]。
 
@@ -211,7 +213,7 @@ public override void InitializeServiceClient<T>(ServiceClient<T> client)
     2.  export AZURE_CLIENT_ID={您的用戶端識別碼}
     3.  export AZURE_CLIENT_SECRET={您的用戶端密碼}
     4.  export AZURE_SUBSCRIPTION_ID = {您的訂用帳戶識別碼}
-    5.  export ARM_ENDPOINT={your Azure Stack Resource manager URL}
+    5.  export ARM_ENDPOINT={您的 Azure Stack Resource Manager URL}
 
    在 Windows 上，請使用 **set** 而非 **export**。
 

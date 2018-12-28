@@ -1,5 +1,5 @@
 ---
-title: 透過適用於 Azure ExpressRoute 的 Microsoft 對等互連，設定站對站 VPN | Microsoft Docs
+title: 透過 Microsoft 對等互連設定站對站 VPN - ExpressRoute - Azure | Microsoft Docs
 description: 使用站對站 VPN 閘道，透過 ExpressRoute Microsoft 對等互連線路，設定 IPsec/IKE 與 Azure 的連線。
 services: expressroute
 author: cherylmc
@@ -7,25 +7,25 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.custom: seodec18
+ms.openlocfilehash: 3ba9d7ab9e05c3c5480e1832cc5ddd0ce91a3ae1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240899"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094197"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>透過 ExpressRoute Microsoft 對等互連，設定站對站 VPN
 
-本文可協助您在內部部署網路與 Azure 虛擬網路 (VNet) 之間，透過 ExpressRoute 私人連線，設定安全加密的連線。 透過 ExpressRoute 設定安全通道可以在資料交換時，實現機密性、禁止重新播放、真實性和完整性。
+本文可協助您在內部部署網路與 Azure 虛擬網路 (VNet) 之間，透過 ExpressRoute 私人連線，設定安全加密的連線。 您可以利用 Microsoft 對等互連，在選取的內部部署網路與 Azure VNet 之間，建立站對站 IPsec/IKE VPN 通道。 透過 ExpressRoute 設定安全通道可以在資料交換時，實現機密性、禁止重新播放、真實性和完整性。
 
-## <a name="architecture"></a>架構
-
-您可以利用 Microsoft 對等互連，在選取的內部部署網路與 Azure VNet 之間，建立站對站 IPsec/IKE VPN 通道。
-
-  >[!NOTE]
+>[!NOTE]
 >當您透過 Microsoft 對等互連設定站對站 VPN 時，您必須支付 VPN 閘道與 VPN 輸出的費用。 如需詳細資訊，請參閱 [VPN 閘道定價](https://azure.microsoft.com/pricing/details/vpn-gateway)。
 >
 >
+
+## <a name="architecture"></a>架構
+
 
   ![連線概觀](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
 

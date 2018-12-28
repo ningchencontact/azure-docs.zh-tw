@@ -3,23 +3,21 @@ title: 開始使用 Azure 建議程式 | Microsoft Docs
 description: 開始使用 Azure 建議程式。
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
-manager: carmonm
-editor: ''
+author: kasparks
+manager: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
-ms.author: makohli
-ms.openlocfilehash: cd64515beabec43a5209d62dccf2b55b21702c16
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.author: kasparks
+ms.openlocfilehash: 6e66fed21223701cd6c61bd1e903b4e7d7fbe0d0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30230045"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850086"
 ---
 # <a name="get-started-with-azure-advisor"></a>開始使用 Advisor
 

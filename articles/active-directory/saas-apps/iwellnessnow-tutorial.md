@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: c260b32dc6f659ca4cc1b4c3f59859f75ba999d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b02a5ec5a68743e148bcfef3c631d7777fd0a067
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447368"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871679"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iwellnessnow"></a>教學課程：Azure Active Directory 與 iWellnessNow 整合
 
@@ -122,7 +122,7 @@ ms.locfileid: "39447368"
 
     ![[iWellnessNow 網域及 URL] 單一登入資訊](./media/iwellnessnow-tutorial/tutorial_iwellnessnow_url.png)
 
-    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `http://<CustomerName>.iwellnessnow.com`
+    a. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：`http://<CustomerName>.iwellnessnow.com`
 
     b. 在 **[回覆 URL]** 文字方塊中，以下列模式輸入 URL：`https://<CustomerName>.iwellnessnow.com/ssologin`
 
@@ -179,7 +179,7 @@ ms.locfileid: "39447368"
  
 ### <a name="create-an-iwellnessnow-test-user"></a>建立 iWellnessNow 測試使用者
 
-在本節中，您會在 iWellnessNow 中建立名為 Britta Simon 的使用者。 請與 [iWellnessNow 支援小組](mailto:info@iwellnessnow.com)合作，以在 iWellnessNow 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
+在本節中，您會在 iWellnessNow 中建立名為 Britta Simon 的使用者。 請與  [iWellnessNow 支援小組](mailto:info@iwellnessnow.com)合作，以在 iWellnessNow 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -216,7 +216,7 @@ ms.locfileid: "39447368"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您按一下 [存取面板] 中的 [iWellnessNow] 圖格時，系統應該會自動將您登入 iWellnessNow 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

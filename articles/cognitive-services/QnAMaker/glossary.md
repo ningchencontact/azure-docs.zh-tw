@@ -1,7 +1,7 @@
 ---
 title: 詞彙 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 詞彙
+description: QnA Maker 服務有許多來自機器學習和自然語言處理的新詞彙，以及服務特定的詞彙。 這份清單將協助您了解這些詞彙。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: b22ec27b2999d322945e37c5a38d2b1d1532e7e3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 832bf85087b706451a6ee58c538d7a163ef18203
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166039"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079937"
 ---
-# <a name="glossary"></a>詞彙
+# <a name="glossary-for-qna-maker-knowledge-base-and-service"></a>QnA Maker 知識庫和服務的字彙
 
 ## <a name="qna-maker-service"></a>QnA Maker 服務
 必須要具備 QnA Maker 服務，方可開始使用 QnA Maker。 購買 QnA Maker 層，即可在您的 Azure 訂用帳戶中設定資源，以便建立和管理您的知識庫。 每個 QnA Maker 使用者帳戶都可以在自己的 Azure 訂用帳戶中建立多個 QnA Maker 服務。

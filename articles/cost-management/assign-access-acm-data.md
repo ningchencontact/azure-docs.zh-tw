@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/28/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 3096a79737c816747f36956958f9a16f86b9715d
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: secdec18
+ms.openlocfilehash: ab5f334b1c830ea5e9c0164b8e75ef0f4fab8e1b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582593"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075636"
 ---
 # <a name="assign-access-to-cost-management-data"></a>指派成本管理資料的存取權
 
@@ -64,12 +64,12 @@ ms.locfileid: "52582593"
 1. 使用企業系統管理員帳戶登入在 [https://ea.azure.com](https://ea.azure.com) 的 EA 入口網站。
 2. 在左窗格中選取 [管理]。
 3. 在 [註冊] 索引標籤上，選取您想要管理的註冊。  
-    ![EA 入口網站](./media/assign-access-acm-data/ea-portal.png)
+    ![在 EA 入口網站中選取您的註冊](./media/assign-access-acm-data/ea-portal.png)
 4. 按一下 [+ 新增系統管理員]。
 5. 在 [新增系統管理員] 方塊中，選取驗證類型，並輸入使用者的電子郵件地址。
 6. 如果使用者應該要有對成本和使用量資料的唯讀存取權，請在 [唯讀] 底下選取 [是]。  否則，請選取 [否]。
 7. 按一下 [新增] 以建立帳戶。  
-    ![新增系統管理員方塊](./media/assign-access-acm-data/add-admin.png)
+    ![顯示於 [新增系統管理員] 方塊中的範例資訊](./media/assign-access-acm-data/add-admin.png)
 
 可能需要最多 30 分鐘，新使用者才能在成本管理中存取資料。
 
@@ -85,7 +85,7 @@ ms.locfileid: "52582593"
 6. 如果使用者應該要有對成本和使用量資料的唯讀存取權，請在 [唯讀] 底下選取 [是]。  否則，請選取 [否]。
 7. 選取您想要授與部門系統管理員權限的部門。
 8. 按一下 [新增] 以建立帳戶。  
-    ![[新增部門系統管理員] 方塊](./media/assign-access-acm-data/add-depart-admin.png)
+    ![在 [新增部門系統管理員] 方塊中輸入必要的資訊](./media/assign-access-acm-data/add-depart-admin.png)
 
 ## <a name="assign-enrollment-account-scope-access"></a>指派註冊帳戶範圍存取權
 
@@ -99,7 +99,7 @@ ms.locfileid: "52582593"
 6. 選取驗證類型並輸入帳戶名稱。
 7. 輸入使用者的電子郵件地址，然後選擇性地輸入成本中心。
 8. 按一下 [新增] 以建立帳戶。  
-    ![[新增帳戶] 方塊](./media/assign-access-acm-data/add-account.png)
+    ![在註冊帳戶的 [新增帳戶] 方塊中輸入必要的資訊](./media/assign-access-acm-data/add-account.png)
 
 完成上述步驟之後，使用者帳戶會成為企業版入口網站中的註冊帳戶，並可建立訂用帳戶。 使用者可以存取所建立訂用帳戶的成本和使用量資料。
 
@@ -107,7 +107,7 @@ ms.locfileid: "52582593"
 
 對管理群組範圍的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對管理群組的權限。 您必須至少有管理群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「管理群組」，然後選取 [管理群組]。
 3. 您可以選取階層中的管理群組。
 4. 在您管理群組的旁邊，按一下 [詳細資料]。
@@ -117,13 +117,13 @@ ms.locfileid: "52582593"
 8. 在 [存取權指派對象為] 底下，選取 [Azure AD 使用者、群組或應用程式]。
 9. 若要指派存取權，搜尋並選取使用者。
 10. 按一下 [檔案] 。  
-    ![[新增權限] 方塊](./media/assign-access-acm-data/add-permissions.png)
+    ![管理群組的 [新增權限] 方塊中的範例資訊](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>指派訂用帳戶範圍存取權
 
 對訂用帳戶的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對訂用帳戶的權限。 您必須至少有訂用帳戶的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「訂用帳戶」，然後選取 [訂用帳戶]。
 3. 選取您的訂用帳戶。
 4. 從左窗格中選取 [存取控制 (IAM)]。
@@ -137,7 +137,7 @@ ms.locfileid: "52582593"
 
 對資源群組的存取權至少需要成本管理讀者 (或讀者) 權限。 您可以在 Azure 入口網站中設定對資源群組的權限。 您必須至少有資源群組的使用者存取系統管理員 (或擁有者) 權限，才能為其他人啟用存取權。 而且，您也必須啟用 EA 入口網站中的 [AO 檢視費用] 設定。
 
-1. 在 [http://portal.azure.com](http://portal.azure.com) 登入 Azure 入口網站。
+1. 在 [https://portal.azure.com](https://portal.azure.com) 登入 Azure 入口網站。
 2. 在側邊欄中選取 [所有服務]，再搜尋「資源群組」，然後選取 [資源群組]。
 3. 選取您的資源群組。
 4. 從左窗格中選取 [存取控制 (IAM)]。

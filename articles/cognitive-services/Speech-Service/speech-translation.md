@@ -1,21 +1,22 @@
 ---
-title: 關於語音翻譯
+title: 關於語音翻譯 - 語音服務
 titlesuffix: Azure Cognitive Services
-description: 語音翻譯功能概觀
+description: 「語音服務 API」可讓您將端對端、即時、多語言的語音翻譯新增到您的應用程式、工具和裝置。 相同的 API 可以用於語音轉換語音和語音轉換文字翻譯。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 9d94105377597ca8e79cc43ed0903371e185d510
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469130"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086703"
 ---
 # <a name="about-the-speech-translation-api"></a>關於語音翻譯 API
 

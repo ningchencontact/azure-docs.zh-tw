@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: chmutali
-ms.openlocfilehash: 30354ddb010c22dabe5cd69373ae59daaf4a8b46
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 754c3278cb01e010718fa4d3cb257acf6ffe99c9
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346740"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849848"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>教學課程︰設定 Workday 來自動佈建使用者 (預覽)
 
@@ -635,7 +635,7 @@ Azure AD 提供一組豐富的佈建連接器，協助您解決從 Workday 到 A
 ## <a name="configuring-writeback-of-email-addresses-to-workday"></a>設定將電子郵件地址回寫至 Workday
 請遵循下列指示來設定將使用者電子郵件地址從 Azure Active Directory 回寫至 Workday。
 
-### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>第 1 部分：新增佈建連接器應用程式和建立 Workday 連接
+### <a name="part-1-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>第 1 部分：新增佈建連接器應用程式和建立 Workday 連線
 
 **設定 Workday 回寫連接器：**
 
@@ -725,7 +725,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
     ```
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -760,7 +760,7 @@ Azure AD 佈建服務支援自訂清單或 Workday 屬性的功能，以包含�
 
 14. 在檔案樹狀目錄中，瀏覽 **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** 來尋找您的使用者資料。 
 
-15. 在 **wd:Worker** 之下，尋找您要新增的屬性並加以選取。
+15. 在 **wd: Worker** 之下，尋找您要新增的屬性並加以選取。
 
 16. 從 [文件路徑] 欄位複製您所選屬性的 XPath 運算式。
 

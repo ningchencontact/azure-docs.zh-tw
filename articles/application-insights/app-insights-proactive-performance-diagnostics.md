@@ -9,17 +9,16 @@ ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b9428e4451ebef921907809b1250238bf084706d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960815"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864956"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智慧型偵測 - 效能異常
 
@@ -185,7 +184,7 @@ Application Insights 會尋找可能只會影響某部分使用者，或只在�
 
 * [分析工具](app-insights-profiler.md) 
 * [快照集偵錯工具](app-insights-snapshot-debugger.md)
-* [分析](../log-analytics/query-language/get-started-analytics-portal.md)
+* [分析](../azure-monitor/log-query/get-started-portal.md)
 * [分析智慧型診斷](app-insights-analytics.md)
 
 智慧型偵測是完全自動的。 但是，或許您會想要再設定一些警示？

@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: c154b0124acb5bee93211adb611356555526d2c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9c638ed9132612db7b82168d3a57057aba9b2d60
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996208"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870329"
 ---
 # <a name="predictive-maintenance-for-real-world-scenarios"></a>真實案例的預測性維護
 
@@ -98,13 +98,13 @@ az ml notebook start
 
 ## <a name="data-description"></a>資料說明
 
-[模擬資料](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data)包含五個逗號分隔值 (.csv) 檔案。 請使用下列連結來取得資料集的相關詳細描述。
+[模擬資料](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide)包含下列[五個逗號分隔值 (.csv) 檔案](https://github.com/Microsoft/SQL-Server-R-Services-Samples/tree/master/PredictiveMaintanenceModelingGuide/Data)：
 
-* [機器](https://pdmmodelingguide.blob.core.windows.net/pdmdata/machines.csv)：區別每部機器的特徵，例如存留期和型號。
-* [錯誤](https://pdmmodelingguide.blob.core.windows.net/pdmdata/errors.csv)：此錯誤記錄檔包含機器仍在運作時所擲回的非重大錯誤。 系統並不將這些錯誤視為故障，但這些錯誤可能是未來故障事件的預兆。 由於遙測資料的收集頻率是每小時一次，因此系統會將錯誤的日期時間值四捨五入到最接近的整點。
-* [維護](https://pdmmodelingguide.blob.core.windows.net/pdmdata/maint.csv)：維護記錄同時包含排程和非排程的維護記錄。 排定的維護會與定期的元件檢查對應。 排程外的維護可能起因於機械故障或其他效能降低情況。 由於遙測資料的收集頻率是每小時一次，因此系統會將維護的日期時間值四捨五入到最接近的整點。
-* [遙測](https://pdmmodelingguide.blob.core.windows.net/pdmdata/telemetry.csv)：遙測資料是由每部機器內多個感應器的時間序列量值所組成。 資料是藉由平均每小時間隔的感應器值來記錄的。
-* [故障](https://pdmmodelingguide.blob.core.windows.net/pdmdata/failures.csv)：故障會與維護記錄中的元件更換事件對應。 每一筆記錄都包含機器識別碼、元件類型和更換日期與時間。 我們會使用這些記錄來建立將由模型試著預測的機器學習標籤。
+* [機器](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/machines.csv)：區別每部機器的特徵，例如存留期和型號。
+* [錯誤](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/errors.csv)：此錯誤記錄檔包含機器仍在運作時所擲回的非重大錯誤。 系統並不將這些錯誤視為故障，但這些錯誤可能是未來故障事件的預兆。 由於遙測資料的收集頻率是每小時一次，因此系統會將錯誤的日期時間值四捨五入到最接近的整點。
+* [維護](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/maint.csv)：維護記錄同時包含排程和非排程的維護記錄。 排定的維護會與定期的元件檢查對應。 排程外的維護可能起因於機械故障或其他效能降低情況。 由於遙測資料的收集頻率是每小時一次，因此系統會將維護的日期時間值四捨五入到最接近的整點。
+* [遙測](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/telemetry.csv)：遙測資料是由每部機器內多個感應器的時間序列量值所組成。 資料是藉由平均每小時間隔的感應器值來記錄的。
+* [故障](https://github.com/Microsoft/SQL-Server-R-Services-Samples/blob/master/PredictiveMaintanenceModelingGuide/Data/failures.csv)：故障會與維護記錄中的元件更換事件對應。 每一筆記錄都包含機器識別碼、元件類型和更換日期與時間。 我們會使用這些記錄來建立將由模型試著預測的機器學習標籤。
 
 若要從 GitHub 存放庫下載未經處理的資料集，並建立要供此分析使用的 PySpark 資料集，請參閱 [Code] 資料夾中的[資料擷取](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/1_data_ingestion.ipynb) \(英文\) Jupyter 筆記本案例。
 
@@ -121,7 +121,7 @@ az ml notebook start
 
 [Code\4_operationalization.ipynb](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance/blob/master/Code/4_operationalization.ipynb)：此筆記本會使用儲存至本機 (Jupyter 筆記本核心) 磁碟的最後一個模型來建置元件，以將模型部署至 Azure Web 服務中。 完整的運作資產會壓縮至儲存在另一個 Azure Blob 容器內的 o16n.zip 檔案中。 此 ZIP 壓縮檔案包含︰
 
-* **service_schema.json**:用於部署的結構描述定義檔。 
+* **service_schema.json**：用於部署的結構描述定義檔。 
 * **pdmscore.py**：Azure Web 服務所需的 **init()** 和 **run()** 函式。
 * **pdmrfull.model**：模型定義目錄。
     

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 5db43c6488a4592eb46d9a0fe9a044dde36fc494
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 54511505841f170180bce0fccd8bd289ba24de2b
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423342"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073344"
 ---
 # <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure Cosmos DB 全域散發 - 運作原理
 
@@ -43,7 +43,7 @@ Cosmos DB 的全域散發依賴兩個關鍵抽象概念：複本集和分割集�
 
 ## <a name="replica-sets"></a>複本集
 
-資源分割區會具體化為自我管理和動態負載平衡的複本群組，這些複本會分散到多個容錯網域，稱為複本集。 這一組會共同實作複寫的狀態機器通訊協定，以使得資源分割區中的資料成為高度可用、耐久且一致。 複本集成員資格 N 是動態的，它會根據失敗、系統管理作業，以及要重新建立/復原失敗複本的時間，在 NMin 和 NMax 之間保持波動。 根據成員資格變更，複寫通訊協定也會重新設定讀取和寫入仲裁的大小。 為了一致地散發指派給指定資源分割區的輸送量，我們採用兩個構想：首先，在前端項目上處理寫入要求的成本高於在實行項目上套用更新的成本。 同樣地，前端項目預算的系統資源會比實行項目還要多。 其次，盡可能地使指定一致性層級的讀取仲裁僅由實行項目複本所組成。 除非必要，否則我們會避免為前端項目提供讀取。 我們針對 Cosmos DB 支援的五個一致性模型所採用的數個構想，均來自根據仲裁型系統中[負載和容量](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) \(英文\) 的關聯性所完成的研究。  
+資源分割區會具體化為自我管理和動態負載平衡的複本群組，這些複本會分散到多個容錯網域，稱為複本集。 這一組會共同實作複寫的狀態機器通訊協定，以使得資源分割區中的資料成為高度可用、耐久且一致。 複本集成員資格 N 是動態的，它會根據失敗、系統管理作業，以及要重新建立/復原失敗複本的時間，在 NMin 和 NMax 之間保持波動。 根據成員資格變更，複寫通訊協定也會重新設定讀取和寫入仲裁的大小。 為了一致地散發指派給指定資源分割區的輸送量，我們採用兩個構想：首先，在前端項目上處理寫入要求的成本高於在實行項目上套用更新的成本。 同樣地，前端項目預算的系統資源會比實行項目還要多。 其次，盡可能地使指定一致性層級的讀取仲裁僅由實行項目複本所組成。 除非必要，否則我們會避免為前端項目提供讀取。 我們針對 Cosmos DB 支援的五個一致性模型所採用的數個構想，均來自根據仲裁型系統中[負載和容量](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) \(英文\) 的關聯性所完成的研究。  
 
 ## <a name="partition-sets"></a>分割集
 
@@ -57,7 +57,7 @@ Cosmos DB 的全域散發依賴兩個關鍵抽象概念：複本集和分割集�
 
 ## <a name="conflict-resolution"></a>衝突解決
 
-我們對於更新傳播、衝突解決和因果追蹤的設計靈感來自先前在 [epidemic 演算法](http://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) \(英文\) 和 [Bayou](http://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) \(英文\) 系統上的工作。 儘管構想的核心已存留並提供方便參考的架構來與 Cosmos DB 系統設計溝通，但隨著我們將它們套用到 Cosmos DB 系統，它們也經歷了明顯的轉變。 這是必要的，因為先前系統的設計不具資源控管，也沒有 Cosmos DB 需要在其上運作的調整，也不會提供 Cosmos DB 提供給其客戶的功能 (例如，限定過期一致性) 和嚴格的全方位 SLA。  
+我們對於更新傳播、衝突解決和因果追蹤的設計靈感來自先前在 [epidemic 演算法](https://www.cs.utexas.edu/~lorenzo/corsi/cs395t/04S/notes/naor98load.pdf) \(英文\) 和 [Bayou](https://zoo.cs.yale.edu/classes/cs422/2013/bib/terry95managing.pdf) \(英文\) 系統上的工作。 儘管構想的核心已存留並提供方便參考的架構來與 Cosmos DB 系統設計溝通，但隨著我們將它們套用到 Cosmos DB 系統，它們也經歷了明顯的轉變。 這是必要的，因為先前系統的設計不具資源控管，也沒有 Cosmos DB 需要在其上運作的調整，也不會提供 Cosmos DB 提供給其客戶的功能 (例如，限定過期一致性) 和嚴格的全方位 SLA。  
 
 回想一下，分割集會散發到多個區域，並遵循 Cosmos DB (多重主機) 複寫通訊協定，以便在組成指定分割集的實體分割區之間複寫資料。 每個資源分割區 (屬於分割集) 都會接受寫入，而且通常可為該區域的區域用戶端提供讀取。 區域內資源分割區所接受的寫入會被永久認可，並在將它們認可到用戶端之前，使其可在資源分割區內高度可用。 這些都是暫時性寫入，並會使用反熵通道傳播到分割集內的其他實體分割區。 用戶端可以藉由傳遞要求標頭來要求暫時性或認可的寫入。 反熵傳播 (包括傳播頻率) 是動態的，會以分割集的拓撲、實體分割區的區域性近接，以及所設定的一致性層級為根據。 在分割集內，Cosmos DB 會遵循主要的認可配置，其中具有動態選取的仲裁程式分割區。 選取仲裁程式是動態的，而且是根據重疊拓撲重新設定分割集時不可或缺的一部分。 保證會將認可的寫入 (包括多列/批次更新) 進行排序。 
 

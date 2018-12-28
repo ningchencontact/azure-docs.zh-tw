@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 2f426ab85d9ab15dd080a487337b8d48358ed040
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238815"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888455"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure 地圖服務支援的地圖樣式
-Azure 地圖服務支援四個不同的內建地圖樣式。 下方列出樣式及其描述。
+Azure 地圖服務支援數個不同的內建地圖樣式，如下所述。
 
 ## <a name="road"></a>路段
 **路段**圖是標準的地圖，其中顯示道路、自然和人工景觀，以及這些景觀的標籤。
@@ -49,6 +49,14 @@ Azure 地圖服務支援四個不同的內建地圖樣式。 下方列出樣式�
 **深灰階**是路段圖樣式的深色版本。
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+
+**適用 API：**
+* JS 地圖控制項 
+
+## <a name="night"></a>夜間
+**夜間**是路段圖樣式的深色版本，具有彩色的道路和符號。
+
+![夜間](./media/supported-map-styles/night.PNG)
 
 **適用 API：**
 * JS 地圖控制項 

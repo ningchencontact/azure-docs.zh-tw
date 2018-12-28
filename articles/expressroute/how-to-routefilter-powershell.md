@@ -1,19 +1,20 @@
 ---
-title: 設定 Azure ExpressRoute Microsoft 對等互連的路由篩選：PowerShell | Microsoft Docs
+title: 針對 Microsoft 對等互連設定路由篩選 - ExpressRoute：PowerShell：Azure | Microsoft Docs
 description: 本文說明如何使用 PowerShell 針對 Microsoft 對等互連設定路由篩選
 documentationcenter: na
 services: expressroute
 author: ganesr
 ms.service: expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: ganesr
-ms.openlocfilehash: d4ef500185675ab84485c5dd6a9af4034c57b060
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: 30388185c415346b298dbada715b17e631c66769
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419260"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096291"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>針對 Microsoft 對等互連設定路由篩選：PowerShell
 > [!div class="op_single_selector"]
@@ -141,7 +142,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>步驟 3：將路由篩選連接到 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
 
 若您只有 Microsoft 對等互連，請執行下列命令，將路由器篩選附加在 ExpressRoute 線路上：
 

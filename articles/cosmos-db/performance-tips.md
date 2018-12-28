@@ -1,21 +1,19 @@
 ---
-title: Azure Cosmos DB 的 .NET 效能祕訣 | Microsoft Docs
+title: 適用於 .NET 的 Azure Cosmos DB 效能提示
 description: 了解用以改善 Azure Cosmos DB 資料庫效能的用戶端設定選項
 keywords: 如何改善資料庫效能
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 91da40613e940b3dd577362273cf14e68d019f26
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: d4d730fe6c72b55a01f7c5f1f95cbd94ff145fba
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442467"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873745"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 和 .NET 的效能祕訣
 
@@ -29,10 +27,10 @@ Azure Cosmos DB 是一個既快速又彈性的分散式資料庫，可在獲得�
 
 如果您詢問「如何改善我的資料庫效能？ 」，請考慮下列選項：
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 <a id="direct-connection"></a>
 
-1. **原則︰使用直接連接模式**
+1. **連線原則︰使用直接連接模式**
 
     用戶端連線到 Azure Cosmos DB 的方式，對於效能有重大影響 (尤其對觀察到的用戶端延遲而言)。 有兩個重要組態設定可用來設定用戶端連接原則 - 連接模式和連接[*通訊協定*](#connection-protocol)。  兩個可用的模式︰
 

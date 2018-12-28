@@ -1,21 +1,22 @@
 ---
-title: Language Understanding Intelligent Services (LUIS) API HTTP 回應碼| Microsoft Docs
+title: API HTTP 回應碼
 titleSuffix: Azure
 description: 了解哪些 HTTP 回應碼會從 LUIS 撰寫和 API 端點傳回
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6ffab581420c3c74ed659be2b82e2f9c7fda13d0
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 478727a4d3628fbe6a385e3beb28201c228f9e2d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443826"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078225"
 ---
 # <a name="luis-api-http-response-codes"></a>LUIS API HTTP 回應碼
 [撰寫](https://aka.ms/luis-authoring-apis)和[端點](https://aka.ms/luis-endpoint-apis) API 會傳回 HTTP 回應碼。 當回應訊息包含專屬於要求的資訊時，HTTP 回應狀態碼為一般。 

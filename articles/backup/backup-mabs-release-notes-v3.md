@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 11/22/2018
 ms.author: v-jysur
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
-ms.openlocfilehash: 1d077fc8a853f145d271fa69d453ea2ea70ab696
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ff66b386a6293c11ad67ec90e165b927ad6669b
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52319077"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870549"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 備份伺服器版本資訊
 本文提供 Microsoft Azure 備份伺服器 (MABS) V3 的已知問題和因應措施。
 
 ##  <a name="backup-and-recovery-fails-for-clustered-workloads"></a>叢集工作負載的備份及復原失敗
 
-**描述：** 將 MABS V2 升級到 MABS V3 後，對於叢集化的資料來源 (例如 Hyper-V 叢集或 SQL 叢集 (SQL Always On) 或資料庫可用性群組 (DAG) 中的 Exchange)，備份/還原失敗。
+**說明：** 將 MABS V2 升級到 MABS V3 後，對於叢集化的資料來源 (例如 Hyper-V 叢集或 SQL 叢集 (SQL Always On) 或資料庫可用性群組 (DAG) 中的 Exchange)，備份/還原失敗。
 
 **因應措施：** 若要避免此問題，請開啟 SQL Server Management Studio (SSMS)，並在 DPM DB 上執行下列 SQL 指令碼：
 
@@ -54,7 +54,7 @@ ms.locfileid: "52319077"
 
 ##  <a name="upgrade-to-mabs-v3-fails-in-russian-locale"></a>在俄文地區設定升級至 MABS V3 失敗
 
-**描述：** 在俄文地區設定中，從 MABS V2 升級至 MABS V3 失敗，出現錯誤代碼 **4387**。
+**說明：** 在俄文地區設定中，從 MABS V2 升級至 MABS V3 失敗，出現錯誤代碼 **4387**。
 
 **因應措施：** 使用俄文安裝套件，執行下列步驟以升級至 MABS V3：
 
@@ -77,4 +77,4 @@ ms.locfileid: "52319077"
 
 ## <a name="next-steps"></a>後續步驟
 
-[MABS v3 的新功能](backup-mabs-whats-new-mabs.md)
+[MABS V3 的新功能](backup-mabs-whats-new-mabs.md)

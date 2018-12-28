@@ -1,25 +1,20 @@
 ---
-title: 非對稱式路由 | Microsoft Docs
-description: 本文逐步解說在有多個連結連至一個目的地的網路中，客戶可能會面對的非對稱式路由問題。
+title: 非對稱式路由 - Azure ExpressRoute | Microsoft Docs
+description: 本文將逐步解說在有多個連結連至一個目的地的網路中，您可能會遇到的非對稱式路由問題。
 documentationcenter: na
 services: expressroute
 author: osamazia
-manager: carmonm
-editor: ''
-ms.assetid: a754bff9-95c9-44b5-9796-377fc21e8322
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: article
 ms.date: 10/10/2016
 ms.author: osamam
-ms.openlocfilehash: 8568c13d2834a0643e15ab1814a35c92123837d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 6ece48d892f46a4f8bbeb66d3ebda9f532b621b8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22710009"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076646"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>非對稱式路由與多個網路路徑
 本文說明如何在網路來源與目的地之間有多個路徑時，向前和回傳網路流量如何採取不同的路由。

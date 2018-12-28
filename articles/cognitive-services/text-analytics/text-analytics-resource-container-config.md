@@ -1,21 +1,22 @@
 ---
 title: 設定容器
-titlesuffix: Text Analytics - Cognitive Services - Azure
-description: 適用於文字分析容器的組態設定。
+titlesuffix: Text Analytics - Azure Cognitive Services
+description: 文字分析為每個容器提供了常見的設定架構，因此您可以輕易地設定及管理您容器的儲存體、記錄和遙測，以及安全性設定。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 0f6b8fa27d2db45be2c677a52c53cff5847acf4a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 7e993b9ccc57359ac64186765b7b704535eb5a57
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635075"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086669"
 ---
 # <a name="configure-containers"></a>設定容器
 
@@ -36,7 +37,7 @@ ms.locfileid: "51635075"
 
 從文字分析容器具現化容器時，您可以使用[環境變數](#configuration-settings-as-environment-variables)或[命令列引數](#configuration-settings-as-command-line-arguments)來指定組態設定。
 
-環境變數的值會覆寫命令列引數的值，並進一步覆寫容器映像的預設值。 換句話說，如果您針對相同的組態設定 (例如 `Logging:Disk:LogLevel`) 在環境變數和命令列引數中指定不同的值，然後再具現化容器，則已具現化的容器將會使用環境變數中的值。
+環境變數的值會覆寫命令列引數的值，並進一步覆寫容器映像的預設值。 換句話說，如果您針對相同的組態設定 (例如 `Logging:Disk:LogLevel`) 在環境變數和命令列引數中指定不同的值，然後再將容器具現化，則已具現化的容器將會使用環境變數中的值。
 
 ### <a name="configuration-settings-as-environment-variables"></a>以環境變數指定組態設定
 
@@ -55,7 +56,7 @@ ms.locfileid: "51635075"
 
 您可以使用 [ASP.NET Core 命令列引數語法](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.1&tabs=basicconfiguration#arguments)來指定組態設定。
 
-您可以在用來從已下載容器映像具現化容器之 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令的選擇性 `ARGS` 參數中指定組態設定。 使用命令列引數的好處，在於每個容器都可以使用不同的自訂組態設定集。
+您可以在用來從已下載容器映像將容器具現化之 [docker run](https://docs.docker.com/engine/reference/commandline/run/) \(英文\) 命令的選擇性 `ARGS` 參數中指定組態設定。 使用命令列引數的好處，在於每個容器都可以使用不同的自訂組態設定集。
 
 例如，下列命令會從情感分析容器映像具現化容器，然後將主控台記錄層級設定為 LogLevel.Information 並覆寫預設的組態設定。
 
@@ -68,7 +69,7 @@ ms.locfileid: "51635075"
 `ApiKey` 組態設定會指定 Azure 上用來追蹤容器帳單資訊之文字分析資源的組態金鑰。 您必須為此組態設定指定值，且該值必須是適用於針對 [`Billing`](#billing-configuration-setting) 所指定之文字分析資源的有效組態金鑰。
 
 > [!IMPORTANT]
-> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來具現化容器的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
+> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
 
 ## <a name="applicationinsights-configuration-settings"></a>ApplicationInsights 組態設定
 
@@ -76,7 +77,7 @@ ms.locfileid: "51635075"
 
 下表說明 `ApplicationInsights` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `InstrumentationKey` | 字串 | Application Insights 執行個體的檢測金鑰，容器的遙測資料會傳送到這裡。 如需詳細資訊，請參閱 [ASP.NET Core 的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core)。 |
 
@@ -86,23 +87,25 @@ ms.locfileid: "51635075"
 
 下表說明 `Authentication` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `ApiKey` | 字串或陣列 | 容器用來存取其他 Azure 資源的 Azure 訂用帳戶金鑰 (如果容器有需要)。<br/> 如果容器使用多個訂用帳戶金鑰，則此值會指定為字串陣列；否則，會使用字串值來指定容器所使用的單一訂用帳戶金鑰。 |
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 組態設定會指定 Azure 上用來追蹤容器帳單資訊之文字分析資源的端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上文字分析資源的有效端點 URI。
+`Billing` 組態設定會指定 Azure 上用來對容器計算帳單資訊的文字分析資源的端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上文字分析資源的有效端點 URI。
 
 > [!IMPORTANT]
-> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來具現化容器的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
+> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
 
 ## <a name="eula-configuration-setting"></a>Eula 組態設定
 
 `Eula` 組態設定會指出您已接受容器的授權。 您必須為此組態設定指定值，且該值必須設定為 `accept`。
 
 > [!IMPORTANT]
-> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來具現化容器的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
+> 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](how-tos/text-analytics-how-to-install-containers.md#billing)。
+
+認知服務容器是在[您的合約](https://go.microsoft.com/fwlink/?linkid=2018657) (控管您對於 Azure 的使用) 底下獲得授權。 如果您沒有可控管您使用 Azure 的現有合約，您同意控管使用 Azure 的合約是 [Microsoft 線上訂閱合約](https://go.microsoft.com/fwlink/?linkid=2018755) (其中包含[線上服務條款](https://go.microsoft.com/fwlink/?linkid=2018760))。 對於預覽版，您也同意 [Microsoft Azure 預覽專用的補充使用條款](https://go.microsoft.com/fwlink/?linkid=2018815)。 使用容器即表示您同意這些條款。
 
 ## <a name="fluentd-configuration-settings"></a>Fluentd 組態設定
 
@@ -110,7 +113,7 @@ ms.locfileid: "51635075"
 
 下表說明 `Fluentd` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `Host` | 字串 | Fluentd 伺服器的 IP 位址或 DNS 主機名稱。 |
 | `Port` | 整數  | Fluentd 伺服器的連接埠。<br/> 預設值為 24224。 |
@@ -131,9 +134,9 @@ ms.locfileid: "51635075"
   JSON 記錄提供者。 此記錄提供者會將記錄資料寫入至輸出裝載。  
   `Disk` 記錄提供者支援下列組態設定：  
 
-  | 名稱 | 資料類型 | 說明 |
+  | Name | 資料類型 | 說明 |
   |------|-----------|-------------|
-  | `Format` | 字串 | 適用於記錄檔的輸出格式。<br/> **注意：** 此值必須設定為 `json` 以啟用記錄提供者。 如果在具現化期間指定此值，但沒有同時指定輸出裝載，便會發生錯誤。 |
+  | `Format` | 字串 | 適用於記錄檔的輸出格式。<br/> **附註：** 此值必須設定為 `json` 以啟用記錄提供者。 如果在具現化期間指定此值，但沒有同時指定輸出裝載，便會發生錯誤。 |
   | `MaxFileSize` | 整數  | 記錄檔的大小上限，以 MB 為單位。 當目前記錄檔的大小符合或超過此值時，記錄提供者便會建立新的記錄檔。 如果指定 -1，記錄檔的大小便只會受限於輸出裝載的檔案大小上限 (若有的話)。 預設值為 1。 |
 
 如需設定 ASP.NET Core 記錄支援的詳細資訊，請參閱[設定檔案組態](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)。
@@ -149,7 +152,7 @@ ms.locfileid: "51635075"
 
 下表說明 `Mounts` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 |
 | `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 |
@@ -164,7 +167,7 @@ ms.locfileid: "51635075"
 |[語言偵測](#working-with-language-detection) | 不支援 | 選用 |
 |[情感分析](#working-with-sentiment-analysis) | 不支援 | 選用 |
 
-您可以在用來從已下載的容器映像具現化容器的 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。 根據預設，輸入裝載會使用 `/input` 作為其目的地，而輸出裝載會使用 `/output` 作為其目的地。 在 `--mount` 選項中可以指定任何可在 Docker 容器主機中使用的 Docker 儲存體選項。
+您可以在用來從已下載的容器映像將容器具現化的 [docker run](https://docs.docker.com/engine/reference/commandline/run/) \(英文\) 命令中指定 `--mount` 選項，以指定輸入裝載或輸出裝載。 根據預設，輸入裝載會使用 `/input` 作為其目的地，而輸出裝載會使用 `/output` 作為其目的地。 在 `--mount` 選項中可以指定任何可在 Docker 容器主機中使用的 Docker 儲存體選項。
 
 例如，下列命令會將 Docker 繫結裝載定義至主機電腦上的 `D:\Output` 資料夾作為輸出裝載，然後從情感分析容器映像具現化容器，並以 JSON 格式將記錄檔儲存至輸出裝載。
 

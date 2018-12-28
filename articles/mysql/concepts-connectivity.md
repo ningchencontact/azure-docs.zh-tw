@@ -3,19 +3,19 @@ title: 處理適用於 MySQL 的 Azure 資料庫的暫時性連線錯誤 | Micro
 description: 了解如何處理「適用於 MySQL 的 Azure 資料庫」的暫時性連線錯誤。
 keywords: mysql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 services: mysql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: 1944b30e5c658f1df896050d0ff43f1058d5dd32
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285450"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887809"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>處理適用於 MySQL 的 Azure 資料庫的暫時性連線錯誤
 
@@ -30,16 +30,16 @@ ms.locfileid: "51285450"
 您應該使用重試邏輯來處理暫時性錯誤。 必須考量的情況：
 
 * 您嘗試開啟連線時發生錯誤
-* 伺服器端卸除閒置的連線。 您嘗試發出命令時卻無法執行該命令
+* 伺服器端卸除閒置的連線。 當您嘗試發出命令時卻無法執行該命令
 * 目前正在執行命令的作用中連線被卸除。
 
-第一種和第二種情況的處理方式相當直接。 請嘗試重新開啟連線。 成功時，即表示系統已解決暫時性錯誤。 您可以再次使用「適用於 MySQL 的 Azure 資料庫」。 建議您先稍候，再重試連線。 如果重試失敗，請先放棄。 如此一來，系統才能使用所有可用資源來解決錯誤情況。 建議採用的模式為：
+第一種和第二種情況的處理方式相當直接。 請嘗試重新開啟連線。 成功時，即表示系統已解決暫時性錯誤。 您可以再次使用「適用於 MySQL 的 Azure 資料庫」。 建議您先稍候，再重試連線。 如果初始重試失敗，請先放棄。 如此一來，系統才能使用所有可用資源來解決錯誤情況。 建議採用的模式為：
 
-* 先等候 5 秒再進行第一次重試。
+* 先等候 5 秒，再進行第一次重試。
 * 針對接下來的每次重試，依指數遞增等候時間，最多可達 60 秒。
 * 設定應用程式將作業視為失敗的重試次數上限。
 
-當具有作用中交易的連線失敗時，比較難正確地處理復原。 有兩種情況：如果交易本質上是唯讀的，您可以放心地重新開啟連線並重試交易。 不過，如果交易也對資料庫進行寫入，則必須判斷該交易是已被復原，還是在發生暫時性錯誤之前即已成功。 在該情況下，您可能只是尚未收到來自資料庫伺服器的認可收條。
+當具有作用中交易的連線失敗時，比較難正確地處理復原。 有兩種案例：如果交易本質上是唯讀的，您可以放心地重新開啟連線並重試交易。 不過，如果交易也對資料庫進行寫入，則必須判斷該交易是已被復原，還是在發生暫時性錯誤之前即已成功。 在該情況下，您可能只是尚未收到來自資料庫伺服器的認可收條。
 
 其中一種做法是，在用戶端上產生一個用於所有重試的唯一識別碼。 您需將這個唯一識別碼隨著交易一起傳遞給伺服器，並將它與一個唯一條件約束一起儲存在資料行中。 如此一來，您便可以放心地重試交易。 如果先前的交易已復原，且用戶端產生的唯一識別碼尚未存在於系統中，交易便會成功。 如果因先前的交易已順利完成而使得先前已儲存唯一識別碼，交易便會因發生重複索引鍵違規而失敗。
 
@@ -49,4 +49,4 @@ ms.locfileid: "51285450"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [針對適用於 MySQL 的 Azure 資料庫的連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)
+* [針對適用於 MySQL 的 Azure 資料庫連線問題進行疑難排解](howto-troubleshoot-common-connection-issues.md)

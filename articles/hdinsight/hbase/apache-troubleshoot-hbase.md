@@ -3,17 +3,17 @@ title: 使用 Azure HDInsight 為 HBase 進行疑難排解
 description: 取得有關使用 HBase 和 Azure HDInsight 的常見問題解答。
 services: hdinsight
 ms.service: hdinsight
-author: nitinver
-ms.author: nitinver
-ms.custom: hdinsightactive
+author: hrasheed-msft
+ms.author: hrasheed
+ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
-ms.date: 7/7/2017
-ms.openlocfilehash: 771f01f18c5cb54a0458d624a65ec1a69345cadd
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/06/2018
+ms.openlocfilehash: b39c01e76ba3ec21f0cd2d16b86da5664e1d5002
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317223"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014662"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>使用 Azure HDInsight 對 Apache HBase 進行疑難排解
 
@@ -288,7 +288,7 @@ HBase Master 服務可能需要五分鐘的時間，才能穩定和完成復原�
 
 ### <a name="detailed-description"></a>詳細描述
 
-您可能會在 Linux 叢集上看到一則訊息，指出 *hbase: meta* 資料表不在線上。 執行 `hbck` 可能會回報「在任何區域上找不到 hbase: meta 資料表 replicaId 0」。 問題可能是 HMaster 無法在您重新啟動 HBase 之後初始化。 在 HMaster 記錄中，您可能會看到訊息：「區域 hbase: backup \<區域名稱\> 的 hbase: meta 中未列出任何伺服器位址」。  
+您可能會在 Linux 叢集上看到一則訊息，指出 *hbase: meta* 資料表不在線上。 執行 `hbck` 可能會回報「在任何區域上找不到 hbase: meta 資料表 replicaId 0」。 問題可能是 HMaster 無法在您重新啟動 HBase 之後初始化。 在 HMaster 記錄中，您可能會看到下列訊息：「區域 hbase: backup \<區域名稱\> 的 hbase: meta 中未列出任何伺服器位址」。  
 
 ### <a name="resolution-steps"></a>解決步驟
 

@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: ''
-ms.openlocfilehash: ef9c096989eeb37159d0deb705e7870afe2eff8b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 70641084d2213b50803800a64000611d139facec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975391"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075759"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 角色型存取控制來管理資源存取
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 支援角色型存取控制 (RBAC)，這是與 Microsoft Azure 所用的[存取管理安全性模型](https://docs.microsoft.com/azure/role-based-access-control/overview) \(機器翻譯\) 相同。 您可以使用 RBAC 來管理使用者、群組或應用程式對於訂用帳戶、資源和服務的存取。
 
@@ -91,9 +91,9 @@ Azure [角色指派](https://docs.microsoft.com/azure/role-based-access-control/
 1. 使用具備擁有者權限的帳戶登入您想要管理的資源。
 2. 在左側導覽窗格中，選取 [資源群組]。
 3. 選擇想要設定權限的資源群組名稱。
-4. 在資源群組瀏覽窗格中，選擇 [存取控制 (IAM)]。 [存取控制] 檢視會列出可存取資源群組的項目。 您可以篩選這些結果，並使用功能表列來 [新增] 或 [移除] 權限。
-5. 在 [存取控制] 功能表列上，選擇 [+ 新增]。
-6. 在 [新增權限] 上：
+4. 在資源群組瀏覽窗格中，選擇 [存取控制 (IAM)]。 [角色指派] 檢視會列出可存取資源群組的項目。 您可以篩選結果並將其分組。
+5. 在 [存取控制] 功能表列上，選擇 [新增角色指派]。
+6. 在 [新增角色指派] 窗格上：
 
    * 從 [角色] 下拉式清單中，選擇想要從指派的角色。
    * 從 [存取權指派對象為] 下拉式清單中，選擇想要從指派的資源。

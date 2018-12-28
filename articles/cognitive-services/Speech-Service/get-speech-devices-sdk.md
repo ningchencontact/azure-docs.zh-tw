@@ -1,21 +1,22 @@
 ---
 title: 取得語音裝置 SDK
 titleSuffix: Azure Cognitive Services
-description: 了解如何取得語音裝置 SDK 的存取權。
+description: 語音服務可與各種裝置和音訊來源搭配運作。 您現在可以利用相符的硬體和軟體，將語音應用程式提升至下一個層級。 在本文中，您將了解如何取得語音裝置 SDK 的存取權，並開始進行開發。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 822c4bdc6bb47d51bcd264c9093e7d07308d2b11
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: bc9497ff8d48cd1c5fd045f12908234462a7a2f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468767"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095048"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>取得認知服務語音裝置 SDK
 
@@ -29,14 +30,14 @@ ms.locfileid: "49468767"
 1. 閱讀[授權合約](speech-devices-sdk-license.md)。
 1. 如果您同意此授權合約的條款，請選取 [我同意]。
 1. 回答表單中的問題。
-1. 提交表單。 
+1. 提交表單。
 1. 如果您的電子郵件地址還不是 Azure Active Directory (Azure AD) 的一部分，您會在核准存取時收到類似下面範例的邀請電子郵件。 如果您的電子郵件地址已經在 Azure AD 中，您會在獲得核准存取時收到來自 Microsoft 語音小組的電子郵件訊息，而且可以跳到[下載語音裝置 SDK](#download-the-speech-devices-sdk)。
 
 ## <a name="approval-e-mail"></a>核准電子郵件
 
 ```
-From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com> 
-Subject: You're invited to the Microsoft organization 
+From: Microsoft Speech Team from Microsoft (via Microsoft) <invites@microsoft.com>
+Subject: You're invited to the Microsoft organization
 ```
 
 ![電子郵件訊息](media/speech-devices-sdk/get-sdk-1.png)
@@ -58,16 +59,16 @@ Subject: You're invited to the Microsoft organization
 4. 選取 [下一步] 建立密碼。
 
 5. 當系統提示驗證您的電子郵件時，請使用您邀請電子郵件上所提供的驗證碼。
- 
+
 7. 在對話方塊中貼上或輸入電子郵件訊息中的安全碼。 在此範例中，安全碼為 [8406]。 選取 [下一步] 。
 
     ![驗證電子郵件](media/speech-devices-sdk/get-sdk-6.png)
- 
+
 8. 當您在瀏覽器中看到 [存取面板應用程式] 時，您已確認您的電子郵件地址是 Azure AD 的一部分。 您現在可以存取語音裝置 SDK 下載網站。
 
 ## <a name="download-the-speech-devices-sdk"></a>下載語音裝置 SDK
 
-前往[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)。 使用您稍早建立的 Microsoft 帳戶登入。 
+前往[語音裝置 SDK 下載網站](https://shares.datatransfer.microsoft.com/)。 使用您稍早建立的 Microsoft 帳戶登入。
 
 ![SDK 下載網站](media/speech-devices-sdk/get-sdk-7.png)
 
@@ -76,20 +77,20 @@ Subject: You're invited to the Microsoft organization
 1. 當瀏覽器出現提示時，下載並安裝 Aspera Connect 工具。
 
     ![下載 Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
- 
+
 1. 選取 [是]，將應用程式切換為 Aspera Connect。
 
     ![切換為 Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
- 
+
 1. 選取 [允許]，確認使用 Aspera Connect 下載檔案。
 
     ![使用 Aspera Connect 下載](media/speech-devices-sdk/get-sdk-10.png)
- 
+
 1. 下載檔案後，請關閉 Aspera Connect 的 [傳輸] 視窗。
 
     ![Aspera Connect 的 [傳輸] 視窗](media/speech-devices-sdk/get-sdk-11.png)
- 
-根據預設，檔案會下載到您的 [下載] 資料夾。 您現在可以登出此網站。 
+
+根據預設，檔案會下載到您的 [下載] 資料夾。 您現在可以登出此網站。
 
 ## <a name="next-steps"></a>後續步驟
 

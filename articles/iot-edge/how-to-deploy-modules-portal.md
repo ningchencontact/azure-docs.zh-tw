@@ -1,5 +1,5 @@
 ---
-title: 部署 Azure IoT Edge 模組 (入口網站) | Microsoft Docs
+title: 從 Azure 入口網站部署模組 - Azure IoT Edge | Microsoft Docs
 description: 使用 Azure 入口網站將模組部署到 IoT Edge 裝置
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b135832c1f0cb8af23a513d4914d7e32b398be7e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: fab85b74fb53bec07843abf31aac1a8495d0fcfb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564930"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093976"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>從 Azure 入口網站部署 Azure IoT Edge 模組
 
@@ -38,7 +39,7 @@ ms.locfileid: "51564930"
 
 部署資訊清單為 JSON 文件，說明應部署的模組、資料如何在模組之間流動，以及想要的模組對應項需要的屬性。 如需部署資訊清單的運作方式以及如何建立的詳細資訊，請參閱[了解如何使用、設定以及重複使用 IoT Edge 模組](module-composition.md)。
 
-Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，而不用手動建置 JSON 文件。 它有三個步驟：**新增模組**、**指定路由**和**檢閱部署**。 
+Azure 入口網站有一個精靈，可以引導您建立部署資訊清單，而不用手動建置 JSON 文件。 其中包含三個步驟：**新增模組**、**指定路由**和**檢閱部署**。 
 
 ### <a name="add-modules"></a>新增模組
 

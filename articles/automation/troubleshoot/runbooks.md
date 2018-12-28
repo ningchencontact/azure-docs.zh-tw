@@ -4,16 +4,16 @@ description: 了解如何針對 Azure 自動化 Runbook 的錯誤進行疑難排
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 12/04/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 532d3d73c939a44678091734f2bbff22267ab6b7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 41eb31ecabb20ec9eec3db13d5eda9f9cfbe6c69
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094859"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015461"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>針對 Runbook 的錯誤進行疑難排解
 
@@ -123,11 +123,11 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="resolution"></a>解決方案
 
-若要搭配 Azure 傳統部署模型 Cmdlet 使用憑證，請參閱 [creating and adding a certificate to manage Azure services](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) (建立及新增憑證來管理 Azure 服務)。 若要搭配 Azure Resource Manager Cmdlet 來使用服務主體，請參閱[使用 Azure 入口網站來建立服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)和[使用 Azure Resource Manager 驗證服務主體](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+若要搭配 Azure 傳統部署模型 Cmdlet 使用憑證，請參閱 [creating and adding a certificate to manage Azure services](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) (建立及新增憑證來管理 Azure 服務)。 若要搭配 Azure Resource Manager Cmdlet 來使用服務主體，請參閱[使用 Azure 入口網站來建立服務主體](../../active-directory/develop/howto-create-service-principal-portal.md)和[使用 Azure Resource Manager 驗證服務主體](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>使用 Runbook 時的常見錯誤
 
-### <a name="task-was-cancelled"></a>案例：Runbook 失敗，錯誤為：工作已取消
+### <a name="task-was-cancelled"></a>案例：Runbook 失敗，錯誤為：已取消工作
 
 #### <a name="issue"></a>問題
 
@@ -308,7 +308,7 @@ The quota for the monthly total job run time has been reached for this subscript
 * 如果有名稱衝突，而且 Cmdlet 可以在兩個不同的模組中使用，您可以使用 Cmdlet 的完整名稱來解決此問題。 例如，您可以使用 **ModuleName\CmdletName**。  
 * 如果您是以混合式背景工作角色群組身分在內部部署環境中執行 Runbook，則請確定模組和 Cmdlet 是安裝在裝載混合式背景工作角色的機器上。
 
-### <a name="long-running-runbook"></a>情節：長時間執行的 Runbook 無法完成
+### <a name="long-running-runbook"></a>案例：長時間執行的 Runbook 無法完成
 
 #### <a name="issue"></a>問題
 
@@ -338,6 +338,45 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 
 [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) - 如果有需要在子 Runbook 完成後執行的作業，此 Cmdlet 可讓您檢查每個子項目的作業狀態。
 
+### <a name="expired webhook"></a>案例：狀態：叫用 Webhook 時出現「400 不正確的要求」訊息
+
+#### <a name="issue"></a>問題
+
+在您嘗試叫用 Azure 自動化 Runbook 的 Webhook 時出現下列錯誤。
+
+```error
+400 Bad Request : This webhook has expired or is disabled
+```
+
+#### <a name="cause"></a>原因
+
+您嘗試叫用的 Webhook 已停用或過期。
+
+#### <a name="resolution"></a>解決方案
+
+如果 Webhook 已停用，您可以透過 Azure 入口網站重新啟用 Webhook。 如果 Webhook 已過期，就必須先刪除 Webhook 再加以重新建立。 如果尚未過期，就只能[更新 Webhook](../automation-webhooks.md#renew-webhook)。
+
+### <a name="429"></a>案例：429：目前的要求率太大。 請再試一次
+
+#### <a name="issue"></a>問題
+
+您在執行 `Get-AzureRmAutomationJobOutput` Cmdlet 時出現下列錯誤訊息：
+
+```
+429: The request rate is currently too large. Please try again
+```
+
+#### <a name="cause"></a>原因
+
+從有許多[詳細資訊資料流](../automation-runbook-output-and-messages.md#verbose-stream)的 Runbook 中擷取作業輸出時，就可能會發生此錯誤。
+
+#### <a name="resolution"></a>解決方案
+
+有兩種方法可以解決此錯誤：
+
+* 編輯 Runbook，並減少它所發出的作業資料流數目。
+* 減少在執行 Cmdlet 時所要擷取的資料流數目。 這麼做可讓您指定讓 `Get-AzureRmAutomationJobOutput` Cmdlet 的 `-Stream Output` 參數僅擷取輸出資料流。 
+
 ## <a name="common-errors-when-importing-modules"></a>匯入模組時的常見錯誤
 
 ### <a name="module-fails-to-import"></a>案例：無法匯入模組，或無法在匯入之後執行 Cmdlet
@@ -359,7 +398,7 @@ Runbook 的執行時間已超過「Azure 沙箱」中公平共用所允許的 3 
 
 下列任何一個解決方案都可以修正此問題：
 
-* 確定模組遵循下列格式：ModuleName.Zip **->** 模組名稱或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
+* 確認模組依照下列格式：ModuleName.Zip **->** ModuleName 或版本號碼 **->** (ModuleName.psm1、ModuleName.psd1)
 * 開啟 .psd1 檔案，並且查看該模組是否有任何相依性。 如果有，請將這些模組上傳至自動化帳戶。
 * 請確定任何參考的 .dll 會出現在模組資料夾。
 

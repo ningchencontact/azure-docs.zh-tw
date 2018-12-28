@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 1f6c2c9b01a2f861214240eca054242ec73f3929
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ecb73e4b520936b573254f2cf209d4a02c0fdd32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442695"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52848743"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>教學課程：Azure Active Directory 與 IdeaScale 整合
 
@@ -121,7 +121,7 @@ IdeaScale 與 Azure AD 整合提供下列優點：
     | `https://<companyname>.ideascale.com` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [IdeaScale 用戶端支援小組](http://support.ideascale.com/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [IdeaScale 用戶端支援小組](https://support.ideascale.com/)以取得這些值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 

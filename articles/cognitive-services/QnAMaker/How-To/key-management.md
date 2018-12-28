@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: tulasim
-ms.openlocfilehash: 1fe39cf9e4a1e58a0d37cc8ebf9fe02c6ad7eed5
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 25b23d280aca9ef13b8820596686a1f9dbecd2a1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334613"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085938"
 ---
-# <a name="key-management"></a>金鑰管理
+# <a name="how-to-manage-keys-in-qna-maker"></a>如何管理 QnA Maker 中的金鑰
 
 QnA Maker 服務會處理兩種類型的金鑰，即**訂用帳戶金鑰**和**端點金鑰**。
 

@@ -1,26 +1,19 @@
 ---
-title: 建立與修改 ExpressRoute 線路：Azure 入口網站 | Microsoft Docs
-description: 本文說明如何建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
-documentationcenter: na
+title: 建立和修改 ExpressRoute 線路 - 入口網站：Azure | Microsoft Docs
+description: 建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 68d59d59-ed4d-482f-9cbc-534ebb090613
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/20/2017
+ms.date: 10/20/2018
 ms.author: cherylmc;ganesr
-ms.openlocfilehash: 94d7b743bdec0d22254144d5316e0d94f5660a55
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 974421662a33cd9167d3c39b31d8da20db9f505f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235321"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091522"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>建立和修改 ExpressRoute 線路
 > [!div class="op_single_selector"]
@@ -31,7 +24,7 @@ ms.locfileid: "51235321"
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
 
-此文章說明如何使用 Azure 入口網站和 Azure Resource Manager 部署模型建立 Azure ExpressRoute 線路。 下列步驟也會示範如何檢查線路的狀態、對它進行更新，或是對它進行刪除及取消佈建。
+本文會協助您使用 Azure 入口網站和 Azure Resource Manager 部署模型來建立 ExpressRoute 線路。 您也可以檢查狀態、更新、刪除或取消佈建線路。
 
 
 ## <a name="before-you-begin"></a>開始之前
@@ -84,19 +77,19 @@ ms.locfileid: "51235321"
 
 當您建立新的 ExpressRoute 線路時，線路會是下列狀態：
 
-提供者狀態︰未佈建<BR>
+提供者狀態：未佈建<BR>
 線路狀態：已啟用
 
 ![起始佈建程序](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 當連線提供者正在為您啟用線路時，線路會變更為下列狀態：
 
-提供者狀態︰正在佈建<BR>
+提供者狀態：佈建<BR>
 線路狀態：已啟用
 
 若要能夠使用 ExpressRoute 線路，它必須處於下列狀態：
 
-提供者狀態︰已佈建<BR>
+提供者狀態：已佈建<BR>
 線路狀態：已啟用
 
 ### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5.定期檢查線路金鑰的狀態與狀況

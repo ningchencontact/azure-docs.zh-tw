@@ -9,16 +9,15 @@ ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8cee346a45cd20e7dd677fd7f2efed5500175598
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1c76e25c29d79213fbdf36d563b4bd316b832b06
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096389"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017026"
 ---
 # <a name="how-do-i--in-application-insights"></a>我如何在 Application Insights 中...？
 ## <a name="get-an-email-when-"></a>... 時收到電子郵件
@@ -83,9 +82,9 @@ ms.locfileid: "47096389"
 
 ## <a name="separate-telemetry-from-different-versions"></a>區分不同版本的遙測
 
-* 應用程式中的多個角色︰使用單一 Application Insights 資源，並依據 cloud_Rolename 進行篩選。 [深入了解](app-insights-monitor-multi-role-apps.md)
-* 區分開發、測試和發行版本︰使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](app-insights-separate-resources.md)
-* 報告組建版本︰使用遙測初始設定式新增屬性。 [深入了解](app-insights-separate-resources.md)
+* 在一個應用程式中檢視多個角色：使用單一 Application Insights 資源，並依據 [cloud_Rolename](app-insights-app-map.md) 進行篩選。
+* 區分開發、測試和發行版本：使用不同的 Application Insights 資源。 從 web.config 挑選檢測金鑰。[深入了解](app-insights-separate-resources.md)
+* 報告組建版本：使用遙測初始設定式新增屬性。 [深入了解](app-insights-separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>監視後端伺服器與桌面應用程式
 [使用 Windows Server SDK 模組](app-insights-windows-desktop.md)。

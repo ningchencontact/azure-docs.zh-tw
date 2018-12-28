@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 18041c95405614768845399f92efac229db53b20
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ff8f5c51f17375208fdb32e521bfc85ee3f0c77
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250725"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880211"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Contoso 移轉：在 Azure VM 和 SQL Server AlwaysOn 可用性群組上重新裝載內部部署應用程式
 
@@ -27,14 +27,14 @@ ms.locfileid: "51250725"
 [文章 2：部署 Azure 基礎結構](contoso-migration-infrastructure.md) | Contoso 會準備其內部部署基礎結構和其 Azure 基礎結構以進行移轉。 此系列中的所有移轉文章都使用相同的基礎結構。 | 可用
 [文章 3：存取內部部署資源以移轉至 Azure](contoso-migration-assessment.md)  | Contoso 會評估其在 VMware 上執行的內部部署 SmartHotel360 應用程式。 Contoso 會使用 Azure Migrate 服務來評估應用程式 VM，並使用 Database Migration Assistant 來評估應用程式 SQL Server 資料庫。 | 可用
 [文章 4：在 Azure VM 和 SQL Database 受控執行個體上重新裝載應用程式](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso 會為其內部部署 SmartHotel360 應用程式執行隨即移轉至 Azure 的作業。 Contoso 會使用 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) 來移轉應用程式的前端 VM。 Contoso 會使用 [Azure 資料庫移轉服務](https://docs.microsoft.com/azure/dms/dms-overview)將應用程式資料庫移轉至 Azure SQL Database 受控執行個體。 | 可用   
-[文章 5：在 Azure VM 上重新裝載應用程式](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
+[文章 5：將應用程式重新裝載在 Azure VM 上](contoso-migration-rehost-vm.md) | Contoso 會使用 Site Recovery 服務，將其 SmartHotel360 應用程式 VM 移轉至 Azure VM。 | 可用
 文章 6：在 Azure VM 上和 SQL Server AlwaysOn 可用性群組中重新裝載應用程式 | Contoso 會移轉 SmartHotel360 應用程式。 Contoso 會使用 Site Recovery 來遷移應用程式的 VM。 它會使用資料庫移轉服務，將應用程式資料庫遷移至受到 SQL Server 可用性群組保護的 SQL Server 叢集。 | 本文
 [文章 7：將 Linux 應用程式重新裝載至 Azure VM](contoso-migration-rehost-linux-vm.md) | Contoso 會使用 Site Recovery 服務，來完成將其 Linux osTicket 應用程式隨即移轉至 Azure VM 的作業 | 可用
 [文章 8：在 Azure VM 和 Azure MySQL Server 上重新裝載 Linux 應用程式](contoso-migration-rehost-linux-vm-mysql.md) | Contoso 會使用 Azure Site Recovery 將 Linux osTicket 應用程式移轉至 Azure VM，並使用 MySQL Workbench 將應用程式資料庫移轉至 Azure MySQL Server 執行個體。 | 可用
-[文章 9：在 Azure Web 應用程式和 Azure SQL 資料庫上重構應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
-[文章 10：在 Azure Web Apps 和 Azure MySQL 上重構 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
+[文章 9：重構 Azure Web Apps 和 Azure SQL 資料庫上的應用程式](contoso-migration-refactor-web-app-sql.md) | Contoso 會將 SmartHotel360 應用程式移轉至 Azure Web 應用程式，以及使用 Database Migration Assistant 將應用程式資料庫移轉至 Azure SQL Server 執行個體 | 可用
+[文章 10：重構 Azure Web Apps 和 Azure MySQL 上的 Linux 應用程式](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso 會使用 Azure 流量管理員，將 Linux osTicket 應用程式移轉至多個 Azure 區域的 Azure Web 應用程式，與 GitHub 整合以進行持續傳遞。 Contoso 會將應用程式資料庫遷移至適用於 MySQL 的 Azure 資料庫執行個體。 | 可用 
 [文章 11：在 Azure DevOps Services 上重構 TFS](contoso-migration-tfs-vsts.md) | Contoso 會將其內部部署 Team Foundation Server 部署移轉至 Azure 中的 Azure DevOps Services。 | 可用
-[文章 12：在 Azure 容器和 Azure SQL Database 上重新建構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
+[文章 12：在 Azure 容器和 Azure SQL Database 上重新架構應用程式](contoso-migration-rearchitect-container-sql.md) | Contoso 會將其 SmartHotel 應用程式移轉至 Azure。 然後，它會重新建構應用程式 Web 層，作為在 Azure Service Fabric 中執行的 Windows 容器，以及具有 Azure SQL Database 的資料庫。 | 可用
 [文章 13：在 Azure 中重建應用程式](contoso-migration-rebuild.md) | Contoso 會藉由使用各種 Azure 功能和服務 (包括 Azure App Service、Azure Kubernetes Service (AKS)、Azure Functions、Azure 認知服務及 Azure Cosmos DB) 重建其 SmartHotel 應用程式。 | 可用
 [文章 14：對 Azure 進行大規模移轉](contoso-migration-scale.md) | Contoso 在試驗完移轉組合後，準備對 Azure 進行完整規模的移轉。 | 可用
 
@@ -159,9 +159,9 @@ Contoso 管理員會將應用程式 VM 移轉至 Azure。
 > * **步驟 5：為內部部署 VMware 進行 Site Recovery 的準備工作**：為帳戶進行 VM 探索和代理程式安裝的準備工作。 準備內部部署 VM，讓使用者在移轉之後可連線至 Azure VM。
 > * **步驟 6：複寫 VM**：啟用對 Azure 複寫 VM 的功能。
 > * **步驟 7：安裝 DMA**：下載並安裝 Database Migration Assistant。
-> * **步驟 7：使用 DMA 移轉資料庫**：將資料庫移轉至 Azure。
+> * **步驟 7：使用 DMA 遷移資料庫**：將資料庫遷移至 Azure。
 > * **步驟 9：保護資料庫**：為叢集建立 Always On 可用性群組。
-> * **步驟 10：移轉 Web 應用程式 VM**：執行測試容錯移轉，確定一切都正常運作。 然後，執行對 Azure 的完整容錯移轉。 
+> * **步驟 10：遷移 Web 應用程式 VM**：執行測試容錯移轉，確定一切都沒問題。 然後，執行對 Azure 的完整容錯移轉。 
 
 
 ## <a name="step-1-prepare-a-sql-server-alwayson-availability-group-cluster"></a>步驟 1：準備 SQL Server AlwaysOn 可用性群組叢集
@@ -186,7 +186,7 @@ Contoso 管理員會依照下列方式設定叢集：
     - 他們將機器放在美國東部 2 主要區域的生產網路中 (**VNET-PROD-EUS2**)，置於資料庫子網路內 (**PROD-DB-EUS2**)。
     - 他們建立新的可用性設定組：**SQLAOGAVSET**，具有兩個容錯網域和五個更新網域。
 
-    ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
+      ![SQL VM](media/contoso-migration-rehost-vm-sql-ag/sql-vm-settings.png)
 
 4. 在 [SQL Server 設定] 中，他們將 SQL 對虛擬網路 (私人) 的連線限定於預設連接埠 1433。 針對驗證，他們使用站上所使用的相同認證 (**contosoadmin**)。
 
@@ -197,7 +197,7 @@ Contoso 管理員會依照下列方式設定叢集：
 - [取得說明](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision#1-configure-basic-settings)以了解如何佈建 SQL Server VM。
 - [了解](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-prereq#create-sql-server-vms)如何為不同的 SQL Server SKU 設定 VM。
 
-## <a name="step-2-deploy-and-set-up-the-cluster"></a>步驟 2︰部署並設定叢集
+## <a name="step-2-deploy-and-set-up-the-cluster"></a>步驟 2：部署並設定叢集
 
 以下是 Contoso 管理員設定叢集的方式：
 
@@ -235,11 +235,11 @@ Contoso 管理員會建立儲存體帳戶，如下所示：
 
 ![快照集](media/contoso-migration-rehost-vm-sql-ag/snapshot.png)
 
-2. 然後，他們執行已整合的指令碼，以建立 Windows 容錯移轉叢集。
+1. 然後，他們執行已整合的指令碼，以建立 Windows 容錯移轉叢集。
 
     ![建立叢集](media/contoso-migration-rehost-vm-sql-ag/create-cluster1.png)
 
-3. 在建立叢集之後，他們確認 VM 已呈現為叢集節點。
+2. 在建立叢集之後，他們確認 VM 已呈現為叢集節點。
 
      ![建立叢集](media/contoso-migration-rehost-vm-sql-ag/create-cluster2.png)
 
@@ -351,7 +351,7 @@ Contoso 管理員的設定方式如下：
     - 他們使用一般用途的帳戶，並配備標準儲存體和 LRS 複寫。
     - 此帳戶必須位於與保存庫相同的區域中。
 
-    ![Site Recovery 儲存體](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
+      ![Site Recovery 儲存體](media/contoso-migration-rehost-vm-sql-ag/asr-storage.png)
 
 3. 網路和儲存體帳戶準備就緒之後，他們現在會建立復原服務保存庫 (**ContosoMigrationVault**)，然後將其置於美國東部 2 主要區域的 **ContosoFailoverRG** 資源群組中。
 
@@ -403,15 +403,15 @@ Contoso 管理員會依照下列方式設定帳戶：
 
 1. 為了透過網際網路存取，他們：
 
- - 先在內部部署 VM 上啟用 RDP，然後再容錯移轉
- - 確定已為**公用**設定檔新增 TCP 和 UDP 規則。
- - 針對所有設定檔，在 [Windows 防火牆] > [允許的應用程式] 中檢查是否允許 RDP。
+   - 先在內部部署 VM 上啟用 RDP，然後再容錯移轉
+   - 確定已為**公用**設定檔新增 TCP 和 UDP 規則。
+   - 針對所有設定檔，在 [Windows 防火牆] > [允許的應用程式] 中檢查是否允許 RDP。
  
 2. 為了透過站對站 VPN 存取，他們：
 
- - 在內部部署機器上啟用 RDP。
- - 在 [Windows 防火牆] -> [允許的應用程式與功能] 中，允許 [網域和私人] 網路使用 RDP。
- - 將內部部署 VM 的作業系統 SAN 原則設定為 **OnlineAll**。
+   - 在內部部署機器上啟用 RDP。
+   - 在 [Windows 防火牆] -> [允許的應用程式與功能] 中，允許 [網域和私人] 網路使用 RDP。
+   - 將內部部署 VM 的作業系統 SAN 原則設定為 **OnlineAll**。
 
 此外，當他們執行容錯移轉時，需要檢查以下各項：
 
@@ -546,7 +546,7 @@ Contoso 管理員會使用 DMA 將 SmartHotel360 資料庫移轉至 Azure VM **S
 2. 他們在 VM 上執行安裝程式 (DownloadMigrationAssistant.msi)。
 3. 在 [完成] 頁面上，他們會先選取 [啟動 Microsoft Data Migration Assistant]，再完成精靈。
 
-## <a name="step-8-migrate-the-database-with-dma"></a>步驟 8：使用 DMS 移轉資料庫
+## <a name="step-8-migrate-the-database-with-dma"></a>步驟 8：使用 DMS 遷移資料庫
 
 1. 在 DMA 中，他們執行新的移轉 - **SmartHotel**。
 2. 他們選取 [Azure 虛擬機器上的 SQL Server] 作為 [目標伺服器類型]。 

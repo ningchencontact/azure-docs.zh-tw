@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8923dcb4c35bbf90a6f68bd296bb9a862c5ff07d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: aeb0dec07ef9c8fb124089c785929f4e5ce69ffe
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230796"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871418"
 ---
 # <a name="customize-windows-based-hdinsight-clusters-using-script-action"></a>使用指令碼動作自訂 Windows 型 HDInsight 叢集
 **指令碼動作** 可用來叫用 [自訂指令碼](hdinsight-hadoop-script-actions.md) 。
@@ -24,7 +24,7 @@ ms.locfileid: "51230796"
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 Hadoop 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 Hive、Oozie) 加入至叢集中的共同位置。 這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。 如需詳細資訊，請參閱[在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision-cluster]。
+您也可以使用多種其他方法來自訂 HDInsight 叢集，例如包括額外的 Azure 儲存體帳戶、變更 [Apache Hadoop](https://hadoop.apache.org/) 組態檔 (core-site.xml、hive-site.xml 等)，或是將共用程式庫 (例如 [Apache Hive](https://hive.apache.org/)、[Apache Oozie](https://oozie.apache.org/)) 加入至叢集中的共同位置。 這些自訂可以透過 Azure PowerShell、Azure HDInsight .NET SDK 或 Azure 入口網站來完成。 如需詳細資訊，請參閱[在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision-cluster]。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell-cli-and-dotnet-sdk.md)]
 
@@ -46,25 +46,25 @@ ms.locfileid: "51230796"
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
-| **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
+| **安裝 Apache Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]。 |
 | **安裝 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
-| **安裝 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。 |
-| **安裝 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。 |
-| **預先載入 Hive 程式庫** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1` 。 請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md) |
+| **安裝 Apache Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。 |
+| **安裝 Apache Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。 |
+| **預先載入 Apache Hive 程式庫** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1` 。 請參閱[在 HDInsight 叢集上新增 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md) |
 
 ## <a name="call-scripts-using-the-azure-portal"></a>使用 Azure 入口網站來呼叫指令碼
 **從 Azure 入口網站**
 
-1. 依[在 HDInsight 建立 Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的描述開始建立叢集。
+1. 依[在 HDInsight 建立 Apache Hadoop 叢集](hdinsight-hadoop-provision-linux-clusters.md)中的描述開始建立叢集。
 2. 在 [選擇性組態] 下方的 [指令碼動作] 刀鋒視窗中，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-customize-cluster/HDI.CreateCluster.8.png "使用指令碼動作以自訂叢集")
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>對自訂叢集所叫用的指令碼指定 URI。 s</td></tr>
@@ -165,7 +165,7 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝下列元件：
 出現提示時，請輸入叢集的認證。 建立叢集可能需要幾分鐘的時間。
 
 ## <a name="call-scripts-using-net-sdk"></a>使用 .NET SDK 呼叫指令碼
-下列範例示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Spark。 若要安裝其他軟體，您必須取代程式碼中的指令碼檔案。
+下列範例示範如何在以 Windows 為基礎的 HDInsight 叢集上安裝 Apache Spark。 若要安裝其他軟體，您必須取代程式碼中的指令碼檔案。
 
 **使用 Spark 建立 HDInsight 叢集**
 
@@ -283,7 +283,7 @@ Microsoft Azure HDInsight 服務是彈性的平台，可讓您使用以 Hadoop �
 
 HDInsight 服務中有兩種類型的開放原始碼元件可用：
 
-* **內建元件** - 這些元件預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。 例如，YARN ResourceManager、Hive 查詢語言 (HiveQL) 及 Mahout 程式庫都屬於這個類別。 叢集元件的完整清單可於 [HDInsight 所提供 Hadoop 叢集版本的新功能](hdinsight-component-versioning.md)中取得</a>。
+* **內建元件** - 這些元件預先安裝在 HDInsight 叢集上，並且提供叢集的核心功能。 例如，Apache Hadoop YARN ResourceManager、Hive 查詢語言 (HiveQL) 及 Apache Mahout 程式庫都屬於這個類別。 叢集元件的完整清單可於 [HDInsight 所提供 Hadoop 叢集版本的新功能](hdinsight-component-versioning.md)中取得</a>。
 * **自訂元件** - 身為叢集使用者的您可以安裝社群中可用或是您建立的任何元件，或者在工作負載中使用。
 
 內建元件受到完整支援，且 Microsoft 支援服務將會協助釐清與解決這些元件的相關問題。
@@ -291,7 +291,7 @@ HDInsight 服務中有兩種類型的開放原始碼元件可用：
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務將協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 >
 >
 
@@ -305,11 +305,11 @@ HDInsight 服務提供數種方式以使用自訂元件。 無論元件如何使
 請參閱[開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]。
 
 ## <a name="see-also"></a>另請參閱
-* [在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
+* [在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
 * [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
-* [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]
-* [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-* [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
+* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

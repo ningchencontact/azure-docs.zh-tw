@@ -1,11 +1,12 @@
 ---
 title: 設定資料科學虛擬機器的通用身分識別 - Azure | Microsoft Docs
-description: 在企業團隊的 DSVM 環境中設定通用身分識別。
+description: 了解如何建立可跨多個資料科學虛擬機器使用的一般使用者帳戶。 您可以使用 Azure Active Directory 或內部部署 Active Directory，對資料科學虛擬機器驗證使用者。
 keywords: 深度學習, 資料科學工具, 資料科學虛擬機器, 地理空間分析, 小組資料科學流程
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
 ms.author: gokuma
-ms.openlocfilehash: 25d40b6a72ab6da61feb1458f5930eb48ef1d900
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6be7c63d3879c7ed89cd97eaecd6d59b6b5aadd4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436296"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075466"
 ---
 # <a name="set-up-a-common-identity-on-the-data-science-virtual-machine"></a>在資料科學虛擬機器上設定通用身分識別
 

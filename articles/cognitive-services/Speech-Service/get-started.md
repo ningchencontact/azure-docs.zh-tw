@@ -1,7 +1,7 @@
 ---
 title: 免費試用語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何免費試用「語音服務」。
+description: 開始使用語音服務相當簡單且價格合理。 30 天免費試用版可讓您探索服務可以執行哪些作業，以及判斷它是否符合您的應用程式需求。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 4e29f2e77ad2b4e993fbe6a39b90325a0738f538
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 69e2c094e1fca57d0dddc662cc1dae6453897c38
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471385"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079104"
 ---
 # <a name="try-the-speech-service-for-free"></a>免費試用語音服務
 
@@ -36,7 +37,7 @@ ms.locfileid: "49471385"
 1. 選取 [語音識別 API] 索引標籤。
 
    ![語音服務索引標籤](media/index/try-speech-api-free-trial1.png)
-   
+
 1. 在 [語音服務] 底下，選取 [取得 API 金鑰] 按鈕。
 
    ![API 金鑰](media/index/try-speech-api-free-trial2.png)

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: 9fb25f21e9ff54baf0e297fad1601018af45e476
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497249"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876514"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -330,6 +330,21 @@ v2.x 版執行階段使用的是 [.NET Core 記錄篩選階層](https://docs.mic
 ## <a name="configure-sampling"></a>設定取樣
 
 Application Insights 具有[取樣](../application-insights/app-insights-sampling.md)功能，可以提供保護，避免在尖峰負載的情況下產生過多的遙測資料。 當內送遙測速率超過指定的閾值時，Application Insights 就會開始隨機忽略部分傳入的項目。 每秒的項目數上限的預設值為 5。 您可以在 [host.json](functions-host-json.md) 中設定取樣。  以下是範例：
+
+### <a name="version-2x"></a>2.x 版 
+
+```json
+{
+  "logging": {
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "maxTelemetryItemsPerSecond" : 5
+      }
+    }
+  }
+}
+```
 
 ### <a name="version-1x"></a>1.x 版 
 

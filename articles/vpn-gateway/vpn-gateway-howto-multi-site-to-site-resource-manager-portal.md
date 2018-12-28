@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a0074cf703c5d30dca3c8353f4821e71684a190c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: a814834be3225764c3b6f237bd515ca087f975a7
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164552"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873116"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>將站台對站台連線新增至使用現有 VPN 閘道連線的 VNet
 
@@ -62,7 +62,7 @@ ms.locfileid: "52164552"
     ![新增連線按鈕](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "新增連線按鈕")<br>
 5. 在 [新增連線] 頁面上，填寫下列欄位︰
    
-   * **名稱︰** 為您要建立連線的網站提供名稱。
+   * **名稱：** 為您要建立連線的網站提供名稱。
    * **連線類型：** 選取 [站對站 (IPSec)]。
      
      ![新增連線頁面](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "新增連線頁面")<br>
@@ -94,4 +94,4 @@ ms.locfileid: "52164552"
 
 ## <a name="next-steps"></a>後續步驟
 
-一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱虛擬機器 [學習路徑](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) 。
+一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器學習路徑](/learn/paths/deploy-a-website-with-azure-virtual-machines/)。

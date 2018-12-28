@@ -1,5 +1,5 @@
 ---
-title: Azure 事件中樞地理災害復原 | Microsoft Docs
+title: 異地災害復原 - Azure 事件中樞 | Microsoft Docs
 description: 如何使用地理區域，在 Azure 事件中樞中進行容錯移轉並執行災害復原
 services: event-hubs
 documentationcenter: ''
@@ -11,18 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 89ecfd93c22fe72fee3befd8d4a722eb41d816af
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 59eebc8389238af7180b94cb094f9528a21d26d1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747166"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091341"
 ---
-# <a name="azure-event-hubs-geo-disaster-recovery"></a>Azure 事件中樞地理災害復原
+# <a name="azure-event-hubs---geo-disaster-recovery"></a>Azure 事件中樞 - 異地災害復原 
 
-當整個 Azure 區域或資料中心 (如果未使用[可用性區域](../availability-zones/az-overview.md)) 遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 事件中樞支援命名空間層級的地理災害復原和異地複寫。 
+當整個 Azure 區域或資料中心 (如果未使用[可用性區域](../availability-zones/az-overview.md)) 遇到停機時，最重要的是資料處理作業能夠繼續在不同的區域或資料中心運作。 因此，「地理災害復原」和「異地複寫」對於任何企業而言都是重要的功能。 Azure 事件中樞支援命名空間層級的地理災害復原和異地複寫。 
 
 地理災害復原功能全域適用於事件中樞標準 SKU。
 
@@ -40,13 +41,13 @@ Azure 事件中樞的地理災害復原功能就是一個災害復原解決方�
 
 本文中使用下列術語：
 
--  別名：所設定之災害復原設定的名稱。 別名提供單一穩定完整網域名稱 (FQDN) 連接字串。 應用程式會使用這個別名連接字串連接到命名空間。 
+-  *別名*：您所設定的災害復原設定的名稱。 別名提供單一穩定完整網域名稱 (FQDN) 連接字串。 應用程式會使用這個別名連接字串連接到命名空間。 
 
--  主要/次要命名空間：對應到別名的命名空間。 主要命名空間是「主動」並且會接收訊息 (這可以是現有或新的命名空間)。 次要命名空間是「被動」，並不會收到訊息。 這兩者間的中繼資料會進行同步處理，因此，這兩者均能順暢地接受訊息，而不需進行任何應用程式程式碼或連接字串變更。 若要確保只有主動命名空間會接收訊息，您必須使用別名。 
+-  *主要/次要命名空間*：對應到別名的命名空間。 主要命名空間是「主動」並且會接收訊息 (這可以是現有或新的命名空間)。 次要命名空間是「被動」，並不會收到訊息。 這兩者間的中繼資料會進行同步處理，因此，這兩者均能順暢地接受訊息，而不需進行任何應用程式程式碼或連接字串變更。 若要確保只有主動命名空間會接收訊息，您必須使用別名。 
 
--  中繼資料：實體 (例如事件中樞和取用者群組)；以及與命名空間相關聯之服務的屬性。 請注意，只有實體及其設定會自動複寫。 不會複寫訊息和事件。 
+-  *中繼資料*：實體 (例如事件中樞和取用者群組)；以及與命名空間相關聯之服務的屬性。 請注意，只有實體及其設定會自動複寫。 不會複寫訊息和事件。 
 
--  容錯移轉：啟用次要命名空間的程序。
+-  *容錯移轉*：啟用次要命名空間的程序。
 
 ## <a name="setup-and-failover-flow"></a>設定和容錯移轉流程
 

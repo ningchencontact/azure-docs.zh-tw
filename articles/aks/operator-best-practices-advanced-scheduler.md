@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3fa2183a5bb3239059c349e8417aeb52553829cf
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 395b0cadf3ba3313a9a1304d9244f1fe72a8209c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430583"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016873"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中進階排程器功能的最佳做法
 
 當您管理 Azure Kubernetes Service (AKS) 中的叢集時，通常必須隔離小組和工作負載。 Kubernetes 排程器提供了進階功能，可讓您控制可以在特定節點上排程哪些 pod，或者如何在叢集中適當地散發多 pod 應用程式。 
 
-本最佳做法文章著重於叢集運算子的進階 Kubernetes 排程功能。 在此文章中，您將了解：
+本最佳做法文章著重於叢集運算子的進階 Kubernetes 排程功能。 在本文中，您將了解：
 
 > [!div class="checklist"]
 > * 使用污點和容差來限制可以在節點上排程的 pod
@@ -151,14 +151,14 @@ spec:
 
 Kubernetes 排程器以邏輯方式隔離工作負載的最後一種方法，是使用 inter-pod 親和性或反親和性。 這些設定定義「不應該」在具有現有相符 pod 的節點上排程 pod，或者「應該」排程。 根據預設，Kubernetes 排程器會嘗試跨節點在複本集中排程多個 pod。 您可以圍繞此行為定義更特定的規則。
 
-也會使用 Redis 快取的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 然後，您可以使用親和性規則來確保每個 Web 應用程式元件都在與對應快取相同的主機上排程。 跨節點的 pod 散發如下例所示：
+也會使用 Azure Cache for Redis 的 Web 應用程式是一個很好的例子。 您可以使用 pod 反親和性的規則來要求 Kubernetes 排程器跨節點散發複本。 然後，您可以使用親和性規則來確保每個 Web 應用程式元件都在與對應快取相同的主機上排程。 跨節點的 pod 散發如下例所示：
 
 | **節點 1** | **節點 2** | **節點 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 如需此 Web 應用程式使用 Redis 快取範例的完整範例，請參閱[在相同的節點上共置 pod][k8s-pod-affinity]。
+這個範例比使用節點選取器或節點親和性更複雜。 透過該部署，您可以控制 Kubernetes 在節點上排程 pod 的方式，並可以邏輯方式隔離資源。 如需此 Web 應用程式使用 Azure Cache for Redis 範例的完整範例，請參閱[在相同的節點上共置 Pod][k8s-pod-affinity]。
 
 ## <a name="next-steps"></a>後續步驟
 

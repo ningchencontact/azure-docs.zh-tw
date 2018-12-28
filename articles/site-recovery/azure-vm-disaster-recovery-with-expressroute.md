@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: af57dc50dd156a3398c2c685e436d22ba3daea95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567759"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875394"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>整合 Azure ExpressRoute 與 Azure VM 的災害復原
 
@@ -37,7 +37,7 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 開始之前，請確定您了解下列概念︰
 
 - ExpressRoute [線路](../expressroute/expressroute-circuit-peerings.md)
-- ExpressRoute [路由網域](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains)
+- ExpressRoute [路由網域](../expressroute/expressroute-circuit-peerings.md#routingdomains)
 - ExpressRoute [位置](../expressroute/expressroute-locations.md)。
 - Azure VM [複寫架構](azure-to-azure-architecture.md)
 - 如何為 Azure VM [設定複寫](azure-to-azure-tutorial-enable-replication.md)。
@@ -136,7 +136,7 @@ ExpressRoute 可讓您透過連線提供者所提供的私人連線，將內部�
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>使用 ExpressRoute 進行 Azure VM 的容錯移轉
 
-在您使用Site Recovery 將 Azure VM 容錯移轉至目標 Azure 區域之後，您可以使用 ExpressRoute [私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)加以存取。
+在您使用Site Recovery 將 Azure VM 容錯移轉至目標 Azure 區域之後，您可以使用 ExpressRoute [私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
 
 - 您必須使用新連線將 ExpressRoute 連線至目標 vNet。 現有的 ExpressRoute 連線不會自動轉移。
 - 您應如何設定目標 vNet 的 ExpressRoute 連線，取決於您的 ExpressRoute 拓樸。

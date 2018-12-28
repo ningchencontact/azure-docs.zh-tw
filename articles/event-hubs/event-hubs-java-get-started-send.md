@@ -1,20 +1,21 @@
 ---
-title: 使用 Java 將事件傳送至 Azure 事件中樞 | Microsoft Docs
-description: 開始使用 Java 傳送事件至事件中樞
+title: 使用 Java 來傳送事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文會逐步解說如何建立 Java 應用程式，以將事件傳送至 Azure 事件中樞。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/12/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 510f1a2bc23d14e1bb9e8e561b52936ae9d53685
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624534"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091271"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>使用 Java 將事件傳送至 Azure 事件中樞
 
@@ -32,7 +33,11 @@ Azure 事件中樞是巨量資料串流平台和事件擷取服務，每秒可�
 * Java 開發環境。 本教學課程使用 [Eclipse](https://www.eclipse.org/)。
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>建立事件中樞命名空間和事件中樞
-第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和「事件中樞」，請依照[這篇文章](event-hubs-create.md)中的程序操作，然後繼續進行本教學課程中的下列步驟。
+第一個步驟是使用 [Azure 入口網站](https://portal.azure.com)來建立「事件中樞」類型的命名空間，然後取得您應用程式與「事件中樞」進行通訊所需的管理認證。 若要建立命名空間和事件中樞，請依照[這篇文章](event-hubs-create.md)中的程序操作。
+
+請依照以下文章中的指示，取得事件中樞的存取金鑰值：[取得連接字串](event-hubs-get-connection-string.md#get-connection-string-from-the-portal)。 您可以在您於本教學課程稍後撰寫的程式碼中，使用此存取金鑰。 預設的金鑰名稱是：**RootManageSharedAccessKey**。
+
+現在，請繼續進行本教學課程中的下列步驟。
 
 ## <a name="add-reference-to-azure-event-hubs-library"></a>加入 Azure 事件中樞程式庫的參考
 

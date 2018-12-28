@@ -1,21 +1,22 @@
 ---
-title: 如何安裝及執行容器
-titlesuffix: Face - Cognitive Services - Azure
+title: 安裝、執行容器
+titlesuffix: Face - Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於臉部的容器。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 1d13e2ccbbc1d5c1bc80dffc260a3759fe378d7d
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634535"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086431"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
@@ -37,7 +38,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至
 
 如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。
 
-### <a name="server-requirements-and-recommendations"></a>伺服器需求和建議
+### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
 臉部容器需要最少 1 個 CPU 核心 (至少 2.6 GHz 或更快) 及 4 GB 的配置記憶體，但我們建議至少要有 2 個 CPU 核心及 6 GB 的配置記憶體。
 
@@ -167,7 +168,9 @@ POST http://localhost:5000/face/v1.0/detect
 * 容器映像是在 Docker 中執行。
 * 您可以指定容器的主機 URI，來使用 REST API 或 SDK 呼叫臉部容器中的作業。
 * 將容器具現化時，您必須指定帳單資訊。
-* ** 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。  
+
+> [!IMPORTANT]
+> 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。
 
 ## <a name="next-steps"></a>後續步驟
 

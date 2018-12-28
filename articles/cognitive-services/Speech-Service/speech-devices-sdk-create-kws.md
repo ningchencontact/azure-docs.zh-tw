@@ -1,21 +1,22 @@
 ---
-title: 建立自訂喚醒字
+title: 建立自訂的喚醒字 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何為 Speech Devices SDK 建立自訂的喚醒字。
+description: 您的裝置隨時聆聽等候喚醒字 (或片語)。 當使用者說出喚醒字時，裝置便會將所有後續的音訊傳送到雲端，直到使用者停止說話。 自訂您的喚醒字是區隔裝置並強化品牌的有效方法。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/28/2018
+ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: a9a316eccc0b5e237d5a48c833f53ea3d80aae1e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469073"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082929"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>使用語音服務來建立自訂的喚醒字
 
@@ -50,18 +51,18 @@ ms.locfileid: "49469073"
 
 1. 移至[自訂語音服務入口網站](https://cris.ai/) \(英文\)。
 
-1. 使用您收到 Azure Active Directory 邀請的電子郵件地址來建立新帳戶。 
+1. 使用您收到 Azure Active Directory 邀請的電子郵件地址來建立新帳戶。
 
     ![建立新帳戶](media/speech-devices-sdk/wake-word-1.png)
- 
+
 1. [Custom Wake Word] \(自訂喚醒字\) 頁面並未提供給大眾使用，因此沒有可直接連至該頁面的連結。 自訂語音功能需要 Azure 訂用帳戶，但自訂喚醒字功能並不需要。 如果出現「找不到任何訂用帳戶」 錯誤頁面，請直接將 **"Subscriptions?errorMessage=No%20Subscriptions%20found"** 取代為 URL 中的 "**customkws**"，然後點按 ENTER。 URL 應該是以下其中一個： https://westus.cris.ai/customkws、 https://eastasia.cris.ai/customkws 或 https://northeurope.cris.ai/customkws，這取決於您的地區在哪。
 
     ![自訂喚醒字頁面為隱藏狀態](media/speech-devices-sdk/wake-word-4.png)
- 
+
 1. 輸入您選擇的喚醒字，然後選擇 [提交字組]。
 
     ![輸入您的喚醒字](media/speech-devices-sdk/wake-word-5.png)
- 
+
 1. 產生檔案可能需要數分鐘。 您應該會在瀏覽器視窗中看到旋轉的圓圈。 隨後，會出現資訊列要求您下載 .zip 檔案。
 
     ![接收 .zip 檔案](media/speech-devices-sdk/wake-word-6.png)
@@ -76,4 +77,3 @@ ms.locfileid: "49469073"
 
 > [!div class="nextstepaction"]
 > [註冊 Speech Devices SDK](get-speech-devices-sdk.md)
-

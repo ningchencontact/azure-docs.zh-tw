@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure 媒體服務 REST API 建立篩選器 | Microsoft Docs
-description: 此主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。 媒體服務會建立動態資訊清單來完成此選擇性資料流。
+description: 本主題說明如何建立篩選器，讓您的用戶端可以使用篩選器來串流特定的資料流區段。 媒體服務會建立動態資訊清單來完成此選擇性資料流。
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,26 +13,26 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/28/2018
 ms.author: juliako
-ms.openlocfilehash: 6b0ef646ba9ea535038f181ebfff5bf7639afdf8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5cc670a94958b123ac71b49cbf25661d567e4629
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633617"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083406"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>使用媒體服務 REST API 建立篩選器
 
-當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱[篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
+當提供您的內容給客戶 (串流即時活動或點播視訊) 時，您的用戶端可能需要比預測資產資訊清單檔案中所述還大的彈性。 Azure 媒體服務可讓您為您的內容定義帳戶篩選器與資產篩選器。 如需詳細資訊，請參閱 [篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
 
 此主題說明如何為點播視訊資產建立篩選器，以及如何使用 REST API 來建立[帳戶篩選器](https://docs.microsoft.com/rest/api/media/accountfilters) \(英文\) 與[資產篩選器](https://docs.microsoft.com/rest/api/media/assetfilters) \(英文\)。 
 
-## <a name="prerequisites"></a>先決條件 
+## <a name="prerequisites"></a>必要條件 
 
 若要完成此主題中所述的步驟，您必須：
 
 - 檢閱[篩選器與動態資訊清單](filters-dynamic-manifest-overview.md)。
 - [建立媒體服務帳戶](create-account-cli-how-to.md)。 請務必記住資源群組名稱和「媒體服務」帳戶名稱。 
-- [設定 Postman 以進行 Azure 媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)/
+- [設定 Postman 以進行 Azure 媒體服務 REST API 呼叫](media-rest-apis-with-postman.md)。
 
 ## <a name="define-a-filter"></a>定義篩選器  
 
@@ -114,4 +114,4 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ## <a name="next-steps"></a>後續步驟
 
-[Stream 影片](stream-files-tutorial-with-rest.md) 
+[串流影片](stream-files-tutorial-with-rest.md) 

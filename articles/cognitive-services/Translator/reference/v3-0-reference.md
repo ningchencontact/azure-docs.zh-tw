@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 6f679536d69f700fd6678eb3bbbb869e42439cde
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870397"
 ---
 # <a name="translator-text-api-v30"></a>Microsoft Translator Text API v3.0
 
@@ -31,20 +31,41 @@ ms.locfileid: "51853348"
 
 ## <a name="base-urls"></a>基底 URL
 
-Text API v3.0 可在下列雲端中使用：
+Microsoft Translator 透過多個資料中心位置來提供服務。 它們目前位於 6 個 [Azure 區域](https://azure.microsoft.com/global-infrastructure/regions)：
 
-| 說明 | 區域 | 基底 URL                                        |
-|-------------|--------|-------------------------------------------------|
-| Azure       | 全域 | api.cognitive.microsofttranslator.com           |
+* **美洲：** 美國西部 2 和美國西部 
+* **亞太地區：** 東南亞和南韓南部
+* **歐洲︰** 北歐和西歐
+
+對於 Microsoft Translator Text API 的要求大多會由最接近要求發起來源的資料中心負責處理。 如果資料中心故障，則可能會將要求路由傳送至該區域之外。
+
+若要強制讓特定資料中心來處理要求，請將 API 要求中的全域端點變更為所需的區域端點：
+
+|說明|區域|基底 URL|
+|:--|:--|:--|
+|Azure|全域|  api.cognitive.microsofttranslator.com|
+|Azure|北美洲|   api-nam.cognitive.microsofttranslator.com|
+|Azure|歐洲|  api-eur.cognitive.microsofttranslator.com|
+|Azure|亞太地區|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>驗證
 
-訂閱 Microsoft 認知服務中的 Translator Text API，並使用您的訂用帳戶金鑰 (可在 Azure 入口網站中取得) 來進行驗證。 
+訂閱 Translator Text API 或 Microsoft 認知服務中的[全方位認知服務](https://azure.microsoft.com/pricing/details/cognitive-services/)，並使用您的訂用帳戶金鑰 (可在 Azure 入口網站中取得) 來進行驗證。 
 
-最簡單方式是使用要求標頭 `Ocp-Apim-Subscription-Key`，將您的 Azure 祕密金鑰傳遞至翻譯工具服務。
+有三個標頭可供用來驗證您的訂用帳戶。 下表提供其各自的使用方式說明：
 
-替代方法是使用祕密金鑰從權杖服務中取得授權權杖。 然後，使用 `Authorization` 要求標頭將授權權杖傳遞至翻譯工具服務。 若要取得授權權杖，請對下列 URL 提出 `POST` 要求：
+|headers|說明|
+|:----|:----|
+|Ocp-Apim-Subscription-Key|如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。|
+|Authorization|如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。|
+|Ocp-Apim-Subscription-Region|如果您要傳遞全方位祕密金鑰，請搭配使用認知服務全方位訂用帳戶。<br/>此值是全方位訂用帳戶的區域。 未使用全方位訂用帳戶時，此值是選擇性的。|
+
+###  <a name="secret-key"></a>祕密金鑰
+第一個選項是使用 `Ocp-Apim-Subscription-Key` 標頭來進行驗證。 只需在要求中新增 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 標頭即可。
+
+### <a name="authorization-token"></a>授權權杖
+或者，您可以用秘密金鑰交換存取權杖。 此權杖會隨附在每個要求中作為 `Authorization` 標頭。 若要取得授權權杖，請對下列 URL 提出 `POST` 要求：
 
 | 環境     | 驗證服務 URL                                |
 |-----------------|-----------------------------------------------------------|
@@ -55,6 +76,7 @@ Text API v3.0 可在下列雲端中使用：
 ```
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
+
 // Pass secret key using query string parameter
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
@@ -67,20 +89,21 @@ Authorization: Bearer <Base64-access_token>
 
 驗證權杖的有效時間為 10 分鐘。 對翻譯工具 API 執行多次呼叫時，應重複使用權杖。 不過，如果您的程式會在超過一段時間後才對翻譯工具 API 提出要求，則您的程式必須以固定間隔 (例如每 8 分鐘) 要求新存取權杖。
 
-總而言之，對翻譯工具 API 提出的用戶端要求，將包含一個從下表取用的授權標頭：
+### <a name="all-in-one-subscription"></a>全方位訂用帳戶
 
-<table width="100%">
-  <th width="30%">headers</th>
-  <th>說明</th>
-  <tr>
-    <td>Ocp-Apim-Subscription-Key</td>
-    <td>如果您要傳遞祕密金鑰，請使用認知服務訂用帳戶。<br/>此值是您 Translator Text API 訂用帳戶的 Azure 祕密金鑰。</td>
-  </tr>
-  <tr>
-    <td>Authorization</td>
-    <td>如果您要傳遞驗證權杖，請使用認知服務訂用帳戶。<br/>此值是持有人權杖：`Bearer <token>`。</td>
-  </tr>
-</table> 
+最後一個驗證選項是使用認知服務的全方位訂用帳戶。 這可讓您使用單一祕密金鑰來驗證多個服務的要求。 
+
+當您使用全方位祕密金鑰時，您必須在要求中包含兩個驗證標頭。 第一個標頭傳遞祕密金鑰，第二個標頭指定與訂用帳戶相關聯的區域。 
+* `Ocp-Api-Subscription-Key`
+* `Ocp-Apim-Subscription-Region`
+
+如果您在查詢字串中使用參數 `Subscription-Key` 傳遞祕密金鑰，則必須使用查詢參數 `Subscription-Region` 來指定區域。
+
+如果您使用持有人權杖，則必須從區域端點取得權杖：`https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`。
+
+可用區域包括 `australiaeast`、`brazilsouth`、`canadacentral`、`centralindia`、`centraluseuap`、`eastasia`、`eastus`、`eastus2`、`japaneast`、`northeurope`、`southcentralus`、`southeastasia`、`uksouth`、`westcentralus`、`westeurope`、`westus` 和 `westus2`。
+
+全方位 Text API 訂用帳戶必須有區域。
 
 ## <a name="errors"></a>Errors
 

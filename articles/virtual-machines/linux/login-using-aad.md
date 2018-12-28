@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 4f86dee539e3cc5a90db828ed11dbd225a00555d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e75758c5a4171adc7af56581026a727db2ef4740
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334630"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850970"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>在 Azure 中使用 Azure Active Directory 驗證登入 Linux 虛擬機器 (預覽)
 
@@ -129,7 +129,7 @@ az role assignment create \
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv
 ```
 
-使用 Azure AD 認證登入 Azure Linux 虛擬機器。 `-l` 參數可讓您指定自己的 Azure AD 帳戶位址。 依照上述命令的輸出，指定 VM 的公用 IP 位址。
+使用 Azure AD 認證登入 Azure Linux 虛擬機器。 `-l` 參數可讓您指定自己的 Azure AD 帳戶位址。 請以小寫輸入整個帳戶地址。 使用上一個命令中 VM 的公用 IP 位址：
 
 ```azurecli-interactive
 ssh -l azureuser@contoso.onmicrosoft.com publicIps

@@ -1,7 +1,7 @@
 ---
 title: 常見問題集 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 列出 QnA Maker 服務的的常見問題集
+description: QnA Maker 服務相關常見問題的策畫清單可協助您更快速地採用服務，並獲得更好的結果。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: tulasim
-ms.openlocfilehash: 28153e71ba6f2336398517454a81cfce39b93956
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 529c130f5694856f99f5d49e5b2f3628a4c3818f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496347"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074980"
 ---
-# <a name="frequently-asked-questions"></a>常見問題集
+# <a name="frequently-asked-questions-for-qna-maker"></a>QnA Maker 的常見問題集
+
+QnA Maker 服務相關常見問題的策畫清單可協助您更快速地採用服務，並獲得更好的結果。
 
 ## <a name="manage-the-knowledge-base"></a>管理知識庫
 
@@ -109,7 +112,7 @@ Azure 搜尋服務資源的名稱是 QnA Maker 資源名稱加上一些附加在
 
 ### <a name="how-can-i-create-a-bot-with-qna-maker"></a>如何使用 QnA Maker 建立 Bot？
 
-請遵循[此](./Tutorials/create-qna-bot.md)文件中的指示，以使用 Azure Bot 服務建立您的 Bot。
+請遵循[這份](./Tutorials/create-qna-bot.md)文件中的指示，以使用 Azure Bot 服務建立您的 Bot。
 
 ### <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>我該如何在我的網站中內嵌 QnA Maker 服務？
 

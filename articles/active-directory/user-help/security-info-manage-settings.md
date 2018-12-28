@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 4cd88490118343a9a00dbd919d7820f0334df92e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391372"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016141"
 ---
 # <a name="manage-your-security-info-preview"></a>管理您的安全性資訊 (預覽)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 您可以使用您的安全性資訊，登入公司或學校帳戶或重設密碼。
 
@@ -33,7 +33,7 @@ ms.locfileid: "39391372"
 
 1. 登入您的公司或學校帳戶。
 
-2. 移至 myapps.microsoft.com，從頁面的右上角選取您的名稱，然後選取 [設定檔]。
+2. 移至 myapps.microsoft.com，從頁面右上角選取您的名稱，然後選取 [設定檔]。
 
 3. 在 [管理帳戶] 區域中，選取 [編輯安全性資訊]。
 
@@ -67,7 +67,7 @@ ms.locfileid: "39391372"
 
 3. 在 [管理帳戶] 區域中，選取 [忘記已記住裝置上的 MFA]。
     
-    選擇這個選項表示在您登入之後，必須再次進行 Multi-Factor Authentication 程序。
+    選擇這個選項，表示在您登入後必須再次進行多重要素驗證 (MFA) 程序。
 
     ![已醒目提示忘記連結的 [設定檔] 畫面](media/security-info/security-info-forget.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "39391372"
 
 |問題|解決方法|
 |-------|--------|
-|我沒帶手機|有可能是您沒有隨身攜帶手機，但仍然想要登入您的公司或學校帳戶。 若要修正此問題，您可以使用其他不需要手機的驗證方法登入，例如您的電子郵件地址或辦公室電話號碼。 若要將其他方法新增至您的安全性資訊，請依照[變更您的資訊](#change-your-info)一節中的步驟執行。|
+|我沒帶手機|有可能是您沒有隨身攜帶手機，但仍然想要登入您的公司或學校帳戶。 若要修正此問題，您可以使用其他不需要手機的驗證方法登入，例如您的辦公室電話號碼。 若要將其他方法新增至您的安全性資訊，請依照[變更您的資訊](#change-your-info)一節中的步驟執行。|
 |我的手機遺失或遭竊|不幸的是，您的電話可能遺失或遭竊。 在此情況下，強烈建議您讓貴組織了解此情況，讓 IT 人員可以重設應用程式密碼，並從您信任的裝置清單中清除所有已記住的裝置。 您也可以遵循[針對已遺失或可能遭到入侵的裝置管理您的安全性資訊](#manage-your-security-info-for-a-lost-or-potentially-compromised-device)一節中的步驟，忘記自有信任的裝置。|
 |我收到新的電話號碼|修正此問題的方法有二種。 您可以使用不需要手機號碼的替代驗證方法 (例如電子郵件) 登入，如果沒有這個選項，您可以連絡貴組織的 IT 人員，請他們清除您的設定。 若要將其他方法新增至您的安全性資訊，請依照[變更您的資訊](#change-your-info)一節中的步驟執行。|
 |我的預設方法錯誤|您可以在安全性選項中更新您的預設方法。 如需特定詳細資訊，您可以移至[變更您的資訊](#change-your-info)一節。|
@@ -104,4 +104,4 @@ ms.locfileid: "39391372"
 
 - 如果您已遺失或忘記密碼，請從[密碼重設入口網站](https://passwordreset.microsoftonline.com/)或遵循[重設公司或學校密碼](user-help-reset-password.md)一文中的步驟來重設密碼。
 
-- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中取得登入問題的疑難排解秘訣和說明。
+- 在[無法登入 Microsoft 帳戶](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)一文中，取得登入問題的疑難排解秘訣和說明。

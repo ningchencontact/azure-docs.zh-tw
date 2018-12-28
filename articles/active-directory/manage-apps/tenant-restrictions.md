@@ -15,18 +15,18 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 4a5cb7d15627ac3e48b72567ec3740377b2a0264
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365665"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096701"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>使用租用戶限制來管理對 SaaS 雲端應用程式的存取
 
 注重安全性的大型組織想要移到 Office 365 之類的雲端服務，但需要確知其使用者只能存取獲得核准的資源。 傳統上，當公司想要管理存取時，會限制網域名稱或 IP 位址。 在 SaaS 應用程式裝載於公用雲端而在共用網域名稱 (例如 outlook.office.com 和 login.microsoftonline.com) 上執行的環境中，這個方法行不通。 封鎖這些位址會讓使用者無法存取整個網路上的 Outlook，而不僅是限制他們只能存取已核准的身分識別和資源。
 
-Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「租用戶限制」的功能。 「租用戶限制」可讓組織根據應用程式用於單一登入的 Azure AD 租用戶來控制對 SaaS 雲端應用程式的存取。 例如，您可能想要允許使用者存取您組織的 Office 365 應用程式，但又防止他們存取其他組織的這些相同應用程式執行個體。  
+Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「租用戶限制」的功能。 「租用戶限制」可讓組織根據應用程式用於單一登入的 Azure AD 租用戶來控制對 SaaS 雲端應用程式的存取。 例如，您可能想要允許使用者存取您組織的 Office 365 應用程式，但又防止他們存取其他組織的這些相同應用程式執行個體。  
 
 「租用戶限制」可讓組織指定允許其使用者存取的租用戶清單。 Azure AD 接著便可只授與對這些已允許之租用戶的存取權。
 
@@ -34,13 +34,13 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 ## <a name="how-it-works"></a>運作方式
 
-整體解決方案包含下列元件： 
+整體解決方案包含下列元件： 
 
-1. **Azure AD** – 如果有 `Restrict-Access-To-Tenants: <permitted tenant list>` 存在，Azure AD 便只會針對已允許的租用戶發出安全性權杖。 
+1. **Azure AD** – 如果有 `Restrict-Access-To-Tenants: <permitted tenant list>` 存在，Azure AD 便只會針對已允許的租用戶發出安全性權杖。 
 
-2. **內部部署 Proxy 伺服器基礎結構** – 一個能夠執行 SSL 檢查的 Proxy 裝置，經設定後能將包含已允許之租用戶清單的標頭插入目的地為 Azure AD 的流量中。 
+2. **內部部署 Proxy 伺服器基礎結構** – 一個能夠執行 SSL 檢查的 Proxy 裝置，經設定後能將包含已允許之租用戶清單的標頭插入目的地為 Azure AD 的流量中。 
 
-3. **用戶端軟體** – 為了支援「租用戶限制」，用戶端軟體必須直接從 Azure AD 要求權杖，以便 Proxy 基礎結構能夠攔截流量。 目前瀏覽器型 Office 365 應用程式和使用新式驗證 (例如 OAuth 2.0) 的 Office 用戶端都支援「租用戶限制」。 
+3. **用戶端軟體** – 為了支援「租用戶限制」，用戶端軟體必須直接從 Azure AD 要求權杖，以便 Proxy 基礎結構能夠攔截流量。 目前瀏覽器型 Office 365 應用程式和使用新式驗證 (例如 OAuth 2.0) 的 Office 用戶端都支援「租用戶限制」。 
 
 4. **新式驗證** – 雲端服務必須使用新式驗證，才能使用「租用戶限制」並封鎖對所有非允許之租用戶的存取。 必須將 Office 365 雲端服務設定為預設使用新式驗證通訊協定。 如需有關 Office 365 對新式驗證之支援的最新資訊，請參閱[更新的 Office 365 新式驗證 (英文)](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)。
 
@@ -54,7 +54,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 ### <a name="urls-and-ip-addresses"></a>URL 和 IP 位址
 
-若要使用「租用戶限制」，您的用戶端必須要能夠連線到下列 Azure AD URL 來進行驗證：login.microsoftonline.com、login.microsoft.com 及 login.windows.net。 此外，若要存取 Office 365，您的用戶端必須也要能夠連線到 [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所定義的 FQDN/URL 和 IP 位址。 
+若要使用「租用戶限制」，您的用戶端必須要能夠連線到下列 Azure AD URL 來進行驗證：login.microsoftonline.com、login.microsoft.com 及 login.windows.net。 此外，若要存取 Office 365，您的用戶端必須也要能夠連線到 [Office 365 URL 與 IP 位址範圍](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)中所定義的 FQDN/URL 和 IP 位址。 
 
 ### <a name="proxy-configuration-and-requirements"></a>Proxy 組態和需求
 
@@ -62,7 +62,7 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 #### <a name="prerequisites"></a>必要條件
 
-- Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。 
+- Proxy 必須要能夠執行 SSL 攔截、HTTP 標頭插入，以及使用 FQDN/URL 來篩選目的地。 
 
 - 用戶端必須信任 Proxy 針對 SSL 通訊所出示的憑證鏈結。 例如，如果使用來自內部 PKI 的憑證，就必須信任內部發行的根憑證授權單位憑證。
 
@@ -72,14 +72,14 @@ Azure Active Directory 對這項挑戰所提出的解決方案是一個稱為「
 
 針對每個傳送到 login.microsoftonline.com、login.microsoft.com 及 login.windows.net 的連入要求，請插入兩個 HTTP 標頭：*Restrict-Access-To-Tenants* 和 *Restrict-Access-Context*。
 
-這些標頭應該包含下列元素︰ 
-- 就 *Restrict-Access-To-Tenants* 而言，需包含 \<permitted tenant list\> 的值，這是您想要允許使用者存取的租用戶清單 (以逗號分隔)。 與租用戶一起註冊的任何網域都可用來在此清單中識別該租用戶。 例如，若要允許存取 Contoso 和 Fabrikam 租用戶，名稱/值組看起來會像這樣：`Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
-- 就 *Restrict-Access-Context* 而言，需包含單一目錄識別碼的值，用來宣告設定「租用戶限制」的是哪一個租用戶。 例如，若要宣告 Contoso 是設定「租用戶限制」原則的租用戶，名稱/值組看起來會像這樣：`Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
+這些標頭應該包含下列元素︰ 
+- 就 *Restrict-Access-To-Tenants* 而言，需包含 \<permitted tenant list\> 的值，這是您想要允許使用者存取的租用戶清單 (以逗號分隔)。 與租用戶一起註冊的任何網域都可用來在此清單中識別該租用戶。 例如，若要允許存取 Contoso 和 Fabrikam 租用戶，名稱/值組會顯示如下：  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 
+- 就 *Restrict-Access-Context* 而言，需包含單一目錄識別碼的值，用來宣告設定「租用戶限制」的是哪一個租用戶。 例如，若要宣告 Contoso 是設定「租用戶限制」原則的租用戶，名稱/值組會顯示如下： `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d`  
 
 > [!TIP]
 > 您可以在 [Azure 入口網站](https://portal.azure.com)中找到您的目錄識別碼。 請以系統管理員身分登入，選取 [Azure Active Directory]，然後選取 [屬性]。
 
-若要防止使用者插入自己的含有非核准租用戶的 HTTP 標頭，Proxy 就必須在連入要求中已經有 Restrict-Access-To-Tenants 標頭時取代此標頭。 
+若要防止使用者插入自己的含有非核准租用戶的 HTTP 標頭，Proxy 就必須在連入要求中已經有 Restrict-Access-To-Tenants 標頭時取代此標頭。 
 
 必須強制用戶端針對所有傳送到 login.microsoftonline.com、login.microsoft.com 及 login.windows.net 的要求使用 Proxy。 例如，如果使用 PAC 檔案來指示用戶端使用 Proxy，使用者應該要不能夠編輯或停用 PAC 檔案。
 
@@ -116,7 +116,7 @@ Office 365 應用程式必須符合兩項準則，才能完全支援「租用戶
 
 支援新式驗證的 Outlook 和「商務用 Skype」用戶端仍然能夠針對未啟用新式驗證的租用戶使用傳統通訊協定，有效地略過「租用戶限制」。 使用傳統通訊協定的應用程式如果在驗證期間連絡 login.microsoftonline.com、login.microsoft.com 或 login.windows.net，可能會遭到「租用戶限制」封鎖。
 
-針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](http://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。
+針對 Windows 上的 Outlook，客戶可以選擇實作可防止使用者將非已核准郵件帳戶新增至其設定檔的限制。 例如，請參閱[防止新增非預設 Exchange 帳戶](https://gpsearch.azurewebsites.net/default.aspx?ref=1)群組原則設定。
 
 ## <a name="testing"></a>測試
 
@@ -126,21 +126,21 @@ Office 365 應用程式必須符合兩項準則，才能完全支援「租用戶
 
 Fiddler 是一個免費的 Web 偵錯 Proxy，可用來擷取和修改 HTTP/HTTPS 流量，包括插入 HTTP 標頭。 若要設定 Fiddler 以測試「租用戶限制」，請執行下列步驟：
 
-1.  [下載並安裝 Fiddler](http://www.telerik.com/fiddler)。
-2.  依照 [Fiddler 的說明文件 (英文)](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS) 操作，設定 Fiddler 以將 HTTPS 流量解密。
+1.  [下載並安裝 Fiddler](https://www.telerik.com/fiddler)。
+2.  依照 [Fiddler 的說明文件 (英文)](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS) 操作，設定 Fiddler 以將 HTTPS 流量解密。
 3.  設定 Fiddler 以使用自訂規則來插入 *Restrict-Access-To-Tenants* 和 *Restrict-Access-Context* 標頭：
-  1. 在「Fiddler Web 偵錯工具」中，選取 [Rules] \(規則) 功能表，然後選取 [Customize Rules] \(自訂規則) 以開啟 CustomRules 檔案。
-  2. 在 *OnBeforeRequest* 函式開頭新增下列幾行。 使用與您租用戶一起註冊的網域來取代 \<tenant domain\>，例如 contoso.onmicrosoft.com。 使用您租用戶的 Azure AD GUID 識別碼來取代 \<directory ID\>。
+    1. 在「Fiddler Web 偵錯工具」中，選取 [Rules] \(規則) 功能表，然後選取 [Customize Rules] \(自訂規則) 以開啟 CustomRules 檔案。
+    2. 在 *OnBeforeRequest* 函式開頭新增下列幾行。 使用與您租用戶一起註冊的網域來取代 \<tenant domain\>，例如 contoso.onmicrosoft.com。 使用您租用戶的 Azure AD GUID 識別碼來取代 \<directory ID\>。
 
-  ```
-  if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
-  ```
+    ```
+    if (oSession.HostnameIs("login.microsoftonline.com") || oSession.HostnameIs("login.microsoft.com") || oSession.HostnameIs("login.windows.net")){      oSession.oRequest["Restrict-Access-To-Tenants"] = "<tenant domain>";      oSession.oRequest["Restrict-Access-Context"] = "<directory ID>";}
+    ```
 
-  如果您需要允許多個租用戶，請使用逗號來分隔租用戶名稱。 例如︰
+    如果您需要允許多個租用戶，請使用逗號來分隔租用戶名稱。 例如︰
 
-  ```
-  oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
-  ```
+    ```
+    oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";
+    ```
 
 4. 儲存並關閉 CustomRules 檔案。
 

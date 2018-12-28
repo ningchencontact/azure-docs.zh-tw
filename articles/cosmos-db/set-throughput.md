@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: andrl
-ms.openlocfilehash: a97032344b904442ed3606c6297251578c3b4ff7
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e866b205fb5cdd65dc690101503613714271e36c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52263888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075347"
 ---
 # <a name="provision-throughput-on-azure-cosmos-containers-and-databases"></a>在 Azure Cosmos 容器和資料庫上佈建輸送量
 
@@ -19,7 +19,7 @@ Azure Cosmos 資料庫是一組容器的管理單位。 資料庫是由一組無
 
 Azure Cosmos DB 可讓您在下列兩個資料粒度上設定輸送量：**Azure Cosmos 容器**和 **Azure Cosmos 資料庫**。
 
-# <a name="setting-throughput-on-a-azure-cosmos-container"></a>在 Azure Cosmos 容器上設定輸送量  
+## <a name="setting-throughput-on-a-container"></a>在容器上設定輸送量  
 
 在 Azure Cosmos 容器上佈建的輸送量是專為該容器保留的。 該容器隨時都可接收佈建輸送量。 容器上的佈建輸送量在財務方面會由 SLA 所支援。 若要在容器上設定輸送量，請參閱[如何在 Azure Cosmos 容器上佈建輸送量](how-to-provision-container-throughput.md)。
 
@@ -31,7 +31,7 @@ Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯�
 
 ![資源分割區](./media/set-throughput/resource-partition.png)
 
-# <a name="setting-throughput-on-a-azure-cosmos-database"></a>在 Azure Cosmos 資料庫上設定輸送量
+## <a name="setting-throughput-on-a-database"></a>在資料庫上設定輸送量
 
 當您在 Azure Cosmos 資料庫上佈建輸送量時，除非已在特定容器上指定佈建輸送量，否則，輸送量會在資料庫中的所有容器上共用。 在其容器之間共用資料庫輸送量，相當於在機器叢集上裝載資料庫。 由於資料庫共用內的所有容器都會共用機器上可用的資源，因此，您自然不會取得任何特定容器上的可預測效能。 若要在資料庫上設定輸送量，請參閱[如何在 Azure Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)。
 
@@ -53,9 +53,9 @@ Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯�
 
 ![資源分割區](./media/set-throughput/resource-partition2.png)
 
-## <a name="setting-throughput-on-a-azure-cosmos-database-and-a-container"></a>在 Azure Cosmos 資料庫和容器上設定輸送量
+## <a name="setting-throughput-on-a-database-and-a-container"></a>在資料庫和容器上設定輸送量
 
-您可以結合這兩個模型，就能同時在資料庫和容器上佈建輸送量。 下列範例示範如何在 Azure Cosmos 資料庫和容器上佈建輸送量：
+您可以結合這兩個模型，就能同時在資料庫和容器上佈建輸送量。 下列範例說明如何在 Azure Cosmos 資料庫和容器上佈建輸送量：
 
 * 您可以使用 'K' 個 RU 的佈建輸送量來建立名為 'Z' 的 Azure Cosmos 資料庫。 
 * 接下來，在資料庫中建立五個容器，名稱分別為 A、B、C、D 和 E。
@@ -67,7 +67,7 @@ Azure Cosmos 容器上佈建的輸送量會統一散發到容器的所有邏輯�
 
 |**配額**  |**資料庫上佈建的輸送量**  |**容器上佈建的輸送量**|
 |---------|---------|---------|
-|RU 數目下限 |400 |400|
+|RU 數目下限 |400 (在前四個容器之後，每個額外的容器至少需要 100 RU/秒)。 |400|
 |每個容器的 RU 數目下限|100|400|
 |取用 1 GB 儲存體所需的 RU 數目下限|40|40|
 |RU 數目上限|在資料庫上無限制|在容器上無限制|

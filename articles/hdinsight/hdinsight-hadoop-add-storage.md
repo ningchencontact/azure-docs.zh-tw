@@ -9,29 +9,29 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 194f84d2ce5360aa9ad9f3d771bf24f153ac6f5c
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496304"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015750"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
-了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 此文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
+了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
 
 > [!IMPORTANT]
-> 此文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+> 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="how-it-works"></a>運作方式
 
-此指令碼接受下列參數︰
+此指令碼採用下列參數︰
 
 * __Azure 儲存體帳戶名稱__：要新增至 HDInsight 叢集的儲存體帳戶名稱。 執行指令碼之後，HDInsight 可以讀取和寫入此儲存體帳戶中儲存的資料。
 
-* __Azure 儲存體帳戶金鑰__︰授與存取權給儲存體帳戶的金鑰。
+* __Azure 儲存體帳戶金鑰__︰授與儲存體帳戶存取權的金鑰。
 
-* __-p__ (選用)︰若已指定，金鑰不會加密，而且會以純文字方式儲存在 core-site.xml 檔案。
+* __-p__ (選擇性)︰若已指定，金鑰不會加密，而且會以純文字方式儲存在 core-site.xml 檔案中。
 
 在處理期間，此指令碼會執行下列動作：
 
@@ -73,7 +73,7 @@ __需求__：
 
 在 Azure 入口網站中檢視 HDInsight 叢集時，選取 [屬性] 之下的 [儲存體帳戶] 項目，並不會顯示透過此指令碼動作新增的儲存體帳戶。 Azure PowerShell 與 Azure 傳統 CLI 也不會顯示其他儲存體帳戶。
 
-沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用此資訊。
+沒有顯示儲存體資訊是因為指令碼只修改叢集的 core-site.xml 組態。 使用 Azure 管理 API 擷取叢集資訊時，不會使用這項資訊。
 
 若要檢視使用此指令碼新增至叢集的儲存體帳戶資訊，請使用 Ambari REST API。 請使用下列命令，為您的叢集擷取此資訊：
 
@@ -95,7 +95,7 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 > [!NOTE]
 > 將 `$PASSWORD` 設定為叢集登入 (admin) 帳戶密碼。 將 `$CLUSTERNAME` 設定為 HDInsight 叢集的名稱。 將 `$STORAGEACCOUNTNAME` 設定為儲存體帳戶的名稱。
 >
-> 此範例會使用 [curl (http://curl.haxx.se/)](http://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 來擷取及剖析 JSON 資料。
+> 此範例會使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 來擷取及剖析 JSON 資料。
 
 使用此命令時，將 __CLUSTERNAME__ 替換為 HDInsight 叢集的名稱。 將 __PASSWORD__ 替換為叢集的 HTTP 登入密碼。 將 __STORAGEACCOUNT__ 替換為使用指令碼動作新增的儲存體帳戶名稱。 此命令傳回的資訊看起來類似下列文字：
 

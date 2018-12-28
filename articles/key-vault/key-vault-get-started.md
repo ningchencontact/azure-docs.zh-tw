@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: a28bf1dc23d678c710d7bd6b13f067427e76ef41
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bb4ef826ed29187209b28c349445ca0eb5ffe9bb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238394"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864890"
 ---
 # <a name="get-started-with-azure-key-vault"></a>開始使用 Azure 金鑰保存庫
 本文可協助您使用 PowerShell 來開始使用 Azure Key Vault，並引導您完成下列活動：
@@ -193,7 +193,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPasswor
 ```powershell
 $secret.Id
 ```
-若要檢視您的祕密，請輸入：`Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'` 或者您可以在入口網站上檢視祕密。
+若要檢視您的密碼，請輸入：`Get-AzureKeyVaultSecret –VaultName 'ContosoKeyVault'` 或者您可以在入口網站上檢視祕密。
 
 ![secret](./media/key-vault-get-started/secret-value.png)
 
@@ -222,14 +222,14 @@ $secret.Id
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側按一下 [應用程式註冊]。 如果您沒有看到應用程式註冊，請按一下 [更多服務]。  
->[!NOTE]
-您必須選取您用來建立金鑰保存庫的 Azure 訂用帳戶所在的同一個目錄。 
+    > [!NOTE]
+    > 您必須選取您用來建立金鑰保存庫的 Azure 訂用帳戶所在的同一個目錄。 
 3. 按一下 [新增應用程式註冊]。
 4. 在 [建立] 刀鋒視窗上提供您的應用程式名稱，然後選取 [WEB 應用程式和/或 WEB API] (預設值)，並指定 Web 應用程式的 [登入 URL]。 如果您目前沒有這項資訊，可在此步驟中假設一個 (例如，您可以指定 http://test1.contoso.com)。 這些網站是否存在並不重要。 
 
     ![新增應用程式註冊](./media/key-vault-get-started/new-application-registration.png)
-    >[!WARNING]
-    請確定您已選擇 [Web 應用程式和/或 WEB API]，否則將不會看到設定下的 [金鑰] 選項。
+    > [!WARNING]
+    > 請確定您已選擇 [Web 應用程式和/或 WEB API]，否則將不會看到設定下的 [金鑰] 選項。
 
 5. 按一下 [ **建立** ] 按鈕。
 6. 完成應用程式註冊時，將會看到已註冊應用程式的清單。 尋找您註冊的應用程式，並按一下它。
@@ -312,11 +312,11 @@ Remove-AzureRmResourceGroup -ResourceGroupName 'ContosoResourceGroup'
 ## <a id="other"></a>其他 Azure PowerShell Cmdlet
 可能有助於管理 Azure 金鑰保存庫的其他命令：
 
-- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`此命令會取得以表格形式顯示的所有金鑰和所選屬性。
-- `$Keys[0]`此命令會顯示特定金鑰的完整屬性清單。
-- `Get-AzureKeyVaultSecret`此命令會列出以表格形式顯示的所有密碼名稱和所選屬性。
-- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`：如何移除特定金鑰範例。
-- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`：如何移除特定密碼範例。
+- `$Keys = Get-AzureKeyVaultKey -VaultName 'ContosoKeyVault'`：此命令會取得以表格形式顯示的所有金鑰和所選屬性。
+- `$Keys[0]`：此命令會顯示特定金鑰的完整屬性清單
+- `Get-AzureKeyVaultSecret`：此命令會列出以表格形式顯示的所有密碼名稱和所選屬性。
+- `Remove-AzureKeyVaultKey -VaultName 'ContosoKeyVault' -Name 'ContosoFirstKey'`：如何移除特定金鑰的範例。
+- `Remove-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'SQLPassword'`：如何移除特定密碼的範例。
 
 ## <a name="next-steps"></a>後續步驟
 

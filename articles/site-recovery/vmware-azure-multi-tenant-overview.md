@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 89e731d6c255092b087f0615bad49185c7181f1f
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 07274269e9902a336181c89ee5c02edd52b6ab01
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210749"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849491"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-fisaster-recovery-to-azure-with-csp"></a>概述多租用戶如何支援使用 CSP 將 VMware 災害復原至 Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "50210749"
 
 * **專用主機服務提供者**：合作夥伴擁有實體基礎結構，但使用專用資源 (如多個 vCenters、實體資料存放區等) 在個別的基礎結構上裝載每個租用戶的虛擬機器。 合作夥伴可提供災害復原管理做為受控服務，租用戶也可以擁有災害復原做為自助服務方案。
 
-* **受控服務提供者 (MSP)** – 客戶擁有裝載虛擬機器的實體基礎結構，而合作夥伴則提供災害復原支援及管理。
+* **受控服務提供者 (MSP)**：客戶擁有裝載虛擬機器的實體基礎結構，而合作夥伴則提供災害復原支援及管理。
 
 ## <a name="shared-hosting-services-provider-hsp"></a>共用主機服務提供者 (HSP)
 
@@ -79,7 +79,7 @@ ms.locfileid: "50210749"
     * **網路**：網路指派
     * **資源**：指派虛擬機器至資源集區、移轉已關閉電源的虛擬機器、移轉已開啟電源的虛擬機器
     * **工作**：建立工作、更新工作
-    * **VM - 組態**：所有
+    * **VM - 組態**：全部
     - **VM - 互動** > 回答問題、裝置連線、設定 CD 媒體、設定磁碟片媒體、電源關閉、電源開啟、VMware 工具安裝
     - **VM - 清查** > 從現有建立、建立新的、註冊、取消註冊
     - **VM - 佈建** > 允許虛擬機器下載、允許虛擬機器檔案上傳

@@ -3,23 +3,22 @@ title: Azure 建議程式效能建議 | Microsoft Docs
 description: 使用 Advisor 將 Azure 部署的效能最佳化。
 services: advisor
 documentationcenter: NA
-author: manbeenkohli
+author: kasparks
 manager: carmonm
 editor: ''
 ms.assetid: ''
 ms.service: advisor
-ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: makohli
-ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.author: kasparks
+ms.openlocfilehash: 349632c751c3116244bc8ef7708708f3aa45754c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301305"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013231"
 ---
 # <a name="advisor-performance-recommendations"></a>建議程式效能建議
 
@@ -33,16 +32,16 @@ Azure Advisor 會識別設定較長 TTL 的流量管理員設定檔，並且建�
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>使用 SQL DB Advisor 來改善資料庫效能
 
-建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database 建議程式會藉由分析您的使用歷程記錄來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。 
+建議程式可針對所有的 Azure 資源提供一致的合併建議檢視。 它會與 SQL Database 建議程式整合，以提供改善 SQL Azure 資料庫效能的相關建議。 SQL Database 建議程式會藉由分析您的使用歷程記錄來評估 SQL Azure 資料庫的效能。 接著會提供最適合用於執行資料庫之一般工作負載的建議事項。 
 
 > [!NOTE]
 > 若要取得建議，資料庫必須持續使用一週，而且那一週之內必須有一些一致的活動。 相較於隨機蹦出的活動，一致的查詢模式更有利於 SQL Database Advisor 最佳化。
 
 如需 SQL Database Advisor 的詳細資訊，請參閱 [SQL Database Advisor](https://azure.microsoft.com/documentation/articles/sql-database-advisor/)。
 
-## <a name="improve-redis-cache-performance-and-reliability"></a>改善 Redis 快取的效能和可靠性
+## <a name="improve-azure-cache-for-redis-performance-and-reliability"></a>改善 Azure Cache for Redis 的效能和可靠性
 
-Advisor 會識別高記憶體使用量、伺服器負載、網路頻寬或大量用戶端連線會對其效能造成負面影響的 Redis 快取執行個體。 Advisor 也提供最佳做法建議來協助您避免潛在的問題。 如需 Redis 快取建議的詳細資訊，請參閱 [Redis 快取建議程式](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)。
+Advisor 會識別高記憶體使用量、伺服器負載、網路頻寬或大量用戶端連線會對其效能造成負面影響的 Azure Cache for Redis 執行個體。 Advisor 也提供最佳做法建議來協助您避免潛在的問題。 如需 Azure Cache for Redis 建議的詳細資訊，請參閱 [Azure Cache for Redis Advisor](https://azure.microsoft.com/documentation/articles/cache-configure/#redis-cache-advisor)。
 
 
 ## <a name="improve-app-service-performance-and-reliability"></a>改善 App Service 的效能和可靠性

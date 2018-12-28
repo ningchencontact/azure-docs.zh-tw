@@ -1,23 +1,24 @@
 ---
-title: 教學課程 6：使用 LUIS 複合實體擷取複合資料
+title: 複合實體
 titleSuffix: Azure Cognitive Services
 description: 新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 8f7edecf1abd1f01a2f40f1420a6a85224271239
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b5923d5cd4a704dda76e33ee6a2b76cfd903219d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423496"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079206"
 ---
-# <a name="tutorial-6-group-and-extract-related-data"></a>教學課程 6：將相關的資料組成群組並加以擷取
+# <a name="tutorial-6-group-and-extract-related-data"></a>教學課程 6：擷取將相關的資料組成群組並加以擷取
 在本教學課程中，新增複合實體，以便將擷取的各類型資料組合為單一包含實體。 用戶端應用程式可藉由組合資料，輕鬆地擷取不同資料類型的相關資料。
 
 複合實體的用途是將相關實體群組為父類別實體。 在建立複合項目之前，這些資訊會以個別實體的形式存在。 它類似於階層式實體，但可包含不同類型的實體。 
@@ -70,7 +71,7 @@ ms.locfileid: "52423496"
 
 從端點擷取的資料應該包含此資訊，並在 `RequestEmployeeMove` 複合實體中傳回它：
 
-```JSON
+```json
 "compositeEntities": [
   {
     "parentType": "RequestEmployeeMove",
@@ -103,22 +104,22 @@ ms.locfileid: "52423496"
 
 3. 在工具列上選取放大鏡圖示來篩選語句清單。 
 
-    [![](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "在 'MoveEmployee' 意圖上已醒目提示放大鏡按鈕的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
+    [![在 'MoveEmployee' 意圖上已醒目提示放大鏡按鈕的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png "在 'MoveEmployee' 意圖上已醒目提示放大鏡按鈕的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-moveemployee-magglass.png#lightbox)
 
 4. 在篩選條件文字方塊中輸入 `tomorrow`，以尋找語句 `shift x12345 to h-1234 tomorrow`。
 
-    [![](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "在 'MoveEmployee' 意圖上已醒目提示 'tomorrow' 篩選條件的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
+    [![在 'MoveEmployee' 意圖上已醒目提示 'tomorrow' 篩選條件的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png "在 'MoveEmployee' 意圖上已醒目提示 'tomorrow' 篩選條件的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-filter-by-tomorrow.png#lightbox)
 
     另一個方法是選取 [實體篩選條件]，然後從清單中選取 [datetimeV2]，依 datetimeV2 篩選實體。 
 
 5. 選取第一個實體 `Employee`，然後從快顯功能表清單中選取 [包裝於複合實體中]。 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
+    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
 6. 接著，立即選取語句中的最後一個實體 `datetimeV2`。 系統會在所選取的文字下方繪製綠色橫條，來表示複合實體。 在快顯功能表中，輸入複合名稱 `RequestEmployeeMove`，然後選取 Enter。 
 
-    [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
+    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-create-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示的最後一個實體和建立實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. 在 [您想要建立何種類型的實體?] 中，幾乎所有所需的欄位都位於清單中。 只會遺漏原始位置。 選取 [新增子實體]，從現有實體清單中選取 [Locations::Origin]，然後選取 [完成]。 
 
@@ -135,15 +136,15 @@ ms.locfileid: "52423496"
 
 1. 在每個範例語句中，選取應該出現在複合中的最左邊實體。 接著，選取 [包裝於複合實體中]。
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
+    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-label-entity-1.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之第一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
 
 2. 選取複合實體中的最後一個文字 ，然後從快顯功能表中選取 [RequestEmployeeMove]。 
 
-    [![](media/luis-tutorial-composite-entity/hr-label-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之最後一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
+    [![在 'MoveEmployee' 意圖上選取複合中已醒目提示之最後一個實體的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-label-entity-2.png "在 'MoveEmployee' 意圖上選取複合中已醒目提示之最後一個實體的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-label-entity-2.png#lightbox)
 
 3. 確認已使用複合實體來標示意圖中的所有語句。 
 
-    [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
+    [!['MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "'MoveEmployee' 上已標示所有語句的 LUIS 螢幕擷取畫面")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
 ## <a name="train"></a>定型
 
@@ -161,7 +162,7 @@ ms.locfileid: "52423496"
 
     由於此測試是要確認已正確擷取複合，因此，測試可以包含現有的範例語句或新語句。 在複合實體中包含所有子實體是個很好的測試。
 
-    ```JSON
+    ```json
     {
       "query": "Move Jill Jones from a-1234 to z-2345 on March 3  2 p.m",
       "topScoringIntent": {

@@ -1,6 +1,6 @@
 ---
 title: 管理對 Azure 帳單的存取 | Microsoft Docs
-description: ''
+description: 了解如何為您的小組成員提供對 Azure 計費資訊的存取權。
 services: ''
 documentationcenter: ''
 author: vikramdesai01
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: cwatson
-ms.openlocfilehash: 7a4e19ae5bf770949623f4cee7fa0d3033ccfa29
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: a15d055505ca0f28ad28b477e90e6fe859cc9ac7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582610"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094282"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>管理對 Azure 帳單資訊的存取
 
@@ -72,9 +73,10 @@ EA 客戶以外的所有人員都可以透過將下列其中一個使用者角�
 
 1. 選取 [存取控制 (IAM)]。
 1. 選取 [角色指派] 以檢視此訂用帳戶的所有角色指派。
-1. 選取 [新增] > [新增角色指派]。
+1. 選取 [新增角色指派]。
 1. 在 [角色] 下拉式清單中，選擇 [帳單讀者]。
 1. 在 [選取] 文字方塊中，鍵入您要新增的使用者名稱或電子郵件。
+1. 選取使用者。
 1. 選取 [ **儲存**]。
 1. 在幾分鐘之後，即會在訂用帳戶範圍將「帳單讀者」角色指派給使用者。
 1. 帳單讀者會收到一封電子郵件，其中包含用來登入的連結。

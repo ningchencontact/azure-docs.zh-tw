@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3450a2ba4a0bf4b1f38806ad4aacf5772c13ed9f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 179d8fc0f17bf43792db6a9b0e15a6f63349f002
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317784"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890937"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure Logic Apps 中工作流程定義語言的函式參考
 
@@ -754,7 +754,7 @@ and(false, false)
 
 * 第一個範例：兩個運算式都是 True，所以會傳回 `true`。 
 * 第二個範例：一個運算式為 False，所以會傳回 `false`。
-* 第一個範例：兩個運算式都是 False，所以會傳回 `false`。
+* 第三個範例：兩個運算式都是 False，所以會傳回 `false`。
 
 *範例 2*
 
@@ -770,7 +770,7 @@ and(equals(1, 2), equals(1, 3))
 
 * 第一個範例：兩個運算式都是 True，所以會傳回 `true`。 
 * 第二個範例：一個運算式為 False，所以會傳回 `false`。
-* 第一個範例：兩個運算式都是 False，所以會傳回 `false`。
+* 第三個範例：兩個運算式都是 False，所以會傳回 `false`。
 
 <a name="array"></a>
 
@@ -2726,7 +2726,7 @@ not(true)
 並傳回下列結果：
 
 * 第一個範例：運算式為 False，所以函數傳回 `true`。
-* 第一個範例：運算式為 True，所以函數傳回 `false`。
+* 第二個範例：運算式為 True，所以函數傳回 `false`。
 
 *範例 2*
 
@@ -2740,7 +2740,7 @@ not(equals(1, 1))
 並傳回下列結果：
 
 * 第一個範例：運算式為 False，所以函數傳回 `true`。
-* 第一個範例：運算式為 True，所以函數傳回 `false`。
+* 第二個範例：運算式為 True，所以函數傳回 `false`。
 
 <a name="or"></a>
 
@@ -4026,7 +4026,7 @@ xml('<value>')
 
 此範例會為包含 JSON 物件的此字串建立 XML 版本： 
 
-`xml( '{ \"name\": \"Sophia Owen\" }' )`
+`xml(json('{ \"name\": \"Sophia Owen\" }'))`
 
 並傳回此結果 XML： 
 
@@ -4049,7 +4049,7 @@ xml('<value>')
 
 此範例會為包含此 JSON 物件的字串建立 XML：
 
-`xml( '{ \"person\": { \"name\": \"Sophia Owen\", \"city\": \"Seattle\" } }' )`
+`xml(json('{\"person\": {\"name\": \"Sophia Owen\", \"city\": \"Seattle\"}}'))`
 
 並傳回此結果 XML： 
 

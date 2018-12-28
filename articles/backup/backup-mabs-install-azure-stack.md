@@ -3,23 +3,22 @@ title: 在 Azure Stack 上安裝 Azure 備份伺服器 | Microsoft Docs
 description: 使用 Azure 備份伺服器來保護或備份 Azure Stack 中的工作負載。
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: Azure 備份伺服器; 保護工作負載; 備份工作負載
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
-ms.author: markgal
-ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.author: raynew
+ms.openlocfilehash: 1e8c8efa590b6cce4543255dd33afbfd79aecef6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576692"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877162"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安裝 Azure 備份伺服器
 
@@ -91,7 +90,7 @@ Azure 備份伺服器虛擬機器必須加入網域。 具有系統管理員權�
 
 ## <a name="using-an-iaas-vm-in-azure-stack"></a>使用 Azure Stack 中的 IaaS 虛擬機器
 
-為 Azure 備份伺服器選擇伺服器時，請從 Windows Server 2012 R2 Datacenter 或 Windows Server 2016 Datacenter 資源庫映像開始。 即使您之前從未使用過 Azure，[快速入門：在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文提供有教學課程，說明如何使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求︰A2 標準，具備雙核心及 3.5-GB 的 RAM。
+為 Azure 備份伺服器選擇伺服器時，請從 Windows Server 2012 R2 Datacenter 或 Windows Server 2016 Datacenter 資源庫映像開始。 即使您之前從未使用過 Azure，[快速入門：在 Azure 入口網站中建立 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文提供有教學課程，說明如何使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰A2 標準，具備 2 個核心及 3.5 GB 的 RAM。
 
 使用 Azure 備份伺服器保護工作負載有許多細節需要注意。 [將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/jj852163.aspx)一文可協助說明這些細節。 在部署機器之前，請先確實閱讀此文章。
 
@@ -336,7 +335,7 @@ Azure 備份伺服器需要連線至 Azure 備份服務，產品才能順利運�
 
 ### <a name="recovering-from-loss-of-connectivity"></a>從連線中斷的情況復原
 
-如果防火牆或 Proxy 無法存取 Azure，請將防火牆/Proxy 設定檔中的下列網域位址列入白名單中：
+如果防火牆或 Proxy 無法存取 Azure，請將防火牆/Proxy 設定檔中的下列網域位址列入允許清單中：
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com

@@ -4,17 +4,17 @@ description: 本文說明如何分析 Azure 串流分析中的診斷記錄。
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/20/2017
-ms.openlocfilehash: 9001a2962806ee3e691fa448dde162d12c6ecdd2
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: db3c9874676e3240f6896c1e1ff8f873360c20d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30905856"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090817"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>使用析診斷記錄對 Azure 串流分進行疑難排解
 
@@ -36,15 +36,15 @@ ms.locfileid: "30905856"
 
 1.  登入 Azure 入口網站並前往串流作業刀鋒視窗。 在 [監視] 下，選取 [診斷記錄]。
 
-    ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/image1.png)  
+    ![瀏覽到診斷記錄的刀鋒視窗](./media/stream-analytics-job-diagnostic-logs/diagnostic-logs-monitoring.png)  
 
 2.  選取 [開啟診斷]。
 
-    ![開啟診斷記錄](./media/stream-analytics-job-diagnostic-logs/image2.png)
+    ![開啟串流分析診斷記錄](./media/stream-analytics-job-diagnostic-logs/turn-on-diagnostic-logs.png)
 
 3.  在 [診斷設定] 頁面的 [狀態]  上，選取 [開啟]。
 
-    ![變更診斷記錄的狀態](./media/stream-analytics-job-diagnostic-logs/image3.png)
+    ![變更診斷記錄的狀態](./media/stream-analytics-job-diagnostic-logs/save-diagnostic-log-settings.png)
 
 4.  設定封存目標 (儲存體帳戶、事件中樞、Log Analytics)。 然後選取您要收集的記錄類別 (執行、編寫)。 
 
@@ -52,7 +52,7 @@ ms.locfileid: "30905856"
 
 設定診斷大約需要 10 分鐘才會生效。 之後，記錄會開始出現在設定的封存目標中 (您可以在 [診斷記錄]頁面中看到這些記錄)：
 
-![瀏覽到診斷記錄的刀鋒視窗 - 封存目標](./media/stream-analytics-job-diagnostic-logs/image4.png)
+![瀏覽到診斷記錄的刀鋒視窗 - 封存目標](./media/stream-analytics-job-diagnostic-logs/view-diagnostic-logs-page.png)
 
 如需有關診斷設定的詳細資訊，請參閱[收集並取用來自 Azure 資源的診斷資料](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)。
 
@@ -77,7 +77,7 @@ Name | 說明
 分析 | 記錄的時間戳記 (UTC 時間)。
 ResourceId | 作業執行資源的識別碼 (大寫)。 其中包含訂用帳戶識別碼、資源群組，以及作業名稱。 例如，**/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**。
 category | 記錄類別 (**執行**或**編寫**)。
-operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出將失敗寫入 mysqloutput**。
+operationName | 記錄的作業名稱。 例如，**傳送事件︰SQL 輸出寫入失敗至 mysqloutput**。
 status | 作業的狀態。 例如，**失敗**或**成功**。
 層級 | 記錄層級。 例如，**錯誤**、**警告**或**資訊**。
 properties | 記錄項目特定詳細資料 (序列化為 JSON 字串)。 如需詳細資訊，請參閱下列幾節。
@@ -100,7 +100,7 @@ Name | 說明
 資料錯誤會隨 **operationName** 值的不同而有下列結構描述：
 * **序列化事件**。 序列化事件會在事件讀取作業期間發生。 當輸入上的資料不符合查詢結構描述時就會發生這類事件，發生原因可能是下列其中一個：
     * *事件 (還原) 序列化期間類型不相符*：找出造成錯誤的欄位。
-    * *無法讀取事件，序列化無效*：針對發生錯誤的輸入資料位置列出資訊。 包含 Blob 輸入的 Blob 名稱、位移和資料範例。
+    * *無法讀取事件，序列化無效*：針對發生錯誤的輸入資料位置列出相關資訊。 包含 Blob 輸入的 Blob 名稱、位移和資料範例。
 * **傳送事件**。 傳送事件會發生在寫入作業期間。 這些事件會識別造成錯誤的串流事件。
 
 ### <a name="generic-events"></a>一般事件

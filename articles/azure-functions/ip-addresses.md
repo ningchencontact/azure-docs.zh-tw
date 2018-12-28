@@ -7,14 +7,14 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 12/03/2018
 ms.author: glenga
-ms.openlocfilehash: a92a4183962f71005577478bf27df9b5fb945acf
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 83e5a15d8a7f9c01f6a180ebceb715600b8a39db
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634357"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849474"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure 中的 IP 位址 中的 IP 位址
 
@@ -56,7 +56,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query outboundI
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
 ```
 > [!NOTE]
-> 當執行[耗用量計劃](functions-scale.md#consumption-plan)的函式應用程式進行調整時，可能會指派新的輸出 IP 位址範圍。 在執行耗用量計劃時，您可能需要整個資料中心列入白名單。
+> 當執行[耗用量計劃](functions-scale.md#consumption-plan)的函式應用程式進行調整時，可能會指派新的輸出 IP 位址範圍。 在執行耗用量計劃時，您可能需要整個資料中心列入允許清單。
 
 ## <a name="data-center-outbound-ip-addresses"></a>資料中心輸出 IP 位址
 
@@ -88,13 +88,13 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 ## <a name="inbound-ip-address-changes"></a>輸入 IP 位址變更
 
- 當您執行下列動作時，輸入 IP 位址**可能**會變更：
+當您執行下列動作時，輸入 IP 位址**可能**會變更：
 
 - 刪除函式應用程式，並在不同資源群組中重建。
 - 刪除資源群組和區域組合中的最後一個函式應用程式，並予以重建。
 - 刪除 SSL 繫結，例如在[憑證更新](../app-service/app-service-web-tutorial-custom-ssl.md#renew-certificates)期間。
 
-如果您尚未採取任何動作 (例如所列的動作)，輸入 IP 位址也可能會改變。
+當函式應用程式在[取用方案](functions-scale.md#consumption-plan)中執行時，如果您尚未採取任何動作 (例如所列的動作)，輸入 IP 位址也可能會改變。
 
 ## <a name="outbound-ip-address-changes"></a>輸出 IP 位址變更
 
@@ -103,7 +103,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 * 採取任何可變更輸入 IP 位址的動作。
 * 變更您的 App Service 方案定價層。 您的應用程式可使用的所有可能輸出 IP 位址清單 (適用於所有定價層) 位於 `possibleOutboundIPAddresses` 屬性中。 請參閱[尋找輸出 IP](#find-outbound-ip-addresses)。
 
-如果您尚未採取任何動作 (例如所列的動作)，輸入 IP 位址也可能會改變。
+當函式應用程式在[取用方案](functions-scale.md#consumption-plan)中執行時，如果您尚未採取任何動作 (例如所列的動作)，輸出 IP 位址也可能會改變。
 
 若要故意強制輸出 IP 位址變更：
 

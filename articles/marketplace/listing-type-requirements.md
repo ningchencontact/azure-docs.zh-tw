@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 07a62dfa2d7e1c71daf547c5aa7c8c7d15830bfd
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 1c850b16492f725114fb23a8503f6345e1509212
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309311"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868662"
 ---
 # <a name="requirements-by-listing-type"></a>依清單類型別需求  
 技術與行銷內容需求會因店面、供應項目類型和清單類型而異。 請檢閱以下規格，檢查您的合規性。  
@@ -31,6 +31,7 @@ ms.locfileid: "36309311"
 
 ## <a name="storefront-requirements-appsource"></a>店面需求：AppSource  
 下表說明在 AppSource 發行的必要條件需求。  
+
 | 需求 | 詳細資料 | 必要或建議 |  
 |:--- |:--- |:--- |  
 | ***Azure Active Directory (Azure AD)*** | 您的應用程式必須允許 Azure Active Directory 同盟單一登入 (Azure AD 同盟 SSO) 並同意啟用。<ul> <li>如需有關啟用 Azure AD 同盟 SSO 的詳細資訊，請瀏覽 [設定不在 Azure Active Directory 應用程式庫中的應用程式的單一登入] 網頁：[docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-custom-apps)。</li> </ul> | 必要 |   
@@ -45,6 +46,7 @@ ms.locfileid: "36309311"
 
 ## <a name="storefront-requirements-azure-marketplace"></a>店面需求：Azure Marketplace  
 以下是 Azure Marketplace 中清單類型的必要條件需求。  
+
 | 需求 | 詳細資料 | 清單類型 |  
 |:--- |:--- |:--- |  
 | ***參與原則*** | 您的應用程式必須遵守 Azure Marketplace 參與原則。<ul> <li>如需參與原則的相關詳細資訊，請參閱 Azure Marketplace 參與原則網頁：[azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)。</li></ul> | list<br />交易<br />試用版 |  
@@ -100,7 +102,7 @@ ms.locfileid: "36309311"
 
 | 需求 | 詳細資料 |  
 |:--- |:--- |  
-| 免費試用期與試用版體驗 | 客戶可以在限時內免費使用您的應用程式。<br /><br />客戶不需要支付任何供應項目或應用程式的授權或訂閱費用。 客戶不需要支付基本 Microsoft 第一方產品或服務的費用。 所有試用版選項都會部署到您的 Azure 訂用帳戶。 您可完全控制成本最佳化和管理。<br /><br />您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。<ul> <li>若要開始建立試用產品的程序，請傳送電子郵件與 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) 聯繫。</li> </ul>注意：Azure Marketplace SaaS 試用版體驗必須允許客戶以其工作認證來登入。<ul> <li>如需詳細資訊，請瀏覽 AppSource 試用體驗章節：[docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。</li> </ul> |  
+| 免費試用期與試用版體驗 | 客戶可以在限時內免費使用您的應用程式。<br /><br />客戶不需要支付任何供應項目或應用程式的授權或訂閱費用。 客戶不需要支付基本 Microsoft 第一方產品或服務的費用。 所有試用版選項都會部署到您的 Azure 訂用帳戶。 您可完全控制成本最佳化和管理。<br /><br />您可以選擇免費試用版、互動式示範或試用產品。 無論您的選擇為何，免費試用版都必須讓客戶能在預先設定的期間內試用應用程式，無須支付額外費用。<ul> <li>若要開始建立試用產品的程序，請傳送電子郵件給 [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com)。</li> </ul>注意：Azure Marketplace SaaS 試用版體驗必須允許客戶以其工作認證來登入。<ul> <li>如需詳細資訊，請瀏覽＜AppSource 試用體驗＞一節：[docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified#appsource-trial-experiences)。</li> </ul> |  
 | 輕鬆設定、立即可用的解決方案 | 應用程式的設定和安全必須既簡單又快速。 |  
 | 可用性 / 執行時間 | SaaS 應用程式或平台的執行時間必須至少達到 99.9%。 |  
 | Azure Active Directory | 您的供應項目必須允許 Azure Active Directory (Azure AD) 同盟單一登入 (SSO) (Azure AD 同盟 SSO) 並啟用同意功能。 |  

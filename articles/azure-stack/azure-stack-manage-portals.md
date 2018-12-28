@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/04/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 58856875fa7d7bb3ba63c489fb17790e68f99aec
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085777"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872181"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>使用 Azure Stack 中的系統管理員入口網站
 
@@ -86,6 +86,10 @@ Azure Stack 中有兩種入口網站：系統管理員入口網站和使用者�
 
 - 如果您使用的是整合系統，此動作會開啟一個網站，可讓您直接向「Microsoft 客戶支援服務」(CSS) 建立支援票證。 若要了解何時該尋求 Microsoft 支援或原始設備製造商 (OEM) 硬體廠商支援，請參閱[從哪裡取得支援](azure-stack-manage-basics.md#where-to-get-support)。
 - 如果您使用的是開發套件，則此動作會直接開啟 Azure Stack 論壇網站。 我們會定期留意這些論壇。 由於開發套件是一個評估環境，因此並未透過 Microsoft CSS 提供官方支援。
+
+### <a name="quick-access-to-the-azure-roadmap"></a>快速存取 Azure 藍圖
+
+如果您選取系統管理員入口網站右上角的 [說明及支援] (問號)，然後選取 [Azure 藍圖]，便會有新的瀏覽器索引標籤開啟，並帶您前往 Azure 藍圖。 在 [產品] 搜尋方塊中輸入 **Azure Stack**，您就可以看到所有的 Azure Stack 藍圖更新。
 
 ## <a name="next-steps"></a>後續步驟
 

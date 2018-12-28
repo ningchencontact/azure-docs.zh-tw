@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/06/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: e6f7d255fbfbcd740d9f3a7c2743f57cecea1abf
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1800ab19e2d99eb639ef4064e64d7bc475aa0c36
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51298739"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014855"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 資料中心整合 - 發佈端點
 
@@ -79,10 +79,14 @@ Azure Stack 僅支援 Transparent Proxy 伺服器。 在 Transparent Proxy 上�
 |NTP|(可供部署的 NTP 伺服器 IP)|UDP|123|
 |DNS|(可供部署的 DNS 伺服器 IP)|TCP<br>UDP|53|
 |CRL|(您的憑證上 CRL 發佈點之下的 URL)|HTTP|80|
+|基礎結構備份|(外部目標檔案伺服器的 IP 或 FQDN)|SMB|445|
 |     |     |     |     |
 
 > [!Note]  
 > 輸出 URL 會使用 Azure 流量管理員進行負載平衡，以根據地理位置提供可能的最佳連線能力。 利用負載平衡的 URL，Microsoft 可以更新和變更後端端點，但不會影響客戶。 Microsoft 不會共用已負載平衡 URL 的 IP 位址清單。 您應該使用可支援依照 URL (而非依照 IP) 篩選的裝置。
+
+> [!Note]  
+> 在 1809 中，基礎結構備份服務會從公用 VIP 網路與外部檔案伺服器通訊。 在 1809 之前，服務會透過公用基礎結構網路進行通訊。 如果您的環境不允許從公用 VIP 網路存取基礎結構資源，請套用 Azure Stack 的最新 [1809 Hotfix](azure-stack-update-1809.md#post-update-steps)。 此 Hotfix 會將基礎結構備份服務重新移回公用基礎結構網路。 在 1811 中，如果您套用了 1809 Hotfix，就會在公用基礎結構網路上保留基礎結構備份服務。 若未套用此 Hotfix，則會在更新時將此服務移回公用基礎結構網路。
 
 ## <a name="next-steps"></a>後續步驟
 

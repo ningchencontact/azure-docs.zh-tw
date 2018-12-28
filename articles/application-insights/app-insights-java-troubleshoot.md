@@ -9,16 +9,15 @@ ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: mbullwin
-ms.openlocfilehash: b74f40c093ca4cc62330de321ea2b53315b903db
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 95eb5475f5584830eac5bd9c690be4a6a85de5c8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247359"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016720"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Application Insights for Java 的疑難排解和問答集
 [Java 中的 Azure Application Insights][java] 疑問或問題？ 以下是一些秘訣。
@@ -26,7 +25,7 @@ ms.locfileid: "51247359"
 ## <a name="build-errors"></a>建置錯誤
 **在 Eclipse 或 Intellij Idea 中，透過 Maven 或 Gradle 加入 Application Insights SDK 時，我收到建置或總和檢查碼驗證錯誤。**
 
-* 如果相依性 <version> 元素使用具有萬用字元的模式 (例如 (Maven) `<version>[2.0,)</version>` 或 (Gradle) `version:'2.0.+'`)，請嘗試改為指定特定版本 (例如 `2.0.1`)。 請參閱最新版本的 [版本資訊](https://github.com/Microsoft/ApplicationInsights-Java/releases) 。
+* 如果相依性 <version> 元素使用具有萬用字元的模式 (例如(Maven) `<version>[2.0,)</version>` 或 (Gradle) `version:'2.0.+'`)，請嘗試改為指定特定版本 (例如 `2.0.1`)。 請參閱最新版本的 [版本資訊](https://github.com/Microsoft/ApplicationInsights-Java/releases) 。
 
 ## <a name="no-data"></a>沒有資料
 **我已成功加入 Application Insights 並執行我的應用程式，但在入口網站中從未看到資料。**
@@ -36,7 +35,7 @@ ms.locfileid: "51247359"
 * 確認 xml 檔案中沒有 `<DisableTelemetry>true</DisableTelemetry>` 節點。
 * 在防火牆中，您可能必須開啟 TCP 連接埠 80 和 443，以允許連出流量送往 dc.services.visualstudio.com。 請參閱 [完整的防火牆例外狀況清單](app-insights-ip-addresses.md)
 * 在 Microsoft Azure 開始面板中，查看服務狀態對應。 如果看到一些警示指示，請等待它們恢復 [正常]，然後關閉再重新開啟 Application Insights 應用程式刀鋒視窗。
-* 在 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 的根節點下加入 `<SDKLogger />` 元素，以開啟記錄至 IDE 主控台視窗，然後檢查前面加上 AI: INFO/WARN/ERROR 的項目，看看是否有任何可疑記錄。
+* 在 ApplicationInsights.xml 檔案 (位於專案的 resources 資料夾) 的根節點下加入 `<SDKLogger />` 元素，即可開啟記錄至 IDE 主控台視窗，然後檢查前面加上 AI:INFO/WARN/ERROR 的項目，確認是否有任何可疑的記錄。
 * 藉由查看主控台的輸出訊息「已成功找到組態檔」陳述式，確定 Java SDK 已成功載入正確的 ApplicationInsights.xml 檔案。
 * 如果找不到組態檔，請檢查輸出訊息以查看在何處搜尋組態檔，並確定 ApplicationInsights.xml 位在這些搜尋位置中的其中一個位置。 根據經驗法則，您可以將組態檔置於 Application Insights SDK JAR 附近。 例如：在 Tomcat 中，這可能表示 WEB-INF/classes 資料夾。 在開發過程中，您可以將 ApplicationInsights.xml 放在您 Web 專案的 resources 資料夾中。
 * 另外也請查看 [GitHub 問題頁面](https://github.com/Microsoft/ApplicationInsights-Java/issues) \(英文\) 以了解 SDK 的已知問題。
@@ -57,7 +56,7 @@ ms.locfileid: "51247359"
 ### <a name="java-agent-cannot-capture-dependency-data"></a>Java 代理程式無法擷取相依性資料
 * 您是否已依下列的[設定 Java 代理程式](app-insights-java-agent.md)設定 Java 代理程式？
 * 請確定 Java 代理程式 jar 與 AI-Agent.xml 檔案放在相同的資料夾中。
-* 請確定您嘗試要自動收集的相依性支援自動收集。 目前我們只支援 MySQL、MsSQL、Oracle DB 和 Redis 快取相依性集合。
+* 請確定您嘗試要自動收集的相依性支援自動收集。 目前我們只支援 MySQL、MsSQL、Oracle DB 和 Azure Cache for Redis 相依性集合。
 * 您使用的是 JDK 1.7 或 1.8？ 目前我們不支援 JDK 9 中的相依性集合。
 
 ## <a name="no-usage-data"></a>沒有使用狀況資料
@@ -157,7 +156,7 @@ Application insights 會使用 `org.apache.http`。 這會重新配置在 Applic
 * [擷取診斷記錄][javalogs]
 
 ## <a name="get-help"></a>取得說明
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [在 GitHub 上提出問題](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 
 <!--Link references-->

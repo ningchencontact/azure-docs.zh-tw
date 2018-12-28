@@ -1,26 +1,19 @@
 ---
-title: 將虛擬網路閘道新增到 ExpressRoute 的 VNet：入口網站：Azure | Microsoft Docs
+title: 為 ExpressRoute 將閘道新增至 Azure VNet：入口網站 | Microsoft Docs
 description: 本文將逐步引導您完成將虛擬網路閘道新增到已經建立之 ExpressRoute 的 Resource Manager VNet。
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/17/2017
+ms.date: 12/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6198c8723ccbb225a4cc60526e66f4651390b26c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 37fe2e2adb947e2e9ddc86a34baf6994b5771be6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255688"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091198"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>使用 Azure 入口網站為 ExpressRoute 設定虛擬網路閘道
 > [!div class="op_single_selector"]
@@ -46,7 +39,7 @@ ms.locfileid: "51255688"
     * 子網路位址空間 = "192.168.1.0/24"
 * 資源群組 = "TestRG"
 * 位置 = "美國東部"
-* 閘道器子網路名稱："GatewaySubnet"，您必須一律將閘道器子網路命名為 *GatewaySubnet*。
+* 閘道子網路名稱："GatewaySubnet"，您必須一律將閘道器子網路命名為 *GatewaySubnet*。
     * 閘道子網路位址空間 = "192.168.200.0/26"
 * 閘道名稱 = "ERGW"
 * 閘道 IP 名稱 = "MyERGWVIP"
@@ -75,12 +68,12 @@ ms.locfileid: "51255688"
 
     ![建立虛擬網路閘道刀鋒視窗欄位](./media/expressroute-howto-add-gateway-portal-resource-manager/gw.png "建立虛擬網路閘道刀鋒視窗欄位")
 3. **名稱**：為您的閘道命名。 這與為閘道子網路命名不同。 這是您要建立之閘道物件的名稱。
-4. **閘道類型**︰選取 [ExpressRoute]。
-5. **SKU**︰從下拉式清單中選取閘道 SKU。
-6. **位置**：調整 [位置] 欄位以指向您的虛擬網路所在的位置。 如果位置並未指向您的虛擬網路所在的區域，則此虛擬網路不會出現在 [選擇虛擬網路] 下拉式清單中。
+4. **閘道類型**：選取 [ExpressRoute]。
+5. **SKU**：從下拉式清單中選取閘道 SKU。
+6. **位置**：調整 [位置]  欄位以指向您的虛擬網路所在的位置。 如果位置並未指向您的虛擬網路所在的區域，則此虛擬網路不會出現在 [選擇虛擬網路] 下拉式清單中。
 7. 選擇您要新增此閘道的虛擬網路。 按一下 [虛擬網路] 以開啟 [選擇擇虛擬網路] 刀鋒視窗。 選取 VNet。 如果您沒看到您的 VNet，請確定 [位置] 欄位是指向您的虛擬網路所在的區域。
 9. 選擇公用 IP 位址。 按一下 [公用 IP 位址] 以開啟 [選擇公用 IP 位址] 刀鋒視窗。 按一下 [+新建] 以開啟 [建立公用 IP 位址] 刀鋒視窗。 輸入公用 IP 位址的名稱。 此刀鋒視窗會建立將動態獲派公用 IP 位址的公用 IP 位址物件。 按一下 [確定] 將變更儲存至此刀鋒視窗。
-10. **訂用帳戶**：請確認已選取正確的訂用帳戶。
+10. 訂用帳戶：請確認已選取正確的訂用帳戶。
 11. **資源群組**：此設定取決於您選取的虛擬網路。
 12. 指定上述設定之後，請勿調整 [位置]。
 13. 確認設定。 如果您希望閘道顯示在儀表板上，可以選取刀鋒視窗底部的 [釘選到儀表板]。

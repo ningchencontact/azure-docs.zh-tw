@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/30/2018
-ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 12/6/2018
+ms.openlocfilehash: 89451122ff8cae33f1710fc1458fcd4277964e1f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982873"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090987"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>「適用於 MySQL 的 Azure 資料庫」中的限制
 下列各節說明資料庫服務中的容量、儲存引擎支援、權限支援、資料操作陳述式支援，以及功能限制。 另請參閱適用於 MySQL 資料庫引擎的[一般限制](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) \(英文\)。
@@ -31,13 +31,15 @@ ms.locfileid: "45982873"
 |一般用途| 8| 1250|
 |一般用途| 16| 2500|
 |一般用途| 32| 5000|
+|一般用途| 64| 10000|
 |記憶體最佳化| 2| 600|
 |記憶體最佳化| 4| 1250|
 |記憶體最佳化| 8| 2500|
 |記憶體最佳化| 16| 5000|
+|記憶體最佳化| 32| 10000|
 
 當連線超過限制時，則可能會收到下列錯誤：
-> 錯誤 1040 (08004)：太多的連接
+> 錯誤 1040 (08004)：太多連線
 
 ## <a name="storage-engine-support"></a>儲存引擎支援
 

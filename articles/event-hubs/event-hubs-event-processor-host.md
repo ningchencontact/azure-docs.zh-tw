@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞的事件處理器主機是什麼，以及為何要使用它 | Microsoft Docs
-description: Azure 事件中樞的事件處理器主機概觀和簡介
+title: 使用事件處理器主機接收事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文將說明 Azure 事件中樞內的事件處理器主機；此主機可簡化檢查點、租用和平行事件讀取的管理。
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a28ae46a449d4aacf046636793585a84adc5ba83
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258947"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089618"
 ---
-# <a name="azure-event-hubs-event-processor-host-overview"></a>Azure 事件中樞的事件處理器主機概觀
+# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>使用事件處理器主機從 Azure 事件中樞接收事件
 
 Azure 事件中樞是能以低成本串流數百萬個事件的強大遙測擷取服務。 本文將說明如何使用「事件處理器主機」(EPH) 來取用內嵌事件；事件處理器主機是智慧型取用者代理程式，可簡化檢查點、租用和平行事件讀取器的管理。  
 
@@ -36,16 +37,16 @@ Azure 事件中樞是能以低成本串流數百萬個事件的強大遙測擷�
 
 在分散式環境中設計取用者時，案例必須處理下列需求：
 
-1. **縮放：** 建立多個取用者，而每個取用者都會負責從幾個事件中樞分割區讀取資料。
+1. **調整：** 建立多個取用者，而每個取用者都會負責從幾個事件中樞分割區讀取資料。
 2. **負載平衡：** 以動態方式增加或減少取用者。 例如，對每個家庭新增感應器類型 (例如一氧化碳偵測器) 時，事件數目就會增加。 在此情況下，操作人員會增加取用者執行個體的數目。 然後，取用者集區可以重新平衡他們擁有的分割區數目，讓新增的取用者共同分攤負載。
 3. **在失敗時無縫接續：** 如果取用者 (**取用者 A**) 發生失敗 (例如，裝載取用者的虛擬機器突然損毀)，則其他取用者必須可接手**取用者 A** 負責的分割區並繼續作業。 此外，接續點 (稱為「檢查點」或「位移」) 應剛好位在**取用者 A** 失敗的位置，或在此稍微前面一點的位置。
-4. **取用事件：** 在前面三點處理取用者管理的同時，必須有程式碼來取用事件並對其做些有益處的事；例如，彙總並上傳至 blob 儲存體。
+4. **取用事件：** 在前面三點處理取用者管理的同時，必須有程式碼來取用事件並對其執行有效益的動作；例如，彙總並上傳至 Blob 儲存體。
 
 您無須為此建置自己的解決方案，事件中樞會透過 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面和 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 類別提供這項功能。
 
 ## <a name="ieventprocessor-interface"></a>IEventProcessor 介面
 
-首先，取用的應用程式會實作 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面，這有四種方法：[OpenAsync、CloseAsync、ProcessErrorAsync 和 ProcessEventsAsnyc](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)。 此介面包含實際程式碼，可用來取用事件中樞傳送的事件。 下列程式碼會示範簡單的實作：
+首先，取用的應用程式會實作 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 介面，這有四種方法：[OpenAsync、CloseAsync、ProcessErrorAsync 和 ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet#methods)。 此介面包含實際程式碼，可用來取用事件中樞傳送的事件。 下列程式碼會示範簡單的實作：
 
 ```csharp
 public class SimpleEventProcessor : IEventProcessor
@@ -85,7 +86,7 @@ public class SimpleEventProcessor : IEventProcessor
 - **hostName：** 每個取用者執行個體的名稱。 在取用者群組內，**EventProcessorHost** 的每個執行個體都必須有此變數的唯一值，因此最好不要對此值使用硬式編碼。
 - **eventHubPath：** 事件中樞的名稱。
 - **consumerGroupName：** 事件中樞會使用 **$Default** 作為預設的取用者群組名稱，但最佳做法是針對特定處理層面來建立取用者群組。
-- **eventHubConnectionString：** 事件中樞的連接字串，可從 Azure 入口網站擷取此項目。 此連接字串應有事件中樞上的**接聽**權限。
+- **eventHubConnectionString：** 事件中樞的連接字串，可從 Azure 入口網站擷取。 此連接字串應有事件中樞上的**接聽**權限。
 - **storageConnectionString：** 用於內部資源管理的儲存體帳戶。
 
 最後，取用者會向事件中樞服務註冊 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 執行個體。 使用 EventProcessorHost 的執行個體來註冊事件處理器類別，會開始處理事件。 註冊作業會指示事件中樞服務，以預期取用者應用程式會從服務的分割區取用某些事件，以及在其推送事件以進行取用時，叫用 [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 實作程式碼。 
@@ -151,11 +152,11 @@ EPH 執行個體 (或取用者) 的分割區擁有權可透過 Azure 儲存體�
 
 此外，[RegisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) 的一個多載會採用 [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.registereventprocessorasync?view=azure-dotnet#Microsoft_Azure_EventHubs_Processor_EventProcessorHost_RegisterEventProcessorAsync__1_Microsoft_Azure_EventHubs_Processor_EventProcessorOptions_) 物件作為參數。 使用此參數來控制 [EventProcessorHost.UnregisterEventProcessorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost.unregistereventprocessorasync) 本身的行為。 [EventProcessorOptions](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions) 會定義四個屬性與一個事件：
 
-- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize)：您想要在 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 引動過程中收到的集合大小上限。 這個大小沒有最小值，只有最大的大小。 如果會收到較少的訊息，**ProcessEventsAsync** 會執行可用的數量。
+- [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize)：您想要在叫用 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 的過程中收到的集合大小上限。 這個大小沒有最小值，只有最大的大小。 如果會收到較少的訊息，**ProcessEventsAsync** 會執行可用的數量。
 - [PrefetchCount](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.prefetchcount)：基礎 AMQP 通道使用的值，用來決定用戶端應收到多少訊息的上限。 此值應大於或等於 [MaxBatchSize](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.maxbatchsize)。
-- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout)：如果這個參數是 **true**，當分割區上接收事件的基礎呼叫逾時時，就會呼叫 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)。在分割區上沒有活動的期間，此方法可用來採取以時間為基礎的動作。
+- [InvokeProcessorAfterReceiveTimeout](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.invokeprocessorafterreceivetimeout)：如果這個參數是 **true**，只要接收分割區相關事件的基礎呼叫逾時，就會呼叫 [ProcessEventsAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync)。在分割區上沒有活動的期間，此方法可用來採取以時間為基礎的動作。
 - [InitialOffsetProvider](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessoroptions.initialoffsetprovider)：可設定函式指標或 lambda 運算式，對其進行呼叫即可在讀取器開始讀取分割區時提供初始位移。 如果沒有指定此位移，讀取器會從最舊的事件開始，除非提供給 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 建構函式的儲存體帳戶中已儲存具有位移的 JSON 檔案。 當您想變更讀取器啟動的行為時，此方法十分實用。 叫用此方法時，物件參數會包含正在啟動讀取器的分割區識別碼。
-- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs)：可讓您接收 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 中發生的任何基礎例外狀況通知。 如果事情無法如預期般進行，此事件就是開始查看的適當位置。
+- [ExceptionReceivedEventArgs](/dotnet/api/microsoft.azure.eventhubs.processor.exceptionreceivedeventargs)：可讓您接收在 [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) 中發生了任何基礎例外狀況的通知。 如果事情無法如預期般進行，此事件就是開始查看的適當位置。
 
 ## <a name="next-steps"></a>後續步驟
 

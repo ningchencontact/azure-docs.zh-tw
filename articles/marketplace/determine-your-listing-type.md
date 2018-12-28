@@ -1,6 +1,6 @@
 ---
 title: 決定您在 Azure Marketplace 中的發佈選項 | Azure
-description: 此文章說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
+description: 本文說明合作夥伴若要了解如何發佈應用程式到 Azure Marketplace 的資格條件和發佈需求。
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: jm-aditi-ms
@@ -14,25 +14,25 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 6d05323eb08a69ef4b76dbbf35217d80b9b2dc3c
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 0ad4fef9dd67ed0bf2bc9a3c66e26fc111526b90
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261066"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081535"
 ---
 # <a name="determine-your-publishing-option"></a>決定您的發佈選項
 您為供應項目選擇的發佈選項，與資格需求和市集 GTM 權益直接相關。 更重要的是，Cloud Partner 入口網站中發佈選項和供應項目類型的選取項目，會定義使用者與市集供應項目互動的方式。
 
 您可以藉由在 Cloud Partner 入口網站中選取供應項目類型，然後建立市集供應項目，以啟用發佈選項。 若要執行這個操作，您必須了解下列主要市集概念：發佈選項、供應項目類型和組態及呼籲行動，這些項目控制您的供應項目在市集店面展示的方式和位置。
 
-![](https://github.com/ellacroi/azure-docs-pr/blob/options-table/articles/marketplace/media/marketplace-publishers-guide/storefronts_options_table.png?raw=true)
+![](./media/marketplace-publishers-guide/storefronts_options_table.png)
 
 >[!Note]
 >上表描述您的解決方案或服務如何對應到用來在市集中展示供應項目的店面、發佈選項和供應項目類型。
 
 
-在此文章中，您將了解…
+在本文中，您將了解…
 <ul><li>    如何為解決方案決定適當的店面 </ul></li>
 <ul><li>    每個店面中有哪些發佈選項和呼籲行動可用 </ul></li>
 <ul><li>    每個發佈選項有哪些供應項目類型可用 </ul></li>

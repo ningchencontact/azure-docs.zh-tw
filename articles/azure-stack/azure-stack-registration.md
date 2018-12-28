@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 8d737c9fbf149051a8142f5ff546ea88e648541b
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 58dfb3f02b338d62fcfb10e4d8c1bc492cdacbda
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976361"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890546"
 ---
 # <a name="register-azure-stack-with-azure"></a>向 Azure 註冊 Azure Stack
 
@@ -121,8 +121,8 @@ Run: get-azurestackstampinformation
 
 2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
-   ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```PowerShell
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 參數 | 說明 |  
@@ -150,8 +150,12 @@ Run: get-azurestackstampinformation
 6. 接下來，在相同的 PowerShell 工作階段中，確定您已登入正確的 Azure PowerShell 環境。 這是用來註冊上述 Azure Stack 資源提供者的 Azure 帳戶。 要執行的 Powershell：
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
+
+   | 參數 | 說明 |  
+   |-----|-----|
+   | EnvironmentName | Azure 雲端訂用帳戶環境名稱。 支援的環境名稱為 **AzureCloud**、**AzureUSGovernment**，或如果使用中國 Azure 訂用帳戶，則為 **AzureChinaCloud**。  |
 
 7. 在相同的 PowerShell 工作階段中，執行 **Set-AzsRegistration** Cmdlet。 要執行的 PowerShell：  
 
@@ -182,7 +186,7 @@ Run: get-azurestackstampinformation
 2. 新增您用來註冊 Azure Stack 的 Azure 帳戶。 若要新增帳戶，請執行 **Add-AzureRmAccount** Cmdlet。 當系統提示您輸入 Azure 帳戶認證時，您可能需要根據帳戶的組態使用雙因素驗證。
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+      Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | 參數 | 說明 |  
@@ -298,7 +302,7 @@ Run: get-azurestackstampinformation
 
 使用下列步驟確認 Azure Stack 已成功向 Azure 註冊。
 
-1. 登入 Azure Stack [系統管理員入口網站](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;region>.&lt;fqdn>*。
+1. 登入 Azure Stack [系統管理入口網站](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal)：https&#58;//adminportal.*&lt;region>.&lt;fqdn>*。
 2. 選取 [所有服務]，然後在 [系統管理] 分類下，選取 [Marketplace 管理]  >  [從 Azure 新增]。
 
 如果您看到 Azure 提供的項目清單 (例如 WordPress)，則表示啟用已成功。 不過，在已中斷連線的環境中，您不會在Azure Stack 市集中看到 Azure 市集項目。
@@ -432,7 +436,7 @@ Run: get-azurestackstampinformation
 | ResourceGroupLocation | 字串 |  |
 | BillingModel | 字串 | 您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False | 判斷是否可在入口網站中使用 Marketplace 管理功能。 如果在有網際網路連線的情況下註冊，則設定為 True。 如果在已中斷連線的環境中註冊，則設定為 False。 若為中斷連線的註冊，[離線摘要整合工具](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario)可用於下載 Marketplace 項目。 |
-| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值為：True、False。 |
+| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
 | AgreementNumber | 字串 |  |
 | RegistrationName | 字串 | 如果您要在多個 Azure Stack 執行個體上，使用相同的 Azure 訂用帳戶識別碼執行註冊指令碼，請為註冊設定唯一的名稱。 此參數的預設值是 **AzureStackRegistration**。 不過，如果您在多個 Azure Stack 執行個體上使用相同的名稱，指令碼將會失敗。 |
 
@@ -454,7 +458,7 @@ Get-AzsRegistrationToken 會從輸入參數產生註冊權杖。
 | ResourceGroupLocation | 字串 |  |
 | BillingModel | 字串 | 您的訂用帳戶所使用的計費模型。 此參數允許的值：Capacity、PayAsYouUse 和 Development。 |
 | MarketplaceSyndicationEnabled | True/False |  |
-| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值為：True、False。 |
+| UsageReportingEnabled | True/False | Azure Stack 預設會回報使用計量。 操作員如果使用容量或支援已中斷連線的環境，將必須關閉使用量報告功能。 此參數允許的值：True、False。 |
 | AgreementNumber | 字串 |  |
 
 

@@ -11,15 +11,20 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 15fd86a88c3025f81741d614b03d5c4c7c60262c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 11/30/2018
+ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351737"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871701"
 ---
-# <a name="general-purpose-and-business-critical-service-tiers"></a>一般用途與商務關鍵服務層
+# <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 服務層
+
+Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
+- [一般目的](sql-database-service-tier-general-purpose.md)專門用於大部分的一般工作負載。
+- [業務關鍵](sql-database-service-tier-business-critical.md)專門用於具有一個可讀複本的低延遲工作負載。
+- [超大規模](sql-database-service-tier-hyperscale.md)專門用於具有多個可讀複本的大型資料庫 (最多 100 TB)。
 
 本文討論以 V 核心為基礎的購買模型中，一般用途和業務關鍵服務層的儲存體和備份考量。
 

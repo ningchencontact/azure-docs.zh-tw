@@ -1,18 +1,19 @@
 ---
-title: Azure ExpressRoute 常見問題集 | Microsoft Docs
+title: 常見問題集 - Azure ExpressRoute | Microsoft Docs
 description: ExpressRoute 常見問題集包含支援的 Azure 服務、費用、資料和連線、SLA、提供者和位置、頻寬等資訊及其他技術詳細資料。
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.author: cherylmc
-ms.openlocfilehash: 8cde172207717aca2af5dfa706f7d9c6d290c36e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 10/28/2018
+ms.author: jaredro
+ms.custom: seodec18
+ms.openlocfilehash: 0621c2d1632dead41463810b9e71ebf0404a8cbe
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239197"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077744"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常見問題集
 
@@ -26,7 +27,7 @@ ExpressRoute 連線不會經過公用網際網路。 相較於網際網路一般
 
 ### <a name="where-is-the-service-available"></a>哪裡可以使用此服務？
 
-請參閱以下頁面，以取得服務位置和可用性： [ExpressRoute 合作夥伴和位置](expressroute-locations.md)。
+請參閱以下頁面，以取得服務位置和可用性：[ExpressRoute 合作夥伴和位置](expressroute-locations.md)。
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>如果我和其中一個 ExpressRoute 載波合作夥伴沒有合作關係，我要如何使用 ExpressRoute 來與 Microsoft 連線？
 
@@ -68,8 +69,8 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 
 * Power BI
 * Dynamics 365 for Finance and Operations (先前稱為 Dynamics AX Online)
-* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>
-  不支援下列服務：
+* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>
+  **不支援下列服務**：
     * CDN
     * 多因素驗證
     * 流量管理員
@@ -81,7 +82,7 @@ ExpressRoute 針對各種服務類型支援[三種路由網域](expressroute-cir
 * Power BI
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure 全域服務社群)
-* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br>**不支援**下列服務：
+* 支援大部分 Azure 服務。 請直接檢查您要用來驗證支援的服務。<br><br>**不支援下列服務**：
     * CDN
     * 多因素驗證
     * 流量管理員

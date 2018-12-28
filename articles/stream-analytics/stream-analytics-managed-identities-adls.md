@@ -1,20 +1,21 @@
 ---
-title: 使用受控識別來向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業 (預覽)
-description: ''
+title: 向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業
+description: 本文說明如何使用受控識別向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/27/2018
-ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365283"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090426"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>使用受控識別來向 Azure Data Lake Storage Gen1 輸出驗證 Azure 串流分析作業 (預覽)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>使用受控識別向 Azure Data Lake Storage Gen1 驗證串流分析 (預覽)
 
 Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受控識別驗證。 身分識別是在 Azure Active Directory 中註冊的受控應用程式，代表了指定的串流分析作業，並可用來向指定的資源驗證。 受控識別消除了以使用者為基礎的驗證方法限制，比如因為密碼改變或使用者權杖每 90 天到期一次而需要重新驗證。 此外，受控識別有助於進行輸出至 Azure Data Lake Storage Gen1 的串流分析作業部署自動化。
 
@@ -32,7 +33,7 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
 
    當組態儲存時，服務主體的物件識別碼 (OID) 會列為主體識別碼，如下所示：
 
-   ![串流分析主體識別碼](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+   ![串流分析服務主體識別碼](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
  
    服務主體與串流分析作業的名稱相同。 例如，如果您作業的名稱是 **MyASAJob**，建立的服務主體名稱也會是 **MyASAJob**。
 
@@ -56,11 +57,11 @@ Azure 串流分析支援向 Azure Data Lake Storage (ADLS) Gen1 輸出進行受�
  
 8. 在 [權限] 窗格中，選取 [寫入] 和 [執行] 權限，並將其指派至 [此資料夾及所有子系]。 然後按一下 [確定]。
 
-   ![選取權限](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+   ![選取寫入和執行權限](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
  
 9. 服務主體會列在 [存取] 窗格 [指派的權限] 底下，如下所示。 您現在可以返回並啟動您的串流分析作業。
 
-   ![存取清單](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![入口網站中的串流分析存取清單](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    若要深入了解 Data Lake Storage Gen1 檔案系統權限，請參閱 [Azure Data Lake Storage Gen1 的存取控制](../data-lake-store/data-lake-store-access-control.md)。
 
