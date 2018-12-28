@@ -135,7 +135,7 @@ ms.locfileid: "52319057"
 
 5.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)。
 
-6.  反白 **HKEY_LOCAL_MACHINE**  索引鍵，然後從功能表選取 [檔案] ****[載入 Hive] >  。
+6.  反白 **HKEY_LOCAL_MACHINE**  索引鍵，然後從功能表選取 [檔案] [載入 Hive] > 。  **** 
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
@@ -164,7 +164,7 @@ ms.locfileid: "52319057"
         
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-9.  反白  **BROKENSYSTEM**，然後從功能表選取 [檔案] **** > [上傳 Hive] 。
+9.  反白  **BROKENSYSTEM**，然後從功能表選取 [檔案] > [上傳 Hive] 。  ****
 
 10. [中斷連結系統磁碟，並重新建立虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
 
