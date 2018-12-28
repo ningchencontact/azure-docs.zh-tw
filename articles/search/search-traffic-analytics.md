@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務的搜尋流量分析 | Microsoft Docs
+title: 搜尋流量分析 - Azure 搜尋服務
 description: 啟用 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 的搜尋流量分析，來深入分析您的使用者與資料。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/05/2017
 ms.author: heidist
-ms.openlocfilehash: 4b40e8c9f681b7489c0ab2ffe7b369cc869c73e2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: 4cc7434508e49715e95c87421db2bbed7e20de05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777254"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310231"
 ---
 # <a name="what-is-search-traffic-analytics"></a>什麼是搜尋流量分析
 搜尋流量分析是一種模式，可用來實作搜尋服務的意見反應管道。 這個模式描述必要的資料，以及如何使用監視多平台服務中的業界領導者 Application Insights 來加以收集。
@@ -30,7 +31,7 @@ Azure 搜尋服務所提供的遙測解決方案可整合 Azure Application Insi
 
 1. 使用者產生的搜尋事件︰僅使用者所起始的搜尋查詢才有趣。 用來填入 Facet、其他內容或任何內部資訊的搜尋要求並不重要，而且還會扭曲和偏差結果。
 
-2. 使用者產生的點選事件︰透過此文件中的點選，我們意指選取搜尋查詢所傳回之特定搜尋結果的使用者。 點選通常表示文件為特定搜尋查詢的相關結果。
+2. 使用者產生的按一下事件：透過在此文件中按一下，我們意指選取搜尋查詢所傳回之特定搜尋結果的使用者。 點選通常表示文件為特定搜尋查詢的相關結果。
 
 使用相互關聯的識別碼將搜尋和點選事件進行連結，就可以分析您應用程式上的使用者行為。 僅使用搜尋流量記錄並無法取得這些搜尋深入分析。
 

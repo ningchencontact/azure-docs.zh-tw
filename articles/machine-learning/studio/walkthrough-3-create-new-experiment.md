@@ -3,10 +3,9 @@ title: 步驟 3：建立新的 Machine Learning Studio 實驗 - Azure | Microsof
 description: 開發預測解決方案逐步解說的步驟 3：在 Azure Machine Learning Studio 中建立新的定型實驗。
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.author: garye
 editor: cgronlun
 ms.assetid: 660e3c27-55ef-4c33-a4e9-dff4d1224630
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: a6f12c536cfc18ed0be55ec1755c7fe5179006ba
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5f3f73e2c2cb281887e795d974403a17cffd5978
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317523"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260781"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>逐步解說步驟 3：建立新的 Azure Machine Learning Studio 實驗
 這是 [在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)
@@ -56,7 +55,7 @@ ms.locfileid: "52317523"
     ![將資料集新增至實驗][7]
 
 ## <a name="prepare-the-data"></a>準備資料
-您可以按一下資料集的輸出連接埠 (底部的小圓圈)，然後選取 [視覺化] ，來檢視整個資料集的前 100 列資料和部分統計資訊。  
+您可以檢視前 100 列資料和整個資料集的部分統計資訊：按一下資料集的輸出連接埠 (底部的小圓圈)，然後選取 [視覺化]。  
 
 因為資料檔案並未隨附資料行標題，所以 Studio 已提供一般標題 (Col1、Col2 等等 )。 建立模型並不一定要有良好的標題，但良好的標題可讓您更容易使用實驗中的資料。 此外，當我們最終在 Web 服務中發佈此模型時，標題有助於服務的使用者識別資料行。  
 
@@ -164,7 +163,7 @@ ms.locfileid: "52317523"
 
 如需如何在您的實驗中使用 R 指令碼的詳細資訊，請參閱 [透過 R 擴充您的實驗](extend-your-experiment-with-r.md)。
 
-**下一步：[訓練及評估模型](walkthrough-4-train-and-evaluate-models.md)**
+**下一個步驟：[定型及評估模型](walkthrough-4-train-and-evaluate-models.md)**
 
 [0]: ./media/walkthrough-3-create-new-experiment/create-new-experiment.png
 [5]: ./media/walkthrough-3-create-new-experiment/rename-experiment.png

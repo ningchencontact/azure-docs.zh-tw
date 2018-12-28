@@ -1,5 +1,5 @@
 ---
-title: 搭配 App Service 環境建立及使用內部負載平衡器 | Microsoft Docs
+title: 搭配 App Service 環境建立及使用內部負載平衡器- Azure | Microsoft Docs
 description: 搭配 ILB 建立及使用 ASE
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: f7c94b790c6aa7c75c62fd05671f016b7185b2a2
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 88f100bc780d8df0202cfcce9b390085a71fc905
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29388810"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310465"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>搭配 App Service 環境使用內部負載平衡器
 
@@ -27,7 +28,7 @@ ms.locfileid: "29388810"
 > 這篇文章是關於 App Service 環境 v1。 有較新版本的 App Service 環境，更易於使用，並且可以在功能更強大的基礎結構上執行。 若要深入了解新版本，請從 [App Service 環境簡介](intro.md)開始。
 >
 
-App Service 環境 (ASE) 功能是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE功能基本上會在您的 Azure 虛擬網路 (VNet) 中部署 Azure App Service。 若要更深入了解 App Service Environment 所提供的功能，請閱讀[什麼是 App Service Environment][WhatisASE] 文件。 如果您不了解在 VNet 中操作的優點，請閱讀 [Azure 虛擬網路常見問題集][virtualnetwork]。 
+App Service 環境 (ASE) 功能是 Azure App Service 的進階服務選項，可提供多租用戶戳記中不提供的增強式設定功能。 ASE功能基本上會在您的 Azure 虛擬網路 (VNet) 中部署 Azure App Service。 若要更深入了解 App Service 環境所提供的功能，請閱讀[什麼是 App Service 環境][WhatisASE]文件。 如果您不了解在 VNet 中操作的優點，請閱讀 [Azure 虛擬網路常見問題集][virtualnetwork]。 
 
 ## <a name="overview"></a>概觀
 ASE 可以使用網際網路可存取的端點或您 Vnet 中的 IP 位址加以部署。 為了將 IP 位址設定為 VNet 位址，您必須搭配內部負載平衡器 (ILB) 來部署您的 ASE。 當您的 ASE 是使用 ILB 設定時，您要提供：
@@ -100,8 +101,8 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您必須管理�
 4. 建立後，在 ASE 中建立 Web 應用程式。 
 5. 如果您在該 VNET 中沒有 VM 的話，請建立一個 (不是在與 ASE 相同的子網路中，否則會無法運作)。
 6. 設定您子網域的 DNS。 您可以在您 DNS 中使用萬用字元搭配您的子網域，或者如果您想要執行一些簡單測試，請編輯您 VM 上的主機檔案來將 Web 應用程式名稱設定為 VIP IP 位址。 如果您的 ASE 具有子網域名稱 .ilbase.com 且 Web 應用程式名稱為 mytestapp，它將會定址為 mytestapp.ilbase.com，在您的主機檔案中設定此位址。 (在 Windows 上，主機檔案位於 C:\Windows\System32\drivers\etc\)
-7. 在該 VM 上使用瀏覽器並移至 http://mytestapp.ilbase.com (或者您的 Web 應用程式名稱與您的子網域)。
-8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com   。如果使用自我簽署憑證，就必須接受安全性不足這件事。 
+7. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com (或者您的 Web 應用程式名稱與您的子網域)。
+8. 在該 VM 上使用瀏覽器並移至 https://mytestapp.ilbase.com。 如果使用自我簽署憑證，就必須接受安全性不足這件事。 
 
 您的 ILB 的 IP 位址會在您的 [屬性] 中列出為 [虛擬 IP 位址]。
 
@@ -111,9 +112,9 @@ ILB ASE 與非 ILB ASE 稍微有些不同。 如先前所述，您必須管理�
 #### <a name="network-security-groups"></a>網路安全性群組
 ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路存取或讓 app 在網際網路中完全找不到。 這個做法非常適合用來裝載內部網路網站，例如企業營運應用程式。 當您需要更進一步地限制存取時，您仍然可以使用「網路安全性群組 (NSG)」來控制網路層級的存取。 
 
-如果您想要使用 NSG 來進一步限制存取，您必須確定您不會中斷 ASE 運作所需的通訊。 即使 HTTP/HTTPS 存取只會透過 ASE 所使用的 ILB 進行，ASE 仍需依賴 VNet 外部資源。 若要查看仍需要何種網路存取權，請參閱[控制 App Service 環境的輸入流量][ControlInbound]和[使用 ExpressRoute 的 App Service 環境的網路組態詳細資料][ExpressRoute]。 
+如果您想要使用 NSG 來進一步限制存取，您必須確定您不會中斷 ASE 運作所需的通訊。 即使 HTTP/HTTPS 存取只會透過 ASE 所使用的 ILB 進行，ASE 仍需依賴 VNet 外部資源。 若要查看仍需要何種網路存取權，請參閱[控制 App Service 環境的連入流量][ControlInbound]和[使用 ExpressRoute 的 App Service 環境的網路組態詳細資料][ExpressRoute]。 
 
-若要設定您的 NSG，您必須知道 Azure 所使用的 IP 位址，以管理您的 ASE。 如果該 IP 位址提出網際網路要求，它也會成為您 ASE 的輸出 IP 位址。 在 ASE 的存留期內，ASE 的輸出 IP 位址仍維持不變。 如果您刪除並重建 ASE，您會收到新的 IP 位址。 若要尋找此 IP 位址，請移至 [設定] -> [屬性]，尋找 [輸出 IP 位址]。 
+若要設定您的 NSG，您必須知道 Azure 所使用的 IP 位址，以管理您的 ASE。 如果該 IP 位址提出網際網路要求，它也會成為您 ASE 的連出 IP 位址。 在 ASE 的存留期內，ASE 的連出 IP 位址仍維持不變。 如果您刪除並重建 ASE，您會收到新的 IP 位址。 若要尋找此 IP 位址，請移至 [設定] -> [屬性]，尋找 [輸出 IP 位址]。 
 
 ![][5]
 
@@ -130,7 +131,7 @@ ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路�
 
 
 ## <a name="getting-started"></a>開始使用
-若要開始使用 App Service Environment，請參閱 [App Service Environment 簡介][WhatisASE]
+若要開始使用 App Service 環境，請參閱 [App Service 環境簡介][WhatisASE]
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
@@ -147,8 +148,8 @@ ILB ASE 可讓您的應用程式與網路隔離。 app 無法透過網際網路�
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: http://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

@@ -1,5 +1,5 @@
 ---
-title: 開始在 Java 中使用 Azure 搜尋服務 | Microsoft Docs
+title: 開始在 Java 中使用 Azure 搜尋服務 - Azure 搜尋服務
 description: 如何使用 Java 做為程式設計語言，在 Azure 上建置雲端託管搜尋應用程式。
 services: search
 author: jj09
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: d1ca905d415eb8ab49c449a69707c56d5c717081
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec2018
+ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419294"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316953"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -50,7 +51,7 @@ ms.locfileid: "50419294"
 * SearchServiceClient.java：處理 HTTP 要求
 * SearchServiceHelper.java：提供靜態方法的協助程式類別
 * Document.java：提供資料模型
-* config.properties：設定搜尋服務 URL 和 API 金鑰
+* config.properties：設定搜尋服務 URL 與 API 金鑰
 * pom.xml：Maven 相依性
 
 <a id="sub-2"></a>

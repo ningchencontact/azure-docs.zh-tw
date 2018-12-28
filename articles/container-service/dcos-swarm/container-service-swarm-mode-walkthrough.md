@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 適用於 Linux 的 Azure Docker CE 叢集
+title: (已淘汰) 快速入門 - 適用於 Linux 的 Azure Docker CE 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Linux 容器的 Docker CE 叢集。
 services: container-service
 author: iainfoulds
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: c8f9db2674976d2c1efa7686b8b224b48a19a534
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964440"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994302"
 ---
-# <a name="deploy-docker-ce-cluster"></a>部署 Docker CE 叢集
+# <a name="deprecated-deploy-docker-ce-cluster"></a>(已淘汰) 部署 Docker CE 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 本快速入門中會使用 Azure CLI 來部署 Docker CE 叢集。 接著，在叢集上部署和執行多容器應用程式，其中包含 Web 前端和 Redis 執行個體。 完成後，即可透過網際網路來存取應用程式。
 

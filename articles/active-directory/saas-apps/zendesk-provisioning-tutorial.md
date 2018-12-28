@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 Zendesk 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 Zendesk 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 來對 Zendesk 自動佈建及取消佈建使用者帳戶。
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 2dc965547511d27ed43a88c1f45b50593b30a937
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8d6df221a8c520cea5e6e938447ffd881e7374c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347931"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322767"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程︰設定 Zendesk 來自動佈建使用者
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>教學課程：設定 Zendesk 來自動佈建使用者
 
 本教學課程旨在示範將 Azure AD 設定為可對 Zendesk 自動佈建及取消佈建使用者和/或群組時，Zendesk 與 Azure Active Directory (Azure AD) 中須執行的步驟。 
 
@@ -77,6 +77,10 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
 ### <a name="important-tips-for-assigning-users-to-zendesk"></a>將使用者指派給 Zendesk 的重要秘訣
 
+*    目前，Zendesk 角色會在 Azure 入口網站 UI 中自動且動態地填入。 在將 Zendesk 角色指派給使用者之前，請確保已針對 Zendesk 完成初始同步，以擷取您 Zendesk 租用戶中的最新角色。
+
+*    建議將單一 Azure AD 使用者指派給 Zendesk，以測試您的初始自動使用者佈建的設定。 您可於稍後在測試成功之後指派其他使用者及/或群組。
+  
 *   建議將單一 Azure AD 使用者指派給 Zendesk，以測試自動使用者佈建的設定。 其他使用者及/或群組可能會稍後再指派。
 
 *   將使用者指派給 Zendesk 時，您必須在 [指派] 對話方塊中選取任何有效的應用程式特有角色 (如果有的話)。 具有**預設存取**角色的使用者會從佈建中排除。

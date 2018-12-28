@@ -10,21 +10,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6b362b260c913faaad57d19c92fe6d6583093f0
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 422ae24357290a782b05ab7e5580c09e8472ddf8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685866"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408658"
 ---
-# <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>在 HDInsight 上將以時間為基礎的 Oozie 協調器與 Hadoop 搭配使用，以定義工作流程和協調工作
-在本文中，您將了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。 閱讀本文之前，建議先看過一遍[搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]。 除了 Oozie，您也可以使用 Azure Data Factory 排定工作。 若要了解 Azure Data Factory，請參閱 [搭配 Data Factory 使用 Pig 和 Hive](../data-factory/transform-data.md)。
+# <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>搭配 HDInsight 中的 Apache Hadoop 使用時間型 Apache Oozie 協調器，以定義工作流程和協調作業
+在本文中，您將了解如何定義工作流程和協調器，以及如何觸發以時間為基礎的協調器工作。 閱讀本文之前，建議先瀏覽[搭配 HDInsight 使用 Oozie][hdinsight-use-oozie]。 除了 Oozie，您也可以使用 Azure Data Factory 排定工作。 若要了解 Azure Data Factory，請參閱 [將 Apache Pig 和 Apache Hive 與 Data Factory 搭配使用](../data-factory/transform-data.md)。
 
-> [!NOTE]
+> [!NOTE]  
 > 本文章需有以 Windows 為基礎的 HDInsight 叢集。 如需在以 Linux 為基礎之叢集上使用 Oozie (包括以時間為基礎的作業) 的相關資訊，請參閱 [在以 Linux 為基礎的 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程](hdinsight-use-oozie-linux-mac.md)
 
 ## <a name="what-is-oozie"></a>什麼是 Oozie
-Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與 Hadoop 堆疊相整合，並支援 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 工作。 它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
+Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與 Hadoop 堆疊整合，並且支援 Apache Hadoop MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作業。 它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
 
 下圖說明您將實作的工作流程：
 
@@ -32,7 +32,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 
 此工作流程有兩個動作：
 
-1. Hive 動作會執行一個 HiveQL 指令碼，藉此計算每個記錄層級類型在 log4j 記錄檔中的出現次數。 每個 log4j 記錄各由一列欄位組成，其中包括顯示類型和嚴重性的 [LOG LEVEL] 欄位，例如：
+1. Hive 動作會執行 HiveQL 指令碼，以計算每個記錄層級類型在 Apache log4j 記錄檔中的出現次數。 每個 log4j 記錄各由一列欄位組成，其中包括顯示類型和嚴重性的 [LOG LEVEL] 欄位，例如：
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -48,10 +48,10 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
         [TRACE] 816
         [WARN]  4
 
-    如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
-2. Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 中的資料表。 如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]。
+    如需有關 Hive 的詳細資訊，請參閱[將 Apache Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
+2. Sqoop 動作會將 HiveQL 動作的輸出匯出至 Azure SQL Database 中的資料表。 如需有關 Sqoop 的詳細資訊，請參閱[將 Apache Sqoop 與 HDInsight 搭配使用][hdinsight-use-sqoop]。
 
-> [!NOTE]
+> [!NOTE]  
 > 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 提供的叢集版本有哪些新功能？][hdinsight-versions]。
 >
 >
@@ -61,7 +61,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 
 * **具有 Azure PowerShell 的工作站**。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 使用 Azure Service Manager 管理 HDInsight 資源的 Azure PowerShell 支援已**被取代**，將會在 2017 年 1 月 1 日前移除。 本文件中的步驟會使用可與 Azure Resource Manager 搭配使用的新 HDInsight Cmdlet。
     >
     > 請遵循 [安裝和設定 Azure PowerShell](/powershell/azureps-cmdlets-docs) 中的步驟來安裝最新版的 Azure PowerShell。 如果您需要修改指令碼才能使用適用於 Azure Resource Manager 的新 Cmdlet，請參閱 [移轉至以 Azure Resource Manager 為基礎的開發工具 (適用於 HDInsight 叢集)](hdinsight-hadoop-development-using-azure-resource-manager.md) ，以取得詳細資訊。
@@ -87,10 +87,10 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
     <tr><td>SQL Database 名稱</td><td>$sqlDatabaseName</td><td></td><td>Sqoop 會將資料匯出至其中的 Azure SQL Database。 </td></tr>
     </table>
 
-  > [!NOTE]
+  > [!NOTE]   
   > 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。 如果此防火牆設定為停用，您必須在 Azure 入口網站中加以啟用。 如需關於建立 SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-get-started]。
 
-> [!NOTE]
+> [!NOTE]  
 > 在資料表中填入值。 這將有助於本教學課程的執行。
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>定義 Oozie 工作流程和相關的 HiveQL 指令碼
@@ -103,7 +103,7 @@ Oozie 工作流程定義會以 hPDL 撰寫 (一種 XML 程序定義語言)。 �
 3. **log4j 記錄檔的位置**。 欄位分隔符號為 ","。 預設的行分隔符號為 "\n"。 Hive 外部資料表可讓您在需要執行 Oozie 工作流程多次時，避免資料檔案從原始位置遭到移除。
 4. **INSERT OVERWRITE 陳述式** 可從 log4j Hive 資料表中計算每個記錄層級類型的出現次數，並將輸出儲存至 Azure Blob 儲存體的位置。
 
-> [!NOTE]
+> [!NOTE]  
 > Hive 路徑有已知問題。 此問題會在您提交 Oozie 工作時發生。 如需修正此問題的指示，請參閱 TechNet Wiki：[HDInsight Hive 錯誤：無法重新命名][technetwiki-hive-error]。
 
 **定義要由工作流程呼叫的 HiveQL 指令碼檔案**
@@ -262,7 +262,7 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。 wasb:// 是 Azure Blob �
 
     wasb[s]://<ContainerName>@<StorageAccountName>.blob.core.windows.net/<path>/<filename>
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 叢集 3.0 版僅支援「wasb://」語法。 HDInsight 2.1 和 1.6 叢集支援舊的「asv://」語法，但在 HDInsight 3.0 叢集中不支援。
 >
 > wasb:// 路徑為虛擬路徑。 如需詳細資訊，請參閱[搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]。
@@ -287,7 +287,7 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。 wasb:// 是 Azure Blob �
 * CREATE EXTERNAL TABLE 命令不會移動資料檔案。
 * CREATE EXTERNAL TABLE 命令不允許在 LOCATION 子句中指定的資料夾下放置任何子資料夾。 因此，此教學課程複製了 sample.log 檔案。
 
-如需詳細資訊，請參閱 [HDInsight：Hive 內部和外部資料表簡介][cindygross-hive-tables]。
+如需詳細資訊，請參閱 [HDInsight：Apache Hive 內部和外部資料表簡介][cindygross-hive-tables]。
 
 **教學課程前置工作**
 
@@ -300,7 +300,7 @@ HDInsight 使用 Azure Blob 儲存體來儲存資料。 wasb:// 是 Azure Blob �
 
     系統會提示您輸入 Azure 帳號認證。 這種新增訂用帳戶連線的方法會逾時，且在 12 小時後，您將必須重新執行 Cmdlet。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果您有多個 Azure 訂用帳戶，且預設訂用帳戶並非您要使用的訂用帳戶，請使用 <strong>Select-AzureSubscription</strong> Cmdlet 來選取訂用帳戶。
 
 3. 將以下指令碼複製到指令碼窗格中，然後設定前六個變數：
@@ -536,7 +536,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
     "@
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > 與工作流程提交裝載檔案的主要差異在於變數 **oozie.coord.application.path**。 提交工作流程工作時，您必須改用 **oozie.wf.application.path** 。
 
 4. 將下列程式碼附加至指令碼： 這部分會檢查 Oozie Web 服務狀態：
@@ -578,7 +578,7 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
     }
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > 提交工作流程工作時，您必須在工作建立後發出另一個 Web 服務呼叫，以啟動工作。 在此情況下，協調器工作會依時間觸發。 工作將會自動啟動。
 
 6. 將下列程式碼附加至指令碼： 這部分會檢查 Oozie 工作狀態：
@@ -713,9 +713,9 @@ $conn.close()
 * [搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]
 * [使用 Azure PowerShell 管理 HDInsight][hdinsight-admin-powershell]
 * [將資料上傳至 HDInsight][hdinsight-upload-data]
-* [搭配 HDInsight 使用 Sqoop][hdinsight-use-sqoop]
-* [搭配 HDInsight 使用 Hivet][hdinsight-use-hive]
-* [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
+* [搭配 HDInsight 使用 Apache Sqoop][hdinsight-use-sqoop]
+* [搭配 HDInsight 使用 Apache Hive][hdinsight-use-hive]
+* [搭配 HDInsight 使用 Apache Pig][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-java-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -744,13 +744,13 @@ $conn.close()
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: https://docs.microsoft.com/powershell/scripting/setup/starting-windows-powershell?view=powershell-6
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-coordinator-time/HDI.UseOozie.Preparation.Output1.png

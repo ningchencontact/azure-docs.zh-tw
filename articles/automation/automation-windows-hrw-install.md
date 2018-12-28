@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83820440a6304886785a175b27614b45fdb98b13
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a0e0000c4baa22ccc1c26c0e40ec62bb277104af
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252219"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993907"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合式 Runbook 背景工作角色
 
@@ -53,11 +53,11 @@ ms.locfileid: "51252219"
 
    New-OnPremiseHybridWorker.ps1 指令碼在執行期間需要下列參數：
 
-   * *AutomationAccountName* (必要)：您的「自動化」帳戶名稱。
+   * *AutomationAccountName* (必要)：自動化帳戶的名稱。
    * *AAResourceGroupName* (必要)：與您的自動化帳戶相關聯的資源群組名稱。
    * *OMSResourceGroupName* (選擇性)：Log Analytics 工作區的資源群組名稱。 若未指定此資源群組，將會使用 *AAResourceGroupName*。
    * *HybridGroupName* (必要)：您針對支援此案例的 Runbook，指定作為目標的「混合式 Runbook 背景工作角色」群組名稱。
-   * *SubscriptionID* (必要)：您「自動化」帳戶所在的 Azure 訂用帳戶 ID。
+   * *SubscriptionID* (必要)：您的自動化帳戶所在的 Azure 訂用帳戶識別碼。
    * *WorkspaceName* (選擇性)：Log Analytics 工作區名稱。 如果您沒有 Log Analytics 工作區，此指令碼就會建立並設定一個 Log Analytics 工作區。
 
      > [!NOTE]
@@ -85,7 +85,7 @@ ms.locfileid: "51252219"
 
 #### <a name="1-create-a-log-analytics-workspace"></a>1.建立 Log Analytics 工作區
 
-如果您還沒有 Log Analytics 工作區，請使用[管理您的工作區](../log-analytics/log-analytics-manage-access.md)中的指示來建立。 如果您已經有工作區，可以使用現有的工作區。
+如果您還沒有 Log Analytics 工作區，請使用[管理您的工作區](../azure-monitor/platform/manage-access.md)中的指示來建立。 如果您已經有工作區，可以使用現有的工作區。
 
 #### <a name="2-add-the-automation-solution-to-the-log-analytics-workspace"></a>2.將自動化解決方案新增至 Log Analytics 工作區
 

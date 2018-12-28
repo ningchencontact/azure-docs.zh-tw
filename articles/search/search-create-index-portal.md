@@ -1,5 +1,5 @@
 ---
-title: 在入口網站中建立 Azure 搜尋服務索引 | Microsoft Docs
+title: 在 Azure 入口網站中建立 Azure 搜尋服務索引 - Azure 搜尋服務
 description: 了解如何使用內建入口網站索引設計工具，為 Azure 搜尋服務建立索引。
 manager: cgronlun
 author: heidisteen
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: heidist
-ms.openlocfilehash: bb1ba5e860dab237b3f6e16205b5e4cbad45e6e3
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.custom: seodec2018
+ms.openlocfilehash: 4bba8b41418dadad1b241d60ab0b7aeee4c046d7
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990841"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316704"
 ---
 # <a name="how-to-create-an-azure-search-index-using-the-azure-portal"></a>如何使用 Azure 入口網站建立 Azure 搜尋服務索引
 
