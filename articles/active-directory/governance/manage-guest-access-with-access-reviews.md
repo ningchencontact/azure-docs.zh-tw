@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 06/21/2018
+ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 7d3361b44d47fd97c14f677e5e4bbc6c1ee5ad3f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d3cc5f5a7642ba827a46ab5cbc2b0da2cda38731
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607638"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385120"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>使用 Azure AD 存取權檢閱來管理來賓存取權
 
@@ -39,7 +39,7 @@ ms.locfileid: "45607638"
 
 存取權檢閱是 Microsoft Enterprise Mobility + Security, E5 中所含之 Azure AD Premium P2 版本的一項功能。 如需詳細資訊，請參閱 [Azure Active Directory 版本](../fundamentals/active-directory-whatis.md)。 透過這項功能進行互動 (包括建立檢閱、填寫檢閱或確認其存取權) 的每個使用者，都需要授權。 
 
-若您計劃讓來賓使用者檢閱自己的存取權，請閱讀來賓使用者授權相關資訊。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業授權](../b2b/licensing-guidance.md)。
+您也可以要求來賓使用者檢閱自己的存取權。 至於您對於貴組織使用者指派的每個付費 Azure AD Premium P2 授權，在「外部使用者額度」下，您可以使用 B2B 邀請最多 5 位使用者。 這些來賓使用者也可以使用 Azure AD Premium P2 功能。 如需詳細資訊，請參閱 [Azure AD B2B 共同作業授權](../b2b/licensing-guidance.md)。
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>建立和執行來賓的存取權檢閱
 
@@ -86,7 +86,7 @@ Azure AD 可檢閱來賓使用者的幾個案例。
 
 1. 若要開始應用程式的存取權檢閱，請選取檢閱只包含來賓，並讓使用者自行檢閱存取權。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
 
-2. 要求每個來賓檢閱其自己的應用程式存取權。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 有來賓如何[檢閱其存取權](perform-access-review.md)的指示。
+2. 要求每個來賓檢閱其自己的應用程式存取權。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](perform-access-review.md)。
 
 3. 在檢閱者提供輸入後，停止存取權檢閱並套用變更。 如需詳細資訊，請參閱[完成存取權檢閱](complete-access-review.md)。
 
@@ -113,7 +113,7 @@ Azure AD 可檢閱來賓使用者的幾個案例。
 
 2. 若要開始該群組的存取權檢閱，請選取要做為成員的檢閱者。 如需詳細資訊，請參閱[建立存取權檢閱](create-access-review.md)。
 
-3. 要求每個來賓檢閱他們自己的成員資格。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 有來賓如何[檢閱其存取權](perform-access-review.md)的指示。  未接受邀請的來賓會在檢閱結果中顯示為「未通知到」。
+3. 要求每個來賓檢閱他們自己的成員資格。 根據預設，已接受邀請的每個來賓會收到 Azure AD 的電子郵件，其中的連結可連至您組織的存取面板以執行存取權檢閱。 Azure AD 會指示來賓如何[檢閱其存取權](perform-access-review.md)。  未接受邀請的來賓會在檢閱結果中顯示為「未通知到」。
 
 4. 在檢閱者提供輸入後，停止存取權檢閱。 如需詳細資訊，請參閱[完成存取權檢閱](complete-access-review.md)。
 

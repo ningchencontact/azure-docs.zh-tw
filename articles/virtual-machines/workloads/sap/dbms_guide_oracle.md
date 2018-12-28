@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/07/2018
+ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e2d0d5073ffbeaed1c0215386a0c2c9f22a67d9
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288640"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435679"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Oracle Azure 虛擬機器 DBMS 部署
 
@@ -321,12 +321,12 @@ ms.locfileid: "51288640"
 
 | 附註編號 | 標題 |
 | --- | --- |
-| [1928533] |Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型 |
-| [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
+| [1928533] |Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型 |
+| [2015553] |Microsoft Azure 上的 SAP：支援必要條件 |
 | [1999351] |疑難排解適用於 SAP 且已強化的 Azure 監視功能 |
 | [2178632] |Microsoft Azure 上的 SAP 主要監視度量 |
-| [2191498] |Linux 和 Azure 上的 SAP：增強型監視功能 |
-| [2039619] |Microsoft Azure 上使用 Oracle 資料庫的 SAP 應用程式︰支援的產品和版本 |
+| [2191498] |Linux 上搭配 Azure 的 SAP：增強型監視 |
+| [2039619] |Microsoft Azure 上使用 Oracle Database 的 SAP 應用程式︰支援的產品和版本 |
 | [2243692] |Microsoft Azure (IaaS) VM 上的 Linux：SAP 授權問題 |
 | [2069760] |Oracle Linux 7.x SAP 安裝和升級 |
 | [1597355] |適用於 Linux 的交換空間建議 |
@@ -428,7 +428,9 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 
 ### <a name="storage-configuration"></a>儲存體組態
 
-針對 Azure 上的 Oracle 資料庫檔案，僅支援 ext4 或 xfs 或 Oracle ASMOnly 的檔案系統。 所有的資料庫檔案都必須儲存於以 VHD 或受控磁碟為基礎的這些檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> \(英文\)) 或 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)為基礎。 
+對於 Azure 上的 Oracle 資料庫檔案，僅支援 ext4 或 xfs 或 Oracle ASM 的檔案系統。 所有的資料庫檔案都必須儲存於以 VHD 或受控磁碟為基礎的這些檔案系統上。 這些磁碟會掛接到 Azure VM，並且以 Azure 分頁 Blob 儲存體 (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs> \(英文\)) 或 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)為基礎。 
+
+對於 Oracle Linux UEK 核心，UEK 必須至少為第 4 版，才能支援 [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage#premium-storage-for-linux-vms)。
 
 我們非常建議使用 [Azure 受控磁碟](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)。 我們也非常建議針對 Oracle Database 部署使用 [Azure 進階儲存體](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)。
 
@@ -493,7 +495,7 @@ Oracle 支援 Oracle 軟體在以 Oracle Linux 為客體 OS 的 Microsoft Azure 
 Azure 中適用於 Oracle 資料庫的災害復原層面，已詳述於[Azure 環境中 Oracle Database 12c 資料庫的災害復原](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)中。
 
 ### <a name="accelerated-networking"></a>加速網路
-Oracle Linux 中針對 Azure 加速網路的支援，已於 Oracle Linux 7 Update 5 (Oracle Linux 7.5) 中推出。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RedHat Compatible Kernel (RHCK)，而非使用 Oracle UEK 核心。 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 針對 Azure 加速網路，最小的 RHCKL 核心版本必須是 3.10.0-862.13.1.el7。
+Oracle Linux 中針對 Azure 加速網路的支援，已於 Oracle Linux 7 Update 5 (Oracle Linux 7.5) 中推出。 如果您無法升級至最新的 Oracle Linux 7.5 版，可能的因應措施為使用 RedHat Compatible Kernel (RHCK)，而非使用 Oracle UEK 核心。 根據 SAP 附註 [#1565179](https://launchpad.support.sap.com/#/notes/1565179) \(英文\)，支援在 Oracle Linux 內使用 RHEL 核心。 針對 Azure 加速網路，最小的 RHCKL 核心版本必須是 3.10.0-862.13.1.el7。 若要將 Oracle Linux 中的 UEK 核心搭配 [Azure 加速網路](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) (英文) 使用，您必須使用 Oracle UEK 核心 5 版。
 
 如果您不是從不是以 Azure Marketplace 為基礎的映像部署 VM，則您必須執行下列命令以從 VM 複製額外的設定檔： 
 <pre><code># Copy settings from github to correct place in VM

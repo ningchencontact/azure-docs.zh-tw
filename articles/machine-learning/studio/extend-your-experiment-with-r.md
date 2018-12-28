@@ -4,9 +4,8 @@ description: 如何利用「執行 R 指令碼」模組，透過 R 語言擴充 
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: df6453f1cf6e8b372239d528067a7258d645518d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 74f08421de893a4fe8916a052f8a32134cd222a5
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311003"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272060"
 ---
-# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio：使用 R 擴充您的實驗 
+# <a name="azure-machine-learning-studio-extend-your-experiment-with-r"></a>Azure Machine Learning Studio：透過 R 擴展您的經驗 
 您可以利用[執行 R 指令碼][execute-r-script]模組，透過 R 語言擴充 Azure Machine Learning Studio 的功能。
 
 此模組接受多個輸入資料集，並產生單一資料集作為輸出。 您可以將 R 指令碼輸入[執行 R 指令碼][execute-r-script]模組的 **R 指令碼**參數中。
@@ -58,7 +57,7 @@ For convenience, here is the [current full list with version numbers in Excel fo
 
 其中 `my_favorite_package.zip` 檔案包含您的套件。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 
 <!-- Module References -->

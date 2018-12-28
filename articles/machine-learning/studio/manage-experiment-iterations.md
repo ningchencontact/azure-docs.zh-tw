@@ -1,12 +1,11 @@
 ---
 title: 在 Machine Learning Studio 中管理實驗反覆項目 - Azure | Microsoft Docs
-description: 如何在 Azure Machine Learning Studio 中管理實驗逐一查看
+description: 如何在 Azure Machine Learning Studio 中管理實驗反覆項目。 您可以隨時檢閱先前的實驗執行，以挑戰、重新瀏覽及最終確認或調整先前的假設。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
@@ -16,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: b96ab59db8c4586304a864ee432dbd1c74b25fd6
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ebcae3e8e8f13904936dbe122f285a01a2a71459
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313532"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270445"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中管理實驗逐一查看
 開發預測分析模型是一種逐一查看過程 - 您修改實驗的各種函數及參數，結果會不斷收斂，直到您對已訓練的有效模型感到滿意為止。 此程序的關鍵是追蹤實驗參數和組態的各種逐一查看。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 您可以隨時檢閱先前的實驗執行，以挑戰、重新瀏覽及最終確認或調整先前的假設。 當您執行實驗時，Machine Learning Studio 會保留執行歷程記錄，包括資料集、模組及連接埠連接和參數。 此歷程記錄也會擷取結果、執行階段資訊，例如開始和停止時間、記錄訊息及執行狀態。 您可以隨時回顧任何執行，以檢閱實驗和中繼結果的年表。 您甚至可以使用上一次的實驗執行，啟動到新的階段，在您的路徑上查詢和探索，以建立簡單、複雜或甚至集成模型解決方案。
 

@@ -1,23 +1,20 @@
 ---
-title: Azure Cosmos DB 診斷記錄 | Microsoft Docs
-description: 使用本教學課程來協助您開始使用 Azure Cosmos DB 記錄。
-services: cosmos-db
+title: Azure Cosmos DB 中的診斷記錄
+description: 了解各種記錄與監視儲存在 Azure Cosmos DB 中資料的方式。
 author: SnehaGunda
-manager: kfile
-tags: azure-resource-manager
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 1c25db0a217d6aff984029a28932242b06096735
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.custom: seodec18
+ms.openlocfilehash: 7a233a5effb804ec3cc22727b46846509032d214
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423223"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438501"
 ---
-# <a name="azure-cosmos-db-diagnostic-logging"></a>Azure Cosmos DB 診斷記錄
+# <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的診斷記錄 
 
 在您開始使用一或多個 Azure Cosmos DB 資料庫後，建議您監視資料庫的存取情形和時間。 本文提供可在 Azure 平台中使用之記錄的概觀。 您將了解如何啟用供監視使用的診斷記錄，以傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，以及如何將記錄串流處理至 [Azure 事件中心](https://azure.microsoft.com/services/event-hubs/)，和如何將記錄匯出至 [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/)。
 
@@ -82,10 +79,10 @@ Azure 診斷記錄是由資源所發出，提供關於該資源之作業的豐�
 
     * **封存至儲存體帳戶**：若要使用此選項，您需要可以連接的現有儲存體帳戶。 若要在入口網站中建立新的儲存體帳戶，請參閱[建立儲存體帳戶](../storage/common/storage-create-storage-account.md)，依指示建立一個 Azure Resource Manager (一般用途帳戶)。 然後，返回入口網站的此頁面選取您的儲存體帳戶。 新建立的儲存體帳戶可能在數分鐘後才會出現於下拉式功能表中。
     * **串流至事件中樞**：若要使用此選項，您需要可以連接的現有事件中樞命名空間和事件中樞。 若要建立事件中樞命名空間，請參閱[使用 Azure 入口網站建立事件中樞命名空間和事件中樞](../event-hubs/event-hubs-create.md)。 然後，返回入口網站的此頁面，選取事件中樞命名空間和原則名稱。
-    * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需關於如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
+    * **傳送至 Log Analytics**：若要使用此選項，請使用現有的工作區，或是在入口網站中依照[建立新的工作區](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步驟建立新的 Log Analytics 工作區。 如需關於如何檢視 Log Analytics 記錄的詳細資訊，請參閱[檢視 Log Analytics 中的記錄](#view-in-loganalytics)。
     * **記錄 DataPlaneRequests**：選取此選項，可從適用於 SQL、Graph、MongoDB、Cassandra 和資料表 API 帳戶的基礎 Azure Cosmos DB 分散式平台記錄後端要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **記錄 MongoRequests**：選取此選項，可從為 MongoDB API 帳戶提供服務的 Azure Cosmos DB 前端記錄使用者起始的要求。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
-    * **計量要求**：選取此選項可儲存 [Azure 計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **記錄 MongoRequests**：選取此選項，從 Azure Cosmos DB 前端針對使用者為了替 MongoDB API 帳戶提供服務而起始的要求進行記錄。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
+    * **計量要求**：選取此選項可儲存 [Azure 計量](../azure-monitor/platform/metrics-supported.md)中的詳細資料。 如果您要封存至儲存體帳戶，您可以為診斷記錄選取保留期限。 保留期限過後，就會自動刪除記錄。
 
 3. 選取 [ **儲存**]。
 

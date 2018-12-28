@@ -4,12 +4,12 @@ ms.service: cloud-shell
 ms.topic: persist-storage
 ms.date: 9/7/2018
 ms.author: juluk
-ms.openlocfilehash: 6055b70c7df2704a334b7f14c9365863ddafbd5a
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a66f5ca9501d09f2ef89f421191f617c177e10eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164535"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52886235"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>在 Azure Cloud Shell 中保存檔案
 Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在初始啟動時，Cloud Shell 會提示您關聯新的或現有的檔案共用，以在工作階段間保存檔案。
@@ -35,11 +35,14 @@ Cloud Shell 會運用 Azure 檔案儲存體在工作階段間保存檔案。 在
 
 ## <a name="use-existing-resources"></a>使用現有的資源
 
-您可以使用進階選項來建立與現有資源的關聯。 當儲存體設定提示出現時，請選取 [顯示進階設定] 以檢視其他選項。 已填入的儲存體選項會篩選本地備援儲存體 (LRS)、異地備援儲存體 (GRS) 和區域備援儲存體 (ZRS) 帳戶。 請移至[此處以深入了解](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) Azure 儲存體帳戶的複寫選項。
+您可以使用進階選項來建立與現有資源的關聯。 選取 Cloud Shell 區域時，您也必須選取在同一個區域中共置的備份儲存體帳戶。 例如，如果您指派的區域是美國西部，則您也必須與位於美國西部的檔案共用建立關聯。
+
+當儲存體設定提示出現時，請選取 [顯示進階設定] 以檢視其他選項。 已填入的儲存體選項會篩選本地備援儲存體 (LRS)、異地備援儲存體 (GRS) 和區域備援儲存體 (ZRS) 帳戶。 
+
+> [!NOTE]
+> 建議使用 GRS 或 ZRS 儲存體帳戶，如此您的備份檔案共用能獲得更多復原能力。 備援類型取決於您的目標和偏好的價格。 [深入了解 Azure 儲存體帳戶的複寫選項](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option)。
 
 ![資源群組設定](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
-
-選取 Cloud Shell 區域時，您也必須選取在該區域中掛接備份儲存體帳戶。
 
 ### <a name="supported-storage-regions"></a>支援的儲存體區域
 相關聯的 Azure 儲存體帳戶必須位於與所掛接之目標 Cloud Shell 電腦相同的區域中。 若要尋找您目前的區域，您可以在 Bash 中執行 `env`，以找出 `ACC_LOCATION` 變數。 檔案共用會收到為您建立以便保存 `$Home` 目錄的 5 GB 映像。

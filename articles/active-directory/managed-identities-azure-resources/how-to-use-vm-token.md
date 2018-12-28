@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 0355b8cf19209509dca2f3cac93c7abb92a63990
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106481"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323315"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>了解如何在 Azure VM 上使用 Azure 資源受控識別來取得存取權杖 
 
@@ -51,6 +51,7 @@ Azure 資源受控識別會在 Azure Active Directory 中為 Azure 服務提供�
 | [使用 HTTP 取得權杖](#get-a-token-using-http) | Azure 資源受控識別權杖端點的通訊協定詳細資料 |
 | [使用適用於 .NET 的 Microsoft.Azure.Services.AppAuthentication 程式庫取得權杖](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | 從 .NET 用戶端使用 Microsoft.Azure.Services.AppAuthentication 程式庫的範例
 | [使用 C# 取得權杖](#get-a-token-using-c) | 從 C# 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
+| [使用 Java 取得權杖](#get-a-token-using-java) | 從 Java 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
 | [使用 Go 取得權杖](#get-a-token-using-go) | 從 Go 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
 | [使用 Azure PowerShell 取得權杖](#get-a-token-using-azure-powershell) | 從 PowerShell 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
 | [使用 CURL 取得權杖](#get-a-token-using-curl) | 從 Bash/CURL 用戶端使用 Azure 資源受控識別 REST 端點的範例 |
@@ -174,6 +175,50 @@ catch (Exception e)
 
 ```
 
+## <a name="get-a-token-using-java"></a>使用 Java 取得權杖
+
+使用此 [JSON 文件庫](https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core/2.9.4)擷取使用 Java 的權杖。
+
+```Java
+import java.io.*;
+import java.net.*;
+import com.fasterxml.jackson.core.*;
+ 
+class GetMSIToken {
+    public static void main(String[] args) throws Exception {
+ 
+        URL msiEndpoint = new URL("http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/");
+        HttpURLConnection con = (HttpURLConnection) msiEndpoint.openConnection();
+        con.setRequestMethod("GET");
+        con.setRequestProperty("Metadata", "true");
+ 
+        if (con.getResponseCode()!=200) {
+            throw new Exception("Error calling managed identity token endpoint.");
+        }
+ 
+        InputStream responseStream = con.getInputStream();
+ 
+        JsonFactory factory = new JsonFactory();
+        JsonParser parser = factory.createParser(responseStream);
+ 
+        while(!parser.isClosed()){
+            JsonToken jsonToken = parser.nextToken();
+ 
+            if(JsonToken.FIELD_NAME.equals(jsonToken)){
+                String fieldName = parser.getCurrentName();
+                jsonToken = parser.nextToken();
+ 
+                if("access_token".equals(fieldName)){
+                    String accesstoken = parser.getValueAsString();
+                    System.out.println("Access Token: " + accesstoken.substring(0,5)+ "..." + accesstoken.substring(accesstoken.length()-5));
+                    return;
+                }
+            }
+        }
+    }
+}
+```
+
 ## <a name="get-a-token-using-go"></a>使用 Go 取得權杖
 
 ```
@@ -266,14 +311,14 @@ Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?ap
 說明如何對回應中的存取權杖進行剖析的範例：
 ```azurepowershell
 # Get an access token for managed identities for Azure resources
-$response = Invoke-WebRequest -Uri http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F `
+$response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' `
                               -Headers @{Metadata="true"}
 $content =$response.Content | ConvertFrom-Json
 $access_token = $content.access_token
 echo "The managed identities for Azure resources access token is $access_token"
 
 # Use the access token to get resource information for the VM
-$vmInfoRest = (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01 -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
+$vmInfoRest = (Invoke-WebRequest -Uri 'https://management.azure.com/subscriptions/<SUBSCRIPTION-ID>/resourceGroups/<RESOURCE-GROUP>/providers/Microsoft.Compute/virtualMachines/<VM-NAME>?api-version=2017-12-01' -Method GET -ContentType "application/json" -Headers @{ Authorization ="Bearer $access_token"}).content
 echo "JSON returned from call to get VM info:"
 echo $vmInfoRest
 

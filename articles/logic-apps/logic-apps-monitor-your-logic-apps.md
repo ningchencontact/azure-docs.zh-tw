@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3779260d2dd6036e65be39b4a59ceb1459d01b9e
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405730"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434251"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>監視狀態、設定診斷記錄，以及開啟 Azure Logic Apps 的警示
 
@@ -74,7 +74,7 @@ ms.locfileid: "49405730"
 
 如需使用執行階段詳細資料和事件進行更豐富的偵錯，您可以使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 設定診斷記錄。 Log Analytics 是 Azure 中的一項服務，可監視雲端和內部部署環境，協助您維護其可用性和效能。 
 
-開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。
+開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，尋找並選取邏輯應用程式。 
 
@@ -155,10 +155,10 @@ ms.locfileid: "49405730"
 
 使用 Azure Log Analytics，即可延伸如何搭配使用邏輯應用程式的診斷資料與其他 Azure services，例如： 
 
-* [在 Azure 儲存體中封存 Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md)
+* [在 Azure 儲存體中封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md)
 * [將 Azure 診斷記錄串流至 Azure 事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md) 
 
-您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../log-analytics/log-analytics-powerbi.md)。 例如︰
+您可以接著使用其他服務的遙測和分析來取得即時監視，例如 [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) 和 [Power BI](../azure-monitor/platform/powerbi.md)。 例如︰
 
 * [將資料從事件中樞串流至串流分析](../stream-analytics/stream-analytics-define-inputs.md)
 * [使用串流分析分析串流資料並在 Power BI 中建立即時分析儀表板](../stream-analytics/stream-analytics-power-bi-dashboard.md)
@@ -174,7 +174,7 @@ ms.locfileid: "49405730"
 
 ## <a name="set-up-alerts-for-your-logic-app"></a>設定邏輯應用程式的警示
 
-若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
+若要監視邏輯應用程式的特定計量或已超過閾值，請設定 [Azure 中的警示](../azure-monitor/platform/alerts-overview.md)。 了解 [Azure 中的計量](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。 
 
 若要在不使用 [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 的情況下設定警示，請遵循下列步驟。 如需更進階的警示準則和動作，也請[設定 Log Analytics](#azure-diagnostics)。
 
@@ -207,7 +207,7 @@ ms.locfileid: "49405730"
 
 ## <a name="azure-diagnostics-event-settings-and-details"></a>Azure 診斷事件設定和詳細資料
 
-每個診斷事件都會有邏輯應用程式和該事件的詳細資料，例如，狀態、開始時間、結束時間等等。 若要以程式設計方式設定監視、追蹤和記錄，您可以搭配使用這些詳細資料與 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 和 [REST API for Azure Diagnostics](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftlogicworkflows)。
+每個診斷事件都會有邏輯應用程式和該事件的詳細資料，例如，狀態、開始時間、結束時間等等。 若要以程式設計方式設定監視、追蹤和記錄，您可以搭配使用這些詳細資料與 [REST API for Azure Logic Apps](https://docs.microsoft.com/rest/api/logic) 和 [REST API for Azure Diagnostics](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows)。
 
 例如，`ActionCompleted` 事件具有可用於追蹤和監視的 `clientTrackingId` 和 `trackedProperties` 屬性：
 
@@ -245,7 +245,7 @@ ms.locfileid: "49405730"
 }
 ```
 
-* `clientTrackingId`： 如果未提供，Azure 會自動產生這個識別碼，並相互關聯邏輯應用程式執行之間的事件，包括從邏輯應用程式呼叫的任何巢狀工作流程。 您可以使用觸發程序要求中的自訂識別碼值來傳遞 `x-ms-client-tracking-id` 標頭，以從觸發程序手動指定此識別碼。 您可以使用要求觸發程序、HTTP 觸發程序或 Webhook 觸發程序。
+* `clientTrackingId`：如果未提供，Azure 會自動產生這個識別碼，並相互關聯邏輯應用程式執行之間的事件，包括從邏輯應用程式呼叫的任何巢狀工作流程。 您可以使用觸發程序要求中的自訂識別碼值來傳遞 `x-ms-client-tracking-id` 標頭，以從觸發程序手動指定此識別碼。 您可以使用要求觸發程序、HTTP 觸發程序或 Webhook 觸發程序。
 
 * `trackedProperties`：若要追蹤診斷資料中的輸入或輸出，您可以將追蹤的屬性新增至邏輯應用程式 JSON 定義中的動作。 追蹤的屬性只能追蹤單一動作的輸入和輸出，但您可以使用事件的 `correlation` 屬性來跨執行中的動作進行相互關聯。
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6bcd2d299d3816c17265eef658ff1f01409828a1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: a674ee52ae5e8f8f800d4584a53c808ceae70156
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632217"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435050"
 ---
 # <a name="run-apache-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>使用 Pig 命令 (SSH) 在以 Linux 為基礎的叢集上執行 Apache Pig 作業
 
@@ -22,7 +22,7 @@ ms.locfileid: "51632217"
 
 了解如何透過與 HDInsight 叢集的 SSH 連線以互動方式執行 Apache Pig 作業。 Pig Latin 程式設計語言可讓您描述套用至輸入資料來產生想要輸出的轉換。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要以 Linux 為基礎的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a id="ssh"></a>使用 SSH 連線
@@ -35,7 +35,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-## <a id="pig"></a>使用 Pig 命令
+## <a id="pig"></a>使用 Apache Pig 命令
 
 1. 連線之後，使用下列命令來啟動 Pig 命令列介面 (CLI)：
 
@@ -74,7 +74,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | 建立一組資料，其中包含每個唯一記錄層級值和其發生次數。 資料集會儲存到 `FREQUENCIES`。 |
     | `RESULT = order FREQUENCIES by COUNT desc;` | 依計數排序記錄層級 (遞減)，並且儲存到 `RESULT`。 |
 
-    > [!TIP]
+    > [!TIP]  
     > 使用 `DUMP` 檢視每個步驟後的轉換結果。
 
 5. 您也可以使用 `STORE` 陳述式儲存轉換結果。 例如，下列陳述式會將 `RESULT` 儲存到叢集之預設儲存體上的 `/example/data/pigout` 目錄：
@@ -83,7 +83,7 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
     STORE RESULT into '/example/data/pigout';
     ```
 
-   > [!NOTE]
+   > [!NOTE]  
    > 資料會儲存到所指定目錄中名為 `part-nnnnn` 的檔案。 如果目錄已經存在，則會收到錯誤。
 
 6. 若要結束 grunt 提示字元，請輸入下列陳述式：
@@ -136,9 +136,9 @@ ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 
 如需有關 HDInsight 中 Pig 的一般資訊，請參閱下列文件：
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 
 如需搭配 HDInsight 上的 Hadoop 使用之其他方式的詳細資訊，請參閱下列文件：
 
-* [搭配 HDInsight 上的 Hadoop 使用 Hive](hdinsight-use-hive.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)

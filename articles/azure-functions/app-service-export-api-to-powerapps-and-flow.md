@@ -2,25 +2,21 @@
 title: 將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow | Microsoft Docs
 description: 如何向 PowerApps 和 Microsoft Flow 公開 App Service 中裝載之 API 的概觀
 services: app-service
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
 ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: ef3fe5002a28c66478a10909a7e9556449cd9712
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: c9ff4332a10247787e3b11c5508d0d94a1f1c8ba
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234762"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410460"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>將 Azure 裝載 API 匯出至 PowerApps 和 Microsoft Flow
 
@@ -29,7 +25,7 @@ ms.locfileid: "35234762"
 同樣地，想要在組織內廣泛公開 API 的開發人員，可以讓應用程式和流程建置者使用他們的 API。 本主題說明如何匯出以 [Azure Functions](../azure-functions/functions-overview.md) 或 [Azure App Service](../app-service/app-service-web-overview.md)API。 匯出的 API 能成為「自訂連接器」，它在 PowerApps and Microsoft Flow just 中的使用方法就像內建連接器一樣。
 
 ## <a name="create-and-export-an-api-definition"></a>建立及匯出 API 定義
-在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](http://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
+在匯出 API 之前，您必須使用 OpenAPI 定義 (前身為 [Swagger](https://swagger.io/) 檔案) 描述 API。 此定義包含有關 API 中可以使用哪些作業，以及應該如何結構化 API 之要求和回應資料的資訊。 PowerApps 和 Microsoft Flow 可以為任何 OpenAPI 2.0 定義建立自訂連接器。 Azure Functions 和 Azure App Service 有內建支援，可供建立、裝載及管理 OpenAPI 定義。 如需詳細資訊，請參閱[在 Azure App Service 中裝載具有 CORS 支援的 RESTful API](../app-service/app-service-web-tutorial-rest-api.md)。
 
 > [!NOTE]
 > 您也可以不使用 OpenAPI 定義在 PowerApps 和 Microsoft Flow 中建置自訂連接器。 如需詳細資訊，請參閱[註冊及使用自訂連接器 (PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 和[註冊及使用自訂連接器 (Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)。
@@ -150,7 +146,7 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 ``` 
 在匯出期間，您需要提供設定值，允許 PowerApps 和 Microsoft Flow 驗證使用者。
 
-本節涵蓋的驗證類型是**快速**所支援的類型：API 金鑰、Azure Active Directory 和 Generic OAuth 2.0。 對於 Dropbox、Facebook 及 SalesForce 等特定服務，PowerApps 和 Microsoft Flow 亦支援基本驗證和 OAuth 2.0。
+本節涵蓋的驗證類型是**快速**模式所支援的類型：API 金鑰、Azure Active Directory，以及 Generic OAuth 2.0。 對於 Dropbox、Facebook 及 SalesForce 等特定服務，PowerApps 和 Microsoft Flow 亦支援基本驗證和 OAuth 2.0。
 
 ### <a name="api-key"></a>API 金鑰
 在使用 API 金鑰時，當連接器的使用者建立連線時，系統會提示他們提供金鑰。 您可以指定 API 金鑰名稱，協助他們了解所需的金鑰為何。 在先前的範例中，我們使用 `API Key (contact meganb@contoso.com)` 的名稱，讓使用者知道該去哪裡取得 API 金鑰的相關資訊。 針對 Azure Functions，金鑰通常是涵蓋函式應用程式內幾種功能的其中一個主機金鑰。
@@ -158,7 +154,7 @@ PowerApps 和 Microsoft Flow 支援一系列提供自訂連接器驗證的識別
 ### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 在使用 Azure AD 時，需要兩個 Azure AD 應用程式註冊：一個用於 API 本身，還有一個用於自訂連接器：
 
-- 若要設定 API 的註冊，請使用 [App Service 驗證/授權](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)功能。
+- 若要設定 API 的註冊，請使用 [App Service 驗證/授權](../app-service/configure-authentication-provider-aad.md)功能。
 
 - 若要設定連接器的註冊，請依照[新增 Azure AD 應用程式](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application)中的步驟執行。 註冊必須具有 API 和 `https://msmanaged-na.consent.azure-apim.net/redirect` 之回覆 URL 的委派存取權。 
 

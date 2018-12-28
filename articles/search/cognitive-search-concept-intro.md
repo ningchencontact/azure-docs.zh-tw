@@ -1,6 +1,6 @@
 ---
-title: Azure 搜尋服務中的資料擷取和自然語言 AI 處理的認知搜尋 | Microsoft Docs
-description: 可使用認知技能和 AI 演算法在 Azure 搜尋服務索引中建立可搜尋內容的內容擷取、自然語言處理 (NLP) 和影像處理
+title: 資料擷取和自然語言 AI 處理的認知搜尋 - Azure 搜尋服務
+description: 可使用認知技能和 AI 演算法在 Azure 搜尋服務索引中建立可搜尋內容的內容擷取、自然語言處理 (NLP) 和影像處理。
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,14 +9,15 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.custom: seodec2018
+ms.openlocfilehash: 62d2e7af40d6abf6f316789051dfe78f73208eb3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617953"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315599"
 ---
-# <a name="what-is-cognitive-search"></a>什麼是認知搜尋？
+# <a name="what-is-cognitive-search-in-azure-search"></a>什麼是 Azure 搜尋服務的「認知搜尋」？
 
 認知搜尋可藉由將 AI 演算法附加至索引管線，從不可搜尋的內容建立可搜尋的資訊。 AI 整合是透過*認知技能*執行的，可在使用搜尋索引的過程中擴充來源文件。 
 
@@ -26,12 +27,14 @@ ms.locfileid: "39617953"
 
 ![認知搜尋管線圖](./media/cognitive-search-intro/cogsearch-architecture.png "認知搜尋管線概觀")
 
-Azure 搜尋服務中的認知技能以認知服務 API 中使用的相同 AI 演算法為基礎：[具名實體辨識 API](cognitive-search-skill-named-entity-recognition.md)、[關鍵片語擷取 API](cognitive-search-skill-keyphrases.md) 和 [OCR API](cognitive-search-skill-ocr.md) 只是其中幾項。 
+Azure 搜尋服務中的認知技能是以認知服務 API 中使用的相同 AI 演算法為基礎：[具名實體辨識 API](cognitive-search-skill-named-entity-recognition.md)、[關鍵片語擷取 API](cognitive-search-skill-keyphrases.md) 和 [OCR API](cognitive-search-skill-ocr.md) 只是其中幾項。 
 
 在資料擷取階段中會套用自然語言和影像處理，且其結果會在 Azure 搜尋服務的可搜尋索引中成為文件撰寫的一部分。 資料會作為 Azure 資料集的來源，然後使用您所需的[內建技能](cognitive-search-predefined-skills.md)透過索引管線推送出去。 其架構是可延伸的，因此如果內建技能不敷使用，您可以建立及附加[自訂技能](cognitive-search-create-custom-skill-example.md)，以整合自訂處理。 其範例包括以特定領域為目標 (例如金融、科學出版品或醫藥) 的自訂實體模組或文件分類器。
 
 > [!NOTE]
-> 認知搜尋為公開預覽，且目前免費提供技能集執行。 我們將在不久後宣布此功能的定價。 
+> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 如此我們就能開始收取技能集的執行費用。 自該日起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則會繼續提供，不額外收費。
+>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務價格](https://go.microsoft.com/fwlink/?linkid=2042400)頁面上所述。 深入[了解](cognitive-search-attach-cognitive-services.md)。
 
 ## <a name="components-of-cognitive-search"></a>認知搜尋的元件
 
@@ -45,7 +48,7 @@ Azure 搜尋服務中的認知技能以認知服務 API 中使用的相同 AI �
 
 ![文件萃取階段](./media/cognitive-search-intro/document-cracking-phase-blowup.png "文件萃取")
 
- 支援的來源包括 Azure Blob 儲存體、Azure 資料表儲存體、Azure SQL Database 和 Azure Cosmos DB。 以文字為基礎的內容可以從下列檔案類型中擷取：PDF、Word、PowerPoint、CSV 檔案。 如需完整的清單，請參閱[支援的格式](search-howto-indexing-azure-blob-storage.md#supported-document-formats)。
+ 支援的來源包括 Azure Blob 儲存體、Azure 資料表儲存體、Azure SQL Database 和 Azure Cosmos DB。 文字型的內容可以從下列檔案類型中擷取：PDF、Word、PowerPoint、CSV 檔案。 如需完整的清單，請參閱[支援的格式](search-howto-indexing-azure-blob-storage.md#supported-document-formats)。
 
 ### <a name="cognitive-skills-and-enrichment-phase"></a>認知技能和擴充階段
 
@@ -90,8 +93,19 @@ Azure 搜尋服務中的認知技能以認知服務 API 中使用的相同 AI �
 
 **步驟 1：在提供 API 的區域中建立搜尋服務** 
 
++ 美國中西部
 + 美國中南部
++ 美國東部
++ 美國東部 2
++ 美國西部 2
++ 加拿大中部
 + 西歐
++ 英國南部
++ 北歐
++ 巴西南部
++ 東南亞
++ 印度中部
++ 澳洲東部
 
 **步驟 2：實際操作工作流程加以熟悉**
 

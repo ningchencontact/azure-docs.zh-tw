@@ -2,21 +2,21 @@
 title: 初步了解：使用復原服務保存庫保護 Azure VM
 description: 使用復原服務保存庫保護 Azure VM。 使用 Resource Manager 部署的 VM、傳統部署的 VM 和進階儲存體 VM、已在受控磁碟中加密 VM 的備份來保護您的資料。 建立和註冊復原服務保存庫。 在 Azure 中註冊 VM、建立原則和保護 VM。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keyword: backups; vm backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: markgal
+ms.author: raynew
 ms.custom: H1Hack27Feb2017
 keywords: 備份; VM 備份
-ms.openlocfilehash: daa2355d028af9b61b0b14a453452c1a96487403
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2c6b881e5717c0f4600b4e3c2f47c19b5d2dae51
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233536"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52869923"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>將 Azure 虛擬機器備份到復原服務保存庫
 
@@ -36,8 +36,8 @@ ms.locfileid: "51233536"
 
 > [!NOTE]
 > 備份服務會建立與 VM 資源群組不同的資源群組，來儲存還原點集合。 建議客戶請勿鎖定建立給備份服務使用的資源群組。
-備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>`
-<br>例如：AzureBackupRG_northeurope_1
+備份服務建立的資源群組命名格式為：AzureBackupRG_`<Geo>`_`<number>` 例如：AzureBackupRG_northeurope_1
+<br>Eg: AzureBackupRG_northeurope_1
 >
 >
 

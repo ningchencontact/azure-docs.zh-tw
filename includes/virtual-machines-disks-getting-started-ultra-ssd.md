@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b28830ac2634ad2238d834238de83c9184bcd6f0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ec8fa6c06dff0091627a800c895d45fd3b0e778e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47010386"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53381400"
 ---
 # <a name="enabling-azure-ultra-ssds"></a>啟用 Azure Ultra SSD
 
@@ -29,9 +29,9 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 回應將會類似於下面的形式，其中 X 是要用於在美國東部 2 中部署的區域。 X 可能是 1、2 或 3。
 
-|ResourceType  |名稱  |位置  |區域  |限制  |功能  |值  |
+|ResourceType  |Name  |位置  |區域  |限制  |功能  |值  |
 |---------|---------|---------|---------|---------|---------|---------|
-|磁碟     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
+|disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 如果命令沒有回應，表示仍在等待您註冊此功能，或註冊尚未核准。
 
@@ -81,9 +81,9 @@ CLI：`az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS�
 
 - 在 VM 建立期間，也能夠以隱含方式建立 Ultra SSD。 不過，這些磁碟的 IOPS 和輸送量將會收到預設值 (前者為 500，後者為每秒 8 MiB)。
 - 額外的 Ultra SSD 可以連接到與 Ultra SSD 相容的 VM。
-- Ultra SSD 支援在工作階段調整磁碟效能屬性 (IOPS 與輸送量)，而不必將磁碟從虛擬機器中斷連結。 一旦向磁碟發出磁碟效能調整作業，最多可能需要一個小時，變更才會實際生效。
+- Ultra SSD 支援在工作階段調整磁碟效能屬性 (IOPS 與輸送量)，而不必將磁碟從虛擬機器中斷連結。 向磁碟發出磁碟效能調整作業後，最多可能需要一個小時，變更才會實際生效。
 - 若要增加磁碟容量，必須解除配置虛擬機器。
 
-# <a name="next-steps"></a>後續步驟
+## <a name="next-steps"></a>後續步驟
 
 如果您想要嘗試新的磁碟類型，但尚未註冊使用預覽版，[請透過此問卷要求存取權](https://aka.ms/UltraSSDPreviewSignUp)。

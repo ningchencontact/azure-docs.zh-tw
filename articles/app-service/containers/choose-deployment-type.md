@@ -1,11 +1,11 @@
 ---
-title: Linux 部署上的 Azure App Service - 自訂映像、多容器或內建平台映像？  | Microsoft Docs
+title: 部署自訂映像、多容器或內建映像 - Azure App Service | Microsoft Docs
 description: 如何在自訂 Docker 容器部署、多容器與 Linux 上的 App Service 內建應用程式架構之間做出選擇
 keywords: azure app service, web 應用程式, linux, oss
 services: app-service
 documentationCenter: ''
 authors: msangapu
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: ''
 ms.service: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.custom: seodec18
+ms.openlocfilehash: d53fc8b3971a1003b4f5d9b9e52f86ee73829cc2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319433"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315791"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>自訂映像、多容器或內建平台映像？
 
@@ -35,7 +36,7 @@ ms.locfileid: "49319433"
 需要考量的主要因素如下：
 
 - **Docker 在您的開發工作流程中的可用性**：自訂映像開發需要擁有對 Docker 開發工作流程的基本知識。 將自訂映像部署至 Web 應用程式需要將自訂映像發佈到 Docker Hub 之類的儲存機制主機。 如果您對 Docker 相當熟悉，而且可以將 Docker 工作新增至組建工作流程，或是您已經將應用程式發佈為 Docker 映像，那麼自訂映像可說一定是最佳選擇。
-- **多層式架構**： 部署多個容器 (例如 Web 應用程式層和 API 層)，使用多個容器劃分功能。 
+- **多層式架構**：部署多個容器 (例如 Web 應用程式層和 API 層)，使用多個容器劃分功能。 
 - **應用程式效能**：使用 Redis 等快取層級，提升多容器應用程式的效能。 選取多容器可達成此目的。
 - **獨特的執行階段需求**：內建平台映像的設計符合大部分的 Web 應用程式的需求，但是自訂能力受到侷限。 您的應用程式在相依性或其他執行階段方面可能有獨特的需求，超出了內建映像的處理能力。
 - **組建需求**：藉由[持續部署](../app-service-continuous-deployment.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，您可以直接從原始程式碼在 Azure 上啟動和執行您的應用程式。 不需要外部的組建或發佈程序。 不過，[Kudu](https://github.com/projectkudu/kudu/wiki)部署引擎內的組建工具在自訂能力和可用性方面受到限制。 您的應用程式可能隨著對於自訂組建邏輯的相依性或需求增加，而超出 Kudu 的功能範圍。

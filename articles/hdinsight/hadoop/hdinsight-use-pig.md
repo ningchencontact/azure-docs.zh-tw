@@ -1,5 +1,5 @@
 ---
-title: 在 HDInsight 中使用 Apache Pig
+title: 使用 Apache Pig - Azure HDInsight
 description: 了解如何在 HDInsight 上搭配 Apache Hadoop 使用 Pig。
 services: hdinsight
 author: hrasheed-msft
@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: 6a1247048907d81b3c9db644bcdb7b5e5eee5fba
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 25a91c6217aac1b2278957c1ff0ed8b7a9b1f6ac
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633626"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166161"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig
 
-了解如何使用 [Apache Pig](http://pig.apache.org/) 搭配 HDInsight。
+了解如何使用 [Apache Pig](https://pig.apache.org/) 搭配 HDInsight。
 
 Apache Pig 是一個平台，可使用名為 *Pig Latin* 的程序性語言建立 Apache Hadoop 的程式。 若要建立 *MapReduce* 解決方案，Pig 是 Java 的替代選項，而且也已包含在 Azure HDInsight 中。 使用下表了解可搭配 HDInsight 使用 Pig 的各種方式︰
 
@@ -69,7 +69,7 @@ HDInsight 提供各種範例資料集，儲存在 `/example/data` 和 `/HdiSampl
 在上一個範例中，記錄層級是「錯誤」。
 
 > [!NOTE]
-> 您也可以使用 [Apache Log4j](http://en.wikipedia.org/wiki/Log4j) 記錄工具產生 log4j 檔案，然後將該檔案上傳至 Blob。 如需指示，請參閱 [將資料上傳至 HDInsight](../hdinsight-upload-data.md) 。 如需關於如何搭配 HDInsight 使用 Azure 儲存體 Blob 的詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-hadoop-use-blob-storage.md)。
+> 您也可以使用 [Apache Log4j](https://en.wikipedia.org/wiki/Log4j) 記錄工具產生 log4j 檔案，然後將該檔案上傳至 Blob。 如需指示，請參閱 [將資料上傳至 HDInsight](../hdinsight-upload-data.md) 。 如需關於如何搭配 HDInsight 使用 Azure 儲存體 Blob 的詳細資訊，請參閱 [搭配 HDInsight 使用 Azure Blob 儲存體](../hdinsight-hadoop-use-blob-storage.md)。
 
 ## <a id="job"></a>範例作業
 
@@ -120,12 +120,12 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 * [在 HDInsight 上使用 Oozie](../hdinsight-use-oozie.md)
 * [搭配 HDInsight 使用 MapReduce 作業][hdinsight-use-mapreduce]
 
-[apachepig-home]: http://pig.apache.org/
-[putty]: http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
-[curl]: http://curl.haxx.se/
-[pigtask]: http://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[apachepig-home]: https://pig.apache.org/
+[putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+[curl]: https://curl.haxx.se/
+[pigtask]: https://msdn.microsoft.com/library/mt146781(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 [hdinsight-admin-powershell]: hdinsight-administer-use-powershell.md
 
 [hdinsight-use-hive]:../hdinsight-use-hive.md
@@ -136,7 +136,7 @@ HDInsight 可以使用各種方法執行 Pig Latin 工作。 請使用下表決�
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 
 
 [image-hdi-pig-data-transformation]: ./media/hdinsight-use-pig/HDI.DataTransformation.gif

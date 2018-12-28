@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 藍圖中透過參數建立動態藍圖
+title: 使用參數建立動態藍圖
 description: 了解靜態與動態參數，以及如何使用它們來建立動態藍圖。
 services: blueprints
 author: DCtheGeek
@@ -8,12 +8,13 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f6485b01c391ba336799ceb35ee67402b3603585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 0eef85fe92682eb3a6fd1dbc036cf547b163db97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093746"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310312"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>透過參數建立動態藍圖
 
@@ -57,7 +58,7 @@ ms.locfileid: "50093746"
 
 1. 按一下現有的藍圖，然後按一下 [編輯藍圖]，或按一下 [+ 建立藍圖]，然後填寫 [基本] 索引標籤上的資訊。
 
-1. 按一下 [下一步: 成品]，或按一下 [成品] 索引標籤。
+1. 按一下 [下一步:成品]，或按一下 [成品] 索引標籤。
 
 1. 新增到具有參數選項之藍圖的成品會在 [參數] 欄中顯示 [已填入 X 個參數 (共 Y 個)]。 按一下成品列來編輯成品參數。
 

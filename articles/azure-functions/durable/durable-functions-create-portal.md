@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: acbba991e6dcce56fad7f27c45f85214cc8fc707
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: a79faa1dc5a28e5e2ac37ea164c341b855b3bb80
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637003"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339717"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>使用 Azure 入口網站建立 Durable Functions
 
@@ -24,17 +24,43 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 >[!NOTE]
 >
 >* 如果您正在使用 C# 開發長期函式，則應考慮 [Visual Studio 2017 開發](durable-functions-create-first-csharp.md)。
-* 如果您正在使用 JavaScript 開發長期函式，則應考慮 **Visual Studio Code 開發**。
->
->入口網站尚不支援使用 JavaScript 建立 Durable Functions。 請改用 Visual Studio Code。
+* 如果您正在使用 JavaScript 開發長期函式，則應考慮 [Visual Studio Code 開發](./quickstart-js-vscode.md)。
 
 ## <a name="create-a-function-app"></a>建立函數應用程式
 
-您必須擁有函式應用程式以便主控任何函式的執行。 函式應用程式可讓您將您的多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 您必須建立 C# 函式應用程式，因為 Durable Functions 尚不支援 JavaScript 範本。  
+您必須擁有函式應用程式以便主控任何函式的執行。 函式應用程式可讓您將您的多個函式群組為邏輯單位，以方便您管理、部署和共用資源。 您可以建立 .NET 或 JavaScript 應用程式。
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
-根據預設，所建立的函式應用程式會使用 2.x 版的 Azure Functions 執行階段。 Durable Functions 擴充功能適用於 Azure Functions 執行階段的 1.x 和 2.x 版本。 但是，範本僅在以執行階段 2.x 版本為目標時才可以使用。
+根據預設，所建立的函式應用程式會使用 2.x 版的 Azure Functions 執行階段。 Durable Functions 擴充功能適用於以 C# 撰寫的 Azure Functions 執行階段的 1.x 和 2.x 版本，以及以 JavaScript 撰寫的 2.x 版本。 但是，無論選擇的語言為何，範本僅在以執行階段 2.x 版本為目標時才可以使用。
+
+## <a name="install-the-durable-functions-npm-package-javascript-only"></a>安裝 Durable Functions npm 套件 (僅限 JavaScript)
+
+如果您要建立 JavaScript Durable Functions，您必須安裝 [`durable-functions` npm 套件](https://www.npmjs.com/package/durable-functions)。
+
+1. 選取您的函式應用程式名稱，後面接著**平台功能**，然後**進階工具 (Kudu)**。
+
+   ![函式平台功能會選擇 Kudu](./media/durable-functions-create-portal/function-app-platform-features-choose-kudu.png)
+
+2. 在 Kudu 主控台中，選取 [偵錯主控台]，然後選擇 [CMD]。
+
+   ![Kudu 偵錯主控台](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+3. 函式應用程式的檔案目錄結構應該會顯示。 瀏覽到 `site/wwwroot` 資料夾。 從這裡，您可以將 `package.json` 檔案拖放到檔案目錄視窗來上傳該檔案。 範例 `package.json` 如下：
+
+    ```json
+    {
+      "dependencies": {
+        "durable-functions": "^1.1.2"
+      }
+    }
+    ```
+
+   ![Kudu upload package.json](./media/durable-functions-create-portal/kudu-choose-debug-console.png)
+
+4. `package.json` 上傳之後，請從 Kudu 遠端執行主控台執行 `npm install` 命令。
+
+   ![Kudu run npm install](./media/durable-functions-create-portal/kudu-npm-install.png)
 
 ## <a name="create-an-orchestrator-function"></a>建立協調器函式
 
@@ -92,7 +118,7 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
         }
     ```
 
-1. 繼續呼叫 `statusQueryGetUri` 端點，直到狀態變成 [已完成]，您會看到如下列範例所示的回應： 
+1. 繼續呼叫 `statusQueryGetUri` 端點，直到狀態變成 [已完成]，您會看到如下列範例所示的回應：
 
     ```json
     {
@@ -113,4 +139,4 @@ NuGet 套件 [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.
 ## <a name="next-steps"></a>後續步驟
 
 > [!div class="nextstepaction"]
-> [深入了解長期函式的常見模式](durable-functions-overview.md)
+> [了解常見的耐久函式模式](durable-functions-overview.md)

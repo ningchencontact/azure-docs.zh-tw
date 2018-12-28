@@ -9,20 +9,20 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3f0c912d1489884e0fef87e495d91486f3b1fc67
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: bcaf59e1d9b36dfbb17f1e0b8089cd88e626e2b9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010060"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437124"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>從以 Windows 為基礎的 HDInsight 叢集移轉至以 Linux 為基礎的叢集
 
 本文件提供 Windows 和 Linux 上的 HDInsight 之間差異的詳細資料。 它也提供有關如何將現有工作負載移轉至以 Linux 作為基礎之叢集的指引。
 
-儘管以 Windows 為基礎的 HDInsight 提供一種簡單方式來使用雲端中的 Hadoop，但您可能需要移轉到以 Linux 為基礎的叢集。 例如，充分利用您解決方案所需且以 Linux 為基礎的工具和技術。 Hadoop 生態系統的許多內容都是在以 Linux 為基礎的系統上開發，因此可能無法與以 Windows 為基礎的 HDInsight 搭配使用。 許多針對 Hadoop 的書籍、影片及其他訓練材料，都會假設您正在使用 Linux 系統。
+儘管以 Windows 為基礎的 HDInsight 提供一種簡單方式來使用雲端中的 Apache Hadoop，但您可能需要移轉到以 Linux 為基礎的叢集。 例如，充分利用您解決方案所需且以 Linux 為基礎的工具和技術。 Hadoop 生態系統的許多內容都是在以 Linux 為基礎的系統上開發，因此可能無法與以 Windows 為基礎的 HDInsight 搭配使用。 許多針對 Hadoop 的書籍、影片及其他訓練材料，都會假設您正在使用 Linux 系統。
 
-> [!NOTE]
+> [!NOTE]  
 > HDInsight 叢集使用 Ubuntu 長期支援 (LTS) 做為叢集中節點的作業系統。 如需 HDInsight 中可用 Ubuntu 版本的相關資訊以及其他元件版本設定資訊，請參閱 [HDInsight 元件版本](hdinsight-component-versioning.md)。
 
 ## <a name="migration-tasks"></a>移轉工作
@@ -82,7 +82,7 @@ ms.locfileid: "51010060"
     hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果包含資料的目錄結構不存在於測試環境，您可以使用下列命令建立它：
 
     ```bash
@@ -97,7 +97,7 @@ ms.locfileid: "51010060"
 
 ## <a name="client-side-technologies"></a>用戶端技術
 
-[Azure PowerShell Cmdlet](/powershell/azureps-cmdlets-docs)、[Azure 傳統 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) 之類的用戶端技術會繼續使用以 Linux 為基礎的叢集。 這些依賴 REST API 的技術在兩種叢集作業系統類型上都相同。
+[Azure PowerShell Cmdlet](/powershell/azureps-cmdlets-docs)、[Azure 傳統 CLI](../cli-install-nodejs.md) 或 [.NET SDK for Apache Hadoop](https://hadoopsdk.codeplex.com/) 之類的用戶端技術會繼續使用以 Linux 為基礎的叢集。 這些依賴 REST API 的技術在兩種叢集作業系統類型上都相同。
 
 ## <a name="server-side-technologies"></a>伺服器端技術
 
@@ -110,7 +110,7 @@ ms.locfileid: "51010060"
 | **.NET 元件** |以 Linux 為基礎的 HDInsight 透過 [Mono](https://mono-project.com) 支援 .NET。 如需詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md)。 |
 | **Win32 元件或其他僅限 Windows 的技術** |指導方針將視元件或技術而有所不同。 您可以尋找與 Linux 相容的版本。 如果沒有，您就必須找出替代解決方案或重新撰寫此元件。 |
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > HDInsight 管理 SDK 不完全相容 Mono。 請勿使用它作為部署到 HDInsight 叢集的解決方案一部分。
 
 ## <a name="cluster-creation"></a>叢集建立
@@ -133,7 +133,7 @@ ms.locfileid: "51010060"
 
 另一個自訂功能是 **bootstrap**。 針對 Windows 叢集，此功能可讓您指定其他搭配 Hive 使用之程式庫的位置。 在叢集建立之後，這些程式庫將可自動搭配 Hive 查詢使用，而不需使用 `ADD JAR`。
 
-針對以 Linux 為基礎的叢集，Bootstrap 功能不提供此功能。 請改為使用 [在叢集建立期間新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)中所記錄的指令碼動作。
+針對以 Linux 為基礎的叢集，Bootstrap 功能不提供此功能。 請改為使用 [在叢集建立期間新增 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md)中所記錄的指令碼動作。
 
 ### <a name="virtual-networks"></a>虛擬網路
 
@@ -143,18 +143,18 @@ ms.locfileid: "51010060"
 
 ## <a name="management-and-monitoring"></a>管理與監視
 
-有許多您可能曾搭配以 Windows 為基礎之 HDInsight 使用的 Web UI (例如工作歷程記錄或 Yarn UI)，皆可透過 Ambari 使用。 此外，Ambari Hive 檢視能提供使用您的網頁瀏覽器執行 Hive 查詢的方法。 Ambari Web UI 可以在以 Linux 為基礎的叢集上使用，位於： https://CLUSTERNAME.azurehdinsight.net。
+有許多您可能曾搭配以 Windows 為基礎之 HDInsight 使用的 Web UI (例如工作歷程記錄或 Yarn UI)，皆可透過 Apache Ambari 使用。 此外，Ambari Hive 檢視能提供使用您的網頁瀏覽器執行 Hive 查詢的方法。 Ambari Web UI 可以在以 Linux 為基礎的叢集上使用，位於： https://CLUSTERNAME.azurehdinsight.net。
 
 如需使用 Ambari 的詳細資訊，請參閱下列文件：
 
-* [Ambari Web](hdinsight-hadoop-manage-ambari.md)
-* [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+* [Apache Ambari Web](hdinsight-hadoop-manage-ambari.md)
+* [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
 
 ### <a name="ambari-alerts"></a>Ambari 警示
 
 Ambari 擁有能通知您叢集潛在問題的警示系統。 警示將會以紅色或黃色的項目出現在 Ambari Web UI 中，您也可以透過 REST API 擷取它們。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Ambari 警示代表「可能有」問題，而不表示「已發生」問題。 例如，您可能會收到無法存取 HiveServer2 的警示，但實際上您仍然可以正常存取它。
 >
 > 許多警示都是針對某項服務實作為以間隔為基礎的查詢，並會預期在特定的時間範圍內收到回應。 因此警示本身並不代表服務已關閉，而只是單純表示該服務沒有在預期的時間範圍內傳回結果。
@@ -176,30 +176,30 @@ Linux 叢集檔案系統的展開方式和以 Windows 為基礎的 HDInsight 叢
 
 您也可以搭配檔案名稱使用萬用字元。 例如，`find / -name *streaming*.jar 2>/dev/null` 會傳回任何檔案名稱包含 'streaming' 這個字的 jar 檔案路徑。
 
-## <a name="hive-pig-and-mapreduce"></a>Hive、Pig 及 MapReduce
+## <a name="apache-hive-apache-pig-and-mapreduce"></a>Apache Hive、Apache Pig 及 MapReduce
 
 Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過，您可以使用較新版本的 Hadoop、Hive 和 Pig 建立以 Linux 為基礎的 HDInsight 叢集。 這些版本的差異可能會對您現有方案的運作方式造成變更。 如需 HDInsight 包含之元件的版本詳細資訊，請參閱 [HDInsight 元件版本設定](hdinsight-component-versioning.md)。
 
 以 Linux 為基礎的 HDInsight 不提供遠端桌面功能。 您可以改用 SSH 來遠端連線至叢集前端節點。 如需詳細資訊，請參閱下列文件：
 
-* [搭配 SSH 使用 Hive](hdinsight-hadoop-use-hive-ssh.md)
-* [搭配 SSH 使用 Pig](hadoop/apache-hadoop-use-pig-ssh.md)
+* [搭配 SSH 使用 Apache Hive](hdinsight-hadoop-use-hive-ssh.md)
+* [搭配 SSH 使用 Apache Pig](hadoop/apache-hadoop-use-pig-ssh.md)
 * [搭配 SSH 使用 MapReduce](hadoop/apache-hadoop-use-mapreduce-ssh.md)
 
 ### <a name="hive"></a>Hive
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您使用外部 Hive 中繼存放區，您應該先備份中繼存放區，然後才將它搭配以 Linux 為基礎的 HDInsight 使用。 以 Linux 為基礎的 HDInsight 可搭配較新版本的 Hive 使用，但可能會與舊版建立的中繼存放區不相容。
 
 下列圖表提供移轉 Hive 工作負載的指導方針。
 
 | 以 Windows 為基礎時，我是使用... | 以 Linux 為基礎時... |
 | --- | --- |
-| **Hive 編輯器** |[Ambari 中的 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md) |
-| `set hive.execution.engine=tez;` 以啟用 Tez |Tez 是以 Linux 為基礎之叢集的預設執行引擎，因此已不再需要 SET 陳述式。 |
+| **Hive 編輯器** |[Ambari 中的 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md) |
+| `set hive.execution.engine=tez;` 以啟用 Tez |Apache Tez 是以 Linux 為基礎之叢集的預設執行引擎，因此已不再需要 SET 陳述式。 |
 | C# 使用者定義函數 | 如需驗證以 Linux 為基礎之 HDInsight 的 C# 元件詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 伺服器上的 CMD 檔案或指令碼是做為 Hive 工作的一部分進行叫用 |使用 Bash 指令碼 |
-| `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| `hive` 命令 |使用 [Beeline](hadoop/apache-hadoop-use-hive-beeline.md) 或是[來自 SSH 工作階段的 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -215,9 +215,9 @@ Pig 和 MapReduce 工作負載在 Linux 為基礎的叢集上很相似。 不過
 | C# 對應器和歸納器元件 | 如需驗證以 Linux 為基礎之 HDInsight 的 C# 元件詳細資訊，請參閱[將 .NET 方案移轉至以 Linux 為基礎的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 伺服器上的 CMD 檔案或指令碼是做為 Hive 工作的一部分進行叫用 |使用 Bash 指令碼 |
 
-## <a name="oozie"></a>Oozie
+## <a name="apache-oozie"></a>Apache Oozie
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 如果您使用外部 Oozie 中繼存放區，您應該先備份中繼存放區，然後才將它搭配以 Linux 為基礎的 HDInsight 使用。 以 Linux 為基礎的 HDInsight 可搭配較新版本的 Oozie 使用，但可能會與舊版建立的中繼存放區不相容。
 
 Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預設殼層來執行命令列命令。 如果您有依賴 Windows 殼層的 Oozie 工作流程，您必須重新撰寫工作流程，以依賴 Linux 殼層環境 (Bash)。 如需使用 Oozie 殼層動作的詳細資訊，請參閱 [Oozie 殼層動作擴充功能](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html)。
@@ -228,15 +228,15 @@ Oozie 工作流程允許殼層動作。 殼層動作會使用作業系統的預�
 
 | 以 Windows 為基礎時，我是使用... | 以 Linux 為基礎時... |
 | --- | --- |
-| Storm Dashboard |無法使用 Storm Dashboard。 請參閱 [在以 Linux 為基礎的 HDInsight 上部署與管理 Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md) ，以了解提交拓撲的方法。 |
+| Storm Dashboard |無法使用 Storm Dashboard。 請參閱 [在以 Linux 為基礎的 HDInsight 上部署與管理 Apache Storm 拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)，以了解提交拓撲的方法 |
 | Storm UI |Storm UI 位於 https://CLUSTERNAME.azurehdinsight.net/stormui |
 | Visual Studio 以建立、部署及管理 C# 或混合式拓撲 |在以 Linux 作為基礎的 Storm on HDInsight 上，可以使用 Visual Studio 來建立、部署和管理 C# (SCP.NET) 或混合式拓撲。 僅能搭配使用 10/28/2016 之後建立的叢集。 |
 
-## <a name="hbase"></a>hbase
+## <a name="apache-hbase"></a>Apache HBase (英文)
 
 在以 Linux 為基礎的叢集上，HBase 的 znode 父項目為 `/hbase-unsecure`。 針對任何使用原生 HBase Java API 的 Java 用戶端應用程式，在組態中設定此值。
 
-如需設定此值的範例用戶端，請參閱 [建置以 Java 為基礎的 HBase 應用程式](hdinsight-hbase-build-java-maven.md) 。
+如需設定此值的範例用戶端，請參閱 [建置以 JAVA 為基礎的 Apache HBase 應用程式](hdinsight-hbase-build-java-maven.md)。
 
 ## <a name="spark"></a>Spark
 
@@ -281,4 +281,4 @@ Azure Data Factory 自訂 .NET 活動目前並不受以 Linux 為基礎的 HDIns
 
 * [了解如何建立 Linux 型 HDInsight 叢集](hdinsight-hadoop-provision-linux-clusters.md)
 * [使用 SSH 連線到 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
-* [使用 Ambari 管理 Linux 型叢集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari 管理 Linux 型叢集](hdinsight-hadoop-manage-ambari.md)

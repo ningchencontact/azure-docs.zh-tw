@@ -1,20 +1,20 @@
 ---
-title: 了解 Azure 原則如何在虛擬裝置內執行稽核
+title: 了解如何在虛擬裝置內執行稽核
 description: 了解「Azure 原則」如何使用「來賓設定」來稽核 Azure 虛擬機器內的設定。
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: ca96aea8f359f1df7da48f84a3317a2d8c7b52e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.custom: seodec18
+ms.openlocfilehash: 1ea87dc01048a2747a668db7a5b1f22b37ed9213
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47167634"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310057"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure 原則的來賓設定
 
@@ -29,7 +29,7 @@ ms.locfileid: "47167634"
 
 ### <a name="register-guest-configuration-resource-provider"></a>註冊來賓設定資源提供者
 
-您必須先註冊資源提供者，才能使用「來賓設定」。 您可以透過入口網站或透過 PowerShell 執行此操作。
+您必須先註冊資源提供者，才能使用「來賓設定」。 您可以透過入口網站或透過 PowerShell 註冊。
 
 #### <a name="registration---portal"></a>註冊 - 入口網站
 
@@ -60,14 +60,14 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 |作業系統|驗證工具|注意|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+| Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 「來賓設定」延伸模組會安裝 Ruby 和 Python。 |
 
 ### <a name="supported-client-types"></a>支援的用戶端類型
 
 下表顯示 Azure 映像上的支援作業系統清單：
 
-|發行者|名稱|版本|
+|發行者|Name|版本|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04、16.04、18.04|
 |Credativ|Debian|8、9|
@@ -92,21 +92,21 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 
 「來賓設定」所執行的每個稽核都需要兩個原則定義：**DeployIfNotExists** 和 **AuditIfNotExists**。 **DeployIfNotExists** 可用來為虛擬機器準備「來賓設定」代理程式及其他用以支援[驗證工具](#validation-tools)的元件。
 
-**DeployIfNotExists** 原則定義會驗證並修正下列各項：
+**DeployIfNotExists** 原則定義會驗證並修正下列項目：
 
-- 確保已為虛擬機器指派要評估的設定。 如果目前沒有任何指派，請透過下列方式取得指派並備妥虛擬機器：
+- 驗證虛擬機器已獲指派將要評估的設定。 如果目前沒有任何指派，請透過下列方式取得指派並備妥虛擬機器：
   - 使用[受控識別](../../../active-directory/managed-identities-azure-resources/overview.md)向虛擬機器進行驗證
   - 安裝最新版的 **Microsoft.GuestConfiguration** 延伸模組
   - 安裝[驗證工具](#validation-tools)和相依性 (如有需要)
 
-在 **DeployIfNotExists** 符合規範之後，**AuditIfNotExists** 原則定義會使用本機驗證工具來判斷所指派的設定指派項目是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端，用戶端會將其轉送給「來賓延伸模組」，以透過「來賓設定」資源提供者提供該結果。
+在 **DeployIfNotExists** 符合規範之後，**AuditIfNotExists** 原則定義會使用本機驗證工具來判斷所指派的設定指派項目是否符合規範。 驗證工具會將結果提供給「來賓設定」用戶端。 用戶端會將結果轉送至「來賓延伸模組」，以便透過「來賓設定」資源提供者提供結果。
 
 「Azure 原則」會使用「來賓設定」資源提供者 **complianceStatus** 屬性在 [合規性] 節點中回報合規性。 如需詳細資訊，請參閱[取得合規性資料](../how-to/getting-compliance-data.md)。
 
 > [!NOTE]
 > 每個「來賓設定」定義都必須有 **DeployIfNotExists** 和 **AuditIfNotExists** 原則定義。
 
-「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 [[預覽]: 稽核 Linux 及 Windows 虛擬機器內的密碼安全性設定] 的內建方案包含 18 個原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯都會確保依據[原則規則](definition-structure.md#policy-rule)定義進行評估的對象僅限目標作業系統。
+「來賓設定」的所有內建原則都包含在一個方案中，以聚集要在指派中使用的定義。 名為 *[預覽] 的內建計劃：Linux 及 Windows 虛擬機器內的「稽核密碼」安全性設定*包含 18 項原則。 針對 Windows 有 6 組 **DeployIfNotExists** 和 **AuditIfNotExists**，針對 Linux 則有 3 組。 在每個案例中，定義內的邏輯僅會驗證依據[原則規則](definition-structure.md#policy-rule)定義進行評估的目標作業系統。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -115,5 +115,5 @@ Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguratio
 - 檢閱[了解原則效果](effects.md)
 - 了解如何[以程式設計方式建立原則](../how-to/programmatically-create.md)
 - 了解如何[取得合規性資料](../how-to/getting-compliance-data.md)
-- 探索如何[補救不符合規範的資源](../how-to/remediate-resources.md)
+- 了解如何[補救不符合規範的資源](../how-to/remediate-resources.md)
 - 檢閱[使用 Azure 管理群組來組織資源](../../management-groups/index.md)，以了解何謂管理群組

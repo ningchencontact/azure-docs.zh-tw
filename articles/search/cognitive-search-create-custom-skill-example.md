@@ -1,5 +1,5 @@
 ---
-title: 範例：在認知搜尋管線中建立自訂技能 (Azure 搜尋服務) | Microsoft Docs
+title: 範例：在認知搜尋管線中建立自訂技能 - Azure 搜尋服務
 description: 示範在對應到 Azure 搜尋服務認知搜尋索引管線的自訂技能中使用文字翻譯 API。
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: d78959ba415c837e931edcc0278de84daa879bc1
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.custom: seodec2018
+ms.openlocfilehash: d5bbdac74b0afa745993dd848ef73352d996e8b6
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393945"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315055"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>範例：建立使用文字翻譯 API 的自訂技能
 

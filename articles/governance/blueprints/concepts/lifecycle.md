@@ -1,6 +1,6 @@
 ---
-title: 了解 Azure 藍圖的生命週期
-description: 了解藍圖經過的生命週期與每個階段的詳細資料。
+title: 了解藍圖生命週期
+description: 了解藍圖所會歷經的生命週期以及各階段的詳細資訊。
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,19 +8,20 @@ ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 84dc86f993b0c1b4c4803525a07bdd34dddd229d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094154"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309801"
 ---
-# <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>了解 Azure 藍圖的生命週期
+# <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>了解 Azure 藍圖生命週期
 
-就像 Azure 中的許多資源，Azure 藍圖中的藍圖具有典型的自然生命週期。 它們會建立、部署，最後當它們不再需要或相關時即會刪除。
+如同 Azure 中的許多資源，Azure 藍圖中的藍圖也具有典型的自然生命週期。 它們會建立、部署，最後當它們不再需要或相關時即會刪除。
 藍圖支援標準生命週期作業。 藍圖會接著以這些作業為基礎來提供其他層級的狀態，以對管理其基礎結構即程式碼 (DevOps 中的重要元素) 的組織，支援常見的持續整合和持續部署管線。
 
-我們將討論標準的生命週期，以完整了解藍圖與階段：
+以下會討論藍圖的標準生命週期，以完整了解藍圖與各個階段：
 
 > [!div class="checklist"]
 > - 建立及編輯藍圖
@@ -87,7 +88,7 @@ ms.locfileid: "50094154"
 
 ## <a name="assignments"></a>指派
 
-在生命週期中，有數個時間點可將藍圖指派給訂用帳戶。 當藍圖版本的模式為**已發佈**時，即將將該版本指派給訂用帳戶。 此生命週期讓您可以在較新版本處於開發期間使用並主動指派藍圖的版本。
+在生命週期中，有數個時間點可將藍圖指派給訂用帳戶。 當藍圖版本的模式為**已發佈**時，即將將該版本指派給訂用帳戶。 此生命週期在新版本尚在開發時，就可使用並主動指派藍圖版本。
 
 指派藍圖的版本時，請務必了解指派它們的位置，以及使用哪些參數來指派它們。 參數可以是靜態或動態的。 若要深入了解，請參閱[靜態與動態參數](parameters.md)。
 

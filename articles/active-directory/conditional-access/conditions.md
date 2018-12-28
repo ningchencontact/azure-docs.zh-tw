@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 9feb6ef5b708813c2f73a70a930cabfd69dff114
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 90b9a1104dd387c857e4955cabfb121773aedcca
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141099"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410055"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的條件？ 
 
-您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制授權使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。 
+您可以使用 [Azure Active Directory (Azure AD) 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)，控制使用者將如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則原因 ("When this happens") 做出的回應 ("Then do this")。 
 
 ![原因和回應](./media/conditions/10.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "42141099"
 
 - [所有雲端應用程式]，以針對要套用至整個組織的原則設定基準。 在偵測到任何雲端應用程式有登入風險時，請為需要執行多重要素驗證的原則使用此選項。 套用至**所有雲端應用程式**的原則，也會套用至所有網站和服務的存取。 此設定並非僅限於 [選取應用程式] 清單上顯示的雲端應用程式。 
 
-- 個別雲端應用程式，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。 
+- **選取應用程式**，以依據原則將特定服務當作目標。 例如，您可以要求使用者必須具備[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)，才能存取 SharePoint Online。 當使用者存取 SharePoint 內容時，此原則也會套用至其他服務。 Microsoft Teams 即為一例。 
 
 您可以將特定應用程式從原則中排除。 不過，這些應用程式仍須遵循它們存取的服務所套用的原則。 
 
@@ -82,7 +82,7 @@ ms.locfileid: "42141099"
 
 ## <a name="sign-in-risk"></a>登入風險
 
-登入風險是可能性 (高、中或低) 的指標，代表執行登入嘗試的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 您可以使用計算出的登入風險層級作為條件式存取原則中的條件。
+登入風險是可能性 (高、中或低) 的指標，代表執行登入的使用者不是使用者帳戶合法擁有者的可能性。 Azure AD 會計算使用者登入期間的登入風險層級。 您可以使用計算出的登入風險層級作為條件式存取原則中的條件。
 
 ![登入風險層級](./media/conditions/22.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "42141099"
 - 封鎖具有高度登入風險的使用者。 此保護措施可防止可能的非合法使用者存取您的雲端應用程式。 
 - 針對具有中度登入風險的使用者，要求執行多重要素驗證。 藉由強制執行多重要素驗證，您可以更加確信執行登入的使用者是帳戶的合法擁有者。
 
-如需詳細資訊，請參閱[有風險的登入](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-security-risky-sign-ins)。  
+如需詳細資訊，請參閱[偵測到工作階段風險時封鎖存取](app-sign-in-risk.md)。  
 
 ## <a name="device-platforms"></a>裝置平台
 
@@ -111,13 +111,12 @@ ms.locfileid: "42141099"
 
 ## <a name="device-state"></a>裝置狀態
 
-裝置狀態條件會將已加入混合式 Azure AD 的裝置和標示為符合規範的裝置，從條件式存取原則中排除。 當原則只應套用至未受控裝置，以提供多一層工作階段安全性時，此條件將有其效用。 例如裝置未受控時，可以只強制執行 Microsoft Cloud App Security 工作階段控制。 
+裝置狀態條件會將已加入混合式 Azure AD 的裝置和標示為符合規範的裝置，從條件式存取原則中排除。 
 
 
 ![設定裝置狀態](./media/conditions/112.png)
 
-如果您想要封鎖未受控裝置的存取，請實作[裝置型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。
-
+當原則只應套用至未受控裝置，以提供多一層工作階段安全性時，此條件將有其效用。 例如裝置未受控時，可以只強制執行 Microsoft Cloud App Security 工作階段控制。 
 
 ## <a name="locations"></a>位置
 
@@ -136,98 +135,67 @@ ms.locfileid: "42141099"
 
 ## <a name="client-apps"></a>用戶端應用程式
 
-使用用戶端應用程式條件，可讓您將原則套用至不同類型的應用程式。 範例包括網站、服務、行動應用程式和桌面應用程式。 
+根據預設，條件式存取原則適用於下列應用程式：
+
+- **[瀏覽器應用程式](technical-reference.md#supported-browsers)** - 瀏覽器應用程式包括了使用 SAML、WS-同盟或 OpenID Connect Web SSO 通訊協定的網站。 也適用於已註冊為 OAuth 機密用戶端的任何網站或 Web 服務， 例如 Office 365 SharePoint 網站。 
+
+- **[使用新式驗證的行動和傳統型應用程式](technical-reference.md#supported-mobile-applications-and-desktop-clients)** - Office 傳統型應用程式和手機應用程式均屬於此類應用程式。 
 
 
+此外，您可以將原則鎖定至未使用新式驗證的特定用戶端應用程式，例如：
 
-應用程式會進行如下的分類：
+- **[Exchange ActiveSync 用戶端](conditions.md#exchange-activesync-clients)** - 當某項原則封鎖 Exchange ActiveSync 的使用時，受影響的使用者會收到一封隔離電子郵件，內有鎖定原因的相關資訊。 必要時，電子郵件會提供向 Intune 註冊裝置的指示。
 
-- 網站或服務 - 如果應用程式針對機密用戶端使用 Web SSO 通訊協定、SAML、WS-Fed 或 OpenID Connect。
+- **[其他用戶端](block-legacy-authentication.md)** - 這類應用程式包括了使用基本驗證和郵件通訊協定 (如 IMAP、MAPI、POP、SMTP) 的用戶端，以及不是使用新式驗證的舊版 Office 應用程式。 如需詳細資訊，請參閱 [Office 2013 和 Office 2016 用戶端應用程式的新式驗證運作方式](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) (機器翻譯)。
 
-- 行動應用程式或桌面應用程式 - 如果應用程式針對原生用戶端使用行動應用程式 OpenID Connect。
+![用戶端應用程式](./media/conditions/41.png)
 
-如需可在條件式存取原則中使用的用戶端應用程式清單，請參閱「Azure Active Directory 條件式存取的技術參考」中的[用戶端應用程式條件](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#client-apps-condition)。
+此條件的常見使用案例，是具有下列需求的原則：
 
-此條件的常見使用案例，是採取下列保護措施的原則： 
+- 針對會將資料下載到裝置的行動應用程式和傳統型應用程式，**[要求使用受控裝置](require-managed-devices.md)**。 在此同時，仍允許從任何裝置以瀏覽器進行存取。 這種情況下，可避免將文件儲存和同步至非受控的裝置。 透過此種方法，如果裝置遺失或遭竊，可以減少資料遺失的機率。
 
-- 針對將大量資料下載到裝置的行動應用程式或桌面應用程式，要求使用[符合規範的裝置](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)。 在此同時，仍允許從任何裝置以瀏覽器進行存取。
+- 針對會使用 ActiveSync 存取 Exchange Online 的應用程式，**[要求使用受控裝置](require-managed-devices.md)**。
+
+- 封鎖對 Azure AD (其他用戶端) 的**[舊版驗證](block-legacy-authentication.md)**
 
 - 封鎖來自任何 Web 應用程式的存取，但允許來自行動應用程式和桌面應用程式的存取。
 
-您可以將此條件套用至 Web SSO 和新式驗證通訊協定。 您也可以將其套用至使用 Microsoft Exchange ActiveSync 的郵件應用程式。 範例包括大部分智慧型手機上的原生郵件應用程式。 
 
-只有在 Microsoft Office 365 Exchange Online 是您唯一選取的雲端應用程式時，才可以選取用戶端應用程式條件。
 
-![雲端應用程式](./media/conditions/32.png)
+### <a name="exchange-activesync-clients"></a>Exchange ActiveSync 用戶端
 
-只有在原則中並未設定其他條件時，才支援選取 **Exchange ActiveSync** 作為用戶端應用程式條件。 不過，您可以將此條件的範圍縮小到僅套用至支援的平台。
+在下列情況中，您只能選取 [Exchange ActiveSync 用戶端]：
 
+
+- Microsoft Office 365 Exchange Online 是您選取的唯一雲端應用程式。
+
+    ![雲端應用程式](./media/conditions/32.png)
+
+- 您並未在原則中設定其他條件。 不過，您可以將此條件的範圍縮小到僅套用至[支援的平台](technical-reference.md#device-platform-condition)。
  
-![僅將原則套用至支援的平台](./media/conditions/33.png)
-
-只將此條件套用到支援的平台，相當於套用到[裝置平台條件](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online)中的所有裝置平台。
-
-![設定裝置平台](./media/conditions/34.png)
+    ![僅將原則套用至支援的平台](./media/conditions/33.png)
 
 
- 如需詳細資訊，請參閱這些文章：
+當因為需要[受控裝置](require-managed-devices.md)而封鎖存取時，受影響的使用者會收到一封電子郵件，會在信中引導使用者使用 Intune。 
+
+如果需要經過核准的應用程式，會提供說明指示，帶領受影響的使用者安裝和使用 Outlook 行動用戶端。
+
+在其他情況下 (例如需要 MFA)，受影響的使用者會遭到封鎖，因為使用基本驗證的用戶端並不支援 MFA。
+
+您只能將此設定用在使用者和群組上。 它不支援來賓或角色。 如果設定了來賓或角色的條件，由於條件式存取無法判斷是否應將原則套用至使用者，所以會封鎖所有使用者。
+
+
+ 如需詳細資訊，請參閱
 
 - [設定 SharePoint Online 和 Exchange Online，以便採用 Azure Active Directory 條件式存取](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication)。
  
 - [Azure Active Directory 應用程式型條件式存取](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)。 
 
 
-### <a name="legacy-authentication"></a>舊版驗證  
-
-條件式存取現在適用於不支援新式驗證的舊版 Microsoft Office 用戶端。 它也適用於使用 POP、IMAP、SMTP 等郵件通訊協定的用戶端。 使用傳統驗證，可讓您設定**封鎖其他用戶端的存取**之類的原則。
-
-
-![設定用戶端應用程式](./media/conditions/160.png)  
-
-
-#### <a name="known-issues"></a>已知問題
-
-- 為**其他用戶端**設定原則會讓整個組織封鎖特定用戶端，例如 SPConnect。 之所以執行此封鎖，是因為舊版用戶端以非預期的方式進行驗證。 主要的 Office 應用程式 (例如，較舊的 Office 用戶端) 不會有這個問題。 
-
-- 原則最慢可能需要 24 小時才會生效。 
-
-
-#### <a name="frequently-asked-questions"></a>常見問題集
-
-**問：** 此驗證是否會封鎖 Microsoft Exchange Web 服務？
-
-這取決於 Exchange Web 服務所使用的驗證通訊協定。 如果 Exchange Web 服務應用程式使用新式驗證，則會在**行動應用程式和桌面用戶端**用戶端應用程式的涵蓋範圍內。 基本驗證則會在**其他用戶端**用戶端應用程式的涵蓋範圍內。
-
-
-**問：** 我可以對**其他用戶端**使用哪些控制項？
-
-您可以對**其他用戶端**設定任何控制項。 不過，所有案例的使用者體驗都會是封鎖存取。 **其他用戶端**不支援 MFA、符合規範的裝置、網域加入等控制項。 
- 
-**問：** 我可以對**其他用戶端**使用哪些條件？
-
-您可以對**其他用戶端**設定任何條件。
-
-**問：** Exchange ActiveSync 是否支援所有條件和控制項？
-
-否。 下列清單摘錄了 Exchange ActiveSync 支援： 
-
-- Exchange ActiveSync 僅支援以使用者和群組為目標。 它不支援來賓或角色。 如果使用了來賓或角色條件，則會封鎖所有使用者。 Exchange ActiveSync 會封鎖所有使用者，因為它無法判斷原則是否應套用至該使用者。
-
-- Exchange ActiveSync 僅適用於作為雲端應用程式的 Microsoft Exchange Online。 
-
-- Exchange ActiveSync 不支援用戶端應用程式本身以外的任何條件。 
-
-- Exchange ActiveSync 可以設定任何控制項。 裝置合規性以外的所有控制項都會導致封鎖。
-
-**問：** 原則之後是否會預設為適用於所有用戶端應用程式？
-
-否。 預設原則行為不會有任何變更。 原則預設會繼續適用於瀏覽器和行動應用程式和桌面用戶端。
-
-
 
 ## <a name="next-steps"></a>後續步驟
 
-- 若想了解如何設定條件式存取原則，請參閱[快速入門：利用 Azure Active Directory 條件式存取來要求特定應用程式需使用 MFA](app-based-mfa.md)。
+- 若要了解如何設定條件式存取原則，請參閱[快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA](app-based-mfa.md)。
 
 - 若要為您的環境設定條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
 

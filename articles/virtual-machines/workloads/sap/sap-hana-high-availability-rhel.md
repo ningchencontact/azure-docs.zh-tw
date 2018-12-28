@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 503e056a3fa87e48f61d26661110b9bb89456a51
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167404"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338517"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux 上 Azure VM 的 SAP HANA 高可用性
 
@@ -60,7 +60,7 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
   * Microsoft Azure 上 Windows 和 Linux 所需的 SAP 核心版本。
 * SAP Note [2015553] 列出 Azure 中 SAP 支援的 SAP 軟體部署先決條件。
 * SAP Note [2002167] 建議適用於 Red Hat Enterprise Linux 的作業系統設定
-* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 指導方針
+* SAP Note [2009879] 提供適用於 Red Hat Enterprise Linux 的 SAP HANA 方針
 * SAP Note [2178632] 包含在 Azure 中針對 SAP 回報的所有監視計量詳細資訊。
 * SAP Note [2191498] 包含 Azure 中 Linux 所需的 SAP Host Agent 版本。
 * SAP Note [2243692] 包含 Azure 中 Linux 上的 SAP 授權相關資訊。
@@ -75,7 +75,7 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
   * [高可用性附加元件管理](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [高可用性附加元件參考](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Azure 專用 RHEL 文件：
-  * [RHEL 高可用性叢集的支援原則 - 將 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
+  * [RHEL 高可用性叢集的支援原則：以 Microsoft Azure 虛擬機器作為叢集成員](https://access.redhat.com/articles/3131341)
   * [在 Microsoft Azure 上安裝和設定 Red Hat Enterprise Linux 7.4 (和更新版本) 高可用性叢集](https://access.redhat.com/articles/3252491)
   * [在 Red Hat Enterprise Linux 上安裝 SAP HANA 以用於 Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
@@ -87,7 +87,7 @@ SAP HANA 複寫包含一個主要節點以及至少一個次要節點。 對主�
 
 SAP HANA 系統複寫設定會使用專用的虛擬主機名稱和虛擬 IP 位址。 在 Azure 上必須有負載平衡器才能使用虛擬 IP 位址。 下列清單顯示負載平衡器的組態：
 
-* 前端組態：IP 位址 10.0.0.13 (針對 hn1-db)
+* 前端組態：hn1-db 的 IP 位址 10.0.0.13
 * 後端組態：連線到應屬於 HANA 系統複寫一部分的所有虛擬機器的主要網路介面
 * 探查連接埠：連接埠 62503
 * 負載平衡規則：30313 TCP、30315 TCP、30317 TCP、30340 TCP、30341 TCP、30342 TCP
@@ -103,13 +103,13 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 
 1. 在 Azure 入口網站上開啟[資料庫範本][template-multisid-db]。
 1. 輸入下列參數：
-    * **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
-    * **OS 類型**：選取其中一個 Linux 發行版本。 在此範例中，請選取 [RHEL 7]。
+    * **SAP 系統識別碼**：輸入您想要安裝的 SAP 系統之 SAP 系統識別碼。 該識別碼會作為所部署之資源的前置詞。
+    * **OS 類型**：選取一個 Linux 發行版本。 在此範例中，請選取 [RHEL 7]。
     * **DB 類型**：選取 **HANA**。
     * **SAP 系統大小**：輸入新系統要提供的 SAP 數量。 如果您不確定系統需要多少 SAP，請詢問您的 SAP 技術合作夥伴或系統整合者。
-    * **系統可用性**選取 [HA]。
-    * **系統管理員使用者名稱、系統管理員密碼或 SSH 金鑰**：會建立可用來登入機器的新使用者。
-    * **子網路識別碼**：如果您想要將 VM 部署至現有 VNet，而 VNet 中已定義應指派 VM 的子網路，請提供該特定子網路的識別碼。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。 如果您想要建立新的虛擬網路，請保留空白
+    * **系統可用性**：選取 **HA**。
+    * **管理員使用者名稱、管理員密碼或 SSH 金鑰**：建立可用來登入電腦的新使用者。
+    * **子網路識別碼**：如果您想將 VM 部署至現有的 VNet (其中具有定義 VM 應指派的目的子網路)，請說明該特定子網路的 ID。 識別碼通常如下所示：**/subscriptions/\<訂用帳戶識別碼>/resourceGroups/\<資源群組名稱>/providers/Microsoft.Network/virtualNetworks/\<虛擬網路名稱>/subnets/\<子網路名稱>**。 如果您想要建立新的虛擬網路，請保留空白
 
 ### <a name="manual-deployment"></a>手動部署
 
@@ -120,9 +120,9 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 1. 建立負載平衡器 (內部)。
    * 選取步驟 2 所建立的虛擬網路。
 1. 建立虛擬機器 1。  
-   至少使用 Red Hat Enterprise Linux for SAP HANA 7.4。 這個範例會使用 Red Hat Enterprise Linux for SAP HANA 7.4 的映像 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> 選取在步驟 3 建立的可用性設定組。
+   至少使用 Red Hat Enterprise Linux for SAP HANA 7.4。 這個範例會使用 Red Hat Enterprise Linux for SAP HANA 7.4 的映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> 選取在步驟 3 建立的可用性設定組。
 1. 建立虛擬機器 2。  
-   至少使用 Red Hat Enterprise Linux for SAP HANA 7.4。 這個範例會使用 Red Hat Enterprise Linux for SAP HANA 7.4 的映像 <https://ms.portal.azure.com/#create/RedHat.RedHatEnterpriseLinux74forSAPHANA-ARM> 選取在步驟 3 建立的可用性設定組。
+   至少使用 Red Hat Enterprise Linux for SAP HANA 7.4。 這個範例會使用 Red Hat Enterprise Linux for SAP HANA 7.4 的映像 <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> 選取在步驟 3 建立的可用性設定組。
 1. 新增資料磁碟。
 1. 設定負載平衡器。 首先，建立前端 IP 集區：
 
@@ -191,7 +191,7 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
 * **[1]**：此步驟僅適用於節點 1。
 * **[2]**：此步驟僅適用於 Pacemaker 叢集的節點 2。
 
-1. **[A]** 設定磁碟配置：**邏輯磁碟區管理員 (LVM)**。
+1. **[A]** 設定磁碟配置：**邏輯磁碟區管理 (LVM)**。
 
    建議您針對儲存資料和記錄檔的磁碟區使用 LVM。 下列範例假設虛擬機器已連接四個資料磁碟，這些資料磁碟會用來建立兩個磁碟區。
 
@@ -308,24 +308,24 @@ Azure Marketplace 包含 Red Hat Enterprise Linux for SAP HANA 7.4 的映像，�
    * 輸入安裝路徑 [/hana/shared]：選取 Enter 鍵。
    * 輸入本機主機名稱 [..]：選取 Enter 鍵。
    * 您是否要將其他主機新增至系統？ (y/n) [n]：選取 Enter 鍵。
-   * 輸入 SAP HANA 系統識別碼：輸入 HANA 的 SID，例如：**HN1**。
-   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體號碼。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
+   * 輸入 SAP HANA 系統識別碼︰輸入 HANA 的 SID，例如：**HN1**。
+   * 輸入執行個體號碼 [00]：輸入 HANA 執行個體編號。 如果您使用了 Azure 範本或遵循了本文的手動部署章節，請輸入 **03**。
    * 選取資料庫模式 / 輸入索引 [1]：選取 Enter 鍵。
-   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量的值。
+   * 選取系統使用量 / 輸入索引 [4]：選取系統使用量。
    * 輸入資料磁碟區的位置 [/hana/data/HN1]：選取 Enter 鍵。
    * 輸入記錄磁碟區的位置 [/hana/log/HN1]：選取 Enter 鍵。
    * 是否限制記憶體配置上限？ [n]：選取 Enter 鍵。
    * 輸入主機的憑證主機名稱 '...' [...]：選取 Enter 鍵。
    * 輸入 SAP 主機代理程式使用者 (sapadm) 密碼：輸入主機代理程式使用者密碼。
-   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以做確認。
+   * 確認 SAP 主機代理程式使用者 (sapadm) 密碼：再次輸入主機代理程式使用者密碼以進行確認。
    * 輸入系統管理員 (hdbadm) 密碼：輸入系統管理員密碼。
-   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以做確認。
+   * 確認系統管理員 (hdbadm) 密碼：再次輸入系統管理員密碼以進行確認。
    * 輸入系統管理員主目錄 [/usr/sap/HN1/home]：選取 Enter 鍵。
-   * 輸入系統管理員登入殼層 [/bin/sh]：選取 Enter 鍵。
+   * 輸入系統管理員登入殼層 [/bin/sh]：->選取 Enter 鍵。
    * 輸入系統管理員使用者識別碼 [1001]：選取 Enter 鍵。
    * 輸入使用者群組 (sapsys) 的識別碼 [79]：選取 Enter 鍵。
    * 輸入資料庫使用者 (SYSTEM) 密碼：輸入資料庫使用者密碼。
-   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以做確認。
+   * 確認資料庫使用者 (SYSTEM) 密碼：再次輸入資料庫使用者密碼以進行確認。
    * 是否在電腦重新開機後重新啟動系統？ [n]：選取 Enter 鍵。
    * 是否要繼續？ (y/n)：驗證摘要。 輸入 **y** 繼續。
 

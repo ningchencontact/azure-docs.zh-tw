@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 24f834c907fee6f2ddae766ae7494f73a31447c5
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: d6180156e1a8f3fa053c7fbb247e38831f86e76a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33202801"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998392"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>使用 Azure 資源管理員範本建立應用程式閘道
 
@@ -77,7 +77,7 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
 
     ```json
     {
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
             "addressPrefix": {
@@ -114,11 +114,11 @@ Azure 應用程式閘道是第 7 層負載平衡器。 不論是在雲端或內�
     }
     ```
 
-1. 儲存檔案。 您可以使用線上 JSON 驗證工具 (例如 [JSlint.com](http://www.jslint.com/))，來測試 JSON 範本和參數範本。
+1. 儲存檔案。 您可以使用線上 JSON 驗證工具 (例如 [JSlint.com](https://www.jslint.com/))，來測試 JSON 範本和參數範本。
 
 ## <a name="deploy-the-azure-resource-manager-template-by-using-powershell"></a>使用 PowerShell 來部署 Azure 資源管理員範本
 
-如果您從未用過 Azure PowerShell，請造訪：[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)，並遵循指示登入 Azure，然後選取您的訂用帳戶。
+如果您從未用過 Azure PowerShell，請參閱：[如何安裝和設定 Azure PowerShell](/powershell/azure/overview)，並遵循指示登入 Azure，然後選取您的訂用帳戶。
 
 1. 登入 PowerShell
 
@@ -203,7 +203,7 @@ cert=$( base64 <certificate path and name>.pfx )
 echo $cert
 ```
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
 ```
@@ -226,9 +226,9 @@ az group delete --name appgatewayRG
 
 ## <a name="next-steps"></a>後續步驟
 
-如果您想要設定 SSL 卸載，請造訪：[設定應用程式閘道以進行 SSL 卸載](tutorial-ssl-cli.md)。
+如果您想要設定 SSL 卸載，請瀏覽：[設定適用於 SSL 卸載的應用程式閘道](tutorial-ssl-cli.md)。
 
-如果您想要將應用程式閘道設為與內部負載平衡器搭配使用，請造訪：[建立具有內部負載平衡器 (ILB) 的應用程式閘道](redirect-internal-site-cli.md)。
+如果您想要將應用程式閘道設為與內部負載平衡器搭配使用，請瀏覽：[利用內部負載平衡器 (ILB) 建立應用程式閘道](redirect-internal-site-cli.md)。
 
 如果您想進一步了解一般負載平衡選項，請造訪：
 

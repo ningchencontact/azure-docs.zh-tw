@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9b1d3506c400a3a2d8002feed0181deac39b3821
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457386"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344086"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>如何針對多組織用戶佈建 
 
@@ -98,14 +98,14 @@ ms.locfileid: "49457386"
 
     **自動產生金鑰**：此核取方塊應已勾選。
 
-    **選取要如何將裝置指派給中樞**：選取 [最低延遲]。
+    **選取要如何將裝置指派到中樞**：選取 [最低延遲]。
 
     ![為對稱金鑰證明新增多租用戶註冊群組](./media/how-to-provision-multitenant/create-multitenant-enrollment.png)
 
 
 4. 在 [新增註冊群組] 上按一下 [連結新的 IoT 中樞]，以連結您的兩個區域中樞。
 
-    **訂用帳戶**：如果您有多個訂用帳戶，請選擇您用來建立區域 IoT 中樞的訂用帳戶。
+    訂用帳戶：如果您有多個訂用帳戶，請選擇您用來建立區域 IoT 中樞的訂用帳戶。
 
     **IoT 中樞**：選取您建立的其中一個區域中樞。
 
@@ -130,16 +130,16 @@ ms.locfileid: "49457386"
 
 1. 在 Azure Cloud Shell 中，變更下列命令中的參數並執行命令以建立**美國東部**區域 VM：
 
-    **--name**：輸入您**美國東部**區域裝置 VM 的唯一名稱。 
+    **--name**：輸入您**美國東部**區域裝置虛擬機器的唯一名稱。 
 
-    **--admin-username**：使用您自己的系統管理員使用者名稱。
+    **--admin-username**：使用您自己的管理員使用者名稱。
 
-    **--admin-password**：使用您自己的系統管理員密碼。
+    **--admin-password**：使用您自己的管理員密碼。
 
     ```azurecli-interactive
     az vm create \
     --resource-group contoso-us-resource-group \
-    --name ContosoSimDeviceEest \
+    --name ContosoSimDeviceEast \
     --location eastus \
     --image Canonical:UbuntuServer:18.04-LTS:18.04.201809110 \
     --admin-username contosoadmin \
@@ -151,11 +151,11 @@ ms.locfileid: "49457386"
 
 1. 在 Azure Cloud Shell 中，變更下列命令中的參數並執行命令以建立**美國西部**區域 VM：
 
-    **--name**：輸入您**美國西部**區域裝置 VM 的唯一名稱。 
+    **--name**：輸入您**美國西部**區域裝置虛擬機器的唯一名稱。 
 
-    **--admin-username**：使用您自己的系統管理員使用者名稱。
+    **--admin-username**：使用您自己的管理員使用者名稱。
 
-    **--admin-password**：使用您自己的系統管理員密碼。
+    **--admin-password**：使用您自己的管理員密碼。
 
     ```azurecli-interactive
     az vm create \
@@ -220,7 +220,7 @@ ms.locfileid: "49457386"
 1. 為兩部 VM 執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。 
 
     ```bash
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
 
     建置成功後，最後幾行輸出會類似於下列輸出：
@@ -327,28 +327,28 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-
-1. 在兩部 VM 上開啟 **~/azure-iot-sdk-c/provisioning\_client/adapters/hsm\_client\_key.c**。 
-
-    ```bash
-     vi ~/azure-iot-sdk-c/provisioning_client/adapters/hsm_client_key.c
-    ```
-
-1. 尋找 `REGISTRATION_NAME` 與 `SYMMETRIC_KEY_VALUE` 常數的宣告。 對兩部區域 VM 上的檔案進行下列變更並儲存檔案。
-
-    將 `REGISTRATION_NAME` 常數的值更新為**您裝置的唯一註冊識別碼**。
-    
-    將 `SYMMETRIC_KEY_VALUE` 常數的值更新為您的**衍生裝置金鑰**。
+1. 在兩部 VM 上，尋找在 **prov\_dev\_client\_sample.c** 中已標成註解的對 `prov_dev_set_symmetric_key_info()` 的呼叫。
 
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-east";
-    static const char* const SYMMETRIC_KEY_VALUE = "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
+    取消註解函式呼叫，並將預留位置值 (包括角括號) 取代為每台裝置的唯一註冊識別碼和衍生裝置金鑰。 以下所示的金鑰僅供示範之用。 請使用您之前產生的金鑰。
+
+    美國東部：
     ```c
-    static const char* const REGISTRATION_NAME = "contoso-simdevice-west";
-    static const char* const SYMMETRIC_KEY_VALUE = "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=";
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-east", "p3w2DQr9WqEGBLUSlFi1jPQ7UWQL4siAGy75HFTFbf8=");
     ```
+
+    美國西部：
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("contoso-simdevice-west", "J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=");
+    ```
+
+    儲存檔案。
 
 1. 在兩部 VM 上，瀏覽至如下所示的範例資料夾，然後建立範例。
 
@@ -358,6 +358,13 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     ```
 
 1. 成功建立後，請在兩部 VM 上執行 **prov\_dev\_client\_sample.exe**，以從每個區域模擬租用戶裝置。 請注意，每個裝置都會配置給最接近模擬裝置所在區域的租用戶 IoT 中樞。
+
+    執行模擬：
+    ```bash
+    ~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample
+    ```
+
+    從美國東部 VM 輸出的範例：
 
     ```bash
     contosoadmin@ContosoSimDeviceEast:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
@@ -374,6 +381,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
     ```
 
+    從美國西部 VM 輸出的範例：
     ```bash
     contosoadmin@ContosoSimDeviceWest:~/azure-iot-sdk-c/cmake/provisioning_client/samples/prov_dev_client_sample$ ./prov_dev_client_sample
     Provisioning API Version: 1.2.9

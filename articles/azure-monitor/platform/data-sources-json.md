@@ -1,6 +1,6 @@
 ---
-title: 在 Log Analytics 中收集自訂 JSON 資料 | Microsoft Docs
-description: 您可以使用 Log Analytics Linux 代理程式將自訂 JSON 資料來源收集到 Log Analytics 中。  這些自訂資料來源可以是會傳回 JSON 的簡單指令碼，例如 curl 或 FluentD 的 300 個以上的外掛程式之一。 本文說明此資料收集所需的設定。
+title: 在 Azure 監視器中收集自訂 JSON 資料 | Microsoft Docs
+description: 您可以使用 Log Analytics Linux 代理程式將自訂 JSON 資料來源收集到 Azure 監視器中。  這些自訂資料來源可以是會傳回 JSON 的簡單指令碼，例如 curl 或 FluentD 的 300 個以上的外掛程式之一。 本文說明此資料收集所需的設定。
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -8,23 +8,21 @@ manager: carmonm
 editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/04/2017
+ms.date: 11/28/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: c8972df6f42920af6a9bd5f04a27f14dc647da44
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 64f1d7b1437ea018a25db18e5f92bffaac8f7099
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336374"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438450"
 ---
-# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-log-analytics"></a>在 Log Analytics 中使用 Log Analytics Linux 代理程式收集自訂 JSON 資料來源
+# <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>在 Azure 監視器中使用 Log Analytics Linux 代理程式收集自訂 JSON 資料來源
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
-您可以使用 Log Analytics Linux 代理程式將自訂 JSON 資料來源收集到 Log Analytics 中。  這些自訂資料來源可以是會傳回 JSON 的簡單指令碼，例如 [curl](https://curl.haxx.se/) 或 [FluentD 的 300 個以上的外掛程式](http://www.fluentd.org/plugins/all)之一。 本文說明此資料收集所需的設定。
+您可以使用 Log Analytics Linux 代理程式將自訂 JSON 資料來源收集到 [Azure 監視器記錄](data-collection.md)中。  這些自訂資料來源可以是會傳回 JSON 的簡單指令碼，例如 [curl](https://curl.haxx.se/) 或 [FluentD 的 300 個以上的外掛程式](http://www.fluentd.org/plugins/all)之一。 本文說明此資料收集所需的設定。
 
 > [!NOTE]
 > 需要有 Log Analytics Linux 代理程式 v1.1.0-217+ 才能收集自訂 JSON 資料
@@ -33,7 +31,7 @@ ms.locfileid: "52336374"
 
 ### <a name="configure-input-plugin"></a>設定輸入外掛程式
 
-若要在 Log Analytics 中收集 JSON 資料，請將 `oms.api.` 新增至輸入外掛程式中的 FluentD 標記開頭。
+若要在 Azure 監視器中收集 JSON 資料，請將 `oms.api.` 新增至輸入外掛程式中的 FluentD 標記開頭。
 
 例如，以下是 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/` 中的個別設定檔 `exec-json.conf`。  這會使用 FluentD 外掛程式 `exec` 每隔 30 秒執行一次 curl 命令。  此命令的輸出由 JSON 輸出外掛程式所收集。
 
@@ -87,13 +85,13 @@ ms.locfileid: "52336374"
     sudo /opt/microsoft/omsagent/bin/service_control restart 
 
 ## <a name="output"></a>輸出
-Log Analytics 中將會收集資料，記錄類型為 `<FLUENTD_TAG>_CL`。
+資料將收集到 Azure 監視器記錄中，記錄類型為 `<FLUENTD_TAG>_CL`。
 
-例如，Log Analytics 中的自訂標記 `tag oms.api.tomcat`，記錄類型為 `tomcat_CL`。  您可以使用下列記錄搜尋來擷取此類型的所有記錄。
+例如，Azure 監視器中的自訂標籤 `tag oms.api.tomcat`，記錄類型為 `tomcat_CL`。  您可以使用下列記錄查詢來擷取此類型的所有記錄。
 
     Type=tomcat_CL
 
-支援巢狀 JSON 資料來源，但編製索引是以父欄位作為基礎。 例如，Log Analytics 搜尋會以 `tag_s : "[{ "a":"1", "b":"2" }]` 傳回下列 JSON 資料。
+支援巢狀 JSON 資料來源，但編製索引是以父欄位作為基礎。 例如，下列 JSON 資料從記錄查詢傳回為 `tag_s : "[{ "a":"1", "b":"2" }]`。
 
 ```
 {
@@ -106,5 +104,4 @@ Log Analytics 中將會收集資料，記錄類型為 `<FLUENTD_TAG>_CL`。
 
 
 ## <a name="next-steps"></a>後續步驟
-* 了解 [記錄搜尋](../../log-analytics/log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。 
- 
+* 了解[記錄查詢](../../log-analytics/log-analytics-queries.md)，以分析從資料來源和解決方案收集到的資料。 

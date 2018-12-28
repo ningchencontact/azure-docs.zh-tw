@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 6c9e980e4f448f705743b2e6dce268c671ffe9b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5f85d01b20466fd72b802b4daaf001a7928717c4
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950706"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410273"
 ---
 # <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>針對速度變慢或失敗的 HDInsight 叢集進行疑難排解
 
@@ -65,7 +65,7 @@ Azure 入口網站可以提供以下資訊：
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-另一個選項是使用 PowerShell。 如需詳細資訊，請參閱[使用 Azure PowerShell 來管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-powershell.md)。
+另一個選項是使用 PowerShell。 如需詳細資訊，請參閱[使用 Azure PowerShell 來管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-powershell.md)。
 
 ## <a name="step-2-validate-the-hdinsight-cluster-environment"></a>步驟 2：驗證 HDInsight 叢集環境
 
@@ -107,7 +107,7 @@ HDInsight 倚賴數個 Azure 服務。 它會在 Azure HDInsight 上執行虛擬
 
 HDInsight 叢集是由在虛擬機器執行個體上執行的各種不同類型節點所組成。 您可以監視每個節點的資源耗盡狀況、網路連線問題，以及其他可能導致叢集速斷變慢的問題。 每個叢集都包含兩個前端節點，而且大多數叢集類型都包含背景工作節點與邊緣節點的組合。 
 
-如需每個叢集類型所使用之各種節點的說明，請參閱[使用 Hadoop、Spark、Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
+如需每個叢集類型所使用之各種節點的說明，請參閱[使用 Apache Hadoop、 Apache Spark、 Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 下列各節將說明如何檢查每個節點及叢集整體的健康情況。
 
@@ -117,7 +117,7 @@ HDInsight 叢集是由在虛擬機器執行個體上執行的各種不同類型�
 
 ### <a name="check-your-webhcat-service"></a>檢查您的 WebHCat 服務
 
-Hive、Pig 或 Sqoop 作業發生失敗的其中一個常見案例是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (或 *Templeton*) 服務發生失敗。 WebHCat 是一個用於執行遠端作業 (例如 Hive、Pig、Scoop 及 MapReduce) 的 REST 介面。 WebHCat 會將作業提交要求轉譯成 YARN 應用程式，然後傳回從 YARN 應用程式狀態衍生的狀態。  下列各節說明常見的 WebHCat HTTP 狀態碼。
+Apache Hive、Apache Pig 或 Apache Sqoop 作業發生失敗的其中一個常見案例是 [WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md) (或 *Templeton*) 服務發生失敗。 WebHCat 是一個用於執行遠端作業 (例如 Hive、Pig、Scoop 及 MapReduce) 的 REST 介面。 WebHCat 會將作業提交要求轉譯成 Apache Hadoop YARN 應用程式，然後傳回從 YARN 應用程式狀態衍生的狀態。  下列各節說明常見的 WebHCat HTTP 狀態碼。
 
 #### <a name="badgateway-502-status-code"></a>BadGateway (502 狀態碼)
 
@@ -143,7 +143,7 @@ Ambari 會顯示警示，當中會指出 WebHCat 服務停止運作的主機。 
 * **webhcat-console.log** 是伺服器啟動時的 stdout
 * **webhcat-console-error.log** 是伺服器處理序的 stderr
 
-> [!NOTE]
+> [!NOTE]  
 > 每個 `webhcat.log` 會每天變換，其中會產生名為 `webhcat.log.YYYY-MM-DD` 的檔案。 請針對您要調查的時間範圍，選取適當的檔案。
 
 下列各節將說明一些可能的 WebHCat 逾時原因。
@@ -186,7 +186,7 @@ Templeton 會呼叫 YARN 來執行作業，而 Templeton 與 YARN 之間的通�
 
     * 列出所有作業：這是一個相當費時的呼叫。 此呼叫會列舉來自 YARN ResourceManager 的應用程式，並針對每個已完成的應用程式，從 YARN JobHistoryServer 取得狀態。 當作業數量較多時，此呼叫便可能逾時。
 
-    * 列出超過 7 天的作業：HDInsight YARN JobHistoryServer 已設定為保留已完成的工作資訊長達 7 天 (`mapreduce.jobhistory.max-age-ms` 值)。 嘗試列舉已清除的作業會造成逾時。
+    * 列出超過七天的作業：HDInsight YARN JobHistoryServer 已設定為保留已完成的工作資訊長達七天 (`mapreduce.jobhistory.max-age-ms` 值)。 嘗試列舉已清除的作業會造成逾時。
 
 診斷這些問題：
 
@@ -244,13 +244,13 @@ HDInsight 叢集會產生寫入至 Azure 資料表和 Azure Blob 儲存體的記
 
 ### <a name="review-heap-dumps"></a>檢閱堆積傾印
 
-堆積傾印含有應用程式記憶體的快照，其中包括當時的變數值，這對診斷在執行階段發生的問題來說，相當有用。 如需詳細資訊，請參閱[在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)。
+堆積傾印含有應用程式記憶體的快照，其中包括當時的變數值，這對診斷在執行階段發生的問題來說，相當有用。 如需詳細資訊，請參閱[在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)。
 
 ## <a name="step-6-check-configuration-settings"></a>步驟 6：檢查組態設定
 
 HDInsight 叢集已針對相關服務 (例如 Hadoop、Hive、HBase 等) 預先設定好預設設定。 視叢集的類型、其硬體組態、其節點數目、您要執行的作業類型和要搭配運作的資料 (以及資料的處理方式) 而定，您可能需要將組態最佳化。
 
-如需將大部分案例的效能組態最佳化的詳細指示，請參閱[使用 Ambari 將叢集組態最佳化](hdinsight-changing-configs-via-ambari.md)。 使用 Spark 時，請參閱[最佳化 Spark 作業的效能](spark/apache-spark-perf.md)。 
+如需將大部分案例的效能組態最佳化的詳細指示，請參閱[使用 Apache Ambari 將叢集組態最佳化](hdinsight-changing-configs-via-ambari.md)。 使用 Spark 時，請參閱[最佳化 Apache Spark 作業的效能](spark/apache-spark-perf.md)。 
 
 ## <a name="step-7-reproduce-the-failure-on-a-different-cluster"></a>步驟 7：在不同的叢集上重現失敗情況
 
@@ -265,8 +265,8 @@ HDInsight 叢集已針對相關服務 (例如 Hadoop、Hive、HBase 等) 預先�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
 * [分析 HDInsight 記錄](hdinsight-debug-jobs.md)
-* [存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [在以 Linux 為基礎的 HDInsight 上啟用 Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [在以 Linux 為基礎的 HDInsight 上啟用 Apache Hadoop 服務的堆積傾印](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [HDInsight 上的 Apache Spark 叢集已知問題](hdinsight-apache-spark-known-issues.md)

@@ -1,19 +1,20 @@
 ---
-title: 使用 Azure 藍圖針對錯誤進行疑難排解
+title: 常見問題疑難排解
 description: 了解如何針對建立和指派藍圖的問題進行疑難排解
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: b910f90e70af4ce6d4243c06bfe5bd03d25d74d6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.custom: seodec18
+ms.openlocfilehash: 40668fed2fcc2a04e39fa3a4d7e8e8923c75ae05
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092929"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315515"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>針對使用 Azure 藍圖發生的錯誤進行疑難排解
 

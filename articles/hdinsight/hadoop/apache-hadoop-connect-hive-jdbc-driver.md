@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: 577f36f53bfad79af968a4c34f4b6ab0b49527c7
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 59ca7a98bfa275502e847a8d2c34ec79141603da
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633439"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433809"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>透過 JDBC 驅動程式在 HDInsight 中查詢 Apache Hive
 
@@ -31,7 +31,7 @@ ms.locfileid: "51633439"
   > [!IMPORTANT]
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 3.3 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-* [SQuirreL SQL](http://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 用戶端應用程式。
+* [SQuirreL SQL](https://squirrel-sql.sourceforge.net/)。 SQuirreL 是 JDBC 用戶端應用程式。
 
 * [Java Developer Kit (JDK) 第 7 版](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) 或更高版本。
 
@@ -90,7 +90,7 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
     * **名稱**：Hive
     * **範例 URL**：`jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **額外類別路徑**︰使用 [新增] 按鈕來新增稍早下載的所有 jar 檔案
+    * **額外類別路徑**：使用 [新增] 按鈕來新增稍早下載的所有 jar 檔案
     * **類別名稱**：org.apache.hive.jdbc.HiveDriver
 
    ![新增驅動程式對話方塊](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
@@ -105,20 +105,20 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
     * **名稱**：HDInsight 上的 Hive
 
-    * **驅動程式**︰使用下拉式清單來選取 [Hive] 驅動程式
+    * **驅動程式**：使用下拉式清單來選取 [Hive] 驅動程式
 
     * **URL**：`jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
         將 **CLUSTERNAME** 取代為 HDInsight 叢集的名稱。
 
-    * **使用者名稱**︰HDInsight 叢集的叢集登入帳戶名稱。 預設值為 `admin`。
+    * **使用者名稱**：HDInsight 叢集的叢集登入帳戶名稱。 預設值為 `admin`。
 
-    * **密碼**︰叢集登入帳戶的密碼。
+    * **密碼**：叢集登入帳戶的密碼。
 
  ![[新增別名] 對話方塊](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
-    > 使用 [測試] 按鈕來確認連接能正常運作。 當 [連接到︰HDInsight 上的 Hive] 對話方塊出現時，請選取 [連接] 來執行測試。 如果測試成功，您會看到 [連線成功] 對話方塊。 如果發生錯誤，請參閱[疑難排解](#troubleshooting)。
+    > 使用 [測試] 按鈕來確認連接能正常運作。 當 [連線到︰HDInsight 上的 Hive] 對話方塊出現時，請選取 [連線] 來執行測試。 如果測試成功，您會看到 [連線成功] 對話方塊。 如果發生錯誤，請參閱[疑難排解](#troubleshooting)。
 
     若要儲存連線別名，請使用 [新增別名] 對話方塊底部的 [確定] 按鈕。
 
@@ -140,7 +140,7 @@ SQuirreL SQL 是可用來從遠端以 HDInsight 叢集執行 Hive 查詢的 JDBC
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>嘗試開啟 SQL 連接時，發生意外的錯誤
 
-**徵狀**︰連線到 HDInsight 叢集 3.3 版或更新版本時，您可能會收到發生非預期錯誤的錯誤。 此錯誤的堆疊追蹤開頭為下列幾行︰
+**徵兆**：連線到 HDInsight 叢集 3.3 版或更新版本時，您可能會收到發生非預期錯誤的錯誤。 此錯誤的堆疊追蹤開頭為下列幾行︰
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -150,7 +150,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **原因**：此錯誤是由 SQuirreL 所隨附的舊版 commons-codec.jar 檔案所造成。
 
-**解決方案**︰若要修正此錯誤，請使用下列步驟：
+**解決方案**：若要修正此錯誤，請使用下列步驟：
 
 1. 從您的 HDInsight 叢集下載 commons-codec jar 檔案。
 
@@ -164,14 +164,14 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 現在您已學會如何搭配 Hive 使用 JDBC，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
-* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md)。
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](apache-hadoop-connect-hive-power-bi.md)。
 * [在 Azure HDInsight 中使用 Power BI 將互動式查詢 Hive 資料視覺化](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](./../hdinsight-connect-hive-zeppelin.md)。
+* [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](./../hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驅動程式將 Excel 連線到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 將 Excel 連線到 Hadoop](apache-hadoop-connect-excel-power-query.md)。
-* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Hive 查詢](apache-hadoop-visual-studio-tools-get-started.md)。
+* [使用 Power Query 將 Excel 連線到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
+* [使用 Data Lake Tools for Visual Studio 連線至 Azure HDInsight 及執行 Apache Hive 查詢](apache-hadoop-visual-studio-tools-get-started.md)。
 * [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
 * [將資料上傳至 HDInsight](../hdinsight-upload-data.md)
-* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)

@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 82b5e175f0340aae7e35b177d9faa4831982984c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958911"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999052"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>管理 Avere vFXT 叢集
 
@@ -21,7 +21,7 @@ ms.locfileid: "50958911"
 
 下表提供可用於每個工作之工具的概觀。 
 
-| 動作 | Avere 控制台 | vfxt.py  | Azure 入口網站 |
+|  動作 | Avere 控制台 | vfxt.py  | Azure 入口網站 |
 | --- | --- | --- | --- |
 | 新增叢集節點 | no | 是 | no |
 | 移除叢集節點 | 是 | no | no |
@@ -81,9 +81,9 @@ vfxt.py 指令碼可以用於以下叢集管理工作：
 
 如同 Avere 控制台，vfxt.py 作業會嘗試確認已變更的資料永久儲存在後端儲存體，然後再關閉或終結叢集或節點。 如此可讓它成為比 Avere 入口網站更安全的選項。
 
-vfxt.py 已預先安裝在叢集控制器 VM 上。 <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
+vfxt.py 已預先安裝在叢集控制器 VM 上。 <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-完整的 vfxt.py 使用指南可在 GitHub 上取得：[使用 vfxt.py 進行雲端叢集管理](https://github.com/azure/averesdk/blob/master/docs/README.md) \(英文\)
+完整的 vfxt.py 使用指南可在 GitHub 上取得：[使用 vfxt.py 的雲端叢集管理](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>使用 vfxt.py 新增叢集節點
 

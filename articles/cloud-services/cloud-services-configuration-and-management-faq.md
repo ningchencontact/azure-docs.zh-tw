@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 81e41ce6818a6f56ba5e6e888480f8b25979fb81
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: ce171aa32e4f17e974a6d8a9752189ac78bf73fe
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979194"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386990"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 雲端服務之設定和管理問題：常見問題集 (FAQ)
 
@@ -170,7 +170,7 @@ Export-PfxCertificate -Cert $cert -FilePath ".\my-cert-file.pfx" -Password $pass
     </Endpoints>
   </WorkerRole>
 ```
-如需詳細資訊，請參閱[新增：Azure Load Balancer 的可設定閒置逾時](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/)。
+如需詳細資訊，請參閱[新增：Azure Load Balancer 的可設定閒置逾時](https://azure.microsoft.com/blog/new-configurable-idle-timeout-for-azure-load-balancer/) (英文)。
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>如何將靜態 IP 位址關聯到我的雲端服務？
 若要設定靜態 IP 位址，您必須建立保留的 IP。 這個保留的 IP 可以關聯到新的雲端服務或現有的部署。 請參閱以下文件了解詳細資料：
@@ -242,9 +242,9 @@ Microsoft 會遵循嚴格的程序，不允許內部工程師在沒有擁有者�
 
 若要解決這個問題，您可以使用 Application Insights。 自動縮放可支援 Application Insights 作為計量來源，而且可以根據來賓計量 (如「記憶體」) 來縮放角色執行個體計數。  您必須在雲端服務專案封裝檔案 (*.cspkg) 中設定 Application Insights，並在服務上啟用 Azure 診斷擴充功能來實作此功能。
 
-有關如何透過 Application Insights 使用自訂計量以在雲端服務上設定自動縮放的詳細資訊，請參閱[開始在 Azure 中依自訂計量自動縮放](../monitoring-and-diagnostics/monitoring-autoscale-scale-by-custom-metric.md)
+有關如何透過 Application Insights 使用自訂計量以在雲端服務上設定自動縮放的詳細資訊，請參閱[開始在 Azure 中依自訂計量自動縮放](../azure-monitor/platform/autoscale-custom-metric.md)
 
-有關如何將 Azure 診斷與雲端服務的 Application Insights 整合的詳細資訊，請參閱[傳送雲端服務、虛擬機器或 Service Fabric 診斷資料至 Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+有關如何將 Azure 診斷與雲端服務的 Application Insights 整合的詳細資訊，請參閱[傳送雲端服務、虛擬機器或 Service Fabric 診斷資料至 Application Insights](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 
 有關啟用雲端服務 Application Insights 的詳細資訊，請參閱 [Azure 雲端服務的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38e2589365c2f1c88145fbf068d3ed267d4a4621
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a95c9f1edd6983c915316f2900885a8131245860
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284556"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437821"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>混合式 Runbook 背景工作的疑難排解
 
@@ -72,9 +72,9 @@ nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 ```
 
-下列清單顯示已針對 Linux 混合式 Runbook 背景工作角色啟動的處理序。 這些處理序全都位於 `/var/opt/microsoft/omsagent/state/automationworker/` 目錄。
+下列清單顯示已針對 Linux 混合式 Runbook 背景工作角色啟動的處理序。 這些程序全都位於 `/var/opt/microsoft/omsagent/state/automationworker/` 目錄。
 
-* **oms.conf** - 這是背景工作角色管理員處理序，會直接從 DSC 啟動。
+* **oms.conf** - 此處理序是背景工作角色管理員處理序，會直接從 DSC 啟動。
 
 * **worker.conf** - 此處理序是自動註冊的混合式背景工作角色處理序，會由背景工作角色管理員來啟動。 更新管理會使用此處理序，且使用者不會注意到此處理序。 如果機器上未啟用更新管理解決方案，就不會出現此處理序。
 
@@ -84,7 +84,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ### <a name="class-does-not-exist"></a>案例：指定的類別不存在
 
-如果您看到錯誤：**指定的類別不存在...** `/var/opt/microsoft/omsconfig/omsconfig.log` 中，表示適用於 Linux 的 OMS 代理程式需要更新。 請執行下列命令來重新安裝 OMS 代理程式：
+如果您看到錯誤：**指定的類別不存在。** `/var/opt/microsoft/omsconfig/omsconfig.log` 中，表示適用於 Linux 的 OMS 代理程式需要更新。 請執行下列命令來重新安裝 OMS 代理程式：
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -102,7 +102,7 @@ Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的
 
 #### <a name="cause"></a>原因
 
-如果 Microsoft Monitoring Agent Windows 服務並未執行，這可避免混合式 Runbook 背景工作角色與 Azure 自動化進行通訊。
+如果 Microsoft Monitoring Agent Windows 服務並未執行，此案例可避免混合式 Runbook 背景工作角色與 Azure 自動化進行通訊。
 
 #### <a name="resolution"></a>解決方案
 
@@ -112,21 +112,51 @@ Windows 混合式 Runbook 背景工作角色取決於與自動化帳戶通訊的
 
 #### <a name="issue"></a>問題
 
-在 [應用程式及服務記錄檔]\[Operations Manager] 事件記錄中，您會看到事件 4502 和 EventMessage 包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**，並具有以下描述：*\<wsid\>.oms.opinsights.azure.com 服務所提供的憑證並非是由 Microsoft 服務所採用之憑證授權單位所產生。請連絡網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的 Proxy。文章 KB3126513 內提供針對連線能力問題的其他疑難排解資訊。*
+在 **Application and Services Logs\Operations Manager** 事件記錄中，您會看到事件 4502 和 EventMessage 包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**，並具有如下描述：*服務 \<wsid\>.oms.opinsights.azure.com 所提供的憑證並非由 Microsoft 服務所使用的憑證授權單位發行。請連絡網路管理員，以查看它們是否正在執行可攔截 TLS/SSL 通訊的 Proxy。文章 KB3126513 內提供針對連線能力問題的其他疑難排解資訊。*
 
 #### <a name="cause"></a>原因
 
-這可能是因 Proxy 或網路防火牆封鎖 Microsoft Azure 的通訊所引起。 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
+此問題是因 Proxy 或網路防火牆封鎖 Microsoft Azure 的通訊所引起。 確認電腦可透過連接埠 443 輸出存取 *.azure-automation.net。
 
 #### <a name="resolution"></a>解決方案
 
-記錄檔儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。 您可以檢查是否有任何警告或錯誤事件寫入 **Application and Services Logs\Microsoft-SMA\Operations** 和 **Application and Services Logs\Operations Manager** 事件記錄，可能表示有連線能力或其他會影響角色上架到 Azure 自動化的問題，或執行正常作業時的問題。
+記錄檔儲存每一個混合式背景工作角色本機的 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes 中。 您可以檢查 **Application and Services Logs\Microsoft-SMA\Operations** 和 **Application and Services Logs\Operations Manager** 事件記錄中，是否有任何警告或錯誤事件可能表示有連線能力或其他會影響角色上架到 Azure 自動化的問題，或正常作業時的問題。
 
 [Runbook 輸出和訊息](../automation-runbook-output-and-messages.md) 會從混合式背景工作角色傳送到 Azure 自動化，就像雲端中執行的 Runbook 工作一樣。 您也可以啟用詳細資訊和進度資料流，就像您在其他 Runbook 中的作法一樣。
 
+### <a name="corrupt-cache"></a> 混合式 Runbook 背景工作角色未報告
+
+#### <a name="issue"></a>問題
+
+您的混合式 Runbook 背景工作角色電腦正在執行中，但您看不到工作區中機器的活動訊號資料。
+
+下列範例查詢會顯示工作區中的機器及其上次活動訊號：
+
+```loganalytics
+// Last heartbeat of each computer
+Heartbeat 
+| summarize arg_max(TimeGenerated, *) by Computer
+```
+
+#### <a name="cause"></a>原因
+
+這個問題可能是因為混合式 Runbook 背景工作角色上的快取損毀所造成的。
+
+#### <a name="resolution"></a>解決方案
+
+若要解決此問題，請登入混合式 Runbook 背景工作角色，並執行下列程式碼。 此指令碼會停止 Microsoft Monitoring Agent、移除其快取，並重新啟動服務。 此動作會強制混合式 Runbook 背景工作角色重新從「Azure 自動化」下載其設定。
+
+```powershell
+Stop-Service -Name HealthService
+
+Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State' -Recurse
+
+Start-Service -Name HealthService
+```
+
 ## <a name="next-steps"></a>後續步驟
 
-如果您看不到問題或無法解決問題，請瀏覽下列其中一個通道以取得更多支援：
+如果您沒有看到您的問題，或無法解決您的問題，請瀏覽下列其中一個管道以取得更多支援：
 
 * 透過 [Azure 論壇](https://azure.microsoft.com/support/forums/)獲得由 Azure 專家所提供的解答
 * 與 [@AzureSupport](https://twitter.com/azuresupport) 連繫－專為改善客戶體驗而設的官方 Microsoft Azure 帳戶，協助 Azure 社群連接至適當的資源，像是解答、支援及專家等。

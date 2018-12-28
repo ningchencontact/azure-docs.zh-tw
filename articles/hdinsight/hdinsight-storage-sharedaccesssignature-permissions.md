@@ -9,21 +9,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 08ffc3a9eb4942cb21c0a800d493b87b016d7f87
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 100c9266718d618b8b00a3169c3d88ac7d501791
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016163"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409916"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 儲存體共用存取簽章來限制 HDInsight 對資料的存取
 
 HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有完整存取權。 您可以在 Blob 容器上使用共用存取簽章來限制對資料的存取。 共用存取簽章 (SAS) 是一種 Azure 儲存體帳戶功能，可讓您限制資料的存取權。 例如，提供資料的唯讀存取。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 對於使用 Apache Ranger 的解決方案，請考慮使用已加入網域的 HDInsight。 如需詳細資訊，請參閱[設定已加入網域的 HDInsight](./domain-joined/apache-domain-joined-configure.md) 文件。
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 必須有叢集預設儲存體的完整存取權。
 
 ## <a name="requirements"></a>需求
@@ -34,9 +34,9 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
   * Visual Studio 的版本必須是 2013、2015 或 2017
   * Python 的版本必須是 2.7 或更新版本
 
-* 以 Linux 為基礎的 HDInsight 叢集「或」[Azure PowerShell][powershell] - 如果您有以 Linux 為基礎的現有叢集，則可以使用 Ambari 將共用存取簽章新增至叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
+* 以 Linux 為基礎的 HDInsight 叢集「或」[Azure PowerShell][powershell] - 如果您有以 Linux 為基礎的現有叢集，則可以使用 Apache Ambari 將共用存取簽章新增至叢集。 如果沒有，您可以使用 Azure PowerShell 建立叢集，並在叢集建立期間新增共用存取簽章。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * 範例檔案來自 [https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature](https://github.com/Azure-Samples/hdinsight-dotnet-python-azure-storage-shared-access-signature)。 此儲存機制包含下列項目：
@@ -66,7 +66,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 4. 系統會重新產生用來建立 SAS 的帳戶金鑰。 重新產生金鑰會造成使用舊金鑰的所有應用程式驗證失敗。 將所有元件更新為新金鑰。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 共用存取簽章 URI 會與用來建立簽章的帳戶金鑰，以及相關聯的預存的存取原則 (如果有的話) 產生關聯。 如果未指定任何預存的存取原則，則撤銷共用存取簽章的唯一方式是變更帳戶金鑰。
 
 建議您一律使用預存的存取原則。 使用預存原則時，可以視需求撤銷簽章或延長過期時間。 此文件的步驟使用預存存取原則來產生 SAS。
@@ -85,7 +85,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
    * ContainerName：您想要限制存取的儲存體帳戶中的容器。
 
-   * SASPolicyName：針對將要建立的預存原則使用的名稱。
+   * SASPolicyName：要建立的預存原則所要使用的名稱。
 
    * FileToUpload：上傳至容器之檔案的路徑。
 
@@ -99,9 +99,9 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 1. 開啟 SASToken.py 檔案並且變更下列值：
 
-   * policy\_name：針對將要建立的預存原則使用的名稱。
+   * policy\_name：要建立的預存原則所要使用的名稱。
 
-   * storage\_account\_name：您的儲存體帳戶名稱。
+   * storage\_account\_name：儲存體帳戶的名稱。
 
    * storage\_account\_key：儲存體帳戶的金鑰。
 
@@ -177,7 +177,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     如果您是建立以 Linux 為基礎的叢集，系統會提示您輸入 SSH 使用者帳戶名稱和密碼。 此帳戶是用來從遠端登入到叢集。
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 出現 HTTP/s 或 SSH 使用者名稱和密碼提示時，您必須提供符合下列準則的密碼：
    >
    > * 長度必須小於 10 個字元
@@ -208,7 +208,7 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
     變更都完成時按一下 [確定]  。
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 您必須重新啟動數個服務，變更才會生效。
 
 6. 在 Ambari Web UI 中，選取左側清單中的 [HDFS]，然後從右側 [服務動作] 下拉式清單中選取 [重新啟動所有受影響項目]。 出現提示時，選取 [確認全部重新啟動]。
@@ -299,8 +299,8 @@ HDInsight 對於與叢集建立關聯之 Azure 儲存體帳戶中的資料具有
 
 現在您已經了解如何將有限存取權儲存體新增至您的 HDInsight 叢集，了解在叢集上使用資料的其他方法：
 
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
 [powershell]: /powershell/azureps-cmdlets-docs

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 48b2d42348996f5f135d88cdf6345bca8daf8335
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51346417"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409440"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>使用 Azure Functions Core Tools
 
@@ -37,16 +37,6 @@ Azure Functions Core Tools 有兩個版本。 您使用的版本取決於您的�
 ## <a name="install-the-azure-functions-core-tools"></a>安裝 Azure Functions Core Tools
 
 [Azure Functions Core Tools] 包含相同的執行階段版本，以支援您可在本機開發電腦上執行的 Azure Functions 執行階段。 它也提供命令來建立函式、連線到 Azure，以及部署函式專案。
-
-### <a name="v1"></a>版本 1.x
-
-工具的原始版本會使用 Functions 1.x 執行階段。 這個版本使用 .NET Framework (4.7)，並且只有在 Windows 電腦上提供支援。 安裝版本 1.x 工具之前，您必須先[安裝 NodeJS](https://docs.npmjs.com/getting-started/installing-node) (內含 npm)。
-
-使用下列命令來安裝 1.x 版工具：
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ### <a name="v2"></a>版本 2.x
 
@@ -155,7 +145,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 | **`--force`** | 即使專案中有現有的檔案，仍初始化專案。 此設定會以相同的名稱覆寫現有的檔案。 專案資料夾中的其他檔案不會受到影響。 |
 | **`--no-source-control -n`** | 在 1.x 版中防止依預設建立 Git 存放庫。 在 2.x 版中，依預設不會建立 Git 存放庫。 |
 | **`--source-control`** | 控制是否要建立 Git 存放庫。 依預設不會建立存放庫。 設為 `true` 時，就會建立存放庫。 |
-| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為 `dotnet`、`node` (JavaScript) 和 `java`。 未設定此選項時，系統會在初始化期間提示您選擇執行階段。 |
+| **`--worker-runtime`** | 設定專案的語言執行階段。 支援的值為 `dotnet`、`node` (JavaScript) `java` 和 `python`。 未設定此選項時，系統會在初始化期間提示您選擇執行階段。 |
 
 > [!IMPORTANT]
 > 根據預設，2.x 版的 Core Tools 會建立適用於 .NET 執行階段的函數應用程式專案作為 [C# 類別專案](functions-dotnet-class-library.md) (.csproj)。 這些 C# 專案可以與 Visual Studio 或 Visual Studio Code 搭配使用，並在測試期間以及發佈至 Azure 時進行編譯。 如果您想要改為建立和使用在 1.x 版中以及在入口網站中建立的相同 C# 指令碼 (.csx) 檔案，當您建立及部署函式時，必須包含 `--csx` 參數。
@@ -220,7 +210,7 @@ local.settings.json 檔案會儲存應用程式設定、連接字串和 Azure Fu
 
   ![從 Azure 入口網站複製連接字串](./media/functions-run-local/copy-storage-connection-portal.png)
 
-+ 使用 [Azure 儲存體總管](http://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。 
++ 使用 [Azure 儲存體總管](https://storageexplorer.com/)以連接至您的 Azure 帳戶。 在**總管**中展開您的訂閱，選取您的儲存體帳戶，並複製主要或次要連接字串。 
 
   ![透過儲存體總管複製連接字串](./media/functions-run-local/storage-explorer.png)
 
@@ -420,11 +410,11 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 
 Core Tools 支援兩種類型的部署：將函式專案檔直接部署至您的函式應用程式，以及部署自訂 Linux 容器 (僅在 2.x 版中受到支援)。 您必須已[在 Azure 訂用帳戶中建立函式應用程式](functions-cli-samples.md#create)。
 
-在 2.x 版中，您必須已在專案中[註冊您的擴充功能](#register-extensions)，才能進行發佈。 應建置需要編譯的專案，以便部署二進位檔。
+在 2.x 版中，您必須已在專案中[註冊您的擴充功能](#register-extensions)，才能進行發佈。 應建置需要編譯的專案，以便部署二進位檔。 
 
 ### <a name="project-file-deployment"></a>專案檔部署  
 
-最常見的部署方法會使用 Core Tools 來封裝您的函式應用程式專案，然後將套件部署到函式應用程式。 您可以選擇[直接從部署套件執行函式](run-functions-from-deployment-package.md)。
+最常見的部署方法會使用 Core Tools 來封裝您的函式應用程式專案、二進位檔和相依性，然後將套件部署到函式應用程式。 您可以選擇[直接從部署套件執行函式](run-functions-from-deployment-package.md)。
 
 若要將 Functions 專案發佈至 Azure 中的函式應用程式，請使用 `publish` 命令：
 
@@ -440,21 +430,23 @@ func azure functionapp publish <FunctionAppName>
 > 當您在 Azure 入口網站中建立函式應用程式時，依預設會使用 2.x 版的函式執行階段。 若要讓函式應用程式使用 1.x 版的執行階段，請依照[在 1.x 版上執行](functions-versions.md#creating-1x-apps)中的指示操作。  
 > 若函式應用程式具有現有的函式，您就無法變更其執行階段版本。
 
-您可以使用下列同時適用於 1.x 和 2.x 版的發佈選項：
+下列專案發佈選項同時適用於 1.x 和 2.x 版：
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--publish-local-settings -i`** |  將 local.settings.json 中的設定發佈至 Azure，若設定已經存在，則提示進行覆寫。 如果您使用儲存體模擬器，請將應用程式設定變更為[實際的儲存體連接](#get-your-storage-connection-strings)。 |
 | **`--overwrite-settings -y`** | 在使用 `--publish-local-settings -i` 時隱藏覆寫應用程式設定的提示。|
 
-下列發佈選項僅在 2.x 版中受到支援：
+下列專案發佈選項僅在 2.x 版中受到支援：
 
 | 選項     | 說明                            |
 | ------------ | -------------------------------------- |
 | **`--publish-settings-only -o`** |  僅發佈設定而略過內容。 預設值為提示。 |
 |**`--list-ignored-files`** | 顯示在發佈期間忽略的檔案清單，以 .funcignore 檔案為準。 |
 | **`--list-included-files`** | 顯示要發佈的檔案清單，以 .funcignore 檔案為準。 |
-| **`--zip`** | 發佈 Run-From-Zip 套件。 應用程式必須定義 AzureWebJobsStorage 設定。 |
+| **`--nozip`** | 關閉預設 `Run-From-Zip` 模式。 |
+| **`--build-native-deps`** | 發行 python 函式應用程式時，略過產生 .wheels 資料夾。 |
+| **`--additional-packages`** | 建置原生相依性時將安裝的套件清單。 例如： `python3-dev libevent-dev` 。 |
 | **`--force`** | 在設定情況下忽略發佈前驗證。 |
 | **`--csx`** | 發佈 C# 指令碼 (.csx) 專案。 |
 | **`--no-build`** | 略過建置 dotnet 函式的作業。 |

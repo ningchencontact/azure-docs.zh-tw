@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/25/2017
+ms.date: 12/13/2017
 ms.author: jdial
-ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 47614abb8a2adc99b9803ebc20cccb9e59b45e4a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286439"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434852"
 ---
 # <a name="read-nsg-flow-logs"></a>讀取 NSG 流量記錄
 
@@ -39,7 +39,7 @@ NSG 流量記錄會以[區塊 Blob](https://docs.microsoft.com/rest/api/storages
 以下的 PowerShell 會設定查詢 NSG 流程記錄檔 Blob 所需的變數，並會列出 [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3) \(英文\) 區塊 Blob 內的區塊。 更新指令碼以包含適用於您環境的有效值。
 
 ```powershell
-function Get-NSGFlowLogBlockList {
+function Get-NSGFlowLogCloudBlockBlob {
     [CmdletBinding()]
     param (
         [string] [Parameter(Mandatory=$true)] $subscriptionId,
@@ -70,6 +70,17 @@ function Get-NSGFlowLogBlockList {
         # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
         $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
+        #Return the Cloud Block Blob
+        $CloudBlockBlob
+    }
+}
+
+function Get-NSGFlowLogBlockList  {
+    [CmdletBinding()]
+    param (
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+    )
+    process {
         # Stores the block list in a variable from the block blob.
         $blockList = $CloudBlockBlob.DownloadBlockList()
 
@@ -77,10 +88,14 @@ function Get-NSGFlowLogBlockList {
         $blockList
     }
 }
-$blockList = Get-NSGFlowLogBlockList -subscriptionId "00000000-0000-0000-0000-000000000000" -NSGResourceGroupName "resourcegroupname" -storageAccountName "storageaccountname" -storageAccountResourceGroup "sa-rg" -macAddress "000D3AF8196E" -logTime "03/07/2018 22:00"
+
+
+$CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubcriptionId" -NSGResourceGroupName "FLOWLOGSVALIDATIONWESTCENTRALUS" -NSGName "V2VALIDATIONVM-NSG" -storageAccountName "yourStorageAccountName" -storageAccountResourceGroup "ml-rg" -macAddress "000D3AF87856" -logTime "11/11/2018 03:00" 
+
+$blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-`$blockList` 變數會傳回 Blob 中的區塊清單。 每個區塊 Blob 都至少包含兩個區塊。  第一個區塊的長度為 `21` 個位元組，此區塊包含 json 記錄檔的左括號。 另一個區塊是右括號，且長度為 `9` 個位元組。  您可以看到下列範例記錄檔中有七個項目，每個都是個別項目。 記錄檔中的所有新項目都會新增到末端，位於最後一個區塊之前。
+`$blockList` 變數會傳回 Blob 中的區塊清單。 每個區塊 Blob 都至少包含兩個區塊。  第一個區塊的長度為 `12` 個位元組，此區塊包含 json 記錄檔的左括號。 另一個區塊是右括號，且長度為 `2` 個位元組。  您可以看到下列範例記錄檔中有七個項目，每個都是個別項目。 記錄檔中的所有新項目都會新增到末端，位於最後一個區塊之前。
 
 ```
 Name                                         Length Committed
@@ -101,35 +116,45 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 接下來，您需要讀取 `$blocklist` 變數以擷取資料。 在這個範例中，我們會逐一查看區塊清單，從每個區塊讀取位元組，並將它們儲存在陣列中。 使用 [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) 方法來擷取資料。
 
 ```powershell
-# Set the size of the byte array to the largest block
-$maxvalue = ($blocklist | measure Length -Maximum).Maximum
+function Get-NSGFlowLogReadBlock  {
+    [CmdletBinding()]
+    param (
+        [System.Array] [Parameter(Mandatory=$true)] $blockList,
+        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
 
-# Create an array to store values in
-$valuearray = @()
+    )
+    # Set the size of the byte array to the largest block
+    $maxvalue = ($blocklist | measure Length -Maximum).Maximum
 
-# Define the starting index to track the current block being read
-$index = 0
+    # Create an array to store values in
+    $valuearray = @()
 
-# Loop through each block in the block list
-for($i=0; $i -lt $blocklist.count; $i++)
-{
+    # Define the starting index to track the current block being read
+    $index = 0
 
-# Create a byte array object to story the bytes from the block
-$downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
+    # Loop through each block in the block list
+    for($i=0; $i -lt $blocklist.count; $i++)
+    {
+        # Create a byte array object to story the bytes from the block
+        $downloadArray = New-Object -TypeName byte[] -ArgumentList $maxvalue
 
-# Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
-$CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index+3,$($blockList[$i].Length-1)) | Out-Null
+        # Download the data into the ByteArray, starting with the current index, for the number of bytes in the current block. Index is increased by 3 when reading to remove preceding comma.
+        $CloudBlockBlob.DownloadRangeToByteArray($downloadArray,0,$index, $($blockList[$i].Length-1)) | Out-Null
 
-# Increment the index by adding the current block length to the previous index
-$index = $index + $blockList[$i].Length
+        # Increment the index by adding the current block length to the previous index
+        $index = $index + $blockList[$i].Length
 
-# Retrieve the string from the byte array
+        # Retrieve the string from the byte array
 
-$value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
+        $value = [System.Text.Encoding]::ASCII.GetString($downloadArray)
 
-# Add the log entry to the value array
-$valuearray += $value
+        # Add the log entry to the value array
+        $valuearray += $value
+    }
+    #Return the Array
+    $valuearray
 }
+$valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
 現在 `$valuearray` 陣列包含每個區塊的字串值。 若要確認項目，請透過執行 `$valuearray[$valuearray.Length-2]` 取得陣列的第二個到最後一個值。 您不會想要最後一個值，因為它是右括號。

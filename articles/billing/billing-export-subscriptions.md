@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: adpick
-ms.openlocfilehash: 7bc9f4df6e98dd86283c4389466b13b8f6bb4d15
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.author: cwatson
+ms.openlocfilehash: 09231ab69276f3b4763f07c51230921d15333f63
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35766451"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339428"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>匯出並檢視最上層的訂用帳戶資訊
 如果您需要檢視與使用者認證相關聯的訂用帳戶識別碼集，[請從 Azure 帳戶中心下載含有訂用帳戶資訊的 .json 檔案](http://account.azure.com/subscriptions/download)。
@@ -30,10 +30,11 @@ ms.locfileid: "35766451"
 下載的 .json 檔案會提供下列資訊：
 - 電子郵件：與帳戶相關聯的電子郵件地址。
 - Puid：與計費帳戶相關聯的唯一識別碼。
-- 訂用帳戶：屬於您帳戶的訂用帳戶清單 (依照訂用帳戶識別碼所列舉)。
+- SubscriptionIds：屬於您帳戶的訂用帳戶清單 (依照訂用帳戶識別碼所列舉)。
 
 ### <a name="subscriptionsjson-sample"></a>subscriptions.json 範例
-~~~~
+
+```json
 {
   "Email":"admin@contoso.com",
   "Puid":"00052xxxxxxxxxxx",
@@ -46,4 +47,4 @@ ms.locfileid: "35766451"
     "90757cdc-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   ]
 }
-~~~~
+```

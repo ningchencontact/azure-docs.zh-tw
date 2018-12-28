@@ -1,5 +1,5 @@
 ---
-title: 診斷 Azure Cosmos DB Java Async SDK 並進行疑難排解 | Microsoft Docs
+title: 診斷 Azure Cosmos DB Java Async SDK 並進行疑難排解
 description: 使用像是用戶端記錄的功能及其他協力廠商工具，針對 Azure Cosmos DB 問題進行識別、診斷及疑難排解。
 services: cosmos-db
 author: moderakh
@@ -9,12 +9,12 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.openlocfilehash: 2c73cda19a3f8b9b7c5ab493c0dfcd6c2e7be745
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 951c26ea5b5c77cf205e7793834d564889b9a635
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820234"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876098"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>針對搭配 Azure Cosmos DB SQL API 帳戶使用 Java Async SDK 時所發生的問題進行疑難排解
 此文章涵蓋搭配 Azure Cosmos DB SQL API 帳戶使用 [Java Async SDK](sql-api-sdk-async-java.md) 時的常見問題、因應措施、診斷步驟與工具。

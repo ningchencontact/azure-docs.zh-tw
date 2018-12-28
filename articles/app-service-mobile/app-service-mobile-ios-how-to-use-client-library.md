@@ -13,12 +13,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 0de561b177a1474b0ce4f0f203803e8265db5e7a
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: b284b599c569fe1c492b28d09fbc62a9130e939e
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818341"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409304"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用適用於 Azure Mobile Apps 的 iOS 用戶端程式庫
 
@@ -41,7 +41,7 @@ iOS SDK 支援 Objective-C 專案、Swift 2.2 專案，以及適用於 iOS 8.0 �
 
 本指南假設您已建立包含資料表的後端。 本指南假設資料表的結構描述與這些教學課程中的資料表相同。 本指南也假設您在程式碼中，參考了 `MicrosoftAzureMobile.framework` 並匯入了 `MicrosoftAzureMobile/MicrosoftAzureMobile.h`。
 
-## <a name="create-client"></a>作法：建立用戶端
+## <a name="create-client"></a>操作說明：建立用戶端
 
 若要在專案中存取 Azure Mobile Apps 後端，請建立 `MSClient`。 以應用程式 URL 取代 `AppUrl` 。 您可以將 `gatewayURLString` 和 `applicationKey` 留白。 如果您設定驗證的閘道器，請將 `gatewayURLString` 填入閘道器 URL。
 
@@ -57,7 +57,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>作法：建立資料表參考
+## <a name="table-reference"></a>操作說明：建立資料表參考
 
 若要存取或更新資料，請建立後端資料表的參考。 以您的資料表名稱取代 `TodoItem`
 
@@ -73,7 +73,7 @@ MSTable *table = [client tableWithName:@"TodoItem"];
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>作法：查詢資料
+## <a name="querying"></a>操作說明：查詢資料
 
 若要建立資料庫查詢，請查詢 `MSTable` 物件。 下列查詢會取得 `TodoItem` 中的所有項目並記錄每個項目的文字。
 
@@ -105,7 +105,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>作法：篩選傳回的資料
+## <a name="filtering"></a>操作說明：篩選傳回的資料
 
 若要篩選結果，有許多可用的選項。
 
@@ -145,7 +145,7 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>作法：使用 MSQuery
+## <a name="query-object"></a>操作說明：使用 MSQuery
 
 若要執行複雜的查詢 (包括排序和分頁)，請使用述詞直接建立 `MSQuery` 物件：
 
@@ -174,7 +174,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 在物件上呼叫 `readWithCompletion` 以執行 `MSQuery` 查詢。
 
-## <a name="sorting"></a>做法：使用 MSQuery 排序資料
+## <a name="sorting"></a>操作說明：使用 MSQuery 排序資料
 
 我們來看一下範例如何排序結果。 若要根據 'text' 欄位依照遞增順序排序，然後再根據 'complete' 欄位依照遞減順序排序，請叫用 `MSQuery` ，如下所示︰
 
@@ -210,7 +210,7 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>作法：使用 MSQuery 限制欄位和展開查詢字串參數
+## <a name="selecting"></a><a name="parameters"></a>操作說明：使用 MSQuery 限制欄位和展開查詢字串參數
 
 若要限制在查詢中傳回的欄位，請在 **selectFields** 屬性中指定欄位的名稱。 本範例僅會傳回文字和已完成欄位：
 
@@ -243,7 +243,7 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>如何：設定頁面大小
+## <a name="paging"></a>操作說明：設定頁面大小
 
 使用 Azure Mobile Apps，頁面大小會控制從後端資料表一次提取的記錄數目。 然後對 `pull`資料的呼叫會根據此頁面大小將資料分批，直到沒有更多要提取的記錄為止。
 
@@ -255,7 +255,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 此設定也是資料記錄的*數目*，而不是*位元組大小*。
 
-如果您增加用戶端頁面大小，也應該增加伺服器上的頁面大小。 相關步驟請參閱[作法︰調整資料表分頁大小」](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)。
+如果您增加用戶端頁面大小，也應該增加伺服器上的頁面大小。 請參閱[操作說明：調整資料表分頁大小」](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)了解相關步驟。
 
 **Objective-C**：
 
@@ -280,7 +280,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>作法：插入資料
+## <a name="inserting"></a>操作說明：插入資料
 
 若要插入新的資料表資料列，請建立 `NSDictionary` 並叫用 `table insert`。 如果[動態結構描述]已啟用，Azure App Service 行動後端會根據 `NSDictionary` 自動產生新的資料欄。
 
@@ -314,7 +314,7 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>作法：修改資料
+## <a name="modifying"></a>操作說明：修改資料
 
 若要更新現有的資料列，請修改項目並呼叫 `update`：
 
@@ -375,7 +375,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 進行更新時，至少必須設定 `id` 屬性。
 
-## <a name="deleting"></a>作法：刪除資料
+## <a name="deleting"></a>操作說明：刪除資料
 
 若要刪除項目，請叫用 `delete` 搭配項目：
 
@@ -431,7 +431,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 進行刪除時，至少必須設定 `id` 屬性。
 
-## <a name="customapi"></a>如何：呼叫自訂 API
+## <a name="customapi"></a>操作說明：呼叫自訂 API
 
 使用自訂 API，您可以公開任何後端功能。 它不必對應至資料表作業。 您不僅能進一步控制訊息，甚至還可以讀取或設定標頭，並變更回應內文格式。 若要了解如何在後端上建立自訂 API，請閱讀 [自訂 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
@@ -472,7 +472,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>作法：註冊推送範本以傳送跨平台通知
+## <a name="templates"></a>操作說明：註冊推送範本以傳送跨平台通知
 
 若要註冊範本，請在用戶端應用程式中利用 **client.push registerDeviceToken** 方法傳遞範本。
 
@@ -512,7 +512,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 所有標記都將因安全性而移除。  若要將標籤新增至安裝中或安裝內的範本，請參閱[使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK][4]。  若要使用這些已註冊的範本來傳送通知，請使用[通知中樞 API][3]。
 
-## <a name="errors"></a>作法：處理錯誤
+## <a name="errors"></a>操作說明：處理錯誤
 
 呼叫 Azure App Service行動後端時，completion 區塊會包含 `NSError` 參數。 發生錯誤時，此參數便會傳回非 Nil。 您應檢查程式碼中的此參數，並視需要處理錯誤，如上述的程式碼片段所示。
 
@@ -544,7 +544,7 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>如何：使用 Active Directory Authentication Library 驗證使用者
+## <a name="adal"></a>操作說明：使用 Active Directory Authentication Library 驗證使用者
 
 您可以使用 Active Directory Authentication Library (ADAL)，利用 Azure Active Directory 將使用者登入應用程式。 相較於使用 `loginWithProvider:completion:` 方法，較建議使用身分識別提供者 SDK 的用戶端流程驗證。  用戶端流程驗證能提供較原生的 UX 風格，並允許進行其他自訂。
 
@@ -631,7 +631,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>作法：使用 Facebook SDK for iOS 來驗證使用者
+## <a name="facebook-sdk"></a>操作說明：使用 Facebook SDK for iOS 來驗證使用者
 
 您可以使用 Facebook SDK for iOS，利用 Facebook 將使用者登入應用程式。  相較於使用 `loginWithProvider:completion:` 方法，較建議使用用戶端流程驗證。  用戶端流程驗證能提供較原生的 UX 風格，並允許進行其他自訂。
 
@@ -710,11 +710,11 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
     }
     ```
 
-## <a name="twitter-fabric"></a>作法：使用 Twitter Fabric for iOS 來驗證使用者
+## <a name="twitter-fabric"></a>操作說明：使用 Twitter Fabric for iOS 來驗證使用者
 
 您可以使用 Fabric for iOS，利用 Twitter 將使用者登入應用程式。 與使用 `loginWithProvider:completion:` 方法相比，較建議使用用戶端流程驗證，因為它提供更原生的 UX 風格，並可允許進行其他自訂。
 
-1. 依照 [如何設定 App Service 來進行 Twitter 登入](../app-service/app-service-mobile-how-to-configure-twitter-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Twitter 登入。
+1. 依照 [如何設定 App Service 來進行 Twitter 登入](../app-service/configure-authentication-provider-twitter.md) 教學課程的說明，設定您的行動應用程式後端來進行 Twitter 登入。
 2. 依照 [Fabric for iOS - 開始使用]文件並設定 TwitterKit，在專案中新增網狀架構。
 
    > [!NOTE]
@@ -792,11 +792,11 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
     }
     ```
 
-## <a name="google-sdk"></a>作法：使用 Google Sign-In SDK for iOS 來驗證使用者
+## <a name="google-sdk"></a>操作說明：使用 Google Sign-In SDK for iOS 來驗證使用者
 
 您可以使用 Google Sign-In SDK for iOS，利用 Google 帳戶將使用者登入應用程式。  近期內，Google 宣布他們的 OAuth 安全性原則變更。  這些原則變更要求您未來必須使用 Google SDK。
 
-1. 依照 [如何設定 App Service 來進行 Google 登入](../app-service/app-service-mobile-how-to-configure-google-authentication.md) 教學課程的說明，設定您的行動應用程式後端來進行 Google 登入。
+1. 依照 [如何設定 App Service 來進行 Google 登入](../app-service/configure-authentication-provider-google.md) 教學課程的說明，設定您的行動應用程式後端來進行 Google 登入。
 2. 請依照 [Google Sign-In for iOS - Start integrating](https://developers.google.com/identity/sign-in/ios/start-integrating) 文件安裝 Google SDK for iOS。 您可以略過＜使用後端伺服器進行驗證＞一節。
 3. 請根據您使用的語言，將下列內容新增到委派的 `signIn:didSignInForUser:withError:` 方法。
 
@@ -899,28 +899,28 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
 [Azure 入口網站]: https://portal.azure.com/
-[Handling Expired Tokens]: http://go.microsoft.com/fwlink/p/?LinkId=301955
-[Live Connect SDK]: http://go.microsoft.com/fwlink/p/?LinkId=301960
-[Permissions]: http://msdn.microsoft.com/library/windowsazure/jj193161.aspx
+[Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
+[Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
+[Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[動態結構描述]: http://go.microsoft.com/fwlink/p/?LinkId=296271
+[動態結構描述]: https://go.microsoft.com/fwlink/p/?LinkId=296271
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
-[Create a table]: http://msdn.microsoft.com/library/windowsazure/jj193162.aspx
-[NSDictionary object]: http://go.microsoft.com/fwlink/p/?LinkId=301965
-[ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
+[Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
+[NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965
+[ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [CLI to manage Mobile Services tables]: /cli/azure/get-started-with-az-cli2
 [Conflict-Handler]: mobile-services-ios-handling-conflicts-offline-data.md#add-conflict-handling
 
 [網狀架構儀表板]: https://www.fabric.io/home
 [Fabric for iOS - 開始使用]: https://docs.fabric.io/ios/fabric/getting-started.html
 [1]: https://github.com/Azure/azure-mobile-apps-ios-client/blob/master/README.md#ios-client-sdk
-[2]: http://azure.github.io/azure-mobile-apps-ios-client/
+[2]: https://azure.github.io/azure-mobile-apps-ios-client/
 [3]: https://msdn.microsoft.com/library/azure/dn495101.aspx
 [4]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags
-[5]: http://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
+[5]: https://azure.github.io/azure-mobile-services/iOS/v3/Classes/MSClient.html#//api/name/invokeAPI:data:HTTPMethod:parameters:headers:completion:
 [6]: https://github.com/Azure/azure-mobile-services/blob/master/sdk/iOS/src/MSError.h
-[7]: ../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md
+[7]: ../app-service/configure-authentication-provider-aad.md
 [8]:../active-directory/develop/quickstart-v1-ios.md
-[9]: ../app-service/app-service-mobile-how-to-configure-facebook-authentication.md
+[9]: ../app-service/configure-authentication-provider-facebook.md
 [10]: https://developers.facebook.com/docs/ios/getting-started

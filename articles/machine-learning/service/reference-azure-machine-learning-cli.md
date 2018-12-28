@@ -1,5 +1,6 @@
 ---
-title: 如何使用 Azure Machine Learning CLI 擴充功能
+title: 機器學習 CLI 擴充功能
+titleSuffix: Azure Machine Learning service
 description: 了解 Azure CLI 的 Azure Machine Learning CLI 擴充功能。 Azure CLI 是一個跨平台命令列公用工具，可讓您使用 Azure 雲端的資源。 Machine Learning 擴充功能可讓您使用 Azure Machine Learning 服務。
 services: machine-learning
 ms.service: machine-learning
@@ -8,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 09/24/2018
-ms.openlocfilehash: 13d09471191deed670db97a9f18e15bc9577dd1a
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: e16506773e38f1732a55161cdd58ffb7523602d4
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713413"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277279"
 ---
-# <a name="use-the-azure-machine-learning-cli-extension"></a>使用 Azure Machine Learning CLI 擴充功能
+# <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務的 CLI 擴充功能
 
 Azure Machine Learning CLI 是 [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 的擴充功能，而 Azure CLI 是 Azure 平台的跨平台命令列介面。 此擴充功能會提供一些命令，以便從命令列使用 Azure Machine Learning 服務。 它可讓您建立一些指令碼，讓您的機器學習工作流程自動化。 例如，您可以建立可執行下列動作的指令碼︰
 
@@ -40,17 +42,17 @@ CLI 不是 Azure Machine Learning SDK 的取代項目。 它是已經過最佳�
 
 ## <a name="prerequisites"></a>必要條件
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
-> [!NOTE]
-> 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree) 。
+* 若要使用 CLI，您必須擁有 Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+
+* [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)。
 
 ## <a name="install-the-extension"></a>安裝擴充功能
 
 若要安裝 Machine Learning CLI 擴充功能，請使用下列命令：
 
 ```azurecli-interactive
-az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-1.0.2-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 出現提示時，請選取 `y` 來安裝擴充功能。
@@ -79,22 +81,33 @@ az extension remove -n azure-cli-ml
 
 + 建立 Azure Machine Learning 服務工作區：
 
-   ```azurecli-interactive
-   az ml workspace create -n myworkspace -g myresourcegroup
-   ```
+    ```azurecli-interactive
+    az ml workspace create -n myworkspace -g myresourcegroup
+    ```
 
 + 設定預設工作區：
 
-   ```azurecli-interactive
-   az configure --defaults aml_workspace=myworkspace group=myresourcegroup
-   ```
+    ```azurecli-interactive
+    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
+    ```
 
-+ 建立 DSVM (資料科學 VM)。 您也可以建立 BatchAI 叢集來用於分散式訓練，或建立 AKS 叢集來用於部署。
++ 建立分散式訓練的受控計算目標：
 
+    ```azurecli-interactive
+    az ml computetarget create amlcompute -n mycompute --max_nodes 4 --size Standard_NC6
+    ```
 
-  ```azurecli-interactive
-  az ml computetarget setup dsvm -n mydsvm
-  ```
+* 更新受控計算目標：
+
+    ```azurecli-interactive
+    az ml computetarget update --name mycompute --workspace –-group --max_nodes 4 --min_nodes 2 --idle_time 300
+    ```
+
+* 附加訓練或部署用的非受控計算目標：
+
+    ```azurecli-interactive
+    az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
+    ```
 
 ## <a name="experiments"></a>實驗
 

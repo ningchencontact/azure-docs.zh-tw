@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: d6a9de293d62ec6f25bd3a665d5ced5a1ac671ae
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: e8cf8de25a35909cb2a0fc94237bfa517c72e685
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634017"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410341"
 ---
 # <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>開發 HDInsight 的 Python 串流處理 MapReduce 程式
 
@@ -144,7 +144,7 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
     此命令會將檔案從本機系統複製到前端節點。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您使用密碼來保護 SSH 帳戶，系統就會提示您輸入密碼。 如果您使用 SSH 金鑰，您可能必須使用 `-i` 參數和私密金鑰的路徑。 例如： `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`。
 
 2. 使用 SSH 連線到叢集：
@@ -170,9 +170,9 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
     此命令有下列幾個部分：
 
-   * **hadoop-streaming.jar**：執行串流 MapReduce 作業時使用。 它能連結 Hadoop 和您提供的外部 MapReduce 程式碼。
+   * **hadoop-streaming.jar**:執行串流 MapReduce 作業時使用。 它能連結 Hadoop 和您提供的外部 MapReduce 程式碼。
 
-   * **-file**：將指定的檔案新增至 MapReduce 作業。
+   * **-files**：將指定的檔案新增至 MapReduce 作業。
 
    * **-mapper**：告訴 Hadoop 要做為對應器的檔案。
 
@@ -199,6 +199,6 @@ Python 可以使用 `sys` 模組來讀取 STDIN 並使用 `print` 來列印到 S
 
 現在您已學會如何搭配 HDInsight 使用串流 MapRedcue 工作，接著請使用下列連結來探索 Azure HDInsight 的其他使用方式。
 
-* [〈搭配 HDInsight 使用 Hivet〉](hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hdinsight-use-mapreduce.md)

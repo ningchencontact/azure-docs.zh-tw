@@ -1,5 +1,5 @@
 ---
-title: 啟用對於 Azure DC/OS 容器應用程式的存取
+title: (已淘汰) 啟用對於 Azure DC/OS 容器應用程式的存取
 description: 如何在 Azure Container Service 中啟用對 DC/OS 容器的公用存取。
 services: container-service
 author: sauryadas
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2017
-ms.locfileid: "26332274"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996603"
 ---
-# <a name="enable-public-access-to-an-azure-container-service-application"></a>啟用 Azure Container Service 應用程式的公用存取
+# <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(已淘汰) 啟用 Azure Container Service 應用程式的公用存取
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) 中的任何 DC/OS 容器都會自動公開到網際網路。 根據預設，連接埠 **80**、**443**、**8080** 已開啟，在這些連接埠上接聽的任何 (公用) 容器皆可供存取。 本文將說明如何在 Azure Container Service 中開啟更多的連接埠供應用程式使用。
 
@@ -76,7 +78,7 @@ ACS [公用代理程式集區](container-service-mesos-marathon-ui.md#deploy-a-d
    | 服務 |選取一組適用此安全性規則的預先定義服務。 否則，使用 **自訂** 建立自己的服務。 |
    | 通訊協定 |根據 **TCP** 或 **UDP** 限制流量。 使用 **任何** 即可不指定限制。 |
    | 連接埠範圍 |當**服務**是**自訂**時，指定此規則會影響的連接埠範圍。 您可以使用單一連接埠 (例如 **80**) 或 **1024-1500** 之類的範圍。 |
-   | 動作 |允許或拒絕符合條件的流量。 |
+   |  動作 |允許或拒絕符合條件的流量。 |
 
 ## <a name="next-steps"></a>後續步驟
 了解 [公用和私用 DC/OS 代理程式](container-service-dcos-agents.md)之間的差異。

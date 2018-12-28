@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2018
+ms.date: 12/9/2018
 ms.author: rkarlin
-ms.openlocfilehash: f46837751901015fd80d3ecc7a620878cadb3f12
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317869"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343865"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 資訊安全中心來保護 App Service
 本文可協助您使用「Azure 資訊安全中心」來監視及保護在 App Service 上執行的應用程式。
 
-App Service 可讓您以所選程式設計語言來建置及裝載 Web 應用程式，而無需管理基礎結構。 App Service 提供自動調整功能和高可用性、同時支援 Windows 和 Linux，並可從 GitHub、Visual Studio Team Services 或任何 Git 存放庫進行自動化部署。 
+App Service 可讓您以所選程式設計語言來建置及裝載 Web 應用程式，而無需管理基礎結構。 App Service 提供自動調整功能和高可用性、同時支援 Windows 和 Linux，並可從 GitHub、Azure DevOps 或任何 Git 存放庫進行自動化部署。 
 
 Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網路上的幾乎所有組織來說，它們都具有一個通用且動態的介面。 對在 App Service 上執行之應用程式所發出要求會經過部署在全球各地 Azure 資料中心內的數個閘道，這些閘道會負責將每個要求路由傳送至其相對應的應用程式。 
 
@@ -63,8 +63,8 @@ Web 應用程式中的弱點經常會遭到攻擊者利用，因為對網際網�
 ## <a name="see-also"></a>另請參閱
 在本文中，您已來了解如何使用「Azure 資訊安全中心」的監視功能。 若要深入了解「Azure 資訊安全中心」，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)：了解如何在 Azure 資訊安全中心設定安全性設定。
-* [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理與回應安全性警示。
-* [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀況。
-* [Azure 資訊安全中心常見問題集](security-center-faq.md)：尋找有關使用服務的常見問題。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何在 Azure 資訊安全中心設定安全性設定。
+* [管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理和回應安全性警示。
+* [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀態。
+* [Azure 資訊安全中心常見問題](security-center-faq.md)：尋找有關使用服務的常見問題。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。

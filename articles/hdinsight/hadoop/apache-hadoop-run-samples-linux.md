@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 283171fa00837a8a7b4e0a13d7bca5645cf63a83
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f9bafec093a3ad6e26eb12cfdb321945353b4d08
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633060"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434132"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>執行包含在 HDInsight 中的 MapReduce 範例
 
@@ -25,9 +25,9 @@ ms.locfileid: "51633060"
 
 ## <a name="prerequisites"></a>必要條件
 
-* **HDInsight 叢集**：請參閱 [在 Linux 上開始在 HDInsight 中搭配使用 Hadoop 與 Hive](apache-hadoop-linux-tutorial-get-started.md)
+* **HDInsight 叢集**：請參閱[在 Linux 上的 HDInsight 中開始使用 Apache Hadoop 和 Apache Hive](apache-hadoop-linux-tutorial-get-started.md)
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **SSH 用戶端**：如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
@@ -44,13 +44,13 @@ ms.locfileid: "51633060"
 * `dbcount`：範例作業，計數儲存在資料庫中的 pageview 記錄。
 * `distbbp`：mapreduce 程式，使用 BBP 類型的公式來計算 Pi 的確切位數。
 * `grep`：mapreduce 程式，可計算輸入中 regex 的相符項目。
-* `join`：作業，可執行已排序且平均分割之資料集的聯結。
-* `multifilewc`：可從數個檔案計算字數的作業。
+* `join`：一種作業，可執行已排序且平均分割之資料集的聯結。
+* `multifilewc`：一種作業，可從數個檔案計算字數。
 * `pentomino`：mapreduce 圖格配置程式，可尋找五格骨牌 (pentomino) 問題的解答。
 * `pi`：mapreduce 程式，使用擬蒙特卡羅 (quasi-Monte Carlo) 方法估計 Pi。
 * `randomtextwriter`：mapreduce 程式，可為每個節點寫入 10 GB 的隨機文字資料。
 * `randomwriter`：mapreduce 程式，可為每個節點寫入 10 GB 的隨機資料。
-* `secondarysort`：範例，定義要簡化階段的二次排序。
+* `secondarysort`：一種範例，定義要簡化階段的二次排序。
 * `sort`：mapreduce 程式，可排序隨機寫入器所寫入的資料。
 * `sudoku`：數獨解答程式。
 * `teragen`：產生用於 TeraSort 的資料。
@@ -95,7 +95,7 @@ ms.locfileid: "51633060"
 
     此作業的輸入讀取自 `/example/data/gutenberg/davinci.txt`。 此範例的輸出會儲存在 `/example/data/davinciwordcount`。 這兩個路徑都位於叢集的預設儲存體上，而不是本機檔案系統上。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如 wordcount 範例的說明所述，您也可以指定多個輸入檔。 例如， `hadoop jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar wordcount /example/data/gutenberg/davinci.txt /example/data/gutenberg/ulysses.txt /example/data/twowordcount` 會計算 davinci.txt 和 ulysses.txt 中的字數。
 
 5. 工作完成後，使用以下命令來檢視輸出：
@@ -167,13 +167,13 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通常至少為 100 TB) 所達成的排序速率 (TB/分鐘)。
 
-本範例使用不太大的 10 GB 資料，所以執行起來相對較快。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578 TB/分鐘 (173 分鐘內達到 100 TB) 的速率獲勝。 如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](http://sortbenchmark.org/) 網站。
+本範例使用不太大的 10 GB 資料，所以執行起來相對較快。 本範例使用由 Owen O'Malley 和 Arun Murthy 共同開發的 MapReduce 應用程式。 這些應用程式於 2009 年的年度一般目的 (「耐力賽」) TB 排序效能評定中，以 0.578 TB/分鐘 (173 分鐘內達到 100 TB) 的速率獲勝。 如需此效能評比和其他排序效能評比的詳細資訊，請參閱 [Sortbenchmark](https://sortbenchmark.org/) 網站。
 
 本範例使用三組 MapReduce 程式：
 
 * **TeraGen**：MapReduce 程式，產生要排序的資料列
 
-* **TeraSort**可取樣輸入資料並利用 MapReduce 將資料依全序排列
+* **TeraSort**：可取樣輸入資料並利用 MapReduce 將資料依全序排列
 
     TeraSort 是標準的 MapReduce 排序，但有一個自訂 Partitioner。 此 Partitioner 使用已排序的 N-1 取樣索引鍵清單，其定義每個歸納的索引鍵範圍。 尤其是，會傳送使得 sample[i-1] <= key < sample[i] 的所有索引鍵給歸納 i。 此 Partitioner 會保證歸納 i 的輸出全都小於歸納 i+1 的輸出。
 
@@ -209,9 +209,9 @@ GraySort 是一種效能評定排序。 其計量為排序大量資料時 (通�
 
 您已在本文中學到如何執行以 Linux 為基礎的 HDInsight 叢集所隨附的範例。 如需透過 HDInsight 使用 Pig、Hive 和 MapReduce 的教學課程，請參閱下列主題：
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md

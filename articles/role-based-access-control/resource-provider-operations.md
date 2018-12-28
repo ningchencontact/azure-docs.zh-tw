@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 11/26/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 396dbfcfd13f508c33d8a1bb7370d9170b8f8a56
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 22af5b4b757fed83e5c9b23426283d2fb4c4867f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499688"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410528"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 資源提供者作業
 
@@ -80,7 +80,7 @@ ms.locfileid: "52499688"
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | 取得樹系的使用者喜好設定。<br>範例 - MetricCounterName，例如 ldapsuccessfulbinds、ntlmauthentications、kerberosauthentications、addsinsightsagentprivatebytes、ldapsearches。<br>UI 圖表等項目的設定。 |
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | 取得指定樹系的樹系摘要，例如樹系名稱、此樹系下的網域數目、網站數目和網站詳細資料等。 |
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | 取得指定服務的支援計量清單。<br>例如，ADFS 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomainService 的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>ADSync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
-> |  動作 | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得與下列項目相關的資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
+> |  動作 | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得以下相關資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | 此 API 會取得進階租用戶所有已上架 ADDomainServices 的清單。 |
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/read | 取得指定服務名稱的服務詳細資料。 |
 > |  動作 | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | 取得指定服務名稱的所有伺服器複寫詳細資料。 |
@@ -115,9 +115,9 @@ ms.locfileid: "52499688"
 > |  動作 | Microsoft.ADHybridHealthService/services/exportstatus/read | 取得指定服務的匯出狀態。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | 取得指定服務和伺服器的警示意見反應。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/metricmetadata/read | 取得指定服務的支援計量清單。<br>例如，ADFS 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomainService 的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>ADSync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
-> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | 在指定了服務時，此 API 會取得指定服務的計量平均值。<br>例如，此 API 可用來取得與下列項目相關的資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
-> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得與下列項目相關的資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
-> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | 在指定了服務時，此 API 會取得指定服務計量的彙總檢視。<br>例如，此 API 可用來取得與下列項目相關的資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
+> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | 在指定了服務時，此 API 會取得指定服務的計量平均值。<br>例如，此 API 可用來取得以下相關資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
+> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得以下相關資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
+> |  動作 | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | 在指定了服務時，此 API 會取得指定服務計量的彙總檢視。<br>例如，此 API 可用來取得以下相關資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | 新增或更新服務的監視組態。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | 取得指定服務的監視組態。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | 新增或更新服務的監視組態。 |
@@ -130,7 +130,7 @@ ms.locfileid: "52499688"
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | 針對指定的伺服器，此 API 會取得伺服器所要上傳的資料類型清單，以及每個上傳的最新時間。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/delete | 刪除服務中的伺服器執行個體。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | 取得指定 Sync 服務的 Sync 匯出錯誤。 |
-> |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得與下列項目相關的資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
+> |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | 在指定了服務時，此 API 會取得計量資訊。<br>例如，此 API 可用來取得以下相關資訊：ADFederation 服務的外部網路帳戶鎖定、失敗要求總數、未處理的權杖要求數 (Proxy)、每秒權杖要求數等等。<br>ADDomain 服務的每秒 NTLM 驗證數、每秒 LDAP 成功繫結數、LDAP 繫結時間、LDAP 作用中執行緒、每秒 Kerberos 驗證數、ATQ 執行緒總數等。<br>Sync 服務的執行設定檔延遲、所建立的 TCP 連線數、Insights 代理程式私用位元組數、將統計資料匯出至 Azure AD。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/read | 讀取服務中的伺服器執行個體。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | 取得指定租用戶的服務組態。 |
 > |  動作 | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | 取得指定租用戶的功能允許清單狀態。 |
@@ -600,38 +600,6 @@ ms.locfileid: "52499688"
 > |  動作 | Microsoft.Batch/register/action | 針對 Batch 資源提供者註冊訂用帳戶，並讓您能夠建立 Batch 帳戶 |
 > |  動作 | Microsoft.Batch/unregister/action | 為 Batch 資源提供者取消註冊訂用帳戶，以防止建立 Batch 帳戶 |
 
-## <a name="microsoftbatchai"></a>Microsoft.BatchAI
-
-> [!div class="mx-tdCol2BreakAll"]
-> | 動作類型 | 作業 | 說明 |
-> | --- | --- | --- |
-> |  動作 | Microsoft.BatchAI/clusters/read | 列出 Batch AI 叢集，或取得 Batch AI 叢集的屬性 |
-> |  動作 | Microsoft.BatchAI/fileservers/read | 列出 Batch AI 檔案伺服器，或取得 Batch AI 檔案伺服器的屬性 |
-> |  動作 | Microsoft.BatchAI/locations/operationresults/read | 取得所指定 Azure 區域的 Batch AI 非同步作業結果 |
-> |  動作 | Microsoft.BatchAI/locations/operationstatuses/read | 取得所指定 Azure 區域的 Batch AI 非同步作業狀態 |
-> |  動作 | Microsoft.BatchAI/locations/usages/read | 取得指定 Azure 區域中指定訂用帳戶的 Batch AI 使用情況 |
-> |  動作 | Microsoft.BatchAI/register/action | 為 Batch AI 資源提供者註冊訂用帳戶，並讓您能夠建立 Batch AI 資源 |
-> |  動作 | Microsoft.BatchAI/unregister/action | 將防止建立 Batch AI 資源之 Batch AI 資源提供者的訂用帳戶取消註冊 |
-> |  動作 | Microsoft.BatchAI/workspaces/clusters/delete | 刪除 Batch AI 叢集 |
-> |  動作 | Microsoft.BatchAI/workspaces/clusters/read | 列出 Batch AI 叢集，或取得 Batch AI 叢集的屬性 |
-> |  動作 | Microsoft.BatchAI/workspaces/clusters/remoteLoginInformation/action | 列出 Batch AI 叢集的遠端登入資訊 |
-> |  動作 | Microsoft.BatchAI/workspaces/clusters/write | 建立新的 Batch AI 叢集，或更新現有的 Batch AI 叢集 |
-> |  動作 | Microsoft.BatchAI/workspaces/delete | 刪除 Batch AI 工作區 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/delete | 刪除 Batch AI 實驗 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/delete | 刪除 Batch AI 作業 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/listoutputfiles/action | 列出 Batch AI 作業的輸出檔案 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/read | 列出 Batch AI 作業，或取得 Batch AI 作業的屬性 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/remoteLoginInformation/action | 列出 Batch AI 作業的遠端登入資訊 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/terminate/action | 終止 Batch AI 作業 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/jobs/write | 建立新的 Batch AI 作業，或更新現有的 Batch AI 作業 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/read | 列出 Batch AI 實驗，或取得 Batch AI 實驗的屬性 |
-> |  動作 | Microsoft.BatchAI/workspaces/experiments/write | 建立新的 Batch AI 實驗，或更新現有的 Batch AI 實驗 |
-> |  動作 | Microsoft.BatchAI/workspaces/fileservers/delete | 刪除 Batch AI 檔案伺服器 |
-> |  動作 | Microsoft.BatchAI/workspaces/fileservers/read | 列出 Batch AI 檔案伺服器，或取得 Batch AI 檔案伺服器的屬性 |
-> |  動作 | Microsoft.BatchAI/workspaces/fileservers/write | 建立新的 Batch AI 檔案伺服器，或更新現有的 Batch AI 檔案伺服器 |
-> |  動作 | Microsoft.BatchAI/workspaces/read | 列出 Batch AI 工作區，或取得 Batch AI 工作區的屬性 |
-> |  動作 | Microsoft.BatchAI/workspaces/write | 建立新的 Batch AI 工作區，或更新現有的 Batch AI 工作區 |
-
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -695,31 +663,31 @@ ms.locfileid: "52499688"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 說明 |
 > | --- | --- | --- |
-> |  動作 | Microsoft.Cache/checknameavailability/action | 檢查名稱是否可用於新的 Redis 快取 |
+> |  動作 | Microsoft.Cache/checknameavailability/action | 檢查名稱是否可用於新的 Azure Cache for Redis |
 > |  動作 | Microsoft.Cache/locations/operationresults/read | 取得先前已將 'Location' 標頭傳回用戶端之長時間執行作業的結果 |
 > |  動作 | Microsoft.Cache/operations/read | 列出 'Microsoft.Cache' 提供者支援的作業。 |
-> |  動作 | Microsoft.Cache/redis/delete | 刪除整個 Redis 快取 |
+> |  動作 | Microsoft.Cache/redis/delete | 刪除整個 Azure Cache for Redis |
 > |  動作 | Microsoft.Cache/redis/export/action | 以指定格式將 Redis 資料匯出至有前置詞的儲存體 Blob |
-> |  動作 | Microsoft.Cache/redis/firewallRules/delete | 刪除 Redis 快取的 IP 防火牆規則 |
-> |  動作 | Microsoft.Cache/redis/firewallRules/read | 取得 Redis 快取的 IP 防火牆規則 |
-> |  動作 | Microsoft.Cache/redis/firewallRules/write | 編輯 Redis 快取的 IP 防火牆規則 |
+> |  動作 | Microsoft.Cache/redis/firewallRules/delete | 刪除 Azure Cache for Redis 的 IP 防火牆規則 |
+> |  動作 | Microsoft.Cache/redis/firewallRules/read | 取得 Azure Cache for Redis 的 IP 防火牆規則 |
+> |  動作 | Microsoft.Cache/redis/firewallRules/write | 編輯 Azure Cache for Redis 的 IP 防火牆規則 |
 > |  動作 | Microsoft.Cache/redis/forceReboot/action | 強制重新啟動快取執行個體，但可能會造成資料遺失。 |
 > |  動作 | Microsoft.Cache/redis/import/action | 從多個 Blob 將指定格式的資料匯入 Redis |
-> |  動作 | Microsoft.Cache/redis/linkedservers/delete | 從 Redis 快取中刪除連結伺服器 |
-> |  動作 | Microsoft.Cache/redis/linkedservers/read | 取得與 Redis 快取相關聯的連結伺服器。 |
-> |  動作 | Microsoft.Cache/redis/linkedservers/write | 對 Redis 快取新增連結伺服器 |
-> |  動作 | Microsoft.Cache/redis/listKeys/action | 在管理入口網站中檢視 Redis 快取存取金鑰的值 |
+> |  動作 | Microsoft.Cache/redis/linkedservers/delete | 將連結的伺服器從 Azure Cache for Redis 刪除 |
+> |  動作 | Microsoft.Cache/redis/linkedservers/read | 取得與 Azure Cache for Redis 相關聯的連結伺服器。 |
+> |  動作 | Microsoft.Cache/redis/linkedservers/write | 將連結的伺服器新增至 Azure Cache for Redis |
+> |  動作 | Microsoft.Cache/redis/listKeys/action | 在管理入口網站中檢視 Azure Cache for Redis 快取存取金鑰的值 |
 > |  動作 | Microsoft.Cache/redis/listUpgradeNotifications/read | 列出快取租用戶的最新升級通知。 |
-> |  動作 | Microsoft.Cache/redis/metricDefinitions/read | 取得 Redis 快取可用的計量 |
-> |  動作 | Microsoft.Cache/redis/patchSchedules/delete | 刪除 Redis 快取的修補排程 |
-> |  動作 | Microsoft.Cache/redis/patchSchedules/read | 取得 Redis 快取的修補排程 |
-> |  動作 | Microsoft.Cache/redis/patchSchedules/write | 修改 Redis 快取的修補排程 |
-> |  動作 | Microsoft.Cache/redis/read | 在管理入口網站中檢視 Redis 快取的設定和組態 |
-> |  動作 | Microsoft.Cache/redis/recommendations/read | 讀取 Azure Redis 快取建議 |
-> |  動作 | Microsoft.Cache/redis/regenerateKey/action | 在管理入口網站中變更 Redis 快取存取金鑰的值 |
+> |  動作 | Microsoft.Cache/redis/metricDefinitions/read | 取得 Azure Cache for Redis 可用的計量 |
+> |  動作 | Microsoft.Cache/redis/patchSchedules/delete | 刪除 Azure Cache for Redis 的修補排程 |
+> |  動作 | Microsoft.Cache/redis/patchSchedules/read | 取得 Azure Cache for Redis 的修補排程 |
+> |  動作 | Microsoft.Cache/redis/patchSchedules/write | 修改 Azure Cache for Redis 的修補排程 |
+> |  動作 | Microsoft.Cache/redis/read | 在管理入口網站中，檢視 Azure Cache for Redis 的設定和組態 |
+> |  動作 | Microsoft.Cache/redis/recommendations/read | 請閱讀 Azure Cache for Redis 建議 |
+> |  動作 | Microsoft.Cache/redis/regenerateKey/action | 在管理入口網站中，變更 Azure Cache for Redis 快取存取金鑰的值 |
 > |  動作 | Microsoft.Cache/redis/start/action | 啟動快取執行個體。 |
 > |  動作 | Microsoft.Cache/redis/stop/action | 停止快取執行個體。 |
-> |  動作 | Microsoft.Cache/redis/write | 在管理入口網站中修改 Redis 快取的設定和組態 |
+> |  動作 | Microsoft.Cache/redis/write | 在管理入口網站中，修改 Azure Cache for Redis 的設定和組態 |
 > |  動作 | Microsoft.Cache/register/action | 向訂用帳戶註冊 'Microsoft.Cache' 資源提供者 |
 > |  動作 | Microsoft.Cache/unregister/action | 向訂用帳戶取消註冊 'Microsoft.Cache' 資源提供者 |
 
@@ -2680,24 +2648,24 @@ ms.locfileid: "52499688"
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 說明 |
 > | --- | --- | --- |
-> |  動作 | Microsoft.LocationBasedServices/accounts/delete | (已淘汰：請使用 /providers/Microsoft.Maps) 刪除位置服務帳戶。 |
-> |  動作 | Microsoft.LocationBasedServices/accounts/listKeys/action | (已淘汰：請使用 /providers/Microsoft.Maps) 列出位置服務帳戶金鑰 |
-> |  動作 | Microsoft.LocationBasedServices/accounts/read | (已淘汰：請使用 /providers/Microsoft.Maps) 取得位置服務帳戶。 |
-> |  動作 | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (已淘汰：請使用 /providers/Microsoft.Maps) 產生新位置服務帳戶的主要或次要金鑰 |
-> |  動作 | Microsoft.LocationBasedServices/accounts/write | (已淘汰：請使用 /providers/Microsoft.Maps) 建立或更新位置服務帳戶。 |
-> |  動作 | Microsoft.LocationBasedServices/register/action | (已淘汰：請使用 /providers/Microsoft.Maps) 註冊提供者 |
+> |  動作 | Microsoft.LocationBasedServices/accounts/delete | (取代：請使用 /providers/Microsoft.Maps) 刪除位置服務帳戶。 |
+> |  動作 | Microsoft.LocationBasedServices/accounts/listKeys/action | (取代：請使用 /providers/Microsoft.Maps) 列出位置服務帳戶金鑰 |
+> |  動作 | Microsoft.LocationBasedServices/accounts/read | (取代：請使用 /providers/Microsoft.Maps) 取得位置服務帳戶。 |
+> |  動作 | Microsoft.LocationBasedServices/accounts/regenerateKey/action | (取代：請使用 /providers/Microsoft.Maps) 產生新位置服務帳戶的主要或次要金鑰 |
+> |  動作 | Microsoft.LocationBasedServices/accounts/write | (取代：請使用 /providers/Microsoft.Maps) 建立或更新位置服務帳戶。 |
+> |  動作 | Microsoft.LocationBasedServices/register/action | (取代：請使用 /providers/Microsoft.Maps) 註冊提供者 |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tdCol2BreakAll"]
 > | 動作類型 | 作業 | 說明 |
 > | --- | --- | --- |
-> |  動作 | Microsoft.LocationServices/accounts/delete | (已淘汰：請使用 /providers/Microsoft.Maps) 刪除位置服務帳戶。 |
-> |  動作 | Microsoft.LocationServices/accounts/listKeys/action | (已淘汰：請使用 /providers/Microsoft.Maps) 列出位置服務帳戶金鑰 |
-> |  動作 | Microsoft.LocationServices/accounts/read | (已淘汰：請使用 /providers/Microsoft.Maps) 取得位置服務帳戶。 |
-> |  動作 | Microsoft.LocationServices/accounts/regenerateKey/action | (已淘汰：請使用 /providers/Microsoft.Maps) 產生新位置服務帳戶的主要或次要金鑰 |
-> |  動作 | Microsoft.LocationServices/accounts/write | (已淘汰：請使用 /providers/Microsoft.Maps) 建立或更新位置服務帳戶。 |
-> |  動作 | Microsoft.LocationServices/register/action | (已淘汰：請使用 /providers/Microsoft.Maps) 註冊提供者 |
+> |  動作 | Microsoft.LocationServices/accounts/delete | (取代：請使用 /providers/Microsoft.Maps) 刪除位置服務帳戶。 |
+> |  動作 | Microsoft.LocationServices/accounts/listKeys/action | (取代：請使用 /providers/Microsoft.Maps) 列出位置服務帳戶金鑰 |
+> |  動作 | Microsoft.LocationServices/accounts/read | (取代：請使用 /providers/Microsoft.Maps) 取得位置服務帳戶。 |
+> |  動作 | Microsoft.LocationServices/accounts/regenerateKey/action | (取代：請使用 /providers/Microsoft.Maps) 產生新位置服務帳戶的主要或次要金鑰 |
+> |  動作 | Microsoft.LocationServices/accounts/write | (取代：請使用 /providers/Microsoft.Maps) 建立或更新位置服務帳戶。 |
+> |  動作 | Microsoft.LocationServices/register/action | (取代：請使用 /providers/Microsoft.Maps) 註冊提供者 |
 
 ## <a name="microsoftloganalytics"></a>Microsoft.LogAnalytics
 

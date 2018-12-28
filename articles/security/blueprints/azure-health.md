@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407549"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315769"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure 安全性與合規性藍圖 - HIPAA/HITRUST 醫療資料和 AI
 
@@ -59,9 +59,9 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 -   **[客戶實作矩陣](https://aka.ms/healthcrmblueprint)** Microsoft Excel 活頁簿會列出相關的 HITRUST 需求，並說明 Microsoft 和客戶如何負責符合每一個需求。
 
--   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 解決方案是由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA，以及 HITRUST) 檢閱和實作指導方針提供稽核員\'對解決方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
+-   **[健康狀態檢閱。](https://aka.ms/healthreviewpaper)** 該解決方案已由 Coalfire systems, Inc. 檢閱。健康情況合規性 (HIPAA 和 HITRUST) 檢閱和實作指引提供稽核員對解決方案的檢閱，以及將藍圖轉換為實際可執行部署的考量。
 
-# <a name="architectural-diagram"></a>架構圖
+## <a name="architectural-diagram"></a>架構圖
 
 
 ![](images/ra2.png)
@@ -87,7 +87,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 資料庫分析師會管理 SQL Server 執行個體與資料庫。
 他們沒有病患記錄的存取權。
 
--   內建角色指派：[SQL DB 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor)[SQL Server 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
+-   內建角色指派：[SQL DB 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-db-contributor)、[SQL Server 參與者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-server-contributor)
 
 -   自訂角色指派：N/A
 
@@ -109,7 +109,7 @@ IaaS 解決方案將示範如何將內部部署 SQL 架構方案移轉至 Azure�
 
 CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其職責通常包括利用分析來判斷是否適當分配組織內的資源。
 
--   內建角色指派：無
+-   內建角色指派：None
 
 ### <a name="care-line-manager"></a>醫療服務管理人員
 
@@ -117,7 +117,7 @@ CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其�
 醫療服務管理人員是與病患看護直接相關的人。
 此角色需要監視個別病患的狀態，並確保有符合其病患之特定看護需求的人員。 醫療服務管理人員負責新增和更新病患記錄。
 
--   內建角色指派：無
+-   內建角色指派：None
 
 -   自訂角色指派：擁有執行 HealthcareDemo.ps1 的權限，以便執行病患住院與出院。
 
@@ -128,7 +128,7 @@ CMIO 是橫跨醫療保健組織內的資訊/技術和醫護專業的人。 其�
 
 稽核員會評估解決方案的合規性。 他們沒有網路的直接存取權。
 
--   內建角色指派：[讀者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
+-   內建角色指派：[讀取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader)
 
 -   自訂角色指派：N/A
 
@@ -184,7 +184,7 @@ Caroline 使用停留時間 (LOS) 解決方案的預測，來判斷醫院網路�
 Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗。 Han 受雇檢閱 Contosoclinc 的網路。 Han 可以檢閱隨解決方案提供的客戶責任對照表，以確保藍圖和 LOS 解決方案可用來儲存、處理及顯示敏感的個人資料。
 
 
-# <a name="design-configuration"></a>設計組態
+## <a name="design-configuration"></a>設計組態
 
 
 本節將詳細說明預設組態，以及概述用於下列事項的藍圖內建安全措施：
@@ -267,7 +267,7 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 
 **2.新病患住院**
 
-當使用示範指令碼時。 .\\HealthcareDemo.ps1 與 **BulkPatientadmission** 參數，如**部署及執行示範**中所概述，它執行下列處理管線：![](images/securetransact.png)
+當使用示範指令碼時。 .\\HealthcareDemo.ps1 與 **BulkPatientadmission** 參數，如**部署及執行示範**中所概述，會執行下列處理管線：![](images/securetransact.png)
 **1.Azure Function** 會被觸發，而且該函式會從 Azure Active Directory 要求[持有人權杖](/rest/api/)。
 
 **2.金鑰保存庫**會要求與所要求權杖相關聯的密碼。
@@ -345,8 +345,8 @@ Han 是獲得認證的稽核員，擁有 ISO、SOC 和 HiTrust 的稽核經驗�
 ### <a name="machine-learning"></a>Machine Learning
 
 
--   會針對 Machine Learning Studio Web 服務[啟用記錄](/azure/machine-learning/studio/web-services-logging)。
-- 使用 [Machine Learning Studio](/azure/machine-learning/desktop-workbench/experimentation-service-configuration) 工作台需要開發實驗，以提供預測解決方案集的能力。 [整合工作台](/azure/machine-learning/desktop-workbench/using-git-ml-project)可協助簡化實驗管理。
+- 會針對 Machine Learning Studio Web 服務[啟用記錄](/azure/machine-learning/studio/web-services-logging)。
+- 使用 [Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio) 需要開發實驗，以提供預測解決方案集的能力。
 
 ## <a name="security"></a>安全性
 

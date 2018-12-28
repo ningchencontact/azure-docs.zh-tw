@@ -9,35 +9,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e17412636a904508352370bc7292a7d64bac6bc
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280431"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385562"
 ---
-# <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>使用 Ambari Web UI 管理 HDInsight 叢集
+# <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 叢集
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Hadoop 叢集的管理和監視。 以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。
+Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoop 叢集的管理和監視。 以 Linux 為基礎的 HDInsight 叢集上有 Ambari，用來監視叢集並進行組態變更。
 
 在本文件中，您會學習如何搭配使用 Ambari Web UI 和 HDInsight 叢集。
 
-## <a id="whatis"></a>什麼是 Ambari？
+## <a id="whatis"></a>什麼是 Apache Ambari？
 
 [Apache Ambari](http://ambari.apache.org) 提供方便使用的 Web UI，簡化 Hadoop 管理。 您可以使用 Ambari 來管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
 
 使用 Linux 作業系統的 HDInsight 叢集預設會提供 Ambari Web UI。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 
 
 ## <a name="connectivity"></a>連線能力
 
 Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net，其中 **CLUSTERNAME** 是叢集的名稱。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 連線到 HDInsight 上的 Ambari 需要 HTTPS。 當系統提示要驗證時，請使用您在叢集建立時所提供的系統管理帳戶名稱和密碼。
 
 ## <a name="ssh-tunnel-proxy"></a>SSH 通道 (Proxy)
@@ -46,7 +46,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 ## <a name="ambari-web-ui"></a>Ambari Web UI
 
-> [!WARNING]
+> [!WARNING]  
 > 並非所有 Ambari Web UI 功能在 HDInsight 上都受到支援。 如需詳細資訊，請參閱本文件的 [不支援的作業](#unsupported-operations)一節。
 
 連線到 Ambari Web UI 時，系統會提示您通過頁面驗證。 使用您在叢集建立期間使用的叢集管理使用者 (預設值是 Admin) 和密碼。
@@ -120,7 +120,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 ![服務提要欄位](./media/hdinsight-hadoop-manage-ambari/service-bar.png)
 
-> [!NOTE]
+> [!NOTE]  
 > 不同 HDInsight 叢集類型和版本之間會顯示不同的服務。 這裡顯示的服務可能會不同於您的叢集所顯示的服務。
 
 選取服務便會顯示服務的詳細資訊。
@@ -138,7 +138,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 選取任何一個連結便會在瀏覽器中開啟新索引標籤以顯示選取的頁面。
 
-> [!NOTE]
+> [!NOTE]  
 > 對服務選取 [快速連結] 項目可能會傳回「找不到伺服器」的錯誤。 如果您遇到這個錯誤，在對此服務使用 [快速連結] 項目時，您必須使用 SSH 通道。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
 ## <a name="management"></a>管理性
@@ -147,7 +147,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 使用[已加入網域](./domain-joined/apache-domain-joined-introduction.md)的 HDInsight 叢集時，支援處理使用者、群組和權限。 如需在已加入網域之叢集上使用 Ambari 管理 UI 的相關資訊，請參閱[管理已加入網域的 HDInsight 叢集](./domain-joined/apache-domain-joined-introduction.md)。
 
-> [!WARNING]
+> [!WARNING]  
 > 請勿變更以 Linux 為基礎之 HDInsight 叢集上的 Ambari 看門狗 (hdinsightwatchdog) 密碼。 變更密碼會破壞在叢集上使用指令碼動作或執行調整作業的能力。
 
 ### <a name="hosts"></a>主機
@@ -156,7 +156,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 ![主機頁面](./media/hdinsight-hadoop-manage-ambari/hosts.png)
 
-> [!NOTE]
+> [!NOTE]  
 > 使用 HDInsight 叢集時，請勿新增、解除委任或重新委任主機。
 
 1. 選取您想要管理的主機。
@@ -195,7 +195,7 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 ![服務動作](./media/hdinsight-hadoop-manage-ambari/service-actions.png)
 
-> [!WARNING]
+> [!WARNING]  
 > 雖然 [新增服務] 列在此功能表中，但不應用來將服務新增 HDInsight 叢集。 您應該在叢集佈建期間，使用指令碼動作加入新服務。 如需使用指令碼動作的詳細資訊，請參閱 [使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
 
 雖然 [ **動作** ] 按鈕可以重新啟動所有服務，但您想要啟動、停止或重新啟動的往往是特定服務。 使用下列步驟可對個別服務執行動作：
@@ -206,12 +206,12 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
     ![服務動作](./media/hdinsight-hadoop-manage-ambari/individual-service-actions.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 在叢集執行時重新啟動某些服務可能會產生警示。 若要避免警示，您可以使用 [服務動作] 按鈕來啟用服務的 [維護模式]，然後再執行重新啟動。
 
 3. 一旦選取某個動作，頁面頂端的 [# 項作業] 項目便會遞增數字，指出正在進行背景作業。 如果設定為顯示，則會顯示背景作業的清單。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果您已啟用服務的 [維護模式]，請記得在作業完成後使用 [服務動作] 按鈕來將它停用。
 
 若要設定服務，請使用下列步驟：
@@ -226,10 +226,10 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
 ## <a name="ambari-views"></a>Ambari 檢視
 
-Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache.org/confluence/display/AMBARI/Views)將 UI 元素插入 Ambari Web UI 中。 HDInsight 提供下列具有 Hadoop 叢集類型的檢視：
+Ambari 檢視可讓開發人員使用 [Apache Ambari 檢視架構](https://cwiki.apache.org/confluence/display/AMBARI/Views)將 UI 元素插入 Ambari Web UI 中。 HDInsight 提供下列具有 Hadoop 叢集類型的檢視：
 
 
-* Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。 您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。 如需有關使用 Hive 檢視的詳細資訊，請參閱 [在 HDInsight 上使用 Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)。
+* Hive 檢視：Hive 檢視可讓您直接從網頁瀏覽器執行 Hive 查詢。 您可以儲存查詢、檢視結果、將結果儲存至叢集存放區，或將結果下載到您本機系統。 如需有關使用 Hive 檢視的詳細資訊，請參閱 [在 HDInsight 上使用 Apache Hive 檢視](hadoop/apache-hadoop-use-hive-ambari-view.md)。
 
 * Tez 檢視︰[Tez 檢視] 可讓您進一步了解和最佳化工作。 您可以檢視有關 Tez 工作執行方式及使用哪些資源的資訊。
 
@@ -241,4 +241,4 @@ Ambari 檢視可讓開發人員使用 [Ambari 檢視架構](https://cwiki.apache
 
 ## <a name="next-steps"></a>後續步驟
 
-了解如何將 [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) 與 HDInsight 搭配使用。
+了解如何將 [Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md) 與 HDInsight 搭配使用。

@@ -8,22 +8,24 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 58e5b06d613ee3e3311b58af64abd2411c637449
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4832a48489a043493639bdedd6c6adf3c828de11
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637443"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434693"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的單次協調器
 
-對於背景作業或執行者形式的協調流程，您通常必須確定特定的協調流程一次只執行一個執行個體。 作法就是在 [Durable Functions](durable-functions-overview.md) 中，只要在建立協調器時指派特定的執行個體識別碼即可。
+對於背景作業，您通常必須確定特定的協調流程一次只執行一個執行個體。 作法就是在 [Durable Functions](durable-functions-overview.md) 中，只要在建立協調器時指派特定的執行個體識別碼即可。
 
 ## <a name="singleton-example"></a>單次個體範例
 
-下列 C# 範例示範 HTTP 觸發程序函式如何建立單次背景作業協調流程。 程式碼可確保一個指定的執行個體識別碼只存在一個執行個體。
+下列 C# 與 JavaScript 範例示範 HTTP 觸發程序函式如何建立單次背景作業協調流程。 程式碼可確保一個指定的執行個體識別碼只存在一個執行個體。
+
+### <a name="c"></a>C#
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,7 +56,39 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-根據預設，執行個體識別碼是隨機產生的 GUID。 但在此案例中，執行個體識別碼是從 URL 傳入路由資料中。 程式碼會呼叫 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_)，來檢查具有指定識別碼的執行個體是否已在執行中。 如果沒有，則會以該識別碼建立執行個體。
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
+
+```javascript
+const df = require("durable-functions");
+
+modules.exports = async function(context, req) {
+    const client = df.getClient(context);
+
+    const instanceId = req.params.instanceId;
+    const functionName = req.params.functionsName;
+
+    // Check if an instance with the specified ID already exists.
+    const existingInstance = await client.getStatus(instanceId);
+    if (!existingInstance) {
+        // An instance with the specified ID doesn't exist, create one.
+        const eventData = req.body;
+        await client.startNew(functionName, instanceId, eventData);
+        context.log(`Started orchestration with ID = '${instanceId}'.`);
+        return client.createCheckStatusResponse(req, instanceId);
+    } else {
+        // An instance with the specified ID exists, don't create one.
+        return {
+            status: 409,
+            body: `An instance with ID '${instanceId}' already exists.`,
+        };
+    }
+};
+```
+
+根據預設，執行個體識別碼是隨機產生的 GUID。 但在此案例中，執行個體識別碼是從 URL 傳入路由資料中。 程式碼會呼叫 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_) (C#) 或 `getStatus` (JavaScript)，來檢查具有指定識別碼的執行個體是否已在執行中。 如果沒有，則會以該識別碼建立執行個體。
+
+> [!WARNING]
+> 以 JavaScript 在本機開發時，您必須將環境變數 `WEBSITE_HOSTNAME` 設定為 `localhost:<port>`，例如 `localhost:7071`，以在 `DurableOrchestrationClient` 上使用方法。 如需此需求的詳細資訊，請參閱 [GitHub 問題](https://github.com/Azure/azure-functions-durable-js/issues/28) \(英文\)。
 
 > [!NOTE]
 > 在此範例中有潛在的競爭條件。 如果 **HttpStartSingle** 的兩個執行個體同時執行，結果可能是單一資料庫中兩個不同的已建立執行個體，其中一個覆寫另一個。 視您的需求而定，這可能會有非預期的副作用。 基於這個理由，請務必確定不會有兩個要求同時執行此觸發程序函式。

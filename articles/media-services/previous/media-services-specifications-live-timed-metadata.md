@@ -3,7 +3,7 @@ title: Azure 媒體服務 - 針對即時串流中的計時中繼資料傳送訊�
 description: 此規格描繪了「媒體服務」所支援的兩個模式，這兩個模式用於針對即時串流內的計時中繼資料傳送訊號。 這包括針對一般計時中繼資料訊號 (以及針對廣告拼接插入的 SCTE-35 訊號傳送) 的支援。
 services: media-services
 documentationcenter: ''
-author: cenkdin
+author: johndeu
 manager: cfowler
 editor: johndeu
 ms.assetid: 265b94b1-0fb8-493a-90ec-a4244f51ce85
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/17/2018
+ms.date: 12/13/2018
 ms.author: johndeu;
-ms.openlocfilehash: 827153300b9cab4ea805689b1e103bea1b334ec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b4dec5430d93cd2634fc541ae688a6bc425f5491
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249569"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384678"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>針對即時串流中的計時中繼資料傳送訊號
 
@@ -81,7 +81,7 @@ AMF 訊息的名稱可用來區分相同類型的多個事件串流。  針對 [
 | 欄位名稱 | 欄位類型 | 必要？ | 說明                                                                                                             |
 |------------|------------|----------|--------------------------------------------------------------------------------------------------------------------------|
 | 提示        | 字串     | 必要 | 事件訊息。  針對 [SCTE-35] 訊息，這必須經過 base64 (IETF RFC 4648) 二進位編碼 splice_info_section()，訊息才能傳送到 HLS、Smooth 與 Dash 用戶端，以符合 [SCTE-67] 規範。                                              |
-| type       | 字串     | 必要 | 可識別訊息配置的 URN 或 URL；例如 "urn:example:signaling:1.0"。  針對 [SCTE-35] 訊息，這必須是 "urn:scte:scte35:2013a:bin"，訊息才能傳送到 HLS、Smooth 與 Dash 用戶端，以符合 [SCTE-67] 規範。  |
+| type       | 字串     | 必要 | 可識別訊息配置的 URN 或 URL。 針對 [SCTE-35] 訊息，這必須是 "urn:scte:scte35:2013a:bin"，訊息才能傳送到 HLS、Smooth 與 Dash 用戶端，以符合 [SCTE-67] 規範。  |
 | id         | 字串     | 必要 | 描述拼接或區段的唯一識別碼。 識別訊息的此執行個體。  具有同等語意的訊息應該有相同的值。|
 | duration   | 數字     | 必要 | 事件或廣告拼接區段的期間 (若已知)。 若未知，此值應該是 0。                                                                 |
 | elapsed    | 數字     | 選用 | 當 [SCTE-35] 廣告訊號重複以收聽時，此欄位應該是開始拼接後經過的呈現時間量。 單位是小數秒。 在 [SCTE-35] 模式中，此值可能會超過原本指定的拼接或區段持續時間。                                                  |
@@ -105,7 +105,7 @@ AMF 訊息的名稱可用來區分相同類型的多個事件串流。  針對 [
 | parentTrackName    | 字串         | 必要      | 必須是父代播放軌的名稱，疏鬆播放軌時間碼的時幅與父系播放軌對應。 父系播放軌不能是疏鬆播放軌。                                                                                                                    |
 | manifestOutput     | BOOLEAN        | 必要      | 必須是 “true”，指出疏鬆播放軌將內嵌在 Smooth 用戶端資訊清單中。                                                                                                                                                               |
 | Subtype            | 字串         | 必要      | 必須是四個字元的代碼 “DATA”。                                                                                                                                                                                                                         |
-| 配置             | 字串         | 必要      | 必須是可識別訊息配置的 URN 或 URL；例如 "urn:example:signaling:1.0"。 針對 [SCTE-35] 訊息，這必須是 "urn:scte:scte35:2013a:bin"，訊息才能傳送到 HLS、Smooth 與 Dash 用戶端，以符合 [SCTE-67] 規範。 |
+| 配置             | 字串         | 必要      | 必須是可識別訊息配置的 URN 或 URL。 針對 [SCTE-35] 訊息，這必須是 "urn:scte:scte35:2013a:bin"，訊息才能傳送到 HLS、Smooth 與 Dash 用戶端，以符合 [SCTE-67] 規範。 |
 | trackName          | 字串         | 必要      | 必須是疏鬆播放軌的名稱。trackName 可用來區分具有相同配置的不同事件串流。 每個唯一的事件串流都必須有唯一的播放軌名稱。                                                                           |
 | timescale          | 數字         | 選用      | 必須是父代播放軌的時幅。                                                                                                                                                                                                                      |
 
@@ -226,7 +226,7 @@ Apple HTTP 即時串流 (HLS) 的計時中繼資料可能是內嵌在自訂 M3U 
 | **屬性名稱** | **類型**                      | **必要？**                             | **說明**                                                                                                                                                                                                                                                                      |
 |--------------------|-------------------------------|-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 提示                | 加上括號的字串                 | 必要                                  | 已編碼為 base64 字串的訊息，如 [IETF RFC 4648](http://tools.ietf.org/html/rfc4648) 中所述。 針對 [SCTE-35] 訊息，這是經過 base64 編碼的 splice_info_section()。                                                                                                |
-| 類型               | 加上括號的字串                 | 必要                                  | 可識別訊息配置的 URN 或 URL；例如 “urn:example:signaling:1.0”。 針對 [SCTE-35] 訊息，類型接受特殊值 “scte35”。                                                                                                                                |
+| 類型               | 加上括號的字串                 | 必要                                  | 可識別訊息配置的 URN 或 URL。 針對 [SCTE-35] 訊息，類型接受特殊值 “scte35”。                                                                                                                                |
 | ID                 | 加上括號的字串                 | 必要                                  | 事件的唯一識別碼。 如果內嵌訊息時未指定 ID，「Azure 媒體服務」將會產生一個唯一 ID。                                                                                                                                          |
 | 持續時間           | 十進位浮點數數字 | 必要                                  | 事件的持續時間。 若未知，此值應該是 0。 單位是小數秒。                                                                                                                                                                                           |
 | ELAPSED            | 十進位浮點數數字 | 選擇性，但對滑動視窗而言是必要的 | 當訊號重複以支援滑動呈現視窗時，此欄位必須是事件開始後經過的呈現時間量。 單位是小數秒。 此值可能會超過原本指定的拼接或區段持續時間。 |
@@ -240,30 +240,17 @@ HLS 播放程式應用程式層將會使用 TYPE 來識別訊息格式、將訊�
 #EXTM3U
 #EXT-X-VERSION:4
 #EXT-X-ALLOW-CACHE:NO
-#EXT-X-MEDIA-SEQUENCE:0
+#EXT-X-MEDIA-SEQUENCE:346
 #EXT-X-TARGETDURATION:6
-#EXT-X-PROGRAM-DATE-TIME:1970-01-01T00:00:00.000+00:00
+#EXT-X-I-FRAMES-ONLY
+#EXT-X-PROGRAM-DATE-TIME:2018-12-13T15:54:19.462Z
+#EXTINF:4.000000,no-desc
+KeyFrames(video_track=15447164594627600,format=m3u8-aapl)
 #EXTINF:6.000000,no-desc
-Fragments(video=0,format=m3u8-aapl)
+KeyFrames(video_track=15447164634627600,format=m3u8-aapl)
+#EXT-X-CUE:ID="1026",TYPE="scte35",DURATION=30.000000,TIME=1544716520.022760,CUE="/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w=="
 #EXTINF:6.000000,no-desc
-Fragments(video=60000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-#EXT-X-CUE: ID=”metadata-12.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”12.000000”, DURATION=”18.000000”,CUE=”HrwOi8vYmWVkaWEvhhaWFRlRDa=”
-Fragments(video=120000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=180000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=240000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=300000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=360000000,format=m3u8-aapl)
-#EXT-X-CUE: ID=”metadata-42.000000”,TYPE=”urn:example:signaling:1.0”,TIME=”42.000000”, DURATION=”60.000000”,CUE=”PD94bWwgdm0iMS4wIiBlbmNvpD4=”
-#EXTINF:6.000000,no-desc
-Fragments(video=420000000,format=m3u8-aapl)
-#EXTINF:6.000000,no-desc
-Fragments(video=480000000,format=m3u8-aapl)
-…
+KeyFrames(video_track=15447165474627600,format=m3u8-aapl)
 ~~~
 
 #### <a name="hls-message-handling"></a>HLS 訊息處理
@@ -293,7 +280,7 @@ EventStream 元素具有下列屬性：
 
 | **屬性名稱** | **類型**                | **必要？** | **說明**                                                                                                                                                                                                                                                                                   |
 |--------------------|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri      | 字串                  | 必要      | 識別訊息的配置。 配置是設定為即時伺服器資訊清單方塊中 Scheme 屬性的值。 值應該是可識別訊息配置的 URN 或 URL；例如 “urn:example:signaling:1.0”。                                                                |
+| scheme_id_uri      | 字串                  | 必要      | 識別訊息的配置。 配置是設定為即時伺服器資訊清單方塊中 Scheme 屬性的值。 值應該是可識別訊息配置的 URN 或 URL；例如 “urn:scte:scte35:2013a:bin”。                                                                |
 | value              | 字串                  | 選用      | 由配置擁有者用來自訂訊息語意的額外字串值。 若要區分具有相同配置的多個事件串流，值必須設定為事件串流的名稱 (適用於 Smooth 內嵌的 trackName，或適用於 RTMP 內嵌的 AMF 訊息名稱)。 |
 | 時幅          | 32 位元不帶正負號的整數 | 必要      | ‘emsg’ 方塊內時間與持續時間的時幅 (以每秒滴答數表示)。                                                                                                                                                                                                       |
 
@@ -335,11 +322,14 @@ EventStream 元素包含零或多個 Event 元素，而且它們具有下列屬�
 
 
 <!-- Example Section in MPD -->
-
-<EventStream schemeIdUri=”urn:example:signaling:1.0” timescale=”1000” value=”player-statistics”>
-  <Event presentationTime=”0” duration=”10000” id=”0”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTUwMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-  <Event presentationTime=”20000” duration=”10000” id=”1”> PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48QWNxdWlyZWRTaWduYWwgeG1sbnM9InVybjpjYWJsZWxhYnM6bWQ6eHNkOnNpZ25hbGluZzozLjAiIGFjcXVpc2l0aW9uUG9pbnRJZGVudGl0eT0iRVNQTl9FYXN0X0FjcXVpc2l0aW9uX1BvaW50XzEiIGFjcXVpc2l0aW9uU2lnbmFsSUQ9IjRBNkE5NEVFLTYyRkExMUUxQjFDQTg4MkY0ODI0MDE5QiIgYWNxdWlzaXRpb25UaW1lPSIyMDEyLTA5LTE4VDEwOjE0OjI2WiI+PFVUQ1BvaW50IHV0Y1BvaW50PSIyMDEyLTA5LTE4VDEwOjE0OjM0WiIvPjxTQ1RFMzVQb2ludERlc2NyaXB0b3Igc3BsaWNlQ29tbWFuZFR5cGU9IjUiPjxTcGxpY2VJbnNlcnQgc3BsaWNlRXZlbnRJRD0iMzQ0NTY4NjkxIiBvdXRPZk5ldHdvcmtJbmRpY2F0b3I9InRydWUiIHVuaXF1ZVByb2dyYW1JRD0iNTUzNTUiIGR1cmF0aW9uPSJQVDFNMFMiIGF2YWlsTnVtPSIxIiBhdmFpbHNFeHBlY3RlZD0iMTAiLz48L1NDVEUzNVBvaW50RGVzY3JpcHRvcj48U3RyZWFtVGltZXM+PFN0cmVhbVRpbWUgdGltZVR5cGU9IkhTUyIgdGltZVZhbHVlPSI1MTYyMDAwMDAwMDAiLz48L1N0cmVhbVRpbWVzPjwvQWNxdWlyZWRTaWduYWw+</Event>
-</EventStream>
+  <EventStream schemeIdUri="urn:scte:scte35:2013a:bin" value="scte35_track_001_000" timescale="10000000">
+        <Event presentationTime="15447165200227600" duration="300000000" id="1026">/DAlAAAAAAAAAP/wFAUAAAQCf+//KRjAfP4AKTLgAAAAAAAAVYsh2w==</Event>
+        <Event presentationTime="15447166250227600" duration="300000000" id="1027">/DAlAAAAAAAAAP/wFAUAAAQDf+//KaeGwP4AKTLgAAAAAAAAn75a3g==</Event>
+        <Event presentationTime="15447167300227600" duration="600000000" id="1028">/DAlAAAAAAAAAP/wFAUAAAQEf+//KjkknP4AUmXAAAAAAAAAWcEldA==</Event>
+        <Event presentationTime="15447168350227600" duration="600000000" id="1029">/DAlAAAAAAAAAP/wFAUAAAQFf+//KslyqP4AUmXAAAAAAAAAvKNt0w==</Event>
+        <Event presentationTime="15447169400227600" duration="300000000" id="1030">/DAlAAAAAAAAAP/wFAUAAAQGf+//K1mIvP4AKTLgAAAAAAAAt2zEbw==</Event>
+        <Event presentationTime="15447170450227600" duration="600000000" id="1031">/DAlAAAAAAAAAP/wFAUAAAQHf+//K+hc/v4AUmXAAAAAAAAANNRzVw==</Event>
+    </EventStream>
 ~~~
 
 >[!NOTE]
@@ -375,7 +365,7 @@ DASHEventMessageBox 的欄位定義如下：
 
 | **欄位名稱**          | **欄位類型**          | **必要？** | **說明**                                                                                                                                                                                                                                                                                                                                                    |
 |-------------------------|-------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| scheme_id_uri           | 字串                  | 必要      | 識別訊息的配置。 配置是設定為即時伺服器資訊清單方塊中 Scheme 屬性的值。 值應該是可識別訊息配置的 URN 或 URL；例如 “urn:example:signaling:1.0”。 針對 [SCTE-35] 訊息，這會接受特殊值 “urn:scte:scte35:2013a:bin”，雖然 [SCTE-67] 建議其他項目。 |
+| scheme_id_uri           | 字串                  | 必要      | 識別訊息的配置。 配置是設定為即時伺服器資訊清單方塊中 Scheme 屬性的值。 該值應該是可識別訊息配置的 URN 或 URL。 針對 [SCTE-35] 訊息，這會接受特殊值 “urn:scte:scte35:2013a:bin”，雖然 [SCTE-67] 建議其他項目。 |
 | 值                   | 字串                  | 必要      | 由配置擁有者用來自訂訊息語意的額外字串值。 若要區分具有相同配置的多個事件串流，值必須設定為事件串流的名稱 (適用於 Smooth 內嵌的 trackName，或適用於 RTMP 內嵌的 AMF 訊息名稱)。                                                                  |
 | 時幅               | 32 位元不帶正負號的整數 | 必要      | ‘emsg’ 方塊內時間與持續時間的時幅 (以每秒滴答數表示)。                                                                                                                                                                                                                                                                        |
 | presentation_time_delta | 32 位元不帶正負號的整數 | 必要      | 事件呈現時間與此區段中最早的呈現時間之間的媒體呈現時間差異。 呈現時間與持續時間應該與類型 1 或 2 之串流存取點 (SAP) 一致，如 [ISO-14496-12] 附錄 I 中所定義。                                                                                            |
@@ -398,9 +388,9 @@ Smooth Streaming 內嵌要求媒體資料方塊 (‘mdat’) 必須包含 [SCTE-
 
 **[SCTE-35]** ANSI/SCTE 35 2013a – 適用於纜線的數位程式插入提示，2013a
 
-**[SCTE-67]** ANSI/SCTE 67 2014 –SCTE 35 建議實務：適用於纜線的數位程式插入提示訊息
+**[SCTE-67]** ANSI/SCTE 67 2014 –SCTE 35 的建議做法：適用於纜線的數位程式插入提示
 
-**[DASH]** ISO/IEC 23009-1 2014 – 資訊科技 – HTTP (DASH) 上的動態自適性串流 – 第 1 部分：媒體呈現描述與區段格式，第 2 版
+**[DASH]** ISO/IEC 23009-1 2014 – 資訊科技 – 動態彈性資料流 HTTP (DASH) – 第 1 部分：媒體顯示說明和區段格式，第 2 版
 
 **[HLS]** [「HTTP 即時串流」，draft-pantos-http-live-streaming-14，2014 年 10 月 14 日，](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務中的完整文字搜尋引擎 (Lucene) 架構 | Microsoft Docs
+title: 完整文字搜尋引擎 (Lucene) 架構 - Azure 搜尋服務
 description: 與 Azure 搜尋服務相關之全文檢索搜尋的 Lucene 查詢處理和文件擷取概念說明。
 manager: jlembicz
 author: yahnoosh
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
-ms.openlocfilehash: 55d361e90dbc5fe48bc118088a6f859d096048ff
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.custom: seodec2018
+ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036865"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315789"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -73,7 +74,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 本文大部分內容是關於處理「搜尋查詢」：`"Spacious, air-condition* +\"Ocean view\""`。 篩選和排序不在範圍內。 如需詳細資訊，請參閱[搜尋服務 API 參考文件](https://docs.microsoft.com/rest/api/searchservice/search-documents)。
 
 <a name="stage1"></a>
-## <a name="stage-1-query-parsing"></a>第 1 階段︰查詢剖析 
+## <a name="stage-1-query-parsing"></a>階段 1：查詢剖析 
 
 如前所述，查詢字串是要求的第一行︰ 
 
@@ -95,7 +96,7 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
  ![Boolean query searchmode any][2]
 
-### <a name="supported-parsers-simple-and-full-lucene"></a>支援的剖析器︰簡單和完整的 Lucene 
+### <a name="supported-parsers-simple-and-full-lucene"></a>支援的剖析器：簡單和完整的 Lucene 
 
  Azure 搜尋服務會公開兩種不同的查詢語言，`simple` (預設值) 和 `full`。 藉由使用搜尋要求來設定 `queryType` 參數，您告知查詢剖析器所選擇的查詢語言，讓它知道如何解譯運算子和語法。 [簡單的查詢語言](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)是直覺式且強固的，通常適用於以現況解譯使用者輸入而無用戶端處理。 它支援 web 搜尋引擎熟悉的查詢運算子。 [完整的 Lucene 查詢語言](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)是您藉由設定 `queryType=full` 所取得，會透過新增更多運算子與查詢類型 (例如萬用字元、模糊、Regex 和欄位範圍查詢) 的支援，來擴充預設的簡單查詢語言。 例如，簡單查詢語法傳入的規則運算式會解譯為查詢字串而非運算式。 本文中的範例要求會使用完整的 Lucene 查詢語言。
 
@@ -127,7 +128,7 @@ Spacious,||air-condition*+"Ocean view"
 > 透過 `searchMode=all` 選擇 `searchMode=any` 是藉由執行具代表性之查詢所得出的最佳決策。 如果 `searchMode=all` 通知布林值查詢建構，則可能包括運算子的使用者 (搜尋文件存放區時很常見) 應該會覺得結果較具直覺性。 如需 `searchMode` 和運算子之間所發生之相互作用的詳細資訊，請參閱[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)。
 
 <a name="stage2"></a>
-## <a name="stage-2-lexical-analysis"></a>第 2 階段：語彙分析 
+## <a name="stage-2-lexical-analysis"></a>階段 2：語彙分析 
 
 在將查詢樹狀結構進行結構化之後，語彙分析器會處理詞彙查詢和片語查詢。 分析器會接受剖析器所提供給它的文字輸入、處理文字，然後將要併入查詢樹狀結構的權杖化詞彙傳回。 
 
@@ -189,7 +190,7 @@ Spacious,||air-condition*+"Ocean view"
 
 <a name="stage3"></a>
 
-## <a name="stage-3-document-retrieval"></a>第 3 階段：擷取文件 
+## <a name="stage-3-document-retrieval"></a>階段 3：擷取文件 
 
 擷取文件是指在索引中尋找包含相符詞彙的文件。 了解這個階段的最佳方式就是範例。 讓我們從具有下列簡單結構描述的旅館索引開始︰ 
 
@@ -262,7 +263,7 @@ Spacious,||air-condition*+"Ocean view"
 | resort | 3 |
 | retreat | 4 |
 
-在 [標題] 欄位中，只有旅館會出現在兩個文件中︰1、3。
+在 [標題] 欄位中，只有「旅館」會出現在兩個文件中︰1、3。
 
 針對 [描述] 欄位，索引如下所示︰
 
@@ -314,7 +315,7 @@ Spacious,||air-condition*+"Ocean view"
 
 整體來說，針對問題中的查詢，相符的文件是 1、2、3。 
 
-## <a name="stage-4-scoring"></a>第 4 階段︰評分  
+## <a name="stage-4-scoring"></a>階段 4：評分  
 
 會將相關性分數指派給搜尋結果集中的每個文件。 相關性分數的功能，是將使用者問題之最佳解答的這些文件排名在較高順位，如搜尋查詢所表示。 分數會根據相符詞彙的統計屬性來計算。 評分公式的核心是 [TF/IDF (詞彙頻率-反向文件頻率)](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)。 在包含罕見和一般詞彙的查詢中，TF/IDF 會提升包含罕見詞彙的結果。 例如，在所有包含 Wikipedia 文章的假設索引中，從比對 the president 查詢的文件，比對 president 的文件會視為較比對 the 的文件更具有相關性。
 

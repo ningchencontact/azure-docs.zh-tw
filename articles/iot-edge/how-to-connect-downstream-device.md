@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure IoT Edge 設定下游裝置 | Microsoft Docs
+title: 連線下游裝置 - Azure IoT Edge | Microsoft Docs
 description: 如何透過 Azure IoT Edge 閘道裝置設定要連線的下游或分葉裝置。
 author: kgremban
 manager: philmea
@@ -8,12 +8,13 @@ ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bd9d8c4a75df0d9070476fb72d2b60f5cb182a87
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 0797952641efb9fe876d72f2dce0418ff5771d40
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566222"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083329"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>將下游裝置連線到 Azure IoT Edge 閘道
 
@@ -88,7 +89,7 @@ sudo update-ca-certificates
 
 您應該會看到訊息指出：「正在更新 /etc/ssl/certs 中的憑證...已新增 1 個，已移除 0 個；完成。」
 
-### <a name="windows"></a>Windows
+### <a name="windows"></a> Windows
 
 下列步驟是如何在 Windows 主機上安裝 CA 憑證的範例。 此範例假設您將使用先決條件文章中的 **azure-iot-test-only.root.ca.cert.pem** 憑證，而且您已經將憑證複製到下游裝置上的位置。  
 

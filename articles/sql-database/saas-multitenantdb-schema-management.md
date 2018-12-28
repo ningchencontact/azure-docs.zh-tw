@@ -1,25 +1,26 @@
 ---
 title: 在多租用戶應用程式中管理 Azure SQL Database 結構描述 | Microsoft Docs
 description: 在使用 Azure SQL Database 的多租用戶應用程式中，管理多租用戶的結構描述
-keywords: SQL Database Azure
 services: sql-database
-author: MightyPen
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.reviewers: billgib
+author: MightyPen
 ms.author: genemi
-ms.openlocfilehash: 2f22ed862f9b45334a961f80e47ee2b4634e46fb
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.reviewer: billgib
+manager: craigg
+ms.date: 09/19/2018
+ms.openlocfilehash: 14183475fcca0e12c56f009f105e77aaf11b0c98
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498329"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315198"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>在使用分區化多租用戶 SQL 資料庫的 SaaS 應用程式中管理結構描述
- 
+
 本教學課程會檢視在 SaaS 應用程式中維護多個資料庫的挑戰。 將針對跨多個資料庫散開的結構描述變更示範解決方案。
 
 就像任何應用程式一樣，Wingtip Tickets SaaS 應用程式會隨著時間演進，而且會需要變更資料庫。 變更可能會影響結構描述或參考資料，或產生資料庫維護工作。 由於 SaaS 應用程式使用每一租用戶一個資料庫的模式，因此可能必須在大量租用戶資料庫間協調變更。 此外，您必須將這些變更併入資料庫佈建程序，確保建立新資料庫時會涵蓋這些變更。
@@ -63,12 +64,12 @@ Azure SQL Database 的[彈性作業](sql-database-elastic-jobs-overview.md) 功�
 ## <a name="elastic-jobs-limited-preview"></a>彈性作業有限預覽版
 
 新版本的「彈性作業」現在是 Azure SQL Database 的整合功能。 這個新的「彈性作業」版本目前處於有限預覽版狀態。 有限預覽版目前支援使用 PowerShell 建立作業代理程式，以及使用 T-SQL 建立及管理作業。
-> [!NOTE] 
+> [!NOTE]
 > 本教學課程使用的 SQL Database 服務功能處於有限預覽版狀態 (彈性資料庫工作)。 如果想要進行本教學課程，請將您的訂用帳戶識別碼提供給 SaaSFeedback@microsoft.com，並使用主旨 Elastic Jobs Preview (彈性作業預覽)。 在您收到訂用帳戶已啟用的確認之後，請下載並安裝最新的發行前版本作業 Cmdlet。 這是有限預覽版，如果有相關問題或需要支援，請連絡 SaaSFeedback@microsoft.com。
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>取得 Wingtip Tickets SaaS 多租用戶資料庫應用程式原始碼和指令碼
 
-可在 GitHub 的 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。 
+可在 GitHub 的 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) 存放庫中使用 Wingtip Tickets SaaS 多租用戶資料庫指令碼和應用程式來源程式碼。 關於下載和解除封鎖 Wingtip Tickets SaaS 指令碼的步驟，請參閱[一般指引](saas-tenancy-wingtip-app-guidance-tips.md)。
 
 ## <a name="create-a-job-agent-database-and-new-job-agent"></a>建立作業代理程式資料庫和新的作業代理程式
 
@@ -83,9 +84,9 @@ Demo-SchemaManagement.ps1 指令碼會呼叫 Deploy-SchemaManagement.ps1 指令�
 
 #### <a name="prepare"></a>準備
 
-每個租用戶的資料庫都會在 **VenueTypes** 資料表中包含一組場地類型。 每個場地類型都會定義可在場地舉辦的事件種類。 這些場地類型會對應至您在租用戶活動應用程式中看到的背景影像。  在這個練習中，您要將更新部署到所有資料庫，以新增兩個額外的場地類型：*Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部)。 
+每個租用戶的資料庫都會在 **VenueTypes** 資料表中包含一組場地類型。 每個場地類型都會定義可在場地舉辦的事件種類。 這些場地類型會對應至您在租用戶活動應用程式中看到的背景影像。  在這個練習中，您要將更新部署到所有資料庫，以新增兩個額外的場地類型：*Motorcycle Racing* (機車賽) 和 *Swimming Club* (游泳俱樂部)。
 
-首先，檢閱每個租用戶資料庫中的場地類型。 連線至 SQL Server Management Studio (SSMS) 中的其中一個租用戶資料庫，並檢查 VenueTypes 資料表。  您也可以在 Azure 入口網站的查詢編輯器中查詢此資料表 (從資料庫頁面進行存取)。 
+首先，檢閱每個租用戶資料庫中的場地類型。 連線至 SQL Server Management Studio (SSMS) 中的其中一個租用戶資料庫，並檢查 VenueTypes 資料表。  您也可以在 Azure 入口網站的查詢編輯器中查詢此資料表 (從資料庫頁面進行存取)。
 
 1. 開啟 SSMS 並連線到租用戶伺服器：tenants1-dpt-&lt;user&gt;.database.windows.net
 1. 若要確認目前「尚未」包含 Motorcycle Racing (機車賽) 和 Swimming Club (游泳俱樂部)，請瀏覽至 tenants1-dpt-&lt;user&gt; 伺服器上的 contosoconcerthall 資料庫，並查詢 VenueTypes 資料表。

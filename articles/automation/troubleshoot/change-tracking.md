@@ -3,22 +3,22 @@ title: 針對 Azure 變更追蹤問題進行疑難排解
 description: 本文提供有關針對變更追蹤進行疑難排解的資訊
 services: automation
 ms.service: automation
-ms.component: change-tracking
+ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 10/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f2e66a1fab31ce6099ab426d6e8ce144e155efb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 686a2c0ef0766176658d42d5ca53ea1ce6d3241c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088254"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722933"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>針對變更追蹤和清查進行疑難排解
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 ### <a name="records-not-showing-windows"></a>案例：變更追蹤記錄不會顯示在 Azure 入口網站中
 

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7819ed3e18092e8b7bdf52225e7025b4b6d8146a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f580c78fa2114905a0ef28f51feee50361717a27
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981876"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435322"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 共同作業邀請兌換
 
@@ -26,7 +26,7 @@ ms.locfileid: "45981876"
 
 ## <a name="redemption-through-a-direct-link"></a>透過直接連結兌換
 
-來賓邀請者可以送出共用應用程式的直接連結，來邀請來賓使用者。 對來賓使用者而言，兌換經驗與登入共用應用程式一樣簡單。 他們可以按一下應用程式的連結、檢閱並接受隱私權條款，然後順暢地存取應用程式。 在大部分情況下，來賓使用者不再需要按一下電子郵件邀請中的兌換 URL。
+來賓邀請者可以送出[共用應用程式的直接連結](../manage-apps/end-user-experiences.md#direct-sign-on-links)，來邀請來賓使用者。 對來賓使用者而言，兌換經驗與登入共用應用程式一樣簡單。 他們可以按一下應用程式的連結、檢閱並接受隱私權條款，然後順暢地存取應用程式。 在大部分情況下，來賓使用者不再需要按一下電子郵件邀請中的兌換 URL。
 
 如果您透過使用者介面邀請來賓使用者，或在 PowerShell 邀請過程中選擇傳送邀請電子郵件，則受邀的使用者還是會收到邀請電子郵件。 此電子郵件在下列特殊情況中很有用：
 
@@ -51,7 +51,13 @@ ms.locfileid: "45981876"
 
 ![顯示 [存取面板] 中使用者設定的螢幕擷取畫面](media/redemption-experience/ConsentScreen.png) 
 
-有關身為租用戶管理員的您如何連結至貴組織隱私權聲明的詳細資訊，請參閱[做法：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)。
+有關身為租用戶管理員的您如何連結至貴組織隱私權聲明的詳細資訊，請參閱[操作說明：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)。
+
+## <a name="terms-of-use"></a>使用規定
+
+在初始兌換期間，您可以使用 Azure AD 使用規定功能，向來賓使用者呈現使用規定。 在 Azure Active Directory 中，您可以在 [管理]  >  [組織關係]  >  [使用規定] 下方，或在 [安全性]  >  [條件式存取]  >  [使用規定] 下方存取此功能。 如需詳細資料，請參閱 [Azure AD 使用規定](../governance/active-directory-tou.md)。
+
+![顯示新增使用規定的螢幕擷取畫面](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>後續步驟
 

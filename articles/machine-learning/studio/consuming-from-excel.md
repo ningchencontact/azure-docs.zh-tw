@@ -1,12 +1,11 @@
 ---
-title: 從 Excel 使用 Machine Learning Studio Web 服務 - Azure Machine Learning Studio | Microsoft Docs
+title: 在 Excel 中取用 Web 服務 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio 可以讓您直接從 Excel 輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3f3cdd2f-1816-487e-ab78-530e01e9788f
 ms.service: machine-learning
@@ -15,20 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 2/1/2018
-ms.openlocfilehash: 7084e62df3cd4872d90661ad6b94e1ebf7b54d8d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 02/01/2018
+ms.openlocfilehash: ad7eae16c2933790aefba3cee1551be29ee457be
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312729"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276922"
 ---
-# <a name="consuming-an-azure-machine-learning-web-service-from-excel"></a>從 Excel 使用 Azure Machine Learning Web 服務
+# <a name="consuming-an-azure-machine-learning-studio-web-service-from-excel"></a>從 Excel 取用 Azure Machine Learning Studio Web 服務
+
  Azure Machine Learning Studio 可以讓您直接從 Excel 輕鬆呼叫 Web 服務，而不需要撰寫任何程式碼。
 
 如果您使用 Excel 2013 (或更新版本) 或 Excel Online，我們建議您使用 [Excel 增益集](excel-add-in-for-web-services.md)。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="steps"></a>步驟
 發佈 Web 服務。 [此頁面](walkthrough-5-publish-web-service.md) 說明如何進行。 目前，只針對具有單一輸出 (也就是單一計分標籤) 的要求/回應服務，才支援 Excel 活頁簿功能。 

@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: b53f679f6f93dd5d4889fbe51f8b5caf62fc1a36
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8111d80d0888455fbdf3ccf37e723fe348a62bee
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236709"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434999"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure 匯入/匯出服務：常見問題集 
 以下是當您使用 Azure 匯入/匯出服務將資料轉送至 Azure 儲存體時可能會遇到的問題與解答。 問題和解答可分為下列幾個類別：
@@ -66,7 +66,10 @@ ms.locfileid: "51236709"
 您最多可以檢視之前 90 天內已完成作業的狀態。 已完成的作業會在 90 天後刪除。
 
 ### <a name="if-i-want-to-import-or-export-more-than-10-drives-what-should-i-do"></a>如果我想匯入或匯出的磁碟機超過 10 個，我該怎麼做？
-一項匯入或匯出作業只能參考單一作業中的 10 個磁碟機。 若要寄送的磁碟機超過 10 個，應建立多項作業。 與相同作業相關聯的磁碟機必須在相同的包裹中一起寄送。 如果資料容量需跨越多個磁碟匯入作業，請透過 bulkimport@microsoft.com 連絡 Microsoft，以取得詳細資訊與指引。                                                              
+一項匯入或匯出作業只能參考單一作業中的 10 個磁碟機。 若要寄送的磁碟機超過 10 個，應建立多項作業。 與相同作業相關聯的磁碟機必須在相同的包裹中一起寄送。 如果資料容量需跨越多個磁碟匯入作業，請透過 bulkimport@microsoft.com 連絡 Microsoft，以取得詳細資訊與指引。 
+
+### <a name="the-uploaded-blob-shows-status-as-lease-expired-what-should-i-do"></a>所上傳的 Blob 顯示狀態為「租用已過期」。 我該怎麼辦？
+您可以略過「租用已過期」欄位。 「匯入/匯出」在上傳期間會租用 Blob，以確定沒有其他處理序會同時更新 Blob。 「租用已過期」表示匯入/匯出不再上傳至 Blob，該 Blob 可供您使用。 
 
 ## <a name="shipping-disks"></a>寄送磁碟
 

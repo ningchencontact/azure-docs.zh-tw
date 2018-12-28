@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務中的查詢類型和組合 | Microsoft Docs
+title: Azure 搜尋服務中的查詢類型和組合 - Azure 搜尋服務
 description: 在 Azure 搜尋服務中建置搜尋查詢，並使用參數來篩選、選取及排序結果的基本概念。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: a1dad30148da9f6b322c75fd40dc01098c4d6b63
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.custom: seodec2018
+ms.openlocfilehash: 03ec588b1627b82a01021a9b71958e9d66aab0ce
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42139800"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315582"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Azure 搜尋服務中的查詢類型和組合
 

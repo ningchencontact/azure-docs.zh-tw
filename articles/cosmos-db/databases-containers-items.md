@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d834b7f43d961400e2d5080a46cf921d719f3393
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 39de7453c9d3b0335748cd37e4b1eef91b64b207
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684846"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409536"
 ---
 # <a name="working-with-azure-cosmos-databases-containers-and-items"></a>使用 Azure Cosmos 資料庫、容器和項目
 
@@ -26,10 +26,10 @@ ms.locfileid: "51684846"
 
 | **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 資料庫 | 資料庫 | keyspace | 資料庫 | NA | NA |
+|Azure Cosmos 資料庫 | 資料庫 | keyspace | 資料庫 | 資料庫 | NA |
 
 > [!NOTE]
-> 使用 Gremlin 和資料表 API 帳戶時，在您建立第一個圖形或資料表時，會在您的 Azure Cosmos 帳戶內自動建立一個預設資料庫。
+> 使用資料表 API 帳戶時，在您建立第一個資料表時，會在您的 Azure Cosmos 帳戶內自動建立一個預設資料庫。
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Azure Cosmos 資料庫中的作業
 
@@ -53,7 +53,7 @@ Azure Cosmos 容器是適用於項目的已佈建輸送量和儲存體的延展�
 
 * **共用佈建輸送量**模式︰這些容器會與同一資料庫中其他容器 (不包括已經設定專用佈建輸送量的容器) 共用佈建的輸送量。 換句話說，所有共用的容器會共用資料庫中佈建的輸送量。 如需詳細資訊，請參閱[如何在 Azure Cosmos 資料庫上設定佈建輸送量](how-to-provision-database-throughput.md)。
 
-無論使用「共用」或「專用」佈建輸送量模式建立容器，都可以彈性調整 Azure Cosmos 容器，也就是它們可以具有無限制的儲存體和佈建的輸送量。  
+無論使用「共用」或「專用」佈建輸送量模式建立容器，都可以彈性調整 Azure Cosmos 容器。
 
 Azure Cosmos 容器是與結構描述無關的項目容器。 容器內的項目可以有任意的結構描述。 例如，表示人員的項目和表示汽車的項目，都可以放在相同的容器中。 根據預設，您新增至容器的所有項目都會自動編製索引，不需要執行任何明確的索引或結構描述管理作業。 您可以藉由在容器上設定索引編製原則，即可自訂編製索引行為。 
 
@@ -69,7 +69,7 @@ Azure Cosmos 容器會特製化成 API 特定實體，如下所示：
 
 | **Azure Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 容器 | 容器 | 資料表 | 集合 | 圖形 | 資料表 |
+|Azure Cosmos 容器 | 集合 | 資料表 | 集合 | 圖形 | 資料表 |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Azure Cosmos 容器的屬性
 
@@ -105,7 +105,7 @@ Azure Cosmos 項目可以根據選擇的 API，分別代表集合中的文件、
 
 | **Cosmos 實體** | **SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **資料表 API** |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos 項目 | Item | 資料列 | 文件 | 節點或邊緣 | Item |
+|Azure Cosmos 項目 | 文件 | 資料列 | 文件 | 節點或邊緣 | Item |
 
 ### <a name="properties-of-an-item"></a>項目的屬性
 

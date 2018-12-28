@@ -13,16 +13,16 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfdd0c647021c453095ec4e05c042992011389b9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975885"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434659"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
-Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方案。 取用方案會在程式碼執行時自動配置計算能力。 您的應用程式會在需要處理負載時相應放大，並在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。
+Azure Functions 在兩種不同的模式中執行：取用方案或 Azure App Service 方案。 取用方案會在程式碼執行時自動配置計算能力。 您的應用程式會在需要處理負載時相應放大，並在程式碼未執行時相應減少。 您不必支付閒置虛擬機器的費用，或預先保留容量。
 
 > [!NOTE]  
 > [Linux 裝載](functions-create-first-azure-function-azure-cli-linux.md)目前僅適用於 App Service 方案。
@@ -68,7 +68,7 @@ Azure Functions 的執行模式有兩種︰取用方案和 Azure App Service 方
 
 VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如此一來，您不會支付超過您配置的 VM 執行個體的成本。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
 
-使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../monitoring-and-diagnostics/monitoring-autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
+使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
 
 在 App Service 方案上執行 JavaScript 函式時，您應該選擇 vCPU 數目較少的方案。 如需詳細資訊，請參閱[選擇單一核心 Azure Service 方案](functions-reference-node.md#considerations-for-javascript-functions)。  
 

@@ -1,6 +1,6 @@
 ---
-title: Azure 搜尋服務的效能與最佳化考量 | Microsoft Docs
-description: 調整 Azure 搜尋服務效能並設定最佳規模
+title: Azure 搜尋服務的效能與最佳化考量 - Azure 搜尋服務
+description: 了解調整 Azure 搜尋服務效能和設定最佳規模的技術和最佳做法。
 author: LiamCavanagh
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: liamca
-ms.openlocfilehash: 89c0352723f1ed00784250b566902028af853d10
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 0a98e7f05e766d47a5ea9293409a74a6fafbf837
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31797757"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310202"
 ---
 # <a name="azure-search-performance-and-optimization-considerations"></a>Azure 搜尋服務的效能與最佳化考量
 絕佳搜尋體驗是許多行動和 Web 應用程式成功的關鍵。 從房地產到二手車市場，再到線上目錄，快速搜尋和相關結果都將影響客戶體驗。 本文旨在協助您探索如何充分利用 Azure 搜尋服務的最佳做法，特別適用於對延展性、多語言支援或自訂排名有複雜需求的進階案例。  此外，本文件也會概述本質，並涵蓋可在真實世界客戶應用程式中有效率地工作的處理方法。
@@ -42,7 +43,7 @@ ms.locfileid: "31797757"
 ## <a name="scaling-azure-search-for-high-query-rates-and-throttled-requests"></a>調整 Azure 搜尋服務以提供高速查詢和節流要求
 當您收到太多節流要求或增加的查詢負載已超過目標延遲率時，您可以使用下列其中一種方式來查看以降低延遲率：
 
-1. **增加複本︰** 複本就像是您的資料複本，允許 Azure 搜尋服務針對多個複本進行要求的負載平衡。  在複本之間針對資料進行的所有負載平衡和複寫都是由 Azure 搜尋服務所管理，而您可以隨時變更配置給服務的複本數目。  您最多可在標準搜尋服務中配置 12 個複本，並在基本搜尋服務中配置 3 個複本。 您可以從 [Azure 入口網站](search-create-service-portal.md)或 [PowerShell](search-manage-powershell.md) 來調整複本。
+1. **增加複本︰** 複本就像是您的資料複本，能讓 Azure 搜尋服務針對多個複本進行要求的負載平衡。  在複本之間針對資料進行的所有負載平衡和複寫都是由 Azure 搜尋服務所管理，而您可以隨時變更配置給服務的複本數目。  您最多可在標準搜尋服務中配置 12 個複本，並在基本搜尋服務中配置 3 個複本。 您可以從 [Azure 入口網站](search-create-service-portal.md)或 [PowerShell](search-manage-powershell.md) 來調整複本。
 2. **增加搜尋服務層︰** Azure 搜尋服務來自[層數](https://azure.microsoft.com/pricing/details/search/)，而這其中的每一層都會提供不同等級的效能。  在某些情況下，您可能會有這麼多查詢，即使當複本超量時，您所在的層仍不足以提供低延遲率。在此情況下，您可能要考慮使用較高的搜尋層，例如 Azure 搜尋服務 S3 層，這非常適合具有大量文件且有極高查詢工作負載的案例。
 
 ## <a name="scaling-azure-search-for-slow-individual-queries"></a>針對速度較慢的個別查詢調整 Azure 搜尋服務

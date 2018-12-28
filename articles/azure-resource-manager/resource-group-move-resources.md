@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 15ec028046b7c2b21f1892c460d53c73499680fe
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c589d1a11903f761fa791f36014fe235c1973514
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312532"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386894"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>將資源移動到新的資源群組或訂用帳戶
 
@@ -35,7 +35,7 @@ ms.locfileid: "52312532"
 
 ## <a name="checklist-before-moving-resources"></a>移動資源前的檢查清單
 
-在移動資源之前，要執行的重要步驟如下︰ 藉由驗證這些條件，您可以避免錯誤。
+在移動資源之前，有幾個重要步驟需要進行。 藉由驗證這些條件，您可以避免錯誤。
 
 1. 來源和目的地的訂用帳戶必須存在於相同的 [Azure Active Directory 租用戶](../active-directory/develop/quickstart-create-new-tenant.md)內。 若要檢查這兩個訂用帳戶都有相同的租用戶識別碼，請使用 Azure PowerShell 或 Azure CLI。
 
@@ -58,7 +58,7 @@ ms.locfileid: "52312532"
   * [將 Azure 訂用帳戶的擁有權轉移給另一個帳戶](../billing/billing-subscription-transfer.md)
   * [如何將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-1. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為該訂用帳戶不曾以指定的資源類型使用過而遇到問題。
+1. 必須針對要移動之資源的資源提供者註冊其目的地訂用帳戶。 否則，您會收到錯誤，指出 **未針對資源類型註冊訂用帳戶**。 將資源移至新的訂用帳戶時，可能會因為不曾以指定的資源類型使用過該訂用帳戶，因而出現此錯誤。
 
   針對 PowerShell，使用下列命令來取得註冊狀態：
 
@@ -93,7 +93,7 @@ ms.locfileid: "52312532"
 
 1. 移動資源之前，請針對您要將資源移入的訂用帳戶，檢查其訂用帳戶配額。 如果移動資源表示訂用帳戶會超出限制，那麼您必須檢閱您是否可以要求增加配額。 如需限制清單和如何要求增加配額的資訊，請參閱 [Azure 訂用帳戶和服務限制、配額及條件約束](../azure-subscription-service-limits.md)。
 
-1. 可能的話，請將大型移動細分為個別的移動作業。 Resource Manager 在單一作業中嘗試移動超過 800 個資源會立即失敗。 不過，移動少於 800 個資源也可能因為逾時而失敗。
+1. 可能的話，請將大型移動細分為個別的移動作業。 單一作業超過 800 個資源時，Resource Manager 會立即傳回錯誤。 不過，移動少於 800 個資源也可能因為逾時而失敗。
 
 1. 服務必須啟用移動資源的功能。 若要判斷移動是否會成功，請[驗證您的移動要求](#validate-move)。 請參閱本文的以下小節，了解[哪些服務可移動資源](#services-that-can-be-moved)，以及[哪些服務無法移動資源](#services-that-cannot-be-moved)。
 
@@ -130,7 +130,7 @@ Content-type: application/json
 
 ```json
 {
- "resources": ['<resource-id-1>', '<resource-id-2>'],
+ "resources": ["<resource-id-1>", "<resource-id-2>"],
  "targetResourceGroup": "/subscriptions/<subscription-id>/resourceGroups/<target-group>"
 }
 ```
@@ -169,7 +169,7 @@ Authorization: Bearer <access-token>
 * Analysis Services
 * API 管理
 * App Service 應用程式 (Web 應用程式) - 請參閱 [App Service 限制](#app-service-limitations)
-* App Service 憑證
+* App Service 憑證 - 請參閱 [App Service 憑證限制](#app-service-certificate-limitations)
 * Application Insights
 * 自動化
 * Azure Active Directory B2C
@@ -192,7 +192,7 @@ Authorization: Bearer <access-token>
 * Customer Insights
 * 資料目錄
 * Data Factory
-* 資料湖分析
+* Data Lake Analytics
 * Data Lake Store
 * DNS
 * Event Grid
@@ -215,7 +215,8 @@ Authorization: Bearer <access-token>
 * 入口網站儀表板
 * Power BI - Power BI Embedded 和 Power BI 工作區集合
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
-* Redis 快取 - 如果已為「Redis 快取」執行個體設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
+* 復原服務保存庫 - 您必須註冊個人預覽版。 請參閱[復原服務限制](#recovery-services-limitations)。
+* Azure Cache for Redis - 如果 Azure Cache for Redis 執行個體已設定虛擬網路，該執行個體便無法移至不同的訂用帳戶。 請參閱[虛擬網路限制](#virtual-networks-limitations)。
 * 排程器
 * Search
 * 服務匯流排
@@ -244,7 +245,6 @@ Authorization: Bearer <access-token>
 * Azure 資料庫移轉
 * Azure Databricks
 * Azure Migrate
-* Batch AI
 * 憑證 - App Service 憑證可以移動，但上傳的憑證則有其[限制](#app-service-limitations)。
 * Container Instances
 * 容器服務
@@ -259,7 +259,6 @@ Authorization: Bearer <access-token>
 * Microsoft Genomics
 * NetApp
 * 公用 IP - 請參閱[公用 IP 限制](#pip-limitations)
-* 復原服務保存庫 - 也不會移動與「復原服務」保存庫關聯的「計算」、「網路」及「儲存體」資源，請參閱 [復原服務限制](#recovery-services-limitations)。
 * SAP HANA on Azure
 * 安全性
 * Site Recovery
@@ -312,16 +311,8 @@ Authorization: Bearer <access-token>
 以下是尚未支援的條件約束：
 
 * 憑證儲存在 Key Vault 中的虛擬機器可以移動至相同訂用帳戶中的新資源群組，但是無法跨訂用帳戶移動。
-* 已設定「Azure 備份」的虛擬機器。 請使用下列因應措施來移動這些虛擬機器
-  * 找出您虛擬機器的位置。
-  * 找出具有下列命名模式的資源群組：`AzureBackupRG_<location of your VM>_1`，例如 AzureBackupRG_westus2_1
-  * 如果是在 Azure 入口網站中，則請選取 [顯示隱藏的類型]
-  * 如果是在 PowerShell 中，請使用 `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` Cmdlet
-  * 如果是在 CLI 中，請使用 `az resource list -g AzureBackupRG_<location of your VM>_1`
-  * 現在，找出類型為 `Microsoft.Compute/restorePointCollections` 且命名模式為 `AzureBackup_<name of your VM that you're trying to move>_###########` 的資源
-  * 刪除此資源
-  * 完成刪除之後，您便能夠移動您的虛擬機器
-* 具有標準 SKU 負載平衡器或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
+* 如您的虛擬機器已設定進行備份，請參閱[復原服務限制](#recovery-services-limitations)。
+* 具有標準 SKU Load Balancer 或標準 SKU 公用 IP 的虛擬機器擴展集無法移動
 * 從 Marketplace 資源建立且附加方案的虛擬機器無法在資源群組或訂用帳戶之間移動。 在目前的訂用帳戶中取消佈建虛擬機器，然後於新訂用帳戶中再次部署。
 
 ## <a name="virtual-networks-limitations"></a>虛擬網路限制
@@ -330,23 +321,21 @@ Authorization: Bearer <access-token>
 
 若要移動對等虛擬網路，您必須先停用虛擬網路對等互連。 停用之後，您可以移動虛擬網路。 移動之後，重新啟用虛擬網路對等互連。
 
-如果虛擬網路包含有資源導覽連結的子網路，則無法將虛擬網路移動到其他訂用帳戶。 例如，如果 Redis 快取資源部署到子網路，該子網路具有資源導覽連結。
+如果虛擬網路包含有資源導覽連結的子網路，則無法將虛擬網路移動到其他訂用帳戶。 例如，如果 Azure Cache for Redis 資源部署到子網路，該子網路具有資源導覽連結。
 
 ## <a name="app-service-limitations"></a>App Service 限制
 
-根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。
-
-這幾節所述的限制適用於上傳憑證，不適用於 App Service 憑證。 您可以將 App Service 憑證移至新資源群組或訂用帳戶，沒有任何限制。 如果您有多個 Web 應用程式使用相同的 App Service 憑證，請先移動所有的 Web 應用程式，再移動憑證。
+根據您是要移動訂用帳戶內的資源還是將資源移到新的訂用帳戶，移動 App Service 資源的限制會有所不同。 如果您的 Web 應用程式使用 App Service 憑證，請參閱 [App Service 憑證限制](#app-service-certificate-limitations)
 
 ### <a name="moving-within-the-same-subscription"></a>在相同的訂用帳戶內移動
 
-在_相同訂用帳戶內_移動 Web 應用程式時，您無法移動已上傳的 SSL 憑證。 不過，您可以只將 Web 應用程式移至新的資源群組，而不移動其上傳的 SSL 憑證，而且您應用程式的 SSL 功能仍可正常運作。
+在_相同訂用帳戶內_移動 Web 應用程式時，您無法移動第三方 SSL 憑證。 不過，您可以只將 Web 應用程式移至新的資源群組，而不移動第三方 SSL 憑證，而且您應用程式的 SSL 功能仍可正常運作。
 
 如果您想在移動 Web 應用程式時一併移動 SSL 憑證，請遵循下列步驟：
 
-1. 刪除從 Web 應用程式上傳的憑證。
+1. 從 Web 應用程式中，刪除第三方憑證，但保留一份您的憑證
 2. 移動 Web 應用程式。
-3. 將憑證上傳至移動的 Web 應用程式。
+3. 將第三方憑證上傳至移動的 Web 應用程式。
 
 ### <a name="moving-across-subscriptions"></a>跨訂用帳戶移動
 
@@ -359,6 +348,10 @@ Authorization: Bearer <access-token>
     - App Service 環境
 - 資源群組中的所有 App Service 資源必須一起移動。
 - 只能從其最初建立 App Service 資源的資源群組中移動 App Service 資源。 如果 App Service 資源已不存在於其原始的資源群組中，則必須將其移回原始資源群組，然後才可以在訂用帳戶間移動。
+
+## <a name="app-service-certificate-limitations"></a>App Service 憑證限制
+
+您可以將 App Service 憑證移至新資源群組或訂用帳戶。 如果您的 App Service 憑證是繫結至 Web 應用程式，在將資源移動到新的訂用帳戶之前，還必須多採取幾個步驟。 請在移動資源前，先從 Web 應用程式刪除 SSL 繫結和私用憑證。 不需要刪除 App Service 憑證，只需要刪除 Web 應用程式中的私用憑證即可。
 
 ## <a name="classic-deployment-limitations"></a>傳統部署限制
 
@@ -382,7 +375,7 @@ Authorization: Bearer <access-token>
 將資源移到新訂用帳戶時，適用下列限制︰
 
 * 必須透過相同的作業移動訂用帳戶中的所有傳統資源。
-* 目標訂用帳戶不得包含任何其他傳統資源。
+* 目標訂用帳戶不得有其他任何傳統資源。
 * 只能透過適用於傳統移動的個別 REST API 來要求移動。 將傳統資源移到新的訂用帳戶時，標準 Resource Manager 移動命令無法運作。
 
 若要將傳統資源移到新的訂用帳戶，請使用傳統資源特定的 REST 作業。 若要使用 REST，請執行下列步驟：
@@ -446,15 +439,23 @@ Authorization: Bearer <access-token>
 
 ## <a name="recovery-services-limitations"></a>復原服務限制
 
-無法移動用來設定 Azure Site Recovery 相關災害復原的「儲存體」、「網路」或「計算」資源。
+若要移動復原服務保存庫，您必須註冊個人預覽版。 若要試用，請來信至 AskAzureBackupTeam@microsoft.com。
 
-舉例來說，假設您已設定將內部部署機器複寫到某個儲存體帳戶 (Storage1)，而想要讓受保護的機器在容錯移轉到 Azure 之後，以連接到虛擬網路 (Network1) 的虛擬機器 (VM1) 身分上線。 您無法跨相同訂用帳戶內的資源群組或跨訂用帳戶來移動任何這些 Azure 資源 - Storage1、VM1 及 Network1。
+目前每個區域一次可移動一個復原服務保存庫。 您無法移動負責備份 IaaS 虛擬機器中的 Azure 檔案服務、Azure 檔案同步或 SQL 的保存庫。 
 
-若要在資源群組之間移動 **Azure 備份**中註冊的虛擬機器：
- 1. 暫時停止備份並保留備份資料
- 2. 將虛擬機器移到目標資源群組
- 3. 在相同/新的保存庫下將其重新保護。使用者可以從移動作業前建立的可用還原點進行還原。
-如果使用者是在訂用帳戶之間移動備份虛擬機器，步驟 1 和步驟 2 保持不變。 在步驟 3 中，使用者需要保護在目標訂用帳戶中存在/建立之新保存庫底下的 VM。 復原服務保存庫不支援跨訂用帳戶的備份。
+如果虛擬機器不隨著保存庫移動，目前的虛擬機器復原點都會保留在保存庫中，直到過期為止。 無論虛擬機器是否隨著保存庫移動，您都可以從保存庫中的備份記錄還原虛擬機器。
+
+復原服務保存庫不支援跨訂用帳戶的備份。 如果您在訂用帳戶之間隨著虛擬機器備份資料移動保存庫，您必須將您的虛擬機器移至相同的訂用帳戶，並使用相同的目標資源群組，才可繼續執行備份。
+
+保存庫移動之後，會保留替保存庫定義的備份原則。 在移動之後，必須再次對保存庫設定報告和監視作業。
+
+將虛擬機器移至新的訂用帳戶，而不移動復原服務保存庫：
+
+ 1. 暫時停止備份
+ 2. 將虛擬機器移至新的訂用帳戶
+ 3. 在該訂用帳戶中的新保存庫下，重新保護該虛擬機器
+
+無法移動用來設定 Azure Site Recovery 相關災害復原的「儲存體」、「網路」或「計算」資源。 舉例來說，假設您已設定將內部部署機器複寫到某個儲存體帳戶 (Storage1)，而想要讓受保護的機器在容錯移轉到 Azure 之後，以連接到虛擬網路 (Network1) 的虛擬機器 (VM1) 身分上線。 您無法跨相同訂用帳戶內的資源群組或跨訂用帳戶來移動任何這些 Azure 資源 - Storage1、VM1 及 Network1。
 
 ## <a name="hdinsight-limitations"></a>HDInsight 限制
 
@@ -464,7 +465,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="search-limitations"></a>搜尋的限制
 
-您不能同時移動放在不同區域的多個搜尋資源。
+您無法一次移動不同區域中的多個搜尋資源。
 在這種情況下，您需要分別移動它們。
 
 ## <a name="lb-limitations"></a> Load Balancer 限制
@@ -479,7 +480,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="use-portal"></a>使用入口網站
 
-若要移動資源，請選取包含這些資源的資源群組，然後選取 [移動] 按鈕。
+若要移動資源，請選取具有這些資源的資源群組，然後選取 [移動] 按鈕。
 
 ![移動資源](./media/resource-group-move-resources/select-move.png)
 
@@ -499,7 +500,7 @@ Authorization: Bearer <access-token>
 
 ## <a name="use-powershell"></a>使用 PowerShell
 
-若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) 命令。 下列範例顯示如何將多個資源移動到新的資源群組。
+若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) 命令。 下列範例示範了如何將多個資源移動到新的資源群組。
 
 ```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
@@ -511,7 +512,7 @@ Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Res
 
 ## <a name="use-azure-cli"></a>使用 Azure CLI
 
-若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) 命令。 提供要移動之資源的資源識別碼。 下列範例顯示如何將多個資源移動到新的資源群組。 請在 `--ids` 參數中，為要移動的資源識別碼提供以空格分隔的清單。
+若要將現有的資源移動到另一個資源群組或訂用帳戶，請使用 [az resource move](/cli/azure/resource?view=azure-cli-latest#az-resource-move) 命令。 提供要移動之資源的資源識別碼。 下列範例示範了如何將多個資源移動到新的資源群組。 請在 `--ids` 參數中，為要移動的資源識別碼提供以空格分隔的清單。
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

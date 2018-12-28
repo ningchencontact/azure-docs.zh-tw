@@ -3,7 +3,7 @@ title: 使用彈性集區管理多個 SQL Database - Azure | Microsoft Docs
 description: 管理及調整多個 SQL Database - 成百上千 - 使用彈性集區。 可視需要散發的資源只有一個價格。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,18 +12,18 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ea548b55bc216b815b5f49f1e0405f1a90d05d08
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283558"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275613"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>彈性集區可協助您管理及調整多個 Azure SQL Database
 
 SQL Database 彈性集區是簡單、符合成本效益的解決方案，可用來管理及調整使用需求變化不定且無法預測的多個資料庫。 彈性集區中的資料庫位於單一 Azure SQL Database 伺服器上，並以固定價格共用固定數量的資源。 Azure SQL Database 中的彈性集區可讓 SaaS 開發人員將一組資料庫的價格效能最佳化在規定的預算內，同時為每個資料庫提供效能彈性。
 
-## <a name="what-are-sql-elastic-pools"></a>SQL 彈性集區是什麼？
+## <a name="what-are-sql-elastic-pools"></a>SQL 彈性集區是什麼
 
 SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應用程式。 常見的應用程式模式是為每個客戶佈建單一資料庫。 但是不同的客戶經常會有不同且無法預測的使用模式，而且很難預測每個個別資料庫使用者的資源需求。 您通常有兩個選項：
 
@@ -42,7 +42,7 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 > [!NOTE]
 > 將資料庫移入或移出彈性集區時，除了資料庫連線中斷時作業結尾的一小段時間之外 (大約數秒)，不會有停機時間。
 
-## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>何時該考慮使用 SQL Database 彈性集區？
+## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>何時該考慮使用 SQL Database 彈性集區
 
 集區很適合具備特定使用模式的大量資料庫。 針對指定的資料庫，此模式的特徵是低平均使用量與相對不頻繁的使用量高峰。
 
@@ -70,9 +70,9 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 由於以下原因，此範例很理想：
 
-* 每一資料庫之間的尖峰使用量和平均使用量有相當大的差異。
-* 每個資料庫的尖峰使用量會在不同時間點發生。
-* eDTU 會在許多資料庫之間共用。
+- 每一資料庫之間的尖峰使用量和平均使用量有相當大的差異。
+- 每個資料庫的尖峰使用量會在不同時間點發生。
+- eDTU 會在許多資料庫之間共用。
 
 集區的價格是集區 eDTU 的函式。 雖然集區的 eDTU 單價較單一資料庫的 DTU 單價高 1.5 倍，但是**集區 eDTU 可由多個資料庫共用，而需要的 eDTU 總數會比較少**。 價格方面和 eDTU 共用的這些差異是集區可以提供價格節約潛力的基礎。
 
@@ -89,23 +89,24 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 藉由共用資源，並非集區中的所有資料庫都能同時使用資源達到單一資料庫的最大限制。 同時尖峰的資料庫愈少，可以設定的集區資源愈低，集區就能更符合成本效益。 一般而言，集區中應該不能有超過 2/3 (或 67%) 的資料庫同時達到其資源限制的尖峰。
 
-***以 DTU 為基礎的購買模型範例***<br>
+***以 DTU 為基礎的購買模型範例***
+
 為了降低 200 個 eDTU 集區中 3 個 S3 資料庫的成本，最多可以有 2 個資料庫同時到達其使用量尖峰。 否則，如果 4 個 S3 資料庫中超過 2 個同時尖峰，則必須將集區調整為超過 200 個 eDTU。 如果將集區調整大小為超過 200 個 eDTU，則需要加入更多的 S3 資料庫至集區，以使成本保持低於單一資料庫的計算大小。
 
 請注意，此範例不考慮集區中其他資料庫的使用量。 如果所有資料庫在任何指定的時間點都有一些使用量，則可同時到達尖峰的資料庫會少於 2/3 (或 67%)。
 
 ### <a name="resource-utilization-per-database"></a>每個資料庫的資源使用量
+
 資料庫的尖峰和平均使用量之間的差異為，長時間的低使用量和短時間的高使用量。 這個使用量模式非常適合在資料庫之間共用資源。 若資料庫的尖峰使用量為平均使用量的 1.5 倍大，就應該將該資料庫視為集區。
 
-***以 DTU 為基礎的購買模型範例***<br>
-尖峰為 100 個 DTU 且平均使用 67 個 DTU 或更少的 S3 資料庫是在集區中共用 eDTU 的良好候選項目。 或者，尖峰為 20 個 DTU 且平均使用 13 個 DTU 或更少的 S1 資料庫是集區的良好候選項目。
+**以 DTU 為基礎的購買模型範例**：尖峰為 100 個 DTU 且平均使用 67 個 DTU 或更少的 S3 資料庫是在集區中共用 eDTU 的良好候選項目。 或者，尖峰為 20 個 DTU 且平均使用 13 個 DTU 或更少的 S1 資料庫是集區的良好候選項目。
 
-## <a name="how-do-i-choose-the-correct-pool-size"></a>如何選擇正確的集區大小？
+## <a name="how-do-i-choose-the-correct-pool-size"></a>如何選擇正確的集區大小
 
 集區的最佳大小取決於集區中所有資料庫所需的彙總資源。 這牽涉到決定下列各項：
 
-* 集區中所有資料庫利用的資源上限 (DTU 上限或虛擬核心上限，這取決於您的資源模型選擇)。
-* 集區中所有資料庫使用的最大儲存體位元組。
+- 集區中所有資料庫利用的資源上限 (DTU 上限或虛擬核心上限，這取決於您的資源模型選擇)。
+- 集區中所有資料庫使用的最大儲存體位元組。
 
 如需每個資源模型的可用服務層，請參閱 [DTU 形式的購買模型](sql-database-service-tiers-dtu.md)或[虛擬核心形式的購買模型](sql-database-service-tiers-vcore.md)。
 
@@ -113,10 +114,10 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 1. 估計集區所需的 eDTU 或虛擬核心，如下所示：
 
-   針對以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
+   對於以 DTU 為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均 DTU 使用量>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰 DTU 使用量*)
 
-   針對以虛擬核心為基礎的購買模型：最大值(<DB 總數 X 每個 DB 的平均虛擬核心使用量>，<br>  
+   對於以虛擬核心為基礎的購買模型：最大值(<*DB 總數* X *每個 DB 的平均 vCore 使用量*>，<br>  
    <*並行尖峰 DB 的數目* X *每個 DB 的尖峰虛擬核心使用量*)
 
 2. 加總集區中所有資料庫所需的位元組數目，以估計集區所需的儲存空間。 然後判斷可提供此儲存體數量的 eDTU 集區大小。
@@ -133,17 +134,25 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 如需可供使用多個資料庫之其他資料庫工具的詳細資訊，請參閱[使用Azure SQL Database 向上調整](sql-database-elastic-scale-introduction.md)。
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>彈性集區之中的資料庫所適用的業務持續性選項
+
 集區資料庫通常會支援單一資料庫可用的相同[商務持續性功能](sql-database-business-continuity.md)。
 
-- **還原時間點**：還原時間點會使用自動資料庫備份，將集區中的資料庫復原到特定的時間點。 請參閱 [還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
+- **還原時間點**
 
-- **異地還原**：異地還原會在資料庫因裝載區域中的事件而無法使用時，提供預設復原選項。 請參閱 [還原 Azure SQL Database 或容錯移轉到次要資料庫](sql-database-disaster-recovery.md)
+  還原時間點會自動備份資料庫，以將集區中的資料庫復原到特定的時間點。 請參閱 [還原時間點](sql-database-recovery-using-backups.md#point-in-time-restore)
 
-- **作用中異地複寫**：針對較異地還原需要更主動復原的應用程式，設定[作用中異地複寫](sql-database-geo-replication-overview.md)。
+- **異地還原**
+
+  異地還原會在資料庫因裝載區域中的事件而無法使用時，提供預設復原選項。 請參閱 [還原 Azure SQL Database 或容錯移轉到次要資料庫](sql-database-disaster-recovery.md)
+
+- **主動式異地複寫**
+
+  針對較異地還原需要更主動復原的應用程式，設定[主動式中異地複寫](sql-database-active-geo-replication.md)或[自動容錯移轉群組](sql-database-auto-failover-group.md)。
 
 ## <a name="creating-a-new-sql-database-elastic-pool-using-the-azure-portal"></a>使用 Azure 入口網站建立新的 SQL Database 彈性集區
 
 在 Azure 入口網站中建立彈性集區的方式有兩種。
+
 1. 您可以在 [Marketplace] 中搜尋 **SQL 彈性集區**，或按一下 [SQL 彈性集區] 瀏覽刀鋒視窗上的 [+新增]，以建立彈性集區。 您可以透過此集區佈建工作流程來指定新的或現有的伺服器。
 2. 或者，您可以瀏覽至現有 SQL 伺服器，然後按一下 [建立集區] 直接將集區建立至該伺服器，以建立彈性集區。 唯一的差別在於您略過在集區佈建工作流程期間指定伺服器的步驟。
 
@@ -162,8 +171,8 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 
 若要開始監視您的彈性集區，請在入口網站中尋找並開啟彈性集區。 您會先看到一個畫面，提供您彈性集區的狀態概觀。 其中包括：
 
-* 監視圖表會顯示彈性集區的資源使用量
-* 彈性集區的最近警示和建議 (如果有的話)
+- 監視圖表會顯示彈性集區的資源使用量
+- 彈性集區的最近警示和建議 (如果有的話)
 
 下圖顯示範例彈性集區：
 
@@ -192,6 +201,6 @@ SaaS 開發人員會在由多個資料庫組成的大規模資料層上建置應
 ## <a name="next-steps"></a>後續步驟
 
 - 若要調整彈性集區，請參閱[調整彈性集區](sql-database-elastic-pool.md)和[調整彈性集區 - 範例程式碼](scripts/sql-database-monitor-and-scale-pool-powershell.md)
-* 若要觀賞影片，請參閱[有關 Azure SQL Database 彈性功能的 Microsoft Virtual Academy 視訊課程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
-* 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 Azure SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
-* 如需使用彈性集區的 SaaS 教學課程，請參閱 [Wingtip SaaS 應用程式簡介](sql-database-wtp-overview.md)。
+- 若要觀賞影片，請參閱[有關 Azure SQL Database 彈性功能的 Microsoft Virtual Academy 視訊課程](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
+- 若要深入了解使用彈性集區的 SaaS 應用程式的設計模式，請參閱 [採用 Azure SQL Database 的多租用戶 SaaS 應用程式的設計模式](sql-database-design-patterns-multi-tenancy-saas-applications.md)。
+- 如需使用彈性集區的 SaaS 教學課程，請參閱 [Wingtip SaaS 應用程式簡介](sql-database-wtp-overview.md)。

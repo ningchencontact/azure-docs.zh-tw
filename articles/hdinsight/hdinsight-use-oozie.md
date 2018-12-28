@@ -10,17 +10,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: bbe61477a9841173fb47267b53da1b5cf75d9924
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684217"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410290"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-了解如何使用 Apache Oozie 定義工作流程，以及在 HDInsight 上執行工作流程。 若要了解 Oozie 協調器，請參閱[搭配 HDInsight 使用以時間為基礎的 Hadoop Oozie 協調器][hdinsight-oozie-coordinator-time]。 若要了解 Azure Data Factory，請參閱 [搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。
+了解如何使用 Apache Oozie 定義工作流程，以及在 HDInsight 上執行工作流程。 若要了解 Oozie 協調器，請參閱[將以時間為基礎的 Apache Oozie 協調器與 HDInsight 搭配使用][hdinsight-oozie-coordinator-time]。 若要了解 Azure Data Factory，請參閱 [將 Apache Pig 和 Apache Hive 與 Data Factory 搭配使用][azure-data-factory-pig-hive]。
 
 Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與 Hadoop 堆疊相整合，並支援 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 工作。 它也可用來排程系統的特定工作，例如 Java 程式或 Shell 指令碼。
 
@@ -28,7 +28,7 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
 
 ![Workflow diagram][img-workflow-diagram]
 
-1. Hive 動作會執行一個 HiveQL 指令碼，以計算每個記錄層級類型在 log4j 檔案中的出現次數。 每個 log4j 檔案各由一列欄位組成，其中包括顯示類型與嚴重性的 [LOG LEVEL] 欄位，例如：
+1. Hive 動作會執行一個 HiveQL 指令碼，以計算每個記錄層級類型在 Apache Log4j 檔案中的出現次數。 每個 log4j 檔案各由一列欄位組成，其中包括顯示類型與嚴重性的 [LOG LEVEL] 欄位，例如：
    
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -44,11 +44,11 @@ Apache Oozie 是可管理 Hadoop 工作的工作流程/協調系統。 它可與
         [TRACE] 816
         [WARN]  4
    
-    如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
-2. Sqoop 動作會將 HiveQL 的輸出匯出至 Azure SQL Database 中的資料表。 如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Hadoop Sqoop][hdinsight-use-sqoop]。
+    如需有關 Hive 的詳細資訊，請參閱[將 Apache Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
+2. Sqoop 動作會將 HiveQL 的輸出匯出至 Azure SQL Database 中的資料表。 如需 Sqoop 的詳細資訊，請參閱[將 Apache Sqoop 與 HDInsight 搭配使用][hdinsight-use-sqoop]。
 
-> [!NOTE]
-> 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 提供的 Hadoop 叢集版本有哪些新功能？][hdinsight-versions]。
+> [!NOTE]  
+> 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 提供之 Apache Hadoop 叢集版本中的新增功能][hdinsight-versions]。
 > 
 > 
 
@@ -613,16 +613,16 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
 ```
 
 ## <a name="next-steps"></a>後續步驟
-在本教學課程中，您已了解如何定義 Oozie 工作流程，以及如何使用 PowerShell 執行 Oozie 工作。 若要深入了解，請參閱下列文章：
+在本教學課程中，您已了解如何定義 Apache Oozie 工作流程，以及如何使用 PowerShell 執行 Oozie 工作。 若要深入了解，請參閱下列文章：
 
-* [搭配 HDInsight 使用以時間為基礎的 Hadoop Oozie 協調器][hdinsight-oozie-coordinator-time]
-* [開始在 HDInsight 中搭配 Hive 使用 Hadoop 以分析行動電話使用][hdinsight-get-started]
+* [搭配 HDInsight 使用以時間為基礎的 Apache Oozie 協調器][hdinsight-oozie-coordinator-time]
+* [開始在 HDInsight 中搭配 Apache Hive 使用 Apache Hadoop 以分析行動電話使用][hdinsight-get-started]
 * [搭配 HDInsight 使用 Azure Blob 儲存體][hdinsight-storage]
 * [使用 PowerShell 管理 HDInsight][hdinsight-admin-powershell]
-* [在 HDInsight 中上傳 Hadoop 作業的資料][hdinsight-upload-data]
-* [搭配使用 Sqoop 與 HDInsight 中的 Hadoop][hdinsight-use-sqoop]
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
+* [在 HDInsight 中上傳 Apache Hadoop 作業的資料][hdinsight-upload-data]
+* [在 HDInsight 中將 Apache Sqoop 與 Apache Hadoop 搭配使用][hdinsight-use-sqoop]
+* [在 HDInsight 上將 Apache Hive 與 Apache Hadoop 搭配使用][hdinsight-use-hive]
+* [在 HDInsight 上將 Apache Pig 與 Apache Hadoop 搭配使用][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -657,13 +657,13 @@ Azure PowerShell 目前並未提供任何用以定義 Oozie 工作的 Cmdlet。 
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png  

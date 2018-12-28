@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: a5f6f09ee6c8504b64cad7ef5313501a65907a90
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 02821abd8769a89fc1c7ad9d0dd5cf4e5a245e5f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632580"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435305"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>搭配 HDInsight 的 Apache Hadoop 上的 MapReduce 串流使用 C#
 
@@ -29,7 +29,7 @@ Apache Hadoop 串流是一個公用程式，可讓您使用指令碼或可執行
 
 __以 Linux 為基礎的 HDInsight__ 叢集會使用 [Mono (https://mono-project.com)](https://mono-project.com) 來執行 .NET 應用程式。 4.2.1 版的 Mono 隨附於 3.6 版的 HDInsight。 如需 HDInsight 包含之 Mono 版本的詳細資訊，請參閱 [HDInsight 元件版本](../hdinsight-component-versioning.md)。 若要使用特定版本的 Mono，請參閱[安裝或更新 Mono](../hdinsight-hadoop-install-mono.md) 文件。
 
-如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](http://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
+如需 Mono 與 .NET Framework 版本之相容性的詳細資訊，請參閱 [Mono 相容性](https://www.mono-project.com/docs/about-mono/compatibility/) \(英文\)。
 
 ## <a name="how-hadoop-streaming-works"></a>Hadoop 串流的運作方式
 
@@ -157,7 +157,7 @@ namespace reducer
 
     * 如果此項目可以展開，表示您是使用 __Azure 儲存體帳戶__作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請展開項目，然後按兩下 [(預設容器)]。
 
-    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Store__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)] 項目。
+    * 如果此項目無法展開，表示您是使用 __Azure Data Lake Storage__ 作為叢集的預設儲存體。 若要檢視叢集之預設儲存體上的檔案，請按兩下 [(預設儲存體帳戶)] 項目。
 
 5. 若要上傳 .exe 檔案，請使用下列其中一種方法：
 
@@ -165,7 +165,7 @@ namespace reducer
 
         ![上傳圖示](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
     
-    * 如果使用 __Azure Data Lake Store__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
+    * 如果使用 __Azure Data Lake Storage__，請以滑鼠右鍵按一下檔案清單中的空白區域，然後選取 [上傳]。 最後，選取 **mapper.exe** 檔案，然後按一下 [開啟]。
 
     __mapper.exe__ 上傳完成後，請針對 __reducer.exe__ 檔案重複上傳程序。
 
@@ -175,7 +175,7 @@ namespace reducer
 
 2. 使用下列其中一個命令來啟動 MapReduce 作業：
 
-    * 如果使用 __Data Lake Store__ 作為預設儲存體：
+    * 如果使用 __Data Lake Storage__ 作為預設儲存體：
 
         ```bash
         yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files adl:///mapper.exe,adl:///reducer.exe -mapper mapper.exe -reducer reducer.exe -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
@@ -189,12 +189,12 @@ namespace reducer
 
     下列清單描述每個參數的用途︰
 
-    * `hadoop-streaming.jar`︰包含串流處理 MapReduce 功能的 jar 檔案。
-    * `-files`︰將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `adl:///` 或 `wasb:///` 是叢集的預設儲存體根目錄路徑。
-    * `-mapper`︰指定哪個檔案實作對應工具。
-    * `-reducer`︰指定哪個檔案實作歸納器。
+    * `hadoop-streaming.jar`：包含串流處理 MapReduce 功能的 jar 檔案。
+    * `-files`：將 `mapper.exe` 和 `reducer.exe` 檔案加入至此作業。 每個檔案前面的 `adl:///` 或 `wasb:///` 是叢集的預設儲存體根目錄路徑。
+    * `-mapper`：指定哪個檔案實作對應工具。
+    * `-reducer`：指定哪個檔案實作歸納器。
     * `-input`：輸入資料。
-    * `-output`︰輸出目錄。
+    * `-output`：輸出目錄。
 
 3. 在 MapReduce 作業完成後，使用下列命令來檢視結果：
 
@@ -214,7 +214,7 @@ namespace reducer
         yourselves      3
         youth   17
 
-## <a name="run-a-job-using-powershell"></a>執行作業：使用 PowerShell
+## <a name="run-a-job-using-powershell"></a>執行工作︰使用 PowerShell
 
 使用下列 PowerShell 指令碼來執行 MapReduce 作業並下載結果。
 
@@ -236,6 +236,6 @@ namespace reducer
 
 如需搭配 HDInsight 使用 MapReduce 的詳細資訊，請參閱[搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)。
 
-如需有關使用 C# 搭配 Hive 和 Pig 的詳細資訊，請參閱[使用 C# 使用者定義函式搭配 Hive 和 Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
+如需有關使用 C# 搭配 Hive 和 Pig 的詳細資訊，請參閱[使用 C# 使用者定義函式搭配 Apache Hive 和 Apache Pig](apache-hadoop-hive-pig-udf-dotnet-csharp.md)。
 
-如需搭配 HDInsight 上的 Storm 使用 C# 的詳細資訊，請參閱[開發適用於 Storm on HDInsight 的 C# 拓撲](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。
+如需搭配 HDInsight 上的 Storm 使用 C# 的詳細資訊，請參閱[開發適用於 Apache Storm on HDInsight 的 C# 拓撲](../storm/apache-storm-develop-csharp-visual-studio-topology.md)。

@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/08/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ad6ddacad322e4c2f952591be786d46cbcb95a21
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7af204ad76cb04c3d71c5108948be4036be1d1e4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637553"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338833"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的計時器
 
 [Durable Functions](durable-functions-overview.md) 提供「永久性計時器」，用於協調器函式中實作延遲，或在非同步動作上設定逾時。 永久性計時器應該用於協調器函式中，以代替 `Thread.Sleep` 和 `Task.Delay` (C#)，或 `setTimeout()` 和 `setInterval()` (JavaScript)。
 
-在 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) 中呼叫 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) 方法，即可建立永久性計時器。 此方法會傳回一個在指定日期和時間繼續執行的工作。
+在 .NET 中呼叫 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) 的 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) 方法，或在 JavaScript 中呼叫 `DurableOrchestrationContext` 的 `createTimer` 方法，即可建立永久性計時器。 此方法會傳回一個在指定日期和時間繼續執行的工作。
 
 ## <a name="timer-limitations"></a>計時器限制
 
@@ -29,13 +29,13 @@ ms.locfileid: "52637553"
 
 > [!NOTE]
 > * 由於 Azure 儲存體中的限制，永久性計時器無法持續超過 7 天。 我們正努力解決[將計時器延長到 7 天以上的功能要求](https://github.com/Azure/azure-functions-durable-extension/issues/14)。
-> * 在計算永久性計時器的相對期限時，請一律使用 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) 代替 `DateTime.UtcNow`，如下列範例所示。
+> * 在計算永久性計時器的相對期限時，請一律在 .NET 中使用 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) 代替 `DateTime.UtcNow`，並在 JavaScript 中使用 `currentUtcDateTime` 代替 `Date.now` 或 `Date.UTC`，如下列範例所示。
 
 ## <a name="usage-for-delay"></a>延遲的使用方式
 
 下列範例說明如何使用永久性計時器來延遲執行。 此範例會在十天內每天發出帳單通知。
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
@@ -51,7 +51,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -68,13 +68,13 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 在協調器函式中避免無限迴圈。 如需有關如何安全而有效率地實作無限迴圈案例的資訊，請參閱[永久性協調流程](durable-functions-eternal-orchestrations.md)。 
+> 在協調器函式中避免無限迴圈。 如需有關如何安全而有效率地實作無限迴圈案例的資訊，請參閱[永久性協調流程](durable-functions-eternal-orchestrations.md)。
 
 ## <a name="usage-for-timeout"></a>逾時的使用方式
 
 此範例說明如何使用永久性計時器來實作逾時。
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("TryGetQuote")]
@@ -105,7 +105,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript"></a>JavaScript
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```js
 const df = require("durable-functions");
@@ -142,4 +142,3 @@ module.exports = df.orchestrator(function*(context) {
 
 > [!div class="nextstepaction"]
 > [了解如何引發和處理外部事件](durable-functions-external-events.md)
-

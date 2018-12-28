@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務的簡單查詢範例 | Microsoft Docs
+title: 簡單的查詢範例 - Azure 搜尋服務
 description: 全文檢索搜尋、篩選搜尋、地理搜尋、多面向搜尋，和其他用來查詢 Azure 搜尋服務索引的查詢字串適用的簡單查詢範例。
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 2d9e69a900f6665aa0ee3034cd6f9d7c394e8f0b
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.custom: seodec2018
+ms.openlocfilehash: 9697b88e23fea0cb06ab0c4a6197b5255e7076bf
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146161"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316262"
 ---
 # <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>在 Azure 搜尋服務中建置查詢的簡單語法查詢範例
 
@@ -62,7 +63,7 @@ URL 組合具有下列元素：
 
 查詢字串 **`search=*`** 是未指定的搜尋，等同於 Null 或空的搜尋。 其功用並不高，卻是最方便執行的搜尋。
 
-(選擇性) 您可以將 **`$count=true`** 新增至 URL，以傳回符合搜尋準則的文件計數。 在空的搜尋字串上，這是索引中的所有文件 (在 NYC 作業的案例中大約 2800)。
+(選擇性) 您可以將 **`$count=true`** 新增至 URL，以傳回符合搜尋準則的文件計數。 在空的搜尋字串上，這會是索引中的所有文件 (在 NYC 作業的案例中大約有 2800 份)。
 
 ## <a name="how-to-invoke-simple-query-parsing"></a>如何叫用簡單查詢剖析
 
@@ -84,7 +85,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 您可能已注意到在回應中的搜尋分數。 沒有排名時，分數一律為 1，這是因為搜尋不是全文檢索搜尋，或是未套用任何準則。 若是未套用任何準則的 Null 搜尋，資料列會以任意順序傳回。 當您包含實際準則時，您會發現搜尋分數逐漸具有其實質意義。
 
-## <a name="example-2-look-up-by-id"></a>範例 2︰依識別碼查閱
+## <a name="example-2-look-up-by-id"></a>範例 2：依識別碼查閱
 
 此範例有點不規則，但在評估搜尋行為時，您可能想要查看特定文件的完整內容，以了解結果為何會包含或排除該文件。 若要傳回一份完整的文件，請使用[查閱作業](https://docs.microsoft.com/rest/api/searchservice/lookup-document)傳入文件識別碼。
 
@@ -132,7 +133,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 
 如需此函式的詳細資訊，請參閱[「篩選範例」中的 search.ismatch](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)。
 
-## <a name="example-4-range-filters"></a>範例 4︰範圍篩選條件
+## <a name="example-4-range-filters"></a>範例 4：範圍篩選
 
 範圍篩選是透過任何資料類型的 **`$filter`** 運算式來支援。 下列範例會搜尋數值和字串欄位。 
 
@@ -179,7 +180,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 > [!NOTE]
 > 透過值範圍進行面向化是常見的搜尋應用程式需求。 如需為 Facet 導覽結構建立篩選條件的詳細資訊和範例，請參閱[「如何實作多面向導覽」中的「根據範圍篩選」](search-faceted-navigation.md#filter-based-on-a-range)。
 
-## <a name="example-5-geo-search"></a>範例 5：異地搜尋
+## <a name="example-5-geo-search"></a>範例 5：地區搜尋
 
 此範例索引包含具有經度和緯度座標的 geo_location 欄位。 這個範例會使用 [geo.distance 函式](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search#filter-examples)，以篩選起始點周圍以至您提供的任意距離 (以公里為單位) 內的文件。 您可以調整查詢 (4) 中的最後一個值，以縮小或放大查詢的介面區。
 
@@ -224,7 +225,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>範例 7︰使用 searchMode 的布林值
+## <a name="example-7-booleans-with-searchmode"></a>範例 7：使用 searchMode 的布林值
 
 簡單語法支援字元格式 (`+, -, |`) 的布林運算子。 SearchMode 參數會指出精確度與召回率之間的取捨；`searchMode=any` 會以召回率優先 (符合任何準則即可將文件納入結果集內)，而 `searchMode=all` 則以精確度優先 (必須符合所有準則)。 預設值為 `searchMode=any`，這在以多個運算子堆疊出查詢而取得範圍較廣 (而非範圍較窄) 的結果時，可能會令人混淆。 在使用 NOT 更是如此，因為其結果會包含所有「不含」特定字詞的文件。
 
@@ -243,7 +244,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-
 ```
   ![搜尋模式：全部](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>範例 8︰建構結果
+## <a name="example-8-structuring-results"></a>範例 8：建構結果
 
 有數個參數會控制要在搜尋結果中包含的欄位、每個批次中傳回的文件數目，以及排序次序。 此範例將從前述幾個範例延伸，使用 **$select** 陳述式和逐字搜尋準則將結果限定於特定欄位，而傳回 82 個相符項目 
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: f0f43826c50679cb3de88aef466795cbb9e9e76f
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139487"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316160"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
@@ -24,6 +24,11 @@ ms.locfileid: "50139487"
 * 在解決方案中進行疑難排解。
 * 規劃如何自訂解決方案以滿足您的特定需求。
 * 設計使用 Azure 服務的 IoT 解決方案。
+
+GitHub 提供遠端監視解決方案加速器程式碼：
+
+* [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
+* [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
 
 ## <a name="logical-architecture"></a>邏輯架構
 

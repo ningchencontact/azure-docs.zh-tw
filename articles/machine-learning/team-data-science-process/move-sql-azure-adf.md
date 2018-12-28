@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure | Microsoft Docs
+title: 使用 Azure Data Factory 將 SQL Server 資料移轉到 SQL Azure - Team Data Science Process
 description: 請設定 ADF 管線來編寫兩個資料移轉活動，這兩個活動會每天在內部部署及雲端中的資料庫之間一同移動資料。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: bddb54d9a00c5ec88fcebe498d7f959c0f8e3dbf
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: a1bb841c1218be0a418583af8ca95b2dff2f67d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447031"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309496"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>使用 Azure Data Factory 從內部部署 SQL Server 將資料移至 SQL Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "52447031"
 
 針對將資料移至 Azure SQL Database 的各種選項，如需摘要說明的資料表，請參閱[將資料移至 Azure Machine Learning 的 Azure SQL Database](move-sql-azure.md)。
 
-## <a name="intro"></a>簡介：什麼是 ADF ，以及其應該用來移轉資料的時機？
+## <a name="intro"></a>簡介：什麼是 ADF，以及其應該用來移轉資料的時機？
 Azure Data Factory 是完全受控的雲端架構資料整合服務，用來協調及自動化資料的移動和轉換。 ADF 模型中的重要概念是管線。 管線是活動的邏輯群組，各個群組都會定義包含在資料集中的資料上要執行的動作。 連結的服務是用來定義 Data Factory 所需的資訊，以便連接到資料資源。
 
 使用 ADF，您可將現有的資料處理服務組合成具高可用性的資料管線，並在雲端中管理。 這些資料管線可排程來內嵌、準備、轉換、分析和發佈資料，而 ADF 會管理並協調複雜的資料和處理中的相依項目。 您可以快速地在雲端中建置和部署解決方案，藉此連接逐漸增加的內部部署和雲端資料來源。
@@ -43,7 +43,7 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 * 將資料從 Azure Blob 儲存體帳戶複製至 Azure SQL Database
 
 > [!NOTE]
-> 這裡顯示的步驟已根據 ADF 團隊所提供的更詳細教學課程進行改編：[利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/tutorial-hybrid-copy-portal.md)。該主題相關章節的參考資料也會在必要時提供。
+> 此處所示的步驟改寫自 ADF 團隊提供的詳細教學課程：[將資料從內部部署 SQL Server 資料庫複製到 Azure Blob 儲存體](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/)。會適時引用該主題的相關段落。
 >
 >
 
@@ -68,15 +68,10 @@ ADF 允許使用定期管理資料移動的簡易 JSON 指令碼，來進行排�
 ## <a name="create-adf"></a> 建立 Azure Data Factory
 用於建立新 Azure Data Factory 的指示及 [Azure 入口網站](https://portal.azure.com/)中的資源群組，已在[建立 Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory) 提供。 將新的 ADF 執行個體命名為 *adfdsp*，並將建立的資源群組命名為 *adfdsprg*。
 
-## <a name="install-and-configure-up-the-data-management-gateway"></a>安裝和設定資料管理閘道
-若要在 Azure 資料處理站中啟用管線以使用內部部署的 SQL Server，您必須將其以連結服務形式新增至資料處理站。 若要建立內部部署 SQL Server 的連結服務，您必須︰
+## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>安裝和設定 Azure Data Factory Integration Runtime 
+Integration Runtime 為 Azure Data Factory 使用的客戶受控資料整合基礎結構，可提供跨不同網路環境的資料整合功能。 此執行階段先前稱為「資料管理閘道」。 
 
-* 將 Microsoft 資料管理閘道下載並安裝到內部部署電腦。
-* 設定內部部署資料來源的連結服務以使用閘道。
-
-資料管理閘道器會序列化和還原序列化託管之電腦上的來源與接收資料。
-
-如需關於資料管理閘道的設定指示及詳細資料，請參閱 [利用資料管理閘道在內部部署來源和雲端之間移動資料](../../data-factory/tutorial-hybrid-copy-portal.md)
+若要設定，請[遵循建立管線的指示](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
 ## <a name="adflinkedservices"></a>建立連結服務以連接至資料資源
 連結服務定義會定義 Azure Data Factory 所需的資訊，以便連接到資料資源。 此案例中的三個資源都必須使用連結服務：

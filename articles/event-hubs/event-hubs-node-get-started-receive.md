@@ -1,20 +1,21 @@
 ---
-title: 使用 Node.js 從 Azure 事件中樞接收事件 | Microsoft Docs
-description: 了解如何使用 Node.js 從事件中樞接收事件。
+title: 使用 Node.js 來接收事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文將逐步解說如何建立一個會從「Azure 事件中樞」接收事件的 Node.js 應用程式。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/18/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 2f59b7f47acc8ce8e566b7f0e2bcfed379ea60d2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: d13f97ff7ec25fd638b92dc1c057afcaeecc2bf9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239079"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434064"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>使用 Node.js 從 Azure 事件中樞接收事件
 
@@ -27,7 +28,7 @@ Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理�
 適用於此快速入門的程式碼可在 [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/processor) 上取得。
 
 > [!NOTE]
->  若要使用 Node.js 將事件傳送到事件中樞，請參閱這篇文章：[使用 Node.js 將事件傳送到 Azure 事件中樞](event-hubs-node-get-started-send.md)。 
+>  若要使用 Node.js 將事件傳送到事件中樞，請參閱本文：[使用 Node.js 將事件傳送到 Azure 事件中樞](event-hubs-node-get-started-send.md)。 
 
 ## <a name="prerequisites"></a>必要條件
 

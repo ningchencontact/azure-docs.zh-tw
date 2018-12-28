@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: ashishth
-ms.openlocfilehash: 339d5d39c637369420e197acf65df802cefd5cb9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a76ad219e538874af04a72c9aa64e87a35bc53d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46988479"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434880"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>管理 HDInsight 叢集的記錄
 
@@ -51,7 +51,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 ```
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
-您還可以使用 PowerShell 來檢視此資訊。  如需詳細資訊，請參閱[使用 Azure PowerShell 來管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-powershell.md)。
+您還可以使用 PowerShell 來檢視此資訊。  如需詳細資訊，請參閱 [Apache 使用 Azure PowerShell 來管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-powershell.md)。
 
 ### <a name="understand-the-workloads-running-on-your-clusters"></a>了解在您叢集上執行的工作負載
 
@@ -69,7 +69,7 @@ HDInsight 叢集會產生各式各樣的記錄檔。 例如 Apache Hadoop 及相
 
 * 考量如何從該叢集或從多個叢集收集記錄，然後整理這些記錄以供稽核、監視、規劃及警示用途使用。 您可以使用自訂的解決方案來定期存取和下載記錄檔，然後對記錄檔進行結合和分析以在儀表板上顯示。 您也可以新增額外的功能以進行安全性警示或失敗偵測。 您可以使用 PowerShell、HDInsight SDK 或可存取 Azure 傳統部署模型的程式碼，來建置這些公用程式。
 
-* 考量監視解決方案或服務是否能提供實用的效益。 Microsoft System Center 提供 [HDInsight 管理組件](https://www.microsoft.com/download/details.aspx?id=42521)。 您也可以使用協力廠商工具 (例如 Chukwa 和 Ganglia) 來收集和集中記錄。 許多公司都有提供可監視 Hadoop 型巨量資料解決方案的服務，例如 Centerity、Compuware APM、Sematext SPM 及 Zettaset Orchestrator。
+* 考量監視解決方案或服務是否能提供實用的效益。 Microsoft System Center 提供 [HDInsight 管理組件](https://www.microsoft.com/download/details.aspx?id=42521)。 您也可以使用協力廠商工具 (例如 Apache Chukwa 和 Ganglia) 來收集和集中記錄。 許多公司都有提供可監視 Hadoop 型巨量資料解決方案的服務，例如：Centerity、 Compuware APM、 Sematext SPM 及 Zettaset Orchestrator。
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-script-action-logs"></a>步驟 2：管理叢集服務版本及檢視指令碼動作記錄
 
@@ -177,5 +177,5 @@ YARN ResourceManager UI 會在叢集前端節點上執行，您可以透過 Amba
 ## <a name="next-steps"></a>後續步驟
 
 * [HDInsight 的監視和記錄做法](https://msdn.microsoft.com/library/dn749790.aspx) \(英文\)
-* [存取以 Linux 為基礎之 HDInsight 上的 YARN 應用程式記錄](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [如何控制各種 Hadoop 元件的記錄檔大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) \(英文\)
+* [在以 Linux 為基礎的 HDInsight 上存取 Apache Hadoop YARN 應用程式記錄檔](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [如何控制各種 Apache Hadoop 元件的記錄檔大小](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html) \(英文\)

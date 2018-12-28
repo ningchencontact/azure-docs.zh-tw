@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中參考認知搜尋管線中各項輸入和輸出內的註解 | Microsoft Docs
+title: 參考認知搜尋管線中的輸入和輸出 - Azure 搜尋服務
 description: 說明註解語法，以及如何在 Azure 搜尋服務中參考認知搜尋管線中某技能集之輸入和輸出內的註解。
 services: search
 manager: pablocas
@@ -10,34 +10,35 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.custom: seodec2018
+ms.openlocfilehash: 57fed710d7d58199fb3cb70640d1f2d3f316f180
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801942"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315799"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>如何參考認知搜尋技能集中的註釋
 
-在此文章中，我們將使用範例說明各種案例，讓您了解如何參考技能定義中的註解。 當文件內容流經技能集時，將會增添註解而有所擴充。 註解可以作為進一步下游擴充的輸入，或對應至索引中的輸出欄位。 
+在本文中，我們將使用範例說明各種案例，讓您了解如何參考技能定義中的註解。 當文件內容流經技能集時，將會增添註解而有所擴充。 註解可以作為進一步下游擴充的輸入，或對應至索引中的輸出欄位。 
  
-此文章中的範例以 [Azure Blob 索引子](search-howto-indexing-azure-blob-storage.md)在文件萃取階段的執行過程中自動產生的*內容*欄位為基礎。 從 Blob 容器參照文件時，請使用 `"/document/content"` 之類的格式，其中，*內容*欄位是*文件*的一部分。 
+本文中的範例，以 [Azure Blob 索引子](search-howto-indexing-azure-blob-storage.md)在文件萃取階段的執行過程中自動產生的*內容*欄位為基礎。 從 Blob 容器參照文件時，請使用 `"/document/content"` 之類的格式，其中，*內容*欄位是*文件*的一部分。 
 
 ## <a name="background-concepts"></a>背景概念
 
-在檢閱語法之前，讓我們先回顧幾個重要的概念，以深入了解此文章稍後所提供的範例。
+在檢閱語法之前，讓我們先回顧幾個重要的概念，以深入了解本文稍後所提供的範例。
 
 | 詞彙 | 說明 |
 |------|-------------|
 | 擴充的文件 | 擴充的文件是管線所建立及使用的內部結構，用來保存與文件相關的所有註解。 請將擴充的文件設想為註解的樹狀結構。 一般而言，從上一個註解建立的註解將會成為其子系。<p/>只有在技能集執行期間，才會有擴充的文件。 在內容對應至搜尋索引後，即不再需要擴充的文件。 雖然您無法直接擴充的文件互動，但在建立技能集時，具有文件的心智模型將有所幫助。 |
-| 擴充內容 | 執行擴充所在的內容，以擴充哪種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
+| 擴充內容 | 執行擴充所在的內容，以擴充何種元素的觀點來表示。 根據預設，擴充內容會在 `"/document"` 層級上，其範圍僅限於個別文件。 當技能執行時，該技能的輸出會成為[已定義內容的屬性](#example-2)。|
 
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>範例 1：簡單註解參考
 
 在 Azure Blob 儲存體中，假設您有多種檔案都參考了您想要使用具名實體辨識來擷取的人員名稱。 在下列技能定義中，`"/document/content"` 是整份文件的文字表示法，而 "people" 則是對識別為人員的實體擷取到的完整名稱。
 
-由於預設內容為 `"/document"`，因此人員清單此時可以參考為 `"/document/people"`。 在這種情況下，`"/document/people"` 是註解，且此時有可能對應至索引中的欄位，或用於相同技能集中的另一個技能。
+由於預設內容為 `"/document"`，因此人員清單此時可以參考為 `"/document/people"`。 在這種情況下，`"/document/people"` 是註解，且此時有可能對應至索引中的欄位，或用於相同技能集中的另一項技能。
 
 ```json
   {
@@ -65,7 +66,7 @@ ms.locfileid: "48801942"
 
 此範例是根據上一個範例而建置的，可說明如何對相同的文件叫用擴充步驟多次。 假設上一個範例產生了一個字串陣列，其中包含來自於單一文件的 10 個人員名稱。 合理的後續步驟可能是從完整名稱中擷取姓氏的二次擴充。 由於有 10 個名稱，因此您會在此文件中呼叫此步驟 10 次，每個人員各一次。 
 
-若要叫用正確數量的反覆項目，請將內容設定為 `"/document/people/*"`，其中，星號 (`"*"`) 代表擴充的文件中所有作為 `"/document/people"` 下階的節點。 雖然此技能只會在技能陣列中定義一次，但對於文件中的每個成員都會呼叫此技能，直到所有成員皆處理完成。
+若要叫用正確數量的反覆項目，請將內容設定為 `"/document/people/*"`，其中，星號 (`"*"`) 代表擴充的文件中所有作為 `"/document/people"` 下階的節點。 雖然這項技能只會在技能陣列中定義一次，但對於文件中的每個成員都會呼叫此技能，直到所有成員皆處理完成。
 
 ```json
   {

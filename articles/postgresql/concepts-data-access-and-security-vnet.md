@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: 4f488128b3f7a9aa06be9358439536d78615430e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5a0181a1430e9de690fe4b4a48aa298db4c024e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42141104"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433651"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫使用虛擬網路服務端點和規則
 
@@ -91,8 +91,8 @@ ms.locfileid: "42141104"
 
 有一組獨立的安全性角色負責管理虛擬網路服務端點。 下列每個角色都需要採取動作：
 
-- **網路管理員：** &nbsp;開啟端點。
-- **資料庫管理員：**&nbsp;更新存取控制清單 (ACL)，將指定的子網路新增至適用於 PostgreSQL 伺服器的 Azure 資料庫。
+- **網路管理：**&nbsp;開啟端點。
+- **資料庫管理：**&nbsp;更新存取控制清單 (ACL)，將指定的子網路新增至適用於 PostgreSQL 伺服器的 Azure 資料庫。
 
 RBAC 替代方案：
 
@@ -145,7 +145,7 @@ RBAC 替代方案：
 - [使用 Azure CLI 建立和管理適用於 PostgreSQL 的 Azure 資料庫 VNet 規則](howto-manage-vnet-using-cli.md)
 
 
-<!-- Link references, to text, Within this same Github repo. -->
+<!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md

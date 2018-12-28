@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 3af8aec6bb2fe08c4bd1ef65e4f272a6f85af50b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427404"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344307"
 ---
 # <a name="analyzing-video-and-audio-files"></a>分析視訊和音訊檔案
 
@@ -33,7 +33,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 |**預設名稱**|**案例**|**詳細資料**|
 |---|---|---|
-|**AudioAnalyzerPreset**|分析音訊|此預設會套用一組預先定義的 AI 型分析作業，包括語音轉譯。 此預設目前支援處理具有單一音訊播放軌的內容。<br/>您可以使用「語言標記-區域」的 BCP-47 格式 (例如 'en-US')，為輸入中的音訊承載指定語言。 支援語言清單為 'en-US'、'en-GB'、'es-ES'、'es-MX'、'fr-FR'、'it-IT'、'ja-JP'、'pt-BR'、'zh-CN'。 如果語言未指定或設為 Null，將會使用自動語言偵測。 自動語言偵測功能目前支援英文、簡體中文、法文、德文、義大利文、日文、西班牙文、俄文和葡萄牙文。|
+|**AudioAnalyzerPreset**|分析音訊|此預設會套用一組預先定義的 AI 型分析作業，包括語音轉譯。 此預設目前支援處理具有單一音訊播放軌的內容。您可以使用「語言標記-區域」的 BCP-47 格式，為輸入中的音訊承載指定語言。 支援的語言有英文 ('EN-US' 和 'EN-GB')、西班牙文 ('ES-ES' 和 'ES-MX')、法文 ('fr-FR')、義大利文 ('IT-IT')、日文 ('JA-JP')、葡萄牙文 ('PT-BR')、中文 ('ZH-CN')、德文 ('DE-DE')、阿拉伯文 ('AR-EG')、俄文 ('RU-RU')、印度文 ('HI-IN') 和 韓文 ('KO-KR')。<br/><br/> 如果語言未指定或設為 Null，將會使用自動語言偵測。 自動語言偵測功能目前支援英文、簡體中文、法文、德文、義大利文、日文、西班牙文、俄文和葡萄牙文。 搭配語音清晰的錄音時，自動語言偵測功能的效果最好。 如果自動語言偵測無法找到該語言，轉譯會切換回英文。|
 |**VideoAnalyzerPreset**|分析音訊和視訊|從音訊和視訊擷取見解 (豐富的中繼資料)，並輸出 JSON 格式檔案。 您可以指定在處理視訊檔案時，是否只想擷取音訊見解。 如需詳細資訊，請參閱[分析視訊](analyze-videos-tutorial-with-api.md)。|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
@@ -61,7 +61,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="transcript"></a>文字記錄
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|行識別碼。|
 |text|文字記錄本身。|
@@ -99,7 +99,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="ocr"></a>ocr
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|OCR 行識別碼。|
 |text|OCR 文字。|
@@ -142,7 +142,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="faces"></a>臉部
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|臉部識別碼。|
 |name|臉部名稱。 它可以是 Unknown #0、已識別的名人或客戶培訓人員。|
@@ -187,7 +187,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="shots"></a>擷取畫面
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|擷取畫面識別碼。|
 |keyFrames|擷取畫面的主要畫面清單 (每個主要畫面都有一個識別碼和執行個體的時間範圍清單)。 主要畫面格執行個體中有縮圖識別碼欄位，其中包含主要畫面格的縮圖識別碼。|
@@ -244,7 +244,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="statistics"></a>統計資料
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |CorrespondenceCount|影片中的對應數目。|
 |WordCount|每個說話者的字數。|
@@ -257,7 +257,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 人氣會依據其 sentimentType 欄位 (Positive/Neutral/Negative) 加以彙總。 例如：0-0.1、0.1-0.2。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|人氣識別碼。|
 |averageScore |所有該人氣類型執行個體的總分平均值 - Positive/Neutral/Negative|
@@ -292,7 +292,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="labels"></a>標籤
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|標籤識別碼。|
 |name|標籤名稱 (例如，電腦、電視)。|
@@ -351,7 +351,7 @@ Azure 媒體服務 v3 可讓您使用影片索引子，透過 AMS v3 分析器�
 
 ### <a name="keywords"></a>關鍵字
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|關鍵字識別碼。|
 |text|關鍵字。|
@@ -402,7 +402,7 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 
 經發現含有成人或猥褻內容的影片，只能供私人檢視。 使用者可以要求人工審核影片內容，在此情況下，IsAdult 屬性將包含人工審核的結果。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|視覺內容仲裁識別碼。|
 |adultScore|成人分數 (由內容仲裁提供)。|
@@ -437,4 +437,4 @@ visualContentModeration 區塊包含影片索引器偵測到可能含有成人�
 ```
 ## <a name="next-steps"></a>後續步驟
 
-[教學課程：使用 Azure 媒體服務分析視訊](analyze-videos-tutorial-with-api.md)
+[教學課程：使用 Azure 媒體服務分析影片](analyze-videos-tutorial-with-api.md)

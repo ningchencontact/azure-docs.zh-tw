@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9cfb098fd8e6cb777b6cd968f92b20baabfab705
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313975"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338510"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Azure 資訊安全中心的檔案完整性監視
 了解如何利用此逐步解說，在 Azure 資訊安全中心設定檔案完整性監視 (FIM)。
@@ -136,7 +136,7 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 
   ![設定][11]
 
-  [工作區設定] 會隨即開啟並顯示三個索引標籤：[Windows 登錄]、[Windows 檔案] 和 [Linux 檔案]。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
+  **工作區設定**隨即開啟，並顯示三個索引標籤：**Windows 登錄**、**Windows 檔案**和 **Linux 檔案**。 每個索引標籤會列出您可以在該類別中編輯的實體。 針對每個列出的實體，資訊安全中心會識別 FIM 已啟用 (True) 或未啟用 (False)。  編輯實體可讓您啟用或停用 FIM。
 
   ![工作區設定][12]
 
@@ -153,7 +153,7 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 
 ## <a name="add-a-new-entity-to-monitor"></a>新增要監視的實體
 1. 返回 [檔案完整性監視] 儀表板，然後選取頂端的 [設定]。 [工作區設定] 會隨即開啟。
-2. 在 [工作區設定] 下，選取您要新增之實體類型的索引標籤：[Windows 登錄]、[Windows 檔案] 或 [Linux 檔案]。 在此範例中，已選取 [Linux 檔案]。
+2. 在 [工作區設定] 下，選取您要對於實體類型新增的索引標籤：[Windows 登錄]、[Windows 檔案] 或 [Linux 檔案]。 在此範例中，已選取 [Linux 檔案]。
 
   ![新增要監視的項目][14]
 
@@ -205,7 +205,7 @@ FIM 會將資料上傳到 Log Analytics 工作區。 根據您上傳的資料量
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何使用資訊安全中心的檔案完整性監視 (FIM)。 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [設定安全性原則](security-center-azure-policy.md) - 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [設定安全性原則](tutorial-security-policy.md) - 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理安全性建議](security-center-recommendations.md) - 了解建議如何協助保護您的 Azure 資源。
 * [安全性健康狀態監視](security-center-monitoring.md) - 了解如何監視 Azure 資源的健康清況。
 * [管理及回應安全性警訊](security-center-managing-and-responding-alerts.md) - 了解如何管理及回應安全性警訊。

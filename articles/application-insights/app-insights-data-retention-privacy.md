@@ -9,16 +9,15 @@ ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 613e0f51ae7bbb0b295f13d50fc95683085d7da9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245693"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995812"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的資料收集、保留和儲存
 
@@ -29,14 +28,14 @@ ms.locfileid: "51245693"
 * 「現成可用」的標準遙測模組不太可能將敏感資料傳送至服務。 遙測會考量負載、效能和使用度量、例外狀況報告和其他診斷資料。 診斷報告中顯示的主要使用者資料的 URL；但是，您的應用程式在任何情況下都應該不會將敏感資料以純文字形式放在 URL 中。
 * 您可以撰寫會傳送其他自訂遙測的程式碼，以利診斷與監視使用情形。 (此擴充性是 Application Insights 的絕佳功能之一)。在撰寫使程式碼時有可能會不慎包含個人資料和其他敏感資料。 如果您的應用程式會使用這類資料，您應對您撰寫的程式碼採用完整的檢閱程序。
 * 在開發及測試您的應用程式時，可以輕易地檢查由 SDK 傳送的內容。 資料會出現在 IDE 和瀏覽器的偵錯輸出視窗中。 
-* 資料會保存在美國或歐洲的 [Microsoft Azure](http://azure.com) 伺服器中。 (但是您的 App 可以在任何地方執行)。Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它在傳輸時會加密，但在伺服器中不會加密。
+* 資料會保存在美國或歐洲的 [Microsoft Azure](https://azure.com) 伺服器中。 (但是您的 App 可以在任何地方執行)。Azure 有[嚴密的安全性程序，並符合各種法規遵循標準](https://azure.microsoft.com/support/trust-center/)。 只有您和您指定的小組可以存取您的資料。 Microsoft 工作人員只有在您知情的特定有限情況下，才具有其限定存取權。 它在傳輸時會加密，但在伺服器中不會加密。
 
 本文的其餘部分將詳細說明上述問題的答案。 本文設計為自助式，以便您可以將其顯示給不屬於您直屬小組的同事。
 
 ## <a name="what-is-application-insights"></a>什麼是 Application Insights？
 [Azure Application Insights][start] 是 Microsoft 所提供的一項服務，可協助您改進即時應用程式的效能和可用性。 它會在您的應用程式執行時全程加以監視，包括測試期間，以及您加以發佈或部署之後。 Application Insights 會建立圖表和資料表為您顯示多種資訊，例如，您在一天中的哪些時間有最多使用者、應用程式的回應性如何，以及它所依存的任何外部服務是否順暢地為其提供服務。 如果有當機、失敗或效能問題，您可以搜尋詳細的遙測資料，以診斷原因。 此外，如果應用程式的可用性和效能有任何變更，服務將會傳送電子郵件給您。
 
-若要取得這項功能，您必須在應用程式中安裝 Application Insights SDK，這會成為其程式碼的一部分。 當您的應用程式執行時，SDK 會監視其作業，並將遙測傳送至 Application Insights 服務。 這是由 [Microsoft Azure](http://azure.com)裝載的雲端服務。 (但 Application Insights 適用於任何應用程式，而不只是 Azure 中裝載的應用程式)。
+若要取得這項功能，您必須在應用程式中安裝 Application Insights SDK，這會成為其程式碼的一部分。 當您的應用程式執行時，SDK 會監視其作業，並將遙測傳送至 Application Insights 服務。 這是由 [Microsoft Azure](https://azure.com)裝載的雲端服務。 (但 Application Insights 適用於任何應用程式，而不只是 Azure 中裝載的應用程式)。
 
 ![應用程式中的 SDK 會將遙測傳送至 Application Insights 服務。](./media/app-insights-data-retention-privacy/01-scheme.png)
 
@@ -102,7 +101,6 @@ Microsoft 只會使用這項資料，以將服務提供給您。
 
 ## <a name="where-is-the-data-held"></a>資料存放在哪裡？
 * 在美國、歐洲或東南亞。 建立新的 Application Insights 時，您可以選取位置。 
-
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>這是否表示我的應用程式必須裝載在美國、歐洲或東南亞？
 * 否。 您的應用程式可以在任何地方執行，在您自己的內部部署主機上或雲端中皆可。
@@ -206,13 +204,13 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 |.NET | 支援，設定會因版本不同而有所差異。 | 如需 .NET 4.7 和更早版本的詳細設定資訊，請參閱[這些指示](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
 |狀態監視器 | 支援，需要設定 | 狀態監視須依賴 [OS 組態](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 組態](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)來支援 TLS 1.2。
 |Node.js |  支援，可能需要對 v10.5.0 進行設定。 | 使用[官方 Node.js TLS/SSL 文件](https://nodejs.org/api/tls.html)以了解任何應用程式專屬的設定。 |
-|Java | 支援，[JDK 6 更新 121](http://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
+|Java | 支援，[JDK 6 更新 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](http://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中已新增 TLS 1.2 的 JDK 支援。 | JDK 8 會使用[預設的 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
 |Linux | Linux 發行版本通常會依賴 [OpenSSL](https://www.openssl.org) 來取得 TLS 1.2 支援。  | 請檢查 [OpenSSL 變更記錄](https://www.openssl.org/news/changelog.html)來確認支援的 OpenSSL 版本。|
 | Windows 8.0 - 10 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)。  |
 | Windows Server 2012 - 2016 | 支援，而且已預設為啟用。 | 請確認您仍在使用[預設設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
 | Windows 7 SP1 和 Windows Server 2008 R2 SP1 | 支援，但預設為不啟用。 | 請參閱[傳輸層安全性 (TLS) 登錄設定](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)頁面，了解詳細的啟用方式。  |
 | Windows Server 2008 SP2 | TLS 1.2 支援需要更新。 | 請在 Windows Server 2008 SP2 中參閱[新增 TLS 1.2 支援的更新](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)。 |
-|Windows Vista | 不支援。 | N/A
+|Windows Vista |  不支援。 | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>請檢查您 Linux 發行版本所執行的 OpenSSL 版本
 
@@ -232,7 +230,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>儲存在 Application Insights 中的個人資料
 
-我們的 [Application Insights 個人資料文章](../log-analytics/log-analytics-personal-data-mgmt.md)會深入討論此議題。
+我們的 [Application Insights 個人資料文章](../azure-monitor/platform/personal-data-mgmt.md)會深入討論此議題。
 
 #### <a name="can-my-users-turn-off-application-insights"></a>我的使用者是否可以關閉 Application Insights？
 無法直接進行。 我們不提供您的使用者可以操作來關閉 Application Insights 的參數。
@@ -282,8 +280,11 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 您可以[編輯 ApplicationInsights.config 來關閉某些資料][config]
 
+> [!NOTE]
+> 用戶端 IP 會用來推斷地理位置，但預設不會再儲存 IP 資料，而且所有的零會寫入相關聯的欄位。 若要深入了解個人資料的處理，建議您閱讀這篇[文章](../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果您需要儲存 IP 位址，可以透過[遙測初始設定式](./app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer)來完成此作業。
+
 ## <a name="credits"></a>學分
-此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [http://www.maxmind.com](http://www.maxmind.com) 取得。
+此產品包含由 MaxMind 建立的 GeoLite2 資料，可從 [https://www.maxmind.com](https://www.maxmind.com) 取得。
 
 
 
@@ -296,7 +297,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 [greenbrown]: app-insights-asp-net.md
 [java]: app-insights-java-get-started.md
 [platforms]: app-insights-platforms.md
-[pricing]: http://azure.microsoft.com/pricing/details/application-insights/
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: app-insights-monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 

@@ -7,14 +7,14 @@ manager: sankalpsoni
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 05/09/2017
+ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: ac09754876d52798add58d9e0752d776ca29f247
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1aa9c6da2d59294c5791d65a0943bfce497f9be4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994797"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387041"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>使用 Linux 診斷擴充功能監視計量與記錄
 
@@ -38,9 +38,7 @@ Linux 診斷擴充功能可協助使用者監視在 Microsoft Azure 上執行的
 
 ## <a name="installing-the-extension-in-your-vm"></a>在 VM 中安裝擴充功能
 
-您可以使用 Azure PowerShell Cmdlet、Azure CLI 指令碼或 Azure 部署範本啟用此擴充功能。 如需詳細資訊，請參閱[擴充功能](features-linux.md)。
-
-Azure 入口網站無法用於啟用或設定 LAD 3.0。 相反地，它會安裝並設定 2.3 版。 Azure 入口網站圖形和警示會使用這兩個版本中的資料。
+您可以使用 Azure PowerShell Cmdlet、Azure CLI 指令碼、ARM 範本或 Azure 入口網站啟用此擴充功能。 如需詳細資訊，請參閱[擴充功能](features-linux.md)。
 
 這些安裝指示與[可下載範例組態](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json)可設定 LAD 3.0 以：
 
@@ -55,7 +53,7 @@ Azure 入口網站無法用於啟用或設定 LAD 3.0。 相反地，它會安�
 
 * **Azure Linux Agent 2.2.0 版或更新版本**。 大部分的 Azure VM Linux 資源庫映像包含版本 2.2.7 或更新版本。 執行 `/usr/sbin/waagent -version` 以確認安裝在 VM 上的版本。 如果 VM 執行的是舊版客體代理程式，請依照[這些指示](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新。
 * **Azure CLI**。 在您的電腦上[設定 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 環境。
-* Wget 命令，如果您沒有：請執行 `sudo apt-get install wget`。
+* Wget 命令，如果您沒有：執行 `sudo apt-get install wget`。
 * 現有的 Azure 訂用帳戶與其中現有的儲存體帳戶以儲存資料。
 * 支援的 Linux 散發套件清單位於 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions
 
@@ -129,7 +127,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 }
 ```
 
-名稱 | 值
+Name | 值
 ---- | -----
 storageAccountName | 擴充功能寫入資料的儲存體帳戶名稱。
 storageAccountEndPoint | (選擇性) 可識別儲存體帳戶所在雲端的端點。 如果沒有此設定，LAD 會預設為 Azure 公用雲端，`https://core.windows.net`。 若要使用 Azure 德國、Azure Government 或 Azure 中國中的儲存體帳戶，請相應地設定此值。

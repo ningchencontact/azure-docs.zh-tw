@@ -9,14 +9,14 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c8e3b1186192d0d7c3fabb4e5a02cc4fcdf494d
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 06181eaf4a44a00ddeeedcd9c40edeae9157abd9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009788"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438543"
 ---
-# <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Hadoop 搭配使用來產生電影推薦 (PowerShell)
+# <a name="generate-movie-recommendations-by-using-apache-mahout-with-apache-hadoop-in-hdinsight-powershell"></a>透過在 HDInsight 上將 Apache Mahout 與 Apache Hadoop 搭配使用來產生電影推薦 (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
@@ -26,17 +26,17 @@ ms.locfileid: "51009788"
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop][getstarted]。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * [Azure PowerShell](/powershell/azure/overview)
 
 ## <a name="recommendations"></a>使用 Azure PowerShell 產生推薦
 
-> [!WARNING]
+> [!WARNING]  
 > 本節中的作業是使用 Azure PowerShell 運作。 Mahout 提供的許多類別目前無法搭配 Azure PowerShell 使用。 如需無法搭配 Azure PowerShell 使用的類別清單，請參閱 [疑難排解](#troubleshooting) 一節。
 >
-> 如需使用 SSH 連線到 HDInsight 並在叢集上直接執行 Mahout 範例的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
+> 如需使用 SSH 連線到 HDInsight 並在叢集上直接執行 Mahout 範例的範例，請參閱[使用 Apache Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID``itemId` 和 `prefValue` (使用者偏好的項目) 格式的資料。 Mahout 會使用資料以偏好的類似項目判斷使用者，並以此做出推薦。
 
@@ -66,12 +66,12 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
 
 使用下列 Windows PowerShell 指令碼執行工作，以透過 Mahout 推薦引擎來處理影片資料：
 
-> [!NOTE]
+> [!NOTE]  
 > 這個檔案會提示您輸入用來連接到 HDInsight 叢集並執行作業的資訊。 可能需要幾分鐘的時間來完成作業，並且下載 output.txt 檔案。
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
-> [!NOTE]
+> [!NOTE]  
 > Mahout 工作不會移除處理工作時所建立的暫存資料。 範例工作中所指定的 `--tempDir` 參數會將暫存檔隔離到特定的目錄。
 
 Mahout 工作不會將輸出傳回 STDOUT。 相反地，其會將該輸出儲存在指定的輸出目錄 **part-r-00000**中。 指令碼會下載這個檔案到您工作站上目前目錄的 **output.txt** 檔。
@@ -202,14 +202,14 @@ foreach($blob in $blobs)
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-若要執行用到這些類別的作業，請使用 SSH 連接至 HDInsight 叢集，然後從命令列執行作業。 如需使用 SSH 來執行 Mahout 作業的範例，請參閱[使用 Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
+若要執行用到這些類別的作業，請使用 SSH 連接至 HDInsight 叢集，然後從命令列執行作業。 如需使用 SSH 來執行 Mahout 作業的範例，請參閱[使用 Apache Mahout 和 HDInsight (SSH) 來產生電影推薦](hadoop/apache-hadoop-mahout-linux-mac.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
-您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
+您現在已了解如何使用 Apache Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
@@ -218,8 +218,8 @@ foreach($blob in $blobs)
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

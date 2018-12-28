@@ -8,16 +8,18 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 61a4e3700e88efba1ea9cea876b19e2f7ed4168b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: b76bea6207cd6ac5d2ed570cf54dde7c52d5ff97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137065"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309615"
 ---
 # <a name="predictive-maintenance-solution-accelerator-overview"></a>預測性維護解決方案加速器概觀
 
 預測性維護解決方案加速器是一個端對端解決方案，適用於預測可能發生失敗之時間點的商務案例。 您可以針對最佳化維護等活動，主動使用此解決方案加速器。 此解決方案結合了主要 Azure IoT 解決方案加速器服務，例如 IoT 中樞和 [Azure Machine Learning][lnk-machine-learning] 工作區。 此工作區包含以公開範例資料集為基礎的模型，用來預測飛機引擎的剩餘使用年限 (RUL)。 此解決方案完整提供 IoT 商務案例的實作作為起點，讓您規劃和實作能滿足特定商務需求的解決方案。
+
+[GitHub](https://github.com/Azure/azure-iot-predictive-maintenance) 有提供了預測性維護解決方案加速器程式碼。
 
 ## <a name="logical-architecture"></a>邏輯架構
 
@@ -43,7 +45,7 @@ ms.locfileid: "50137065"
 
 ## <a name="simulated-devices"></a>模擬的裝置
 
-在解決方案加速器中，模擬的裝置是飛機引擎。 此解決方案已佈建兩個對應至單一飛機的引擎。 每個引擎會發出四種類型的遙測：感應器 9、感應器 11、感應器 14 和感應器 15 會提供 Machine Learning 模型來計算該引擎的 RUL 所需的資料。 每個模擬的裝置會將下列遙測訊息傳送至 IoT 中樞：
+在解決方案加速器中，模擬的裝置是飛機引擎。 此解決方案已佈建兩個對應至單一飛機的引擎。 每個引擎會發出四種類型的遙測資料：感應器 9、感應器 11、感應器 14 和感應器 15 會提供必要的資料，以供 Machine Learning 模型計算該引擎的 RUL。 每個模擬的裝置會將下列遙測訊息傳送至 IoT 中樞：
 
 *週期計數*。 週期是已完成持續期間介於 2 小時與 10 小時之間的飛行。 在飛行期間，每半小時擷取一次遙測資料。
 

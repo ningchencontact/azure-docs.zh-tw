@@ -10,14 +10,14 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 847794d46addc7f3cba09437c2d2c6e8a3a04e89
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165411"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956972"
 ---
-# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0 翻譯
+# <a name="translator-text-api-30-translate"></a>翻譯工具文字 API 3.0：翻譯
 
 翻譯文字。
 
@@ -42,11 +42,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 `translation` 範圍查閱[支援語言](.\v3-0-languages.md)，以尋找可用於翻譯的來源語言。 若未指定 `from` 參數，則會套用自動語言偵測來判斷來源語言。</td>
+    <td>選擇性參數。<br/>指定輸入文字的語言。 使用 `translation` 範圍查閱[支援語言](./v3-0-languages.md)，以尋找可用於翻譯的來源語言。 若未指定 `from` 參數，則會套用自動語言偵測來判斷來源語言。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `translation` 範圍內包含的[支援語言](.\v3-0-languages.md)之一。 例如，使用 `to=de` 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 `to=de&to=it` 翻譯為德文和義大利文。</td>
+    <td>必要參數。<br/>指定輸出文字的語言。 目標語言必須是 `translation` 範圍內包含的[支援語言](./v3-0-languages.md)之一。 例如，使用 `to=de` 翻譯為德文。<br/>在查詢字串中重複參數，可能會同時翻譯為多種語言。 例如，使用 `to=de&to=it` 翻譯為德文和義大利文。</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -133,11 +133,11 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 
 成功的回應是輸入陣列的每個字串各有一個結果的 JSON 陣列。 結果物件包含下列屬性：
 
-  * `detectedLanguage`：物件，透過下列屬性描述偵測到語言：
+  * `detectedLanguage`：物件，透過下列屬性描述偵測到的語言：
 
       * `language`：字串，代表偵測到語言的代碼。
 
-      * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，低分數表示信賴度徧低。
+      * `score`：浮點值，表示結果的信賴度。 分數介於 0 與 1 之間，分數低表示信賴度偏低。
 
     只有在要求自動偵測語言時，`detectedLanguage` 屬性才會存在於結果物件中。
 

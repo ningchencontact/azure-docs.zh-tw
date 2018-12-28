@@ -1,5 +1,5 @@
 ---
-title: 如何建立 App Service 環境 v1
+title: 如何建立 App Service 環境 v1 - Azure
 description: App Service 環境 v1 的建立流程說明
 services: app-service
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/11/2017
+ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 1df3b790d0c6c0f597a8559551ff5e42c9f110e4
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.custom: seodec18
+ms.openlocfilehash: 9bc796c4d0d449f72dc3234bc2825554eafaf77f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230262"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339887"
 ---
 # <a name="how-to-create-an-app-service-environment-v1"></a>如何建立 App Service 環境 v1 
 
@@ -55,7 +56,7 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 4. 請選取您的虛擬網路及位置選項。 您可以選擇建立新的 VNet，或選取既有的 VNet。 如果您選取新的 VNet，則可以指定名稱和位置。 新的 VNet 會有位址範圍 192.168.250.0/23，和定義為 192.168.250.0/24 名為 **default** 的子網路。 您也可以僅選取既有的傳統或 Resource Manager VNet。 [VIP 類型] 選項會決定您的 ASE 是否可以從網際網路 (外部) 直接存取，或者它使用內部負載平衡器 (ILB)。 若要深入了解，請參閱[在 App Service 環境中使用內部負載平衡器][ILBASE]。 如果您選取 [外部] VIP 類型，則可以選取系統針對 IPSSL 用途會建立幾個外部 IP 位址。 如果您選取 [內部]，則需要指定 ASE 將使用的子網域。 ASE 可以部署到使用公用位址範圍*或* RFC1918 位址空間 (也就是私人位址) 的虛擬網路。 若要搭配使用虛擬網路與公用位址範圍，您必須事先建立 VNet。 選取既有的 VNet 時，您必須在 ASE 建立期間建立新的子網路。 **您無法在入口網站中使用預先建立的子網路。如果您使用 Resource Manager 範本建立 ASE，則可以使用既有的子網路建立 ASE。** 若要使用此處的資訊透過範本建立 ASE，[從範本建立 App Service 環境][ILBAseTemplate]，以及這裡[從範本建立 ILB App Service 環境][ASEfromTemplate]。
 
 ### <a name="details"></a>詳細資料
-一個 ASE 是使用 2 個前端和 2 個背景工作角色建立。 前端可做為 HTTP/HTTPS 端點，將流量傳送到背景工作角色 (也就是裝載您的應用程式的角色)。 建立 ASE 之後，您可以調整數量，且甚至可以在這些資源集區上設定自動調整規則。 如需更多關於手動調整、管理及監視 App Service 環境的詳細資料，請前往此處：[如何設定 App Service 環境][ASEConfig] 
+一個 ASE 是使用 2 個前端和 2 個背景工作角色建立。 前端可做為 HTTP/HTTPS 端點，將流量傳送到背景工作角色 (也就是裝載您的應用程式的角色)。 建立 ASE 之後，您可以調整數量，且甚至可以在這些資源集區上設定自動調整規則。 如需更多關於手動調整、管理及監視 App Service 環境的詳細資料，請參閱：[如何設定 App Service 環境][ASEConfig] 
 
 只有一個 ASE 可以存在於 ASE 所使用的子網路中。 子網路無法用於 ASE 以外的任何項目
 
@@ -67,9 +68,9 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 * IP SSL 可用的 IP 位址數目
 * 前端或背景工作所使用的計算資源大小 (前端大小下限為 P2)
 
-以下有更多關於手動調整、管理及監視 App Service 環境的詳細資料：[如何設定 App Service 環境][ASEConfig] 
+以下提供更多關於手動調整、管理及監視 App Service 環境的詳細資料：[如何設定 App Service 環境][ASEConfig] 
 
-如需自動調整的相關資訊，請參閱：[如何設定 App Service 環境的自動調整][ASEAutoscale]
+如需自動調整的詳細資訊，請參閱下列指南：[如何設定 App Service 環境的自動調整][ASEAutoscale]
 
 有其他無法自訂的相依性，例如資料庫和儲存體。 這些都是由 Azure 處理並由系統隨附。 系統儲存體對於整個 App Service 環境最多可支援 500 GB，且 Azure 會根據系統規模的需要來調整資料庫。
 
@@ -85,8 +86,8 @@ App Service 環境 (ASE) 是 Azure App Service 的進階服務選項，可提供
 <!--Links-->
 [WhatisASE]: app-service-app-service-environment-intro.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md
-[ILBAseTemplate]: http://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
+[ILBAseTemplate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-create/
 [ASEfromTemplate]: app-service-app-service-environment-create-ilb-ase-resourcemanager.md

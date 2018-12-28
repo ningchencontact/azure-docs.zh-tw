@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中對認知搜尋進行疑難排解的秘訣 | Microsoft Docs
+title: 對認知搜尋進行疑難排解的秘訣 - Azure 搜尋服務
 description: 在 Azure 搜尋中設定認知搜尋管線的秘訣和疑難排解。
 services: search
 manager: pablocas
@@ -10,18 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 3d0d468674a2284e9925c1410f2bb8bcbde8f73f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.custom: seodec2018
+ms.openlocfilehash: 5f21fe3c65e37d3fee4043526762a7fafdea5cc4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575289"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316289"
 ---
 # <a name="troubleshooting-tips-for-cognitive-search"></a>對認知搜尋進行疑難排解的秘訣
 
 本文提供一系列的秘訣和技巧，讓您能夠順暢地在 Azure 搜尋服務中開始使用認知搜尋功能。 
 
-如果您尚未逐步執行[教學課程：了解如何呼叫認知搜尋 API](cognitive-search-quickstart-blob.md)，以了解將認知搜尋擴充套用至 Blob 資料來源的實務作法，請於此時執行。
+如果您尚未如此，請逐步進行[教學課程：了解如何呼叫認知搜尋 API](cognitive-search-quickstart-blob.md)，以了解將認知搜尋擴充套用至 Blob 資料來源的實務作法，請於此時執行。
 
 ## <a name="tip-1-start-with-a-small-dataset"></a>秘訣 1：從小型資料集開始著手
 想要快速找出問題，最理想的方式是加快修正問題的速度。 而要想縮短編製索引的時間，最好是藉由減少要編製索引的文件數目來著手。 
@@ -36,7 +37,7 @@ ms.locfileid: "45575289"
 https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage#how-to-specify-credentials)一節，以了解不同的支援格式。
 - 您在索引子中的容器名稱是正確的。
 
-## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>祕訣 3：即使發生失敗的狀況，也請找出可行的部分
+## <a name="tip-3-see-what-works-even-if-there-are-some-failures"></a>秘訣 3：即使發生失敗的狀況，也請找出可行的部分
 有時候，輕微的失敗狀況也會使索引子停止運作。 如果您做好逐一修正問題的計劃，這就不構成妨礙。 不過，您可能會想要忽略特定類型的錯誤，而讓索引子能繼續執行，以便您查看哪些流程實際上是可運作的。
 
 在此情況下，您可以指示索引子忽略錯誤。 若要這麼做，可以在定義索引子的過程中將 *maxFailedItems* 和 *maxFailedItemsPerBatch* 設定為 -1。
@@ -97,7 +98,7 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 
 對於以入口網站為基礎的索引編製 (如快速入門所說明)，選擇 [執行一次] 索引子選項，會將處理時間限制為 1 小時 (`"maxRunTime": "PT1H"`)。 您可以延長處理時間範圍。
 
-## <a name="tip-7-increase-indexing-throughput"></a>提示 7：提高索引編製輸送量
+## <a name="tip-7-increase-indexing-throughput"></a>秘訣 7：提高索引編製輸送量
 
 對於[平行索引編製](search-howto-large-index.md)，請將您的資料放入多個容器中，或是相同容器內的多個虛擬資料夾中。 接著，請建立多個資料來源和索引子配對。 所有索引子將可使用相同的技能集，並寫入至相同的目標搜尋索引，而讓您的搜尋應用程式無須辨識此分割。
 如需詳細資訊，請參閱[為大型資料集編製索引](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)。

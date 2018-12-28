@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfb53ddf666426253cce08e6f09a5297f5d2f4d3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: ae2b06f266ef19d9558511284ba94c77cdca1955
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634102"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409678"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>使用 Data Lake Tools for Visual Studio 執行 Apache Hive 查詢
 
@@ -24,7 +24,7 @@ ms.locfileid: "51634102"
 
 * Azure HDInsight (HDInsight 上的 Apache Hadoop) 叢集
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * Visual Studio (下列其中一個版本)：
@@ -37,7 +37,7 @@ ms.locfileid: "51634102"
 
 * HDInsight tools for Visual Studio 或 Azure Data Lake tools for Visual Studio。 如需有關安裝和設定工具的資訊，請參閱 [開始使用 Visual Studio Hadoop Tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md) 。
 
-## <a id="run"></a> 使用 Visual Studio 執行 Hive 查詢
+## <a id="run"></a> 使用 Visual Studio 執行 Apache Hive 查詢
 
 1. 開啟 **Visual Studio**，然後選取 [新增]  >  [專案]  >  [Azure Data Lake]  >  [HIVE]  >  [Hive 應用程式]。 提供此專案的名稱。
 
@@ -54,16 +54,16 @@ ms.locfileid: "51634102"
 
     這些陳述式會執行下列動作：
 
-   * `DROP TABLE`︰如果資料表存在，此陳述式將刪除它。
+   * `DROP TABLE`：如果資料表存在，此陳述式將刪除它。
 
-   * `CREATE EXTERNAL TABLE`在 Hive 中建立新的「外部」資料表。 外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
+   * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的「外部」資料表。 外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 當您預期會由外部來源來更新基礎資料時，請使用外部資料表。 例如，MapReduce 工作或 Azure 服務。
      >
      > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
 
-   * `ROW FORMAT`：告訴 Hive 如何格式化資料。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * `ROW FORMAT`：告訴 Hive 如何設定資料格式。 在此情況下，每個記錄中的欄位會以空格隔開。
 
    * `STORED AS TEXTFILE LOCATION`：將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
 
@@ -95,12 +95,12 @@ ms.locfileid: "51634102"
 
    * `CREATE TABLE IF NOT EXISTS`：建立資料表 (如果不存在)。 因為未使用 `EXTERNAL` 關鍵字，這個陳述式會建立內部資料表。 內部資料表儲存在 Hive 資料倉儲中，並受到 Hive 所管理。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 與 `EXTERNAL` 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
 
    * `STORED AS ORC`：以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
 
-   * `INSERT OVERWRITE ... SELECT`︰從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
+   * `INSERT OVERWRITE ... SELECT`：從含有 `[ERROR]`的 `log4jLogs` 資料表選取資料列，然後將資料插入 `errorLogs` 資料表。
 
 8. 從工具列中，選取 [ **提交** ] 來執行工作。 使用 [ **工作狀態** ] 來判斷工作是否已順利完成。
 
@@ -112,27 +112,27 @@ ms.locfileid: "51634102"
 
 如需 HDInsight 中 Hive 的一般資訊：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 如需 HDInsight Tools for Visual Studio 的詳細資訊：
 
 * [開始使用 HDInsight Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -147,7 +147,7 @@ ms.locfileid: "51634102"
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]:apache-hadoop-linux-tutorial-get-started.md
 
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
 [img-hdi-hive-powershell-output]: ./media/hdinsight-use-hive/HDI.Hive.PowerShell.Output.png

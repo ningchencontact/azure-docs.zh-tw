@@ -1,21 +1,22 @@
 ---
-title: 語音服務 SDK API 文件 - 教學課程、API 參考
+title: 使用語音 SDK 開發應用程式 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用「語音服務 SDK」來建立和開發應用程式
+description: 了解如何使用語音 SDK 建立應用程式。
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: 7510b1501051b79f6bdaf33ec57647a7982fafda
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 4999639356fd440b6358983f1e4859fb3c505fc7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469413"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106493"
 ---
 # <a name="ship-an-application"></a>交付應用程式
 
@@ -23,7 +24,7 @@ ms.locfileid: "49469413"
 
 視平台而定，有不同的相依性存在以執行您的應用程式。
 
-## <a name="windows"></a>Windows
+## <a name="windows"></a> Windows
 
 測試認知語音 SDK 會在 Windows 10 和 Windows Server 2016 上進行測試。
 
@@ -38,7 +39,7 @@ ms.locfileid: "49469413"
 
 在與您的應用程式相同的目錄中，可以部署必要的語音 SDK 檔案。 如此一來，您的應用程式就可以直接存取程式庫。 確定您選取與您的應用程式相符的正確版本 (Win32/x64)。
 
-| 名稱 | 函式
+| Name | 函式
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 核心 SDK (原生和受控部署所需)
 | `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | 受控部署所需
