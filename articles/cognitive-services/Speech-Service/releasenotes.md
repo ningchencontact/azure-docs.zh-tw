@@ -1,21 +1,22 @@
 ---
-title: 語音服務 SDK 文件
+title: 版本資訊 - 語音服務
 titlesuffix: Azure Cognitive Services
-description: 版本資訊 - 最近版本中的變更
+description: 請參閱 Azure 語音服務的功能版本、功能改進、Bug 修正和已知問題的執行記錄。
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/06/2018
 ms.author: wolfma
-ms.openlocfilehash: ff09926d61d64294a4f12ccf959f6685910539f1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.custom: seodec18
+ms.openlocfilehash: c99f1691618765e8997ef442a506c83b9a7bd4fa
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317886"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088291"
 ---
 # <a name="release-notes"></a>版本資訊
 
@@ -64,7 +65,7 @@ ms.locfileid: "52317886"
 
 在我們的[範例存放庫](https://aka.ms/csspeech/samples)中，已新增新的 JavaScript 範例。
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>認知服務語音 SDK 1.0.0：2018 年 9 月版
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>認知服務語音 SDK 1.0.0：2018 年 9 月版本
 
 **新功能**
 
@@ -76,7 +77,7 @@ ms.locfileid: "52317886"
 * 此版本引進了幾個重大變更。
   如需詳細資訊，請參閱[此頁面](https://aka.ms/csspeech/breakingchanges_1_0_0)。
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>認知服務語音 SDK 0.6.0：2018 年 8 月版本
 
 **新功能**
 
@@ -102,11 +103,11 @@ ms.locfileid: "52317886"
 * 已修正問題，長時間執行的辨識可能會在傳輸途中終止。
 * 已修正辨識器關機中的競爭條件。
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>認知服務語音 SDK 0.5.0：2018 年 7 月版本
 
 **新功能**
 
-* 支援 Android 平台 (API 23: Android 6.0 Marshmallow 或更新版本)。 請參閱 [Android 快速入門](quickstart-java-android.md)。
+* 支援 Android 平台 (API 23：Android 6.0 Marshmallow 或更新版本)。 請參閱 [Android 快速入門](quickstart-java-android.md)。
 * 在 Windows 上支援 .NET Standard 2.0。 請參閱 [.NET Core 快速入門](quickstart-csharp-dotnetcore-windows.md)。
 * 實驗性：在 Windows 上支援 UWP (1709 版或更新版本)。
   * 請參閱 [UWP 快速入門](quickstart-csharp-uwp.md)。
@@ -127,13 +128,13 @@ ms.locfileid: "52317886"
    * 在 Java 中，`read` 方法現在會傳回 `long` 而不是 `int`。
    * 在 C# 中，`Read` 方法現在會傳回 `uint` 而不是 `int`。
    * 在 C++ 中，`Read` 和 `GetFormat` 方法現在會傳回 `size_t` 而不是 `int`。
-* C++：音訊輸入串流的執行個體現在只能當作 `shared_ptr` 傳遞。
+* C++：音訊輸入串流的執行個體現在只能以 `shared_ptr` 的形式傳遞。
 
 **錯誤修正**
 
 * 修正 `RecognizeAsync()` 逾時的時候，結果中不正確的傳回值。
 * 已移除 Windows 上媒體基礎程式庫的相依性。 SDK 現在使用核心音訊 API。
-* 文件修正：已新增[區域](regions.md)頁面來描述支援的區域。
+* 文件修正：已新增 [[區域]](regions.md) 頁面來說明支援的區域。
 
 **已知問題**
 
@@ -175,6 +176,6 @@ ms.locfileid: "52317886"
 
 已新增更多範例，且持續更新。 如需最新的範例集，請參閱[語音 SDK 範例 GitHub 存放庫](https://aka.ms/csspeech/samples) \(英文\)。
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>認知服務語音 0.2.12733：2018 年 5 月版本
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>認知服務語音 SDK 0.2.12733：2018 年 5 月版本
 
 此版本為認知服務語音 SDK 的第一個公開預覽版本。
