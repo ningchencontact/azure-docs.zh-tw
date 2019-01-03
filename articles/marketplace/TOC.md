@@ -196,10 +196,6 @@
 #### [店面詳細資料索引標籤](./cloud-partner-portal/consulting-services/cpp-consulting-service-storefront-details.md)
 ### [發佈諮詢服務供應項目](./cloud-partner-portal/consulting-services/cpp-consulting-service-publish-offer.md) 
 
-## [管理發行者設定檔](./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)
-## [管理使用者](./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md)
-## [GDPR 合規性](./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md)
-
 ## 試用產品
 ### [什麼是試用產品？](./cloud-partner-portal-orig/what-is-test-drive.md)
 ### [Azure Resource Manager 試用產品](./cloud-partner-portal-orig/azure-resource-manager-test-drive.md)
