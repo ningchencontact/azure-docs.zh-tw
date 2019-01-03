@@ -272,7 +272,7 @@ Cmdlet 可以協助您完成更新 Log Analytics 閘道的組態設定時需執�
 ## <a name="troubleshooting"></a>疑難排解
 若要收集閘道所記錄的事件，您還需要安裝 Log Analytics 代理程式。<br><br> ![事件檢視器 – Log Analytics 閘道記錄](./media/gateway/event-viewer.png)
 
- **閘道事件識別碼與描述**
+**閘道事件識別碼與描述**
 
 以下表格顯示 Log Analytics 閘道記錄事件的事件識別碼與描述。
 

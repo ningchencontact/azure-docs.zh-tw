@@ -57,7 +57,7 @@ map 和 reduce 處理序會稍有不同，因為這些作業是 MapReduce 服務
 
     -XX:+HeapDumpOnOutOfMemoryError
 
- **+** 表示已啟用此選項。 預設值為停用。
+**+** 表示已啟用此選項。 預設值為停用。
 
 > [!WARNING]
 > 根據預設不會在 HDInsight 上啟用 Hadoop 服務的堆積傾印，因為傾印檔案可能會很龐大。 如果您為了進行疑難排解而啟用它們，請記得在重現問題並收集傾印檔案之後將其停用。
