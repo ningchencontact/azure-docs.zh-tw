@@ -135,14 +135,14 @@ ms.locfileid: "52319057"
 
 5.  在疑難排解虛擬機器上，啟動登錄編輯程式 (regedit.exe)。
 
-6.  反白 **HKEY_LOCAL_MACHINE**  索引鍵，然後從功能表選取 [檔案] [載入 Hive] > 。  **** 
+6.  反白 **HKEY_LOCAL_MACHINE**  索引鍵，然後從功能表選取 [ **檔案**]  >  [**載入 Hive**]。 
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
 7.  找出，然後開啟 \windows\system32\config\SYSTEM 檔案。 
 
     > [!Note]
-    > 系統會提示您輸入名稱。 輸入  **BROKENSYSTEM**，然後展開  **HKEY_LOCAL_MACHINE**。 您會看見名稱為  **BROKENSYSTEM** 的額外索引鍵。 如需此疑難排解，我們會將這些有問題的 Hive 掛接為  **BROKENSYSTEM**。
+    > 系統會提示您輸入名稱。 輸入  **BROKENSYSTEM**，然後展開  **HKEY_LOCAL_MACHINE**。 您會看見名稱為 **BROKENSYSTEM** 的額外索引鍵。 如需此疑難排解，我們會將這些有問題的 Hive 掛接為  **BROKENSYSTEM**。
 
 8.  在 BROKENSYSTEM 分支上進行下列變更：
 
@@ -164,7 +164,7 @@ ms.locfileid: "52319057"
         
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
 
-9.  反白  **BROKENSYSTEM**，然後從功能表選取 [檔案] > [上傳 Hive] 。  ****
+9.  反白  **BROKENSYSTEM**，然後從功能表選取 [ **檔案**]  >  [**上傳 Hive**] 。
 
 10. [中斷連結系統磁碟，並重新建立虛擬機器](troubleshoot-recovery-disks-portal-windows.md)。
 

@@ -102,11 +102,11 @@ ms.locfileid: "53339394"
  
    是。 所有客戶都能向新的 SQL VM 資源提供者註冊。 不過，只有具有軟體保證權益的客戶可以在 SQL Server VM 上啟用 [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (或 BYOL)。 
 
-1. *若 VM 資源被移動或捨棄，Microsoft.SqlVirtualMachine* 資源會發生什麼事？** 
+1. **若 VM 資源被移動或捨棄，\*Microsoft.SqlVirtualMachine\* 資源會發生什麼事？** 
 
    當 Microsoft.Compute/VirtualMachine 資源被捨棄或移動時，系統會通知關聯的 Microsoft.SqlVirtualMachine 資源，讓其以非同步方式複寫作業。
 
-1. **若  _* Microsoft.SqlVirtualMachine_*  資源被卸除，VM 會發生什麼事？**
+1. **若  _\*Microsoft.SqlVirtualMachine_\*  資源被卸除，VM 會發生什麼事？**
 
    當 Microsoft.SqlVirtualMachine 資源被卸除時，Microsoft.Compute/VirtualMachine 資源不會受影響。 不過，授權變更將會還原為預設的原始映像來源。 
 
