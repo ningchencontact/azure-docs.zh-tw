@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29c7fc279aec79750df48c70be7792869e89ae78
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: a42f4ce85214ad2a8c5692736b7d36101ccb62ed
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094350"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556215"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>設定 IoT Edge 裝置作為透明閘道
 
@@ -41,7 +41,7 @@ ms.locfileid: "53094350"
 ## <a name="prerequisites"></a>必要條件
 
 設定為閘道的 Azure IoT Edge 裝置。 您可以透過下列作業系統的步驟，使用開發電腦或虛擬機器作為 IoT Edge 裝置：
-* [Windows](./how-to-install-iot-edge-windows-with-windows.md)
+* [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
 
@@ -60,9 +60,9 @@ ms.locfileid: "53094350"
    >[!NOTE]
    >如果您已經在 Windows 裝置上安裝 OpenSSL，則可以略過此步驟，但請確定您的 PATH 環境變數中有 openssl.exe。
 
-* **較簡便：** 下載並安裝任何[第三方 OpenSSL 二進位檔](https://wiki.openssl.org/index.php/Binaries)，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
+* **較簡便：** 下載並安裝任何第三方 OpenSSL 二進位檔，例如，從 [SourceForge 上的這個專案](https://sourceforge.net/projects/openssl/)下載並安裝。 將 openssl.exe 的完整路徑加入至您的 PATH 環境變數。 
    
-* **建議使用：** 自行下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以輕鬆的步驟完成。
+* **建議配備：** 自行下載 OpenSSL 原始程式碼並在您的電腦上組建二進位檔，或是透過 [vcpkg](https://github.com/Microsoft/vcpkg) 來執行。 下列指示會使用 vcpkg 下載原始程式碼，並在 Windows 電腦上編譯並安裝 OpenSSL，且各項作業都能以輕鬆的步驟完成。
 
    1. 瀏覽至要安裝 vcpkg 的目錄。 我們將此目錄稱之為 *\<VCPKGDIR>*。 依照指示下載並安裝 [vcpkg](https://github.com/Microsoft/vcpkg)。
    
