@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/05/2018
 ms.author: bwren
-ms.openlocfilehash: fdf8d8977651c868c9f534dc61e3d1a77a43e672
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 84ab63d145d9726fad83b7b2337542fef5c8743d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435938"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718957"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>監視 Azure 監視器所收集的資料
 [Azure 監視器](../overview.md)是一項服務，可協助您監視應用程式及其所依賴的資源。 此功能的核心是儲存來自受監視資源的遙測和其他資料。 本文提供如何透過 Azure 監視器來儲存和使用此資料的完整說明。
@@ -86,7 +86,7 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 **應用程式計量**是由 Application Insights 為您受監視的應用程式所建立，可協助您偵測效能問題，以及追蹤應用程式的使用趨勢。 這包括像是「伺服器回應時間」和「瀏覽器例外狀況」之類的值。
 
 **自訂計量**是除了自動可供使用的標準計量之外您所定義的計量。 您必須針對與該資源相同區域中的單一資源建立自訂計量。 您可以使用下列方法來建立自訂計量：
-    - [在應用程式中定義自訂計量](../../application-insights/app-insights-api-custom-events-metrics.md)，透過 Application Insights 進行監視。 這些是除了標準的應用程式計量組合以外的計量。
+    - [在應用程式中定義自訂計量](../../azure-monitor/app/api-custom-events-metrics.md)，透過 Application Insights 進行監視。 這些是除了標準的應用程式計量組合以外的計量。
     - 使用 [Windows 診斷延伸模組 (WAD)](../../azure-monitor/platform/diagnostics-extension-overview.md)，從您的 Windows 虛擬機器發佈自訂計量。
     - 使用 [InfluxData Telegraf 代理程式](https://www.influxdata.com/time-series-platform/telegraf/)，從您的 Linux 虛擬機器發佈自訂計量。
     - 使用自訂計量 API，從 Azure 服務撰寫自訂計量。
@@ -100,8 +100,8 @@ Azure 監視器所收集的計量有三個基本來源。 這些計量全都適�
 - 設定[計量警示規則](alerts-metric.md)，在計量超出閾值時，傳送通知或採取[自動化動作](action-groups.md)。
 - 使用[自動調整規模](../../azure-monitor/platform/autoscale-overview.md)，根據超出閾值的計量來增加或減少資源。
 - 將計量路由傳送到 Log Analytics 來分析計量資料與記錄資料，並儲存計量值超過 93 天。 
-- 將計量串流處理到[事件中樞](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../../stream-analytics/stream-analytics-introduction.md)或外部系統。
-- [封存](../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。
+- 將計量串流處理到[事件中樞](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)，以將它們路由傳送到 [Azure 串流分析](../../stream-analytics/stream-analytics-introduction.md)或外部系統。
+- [封存](../../azure-monitor/learn/tutorial-archive-data.md)資源的效能或健全狀況歷程記錄，以用於相容性、稽核或離線報告。
 - 使用 [PowerShell Cmdlet](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0) 或 [REST API](../../azure-monitor/platform/rest-api-walkthrough.md)，從命令列或自訂應用程式中存取計量值。
 
 
@@ -129,7 +129,7 @@ Azure 監視器中的計量儲存在針對快速擷取最佳化的時間序列�
 ### <a name="sources-of-log-data"></a>記錄資料的來源
 Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資料。 記錄檔資料來源包含下列各項：
 
-- 來自 Azure 資源的[活動記錄](collect-activity-logs.md) (包括其設定和健康情況的相關資訊) 與[診斷記錄](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) (可深入解析它們的作業)。
+- 來自 Azure 資源的[活動記錄](collect-activity-logs.md) (包括其設定和健康情況的相關資訊) 與[診斷記錄](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) (可深入解析它們的作業)。
 - [Windows](agent-windows.md) 和 [Linux](../learn/quick-collect-linux-computer.md) 虛擬機器上的代理程式會根據您設定的[資料來源](data-sources.md)，將遙測從客體作業系統和應用程式傳送到 Azure 監視器。
 - [Application Insights](https://docs.microsoft.com/azure/application-insights/) 所收集的應用程式資料。
 - 可從[監視解決方案](../insights/solutions.md)或功能 (例如，容器深入解析、VM Insights 或資源群組深入解析) 來深入解析特定應用程式或服務的資料。
@@ -156,7 +156,7 @@ Azure 監視器可以在 Azure 中及內部部署資源的各種來源收集資�
 Azure 監視器中的所有記錄資料，都是使用以[資料總管查詢語言](../log-query/get-started-queries.md)撰寫的[記錄查詢](../log-query/log-query-overview.md)來擷取，可讓您快速擷取、彙總及分析收集的資料。 使用 [Log Analytics](../log-query/portals.md) 在 Azure 入口網站中撰寫及測試查詢。 您可以互動方式使用結果，或將結果釘選到儀表板，利用其他視覺效果進行檢視。 您也可以使用 [Azure 監視 REST API](../../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md) 來擷取記錄。
 
 > [!IMPORTANT]
-> 來自 Application Insights 的資料是儲存在與 Azure 監視器中其他記錄資料分開的磁碟分割區中。 這支援與其他記錄資料相同的功能，但您必須使用 [Application Insights 主控台](/application-insights/app-insights-analytics.md)或 [Application Insights API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)來分析應用程式資料和其他記錄資料。
+> 來自 Application Insights 的資料是儲存在與 Azure 監視器中其他記錄資料分開的磁碟分割區中。 這支援與其他記錄資料相同的功能，但您必須使用 [Application Insights 主控台](/azure-monitor/app/analytics.md)或 [Application Insights API](https://dev.applicationinsights.io/) 來存取此資料。 您可以使用[跨資源查詢](../log-query/cross-workspace-query.md)來分析應用程式資料和其他記錄資料。
 
 ![記錄檔](media/data-collection/logs.png)
 
@@ -176,7 +176,7 @@ Azure 監視器中的所有記錄資料，都是使用以[資料總管查詢語�
 ## <a name="stream-data-to-external-systems"></a>將資料串流處理到外部系統
 除了使用 Azure 中的工具來分析監視資料，您可能也有將監視資料轉送到外部工具的需求，例如安全性資訊和事件管理 (SIEM) 產品。 此轉送通常是透過 [Azure 事件中樞](https://docs.microsoft.com/azure/event-hubs/)，直接從受監視的資源來完成。 
 
-您可以在[將 Azure 監視資料串流至事件中樞以供外部工具取用](../../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md)取得各種監視資料的指引。
+您可以在[將 Azure 監視資料串流至事件中樞以供外部工具取用](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)取得各種監視資料的指引。
 
 ## <a name="next-steps"></a>後續步驟
 

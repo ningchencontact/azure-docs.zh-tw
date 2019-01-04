@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 417f542bcf1711b2ac8e986663353e29a3705fb3
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c6bcc5a7948e87a8b887bd0ebd3abc8fc3d3a517
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388265"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53545309"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 診斷記錄支援的服務、結構描述和類別
 
-[Azure 監視器診斷記錄](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)是 Azure 服務所發出的記錄，會描述這些服務或資源的作業。 透過 Azure 監視器提供的所有診斷記錄都會共用通用最上層結構描述，並且具有每個服務發出其專屬事件之唯一屬性的彈性。
+[Azure 監視器診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)是 Azure 服務所發出的記錄，會描述這些服務或資源的作業。 透過 Azure 監視器提供的所有診斷記錄都會共用通用最上層結構描述，並且具有每個服務發出其專屬事件之唯一屬性的彈性。
 
 資源類型 (適用於 `resourceId` 屬性) 與 `category` 的組合可唯一識別結構描述。 本文描述每個服務結構描述之診斷記錄和連結的最上層結構描述。
 
@@ -205,7 +205,7 @@ ms.locfileid: "53388265"
 
 ## <a name="next-steps"></a>後續步驟
 
-* [深入了解診斷記錄](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-* [將資源診斷記錄串流至**事件中樞**](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [深入了解診斷記錄](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [將資源診斷記錄串流至**事件中樞**](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure 監視器 REST API 變更資源診斷設定](https://msdn.microsoft.com/library/azure/dn931931.aspx)
 * [使用 Log Analytics 分析來自 Azure 儲存體的記錄](../../azure-monitor/platform/collect-azure-metrics-logs.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: asrastog
-ms.openlocfilehash: a5b8ce8cd753ee294a8d61ba8a3dfed872f0f31a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69c890cfc3db04fe625ed7ad008f545c01844834
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956316"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993479"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>使用 Azure Data Lake Analytics 查詢 Avro 資料
 
@@ -21,7 +21,7 @@ ms.locfileid: "46956316"
 
 過往的挑戰是，當 Azure IoT 中樞將訊息路由至 Azure Blob 儲存體時，IoT 中樞會以 Avro 格式寫入內容，而其中同時包含訊息本文屬性和訊息屬性。 IoT 中樞僅支援以 Avro 資料格式將資料寫入至 Blob 儲存體，而此格式不會用於任何其他端點。 如需詳細資訊，請參閱有關使用 Azure 儲存體容器的文章。 雖然 Avro 格式很適合用來保存資料和訊息，但難以用來查詢資料。 相較之下，JSON 或 CSV 格式則非常適合用來查詢資料。
 
-<!-- https://review.docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
+<!-- https://review.docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c?branch=pr-en-us-51566#azure-blob-storage  NEW LINK FOR 'WHEN USING STORAGE CONTAINERS' -->
 
 若要因應非關聯式巨量資料的需求和格式並克服這項挑戰，您可以使用多種巨量資料模式來轉換和調整資料。 Azure Data Lake Analytics 即為其中一種模式，屬於「依查詢量付費」模式，這是此文章的焦點。 雖然您可以在 Hadoop 或其他解決方案中輕鬆地執行查詢，但對於這種「依查詢量付費」的方法，使用 Data Lake Analytics 通常會適合得多。 
 
@@ -171,7 +171,7 @@ U-SQL 中的 Avro 有一個「擷取程式」。 如需詳細資訊，請參閱 
 
 在本教學課程中，您已了解如何查詢 Avro 資料，以有效率地將訊息從 Azure IoT 中樞路由至 Azure 服務。
 
-如需會使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 解決方案加速器文件](../iot-accelerators/index.yml)。
+如需會使用 IoT 中樞的完整端對端解決方案範例，請參閱 [Azure IoT 解決方案加速器文件](/azure/iot-accelerators)。
 
 若要深入了解如何使用 IoT 中樞開發解決方案，請參閱 [IoT 中樞開發人員指南](iot-hub-devguide.md)。
 

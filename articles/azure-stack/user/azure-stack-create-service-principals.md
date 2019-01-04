@@ -3,27 +3,26 @@ title: 為 Azure Stack 建立服務主體 | Microsoft Docs
 description: 描述如何建立可以與 Azure Resource Manager 中的角色型存取控制搭配使用來管理資源存取權的服務主體。
 services: azure-resource-manager
 documentationcenter: na
-author: sethmanheim
+author: mattbriggs
 manager: femila
-ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2018
-ms.author: sethm
+ms.date: 12/12/2018
+ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: a32327109bc71a41f871682936c5f27ed490975c
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c205055239b7bf16bbb73448c21818de419e623
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958309"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715818"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>建立服務主體以將應用程式存取權提供給 Azure Stack 資源
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以建立使用 Azure Resource Manager 的服務主體，以將應用程式存取權提供給 Azure Stack 資源。 服務主體可讓您使用[角色型存取控制](azure-stack-manage-permissions.md)委派特定權限。
 
@@ -52,7 +51,7 @@ ms.locfileid: "49958309"
 
 在 Azure AD 與 AD FS 中，將服務主體指派給角色的步驟相同。 建立服務主體之後，您可藉由將服務主體指派給角色來[委派權限](azure-stack-create-service-principals.md#assign-role-to-service-principal)。
 
-## <a name="create-a-service-principal-for-azure-ad"></a>為 Azure AD 建立服務主體
+## <a name="create-service-principal-for-azure-ad"></a>為 Azure AD 建立服務主體
 
 如果 Azure Stack 使用 Azure AD 作為身分識別存放區，您可以在 Azure 入口網站中使用與 Azure 中相同的步驟建立服務主體。
 
@@ -95,7 +94,7 @@ ms.locfileid: "49958309"
 * 將服務主體指派給角色。
 * 使用服務主體的身分識別進行登入。
 
-如需如何建立服務主體的詳細資訊，請參閱[為 AD FS 建立服務主體](../azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)。
+如需如何建立服務主體的詳細資訊，請參閱[為 AD FS 建立服務主體](../azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
 
 ## <a name="assign-the-service-principal-to-a-role"></a>將服務主體指派給角色
 
@@ -114,9 +113,7 @@ ms.locfileid: "49958309"
 
 3. 針對訂用帳戶選取 [存取控制 (IAM)]。
 
-     ![選取存取控制](./media/azure-stack-create-service-principal/image17.png)
-
-4. 選取 [新增] 。
+4. 選取 [新增角色指派]。
 
 5. 選取您想要將應用程式指派給哪個角色。
 

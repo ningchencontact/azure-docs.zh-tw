@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 35493d9a7f47bda3344dbc8b0ea415d4492c5741
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5431372abb9a1157b322a8af4a07ba5fa15d8e8e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53340042"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720454"
 ---
 # <a name="configuring-a-custom-domain-name-for-a-web-app-in-azure-app-service-using-traffic-manager"></a>在使用流量管理員的 Azure App Service 中設定 Web 應用程式的自訂網域名稱
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 [!INCLUDE [intro](../../includes/custom-dns-web-site-intro-traffic-manager.md)]
 
-本文提供將自訂網域名稱使用於與[流量管理員](../traffic-manager/traffic-manager-overview.md)整合來進行負載平衡之 [App Service](app-service-web-overview.md) 應用程式的一般指示。
+本文提供將自訂網域名稱使用於與[流量管理員](../traffic-manager/traffic-manager-overview.md)整合來進行負載平衡之 [App Service](overview.md) 應用程式的一般指示。
 
 [!INCLUDE [tmwebsitefooter](../../includes/custom-dns-web-site-traffic-manager-notes.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "53340042"
 
 ## <a name="add-a-dns-record-for-your-custom-domain"></a>新增自訂網域的 DNS 記錄
 > [!NOTE]
-> 如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱 [購買 Web Apps 網域](custom-dns-web-site-buydomains-web-app.md) 文章的最後一個步驟。
+> 如果您已透過 Azure App Service Web Apps 購買網域，請略過下列步驟，並參閱 [購買 Web Apps 網域](manage-custom-dns-buy-domain.md) 文章的最後一個步驟。
 > 
 > 
 

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9d3b72e62c778d02b25b082643e0de4c6cc09a60
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 86823579286ac0b8fae39c265b387ea6b4ad99ee
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190759"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53755235"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>使用 Azure Machine Learning 載入和讀取資料
 
@@ -139,7 +139,7 @@ dataflow.head(5)
 輸出顯示第二個工作表中的資料在標頭之前有三個空白資料列。 `read_excel()` 函式包含選擇性參數，可略過資料列並使用標頭。 執行下列程式碼可略過前三個資料列，並使用第四個資料列作為標頭。
 
 ```python
-dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_header=True, skip_rows=3)
+dataflow = dprep.read_excel(path='./data/excel.xlsx', sheet_name='Sheet2', use_column_headers=True, skip_rows=3)
 ```
 
 ||RANK|標題|Studio|全球|國內 / %|資料行 1|海外 / %|資料行 2|年^|

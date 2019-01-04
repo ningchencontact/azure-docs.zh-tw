@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: overview
 ms.date: 09/13/2018
 ms.author: zhshang
-ms.openlocfilehash: e739f3905ff2bbb60669b1f1e214a4630b896db4
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 695cc2afbfd231758e90889eea2c154fbc16dffb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255460"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53602608"
 ---
 # <a name="scale-aspnet-core-signalr-applications-with-azure-signalr-service"></a>使用 Azure SignalR 服務調整 ASP.NET Core SignalR 應用程式
 
@@ -21,7 +21,7 @@ ms.locfileid: "53255460"
 
 ASP.NET Core SignalR 是前一個版本重新撰寫的版本。 因此，ASP.NET Core SignalR 與先前版本的 SignalR 不回溯相容。 API 和行為不同。 ASP.NET Core SignalR SDK 是以 .NET Standard 為目標，所以您仍然可以搭配 .NET Framework 使用它。 不過，您必須使用新的 API，而不是舊的。 如果您是使用 SignalR，且想要移至 ASP.NET Core SignalR 或 Azure SignalR 服務，則必須變更程式碼來處理 API 中的差異。
 
-使用 Azure SignalR 服務時，伺服器端的 ASP.NET Core SignalR 元件是裝載在 Azure 中。 不過，因為該技術是建置在 ASP.NET Core 之上，所以您能夠在多個平台上 (Windows、Linux 和 MacOS) 執行實際的 Web 應用程式，同時使用 [Azure App Service](../app-service/app-service-web-overview.md)、[IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index)、[Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx)、[Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache)、[Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index) 裝載。 您也可以在自己的處理序中使用自我裝載。
+使用 Azure SignalR 服務時，伺服器端的 ASP.NET Core SignalR 元件是裝載在 Azure 中。 不過，因為該技術是建置在 ASP.NET Core 之上，所以您能夠在多個平台上 (Windows、Linux 和 MacOS) 執行實際的 Web 應用程式，同時使用 [Azure App Service](../app-service/overview.md)、[IIS](https://docs.microsoft.com/aspnet/core/host-and-deploy/iis/index)、[Nginx](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-nginx)、[Apache](https://docs.microsoft.com/aspnet/core/host-and-deploy/linux-apache)、[Docker](https://docs.microsoft.com/aspnet/core/host-and-deploy/docker/index) 裝載。 您也可以在自己的處理序中使用自我裝載。
 
 如果您應用程式的目標包括：支援使用即時內容更新以更新 Web 用戶端的最新功能、跨多個平台 (Azure、Windows、Linux 和 macOS) 執行，以及裝載於不同的環境中，則 Azure SignalR 服務就是您可以利用的最佳選擇。
 

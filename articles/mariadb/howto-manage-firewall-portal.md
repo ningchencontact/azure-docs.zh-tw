@@ -3,17 +3,15 @@ title: 在適用於 MariaDB 的 Azure 資料庫中建立和管理 MariaDB 防火
 description: 使用 Azure 入口網站建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a43c47a1ac143014a7b36f64d72d20bf73c05c92
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 75fc79b582803150f2111efb848d113d52928263
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950279"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544663"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>使用 Azure 入口網站建立和管理適用於 MariaDB 的 Azure 資料庫防火牆規則
 伺服器層級的防火牆規則可讓系統管理員從指定的 IP 位址或 IP 位址範圍，存取適用於 MariaDB 的 Azure 資料庫伺服器。 

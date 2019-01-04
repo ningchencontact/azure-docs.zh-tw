@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957294"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994431"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -25,7 +25,7 @@ Azure 監視器提供了統一的使用者介面供您監視不同的 Azure 服�
 
 Azure 監視器提供了多種方法供您存取計量。 您可以從 [Azure 入口網站](https://portal.azure.com)、Azure 監視器 API (REST 和 .Net) 和分析解決方案 (例如事件中樞) 存取這些計量。 如需詳細資訊，請參閱 [Azure 監視器計量](../../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
-計量是預設啟用的功能，您可以存取過去 93 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)中進行設定。
+計量是預設啟用的功能，您可以存取過去 93 天的資料。 如果您需要延長這些資料的保留時間，您可以將計量資料封存到 Azure 儲存體帳戶。 此功能可於 Azure 監視器的[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md)中進行設定。
 
 ### <a name="access-metrics-in-the-azure-portal"></a>在 Azure 入口網站中存取計量
 
@@ -332,14 +332,14 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| UsedCapacity | 儲存體帳戶所使用的儲存體數量。 若為標準儲存體帳戶，則為 Blob、資料表、檔案和佇列所使用的容量總和。 若為進階儲存體帳戶和 Blob 儲存體帳戶，此數量和 BlobCapacity 相同。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 值範例：1024 |
+| UsedCapacity | 儲存體帳戶所使用的儲存體數量。 若為標準儲存體帳戶，則為 Blob、資料表、檔案和佇列所使用的容量總和。 若為進階儲存體帳戶和 Blob 儲存體帳戶，此數量和 BlobCapacity 相同。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="blob-storage"></a>Blob 儲存體
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
+| BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
+| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
 | ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="table-storage"></a>表格儲存體

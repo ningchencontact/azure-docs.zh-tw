@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 040e54b02161386dcc16b943956f39b86b264303
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77fafb3f3a4c834c5a7f185d129a1c651db58089
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950517"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719841"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>開始使用 App Center 和 Application Insights 分析您的行動應用程式
 
@@ -126,7 +126,7 @@ Application Insights 可以查詢、分割、篩選及分析應用程式的自�
    1. 在文字編輯器中的查詢上任一處按一下，以選取該查詢。
    2. 按一下 [執行] 來執行查詢。 
 
-   深入了解 [Application Insights 分析](app-insights-analytics.md)以及 [Log Analytics 查詢語言](https://aka.ms/LogAnalyticsLanguageReference) \(英文\)。
+   深入了解 [Application Insights 分析](../azure-monitor/app/analytics.md)以及 [Log Analytics 查詢語言](https://aka.ms/LogAnalyticsLanguageReference) \(英文\)。
 
 
 2. **分割及篩選您的自訂事件遙測資料。** 從 Application Insights [概觀] 頁面，選擇目錄中的 [使用者]。

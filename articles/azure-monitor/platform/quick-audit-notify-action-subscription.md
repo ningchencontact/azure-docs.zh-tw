@@ -9,12 +9,12 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 76ed904a90b84e7b0bac86b2ed5380289d7802c1
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 79375dbbc7c966f2e972389788cefe8a0fe3692d
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387925"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582672"
 ---
 # <a name="audit-and-receive-notifications-about-important-actions-in-your-azure-subscription"></a>稽核和接收 Azure 訂用帳戶中關於重要動作的通知
 
@@ -98,4 +98,4 @@ ms.locfileid: "53387925"
 在這個快速入門中，您執行作業以產生活動記錄事件，接著建立活動記錄警示，以在此作業日後再度發生時收到通知。 接著，您藉由再次執行該作業以測試警示。 Azure 可提供過去 90 天的活動記錄事件。 如果您要保留超過 90 天的事件，請嘗試連同其他監視資料一併封存活動記錄資料。
 
 > [!div class="nextstepaction"]
-> [封存監視資料](./../../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md)
+> [封存監視資料](./../../azure-monitor/learn/tutorial-archive-data.md)

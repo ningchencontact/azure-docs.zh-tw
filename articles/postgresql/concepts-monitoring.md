@@ -1,19 +1,17 @@
 ---
 title: 監視和微調適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明監視和微調適用於 PostgreSQL 的 Azure 資料庫之中的功能。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: b8d5526b258e70238bf8d5e4dc91ab02f403368e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843677"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540906"
 ---
 # <a name="monitor-and-tune"></a>監視與微調
 監視伺服器的相關資料，可協助您疑難排解並最佳化您的工作負載。 「適用於 PostgreSQL 的 Azure 資料庫」提供各種監視選項，可讓您深入了解伺服器的行為。

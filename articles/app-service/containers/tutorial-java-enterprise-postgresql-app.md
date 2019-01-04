@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2a38b117cde6d6b51b101f6b0ef0eb3a19b42ba3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 3a668783e8257ef9074d12b30ff0afc3a40325f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344222"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53539716"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>教學課程：在 Azure 中建置 Java EE 和 Postgres Web 應用程式
 
@@ -170,7 +170,7 @@ az postgres server create -n <desired-name> -g <same-resource-group> --sku-name 
 
 ### <a name="ftp-the-configuration-files"></a>以 FTP 傳送組態檔
 
-我們必須將 `wildfly_config/` 的內容以 FTP 傳送至 App Service 執行個體。 若要取得 FTP 認證，請在 Azure 入口網站中的 [App Service] 刀鋒視窗上，按一下 [取得發行設定檔] 按鈕。 FTP 使用者名稱和密碼會位於所下載的 XML 文件中。 如需發行設定檔的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials)。
+我們必須將 `wildfly_config/` 的內容以 FTP 傳送至 App Service 執行個體。 若要取得 FTP 認證，請在 Azure 入口網站中的 [App Service] 刀鋒視窗上，按一下 [取得發行設定檔] 按鈕。 FTP 使用者名稱和密碼會位於所下載的 XML 文件中。 如需發行設定檔的詳細資訊，請參閱[這份文件](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials)。
 
 使用您選擇的 FTP 工具，將 `wildfly_config/` 中的四個檔案傳輸至 `/home/site/deployments/tools/`。 (注意，請勿傳輸目錄，只要傳輸檔案本身即可)。
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析規模調整 - 如何調整 Azure 時間序列深入解析環境的規模 | Microsoft Docs
+title: 如何調整您的 Azure Time Series Insights 環境規模 | Microsoft Docs
 description: 本文說明如何調整您的 Azure Time Series Insights 環境規模。 使用 Azure 入口網站在價格 SKU 內增加或減少容量。
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: 1adb93d935e16bdce23e35e306592a9575967452
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ee695798dc8a2a19d5cd3d94cbf43e0b58065f84
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271856"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53556674"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>如何調整您的 Time Series Insights 環境規模
 
