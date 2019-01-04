@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4a610780d11452a8207a1108e4469bc9de62ecb8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51620913"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546394"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>解譯 Azure 監視器中的 Azure AD 登入記錄結構描述 (預覽)
 
@@ -172,4 +172,4 @@ ms.locfileid: "51620913"
 ## <a name="next-steps"></a>後續步驟
 
 * [解譯 Azure 監視器中的稽核記錄結構描述](reference-azure-monitor-audit-log-schema.md)
-* [深入了解 Azure 診斷記錄檔](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [深入了解 Azure 診斷記錄檔](../../azure-monitor/platform/diagnostic-logs-overview.md)

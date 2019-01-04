@@ -2,21 +2,21 @@
 title: 使用 Azure 資料庫移轉服務的必要條件概觀 | Microsoft Docs
 description: 深入了解使用 Azure 資料庫移轉服務來執行資料庫移轉的必要條件概觀。
 services: database-migration
-author: HJToland3
-ms.author: jtoland
-manager: ''
-ms.reviewer: ''
-ms.service: database-migration
+author: pochiraju
+ms.author: rajpo
+manager: craigg
+ms.reviewer: douglasl
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 3dc449724e405f83ce976b9f8b01a89c25d693fe
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: 63a8d9f23dc9edd8303d8a2c7113a4e00d4a21aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221245"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715540"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>使用 Azure 資料庫移轉服務的必要條件概觀
 您必須注意數個必要條件，以確保在執行資料庫移轉時，Azure 資料庫移轉服務能順利執行。 某些必要條件會套用到服務所支援的所有案例 (來源目標配對)，而有些必要條件則是特定案例獨有的。

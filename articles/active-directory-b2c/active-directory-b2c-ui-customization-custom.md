@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/18/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b0e24da86d253139a85e792bf3c59d777cf5db6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: cc96da060a7a91e0e3118c436a93bdafca3b0372
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833936"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633005"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自訂原則來自訂應用程式的使用者介面
 
@@ -50,9 +50,6 @@ ms.locfileid: "52833936"
    </body>
    </html>
    ```
-
-   >[!NOTE]
-   >為確保安全，系統目前禁止使用 JavaScript 來進行自訂。
 
 2. 在文字編輯器中貼上所複製的程式碼片段，然後將檔案儲存為 customize-ui.html。
 
@@ -124,7 +121,7 @@ ms.locfileid: "52833936"
 3. 開啟擴充檔案。 例如 TrustFrameworkExtensions.xml。 搜尋 **BuildingBlocks** 元素。 如果此元素不存在，請加以新增。
 4. 貼上您複製的 **ContentDefinitions** 元素完整內容，作為 **BuildingBlocks** 元素的子項目。 
 5. 在您複製的 XML 中，搜尋包含 `Id="api.signuporsignin"` 的 **ContentDefinition** 元素。
-6. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如， https://mystore1.azurewebsites.net/b2c/customize-ui.html。
+6. 將 **LoadUri** 的值變更為您上傳至儲存體的 HTML 檔案 URL。 例如： https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html。
     
     自訂原則看起來應該如下所示：
 

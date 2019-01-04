@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: e3159ac4074e7ff437e052e0e2c1ae7d31378abe
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 8fd7161208f6303e03deaacca6a1e2fad24ec45e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344949"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580871"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>將管理事件的 Azure 警示移轉至活動記錄警示
 
@@ -110,9 +110,9 @@ ResourceUri          : /subscriptions/<subscription-id>/resourceGroups/<resource
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解[活動記錄](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+* 深入了解[活動記錄](../../azure-monitor/platform/activity-logs-overview.md)
 * [透過 Azure 入口網站設定活動記錄警示](../../azure-monitor/platform/activity-log-alerts.md)
 * [透過 Resource Manager 設定活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)
 * 檢閱[活動記錄警示 webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* 深入了解[服務通知](../../monitoring-and-diagnostics/monitoring-service-notifications.md)
+* 深入了解[服務通知](../../azure-monitor/platform/service-notifications.md)
 * 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)

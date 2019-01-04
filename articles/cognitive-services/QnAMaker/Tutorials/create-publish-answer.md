@@ -11,12 +11,12 @@ ms.technology: qna-maker
 ms.topic: tutorial
 ms.date: 10/29/2018
 ms.author: diberry
-ms.openlocfilehash: dd5bc95be3959e7af5911d8a765791718680581a
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: f178256180cfc75467a3dea2c7ac8d53fe9dd26a
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162931"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53995162"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>教學課程：使用 C# 來建立知識庫然後回答問題
 
@@ -186,7 +186,7 @@ _主要端點_會傳遞作為標頭，用以驗證產生答案的要求：
   "userId": "AAAc3841df0b42cdb00f53a49d51a89c",
   "urls": [
     "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"

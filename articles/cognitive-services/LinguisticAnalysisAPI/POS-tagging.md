@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: a01fcea4ae6c8950d578bacefc2f064586d7306b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238505"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53973956"
 ---
 # <a name="part-of-speech-tagging"></a>詞性標記
 
@@ -80,4 +80,4 @@ Table  可以是您圍坐的地方 (或是數字的 2-D 輸出)，但您可以 "
 
 ## <a name="specification"></a>規格
 
-在談到 Token 化時，我們依賴 [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42) 中的規格。
+在談到 Token 化時，我們依賴 [Penn Treebank](https://catalog.ldc.upenn.edu/LDC99T42) 中的規格。

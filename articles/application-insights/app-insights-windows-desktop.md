@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10044f17baee8fb4d7afe9223abdbb518952e71f
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 52c07ee66e37f6bc14c5c9d6414bc47a1225af65
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52741853"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000341"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>監視傳統型 Windows 桌面應用程式的使用情況和效能
 
-裝載於內部部署、Azure 中和其他雲端中的應用程式，全都可使用 Application Insights。 唯一限制是需要[允許](app-insights-ip-addresses.md)與 Application Insights 服務進行通訊。 若要監視通用 Windows 平台 (UWP) 應用程式，建議您使用 [Visual Studio App Center](app-insights-mobile-center-quickstart.md)。
+裝載於內部部署、Azure 中和其他雲端中的應用程式，全都可使用 Application Insights。 唯一限制是需要[允許](../azure-monitor/app/ip-addresses.md)與 Application Insights 服務進行通訊。 若要監視通用 Windows 平台 (UWP) 應用程式，建議您使用 [Visual Studio App Center](app-insights-mobile-center-quickstart.md)。
 
 ## <a name="to-send-telemetry-to-application-insights-from-a-classic-windows-application"></a>將遙測資料從傳統型 Windows 應用程式傳送至 Application Insights
 1. 在 [Azure 入口網站](https://portal.azure.com)中，建立 [Application Insights 資源](app-insights-create-new-resource.md)。 針對應用程式類型，選擇 ASP.NET 應用程式。
@@ -36,7 +36,7 @@ ms.locfileid: "52741853"
     `<InstrumentationKey>`*您的金鑰*`</InstrumentationKey>` 
    
     如果使用 ApplicationInsights.config，請確定其在方案總管中的屬性已設定為 [建置動作] = [內容]、[複製到輸出目錄] = [複製] 。
-5. [使用 API](app-insights-api-custom-events-metrics.md) 傳送遙測。
+5. [使用 API](../azure-monitor/app/api-custom-events-metrics.md) 傳送遙測。
 6. 執行應用程式，並查看您在 Azure 入口網站中建立的資源內的遙測。
 
 ## <a name="telemetry"></a>程式碼範例
@@ -77,8 +77,8 @@ ms.locfileid: "52741853"
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* [建立儀表板](app-insights-dashboards.md)
-* [診斷搜尋](app-insights-diagnostic-search.md)
-* [探索度量](app-insights-metrics-explorer.md)
-* [撰寫分析查詢](app-insights-analytics.md)
+* [建立儀表板](../azure-monitor/app/app-insights-dashboards.md)
+* [診斷搜尋](../azure-monitor/app/diagnostic-search.md)
+* [探索度量](../azure-monitor/app/metrics-explorer.md)
+* [撰寫分析查詢](../azure-monitor/app/analytics.md)
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: danlep
-ms.openlocfilehash: 3053e136ab08c38d9460d60f64464a17f6f61574
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ee483c19aa59ca98226f77a5e56b1ee4eb4dede5
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824076"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543405"
 ---
 # <a name="monitor-batch-solutions"></a>監視 Batch 解決方案
 
@@ -26,7 +26,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="subscription-level-monitoring"></a>訂用帳戶層級監視
 
-在包含 Batch 帳戶的訂用帳戶層級上，[Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)會收集[數種類別](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log)中的操作事件資料。
+在包含 Batch 帳戶的訂用帳戶層級上，[Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)會收集[數種類別](../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)中的操作事件資料。
 
 具體針對 Batch 帳戶來說，活動記錄會收集關於帳戶建立和刪除及金鑰管理的事件。
 
@@ -34,7 +34,7 @@ Azure 與 Batch 服務提供一系列服務、工具和 API 來監視您的 Batc
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帳戶層級監視
 
-使用 [Azure 監視器](../azure-monitor/overview.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄 (選擇性)](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
+使用 [Azure 監視器](../azure-monitor/overview.md)的功能監視每個 Batch 帳戶。 Azure 監視器會收集 Batch 帳戶層級範圍內的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄 (選擇性)](../azure-monitor/platform/diagnostic-logs-overview.md)，這些資源包括集區、作業和工作等。 以手動方式或程式設計方式收集和使用此資料，以監視您 Batch 帳戶中的活動並診斷問題。 如需詳細資料，請參閱[用於診斷評估和監視的 Batch 計量、警示和記錄](batch-diagnostics.md)。
  
 > [!NOTE]
 > 您的 Batch 帳戶中已預設可使用計量功能，無須其他設定，而且計量功能具有 30 天的累積記錄。 您必須啟用 Batch 帳戶的診斷記錄，但您可能需要為儲存或處理診斷記錄資料支付額外費用。 

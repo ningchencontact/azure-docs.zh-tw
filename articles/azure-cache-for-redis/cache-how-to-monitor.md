@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 5ab2f1df72f04b6456f1083de6870fb86bad6616
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: e6292c97d3e7bbbe74477188586257b4fbf91218
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438272"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582706"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>如何監視 Azure Cache for Redis
 Azure Cache for Redis 使用 [Azure 監視器](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)提供數個選項來監視您的快取執行個體。 您可以檢視度量、將度量圖表釘選到「開始面板」、自訂監視圖表的日期和時間範圍、新增和移除圖表中的度量，以及設定符合特定條件時的警示。 這些工具可讓您監視 Azure Cache for Redis 執行個體的健康情況，並協助您管理快取應用程式。
@@ -79,7 +79,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](http://redis.io/c
 >
 >
 
-若要存取計量，您可以如本文先前所述，在 Azure 入口網站中進行檢視，也可以使用 [Azure 監視器計量 REST API](../monitoring-and-diagnostics/monitor-stream-monitoring-data-event-hubs.md) 存取計量。
+若要存取計量，您可以如本文先前所述，在 Azure 入口網站中進行檢視，也可以使用 [Azure 監視器計量 REST API](../azure-monitor/platform/stream-monitoring-data-event-hubs.md) 存取計量。
 
 > [!NOTE]
 > 如果您變更儲存體帳戶，則先前設定之儲存體帳戶中的資料仍然可供下載，但不會顯示在 Azure 入口網站中。  
@@ -142,7 +142,7 @@ Azure Cache for Redis 執行個體的計量使用 Redis [INFO](http://redis.io/c
 
 若要檢視快取的活動記錄，請按一下 [資源] 功能表的 [活動記錄]。
 
-如需活動記錄的詳細資訊，請參閱 [Azure 活動記錄檔概觀](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+如需活動記錄的詳細資訊，請參閱 [Azure 活動記錄檔概觀](../azure-monitor/platform/activity-logs-overview.md)。
 
 
 

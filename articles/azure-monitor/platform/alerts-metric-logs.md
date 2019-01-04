@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 76355723baa7727c0dda10ace449603d6ebefbe1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: bfa5cc9a5c04d4c6a692d9a70844f2ec0c35e132
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435849"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579170"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>為 Azure 監視器中的記錄建立計量警示  
 
 ## <a name="overview"></a>概觀
-Azure 監視器支援的[計量警示類型](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)具有優於[傳統警示](../../azure-monitor/platform/alerts-classic-portal.md)的優點。 計量適用於 [Azure 服務的大型清單](../../azure-monitor/platform/metrics-supported.md)。 此文章說明 `Microsoft.OperationalInsights/workspaces` 資源子集的使用量。 
+Azure 監視器支援的[計量警示類型](../../azure-monitor/platform/alerts-metric-near-real-time.md)具有優於[傳統警示](../../azure-monitor/platform/alerts-classic-portal.md)的優點。 計量適用於 [Azure 服務的大型清單](../../azure-monitor/platform/metrics-supported.md)。 此文章說明 `Microsoft.OperationalInsights/workspaces` 資源子集的使用量。 
 
 您可以將計量警示使用在「來自記錄的計量」程序所擷取作為計量的常用 Log Analytics 記錄上，包括 Azure 或內部部署中的資源。 以下列出支援的 Log Analytics 解決方案：
 - Windows 和 Linux 電腦的[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)
@@ -51,7 +51,7 @@ Azure 監視器支援的[計量警示類型](../../monitoring-and-diagnostics/mo
 4. **Log Analytics 解決方案設定為傳送記錄**：Log Analytics 解決方案應該有對應至已啟用之[支援 Log Analytics 工作區的計量](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)的所需記錄/資料。 例如，您必須先在[效能計數器](../../azure-monitor/platform/data-sources-performance-counters.md)解決方案中設定其 *% Available Memory* 計數器。
 
 ## <a name="configuring-metric-alert-for-logs"></a>設定記錄的計量警示
- 您可以使用 Azure 入口網站、Resource Manager 範本、REST API、PowerShell 與 Azure CLI 來建立及管理計量警示。 由於記錄的計量警示是計量警示變體，所以完成必要條件之後，可為指定的 Log Analytics 工作區建立記錄的計量警示。 [計量警示](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)的所有特性與功能同樣都適用於記錄的計量警示；包括承載結構描述、適用配額限制及計費價格。
+ 您可以使用 Azure 入口網站、Resource Manager 範本、REST API、PowerShell 與 Azure CLI 來建立及管理計量警示。 由於記錄的計量警示是計量警示變體，所以完成必要條件之後，可為指定的 Log Analytics 工作區建立記錄的計量警示。 [計量警示](../../azure-monitor/platform/alerts-metric-near-real-time.md)的所有特性與功能同樣都適用於記錄的計量警示；包括承載結構描述、適用配額限制及計費價格。
 
 如需逐步詳細資料與範例，請參閱[建立及管理計量警示](https://aka.ms/createmetricalert)。 具體對記錄的計量警示而言，請依照指示來管理計量警示，並確定下列各項：
 - 計量警示的目標是有效的「Log Analytics 工作區」

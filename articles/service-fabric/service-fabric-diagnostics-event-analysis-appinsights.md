@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 815b792f8584e984ff77c32265de65f9b633adb1
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 25e8d0aafc8593c9c759dd8ac1d7d1d495c9e026
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322784"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54001765"
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>使用 Application Insights 進行事件分析和視覺效果
 
@@ -39,7 +39,7 @@ Application Insights 具有許多使用 Service Fabric 時可使用的現成功�
 
 ![Application Insights 概觀](media/service-fabric-diagnostics-event-analysis-appinsights/ai-overview.png)
 
-在上方影像的右側面板上，清單中有兩種類型的項目：要求和事件。 在此案例中，要求是指透過 HTTP 要求對應用程式 API 發出的呼叫，而事件是指自訂事件，您可以將其當作遙測資料新增到程式碼中的任何位置。 您可以進一步探索[自訂事件和計量的 Application Insights API](../application-insights/app-insights-api-custom-events-metrics.md)，來檢測應用程式。 按一下要求會顯示更多詳細資料，如下圖所示，包括收集 Application Insights Service Fabric Nuget 套件中的 Service Fabric 專屬資料。 此資訊可用於疑難排解及了解應用程式的狀態為何，而所有這些資訊都可在 Application Insights 中搜尋到
+在上方影像的右側面板上，清單中有兩種類型的項目：要求和事件。 在此案例中，要求是指透過 HTTP 要求對應用程式 API 發出的呼叫，而事件是指自訂事件，您可以將其當作遙測資料新增到程式碼中的任何位置。 您可以進一步探索[自訂事件和計量的 Application Insights API](../azure-monitor/app/api-custom-events-metrics.md)，來檢測應用程式。 按一下要求會顯示更多詳細資料，如下圖所示，包括收集 Application Insights Service Fabric Nuget 套件中的 Service Fabric 專屬資料。 此資訊可用於疑難排解及了解應用程式的狀態為何，而所有這些資訊都可在 Application Insights 中搜尋到
 
 ![Application Insights 要求詳細資料](media/service-fabric-diagnostics-event-analysis-appinsights/ai-request-details.png)
 
@@ -47,7 +47,7 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 
 ![Application Insights 要求詳細資料](media/service-fabric-diagnostics-event-analysis-appinsights/ai-metrics-explorer.png)
 
-若要進一步探索 Application Insights 入口網站的功能，請前往 [Application Insights 入口網站文件](../application-insights/app-insights-dashboards.md)。
+若要進一步探索 Application Insights 入口網站的功能，請前往 [Application Insights 入口網站文件](../azure-monitor/app/app-insights-dashboards.md)。
 
 ### <a name="configuring-application-insights-with-wad"></a>使用 WAD 設定 Application Insights
 
@@ -114,17 +114,17 @@ Application Insights 有用於查詢所有傳入資訊的指定檢視。 按一�
 
 [微服務與容器的 Application Insights 支援](https://azure.microsoft.com/blog/app-insights-microservices/)會顯示一些開發中的新功能 (目前仍為 beta 版)，讓您有更多的 Application Insights 立即可用監視選項。 包括相依性追蹤 (用於建置叢集中所有服務和應用程式的 AppMap 及它們之間的通訊)，以及來自服務的追蹤有更好的相互關聯 (更有助於查明應用程式或服務工作流程中的問題)。
 
-如果您是在 .NET 中進行開發，可能會使用一些 Service Fabric 的程式設計模型，而且是願意使用 Application Insights 做視覺化和分析事件和記錄檔資料的平台，我們建議您在監視和診斷工作流程時透過 Application Insights SDK 路由。 閱讀[本文](../application-insights/app-insights-asp-net-more.md)和[本文](../application-insights/app-insights-asp-net-trace-logs.md)開始使用 Application Insights 來收集和顯示您的記錄檔。
+如果您是在 .NET 中進行開發，可能會使用一些 Service Fabric 的程式設計模型，而且是願意使用 Application Insights 做視覺化和分析事件和記錄檔資料的平台，我們建議您在監視和診斷工作流程時透過 Application Insights SDK 路由。 閱讀[本文](../azure-monitor/app/asp-net-more.md)和[本文](../azure-monitor/app/asp-net-trace-logs.md)開始使用 Application Insights 來收集和顯示您的記錄檔。
 
 ## <a name="navigating-the-application-insights-resource-in-azure-portal"></a>在 Azure 入口網站中瀏覽 Application Insights 資源
 
 一旦將 Application Insights 設定為事件和記錄檔的輸出，資訊就會在幾分鐘內開始出現在 Application Insights 資源中。 瀏覽至 Application Insights 資源，它會帶您到 Application Insights 資源儀表板。 按一下 Application Insights 工作列的 [搜尋]，可查看它接收到的最新追蹤，並可從中進行篩選。
 
-*計量瀏覽器*是很有用的工具，它可根據應用程式、服務和叢集可能報告的計量，建立自訂的儀表板。 請參閱[在 Application Insights 中探索計量](../application-insights/app-insights-metrics-explorer.md)，根據您所收集的資料自行設定幾個圖表。
+*計量瀏覽器*是很有用的工具，它可根據應用程式、服務和叢集可能報告的計量，建立自訂的儀表板。 請參閱[在 Application Insights 中探索計量](../azure-monitor/app/metrics-explorer.md)，根據您所收集的資料自行設定幾個圖表。
 
-按一下 [分析] 會帶您到 Application Insights 的 Analytics 入口網站中，您可以在這裡查詢更大範圍和選擇性的事件和追蹤。 在 [Application Insights 的 Analytics](../application-insights/app-insights-analytics.md) 中了解更多。
+按一下 [分析] 會帶您到 Application Insights 的 Analytics 入口網站中，您可以在這裡查詢更大範圍和選擇性的事件和追蹤。 在 [Application Insights 的 Analytics](../azure-monitor/app/analytics.md) 中了解更多。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 AI 中設定警示](../application-insights/app-insights-alerts.md)以收到效能或使用方式的變更通知
+* [在 AI 中設定警示](../azure-monitor/app/alerts.md)以收到效能或使用方式的變更通知
 * [Application Insights 的智慧偵測](../application-insights/app-insights-proactive-diagnostics.md)會對傳送至 Application Insights 的遙測資料執行主動式分析，對可能的效能問題提出警告

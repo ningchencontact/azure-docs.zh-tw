@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8add470048d3ead3f75ff85dd6f489d798af5e29
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c47de9fbe1b9923ff8ce1c38a9a9695af4311858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253437"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723139"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用 App Service 和 Azure Functions 的 Key Vault 參考 (預覽)
 
@@ -32,7 +32,7 @@ ms.locfileid: "53253437"
 
 1. 依照 [Key Vault 快速入門](../key-vault/quick-create-cli.md)來建立金鑰保存庫。
 
-1. 為您的應用程式建立[系統指派的受控識別](app-service-managed-service-identity.md)。
+1. 為您的應用程式建立[系統指派的受控識別](overview-managed-identity.md)。
 
    > [!NOTE] 
    > Key Vault 參考目前只支援系統指派的受控識別。 您無法使用使用者指派的識別。

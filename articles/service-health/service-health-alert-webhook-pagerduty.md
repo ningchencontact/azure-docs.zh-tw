@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: bd3bcd575e8e0f60d5d8f9640aa7b0ed4935249e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: eba81e0d0a5b178aec6f712abaae2b566bc54316
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273216"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583437"
 ---
 # <a name="configure-service-health-alerts-with-pagerduty"></a>使用 PagerDuty 設定服務健康情況警示
 
@@ -98,5 +98,5 @@ ms.locfileid: "53273216"
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[設定現有問題管理系統的 Webhook 通知](service-health-alert-webhook-guide.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)。 
-- 深入了解[服務健康狀態通知](../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../azure-monitor/platform/service-notifications.md)。
 - 深入了解[動作群組](../azure-monitor/platform/action-groups.md)。

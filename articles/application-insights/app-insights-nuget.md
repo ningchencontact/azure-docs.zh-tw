@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 76cdd4bd4d95c7c11906f9c02a0f5cfa2326390e
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: d8d48a41f9100abc3bc8ba306c766d9511f80026
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000766"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972068"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 套件
 
@@ -70,7 +70,7 @@ ms.locfileid: "53000766"
 | Microsoft.ApplicationInsights.Agent_x64 | 2.2.1 |  可讓您收集 x64 應用程式的執行階段資料 | [下載套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x64/) |
 | Microsoft.ApplicationInsights.Agent_x86 | 2.2.1 |  可讓您收集 x86 應用程式的執行階段資料。 | [下載套件](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent_x86/) |
 
-這些套件構成[狀態監視器](app-insights-monitor-performance-live-website-now.md)中執行階段監視核心功能的一部分。 您無須直接下載這些套件，只要使用「狀態監視器」安裝程式即可。 如果您想要深入了解這些套件的實際運作方式，參閱我們其中一位開發人員所撰寫的這篇[部落格文章](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)會是不錯的開始。
+這些套件構成[狀態監視器](../azure-monitor/app/monitor-performance-live-website-now.md)中執行階段監視核心功能的一部分。 您無須直接下載這些套件，只要使用「狀態監視器」安裝程式即可。 如果您想要深入了解這些套件的實際運作方式，參閱我們其中一位開發人員所撰寫的這篇[部落格文章](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)會是不錯的開始。
 
 ## <a name="additional-packages"></a>其他套件
 
@@ -81,6 +81,6 @@ ms.locfileid: "53000766"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 監視 [ASP.NET Core](app-insights-asp-net-core.md)。
+- 監視 [ASP.NET Core](../azure-monitor/app/asp-net-core.md)。
 - 分析 ASP.NET Core [Azure Linux Web 應用程式](app-insights-profiler-aspnetcore-linux.md)。
 - 對 ASP.NET [快照集](app-insights-snapshot-debugger.md)進行偵錯。

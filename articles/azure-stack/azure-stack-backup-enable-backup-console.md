@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: d8d88484181c3c38f64cf8f00f9d8feaa3b0217a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f5610f03cb613c7da2f89da1a38b6bf058a4e0cc
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962557"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714401"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>從系統管理入口網站啟用 Azure Stack 的備份
 透過系統管理入口網站啟用基礎結構備份服務，以便 Azure Stack 產生備份。 發生[嚴重失敗](./azure-stack-backup-recover-data.md)情況時，您可以透過雲端復原使用這些備份來還原環境。 雲端復原的目的在於確保您的操作員和使用者在復原完成後，可以重新登入入口網站。 使用者將會還原其訂用帳戶，包括角色型存取權限和角色、原始方案、供應項目，以及先前定義的計算、儲存體和網路配額。
@@ -30,7 +30,7 @@ ms.locfileid: "52962557"
 系統管理員和使用者會負責在基礎結構備份程序之外，個別備份及還原 IaaS 和 PaaS 資源。 如需備份 IaaS 和 PaaS 資源的資訊，請參閱下列連結：
 
 - [虛擬機器](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-manage-vm-protect)
-- [App Service](https://docs.microsoft.com/azure/app-service/web-sites-backup)
+- [App Service](https://docs.microsoft.com/azure/app-service/manage-backup)
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 

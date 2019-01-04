@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
 ms.custom: seodec2018
-ms.openlocfilehash: d74c9c30932bd2db9059738c8dfbc21e4b1b046a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d16f20e3c2dfa3d670006e44f0072a3871d41c3f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316953"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53629896"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>開始在 Java 中使用 Azure 搜尋服務
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "53316953"
 * [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>關於資料
-此範例應用程式使用的 [美國地理服務中心 (USGS)](http://geonames.usgs.gov/domestic/download_data.htm)資料已依據羅德島州進行篩選，藉此減少資料集的大小。 我們將使用此資料建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 的搜尋應用程式。
+此範例應用程式使用的 [美國地理服務中心 (USGS)](https://geonames.usgs.gov/domestic/download_data.htm)資料已依據羅德島州進行篩選，藉此減少資料集的大小。 我們將使用此資料建置可傳回地標建築物 (例如醫院和學校) 及地理特徵 (例如河流、湖泊和山峰) 的搜尋應用程式。
 
 在此應用程式中， **SearchServlet.java** 程式會使用 [索引子](https://msdn.microsoft.com/library/azure/dn798918.aspx) 建構來建置及載入索引，以從公用 Azure SQL Database 擷取篩選過的 USGS 資料集。 程式碼中提供線上資料來源的預先定義認證和連接資訊。 關於資料存取，不需要進一步設定。
 
@@ -87,7 +87,7 @@ ms.locfileid: "53316953"
 ## <a name="configure-the-service-url-and-api-key"></a>設定服務 URL 和 API 金鑰
 1. 在**專案總管**中按兩下 **config.properties** 以編輯含有伺服器名稱和 API 金鑰的組態設定。
 2. 請參閱本文中稍早的步驟，其中提及如何在 [Azure 入口網站](https://portal.azure.com)中找到服務 URL 和 API 金鑰，藉此取得您現在要輸入 **config.properties** 中的值。
-3. 在 **config.properties**中，以您服務的 API 金鑰取代 "Api Key"。 接著，在同一個檔案中以服務名稱 (URL http://servicename.search.windows.net) 的第一個部分) 取代 "service name"。
+3. 在 **config.properties**中，以您服務的 API 金鑰取代 "Api Key"。 接著，在同一個檔案中以服務名稱 (URL https://servicename.search.windows.net) 的第一個部分) 取代 "service name"。
    
     ![][5]
 

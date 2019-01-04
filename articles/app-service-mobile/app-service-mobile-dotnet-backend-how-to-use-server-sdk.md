@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: bbba7898329af9d9bca9d35883e3cb4097ca3de4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968607"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53718872"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用適用於 Azure Mobile Apps 的 .NET 後端伺服器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -140,7 +140,7 @@ Azure 入口網站的伺服器快速入門會呼叫 **UseDefaultConfiguration()*
 * [Microsoft.Azure.Mobile.Server.Login] 會提供 AppServiceLoginHandler.CreateToken() 方法，這是在自訂驗證案例期間使用的靜態方法。
 
 ## <a name="publish-server-project"></a>操作說明：發佈伺服器專案
-本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 [Git](../app-service/app-service-deploy-local-git.md) 或那裡提供的任何其他方法來部署後端專案。
+本節說明如何從 Visual Studio 發佈 .NET 後端專案。 您也可以使用 [Git](../app-service/deploy-local-git.md) 或那裡提供的任何其他方法來部署後端專案。
 
 1. 在 Visual Studio 中，重新建置專案以還原 NuGet 封裝。
 2. 在 [方案總管] 中，於專案上按一下滑鼠右鍵，然後按一下 [發佈] 。 第一次發佈時，您必須定義發行設定檔。 在定義設定檔後，您可以選取該設定檔，然後按一下 [發佈]。
@@ -432,15 +432,15 @@ App Service 也可讓您向登入提供者要求特定宣告。 每個識別提�
 Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑難排解技術：
 
 * [監視 Azure App Service](../app-service/web-sites-monitor.md)
-* [在 Azure App Service 中啟用診斷記錄](../app-service/web-sites-enable-diagnostic-log.md)
-* [在 Visual Studio 中疑難排解 Azure App Service](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [在 Azure App Service 中啟用診斷記錄](../app-service/troubleshoot-diagnostic-logs.md)
+* [在 Visual Studio 中疑難排解 Azure App Service](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>記錄
 您可以使用標準的 ASP.NET 追蹤寫入來寫入 App Service 診斷記錄： 您必須在行動應用程式後端中啟用診斷，才能寫入至記錄檔。
 
 若要啟用診斷並寫入至記錄檔：
 
-1. 依照 [如何啟用診斷](../app-service/web-sites-enable-diagnostic-log.md#enablediag)中的步驟執行。
+1. 依照 [如何啟用診斷](../app-service/troubleshoot-diagnostic-logs.md#enablediag)中的步驟執行。
 2. 在您的程式碼檔案中新增下列 using 陳述式：
 
         using System.Web.Http.Tracing;
@@ -449,7 +449,7 @@ Azure App Service 提供了數個適用於 ASP.NET 應用程式的偵錯和疑�
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. 重新發佈您的伺服器專案，並存取行動應用程式後端，以執行記錄的程式碼路徑。
-5. 下載記錄並進行評估，如 [操作說明：下載記錄](../app-service/web-sites-enable-diagnostic-log.md#download)中所述。
+5. 下載記錄並進行評估，如 [操作說明：下載記錄](../app-service/troubleshoot-diagnostic-logs.md#download)中所述。
 
 ### <a name="local-debug"></a>使用驗證進行本機偵錯
 您可以在將變更發佈至雲端之前，在本機執行您的應用程式以測試變更。 對於大部分的 Azure Mobile Apps 後端，請在Visual Studio 中時按 F5  。 不過，使用驗證時有一些其他考量。

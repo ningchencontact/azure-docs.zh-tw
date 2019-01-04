@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3b7b06b7ab9076b992e6e3349763d633f9b255ef
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338153"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789751"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什麼是 Azure 診斷延伸模組
 Azure 診斷延伸模組是 Azure 中的代理程式，可對部署的應用程式收集診斷資料。 您可以使用來自許多不同來源的診斷延伸模組。 目前支援 Azure 雲端服務 (傳統) Web 和背景工作角色、虛擬機器、虛擬機器擴展集和 Service Fabric。 其他 Azure 服務有不同的診斷方法。 請參閱 [Azure 中的監視概觀](../../azure-monitor/overview.md)。
@@ -42,7 +42,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 ## <a name="data-storage"></a>資料儲存體
 延伸模組會將其資料儲存在您指定的 [Azure 儲存體帳戶](diagnostics-extension-to-storage.md)中。
 
-您也可以將它傳送到 [Application Insights](../../application-insights/app-insights-cloudservices.md)。 另一個選項是將資料串流到[事件中樞](../../event-hubs/event-hubs-about.md)，以便讓您將資料傳送到非 Azure 監視的服務。
+您也可以將它傳送到 [Application Insights](../../azure-monitor/app/cloudservices.md)。 另一個選項是將資料串流到[事件中樞](../../event-hubs/event-hubs-about.md)，以便讓您將資料傳送到非 Azure 監視的服務。
 
 ### <a name="azure-monitor"></a>Azure 監視器
 您也可以選擇將資料傳送至 Azure 監視器。 此時，這個接收只適用於效能計數器。 它可讓您將在 VM、VMSS 或雲端服務上收集的效能計數器，傳送到 Azure 監視器作為自訂計量。 Azure 監視器接收支援：
@@ -66,7 +66,7 @@ Azure 診斷延伸模組可以收集下列類型的資料：
 
 如需更進階的主題，請參閱
 
-* [搭配適用於雲端服務的 Application Insights 來使用 Azure 診斷](../../application-insights/app-insights-cloudservices.md)
+* [搭配適用於雲端服務的 Application Insights 來使用 Azure 診斷](../../azure-monitor/app/cloudservices.md)
 * [使用 Azure 診斷追蹤雲端服務應用程式的流程](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
 * [使用 PowerShell 在雲端服務上設定診斷](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

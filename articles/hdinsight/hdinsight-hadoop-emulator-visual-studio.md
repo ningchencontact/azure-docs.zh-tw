@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: hrasheed
-ms.openlocfilehash: c2fd32ad15366c76c061ba42fa0a59d43a317b43
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7c2a1c586b4d6f5f9f6e34a091702a35f994544f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53012754"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726624"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>搭配 Hortonworks 沙箱使用 Azure Data Lake tools for Visual Studio
 
@@ -60,13 +60,13 @@ Azure Data Lake 包含使用於一般 Apache Hadoop 叢集的工具。 針對在
 
     ![對話方塊的螢幕擷取畫面，其中 [更新] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/fail-and-update.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 更新程序會使用 Ambari，將 Hortonworks 沙箱設定修改成 Data Lake tools for Visual Studio 所預期的組態。
 
 6. 驗證完成後，請選取 [完成] 以完成設定。
     ![對話方塊的螢幕擷取畫面，其中 [完成] 按鈕已反白顯示](./media/hdinsight-hadoop-emulator-visual-studio/finished-connect.png)
 
-     >[!NOTE]
+     >[!NOTE]  
      > 視您的開發環境的速度，以及配置給虛擬機器的記憶體數量而定，可能需要幾分鐘的時間來設定及驗證服務。
 
 完成這些步驟後，您會發現 [伺服器總管] 的 [HDInsight] 區段下出現 [HDInsight 本機叢集] 項目。
@@ -99,7 +99,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     當 [作業狀態] 變更為 [已完成] 之後，有向非循環圖 (DAG) 隨即顯示。 此圖說明處理 Hive 查詢時由 Tez 所決定的執行路徑。 Tez 是本機叢集上 Hive 的預設執行引擎。
 
-    > [!NOTE]
+    > [!NOTE]  
     > Apache Tez 也是當您使用 Linux 型 HDInsight 叢集時的預設值。 它不是 Windows 型 HDInsight 的預設值。 若要在該處使用它，您必須將 `set hive.execution.engine = tez;` 行新增到 Hive 查詢的開頭。
 
     使用 [作業輸出] 連結來檢視輸出。 在此案例中，它是 823，亦即 sample_08 資料表中的資料列數目。 您可以使用 [作業記錄] 和 [下載 YARN 記錄] 連結，檢視作業的相關診斷資訊。
@@ -110,7 +110,7 @@ Hive 會提供類似 SQL 的查詢語言 (HiveQL)，以便處理結構化資料�
 
     互動式查詢會將處理期間所產生的輸出記錄串流處理至 [HiveServer2 輸出] 視窗。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此資訊與作業完成後可從 [作業記錄] 連結取得的資訊相同。
 
     ![輸出記錄的螢幕擷取畫面](./media/hdinsight-hadoop-emulator-visual-studio/hiveserver2-output.png)

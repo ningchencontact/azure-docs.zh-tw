@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 734b0cf9373ea98ab33c06b45ad53b46a3355dd6
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193904"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976013"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
@@ -121,7 +121,7 @@ StorSimple Snapshot Manager 密碼必須是 14 到 15 個字元，且必須包�
 建議您使用下列指導方針，以協助確保 StorSimple 密碼強度夠強並且受到嚴密保護：
 
 * 每三個月變更您的密碼。 每年會強制變更密碼。
-* 使用強式密碼。 如需詳細資訊，請移至 [建立強式密碼並保護它們](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/)。
+* 使用強式密碼。 如需詳細資訊，請移至 [建立強式密碼並保護它們](https://cloudblogs.microsoft.com/microsoftsecure/2014/08/25/create-stronger-passwords-and-protect-them/)。
 * 針對不同的存取機制一律使用不同的密碼。您所指定的每個密碼都應該是唯一的。
 * 請勿與未經授權存取 StorSimple 裝置的任何人分享密碼。
 * 請勿在其他人面前談論密碼或提示密碼的格式。

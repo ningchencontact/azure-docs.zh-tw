@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: f2890fa4d8260485fa76478571aa66abe1efd35e
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: b8d57a2bbaa53a0291dc9c05ab234c3238322a71
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515398"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605439"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 簡介  
 Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解決方案。 您可以只撰寫處理手邊問題所需的程式碼，而不需擔心要執行它的整個應用程式或基礎結構。 Functions 可讓開發更有生產力，而且您可以使用您選擇的開發語言，例如 C#、F#、Node.js、Java 或 PHP。 只需對您的程式碼執行的時間付費，並信任 Azure 視需要調整。 Azure Functions 可讓您在 Microsoft Azure 上開發 [無伺服器](https://azure.microsoft.com/solutions/serverless/)應用程式。
@@ -33,7 +33,7 @@ Azure Functions 是可在雲端輕鬆執行程式碼片段或「函數」的解�
 * **自備相依性** - Functions 支援 NuGet 和 NPM，以便您使用您最愛的程式庫。  
 * **整合式安全性** - 利用 OAuth 提供者 (如 Azure Active Directory、Facebook、Google、Twitter 和 Microsoft 帳戶) 保護 HTTP 觸發的函數。  
 * **簡化整合** - 輕鬆地利用 Azure 服務和軟體即服務 (SaaS) 供應項目。 請參閱[整合區段](#integrations)以取得相關範例。  
-* **彈性開發** - 直接在入口網站中撰寫函式的程式碼，或透過 [GitHub](../app-service/scripts/app-service-cli-continuous-deployment-github.md)、[Azure DevOps Services](../app-service/scripts/app-service-cli-continuous-deployment-vsts.md) 與其他[支援的開發工具](../app-service/app-service-deploy-local-git.md)設定連續整合並部署您的程式碼。  
+* **彈性開發** - 直接在入口網站中撰寫函式的程式碼，或透過 [GitHub](../app-service/scripts/cli-continuous-deployment-github.md)、[Azure DevOps Services](../app-service/scripts/cli-continuous-deployment-vsts.md) 與其他[支援的開發工具](../app-service/deploy-local-git.md)設定連續整合並部署您的程式碼。  
 * **開放原始碼** - Functions 執行階段是開放原始碼的平台並 [可在 GitHub 上取得](https://github.com/azure/azure-webjobs-sdk-script)。  
 
 ## <a name="what-can-i-do-with-functions"></a>我可以用 Functions 來做什麼？
@@ -82,6 +82,6 @@ Azure Functions 有兩種定價方案。 請選擇最符合您需求的方案：
   說明可用於測試函式的各種工具和技巧。
 * [如何調整 Azure 函式](functions-scale.md)  
   討論 Azure Functions 可用的服務方案，包括使用情況主控方案，以及如何選擇正確的方案。 
-* [深入了解 Azure App Service](../app-service/app-service-web-overview.md)  
+* [深入了解 Azure App Service](../app-service/overview.md)  
   Azure Functions 會利用 Azure App Service 來執行核心功能，例如部署、環境變數和診斷。 
 

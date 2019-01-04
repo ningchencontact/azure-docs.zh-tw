@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436155"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744440"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
 
@@ -551,7 +551,7 @@ day=03
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
     ```
 
-    根據 `frequency` 屬性所指定的間隔，協調器會負責排定 `start` 和 `end` 日期範圍內的動作。 每個排定的動作會如同設定依序執行工作流程。 在上述協調器定義中，協調器設定為從 2017 年 1 月 1 日到 2017 年 1 月 5 日執行動作。 [Oozie 運算式語言](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 頻率運算式 `${coord:days(1)}`會將頻率設定為 1 天。 這會導致協調器每天安排一次動作 (還有工作流程)。 對於過去的日期範圍，就如同此範例中，此動作會立即排定進行執行。 排定要執行動作之日期的開端稱為「名義時間」。 比方說，若要處理 2017 年 1 月 1 日的資料，協調器會安排名義時間為 2017-01-01T00:00:00 GMT 的動作。
+    根據 `frequency` 屬性所指定的間隔，協調器會負責排定 `start` 和 `end` 日期範圍內的動作。 每個排定的動作會如同設定依序執行工作流程。 在上述協調器定義中，協調器設定為從 2017 年 1 月 1 日到 2017 年 1 月 5 日執行動作。 [Oozie 運算式語言](https://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 頻率運算式 `${coord:days(1)}`會將頻率設定為 1 天。 這會導致協調器每天安排一次動作 (還有工作流程)。 對於過去的日期範圍，就如同此範例中，此動作會立即排定進行執行。 排定要執行動作之日期的開端稱為「名義時間」。 比方說，若要處理 2017 年 1 月 1 日的資料，協調器會安排名義時間為 2017-01-01T00:00:00 GMT 的動作。
 
 * 第 2 點：在工作流程的日期範圍內，`dataset` 元素會指定要在 HDFS 中的何處尋找特定日期範圍的資料，以及設定 Oozie 如何判斷資料是否已可供處理。
 
@@ -651,6 +651,6 @@ sqlDatabaseTableName=dailyflights
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Apache Oozie 文件](http://oozie.apache.org/docs/4.2.0/index.html)
+* [Apache Oozie 文件](https://oozie.apache.org/docs/4.2.0/index.html)
 
 <!-- * Build the same pipeline [using Azure Data Factory](tbd.md).  -->

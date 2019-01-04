@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: cf01ddd53741a77df61e3dc1946eb836640034d0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b24b98760e276c207bb360687f32ae902b3306fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53345143"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976948"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure 中的警示概觀 
 
@@ -56,7 +56,7 @@ ms.locfileid: "53345143"
 
 ## <a name="what-you-can-alert-on"></a>您可以發出警示的對象
 
-您可以針對計量和記錄發出警示，如[監視資料來源](../../monitoring-and-diagnostics/monitoring-data-sources.md)中所述。 包含但不限於：
+您可以針對計量和記錄發出警示，如[監視資料來源](../../azure-monitor/platform/data-sources-reference.md)中所述。 包含但不限於：
 - 計量值
 - 記錄搜尋查詢
 - 活動記錄事件
@@ -131,7 +131,7 @@ ms.locfileid: "53345143"
 | **監視來源** | **訊號類型**  | **說明** | 
 |-------------|----------------|-------------|
 | 服務健康情況 | 活動記錄檔  | 不支援。 請參閱[建立服務通知的活動記錄警示](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
-| Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../../application-insights/app-insights-monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
+| Application Insights | Web 可用性測試 | 不支援。 請參閱 [Web 測試警示](../../azure-monitor/app/monitor-web-app-availability.md)。 可供任何經檢測可傳送資料給 Application Insights 的網站使用。 當網站的可用性或回應能力低於預期時收到通知。 |
 
 
 ## <a name="all-alerts-page"></a>[所有警示] 頁面 

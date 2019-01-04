@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: e39829d4fa08e466f98930becc831c6f4b551aed
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 3d048618fef04b630366b3f575e420b329f102cb
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52315829"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53597659"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>使用 HDInsight 上的 Apache Kafka 確保您資料的高可用性
 
@@ -26,7 +26,7 @@ ms.locfileid: "52315829"
 
 每個 Azure 區域有特定數目的容錯網域。 如需網域清單及其包含的容錯網域數目，請參閱[可用性設定組](../../virtual-machines/windows/regions-and-availability.md#availability-sets)文件。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Kafka 不知道容錯網域。 當您在 Kafka 中建立主題時，它可將所有磁碟分割複本儲存在相同的容錯網域中。 為了解決這個問題，HDInsight 提供 [Kafka 磁碟分割重新平衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。
 
 ## <a name="when-to-rebalance-partition-replicas"></a>何時重新平衡磁碟分割複本
@@ -39,7 +39,7 @@ ms.locfileid: "52315829"
 
 ## <a name="replication-factor"></a>複寫因子
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 我們建議使用包含三個容錯網域的 Azure 地區，以及使用複寫因子 3。
 
 如果您必須使用只包含兩個容錯網域的區域，請使用複寫因子 4 將複本平均分散於兩個容錯網域。

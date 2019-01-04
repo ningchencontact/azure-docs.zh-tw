@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: wesmc
-ms.openlocfilehash: ea509d3804053f060ad551b6eff945b70cec8796
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c9a2d569641ab0f8f6aa1d7234da1d3cbb0ab147
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261053"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744984"
 ---
 # <a name="azure-cache-for-redis-samples"></a>Azure Cache for Redis 範例
 本主題提供「Azure Redis 快取」範例清單，其中涵蓋下列這類案例：連線至快取、對快取進行資料讀取和寫入，以及使用 ASP.NET「Azure Redis 快取」提供者。 有些範例是可下載的專案，有些則提供逐步指導並包括程式碼片段，但沒有可下載專案的連結。
@@ -40,7 +40,7 @@ ms.locfileid: "53261053"
 * 使用 Redis 集合來實作標記
 * 使用 Redis 叢集
 
-如需詳細資訊，請參閱 GitHub 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) \(英文\) 文件，如需更多使用案例，則請參閱 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/StackExchange.Redis.Tests) \(英文\) 單元測試。
+如需詳細資訊，請參閱 GitHub 上的 [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) \(英文\) 文件，如需更多使用案例，則請參閱 [StackExchange.Redis.Tests](https://github.com/StackExchange/StackExchange.Redis/tree/master/tests) \(英文\) 單元測試。
 
 [如何搭配使用 Azure Redis 快取與 Python](cache-python-get-started.md) 說明如何使用 Python 和 [redis-py](https://github.com/andymccurdy/redis-py) 用戶端來開始運用「Azure Redis 快取」。
 

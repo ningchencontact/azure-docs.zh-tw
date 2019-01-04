@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab
+ms.reviewer: jrasnick, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 2de57a4ade91293fb1164815f83e87517068544e
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277881"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605951"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>以 Azure SQL Database 管理檔案空間
 本文說明 Azure SQL Database 中不同類型的儲存空間，以及需要明確管理為資料庫與彈性集區配置的檔案空間時所能採取的步驟。

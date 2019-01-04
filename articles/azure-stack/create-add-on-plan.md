@@ -16,12 +16,12 @@ ms.custom: mvc
 ms.date: 07/30/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: f6b85d2197a4db9cdfc526e5857e4b6ce707beb2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: e84e72157726311281994b0e287eda7dfc4b144a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076785"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53716748"
 ---
 # <a name="azure-stack-add-on-plans"></a>Azure Stack 附加方案
 
@@ -32,7 +32,7 @@ ms.locfileid: "49076785"
 使用附加方案的另一個原因是要協助使用者留意其資源使用狀況。 若要這樣做，您可以從包含相對較小配額的基底方案著手 (取決於所需的服務)。 然後，當使用者達到容量時，他們會收到警示，告知他們已耗用以其指派的方案為基礎的資源配置。 接下來，使用者可以選取附加方案，以提供額外的資源。
 
 > [!NOTE]
-> 當您不想要使用附加方案來擴充配額時，您也可選擇[編輯配額的原始組態](azure-stack-quota-types.md#to-edit-a-quota)。 
+> 當您不想要使用附加方案來擴充配額時，您也可選擇[編輯配額的原始組態](azure-stack-quota-types.md#edit-a-quota)。 
 
 使用者將附加方案新增到現有供應項目的訂用帳戶時，最多可能需要一小時額外的資源才會出現。 
 

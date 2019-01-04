@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: b961dadbe8743f1485ef0d13a44a1bb0f3ce32b5
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 6cd42675fa70f338fd4e1223d6a48bf8c6773915
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321370"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579306"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>使用虛擬機器擴展集垂直自動調整
 這篇文章描述如何使用或不使用重新佈建以垂直調整 Azure [虛擬機器擴充集](https://azure.microsoft.com/services/virtual-machine-scale-sets/) 。 若為垂直調整不在擴展集中的虛擬機器，請參閱[使用 Azure 自動化垂直調整 Azure 虛擬機器](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -119,7 +119,7 @@ Add-AzureRmMetricAlertRule  -Name  $alertName `
 
 如需如何建立警示的詳細資訊，請參閱下列文章：
 
-* [Azure 監視器 PowerShell 快速入門範例](../monitoring-and-diagnostics/insights-powershell-samples.md)
+* [Azure 監視器 PowerShell 快速入門範例](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Azure 監視器跨平台 CLI 快速入門範例](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>總結

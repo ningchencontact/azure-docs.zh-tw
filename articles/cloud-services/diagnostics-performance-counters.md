@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/18
 ms.author: jeconnoc
-ms.openlocfilehash: b288c6a64572287c460e82cd8746a8504d264933
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d332a792f693b099ce925e9b5705f09e52507522
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322938"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000235"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>為您的 Azure 雲端服務收集效能計數器
 
@@ -84,7 +84,7 @@ Get-Counter -ListSet * | Where-Object CounterSetName -eq "Processor" | Select -E
 
 ### <a name="application-insights"></a>Application Insights
 
-雲端服務的 Azure Application Insights 可讓您指定想要收集哪些計數器。 在您[將 Application Insights 新增至您的專案](../application-insights/app-insights-cloudservices.md#sdk)之後，名為 **ApplicationInsights.config** 的設定檔會新增至您的 Visual Studio 專案。 此設定檔會定義 Application Insights 收集何種類型的資訊並且傳送至 Azure。
+雲端服務的 Azure Application Insights 可讓您指定想要收集哪些計數器。 在您[將 Application Insights 新增至您的專案](../azure-monitor/app/cloudservices.md#sdk)之後，名為 **ApplicationInsights.config** 的設定檔會新增至您的 Visual Studio 專案。 此設定檔會定義 Application Insights 收集何種類型的資訊並且傳送至 Azure。
 
 開啟 **ApplicationInsights.config** 檔案並且尋找 **ApplicationInsights** > **TelemetryModules** 元素。 每個 `<Add>` 子元素會定義要收集的遙測類型，以及其設定。 效能計數器遙測模組類型是 `Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector`。 如果已定義這個元素，請勿第二次新增。 每個要收集的效能計數器會定義在名為 `<Counters>` 的節點下。 以下是收集磁碟機效能計數器的範例：
 
@@ -116,7 +116,7 @@ Application Insights 會自動收集下列效能計數器：
 * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
 * \Processor(_Total)\% Processor Time
 
-如需詳細資訊，請參閱 [Application Insights 中的系統效能計數器](../application-insights/app-insights-performance-counters.md)和 [Azure 雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)。
+如需詳細資訊，請參閱 [Application Insights 中的系統效能計數器](../azure-monitor/app/performance-counters.md)和 [Azure 雲端服務的 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)。
 
 ### <a name="azure-diagnostics"></a>Azure 診斷
 
@@ -294,7 +294,7 @@ counterServiceUsed.Increment();
 
 ## <a name="more-information"></a>詳細資訊
 
-- [Azure 雲端服務的 Application Insights](../application-insights/app-insights-cloudservices.md#performance-counters)
-- [Application Insights 中的系統效能計數器](../application-insights/app-insights-performance-counters.md)
+- [Azure 雲端服務的 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
+- [Application Insights 中的系統效能計數器](../azure-monitor/app/performance-counters.md)
 - [指定計數器路徑](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
 - [Azure 診斷結構描述 - 效能計數器](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)

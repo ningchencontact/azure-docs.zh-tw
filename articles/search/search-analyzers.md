@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 868658062a6407dce901b455cc92f95008df798c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310533"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631935"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Azure 搜尋服務中用於文字處理的分析器
 
@@ -76,7 +76,7 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
 
 ### <a name="compare-english-analyzers"></a>比較英文分析器
 
-[搜尋分析器示範](http://alice.unearth.ai/)是一種協力廠商示範應用程式，其會顯示標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器之間的並排比較。 索引已固定；內含熱門故事中的文字。 您提供的每項搜尋輸入，會在相鄰窗格中顯示來自每個分析器的結果，協助您瞭解每個分析器處理相同字串的方式。 
+[搜尋分析器示範](https://alice.unearth.ai/)是一種協力廠商示範應用程式，其會顯示標準 Lucene 分析器、Lucene 的英文語言分析器，以及 Microsoft 的英文版自然語言處理器之間的並排比較。 索引已固定；內含熱門故事中的文字。 您提供的每項搜尋輸入，會在相鄰窗格中顯示來自每個分析器的結果，協助您瞭解每個分析器處理相同字串的方式。 
 
 ## <a name="examples"></a>範例
 
@@ -244,13 +244,13 @@ API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析�
 
 + 請檢閱[全文檢索搜尋如何在 Azure 搜尋服務中運作](search-lucene-query-architecture.md)的完整說明。 本文使用範例來說明表面上看似違反直覺的行為。
 
-+ 請從[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples)範例章節，或從入口網站的搜尋總管中[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，嘗試其他查詢語法。
++ 請從[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples)範例章節，或從入口網站的搜尋總管中[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，嘗試其他查詢語法。
 
 + 了解如何套用[特定語言的語彙分析器](https://docs.microsoft.com/rest/api/searchservice/language-support)。
 
 + [設定自訂分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)以進行最少的處理，或是在個別欄位上進行特殊的處理。
 
-+ 在這個示範網站上的相鄰窗格中[比較標準和英文分析器](http://alice.unearth.ai/)。 
++ 在這個示範網站上的相鄰窗格中[比較標準和英文分析器](https://alice.unearth.ai/)。 
 
 ## <a name="see-also"></a>另請參閱
 

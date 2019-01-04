@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 23692bd6a0c708b2747a3cc211b8238d30dfe5db
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6be2b3016218f02e6c58f19feb7f0585032bffe3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53161741"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53719569"
 ---
 # <a name="quickstart-change-model-using-c"></a>快速入門：使用 C# 變更模型
 
@@ -29,7 +29,7 @@ ms.locfileid: "53161741"
 * 安裝 C# 程式設計語言。
 * [JsonFormatterPlus](https://www.nuget.org/packages/JsonFormatterPlus) (英文) 和 [CommandLine](https://www.nuget.org/packages/CommandLineParser/) (英文) NuGet 套件
 
-[!INCLUDE [Code is available in LUIS-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
 ## <a name="example-utterances-json-file"></a>範例語句 JSON 檔案
 

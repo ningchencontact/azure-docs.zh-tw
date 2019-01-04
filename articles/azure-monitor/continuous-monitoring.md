@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bwren
-ms.openlocfilehash: fa5c3d65daa86a678ec278bc49759e1de7da7f0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 2d58a39efca8733902d157083489e59bf22ef161
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386531"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002275"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure 監視器持續監視
 
@@ -33,8 +33,8 @@ ms.locfileid: "53386531"
 
 - [Azure DevOps Projects](../devops-project/overview.md) 為您提供了現有程式碼和 Git 存放庫的簡化體驗，或者從其中一個範例應用程式中進行選擇，以在 Azure 中建立持續整合 (CI) 和持續傳遞 (CD) 管線。
 - [DevOps 發行管線中的持續監視](../application-insights/app-insights-vsts-continuous-monitoring.md)允許您根據監視資料對部署進行閘道設定或復原。
-- [狀態監視器](../application-insights/app-insights-monitor-performance-live-website-now.md)允許您使用 Azure Application Insights 在 Windows 上檢測即時 .NET 應用程式，而不需修改或重新部署您的程式碼。
-- 如果您有權存取應用程式的程式碼，則透過為[.NET](../application-insights/quick-monitor-portal.md)、[Java](../application-insights/app-insights-java-quick-start.md)、[Node.js](../application-insights/app-insights-nodejs-quick-start.md) 或[任何其他程式設計語言](../application-insights/app-insights-platforms.md)安裝 Azure Monitor Application Insights SDK，啟用 [Application Insights](../application-insights/app-insights-overview.md) 的完全監視。 這允許您指定與您的應用程式和業務相關的自訂事件、計量或頁面檢視。
+- [狀態監視器](../azure-monitor/app/monitor-performance-live-website-now.md)允許您使用 Azure Application Insights 在 Windows 上檢測即時 .NET 應用程式，而不需修改或重新部署您的程式碼。
+- 如果您有權存取應用程式的程式碼，則透過為[.NET](../application-insights/quick-monitor-portal.md)、[Java](../application-insights/app-insights-java-quick-start.md)、[Node.js](../application-insights/app-insights-nodejs-quick-start.md) 或[任何其他程式設計語言](../azure-monitor/app/platforms.md)安裝 Azure Monitor Application Insights SDK，啟用 [Application Insights](../application-insights/app-insights-overview.md) 的完全監視。 這允許您指定與您的應用程式和業務相關的自訂事件、計量或頁面檢視。
 
 
 
@@ -56,7 +56,7 @@ ms.locfileid: "53386531"
 ##  <a name="combine-resources-in-azure-resource-groups"></a>在 Azure 資源群組中合併資源
 Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服務或裝載於雲端服務、AKS 叢集中或 Service Fabric 上的微服務。 這些應用程式經常會利用像是事件中樞、儲存體、SQL 和服務匯流排等相依性。
 
-- 結合 Azure 資源群組中的資源，以完整了解組成不同應用程式的所有資源。 [適用於資源群組的 Azure 監視器](../monitoring-and-diagnostics/resource-group-insights.md)提供了一種簡單的方式，來追蹤整個完整堆疊應用程式的健全狀況和效能，並可以向下切入個別元件以進行任何調查或偵錯。
+- 結合 Azure 資源群組中的資源，以完整了解組成不同應用程式的所有資源。 [適用於資源群組的 Azure 監視器](../azure-monitor/insights/resource-group-insights.md)提供了一種簡單的方式，來追蹤整個完整堆疊應用程式的健全狀況和效能，並可以向下切入個別元件以進行任何調查或偵錯。
 
 ## <a name="ensure-quality-through-continuous-deployment"></a>通過持續部署確保品質
 持續整合 / 持續部署允許您根據自動化測試的結果，將程式碼變更自動整合及部署到您的應用程式。 它可簡化部署程序，並在進入生產階段前確保任何變更的品質。
@@ -74,7 +74,7 @@ Azure 上的一般應用程式包含多個資源，例如 VM 和應用程式服�
 - 定義警示的動作，以使用最有效的方式通知您的系統管理員。 [通知的可用動作](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)包括 SMS、電子郵件、推播通知，或語音通話。
 - 使用更進階的動作透過 [webhook](platform/activity-log-alerts-webhook.md) [連接到您的 ITSM 工具](platform/itsmc-overview.md)或其他警示管理系統。
 - 修復警示中所識別的情況，以及可以使用 webhook 從警示啟動的 [Azure 自動化 runbook](../automation/automation-webhooks.md) 或 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)。 
-- 根據所收集的計量，使用[自動調整](../monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule.md)來動態增加和減少計算資源。
+- 根據所收集的計量，使用[自動調整](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md)來動態增加和減少計算資源。
 
 ## <a name="prepare-dashboards-and-workbooks"></a>準備儀表板和活頁簿
 確保您的開發和作業可以存取相同的遙測資料和工具，使它們能夠檢視整個環境中的模式，並將平均偵測時間 (MTTD) 和平均還原時間 (MTTR)　降到最低。
