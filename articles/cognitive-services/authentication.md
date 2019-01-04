@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
-ms.openlocfilehash: 327bc964f8dedeee03220e7cd7db1ef7c1e00de6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 11259b99ea9d2486c8c0afde21398710ccc6ccd8
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435764"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726285"
 ---
 # <a name="authenticate-requests-to-azure-cognitive-services"></a>驗證 Azure 認知服務要求
 
@@ -34,7 +34,7 @@ Azure 認知服務的每個要求必須包含驗證標頭。 此標頭會與訂�
 
 | 頁首 | 說明 |
 |--------|-------------|
-| Ocp-Apim-Subscription-Key | 使用此標頭以特定服務的訂用帳戶金鑰或多服務訂用帳戶金鑰進行驗證。 如果使用多服務訂用帳戶金鑰，您必須提供您的訂用帳戶區域作為 `Ocp-Apim-Subscription-Region` 標頭。 |
+| Ocp-Apim-Subscription-Key | 使用此標頭以特定服務的訂用帳戶金鑰或多服務訂用帳戶金鑰進行驗證。 |
 | Ocp-Apim-Subscription-Region | 只有在搭配[翻譯工具文字 API](./Translator/reference/v3-0-reference.md) 使用多服務訂用帳戶金鑰時才需要此標頭。 使用此標頭指定訂用帳戶區域。 |
 | Authorization | 如果您使用驗證權杖，請使用此標頭。 下列各節會詳細說明執行權杖交換的步驟。 提供的值遵循下列格式：`Bearer <TOKEN>`。 |
 

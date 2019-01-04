@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: f6d343d42bf9d918bf23c9f5f442d977a5caca96
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 34177cb2ea1650c4b7130d8c5a2a886655852783
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343712"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53555025"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 進行事件驅動幕後處理
 
@@ -416,7 +416,7 @@ public class WorkItem
 
 鎖定的預設範圍是 `SingletonScope.Function`，這表示鎖定範圍 (二進位大型物件租用路徑) 繫結至完整的函式名稱。 若要跨函式鎖定，請指定 `SingletonScope.Host`，而且使用的範圍識別碼名稱在所有您不想要同時執行的函式中皆相同。 在下列範例中，一次只有 `AddItem` 或 `RemoveItem` 的一個執行個體會執行：
 
-```charp
+```csharp
 [Singleton("ItemsLock", SingletonScope.Host)]
 public static void AddItem([QueueTrigger("add-item")] string message)
 {

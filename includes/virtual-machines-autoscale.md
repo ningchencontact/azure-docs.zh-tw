@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9ad161e3e19a1e546f30a17b38737fa88bc0953a
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 0ccb502cd5ae21468e52bdc4d56202a595cd19ef
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53399815"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53594208"
 ---
 當您使用[虛擬機器擴展集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure 監視器的自動調整功能](../articles/azure-monitor/platform/autoscale-overview.md)時，可以輕鬆地[自動縮放](../articles/azure-monitor/platform/autoscale-best-practices.md)您的[虛擬機器 (VM)](../articles/virtual-machines/windows/overview.md)。 您的 VM 必須是擴展集的成員才能自動縮放。 本文提供的資訊可讓您深入了解如何使用自動和手動方法，以垂直和水平方式調整 VM。
 
@@ -29,7 +29,7 @@ Azure 監視器的自動調整功能只會水平調整，亦即增加 (相應放
 
 自動調整會提供正確數目的 VM 來處理您應用程式上的負載。 它可讓您新增 VM 來處理增加的負載，並可藉由移除閒置 VM 來節省成本。 您要以一組規則作為基礎來指定 VM 的最小和最大數目。 設定下限可確保即使沒有負載應用程式也會一直執行。 設定上限值可限制每小時可能產生的總成本。
 
-當您使用 [Azure PowerShell](../articles/monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings) 建立擴展集時，可以啟用自動調整。 您也可以在建立擴展集之後加以啟用。 您可以使用 [Azure Resource Manager 範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)來建立擴展集、安裝擴充功能，並設定自動調整。 在 Azure 入口網站中，從 Azure 監視器啟用自動調整，或從擴展集設定啟用自動調整。
+當您使用 [Azure PowerShell](../articles/azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings) 或 [Azure CLI](https://docs.microsoft.com/cli/azure/monitor/autoscale-settings) 建立擴展集時，可以啟用自動調整。 您也可以在建立擴展集之後加以啟用。 您可以使用 [Azure Resource Manager 範本](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md)來建立擴展集、安裝擴充功能，並設定自動調整。 在 Azure 入口網站中，從 Azure 監視器啟用自動調整，或從擴展集設定啟用自動調整。
 
 ![啟用自動調整](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  

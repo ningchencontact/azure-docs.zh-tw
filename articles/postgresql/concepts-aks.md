@@ -1,20 +1,17 @@
 ---
 title: 連接 Azure Kubernetes Service (AKS) 與適用於 PostgreSQL 的 Azure 資料庫
 description: 了解如何連接 Azure Kubernetes Service 與適用於 PostgreSQL 的 Azure 資料庫
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.date: 11/27/2018
-ms.topic: article
-ms.openlocfilehash: 770a583ad09ec1aaa8191f5dafb3db61b2386e68
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.topic: conceptual
+ms.openlocfilehash: ff8508db55b04d2c55158b5846325d0c13665048
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166229"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542742"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>連接 Azure Kubernetes Service 與適用於 PostgreSQL 的 Azure 資料庫
 

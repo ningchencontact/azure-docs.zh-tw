@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 12/19/2018
 ms.author: magoedte
-ms.openlocfilehash: fa7d89d749d50d62ce54ea71d604831e8919b454
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 581d5ddc0930a84bad4dd74a0e8dbcc3787f1a16
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189841"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652059"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 資料安全性
 本文件旨在提供 Log Analytics (Azure 監視器的功能) 的特定資訊，以補充 [Azure 信任中心](../../security/security-microsoft-trust-center.md)上的資訊。  
@@ -60,7 +60,7 @@ Log Analytics 服務會使用下列方法安全地管理您以雲端為基礎的
 ## <a name="data-retention"></a>資料保留
 系統會根據價格方案來儲存及保留已編製索引的記錄檔搜尋資料。 如需詳細資訊，請參閱 [Log Analytics 定價](https://azure.microsoft.com/pricing/details/log-analytics/)。
 
-作為您[訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)的一部分，Microsoft 會依據每個合約的條款保留您的資料。  刪除資料時，我們也會刪除資料所在的 Azure 儲存體帳戶。  移除客戶資料時，不會終結任何實體磁碟機。  
+作為您[訂用帳戶合約](https://azure.microsoft.com/support/legal/subscription-agreement/)的一部分，Microsoft 會依據每個合約的條款保留您的資料。  移除客戶資料時，不會終結任何實體磁碟機。  
 
 下表列出一些可用的解決方案，並提供它們所收集的資料類型範例。
 
@@ -150,7 +150,7 @@ Azure Log Analytics 符合下列需求︰
 * [組織識別碼](../../active-directory/fundamentals/sign-up-organization.md)
 * [Microsoft 帳戶 - Outlook、Office Live、MSN](https://account.microsoft.com/account)
 
-Log Analytics 工作區是收集、彙總、分析以及呈現資料的位置。 工作區主要是做為資料分割資料，每個工作區都是唯一的。 例如，您可能需要使用一個工作區管理實際執行資料，及使用另一個工作區管理測試資料。 工作區也會協助系統管理員控制資料的使用者存取。 每個工作區可以有多個與其關聯的使用者帳戶，每個使用者帳戶可以存取多個 Log Analytics 工作區。 您必須根據資料中心區域建立工作區。 每個工作區都會複寫到區域中的其他資料中心，這主要是為了確保 Log Analytics 服務可用性。
+Log Analytics 工作區是收集、彙總、分析以及呈現資料的位置。 工作區主要是做為資料分割資料，每個工作區都是唯一的。 例如，您可能需要使用一個工作區管理實際執行資料，及使用另一個工作區管理測試資料。 工作區也會協助系統管理員控制資料的使用者存取。 每個工作區可以有多個與其關聯的使用者帳戶，每個使用者帳戶可以存取多個 Log Analytics 工作區。 您必須根據資料中心區域建立工作區。
 
 針對 Operations Manager，Operations Manager 管理群組就會建立與 Log Analytics 服務的連線。 接著，您要設定管理群組中哪些代理程式受控系統允許收集資料，並將資料傳送至服務。 根據已啟用的解決方案，這些解決方案中的資料會從 Operations Manager 管理伺服器直接傳送給 Log Analytics 服務，或者，因為代理程式受控系統上收集的資料量，而將這些解決方案中的資料從代理程式直接傳送給服務。 對於不受 Operations Manager 監視的系統，每個系統都會安全地直接連線到 Log Analytics 服務。
 

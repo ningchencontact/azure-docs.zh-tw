@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/14/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 7e547f49ec14bdb69a85dd916ef435c3f30f6ef2
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: b1550fc07ee4edfe98482a2e880f201ceb66705f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413722"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53995657"
 ---
 ### <a name="what-is-azure-firewall"></a>何謂 Azure 防火牆？
 
@@ -92,7 +92,7 @@ Azure 防火牆有固定成本和變動成本：
 ```azurepowershell
 # Stop an exisitng firewall
 
-$azfw = Get-AzureRmFirewall -Name "FW Name” -ResourceGroupName "RG Name"
+$azfw = Get-AzureRmFirewall -Name "FW Name" -ResourceGroupName "RG Name"
 $azfw.Deallocate()
 Set-AzureRmFirewall -AzureFirewall $azfw
 ```
@@ -127,4 +127,4 @@ Set-AzureRmFirewall -AzureFirewall $azfw
 
 ### <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>在設定傳入網路流量的 DNAT 時，是否也需要設定對應的網路規則，才能允許該流量？
 
-否。 NAT 規則會隱含地新增對應的網路規則，以允許已轉譯的流量。 若要覆寫這個行為，您可以明確地使用符合已轉譯流量的拒絕規則來新增網路規則集合。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](../articles/firewall/rule-processing.md)。
+沒有。 NAT 規則會隱含地新增對應的網路規則，以允許已轉譯的流量。 若要覆寫這個行為，您可以明確地使用符合已轉譯流量的拒絕規則來新增網路規則集合。 若要深入了解 Azure 防火牆規則處理邏輯，請參閱 [Azure 防火牆規則處理邏輯](../articles/firewall/rule-processing.md)。

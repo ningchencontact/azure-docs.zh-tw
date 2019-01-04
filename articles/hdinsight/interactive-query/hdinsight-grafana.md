@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 7f33742fc5e765aa5ab0c66d13e844b3be2bab9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53322289"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599871"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
 
@@ -34,7 +34,7 @@ ms.locfileid: "53322289"
 
 2. 輸入或選取如下列螢幕擷取畫面所建議的值：
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您提供的值必須是唯一且應該遵循命名方針。 範本不會執行驗證檢查。 如果您提供的值已在使用中或未遵循方針，則會在提交範本之後收到錯誤。       
     > 
     >
@@ -66,10 +66,8 @@ ms.locfileid: "53322289"
 5. 此圖格也會列出與叢集相關聯的預設儲存體。 每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集及其預設儲存體帳戶必須共置於相同的 Azure 區域中。 刪除叢集並不會刪除儲存體帳戶。
     
 
-> [!NOTE]
-> 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。       
-> 
->
+> [!NOTE]  
+> 如需其他叢集建立方法及了解本教學課程中使用的屬性，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 
 
 ## <a name="access-the-grafana-dashboard"></a>存取 Grafana 儀表板
 
@@ -94,10 +92,8 @@ ms.locfileid: "53322289"
 ## <a name="clean-up-resources"></a>清除資源
 完成本文之後，您可能想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 
 
-> [!NOTE]
+> [!NOTE]  
 > 如果您要「立即」繼續下一個教學課程，以了解如何使用 HDInsight 上的 Hadoop 來執行 ETL 作業，則建議讓叢集保持執行狀態。 這是因為在教學課程中，您必須重新建立 Hadoop 叢集。 不過，如果您不會立即開始下一個教學課程，則現在就必須刪除該叢集。
-> 
-> 
 
 **刪除叢集和/或預設儲存體帳戶**
 
@@ -124,7 +120,7 @@ ms.locfileid: "53322289"
 
 * 若要深入了解如何搭配 HDInsight 使用 Hive，包括如何從 Visual Studio 執行 Hive 查詢，請參閱[搭配 HDInsight 使用 Apache Hive](../hdinsight-use-hive.md)。
 * 若要了解 Pig (一種用來轉換資料的語言)，請參閱[搭配 HDInsight 使用 Apache Pig](../hdinsight-use-pig.md)。
-* 若要了解 Apache Hadoop MapReduce (一種撰寫程式以處理 Hadoop 資料的方式)，請參閱[搭配 HDInsight 使用 Apache Hadoop MapReduce](../hdinsight-use-mapreduce.md)。
+* 若要了解 MapReduce (一種撰寫程式以處理 Hadoop 資料的方式)，請參閱[搭配 HDInsight 使用 MapReduce](../hdinsight-use-mapreduce.md)。
 * 若要了解如何使用適用於 Visual Studio 的 HDInsight 工具來分析 HDInsight 資料，請參閱 [開始使用 Visual Studio Hadoop tools for HDInsight](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)。
 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5db4387c2fd610313aaac032c122366aa45dc7f9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384036"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720181"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
@@ -32,8 +32,6 @@ ms.locfileid: "53384036"
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage :無法辨識 'Save-HDIFile' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。 請檢查名稱拼字，如果名稱含有路徑，請確認路徑正確，然後再試一次。
 > 
 > 這是因為您沒有包括協助程式方法。  請參閱 [自訂指令碼的協助程式方法](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
->
->
 
 ## <a name="sample-scripts"></a>範例指令碼
 為了在 Windows 作業系統上建立 HDInsight 叢集，指令碼動作是 Azure PowerShell 指令碼。 下列指令碼是設定站台設定檔的範例：

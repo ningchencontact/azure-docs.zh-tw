@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 03dc6d8bb95a952a77be31f79df36a2c1ddc8ffc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49458628"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53444027"
 ---
 您可以使用 'Get-AzureVNetConnection' Cmdlet，驗證連線是否成功。
 
 1. 請使用下列 Cmdlet 範例，並將值設定為與您狀況相符的值。 如果虛擬網路的名稱包含空格，則必須以引號括住。
 
-  ```azurepowershell
-  Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
-  ```
+   ```azurepowershell
+   Get-AzureVNetConnection "Group ClassicRG ClassicVNet"
+   ```
 2. 完成 Cmdlet 之後，請檢視值。 在下列範例中，[連線狀態] 會顯示為 [已連接]，而您可以看見輸入和輸出位元組。
 
         ConnectivityState         : Connected

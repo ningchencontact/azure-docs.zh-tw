@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407332"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976727"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -28,11 +28,11 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ## <a name="logging-and-debugging-apps"></a>記錄和偵錯應用程式
 
-透過 Azure 入口網站，可以取得每個應用程式的效能報表、流量視覺化和健康狀態檢查。 如需如何存取和使用這些診斷工具的詳細資訊，請參閱 [Azure App Service 診斷概觀](/azure/app-service/app-service-diagnostics)。
+透過 Azure 入口網站，可以取得每個應用程式的效能報表、流量視覺化和健康狀態檢查。 如需如何存取和使用這些診斷工具的詳細資訊，請參閱 [Azure App Service 診斷概觀](/azure/app-service/overview-diagnostics)。
 
 ## <a name="application-performance-monitoring"></a>應用程式效能監視
 
-請參閱[與 Linux 之 Azure App Service 上的 Java 應用程式搭配使用的應用程式效能監視工具](how-to-java-apm-monitoring.md)，以了解如何在 Linux 上使用於應用程式服務上執行的 Java 應用程式來設定 New Relic 與 AppDynamics。
+請參閱 [Linux 上 Azure App Service 之 Java 應用程式的應用程式效能監視工具](how-to-java-apm-monitoring.md) (英文)，以瞭解如何在 Linux 上使用於應用程式服務上執行的 Java 應用程式，來設定 New Relic 與 AppDynamics。
 
 ### <a name="ssh-console-access"></a>SSH 主控台存取 
 
@@ -54,11 +54,11 @@ az webapp log config --name ${WEBAPP_NAME} \
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-如需詳細資訊，請參閱[使用 Azure CLI 串流處理記錄](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli)。
+如需詳細資訊，請參閱[使用 Azure CLI 串流處理記錄](../troubleshoot-diagnostic-logs.md#streaming-with-azure-cli)。
 
 ### <a name="app-logging"></a>應用程式記錄
 
-透過 Azure 入口網站或 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) 啟用[應用程式記錄](/azure/app-service/web-sites-enable-diagnostic-log#enablediag)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。
+透過 Azure 入口網站或 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) 啟用[應用程式記錄](/azure/app-service/troubleshoot-diagnostic-logs#enablediag)，設定 App Service 將應用程式的標準主控台輸出和標準主控台錯誤資料流寫入至本機檔案系統或 Azure Blob 儲存體。 設定後的 12 個小時會停用記錄至本機 App Service 檔案系統執行個體。 如果您需要較長的保留期，則請設定應用程式將輸出寫入至 Blob 儲存體容器。
 
 如果您的應用程式使用 [Logback](https://logback.qos.ch/) 或 [Log4j](https://logging.apache.org/log4j) 追蹤，則您可以使用[在 Application Insights 中探索 Java 追蹤記錄](/azure/application-insights/app-insights-java-trace-logs)中的記錄架構設定指示，將這些要檢閱的追蹤轉送至 Azure Application Insights。 
 
@@ -173,9 +173,6 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 或是在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中設定環境變數。
 
->[!NOTE]
-> 如果您使用「適用於 Postgres 的 Azure 資料庫」，請將 JDBC 連接字串中的 `ssl=true` 取代成 `sslmode=require`。
-
 接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
 #### <a name="for-application-level-data-sources"></a>針對應用程式層級資料來源： 
@@ -259,7 +256,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
     3. 使用您的 SFTP 用戶端來連線至本機通道連接埠，然後將檔案上傳至 `/home/tomcat/lib` 資料夾。
 
-    或著，您也可以使用 FTP 用戶端來上傳 JDBC 驅動程式。 請依照這些[指示來取得您的 FTP 認證](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials) \(英文\)。
+    或著，您也可以使用 FTP 用戶端來上傳 JDBC 驅動程式。 請依照這些[指示來取得您的 FTP 認證](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials) \(英文\)。
 
 2. 如果您已建立伺服器層級的資料來源，請重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat/conf`，並使用已更新的設定。
 

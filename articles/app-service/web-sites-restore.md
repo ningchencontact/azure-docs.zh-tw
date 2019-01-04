@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 603a6bab75c4a5da4425bcc57d2cc5ccda728636
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1e8bebdb3f54ac59ec19ef798cc3e794473bbec0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274114"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721456"
 ---
 # <a name="restore-an-app-in-azure"></a>在 Azure 中還原應用程式
-本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](web-sites-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰
+本文說明如何在 [Azure App Service](../app-service/overview.md) 中還原您先前備份的應用程式 (請參閱[在 Azure 中備份應用程式](manage-backup.md))。 您可以依需求將應用程式及其連結的資料庫還原到先前的狀態，或是根據您的其中一個原始應用程式備份來建立新的應用程式。 Azure App Service 支援使用下列資料庫來進行備份與還原︰
 - [SQL Database](https://azure.microsoft.com/services/sql-database/)
 - [適用於 MySQL 的 Azure 資料庫](https://azure.microsoft.com/services/mysql)
 - [適用於 PostgreSQL 的 Azure 資料庫](https://azure.microsoft.com/services/postgresql)
@@ -91,8 +91,8 @@ ms.locfileid: "53274114"
 
 例如，請參閱：
 
-- [Azure CLI 範例](app-service-cli-samples.md)
-- [Azure PowerShell 範例](app-service-powershell-samples.md)
+- [Azure CLI 範例](samples-cli.md)
+- [Azure PowerShell 範例](samples-powershell.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

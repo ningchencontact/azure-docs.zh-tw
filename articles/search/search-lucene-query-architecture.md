@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 8ca9fe72e4bd5272a5303b3bacd8c0960504789d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: dedfc7db6aef6d55fd50c94a217bdc489b9615f3
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315789"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633856"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>全文檢索搜尋如何在 Azure 搜尋服務中運作
 
@@ -385,7 +385,7 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 
 + 建立範例索引、嘗試不同的查詢和檢視結果。 如需指示，請參閱[在入口網站中建置和查詢索引](search-get-started-portal.md#query-index)。
 
-+ 請從[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents#examples)範例章節，或從入口網站的搜尋總管中[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，嘗試其他查詢語法。
++ 請從[搜尋文件](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples)範例章節，或從入口網站的搜尋總管中[簡單查詢語法](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)，嘗試其他查詢語法。
 
 + 如果您想要調整搜尋應用程式中的排名，請檢閱[評分設定檔](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)。
 
@@ -393,7 +393,7 @@ Azure 搜尋服務中的所有索引會自動分成多個分區，讓我們可�
 
 + [設定自訂分析器](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)以進行最少的處理，或是在特定欄位上進行特殊的處理。
 
-+ 在這個示範網站上同時[比較標準和英文分析器](http://alice.unearth.ai/)。 
++ 在這個示範網站上同時[比較標準和英文分析器](https://alice.unearth.ai/)。 
 
 ## <a name="see-also"></a>另請參閱
 

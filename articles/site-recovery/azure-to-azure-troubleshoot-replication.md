@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 9a32ac1ae71cb7bd89c4252157c3a5cd395b2694
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 4a18e009f7defc8d41846b867f9b7a65d2b853dd
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842334"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993326"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-ongoing-replication-issues"></a>針對 Azure 至 Azure VM 持續複寫問題進行疑難排解
 
@@ -78,8 +78,8 @@ Azure Site Recovery 會以一致方式將資料從來源區域複寫到災害復
 
 #### <a name="network-latency-to-cache-storage-account-"></a>針對快取儲存體帳戶的網路延遲：
  Site Recovery 會將複寫的資料傳送至快取儲存體帳戶，因此在從虛擬機器將資料上傳至快取儲存體帳戶的速度小於每 3 秒 4 MB 的情況下，便可能會發生該錯誤。 若要檢查是否有任何延遲相關問題，請使用 [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) 來從虛擬機器將資料上傳至快取儲存體資料庫。<br>
-如果延遲很高，請檢查您是否正在使用網路虛擬設備來控制來自 VM 的輸出網路流量。 如果所有複寫流量都會通過 NVA，系統就可能會對該設備進行節流。 建議您在虛擬網路中為「儲存體」建立一個網路服務端點，這樣複寫流量就不會流向 NVA。 請參閱[網路虛擬設備設定](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
+如果延遲很高，請檢查您是否正在使用網路虛擬設備來控制來自 VM 的輸出網路流量。 如果所有複寫流量都會通過 NVA，系統就可能會對該設備進行節流。 建議您在虛擬網路中為「儲存體」建立一個網路服務端點，這樣複寫流量就不會流向 NVA。 請參閱[網路虛擬設備設定](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)
 
 #### <a name="network-connectivity"></a>網路連線
 若要使 Site Recovery 複寫正常運作，VM 需要特定 URL 或 IP 範圍的輸出連線能力。 如果您的 VM 位於防火牆後方，或使用網路安全性群組 (NSG) 規則控制輸出連線能力，您可能會遇到下列其中一個問題。</br>
-請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/en-us/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)以確保所有 URL 皆已連線 
+請參閱 [Site Recovery URL 的輸出連線能力](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)以確保所有 URL 皆已連線 

@@ -5,32 +5,28 @@ services: backup, virtual-machines-linux
 documentationcenter: ''
 author: trinadhk
 manager: jeconnoc
-editor: ''
-ms.assetid: 57759670-0baa-44db-ae14-8cdc00d3a906
 ms.service: backup, virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 3/26/2018
+ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: bed5716b6d4ea6d81214a95d0f2360f359048893
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 1bcf326bde3ac5c97734393ee162b1f98d1553ce
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944790"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634196"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>適用於 Azure 備份的 VM Snapshot Linux 擴充功能
 
-## <a name="overview"></a>概觀
+
 
 Azure 備份支援將工作負載從內部部署備份至雲端，以及將雲端資源備份至復原服務保存庫。 Azure 備份使用 VM Snapshot 擴充功能採用與 Azure 虛擬機器備份一致的應用程式，而不需要關閉 VM。 Microsoft 將 VM Snapshot Linux 擴充功能當作 Azure 備份服務的一部分發行並提供支援。 Azure 備份將會在第一次排程備份觸發的啟用後備份時，安裝擴充功能。 本文件詳述適用於 VM Snapshot 擴充功能所支援的平台、組態和部署選項。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 ### <a name="operating-system"></a>作業系統
-如需支援的作業系統清單，請參閱 [Azure 備份支援的作業系統](../../backup/backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup)
+如需支援的作業系統清單，請參閱 [Azure 備份支援的作業系統](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
 
 ### <a name="internet-connectivity"></a>網際網路連線
 

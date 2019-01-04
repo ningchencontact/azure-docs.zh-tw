@@ -15,19 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727863"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583352"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
 若要管理對 Azure 資源的存取，您必須具有適當的系統管理員角色。 本文說明如何在訂用帳戶層級新增或變更使用者的系統管理員角色。
-
-> [!div class="nextstepaction"]
-> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>我使用何種系統管理員角色？
 

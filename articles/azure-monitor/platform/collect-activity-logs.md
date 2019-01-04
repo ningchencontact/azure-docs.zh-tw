@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 1556c228aa2e00cf18f16cc26eefab4691f6de23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 20246cfa5904c3c89ab9a14d11f2e61883b27344
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184935"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540229"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>在 Log Analytics 中收集並分析 Azure 活動記錄
 
 ![Azure 活動記錄符號](./media/collect-activity-logs/activity-log-analytics.png)
 
-活動記錄分析解決方案可協助您分析和搜尋所有 Azure 訂用帳戶的 [Azure 活動記錄](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。 Azure 活動記錄能為您提供訂用帳戶中的資源所執行的作業有關的深入解析。 活動記錄檔之前稱為「稽核記錄」或「作業記錄」，因為它會報告訂用帳戶的事件。
+活動記錄分析解決方案可協助您分析和搜尋所有 Azure 訂用帳戶的 [Azure 活動記錄](../../azure-monitor/platform/activity-logs-overview.md)。 Azure 活動記錄能為您提供訂用帳戶中的資源所執行的作業有關的深入解析。 活動記錄檔之前稱為「稽核記錄」或「作業記錄」，因為它會報告訂用帳戶的事件。
 
 您可以使用活動記錄檔來判斷訂用帳戶中的資源上任何寫入作業 (PUT、POST、DELETE) 的「*內容*」、「對象」和「時間」。 您也可以了解作業的狀態和其他相關屬性。 活動記錄不包含讀取 (GET) 作業，或使用傳統部署模型的資源有關的作業。
 

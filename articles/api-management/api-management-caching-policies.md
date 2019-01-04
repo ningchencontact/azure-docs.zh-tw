@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 48b0085e52c1752c0b5ecc89ce229a5a82f74345
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 52bdeb5fe517430497c57a5c34b822df5933e3ff
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310431"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608880"
 ---
 # <a name="api-management-caching-policies"></a>API 管理快取原則
 本主題提供下列 API 管理原則的參考。 如需有關新增和設定原則的資訊，請參閱 [API 管理中的原則](https://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -118,8 +118,8 @@ ms.locfileid: "53310431"
 | cache-preference               | 選擇下列屬性值：<br />- `internal`，使用內建 API 管理快取，<br />- `external`，使用外部快取，如[在 Azure API 管理中使用外部 Azure Redis 快取](api-management-howto-cache-external.md)中所述，<br />- `prefer-external`。如有設定，則使用外部快取；否則使用內部快取。 | 否       | `prefer-external` |
 | downstream-caching-type        | 此屬性必須設為下列其中一個值。<br /><br /> -   none - 不允許下游快取。<br />-   private - 允許下游私人快取。<br />-   public - 允許私人和共用下游快取。                                                                                                          | 否       | None              |
 | must-revalidate                | 當下游快取啟用時，此屬性會開啟或關閉閘道回應中的 `must-revalidate` 快取控制指示詞。                                                                                                                                                                                                                      | 否       | true              |
-| vary-by-developer              | 設定為 `true` 可根據[訂用帳戶金鑰](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions)來快取回應。                                                                                                                                                                                                                                                                                                         | 是      |                   |
-| vary-by-developer-groups       | 設定為 `true` 可按照[使用者群組](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups)來快取回應。                                                                                                                                                                                                                                                                                                             | 是      |                   |  
+| vary-by-developer              | 設定為 `true` 可根據[訂用帳戶金鑰](https://docs.microsoft.com/azure/api-management/api-management-subscriptions#what-is-subscriptions)來快取回應。                                                                                                                                                                                                                                                                                                         | 是      |         False          |
+| vary-by-developer-groups       | 設定為 `true` 可按照[使用者群組](https://docs.microsoft.com/azure/api-management/api-management-howto-create-groups)來快取回應。                                                                                                                                                                                                                                                                                                             | 是      |       False            |  
 
 ### <a name="usage"></a>使用量  
  此原則可用於下列原則[區段](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections)和[範圍](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes)。  

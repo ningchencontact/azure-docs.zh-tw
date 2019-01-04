@@ -1,21 +1,18 @@
 ---
-title: 針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解 | Microsoft Docs
+title: 針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解
 description: 了解如何針對「適用於 PostgreSQL 的 Azure 資料庫」的連線問題進行疑難排解。
 keywords: postgresql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
-services: postgresql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 1a7f58960111b3fba6283830b262a9b901b8e2fd
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53160806"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546227"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解
 

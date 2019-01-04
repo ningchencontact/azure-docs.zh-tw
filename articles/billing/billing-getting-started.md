@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: a110d14293b391a6856b56d0d8a84a24a90d33e1
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341655"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53582418"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>使用 Azure 計費與成本管理避免非預期的費用
 
@@ -31,9 +31,6 @@ ms.locfileid: "53341655"
 - 如果您的訂用帳戶是免費試用版、[Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)、Azure in Open (AIO) 或 BizSpark，當您用完所有的信用額度時，將會自動停用您的訂用帳戶。 深入了解[消費限制](#spending-limit)，以避免您的訂用帳戶發生未預期的停用。
 
 - 如果您已註冊 [Azure 免費帳戶](https://azure.microsoft.com/free/)，[您就能免費使用一些最常用的 Azure 服務 12 個月](billing-create-free-services-included-free-account.md)。 除了下列建議之外，請參閱[避免產生免費帳戶的費用](billing-avoid-charges-free-account.md)。
-
-> [!div class="nextstepaction"]
-> [協助改善 Azure 計費文件](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>在新增 Azure 服務之前取得估計的成本
 

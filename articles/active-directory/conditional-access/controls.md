@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2018
+ms.date: 12/22/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 042be0b818ba448d64aa5e8631926420f00f4b5e
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 367a9b2bd7b4a32d69974639a13f67340ea56518
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52679659"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53745001"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？ 
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的存取控制？
 
-透過 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。 
+透過 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 在條件式存取原則中，您會定義對觸發原則之原因 ("when this happens") 做出的回應 ("do this")。
 
 ![控制](./media/controls/10.png)
 
-
-在條件式存取的情境中， 
+在條件式存取的情境中，
 
 - "**When this happens**" 稱為**條件**
 
 - "**Then do this**" 稱為**存取控制**
 
-
 條件陳述式與控制項的組合代表條件式存取原則。
 
 ![控制](./media/controls/61.png)
 
-每種控制項都是必須由登入之使用者或系統履行的要求，或是規範使用者在登入後之行為的限制。 
+每種控制項都是必須由登入之使用者或系統履行的要求，或是規範使用者在登入後之行為的限制。
 
-控制項分為兩種： 
+控制項分為兩種：
 
 - **授與控制項** - 限制存取權限
 
@@ -56,24 +54,20 @@ ms.locfileid: "52679659"
 
 透過授與控制項，您可以藉由選取需要的控制項來全面封鎖存取權限，或允許在滿足其他要求的情況下授與存取權限。 若要實施多個控制項，您可以要求：
 
-- 滿足所有選取的控制項 (*AND*) 
+- 滿足所有選取的控制項 (*AND*)
 - 滿足一項選取的控制項 (*OR*)
 
 ![控制](./media/controls/17.png)
 
-
-
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-您可以使用這個控制項來要求使用者通過 Multi-Factor Authentication 後，才能存取指定的雲端應用程式。 這個控制項支援以下多重要素提供者： 
+您可以使用這個控制項來要求使用者通過 Multi-Factor Authentication 後，才能存取指定的雲端應用程式。 這個控制項支援以下多重要素提供者：
 
-- Azure Multi-Factor Authentication 
+- Azure Multi-Factor Authentication
 
 - 結合 Active Directory Federation Services (AD FS) 的內部部署 Multi-Factor Authentication 提供者。
- 
+
 對於未獲授權但已取得有效使用者之主要認證存取權的使用者，使用 Multi-Factor Authentication 有助於防止其存取資源。
-
-
 
 ### <a name="compliant-device"></a>符合規範的裝置
 
@@ -87,25 +81,18 @@ ms.locfileid: "52679659"
 
 如需詳細資訊，請參閱[設定 Azure Active Directory 裝置型條件式存取原則](require-managed-devices.md)。
 
-
-
-
-
 ### <a name="approved-client-app"></a>已核准的用戶端應用程式
 
 由於員工使用行動裝置來處理個人和工作事務，因此即使您不負責管理公司資料，可能也會想要在員工使用裝置存取公司資料時保護資料。
 您可以使用 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)來保護公司的資料，並且不受任何行動裝置管理 (MDM) 解決方案影響。
 
-
 藉由核准的用戶端應用程式，您可以要求嘗試存取雲端應用程式的用戶端應用程式支援 [Intune 應用程式保護原則](https://docs.microsoft.com/intune/app-protection-policy)。 例如，您可以限制唯有 Outlook 應用程式能存取 Exchange Online。 要求通過核准之用戶端應用程式的條件式存取原則，也稱為[應用程式型條件式存取原則](app-based-conditional-access.md)。 如需支援的核准用戶端應用程式清單，請參閱[核准的用戶端應用程式需求](technical-reference.md#approved-client-app-requirement)。
-
 
 ### <a name="terms-of-use"></a>使用條款
 
-您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。 
+您可以要求租用戶中的使用者先同意使用條款，再授與他們存取資源的權利。 身為系統管理員，您可以上傳 PDF 文件來設定及自訂使用條款。 使用者如果落在此控制項的控制範圍內，就必須同意使用條款才會獲得應用程式的存取權。
 
-
-### <a name="custom-controls-preview"></a>自訂控制項 (預覽) 
+### <a name="custom-controls-preview"></a>自訂控制項 (預覽)
 
 您可以在條件式存取中建立自訂控制項，以將使用者重新導向至相容的服務，從而滿足 Azure Active Directory 之外的其他需求。 這可讓您使用某些外部的多重要素驗證和驗證提供者，來強制執行條件式存取規則或建置您自己的自訂服務。 為了滿足此控制項，系統會將使用者的瀏覽器重新導向至外部服務，執行任何必要的驗證或確認活動，再將瀏覽器重新導向回到 Azure Active Directory。 使用者如果成功通過驗證或確認，就會繼續進行條件式存取流程。 
 
@@ -121,6 +108,7 @@ ms.locfileid: "52679659"
 - [委託 Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping 身分識別](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
+- [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Symantec VIP](https://help.symantec.com/home/VIP_Integrate_with_Azure_AD)
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
 
@@ -138,9 +126,7 @@ ms.locfileid: "52679659"
 
 按一下 [新增自訂控制項] 隨即會開啟刀鋒視窗，裡面有文字方塊可供輸入控制項的 JSON 資料。  
 
-
 ![控制](./media/controls/81.png)
-
 
 ### <a name="deleting-custom-controls"></a>刪除自訂控制項
 
@@ -156,9 +142,6 @@ ms.locfileid: "52679659"
 
 若要編輯自訂控制項，您必須先刪除目前的控制項，然後使用更新後的資訊建立新的控制項。
 
-
-
-
 ## <a name="session-controls"></a>工作階段控制項
 
 工作階段控制項可讓您限制雲端應用程式內的體驗。 工作階段控制項是由雲端應用程式強制執行，並依賴 Azure AD 對應用程式提供有關工作階段的其他資訊。
@@ -171,15 +154,12 @@ ms.locfileid: "52679659"
 
 若要深入了解，請參閱：
 
-- [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs) 
+- [啟用 SharePoint Online 的有限存取](https://aka.ms/spolimitedaccessdocs)
 
 - [啟用 Exchange Online 的有限存取](https://aka.ms/owalimitedaccess)
-
-
-
 
 ## <a name="next-steps"></a>後續步驟
 
 - 如果您想要知道如何設定條件式存取原則，請參閱[利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md)。
 
-- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。 
+- 如果您已準備好設定您環境的條件式存取原則，請參閱 [Azure Active Directory 中條件式存取的最佳做法](best-practices.md)。

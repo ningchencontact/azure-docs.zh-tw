@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c953d4635ce43ee05fe7c507076c5bd11e9d8c81
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089696"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000558"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>建立用來部署邏輯應用程式的 Azure Resource Manager 範本
 
@@ -187,7 +187,7 @@ Visual Studio 工具產生的有效部署範本，可以在任何訂用帳戶或
 <a name="team-services"></a>
 ## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-部署和管理環境的常見案例，是搭配使用 Azure DevOps 中的 Azure Pipelines 之類的工具與邏輯應用程式部署範本。 Azure DevOps 包含可新增至任何組建或發行管線的[部署 Azure 資源群組](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)工作。 您必須擁有[服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能授權部署，進而能夠產生發行管線。
+部署和管理環境的常見案例，是搭配使用 Azure DevOps 中的 Azure Pipelines 之類的工具與邏輯應用程式部署範本。 Azure DevOps 包含可新增至任何組建或發行管線的[部署 Azure 資源群組](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2)工作。 您必須擁有[服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能授權部署，進而能夠產生發行管線。
 
 1. 在 Azure Pipelines 中選取 [空白]，以便建立空的管線。
 

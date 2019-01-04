@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 515aeac3531a45080824df126ad674353f70cdb8
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6bb7db5d57508d448f88a30623b7f30e88a0a821
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279497"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736750"
 ---
 | 資源 | 免費 | 共用 | 基本 | 標準 | 進階 (v2) | 隔離 </th> |
 | --- | --- | --- | --- | --- | --- | --- |
-| 每個 [App Service 方案](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)<sup>1</sup>的 [Web、Mobile 或 API Apps](https://azure.microsoft.com/services/app-service/) |10 |100 |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup>|
-| [App Service 計劃](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |每個區域 1 個 |每個資源群組 10 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個|
+| 每個 [App Service 方案](../articles/app-service/overview-hosting-plans.md)<sup>1</sup>的 [Web、Mobile 或 API Apps](https://azure.microsoft.com/services/app-service/) |10 |100 |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup> |無限制<sup>2</sup>|
+| [App Service 計劃](../articles/app-service/overview-hosting-plans.md) |每個區域 1 個 |每個資源群組 10 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個 |每個資源群組 100 個|
 | 計算執行個體類型 |共用 |共用 |專用<sup>3</sup> |專用<sup>3</sup> |專用<sup>3</sup></p> |專用<sup>3</sup>|
 | [相應放大](../articles/app-service/web-sites-scale.md) (執行個體上限) |1 個共用 |1 個共用 |3 個專用<sup>3</sup> |10 個專用<sup>3</sup> |20 個專用<sup>3</sup>|100 個專用<sup>4</sup>|
 | 儲存體<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
@@ -24,18 +24,18 @@ ms.locfileid: "52279497"
 | 頻寬 |165 MB |無限制，套用 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/) |無限制，套用 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/) |無限制，套用 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/) |無限制，套用 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/) |無限制，套用 [資料傳輸費率](https://azure.microsoft.com/pricing/details/data-transfers/) |
 | 應用程式架構 |32 位元 |32 位元 |32 位元/64 位元 |32 位元/64 位元 |32 位元/64 位元 |32 位元/64 位元 |
 | 每個執行個體的 Web 通訊端<sup>7</sup> |5 |35 |350 |無限 |無限 |無限制 |
-| 並行 [偵錯工具連接數](../articles/app-service/web-sites-dotnet-troubleshoot-visual-studio.md) (每個應用程式) |1 |1 |1 |5 |5 |5 |
+| 並行 [偵錯工具連接數](../articles/app-service/troubleshoot-dotnet-visual-studio.md) (每個應用程式) |1 |1 |1 |5 |5 |5 |
 | 每一訂用帳戶的 App Service 憑證<sup>10</sup>| 不支援 | 不支援 |10 |10 |10 |10 |
 | 每個應用程式的自訂網域</a> |0 (僅限 azurewebsites.net 子網域)|500 |500 |500 |500 |500 |
 | 自訂網域 [SSL 支援](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |不支援。 依預設可使用 *.azurewebsites.net 的萬用字元憑證。|不支援。 依預設可使用 *.azurewebsites.net 的萬用字元憑證。|無限制的 SNI SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 |包含無限制的 SNI SSL 和 1 個 IP SSL 連線 | 包含無限制的 SNI SSL 和 1 個 IP SSL 連線|
 | 整合式負載平衡器 | |X |X |X |X |X<sup>9</sup> |
 | [永遠開啟](../articles/app-service/web-sites-configure.md) | | |X |X |X |X |
-| [排定的備份](../articles/app-service/web-sites-backup.md) | | | | 排程每 2 小時備份，每天最多 12 次備份 (手動 + 排程) | 排程每小時備份，每天最多 50 次備份 (手動 + 排程) | 排程每小時備份，每天最多 50 次備份 (手動 + 排程) |
+| [排定的備份](../articles/app-service/manage-backup.md) | | | | 排程每 2 小時備份，每天最多 12 次備份 (手動 + 排程) | 排程每小時備份，每天最多 50 次備份 (手動 + 排程) | 排程每小時備份，每天最多 50 次備份 (手動 + 排程) |
 | [自動調整](../articles/app-service/web-sites-scale.md) | | | |X |X |X |
-| [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |X |
+| [WebJobs](../articles/app-service/webjobs-create.md)<sup>8</sup> |X |X |X |X |X |X |
 | [Azure 排程器](https://azure.microsoft.com/services/scheduler/) 支援 | |X |X |X |X |X |
 | [端點監視](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
-| [預備位置](../articles/app-service/web-sites-staged-publishing.md) | | | |5 |20 |20 |
+| [預備位置](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
 | SLA | |  |99.9% |99.95%|99.95%|99.95%|  
 
 <sup>1</sup> 應用程式和儲存體配額是依每個 App Service 方案為準，除非另有指示。  

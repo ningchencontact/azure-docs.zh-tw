@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 494566cc7d49d502fd0bd864e70b338b8d6e0788
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083966"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726777"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 
@@ -100,7 +100,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
 
 您可以擁有依建立日期排序的「最新」貼文串流。 您也可以擁有過去 24 小時內獲得較多讚的「最熱門」貼文串流。 您甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流。 而這仍屬於文章清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 在取得這其中一份清單之後，您便可以使用 [IN 運算子](how-to-sql-query.md#WhereClause)向 Cosmos DB 發出單一查詢，一次取得貼文的頁面。
 
-您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景程序來建置摘要串流：[Webjobs](../app-service/web-sites-create-web-jobs.md)。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。
+您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景程序來建置摘要串流：[Webjobs](../app-service/webjobs-create.md)。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。
 
 您也可以使用相同的技術，以延後方式來處理貼文的點數和按讚數，建立最終一致的環境。
 

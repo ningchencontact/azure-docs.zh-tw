@@ -13,12 +13,12 @@ ms.date: 01/24/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6a7f62d4018e5a8bd39cbf2bb2b1418137d93638
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 16795ce1fd53b9634dbc2ff7513d1c39752b8848
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720145"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974585"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Application Insights 中的使用者、工作階段和事件分析
 
@@ -36,9 +36,9 @@ ms.locfileid: "52720145"
 
 * **使用者工具**︰使用您應用程式的使用者數目和應用程式的功能。  會使用儲存在瀏覽器 Cookie 中的匿名識別碼來計算使用者。 使用不同瀏覽器或電腦的單一使用者將會計算為多個使用者。
 * **工作階段工具**︰已包含應用程式的特定頁面和功能之使用者活動的工作階段數目。 在使用者閒置半小時或連續使用 24 小時之後，系統就會計算工作階段。
-* **事件工具**︰您應用程式的特定頁面與功能之使用頻率。 當瀏覽器從您的應用程式載入頁面時 (假如您已[將它進行檢測](app-insights-javascript.md)) 就會計算頁面檢視。 
+* **事件工具**︰您應用程式的特定頁面與功能之使用頻率。 當瀏覽器從您的應用程式載入頁面時 (假如您已[將它進行檢測](../azure-monitor/app/javascript.md)) 就會計算頁面檢視。 
 
-    自訂事件代表您應用程式中的事情發生一次，通常是諸如按一下按鈕或完成某些工作等使用者互動。 將程式碼插入您的應用程式可[產生自訂事件](app-insights-api-custom-events-metrics.md#trackevent)。
+    自訂事件代表您應用程式中的事情發生一次，通常是諸如按一下按鈕或完成某些工作等使用者互動。 將程式碼插入您的應用程式可[產生自訂事件](../azure-monitor/app/api-custom-events-metrics.md#trackevent)。
 
 ## <a name="querying-for-certain-users"></a>查詢特定使用者
 

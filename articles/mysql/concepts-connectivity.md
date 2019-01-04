@@ -2,20 +2,17 @@
 title: 處理適用於 MySQL 的 Azure 資料庫的暫時性連線錯誤 | Microsoft Docs
 description: 了解如何處理「適用於 MySQL 的 Azure 資料庫」的暫時性連線錯誤。
 keywords: mysql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
-services: mysql
 author: jan-eng
 ms.author: janeng
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2018
-ms.openlocfilehash: 2d7b62d5f45f495d36b1ed103155f8f3178451e8
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 8942223ce233d424e2368e90d2fbac92b1a443f3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52887809"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544068"
 ---
 # <a name="handling-of-transient-connectivity-errors-for-azure-database-for-mysql"></a>處理適用於 MySQL 的 Azure 資料庫的暫時性連線錯誤
 

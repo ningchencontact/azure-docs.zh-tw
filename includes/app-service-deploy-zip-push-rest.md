@@ -4,18 +4,18 @@ ms.service: app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
-ms.openlocfilehash: ed771d1817e7ee1161e0f94ec9eefb5d2dfb3e23
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7771bbcab08fb84a941eedab402880fb7bc4232d
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50737219"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53550856"
 ---
 ## <a name="rest"></a>使用 REST API 部署 ZIP 檔案 
 
 您可以使用[部署服務 REST API](https://github.com/projectkudu/kudu/wiki/REST-API)，在 Azure 中將 .zip 檔案部署至您的應用程式。 若要部署，請將 POST 要求傳送至 https://<app_name>.scm.azurewebsites.net/api/zipdeploy。 POST 要求必須在訊息本文中包含 .zip 檔案。 系統會使用 HTTP 基本驗證，在要求中提供應用程式的部署認證。 如需詳細資訊，請參閱 [.zip 推送部署參考](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)。 
 
-針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](../articles/app-service/app-service-deployment-credentials.md#userscope)。
+針對 HTTP 基本驗證，您需要 App Service 部署的認證。 若要了解如何設定部署認證，請參閱[設定及重設使用者層級的認證](../articles/app-service/deploy-configure-credentials.md#userscope)。
 
 ### <a name="with-curl"></a>使用 cURL
 

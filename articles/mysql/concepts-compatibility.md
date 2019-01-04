@@ -1,23 +1,20 @@
 ---
 title: MySQL 驅動程式和管理工具相容性
-description: 此文章說明 MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
-services: mysql
+description: 本文說明 MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-manager: kfile
 ms.service: mysql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/21/2018
-ms.openlocfilehash: 4232e1850a1354fe247258d46b280e1bfa653972
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 7bb5f861676517d709f59c1bf50d77c4d9cc49a4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290819"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548046"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>MySQL 驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫的相容性
-此文章說明驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
+本文說明驅動程式和管理工具與適用於 MySQL 的 Azure 資料庫之相容性。
 
 ## <a name="mysql-drivers"></a>MySQL 驅動程式
 適用於 MySQL 的 Azure 資料庫使用世界上最熱門的 MySQL 資料庫社群版本。 因此，此版本與多種程式設計語言和驅動程式相容。 目標是支援三個最新版本的 MySQL 驅動程式，並繼續與開放原始碼社群作者一起努力，持續改善 MySQL 驅動程式的功能和可用性。 下表提供的驅動程式清單經過測試，證明與適用於 MySQL 5.6 和 5.7 的 Azure 資料庫相容：

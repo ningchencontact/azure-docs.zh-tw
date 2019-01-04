@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: 85623f5acfb33d73774e5898e3f8937b4e07a5a9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299073"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993771"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>檢視 Service Fabric 容器服務的記錄
 Azure Service Fabric 是一種容器協調器，可支援 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文說明如何檢視執行中容器服務或無作用容器的容器記錄，以便您診斷問題並進行疑難排解。
@@ -64,10 +64,10 @@ GET http://localhost:19080/Nodes/_Node_0/$/GetApplications/SimpleHttpServerApp/$
 ```
 
 ### <a name="service-fabric-sfctl"></a>Service Fabric (SFCTL)
-使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令來擷取已損毀容器的記錄。  指定執行容器的節點名稱、應用程式名稱、服務資訊清單名稱，以及程式碼套件名稱。 指定 `-previous` 旗標。  回應包含的容器記錄會來自程式碼套件執行個體的無作用容器。
+使用 [sfctl service get-container-logs](service-fabric-sfctl-service.md) 命令來擷取已損毀容器的記錄。  指定執行容器的節點名稱、應用程式名稱、服務資訊清單名稱，以及程式碼套件名稱。 指定 `--previous` 旗標。  回應包含的容器記錄會來自程式碼套件執行個體的無作用容器。
 
 ```
-sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –previous
+sfctl service get-container-logs --node-name _Node_0 --application-id SimpleHttpServerApp --service-manifest-name SimpleHttpServerSvcPkg --code-package-name Code –-previous
 ```
 回應：
 ```json

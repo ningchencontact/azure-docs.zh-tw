@@ -15,17 +15,17 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 2d035883534430e76d251b22dfc95d34e4eb03cd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 8b0277d1e82e655edd9308f8b8afa7d6dcec434e
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723562"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53754827"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 進行應用程式偵錯
 在 Visual Studio (2015 和更新版本) 中，您可以使用 [Azure Application Insights](app-insights-overview.md) 的遙測，在偵錯時和在生產環境中分析 ASP.NET Web 應用程式的效能並診斷問題。
 
-如果您使用 Visual Studio 2017 或更新版本建立 ASP.NET web 應用程式，它已經有 Application Insights SDK。 否則，如果您尚未這麼做，[將 Application Insights 新增至您的應用程式](app-insights-asp-net.md)。
+如果您使用 Visual Studio 2017 或更新版本建立 ASP.NET web 應用程式，它已經有 Application Insights SDK。 否則，如果您尚未這麼做，[將 Application Insights 新增至您的應用程式](../azure-monitor/app/asp-net.md)。
 
 若要監視實際運作的應用程式，您通常可在 [Azure 入口網站](https://portal.azure.com)中檢視 Application Insights 遙測，您可以在其中設定警示及套用功能強大的監視工具。 但若要進行偵錯，您也可以在 Visual Studio 中搜尋和分析遙測資料。 您可以使用 Visual Studio 分析來自您的生產網站以及來自開發電腦上偵錯執行的遙測。 在後者的情況下，即使您尚未設定 SDK 將遙測傳送至 Azure 入口網站，仍可以分析偵錯執行。 
 
@@ -60,7 +60,7 @@ ms.locfileid: "52723562"
 ![在 [要求詳細資料] 之下，向下捲動相關項目](./media/app-insights-visual-studio/41.png)
 
 ## <a name="view-exceptions-and-failed-requests"></a>檢視例外狀況和失敗的要求
-例外狀況報告會顯示在 [搜尋] 視窗中。 (在某些較舊的 ASP.NET 應用程式類型中，您必須[設定例外狀況監視](app-insights-asp-net-exceptions.md)，以查看架構所處理的例外狀況。)
+例外狀況報告會顯示在 [搜尋] 視窗中。 (在某些較舊的 ASP.NET 應用程式類型中，您必須[設定例外狀況監視](../azure-monitor/app/asp-net-exceptions.md)，以查看架構所處理的例外狀況。)
 
 按一下例外狀況以取得堆疊追蹤。 如果應用程式的程式碼在 Visual Studio 中開啟，您可以從堆疊追蹤點選至程式碼的相關程式碼行。
 
@@ -72,7 +72,7 @@ ms.locfileid: "52723562"
 ![例外狀況堆疊追蹤](./media/app-insights-visual-studio/21.png)
 
 > [!NOTE] 
-> 只有在您[設定應用程式以將遙測傳送至 Application Insights 入口網站](app-insights-asp-net.md)後，Code Lens 才會顯示 Application Insights 資料。
+> 只有在您[設定應用程式以將遙測傳送至 Application Insights 入口網站](../azure-monitor/app/asp-net.md)後，Code Lens 才會顯示 Application Insights 資料。
 >
 
 [深入了解 Code Lens 中的 Application Insights](app-insights-visual-studio-codelens.md)
@@ -93,7 +93,7 @@ ms.locfileid: "52723562"
 
 如果您已發佈過應用程式先前的版本，這是比較好的做法。 您不會想讓來自偵錯工作階段的遙測與 Application Insights 入口網站中來自已發佈之應用程式的遙測混在一起。
 
-如果您在將遙測傳送至入口網站之前有一些 [自訂遙測](app-insights-api-custom-events-metrics.md) 想要偵錯，它也很有用。
+如果您在將遙測傳送至入口網站之前有一些 [自訂遙測](../azure-monitor/app/api-custom-events-metrics.md) 想要偵錯，它也很有用。
 
 * 首先，我完全設定 Application Insights 將遙測傳送至入口網站。但是現在我只想要查看在 Visual Studio 中的遙測。
   
@@ -104,6 +104,6 @@ ms.locfileid: "52723562"
 ## <a name="next-steps"></a>後續步驟
 |  |  |
 | --- | --- |
-| **[新增更多測試](app-insights-asp-net-more.md)**<br/>監視使用狀況、可用性、相依性、例外狀況。 整合來自記錄架構的追蹤。 撰寫自訂遙測。 |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[使用 Application Insights 入口網站](app-insights-dashboards.md)**<br/>檢視儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及匯出的遙測資料。 |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[新增更多測試](../azure-monitor/app/asp-net-more.md)**<br/>監視使用狀況、可用性、相依性、例外狀況。 整合來自記錄架構的追蹤。 撰寫自訂遙測。 |![Visual Studio](./media/app-insights-visual-studio/64.png) |
+| **[使用 Application Insights 入口網站](../azure-monitor/app/app-insights-dashboards.md)**<br/>檢視儀表板、功能強大的診斷和分析工具、警示、即時的應用程式相依性對應，以及匯出的遙測資料。 |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

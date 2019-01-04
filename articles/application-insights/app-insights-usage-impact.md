@@ -13,12 +13,12 @@ ms.date: 01/25/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 6bc18d73f66c1ede777d579b764127f034d9f0ca
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 9b987ccd17f2060eea125a5d384446cec24fb68a
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725721"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969160"
 ---
 # <a name="impact-analysis-with-application-insights"></a>使用 Application Insights 進行影響分析
 
@@ -35,7 +35,7 @@ ms.locfileid: "52725721"
 ![依瀏覽器的轉換螢幕擷取畫面](./media/app-insights-usage-impact/0004-browsers.png)
 
 > [!NOTE]
-> 您的 Application Insights 資源必須包含頁面檢視或自訂事件，以便使用「影響」工具。 [了解如何設定應用程式以使用 Application Insights JavaScript SDK 自動收集分頁檢視](app-insights-javascript.md)。 也請記住，因為您是要分析相互關聯，所以樣本大小很重要。
+> 您的 Application Insights 資源必須包含頁面檢視或自訂事件，以便使用「影響」工具。 [了解如何設定應用程式以使用 Application Insights JavaScript SDK 自動收集分頁檢視](../azure-monitor/app/javascript.md)。 也請記住，因為您是要分析相互關聯，所以樣本大小很重要。
 >
 >
 

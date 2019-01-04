@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 98d3d1f6fc0f2f30196f360811808579dfbab312
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251043"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53727474"
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
@@ -34,7 +34,7 @@ ms.locfileid: "53251043"
 * [相應放大](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：增加執行您的應用程式的 VM 執行個體數目。
   視您的定價層而定，最多可以相應放大至 20 個執行個體。 **隔離**層中的 [App Service 環境](environment/intro.md)，進一步將您的相應放大計數增加到 100 個執行個體。 如需相應放大的詳細資訊，請參閱[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)。 您可以在該文章中了解如何使用自動調整，也就是根據預先定義的規則與排程，自動調整執行個體計數。
 
-這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)內的所有應用程式。
+這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 [App Service 方案](../app-service/overview-hosting-plans.md)內的所有應用程式。
 在此過程中，您不需要變更程式碼或重新部署應用程式。
 
 如需各 App Service 方案價格資訊及功能的詳細資訊，請參閱 [App Service 價格詳細資料](https://azure.microsoft.com/pricing/details/web-sites/)。  

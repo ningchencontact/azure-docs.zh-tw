@@ -7,16 +7,16 @@ ms.service: azure-monitor
 ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: activitylog
-ms.openlocfilehash: 9129ccdd66b07fc53fe46aa64317f7f064eb7e0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: logs
+ms.openlocfilehash: 64b92a758d3d5f713b58a5e310a897ac1f11024d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388326"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714826"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活動記錄事件結構描述
-透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./tutorial-dashboards.md)的對應。
+透過「Azure 活動記錄」，您可深入了解 Azure 中發生的任何訂用帳戶層級事件。 本文說明每個資料類別的事件結構描述。 資料的結構描述取決於您是在入口網站、PowerShell、CLI，或直接透過 REST API 讀取資料，還是[使用記錄設定檔，將資料串流處理至儲存體或事件中樞](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 下列範例顯示透過入口網站、PowerShell、CLI 和 REST API 提供的結構描述。 本文結尾會提供這些屬性與 [Azure 診斷記錄結構描述](./tutorial-dashboards.md)的對應。
 
 ## <a name="administrative"></a>管理
 透過 Resource Manager 執行的所有建立、更新、刪除和動作作業皆記錄在此類別中。 您可能會在此類別中看到的事件類型範例包括「建立虛擬機器」和「刪除網路安全性群組」。使用者或應用程式使用 Resource Manager 所執行的每個動作，都會成為特定資源類型上的作業模型。 如果作業類型為「寫入」、「刪除」或「動作」，則該作業的啟動及成功或失敗記錄皆會記錄在「系統管理」類別。 「系統管理」類別也包含訂用帳戶中角色型存取控制的所有變更。
@@ -191,10 +191,10 @@ ms.locfileid: "53388326"
   }
 }
 ```
-請參閱[服務健康情況通知](./../../monitoring-and-diagnostics/monitoring-service-notifications.md)一文，以取得關於屬性中之值的文件。
+請參閱[服務健康情況通知](./../../azure-monitor/platform/service-notifications.md)一文，以取得關於屬性中之值的文件。
 
 ## <a name="resource-health"></a>資源健康情況
-此類別包含 Azure 資源已發生的任何資源健康情況事件的記錄。 「虛擬機器健康情況已變更為無法使用」是您可能在此類別中看到的事件類型。 資源健康情況事件可以代表下列其中一個健康情況狀態：「可用」、「無法使用」、「已降級」與「未知」。 此外，資源健康情況事件可分類為「平台起始」或「使用者起始」。
+此類別包含 Azure 資源已發生的任何資源健康情況事件的記錄。 「虛擬機器健康情況已變更為無法使用」是您可能在此類別中看到的事件類型。 資源健康情況事件可以代表下列四種健康情況狀態之一：「可用」、「無法使用」、「已降級」與「未知」。 此外，資源健康情況事件可分類為「平台起始」或「使用者起始」。
 
 ### <a name="sample-event"></a>範例事件
 
@@ -676,5 +676,5 @@ ms.locfileid: "53388326"
 
 
 ## <a name="next-steps"></a>後續步驟
-* [深入了解活動記錄檔 (之前的稽核記錄檔)](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
-* [將 Azure 活動記錄檔串流至事件中樞](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
+* [深入了解活動記錄檔 (之前的稽核記錄檔)](../../azure-monitor/platform/activity-logs-overview.md)
+* [將 Azure 活動記錄檔串流至事件中樞](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

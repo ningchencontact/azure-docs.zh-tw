@@ -3,17 +3,15 @@ title: 使用傾印和還原將 MariaDB 資料庫移轉至適用於 MariaDB 的 
 description: 此文章將說明兩個常見方法，讓您可在適用於 MariaDB 的 Azure 資料庫中用來備份和還原資料庫，使用如 mysqldump、MySQL Workbench 與 PHPMyAdmin 的工具。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 5ac80ef36241b58812832c66511c0a09d49b365f
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: bcb76fcbba02bf53b48cc462e3dad8f264db02ed
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986979"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540430"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>使用傾印和還原來將 MariaDB 資料庫移轉至適用於 MariaDB 的 Azure 資料庫
 此文章將說明兩個常見方法，讓您可在適用於 MariaDB 的 Azure 資料庫中用來備份和還原資料庫

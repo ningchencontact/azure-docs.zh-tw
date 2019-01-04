@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0425dad96cccb019392c8055b0d1127b583b70dd
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 7d67b2346e4db1e04f2c0611603acd3d6e920498
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726027"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972963"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>使用 Application Insights 監視 SharePoint 網站
 Azure Application Insights 會監視應用程式的可用性、效能和使用情況。 您將在這裡深入了解如何針對 SharePoint 網站進行設定。
@@ -144,7 +144,7 @@ function onRequestFail(sender, args) {
 
 
 ## <a name="next-steps"></a>後續步驟
-* [Web 測試](app-insights-monitor-web-app-availability.md) 。
+* [Web 測試](../azure-monitor/app/monitor-web-app-availability.md) 。
 * [Application Insights](app-insights-overview.md) 。
 
 <!--Link references-->

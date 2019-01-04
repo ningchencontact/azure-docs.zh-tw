@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268711"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714295"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -35,7 +35,7 @@ ms.locfileid: "53268711"
 若要遵循本操作說明指南：
 
 - [建立 App Service 應用程式](/azure/app-service/)
-- [將網域名稱對應至您的 Web 應用程式](app-service-web-tutorial-custom-domain.md)或[在 Azure 中購買並加以設定](custom-dns-web-site-buydomains-web-app.md)
+- [將網域名稱對應至您的 Web 應用程式](app-service-web-tutorial-custom-domain.md)或[在 Azure 中購買並加以設定](manage-custom-dns-buy-domain.md)
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -91,7 +91,7 @@ ms.locfileid: "53268711"
 > 支援的網域驗證方法有四種： 
 > 
 > - **App Service** - 當網域已經對應至相同訂用帳戶中的 App Service 應用程式時最方便的選項。 它會利用 App Service 應用程式已驗證網域擁有權的這個事實。
-> - **網域** - 驗證[您購自 Azure 的 App Service 網域](custom-dns-web-site-buydomains-web-app.md)。 Azure 會自動為您新增驗證 TXT 記錄並完成程序。
+> - **網域** - 驗證[您購自 Azure 的 App Service 網域](manage-custom-dns-buy-domain.md)。 Azure 會自動為您新增驗證 TXT 記錄並完成程序。
 > - **郵件** - 將電子郵件傳送給網域管理員來驗證網域。 當您選取此選項時，系統會提供指示。
 > - **手動** - 使用 HTML 網頁 (僅限**標準**憑證) 或 DNS TXT 記錄驗證網域。 當您選取此選項時，系統會提供指示。
 

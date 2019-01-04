@@ -9,22 +9,22 @@ ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 05/14/2018
-ms.openlocfilehash: ec3f286791a3a2c7a3bebd84ba17a11571e389f8
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ad1ae537038c84aac7bebe40a1db124521933f3d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163968"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53608897"
 ---
 # <a name="video-indexed-and-annotated-for-multi-tenant-saas-app-using-azure-sql-database"></a>影片索引與註解，適用主題為使用 Azure SQL Database 的多租用戶 SaaS 應用程式之影片
 
 就主題為 SaaS 租用模型或模式的影片，本文已將其 81 分鐘的片長編製成數個時間點的索引，並附上註解。 本文可讓您向後或向前跳到影片中感興趣的部分。 影片說明 Azure SQL Database 上多租用戶資料庫應用程式的主要設計選項。 該影片包括示範、管理程式碼的逐步解說，也會不時詳談書面文件中不曾有過的經驗。
 
 影片詳述以下書面文件中的資訊： 
-- *概念文件：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
+- *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
 - *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 
 影片與文章說明在雲端的 Azure SQL Database 上建立多租用戶應用程式的許多階段。 Azure SQL Database 的特殊功能可更輕鬆地開發和實作多租用戶應用程式，同時易於管理且兼顧效能。
@@ -294,7 +294,7 @@ ms.locfileid: "53163968"
 
 - [部落格文章，2017 年 5 月 22 日][resource-blog-saas-patterns-app-dev-sql-db-768h]
 
-- *概念文件：*[多租用戶 SaaS 資料庫租用模式][saas-concept-design-patterns-563e]
+- *概念文件：* 多租用戶 SaaS 資料庫租用模式[saas-concept-design-patterns-563e]
 
 - *教學課程：*[Wingtip Tickets SaaS 應用程式][saas-how-welcome-wingtip-app-679t]
 

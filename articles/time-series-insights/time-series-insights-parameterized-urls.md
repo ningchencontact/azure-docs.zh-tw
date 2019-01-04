@@ -1,5 +1,5 @@
 ---
-title: Azure 時間序列深入解析 URL - 使用參數化 URL 共用 Azure 時間序列深入解析自訂檢視 | Microsoft Docs
+title: 使用參數化 URL 共用 Azure 時間序列深入解析自訂檢視 | Microsoft Docs
 description: 本文說明如何在 Azure 時間序列深入解析中開發參數化 URL，以便輕鬆地共用客戶檢視。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274355"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53558459"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 

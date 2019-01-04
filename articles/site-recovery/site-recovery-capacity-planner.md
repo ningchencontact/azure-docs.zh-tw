@@ -3,16 +3,17 @@ title: 使用 Azure Site Recovery 規劃 Hyper-V 容錯移轉的容量 | Microso
 description: 使用本文來在搭配 Azure Site Recovery 服務設定容錯移轉時估計容量。
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: eeadfd6a57ff8a26f3f124e2a807fcd66e77b85f
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844935"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976710"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>規劃 Hyper-V VM 災害復原的容量 
 

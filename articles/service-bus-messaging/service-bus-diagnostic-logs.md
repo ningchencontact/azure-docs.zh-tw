@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 02/05/2018
+ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c2528634dea5c75e4a0e35b7e1a6a30de8d96c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7f50d6f6417764a20125f85398dd9cbf93f3a4a1
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696151"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53542105"
 ---
 # <a name="service-bus-diagnostic-logs"></a>服務匯流排診斷記錄
 
 您可以檢視「Azure 服務匯流排」的兩種記錄：
-* **[活動記錄檔](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
-* **[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
+* **[活動記錄檔](../azure-monitor/platform/activity-logs-overview.md)**。 這些記錄包含在工作上執行之操作的相關資訊。 系統一律會啟用這些記錄。
+* **[診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)**。 您可以設定診斷記錄，以取得在工作內所發生之所有事件的更詳細資訊。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="turn-on-diagnostic-logs"></a>開啟診斷記錄
 
@@ -52,7 +52,7 @@ ms.locfileid: "43696151"
 
 新的設定大約會在 10 分鐘內生效。 之後，記錄就會顯示在 [診斷記錄] 刀鋒視窗上已設定的封存目標中。
 
-如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
+如需設定診斷的詳細資訊，請參閱 [Azure 診斷記錄概觀](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
 ## <a name="diagnostic-logs-schema"></a>診斷記錄結構描述
 
@@ -64,7 +64,7 @@ ms.locfileid: "43696151"
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-名稱 | 說明
+Name | 說明
 ------- | -------
 ActivityId | 用於追蹤的內部識別碼
 EventName | 作業名稱           

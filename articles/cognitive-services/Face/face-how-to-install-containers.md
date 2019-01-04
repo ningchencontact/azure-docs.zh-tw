@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 556cf755890f49e540afe64de6e485d9ebde2147
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac273ac7d4c6c371670e6b8a8170274602a5318b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53086431"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536537"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
@@ -30,7 +30,7 @@ ms.locfileid: "53086431"
 
 使用臉部容器之前，您必須符合下列必要條件：
 
-**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或是已部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) \(英文\) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](../../aks/index.yml)、[Azure 容器執行個體](../../container-instances/index.yml)，或是已部署至 [Azure Stack](../../azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) \(英文\) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
 
 Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。
 

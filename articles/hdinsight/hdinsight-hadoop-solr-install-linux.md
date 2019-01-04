@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: e52a7cbb5c81f779ac4d12d2f3e5fd1e4ae62852
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383590"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714010"
 ---
 # <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr
 
@@ -28,12 +28,12 @@ ms.locfileid: "53383590"
 
 ## <a name="whatis"></a>什麼是 Solr
 
-[Apache Solr](http://lucene.apache.org/solr/features.html) 是可對資料執行強大全文搜尋作業的企業搜尋平台。 Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
+[Apache Solr](https://lucene.apache.org/solr/features.html) 是可對資料執行強大全文搜尋作業的企業搜尋平台。 Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
 
 > [!WARNING]   
 > Microsoft 對隨 HDInsight 叢集提供的元件提供完整支援。
 >
-> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
 
@@ -68,7 +68,7 @@ ms.locfileid: "53383590"
 ## <a name="usesolr"></a>如何在 HDInsight 中使用 Solr
 
 > [!IMPORTANT]  
-> 本節中的步驟示範基本的 Solr 功能。 如需有關使用 Solr 的詳細資訊，請參閱 [Apache Solr 網站](http://lucene.apache.org/solr/)。
+> 本節中的步驟示範基本的 Solr 功能。 如需有關使用 Solr 的詳細資訊，請參閱 [Apache Solr 網站](https://lucene.apache.org/solr/)。
 
 ### <a name="index-data"></a>索引資料
 

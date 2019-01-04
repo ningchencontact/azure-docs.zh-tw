@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 5657cfb40e9017918f5842c573895872940b307a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6d0c8f62d109d07a9f08e5190a5a2caa0d66a0c1
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273694"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53579323"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>使用 Azure 監視器中建立、檢視及管理活動記錄警示  
 
@@ -96,7 +96,7 @@ ms.locfileid: "53273694"
     您可以啟用、停用、編輯或刪除規則。 [深入了解](#view-and-manage-activity-log-alert-rules-in-azure-portal)如何管理活動記錄規則。
 
 
-或者，有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示；然後依照以上教學課程中所述的步驟 4 開始。
+或者，有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示；然後依照以上教學課程中所述的步驟 4 開始。
     
  ![ 從活動記錄新增警示](media/alerts-activity-log/add-activity-log.png)
     
@@ -223,4 +223,4 @@ az group deployment create --resource-group myRG --template-file sampleActivityL
 - [活動記錄的 Webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)
 - [活動記錄概觀](../../azure-monitor/platform/activity-log-alerts.md) 
 - 深入了解[動作群組](../../azure-monitor/platform/action-groups.md)。  
-- 深入了解[服務健康狀態通知](../../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。

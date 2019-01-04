@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: dalechen
 ms.author: daleche
-ms.reviewer: ''
+ms.reviewer: jrasnik
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 53061cde5621be06df8f992278a6510d62e51934
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 5610679756e91637ac4713059a510bebb882ca7a
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872573"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600551"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>針對 Azure SQL Database 連線問題進行疑難排解
 連線到 Azure SQL Database 失敗時，您會收到 [錯誤訊息](sql-database-develop-error-messages.md)。 本文是集中式主題，可協助您針對 Azure SQL Database 連線問題進行疑難排解。 本文除了介紹連線問題的[常見原因](#cause)，還推薦可協助您識別問題的[疑難排解工具](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues)，以及提供疑難排解步驟來解決[暫時性錯誤](#troubleshoot-transient-errors)和[持續性或非暫時性錯誤](#troubleshoot-persistent-errors)。 

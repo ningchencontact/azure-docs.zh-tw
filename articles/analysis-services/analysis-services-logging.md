@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f3a3261fa1b7aa2075a05d7b87ea3fc29c5b9fab
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: f2e0767e78119b224f7be9256ab7050deca37e32
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385868"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546975"
 ---
 # <a name="setup-diagnostic-logging"></a>設定診斷記錄
 
-在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 您可以透過 [Azure 資源診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄檔案串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄檔案匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 的服務)。 
+在任何 Analysis Services 解決方案中，監視您伺服器的執行方式皆是一大重點功能。 您可以透過 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)監視並傳送記錄至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)，將記錄檔案串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄檔案匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 的服務)。 
 
 ![儲存體、事件中樞或 Log Analytics 的診斷記錄](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -304,6 +304,6 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## <a name="next-steps"></a>後續步驟
 
-深入了解 [Azure 資源診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
+深入了解 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)。
 
 請參閱 PowerShell 說明中的 [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting)。

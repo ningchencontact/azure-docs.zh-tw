@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: e435baf4a5e3382e3e77195e5315299e3963ff5c
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 4e478c2559ac534f595393fdc36b95ad8e9c989a
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409253"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725026"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用 Mobile Apps Node.js SDK
 
@@ -153,14 +153,14 @@ Visual Studio 2015 需要延伸模組才能在整合式開發環境 (IDE) 內開
 下列程序會使用 Git 存放庫來下載快速入門專案程式碼：
 
 1. 如果尚未安裝 Git，請先安裝。 安裝 Git 所需的步驟會因作業系統而有所不同。 如需作業系統特定的散發套件和安裝指引，請參閱[安裝 Git](https://git-scm.com/book/en/Getting-Started-Installing-Git) 。
-1. 請參閱[準備您的存放庫](../app-service/app-service-deploy-local-git.md#prepare-your-repository)，啟用後端網站的 Git 存放庫。 請記下部署使用者名稱和密碼。
-1. 在您 Mobile Apps 後端的視窗中，記下 [Git 複製 URL]  設定。
-1. 使用 Git 複製 URL執行 `git clone` 命令。 在需要時輸入您的密碼，如下列範例所示：
+2. 請參閱[準備您的存放庫](../app-service/deploy-local-git.md#prepare-your-repository)，啟用後端網站的 Git 存放庫。 請記下部署使用者名稱和密碼。
+3. 在您 Mobile Apps 後端的視窗中，記下 [Git 複製 URL]  設定。
+4. 使用 Git 複製 URL執行 `git clone` 命令。 在需要時輸入您的密碼，如下列範例所示：
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
 
-1. 瀏覽至本機目錄 (在上述範例中為 `/todolist`)，並留意專案檔案已下載。 在 `/tables` 目錄中找出 todoitem.json 檔案。 該檔案定義了資料表上的權限。 同時，在相同的目錄中找出 todoitem.js 檔案。 它會定義資料表的 CRUD 作業指令碼。
-1. 在您變更專案檔案之後，請執行下列命令，以新增、認可變更，然後將變更上傳至網站：
+5. 瀏覽至本機目錄 (在上述範例中為 `/todolist`)，並留意專案檔案已下載。 在 `/tables` 目錄中找出 todoitem.json 檔案。 該檔案定義了資料表上的權限。 同時，在相同的目錄中找出 todoitem.js 檔案。 它會定義資料表的 CRUD 作業指令碼。
+6. 在您變更專案檔案之後，請執行下列命令，以新增、認可變更，然後將變更上傳至網站：
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -968,10 +968,10 @@ Node.js 應用程式可存取多種不同的診斷記錄工具。 在內部，Mo
 [設定 Google 驗證]: ../app-service/configure-authentication-provider-google.md
 [設定 Microsoft 驗證]: ../app-service/configure-authentication-provider-microsoft.md
 [設定 Twitter 驗證]: ../app-service/configure-authentication-provider-twitter.md
-[Azure App Service 部署指南]: ../app-service/app-service-deploy-local-git.md
+[Azure App Service 部署指南]: ../app-service/deploy-local-git.md
 [監視 Azure App Service]: ../app-service/web-sites-monitor.md
-[在 Azure App Service 中啟用診斷記錄]: ../app-service/web-sites-enable-diagnostic-log.md
-[在 Visual Studio 中進行 Azure App Service 的疑難排解]: ../app-service/web-sites-dotnet-troubleshoot-visual-studio.md
+[在 Azure App Service 中啟用診斷記錄]: ../app-service/troubleshoot-diagnostic-logs.md
+[在 Visual Studio 中進行 Azure App Service 的疑難排解]: ../app-service/troubleshoot-dotnet-visual-studio.md
 [指定 Node 版本]: ../nodejs-specify-node-version-azure-apps.md
 [使用 Node 模組]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/

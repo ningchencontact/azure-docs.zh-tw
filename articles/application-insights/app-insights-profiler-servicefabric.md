@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3eb5b2300ea2af7bc778e0831d105f286eab247c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 3808b3e93ed7e3ad374054c3c32fd54930f50972
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721403"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606566"
 ---
 # <a name="profile-live-azure-service-fabric-applications-with-application-insights"></a>使用 Application Insights 來分析即時 Azure Service Fabric 應用程式
 
 您也可以在這些服務上部署 Application Insights Profiler：
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [雲端服務](app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [虛擬機器](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

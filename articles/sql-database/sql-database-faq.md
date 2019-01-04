@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: d7e5553ec48cfda858f2a463a2df0cc60f0e5c65
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270394"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541606"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>SQL Database 常見問題集 (FAQ)
 
@@ -31,7 +31,7 @@ ms.locfileid: "53270394"
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>我能否控制修補停機時間何時發生
 
-否。 如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，修補的影響通常不明顯。
+沒有。 如果您在應用程式中[採用重試邏輯](sql-database-develop-overview.md#resiliency)，修補的影響通常不明顯。
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>適用於 Azure SQL Database 的虛擬核心形式新購買模型為何
 
@@ -51,11 +51,11 @@ ms.locfileid: "53270394"
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>如何在以 DTU 為基礎的購買模型和以 vCore 為基礎的購買模型之間做出選擇
 
-資料庫交易單位 (DTU) 是以 CPU、記憶體、讀取和寫入的混合量值為基礎。 DTU 型計算大小代表已預先設定的資源組合，以期達成不同等級的應用程式效能。 如果客戶不想煩惱基礎資源的事，偏好簡單的預先設定資源組合，並且每個月支付固定金額，以 DTU 為基礎的模型可能較符合其需求。 然而，如果客戶需要深入了解基礎資源的情況，或是需要個別調整資源以達到最佳效能，以 vCore 為基礎的模型將是最佳選擇。  此外，如果客戶的 SQL Server 具有有效的軟體保證 (SA)，則運用其現有的投資，透過[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 節省成本，最多可達 30%。  這兩種購買模型內的選項皆提供完全受控服務的權益，例如自動備份、軟體更新和修補程式。
+資料庫交易單位 (DTU) 是以 CPU、記憶體、讀取和寫入的混合量值為基礎。 DTU 型計算大小代表已預先設定的資源組合，以期達成不同等級的應用程式效能。 如果客戶不想煩惱基礎資源的事，偏好簡單的預先設定資源組合，並且每個月支付固定金額，以 DTU 為基礎的模型可能較符合其需求。 然而，如果客戶需要深入了解基礎資源的情況，或是需要個別調整資源以達到最佳效能，以 vCore 為基礎的模型將是最佳選擇。  此外，如果客戶的 SQL Server 具有有效的軟體保證 (SA)，則運用其現有的投資，透過[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 節省成本，最多可達 30%。  這兩種購買模型內的選項皆提供完全受控服務的權益，例如自動備份、軟體更新和修補程式。
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>什麼是適用於 SQL Server 的 Azure Hybrid Benefit
 
-[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 有助您充分發揮目前授權投資的價值，並加快移轉到雲端的速度。 適用於 SQL Server 的 Azure Hybrid Benefit 是以 Azure 為基礎的權益，可讓您搭配使用 SQL Server 授權與軟體保證，以較低的費率 (「基本費率」) 支付 SQL Database。 適用於 SQL Server 的 Azure Hybrid Benefit 適用於 SQL Database 單一資料庫和彈性集區以 vCore 為基礎的購買模型的公開預覽版。 即使是使用中的 SKU，您仍可以套用此權益，但是請注意，一旦您在 Azure 入口網站中加以選取，便會開始向您收取基本費率。 點數的核發不溯及既往。
+[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 有助您充分發揮目前授權投資的價值，並加快移轉到雲端的速度。 適用於 SQL Server 的 Azure Hybrid Benefit 是以 Azure 為基礎的權益，可讓您搭配使用 SQL Server 授權與軟體保證，以較低的費率 (「基本費率」) 支付 SQL Database。 適用於 SQL Server 的 Azure Hybrid Benefit 適用於 SQL Database 單一資料庫和彈性集區以 vCore 為基礎的購買模型的公開預覽版。 即使是使用中的 SKU，您仍可以套用此權益，但是請注意，一旦您在 Azure 入口網站中加以選取，便會開始向您收取基本費率。 點數的核發不溯及既往。
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>適用於 SQL Server 的 Azure Hybrid Benefit 是否有雙重使用權
 
@@ -127,13 +127,13 @@ SQL Database 客戶將會有下列與適用於 SQL Server 的 Azure Hybrid Benef
 
 ## <a name="can-i-upgrade-or-downgrade-between-the-general-purpose-and-business-critical-service-tiers"></a>我是否可在一般目的與業務關鍵服務層之間升級或降級
 
-是，但有某些限制。 您的目的地 SKU 必須符合您為現有部署設定的資料庫或彈性集區大小上限。 如果您使用[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md)，則業務關鍵 SKU 僅可供具有 Enterprise Edition 授權的客戶使用。 只有使用適用於 SQL Server 的 Azure Hybrid Benefit 與 Enterprise Edition 授權從內部部署移轉至「一般目的」的客戶，才可升級為「業務關鍵」。 如需詳細資訊，請參閱[適用於 SQL Server 的 Azure Hybrid Benefit 有哪些明確的權利](../virtual-machines/windows/hybrid-use-benefit-licensing.md)？
+是，但有某些限制。 您的目的地 SKU 必須符合您為現有部署設定的資料庫或彈性集區大小上限。 如果您使用[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)，則業務關鍵 SKU 僅可供具有 Enterprise Edition 授權的客戶使用。 只有使用適用於 SQL Server 的 Azure Hybrid Benefit 與 Enterprise Edition 授權從內部部署移轉至「一般目的」的客戶，才可升級為「業務關鍵」。 如需詳細資訊，請參閱[適用於 SQL Server 的 Azure Hybrid Benefit 有哪些明確的權利](https://azure.microsoft.com/pricing/hybrid-benefit/)？
 
 這項轉換不會導致停止運作，並可使用 Azure 入口網站、PowerShell、Azure CLI、T-SQL 或 REST API 來起始。 請參閱[管理單一資料庫](sql-database-single-database-scale.md)和[管理彈性集區](sql-database-elastic-pool.md)。
 
 ## <a name="i-am-using-a-premium-rs-database-that-will-not-be-generally-available---can-i-upgrade-it-to-a-new-tier-and-achieve-a-similar-priceperformance-benefit"></a>我所使用的進階 RS 資料庫並不會正式推出 - 是否可將其升級至新服務層而達到類似的價格/效能優勢
 
-由於 vCore 模型允許您個別控制佈建的計算和儲存體數量，因此您可以更有效地管理產生的成本，這正是您使用進階 RS 資料庫的誘因。 此外，在使用以 vCore 為基礎的模型時，[適用於 SQL Server 的 Azure Hybrid Benefit](../virtual-machines/windows/hybrid-use-benefit-licensing.md) 會提供大幅折扣。
+由於 vCore 模型允許您個別控制佈建的計算和儲存體數量，因此您可以更有效地管理產生的成本，這正是您使用進階 RS 資料庫的誘因。 此外，在使用以 vCore 為基礎的模型時，[適用於 SQL Server 的 Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) 會提供大幅折扣。
 
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>每一集區的資源多久可調整一次
 

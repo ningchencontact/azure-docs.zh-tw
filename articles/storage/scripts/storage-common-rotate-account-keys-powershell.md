@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/13/2017
 ms.author: tamram
-ms.openlocfilehash: a7aaacf316799540a6a72b699ba8ea8bb389c8a8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 026c399af70a0c97446fba28b5dd7ca1ed82b89c
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2017
-ms.locfileid: "25984156"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635488"
 ---
 # <a name="create-a-storage-account-and-rotate-its-account-access-keys"></a>建立儲存體帳戶，並輪替其帳戶存取金鑰
 
@@ -39,7 +39,7 @@ ms.locfileid: "25984156"
 執行下列命令來移除資源群組、儲存體帳戶和所有相關資源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name rotatekeystestrg
+Remove-AzResourceGroup -Name rotatekeystestrg
 ```
 
 ## <a name="script-explanation"></a>指令碼說明
@@ -48,11 +48,11 @@ Remove-AzureRmResourceGroup -Name rotatekeystestrg
 
 | 命令 | 注意 |
 |---|---|
-| [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation) | 取得所有位置和每個位置支援的資源提供者。 |
-| [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | 建立 Azure 資源群組。 |
-| [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | 建立儲存體帳戶。 |
-| [Get-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/get-azurermstorageaccountkey) | 取得 Azure 儲存體帳戶的存取金鑰。 |
-| [New-AzureRmStorageAccountKey](/powershell/module/azurerm.storage/new-azurermstorageaccountkey) | 重新產生 Azure 儲存體帳戶的存取金鑰。 |
+| [Get-AzLocation](/powershell/module/az.resources/get-azlocation) | 取得所有位置和每個位置支援的資源提供者。 |
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 建立 Azure 資源群組。 |
+| [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | 建立儲存體帳戶。 |
+| [Get-AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey) | 取得 Azure 儲存體帳戶的存取金鑰。 |
+| [New-AzStorageAccountKey](/powershell/module/az.storage/new-azstorageaccountkey) | 重新產生 Azure 儲存體帳戶的存取金鑰。 |
 
 ## <a name="next-steps"></a>後續步驟
 

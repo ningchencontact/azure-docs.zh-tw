@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 66712b97807135b1e9e8321e441ac21368f86fc5
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313389"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633022"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
@@ -156,7 +156,7 @@ ms.locfileid: "53313389"
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-**間隔** 參數是必需的。 間隔指兩個連續索引子開始執行的時間。 允許的最小間隔為 5 分鐘；最長間隔為一天。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](http://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 間隔的模式為： `P(nD)(T(nH)(nM))`。 範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
+**間隔** 參數是必需的。 間隔指兩個連續索引子開始執行的時間。 允許的最小間隔為 5 分鐘；最長間隔為一天。 其必須格式化為 XSD "dayTimeDuration" 值 ( [ISO 8601 持續時間](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) 值的受限子集)。 間隔的模式為： `P(nD)(T(nH)(nM))`。 範例：`PT15M` 代表每隔 15 分鐘，`PT2H` 代表每隔 2 個小時。
 
 選用的 **startTime** 表示排定執行應開始的時間。 如果省略選用時間，則會使用您目前的 UTC 時間。 開始時間可以設定為過去的時間 (在這種情況下，可以假設索引子從 startTime 已持續執行一段時間，以排定第一次執行的時間)。  
 
@@ -325,7 +325,7 @@ SQL 索引子公開數個組態設定︰
 
 **問：在 Azure 上，除了在 IaaS 中執行的 SQL Server，能夠搭配其他資料庫使用 Azure SQL 索引子嗎？**
 
-否。 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
+沒有。 我們不支援這類案例，因為我們尚未使用 SQL Server 以外的資料庫來測試索引子。  
 
 **問：可以建立多個依照排程執行的索引子嗎？**
 

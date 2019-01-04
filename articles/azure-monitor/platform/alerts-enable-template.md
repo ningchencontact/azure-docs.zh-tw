@@ -7,20 +7,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
-ms.component: metric
-ms.openlocfilehash: 4fcde6773bcdfe7ac522c813151518785dc14e25
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.component: metrics
+ms.openlocfilehash: a5e38f1400b99c6030799121d37721c26e16649c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383556"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721133"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 範本建立傳統計量警示
 本文章將說明如何使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-authoring-templates.md) 設定 Azure 度量警示。 這可讓您在建立警示以確保正確地監視所有資源時，自動在您的資源上設定警示。
 
 > [!NOTE]
 > 
-> 本文說明如何使用 Resource Manager 範本建立**傳統計量警示**。 如果您要尋找使用範本建立[新版計量警示](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)的方式，[此文章](alerts-metric-create-templates.md)提供詳細資訊。
+> 本文說明如何使用 Resource Manager 範本建立**傳統計量警示**。 如果您要尋找使用範本建立[新版計量警示](../../azure-monitor/platform/alerts-metric-near-real-time.md)的方式，[此文章](alerts-metric-create-templates.md)提供詳細資訊。
 >
 
 

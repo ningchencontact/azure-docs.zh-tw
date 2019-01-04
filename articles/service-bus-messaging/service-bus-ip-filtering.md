@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: f8771be9a96ae188a9610a1b19dfd6cbd49ba277
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270428"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653827"
 ---
 # <a name="use-firewall-rules"></a>使用防火牆規則
 
@@ -53,7 +53,7 @@ IP 篩選器規則會依序套用，第一個符合 IP 位址的規則會決定�
 > - Azure 資料總管
 >
 > 虛擬網路上必須有下列 Microsoft 服務
-> - Azure Web Apps 
+> - Azure App Service
 > - Azure Functions
 
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>利用 Azure Resource Manager 範本來建立虛擬網路和防火牆規則

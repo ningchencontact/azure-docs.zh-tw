@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: bb427575d7cff69f0db778c5eb0e0bdf0671d8dd
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343272"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53583726"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>建立服務通知的活動記錄警示
 ## <a name="overview"></a>概觀
@@ -196,7 +196,7 @@ ms.locfileid: "53343272"
 
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[設定現有問題管理系統的 Webhook 通知](../../service-health/service-health-alert-webhook-guide.md)。
-- 深入了解[服務健康狀態通知](../../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。
 - 深入了解[通知速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](../../azure-monitor/platform/activity-log-alerts-webhook.md)。
 - 取得[活動記錄警示的概觀](../../azure-monitor/platform/alerts-overview.md)，並了解如何收到警示。 

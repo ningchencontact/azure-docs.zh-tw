@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
-ms.openlocfilehash: b884fc15770e91268d1033dc4bab9bf96766de94
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: af85975fce20a87af8365f8fe6ea73ed1e6e1416
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868934"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53998909"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights 中的智慧型偵測
  「智慧型偵測」會自動警告您 Web 應用程式中的可能效能問題。 它會針對您應用程式傳送給 [Application Insights](app-insights-overview.md) 的遙測執行主動式分析。 如果失敗率急遽上升或是用戶端或伺服器效能出現異常模式，您就會收到警示。 這項功能不需要進行任何設定。 只要您的應用程式傳送的遙測足夠，它就能發揮作用。
@@ -54,12 +54,12 @@ ms.locfileid: "52868934"
 ## <a name="next-steps"></a>後續步驟
 這些診斷工具可協助您檢查來自您的應用程式的遙測︰
 
-* [計量瀏覽器](app-insights-metrics-explorer.md)
-* [搜尋總管](app-insights-diagnostic-search.md)
+* [計量瀏覽器](../azure-monitor/app/metrics-explorer.md)
+* [搜尋總管](../azure-monitor/app/diagnostic-search.md)
 * [分析 - 功能強大的查詢語言](../azure-monitor/log-query/get-started-portal.md)
 
 「智慧型偵測」是全自動的。 但是，或許您會想要再設定一些警示？
 
-* [手動設定的度量警示](app-insights-alerts.md)
-* [可用性 Web 測試](app-insights-monitor-web-app-availability.md) 
+* [手動設定的度量警示](../azure-monitor/app/alerts.md)
+* [可用性 Web 測試](../azure-monitor/app/monitor-web-app-availability.md) 
 

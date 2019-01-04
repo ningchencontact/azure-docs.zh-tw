@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d626fd9b083b9ca2c55c286a1dd806620a639434
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0f9188ba26c818ce21e0951fad5b54c2ea5a893e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498020"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994907"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>使用維護排程管理服務更新和維護
 
@@ -51,7 +51,7 @@ ms.locfileid: "52498020"
 - [深入了解](changing-maintenance-schedule.md)如何變更維護排程。
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage)如何使用 Azure 監視器來建立、檢視和管理警示。
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)適用於記錄警示規則的 Webhook 動作。
-- [深入了解](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)如何建立及管理動作群組。
+- [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)如何建立及管理動作群組。
 - [深入了解](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure 服務健康狀態。
 
 

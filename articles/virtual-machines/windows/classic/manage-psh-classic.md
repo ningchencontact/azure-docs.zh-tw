@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2016
 ms.author: kasing
-ms.openlocfilehash: 942141fad09e6233efc7f850212a73f8a39c163c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b7fafa148417ba1667ec0277b414105f95e428ce
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30918300"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53971779"
 ---
 # <a name="manage-your-virtual-machines-by-using-azure-powershell"></a>使用 Azure PowerShell 管理您的虛擬機器
 > [!IMPORTANT] 
-> Azure 建立和處理資源的部署模型有二種： [Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需使用 Resource Manager 模型的常見 PowerShell 命令，請參閱[這裡](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
+> Azure 針對建立和使用資源方面，有二種不同的的部署模型：[Resource Manager 和傳統](../../../resource-manager-deployment-model.md)。 本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議讓大部分的新部署使用 Resource Manager 模式。 如需使用 Resource Manager 模型的常見 PowerShell 命令，請參閱[這裡](../../virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)。
 
 可以使用 Azure PowerShell Cmdlet 自動執行許多 VM 的日常管理工作。 這篇文章提供了幾個簡單工作的範例命令，另外也提供顯示用來完成更複雜的工作之命令的文章連結。
 
@@ -42,7 +42,7 @@ ms.locfileid: "30918300"
 
 若要取得 VM 的相關資訊，請執行此命令，並取代引號中的所有內容 (包括 < 和 > 字元)：
 
-     Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
+    Get-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 若要儲存 $vm 變數中的輸出，請執行：
 
@@ -54,7 +54,7 @@ ms.locfileid: "30918300"
 > [!NOTE]
 > 您可以從 **Get-azurevm** 命令顯示的畫面中，取得虛擬機器和雲端服務名稱。
 > 
-> $svcName = "<cloud service name>" $vmName = "<virtual machine name>" $localPath = "<儲存已下載 RDP 檔案的磁碟機和資料夾位置，例如：c:\temp >" $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
+> $svcName = `"<cloud service name>"` $vmName = `"<virtual machine name>"` $localPath = `"<drive and folder location to store the downloaded RDP file, example: c:\temp >"` $localFile = $localPath + "\" + $vmname + ".rdp" Get-AzureRemoteDesktopFile -ServiceName $svcName -Name $vmName -LocalPath $localFile -Launch
 > 
 > 
 
@@ -64,7 +64,7 @@ ms.locfileid: "30918300"
     Stop-AzureVM -ServiceName "<cloud service name>" -Name "<virtual machine name>"
 
 > [!IMPORTANT]
-> 萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP (VIP)。 <br><br> 如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
+> 萬一它是雲端服務的最後一個 VM，您可以使用這個參數來保留雲端服務的虛擬 IP (VIP)。 <br><br>  如果使用 StayProvisioned 參數，還是需要支付 VM 的費用。
 > 
 > 
 

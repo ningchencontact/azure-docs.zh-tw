@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 727ae9bbea4cabc5d27c32baff2123a7c03b531c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270122"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546856"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
 
@@ -32,7 +32,7 @@ ms.locfileid: "53270122"
 
 預定進行的維護作業若需要重新開機，會排定在不同波段。 每一個波段都有不同的範圍 (區域)：
 
-- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)，對通知新增收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
+- 波段開始時會傳送通知給客戶。 根據預設，通知會傳送給訂用帳戶擁有者和共同擁有者。 您可以使用 Azure [活動記錄警示](../azure-monitor/platform/activity-logs-overview.md)，對通知新增收件者和傳訊選項，例如電子郵件、SMS 和 Webhook。  
 - 隨著通知會提供一個「自助時段」。 在此時段，您可以找出該波段包含哪些 VM。 您可以根據自己的排程需求，主動啟動維護。
 - 在自助期間之後，「排定維護期間」隨即開始。 在此時段的某個時間點，Azure 會為您的 VM 排定並套用必要的維護。 
 
@@ -95,7 +95,7 @@ ms.locfileid: "53270122"
 
 ## <a name="notification-and-alerts-in-the-portal"></a>入口網站中的通知和警示
 
-Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以藉由建立活動記錄警示，為此通訊新增收件者和管道。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)。
+Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組，來傳達計劃性維護排程。 您可以藉由建立活動記錄警示，為此通訊新增收件者和管道。 如需詳細資訊，請參閱[使用 Azure 活動記錄監視訂用帳戶活動](../azure-monitor/platform/activity-logs-overview.md)。
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左側功能表中，選取 [監視]。 

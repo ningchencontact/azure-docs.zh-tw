@@ -3,16 +3,15 @@ title: 在適用於 PostgreSQL 的 Azure 資料庫伺服器查詢統計資料集
 description: 本文說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器上最佳化查詢統計資料集合。
 author: dianaputnam
 ms.author: dianas
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 076442d85d7f628504cca95c36f3e99f4d0c5117
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: df54693aee9a9a23b8202c90a6c23008ff7a7cb6
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966682"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548709"
 ---
 # <a name="optimize-query-statistics-collection-in-azure-database-for-postgresql-server"></a>在適用於 PostgreSQL 的 Azure 資料庫伺服器中最佳化查詢統計資料集合 
 本文說明如在「適用於 PostgreSQL 的 Azure 資料庫」伺服器中最佳化查詢統計資料集合。

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ce2391014eb5e15650c0a81ebb8e2fd4a08ca96b
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 0a2ccdc6b02e9d348517bee95306ffc88d9ccd98
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139219"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53599939"
 ---
 # <a name="deploy-an-edge-gateway-for-the-connected-factory-solution-accelerator-on-windows-or-linux"></a>在 Windows 或 Linux 上部署連線處理站解決方案加速器的 Edge 閘道
 
@@ -70,7 +70,7 @@ ms.locfileid: "50139219"
 
 安裝 OPC 元件之前，請完成下列步驟來準備您的環境：
 
-1. 若要完成閘道部署，您在連線處理站部署中需要 IoT 中樞的  **iothubowner**  連接字串。 在  [Azure 入口網站](http://portal.azure.com/)中，瀏覽至您在部署連線處理站解決方案時所建立資源群組中的 IoT 中樞。 按一下 [共用存取原則] ****  以存取 **iothubowner** 連接字串︰
+1. 若要完成閘道部署，您在連線處理站部署中需要 IoT 中樞的  **iothubowner**  連接字串。 在  [Azure 入口網站](https://portal.azure.com/)中，瀏覽至您在部署連線處理站解決方案時所建立資源群組中的 IoT 中樞。 按一下 [共用存取原則] ****  以存取 **iothubowner** 連接字串︰
 
     ![找出 IoT 中樞連接字串](./media/iot-accelerators-connected-factory-gateway-deployment/image2.png)
 

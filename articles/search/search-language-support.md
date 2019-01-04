@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: 3f88965e0d48a9ed3e9a91b4df42a79b83d2a79b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: a198fa7fe5e1ed81e30987990359f9ecedbe225b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313321"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631544"
 ---
 # <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>在 Azure 搜尋服務中建立多種語言的文件索引
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ ms.locfileid: "53313321"
 ![][2]
 *為每個欄位選取其中一個支援的分析器*
 
-根據預設，所有可搜尋的欄位都可使用 [標準 Lucene 分析器](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) (語言中立)。 若要檢視支援分析器的完整清單，請參閱 [Azure 搜尋服務的語言支援](https://msdn.microsoft.com/library/azure/dn879793.aspx)。
+根據預設，所有可搜尋的欄位都可使用 [標準 Lucene 分析器](https://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) (語言中立)。 若要檢視支援分析器的完整清單，請參閱 [Azure 搜尋服務的語言支援](https://msdn.microsoft.com/library/azure/dn879793.aspx)。
 
 一旦針對某個欄位選取語言分析器，它將用於該欄位的每個索引和搜尋要求。 使用不同的分析器針對多個欄位發出查詢時，查詢將由每個欄位的右分析器獨立處理。
 
@@ -81,7 +81,7 @@ ms.locfileid: "53313321"
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2017-11-11`
 
-如果您是 .NET 開發人員，請注意您可以使用 [Azure 搜尋服務 .NET SDK](http://www.nuget.org/packages/Microsoft.Azure.Search)來設定語言分析器。 最新版本包含對 Microsoft 語言分析器的支援。
+如果您是 .NET 開發人員，請注意您可以使用 [Azure 搜尋服務 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Search)來設定語言分析器。 最新版本包含對 Microsoft 語言分析器的支援。
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/07/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 94b1b4cfbc5e7a96be389f315a1c58dc311c60a0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104918"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53969432"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>建立 Service Fabric Mesh 應用程式的自動調整原則
 將應用程式部署到 Service Fabric Mesh 的其中一個主要優點是可讓您輕鬆相應縮小或放大服務。這應用於處理您服務上不同數量的負載，或是改善可用性。 您可以手動相應縮小或相應放大您的服務，或設定自動調整原則。
@@ -109,7 +109,9 @@ application:
             - name: AutoScaleWorkerRule
               trigger:
                 kind: AverageLoad
-                metricName: cpu
+                metric:
+                  kind: Resource
+                  name: cpu
                 lowerLoadThreshold: 0.2
                 upperLoadThreshold: 0.8
                 scaleIntervalInSeconds: 60

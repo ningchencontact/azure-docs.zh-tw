@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: adeb2d1f1268ed3f933a340c184a531510a7ff88
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 85a93746f3d10c5b4dae4f50cd539d515960bd54
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437427"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584321"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Microsoft Azure 虛擬機器、雲端服務和 Web Apps 的自動調整概觀
 本文說明何謂 Microsoft Azure 自動調整、其優點，以及如何開始使用它。  
@@ -97,7 +97,7 @@ Azure 監視器自動調整僅適用於[虛擬機器擴展集](https://azure.mic
 您可以透過下列途徑設定自動調整
 
 * [Azure 入口網站](../../azure-monitor/platform/autoscale-get-started.md)
-* [PowerShell](../../monitoring-and-diagnostics/insights-powershell-samples.md#create-and-manage-autoscale-settings)
+* [PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-and-manage-autoscale-settings)
 * [跨平台命令列介面 (CLI)](../../azure-monitor/platform/cli-samples.md#autoscale)
 * [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931953.aspx)
 

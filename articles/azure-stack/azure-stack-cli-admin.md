@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.openlocfilehash: 09c551ea7196ae20a60a5dd34c1cda889ff5df46
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c2827a4badd61aeb8de556795834dee39769e85e
+ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091044"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53554498"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>為 Azure Stack 使用者啟用 Azure CLI
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以對 Azure Stack 的使用者提供 CA 根憑證，使其可以在其開發電腦上使用 Azure CLI。 使用者必須有該憑證才能透過 CLI 管理資源。
 
@@ -38,7 +38,7 @@ ms.locfileid: "47091044"
 您可以在開發套件中，以及在開發套件環境內執行的租用戶虛擬機器中找到 Azure Stack CA 根憑證。 若要以 PEM 格式匯出 Azure Stack 根憑證，請登入您的開發套件或租用戶虛擬機器，然後執行下列指令碼：
 
 ```powershell
-$label = "AzureStackSelfSignedRootCert"
+$label = "<Your Azure Stack CA root certificate name>"
 Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
 $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
 if (-not $root)
@@ -69,7 +69,5 @@ Azure Stack 操作員應該設定裝載虛擬機器別名檔案的可公開存�
 ## <a name="next-steps"></a>後續步驟
 
 - [使用 Azure CLI 部署範本](azure-stack-deploy-template-command-line.md)
-
 - [使用 PowerShell 連線](azure-stack-connect-powershell.md)
-
 - [管理使用者權限](azure-stack-manage-permissions.md)

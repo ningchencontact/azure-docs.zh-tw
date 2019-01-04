@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-ms.openlocfilehash: fb6efad1f1c06349adb877516f5323d8b9ee45e8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ec33ac469d33a07d00f379beef2db9f4405e4679
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272230"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631120"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 Net# 類神經規格語言指南
 
@@ -388,7 +388,7 @@ output Out [10] sigmoid from H all;
 
 + 第一行會定義輸入層 (名為 `Data`)。 當您使用 `auto` 關鍵字，類神經網路會自動包含輸入範例中的所有功能資料行。 
 + 第二行會建立隱藏層。 隱藏層會被指派名稱 `H`，其中包含 200 個節點。 此層會與輸入層完全相連。
-+ 第三行定義輸出層 (名為 `O`)，其中包含 10 個輸出節點。 如果類神經網路用於分類，每個類別會有一個輸出節點。 關鍵字 **sigmoid** 指出套用至輸出層的輸出函數。
++ 第三行定義輸出層 (名為 `Out`)，其中包含 10 個輸出節點。 如果類神經網路用於分類，每個類別會有一個輸出節點。 關鍵字 **sigmoid** 指出套用至輸出層的輸出函數。
 
 ### <a name="define-multiple-hidden-layers-computer-vision-example"></a>定義多個隱藏層：電腦願景範例
 

@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b42529df406febc617c778d18d5b420f9c38c59a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1940908cc0120ed5a69ae6603ec101d020b0ef3f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434659"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722068"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的規模調整和主控
 
@@ -66,7 +66,7 @@ Azure Functions 在兩種不同的模式中執行：取用方案或 Azure App Se
 * 您需要 App Service 方案才有提供的功能，例如 App Service 環境、VNET/VPN 連線和較大 VM 大小的支援。
 * 您想要在 Linux 上執行函數應用程式，或想要在其上提供自訂映像以執行函數。
 
-VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如此一來，您不會支付超過您配置的 VM 執行個體的成本。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。 
+VM 可以減少執行數目、執行時間以及使用記憶體的成本。 如此一來，您不會支付超過您配置的 VM 執行個體的成本。 如需 App Service 方案運作方式的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/overview-hosting-plans.md)。 
 
 使用 App Service 方案時，您可以透過手動新增更多 VM 執行個體來相應放大，或者您可以啟用自動規模調整。 如需詳細資訊，請參閱[手動或自動調整執行個體計數規模](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)。 您也可以透過選擇不同的 App Service 方案來相應增加。 如需詳細資訊，請參閱[在 Azure 中為應用程式進行相應增加](../app-service/web-sites-scale.md)。 
 

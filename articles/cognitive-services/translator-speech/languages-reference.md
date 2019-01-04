@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 73c65aa5c95887c8b1f6eb5e4cf91e19815eba15
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256384"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53741873"
 ---
 # <a name="translator-speech-api-languages"></a>翻譯工具語音 API：語言
 
@@ -27,7 +27,7 @@ ms.locfileid: "53256384"
 
 ## <a name="implementation-notes"></a>實作附註
 
-GET /languages 
+### <a name="get-languages"></a>GET /languages 
 
 廣泛的語言集合可供繕寫語音、翻譯繕寫的文字，以及產生翻譯的合成語音。
 
