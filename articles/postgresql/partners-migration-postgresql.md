@@ -1,19 +1,18 @@
 ---
-title: 適用於 PostgreSQL 的 Azure 資料庫移轉合作夥伴 | Microsoft Docs
+title: 適用於 PostgreSQL 的 Azure 資料庫移轉合作夥伴
 description: 有解決方案可支援「適用於 PostgreSQL 的 Azure 資料庫」的第三方移轉合作夥伴清單。
-services: mysql
 author: HJToland3
 ms.author: jtoland
 manager: craigg
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.openlocfilehash: 11069e4e5ff9a6ad6b91fc554036955afa805443
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 63facf52531d1f58e4022085503da96a797f60df
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626449"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536231"
 ---
 # <a name="azure-database-for-postgresql-migration-partners"></a>適用於 PostgreSQL 的 Azure 資料庫移轉合作夥伴
 為廣泛支援「適用於 PostgreSQL 的 Azure 資料庫」解決方案，您可以從各種不同的業界領導合作夥伴和工具中做出選擇。 本文會點出有移轉解決方案可支援「適用於 PostgreSQL 的 Azure 資料庫」的 Microsoft 合作夥伴。

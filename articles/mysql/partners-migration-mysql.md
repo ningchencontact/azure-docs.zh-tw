@@ -1,18 +1,17 @@
 ---
 title: 適用於 MySQL 的 Azure 資料庫移轉合作夥伴 | Microsoft Docs
 description: 有解決方案可支援「適用於 MySQL 的 Azure 資料庫」的第三方移轉合作夥伴清單。
-services: mysql
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: e50cd285d904830bd7332f39d51aaa149f38b82a
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c081c6436939089565425a0f14bbf1856ca7ce8
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038021"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536758"
 ---
 # <a name="azure-database-for-mysql-migration-partners"></a>適用於 MySQL 的 Azure 資料庫移轉合作夥伴
 為廣泛支援「適用於 MySQL 的 Azure 資料庫」解決方案，您可以從各種不同的業界領導合作夥伴和工具中擇一使用。 本文主要說明有移轉解決方案可支援「適用於 MySQL 的 Azure 資料庫」的 Microsoft 合作夥伴。

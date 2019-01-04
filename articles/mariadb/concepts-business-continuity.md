@@ -3,17 +3,15 @@ title: 使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀
 description: 使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: a4c97b197076d2b23e48d1c84ddf9f9f26caac81
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c64f920bf56195ad53ac8acbf3f9199090f0a8b
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979891"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53536979"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mariadb"></a>使用「適用於 MariaDB 的 Azure 資料庫」的商務持續性概觀
 
