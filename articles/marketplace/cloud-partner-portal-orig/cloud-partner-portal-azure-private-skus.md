@@ -1,5 +1,5 @@
 ---
-title: 私人 SKU | Microsoft Docs
+title: 私人 SKU 和方案 | Microsoft Docs
 description: 如何使用私人 SKU 來管理供應項目可用性。
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 28fe85c6443701d5fb40d4f90dbec9ba445a234d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 519f0354f2a19e106ca1072170721b27357d173e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230235"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849202"
 ---
-<a name="private-skus"></a>私人 SKU
+<a name="private-skus-and-plans"></a>私人 SKU 和方案
 ============
 
 私人 SKU 讓您可以限制 SKU 僅供特定客戶使用。 當 SKU 標記為私人時，代表該 SKU 不在包含 [Azure Marketplace](https://azuremarketplace.microsoft.com) 及 [Azure 入口網站](http://portal.azure.com)在內的任何公開目錄上開放使用。 在 Azure 入口網站上，只有擁有 SKU 存取權的客戶可以看見它。 此外，系統會提示這些客戶，他們擁有私人供應項目的存取權。
@@ -90,6 +90,11 @@ ms.locfileid: "51230235"
             SubscriptionId,7738d703-3135-4e8d-8b81-1e70379abd9d,Private Customer
 
 當您從手動輸入切換至 CSV 上傳檢視，或是從 CSV 切換至手動輸入時，系統不會保留具有 SKU 存取權的訂用帳戶識別碼舊清單。 系統會顯示警告，而清單只會在儲存供應項目時覆寫。
+
+<a name="sync-private-subscriptions"></a>同步處理私人訂用帳戶
+-------------------------
+
+將訂用帳戶新增至具有私人 SKU 或方案的已發佈供應項目時，您不必重新發佈供應項目即可新增對象資訊。 只要使用 Azure 訂用帳戶識別碼 (方案和 SKU) 或租用戶識別碼 (僅限方案) 即可新增對象。
 
 <a name="previewing-private-offers"></a>預覽私人供應項目
 -------------------------

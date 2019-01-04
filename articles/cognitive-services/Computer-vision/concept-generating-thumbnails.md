@@ -8,32 +8,35 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/30/2018
 ms.author: pafarley
-ms.openlocfilehash: 9cb82b40d1fbec513b0219f26d1959fbd7f64570
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d914f394ecfcf02ed26f41cd8fe2ef799cf6103
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343957"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966733"
 ---
 # <a name="generating-thumbnails"></a>產生縮圖
 
-縮圖是完整大小影像的小型表示法。 手機、平板電腦和 PC 等不同裝置需要不同的使用者體驗 (UX) 配置和縮圖大小。 此電腦視覺功能使用智慧裁剪，因此有助於解決此問題。
+縮圖是大小縮小的影像表示。 縮圖主要用來以經濟實惠且利於版面配置的方式來表示影像和其他資料。 電腦視覺 API 會使用智慧裁剪，以及搭配影像大小調整，來建立特定影像的直覺式縮圖。
 
-上傳影像後，電腦視覺會產生高品質縮圖，然後分析該影像內的物件來識別相關區域 (ROI)， 而且可以選擇性裁剪影像，以符合 ROI 需求。 產生的縮圖可以使用與原始影像的外觀比例不同的外觀比例來呈現，以因應您的需求。
+電腦視覺縮圖產生演算法的運作方式如下所示：
+1. 從影像中移除雜亂的元素，並找出「關注區域 (area of interest)」&mdash;影像中顯示主要物件的區域。
+1. 根據所識別的「關注區域」來裁剪影像。
+1. 變更外觀比例以符合目標縮圖尺寸。
 
-縮圖演算法的運作方式如下：
+## <a name="area-of-interest"></a>關注區域
 
-1. 從影像中移除雜亂的元素，並識別主要物件 (相關區域)。
-2. 根據已識別的相關區域裁剪影像。
-3. 變更外觀比例以符合目標縮圖尺寸。
+當您上傳影像時，電腦視覺 API 會分析該影像，以判斷「關注區域」。 然後使用此區域來決定如何裁剪影像。 不過，若未指定的話，裁剪作業一律會符合所需的外觀比例。
+
+您也可以藉由呼叫 **areaOfInterest** API，改為取得此相同「關注區域」的原始週框方塊座標。 接著，您可以使用此資訊來依照喜好修改原始影像。
+
+## <a name="examples"></a>範例
 
 產生的縮圖可能大不相同，取決於您指定的高度、寬度及智慧裁剪方式，如下列影像所示。
 
 ![縮圖](./Images/thumbnail-demo.png)
-
-## <a name="thumbnail-generation-examples"></a>縮圖產生範例
 
 下表顯示的是電腦視覺針對範例影像所產生的典型縮圖。 這些是目標高度和寬度指定為 50 像素，並啟用智慧裁剪功能所產生的縮圖。
 
@@ -45,4 +48,4 @@ ms.locfileid: "49343957"
 
 ## <a name="next-steps"></a>後續步驟
 
-了解[標記影像](concept-tagging-images.md)和[分類影像](concept-categorizing-images.md)的相關概念。
+深入了解[標記影像](concept-tagging-images.md)和[分類影像](concept-categorizing-images.md)。

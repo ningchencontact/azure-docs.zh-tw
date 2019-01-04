@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f0fd4efe7fc6f8f217d889b5f87c133b5e250b54
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806487"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258197"
 ---
 <a name="logic-app-test-drive"></a>邏輯應用程式試用產品
 ====================
@@ -29,7 +29,7 @@ ms.locfileid: "48806487"
 <a name="how-to-build-a-logic-app-test-drive"></a>如何建置邏輯應用程式試用產品
 -----------------------------------
 
-邏輯應用程式試用產品的試用產品文件目前仍在 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) 和 [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) 的 github 上，請移至該處閱讀詳細資訊。
+邏輯應用程式試用產品的試用產品文件目前仍在 [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) 和 [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) 的 GitHub 上，請移至該處閱讀詳細資訊。
 
 <a name="how-to-publish-a-test-drive"></a>如何發佈試用產品
 ---------------------------
@@ -48,7 +48,7 @@ ms.locfileid: "48806487"
 
 ![試用產品詳細資料](./media/azure-resource-manager-test-drive/howtopub2.png)
 
-**描述 -** *[必填欄位]* 這是撰寫有關您試用產品所提供主要功能描述的位置。 客戶將到這裡查看您的試用產品涵蓋哪些產品的案例。 
+**描述 -** *[必填欄位]* 這是撰寫有關您試用產品所提供主要功能描述的位置。 客戶將到這裡查看您的試用產品涵蓋哪些產品的案例。 
 
 **使用者手冊 -** *[必填欄位]* 這是您試用產品體驗的深入逐步解說。 客戶將開啟此部分，而且可以逐步查看您在其整個試用產品評估過程中要他們做的事。 此內容必須容易理解並遵循！ (必須是 .pdf 檔案)
 
@@ -70,11 +70,11 @@ ms.locfileid: "48806487"
 
 - **區域** - *[必填欄位]* 選取的區域是您挑選部署試用產品邏輯應用程式資源所在的位置。
 
-    *注意：* 如果邏輯應用程式有任何儲存在區域中的自訂資源，請務必在此處選取該區域。 若要執行此操作，最好是**在入口網站中的 Azure 訂用帳戶上，從本機完全部署邏輯應用程式，並確認可以運作**，然後在這裡將其寫入。
+    *附註：* 如果邏輯應用程式有任何儲存在區域中的自訂資源，請務必在此處選取該區域。 若要執行此操作，最好是**在入口網站中的 Azure 訂用帳戶上，從本機完全部署邏輯應用程式，並確認可以運作**，然後在這裡將其寫入。
 
 - **並行執行試用產品的最大數目** - *[必填欄位]* 每個所選區域已部署並等候存取的試用產品執行個體數目。 客戶可以立即存取此試用產品，而不需要等候部署。
 
-    *注意：* 如果您所經營的是您希望所有 N 個學員都採用試用產品的網路研討會/班級，則建議使用 N 個待命執行個體發佈，然後在課程結束後，重新發佈回您正常的待命執行個體數目。
+    *附註：* 如果您所經營的是您希望所有 N 個學員都採用試用產品的網路研討會/班級，則建議使用 N 個待命執行個體發佈，然後在課程結束後，重新發佈回您正常的待命執行個體數目。
 
 - **試用產品持續時間 (小時) -** *[必填欄位]* 試用產品將維持可用的持續時間，以 \# 小時數表示。 在此持續時間過後，試用產品將會自動終止。
 
@@ -126,15 +126,13 @@ ms.locfileid: "48806487"
 假設我們使用應用程式部署到訂用帳戶，我們必須在訂用帳戶上將應用程式新增為參與者。 有關這些動作的指示如下：
 
 1. 瀏覽到 [訂用帳戶] 刀鋒視窗，並選取您僅用於試用產品的適當訂用帳戶。
-2. 按一下 [存取控制 (IAM)]。
-3. 按一下新刀鋒視窗中的 [+ 新增]。
-4. 將角色設定為「參與者」。
-5. 輸入 AAD 應用程式的名稱，並選取 AAD 應用程式以指派角色。
-6. 按一下 [儲存]。
-
-![Azure Active Directory，加入新的存取控制主體](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
-
-![Azure Active Directory 權限](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. 按一下 [存取控制 (IAM)]。
+1. 按一下 [角色指派] 索引標籤。![Azure Active Directory，加入新的存取控制主體](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. 按一下 [新增角色指派]。
+1. 將角色設定為 [參與者]。
+1. 輸入 Azure AD 應用程式的名稱，並選取應用程式以指派角色。
+    ![Azure Active Directory 權限](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
+1. 按一下 [檔案] 。
 
 **Azure AD App 金鑰 -** *[必填欄位]* 最後一個欄位是要產生驗證金鑰。 在 [金鑰] 下，新增 [金鑰描述] 並將期間設定為永不到期，然後選取 [儲存]。 **務必**避免擁有已到期的金鑰，這將會使得生產環境中的試用產品中斷。 複製此值並將它貼到您的必填 [試用產品] 欄位中。
 

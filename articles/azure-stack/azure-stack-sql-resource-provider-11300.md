@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: quying
-ms.openlocfilehash: d2dda25c63a6e4a73205b9e4a830a211d025b3ed
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.reviewer: georgel
+ms.openlocfilehash: 7bcec2d17f61345986c1676d13011946a0036666
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51688267"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164706"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 資源提供者 1.1.30.0 版本資訊
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 這些版本資訊說明 SQL 資源提供者 1.1.30.0 版的改進和已知問題。
 
@@ -62,11 +62,25 @@ ms.locfileid: "51688267"
 
 - **重複使用的 SQL 登入**。 嘗試使用與現有登入相同的使用者名稱在相同的訂用帳戶下建立新的 SQL 登入時，會導致重複使用相同登入和現有密碼的問題。 
 
-    **因應措施**：在相同的訂用帳戶下建立新登入時請使用不同的使用者名稱，或在不同訂用帳戶下使用相同的使用者名稱建立登入。
+    **因應措施**：在相同的訂用帳戶下，建立新登入時請使用不同的使用者名稱，或在不同訂用帳戶下，使用相同的使用者名稱建立登入。
 
 - **共用的 SQL 登入導致資料不一致**。 如果在相同的訂用帳戶下讓多個 SQL 資料庫共用一個 SQL 登入，變更登入密碼將會導致資料不一致。
 
-    **因應措施**：在相同的訂用帳戶下一律讓不同的資料庫使用不同的登入。
+    **因應措施**：在相同的訂用帳戶下，一律讓不同的資料庫使用不同的登入。
+
+- **TLS 1.2 支援需求**。 如果您自未啟用 TLS 1.2 的電腦，嘗試部署或更新 SQL 資源提供者時，作業可能會失敗。 用來部署或更新資源提供者，以確認 TLS 1.2，會傳回所支援電腦上執行的下列 PowerShell 命令：
+
+  ```powershell
+  [System.Net.ServicePointManager]::SecurityProtocol
+  ```
+
+  如果 **Tls12** 未包含在命令的輸出中，則 TLS 1.2 無法在電腦上啟用。
+
+    **因應措施**：執行下列 PowerShell 命令以啟用 TLS 1.2，然後啟動 資源提供者部署或從相同 PowerShell 工作階段的指令碼更新：
+
+    ```powershell
+    [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+    ```
 
 ### <a name="known-issues-for-cloud-admins-operating-azure-stack"></a>雲端管理員操作 Azure Stack 時的已知問題
 請參閱 [Azure Stack 版本資訊](azure-stack-servicing-policy.md)中的文件。

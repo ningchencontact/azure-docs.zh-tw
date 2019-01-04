@@ -9,31 +9,28 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 21c7b94f694e8a2cfe6abfd74bbc616ade5dad82
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f0d6c22d54de0486ad679f93343f0e7b208f21f4
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51008346"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384036"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>開發 HDInsight Windows 型叢集指令碼動作指令碼
 了解如何寫入 HDInsight 的指令碼動作指令碼 如需使用指令碼動作指令碼的資訊，請參閱[使用指令碼動作自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md)。 如需針對 Linux 型 HDInsight 叢集撰寫的相同文章，請參閱[開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions-linux.md)。
 
 
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件的步驟只適用於 Windows 型 HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需有關搭配 Linux 型叢集使用指令碼動作的詳細資訊，請參閱[使用 HDInsight 進行指令碼動作開發 (Linux)](hdinsight-hadoop-script-actions-linux.md)。
->
->
 
 
+「指令碼動作」可用來安裝在 Apache Hadoop 叢集上執行的其他軟體，或變更叢集上所安裝應用程式的設定。 指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。 指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。 您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
 
-指令碼動作可用來安裝其他在 Hadoop 叢集上執行的軟體，或變更叢集上所安裝應用程式的組態。 指令碼動作是在部署 HDInsight 叢集時，在叢集節點上執行的指令碼，一旦叢集中的節點完成 HDInsight 組態之後，就會執行這些指令碼動作。 指令碼動作是依據系統管理員帳戶的權限來執行，並具有叢集節點的完整存取權限。 您可對每個叢集提供一份依其指定順序來執行的指令碼動作清單。
-
-> [!NOTE]
+> [!NOTE]  
 > 如果看見下列錯誤訊息：
 >
-> System.Management.Automation.CommandNotFoundException；ExceptionMessage：無法將詞彙 'Save-HDIFile' 辨識為 Cmdlet、函式、指令碼檔案或可執行程式的名稱。 請檢查名稱拼字，如果名稱含有路徑，請確認路徑正確，然後再試一次。
+> System.Management.Automation.CommandNotFoundException; ExceptionMessage :無法辨識 'Save-HDIFile' 詞彙是否為 Cmdlet、函數、指令檔或可執行程式的名稱。 請檢查名稱拼字，如果名稱含有路徑，請確認路徑正確，然後再試一次。
+> 
 > 這是因為您沒有包括協助程式方法。  請參閱 [自訂指令碼的協助程式方法](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts)。
 >
 >
@@ -96,18 +93,18 @@ ms.locfileid: "51008346"
 
 HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
-| 名稱 | 指令碼 |
+| Name | 指令碼 |
 | --- | --- |
-| **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]。 |
+| **安裝 Spark** | `https://hdiconfigactions.blob.core.windows.net/sparkconfigactionv03/spark-installer-v03.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]。 |
 | **安裝 R** | `https://hdiconfigactions.blob.core.windows.net/rconfigactionv02/r-installer-v02.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 R](r-server/r-server-hdinsight-manage.md#install-additional-r-packages-on-the-cluster)。 |
-| **安裝 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。 |
-| **安裝 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1` 。 請參閱 [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。 |
-| **預先載入 Hive 程式庫** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1` 。 請參閱 [在 HDInsight 叢集上新增 Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md) |
+| **安裝 Solr** | `https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。 |
+| **安裝 Giraph** | `https://hdiconfigactions.blob.core.windows.net/giraphconfigactionv01/giraph-installer-v01.ps1` 。 請參閱[在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。 |
+| **預先載入 Hive 程式庫** | `https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1` 。 請參閱[在 HDInsight 叢集上新增 Apache Hive 程式庫](hdinsight-hadoop-add-hive-libraries.md) |
 
 
 您可以從 Azure 入口網站、Azure PowerShell 或使用 HDInsight .NET SDK 來部署「指令碼動作」。  如需詳細資訊，請參閱[使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]。
 
-> [!NOTE]
+> [!NOTE]  
 > 範例指令碼只能與 HDInsight 叢集版本 3.1 或更高版本搭配使用。 如需 HDInsight 叢集版本的詳細資訊，請參閱 [HDInsight 叢集版本](hdinsight-component-versioning.md)。
 >
 >
@@ -157,25 +154,25 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 ## <a name="best-practices-for-script-development"></a>指令碼開發的最佳做法
 為 HDInsight 叢集開發自訂的指令碼時，有數個最佳做法需要牢記在心：
 
-* 檢查 Hadoop 版本
+* 檢查 Hadoop 版本。
 
     只有 HDInsight 3.1 版 (Hadoop 2.4) 和以上版本才支援使用指令碼動作在叢集上安裝自訂元件。 在自訂指令碼中，您必須使用 **Get-HDIHadoopVersion** 協助程式方法，先檢查 Hadoop 的版本，再繼續執行指令碼中的其他工作。
-* 提供穩定的指令碼資源連結
+* 提供穩定的指令碼資源連結。
 
     使用者應該確定在叢集的整個存留期間，於叢集自訂中使用的所有指令碼及其他構件都保持可用，並且這些檔案的版本在此持續時間內不會變更。 如需為叢集中的節點重新製作映像，就必須有這些資源。 最佳做法是下載並封存使用者所控制之儲存體帳戶中的所有項目。 這可以是預設的儲存體帳戶，或是在部署時為自訂叢集指定的任何其他儲存體帳戶。
     例如，在文件中所提供的 Spark 和 R 自訂叢集範例中，此儲存體帳戶中具有資源的已本機複本： https://hdiconfigactions.blob.core.windows.net/。
-* 確保叢集自訂指令碼具有等冪性
+* 確保叢集自訂指令碼具有等冪性。
 
     您必須預期在叢集存留期間將為 HDInsight 叢集的節點重新製作映像。 每當重新製作叢集映像時，都會執行叢集自訂指令碼。 此指令碼必須設計成具有等冪性，意思就是在重新製作映像時，此指令碼應該確保叢集會回到與當初建立叢集時，指令碼剛剛第一次執行後相同的自訂狀態。 例如，如果自訂指令碼在第一次執行時，在 D:\AppLocation 中安裝了某個應用程式，則在後續每次的執行中，當重新製作映像時，此指令碼應該先檢查 D:\AppLocation 位置中是否有該應用程式，再繼續執行指令碼中的其他步驟。
-* 在最佳位置安裝自訂元件
+* 在最佳位置安裝自訂元件。
 
     重新製作叢集節點映像時，C:\ 資源磁碟機和 D:\ 系統磁碟機可能被重新格式化，而導致資料及安裝在這些磁碟機上的應用程式遺失。 如果隸屬於叢集的 Azure 虛擬機器 (VM) 節點故障，而被新節點取代時，也可能會發生這種遺失情況。 您可以將元件安裝在 D:\ 磁碟機上，或叢集上的 C:\apps 位置中。 C:\ 磁碟機上的所有其他位置則已預留他用。 請在叢集自訂指令碼中指定要用來安裝應用程式或程式庫的位置。
-* 確保叢集架構具有高可用性
+* 確保叢集架構具有高可用性。
 
     為了獲得高可用性，HDInsight 具備主動/被動架構，在此架構中，有一個處於使用中模式的前端節點 (此節點正在執行 HDInsight 服務)，以及另一個處於待命模式的前端節點 (此節點未執行 HDInsight 服務)。 如果 HDInsight 服務中斷，這兩個節點就會切換主動和被動模式。 如果為了獲得高可用性，而使用指令碼動作在這兩個前端節點安裝服務，請注意 HDInsight 的容錯移轉機制並無法自動容錯移轉這些由使用者所安裝的服務。 因此使用者在 HDInsight 前端節點上所安裝的服務若想要有高可用性，則必須有自己的主動/被動模式時的容錯移轉機制，或是處於主動/被動模式。
 
     已在 *ClusterRoleCollection* 參數中以指定前端節點角色做為值時，HDInsight 指令碼動作命令會同時在這兩個前端節點上執行。 因此，當您設計自訂指令碼時，請確定您的指令碼知道這項設定。 您不應該發生在這兩個前端節點上安裝並啟動相同的服務，而最終導致彼此競爭的問題。 此外也請注意，重新製作映像時，資料將會遺失，因此透過指令碼動作所安裝的軟體必須要能夠從這類事件復原。 應用程式在設計上應該要能夠與分散在眾多節點上的高可用性資料搭配運作。 最多可同時為叢集中 1/5 的節點重新製作映像。
-* 設定自訂元件來使用 Azure Blob 儲存體
+* 設定自訂元件來使用 Azure Blob 儲存體。
 
     您安裝在叢集節點上的自訂元件可能有使用 Hadoop 分散式檔案系統 (HDFS) 儲存體的預設組態。 您應該變更此組態，使其改為使用 Azure Blob 儲存體。 在重新製作叢集映像時，會格式化 HDFS 檔案系統，因此您會遺失儲存在其中的所有資料。 改用 Azure Blob 儲存體可確保資料保留下來。
 
@@ -297,9 +294,9 @@ HDInsight 提供數個指令碼在 HDInsight 叢集上安裝其他元件：
 
 ## <a name="see-also"></a>另請參閱
 * [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]
-* [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]
-* [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-* [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
+* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-provision]: hdinsight-provision-clusters.md
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster.md

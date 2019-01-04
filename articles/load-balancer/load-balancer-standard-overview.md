@@ -1,12 +1,11 @@
 ---
-title: Azure 標準 Load Balancer 概觀 | Microsoft Docs
+title: 什麼是 Azure 標準 Load Balancer？
+titlesuffix: Azure Load Balancer
 description: Azure 標準 Load Balancer 功能概觀
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 17b4bc68b2dc996134626b1822cfd17f0a9a7572
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: feaa0058aed566b40d3f2da548da1d961d5c82f3
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161636"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438756"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Azure Load Balancer Standard 概觀
 
@@ -58,7 +57,7 @@ Load Balancer 資源是一種物件，而您可以在其中表示 Azure 應如�
 
 ### <a name="backend"></a>後端集區
 
-標準 Load Balancer 後端集區可擴充至虛擬網路中的任何虛擬機器資源。  它最多可包含 1000 個後端執行個體。  後端執行個體是 IP 組態，也就是 NIC 資源的屬性。
+Standard Load Balancer 後端集區可擴充至虛擬網路中的任何虛擬機器資源。  它最多可包含 1000 個後端執行個體。  後端執行個體是 IP 組態，也就是 NIC 資源的屬性。
 
 後端集區可包含獨立虛擬機器、可用性設定組或虛擬機器擴展集。  您也可以混合搭配後端集區中的資源。 每個負載平衡器的後端集區可結合最多 150 項資源。
 
@@ -162,7 +161,7 @@ Load Balancer 支援為多個前端使用多項規則。  標準 Load Balancer �
 
 ### <a name="operations"></a>管理作業
 
-標準 Load Balancer 資源存在於全新的基礎結構平台上。  這可大幅提升標準 SKU 的管理作業執行速度，且每項標準 SKU 資源的管理通常都可在 30 秒內完成。  請注意，當後端集區的大小增加，變更後端集區的所需時間也會隨之增加。
+標準 Load Balancer 資源存在於全新的基礎結構平台上。  這可提升標準 SKU 的管理作業執行速度，且每項標準 SKU 資源的管理通常都可在 30 秒內完成。  當後端集區的大小增加，變更後端集區的所需時間也會隨之增加。
 
 您修改標準 Load Balancer 資源，以及在不同虛擬機器之間移動標準公用 IP 位址的速度，都可快上許多。
 
@@ -230,7 +229,7 @@ Load Balancer Standard 目前已在所有公用雲端地區推出。
 - 深入了解[健康情況探查](load-balancer-custom-probe-overview.md)。
 - 深入了解[可用性區域](../availability-zones/az-overview.md)。
 - 了解[標準 Load Balancer 診斷](load-balancer-standard-diagnostics.md)。
-- 參閱[支援的多維度計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers)，以了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中的診斷。
+- 參閱[支援的多維度計量](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)，以了解 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview.md)中的診斷。
 - 了解如何使用 [Load Balancer 來進行輸出連線](load-balancer-outbound-connections.md)。
 - 深入了解[輸出規則](load-balancer-outbound-rules-overview.md)。
 - 深入了解[閒置時重設 TCP](load-balancer-tcp-reset.md)。

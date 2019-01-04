@@ -3,7 +3,7 @@ title: 管理相應放大的雲端資料庫 | Microsoft Docs
 description: 使用彈性資料庫工作服務，跨資料庫群組執行指令碼。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: f5878c510e048bea2ce1aedaf4e0e5dbb4611caf
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 9647522f4b3990d065f292f05934b8d19c691454
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242512"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865517"
 ---
 # <a name="managing-scaled-out-cloud-databases"></a>管理相應放大的雲端資料庫
 
@@ -81,8 +81,8 @@ ms.locfileid: "50242512"
 2. 使用 PowerShell API 來存取更多功能，例如建立自訂定義資料庫集合、新增排程及/或收集結果集。 使用入口網站來進行簡單安裝，以及建立/監視僅限針對「彈性集區」執行的工作。
 3. 針對工作執行建立加密認證及 [將使用者 (或角色) 新增至群組中的每個資料庫](sql-database-security-overview.md)。
 4. 建立能夠針對群組中的每個資料庫執行的等冪 T-SQL 指令碼。
-5. 遵循下列步驟，使用 Azure 入口網站建立工作： [建立和管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
-6. 或使用 PowerShell 指令碼： [使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)](sql-database-elastic-jobs-powershell.md)。
+5. 遵循下列步驟，使用 Azure 入口網站建立工作：[建立和管理彈性資料庫工作](sql-database-elastic-jobs-create-and-manage.md)。
+6. 或使用 PowerShell 指令碼：[使用 PowerShell 建立和管理 SQL Database 彈性資料庫工作 (預覽)](sql-database-elastic-jobs-powershell.md)。
 
 ## <a name="idempotent-scripts"></a>等冪指令碼
 
@@ -138,7 +138,7 @@ ms.locfileid: "50242512"
 2. 控制資料庫是由 **工作服務** 存取，以啟動和追蹤要執行的工作。
 3. 與控制資料庫通訊的兩個不同角色：
    - 控制站：判斷哪些工作需要作業以執行要求的工作，並且藉由建立新的工作作業來重試失敗的工作。
-   - 工作作業執行：執行工作作業。
+   - 作業工作執行：執行作業工作。
 
 ### <a name="job-task-types"></a>工作作業類型
 

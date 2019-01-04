@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 6251a0c7fd43a12dbe02a0013f1530557d142d25
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277268"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969952"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中搭配 Azure CLI 使用 API 版本設定檔
 
@@ -36,7 +36,7 @@ az --version
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>信任 Azure Stack CA 根憑證
 
-1. 從 [Azure Stack 操作員](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate)取得 Azure Stack CA 根憑證，並信任該憑證。 若要信任 Azure Stack CA 根憑證，請將它附加到現有的 Python 憑證。
+1. 從 [Azure Stack 操作員](../azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate)取得 Azure Stack CA 根憑證，並信任該憑證。 若要信任 Azure Stack CA 根憑證，請將它附加到現有的 Python 憑證。
 
 1. 尋找您機器上的憑證位置。 此位置可能會根據您安裝 Python 的位置不同而有所差異。 您必須安裝 [pip](https://pip.pypa.io) 和 [certifi](https://pypi.org/project/certifi/) 模組。 您可以從 Bash 提示中使用下列 Python 命令：
 
@@ -76,7 +76,7 @@ sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 sudo cat PATH_TO_PEM_FILE >> ~/<yourpath>/cacert.pem
 ```
 
-#### <a name="windows"></a>Windows
+#### <a name="windows"></a> Windows
 
 ```powershell
 $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -192,7 +192,7 @@ Write-Host "Python Cert store was updated for allowing the azure stack CA root c
       > [!NOTE]
       > 如果您的使用者帳戶已啟用多重要素驗證，則可以使用 `az login command` 命令，而不需提供 `-u` 參數。 執行此命令可提供您一個 URL 以及必須用來進行驗證的代碼。
    
-      * 以*服務主體*形式登入：在登入之前，請[透過 Azure 入口網站](azure-stack-create-service-principals.md)或 CLI 建立服務主體，並為它指派角色。 現在，請使用下列命令登入：
+      * 使用*服務主體*來登入：在登入之前，請透過 [Azure 入口網站](azure-stack-create-service-principals.md)或 CLI 建立服務主體，並為它指派角色。 現在，請使用下列命令登入：
 
       ```azurecli
       az login \
@@ -242,6 +242,6 @@ az group create \
 
 [使用 Azure CLI 部署範本](azure-stack-deploy-template-command-line.md)
 
-[為 Azure Stack 使用者 (操作員) 啟用 Azure CLI](..\azure-stack-cli-admin.md)
+[為 Azure Stack 使用者 (操作員) 啟用 Azure CLI](../azure-stack-cli-admin.md)
 
 [管理使用者權限](azure-stack-manage-permissions.md)

@@ -1,6 +1,6 @@
 ---
-title: 檢視 Azure Reservations | Microsoft Docs
-description: 了解如何在 Azure 入口網站中檢視 Azure Reservations。
+title: 檢視 Azure 資源的保留 | Microsoft Docs
+description: 了解如何在 Azure 入口網站中檢視 Azure 保留。
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: cwatson
-ms.openlocfilehash: 4506d65d173ea483558a772d89fe7cbc8cd84944
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: c7522076987aacacc6fde6a0c9d2fa867a3f14aa
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584582"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314035"
 ---
-# <a name="view-azure-reservations-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure Reservations
+# <a name="view-reservations-for-azure-in-the-azure-portal"></a>在 Azure 入口網站中檢視 Azure 的保留
 
-視您的訂用帳戶類型和權限而定，有一些方式可檢視 Azure Reservations。
+視您的訂用帳戶類型和權限而定，有一些方式可檢視 Azure 資源的保留。
 
 ## <a name="view-reservations-as-owner-or-reader"></a>以擁有者或讀取者身分檢視保留
 
@@ -30,7 +30,7 @@ ms.locfileid: "52584582"
  
 若要以「擁有者」或「讀者」身分檢視保留，
 
-1. 登入 [Azure 入口網站]( http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 針對 [保留] 進行搜尋。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-reservation-search.png)
@@ -45,7 +45,7 @@ ms.locfileid: "52584582"
 
 若要在 Azure 入口網站中檢視保留交易，
 
-1. 登入 [Azure 入口網站]( http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 1. 針對 [成本管理 + 帳單] 進行搜尋。
 
     ![顯示 Azure 入口網站搜尋的螢幕擷取畫面](./media/billing-view-reservation/portal-cm-billing-search.png)
@@ -66,8 +66,8 @@ ms.locfileid: "52584582"
 - [預付 Cosmos DB 保留容量的費用](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [以 Azure SQL Database 保留容量預先支付 SQL 資料庫計算資源的費用](../sql-database/sql-database-reserved-capacity.md)
 - [預付具有 Azure 保留 VM 執行個體的虛擬機器](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [管理 Azure 保留項目](billing-manage-reserved-vm-instance.md)
-- [了解隨用隨付方案訂用帳戶的保留項目使用量](billing-understand-reserved-instance-usage.md)
+- [管理 Azure 保留](billing-manage-reserved-vm-instance.md)
+- [了解預付型方案訂用帳戶的保留使用量](billing-understand-reserved-instance-usage.md)
 - [了解 Enterprise 註冊的保留項目使用量](billing-understand-reserved-instance-usage-ea.md)
 - [了解 CSP 訂用帳戶的保留使用量](https://docs.microsoft.com/partner-center/azure-reservations)
 

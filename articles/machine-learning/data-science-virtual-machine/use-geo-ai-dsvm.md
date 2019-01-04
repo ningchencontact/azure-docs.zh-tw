@@ -1,11 +1,12 @@
 ---
 title: 使用地區人工智慧資料科學虛擬機器 - Azure | Microsoft Docs
-description: 如何在 Azure 上使用地區 AI 虛擬機器。
+description: 了解如何使用地區 AI 資料科學虛擬機器來分析資料，並依據地理空間資料建立模型。
 keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: f346b086a0269f247d64edf9346b01849ba3d0ee
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 872bfdfdef28dbb88861b723bd3186faea461cad
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408032"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410001"
 ---
 # <a name="using-the-geo-artificial-intelligence-data-science-virtual-machine"></a>使用地區人工智慧資料科學虛擬機器
 
@@ -46,7 +47,7 @@ Python 程式庫 [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-
 
 2. [開始使用 R 進行地理空間分析](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb)：此介紹範例示範如何使用 ArcGIS 的 R 介面 (由 [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) 程式庫提供) 來處理地理空間資料。 
 
-3. [像素層級土地使用分類](https://github.com/Azure/pixel_level_land_classification)：此教學課程說明如何建立可輸入空拍影像、並傳回地表標籤的深度類神經網路模型。 地表標籤例如「森林覆蓋」、「水」。 模型會針對影像中的每個像素傳回這樣的標籤。 此模型是使用 Microsoft 的開放原始碼 [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) 深入學習架構所建置。 此範例亦示範如何將 [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) 定型相應放大，以及如何使用 ArcGIS Pro 軟體中的模型預測。 
+3. [像素層級土地使用分類](https://github.com/Azure/pixel_level_land_classification)：此教學課程說明如何建立可輸入空拍影像、並傳回地表標籤的深度類神經網路模型。 地表標籤例如「森林覆蓋」、「水」。 模型會針對影像中的每個像素傳回這樣的標籤。 此模型是使用 Microsoft 的開放原始碼 [Cognitive Toolkit (CNTK)](https://www.microsoft.com/en-us/cognitive-toolkit/) 深入學習架構所建置。 
 
 
 ## <a name="next-steps"></a>後續步驟

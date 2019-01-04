@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0f9d786988cb547771b8fd999b911bd228cdc3e2
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311036"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017128"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
@@ -28,7 +28,7 @@ ms.locfileid: "52311036"
 
 * **Azure 訂用帳戶**。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * [安全殼層 (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 
-* [cURL](http://curl.haxx.se/download.html)。
+* [cURL](https://curl.haxx.se/download.html)。
 
 ## <a name="create-apache-hbase-cluster"></a>建立 Apache HBase 叢集
 下列程序會使用 Azure Resource Manager 範本建立 HBase 叢集和相依的預設 Azure 儲存體帳戶。 若要了解此程序與其他叢集建立方法中使用的參數，請參閱 [在 HDInsight 中建立以 Linux 為基礎的 Hadoop 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關如何使用 Data Lake Storage Gen2 的詳細資訊，請參閱[快速入門：在 HDInsight 中設定叢集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
@@ -39,11 +39,11 @@ ms.locfileid: "52311036"
 2. 從 [自訂部署] 刀鋒視窗，輸入下列值：
    
    * **訂用帳戶**：選取用來建立叢集的 Azure 訂用帳戶。
-   * **資源群組**：建立 Azure 資源管理群組，或使用現有的資源管理群組。
+   * **資源群組**：建立 Azure 資源管理群組，或使用現有的群組。
    * **位置**：指定資源群組的位置。 
    * **叢集名稱**：輸入 HBase 叢集的名稱。
-   * **叢集登入名稱和密碼**：預設登入名稱是 **admin**。
-   * **SSH 使用者名稱和密碼**：預設使用者名稱是 **sshuser**。  您可以將它重新命名。
+   * **叢集登入名稱和密碼**：預設登入名稱為 **admin**。
+   * **SSH 使用者名稱和密碼**：預設的使用者名稱為 **sshuser**。  您可以將它重新命名。
      
      其他參數都是選擇性的。  
      
@@ -174,7 +174,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>使用 Curl 來使用 HBase REST API
 
-透過 [基本驗證](http://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
+透過 [基本驗證](https://en.wikipedia.org/wiki/Basic_access_authentication)來保護 REST API 的安全。 您應該一律使用安全 HTTP (HTTPS) 提出要求，確保認證安全地傳送至伺服器。
 
 2. 使用下列命令列出現有的 HBase 資料表：
 
@@ -208,9 +208,9 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
    
     您必須使用 base64 編碼 -d 參數中指定的值。 在範例中︰
    
-   * MTAwMA==: 1000
-   * UGVyc29uYWw6TmFtZQ==: Personal:Name
-   * Sm9obiBEb2xl: John Dole
+   * MTAwMA==:1000
+   * UGVyc29uYWw6TmFtZQ==:Personal:Name
+   * Sm9obiBEb2xl:John Dole
      
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 可讓您插入多個 (批次) 值。
 5. 使用下列命令取得資料列：
@@ -272,7 +272,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 
 若要深入了解，請參閱：
 
-* [HDInsight HBase 概觀][hdinsight-hbase-overview]：Apache HBase 是建置於 Apache Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大一致性。
+* [HDInsight HBase 概觀][hdinsight-hbase-overview]：Apache HBase 是建置於 Apache Hadoop 上的 Apache 開放原始碼 NoSQL 資料庫，可針對大量非結構化及半結構化資料，提供隨機存取功能和強大的一致性。
 
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
@@ -288,11 +288,11 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-versions]: hdinsight-component-versioning.md
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [azure-portal]: https://portal.azure.com/
-[azure-create-storageaccount]: http://azure.microsoft.com/documentation/articles/storage-create-storage-account/
+[azure-create-storageaccount]: https://azure.microsoft.com/documentation/articles/storage-create-storage-account/
 
 [img-hbase-shell]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png
 [img-hbase-sample-data-tabular]: ./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png

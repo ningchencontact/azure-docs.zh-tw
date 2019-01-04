@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 的安全性 | Microsoft Docs
-description: IoT Edge 裝置的安全性、驗證和授權
+title: 安全性架構 - Azure IoT Edge | Microsoft Docs
+description: 深入了解用來開發 Azure IoT Edge 且應在設計解決方案時考量的安全性、驗證及授權標準
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,15 @@ ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4292dc3abf775d48ee33cc7a48793d080156efb1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 1042f53147122a7370b464f6bfc892dcee70fe70
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568932"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100135"
 ---
-# <a name="securing-azure-iot-edge"></a>保護 Azure IoT Edge
+# <a name="security-standards-for-azure-iot-edge"></a>適用於 Azure IoT Edge 的安全性標準
 
 保護智慧型邊緣可以讓 IoT 解決方案的端對端作業更有信心。 Azure IoT Edge 的設計目的是可以延伸至不同風險設定檔、部署案例的安全性，並且提供與您對於所有 Azure 服務預期的相同保護。
 

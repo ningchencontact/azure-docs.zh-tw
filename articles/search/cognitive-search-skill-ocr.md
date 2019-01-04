@@ -1,6 +1,6 @@
 ---
-title: OCR 認知搜尋技能 (Azure 搜尋服務) | Microsoft Docs
-description: 在 Azure 搜尋服務擴充管線的影像檔中擷取文字。
+title: OCR 認知搜尋技能 - Azure 搜尋服務
+description: 在 Azure 搜尋服務擴充管線中，使用光學字元辨識 (OCR) 擷取影像檔案中的文字。
 services: search
 manager: pablocas
 author: luiscabrer
@@ -11,12 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 97d594a232c3576d0a0163b2d6847f06328bcd7b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 097fd93955a4ca3fd96ae6452fa3b503b029ffc3
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167506"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313219"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR 認知技能
 
@@ -29,7 +30,12 @@ ms.locfileid: "49167506"
 + .GIF
 
 > [!NOTE]
-> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣告這些功能的定價。 
+> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
+>
+>  OCR 技能對應至下列認知服務功能：當 textExtractionAlgorithm 設定為 "handwritten" 時，會使用 ["RecognizeText"](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) 功能。
+>  當 textExtractionAlgorithm 設定為 "printed" 時，英文以外的語言會使用 ["OCR"](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) 功能。 若為英文，則會對列印的文字使用新的 ["Recognize Text"](../cognitive-services/computer-vision/concept-recognizing-text.md) 功能。
 
 ## <a name="skill-parameters"></a>技能參數
 

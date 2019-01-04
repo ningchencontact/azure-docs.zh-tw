@@ -1,25 +1,24 @@
 ---
-title: 使用 Mongoose 架構搭配 Azure Cosmos DB | Microsoft Docs
-description: 了解如何將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
-services: cosmos-db
-author: slyons
-manager: kfile
+title: 將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
+description: 了解如何使用 Mongoose 架構來儲存和管理 Azure Cosmos DB 中的資料。
+author: SnehaGunda
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 01/08/2018
-ms.author: sclyon
-ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.date: 12/06/2018
+ms.author: sngun
+ms.custom: seodec18
+ms.openlocfilehash: ec47c265c3d6f826bc1b7e7d8038e284c6981b7a
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857379"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134925"
 ---
-# <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB：使用 Mongoose 架構搭配 Azure Cosmos DB
+# <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>將 Node.js Mongoose 應用程式連線至 Azure Cosmos DB
 
-本教學課程示範在 Azure Cosmos DB 中儲存資料時如何使用 [Mongoose 架構](http://mongoosejs.com/) \(英文\)。 此逐步解說針對 Azure Cosmos DB 使用 MongoDB API。 對於不熟悉的你們而言，Mongoose 是 Node.js 中適用於 MongoDB 的物件模型建構架構，提供簡單、以結構描述為基礎的解決方案來為您的應用程式資料建立模型。
+本教學課程示範在 Azure Cosmos DB 中儲存資料時如何使用 [Mongoose 架構](https://mongoosejs.com/) \(英文\)。 此逐步解說針對 Azure Cosmos DB 使用 MongoDB API。 對於不熟悉的你們而言，Mongoose 是 Node.js 中適用於 MongoDB 的物件模型建構架構，提供簡單、以結構描述為基礎的解決方案來為您的應用程式資料建立模型。
 
 Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您可以快速建立及查詢文件、索引鍵/值及圖形資料庫，所有這些都受惠於位於 Azure Cosmos DB 核心的全域散發和水平調整功能。
 
@@ -96,7 +95,7 @@ Azure Cosmos DB 是 Microsoft 的全域分散式多模型資料庫服務。 您�
 
 本逐步解說涵蓋兩種模型。 首先我們會逐步解說每個集合儲存一種類型的資料。 這是 Mongoose 的實際行為。
 
-Mongoose 也有稱為[鑑別子](http://mongoosejs.com/docs/discriminators.html) \(英文\) 的概念。 鑑別子是結構描述繼承機制。 它們可讓您在相同的底層 MongoDB 集合上建立多個有重疊之結構描述的模型。
+Mongoose 也有稱為[鑑別子](https://mongoosejs.com/docs/discriminators.html) \(英文\) 的概念。 鑑別子是結構描述繼承機制。 它們可讓您在相同的底層 MongoDB 集合上建立多個有重疊之結構描述的模型。
 
 您可以將各種資料模型儲存在同一集合中，然後在查詢時使用篩選子句，只提取所需的資料。
 
@@ -196,7 +195,7 @@ Mongoose 也有稱為[鑑別子](http://mongoosejs.com/docs/discriminators.html)
 
 ### <a name="using-mongoose-discriminators-to-store-data-in-a-single-collection"></a>使用 Mongoose 鑑別子在單一集合中儲存資料
 
-在這種方法中，我們使用 [Mongoose 鑑別子](http://mongoosejs.com/docs/discriminators.html) \(英文\) 以協助最佳化每個 Azure Cosmos DB 集合的成本。 鑑別子可讓您定義區分用的「索引鍵」，它可讓您儲存、區別和篩選不同的物件模型。
+在這種方法中，我們使用 [Mongoose 鑑別子](https://mongoosejs.com/docs/discriminators.html) \(英文\) 以協助最佳化每個 Azure Cosmos DB 集合的成本。 鑑別子可讓您定義區分用的「索引鍵」，它可讓您儲存、區別和篩選不同的物件模型。
 
 此處，我們建立一個基底物件模型、定義區分用的索引鍵，並將 'Family' 和 'VacationDestinations' 做為擴充加入到基底模型。
 

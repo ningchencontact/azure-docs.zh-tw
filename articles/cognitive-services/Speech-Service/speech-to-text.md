@@ -1,7 +1,7 @@
 ---
-title: 關於語音轉換文字
+title: 關於語音轉換文字 - 語音服務
 titleSuffix: Azure Cognitive Services
-description: 語音轉換文字 API 的功能概觀。
+description: 語音轉換文字 API 可將音訊資料流轉譯成可供應用程式顯示或當作輸入來處理的文字。 此服務可透過 SDK 和 RESTful 端點來存取。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: 050d395614fa4a08e6d0d0967200029e8fc36010
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471334"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094707"
 ---
 # <a name="about-the-speech-to-text-api"></a>關於語音轉換文字 API
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: cwatson
-ms.openlocfilehash: a564e72cc695830edfa5092eddc1f4f9b80ba519
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b4f38d80bfddc342d83a3552efe5d4a60cf6350f
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583512"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680118"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>了解 Azure 消費限制及如何移除此限制
 
@@ -29,7 +29,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 
 若您用完訂用帳戶隨附的每月額度，則您部署的服務在該計費期間的剩餘時間內將被停用。 
 
-舉例來說，若您花光訂用帳戶隨附的所有點數，您部署的雲端服務便會從生產環境中移除，且 Azure 虛擬機器會停止運作並解除配置。 您只能以唯讀方式存取儲存體帳戶和資料庫中的資料。
+舉例來說，若您花光訂用帳戶隨附的所有點數，您部署的雲端服務便會從生產環境中移除，且 Azure 虛擬機器會停止運作並解除配置。 您只能以唯讀方式存取儲存體帳戶中的資料。
 
 下一個計費期間開始時，若您的訂用帳戶供應項目包含多月點數，系統便會自動重新啟用您的訂用帳戶。 接著，您便可以重新部署「雲端服務」，並完整存取您的儲存體帳戶和資料庫。
 
@@ -46,7 +46,7 @@ Azure 中消費限制的目的是避免您的花費超過點數額度。 根據�
 若要移除您的消費限制，請依照下列步驟操作：
 
 1. 登入[帳戶中心](https://account.windowsazure.com/Subscriptions)。
-1. 選取一個訂用帳戶。 如果訂用帳戶因為達到消費限制而遭到停用，請按一下此通知：[訂用帳戶已達到消費限制，為防止產生費用已被停用。] 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
+1. 選取一個訂用帳戶。 如果由於達到消費限制而停用訂用帳戶，請按一下此通知：「此訂用帳戶已達消費限制，並已停用以避免收費。」 否則，請按一下 [訂用帳戶狀態] 區域中的 [移除消費限制]。
 1. 選取適合您的選項。
 
 ![選取用於移除消費限制的選項](./media/billing-spending-limit/remove-spending-limit.PNG)

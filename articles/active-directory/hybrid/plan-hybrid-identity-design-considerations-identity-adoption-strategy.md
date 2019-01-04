@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5aeefe82255d40938eff09d7920e2fd5aca94c95
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cfd3f32f6293d5760c4a4ddcf40428a2b9b70f8
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308297"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999091"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>定義混合式身分識別採用策略
 在這項工作中，您將為混合式身分識別解決方案，定義混合式身分識別採用策略，以滿足下列幾節已討論的商務需求：
@@ -53,8 +53,8 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 
 | 策略 | 優點 | 缺點 |
 | --- | --- | --- |
-| **雲端身分識別** |在小型組織中易於管理。 <br> 沒有項目可以在內部安裝或更新。 沒有其他硬體需求<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br> 雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
-| **已同步處理** |內部部署密碼會驗證內部部署和雲端目錄 <br>對小型、中型或大型組織來說易於管理 <br>使用者可以對一些資源進行單一登入 (SSO) <br> Microsoft 對於同步處理的慣用方法 <br> 易於管理 |基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
+| **雲端身分識別** |在小型組織中易於管理。 <br> 沒有項目可以在內部安裝或更新。 沒有其他硬體需求<br>使用者離職時輕易停用 |使用者存取雲端中的工作負載時必須登入 <br>  雲端和內部部署身分識別的密碼可能相同，也可能不相同 |
+| **已同步處理** |內部部署密碼會驗證內部部署和雲端目錄 <br>對小型、中型或大型組織來說易於管理 <br>使用者可以對一些資源進行單一登入 (SSO) <br> Microsoft 對於同步處理的慣用方法 <br>  易於管理 |基於公司的特定原則，有些客戶可能不願意將目錄與雲端同步 |
 | **同盟** |使用者可以有單一登入 (SSO)  <br>如果使用者終止或離開時，可以將帳戶立即停用並撤銷存取權。<br> 支援同步處理所無法解決的進階案例 |安裝和設定的詳細步驟 <br> 較高的維護 <br> STS 基礎結構可能需要額外的硬體 <br> 安裝同盟伺服器可能需要額外的硬體。 如果使用 AD FS，則需要額外的軟體 <br> 需要大量的設定才能使用 SSO <br> 重大失敗點是，同盟伺服器關閉時使用者會無法驗證 |
 
 ### <a name="client-experience"></a>用戶端體驗
@@ -92,7 +92,7 @@ Microsoft 有三個主要的整合案例，分別為雲端身分識別、同步�
 * Office 轉換為被動驗證可讓它們支援純 SAML 2.0 IdP，但支援仍然以個別用戶端為準
 
 > [!NOTE]
-> 如需最新的清單，請參閱 https://aka.ms/ssoproviders 一文。
+> 如需最新的清單，請閱讀此文章：[Azure AD 同盟相容性清單](how-to-connect-fed-compatibility.md)。
 > 
 > 
 

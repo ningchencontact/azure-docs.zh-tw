@@ -8,21 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: bfed4318d09a776f56a5a4b6218120d75a49fc80
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 676baa6947eaf8b3842b0100657f42a1e6438061
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51714022"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184877"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何從適用於 VM 的 Azure 監視器 (預覽) 查詢記錄
-適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../../log-analytics/log-analytics-queries.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
+適用於 VM 的 Azure 監視器會收集效能和連線計量、電腦和處理序清查資料，以及健康狀態資訊，並將它轉送到 Azure 監視器中的 Log Analytics 資料存放區。  此資料可用來在 Log Analytics 中進行[搜尋](../../azure-monitor/log-query/log-query-overview.md)。 您可以將此資料套用至各種案例，包括移轉規劃、容量分析、探索和隨選效能疑難排解。
 
 ## <a name="map-records"></a>對應記錄
 除了當處理序或電腦啟動或是上線到適用於 VM 的 Azure 監視器對應功能時所產生的記錄外，每小時還會為每個唯一的電腦和處理序產生一筆記錄。 這些記錄具有下表中的屬性。 ServiceMapComputer_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的機器資源欄位。 ServiceMapProcess_CL 事件中的欄位和值對應到 ServiceMap Azure Resource Manager API 中的處理序資源欄位。 ResourceName_s 欄位會符合對應 Resource Manager 資源中的名稱欄位。 
@@ -238,5 +237,5 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="next-steps"></a>後續步驟
-* 如果您不熟悉如何在 Log Analytics 中撰寫查詢，請檢閱 Azure 入口網站中的[如何使用 Log Analytics 頁面](../../log-analytics/query-language/get-started-analytics-portal.md)以撰寫 Log Analytics 查詢。
-* 了解如何[撰寫搜尋查詢](../../log-analytics/query-language/search-queries.md)。
+* 如果您不熟悉如何在 Log Analytics 中撰寫查詢，請檢閱 Azure 入口網站中的[如何使用 Log Analytics 頁面](../../azure-monitor/log-query/get-started-portal.md)以撰寫 Log Analytics 查詢。
+* 了解如何[撰寫搜尋查詢](../../azure-monitor/log-query/search-queries.md)。

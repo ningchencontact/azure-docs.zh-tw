@@ -1,12 +1,11 @@
 ---
-title: 在 Azure Machine Learning Studio Web 服務中使用匯入/匯出資料 | Microsoft Docs
+title: Web 服務中的匯入/匯出資料 - Azure Machine Learning Studio | Microsoft Docs
 description: 了解如何使用「匯入資料」及「匯出資料」模組來傳送和接收 Web 服務的資料。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: ee7d0fb4792983099dc6192de8f85338daee357f
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52306942"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251380"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>部署使用資料匯入和資料匯出模組的 Azure Machine Learning Studio Web 服務
 
@@ -29,10 +28,10 @@ ms.locfileid: "52306942"
 
 「匯入資料」和「匯出資料」模組可以讀取和寫入各種資料位置，例如，透過 HTTP 的 Web URL、Hive 查詢、Azure SQL Database、Azure 表格儲存體、Azure Blob 儲存體、資料摘要提供或內部部署的 SQL 資料庫。
 
-本主題使用「範例 5︰二進位分類的訓練、測試、評估︰成人資料集」範例，並假設資料集已載入名為 censusdata 的 Azure SQL 資料表。
+本主題使用「範例5：定型、測試、評估二元分類：成人資料集」範例，並假設已將該資料集載入到名為 censusdata 的 Azure SQL 資料表。
 
 ## <a name="create-the-training-experiment"></a>建立訓練實驗
-當您開啟「範例 5︰二進位分類的訓練、測試、評估︰成人資料集」範例時，它會使用範例「成人收入普查二進位分類」資料集。 畫布中的實驗看起來類似下圖：
+當您開啟「範例 5：定型、測試、評估二元分類：成人資料集」範例時，它會使用範例「成人收入普查二元分類」資料集。 畫布中的實驗看起來類似下圖：
 
 ![實驗的初始組態。](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -104,7 +103,7 @@ ms.locfileid: "52306942"
 2. 執行完成時，按一下 [部署 Web 服務]，然後選取 [部署 Web 服務 [傳統]]。
 3. 在 Web 服務儀表板上，找出您的 API 金鑰。 複製並儲存起來供日後使用。
 4. 在 [預設端點] 資料表中，按一下 [批次執行] 連結以開啟 [API 說明頁面]。
-5. 在 Visual Studio 中建立 C# 主控台應用程式：[新增] > [專案] > [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
+5. 在 Visual Studio 中，建立 C# 主控台應用程式：[新增] > [專案] > [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
 6. 在 [API 說明頁面] 的頁面底部找到 [範例程式碼]  區段。
 7. 將 C# 範例程式碼複製並貼入 Program.cs 檔案，然後移除 Blob 儲存體的所有參考。
 8. 使用先前儲存的 API 金鑰更新 *apiKey* 變數的值。
@@ -133,7 +132,7 @@ ms.locfileid: "52306942"
 3. 在 [部署實驗] 頁面上，輸入您 Web 服務的名稱並選取定價方案，然後按一下 [部署]。
 4. 在 [快速入門] 頁面上，按一下 [取用]。
 5. 在 [範例程式碼] 區段中，按一下 [批次]。
-6. 在 Visual Studio 中建立 C# 主控台應用程式：[新增] > [專案] > [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
+6. 在 Visual Studio 中，建立 C# 主控台應用程式：[新增] > [專案] > [Visual C#] > [Windows 傳統桌面] > [主控台應用程式 (.NET Framework)]。
 7. 將 C# 範例程式碼複製並貼入 Program.cs 檔案。
 8. 使用位於 [基本取用資訊] 區段中的 [主索引鍵] 更新 *apiKey* 變數的值。
 9. 找出 *scoreRequest* 宣告並更新傳入「匯入資料」和「匯出資料」模組的 Web 服務參數值。 在此情況下，您會使用原始的查詢，但定義新的資料表名稱。

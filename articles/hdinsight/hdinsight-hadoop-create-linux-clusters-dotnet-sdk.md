@@ -9,19 +9,19 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 943d5aeccf949c1dd494dc8ec8fda0d782527749
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035675"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52870600"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 Apache Hadoop 叢集。
+了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 [Apache Hadoop](https://hadoop.apache.org/) 叢集。
 
 > [!IMPORTANT]
 > 本文中的步驟會建立具有一個背景工作節點的叢集。 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，您就必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
@@ -192,7 +192,7 @@ ms.locfileid: "51035675"
 
 藉由使用 Bootstrap，您可以在建立叢集期間設定額外的設定。  如需詳細資訊，請參閱 [使用 Bootstrap 自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
-修改 [建立叢集](#create-clusters) 中的範例，以設定 Hive 設定：
+修改[建立叢集](#create-clusters)中的範例，以設定 Apache Hive 設定：
 
 ```csharp
 static void Main(string[] args)
@@ -372,29 +372,29 @@ static void Main(string[] args)
 ## <a name="next-steps"></a>後續步驟
 既然您已成功建立 HDInsight 叢集，請使用下列內容來了解如何使用您的叢集。 
 
-### <a name="hadoop-clusters"></a>Hadoop 叢集
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
-* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 叢集
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 叢集
-* [開始在 HDInsight 上使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
+### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
+* [開始使用 HDInsight 上的 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [開發適用於 HDInsight 上 Apache HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 叢集
-* [在 HDInsight 上開發適用於 Storm 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
-* [在 HDInsight 上的 Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
-* [在 HDInsight 上使用 Storm 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
+### <a name="apache-storm-clusters"></a>Apache Storm 叢集
+* [開發適用於 HDInsight 上 Apache Storm 的 Java 拓撲](storm/apache-storm-develop-java-topology.md)
+* [在 HDInsight 上的 Apache Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
+* [使用 Apache Storm on HDInsight 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark 叢集
+### <a name="apache-spark-clusters"></a>Apache Spark 叢集
 * [使用 Scala 建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
-* [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
-* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 
 ### <a name="run-jobs"></a>執行工作
-* [使用 .NET SDK 在 HDInsight 中執行 Hive 工作](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [使用 .NET SDK 在 HDInsight 中執行 Pig 工作](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
-* [使用 .NET SDK 在 HDInsight 中執行 Sqoop 工作](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [在 HDInsight 中執行 Oozie 工作](hdinsight-use-oozie.md)
+* [使用 .NET SDK 在 HDInsight 中執行 Apache Hive 作業](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
+* [使用 .NET SDK 在 HDInsight 中執行 Apache Pig 作業](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
+* [使用 .NET SDK 在 HDInsight 中執行 Apache Sqoop 作業](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
+* [在 HDInsight 中執行 Apache Oozie 作業](hdinsight-use-oozie.md)
 

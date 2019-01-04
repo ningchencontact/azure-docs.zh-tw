@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1170266ed0b59c53adce4e44fe3e7a0bc62f394e
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251554"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014850"
 ---
-# <a name="security-frame-authentication--mitigations"></a>安全框架︰驗證 | 緩和措施 
+# <a name="security-frame-authentication--mitigations"></a>安全性框架：驗證 | 緩和措施 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **Web 應用程式**    | <ul><li>[考慮使用標準驗證機制來驗證 Web 應用程式](#standard-authn-web-app)</li><li>[應用程式必須安全地處理失敗的驗證案例](#handle-failed-authn)</li><li>[啟用升級或調適性驗證](#step-up-adaptive-authn)</li><li>[確保已適當地鎖定系統管理介面](#admin-interface-lockdown)</li><li>[安全地實作忘記密碼功能](#forgot-pword-fxn)</li><li>[確保已實作密碼和帳戶原則](#pword-account-policy)</li><li>[實作控制項以避免列舉使用者名稱](#controls-username-enum)</li></ul> |
@@ -135,7 +135,7 @@ ms.locfileid: "51251554"
 | **適用的技術** | SQL Azure |
 | **屬性**              | SQL 版本 - V12 |
 | **參考**              | [使用 Azure Active Directory 驗證連線到 SQL Database](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
-| **步驟** | **最小版本︰** 允許 Azure SQL Database 對 Microsoft 目錄使用 AAD 驗證所需的 Azure SQL Database V12 |
+| **步驟** | **最低版本**：允許 Azure SQL Database 對 Microsoft 目錄使用 AAD 驗證所需的 Azure SQL Database V12 |
 
 ## <a id="authn-account-pword"></a>使用 SQL 驗證模式時，確保在 SQL Server 上強制執行帳戶和密碼原則
 
@@ -245,7 +245,7 @@ ms.locfileid: "51251554"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Identity Server 部署 - 快取](https://identityserver.github.io/Documentation/docsv2/advanced/deployment.html) |
-| **步驟** | <p>IdentityServer 已內建簡單的記憶體內部快取。 雖然這適用於小規模原生應用程式，但不會針對中間層和後端應用程式進行調整，原因如下︰</p><ul><li>這些應用程式是由許多使用者同時存取。 在相同存放區中儲存所有的存取權杖會在大規模運作時產生隔離問題並帶來挑戰︰許多使用者 (各自有許多權杖) 的數字和代價很高的查閱作業，可能表示許多使用者，每個都有最多的語彙基元為代表他們執行的應用程式存取的資源</li><li>這些應用程式通常會部署在分散式拓撲上，其中多個節點必須存取相同的快取</li><li>快取的權杖必須在程序回收和停用後存留下來</li><li>基於上述原因，實作 Web 應用程式時，建議以可調整的替代項目 (例如 Azure Redis 快取) 覆寫預設 Identity Server 的權杖快取</li></ul>|
+| **步驟** | <p>IdentityServer 已內建簡單的記憶體內部快取。 雖然這適用於小規模原生應用程式，但不會針對中間層和後端應用程式進行調整，原因如下︰</p><ul><li>這些應用程式是由許多使用者同時存取。 在相同存放區中儲存所有的存取權杖會在大規模運作時產生隔離問題並帶來挑戰︰許多使用者 (各自有許多權杖) 的數字和代價很高的查閱作業，可能表示許多使用者，每個都有最多的語彙基元為代表他們執行的應用程式存取的資源</li><li>這些應用程式通常會部署在分散式拓撲上，其中多個節點必須存取相同的快取</li><li>快取的權杖必須在程序回收和停用後存留下來</li><li>基於上述原因，實作 Web 應用程式時，建議以可調整的替代項目 (例如 Azure Cache for Redis) 覆寫預設 Identity Server 的權杖快取</li></ul>|
 
 ## <a id="binaries-signed"></a>確保已數位簽署所部署應用程式的二進位檔
 
@@ -322,7 +322,7 @@ ms.locfileid: "51251554"
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 用戶端認證類型 - None |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
 | **步驟** | 缺少驗證表示每個人都能夠存取此服務。 不會驗證其用戶端的服務可允許所有使用者存取其功能。 設定應用程式以針對用戶端認證進行驗證。 將傳輸 clientCredentialType 設定為 Windows 或 [憑證] 即可完成此作業。 |
 
 ### <a name="example"></a>範例
@@ -350,7 +350,7 @@ ms.locfileid: "51251554"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Azure AD 的驗證案例](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/)、[Azure Active Directory 程式碼範例](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/)、[Azure Active Directory 開發人員指南](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
-| **步驟** | <p>Azure Active Directory (Azure AD) 提供身分識別做為服務，支援業界標準通訊協定 (例如 OAuth 2.0 和 OpenID Connect)，以簡化開發人員的驗證工作。 以下是 Azure AD 支援的五個主要應用程式案例：</p><ul><li>Web 瀏覽器到 Web 應用程式：使用者需要登入 Azure AD 所保護的 Web 應用程式</li><li>單一頁面應用程式 (SPA)：使用者需要登入 Azure AD 所保護的單一頁面應用程式</li><li>原生應用程式到 Web API：在電話、平板電腦或電腦執行的原生應用程式需要驗證使用者，以便從 Azure AD 所保護的 Web API 取得資源</li><li>Web 應用程式到 Web API：Web 應用程式需要從 Azure AD 所保護的 Web API 取得資源</li><li>Daemon 或伺服器應用程式到 Web API：無 Web 使用者介面的 Daemon 應用程式或伺服器應用程式，需要從 Azure AD 所保護的 Web API 取得資源</li></ul><p>請參閱 [參考] 區段中的連結，以取得低階實作詳細資料</p>|
+| **步驟** | <p>Azure Active Directory (Azure AD) 提供身分識別做為服務，支援業界標準通訊協定 (例如 OAuth 2.0 和 OpenID Connect)，以簡化開發人員的驗證工作。 以下是 Azure AD 支援的五個主要應用程式案例：</p><ul><li>網頁瀏覽器到 Web 應用程式：使用者必須登入 Azure AD 所保護的 Web 應用程式</li><li>單頁應用程式 (SPA)：使用者必須登入 Azure AD 所保護的單頁應用程式</li><li>原生應用程式到 Web API：在手機、平板電腦或電腦上執行的原生應用程式必須驗證使用者，才能從 Azure AD 所保護的 Web API 取得資源</li><li>Web 應用程式到 Web API：Web 應用程式必須從 Azure AD 所保護的 Web API 取得資源</li><li>精靈或伺服器應用程式到 Web API：無 Web 使用者介面的精靈應用程式或伺服器應用程式必須從 Azure AD 所保護的 Web API 取得資源</li></ul><p>請參閱 [參考] 區段中的連結，以取得低階實作詳細資料</p>|
 
 ## <a id="adal-scalable"></a>以可調整的替代項目覆寫預設 ADAL 權杖快取
 
@@ -361,7 +361,7 @@ ms.locfileid: "51251554"
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
 | **參考**              | [Modern Authentication with Azure Active Directory for Web Applications](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/)、[使用 Redis 作為 ADAL 權杖快取](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
-| **步驟** | <p>ADAL (Active Directory 驗證程式庫) 使用的預設快取是依賴靜態存放區、整個程序可用的記憶體內部快取。 雖然這適用於原生應用程式，但不會針對中間層和後端應用程式進行調整，原因如下︰</p><ul><li>這些應用程式是由許多使用者同時存取。 在相同存放區中儲存所有的存取權杖會在大規模運作時產生隔離問題並帶來挑戰︰許多使用者 (各自有許多權杖) 的數字和代價很高的查閱作業，可能表示許多使用者，每個都有最多的語彙基元為代表他們執行的應用程式存取的資源</li><li>這些應用程式通常會部署在分散式拓撲上，其中多個節點必須存取相同的快取</li><li>快取的權杖必須在程序回收和停用後存留下來</li></ul><p>基於上述原因，實作 Web 應用程式時，建議以可調整的替代項目 (例如 Azure Redis 快取) 覆寫預設 ADAL 權杖快取。</p>|
+| **步驟** | <p>ADAL (Active Directory 驗證程式庫) 使用的預設快取是依賴靜態存放區、整個程序可用的記憶體內部快取。 雖然這適用於原生應用程式，但不會針對中間層和後端應用程式進行調整，原因如下︰</p><ul><li>這些應用程式是由許多使用者同時存取。 在相同存放區中儲存所有的存取權杖會在大規模運作時產生隔離問題並帶來挑戰︰許多使用者 (各自有許多權杖) 的數字和代價很高的查閱作業，可能表示許多使用者，每個都有最多的語彙基元為代表他們執行的應用程式存取的資源</li><li>這些應用程式通常會部署在分散式拓撲上，其中多個節點必須存取相同的快取</li><li>快取的權杖必須在程序回收和停用後存留下來</li></ul><p>基於上述原因，實作 Web 應用程式時，建議以可調整的替代項目 (例如 Azure Cache for Redis) 覆寫預設 ADAL 權杖快取。</p>|
 
 ## <a id="tokenreplaycache-adal"></a>確保使用 TokenReplayCache 來防止重新執行 ADAL 驗證權杖
 
@@ -455,7 +455,7 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 | **適用的技術** | 泛型、C#、Node.JS  |
 | **屬性**              | N/A、閘道選擇 - Azure IoT 中樞 |
 | **參考**              | N/A、[採用 .NET 的 Azure IoT 中樞](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/)、[開始使用 IoT 中樞和 Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted)、[使用 SAS 和憑證保護 IoT](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/)、[Git 儲存機制](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
-| **步驟** | <ul><li>**泛型︰** 使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、Oauth。</li><li>**C#：** 建立 DeviceClient 執行個體時，Create 方法預設會建立一個使用 AMQP 通訊協定來與 IoT 中樞通訊的 DeviceClient 執行個體。 若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 Create 方法的覆寫。 若您使用 HTTPS 通訊協定，您也應該將 `Microsoft.AspNet.WebApi.Client` Nuget 套件新增至您的專案，以包含 `System.Net.Http.Formatting` 命名空間。</li></ul>|
+| **步驟** | <ul><li>**泛型：** 使用傳輸層安全性 (TLS) 或 IPSec 來驗證裝置。 如果裝置無法處理完整的非對稱密碼編譯，則基礎結構應該支援在這些裝置上使用預先共用金鑰 (PSK)。 利用 Azure AD、Oauth。</li><li>**C#:** 建立 DeviceClient 執行個體時，Create 方法預設會建立一個使用 AMQP 通訊協定來與 IoT 中樞通訊的 DeviceClient 執行個體。 若要使用 HTTPS 通訊協定，請使用可讓您指定通訊協定的 Create 方法的覆寫。 若您使用 HTTPS 通訊協定，您也應該將 `Microsoft.AspNet.WebApi.Client` Nuget 套件新增至您的專案，以包含 `System.Net.Http.Formatting` 命名空間。</li></ul>|
 
 ### <a name="example"></a>範例
 ```csharp
@@ -566,7 +566,7 @@ await deviceClient.SendEventAsync(message);
 | **適用的技術** | 泛型 |
 | **屬性**              | StorageType - Blob |
 | **參考**              | [管理對容器與 Blob 的匿名讀取權限](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/)、[共用存取簽章，第 1 部分：了解 SAS 模型](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
-| **步驟** | <p>根據預設，可能只有儲存體帳戶的擁有者能存取容器及其內部的任何 Blob。 若要為匿名使用者授與容器及其 Blob 的讀取權限，您可以設定容器權限以允許公用存取。 匿名使用者可以讀取可公開存取之容器內的 Blob，而不需驗證要求。</p><p>容器會提供下列選項來管理容器存取：</p><ul><li>完整的公開讀取權限：可以透過匿名要求讀取容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。</li><li>僅對 Blob 有公開讀取權限：您可以透過匿名要求讀取此容器內的 Blob 資料，但您無法使用容器資料。 用戶端無法透過匿名要求列舉容器內的 Blob</li><li>沒有公開讀取權限：只有帳戶擁有者可以讀取容器和 Blob 資料。</li></ul><p>匿名存取適用於某些 Blob 應永遠可供匿名讀取存取的狀況。 如需更精密的控制，您可以建立共用存取簽章，以便在指定的時間間隔內，使用不同的權限來委派受限制的存取權。 確保容器和 blob (可能包含敏感性資料) 不會意外取得匿名存取權</p>|
+| **步驟** | <p>根據預設，可能只有儲存體帳戶的擁有者能存取容器及其內部的任何 Blob。 若要為匿名使用者授與容器及其 Blob 的讀取權限，您可以設定容器權限以允許公用存取。 匿名使用者可以讀取可公開存取之容器內的 Blob，而不需驗證要求。</p><p>容器會提供下列選項來管理容器存取：</p><ul><li>完整公用讀取權限：可以透過匿名要求讀取容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。</li><li>僅限 Blob 的公用讀取權限：您可以透過匿名要求讀取此容器內的 Blob 資料，但您無法使用容器資料。 用戶端無法透過匿名要求列舉容器內的 Blob</li><li>沒有公用讀取權限：只有帳戶擁有者可以讀取容器和 Blob 資料。</li></ul><p>匿名存取適用於某些 Blob 應永遠可供匿名讀取存取的狀況。 如需更精密的控制，您可以建立共用存取簽章，以便在指定的時間間隔內，使用不同的權限來委派受限制的存取權。 確保容器和 blob (可能包含敏感性資料) 不會意外取得匿名存取權</p>|
 
 ## <a id="limited-access-sas"></a>使用 SAS 或 SAP 對 Azure 儲存體中的物件授與有限的存取權
 
@@ -576,5 +576,5 @@ await deviceClient.SendEventAsync(message);
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A |
-| **參考**              | [共用存取簽章，第 1 部分：了解 SAS 模型](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)、[共用存取簽章，第 2 部分：透過 Blob 儲存體建立及使用 SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/)、[如何使用共用存取簽章和預存存取原則將存取權委派給帳戶中的物件](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **參考**              | [共用存取簽章，第 1 部分：了解 SAS 模型](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)、[共用存取簽章，第 2 部分：透過 Blob 儲存體來建立與使用 SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/)、[如何使用共用存取簽章和預存存取原則委派帳戶中物件的存取權](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
 | **步驟** | <p>若要在無需公開帳戶存取金鑰的情況下，將儲存體帳戶中物件的限制存取授與其他用戶端，則使用共用存取簽章 (SAS) 會是個佷有效的方式。 SAS 是一種 URI，URI 會在其查詢參數中包含通過驗證存取儲存體資源的所有必要資訊。 若要使用 SAS 存取儲存體資源，用戶端只需在適當的建構函式或方法中傳入 SAS 即可。</p><p>當您想要將儲存體帳戶中的資源存取權提供給無法放心託付帳戶金鑰的用戶端時，您可以使用 SAS。 您的儲存體帳戶金鑰包括主要和次要金鑰，兩者皆可授與帳戶及帳戶內所有資源的系統管理存取權。 提供任一帳戶金鑰都會讓您的帳戶受到惡意或粗心使用的可能性。 共用存取簽章提供一個安全的替代方式，無需帳戶金鑰便可讓其他用戶端根據他們被授與的權限，來讀取、寫入及刪除儲存體帳戶中的資料。</p><p>如果您每次都有一組類似的邏輯參數，使用預存存取原則 (SAP) 會是個不錯的做法。 因為使用衍生自預存存取原則的 SAS 讓您能夠立即撤銷該 SAS，所以建議的最佳做法是一律儲存預存存取原則 (如果可能)。</p>|

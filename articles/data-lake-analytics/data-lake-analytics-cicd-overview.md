@@ -10,16 +10,16 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 974ef7a51736c2e2b0a0de3c13d23ddc37fa13b7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855012"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969834"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>如何設定 Azure Data Lake Analytics 的 CI/CD 管線  
 
-在此文章中，您會了解如何針對 U-SQL 作業和 U-SQL 資料庫來設定持續整合和部署 (CI/CD) 管線。  
+在本文中，您會了解如何針對 U-SQL 作業和 U-SQL 資料庫來設定持續整合和部署 (CI/CD) 管線。  
 
 ## <a name="use-cicd-for-u-sql-jobs"></a>使用 U-SQL 作業的 CI/CD
 
@@ -27,7 +27,7 @@ Azure Data Lake Tools for Visual Studio 提供 U-SQL 專案類型，有助於編
 
 ## <a name="build-a-u-sql-project"></a>建置 U-SQL 專案
 
-您可以使用 Microsoft Build Engine (MSBuild)，藉由傳遞對應的參數來建置 U-SQL 專案。 請依照此文章中的步驟，來設定 U-SQL 專案的建置程序。
+您可以使用 Microsoft Build Engine (MSBuild)，藉由傳遞對應的參數來建置 U-SQL 專案。 請遵循本文中的步驟，來設定 U-SQL 專案的建置程序。
 
 ### <a name="project-migration"></a>專案移轉
 
@@ -46,7 +46,7 @@ Azure Data Lake Tools for Visual Studio 提供 U-SQL 專案類型，有助於編
 
 ### <a name="get-nuget"></a>取得 NuGet
 
-MSBuild 並未內建對 U-SQL 專案的支援。 若要獲得此支援，您需要為解決方案新增對於 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 套件的參考，以新增所需的語言服務。
+MSBuild 並未內建對 U-SQL 專案的支援。 若要獲得這項支援，您需要為解決方案新增對於 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 套件的參考，以新增所需的語言服務。
 
 若要新增 NuGet 套件參考，請在 Visual Studio 方案總管中以滑鼠右鍵按一下解決方案，然後選擇 [管理 NuGet 套件]。 您也可以在解決方案資料夾內新增名為 `packages.config` 的檔案，然後於檔案中新增以下內容：
 
@@ -69,7 +69,7 @@ U-SQL 專案中的 U-SQL 指令碼可能有 U-SQL 資料庫物件的查詢陳述
 
 ### <a name="build-a-u-sql-project-with-the-msbuild-command-line"></a>使用 MSBuild 命令列建置 U-SQL 專案
 
-先移轉專案，並取得 NuGet 套件。 然後，使用以下額外引數呼叫標準的 MSBuild 命令列，以建置 U-SQL 專案： 
+先遷移專案，並取得 NuGet 套件。 然後，使用以下額外引數呼叫標準的 MSBuild 命令列，以建置 U-SQL 專案： 
 
 ``` 
 msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL.SDK.1.3.180615\build\runtime;USQLTargetType=SyntaxCheck;DataRoot=datarootfolder;/p:EnableDeployment=true
@@ -99,7 +99,7 @@ msbuild USQLBuild.usqlproj /p:USQLSDKPath=packages\Microsoft.Azure.DataLake.USQL
     ![定義 U-SQL 專案的 CI/CD MSBuild 變數](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime /p:USQLTargetType=SyntaxCheck /p:DataRoot=$(Build.SourcesDirectory) /p:EnableDeployment=true
     ```
 
 ### <a name="u-sql-project-build-output"></a>U-SQL 專案建置輸出
@@ -298,7 +298,7 @@ Azure Data Lake Tools for Visual Studio 會提供 U-SQL 資料庫專案範本，
 
 ### <a name="get-the-nuget-package"></a>取得 NuGet 套件
 
-MSBuild 未提供內建的 U-SQL 資料庫專案支援。 若要獲得此功能，您需要為解決方案新增對於 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 套件的參考，以新增所需的語言服務。
+MSBuild 未提供內建的 U-SQL 資料庫專案支援。 若要獲得這項功能，您需要為解決方案新增對於 [Microsoft.Azure.DataLake.USQL.SDK](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/) NuGet 套件的參考，以新增所需的語言服務。
 
 若要新增 NuGet 套件參考，請在 Visual Studio 方案總管中以滑鼠右鍵按一下解決方案。 選擇 [管理 NuGet 套件]。 然後搜尋並安裝 NuGet 套件。 您也可以在解決方案資料夾內新增名為 **packages.config** 的檔案，然後將以下內容放入檔案中：
 
@@ -335,7 +335,7 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
    ![定義 U-SQL 資料庫專案的 CI/CD MSBuild 變數](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
     ```
-    /p:USQLSDKPath=/p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
     ```
  
 ### <a name="u-sql-database-project-build-output"></a>U-SQL 資料庫專案建置輸出

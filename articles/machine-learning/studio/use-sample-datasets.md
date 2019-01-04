@@ -4,9 +4,8 @@ description: Machine Learning Studio 中包含的範例模型所使用之資料�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 03a0b844-e8a7-4896-996f-d3c7a0db7a50
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
-ms.openlocfilehash: 57d9e1c7b501b67a441dc3490356261fa29ebb7d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fde43417ffc907a93b4e568b90ebbda228c4cfe
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308829"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270479"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用範例資料集
 [top]: #machine-learning-sample-datasets
@@ -34,7 +33,7 @@ ms.locfileid: "52308829"
 您可以將資料集拖曳到您的實驗畫布上，在自己的實驗中使用任一資料集。
 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 <table>
 
@@ -50,7 +49,7 @@ ms.locfileid: "52308829"
 <p></p>
 <b>使用方式：</b>使用人口統計來將人口分類，以預測個人年收入是否超過 5 萬元。
 <p></p>
-<b>相關研究：</b>Kohavi, R.、Becker, B. (1996 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Kohavi, R., Becker, B. (1996)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -71,7 +70,7 @@ ms.locfileid: "52308829"
 <p></p>
 <b>使用方式：</b>使用迴歸或多變量分類，依特性預測風險評分。 
 <p></p>
-<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Schlimmer, J.C. (1987 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -100,9 +99,9 @@ ms.locfileid: "52308829"
 <p></p>
 捐血資料包括前次捐血後經過的月數、頻率、或捐血總次數、前次捐血後經過的時間，以及捐血的數量。
 <p></p>
-<b>使用方式：</b>目標是透過分類來預測捐血者是否曾在 2007 年 3 月份捐血；1 表示目標期間內有 1 名捐血者，0 表示沒有捐血者。 
+<b>使用方式：</b>目標是透過分類來預測捐血者是否曾在 2007 年 3 月份捐過血；1 表示目標期間內有 1 名捐血者，0 表示沒有捐血者。 
 <p></p>
-<b>相關研究：</b>Yeh, I.C. (2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Yeh, I.C. (2008)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
 Yeh, I-Cheng, Yang, King-Jang, and Ting, Tao-Ming, "Knowledge discovery on RFM model using Bernoulli sequence, "Expert Systems with Applications, 2008, <a href="http://dx.doi.org/10.1016/j.eswa.2008.07.018">http://dx.doi.org/10.1016/j.eswa.2008.07.018</a>
   </td>
@@ -115,7 +114,7 @@ Oncology Institute 所提供的三個癌症相關資料集之一，常出現在�
 <p></p>
 <b>使用方式：</b>根據 9 個屬性 (有些是線性，有些則為類別) 將癌症類型分類。 
 <p></p>
-<b>相關研究：</b>Wohlberg, W.H.、Street, W.N. 和 Mangasarian, O.L. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Wohlberg, W.H., Street, W.N., & Mangasarian, O.L. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -166,9 +165,9 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
   <td>
 模擬能量分佈曲線的集合，以 12 種不同的建築形狀為基礎。 組建分為八種功能。 這包括玻璃區域、玻璃區域分佈和方向。
 <p></p>
-<b>使用方式：</b>使用迴歸或分類，根據兩個實數值回應的其中之一來預測能量效益評等。 就多類別分類而言，會將回應變數進位至最接近的整數。 
+<b>使用方式：</b>使用迴歸或分類，根據兩個實數值回應的其中之一來預測電源效率評等。 就多類別分類而言，會將回應變數進位至最接近的整數。 
 <p></p>
-<b>相關研究：</b>Xifara, A. 和 Tsanas, A.(2012 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Xifara, A. & Tsanas, A.(2012 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -204,7 +203,7 @@ KDD Cup 2009 客戶關係預測挑戰 (<a href="http://www.sigkdd.org/site/2009/
 <p></p>
 <b>使用方式：</b>這是一項困難的迴歸工作，其目的是要預測森林火災的燃燒區域。 
 <p></p>
-<b>相關研究：</b>Cortez, P. 和 Morais, A.(2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Cortez, P., & Morais, A.(2008 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
 [Cortez and Morais, 2007] P. Cortez and A. Morais。 一個使用氣象資料預測森林火災的資料採礦方法。 In J. Neves, M. F. Santos 與 J. Machado 編著，New Trends in Artificial Intelligence (人工智慧的新趨勢)，第 13 屆 EPIA 2007 年會議論文集 - 葡萄牙人工智慧會議，12 月，葡萄牙吉馬良斯，第 512-523 頁，2007 年。 APPIA, ISBN-13 978-989-95618-0-9. 可在下列地方獲取：<a href="http://www.dsi.uminho.pt/~pcortez/fires.pdf">http://www.dsi.uminho.pt/~pcortez/fires.pdf</a>。
   </td>
@@ -222,7 +221,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <tr>
   <td>IMDB 影片標題</td>
   <td>
-資料集包含 Twitter 推文中分級影片的資訊：IMDB 影片識別碼、影片名稱、內容類型、製作年份。 資料集中有 1 萬 7 千部影片。 該資料集在論文 "S. Dooms, T. De Pessemier and L. Martens" 中推出。 MovieTweetings：收集自 Twitter 的影片分級資料集。 Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
+資料集包含 Twitter 推文中已評分之影片的資訊：IMDB 影片識別碼、影片名稱、內容類型及製作年份。 資料集中有 1 萬 7 千部影片。 該資料集在論文 "S. Dooms, T. De Pessemier and L. Martens" 中推出。 MovieTweetings：收集自 Twitter 的影片分級資料集。 Workshop on Crowdsourcing and Human Computation for Recommender Systems, CrowdRec at RecSys 2013."
   </td>
 </tr>
 
@@ -233,7 +232,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>從尺寸預測鳶尾花類型。  
 <p></p>
-<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Fisher, R.A. (1988 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -252,7 +251,7 @@ UCI Statlog (德國信用卡) 資料集 (<a href="http://archive.ics.uci.edu/ml/
 <p></p>
 <b>使用方式：</b>根據三個多重值離散屬性和五個連續屬性，預測燃料經濟效益。 
 <p></p>
-<b>相關研究：</b>StatLib Carnegie Mellon University (1993 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>StatLib, Carnegie Mellon University, (1993)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -262,7 +261,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>預測受測者是否罹患糖尿病 (二元分類)。 
 <p></p>
-<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>。 Irvine, CA: University of California, School of Information and Computer Science </td>
+<b>相關研究：</b>Sigillito, V.(1990 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml"</a>。 Irvine, CA:University of California, School of Information and Computer Science </td>
 </tr>
 
 <tr>
@@ -270,9 +269,9 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
   <td>
 一組關於顧客的中繼資料，包括人口統計和喜好。
 <p></p>
-<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
+<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -281,9 +280,9 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
   <td>
 一組關於餐廳及其特色的中繼資料，例如食物類型、用餐風格和地點等。
 <p></p>
-<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
+<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -292,9 +291,9 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
   <td>
 包含使用者給予餐廳的評等，最低為 0，最高為 2。
 <p></p>
-<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以使推薦系統定型並進行測試。 
+<b>使用方式：</b>將此資料集與其他兩個餐廳資料集搭配使用，以將推薦系統定型並進行測試。 
 <p></p>
-<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science.
+<b>相關研究：</b>Bache, K. 和 Lichman, M.(2013 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science。
   </td>
 </tr>
 
@@ -307,7 +306,7 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 鋼鐵等級會遵循 SAE 和其他組織所定義的一組標準。 您想要尋找特定的「等級」(類別變數)，並了解所需的值。 
 <p></p>
-<b>相關研究：</b>Sterling, D. 和 Buntine, W.(NA)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information and Computer Science
+<b>相關研究：</b>Sterling, D. & Buntine, W.(NA)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information and Computer Science
 <p></p>
 鋼鐵等級的實用指南可在這裡找到：<a href="https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf">https://otk-sitecore-prod-v2-cdn.azureedge.net/-/media/from-sharepoint/documents/product/outokumpu-steel-grades-properties-global-standards.pdf</a>
   </td>
@@ -324,11 +323,11 @@ National Institute of Diabetes and Digestive and Kidney Diseases 資料庫中的
 <p></p>
 <b>使用方式：</b>預測某個波的影像代表的是訊號還是背景雜訊。
 <p></p>
-<b>附註：</b>簡單的分類精確性對這項資料並沒有幫助，因為將背景活動分類為訊號，比將訊號活動分類為背景還要糟。 若要比較不同的分類器，應使用 ROC 圖形。 將背景活動認定為訊號的機率，必須低於下列其中一個臨界值：0.01、0.02、0.05、0.1 或 0.2。
+<b>注意：</b>簡單的分類準確性對此資料並無任何意義，因為將背景活動分類為訊號，比將訊號活動分類為背景還要糟。 若要比較不同的分類器，應使用 ROC 圖形。 將背景活動認定為訊號的機率，必須低於下列其中一個閾值：0.01、0.02、0.05、0.1 或 0.2。
 <p></p>
 此外請注意，背景活動的數目 (h 表示強子波) 會被低估。 在實際的測量中，h 或雜訊類別會佔活動的多數。 
 <p></p>
-<b>相關研究：</b>Bock, R.K。 (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA: University of California, School of Information </td>
+<b>相關研究：</b>Bock, R.K. (1995 年)。 UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>。 Irvine, CA:University of California, School of Information </td>
 </tr>
 
 <tr>

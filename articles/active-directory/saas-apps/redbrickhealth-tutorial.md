@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 11452dfb94a5a1c8cf4734b1ef21a44cccafbea1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bccc7abed9a86bcba74a5d994664a20313f3282a
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430503"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833800"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-redbrick-health"></a>教學課程：Azure Active Directory 與 RedBrick Health 整合
 
@@ -110,7 +110,7 @@ ms.locfileid: "39430503"
 
     ![RedBrick Health 網域和 URL 單一登入資訊](./media/redbrickhealth-tutorial/tutorial_redbrickhealth_url.png)
 
-    a. 在 [識別碼] 文字方塊中，輸入 URL：`http://www.redbrickhealth.com`
+    a. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.redbrickhealth.com`
     
     b. 在 [回覆 URL] 文字方塊中輸入 URL：`https://sso-intg.redbrickhealth.com/sp/ACS.saml2`
     
@@ -205,7 +205,7 @@ ms.locfileid: "39430503"
   
 ### <a name="create-a-redbrick-health-test-user"></a>建立 RedBrick Health 測試使用者
 
-在本節中，您會在 RedBrick Health 中建立名為 Britta Simon 的使用者。 請與 [RedBrick Health 支援小組](https://home.redbrickhealth.com/contact/)合作，在 RedBrick Health 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
+在本節中，您會在 RedBrick Health 中建立名為 Britta Simon 的使用者。 請與  [RedBrick Health 支援小組](https://home.redbrickhealth.com/contact/) 合作，在 RedBrick Health 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。 
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -242,7 +242,7 @@ ms.locfileid: "39430503"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [RedBrick Health] 圖格時，應該會自動登入您的 RedBrick Health 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

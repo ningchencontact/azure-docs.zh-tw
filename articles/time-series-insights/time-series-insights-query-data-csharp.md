@@ -1,5 +1,5 @@
 ---
-title: 使用 C# 程式碼從 Azure 時間序列深入解析環境查詢資料 | Microsoft Docs
+title: Azure 時間序列深入解析 C# 查詢 - 使用 C# 程式碼從 Azure 時間序列深入解析環境查詢資料 | Microsoft Docs
 description: 本文說明如何編製以 C# (c-sharp) .NET 語言撰寫的自訂應用程式，以從 Azure 時間序列深入解析環境查詢資料。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,13 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 82a3d4527d241aba80eb471508c99c7781dd4a41
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630852"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277943"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>使用 C# 從 Azure Time Series Insights 環境查詢資料
 

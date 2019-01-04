@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 6a63099bf2a8bc818c88ccec1d5f44bb9ffc32de
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 81699764952e50cb18c1f299c9c4f7c524b0a332
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31798201"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011673"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Azure 中的 IP 位址類型及配置方法 (傳統)
 您可以將 IP 位址指派給 Azure 資源，來與其他 Azure 資源、內部部署網路和網際網路進行通訊。 您可以在 Azure 中使用兩種類型的 IP 位址：公用和私人。
@@ -33,7 +33,7 @@ ms.locfileid: "31798201"
 > Azure 建立和處理資源的部署模型有二種：[Resource Manager 和傳統](../resource-manager-deployment-model.md)。  本文涵蓋之內容包括使用傳統部署模型。 Microsoft 建議大部分的新部署使用 Resource Manager。 請參閱 [IP 位址](virtual-network-ip-addresses-overview-arm.md)文章，以了解 Resource Manager 中的 IP 位址。
 
 ## <a name="public-ip-addresses"></a>公用 IP 位址
-Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure 儲存體](../storage/common/storage-introduction.md)) 進行通訊。
+Azure 資源可透過公用 IP 位址來與網際網路和 Azure 公眾對應服務 (例如 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)、[Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)、[SQL Database](../sql-database/sql-database-technical-overview.md) 和 [Azure 儲存體](../storage/common/storage-introduction.md)) 進行通訊。
 
 公用 IP 位址與下列任何資源相關聯：
 
@@ -92,10 +92,10 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 | 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| 雲端服務 |yes |yes |yes |
-| IaaS VM 或 PaaS 角色執行個體 |yes |否 |否 |
-| VPN 閘道 |yes |否 |否 |
-| 應用程式閘道 |yes |否 |否 |
+| 雲端服務 |是 |是 |是 |
+| IaaS VM 或 PaaS 角色執行個體 |是 |否 |否 |
+| VPN 閘道 |是 |否 |否 |
+| 應用程式閘道 |是 |否 |否 |
 
 ## <a name="private-ip-addresses"></a>私人 IP 位址
 私人 IP 位址可讓 Azure 資源與雲端服務或 [虛擬網路](virtual-networks-overview.md)(VNet) 或內部部署網路中的其他資源進行通訊 (透過 VPN 閘道或 ExpressRoute 電路)，而不必使用可網際網路連線的 IP 位址。
@@ -142,10 +142,10 @@ Azure [應用程式閘道](../application-gateway/application-gateway-introducti
 
 | 資源 | 動態 | 靜態 | 多個 IP 位址 |
 | --- | --- | --- | --- |
-| VM (位於獨立雲端服務或 VNet 中) |yes |yes |yes |
-| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |yes |否 |否 |
-| 內部負載平衡器前端 |yes |yes |yes |
-| 應用程式閘道前端 |yes |yes |yes |
+| VM (位於獨立雲端服務或 VNet 中) |是 |是 |是 |
+| PaaS 角色執行個體 (位於獨立雲端服務或 VNet 中) |是 |否 |否 |
+| 內部負載平衡器前端 |是 |是 |是 |
+| 應用程式閘道前端 |是 |是 |是 |
 
 ## <a name="limits"></a>限制
 下表顯示在 Azure 中，針對每一訂用帳戶在 IP 定址上所加諸的限制。 您可以 [連絡支援人員](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ，以根據您的業務需求將預設上限調升到最高上限。

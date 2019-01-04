@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/20/2018
 ms.author: amitsriva
-ms.openlocfilehash: d2f3c2ba6849540f90117ef127e25030ff56b569
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 45a13bca32593895e51fa7fe3c5bd7ce1ba547e6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427160"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437464"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>應用程式閘道的後端健康情況、診斷記錄和計量
 
@@ -174,7 +174,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |clientPort     | 要求的原始連接埠。       |
 |httpMethod     | 要求使用的 HTTP 方法。       |
 |requestUri     | 接收之要求的 URI。        |
-|RequestQuery     | **Server-Routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
+|RequestQuery     | **Server-routed**：傳送要求的後端集區執行個體。</br>**X-AzureApplicationGateway-LOG-ID**：要求所使用的相互關聯識別碼。 它可以用來針對後端伺服器上的流量問題進行疑難排解。 </br>**SERVER-STATUS**：應用程式閘道從後端收到的 HTTP 回應碼。       |
 |UserAgent     | HTTP 要求標頭中的使用者代理程式。        |
 |httpStatus     | 應用程式閘道傳回用戶端的 HTTP 狀態碼。       |
 |httpVersion     | 要求的 HTTP 版本。        |
@@ -343,7 +343,7 @@ Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) �
 
 [![](media/application-gateway-diagnostics/figure5.png "計量檢視")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
 
-若要查看最新的度量清單，請參閱[支援 Azure Monitor 的計量](../monitoring-and-diagnostics/monitoring-supported-metrics.md)。
+若要查看最新的度量清單，請參閱[支援 Azure Monitor 的計量](../azure-monitor/platform/metrics-supported.md)。
 
 ### <a name="alert-rules"></a>警示規則
 
@@ -357,7 +357,7 @@ Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) �
 
 2. 在 [新增規則] 刀鋒視窗中，填入名稱、條件、通知等區段，然後按一下 [確定]。
 
-   * 在 [條件] 選取器中，選取這 4 個值之一：[大於]、[大於或等於]、[小於] 或 [小於或等於]。
+   * 在 [條件] 選取器中，選取以下四個值之一：**大於****大於或等於**、**小於**，或**小於或等於**。
 
    * 在 [期間] 選取器中，選取 5 分鐘到 6 小時的期間。
 
@@ -375,7 +375,7 @@ Azure [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md) �
 
 若要深入了解警示通知，請參閱[接收警示通知](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)。
 
-若要深入了解 Webhook 以及其如何與警示搭配使用，請造訪[針對 Azure 計量警示設定 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md)。
+若要深入了解 Webhook 以及其如何與警示搭配使用，請造訪[針對 Azure 計量警示設定 Webhook](../azure-monitor/platform/alerts-webhooks.md)。
 
 ## <a name="next-steps"></a>後續步驟
 

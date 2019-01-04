@@ -1,27 +1,28 @@
 ---
 title: 語言支援 - 語音服務 API
 titleSuffix: Azure Cognitive Services
-description: 語音服務所支援的自然語言清單。
+description: Azure 語音服務支援多種語言的語音轉換文字和文字轉換語音的轉換，以及語音翻譯。 本文提供服務支援語言的完整清單。
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: fa4563b84eb0882832a89ccc98396ff487f51b48
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 65c89e337d62ccb7ce58a1ea4e7414527bf9af19
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284756"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342083"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>語音服務 API 支援的語言和區域
 
 不同的語音服務函式支援不同的語言。 下表摘要說明語言支援。
 
-## <a name="speech-to-text"></a>語音轉換文字
+## <a name="speech-to-text"></a>語音轉文字
 
 Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂層級。
 
@@ -37,7 +38,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  en-IN | 英文 (印度) | 是 | 是 | 是
  en-NZ | 英文 (紐西蘭) | 否 | yes | 是  
  en-US | 英文 (美國) | 是 | 是 | 是
- es-ES | 西班牙文 (西班牙) | 否 | 是 | 否
+ es-ES | 西班牙文 (西班牙) | 是 | 是 | 否
  es-MX | 西班牙文 (墨西哥) | 否 | 是 | 否
  fi-FI | 芬蘭文 (芬蘭) | 否 | 否 | 否
  fr-CA | 法文 (加拿大) | 否 | 是 | 否
@@ -49,7 +50,7 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  nb-NO | 挪威文 (巴克摩) (挪威) | 否 | 否 | 否
  nl-NL | 荷蘭文 (荷蘭) | 否 | 是 | 否
  pl-PL | 波蘭文 (波蘭) | 否 | 否 | 否
- pt-BR | 葡萄牙文 (巴西) | 否 | 是 | 否
+ pt-BR | 葡萄牙文 (巴西) | 是 | 是 | 否
  pt-PT | 葡萄牙文 (葡萄牙) | 否 | 是 | 否
  ru-RU | 俄文 (俄羅斯) | 是 | 是 | 否
  sv-SE | 瑞典文 (瑞典) | 否 | 否 | 否
@@ -59,9 +60,26 @@ Microsoft 語音辨識 API 支援下列語言。 每個語言有不同的自訂�
  th-TH | 泰文 (泰國) | 否 | 否 | 否
 
 
-## <a name="text-to-speech"></a>文字轉語音
+## <a name="text-to-speech"></a>文字轉換語音
 
-語音合成 API 提供下列語音，且各支援依地區設定所識別的特定語言和方言。
+文字轉換語音 REST API 支援這些語音，且各支援依地區設定所識別的特定語言和方言。
+
+### <a name="neural-voices-preview"></a>神經語音 (預覽)
+
+神經文字轉換語音是由深度神經網路驅動的新類型語音合成。 使用神經語音時，合成語音與人類錄音幾乎無法區分。
+
+神經語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；例如將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 具有類似人類的自然韻律和清楚的文字清晰度，神經語音大幅降低使用者與 AI 系統互動時的聆聽疲勞。
+
+如需神經語音和區域可用性的完整清單，請參閱[區域](regions.md#neural-voices)。
+
+| 地區設定 | 語言 | 性別 | 服務名稱對應|
+|--------|----------|---------|--------------------|
+| en-US | 英文 (美國) | 男性 | "Microsoft Server Speech Text to Speech Voice (en-US, GuyNeural)" |
+| en-US | 英文 (美國) | 女性 | "Microsoft Server Speech Text to Speech Voice (en-US, JessaNeural)" |
+
+### <a name="standard-voices"></a>標準語音
+
+以超過 45 個語言和地區設定提供 75 個以上的標準語音，可讓您將文字轉換為合成語音。 如需區域可用性的詳細資訊，請參閱[區域](regions.md#standard-voices)。
 
 地區設定 | 語言 | 性別 | 服務名稱對應
 -------|----------|---------|--------------------
@@ -137,7 +155,7 @@ te-IN | 泰盧固文 (印度) |女性 | "Microsoft Server Speech Text to Speech 
 th-TH | 泰文|男性 | "Microsoft Server Speech Text to Speech Voice (th-TH, Pattara)"
 tr-TR |土耳其文| 女性 | "Microsoft Server Speech Text to Speech Voice (tr-TR, SedaRUS)"
 vi-VN | 越南文|男性 | "Microsoft Server Speech Text to Speech Voice (vi-VN, An)"
-zh-CN | 中文 (大陸)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
+zh-CN | 中文 (中國)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, HuihuiRUS)"
 | | |女性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, Yaoyao, Apollo)"
 | | |男性 | "Microsoft Server Speech Text to Speech Voice (zh-CN, Kangkang, Apollo)"
 zh-HK | 中文 (香港)|女性 | "Microsoft Server Speech Text to Speech Voice (zh-HK, Tracy, Apollo)"
@@ -158,7 +176,7 @@ zh-TW | 中文 (台灣)|女性 | "Microsoft Server Speech Text to Speech Voice (
 
 ## <a name="speech-translation"></a>語音翻譯
 
-**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。 您可以將傳入的語音翻譯為 [60 多種語言](https://www.microsoft.com/translator/business/languages/)。 其中有一些語言提供[語音合成](language-support.md#text-languages)功能。 
+**語音翻譯** API 支援語音轉換語音和語音轉換文字翻譯的不同語言。 來源語言一律必須來自下面的語音語言表格。 可用的目標語言取決於翻譯目標是語音還是文字。 您可以將傳入的語音翻譯為 [60 多種語言](https://www.microsoft.com/translator/business/languages/)。 其中有一些語言提供[語音合成](language-support.md#text-languages)功能。
 
 ### <a name="speech-languages"></a>語音語言
 

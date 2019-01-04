@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: d62559561bf7e8e2dc2a882543d7fa7fc45a7499
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51821054"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53387075"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>在 Azure AD 中保護混合式部署和雲端部署的特殊權限存取
 
@@ -196,7 +196,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>保護內部部署的特殊權限系統管理帳戶 (如果尚未這麼做)
 
-如果您的 Azure Active Directory 租用戶與內部部署 Active Directory 同步處理，請遵循[安全性特殊權限存取計劃](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)：階段 1 中的指引。 其中包括為需要執行內部部署系統管理工作的使用者建立個別的管理員帳戶、為 Active Directory 系統管理員部署特殊權限存取工作站，以及為工作站和伺服器建立唯一的本機管理員密碼。
+如果您的 Azure Active Directory 租用戶與內部部署 Active Directory 同步處理，請遵循[安全性特殊權限存取計劃](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)的指引：階段 1。 其中包括為需要執行內部部署系統管理工作的使用者建立個別的管理員帳戶、為 Active Directory 系統管理員部署特殊權限存取工作站，以及為工作站和伺服器建立唯一的本機管理員密碼。
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>組織管理 Azure 存取的其他步驟
 
@@ -210,7 +210,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="monitor-azure-activity"></a>監視 Azure 活動
 
-「Azure 活動記錄」提供 Azure 中的訂用帳戶層級事件的記錄。 它提供關於何人建立、更新及刪除了什麼資源，以及這些事件於何時發生的資訊。 如需詳細資訊，請參閱[稽核和接收 Azure 訂用帳戶中關於重要動作的通知](../../monitoring-and-diagnostics/monitor-quick-audit-notify-action-in-subscription.md)。
+「Azure 活動記錄」提供 Azure 中的訂用帳戶層級事件的記錄。 它提供關於何人建立、更新及刪除了什麼資源，以及這些事件於何時發生的資訊。 如需詳細資訊，請參閱[稽核和接收 Azure 訂用帳戶中關於重要動作的通知](../../azure-monitor/platform/quick-audit-notify-action-subscription.md)。
 
 
 ### <a name="additional-steps-for-organizations-managing-access-to-other-cloud-apps-via-azure-ad"></a>組織透過 Azure AD 對其他雲端應用程式的存取進行管理的其他步驟 
@@ -247,7 +247,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>檢閱美國國家標準技術局的事件處理建議 
 
-美國國家標準技術局 (NIST) 提供了事件處理的指導方針，特別是在分析事件相關資料和判斷每個事件的適當回應方面，有更明確的指示。 如需詳細資訊，請參閱 [NIST Computer Security Incident Handling Guide (SP 800-61，修訂 2)](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)。
+美國國家標準技術局 (NIST) 提供了事件處理的指導方針，特別是在分析事件相關資料和判斷每個事件的適當回應方面，有更明確的指示。 如需詳細資訊，請參閱 [NIST Computer Security Incident Handling Guide (SP 800-61，修訂 2)](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-61r2.pdf)。
 
 #### <a name="implement-privileged-identity-management-pim-for-jit-to-additional-administrative-roles"></a>對其他系統管理角色實作適用於 JIT 的 Privileged Identity Management (PIM)
 
@@ -275,7 +275,7 @@ Azure AD Identity Protection 是一種以演算法為基礎的監視和報告工
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>繼續保護內部部署的特殊權限系統管理帳戶
 
-如果您的 Azure Active Directory 連線至內部部署 Active Directory，請遵循[安全性特殊權限存取計劃](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)：階段 2 中的指引。 這包括部署所有系統管理員的特殊權限存取工作站、要求 MFA，使用恰到好處的管理進行 DC 維護、減少網域的攻擊面、部署 ATA 以進行攻擊偵測。
+如果您的 Azure Active Directory 連線至內部部署 Active Directory，請遵循[安全性特殊權限存取計劃](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access)的指引：階段 2. 這包括部署所有系統管理員的特殊權限存取工作站、要求 MFA，使用恰到好處的管理進行 DC 維護、減少網域的攻擊面、部署 ATA 以進行攻擊偵測。
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>組織管理 Azure 存取的其他步驟
 

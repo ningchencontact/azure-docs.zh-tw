@@ -1,5 +1,6 @@
 ---
-title: 設定 Azure Machine Learning 的開發環境 | Microsoft Docs
+title: 設定 Python 開發環境
+titleSuffix: Azure Machine Learning service
 description: 了解如何在使用 Azure Machine Learning 服務時設定開發環境。 在本文件中，您將了解如何使用 Conda 環境、建立組態檔，以及設定 Jupyter Notebook、Azure Notebooks、IDE 和資料科學虛擬機器。
 services: machine-learning
 author: rastala
@@ -9,13 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 11/6/2018
-ms.openlocfilehash: fa70e0dfa1f131e38e43faa3d80497d50a52e135
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 59f847dc38cddfd9185cfd169cf1ef34c744f8f7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275209"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192629"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>設定 Azure Machine Learning 的開發環境
 
@@ -24,9 +26,10 @@ ms.locfileid: "52275209"
 本文件著重於下列特定的環境和工具：
 
 * [Azure Notebooks](#aznotebooks)：裝載於 Azure 雲端中的 Jupyter Notebook 服務。 這是__最簡單的__入門方式，因為已經安裝了 Azure Machine Learning SDK。
-* [資料科學虛擬機器](#dsvm)：__專為資料科學工作設計__的虛擬機器。 已安裝 Python 3、Conda、Jupyter Notebook 和 Azure Machine Learning SDK。 VM 隨附用於開發 ML 方案的熱門 ML 架構、工具和編輯器。 針對 Azure 平台上的 ML，它可能是__最完整的__開發環境。
-* [Jupyter Notebook](#jupyter)：如果您已經在使用 Jupyter Notebook，那麼 SDK 有一些您應該安裝的附加功能。
-* [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code，則可以安裝一些有用的擴充功能。
+* [資料科學虛擬機器](#dsvm)：Azure 雲端中__預先設定的開發/實驗環境__，此環境__專為資料科學工作而設計__，並可部署至純 CPU VM 執行個體或 GPU 型執行個體。 已安裝 Python 3、Conda、Jupyter Notebook 和 Azure Machine Learning SDK。 VM 隨附適用於開發 ML 解決方案的熱門 ML/深度學習架構、工具及編輯器。 針對 Azure 平台上的 ML，它可能是__最完整的__開發環境。
+* [Jupyter Notebook](#jupyter)：如果您已經在使用 Jupyter Notebook，則 SDK 有一些您應該安裝的附加功能。
+* [Visual Studio Code](#vscode)：如果您使用 Visual Studio Code，則有一些實用的延伸模組可供您安裝。
+* [Azure Databricks](#aml-databricks)：以 Apache Spark 為基礎的熱門資料分析平台。 請了解如何將 Azure Machine Learning SDK 安裝在您的叢集上，以便部署模型。
 
 如果您已經擁有 Python 3 環境，或者只是想要安裝 SDK 的基本步驟，請參閱[本機電腦](#local)一節。
 
@@ -57,20 +60,49 @@ ms.locfileid: "52275209"
 
 ## <a id="dsvm"></a>資料科學虛擬機器
 
-資料科學虛擬機器 (DSVM) 是**專為資料科學工作設計**的自訂虛擬機器 (VM) 映像。 其中包括：
+「資料科學虛擬機器」(DSVM) 是**專為資料科學工作而設計**的自訂虛擬機器 (VM) 映像，此虛擬機器上已預先設定：
 
-  - 常用的資料科學工具
-  - 整合式開發環境 (IDE)，例如 PyCharm 和 RStudio
-  - 套件，例如 Jupyter Notebooks 和 Tensorflow
+  - Tensorflow、Pytorch、scikit-learn、Xgboost 及 Azure ML SDK 等套件
+  - Spark 獨立版、Drill 等熱門的資料科學工具
+  - CLI、Azcopy 及儲存體總管等 Azure 工具
+  - Visual Studio Code、PyCharm 及 RStudio 等整合式開發環境 (IDE)
+  - Jupyter Notebook 伺服器 
 
-Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 若要使用 DSVM 作為開發環境，請遵循下列步驟：
+Azure Machine Learning SDK 適用於 Ubuntu 或 Windows版本的 DSVM。 若要使用「資料科學虛擬機器」作為開發環境，請使用下列步驟：
 
-1. 若要建立資料科學虛擬機器，請依照下列其中一個文件中的步驟操作：
+1. 若要建立「資料科學虛擬機器」，請使用下列其中一種方法：
 
-    * [建立 Ubuntu 資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
-    * [建立 Windows 資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+    * 使用「Azure 入口網站」：
 
-1. Azure Machine Learning SDK **已安裝**在 DSVM 上。 若要使用包含該 SDK 的 Conda 環境，請使用下列命令之一：
+        * [建立 __Ubuntu__ 資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+
+        * [建立 __Windows__ 資料科學虛擬機器](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
+
+    * 使用 Azure CLI：
+
+        > [!IMPORTANT]
+        > 使用 Azure CLI 時，您必須先使用 `az login` 命令來登入您的 Azure 訂用帳戶。
+        >
+        > 使用此步驟中的命令時，您必須提供資源群組名稱、VM 名稱、使用者名稱及密碼。
+
+        * 若要建立「__Ubuntu__ 資料科學虛擬機器」，請使用下列命令：
+
+            ```azurecli
+            # create a Ubuntu DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            # If you need to create a new resource group use: "az group create --name YOUR-RESOURCE-GROUP-NAME --location YOUR-REGION (For example: westus2)"
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --generate-ssh-keys --authentication-type password
+            ```
+
+        * 若要建立「__Windows__ 資料科學虛擬機器」，請使用下列命令：
+
+            ```azurecli
+            # create a Windows Server 2016 DSVM in your resource group
+            # note you need to be at least a contributor to the resource group in order to execute this command successfully
+            az vm create --resource-group YOUR-RESOURCE-GROUP-NAME --name YOUR-VM-NAME --image microsoft-dsvm:dsvm-windows:server-2016:latest --admin-username YOUR-USERNAME --admin-password YOUR-PASSWORD --authentication-type password
+            ```    
+
+2. Azure Machine Learning SDK **已安裝**在 DSVM 上。 若要使用包含該 SDK 的 Conda 環境，請使用下列命令之一：
 
     * 在 __Ubuntu__ DSVM 上，使用此命令：
 
@@ -150,17 +182,11 @@ Jupyter Notebook 是 [Jupyter 專案](https://jupyter.org/)的一部分。 它�
 
 1. 開啟命令提示字元或殼層。
 
-1. 若要安裝可感知 Conda 的 Jupyter Notebook 伺服器，並啟用實驗小工具，請使用下列命令：
+1. 使用下列命令來安裝可感知 Conda 的 Jupyter Notebook 伺服器：
 
     ```shell
     # install Jupyter
     conda install nb_conda
-
-    # install experiment widget
-    jupyter nbextension install --py --user azureml.widgets
-
-    # enable experiment widget
-    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. 使用下列命令開啟 Jupyter Notebook：
@@ -186,7 +212,7 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
 
 1. 若要了解如何使用 Visual Studio Code 進行 Python 開發，請參閱[在 VSCode 中開始使用 Python](https://code.visualstudio.com/docs/python/python-tutorial) 文件。
 
-1. 若要選取 Conda 環境，請開啟 VS Code，然後使用 __Ctrl-Shift-P__ (Linux 和 Windows) 或 __Command-Shift-P__ (Mac) 取得__命令棧板__。 輸入「Python：選取解譯器」，然後選取 Conda 環境。
+1. 若要選取 Conda 環境，請開啟 VS Code，然後使用 __Ctrl-Shift-P__ (Linux 和 Windows) 或 __Command-Shift-P__ (Mac) 取得__命令棧板__。 輸入 __Python:Select Interpreter__ \(Python: 選取解譯器\)，然後選取 Conda 環境。
 
 1. 若要驗證您是否可以使用 SDK，請建立包含下列程式碼的新的 Python 檔案 (.py)。 然後執行檔案：
 
@@ -195,9 +221,35 @@ Visual Studio Code 是跨平台的程式碼編輯器。 它依賴於 Python 支�
     azureml.core.VERSION
     ```
 
-1. 若要安裝適用於 AI 擴充功能的 Visual Studio Code 工具，請參閱[適用於 AI 的工具](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)頁面。
+1. 若要安裝適用於 Visual Studio Code 的 Azure Machine Learning 延伸模組，請參閱[適用於 AI 的工具](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai)頁面。
 
-    如需詳細資訊，請參閱[使用適用於 AI 的 VS Code 工具與 Azure Machine Learning](how-to-vscode-tools.md) 文件。
+    如需詳細資訊，請參閱[使用適用於 Visual Studio Code 的 Azure Machine Learning](how-to-vscode-tools.md)。
+
+<a name="aml-databricks"></a>
+
+## <a name="azure-databricks"></a>Azure Databricks
+
+您可以使用自訂版適用於 Azure Databricks 的 Azure Machine Learning SDK，來進行端對端自訂機器學習。 或者，在 Databricks 內訓練您的模型，然後使用 [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) 來部署該模型
+
+準備您的 Databricks 叢集並取得範例 Notebook：
+
+1. 使用 4.x 版 Databricks 執行階段搭配 **Python 3** 來建立 [Databricks 叢集](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) (最好是高並行叢集)。 
+
+1. 建立程式庫以將適用於 Python `azureml-sdk[databricks]` PyPi 套件的 Azure Machine Learning SDK [安裝並連結](https://docs.databricks.com/user-guide/libraries.html#create-a-library)您的叢集。 完成時，您會看到已連結的程式庫，如下圖所示。 請注意這些[常見的 Databricks 問題](resource-known-issues.md#databricks)。
+
+   ![安裝在 Databricks 上的 SDK ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   如果此步驟失敗，請重新啟動您的叢集：
+   1. 在左側窗格中，選取 `Clusters`。 請選取表格中您的叢集名稱。 
+   1. 在 `Libraries` 索引標籤上，選取 `Restart`。
+
+1. 下載 [Azure Databricks / Azure Machine Learning SDK Notebook 封存檔案](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc)。
+
+   >[!Warning]
+   > 有許多範例 Notebook 可與 Azure Machine Learning 服務搭配使用。 可與 Azure Databricks 搭配運作的範例 Notebook 僅限這些： https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks
+
+1.  [將此封存檔案匯入](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive)到您的 Databricks 叢集並開始探索，如[這裡所述](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) \(英文\)。
+
 
 ## <a id="workspace"></a>建立工作區組態檔
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8bb964308e11d238def4eed3f194ffc9ef8ab086
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258539"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840158"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>雲端市集的潛在客戶管理
 
@@ -39,15 +39,15 @@ ms.locfileid: "51258539"
 
 以下逐步指示將說明如何連線每個潛在客戶目的地：
 
-**Dynamics CRM Online** - [按一下這裡](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)以取得如何設定 Dynamics CRM Online 來獲得潛在客戶的說明。
+**Dynamics CRM Online** - [按一下這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)以取得如何設定 Dynamics CRM Online 來獲得潛在客戶的說明。
 
-**Marketo** - [按一下這裡](https://cloudpartner.azure.com/#documentation/lead-management-instructions-marketo)以取得如何設定 Marketo Lead 組態來獲得潛在客戶的說明。
+**Marketo** - [按一下這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo)以取得如何設定 Marketo Lead 組態來獲得潛在客戶的說明。
 
-**Salesforce** - [按一下這裡](https://cloudpartner.azure.com/#documentation/lead-management-instructions-salesforce)以取得如何設定 Salesforce 執行個體來獲得潛在客戶的說明。
+**Salesforce** - [按一下這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce)以取得如何設定 Salesforce 執行個體來獲得潛在客戶的說明。
 
-**Azure Table** – [按一下這裡](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table)以取得如何設定 Azure 儲存體帳戶，並在 Azure 資料表獲得潛在客戶的說明。
+**Azure Table** – [按一下這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)以取得如何設定 Azure 儲存體帳戶，並在 Azure 資料表獲得潛在客戶的說明。
 
-**Https Endpoint** – [按一下這裡](https://cloudpartner.azure.com/#documentation/lead-management-instructions-https)，取得有關設定 Https 端點以獲得潛在客戶的說明。
+**Https Endpoint** – [按一下這裡](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https)，取得有關設定 Https 端點以獲得潛在客戶的說明。
 
 您妥善設定您的潛在客戶目的地，並按下您供應項目上的 [發佈] 後，我們將驗證連接，並傳送測試用潛在客戶給您。 在上架前檢視供應項目時，您也可以試著在預覽環境中自行取得供應項目，藉此測試您的潛在客戶連線。 關鍵是，請務必確定您的潛在客戶設定保持在最新狀態，如此您將不會流失潛在客戶；因此您的商務若有變更，請記得更新這些連接。
 
@@ -62,36 +62,36 @@ ms.locfileid: "51258539"
 
 **無法將潛在客戶儲存至 Dynamics CRM。請檢查 Dynamics CRM 帳戶設定。LastCRMError：無法登入 Dynamics CRM、LastCRMException：** 
 
-> 如果已選取 O365 驗證，請檢查使用者帳戶和密碼是否有效。 如果已選取 AAD，請檢查租用戶識別碼、應用程式識別碼和應用程式祕密金鑰是否符合 AAD 上已設定的項目。 請遵循[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)指示。如果帳戶使用者名稱/密碼有效，請確定其可以存取 Dynamics 365，並已指派授權 (如果是使用 Azure Active Directory，請參考步驟 11-15，如果使用 Office 使用者，請參考安全性設定)。 
+> 如果已選取 O365 驗證，請檢查使用者帳戶和密碼是否有效。 如果已選取 AAD，請檢查租用戶識別碼、應用程式識別碼和應用程式祕密金鑰是否符合 AAD 上已設定的項目。 請遵循[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)指示。如果帳戶使用者名稱/密碼有效，請確定其可以存取 Dynamics 365，並已指派授權 (如果是使用 Azure Active Directory，請參考步驟 11-15，如果使用 Office 使用者，請參考安全性設定)。 
 
  
 **無法將潛在客戶儲存至 Dynamics CRM。使用者沒有在潛在客戶實體中建立 leadsourcecode 屬性的權限** 
 
-> 應用程式/使用者遺失 Microsoft Marketplace 潛在客戶寫入器的安全性角色。 請參閱[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)，如果使用 Azure Active Directory，請遵循步驟 11 至 15，如果是使用 Office 使用者，請遵循安全性設定。
+> 應用程式/使用者遺失 Microsoft Marketplace 潛在客戶寫入器的安全性角色。 請參閱[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)，如果使用 Azure Active Directory，請遵循步驟 11 至 15，如果是使用 Office 使用者，請遵循安全性設定。
 
 **無法使用 AAD 將潛在客戶儲存至 Dynamics CRM。例外狀況：找不到租用戶。如果沒有任何作用中的租用戶訂用帳戶，可能會發生這個情況。**  
 
-> 潛在客戶管理一節中提供的目錄識別碼不是有效的目錄。 請根據[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)步驟 2 中的指示取得目錄識別碼 (在 Azure Active Directory 下) 
+> 潛在客戶管理一節中提供的目錄識別碼不是有效的目錄。 請根據[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)步驟 2 中的指示取得目錄識別碼 (在 Azure Active Directory 下) 
 
-**無法將潛在客戶儲存至 Dynamics CRM。LastCRMError: SecLib::RetrievePrivilegeForUser 失敗 - 沒有指派任何角色給使用者。**  
+**無法將潛在客戶儲存至 Dynamics CRM。LastCRMError：SecLib::RetrievePrivilegeForUser 失敗 - 沒有指派任何角色給使用者。**  
 
-> 解決方式：將安全性角色指派給 Microsoft Marketplace 潛在客戶寫入器。 請依照[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)安全性設定下的指示 
+> 解決方案：將安全性角色指派給 Microsoft Marketplace 潛在客戶寫入器。 請依照[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)安全性設定下的指示 
 
 **無法使用 AAD 將潛在客戶儲存至 Dynamics CRM。例外狀況：在目錄中找不到包含識別碼的應用程式** 
 
-> 潛在客戶管理一節中提供的應用程式識別碼不是有效的目錄。 請根據[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)步驟 8 的指示取得目錄識別碼 (在 Azure Active Directory 下)。 
+> 潛在客戶管理一節中提供的應用程式識別碼不是有效的目錄。 請根據[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)步驟 8 的指示取得目錄識別碼 (在 Azure Active Directory 下)。 
 
 **無法使用 AAD 將潛在客戶儲存至 Dynamics CRM。例外狀況：所要求的租用戶識別碼無效，且不是有效的外部網域格式** 
 
-> 潛在客戶管理一節中提供的目錄識別碼不是有效的目錄。 請根據[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)步驟 2 中的指示取得目錄識別碼 (在 Azure Active Directory 下)。 
+> 潛在客戶管理一節中提供的目錄識別碼不是有效的目錄。 請根據[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)步驟 2 中的指示取得目錄識別碼 (在 Azure Active Directory 下)。 
 
-**無法使用 AAD 將潛在客戶儲存至 Dynamics CRM。例外狀況：驗證認證時發生錯誤。所提供的用戶端祕密無效。** 
+**無法使用 AAD 將潛在客戶儲存至 Dynamics CRM。例外狀況：驗證認證時發生錯誤：提供的用戶端祕密無效。** 
 
-> 解決方式：登入 Azure 入口網站，檢查應用程式金鑰是否符合 Cloud Partner 入口網站中的內容。 請根據[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-dynamics)步驟 10 中的指示產生密碼 (在 Azure Active Directory 下)。 
+> 解決方案：登入 Azure 入口網站，檢查應用程式金鑰是否符合 Cloud Partner 入口網站中的內容。 請根據[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics)步驟 10 中的指示產生密碼 (在 Azure Active Directory 下)。 
 
 **無法將潛在客戶儲存至 Dynamics CRM。LastCRMError：等待回覆至 00:02:00 之後，要求通道逾時。提高傳遞至呼叫要求的逾時值，或增加繫結上的 SendTimeout 值。分配給此作業的時間可能是較長逾時的一部分。**  
 
-> 解決方式：登入 Cloud Partner 入口網站，查看店面詳細資料 >> 潛在客戶目的地 >> URL，檢查是否為有效的 Dynamics CRM 執行個體
+> 解決方案：登入 Cloud Partner 入口網站，查看店面詳細資料 >> 潛在客戶目的地 >> URL，檢查是否為有效的 Dynamics CRM 執行個體
 
 ## <a name="frequently-asked-questions"></a>常見問題集
 
@@ -102,7 +102,7 @@ ms.locfileid: "51258539"
 
 **可以在哪裡取得設定我潛在客戶目的地的說明？** 
 
-您可以在這裡找到文件： https://cloudpartner.azure.com/#documentation/get-customer-leads，或透過 aka.ms/marketplacepublishersupport 提交支援票證，選取供應項目類型，及潛在客戶管理。 
+您可以在這裡找到文件：[取得潛在客戶](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)，或透過 aka.ms/marketplacepublishersupport 提交支援票證，選取供應項目類型及潛在客戶管理。 
 
 
 
@@ -199,7 +199,7 @@ title = MSFT_TEST_636573304831318844
 
     } 
 
-請在[潛在客戶資訊](https://cloudpartner.azure.com/#documentation/get-customer-leads)下深入了解。 
+請在[潛在客戶資訊](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)下深入了解。 
 
 
 **我已將 Azure BLOB 設定為我的潛在客戶目的地，為何沒有看到潛在客戶？** 
@@ -219,7 +219,7 @@ title = MSFT_TEST_636573304831318844
 
 **我已設定 Azure 資料表作為我的潛在客戶目的地，是否可以在 Marketplace 傳送新的潛在客戶時隨時收到通知？** 
 
-是，請依照[此處](https://cloudpartner.azure.com/#documentation/lead-management-instructions-azure-table)文件上的指示來設定 Azure 資料表 + 函式。 
+是，請依照[此處](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table)文件上的指示來設定 Azure 資料表 + 函式。 
 
 
 

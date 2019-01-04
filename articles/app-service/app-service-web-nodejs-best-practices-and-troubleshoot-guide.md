@@ -1,6 +1,6 @@
 ---
-title: Azure Web Apps 上節點應用程式的最佳作法和疑難排解指南
-description: 了解 Azure Web Apps 上節點應用程式的最佳作法和疑難排解步驟。
+title: Node.js 的最佳作法和疑難排解 - Azure App Service
+description: 了解 Azure App Service 上節點應用程式的最佳作法和疑難排解步驟。
 services: app-service\web
 documentationcenter: nodejs
 author: ranjithr
@@ -14,14 +14,15 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
-ms.openlocfilehash: 860874ed49056e6b4695c060b06bf061820c390e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec18
+ms.openlocfilehash: 5a8760bc67125f857998f23ca33733a62a0d8fb5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31789668"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315718"
 ---
-# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-web-apps"></a>Azure Web Apps 上節點應用程式的最佳作法和疑難排解指南
+# <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows 上節點應用程式的最佳作法和疑難排解指南
 
 在本文中，您可以了解在 Azure Web Apps 上執行之[節點應用程式](app-service-web-get-started-nodejs.md)的最佳作法和疑難排解步驟 (透過 [iisnode](https://github.com/azure/iisnode))。
 
@@ -62,7 +63,7 @@ ms.locfileid: "31789668"
 
 ### <a name="debuggerextensiondll"></a>debuggerExtensionDll
 
-此設定會控制 iisnode 在進行節點應用程式偵錯時，會使用的節點偵測器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此設定僅有的兩個有效值。 預設值為 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本使用 node-inspector-0.7.3，並使用 Web 通訊端。 請在 Azure Webapp 上啟用 Web 通訊端以使用此版本。 如需有關如何設定 iisnode 以使用新節點偵測器的詳細資訊，請參閱 <http://ranjithblogs.azurewebsites.net/?p=98>。
+此設定會控制 iisnode 在進行節點應用程式偵錯時，會使用的節點偵測器版本。 iisnode-inspector-0.7.3.dll 和 iisnode-inspector.dll 目前是此設定僅有的兩個有效值。 預設值為 iisnode-inspector-0.7.3.dll。 iisnode-inspector-0.7.3.dll 版本使用 node-inspector-0.7.3，並使用 Web 通訊端。 請在 Azure Webapp 上啟用 Web 通訊端以使用此版本。 如需有關如何設定 iisnode 以使用新節點偵測器的詳細資訊，請參閱 <https://ranjithblogs.azurewebsites.net/?p=98>。
 
 ### <a name="flushresponse"></a>flushResponse
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1f7bd4bc74e63e3b4dd25a7185ce3641712538f1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 6a62c30235fdd262f0df5937b6a829382d2b45ef
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284382"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866282"
 ---
 # <a name="available-skus-for-hli"></a>HLI 可用的 SKU
 
@@ -52,7 +52,7 @@ SAP Hana on Azure (大型執行個體) 服務已可用於美國西部和美國�
 
 | SKU|CPU | 記憶體 | 儲存體 | 可用性 |
 | ---| --- | --- | --- | --- |
-| S96 | SAP HANA on Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 個 CPU 核心和 96 個 CPU 執行緒 |  768 TB |  3 TB | 可用 |
+| S96 | SAP HANA on Azure S96<br /> – 2 x Intel® Xeon® Processor E7-8890 v4<br /> 48 個 CPU 核心和 96 個 CPU 執行緒 |  768 GB |  3 TB | 可用 |
 
 
 | 原始 SKU 可以 <br /> 在記憶體中擴充 | CPU | 記憶體 | 儲存體 | 可用性 |

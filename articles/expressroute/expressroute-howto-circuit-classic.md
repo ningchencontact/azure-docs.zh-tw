@@ -1,18 +1,19 @@
 ---
-title: 修改 ExpressRoute 線路︰PowerShell：Azure 傳統| Microsoft Docs
+title: 修改 ExpressRoute 線路：PowerShell：Azure 傳統 | Microsoft Docs
 description: 本文將逐步引導您檢查狀態、更新或刪除，以及取消佈建 ExpressRoute 傳統部署模型線路。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 12/06/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 2ac8403c5375c2448be0bf2348775ce3350570c0
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 0d6d8af9456f5f943eb70b5a63b69e2f7f16a4cb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161349"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104232"
 ---
 # <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>使用 PowerShell 修改 ExpressRoute 線路 (傳統)
 
@@ -24,7 +25,7 @@ ms.locfileid: "52161349"
 > * [PowerShell (傳統)](expressroute-howto-circuit-classic.md)
 >
 
-本文也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路。
+本文將逐步引導您檢查狀態、更新或刪除，以及取消佈建 ExpressRoute 傳統部署模型線路。 本文適用於傳統部署模型。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

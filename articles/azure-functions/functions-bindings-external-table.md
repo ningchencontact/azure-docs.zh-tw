@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: cshoe
-ms.openlocfilehash: 5566ea8b21682c5023afc4af357e1a80e1d37384
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 62924488b776a1a89e1abf492db1881a44585b1a
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248466"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997818"
 ---
 # <a name="external-table-binding-for-azure-functions-experimental"></a>Azure Functions 的外部資料表繫結 (實驗性)
 
@@ -49,7 +49,7 @@ ms.locfileid: "50248466"
 |[Salesforce](https://docs.microsoft.com/azure/connectors/connectors-create-api-salesforce)||x|x
 |[SharePoint](https://docs.microsoft.com/azure/connectors/connectors-create-api-sharepointonline)||x|x
 |[SQL Server](https://docs.microsoft.com/azure/connectors/connectors-create-api-sqlazure)||x|x
-|[Teradata](http://www.teradata.com/products-and-services/azure/products/)||x|x
+|[Teradata](https://www.teradata.com/products-and-services/azure/products/)||x|x
 |UserVoice||x|x
 |Zendesk||x|x
 
@@ -166,7 +166,7 @@ GO
 
 ### <a name="google-sheets-data-source"></a>Google 試算表資料來源
 
-若要建立資料表以在 Google 文件中與這個範例搭配使用，請以名為 `Contact` 的工作表建立試算表。 連接器不能使用試算表顯示名稱。 內部名稱 (以粗體顯示) 必須做為 dataSetName 使用，例如：`docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 將資料行名稱 `Id`, `LastName`, `FirstName` 新增至第一個資料列，然後將資料填入後續資料列。
+若要建立資料表以在 Google 文件中與這個範例搭配使用，請以名為 `Contact` 的工作表建立試算表。 連接器不能使用試算表顯示名稱。 內部名稱 (以粗體顯示) 須作為 dataSetName 使用，例如：`docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** 將資料行名稱 `Id`、`LastName`、`FirstName` 新增至第一個資料列，然後在後面的資料列中填入資料。
 
 ### <a name="salesforce"></a>Salesforce
 

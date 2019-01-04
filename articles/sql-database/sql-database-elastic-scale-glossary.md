@@ -3,7 +3,7 @@ title: 彈性資料庫工具字彙 | Microsoft Docs
 description: 彈性資料庫工具所用詞彙的解釋
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75da9fd6dbd6218e46925eb2fc6cbec4969d5925
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50239061"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52867795"
 ---
 # <a name="elastic-database-tools-glossary"></a>彈性資料庫工具字彙
 下列詞彙是針對 [彈性資料庫工具](sql-database-elastic-scale-introduction.md)(Azure SQL Database的一項功能) 所定義的。 這些工具是用來管理[分區對應](sql-database-elastic-scale-shard-map-management.md)，並且包含[用戶端程式庫](sql-database-elastic-database-client-library.md)、[分割合併工具](sql-database-elastic-scale-overview-split-and-merge.md)、[彈性集區](sql-database-elastic-pool.md)及[查詢](sql-database-elastic-query-overview.md)。 
@@ -26,7 +26,7 @@ ms.locfileid: "50239061"
 
 ![彈性擴縮詞彙][1]
 
-**資料庫**：Azure SQL 資料庫。 
+**資料庫：** Azure SQL Database。 
 
 **資料依存路由**：可讓應用程式根據特定的分區化索引鍵連接到分區的功能。 請參閱 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)。 請對照 **[Multi-Shard Query](sql-database-elastic-scale-multishard-querying.md)**。
 

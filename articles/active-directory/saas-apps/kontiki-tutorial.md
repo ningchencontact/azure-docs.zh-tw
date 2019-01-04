@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: jeedes
-ms.openlocfilehash: e5f29a12de5f82fa13c0c61462db00b2906fdca7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e5733547aa9b8b8d0c5aa0ce033d00f8c94b3d21
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444448"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>教學課程：Azure Active Directory 與 Kontiki 整合
 
@@ -115,7 +115,7 @@ Kontiki 與 Azure AD 整合提供下列優點：
      在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.mc.eval.kontiki.com`
 
     > [!NOTE] 
-    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Kontiki 用戶端支援小組](http://customersupport.kontiki.com/enterprise/contactsupport.html)以取得值。 
+    > 這不是真實的值。 使用實際的「登入 URL」來更新此值。 請連絡 [Kontiki 用戶端支援小組](https://customersupport.kontiki.com/enterprise/contactsupport.html)以取得值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
@@ -125,7 +125,7 @@ Kontiki 與 Azure AD 整合提供下列優點：
 
     ![設定單一登入](./media/kontiki-tutorial/tutorial_general_400.png) 
 
-1. 若要在 **Kontiki** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Kontiki 支援小組](http://customersupport.kontiki.com/enterprise/contactsupport.html)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Kontiki** 端設定單一登入，您必須將已下載的**中繼資料 XML** 傳送給 [Kontiki 支援小組](https://customersupport.kontiki.com/enterprise/contactsupport.html)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)

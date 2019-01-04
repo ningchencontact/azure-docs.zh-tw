@@ -3,7 +3,7 @@ title: Azure Service Fabric 具狀態服務中的 Reliable Collection 簡介 | M
 description: Service Fabric 具狀態服務提供可靠的集合，可讓您撰寫高度可用、可調整且低延遲的雲端應用程式。
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/6/2017
-ms.author: mcoskun
-ms.openlocfilehash: 2876d90c02995394104009d1b2d62d5b3ed6a8d9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: caca297afb9ed4e2d85f1068ad3c1122db60c1d7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212920"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53191983"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 具狀態服務中可靠的集合簡介
 可靠的集合可讓您撰寫高度可用、可擴充且低延遲的雲端應用程式，如同您在撰寫單一電腦應用程式一般。 Microsoft.ServiceFabric.Data.Collections 命名空間中的類別提供一組集合，可讓您自動具有高度可用的狀態。 開發人員只需將程式設計為可靠的集合 API，並讓可靠的集合來管理複寫和本機狀態。
@@ -45,7 +45,7 @@ Reliable Collection 具有增強式一致性保證，可讓您更輕鬆地推論
 可靠的集合 API 是並行集合 API (位於 **System.Collections.Concurrent** 命名空間) 的一種演化：
 
 * 非同步：會傳回工作；不同於並行集合，其作業會受到複寫及保存。
-* 沒有 out 參數：使用 `ConditionalValue<T>` 傳回 bool 和值，而不是 out 參數。 `ConditionalValue<T>` 就像 `Nullable<T>`，但不需要 T 就可以成為結構。
+* 不要使用 out 參數：使用 `ConditionalValue<T>` 傳回 bool 和值，不要使用 out 參數。 `ConditionalValue<T>` 就像 `Nullable<T>`，但不需要 T 就可以成為結構。
 * 交易：使用交易物件，讓使用者可在交易中的多個可靠的集合上群組動作。
 
 現在，Microsoft.ServiceFabric.Data.Collections 包含三個集合：

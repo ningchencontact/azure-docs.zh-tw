@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: jroth
-ms.openlocfilehash: 0677faa90c73ffe4c0c1c48600c2f1ef2d05eb50
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 298a8597ae111550dfbd44d1e7bd9efb212f08af
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628778"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323212"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>將 SQL Server 資料庫移轉至 Azure VM 中的 SQL Server
 
@@ -36,7 +36,7 @@ ms.locfileid: "39628778"
 * 中斷連結並將資料和記錄檔複製到 Azure blob 儲存體，然後從 URL 連結至 Azure VM 中的 SQL Server
 * 將內部部署實體機器轉換為 Hyper-V VHD，接著上傳至 Azure Blob 儲存體，然後使用上傳的 VHD 部署為新的 VM
 * 使用 Windows 匯入/匯出服務寄送硬碟機
-* 如果您有內部部署的 AlwaysOn 部署，請使用 [加入 Azure 複本精靈](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) 在 Azure 中建立複本，然後進行容錯移轉，將使用者指向 Azure 資料庫執行個體
+* 如果您有內部部署的 AlwaysOn 可用性群組部署，請使用 [加入 Azure 複本精靈](../sqlclassic/virtual-machines-windows-classic-sql-onprem-availability.md) 在 Azure 中建立複本，然後進行容錯移轉，將使用者指向 Azure 資料庫執行個體
 * 使用 SQL Server [異動複寫](https://msdn.microsoft.com/library/ms151176.aspx) 將 Azure SQL Server 執行個體設定為訂閱者，然後停用複寫，將使用者指向 Azure 資料庫執行個體
 
 > [!TIP]

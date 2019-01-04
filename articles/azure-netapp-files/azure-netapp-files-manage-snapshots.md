@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to-article
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 48cb88b9815ba723d93c18caf63f33b50eea850c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e3ae11adf84e858429cba4643802300f7915a166
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39011976"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53412925"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>使用 Azure NetApp Files 管理快照集
 您可以使用 Azure NetApp Files 建立磁碟區的隨選快照集，或從快照集還原至新的磁碟區。
@@ -45,7 +45,7 @@ ms.locfileid: "39011976"
     * **名稱**   
         為您要建立的磁碟區指定名稱。  
         
-        名稱在資源群組內必須是唯一的。 長度至少必須有 3 個字元。  可以使用任何英數字元。
+        名稱在資源群組內必須是唯一的。 長度至少必須有三個字元。  可以使用任何英數字元。
 
     * **檔案路徑**     
         指定要用來建立新磁碟區匯出路徑的檔案路徑。 匯出路徑會用來掛接和存取磁碟區。   
@@ -60,12 +60,16 @@ ms.locfileid: "39011976"
         [可用配額] 欄位會顯示所選容量集區中可用來建立新磁碟區的未使用空間量。 新磁碟區的大小不可超過可用配額。
 
     *   **虛擬網路**  
-        指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。 
-        
-        您指定的 Vnet 必須設定 Azure NetApp Files。 Azure NetApp Files 服務只能從所在位置與磁碟區相同的 Vnet 中存取。  
+        指定您要從中存取磁碟區的 Azure 虛擬網路 (Vnet)。  
+        您指定的 Vnet 必須有委派給 Azure NetApp Files 的子網路。 Azure NetApp Files 服務只能從相同的 Vnet 存取，或透過 Vnet 對等互連與磁碟區位於相同區域的 Vnet 存取。 您也可以透過 Express Route 從內部部署網路存取磁碟區。 
 
-    ![已還原的新磁碟區](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-    
+    * **子網路**  
+        指定要用於磁碟區的子網路。  
+        您指定的子網路必須委派給 Azure NetApp Files 服務。 您可以透過選取子網路欄位下的 [新建] 來建立新的子網路。  
+<!--
+    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
+-->
+
 5. 按一下 [確定]。   
     快照集還原到的新磁碟區會出現在 [磁碟區] 刀鋒視窗中。
 

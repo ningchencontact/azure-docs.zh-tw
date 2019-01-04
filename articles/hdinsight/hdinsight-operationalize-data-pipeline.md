@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 9057d9f5d63598ea249e8f3193b84fd715018829
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 787da07c5b8d8610e264963f81d858fce98d304f
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109966"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436155"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>使用資料分析管線進行作業
 
@@ -30,13 +30,13 @@ ms.locfileid: "43109966"
 | 2017 | 1 | 3 | AS | 9.435449 | 5.482143 | 572289 |
 | 2017 | 1 | 3 | DL | 6.935409 | -2.1893024 | 1909696 |
 
-該範例管線會等到新時間週期的航班資料送達，才會將詳細的航班資訊儲存到您的 Hive 資料倉儲中，以供長期分析。 管線也會建立較小的資料集，該資料集只會彙總每日航班資料。 此每日航班摘要資料會傳送到 SQL 資料庫來提供報告，例如提供給網站。
+此範例管線會等到新時間週期的航班資料送達，然後才將該詳細航班資訊儲存到您的 Apache Hive 資料倉儲，以供長期分析。 管線也會建立較小的資料集，該資料集只會彙總每日航班資料。 此每日航班摘要資料會傳送到 SQL 資料庫來提供報告，例如提供給網站。
 
 下圖說明此範例管線。
 
 ![航班資料管線](./media/hdinsight-operationalize-data-pipeline/pipeline-overview.png)
 
-## <a name="oozie-solution-overview"></a>Oozie 解決方案概觀
+## <a name="apache-oozie-solution-overview"></a>Apache Oozie 解決方案概觀
 
 這個管線會使用在 HDInsight Hadoop 叢集上執行的 Apache Oozie。
 
@@ -139,7 +139,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 若要使用 Oozie Web 主控台來檢視協調器和工作流程執行個體的狀態，請將 SSH 通道安裝到您的 HDInsight 叢集。 如需詳細資訊，請參閱 [SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)。
 
-> [!NOTE]
+> [!NOTE]  
 > 您也可以使用 Chrome 搭配 [Foxy Proxy](https://getfoxyproxy.org/) 擴充功能，以瀏覽整個 SSH 通道的叢集 web 資源。 將其設定為透過在通道連接埠 9876 上的主機 `localhost` 來代理所有要求。 這個方法與適用於 Linux 的 Windows 子系統 (也就是在 Windows 10 上的 Bash) 相容。
 
 1. 執行下列命令來將 SSH 通道開啟到您的叢集：
@@ -156,7 +156,7 @@ Oozie 會根據「動作」、「工作流程和「協調器」來描述其管�
 
 ### <a name="configure-hive"></a>設定 Hive
 
-1. 下載包含一個月航班資料的範例 CSV 檔案。 從 [HDInsight Github 存放庫](https://github.com/hdinsight/hdinsight-dev-guide)下載其 ZIP 檔案`2017-01-FlightData.zip`，並將它解壓縮為 CSV 檔案`2017-01-FlightData.csv`。 
+1. 下載包含一個月航班資料的範例 CSV 檔案。 從 [HDInsight GitHub 存放庫](https://github.com/hdinsight/hdinsight-dev-guide)下載其 ZIP 檔案 `2017-01-FlightData.zip`，然後將它解壓縮為 CSV 檔案`2017-01-FlightData.csv`。 
 
 2. 將此 CSV 檔案複製到 HDInsight 叢集所連結的 Azure 儲存體帳戶，並將它放在 `/example/data/flights` 資料夾中。
 
@@ -430,7 +430,7 @@ day=03
 | 月 | 為其計算航班摘要之日期的月份元件。 保持原狀。 |
 | day | 為其計算航班摘要之日期的日期元件。 保持原狀。 |
 
-> [!NOTE]
+> [!NOTE]  
 > 務必先使用您環境的特定值來更新您的 `job.properties` 檔案，才可以部署和執行 Oozie 工作流程。
 
 ### <a name="deploy-and-run-the-oozie-workflow"></a>部署和執行 Oozie 工作流程
@@ -545,7 +545,7 @@ day=03
 
 如您所見，大部分的協調器只會將組態資訊傳遞至工作流程執行個體。 不過，有幾個重要項目需要留意。
 
-* 第 1 點：`coordinator-app` 元素本身的 `start` 和 `end` 屬性會控制協調器執行的時間間隔。
+* 第 1 點：`coordinator-app` 元素本身的 `start` 和 `end` 屬性會控制協調器的執行時間間隔。
 
     ```
     <coordinator-app ... start="2017-01-01T00:00Z" end="2017-01-05T00:00Z" frequency="${coord:days(1)}" ...>
@@ -553,7 +553,7 @@ day=03
 
     根據 `frequency` 屬性所指定的間隔，協調器會負責排定 `start` 和 `end` 日期範圍內的動作。 每個排定的動作會如同設定依序執行工作流程。 在上述協調器定義中，協調器設定為從 2017 年 1 月 1 日到 2017 年 1 月 5 日執行動作。 [Oozie 運算式語言](http://oozie.apache.org/docs/4.2.0/CoordinatorFunctionalSpec.html#a4.4._Frequency_and_Time-Period_Representation) 頻率運算式 `${coord:days(1)}`會將頻率設定為 1 天。 這會導致協調器每天安排一次動作 (還有工作流程)。 對於過去的日期範圍，就如同此範例中，此動作會立即排定進行執行。 排定要執行動作之日期的開端稱為「名義時間」。 比方說，若要處理 2017 年 1 月 1 日的資料，協調器會安排名義時間為 2017-01-01T00:00:00 GMT 的動作。
 
-* 第 2 點：在工作流程的日期範圍內，`dataset` 元素會指定在 HDFS 中何處尋找特定日期範圍的資料，以及設定 Oozie 如何判斷資料是否已可供處理。
+* 第 2 點：在工作流程的日期範圍內，`dataset` 元素會指定要在 HDFS 中的何處尋找特定日期範圍的資料，以及設定 Oozie 如何判斷資料是否已可供處理。
 
     ```
     <dataset name="ds_input1" frequency="${coord:days(1)}" initial-instance="2016-12-31T00:00Z" timezone="UTC">
@@ -566,7 +566,7 @@ day=03
 
     空白 `done-flag` 元素表示當 Oozie 在約定的時間檢查輸入資料是否存在時，Oozie 會由目錄或檔案的存在與否決定資料是否可用。 在此情況下是 csv 檔案的存在與否。 如果 csv 檔案存在，則 Oozie 會假設資料已就緒，而且會啟動工作流程執行個體來處理檔案。 如果不存在任何 csv 檔案，則 Oozie 會假設資料尚未就緒，而且該工作流程執行會進入等候狀態。
 
-* 第 3 點：`data-in` 元素在取代 `uri-template` 中相關聯資料集的值時，會指定特定時間戳記作為名義時間。
+* 第 3 點：`data-in` 元素會指定取代 `uri-template` 中相關資料集的值時，要用來作為標稱時間的特定時間戳記。
 
     ```
     <data-in name="event_input1" dataset="ds_input1">
@@ -578,11 +578,11 @@ day=03
 
 前三點合起來即會產生一個狀況：協調器會逐日安排來源資料的處理。 
 
-* 第 1 點：協調器會從名義日期 2017-01-01 開始。
+* 第 1 點：協調器會從標稱日期 2017-01-01 開始。
 
 * 第 2 點：Oozie 會尋找 `sourceDataFolder/2017-01-FlightData.csv` 中可用的資料。
 
-* 第 3 點：當 Oozie 找到該檔案時，它會安排一個工作流程執行個體來處理 2017-01-01 的資料。 Oozie 會接著繼續處理 2017-01-02 的資料。 此評估會重複直到 (但不包括) 2017-01-05 為止。
+* 第 3 點：當 Oozie 找到該檔案時，會安排一個工作流程執行個體來處理 2017-01-01 的資料。 Oozie 會接著繼續處理 2017-01-02 的資料。 此評估會重複直到 (但不包括) 2017-01-05 為止。
 
 如同工作流程，協調器的組態定義於 `job.properties` 檔案中，該檔案中有工作流程所使用的設定超集合。
 

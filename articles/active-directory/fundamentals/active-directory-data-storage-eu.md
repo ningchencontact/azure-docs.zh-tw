@@ -1,6 +1,6 @@
 ---
-title: Azure AD 為歐洲客戶儲存身分識別資料的位置 |Microsoft Docs
-description: 了解 Microsoft Azure Active Directory 將其歐洲客戶的身分識別相關資料儲存於何處。
+title: 歐洲客戶的身分識別資料儲存體 - Azure Active Directory | Microsoft Docs
+description: 了解 Azure Active Directory 將其歐洲客戶的身分識別相關資料儲存於何處。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,16 +10,16 @@ ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.custom: it-pro
-ms.openlocfilehash: 6aa2307123d62983f7afde3d871e8aa96e0abb5d
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 371c7b2eb2f2e0e34dc80cf8fe6771620fa76765
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976888"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099931"
 ---
-# <a name="where-does-microsoft-azure-active-directory-azure-ad-store-identity-data-for-european-customers"></a>Microsoft Azure Active Directory (Azure AD) 為歐洲客戶儲存身分識別資料的位置
-Azure AD 可協助您管理使用者身分識別，以及建立以資訊為依據的存取原則，以利確保組織資源的安全。 身分識別資料的儲存位置，會以組織在您訂閱服務時所提供的位址為基礎。 例如，當您訂閱 Office 365 或 Azure 時。 若想了解有關於您的身分識別資料儲存於何處的特定資訊，您可以使用 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
+# <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Azure Active Directory 中歐洲客戶的身分識別資料儲存體
+Azure Active Directory (Azure AD) 可協助您管理使用者身分識別，以及建立以資訊為依據的存取原則，以利確保組織資源的安全。 身分識別資料的儲存位置，會以組織在您訂閱服務時所提供的位址為基礎。 例如，當您訂閱 Office 365 或 Azure 時。 若想了解有關於您的身分識別資料儲存於何處的特定資訊，您可以使用 Microsoft 信任中心的 [您的資料所在位置](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) 區段。
 
 雖然大多數與 Azure AD 有關的歐洲身分識別資料都儲存在歐洲資料中心，但有五項使用者相關屬性通常會儲存在美國資料中心。 這些屬性是 GivenName、Surname、userPrincipalName、Domain 和 PasswordHash。 但 PasswordHash 屬性有時屬例外；如果您使用內部部署的同盟驗證方法，而使 PasswordHash 值無法與 Azure AD 同步處理，該屬性就不會儲存在美國。 此外，有一些服務特有的作業資料是一般 Azure AD 作業不可或缺的，此類資料會儲存在美國，但不會包含任何個人資料。
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: cwatson
-ms.openlocfilehash: 6a070d9ebd46d117041276436107abcc958d58d4
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 670aafeb8eb107fc5970b70bfa85d7469c343483
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52583732"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722848"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>管理 Azure 資源的保留
 
@@ -54,7 +54,7 @@ ms.locfileid: "52583732"
 2. 選取 [所有服務]  >  [保留] 來列出您具有存取權的保留。
 3. 選取您想要將存取權委派給其他使用者的保留。
 4. 選取 [存取控制 (IAM)]。
-5. 選取 [新增] > [角色] > [擁有者]。 或是，如果您想要給予有限的存取權，可選取不同角色。
+5. 選取 [新增角色指派] > [角色] > [擁有者]。 或是，如果您想要給予有限的存取權，可選取不同角色。
 6. 輸入要新增為擁有者之使用者的電子郵件地址。
 7. 選取使用者，然後選取 [儲存]。
 

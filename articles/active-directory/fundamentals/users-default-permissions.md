@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 中的預設使用者權限是什麼？ | Microsoft Docs
+title: 預設使用者權限 - Azure Active Directory | Microsoft Docs
 description: 深入了解 Azure Active Directory 中可用的不同使用者權限。
 services: active-directory
 author: eross-msft
@@ -11,16 +11,15 @@ ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-custom: it-pro
-ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 496f751c263d17d3c5d8e10321bef8330c2f1a24
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730474"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096563"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的預設使用者權限是什麼？
-
 在 Azure Active Directory (Azure AD) 中，所有使用者都會獲得一組預設權限。 使用者的存取權包含使用者類型、其[角色成員資格](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal)，以及個別物件的擁有權。 本文說明這些預設權限，並包含成員與來賓使用者預設值的比較。
 
 ## <a name="member-and-guest-users"></a>成員和來賓使用者

@@ -3,7 +3,7 @@ title: 使用可靠的集合 | Microsoft Docs
 description: 了解使用可靠的集合的最佳做法。
 services: service-fabric
 documentationcenter: .net
-author: rajak
+author: tylermsft
 manager: timlt
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/19/2017
-ms.author: rajak
-ms.openlocfilehash: 2568e116fdb3f80976d49787877d2ecf68f128ef
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: 86e1370bb5241dbe14b34cebe2f2ee6d71a0a323
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210812"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193530"
 ---
 # <a name="working-with-reliable-collections"></a>使用可靠的集合
 Service Fabric 透過可靠的集合向 .NET 開發人員提供具狀態的程式設計模型。 具體來說，Service Fabric 提供了可靠的字典和可靠的佇列類別。 當您使用這些類別時，您的狀態是分割的 (延展性)、複寫的 (可用性)，且在分割區內交易 (ACID 語意)。 讓我們看看可靠字典物件的一般用法，並看看它究竟做些什麼。
@@ -198,7 +198,7 @@ public struct ItemId {
 ```
 
 ## <a name="schema-versioning-upgrades"></a>結構描述版本控制 (升級)
-就內部而言，可靠的集合會使用 .NET 的 DataContractSerializer 序列化物件。 序列化的物件會保存在主要複本的本機磁碟中，並傳送至次要複本。 隨著您的服務日趨成熟，您可能會想要變更服務需要的資料種類 (結構描述)。 您必須十二萬分地謹慎對待資料的版本控制方法。 首先也是最重要的，您必須永遠有能力還原序列化舊的資料。 具體來說，這表示您的還原序列化程式碼必須具有無限回溯相容性︰服務程式碼的版本 333 必須能夠操作 5 年前放在可靠的集合中，第 1 版的服務程式碼資料。
+就內部而言，可靠的集合會使用 .NET 的 DataContractSerializer 序列化物件。 序列化的物件會保存在主要複本的本機磁碟中，並傳送至次要複本。 隨著您的服務日趨成熟，您可能會想要變更服務需要的資料種類 (結構描述)。 您必須十二萬分地謹慎對待資料的版本控制方法。 首先也是最重要的，您必須永遠有能力還原序列化舊的資料。 具體來說，這表示您的還原序列化程式碼必須具有無限回溯相容性：服務程式碼的版本 333 必須能夠操作 5 年前放在可靠的集合中，第 1 版的服務程式碼資料。
 
 而且，服務程式碼一次只能升級一個網域。 所以，在升級期間，您會同時執行兩個不同版本的服務程式碼。 您必須避免新版本的服務程式碼使用新的結構描述，因為舊版的服務程式碼可能無法處理新的結構描述。 您應該盡可能將每個版本的服務都設計成向前相容 1 個版本。 具體來說，這表示 V1 的服務程式碼只要能夠略過它不會明確處理的任何結構描述元素即可。 不過，它必須能夠儲存它不明確了解的任何資料，在更新字典索引鍵或值時只需將它寫回即可。
 

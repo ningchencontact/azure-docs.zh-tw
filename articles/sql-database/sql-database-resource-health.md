@@ -3,7 +3,7 @@ title: 使用 Azure 資源健康情況監視 SQL Database 的健康情況 | Micr
 description: 使用 Azure 資源健康情況監視 SQL Database 的健康情況，可協助您進行診斷，並在 Azure 問題影響您的 SQL 資源時取得支援。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/14/2018
-ms.openlocfilehash: 9cbe88a44ba598a22fab628ae01605ac9d63bece
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.date: 12/06/2018
+ms.openlocfilehash: dc20ffb0ce8add08a396a4c0ba5b496e80d04aa1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632623"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083881"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用資源健康情況對 Azure SQL Database 的連線問題進行疑難排解
 
@@ -67,11 +67,11 @@ SQL Database 的[資源健康情況](../service-health/resource-health-overview.
 
 #### <a name="planned-maintenance"></a>預定的維修
 
-Azure 基礎結構會定期執行規劃的維護 – 資料中心的軟硬體元件升級。 在資料庫進行維護的期間，SQL 可能會終止某些現有的連線，並拒絕新連線。 在計劃性維護期間發生的登入失敗通常是暫時性的，重試邏輯可有效降低其影響。 如果持續發生登入，請連絡支援人員。
+Azure 基礎結構會定期執行規劃的維護 – 資料中心的軟硬體元件升級。 在資料庫進行維護的期間，SQL 可能會終止某些現有的連線，並拒絕新連線。 在計劃性維護期間發生的登入失敗通常是暫時性的，[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)可有效降低其影響。 如果持續發生登入，請連絡支援人員。
 
 #### <a name="reconfiguration"></a>Reconfiguration
 
-重新設定應視為暫時性的狀況，且不時會發生。 負載平衡或軟體/硬體失敗都可能觸發這些事件。 任何連線到雲端資料庫服務的用戶端生產應用程式均應實作健全且使用輪詢邏輯的連線重試邏輯，因為這有助於減輕這些狀況的影響，且通常會讓使用者更清楚了解這些錯誤。
+重新設定應視為暫時性的狀況，且不時會發生。 負載平衡或軟體/硬體失敗都可能觸發這些事件。 任何連線到雲端資料庫的用戶端生產應用程式均應實作健全的連線[重試邏輯](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)，因為這有助於減輕這些狀況的影響，且通常會讓使用者更清楚了解這些錯誤。
 
 ## <a name="next-steps"></a>後續步驟
 

@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning 服務如何運作？
-description: 了解組成 Azure Machine Learning 服務的架構、技術與概念。 您也會了解使用服務的一般工作流程，以及 Azure Machine Learning 服務所使用的 Azure 服務。
+title: 雲端 ML：術語和架構
+titleSuffix: Azure Machine Learning service
+description: 了解組成 Azure Machine Learning 服務的架構、術語及概念。 您也會了解使用服務的一般工作流程，以及 Azure Machine Learning 服務所使用的 Azure 服務。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,13 +9,14 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 10/24/2018
-ms.openlocfilehash: 0acf41cc0a2673ba665d1815b493df928fa4507d
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3966d4b27f0e3d42f47d84fb5c9f5c8519a27b6c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706801"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184724"
 ---
 # <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Azure Machine Learning 服務的運作方式：架構和概念
 
@@ -34,10 +36,8 @@ ms.locfileid: "51706801"
 1. __將映像__ 部署為 Azure 中的 __Web 服務__。
 
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 > [!NOTE]
-> 雖然此文件定義了 Azure Machine Learning 使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需 Azure 平台技術的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
+> 雖然此文件定義了 Azure Machine Learning 使用的詞彙與概念，但並沒有定義 Azure 平台的詞彙與概念。 如需有關 Azure 平台術語的詳細資訊，請參閱 [Microsoft Azure 詞彙](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)。
 
 ## <a name="workspace"></a>工作區
 
@@ -65,7 +65,7 @@ ms.locfileid: "51706801"
 
 下圖為工作區的分類：
 
-[![工作區分類](./media/concept-azure-machine-learning-architecture/taxonomy.png)](./media/concept-azure-machine-learning-architecture/taxonomy.png#lightbox)
+[![工作區分類](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="model"></a>模型
 
@@ -75,7 +75,7 @@ ms.locfileid: "51706801"
 
 Azure Machine Learning services 與架構無關。 您可以使用任何受歡迎機器學習服務架構建立模型，例如 scikit-learn、xgboost、PyTorch、TensorFlow、Chainer 與 CNTK。
 
-如需定型模型的範例，請參閱[快速入門：建立 Machine Learning services 工作區](quickstart-get-started.md)文件。
+如需訓練模型的範例，請參閱[快速入門：建立機器學習服務工作區](quickstart-get-started.md)文件。
 
 ### <a name="model-registry"></a>模型登錄
 
@@ -99,7 +99,7 @@ Azure Machine Learning services 與架構無關。 您可以使用任何受歡�
 
 Azure Machine Learning 可建立兩種類型的映像：
 
-* FPGA 映像：在部署至 Azure 雲端中的現場可程式化閘陣列時使用。
+* FPGA 映像：在部署至 Azure 雲端中的可現場程式化閘道陣列時使用。
 * Docker 映像：在部署至 FPGA 以外的計算目標時使用。 例如，Azure 容器執行個體與 Azure Kubernetes Service。
 
 如需映像建立範例，請參閱[在 Azure 容器執行個體中部署映像分類模型](tutorial-deploy-models-with-aml.md)文件。
@@ -148,13 +148,13 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 
 當您提交指令碼以將模型定型時，就會產生回合。 回合可以有 0 或多個子回合。 因此最上層回合可能有 2 個子回合，其中每個可能都有自己的子回合。
 
-如需檢視透過將模型定型所產生之回合的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
+如需檢視訓練模型所產生之執行的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
 
 ## <a name="experiment"></a>實驗
 
 實驗是給定指令碼之許多回合組成的群組。 它一律屬於某個工作區。 當您提交回合時，必須提供一個實驗名稱。 回合的資訊會儲存在該實驗底下。 如果提交回合並指定不存在的實驗名稱，就會自動以該名稱建立一個新的實驗。
 
-如需實驗使用範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
+如需使用實驗的範例，請參閱[快速入門：開始使用 Azure Machine Learning 服務](quickstart-get-started.md)文件。
 
 ## <a name="pipeline"></a>管線
 
@@ -169,19 +169,23 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 | 計算目標 | 訓練 | 部署 |
 | ---- |:----:|:----:|
 | 您的本機電腦 | ✓ | &nbsp; |
+| Azure Machine Learning Compute | ✓ | &nbsp; |
 | Azure 中的 Linux VM</br>(例如資料科學虛擬機器) | ✓ | &nbsp; |
-| Azure Batch AI 叢集 | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark for HDInsight | ✓ | &nbsp; |
-| Azure 容器執行個體 | ✓ | ✓ |
+| Azure 容器執行個體 | &nbsp; | ✓ |
 | Azure Kubernetes Service | &nbsp; | ✓ |
 | Azure IoT Edge | &nbsp; | ✓ |
 | Project Brainwave</br>(現場可程式化閘陣列) | &nbsp; | ✓ |
 
 計算目標會附加至工作區。 本機電腦以外的計算目標會由工作區的使用者共用。
 
-大部分計算目標都可使用 Azure 入口網站、Azure Machine Learning SDK 或 Azure CLI，透過工作區直接建立。 如果您有透過其他程序 (例如 Azure 入口網站或 Azure CLI) 建立的計算目標，可以將它們新增 (附加) 至工作區。 某些計算目標必須在工作區外部建立，然後再附加。
+### <a name="managed-and-unmanaged-compute-targets"></a>受控和非受控計算目標
+
+**受控**計算目標是由 Azure Machine Learning 服務所建立和管理的目標。 這些計算目標已針對 ML 工作負載進行最佳化。 __Azure Machine Learning Compute__ 是目前 (2018 年 12 月 4 日) 唯一的受控計算目標。 未來可能會新增其他受控計算目標。 建立 ML Compute 執行個體時，可以使用 Azure 入口網站、Azure Machine Learning SDK 或 Azure CLI，直接透過工作區來建立。 所有其他計算目標則必須在工作區外建立，然後再與其連結。
+
+**非受控**計算目標不受 Azure Machine Learning 服務管理。 您可能需要在 Azure Machine Learning 外建立它們，然後再將其連結到您的工作區，才能使用它們。 這些計算目標可能需要額外的步驟來進行維護，或針對 ML 工作負載提升效能。
 
 如需選取計算目標以進行定型的詳細資訊，請參閱[選取並使用計算目標以將模型定型](how-to-set-up-training-targets.md)文件。
 
@@ -223,5 +227,5 @@ Azure IoT Edge 會確保模組正在執行，並監視裝載模組的裝置。
 使用下列連結開始使用 Azure Machine Learning：
 
 * [什麼是 Azure Machine Learning 服務](overview-what-is-azure-ml.md)
-* [快速入門：使用 Python 建立工作區](quickstart-get-started.md)
+* [快速入門：使用 Python 來建立工作區](quickstart-get-started.md)
 * [教學課程：將模型定型](tutorial-train-models-with-aml.md)

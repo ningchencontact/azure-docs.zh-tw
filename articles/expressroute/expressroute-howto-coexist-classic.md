@@ -1,26 +1,20 @@
 ---
-title: 設定可以並存的 ExpressRoute 和站對站 VPN 連線：傳統：Azure | Microsoft Docs
+title: 設定 ExpressRoute 和站對站 VPN 連線 - 並存：傳統：Azure | Microsoft Docs
 description: 本文會引導您針對傳統部署模型設定可以並存的 ExpressRoute 和站對站 VPN 連線。
 documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: dcf1a5af-a289-466a-b812-0bfedbd2bda0
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/21/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: charwen
-ms.openlocfilehash: f868c4d63209da641b4faa336e7ef78b36ef6454
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165436"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084204"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>設定 ExpressRoute 和站對站並存連線 (傳統)
 > [!div class="op_single_selector"]
@@ -29,7 +23,7 @@ ms.locfileid: "52165436"
 > 
 > 
 
-能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。 您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不是透過 ExpressRoute 連線的網站。 本文中將說明設定這兩個案例的步驟。 本文適用於傳統部署模型。 此組態無法使用於入口網站。
+本文將協助您設定並存的 ExpressRoute 和站對站 VPN 連線。 能夠設定站對站 VPN 和 ExpressRoute 有諸多好處。 您可以將站對站 VPN 設定為 ExressRoute 的安全容錯移轉路徑，或使用站對站 VPN 來連線至不是透過 ExpressRoute 連線的網站。 本文中將說明設定這兩個案例的步驟。 本文適用於傳統部署模型。 此組態無法使用於入口網站。
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 

@@ -1,18 +1,18 @@
 ---
 title: 在 Site Recovery 復原方案中新增 Azure 自動化 Runbook | Microsoft Docs
 description: 了解如何使用 Azure 自動化為使用 Azure Site Recovery 所進行的災害復原擴充復原方案。
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
-ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 11/27/2018
+ms.author: rajanaki
+ms.openlocfilehash: 5587d86cb4b3a213961ce46e77c75e947de2d29e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244007"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866367"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>將 Azure 自動化 Runbook 新增至復原方案
 在本文中，我們說明如何將 Azure Site Recovery 與 Azure 自動化整合在一起，以協助您擴充復原方案。 復原方案可以協調使用 Site Recovery 保護的 VM 復原。 復原方案可複寫至次要雲端，也可以複寫至 Azure。 復原方案也有助於讓復原「保持一致精確」、「可重複執行」及「自動化」。 如果您將 VM 容錯移轉至 Azure，與 Azure 自動化的整合可擴充復原方案。 您可以使用它來執行 Runbook，以提供功能強大的自動化工作。
@@ -31,7 +31,7 @@ ms.locfileid: "51244007"
 
     ![以滑鼠右鍵按一下 [群組 1: 開始] 並新增後續動作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. 按一下 [Choose a script] (選擇指令碼)。
+3. 按一下 [Choose a script] \(選擇指令碼)。
 
 4. 在 [更新動作] 刀鋒視窗中，將指令碼命名為 **Hello World**。
 
@@ -213,7 +213,7 @@ workflow AddPublicIPAndNSG {
 4. 在您的 Runbook 中使用此變數。 如果在復原方案內容中找到指定的 VM GUID，請將 NSG 套用至 VM：
 
     ```
-    $VMDetailsObj = Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName
+    $VMDetailsObj = (Get-AutomationVariable -Name $RecoveryPlanContext.RecoveryPlanName).ToObject([hashtable])
     ```
 
 4. 在您的 Runbook 中，循環存取復原方案內容的 VM。 檢查 VM 是否存在於 **$VMDetailsObj** 中。 如果存在的話，則存取變數的屬性來套用 NSG：
@@ -223,13 +223,13 @@ workflow AddPublicIPAndNSG {
         $vmMap = $RecoveryPlanContext.VmMap
 
         foreach($VMID in $VMinfo) {
-            Write-output $VMDetailsObj.value.$VMID
-
-            if ($VMDetailsObj.value.$VMID -ne $Null) { #If the VM exists in the context, this will not b Null
+            $VMDetails = $VMDetailsObj[$VMID].ToObject([hashtable]);
+            Write-output $VMDetails
+            if ($VMDetails -ne $Null) { #If the VM exists in the context, this will not be Null
                 $VM = $vmMap.$VMID
                 # Access the properties of the variable
-                $NSGname = $VMDetailsObj.value.$VMID.'NSGName'
-                $NSGRGname = $VMDetailsObj.value.$VMID.'NSGResourceGroupName'
+                $NSGname = $VMDetails.NSGName
+                $NSGRGname = $VMDetails.NSGResourceGroupName
 
                 # Add code to apply the NSG properties to the VM
             }

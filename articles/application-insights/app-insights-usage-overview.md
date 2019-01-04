@@ -8,18 +8,17 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 968c5fb093f3ebdb6ce7eb239f79573f19b89e0f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 2ccb4d2ff7beeeac53bafe726122c3b47682db03
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278628"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955424"
 ---
 # <a name="usage-analysis-with-application-insights"></a>使用 Application Insights 進行使用量分析
 
@@ -33,7 +32,7 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 
     * *不想安裝伺服器程式碼嗎？請直接[建立 Azure Application Insights 資源](app-insights-create-new-resource.md)。*
 
-2. **網頁程式碼：** 開啟 [Azure 入口網站](https://portal.azure.com)、開啟您應用程式的 Application Insights 資源，然後開啟 [快速入門] > [監視及診斷用戶端應用程式]。 
+2. **網頁程式碼：** 開啟 [Azure 入口網站](https://portal.azure.com)、開啟您應用程式的 Application Insights 資源，然後開啟 [使用者入門] > [監視及診斷用戶端應用程式]。 
 
     ![將指令碼複製到您主版頁面的標頭。](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
@@ -61,26 +60,6 @@ Web 或行動應用程式的哪些功能最受歡迎？ 您的使用者是否利
 * **工作階段**報告會計算存取您網站之使用者工作階段的數目。 工作階段是使用者活動的一段時間，在閒置時間超過半小時後就會加以終止。
 
 [進一步了解「使用者」、「工作階段」和「事件」工具](app-insights-usage-segmentation.md)  
-
-## <a name="page-views"></a>頁面檢視
-
-在 [使用量] 刀鋒視窗中，按一下 [頁面檢視] 圖格可取得最常用頁面的明細：
-
-![從 [概觀] 刀鋒視窗，按一下 [頁面檢視] 圖表](./media/app-insights-usage-overview/05-games.png)
-
-上述範例來自遊戲網站。 從這些圖表，我們可以立即看到：
-
-* 在上一週使用量未改善。 也許我們應該考慮搜尋引擎最佳化？
-* 網球是最受歡迎的遊戲頁面。 讓我們將焦點放在此頁面的進一步改善上。
-* 平均而言，使用者大約每週瀏覽網球頁面三次。 (與使用者相比，工作階段數大約多出三倍)。
-* 大多數使用者都是在美國工作週且在工作時間瀏覽此網站。 也許我們應該在網頁上提供一個 [快速隱藏] 按鈕。
-* 圖表上的[註解](app-insights-annotations.md)會顯示新版網站的部署時間。 沒有任何一個最近的部署對使用量有明顯的影響。
-
-如果您要更詳細調查網站的流量，像是依您的網站在其頁面檢視遙測中所傳送之自訂屬性進行分割，該怎麼做？
-
-1. 在 [Application Insights 資源] 功能表中，開啟「事件」工具。 此工具可讓您根據各種的篩選、同群使用者及區隔等選項，將應用程式所傳送出的頁面檢視和自訂事件數目進行分析。
-2. 在 [已使用人員] 下拉式清單中，選取 [任何頁面檢視]。
-3. 在 [分割者] 下拉式清單中，選取要用來分割您頁面檢視遙測的屬性。
 
 ## <a name="retention---how-many-users-come-back"></a>保留期 - 回來使用的使用者人數？
 

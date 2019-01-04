@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 12/10/2018
 ms.author: byvinyal
-ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: eb93dfae91ee84400c32af7b662c69aefda979d2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219557"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409168"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 訂用帳戶和服務限制、配額與限制
 本文件列出一些最常見的 Microsoft Azure 限制，有時也稱為配額。 本文件目前未涵蓋所有 Azure 服務。 清單將隨著時間擴展並更新以涵蓋更多平台。
@@ -54,10 +54,9 @@ ms.locfileid: "51219557"
 * [Azure 地圖服務](#azure-maps-limits)
 * [Azure 監視器](#monitor-limits)
 * [Azure 原則](#azure-policy-limits)
-* [Azure Redis 快取](#azure-redis-cache-limits)
+* [Azure Cache for Redis](#azure-redis-cache-limits)
 * [備份](#backup-limits)
-* [Batch](#batch-limits)
-* [Batch AI](#batch-ai-limits)
+* [批次](#batch-limits)
 * [BizTalk 服務](#biztalk-services-limits)
 * [CDN](#cdn-limits)
 * [雲端服務](#cloud-services-limits)
@@ -220,9 +219,6 @@ ms.locfileid: "51219557"
 ### <a name="batch-limits"></a>Batch 限制
 [!INCLUDE [azure-batch-limits](../includes/azure-batch-limits.md)]
 
-### <a name="batch-ai-limits"></a>Batch AI 限制
-[!INCLUDE [azure-batch-ai-limits](../includes/azure-batch-ai-limits.md)]
-
 ### <a name="biztalk-services-limits"></a>BizTalk 服務限制
 下表顯示 Azure Biztalk 服務的限制。
 
@@ -329,7 +325,7 @@ Azure Cosmos DB 是一個全域調整資料庫，可以調整輸送量和儲存�
 ### <a name="api-management-limits"></a>API 管理限制
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]
 
-### <a name="azure-redis-cache-limits"></a>Azure Redis 快取限制
+### <a name="azure-cache-for-redis-limits"></a>Azure Cache for Redis 限制
 [!INCLUDE [redis-cache-service-limits](../includes/redis-cache-service-limits.md)]
 
 ### <a name="key-vault-limits"></a>金鑰保存庫限制

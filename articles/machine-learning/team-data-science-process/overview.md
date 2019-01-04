@@ -1,5 +1,5 @@
 ---
-title: 什麼是 Team Data Science Process？ | Microsoft Docs
+title: 什麼是 Team Data Science Process？
 description: 提供資料科學方法，用以產出預測分析解決方案和智慧型應用程式。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 44da452b0ec07eaa1b1446de5dab5bedaac3bc30
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 94728bbc74d1864c76aa801628fcbfb133b97abd
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446835"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435985"
 ---
 # <a name="what-is-the-team-data-science-process"></a>什麼是 Team Data Science Process？
 
@@ -79,7 +79,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 [ ![TDSP 目錄](./media/overview/tdsp-dir-structure.png) ](./media/overview/tdsp-dir-structure.png#lightbox)
 
-可以從 [Github](https://github.com/Azure/Azure-TDSP-ProjectTemplate) 複製目錄結構。
+您可以從 [GitHub](https://github.com/Azure/Azure-TDSP-ProjectTemplate) \(英文\) 複製目錄結構。
 
 ## <a name="infrastructure-and-resources-for-data-science-projects"></a>資料科學專案的基礎結構和資源  
 
@@ -99,9 +99,9 @@ TDSP 提供管理共用分析和儲存體基礎結構的建議，例如：
 
 ## <a name="tools-and-utilities-for-project-execution"></a>專案執行的工具和公用程式
 
-在大部分的組織中引進流程是相當有挑戰性。 對於實作資料科學流程和生命週期所提供的工具有助於降低採用的障礙，並提升採用的一致性。 TDSP 提供一組初始的工具和指令碼，可供團隊快速採用 TDSP。 這也有助於資料科學開發週期中部分常見的工作自動進行，例如資料探索和基準模型。 提供妥善定義的結構，以供個人將共用的工具和公用程式貢獻到小組共用的程式碼儲存機制。 小組或組織內的其他專案接著即可使用這些資源。 TDSP 也計畫向整個社群貢獻工具和公用程式。 可以從 [Github](https://github.com/Azure/Azure-TDSP-Utilities) 複製 TDSP 公用程式。
+在大部分的組織中引進流程是相當有挑戰性。 對於實作資料科學流程和生命週期所提供的工具有助於降低採用的障礙，並提升採用的一致性。 TDSP 提供一組初始的工具和指令碼，可供團隊快速採用 TDSP。 這也有助於資料科學開發週期中部分常見的工作自動進行，例如資料探索和基準模型。 提供妥善定義的結構，以供個人將共用的工具和公用程式貢獻到小組共用的程式碼儲存機制。 小組或組織內的其他專案接著即可使用這些資源。 TDSP 也計畫向整個社群貢獻工具和公用程式。 您可以從 [GitHub](https://github.com/Azure/Azure-TDSP-Utilities) \(英文\) 複製 TDSP 公用程式。
 
 
 ## <a name="next-steps"></a>後續步驟
 
-[小組資料科學流程：角色和工作](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md)概述依據此流程進行標準化的資料科學團隊之中的重要人員角色及其相關工作。 
+[Team Data Science Process：角色和工作](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/roles-tasks.md) \(英文\) 概述依據此程序進行標準化之資料科學小組中的重要人員角色及其相關工作。 

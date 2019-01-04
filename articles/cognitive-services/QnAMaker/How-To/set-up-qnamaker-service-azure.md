@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.custom: seodec18
+ms.openlocfilehash: 6898b007287e4f4c87010649c6f0b66c03f7cf8d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389712"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086261"
 ---
 # <a name="create-a-qna-maker-service"></a>建立 QnA Maker 服務
 
@@ -27,7 +28,7 @@ ms.locfileid: "49389712"
 
 2.  按一下 [加入新資源]，並且在搜尋中鍵入「qna maker」，然後選取 QnA Maker 資源
 
-    ![建立新的 QnA Maker 服務](../media/qnamaker-how-to-setup-service/create-new-resource.png)
+    ![建立新的 QnA Maker 服務 - 新增資源](../media/qnamaker-how-to-setup-service/create-new-resource.png)
 
 3.  閱讀條款與條件之後，按一下 [建立]。
 
@@ -35,7 +36,7 @@ ms.locfileid: "49389712"
 
 4. 在 **QnA Maker** 中，選取適當的層級和地區。
 
-    ![建立新的 QnA Maker 服務](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
+    ![建立新的 QnA Maker 服務 - 定價層和區域](../media/qnamaker-how-to-setup-service/enter-qnamaker-info.png)
 
     * 在 [名稱] 中填入識別此 QnA Maker 服務的唯一名稱。 此名稱也會識別將與知識庫產生關聯的 QnA Maker 端點。
     * 選擇將部署 QnA Maker 資源的**訂用帳戶**。
@@ -57,7 +58,7 @@ ms.locfileid: "49389712"
 
 6.  完成部署後，您會看到在您的訂用帳戶中已建立下列資源。
 
-    ![建立新的 QnA Maker 服務](../media/qnamaker-how-to-setup-service/resources-created.png)
+    ![建立新 QnA Maker 服務的資源](../media/qnamaker-how-to-setup-service/resources-created.png)
 
 ## <a name="next-steps"></a>後續步驟
 

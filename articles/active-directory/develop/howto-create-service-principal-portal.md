@@ -14,14 +14,14 @@ ms.workload: na
 ms.date: 10/24/2018
 ms.author: celested
 ms.reviewer: tomfitz
-ms.openlocfilehash: b60be3db14a756407e62540bb89f3b0924597067
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 87e197821be7c7c72ca1704d6b0123d76d41b30f
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959719"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721080"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>操作說明：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>作法：使用入口網站來建立可存取資源的 Azure AD 應用程式和服務主體
 
 如果您擁有需要存取或修改資源的程式碼，則可以建立應用程式的身分識別。 此身分識別就是所謂的服務主體。 然後，您可以將必要的權限指派給服務主體。 本文說明如何使用入口網站來建立服務主體。 其中著重在說明單一租用戶應用程式，此應用程式的目的是只在一個組織內執行。 您通常會將單一租用戶應用程式用在組織內執行的企業營運系統應用程式。
 
@@ -65,9 +65,9 @@ ms.locfileid: "49959719"
    如果您未看見所尋找的訂用帳戶，請選取 [全域訂閱篩選]。 確定您想要的訂用帳戶已針對入口網站選取。 
 
 1. 選取 [存取控制 (IAM)]。
-1. 選取 [新增] 。
+1. 選取 [新增角色指派]。
 
-   ![選取 [新增]](./media/howto-create-service-principal-portal/select-add.png)
+   ![選取新增角色指派](./media/howto-create-service-principal-portal/select-add.png)
 
 1. 選取您想要將應用程式指派給哪個角色。 若要允許應用程式執行動作 (例如，**重新啟動**、**開始**和**停止**執行個體)，請選取 [參與者] 角色。 根據預設，Azure AD 應用程式不會顯示在可用選項中。 若要尋找您的應用程式，請搜尋名稱並加以選取。
 

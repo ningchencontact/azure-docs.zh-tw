@@ -4,25 +4,25 @@ description: 了解如何針對「更新管理」代理程式的問題進行疑�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: 61ff50cda6ec523964ccf8f885f07c39020fbc88
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 4540de7acd89614152c7331b17ba752f4032bf1a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335141"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434761"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>了解更新管理中的 Windows 代理程式檢查結果
 
-Azure 機器未在 [Azure 更新管理] 中顯示 [就緒] 狀態的原因十分眾多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文將討論如何從 Azure 入口網站以及在離線情況下執行「更新管理」疑難排解員。
+您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-在 Azure 入口網站中，[對更新代理程式進行疑難排解] 頁面會顯示代理程式的相關問題。 在此頁面上，您可以利用本文的連結進行問題的疑難排解。 若要移至 [對更新代理程式進行疑難排解] 頁面，請選取 [更新代理程式整備程度] 資料行中的 [疑難排解] 連結。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#troubleshoot-offline)。
 
 ![虛擬機器的更新管理清單](../media/update-agent-issues/vm-list.png)
 
@@ -82,7 +82,7 @@ Proxy 和防火牆設定必須允許「混合式 Runbook 背景工作角色」�
 
 若要深入了解如何針對此服務的問題進行疑難排解，請參閱 [Microsoft Monitoring Agent 未執行](hybrid-runbook-worker.md#mma-not-running)。
 
-若要安裝 Microsoft Monitoring Agent，請參閱[安裝並設定 Microsoft Monitoring Agent](../../log-analytics/log-analytics-quick-collect-windows-computer.md#install-the-agent-for-windows)。
+若要安裝 Microsoft Monitoring Agent，請參閱[安裝並設定 Microsoft Monitoring Agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)。
 
 ### <a name="monitoring-agent-service-events"></a>監視代理程式服務事件
 

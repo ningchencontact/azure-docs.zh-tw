@@ -1,22 +1,23 @@
 ---
-title: 重設 Azure ExpressRoute 對等互連 | Microsoft Docs
-description: 如何停用和啟用 ExpressRoute 線路的對等互連。
+title: 重設線路對等互連 - ExpressRoute：Azure | Microsoft Docs
+description: 如何停用和啟用 ExpressRoute 線路對等互連。
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: charwen
-ms.openlocfilehash: 1bb2bb61ccd06d5774b811203e86d609a01250a4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.custom: seodec18
+ms.openlocfilehash: ad050e11c98139af00ad752f8960d55a58ca2f34
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415809"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132580"
 ---
-# <a name="reset-expressroute-peerings"></a>重設 ExpressRoute 對等互連
+# <a name="reset-expressroute-circuit-peerings"></a>重設 ExpressRoute 線路對等互連
 
-此文章說明如何使用 PowerShell 來停用和啟用 ExpressRoute 線路的對等互連。 當您停用對等互連時，位於 ExpressRoute 線路之主要連線與次要連線上的 BGP 工作階段將會關閉。 您將遺失透過此對等互連來連至 Microsoft 的連線。 當您啟用對等互連時，位於 ExpressRoute 線路之主要連線與次要連線上的 BGP 工作階段將會上線。 您將重新獲得透過此對等互連來連至 Microsoft 的連線。 您可以在 ExpressRoute 線路上單獨啟用和停用 Microsoft 對等互連和 Azure 私用對等互連。 當您第一次在 ExpressRoute 線路上設定對等互連時，預設會啟用對等互連。
+本文說明如何使用 PowerShell 來停用和啟用 ExpressRoute 線路的對等互連。 當您停用對等互連時，位於 ExpressRoute 線路之主要連線與次要連線上的 BGP 工作階段將會關閉。 您將遺失透過此對等互連來連至 Microsoft 的連線。 當您啟用對等互連時，位於 ExpressRoute 線路之主要連線與次要連線上的 BGP 工作階段將會上線。 您將重新獲得透過此對等互連來連至 Microsoft 的連線。 您可以在 ExpressRoute 線路上單獨啟用和停用 Microsoft 對等互連和 Azure 私用對等互連。 當您第一次在 ExpressRoute 線路上設定對等互連時，預設會啟用對等互連。
 
 有數個案例可能會讓您覺得重設 ExpressRoute 對等互連很實用。
 * 測試您的災害復原設計和實作。 例如，您有兩個 ExpressRoute 線路。 您可以停用一個線路的對等互連，並強制將網路流量容錯移轉至另一個線路。
@@ -140,6 +141,6 @@ GatewayManagerEtag               :
 對等互連應該處於您所設定的狀態。 
 
 ## <a name="next-steps"></a>後續步驟
-如果您需要協助以針對 ExpressRoute 問題進行疑難排解，請參閱下列文章：
+如果您需要協助以進行 ExpressRoute 問題的疑難排解，請參閱下列文章：
 * [驗證 ExpressRoute 連線能力](expressroute-troubleshooting-expressroute-overview.md)
 * [網路效能疑難排解](expressroute-troubleshooting-network-performance.md)

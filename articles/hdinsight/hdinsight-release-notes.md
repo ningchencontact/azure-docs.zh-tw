@@ -9,23 +9,23 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 663cf6ba2eec4b2abbc6ab4a37e05b756ee67ee9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 1f0ff7bef5c1d30eb6920eaab3767de1dea6b94a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016806"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438858"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 的版本資訊
 
 本文提供有關**最新** Azure HDInsight 版本更新的資訊。 如需有關較早版本的詳細資訊，請參閱 [HDInsight 版本資訊封存](hdinsight-release-notes-archive.md)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本控制文件](hdinsight-component-versioning.md)。
 
 ## <a name="summary"></a>總結
 
-Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Hadoop 與 Spark 分析使用。 由於 [HDInsight 已降價達 50% 以上](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank)，轉移至雲端的客戶所能省下的成本，將會比以往更多。
+Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 上的開放原始碼 Apache Hadoop 與 Apache Spark 分析使用。 由於 [HDInsight 已降價達 50% 以上](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank)，轉移至雲端的客戶所能省下的成本，將會比以往更多。
 
 ## <a name="new-features"></a>新功能
 
@@ -33,9 +33,9 @@ Azure HDInsight 是最受企業客戶歡迎的其中一項服務，可供 Azure 
 
 1.  更新 Hadoop 和其他開放原始碼專案 – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 **Spark (2.3)** 和 **Kafka (1.0)**。
 
-    a.  [**Spark 2.3 的新功能**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    a.  [**Apache Spark 2.3 的新功能**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
-    b.  [**Kafka 1.0 的新功能**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
+    b.  [**Apache Kafka 1.0 的新功能**](https://www.apache.org/dist/kafka/1.0.0/RELEASE_NOTES.html)
 
 2.  將 R Server 9.1 更新為機器學習服務 9.3 – 在此版本中，我們為資料科學家和工程師提供最佳的增強式開放原始碼及演算法創新，而且作業方便，這些全部都以他們的偏好語言和 Apache Spark 的速度提供。 此版本擴展 R Server 中提供的功能，並進一步支援 Python，因而將叢集名稱從 R Server 改為 ML 服務。 
 
@@ -215,7 +215,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [HBASE-18164](https://issues.apache.org/jira/browse/HBASE-18164)：速度快上許多的位置成本函式和候選項目產生器。
 
--   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212)：在具有本機檔案系統 HBase 記錄警告訊息的獨立模式中：無法在 org.apache.hadoop.fs.FSDataInputStream 類別中叫用 'unbuffer' 方法。
+-   [HBASE-18212](https://issues.apache.org/jira/browse/HBASE-18212)：在具有本機檔案系統的獨立模式中，HBase 會記錄以下警告訊息：無法在 org.apache.hadoop.fs.FSDataInputStream 類別中叫用 'unbuffer' 方法。
 
 -   [HBASE-18808](https://issues.apache.org/jira/browse/HBASE-18808)：BackupLogCleaner\#getDeletableFiles() 中的設定檢查無效。
 
@@ -241,259 +241,259 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 **Hive 1.2.1 Apache 修補程式：**
 
--   [HIVE-10697](https://issues.apache.org/jira/browse/HIVE-10697)：ObjectInspectorConvertors\#UnionConvertor 會進行錯誤的轉換。
+-   [*HIVE-10697*](https://issues.apache.org/jira/browse/HIVE-10697)：ObjectInspectorConvertors\#UnionConvertor 會進行錯誤的轉換。
 
 -   [HIVE-11266](https://issues.apache.org/jira/browse/HIVE-11266)：count(\*) 會根據外部資料表的資料表統計資料，產生錯誤的結果。
 
--   [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245)：HBase 支援的資料表可支援資料行註解。
+-   [*HIVE-12245*](https://issues.apache.org/jira/browse/HIVE-12245)：HBase 支援的資料表可支援資料行註解。
 
--   [HIVE-12315](https://issues.apache.org/jira/browse/HIVE-12315)：修正除數為零的向量化雙精度浮點數。
+-   [*HIVE-12315*](https://issues.apache.org/jira/browse/HIVE-12315)：修正除數為零的向量化雙精度浮點數。
 
--   [HIVE-12360](https://issues.apache.org/jira/browse/HIVE-12360)：在具有述詞下推的未壓縮 ORC 中會進行錯誤的搜尋。
+-   [*HIVE-12360*](https://issues.apache.org/jira/browse/HIVE-12360)：在具有述詞下推的未壓縮 ORC 中會進行錯誤的搜尋。
 
--   [HIVE-12378](https://issues.apache.org/jira/browse/HIVE-12378)：HBaseSerDe.serialize 二進位欄位上的例外狀況。
+-   [*HIVE-12378*](https://issues.apache.org/jira/browse/HIVE-12378)：HBaseSerDe.serialize 二進位欄位上的例外狀況。
 
--   [HIVE-12785](https://issues.apache.org/jira/browse/HIVE-12785)：檢視具有等位型別，且結構的 UDF 會中斷。
+-   [*HIVE-12785*](https://issues.apache.org/jira/browse/HIVE-12785)：檢視具有等位型別，且結構的 UDF 會中斷。
 
--   [HIVE-14013](https://issues.apache.org/jira/browse/HIVE-14013)：描述資料表未正確顯示 unicode。
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013)：描述資料表未正確顯示 unicode。
 
--   [HIVE-14205](https://issues.apache.org/jira/browse/HIVE-14205)：Hive 不支援等位型別與 AVRO 檔案格式的搭配。
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205)：Hive 不支援等位型別與 AVRO 檔案格式的搭配。
 
--   [HIVE-14421](https://issues.apache.org/jira/browse/HIVE-14421)：FS.deleteOnExit 會保存 \_tmp\_space.db 檔案的參考。
+-   [*HIVE-14421*](https://issues.apache.org/jira/browse/HIVE-14421)：FS.deleteOnExit 會保存 \_tmp\_space.db 檔案的參考。
 
--   [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)：忽略 SQLOperation.runQuery 中不合法的作業狀態轉換例外狀況，以公開實際的例外狀況。
+-   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563)：忽略 SQLOperation.runQuery 中不合法的作業狀態轉換例外狀況，以公開實際的例外狀況。
 
--   [HIVE-15680](https://issues.apache.org/jira/browse/HIVE-15680)：當 hive.optimize.index.filter=true 且查詢在 MR 模式中參考了相同的 ORC 資料表兩次時，會產生不正確的結果。
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680)：當 hive.optimize.index.filter=true 且查詢在 MR 模式中參考了相同的 ORC 資料表兩次時，會產生不正確的結果。
 
--   [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)：Hive 插入中的 HBase 對應資料表在使用小數點時會失敗。
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883)：Hive 插入中的 HBase 對應資料表在使用小數點時會失敗。
 
--   [HIVE-16232](https://issues.apache.org/jira/browse/HIVE-16232)：對 QuotedIdentifier 中的資料行支援統計資料計算。
+-   [*HIVE-16232*](https://issues.apache.org/jira/browse/HIVE-16232)：對 QuotedIdentifier 中的資料行支援統計資料計算。
 
--   [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
 
--   [HIVE-17013](https://issues.apache.org/jira/browse/HIVE-17013)：根據對檢視的選取來刪除具有子查詢的要求。
+-   [*HIVE-17013*](https://issues.apache.org/jira/browse/HIVE-17013)：根據對檢視的選取來刪除具有子查詢的要求。
 
 -   [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)：若先置放資料分割，就無法對外部資料表插入覆寫資料分割。
 
--   [HIVE-17259](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
+-   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
--   [HIVE-17419](https://issues.apache.org/jira/browse/HIVE-17419)：ANALYZE TABLE...COMPUTE STATISTICS FOR COLUMNS 命令會顯示已遮罩資料表的計算統計資料。
+-   [*HIVE-17419*](https://issues.apache.org/jira/browse/HIVE-17419)：ANALYZE TABLE...COMPUTE STATISTICS FOR COLUMNS 命令會顯示已遮罩資料表的計算統計資料。
 
--   [HIVE-17530](https://issues.apache.org/jira/browse/HIVE-17530)：轉換 uniontype 時發生 ClassCastException。
+-   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530)：轉換 uniontype 時發生 ClassCastException。
 
--   [HIVE-17621](https://issues.apache.org/jira/browse/HIVE-17621)：HCatInputFormat 分割計算期間會忽略 Hive 網站設定。
+-   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621)：HCatInputFormat 分割計算期間會忽略 Hive 網站設定。
 
--   [HIVE-17636](https://issues.apache.org/jira/browse/HIVE-17636)：新增 BlobStore 的 multiple\_agg.q 測試。
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636)：新增 BlobStore 的 multiple\_agg.q 測試。
 
--   [HIVE-17729](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
 
 -   [HIVE-17731](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
 
--   [HIVE-17803](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
 
--   [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)：ArrayIndexOutOfBoundsException - Hive2 中具有 Avro 結構描述的 HBASE 支援資料表。
+-   [*HIVE-17829*](https://issues.apache.org/jira/browse/HIVE-17829)：ArrayIndexOutOfBoundsException - Hive2 中具有 Avro 結構描述的 HBASE 支援資料表。
 
 -   [HIVE-17845](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
 
 -   [HIVE-17900](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
 
--   [HIVE-18026](https://issues.apache.org/jira/browse/HIVE-18026)：Hive webhcat 主體設定最佳化。
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026)：Hive webhcat 主體設定最佳化。
 
--   [HIVE-18031](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
 
 -   [HIVE-18090](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
 
--   [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)：將 hive.groupby.orderby.position.alias 設為 true 時，Hive 查詢會傳回錯誤結果。
+-   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189)：將 hive.groupby.orderby.position.alias 設為 true 時，Hive 查詢會傳回錯誤結果。
 
--   [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258)：向量化：具有重複資料行的 Reduce-Side GROUP BY MERGEPARTIAL 會中斷。
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258)：向量化：具有重複資料行的 Reduce-Side GROUP BY MERGEPARTIAL 會中斷。
 
--   [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)：若資料夾不是由執行 HiveMetaStore 的身分識別所擁有的，Hive 就無法壓縮該資料夾內所包含的資料表。
+-   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293)：若資料夾不是由執行 HiveMetaStore 的身分識別所擁有的，Hive 就無法壓縮該資料夾內所包含的資料表。
 
--   [HIVE-18327](https://issues.apache.org/jira/browse/HIVE-18327)：移除 MiniHiveKdc 的不必要 HiveConf 相依性。
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327)：移除 MiniHiveKdc 的不必要 HiveConf 相依性。
 
--   [HIVE-18341](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
 
 -   [HIVE-18352](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
 
--   [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除 (透過 Thejas Nair 的 Prabhu Joseph)。
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除 (透過 Thejas Nair 的 Prabhu Joseph)。
 
--   [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)：在 ColumnPruner 中查詢已分割的檢視時，發生 IndexOutOfBoundsException。
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390)：在 ColumnPruner 中查詢已分割的檢視時，發生 IndexOutOfBoundsException。
 
--   [HIVE-18429](https://issues.apache.org/jira/browse/HIVE-18429)：壓縮應該處理未產生任何輸出時的案例。
+-   [*HIVE-18429*](https://issues.apache.org/jira/browse/HIVE-18429)：壓縮應該處理未產生任何輸出時的案例。
 
--   [HIVE-18447](https://issues.apache.org/jira/browse/HIVE-18447)：JDBC：提供方法供 JDBC 使用者透過連接字串傳遞 Cookie 資訊。
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447)：JDBC：JDBC：提供方法供 JDBC 使用者透過連接字串傳遞 Cookie 資訊。
 
--   [HIVE-18460](https://issues.apache.org/jira/browse/HIVE-18460)：Compactor 不會將資料表屬性傳遞至 Orc 寫入器。
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460)：Compactor 不會將資料表屬性傳遞至 Orc 寫入器。
 
 -   [HIVE-18467](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件 (Anishek Agarwal，已由 Sankar Hariappan 檢閱)。
 
--   [HIVE-18551](https://issues.apache.org/jira/browse/HIVE-18551)：向量化：VectorMapOperator 嘗試為 Hybrid Grace 寫入太多向量資料行。
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551)：向量化：VectorMapOperator 嘗試為 Hybrid Grace 寫入太多向量資料行。
 
 -   [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
 
--   [HIVE-18613](https://issues.apache.org/jira/browse/HIVE-18613)：擴充 JsonSerDe 以支援 BINARY 類型。
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613)：擴充 JsonSerDe 以支援 BINARY 類型。
 
--   [HIVE-18626](https://issues.apache.org/jira/browse/HIVE-18626)：Repl 載入 "with" 子句不會將設定傳遞給工作。
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626)：Repl 載入 "with" 子句不會將設定傳遞給工作。
 
--   [HIVE-18660](https://issues.apache.org/jira/browse/HIVE-18660)：PCR 無法區別資料分割和虛擬資料行。
+-   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660)：PCR 無法區別資料分割和虛擬資料行。
 
--   [HIVE-18754](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
 
--   [HIVE-18754](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
 
--   [HIVE-18788](https://issues.apache.org/jira/browse/HIVE-18788)：清除 JDBC PreparedStatement 中的輸入。
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788)：清除 JDBC PreparedStatement 中的輸入。
 
--   [HIVE-18794](https://issues.apache.org/jira/browse/HIVE-18794)：Repl 載入 "with" 子句不會將設定傳遞給非磁碟分割表格的工作。
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794)：Repl 載入 "with" 子句不會將設定傳遞給非磁碟分割表格的工作。
 
--   [HIVE-18808](https://issues.apache.org/jira/browse/HIVE-18808)：統計資料更新失敗時，讓壓縮更穩固。
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808)：統計資料更新失敗時，讓壓縮更穩固。
 
--   [HIVE-18817](https://issues.apache.org/jira/browse/HIVE-18817)：讀取 ACID 資料表期間，發生 ArrayIndexOutOfBounds 例外狀況。
+-   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817)：讀取 ACID 資料表期間，發生 ArrayIndexOutOfBounds 例外狀況。
 
--   [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)：「插入目錄中作為 orcfile」時，自動合併會失敗。
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833)：「插入目錄中作為 orcfile」時，自動合併會失敗。
 
--   [HIVE-18879](https://issues.apache.org/jira/browse/HIVE-18879)：如果 xercesImpl.jar 位於 classpath 中，則必須能夠在 UDFXPathUtil 中不允許內嵌的元素。
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879)：如果 xercesImpl.jar 位於 classpath 中，則必須能夠在 UDFXPathUtil 中不允許內嵌的元素。
 
--   [HIVE-18907](https://issues.apache.org/jira/browse/HIVE-18907)：建立公用程式以修正 HIVE-18817 中的 acid 金鑰索引問題。
+-   [*HIVE-18907*](https://issues.apache.org/jira/browse/HIVE-18907)：建立公用程式以修正 HIVE-18817 中的 acid 金鑰索引問題。
 
 **Hive 2.1.0 Apache 修補程式：**
 
--   [HIVE-14013](https://issues.apache.org/jira/browse/HIVE-14013)：描述資料表未正確顯示 unicode。
+-   [*HIVE-14013*](https://issues.apache.org/jira/browse/HIVE-14013)：描述資料表未正確顯示 unicode。
 
--   [HIVE-14205](https://issues.apache.org/jira/browse/HIVE-14205)：Hive 不支援等位型別與 AVRO 檔案格式的搭配。
+-   [*HIVE-14205*](https://issues.apache.org/jira/browse/HIVE-14205)：Hive 不支援等位型別與 AVRO 檔案格式的搭配。
 
--   [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)：忽略 SQLOperation.runQuery 中不合法的作業狀態轉換例外狀況，以公開實際的例外狀況。
+-   [*HIVE-15563*](https://issues.apache.org/jira/browse/HIVE-15563)：忽略 SQLOperation.runQuery 中不合法的作業狀態轉換例外狀況，以公開實際的例外狀況。
 
--   [HIVE-15680](https://issues.apache.org/jira/browse/HIVE-15680)：當 hive.optimize.index.filter=true 且查詢在 MR 模式中參考了相同的 ORC 資料表兩次時，會產生不正確的結果。
+-   [*HIVE-15680*](https://issues.apache.org/jira/browse/HIVE-15680)：當 hive.optimize.index.filter=true 且查詢在 MR 模式中參考了相同的 ORC 資料表兩次時，會產生不正確的結果。
 
--   [HIVE-15883](https://issues.apache.org/jira/browse/HIVE-15883)：Hive 插入中的 HBase 對應資料表在使用小數點時會失敗。
+-   [*HIVE-15883*](https://issues.apache.org/jira/browse/HIVE-15883)：Hive 插入中的 HBase 對應資料表在使用小數點時會失敗。
 
--   [HIVE-16757](https://issues.apache.org/jira/browse/HIVE-16757)：移除已淘汰 AbstractRelNode.getRows 的呼叫。
+-   [*HIVE-16757*](https://issues.apache.org/jira/browse/HIVE-16757)：移除已淘汰 AbstractRelNode.getRows 的呼叫。
 
--   [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
+-   [*HIVE-16828*](https://issues.apache.org/jira/browse/HIVE-16828)：在啟用 CBO 的情況下，對已分割的檢視所進行的查詢會擲回 IndexOutOfBoundException。
 
 -   [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)：若先置放資料分割，就無法對外部資料表插入覆寫資料分割。
 
--   [HIVE-17259](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
+-   [*HIVE-17259*](https://issues.apache.org/jira/browse/HIVE-17259)：Hive JDBC 無法辨識 UNIONTYPE 資料行。
 
--   [HIVE-17530](https://issues.apache.org/jira/browse/HIVE-17530)：轉換 uniontype 時發生 ClassCastException。
+-   [*HIVE-17530*](https://issues.apache.org/jira/browse/HIVE-17530)：轉換 uniontype 時發生 ClassCastException。
 
--   [HIVE-17600](https://issues.apache.org/jira/browse/HIVE-17600)：讓 OrcFile 的 enforceBufferSize 變成可由使用者設定。
+-   [*HIVE-17600*](https://issues.apache.org/jira/browse/HIVE-17600)：讓 OrcFile 的 enforceBufferSize 變成可由使用者設定。
 
 -   [HIVE-17601](https://issues.apache.org/jira/browse/HIVE-17601)：改善 LlapServiceDriver 中的錯誤處理。
 
 -   [HIVE-17613](https://issues.apache.org/jira/browse/HIVE-17613)：針對簡短的同一執行緒配置移除物件集區。
 
--   [HIVE-17617](https://issues.apache.org/jira/browse/HIVE-17617)：空白結果集的彙總應該包含空白群組集合的群組。
+-   [*HIVE-17617*](https://issues.apache.org/jira/browse/HIVE-17617)：空白結果集的彙總應該包含空白群組集合的群組。
 
--   [HIVE-17621](https://issues.apache.org/jira/browse/HIVE-17621)：HCatInputFormat 分割計算期間會忽略 Hive 網站設定。
+-   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621)：HCatInputFormat 分割計算期間會忽略 Hive 網站設定。
 
--   [HIVE-17629](https://issues.apache.org/jira/browse/HIVE-17629)：CachedStore：備有允許清單/封鎖清單設定，以允許資料表/資料分割的選擇性快取，以及允許在預先準備時讀取。
+-   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629)：CachedStore：備有允許清單/封鎖清單設定，以允許資料表/資料分割的選擇性快取，以及允許在預先準備時讀取。
 
--   [HIVE-17636](https://issues.apache.org/jira/browse/HIVE-17636)：新增 BlobStore 的 multiple\_agg.q 測試。
+-   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636)：新增 BlobStore 的 multiple\_agg.q 測試。
 
 -   [HIVE-17702](https://issues.apache.org/jira/browse/HIVE-17702)：ORC 中的十進位讀取器有不正確的 isRepeating 處理。
 
--   [HIVE-17729](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
+-   [*HIVE-17729*](https://issues.apache.org/jira/browse/HIVE-17729)：新增資料庫並解說相關的 blobstore 測試。
 
 -   [HIVE-17731](https://issues.apache.org/jira/browse/HIVE-17731)：在 HIVE-11985 中新增外部使用者的回溯相容性選項。
 
--   [HIVE-17803](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
+-   [*HIVE-17803*](https://issues.apache.org/jira/browse/HIVE-17803)：使用 Pig 多重查詢時，若有 2 個 HCatStorers 寫入至相同的資料表，則會破壞彼此的輸出。
 
 -   [HIVE-17845](https://issues.apache.org/jira/browse/HIVE-17845)：如果目標資料表資料行不是小寫，插入會失敗。
 
 -   [HIVE-17900](https://issues.apache.org/jira/browse/HIVE-17900)：在由 Compactor 觸發的資料行上分析統計資料，會產生資料分割資料行 &gt; 1 個的錯誤格式 SQL。
 
--   [HIVE-18006](https://issues.apache.org/jira/browse/HIVE-18006)：將 HLLDenseRegister 的記憶體使用量最佳化。
+-   [*HIVE-18006*](https://issues.apache.org/jira/browse/HIVE-18006)：將 HLLDenseRegister 的記憶體使用量最佳化。
 
--   [HIVE-18026](https://issues.apache.org/jira/browse/HIVE-18026)：Hive webhcat 主體設定最佳化。
+-   [*HIVE-18026*](https://issues.apache.org/jira/browse/HIVE-18026)：Hive webhcat 主體設定最佳化。
 
--   [HIVE-18031](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
+-   [*HIVE-18031*](https://issues.apache.org/jira/browse/HIVE-18031)：針對 Alter Database 作業支援複寫。
 
 -   [HIVE-18090](https://issues.apache.org/jira/browse/HIVE-18090)：透過 hadoop 認證連接中繼存放區時，acid 活動訊號會失敗。
 
--   [HIVE-18189](https://issues.apache.org/jira/browse/HIVE-18189)：cbo 停用時，無法依位置排序。
+-   [*HIVE-18189*](https://issues.apache.org/jira/browse/HIVE-18189)：cbo 停用時，無法依位置排序。
 
--   [HIVE-18258](https://issues.apache.org/jira/browse/HIVE-18258)：向量化：具有重複資料行的 Reduce-Side GROUP BY MERGEPARTIAL 會中斷。
+-   [*HIVE-18258*](https://issues.apache.org/jira/browse/HIVE-18258)：向量化：具有重複資料行的 Reduce-Side GROUP BY MERGEPARTIAL 會中斷。
 
--   [HIVE-18269](https://issues.apache.org/jira/browse/HIVE-18269)：LLAP：使用慢速處理管線進行快速 llap io 會導致 OOM。
+-   [*HIVE-18269*](https://issues.apache.org/jira/browse/HIVE-18269)：LLAP：使用慢速處理管線進行快速 llap io 會導致 OOM。
 
--   [HIVE-18293](https://issues.apache.org/jira/browse/HIVE-18293)：若資料夾不是由執行 HiveMetaStore 的身分識別所擁有的，Hive 就無法壓縮該資料夾內所包含的資料表。
+-   [*HIVE-18293*](https://issues.apache.org/jira/browse/HIVE-18293)：若資料夾不是由執行 HiveMetaStore 的身分識別所擁有的，Hive 就無法壓縮該資料夾內所包含的資料表。
 
--   [HIVE-18318](https://issues.apache.org/jira/browse/HIVE-18318)：即使未封鎖，LLAP 記錄讀取器也應該檢查中斷。
+-   [*HIVE-18318*](https://issues.apache.org/jira/browse/HIVE-18318)：即使未封鎖，LLAP 記錄讀取器也應該檢查中斷。
 
--   [HIVE-18326](https://issues.apache.org/jira/browse/HIVE-18326)：LLAP Tez 排程器 - 只有在工作之間有相依性時，才讓這些工作優先進行。
+-   [*HIVE-18326*](https://issues.apache.org/jira/browse/HIVE-18326)：LLAP Tez 排程器 - 只有在工作之間有相依性時，才讓這些工作優先進行。
 
--   [HIVE-18327](https://issues.apache.org/jira/browse/HIVE-18327)：移除 MiniHiveKdc 的不必要 HiveConf 相依性。
+-   [*HIVE-18327*](https://issues.apache.org/jira/browse/HIVE-18327)：移除 MiniHiveKdc 的不必要 HiveConf 相依性。
 
--   [HIVE-18331](https://issues.apache.org/jira/browse/HIVE-18331)：新增在 TGT 到期時重新登入以及某些記錄/lambda。
+-   [*HIVE-18331*](https://issues.apache.org/jira/browse/HIVE-18331)：新增在 TGT 到期時重新登入以及某些記錄/lambda。
 
--   [HIVE-18341](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
+-   [*HIVE-18341*](https://issues.apache.org/jira/browse/HIVE-18341)：新增 repl 載入支援，可用於對具有相同加密金鑰的 TDE 新增「原始」命名空間。
 
 -   [HIVE-18352](https://issues.apache.org/jira/browse/HIVE-18352)：在進行 REPL DUMP 以便與其他工具整合時，引進了 METADATAONLY 選項。
 
--   [HIVE-18353](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除。
+-   [*HIVE-18353*](https://issues.apache.org/jira/browse/HIVE-18353)：CompactorMR 應該呼叫 jobclient.close() 以觸發清除。
 
--   [HIVE-18384](https://issues.apache.org/jira/browse/HIVE-18384)：log4j2.x 程式庫發生 ConcurrentModificationException。
+-   [*HIVE-18384*](https://issues.apache.org/jira/browse/HIVE-18384)：log4j2.x 程式庫發生 ConcurrentModificationException。
 
--   [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)：在 ColumnPruner 中查詢已分割的檢視時，發生 IndexOutOfBoundsException。
+-   [*HIVE-18390*](https://issues.apache.org/jira/browse/HIVE-18390)：在 ColumnPruner 中查詢已分割的檢視時，發生 IndexOutOfBoundsException。
 
--   [HIVE-18447](https://issues.apache.org/jira/browse/HIVE-18447)：JDBC：提供方法供 JDBC 使用者透過連接字串傳遞 Cookie 資訊。
+-   [*HIVE-18447*](https://issues.apache.org/jira/browse/HIVE-18447)：JDBC：JDBC：提供方法供 JDBC 使用者透過連接字串傳遞 Cookie 資訊。
 
--   [HIVE-18460](https://issues.apache.org/jira/browse/HIVE-18460)：Compactor 不會將資料表屬性傳遞至 Orc 寫入器。
+-   [*HIVE-18460*](https://issues.apache.org/jira/browse/HIVE-18460)：Compactor 不會將資料表屬性傳遞至 Orc 寫入器。
 
--   [HIVE-18462](https://issues.apache.org/jira/browse/HIVE-18462)：(針對有對應聯結的查詢所格式化的解釋，會具有資料行名稱未格式化的 columnExprMap)。
+-   [*HIVE-18462*](https://issues.apache.org/jira/browse/HIVE-18462)：(針對有對應聯結的查詢所格式化的解釋，會具有資料行名稱未格式化的 columnExprMap)。
 
 -   [HIVE-18467](https://issues.apache.org/jira/browse/HIVE-18467)：支援整個倉儲傾印/載入 + 建立/置放資料庫事件。
 
--   [HIVE-18488](https://issues.apache.org/jira/browse/HIVE-18488)：LLAP ORC 讀取器缺少某些 null 檢查。
+-   [*HIVE-18488*](https://issues.apache.org/jira/browse/HIVE-18488)：LLAP ORC 讀取器缺少某些 null 檢查。
 
--   [HIVE-18490](https://issues.apache.org/jira/browse/HIVE-18490)：具有 EXISTS 和 NOT EXISTS 與不相等述詞的查詢會產生錯誤的結果。
+-   [*HIVE-18490*](https://issues.apache.org/jira/browse/HIVE-18490)：具有 EXISTS 和 NOT EXISTS 與不相等述詞的查詢會產生錯誤的結果。
 
--   [HIVE-18506](https://issues.apache.org/jira/browse/HIVE-18506)：LlapBaseInputFormat - 負數的陣列索引。
+-   [*HIVE-18506*](https://issues.apache.org/jira/browse/HIVE-18506)：LlapBaseInputFormat - 負數的陣列索引。
 
--   [HIVE-18517](https://issues.apache.org/jira/browse/HIVE-18517)：向量化：修正 VectorMapOperator 以接受 VRBs，並檢查向量化旗標是否正確以支援 LLAP 快取)。
+-   [*HIVE-18517*](https://issues.apache.org/jira/browse/HIVE-18517)：向量化：修正 VectorMapOperator 以接受 VRBs，並檢查向量化旗標是否正確以支援 LLAP 快取。
 
--   [HIVE-18523](https://issues.apache.org/jira/browse/HIVE-18523)：修正沒有輸入時的摘要資料列。
+-   [*HIVE-18523*](https://issues.apache.org/jira/browse/HIVE-18523)：修正沒有輸入時的摘要資料列。
 
--   [HIVE-18528](https://issues.apache.org/jira/browse/HIVE-18528)：彙總 ObjectStore 中的統計資料會得到錯誤的結果。
+-   [*HIVE-18528*](https://issues.apache.org/jira/browse/HIVE-18528)：彙總 ObjectStore 中的統計資料會得到錯誤的結果。
 
--   [HIVE-18530](https://issues.apache.org/jira/browse/HIVE-18530)：複寫應該略過 MM 資料表 (暫時)。
+-   [*HIVE-18530*](https://issues.apache.org/jira/browse/HIVE-18530)：複寫應該略過 MM 資料表 (暫時)。
 
--   [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)：修正 log4j 匯入。
+-   [*HIVE-18548*](https://issues.apache.org/jira/browse/HIVE-18548)：修正 log4j 匯入。
 
--   [HIVE-18551](https://issues.apache.org/jira/browse/HIVE-18551)：向量化：VectorMapOperator 嘗試為 Hybrid Grace 寫入太多向量資料行。
+-   [*HIVE-18551*](https://issues.apache.org/jira/browse/HIVE-18551)：向量化：VectorMapOperator 嘗試為 Hybrid Grace 寫入太多向量資料行。
 
--   [HIVE-18577](https://issues.apache.org/jira/browse/HIVE-18577)：SemanticAnalyzer.validate 有一些毫無意義的中繼存放區呼叫。
+-   [*HIVE-18577*](https://issues.apache.org/jira/browse/HIVE-18577)：SemanticAnalyzer.validate 有一些毫無意義的中繼存放區呼叫。
 
 -   [HIVE-18587](https://issues.apache.org/jira/browse/HIVE-18587)：插入 DML 事件可能會嘗試對目錄計算總和檢查碼。
 
--   [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)：LLAP︰一律針對 org.apache.log4j 封裝 log4j2 API jar。
+-   [*HIVE-18597*](https://issues.apache.org/jira/browse/HIVE-18597)：LLAP：一律針對 org.apache.log4j 封裝 log4j2 API jar。
 
--   [HIVE-18613](https://issues.apache.org/jira/browse/HIVE-18613)：擴充 JsonSerDe 以支援 BINARY 類型。
+-   [*HIVE-18613*](https://issues.apache.org/jira/browse/HIVE-18613)：擴充 JsonSerDe 以支援 BINARY 類型。
 
--   [HIVE-18626](https://issues.apache.org/jira/browse/HIVE-18626)：Repl 載入 "with" 子句不會將設定傳遞給工作。
+-   [*HIVE-18626*](https://issues.apache.org/jira/browse/HIVE-18626)：Repl 載入 "with" 子句不會將設定傳遞給工作。
 
 -   [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)：不要針對 ACID 作業檢查已封存的資料分割。
 
--   [HIVE-18660](https://issues.apache.org/jira/browse/HIVE-18660)：PCR 無法區別資料分割和虛擬資料行。
+-   [*HIVE-18660*](https://issues.apache.org/jira/browse/HIVE-18660)：PCR 無法區別資料分割和虛擬資料行。
 
--   [HIVE-18754](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
+-   [*HIVE-18754*](https://issues.apache.org/jira/browse/HIVE-18754)：REPL STATUS 應該支援 'with' 子句。
 
--   [HIVE-18788](https://issues.apache.org/jira/browse/HIVE-18788)：清除 JDBC PreparedStatement 中的輸入。
+-   [*HIVE-18788*](https://issues.apache.org/jira/browse/HIVE-18788)：清除 JDBC PreparedStatement 中的輸入。
 
--   [HIVE-18794](https://issues.apache.org/jira/browse/HIVE-18794)：Repl 載入 "with" 子句不會將設定傳遞給非磁碟分割表格的工作。
+-   [*HIVE-18794*](https://issues.apache.org/jira/browse/HIVE-18794)：Repl 載入 "with" 子句不會將設定傳遞給非磁碟分割表格的工作。
 
--   [HIVE-18808](https://issues.apache.org/jira/browse/HIVE-18808)：統計資料更新失敗時，讓壓縮更穩固。
+-   [*HIVE-18808*](https://issues.apache.org/jira/browse/HIVE-18808)：統計資料更新失敗時，讓壓縮更穩固。
 
--   [HIVE-18815](https://issues.apache.org/jira/browse/HIVE-18815)：移除 HPL/SQL 中未使用的功能。
+-   [*HIVE-18815*](https://issues.apache.org/jira/browse/HIVE-18815)：移除 HPL/SQL 中未使用的功能。
 
--   [HIVE-18817](https://issues.apache.org/jira/browse/HIVE-18817)：讀取 ACID 資料表期間，發生 ArrayIndexOutOfBounds 例外狀況。
+-   [*HIVE-18817*](https://issues.apache.org/jira/browse/HIVE-18817)：讀取 ACID 資料表期間，發生 ArrayIndexOutOfBounds 例外狀況。
 
--   [HIVE-18833](https://issues.apache.org/jira/browse/HIVE-18833)：「插入目錄中作為 orcfile」時，自動合併會失敗。
+-   [*HIVE-18833*](https://issues.apache.org/jira/browse/HIVE-18833)：「插入目錄中作為 orcfile」時，自動合併會失敗。
 
--   [HIVE-18879](https://issues.apache.org/jira/browse/HIVE-18879)：如果 xercesImpl.jar 位於 classpath 中，則必須能夠在 UDFXPathUtil 中不允許內嵌的元素。
+-   [*HIVE-18879*](https://issues.apache.org/jira/browse/HIVE-18879)：如果 xercesImpl.jar 位於 classpath 中，則必須能夠在 UDFXPathUtil 中不允許內嵌的元素。
 
--   [HIVE-18944](https://issues.apache.org/jira/browse/HIVE-18944)：在 DPP 期間未正確設定群組集合位置。
+-   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944)：在 DPP 期間未正確設定群組集合位置。
 
 ### <a name="kafka"></a>Kafka
 
@@ -563,7 +563,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
 -   [OOZIE-2923](https://issues.apache.org/jira/browse/OOZIE-2923)：改善 Spark 選項剖析。
 
--   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109)：SCA：跨網站指令碼：已反映。
+-   [OOZIE-3109](https://issues.apache.org/jira/browse/OOZIE-3109)：SCA：跨網站指令碼處理 (XSS)：反映。
 
 -   [OOZIE-3139](https://issues.apache.org/jira/browse/OOZIE-3139)：Oozie 不會正確地驗證工作流程。
 
@@ -965,7 +965,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-94964              | [HIVE 18269](https://issues.apache.org/jira/browse/HIVE-18269)、 [HIVE 18318](https://issues.apache.org/jira/browse/HIVE-18318)、 [HIVE 18326](https://issues.apache.org/jira/browse/HIVE-18326)                                                                                                                                                                                                                                                                               | 多個 LLAP 修正                                                                                                                 |
 | BUG-95669              | [HIVE-18577](https://issues.apache.org/jira/browse/HIVE-18577)、 [HIVE-18643](https://issues.apache.org/jira/browse/HIVE-18643)                                                                                                                                                                                                                                                                                                                                               | 在 ACID 資料分割資料表上執行更新/刪除查詢時，HS2 會將每個資料分割全都讀取一遍。                                               |
 | BUG-96390              | [HDFS-10453](https://issues.apache.org/jira/browse/HDFS-10453)                                                                                                                                                                                                                                                                                                                                                                                                               | 因為大型叢集內相同檔案的複寫與刪除之間發生競爭，ReplicationMonitor 執行緒可能會停滯很長的時間。 |
-| BUG-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | "Vectorization: Support 2 Value CASE WHEN instead of fall back to VectorUDFAdaptor" 的還原                                       |
+| BUG-96625              | [HIVE-16110](https://issues.apache.org/jira/browse/HIVE-16110)                                                                                                                                                                                                                                                                                                                                                                                                               | "向量化:Support 2 Value CASE WHEN instead of fall back to VectorUDFAdaptor" 的還原                                       |
 | BUG-97109              | [HIVE-16757](https://issues.apache.org/jira/browse/HIVE-16757)                                                                                                                                                                                                                                                                                                                                                                                                               | 使用已淘汰的 getRows() 而不是新的 estimateRowCount(RelMetadataQuery...) 會有嚴重的效能影響                      |
 | BUG-97110              | [PHOENIX-3789](https://issues.apache.org/jira/browse/PHOENIX-3789)                                                                                                                                                                                                                                                                                                                                                                                                           | 在 postBatchMutateIndispensably 中執行跨區域索引維護呼叫                                                        |
 | BUG-98833              | [YARN-6797](https://issues.apache.org/jira/browse/YARN-6797)                                                                                                                                                                                                                                                                                                                                                                                                                 | TimelineWriter 不會完全取用 POST 回應                                                                             |
@@ -1001,7 +1001,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-96762              | [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588)                                                                     | 如果其子系有 Determinism.PER\_INVOCATION，則也複製運算式                                |
 | BUG-97145              | [HIVE-12245](https://issues.apache.org/jira/browse/HIVE-12245)、 [HIVE-17829](https://issues.apache.org/jira/browse/HIVE-17829)         | HBase 支援的資料表可支援資料行註解                                                      |
 | BUG-97741              | [HIVE-18944](https://issues.apache.org/jira/browse/HIVE-18944)                                                                         | 在 DPP 期間未正確設定群組集合位置                                                  |
-| BUG-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP︰一律針對 org.apache.log4j 封裝 log4j2 API jar                                           |
+| BUG-98082              | [HIVE-18597](https://issues.apache.org/jira/browse/HIVE-18597)                                                                         | LLAP：一律針對 org.apache.log4j 封裝 log4j2 API jar                                           |
 | BUG-99849              | N/A                                                                                                                                    | 從嘗試使用預設資料庫的檔案精靈建立新資料表                                    |
 
 **安全性**
@@ -1196,7 +1196,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-100045             | [HIVE-19056](https://issues.apache.org/jira/browse/HIVE-19056)                                                                                                                                                                                                                 | 當 ORC 檔案有 0 個資料列時，FixAcidKeyIndex 中會發生 IllegalArgumentException                                                                                         |
 | BUG-100139             | [KNOX-1243](https://issues.apache.org/jira/browse/KNOX-1243)                                                                                                                                                                                                                   | 將 KnoxToken 服務中所設定的必要 DN 標準化                                                                                          |
 | BUG-100570             | [ATLAS-2557](https://issues.apache.org/jira/browse/ATLAS-2557)                                                                                                                                                                                                                 | 修正為當來自 UGI 的群組設定錯誤或不是空白時，允許查閱 hadoop ldap 群組                                                          |
-| BUG-100646             | [ATLAS-2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Atlas UI 增強功能：搜尋結果頁面                                                                                                                   |
+| BUG-100646             | [ATLAS-2102](https://issues.apache.org/jira/browse/ATLAS-2102)                                                                                                                                                                                                                 | Atlas UI 改進功能：搜尋結果頁                                                                                                                   |
 | BUG-100737             | [HIVE-19049](https://issues.apache.org/jira/browse/HIVE-19049)                                                                                                                                                                                                                 | 對 Druid 新增改變資料表新增資料行的支援                                                                                                            |
 | BUG-100750             | [KNOX-1246](https://issues.apache.org/jira/browse/KNOX-1246)                                                                                                                                                                                                                   | 更新 Knox 中的服務組態以對 Ranger 支援最新的組態。                                                                                   |
 | BUG-100965             | [ATLAS-2581](https://issues.apache.org/jira/browse/ATLAS-2581)                                                                                                                                                                                                                 | 具有 V2 Hive 掛勾通知的迴歸：將資料表移動到不同的資料庫                                                                            |
@@ -1250,7 +1250,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 | BUG-95595              | [HIVE-15563](https://issues.apache.org/jira/browse/HIVE-15563)                                                                                                                                                                                                                 | 忽略 SQLOperation.runQuery 中不合法的作業狀態轉換例外狀況，以公開實際的例外狀況。                                                       |
 | BUG-95685              | [ATLAS-2422](https://issues.apache.org/jira/browse/ATLAS-2422)                                                                                                                                                                                                                 | 匯出：支援以類型為基礎的匯出                                                                                                                            |
 | BUG-95798              | [PHOENIX-2714](https://issues.apache.org/jira/browse/PHOENIX-2714)、 [PHOENIX-2724](https://issues.apache.org/jira/browse/PHOENIX-2724)、 [PHOENIX-3023](https://issues.apache.org/jira/browse/PHOENIX-3023)、 [PHOENIX-3040](https://issues.apache.org/jira/browse/PHOENIX-3040) | 請勿使用 guideposts 來循序執行查詢                                                                                                          |
-| BUG-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828)、 [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)、 [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | 分割的檢視會失敗，並出現 FAILED：IndexOutOfBoundsException 索引：1，大小：1                                                                              |
+| BUG-95969              | [HIVE-16828](https://issues.apache.org/jira/browse/HIVE-16828)、 [HIVE-17063](https://issues.apache.org/jira/browse/HIVE-17063)、 [HIVE-18390](https://issues.apache.org/jira/browse/HIVE-18390)                                                                                 | 分割的檢視失敗，顯示 FAILED:IndexOutOfBoundsException Index:1, Size:1                                                                              |
 | BUG-96019              | [HIVE-18548](https://issues.apache.org/jira/browse/HIVE-18548)                                                                                                                                                                                                                 | 修正 log4j 匯入                                                                                                                                             |
 | BUG-96288              | [HBASE 14123](https://issues.apache.org/jira/browse/HBASE-14123)、 [HBASE 14135](https://issues.apache.org/jira/browse/HBASE-14135)、 [HBASE 17850](https://issues.apache.org/jira/browse/HBASE-17850)                                                                           | 向下移植 Hbase 備份/還原 2.0                                                                                                                            |
 | BUG-96313              | [KNOX-1119](https://issues.apache.org/jira/browse/KNOX-1119)                                                                                                                                                                                                                   | Pac4J OAuth/OpenID 主體必須是可設定的                                                                                                        |
@@ -1303,7 +1303,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 |**Spark 2.3** |**N/A** |**Apache Spark 版本資訊中所述的變更** |- 有一份「淘汰」文件和一份「行為變更」指南 https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- 針對 SQL 組件，另有一份詳細的「移轉」指南 (從 2.2 至 2.3) http://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 作業已順利完成，但是有 HDFS 磁碟配額已滿錯誤 |**案例：** 在已對執行命令的使用者所擁有的 [資源回收筒] 資料夾設定配額時，執行 **insert overwrite**。<br /><br />**先前的行為：** 即使無法將資料移至資源回收筒，作業仍會成功。 結果可能會錯誤地包含一些先前出現在資料表中的資料。<br /><br />**新的行為：** 移至 [資源回收筒] 資料夾若失敗，就會永久刪除檔案。|
 |**Kafka 1.0**|**N/A**|**Apache Spark 版本資訊中所述的變更** |http://kafka.apache.org/10/documentation.html#upgrade_100_notable|
-|**Hive/ Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 原則 |**案例：** **INSERT OVERWRITE** 需要其他 ranger hive 原則<br /><br />**先前的行為：** Hive **INSERT OVERWRITE** 查詢會如往常般成功。<br /><br />**新的行為：** Hive **INSERT OVERWRITE** 查詢會在升級至 HDP-2.6.x 之後意外失敗，並出現錯誤：<br /><br />編譯陳述式時發生錯誤：FAILED：HiveAccessControlException 權限遭拒：使用者 jdoe 沒有 /tmp/\*(state=42000,code=40000) 的 WRITE 權限<br /><br />截至 HDP-2.6.0，Hive **INSERT OVERWRITE** 查詢需要 Ranger URI 原則才能允許寫入作業，即使使用者已透過 HDFS 原則獲得寫入權限也是一樣。<br /><br />**因應措施/期望的客戶動作：**<br /><br />1.在 Hive 存放庫下建立新的原則。<br />2.在看到資料庫的下拉式清單中，選取 URI。<br />3.更新路徑 (範例：/tmp/*)<br />4.新增使用者和群組，然後儲存。<br />5.重試插入查詢。|
+|**Hive/ Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 原則 |**案例：****INSERT OVERWRITE** 需要其他 ranger hive 原則<br /><br />**先前的行為：** Hive **INSERT OVERWRITE** 查詢會如往常般成功。<br /><br />**新的行為：** Hive **INSERT OVERWRITE** 查詢會在升級至 HDP-2.6.x 之後意外失敗，並出現錯誤：<br /><br />編譯陳述式時發生錯誤：FAILED:HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />截至 HDP-2.6.0，Hive **INSERT OVERWRITE** 查詢需要 Ranger URI 原則才能允許寫入作業，即使使用者已透過 HDFS 原則獲得寫入權限也是一樣。<br /><br />**因應措施/期望的客戶動作：**<br /><br />1.在 Hive 存放庫下建立新的原則。<br />2.在看到資料庫的下拉式清單中，選取 URI。<br />3.更新路徑 (範例：/tmp/*)<br />4.新增使用者和群組，然後儲存。<br />5.重試插入查詢。|
 |**HDFS**|**N/A** |HDFS 應支援多個 KMS Uris |**先前的行為：** 使用 dfs.encryption.key.provider.uri 屬性來設定 KMS 提供者路徑。<br /><br />**新的行為：** dfs.encryption.key.provider.uri 現已淘汰，改為使用 hadoop.security.key.provider.path 來設定 KMS 提供者路徑。|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|可供停用排程器的選項 |**受影響的元件：** Zeppelin-Server<br /><br />**先前的行為：** 在舊版 Zeppelin 中，沒有選項可停用排程器。<br /><br />**新的行為：** 根據預設，使用者不會再看到排程器，因為其已依預設停用。<br /><br />**因應措施/期望的客戶動作：** 如果您想要啟用排程器，您必須從 Ambari 在 Zeppelin 設定中於自訂 zeppelin 網站之下新增值為 true 的 azeppelin.notebook.cron.enable。|
 
@@ -1330,9 +1330,9 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
 
     -   [RANGER-1607](https://issues.apache.org/jira/browse/RANGER-1607)：從先前的 HDP 版本升級至 HDP 2.6.2 時，Ranger 服務檢查失敗的因應措施。
 
-        >[!NOTE]
-        >只有在 Ranger 已啟用 SSL 時。 
-    
+        > [!NOTE]  
+        > 只有在 Ranger 已啟用 SSL 時。 
+     
     嘗試透過 Ambari 從先前的 HDP 版本升級至 HDP-2.6.1 時，就會發生此問題。 Ambari 會使用 curl 呼叫來對 Ambari 中的 Ranger 服務進行服務檢查。 如果 Ambari 使用的 JDK 版本是 JDK-1.7，curl 呼叫會失敗並出現下列錯誤：
     
     `curl: (35) error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure`
@@ -1353,7 +1353,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
             
             SSL\_RSA\_WITH\_RC4\_128\_MD5, SSL\_RSA\_WITH\_RC4\_128\_SHA, TLS\_RSA\_WITH\_AES\_128\_CBC\_SHA, SSL\_RSA\_WITH\_3DES\_EDE\_CBC\_SHA
     
-    >[!NOTE]
+    >[!NOTE]  
     >所記下的值是可供運作的範例，可能無法代表您的環境。 請確定您在設定這些屬性時，所使用的方式符合您環境的設定方式。   
 
 -   **RangerUI：逸出在原則表單中輸入的原則條件文字**
@@ -1374,7 +1374,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
     
     **因應措施**
     
-    - **選項\#1：透過 Ranger Rest API 建立/更新原則**
+    - **選項 \#1：透過 Ranger Rest API 建立/更新原則**
         
         REST URL： http://&lt;host&gt;:6080/service/plugins/policies
         
@@ -1396,7 +1396,7 @@ HDP 2.6.4 提供了 Hadoop Common 2.7.3 和下列 Apache 修補程式：
         
         `curl -H "Content-Type: application/json" -X PUT http://localhost:6080/service/plugins/policies/18 -u admin:admin -d '{"id":18,"guid":"ea78a5ed-07a5-447a-978d-e636b0490a54","isEnabled":true,"createdBy":"Admin","updatedBy":"Admin","createTime":1490802077000,"updateTime":1490802077000,"version":1,"service":"tagdev","name":"P0101","policyType":0,"description":"","resourceSignature":"e5fdb911a25aa7f77af5a9546938d9ed","isAuditEnabled":true,"resources":{"tag":{"values":["tags"],"isExcludes":false,"isRecursive":false}},"policyItems":[{"accesses":[{"type":"hive:select","isAllowed":true},{"type":"hive:update","isAllowed":true},{"type":"hive:create","isAllowed":true},{"type":"hive:drop","isAllowed":true},{"type":"hive:alter","isAllowed":true},{"type":"hive:index","isAllowed":true},{"type":"hive:lock","isAllowed":true},{"type":"hive:all","isAllowed":true}],"users":[],"groups":["public"],"conditions":[{"type":"ip-range","values":["tags.attributes['type']=abc"]}],"delegateAdmin":false}],"denyPolicyItems":[],"allowExceptions":[],"denyExceptions":[],"dataMaskPolicyItems":[],"rowFilterPolicyItems":[]}'`
         
-    - **選項\#2：套用 Javascript 變更**
+    - **選項 \#2：套用 Javascript 變更**
         
         JS 檔案的更新步驟：
         

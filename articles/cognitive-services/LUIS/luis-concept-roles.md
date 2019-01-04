@@ -1,21 +1,22 @@
 ---
-title: 了解如何在以模式為基礎的實體中使用角色
+title: 實體的角色
 titleSuffix: Azure Cognitive Services
-description: 角色是實體的具名內容子類型，只能使用於模式中。 例如，在 buy a ticket from New York to London 語句中，New York 和 London 都是城市，但是在句子中各有不同的意義。 紐約是出發城市，而輪多是目的地城市。
+description: 角色是實體的具名內容子類型，只能使用於模式中。 例如，在 `buy a ticket from New York to London` 語句中，紐約和倫敦都是城市，但是在句子中各有不同的意義。 紐約是出發城市，而輪多是目的地城市。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f5f790d4cdba8b6ebc1ed2694cb4552cb565f676
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: dd11c2c7062d09c522c46770e8dba6d6eb0ac1e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427211"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105559"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>模式中的實體角色為內容子類型
 角色是實體的具名內容子類型，只能使用於[模式](luis-concept-patterns.md)中。

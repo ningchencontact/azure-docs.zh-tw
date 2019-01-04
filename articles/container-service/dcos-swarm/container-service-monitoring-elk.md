@@ -1,5 +1,5 @@
 ---
-title: 監視 Azure DC/OS 叢集 - ELK 堆疊
+title: (已淘汰) 監視 Azure DC/OS 叢集 - ELK 堆疊
 description: 使用 ELK (Elasticsearch、Logstash 與 Kibana) 監視 Azure Container Service 中的 DC/OS 叢集。
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: dc863894d8846e066c90bdf7b309f141d32a1186
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32163175"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998118"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-elk"></a>使用 ELK 監視 Azure Container Service 叢集
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(已淘汰) 使用 ELK 監視 Azure Container Service 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 在此文章中，我們示範如何在 Azure Container Service 中的 DC/OS 叢集上部署 ELK (Elasticsearch、Logstash、Kibana) 堆疊。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 [部署](container-service-deployment.md)並[連接](../container-service-connect.md) Azure Container Service 所設定的 DC/OS 叢集。 在[這裡](container-service-mesos-marathon-ui.md)探索探索 DC/OS 儀表板和 Marathon 服務。 同時也請安裝 [Marathon Load Balancer](container-service-load-balancing.md)。
 
 

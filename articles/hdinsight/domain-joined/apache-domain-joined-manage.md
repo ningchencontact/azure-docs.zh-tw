@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: a995f99f7baa8d6f9476f852aa47ce239c921a50
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 4df96d0c3d1ec9cb64f2394fb97d46178906d916
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634459"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434812"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>使用企業安全性套件管理 HDInsight 叢集
 了解 HDInsight 企業安全性套件 (ESP) 中的使用者與角色，以及如何管理 ESP 叢集。
@@ -22,7 +22,7 @@ ms.locfileid: "51634459"
 ## <a name="use-vscode-to-link-to-domain-joined-cluster"></a>使用 VSCode 連結至已加入網域的叢集
 
 您可以使用 Apache Ambari 受控使用者名稱來連結正常的叢集，也可以使用網域使用者名稱 (例如：user1@contoso.com) 來連結安全性 Apache Hadoop 叢集。
-1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight: Link a cluster**。
+1. 選取 **CTRL+SHIFT+P** 以開啟命令選擇區，然後輸入 **HDInsight:Link a cluster**。
 
    ![連結叢集命令](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -30,14 +30,14 @@ ms.locfileid: "51634459"
    
    ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。 
    
 3. 您可以使用 **List cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
 
    ![連結的叢集](./media/apache-domain-joined-manage/linked-cluster.png)
 
-4. 您也可以從命令選擇區輸入 **HDInsight: Unlink a cluster** 以取消連結叢集。
+4. 您也可以從命令選擇區輸入 **HDInsight:Unlink a cluster**，以取消連結叢集。
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>使用 IntelliJ 連結至已加入網域的叢集
 
@@ -50,7 +50,7 @@ ms.locfileid: "51634459"
    
    ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
    > ![IntelliJ 中的儲存體總管](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
@@ -74,7 +74,7 @@ ms.locfileid: "51634459"
    
    ![連結叢集對話方塊](./media/apache-domain-joined-manage/link-cluster-dialog.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，我們會使用連結的儲存體金鑰、使用者名稱和密碼。
    > ![Eclipse 中的儲存體總管](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
@@ -94,13 +94,13 @@ ms.locfileid: "51634459"
 
 |工作負載|案例|存取方法|
 |--------|--------|-------------|
-|Hadoop|Hive – 互動式作業/查詢 |<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|互動式作業/查詢，PySpark 互動式|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|Spark|批次案例 – Spark 提交，PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Apache Hadoop|Hive – 互動式作業/查詢  |<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|互動式作業/查詢，PySpark 互動式|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin with Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Apache Spark|批次案例 – Spark 提交，PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |互動式查詢 (LLAP)|互動式|<ul><li>[Beeline](#beeline)</li><li>[Hive 檢視](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio 工具](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |任意|安裝自訂應用程式|<ul><li>[指令碼動作](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
-   > [!NOTE]
+   > [!NOTE]  
    > 企業安全性套件不會安裝/支援 Jupyter。
 
 從安全性觀點來說，使用標準 API 會有所幫助。 此外，還有下列優點：
@@ -147,7 +147,7 @@ ms.locfileid: "51634459"
 
 除了 Ambari 系統管理員之外，使用 ESP 的 HDInsight 叢集有三個新使用者。
 
-* **Ranger 系統管理員**︰此帳戶是本機的 Apache Ranger 系統管理員帳戶。 不是 Active Directory 網域使用者。 此帳戶可以用來設定原則、將其他使用者設為系統管理員、或委派系統管理工作 (讓某些使用者可以管理原則)。 預設的使用者名稱是 admin，密碼則是與 Ambari 系統管理員的密碼相同。 可以在 Ranger 的 [設定] 頁面中更新密碼。
+* **Ranger 系統管理員**：此帳戶是本機的 Apache Ranger 系統管理員帳戶。 不是 Active Directory 網域使用者。 此帳戶可以用來設定原則、將其他使用者設為系統管理員、或委派系統管理工作 (讓某些使用者可以管理原則)。 預設的使用者名稱是 admin，密碼則是與 Ambari 系統管理員的密碼相同。 可以在 Ranger 的 [設定] 頁面中更新密碼。
 * **叢集系統管理員網域使用者**︰此帳戶是被指定為 Hadoop 叢集系統管理員 (包括 Ambari 和 Ranger) 的 Active Directory 網域使用者。 您必須在叢集建立期間提供此使用者的認證。 此使用者有下列權限：
 
   * 在叢集建立期間，將機器加入網域，並將它們放入您指定的 OU 中。
@@ -223,4 +223,4 @@ HDInsight 企業安全性套件有下列角色：
 
 ## <a name="next-steps"></a>後續步驟
 * 如需設定具有企業安全性套件的 HDInsight 叢集，請參閱[設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure.md)。
-* 如需設定 Hive 原則和執行 Hive 查詢，請參閱[使用 ESP 針對 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)。
+* 如需設定 Hive 原則和執行 Hive 查詢，請參閱[使用 ESP 針對 HDInsight 叢集設定 Apache Hive 原則](apache-domain-joined-run-hive.md)。

@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Log Analytics 中收集自訂記錄 | Microsoft Docs
-description: Log Analytics 可從 Windows 和 Linux 電腦上的文字檔收集事件。  本文說明如何定義新的自訂記錄檔，以及它們在 Log Analytics 工作區中建立的記錄詳細資料。
+title: 收集 Azure 監視器中的自訂記錄檔 | Microsoft Docs
+description: Azure 監視器可以從 Windows 和 Linux 電腦上的文字檔收集事件。  本文說明如何定義新的自訂記錄檔，以及它們在 Azure 監視器中建立的記錄詳細資料。
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -8,22 +8,20 @@ manager: carmonm
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/27/2018
+ms.date: 11/27/2018
 ms.author: bwren
-ms.component: ''
-ms.openlocfilehash: 494d4f39965849ebef7dfbbacc7114dd95f48641
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 28c8ca5a81f76e10e7c8b84897f77702ee68cdc0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52336370"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434387"
 ---
-# <a name="custom-logs-in-log-analytics"></a>Log Analytics 中的自訂記錄檔
-Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。  在收集之後，您就可以使用 Log Analytics 的[自訂欄位](../../log-analytics/log-analytics-custom-fields.md)功能將記錄中的每一筆記錄剖析成個別欄位。
+# <a name="custom-logs-in-azure-monitor"></a>Azure 監視器中的自訂記錄檔
+Azure 監視器中的「自訂記錄檔」資料來源可讓您從 Windows 和 Linux 電腦上的文字檔案收集事件。 許多應用程式會將資訊記錄到文字檔而非標準的記錄服務，例如 Windows 事件記錄檔或 Syslog。 收集之後，您可以在查詢中，將資料剖析成個別的欄位，或將收集期間的資料擷取至個別的欄位。
 
 ![自訂記錄檔收集](media/data-sources-custom-logs/overview.png)
 
@@ -37,7 +35,7 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 - 記錄檔必須使用 ASCII 或 UTF-8 編碼。  不支援其他格式，例如 UTF-16。
 
 >[!NOTE]
->如果記錄檔中有重複的項目，Log Analytics 會收集這些項目。  不過，搜尋結果會不一致，篩選結果所顯示的事件會比結果計數更多。  您必須驗證記錄，以判定建立該記錄的應用程式是否導致此行為，若可以的話，請先處理此問題，再建立自訂記錄集合定義。  
+>如果記錄檔中有重複的項目，Azure 監視器會收集這些項目。  不過，查詢結果會不一致，篩選結果所顯示的事件會比結果計數更多。  您必須驗證記錄，以判定建立該記錄的應用程式是否導致此行為，若可以的話，請先處理此問題，再建立自訂記錄集合定義。  
 >
   
 >[!NOTE]
@@ -56,11 +54,11 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 4. 按一下 [新增+]  開啟自訂記錄檔精靈。
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>步驟 2. 上傳和剖析範例記錄檔
-一開始您要上傳自訂記錄檔的範例。  精靈會剖析並顯示此檔案中的項目以供您驗證。  Log Analytics 會使用您指定的分隔符號來識別每一筆記錄。
+一開始您要上傳自訂記錄檔的範例。  精靈會剖析並顯示此檔案中的項目以供您驗證。  Azure 監視器會使用您指定的分隔符號來識別每一筆記錄。
 
 **新行字元** 是預設的分隔符號，並且會用於每行一個項目的記錄檔。  如果一行的開頭是其中一種可用格式的日期和時間，則您可以指定 **時間戳記** 分隔符號，其可支援跨越多行的多個項目。
 
-如果使用時間戳記分隔符號，則儲存在 Log Analytics 中的每一筆記錄的 TimeGenerated 屬性會填入針對記錄檔中的該項目指定的日期/時間。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Log Analytics 收集項目時的日期和時間。
+如果使用時間戳記分隔符號，則儲存在 Azure 監視器中的每一筆記錄的 TimeGenerated 屬性將會填入針對記錄檔中的該項目指定的日期/時間。  如果使用新行字元分隔符號，則 TimeGenerated 會填入 Azure 監視器收集項目的日期和時間。
 
 
 1. 按一下 [瀏覽]  並瀏覽至範例檔案。  請注意，在某些瀏覽器中，這個按鈕可能標示為 [選擇檔案]  。
@@ -99,19 +97,16 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 3. 按 [下一步]  來儲存自訂記錄檔的定義。
 
 ### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>步驟 5。 驗證會收集自訂記錄檔
-最多可能需要一小時的時間，新的自訂記錄檔中的初始資料才會出現在 Log Analytics 中。  從您定義自訂記錄檔之後，它就會開始從您指定的路徑中所找到的記錄檔收集項目。  它不會保留您在建立自訂記錄檔期間上傳的項目，但它會收集它所找出之記錄檔中既有的項目。
+最多可能需要一小時的時間，新的自訂記錄檔中的初始資料才會出現在 Azure 監視器中。  從您定義自訂記錄檔之後，它就會開始從您指定的路徑中所找到的記錄檔收集項目。  它不會保留您在建立自訂記錄檔期間上傳的項目，但它會收集它所找出之記錄檔中既有的項目。
 
-一旦 Log Analytics 開始從自訂記錄檔收集，就能透過「記錄檔搜尋」取得其記錄。  請使用您提供給自訂記錄檔的名稱來做為查詢中的 [類型]  。
+一旦 Azure 監視器開始從自訂記錄檔收集，就能透過記錄檔查詢取得其記錄。  請使用您提供給自訂記錄檔的名稱來做為查詢中的 [類型]  。
 
 > [!NOTE]
-> 如果搜尋中遺漏 RawData 屬性，您可能需要先關閉再重新開啟瀏覽器。
->
->
+> 如果查詢中缺少 RawData 屬性，您可能需要先關閉再重新開啟瀏覽器。
+
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>步驟 6. 剖析自訂記錄檔項目
-整個記錄檔項目會儲存在稱為 **RawData**的單一屬性中。  您很可能會想要將每個項目中的不同資訊片段，分成儲存在記錄中的個別屬性。  您可以使用 Log Analytics 的 [自訂欄位](../../log-analytics/log-analytics-custom-fields.md) 功能來這麼做。
-
-這裡並未提供用來剖析自訂記錄檔項目的詳細步驟。  如需這項資訊，請參閱 [自訂欄位](../../log-analytics/log-analytics-custom-fields.md) 文件。
+整個記錄檔項目會儲存在稱為 **RawData**的單一屬性中。  您很可能會想要將每個項目中的不同資訊片段，分成每筆記錄的個別屬性。 請參閱[在 Azure 監視器中剖析文字資料](../log-query/parse-text.md)以了解將 **RawData** 剖析成多個屬性的選項。
 
 ## <a name="removing-a-custom-log"></a>移除自訂記錄
 在 Azure 入口網站中使用下列程序來移除您先前定義的自訂記錄。
@@ -121,29 +116,19 @@ Log Analytics 中的「自訂記錄檔」資料來源可讓您從 Windows 和 Li
 
 
 ## <a name="data-collection"></a>資料收集
-Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每 5 分鐘。  代理程式會記錄它在從中收集項目的每個記錄檔中的位置。  如果代理程式離線一段時間，Log Analytics 即會從上次停止的地方收集項目，即使這些項目是在代理程式離線時所建立亦同。
+Azure 監視器會從每個自訂記錄檔收集新的項目，間隔大約為每 5 分鐘一次。  代理程式會記錄它在從中收集項目的每個記錄檔中的位置。  如果代理程式離線一段時間，Azure 監視器即會從上次停止的地方收集項目，即使這些項目是在代理程式離線時所建立亦同。
 
-整個記錄檔項目的內容會寫入到稱為 **RawData**的單一屬性。  您可以將此屬性剖析成多個屬性，以在建立自訂記錄檔之後透過定義 [自訂欄位](../../log-analytics/log-analytics-custom-fields.md) 來個別分析和搜尋。
+整個記錄檔項目的內容會寫入到稱為 **RawData**的單一屬性。  請參閱[在 Azure 監視器中剖析文字資料](../log-query/parse-text.md)以了解將每個匯入的記錄項目剖析成多個屬性的方法。
 
 ## <a name="custom-log-record-properties"></a>自訂記錄檔記錄的屬性
 自訂記錄檔記錄的類型具有您提供的記錄檔名稱和下表中的屬性。
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| TimeGenerated |Log Analytics 收集記錄時的日期和時間。  如果記錄使用以時間為基礎的分隔符號，則這是從項目收集到的時間。 |
+| TimeGenerated |Azure 監視器收集記錄的日期和時間。  如果記錄使用以時間為基礎的分隔符號，則這是從項目收集到的時間。 |
 | SourceSystem |收集記錄的來源代理程式類型。 <br> OpsManager - Windows 代理程式，直接連線或由 System Center Operations Manager 管理 <br> Linux – 所有的 Linux 代理程式 |
-| RawData |所收集項目的完整文字。 |
+| RawData |所收集項目的完整文字。 您很可能會想要[將此資料剖析成個別屬性](../log-query/parse-text.md)。 |
 | ManagementGroupName |System Center Operations Manager 代理程式的管理群組名稱。  若為其他代理程式，此為 AOI-\<工作區 ID\> |
-
-## <a name="log-searches-with-custom-log-records"></a>使用自訂記錄檔記錄來記錄搜尋
-和來自任何其他資料來源的記錄一樣，來自自訂記錄檔的記錄會儲存在 Log Analytics 工作區中。  其類型會符合您在定義記錄檔時提供的名稱，因此您可以在搜尋中使用 [類型] 屬性，以擷取從特定記錄檔收集而來的記錄。
-
-下表提供從自訂記錄檔擷取記錄之記錄檔搜尋的不同範例。
-
-| 查詢 | 說明 |
-|:--- |:--- |
-| MyApp_CL |所有事件來自名為 MyApp_CL 的自訂記錄檔。 |
-| MyApp_CL &#124; where Severity_CF=="error" |來自 MyApp_CL 自訂記錄檔且在 *Severity_CF* 自訂欄位中的值為 *error* 的所有事件。 |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>新增自訂記錄檔的範例逐步解說
@@ -181,5 +166,5 @@ Log Analytics 會從每個自訂記錄檔收集新的項目，間隔大約為每
 ![有自訂欄位的記錄檔查詢](media/data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>後續步驟
-* 使用[自訂欄位](../../log-analytics/log-analytics-custom-fields.md)，以將自訂記錄中的項目剖析至個別欄位。
-* 了解 [記錄搜尋](../../log-analytics/log-analytics-queries.md) ，其可分析從資料來源和方案所收集的資料。
+* 請參閱[在 Azure 監視器中剖析文字資料](../log-query/parse-text.md)以了解將每個匯入的記錄項目剖析成多個屬性的方法。
+* 了解[記錄查詢](../log-query/log-query-overview.md)，以分析從資料來源和解決方案收集到的資料。

@@ -22,7 +22,7 @@ ms.lasthandoff: 07/11/2018
 ms.locfileid: "38668022"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Azure Data Factory 中的管線及活動
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](data-factory-create-pipelines.md)
 > * [第 2 版 (目前的版本)](../concepts-pipelines-activities.md)
 

@@ -1,23 +1,24 @@
 ---
-title: LUIS 應用程式批次測試 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 批次測試
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用批次測試持續調整您的應用程式，改良應用程式及其語言理解能力。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 44abadc653c4679f37152e6592c882475b139bdd
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: c050c8ed338a019b34302e87a53d4a40306f9a22
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333899"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133141"
 ---
-# <a name="batch-testing-in-luis"></a>LUIS 的批次測試
+# <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>在 LUIS 入口網站使用 1000 個語句進行批次測試
 
 批次測試會驗證您[使用中](luis-concept-version.md#active-version)的已訓練模型來評估其預測的精確度。 批次測試可協助您以圖表的型式，檢視目前已訓練模型每個意圖和實體的精確度。 檢閱批次測試結果，採取適當動作以改善精確度，例如，如果您的應用程式經常無法識別正確的意圖，可新增更多意圖的範例語句。
 

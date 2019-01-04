@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 753818526ad637db0baa13c92e92d2725b19dbf8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158312"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957660"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>將 Windows Server 虛擬機器加入受控網域
 本文說明如何使用 Azure 入口網站來部署 Windows Server 虛擬機器。 然後會說明如何將虛擬機器加入 Azure Active Directory Domain Services (Azure AD DS) 受控網域。
@@ -30,7 +30,7 @@ ms.locfileid: "50158312"
 ## <a name="step-1-create-a-windows-server-virtual-machine"></a>步驟 1：建立 Windows Server 虛擬機器
 若要建立 Windows 虛擬機器，並將其加入已啟用 Azure AD DS 的虛擬網路，請執行下列步驟：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com)。
+1. 登入 [Azure 入口網站](https://portal.azure.com)。
 2. 在左窗格頂端選取 [新增]。
 3. 選取 [計算]，然後選取 [Windows Server 2016 Datacenter]。
 
@@ -67,7 +67,7 @@ ms.locfileid: "50158312"
 10. 部署完成之後，您可以在 [概觀] 頁面上檢視虛擬機器的相關資訊。
 
 
-## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>步驟 2︰使用本機系統管理員帳戶連線到 Windows Server 虛擬機器
+## <a name="step-2-connect-to-the-windows-server-virtual-machine-by-using-the-local-administrator-account"></a>步驟 2：使用本機系統管理員帳戶連線到 Windows Server 虛擬機器
 接著，連線到新建立的 Windows Server 虛擬機器，以便將其加入網域。 使用您建立虛擬機器時所指定的本機系統管理員認證。
 
 若要連線到虛擬機器，請執行下列步驟：
@@ -84,7 +84,7 @@ ms.locfileid: "50158312"
 此時，您應該已使用本機系統管理員認證登入到新建立的 Windows 虛擬機器。 下一個步驟是將虛擬機器加入網域。
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>步驟 3︰將 Windows Server 虛擬機器加入 Azure AD DS 受控網域
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>步驟 3：將 Windows Server 虛擬機器加入 Azure AD DS 受控網域
 若要將 Windows Server 虛擬機器加入受 Azure AD DS 管理的網域，請完成下列步驟：
 
 1. 如「步驟 2」所示，連線到 Windows Server VM。 在 [開始] 畫面上開啟 [伺服器管理員]。
@@ -107,7 +107,7 @@ ms.locfileid: "50158312"
 
 7. 您可以透過下列任一方式指定認證︰
 
-   * **UPN 格式：**(建議) 指定 Azure AD 中所設定使用者帳戶的使用者主體名稱 (UPN) 尾碼。 在此範例中，使用者 bob 的 UPN 尾碼是 bob@domainservicespreview.onmicrosoft.com。
+   * **UPN 格式**：(建議) 指定 Azure AD 中所設定使用者帳戶的使用者主體名稱 (UPN) 尾碼。 在此範例中，使用者 bob 的 UPN 尾碼是 bob@domainservicespreview.onmicrosoft.com。
 
    * **SAMAccountName 格式**：您可以使用 SAMAccountName 格式指定帳戶名稱。 在此範例中，使用者 bob 必須輸入 CONTOSO100\bob。
 

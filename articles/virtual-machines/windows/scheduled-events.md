@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: ae21dbe675d78c663fc9d05364d91eca3288dd46
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034943"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435407"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 中繼資料服務：Windows VM 的已排定事件
 
@@ -116,10 +116,10 @@ DocumentIncarnation 是 ETag，透過它很容易就能檢查自從上次查詢�
 |屬性  |  說明 |
 | - | - |
 | EventId | 此事件的全域唯一識別碼。 <br><br> 範例： <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`︰虛擬機器已排定會暫停幾秒鐘。 CPU 會暫止，但不會影響記憶體、開啟的檔案或網路連線。 <li>`Reboot`：虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`︰虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 |
+| EventType | 此事件造成的影響。 <br><br> 值： <br><ul><li> `Freeze`：虛擬機器已排定會暫停幾秒鐘。 CPU 會暫止，但不會影響記憶體、開啟的檔案或網路連線。 <li>`Reboot`：虛擬機器已排定要重新開機 (非持續性記憶體都會遺失)。 <li>`Redeploy`：虛擬機器已排定要移至另一個節點 (暫時磁碟都會遺失)。 |
 | ResourceType | 受此事件影響的資源類型。 <br><br> 值： <ul><li>`VirtualMachine`|
 | 資源| 受此事件影響的資源清單。 其中最多只能包含來自一個[更新網域](manage-availability.md)的機器，但不能包含更新網域中的所有機器。 <br><br> 範例： <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
-| 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`︰此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`︰已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
+| 事件狀態 | 此事件的狀態。 <br><br> 值： <ul><li>`Scheduled`：此事件已排定在 `NotBefore` 屬性所指定的時間之後啟動。<li>`Started`：已啟動事件。</ul> 如果未提供任何 `Completed` 或類似的狀態，事件完成時，將不會再傳回事件。
 | NotBefore| 自此之後可能會啟動此事件的時間。 <br><br> 範例： <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### <a name="event-scheduling"></a>事件排程
@@ -225,6 +225,6 @@ foreach($event in $scheduledEvents.Events)
 ## <a name="next-steps"></a>後續步驟 
 
 - 在 Azure Friday 上觀賞[已排定事件示範](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance)。 
-- 在 [Azure 執行個體中繼資料排程的事件 Github 存放庫](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中檢閱排程的事件程式碼範例
+- 在 [Azure 執行個體中繼資料已排定事件 GitHub 存放庫](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm) \(英文\) 中檢閱排程的事件程式碼範例
 - 深入了解[執行個體中繼資料服務](instance-metadata-service.md)中提供的 API。
 - 了解 [Azure 中 Windows 虛擬機器預定進行的維修](planned-maintenance.md)。

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/11/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: eeb12500a5ddfb95317b3d20b41acf12e3978bad
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 80818a7264b35b703be217f07127ab7883da339a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626517"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271584"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>什麼是 Azure Active Directory 條件式存取中的位置條件？ 
 
@@ -58,7 +58,7 @@ Azure AD 可實現從公用網際網路上的任何位置單一登入到裝置�
 
 - **名稱** - 具名位置的顯示名稱。
 
-- **IP 範圍** - CIDR 格式的一或多個 IP 位址範圍。
+- **IP 範圍** - CIDR 格式的一或多個 IPv4 位址範圍。 不支援指定 Ipv6 位址範圍。
 
 - **標記為信任位置** - 您可以為具名位置設定旗標，以指出信任的位置。 一般而言，信任的位置是由您的 IT 部門所控制的網路區域。 除了條件式存取，Azure Identity Protection 與 Azure AD 安全性報告也會使用信任的具名位置以減少[誤判](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)。
 

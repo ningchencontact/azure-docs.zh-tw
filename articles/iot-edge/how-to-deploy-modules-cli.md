@@ -1,5 +1,5 @@
 ---
-title: 部署 Azure IoT Edge 模組 (CLI) | Microsoft Docs
+title: 從命令列部署模組 - Azure IoT Edge | Microsoft Docs
 description: 使用適用於 Azure CLI 的 IoT 擴充功能將模組部署至 IoT Edge 裝置
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a8f39befbe1a329091da19eeba14a8dcc749fa93
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: f9aa3fff8750dc20053072c939a6db9362a2b0d7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564981"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093568"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模組
 
@@ -117,7 +118,7 @@ ms.locfileid: "51564981"
 
 device id 參數區分大小寫。 內容參數會指向您已儲存的部署資訊清單檔案。 
 
-   ![設定模組](./media/how-to-deploy-cli/set-modules.png)
+   ![az iot edge set-modules 輸出](./media/how-to-deploy-cli/set-modules.png)
 
 ## <a name="view-modules-on-your-device"></a>在裝置上檢視模組
 
@@ -131,7 +132,7 @@ device id 參數區分大小寫。 內容參數會指向您已儲存的部署資
 
 device id 參數區分大小寫。
 
-   ![列出模組](./media/how-to-deploy-cli/list-modules.png)
+   ![az iot hub module-identity list 輸出](./media/how-to-deploy-cli/list-modules.png)
 
 ## <a name="next-steps"></a>後續步驟
 

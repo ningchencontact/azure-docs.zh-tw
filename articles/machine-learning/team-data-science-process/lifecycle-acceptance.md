@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 生命週期的客戶接受度階段 - Azure | Microsoft Docs
+title: Team Data Science Process 生命週期的客戶接受度階段
 description: 資料科學專案客戶接受度階段的目標、工作和交付項目
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: a60594123346b599270f2a7763e98fc863f85067
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 7a00f18a8ae51d5118275e904e2ca76fc167d987
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441480"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132613"
 ---
-# <a name="customer-acceptance"></a>客戶接受度
+# <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的客戶接受度階段
 
 本文將概要說明與 Team Data Science Process (TDSP) 客戶接受度階段相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
@@ -34,13 +34,13 @@ ms.locfileid: "52441480"
 
 
 ## <a name="goal"></a>目標
-**完成專案的交付項目**︰確認生產環境中的管線、模型及其部署滿足客戶的目標。
+**完成專案的交付項目**：確認管線、模型及其在生產環境中的部署均可滿足客戶的目標。
 
 ## <a name="how-to-do-it"></a>作法
 此階段會解決兩項主要工作︰
 
-   * **系統驗證**︰確認所部署的模型和管線符合客戶的需求。
-   * **專案移交**︰將專案移交給將在生產環境中執行系統的實體。
+   * **系統驗證**：確認所部署的模型和管線均符合客戶的需求。
+   * **專案移交**：將專案移交給將在生產環境中執行系統的實體。
 
 客戶應該驗證系統是否符合其商務需求並以可接受的精確度回答問題，以將系統部署到生產環境以供其用戶端的應用程式使用。 所有文件皆已完成並檢閱。 專案已移交給負責運作的實體。 比方說，這個實體可能是 IT 或客戶的資料科學小組，或負責在生產環境中執行系統的客戶代理人。 
 

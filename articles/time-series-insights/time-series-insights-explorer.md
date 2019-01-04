@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 時間序列深入解析總管來探索資料 | Microsoft Docs
+title: Azure 時間序列深入解析總管資料探索 - 使用 Azure 時間序列深入解析總管探索資料 | Microsoft Docs
 description: 本文說明如何在網頁瀏覽器中使用 Azure 時間序列深入解析總管，快速查看您巨量資料的全域檢視，並驗證您的 IoT 環境。
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,17 +11,28 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 7508db8bd4b7f21308f2e7b0e92c44570dfc7b18
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629135"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273131"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure 時間序列深入解析總管
 本文探討時間序列深入解析總管 Web 應用程式中的各種功能和可用的選項。 在網頁瀏覽器中使用時間序列深入解析總管來建立資料的視覺效果。
  
 Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效果服務，讓您可輕易同時探索及分析數十億筆的 IoT 事件。 它可為您提供資料的全域檢視，從而讓您快速驗證 IoT 解決方案，並避免關鍵任務裝置成本高昂的停機時間。 您可以幾近即時地探索隱藏趨勢、找出異常狀況，並進行根本原因分析。 時間序列深入解析總管目前處於公開預覽狀態。
+
+## <a name="video"></a>視訊：
+
+在此影片中，我們將使用時間序列見解資源總管來查詢資料。 
+
+這段影片建置在影片時間序列見解上：  
+<span style="color:blue">透過 Azure IoT 解決方案加速器，開始使用時間序列見解。</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -92,7 +103,7 @@ Azure 時間序列深入解析是完全受控的分析、儲存體及視覺效�
 
    ![熱度圖](media/time-series-insights-explorer/explorer6.png)
 
-12. **事件**：當您在上方選取或以滑鼠右鍵按一下來選擇探索事件時，事件面板可供使用。  在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 請注意，時間序列深入解析會儲存所有未經處理的資料。
+12. **事件**：當您選取或以滑鼠右鍵按一下來選擇探索事件時，事件面板可供使用。  在這裡，您可以看到所有未經處理的事件，並將您的事件匯出為 JSON 或 CSV 檔案。 請注意，時間序列深入解析會儲存所有未經處理的資料。
 
    ![活動](media/time-series-insights-explorer/explorer7.png)
 

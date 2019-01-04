@@ -1,6 +1,6 @@
 ---
-title: Azure AD 部署檢查清單 30 天、90 天及更長時間
-description: Azure Active Directory Premium P2 功能部署檢查清單
+title: Premium P2 授權功能檢查清單 - Azure Active Directory | Microsoft Docs
+description: 30 天、90 天及以上的 Azure Active Directory Premium P2 功能部署檢查清單。
 services: active-directory
 ms.service: active-directory
 ms.component: ''
@@ -9,13 +9,13 @@ ms.date: 09/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
-ms.reviewer: ''
-ms.openlocfilehash: 86561cd835a36282ca1b38638ab4372c6b360617
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 61cefe762b639dcc58c2e10fc845dd9729cb2cb2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705646"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078224"
 ---
 # <a name="azure-active-directory-premium-p2-licensing-feature-checklist"></a>Azure Active Directory Premium P2 授權功能檢查清單
 
@@ -33,7 +33,7 @@ ms.locfileid: "51705646"
 
 [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
-## <a name="plan-and-deploy-day-1-30"></a>規劃和部署：第 1 天到第 30 天
+## <a name="plan-and-deploy-day-1-30"></a>規劃和部署：第 1-30 天
 
 - 指定超過一個全域管理員 (急用帳戶)
    - [在 Azure AD 中管理緊急存取系統管理帳戶](../users-groups-roles/directory-emergency-access.md)
@@ -64,7 +64,7 @@ ms.locfileid: "51705646"
    - [實作 Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
 - [依據 Azure Active Directory 中的群組成員資格將授權指派給使用者](../users-groups-roles/licensing-groups-assign.md)
 
-## <a name="plan-and-deploy-day-31-90"></a>規劃和部署：第 31 天到第 90 天
+## <a name="plan-and-deploy-day-31-90"></a>規劃和部署：第 31-90 天
 
 - [規劃來賓使用者的存取權](../b2b/what-is-b2b.md)
    - [在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者](../b2b/add-users-administrator.md)
@@ -75,7 +75,7 @@ ms.locfileid: "51705646"
    - [適用於 Azure AD Join 的使用案例和部署考量](../devices/azureadjoin-plan.md)
 - [在組織中管理 Windows Hello 企業版](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization)
 
-## <a name="plan-and-deploy-day-90-and-beyond"></a>規劃和部署：第 90 天和之後
+## <a name="plan-and-deploy-day-90-and-beyond"></a>規劃和部署：90 天以上
 
 - [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md)
    - [在 PIM 中設定 Azure AD 目錄角色設定](../privileged-identity-management/pim-how-to-change-default-settings.md)

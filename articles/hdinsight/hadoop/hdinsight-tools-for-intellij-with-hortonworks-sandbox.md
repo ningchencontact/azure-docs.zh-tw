@@ -10,16 +10,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2f09bd7055b987a8647a24d4ebb6ea5a27888a53
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 56747179c69e6495e9a764f81e0827e29cb077e6
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015582"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53017401"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ
 
-瞭解如何使用 HDInsight Tools for IntelliJ 開發 Apache Scala 應用程式，然後在電腦上執行的 [Hortonworks 沙箱](http://hortonworks.com/products/sandbox/)上測試應用程式。 
+瞭解如何使用 HDInsight Tools for IntelliJ 開發 Apache Scala 應用程式，然後在電腦上執行的 [Hortonworks 沙箱](https://hortonworks.com/products/sandbox/)上測試應用程式。 
 
 [IntelliJ IDEA](https://www.jetbrains.com/idea/) 是 Java 整合式開發環境 (IDE)，可用來開發電腦軟體。 在 Hortonworks 沙箱上開發並測試應用程式之後，您可以將應用程式移至 [Azure HDInsight](apache-hadoop-introduction.md)。
 
@@ -29,7 +29,7 @@ ms.locfileid: "51015582"
 
 - 在您的本機電腦執行的 Hortonworks 沙箱上要有 Hortonworks Data Platform (HDP) 2.4。 若要設定 HDP，請參閱[透過虛擬機器的 Hadoop 沙箱開始使用 Hadoop 生態系統](apache-hadoop-emulator-get-started.md)。 
     > [!NOTE]
-    > HDInsight Tools for IntelliJ 只經過 HDP 2.4 測試。 若要取得 HDP 2.4，請在 **Hortonworks 沙箱下載網站**展開 [Hortonworks 沙箱封存](http://hortonworks.com/downloads/#sandbox)。
+    > HDInsight Tools for IntelliJ 只經過 HDP 2.4 測試。 若要取得 HDP 2.4，請在 **Hortonworks 沙箱下載網站**展開 [Hortonworks 沙箱封存](https://hortonworks.com/downloads/#sandbox)。
 
 - [Java Developer Kit (JDK) 1.8 版或更新版本](https://aka.ms/azure-jdks)。 Azure Toolkit for IntelliJ 需有 JDT。
 
@@ -53,8 +53,8 @@ ms.locfileid: "51015582"
    1. 選取 [HDInsight] > [HDInsight 上的 Spark (Scala)]。
    2. 在 [建置工具] 清單中，根據您的狀況選取下列項目：
 
-    * **Maven**：建立 Scala 專案的精靈支援。
-    * **SBT**：管理 Scala 的相依性和建置。
+    * **Maven**：適用於支援 Scala 專案建立精靈。
+    * **SBT**：適用於管理 Scala 專案的相依性和建置。
 
    ![[新增專案] 對話方塊](./media/hdinsight-tools-for-intellij-with-hortonworks-sandbox/intellij-create-scala-project.png)
 

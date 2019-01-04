@@ -8,36 +8,43 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 12/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 7f01fe5c71cdd6f4c70527fcf2553374aae9a5d8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.custom: seodec18
+ms.openlocfilehash: b06864e08f6edf52e4c96c33c88bba9f8ef4e859
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469912"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343202"
 ---
 # <a name="about-the-text-to-speech-api"></a>關於文字轉換語音 API
 
-語音服務的**文字轉換語音** (TTS) API 會將輸入文字轉換為自然發音語音 (也稱為「語音合成」)。
+**文字轉換語音** (TTS) API 會將輸入文字轉換為自然發音語音 (也稱為「語音合成」)。
 
-若要產生語音，您的應用程式會將 HTTP POST 要求傳送給語音服務。 文字會合成為人聲語音，並傳回為音訊檔案。 支援各種語音和語言。
+若要產生語音，您的應用程式會將 HTTP POST 要求傳送給文字轉換語音 API。 文字會合成為人聲語音，並傳回為音訊檔案。 支援各種語音和語言。
 
 將採用語音合成的情節包括：
 
-* *改善存取範圍：***文字轉換語音**技術可讓內容擁有者和發行者回應人員與其內容互動的不同方式。 視力受損或閱讀困難的人士喜歡能夠透過聽覺使用內容。 語音輸出也可讓您在行動裝置上更輕鬆地享受文字內容 (例如報紙或部落格)，同時通訊或執行。
+* *改善存取範圍：***文字轉換語音**技術可讓內容擁有者和發行者針對人員與內容互動的各種方式進行回應。 視力受損或閱讀困難的人士喜歡能夠透過聽覺使用內容。 語音輸出也可讓您在行動裝置上更輕鬆地享受文字內容 (例如報紙或部落格)，同時通訊或執行。
 
 * *在多工情節中回應：***文字轉換語音**可讓人員在開車或方便讀取環境外部時快速且輕鬆地吸收重要資訊。 在此區域，導覽是常見應用程式。
 
-* *強化多個模式的學習：* 不同的人會以不同的方式學習得更好。 線上學習專家已示範，同時提供語音和文字有助於更輕鬆地了解和保留資訊。
+* 以多個模式增強學習：人們學習的最佳方式不盡相同。 線上學習專家已示範，同時提供語音和文字有助於更輕鬆地了解和保留資訊。
 
-* *提供直覺式機器人或助理：* 交談能力可能是智慧型聊天機器人或虛擬助理的不可或缺部分。 越來越多的公司正在開發聊天機器人，為客戶提供更吸引人的客戶服務體驗。 語音允許機器人透過聽覺接收回應 (例如，透過電話)，因而新增另一個範圍。
+* 提供直覺式聊天機器人或助理：交談能力可能是智慧型聊天機器人或虛擬助理的不可或缺的一部分。 越來越多的公司正在開發聊天機器人，為客戶提供更吸引人的客戶服務體驗。 語音允許機器人透過聽覺接收回應 (例如，透過電話)，因而新增另一個範圍。
 
 ## <a name="voice-support"></a>語音支援
 
-Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定中提供 75 種以上的語音。 若要使用這些標準「語音字型」，您只需要在呼叫服務的 REST API 時，使用一些其他參數來指定語音名稱。 如需所支援語音的詳細資料，請參閱[支援的語言](language-support.md#text-to-speech)。
+Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定中提供 75 種以上的語音。 若要使用這些標準「語音字型」，您只需要在呼叫服務的 REST API 時，使用一些其他參數來指定語音名稱。 如需所支援語言、地區設定和語音的詳細資訊，請參閱[支援的語言](language-support.md#text-to-speech)。
 
-若希望應用程式辨識獨特的語音，您可以從自己的語音範例建立[自訂語音字型](how-to-customize-voice-font.md)。
+### <a name="neural-voices"></a>神經語音
+
+神經文字轉換語音可用來讓與聊天機器人及虛擬小幫手的互動變得更加自然有趣；將數位文字 (例如電子書) 轉換成有聲書；以及增強車上導航系統。 具有類似人類的自然韻律和清楚的文字清晰度，神經 TTS 大幅降低您與 AI 系統互動時的聆聽疲勞。 如需神經語音的詳細資訊，請參閱[支援的語言](language-support.md#text-to-speech)。
+
+### <a name="custom-voices"></a>自訂語音
+
+文字轉換語音的語音自訂功能可讓您為品牌建立可辨識且獨一無二的語音，也稱為「音型」。 若要建立聲音音調，請進行錄音室錄音，並上傳相關聯的腳本作為訓練資料。 此服務會接著建立專為您的錄音調整的獨特語音模型。 您可以使用此音型來合成語音。 如需詳細資訊，請參閱[自訂音型](how-to-customize-voice-font.md)。
 
 ## <a name="api-capabilities"></a>API 功能
 
@@ -56,5 +63,7 @@ Microsoft **文字轉換語音**服務在 45 個以上的語言和地區設定�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [試用認知服務](https://azure.microsoft.com/try/cognitive-services/)
-* [了解如何透過 REST API 來合成語音](how-to-text-to-speech.md)
+* [取得免費語音服務訂用帳戶](https://azure.microsoft.com/try/cognitive-services/)
+* [快速入門：將文字轉換成語音，Python](quickstart-python-text-to-speech.md)
+* [快速入門：將文字轉換成語音，.NET Core](quickstart-dotnet-text-to-speech.md)
+* [REST API 參考資料](rest-apis.md)

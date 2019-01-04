@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: f853bb32f7c452f1b09ca337db2a866bd0890b82
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4be229e1c491c3062b14e631cfec5b14185bb82
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427245"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957652"
 ---
 # <a name="asdk-release-notes"></a>ASDK 版本資訊  
-本文提供 Azure Stack 開發套件 (ASDK) 中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](.\.\azure-stack-updates.md#determine-the-current-version)。
+本文提供 Azure Stack 開發套件 (ASDK) 中的增強功能、修正和已知問題的相關資訊。 如果您不確定所執行的版本，可以使用[入口網站來進行檢查](../azure-stack-updates.md#determine-the-current-version)。
 
 > 請訂閱 [![RSS](./media/asdk-release-notes/feed-icon-14x14.png)](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#) [摘要](https://docs.microsoft.com/api/search/rss?search=Azure+Stack+Development+Kit+release+notes&locale=en-us#)，以便隨時收到 ASDK 的最新訊息。
 
@@ -46,32 +46,11 @@ ms.locfileid: "52427245"
 <!-- TBD - IS ASDK --> 
 - 已修正當您在 Azure Stack 使用者入口網站上建立虛擬機器時，入口網站所顯示可連結至 DS 系列 VM 的資料磁碟數目會不正確的問題。 DS 系列 VM 可容納與 Azure 設定數目一樣多的資料磁碟。
 
-- 下列的受控磁碟問題已在 1809 中修正，同時也在 1808 [Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/) 中修正： 
-
-   <!--  2966665 – IS, ASDK --> 
-   - 已修正將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」的問題。 
-   
-   - 使用 **createOption**: **Attach** 建立受控磁碟 VM 失敗，並出現下列錯誤：*長時間執行的作業失敗，狀態為 'Failed'。* 其他資訊：「發生內部執行錯誤」。
-   ErrorCode: InternalExecutionError ErrorMessage：發生內部執行錯誤。
-   
-   已修正此問題。
-
 - <!-- 2702741 -  IS, ASDK --> 過去針對使用「動態」配置方法來部署的公用 IP，不保證在發出 Stop-Deallocate 之後還能予以保留，此問題已修正。 現在這些 IP 會予以保留。
 
 - <!-- 3078022 - IS, ASDK --> 如果 VM 在 1808 版本以前停止解除配置，則無法在 1808 更新後重新配置。  此問題已在 1809 版本修正。 經過此次修正，過去在此狀態的執行個體和無法啟動的執行個體將可於 1809 版本中啟動。 此修正也可避免此問題再次發生。
 
-<!-- 3090289 – IS, ASDK --> 
-- 修正了在套用 1808 更新後的問題，您在部署具有受控磁碟的 VM 時可能會遇到下列問題：
-
-   1. 如果訂用帳戶是在 1808 更新之前建立的，部署具有受控磁碟的 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請針對每個訂用帳戶遵循下列步驟：
-      1. 在租用戶入口網站中，移至 [訂用帳戶] 並尋找訂用帳戶。 按一下 [資源提供者]，按一下 [Microsoft.Compute]，然後按一下 [重新註冊]。
-      2. 在相同的訂用帳戶底下，移至 [存取控制 (IAM)]，並確認 [Azure Stack - 受控磁碟] 已列出。
-   2. 如果您已設定多租用戶環境，則在與來賓目錄相關聯的訂用帳戶中部署 VM 可能會失敗，且會有內部錯誤訊息。 若要解決此錯誤，請依照下列步驟執行︰
-      1. 套用 [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992)。
-      2. 依照[這篇文章](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步驟，重新設定您的每個來賓目錄。
-
 - 針對效能、穩定性、安全性和 Azure Stack 所使用的作業系統提供了**多項修正**
-
 
 ### <a name="changes"></a>變更
 
@@ -91,16 +70,16 @@ ms.locfileid: "52427245"
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
    警示 #1：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
 
   警示 #2：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
   您可以放心地忽略這兩個警示，這兩個警示會在一段時間過後自動關閉。  
 
@@ -123,14 +102,14 @@ ms.locfileid: "52427245"
 - 當使用 [**Add-AzsPlatformImage** cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 時，您必須使用 **-OsUri** 參數作為要上傳磁碟的儲存體帳戶 URI。 如果您使用磁碟的本機路徑，此 Cmdlet 就會失敗，且具有下列錯誤：「長時間執行的作業失敗，狀態為「失敗」」。 
 
 <!--  2966665 – IS, ASDK --> 
-- 將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 (Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」
+- 將 SSD 資料磁碟連結至進階大小受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗，具有錯誤：*無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為對 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以無法執行要求的作業*
 
    若要解決此問題，請使用 Standard_LRS 資料磁碟，而不是 Premium_LRS 磁碟。 使用 Standard_LRS 資料磁碟不會變更 IOP 或帳單成本。  
 
 <!--  2795678 – IS, ASDK --> 
 - 當您使用入口網站以進階 VM 大小 (DS、Ds_v2、FS、FSv2) 建立虛擬機器 (VM) 時，會在標準儲存體帳戶中建立 VM。 在標準儲存體帳戶中建立不會影響功能、IOP 或帳單。 
 
-   您可以放心地忽略警告，該警告指出：「您已選擇在支援進階磁碟的大小上使用標準磁碟。*這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
+   您可以放心地忽略警告，該警告指出：*「您已選擇在支援進階磁碟的大小上使用標準磁碟。這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
 
 <!-- 2967447 - IS, ASDK --> 
 - 虛擬機器擴展集 (VMSS) 建立體驗會提供 CentOS 架構 7.2 作為部署選項。 因為該映像在 Azure Stack 上無法使用，所以請為您的部署選取其他作業系統，或使用 Azure Resource Manager 範本指定另一個 CentOS 映像，但操作員必須在部署之前已從市集下載該印象。
@@ -158,7 +137,7 @@ ms.locfileid: "52427245"
 
  
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 <!-- 1766332 - IS, ASDK --> 
 - 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
@@ -201,13 +180,13 @@ ms.locfileid: "52427245"
 此組建包含下列適用於 Azure Stack 的改良功能與修正。  
 
 <!-- 1658937 | ASDK, IS --> 
-- **根據預先定義的排程啟動備份** - 作為設備的 Azure Stack 現在可以自動地定期觸發基礎結構備份，無須人為介入。 若備份超過定義的保留期限，Azure Stack 也會自動清除其外部共用。 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+- **根據預先定義的排程啟動備份** - 作為設備的 Azure Stack 現在可以自動地定期觸發基礎結構備份，無須人為介入。 若備份超過定義的保留期限，Azure Stack 也會自動清除其外部共用。 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
 
 <!-- 2496385 | ASDK, IS -->  
-- **已將資料轉送時間新增到備份時間總計中。** 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+- **已將資料轉送時間新增到備份時間總計中。** 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
 
 <!-- 1702130 | ASDK, IS --> 
-- **備份外部容量現在會顯示正確的外部共用容量。** (以前是以硬式編碼將其設為 10 GB。)了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+- **備份外部容量現在會顯示正確的外部共用容量。** (以前是以硬式編碼將其設為 10 GB。)了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
  
 <!-- 2753130 |  IS, ASDK   -->  
 - **Azure Resource Manager 範本現在支援條件元素** - 您現在可以使用條件在 Azure Resource Manger 範本中部署資源。 您可以將範本設計成根據條件 (例如評估某個參數值是否存在) 來部署資源。 如需有關使用範本作為條件的資訊，請參閱 Azure 文件中的[依條件部署資源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure Resource Manager 範本的 Variables 區段](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables)。 
@@ -215,7 +194,7 @@ ms.locfileid: "52427245"
    您也可以使用範本[將資源部署至多個訂用帳戶或資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
 <!--2753073 | IS, ASDK -->  
-- **Microsoft.Network API 資源版本支援已更新**，從適用於 Azure Stack 網路資源的 2015-06-15 更新成包含對 API 2017-10-01 版的支援。 此版本未包含對 2017-10-01 與 2015-06-15 之間資源版本的支援。 如需了解功能差異，請參閱 [Azure Stack 網路服務的注意事項](.\.\user\azure-stack-network-differences.md)。
+- **Microsoft.Network API 資源版本支援已更新**，從適用於 Azure Stack 網路資源的 2015-06-15 更新成包含對 API 2017-10-01 版的支援。 此版本未包含對 2017-10-01 與 2015-06-15 之間資源版本的支援。 如需了解功能差異，請參閱 [Azure Stack 網路服務的注意事項](../user/azure-stack-network-differences.md)。
 
 <!-- 2272116 | IS, ASDK   -->  
 - **Azure Stack 已針對對外的 Azure Stack 基礎結構端點 (亦即針對 portal、adminportal、management 及 adminmanagement) 新增反向 DNS 查閱支援**。 這可允許從 IP 位址解析 Azure Stack 外部端點名稱。
@@ -243,7 +222,7 @@ ms.locfileid: "52427245"
 - **Azure Resource Manager 包含區域名稱。** 在此版本中，從 Azure Resource Manager 擷取的物件現在會包含區域名稱屬性。 如果現有的 PowerShell 指令碼會將物件直接傳遞給另一個 Cmdlet，則此指令碼可能會產生錯誤並失敗。 這是符合 Azure Resource Manager 規範的行為，而會需要發出呼叫的用戶端去除區域屬性。 如需有關 Azure Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 文件](https://docs.microsoft.com/azure/azure-resource-manager/)。
 
 <!-- TBD | IS, ASDK -->  
-- **在委派的提供者之間移動訂用帳戶。** 您現在可以在屬於相同目錄租用戶之新的或現有的「委派的提供者」訂用帳戶之間，移動訂用帳戶。 您也可以將屬於「預設提供者訂用帳戶」的訂用帳戶移至相同目錄租用戶中的「委派的提供者訂用帳戶」。 如需詳細資訊，請參閱 [Azure Stack 中的委派供應項目](.\.\azure-stack-delegated-provider.md)。
+- **在委派的提供者之間移動訂用帳戶。** 您現在可以在屬於相同目錄租用戶之新的或現有的「委派的提供者」訂用帳戶之間，移動訂用帳戶。 您也可以將屬於「預設提供者訂用帳戶」的訂用帳戶移至相同目錄租用戶中的「委派的提供者訂用帳戶」。 如需詳細資訊，請參閱 [Azure Stack 中的委派供應項目](../azure-stack-delegated-provider.md)。
  
 <!-- 2536808 IS ASDK --> 
 - 針對使用從 Azure Marketplace 下載之映像建立的 VM，**縮短 VM 建立時間**。
@@ -267,7 +246,7 @@ ms.locfileid: "52427245"
 - 現在，當您從外部共用手動刪除備份時，備份清單會進行重新整理。
 
 <!-- 2360715 |  ASDK, IS -->  
-- 當您設定資料中心整合時，您無法再從共用中存取 AD FS 中繼資料檔案。 如需詳細資訊，請參閱[藉由提供同盟中繼資料檔案設定 AD FS 整合](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
+- 當您設定資料中心整合時，您無法再從共用中存取 AD FS 中繼資料檔案。 如需詳細資訊，請參閱[藉由提供同盟中繼資料檔案設定 AD FS 整合](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
 
 <!-- 2388980 | ASDK, IS --> 
 - 修正問題：防止使用者將先前已指派給網路介面或 Load Balancer 的現有公用 IP 位址，指派給新的網路介面或 Load Balancer。  
@@ -290,7 +269,7 @@ ms.locfileid: "52427245"
 <!--  TBD ASDK --> 
 - 裝載具特殊權限端點 (PEP) 的虛擬機器已增加至 4 GB。 在 ASDK 中，此虛擬機器名為 AzS ERCS01。
 
-- <!--  TBD – IS, ASDK --> 透過入口網站[建立虛擬機器擴展集](.\.\azure-stack-compute-add-scalesets.md) (VMSS) 時，無法再使用「基本 A」虛擬機器大小。 若要建立具有此大小的 VMSS，請使用 PowerShell 或範本。 
+- <!--  TBD – IS, ASDK --> 透過入口網站[建立虛擬機器擴展集](../azure-stack-compute-add-scalesets.md) (VMSS) 時，無法再使用「基本 A」虛擬機器大小。 若要建立具有此大小的 VMSS，請使用 PowerShell 或範本。 
 
 ### <a name="known-issues"></a>已知問題
 
@@ -304,7 +283,7 @@ ms.locfileid: "52427245"
 - 無法刪除以附加方案形式新增至使用者訂用帳戶的方案 (即使您從使用者訂用帳戶中移除此方案)。 此方案會持續保留，直到參考附加方案的訂用帳戶也遭到刪除為止。 
 
 <!--2760466 – IS  ASDK --> 
-- 當您安裝執行此版本的新 Azure Stack 環境時，可能不會顯示指出「需要啟用」的警示。 必須[啟用](.\.\azure-stack-registration.md)，才能使用市集摘要整合。 
+- 當您安裝執行此版本的新 Azure Stack 環境時，可能不會顯示指出「需要啟用」的警示。 必須[啟用](../azure-stack-registration.md)，才能使用市集摘要整合。 
 
 <!-- TBD - IS ASDK --> 
 - 不應該使用隨 1804 版導入的兩個系統管理訂用帳戶類型。 這些訂用帳戶類型為「計量訂用帳戶」和「取用訂用帳戶」。 這些訂用帳戶類型為「計量訂用帳戶」和「取用訂用帳戶」。 自 1804 版起，這些訂用帳戶類型就已經會在新的 Azure Stack 環境中顯示，只是還未就緒以供使用。 您應該繼續使用「預設提供者訂用帳戶」類型。
@@ -327,16 +306,16 @@ ms.locfileid: "52427245"
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
    警示 #1：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
 
   警示 #2：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
   您可以放心地忽略這兩個警示，這兩個警示會在一段時間過後自動關閉。  
 
@@ -355,13 +334,13 @@ ms.locfileid: "52427245"
 
 - <!-- 2869209 – IS, ASDK --> 當使用 [**Add-AzsPlatformImage** Cmdlet](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0) 時，您必須使用 **-OsUri** 參數作為要上傳磁碟的儲存體帳戶 URI。 如果您使用磁碟的本機路徑，此 Cmdlet 就會失敗，且具有下列錯誤：「長時間執行的作業失敗，狀態為「失敗」」。 
 
-- <!--  2966665 – IS, ASDK --> 將 SSD 資料磁碟連結至進階大小的受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗且有錯誤：「無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為 VM 大小 (Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以要求的作業無法執行」
+- <!--  2966665 – IS, ASDK -->將 SSD 資料磁碟連結至進階大小受控磁碟虛擬機器 (DS、DSv2、Fs、Fs_V2) 失敗，具有錯誤：*無法更新虛擬機器 ‘vmname’ 的磁碟。錯誤：因為對 VM 大小 ‘Standard_DS/Ds_V2/FS/Fs_v2) 不支援儲存體帳戶類型 ‘Premium_LRS’，所以無法執行要求的作業*
 
    若要解決此問題，請使用 Standard_LRS 資料磁碟，而不是 Premium_LRS 磁碟。 使用 Standard_LRS 資料磁碟不會變更 IOP 或帳單成本。  
 
 - <!--  2795678 – IS, ASDK --> 當您使用入口網站以進階 VM 大小 (DS、Ds_v2、FS、FSv2) 建立虛擬機器 (VM) 時，會在標準儲存體帳戶中建立 VM。 在標準儲存體帳戶中建立不會影響功能、IOP 或帳單。 
 
-   您可以放心地忽略警告，該警告指出：「您已選擇在支援進階磁碟的大小上使用標準磁碟。*這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
+   您可以放心地忽略警告，該警告指出：*「您已選擇在支援進階磁碟的大小上使用標準磁碟。這樣可能會影響作業系統效能，並不建議使用。請考慮改為使用進階儲存體 (SSD)。」*
 
 - <!-- 2967447 - IS, ASDK --> 虛擬機器擴展集 (VMSS) 建立體驗會提供 CentOS 架構 7.2 作為部署選項。 因為該映像在 Azure Stack 上無法使用，所以請為您的部署選取其他作業系統，或使用 ARM 範本指定另一個 CentOS 映像，但操作員必須在部署之前已從市集下載該印象。
 
@@ -389,7 +368,7 @@ ms.locfileid: "52427245"
 
  
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 <!-- 1766332 - IS, ASDK --> 
 - 如果您在 [網路] 下按一下 [建立 VPN 閘道] 來設定 VPN 連線，系統就會將 [原則式] 列為 VPN 類型。 請勿選取此選項。 Azure Stack 只支援 [路由式] 選項。
 
@@ -438,17 +417,17 @@ ms.locfileid: "52427245"
 ### <a name="new-features"></a>新功能
 此組建包含下列適用於 Azure Stack 的改良功能與修正。  
 
-- <!-- 1658937 | ASDK, IS --> **根據預先定義的排程啟動備份** - 作為設備的 Azure Stack 現在可以自動地定期觸發基礎結構備份，無須人為介入。 若備份超過定義的保留期限，Azure Stack 也會自動清除其外部共用。 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+- <!-- 1658937 | ASDK, IS --> **根據預先定義的排程啟動備份** - 作為設備的 Azure Stack 現在可以自動地定期觸發基礎結構備份，無須人為介入。 若備份超過定義的保留期限，Azure Stack 也會自動清除其外部共用。 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
 
-- <!-- 2496385 | ASDK, IS -->**已將資料轉送時間新增到備份時間總計中。** 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+- <!-- 2496385 | ASDK, IS -->**已將資料轉送時間新增到備份時間總計中。** 了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
 
--   <!-- 1702130 | ASDK, IS -->**備份外部容量現在會顯示正確的外部共用容量。** (以前是以硬式編碼將其設為 10 GB。)了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](.\.\azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
+-   <!-- 1702130 | ASDK, IS -->**備份外部容量現在會顯示正確的外部共用容量。** (以前是以硬式編碼將其設為 10 GB。)了解如何[使用 PowerShell 來啟用 Azure Stack 的備份](../azure-stack-backup-enable-backup-powershell.md)以取得更多資訊。
  
 - <!-- 2753130 |  IS, ASDK   -->  **Azure Resource Manager 範本現在支援條件元素** - 您現在可以使用條件在 Azure Resource Manger 範本中部署資源。 您可以將範本設計成根據條件 (例如評估某個參數值是否存在) 來部署資源。 如需有關使用範本作為條件的資訊，請參閱 Azure 文件中的[依條件部署資源](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)和 [Azure Resource Manager 範本的 Variables 區段](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables)。 
 
    您也可以使用範本[將資源部署至多個訂用帳戶或資源群組](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment)。  
 
-- <!--2753073 | IS, ASDK -->  **Microsoft.Network API 資源版本支援已更新**，從適用於 Azure Stack 網路資源的 2015-06-15 更新成包含對 API 2017-10-01 版的支援。  此版本未包含對 2017-10-01 與 2015-06-15 之間資源版本的支援，但未來的版本中將會包含。  如需了解功能差異，請參閱 [Azure Stack 網路服務的注意事項](.\.\user\azure-stack-network-differences.md)。
+- <!--2753073 | IS, ASDK -->  **Microsoft.Network API 資源版本支援已更新**，從適用於 Azure Stack 網路資源的 2015-06-15 更新成包含對 API 2017-10-01 版的支援。  此版本未包含對 2017-10-01 與 2015-06-15 之間資源版本的支援，但未來的版本中將會包含。  如需了解功能差異，請參閱 [Azure Stack 網路服務的注意事項](../user/azure-stack-network-differences.md)。
 
 - <!-- 2272116 | IS, ASDK   -->  **Azure Stack 已針對對外的 Azure Stack 基礎結構端點 (亦即針對 portal、adminportal、management 及 adminmanagement) 新增反向 DNS 查閱支援**。 這可允許從 IP 位址解析 Azure Stack 外部端點名稱。
 
@@ -465,11 +444,11 @@ ms.locfileid: "52427245"
 
   由於此功能仍是預覽版，因此在生產環境中請勿倚賴此功能。
 
-  如需詳細資訊，請參閱 [Azure Stack Syslog 轉送](.\.\azure-stack-integrate-security.md)。
+  如需詳細資訊，請參閱 [Azure Stack Syslog 轉送](../azure-stack-integrate-security.md)。
 
 - <!-- ####### | IS, ASDK -->  **Azure Resource Manager 包含區域名稱。** 在此版本中，從 Azure Resource Manager 擷取的物件現在會包含區域名稱屬性。 如果現有的 PowerShell 指令碼會將物件直接傳遞給另一個 Cmdlet，則此指令碼可能會產生錯誤並失敗。 這是符合 Azure Resource Manager 規範的行為，而會需要發出呼叫的用戶端去除區域屬性。 如需有關 Azure Resource Manager 的詳細資訊，請參閱 [Azure Resource Manager 文件](https://docs.microsoft.com/azure/azure-resource-manager/)。
 
-- <!-- TBD | IS, ASDK -->  **在委派的提供者之間移動訂用帳戶。** 您現在可以在屬於相同目錄租用戶之新的或現有的「委派的提供者」訂用帳戶之間，移動訂用帳戶。 您也可以將屬於「預設提供者訂用帳戶」的訂用帳戶移至相同目錄租用戶中的「委派的提供者訂用帳戶」。 如需詳細資訊，請參閱 [Azure Stack 中的委派供應項目](.\.\azure-stack-delegated-provider.md)。
+- <!-- TBD | IS, ASDK -->  **在委派的提供者之間移動訂用帳戶。** 您現在可以在屬於相同目錄租用戶之新的或現有的「委派的提供者」訂用帳戶之間，移動訂用帳戶。 您也可以將屬於「預設提供者訂用帳戶」的訂用帳戶移至相同目錄租用戶中的「委派的提供者訂用帳戶」。 如需詳細資訊，請參閱 [Azure Stack 中的委派供應項目](../azure-stack-delegated-provider.md)。
  
 - <!-- 2536808 IS ASDK --> 針對使用從 Azure Marketplace 下載之映像建立的 VM，**縮短 VM 建立時間**。
 
@@ -485,7 +464,7 @@ ms.locfileid: "52427245"
 
 - <!-- 2215948 |  ASDK, IS --> 現在，當您從外部共用手動刪除備份時，備份清單會進行重新整理。
 
-- <!-- 2360715 |  ASDK, IS -->  當您設定資料中心整合時，您無法再從共用中存取 AD FS 中繼資料檔案。 如需詳細資訊，請參閱[藉由提供同盟中繼資料檔案設定 AD FS 整合](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
+- <!-- 2360715 |  ASDK, IS -->  當您設定資料中心整合時，您無法再從共用中存取 AD FS 中繼資料檔案。 如需詳細資訊，請參閱[藉由提供同盟中繼資料檔案設定 AD FS 整合](../azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file)。 
 
 - <!-- 2388980 | ASDK, IS --> 修正問題：防止使用者將先前已指派給網路介面或 Load Balancer 的現有公用 IP 位址，指派給新的網路介面或 Load Balancer。  
 
@@ -532,7 +511,7 @@ ms.locfileid: "52427245"
 - 您無法搭配此版本的 Azure Stack 使用 OEM 延伸模組套件來套用驅動程式更新。  此問題目前沒有因應方式。
  
 <!-- TBD - IS ASDK --> 
-- 無法從系統管理員入口網站內，[從下拉式清單開啟新支援要求](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
+- 無法從系統管理員入口網站內，[從下拉式清單開啟新支援要求](../azure-stack-manage-portals.md#quick-access-to-help-and-support)。 請改用下列連結：     
     - 針對 Azure Stack 開發套件，請使用 https://aka.ms/azurestackforum。    
 
 <!-- 2403291 - IS ASDK --> 
@@ -552,16 +531,16 @@ ms.locfileid: "52427245"
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
    警示 #1：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
 
   警示 #2：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
   您可以放心地忽略這兩個警示，這兩個警示會在一段時間過後自動關閉。  
 
@@ -577,7 +556,7 @@ ms.locfileid: "52427245"
 - 在為虛擬機器部署選取虛擬機器大小時，某些 F 系列的 VM 大小不會在您建立 VM 時顯示在大小選取器中。 選取器中不會顯示下列 VM 大小：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
   因應措施是使用下列其中一個方法來部署虛擬機器。 在每個方法中，您需要指定想要使用的虛擬機器大小。
 
-  - **Azure Resource Manager 範本：** 當您使用範本時，請將範本中的 *vmSize* 設定為等於您想要使用的虛擬機器大小。 例如，使用以下項目來部署會使用 *F32s_v2* 大小的虛擬機器：  
+  - **Azure Resource Manager 範本：** 當您使用範本時，請將範本中的 vmSize 設定為您想要使用的虛擬機器大小。 例如，使用以下項目來部署會使用 *F32s_v2* 大小的虛擬機器：  
 
     ```
         "properties": {
@@ -609,7 +588,7 @@ ms.locfileid: "52427245"
 <!-- 1662991 - IS ASDK --> 
 - Azure Stack 不支援 Linux VM 診斷。 當您部署啟用了 VM 診斷的 Linux VM 時，部署會失敗。 如果您透過診斷設定啟用 Linux VM 基本計量，部署也會失敗。
 
-#### <a name="networking"></a>網路功能
+#### <a name="networking"></a>網路
 <!-- TBD - IS ASDK --> 
 - 您無法在系統管理員或使用者入口網站中建立使用者定義的路由。 請使用 [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell) 作為因應措施。
 
@@ -626,7 +605,7 @@ ms.locfileid: "52427245"
 <!-- 2292271 - IS ASDK --> 
 - 如果供應項目和方案與租用戶訂用帳戶相關聯，而您將屬於供應項目和方案一部分的網路資源提高其配額限制，則新的限制不會套用到該訂用帳戶。 不過，新的限制會套用到配額增加後所建立的新訂用帳戶中。
 
-  若要解決這個問題，請使用附加方案，在方案已與訂用帳戶產生關聯時，增加網路配額。 如需詳細資訊，請參閱如何[提供附加方案](.\.\azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)。
+  若要解決這個問題，請使用附加方案，在方案已與訂用帳戶產生關聯時，增加網路配額。 如需詳細資訊，請參閱如何[提供附加方案](../azure-stack-subscribe-plan-provision-vm.md#to-make-an-add-on-plan-available)。
 
 <!-- 2304134 IS ASDK --> 
 - 您無法刪除有相關聯 DNS 區域資源或路由表資源的訂用帳戶。 若要成功刪除訂用帳戶，您必須先從租用戶訂用帳戶中刪除 DNS 區域和路由表資源。

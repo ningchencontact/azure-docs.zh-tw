@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959982"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274559"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -112,7 +112,6 @@ ms.locfileid: "50959982"
 
 混合式 Azure AD Join 程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 在有些情況下，您不想自動註冊所有裝置。 如果這適合您，請參閱[如何控制裝置的混合式 Azure AD Join](hybrid-azuread-join-control.md)。
 
-
 ## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>檢閱如何控制裝置的混合式 Azure AD Join
 
 混合式 Azure AD Join 程序可自動向 Azure AD 註冊已加入網域的內部部署裝置。 在某些情況下，您會不想自動註冊所有裝置。 舉例來說，在首次推出期間要確認一切都正常運作時，即屬此種情況。
@@ -130,9 +129,9 @@ ms.locfileid: "50959982"
 
 如果您的環境有受控網域，則混合式 Azure AD Join 支援：
 
-- 採用無縫單一登入 (SSO) 的傳遞驗證 (PTA) 
+- 傳遞驗證 (PTA)
 
-- 採用無縫單一登入 (SSO) 的密碼雜湊同步 (PHS) 
+- 密碼雜湊同步處理 (PHS)
 
 從 1.1.819.0 版開始，Azure AD Connect 即為您提供用來設定混合式 Azure AD Join 的精靈。 此精靈可讓您大幅簡化設定程序。 如需詳細資訊，請參閱
 
@@ -145,7 +144,22 @@ ms.locfileid: "50959982"
  如果安裝必要的 Azure AD Connect 版本不適合您，請參閱[如何手動設定裝置註冊](../device-management-hybrid-azuread-joined-devices-setup.md)。 
 
 
+## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>混合式 Azure AD Join 中的替代登入識別碼支援
 
+Windows 10 混合式 Azure AD Join 根據替代登入識別碼的類型、[驗證方法](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn)，網域類型和 Windows 10 版本，會針對[替代登入識別碼](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)提供有限的支援。 您的環境中可以存在兩種類型的替代登入識別碼。
+
+ - 可路由傳送的替代登入識別碼：可路由傳送的替代登入識別碼具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果主要網域為 contoso.com，則 contoso.org 和 contoso.co.uk 是 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)的有效網域
+ 
+ - 非可路由傳送的替代登入識別碼：非可路由傳送的替代登入識別碼沒有已驗證的網域。 它僅適用於貴組織的私人網路內。 例如，如果主要網域為 contoso.com，則 contoso.local 不是網際網路中可驗證的網域，而是在 Contoso 的網路內使用。
+ 
+下表提供了有關在 Windows 10 混合式 Azure AD Join 中支援這些替代登入識別碼的詳細資料
+
+|替代登入識別碼的類型|網域類型|Windows 10 版本|說明|
+|-----|-----|-----|-----|
+|路由式|同盟 |自 1703 版起|正式推出|
+|路由式|受控|自 1709 版起|目前處於個人預覽狀態。 不支援 Azure AD SSPR |
+|非可路由傳送|同盟|自 1803 版起|正式推出|
+|非可路由傳送|受控|不支援||
 
 
 

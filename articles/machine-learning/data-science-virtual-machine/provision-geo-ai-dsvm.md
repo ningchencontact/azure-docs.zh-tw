@@ -1,11 +1,12 @@
 ---
 title: 在 Azure 上佈建地區人工智慧虛擬機器 - Azure | Microsoft Docs
-description: 如何在 Azure 上佈建地區人工智慧虛擬機器。
-keywords: 深度學習, AI, 資料科學工具, 資料科學虛擬機器, 地理空間分析
+description: 了解如何建立及設定「地區 AI 資料科學虛擬機器」。 「地區 AI 資料科學虛擬機器」會提供工具，可讓您使用地理資料來建立 AI 和 ML 解決方案。
+keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239792"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103943"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>在 Azure 上佈建地區人工智慧虛擬機器 
 
@@ -48,24 +49,24 @@ Geo-DSVM 包含數個人工智慧工具，包括：
 
    - **基本概念**
 
-      1. **名稱**：您建立的資料科學伺服器名稱。
+      1. **名稱**：您要建立之資料科學伺服器的名稱。
 
       2. **使用者名稱**：系統管理員帳戶登入識別碼。
 
       3. **密碼**：系統管理員帳戶密碼。
 
-      4. **訂用帳戶**：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
+      4. 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。
 
-      5. **資源群組**：您可以建立新的群組，或使用訂用帳戶中的**空白**現有 Azure 資源群組。
+      5. **資源群組**：您可以建立新的群組，也可以使用訂用帳戶中**空白**的現有 Azure 資源群組。
 
-      6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 如果您需要對 GPU 進行深度學習，您必須在 Azure 中選擇具有 NC 系列 GPU VM 執行個體的其中一個位置。 目前具有 GPU VM 的位置有：**美國東部、美國中北部、美國中南部、美國西部 2、北歐、西歐**。 如需最新的清單，請參閱[依據區域的 Azure 產品分頁](https://azure.microsoft.com/regions/services/)，並且在 [計算] 底下尋找 **NC 系列**。 
+      6. **位置**：選取最適合的資料中心。 它通常是擁有您大部分的資料或者是最接近您的實際位置以取得最快速度的網路存取的資料中心。 如果您需要對 GPU 進行深度學習，您必須在 Azure 中選擇具有 NC 系列 GPU VM 執行個體的其中一個位置。 目前具有 GPU VM 的位置包括：**美國東部、美國中北部、美國中南部、美國西部 2、北歐、西歐**。 如需最新的清單，請參閱[依據區域的 Azure 產品分頁](https://azure.microsoft.com/regions/services/)，並且在 [計算] 底下尋找 **NC 系列**。 
 
 
-   - **設定**：如果您打算在 Geo DSVM 的 GPU 上執行深度學習，請選取其中一個 NC 系列 GPU 虛擬機器大小。 否則，您可以選擇其中一個以 CPU 為基礎的執行個體。  為您的 VM 建立儲存體帳戶。 
+   - **設定**：如果您打算在「地區 DSVM」的 GPU 上執行深度學習，請選取其中一個 NC 系列 GPU 虛擬機器大小。 否則，您可以選擇其中一個以 CPU 為基礎的執行個體。  為您的 VM 建立儲存體帳戶。 
    
    - **摘要**：請確認您輸入的所有資訊都正確無誤。
 
-   - **購買**：按一下 [購買] 以開始佈建。 系統會提供服務條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
+   - ：按一下 [購買] 以開始佈建。 系統會提供服務條款的連結。 VM 除了計算您在 [大小]  步驟中所選擇的伺服器大小之外，不會收取任何其他費用。 
 
 >[!NOTE]
 > 佈建大約需要 20-30 分鐘。 在 Azure 入口網站中會顯示佈建的狀態。

@@ -1,6 +1,6 @@
 ---
-title: 識別案例和規劃分析處理 - Azure | Microsoft Docs
-description: 考慮一系列重要問題來規劃進階分析環境。
+title: 識別案例和規劃分析程序 - Team Data Science Process
+description: 藉由考量一系列關鍵問題來識別案例和規劃進階分析資料處理。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: b61f6c12aaa94fc61063e8d3bd7e339f1548781c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446411"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138036"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>如何識別案例和規劃進階分析資料處理
 在設定環境以對資料集執行進階分析處理時，您應該規劃包含哪些資源？ 本文提出一系列問題，有助於識別您的案例相關的工作和資源。 [何謂 Team Data Science Process (TDSP)？](overview.md)中概述預測性分析的高階步驟順序。 針對您的案例相關的工作，每個步驟會需要特定的資源。 用以識別案例的主要問題是關於資料邏輯、特性、資料集的品質，以及您想要進行分析的工具和語言。
@@ -65,8 +65,8 @@ ms.locfileid: "52446411"
    * SQL Server 資料表
 3. **您的資料大小為何？**
    
-   * 小型：小於 2 GB
-   * 中型：大於 2 GB 且小於 10 GB
+   * 小型：少於 2 GB
+   * 中型：大於 2 GB 且少於 10 GB
    * 大型：大於 10 GB
 
 以 Azure Machine Learning Studio 環境為例子：

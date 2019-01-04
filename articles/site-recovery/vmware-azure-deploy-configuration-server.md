@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/18/2018
-ms.author: ramamill
-ms.openlocfilehash: 8b67947412055d0c0b9f39cb49961e435393cec9
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: mayg
+ms.openlocfilehash: 58d45036cac6ad985b7b1ffb2736a500fdcb5ce2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162597"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251023"
 ---
 # <a name="deploy-a-configuration-server"></a>部署設定伺服器
 
@@ -148,6 +148,9 @@ OVA 範本隨附的授權是有效期為 180 天的評估授權。 在此期間�
 7. 哪裡可以下載保存庫註冊金鑰？
 
     在 [復原服務保存庫] 的 [管理] > [Site Recovery Infrastructure] \(Site Recovery 基礎結構\) > [設定伺服器] 中。 在 [伺服器] 中，選取 [下載註冊金鑰] 以下載保存庫認證檔案。
+8. 是否可以複製現有的設定伺服器並將它用於複寫協調流程？
+
+    **否**，不支援使用複製的設定伺服器元件。 
 
 ## <a name="troubleshoot-deployment-issues"></a>為部署問題進行疑難排解
 

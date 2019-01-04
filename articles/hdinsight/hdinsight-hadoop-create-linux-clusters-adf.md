@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 12/04/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1e55da981daf29aca491c480d58f399bc681fd27
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c7ec0b29e200710070cb1243ff8bfadd5e31e8eb
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499554"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879404"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>教學課程：使用 Azure Data Factory 在 HDInsight 中建立隨選 Apache Hadoop 叢集
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -151,7 +151,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 - [資料移動活動](../data-factory/copy-activity-overview.md)：您可以使用資料移動活動，將資料從來源資料存放區移到目的地資料存放區。
 - [資料轉換活動](../data-factory/transform-data.md)。 使用資料轉換活動以處理/轉換資料。 HDInsight Hive 活動是 Data Factory 所支援的其中一個轉換活動。 您在本教學課程中使用 Hive 轉換活動。
 
-在此文章中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
+在本文中，您會設定 Hive 活動，以建立隨選 HDInsight Hadoop 叢集。 當活動執行以處理資料時，即會發生下列情況：
 
 1. 系統會適時自動建立 HDInsight Hadoop 叢集來處理配量。 
 
@@ -236,7 +236,7 @@ Write-host "`nScript completed" -ForegroundColor Green
 
     | 屬性 | 說明 |
     | --- | --- |
-    | 名稱 | 輸入 HDInsight 連結服務的名稱 |
+    | Name | 輸入 HDInsight 連結服務的名稱 |
     | 類型 | 選取 [隨選 HDInsight] |
     | Azure 儲存體連結服務 | 選取您稍早建立的儲存體連結服務。 |
     | 叢集類型 | 選取 [Hadoop] |

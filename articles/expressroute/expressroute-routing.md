@@ -1,18 +1,19 @@
 ---
-title: 適用於 Azure ExpressRoute 的路由需求 |Microsoft Docs
+title: 路由需求 - ExpressRoute：Azure | Microsoft Docs
 description: 此頁面提供用來設定和管理 ExpressRoute 循環路由的詳細需求。
 services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/13/2018
 ms.author: ganesr
-ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 73dc4b14214c10966dca1a6cd7ebd41af019f640
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230936"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53406550"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute 路由需求
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須設定和管理路由。 有些連線提供者會以受控服務形式提供路由的設定和管理。 請洽詢您的連線服務提供者，以查看他們是否提供這類服務。 如果沒有，您必須遵循下列需求：
@@ -100,7 +101,7 @@ Microsoft 對等路徑可讓您連線到 Microsoft 雲端服務。 服務清單�
 Microsoft 對等互連允許使用私人 AS 號碼，但也需要進行手動驗證。 此外，我們會針對接收到的前置詞，移除 AS PATH 中的私用 AS 編號。 因此，您無法在 AS PATH 中附加私用 AS 編號以[影響 Microsoft 對等互連的路由](expressroute-optimize-routing.md)。 
 
 > [!IMPORTANT]
-> 請勿將同一個公用 IP 路由公告到公用網際網路及透過 ExpressRoute 進行公告。 我們強烈建議您透過 ExpressRoute 來公告更特定的路由，以及將更一般的路由公告至適用於 [NAT](expressroute-nat.md) 的網際網路。 除了適用於 NAT 的公用路由，您也可以透過 ExpressRoute 來公告內部部署網路中伺服器所使用的公用 IP 位址，其會與 Microsoft 內的 Office 365 端點進行通訊。 
+> 請勿將同一個公用 IP 路由公告到公用網際網路及透過 ExpressRoute 進行公告。 若要減少造成非對稱式路由的設定不正確的風險，強烈建議 [NAT IP 位址](expressroute-nat.md)透過 ExpressRoute 向 Microsoft 公告的範圍不是向網際網路公告的範圍。 如果這不可能達成，務必確保透過 ExpressRoute 公告比網際網路連線的範圍更明確的範圍。 除了適用於 NAT 的公用路由，您也可以透過 ExpressRoute 來公告內部部署網路中伺服器所使用的公用 IP 位址，其會與 Microsoft 內的 Office 365 端點進行通訊。 
 > 
 > 
 

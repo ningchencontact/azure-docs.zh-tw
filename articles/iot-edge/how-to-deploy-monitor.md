@@ -1,6 +1,6 @@
 ---
-title: 部署和監視適用於 Azure IoT Edge 的模組 | Microsoft Docs
-description: 管理在 Edge 裝置上執行的模組
+title: 從 Azure 入口網站建立自動部署 - Azure IoT Edge | Microsoft Docs
+description: 使用 Azure 入口網站為 IoT Edge 裝置群組建立自動部署
 keywords: ''
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 20f50e286e30e32f066fe3d214bfc4c1a155776e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566239"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083915"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 入口網站大規模部署和監視 IoT Edge 模組
 
@@ -49,7 +50,7 @@ Azure IoT Edge 可讓您將分析移至 Edge，並提供雲端介面，讓您能
 
 建立部署有五個步驟。 下列各節將逐步解說每一個步驟。 
 
-### <a name="step-1-name-and-label"></a>步驟 1：名稱和標籤
+### <a name="step-1-name-and-label"></a>步驟 1：名稱與標籤
 
 1. 為部署指定唯一的名稱，最長為 128 個小寫字母。 避免空格和下列無效字元：`& ^ [ ] { } \ | " < > /`。
 1. 新增標籤，以協助追蹤您的部署。 標籤是成對的「**名稱**, **值**」，可描述您的部署。 例如，`HostPlatform, Linux` 或 `Version, 3.0.1`。

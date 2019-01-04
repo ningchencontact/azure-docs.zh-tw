@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: bcb448296313eedebb8f8389b320c5da5f1a80dd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ef86c9ee00fdd4673774640d33eec93e2ead876d
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305647"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193088"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>使用者隱私權與 Azure Active Directory 傳遞驗證
 
@@ -72,7 +72,7 @@ Foreach ($file in $Files) {
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>刪除驗證代理程式追蹤記錄檔
 
-您應該定期檢查 **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** 的內容，並且每隔 48 小時刪除此資料夾的內容。 
+您應該定期檢查 <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\</strong> 的內容，並且每隔 48 小時刪除此資料夾的內容。 
 
 >[!IMPORTANT]
 >如果驗證代理程式服務正在執行中，您就無法刪除資料夾中目前的記錄檔。 在重試之前停止服務。 若要避免使用者登入失敗，您應該為傳遞驗證設定[高可用性](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability)。

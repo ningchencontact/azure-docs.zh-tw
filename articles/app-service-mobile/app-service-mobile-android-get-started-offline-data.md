@@ -13,12 +13,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 152702bed0ea061c3cb86e2ff6f88bf204f9d243
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: a20c79acce8c9dc9051651a0473fd07b8e62f5de
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594183"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960340"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>啟用 Android 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -93,7 +93,7 @@ ms.locfileid: "27594183"
 
 ## <a name="additional-resources"></a>其他資源
 * [Azure Mobile Apps 中的離線資料同步處理]
-* [雲端報導：Azure Mobile Services 中的離線同步處理] \(注意：影片位於 Mobile Services 上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式\)
+* [雲端報導：Azure 行動服務中的離線同步處理] \(注意：影片位於 Mobile Services 上，但離線同步處理的運作方式類似在 Azure Mobile Apps 中的方式\)
 
 <!-- URLs. -->
 
@@ -101,6 +101,6 @@ ms.locfileid: "27594183"
 
 [建立 Android 應用程式]: app-service-mobile-android-get-started.md
 
-[雲端報導：Azure Mobile Services 中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[雲端報導：Azure 行動服務中的離線同步處理]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

@@ -1,22 +1,22 @@
 ---
 title: 常見問題 - 使用 Azure Site Recovery 進行從 VMware 至 Azure 的災害復原 | Microsoft Docs
-description: 此文章摘錄了使用 Azure Site Recovery 設定從內部部署 VMware VM 至 Azure 之災害復原時的常見問題
+description: 本文摘錄了使用 Azure Site Recovery 設定從內部部署 VMware VM 至 Azure 之災害復原時的常見問題
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 11/19/2018
+ms.date: 12/11/2018
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 248b2a748088330f91b3cc76564d5d8743f04411
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.author: mayg
+ms.openlocfilehash: d7b3919d0f970190238dbc5899a20f2d9e7d8cd4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162478"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256500"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>常見問題 - VMware 到 Azure 的複寫
 
-此文章將解答部署從內部部署 VMware VM 至 Azure 之災害復原時的常見問題。 如果您在閱讀此文章後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
+本文將解答部署從內部部署 VMware VM 至 Azure 之災害復原時的常見問題。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
 
 
 ## <a name="general"></a>一般
@@ -74,7 +74,7 @@ ms.locfileid: "52162478"
 Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure 儲存體，或使用 ExpressRoute 公用對等互連進行複寫。 不支援透過站對站 VPN 網路的複寫。
 
 ### <a name="can-i-replicate-to-azure-with-expressroute"></a>是否可透過 ExpressRoute 複寫至 Azure？
-是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 可透過公用端點將資料複寫到 Azure 儲存體帳戶，而您必須設定 Site Recovery 複寫所需的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)加以存取。
+是的，ExpressRoute 可用來將 VM 複寫至 Azure。 Site Recovery 可透過公用端點將資料複寫到 Azure 儲存體帳戶，而您必須設定 Site Recovery 複寫所需的[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 VM 容錯移轉至 Azure 虛擬網路之後，您可以使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)加以存取。
 
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>為何我無法透過 VPN 進行複寫？
@@ -90,10 +90,10 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 從 VMware VM 到 Azure 的複寫會持續執行。
 
 ### <a name="can-i-extend-replication"></a>我可以延伸複寫嗎？
-不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出此功能的要求。
+不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出這項功能的要求。
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可執行離線初始複寫？
-不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出此功能的要求。
+不支援此做法。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from)中提出這項功能的要求。
 
 ### <a name="can-i-exclude-disks"></a>是否可排除磁碟嗎？
 是的，您可以將磁碟排除於複寫外。
@@ -146,11 +146,14 @@ Site Recovery 可透過公用端點將資料從內部部署環境複寫至 Azure
 ### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>是否可以不要下載 MySQL 而讓 Site Recovery 加以安裝？
 是。 請下載 MySQL 安裝程式，並將它放在 **C:\Temp\ASRSetup** 資料夾中。  當您設定組態伺服器 VM 時，只要接受條款，再按一下 [下載並安裝]，入口網站就會使用您新增的安裝程式來安裝 MySQL。
  
-### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>組態伺服器 VM 是否可用於任何其他位置？
+### <a name="can-i-use-the-configuration-server-vm-for-anything-else"></a>組態伺服器 VM 是否可用於任何其他位置？
 否，VM 只能用於組態伺服器上。 
 
+### <a name="can-i-clone-a-configuration-server-and-use-it-for-orchestration"></a>是否可以複製組態伺服器並將它用於協調流程？
+否，您應該設定全新的組態伺服器以避免註冊問題。
+
 ### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>是否可變更組態伺服器中註冊的保存庫？
-否。 保存庫在組態伺服器中註冊後，即無法變更。
+否。 保存庫在組態伺服器中註冊後，即無法變更。 檢閱[這篇文章](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault)了解重新註冊步驟。
 
 ### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>是否可將相同的組態伺服器用於 VMware VM 和實體伺服器的災害復原
 是，但請注意，實體機器只能容錯回復到 VMware VM。

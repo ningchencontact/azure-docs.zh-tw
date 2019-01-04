@@ -9,16 +9,15 @@ ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 815388db673673a3802f8e5e515b7e16cb180a29
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959302"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323349"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常見問題集
 
@@ -27,7 +26,7 @@ ms.locfileid: "50959302"
 
 * [.NET 應用程式](app-insights-asp-net-troubleshoot-no-data.md)
 * [監視已在執行的應用程式](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure 診斷](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure 診斷](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Java Web 應用程式](app-insights-java-troubleshoot.md)
 
 我的伺服器沒有傳回資料
@@ -119,7 +118,7 @@ ms.locfileid: "50959302"
 
 從其他來源 (如果您設定它們的話)：
 
-* [Azure 診斷](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
+* [Azure 診斷](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
 * [Docker 容器](app-insights-docker.md)
 * [將資料表匯入到分析](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
@@ -141,7 +140,7 @@ ms.locfileid: "50959302"
 * 瀏覽器遙測：我們會收集傳送者的 IP 位址。
 * 伺服器遙測：Application Insights 模組會收集用戶端 IP 位址。 如果已設定 `X-Forwarded-For`，則不會收集該位址。
 
-您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [深入了解](http://apmtips.com/blog/2016/07/05/client-ip-address/)。
+您可以設定 `ClientIpHeaderTelemetryInitializer` 以從不同的標頭取得 IP 位址。 例如，在某些系統中，Proxy、負載平衡器或 CDN 會將它移至 `X-Originating-IP`。 [深入了解](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
 
 您可以[使用 Power BI](app-insights-export-power-bi.md) 在地圖上顯示您的要求遙測資料。
 
@@ -185,7 +184,7 @@ ms.locfileid: "50959302"
 ## <a name="what-are-the-user-and-session-counts"></a>什麼是使用者和和工作階段計數？
 
 * JavaScript SDK 會在 Web 用戶端上設定使用者 Cookie 來識別傳回使用者，以及設定一個工作階段 Cookie 來將活動分組。
-* 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](http://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)。
+* 如果沒有任何用戶端指令碼，則您可以[在伺服器設定 Cookie](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/)。
 * 如果有一個真實的使用者以不同的瀏覽器使用您的站台，或是使用 InPrivate/Incognito 瀏覽，或透過不同的電腦，則系統會將其計算多次。
 * 若要跨電腦和瀏覽器識別登入的使用者，請新增對 [setAuthenticatedUserContext()](app-insights-api-custom-events-metrics.md#authenticated-users) 的呼叫。
 

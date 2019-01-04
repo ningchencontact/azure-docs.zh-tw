@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: fd00fb8da3cf36518f9e28e827e59fd7ff45d687
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 8abbbba0cdac783dd315cd1f0965e03c4e5a1a05
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622205"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434540"
 ---
 # <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>委派 Azure Active Directory B2B 共同作業邀請
 
@@ -32,9 +32,12 @@ Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMembe
 
 ## <a name="control-who-can-invite"></a>控制誰可以邀請
 
-移至 [Azure Active Directory] > [使用者設定] > [管理外部共同作業設定]
+在 Azure Active Directory 中，選取 [使用者設定]。 在 [外部使用者] 下，選取 [管理外部共同作業設定]。
 
-![externalusers](https://user-images.githubusercontent.com/13383753/45905128-2c47f680-bda4-11e8-955d-6219c67935e0.PNG)
+> [!NOTE]
+> [外部共用作業設定] 也在 [組織關係] 頁面上。 在 Azure Active Directory 中，[管理] 下方，移至 [組織關係]  >  [設定]。
+
+![外部共同作業設定](./media/delegate-invitations/control-who-to-invite.png)
 
 使用 Azure AD B2B 共同作業，租用戶系統管理員可以設定下列邀請原則：
 

@@ -1,6 +1,6 @@
 ---
-title: 將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線 | Microsoft Docs
-description: 瞭解如何將 Azure DevTest Labs 整合到 VSTS 持續整合和傳遞管線
+title: 將 Azure DevTest Labs 整合到 Azure Pipelines 持續整合和傳遞管線 | Microsoft Docs
+description: 了解如何將 Azure DevTest Labs 整合到 Azure Pipelines 持續整合和傳遞管線
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 459b06df954d9cc913b6d1503c9f876f93b494e9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301203"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082946"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>將 Azure DevTest Labs 整合到 Azure DevOps 持續整合和傳遞管線
 您可以使用安裝在 Azure DevOps 中的 *Azure DevTest Labs 工作*擴充功能，輕鬆地整合您的 CI/CD 組建和發行管線與 Azure DevTest Labs。 此延伸模組會安裝三項工作： 
@@ -138,7 +138,7 @@ ms.locfileid: "44301203"
 1. 在發行管線中選取 [新增工作]，然後在 [部署] 索引標籤上新增 [Azure PowerShell] 工作。 請依照下列方式設定工作：
 
    > [!NOTE]
-   > 若要收集 DevTest Labs VM 的詳細資料，請參閱[部署：Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell)，並執行指令碼。
+   > 若要收集 DevTest Labs VM 的詳細資料，請參閱[部署：Azure PowerShell](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzurePowerShellV3)，並執行指令碼。
 
    a. 針對 [Azure 連線類型]，選取 [Azure Resource Manager]。
 

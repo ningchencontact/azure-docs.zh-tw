@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/9/2017
 ms.author: jeedes
-ms.openlocfilehash: 1b6527207793558c132be4cf004b7d6fdde14a90
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 8bdf49f4cea7c6f0ff30e37bcf1cf2fed3abc2bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584106"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mobileiron"></a>教學課程：Azure Active Directory 與 MobileIron 整合
 
@@ -50,24 +50,27 @@ MobileIron 與 Azure AD 整合提供下列優點：
 - 如果您沒有 Azure AD 試用環境，您可以[取得一個月試用](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
-在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
+
+在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。
+本教學課程中說明的案例由二項主要的基本工作組成：
 
 1. 從資源庫新增 MobileIron
 1. 設定並測試 Azure AD 單一登入
 
 ## <a name="adding-mobileiron-from-the-gallery"></a>從資源庫新增 MobileIron
+
 若要設定 MobileIron 與 Azure AD 整合，您需要從資源庫將 MobileIron 新增至受控 SaaS 應用程式清單。
 
 **若要從資源庫新增 MobileIron，請執行下列步驟：**
 
-1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。 
+1. 在 **[Azure 入口網站](https://portal.azure.com)** 的左方瀏覽窗格中，按一下 [Azure Active Directory] 圖示。
 
     ![Azure Active Directory 按鈕][1]
 
 1. 瀏覽至 [企業應用程式]。 然後移至 [所有應用程式]。
 
     ![企業應用程式刀鋒視窗][2]
-    
+
 1. 若要新增新的應用程式，請按一下對話方塊頂端的 [新增應用程式] 按鈕。
 
     ![新增應用程式按鈕][3]
@@ -103,7 +106,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
     ![設定單一登入連結][4]
 
 1. 在 [單一登入] 對話方塊上，於 [模式] 選取 [SAML 登入]，以啟用單一登入。
- 
+
     ![單一登入對話方塊](./media/mobileiron-tutorial/tutorial_mobileiron_samlbase.png)
 
 1. 如果您想要以  **IDP**  起始模式設定應用程式，請在 [MobileIron 網域及 URL] 區段上執行下列步驟：
@@ -119,12 +122,13 @@ MobileIron 與 Azure AD 整合提供下列優點：
     ![MobileIron 網域及 URL 單一登入](./media/mobileiron-tutorial/tutorial_mobileiron_url1.png)
 
     在 [登入 URL] ****  文字方塊中，以下列模式輸入 URL： `https://<host>.mobileiron.com/user/login.html`
-    
-    > [!NOTE]  這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
+
+    > [!NOTE]
+    > 這些都不是真正的值。 使用實際的識別碼、回覆 URL 和登入 URL 來更新這些值。 您將會從 MobileIron 的系統管理入口網站取得 key 和 host 的值 (本教學課程稍後說明)。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [中繼資料 XML]，然後將中繼資料檔案儲存在您的電腦上。
 
-    ![憑證下載連結](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png) 
+    ![憑證下載連結](./media/mobileiron-tutorial/tutorial_mobileiron_certificate.png)
 
 1. 按一下 [儲存]  按鈕。
 
@@ -134,7 +138,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
 
 1. 移至 [管理員] > [身分識別]。
 
-   * 在 [雲端 IDP 設定的相關資訊] 欄位中，選取 [AAD] 選項。
+   - 在 [雲端 IDP 設定的相關資訊] 欄位中，選取 [AAD] 選項。
 
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_admin.png)
 
@@ -143,7 +147,7 @@ MobileIron 與 Azure AD 整合提供下列優點：
     ![設定單一登入管理員按鈕](./media/mobileiron-tutorial/key.png)
 
 1. 在 [從 AAD 匯出中繼資料檔案並匯入至 MobileIron 雲端] 欄位中，按一下 [選擇檔案]，上傳從 Azure 入口網站下載的中繼資料。 上傳之後，按一下 [完成]。
- 
+
     ![設定單一登入管理員中繼資料按鈕](./media/mobileiron-tutorial/tutorial_mobileiron_adminmetadata.png)
 
 > [!TIP]
@@ -203,20 +207,20 @@ MobileIron 需以手動方式佈建。
     1. 在 [名字] 文字方塊中，輸入使用者的名字，例如 Britta。
 
     1. 在 [姓氏] 文字方塊中，輸入使用者的姓氏，例如 Simon。
-    
-    1. 按一下 [完成] 。  
+
+    1. 按一下 [完成] 。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
 在本節中，您會將 MobileIron 的存取權授與 Britta Simon，讓她能夠使用 Azure 單一登入。
 
-![指派使用者角色][200] 
+![指派使用者角色][200]
 
 **若要將 Britta Simon 指派給 MobileIron，請執行下列步驟：**
 
 1. 在 Azure 入口網站中，開啟應用程式檢視，接著瀏覽至目錄檢視並移至 [企業應用程式]，然後按一下 [所有應用程式]。
 
-    ![指派使用者][201] 
+    ![指派使用者][201]
 
 1. 在應用程式清單中，選取 [MobileIron]。
 
@@ -235,19 +239,18 @@ MobileIron 需以手動方式佈建。
 1. 按一下 [使用者和群組] 對話方塊上的 [選取] 按鈕。
 
 1. 按一下 [新增指派] 對話方塊上的 [指派] 按鈕。
-    
+
 ### <a name="test-single-sign-on"></a>測試單一登入
 
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 MobileIron 磚時，應該會自動登入您的 MobileIron 應用程式。
-如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。
 
 ## <a name="additional-resources"></a>其他資源
 
-* [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
-* [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
-
+- [如何與 Azure Active Directory 整合 SaaS 應用程式的教學課程清單](tutorial-list.md)
+- [什麼是搭配 Azure Active Directory 的應用程式存取和單一登入？](../manage-apps/what-is-single-sign-on.md)
 
 <!--Image references-->
 
@@ -262,4 +265,3 @@ MobileIron 需以手動方式佈建。
 [201]: ./media/mobileiron-tutorial/tutorial_general_201.png
 [202]: ./media/mobileiron-tutorial/tutorial_general_202.png
 [203]: ./media/mobileiron-tutorial/tutorial_general_203.png
-

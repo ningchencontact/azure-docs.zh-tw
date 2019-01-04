@@ -1,19 +1,19 @@
 ---
 title: 如何管理 Azure 地圖服務帳戶和金鑰 | Microsoft Docs
 description: 您可以使用 Azure 入口網站來管理 Azure 地圖服務帳戶以及管理存取金鑰。
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 12/12/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 29fd63139d31d146cfc67153f35bd57650b08cfa
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 351bc26d6c5b3dcfa9479138f2bd523f64a2912a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541614"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53335807"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>如何管理 Azure 地圖服務帳戶和金鑰
 
@@ -53,5 +53,10 @@ ms.locfileid: "45541614"
 
 ## <a name="next-steps"></a>後續步驟
 
-* 了解如何使用 Azure 地圖服務搜尋API 來[搜尋地址](./how-to-search-for-address.md)。
-* 了解如何使用 Azure 地圖服務的 [JavaScript 地圖控制項](./how-to-use-map-control.md)。
+了解如何管理 Azure 地圖服務帳戶的定價層：
+> [!div class="nextstepaction"]
+> [管理定價層](./how-to-manage-pricing-tier.md)
+
+了解如何查看 Azure 地圖服務帳戶的 API 使用計量：
+> [!div class="nextstepaction"]
+> [檢視使用計量](./how-to-view-api-usage.md)

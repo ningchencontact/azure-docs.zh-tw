@@ -1,23 +1,24 @@
 ---
-title: 設定 Azure ExpressRoute 線路的工作流程 | Microsoft Docs
-description: 此頁面會引導您完成設定 ExpressRoute 線路的工作流程
+title: 線路設定工作流程 - ExpressRoute：Azure | Microsoft Docs
+description: 此頁面會示範設定 ExpressRoute 線路和對等互連的工作流程
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 12/07/2018
 ms.author: cherylmc
-ms.openlocfilehash: 765050c9c21c7ba752535fc391cc9bb7d8ac4083
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.custom: seodec18
+ms.openlocfilehash: 3ffcc5ac2193e607573ceb93717258f5349d1f15
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301033"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101682"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>ExpressRoute 工作流程線路佈建和線路狀態
 這個頁面以高階觀點引導您完成服務佈建和路由設定的工作流程。
 
-![](./media/expressroute-workflows/expressroute-circuit-workflow.png)
+![線路工作流程](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
 下圖和對應的步驟顯示佈建端對端 ExpressRoute 線路所必須執行的工作。 
 
@@ -35,7 +36,7 @@ ms.locfileid: "43301033"
      > 
      > 
      
-     ![](./media/expressroute-workflows/routing-workflow.png)
+     ![路由工作流程](./media/expressroute-workflows/routing-workflow.png)
 5. 將虛擬網路連結到 ExpressRoute 線路 - 您可以將虛擬網路連結到 ExpressRoute 線路。 請依照指示 [連結 VNet](expressroute-howto-linkvnet-arm.md) 到您的線路。 這些 VNet 可以與 ExpressRoute 線路位於相同的 Azure 訂用帳戶中，也可以在不同的訂用帳戶中。
 
 ## <a name="expressroute-circuit-provisioning-states"></a>ExpressRoute 線路佈建狀態

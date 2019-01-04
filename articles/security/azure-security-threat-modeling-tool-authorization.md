@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eec628a5084dc663978e16e617192802d3ecfcfa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: ddf40538fc3d6e39fe48ff49311f86314008b4ce
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307651"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994750"
 ---
-# <a name="security-frame-authorization--mitigations"></a>安全框架︰授權 | 緩和措施 
+# <a name="security-frame-authorization--mitigations"></a>安全性框架：授權 | 緩和措施 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **電腦信任邊界** | <ul><li>[確保設定正確的 ACL 以將未經授權的存取限制於裝置上的資料](#acl-restricted-access)</li><li>[確保敏感性使用者特有應用程式內容會儲存在使用者設定檔目錄中](#sensitive-directory)</li><li>[確保已部署的應用程式是以最低權限執行](#deployed-privileges)</li></ul> |
@@ -349,7 +349,7 @@ WHERE userID=:id < - session var
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、NET Framework 3 |
 | **屬性**              | N/A  |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_unauthorized_access) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference) |
 | **步驟** | <p>此服務並不會使用授權控制。 當用戶端呼叫特定 WCF 服務時，WCF 會提供各種授權方案，以確認呼叫端有權在伺服器上執行此服務方法。 如果未針對 WCF 服務啟用授權控制，經過驗證的使用者可以獲得權限提升。</p>|
 
 ### <a name="example"></a>範例

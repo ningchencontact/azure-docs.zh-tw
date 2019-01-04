@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: cbb81f62bcea43c3c30abff6b5f76e3a89347813
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8b6edcb70bca480ebe0d53c061c6461745f189e8
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985391"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321284"
 ---
 # <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>B2B 共同作業邀請電子郵件的元素 - Azure Active Directory
 
@@ -27,7 +27,7 @@ ms.locfileid: "45985391"
 讓我們看看一些電子郵件項目，以便了解如何充分利用這些功能。
 
 ### <a name="subject"></a>主體
-電子郵件的主旨依循以下模式：您收到加入 &lt;tenantname&gt; 組織的邀請
+電子郵件的主旨依循以下模式：誠摯地邀請您加入 &lt;tenantname&gt; 組織
 
 ### <a name="from-address"></a>寄件者地址
 針對「寄件者地址」，我們使用類似 LinkedIn 的模式。  您應該清楚邀請者是誰及來自哪個公司，並且表明電子郵件是來自 Microsoft 電子郵件帳戶。 其格式為：來自 &lt;tenantname&gt; 的&lt;邀請者的顯示名稱&gt; (透過 Microsoft) <invites@microsoft.com>
@@ -40,7 +40,7 @@ ms.locfileid: "45985391"
 
 ### <a name="call-to-action"></a>對動作的呼叫
 對動作的呼叫是由兩個部分組成：說明收件者收到郵件的原因，以及要求收件者採取的動作。
-- 「原因」區段可以使用以下模式來處理：您收到存取 &lt;tenantname&gt; 組織中應用程式的邀請
+- 可以使用下列模式來處理「原因」一節：誠摯地邀請您存取 &lt;tenantname&gt; 組織中的應用程式
 
 - 而「要求您採取的動作」區段是以 [開始使用] 按鈕的存在來表示。 在已新增使用者而不需要邀請的情況下，就不會顯示此按鈕。
 
@@ -52,7 +52,7 @@ ms.locfileid: "45985391"
   ![顯示邀請者的姓名縮寫](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>body
-本文內容包含邀請者撰寫或透過邀請 API 傳遞的訊息。 因為它是文字區域，所以不會基於安全考量處理 HTML 標記。
+內文包含[邀請來賓使用者到目錄、群組或應用程式](add-users-administrator.md) 或[使用邀請 API](customize-invitation-api.md) 時，邀請者所撰寫的訊息。 因為它是文字區域，所以不會基於安全考量處理 HTML 標記。
 
 ### <a name="footer-section"></a>頁尾區段
 頁尾包含 Microsoft 公司品牌，並讓收件者知道電子郵件是否是由未受監視的別名所傳送。 特殊案例：

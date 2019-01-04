@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞傳訊例外狀況 | Microsoft Docs
-description: Azure 事件中樞傳訊例外狀況和建議的動作清單。
+title: 傳訊例外狀況 - Azure 事件中樞 | Microsoft Docs
+description: 本文提供 Azure 事件中樞傳訊例外狀況和建議的動作清單。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -10,14 +10,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/03/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 4576aad82b8c581cbe1630b56a07fc469207ef5f
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 013386d86d29b75591a938b2805bde25ecf176d3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40037980"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104454"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>事件中樞傳訊例外狀況
 
@@ -80,11 +81,11 @@ ms.locfileid: "40037980"
 
 1. 負載未在事件中樞上的所有資料分割平均分佈，且其中一個資料分割達到本機輸送量單位限制。
     
-    解決方式︰修改資料分割散發策略，或嘗試 [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_)，可能會有幫助。
+    解決方案：修改資料分割散發策略，或嘗試 [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_)，可能會有幫助。
 
 2. 事件中樞命名空間沒有足夠的輸送量單位 (您可以檢查 [Azure 入口網站](https://portal.azure.com)中 [事件中樞命名空間] 視窗上的 [度量] 畫面來確認)。 入口網站會顯示彙總資訊 (1 分鐘)，但我們會即時測量輸送量 – 因此這只是估計值。
 
-    解決方式︰增加命名空間的輸送量單位可能會有幫助。 您可以透過入口網站，在 [事件中樞命名空間] 畫面的 [調整] 視窗中執行此作業。 您也可以使用[自動擴充](event-hubs-auto-inflate.md)。
+    解決方案：增加命名空間的輸送量單位可能會有幫助。 您可以透過入口網站，在 [事件中樞命名空間] 畫面的 [調整] 視窗中執行此作業。 您也可以使用[自動擴充](event-hubs-auto-inflate.md)。
 
 ### <a name="error-code-50001"></a>錯誤碼 50001
 

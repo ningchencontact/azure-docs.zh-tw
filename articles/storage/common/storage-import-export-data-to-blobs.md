@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/11/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 023df222ee2e9ca6af1398dd70767938e61c90b7
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824096"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309581"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure Blob 儲存體
 
@@ -30,7 +30,7 @@ ms.locfileid: "51824096"
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。 
 - 在 Windows 系統上啟用 BitLocker。 請參閱[如何啟用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
-- 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://www.microsoft.com/en-us/download/details.aspx?id=42659)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
+- 請在 Windows 系統上[下載 WAImportExport 第 1 版](https://aka.ms/waiev1)。 將檔案解壓縮至預設資料夾 `waimportexportv1`。 例如： `C:\WaImportExportV1`。
 - 擁有 FedEx/DHL 帳戶。  
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。

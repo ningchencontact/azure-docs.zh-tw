@@ -1,21 +1,22 @@
 ---
-title: FAQ - 常見問題集 - Language Understanding (LUIS)
+title: 常見問題集 (FAQ)
 titleSuffix: Azure Cognitive Services
 description: 本文包含 Language Understanding (LUIS) 常見問題集的解答。
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: d371ead3280bca5239a9ee6bf2c4275414141fb4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 9e5b132a7946bdc648e051c9f7327cc7159f291e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284365"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163628"
 ---
 # <a name="language-understanding-faq"></a>Language Understanding 常見問題集
 
@@ -196,15 +197,15 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 
 ## <a name="luis-service"></a>LUIS 服務
 
-### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS 可以在內部部署或私人雲端中使用嗎？
-否。
+### <a name="is-language-understanding-luis-available-on-premises-or-in-private-cloud"></a>Language Understanding (LUIS) 可以在內部部署或私人雲端中使用嗎？
 
+是，如果您必須測量連線使用量，可以在這些情況下，使用 LUIS [容器](luis-container-howto.md)。 
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在組建 2018 會議中，我聽到一種 Language Understanding 功能或示範，但不記得它的名稱為何？
 
 組建 2018 會議已發行下列功能：
 
-|名稱|內容|
+|Name|內容|
 |--|--|
 |增強功能|[規則運算式](luis-concept-data-extraction.md##regular-expression-entity-data)實體和[關鍵片語](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)實體
 |模式|模式[概念](luis-concept-patterns.md)、[教學課程](luis-tutorial-pattern.md)、[做法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 實體概念 (包括例外狀況[明確清單](luis-concept-patterns.md#explicit-lists))<br>[角色](luis-concept-roles.md)概念|
@@ -214,7 +215,7 @@ LUIS 應用程式預設會記錄使用者的語句。 若要下載使用者傳�
 已包括其他撰寫 [API 路由](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md)。
 
 影片：
-* [組建 2018 的 Azure Friday：認知服務 - 語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Azure Friday 組建 2018：認知服務 - 語言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
 * [組建 2018 AI 顯示 - Language Understanding 服務的最新消息](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
 * [組建 2018 工作階段 - Bot 智慧、語音功能和 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
 * [組建 2018 - LUIS 更新](https://channel9.msdn.com/events/Build/2018/THR3118/player)

@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務中的索引工具 | Microsoft Docs
+title: 在編製索引期間搜耙資料來源的索引子 - Azure 搜尋服務
 description: 將 Azure SQL Database、Azure Cosmos DB 或 Azure 儲存體耙梳，以擷取可搜尋的資料並填入 Azure 搜尋服務索引。
 author: HeidiSteen
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: heidist
-ms.openlocfilehash: 2164e0b7cc973969e39f5708bb6509c1ed5f636a
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.custom: seodec2018
+ms.openlocfilehash: 8dae593dea36944f8db037803c0dfac68cbac7c8
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34641130"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384899"
 ---
 # <a name="indexers-in-azure-search"></a>Azure 搜尋服務中的索引子
 
@@ -46,7 +47,8 @@ Azure 搜尋服務中的 *索引子* 是一種編目程式，其可從外部 Azu
 * [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob 儲存體](search-howto-indexing-azure-blob-storage.md)
-* [Azure 資料表儲存體](search-howto-indexing-azure-tables.md)
+* [Azure 資料表儲存體](search-howto-indexing-azure-tables.md) 
+    * 請注意，[認知服務](cognitive-search-concept-intro.md)不支援 Azure 表格儲存體
 
 
 ## <a name="basic-configuration-steps"></a>基本組態步驟

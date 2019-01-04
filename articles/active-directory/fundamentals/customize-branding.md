@@ -1,6 +1,6 @@
 ---
-title: 如何將商標新增至您的 Azure Active Directory 登入頁面 | Microsoft Docs
-description: 了解如何將您組織的商標新增至 Azure Active Directory 登入頁面。
+title: 將商標新增至組織的登入頁面 - Azure Active Directory | Microsoft Docs
+description: 以下相關指示說明如何將組織的商標新增至 Azure Active Directory 登入頁面。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
-custom: it-pro
-ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 0ce0d42e37bcc5c936798947bacf0232891c24ab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090307"
 ---
-# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>操作說明：將商標新增至您的 Azure Active Directory 登入頁面
+# <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>將商標新增至組織的 Azure Active Directory 登入頁面
 使用您組織的標誌和自訂色彩配置，在 Azure Active Directory (Azure AD) 登入頁面上展現一致的外觀與風格。 當使用者登入貴組織的 Web 應用程式 (如 Office 365)，且該應用程式使用 Azure AD 做為識別提供者時，即會顯示您的登入頁面。
 
 >[!Note]

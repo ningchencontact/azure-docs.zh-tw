@@ -8,17 +8,16 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 7e0734790a0b33a52ace01ad961b1bc3127fa3d4
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7780c10233a0ce256ee6e9015f40ea789516c25b
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976514"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726894"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 來分析 Azure 中的生產應用程式
 ## <a name="enable-profiler-for-your-application"></a>為應用程式啟用 Profiler
@@ -50,7 +49,7 @@ Profiler 可與下列 Azure 服務上所部署的 .Net 應用程式搭配運作�
 
 追蹤總管會顯示下列資訊：
 
-* [顯示最忙碌路徑]：會開啟最大的分葉節點，或至少是類似的節點。 在大部分情況下，這個節點會接近效能瓶頸。
+* **顯示最忙碌路徑**：開啟最大的分葉節點，或至少是類似的節點。 在大部分情況下，這個節點會接近效能瓶頸。
 * **標籤**︰函式或事件的名稱。 樹狀結構會混合顯示程式碼和發生的事件 (例如 SQL 和 HTTP 事件)。 最上層事件代表要求整體的持續時間。
 * **經過時間**︰作業開始和作業結束之間的時間間隔。
 * **何時**︰顯示函式或事件相對於其他函式的執行時間。

@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a76486eaf2f9df8eb47b8bb73f1577324152a80f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 65747da92a3cad770cd9d474d27645782f7306b9
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623293"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998742"
 ---
 # <a name="troubleshooting-azure-active-directory-activity-logs-content-pack-errors"></a>對 Azure Active Directory 活動記錄內容套件錯誤進行疑難排解 
 
@@ -34,7 +34,8 @@ ms.locfileid: "51623293"
 
 - [重新整理失敗](troubleshoot-content-pack.md#refresh-failed) 
 - [無法更新資料來源認證](troubleshoot-content-pack.md#failed-to-update-data-source-credentials) 
-- [匯入資料的時間太長](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long)。 
+- [匯入資料的時間太長](troubleshoot-content-pack.md#importing-of-data-is-taking-too-long) 
+
 本文為您提供可能的原因以及如何修正這些錯誤的相關資訊。
  
 ## <a name="refresh-failed"></a>重新整理失敗 
@@ -61,7 +62,7 @@ ms.locfileid: "51623293"
 
 ## <a name="data-import-is-too-slow"></a>資料匯入速度太慢 
  
-**此錯誤的呈現方式**：在 Power BI 中，於連線到內容套件後，資料匯入程序就會開始準備您的儀表板以用於 Azure AD 活動記錄。 您會看見下列訊息：**正在匯入資料...**，然後再也沒有任何進展。  
+**此錯誤的呈現方式**：在 Power BI 中，於連線到內容套件後，資料匯入程序就會開始準備您的儀表板以用於 Azure AD 活動記錄。 您會看見此訊息：**正在匯入資料...**，然後再也沒有任何進展。  
 
 | 原因 | 修正方式 |
 | ---   | ---        |

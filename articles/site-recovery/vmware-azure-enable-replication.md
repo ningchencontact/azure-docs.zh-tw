@@ -3,15 +3,15 @@ title: 使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行 VMware �
 description: 本文說明如何使用 Azure Site Recovery 將 VMware VM 複寫至 Azure 進行災害復原。
 author: asgang
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: c6c5aeece9e49a44654d63a7dc243991a62f2d9a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 51470e9f8e0bffe18d1dc4007433246d084a5cb2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566348"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846652"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>讓 VMware VM 能夠複寫至 Azure
 
@@ -39,7 +39,7 @@ ms.locfileid: "51566348"
 
 ## <a name="enable-replication"></a>啟用複寫
 
-1. 按一下 [步驟 2: 複寫應用程式]  >  [來源]。 第一次啟用複寫之後，請按一下保存庫中的 [+複寫]，以對其他機器啟用複寫。
+1. 按一下 [步驟 2：複寫應用程式] > [來源]。 第一次啟用複寫之後，請按一下保存庫中的 [+複寫]，以對其他機器啟用複寫。
 2. 在 [來源] 頁面 > [來源] 中，選取組態伺服器。
 3. 在 [機器類型] 中，選取 [虛擬機器] 或 [實體機器]。
 4. 在 [vCenter/vSphere Hypervisor] 中，選取管理 vSphere 主機的 vCenter 伺服器，或選取主機。 如果您是複寫實體機器，則這個設定不相關。

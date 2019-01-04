@@ -1,12 +1,11 @@
 ---
-title: Azure Machine Learning Studio 有哪些新功能？ | Microsoft Docs
+title: 新功能 - Azure Machine Learning Studio | Microsoft Docs
 description: Azure Machine Learning Studio 中可用的新功能。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: ddc716ed-2615-4806-bf27-6c9a5662a7f2
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/28/2018
-ms.openlocfilehash: c93bb9a2fa7991df265b4767585d920c137a436d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 90a9a81de488f2b3b256e3164c3bfde3019d0ad3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311138"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253002"
 ---
 # <a name="whats-new-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio 有哪些新功能？
 

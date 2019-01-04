@@ -1,20 +1,19 @@
 ---
 title: Azure 串流分析地理空間函式簡介
-description: 本文說明 Azure 串流分析作業所使用的地理空間函式。
+description: 此文章說明 Azure 串流分析作業所使用的地理空間函式。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/04/2018
-ms.openlocfilehash: 02d1f551c7ec2856bbfce65c5397f454f6b9d5be
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/06/2018
+ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703271"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103118"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>串流分析地理空間函式簡介
 
@@ -28,7 +27,7 @@ Azure 串流分析中的地理空間函式可即時分析串流地理空間資�
 * 異地隔離
 * 跨基地台進行電話追蹤
 
-串流分析查詢語言具有七個內建的地理空間函式：**CreateLineString**、**Createpoint**、**CreatePolygon**、**ST_DISTANCE**、**ST_OVERLAPS**、**ST_INTERSECTS** 和 **ST_WITHIN**。
+串流分析查詢語言有數個內建的地理空間函式：**CreateLineString**、**CreatePoint**、**CreatePolygon**、**ST_DISTANCE**、**ST_OVERLAPS**、**ST_INTERSECTS** 與 **ST_WITHIN**。
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -51,9 +50,9 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例  
 
- {"type" : "LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
+ {"type" :"LineString", "coordinates" : [ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5] ]}
 
- {"type" : "LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
+ {"type" :"LineString", "coordinates" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
 若要深入了解，請瀏覽 [CreateLineString](https://msdn.microsoft.com/azure/stream-analytics/reference/createlinestring) 參考。
 
@@ -78,9 +77,9 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例
   
- {"type" : "Point", "coordinates" : [-10.2, 3.0]}  
+ {"type" :"Point", "coordinates" : [-10.2, 3.0]}  
   
- {"type" : "Point", "coordinates" : [20.2321, -87.33]}  
+ {"type" :"Point", "coordinates" : [20.2321, -87.33]}  
 
 若要深入了解，請瀏覽 [CreatePoint](https://msdn.microsoft.com/azure/stream-analytics/reference/createpoint) 參考。
 
@@ -105,9 +104,9 @@ FROM input
   
 ### <a name="output-example"></a>輸出範例  
 
- {"type" : "Polygon", "coordinates" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
+ {"type" :"Polygon", "coordinates" : [[ [-10.2, 3.0], [10.0, 10.0], [10.5, 10.5], [-10.2, 3.0] ]]}
  
- {"type" : "Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
+ {"type" :"Polygon", "coordinates" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
 若要深入了解，請瀏覽 [CreatePolygon](https://msdn.microsoft.com/azure/stream-analytics/reference/createpolygon) 參考。
 

@@ -10,19 +10,17 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 8b4ed19ede70c3c9b768cfd368e22b0df3e71212
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: de9e6d5c8c6b4dc9652ae64c9a4fd0e38d7a7b87
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430533"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184758"
 ---
-# <a name="network-performance-monitor-solution-performance-monitoring"></a>網路效能監控解決方案：效能監控
+# <a name="network-performance-monitor-solution-performance-monitoring"></a>網路效能監控解決方案：效能監視
 
 [網路效能監控](network-performance-monitor.md)中的效能監控功能可協助您監控網路中各個點之間的網路連線。 您可以監控雲端部署和內部部署位置、多個資料中心和分公司，以及任務關鍵性多層式應用程式或微服務。 利用效能監視器，您可以在使用者提出抱怨之前偵測到網路問題。 主要優點是您可以： 
 
@@ -137,4 +135,4 @@ ms.locfileid: "52430533"
 ![已選取節點屬性的拓撲圖](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>後續步驟
-[搜尋記錄檔](../../log-analytics/log-analytics-queries.md)以檢視詳細的網路效能資料記錄。
+[搜尋記錄檔](../../azure-monitor/log-query/log-query-overview.md)以檢視詳細的網路效能資料記錄。

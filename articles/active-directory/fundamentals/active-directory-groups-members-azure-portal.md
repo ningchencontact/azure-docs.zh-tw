@@ -1,56 +1,65 @@
 ---
-title: 在 Azure AD 中管理群組的成員 | Microsoft Docs
-description: 如何在 Azure Active Directory 的群組中新增或移除使用者和裝置
+title: 新增或移除群組成員 - Azure Active Directory | Microsoft Docs
+description: 關於如何使用 Azure Active Directory 從群組新增或移除成員的指示。
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
-ms.custom: it-pro
+ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: 947b0c11aba211530e3ae25d6617079bcaf2995f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 42b80b53ca7c860143f1de1005a609b3e921e650
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860344"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076135"
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>管理 Azure Active Directory 租用戶中使用者的群組成員資格
-本文說明如何在 Azure Active Directory (Azure AD) 中管理群組的成員。
+# <a name="add-or-remove-group-members-using-azure-active-directory"></a>使用 Azure Active Directory 新增或移除群組成員
+使用 Azure Active Directory，您可以繼續新增和移除群組成員。
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>如何尋找成員及管理這些成員？
-1. 使用具備目錄全域管理員身分的帳戶來登入 [Azure 入口網站](https://portal.azure.com) 。
-2. 選取 [所有服務]，在文字方塊中輸入**使用者和群組**，然後選取 **Enter** 鍵。
+## <a name="to-add-group-members"></a>新增群組成員
 
-   ![開啟使用者管理](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. 在 [使用者和群組] 刀鋒視窗上，選取 [所有群組]。
+1. 使用目錄的全域系統管理員帳戶登入 [Azure 入口網站](https://portal.azure.com)。
 
-   ![開啟群組刀鋒視窗](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. 在 [使用者和群組 - 所有群組]  刀鋒視窗上，選取一個群組。
-5. 在 [群組- *groupname*] 刀鋒視窗上，選取 [成員]。
+2. 選取 [Azure Active Directory]，然後選取 [群組]。
 
-   ![開啟 [成員] 刀鋒視窗](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. 若要將成員新增到群組中，請在 [群組 - 成員] 刀鋒視窗上，選取 [新增成員]。
+3. 從 [群組 - 所有群組] 頁面，搜尋並選取您要新增成員的群組。 在此案例中，請使用我們先前建立的群組 [MDM 原則 - 西部]。
 
-   ![[新增成員] 命令](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. 在 [成員] 刀鋒視窗上，選取一或多個要新增到群組中的使用者或裝置，然後選取刀鋒視窗底部的 [選取] 按鈕來將它們新增到群組中。 [使用者]  方塊會根據將您的輸入內容與使用者或裝置名稱的任何部分進行比對來篩選顯示。 該方塊中不接受任何萬用字元。
-8. 若要從群組中移除成員，請在 [群組 - 成員]  刀鋒視窗上，選取一個成員。
-9. 在 [***membername***] 刀鋒視窗上，選取 [移除] 命令，並在出現提示時確認您的選擇。
+    ![已醒目提示群組名稱的 [群組 - 所有群組] 頁面](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-   ![[移除成員] 命令](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. 完成變更群組的成員時，選取 [儲存] 。
+4. 從 [MDM 原則 - 西部概觀] 頁面的 [管理] 區域中，選取 [成員]。
 
-## <a name="additional-information"></a>其他資訊
-這些文章提供有關 Azure Active Directory 的其他資訊。
+    ![已醒目提示 [成員] 選項的 [MDM 原則 - 西部概觀] 頁面](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-* [查看現有的群組](active-directory-groups-view-azure-portal.md)
-* [建立新群組並新增成員](active-directory-groups-create-azure-portal.md)
-* [管理群組的設定](active-directory-groups-settings-azure-portal.md)
-* [管理群組的成員資格](active-directory-groups-membership-azure-portal.md)
-* [管理群組中使用者的動態規則](../users-groups-roles/groups-dynamic-membership.md)
+5. 選取 [新增成員]，然後搜尋並選取您要新增至群組的每個成員，然後選擇 [選取]。
+
+    您會收到一則訊息，指出已成功新增成員。
+
+    ![已顯示所搜尋成員的 [新增成員] 頁面](media/active-directory-groups-members-azure-portal/update-members.png)
+
+6. 重新整理畫面，以查看所有新增至群組的成員名稱。
+
+## <a name="to-remove-group-members"></a>移除群組成員
+
+1. 從 [群組 - 所有群組] 頁面，搜尋並選取您要移除成員的群組。 我們會再次使用 [MDM 原則 - 西部]。
+
+2. 從 [管理] 區域中選取 [成員]，搜尋並選取要移除的成員名稱，然後選取 [移除]。
+
+    ![具有 [移除] 選項的成員資訊頁面](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+
+## <a name="next-steps"></a>後續步驟
+
+- [檢視群組和成員](active-directory-groups-view-azure-portal.md)
+
+- [編輯群組設定](active-directory-groups-settings-azure-portal.md)
+
+- [使用群組管理對資源的存取](active-directory-manage-groups.md)
+
+- [管理群組中使用者的動態規則](../users-groups-roles/groups-create-rule.md)
+
+- [將 Azure 訂用帳戶關聯或新增至 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

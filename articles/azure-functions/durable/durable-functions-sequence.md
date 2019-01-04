@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ca6eefa6ccba3fabebd125d88010817c66db52ab
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 14d50a17cf7816cb8e792128f8dd3965781657e5
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637533"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339581"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Durable Functions 中的函式鏈結- Hello 序列範例
 
@@ -25,17 +25,18 @@ ms.locfileid: "52637533"
 
 ## <a name="the-functions"></a>函式
 
-此文章說明範例應用程式中的函式如下：
+本文說明範例應用程式中的函式如下：
 
 * `E1_HelloSequence`：此協調器函式連續呼叫 `E1_SayHello` 多次。 它會儲存 `E1_SayHello` 呼叫的輸出，並記錄結果。
 * `E1_SayHello`：此活動函式在字串前面加上 "Hello"。
 
-下列各節說明用於 C# 指令碼和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在此文章結尾。
+下列各節說明用於 C# 指令碼和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
 
 > [!NOTE]
-> Durable Functions 僅適用於 v2 Functions 執行階段中的 JavaScript。
+> JavaScript Durable Functions 僅可供 Functions 2.x 執行階段使用。
 
 ## <a name="e1hellosequence"></a>E1_HelloSequence
+
 ### <a name="functionjson-file"></a>function.json 檔案
 
 如果您使用 Visual Studio Code 或 Azure 入口網站進行開發，以下是適用於協調器函式的 *function.json* 檔案內容。 大部分協調器 *function.json* 檔案看起來幾乎完全像這樣。
@@ -47,7 +48,7 @@ ms.locfileid: "52637533"
 > [!WARNING]
 > 為了遵守協調器函式的「沒有 I/O」規則，當您使用 `orchestrationTrigger` 觸發程序繫結時，請勿使用任何輸入或輸出繫結。  如果需要其他輸入或輸出繫結，請改為在協調器所呼叫之 `activityTrigger` 函式的內容中使用。
 
-### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 指令碼 (Visual Studio Code 和 Azure 入口網站範例程式碼) 
+### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 指令碼 (Visual Studio Code 和 Azure 入口網站範例程式碼)
 
 以下是原始程式碼：
 
@@ -63,15 +64,16 @@ ms.locfileid: "52637533"
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-所有 JavaScript 協調流程函式都必須包含 `durable-functions` 模組。 這是 JavaScript 程式庫，可針對程序外語言，將協調流程函式的動作轉譯成 Durable 的執行通訊協定。 協調流程函式與其他 JavaScript 函式之間有三項重大差異：
+所有 JavaScript 協調流程函式都必須包含 [`durable-functions` 模組](https://www.npmjs.com/package/durable-functions)。 這是可讓您以 JavaScript 撰寫 Durable Functions 的程式庫。 協調流程函式與其他 JavaScript 函式之間有三項重大差異：
 
 1. 此函式是[產生器函式。](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
-2. 此函式會包裝在對 `durable-functions` 模組的呼叫中 (在此是 `df`)。
-3. 呼叫 `return` 而非 `context.done`，藉此結束函式。
+2. 此函式會包裝在對`durable-functions`模組的`orchestrator`方法進行的呼叫中 (在此是 `df`)。
+3. 此函式必須是同步的。 「Orchestrator」方法會處理呼叫「context.done」，因為函式應該只是「return」。
 
-`context` 物件包含 `df` 物件，可讓您使用其 `callActivityAsync` 方法來呼叫其他「活動」函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
+`context` 物件包含 `df` 物件，可讓您使用其 `callActivity` 方法來呼叫其他「活動」函式並傳遞輸入參數。 程式碼會使用不同的參數值依序呼叫 `E1_SayHello` 三次，使用 `yield` 表示執行應等候要傳回的非同步活動函式呼叫。 每次呼叫的傳回值會新增至函式最後傳回的 `outputs` 清單。
 
 ## <a name="e1sayhello"></a>E1_SayHello
+
 ### <a name="functionjson-file"></a>function.json 檔案
 
 活動函式 `E1_SayHello` 和 `E1_HelloSequence`的 *function.json*檔案很類似，差別在於前者使用 `activityTrigger` 繫結型別，而不是 `orchestrationTrigger` 繫結型別。
@@ -93,7 +95,7 @@ ms.locfileid: "52637533"
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-不同於 JavaScript 協調流程函式，JavaScript 活動函式不需要特殊安裝。 協調器函式傳遞給它的輸入位於 `context.bindings` 物件的 `activitytrigger` 繫結名稱之下 - 在此例中為 `context.bindings.name`。 繫結名稱可以設定為所匯出函式的參數並直接進行存取，這是範例程式碼所執行的作業。
+不同於 JavaScript 協調流程函式，活動函式不需要特殊安裝。 協調器函式傳遞給它的輸入位於 `context.bindings` 物件的 `activityTrigger` 繫結名稱之下 - 在此例中為 `context.bindings.name`。 繫結名稱可以設定為所匯出函式的參數並直接進行存取，這是範例程式碼所執行的作業。
 
 ## <a name="run-the-sample"></a>執行範例
 
@@ -150,7 +152,7 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="next-steps"></a>後續步驟
 
-此範例已示範簡單的函式鏈結協調流程。 下一個範例會說明如何實作展開傳送/收合傳送模式。 
+此範例已示範簡單的函式鏈結協調流程。 下一個範例會說明如何實作展開傳送/收合傳送模式。
 
 > [!div class="nextstepaction"]
 > [執行展開傳送/收合傳送範例](durable-functions-cloud-backup.md)

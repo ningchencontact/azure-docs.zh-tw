@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: e121cfddf8dc598771d630e011b4410217f5e92b
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3cb403b7f2ac529c79af5f83a1cbe436dc670a25
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901873"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413365"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>快速入門：必須接受使用規定才可存取雲端應用程式 
 
@@ -78,7 +78,7 @@ ms.locfileid: "48901873"
 
     ![Azure Active Directory](./media/require-tou/02.png)
 
-5. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+5. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
 
     ![條件式存取](./media/require-tou/03.png) 
 
@@ -135,7 +135,7 @@ ms.locfileid: "48901873"
 
 1. 在 [新增] 頁面的 [名稱] 文字方塊中，輸入「Isabella 必須接受 TOU」。
 
-    ![名稱](./media/require-tou/71.png)
+    ![Name](./media/require-tou/71.png)
 
 2. 在 [指派] 區段中，按一下 [使用者和群組]。
 

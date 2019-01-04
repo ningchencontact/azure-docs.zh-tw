@@ -7,25 +7,25 @@ manager: mtillman
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/05/2017
+ms.date: 12/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 80ba42d7eab1726c7add6c4c9426b7dde3b55480
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1486e303e4e94ee6140bcd6ed4f52bc433b9aae6
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445924"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100050"
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>將 Azure 訂用帳戶連結至 Azure AD B2C 租用戶
 
 > [!IMPORTANT]
-> Azure AD B2C 的最新使用量計費和價格資訊位於下列網頁︰[Azure AD B2C 價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Azure AD B2C 的最新使用計費和價格資訊位於下列網頁︰[Azure AD B2C 價格](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 Azure AD B2C 的使用費用會計入 Azure 訂用帳戶。 建立 Azure AD B2C 租用戶後，租用戶系統管理員必須明確地將 Azure AD B2C 租用戶連結至 Azure 訂用帳戶。 本文將說明如何做到。
 
 > [!NOTE]
-> 連結至 Azure AD B2C 租用戶的訂用帳戶只能用於 Azure AD B2C 使用量計費。 此訂用帳戶無法用來*在 Azure AD B2C 租用戶內*新增其他 Azure 服務或 Office 365 授權。
+> 連結至 Azure AD B2C 租用戶的訂用帳戶可用於 Azure AD B2C 使用量或其他 Azure 資源 (包括額外 Azure AD B2C 資源) 的計費。  此訂用帳戶無法用來在 Azure AD B2C 租用戶內新增其他 Azure 授權型服務或 Office 365 授權。
 
  在目標 Azure 訂用帳戶內建立 Azure AD B2C「資源」，即可達成此訂用帳戶連結。 在單一 Azure 訂用帳戶內可以建立許多 Azure AD B2C「資源」，以及其他 Azure 資源 (例如，VM、資料儲存體、LogicApps)。 移至與訂用帳戶相關聯的 Azure AD 租用戶，您即可看到訂用帳戶內的所有資源。
 

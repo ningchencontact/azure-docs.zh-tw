@@ -1,30 +1,23 @@
 ---
-title: 設定 Azure ExpressRoute Microsoft 對等互連的路由篩選：入口網站 | Microsoft Docs
-description: 本文說明如何使用 Azure 入口網站針對 Microsoft 對等互連設定路由篩選
-documentationcenter: na
+title: 針對 Microsoft 對等互連設定路由篩選：Azure ExpressRoute - 入口網站 | Microsoft Docs
+description: 本文說明如何使用 Azure 入口網站針對 Microsoft 對等互連設定路由篩選。
 services: expressroute
 author: ganesr
-manager: rossort
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 09/26/2018
 ms.author: ganesr
-ms.openlocfilehash: ab0cd45334581f6f5c6dd6e86939e018df5de074
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.custom: seodec18
+ms.openlocfilehash: 0515b5e85c3bcf56f1f238620d6036d1be0bec7e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29387722"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104198"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-portal"></a>針對 Microsoft 對等互連設定路由篩選：Azure 入口網站
 > [!div class="op_single_selector"]
-> * [HttpTrigger Nodejs 函數](how-to-routefilter-portal.md)
+> * [Azure 入口網站](how-to-routefilter-portal.md)
 > * [Azure PowerShell](how-to-routefilter-powershell.md)
 > * [Azure CLI](how-to-routefilter-cli.md)
 > 
@@ -95,33 +88,33 @@ ms.locfileid: "29387722"
 ### <a name="1-create-a-route-filter"></a>1.建立路由篩選
 您可以選取建立新資源的選項來建立路由篩選。 按一下 [建立資源]  >  [網路]  >  [RouteFilter]，如下圖所示：
 
-![建立路由篩選](.\media\how-to-routefilter-portal\CreateRouteFilter1.png)
+![建立路由篩選](./media/how-to-routefilter-portal/CreateRouteFilter1.png)
 
 您必須在資源群組中放置路由篩選。 
 
-![建立路由篩選](.\media\how-to-routefilter-portal\CreateRouteFilter.png)
+![建立路由篩選](./media/how-to-routefilter-portal/CreateRouteFilter.png)
 
 ### <a name="2-create-a-filter-rule"></a>2.建立篩選規則
 
 您可以為路由篩選選取管理規則索引標籤，以新增及更新規則。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![建立路由篩選](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
 
 您可以從下拉式清單選取您想要連線的服務，並且在完成時儲存規則。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\AddRouteFilterRule.png)
+![建立路由篩選](./media/how-to-routefilter-portal/AddRouteFilterRule.png)
 
 
-## <a name="attach"></a>步驟 3：將路由篩選連接到 ExpressRoute 線路
+## <a name="attach"></a>步驟 3：將路由篩選連結至 ExpressRoute 線路
 
 可以選取 [新增線路] 按鈕，並從下拉式清單選取 [ExpressRoute] 線路，以將路由篩選附加至線路。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\AddCktToRouteFilter.png)
+![建立路由篩選](./media/how-to-routefilter-portal/AddCktToRouteFilter.png)
 
 如果連線提供者為您的 ExpressRoute 線路設定對等互連，請先重新整理 ExpressRoute 線路刀鋒視窗的線路，再選取 [新增線路] 按鈕。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\RefreshExpressRouteCircuit.png)
+![建立路由篩選](./media/how-to-routefilter-portal/RefreshExpressRouteCircuit.png)
 
 ## <a name="tasks"></a>常見工作
 
@@ -129,7 +122,7 @@ ms.locfileid: "29387722"
 
 當您在入口網站中開啟資源時，可以檢視路由篩選的屬性。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\ViewRouteFilter.png)
+![建立路由篩選](./media/how-to-routefilter-portal/ViewRouteFilter.png)
 
 
 ### <a name="updateproperties"></a>若要更新路由篩選的屬性
@@ -137,23 +130,23 @@ ms.locfileid: "29387722"
 可以藉由選取 [管理規則] 按鈕，更新附加至線路之 BGP 社群值的清單。
 
 
-![建立路由篩選](.\media\how-to-routefilter-portal\ManageRouteFilter.png)
+![建立路由篩選](./media/how-to-routefilter-portal/ManageRouteFilter.png)
 
-![建立路由篩選](.\media\how-to-routefilter-portal\AddRouteFilterRule.png) 
+![建立路由篩選](./media/how-to-routefilter-portal/AddRouteFilterRule.png) 
 
 
 ### <a name="detach"></a>若要從 ExpressRoute 線路取消連結路由篩選
 
 若要從路由篩選器將電路中斷連結，請以滑鼠右鍵按一下電路並按一下「取消關聯」。
 
-![建立路由篩選](.\media\how-to-routefilter-portal\DetachRouteFilter.png) 
+![建立路由篩選](./media/how-to-routefilter-portal/DetachRouteFilter.png) 
 
 
 ### <a name="delete"></a>若要刪除路由篩選
 
 可以選取 [刪除] 按鈕來刪除路由篩選。 
 
-![建立路由篩選](.\media\how-to-routefilter-portal\DeleteRouteFilter.png) 
+![建立路由篩選](./media/how-to-routefilter-portal/DeleteRouteFilter.png) 
 
 ## <a name="next-steps"></a>後續步驟
 

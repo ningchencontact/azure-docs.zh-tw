@@ -6,18 +6,18 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 12/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 20db515e99f3e7535ba7b60bbd84f050e33b7acb
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 39a938d45c8f15c21b44bb5b04b1429fb4733b5a
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033918"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53323263"
 ---
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>如果 Azure 儲存體發生中斷怎麼辦
-在 Microsoft，我們竭力確保我們的服務總是可供使用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
+在 Microsoft，我們竭力確保我們的服務總是可供用。 有時候會因為不可抗拒之因素，而造成服務在一或多個區域內中斷。 為了協助您處理這類罕見的狀況，我們提供下列 Azure 儲存體服務的高階指引。
 
 ## <a name="how-to-prepare"></a>如何做好準備
 每位客戶備妥自己的災害復原計畫是相當重要的。 自儲存體中斷的狀況復原，通常需要作業人員與自動化程序，以將應用程式重新啟動回運作狀態。 請參閱下列 Azure 文件，以建立您的災害復原計畫：
@@ -34,10 +34,10 @@ ms.locfileid: "47033918"
 ## <a name="what-to-do-if-a-storage-outage-occurs"></a>如果儲存體發生中斷怎麼辦
 若一或多個儲存體服務，暫時無法在一或多個區域供使用，您有兩個選項可以考慮。 如果您希望立刻存取您的資料，請考慮「選項 2」。
 
-### <a name="option-1-wait-for-recovery"></a>選項 1︰等待復原
+### <a name="option-1-wait-for-recovery"></a>選項 1：等待復原
 在此情況下，您不需要採取任何動作。 我們正在努力還原 Azure 服務的可用性。 您可以在 [Azure 服務健康狀態儀表板](https://azure.microsoft.com/status/)上監視目前的服務狀態。
 
-### <a name="option-2-copy-data-from-secondary"></a>選項 2︰從次要區域複製資料
+### <a name="option-2-copy-data-from-secondary"></a>選項 2︰從次要地區複製資料
 如果您為儲存體帳戶選取 [讀取權限異地備援儲存體(RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage) (建議)，您將會有從次要地區讀取資料的權限。 您可以使用 [AzCopy](storage-use-azcopy.md)、[Azure PowerShell](storage-powershell-guide-full.md) 及 [Azure Data Movement 程式庫](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)，將資料從次要地區複製到其他未受影響之區域內的儲存體帳戶，然後將應用程式的讀取和寫入可用性都指向該儲存體帳戶。
 
 ## <a name="what-to-expect-if-a-storage-failover-occurs"></a>如果發生儲存體容錯移轉該預期什麼

@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: 570b278c-2d47-4e5a-9828-7f01f31ddf8c
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: 97e499612082d0d58cd75bb9f8854b8c4e0f669e
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 6e0bab08e52233d10cff3ec936d024dcbb86d2a6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635759"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188005"
 ---
 # <a name="views-in-management-solutions-preview"></a>管理解決方案中的檢視 (預覽)
 > [!NOTE]
@@ -90,14 +89,14 @@ ms.locfileid: "52635759"
 * 變數應定義於方案中並使用於適當的屬性中。
 
 ### <a name="log-analytics-api-version"></a>Log Analytics API 版本
-Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **apiVersion** 屬性，以定義資源應該使用的 API 版本。  檢視所具有的查詢若使用[舊版和已升級的查詢語言](../../log-analytics/log-analytics-queries.md)，則此版本會不同。  
+Resource Manager 範本中所定義的所有 Log Analytics 資源都會有 **apiVersion** 屬性，以定義資源應該使用的 API 版本。  檢視所具有的查詢若使用[舊版和已升級的查詢語言](../../azure-monitor/log-query/log-query-overview.md)，則此版本會不同。  
 
  下表指出舊版和已升級工作區中之檢視的 Log Analytics API 版本： 
 
 | 工作區版本 | API 版本 | 查詢 |
 |:---|:---|:---|
 | v1 (舊版)   | 2015-11-01-preview | 舊版格式。<br> 範例：Type=Event EventLevelName = Error  |
-| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換成：Event &#124; where EventLevelName == "Error"  |
+| v2 (已升級) | 2015-11-01-preview | 舊版格式。  安裝時已轉換成已升級的格式。<br> 範例：Type=Event EventLevelName = Error<br>已轉換至：Event &#124; where EventLevelName == "Error"  |
 | v2 (已升級) | 2017-03-03-preview | 已升級的格式。 <br>範例：Event &#124; where EventLevelName == "Error"  |
 
 

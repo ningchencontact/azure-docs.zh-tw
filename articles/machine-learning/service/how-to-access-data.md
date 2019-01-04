@@ -1,6 +1,7 @@
 ---
-title: 使用 Azure Machine Learning 中的資料存放區來存取資料
-description: 如何在定型期間使用資料存放區來存取資料儲存體
+title: 存取資料存放區中的資料以進行訓練
+titleSuffix: Azure Machine Learning service
+description: 了解如何使用 Azure Machine Learning 服務，在訓練期間使用資料存放區來存取資料儲存體
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +10,15 @@ ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: ef183397cf7ca3f1f561f6951290b722df31e5ed
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.custom: seodec18
+ms.openlocfilehash: 235ad729be434c8329a74e71abfe713480756316
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620195"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187137"
 ---
-# <a name="how-to-access-data-during-training"></a>如何在定型期間存取資料
+# <a name="access-data-during-training-from-your-datastores"></a>在訓練期間從資料存放區存取資料
 使用資料存放區存取 Azure Machine Learning 工作流程中的資料並與其互動。
 
 在 Azure Machine Learning 服務中，資料存放區是 [Azure 儲存體](https://docs.microsoft.com/azure/storage/common/storage-introduction)的抽象概念。 資料存放區可參照 [Azure Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) 容器或 [Azure 檔案共用](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)作為底層儲存體。 

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 5f74ee390ac327a9e697d3dc67da4ea604b64d69
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e4d96fa558e1122ef9e0fe0b265166757c45e678
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686887"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53321045"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 開發人員指南
 
@@ -105,7 +105,9 @@ public class Function {
 
 ## <a name="jdk-runtime-availability-and-support"></a>JDK 執行階段可用性和支援 
 
-請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDK，以在本機開發 Java 函數應用程式。 JDK 適用於 Windows、Linux 和 macOS。 [Azure 支援](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support)可透過[合格的支援方案](https://azure.microsoft.com/support/plans/)取得。
+請從 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下載並使用 [Azul Zulu Enterprise for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以在本機開發 Java 函數應用程式。 當您將函數應用程式部署至雲端時，Azure Functions 使用 Azul Java 8 JDK 執行階段。
+
+針對 JDK 和函數應用程式的問題，[Azure 支援](https://azure.microsoft.com/en-us/support/)可提供[完整的支援方案](https://azure.microsoft.com/support/plans/)。
 
 ## <a name="third-party-libraries"></a>第三方程式庫 
 
@@ -361,11 +363,11 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 ## <a name="environment-variables"></a>環境變數
 
-在 Functions 中，[應用程式設定](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `System.getenv("AzureWebJobsStorage")` 來存取這些設定
+在 Functions 中，[應用程式設定](https://docs.microsoft.com/azure/azure-functions/functions-app-settings) (例如服務連接字串) 在執行期間會公開為環境變數。 您可以使用 `System.getenv("AzureWebJobsStorage")` 來存取這些設定
 
 範例：
 
-新增具有名稱 testAppSetting 和值 testAppSettingValue 的 [AppSetting](https://docs.microsoft.com/en-us/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
+新增具有名稱 testAppSetting 和值 testAppSettingValue 的 [AppSetting](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings)
 
 ```java
 

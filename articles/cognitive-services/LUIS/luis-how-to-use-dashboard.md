@@ -1,23 +1,24 @@
 ---
-title: Language Understanding 應用程式的應用程式儀表板
-titleSuffix: Azure Cognitive Services
+title: 應用程式儀表板
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解應用程式儀表板，這個視覺化報告工具可讓您以速覽方式監視您的應用程式。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 0daf25b3c7edc69ada57fb3ce2b8dbb7e50e5aed
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 6f6de278e802b83623413b0bf70e556d083818c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335005"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140603"
 ---
-# <a name="application-dashboard"></a>應用程式儀表板
+# <a name="model-and-usage-statistics-in-the-dashboard"></a>在儀表板中的模型和使用量統計資料
 應用程式儀表板可讓您以速覽方式監視您的應用程式。 [儀表板] 會在您開啟應用程式時顯示，做法是在 [我的應用程式] 頁面上按一下應用程式名稱，然後從頂端面板中選取 [儀表板]。 
 
 > [!CAUTION]
@@ -70,7 +71,7 @@ ms.locfileid: "52335005"
 
 若要控制分解是以標示的語句或端點叫用為基礎：
 
-1. 按一下 [其他設定] ![[其他設定] 按鈕](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) 以存取如下圖所示的清單：
+1. 按一下 [其他設定] ![[其他設定] 按鈕 以存取如下圖所示的清單](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png)：
 
     ![意圖分解清單](./media/luis-how-to-use-dashboard/intent-breakdown-based-on.png)
 2. 從清單中選取一個值，然後按一下返回箭頭 ![返回箭頭](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 以顯示圖表。
@@ -82,7 +83,7 @@ ms.locfileid: "52335005"
 
 若要控制分解是以標示的語句或端點叫用為基礎：
 
-1. 按一下 [其他設定] ![[其他設定] 按鈕](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png) 以存取如下圖所示的清單：
+1. 按一下 [其他設定] ![[其他設定] 按鈕 以存取如下圖所示的清單](./media/luis-how-to-use-dashboard/Dashboard-Settings-btn.png)：
 
     ![實體分解清單](./media/luis-how-to-use-dashboard/entity-breakdown-based-on.png)
 2. 從清單中選取一個值，然後按一下返回箭頭 ![返回箭頭](./media/luis-how-to-use-dashboard/Dashboard-backArrow.png) 據以顯示圖表。

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: shants
-ms.openlocfilehash: 82a3ce9f899e94a1cc737f2ca2dc1dc79688a224
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 4e30b143a11e35fc83103abfa03e3fb7f29cf9dc
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42142093"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270122"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>虛擬機器擴展集的計劃性維護通知
 
@@ -105,7 +105,7 @@ Azure 會將電子郵件傳送至訂用帳戶擁有者和共同擁有者群組�
    - **服務**：選取 [虛擬機器擴展集與虛擬機器]。
    - **類型**：選取 [計劃性維護]。 
     
-若要深入了解如何設定活動記錄警示，請參閱[建立活動記錄警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts.md)
+若要深入了解如何設定活動記錄警示，請參閱[建立活動記錄警示](../azure-monitor/platform/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>從入口網站開始維護您的虛擬機器擴展集
@@ -189,7 +189,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **問：我如何收到計劃性維護的相關通知？**
 
-**答：** 規劃的維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 您可以藉由使用活動記錄警示，為此通知新增管道和收件者。 如果您將 VM 部署至已排定計劃性維護的區域，則不會收到通知。 請改為檢查 VM 的維護狀態。
+**答：** 計畫性維護是從對一或多個 Azure 區域設定排程開始。 之後，電子郵件通知會傳送至訂用帳戶擁有者 (每個訂用帳戶一封電子郵件)。 您可以藉由使用活動記錄警示，為此通知新增管道和收件者。 如果您將 VM 部署至已排定計劃性維護的區域，則不會收到通知。 請改為檢查 VM 的維護狀態。
 
 **問：我在入口網站、PowerShell 或 CLI 中都看不到任何計劃性維護的指示。問題出在哪裡？**
 
@@ -212,7 +212,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **問：我的 VM 第二次排程進行維護。原因為何？**
 
-**答：** 在數個使用案例中，是將您的 VM 排定成在您已經完成維護並重新部署之後進行維護：
+**答：** 在幾個情況下，會於您已經完成維護並重新部署之後將您的 VM 排程進行維護：
    - 我們已取消維護，並且使用不同的裝載重新啟動它。 可能是我們已偵測到發生錯誤的承載，而只是需要部署額外承載。
    - 因為硬體故障，您的 VM 已*服務修復*到另一個節點。
    - 您已經選擇停止 (解除配置)，然後重新啟動 VM。

@@ -1,5 +1,5 @@
 ---
-title: 教學課程︰以 Azure Active Directory 設定 GitHub 來自動佈建使用者 | Microsoft Docs
+title: 教學課程：以 Azure Active Directory 設定 GitHub 來自動佈建使用者 | Microsoft Docs
 description: 了解如何設定 Azure Active Directory 將使用者帳戶自動佈建和取消佈建至 GitHub。
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc82f0b71c6963c4f5a356180a1eabbca1b166c4
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156947"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166552"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>教學課程︰設定 GitHub 來自動佈建使用者
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>教學課程：設定 GitHub 來自動佈建使用者
 
 
 本教學課程旨在說明您需要在 GitHub 和 Azure AD 中執行的步驟，以將使用者帳戶從 Azure AD 自動佈建和取消佈建至 GitHub。 
@@ -36,7 +36,7 @@ ms.locfileid: "50156947"
 *   GitHub 中具有管理員權限的使用者帳戶 
 
 > [!NOTE]
-> Azure AD 佈建整合仰賴 [GitHub SCIM API](https://developer.github.com/v3/scim/)，這在商務方案或更好方案中可供 GitHub 小組使用。
+> Azure AD 佈建整合仰賴 [GitHub SCIM API](https://developer.github.com/v3/scim/) \(英文\)，這在商務方案或更好方案中可供 GitHub 小組使用。
 
 ## <a name="assigning-users-to-github"></a>將使用者指派給 GitHub
 
@@ -80,7 +80,7 @@ Azure Active Directory 會使用稱為「指派」的概念，來判斷哪些使
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有系統管理員權限，並且已正確輸入**租用戶 URl**，然後再試一次「授權」步驟 (您可以依照下列規則來組成**租用戶 URL**：`https://api.github.com/scim/v2/organizations/<Organization_name>`，您可以在 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
+7. 在 Azure 入口網站中，輸入 [租用戶 URL]，然後按一下 [測試連線]，以確保 Azure AD 可以連線至您的 GitHub 應用程式。 如果連線失敗，請確定您的 GitHub 帳戶具有系統管理員權限，並且已正確輸入 [租用戶 URl]，然後再試一次「授權」步驟 (您可以依照下列規則來組成 [租用戶 URL]：`https://api.github.com/scim/v2/organizations/<Organization_name>`，您可以在 GitHub 帳戶下找到您的組織：[Settings] \(設定\) > [Organizations] \(組織\))。
 
     ![授權對話方塊](./media/github-provisioning-tutorial/GitHub3.png)
 

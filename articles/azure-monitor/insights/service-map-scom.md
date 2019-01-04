@@ -8,18 +8,17 @@ manager: jwhit
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: monitoring
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
 ms.author: bwren
-ms.openlocfilehash: b590a6ce6d92c78f2020d5ef7cffe6d7f277433c
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: bf0e672ea6f1d62442233993bd778c82a8a16037
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51827084"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187206"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服務對應與 System Center Operations Manager 的整合
   > [!NOTE]
@@ -77,7 +76,7 @@ ms.locfileid: "51827084"
 
     ![Operations Manager 設定群組](media/service-map-scom/scom-config-group.png)
 
-6. 選擇性 - 選取 [管理伺服器] 資源集區來與 Log Analytics 通訊，然後按一下 [新增工作區]。
+6. 選用：選取要與 Log Analytics 通訊的管理伺服器資源集區，然後按一下 [新增工作區]。
 
     ![Operations Manager 設定資源集區](media/service-map-scom/scom-config-pool.png)
 
@@ -92,7 +91,7 @@ ms.locfileid: "51827084"
 ![Operations Manager [監視] 窗格](media/service-map-scom/scom-monitoring.png)
 
 服務對應資料夾有四個節點︰
-* **作用中警示**：列出有關 Operations Manager 和服務對應之通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Log Analytics 警示。 
+* **作用中警示**：列出有關在 Operations Manager 和服務對應之間通訊的所有作用中警示。  請注意，這些警示不是要同步至 Operations Manager 的 Log Analytics 警示。 
 
 * **伺服器**：列出設定為從服務對應同步處理的受監視伺服器。
 
@@ -122,8 +121,8 @@ ms.locfileid: "51827084"
 ![Operations Manager [覆寫內容] 視窗](media/service-map-scom/scom-overrides.png)
 
 * **Enabled**：啟用或停用自動更新。 
-* **IntervalMinutes**︰重設更新之間的時間。 預設間隔是一小時。 如果您想要更頻繁地同步伺服器對應，您可以變更此值。
-* **TimeoutSeconds**︰重設要求逾時之前的時間長度。 
+* **IntervalMinutes**：重設更新之間的時間。 預設間隔是一小時。 如果您想要更頻繁地同步伺服器對應，您可以變更此值。
+* **TimeoutSeconds**：重設要求逾時之前的時間長度。 
 * **TimeWindowMinutes**：重設查詢資料的時間間隔。 預設間隔為 60 分鐘。 服務對應所允許的最大值為 60 分鐘。
 
 ## <a name="known-issues-and-limitations"></a>已知問題與限制

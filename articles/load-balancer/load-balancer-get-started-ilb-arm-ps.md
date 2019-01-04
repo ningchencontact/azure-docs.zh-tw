@@ -1,5 +1,6 @@
 ---
-title: 使用 PowerShell 建立 Azure 內部負載平衡器 | Microsoft Docs
+title: 使用 PowerShell 建立 Azure 內部負載平衡器
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure Resource Manager 的 Azure PowerShell 模組建立內部負載平衡器
 services: load-balancer
 documentationcenter: na
@@ -7,16 +8,17 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 0a85c5e90be465b324248f961fd297b15c008d02
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412681"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075848"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>使用 Azure PowerShell 模組建立內部負載平衡器
 

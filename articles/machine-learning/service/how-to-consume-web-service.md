@@ -1,20 +1,22 @@
 ---
-title: 如何使用 Web 服務部署 - Azure Machine Learning
-description: 了解如何使用透過部署 Azure Machine Learning 模型建立的 Web 服務。 部署 Azure Machine Learning 模型會建立一個公開 REST API 的 Web 服務。 您可以使用您選擇的程式設計語言建立此 API 的用戶端。 在本文件中，了解如何存取使用 Python 和 C# 的 API。
+title: 建立用戶端以取用已部署的 Web 服務
+titleSuffix: Azure Machine Learning service
+description: 了解如何取用在使用 Azure Machine Learning 模型部署模型時所產生的 Web 服務。此 Web 服務會公開 REST API。 使用您選擇的程式設計語言來建立此 API 的用戶端。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.author: raymondl
-author: raymondlaghaeian
+ms.author: aashishb
+author: aashishb
 ms.reviewer: larryfr
-ms.date: 10/30/2018
-ms.openlocfilehash: 58c1b53a4b97aad7b916e593fd4d6b52b51b7a52
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.date: 12/03/2018
+ms.custom: seodec18
+ms.openlocfilehash: fc1f472cec1b1da26456924885d7905ab2458e14
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262889"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251125"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>使用部署為 Web 服務的 Azure Machine Learning 模型
 
@@ -100,7 +102,7 @@ REST API 預期是具有下列結構之 JSON 文件的要求主體：
 > [!IMPORTANT]
 > 資料結構需要與服務中預期的評分指令碼和模型相符。 評分指令碼可能會在將資料傳遞至模型之前修改資料。
 
-例如，[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook)中的模型預期 10 個數字的陣列。 此範例的評分指令碼要求建立 Numpy 陣列，並將其傳遞至模型。 下列範例會示範這項服務所預期的資料：
+例如，[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)中的模型預期 10 個數字的陣列。 此範例的評分指令碼要求建立 Numpy 陣列，並將其傳遞至模型。 下列範例會示範這項服務所預期的資料：
 
 ```json
 {
@@ -124,9 +126,46 @@ REST API 預期是具有下列結構之 JSON 文件的要求主體：
 
 Web 服務可以在單一要求中接受多個資料集。 它會傳回一個 JSON 文件，其中包含回應的陣列。
 
+### <a name="binary-data"></a>二進位資料
+
+如果您的模型接受二進位資料 (例如映像)，則您必須修改用於部署的 `score.py` 檔案來接受未經處理的 HTTP 要求。 以下的 `score.py` 範例會接受二進位資料，並針對 POST 要求傳回反轉的位元組。 針對 GET 要求，它會在回應本文中傳回完整的 URL：
+
+```python 
+from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+from azureml.contrib.services.aml_response import AMLResponse
+
+def init():
+    print("This is init()")
+
+@rawhttp
+def run(request):
+    print("This is run()")
+    print("Request: [{0}]".format(request))
+    if request.method == 'GET':
+        respBody = str.encode(request.full_path)
+        return AMLResponse(respBody, 200)
+    elif request.method == 'POST':
+        reqBody = request.get_data(False)
+        respBody = bytearray(reqBody)
+        respBody.reverse()
+        respBody = bytes(respBody)
+        return AMLResponse(respBody, 200)
+    else:
+        return AMLResponse("bad request", 500)
+```
+
+> [!IMPORTANT]
+> `azureml.contrib` 命名空間中的項目會因為我們致力於改善本服務而經常變更。 因此，此命名空間中的任何項目均應被視為預覽，而且 Microsoft 不會完全支援。
+>
+> 如果您需要在本機開發環境中測試此項，您可以使用下列命令，在 contrib 命名空間中安裝元件：
+> 
+> ```shell
+> pip install azureml-contrib-services
+> ```
+
 ## <a name="call-the-service-c"></a>呼叫服務 (C#)
 
-此範例示範如何使用 C# 呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook)範例建立的 Web 服務：
+此範例示範如何使用 C# 呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)範例建立的 Web 服務：
 
 ```csharp
 using System;
@@ -215,7 +254,7 @@ namespace MLWebServiceClient
 
 ## <a name="call-the-service-go"></a>呼叫服務 (Go)
 
-此範例示範如何使用 Go 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook)範例建立的 Web 服務：
+此範例示範如何使用 Go 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)範例建立的 Web 服務：
 
 ```go
 package main
@@ -307,7 +346,7 @@ func main() {
 
 ## <a name="call-the-service-java"></a>呼叫服務 (Java)
 
-此範例示範如何使用 Java 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook)範例建立的 Web 服務：
+此範例示範如何使用 Java 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)範例建立的 Web 服務：
 
 ```java
 import java.io.IOException;
@@ -387,7 +426,7 @@ public class App {
 
 ## <a name="call-the-service-python"></a>呼叫服務 (Python)
 
-此範例示範如何使用 Python 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook)範例建立的 Web 服務：
+此範例示範如何使用 Python 來呼叫從[在筆記本內訓練](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb)範例建立的 Web 服務：
 
 ```python
 import requests
@@ -446,7 +485,3 @@ print(resp.text)
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
-
-## <a name="next-steps"></a>後續步驟
-
-既然您已了解如何為已部署的模型建立用戶端，則了解如何[將模型部署到 IoT Edge 裝置](how-to-deploy-to-iot.md)。

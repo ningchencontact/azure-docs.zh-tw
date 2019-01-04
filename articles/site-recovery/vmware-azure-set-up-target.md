@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: cbf9c1a49481de49fb8d9c6599acec7bc3600df3
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233424"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837506"
 ---
 # <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>準備目標環境以進行從 VMware VM 或實體伺服器至 Azure 的災害復原
 
@@ -27,12 +27,12 @@ ms.locfileid: "50233424"
 
 ## <a name="prepare-target"></a>準備目標
 
-完成**步驟 1：選取保護目標**和**步驟 2︰準備來源**之後，即會進入**步驟 3︰目標**
+完成**步驟 1：選取保護目標**和**步驟 2：準備來源**之後，您會前往**步驟 3：目標**
 
 ![準備目標](./media/vmware-azure-set-up-target/prepare-target-vmware-to-azure.png)
 
-1. **訂用帳戶︰** 從下拉式功能表中選取您想要的訂用帳戶，以將虛擬機器或實體伺服器複寫至該訂用帳戶。
-2. **部署模型︰** 選取部署模型 (傳統或資源管理員)
+1. **訂用帳戶：** 從下拉式功能表中選取您想要的訂用帳戶，以將虛擬機器或實體伺服器複寫至該訂用帳戶。
+2. **部署模型：** 選取部署模型 (傳統或 Resource Manager)
 
 根據所選的部署模型，會執行驗證以確保您的目標訂用帳戶中有至少一個相容的儲存體帳戶和虛擬網路，以便將您的虛擬機器或實體伺服器複寫和容錯移轉至其中。
 

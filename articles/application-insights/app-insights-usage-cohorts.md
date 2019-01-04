@@ -8,24 +8,23 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: d8bb7a975bd5bab8698d20e5d21514b79945eac6
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 4a7b5cd925bd4b66e25754c30de5cbaf866dab0b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564913"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970615"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 世代
 
 世代是指具有共通點的一組使用者、工作階段、事件或作業。 在 Azure Application Insights 中，世代會由分析查詢所定義。 如果您必須重複分析一組特定的使用者或事件，世代將可讓您有更多彈性來精準呈現您感興趣的集合。
 
-![世代窗格](.\media\app-insights-usage-cohorts\001.png)
+![世代窗格](./media/app-insights-usage-cohorts/001.png)
 
 ## <a name="cohorts-versus-basic-filters"></a>世代與基本篩選
 
@@ -53,14 +52,14 @@ ms.locfileid: "51564913"
 
 4. 將 **UsedAtleastCustom** 變更為「**5 天以上**」，並將 [期間] 保留為預設的 28 天。
 
-    ![參與的使用者](.\media\app-insights-usage-cohorts\003.png)
+    ![參與的使用者](./media/app-insights-usage-cohorts/003.png)
 
     現在，此世代代表在過去 28 天的五個不同日期中，透過任何自訂事件或網頁檢視傳送的所有使用者識別碼。
 
 5. 選取 [ **儲存**]。
 
    > [!TIP]
-   >  指定您的世代名稱，例如「參與的使用者 (5 天以上)」。 根據您是否要讓有權存取此 Appication Insights 資源的其他人看見此世代，將它儲存到「我的報告」或「共用報告」。
+   > 指定您的世代名稱，例如「參與的使用者 (5 天以上)」。 根據您是否要讓有權存取此 Appication Insights 資源的其他人看見此世代，將它儲存到「我的報告」或「共用報告」。
 
 6. 選取 [回到範本庫]。
 
@@ -70,9 +69,10 @@ ms.locfileid: "51564913"
 
 此時，「使用者」工具已篩選出下列使用者世代：
 
-![篩選出特定世代的使用者窗格](.\media\app-insights-usage-cohorts\004.png)
+![篩選出特定世代的使用者窗格](./media/app-insights-usage-cohorts/004.png)
 
 有一些重點值得注意：
+
 * 您無法透過一般篩選來建立此集合。 日期邏輯更為進階。
 * 您可以使用「使用者」工具中的一般篩選條件進一步篩選此世代。 因此，雖然此世代是以 28 天的時間範圍定義的，您仍可在「使用者」工具中將時間範圍調整為 30、60 或 90 天。
 
@@ -88,7 +88,7 @@ ms.locfileid: "51564913"
 
 3. 選取 [事件選擇器]。
 
-    ![事件選擇器的螢幕擷取畫面](.\media\app-insights-usage-cohorts\006.png)
+    ![事件選擇器的螢幕擷取畫面](./media/app-insights-usage-cohorts/006.png)
 
 4. 在 [活動] 下拉式方塊中，選取要納入世代中的事件。
 
@@ -98,11 +98,11 @@ ms.locfileid: "51564913"
 
 先前的兩個世代是使用下拉式方塊定義的。 但您也可以使用分析查詢來定義世代，以達到整體彈性。 可藉由建立英國的使用者世代，來了解其具體方式。
 
-![逐步使用世代工具的動畫影像](.\media\app-insights-usage-cohorts\cohorts0001.gif)
+![逐步使用世代工具的動畫影像](./media/app-insights-usage-cohorts/cohorts0001.gif)
 
 1. 開啟 [世代] 工具，選取 [範本庫] 索引標籤，然後選取 [空白使用者世代]。
 
-    ![空白使用者世代](.\media\app-insights-usage-cohorts\001.png)
+    ![空白使用者世代](./media/app-insights-usage-cohorts/001.png)
 
     其中包含三個區段：
     * Markdown 文字區段；您可以在其中為其他小組成員詳細說明世代。
@@ -137,7 +137,8 @@ _我已從特定國家/地區定義使用者世代。當我將「使用者」工
 * 篩選版本只會顯示來自英國的事件。 但如果您依國家或區域劃分，您將只會看到英國。
 
 ## <a name="learn-more"></a>深入了解
-- [分析查詢語言](https://go.microsoft.com/fwlink/?linkid=856587)
-- [使用者、工作階段、事件](app-insights-usage-segmentation.md)
-- [使用者流程](app-insights-usage-flows.md)
-- [使用量概觀](app-insights-usage-overview.md)
+
+* [分析查詢語言](https://go.microsoft.com/fwlink/?linkid=856587)
+* [使用者、工作階段、事件](app-insights-usage-segmentation.md)
+* [使用者流程](app-insights-usage-flows.md)
+* [使用量概觀](app-insights-usage-overview.md)

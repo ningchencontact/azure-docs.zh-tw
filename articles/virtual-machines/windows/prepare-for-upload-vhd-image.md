@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/10/2018
+ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: 4d30cca0106e52706326bfd91a2d0dfb0a64ca04
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 74132c436670247f3eb84859216274d3e1363d07
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258445"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338697"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>準備 Windows VHD 或 VHDX 以上傳至 Azure
 將 Windows 虛擬機器 (VM) 從內部部署上傳至 Microsoft Azure 之前，您必須先準備虛擬硬碟 (VHD 或 VHDX)。 Azure 只支援採用 VHD 檔案格式且具有固定大小磁碟的**第 1 代 VM**。 允許的 VHD 大小上限為 1023 GB。 您可以將第 1 代 VM 從 VHDX 檔案系統轉換為 VHD，以及從動態擴充磁碟轉換為固定大小的磁碟。 但您無法變更 VM 的世代。 如需詳細資訊，請參閱[應該在 Hyper-V 中建立第 1 代還是第 2 代的 VM](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) \(英文\)。
@@ -73,6 +73,16 @@ Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd 
     ```PowerShell
     netsh winhttp reset proxy
     ```
+
+    如果 VM 需要使用任何特定的 Proxy，必須將 Proxy 例外狀況新增至 Azure IP 位址 ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+))，因此 VM 具備與 Azure 的連線：
+    ```
+    $proxyAddress="<your proxy server>"
+    $proxyBypassList="<your list of bypasses>;168.63.129.16"
+
+    netsh winhttp set proxy $proxyAddress $proxyBypassList
+    ```
+
 3. 將磁碟 SAN 原則設為 [Onlineall](https://technet.microsoft.com/library/gg252636.aspx)：
    
     ```PowerShell
@@ -283,7 +293,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    如果存放庫損毀，請參閱 [WMI︰存放庫損毀，還是沒有損毀](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) \(英文\)。
+    如果存放庫損毀，請參閱 [WMI：存放庫損毀，還是沒有損毀](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not) \(英文\)。
 
 5. 確定沒有任何其他應用程式使用連接埠 3389。 在 Azure 中，此連接埠是由 RDP 服務所使用。 您可以執行 **netstat anob** 來查看 VM 上使用了哪些連接埠：
 
@@ -409,7 +419,7 @@ Sysprep 是您可執行來進行 Windows 安裝的程序，將重設系統安裝
 *  在 Azure 中建立 VM 之後，我們建議您將分頁檔放在「暫存磁碟機」磁碟區中，以改善效能。 您可以如下方式設定這部分：
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile" -Type MultiString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
     ```
 如果沒有任何資料磁碟連接到 VM，暫存磁碟機磁碟區的磁碟機代號通常是 "D"。 根據可用的磁碟機數目和您所進行的設定而定，這項指定可能不同。
 

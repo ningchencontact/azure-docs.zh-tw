@@ -1,5 +1,5 @@
 ---
-title: Azure DC/OS 叢集上具備 Vamp 的 Canary 版本
+title: (已淘汰) Azure DC/OS 叢集上具備 Vamp 的 Canary 版本
 description: 如何使用 Vamp 進行 Canary 版本服務，並在 Azure Container Service DC/OS 叢集上套用智慧型流量篩選
 services: container-service
 author: gggina
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 116f8ad1760f8e61c70b34d614a0265d11e3ae65
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 7ab63b869d9cd8a5b1f2b60429c5b54d0da5761f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51975851"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002061"
 ---
-# <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Azure Container Service DC/OS 叢集上具備 Vamp 的 Canary 版本微服務
+# <a name="deprecated-canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>(已淘汰) Azure Container Service DC/OS 叢集上具備 Vamp 的 Canary 版本微服務
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 在本逐步解說中，我們會在具備 DC/OS 叢集的 Azure Container Service 上設定 Vamp。 我們在 Canary 版本中的 Vamp 示範服務為 "sava"，並套用智慧型流量篩選，解決了與 Firefox 服務不相容的問題。 
 
@@ -198,7 +200,7 @@ Vamp 已在 DC/OS 代理程式節點上部署 sava 服務，在連接埠 9050 �
 
 1. 在 Vamp UI 中，按一下 [藍圖]。
 
-2. 按一下 [新增]，並貼入下列藍圖 YAML︰這個藍圖會描述要在現有叢集 (sava_cluster) 內部署的新服務變化 (sava:1.1.0)。
+2. 按一下 [新增] 並貼入下列藍圖 YAML：這個藍圖會描述要在現有叢集 (sava_cluster) 內部署的新服務變化 (sava:1.1.0)。
 
   ```YAML
   name: sava:1.1.0      # blueprint name

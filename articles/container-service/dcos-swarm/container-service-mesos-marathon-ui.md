@@ -1,5 +1,5 @@
 ---
-title: 使用 Marathon UI 管理 Azure DC/OS 叢集
+title: (已淘汰) 使用 Marathon UI 管理 Azure DC/OS 叢集
 description: 使用 Marathon Web UI 將容器部署到 Azure 容器服務叢集服務。
 services: container-service
 author: iainfoulds
@@ -9,21 +9,23 @@ ms.topic: article
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: a22bddf48f97d961d481e2aedb42f7d645f3e678
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 41b6ce24e7c2e8565d7c2f17c32b8b6e1f38ea4f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903076"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992487"
 ---
-# <a name="manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
+# <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(已淘汰) 透過 Marathon Web UI 管理 Azure Container Service DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 DC/OS 提供環境來部署及調整叢集工作負載，同時將基礎硬體抽象化。 在 DC/OS 之上有架構會管理排程和執行計算工作負載。
 
 雖然許多常見的工作負載都有可用的架構，但此文件只說明如何使用 Marathon 來開始部署容器。 
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 在練習這些範例之前，您需要 Azure 容器服務中設定的 DC/OS 叢集。 您也需要有此叢集的遠端連線。 如需這些項目的詳細資訊，請參閱下列文章。
 
 * [部署 Azure 容器服務叢集](container-service-deployment.md)

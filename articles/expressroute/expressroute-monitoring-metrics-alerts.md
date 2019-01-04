@@ -1,26 +1,31 @@
 ---
-title: Azure ExpressRoute 監視、計量和警示 | Microsoft Docs
+title: 監視、計量和警示 - Azure ExpressRoute | Microsoft Docs
 description: 此頁面提供有關 ExpressRoute 監視的資訊
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 115b1185575232800e060f67317e4973eea9ea53
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377792"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091759"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 監視、計量和警示
 
- 本文將協助您了解 ExpressRoute 監視、計量和警示。 Azure 監視器可讓您一次取得所有 Azure 服務上的所有計量、警示和診斷記錄。
+本文將協助您了解使用 Azure 監視器的 ExpressRoute 監視、計量和警示。 Azure 監視器可讓您一次取得所有 Azure 服務上的所有計量、警示和診斷記錄。
+ 
+>[!NOTE]
+>不建議使用**傳統計量**。
+>
 
 ## <a name="circuit-metrics"></a>線路計量
 
-若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，即可檢視 [計量]。 選取 BitsInPerSecond 或 BitsOutPerSecond 以及彙總。 選擇性地，您可以套用可顯示每個對等互連類型計量的分割。
+若要瀏覽至 [計量]，請針對您想要監視的線路按一下 [ExpressRoute] 頁面。 在 [監視] 下方，可檢視 [計量]。 選取 BitsInPerSecond 或 BitsOutPerSecond 以及彙總。 您可以選擇性地套用分割，以依據對等互連類型顯示計量。
 
 ![線路計量](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
@@ -47,7 +52,6 @@ ms.locfileid: "49377792"
 
   ![動作群組](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
-
 4. 定義和新增動作群組。
 
   ![新增動作群組](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
@@ -61,9 +65,10 @@ ms.locfileid: "49377792"
 在 [警示準則] 中，您可以選取 [活動記錄] 作為訊號類型，並選取訊號。
 
   ![另一個](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
-
+  
 ## <a name="next-steps"></a>後續步驟
-* 設定 ExpressRoute 連線。
+
+設定 ExpressRoute 連線。
   
   * [建立及修改電路](expressroute-howto-circuit-arm.md)
   * [建立和修改對等互連組態](expressroute-howto-routing-arm.md)

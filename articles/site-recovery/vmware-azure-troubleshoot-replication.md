@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: ae2f32a02005bc015d2521e576ea5625bef2d377
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846006"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>針對 VMware VM 和實體伺服器的複寫問題進行疑難排解
 
@@ -69,9 +69,9 @@ ms.locfileid: "50214727"
 如果您無法連線，則檢查存取問題是否由於防火牆或 Proxy (如下一個步驟中所述)。
 
 
-* **檢查處理序伺服器上的 IP 位址型防火牆是否封鎖存取**：如果您的伺服器使用 IP 位址型防火牆規則，請從[這裡](https://www.microsoft.com/download/details.aspx?id=41653) \(英文\) 下載 Microsoft Azure Datacenter 的 IP 範圍完整清單，將它們新增到您的防火牆設定中，以確保它們允許對 Azure (和 HTTPS (443) 連接埠) 的通訊。  允許訂用帳戶的 Azure 區域和美國西部使用 IP 位址範圍 (用於存取控制和身分識別管理)。
+* **檢查處理序伺服器上的 IP 位址型防火牆是否封鎖存取**：如果您的伺服器使用 IP 位址型防火牆規則，請從[這裡](https://www.microsoft.com/download/details.aspx?id=41653)下載 Microsoft Azure Datacenter 的 IP 範圍完整清單，將它們新增到您的防火牆組態中，以確保它們允許對 Azure (和 HTTPS (443) 連接埠) 的通訊。  允許訂用帳戶的 Azure 區域和美國西部使用 IP 位址範圍 (用於存取控制和身分識別管理)。
 
-* **檢查處理序伺服器上的 URL 型防火牆是否封鎖存取**：如果您的伺服器使用 URL 型防火牆規則，請確定下列 URL 已新增至防火牆設定。
+* **檢查處理序伺服器上的 URL 型防火牆是否封鎖存取**：如果您的伺服器使用 URL 型防火牆規則，請確定下列 URL 已新增至防火牆組態。
 
 [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]  
 

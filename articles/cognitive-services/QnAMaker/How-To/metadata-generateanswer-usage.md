@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim88
-ms.openlocfilehash: eef26cf1f5a11d7dcd1fdc41747aac675e0bc528
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 97fb59a9a483753c6c2b5a4ae027bb358f7050e1
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031079"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53166586"
 ---
 # <a name="using-metadata-and-the-generateanswer-api"></a>搭配使用中繼資料與 GenerateAnswer API
 
@@ -54,15 +54,15 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
 - **要求 URL**： https://{QnA Maker endpoint}/knowledgebases/{knowledge base ID}/generateAnswer
 
 - **要求參數**： 
-    - **知識庫識別碼** (字串)：知識庫的 GUID。
-    - **QnAMaker 端點** (字串)：您的 Azure 訂用帳戶中部署之端點的主機名稱。
+    - **新增知識庫識別碼** (字串)：測試您知識庫的 GUID。
+    - **QnAMaker 端點** (字串)：您的 Azure 訂用帳戶中，部署端點的主機名稱。
 - **要求標頭**
     - **Content-Type** (字串)：傳送至 API 的本文媒體類型。
     - **授權** (字串)：您的端點金鑰 (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)。
 - **要求本文**
     - **問題** (字串)：要對您的知識庫查詢的使用者問題。
-    - **top** (選擇性，整數)：要包含在輸出中的排名結果數目。 預設值為 1。
-    - **userId** (選擇性，字串)：用來識別使用者的唯一識別碼。 此識別碼會記錄在交談記錄中。
+    - **頂端** (選擇性，整數)：要包含在輸出中的排名結果數目。 預設值為 1。
+    - **使用者識別碼** (選擇性，字串)：用來識別使用者的唯一識別碼。 此識別碼會記錄在交談記錄中。
     - **strictFilters** (選擇性，字串)：如果指定，將會指示 QnA Maker 僅傳回含有指定中繼資料的解答。 如需詳細資訊，請參閱下列內容。
     ```json
     {
@@ -83,7 +83,7 @@ QnA Maker 可讓您將索引鍵/值組形式的中繼資料新增至問答集。
     - **解答** - 使用者查詢的解答清單，依排名分數的遞減順序排序。
         - **分數**：0 和 100 之間的排名分數。
         - **問題**：使用者所提供的問題。
-        - **答案**：問題的答案。
+        - **回答**：問題的答案。
         - **來源**：從中擷取解答或將其儲存在知識庫中的來源名稱。
         - **中繼資料**：與解答相關聯的中繼資料。
             - 名稱：中繼資料名稱。 (字串，最大長度：100，必要)
@@ -167,6 +167,8 @@ GenerateAnswer 的回應會包含相符問答集的對應中繼資料資訊，�
 這項資訊可用來記錄先前的交談內容，以用於後續的交談。 
 
 ## <a name="next-steps"></a>後續步驟
+
+發佈頁面也會提供資訊，搭配 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 和 [cURL](../Quickstarts/get-answer-from-kb-using-curl.md) 來產生答案。 
 
 > [!div class="nextstepaction"]
 > [建立知識庫](./create-knowledge-base.md)

@@ -4,25 +4,25 @@ description: 了解如何針對「更新管理」代理程式的問題進行疑�
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/06/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
 manager: carmonm
-ms.openlocfilehash: adaeb3087fca57a4a868f4525d588e014ff36fcf
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 491f60b55843957bf9ec904f7310ef67219ba3c5
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335822"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438637"
 ---
 # <a name="understand-the-linux-agent-check-results-in-update-management"></a>了解更新管理中的 Linux 代理程式檢查結果
 
-您的 Azure 機器在更新管理中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 此文章探討如何從 Azure 入口網站及在離線情況下執行疑難排解員。
+您的機器在 [更新管理] 中未顯示為 [就緒] 的原因有很多。 在「更新管理」中，您可以檢查「混合式背景工作角色」代理程式的健康情況，以判斷根本問題。 本文探討如何以 Azure 入口網站與非 Azure 機器在[離線情況](#troubleshoot-offline)下執行 Azure 機器的疑難排解員。
 
 ## <a name="start-the-troubleshooter"></a>啟動疑難排解員
 
-在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 此頁面會顯示代理程式的問題及此文章的連結，以協助您針對問題進行疑難排解。
+若為 Azure 機器，在入口網站中按一下 [更新代理程式整備程度] 資料行底下的 [疑難排解] 連結，即可啟動 [對更新代理程式進行疑難排解] 頁面。 至於非 Azure 機器，此連結會連往這份文件。 若要對非 Azure 機器進行疑難排解，請參閱[離線指示](#offline)。
 
 ![VM 清單頁面](../media/update-agent-issues-linux/vm-list.png)
 
@@ -54,12 +54,12 @@ OS 檢查會確認「混合式 Runbook 背景工作角色」是否正在執行�
 
 ### <a name="oms-agent"></a>OMS 代理程式
 
-此檢查確保適用於 Linux 的 OMS 代理程式已安裝。 如需如何安裝它的相關指示，請參閱[安裝適用於 Linux 的代理程式](../../log-analytics//log-analytics-quick-collect-linux-computer.md#install-the-agent-for-linux
+此檢查確保適用於 Linux 的 OMS 代理程式已安裝。 如需如何安裝它的相關指示，請參閱[安裝適用於 Linux 的代理程式](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux
 )。
 
 ### <a name="oms-agent-status"></a>OMS 代理程式狀態
 
-此檢查確保適用於 Linux 的 OMS 代理程式正在執行。 如果代理程式並未執行，您可以執行下列命令以嘗試重新啟動它。 如需如何進行代理程式疑難排解的詳細資訊，請參閱[進行 Linux 混合式 Runbook 背景工作的疑難排解](hybrid-runbook-worker.md#linux)
+此檢查確保適用於 Linux 的 OMS 代理程式正在執行。 如果代理程式並未執行，您可以執行下列命令以嘗試重新啟動。 如需如何進行代理程式疑難排解的詳細資訊，請參閱[進行 Linux 混合式 Runbook 背景工作的疑難排解](hybrid-runbook-worker.md#linux)
 
 ```bash
 sudo /opt/microsoft/omsagent/bin/service_control restart
@@ -71,7 +71,7 @@ sudo /opt/microsoft/omsagent/bin/service_control restart
 
 ### <a name="hybrid-runbook-worker"></a>Hybrid Runbook Worker
 
-這會檢查以確保適用於 Linux 的 OMS 代理程式具有混合式 Runbook 背景工作封裝。 更新管理需要有此封裝才能運作。
+此檢查會確認適用於 Linux 的 OMS 代理程式具有混合式 Runbook 背景工作封裝。 更新管理需要有此封裝才能運作。
 
 ### <a name="hybrid-runbook-worker-status"></a>混合式 Runbook 背景工作狀態
 

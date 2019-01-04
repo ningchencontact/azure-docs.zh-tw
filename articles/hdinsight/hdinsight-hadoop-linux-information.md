@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/09/2018
-ms.openlocfilehash: 89f2178af3f1a1a6ede9b97d79568798a25985b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: abaf69136fbed577095b3efba2ec6d4383907255
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015684"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53385205"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>在 Linux 上使用 HDInsight 的相關資訊
 
-Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
+Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端中執行的 Apache Hadoop。 其操作大多與 Linux 安裝上的任何其他 Hadoop 相同。 本文件會指出其中應注意的特殊不同之處。
 
 > [!IMPORTANT]
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
@@ -27,9 +27,9 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
 
 本文件中的許多步驟都使用下列公用程式，可能需要安裝在您的系統上。
 
-* [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊
-* [jq](https://stedolan.github.io/jq/) - 用來剖析 JSON 文件
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - 用來從遠端管理 Azure 服務
+* [cURL](https://curl.haxx.se/) - 用來與 Web 型服務通訊。
+* [jq](https://stedolan.github.io/jq/) - 用來剖析 JSON 文件。
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2) - 用來從遠端管理 Azure 服務。
 
 ## <a name="users"></a>使用者
 
@@ -64,7 +64,7 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
     > [!IMPORTANT]
     > 透過 Ambari 使用的一些 Web UI 會使用內部網域名稱存取節點。 內部網域名稱無法透過網際網路公開存取。 在嘗試透過網際網路存取某些功能時可能會收到「找不到伺服器」的錯誤。
     >
-    > 若要使用 Ambari Web UI 的完整功能，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。 請參閱[使用 SSH 通道來存取 Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
+    > 若要使用 Ambari Web UI 的完整功能，請使用 SSH 通道將 Web 流量以 Proxy 處理傳輸到叢集前端節點。 請參閱[使用 SSH 通道來存取 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
 * **Ambari (REST)** - https://&lt;clustername>.azurehdinsight.net/ambari
 
@@ -80,18 +80,18 @@ Azure HDInsight 叢集可在您熟悉的 Linux 環境中提供於 Azure 雲端�
     >
     > 驗證是純文字的 - 請一律使用 HTTPS 來協助確保連線的安全性。
 
-* **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。 連接埠 22 用來連接至主要前端節點，而 23 用來連接至次要前端節點。 如需前端節點的詳細資訊，請參閱 [HDInsight 上 Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* **SSH** - 連接埠 22 或 23 上的 &lt;clustername>-ssh.azurehdinsight.net。 連接埠 22 用來連接至主要前端節點，而 23 用來連接至次要前端節點。 如需前端節點的詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 叢集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
     > [!NOTE]
     > 您只能從用戶端電腦透過 SSH 存取叢集前端節點。 然後在連線後，再從前端節點使用 SSH 存取背景工作角色節點。
 
-如需詳細資訊，請參閱 [HDInsight 上 Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
+如需詳細資訊，請參閱 [HDInsight 上 Apache Hadoop 服務所使用的連接埠](hdinsight-hadoop-port-settings-for-services.md)文件。
 
 ## <a name="file-locations"></a>檔案位置
 
 Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包含下列子目錄：
 
-* **2.2.4.9-1**︰目錄名稱是 HDInsight 所使用的 Hortonworks Data Platform 版本。 叢集上的數字可能不同於此處所列的數字。
+* **2.2.4.9-1**：目錄名稱是 HDInsight 所使用的 Hortonworks Data Platform 版本。 叢集上的數字可能不同於此處所列的數字。
 * **current**︰此目錄包含 **2.2.4.9-1** 目錄下的子目錄連結。 因為有此目錄，您就不必記住版本號碼。
 
 在 Hadoop 分散式檔案系統的 `/example` 和 `/HdiSamples` 可取得範例資料和 JAR 檔案。
@@ -102,9 +102,9 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 使用 HDInsight 時，會使用 Azure Blob 儲存體 (並選擇性地使用 Azure Data Lake Store) 以可調整的彈性方式將資料檔案儲存在雲端中。 這些服務提供下列優點：
 
-* 長期儲存成本低廉
-* 可從各種外部服務進行存取，例如網站、檔案上傳/下載公用程式、各種語言的 SDK 和網頁瀏覽器
-* 大型檔案容量和大型可調整儲存體
+* 長期儲存成本低廉。
+* 可從各種外部服務進行存取，例如網站、檔案上傳/下載公用程式、各種語言的 SDK 和網頁瀏覽器。
+* 大型檔案容量和大型可調整儲存體。
 
 如需詳細資訊，請參閱[了解 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 和[Data Lake Store](https://azure.microsoft.com/services/data-lake-store/)。
 
@@ -120,15 +120,15 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 使用 __Azure 儲存體__時，可使用下列其中一種 UI 配置︰
 
-* `wasb:///`︰使用未加密通訊存取預設儲存體。
+* `wasb:///`：使用未加密通訊存取預設儲存體。
 
-* `wasbs:///`︰使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才會支援 wasbs 配置。
+* `wasbs:///`：使用加密通訊存取預設儲存體。  HDInsight 3.6 版和更新版本才會支援 wasbs 配置。
 
-* `wasb://<container-name>@<account-name>.blob.core.windows.net/`︰以非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
+* `wasb://<container-name>@<account-name>.blob.core.windows.net/`：與非預設儲存體帳戶進行通訊時使用。 例如，當您有其他儲存體帳戶，或在可公開存取的儲存體帳戶中存取儲存的資料時。
 
 使用 __Data Lake Store__ 時，可使用下列其中一種 UI 配置︰
 
-* `adl:///`︰存取叢集的預設 Data Lake Store。
+* `adl:///`：存取叢集的預設 Data Lake Store。
 
 * `adl://<storage-name>.azuredatalakestore.net/`：用來與非預設 Data Lake Store 進行通訊。 也用來存取 HDInsight 叢集根目錄之外的資料。
 
@@ -143,7 +143,7 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
 
 ```curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.defaultFS"] | select(. != null)'```
 
-> [!NOTE]
+> [!NOTE]  
 > 這個命令會傳回套用至伺服器的第一個組態 (`service_config_version=1`)，其中包含這項資訊。 您可能需要列出所有組態版本來找出最新的版本。
 
 此命令會傳回類似下列 URI 的值：
@@ -231,12 +231,12 @@ Hadoop 相關檔案可以在叢集節點的 `/usr/hdp`上找到。 此目錄包�
         1. 在您的網頁瀏覽器中開啟 **https://CLUSTERNAME.azurehdinsight.net/stormui**，其中 CLUSTERNAME 是 Storm 叢集的名稱。 出現提示時，輸入建立叢集時所指定的 HDInsight 叢集系統管理員 (管理員) 名稱和密碼。
         2. 選取您要重新平衡的拓撲，然後選取 [重新平衡] 按鈕。 在執行重新平衡作業之前輸入延遲。
 
-* **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。
+* **Kafka**：您應該在調整作業完成後重新平衡磁碟分割複本。 如需詳細資訊，請參閱[使用 HDInsight 上的 Apache Kafka 確保資料的高可用性](./kafka/apache-kafka-high-availability.md)文件。
 
 如需有關調整 HDInsight 叢集的特定資訊，請參閱：
 
-* [使用 Azure 入口網站管理 HDInsight 中的 Hadoop 叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Azure PowerShell 管理 HDInsight 上的 Hadoop 叢集](hdinsight-administer-use-command-line.md#scale-clusters)
+* [使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)
+* [使用 Azure PowerShell 管理 HDInsight 上的 Apache Hadoop 叢集](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>如何安裝 Hue (或其他 Hadoop 元件)？
 
@@ -247,8 +247,8 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 
 指令碼動作是 Bash 指令碼。 指令碼會在叢集建立期間執行，而且可用來安裝及設定其他元件。 範例指令碼可供安裝下列元件：
 
-* [Giraph](hdinsight-hadoop-giraph-install-linux.md)
-* [Solr](hdinsight-hadoop-solr-install-linux.md)
+* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
+* [Apache Solr](hdinsight-hadoop-solr-install-linux.md)
 
 如需開發您自己的指令碼動作相關資訊，請參閱 [使用 HDInsight 開發指令碼動作](hdinsight-hadoop-script-actions-linux.md)。
 
@@ -270,11 +270,11 @@ HDInsight 是受控服務。 如果 Azure 偵測到叢集問題，它可能會�
 > [!WARNING]
 > 透過 HDInsight 叢集提供的元件會受到完整支援，且 Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
+> 自訂元件則獲得商務上合理的支援，協助您進一步疑難排解問題。 如此可能會進而解決問題，或要求您利用可用管道，以找出開放原始碼技術，從中了解該技術的深度專業知識。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)、[Spark](http://spark.apache.org/)。
 
 ## <a name="next-steps"></a>後續步驟
 
 * [從以 Windows 為基礎的 HDInsight 移轉至以 Linux 為基礎的 HDInsight](hdinsight-migrate-from-windows-to-linux.md)
-* [搭配 HDInsight 使用 Hivet](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce 工作](hadoop/hdinsight-use-mapreduce.md)

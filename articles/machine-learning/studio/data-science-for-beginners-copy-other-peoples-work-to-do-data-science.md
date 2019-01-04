@@ -1,13 +1,12 @@
 ---
 title: 複製其他人的資料科學範例 - Azure Machine Learning Studio | Microsoft Docs
-description: 資料科學的商業秘密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。
+description: 資料科學的商業機密：讓其他人為您工作。 從 Azure AI 資源庫取得機器學習服務範例。
 keywords: 資料科學範例, 機器學習範例, 叢集演算法, 叢集演算法範例
 services: machine-learning
 documentationcenter: na
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
-manager: hjerez
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 editor: cjgronlund
 ms.assetid: ec2be823-c325-4ad8-b8b2-3e664f1a44b4
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2018
-ms.openlocfilehash: e573a0394fa47cd6325fe582366242644232cf3d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: acd0899396ac5a47dade5fac16e451b2029ec0c2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313770"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260373"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>複製其他人的工作進行資料科學
 ## <a name="video-5-data-science-for-beginners-series"></a>影片 5：適用於初學者的資料科學系列
@@ -43,8 +42,8 @@ ms.locfileid: "52313770"
  是一個資料科學的快速簡介，包含五個簡短影片。
 
 * 影片 1：[資料科學可以回答的 5 個問題](data-science-for-beginners-the-5-questions-data-science-answers.md) *(5 分 14 秒)*
-* 影片 2： [您的資料已經可以進行資料科學了嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
-* 影片 3：[詢問您可以使用資料回答的問題](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 分 17 秒)*
+* 影片 2：[已備妥適用於資料科學的資料嗎？](data-science-for-beginners-is-your-data-ready-for-data-science.md) *(4 分 56 秒)*
+* 影片 3：[問一個您可以使用資料回答的問題](data-science-for-beginners-ask-a-question-you-can-answer-with-data.md) *(4 分 17 秒)*
 * 影片 4：[利用簡單模型預測答案](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7 分 42 秒)*
 * 影片 5：複製其他人的工作進行資料科學
 

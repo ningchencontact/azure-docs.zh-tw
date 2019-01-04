@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure 搜尋服務中管理對於資源的並行寫入
+title: 如何管理對於資源的並行寫入 - Azure 搜尋服務
 description: 使用開放式同步存取來避免在針對 Azure 搜尋服務索引、索引子及資料來源的更新或刪除過程中發生衝突。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
-ms.openlocfilehash: f5fa495c1266c847cabc0eb4e35b85132550bc3c
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 017f665f3d0d19746854e2cf566034f801b32a04
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796375"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310201"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>如何管理 Azure 搜尋服務中的並行
 
@@ -24,9 +25,9 @@ ms.locfileid: "31796375"
 
 ## <a name="how-it-works"></a>運作方式
 
-開放式同步存取的實作方式，是透過對寫入索引、索引子、資料來源及 synonymMap 資源的 API 呼叫進行存取條件檢查。 
+開放式同步存取的實作方式，是透過對寫入索引、索引子、資料來源及 synonymMap 資源的 API 呼叫進行存取條件檢查。
 
-所有資源都有能提供物件版本資訊的[*實體標記 (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag)。 透過先檢查 ETag 並確保資源的 ETag 符合您的本機複本，將可以避免在一般工作流程 (取得，於本機修改，更新) 中發生同時更新。 
+所有資源都有能提供物件版本資訊的[*實體標記 (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag)。 透過先檢查 ETag 並確保資源的 ETag 符合您的本機複本，將可以避免在一般工作流程 (取得，於本機修改，更新) 中發生同時更新。
 
 + REST API 會在要求標頭上使用 [ETag](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) \(英文\)。
 + .NET SDK 透過 accessCondition 物件設定 ETag，並在資源上設定 [If-Match | If-Match-None 標頭](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) \(英文\)。 繼承自 [IResourceWithETag (.NET SDK)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.iresourcewithetag) \(英文\) 的任何物件都具有 accessCondition 物件。
@@ -34,7 +35,7 @@ ms.locfileid: "31796375"
 每次更新資源時，該資源的 ETag 都會自動變更。 當您實作並行管理時，所做的就是為更新要求設置前置條件，要求遠端資源的 ETag 必須與您在用戶端上所修改之資源複本的 ETag 相同。 如果並行處理程序已變更遠端資源，其 ETag 將會與前置條件不符，且該要求將會失敗並顯示 HTTP 412。 如果您是使用 .NET SDK，這會顯示為 `CloudException`，其中 `IsAccessConditionFailed()` 擴充方法會傳回 true。
 
 > [!Note]
-> 並行只有一種機制。 無論資源更新是使用哪一種 API，都只會使用這個機制。 
+> 並行只有一種機制。 無論資源更新是使用哪一種 API，都只會使用這個機制。
 
 <a name="samplecode"></a>
 ## <a name="use-cases-and-sample-code"></a>使用案例和範例程式碼
@@ -111,7 +112,7 @@ ms.locfileid: "31796375"
             {
                 indexForClient2.Fields.Add(new Field("b", DataType.Boolean));
                 serviceClient.Indexes.CreateOrUpdate(
-                    indexForClient2, 
+                    indexForClient2,
                     accessCondition: AccessCondition.IfNotChanged(indexForClient2));
 
                 Console.WriteLine("Whoops; This shouldn't happen");
@@ -167,9 +168,9 @@ ms.locfileid: "31796375"
 
 ## <a name="design-pattern"></a>設計模式
 
-實作開放式同步存取的設計模式應包含重複嘗試存取條件檢查、測試存取條件，並選擇性擷取更新資源，然後再嘗試重新套用變更的迴圈。 
+實作開放式同步存取的設計模式應包含重複嘗試存取條件檢查、測試存取條件，並選擇性擷取更新資源，然後再嘗試重新套用變更的迴圈。
 
-此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼來自 [Azure 搜尋服務的同義字 (預覽) C# 教學課程](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)。 
+此程式碼片段說明如何將 synonymMap 新增至已存在的索引。 此程式碼來自 [Azure 搜尋服務的同義字 (預覽) C# 教學課程](https://docs.microsoft.com/azure/search/search-synonyms-tutorial-sdk)。
 
 該程式碼片段會取得 "hotels" 索引，檢查更新作業的物件版本，在條件失敗的情況下擲回例外狀況，然後重試該作業 (最多三次)，並從自伺服器擷取索引以取得最新版本開始。
 
@@ -211,10 +212,11 @@ ms.locfileid: "31796375"
 
 嘗試修改下列任一範例以包含 ETag 或 AccessCondition 物件。
 
-+ [Github 上的 REST API 範例](https://github.com/Azure-Samples/search-rest-api-getting-started) \(英文\) 
-+ [Github 上的 .NET SDK 範例](https://github.com/Azure-Samples/search-dotnet-getting-started) \(英文\)。 此解決方案包括「DotNetEtagsExplainer」專案，其中包含本文所提供的程式碼。
++ [GitHub 上的 REST API 範例](https://github.com/Azure-Samples/search-rest-api-getting-started) (英文)
++ [GitHub 上的 .NET SDK 範例](https://github.com/Azure-Samples/search-dotnet-getting-started) (英文)。 此解決方案包括「DotNetEtagsExplainer」專案，其中包含本文所提供的程式碼。
 
 ## <a name="see-also"></a>另請參閱
 
-  [常見 HTTP 要求與回應標頭](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)   \(英文\)  
-  [HTTP 狀態碼](https://docs.microsoft.com/rest/api/searchservice/http-status-codes) \(英文\) [索引作業 (REST API)](https://docs.microsoft.com/\rest/api/searchservice/index-operations) \(英文\)
+[常見 HTTP 要求和回應標頭 (英文)](https://docs.microsoft.com/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search)
+[HTTP 狀態碼 (英文)](https://docs.microsoft.com/rest/api/searchservice/http-status-codes)
+[索引作業 (REST API)(英文)](https://docs.microsoft.com/rest/api/searchservice/index-operations)

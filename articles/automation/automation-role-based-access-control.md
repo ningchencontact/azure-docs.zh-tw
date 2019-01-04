@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094212"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727897"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自動化中的角色型存取控制
 
@@ -274,12 +274,13 @@ ms.locfileid: "47094212"
 
 1. 登入 [Azure 入口網站](https://portal.azure.com/)，並從 [自動化帳戶] 頁面開啟您的自動化帳戶。
 2. 按一下左上角的 [存取控制 (IAM)] 控制項。 這會開啟 [存取控制 (IAM)] 頁面，您可以在其中新增新使用者、群組及應用程式來管理您的「自動化」帳戶，並檢視可以為「自動化」帳戶設定的現有角色。
+3. 按一下 [角色指派] 索引標籤。
 
    ![[存取] 按鈕](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>加入新使用者並指派角色
 
-1. 從 [存取控制 (IAM)] 頁面中，按一下 [+ 新增] 以開啟 [新增權限] 頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
+1. 從 [存取控制 (IAM)] 頁面，按一下 [+ 新增角色指派] 以開啟 [新增角色指派] 頁面，您可以在其中新增使用者、群組或應用程式，並將角色指派給他們。
 
 2. 從可用角色的清單中選取角色。 您可以選擇「自動化」帳戶支援的任何可用內建角色，或已定義的任何自訂角色。
 

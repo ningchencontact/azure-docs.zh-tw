@@ -1,23 +1,24 @@
 ---
-title: LUIS 預先建置的百分比實體參考 - Azure| Microsoft Docs
+title: 百分比預先建置的實體
 titleSuffix: Azure
 description: 本文包含 Language Understanding (LUIS) 中預先建置的百分比實體資訊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: diberry
-ms.openlocfilehash: 876ee710491213f17c12d3b6ddd0339bb2043657
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9b9faaae78cd1e3590291aef68db47f57f050f3d
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334902"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165685"
 ---
-# <a name="percentage-entity"></a>百分比實體
+# <a name="percentage-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的百分比預先建置實體
 百分比數字可顯示為分數 `3 1/2` 或百分比 `2%`。 由於此實體已經定型，因此您不需要將包含百分比的範例語句加入至應用程式意圖。 [多種文化特色](luis-reference-prebuilt-entities.md)都支援百分比實體。 
 
 ## <a name="types-of-percentage"></a>百分比類型
@@ -26,7 +27,7 @@ ms.locfileid: "52334902"
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>解析預先建置的百分比實體
 下列範例說明 **builtin.percentage** 實體的解析。
 
-```JSON
+```json
 {
   "query": "set a trigger when my stock goes up 2%",
   "topScoringIntent": {

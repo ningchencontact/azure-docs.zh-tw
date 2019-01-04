@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 10648551728e4f3cb41b82433e4cd0d442f9daeb
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521273"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679251"
 ---
 # <a name="auto-provisioning-concepts"></a>自動佈建概念
 
@@ -30,7 +30,7 @@ Azure IoT 自動佈建可分成三個階段：
 
 2. **裝置註冊** - 讓「裝置佈建服務」執行個體知道未來會嘗試註冊之裝置的程序。 [註冊](concepts-service.md#enrollment)時會一併在佈建服務中設定裝置身分識別資訊，針對單一裝置，會採用「個別註冊」的形式，針對多個裝置，則會採用「群組註冊」的形式。 身分識別會根據已指定裝置使用的[證明機制](concepts-security.md#attestation-mechanism)，這可讓佈建服務在登錄期間證明裝置的真確性：
 
-   - **TPM**：以「個別註冊」的形式設定，裝置身分識別會根據 TPM 註冊識別碼和公開簽署金鑰。 由於 TPM 是一個[規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)，因此不論 TPM 實作 (硬體或軟體) 為何，服務只會依據此規格來證明。 如需有關 TPM 型證明的詳細資料，請參閱[裝置佈建：使用 TPM 進行身分識別證明](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/) \(英文\)。 
+   - **TPM**：以「個別註冊」的形式設定，裝置身分識別會根據 TPM 註冊識別碼和公開簽署金鑰。 由於 TPM 是一個[規格](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)，因此不論 TPM 實作 (硬體或軟體) 為何，服務只會依據此規格來證明。 如需有關 TPM 型證明的詳細資料，請參閱[裝置佈建：使用 TPM 進行身分識別證明](https://azure.microsoft.com/blog/device-provisioning-identity-attestation-with-tpm/)。 
 
    - **X509**：以「個別註冊」或「群組註冊」的形式設定，裝置身分識別會根據 X.509 數位憑證 (以 .pem 或 .cer 檔案的形式上傳至註冊)。
 
@@ -62,7 +62,34 @@ Azure IoT 自動佈建可分成三個階段：
 [![裝置的自動佈建順序](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> 製造商也可以視需要使用「裝置佈建服務 API」(而不透過「操作員」) 來執行「註冊裝置身分識別」作業。 如需此排序及更多的詳細討論，請觀看[向 Azure IoT 進行全自動裝置登錄](https://myignite.microsoft.com/sessions/55087)影片 (從 41:00 標記開始)
+> 製造商也可以視需要使用「裝置佈建服務 API」(而不透過「操作員」) 來執行「註冊裝置身分識別」作業。 如需此排序及更多的詳細討論，請觀看[向 Azure IoT 進行全自動裝置登錄](https://youtu.be/cSbDRNg72cU?t=2460)影片 (從 41:00 標記開始)
+
+## <a name="roles-and-azure-accounts"></a>角色和 Azure 帳戶
+
+每個角色對應至 Azure 帳戶的方式與案例相關，而且可能涉及相當多案例。 以下常見模式應有助於大致了解角色通常如何對應到 Azure 帳戶。
+
+#### <a name="chip-manufacturer-provides-security-services"></a>晶片製造商提供安全性服務
+
+在此案例中，製造商會管理第一級客戶的安全性。 這些第一級客戶可能偏好此個案例，因為他們不必管理詳細的安全性。 
+
+製造商在硬體安全性模組 (HSM) 中引入安全性。 此安全性可包括製造商從已設定 DPS 執行個體和註冊群組的潛在客戶取得的金鑰、憑證等。 製造商也可為其客戶產生安全性資訊。
+
+在此案例中，可能有涉及兩個 Azure 帳戶：
+
+- **帳戶 #1**：在某種程度可能由操作員和開發人員角色共用。 此合作對象可以向製造商購買 HSM 晶片。 這些晶片會指向與帳戶 #1 相關聯的 DPS 執行個體。 DPS 註冊，此合作對象可藉由在 DPS 中重新設定裝置註冊設定，將裝置租給第 2 級客戶。 此合作對象可能也針對要聯繫的使用者後端系統配置了 IoT 中樞，以便存取裝置遙測等等。在此後者的情況下，可能不需要第二個帳戶。
+
+- **帳戶 #2**：終端使用者，第二級客戶可能有其自己的 IoT 中樞。 與帳戶 #1 相關聯的合作對象只是將租用裝置指向此帳戶中的正確中樞。 此組態需要跨 Azure 帳戶連結 DPS 和 IoT 中樞，這可透過 Azure Resource Manager 範本完成。
+
+#### <a name="all-in-one-oem"></a>全方位 OEM
+
+製造商可以是「全方位 OEM」，其只需要單一製造商帳戶。 製造商會處理端對端安全性和佈建。
+
+製造商可以將雲端式應用程式提供給購買裝置的客戶。 此應用程式會與製造商所配置的 IoT 中樞聯繫。
+
+販賣機或全自動咖啡機代表此案例的範例。
+
+
+
 
 ## <a name="next-steps"></a>後續步驟
 

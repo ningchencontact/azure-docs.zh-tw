@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 1958d694ab87d635624884b43486761269e37c37
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49457046"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53082641"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory 中的複製活動
 
@@ -55,7 +55,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 
 您可以使用「複製活動」在兩個以檔案為基礎的資料存放區之間「依原狀複製檔案」，資料就會有效率地複製，而不需經過序列化/還原序列化。
 
-「複製活動」也支援以指定的格式讀取和寫入檔案：**文字、JSON、Avro、ORC 和 Parquet**，並支援 **GZip、Deflate、BZip2 和 ZipDeflate** 壓縮轉碼器。 如需詳細資訊，請參閱[支援的檔案和壓縮格式](supported-file-formats-and-compression-codecs.md)。
+複製活動也支援以指定格式讀取和寫入檔案︰**文字、JSON、Avro、ORC 和 Parquet**，並支援 **GZip、Deflate、BZip2 和 ZipDeflate** 壓縮轉碼器。 如需詳細資訊，請參閱[支援的檔案和壓縮格式](supported-file-formats-and-compression-codecs.md)。
 
 例如，您可以執行下列複製活動：
 
@@ -173,6 +173,7 @@ Integration Runtime 必須與每個來源及接收端資料存放區相關聯。
 | dataRead | 從來源讀取的資料大小 | Int64 值 (以**位元組**為單位) |
 | dataWritten | 寫入到接收的資料大小 | Int64 值 (以**位元組**為單位) |
 | filesRead | 從檔案儲存體複製資料時所要複製的檔案數目。 | Int64 值 (未指定單位) |
+| fileScanned | 正在從來源檔案儲存體掃描的檔案數目。 | Int64 值 (未指定單位) |
 | filesWritten | 將資料複製到檔案儲存體時所要複製的檔案數目。 | Int64 值 (未指定單位) |
 | rowsCopied | 正在複製的資料列數目 (不適用於二進位複本) 。 | Int64 值 (未指定單位) |
 | rowsSkipped | 略過的不相容資料列數目。 您可以將 enableSkipIncompatibleRow 設為 true 以開啟此功能。 | Int64 值 (未指定單位) |

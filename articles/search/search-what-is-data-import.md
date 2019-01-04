@@ -1,6 +1,6 @@
 ---
-title: 在 Azure 搜尋服務中匯入資料 | Microsoft Docs
-description: 了解如何將資料上傳至 Azure 搜尋服務中的索引
+title: 將資料匯入至搜尋索引以供擷取 - Azure 搜尋服務
+description: 從外部資料來源填入資料，並將資料上傳至 Azure 搜尋服務中的索引。
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,14 +8,15 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: heidist
-ms.openlocfilehash: ab26adb330e69f71d94aa296ede558b44e47a187
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 731519b4e099bd696002af3aa08ada145e490260
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249773"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314851"
 ---
-# <a name="indexing-in-azure-search"></a>在 Azure 搜尋服務中編製索引
+# <a name="indexing-external-data-for-queries-in-azure-search"></a>為Azure 搜尋服務查詢的外部資料編製索引
 > [!div class="op_single_selector"]
 > * [概觀](search-what-is-data-import.md)
 > * [.NET](search-import-data-dotnet.md)
@@ -23,7 +24,7 @@ ms.locfileid: "51249773"
 > 
 > 
 
-在 Azure 搜尋服務中，對您的內容執行的查詢會載入到[搜尋索引](search-what-is-an-index.md)中。 本文會檢查將內容載入到索引中的兩種基本方法：以程式設計方式將資料「推送」到索引中，或指向位於支援的資料來源並且要在資料中「提取」的 [Azure 搜尋索引子](search-indexer-overview.md)。
+在 Azure 搜尋服務中，對您的內容執行的查詢會載入並儲存於[搜尋索引](search-what-is-an-index.md)中。 本文會深入探討填入索引的兩種基本方法：以程式設計方式將資料「推送」到索引中，或指向位於支援的資料來源並且要在資料中「提取」的 [Azure 搜尋索引子](search-indexer-overview.md)。
 
 ## <a name="pushing-data-to-an-index"></a>將資料推送到索引
 推送模型是最具彈性的方法，用來以程式設計方式將資料傳送至 Azure 搜尋。 首先，它沒有資料來源類型的限制。 任何由 JSON 文件組成的資料集都可以推送到 Azure 搜尋服務索引，並假設資料集中的每份文件都有索引結構描述中定義之欄位的對應欄位。 其次，它沒有執行頻率的限制。 您可以視需要經常將變更推送到索引。 若應用程式需要極低的延遲 (例如，如果您需要讓搜尋作業與動態庫存資料庫保持同步)，推送模式是您的唯一選擇。

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: fe6199aea91bbb7518ccdbfe640848a59edcee49
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2198d7520d660904423eabbec8df71e55e3011dd
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215458"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338629"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>設定內部部署 VMware 虛擬機器或實體伺服器至次要網站的災害復原
 
@@ -99,8 +99,8 @@ Azure Site Recovery 將持續創新，以 Azure 作為災害復原站台，為 V
   - vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe
   - 適用於 RHEL5、OL5、OL6、SUSE 10、SUSE 11 的 UA update4 位元：UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 1. 解壓縮 .zip 檔。
-2. **RX 伺服器**：將 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 複製到 RX 伺服器並將其解壓縮。 在解壓縮的資料夾中執行 **/Install**。
-3. **設定伺服器和處理伺服器**：將 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 複製到設定伺服器和處理伺服器。 連按兩下加以執行。<br>
+2. **RX 伺服器**：將 **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** 複製到 RX 伺服器並將它解壓縮。 在解壓縮的資料夾中執行 **/Install**。
+3. **設定伺服器和處理序伺服器**：將 **CX_Windows_8.0.6.0_GA_Update_6_13746667_18Sep17.exe** 複製到設定伺服器和處理序伺服器。 連按兩下加以執行。<br>
 4. **Windows 主要目標伺服器**：若要更新整合代理程式，請將 **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** 複製到伺服器。 連按兩下加以執行。 相同的整合代理程式更新也適用於來源伺服器。 如果來源尚未更新為 Update 4，您應該更新整合代理程式。
   更新不需要在使用 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** 備妥的主要目標上套用，因為這是包含所有最新變更的新 GA 安裝程式。
 5. **vContinuum 伺服器**：將 **vCon_Windows_8.0.6.0_GA_Update_6_11525767_21Sep17.exe** 複製到伺服器。  確定您已經關閉 vContinuum 精靈。 連按兩下檔案加以執行。
@@ -142,7 +142,7 @@ Scout Update 6 是累積更新。 其中包含 Update 1 到 Update 5 的所有�
 > [!NOTE]
 > * 已更新 Windows 適用的基底整合代理程式 (UA) 安裝程式，以支援 Windows Server 2016。 新的安裝程式 **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe** 會與基底 Scout GA 封裝 (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**) 一起封裝。 相同的安裝程式將用於所有支援的 Windows 版本。 
 > * 已更新基底 Windows vContinuum 和主要目標安裝程式，以支援 Windows Server 2016。 新的安裝程式 **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_10Oct2017_release.exe** 會與基底 Scout GA 封裝 (**InMage_Scout_Standard_8.0.1 GA-Oct17.zip**) 一起封裝。 相同的安裝程式將用來部署 Windows 2016 主要目標與 Windows 2012R2 主要目標。
-> * 請遵循[建立保存庫](#create-a-vault)中所述，從入口網站下載 GA 套件。
+> * ASR Scout 不支援實體伺服器上的 Windows Server 2016， 僅支援 Windows Server 2016 VMware VM。 
 >
 
 #### <a name="bug-fixes-and-enhancements"></a>Bug 修正和增強功能
@@ -168,7 +168,7 @@ Scout Update 5 是累積更新， 包含 Update 1 到 Update 4 的所有修正�
     * 已修正 - 單一節點叢集保護因為 SCSI 不符的問題而失敗。 
     * 已修正 - 如果有目標叢集磁碟，重新保護 P2V Windows 叢集伺服器會失敗。 
     
-* 已修正 - 在容錯回復保護期間，如果選取的主要目標伺服器不是在和受保護來源機器相同的 ESXi 伺服器上 (在正向保護期間)，vContinuum 會在容錯回復復原期間挑出錯誤的主要目標伺服器，而且復原作業會失敗。
+* 已修正：在容錯回復保護期間，如果選取的主要目標伺服器不是在和受保護來源機器相同的 ESXi 伺服器上 (在正向保護期間)，vContinuum 會在容錯回復復原期間選用錯誤的主要目標伺服器，而且復原作業會失敗。
 
 > [!NOTE]
 > * P2V 叢集修正僅適用於剛以 Site Recovery Scout Update 5 加以保護的實體 MSCS 叢集。 若要在以舊版更新保護的 P2V MSCS 叢集上安裝叢集修正，請遵循 [Site Recovery Scout 版本資訊](https://aka.ms/asr-scout-release-notes)第 12 節中所述的升級步驟。
@@ -247,15 +247,15 @@ Update 3 修正下列問題：
 * 設定伺服器和 RX 主控台現在可以針對進入點陣圖模式的配對顯示通知。
 * RX 中已加入下列安全性修正：
     * 透過竄改參數略過授權：對不適用使用者的存取權限制。
-    * 跨網站偽造要求：實作針對每一頁隨機產生的頁面權杖概念。 這表示相同使用者只有一個單一登入執行個體，而且頁面重新整理無法運作。 相反地，它會重新導向到儀表板。
+    * 跨網站偽造要求：已實作頁面權杖概念，且會針對每一頁隨機產生。 這表示相同使用者只有一個單一登入執行個體，而且頁面重新整理無法運作。 相反地，它會重新導向到儀表板。
     * 惡意檔案上傳：將檔案限制於特定副檔名︰z、aiff、asf、avi、bmp、csv、doc、docx、fla、flv、gif、gz、gzip、jpeg、jpg、log、mid、mov、mp3、mp4、mpc、mpeg、mpg、ods、odt、pdf、png、ppt、pptx、pxd、qt、ram、rar、rm、rmi、rmvb、rtf、sdc、sitd、swf、sxc、sxw、tar、tgz、tif、tiff、txt、vsd、wav、wma、wmv、xls、xlsx、xml、zip。
-    * 持續性跨網站指令碼：已新增輸入驗證。
+    * 持續性跨網站指令碼：加入輸入驗證。
 
 ### <a name="azure-site-recovery-scout-801-update-2-update-03dec15"></a>Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 
 Update 2 中的修正包括：
 
-* **組態伺服器**：當組態伺服器註冊到 Azure Site Recovery 保存庫時，會發生使 31 天免費計量功能無法正常運作的問題。
+* **設定伺服器**：在 Azure Site Recovery 保存庫中註冊設定伺服器時，會發生使 31 天免費計量功能無法正常運作的問題。
 * **整合代理程式**：修正 Update 1 中導致 8.0 版升級至 8.0.1 版期間，更新未安裝在主要目標伺服器上的問題。
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: d50131a9c9e7572f7696a936cbfec3a8568eda2e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343640"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960646"
 ---
 # <a name="azure-stack-firewall-integration"></a>Azure Stack 防火牆整合
 建議您使用防火牆裝置來協助保護 Azure Stack 安全。 雖然防火牆有助於防堵分散式阻斷服務 (DDOS) 攻擊、入侵偵測及內容檢查等，但也會成為 Azure 儲存體服務 (例如 Blob、資料表及佇列) 的輸送量瓶頸。
@@ -49,7 +49,7 @@ NAT 也可以是外部網路上公用 IP 位址或公用 VIP 的替代方案。 
 
 一般而言，在部署階段，會從外部網路為公用 VIP 集區指定公用的可路由傳送 IP 位址。 在邊緣案例中，不建議在任何其他網路上，針對安全性目的使用公用可路由傳送 IP 位址。 此案例會讓使用者能夠享有像在 Azure 這類公用雲端一樣的完全自我控制雲端體驗。  
 
-![Azure Stack 邊緣防火牆範例](.\media\azure-stack-firewall\firewallScenarios.png)
+![Azure Stack 邊緣防火牆範例](./media/azure-stack-firewall/firewallScenarios.png)
 
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>企業內部網路或周邊網路防火牆案例
 在企業內部網路或周邊部署中，Azure Stack 會部署在多區域防火牆上，或部署在邊緣防火牆與內部公司網路防火牆中間。 然後其流量會分散在安全的周邊網路 (或 DMZ) 與不安全的區域之間，如下所述：
@@ -58,7 +58,7 @@ NAT 也可以是外部網路上公用 IP 位址或公用 VIP 的替代方案。 
 - **周邊區域**。 周邊網路是通常用來部署外部或網際網路對應應用程式 (例如 Web 伺服器) 的位置。 它通常會受防火牆監視來避免遭受攻擊 (例如 DDoS) 和入侵 (駭客)，但仍允許來自網際網路的指定輸入流量。 只有 Azure Stack 的外部網路公用 VIP 集區應該位於 DMZ 區域。
 - **不安全區域**。 這是外部網路，即網際網路。 **不**建議將 Azure Stack 部署在不安全區域中。
 
-![Azure Stack 周邊網路範例](.\media\azure-stack-firewall\perimeter-network-scenario.png)
+![Azure Stack 周邊網路範例](./media/azure-stack-firewall/perimeter-network-scenario.png)
 
 ## <a name="learn-more"></a>深入了解
 深入了解 [Azure Stack 端點所使用的連接埠和通訊協定](azure-stack-integrate-endpoints.md)。

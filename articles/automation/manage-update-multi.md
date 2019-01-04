@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8e1c58f2d60ee95189fb583e032d8748fedb88d4
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 2ba34a6d1ecc33e8a4d355aeacb0da8a764a784d
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620212"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679517"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>管理多部機器的更新
 
@@ -127,8 +127,8 @@ Linux 代理程式必須能夠存取更新存放庫。
 
 - **名稱**：輸入唯一名稱來識別更新部署。
 - **作業系統**：選取 [Windows] 或 [Linux]。
-- **要更新的群組 (預覽)**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建立要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)
-- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../log-analytics/log-analytics-computer-groups.md)
+- **要更新的群組 (預覽)**：根據訂用帳戶、資源群組、位置及標記的組合來定義查詢，以建置要包含在您部署中的動態 Azure VM 群組。 若要深入了解，請參閱[動態群組](automation-update-management.md#using-dynamic-groups)
+- **要更新的機器**：選取已儲存的搜尋或已匯入的群組，或選取機器，以選擇您想要更新的機器。 如果您選擇 [機器]，機器的整備程度會顯示於 [更新代理程式整備程度] 欄中。 您可以在排程更新部署之前，先查看機器的健康情況。 若要深入了解在 Log Analytics 中建立電腦群組的不同方法，請參閱 [Log Analytics 中的電腦群組](../azure-monitor/platform/computer-groups.md)
 
   ![[新增更新部署] 窗格](./media/manage-update-multi/update-select-computers.png)
 
@@ -150,8 +150,8 @@ Linux 代理程式必須能夠存取更新存放庫。
 
    ![排程 [設定] 對話方塊](./media/manage-update-multi/update-set-schedule.png)
 
-- **前置指令碼 + 後置指令碼**：選取在部署前和部署後要執行的指令碼。 若要深入了解，請參閱[管理前置和後置指令碼](pre-post-scripts.md)。
-- **維護時間範圍 (分鐘)**：指定您要執行更新部署的時段。 此設定有助於確保在您定義的服務時段內執行變更。
+- **前置指令碼 + 後置指令碼**：選取要在部署前和部署後執行的指令碼。 若要深入了解，請參閱[管理前置和後置指令碼](pre-post-scripts.md)。
+- **維護時間範圍 (分鐘)**：指定需要執行更新部署的時段。 此設定有助於確保在您定義的服務時段內執行變更。
 
 - **重新啟動控制** - 此設定可決定如何處理更新部署的重新開機。
 

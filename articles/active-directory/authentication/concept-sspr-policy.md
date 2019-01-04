@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/10/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 3a16977f2d3bc7321de2d2a1538276f182e7fa10
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321728"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190980"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>密碼原則和 Azure Active Directory 中的限制
 
@@ -27,7 +27,7 @@ ms.locfileid: "49321728"
 
 利用雙閘道原則，**系統管理員就不需要有使用安全性問題的能力**。
 
-兩個閘道原則需要兩項驗證資料，例如電子郵件地址*和*電話號碼。 兩個閘道原則適用於下列情況：
+兩個閘道原則需要兩項驗證資料，例如**電子郵件地址**、**驗證器應用程式**或**電話號碼**。 兩個閘道原則適用於下列情況：
 
 * 下列 Azure 系統管理員角色會受到影響：
   * 服務台管理員
@@ -80,7 +80,7 @@ ms.locfileid: "49321728"
 | --- | --- |
 | 允許的字元 |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | 不允許的字元 |<ul><li>Unicode 字元。</li><li>空格。</li><li> 僅限強式密碼</li></ul> |
-| 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>僅限使用增強式密碼︰需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
+| 密碼限制 |<ul><li>最少 8 個字元和最多 16 個字元。</li><li>僅限強式密碼：需要下列四種字元中的三種：<ul><li>小寫字元。</li><li>大寫字元。</li><li>數字 (0-9)。</li><li>符號 (請參閱先前的密碼限制)。</li></ul></li></ul> |
 | 密碼到期時間 |<ul><li>預設值：**90** 天。</li><li>可透過適用於 Windows PowerShell 的 Azure Active Directory 模組使用 `Set-MsolPasswordPolicy` Cmdlet 設定該值。</li></ul> |
 | 密碼到期通知 |<ul><li>預設值：**14** 天 (密碼到期之前)。</li><li>可使用 `Set-MsolPasswordPolicy` Cmdlet 設定此值。</li></ul> |
 | 密碼到期 |<ul><li>預設值︰**false** 天 (表示已啟用密碼到期)。</li><li>可以使用 `Set-MsolUser` Cmdlet 針對個別使用者帳戶設定該值。</li></ul> |

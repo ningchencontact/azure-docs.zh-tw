@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 256f36ac56126fc76561a6dbe4281ac4975df6e4
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: b535939e200b533c06c97686897e283fb6cf57bc
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632784"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720179"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Azure 資源適用受控識別的常見問題集與已知問題
 
@@ -115,7 +115,7 @@ Azure 資源適用受控識別 VM 擴充功能 (預計在 2019 年 1 月淘汰) 
 
 ### <a name="cannot-assign-access-to-virtual-machines-in-the-access-control-iam-blade"></a>在 [存取控制 (IAM)] 刀鋒視窗中無法將存取權指派給虛擬機器
 
-在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)]  >  [新增權限] 中顯示為**指派存取權的對象**，則表示 Azure 資源適用受控識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋 Azure 資源適用受控識別服務主體，選取虛擬機器的身分識別來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
+在 Azure 入口網站中，如果**虛擬機器**沒有在 [存取控制 (IAM)] > [新增角色指派] 中顯示為**指派存取權的對象**，則表示 Azure 資源適用受控識別尚未在您區域的入口網站中啟用。 請稍後再試。  您仍然可藉由搜尋 Azure 資源適用受控識別服務主體，選取虛擬機器的身分識別來指派角色。  在 [選取] 欄位中輸入 VM 名稱，服務主體就會出現在搜尋結果中。
 
 ### <a name="vm-fails-to-start-after-being-moved-from-resource-group-or-subscription"></a>VM 從資源群組或訂用帳戶移走後會無法啟動
 

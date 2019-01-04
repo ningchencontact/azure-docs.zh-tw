@@ -1,7 +1,7 @@
 ---
 title: LUIS 和 QnAMaker - Bot 整合
 titleSuffix: Azure Cognitive Services
-description: 在 Bot 中整合 QnA Maker 與 LUIS 的逐步教學課程。
+description: 隨著 QnA Maker 知識庫變得愈來愈大，整體而言相當難以維護，因此需要將知識庫分割成較小的邏輯區塊。
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: diberry
-ms.openlocfilehash: 27f60f9624af2819663990aeba99b4044045540b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: f2d6f956564f01c14edb213f0bc5ae709892c542
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687362"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163306"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>整合 QnA Maker 與 LUIS 散發您的知識庫
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>使用 QnA Maker 與 LUIS 的 Bot 來散發您的知識庫
 隨著 QnA Maker 知識庫變得愈來愈大，整體而言相當難以維護，因此需要將知識庫分割成較小的邏輯區塊。
 
 雖然可以直接在 QnA Maker 中建立多個知識庫，但是您需要一些邏輯將內送的問題傳送到適當的知識庫。 您可以使用 LUIS 來達成此目的。

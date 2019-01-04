@@ -1,7 +1,7 @@
 ---
 title: 遷移預覽知識庫 - Qna Maker
 titleSuffix: Azure Cognitive Services
-description: 如何匯入知識庫
+description: 使用 QnA Maker 免費預覽建立的知識庫必須移轉至 QnA Maker GA。 QnA Maker 預覽版即將在 2019 年 1 月淘汰。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,15 +10,16 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.custom: seodec18
+ms.openlocfilehash: 261d42a6c21681ee8015edfe73ad78b4458eb0ee
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365555"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53078801"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>使用匯出-匯入移轉知識庫
-QnA Maker 於 2018 年 5 月 7 日在 \\\build\ 會議宣佈了公開上市。 QnA Maker GA 具有在 Azure 上建置的新架構。 使用 QnA Maker 免費預覽建立的知識庫必須移轉至 QnA Maker GA。 QnA Maker 預覽版即將在 2018 年 11 月 淘汰。 如需 QnA Maker GA 變更的詳細資訊，請參閱 QnA Maker GA 公告[部落格文章](https://aka.ms/qnamakerga-blog)。
+QnA Maker 於 2018 年 5 月 7 日在 \\\build\ 會議宣佈了公開上市。 QnA Maker GA 具有在 Azure 上建置的新架構。 使用 QnA Maker 免費預覽建立的知識庫必須移轉至 QnA Maker GA。 QnA Maker 預覽版即將在 2019 年 1 月淘汰。 如需 QnA Maker GA 變更的詳細資訊，請參閱 QnA Maker GA 公告[部落格文章](https://aka.ms/qnamakerga-blog)。
 
 QnA Maker 現在有[定價模型](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)。
 

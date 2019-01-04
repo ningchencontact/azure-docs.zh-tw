@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 專案規劃 - Azure | Microsoft Docs
+title: Team Data Science Process 專案規劃
 description: Microsoft Project 和 Excel 範本可協助您規劃和管理資料科學專案。
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 702ea6152ce5bf90d1d1f61b566e91d1859e672b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3675d3cd8959d78270a491aeb443cb8e458d2472
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443095"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53137906"
 ---
 # <a name="team-data-science-process-project-planning"></a>Team Data Science Process 專案規劃
 
@@ -48,7 +48,7 @@ Team Data Science Process (TDSP) 會提供建構資料科學專案開發的生�
 
 ## <a name="excel-template"></a>Excel 範本
 
-如果沒有 Microsoft Project 的存取權，也可以在以下位置下載同樣可用之具有相同資料的 Excel 工作表：[Excel 範本](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) 您可以將它提取至您想要使用的任何工具。
+如果您沒有 Microsoft Project 的存取權，也可在以下位置下載內含所有相同資料的 Excel 工作表：[Excel 範本](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Team-Data-Science-Process/Project-Planning-and-Governance/Advanced%20Analytics%20Microsoft%20Project%20Plan.xlsx) 您可以將它提取至您慣用的任何工具。
 
 使用這些範本時請自行承擔風險。 適用[一般免責聲明](https://www.gnu.org/licenses/gpl-3.0.en.html)。
 

@@ -4,16 +4,16 @@ description: 了解如何針對更新管理問題進行疑難排解
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 12/05/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: d0d6ed03b6e28df9767e24170ebf5ec92bb9fe9a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092622"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53434727"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>針對更新管理問題進行疑難排解
 
@@ -45,7 +45,50 @@ The components for the 'Update Management' solution have been enabled, and now t
 1. 請瀏覽[網路規劃](../automation-hybrid-runbook-worker.md#network-planning)，了解必須允許哪些位址和連接埠，才能進行更新管理。
 2. 如果使用複製的映像，請先對映像執行 sysprep，然後再安裝 MMA 代理程式。
 
-## <a name="windows"></a>Windows
+### <a name="multi-tenant"></a>案例：您在另一個 Azure 租用戶中建立機器的更新部署時，發生連結訂用帳戶錯誤。
+
+#### <a name="issue"></a>問題
+
+您在另一個 Azure 租用戶中嘗試為機器建立更新部署時，發生下列錯誤：
+
+```
+The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
+```
+
+#### <a name="cause"></a>原因
+
+當您建立的更新部署中有 Azure 虛擬機器位在某個更新部署中的其他租用戶內，就會發生此錯誤。
+
+#### <a name="resolution"></a>解決方案
+
+請採取以下因應措施將之安排妥當。 您可以搭配參數 `-ForUpdate` 使用 [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule?view=azurermps-6.13.0) Cmdlet，藉此建立排程，然後使用 [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration?view=azurermps-6.13.0
+) Cmdlet，將其他租用戶中的機器傳遞到 `-NonAzureComputer` 參數。 下列範例示範了做法：
+
+```azurepowershell-interactive
+$nonAzurecomputers = @("server-01", "server-02")
+
+$startTime = ([DateTime]::Now).AddMinutes(10)
+
+$s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
+
+New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
+```
+
+### <a name="nologs"></a>案例：機器的更新管理資料未顯示在 Log Analytics 中
+
+#### <a name="issue"></a>問題
+
+您有在 [合規性] 之下顯示為 [未評估] 的電腦，但您可以在 Log Analytics 中查看混合式 Runbook 背景工作角色 (而非更新管理) 的活動訊號資料。
+
+#### <a name="cause"></a>原因
+
+混合式 Runbook 背景工作角色可能需要重新註冊及重新安裝。
+
+#### <a name="resolution"></a>解決方案
+
+請遵循[部署 Windows 混合式 Runbook 背景工作角色](../automation-windows-hrw-install.md)中的步驟來重新安裝混合式背景工作角色，或是為 Linux [部署 Linux 混合式 Runbook 背景工作角色](../automation-linux-hrw-install.md)。
+
+## <a name="windows"></a> Windows
 
 如果您在嘗試讓解決方案在虛擬機器上線時遇到問題，請查看本機電腦上 [應用程式及服務記錄檔] 底下的 [Operations Manager] 事件記錄檔中，是否有事件識別碼為 **4502** 且事件訊息包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 的事件。
 
@@ -113,20 +156,6 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 確認系統帳戶具有 **C:\ProgramData\Microsoft\Crypto\RSA** 資料夾的讀取存取權，然後再試一次。
 
-### <a name="nologs"></a>案例：機器的更新管理資料未顯示在 Log Analytics 中
-
-#### <a name="issue"></a>問題
-
-您有在 [合規性] 之下顯示為 [未評估] 的電腦，但您可以在 Log Analytics 中查看混合式 Runbook 背景工作角色 (而非更新管理) 的活動訊號資料。
-
-#### <a name="cause"></a>原因
-
-混合式 Runbook 背景工作角色可能需要重新註冊及重新安裝。
-
-#### <a name="resolution"></a>解決方案
-
-請遵循[部署 Windows 混合式 Runbook 背景工作角色](../automation-windows-hrw-install.md)中的步驟來重新安裝混合式背景工作角色。
-
 ### <a name="hresult"></a>案例：機器顯示為 [未評估] 並顯示 HResult 例外狀況
 
 #### <a name="issue"></a>問題
@@ -135,7 +164,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>原因
 
-機器中的 Windows Update 設定不正確。
+機器中的 Windows Update 或 WSUS 設定不正確。 「更新管理」依賴 Windows Update 或 WSUS 提供所需的更新、修補程式的狀態，以及所部署修補程式的結果。 若無此資訊，「更新管理」無法正確回報是否需要或安裝了修補程式。
 
 #### <a name="resolution"></a>解決方案
 

@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: f299cca57e3eaddd2a9d4868f3bae822392e45a0
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: a792bc083c3a2c78b24d5895c34420b86b0863bb
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944931"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52959762"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Azure Stack 中的縮放單位節點動作
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 本文說明如何檢視縮放單位及其相關聯節點的狀態，以及如何使用可用的節點動作。 節點動作包括開啟電源、關閉電源、清空、繼續和修復。 一般而言，您可以於現場更換組件期間，或針對節點復原案例使用這些節點動作。
 
@@ -148,9 +148,9 @@ ms.locfileid: "49944931"
 若要透過 PowerShell 執行修復動作：
 
   ````PowerShell
-  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPAddress <BMCIPAddress>
+  Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ````
 
 ## <a name="next-steps"></a>後續步驟
 
-若要深入了解 Azure Stack 網狀架構系統管理員模組，請參閱 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0)。
+若要深入了解 Azure Stack 網狀架構系統管理員模組，請參閱 [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.5.0)。

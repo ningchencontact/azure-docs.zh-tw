@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 61af2c13a7cf395b5a96dc7b7ba63ad4d70dcf36
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 0cac5658d5f6f32795b5988008b3b895024ecc06
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52332998"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52960529"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>將 Kubernetes 新增至 Azure Stack Marketplace
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!note]  
 > Azure Stack 上的 Kubernetes 處於預覽狀態。
@@ -120,7 +120,7 @@ ms.locfileid: "52332998"
     > [!note]  
     > 可能需要五分鐘，Marketplace 項目才會出現在 Marketplace 中。
 
-    ![Kubernetes](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes](user/media/azure-stack-solution-template-kubernetes-deploy/marketplaceitem.png)
 
 ## <a name="update-or-remove-the-kubernetes"></a>更新或移除 Kubernetes 
 

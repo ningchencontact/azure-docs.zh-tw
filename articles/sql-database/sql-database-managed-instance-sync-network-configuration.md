@@ -1,20 +1,23 @@
 ---
 title: Azure App Service - 同步處理網路組態 | Microsoft Docs
 description: 本文討論如何同步處理 Azure App Service 裝載方案的網路組態。
+services: sql-database
 ms.service: sql-database
-author: srdan-bozovic-msft
-manager: craigg
-ms.custom: managed instance
+ms.subservice: managed-instance
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/07/2018
+author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 57c4dd523a5dffc48a2d2d403d2a440a8d6cde95
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+manager: craigg
+ms.date: 03/07/2018
+ms.openlocfilehash: e488fc7e568fc94f9a0744c12122b605f37f8152
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257885"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339666"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>同步處理 Azure App Service 裝載方案的網路組態
 
@@ -44,4 +47,4 @@ ms.locfileid: "39257885"
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需有關設定受控執行個體 VNet 的詳細資訊，請參閱[受控執行個體 VNet 組態](sql-database-managed-instance-vnet-configuration.md)。
+- 如需有關設定受控執行個體 VNet 的詳細資訊，請參閱[受控執行個體 VNet 架構](sql-database-managed-instance-connectivity-architecture.md)和[如何設定現有的 VNet](sql-database-managed-instance-configure-vnet-subnet.md)。

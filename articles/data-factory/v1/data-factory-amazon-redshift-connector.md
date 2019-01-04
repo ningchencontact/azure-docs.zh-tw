@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7ece34809734478ddb52c12d5dbd92291231f439
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ee0cd90b8d1b901f9e8a506674b3f04167b48899
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045682"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968778"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>使用 Azure Data Factory 從 Amazon Redshift 移動資料
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -36,7 +36,7 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 > [!TIP]
 > 當您從 Amazon Redshift 中複製大量資料時，若想獲得最佳效能，請考慮透過 Amazon Simple Storage Service (Amazon S3) 使用內建的 Redshift **UNLOAD**。 如需詳細資料，請參閱[使用 UNLOAD 複製 Amazon Redshift 中的資料](#use-unload-to-copy-data-from-amazon-redshift)。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 * 如果您要將資料移到內部部署的資料存放區，請在內部部署的電腦上安裝[資料管理閘道](data-factory-data-management-gateway.md)。 使用內部部署機器的 IP 位址，授與 Amazon Redshift 叢集閘道的存取權。 如需相關指示，請參閱[授權存取叢集](http://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html)。
 * 若要將資料移動到 Azure 資料存放區，請參閱[計算 Microsoft Azure 資料中心所使用的 IP 位址和 SQL 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
 
@@ -63,12 +63,12 @@ Data Factory 目前僅支援資料從 Amazon Redshift 移至[支援的接收資�
 
 | 屬性 | 說明 | 必要 |
 | --- | --- | --- |
-| **type** |屬性必須設為 **AmazonRedshift**。 |yes |
-| **server** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |yes |
+| **type** |屬性必須設為 **AmazonRedshift**。 |是 |
+| **server** |Amazon Redshift 伺服器的 IP 位址或主機名稱。 |是 |
 | **port** |Amazon Redshift 伺服器用來接聽用戶端連線的 TCP 連接埠號碼。 |否 (預設值為 5439) |
-| **database** |Amazon Redshift 資料庫的名稱。 |yes |
-| **username** |可存取資料庫之使用者的名稱。 |yes |
-| **password** |使用者帳戶的密碼。 |yes |
+| **database** |Amazon Redshift 資料庫的名稱。 |是 |
+| **username** |可存取資料庫之使用者的名稱。 |是 |
+| **password** |使用者帳戶的密碼。 |是 |
 
 ## <a name="dataset-properties"></a>資料集屬性
 
@@ -109,7 +109,7 @@ Amazon Redshift [**UNLOAD**](http://docs.aws.amazon.com/redshift/latest/dg/r_UNL
 
 在此範例使用案例中，複製活動首先將來自 Amazon Redshift 的資料上傳到 Amazon S3，如同 **redshiftUnloadSettings** 選項中所設定。 然後，將資料從 Amazon S3 複製到 **stagingSettings** 選項中指定的 Azure Blob 儲存體。 最後，PolyBase 將資料載入 SQL 資料倉儲。 複製活動會處理所有暫時格式。
 
-![將工作流程從 Amazon Redshift 複製到 SQL 資料倉儲](media\data-factory-amazon-redshift-connector\redshift-to-sql-dw-copy-workflow.png)
+![將工作流程從 Amazon Redshift 複製到 SQL 資料倉儲](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

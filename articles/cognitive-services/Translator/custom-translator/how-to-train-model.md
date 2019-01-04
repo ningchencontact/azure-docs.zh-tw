@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 9ec8cbe3d2467714a4b2586db79566aaef30d6d7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 60e0485c28d90050a6ff775db41f8696a09fe033
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165753"
 ---
 # <a name="train-a-model"></a>將模型定型
 
@@ -28,19 +28,15 @@ ms.locfileid: "51627885"
 
     -  文件名稱：文件的名稱。
 
-    -  配對：如果這份文件是平行或單一語言文件。
-
-    - 單一語言文件目前不支援進行訓練。
+    -  配對：如果這份文件是平行或單一語言文件。 單一語言文件目前不支援進行訓練。
 
     -  文件類型：可以是訓練、調整、測試或字典。
 
     -  語言組：這會顯示專案的原始和目標語言。
 
-    -  來源句子：顯示從原始檔案擷取的句子數目
-    - 。
+    -  範例句子：顯示從原始檔案擷取的句子數目。
 
-    -  目標句子：顯示從目標檔案擷取的句子數目
-    - 。
+    -  範例句子：顯示從目標檔案擷取的句子數目。
 
     ![訓練模型](media/how-to/how-to-train-model.png)
 

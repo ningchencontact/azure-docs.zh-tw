@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 12/13/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: cb14a23fbffb5ca9b7d3240a42e14aa17060f935
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 30d0818b57057785784c1fbda1c67ca0be10d769
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51820302"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384763"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 匯入/匯出服務將資料匯入 Azure 檔案服務
 
@@ -29,7 +29,7 @@ ms.locfileid: "51820302"
 - 具有至少一個 Azure 儲存體帳戶。 請參閱[匯入/匯出服務支援的儲存體帳戶和儲存體類型](storage-import-export-requirements.md)清單。 如需建立新儲存體帳戶的詳細資訊，請參閱 [如何建立儲存體帳戶](storage-quickstart-create-account.md)(英文)。
 - 具有屬於[支援類型](storage-import-export-requirements.md#supported-disks)的磁碟，且數量足夠。 
 - 具有執行[受支援 OS 版本](storage-import-export-requirements.md#supported-operating-systems) 的 Windows 系統。
-- 請在 Windows 系統上[下載 WAImportExport 第 2 版](https://www.microsoft.com/download/details.aspx?id=55280)。 將檔案解壓縮至預設資料夾 `waimportexport`。 例如： `C:\WaImportExport`。
+- 請在 Windows 系統上[下載 WAImportExport 第 2 版](https://aka.ms/waiev2)。 將檔案解壓縮至預設資料夾 `waimportexport`。 例如： `C:\WaImportExport`。
 - 擁有 FedEx/DHL 帳戶。 
     - 帳戶必須是有效的、需要有餘額，且必須有退貨運送功能。
     - 產生匯出作業的追蹤號碼。
@@ -57,7 +57,7 @@ ms.locfileid: "51820302"
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
     
         ```
-    - **若要匯入資料夾**：MyFolder2 底下的所有檔案和資料夾會以遞迴方式複製到檔案共用。 資料夾結構會保留。
+    - **若要匯入資料夾**：「MyFolder2」底下的所有檔案和資料夾會以遞迴方式複製到檔案共用。 資料夾結構會保留。
 
         ```
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 

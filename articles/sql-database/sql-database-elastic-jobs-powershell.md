@@ -3,21 +3,21 @@ title: 使用 PowerShell 建立和管理彈性作業 | Microsoft Docs
 description: 用來管理 Azure SQL Database 集區的 PowerShell
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: scale-out
 ms.custom: ''
-ms.devlang: pwershell
+ms.devlang: powershell
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 9ed5026211bec11b510d095decac25f8d4b8a52a
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243192"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278452"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>使用 PowerShell 建立和管理 SQL Database 彈性作業 (預覽)
 
@@ -31,10 +31,10 @@ ms.locfileid: "50243192"
 * Azure 訂用帳戶。 如需免費試用，請參閱 [免費試用一個月](https://azure.microsoft.com/pricing/free-trial/)。
 * 一組使用彈性資料庫工具所建立的資料庫。 請參閱 [開始使用彈性資料庫工具](sql-database-elastic-scale-get-started.md)。
 * Azure PowerShell。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
-* **彈性資料庫工作** PowerShell 封裝：請參閱 [安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
+* **彈性資料庫工作** PowerShell 封裝：請參閱[安裝彈性資料庫工作](sql-database-elastic-jobs-service-installation.md)
 
 ### <a name="select-your-azure-subscription"></a>選取您的 Azure 訂用帳戶
-若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。 如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集複製所需的訂用帳戶資訊。 一旦您具有訂用帳戶資訊，請執行下列 commandlet 將此訂用帳戶設定為預設值，也就是建立和管理工作的目標：
+若要選取所需的訂用帳戶，您必須提供訂用帳戶 ID (**-SubscriptionId**) 或訂用帳戶名稱 (**-SubscriptionName**)。 如果您有多個訂用帳戶，則可以執行 **Get-AzureRmSubscription** Cmdlet，然後從結果集複製所需的訂用帳戶資訊。 準備好訂用帳戶資訊之後，請執行以下 Cmdlet 將此訂用帳戶設定為預設帳戶，也就是建立和管理工作的目標：
 
     Select-AzureRmSubscription -SubscriptionId {SubscriptionID}
 
@@ -419,7 +419,7 @@ ms.locfileid: "50243192"
 * 初始重試間隔：第一次重試之前等候的間隔。
 * 最大重試間隔：要使用的重試間隔端點。
 * 重試間隔輪詢係數：用來計算重試之間下一個間隔的係數。  使用下列公式：(初始重試間隔) * Math.pow ((間隔輪詢係數), (重試次數) -2)。 
-* 嘗試上限：工作內執行的重試嘗試數目上限。
+* 嘗試次數上限：工作內執行的重試嘗試次數上限。
 
 預設的執行原則會使用下列值：
 
@@ -428,7 +428,7 @@ ms.locfileid: "50243192"
 * 初始重試間隔：100 毫秒
 * 最大重試間隔：30 分鐘
 * 重試間隔係數：2
-* 嘗試上限：2,147,483,647
+* 嘗試次數上限：2,147,483,647
 
 建立想要的執行原則：
 
@@ -459,8 +459,8 @@ ms.locfileid: "50243192"
 
 彈性資料庫工作有兩種不同的方式可以執行取消作業：
 
-1. 取消目前正在執行的作業：如果作業正在執行時偵測到取消，將會在目前正在執行的作業層面內嘗試取消。  例如：當嘗試取消時，如果有長時間執行查詢目前正在執行，將會嘗試取消查詢。
-2. 取消作業重試：如果控制執行緒在啟動作業執行之前偵測到取消，控制執行緒會避免啟動作業，並且將要求宣告為已取消。
+1. 取消目前正在執行的工作：如果在工作正在執行時偵測到取消，將會在目前正在執行的工作層面內嘗試取消。  例如︰當嘗試取消時，如果有長時間執行查詢目前正在執行，將會嘗試取消查詢。
+2. 取消工作重試：如果控制執行緒在啟動作業執行之前偵測到取消，控制執行緒會避免啟動作業，並且將要求宣告為已取消。
 
 如果針對父工作要求工作取消，則會對父工作和其所有子工作執行取消要求。
 

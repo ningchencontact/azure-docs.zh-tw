@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 8b0f5e2941878cf91a60c2dca5497e4e50b6ea01
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007649"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077761"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>使用 Azure Data Factory 從 Google BigQuery 複製資料
 
@@ -124,7 +124,12 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Google BigQuery 資料集所支援的屬性清單。
 
-若要從 Google BigQuery 複製資料，請將資料集的 type 屬性設定為 **GoogleBigQueryObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
+若要從 Google BigQuery 複製資料，請將資料集的 type 屬性設定為 **GoogleBigQueryObject**。 以下是支援的屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 資料集的類型屬性必須設定為：**GoogleBigQueryObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -136,7 +141,8 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
         "linkedServiceName": {
             "referenceName": "<GoogleBigQuery linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -152,7 +158,7 @@ Data Factory 會提供內建的驅動程式來啟用連線。 因此，您不需
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
 | type | 複製活動來源的 type 屬性必須設定為 **GoogleBigQuerySource**。 | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如 `"SELECT * FROM MyTable"`。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

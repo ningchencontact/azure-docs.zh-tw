@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: ec5e9f92114e9bae1aaa840a1d02f5a42b2fd7bf
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.custom: seodec18
+ms.openlocfilehash: 68fcc8b324bebfc7ca4fa94b2633b475137ea580
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857162"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075586"
 ---
-# <a name="knowledge-base-lifecycle"></a>知識庫生命週期
+# <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker 中的知識庫生命週期
 QnA Maker 在反覆的週期中學習模型變更、語句範例、發佈資料以及從端點查詢收集資料時，會有最佳學習成效。 
 
 ![編寫週期](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)

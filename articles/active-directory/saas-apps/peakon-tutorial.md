@@ -143,7 +143,7 @@ Peakon 與 Azure AD 整合提供下列優點：
 
 8. 在不同的網頁瀏覽器視窗中，以系統管理員身分登入 Peakon。
 
-9. 在頁面左側的功能表列中，按一下 [Configuration] **** \(設定\)，然後瀏覽至 [Integrations] **** \(整合\)。
+9. 在頁面左側的功能表列中，按一下 [ **Configuration**] \(設定\)，然後瀏覽至 [ **Integrations**] \(整合\)。
 
     ![設定](./media/peakon-tutorial/tutorial_peakon_config.png)
 
@@ -165,9 +165,9 @@ Peakon 與 Azure AD 整合提供下列優點：
 
     c. 按一下 [Choose file] \(選擇檔案\)，將您從 Azure 入口網站下載的憑證上傳至 [憑證] 方塊。
 
-    d. 按一下 **圖示**以複製**實體識別碼**，並在 Azure 入口網站上，貼至 [基本 SAML 設定] **** 區段的 [識別碼] **** 文字方塊中。
+    d. 按一下 **圖示**以複製**實體識別碼**，並在 Azure 入口網站上，貼至 [ **基本 SAML 設定**] 區段的 [ **識別碼**] 文字方塊中。
 
-    e. 按一下 **圖示**以複製**回覆 URL (ACS)**，並在 Azure 入口網站上，貼至 [基本 SAML 設定] **** 區段的 [回覆 URL] **** 文字方塊中。
+    e. 按一下 **圖示**以複製**回覆 URL (ACS)**，並在 Azure 入口網站上，貼至 [ **基本 SAML 設定**] 區段的 [ **回覆 URL**] 文字方塊中。
 
     f. 按一下 [儲存] 
 
@@ -205,11 +205,11 @@ Peakon 需以手動方式佈建。
 
 1. 以系統管理員身分登入您的 Peakon 公司網站。
 
-2. 在頁面左側的功能表列中，按一下 [Configuration] **** \(設定\)，然後瀏覽至 [Employees] **** \(員工\)。
+2. 在頁面左側的功能表列中，按一下 [ **Configuration**]\(設定\)，然後瀏覽至 [ **Employees**]\(員工\)。 
 
     ![員工](./media/peakon-tutorial/tutorial_peakon_employee.png)
 
-3. 按一下頁面右上方的 [Add employee] **** \(新增員工\)。
+3. 按一下頁面右上方的 [ **Add employee**]\(新增員工\)。
 
       ![新增員工](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 

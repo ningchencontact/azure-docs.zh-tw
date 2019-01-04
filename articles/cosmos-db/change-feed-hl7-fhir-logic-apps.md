@@ -1,21 +1,19 @@
 ---
-title: 變更 HL7 FHIR 資源的摘要 - Azure Cosmos DB | Microsoft Docs
+title: 變更 HL7 FHIR 資源的摘要 - Azure Cosmos DB
 description: 了解如何使用 Azure Logic Apps、Azure Cosmos DB 和服務匯流排，來設定 HL7 FHIR 病患之醫療保健記錄的變更通知。
 keywords: hl7 fhir
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: aab6e5247830ee444bcab0b15bda34e4464aaad1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 5cc6bdfa9c16a6dfbdd0f6c87873a90b2a203169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51565474"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089219"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>使用 Logic Apps 與 Azure Cosmos DB 對 HL7 FHIR 病患的醫療保健記錄變更發出通知
 
@@ -25,7 +23,7 @@ ms.locfileid: "51565474"
 
 ## <a name="project-requirements"></a>專案需求
 - 提供者以 XML 格式傳送 HL7 綜合臨床文件架構 (Consolidated-Clinical Document Architecture, C-CDA) 文件。 C-CDA 文件幾乎包含所有類型的臨床文件，包括家族史和免疫記錄之類的臨床文件，以及系統管理、工作流程和財務方面的文件。 
-- C-CDA 文件會轉換成 JSON 格式的 [HL7 FHIR 資源](http://hl7.org/fhir/2017Jan/resourcelist.html)。
+- C-CDA 文件會轉換成 JSON 格式的 [HL7 FHIR 資源](https://hl7.org/fhir/2017Jan/resourcelist.html)。
 - 修改過的 FHIR 資源文件會以 JSON 格式透過電子郵件傳送。
 
 ## <a name="solution-workflow"></a>方案工作流程 
@@ -90,12 +88,12 @@ API 應用程式會連線到 Azure Cosmos DB，並依資源類型查詢新的或
 - DatabaseId
 - CollectionId
 - HL7 FHIR 資源類型名稱
-- 布林值︰從頭開始
+- 布林值：從頭開始
 - Int：傳回的文件數目
 
 **輸出**
-- 成功︰狀態碼︰200，回應︰文件清單 (JSON 陣列)
-- 失敗︰狀態碼︰404，回應：「找不到 'resource name' 資源類型的文件」
+- 成功：狀態碼：200，回應：文件清單 (JSON 陣列)
+- 失敗：狀態碼：404，回應：「找不到 'resource name' 資源類型的文件」
 
 <a id="api-app-source"></a>
 

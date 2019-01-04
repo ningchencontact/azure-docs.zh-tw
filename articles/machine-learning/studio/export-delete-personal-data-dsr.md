@@ -3,22 +3,21 @@ title: 從 Machine Learning Studio 匯出和刪除資料 | Microsoft Docs
 description: 透過 Azure 入口網站和經過驗證的 REST API，可以匯出和刪除 Azure Machine Learning Studio 所儲存的產品中資料。 透過 Azure 隱私權入口網站可以存取遙測資料。 本文將說明如何做到。
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 04b26dc9ad9f4b7a4feb03039d92854385d75465
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: e69883022937ccb4ad0f83f144afef0b5b1e0e56
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262361"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276250"
 ---
-# <a name="export-and-delete-in-product-user-data-from-machine-learning-studio"></a>從 Machine Learning Studio 匯出和刪除產品中使用者資料
+# <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio"></a>從 Azure Machine Learning Studio 匯出和刪除產品內的使用者資料
 
 您可以使用 Azure 入口網站、Studio 介面、PowerShell 和經過驗證的 REST API，刪除或匯出 Azure Machine Learning Studio 所儲存的產品中資料。 本文會說明如何做到。 
 

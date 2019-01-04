@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/13/2018
 ms.author: mathoma
-ms.openlocfilehash: 44aee447c7f935cd67ca55902c53c5f6f9eb6fda
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 52036d8f5d25fc4a4f2d1b602428e9cba4762b7f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52576991"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52993146"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Azure 虛擬機器的 SQL Server 版本資訊
 
@@ -28,8 +28,8 @@ Azure 可讓您使用內建的 SQL Server 映像部署虛擬機器。 本文列�
 
 
 ## <a name="november-2018"></a>2018 年 11 月
-- **新 SQL 資源提供者**：SQL VM 有新的資源提供者，可更有效率地管理您的 VM。 如需註冊 VM 的詳細資訊，請參閱[使用新資源提供者註冊舊版 SQL VM](virtual-machines-windows-sql-ahb.md#register-legacy-sql-vm-with-new-resource-provider) (英文)。
-- **切換授權模型**：現在可使用 Azure CLI 或 Powershell 切換 SQL VM 的依使用量付費與自攜授權模型。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md) (英文)
+- **新 SQL 資源提供者**：SQL VM 有新的資源提供者，可更有效率地管理您的 VM。 如需註冊 VM 的詳細資訊，請參閱[使用新資源提供者註冊現有 SQL VM](virtual-machines-windows-sql-ahb.md#register-existing-sql-vm-with-new-resource-provider) (英文)。
+- **切換授權模型**：現在可使用 Azure CLI 或 PowerShell 切換 SQL VM 的依使用量付費與自攜授權模型。 如需詳細資訊，請參閱[如何變更 SQL VM 的授權模式](virtual-machines-windows-sql-ahb.md) (英文)
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 搭配 Azure Container Service 和 Swarm 使用 CI/CD
+title: (已淘汰) 搭配 Azure Container Service 和 Swarm 使用 CI/CD
 description: 搭配 Docker Swarm、Azure Container Registry 及 Azure DevOps 使用 Azure Container Service，以持續傳遞多容器 .NET Core 應用程式
 services: container-service
 author: jcorioland
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 3b91c269104e740add1d3a5b8ecaee93ca269188
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302821"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992554"
 ---
-# <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
+# <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(已淘汰) 使用 Azure DevOps Services 搭配 Docker Swarm 在 Azure Container Service 上部署多容器應用程式的完整 CI/CD 管線
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 為雲端開發現代化應用程式的其中一個最大挑戰是要能持續傳遞這些應用程式。 在本文中，您會了解如何搭配 Docker Swarm、Azure Container Registry 及 Azure Pipelines 使用 Azure Container Service 來實作完整的持續整合與部署 (CI/CD) 管線。
 
@@ -170,7 +172,7 @@ Microsoft 提供 Azure DevOps Services 擴充功能，以在 Azure Pipelines 程
 
 1. 按一下 [儲存] 並命名您的組建管線。
 
-## <a name="step-3-create-the-release-pipeline"></a>步驟 3︰建立發行管線
+## <a name="step-3-create-the-release-pipeline"></a>步驟 3：建立發行管線
 
 Azure DevOps Services 可讓您[跨環境管理發行](https://www.visualstudio.com/team-services/release-management/)。 您可以啟用持續部署以確保應用程式會順利部署到不同環境 (例如開發、測試、進入生產階段前和生產)。 您可以建立代表 Azure Container Service Docker Swarm 叢集的新環境。
 

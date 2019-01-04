@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB 資料表 API .NET SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB 資料表 API .NET SDK 和資源
 description: 全面了解 Azure Cosmos DB 資料表 API，包括發行日期、停用日期，以及每個版本之間的變更。
 services: cosmos-db
 author: rnagpal
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 6d2ede88e9e218ddbdfed0add48e7df8bfae0b60
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7092daa7cf3a1cfcbeac06db308fa53e18d27131
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466455"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878579"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 資料表 .NET API：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -30,7 +29,7 @@ ms.locfileid: "49466455"
 |**SDK 下載**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**API 文件**|[.NET API 參考文件](https://aka.ms/acdbtableapiref)|
 |**快速入門**|[Azure Cosmos DB：使用 .NET 和資料表 API 建置應用程式 (英文)](create-table-dotnet.md)|
-|**教學課程**|[Azure Cosmos DB：使用 .NET 搭配資料表 API 進行開發](tutorial-develop-table-dotnet.md)|
+|**教學課程**|[Azure Cosmos DB：在 .NET 中利用資料表 API 進行開發](tutorial-develop-table-dotnet.md)|
 |**目前支援的架構**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]

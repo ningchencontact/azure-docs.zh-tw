@@ -1,25 +1,25 @@
 ---
 title: Azure 串流分析與 Azure Machine Learning 整合
-description: 本文說明如何使用使用者定義函式，快速設定與 Azure Machine Learning 整合的簡單 Azure 串流分析作業。
+description: 此文章說明如何使用使用者定義函式，快速設定與 Azure Machine Learning 整合的簡單 Azure 串流分析作業。
 services: stream-analytics
-author: jasonwhowell
+author: mamccrea
 ms.author: mamccrea
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/16/2018
-ms.openlocfilehash: 2169c3a41991b0b49a4324c16ea079f5943fad0b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: d90439e498e8812551d9e2994165f1714d3bdaab
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685747"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093310"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>使用 Azure 串流分析和 Azure Machine Learning 執行情感分析
-本文說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
+此文章說明如何快速設定簡單的 Azure 串流分析工作與 Azure Machine Learning 整合。 您要使用 Cortana 智慧資源庫的機器學習服務情感分析模型，來分析串流文字資料並即時判斷情感分數。 使用 Cortana Intelligence Suite 可讓您完成這項工作，而不需擔心建立情感分析模型的複雜性。
 
-您可以將本文所學套用到以下這類案例：
+您可以將此文章所學套用到以下這類案例：
 
 * 分析串流 Twitter 資料的即時情感。
 * 分析客戶與支援人員對談的記錄。
@@ -28,7 +28,7 @@ ms.locfileid: "51685747"
 
 在真實世界的案例中，您會直接從 Twitter 資料流取得資料。 我們為了簡化教學課程撰寫這個部分，讓串流分析作業從 Azure Blob 儲存體中的 CSV 檔案取得推文。 您可以建立您自己的 CSV 檔案，或使用範例 CSV 檔案，如下圖所示：
 
-![CSV 檔案的範例推文](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
+![CSV 檔案中顯示的範例推文](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-2.png)  
 
 您建立的串流分析工作會將情感分析模型做為使用者定義的函數 (UDF) 套用到 Blob 存放區中的範例文字資料。 輸出 (情感分析的結果) 會以不同的 CSV 檔案寫入相同的 Blob 存放區。 
 
@@ -36,13 +36,13 @@ ms.locfileid: "51685747"
 
 ![串流分析機器學習服務整合概觀](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-figure-1.png)  
 
-## <a name="prerequisites"></a>必要條件
-開始之前，請確定您具有下列項目：
+## <a name="prerequisites"></a>先決條件
+開始之前，請確定您有下列項目：
 
 * 有效的 Azure 訂用帳戶。
-* 內附資料的 CSV 檔。 您可以從 [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) 下載之前顯示的檔案，或者建立您自己的檔案。 本文中，假設您使用 GitHub 的檔案。
+* 內附資料的 CSV 檔。 您可以從 [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv) 下載之前顯示的檔案，或者建立您自己的檔案。 針對此文章，假設您使用 GitHub 的檔案。
 
-總的來說，若要完成本文示範的工作，您要執行下列作業︰
+總的來說，若要完成此文章示範的工作，您要執行下列作業︰
 
 1. 建立 Azure 儲存體帳戶和 Blob 儲存體容器，並將 CSV 格式的輸入檔案上傳至容器。
 3. 將 Cortana 智慧資源庫的情感分析模型加入 Azure Machine Learning 工作區，然後在 Machine Learning 工作區中將此模型部署為 Web 服務。
@@ -58,15 +58,15 @@ ms.locfileid: "51685747"
 
 3. 指定現有的資源群組，並指定位置。 對於位置，我們建議您在本教學課程中建立的所有資源都使用相同的位置。
 
-    ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-sa1.png)
+    ![提供儲存體帳戶詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account1.png)
 
 4. 在 Azure 入口網站中，選取儲存體帳戶。 在 [儲存體帳戶] 刀鋒視窗中，按一下 [容器]，然後按一下 [+&nbsp;容器] 建立 Blob 儲存體。
 
-    ![建立 Blob 容器](./media/stream-analytics-machine-learning-integration-tutorial/create-sa2.png)
+    ![建立供輸入使用的 Blob 儲存體容器](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account2.png)
 
-5. 提供容器的名稱 (在範例中為 `azuresamldemoblob`)，並確認 [存取類型] 設為 [Blob]。 完成後，按一下 [ **確定**]。
+5. 提供容器的名稱 (在範例中為 `azuresamldemoblob`)，並確認 [存取類型] 設為 [Blob]。 完成後，按一下 [確定]。
 
-    ![指定 Blob 容器詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-sa3.png)
+    ![指定 Blob 容器詳細資料](./media/stream-analytics-machine-learning-integration-tutorial/create-storage-account3.png)
 
 6. 在 [容器] 刀鋒視窗中，選取新的容器，這會開啟該容器的刀鋒視窗。
 
@@ -123,7 +123,7 @@ ms.locfileid: "51685747"
 
 3. 命名工作 `azure-sa-ml-demo`、指定訂用帳戶、指定現有的資源群組或建立一個新的資源群組，並選取工作的位置。
 
-   ![指定新串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-job-1.png)
+   ![指定新串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-job-1.png)
    
 
 ### <a name="configure-the-job-input"></a>設定工作輸入
@@ -143,9 +143,9 @@ ms.locfileid: "51685747"
    |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
    |**事件序列化格式**  |  選取 [CSV]       |
 
-   ![新工作輸入的設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
+   ![新串流分析作業輸入設定](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-create-sa-input-new-portal.png)
 
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]。
 
 ### <a name="configure-the-job-output"></a>設定工作輸出
 工作會將結果傳送至取得輸入的相同 Blob 儲存體。 
@@ -163,9 +163,9 @@ ms.locfileid: "51685747"
    |**容器**  | 選取您稍早建立的容器 (`azuresamldemoblob`)        |
    |**事件序列化格式**  |  選取 [CSV]       |
 
-   ![新工作輸出的設定](./media/stream-analytics-machine-learning-integration-tutorial/create-output2.png) 
+   ![新串流分析作業輸出設定](./media/stream-analytics-machine-learning-integration-tutorial/create-stream-analytics-output.png) 
 
-4. 按一下 [檔案] 。   
+4. 按一下 [檔案]。   
 
 
 ### <a name="add-the-machine-learning-function"></a>新增機器學習服務函數 
@@ -185,9 +185,9 @@ ms.locfileid: "51685747"
    | **URL**| 貼上 Web 服務 URL。|
    |**金鑰** | 貼上 API 金鑰。 |
   
-   ![將機器學習服務函數新增至串流分析工作的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-function.png)  
+   ![將機器學習服務函式新增至串流分析作業的設定](./media/stream-analytics-machine-learning-integration-tutorial/add-machine-learning-function.png)  
     
-4. 按一下 [檔案] 。
+4. 按一下 [檔案]。
 
 ### <a name="create-a-query-to-transform-the-data"></a>建立查詢來轉換資料
 

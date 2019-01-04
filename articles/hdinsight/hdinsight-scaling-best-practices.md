@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/02/2018
 ms.author: ashish
-ms.openlocfilehash: 93eb6fb0da86909dfc880db2a9bb2331abe4418a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3e664fc83fde937b26a4726f997da4c0cb4d8f8a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948112"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407876"
 ---
 # <a name="scale-hdinsight-clusters"></a>調整 HDInsight 叢集
 
 HDInsight 具有彈性，可讓您選擇相應增加和相應減少叢集中的背景工作節點數。 此彈性能夠讓您在下班後或是週末時縮小叢集，並於業務需求達到高峰的期間擴大叢集。
 
-例如，如果您有一些發生頻率為一天一次或一個月一次的批次處理，HDInsight 叢集可以在該排程事件開始前幾分鐘相應增加，以便提供足夠的記憶體和 CPU 計算能力。 您可以使用 PowerShell Cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) 來自動進行調整。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
+例如，如果您有一些發生頻率為一天一次或一個月一次的批次處理，HDInsight 叢集可以在該排程事件開始前幾分鐘相應增加，以便提供足夠的記憶體和 CPU 計算能力。 您可以使用 PowerShell Cmdlet [`Set–AzureRmHDInsightClusterSize`](hdinsight-administer-use-powershell.md#scale-clusters) 來自動進行調整。  之後，當處理完成且使用量再次降低時，您可以將 HDInsight 叢集相應減少為較少的背景工作節點。
 
 * 若要透過 [PowerShell](hdinsight-administer-use-powershell.md) 調整叢集：
 
@@ -77,7 +77,7 @@ yarn application -kill <application_id>
 yarn application -kill "application_1499348398273_0003"
 ```
 
-## <a name="rebalancing-an-hbase-cluster"></a>重新平衡 HBase 叢集
+## <a name="rebalancing-an-apache-hbase-cluster"></a>重新平衡 Apache HBase 叢集
 
 區域伺服器會在完成調整作業的數分鐘之內自動取得平衡。 若要手動平衡區域伺服器，請使用下列步驟：
 
@@ -99,11 +99,11 @@ yarn application -kill "application_1499348398273_0003"
 
 ![調整叢集](./media/hdinsight-scaling-best-practices/scale-cluster.png)
 
-如果您如上圖所示將叢集縮小為最小值 (也就是只有一個背景工作節點)，當背景工作節點因為進行修補而重新啟動時，HDFS 可能會無法脫離安全模式，而在調整作業完成當下也會發生此情形。
+如果您如上圖所示，將叢集規模縮小到最小 (也就是只有一個背景工作節點)，當背景工作節點因進行修補而重新啟動時，或在調整作業完成後的當下，Apache HDFS 可能會變成無法脫離安全模式。
 
 此問題的主要原因是 Hive 會使用一些 `scratchdir` 檔案，而且根據預設，每個區塊應該都會有三個複本，但如果您相應減少為最小值 (也就是只有一個背景工作節點)，則只可能有一個複本。 因此，`scratchdir` 中的檔案會變成「複寫不足」的狀態。 這可能會導致服務在調整作業完成後進行重新啟動時，HDFS 仍處於安全模式。
 
-當您嘗試進行相應減少時，HDInsight 會依靠 Ambari 管理介面先將不要的多餘背景工作節點解除委任 (此動作會將這些節點的 HDFS 區塊複寫至其他線上背景工作節點)，然後才放心地將叢集相應減少。 HDFS 在維護期間會進入安全模式，調整完成時則應該會退出該模式。 HDFS 正是可能會在此時無法脫離安全模式。
+當您嘗試相應縮減規模時，HDInsight 會倚賴 Apache Ambari 管理介面，先將不需要的多餘背景工作節點解除委任 (此動作會將這些節點的 HDFS 區塊複寫至其他線上背景工作節點)，然後才放心地相應縮減叢集規模。 HDFS 在維護期間會進入安全模式，調整完成時則應該會退出該模式。 HDFS 正是可能會在此時無法脫離安全模式。
 
 HDFS 的 `dfs.replication` 設定會設定為 3。 因此，每當線上的背景工作節點少於三個時，暫存檔案的區塊就會有複寫不足的情形，原因是每個檔案區塊可用的複本數並非如預期般地有三個。
 
@@ -117,13 +117,13 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>安全模式開啟時的錯誤範例
 
-* H070 無法開啟 Hive 工作階段。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **無法建立目錄** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 **名稱節點處於安全模式**。 所報告的區塊 75 個還需要 12 個區塊才能觸達閾值 0.9900 (總計 87 個區塊)。 即時資料節點數目 10 個已觸達最小值 0 個。 一旦觸達閾值，安全模式就會自動關閉。
+* H070 無法開啟 Hive 工作階段。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**無法建立目錄** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 **名稱節點處於安全模式**。 所報告的區塊 75 個還需要 12 個區塊才能觸達閾值 0.9900 (總計 87 個區塊)。 即時資料節點數目 10 個已觸達最小值 0 個。 一旦觸達閾值，安全模式就會自動關閉。
 
-* H100 無法提交陳述式顯示資料庫: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException: 連線至 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername。 internal.cloudapp.net/1.1.1.1] 失敗: **拒絕連線**
+* H100 無法提交陳述式顯示資料庫: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException:連線至 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername。 internal.cloudapp.net/1.1.1.1] 失敗:**連線被拒**
 
-* H020 無法連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException: 無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException: 連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗: 拒絕連線: org.apache.thrift.transport.TTransportException: 無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException: 連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗: **拒絕連線**
+* H020 無法連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001: org.apache.thrift.transport.TTransportException:無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException:連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗:連線被拒: org.apache.thrift.transport.TTransportException:無法以 http 連線至 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/。 org.apache.http.conn.HttpHostConnectException:連線至 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 [hn0-hdisrv.servername.bx.internal.cloudapp.net/10.0.0.28] 失敗:**連線被拒**
 
-* 來自 Hive 記錄: WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在第 21 次嘗試啟動 HiveServer2 時發生錯誤，將在 60 秒後重試 java.lang.RuntimeException: 對 hive 組態套用授權原則時發生錯誤: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException: **無法建立目錄** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 **名稱節點處於安全模式**。
+* 來自 Hive 記錄：WARN [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在第 21 次嘗試啟動 HiveServer2 時發生錯誤，將在 60 秒後重試。java.lang.RuntimeException:在 Hive 設定上套用授權原則時發生錯誤: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**無法建立目錄** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 **名稱節點處於安全模式**。
     所報告的區塊 0 個還需要 9 個區塊才能觸達閾值 0.9900 (總計 9 個區塊)。
     即時資料節點數目 10 個已觸達最小值 0 個。 **一旦觸達閾值，安全模式就會自動關閉**。
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -151,7 +151,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 
 ![安全模式關閉](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
-> [!NOTE]
+> [!NOTE]  
 > `-D` 是必要參數，原因是 HDInsight 中的預設檔案系統是 Azure 儲存體或 Azure Data Lake Store。 `-D` 會指定讓命令對本機 HDFS 檔案系統來執行。
 
 接下來，您可以檢視報告，報告中會顯示 HDFS 狀態的詳細資料：
@@ -251,7 +251,7 @@ The filesystem under path '/tmp/hive/hive' is CORRUPT
 hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 如果仍有某些執行中的作業，此命令可能會中斷 Hive。
 
 ### <a name="how-to-prevent-hdinsight-from-getting-stuck-in-safe-mode-due-to-under-replicated-blocks"></a>如何防止 HDInsight 因為複寫不足的區塊而無法脫離安全模式
@@ -327,4 +327,4 @@ hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
 
 * [Azure HDInsight 簡介](hadoop/apache-hadoop-introduction.md)
 * [調整叢集](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [使用 Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)
+* [使用 Apache Ambari Web UI 管理 HDInsight 叢集](hdinsight-hadoop-manage-ambari.md)

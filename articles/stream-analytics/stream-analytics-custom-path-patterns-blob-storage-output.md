@@ -1,19 +1,20 @@
 ---
-title: Azure 串流分析 Blob 儲存體輸出的自訂日期時間路徑模式 (預覽)
-description: ''
+title: Azure 串流分析 Blob 輸出的日期時間路徑模式 (預覽)
+description: 本文說明 Azure 串流分析作業的 Blob 儲存體輸出所適用的自訂日期時間路徑模式功能。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: da29c6bd8ddc1e2f62a78fb683df5e1784141722
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: ba386539c3f3c6740b843575bbccd4b028b8a5a7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452559"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090772"
 ---
 # <a name="custom-datetime-path-patterns-for-azure-stream-analytics-blob-storage-output-preview"></a>Azure 串流分析 Blob 儲存體輸出的自訂日期時間路徑模式 (預覽)
 
@@ -61,7 +62,7 @@ Blob 儲存體的自訂路徑模式可與 Hive 串流慣例一起使用，該慣
 
 自訂輸出可以免除改變資料表及手動將分割新增至 Azure 串流分析與 Hive 之間連接埠資料的麻煩。 相反地，許多資料夾可以使用以下方式自動新增：
 
-```
+```SQL
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
@@ -75,9 +76,9 @@ MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 
 完整路徑模式如下所示：
 
-```
-year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}
-```
+
+`year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}`
+
 
 當您啟動作業時，以路徑模式為基礎的資料夾結構會在 Blob 容器中建立。 您可以向下切入至日層級。
 

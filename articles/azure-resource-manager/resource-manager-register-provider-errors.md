@@ -11,14 +11,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 12/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: b90009c1cd08a1004e58c4b9f25cd6350712fbcd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 704aa488d40a18d7be0b64c9fc9a1bd33f8a3d96
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358603"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184537"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解決資源提供者註冊的錯誤
 
@@ -47,9 +47,9 @@ Message: The subscription is not registered to use namespace {resource-provider-
 
 您會因為下列三個原因其中一個而收到此錯誤︰
 
-1. 尚未向您的訂用帳戶註冊此資源提供者
-1. 此資源類型不支援 API 版本
-1. 此資源類型不支援位置
+* 尚未向您的訂用帳戶註冊此資源提供者
+* 此資源類型不支援 API 版本
+* 此資源類型不支援位置
 
 ## <a name="solution-1---powershell"></a>解決方案 1：PowerShell
 
@@ -100,6 +100,18 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 ## <a name="solution-3---azure-portal"></a>解決方案 3：Azure 入口網站
 
 您可以看到註冊狀態，並透過入口網站註冊資源提供者命名空間。
+
+1. 從入口網站，選取 [所有服務]。
+
+   ![選取 [所有服務]](./media/resource-manager-register-provider-errors/select-all-services.png)
+
+1. 選取 **訂用帳戶** 。
+
+   ![選取訂用帳戶](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+
+1. 從訂用帳戶的清單中，選擇要用於註冊資源提供者的訂用帳戶。
+
+   ![選取訂用帳戶以註冊資源提供者](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
 1. 對於您的訂用帳戶，選取**資源提供者**。
 

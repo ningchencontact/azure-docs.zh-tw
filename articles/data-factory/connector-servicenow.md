@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/23/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e0bbfafcda77ca48fb22ad919c5848a7670a102
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 67658d75f7ad4a6db1af5db97a525774b0ab6e61
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309669"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53095273"
 ---
 # <a name="copy-data-from-servicenow-using-azure-data-factory"></a>使用 Azure Data Factory 從 ServiceNow 複製資料
 
-此文章概述如何使用 Azure Data Factory 中的「複製活動」，從 ServiceNow 複製資料。 此文章是根據[複製活動概觀](copy-activity-overview.md)一文，該文章提供複製活動的一般概觀。
+本文概述如何使用 Azure Data Factory 中的「複製活動」，從 ServiceNow 複製資料。 本文是根據[複製活動概觀](copy-activity-overview.md)一文，該文提供複製活動的一般概觀。
 
 ## <a name="supported-capabilities"></a>支援的功能
 
@@ -42,9 +42,9 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**ServiceNow** | 是 |
+| type | 類型屬性必須設定為：**ServiceNow** | 是 |
 | endpoint | ServiceNow 伺服器的端點 (`http://<instance>.service-now.com`)。  | 是 |
-| authenticationType | 要使用的驗證類型。 <br/>允許的值為：**Basic**、**OAuth2** | 是 |
+| authenticationType | 要使用的驗證類型。 <br/>允許的值包括：**Basic**、**OAuth2** | 是 |
 | username | 用來連線到 ServiceNow 伺服器以進行 Basic 和 OAuth2 驗證的使用者名稱。  | 是 |
 | password | 對應至用於進行 Basic 和 OAuth2 驗證之使用者名稱的密碼。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | clientId | 用於 OAuth2 驗證的用戶端識別碼。  | 否 |
@@ -77,7 +77,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 ServiceNow 資料集所支援的屬性清單。
 
-若要從 ServiceNow 複製資料，請將資料集的 type 屬性設定為 **ServiceNowObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
+若要從 ServiceNow 複製資料，請將資料集的 type 屬性設定為 **ServiceNowObject**。 以下是支援的屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 資料集的類型屬性必須設定為：**ServiceNowObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -89,7 +94,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "linkedServiceName": {
             "referenceName": "<ServiceNow linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -104,8 +110,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**ServiceNowSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**ServiceNowSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Actual.alm_asset"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 在查詢中指定 ServiceNow 的結構描述和資料行時，請注意下列內容，並**參考有關複製效能含意的[效能祕訣](#performance-tips)**。
 
@@ -113,7 +119,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 - **資料行：**`Actual` 結構描述下實際值的資料行名稱為 `[columne name]_value`，而 `Display` 結構描述下顯示值的資料行名稱為 `[columne name]_display_value`。 請注意，資料行名稱必須對應至要在查詢中使用的結構描述。
 
 **範例查詢：**
-`SELECT col_value FROM Actual.alm_asset` 或 
+`SELECT col_value FROM Actual.alm_asset`OR  
 `SELECT col_display_value FROM Display.alm_asset`
 
 **範例：**

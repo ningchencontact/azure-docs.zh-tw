@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: chmutali
-ms.openlocfilehash: 78b9fe704c5c8a1f81da480787f1791e88bf4f72
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c789f5fec9b31b53d316b23faad5c438b52137c
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714713"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843337"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>教學課程：Azure Active Directory 與 Workday 整合
 
@@ -114,7 +114,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://impl.workday.com/<tenant>/login-saml2.htmld`
 
-    b. 在 [識別碼] 文字方塊中，輸入 URL：`http://www.workday.com`
+    b. 在 [識別碼] 文字方塊中，輸入 URL：`https://www.workday.com`
 
 4. 勾選 [顯示進階 URL 設定]，然後執行下列步驟：
 
@@ -180,7 +180,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![SAML 身分識別提供者](./media/workday-tutorial/IC7829271.png "SAML 身分識別提供者")
 
-    a. 在 [Identity Provider Name] \(身分識別提供者名稱\) 文字方塊中，輸入提供者名稱 (例如：*SPInitiatedSSO*)。
+    a. 在 [識別提供者名稱] 文字方塊中，輸入提供者名稱 (例如：*SPInitiatedSSO*)。
 
     b. 在 Azure 入口網站的 [設定登入] 視窗上，複製 [SAML 實體識別碼] 值，然後將它貼至 [簽發者] 文字方塊中。
 
@@ -204,7 +204,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![檢視 x509 公開金鑰](./media/workday-tutorial/IC782930.png "檢視 x509 公開金鑰")
 
-    a. 在 [名稱] 文字方塊中，輸入您的憑證名稱 (例如：PPE\_SP)。
+    a. 在 [名稱] 文字方塊中，輸入您的憑證名稱 (例如：*PPE\_SP*)。
 
     b. 在 [有效開始日期] 文字方塊中輸入憑證屬性值的有效開始日期。
 
@@ -225,7 +225,7 @@ Workday 與 Azure AD 整合提供下列優點：
 
     ![SSO 組態](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO 組態")
 
-    a.  在 [服務提供者識別碼] 文字方塊中，輸入 **http://www.workday.com**。
+    a.  在 [服務提供者識別碼] 文字方塊中，輸入 **https://www.workday.com**。
 
     b. 選取 [不要壓縮 SP 起始的驗證要求]。
 

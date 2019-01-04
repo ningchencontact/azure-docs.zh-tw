@@ -1,20 +1,19 @@
 ---
-title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫來執行大量匯入和更新作業 | Microsoft Docs
+title: 在 Azure Cosmos DB 中使用大量執行程式 Java 程式庫來執行大量匯入和更新作業
 description: 使用大量執行程式 Java 程式庫來大量匯入和更新 Azure Cosmos DB 文件。
 services: cosmos-db
 author: tknandu
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 44477f77547c9373bd4a3394c80e217d419bc8e0
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e91984281350e9ea0a5f3411c39d29dfd6420529
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420036"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080906"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>在 Azure Cosmos DB 資料上使用大量執行程式 Java 程式庫執行大量作業
 
@@ -33,7 +32,7 @@ ms.locfileid: "50420036"
 
   - 務必設定 JAVA_HOME 環境變數，以指向 JDK 安裝所在的資料夾。
 
-* [下載](http://maven.apache.org/download.cgi)和[安裝 ](http://maven.apache.org/install.html) [Maven](http://maven.apache.org/) 二進位封存檔  
+* [下載](https://maven.apache.org/download.cgi)和[安裝 ](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二進位封存檔  
   
   - 在 Ubuntu 上，您可以執行 `apt-get install maven` 來安裝 Maven。
 

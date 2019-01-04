@@ -1,21 +1,22 @@
 ---
-title: '教學課程 2：使用 1000 個語句的集合進行批次測試 '
+title: 批次測試
 titleSuffix: Azure Cognitive Services
 description: 本教學課程示範如何使用批次測試來找出應用程式中的語句預測問題，並加以修正。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e5155caa26669cd98b679eec611334ee5c048fca
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 06981972dbdb95b8597bab5028c2d86e0594caf3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162532"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106034"
 ---
 # <a name="tutorial-2-batch-test-data-sets"></a>教學課程 2：批次測試資料集
 

@@ -2,22 +2,22 @@
 title: 在 Azure 備份伺服器中使用新式備份儲存體
 description: 了解 Azure 備份伺服器中的新功能。 本文說明如何升級您的備份伺服器安裝。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: markgal; adigan; kasinh
-ms.openlocfilehash: da9b3d22dce3f92ff6d1a588d283d47f22fca736
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: cc76b15c3cb108b5181e22330954dfee789b01ba
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612962"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251108"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>在 Azure 備份伺服器中新儲存體
 
-Azure 備份伺服器 V2 和更新版本隨附 System Center 2016 Data Protection Manager 新式備份儲存體。 新式備份儲存體可節省 50% 的儲存空間、備份速度快三倍，且更具儲存效率。 它也提供可感知工作負載的儲存體。
+Azure 備份伺服器 V2 和更新版本支援 Modern Backup Storage，可節省 50% 的儲存空間、備份速度快三倍，且更具儲存效率。 它也提供可感知工作負載的儲存體。
 
 > [!NOTE]
 > 若要使用新式備份儲存體，您必須在 Windows Server 2016 上執行備份伺服器 V2 或 V3 或在 Windows Server 2019 上執行 V3。
@@ -75,7 +75,7 @@ Azure 備份伺服器 V2 和更新版本隨附 System Center 2016 Data Protectio
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-您可以使用 PowerShell Cmdlet Update-DPMDiskStorage 來設定可感知工作負載的儲存體，此 Cmdlet 會更新 Data Protection Manager 伺服器儲存集區的磁碟區屬性。
+您可以使用 PowerShell Cmdlet Update-DPMDiskStorage 來設定可感知工作負載的儲存體，此 Cmdlet 會更新 Azure 備份伺服器儲存集區的磁碟區屬性。 
 
 語法：
 

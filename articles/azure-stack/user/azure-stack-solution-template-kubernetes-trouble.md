@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f7f23a6d645a1d8e16e42e751050d8d91b49e2b3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 472dfc04cea65cab39d177bb214c417d229b71d2
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007820"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956715"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>針對 Azure Stack Kubernetes 部署進行疑難排解
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 > [!Note]  
 > Azure Stack 上的 Kubernetes 處於預覽狀態。
@@ -45,10 +45,10 @@ ms.locfileid: "51007820"
 1. 從 Marketplace 項目收集輸入參數。
 
     輸入要用於設定 Kubernetes 叢集的值，包括：
-    -  **使用者名稱：** 這是屬於 Kubernetes 叢集和 DVM 之 Linux 虛擬機器的使用者名稱。
-    -  **SSH 公開金鑰：** 用來對建立為 Kubernetes 叢集和 DVM 一部分的所有 Linux 機器進行授權的金鑰。
-    -  **服務主體：** Kubernetes Azure 雲端提供者所使用的識別碼。 當您建立服務主體時，用戶端識別碼已識別為應用程式識別碼。 
-    -  **用戶端密碼：** 您在建立服務主體時所建立的金鑰。
+    -  **使用者名稱**：Linux 虛擬機器的使用者名稱，而這些虛擬機器屬於 Kubernetes 叢集和 DVM。
+    -  **SSH 公開金鑰**：用來對建立為 Kubernetes 叢集和 DVM 一部分的所有 Linux 機器進行授權的金鑰。
+    -  **服務主體**：Kubernetes Azure 雲端提供者所使用的識別碼。 當您建立服務主體時，用戶端識別碼已識別為應用程式識別碼。 
+    -  **用戶端密碼**：您在建立服務主體時所建立的金鑰。
 
 2. 建立部署 VM 和自訂指令碼擴充功能。
     -  使用 Marketplace Linux 映像 **Ubuntu Server 16.04-LTS** 來建立部署 Linux VM。
@@ -178,6 +178,6 @@ ms.locfileid: "51007820"
 
 [將 Kubernetes 部署至 Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
-[將 Kubernetes 叢集新增至 Marketplace (適用於 Azure Stack 操作員)](..\azure-stack-solution-template-kubernetes-cluster-add.md)
+[將 Kubernetes 叢集新增至 Marketplace (適用於 Azure Stack 操作員)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 
 [Azure 上的 Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

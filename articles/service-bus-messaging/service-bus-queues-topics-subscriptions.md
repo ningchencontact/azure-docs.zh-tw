@@ -7,14 +7,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 09/18/2018
 ms.author: spelluru
-ms.openlocfilehash: f4b94e210430c20409e9227bbab51ff2ec117291
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c4899db41f9c60bf6efb40c4d53aaa35f22ad275
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702165"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312870"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>服務匯流排佇列、主題和訂用帳戶
 
@@ -32,9 +32,9 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 ### <a name="create-queues"></a>建立佇列
 
-您可以使用 [Azure 入口網站](service-bus-quickstart-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-quickstart-cli.md) 或 [Resource Manager 範本](service-bus-resource-manager-namespace-queue.md)來建立佇列。 然後使用 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 物件來傳送和接收訊息。 
+您可以使用 [Azure 入口網站](service-bus-quickstart-portal.md)、[PowerShell](service-bus-quickstart-powershell.md)、[CLI](service-bus-quickstart-cli.md) 或 [Resource Manager 範本](service-bus-resource-manager-namespace-queue.md)來建立佇列。 然後使用 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 物件來傳送和接收訊息。
 
-若要快速了解如何建立佇列，然後傳送和接收佇列的訊息，請參閱每個方法的[快速入門](service-bus-quickstart-portal.md)。 如需更深入的佇列使用方式教學課程，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。 
+若要快速了解如何建立佇列，然後傳送和接收佇列的訊息，請參閱每個方法的[快速入門](service-bus-quickstart-portal.md)。 如需更深入的佇列使用方式教學課程，請參閱[開始使用服務匯流排佇列](service-bus-dotnet-get-started-with-queues.md)。
 
 如需實用的範例，請參閱 GitHub 上的 [BasicSendReceiveUsingQueueClient 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient)。
 
@@ -56,9 +56,9 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 ### <a name="create-topics-and-subscriptions"></a>建立主題和訂用帳戶
 
-按照上一節所述，建立主題類似於建立佇列。 然後使用 [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) 類別來傳送訊息。 若要接收訊息，您可以建立主題的一或多個訂用帳戶。 與佇列類似，從訂用帳戶接收訊息是使用 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) 物件，而非 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 物件。 建立訂用帳戶用戶端，並將主題名稱、訂用帳戶名稱及 (選擇性) 接收模式當作參數傳遞。 
+按照上一節所述，建立主題類似於建立佇列。 然後使用 [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient) 類別來傳送訊息。 若要接收訊息，您可以建立主題的一或多個訂用帳戶。 與佇列類似，從訂用帳戶接收訊息是使用 [SubscriptionClient](/dotnet/api/microsoft.azure.servicebus.subscriptionclient) 物件，而非 [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) 物件。 建立訂用帳戶用戶端，並將主題名稱、訂用帳戶名稱及 (選擇性) 接收模式當作參數傳遞。
 
-如需完整的實用範例，請參閱 Github 上的 [BasicSendReceiveUsingTopicSubscriptionClient 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient)。
+如需完整的實用範例，請參閱 GitHub 上的 [BasicSendReceiveUsingTopicSubscriptionClient 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingTopicSubscriptionClient)。
 
 ### <a name="rules-and-actions"></a>執行和動作
 
@@ -66,7 +66,7 @@ Microsoft Azure 服務匯流排支援一組以雲端為基礎、訊息導向的�
 
 如需完整的實用範例，請參閱 GitHub 上的 [TopicSubscriptionWithRuleOperationsSample 範例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/TopicSubscriptionWithRuleOperationsSample)。
 
-如需可能篩選值的詳細資訊，請參閱 [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) 和 [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) 類別的文件。 
+如需可能篩選值的詳細資訊，請參閱 [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) 和 [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction) 類別的文件。
 
 ## <a name="next-steps"></a>後續步驟
 

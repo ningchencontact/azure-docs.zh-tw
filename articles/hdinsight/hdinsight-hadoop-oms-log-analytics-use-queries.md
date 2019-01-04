@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: a4c4017d7fa798559817c281d159148ec675d158
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 400ae8ffe86b5ba66a53835c720f911ddb889bd9
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281348"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386497"
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>查詢 Azure Log Analytics 以監視 HDInsight 叢集
 
@@ -46,7 +46,7 @@ ms.locfileid: "51281348"
 
 5. 在左窗格中的 [類型] 下方，選取您想要深入探討的計量，然後選取 [套用]。 以下螢幕擷取畫面顯示選取了 `metrics_resourcemanager_queue_root_default_CL` 類型。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您可能需要選取 [[+] 更多資訊] 按鈕來尋找您要的計量。 此外，[套用] 按鈕位於清單底部，您必須向下捲動才看的到。
 
     請注意，文字方塊中的查詢會如同以下螢幕擷取畫面所示：
@@ -115,7 +115,7 @@ ms.locfileid: "51281348"
 1. 從 Azure 入口網站開啟 Log Analytics 工作區。
 2. 在左側功能表中，選取 [警示]。
 3. 選取您要編輯或刪除的警示。
-4. 您可以使用下列選項：**儲存**、**捨棄**、**停用**和**刪除**。
+4. 您有下列選擇：**儲存**、**捨棄**、**停用**和**刪除**。
 
     ![HDInsight Log Analytics 警示刪除編輯](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 

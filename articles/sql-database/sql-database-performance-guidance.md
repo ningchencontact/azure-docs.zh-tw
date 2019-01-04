@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 95e09532616b4aff05dad7440dcda6872fd27484
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2fe78efc8d85da2a8cd38a217c25f89ca7aefd22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645519"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012992"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>在 Azure SQL Database 中手動微調查詢效能
 
@@ -258,7 +258,7 @@ SQL Server 使用者通常會在單一資料庫內結合許多功能。 例如�
 
 ### <a name="application-tier-caching"></a>應用程式層快取
 
-某些資料庫應用程式具有大量讀取工作負載。 對應用程式層進行快取可能會減少資料庫上的負載，並可能使用 Azure SQL Database 而有機會降低支援資料庫所需的計算大小。 使用 [Azure Redis 快取](https://azure.microsoft.com/services/cache/)時，如果您具有大量讀取工作負載，您可以讀取資料一次 (或可能每個應用程式層電腦讀取一次，取決於設定方式)，然後將該資料儲存在 SQL Database 之外。 此方式可減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為從快取讀取的資料可能不會與資料庫中的資料同步。 雖然許多應用程式可接受一定程度的不一致性，但並非所有工作負載都是如此。 您應該充分了解應用程式的任何需求，然後再實作應用程式層快取策略。
+某些資料庫應用程式具有大量讀取工作負載。 對應用程式層進行快取可能會減少資料庫上的負載，並可能使用 Azure SQL Database 而有機會降低支援資料庫所需的計算大小。 使用 [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)時，如果您具有大量讀取工作負載，您可以讀取資料一次 (或可能每個應用程式層電腦讀取一次，取決於設定方式)，然後將該資料儲存在 SQL Database 之外。 此方式可減少資料庫負載 (CPU 和讀取 IO)，但會對交易一致性造成影響，因為從快取讀取的資料可能不會與資料庫中的資料同步。 雖然許多應用程式可接受一定程度的不一致性，但並非所有工作負載都是如此。 您應該充分了解應用程式的任何需求，然後再實作應用程式層快取策略。
 
 ## <a name="next-steps"></a>後續步驟
 

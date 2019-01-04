@@ -10,17 +10,15 @@ ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: d0156ccc3caea2f47296740d57422ccc706f84f1
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c8cc6ccae59b8ee530ad679c492419a348423553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634229"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184113"
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>使用 Log Analytics 監視 Active Directory 複寫狀態
 
@@ -33,7 +31,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 ## <a name="installing-and-configuring-the-solution"></a>安裝和設定方案
 請使用下列資訊來安裝和設定方案。
 
-* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 Log Analytics。 若要了解如何將 Windows 電腦連線到 Log Analytics，請參閱[將 Windows 電腦連線到 Log Analytics](../../azure-monitor/platform/agent-windows.md)。 如果您的網域控制站已屬於您要連線到 Log Analytics 的現有 System Center Operations Manager 環境，請參閱[將 Operations Manager 連線到 Log Analytics](../../log-analytics/log-analytics-om-agents.md)。
+* 您必須將代理程式安裝在隸屬於要評估之網域成員的網域控制站上。 或者您必須將代理程式安裝在成員之伺服器上，並設定讓代理程式將 AD 複寫資料傳送至 Log Analytics。 若要了解如何將 Windows 電腦連線到 Log Analytics，請參閱[將 Windows 電腦連線到 Log Analytics](../../azure-monitor/platform/agent-windows.md)。 如果您的網域控制站已屬於您要連線到 Log Analytics 的現有 System Center Operations Manager 環境，請參閱[將 Operations Manager 連線到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 * 使用[從方案庫加入 Log Analytics 方案](../../azure-monitor/insights/solutions.md)中所述的程序，將「Active Directory 複寫狀態」解決方案加入您的 Log Analytics 工作區中。  不需要進一步的組態。
 
 ## <a name="ad-replication-status-data-collection-details"></a>AD 複寫狀態資料收集詳細資料
@@ -48,7 +46,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-log-analytics"></a>讓非網域控制站可以將 AD 資料傳送至 Log Analytics
 1. 確認電腦是您要使用 AD 複寫狀態解決方案監視的網域成員。
-2. 如果尚未連線，請[將 Windows 電腦連線到 Log Analytics](../../log-analytics/log-analytics-om-agents.md)，或[使用現有的 Operations Manager 環境將它連線到 Log Analytics](../../log-analytics/log-analytics-om-agents.md)。
+2. 如果尚未連線，請[將 Windows 電腦連線到 Log Analytics](../../azure-monitor/platform/om-agents.md)，或[使用現有的 Operations Manager 環境將它連線到 Log Analytics](../../azure-monitor/platform/om-agents.md)。
 3. 該該電腦上，設定下列登錄機碼︰
 
    * 機碼：**HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -110,7 +108,7 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 
 ![搜尋結果中的 AD 複寫狀態錯誤](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-從這裡，您可以進一步篩選、修改搜尋查詢等。 如需使用記錄檔搜尋的詳細資訊，請參閱 [記錄檔搜尋](../../log-analytics/log-analytics-queries.md)。
+從這裡，您可以進一步篩選、修改搜尋查詢等。 如需使用記錄檔搜尋的詳細資訊，請參閱 [記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md)。
 
 **HelpLink** 欄位會顯示 TechNet 頁面的 URL，其中包含該特定錯誤的其他詳細資訊。 您可以將此連結複製並貼入瀏覽器視窗，以查看疑難排解和修正此錯誤的相關資訊。
 
@@ -119,39 +117,39 @@ Active Directory 是企業 IT 環境的重要元件。 為了確保高可用性�
 ![Excel 中匯出的 AD 複寫狀態錯誤](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>AD 複寫狀態常見問題集
-**問︰多久更新一次 AD 複寫狀態資料？**
-答︰此資訊會每隔五天更新一次。
+**問：多久更新一次 AD 複寫狀態資料？**
+答：此資訊會每隔五天更新一次。
 
 **問：是否有設定此資料更新頻率的方法？**
- 答：目前沒有。
+答：目前沒有。
 
-**問︰我是否必須將所有網域控制站加入至我的 Log Analytics 工作區，才能查看複寫狀態？**
- 答︰否，只需加入單一網域控制站。 如果您的 Log Analytics 工作區中有多個網域控制站，這些網域控制站的資料都會傳送至 Log Analytics。
+**問：我是否必須將所有網域控制站加入至我的 Log Analytics 工作區，才能查看複寫狀態？**
+答：否，只需加入單一網域控制站。 如果您的 Log Analytics 工作區中有多個網域控制站，這些網域控制站的資料都會傳送至 Log Analytics。
 
-**問︰我不想要將任何網域控制站新增至我的 Log Analytics 工作區。仍可使用 AD 複寫狀態解決方案嗎？**
-答： 會。 您可以設定要啟用此解決方案的登錄機碼值。 請參閱[讓非網域控制站可以將 AD 資料傳送至 Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
+**問：我不想要將任何網域控制站新增至我的 Log Analytics 工作區。仍可使用 AD 複寫狀態解決方案嗎？**
+答：是。 您可以設定要啟用此解決方案的登錄機碼值。 請參閱[讓非網域控制站可以將 AD 資料傳送至 Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
 
 **問：負責收集資料之處理序的名稱為何？**
- 答︰AdvisorAssessment.exe
+答：AdvisorAssessment.exe
 
 **問：收集資料需要花費多少時間？**
- 答︰資料收集時間取決於 Active Directory 環境的大小，但所需時間通常少於 15 分鐘。
+答：資料收集時間取決於 Active Directory 環境的大小，但所需時間通常少於 15 分鐘。
 
 **問：收集的資料類型為何？**
- 答：複寫資訊是透過 LDAP 收集。
+答：複寫資訊是透過 LDAP 收集。
 
 **問：是否有設定資料收集時間的方法？**
- 答：目前沒有。
+答：目前沒有。
 
-**問︰我需要哪些權限才能收集資料？**
-答︰Active Directory 的一般使用者權限就足夠了。
+**問：我需要哪些權限才能收集資料？**
+答：Active Directory 的一般使用者權限就足夠了。
 
 ## <a name="troubleshoot-data-collection-problems"></a>疑難排解資料收集問題
 為了收集資料，「AD 複寫狀態」解決方案套件需要至少有一個網域控制站連線至您的 Log Analytics 工作區。 連接網域控制站後，會彈出訊息顯示**資料仍在收集中**。
 
-如果您需要連接其中一個網域控制站的協助，您可以檢視 [將 Windows 電腦連接到 Log Analytics](../../log-analytics/log-analytics-om-agents.md)文件。 或者，如果您的網域控制站已連接到現有的 System Center Operations Manager 環境，您可以檢視 [將 System Center Operations Manage 連接到 Log Analytics](../../log-analytics/log-analytics-om-agents.md)文件。
+如果您需要連接其中一個網域控制站的協助，您可以檢視 [將 Windows 電腦連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)文件。 或者，如果您的網域控制站已連接到現有的 System Center Operations Manager 環境，您可以檢視 [將 System Center Operations Manage 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md)文件。
 
 如果您不想將任何網域控制站直接連線到 Log Analytics 或連線到 System Center Operations Manager，請參閱[讓非網域控制站可以將 AD 資料傳送至 Log Analytics](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms)。
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄檔搜尋](../../log-analytics/log-analytics-queries.md) 可檢視詳細的 Active Directory 複寫狀態資料。
+* 使用 [Log Analytics 中的記錄檔搜尋](../../azure-monitor/log-query/log-query-overview.md) 可檢視詳細的 Active Directory 複寫狀態資料。

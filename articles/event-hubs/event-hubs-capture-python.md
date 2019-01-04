@@ -1,5 +1,5 @@
 ---
-title: Azure 事件中樞擷取逐步解說 | Microsoft Docs
+title: 從 Python 應用程式讀取擷取的資料 - Azure 事件中樞 | Microsoft Docs
 description: 此範例使用 Azure Python SDK 來示範如何使用事件中樞擷取功能。
 services: event-hubs
 documentationcenter: ''
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2017
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: b38e64891ce1065290d46f0fae2d22e151e03e4d
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 72efe156920bb78631ea71a0f47f7f5fe19c7e23
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005609"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133650"
 ---
 # <a name="event-hubs-capture-walkthrough-python"></a>事件中樞擷取逐步解說︰Python
 
@@ -38,10 +39,9 @@ ms.locfileid: "40005609"
 ## <a name="prerequisites"></a>必要條件
 
 - Python 2.7.x
-- Azure 訂用帳戶
-- 作用中的[事件中樞命名空間和事件中樞](event-hubs-create.md)
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
+- 作用中的[事件中樞命名空間和事件中樞](event-hubs-create.md)。 
+- 依照來自以下的指示，為事件中樞啟用 [擷取] 功能：[使用 Azure 入口網站啟用事件中樞擷取功能](event-hubs-capture-enable-through-portal.md)
 
 ## <a name="create-an-azure-blob-storage-account"></a>建立 Azure Blob 儲存體帳戶
 1. 登入 [Azure 入口網站][Azure portal]。

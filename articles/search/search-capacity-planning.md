@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 搜尋服務中配置適用於查詢和編製索引的資料分割和複本 | Microsoft Docs
+title: 配置適用於查詢和編製索引的資料分割和複本 - Azure 搜尋服務
 description: 在「Azure 搜尋服務」中調整分割區和複本電腦資源，其中每個資源都是以計費搜尋單位來計價。
 author: HeidiSteen
 manager: cgronlun
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: fa1a13c5c786867f6e92a678c40a491e0a226076
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: e2eff6c854dae48961700341a6db19dc7113901c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238725"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316109"
 ---
 # <a name="allocate-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>在 Azure 搜尋服務中配置適用於查詢和編製索引工作負載的資料分割和複本
 在您[選擇定價層](search-sku-tier.md)和[佈建搜尋服務](search-create-service-portal.md)之後，下一個步驟是選擇性地增加服務所使用的複本或分割區數目。 每一層都提供固定的計費單位數目。 本文說明如何配置這些單位以達到最佳的組態，讓您在查詢執行、編制索引和儲存體等需求之間取得平衡。
@@ -97,7 +98,7 @@ ms.locfileid: "51238725"
 
 <a id="chart"></a>
 
-## <a name="standard-tiers-partition-and-replica-combinations"></a>標準層：分割區和複本的組合
+## <a name="standard-tiers-partition-and-replica-combinations"></a>標準層：資料分割與複本組合
 下表顯示所有標準層支援複本和分割區組合所需的 SU，上限為 36 個 SU。
 
 |   | **1 個資料分割** | **2 個資料分割** | **3 個資料分割** | **4 個資料分割** | **6 個資料分割** | **12 個資料分割** |

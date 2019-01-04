@@ -1,21 +1,22 @@
 ---
-title: 關於 Azure ExpressRoute 虛擬網路閘道 | Microsoft Docs
-description: 了解 ExpressRoute 的虛擬網路閘道。
+title: 關於 ExpressRoute 虛擬網路閘道 - Azure | Microsoft Docs
+description: 了解 ExpressRoute 的虛擬網路閘道。 本文包含閘道 SKU 和類型的相關資訊。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: mialdrid
-ms.openlocfilehash: df0d9c91d1d4f120f934c7375d0c517e3869834e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.custom: seodec18
+ms.openlocfilehash: dcae78e507597ae2b7f79cc1d6cbb326ee535696
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684761"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076588"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>關於 ExpressRoute 的虛擬網路閘道
-虛擬網路閘道可用來傳送 Azure 虛擬網路和內部部署位置之間的網路流量。 您可以將虛擬網路閘道使用於 ExpressRoute 流量或 VPN 流量。 本文著重於 ExpressRoute 虛擬網路閘道。
+虛擬網路閘道可用來傳送 Azure 虛擬網路和內部部署位置之間的網路流量。 您可以將虛擬網路閘道使用於 ExpressRoute 流量或 VPN 流量。 本文著重於 ExpressRoute 虛擬網路閘道，且包含 SKU、依 SKU 估計的效能和閘道類型的相關資訊。
 
 ## <a name="gateway-types"></a>閘道類型
 

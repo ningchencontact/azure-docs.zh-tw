@@ -1,6 +1,6 @@
 ---
-title: 使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務 | Microsoft Docs
-description: 了解如何使用索引子將資料從 Azure SQL Database 提取至 Azure 搜尋服務索引。
+title: 與 Azure SQL Database 連線並使用索引子為內容編製索引 - Azure 搜尋服務
+description: 了解如何為 Azure 搜尋服務中的全文檢索搜尋使用索引子，在 Azure SQL Database 中搜耙資料。 本文涵蓋連線、索引子設定以及資料擷取。
 ms.date: 10/17/2018
 author: mgottein
 manager: cgronlun
@@ -9,14 +9,15 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.openlocfilehash: ba2ce12fcfad14b0910144b1a95efd44be54811f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec2018
+ms.openlocfilehash: 28b72f63360b4ce323c1cd82b11c2798b1fbc2ff
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245642"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313389"
 ---
-# <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務
+# <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>連線至 Azure SQL Database 並使用 Azure 搜尋服務索引子為內容編製索引
 
 您必須先填入資料，才能搜尋 [Azure 搜尋服務索引](search-what-is-an-index.md)。 如果資料已存在於 Azure SQL 資料庫中，**適用於 Azure SQL Database 的 Azure 搜尋服務索引子** (或簡稱 **Azure SQL 索引子**) 就能將編製索引的程序自動化，這表示可減少編寫程式碼的工作，並減少需要處理的基礎結構。
 

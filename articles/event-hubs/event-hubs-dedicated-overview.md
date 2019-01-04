@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞專用容量概觀 | Microsoft Docs
-description: Microsoft Azure 事件中樞專用容量概觀。
+title: 專用事件中樞概觀 - Azure 事件中樞 | Microsoft Docs
+description: 本文將概述專用的 Azure 事件中樞，它可讓您部署事件中樞的單一租用戶。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,14 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 68a55d8a16e55e2f5e4b48153f045daa40c9a68c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42140272"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091021"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>事件中樞專用的概觀
 

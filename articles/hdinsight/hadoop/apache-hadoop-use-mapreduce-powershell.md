@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
-ms.openlocfilehash: 753a0ad72e1d4b60a93daa570ceecc25d21bb228
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6f1620c9977f997b4037fbf3f823c429e43b4f6a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634136"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436257"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 搭配執行 MapReduce 工作與 HDInsight 上的 Apache Hadoop
 
@@ -26,7 +26,7 @@ ms.locfileid: "51634136"
 
 * **Azure HDInsight (HDInsight 上的 Hadoop) 叢集**
 
-  > [!IMPORTANT]
+  > [!IMPORTANT]  
   > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * **具有 Azure PowerShell 的工作站**。
@@ -39,13 +39,13 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 * **Connect-AzureRmAccount**：向您的 Azure 訂用帳戶驗證 Azure PowerShell。
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊建立新的「工作定義」。
+* **New-AzureRmHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 資訊來建立新的「作業定義」。
 
-* **Start-AzureRmHDInsightJob**：將作業定義傳送到 HDInsight 並開始作業。 系統會傳回「作業」物件。
+* **Start-AzureRmHDInsightJob**：將作業定義傳送給 HDInsight，並啟動作業。 系統會傳回「作業」物件。
 
-* **Wait-AzureRmHDInsightJob**：使用工作物件來檢查工作的狀態。 它會等到工作完成，或等到等候時間超過。
+* **Wait-AzureRmHDInsightJob**：使用作業物件來檢查作業的狀態。 它會等到工作完成，或等到等候時間超過。
 
-* **Get-AzureRmHDInsightJobOutput**：用來擷取工作的輸出。
+* **Get-AzureRmHDInsightJobOutput**：用來擷取作業的輸出。
 
 下列步驟示範如何使用這些 Cmdlet，在您的 HDInsight 叢集中執行工作。
 
@@ -73,7 +73,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
     此輸出表示工作已順利完成。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果 **ExitCode** 的值不是 0，請參閱 [疑難排解](#troubleshooting)。
 
     此範例也會將下載的檔案儲存到您執行指令碼所在目錄中的 **output.txt** 檔案。
@@ -82,7 +82,7 @@ Azure PowerShell 提供 *Cmdlet* ，可讓您從遠端在 HDInsight 上執行 Ma
 
 若要查看作業所產生的單字和計數，請使用文字編輯器開啟 **output.txt** 檔案。
 
-> [!NOTE]
+> [!NOTE]  
 > MapReduce 工作的輸出檔是固定不變的。 因此，如果您重新執行此範例，則需要變更輸出檔的名稱。
 
 ## <a id="troubleshooting"></a>疑難排解
@@ -113,5 +113,5 @@ Get-AzureRmHDInsightJobOutput `
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)

@@ -1,5 +1,5 @@
 ---
-title: 如何將參考資料集新增至 Azure 時間序列深入解析環境
+title: Azure 時間序列深入解析參考資料 - 如何將參考資料集新增至 Azure 時間序列深入解析環境 | Microsoft Docs
 description: 本文說明如何新增參考資料集來擴展 Azure 時間序列深入解析環境中的資料。
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: de5f4735e7dde7a3e631d14c83d42ccb9fd5c9db
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631039"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273828"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 入口網站建立時間序列深入解析環境的參考資料集
 
@@ -24,6 +25,12 @@ ms.locfileid: "39631039"
 參考資料集是許多項目的集合，由這些項目來擴展您事件來源中的事件。 Time Series Insights 輸入引擎會將事件來源的每個事件和參考資料集中的對應資料聯結在一起。 然後此增強的事件可用於查詢。 這項聯結是以參考資料集中定義的主索引鍵資料行為基礎。
 
 參考資料不會回溯加入。 這表示一旦設定和上傳參考資料集之後，只會比對目前和未來的輸入資料並加入參考資料集中。
+
+## <a name="video"></a>視訊： 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>在這段影片中，我們將討論時間序列見解的參考資料模型。</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>新增參考資料集
 

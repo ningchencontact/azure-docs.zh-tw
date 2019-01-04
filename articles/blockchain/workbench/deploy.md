@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 11/12/2018
+ms.date: 12/4/2018
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 33fce88e7108ee45236e20b1f20dde56bb7446b5
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 5f2f262d5ec4b9e8884e47c6c064927da2af4790
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616379"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876144"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>部署 Azure Blockchain Workbench
 
@@ -36,13 +36,16 @@ Blockchain Workbench 可讓您部署區塊鏈總帳與一組相關的 Azure 服�
 * 2 個 Azure 儲存體帳戶 (標準 LRS)
 * 2 個虛擬機器擴展集 (用於驗證程式與背景工作節點)
 * 2 個虛擬網路 (包括負載平衡器、網路安全性群組和每個虛擬網路的公用 IP 位址)
-* 選擇性：Azure 監視器
+* 選用：Azure 監視器
 
 以下是在 **myblockchain** 資源群組中建立的部署範例。
 
 ![部署範例](media/deploy/example-deployment.png)
 
 Blockchain Workbench 的成本是彙總基礎 Azure 服務的成本。 Azure 服務的定價資訊可使用[定價計算機](https://azure.microsoft.com/pricing/calculator/)來計算。
+
+> [!IMPORTANT]
+> 如果您使用服務額度較低的訂用帳戶 (例如，Azure 免費層訂用帳戶)，部署可能會因為 VM 核心的配額不足而失敗。 在部署之前，請先使用[虛擬機器 vCPU 配額](../../virtual-machines/windows/quotas.md)一文中的指導方針確認您的配額。 預設選取的 VM 需要 6 個 VM 核心。 變更為較小規模的 VM (例如，標準 DS1 v2) 會讓核心數目減為 4 個。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -99,7 +102,7 @@ Azure Blockchain Workbench 需要 Azure AD 設定和應用程式註冊。 您可
     |---------|--------------|
     | 監視 | 選擇是否要讓 Azure 監視器監視區塊鏈網路 |
     | Azure Active Directory 設定 | 選擇 [稍後再新增]。</br>注意：如果您選擇了 [預先設定 Azure AD](#azure-ad-configuration) 或重新部署，請選擇 *立即新增*。 |
-    | VM 選取項目 | 選擇您的區塊鏈網路慣用的 VM 大小。 |
+    | VM 選取項目 | 選擇您的區塊鏈網路慣用的 VM 大小。 如果您使用服務額度較低的訂用帳戶 (例如，Azure 免費層)，請選擇較小規模的 VM (例如，標準 DS1 v2)。 |
 
     **使用現有項目**：
 
@@ -202,7 +205,7 @@ Blockchain Workbench 部署完成後，新的資源群組即會包含您的 Bloc
 
     |設定  | 值  |
     |---------|---------|
-    |名稱 | `Blockchain API` |
+    |Name | `Blockchain API` |
     |應用程式類型 |Web 應用程式/API|
     |登入 URL | `https://blockchainapi` |
 

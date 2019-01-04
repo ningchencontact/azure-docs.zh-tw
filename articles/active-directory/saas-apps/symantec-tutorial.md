@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: dbf21c7c22a9b3273a65f7e186a2ac02ccae6ba2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b933bc5f5ecb39c3462e4e9bd300f1e07fd718c0
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436202"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838766"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-symantec-web-security-service-wss"></a>教學課程：Azure Active Directory 與 Symantec Web Security Service (WSS) 整合
 
@@ -170,7 +170,7 @@ Symantec Web Security Service (WSS) 與 Azure AD 整合提供下列優點：
 在本節中，您要在 Symantec Web Security Service (WSS) 中建立名為 Britta Simon 的使用者。 您可以在 WSS 入口網站中手動建立對應的使用者名稱，您也可以等候幾分鐘 (~ 15 分鐘)，讓 Azure AD 中佈建的使用者/群組同步處理至 WSS 入口網站。 您必須先建立和啟動使用者，然後才能使用單一登入。 將用來瀏覽網站的使用者電腦公用 IP 位址也必須佈建到 Symantec Web Security Service (WSS) 入口網站中。
 
 > [!NOTE]
-> 請[按一下這裡](http://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1)以取得您機器的公用 IP 位址。
+> 請[按一下這裡](https://www.bing.com/search?q=my+ip+address&qs=AS&pq=my+ip+a&sc=8-7&cvid=29A720C95C78488CA3F9A6BA0B3F98C5&FORM=QBLH&sp=1)以取得您機器的公用 IP 位址。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

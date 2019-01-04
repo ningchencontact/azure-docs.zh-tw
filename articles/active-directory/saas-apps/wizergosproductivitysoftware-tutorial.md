@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 696d0326530baadfffc6f757c2a25690422a12c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e117b6e791bde3a8311b35ea5d651dad6bf88737
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441539"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wizergos-productivity-software"></a>教學課程：Azure Active Directory 與 Wizergos Productivity Software 整合
 
@@ -110,7 +110,7 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
 
     ![Wizergos Productivity Software 網域與 URL 單一登入資訊](./media/wizergosproductivitysoftware-tutorial/tutorial_wizergosproductivitysoftware_url.png)
 
-    在 [識別碼] 文字方塊中，輸入 URL：`http://www.wizergos.net`
+    在 [識別碼] 文字方塊中，輸入 URL：`https://www.wizergos.net`
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證]，然後將憑證檔案儲存在您的電腦上。
 
@@ -223,7 +223,7 @@ Wizergos Productivity Software 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在 [存取面板] 中按一下 [Wizergos Productivity Software] 圖格時，您應該會自動登入您的 Wizergos Productivity Software 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

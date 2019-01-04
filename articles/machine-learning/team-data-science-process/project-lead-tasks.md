@@ -1,6 +1,6 @@
 ---
-title: Team 資料科學程序專案負責人工作 - Azure | Microsoft Docs
-description: 資料科學 Team 專案上專案負責人工作的概述。
+title: 專案負責人在 Team Data Science Process 中的工作
+description: 本大綱為專案負責人，為其資料科學小組專案所預期要完成的工作。
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 0b5129c4642a0c4381591f751bc4d5a51990b256
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442892"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135159"
 ---
-# <a name="project-lead-tasks"></a>專案負責人工作
+# <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>專案負責人在 Team Data Science Process 中的工作
 
 本教學課程概述希望專案負責人為他/她的專案小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是 Microsoft 開發的架構，提供結構化的一系列活動，以有效率地執行雲端式、預測性分析解決方案。 如需人員角色的概述，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
@@ -27,15 +27,16 @@ ms.locfileid: "52442892"
 
 本主題目前涵蓋專案負責人此工作流程的工作 1、2 和 6。
 
->[AZURE.NOTE] 我們概述在下列指示中使用 Azure DevOps 為專案設定 TDSP 小組環境所需的步驟。 我們會指定如何使用 Azure DevOps 完成這些工作，因為這是我們在 Microsoft 中實作 TDSP 的方式。 如果針對您的群組使用另一個程式碼裝載平台，必須由小組負責人完成的工作通常不會變更。 但是完成這些工作的方式將會不同。
+> [!NOTE]
+> 我們概述在下列指示中使用 Azure DevOps 為專案設定 TDSP 小組環境所需的步驟。 我們會指定如何使用 Azure DevOps 完成這些工作，因為這是我們在 Microsoft 中實作 TDSP 的方式。 如果針對您的群組使用另一個程式碼裝載平台，必須由小組負責人完成的工作通常不會變更。 但是完成這些工作的方式將會不同。
 
 
 ## <a name="repositories-and-directories"></a>存放庫和目錄
 
 本教學課程會使用存放庫和目錄的縮寫名稱。 這些名稱讓您更容易遵循存放庫和目錄之間的作業。 這個標記法 (R 適用於 Git 存放庫、D 適用於您 DSVM 上的本機目錄) 在下列各節中使用：
 
-- **R3**：Git 上的小組 **ProjectTemplate** 存放庫，您的小組負責人已設定。
-- **R5**：您為專案設定之 Git 上的專案存放庫。
+- **R3**：在 Git 上，您小組負責人已設定的 **ProjectTemplate** 存放庫。
+- **R5**：在 Git 上，您為專案設定的專案存放庫。
 - **D3**：從 R3 複製的本機目錄。
 - **D5**：從 R5 複製的本機目錄。
 
@@ -91,7 +92,7 @@ ms.locfileid: "52442892"
 - 將 DSProject1 存放庫複製到本機目錄：Team R5 - 複製到 -> 本機 D5。
 - 將複製的專案範本內容複製到 DSProject1 存放庫的本機複製：D3 - 內容複製到 -> D5。
 - (選擇性) 自訂本機 D5。
-- 將本機 DSProject1 內容推送到 Team 存放庫：D5 - 內容新增至 -> Team R5。
+- 將本機 DSProject1 內容推送至小組存放庫：D5 - 內容複製到 -> 小組 R5。
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>將您的專案範本存放庫 (R3) 複製到本機電腦上的目錄 (D3)。
@@ -195,7 +196,8 @@ ms.locfileid: "52442892"
     
 - 認可變更並推送。 
 
->[AZURE.NOTE] 如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name 和 user.email。 執行下列兩個命令：
+> [!NOTE]
+> 如果這是第一次認可 Git 存放庫，您必須在執行 `git commit` 命令之前，設定全域參數 user.name 和 user.email。 執行下列兩個命令：
         
     git config --global user.name <your name>
     git config --global user.email <your email address>

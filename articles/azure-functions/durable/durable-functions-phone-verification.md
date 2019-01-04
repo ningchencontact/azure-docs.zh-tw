@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 7bc9341d7e078b0ae69cc9a734c02f257df6d96a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: beb6650125bdf7526b8167ba0f076b079e4e84a8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638503"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342862"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>長期函式中的人為互動 - 電話驗證範例
 
@@ -45,8 +45,8 @@ ms.locfileid: "52638503"
 * **E4_SendSmsChallenge**
 
 下列各節說明用於 C# 指令碼和 JavaScript 的設定和程式碼。 適用於 Visual Studio 開發的程式碼顯示在本文結尾。
- 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼) 
+
+## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 驗證協調流程 (Visual Studio Code 和 Azure 入口網站範例程式碼)
 
 **E4_SmsPhoneVerification** 函式會針對協調器函式使用標準 function.json。
 
@@ -58,7 +58,7 @@ ms.locfileid: "52638503"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
 
@@ -72,7 +72,7 @@ ms.locfileid: "52638503"
 使用者會收到具有四位數代碼的 SMS 訊息。 他們有 90 秒的時間將相同的 4 位數代碼傳送回協調器函式執行個體，以完成驗證程序。 如果提交錯誤的代碼，有額外三次嘗試可以進行修正 (在相同的 90 秒時間內)。
 
 > [!NOTE]
-> 起初可能不明顯，不過這個協調器函式完全具有決定性。 這是因為 `CurrentUtcDateTime` 屬性是用來計算計時器到期時間，且這個屬性會在協調器程式碼中此點的每個重新執行都傳回相同的值。 這對於確保每次重複呼叫 `Task.WhenAny` 都有相同 `winner` 結果而言非常重要。
+> 起初可能不明顯，不過這個協調器函式完全具有決定性。 這是因為 `CurrentUtcDateTime` (.NET) and `currentUtcDateTime` (JavaScript) 屬性是用來計算計時器到期時間，且這些屬性會在協調器程式碼中此點的每個重新執行都傳回相同的值。 這對於確保每次重複呼叫 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 都有相同 `winner` 結果而言非常重要。
 
 > [!WARNING]
 > 如果您已經在上述範例中接受挑戰回應，且不再需要使用計時器，請務必[取消計時器](durable-functions-timers.md)。
@@ -89,7 +89,7 @@ ms.locfileid: "52638503"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
@@ -106,6 +106,7 @@ Content-Type: application/json
 
 "+1425XXXXXXX"
 ```
+
 ```
 HTTP/1.1 202 Accepted
 Content-Length: 695
@@ -115,12 +116,9 @@ Location: http://{host}/admin/extensions/DurableTaskExtension/instances/741c6565
 {"id":"741c65651d4c40cea29acdd5bb47baf1","statusQueryGetUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","sendEventPostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}","terminatePostUri":"http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}"}
 ```
 
-   > [!NOTE]
-   > 目前，JavaScript 協調流程入門函式無法傳回執行個體管理 URI。 這項功能會在未來版本中新增。
-
 協調器函式會接收提供的電話號碼，並且立即傳送 SMS 訊息給該電話號碼，訊息包含隨機產生的 4 位數驗證碼&mdash;，例如 2168。 此函式接著會在 90 秒的時間內等候回應。
 
-若要回覆代碼，您可以使用另一個函式內的 `RaiseEventAsync`，或叫用上述 202 回應中參考的 **sendEventUrl** HTTP POST Webhook，將 `{eventName}` 取代為事件的名稱，`SmsChallengeResponse`：
+若要回覆代碼，您可以使用另一個函式內的 [`RaiseEventAsync` (.NET) 或 `raiseEvent` (JavaScript)](durable-functions-instance-management.md#sending-events-to-instances)，或叫用上述 202 回應中參考的 **sendEventUrl** HTTP POST Webhook，將 `{eventName}` 取代為事件的名稱，`SmsChallengeResponse`：
 
 ```
 POST http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1/raiseEvent/SmsChallengeResponse?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
@@ -135,6 +133,7 @@ Content-Type: application/json
 ```
 GET http://{host}/admin/extensions/DurableTaskExtension/instances/741c65651d4c40cea29acdd5bb47baf1?taskHub=DurableFunctionsHub&connection=Storage&code={systemKey}
 ```
+
 ```
 HTTP/1.1 200 OK
 Content-Length: 144

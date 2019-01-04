@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: aa0af6f0c075dc555757a9c716a1d0569197287d
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345198"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256384"
 ---
 # <a name="translator-speech-api-languages"></a>翻譯工具語音 API：語言
 
@@ -23,7 +23,7 @@ ms.locfileid: "49345198"
 
 翻譯工具語音持續擴充其服務所支援的語言清單。 使用此 API 來探索目前可和翻譯工具語音服務搭配使用的語言集合。
 
-示範使用 API 取得可用語言的程式碼範例，可在 [Microsoft Translator Github 網站](https://github.com/MicrosoftTranslator) \(英文\) 取得。
+示範使用 API 取得可用語言的程式碼範例，可在 [Microsoft Translator GitHub 網站](https://github.com/MicrosoftTranslator)取得。
 
 ## <a name="implementation-notes"></a>實作附註
 
@@ -33,7 +33,7 @@ GET /languages
 
 用戶端使用 `scope` 查詢參數來定義其感興趣的語言集合。
 
-* **語音轉換文字：** 使用查詢參數 `scope=speech` 來擷取可供將語音繕寫成文字的語言集合。
+* **語音轉文字**：使用查詢參數 `scope=speech` 來擷取可供將語音繕寫成文字的語言集合。
 * **文字翻譯：** 使用查詢參數 `scope=text` 來擷取可供翻譯繕寫之文字的語言集合。
 * **文字轉換語音：** 使用查詢參數 `scope=tts` 來擷取可供將翻譯的文字合成回語音的語言和語音集合。
 
@@ -80,7 +80,7 @@ GET /languages
 與 `text` 屬性相關聯的值也是字典，其中每個索引鍵都識別文字翻譯支援的語言。 與索引鍵相關聯的值描述該語言：
 
 * `name`：語言的顯示名稱。
-* `dir`：方向，對於從右至左的語言是 `rtl`，或對於從左至右的語言是 `ltr`。
+* `dir`：文字閱讀方向，`rtl` 代表從右至左的語言，`ltr` 代表從左至右的語言。
 
 範例如下：
 

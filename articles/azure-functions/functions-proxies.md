@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: 2aa8036149f4056f2d197f0712b86104f5cf2215
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18398326e21ac6f3d64e43a577cf7d57cfb23438
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095040"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139515"
 ---
 # <a name="work-with-azure-functions-proxies"></a>使用 Azure Functions Proxy
 
@@ -82,7 +82,7 @@ Proxy 的設定不需要是靜態。 您可以將它設定為使用來自原始�
 
 * **{request.method}**：用於原始要求的 HTTP 方法。
 * **{request.headers.\<HeaderName\>}**：可以從原始要求讀取的標頭。 以您想要讀取之標頭的名稱取代 *\<HeaderName\>*。 如果標頭沒有包含在要求之上，值將會是空字串。
-* **{request.querystring.\<ParameterName\>}**：可以從原始要求讀取的查詢字串參數。 以您想要讀取之參數的名稱取代 *\<ParameterName\>*。 如果參數沒有包含在要求之上，值將會是空字串。
+* **{request.querystring。\<ParameterName\>}**：可以從原始要求讀取的查詢字串參數。 以您想要讀取之參數的名稱取代 *\<ParameterName\>*。 如果參數沒有包含在要求之上，值將會是空字串。
 
 ### <a name="response-parameters"></a>參考後端回應參數
 
@@ -139,12 +139,12 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
 
 在上述範例中，每個 Proxy 都有好記的名稱，例如 *proxy1*。 對應的 Proxy 定義物件是由下列屬性定義︰
 
-* **matchCondition**︰必要 -- 此物件定義要求以觸發執行此 Proxy。 它包含與 [HTTP 觸發程序]共用的兩個屬性：
-    * _method_：Proxy 回應的 HTTP 方法陣列。 如果未指定，Proxy 會回應路由上的所有 HTTP 方法。
+* **matchCondition**：必要 -- 此物件定義要求以觸發執行此 Proxy。 它包含與 [HTTP 觸發程序]共用的兩個屬性：
+    * _methods_：Proxy 回應的 HTTP 方法陣列。 如果未指定，Proxy 會回應路由上的所有 HTTP 方法。
     * _route_：必要 - 定義路由範本，控制 Proxy 回應哪些要求 URL。 不同於 HTTP 觸發程序，這個項目沒有預設值。
-* **backendUri**︰後端資源的 URL，而其要求應該透過代理。 此值可以參考應用程式設定和來自原始用戶端要求的參數。 如果不包含這個屬性，Azure Functions 會回應 HTTP 200 OK。
-* **requestOverrides**：此物件定義後端要求的轉換。 請參閱[定義 requestOverrides 物件]。
-* **responseOverrides**：此物件定義用戶端回應的轉換。 請參閱[定義 responseOverrides 物件]。
+* **backendUri**：後端資源的 URL，而其要求應該透過代理傳送。 此值可以參考應用程式設定和來自原始用戶端要求的參數。 如果不包含這個屬性，Azure Functions 會回應 HTTP 200 OK。
+* **requestOverrides**：針對後端要求定義轉換的物件。 請參閱[定義 requestOverrides 物件]。
+* **responseOverrides**：針對用戶端回應定義轉換的物件。 請參閱[定義 responseOverrides 物件]。
 
 > [!NOTE] 
 > Azure Functions Proxy 中的 route 屬性不採納函數應用程式主機設定的 routePrefix 屬性。 如果您需要包含前置詞，例如 `/api`，就必須加入 route 屬性中。
@@ -166,6 +166,22 @@ Proxies.json 是由 Proxy 物件定義，該物件包含具名 Proxy 及其定�
     }
 }
 ```
+
+### <a name="applicationSettings"></a>應用程式設定
+
+數個應用程式設定可以控制 Proxy 行為。 這些都會列在[函數應用程式設定參考](./functions-app-settings.md)中
+
+* [AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL](./functions-app-settings.md#azurefunctionproxydisablelocalcall)
+* [AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES](./functions-app-settings.md#azurefunctionproxybackendurldecodeslashes)
+
+### <a name="reservedChars"></a> 保留的字元 (字串格式化)
+
+Proxy 讀取所有的字串，而不進行解譯，但大括號和斜線例外
+
+|Character|逸出字元|範例|
+|-|-|-|
+|{ or }|{{ or }}|`{{ example }}` --> `{ example }`
+|/|///| `example.com///text.html` --> `example.com/text.html`
 
 ### <a name="requestOverrides"></a>定義 requestOverrides 物件
 
@@ -204,7 +220,7 @@ requestOverrides 物件定義針對傳回給用戶端之回應所做的變更。
 
 * **response.statusCode**：要傳回給用戶端的 HTTP 狀態碼。
 * **response.statusReason**：要傳回給用戶端的 HTTP 原因說明。
-* **response.body**：要傳回給用戶端之本文的字串表示。
+* **response.body**：要傳回給用戶端本文的字串表示法。
 * **response.headers.\<HeaderName\>**：在回應用戶端時可以設定的標頭。 以您想要設定之標頭的名稱取代 *\<HeaderName\>*。 如果您提供空字串，則回應不會包含該標頭。
 
 值可以參考應用程式設定、來自原始用戶端要求的參數，以及來自後端回應的參數。

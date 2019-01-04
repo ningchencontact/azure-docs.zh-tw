@@ -1,21 +1,22 @@
 ---
-title: 教學課程：QnA Bot 與 Azure Bot 服務 - QnA Maker
+title: QnA Bot - Azure Bot 服務 - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: 本教學課程會逐步引導您在 Azure 入口網站上使用 Azure Bot 服務 v3 建置 QnA Bot。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: qna-maker`
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: 19c56cf05e307deca52808b0eeba65b8949ffc0b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: f5587e14a0250e7312f1c95598b481bd052931c3
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212727"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53094826"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>教學課程：使用 Azure Bot 服務 v3 建立 QnA Bot
 
@@ -60,11 +61,11 @@ ms.locfileid: "50212727"
 
 5. 選取 Bot 範本欄位的 [問答] 範本，然後選取 [選取] 以儲存範本設定。
 
-    ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
+    ![儲存 Bot 服務範本選取項目](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
 
 6. 檢閱您的設定，然後選取 [建立]。 這會建立 Bot 服務，並將其部署到 Azure。
 
-    ![Bot 服務選取](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
+    ![建立 Bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
 
 7. 確認已部署 Bot 服務。
 

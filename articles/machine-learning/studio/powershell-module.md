@@ -5,9 +5,8 @@ keywords: 實驗、線性迴歸、機器學習服務演算法、機器學習服�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-ms.openlocfilehash: 3191ff845f72c87b85fdd414716ed9a00b022d06
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6539ec36c23feccfa52c8214784590106fa5a01e
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52312022"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257517"
 ---
 # <a name="powershell-module-for-azure-machine-learning-studio"></a>適用於 Azure Machine Learning Studio 的 PowerShell 模組
 適用於 Azure Machine Learning 的 PowerShell 模組是一款功能強大的工具，它能讓您使用 Windows PowerShell 來管理工作區、實驗、資料集、傳統的 Web 服務等。
@@ -54,7 +53,7 @@ Machine Learning PowerShell 模組是以 .NET 為基礎的 DLL 模組，它能�
         #Run the Experiment
         Start-AmlExperiment -ExperimentId $exp.ExperimentId 
 
-如需更深入的使用案例，請參閱以下有關使用 PowerShell 模組將普遍要求之工作自動化的文章：[使用 PowerShell，從一個實驗中建立許多機器學習服務模型和 Web 服務端點](create-models-and-endpoints-with-powershell.md)。
+如需更深入的使用案例，請參閱下列文章，以了解如何使用 PowerShell 模組來將普遍要求的工作自動化：[使用 PowerShell，從一個實驗中建立許多機器學習模型和 Web 服務端點](create-models-and-endpoints-with-powershell.md)。
 
 ## <a name="how-do-i-get-started"></a>如何開始使用？
 若要開始使用 Machine Learning PowerShell，請從 GitHub 下載[發行套件](https://github.com/hning86/azuremlps/releases)並遵循[安裝指示](https://github.com/hning86/azuremlps/blob/master/README.md)。 指示說明如何解除封鎖已下載/解壓縮的 DLL，然後再匯入 PowerShell 環境。 大部分的 Cmdlet 都會要求您提供工作區識別碼、工作區授權權杖，以及工作區所在的 Azure 區域。 提供值最簡單的方式是透過預設的 config.json 檔案。 指示中也會說明如何設定這個檔案。 

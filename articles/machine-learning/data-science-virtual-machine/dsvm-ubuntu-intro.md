@@ -1,11 +1,13 @@
 ---
-title: 在 Azure 上佈建 Linux (Ubuntu) 資料科學虛擬機器 | Microsoft Docs
+title: 建立 Ubuntu Linux 資料科學虛擬機器
+titleSuffix: Azure
 description: 在 Azure 上設定和建立 Linux (Ubuntu) 適用的資料科學虛擬機器以進行分析和機器學習服務。
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 ms.author: gokuma
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -14,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: cf5a15a55cf3f0d33edeec9440e745c9dce996c1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244860"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106765"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>佈建適用於 Linux (Ubuntu) 的資料科學虛擬機器
 
 適用於 Linux 的資料科學虛擬機器是以 Ubuntu 為基礎的虛擬機器映像，可幫助您在 Azure 上輕鬆展開機器學習，包括深度學習。 深入學習工具包含：
 
-  * [Caffe](http://caffe.berkeleyvision.org/)︰一種深入學習架構，講求速度、表現度及模組化
-  * [Caffe2](https://github.com/caffe2/caffe2)：Caffe 的跨平台版本
-  * [Microsoft 辨識工具組](https://github.com/Microsoft/CNTK) \(英文\)︰來自 Microsoft Research 的深度學習軟體工具組
-  * [H2O](https://www.h2o.ai/)開放原始碼巨量資料平台和圖形化使用者介面
+  * [Caffe](http://caffe.berkeleyvision.org/):一種深入學習架構，講求速度、表現度及模組化
+  * [Caffe2](https://github.com/caffe2/caffe2):Caffe 的跨平台版本
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK)：來自 Microsoft Research 的深度學習軟體工具組
+  * [H2O](https://www.h2o.ai/)：開放原始碼巨量資料平台和圖形化使用者介面
   * [Keras](https://keras.io/)：以 Python 撰寫且適用於 Theano 和 TensorFlow 的高層級類神經網路 API
   * [MXNet](http://mxnet.io/)：彈性、有效率的深入學習程式庫，包含許多語言繫結
   * [NVIDIA DIGITS](https://developer.nvidia.com/digits)：一種圖形化系統，可簡化常見的深入學習工作
   * [PyTorch](http://pytorch.org/)：高層級的 Python 程式庫，支援動態網路
-  * [TensorFlow](https://www.tensorflow.org/)︰Google 提供的機器智慧開放原始碼程式庫
+  * [TensorFlow](https://www.tensorflow.org/)：Google 提供的機器智慧開放原始碼程式庫
   * [Theano](http://deeplearning.net/software/theano/)：一種 Python 程式庫，可定義、最佳化和有效地評估涉及多維陣列的數學運算式
-  * [Torch](http://torch.ch/)︰廣泛支援機器學習演算法的科學運算架構
+  * [Torch](http://torch.ch/)：廣泛支援機器學習演算法的科學運算架構
   * CUDA、cuDNN 和 NVIDIA 驅動程式
   * 許多範例 Jupyter 筆記本
 
@@ -51,10 +53,10 @@ ms.locfileid: "51244860"
 * Azure 儲存體總管
 * 用於管理 Azure 資源的 Azure 命令列介面 (CLI)
 * 機器學習工具
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit)︰快速的機器學習系統，支援像是線上、雜湊，allreduce、簡化、learning2search、主動和互動式學習的技術
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/)︰提供快速且正確的推進式決策樹實作的工具
-  * [Rattle](https://togaware.com/rattle/)︰一種圖形化工具，可幫助您輕鬆地開始使用 R 中的資料分析和機器學習
-  * [LightGBM](https://github.com/Microsoft/LightGBM)︰快速、分散式的高效能漸層提升架構
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit)：快速的機器學習系統，支援像是線上、雜湊，allreduce、簡化、learning2search、主動和互動式學習的技術
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/)：提供快速且正確的推進式決策樹實作的工具
+  * [Rattle](https://togaware.com/rattle/)：一種圖形化工具，可幫助您輕鬆地開始使用 R 中的資料分析和機器學習
+  * [LightGBM](https://github.com/Microsoft/LightGBM)：快速、分散式的高效能漸層提升架構
 * Java、Python、node.js、Ruby、PHP 中的 Azure SDK
 * R 和 Python 語言的程式庫，可用於 Azure Machine Learning 和其他 Azure 服務
 * 開發工具和編輯器 (RStudio、PyCharm、IntelliJ、Emacs、vim)
@@ -90,8 +92,8 @@ Linux 適用的資料科學虛擬機器可以大幅減輕這樣的負擔。 使�
    * **名稱**：您建立的資料科學伺服器名稱。
    * **VM 磁碟類型**：如果您偏好固態硬碟 (SSD)，請選擇 [進階 SSD]。 否則請選擇 [標準 HDD]。 
    * **使用者名稱**：第一個帳戶登入識別碼。
-   * **密碼**︰第一個帳戶密碼 (您可以使用 SSH 公開金鑰來代替密碼)。
-   * **訂用帳戶**：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
+   * **密碼**：第一個帳戶密碼 (您可以使用 SSH 公開金鑰來代替密碼)。
+   * 訂用帳戶：如果您有多個訂用帳戶，請選取要用來建立機器和開立帳單的訂用帳戶。 您必須有此訂用帳戶的資源建立權限。
    * **資源群組**：您可以建立新群組或使用現有的群組。
    * **位置**：選取最適合的資料中心。 它通常是擁有您大部分資料的資訊中心，或是最接近您實際位置可進行最快速網路存取的資料中心。
    
@@ -131,11 +133,11 @@ Linux VM 已經佈建了 X2Go 伺服器，並準備接受用戶端連接。 若�
 1. 從 [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient)下載並安裝您用戶端平台適用的 X2Go 用戶端。    
 1. 執行 X2Go 用戶端，然後選取 [新增工作階段] 。 會開啟具有多個索引標籤的組態視窗。 輸入下列組態參數︰
    * **[工作階段] 索引標籤**：
-     * **主機**︰Linux 資料科學 VM 的主機名稱或 IP 位址。
-     * **登入**︰Linux VM 上的使用者名稱。
-     * **SSH 連接埠**︰保留預設值 22。
-     * **工作階段類型**︰將值變更為 XFCE。 Linux VM 目前僅支援 XFCE 桌面。
-   * **[媒體] 索引標籤**︰您可以關閉聲音支援和用戶端列印，如果不需要使用的話。
+     * **主機**：Linux 資料科學 VM 的主機名稱或 IP 位址。
+     * **登入**：Linux VM 上的使用者名稱。
+     * **SSH 連接埠**：保留預設值 22。
+     * **工作階段類型**：將值變更為 XFCE。 Linux VM 目前僅支援 XFCE 桌面。
+   * **[媒體] 索引標籤**：您可以關閉聲音支援和用戶端列印，如果不需要使用的話。
    * **共用資料夾**︰如果您想要用戶端機器的目錄掛接在 Linux VM 上，請在此索引標籤上加入要與 VM 分享的目錄。
 
 當您透過 X2Go 用戶端使用 SSH 用戶端或 XFCE 圖形化桌面登入 VM 之後，便可開始使用已安裝並設定於 VM 上的工具。 在 XFCE 上，您可以看到許多工具的應用程式功能表捷徑和桌面圖示。
@@ -294,11 +296,11 @@ Apache Spark 的獨立執行個體已預先安裝在 Linux DSVM，可協助您�
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>存取 Microsoft SQL Server 用的命令列工具
 SQL Server 的 ODBC 驅動程式封裝也隨附兩個命令列工具：
 
-**bcp**：bcp 公用程式會在 Microsoft SQL Server 執行個體和使用者指定格式的資料檔之間大量複製資料。 bcp 公用程式可用來將大量新資料列匯入 SQL Server 資料表，或是將資料表的資料匯出成資料檔案。 若要將資料匯入資料表，您必須使用為該資料表建立的格式檔案，或是了解資料表的結構，以及適用於其資料行的資料類型。
+**bcp**︰bcp 公用程式會在 Microsoft SQL Server 執行個體和使用者指定格式的資料檔之間大量複製資料。 bcp 公用程式可用來將大量新資料列匯入 SQL Server 資料表，或是將資料表的資料匯出成資料檔案。 若要將資料匯入資料表，您必須使用為該資料表建立的格式檔案，或是了解資料表的結構，以及適用於其資料行的資料類型。
 
 如需詳細資訊，請參閱 [連接 bcp](https://msdn.microsoft.com/library/hh568446.aspx)。
 
-**sqlcmd**：您可以利用 sqlcmd 公用程式，在命令列提示字元中輸入 Transact-SQL 陳述式以及系統程序和指令碼檔案。 這個公用程式使用 ODBC 來執行 Transact-SQL 批次。
+**sqlcmd**︰您可以利用 sqlcmd 公用程式，在命令列提示字元中輸入 Transact-SQL 陳述式以及系統程序和指令碼檔案。 這個公用程式使用 ODBC 來執行 Transact-SQL 批次。
 
 如需詳細資訊，請參閱 [使用 sqlcmd 連接](https://msdn.microsoft.com/library/hh568447.aspx)。
 
@@ -316,8 +318,8 @@ R 和 Python 中提供可用於存取資料庫的程式庫。
 ### <a name="azure-tools"></a>Azure 工具
 VM 上安裝了下列 Azure 工具：
 
-* **Azure 命令列介面**：Azure CLI 可讓您透過殼層命令來建立和管理 Azure 資源。 若要叫用 Azure 工具，只需輸入 **azure help**。 如需詳細資訊，請參閱 [Azure CLI 文件頁面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
-* **Microsoft Azure 儲存體總管**：Microsoft Azure 儲存體總管是一個圖形化工具，可用來瀏覽您在 Azure 儲存體帳戶中所儲存的物件，也可以上傳和下載 Azure Blob 的資料。 您可以從桌面捷徑圖示存取儲存體總管。 從殼層命令提示字元叫用它則是輸入 **StorageExplorer**。 您需要從 X2Go 用戶端登入，或是已設定 X11 轉寄。
+* **Azure 命令列介面**︰Azure CLI 可讓您透過殼層命令來建立和管理 Azure 資源。 若要叫用 Azure 工具，只需輸入 **azure help**。 如需詳細資訊，請參閱 [Azure CLI 文件頁面](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)。
+* **Microsoft Azure 儲存體總管**Microsoft Azure 儲存體總管是一個圖形化工具，可用來瀏覽您在 Azure 儲存體帳戶中所儲存的物件，也可以上傳和下載 Azure Blob 的資料。 您可以從桌面捷徑圖示存取儲存體總管。 從殼層命令提示字元叫用它則是輸入 **StorageExplorer**。 您需要從 X2Go 用戶端登入，或是已設定 X11 轉寄。
 * **Azure 程式庫**：以下是一些預先安裝的程式庫。
   
   * **Python**：Python 中已安裝的 Azure 相關程式庫為 **azure**、**azureml**、**pydocumentdb** 和 **pyodbc**。 透過前三個程式庫，您可以存取 Azure 儲存體服務、Azure Machine Learning 和 Azure Cosmos DB (Azure 上的 NoSQL 資料庫)。 第四個程式庫 pyodbc (以及 Microsoft ODBC Driver for SQL Server) 可讓您使用 ODBC 介面，從 Python 中存取 SQL Server、Azure SQL Database 和 Azure SQL 資料倉儲。 輸入 **pip list** 以查看所有列出的程式庫。 請務必在 Python 2.7 和 3.5 的環境中執行此命令。
@@ -347,7 +349,7 @@ VM 隨附一些已預先編譯且預先安裝在本機上的機器學習工具�
 * **xgboost**：提供最佳化推進式決策樹演算法的工具。
 * **Rattle**：以 R 為基礎的圖形化工具，可輕鬆地進行資料瀏覽和模組化。
 * **Python**：Anaconda Python 會與含有像是 Scikit-learn 的程式庫的機器學習演算法進行配套。 您可以使用 `pip install` 程式庫。
-* **LightGBM**︰以決策樹演算法為基礎的一種快速、分散式的高效能漸層提升架構。
+* **LightGBM**：決策樹演算法為基礎的一種快速、分散式的高效能漸層提升架構。
 * **R**：有豐富的機器學習函式程式庫可供 R 使用。lm、glm、randomForest、rpart 是一些預先安裝的程式庫。 您可以執行下列命令來安裝其他程式庫：
   
         install.packages(<lib name>)

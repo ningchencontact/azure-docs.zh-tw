@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: magattus
-ms.openlocfilehash: 0bb52943eac3e35b5012e3f54bfb841cf491ed18
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: af8e57f39b5b83b1d1be09c29d8b6eb5d49c7b6c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091806"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53309260"
 ---
 # <a name="understanding-azure-cdn-billing"></a>了解 Azure CDN 計費
 
@@ -40,7 +40,7 @@ ms.locfileid: "49091806"
 
 如需存在點 (POP) 區域的詳細資訊，請參閱[依地區的 Azure CDN POP 位置](https://docs.microsoft.com/azure/cdn/cdn-pop-locations)。 例如，位在墨西哥的 POP 落在北美洲區域，因此屬於區域 1 的涵蓋範圍。 
 
-如需 Azure CDN 價格的詳細資訊，請參閱[內容傳遞網路的價格](https://azure.microsoft.com/is-is/pricing/details/cdn/)。
+如需 Azure CDN 價格的詳細資訊，請參閱[內容傳遞網路的價格](https://azure.microsoft.com/pricing/details/cdn/)。
 
 ## <a name="how-are-delivery-charges-calculated-by-region"></a>如何依照區域計算傳遞費用？
 Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的來源伺服器所在位置。 用戶端的目的地 (實體位置) 不在計費區域的考量範圍內。
@@ -55,19 +55,19 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 
 如果您將 Azure Blob 儲存體當做內容來源，還會因快取填滿而產生以下儲存空間費用：
 
-- 實際使用 GB 數：來源物件的實際儲存空間。
+- 實際使用的 GB：您的來源物件之實際儲存空間。
 
-- 傳輸量 (GB)：填滿 CDN 快取的資料傳輸量。
+- 傳輸 (以 GB 為單位)：傳輸以填入 CDN 快取的資料量。
 
-- 交易數：視填滿快取需要。
+- 交易：如填入快取所需。
 
 如需 Azure 儲存體計費的詳細資訊，請參閱[了解 Azure 儲存體計費 - 頻寬、交易和容量](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/)。
 
 如果您使用*託管服務傳遞*，可能會產生以下費用：
 
-- Azure 計算時間：當做來源的計算執行個體。
+- Azure 計算時間：當作來源的計算執行個體。
 
-- Azure 計算傳輸：為了填滿 Azure CDN 快取，從計算執行個體傳輸的資料。
+- Azure 計算傳輸：傳輸自計算執行個體以填入 Azure CDN 快取的資料。
 
 如果您的用戶端使用位元組範圍要求 (不考慮來源服務)，請考慮以下事項：
 
@@ -80,9 +80,9 @@ Azure CDN 計費區域的判定，取決於將內容傳遞給終端使用者的�
 
 - 可快取內容的型態：對於高 TTL (存留時間)/到期值，而且經常存取的內容，因為它在快取中的熱門程度高，所以大多數的負載都由 CDN 負責處理。 良好的快取命中率通常是指超過 90% 的命中率，代表不論是因為快取遺漏或物件重新整理，只有不到 10% 的用戶端要求必須傳回來源。
 
-- 需要載入物件的節點數目：每當節點從來源載入物件時，都會產生可計費交易。 因此，比較通用的內容 (從比較多節點存取)，產生的可計費交易也會比較多。
+- 載入物件需要幾個節點：每當節點從來源載入物件，就會引發計費交易。 因此，比較通用的內容 (從比較多節點存取)，產生的可計費交易也會比較多。
 
-- TTL 影響：物件的 TTL 越高，表示從來源擷取的頻率越低。 這也代表用戶端 (如瀏覽器) 將物件留在快取中的時間較長，因此能減少 CDN 的交易數。
+- TTL 影響：物件的 TTL 越高，表示需要從來源擷取它的頻率越低。 這也代表用戶端 (如瀏覽器) 將物件留在快取中的時間較長，因此能減少 CDN 的交易數。
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>管理成本最有效的方法是什麼？
 盡可能為內容設定最長的 TTL。 

@@ -1,6 +1,6 @@
 ---
-title: 針對雲端一致性的 Azure Resource Manager 範本 | Microsoft Docs
-description: 開發針對雲端一致性的 Azure Resource Manager 範本。 建立新的或更新現有的 Azure Stack 範本。
+title: 跨雲端重複使用範本 - Azure Resource Manager
+description: 開發在不同雲端環境能一致運行的 Azure Resource Manager 範本。 建立新的或更新現有的 Azure Stack 範本。
 services: azure-resource-manager
 documentationcenter: na
 author: marcvaneijk
@@ -9,14 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/05/2018
+ms.date: 12/09/2018
 ms.author: mavane
-ms.openlocfilehash: f1ff151c0b8d89910949d961b732c10901f19293
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.custom: seodec18
+ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723370"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135622"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>開發針對雲端一致性的 Azure Resource Manager 範本
 
@@ -434,7 +435,7 @@ API 設定檔不是範本中的必要項目。 即使您新增項目，它也只
 下列兩個範例是常見的端點命名空間，需要在建立資源時予以明確指定：
 
 * 儲存體帳戶 (Blob、佇列、資料表和檔案)
-* 資料庫和 Redis 快取的連接字串
+* 資料庫的連接字串和適用於 Redis 的 Azure 快取
 
 在部署完成時，端點命名空間也可用為範本輸出的使用者資訊。 以下是常見的範例：
 

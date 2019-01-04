@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: cwatson
-ms.openlocfilehash: 2380cd3712c47ca08e9b9b3597f09f4119238af3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 53cecc845ed8bd15311e1bcec3ec9b36db8f5c2c
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581608"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727863"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>新增或變更 Azure 訂用帳戶系統管理員
 
@@ -42,10 +42,10 @@ Azure 有數個不同的角色。 若要管理對資源的存取，您可以使�
 1. 請造訪 [Azure 入口網站中的**訂用帳戶**](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)。
 2. 選取您要授與存取權的訂用帳戶。
 3. 在清單中選取 [存取控制 (IAM)]。
-4. 選取 [新增] 。
-   (如果沒有 [新增] 按鈕，表示您沒有權限新增權限。)
+4. 選取 [新增角色指派]。
+   (如果沒有 [新增角色指派] 按鈕，表示您沒有權限新增權限。)
 5. 在 [角色] 方塊中，選取 [擁有者]。 
-6. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或應用程式]。 
+6. 在 [存取權指派對象為] 方塊中，選取 [Azure AD 使用者、群組或服務主體]。 
 7. 在 [選取] 方塊中，輸入要新增為擁有者的使用者電子郵件地址。 選取使用者，然後選取 [儲存]。
 
     ![顯示已選取 [擁有者] 角色的螢幕擷取畫面](./media/billing-add-change-azure-subscription-administrator/add-role.png)

@@ -1,13 +1,12 @@
 ---
-title: 透過 Web 應用程式範本使用 Machine Learning Web 服務 - Azure Machine Learning Studio | Microsoft Docs
+title: 使用 Web 應用程式範本取用 Studio Web 服務 - Azure Machine Learning Studio | Microsoft Docs
 description: 使用 Azure Marketplace 中的 Web 應用程式範本以使用 Azure Machine Learning 中的預測 Web 服務。
 keywords: Web 服務、operationalization、REST API、機器學習服務
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: e0d71683-61b9-4675-8df5-09ddc2f0d92d
 ms.service: machine-learning
@@ -17,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 2c0bba4a442b73b82ebc271c3516f65954d6d8a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 6a6da1af937338637cd875abe4e9d539b2e2b6e2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311563"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273879"
 ---
-# <a name="consume-an-azure-machine-learning-web-service-by-using-a-web-app-template"></a>使用 Web 應用程式範本取用 Azure Machine Learning Web 服務
+# <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>使用 Web 應用程式範本取用 Azure Machine Learning Studio Web 服務
 
 您可以使用下列項目開發預測模型並將它部署為 Azure Web 服務：
 - Azure Machine Learning Studio。
@@ -36,7 +35,7 @@ ms.locfileid: "52311563"
 
 但是，存取 Web 服務最快速、最簡單的方式是透過可在 [Azure Marketplace](https://azure.microsoft.com/marketplace/web-applications/all/) 中找到的 Web 應用程式範本。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="azure-machine-learning-web-app-templates"></a>Azure Machine Learning Web 應用程式範本
 Azure Marketplace 中可用的 Web 應用程式範本可以建立自訂的 Web 應用程式，該應用程式知道您的 Web 服務的輸入資料和預期的結果。 您所需要做的就是將您的 Web 服務和資料的存取權授與 Web 應用程式，範本會執行其餘部分。

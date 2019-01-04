@@ -4,24 +4,23 @@ description: 概括介紹 Azure Migrate 服務中的評量計算。
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/28/2018
 ms.author: raynew
-ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ab4af59b71dada84fd99df0299aeccfd5662d474
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165682"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52849168"
 ---
 # <a name="assessment-calculations"></a>評量計算
 
-[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 此文章提供評量計算方式的相關資訊。
+[Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文提供評量計算方式的相關資訊。
 
 
 ## <a name="overview"></a>概觀
 
 Azure Migrate 評量有三個階段。 評量會從適用性分析開始，然後是調整大小，最後是每月成本估計。 機器必須先通過前一個評量，才可前往下一階段。 舉例而言，如果機器未通過 Azure 適用性檢查，就會標示為不適合 Azure，而不會再去計算大小和成本。
-
 
 ## <a name="azure-suitability-analysis"></a>Azure 適用性分析
 
@@ -119,22 +118,14 @@ Azure Migrate 中的每個效能型評量會與信賴評等相關聯，信賴評
 
    以下是關於評量會獲得低信賴評等的原因：
 
-   **單次探索**
+   - 您未針對正在建立評量的持續時間剖析環境。 例如，如果您要建立的評量將效能持續時間設定為 1 天，您需要至少等待一天後再開始探索，才能收集到所有資料點。
 
-   - vCenter Server 中統計資料設定未設為等級 3。 由於單次探索模型取決於 vCenter Server 的統計資料設定，如果 vCenter Server 中的統計資料設定低於等級 3，磁碟和網路的效能資料並未從 vCenter Server 收集。 在此情況下，Azure Migrate 針對磁碟和網路所提供的建議是以使用率為基礎。 若不考量磁碟的 IOPS/輸送量，Azure Migrate 便無法識別磁碟在 Azure 中是否需要進階磁碟，因此在此情況下，Azure Migrate 會針對所有磁碟建議標準磁碟。
-   - vCenter Server 中的統計資料設定會在開始探索前短期設定為等級 3。 例如，讓我們考慮以下案例：您今天將統計資料設定變更為等級 3，並在明天 (24 小時後) 使用收集器設備開始探索。 如果您要建立一天的評量，您可擁有所有資料點，且評量的信賴評等會是 5 顆星。 但如果您將評量屬性中的效能持續時間變更為一個月，信賴評等會關閉，因無法使用過去一個月的磁碟和網路效能資料。 如果您想考量過去一個月的效能資料，建議您將 vCenter Server 統計資料設定保留在等級 3 一個月，再開始進行探索。
+   - 少數虛擬機器在評量計算期間關閉。 如果有任何 VM 在某段期間內電源關閉，則無法收集這段時間的效能資料。
 
-   **持續探索**
-
-   - 您未針對正在建立評量的持續時間剖析環境。 例如，如果您要建立的評量將效能持續時間設定為 1 天，您需要至少等待一天後，再開始探索才能收集到所有資料點。
-
-   **常見原因**  
-
-   - 少數虛擬機器在評量計算期間關閉。 如果任何虛擬機器在某段期間內電源關閉，則無法收集這段時間的效能資料。
    - 少數虛擬機器在評量計算期間才建立。 例如，如果您要建立過去一個月的效能記錄評量，但是少數虛擬機器在一週前才建立在環境中。 在這種情況下，新虛擬機器的效能記錄不會在整段期間中出現。
 
    > [!NOTE]
-   > 對於單次探索模型，如果任何評量的信賴評等低於 4 顆星，建議您將 vCenter Server 的統計資料設定等級變更為 3，等候您要評量的持續時間 (1 天/1 週/1 個月)，然後再執行探索及評量。 對於持續探索模型，至少等待一天後，再讓設備剖析環境，然後「重新計算」評量。 如果無法完成上述內容，則以效能為基礎的大小調整可能不可靠，建議您變更評量屬性以切換至「如內部部署大小調整」。
+   > 如果任何評量的信賴評等低於 5 顆星，建議您至少等待一天，讓設備剖析環境，然後「重新計算」評量。 如果無法完成上述動作，則以效能為基礎的大小調整可能不可靠，且建議您變更評量屬性以切換至*內部部署大小調整*。
 
 ## <a name="monthly-cost-estimation"></a>每月成本預估
 

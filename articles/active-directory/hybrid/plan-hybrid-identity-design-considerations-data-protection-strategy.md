@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9f02c6779b3561f6eea57512ecb27dd2fd451d90
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238143"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865041"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>定義混合式身分識別解決方案的資料保護策略
 在這項工作中，您將為混合式身分識別解決方案定義資料保護策略，以符合您已定義的商務需求：
@@ -81,9 +81,9 @@ ms.locfileid: "51238143"
 
 | 內容管理選項 | 優點 | 缺點 |
 | --- | --- | --- |
-| 集中式的內部部署 (Active Directory Rights Management Server) |完全掌控負責分類資料的伺服器基礎結構  <br> Windows Server 中內建功能，不需要取得額外授權或訂用帳戶 <br> 可以與混合式案例中的 Azure AD 整合 <br> 支援 Microsoft Online Services，例如 Exchange Online 和 SharePoint Online 以及 Office 365 中的資訊版權管理 (IRM) 功能 <br> 支援內部部署 Microsoft 伺服器產品，例如 Exchange Server、SharePoint Server，以及執行 Windows Server 和檔案分類基礎結構 (FCI) 的檔案伺服器。 |需要較多維護 (隨時進行更新、設定與潛在升級)，因為 IT 人員擁有伺服器 <br> 需要內部部署的伺服器基礎結構<br> 在原生狀態下不會使用 Azure 功能 |
-| 集中於雲端 (Azure RMS) |比內部部署解決方案容易管理  <br> 可以與混合式案例中的 AD DS 整合 <br>  完全與 Azure AD 整合 <br> 不需要內部部署伺服器，即可部署服務 <br> 支援內部部署 Microsoft 伺服器產品，例如 Exchange Server、SharePoint Server，以及執行 Windows Server 和檔案分類基礎結構 (FCI) 的檔案伺服器 <br> IT 人員可透過 BYOK 功能完全控制其租用戶的金鑰。 |組織必須具有支援 RMS 的雲端訂用帳戶  <br> 組織必須具有 Azure AD 目錄以支援 RMS 的使用者驗證 |
-| 混合式 (Azure RMS 與內部部署 Active Directory Rights Management Server 整合) |這種情況下結合了集中式內部部署和雲端兩者的優點。 |組織必須具有支援 RMS 的雲端訂用帳戶  <br> 組織必須具有 Azure AD 目錄以支援 RMS 的使用者驗證， <br> Azure 雲端服務與內部部署基礎結構之間必須要有連線 |
+| 集中式的內部部署 (Active Directory Rights Management Server) |完全掌控負責分類資料的伺服器基礎結構  <br> Windows Server 中內建功能，不需要取得額外授權或訂用帳戶 <br> 可以與混合式案例中的 Azure AD 整合 <br> 支援 Microsoft Online Services，例如 Exchange Online 和 SharePoint Online 以及 Office 365 中的資訊版權管理 (IRM) 功能 <br>  支援內部部署 Microsoft 伺服器產品，例如 Exchange Server、SharePoint Server，以及執行 Windows Server 和檔案分類基礎結構 (FCI) 的檔案伺服器。 |需要較多維護 (隨時進行更新、設定與潛在升級)，因為 IT 人員擁有伺服器 <br> 需要內部部署的伺服器基礎結構<br> 在原生狀態下不會使用 Azure 功能 |
+| 集中於雲端 (Azure RMS) |比內部部署解決方案容易管理  <br> 可以與混合式案例中的 AD DS 整合 <br>  完全與 Azure AD 整合 <br> 不需要內部部署伺服器，即可部署服務 <br> 支援內部部署 Microsoft 伺服器產品，例如 Exchange Server、SharePoint Server，以及執行 Windows Server 和檔案分類基礎結構 (FCI) 的檔案伺服器 <br> IT 人員可透過 BYOK 功能完全控制其租用戶的金鑰。 |組織必須具有支援 RMS 的雲端訂用帳戶  <br>  組織必須具有 Azure AD 目錄以支援 RMS 的使用者驗證 |
+| 混合式 (Azure RMS 與內部部署 Active Directory Rights Management Server 整合) |這種情況下結合了集中式內部部署和雲端兩者的優點。 |組織必須具有支援 RMS 的雲端訂用帳戶  <br> 組織必須具有 Azure AD 目錄以支援 RMS 的使用者驗證， <br>  Azure 雲端服務與內部部署基礎結構之間必須要有連線 |
 
 ## <a name="define-access-control-options"></a>定義存取控制選項
 利用 Azure AD 中提供的驗證、授權和存取控制功能，您將能夠讓公司使用中央身分識別存放庫，同時允許使用者和合作夥伴使用單一登入 (SSO)，如下圖所示：
@@ -92,7 +92,7 @@ ms.locfileid: "51238143"
 
 集中式管理以及與其他目錄的完全整合
 
-Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入。 如需經過 Microsoft 測試之 SSO 協力廠商的詳細資訊，請參閱 [Azure Active Directory 同盟相容性清單：可用來實作單一登入的協力廠商識別提供者](https://msdn.microsoft.com/library/azure/jj679342.aspx)一文。 這項功能可讓組織實作各種 B2B 案例，同時得以控制身分識別和存取管理。 不過，在 B2B 期間，要了解合作夥伴所將使用的驗證方法驗證，並驗證 Azure 是否支援此方法，設計程序是很重要的。 目前，Azure AD 支援下列方法：
+Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應用程式提供單一登入。 如需經過 Microsoft 測試之 SSO 協力廠商的詳細資訊，請參閱 [Azure Active Directory 同盟相容性清單：可用來實作單一登入的協力廠商識別提供者](how-to-connect-fed-compatibility.md)一文。 這項功能可讓組織實作各種 B2B 案例，同時得以控制身分識別和存取管理。 不過，在 B2B 期間，要了解合作夥伴所將使用的驗證方法驗證，並驗證 Azure 是否支援此方法，設計程序是很重要的。 目前，Azure AD 支援下列方法：
 
 * 安全性判斷提示標記語言 (SAML)
 * OAuth
@@ -118,21 +118,21 @@ Azure Active Directory 可為數千個 SaaS 應用程式和內部部署 Web 應�
 
 圖 X 中顯示的每個互動，分別代表 Azure AD 可以涵蓋的一個存取控制案例。 每個案例的說明如下：
 
-  1. 內部部署裝載之應用程式的條件式存取：您可以使用已註冊的裝置搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。
+  1. 針對裝載在內部部署環境的應用程式所進行的條件式存取：您可以使用已註冊的裝置搭配適用於已設定為使用 AD FS with Windows Server 2012 R2 之應用程式的存取原則。
 
-  2. Azure 入口網站的存取控制：Azure 也可讓您使用角色型存取控制 (RBAC) 來控制對入口網站的存取。 此方法可讓公司限制個人可以在 Azure 入口網站中執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
+  2. 針對 Azure 入口網站的存取控制：Azure 也可讓您使用角色型存取控制 (RBAC) 來控制對入口網站的存取。 此方法可讓公司限制個人可以在 Azure 入口網站中執行的作業數目。 使用 RBAC 來控制存取入口網站時，IT 系統管理員可以利用下列存取管理方法來委派存取：
 
    - 群組型角色指派：您可以指派存取權給可從本機 Active Directory 同步處理的 Azure AD 群組。 這可讓您運用組織目前在群組管理工具和程序方面所做的投資。 您也可以使用 Azure AD Premium 的委派群組管理功能。
-   - 運用 Azure 中內建的角色：您可以使用三個角色 — 擁有者、參與者和讀者，以確保使用者和群組只擁有他們執行工作所需的權限。
+   - 使用 Azure 中內建的角色：您可以使用三個角色 — 擁有者、參與者和讀者，以確保使用者和群組只擁有他們執行工作所需的權限。
    -  細微控制資源的存取：您可以針對特定的訂用帳戶、資源群組或個別 Azure 資源 (例如網站或資料庫)，將角色指派給使用者和群組。 如此一來，您可以確保使用者能夠存取他們需要的資源，但不能存取他們不需要管理的資源。
 
    > [!NOTE]
    > 如果您要建置應用程式並想要自訂其存取控制，可以使用 Azure AD 應用程式角色來進行授權。 請參閱 [WebApp-RoleClaims-DotNet 範例](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) ，了解如何建置您的應用程式以使用這項功能。
 
 
-  3. 適用於包含 Microsoft Intune 的 Office 365 應用程式條件式存取 ：IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許符合規範之裝置上的資訊工作者存取服務。 
+  3. 針對 Office 365 應用程式與 Microsoft Intune 的條件式存取：IT 管理員可以佈建條件式存取裝置原則來保護公司資源，同時允許相容裝置上的資訊工作者存取服務。 
   
-  4. Saas 應用程式的條件式存取：[此功能](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
+  4. SaaS 應用程式的條件式存取：[此功能](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/)可讓您設定每個應用程式的多重要素驗證存取規則，且能夠封鎖不在受信任網路上的使用者存取。 您可以將多因素驗證規則套用至所有已指派給應用程式的使用者，或只套用至指定的安全性群組內的使用者。 如果使用者是從組織網路內的 IP 位址存取應用程式，則可從多因素驗證需求中排除這些使用者。
 
 由於存取控制的選項採用多層式方法，因此在執行這項工作時無法比較這些選項。 請確實針對每個要求您控制資源存取權的案例，使用所有適用的選項。
 

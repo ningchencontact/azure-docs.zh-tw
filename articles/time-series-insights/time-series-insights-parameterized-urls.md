@@ -1,5 +1,5 @@
 ---
-title: 使用參數化 URL 共用 Azure 時間序列深入解析自訂檢視 | Microsoft Docs
+title: Azure 時間序列深入解析 URL - 使用參數化 URL 共用 Azure 時間序列深入解析自訂檢視 | Microsoft Docs
 description: 本文說明如何在 Azure 時間序列深入解析中開發參數化 URL，以便輕鬆地共用客戶檢視。
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,13 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
-ms.openlocfilehash: dbd717d79230c5dc2fc823484376267e7b7b8ab1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.custom: seodec18
+ms.openlocfilehash: 5b43ba4c3f88c678b160e8aec442fa92b4822a3d
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628795"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274355"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>使用參數化 URL 共用自訂檢視
 
@@ -70,7 +71,7 @@ ms.locfileid: "39628795"
   - measure 的資料行名稱。
 - "predicate":"<string>"
   - 用於伺服器端篩選的 where 子句。
--  "useSum":"true"
+- "useSum":"true"
   - 這是選擇性參數，指定使用總和作為您的量值。  請注意，如果 [事件] 是選取的量值，則預設會選取 [計數]。  如果未選取 [事件]，則預設會選取 [平均值]。  
 
 'multiChartStack=<true/false>' 參數可在圖表中啟用堆疊，而 'multiChartSameScale=<true/false>' 參數可在選用參數內的不同時段啟用相同的 Y 軸刻度。  

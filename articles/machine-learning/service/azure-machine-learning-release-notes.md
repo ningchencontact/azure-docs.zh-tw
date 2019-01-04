@@ -1,6 +1,7 @@
 ---
-title: Azure Machine Learning 新增功能
-description: 本文件會詳細說明 Azure Machine Learning 的更新內容。
+title: 此版本有哪些新功能？
+titleSuffix: Azure Machine Learning service
+description: 了解 Azure Machine Learning 服務的最新更新。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,17 +9,85 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 10/24/2018
-ms.openlocfilehash: 6007a7e32e168ada529feb6aa24b8d572671d835
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: 34d084bc4115d0abf8f57c576c16330611f3a21b
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291335"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409865"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Azure Machine Learning 服務版本資訊
 
 本文章會說明 Azure Machine Learning 服務的版本。 
+
+## <a name="2018-12-04-general-availability"></a>2018-12-04：正式運作
+
+Azure Machine Learning 服務現已正式運作。
+
+### <a name="azure-machine-learning-compute"></a>Azure Machine Learning Compute
+在此版本中，我們透過 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 來宣布新的受控計算體驗。 此計算可用於定型與批次推斷、是單一到多節點的計算，而且會為使用者進行叢集管理和作業排程。 它預設會自動調整、同時支援 CPU 和 GPU 資源，而且也允許使用低優先順序的 VM 來降低成本。 它會取代適用於 Azure Machine Learning 的 Batch AI 計算。
+  
+您可以在 Python 中，使用 Azure 入口網站或 CLI 建立 Azure Machine Learning Compute。 它必須建立於您工作區所在的區域，而且無法附加至任何其他工作區。 此計算會針對您的回合使用 Docker 容器，並封裝您的相依性，以便在您的所有節點上複寫相同的環境。
+
+> [!Warning]
+> 我們建議您建立新的工作區來使用 Azure Machine Learning Compute。 使用者嘗試從現有的工作區建立 Azure Machine Learning Compute 可能會看到錯誤，但機率很低。 您工作區中現有的計算應能持續運作而不會受到影響。
+
+### <a name="azure-machine-learning-sdk-for-python-v102"></a>Azure Machine Learning SDK for Python v1.0.2
++ **重大變更**
+  + 在此版本中，我們會移除從 Azure Machine Learning 中建立 VM 的支援。 您仍然可以附加現有的雲端 VM 或遠端內部部署伺服器。 
+  + 我們也會移除對 BatchAI 的支援，這些功能現在全都應透過 Azure Machine Learning Compute 來支援。
+
++ <bpt id="p1">**</bpt>New<ept id="p1">**</ept>
+  + 針對機器學習管線：
+    + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py) \(英文\)
+    + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py) \(英文\)
+    + [MpiStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.mpi_step.mpistep?view=azure-ml-py) \(英文\)
+
+
++ **已更新**
+  + 針對機器學習管線：
+    + [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) \(英文\) 現在接受 runconfig
+    + [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) \(英文\) 現在可從 SQL 資料來源複製或複製到其中
+    + 排程 SDK 中的功能，以建立和更新執行已發佈管線的排程
+
+<!--+ **Bugs fixed**-->
+
+### <a name="azure-machine-learning-data-prep-sdk-v052"></a>Azure Machine Learning 資料準備 SDK v0.5.2
++ **重大變更** 
+  * `SummaryFunction.N` 已重新命名為 `SummaryFunction.Count`。
+  
++ **錯誤修正**
+  * 讀取自和寫入至遠端回合上的資料存放區時，請使用最新 AML 執行權杖 以前，如果在 Python 中更新 AML 執行權杖，將不會使用已更新的 AML 執行權杖來更新資料準備執行階段。
+  * 其他更清楚的錯誤訊息
+  * 當 Spark 使用 Kryo 序列化時，to_spark_dataframe() 將不再損毀
+  * 值計數偵測器現在可以顯示 1000 個以上的唯一值
+  * 如果原始的資料流程沒有名稱，隨機分割就不再失敗  
+
++ **詳細資訊**
+  * [Azure Machine Learning 資料準備 SDK](https://aka.ms/data-prep-sdk)
+
+### <a name="docs-and-notebooks"></a>文件和 Notebook
++ ML 管線
+  + 適用於開始使用管線、批次範圍和樣式移轉範例之全新和更新的 Notebook： https://aka.ms/aml-pipeline-notebooks
+  + 了解如何[建立您的第一個管線](how-to-create-your-first-pipeline.md)
+  + 了解如何[使用管線執行批次預測](how-to-run-batch-predictions.md)
++ Azure Machine Learning Compute
+  + [範例 Notebook] (https://aka.ms/aml-notebooks) 現在已更新為使用這個新的受控計算。
+  + [了解這個計算](how-to-set-up-training-targets.md#amlcompute)。
+
+### <a name="azure-portal-new-features"></a>Azure 入口網站：新功能
++ 在入口網站中建立和管理 [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute) 類型。
++ 監視 Azure Machine Learning Compute 的配額使用量和[要求配額](how-to-manage-quotas.md)。
++ 即時檢視 Azure Machine Learning Compute 叢集狀態。
++ 已新增對於建立 Azure Machine Learning Compute 和 Azure Kubernetes Service 的虛擬網路支援。
++ 使用現有的參數，重新執行您已發佈的管線。
++ 新的[自動化機器學習圖表](how-to-track-experiments.md#auto)，適用於分類模型 (升力、增益、校正、具備模型說明能力的特徵重要性圖表) 和迴歸模型 (殘差，以及具備模型說明能力的特徵重要性圖表)。 
++ 您可以在 Azure 入口網站中檢視管線。
+
+
+
 
 ## <a name="2018-11-20"></a>2018-11-20
 
@@ -167,9 +236,9 @@ Azure Machine Learning 服務的 Azure 入口網站含有下列更新：
 
 ## <a name="2018-09-public-preview-refresh"></a>2018-09 (公開預覽刷新版)
 
-Azure Machine Learning 的全新、完整重新整理版本：深入了解此版本： https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
+Azure Machine Learning 的全新且完整重新整理版本：深入了解此版本： https://azure.microsoft.com/blog/what-s-new-in-azure-machine-learning-service/
 
-## <a name="older-notes-sept-2017---jun-2018"></a>較舊的附註：2017 年 9 月 - 2018 年 6 月
+## <a name="older-notes-sept-2017---jun-2018"></a>舊版注意事項：2017 年 9 月 - 2018 年 6 月
 ### <a name="2018-05-sprint-5"></a>2018-05 (Sprint 5)
 
 透過此版本的 Azure Machine Learning，您可以：
@@ -384,7 +453,7 @@ Azure Machine Learning 的全新、完整重新整理版本：深入了解此版
 在這個版本中，我們改善了 Workbench 應用程式、CLI 和後端服務層的安全性、穩定性和可維護性。 非常感謝您傳送的肯定 (笑臉) 與不滿意 (苦臉)。 以下的更新有許多是直接來自您的意見反應。 歡迎繼續提供意見！
 
 #### <a name="notable-new-features"></a>重要新功能
-- 現在有兩個新的 Azure 區域提供 Azure ML：**西歐**和**東南亞**。 它們原先加入的區域是**美國東部 2**、**美國中西部**和**澳洲東部**，現在部署區域總數增加至五個。
+- Azure ML 目前已在兩個新的 Azure 區域中提供：**西歐**和**東南亞**。 它們原先加入的區域是**美國東部 2**、**美國中西部**和**澳洲東部**，現在部署區域總數增加至五個。
 - 我們在 Workbench 應用程式中啟用了 Python 程式碼語法醒目提示，讓您更容易閱讀及編輯 Python 原始程式碼。 
 - 您現在可以直接從檔案啟動您最愛的 IDE，而不用從整個專案中啟動。  在 Workbench 中開啟檔案，然後按一下 [編輯]，即可啟動目前檔案和專案的 IDE (目前支援 VS Code 和 PyCharm)。  您也可以按一下 [編輯] 按鈕旁邊的箭號，在 Workbench 文字編輯器中編輯檔案。  為防止意外變更，在您按下 [編輯] 之前，檔案都是唯讀的。
 - Workbench 應用程式內附熱門的繪圖程式庫 `matplotlib` 2.1.0 版。
@@ -474,7 +543,7 @@ Azure Machine Learning 的全新、完整重新整理版本：深入了解此版
 - 現在當使用者登出應用程式時，Jupyter 伺服器會正確關閉。
 
 ##### <a name="azure-portal"></a>Azure 入口網站
-- 現在可以在兩個新的 Azure 區域中建立試驗帳戶和模型管理帳戶：西歐和東南亞。
+- 現在可以在兩個新的 Azure 區域中建立實驗帳戶和模型管理帳戶：西歐和東南亞。
 - 現在只有當模型管理帳戶是訂用帳戶中建立的第一個帳戶時，才提供 DevTest 計劃。 
 - 更新 Azure 入口網站的 [說明] 連結，指向正確的文件頁面。
 - 從 Docker 映像詳細資料頁面中移除 [描述] 欄位，因為它不適用。

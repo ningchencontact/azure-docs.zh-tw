@@ -1,21 +1,22 @@
 ---
-title: 在 LUIS 應用程式中新增實體
-titleSuffix: Azure Cognitive Services
+title: 新增實體
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 在 Language Understanding (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 5beb952c2330d44ffe090fc422afa6da67376b0d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: f95d7851241dfd5b077c215e2df893c6ba8ef36c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288045"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139481"
 ---
 # <a name="create-entities-without-utterances"></a>建立不含語句的實體
 
@@ -156,13 +157,13 @@ ms.locfileid: "51288045"
 
 1. 如果您想要更多適用於該清單的標準化項目，請選取 [建議] 以查看[語意字典](luis-glossary.md#semantic-dictionary)的選項。
 
-    ![將 Origin 角色新增到 Location 實體的螢幕擷取畫面](./media/add-entities/hr-list-2.png)
+    ![選取建議功能的螢幕擷取畫面，以查看選項](./media/add-entities/hr-list-2.png)
 
 
 1. 選取建議清單中的項目以將它新增為標準化的值，或選取 [全部新增] 以新增所有項目。 
     您可以使用下列 JSON 格式，將值匯入到現有的清單實體：
 
-    ```
+    ```JSON
     [
         {
             "canonicalForm": "Blue",

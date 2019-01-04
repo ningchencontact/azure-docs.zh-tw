@@ -1,21 +1,22 @@
 ---
 title: 設定容器
-titlesuffix: Computer Vision - Cognitive Services - Azure
+titlesuffix: Computer Vision - Azure Cognitive Services
 description: 電腦視覺中適用於容器的組態設定。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 8df293878486a9cd4ded6e899871c30498c4b68f
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: f71cbe965e70dfce1b29cf0e5f9ea44faf0a4e27
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635087"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077013"
 ---
 # <a name="configure-containers"></a>設定容器
 
@@ -74,9 +75,9 @@ ms.locfileid: "51635087"
 
 `ApplicationInsights` 區段中的組態設定可讓您將 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 遙測支援加入至您的容器。 Application Insights 可提供深入至程式碼層級的深入容器監視。 您可輕鬆監視容器的可用性、效能和使用情形。 您也可以快速識別並診斷容器的錯誤，不必等使用者回報。
 
-下表描述 `ApplicationInsights` 區段下所支援的組態設定。
+下表說明 `ApplicationInsights` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `InstrumentationKey` | 字串 | Application Insights 執行個體的檢測金鑰，容器的遙測資料會傳送到這裡。 如需詳細資訊，請參閱 [ASP.NET Core 的 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core)。 |
 
@@ -86,7 +87,7 @@ ms.locfileid: "51635087"
 
 ## <a name="billing-configuration-setting"></a>Billing 組態設定
 
-`Billing` 組態設定會指定 Azure 上用來追蹤容器帳單資訊之電腦視覺資源的端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上電腦視覺資源的有效端點 URI。
+`Billing` 組態設定會指定 Azure 上用來對容器計算帳單資訊的電腦視覺資源的端點 URI。 您必須為此組態設定指定值，且該值必須是適用於 Azure 上電腦視覺資源的有效端點 URI。
 
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。
@@ -98,13 +99,15 @@ ms.locfileid: "51635087"
 > [!IMPORTANT]
 > 系統會同時使用 [`ApiKey`](#apikey-configuration-setting)、[`Billing`](#billing-configuration-setting) 及 [`Eula`](#eula-configuration-setting) 組態設定，因此您必須同時為它們三個提供有效的值，否則容器將不會啟動。 如需使用這些組態設定來將容器具現化的詳細資訊，請參閱[帳單](computer-vision-how-to-install-containers.md#billing)。
 
+認知服務容器是在[您的合約](https://go.microsoft.com/fwlink/?linkid=2018657) (控管您對於 Azure 的使用) 底下獲得授權。 如果您沒有可控管您使用 Azure 的現有合約，您同意控管使用 Azure 的合約是 [Microsoft 線上訂閱合約](https://go.microsoft.com/fwlink/?linkid=2018755) (其中包含[線上服務條款](https://go.microsoft.com/fwlink/?linkid=2018760))。 對於預覽版，您也同意 [Microsoft Azure 預覽專用的補充使用條款](https://go.microsoft.com/fwlink/?linkid=2018815)。 使用容器即表示您同意這些條款。
+
 ## <a name="fluentd-configuration-settings"></a>Fluentd 組態設定
 
 `Fluentd` 區段會管理適用於 [Fluentd](https://www.fluentd.org) \(英文\) 的組態設定，這是適用於統一記錄的開放原始碼資料收集器。 電腦視覺容器會包含 Fluentd 記錄提供者，這可讓您的容器將記錄 (及選擇性的計量資料) 寫入至 Fluentd 伺服器。
 
-下表描述 `Fluentd` 區段下所支援的組態設定。
+下表說明 `Fluentd` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `Host` | 字串 | Fluentd 伺服器的 IP 位址或 DNS 主機名稱。 |
 | `Port` | 整數  | Fluentd 伺服器的連接埠。<br/> 預設值為 24224。 |
@@ -125,9 +128,9 @@ ms.locfileid: "51635087"
   JSON 記錄提供者。 此記錄提供者會將記錄資料寫入至輸出裝載。  
   `Disk` 記錄提供者支援下列組態設定：  
 
-  | 名稱 | 資料類型 | 說明 |
+  | Name | 資料類型 | 說明 |
   |------|-----------|-------------|
-  | `Format` | 字串 | 適用於記錄檔的輸出格式。<br/> **注意：** 此值必須設定為 `json` 以啟用記錄提供者。 如果在具現化期間指定此值，但沒有同時指定輸出裝載，便會發生錯誤。 |
+  | `Format` | 字串 | 適用於記錄檔的輸出格式。<br/> **附註：** 此值必須設定為 `json` 以啟用記錄提供者。 如果在具現化期間指定此值，但沒有同時指定輸出裝載，便會發生錯誤。 |
   | `MaxFileSize` | 整數  | 記錄檔的大小上限，以 MB 為單位。 當目前記錄檔的大小符合或超過此值時，記錄提供者便會建立新的記錄檔。 如果指定 -1，記錄檔的大小便只會受限於輸出裝載的檔案大小上限 (若有的話)。 預設值為 1。 |
 
 如需設定 ASP.NET Core 記錄支援的詳細資訊，請參閱[設定檔案組態](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration)。
@@ -136,14 +139,14 @@ ms.locfileid: "51635087"
 
 由電腦視覺所提供的 Docker 容器具有無狀態且不可變的設計。 換句話說，在容器內建立的檔案會被儲存在可寫入的容器層中，其只會在容器執行期間保存，且無法被輕易存取。 如果停止或移除該容器，系統便會終結在該容器中建立的檔案。
 
-不過，由於它們是 Docker 容器，如果容器支援的話，您可以使用 Docker 儲存體選項 (例如磁碟區和繫結裝載) 來讀取及寫入容器外的保存資料。 如需如何指定及管理 Docker 儲存體選項的詳細資訊，請參閱[在 Docker 中管理資料](https://docs.docker.com/storage/) \(英文\)。
+不過，由於它們是 Docker 容器，如果容器支援的話，您可以使用 Docker 儲存體選項 (例如磁碟區和繫結裝載) 來讀取及寫入容器外的保存資料。 如需如何指定及管理 Docker 儲存體選項的詳細資訊，請參閱[在 Docker 中管理資料](https://docs.docker.com/storage/)。
 
 > [!NOTE]
 > 您通常不需要變更這些組態設定的值。 相反地，在指定容器的輸入和輸出裝載時，您將會使用這些組態設定中所指定的值作為目的地。 如需指定輸入和輸出裝載的詳細資訊，請參閱[輸入和輸出裝載](#input-and-output-mounts)。
 
-下表描述 `Mounts` 區段下所支援的組態設定。
+下表說明 `Mounts` 區段下所支援的組態設定。
 
-| 名稱 | 資料類型 | 說明 |
+| Name | 資料類型 | 說明 |
 |------|-----------|-------------|
 | `Input` | 字串 | 輸入裝載的目標。 預設值為 `/input`。 |
 | `Output` | 字串 | 輸出裝載的目標。 預設值為 `/output`。 |

@@ -1,20 +1,21 @@
 ---
-pageTitle: Synonyms in Azure Search | Microsoft Docs
-description: 使用同義字以擴充搜尋查詢的範圍
-author: mhko
+Title: Synonyms for query expansion over a search index  - Azure Search
+description: 建立同義字地圖以擴大 Azure 搜尋服務索引的搜尋查詢範圍。 範圍會擴大納入您清單所提供的對等詞彙。
+author: brjohnstmsft
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
-ms.author: nateko
-ms.openlocfilehash: fcb4314583036c2abfffdf7e5d0b5d90478dbe6b
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: brjohnst
+ms.custom: seodec2018
+ms.openlocfilehash: ce9eb8ed099a232128ba924da1466917df542fbb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468546"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315652"
 ---
 # <a name="synonyms-in-azure-search"></a>Azure 搜尋服務的同義字
 
@@ -73,7 +74,7 @@ Azure 搜尋服務是根據您定義並上傳至服務的同義字地圖，提�
 
 ##### <a name="apache-solr-synonym-format"></a>Apache Solr 同義字格式
 
-Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apache Solr 的開放來源同義字篩選條件規格，規則如[關鍵字篩選條件](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter)文件所述。 以下是對等同義字的樣本規則。
+Solr 格式支援對等且明確的對應同義字。 對應規則需遵守 Apache Solr 的開放來源同義字篩選條件規格，規則如下列文件所述：[SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter) (英文)。 以下是對等同義字的樣本規則。
 ```
 USA, United States, United States of America
 ```

@@ -2,8 +2,8 @@
 title: Azure Machine Learning 模型管理安裝和組態 |Microsoft Docs
 description: 本文件說明在 Azure Machine Learning 中安裝和設定模型管理有關的步驟和概念。
 services: machine-learning
-author: raymondlaghaeian
-ms.author: raymondl
+author: aashishb
+ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6660657141cc5aac532d121b61c7c8db6a24ccda
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d10f61e6276b1ce0a0237e3cf2e35a68edf4a0cf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968708"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257568"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -37,7 +37,7 @@ ms.locfileid: "46968708"
 CLI 已預先安裝於 Azure Machine Learning Workbench 和 [Azure DSVM](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview) 上。
 
 ## <a name="using-the-cli"></a>使用 CLI
-若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -] 開啟命令列介面。 
+若要從 Workbench 使用命令列介面 (CLI)，請按一下 [檔案] -] [開啟命令列介面]。 
 
 在資料科學虛擬機器上，連接並開啟命令提示字元。 輸入 `az ml -h` 查看選項。 如需有關命令的詳細資訊，請使用 --help 旗標。
 
@@ -91,7 +91,7 @@ sudo /opt/microsoft/azureml/initial_setup.sh
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟頁面 https://aka.ms/devicelogin，並輸入所提供的代碼以進行驗證。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要事項：選取具有有效 Azure 訂用帳戶而且有充分的權限在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，並提示您是否要使用選取的帳戶繼續。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要：選取具有有效 Azure 訂用帳戶且有足夠權限可在帳戶中建立資源的帳戶。登入完成時，會顯示您的訂用帳戶資訊，，並提示您是否要使用選取的帳戶繼續進行操作。
 
 ### <a name="environment-setup"></a>環境設定
 若要開始安裝程序，您必須輸入下列命令註冊環境提供者：

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 724f655229347aa73747476e6bb4837b30e0fc4f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283422"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838999"
 ---
 # <a name="upload-files-with-iot-hub"></a>透過 IoT 中樞上傳檔案
 
@@ -54,7 +54,7 @@ IoT 中樞擁有專供裝置用來要求儲存體 SAS URI 以便上傳檔案的�
 ```json
 {
     "correlationId": "somecorrelationid",
-    "hostName": "contoso.azure-devices.net",
+    "hostName": "yourstorageaccount.blob.core.windows.net",
     "containerName": "testcontainer",
     "blobName": "test-device1/image.jpg",
     "sasToken": "1234asdfSAStoken"
@@ -126,9 +126,9 @@ IoT 中樞有兩個 REST 端點可以支援檔案上傳，一個用來取得儲�
 | 屬性 | 說明 | 範圍和預設值 |
 | --- | --- | --- |
 | **enableFileUploadNotifications** |控制是否將檔案上傳通知寫入檔案通知端點。 |布林 預設值：True。 |
-| **fileNotifications.ttlAsIso8601** |檔案上傳通知的預設 TTL。 |ISO_8601 間隔高達 48H (最小為 1 分鐘)。 預設值︰1 小時。 |
+| **fileNotifications.ttlAsIso8601** |檔案上傳通知的預設 TTL。 |ISO_8601 間隔高達 48H (最小為 1 分鐘)。 預設值：1 小時。 |
 | **fileNotifications.lockDuration** |檔案上傳通知佇列的鎖定持續時間。 |5 到 300 秒 (最小值 5 秒)。 預設值：60 秒。 |
-| **fileNotifications.maxDeliveryCount** |檔案上傳通知佇列的傳遞計數上限。 |1 到 100。 預設值 = 100。 |
+| **fileNotifications.maxDeliveryCount** |檔案上傳通知佇列的傳遞計數上限。 |1 到 100。 預設值：100。 |
 
 ## <a name="additional-reference-material"></a>其他參考資料
 

@@ -1,5 +1,5 @@
 ---
-title: 快速入門 - 適用於 Windows 的 Azure Kubernetes 叢集
+title: (已淘汰) 快速入門 - 適用於 Windows 的 Azure Kubernetes 叢集
 description: 快速了解如何在 Azure Container Service 中使用 Azure CLI 建立適用於 Windows 的 Kubernetes 叢集。
 services: container-service
 author: dlepow
@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 24659f60e44dc306451528cc7bfb823ad14268a6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dfc1d2128e1cf3b4d6b4d9e5141116a2b2ff9c0d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946148"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000609"
 ---
-# <a name="deploy-kubernetes-cluster-for-windows-containers"></a>部署適用於 Windows 容器的 Kubernetes 叢集
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(已淘汰) 部署適用於 Windows 容器的 Kubernetes 叢集
 
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+[!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
 Azure CLI 可用來從命令列或在指令碼中建立和管理 Azure 資源。 本指南詳述使用 Azure CLI 在 [Azure Container Service](../container-service-intro.md) 中部署 [Kubernetes](https://kubernetes.io/docs/home/) 叢集。 部署叢集之後，您要使用 Kubernetes`kubectl` 命令列工具與其連線，且您要部署第一個 Windows 容器。
 

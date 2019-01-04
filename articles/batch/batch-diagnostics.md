@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
-ms.date: 04/05/2018
+ms.date: 12/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 61db5e9eedc57ef6316cb760499362ed856e38c6
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8efa8088bca3eb6221c49ec5f14334342149795d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822750"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438433"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用於診斷評估和監視的 Batch 計量、警示和記錄
 
  
-本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../monitoring-and-diagnostics/monitoring-overview-alerts.md)，在計量達到指定值時接收通知。 
+本文說明如何使用 [Azure 監視器](../azure-monitor/overview.md)的功能來監視 Batch 帳戶。 Azure 監視器會收集您 Batch 帳戶中的資源[計量](../azure-monitor/platform/data-collection.md#metrics)和[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。 透過各種方式收集及使用此資料，以監視您的 Batch 帳戶和診斷問題。 您也可以設定[計量警示](../azure-monitor/platform/alerts-overview.md)，在計量達到指定值時接收通知。 
 
 ## <a name="batch-metrics"></a>Batch 計量
 
 計量是指 Azure 遙測資料 (也稱為效能計數器)，由 Azure 監視器服務取用的 Azure 資源所發出。 Batch 帳戶中的範例計量包括：集區建立事件、低優先順序的節點計數及工作完成事件。 
 
-請參閱[支援的 Batch 計量清單](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts)。
+請參閱[支援的 Batch 計量清單](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)。
 
 計量：
 
@@ -53,11 +53,17 @@ ms.locfileid: "51822750"
 
 若要以程式設計方式擷取計量，請使用 Azure 監視器 API。 例如，請參閱[使用 .NET 擷取 Azure 監視器計量](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)。
 
+## <a name="batch-metric-reliability"></a>Batch 計量可靠性
+
+計量用於趨勢與資料分析。 計量傳遞不受到保證，且會有未按順序傳遞、遺失資料和/或重複的狀況。 不建議使用單一事件警示或觸發程序函數。 請參閱 [Batch 計量警示](#batch-metric-alerts)一節，以取得如何設定警示臨界值的詳細資訊。
+
+系統仍會彙總過去 3 分鐘發出的計量。 在此時段中，計量值可能會被短報。
+
 ## <a name="batch-metric-alerts"></a>Batch 計量警示
 
-(選擇性) 設定幾近即時的「計量警示」，當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，您選擇的警示會產生[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 
+(選擇性) 設定幾近即時的「計量警示」，當指定的計量值超出您指派的閾值時，就會觸發此警示。 當警示為「已啟動」時 (超出閾值且符合警示條件時)，以及當警示為「已解決」時 (再次超出閾值且不再符合條件時)，您選擇的警示會產生[通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。 不建議使用以單一資料量為基礎的警示，因為計量可能會未按順序傳遞、遺失資料，和/或重複的狀況。 警示應使用臨界值說明這些不一致。
 
-例如，您可以在低優先順序核心計數降至特定層級時設定計量警示，以便您調整集區的構成要素。
+例如，您可以在低優先順序核心計數降至特定層級時設定計量警示，以便您調整集區的構成要素。 建議設定 10 分鐘以上的期間，在這段期間，如果平均的低優先順序核心計數低於整段期間的臨界值，就會觸發警示。 建議 1-5 分鐘警示，因為仍可能會彙總計量。
 
 在入口網站中設定計量警示：
 
@@ -65,7 +71,7 @@ ms.locfileid: "51822750"
 2. 在 [監視] 下方，按一下 [警示規則] > [新增計量警示]。
 3. 選取計量、警示條件 (例如計量在某個期間超過特定值)，以及一個或多個通知。
 
-您也可以使用 [REST API](https://docs.microsoft.com/rest/api/monitor/) 設定幾近即時的警示。 如需詳細資訊，請參閱[警示概觀](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+您也可以使用 [REST API](https://docs.microsoft.com/rest/api/monitor/) 設定幾近即時的警示。 如需詳細資訊，請參閱[警示概觀](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="batch-diagnostics"></a>Batch 診斷
 
@@ -103,7 +109,7 @@ ms.locfileid: "51822750"
 
     ![Batch 診斷](media/batch-diagnostics/diagnostics-portal.png)
 
-啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)。
+啟用記錄收集的其他選項包括：使用入口網站中的 Azure 監視器設定診斷設定、使用 [Resource Manager 範本](../azure-monitor/platform/diagnostic-logs-stream-template.md)或使用 Azure PowerShell 或 Azure CLI。 請參閱[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs)。
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>存取儲存體中的診斷記錄
@@ -127,7 +133,7 @@ BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 每個 PT1H.json blob 檔案都會包含 JSON 格式的事件，這是在 Blob URL 指定時數內 (例如 h = 12) 發生的事件。 在目前這一小時，事件一發生就會附加到 PT1H.json 檔案。 分鐘值 (m = 00) 一定是 00，因為診斷記錄事件是分成每小時的個別 blob。 (所有時間都是採用 UTC 格式。)
 
 
-若要深入了解儲存體帳戶中的診斷記錄結構描述，請參閱[封存 Azure 診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。
+若要深入了解儲存體帳戶中的診斷記錄結構描述，請參閱[封存 Azure 診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account)。
 
 若要以程式設計方式存取您儲存體帳戶中的記錄，請使用儲存體 API。 
 

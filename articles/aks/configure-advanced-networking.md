@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 289aa893a0ffa598d5b9fae67a81e9bf0c9782f7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 943c0d4eb25fad1282b3329b945ded45581aeba3
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014392"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994561"
 ---
 # <a name="configure-advanced-networking-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes Service (AKS) 中設定進階網路
 
@@ -49,9 +49,9 @@ Pod 和叢集節點的 IP 位址會從虛擬網路內的指定子網路來指派
 | 位址範圍 / Azure 資源 | 限制和調整大小 |
 | --------- | ------------- |
 | 虛擬網路 | Azure 虛擬網路可以和 /8 一樣大，但可能只有 65,536 個已設定的 IP 位址。 |
-| 子網路 | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 子網路大小也應該考量帳戶升級作業或未來的擴展需求。<p />若要計算包括用於升級作業之額外節點的*最小*子網路大小：`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 個節點叢集的範例：`(51) + (51  * 30 (default)) = 1,581` (/21 或更大)<p/>擁有 50 個節點的叢集範例，其中也包含相應增加額外 10 個節點的佈建：`(61) + (61 * 30 (default)) = 2,440` (/ 20 或更大)<p>如果您未指定每個節點的最大 Pod 數目，當您建立叢集時，每個節點的最大 Pod 數目設定為 30。 IP 位址所需的最小數目是根據該值。 如果您以不同的最大值來計算最小 IP 位址需求，請參閱[如何設定每個節點的最大 Pod 數目](#configure-maximum---new-clusters)，在您部署叢集時設定此值。 |
+| 子網路 | 必須大到足以容納節點、Pod，以及可能會在您叢集中佈建的所有 Kubernetes 和 Azure 資源。 例如，如果您部署內部 Azure Load Balancer，其前端 IP 會從叢集子網路配置，而不是從公用 IP 配置。 子網路大小也應該考量帳戶升級作業或未來的擴展需求。<p />若要計算包括用於升級作業之額外節點的*最小*子網路大小：`(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>50 個節點叢集的範例：`(51) + (51  * 30 (default)) = 1,581` (/21 或更大)<p/>擁有 50 個節點的叢集範例，其中也包含相應增加額外 10 個節點的佈建：`(61) + (61 * 30 (default)) = 1,891` (/21 或更大)<p>如果您未指定每個節點的最大 Pod 數目，當您建立叢集時，每個節點的最大 Pod 數目設定為 30。 IP 位址所需的最小數目是根據該值。 如果您以不同的最大值來計算最小 IP 位址需求，請參閱[如何設定每個節點的最大 Pod 數目](#configure-maximum---new-clusters)，在您部署叢集時設定此值。 |
 | Kubernetes 服務位址範圍 | 此範圍不應由此虛擬網路上或連線到此虛擬網路的任何網路元素所使用。 服務位址 CIDR 必須小於 /12。 |
-| Kubernetes DNS 服務 IP 位址 | 將由叢集服務探索 (kube-dns) 所使用之 Kubernetes 服務位址範圍內的 IP 位址。 |
+| Kubernetes DNS 服務 IP 位址 | 將由叢集服務探索 (kube-dns) 所使用之 Kubernetes 服務位址範圍內的 IP 位址。 請勿使用您位址範圍中的第一個 IP 位址，例如 .1。 您子網路範圍內的第一個位址會用於 kubernetes.default.svc.cluster.local 位址。 |
 | Docker 橋接器位址 | 用來作為節點上 Docker 橋接器 IP 位址的 IP 位址 (採用 CIDR 標記法)。 預設值為 172.17.0.1/16。 |
 
 ## <a name="maximum-pods-per-node"></a>每個節點的最大 Pod 數目
@@ -70,7 +70,7 @@ AKS 叢集中每個節點的最大 Pod 數目是 110。 每個節點預設的最
 
 * **Azure CLI**：當您使用 [az aks create][ az-aks-create] 命令部署叢集時，請指定 `--max-pods` 引數。 最大值為 110。
 * **Resource Manager 範本**：當您使用 Resource Manager 範本部署叢集時，請指定 [ManagedClusterAgentPoolProfile] 物件中的 `maxPods` 屬性。 最大值為 110。
-* **Azure 入口網站**：當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，進階網路叢集限制為每一節點 30 個 Pod。
+* **Azure 入口網站**︰當您使用 Azure 入口網站部署叢集時，您無法變更每一節點的 Pod 數目上限。 使用 Azure 入口網站進行部署時，進階網路叢集限制為每一節點 30 個 Pod。
 
 ### <a name="configure-maximum---existing-clusters"></a>設定最大值 - 現有叢集
 
@@ -93,7 +93,7 @@ AKS 叢集中每個節點的最大 Pod 數目是 110。 每個節點預設的最
 
 雖然技術上有可能指定與您叢集相同虛擬網路內的服務位址範圍，但不建議這麼做。 如果使用重疊的 IP 範圍，就會造成無法預期的行為。 如需詳細資訊，請參閱本文的[常見問題集](#frequently-asked-questions)一節。 如需有關 Kubernetes 服務的詳細資訊，請參閱 Kubernetes 文件中的[服務][services]。
 
-**Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍內。
+**Kubernetes DNS 服務 IP 位址**：叢集 DNS 服務的 IP 位址。 此位址必須位於 Kubernetes 服務位址範圍內。 請勿使用您位址範圍中的第一個 IP 位址，例如 .1。 您子網路範圍內的第一個位址會用於 kubernetes.default.svc.cluster.local 位址。
 
 **Docker 橋接器位址**：要指派給 Docker 橋接器的 IP 位址和網路遮罩。 IP 位址不得在叢集的虛擬網路 IP 位址範圍內。
 
@@ -162,18 +162,18 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --network-plugin
 - [使用動態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-tls]
 - [使用靜態公用 IP 建立輸入控制器，並設定 Let's Encrypt 以自動產生 TLS 憑證][aks-ingress-static-tls]
 
-### <a name="acs-engine"></a>ACS 引擎
+### <a name="aks-engine"></a>AKS 引擎
 
-[Azure Container Service 引擎 (ACS 引擎)][acs-engine] 是一項開放原始碼專案，會產生 Azure Resource Manager 範本供您用於在 Azure 上部署已啟用 Docker 的叢集。 Kubernetes、DC/OS、Swarm Mode 和 Swarm 協調器可與 ACS 引擎一起部署。
+[Azure Kubernetes Service 引擎 (AKS 引擎)][aks-engine] 是一項開放原始碼專案，會產生 Azure Resource Manager 範本供您用於在 Azure 上部署已啟用 Docker 的叢集。 Kubernetes、DC/OS、Swarm Mode 和 Swarm 協調器可與 AKS 引擎一起部署。
 
-使用 ACS 引擎所建立的 Kubernetes 叢集同時支援 [kubenet][kubenet] 和 [Azure CNI][cni-networking] 外掛程式。 因此，基本和進階網路都是 ACS 引擎可支援的案例。
+使用 AKS 引擎所建立的 Kubernetes 叢集同時支援 [kubenet][kubenet] 和 [Azure CNI][cni-networking] 外掛程式。 因此，基本和進階網路都是 AKS 引擎可支援的案例。
 
 <!-- IMAGES -->
 [advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md

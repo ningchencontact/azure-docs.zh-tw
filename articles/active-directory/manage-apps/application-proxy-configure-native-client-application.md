@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: b4476579665b0e6b574827d1bec06233560038a8
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621083"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135521"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>如何讓原生用戶端應用程式與 Proxy 應用程式互動
 
@@ -35,7 +35,7 @@ ms.locfileid: "51621083"
 本文引導您完成使用應用程式 Proxy 和 Azure AD 驗證程式庫發佈原生應用程式的四個步驟。 
 
 ## <a name="step-1-publish-your-application"></a>步驟 1：發佈您的應用程式
-如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。
+如同任何其他應用程式一般，發佈您的 Proxy 應用程式，並指派使用者以存取您的應用程式。 如需詳細資訊，請參閱[使用應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。
 
 ## <a name="step-2-configure-your-application"></a>步驟 2：設定您的應用程式
 以下列方式設定原生應用程式：
@@ -55,8 +55,8 @@ ms.locfileid: "51621083"
 啟用要公開給您的目錄中的其他應用程式的原生應用程式：
 
 1. 仍在 [應用程式註冊] 中，選取您剛才建立的新原生應用程式。
-2. 選取 [必要權限]。
-3. 選取 [新增] 。
+2. 選取 [API 權限]。
+3. 選取 [新增權限]。
 4. 開啟第一個步驟 [選取 API]。
 5. 使用搜尋列，尋找您在第一節中發佈的「應用程式 Proxy」應用程式。 選擇該應用程式，然後按一下 [選取]。 
 

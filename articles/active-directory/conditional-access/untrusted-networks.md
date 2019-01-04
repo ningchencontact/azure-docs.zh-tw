@@ -1,5 +1,5 @@
 ---
-title: 如何 - 為來自不受信任網路的存取嘗試，設定 Azure Active Directory 條件式存取原則 | Microsoft Docs
+title: 如何使用 Azure Active Directory (Azure AD) 條件式存取從不受信任的網路要求多重要素驗證 (MFA) 以進行存取| Microsoft Docs
 description: 了解如何為來自不受信任網路的存取嘗試，設定 Azure Active Directory (Azure AD) 中的條件式存取原則。
 services: active-directory
 keywords: 應用程式的條件式存取, Azure AD 條件式存取, 安全存取公司資源, 條件式存取原則
@@ -14,37 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/23/2018
+ms.date: 12/10/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5ddde65b2a68e71d86af6ce3dcd2847736cf5823
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c40db6c253899d7aab21d277e93b23dd0c6feb97
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627180"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314001"
 ---
-# <a name="how-to-configure-conditional-access-policies-for-access-attempts-from-untrusted-networks"></a>如何：為來自不受信任網路的存取嘗試，設定條件式存取原則   
+# <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>作法：使用條件式存取從未受信任的網路要求 MFA 以進行存取   
 
-在行動第一、雲端第一的世界中，Azure Active Directory (Azure AD) 可讓您從任何地方單一登入至裝置、應用程式和服務。 因此，您的使用者可以從組織的網路以及任何不被信任的網際網路位置，存取雲端應用程式。 透過 [Azure Active Directory (Azure AD) 條件式存取](../active-directory-conditional-access-azure-portal.md)，您可以控制授權使用者如何存取您的雲端應用程式。 此脈絡中一個常見需求就是要控制從不被信任網路所發起的存取嘗試。 本文提供當您設定條件式存取原則來處理這項規定時所需的資訊。 
+Azure Active Directory (Azure AD) 可讓使用者從任何位置單一登入到裝置、應用程式和服務。 您的使用者不僅可以從組織的網路存取雲端應用程式，還可以從任何未受信任的網際網路位置存取。 從未受信任的網路存取的常見最佳做法是要求多重要素驗證 (MFA)。
+
+本文的資訊可供您用來設定需要 MFA 來從未受信任的網路進行存取的條件式存取原則。 
 
 ## <a name="prerequisites"></a>必要條件
 
 本文假設您已熟悉以下各項： 
 
-- Azure AD 條件式存取基本概念 
-- 在 Azure 入口網站中設定條件式存取原則
+- Azure AD 條件式存取[基本概念](overview.md) 
+- 在 Azure 入口網站中設定條件式存取原則的[最佳做法](best-practices.md)
 
-請參閱：
-
-- [什麼是 Azure Active Directory 中的條件式存取](../active-directory-conditional-access-azure-portal.md) - 條件式存取的概觀 
-
-- [快速入門：利用 Azure Active Directory 條件式存取來取得特定應用程式的 MFA](app-based-mfa.md) - 取得設定條件式存取原則的某些經驗。 
 
 
 ## <a name="scenario-description"></a>案例描述
 
-若要熟悉安全性與生產力的平衡，您只需要使用密碼來驗證使用者就足夠了。 不過，當有人從自不被信任的網路位置發出存取嘗試時，非合法使用者登入網路的情況會越加嚴重。 若要解決這個問題，您可以封鎖來自不被信任網路的存取嘗試。 或者，您也可以要求進行多重要素驗證 (MFA)，保證確實是其他合法的帳戶擁有者想登入網路。 
+在從您組織的網路登入的情況下，若要達到安全性和生產力之間的最佳平衡，只要求密碼應該就足夠了。 不過，對於來自不受信任之網路位置的存取，登入之使用者不是合法使用者的風險會變高。 若要解決這個問題，您可以封鎖來自不受信任之網路的存取。 或者，您也可以要求進行多重要素驗證 (MFA)，保證確實是其他合法的帳戶擁有者想登入網路。 
 
 利用 Azure AD 條件式存取，您可以透過單一原則來處理此需求並： 
 
@@ -54,14 +51,14 @@ ms.locfileid: "39627180"
 
 - 從以下位置發出存取嘗試時 
 
-- 要求多重要素驗證： 
+- 當存取的來源是： 
 
     - 不被信任的位置
 
 
-## <a name="considerations"></a>考量
+## <a name="implementation"></a>實作
 
-此案例的挑戰是要將「有人嘗試從不被信任的位置進行存取時」變成條件式存取。 在條件式存取原則中，您可以設定[位置條件](location-condition.md)，即可解決各種與網路位置有關的案例。 位置條件可讓您選取具名位置，它代表 IP 位址範圍、國家和地區的邏輯群組。  
+此案例的挑戰是要將「來自不受信任之網路位置的存取」轉譯成條件式存取條件。 在條件式存取原則中，您可以設定[位置條件](location-condition.md)，即可解決各種與網路位置有關的案例。 位置條件可讓您選取具名位置，它是 IP 位址範圍、國家和地區的邏輯群組。  
 
 一般而言，您的組織擁有一或多個位址範圍，例如 199.30.16.0 - 199.30.16.24。
 若要設定具名位置，請：
@@ -73,7 +70,7 @@ ms.locfileid: "39627180"
 
 若不想嘗試定義所有不被信任的位置，您可以：
 
-- 包含 
+- 包含任何位置 
 
     ![條件式存取](./media/untrusted-networks/02.png)
 
@@ -83,9 +80,9 @@ ms.locfileid: "39627180"
 
 
 
-## <a name="implementation"></a>實作
+## <a name="policy-deployment"></a>原則部署
 
-您可以參考本文描述方法，立即為不被信任的位置設定一個條件式存取原則。 您應該一律先測試原則，然後再套用至生產環境，以確認原則如預期般運作。 在理想情況下，您應該盡可能在測試租用戶中進行初始測試。 如需詳細資訊，請參閱[如何部署新的原則](best-practices.md#how-should-you-deploy-a-new-policy)。 
+您可以參考本文描述方法，立即為不被信任的位置設定一個條件式存取原則。 若要確定您的原則會如預期般運作，建議的最佳做法是先測試，再推出到生產環境。 在理想情況下，可以使用測試租用戶來驗證您的新原則是否如預期般運作。 如需詳細資訊，請參閱[如何部署新原則](best-practices.md#how-should-you-deploy-a-new-policy)。 
 
 
 

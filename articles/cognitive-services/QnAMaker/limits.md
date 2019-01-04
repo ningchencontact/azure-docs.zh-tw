@@ -1,7 +1,7 @@
 ---
 title: 限制和界限 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker 的完整限制清單。
+description: QnA Maker 知識庫和服務的某些部分有中繼資料的限制。 請務必將您的知識庫保持在這些限制範圍內，以便進行測試及發佈。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,14 +10,15 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.custom: seodec18
+ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50137288"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084776"
 ---
-# <a name="qna-maker-limits"></a>QnA Maker 限制
+# <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 知識庫的限制和界限
 QnA Maker 的完整限制清單。
 
 ## <a name="knowledge-bases"></a>知識庫
@@ -49,7 +50,7 @@ QnA Maker 的完整限制清單。
 * 檔案名稱的長度：200
 * 支援的檔案格式：".tsv"、".pdf"、".txt"、".docx"、".xlsx"。
 * 替代問題數目上限：100
-* 問題解答組的數目上限：取決於所選的 [Azure 搜尋服務層](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) 
+* 問答組數目上限：取決於所選的 [Azure 搜尋服務層](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) 
 
 ## <a name="create-knowledge-base-call-limits"></a>建立知識庫呼叫限制：
 這些代表每個建立知識庫動作的限制；也就是，按一下 [建立知識庫] 或呼叫 CreateKnowledgeBase API。

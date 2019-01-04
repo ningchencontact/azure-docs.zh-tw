@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 17/07/2018
 ms.author: sedusch
-ms.openlocfilehash: 2f3b8371357403071e70dd2e351cd75dbd34f746
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a0934fa3bb46eebba02029a8292b9bee6b12c62
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40007107"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728220"
 ---
 # <a name="sap-lama-connector-for-azure"></a>適用於 Azure 的 SAP LaMa 連接器
 
@@ -89,11 +89,11 @@ ms.locfileid: "40007107"
 1. 移至 https://portal.azure.com。
 1. 開啟資源群組刀鋒視窗
 1. 選取您要使用的資源群組
-1. 按一下 [存取控制 (IAM)]
-1. 按一下 [新增]
+1. 選取 [存取控制 (IAM)]
+1. 按一下 [新增角色指派]
 1. 選取 [參與者] 角色
 1. 輸入您先前建立的應用程式名稱
-1. 按一下 [確定]
+1. 按一下 [Save] \(儲存)。
 1. 針對您要使用於 SAP LaMa 的所有資源群組重複步驟 3 到 8
 
 開啟 SAP LaMa 網站並瀏覽至基礎結構。 移至 Cloud Managers 索引標籤，然後按一下 [新增]。 選取 Microsoft Azure 雲端配接器並且按 [下一步]。 輸入以下資訊：
@@ -102,9 +102,9 @@ ms.locfileid: "40007107"
 * 使用者名稱：服務主體的應用程式識別碼
 * 密碼：服務主體金鑰/密碼
 * URL：保留預設值 https://management.azure.com/
-* 監視間隔 (秒)：應該至少 300
+* 監視間隔 (秒)：應該至少 300 秒
 * 訂用帳戶識別碼：Azure 訂用帳戶識別碼
-* Active Directory 租用戶識別碼：Active Directory 租用戶的識別碼
+* Azure Active Directory 租用戶識別碼：Azure Active Directory 租用戶的識別碼
 * Proxy 主機：如果 SAP LaMa 需要 Proxy 才能連線到網際網路，則為 Proxy 的主機名稱
 * Proxy 連接埠：Proxy 的 TCP 連接埠
 
@@ -208,7 +208,7 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 
 * sapacExtLocation：SAP Adaptive Extensions 的位置。 SAP 附註 [2343511] 會列出 Azure 所需的最低修補程式層級。
 
-* vcRedistLocation:：需要有 VC 執行階段的位置，才能安裝 SAP Adaptive Extensions。 只有 Windows 需要這個參數。
+* vcRedistLocation：需要有 VC 執行階段的位置，才能安裝 SAP Adaptive Extensions。 只有 Windows 需要這個參數。
 
 * odbcDriverLocation：您想要安裝的 ODBC 驅動程式位置。 僅支援 Microsoft ODBC Driver for SQL Server。
 
@@ -237,7 +237,7 @@ SAP LaMa 本身無法重新放置 SQL Server，因此您想要用於重新放置
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -277,7 +277,7 @@ acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![ Windows][Logo_Windows]  Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -380,7 +380,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 ### <a name="errors-and-warnings-during-a-system-clone"></a>系統複製 (clone) 期間的錯誤和警告
 
 * 嘗試在應用程式伺服器或 ASCS 的「強制註冊和啟動執行個體代理程式」步驟中註冊執行個體代理程式時發生錯誤
-  * 嘗試註冊執行個體代理程式時發生錯誤。 (RemoteException：「無法從 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 載入執行個體資料：無法存取設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0」：沒有這類檔案或目錄。」)
+  * 嘗試註冊執行個體代理程式時發生錯誤。 (RemoteException：「無法從設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0' 載入執行個體資料：無法存取設定檔 '\\as1-ascs\sapmnt\AS1\SYS\profile\AS1_D00_as1-di-0'：沒有這類檔案或目錄。」)
   * 解決方法  
    確定在 ASCS/SCS 上的 sapmnt 共用具有 SAP_AS1_GlobalAdmin 的完整存取權
 
@@ -416,19 +416,19 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 ### <a name="errors-and-warnings-during-application-server-installation"></a>應用程式伺服器安裝期間的錯誤和警告
 
 * 執行 SAPinst 步驟時發生錯誤：getProfileDir
-  * 錯誤：(最後一個步驟所回報的錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' 的驗證程式回報了一項錯誤：節點 \\\as1-ascs\sapmnt\AS1\SYS\profile 不存在。 以互動模式啟動 SAPinst 來解決此問題)
+  * 錯誤：(此步驟所回報的最後一個錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' 的驗證程式回報了一項錯誤：節點 \\\as1-ascs\sapmnt\AS1\SYS\profile 不存在。 以互動模式啟動 SAPinst 來解決此問題)
   * 解決方法  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
 * 執行 SAPinst 步驟時發生錯誤：askUnicode
-  * 錯誤：(最後一個步驟所回報的錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' 的驗證程式回報了一項錯誤：以互動模式啟動 SAPinst 以解決此問題)
+  * 錯誤：(此步驟所回報的最後一個錯誤：在模型呼叫中攔截到 ESAPinstException：步驟 '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' 的驗證程式回報了一項錯誤：以互動模式啟動 SAPinst 來解決此問題)
   * 解決方法  
     如果您使用最新的 SAP 核心，SWPM 便無法再使用 ASCS 的郵件伺服器來判斷系統是否為 unicode 系統。 如需詳細資訊，請參閱 SAP 附註 [2445033]。  
     此問題將會在 SAP LaMa 的新支援套件/修補程式中修正。  
     在 SAP 系統的預設設定檔中設定設定檔參數 OS_UNICODE=uc，以解決此問題。
 
 * 執行 SAPinst 步驟時發生錯誤：dCheckGivenServer
-  * 執行 SAPinst 步驟時發生錯誤：dCheckGivenServer" version="1.0" 錯誤：(最後一個步驟所回報的錯誤：\<p > 使用者已取消安裝。 \</p>
+  * 執行 SAPinst 步驟時發生錯誤：dCheckGivenServer" version="1.0" 錯誤：(此步驟所回報的最後一個錯誤：\<p> 使用者已取消安裝。 \</p>
   * 解決方法  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
@@ -439,38 +439,38 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 * 執行 SAPinst 步驟時發生錯誤：copyScripts
   * 此步驟所回報的最後一個錯誤：系統呼叫失敗。 詳細資料：在使用參數 (\\\as1-ascs/sapmnt/AS1/SYS/exe/uc/NTAMD64/strdbs.cmd, w) 執行系統呼叫 'fopenU' 時，檔案 (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/filesystem/syxxcfstrm2.cpp) 的行 (494) 發生錯誤 13 (0x0000000d) (權限被拒)，堆疊追蹤：  
-  CThrThread.cpp: 85: CThrThread::threadFunction()  
-  CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
-  CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  iaxxcfile.cpp: 183: iastring CIaOsFileConnect::callMemberFunction(iastring const& name, args_t const& args)  
-  iaxxcfile.cpp: 1849: iastring CIaOsFileConnect::newFileStream(args_t const& _args)  
-  iaxxbfile.cpp: 773: CIaOsFile::newFileStream_impl(4)  
-  syxxcfile.cpp: 233: CSyFileImpl::openStream(ISyFile::eFileOpenMode)  
-  syxxcfstrm.cpp: 29: CSyFileStreamImpl::CSyFileStreamImpl(CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
-  syxxcfstrm.cpp: 265: CSyFileStreamImpl::open()  
-  syxxcfstrm2.cpp: 58: CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
-  syxxcfstrm2.cpp: 456: CSyFileStream2Impl::open()
+  CThrThread.cpp:85:CThrThread::threadFunction()  
+  CSiServiceSet.cpp:63:CSiServiceSet::executeService()  
+  CSiStepExecute.cpp:913:CSiStepExecute::execute()  
+  EJSController.cpp:179:EJSControllerImpl::executeScript()  
+  JSExtension.hpp:1136:CallFunctionBase::call()  
+  iaxxcfile.cpp:183: iastring CIaOsFileConnect::callMemberFunction(iastring const& name, args_t const& args)  
+  iaxxcfile.cpp:1849: iastring CIaOsFileConnect::newFileStream(args_t const& _args)  
+  iaxxbfile.cpp:773:CIaOsFile::newFileStream_impl(4)  
+  syxxcfile.cpp:233:CSyFileImpl::openStream(ISyFile::eFileOpenMode)  
+  syxxcfstrm.cpp:29:CSyFileStreamImpl::CSyFileStreamImpl(CSyFileStream*,iastring,ISyFile::eFileOpenMode)  
+  syxxcfstrm.cpp:265:CSyFileStreamImpl::open()  
+  syxxcfstrm2.cpp:58:CSyFileStream2Impl::CSyFileStream2Impl(const CSyPath & \\\aw1-ascs/sapmnt/AW1/SYS/exe/uc/NTAMD64/strdbs.cmd, 0x4)  
+  syxxcfstrm2.cpp:456:CSyFileStream2Impl::open()
   * 解決方法  
     確定 SWPM 是以具有設定檔存取權的使用者執行。 在應用程式伺服器安裝精靈中可以設定此使用者
 
 * 執行 SAPinst 步驟時發生錯誤：askPasswords
   * 此步驟所回報的最後一個錯誤：系統呼叫失敗。 詳細資料：在使用參數 (...) 執行系統呼叫 'NetValidatePasswordPolicy' 時，檔案 (\bas/bas/749_REL/bc_749_REL/src/ins/SAPINST/impl/src/syslib/account/synxcaccmg.cpp) 的一行 (359) 發生錯誤 5 (0x00000005) (存取遭拒)，堆疊追蹤：  
-  CThrThread.cpp: 85: CThrThread::threadFunction()  
-  CSiServiceSet.cpp: 63: CSiServiceSet::executeService()  
-  CSiStepExecute.cpp: 913: CSiStepExecute::execute()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  CSiStepExecute.cpp: 764: CSiStepExecute::invokeDialog()  
-  DarkModeGuiEngine.cpp: 56: DarkModeGuiEngine::showDialogCalledByJs()  
-  DarkModeDialog.cpp: 85: DarkModeDialog::submit()  
-  EJSController.cpp: 179: EJSControllerImpl::executeScript()  
-  JSExtension.hpp: 1136: CallFunctionBase::call()  
-  iaxxcaccount.cpp: 107: iastring CIaOsAccountConnect::callMemberFunction(iastring const& name, args_t const& args)  
-  iaxxcaccount.cpp: 1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
-  iaxxbaccount.cpp: 430: CIaOsAccount::validatePasswordPolicy_impl()  
-  synxcaccmg.cpp: 297: ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
+  CThrThread.cpp:85:CThrThread::threadFunction()  
+  CSiServiceSet.cpp:63:CSiServiceSet::executeService()  
+  CSiStepExecute.cpp:913:CSiStepExecute::execute()  
+  EJSController.cpp:179:EJSControllerImpl::executeScript()  
+  JSExtension.hpp:1136:CallFunctionBase::call()  
+  CSiStepExecute.cpp:764:CSiStepExecute::invokeDialog()  
+  DarkModeGuiEngine.cpp:56:DarkModeGuiEngine::showDialogCalledByJs()  
+  DarkModeDialog.cpp:85:DarkModeDialog::submit()  
+  EJSController.cpp:179:EJSControllerImpl::executeScript()  
+  JSExtension.hpp:1136:CallFunctionBase::call()  
+  iaxxcaccount.cpp:107: iastring CIaOsAccountConnect::callMemberFunction(iastring const& name, args_t const& args)  
+  iaxxcaccount.cpp:1186: iastring CIaOsAccountConnect::validatePasswordPolicy(args_t const& _args)  
+  iaxxbaccount.cpp:430:CIaOsAccount::validatePasswordPolicy_impl()  
+  synxcaccmg.cpp:297:ISyAccountMgt::PasswordValidationMessage CSyAccountMgtImpl::validatePasswordPolicy(saponazure,*****) const )
   * 解決方法  
     務必在步驟 *Isolation* 中新增主機規則，以允許從 VM 至網域控制站的通訊
 

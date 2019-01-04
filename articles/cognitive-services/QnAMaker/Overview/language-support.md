@@ -1,7 +1,7 @@
 ---
 title: 語言支援 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker 所支援的自然語言清單。
+description: QnA Maker 針對您的知識庫支援的文化特性、自然語言清單。 請勿在相同知識庫中混用語言。
 services: cognitive-services
 author: tulasim88
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: tulasim
-ms.openlocfilehash: 8c47c4a59f03328b1dc8d3df7771bac81864bb34
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: d51af0f59ffc0189ddaba4f8197aca79becf779e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566630"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106357"
 ---
 # <a name="language-and-region-support-for-qna-maker"></a>QnA Maker 支援的語言與區域
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 402d4fb0c1eb7c6760f800bdd408e9a4d8161ccc
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2a17bca6f7b95850f84781b5838719617d45bdd2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095963"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077812"
 ---
 # <a name="copy-data-from-google-adwords-using-azure-data-factory-preview"></a>使用 Azure Data Factory (預覽) 從 Google AdWords 複製資料
 
@@ -45,10 +45,10 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**GoogleAdWords** | 是 |
+| type | 類型屬性必須設定為：**GoogleAdWords** | 是 |
 | clientCustomerID | 要擷取其報告資料的 AdWords 帳戶用戶端客戶識別碼。  | 是 |
 | developerToken | 與用來授與 AdWords API 存取權的管理員帳戶相關聯的開發人員權杖。  您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 是 |
-| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 IR 上使用。 <br/>允許的值為：**ServiceAuthentication**、**UserAuthentication** | 是 |
+| authenticationType | 用於驗證的 OAuth 2.0 驗證機制。 ServiceAuthentication 只能在自我裝載 IR 上使用。 <br/>允許的值包括：**ServiceAuthentication**、**UserAuthentication** | 是 |
 | refreshToken | 從 Google 取得的重新整理權杖，用於針對 UserAuthentication 授權存取 AdWords。 您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientId | 用來取得重新整理權杖的 Google 應用程式用戶端識別碼。 您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
 | clientSecret | 用來取得重新整理權杖的 Google 應用程式用戶端密碼。 您可以選擇將這個欄位標記為 SecureString 將它安全地儲存在 ADF，或將密碼儲存在 Azure Key Vault，然後在執行複製資料時，讓 ADF 複製活動從該處提取 - 請參閱[將認證儲存在 Key Vault](store-credentials-in-key-vault.md) 以進一步了解。 | 否 |
@@ -97,7 +97,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Google AdWords 資料集所支援的屬性清單。
 
-若要從 Google AdWords 複製資料，請將資料集的 type 屬性設定為 **GoogleAdWordsObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
+若要從 Google AdWords 複製資料，請將資料集的 type 屬性設定為 **GoogleAdWordsObject**。 以下是支援的屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 資料集的類型屬性必須設定為：**GoogleAdWordsObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -109,7 +114,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "linkedServiceName": {
             "referenceName": "<GoogleAdWords linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 
@@ -125,8 +131,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為 **GoogleAdWordsSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**GoogleAdWordsSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

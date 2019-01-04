@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ffa619351ca4a4bfd3a812775ee7ff6cd71ddea4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304232"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089696"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>建立用來部署邏輯應用程式的 Azure Resource Manager 範本
 
@@ -27,11 +27,11 @@ ms.locfileid: "44304232"
 
 邏輯應用程式有三個基本元件：
 
-* **邏輯應用程式資源**：包含定價方案、位置和工作流程定義等相關資訊。
-* **工作流程定義**︰描述邏輯應用程式的工作流程步驟，以及 Logic Apps 引擎應該如何執行工作流程。
+* **邏輯應用程式資源**：包含定價方案、位置和工作流程定義等項目的相關資訊。
+* **工作流程定義**：說明邏輯應用程式的工作流程步驟，以及 Logic Apps 引擎應如何執行工作流程。
 您可以在邏輯應用程式的 [程式碼檢視] 視窗中檢視此定義。
 在邏輯應用程式資源中，您可以在 `definition` 屬性中找到此定義。
-* **連接**：參照到可安全儲存關於任何連接器連接之中繼資料的個別資源，例如連接字串和存取權杖。
+* **連線**：泛指可安全地儲存任何連接器連線的相關中繼資料的個別資源，例如連接字串和存取權杖。
 在邏輯應用程式資源中，您的邏輯應用程式會參考 `parameters` 區段中的這些資源。
 
 您可以使用 [Azure 資源總管](http://resources.azure.com)等工具，檢視現有邏輯應用程式的這些所有部分。
@@ -173,7 +173,7 @@ Visual Studio 工具產生的有效部署範本，可以在任何訂用帳戶或
 
 ## <a name="deploy-a-logic-app-template"></a>部署邏輯應用程式範本
 
-您可以使用任何工具部署範本，例如 PowerShell、REST API、[Azure DevOps Release Management](#team-services)，以及透過 Azure 入口網站進行範本部署。
+您可以使用任何工具部署範本，例如 PowerShell、REST API、[Azure DevOps Azure Pipelines](#team-services)，以及透過 Azure 入口網站進行範本部署。
 此外，為了儲存參數的值，我們也建議您建立[參數檔](../azure-resource-manager/resource-group-template-deploy.md#parameter-files)。
 了解如何[使用 Azure Resource Manager 範本和 PowerShell 部署資源](../azure-resource-manager/resource-group-template-deploy.md)或[使用 Azure Resource Manager 範本和 Azure 入口網站部署資源](../azure-resource-manager/resource-group-template-deploy-portal.md)。
 
@@ -185,11 +185,11 @@ Visual Studio 工具產生的有效部署範本，可以在任何訂用帳戶或
 在 GitHub 上的 [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) 專案下方有一個範例指令碼。
 
 <a name="team-services"></a>
-## <a name="azure-devops-release-management"></a>Azure DevOps Release Management
+## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Azure Pipelines
 
-部署和管理環境的常見案例，是搭配使用 Azure DevOps 中的 Release Management 之類的工具與邏輯應用程式部署範本。 Azure DevOps 包含可新增至任何組建或發行管線的[部署 Azure 資源群組](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)工作。 您必須擁有[服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能授權部署，進而能夠產生發行管線。
+部署和管理環境的常見案例，是搭配使用 Azure DevOps 中的 Azure Pipelines 之類的工具與邏輯應用程式部署範本。 Azure DevOps 包含可新增至任何組建或發行管線的[部署 Azure 資源群組](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup)工作。 您必須擁有[服務主體](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)才能授權部署，進而能夠產生發行管線。
 
-1. 在 Release Management 中，選取 [空白]，如此就能建立空白的管線。
+1. 在 Azure Pipelines 中選取 [空白]，以便建立空的管線。
 
     ![建立空管線][1]
 

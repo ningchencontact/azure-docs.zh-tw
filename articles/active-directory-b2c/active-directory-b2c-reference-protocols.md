@@ -7,18 +7,18 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/07/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6cfa3e0cb23f13b50c0fb7cd4f07a8d53c0f3186
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 19f3318c8bcaf634447285cab2951a89abf13a67
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340761"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52837472"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C：驗證通訊協定
-Azure Active Directory B2C (Azure AD B2C) 支援 OpenID Connect 與 OAuth 2.0 兩種業界標準通訊協定，為您的 app 提供身分識別即服務。 這是符合標準的服務，但是這些通訊協定在任兩個實作之間仍會有些微差異。 
+Azure Active Directory B2C (Azure AD B2C) 支援兩種業界標準通訊協定，為您的 app 提供身分識別即服務：OpenID Connect 和 OAuth 2.0. 這是符合標準的服務，但是這些通訊協定在任兩個實作之間仍會有些微差異。 
 
 若您藉由直接傳送和處理 HTTP 要求來撰寫程式碼，而非使用開放原始碼程式庫，則本指南中的資訊很有用。 建議您在深入探討每個特定通訊協定的詳細資料之前，先閱讀此頁面。 但若您已經熟悉 Azure AD B2C，您可以直接閱讀[通訊協定參考指南](#protocols)。
 
@@ -50,12 +50,12 @@ https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/oauth2/v2.0/token
 
 * **資源伺服器** 是資源或資料所在位置。 它會信任授權伺服器，以便安全地驗證和授權 OAuth 用戶端。 它也會使用持有人存取權杖，以確保可授與資源的存取權。
 
-## <a name="policies"></a>原則
+## <a name="policies-and-user-flows"></a>原則和使用者流程
 Azure AD B2C 原則可視為服務的最重要功能。 Azure AD B2C 藉由引進原則來延伸標準的 OAuth 2.0 和 OpenID Connect 通訊協定。 這些原則讓 Azure AD B2C 能夠執行簡單驗證與授權以外的更多操作。 
 
-原則可完整描述取用者身分識別體驗，包括註冊、登入及設定檔編輯。 原則可定義於系統管理 UI 中。 您可以在 HTTP 驗證要求中使用特定的查詢參數來執行原則。 
+為了協助您設定最常見的身分識別工作，Azure AD B2C 入口網站包含預先定義且可設定的原則，稱為**使用者流程**。 使用者流程可完整描述取用者身分識別體驗，包括註冊、登入及設定檔編輯。 使用者流程可定義於系統管理 UI 中。 您可以在 HTTP 驗證要求中使用特定的查詢參數來執行原則。 
 
-原則並非 OAuth 2.0 和 OpenID Connect 的標準功能，因此您應該花點時間瞭解它們。 如需詳細資訊，請參閱 [Azure AD B2C 原則參考指南](active-directory-b2c-reference-policies.md)。
+原則和使用者流程並非 OAuth 2.0 和 OpenID Connect 的標準功能，因此您應該花點時間瞭解它們。 如需詳細資訊，請參閱 [Azure AD B2C 使用者流程參考指南](active-directory-b2c-reference-policies.md)。
 
 ## <a name="tokens"></a>權杖
 OAuth 2.0 和 OpenID Connect 的 Azure AD B2C 實作廣泛運用持有人權杖，包括以 JSON Web 權杖 (JWT) 表示的持有人權杖。 持有人權杖是輕巧型安全性權杖，授權「持有人」存取受保護的資源。
@@ -66,7 +66,7 @@ OAuth 2.0 和 OpenID Connect 的 Azure AD B2C 實作廣泛運用持有人權杖�
 
 如果持有人權杖是在安全通道外部進行傳輸，則惡意人士就能使用攔截式攻擊來取得權杖，未經授權地使用該權杖來存取受保護的資源。 儲存或快取持有人權杖供以後使用時，也適用相同的安全性原則。 務必確定您的應用程式以安全的方式傳輸和儲存持有人權杖。
 
-如需持有人權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](http://tools.ietf.org/html/rfc6750)。
+如需持有人權杖的其他安全性考量，請參閱 [RFC 6750 第 5 節](https://tools.ietf.org/html/rfc6750)。
 
 如需 Azure AD B2C 中所用各種不同權杖類型的詳細資訊，請參閱 [Azure AD 權杖參考](active-directory-b2c-reference-tokens.md)。
 

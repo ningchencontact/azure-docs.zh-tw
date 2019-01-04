@@ -6,6 +6,7 @@ services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -13,36 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 12/10/2018
 ms.author: gokuma
-ms.openlocfilehash: 0740ff7542d066442146b8e80e188ad5ba49a2b5
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 648b0818f07aca8763fa4af01380076ae307b0a2
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36309393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408947"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>建立共用的資料科學虛擬機器集區
 
 本文探討如何建立共用的資料科學虛擬機器 (DSVM) 集區，以供小組使用。 使用共用集區的好處是資源使用率較佳，可促進共用和協同作業，以及更有效地管理 DSVM 資源。 
 
-您可以使用許多方法和技術來建立 DSVM 集區。 本文著重在批次處理和互動式 VM 的集區。
-
-## <a name="batch-processing-pool"></a>批次處理集區
-如果您設定 DSVM 集區的主要目的是要在離線時以批次方式執行作業，您可以使用 [Azure Batch AI](https://docs.microsoft.com/azure/batch-ai/) 或 [Azure Batch](https://docs.microsoft.com/azure/batch/) 服務。 本文的重點在於 Azure Batch AI。
-
-Ubuntu 版的 DSVM 也支援作為 Azure Batch AI 中的其中一個映像。 在建立 Azure Batch AI 叢集的 Azure CLI 或 Python SDK 中，您可以指定 `image` 參數並將它設定為 `UbuntuDSVM`。 您可以從 Azure 上提供的[各種虛擬機器執行個體選項](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)，選擇所需的處理節點種類：以 GPU 為基礎的執行個體或僅 CPU 的執行個體、CPU 數目和記憶體。 
-
-當您將 Batch AI 中的 Ubuntu DSVM 映像與以 GPU 為基礎的節點搭配使用時，所有必要的 GPU 驅動程式和深度學習架構都會預先安裝好。 預先安裝讓您省下準備批次節點所需的大量時間。 事實上，如果您正在以互動方式開發 Ubuntu DSVM，您會發現 Batch AI 節點和環境的設定與組態完全相同。 
-
-通常當您建立 Batch AI 叢集時，您也會建立所有節點所掛接的檔案共用。 檔案共用用於資料的輸入和輸出，以及儲存批次作業程式碼/指令碼。 
-
-在您建立 Batch AI 叢集後，您可以使用相同的 CLI 或 Python SDK 來提交要執行的作業。 您只需就執行批次作業所用的時間來支付費用。 
-
-如需詳細資訊，請參閱
-* 使用 [Azure CLI](https://docs.microsoft.com/azure/batch-ai/quickstart-cli) 來管理 Batch AI 的逐步解說
-* 使用 [Python](https://docs.microsoft.com/azure/batch-ai/quickstart-python) 來管理 Batch AI 的逐步解說
-* [Batch AI 配方](https://github.com/Azure/BatchAI)可示範如何搭配 Batch AI 使用各種 AI 和深度學習架構
+您可以使用許多方法和技術來建立 DSVM 集區。 本文將焦點放在互動式 VM 的集區。 替代的受控計算基礎結構是 Azure Machine Learning Compute。 如需詳細資訊，請參閱[設定計算目標](../service/how-to-set-up-training-targets.md#amlcompute)。
 
 ## <a name="interactive-vm-pool"></a>互動式虛擬機器集區
 

@@ -1,5 +1,5 @@
 ---
-title: Team Data Science Process 生命週期的部署階段 - Azure | Microsoft Docs
+title: Team Data Science Process 生命週期的部署階段
 description: 資料科學專案部署階段的目標、工作和交付項目
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 30d54b1475188fa886a811b22460d88e53aa564e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: d05f831aa1ae1f9b0912dce66bf7f5e15c109d49
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446580"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138563"
 ---
-# <a name="deployment"></a>部署
+# <a name="deployment-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 生命週期的部署階段
 
 本文將概要說明與 Team Data Science Process (TDSP) 部署相關聯的目標、工作和交付項目。 此流程會提供建議的生命週期，供您建構資料科學專案。 生命週期可描繪出專案一般執行時 (通常會反覆進行) 的主要階段：
 
@@ -39,7 +39,7 @@ ms.locfileid: "52446580"
 ## <a name="how-to-do-it"></a>作法
 此階段解決的主要工作︰
 
-**實作模型**︰將模型和管線部署到生產環境或類生產環境以供取用應用程式。
+**讓模型能夠運作**：將模型和管線部署到生產環境或類生產環境以供應用程式取用。
 
 ### <a name="operationalize-a-model"></a>模型運作
 在您擁有一組妥善執行的模型後，就可以運作這些模型，供其他應用程式取用。 預測可根據商業需求，以即時或批次的形式執行。 若要部署模型，您要使用開放的 API 介面公開模型。 介面可讓模型能從各種應用程式輕鬆地取用，例如：

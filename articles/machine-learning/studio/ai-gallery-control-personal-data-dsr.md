@@ -1,26 +1,25 @@
 ---
-title: 從 Azure AI 資源庫檢視和刪除資料 - Azure Machine Learning Studio | Microsoft Docs
-description: 您可以使用介面或 AI 資源庫目錄 API，從 Azure AI 資源庫匯出和刪除產品中的使用者資料。 此文章將說明如何做到。
+title: 管理 Azure AI 資源庫的資料 - Azure Machine Learning Studio | Microsoft Docs
+description: 您可以使用介面或 AI 資源庫目錄 API，從 Azure AI 資源庫匯出和刪除產品中的使用者資料。 本文將說明如何做到。
 services: machine-learning
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 ms.reviewer: jmartens, mldocs
 ms.service: machine-learning
 ms.component: studio
 ms.topic: conceptual
 ms.date: 05/25/2018
-ms.openlocfilehash: 6603428599a84a265566fb98da0b151ab4962f81
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2fc2d8a21a4090a02822607eac1695ed192eac27
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314451"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250241"
 ---
 # <a name="view-and-delete-in-product-user-data-from-azure-ai-gallery"></a>從 Azure AI 資源庫檢視和刪除產品中的使用者資料
 
-您可以使用介面或 AI 資源庫目錄 API，從 Azure AI 資源庫檢視和刪除產品中的使用者資料。 此文章會說明如何做到。
+您可以使用介面或 AI 資源庫目錄 API，從 Azure AI 資源庫檢視和刪除產品中的使用者資料。 本文會說明如何做到。
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 

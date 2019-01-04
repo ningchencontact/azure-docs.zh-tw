@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 0f48d65d1b3e6d1f608d85cff3a24ef379caa9cf
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: f0040f7e84fefd745b3ca097a4808dc685dd5b72
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284824"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52969476"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>建立和設定自我裝載整合執行階段
 整合執行階段 (IR) 是 Azure Data Factory 所使用的計算基礎結構，可提供跨不同網路環境的資料整合功能。 如需 IR 的詳細資訊，請參閱[整合執行階段概觀](concepts-integration-runtime.md)。
@@ -49,7 +49,7 @@ ms.locfileid: "52284824"
 
 利用自我裝載 IR 進行複製步驟的概略資料流程如下：
 
-![高階概述](media\create-self-hosted-integration-runtime\high-level-overview.png)
+![高階概述](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. 資料開發人員使用 PowerShell Cmdlet 在 Azure Data Factory 內建立自我裝載整合執行階段。 目前，Azure 入口網站不支援此功能。
 2. 資料開發人員建立內部部署資料存放區的連結服務，方法是指定應用來連結資料存放區的自我裝載整合執行階段執行個體。 在設定連結服務的過程中，資料開發人員會使用認證管理員應用程式 (目前尚未提供支援) 來設定驗證類型和認證。 認證管理員應用程式會與資料存放區進行通訊，以測試連線以及要儲存認證的自我裝載整合執行階段。
@@ -131,7 +131,7 @@ ms.locfileid: "52284824"
 
 當可用的記憶體和 CPU 並未充分使用時，但目前的並行作業數目即將達到限制時，您應該增加節點上可執行的並行作業數目來進行相應增加。 當自我裝載 IR 超載而導致活動逾時，您也可以相應增加。 您可以增加一個節點的容量上限，如下圖所示：  
 
-![增加可在節點上執行的並行作業](media\create-self-hosted-integration-runtime\scale-up-self-hosted-IR.png)
+![增加可在節點上執行的並行作業](media/create-self-hosted-integration-runtime/scale-up-self-hosted-IR.png)
 
 ### <a name="tlsssl-certificate-requirements"></a>TLS/SSL 憑證需求
 
@@ -162,33 +162,33 @@ ms.locfileid: "52284824"
 
 1. 在要共用的自我裝載 IR 中，將權限授與您要建立連結 IR 的資料處理站。 
 
-   ![在 [共用] 索引標籤上的權限授與按鈕](media\create-self-hosted-integration-runtime\grant-permissions-IR-sharing.png)
+   ![在 [共用] 索引標籤上的權限授與按鈕](media/create-self-hosted-integration-runtime/grant-permissions-IR-sharing.png)
 
-   ![指派權限的選取項目](media\create-self-hosted-integration-runtime\3_rbac_permissions.png)
+   ![指派權限的選取項目](media/create-self-hosted-integration-runtime/3_rbac_permissions.png)
 
 2. 請記下要共用的自我裝載 IR 的資源識別碼。
 
-   ![資源識別碼的位置](media\create-self-hosted-integration-runtime\4_ResourceID_self-hostedIR.png)
+   ![資源識別碼的位置](media/create-self-hosted-integration-runtime/4_ResourceID_self-hostedIR.png)
 
 3. 在已授與權限的資料處理站中，建立新的自我裝載 IR (已連結) 並輸入資源識別碼。
 
-   ![建立已連結自我裝載整合執行階段的按鈕](media\create-self-hosted-integration-runtime\6_create-linkedIR_2.png)
+   ![建立已連結自我裝載整合執行階段的按鈕](media/create-self-hosted-integration-runtime/6_create-linkedIR_2.png)
 
-   ![名稱和資源識別碼方塊](media\create-self-hosted-integration-runtime\6_create-linkedIR_3.png)
+   ![名稱和資源識別碼方塊](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
 ### <a name="monitoring"></a>監視 
 
 - **共用 IR**
 
-  ![尋找共用整合執行階段的選取項目](media\create-self-hosted-integration-runtime\Contoso-shared-IR.png)
+  ![尋找共用整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
-  ![監視索引標籤](media\create-self-hosted-integration-runtime\contoso-shared-ir-monitoring.png)
+  ![監視索引標籤](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
 - **連結 IR**
 
-  ![尋找連結整合執行階段的選取項目](media\create-self-hosted-integration-runtime\Contoso-linked-ir.png)
+  ![尋找連結整合執行階段的選取項目](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
-  ![監視索引標籤](media\create-self-hosted-integration-runtime\Contoso-linked-ir-monitoring.png)
+  ![監視索引標籤](media/create-self-hosted-integration-runtime/Contoso-linked-ir-monitoring.png)
 
 ### <a name="known-limitations-of-self-hosted-ir-sharing"></a>自我裝載整合執行階段共用的已知限制
 
@@ -211,12 +211,12 @@ ms.locfileid: "52284824"
 
 如果您將游標放在通知區域的圖示/訊息上，您會看到自我裝載整合執行階段狀態的詳細資料。
 
-![通知區域中的通知](media\create-self-hosted-integration-runtime\system-tray-notifications.png)
+![通知區域中的通知](media/create-self-hosted-integration-runtime/system-tray-notifications.png)
 
 ## <a name="ports-and-firewall"></a>連接埠和防火牆
 有兩個您需要考量的防火牆：在組織的中央路由器上執行的*公司防火牆*，以及在已安裝自我裝載整合執行階段的本機電腦上設定為精靈的 *Windows 防火牆*。
 
-![防火牆](media\create-self-hosted-integration-runtime\firewall.png)
+![防火牆](media/create-self-hosted-integration-runtime/firewall.png)
 
 在*公司防火牆*層級，您需要設定下列網域和輸出連接埠：
 
@@ -232,7 +232,7 @@ download.microsoft.com | 443 | 用於下載更新
 > [!NOTE]
 > 視您的來源和接收器而定，您可能需要將額外的網域和輸出連接埠加到您公司或 Windows 防火牆的白名單中。
 >
-> 對於某些雲端資料庫 (例如：Azure SQL Database 和 Azure Data Lake)，您可能需要將自我裝載整合執行階段電腦的 IP 位址加到其防火牆設定的白名單中。
+> 對於某些雲端資料庫 (例如：Azure SQL Database 和 Azure Data Lake)，您可能需要將自我裝載整合執行階段電腦的 IP 位址加到其防火牆設定的允許清單中。
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>將資料從來源複製到接收器
 請確定在公司防火牆、自我裝載整合執行階段電腦上的 Windows 防火牆，及資料存放區本身都已正確啟用防火牆規則。 啟用這些規則可讓自我裝載整合執行階段成功連線到來源和接收器。 請為複製作業所涉及的每個資料存放區啟用規則。
@@ -249,11 +249,11 @@ download.microsoft.com | 443 | 用於下載更新
 ## <a name="proxy-server-considerations"></a>Proxy 伺服器考量
 如果您的公司網路環境使用 Proxy 伺服器來存取網際網路，請將自我裝載整合執行階段設定為使用適當的 Proxy 設定。 您可以在初始註冊階段期間設定 Proxy。
 
-![指定 Proxy](media\create-self-hosted-integration-runtime\specify-proxy.png)
+![指定 Proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
 自我裝載整合執行階段會使用 Proxy 伺服器來連線到雲端服務。 進行初始設定時，選取 [變更連結]。 您會看到 [Proxy 設定] 對話方塊。
 
-![設定 Proxy](media\create-self-hosted-integration-runtime\set-http-proxy.png)
+![設定 Proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
 有三個組態選項：
 
@@ -272,7 +272,7 @@ download.microsoft.com | 443 | 用於下載更新
 
 您可以使用「組態管理員」工具來更新 HTTP Proxy。
 
-![檢視 Proxy](media\create-self-hosted-integration-runtime\view-proxy.png)
+![檢視 Proxy](media/create-self-hosted-integration-runtime/view-proxy.png)
 
 > [!NOTE]
 > 如果您為 Proxy 伺服器設定了 NTLM 驗證，「整合執行階段主機服務」就會以網域帳戶執行。 如果您稍後變更網域帳戶的密碼，請記得更新服務的組態設定並相應地將它重新啟動。 基於這項需求，建議您使用不需要經常更新密碼的專用網域帳戶來存取 Proxy 伺服器。
@@ -318,7 +318,7 @@ download.microsoft.com | 443 | 用於下載更新
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>防火牆和 Proxy 伺服器相關問題的可能徵兆
 如果發生如下錯誤，有可能是因為防火牆或 Proxy 伺服器的設定不正確，使得自我裝載整合執行階段無法連線到 Data Factory 來進行自我驗證。 請參閱上一節，以確保您的防火牆和 Proxy 伺服器的設定皆正確。
 
-* 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點! 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
+* 當您嘗試註冊自我裝載整合執行階段時，您會收到下列錯誤：「無法註冊此整合執行階段節點！ 請確認驗證金鑰有效，且「整合執行階段主機服務」正在這部電腦上執行。
 * 當您開啟「Integration Runtime 組態管理員」時，您會看到「已中斷連線」或「正在連線」狀態。 檢視 Windows 事件記錄檔時，在 [事件檢視器] > **[應用程式和服務記錄檔]** > **[Microsoft Integration Runtime]** 下，您會看到如下錯誤訊息：
 
     ```

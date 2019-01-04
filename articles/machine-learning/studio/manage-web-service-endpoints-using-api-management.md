@@ -1,13 +1,12 @@
 ---
 title: 使用 API 管理來管理 Machine Learning Studio Web 服務 - Azure | Microsoft Docs
-description: 示範如何使用 API 管理來管理 AzureML Web 服務的指南
+description: 示範如何使用 API 管理來管理 AzureML Web 服務的指南 藉由定義使用者存取、使用節流設定和儀表板監視來管理 REST API 端點。
 keywords: 機器學習,api 管理
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 05150ae1-5b6a-4d25-ac67-fb2f24a68e8d
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 0a262b2f8716c6d950dc84793a88277f62c3e6a9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 8f82332b02d2e7bbf937a84de42714392e3fccd6
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308234"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53258180"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>使用 API 管理來管理 Machine Learning Studio Web 服務
 ## <a name="overview"></a>概觀
@@ -224,7 +223,7 @@ AzureML 是 Azure Machine Learning 服務，可讓您輕鬆建置、部署及共
 ![[是] 表示發佈](./media/manage-web-service-endpoints-using-api-management/yes-to-publish.png)
 
 ### <a name="test-the-web-service"></a>測試 Web 服務
-AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。 RSS 適用於同步執行。 BES 適用於非同步工作執行。 若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝 Azure SDK for Python (請參閱： [如何安裝 Python](../../python-how-to-install.md))。
+AzureML Web 服務是由 RSS (要求/回應服務) 和 BES (批次執行服務) 端點所組成。 RSS 適用於同步執行。 BES 適用於非同步工作執行。 若要使用下面的範例 Python 原始碼來測試您的 Web 服務，您可能需要下載並安裝適用於 Python 的 Azure SDK (請參閱：[如何安裝 Python](../../python-how-to-install.md))。
 
 下面的範例原始碼也需要用到實驗的**工作區**、**服務**和 **API 金鑰**。 若要尋找工作區和服務，請在 Web 服務儀表板中，按一下實驗的 [要求/回應] 或 [批次執行]。
 

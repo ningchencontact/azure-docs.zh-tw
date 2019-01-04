@@ -1,30 +1,31 @@
 ---
 title: 了解 Azure 串流分析中的作業監視
-description: 本文說明如何監視 Azure 串流分析中的作業
+description: 本文說明如何在 Azure 入口網站中監視 Azure 串流分析作業。
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2018
-ms.openlocfilehash: 200df7602f94f70f3fb9c62ad81a0710923184c7
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.date: 12/07/2018
+ms.custom: seodec18
+ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291395"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096574"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解串流分析工作監視功能，以及如何監視查詢
 
-## <a name="introduction-the-monitor-page"></a>簡介：監視頁面
+## <a name="introduction-the-monitor-page"></a>簡介：監視器頁面
 Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和工作效能並進行疑難排解。 若要查看這些計量，請瀏覽至您有興趣查看計量的「串流分析」工作，然後檢視 [概觀] 頁面上的 [監視] 區段。  
 
-![監視連結](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
+![串流分析作業監視連結](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
 
 視窗將會出現，如下所示：
 
-![監視工作儀表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
+![串流分析作業監視儀表板](./media/stream-analytics-monitoring/01-stream-analytics-monitoring.png)  
 
 ## <a name="metrics-available-for-stream-analytics"></a>可供串流分析使用的度量
 | 計量                 | 定義                               |
@@ -49,7 +50,7 @@ Azure 入口網站會顯示關鍵效能計量，可供您用來監視查詢和�
 ## <a name="customizing-monitoring-in-the-azure-portal"></a>在 Azure 入口網站中自訂監視
 您可以在 [編輯圖表] 設定中調整圖表類型、顯示的度量和時間範圍。 如需詳細資料，請參閱[如何自訂監視](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
 
-  ![查詢監視時間圖](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
+  ![串流分析查詢監視時間圖](./media/stream-analytics-monitoring/08-stream-analytics-monitoring.png)  
 
 
 ## <a name="latest-output"></a>最新的輸出

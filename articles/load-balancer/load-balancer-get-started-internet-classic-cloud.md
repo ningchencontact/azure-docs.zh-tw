@@ -1,25 +1,25 @@
 ---
-title: 建立適用於 Azure 雲端服務的網際網路對向負載平衡器 | Microsoft Docs
+title: 建立適用於 Azure 雲端服務的網際網路對應負載平衡器
+titlesuffix: Azure Load Balancer
 description: 了解如何針對雲端服務在傳統部署模型中建立網際網路面向的負載平衡器
 services: load-balancer
 documentationcenter: na
 author: genlin
 manager: cshepard
 tags: azure-service-management
-ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: genli
-ms.openlocfilehash: b292739f5f4b7184a24ac9b14d40ed98d4921bde
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 66c978a7eb151ce9df939a11e2e3c0016c8e7c9e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067481"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138087"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-for-cloud-services"></a>開始為雲端服務建立網際網路面向的負載平衡器
 
@@ -31,7 +31,7 @@ ms.locfileid: "34067481"
 [!INCLUDE [load-balancer-get-started-internet-intro-include.md](../../includes/load-balancer-get-started-internet-intro-include.md)]
 
 > [!IMPORTANT]
-> 使用 Azure 資源之前，請務必了解 Azure 目前有 Azure Resource Manager 和「傳統」兩種部署模型。 在使用任何 Azure 資源之前，請先確認您了解 [部署模型和工具](../azure-classic-rm.md) 。 您可以按一下本文頂端的索引標籤，檢視不同工具的文件。 本文涵蓋之內容包括傳統部署模型。 您也可以 [了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
+> 使用 Azure 資源之前，請務必了解 Azure 目前有兩種部署模型：Azure Resource Manager 和傳統模型。 在使用任何 Azure 資源之前，請先確認您了解 [部署模型和工具](../azure-classic-rm.md) 。 您可以按一下本文頂端的索引標籤，檢視不同工具的文件。 本文涵蓋之內容包括傳統部署模型。 您也可以 [了解如何使用 Azure 資源管理員建立網際網路面向的負載平衡器](load-balancer-get-started-internet-arm-ps.md)。
 
 雲端服務是使用負載平衡器自動設定，並可透過服務模型加以自訂。
 

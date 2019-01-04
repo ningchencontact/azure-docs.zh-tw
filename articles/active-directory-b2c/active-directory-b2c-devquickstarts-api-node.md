@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 93c3bd3f902f08c8f019744b3f30745c1fd9fa01
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 15526cc829d556457a7069df613bb6a8d2a2b23b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442418"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847655"
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C：使用 Node.js 保護 Web API 安全
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -47,7 +47,7 @@ ms.locfileid: "37442418"
 * 複製指派給您的應用程式的 **應用程式識別碼** 。 您稍後需要此資料。
 
 ## <a name="create-your-policies"></a>建立您的原則
-在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含兩種身分識別體驗：註冊和登入。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-policy)所述。  建立您的三個原則時，請務必：
+在 Azure AD B2C 中，每個使用者體驗皆是由某個 [原則](active-directory-b2c-reference-policies.md)所定義。 此應用程式包含兩種身分識別體驗：註冊和登入。 您必須為每個類型建立一個原則，如 [原則參考文章](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow)所述。  建立您的三個原則時，請務必：
 
 * 在註冊原則中，選擇 [顯示名稱]  和其他註冊屬性。
 * 在每個原則中，選擇 [顯示名稱] 和 [物件識別碼] 應用程式宣告。  您也可以選擇其他宣告。
@@ -71,12 +71,12 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-WebAPI-Nod
 ## <a name="download-nodejs-for-your-platform"></a>下載適用於您平台的 Node.js
 若要成功使用此範例，您需要已成功安裝的 Node.js。
 
-從 [nodejs.org](http://nodejs.org)安裝 Node.js。
+從 [nodejs.org](https://nodejs.org)安裝 Node.js。
 
 ## <a name="install-mongodb-for-your-platform"></a>安裝適用於您平台的 MongoDB
 若要成功使用此範例，您需要已成功安裝的 MongoDB。 您會使用 MongoDB，讓 REST API 得以在不同伺服器執行個體之間持續使用。
 
-從 [mongodb.org](http://www.mongodb.org)安裝 MongoDB。
+從 [mongodb.org](https://www.mongodb.org)安裝 MongoDB。
 
 > [!NOTE]
 > 本逐步解說假設您會使用 MongoDB 的預設安裝和伺服器端點，在撰寫本文時為 `mongodb://localhost`。
@@ -263,7 +263,7 @@ passReqToCallback: false // This is a node.js construct that lets you pass the r
 [!INCLUDE [active-directory-b2c-devquickstarts-tenant-name](../../includes/active-directory-b2c-devquickstarts-tenant-name.md)]
 
 ### <a name="required-values"></a>必要值
-`clientID`您的 Web API 應用程式的用戶端識別碼。
+`clientID`：您的 Web API 應用程式的用戶端識別碼。
 
 `IdentityMetadata`：`passport-azure-ad` 會在這裡尋找識別提供者的組態資料。 它也會尋找金鑰以驗證 JSON Web 權杖。
 

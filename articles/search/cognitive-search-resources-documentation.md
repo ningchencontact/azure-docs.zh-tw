@@ -1,5 +1,5 @@
 ---
-title: 認知搜尋文件資源 (Azure 搜尋服務) | Microsoft Docs
+title: 認知搜尋文件資源 - Azure 搜尋服務
 description: 與 Azure 搜尋服務中之認知搜尋工作負載相關的文章、教學課程、範例和部落格文章的標註清單。
 services: search
 manager: cgronlun
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: heidist
-ms.openlocfilehash: bad73d2bf8bdf4adee4ce6e40550e506a35a2083
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec2018
+ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165660"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314596"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>認知搜尋工作負載的文件資源
 

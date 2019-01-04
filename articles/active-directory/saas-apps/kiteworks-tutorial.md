@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 88531ee1a98eefdf3ee85b4308150f10417858d0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 986640c6af07c5a7ad85cfe8ca1f3d5b8a8aae84
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420218"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845989"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kiteworks"></a>教學課程：將 Azure Active Directory 與 Kiteworks 整合
 
@@ -117,7 +117,7 @@ ms.locfileid: "39420218"
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://<subdomain>.kiteworks.com/sp/module.php/saml/sp/saml2-acs.php/sp-sso`
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Kiteworks 用戶端支援小組](http://accellion.com/support)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Kiteworks 用戶端支援小組](https://accellion.com/support)以取得這些值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -201,7 +201,7 @@ ms.locfileid: "39420218"
 Kiteworks 支援預設啟用的 Just-in-Time 佈建。 在這一節沒有您需要進行的動作項目。 嘗試存取 Kitewors 時，如果使用者還不存在，就會建立新使用者。
 
 >[!NOTE]
->如果您需要手動建立使用者，您需要連絡 [Kiteworks 支援小組](http://accellion.com/support)。
+>如果您需要手動建立使用者，您需要連絡 [Kiteworks 支援小組](https://accellion.com/support)。
  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者

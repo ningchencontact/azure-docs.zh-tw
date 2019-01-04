@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e70a92b4a0de633f88012d756276cef07226c82
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 43acf5f59667f45e67156b33e31d28160ba47c13
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037654"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408803"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Azure HDInsight 的封存版本資訊
 
 如需**最新的** Azure HDInsight 版本更新，請參閱 [HDInsight 版本資訊](hdinsight-release-notes.md)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [HDInsight 版本控制文件](hdinsight-component-versioning.md)。
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>2018 年 06 月 27 日備註 - 在 HDInsight 3.6 上發布新的開放原始碼版本、ADLS Gen2 等
@@ -28,7 +28,7 @@ ms.locfileid: "51037654"
 
 以下為重點整理。 有關詳細的發布說明、已修復的錯誤 (bug)、已知問題等，請閱讀 [Azure HDInsight 的版本資訊](hdinsight-release-notes.md)。
 
-- **更新 Hadoop 和其他開放原始碼專案** – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 Spark (2.3) 和 Kafka (1.0)。
+- **更新 Apache Hadoop 和其他開放原始碼專案** – 除了 20 多個開放原始碼專案中的 1000 多個錯誤 (bug) 修復程式外，此更新還包含新版 Apache Spark (2.3) 和 Apache Kafka (1.0)。
 - **將 R Server 9.1 更新為機器學習服務 9.3** – 在此版本中，我們為資料科學家和工程師提供最佳的增強式開放原始碼及演算法創新，而且作業方便，這些全部都以他們的偏好語言和 Apache Spark 的速度提供。 此版本擴展 R Server 中提供的功能，並進一步支援 Python，因而將叢集名稱從 R Server 改為 ML 服務。 
 - **支援 Azure Data Lake Storage Gen2** – HDInsight 將支援 Azure Data Lake Storage Gen2 的預覽版本。 在可用區域中，客戶能夠選擇 ADLS Gen2 帳戶作為其 HDInsight 叢集的存放區。
 - **HDInsight 企業安全性套件更新 (預覽)** – (預覽) 虛擬網路服務端點支援 Azure blob 儲存體、ADLS Gen1、Cosmos DB 及 Azure DB。 
@@ -43,11 +43,11 @@ ms.locfileid: "51037654"
 | 標題 | 說明 | 受影響的區域  | 叢集類型  | 
 | --- | --- | --- | --- | --- |
 | Microsoft R Server 9.1 on HDInsight 版本 |HDInsight 現在支援在 HDInsight 上佈建 R Server 9.1 叢集。 如需 Microsoft R Server 9.1 版本的詳細資訊，請參閱[這個部落格](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/)。 |服務 |R 伺服器 |
-| HDInsight 3.6 現在包含較新的 Hadoop 堆疊版本|<ul><li>如需更新後版本的詳細清單，請參閱 [HDInsight 中可用的 Hadoop 元件版本](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。</li><li>如需已在 Hadoop 堆疊的最新版本中修正的錯誤清單，請參閱 [Apache 修補程式資訊](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)。</li><li>如需 HDP 2.6.1 (現在已可在 HDInsight 3.6 中使用) 之間的中斷性變更清單，請參閱 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)。</li><li>如需 HDP 2.6.1 中的已知問題清單，請參閱[已知問題](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)。</li></ul> |服務 |全部 |N/A |
-| 互動式 Hive (預覽) 叢集的更新 |<ul><li><b>功能改進。</b> 實作快取的中繼存放區，以藉由快取中繼資料來減少後端 SQL 的負載，並可改善所有中繼資料作業的效能。  這項改進現在是所有互動式 Hive 叢集的預設值。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)。</li><li><b>功能改進。</b> 動態分割區載入已經過最佳化。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204)。</li><li><b>功能改進。</b> 將 Linux 上的 HDInsight 設定最佳化。</li><li><b>錯誤修正。</b> `CredentialProviderFactory$getProviders` 不是安全執行緒。 」 現已修正此問題。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)。</li><li><b>錯誤修正。</b> WASB 驅動程式 `liststatus` API 若大量使用 CPU 會導致 ATS 效能不佳。 」 現已修正此問題。 如需詳細資訊，請參閱 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)。</li></ul> |服務 |互動式 Hive (預覽) |
+| HDInsight 3.6 現在包含較新的 Hadoop 堆疊版本|<ul><li>如需更新後版本的詳細清單，請參閱 [HDInsight 中可用的 Apache Hadoop 元件版本](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)。</li><li>如需已在 Hadoop 堆疊的最新版本中修正的錯誤清單，請參閱 [Apache 修補程式資訊](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html)。</li><li>如需 HDP 2.6.1 (現在已可在 HDInsight 3.6 中使用) 之間的中斷性變更清單，請參閱 [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html)。</li><li>如需 HDP 2.6.1 中的已知問題清單，請參閱[已知問題](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html)。</li></ul> |服務 |全部 |N/A |
+| 互動式 Hive (預覽) 叢集的更新 |<ul><li><b>功能改進。</b> 實作快取的中繼存放區，以藉由快取中繼資料來減少後端 SQL 的負載，並可改善所有中繼資料作業的效能。  這項改進現在是所有互動式 Apache Hive 叢集的預設值。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520)。</li><li><b>功能改進。</b> 動態分割區載入已經過最佳化。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204)。</li><li><b>功能改進。</b> 將 Linux 上的 HDInsight 設定最佳化。</li><li><b>錯誤修正。</b> `CredentialProviderFactory$getProviders` 不是安全執行緒。 」 現已修正此問題。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195)。</li><li><b>錯誤修正。</b> WASB 驅動程式 `liststatus` API 若大量使用 CPU 會導致 ATS 效能不佳。 」 現已修正此問題。 如需詳細資訊，請參閱 [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154)。</li></ul> |服務 |互動式 Hive (預覽) |
 | Hadoop 叢集的更新 |改進 Templeton 工作作業的可靠性。 如需詳細資訊，請參閱 [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |服務 |Hadoop |
 | YARN 更新 | HDInsight 現已建立 250 GB 的 Ambari 資料庫 (未增加成本)，以讓客戶獲得更好的體驗。 這項變更應可防止 ATS 用完，從而獲得更好的效能。 |服務 |全部 |
-| Spark 更新 | Spark 2.1.1 的版本。 如需詳細資訊，請參閱 [Spark 2.1.1 版](https://spark.apache.org/releases/spark-release-2-1-1.html)。 | 服務 | Spark |
+| Spark 更新 | Spark 2.1.1 的版本。 如需詳細資訊，請參閱 [Apache Spark 2.1.1 版](https://spark.apache.org/releases/spark-release-2-1-1.html)。 | 服務 | Spark |
 
   
 

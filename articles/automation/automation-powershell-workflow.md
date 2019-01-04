@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 12/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b60e1639a1c32763c4759720fe61b0e571fc9dd1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239418"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437090"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>了解適用於自動化 Runbook 的重要 Windows PowerShell 工作流程概念
 
@@ -193,10 +193,10 @@ Workflow Copy-Files
 }
 ```
 
-您可以使用 **ForEach-Parallel** 建構來並行處理集合中每個項目的命令。 會以平行方式處理集合中的項目，而循序執行指令碼區塊中的命令。 這會使用如下所示的語法。 在此情況下，Activity1 將與集合中的所有項目同時開始。 針對每個項目，Activity2 會在 Activity1 完成之後開始。 只有在 Activity1 和 Activity2 已完成所有項目之後，Activity3 才會開始。
+您可以使用 **ForEach-Parallel** 建構來並行處理集合中每個項目的命令。 會以平行方式處理集合中的項目，而循序執行指令碼區塊中的命令。 這會使用如下所示的語法。 在此情況下，Activity1 將與集合中的所有項目同時開始。 針對每個項目，Activity2 會在 Activity1 完成之後開始。 只有在 Activity1 和 Activity2 已完成所有項目之後，Activity3 才會開始。 我們使用 `ThrottleLimit` 參數來限制平行處理原則。 `ThrottleLimit` 過高可能會造成問題。 `ThrottleLimit` 參數的理想值取決於您的環境中的許多因素。 您應該嘗試以較小的值開始，並嘗試不同的遞增值，直到找到適合您特定情況的值。
 
 ```powershell
-ForEach -Parallel ($<item> in $<collection>)
+ForEach -Parallel -ThrottleLimit 10 ($<item> in $<collection>)
 {
     <Activity1>
     <Activity2>
@@ -211,7 +211,7 @@ Workflow Copy-Files
 {
     $files = @("C:\LocalPath\File1.txt","C:\LocalPath\File2.txt","C:\LocalPath\File3.txt")
 
-    ForEach -Parallel ($File in $Files)
+    ForEach -Parallel -ThrottleLimit 10 ($File in $Files)
     {
         Copy-Item -Path $File -Destination \\NetworkPath
         Write-Output "$File copied."
@@ -258,7 +258,7 @@ Workflow Copy-Files
 }
 ```
 
-在您呼叫 [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) 活動或最後一個檢查點之後，使用者名稱認證就不會保存下來，因此您必須將認證設定為 null，然後在呼叫 **Suspend-Workflow** 或檢查點後，再次從資產存放區擷取認證。  否則，您可能會收到下列錯誤訊息︰工作流程作業無法繼續，原因是無法完整儲存持續性資料或儲存的持續性資料已損毀。您必須重新啟動工作流程。
+在您呼叫 [Suspend-Workflow](https://technet.microsoft.com/library/jj733586.aspx) 活動或最後一個檢查點之後，使用者名稱認證就不會保存下來，因此您必須將認證設定為 null，然後在呼叫 **Suspend-Workflow** 或檢查點後，再次從資產存放區擷取認證。  否則，您可能會收到下列錯誤訊息︰*工作流程作業無法繼續，原因是無法完整儲存持續性資料或儲存的持續性資料已損毀。* 您必須重新啟動工作流程。
 
 下列同一個程式碼會示範如何在 PowerShell 工作流程 Runbook 中處理此問題。
 

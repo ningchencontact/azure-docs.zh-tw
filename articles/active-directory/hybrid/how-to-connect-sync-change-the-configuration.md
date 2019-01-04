@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 同步：在 Azure AD Connect 同步中進行組態變更 | Microsoft Docs
+title: Azure AD Connect 同步：在 Azure AD Connect 同步中進行設定變更 | Microsoft Docs
 description: 逐步解說如何對 Azure AD Connect 同步處理中的組態進行變更。
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c8aa337be2dd3c4209a3095d8733893d78f6cb74
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310047"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190623"
 ---
-# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步處理：變更預設組態
+# <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect 同步：如何變更預設組態
 本文的目的在於逐步解說如何對 Azure Active Directory (Azure AD) Connect 同步處理中的預設組態進行變更。其中提供一些常見案例的步驟。 具備此知識，您應該能夠根據自己的商務規則對自己的組態進行簡單的變更。
 
 > [!WARNING]
@@ -60,11 +60,11 @@ ms.locfileid: "46310047"
 2. 在 [說明] 頁面上輸入下列各項：  
    ![輸入規則篩選](./media/how-to-connect-sync-change-the-configuration/description2.png)  
    * **名稱**：賦予規則描述性名稱。
-   * **說明**︰提供讓其他人可以了解規則用途的一些說明。
-   * **連接的系統**︰這是可在其中找到物件的系統。 在此案例中，請選取 [Active Directory 連接器]。
-   * **已連線的系統/Metaverse 物件類型**︰分別選取 [使用者] 和 [人員]。
-   * **連結類型**︰將此值變更為 [聯結]。
-   * **優先順序**︰提供在系統中是唯一的值。 較低的數值表示優先順序較高。
+   * **描述**：讓其他人可以了解規則用途的一些說明。
+   * **連線系統**：這是可在其中找到物件的系統。 在此案例中，請選取 [Active Directory 連接器]。
+   * **連線系統/Metaverse 物件類型**：分別選取 [使用者] 和 [人員]。
+   * **連結類型**：將此值變更為 [加入]。
+   * **優先順序**：提供在系統中是唯一的值。 較低的數值表示優先順序較高。
    * **標籤**︰將此選項保留空白。 只有 Microsoft 提供的現成可用規則應該在此方塊中填入值。
 3. 在 [範圍篩選器] 頁面上，輸入 **givenName ISNOTNULL**。  
    ![輸入規則範圍篩選器](./media/how-to-connect-sync-change-the-configuration/scopingfilter.png)  
@@ -100,7 +100,7 @@ ms.locfileid: "46310047"
    3. 使用 [範圍] 來尋找您要用來測試變更的物件。 選取物件，然後按一下 [預覽] 。 
    4. 在新畫面上，選取 [認可預覽]。  
    ![Commit preview](./media/how-to-connect-sync-change-the-configuration/commitpreview.png)  
-   變更現已認可至 Metaverse。
+    變更現已認可至 Metaverse。
 
 **在 metaverse 中檢視物件**  
 
@@ -211,7 +211,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     如果您選擇此方法，則在啟用 UserType 屬性的同步處理之前，請先確定內部部署 Active Directory 中同步至 Azure AD 之所有現有使用者物件的指定屬性都已填入正確的值。
 
-- 或者，您也可以從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 userPrincipalName 屬性是以 *@partners.fabrikam123.org* 網域部分作為結尾，您就需要以 **Guest** 身分來同步處理所有使用者。 
+- 或者，您也可以從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 userPrincipalName 屬性是以 <em>@partners.fabrikam123.org</em> 網域部分作為結尾，您就需要以 **Guest** 身分來同步處理所有使用者。 
 
     如先前所述，Azure AD Connect 不允許 Azure AD Connect 變更現有 Azure AD 使用者的 UserType 屬性。 因此，您必須確定您租用戶中所有現有 Azure AD 使用者的 UserType 屬性設定方式，都與您決定使用的邏輯一致。
 
@@ -267,7 +267,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | --- | --- | --- |
-    | 名稱 | 提供名稱 | 例如，*In from AD – User UserType* |
+    | Name | 提供名稱 | 例如，*In from AD – User UserType* |
     | 說明 | 提供描述 |  |
     | 連線系統 | 選取內部部署 AD 連接器 |  |
     | 連線系統物件類型 | **使用者** |  |
@@ -289,7 +289,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
     | --- | --- | --- | --- | --- |
     | 直接 | UserType | extensionAttribute1 | 未核取 | 更新 |
 
-    在另一個範例中，您要從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 AD UserPrincipalName 屬性是以 *@partners.fabrikam123.org* 網域部分作為結尾，您就需要以 Guest 身分來同步處理所有使用者。您可以實作如下所示的運算式：
+    在另一個範例中，您要從其他屬性衍生 UserType 屬性的值。 例如，如果使用者的內部部署 AD UserPrincipalName 屬性是以 <em>@partners.fabrikam123.org</em> 網域部分作為結尾，您就需要以 Guest 身分來同步處理所有使用者。您可以實作如下所示的運算式：
 
     | 流程類型 | 目標屬性 | 來源 | 套用一次 | 合併類型 |
     | --- | --- | --- | --- | --- |
@@ -309,7 +309,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
     | 屬性 | 值 | 詳細資料 |
     | ----- | ------ | --- |
-    | 名稱 | 提供名稱 | 例如，*Out to AAD – User UserType* |
+    | Name | 提供名稱 | 例如，*Out to AAD – User UserType* |
     | 說明 | 提供描述 ||
     | 連線系統 | 選取 AAD 連接器 ||
     | 連線系統物件類型 | **使用者** ||
@@ -349,7 +349,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
    4. 請等候作業完成。
 
     > [!NOTE]
-    > 如果所匯入屬性的清單中已包含來源屬性，您可以略過內部部署 AD 連接器上的完整匯入。 換句話說，在[步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)期間，您不必進行任何變更。
+    > 如果所匯入屬性的清單中已包含來源屬性，您可以略過內部部署 AD 連接器上的完整匯入。 換句話說，在[步驟 2：在內部部署 AD 連接器結構描述中新增來源屬性](#step-2-add-the-source-attribute-to-the-on-premises-ad-connector-schema)期間，您不需要進行任何變更。
 
 2. 在 [Azure AD 連接器] 上執行 [完整匯入]：
 
@@ -375,7 +375,7 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
    2. 在彈出的 [搜尋連接器空間] 對話方塊中：
 
       - 將 [範圍] 設定為 [擱置匯出]。
-      - 選取全部三個核取方塊：[新增]、[修改]和 [刪除]。
+      - 三個核取方塊全部都選取：[新增]、[修改]，以及 [刪除]。
       - 按一下 [搜尋] 按鈕以取得有變更要匯出的物件清單。 若要檢查給定物件的變更，請對物件按兩下。
       - 確認變更符合預期。
 
@@ -401,5 +401,5 @@ Azure AD Connect 可對 1.1.524.0 版和更新版本之**使用者**物件的 **
 
 **概觀主題**
 
-* [Azure AD Connect 同步處理：了解及自訂同步處理](how-to-connect-sync-whatis.md)
+* [Azure AD Connect 同步：了解並自訂同步處理](how-to-connect-sync-whatis.md)
 * [整合內部部署身分識別與 Azure Active Directory](whatis-hybrid-identity.md)

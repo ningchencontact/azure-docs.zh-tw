@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
-ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fbd4552a9e40f16a6fedec4e04be0d7d6d39351d
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633430"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724480"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>如何取用 Azure Stack 中的監視資料
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合系統*
 
 您可以使用 Azure 監視器管線在單一位置尋找監視資料，情形就和全域 Azure 中的 Azure 監視器一樣。 但並非所有可在全域 Azure 中找到的監視資料都可在 Azure Stack 中取得。 在本文中，您可以找到各種可行方式的摘要說明，以了解如何透過程式設計方式，從該服務擷取出監視資料。
  

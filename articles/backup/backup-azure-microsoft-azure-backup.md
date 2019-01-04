@@ -8,13 +8,13 @@ keywords: Azure 備份伺服器; 保護工作負載; 備份工作負載
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: adigan; kasinh
-ms.openlocfilehash: e1ed8b1f62eeb52d65ba178c8ca13f94b57da6f0
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.author: adigan
+ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616311"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52728271"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安裝及升級 Azure 備份伺服器
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "51616311"
 您也可以保護基礎結構即服務 (IaaS) 工作負載，例如 Azure 中的 VM。
 
 > [!NOTE]
-> Azure 有兩種用來建立和使用資源的部署模型： [Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
+> Azure 有兩種用來建立和使用資源的部署模型：[Azure Resource Manager 和傳統](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供的資訊和程序可供還原使用 Resource Manager 模型部署的 VM。
 >
 >
 
@@ -43,7 +43,7 @@ Azure 備份伺服器承襲了 Data Protection Manager (DPM) 的大部分工作�
 要啟動並執行 Azure 備份伺服器，第一個步驟是設定 Windows Server。 伺服器可以位於 Azure 或內部部署中。
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的伺服器
-選擇用來執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的資源庫映像開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰A2 標準，具備雙核心及 3.5 GB 的 RAM。
+選擇用來執行 Azure 備份伺服器的伺服器時，建議您從 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的資源庫映像開始。 即使您之前從未使用過 Azure， [在 Azure 入口網站中建立第一個 Windows 虛擬機器](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文會提供教學課程讓您在 Azure 中開始使用建議的虛擬機器。 伺服器虛擬機器 (VM) 的最低建議需求應該是︰A2 標準，具備 2 個核心及 3.5 GB 的 RAM。
 
 使用 Azure 備份伺服器保護工作負載有許多細節需要注意。 [將 DPM 安裝為 Azure 虛擬機器](https://technet.microsoft.com/library/jj852163.aspx)一文可協助說明這些細節。 在部署機器之前，請先確實閱讀此文章。
 

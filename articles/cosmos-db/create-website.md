@@ -1,21 +1,19 @@
 ---
-title: 使用範本部署 Web 應用程式 - Azure Cosmos DB | Microsoft Docs
+title: 使用範本部署 Web 應用程式 - Azure Cosmos DB
 description: 了解如何使用 Azure Resource Manager 範本，來部署 Azure Cosmos DB 帳戶、Azure App Service Web Apps，以及範例 Web 應用程式。
 services: cosmos-db, app-service\web
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 8af76c64e755b9c72ae4ebcc223e5f69549b92b9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243772"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076714"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 範本部署 Azure Cosmos DB 和 Azure App Service Web Apps
 本教學課程示範如何使用 Azure Resource Manager 範本，來部署和整合 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)、[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) Web 應用程式及範例 Web 應用程式。
@@ -37,7 +35,7 @@ ms.locfileid: "51243772"
 
 在依照本教學課程中的指示進行之前，請先確定您已備妥 Azure 訂用帳戶。 Azure 是訂閱型平台。  如需取得訂用帳戶的詳細資訊，請參閱[購買選項](https://azure.microsoft.com/pricing/purchase-options/)、[成員供應項目](https://azure.microsoft.com/pricing/member-offers/)或[免費試用版](https://azure.microsoft.com/pricing/free-trial/)。
 
-## <a id="CreateDB"></a>步驟 1︰下載範本檔案
+## <a id="CreateDB"></a>步驟 1：下載範本檔案
 讓我們從下載本教學課程所需的範本檔案開始。
 
 1. 將[建立 Azure Cosmos DB 帳戶、Web Apps 和部署示範應用程式範例](https://portalcontent.blob.core.windows.net/samples/DocDBWebsiteTodo.json)範本下載至本機資料夾 (例如 C:\Azure Cosmos DBTemplates)。 這個範本將會部署 Azure Cosmos DB 帳戶、App Service Web 應用程式和 Web 應用程式。  它還會自動設定 Web 應用程式以連線到 Azure Cosmos DB 帳戶。
@@ -60,8 +58,8 @@ ms.locfileid: "51243772"
    ![範本部署 UI 的螢幕擷取畫面](./media/create-website/TemplateDeployment3.png)
 4. 按一下 [編輯參數]，提供每個必要參數的值，然後按一下 [確定]。  參數如下所示：
    
-   1. SITENAME：指定 App Service Web 應用程式名稱，並用來建構您將用來存取 Web 應用程式的 URL (例如，如果您指定 "mydemodocdbwebsite"，則將存取 Web 應用程式的 URL 會是 mydemodocdbwebsite.azurewebsites.net)。
-   2. HOSTINGPLANNAME︰指定要建立的主控方案 App Service 名稱。
+   1. SITENAME：指定 App Service Web 應用程式名稱，並可用來建構您用以存取 Web 應用程式的 URL (例如，如果您指定 "mydemodocdbwebsite"，則您據以存取 Web 應用程式的 URL 會是 mydemodocdbwebsite.azurewebsites.net)。
+   2. HOSTINGPLANNAME：指定要建立的 App Service 主控方案的名稱。
    3. LOCATION：指定要在其中建立 Azure Cosmos DB 和 Web 應用程式資源的 Azure 位置。
    4. DATABASEACCOUNTNAME：指定要建立的 Azure Cosmos DB 帳戶名稱。   
       
@@ -98,7 +96,7 @@ ms.locfileid: "51243772"
 4. 按一下 [編輯參數]，提供每個必要參數的值，然後按一下 [確定]。  參數如下所示：
    
    1. SITENAME：指定 App Service Web 應用程式名稱，並用來建構您將用來存取 Web 應用程式的 URL (例如：如果您指定 "mydemodocdbwebsite"，則將存取 Web 應用程式的 URL 會是 mydemodocdbwebsite.azurewebsites.net)。
-   2. HOSTINGPLANNAME︰指定要建立的主控方案 App Service 名稱。
+   2. HOSTINGPLANNAME：指定要建立的 App Service 主控方案的名稱。
    3. LOCATION：指定要在其中建立 Azure Cosmos DB 和 Web 應用程式資源的 Azure 位置。
    4. DATABASEACCOUNTNAME：指定要建立的 Azure Cosmos DB 帳戶名稱。   
       
@@ -121,12 +119,12 @@ ms.locfileid: "51243772"
 ## <a name="next-steps"></a>後續步驟
 恭喜！ 您已使用 Azure Resource Manager 範本部署了 Azure Cosmos DB、App Service Web 應用程式及範例 Web 應用程式。
 
-* 若要深入了解 Azure Cosmos DB，請按一下[這裡](http://azure.com/docdb)。
+* 若要深入了解 Azure Cosmos DB，請按一下[這裡](https://azure.microsoft.com/services/cosmos-db/)。
 * 若要深入了解 Azure App Service Web Apps，請按一下 [這裡](https://go.microsoft.com/fwlink/?LinkId=325362)。
 * 若要深入了解 Azure 資源管理員範本，請按一下 [這裡](https://msdn.microsoft.com/library/azure/dn790549.aspx)。
 
 ## <a name="whats-changed"></a>變更的項目
-* 如需從網站變更為 App Service 的指南，請參閱： [Azure App Service 及其對現有 Azure 服務的影響](https://go.microsoft.com/fwlink/?LinkId=529714)
+* 如需從網站變更為 App Service 的指南，請參閱：[Azure App Service 及其對現有 Azure 服務的影響](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
 > 如果您想在註冊 Azure 帳戶前開始使用 Azure App Service，請移至 [試用 App Service](https://go.microsoft.com/fwlink/?LinkId=523751)，即可在 App Service 中立即建立短期入門 Web 應用程式。 不需要信用卡；無需承諾。

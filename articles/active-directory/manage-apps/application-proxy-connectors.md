@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: dce9c26d9f836a2238642521be4d88ba089058d7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445953"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134960"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>了解 Azure AD 應用程式 Proxy 連接器
 
@@ -47,7 +47,7 @@ ms.locfileid: "52445953"
 2. 重新啟動伺服器
 
 
-如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](application-proxy-enable.md)。
+如需連接器伺服器之網路需求的詳細資訊，請參閱[開始使用應用程式 Proxy 並安裝連接器](application-proxy-add-on-premises-application.md)。
 
 ## <a name="maintenance"></a>維護 
 連接器和服務會負責所有高可用性的工作。 它們可以動態新增或移除。 每當新要求抵達時，它會路由傳送至其中一個目前可用的連接器。 如果連接器暫時無法使用，則不會回應此流量。
@@ -64,7 +64,7 @@ ms.locfileid: "52445953"
 
 ## <a name="automatic-updates"></a>自動更新
 
-Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程式 Proxy 連接器更新程式服務正在執行，您的連接器便會自動更新。 如果您在伺服器上沒有看到連接器更新程式服務，則需要[重新安裝您的連接器](application-proxy-enable.md)以取得任何更新。 
+Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程式 Proxy 連接器更新程式服務正在執行，您的連接器便會自動更新。 如果您在伺服器上沒有看到連接器更新程式服務，則需要[重新安裝您的連接器](application-proxy-add-on-premises-application.md)以取得任何更新。 
 
 如果不想等候您的連接器自動更新，您可以執行手動升級。 移至您的連接器所在伺服器上的[連接器下載頁面](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download)並選取 [下載]。 此流程就會開始進行本機連接器的升級。 
 
@@ -120,9 +120,9 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 影響效能的另一個因素是連接器之間的網路品質，包括︰ 
 
-* **線上服務**：Azure 的應用程式 Proxy 服務連線變慢或高度延遲都會影響連接器效能。 為了達到最佳效能，請使用 Express Route 將貴組織連線到 Azure。 否則，請網路服務小組確定與 Azure 的連線盡可能以有效方式處理。 
-* **後端應用程式︰** 在某些情況下，連接器和後端應用程式之間有其他 Proxy，可能會使連線變慢或無法連線。 若要針對此情節進行疑難排解，可從連接器伺服器開啟瀏覽器，並嘗試存取應用程式。 如果您在 Azure 中執行連接器，但應用程式為內部部署，體驗就可能無法如您的使用者所預期。
-* **網域控制器**︰如果連接器使用 Kerberos 限制委派來執行 SSO，它們會先連絡網域控制器後，才將要求傳送至後端。 連接器有 Kerberos 票證的快取 (但是在忙碌環境中)，網域控制器的回應速度可能會影響效能。 在 Azure 中執行、但與內部部署之網域控制器通訊的連接器會更常發生這個問題。 
+* **線上服務**：Azure 的應用程式 Proxy 服務連線變慢或高度延遲，都會影響連接器效能。 為了達到最佳效能，請使用 Express Route 將貴組織連線到 Azure。 否則，請網路服務小組確定與 Azure 的連線盡可能以有效方式處理。 
+* **後端應用程式逾時**：在某些情況下，連接器和後端應用程式之間有其他 Proxy，可能會使連線變慢或無法連線。 若要針對此情節進行疑難排解，可從連接器伺服器開啟瀏覽器，並嘗試存取應用程式。 如果您在 Azure 中執行連接器，但應用程式為內部部署，體驗就可能無法如您的使用者所預期。
+* **網域控制站**：如果連接器使用 Kerberos 限制委派來執行 SSO，其會先連絡網域控制器後，才將要求傳送至後端。 連接器有 Kerberos 票證的快取 (但是在忙碌環境中)，網域控制器的回應速度可能會影響效能。 在 Azure 中執行、但與內部部署之網域控制器通訊的連接器會更常發生這個問題。 
 
 如需將您網路最佳化的詳細資訊，請參閱[使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量](application-proxy-network-topology.md)。
 
@@ -136,7 +136,7 @@ Azure AD 會提供您部署之所有連接器的自動更新。 只要應用程�
 
 連接器部署通常都直截了當，不需要特殊組態。 不過，應該考量一些獨特的情況︰
 
-* 限制傳出流量的組織必須[開啟必要的連接埠](application-proxy-enable.md#open-your-ports)。
+* 限制傳出流量的組織必須[開啟必要的連接埠](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment)。
 * 符合 FIPS 規範的電腦可能需要變更設定，以允許連接器程序產生憑證並加以儲存。
 * 根據發出網路要求的處理程序鎖定其環境的組織，必須確定已啟用兩個連接器服務才可存取所有必要的連接埠和 IP。
 * 在某些情況下，輸出的正向 Proxy 可能會中斷雙向憑證驗證，並造成失敗的通訊。

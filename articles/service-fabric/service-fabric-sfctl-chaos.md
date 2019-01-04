@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 697815aeca9b8a07e3cece877d610436b2b8ac83
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669169"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278282"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 啟動、停止及報告 chaos 測試服務。
@@ -47,9 +47,9 @@ ms.locfileid: "43669169"
 |引數|說明|
 | --- | --- |
 | --continuation-token | 接續權杖參數可用來取得下一組結果。 當來自系統的結果無法放入單一回應中時，API 的回應中會包含具有非空白值的接續權杖。 當此值傳遞至下一個 API 呼叫時，API 會傳回下一組結果。 如果沒有任何進一步的結果，接續權杖就不會包含值。 此參數的值不能經過 URL 編碼。 |
-| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) \(機器翻譯\)。 |
+| --end-time-utc | 表示要產生 Chaos 報告之時間範圍結束時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
 | --max-results | 分頁式查詢時傳回的最大結果數目。 此參數定義傳回結果數目的上限。 根據設定中所定義的訊息大小限制上限，如果所傳回的結果無法放入訊息中，則它們可以小於指定的結果上限。 如果此參數為零或未指定，則分頁式查詢會在傳回訊息中盡可能包含較多結果。 |
-| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) \(機器翻譯\)。 |
+| --start-time-utc | 表示要產生 Chaos 報告之時間範圍開始時間的 Windows 檔案時間。 如需詳細資料，請參閱 [DateTime.ToFileTimeUtc 方法](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) \(機器翻譯\)。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 
 ### <a name="global-arguments"></a>全域引數
@@ -104,7 +104,7 @@ ms.locfileid: "43669169"
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 | --wait-time-between-faults | 單一反覆項目內連續錯誤之間的等候時間 (秒)。  預設值\: 20。 <br><br> 值越大，錯誤之間的重疊越低，且叢集歷經的狀態轉換順序會越簡單。 建議從 1 到 5 之間的值來開始，上調此值時請小心謹慎。 |
 | --wait-time-between-iterations | Chaos 的兩個連續反覆項目之間的時間區隔 (秒)。 值越大，錯誤插入率越低。  預設值\: 30。 |
-| --warning-as-error | 將健康原則設定為把警告視為錯誤。 |
+| --warning-as-error | 可指示是否將具有相同嚴重性的警告視為錯誤。 |
 
 ### <a name="global-arguments"></a>全域引數
 
@@ -136,6 +136,7 @@ ms.locfileid: "43669169"
 | --output -o | 輸出格式。  允許的值\:json、jsonc、table、tsv。  預設值\:json。 |
 | --query | JMESPath 查詢字串。 如需詳細資訊和範例，請參閱 http\://jmespath.org/。 |
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

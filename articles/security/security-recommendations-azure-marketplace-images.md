@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: barclayn
-ms.openlocfilehash: 4ae36f87c29975c82bb99f713893a9dc78a249e6
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.openlocfilehash: 9c02dc386852a32814669d38df6260822a5e4f99
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2017
-ms.locfileid: "23465403"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53308784"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Azure Marketplace 映像的安全性建議
 
@@ -41,7 +41,7 @@ ms.locfileid: "23465403"
 | 安全性                                                     | 必須清除 Bash/殼層歷程記錄項目                                                                                                                                                                                                                                             |
 | 網路                                                   | 預設應包含 SSH 伺服器。 利用下列選項，將保持運作的 SSH 設為 sshd 設定：ClientAliveInterval 180                                                                                                                                                        |
 | 網路                                                   | 映像不應包含任何自訂網路設定。 刪除 resolv.conf：`rm /etc/resolv.conf`                                                                                                                                                                                |
-| 部署                                                   | 應該安裝最新的 Azure Linux 代理程式 </br> - 應該使用 RPM 或 Deb 套件來安裝代理程式。  </br> - 您也可以使用手動安裝程序，但建議使用且慣用安裝程式套件。 </br> - 如果是從 github 存放庫手動安裝代理程式，請先將 `waagent` 檔案複製到 `/usr/sbin` 並 (以 root 身分) 執行： </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>代理程式設定檔將會放在 `/etc/waagent.conf`。    |
+| 部署                                                   | 應該安裝最新的 Azure Linux 代理程式 </br> - 應該使用 RPM 或 Deb 套件來安裝代理程式。  </br> - 您也可以使用手動安裝程序，但建議使用且慣用安裝程式套件。 </br> - 如果是從 GitHub 存放庫手動安裝代理程式，請先將 `waagent` 檔案複製到 `/usr/sbin` 並 (以 root 身分) 執行： </br>`# chmod 755 /usr/sbin/waagent` </br>`# /usr/sbin/waagent -install` </br>代理程式設定檔將會放在 `/etc/waagent.conf`。    |
 | 部署                                                   | 確保 Azure 支援服務可以在需要時，為我們的合作夥伴提供序列主控台輸出，並針對從雲端儲存體掛接的 OS 磁碟提供適當的逾時。 映像必須已將下列參數加入至核心開機行：`console=ttyS0 earlyprintk=ttyS0 rootdelay=300` |
 | 部署                                                   | OS 磁碟上沒有交換磁碟分割。 交換可透過 Linux 代理程式要求，以便在本機資源磁碟上建立。         |
 | 部署                                                   | 建議您針對 OS 磁碟建立單一根磁碟分割。      |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95083ec1d909333596fd36ad998022778a4f9ec9
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582731"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53188124"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 傳遞驗證：快速入門
 
@@ -58,18 +58,18 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 4. 如果您的伺服器和 Azure AD 之間有防火牆，請設定下列項目：
    - 確定驗證代理程式會透過以下連接埠對 Azure AD 提出*輸出*要求：
 
-    | 連接埠號碼 | 使用方式 |
-    | --- | --- |
-    | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
-    | **443** | 處理所有與服務之間的輸出通訊 |
-    | **8080** (選擇性) | 如果無法使用連接埠 443，則驗證代理程式會透過連接埠 8080 每隔十分鐘報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
-
-    如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
+     | 連接埠號碼 | 使用方式 |
+     | --- | --- |
+     | **80** | 驗證 SSL 憑證時下載憑證撤銷清單 (CRL) |
+     | **443** | 處理所有與服務之間的輸出通訊 |
+     | **8080** (選擇性) | 如果無法使用連接埠 443，則驗證代理程式會透過連接埠 8080 每隔十分鐘報告其狀態。 此狀態會顯示在 Azure 入口網站上。 連接埠 8080 「不」會用於使用者登入。 |
+     
+     如果您的防火牆會根據原始使用者強制執行規則，請開啟這些連接埠，讓來自以網路服務形式執行之 Windows 服務的流量得以通行。
    - 如果您的防火牆或 Proxy 允許建立 DNS 允許清單，便可將對 **\*.msappproxy.net** 與 **\*.servicebus.windows.net** 的連線加入允許清單。 如果不允許建立，請允許存取每週更新的 [Azure 資料中心 IP 範圍](https://www.microsoft.com/download/details.aspx?id=41653)。
    - 您的驗證代理程式必須存取 **login.windows.net** 與 **login.microsoftonline.com**才能進行初始註冊， 因此也請針對這些 URL 開啟您的防火牆。
    - 為了驗證憑證，請解除封鎖以下 URL：**mscrl.microsoft.com:80**、**crl.microsoft.com:80**、**ocsp.msocsp.com:80** 和 **www.microsoft.com:80**。 由於這些 URL 會用於其他 Microsoft 產品的憑證驗證，因此您可能已將這些 URL 解除封鎖。
 
-## <a name="step-2-enable-the-feature"></a>步驟 2︰啟用功能
+## <a name="step-2-enable-the-feature"></a>步驟 2：啟用此功能
 
 透過 [Azure AD Connect](whatis-hybrid-identity.md) 啟用傳遞驗證。
 
@@ -97,9 +97,9 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 4. 確認 [傳遞驗證] 功能顯示為 [已啟用]。
 5. 選取 [傳遞驗證]。 [傳遞驗證] 窗格會列出安裝驗證代理程式的伺服器。
 
-![Azure Active Directory 管理中心：Azure AD Connect 窗格](./media/how-to-connect-pta-quick-start/pta7.png)
+![Azure Active Directory 系統管理中心：[Azure AD Connect] 窗格](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory 管理中心：傳遞驗證窗格](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory 系統管理中心：[傳遞驗證] 窗格](./media/how-to-connect-pta-quick-start/pta8.png)
 
 在此階段，租用戶中所有受控網域的使用者都可以使用傳遞驗證來登入。 不過，同盟網域的使用者會繼續使用 ADFS 或您先前設定的其他同盟提供者來登入。 如果您將同盟網域轉換成受控網域，該網域中的所有使用者都會自動開始使用傳遞驗證來登入。 傳遞驗證功能不會影響僅限雲端的使用者。
 
@@ -117,9 +117,9 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 3. 依序選取 [Azure AD Connect]、[傳遞驗證] 及 [下載代理程式]。
 4. 選取 [接受條款並下載] 按鈕。
 
-![Azure Active Directory 管理中心：下載驗證代理程式按鈕](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory 系統管理中心：[下載驗證代理程式] 按鈕](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory 管理中心：下載代理程式窗格](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory 系統管理中心：[下載代理程式] 窗格](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >您也可以直接[下載驗證代理程式軟體](https://aka.ms/getauthagent)。 請在安裝「驗證代理程式」_之前_，先檢閱並接受「驗證代理程式」的[服務條款](https://aka.ms/authagenteula) \(英文\)。
@@ -145,9 +145,9 @@ Azure Active Directory (Azure AD) 傳遞驗證可讓您的使用者以相同密�
 - [從 AD FS 遷移到傳遞驗證](https://aka.ms/adfstoptadp) \(英文\) - 從 AD FS (或其他同盟技術) 遷移到傳遞驗證的詳細指南。
 - [智慧鎖定](../authentication/howto-password-smart-lockout.md)：了解如何在租用戶中設定智慧鎖定功能以保護使用者帳戶。
 - [目前的限制](how-to-connect-pta-current-limitations.md)：了解傳遞驗證支援的情節和不支援的情節。
-- [技術深入探討](how-to-connect-pta-how-it-works.md)：了解傳遞驗證功能的運作方式。
-- [常見問題集](how-to-connect-pta-faq.md)：常見問題集的答案。
+- [深入技術性討論](how-to-connect-pta-how-it-works.md)：了解傳遞驗證功能的運作方式。
+- [常見問題集](how-to-connect-pta-faq.md)：取得常見問題的解答。
 - [疑難排解](tshoot-connect-pass-through-authentication.md)：了解如何解決傳遞驗證功能的常見問題。
 - [安全性深入探討](how-to-connect-pta-security-deep-dive.md)：取得傳遞驗證功能的技術資訊。
 - [Azure AD 無縫 SSO](how-to-connect-sso.md)：深入了解此互補功能。
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect)：使用 Azure Active Directory 論壇提出新功能要求。
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) \(英文\)：使用 Azure Active Directory 論壇提出新功能要求。

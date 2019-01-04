@@ -11,17 +11,17 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 97c141b6e0c071a8cea27f9a873f28a6c5113a18
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.date: 12/12/2018
+ms.openlocfilehash: 7af15e2e2ca6698f9d8ba1629f13804ce6457b8d
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394854"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315633"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Azure SQL Database 受控執行個體資源限制概觀
 
-本文提供 Azure SQL Database 受控執行個體資源限制的概觀，並說明如何建立提高預設區域訂用帳戶限制的要求。 
+本文提供 Azure SQL Database 受控執行個體資源限制的概觀，並說明如何建立提高預設區域訂用帳戶限制的要求。
 
 > [!NOTE]
 > 若想了解其他受控執行個體限制，請參閱[以虛擬核心為基礎的購買模型](sql-database-managed-instance.md#vcore-based-purchasing-model)和[受控執行個體服務層](sql-database-managed-instance.md#managed-instance-service-tiers)。 若想了解支援的功能和 T-SQL 陳述式的差異，請參閱[功能差異](sql-database-features.md)和 [T-SQL 陳述式支援](sql-database-managed-instance-transact-sql-information.md)。
@@ -43,17 +43,21 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 ### <a name="service-tier-characteristics"></a>服務層的特性
 
-受控執行個體有兩個服務層：一般用途與商務關鍵 (公開預覽)。 這些層會提供不同的功能，如下表所述：
+受控執行個體有兩個服務層：一般用途與商務關鍵。 這些層會提供不同的功能，如下表所述：
 
-| **功能** | **一般用途** | **商務關鍵 (預覽)** |
+| **功能** | **一般用途** | **商務關鍵性** |
 | --- | --- | --- |
-| 虛擬核心數目\* | Gen4：8、16、24<br/>Gen5：8、16、24、32、40、64、80 | Gen4：8、16、24、32 <br/> Gen5：8、16、24、32、40、64、80 |
-| 記憶體 | Gen4：56GB-156GB<br/>Gen5：44GB-440GB<br/>\*與虛擬核心數目成正比 | Gen4：56GB-156GB <br/> Gen5：44GB-440GB<br/>\*與虛擬核心數目成正比 |
-| 儲存體大小上限 | 8 TB | Gen 4：1 TB <br/> 第 5 代： <br/>- 1 TB (適用於 8、16 個虛擬核心)<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
+| 虛擬核心數目\* | 第 4 代：8、16、24<br/>第 5 代：8、16、24、32、40、64、80 | 第 4 代：8、16、24、32 <br/> 第 5 代：8、16、24、32、40、64、80 |
+| 記憶體 | 第 4 代：56GB-156GB<br/>第 5 代：44GB-440GB<br/>\*與虛擬核心數目成正比 | 第 4 代：56GB-156GB <br/> 第 5 代：44GB-440GB<br/>\*與虛擬核心數目成正比 |
+| 儲存體大小上限 | 8 TB | 第 4 代：1 TB <br/> 第 5 代： <br/>- 1 TB (適用於 8、16 個虛擬核心)<br/>- 2 TB (適用於 24 個虛擬核心)<br/>- 4 TB (適用於 32、40、64、80 個虛擬核心) |
 | 每個資料庫的儲存體上限 | 取決於每個執行個體的最大儲存體大小 | 取決於每個執行個體的最大儲存體大小 |
 | 每個執行個體的資料庫數目上限 | 100 | 100 |
-| 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 無限 |
-| 預期的儲存體 IOPS 上限 | 500-5000 ([視資料檔案大小而定](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes))。 | 視基礎 SSD 速度而定。 |
+| 每個執行個體的資料庫檔案數上限 | 最多 280 個 | 每個資料庫 32,767 個檔案 |
+| IOPS (約略) | 每個檔案 500-7500<br/>\*[視檔案大小而定](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (每個虛擬核心 1375) |
+| IO 延遲 (大約) | 5-10 毫秒 | 1-2 毫秒 |
+| 最大 tempDB 大小 | 192-1920 GB (每個虛擬核心 24 GB) | 取決於每個執行個體的最大儲存體大小 |
+
+- 使用者和系統資料庫都會計入執行個體儲存體大小，並與儲存體大小上限相比較。 使用 <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> 系統檢視來判斷資料庫所使用的總空間。 錯誤記錄檔不會持續留存，也不計入大小。 備份並未計入儲存體大小。
 
 ## <a name="supported-regions"></a>支援區域
 
@@ -66,6 +70,8 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 - [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)
 - [雲端服務提供者 (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Enterprise 開發/測試](https://azure.microsoft.com/offers/ms-azr-0148p/)
+- [隨用隨付開發/測試](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
 > [!NOTE]
 > 這是暫時性的限制。 未來將會啟用新的訂用帳戶類型。
@@ -83,6 +89,8 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 | :---| :--- | :--- |:--- |:--- |
 |隨用隨付|1*|4*|4*|1*|
 |CSP |1*|4*|4*|1*|
+|隨用隨付開發/測試|1*|4*|4*|1*|
+|Enterprise 開發/測試|1*|4*|4*|1*|
 |EA|3**|12**|12**|3**|
 
 \* 您可以在一個子網路中部署 1 個 BC 或 4 個 GP 執行個體，使子網路中的「執行個體單位」總數絕不會超過 4 個。
@@ -98,7 +106,7 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 [Enterprise 合約 (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) 訂用帳戶可以組合使用 GP 和 BC 執行個體。 不過，在子網路中的執行個體配置方面會有某些條件約束。
 
-> [!Note] 
+> [!Note]
 > [隨用隨付](https://azure.microsoft.com/offers/ms-azr-0003p/)和[雲端服務提供者 (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources) 訂用帳戶類型可以有一個商務關鍵執行個體，或最多 4 個一般用途執行個體。
 
 下列範例說明使用非空的子網路並混用 GP 與 BC 服務層的部署案例。
@@ -114,9 +122,10 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>取得較大的 SQL 受控執行個體配額
 
-如果您在目前的區域中需要更多受控執行個體，您可以使用 Azure 入口網站傳送擴充配額的支援要求。 若要起始取得較大配額的程序：
+如果您在目前的區域中需要更多受控執行個體，您可以使用 Azure 入口網站傳送擴充配額的支援要求。
+若要起始取得較大配額的程序：
 
-1. 開啟 [說明 + 支援]，然後按一下 [新增支援要求]。 
+1. 開啟 [說明 + 支援]，然後按一下 [新增支援要求]。
 
    ![說明與支援](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. 在新支援要求的 [基本] 索引標籤上：
@@ -140,13 +149,13 @@ Azure SQL Database 受控執行個體可部署在兩個硬體世代 (Gen4 和 Ge
      > - 需提高訂用帳戶限制的區域
      > - 每個服務層在配額增加後在現有的子網路中所需的執行個體數目 (如果有任何現有的子網路需要擴充)
      > - 所需的新子網路數目，以及每個服務層在新子網路內的執行個體總數 (如果您要在新的子網路中部署受控執行個體)。
-     
+
 5. 按 [下一步] 。
 6. 在新支援要求的 [連絡資訊] 索引標籤上，輸入慣用的連絡方法 (電子郵件或電話) 和連絡人詳細資料。
 7. 按一下頁面底部的 [新增] 。
 
 ## <a name="next-steps"></a>後續步驟
 
-- 如需受控執行個體的詳細資訊，請參閱[什麼是受控執行個體？](sql-database-managed-instance.md)。 
+- 如需受控執行個體的詳細資訊，請參閱[什麼是受控執行個體？](sql-database-managed-instance.md)。
 - 如需價格資訊，請參閱 [SQL Database 受控執行個體的價格](https://azure.microsoft.com/pricing/details/sql-database/managed/)。
 - 若要了解如何建立您的第一個受控執行個體，請參閱[快速入門指南](sql-database-managed-instance-get-started.md)。

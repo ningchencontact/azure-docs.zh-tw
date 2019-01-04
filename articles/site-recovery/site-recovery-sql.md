@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/22/2018
+ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 46f5f73293875cd89036eb615e7bd81188bc4c67
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210256"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847791"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>設定 SQL Server 的災害復原 
 
@@ -27,8 +27,8 @@ ms.locfileid: "50210256"
 許多工作負載都使用 SQL Server 做為基礎，還可以與 SharePoint、Dynamics 和 SAP 等應用程式整合，以實作資料服務。  有許多方法可以部署 SQL Server：
 
 * **獨立 SQL Server**：SQL Server 和所有資料庫都裝載在單一電腦 (實體或虛擬) 上。 如果是虛擬，則主機叢集用於高可用性。 不實作來賓層級的高可用性。
-* **SQL Server 容錯移轉叢集執行個體 (Always ON FCI)**：在「Windows 容錯移轉」叢集中設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。 如果有一個節點關閉，叢集可以將 SQL Server 容錯移轉至另一個執行個體。 這項設定通常用在主要網站實作高可用性。 這種部署無法防止共用儲存體層中發生失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 vhdx 來實作。
-* **SQL Always On 可用性群組**：在不共用任何內容的叢集中設定兩個節點，其中此叢集的 SQL Server 資料庫是設定在具有同步複寫和自動容錯移轉功能的可用性群組中。
+* **SQL Server 容錯移轉叢集執行個體 (Always ON FCI)**：在 Windows 容錯移轉叢集中，設定 2 個或更多個具有共用磁碟的 SQL Server 執行個體節點。 如果有一個節點關閉，叢集可以將 SQL Server 容錯移轉至另一個執行個體。 這項設定通常用在主要網站實作高可用性。 這種部署無法防止共用儲存體層中發生失敗或中斷。 共用磁碟可以使用 iSCSI、光纖通道或共用 vhdx 來實作。
+* **SQL Always On 可用性群組**：使用同步複寫與自動容錯移轉在可用性群組中設定 SQL Server 資料庫時，可以在不共用任何內容的叢集中設定兩個或更多節點。
 
  本文利用下列原生 SQL 災害復原技術，將資料庫復原至遠端網站︰
 

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: be56fd80229010090216413a7c1833d94e8bac25
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739561"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339870"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>轉換擴展集範本至受控磁碟擴展集範本
 
@@ -126,7 +126,7 @@ ms.locfileid: "50739561"
 
 ## <a name="data-disks"></a>資料磁碟
 
-根據上面的變更，擴展集會針對 OS 磁碟使用受控磁碟，但對於資料磁碟呢？ 若要新增資料磁碟，請在與 "osDisk" 相同層級的 "storageProfile" 下新增 "dataDisks" 屬性。 屬性的值是 JSON 物件清單，其中每個物件都具有屬性 "lun" (對於 VM 上的每個資料磁碟，這必須是唯一的)、"createOption" ("empty" 是目前唯一支援的選項) 與 "diskSizeGB" (以 GB 為單位的磁碟大小，必須大於 0 並小於 1024)，如下列範例中所示： 
+根據上面的變更，擴展集會針對 OS 磁碟使用受控磁碟，但對於資料磁碟呢？ 若要新增資料磁碟，請在與 "osDisk" 相同層級的 "storageProfile" 下新增 "dataDisks" 屬性。 屬性的值是 JSON 物件清單，其中每個物件都具有屬性 "lun" (對於 VM 上的每個資料磁碟，這必須是唯一的)、"createOption" ("empty" 是目前唯一支援的選項) 與 "diskSizeGB" (以 GB 為單位的磁碟大小，必須大於 0 並小於 1024)，如下列範例中所示：
 
 ```
 "dataDisks": [
@@ -144,7 +144,7 @@ ms.locfileid: "50739561"
 
 
 ## <a name="next-steps"></a>後續步驟
-如需使用擴展集的範例 Resource Manager 範本，請在 [Azure 快速入門範本 github 儲存機制](https://github.com/Azure/azure-quickstart-templates)中搜尋 "vmss"。
+如需使用擴展集的範例 Resource Manager 範本，請在 [Azure 快速入門範本 GitHub 儲存機制](https://github.com/Azure/azure-quickstart-templates)中搜尋 "vmss"。
 
 如需一般資訊，請參閱 [擴展集的主要登陸頁面](https://azure.microsoft.com/services/virtual-machine-scale-sets/)。
 

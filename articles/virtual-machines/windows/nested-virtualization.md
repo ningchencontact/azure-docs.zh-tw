@@ -11,12 +11,12 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e9b05751166ac200f4a9cdab4c7fe3ed797f2a10
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d1381ff16d0de382634b06fd081f1827588f8ee9
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465243"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435101"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中啟用巢狀虛擬化
 
@@ -98,9 +98,9 @@ ms.locfileid: "49465243"
 4. 建立 NAT 閘道的 IP 位址。
     
 若要設定閘道，您會需要一些您網路的相關資訊：    
-  * IPAddress：NAT 閘道 IP 會指定 IPv4 或 IPv6 位址，當作虛擬網路子網路的預設閘道位址使用。 一般形式是 a.b.c.1 (例如，"192.168.0.1")。 雖然最後一個位置不一定要是 .1，但通常是如此 (根據首碼長度)。 通常您應該使用 RFC 1918 私人網路位址空間。 
-  * PrefixLength：子網路首碼長度會定義本機子網路大小 (子網路遮罩)。 子網路首碼長度將是一個介於 0 到 32 之間的整數值。 0 會對應整個網際網路，32 則只允許一個對應的 IP。 常見的值範圍從 24 到 12，視必須附加至 NAT 的 IP 數量而定。 常見的 PrefixLength 是 24，表示子網路遮罩為 255.255.255.0。
-  * InterfaceIndex：**ifIndex** 是上一個步驟中建立之虛擬交換器的介面索引。 
+  * IPAddress - NAT 閘道 IP 會指定 IPv4 或 IPv6 位址，當作虛擬網路子網路的預設閘道位址使用。 一般形式是 a.b.c.1 (例如，"192.168.0.1")。 雖然最後一個位置不一定要是 .1，但通常是如此 (根據首碼長度)。 通常您應該使用 RFC 1918 私人網路位址空間。 
+  * PrefixLength - 子網路首碼長度會定義本機子網路大小 (子網路遮罩)。 子網路首碼長度將是一個介於 0 到 32 之間的整數值。 0 會對應整個網際網路，32 則只允許一個對應的 IP。 常見的值範圍從 24 到 12，視必須附加至 NAT 的 IP 數量而定。 常見的 PrefixLength 是 24，表示子網路遮罩為 255.255.255.0。
+  * InterfaceIndex - **ifIndex** 是上一個步驟中建立之虛擬交換器的介面索引。 
 
     ```powershell
     New-NetIPAddress -IPAddress 192.168.0.1 -PrefixLength 24 -InterfaceIndex 13
@@ -157,7 +157,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
   
 4. 定義 DHCP 伺服器的 IP 範圍 (例如，192.168.0.100 至 192.168.0.200)。
   
-5. 按 [下一步]，直到到達 [預設閘道] 頁面為止。 輸入您稍早建立的 IP 位址 (例如 192.168.0.1) 作為預設閘道。
+5. 按 [下一步]，直到到達 [預設閘道] 頁面為止。 輸入您稍早建立的 IP 位址 (例如 192.168.0.1) 作為預設閘道，然後按一下 [新增]。
   
 6. 按 [下一步]，直到精靈完成為止，並保留所有預設值，然後按一下 [完成]。
     

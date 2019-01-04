@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 890ef4baf27e193fecc17d8435998604ce25e282
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 58fffafe9658919a96d1aef2881424c0d324e688
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162682"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876472"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory 中的管道執行和觸發程序
-> [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-scheduling-and-execution.md)
 > * [目前的版本](concepts-pipeline-execution-triggers.md)
 
@@ -196,7 +196,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
           "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-60>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
             {
               "day": <<Monday-Sunday>>,
               "occurrence": <<1-5>>
@@ -313,7 +313,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **minutes** | 一小時內觸發程序執行的分鐘數。 |- 整數<br />- 一連串整數|
 | **hours** | 一天內觸發程序執行的小時數。 |- 整數<br />- 一連串整數|
 | **weekDays** | 觸發程序執行的星期幾。 此值只能搭配 weekly 頻率指定。|<br />- 星期一<br />- 星期二<br />- 星期三<br />- 星期四<br />- 星期五<br />- 星期六<br />- 星期六<br />- 日期值陣列 (最大陣列大小為 7)<br /><br />日值不區分大小寫|
-| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- **monthlyOccurence** 物件的陣列︰`{ "day": day,  "occurrence": occurence }`<br />- **day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。<br />- **occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。|
+| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- **monthlyOccurrence** 物件的陣列︰`{ "day": day,  "occurrence": occurrence }`<br />- **day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。<br />- **occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。|
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 |- <= -1 且 >= -31 的任何值<br />- >= 1 且 <= 31 的任何值<br />- 值的陣列|
 
 ## <a name="tumbling-window-trigger"></a>輪轉視窗觸發程序

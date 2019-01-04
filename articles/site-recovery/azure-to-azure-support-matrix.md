@@ -5,16 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 12/12/2018
 ms.author: raynew
-ms.openlocfilehash: bc671a598d975fb732b668d579561a253f04ded3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 50f9027301e4a04cd5624deee084429c803e04f4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317716"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342709"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>從一個 Azure 區域複寫至另一個區域的支援矩陣
 
@@ -41,9 +40,9 @@ ms.locfileid: "52317716"
 **在支援的地理叢集 (在訂用帳戶內或跨訂用帳戶) 內移轉區域之間的 VM** | 在相同的 Azure Active Directory 租用戶中支援。
 **在相同區域內移轉 VM** | 不支援。
 
-# <a name="region-support"></a>區域支援
+## <a name="region-support"></a>區域支援
 
-您可以複製和復原相同的地理叢集內任何兩個區域之間的 VM。
+您可以複製和復原相同的地理叢集內任何兩個區域之間的 VM。 地理叢集會是以資料延遲及主權範圍定義而成。
 
 **地理叢集** | **Azure 區域**
 -- | --
@@ -53,21 +52,21 @@ ms.locfileid: "52317716"
 澳大利亞   | 澳大利亞東部、澳大利亞東南部、澳大利亞中部、澳大利亞中部 2
 Azure Government    | US Gov 維吉尼亞州、US Gov 愛荷華州、US Gov 亞利桑那州、US Gov 德克薩斯州、US DoD 東部、US DoD 中部
 德國 | 德國中部、德國東北部
-中國 | 中國東部、中國北部
+中國 | 中國東部、中國北部、中國北部 2、中國東部 2
 
 >[!NOTE]
 >
-> 對於巴西南部區域，您可以複寫及容錯移轉至下列其中一個區域：美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域。
+> 對於巴西南部區域，您可以複寫並容錯移轉至下列其中一項：美國中南部、美國中西部、美國東部、美國東部 2、美國西部、美國西部 2 和美國中北部區域。</br>
+> 請注意，Site Recovery 只啟用巴西南部做為可保護虛擬機器的來源區域。 這不會做為任何 Azure 區域 (例如美國中南部) 的目標 DR 區域。 原因是因地理距離而觀察到的延遲，建議選取巴西南部以外的其他任何美洲區域。  
 
 ## <a name="cache-storage"></a>快取儲存體
 
 下表摘要說明複寫期間 Site Recovery 使用的快取儲存體帳戶支援。
 
-**設定** | **詳細資料**
---- | ---
+**設定** | **支援** | **詳細資料**
+--- | --- | ---
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 不支援。 | 快取儲存體中存有限制，因為 V2 的交易成本明顯高於 V1 儲存體帳戶。
-適用於虛擬網路的 Azure 儲存體防火牆  | 否 | 不支援在用來儲存複寫資料之快取儲存體帳戶上存取特定的 Azure 虛擬網路。
-
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您使用啟用防火牆的快取儲存體帳戶或目標儲存體帳戶，請確定您[「允許信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
 
 
 ## <a name="replicated-machine-operating-systems"></a>複寫的機器作業系統
@@ -128,14 +127,14 @@ Debian 8 | 9.17、9.18 | 3.16.0-4-amd64 至 3.16.0-6-amd64、4.9.0-0.bpo.4-amd64
 
 **版本** | **行動服務版本** | **核心版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.20 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.140-94.69-default |
+SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.20 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default 至 4.4.162-94.69-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.19 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default 至 4.4.140-94.42-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.18 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.93-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default 至 4.4.121-92.80-default</br></br>SP3 4.4.73-5-default 至 4.4.138-94.39-default |
 SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-default 至 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default 至 3.12.74-60.64.88-default</br></br> SP2 4.4.21-69-default 至 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default</br></br>SP3 4.4.73-5-default 至 4.4.126-94.22-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>複寫機器 - Linux 檔案系統/客體儲存體
 
-* 檔案系統：ext3、ext4、ReiserFS (僅 Suse Linux Enterprise Server)、XFS
+* 檔案系統：ext3、ext4、ReiserFS (僅 Suse Linux Enterprise Server)、XFS、BTRFS
 * 磁碟區管理員：LVM2
 * 多重路徑軟體：裝置對應程式
 
@@ -146,7 +145,7 @@ SUSE Linux Enterprise Server 12 (SP1、SP2、SP3) | 9.17 | SP1 3.12.49-11-defaul
 --- | --- | ---
 大小 | 至少 2 顆 CPU 核心和 1 GB RAM 的任何 Azure VM 大小 | 確認 [Azure 虛擬機器大小](../virtual-machines/windows/sizes.md)。
 可用性設定組 | 支援 | 如果您以預設選項啟用 Azure VM 的複寫，系統會根據來源區域設定自動建立可用性設定組。 您可以修改這些設定。
-可用性區域 | 不支援 | 您目前無法在可用性區域中複寫 VM。
+可用性區域 | 支援 |  
 Hybrid Use Benefit (HUB) | 支援 | 如果來源 VM 已啟用 HUB 授權，測試容錯移轉或容錯移轉 VM 也會使用 HUB 授權。
 VM 擴展集 | 不支援 |
 Azure 資源庫映像 - Microsoft 發行 | 支援 | 只要 VM 在支援的作業系統上執行即支援。
@@ -180,6 +179,7 @@ OS 磁碟的大小上限 | 2048 GB | [深入了解](../virtual-machines/windows/
 資料磁碟 - 進階儲存體帳戶 | 支援 | 如果 VM 的磁碟分散於進階和標準儲存體帳戶，您可以對於各個磁碟選取不同的目標儲存體帳戶，以確保目標區域有相同的儲存體設定。
 受控磁碟 - 標準 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |  
 受控磁碟 - 進階 | 在支援 Azure Site Recovery 的 Azure 區域中會支援。 |
+標準 SSD | 不支援 |
 備援性 | 支援 LRS 和 GRS。<br/><br/> 不支援 ZRS。
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援 VM 磁碟
 儲存空間 | 支援 |         
@@ -195,12 +195,24 @@ GRS | 支援 |
 RA-GRS | 支援 |
 ZRS | 不支援 |  
 非經常性和經常性儲存體 | 不支援 | 非經常性和經常性儲存體不支援虛擬機器磁碟
-適用於虛擬網路的 Azure 儲存體防火牆  | 是 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定受信任的 Microsoft 服務可以存取儲存體帳戶。
+適用於虛擬網路的 Azure 儲存體防火牆  | 支援 | 如果您要限制只有儲存體帳戶可以存取虛擬網路，請確定[「允許受信任的 Microsoft 服務」](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)。
 一般用途 V2 儲存體帳戶 (經常性存取層和非經常性存取層) | 否 | 與一般用途 V1 儲存體帳戶相比，交易成本大幅增加
 
 >[!IMPORTANT]
 > 請務必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) 虛擬機器的 VM 磁碟延展性和效能目標，以避免任何效能問題。 如果您遵循預設設定，Site Recovery 會根據來源設定建立所需的磁碟和儲存體帳戶。 如果您自訂並選取您自己的設定，請務必遵循您的來源 VM 磁碟延展性和效能目標。
 
+## <a name="azure-site-recovery-limits-to-replicate-data-change-rates"></a>複寫資料變更率的 Azure Site Recovery 限制
+下表提供 Azure Site Recovery 限制。 上述限制是以我們的測試為基礎，但無法涵蓋所有可能的應用程式 I/O 組合。 實際的結果會隨著您的應用程式 I/O 混合而有所不同。 我們也應該注意有兩個需要考量的限制：每個磁碟資料變換率和每個虛擬機器資料變換率。
+例如，如果我們查看下表中的進階 P20 磁碟，則 Site Recovery 可為每個磁碟處理 5 MB/s 變換率，而每部 VM 最多五個這類磁碟，因為每部 VM 有 25 MB/秒整體變換率的限制。
+
+**複寫儲存體目標** | **平均來源磁碟 I/O 大小** |**平均來源磁碟資料變換** | **每日的來源磁碟資料變換總計**
+---|---|---|---
+標準儲存體 | 8 KB | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 8 KB  | 2 MB/秒 | 每個磁碟 168 GB
+進階 P10 或 P15 磁碟 | 16 KB | 4 MB/秒 |  每個磁碟 336 GB
+進階 P10 或 P15 磁碟 | 32 KB 或更大 | 8 MB/秒 | 每個磁碟 672 GB
+進階 P20、P30、P40 或 P50 磁碟 | 8 KB    | 5 MB/秒 | 每個磁碟 421 GB
+進階 P20、P30、P40 或 P50 磁碟 | 16 KB 或更大 |10 MB/秒 | 每個磁碟 842 GB
 ## <a name="replicated-machines---networking"></a>複寫的機器 - 網路
 **組態** | **支援** | **詳細資料**
 --- | --- | ---

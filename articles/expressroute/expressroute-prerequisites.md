@@ -1,25 +1,19 @@
 ---
-title: 採用 Azure ExpressRoute 的必要條件 | Microsoft Docs
-description: 本頁面提供在您可以訂購 Azure ExpressRoute 電路之前必須符合的需求清單。
-documentationcenter: na
+title: 先決條件 - ExpressRoute：Azure | Microsoft Docs
+description: 本頁面提供在您可以訂購 Azure ExpressRoute 電路之前必須符合的需求清單。 其中包含一份檢查清單。
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: f872d25e-acfd-405d-9d1b-dcb9f323a2ff
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mialdrid
-ms.openlocfilehash: 3e597e4f8be0af6e42f8ccc09c058cda619764a7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: c44eb4bbf4945973e075ff88bccde19053b812be
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713430"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53133468"
 ---
 # <a name="expressroute-prerequisites--checklist"></a>ExpressRoute 必要條件和檢查清單
 若要使用 ExpressRoute 連線到 Microsoft 雲端服務，您必須確認是否符合以下各節中所列的下列需求。
@@ -39,7 +33,7 @@ ms.locfileid: "51713430"
 * **備援連線**︰您和您的提供者之間不需要實體連線備援。 Microsoft 不要求您在 Microsoft 路由器和對等路由器之間設定備援 BGP 工作階段，即使您只有 [一個與雲端交換服務的實體連線](expressroute-faqs.md#onep2plink)也是如此。
 * **路由**︰根據您連線到 Microsoft Cloud 的方式，您或您的提供者需要設定及管理用於[路由網域](expressroute-circuit-peerings.md)的 BGP 工作階段。 某些乙太網路連線服務提供者或雲端交換服務提供者可能會提供 BGP 管理功能做為附加價值服務。
 * **NAT**：Microsoft 只接受透過 Microsoft 對等互連的公用 IP 位址。 如果您在內部部署網路中使用私人 IP 位址，您或您的提供者必須[使用 NAT](expressroute-nat.md) 將私人 IP 位址轉譯成公用 IP 位址。
-* **QoS**：商務用 Skype 具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
+* **QoS**：「商務用 Skype」具有各種服務 (例如語音、視訊、文字)，其所要求的 QoS 處理方式各有差異。 您和您的提供者應該遵循 [QoS 需求](expressroute-qos.md)。
 * **網路安全性**︰透過 ExpressRoute 連線到 Microsoft Cloud 時，請考慮[網路安全性](../best-practices-network-security.md)。
 
 ## <a name="office-365"></a>Office 365

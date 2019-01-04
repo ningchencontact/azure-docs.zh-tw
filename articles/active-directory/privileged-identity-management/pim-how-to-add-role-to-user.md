@@ -12,12 +12,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 5f0b5d1695603a7cd2a3c7ac1dbc484e44257d88
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 2b099e1377536b46229b75f25d04ab2c1beb5c11
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249606"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724939"
 ---
 # <a name="assign-azure-ad-directory-roles-in-pim"></a>在 PIM 中指派 Azure AD 目錄角色
 
@@ -125,13 +125,15 @@ Azure AD Privileged Identity Management (PIM) 服務也允許特殊權限角色�
 
 1. 選擇您的訂用帳戶。
 
-1. 選擇 [存取控制 (IAM)]，以查看訂用帳戶範圍中目前的角色指派清單。
+1. 選擇 [存取控制 (IAM)]。
+
+1. 選擇 [角色指派]，以查看訂用帳戶範圍中目前的角色指派清單。
 
    ![訂用帳戶的存取控制 (IAM) 刀鋒視窗](./media/pim-how-to-add-role-to-user/ms-pim-access-control.png)
 
 1. 檢查是否已為 **MS-PIM** 服務主體指派**使用者存取系統管理員**角色。
 
-1. 如果沒有，請選擇 [新增] 以開啟 [新增權限] 窗格。
+1. 若未指派，請選擇 [新增角色指派] 以開啟 [新增角色指派] 窗格。
 
 1. 在 [角色] 下拉式清單中，選取 [使用者存取系統管理員] 角色。
 

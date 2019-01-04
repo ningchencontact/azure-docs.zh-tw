@@ -1,20 +1,19 @@
 ---
-title: 使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析 | Microsoft Docs
+title: 使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 description: 本文說明零售公司如何使用變更摘要了解使用者模式、執行即時資料分析和視覺效果。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e663a7b8f68c43ebf4c562dd67630db5d113e979
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685492"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090749"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>使用 Azure Cosmos DB 變更摘要以視覺方式呈現即時資料分析
 
@@ -95,13 +94,12 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
 
 現在您將建立用來保存電子商務網站事件的集合。 當使用者檢視某個項目、將某項目新增至其購物車或購買某項目時，集合就會收到記錄，其中包含動作 (「已檢視」、「已新增」或「已購買」)、相關項目的名稱、相關項目的價格，以及相關使用者購物車的識別碼。
 
-1. 移至 [Azure 入口網站](http://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
+1. 移至 [Azure 入口網站](https://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
 
 2. 在 [資料總管] 窗格中選取 [新增集合]，然後在表單中填寫下列詳細資料：  
 
    * 針對 [資料庫識別碼] 欄位，選取 [新建]，然後輸入 **changefeedlabdatabase**。 將 [佈建資料庫輸送量] 方塊保留為未核取。  
    * 針對 [集合識別碼] 欄位，輸入 **changefeedlabcollection**。  
-   * 針對 [儲存體容量]，選取 [不受限]。  
    * 針對 [資料分割索引鍵] 欄位，輸入 **/Item**。 此欄位會區分大小寫，請務必正確輸入。  
    * 針對 [輸送量] 欄位，輸入 **10000**。  
    * 選取 [確定] 按鈕。  
@@ -120,7 +118,7 @@ Azure Cosmos DB 變更摘要是可在記錄建立或修改的同時，從 Azure 
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>取得 Azure Cosmos DB 連接字串
 
-1. 移至 [Azure 入口網站](http://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
+1. 移至 [Azure 入口網站](https://portal.azure.com/)，並找出範本部署所建立的 **Azure Cosmos DB 帳戶**。  
 
 2. 瀏覽至 [金鑰] 窗格，然後將 PRIMARY CONNECTION STRING 複製到 [記事本] 或您在整個實驗室中都可存取的其他文件。 您應將其標示為 [Cosmos DB 連接字串]。 您稍後必須將此字串複製到您的程式碼中，因此請將其記下，並記住其儲存位置。
 
@@ -180,7 +178,7 @@ Azure 事件中樞會接收事件資料，並加以儲存、處理然後轉送�
  
 6. 等候程式執行。 出現星號時，表示資料即將產生！ 請讓程式持續執行 - 收集大量資料是很重要的。  
 
-7. 如果您依序瀏覽至 [Azure 入口網站](http://portal.azure.com/)、資源群組中的 Cosmos DB 帳戶和 [資料總管]，您會看到隨機產生的資料已匯入您的 **changefeedlabcollection** 中。
+7. 如果您依序瀏覽至 [Azure 入口網站](https://portal.azure.com/)、資源群組中的 Cosmos DB 帳戶和 [資料總管]，您會看到隨機產生的資料已匯入您的 **changefeedlabcollection** 中。
  
    ![在入口網站中產生的資料](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -188,7 +186,7 @@ Azure 事件中樞會接收事件資料，並加以儲存、處理然後轉送�
 
 Azure 串流分析是一項完全受控、可即時處理串流資料的雲端服務。 在此實驗室中，您將使用串流分析來處理來自事件中樞的新事件 (也就是在檢視某個項目、將其新增至購物車或購買時產生的事件)、將這些事件併入即時資料分析中，並將其傳送至 Power BI 以視覺方式呈現。
 
-1. 在 [Azure 入口網站](http://portal.azure.com/)中瀏覽至您的資源群組，然後瀏覽至 **streamjob1** (您在預先實驗室中建立的串流分析作業)。  
+1. 在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至您的資源群組，然後瀏覽至 **streamjob1** (您在預先實驗室中建立的串流分析作業)。  
 
 2. 選取 [輸入]，如下所示。  
 
@@ -319,15 +317,15 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
    ![視覺效果](./media/changefeed-ecommerce-solution/visualizations.png)
 
-## <a name="optional-visualize-with-an-e-commerce-site"></a>選擇性：電子商務網站的視覺化
+## <a name="optional-visualize-with-an-e-commerce-site"></a>選用：電子商務網站的視覺化
 
 現在，您將觀察如何使用新的資料分析工具與實際的電子商務網站連線。 若要建置電子商務網站，請使用 Azure Cosmos DB 資料庫來儲存產品目錄清單 (女用、男用、男女通用)、產品目錄，以及最受歡迎的項目清單。
 
-1. 瀏覽回 [Azure 入口網站](http://portal.azure.com/)，然後依序瀏覽至您的 **Cosmos DB 帳戶**和**資料總管**。  
+1. 瀏覽回 [Azure 入口網站](https://portal.azure.com/)，然後依序瀏覽至您的 **Cosmos DB 帳戶**和**資料總管**。  
 
    以固定的儲存體容量，在 **changefeedlabdatabase** 下新增兩個集合 - **產品**和**目錄**。
 
-   以**不受限的**儲存體容量，在名為 **topItems** 的 **changefeedlabdatabase** 下新增另一個集合。 寫入 **/Item** 作為資料分割索引鍵。
+   在 **changefeedlabdatabase** 下新增名為 **topItems**、分割區索引鍵為 **/Item** 的另一個集合。
 
 2. 選取 **topItems** 集合，然後在 [調整與設定] 下將 [存留時間] 設定為 **30 秒**，讓 topItems 每 30 秒更新一次。
 
@@ -393,7 +391,7 @@ Power BI 是一套商務分析工具，用來分析資料及分享見解。 它�
 
 ## <a name="delete-the-resources"></a>刪除資源
 
-若要刪除您在本實驗室中建立的資源，請在 [Azure 入口網站](http://portal.azure.com/)中瀏覽至資源群組，然後從頁面頂端的功能表中選取 [刪除資源群組]，並依照隨附的指示操作。
+若要刪除您在本實驗室中建立的資源，請在 [Azure 入口網站](https://portal.azure.com/)中瀏覽至資源群組，然後從頁面頂端的功能表中選取 [刪除資源群組]，並依照隨附的指示操作。
 
 ## <a name="next-steps"></a>後續步驟 
   

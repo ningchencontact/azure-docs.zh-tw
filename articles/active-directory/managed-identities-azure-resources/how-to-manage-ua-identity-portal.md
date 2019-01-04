@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 2f2f338f7c4ddb885bc909f49815783e616b94c8
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: d54820acf8742ad2f95e8cc8527d9e252ffe3c30
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300450"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52720114"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>使用 Azure 入口網站對使用者指派的受控識別建立、列出、刪除或指派角色
 
@@ -42,7 +42,7 @@ ms.locfileid: "51300450"
 2. 在 [搜尋] 方塊中，輸入*受控識別*，然後在 [服務] 下方按一下 [受控識別]。
 3. 按一下 [新增]，並在 [建立使用者指派的受控識別] 窗格底下的下列欄位中輸入值：
    - **資源名稱**：這是使用者指派的受控識別名稱，例如 UAI1。
-   - **訂用帳戶**：選擇訂用帳戶，以在其下方建立使用者指派的受控識別
+   - 訂用帳戶：選擇訂用帳戶，以在其下方建立使用者指派的受控識別
    - **資源群組**：建立新資源群組來包含使用者指派的受控識別，或選擇 [使用現有項目] 在現有的資源群組中建立使用者指派的受控識別。
    - **位置**：選擇位置來部署使用者指派的受控識別，例如**美國西部**。
 4. 按一下頁面底部的 [新增] 。
@@ -69,18 +69,18 @@ ms.locfileid: "51300450"
 
 ![刪除使用者指派的受控識別](./media/how-to-manage-ua-identity-portal/delete-user-assigned-managed-identity-portal.png)
 
-## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>對使用者指派的受控識別指派角色
+## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>對使用者指派的受控識別指派角色 
 
 若要將角色指派給使用者指派的受控識別，您的帳戶需要[使用者存取管理員](/azure/role-based-access-control/built-in-roles#user-access-administrator)角色指派。
 
 1. 使用與 Azure 訂用帳戶相關聯的帳戶登入 [Azure 入口網站](https://portal.azure.com)，以列出使用者指派的受控識別。
 2. 在 [搜尋] 方塊中，輸入「受控識別」，然後在 [服務] 下方按一下 [受控識別]。
 3. 此時會針對訂用帳戶傳回使用者指派的受控識別清單。  選取要指派角色的使用者指派受控識別。
-4. 選取 [存取控制 (IAM)]，然後選取 [新增]。
+4. 選取 [存取控制 (IAM)]，然後選取 [新增角色指派]。
 
    ![使用者指派的受控識別啟動](./media/how-to-manage-ua-identity-portal/assign-role-screenshot1.png)
 
-5. 在 [新增權限] 刀鋒視窗中設定下列值，然後按一下 [儲存]：
+5. 在 [新增角色指派] 刀鋒視窗中設定下列值，然後按一下 [儲存]：
    - **角色** - 要指派的角色
    - **存取權指派對象** - 要指派使用者指派受控識別的資源
    - **選取** - 要指派存取權的成員

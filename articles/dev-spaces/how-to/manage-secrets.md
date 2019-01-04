@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker、Kubernetes、Azure、AKS、Azure Container Service、容器
-ms.openlocfilehash: 49e9a974dc01548c250f0b0a8b9b5afac5f286ff
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705492"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53013996"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>如何在使用 Azure 開發人員空間時管理祕密
 
@@ -112,5 +112,5 @@ Azure 開發人員空間提供兩個儲存秘密的建議選項：儲存在 valu
 
 ## <a name="next-steps"></a>後續步驟
 
-現在，您可以透過這些方法安全地連線到資料庫、Redis 快取或存取安全的 Azure 服務。
+現在，您可以透過這些方法安全地連線到資料庫、Azure Cache for Redis 或存取安全的 Azure 服務。
  

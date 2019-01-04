@@ -1,5 +1,5 @@
 ---
-title: 將傳統虛擬網路連接到 Azure Resource Manager VNet：PowerShell | Microsoft Docs
+title: 將傳統虛擬網路連線到 Azure Resource Manager VNet：PowerShell | Microsoft Docs
 description: 使用 VPN 閘道和 PowerShell 在傳統 VNet 和 Resource Manager VNet 之間建立 VPN 連線。
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f133af5ec077821607bf3e942c8a931808d34fc
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953582"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337526"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>使用 PowerShell 從不同的部署模型連接虛擬網路
 
@@ -34,7 +34,7 @@ ms.locfileid: "49953582"
 
 ### <a name="pre"></a>必要條件
 
-* 已建立兩個 Vnet。 如果您需要建立資源管理員虛擬網路，請參閱[建立虛擬網路](../virtual-network/quick-create-powershell.md#create-a-virtual-network)。 若要建立重統虛擬網路，請參閱[建立傳統 VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)。
+* 已建立兩個 Vnet。 如果您需要建立資源管理員虛擬網路，請參閱[建立資源群組和虛擬網路](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network)。 若要建立重統虛擬網路，請參閱[建立傳統 VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic)。
 * Vnet 的位址範圍不會彼此重疊，或與閘道可能連接的任何其他連線範圍重疊。
 * 您已安裝最新的 PowerShell Cmdlet。 如需詳細資訊，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview) 。 確定安裝服務管理 (SM) 和 Resource Manager (RM) Cmdlet。 
 
@@ -50,7 +50,7 @@ VNet 名稱 = ClassicVNet  <br>
 子網路 1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
 區域網路名稱 = RMVNetLocal <br>
-GatewayType = DynamicRouting
+ GatewayType = DynamicRouting
 
 **Resource Manager VNet 設定**
 
@@ -63,7 +63,7 @@ GatewaySubnet = 192.168.0.0/26 <br>
 閘道公用 IP 名稱 = gwpip <br>
 區域網路閘道 = ClassicVNetLocal <br>
 虛擬網路閘道名稱 = RMGateway <br>
-閘道 IP 位址組態 = gwipconfig
+ 閘道 IP 位址組態 = gwipconfig
 
 ## <a name="createsmgw"></a>區段 1 - 設定傳統 VNet
 ### <a name="1-download-your-network-configuration-file"></a>1.下載您的網路組態檔

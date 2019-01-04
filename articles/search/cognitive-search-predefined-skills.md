@@ -1,23 +1,30 @@
 ---
-title: 預先定義的資料擷取、自然語言、影像處理技能 (Azure 搜尋服務) | Microsoft Docs
+title: 內建資料擷取、自然語言、影像處理功能 - Azure 搜尋服務
 description: 資料擷取、自然語言、影像處理認知等技能會在 Azure 搜尋服務管線中對原始內容新增語意和結構。
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 870cf9629c7af8faee0ce5709199b64910b27ffb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec2018
+ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786697"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314783"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>內容擴充的預先定義技能 (Azure 搜尋服務)
 
-在本文中，您會了解認知搜尋所提供的認知技能。 *認知技能*是一種以某種方式轉換內容的作業。 它通常是一種擷取資料或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎的。 *技能集*是定義擴充管線的技能集合。 
+在本文中，您會了解 Azure 搜尋服務所提供的認知技能。 *認知技能*是一種以某種方式轉換內容的作業。 它通常是一種擷取資料或推斷結構的元件，因此能提高我們對輸入資料的了解。 輸出幾乎都是以文字為基礎的。 *技能集*是定義擴充管線的技能集合。 
+
+> [!NOTE]
+> 從 2018 年 12 月 21 日開始，您可以將認知服務資源與 Azure 搜尋服務技能建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
 
 ## <a name="predefined-skills"></a>預先定義的技能
 
@@ -37,6 +44,6 @@ ms.locfileid: "33786697"
 
 ## <a name="see-also"></a>另請參閱
 
-+ [如何定義技能集](cognitive-search-defining-skillset.md)
++ [如何定義技能集](cognitive-search-defining-skillset.md) (英文)
 + [自訂技能介面定義](cognitive-search-custom-skill-interface.md)
 + [教學課程：擴充認知搜尋的編製索引](cognitive-search-tutorial-blob.md)

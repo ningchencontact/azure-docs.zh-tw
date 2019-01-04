@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 5001704f47af0c7b07744f1dceb7aa58bdb6448c
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32158863"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961598"
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -84,7 +84,7 @@ Microsoft 建議您移轉 Azure 行動服務，以使用 Azure App Service 的�
 | 基本 |B1 基本 |
 | 標準 |S1 標準 |
 
-您有相當大的彈性可為應用程式選擇適當的定價層。  請參閱 [App Service 價格] ，以充分了解新的 App Service 的價格。
+您有相當大的彈性可為應用程式選擇適當的定價層。  請參閱 [App Service pricing] ，以充分了解新的 App Service 的價格。
 
 > [!TIP]
 > App Service 標準層包含您可能想要使用之多種功能的存取權，包括[預備位置]、自動備份和自動調整。  您可以在相關位置查看新功能。
@@ -310,7 +310,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 2. 選取 [所有資源] 或 [應用程式服務]，然後按一下已移轉的行動應用程式名稱。
 3. 根據預設，[設定] 刀鋒視窗隨即會開啟。
 4. 選取 [功能] 功能表下的 [診斷記錄]  。
-5. 對下列記錄檔按一下 [開啟]：[應用程式記錄 (檔案系統)]、[詳細錯誤訊息] 和 [失敗要求的追蹤]
+5. 對下列記錄按一下 [開啟]：[應用程式記錄 (檔案系統)]、[詳細錯誤訊息] 和 [失敗要求的追蹤]
 6. 針對 Web 伺服器記錄，按一下 [檔案系統] 
 7. 按一下 [儲存] 
 
@@ -327,7 +327,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 ### <a name="deleting-a-migrated-mobile-app-clone-causes-a-site-outage"></a>刪除移轉的行動應用程式複製會導致網站服務中斷
 如果您使用 Azure PowerShell 複製移轉的行動服務，然後又刪除此複製，則會移除生產服務的 DNS 項目。  無法再從網際網路存取您的網站。  
 
-解決方法︰如果您想要複製網站，請透過入口網站進行。
+解決方案：如果您想要複製網站，請透過入口網站執行作業。
 
 ### <a name="changing-webconfig-does-not-work"></a>變更 Web.config 並未發生作用
 如果您有 ASP.NET 網站，不會套用 `Web.config` 檔案的變更。  Azure App Service 會在啟動期間建置適合的 `Web.config` 檔案，以支援行動服務執行階段。  您可以使用 XML 轉換檔案來覆寫特定設定 (例如自訂標頭)。  建立名稱為 `applicationHost.xdt` 的檔案 - 這個檔案必須在 Azure 服務上的 `D:\home\site` 目錄中結束。  透過自訂部署指令碼或直接使用 Kudu 上傳 `applicationHost.xdt` 檔案。  下圖顯示範例文件：
@@ -373,7 +373,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [2]: ./media/app-service-mobile-migrating-from-mobile-services/triggering-job-with-postman.png
 
 <!-- Links -->
-[App Service 價格]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [自動調整]: ../app-service/web-sites-scale.md
 [Azure App Service]: ../app-service/app-service-web-overview.md
@@ -383,9 +383,9 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [Azure 排程器方案]: ../scheduler/scheduler-plans-billing.md
 [連續部署]: ../app-service/app-service-continuous-deployment.md
 [轉換混合式命名空間]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
-[curl]: http://curl.haxx.se/
+[curl]: https://curl.haxx.se/
 [自訂網域名稱]: ../app-service/app-service-web-tutorial-custom-domain.md
-[Fiddler]: http://www.telerik.com/fiddler
+[Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service 的公開上市版]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
 [記錄]: ../app-service/web-sites-enable-diagnostic-log.md
@@ -393,7 +393,7 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [通知中樞]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [效能監視]: ../app-service/web-sites-monitor.md
-[Postman]: http://www.getpostman.com/
+[Postman]: https://www.getpostman.com/
 [預備位置]: ../app-service/web-sites-staged-publishing.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 轉換範例]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples

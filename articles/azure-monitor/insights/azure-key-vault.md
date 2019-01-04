@@ -10,17 +10,15 @@ ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/09/2017
 ms.author: richrund
-ms.component: ''
-ms.openlocfilehash: 72c7febe48c89041aad3c2e127eeb4e2d33d5eca
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 785ccba6766b6a4f7400f3fdacf7ac24a234adf5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430553"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192765"
 ---
 # <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Log Analytics 中的 Azure Key Vault 分析解決方案
 
@@ -138,7 +136,7 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 1. [將診斷設定為直接從 Key Vault 傳送到 Log Analytics](#enable-key-vault-diagnostics-in-the-portal)  
 2. 使用[從方案庫新增 Log Analytics 解決方案](../../azure-monitor/insights/solutions.md)中所述的程序，啟用 Azure Key Vault 解決方案
 3. 更新任何已儲存的查詢、儀表板或警示，以使用新的資料類型
-  + 類型從 KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
+  + 類型自：KeyVaults 變更為 AzureDiagnostics。 您可以使用 ResourceType 篩選 Key Vault 記錄。
   - 與其使用 `KeyVaults`，請改用 `AzureDiagnostics | where ResourceType'=="VAULTS"`
   + 欄位：(欄位名稱區分大小寫)
   - 針對任何名稱尾碼有 \_s、\_d 或 \_g 的欄位，請將第一個字元變更為小寫
@@ -153,4 +151,4 @@ Azure 金鑰保存庫解決方案會分析從 Azure 診斷的 [AuditEvent 記錄
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>後續步驟
-* 使用 [Log Analytics 中的記錄搜尋](../../log-analytics/log-analytics-queries.md)來檢視詳細的 Azure 金鑰保存庫資料。
+* 使用 [Log Analytics 中的記錄搜尋](../../azure-monitor/log-query/log-query-overview.md)來檢視詳細的 Azure 金鑰保存庫資料。

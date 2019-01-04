@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務和 Apple FairPlay 授權支援 | Microsoft Docs
+title: 媒體服務和 Apple FairPlay 授權支援 - Azure | Microsoft Docs
 description: 本主題說明 Apple FairPlay 授權需求和設定的概觀。
 author: juliako
 manager: femila
@@ -11,14 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 19f382de3ffe11253005f5fa2874ee817abaeed3
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.custom: seodec18
+ms.openlocfilehash: 66d816795ec06891aafce73036d7aea9bb52b2c8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376749"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140520"
 ---
 # <a name="apple-fairplay-license-requirements-and-configuration"></a>Apple FairPlay 授權需求和設定 
 
@@ -34,7 +35,7 @@ Azure 媒體服務可讓您使用 **Apple FairPlay** (AES-128 CBC) 來加密您�
 * Apple 要求內容擁有者必須取得 [部署套件](https://developer.apple.com/contact/fps/)。 說明您已使用媒體服務實作金鑰安全性模組 (KSM)，現在想要求最終的 FPS 套件。 最終 FPS 套件包含相關指示，用以產生憑證和取得應用程式密碼金鑰 (ASK)。 您可使用 ASK 來設定 FairPlay。
 * 必須在媒體服務金鑰/授權傳遞端設定下列各項︰
 
-    * **應用程式憑證 (AC)**︰這是包含私密金鑰的 .pfx 檔案。 您可建立這個檔案並以密碼加密。 .pfx 檔案應該是 Base64 格式。
+    * **應用程式憑證 (AC)**：這是包含私密金鑰的 .pfx 檔案。 您可建立這個檔案並以密碼加密。 .pfx 檔案應該是 Base64 格式。
 
         下列步驟說明如何產生 FairPlay 的 .pfx 憑證檔案：
 
@@ -48,7 +49,7 @@ Azure 媒體服務可讓您使用 **Apple FairPlay** (AES-128 CBC) 來加密您�
 
             "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
             
-    * **應用程式憑證密碼** - 用來建立 .pfx 檔案的密碼。
+    * **應用程式憑證密碼**：用來建立 .pfx 檔案的密碼。
     * **ASK**：當您使用 Apple 開發人員入口網站產生憑證時，會收到此金鑰。 每個開發小組都會收到一個唯一的 ASK。 儲存一份 ASK，並將它存放在安全的地方。 您必須使用媒體服務將 ASK 設定為 FairPlayAsk。
     
 * FPS 用戶端必須設定下列各項︰

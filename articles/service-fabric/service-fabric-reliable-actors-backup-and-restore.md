@@ -12,16 +12,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/19/2018
+ms.date: 10/29/2018
 ms.author: vturecek
-ms.openlocfilehash: c72aea9d104264243ef0654aea01e0a41f33ed6f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d5922e21dd464b8cbd0075e7bd2515ffa73607e6
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206861"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726928"
 ---
 # <a name="implement-reliable-actors-backup-and-restore"></a>實作 Reliable Actors 備份與還原
+
+> [!NOTE]
+> Microsoft 建議使用[定期備份和還原](service-fabric-backuprestoreservice-quickstart-azurecluster.md)，設定可靠具狀態服務和 Reliable Actors 的資料備份。 
+> 
+
 在下列範例中，自訂動作項目服務會利用已經存在於 `ActorService` 中的遠端處理接聽程式，藉以公開用來備份動作項目資料的方法：
 
 ```csharp
@@ -113,7 +118,7 @@ MyActorService myActorServiceProxy = ActorServiceProxy.create(MyActorService.cla
 myActorServiceProxy.backupActorsAsync();
 ```
 
-如需有關 Reliable Actors 的詳細資訊，請參閱下列內容：
+如需有關 Reliable Actors 的詳細資訊，請參閱下列文章：
 * [動作項目狀態管理](service-fabric-reliable-actors-state-management.md)
 * [動作項目生命週期與記憶體回收](service-fabric-reliable-actors-lifecycle.md)
 * [動作項目 API 參考文件](https://msdn.microsoft.com/library/azure/dn971626.aspx)

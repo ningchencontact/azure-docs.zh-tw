@@ -1,5 +1,5 @@
 ---
-title: 如何在 App Service 環境中調整應用程式
+title: 如何調整 App Service 環境中應用程式的規模 - Azure
 description: 在 App Service 環境中調整應用程式
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
-ms.openlocfilehash: d04a5fce920dae25507cdf2f64832574e24c51dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c94e7f761dcbc7e05965e359d7f9a864335c9c6b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986313"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269340"
 ---
 # <a name="scaling-apps-in-an-app-service-environment"></a>在 App Service 環境中調整應用程式
 在 Azure App Service 中，您通常有三件事可以調整：
@@ -39,7 +40,7 @@ ms.locfileid: "22986313"
 
 ![][1]
 
-ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的計算資源數量。  如果背景工作集區中需要計算資源，您必須讓 ASE 系統管理員增加資源。  如需重新設定 ASE 的資訊，請閱讀以下資訊：[如何設定 App Service 環境][HowtoConfigureASE]。  您也可能需利用 ASE 自動調整功能，以根據排程或計量增加容量。  若要取得設定 ASE 環境本身自動調整的相關詳細資訊，請參閱[如何設定 App Service 環境的自動調整][ASEAutoscale]。
+ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的計算資源數量。  如果背景工作集區中需要計算資源，您必須讓 ASE 系統管理員增加資源。  如需有關重新設定 ASE 的資訊，請參閱以下資訊：[如何設定 App Service 環境][HowtoConfigureASE]。  您也可能需利用 ASE 自動調整功能，以根據排程或計量增加容量。  若要取得設定 ASE 環境本身自動調整的相關詳細資訊，請參閱[如何設定 App Service 環境的自動調整][ASEAutoscale]。
 
 您可以使用來自不同背景工作集區或相同背景工作集區的計算資源，建立多個 App Service 方案。  例如，如果在背景工作集區 1 中有 (10) 個可用的計算資源，您可以選擇使用 (6) 個計算資源建立一個 App Service 方案，而第二個 App Service 方案使用 (4) 個計算資源。
 
@@ -79,7 +80,7 @@ ASP 相應增加的數量無法超過 ASP 所在背景工作集區中可用的�
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [CreateWebappinASE]: app-service-web-how-to-create-a-web-app-in-an-ase.md
 [Appserviceplans]: ../azure-web-sites-web-hosting-plans-in-depth-overview.md
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/ 
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/ 
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [AppScale]: ../web-sites-scale.md
-[AppWarmup]: http://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/
+[AppWarmup]: https://ruslany.net/2015/09/how-to-warm-up-azure-web-app-during-deployment-slots-swap/

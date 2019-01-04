@@ -12,26 +12,26 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/31/2018
-ms.openlocfilehash: d4ecfe700c90beb94455e3607cee4ea30227bd0e
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f98c09a7e51fa729ef4a940e5f3c03de55d8dfd2
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166212"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875275"
 ---
 # <a name="performance-counters-for-shard-map-manager"></a>分區對應管理員的效能計數器
 您可以擷取[分區對應管理員](sql-database-elastic-scale-shard-map-management.md)的效能，特別是在使用[資料相依路由](sql-database-elastic-scale-data-dependent-routing.md)時。 計數器是使用 Microsoft.Azure.SqlDatabase.ElasticScale.Client 類別的方法建立。  
 
 計數器是用來追蹤 [資料相依路由](sql-database-elastic-scale-data-dependent-routing.md) 作業的效能。 這些計數器可在「彈性資料庫：分區管理」類別下的「效能監視器」中存取。
 
-**如需最新版本** ：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 另請參閱 [將應用程式升級以使用最新的彈性資料庫用戶端程式庫](sql-database-elastic-scale-upgrade-client-library.md)。
+**如需最新版本**：請瀏覽 [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)。 另請參閱 [將應用程式升級以使用最新的彈性資料庫用戶端程式庫](sql-database-elastic-scale-upgrade-client-library.md)。
 
 ## <a name="prerequisites"></a>必要條件
 * 若要建立效能類別和計數器，使用者必須屬於裝載應用程式的電腦上的本機 **Administrators** 群組。  
 * 若要建立效能計數器執行個體和更新計數器，使用者必須是 **Administrators** 或 **Performance Monitor Users** 群組的成員。 
 
 ## <a name="create-performance-category-and-counters"></a>建立效能類別和計數器
-若要建立計數器，請呼叫 [ShardMapManagmentFactory 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx)的 CreatePeformanceCategoryAndCounters 方法。 只有系統管理員可以執行這個方法︰ 
+若要建立計數器，請呼叫 [ShardMapManagementFactory 類別](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanagerfactory.aspx)的 CreatePeformanceCategoryAndCounters 方法。 只有系統管理員可以執行這個方法︰ 
 
     ShardMapManagerFactory.CreatePerformanceCategoryAndCounters()  
 

@@ -1,17 +1,18 @@
 ---
 title: 使用 Azure Site Recovery 建立及自訂用於災害復原的復原方案 | Microsoft Docs
 description: 了解如何使用 Azure Site Recovery 服務建立及自訂用於災害復原的復原方案。
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 5253b5743216fdb7cea9e3d387f64fdba8f56d8a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 85e649f3065d7f8d601541bbac6e93f4b2a0dc85
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212330"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878618"
 ---
 # <a name="create-and-customize-recovery-plans"></a>建立並自訂復原方案
 

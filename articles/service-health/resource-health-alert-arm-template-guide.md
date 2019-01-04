@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/4/2018
 ms.author: shtabriz
-ms.openlocfilehash: ac1b9dbbb5739dd015c0bda5f1ea82fe26bb0c70
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: dcc978c8e169cca2e2cd91a63ef1814a8c3bd87c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625941"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53184088"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用 Resource Manager 範本設定資源健康狀態警示
 
@@ -32,7 +32,7 @@ Azure 資源健康狀態會隨時通知您 Azure 資源目前和過去的健康�
 若要遵循此頁面上的指示，您將必須事先設定幾件事：
 
 1. 您必須安裝 [Azure PowerShell 模組](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (`AzureRm`)
-2. 您需要[建立或重複使用動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)，該動作群組會設定來通知您
+2. 您需要[建立或重複使用動作群組](../azure-monitor/platform/action-groups.md)，該動作群組會設定來通知您
 
 ## <a name="instructions"></a>範例的指示
 1. 使用 PowerShell、使用您的帳戶登入 Azure，然後選取您想要與之互動的訂用帳戶
@@ -435,4 +435,4 @@ Azure 資源健康狀態可以使用測試執行器持續監視資源，以向�
 -  [可透過 Azure 資源健康狀態使用的資源類型和健康檢查](resource-health-checks-resource-types.md)
 
 建立服務健康狀態警示：
--  [設定適用於服務健康情況的警示](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) 
+-  [設定適用於服務健康情況的警示](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

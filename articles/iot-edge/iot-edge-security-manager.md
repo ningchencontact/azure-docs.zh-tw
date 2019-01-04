@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Edge 安全性管理員 | Microsoft Docs
+title: 了解安全性管理員如何保護裝置 (軟體) - Azure IoT Edge | Microsoft Docs
 description: 管理 IoT Edge 裝置安全性立場和安全性服務的完整性。
 services: iot-edge
 keywords: 安全性、安全性元素、enclave、TEE、IoT Edge
@@ -9,12 +9,13 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6231f50134f7dcfd29e8754841847beb69570204
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: eda572c0f4abedd59c912dcf1de2cf3c6e226b5c
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567684"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091919"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全性管理員
 
@@ -33,7 +34,7 @@ IoT Edge 安全性管理員的責任包括 (但不限於)：
 * 透過公證服務作為硬體根信任的閘道管理員。
 * 在執行階段監視 IoT Edge 作業的完整性。
 
-IoT Edge 安全性管理員包含三個主要元件：
+IoT Edge 安全性管理員包含三項元件：
 
 * IoT Edge 安全性精靈。
 * 硬體安全性模組平台抽象層 (HSM PAL)。

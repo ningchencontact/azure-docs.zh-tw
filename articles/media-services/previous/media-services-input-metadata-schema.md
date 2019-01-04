@@ -6,39 +6,39 @@ manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
-ms.assetid: d72848e2-4b65-4c84-94bc-e2a90a6e7f47
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3eea59eba9fc1fc79a6f72a61860ee7e66a7df5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248993"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994274"
 ---
 # <a name="input-metadata"></a>輸入中繼資料
+
 編碼作業會與您要在其上執行一些編碼工作的輸入資產相關聯。  完成工作時，就會產生輸出資產。  輸出資產包含視訊、音訊、縮圖、資訊清單等等。輸出資產也包含隨附關於輸入資產中繼資料的檔案。 中繼資料 XML 檔案的名稱具備下列格式︰&lt;asset_id&gt;_metadata.xml (for example, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml)，其中的 &lt;asset_id&gt; 是輸入資產的 AssetId 值。  
+
+媒體服務不會事先掃描輸入資產以產生中繼資料。 當輸入資產在作業中處理時，只會以成品的方式產生輸入中繼資料。 因此，此成品會寫入至輸出資產。 產生輸入資產和輸出資產的中繼資料使用不同的工具。 因此，輸入中繼資料與輸出中繼資料會有稍微不同的結構描述。
 
 如果您想要檢查中繼資料檔案，可以建立 **SAS** 定位器並將檔案下載到您的本機電腦。 您可以找到關於如何建立 SAS 定位器的範例，並且下載[使用媒體服務 .NET SDK 擴充功能](media-services-dotnet-get-started.md)檔案。  
 
 本文討論輸入中繼資料 (&lt;asset_id&gt;_metadata.xml) 所根據之 XML 結構描的元素和類型。  如需包含輸出資產相關中繼資料的檔案相關資訊，請參閱[輸出中繼資料](media-services-output-metadata-schema.md)。  
 
-> [!NOTE]
-> 您可以在本文的結尾找到[結構描述程式碼](media-services-input-metadata-schema.md#code)和 [XML 範例](media-services-input-metadata-schema.md#xml)。  
-> 
-> 
+您可以在本文的結尾找到[結構描述程式碼](media-services-input-metadata-schema.md#code)和 [XML 範例](media-services-input-metadata-schema.md#xml)。  
+ 
 
 ## <a name="AssetFiles"></a> Assetfile 元素 (根元素)
 包含編碼作業的 [AssetFile 元素](media-services-input-metadata-schema.md#AssetFile)集合。  
 
 請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
-| 名稱 | 說明 |
+| Name | 說明 |
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |單一子元素。 如需詳細資訊，請參閱 [AssetFile 元素](media-services-input-metadata-schema.md#AssetFile)。 |
 
@@ -48,7 +48,7 @@ ms.locfileid: "50248993"
  請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **名稱**<br /><br /> 必要 |**xs:string** |資產檔案名稱。 |
 | **大小**<br /><br /> 必要 |**xs:long** |資產檔案大小 (以位元組為單位)。 |
@@ -56,7 +56,7 @@ ms.locfileid: "50248993"
 | **NumberOfStreams**<br /><br /> 必要 |**xs:int** |資產檔案中的資產數目。 |
 | **FormatNames**<br /><br /> 必要 |**xs:string** |Format names. |
 | **FormatVerboseNames**<br /><br /> 必要 |**xs:string** |格式詳細資訊名稱。 |
-| **StartTime** |**xs:duration** |內容開始時間。 範例︰StartTime="PT2.669S"。 |
+| **StartTime** |**xs:duration** |內容開始時間。 範例：StartTime="PT2.669S"。 |
 | **OverallBitRate** |**xs:int** |資產檔案的平均位元速率 (以 kbps 為單位)。 |
 
 > [!NOTE]
@@ -65,7 +65,7 @@ ms.locfileid: "50248993"
 > 
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Programs**<br /><br /> minOccurs="0" | |當資產檔案為 MPEG-TS 格式時，所有 [Programs 元素](media-services-input-metadata-schema.md#Programs) 的集合。 |
 | **VideoTracks**<br /><br /> minOccurs="0" | |每個實體資產檔案可以包含零個或多個交錯形成適當容器格式的視訊播放軌。 這個元素包含所有屬於資產檔案一部分的 [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) 集合。 |
@@ -76,14 +76,14 @@ ms.locfileid: "50248993"
 請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Id**<br /><br /> 必要 |**xs:int** |此音訊或視訊播放軌之以零為起始的索引。<br /><br /> 這不一定使用於 MP4 檔中的 TrackID。 |
 | **Codec** |**xs:string** |視訊播放軌轉碼器字串。 |
 | **CodecLongName** |**xs:string** |音訊或視訊播放軌轉碼器長名稱。 |
 | **TimeBase**<br /><br /> 必要 |**xs:string** |時間基準。 範例：TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |畫面格數 (針對視訊播放軌呈現)。 |
-| **StartTime** |**xs: duration** |播放軌開始時間。 範例︰StartTime="PT2.669S" |
+| **StartTime** |**xs: duration** |播放軌開始時間。 範例：StartTime="PT2.669S" |
 | **Duration** |**xs:duration** |播放軌持續時間。 範例：Duration="PTSampleFormat M37.757S"。 |
 
 > [!NOTE]
@@ -92,7 +92,7 @@ ms.locfileid: "50248993"
 > 
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |包含簡報資訊 (例如，特定音訊播放軌是否適用於視障者)。 |
 | **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |可以用來保存各種資訊的泛型索引鍵/值字串。 例如，key=”language” 和 value=”eng”。 |
@@ -105,7 +105,7 @@ ms.locfileid: "50248993"
  請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |樣本格式。 |
 | **ChannelLayout** |**xs:string** |聲道配置。 |
@@ -122,7 +122,7 @@ ms.locfileid: "50248993"
 請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **FourCC**<br /><br /> 必要 |**xs:string** |視訊轉碼器 FourCC 代碼。 |
 | **設定檔** |**xs:string** |視訊播放軌的設定檔。 |
@@ -146,7 +146,7 @@ ms.locfileid: "50248993"
 請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **key**<br /><br /> 必要 |**xs:string** |索引鍵/值組中的索引鍵。 |
 | **value**<br /><br /> 必要 |**xs:string** |索引鍵/值組中的值。 |
@@ -155,7 +155,7 @@ ms.locfileid: "50248993"
 **ProgramType** 是用來描述節目的全域複雜類型。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **ProgramId**<br /><br /> 必要 |**xs:int** |Program Id |
 | **NumberOfPrograms**<br /><br /> 必要 |**xs:int** |節目數量。 |
@@ -170,7 +170,7 @@ ms.locfileid: "50248993"
 請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="attributes"></a>屬性
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **預設值**<br /><br /> 必要 |**xs:int** |將這個屬性設定為 1，表示這是預設簡報。 |
 | **Dub**<br /><br /> 必要 |**xs:int** |將這個屬性設定為 1，表示這是複製的簡報。 |
@@ -188,7 +188,7 @@ ms.locfileid: "50248993"
 保有多個 **Program** 元素的包裝函式元素。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **Program**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |若為 MPEG-TS 格式的資產檔案，包含資產檔案中的節目相關資訊。 |
 
@@ -198,7 +198,7 @@ ms.locfileid: "50248993"
  請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="child-elements"></a>子元素
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (繼承自 TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |包含資產檔案中的視訊播放軌相關資訊。 |
 
@@ -208,7 +208,7 @@ ms.locfileid: "50248993"
  請參閱本文結尾的 XML 範例︰[XML 範例](media-services-input-metadata-schema.md#xml)。  
 
 ### <a name="elements"></a>元素
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (繼承自 TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |包含資產檔案中的音訊播放軌相關資訊。 |
 

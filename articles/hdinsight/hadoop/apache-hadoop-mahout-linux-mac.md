@@ -9,18 +9,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 1025b004eb49f82532d3815be3536dbc1f336273
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: adc85514c0f4e2f7245a7db6dffbe6b9dc5e6d42
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634612"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435186"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>在 HDInsight 中搭配使用 Apache Mahout 和以 Linux 為基礎的 Apache Hadoop 來產生電影推薦 (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
-了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](http://mahout.apache.org) 機器學習庫產生電影推薦。
+了解如何使用搭配 Azure HDInsight 的 [Apache Mahout](https://mahout.apache.org) 機器學習庫產生電影推薦。
 
 Mahout 是 Apache Hadoop 的[機器學習服務][ml]程式庫。 Mahout 包含可處理資料的演算法，例如篩選、分類和叢集化。 在本文中，您會使用推薦引擎，以根據朋友看過的電影來產生電影推薦。
 
@@ -28,14 +28,14 @@ Mahout 是 Apache Hadoop 的[機器學習服務][ml]程式庫。 Mahout 包含�
 
 * 以 Linux 為基礎的 HDInsight 叢集。 如需有關建立叢集的資訊，請參閱[開始在 HDInsight 中使用以 Linux 為基礎的 Hadoop][getstarted]。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * SSH 用戶端。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md) 文件。
 
-## <a name="mahout-versioning"></a>Mahout 版本控制
+## <a name="apache-mahout-versioning"></a>Apache Mahout 版本控制
 
-如需 HDInsight 中 Mahout 版本的詳細資訊，請參閱 [HDInsight 版本和 Hadoop 元件](../hdinsight-component-versioning.md)。
+如需 HDInsight 中 Mahout 版本的詳細資訊，請參閱 [HDInsight 版本和 Apache Hadoop 元件](../hdinsight-component-versioning.md)。
 
 ## <a name="recommendations"></a>了解推薦
 
@@ -43,9 +43,9 @@ Mahout 提供的其中一項功能是推薦引擎。 這個引擎接受 `userID`
 
 以下工作流程是一個使用電影資料的簡化範例：
 
-* **共生**：Joe、Alice 和 Bob 都喜歡《星際大戰》、《帝國大反擊》和《絕地大反攻》。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
+* **共生**：Joe、Alice 和 Bob 都喜歡 *《星際大戰》*、*《帝國大反擊》* 和 *《絕地大反攻》*。 Mahout 將判斷喜歡上述任何一部電影的使用者，也會喜歡另外兩部電影。
 
-* **共生**：Bob 和 Alice 同時也喜歡《威脅潛伏》、《複製人全面進攻》和《西斯大帝的復仇》。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
+* **共生**：Bob 和 Alice 同時也喜歡 *《威脅潛伏》*、*《複製人全面進攻》* 和 *《西斯大帝的復仇》*。 Mahout 將判斷喜歡前三部電影的使用者，也會喜歡這三部電影。
 
 * **相似性推薦**：因為 Joe 喜歡前三部電影，Mahout 會查看具有相似偏好的其他使用者所喜歡但 Joe 還沒看過 (喜歡/評價) 的電影。 在此情況下，Mahout 將會推薦 *《威脅潛伏》*、*《複製人全面進攻》* 和 *《西斯大帝的復仇》*。
 
@@ -59,8 +59,8 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ## <a name="run-the-analysis"></a>執行分析
@@ -71,7 +71,7 @@ user-ratings.txt 內包含的資料具有 `userID`、`movieID`、`userRating` �
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 此工作可能需要幾分鐘的時間才能完成，並可能執行多項 MapReduce 工作。
 
 ## <a name="view-the-output"></a>檢視輸出
@@ -188,7 +188,7 @@ Mahout 工作不會移除處理工作時所建立的暫存資料。 範例工作
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
-> [!WARNING]
+> [!WARNING]  
 > 如果您要再次執行該命令，您必須也刪除輸出目錄。 使用以下命令刪除此目錄：
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
@@ -198,17 +198,17 @@ hdfs dfs -rm -f -r /temp/mahouttemp
 
 您現在已了解如何使用 Mahout，請繼續探索在 HDInsight 上使用資料的其他方法：
 
-* [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hdinsight-use-pig.md)
 * [搭配 HDInsight 使用 MapReduce](hdinsight-use-mapreduce.md)
 
-[build]: http://mahout.apache.org/developers/buildingmahout.html
-[movielens]: http://grouplens.org/datasets/movielens/
-[100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
+[build]: https://mahout.apache.org/developers/buildingmahout.html
+[movielens]: https://grouplens.org/datasets/movielens/
+[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]:apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
-[ml]: http://en.wikipedia.org/wiki/Machine_learning
-[forest]: http://en.wikipedia.org/wiki/Random_forest
+[ml]: https://en.wikipedia.org/wiki/Machine_learning
+[forest]: https://en.wikipedia.org/wiki/Random_forest
 [enableremote]: ./media/hdinsight-mahout/enableremote.png
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/09/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 0adc821f7a3d5b059d549509b7ed18cda95b86bc
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 77a5b455e3ef86484119983af24b6461a2fba229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52273794"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074481"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>如何透過 Azure 成本管理將雲端投資最佳化
 
@@ -64,7 +64,7 @@ Azure 成本管理可提供您規劃、分析以及減少費用，以便將雲�
 
 組織中的每個人都必須參與成本管理生命週期。 他們必須持續參與，以便將成本最佳化。 嚴格遵循此反覆運算過程，使其成為貴組織中負責雲端治理的重要租用戶。
 
-![主要原則](./media/cost-mgt-best-practices/principles.png)
+![顯示可見性、責任和最佳化的主要準則圖表](./media/cost-mgt-best-practices/principles.png)
 
 ## <a name="plan-with-cost-in-mind"></a>使用成本用心規劃
 
@@ -140,7 +140,7 @@ Azure Migrate 是一種服務，可評估貴組織在內部部署資料中心內
 
 ### <a name="export-billing-data-on-a-schedule"></a>排程匯出帳單資料
 
-您需要將帳單資料匯入外部系統，例如儀表板或財務系統嗎？ 您可以排程每日自動報告，以避免每個月手動下載檔案。 此外，您可以將帳單資料匯出至 Azure 儲存體帳戶，並使用[動作群組](../monitoring-and-diagnostics/monitoring-action-groups.md)取得通知。 接著，您可以使用 Azure 資料結合您可以在自己的系統中使用的自訂資料。
+您需要將帳單資料匯入外部系統，例如儀表板或財務系統嗎？ 設定自動匯出至 Azure 儲存體的作業，並避免逐月手動下載檔案。 接著，您即可輕鬆設定與其他系統的自動整合，讓您的帳單資料保持同步。
 
 如需有關匯出帳單資料的詳細資訊，請參閱[建立和管理匯出的資料](tutorial-export-acm-data.md)。
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: e3dfbc4fc4d7ed40ebac7de6fe78398b13eafd58
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: b24e10abd7c0d4dd5a20f8f85c340de03dae696a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316543"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343814"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>在 Azure 資訊安全中心自訂 SQL 資訊保護原則 (預覽)
  
@@ -85,8 +85,8 @@ Information Protection 隨附一組預設會使用的內建標籤和資訊類型
 
 如需 Azure 資訊安全中心內安全性原則和資料安全性的詳細資訊，請參閱下列文章：
  
-- [安全性原則概觀](security-center-policies-overview.md)：取得資訊安全中心的安全性原則概觀
-- [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)：了解如何為您的 Azure 訂用帳戶和資源群組設定安全性原則
+- [安全性原則概觀](security-center-policies-overview.md)：獲得資訊安全中心的安全性原則概觀
+- [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)：了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則
 - [Azure 資訊安全中心資料安全性](security-center-data-security.md)：了解資訊安全中心如何管理和保護資料
 
 

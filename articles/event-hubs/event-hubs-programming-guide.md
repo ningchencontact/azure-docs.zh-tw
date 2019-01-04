@@ -1,22 +1,22 @@
 ---
-title: Azure 事件中樞的程式設計指南 | Microsoft Docs
-description: 使用 Azure .NET SDK 撰寫 Azure 事件中樞的程式碼。
+title: 程式設計指南 - Azure 事件中樞 | Microsoft Docs
+description: 本文提供有關如何使用 Azure .NET SDK 為「Azure 事件中樞」撰寫程式碼的資訊。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
 ms.service: event-hubs
+ms.custom: seodec18
 ms.topic: article
-ms.date: 08/12/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bfb2db8a4a0091e26cc2b893e615ba831da30ac7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746319"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138070"
 ---
-# <a name="event-hubs-programming-guide"></a>事件中樞程式設計指南
-
+# <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中樞的程式設計指南
 本文會討論一些使用 Azure 事件中樞來撰寫程式碼的常見案例。 它假設使用者對事件中樞已有初步了解。 如需事件中樞的概念概觀，請參閱 [事件中樞概觀](event-hubs-what-is-event-hubs.md)。
 
 ## <a name="event-publishers"></a>事件發佈者
@@ -55,7 +55,7 @@ eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuild
 
 ## <a name="send-events-to-an-event-hub"></a>將事件傳送到事件中樞
 
-您可藉由建立 [EventHubClient][] 執行個體並透過 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 方法以方同步方式傳送它，將事件傳送到事件中樞。 這個方法會採用單一 [EventData][] 執行個體參數，並以同步方式將它傳送到事件中樞。
+您可藉由建立 [EventHubClient][] 執行個體並透過 [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) 方法以方同步方式傳送它，將事件傳送到事件中樞。 這個方法會採用單一 [EventData][] 執行個體參數，然後以非同步方式將它傳送到事件中樞。
 
 ## <a name="event-serialization"></a>事件序列化
 
@@ -76,7 +76,7 @@ for (var i = 0; i < numMessagesToSend; i++)
 
 ### <a name="availability-considerations"></a>可用性考量
 
-您可以選擇使用資料分割索引鍵，至於是否要使用，請您慎重考慮。 在許多情況下，如果事件的順序很重要，您最好選擇使用資料分割索引鍵。 當您使用資料分割索引鍵時，這些資料分割必須在單一節點上可供使用，但經過一段時間後，節點有可能會發生中斷，例如在計算節點重新開機及修補時。 因此，如果您設定了資料分割識別碼，但該資料分割因為某些緣故變得無法使用，您就無法嘗試存取該資料分割中的資料。 如果您最重視的是高可用性，請勿指定資料分割索引鍵，因為在該情況下，事件會使用先前所述的循環配置資源模型傳送到資料分割。 在此案例中，您必須在可用性 (沒有資料分割識別碼) 和一致性 (將事件繫結至資料分割識別碼) 之間做出明確抉擇。
+您可以選擇使用資料分割索引鍵，至於是否要使用，請您慎重考慮。 如果您在發佈事件時未指定資料分割索引鍵，系統會使用循環配置資源指派。 在許多情況下，如果事件的順序很重要，您最好選擇使用資料分割索引鍵。 當您使用資料分割索引鍵時，這些資料分割必須在單一節點上可供使用，但經過一段時間後，節點有可能會發生中斷，例如在計算節點重新開機及修補時。 因此，如果您設定了資料分割識別碼，但該資料分割因為某些緣故變得無法使用，您就無法嘗試存取該資料分割中的資料。 如果您最重視的是高可用性，請勿指定資料分割索引鍵，因為在該情況下，事件會使用先前所述的循環配置資源模型傳送到資料分割。 在此案例中，您必須在可用性 (沒有資料分割識別碼) 和一致性 (將事件繫結至資料分割識別碼) 之間做出明確抉擇。
 
 另一項考量是對處理事件的延遲進行處理。 有時候，捨棄資料並重試會比試著跟上處理腳步來得好，因為後者可能會導致下游處理延遲得更久。 例如，拿股票行情即時看板來說，等待完整的最新資料會比較好，但在即時聊天或 VOIP 的案例中，您會寧願先收到資料，即便資料並不完整也沒關係。
 

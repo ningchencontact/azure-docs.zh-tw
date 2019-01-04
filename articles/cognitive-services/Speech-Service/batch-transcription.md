@@ -1,32 +1,36 @@
 ---
-title: 使用 Azure Batch 轉譯 API
+title: 如何使用批次轉譯 - 語音服務
 titlesuffix: Azure Cognitive Services
-description: 轉譯大量音訊內容的範例。
+description: 如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
 services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 12/06/2018
 ms.author: panosper
-ms.openlocfilehash: 8a180dfada9da92e0b8ed69373a20602b3b0a177
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: b4e7c11a6077104e874d67b75f5d00e8f481f739
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495583"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086924"
 ---
 # <a name="why-use-batch-transcription"></a>為何使用 Batch 轉譯？
 
-如果您的儲存體中有大量音訊，則適合使用 Batch 轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並非同步地接收轉譯。
+如果您想要轉譯儲存體 (例如 Azure Blob) 中數量龐大的音訊，則適用批次轉譯。 透過使用該專屬 REST API，您可以使用共用存取簽章 (SAS) URI 來指向音訊檔案，並以非同步方式接收轉譯。
+
+>[!NOTE]
+> 語音服務的標準訂用帳戶 (S0) 才能使用批次轉譯。 免費訂用帳戶金鑰 (F0) 將無法運作。 如需詳細資訊，請參閱[定價和限制](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/)。
 
 ## <a name="the-batch-transcription-api"></a>Batch 轉譯 API
 
 Batch 轉譯 API 提供非同步語音轉換文字轉譯及其他功能。 此 REST API 所公開的方法可以：
 
 1. 建立批次的處理要求
-1. 查詢狀態 
+1. 查詢狀態
 1. 下載轉譯
 
 > [!NOTE]
@@ -75,7 +79,7 @@ REST 要求的查詢字串中可能包括這些參數。
 
 ## <a name="authorization-token"></a>授權權杖
 
-如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，您只要建立金鑰即可。 
+如同語音服務的所有功能，您可以依照我們的[快速入門指南](get-started.md)從 [Azure 入口網站](https://portal.azure.com)建立訂用帳戶金鑰。 如果您打算從我們的基準模型取得轉譯，您只要建立金鑰即可。
 
 如果您打算自訂並使用自訂模型，請執行下列步驟，以將訂用帳戶金鑰新增到自訂語音入口網站：
 
@@ -106,19 +110,19 @@ REST 要求的查詢字串中可能包括這些參數。
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
             client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
-         
+
             return new CrisClient(client);
         }
 ```
 
-取得權杖之後，指定指向需要轉譯之音訊檔案的 SAS URI。 其餘的程式碼會逐一查看狀態，並顯示結果。 首先，您設定要使用的金鑰、區域、模型和 SA，如下列程式碼片段所示。 接下來，您將用戶端與 POST 要求具現化。 
+取得權杖之後，指定指向需要轉譯之音訊檔案的 SAS URI。 其餘的程式碼會逐一查看狀態，並顯示結果。 首先，您設定要使用的金鑰、區域、模型和 SA，如下列程式碼片段所示。 接下來，您將用戶端與 POST 要求具現化。
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
             private const string HostName = "westus.cris.ai";
             private const int Port = 443;
-    
-            // SAS URI 
+
+            // SAS URI
             private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
@@ -127,14 +131,14 @@ REST 要求的查詢字串中可能包括這些參數。
 
             // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
-            
+
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
 您現在已經提出要求，您可以查詢並下載轉譯結果，如下列程式碼片段所示：
 
 ```cs
-  
+
             // get all transcriptions for the user
             transcriptions = await client.GetTranscriptionAsync().ConfigureAwait(false);
 
@@ -152,9 +156,9 @@ REST 要求的查詢字串中可能包括這些參數。
                             // not created from here, continue
                             continue;
                         }
-                            
+
                         completed++;
-                            
+
                         // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
@@ -166,7 +170,7 @@ REST 要求的查詢字串中可能包括這些參數。
                             Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
-                    
+
                     break;
                     case "Running":
                     running++;
@@ -174,7 +178,7 @@ REST 要求的查詢字串中可能包括這些參數。
                     case "NotStarted":
                     notStarted++;
                     break;
-                    
+
                     }
                 }
             }
@@ -188,7 +192,7 @@ REST 要求的查詢字串中可能包括這些參數。
 
 請留意張貼音訊和接收轉譯狀態的非同步設定。 您建立的用戶端是 .NET HTTP 用戶端。 `PostTranscriptions` 方法可傳送音訊檔案詳細資料，而 `GetTranscriptions` 方法可接收結果。 `PostTranscriptions` 會傳回控制代碼，然後 `GetTranscriptions` 使用它來取得轉譯狀態。
 
-目前的範例程式碼沒有指定自訂模型。 該服務會使用基準模型來轉譯一或多個檔案。 若要指定模型，您可以傳遞相同的方法，如同原音和語言模型的模型識別碼。 
+目前的範例程式碼沒有指定自訂模型。 該服務會使用基準模型來轉譯一或多個檔案。 若要指定模型，您可以傳遞相同的方法，如同原音和語言模型的模型識別碼。
 
 如果您不想要使用基準，則必須傳遞原音和語言模型的模型識別碼。
 

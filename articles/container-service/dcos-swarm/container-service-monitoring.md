@@ -1,5 +1,5 @@
 ---
-title: 監視 Azure DC/OS 叢集 - Datadog
+title: (已淘汰) 監視 Azure DC/OS 叢集 - Datadog
 description: 使用 Datadog 監視 Azure 容器服務叢集。 使用 DC/OS Web UI 將 Datadog 代理程式部署至您的叢集。
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 029f36e4362704fcec240f6e88da5c96e903c317
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d881a5c0f994b627b4c7c3da362672b3b887cd5e
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162750"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52996147"
 ---
-# <a name="monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>使用 Datadog 監視 Azure Container Service DC/OS 叢集
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(已淘汰) 使用 Datadog 監視 Azure Container Service DC/OS 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 本文中，我們會將 Datadog 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您將需要 Datadog 帳戶以進行這項設定。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 [部署](container-service-deployment.md)和[連接](../container-service-connect.md) Azure Container Service 所設定的叢集。 瀏覽 [Marathon UI](container-service-mesos-marathon-ui.md)。 移至 [http://datadoghq.com](http://datadoghq.com) 以設定 Datadog 帳戶。 
 
 ## <a name="datadog"></a>Datadog

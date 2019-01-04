@@ -6,15 +6,16 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/2/2017
-ms.openlocfilehash: 2eddf1da9f797f4646d6e3fc3380580d9923d963
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: d3ae15193b5e2d759825e60f880dea4355329837
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013780"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407042"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 為 HDFS 進行疑難排解
+# <a name="troubleshoot-apache-hadoop-hdfs-by-using-azure-hdinsight"></a>使用 Azure HDInsight 針對 Apache Hadoop HDFS 問題進行疑難排解
 
 了解在 Apache Ambari 中使用 Hadoop 分散式檔案系統 (HDFS) 承載時最常發生的問題及其解決方法。
 

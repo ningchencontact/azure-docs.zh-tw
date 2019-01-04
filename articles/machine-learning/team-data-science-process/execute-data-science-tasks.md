@@ -1,5 +1,5 @@
 ---
-title: 執行資料科學工作 - Azure Machine Learning | Microsoft Docs
+title: 執行資料科學工作 - Team Data Science Process
 description: 資料科學家如何以可追蹤、版本控制，以及共同作業的方式執行資料科學專案。
 author: marktab
 manager: cgronlun
@@ -9,17 +9,17 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7e25e2c95f377b1ad40cba24b29ababd0561e32a
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e8167361f3b541b613d453ade473880ec97a56dc
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495692"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134806"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>執行資料科學工作：探索、模型化和部署
 
-一般資料科學工作包括資料探索、模型化和部署。 此文章示範如何使用**互動式資料探索、分析與報告 (IDEAR)** 和**自動模型化與報告 (AMAR)** 公用程式來完成數個常見的資料科學工作，例如互動式資料探索、資料分析、報告和模型建立。 它也會列出使用各種工具組和資料平台，將模型部署到生產環境的選項，如下所示：
+一般資料科學工作包括資料探索、模型化和部署。 本文示範如何使用**互動式資料探索、分析與報告 (IDEAR)** 和**自動模型化與報告 (AMAR)** 公用程式來完成數個常見的資料科學工作，例如互動式資料探索、資料分析、報告和模型建立。 它也會列出使用各種工具組和資料平台，將模型部署到生產環境的選項，如下所示：
 
 - [Azure Machine Learning](../service/index.yml)
 - [SQL-Server 與 ML 服務](https://docs.microsoft.com/sql/advanced-analytics/r/r-services#in-database-analytics-with-sql-server)
@@ -36,7 +36,7 @@ ms.locfileid: "52495692"
 
 ### <a name="interactive-data-exploration-analysis-and-reporting-using-the-idear-utility"></a>使用 IDEAR 公用程式的互動式資料探索、分析和報告
 
-此 R Markdown 型或 Python Notebook 型公用程式提供彈性且互動式的工具，以評估及瀏覽資料集。 使用者可以使用最少的編碼，從資料集快速產生報告。 使用者可以按一下按鈕，將互動式工具中的探索結果匯出至最終報告，此報告可以傳遞給用戶端，或用來決定要在後續模型化步驟中包含哪些變數。
+此 R Markdown 型或 Python Notebook 型公用程式提供彈性且互動式的工具，以評估及瀏覽資料集。 使用者可以使用最少的編碼，從資料集快速產生報告。 使用者可以按一下按鈕，將互動式工具中的探索結果匯出至最終報告，這份報告可以傳遞給用戶端，或用來決定要在後續模型化步驟中包含哪些變數。
 
 目前，此工具只適用於記憶體中的資料框架。 若要指定要探索之資料集的參數，需要 YAML 檔案。 如需詳細資訊，請參閱 [TDSP 資料科學公用程式中的 IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/DataReport-Utils)。
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: jdial
-ms.openlocfilehash: 66b2930e06cef1a31602df3d358c78f42c8cd2cf
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fae4fffbe9e4b0be0f2edacf3e86b6268cc58608
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406359"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384644"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>使用 Azure 入口網站管理 Azure DDoS Protection Standard
 
@@ -43,7 +43,7 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
     |設定        |值                                              |
     |---------      |---------                                          |
-    |名稱           | myDdosProtectionPlan                              |
+    |Name           | myDdosProtectionPlan                              |
     |訂用帳戶   | 選取您的訂用帳戶。                         |
     |資源群組 | 選取 [新建]，然後輸入 *myResourceGroup* |
     |位置       | 美國東部                                           |
@@ -56,7 +56,7 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
     | 設定         | 值                                                        |
     | ---------       | ---------                                                    |
-    | 名稱            | myVirtualNetwork                                             |
+    | Name            | myVirtualNetwork                                             |
     | 訂用帳戶    | 選取您的訂用帳戶。                                    |
     | 資源群組  | 選取 [使用現有的]，然後選取 [myResourceGroup] |
     | 位置        | 美國東部                                                      |
@@ -97,7 +97,7 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
     |設定                  |值                                                                                               |
     |---------                |---------                                                                                           |
-    |名稱                     | myDdosAlert                                                                                        |
+    |Name                     | myDdosAlert                                                                                        |
     |訂用帳戶             | 選取包含您想要接收警示之公用 IP 位址的訂用帳戶。        |
     |資源群組           | 選取包含您想要接收警示之公用 IP 位址的資源群組。      |
     |資源                 | 選取包含您想要接收警示之公用 IP 位址的公用 IP 位址。 DDoS 會監視指派給虛擬網路內資源的公用 IP 位址。 如果您在虛擬網路中沒有任何具有公用 IP 位址的資源，就必須先建立一個具有公用 IP 位址的資源。 針對 [Azure 服務的虛擬網路](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)中所列出透過 Resource Manager (非傳統) 部署的所有資源，您可以監視資源的公用 IP 位址，但「Azure App Service 環境」和「Azure VPN 閘道」除外。 若要繼續進行本教學課程，您可以快速建立一個 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 或 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 虛擬機器。                   |
@@ -114,7 +114,7 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 若要模擬 DDoS 攻擊來驗證警示，請參閱[驗證 DDoS 偵測](#validate-ddos-detection)。
 
-您也可以深入了解如何[設定 Webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[邏輯應用程式](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，以便建立警示。
+您也可以深入了解如何[設定 Webhook](../azure-monitor/platform/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json)和[邏輯應用程式](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)，以便建立警示。
 
 ## <a name="use-ddos-protection-telemetry"></a>使用 DDoS 保護遙測
 
@@ -129,9 +129,9 @@ DDoS 保護計劃會定義一組跨訂用帳戶且已啟用標準 DDoS 保護的
 
 計量名稱呈現不同的套件類型和位元組及封包，包含每個計量的標籤名稱基本結構，如下所示：
 
-- **捨棄的標籤名稱** (例如**捨棄的輸入封包 DDoS**)：DDoS 保護系統所捨棄/清除的封包數目。
-- **轉送的標籤名稱** (例如**轉送的輸入封包 DDoS**)：DDoS 系統轉送到目的地 VIP 的封包數目 – 未篩選的流量。
-- **沒有標籤名稱** (例如**輸入封包 DDoS**)：進入清除系統的封包總數 – 代表所捨棄和轉送的封包總和。
+- **捨棄的標籤名稱** (例如：**捨棄的傳入封包 DDoS**)：DDoS 保護系統捨棄/清除的封包數目。
+- **轉送的標籤名稱** (例如：**轉送的輸入封包 DDoS**)：DDoS 系統轉送到目的地 VIP 的封包數目 – 未篩選的流量。
+- **沒有標籤名稱** (例如：**輸入封包 DDoS**)：進入清除系統的封包總數 – 表示捨棄和轉總的封包總和。
 
 若要模擬 DDoS 攻擊來驗證遙測，請參閱[驗證 DDoS 偵測](#validate-ddos-detection)。
 
@@ -156,9 +156,9 @@ Azure DDoS 保護標準透過 DDoS 攻擊分析，提供詳細的攻擊見解和
 5. 針對 [資源類型] 選取 [公用 IP 位址]，然後選取您想要為其記錄計量的特定公用 IP 位址。
 6. 選取 [開啟診斷以收集 DDoSMitigationReports 記錄]，然後視需要選取下列眾多選項：
 
-    - **封存至儲存體帳戶**：可將資料寫入至「Azure 儲存體」帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+    - **封存至儲存體帳戶**：資料會寫入至 Azure 儲存體帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
     - **串流至事件中樞**：可讓記錄接收者使用「Azure 事件中樞」來挑選記錄。 事件中樞可允許與 Splunk 或其他 SIEM 系統進行整合。 若要深入了解這個選項，請參閱[將診斷記錄串流至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-    - **傳送至 Log Analytics**：將記錄寫入至 Azure Log Analytics 服務。 若要深入了解此選項，請參閱[收集記錄以便在 Log Analytics 中使用](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+    - **傳送至 Log Analytics**：將記錄寫入至 Azure Log Analytics 服務。 若要深入了解此選項，請參閱[收集記錄以便在 Log Analytics 中使用](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 
 增量及攻擊風險降低後續報告包括下列欄位
 - 攻擊媒介
@@ -178,9 +178,9 @@ Azure DDoS 保護標準透過 DDoS 攻擊分析，提供詳細的攻擊見解和
 5. 針對 [資源類型] 選取 [公用 IP 位址]，然後選取您想要為其記錄計量的特定公用 IP 位址。
 6. 選取 [開啟診斷以收集 DDoSMitigationFlowLogs 記錄]，然後視需要選取下列眾多選項：
 
-    - **封存至儲存體帳戶**：可將資料寫入至「Azure 儲存體」帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+    - **封存至儲存體帳戶**：資料會寫入至 Azure 儲存體帳戶。 若要深入了解這個選項，請參閱[封存診斷記錄](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
     - **串流至事件中樞**：可讓記錄接收者使用「Azure 事件中樞」來挑選記錄。 事件中樞可允許與 Splunk 或其他 SIEM 系統進行整合。 若要深入了解這個選項，請參閱[將診斷記錄串流至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
-    - **傳送至 Log Analytics**：將記錄寫入至 Azure Log Analytics 服務。 若要深入了解此選項，請參閱[收集記錄以便在 Log Analytics 中使用](../log-analytics/log-analytics-azure-storage.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
+    - **傳送至 Log Analytics**：將記錄寫入至 Azure Log Analytics 服務。 若要深入了解此選項，請參閱[收集記錄以便在 Log Analytics 中使用](../azure-monitor/platform/collect-azure-metrics-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)。
 1. 若要在 Azure 分析儀表板中檢視流程記錄資料，您可以從 https://github.com/Anupamvi/Azure-DDoS-Protection/raw/master/flowlogsbyip.zip 匯入範例儀表板
 
 流程記錄將會有下列欄位： 
@@ -206,7 +206,7 @@ Microsoft 已與 [BreakingPoint Cloud](https://www.ixiacom.com/products/breaking
 
 若要使用 DDoS 保護計劃，您的帳戶必須指派為[網路參與者](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)角色，或為已指派下表中所列適當動作的[自訂](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json)角色：
 
-| 動作                                            | 名稱                                     |
+|  動作                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | 讀取 DDoS 保護計劃              |
 | Microsoft.Network/ddosProtectionPlans/write       | 建立或更新 DDoS 保護計劃  |

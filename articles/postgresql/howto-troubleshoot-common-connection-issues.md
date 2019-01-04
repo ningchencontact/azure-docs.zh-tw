@@ -3,19 +3,19 @@ title: 針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難
 description: 了解如何針對「適用於 PostgreSQL 的 Azure 資料庫」的連線問題進行疑難排解。
 keywords: postgresql 連線, 連接字串, 連線問題, 暫時性錯誤, 連線錯誤
 services: postgresql
-author: janeng
+author: jan-eng
 ms.author: janeng
 manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 11/09/2018
-ms.openlocfilehash: fea4c376f73afe2ef36948c59e95a2b679dbd7e8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 67383db4bd1d57d194e10de2dc1964532b3619a4
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285480"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53160806"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>針對適用於 PostgreSQL 的 Azure 資料庫的連線問題進行疑難排解
 
@@ -49,9 +49,9 @@ ms.locfileid: "51285480"
 
 如果應用程式持續無法連線到「適用於 PostgreSQL 的 Azure 資料庫」，通常表示是下列其中一項發生問題︰
 
-* 防火牆設定：「適用於 PostgreSQL 的 Azure 資料庫」伺服器或用戶端防火牆目前封鎖連線。
-* 用戶端的網路重新設定：新增了新的 IP 位址或 Proxy 伺服器。
-* 使用者錯誤︰例如，您可能輸入錯誤的連線參數 (例如連接字串中的伺服器名稱)，或使用者名稱中遺漏 *@servername* 尾碼。
+* 伺服器防火牆設定：請確定適用於 PostgreSQL 的 Azure 資料庫的伺服器防火牆已設定為允許來自用戶端的連線，包括 Proxy 伺服器與閘道。
+* 用戶端防火牆設定：用戶端上的防火牆必須允許和資料庫伺服器連線。 也必須允許您無法連到的伺服器 IP 位址和連接埠，在某些防火牆中，還要允許應用程式名稱，例如 PostgreSQL。
+* 使用者錯誤：您可能輸入錯誤的連線參數 (例如連接字串中的伺服器名稱)，或使用者名稱中遺漏 *@servername* 尾碼。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解決永久性連線問題的步驟
 

@@ -1,5 +1,5 @@
 ---
-title: 瀏覽 Hadoop 叢集中的資料，並在 Azure Machine Learning 中建立模型 | Microsoft Docs
+title: 探索 Hadoop 叢集中的資料 - Team Data Science Process
 description: 對採用 HDInsight Hadoop 叢集來建置和部署模型的端對端案例使用 Team Data Science Process。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1b494f78998a03d39b18d4f9bba80642c04c483e
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: e6adbe5a0e5ce88db12637889e201b5a15a0556f
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444200"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139617"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process 實務：使用 Azure HDInsight Hadoop 叢集
 在此逐步解說中，我們在端對端案例中使用 [Team Data Science Process (TDSP)](overview.md)。 我們使用 [Azure HDInsight Hadoop 叢集](https://azure.microsoft.com/services/hdinsight/)，以對 [NYC 計程車車程](http://www.andresmh.com/nyctaxitrips/) \(英文\) 資料集內可公開使用的資料進行儲存、探索和特徵工程設計，並縮減取樣資料。 若要處理二元和多元分類和迴歸預測工作，我們使用 Azure Machine Learning 建置資料的模型。 
@@ -76,7 +76,7 @@ NYC 計程車車程資料是約 20 GB 的壓縮逗點分隔值 (CSV) 檔案 (未
    
    * 建立步驟 1 中的儲存體帳戶時，請務必將之與您的 HDInsight 叢集連結。 這個儲存體帳戶可存取在叢集內處理的資料。
    * 建立叢集之後，請對叢集的前端節點啟用遠端存取。 瀏覽至 [組態] 索引標籤，然後選取 [啟用遠端]。 這個步驟可指定使用於遠端登入的使用者認證。
-3. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)：您可以使用這個工作區來建置機器學習模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
+3. [建立 Azure Machine Learning 工作區](../studio/create-workspace.md)：您可以使用此工作區來建置機器學習模型。 使用 HDInsight 叢集完成初始資料探索和縮小取樣之後，會處理這項工作。
 
 ## <a name="getdata"></a>從公用來源取得資料
 > [!NOTE]
@@ -286,7 +286,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 * 根據小費金額產生二元和多元分類標籤。
 * 藉由計算車程的直線距離來產生功能。
 
-### <a name="exploration-view-the-top-10-records-in-table-trip"></a>探索：檢視 trip 資料表中的前 10 筆記錄
+### <a name="exploration-view-the-top-10-records-in-table-trip"></a>探索：檢視稱車程資料表中的前 10 筆記錄
 > [!NOTE]
 > 這通常是資料科學家工作。
 > 
@@ -306,7 +306,7 @@ NYC 計程車資料集會依月份自然分割資料，可讓我們更快速處�
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
-### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>探索：檢視 12 個資料分割中每一個資料分割的記錄數目。
+### <a name="exploration-view-the-number-of-records-in-each-of-the-12-partitions"></a>探索：檢視 12 個資料分割中，每一個資料分割的記錄數目
 > [!NOTE]
 > 這通常是資料科學家工作。
 > 
@@ -727,7 +727,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
 **Hadoop 使用者帳戶密碼**：為叢集選擇的密碼 (非遠端存取密碼)。
 
-**輸出資料的位置**：選擇為 Azure。
+**輸出資料的位置**：這被選擇為 Azure。
 
 **Azure 儲存體帳戶名稱**：與叢集建立關聯的預設儲存體帳戶名稱。
 
@@ -765,7 +765,7 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
   下圖顯示我們的實驗，目的是預測是否會支付指定車程的小費：
 
-  ![實驗圖表](./media/hive-walkthrough/QGxRz5A.png)
+  ![如果已支付小費的預測實驗的圖表](./media/hive-walkthrough/QGxRz5A.png)
 
   b. 對於這項實驗，我們的目標標籤分佈大約是 1:1。
 
@@ -783,9 +783,9 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
   a. 對於這個問題，我們的目標 (或類別) 標籤是 **tip\_class**，可能採用五個值 (0、1、2、3、4) 的其中一個。 如二元分類案例所示，我們有幾個資料行會顯示這個實驗的目標。 特別是 **tipped**、**tip\_amount** 和 **total\_amount**，可揭示測試時無法取得的目標標籤相關資訊。 我們使用[選取資料集中的資料行][select-columns]模組來移除這些資料行。
 
-  下圖顯示預測小費可能落在哪個容器的實驗。 容器為：Class 0: tip = $0、Class 1: tip > $0 and tip <= $5、Class 2: tip > $5 and tip <= $10、Class 3: tip > $10 and tip <= $20 及 Class 4: tip > $20。
+  下圖顯示預測小費可能落在哪個容器的實驗。 分類收納是：Class 0: tip = $0、Class 1: tip > $0 and tip <= $5、Class 2: tip > $5 and tip <= $10、Class 3: tip > $10 and tip <= $20 及 Class 4: tip > $20。
 
-  ![實驗圖表](./media/hive-walkthrough/5ztv0n0.png)
+  ![用來預測小費容器的實驗圖表](./media/hive-walkthrough/5ztv0n0.png)
 
   現在會顯示實際的測試類別分佈。 類別 0 和類別 1 很普遍，其他類別則很罕見。
 
@@ -797,15 +797,15 @@ NYC 計程車資料集中的圓形徽章會識別唯一的計程車。 您可以
 
   請注意，雖然常見類別上的類別精確度很高，但模型對較罕見類別沒有很好的「學習」效果。
 
-- **迴歸工作**：預測針對某趟車程支付的小費金額。
+- **迴歸工作**：預測已針對某趟車程支付的小費金額。
 
-  **已使用學習者：** 推進式決策樹
+  **已使用學習者：** 促進式決策樹
 
   a. 對於這個問題，目標 (或類別) 標籤是 **tip\_amount**。 在本例中，目標流失為：**tipped****tip\_class** 及 **total\_amount**。 這所有變數都會揭示測試時通常無法取得的小費金額相關資訊。 我們使用[選取資料集中的資料行][select-columns]模組來移除這些資料行。
 
   下圖顯示預測指定小費金額的實驗：
 
-  ![實驗圖表](./media/hive-walkthrough/11TZWgV.png)
+  ![用來預測小費金額的實驗圖表](./media/hive-walkthrough/11TZWgV.png)
 
   b. 對於迴歸問題，我們會藉由查看預測中的平方誤差和決定係數，來測量預測的精確度：
 

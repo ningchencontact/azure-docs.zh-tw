@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Stack 中執行驗證測試 | Microsoft Docs
+title: 使用 Azure Stack 驗證工具 | Microsoft Docs
 description: 如何在 Azure Stack 中收集記錄檔以進行診斷。
 services: azure-stack
 author: jeffgilb
@@ -10,193 +10,188 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 12/03/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: af601005c7c8bd8fa7fe335879991caa34187927
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f754242d0cf7ee30572b21a3f4daf6fd2c0f63ff
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236970"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275902"
 ---
-# <a name="run-a-validation-test-for-azure-stack"></a>執行 Azure Stack 的驗證測試
+# <a name="validate-azure-stack-system-state"></a>驗證 Azure Stack 系統狀態
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
- 
-您可以驗證 Azure Stack 的狀態。 如有任何問題，請連絡 Microsoft 客戶服務支援。 支援人員會要求您從管理節點執行 **Test-AzureStack**。 驗證測試會將失敗區域隔離出來。 支援人員才可分析詳細的記錄、將焦點放在發生錯誤的區域，並與您一起解決問題。
+*適用範圍：Azure Stack 整合系統和 Azure Stack 開發套件*
 
-## <a name="run-test-azurestack"></a>執行 Test-AzureStack
+Azure Stack 操作員能夠依需求了解系統的健康情況和狀態非常重要。 Azure Stack 驗證工具 (**Test-AzureStack**) 是一個 PowerShell Cmdlet，可讓您在系統上執行一系列的測試來找出故障 (如果有的話)。 當您連絡 Microsoft 客戶服務支援 (CSS) 解決問題時，通常會要求您透過[特殊權限端點 (PEP)](azure-stack-privileged-endpoint.md) 來執行此工具。 利用現有的全系統健康情況和狀態資訊，CSS 可以收集和分析詳細的記錄，專注於錯誤發生的區域，並與您一起解決問題。
 
-如有任何問題，請連絡 Microsoft 客戶服務支援，然後執行 **Test-AzureStack**。
+## <a name="running-the-validation-tool-and-accessing-results"></a>執行驗證工具並存取結果
 
-1. 您有一個問題。
-2. 請連絡 Microsoft 客戶服務支援。
-3. 從具有特殊權限的端點執行 **Test-AzureStack**。
-    1. 存取具有特殊權限的端點。 如需相關指示，請參閱[使用 Azure Stack 中具有特殊權限的端點](azure-stack-privileged-endpoint.md)。 
-    2. 在 ASDK 上，以 **AzureStack\CloudAdmin** 身分登入管理主機。  
-    您必須在整合的系統上使用具特殊權限端點的 IP 位址，以進行 OEM 硬體廠商所提供給您的管理。
-    3. 以系統管理員身分啟動 PowerShell。
-    4. 執行： `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
-    5. 執行： `Test-AzureStack`
-4. 如有任何測試報告 **FAIL** \(失敗\)，請執行：`Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred`。此 Cmdlet 會從 Test-AzureStack 收集記錄。 如需診斷記錄的詳細資訊，請參閱 [Azure Stack 診斷工具](azure-stack-diagnostics.md)。 如果測試回報 **WARN** \(警告\)，您便不應該收集記錄或與連絡 Microsoft 客戶支援服務 (CSS)。
-5. 將 **SeedRing** 記錄傳送給 Microsoft 客戶服務支援。 Microsoft 客戶服務支援人員會與您一起解決問題。
+如先前所述，驗證工具是透過 PEP 執行。 每項測試會在 PowerShell 視窗中傳回 **PASS/FAIL** (通過/失敗) 狀態。 還會建立詳細的 HTML 報告，可於稍後在[記錄集合](azure-stack-diagnostics.md)期間存取該報告。 以下是端對端驗證測試流程的大綱： 
 
-## <a name="reference-for-test-azurestack"></a>Test-AzureStack 的參考
+1. 存取具特殊權限端點 (PEP)。 執行下列命令來建立 PEP 工作階段：
 
-這一節包含 Test-AzureStack Cmdlet 的概觀及驗證報告的摘要。
+   ```powershell
+   Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+   ```
 
-### <a name="test-azurestack"></a>Test-AzureStack
+   > [!TIP]
+   > 若要存取 ASDK 主機電腦上的 PEP，請使用 AzS-ERCS01 for -ComputerName。
 
-驗證 Azure Stack 的狀態。 此 Cmdlet 會報告 Azure Stack 硬體和軟體的狀態。 支援人員可以使用此報告來減少解決 Azure Stack 支援案例所需的時間。
+2. 當您在 PEP 中，請執行： 
 
-> [!Note]  
-> **Test-AzureStack** 可能會偵測到不會導致雲端中斷的錯誤，例如單一失敗磁碟或單一實體主機節點錯誤。
+   ```powershell
+   Test-AzureStack
+   ```
 
-#### <a name="syntax"></a>語法
+   如需詳細資訊，請參閱[參數考量](azure-stack-diagnostic-test.md#parameter-considerations)和[使用案例範例](azure-stack-diagnostic-test.md#use-case-examples)區段。
 
-````PowerShell
-  Test-AzureStack
-````
+3. 如果任何測試報告 **FAIL** (失敗)，請執行：
 
-#### <a name="parameters"></a>參數
+   ```powershell
+   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
+   ```
 
-| 參數               | 值           | 必要 | 預設值 |
-| ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | 字串    | 否       | FALSE   |
-| DoNotDeployTenantVm     | SwitchParameter | 否       | FALSE   |
-| AdminCredential         | PSCredential    | 否       | NA      |
-| 列出                    | SwitchParameter | 否       | FALSE   |
-| 略過                  | 字串          | 否       | NA      |
-| 包含                 | 字串          | 否       | NA      |
-| BackupSharePath         | 字串          | 否       | NA      |
-| BackupShareCredential   | PSCredential    | 否       | NA      |
+   此 Cmdlet 會收集 Test-AzureStack 所產生的記錄。 如需診斷記錄的詳細資訊，請參閱 [Azure Stack 診斷工具](azure-stack-diagnostics.md)。 如果測試回報 **WARN** (警告)，您便不應該收集記錄或連絡 CSS。
 
+4. 如果您已透過 CSS 指示來執行驗證工具，CSS 代表會要求您收集的記錄，以繼續對問題進行疑難排解。
 
-Test-AzureStack Cmdlet 支援一般參數：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 如需詳細資訊，請參閱[關於一般參數](https://go.microsoft.com/fwlink/?LinkID=113216)。 
+## <a name="tests-available"></a>測試可供使用
 
-### <a name="examples-of-test-azurestack"></a>Test-AzureStack 的範例
+驗證工具可讓您執行一系列的系統層級的測試和基本雲端案例，使您能夠深入解析目前狀態，並確定系統中的問題。
 
-下列範例假設您以 **CloudAdmin** 身分進行登入並存取具有特殊權限的端點 (PEP)。 如需相關指示，請參閱[使用 Azure Stack 中具有特殊權限的端點](azure-stack-privileged-endpoint.md)。 
+### <a name="cloud-infrastructure-tests"></a>雲端基礎結構測試
 
-#### <a name="run-test-azurestack-interactively-without-cloud-scenarios"></a>以互動方式執行 Test-AzureStack (沒有雲端案例)
+這些影響不大的測試適用於基礎結構層級，並為您提供有關各種系統元件和函式的相關資訊。 目前，測試分組為以下類別：
 
-在 PEP 工作階段中執行：
+| 測試分類                                        | -Include 和 -Ignore 的引數 |
+| :--------------------------------------------------- | :-------------------------------- |
+| Azure Stack 警示摘要                            | AzsAlertSummary                   |
+| Azure Stack 備份共用的可及性摘要       | AzsBackupShareAccessibility       |
+| Azure Stack 控制平面摘要                    | AzsControlPlane                   |
+| Azure Stack Defender 摘要                         | AzsDefenderSummary                |
+| Azure Stack 裝載基礎結構韌體摘要  | AzsHostingInfraFWSummary          |
+| Azure Stack 雲端裝載基礎結構摘要     | AzsHostingInfraSummary            |
+| Azure Stack 雲端裝載基礎結構使用率 | AzsHostingInfraUtilization        |
+| Azure Stack 基礎結構容量                  | AzsInfraCapacity                  |
+| Azure Stack 基礎結構效能               | AzsInfraPerformance               |
+| Azure Stack 基礎結構角色摘要              | AzsInfraRoleSummary               |
+| Azure Stack 更新摘要                           | AzsInfraUpdateSummary             |
+| Azure Stack 入口網站和 API 摘要                   | AzsPortalAPISummary               |
+| Azure Stack 縮放單位 VM 事件                     | AzsScaleUnitEvents                |
+| Azure Stack 縮放單位 VM 資源                  | AzsScaleUnitResources             |
+| Azure Stack SDN 驗證摘要                   | AzsSDNValidation                  |
+| Azure Stack Service Fabric 角色摘要              | AzsSFRoleSummary                  |
+| Azure Stack BMC 摘要                              | AzsStampBMCSummary                |
+| Azure Stack 儲存體服務摘要                 | AzsStorageSvcsSummary             |
+| Azure Stack SQL 存放區摘要                        | AzsStoreSummary                   |
+| Azure Stack VM 放置摘要                     | AzsVmPlacement                    |
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack
-````
+### <a name="cloud-scenario-tests"></a>雲端案例測試
 
-#### <a name="run-test-azurestack-with-cloud-scenarios"></a>執行 Test-AzureStack (具有雲端案例)
+除了上述基礎結構測試之外，您還可以執行雲端案例測試，以檢查基礎結構元件之間的功能。 由於這些測試涉及資源部署，所以需要雲端系統管理員認證才能執行這些測試。 
+    > [!NOTE]
+    >
+    > Currently you cannot run cloud scenario tests using Active Directory Federated Services (AD FS) credentials. 
 
-您可以使用 **Test-AzureStack** 對您的 Azure Stack 執行雲端案例。 這些案例包括：
+下列雲端案例都經過驗證工具測試：
+- 資源群組建立   
+- 方案建立              
+- 供應項目建立            
+- 儲存體帳戶建立   
+- 虛擬機器建立 
+- Blob 儲存體作業   
+- 佇列儲存體作業  
+- 資料表儲存體作業  
 
- - 建立資源群組
- - 建立方案
- - 建立供應項目
- - 建立儲存體帳戶
- - 建立虛擬機器
- - 使用在測試案例中建立的儲存體帳戶執行 blob 作業
- - 使用在測試案例中建立的儲存體帳戶執行佇列作業
- - 使用在測試案例中建立的儲存體帳戶執行資料表作業
+## <a name="parameter-considerations"></a>參數考量
 
-雲端案例需要雲端管理員認證。 
-> [!Note]  
-> 您無法使用 Active Directory 同盟服務 (AD FS) 認證執行雲端案例。 **Test-AzureStack** Cmdlet 只能透過 PEP 存取。 但是，PEP 不支援 AD FS 認證。
+- **List** 參數可用來顯示所有可用的測試類別。
 
-以 UPN 格式 serviceadmin@contoso.onmicrosoft.com (Azure AD) 輸入雲端管理員使用者名稱。 出現提示時，輸入雲端管理員帳戶的密碼。
+- **Include** 和 **Ignore** 參數可用來包含或排除測試分類。 請參閱[可用的測試](azure-stack-diagnostic-test.md#tests-available)一節，以取得更多用於這些引數的速記資訊。
 
-在 PEP 工作階段中執行：
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Test-AzureStack -ServiceAdminCredentials <Cloud administrator user name>
-````
-
-#### <a name="run-test-azurestack-without-cloud-scenarios"></a>執行 Test-AzureStack (沒有雲端案例)
-
-在 PEP 工作階段中執行：
-
-````PowerShell
-  $session = New-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Invoke-Command -Session $session -ScriptBlock {Test-AzureStack}
-````
-
-#### <a name="list-available-test-scenarios"></a>列出可用的測試案例：
-
-在 PEP 工作階段中執行：
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-  Test-AzureStack -List
-````
-
-#### <a name="run-a-specified-test"></a>執行指定的測試
-
-在 PEP 工作階段中執行：
-
-````PowerShell
-  Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
+  ```powershell
   Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
-````
+  ```
 
-若要排除特定測試：
+  ```powershell
+  Test-AzureStack -Ignore AzsInfraPerformance
+  ```
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Ignore AzsInfraPerformance
-````
+- 租用戶 VM 會隨著雲端案例測試而部署。 您可以使用 **DoNotDeployTenantVm** 來停用此功能。 
 
-### <a name="run-test-azurestack-to-test-infrastructure-backup-settings"></a>執行 Test-AzureStack 以測試基礎結構備份設定
+- 您必須提供 **ServiceAdminCredential** 參數來執行雲端案例測試，如[使用案例範例](azure-stack-diagnostic-test.md#use-case-examples)一節中所述。
 
-設定基礎結構備份之前，您可以使用 **AzsBackupShareAccessibility** 測試來測試備份共用路徑和認證。
+- 在測試基礎結構備份設定時，使用了 **BackupSharePath** 和 **BackupShareCredential**，如[使用案例範例](azure-stack-diagnostic-test.md#use-case-examples)一節中所示。
 
-在 PEP 工作階段中執行：
+- 驗證工具也支援一般 PowerShell 參數：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer、PipelineVariable 和 OutVariable。 如需詳細資訊，請參閱[關於一般參數](http://go.microsoft.com/fwlink/?LinkID=113216)。  
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
-````
-設定好備份之後，您可以從 PEP 工作階段中執行 AzsBackupShareAccessibility，來確認共用是否可以從 ERCS 進行存取：
+## <a name="use-case-examples"></a>使用案例範例
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility
-````
+### <a name="run-validation-without-cloud-scenarios"></a>執行沒有雲端案例的驗證
 
-若要對設定的備份共用測試新認證，請從 PEP 工作階段中執行：
+執行沒有 **ServiceAdminCredential** 參數的驗證工具，以略過執行雲端案例測試： 
 
-````PowerShell
-    Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint -Credential $localcred
-    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential <PSCredential for backup share>
-````
+```powershell
+New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred
+Test-AzureStack
+```
 
-### <a name="validation-test"></a>驗證測試
+### <a name="run-validation-with-cloud-scenarios"></a>執行具有雲端案例的驗證
 
-下表摘要說明 **Test-AzureStack** 所執行的驗證測試。
+依預設提供具有 **ServiceAdminCredentials** 參數的驗證工具，以執行雲端案例測試： 
 
-| 名稱                                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|
-| Azure Stack 雲端裝載基礎結構摘要                                                                                  |
-| Azure Stack 儲存體服務摘要                                                                                              |
-| Azure Stack 基礎結構角色執行個體摘要                                                                                  |
-| Azure Stack 雲端裝載基礎結構使用率                                                                              |
-| Azure Stack 基礎結構容量                                                                                               |
-| Azure Stack 入口網站和 API 摘要                                                                                                |
-| Azure Stack 的 Azure Resource Manager 憑證摘要                                                                                               |
-| 基礎結構管理控制器、網路控制器、儲存體服務和具有特殊權限的端點基礎結構角色          |
-| 基礎結構管理控制器、網路控制器、儲存體服務和具有特殊權限的端點基礎結構角色執行個體 |
-| Azure Stack 基礎結構角色摘要                                                                                           |
-| Azure Stack 雲端 Service Fabric 服務                                                                                         |
-| Azure Stack 基礎結構角色執行個體效能                                                                              |
-| Azure Stack 雲端主機效能摘要                                                                                        |
-| Azure Stack 服務資源耗用量摘要                                                                                  |
-| Azure Stack 縮放單位重大事件 (過去 8 小時)                                                                             |
-| Azure Stack 儲存體服務實體磁碟摘要                                                                               |
-|Azure Stack 備份共用的可及性摘要                                                                                     |
+```powershell
+Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" 
+```
+
+如果您希望僅執行雲端案例而不執行其餘測試，則可以使用 **Include** 參數來執行這項操作： 
+
+```powershell
+Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -ServiceAdminCredential "<Cloud administrator user name>" -Include AzsScenarios   
+```
+
+以 UPN 格式輸入雲端系統管理員的使用者名稱：serviceadmin@contoso.onmicrosoft.com (Azure AD)。 出現提示時，輸入雲端系統管理員帳戶的密碼。
+
+### <a name="run-validation-tool-to-test-system-readiness-before-installing-update-or-hotfix"></a>執行驗證工具，以在安裝更新或 Hotfix 之前先測試系統整備
+
+在開始安裝更新或 Hotfix 之前，應該執行驗證工具以檢查您的 Azure Stack 狀態：
+
+```powershell
+New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+```
+
+### <a name="run-validation-tool-to-test-infrastructure-backup-settings"></a>執行驗證工具以測試基礎結構備份設定
+
+設定基礎結構備份*之前*，您可以使用 **AzsBackupShareAccessibility** 測試來測試備份共用路徑和認證： 
+
+  ```powershell
+  New-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+  ```
+
+設定好備份*之後*，您可以執行 **AzsBackupShareAccessibility** 以驗證是否可以從 ERCS 存取共用：
+
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility
+  ```
+
+若要對設定的備份共用測試新認證，請執行： 
+
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS VM-name/IP address>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
+  ```
+
+
 
 ## <a name="next-steps"></a>後續步驟
 
- - 若要深入了解 Azure Stack 診斷工具和問題記錄的詳細資訊，請參閱 [Azure Stack 診斷工具](azure-stack-diagnostics.md)。
- - 若要深入了解疑難排解，請參閱 [Microsoft Azure Stack 疑難排解](azure-stack-troubleshooting.md)
+若要深入了解 Azure Stack 診斷工具和問題記錄的詳細資訊，請參閱 [Azure Stack 診斷工具](azure-stack-diagnostics.md)。
+
+若要深入了解疑難排解，請參閱 [Microsoft Azure Stack 疑難排解](azure-stack-troubleshooting.md)。

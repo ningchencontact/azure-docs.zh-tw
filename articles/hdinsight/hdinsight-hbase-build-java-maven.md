@@ -9,27 +9,27 @@ ms.topic: conceptual
 ms.date: 02/05/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: a7df61cad250663d4b08c8c8d32257718e2f37db
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: a88d4b09178ea32526cb8d035b47e1aef9c19dc3
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012833"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384225"
 ---
-# <a name="use-maven-to-build-java-applications-that-use-hbase-with-windows-based-hdinsight-hadoop"></a>使用 Maven 建置搭配使用 HBase 和以 Window 為基礎的 HDInsight (Hadoop) 的 Java 應用程式
-了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後在 Azure HDInsight (Hadoop) 中使用此應用程式。
+# <a name="use-apache-maven-to-build-java-applications-that-use-apache-hbase-with-windows-based-hdinsight-apache-hadoop"></a>使用 Apache Maven 來建置搭配使用 Apache HBase 和 Windows 型 HDInsight (Apache Hadoop) 的 Java 應用程式
+了解如何使用 Apache Maven 以 Java 建立和建置 [Apache HBase](http://hbase.apache.org/) 應用程式。 然後搭配 Azure HDInsight (Apache Hadoop) 使用此應用程式。
 
-[Maven](http://maven.apache.org/) 是軟體專案管理和理解工具，可讓您建置 Java 專案的軟體、文件及報告。 在本文中，您會了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
+[Apache Maven](http://maven.apache.org/) 是一個軟體專案管理和理解工具，可讓您建置適用於 Java 專案的軟體、文件及報表。 在本文中，您會了解如何用它來建立基本的 Java 應用程式，以便在 Azure HDInsight 叢集上建立、查詢和刪除 HBase 資料表。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的步驟需要一個使用 Windows 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="requirements"></a>需求
 * [Java platform JDK](https://aka.ms/azure-jdks) 7 或更新版本
-* [Maven](http://maven.apache.org/)
+* [Apache Maven](http://maven.apache.org/)
 * 搭配使用 HBase 和以 Windows 為基礎的 HDInsight 叢集
 
-    > [!NOTE]
+    > [!NOTE]  
     > 這份文件中的步驟已經過 HDInsight 叢集 3.2 版和 3.3 版的測試. 在範例中提供的預設值是 HDInsight 3.3 叢集。
 
 ## <a name="create-the-project"></a>建立專案
@@ -40,7 +40,7 @@ ms.locfileid: "51012833"
 
     此命令會在目前的位置建立目錄，其名稱由 **artifactID** 參數指定 (此範例中為 **hbaseapp**)。此目錄包含下列項目：
 
-   * **pom.xml**：專案物件模型 ([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案之資訊和組態的詳細資料。
+   * **pom.xml**：「專案物件模型」([POM](http://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) 包含用來建置專案的資訊和組態詳細資料。
    * **src**：含有 **main\java\com\microsoft\examples** 目錄的目錄，您將在此處撰寫應用程式。
 3. 刪除 **src\test\java\com\microsoft\examples\apptest.java** 檔案，因為此範例中不會用到。
 
@@ -53,9 +53,9 @@ ms.locfileid: "51012833"
           <version>1.1.2</version>
         </dependency>
 
-    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 儲存機制下載此相依性。 您可以使用 [Maven 中央儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar) ，進一步了解此相依性的詳細資訊。
+    此區段會告知 Maven，表示專案需要 **hbase-client** 版本 **1.1.2**。 編譯時，將會從預設 Maven 儲存機制下載此相依性。 您可以使用 [Apache Maven 中央儲存機制搜尋](http://search.maven.org/#artifactdetails%7Corg.apache.hbase%7Chbase-client%7C0.98.4-hadoop2%7Cjar)，以進一步了解此相依性。
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 版本號碼必須符合隨附於 HDInsight 叢集的 HBase 版本。 您可以使用下表來尋找正確的版本號碼。
    >
    >
@@ -65,7 +65,7 @@ ms.locfileid: "51012833"
    | 3.2 |0.98.4-hadoop2 |
    | 3.3 |1.1.2 |
 
-    如需 HDInsight 版本和元件的詳細資訊，請參閱 [HDInsight 提供的 Hadoop 元件有什麼不同](hdinsight-component-versioning.md)。
+    如需有關 HDInsight 版本和元件的詳細資訊，請參閱 [HDInsight 隨附哪些不同的 Apache Hadoop 元件](hdinsight-component-versioning.md)。
 2. 如果您使用 HDInsight 3.3 叢集，也必須將下列內容加入 `<dependencies>` 區段︰
 
         <dependency>
@@ -122,12 +122,12 @@ ms.locfileid: "51012833"
 
     `<resources>` 區段會設定包含 HBase 組態資訊的資源 (**conf\hbase-site.xml**)。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 您也可以透過程式碼來設定組態值。 相關作法請參閱接下來 **CreateTable** 範例中的註解。
    >
    >
 
-    此 `<plugins>` 區段會設定 [Maven Compiler 外掛程式](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Maven Shade 外掛程式](http://maven.apache.org/plugins/maven-shade-plugin/)。 Compiler 外掛程式用來編譯拓撲。 Shade 外掛程式用來防止以 Maven 所建置的 JAR 封裝發生授權重複。 使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。 使用 maven-shade-plugin 搭配 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
+    此 `<plugins>` 區段會設定 [Apache Maven Compiler 外掛程式](http://maven.apache.org/plugins/maven-compiler-plugin/)和 [Apache Maven Shade 外掛程式](http://maven.apache.org/plugins/maven-shade-plugin/)。 Compiler 外掛程式用來編譯拓撲。 Shade 外掛程式用來防止以 Maven 所建置的 JAR 封裝發生授權重複。 使用此項目的理由在於，重複的授權檔會導致 HDInsight 叢集在執行階段發生錯誤。 使用 maven-shade-plugin 搭配 `ApacheLicenseResourceTransformer` 實作可防止此錯誤。
 
     maven-shade-plugin 也會產生 uber jar (或 fat jar)，其含有應用程式需要的所有相依性。
 4. 儲存 **pom.xml** 檔案。
@@ -173,7 +173,7 @@ ms.locfileid: "51012833"
 
     此檔案用來載入 HDInsight 叢集的 HBase 組態。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 這是最小的 hbase-site.xml 檔案，其包含 HDInsight 叢集最低限度的設定。
 
 6. 儲存 **hbase-site.xml** 檔案。
@@ -357,11 +357,11 @@ ms.locfileid: "51012833"
     這會清除任何先前的組建成品、下載任何尚未安裝的相依性，然後建置並封裝應用程式。
 3. 指令完成後，**hbaseapp\target** 目錄會包含一個名為 **hbaseapp-1.0-SNAPSHOT.jar** 的檔案。
 
-   > [!NOTE]
+   > [!NOTE]  
    > **hbaseapp-1.0-SNAPSHOT.jar** 檔案是一個 uber jar (有時稱為 fat jar)，內含執行應用程式所需的所有相依性。
 
 ## <a name="upload-the-jar-file-and-start-a-job"></a>上傳 JAR 檔案並啟動工作
-有許多方法可將檔案上傳至 HDInsight 叢集，如 [在 HDInsight 中將 Hadoop 工作的資料上傳](hdinsight-upload-data.md)中所述。 下列步驟會使用 Azure PowerShell。
+有許多方法可將檔案上傳至 HDInsight 叢集，如 [在 HDInsight 中將 Apache Hadoop 工作的資料上傳](hdinsight-upload-data.md)中所述。 下列步驟會使用 Azure PowerShell。
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

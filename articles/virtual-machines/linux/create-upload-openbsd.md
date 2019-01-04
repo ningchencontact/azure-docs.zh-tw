@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: huishao
-ms.openlocfilehash: 33d7322bfa3c6e6143dd2d945c5ed86c15da2fb8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: de5d3fcd7eff0042e912e164050f917a0070b2c3
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249960"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164639"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>建立 OpenBSD 磁碟映像並上傳至 Azure
 本文說明如何建立及上傳包含 OpenBSD 作業系統的虛擬硬碟 (VHD)。 上傳之後，您可以使用它作為您自己的映像，在 Azure 中透過 Azure CLI 建立虛擬機器 (VM)。
@@ -68,7 +68,7 @@ ms.locfileid: "51249960"
     ln -sf /usr/local/bin/pydoc2.7  /usr/local/bin/pydoc
     ```
 
-6. 最新版的 Azure 代理程式一律可以在 [Github](https://github.com/Azure/WALinuxAgent/releases) 上找到。 安裝代理程式，如下所示：
+6. 最新版的 Azure 代理程式一律可以在 [GitHub](https://github.com/Azure/WALinuxAgent/releases) 上找到。 安裝代理程式，如下所示：
 
     ```sh
     git clone https://github.com/Azure/WALinuxAgent 

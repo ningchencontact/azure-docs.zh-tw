@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 35768aed3509d6ec5b73c64c7a8a6b132957ace1
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632725"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437583"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>在 HDInsight 中使用企業安全性套件
 
@@ -62,5 +62,5 @@ HDInsight 目前僅支援以 Azure AD DS 作為主要網域控制站，讓叢集
 ## <a name="next-steps"></a>後續步驟
 
 * [設定具有 ESP 的 HDInsight 叢集](apache-domain-joined-configure-using-azure-adds.md)
-* [為有 ESP 的 HDInsight 叢集設定 Hive 原則](apache-domain-joined-run-hive.md)
-* [管理有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md) 
+* [為具有 ESP 的 HDInsight 叢集設定 Apache Hive 原則](apache-domain-joined-run-hive.md)
+* [管理具有 ESP 的 HDInsight 叢集](apache-domain-joined-manage.md) 

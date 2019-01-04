@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8285632d8dea76763c65dd06e8be2d7494a47188
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215203"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838985"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>將 Azure Stack VM 複寫至 Azure
 
@@ -35,7 +35,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 > * **步驟 3：設定來源複寫環境**。 設定 Site Recovery 組態伺服器。 組態伺服器是一部 Azure Stack VM，可執行 Site Recovery 所需的所有元件。 組態伺服器設定完成後，您可在保存庫中註冊它。
 > * **步驟 4：設定目標複寫環境**。 選取您的 Azure 帳戶、Azure 儲存體帳戶，以及您要使用的網路。 複寫期間，VM 資料會複製到 Azure 儲存體。 容錯移轉之後，Azure VM 會加入指定的網路。
 > * **步驟 5：啟用複寫**。 設定複寫設定，並啟用 VM 複寫。 複寫啟用時，行動服務將會安裝在 VM 上。 Site Recovery 會執行 VM 的初始複寫，接著開始持續不間斷的複寫。
-> * **步驟 6：執行災難復原演練**：複寫啟動並運作時，請透過執行演練確認容錯移轉能如預期般運作。 若要展開演練，請在 Site Recovery 中執行測試容錯移轉。 測試容錯移轉不會影響生產環境。
+> * **步驟 6：執行災害復原演練**：複寫啟動並運作時，請透過執行演練確認容錯移轉能如預期般運作。 若要展開演練，請在 Site Recovery 中執行測試容錯移轉。 測試容錯移轉不會影響生產環境。
 
 這些步驟完成時，您可以視需要執行完整容錯移轉至 Azure。
 
@@ -45,7 +45,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 **位置** | **元件** |**詳細資料**
 --- | --- | ---
-**組態伺服器** | 在單一 Azure Stack VM 上執行。 | 在每個訂用帳戶中，設定組態伺服器 VM。 此 VM 會執行下列 Site Recovery 元件：<br/><br/> - 組態伺服器：負責協調內部部署與 Azure 之間的通訊，以及管理資料複寫。 - 處理序伺服器：作為複寫閘道。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 如果您要複寫的 VM 超過以下所述的限制，您可以設定個別的獨立處理序伺服器。 [深入了解](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale)。
+**組態伺服器** | 在單一 Azure Stack VM 上執行。 | 在每個訂用帳戶中，設定組態伺服器 VM。 此 VM 會執行下列 Site Recovery 元件：<br/><br/> - 組態伺服器：負責協調內部部署與 Azure 之間的通訊，以及管理資料複寫。 - 處理序伺服器：會做為複寫閘道器。 負責接收複寫資料，以快取、壓縮和加密進行最佳化，然後將複寫資料傳送至 Azure 儲存體。<br/><br/> 如果您要複寫的 VM 超過以下所述的限制，您可以設定個別的獨立處理序伺服器。 [深入了解](https://docs.microsoft.com/azure/site-recovery/vmware-azure-set-up-process-server-scale)。
 **行動服務** | 安裝在您要複寫的每部 VM 上。 | 在本文的步驟中，我們準備了一個帳戶，讓行動服務會在複寫啟用時自動安裝在 VM 上。 如果您不想要自動安裝服務，還有一些其他方法可以使用。 [深入了解](https://docs.microsoft.com/azure/site-recovery/vmware-azure-install-mobility-service)。
 **Azure** | 在 Azure 中，您需要復原服務保存庫、儲存體帳戶，以及虛擬網路。 |  複寫的資料會儲存在儲存體帳戶中。 當容錯移轉發生時，Azure VM 會新增至 Azure 網路。 
 
@@ -104,7 +104,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
     - 如果您未使用網域帳戶，您必須停用 VM 上的遠端使用者存取控制：
         - 在登錄中，在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 下方建立 DWORD 值 **LocalAccountTokenFilterPolicy**。
         - 將值設定為 1。
-        - 若要在命令提示字元進行，請輸入以下內容：**REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**。
+        - 若要在命令提示字元這麼做，請輸入下列命令：**REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1**。
 - 在所要複寫 VM 上的 Windows 防火牆中，允許「檔案及印表機共用」和 WMI。
     - 做法是，執行 [wf.msc] 開啟 [Windows 防火牆] 主控台。 以滑鼠右鍵按一下 [輸入規則]   >  [新增規則]。 選取 [預先定義]，然後選取清單中的 [檔案及印表機共用]。 完成精靈，選取允許連線 > [完成]。
     - 對於網域電腦，您可以使用 GPO 這樣做。
@@ -162,7 +162,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
     ![保護目標](./media/azure-stack-site-recovery/protection-goal.png)
 
-## <a name="step-3-set-up-the-source-environment"></a>步驟 3︰設定來源環境
+## <a name="step-3-set-up-the-source-environment"></a>步驟 3：設定來源環境
 
 設定組態伺服器機器、在保存庫中註冊它，然後探索您要複寫的機器。
 
@@ -193,7 +193,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 > 可能需要 15 分鐘以上，帳戶名稱才會出現在入口網站。 若要立即更新，請選取 [設定伺服器] > 伺服器名稱 > [重新整理伺服器]。
 
-## <a name="step-4-set-up-the-target-environment"></a>步驟 4︰設定目標環境
+## <a name="step-4-set-up-the-target-environment"></a>步驟 4：設定目標環境
 
 選取並確認目標資源。
 
@@ -278,7 +278,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 
 1. 程式會進行必要條件檢查，以確保所有容錯移轉所需之條件都已準備就緒。
 2. 容錯移轉使用指定的復原點處理資料：
-    - **最近處理**：機器容錯移轉到 Site Recovery 所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
+    - **最新處理**︰機器會容錯移轉到 Site Recovery 所處理的最新復原點。 隨即顯示時間戳記。 使用此選項時，無須花費時間處理資料，因此它會提供低 RTO (復原時間目標)。
     - **最近的應用程式一致**：機器容錯移轉到最新的應用程式一致復原點。
     - **自訂**。 選取用於容錯移轉的復原點。
 
@@ -314,7 +314,7 @@ Site Recovery 有助於商務持續性和災害復原 (BCDR) 策略的進行。 
 7. 驗證 VM 後，按一下 [認可] 完成容錯移轉。 這會刪除所有可用的復原點。
 
 > [!WARNING]
-> 不要取消正在進行的容錯移轉：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。
+> 請勿取消正在進行中的容錯移轉：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。
 
 
 ### <a name="fail-back-to-azure-stack"></a>容錯回復至 Azure Stack

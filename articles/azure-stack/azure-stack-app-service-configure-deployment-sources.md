@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: d65c8653bc039b591f1c0fb711dfe68e3fbacd88
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 66688ae762aa646fc72045836c4ec4671bf4b7b4
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353556"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52888506"
 ---
 # <a name="configure-deployment-sources"></a>設定部署來源
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨選部署。 這項功能讓應用程式開發人員直接從其原始檔控制儲存機制進行部署。 如果使用者要設定 App Service 以連線至其儲存機制，雲端操作員必須先設定 Azure App Service on Azure Stack 與原始檔控制提供者之間的整合。  
 
@@ -38,7 +38,8 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 ## <a name="view-deployment-sources-in-app-service-administration"></a>檢視 App Service 管理中的部署來源
 
 1. 以服務管理員身分登入 Azure Stack 管理入口網站 (https://adminportal.local.azurestack.external)。
-2. 瀏覽至 [資源提供者]，然後選取 [App Service 資源提供者管理]。![App Service 資源提供者管理][1]
+2. 瀏覽至 [所有服務]，然後選取 [App Service]。
+    ![App Service 資源提供者管理][1]
 3. 按一下 [原始檔控制組態]。 您會看見所有已設定的部署來源清單。
     ![App Service 資源提供者管理原始檔控制組態][2]
 
@@ -74,7 +75,7 @@ Azure Stack 上的 App Service 支援從多個原始檔控制提供者進行隨�
 6. 輸入 **URL**。 此 URL 應為 Azure Stack 入口網站 URL；例如 https://portal.local.azurestack.external。
 7. 選取需要的 [權限]：
     - **存放庫**：*讀取*
-    - **Webhook**：*讀取和寫入*
+    - **Webhook**：*讀取及寫入*
 8. 按一下 [檔案] 。 您現在會看到這個新的應用程式，以及 [OAuth 取用者] 底下的 [金鑰] 和 [密碼]。
     ![BitBucket 應用程式清單][9]
 9.  在新的瀏覽器索引標籤或視窗中，以服務管理員身分登入 Azure Stack 管理入口網站 (https://adminportal.local.azurestack.external)。

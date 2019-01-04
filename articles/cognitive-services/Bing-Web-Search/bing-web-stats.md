@@ -1,7 +1,7 @@
 ---
-title: Bing Web 搜尋分析 - Bing Web 搜尋 API
+title: 將分析新增至 Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
-description: 說明如何取得 Bing Web 搜尋 API 的分析。
+description: Bing 統計資料可為 Bing 影像搜尋 API 提供分析。 Analytics 包括呼叫量、熱門查詢字串、地理分佈等等。
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
@@ -10,13 +10,14 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: scottwhi
-ms.openlocfilehash: 1f90bc5f1de1462c4b0caa09201a10bf2275ece2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.custom: seodec2018
+ms.openlocfilehash: 858c86eb17133d663d7f3398a68f292811f55aed
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129092"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259727"
 ---
-# <a name="analytics-for-the-bing-web-search-api"></a>Bing Web 搜尋 API 的分析
+# <a name="add-analytics-to-the-bing-web-search-api"></a>將分析新增至 Bing Web 搜尋 API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

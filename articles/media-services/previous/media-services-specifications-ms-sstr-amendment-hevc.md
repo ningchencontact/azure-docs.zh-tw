@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 6330de2aa67fd83a5d4762c2c13d4916f642743d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250929"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317408"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>HEVC 的 Smooth Streaming 通訊協定 (MS-SSTR) 增修條款
 
@@ -58,14 +58,13 @@ ms.locfileid: "51250929"
 
 >   **「可能」、「應該」、「必須」、「不應」、「不可」：** 這些字詞 (全都會加上引號) 的用法如 [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) 所說明。 選擇性行為的所有陳述均使用「可能」、「應該」或「不應」。
 
-## <a name="12-references"></a>1.2 參考 
------------
+## <a name="12-references"></a>1.2 參考
 
 >   對 Microsoft Open Specifications 文件的參考不包含發行年份，因為連結會連至經常更新的最新版文件。 對其他文件的參考則包含發行年份 (如果有的話)。
 
- ### <a name="121-normative-references"></a>1.2.1 標準參考 
+### <a name="121-normative-references"></a>1.2.1 標準參考 
 
->  [MS-SSTR] Smooth Streaming 通訊協定 *v20140502* [http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/[MS-SSTR].pdf](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+>  [MS-SSTR] Smooth Streaming Protocol *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 
 >   [ISO/IEC 14496-12] 國際標準化組織，「資訊技術 -- 音訊-視覺化物件的編碼 -- 第 12 部分：ISO Base Media 檔案格式」，ISO/IEC 14496-12:2014，第4 版，Plus Corrigendum 1，修訂文件 1 和 2。
 >   <http://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -93,24 +92,18 @@ ms.locfileid: "51250929"
 
 
 ## <a name="13-overview"></a>1.3 概觀 
----------
 
 >   以下僅指出傳遞 HEVC 所需的 Smooth Streaming 規格變更。 未變更的小節會列出標題，以依照參考的 Smooth Streaming 規格 [MS-SSTR] 保有相對位置。
 
 ## <a name="14-relationship-to-other-protocols"></a>1.4 與通訊協定的關聯性 
---------------------------------
 
 ## <a name="15-prerequisitespreconditions"></a>1.5 先決條件/前置條件 
-----------------------------
 
 ## <a name="16-applicability-statement"></a>1.6 適用性陳述 
-------------------------
 
 ## <a name="17-versioning-and-capability-negotiation"></a>1.7 版本設定和功能交涉 
---------------------------------------
 
 ## <a name="18-vendor-extensible-fields"></a>1.8 廠商可延伸欄位 
--------------------------
 
 >   「應該」使用下列方法來識別使用 HEVC 視訊格式的資料流：
 
@@ -118,15 +111,12 @@ ms.locfileid: "51250929"
 >   實作者可將延伸模組註冊至 MPEG4-RA，以確保延伸模組不會衝突，如 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 所指定
 
 ## <a name="19-standards-assignments"></a>1.9 標準指派 
-----------------------
 
-# <a name="2-messages"></a>2 訊息 
+## <a name="2-messages"></a>2 訊息 
 
-## <a name="21-transport"></a>2.1 傳輸 
-----------
+## <a name="21-transport"></a>2.1 傳輸
 
 ## <a name="22-message-syntax"></a>2.2 訊息語法 
----------------
 
 ### <a name="221-manifest-request"></a>2.2.1 資訊清單要求 
 
@@ -211,7 +201,7 @@ ms.locfileid: "51250929"
 
 >   **TfhdBox** 和相關欄位中包含片段中每個樣本中繼資料的預設值。 **TfhdBox** 欄位的語法是 [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695) 的 8.8.7 條款所定義之「磁軌片段標題方塊」的嚴格語法子集。
 
->   **BaseDataOffset (8 位元組)：**，從 **MdatBox** 欄位開頭到 **MdatBox** 欄位中的樣本欄位的位移 (以位元組為單位)。 若要指出此限制，必須設定 default-base-is-moof 旗標 (0x020000)。
+>   **BaseDataOffset (8 位元組)：** 從 **MdatBox** 欄位開頭到 **MdatBox** 欄位中的樣本欄位的位移 (以位元組為單位)。 若要指出此限制，必須設定 default-base-is-moof 旗標 (0x020000)。
 
 #### <a name="2247-trunbox"></a>2.2.4.7 TrunBox 
 
@@ -273,7 +263,7 @@ ms.locfileid: "51250929"
 
 ### <a name="228-server-to-server-ingest"></a>2.2.8 伺服器對等內嵌 
 
-# <a name="3-protocol-details"></a>3 通訊協定詳細資料 
+## <a name="3-protocol-details"></a>3 通訊協定詳細資料 
 
 
 ## <a name="31-client-details"></a>3.1 用戶端詳細資料 
@@ -354,19 +344,17 @@ ms.locfileid: "51250929"
 
 ## <a name="33-live-encoder-details"></a>3.3 即時編碼器詳細資料 
 
-# <a name="4-protocol-examples"></a>4 通訊協定範例 
+## <a name="4-protocol-examples"></a>4 通訊協定範例 
 
-# <a name="5-security"></a>5 安全性 
+## <a name="5-security"></a>5 安全性 
 
-## <a name="51-security-considerations-for-implementers"></a>5.1 實作者的安全性考量 
------------------------------------------
+## <a name="51-security-considerations-for-implementers"></a>5.1 實作者的安全性考量
 
 >   如果使用此通訊協定傳輸的內容具有高度商業價值，則應使用「內容保護系統」來防止未經授權者使用該內容。 **ProtectionElement** 可用來傳輸與「內容保護系統」的使用有關的中繼資料。 受保護的音訊和視訊內容「應該」依照 MPEG 一般加密第二版：2015 [ISO/IEC 23001-7] 中的指定進行加密。
 
 >   **注意**：對於 HEVC 視訊，只有 VCL NAL 中的配量資料會加密。 配量標題和其他 NAL 可在解密之前由顯示應用程式存取。 在安全的視訊路徑中，顯示應用程式無法使用加密資訊。
 
-# <a name="52-index-of-security-parameters"></a>5.2 安全性參數的索引 
------------------------------
+## <a name="52-index-of-security-parameters"></a>5.2 安全性參數的索引 
 
 
 | **安全性參數**  | **小節**         |
@@ -374,8 +362,7 @@ ms.locfileid: "51250929"
 | ProtectionElement       | *2.2.2.2*           |
 | 一般加密方塊 | *[ISO/IEC 23001-7]* |
 
-# <a name="53-common-encryption-boxes"></a>5.3 一般加密方塊
------------------------
+## <a name="53-common-encryption-boxes"></a>5.3 一般加密方塊
 
 下列方塊可在一般加密套用時顯示於片段回應中，並且會指定於 [ISO/IEC 23001-7] 或 [ISO/IEC 14496-12] 中：
 

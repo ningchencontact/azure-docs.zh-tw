@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務的 API 版本 | Microsoft Docs
+title: .NET SDK 與 REST API 的 API 版本管理 - Azure 搜尋服務
 description: Azure 搜尋服務 REST API 與 .NET SDK 中用戶端程式庫的版本原則。
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: brjohnst
-ms.openlocfilehash: 8d1e30b0bca3c63fe4528c06e5389d8cbe27a7e6
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.custom: seodec2018
+ms.openlocfilehash: 0cf5cac341cb36029c09ee2da5477323fac79cf5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113600"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311638"
 ---
 # <a name="api-versions-in-azure-search"></a>Azure 搜尋服務中的 API 版本
 「Azure 搜尋服務」會定期推出功能更新。 有時候 (但並不一定)，這些更新會需要新版本的 API，以維持回溯相容性。 發行新版本可讓您控制在程式碼中整合搜尋服務更新的時機與方式。
@@ -56,6 +57,6 @@ Azure 搜尋服務一律會先透過 REST API 預先推出實驗性功能，然�
 
 基於這些原因，建議您避免撰寫依存於預覽版本的實際程式碼。 如果您正在使用舊版預覽版本，建議您移轉到正式推出的 (GA) 版本。
 
-如需程式碼移轉的 .NET SDK：指南，請參閱 [升級 .NET SDK](search-dotnet-sdk-migration.md)。
+如需 .NET SDK：程式碼移轉指南，請參閱[升級 .NET SDK](search-dotnet-sdk-migration.md)。
 
 正式推出意指 Azure 搜尋服務已受到服務等級協定 (SLA) 約束。 SLA 可以在 [Azure 搜尋服務等級協定](https://azure.microsoft.com/support/legal/sla/search/v1_0/)中找到。

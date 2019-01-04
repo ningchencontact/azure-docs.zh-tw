@@ -2,21 +2,21 @@
 title: 使用 Azure 資料庫移轉服務來監視移轉活動 | Microsoft Docs
 description: 深入了解如何使用 Azure 資料庫移轉服務來監視移轉活動。
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 78ad7a503cb2c99b9dac19a5500a01c8f7b7bfc3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 12/14/2018
+ms.openlocfilehash: a315e8b42ab8e0df659a3388a50fedf5dd3a54d2
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413059"
 ---
 # <a name="monitor-migration-activity"></a>監視移轉活動
 在本文中，您會學習如何在資料庫層級與資料表層級監視移轉的進度。
@@ -24,7 +24,7 @@ ms.locfileid: "43045393"
 ## <a name="monitor-at-the-database-level"></a>在資料庫層級監視
 若要在資料庫層級監視活動，請檢視資料庫層級刀鋒視窗：
 
-![資料庫層級刀鋒視窗](media\how-to-monitor-migration-activity\dms-database-level-blade.png)
+![資料庫層級刀鋒視窗](media/how-to-monitor-migration-activity/dms-database-level-blade.png)
 
 > [!NOTE]
 > 選取資料庫超連結，會顯示資料表清單及其移轉進度。
@@ -104,7 +104,7 @@ ms.locfileid: "43045393"
 
 刀鋒視窗的下半部會列出資料表，並顯示移轉進度的快速摘要。
 
-![資料表層級刀鋒視窗 - 快速摘要](media\how-to-monitor-migration-activity\dms-table-level-blade-summary.png)
+![資料表層級刀鋒視窗 - 快速摘要](media/how-to-monitor-migration-activity/dms-table-level-blade-summary.png)
 
 下表描述了資料表層級詳細資料中所顯示的欄位。
 
@@ -123,9 +123,9 @@ ms.locfileid: "43045393"
 ## <a name="monitor-at-table-level--detailed-summary"></a>在資料表層級監視 - 詳細摘要
 有兩個索引標籤，顯示完整載入和累加式資料同步的移轉進度。
     
-![完整載入索引標籤](media\how-to-monitor-migration-activity\dms-full-load-tab.png)
+![完整載入索引標籤](media/how-to-monitor-migration-activity/dms-full-load-tab.png)
 
-![累加式資料同步索引標籤](media\how-to-monitor-migration-activity\dms-incremental-data-sync-tab.png)
+![累加式資料同步索引標籤](media/how-to-monitor-migration-activity/dms-incremental-data-sync-tab.png)
 
 下表描述了資料表層級移轉進度中所顯示的欄位。
 
@@ -136,7 +136,7 @@ ms.locfileid: "43045393"
 | 更新 | 套用到目標的資料列中，CDC 更新的數目。      |
 | **刪除**      | 套用到目標的資料列中，CDC 刪除的數目。 |
 | **套用項目總計**      | 套用到目標的資料列中，CDC 更新、插入及刪除的總數。 |
-| **資料錯誤** | 此資料表中發生的資料錯誤數目。 錯誤的一些範例是「511：無法建立大小為 %d 的資料列，這個大小大於可允許的資料列大小上限 %d，8114：將資料類型 %ls 轉換為 %ls 時發生錯誤。」  客戶應該從 Azure 目標中的 attms_apply_exceptions 資料表查詢，以查看錯誤詳細資料。    |
+| **資料錯誤** | 此資料表中發生的資料錯誤數目。 這些錯誤的一些範例包括：*511：無法建立大小為 %d 的資料列，這個大小大於允許的資料列大小上限 %d。8114：將資料類型從 %ls 轉換到 %ls 時發生錯誤。*  客戶應該從 Azure 目標中的 dms_apply_exceptions 資料表查詢，以查看錯誤詳細資料。    |
 
 > [!NOTE]
 > 當資料庫完全移轉或重新啟動移轉時，插入、更新、刪除及套用項目總計的 CDC 值可能會減少。

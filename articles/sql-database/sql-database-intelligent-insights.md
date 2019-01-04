@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
-ms.author: v-daljep
+ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e8608782c71f8afc2ae32b16077cb26b5dcc6849
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976177"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278129"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
 
@@ -87,7 +87,7 @@ Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的�
 > 快速入門：開始使用 Intelligent Insights 的最簡單方式是將它與 Azure SQL 分析搭配使用，以提供資料庫效能問題的圖形化使用者介面。 從市集新增 Azure SQL 分析解決方案，並在此解決方案內建立工作區，然後針對您想要在其上啟用 Intelligent Insights 的每個資料庫，在資料庫的 [診斷設定] 刀鋒視窗中設定將 "SQLInsights" 記錄串流處理到 Azure SQL 分析的工作區。
 >
 
-預先需求是將 Azure SQL 分析從市集新增至 Azure 入口網站儀表板，以及建立工作區，請參閱[設定 Azure SQL 分析](../log-analytics/log-analytics-azure-sql.md#configuration)
+預先需求是將 Azure SQL 分析從市集新增至 Azure 入口網站儀表板，以及建立工作區，請參閱[設定 Azure SQL 分析](../azure-monitor/insights/azure-sql.md#configuration)
 
 若要搭配使用 Intelligent Insights 與 Azure SQL 分析，請將 Intelligent Insights 記錄資料設定為串流處理到您在上個步驟中建立的 Azure SQL 分析工作區，請參閱 [Azure SQL Database 計量和診斷記錄](sql-database-metrics-diag-logging.md)。
 
@@ -179,5 +179,5 @@ Intelligent Insights 記錄會輸出發生錯誤之要求的計數。 它會指�
 
 - 了解如何[使用 Intelligent Insights 針對 SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
 - 使用 [Intelligent Insights SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
-- 了解如何[使用 SQL 分析來監視 SQL Database](../log-analytics/log-analytics-azure-sql.md)。
+- 了解如何[使用 SQL 分析來監視 SQL Database](../azure-monitor/insights/azure-sql.md)。
 - 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。

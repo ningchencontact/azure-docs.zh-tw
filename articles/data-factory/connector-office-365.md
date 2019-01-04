@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 82fb2241b5988bae9587807c03e7bec50e7c1677
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f76c1676e21e1abdc3f23e2e2c4a7f6f721fefdb
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955368"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386565"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>使用 Azure Data Factory 將資料從 Office 365 複製到 Azure (預覽) 
 
@@ -34,7 +34,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 >- 包含資料處理站和接收資料存放區的 Azure 訂用帳戶必須與 Office 365 租用戶位於相同的 Azure Active Directory (Azure AD) 租用戶下。
 >- 請確定用於複製活動的 Azure Integration Runtime 地區以及目的地與 Office 365 租用戶使用者的信箱所在區域相同。 若要了解如何判斷 Azure IR 位置，請參閱[這裡](concepts-integration-runtime.md#integration-runtime-location)。 如需支援的 Office 區域和對應的 Azure 區域清單，請參閱[以下資料表](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Capabilities#data-regions)。
 >-  如果您將 Office 365 資料載入作為目的地的 **Azure Blob 儲存體**，請確定您在定義 Azure Blob 儲存體的連結服務時是使用**[服務主體驗證](connector-azure-blob-storage.md#service-principal-authentication)**，而不是使用[帳戶金鑰](connector-azure-blob-storage.md#account-key-authentication)、[共用的存取簽章](connector-azure-blob-storage.md#shared-access-signature-authentication)或是[適用於 Azure 資源的受控識別](connector-azure-blob-storage.md#managed-identity)驗證。
->-  如果您將 Office 365 資料載入作為目的地的 **Azure Data Lake Storage Gen1**，請確定您在定義 Azure Data Lake Storage Gen1 的連結服務時是使用[**服務主體驗證**](connector-azure-data-lake-store.md#using-service-principal-authentication)，而不是使用[適用於 Azure 資源的受控識別驗證](connector-azure-data-lake-store.md#managed-identity)。
+>-  如果您將 Office 365 資料載入作為目的地的 **Azure Data Lake Storage Gen1**，請確定您在定義 Azure Data Lake Storage Gen1 的連結服務時是使用[**服務主體驗證**](connector-azure-data-lake-store.md#use-service-principal-authentication)，而不是使用[適用於 Azure 資源的受控識別驗證](connector-azure-data-lake-store.md#managed-identity)。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -79,7 +79,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 類型屬性必須設為：**Office365** | 是 |
+| type | 類型屬性必須設定為：**Office365** | 是 |
 | office365TenantId | Office 365 帳戶所屬的 Azure 租用戶識別碼。 | 是 |
 | servicePrincipalTenantId | 指定您 Azure AD Web 應用程式所在的租用戶資訊。 | 是 |
 | servicePrincipalId | 指定應用程式的用戶端識別碼。 | 是 |
@@ -119,7 +119,7 @@ Azure Data Factory 可讓您將 Office 365 租用戶中豐富的組織資料以�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 資料集的 type 屬性必須設定為：**Office365Table** | 是 |
+| type | 資料集的類型屬性必須設定為：**Office365Table** | 是 |
 | tableName | 擷取自 Office 365 的資料集名稱。 如需可供擷取的 Office 365 資料集清單，請參閱[這裡](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets)。 | 是 |
 | 述詞 | 述詞運算式，可用來篩選要從 Office 365 中擷取的特定資料列。  請參閱[這裡](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters)，了解每個資料表中有哪些資料行可用於述詞篩選，以及篩選條件運算式的格式。 | 否<br>(如果沒有提供任何述詞，預設值是擷取過去 30 天的資料) |
 

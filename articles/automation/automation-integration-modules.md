@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4bd6a3e39fbb5d1eea4d7770d8940f801aecd43
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 7b7bd66d90ad01479965c928eb69bfb1dfccce5b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276478"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53000214"
 ---
 # <a name="azure-automation-integration-modules"></a>Azure 自動化整合模組
 PowerShell 是 Azure 自動化背後的基本技術。 由於 Azure 自動化的基礎是 PowerShell，PowerShell 模組會是 Azure 自動化的擴充性關鍵。 本文會引導您了解 Azure 自動化在使用 PowerShell 模組 (稱為「整合模組」) 方面的細節以及用來建立自有 PowerShell 模組的最佳做法，以確保 PowerShell 模組可作為 Azure 自動化內的整合模組。 
@@ -74,7 +74,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
     #>
     function Get-TwilioPhoneNumbers {
     [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-    HelpUri='http://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
+    HelpUri='https://www.twilio.com/docs/api/rest/outgoing-caller-ids')]
     param(
        [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
        [ValidateNotNullOrEmpty()]
@@ -136,7 +136,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
     ```powershell
     function Send-TwilioSMS {
       [CmdletBinding(DefaultParameterSetName='SpecifyConnectionFields', `
-      HelpUri='http://www.twilio.com/docs/api/rest/sending-sms')]
+      HelpUri='https://www.twilio.com/docs/api/rest/sending-sms')]
       param(
          [Parameter(ParameterSetName='SpecifyConnectionFields', Mandatory=$true)]
          [ValidateNotNullOrEmpty()]
@@ -158,7 +158,7 @@ PowerShell 模組是一組 PowerShell Cmdlet (例如 **Get-Date** 或 **Copy-Ite
     ```
    <br>
 1. 為模組中的所有 Cmdlet 定義輸出類型。 為 Cmdlet 定義輸出類型，可讓設計階段 IntelliSense 協助您判斷 Cmdlet 的輸出屬性，以供在撰寫期間使用。 在圖形化撰寫自動化 Runbook 期間，它會特別有幫助，因為設計階段的知識是讓模組的使用者獲得容易使用體驗的關鍵。<br><br> ![圖形化 Runbook 輸出類型](media/automation-integration-modules/runbook-graphical-module-output-type.png)<br> 這類似於 Cmdlet 在 PowerShell ISE 中的輸出的「自動提示」功能，但不需要加以執行。<br><br> ![POSH IntelliSense](media/automation-integration-modules/automation-posh-ise-intellisense.png)<br>
-1. 模組中的 Cmdlet 不應該採用複雜物件類型來做為參數。 PowerShell 工作流程與 PowerShell 的不同之處在於，它會以還原序列化的形式儲存複雜類型。 基本類型會保持基本，但複雜類型則會轉換為已還原序列化的版本，基本上來說也就是屬性包。 例如，如果您在 Runbook 使用 **Get-Process** Cmdlet (或任何類似用途的 PowerShell 工作流程)，它會傳回類型為 [Deserialized.System.Diagnostic.Process] 的物件，而非預期的 [System.Diagnostic.Process] 類型。 這個類型擁有和非還原序列化類型相同的屬性，但沒有任何方法。 而且如果您嘗試將此值作為參數傳遞至 Cmdlet，而此 Cmdlet 預期此參數要有 [System.Diagnostic.Process] 值，則您會收到下列錯誤︰*「無法處理參數 'process' 的引數轉換。錯誤：「無法將類型為 "Deserialized.System.Diagnostics.Process" 的 "System.Diagnostics.Process (CcmExec)" 值，轉換為 "System.Diagnostics.Process" 類型。」*   這是因為預期的 [System.Diagnostic.Process] 類型和給定的 [Deserialized.System.Diagnostic.Process] 類型不相符。 此問題的解決方式是確保模組的 Cmdlet 不會採用複雜類型來做為參數。 以下是錯誤的處理方式。
+1. 模組中的 Cmdlet 不應該採用複雜物件類型來做為參數。 PowerShell 工作流程與 PowerShell 的不同之處在於，它會以還原序列化的形式儲存複雜類型。 基本類型會保持基本，但複雜類型則會轉換為已還原序列化的版本，基本上來說也就是屬性包。 例如，如果您在 Runbook 使用 **Get-Process** Cmdlet (或任何類似用途的 PowerShell 工作流程)，它會傳回類型為 [Deserialized.System.Diagnostic.Process] 的物件，而非預期的 [System.Diagnostic.Process] 類型。 這個類型擁有和非還原序列化類型相同的屬性，但沒有任何方法。 而且如果您嘗試將此值作為參數傳遞至 Cmdlet，而此 Cmdlet 預期此參數要有 [System.Diagnostic.Process] 值，則您會收到下列錯誤︰*無法處理參數 'process' 的引數轉換。Error:「無法將類型為 "Deserialized.System.Diagnostics.Process" 的 "System.Diagnostics.Process (CcmExec)" 值，轉換為 "System.Diagnostics.Process" 類型。」*   這是因為預期的 [System.Diagnostic.Process] 類型和給定的 [Deserialized.System.Diagnostic.Process] 類型不相符。 此問題的解決方式是確保模組的 Cmdlet 不會採用複雜類型來做為參數。 以下是錯誤的處理方式。
    
     ```powershell
     function Get-ProcessDescription {

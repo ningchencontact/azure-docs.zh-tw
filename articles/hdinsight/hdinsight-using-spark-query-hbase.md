@@ -9,16 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: 1136d97ad1c1d02320331e6d2013b68526d5abb4
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277886"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408849"
 ---
-# <a name="use-spark-to-read-and-write-hbase-data"></a>使用 Spark 來讀取和寫入 HBase 資料
+# <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 來讀取和寫入 Apache HBase 資料
 
-Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoenix 以 SQL 語法來查詢。 Apache 也提供 Spark HBase Connector，這是查詢及修改 HBase 儲存之資料的方便且高效能替代方式。
+Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache Phoenix 以 SQL 語法來查詢。 Apache 也提供 Apache Spark HBase Connector，這是查詢及修改 HBase 儲存之資料的方便且高效能替代方式。
 
 ## <a name="prerequisites"></a>必要條件
 
@@ -38,9 +38,9 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoeni
 5. 定義目錄，該目錄將結構描述從 Spark 對應至 HBase。
 6. 使用 RDD 或 DataFrame API 與 HBase 資料進行互動。
 
-## <a name="prepare-sample-data-in-hbase"></a>在 HBase 中準備範例資料
+## <a name="prepare-sample-data-in-apache-hbase"></a>在 Apache HBase 中準備範例資料
 
-在此步驟中，您會在 HBase 中建立並填入簡單的資料表，然後您可以使用 Spark 查詢。
+在此步驟中，您會在 Apache HBase 中建立並填入簡單的資料表，然後您可以使用 Spark 查詢。
 
 1. 使用 SSH 連線到 HBase 叢集的前端節點。 如需詳細資訊，請參閱[使用 SSH 連線至 HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)。
 2. 執行 HBase Shell：
@@ -132,7 +132,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoeni
 
 ## <a name="define-a-catalog-and-query"></a>定義目錄和查詢
 
-在這個步驟中，您會定義目錄物件，該目錄物件將結構描述從 Spark 對應至 HBase。 
+在這個步驟中，您會定義目錄物件，該目錄物件將結構描述從 Apache Spark 對應至 Apache HBase。 
 
 1. 在開啟的 Spark Shell 中，執行下列 `import` 陳述式：
 
@@ -244,4 +244,4 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Phoeni
 
 ## <a name="next-steps"></a>後續步驟
 
-* [Spark HBase Connector](https://github.com/hortonworks-spark/shc)
+* [Apache Spark HBase Connector](https://github.com/hortonworks-spark/shc)

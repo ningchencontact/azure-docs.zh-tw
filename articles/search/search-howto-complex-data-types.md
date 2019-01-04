@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure 搜尋服務中模型化複雜資料類型 | Microsoft Docs
+title: 如何將複雜資料類型模型化 - Azure 搜尋服務
 description: 在 Azure 搜尋服務索引中，可以使用扁平化資料列集和 Collections 資料類型來模型化巢狀或階層式資料結構。
 author: brjohnstmsft
 manager: jlembicz
@@ -9,12 +9,13 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 05/01/2017
-ms.openlocfilehash: 81298bedd43a89ea948753dffc5f80248f5429ca
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 973623d6c4cb57518af2012bccf67c969146d23c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799068"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311978"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>如何在 Azure 搜尋服務中模型化複雜資料類型
 用來填入 Azure 搜尋服務索引的外部資料集，有時包含不會整齊細分成表格式資料列集的階層式或巢狀子結構。 這類結構的範例可能包含單一客戶的多個位置和電話號碼、單一 SKU 的多種色彩和大小、單一書籍的多位作者等等。 就模型化而論，您可能會看到這些結構稱之為「複雜資料類型」、「複合資料類型」、「合成資料類型」或「彙總資料類型」等等。
@@ -65,14 +66,14 @@ Azure 搜尋服務中原先不支援複雜資料類型，但經過實證的因�
 > 
 > 
 
-## <a name="part-1-flatten-the-array-into-individual-fields"></a>第 1 部分︰將陣列壓平成為個別的欄位
+## <a name="part-1-flatten-the-array-into-individual-fields"></a>第 1 部分：將陣列壓平成為個別的欄位
 若要建立可容納此資料集的 Azure 搜尋服務索引，請為巢狀子結構建立個別的欄位︰資料類型為 [collections](https://msdn.microsoft.com/library/azure/dn798938.aspx) (或字串陣列) 的 `locationsID` 和 `locationsDescription`。 在這些欄位中，您會將值 '1' 和 '2' 的索引編製成 John Smith 的 `locationsID` 欄位，將值 '3' 和 '4' 的索引編製成 Jen Campbell 的 `locationsID` 欄位。  
 
 Azure 搜尋服務中的資料如下所示︰ 
 
 ![範例資料，2 個資料列](./media/search-howto-complex-data-types/sample-data.png)
 
-## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>第 2 部分︰在索引定義中加入 collection 欄位
+## <a name="part-2-add-a-collection-field-in-the-index-definition"></a>第 2 部分：在索引定義中加入 collection 欄位
 在索引結構描述中，欄位定義看起來類似此範例。
 
 ~~~~

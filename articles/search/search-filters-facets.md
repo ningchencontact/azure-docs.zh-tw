@@ -1,6 +1,6 @@
 ---
-title: Azure 搜尋服務中的 Facet 篩選條件 | Microsoft Docs
-description: 依使用者安全性身分識別、語言、地理位置或數值來篩選準則，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。
+title: 應用程式中搜尋導覽的 Facet 篩選條件 - Azure 搜尋服務
+description: 依使用者安全性身分識別、地理位置或數值來篩選準則，以縮減在 Azure 搜尋服務 (Microsoft Azure 上裝載的雲端搜尋服務) 中查詢的搜尋結果。
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,12 +8,13 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
-ms.openlocfilehash: 3f2cfea52d3c3f4bfc75364d0662a4218219152d
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.custom: seodec2018
+ms.openlocfilehash: 94a0d3f19e595ac040d908ea47d6332ceae0943c
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31792404"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314800"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>如何在 Azure 搜尋服務中建置 Facet 篩選條件 
 

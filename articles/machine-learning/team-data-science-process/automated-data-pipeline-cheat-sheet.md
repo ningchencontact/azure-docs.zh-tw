@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 自動化資料管線小密技 | Microsoft Docs
+title: Azure Machine Learning 資料管線速查表 - Team Data Science Process
 description: 可列印的小祕技，可向您示範如何對您的 Azure Machine Learning Web 服務設定自動資料管線，無論您的資料是在內部部署、串流、Azure 中或協力廠商雲端服務中。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
-ms.custom: (previous author=garyericson, ms.author=garye)
-ms.openlocfilehash: 07f7334a98c1220d051ed1be9d04e4e4e86d4dcc
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
+ms.openlocfilehash: 627729ef4f2b6a8df96d9e3b794a1ba24143b4d7
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444421"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53132664"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>適用於 Azure Machine Learning 預測之自動資料管線的小祕技
 「Microsoft Azure Machine Learning 自動資料管線小祕技」  可協助您瀏覽用於傳送資料至可由預測性分析模型評分之機器學習 Web 服務的技術。
@@ -27,7 +27,7 @@ ms.locfileid: "52444421"
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>下載「Microsoft Azure Machine Learning 自動資料管線小祕技」
 下載此這份小祕技之後，您可以將它列印成 Tabloid 大小 (11 x 17 英吋)。
 
-在此下載小祕技： **[Microsoft Azure Machine Learning 自動資料管線小祕技](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+從這裡下載速查表：**[Microsoft Azure Machine Learning 自動化資料管線速查表](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)** \(英文\)
 
 ![Microsoft Azure Machine Learning Studio 功能概觀][op-cheat-sheet]
 

@@ -1,6 +1,6 @@
 ---
-title: 如何指派或移除 Azure Active Directory 授權 | Microsoft Docs
-description: 使用 Azure Active Directory 指派或移除使用者或群組的 Azure Active Directory 授權。
+title: 指派或移除授權 - Azure Active Directory | Microsoft Docs
+description: 關於如何從您的使用者或群組指派或移除 Azure Active Directory 授權的指示。
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-custom: it-pro
-ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: 6cf3e9a9b767dfaa6f04d151864f64123e3d6ae7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603874"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077447"
 ---
-# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>做法：指派或移除 Azure Active Directory 授權
+# <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>使用 Azure Active Directory 入口網站指派或移除授權
 許多 Azure Active Directory (Azure AD) 服務會要求您啟用 Azure AD 產品，以及授權該產品的每個使用者或群組 (和相關聯的成員)。 只有擁有有效授權的使用者才能存取和使用授權 Azure AD 服務。
 
 ## <a name="available-product-editions"></a>可用的產品版本

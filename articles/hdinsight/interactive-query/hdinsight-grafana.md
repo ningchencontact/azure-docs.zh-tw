@@ -6,29 +6,27 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/17/2018
-ms.openlocfilehash: 8103c06e3fec51316e367de903ed84d0023568bc
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/11/2018
+ms.openlocfilehash: f47c9ee85348cc96915a0fa637b06b0a73059351
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308149"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53322289"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>在 Azure HDInsight 中存取 Grafana
 
 
 [Grafana](https://grafana.com/) \(英文\) 是廣受使用的開放原始碼圖形和儀表板產生器。 Grafana 的功能非常豐富；不僅可讓使用者建立可自訂和可共用的儀表板，也提供樣板化/指令碼式儀表板、LDAP 整合、多種資料來源等功能。
 
-目前，只有 Azure HDInsight 中的互動式查詢叢集類型可支援 Grafana。
-
+目前，在 Azure HDInsight 中，使用 Hbase 和「互動式查詢」叢集類型時，可以支援 Grafana。
 
 如果您沒有 Azure 訂用帳戶，請在開始之前先[建立免費帳戶](https://azure.microsoft.com/free/)。
 
 ## <a name="create-an-apache-hadoop-cluster"></a>建立 Apache Hadoop 叢集
 
-在本節中，您會使用 Azure Resource Manager 範本，在 HDInsight 中建立互動式查詢叢集。 進行此文章並不需要具備 Resource Manager 範本體驗。 
+在本節中，您會使用 Azure Resource Manager 範本，在 HDInsight 中建立互動式查詢叢集。 進行本文並不需要具備 Resource Manager 範本體驗。 
 
 1. 按一下以下的 [部署至 Azure] 按鈕，在 Azure 入口網站中登入 Azure 並開啟 Resource Manager 範本。 
    
@@ -65,7 +63,7 @@ ms.locfileid: "52308149"
    
     ![HDInsight Linux 開始使用的資源群組](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 叢集資源群組")
     
-5. 此圖格也會列出與叢集相關聯的預設儲存體。 每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集與其預設儲存體帳戶必須並存於相同的 Azure 區域。 刪除叢集並不會刪除儲存體帳戶。
+5. 此圖格也會列出與叢集相關聯的預設儲存體。 每個叢集都具備 [Azure 儲存體帳戶](../hdinsight-hadoop-use-blob-storage.md)或 [Azure Data Lake 帳戶](../hdinsight-hadoop-use-data-lake-store.md)相依性。 也稱為預設儲存體帳戶。 HDInsight 叢集及其預設儲存體帳戶必須共置於相同的 Azure 區域中。 刪除叢集並不會刪除儲存體帳戶。
     
 
 > [!NOTE]
@@ -76,19 +74,25 @@ ms.locfileid: "52308149"
 ## <a name="access-the-grafana-dashboard"></a>存取 Grafana 儀表板
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。
+
 2. 選取 [HDInsight 叢集]，然後選取您在上一節建立的叢集名稱。
+
 3. 在 [快速連結] 下，按一下 [叢集儀表板]。
 
     ![HDInsight 叢集儀表板入口網站](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "入口網站上的 HDInsight 叢集儀表板")
 
-4. 在儀表板中，按一下 [Grafana] 圖格。
+4. 在儀表板中，按一下 [Grafana] 圖格。 或者，瀏覽至您叢集 URL 的 `/grafana/` 路徑。 例如： `https://<clustername>.azurehdinsight.net/grafana/`。
+
 5. 輸入 Hadoop 叢集使用者認證。
-6. Grafana 儀表板顯示如下：
+
+6. Grafana 儀表板隨即出現，且看起來如以下範例：
 
     ![HDInsight Grafana 儀表板](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana 儀表板")
 
+   
+
 ## <a name="clean-up-resources"></a>清除資源
-完成此文章之後，您可能想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 
+完成本文之後，您可能想要刪除叢集。 利用 HDInsight，您的資料會儲存在 Azure 儲存體中，以便您在未使用叢集時安全地進行刪除。 您也需支付 HDInsight 叢集的費用 (即使未使用)。 由於叢集費用是儲存體費用的許多倍，所以刪除未使用的叢集符合經濟效益。 
 
 > [!NOTE]
 > 如果您要「立即」繼續下一個教學課程，以了解如何使用 HDInsight 上的 Hadoop 來執行 ETL 作業，則建議讓叢集保持執行狀態。 這是因為在教學課程中，您必須重新建立 Hadoop 叢集。 不過，如果您不會立即開始下一個教學課程，則現在就必須刪除該叢集。
@@ -137,5 +141,3 @@ ms.locfileid: "52308149"
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-use-hive]: hdinsight-use-hive.md
 [hdinsight-use-pig]: hdinsight-use-pig.md
-
-

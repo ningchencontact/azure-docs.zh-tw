@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/06/2018
+ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bed053f812cc5c14e6cfe76b8a08b1ffe0cadcb3
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 05e0ae8f19e9609bd1ddd05082ead025058f92c1
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289116"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966002"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>適用於 SAP 工作負載的 Azure 虛擬機器 DBMS 部署考量
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -61,7 +61,7 @@ ms.locfileid: "51289116"
 * IaaS：基礎結構即服務。
 * PaaS：平台即服務。
 * SaaS：軟體即服務。
-* SAP 元件︰個別的 SAP 應用程式，例如 ECC、BW、Solution Manager 或 EP。  SAP 元件可以傳統 ABAP 或 Java 技術為基礎，或以非 NetWeaver 應用程式 (例如商務物件) 為基礎。
+* SAP 元件：個別的 SAP 應用程式，例如 ECC、BW、Solution Manager 或 EP。  SAP 元件可以傳統 ABAP 或 Java 技術為基礎，或以非 NetWeaver 應用程式 (例如商務物件) 為基礎。
 * SAP 環境 (SAP Environment)︰一或多個以邏輯方式分組的 SAP 元件，可執行像是開發、QAS、訓練、DR 或生產等商務功能。
 * SAP 架構 (SAP Landscape)︰此詞彙是指客戶 IP 環境中的整個 SAP 資產。 SAP 環境包含所有生產和非生產環境。
 * SAP 系統 (SAP System)︰DBMS 層與應用程式層的組合，例如 SAP ERP 開發系統、SAP BW 測試系統、SAP CRM 生產系統等。在 Azure 部署中，不支援在內部部署與 Azure 之間分割這兩個層級。 因此，SAP 系統可以在內部部署或在 Azure 部署。 不過，您可以將具 SAP 結構的不同系統部署於 Azure 或內部部署。 例如，您可以在 Azure 部署 SAP CRM 開發和測試系統，但在內部部署 SAP CRM 生產系統。
@@ -81,17 +81,17 @@ ms.locfileid: "51289116"
 
 | 附註編號 | 標題 |
 | --- | --- |
-| [1928533] |Azure 上的 SAP 應用程式︰支援的產品和 Azure VM 類型 |
-| [2015553] |Microsoft Azure 上的 SAP：支援的必要條件 |
+| [1928533] |Azure 上的 SAP 應用程式：支援的產品和 Azure VM 類型 |
+| [2015553] |Microsoft Azure 上的 SAP：支援必要條件 |
 | [1999351] |疑難排解適用於 SAP 且已強化的 Azure 監視功能 |
 | [2178632] |Microsoft Azure 上的 SAP 主要監視度量 |
-| [1409604] |Windows 上的虛擬化︰增強型監視功能 |
-| [2191498] |Linux 和 Azure 上的 SAP：增強型監視功能 |
-| [2039619] |Microsoft Azure 上使用 Oracle 資料庫的 SAP 應用程式︰支援的產品和版本 |
-| [2233094] |DB6︰Azure 上使用 IBM DB2 for Linux, UNIX, and Windows 的應用程式 - 其他資訊 |
+| [1409604] |Windows 上的虛擬化：增強型監視 |
+| [2191498] |Linux 上搭配 Azure 的 SAP：增強型監視 |
+| [2039619] |Microsoft Azure 上使用 Oracle Database 的 SAP 應用程式︰支援的產品和版本 |
+| [2233094] |DB6：Azure 上使用 Linux、UNIX 和 Windows 版 IBM DB2 的應用程式 - 其他資訊 |
 | [2243692] |Microsoft Azure (IaaS) VM 上的 Linux：SAP 授權問題 |
 | [1984787] |SUSE LINUX Enterprise Server 12：安裝注意事項 |
-| [2002167] |Red Hat Enterprise Linux 7.x：安裝和升級 |
+| [2002167] |Red Hat Enterprise Linux 7.x：安裝與升級 |
 | [2069760] |Oracle Linux 7.x SAP 安裝和升級 |
 | [1597355] |適用於 Linux 的交換空間建議 |
 | [2171857] |Oracle Database 12c - Linux 上的檔案系統支援 |
@@ -279,7 +279,11 @@ Azure 平台會提供適用於 VM 的數個不同 SLA。 如需確切的詳細�
 
 
 > [!IMPORTANT]
-> 除了功能以外，更重要的是基於效能理由，在 SAP NetWeaver、Hybris 或 S/4HANA 型 SAP 系統的 SAP 應用程式與 DBMS 層之間的通訊路徑中，不支援設定 [Azure 網路虛擬設備](https://azure.microsoft.com/solutions/network-appliances/)。 如 [SAP NetWeaver 在 SUSE Linux Enterprise Server for SAP Applications 的 Azure VM 上的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)所述，不支援 NVA 的進一步案例位於代表 Linux Pacemaker 叢集節點與 SBD 裝置的 Azure VV 之間的通訊路徑中。 或是在如[在 Azure 中使用檔案共用於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)所述設定的 Azure VM 與 Windows Server SOFS 之間的通訊路徑中。 通訊路徑中的 NVA 可以輕易地使兩個通訊合作夥伴之間的網路延遲加倍，可以限制在 SAP 應用程式層與 DBMS 層之間重要路徑中的輸送量。 在客戶觀察到的某些情況下，如果 Pacemaker Linux 叢集節點之間的通訊需要透過 NVA 來對其 SBD 裝置通訊，NVA 可能會導致 Linux Pacemaker 叢集失敗。   
+> 除了功能以外，更重要的是基於效能理由，在 SAP NetWeaver、Hybris 或 S/4HANA 型 SAP 系統的 SAP 應用程式與 DBMS 層之間的通訊路徑中，不支援設定 [Azure 網路虛擬設備](https://azure.microsoft.com/solutions/network-appliances/)。 SAP 應用程式層和 DBMS 層之間的通訊必須是直接的。 這項限制不包含 [Azure ASG 和 NSG 規則](https://docs.microsoft.com/azure/virtual-network/security-overview)，只要這些 ASG 和 NSG 規則允許直接通訊即可。 如 [SAP NetWeaver 在 SUSE Linux Enterprise Server for SAP Applications 的 Azure VM 上的高可用性](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)所述，不支援 NVA 的進一步案例位於代表 Linux Pacemaker 叢集節點與 SBD 裝置的 Azure VV 之間的通訊路徑中。 或是在如[在 Azure 中使用檔案共用於 Windows 容錯移轉叢集上進行 SAP ASCS/SCS 執行個體叢集處理](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)所述設定的 Azure VM 與 Windows Server SOFS 之間的通訊路徑中。 通訊路徑中的 NVA 可以輕易地使兩個通訊合作夥伴之間的網路延遲加倍，可以限制在 SAP 應用程式層與 DBMS 層之間重要路徑中的輸送量。 在客戶觀察到的某些情況下，如果 Pacemaker Linux 叢集節點之間的通訊需要透過 NVA 來對其 SBD 裝置通訊，NVA 可能會導致 Linux Pacemaker 叢集失敗。  
+> 
+
+> [!IMPORTANT]
+> **不**支援的另一種設計是將 SAP 應用程式層與 DBMS 層隔離到不同的 Azure 虛擬網路，而這些虛擬網路彼此間沒有[對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。 建議您使用 Azure 的虛擬網路內的子網路來區隔 SAP 應用程式層和 DBMS 層，而不使用不同的 Azure 虛擬網路。 如果您決定不遵循建議，而是要將兩個層隔離到不同的虛擬網路，則這兩個虛擬網路必須要[對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)。 請注意，兩個[對等互連](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure 虛擬網路之間的網路流量會產生傳輸成本。 由於 SAP 應用程式層和 DBMS 層之間會交換龐大資料量 (以 TB 計算)，如果 SAP 應用程式層和 DBMS 層分別在兩個對等互連的 Azure 虛擬網路中，則會累積大量成本。  
 
 將兩部 VM 使用於 Azure 可用性設定組內的生產 DBMS 部署，加上 SAP 應用程式層的個別路由，以及兩部 DBMS VM 的管理和操作流量，概略圖表如下所示：
 

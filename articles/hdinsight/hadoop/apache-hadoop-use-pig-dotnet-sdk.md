@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0aa45ae807f153e6f1a3fde1d648571b29802dc2
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 721bb93dc259bd2b4cc9f51d8d0d665c9b921128
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632470"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436835"
 ---
 # <a name="run-apache-pig-jobs-using-the-net-sdk-for-apache-hadoop-in-hdinsight"></a>在 HDInsight 中使用 .NET SDK for Apache Hadoop 執行 Apache Pig 作業
 
@@ -47,7 +47,7 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
    | ------ | ------ |
    | 類別 | 範本/Visual C#/Windows |
    | 範本 | 主控台應用程式 |
-   | 名稱 | SubmitPigJob |
+   | Name | SubmitPigJob |
 
 3. 按一下 [確定]  以建立專案。
 
@@ -118,11 +118,11 @@ HDInsight .NET SDK 提供 .NET 用戶端程式庫，讓您輕鬆地從 .NET 使�
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 HDInsight 中 Pig 的詳細資訊，請參閱[搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)。
+如需 HDInsight 中 Pig 的詳細資訊，請參閱[搭配使用 Apache Pig 與 Apache HDInsight 上的 Hadoop](hdinsight-use-pig.md)。
 
 如需在 HDInsight 上使用 Hadoop 的詳細資訊，請參閱下列文件：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
-* [搭配使用 MapReduce 與 HDInsight 上的 Hadoop](hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

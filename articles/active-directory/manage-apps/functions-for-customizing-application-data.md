@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 058cadec0776e05daf9fddbf715020953478ff58
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345788"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105150"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>在 Azure Active Directory 中撰寫屬性對應的運算式
 當您設定佈建到 SaaS 應用程式時，您可以指定的其中一種屬性對應類型是運算式對應。 您必須撰寫類似指令碼的運算式，以便讓您將使用者的資料轉換成 SaaS 應用程式更能接受的格式。
@@ -32,9 +32,9 @@ ms.locfileid: "51345788"
 * 您可以將三種不同類型的引數傳入函式：
   
   1. 屬性，必須以方括弧括住。 例如：[attributeName]
-  2. 字串常數，必須以雙引號括住。 例如："United States"
-  3. 其他函式。 例如：FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
-* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如："公司名稱：\"Contoso\""
+  2. 字串常數，必須以雙引號括住。 例如︰"United States"
+  3. 其他函式。 例如︰FunctionOne(<<argument1>>, FunctionTwo(<<argument2>>))
+* 對於字串常數，如果您在字串中需要反斜線 ( \ ) 或引號 ( " ) ，則必須使用反斜線 ( \ ) 符號逸出。 例如︰"Company name:\"Contoso\""
 
 ## <a name="list-of-functions"></a>函式的清單
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
@@ -47,7 +47,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為 source 物件的屬性名稱 |
 | **suffix** |必要 |字串 |您想要附加至 source 值結尾的字串。 |
@@ -60,10 +60,10 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
-| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱[http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
+| **inputFormat** |必要 |字串 |source 值的預期格式。 如需支援的格式，請參閱[https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)。 |
 | **outputFormat** |必要 |字串 |輸出日期的格式。 |
 
 - - -
@@ -76,10 +76,10 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **separator** |必要 |字串 |用來分隔串連成一個字串的 source 值的字串。 如果不需要分隔符號，可以是 ""。 |
-| **source1  … sourceN ** |必要，變動次數 |字串 |要聯結在一起的字串值。 |
+| **source1  … sourceN** |必要，變動次數 |字串 |要聯結在一起的字串值。 |
 
 - - -
 ### <a name="mid"></a>Mid
@@ -89,7 +89,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為屬性的名稱。 |
 | **start** |必要 |integer |子字串在 **source** 字串中起始位置的索引。 字串第一個字元的索引為 1，第二個字元的索引為 2，依此類推。 |
@@ -103,7 +103,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 | 通常為名字或姓氏屬性 |
 
@@ -115,7 +115,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |Boolean String |預期的 **source** 值為 "True" 或 "False"。 |
 
@@ -141,7 +141,8 @@ ms.locfileid: "51345788"
   * 如果 **source** 有值，則使用 **regexPattern** 和 **regexGroupName** 從有 **replacementPropertyName** 的屬性擷取取代值。 結果會傳回取代值
 
 **參數：**<br> 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |通常為 source 物件的屬性名稱。 |
 | **oldValue** |選用 |字串 |在 **source** 或 **template** 中要被取代的值。 |
@@ -164,9 +165,9 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN ** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單 |
+| **uniqueValueRule1  … uniqueValueRuleN** |至少需要 2 個，沒有上限 |字串 | 要評估的唯一值產生規則清單 |
 
 
 - - -
@@ -177,7 +178,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |必要 |字串 |**[appRoleAssignments]** 物件。 |
 
@@ -189,7 +190,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |**source** 值。 |
 
@@ -201,7 +202,7 @@ ms.locfileid: "51345788"
 
 **參數：**<br> 
 
-| 名稱 | 必要 / 重複 | 型別 | 注意 |
+| Name | 必要 / 重複 | 型別 | 注意 |
 | --- | --- | --- | --- |
 | **source** |必要 |字串 |**Source** 值。 |
 | **defaultValue** |選用 |字串 |當 source 不符合任何 key 時要使用的預設值。 可以是空字串 ("")。 |
@@ -252,8 +253,8 @@ NormalizeDiacritics([givenName])
 
 **範例輸入/輸出：** <br>
 
-* **輸入** (givenName)： "Zoë"
-* **輸出**：「Zoe」
+* **輸入** (givenName)："Zoë"
+* **輸出**："Zoe"
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>以特定格式將日期輸出為字串
 

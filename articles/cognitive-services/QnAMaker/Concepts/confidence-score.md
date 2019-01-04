@@ -1,7 +1,7 @@
 ---
 title: 信賴分數 - Microsoft 認知服務 | Microsoft Docs
 titleSuffix: Azure
-description: 說明信賴分數
+description: 信賴分數表示解答對給定的使用者查詢而言的切合程度。
 services: cognitive-services
 author: tulasim88
 manager: pchoudh
@@ -10,14 +10,15 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: tulasim
-ms.openlocfilehash: b1126b2cdb7a5cd7451a916558bc928653bc0027
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.custom: seodec18
+ms.openlocfilehash: 8fe4ecfe241422c03a2de8d0634ef1e1395aa050
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577918"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081314"
 ---
-# <a name="confidence-score"></a>信賴分數
+# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 知識庫的信賴分數
 當使用者查詢與某個知識庫相符時，QnA Maker 會傳回相關的答案以及信賴分數。 此分數表示該答案針對指定之使用者查詢正確比對的信賴度。 
 
 信賴分數是介於 0 到 100 之間的數字。 100 分是極可能完全相符，而 0 分表示找不到相符的答案。 分數越高，表示答案的信賴度越好。 針對指定的查詢，可能會傳回多個答案。 在這種情況下，會以信賴分數遞減的順序傳回答案。
@@ -78,15 +79,15 @@ ms.locfileid: "51577918"
 
 2. 按一下以開啟 **App Service**。
 
-    ![存取 App Service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
+    ![在 Azure 入口網站中，存取 QnA Maker 的 App Service](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
 3. 按一下 [應用程式設定]，並編輯 [DefaultAnswer] 欄位成為所需的預設回應。 按一下 [檔案] 。
 
-    ![變更預設回應](../media/qnamaker-concepts-confidencescore/change-response.png)
+    ![選取 [應用程式設定]，然後編輯 QnA Maker 的 DefaultAnswer](../media/qnamaker-concepts-confidencescore/change-response.png)
 
-4. 重新啟動您的應用程式服務
+4. 重新啟動 App Service
 
-    ![QnA Maker 應用程式服務重新啟動](../media/qnamaker-faq/qnamaker-appservice-restart.png)
+    ![變更 DefaultAnswer 之後，請重新啟動 QnA Maker Appservice](../media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 
 ## <a name="next-steps"></a>後續步驟

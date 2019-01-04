@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bda01b5c9fbd43feed8c407e85b90b31bef0ffa1
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3da427974c4a270a7a743bb81d2376cf61b77390
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335056"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436903"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>在 Azure 入口網站中新增 Azure Active Directory B2B 共同作業使用者
 
@@ -24,7 +24,7 @@ ms.locfileid: "52335056"
 將來賓使用者新增至目錄之後，您就可以將共用應用程式的直接連結傳送給來賓使用者，或者來賓使用者可以按一下邀請電子郵件中的兌換 URL。 如需關於兌換程序的詳細資訊，請參閱 [B2B 共同作業邀請兌換](redemption-experience.md)。
 
 > [!IMPORTANT]
-> 您應該遵循[做法：在 Azure Active Directory 中新增貴組織的隱私權資訊](https://aka.ms/adprivacystatement)中的步驟，以新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
+> 請按照[操作說明：在 Azure Active Directory 中新增組織的隱私權資訊](https://aka.ms/adprivacystatement)中的步驟，新增貴組織隱私權聲明的 URL。 在第一次邀請兌換程序中，受邀的使用者必須同意您的隱私權條款才能繼續進行。 
 
 ## <a name="add-guest-users-to-the-directory"></a>將來賓使用者新增到目錄
 
@@ -37,6 +37,9 @@ ms.locfileid: "52335056"
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/NewGuestUser-Directory.png) 
  
+   > [!NOTE]
+   > [新增來賓使用者] 選項也在 [組織關係] 頁面上。 在 [Azure Active Directory] 中，[管理] 下方，選取 [組織關係]。
+
 5. 在 [使用者名稱] 下，輸入外部使用者的電子郵件地址。 您也可以選擇納入歡迎訊息。 例如︰
 
    ![顯示 [新增來賓使用者] 在 UI 中的位置](./media/add-users-administrator/InviteGuest.png) 

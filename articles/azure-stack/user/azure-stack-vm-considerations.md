@@ -6,24 +6,24 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6613946D-114C-441A-9F74-38E35DF0A7D7
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
-ms.openlocfilehash: cb02ecb06728f5f36a0d51a3ec22cc8ba5cb44e7
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.reviewer: kivenkat
+ms.openlocfilehash: 9d6bb8d4327b428bb47d1d44422d816e7b20ed87
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094750"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847519"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Azure Stack 中使用虛擬機器的考量
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 Azure Stack 虛擬機器提供隨選、可調整的計算資源。 部署虛擬機器 (VM) 之前，必須先了解 Azure Stack 與 Microsoft Azure 所提供的虛擬機器在功能上的差異。 本文會說明這些差異，並指明規劃虛擬機器部署方面的主要考量。 若要深入了解 Azure Stack 與 Azure 之間的大致差異，請參閱[主要考量](azure-stack-considerations.md)文章。
 

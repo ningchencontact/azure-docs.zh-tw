@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e12e29a5a627110ce845cd44be6dd97b717f9b26
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253715"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014492"
 ---
-# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體︰進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層
+# <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob 儲存體：進階 (預覽)、經常性儲存層、非經常性儲存層和封存儲存層
 
 ## <a name="overview"></a>概觀
 
@@ -62,7 +62,7 @@ Blob 儲存體和 GPv2 帳戶會在帳戶層級公開**存取層**屬性，這�
 在預覽期間，進階存取層：
 
 - 可用來作為本地備援儲存體 (LRS)
-- 僅可在以下地區使用：美國東部 2、美國中部和美國西部
+- 只會在以下地區上市：美國東部 2、美國中部和美國西部
 - 不支援自動階層處理和資料生命週期管理
 
 若要了解如何註冊進階存取層預覽版，請參閱 [Azure 進階 Blob 儲存體簡介](https://aka.ms/premiumblob)。
@@ -113,7 +113,7 @@ Blob 層級的階層處理可讓您使用稱為[設定 Blob 層](/rest/api/stora
 進階存取層中儲存的資料無法使用[設定 Blob 層](/rest/api/storageservices/set-blob-tier)或使用 Azure Blob 儲存體生命週期管理分層至經常性存取、非經常性存取或封存。 若要移動資料，您必須使用 [Put Block From URL API](/rest/api/storageservices/put-block-from-url) 或支援此 API 的 AzCopy 版本，將 Blob 從進階存取同步複製到經常性存取。 *Put Block From URL* API 會同步複製伺服器上的資料，這表示只有將所有資料從原始伺服器位置移動到目標位置後，才會完成呼叫。
 
 ### <a name="blob-lifecycle-management"></a>Blob 生命週期管理
-Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)。  
+Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的原則，可讓您用來將資料轉換到最佳存取層，並在其生命週期結束時使資料過期。 若要深入了解，請參閱[管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)。  
 
 ### <a name="blob-level-tiering-billing"></a>Blob 層級的階層處理計費
 
@@ -175,11 +175,11 @@ Blob 儲存體生命週期管理 (預覽) 提供豐富、以規則為基礎的�
 
 所有儲存體帳戶會對以每個 Blob 層為基礎的 Blob 儲存體使用價格模型。 請注意下列計費考量：
 
-* **儲存成本**︰除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
+* **儲存成本**：除了儲存的資料量以外，儲存資料的成本會因儲存層而異。 每 GB 的成本會隨著儲存層存取頻率降低而減少。
 * **資料存取成本**：資料存取費用會隨著儲存層存取頻率降低而增加。 對於非經常性儲存層與封存儲存層中的資料，您需支付讀取的每 GB 資料存取費用。
-* **交易成本**︰所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
-* **異地複寫資料傳輸成本**︰此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
-* **輸出資料傳輸成本**︰輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
+* **交易成本**：所有層都有每筆交易的費用，該費用會隨著儲存層存取頻率降低而增加。
+* **異地複寫資料傳輸成本**：此費用適用於已設定異地複寫的帳戶，包括 GRS 和 RA-GRS。 異地複寫資料傳輸會產生每 GB 費用。
+* **輸出資料傳輸成本**：輸出資料傳輸 (從 Azure 區域傳出的資料) 會產生每 GB 頻寬使用量費用，與一般用途的儲存體帳戶一致。
 * **變更儲存層**︰將帳戶儲存層從非經常性儲存層變更為經常性儲存層，會產生相當於讀取儲存體帳戶中所有資料的費用。 不過，將帳戶儲存層從經常性儲存層變更為非經常性儲存層，會產生相當於將所有資料寫入非經常性儲存層的費用 (僅限 GPv2 帳戶)。
 
 > [!NOTE]
@@ -245,7 +245,7 @@ Azure 入口網站、PowerShell 和 CLI 工具，以及 .NET、Java、Python 和
 
 [依照區域檢查經常性存取、非經常性存取和封存的可用性](https://azure.microsoft.com/regions/#services)
 
-[管理 Azure Blob 儲存體生命週期](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
+[管理 Azure Blob 儲存體生命週期](storage-lifecycle-management-concepts.md)
 
 [啟用 Azure 儲存體計量以評估您目前的儲存體帳戶使用量](../common/storage-enable-and-view-metrics.md)
 

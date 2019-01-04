@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 67f8b49cd2205403dec8843beebb92c9f41f6e37
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955791"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722050"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 驗證 Batch 服務解決方案
 
@@ -139,9 +139,10 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 
 1. 在 Azure 入口網站中，瀏覽至應用程式所使用的 Batch 帳戶。
 2. 在 Batch 帳戶的 [設定] 刀鋒視窗中，選取 [存取控制 (IAM)]。
-3. 按一下 [新增]  按鈕。 
-4. 從 [角色] 下拉式清單中，選擇應用程式的 [參與者] 或 [讀者] 角色。 如需這些角色的詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。  
-5. 在 [選取] 欄位中，輸入應用程式的名稱。 從清單中選取您的應用程式，然後按一下 [儲存]。
+3. 按一下 [角色指派] 索引標籤。
+4. 按一下 [新增角色指派] 按鈕。 
+5. 從 [角色] 下拉式清單中，選擇應用程式的 [參與者] 或 [讀者] 角色。 如需這些角色的詳細資訊，請參閱[在 Azure 入口網站中開始使用角色型存取控制](../role-based-access-control/overview.md)。  
+6. 在 [選取] 欄位中，輸入應用程式的名稱。 從清單中選取您的應用程式，然後按一下 [儲存]。
 
 您的應用程式現在應該會以您指派的 RBAC 角色，出現在您的存取控制設定中。 
 
@@ -170,7 +171,7 @@ Azure Batch 支援使用 [Azure Active Directory][aad_about] (Azure AD)進行驗
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>程式碼範例︰搭配 Batch .NET 使用 Azure AD 整合式驗證
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>程式碼範例：搭配 Batch .NET 使用 Azure AD 整合式驗證
 
 若要從 Batch .NET 使用整合式驗證進行驗證，請參考 [Azure Batch .NET (英文)](https://www.nuget.org/packages/Microsoft.Azure.Batch/) 封裝和 [ADAL (英文)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 封裝。
 
@@ -243,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>程式碼範例︰搭配 Batch .NET 使用 Azure AD 服務主體
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>程式碼範例：搭配 Batch .NET 使用 Azure AD 服務主體
 
 若要從 Batch .NET 使用服務主體進行驗證，請參考 [Azure Batch .NET (英文)](https://www.nuget.org/packages/Azure.Batch/) 封裝和 [ADAL (英文)](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 封裝。
 
@@ -310,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>程式碼範例︰搭配 Batch Python 使用 Azure AD 服務主體
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>程式碼範例：搭配 Batch Python 使用 Azure AD 服務主體
 
 若要從 Batch Python 向服務主體進行驗證，請安裝並參考 [azure-batch](https://pypi.org/project/azure-batch/) 和 [azure-common](https://pypi.org/project/azure-common/) 模組。
 

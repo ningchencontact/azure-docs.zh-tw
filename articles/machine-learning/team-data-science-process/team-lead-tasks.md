@@ -1,6 +1,6 @@
 ---
-title: Team 資料科學程序小組負責人工作 - Azure | Microsoft Docs
-description: 資料科學 Team 專案上小組負責人工作的概述。
+title: 小組負責人在 Team Data Science Process Team 中的工作
+description: 本大綱為資料科學小組專案的小組負責人，為其資料科學小組所預期要完成的工作。
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -9,15 +9,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 2004396266d4bde9f3be540408524b668bbb863d
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443844"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53139634"
 ---
-# <a name="team-lead-tasks"></a>小組負責人工作
+# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>小組負責人在 Team Data Science Process Team 中的工作
 
 本主題概述希望小組負責人為其資料科學小組完成的工作。 目標是建立在 [Team 資料科學程序](overview.md) (TDSP) 上標準化的共同作業小組環境。 TDSP 是一種敏捷式反覆資料科學方法，可有效產出預測分析解決方案和智慧型應用程式。 它的設計目的是協助改進共同作業和小組學習。 程序是從 Microsoft 以及產業淬練出來的最佳作法和結構，是成功實作資料科學不可或缺的，以便協助公司完全實現其分析程式的優點。 如需人員角色的大綱，以及對此程序進行標準化之資料科學小組所處理相關聯工作的大綱，請參閱 [Team 資料科學程序角色和工作](roles-tasks.md)。
 
@@ -45,9 +45,9 @@ ms.locfileid: "52443844"
 
 本主題會使用存放庫和目錄的縮寫名稱。 這些名稱讓您更容易遵循存放庫和目錄之間的作業。 這個標記法 (**R** 適用於 Git 存放庫、**D** 適用於您 DSVM 上的本機目錄) 在下列各節中使用：
 
-- **R1**：Git 上的 **GroupProjectTemplate** 存放庫，由您的群組管理員設定於 Azure DevOps 群組伺服器上。
-- **R3**：您設定之 Git 上的小組 **ProjectTemplate** 存放庫。
-- **R4**：您設定之 Git 上的 **TeamUtilities** 存放庫。
+- **R1**：Git 上的 **GroupProjectTemplate** 存放庫，由您的群組管理員在 Azure DevOps 群組伺服器上進行設定。
+- **R3**：在 Git 上，您設定的小組 **ProjectTemplate** 存放庫。
+- **R4**：在 Git 上，您設定的 **TeamUtilities** 存放庫。
 - **D1**：從 R1 複製並且複製到 D3 的本機目錄。
 - **D3**：從 R3 複製、自訂，並且複製回 R3 的本機目錄。
 - **D4**：從 R4 複製、自訂，並且複製回 R4 的本機目錄。
@@ -142,7 +142,7 @@ ms.locfileid: "52443844"
 - 將小組存放庫複製到本機目錄：小組 R3 & R4 - 複製到 -> 本機 D3 & D4
 - 將群組專案範本內容複製到本機小組資料夾：D1 - 內容複製到 -> D3
 - (選擇性) 自訂本機 D3 & D4
-- 將本機目錄內容推送至小組存放庫：D3 & D4 - 內容新增至 -> team R3 & R4
+- 將本機目錄內容推送至小組存放庫：D3 & D4 - 內容新增到 -> 小組 R3 & R4
 
 
 ### <a name="initialize-the-team-repositories"></a>初始化小組存放庫
@@ -157,8 +157,8 @@ ms.locfileid: "52443844"
 若要開始此程序：
 
 - 在您的本機電腦上建立目錄：
-    - 針對 **Windows**：**C:\GitRepos\GroupCommon** 和 **C:\GitRepos\MyTeam**
-    - 針對 **Linux**：主目錄上的 **GitRepos\GroupCommon** 和 **GitRepos\MyTeam** 
+    - 若是 **Windows**：**C:\GitRepos\GroupCommon** 和 **C:\GitRepos\MyTeam**
+    - 若是 **Linux**：在您的主目錄上的 **GitRepos\GroupCommon** 和 **GitRepos\MyTeam** 
 - 將目錄變更為 **GitRepos\GroupCommon**。
 - 視需要在本機電腦作業系統上執行下列命令。
 
@@ -355,7 +355,7 @@ ms.locfileid: "52443844"
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
+**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ ms.locfileid: "52443844"
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，您可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
+**如何以手動方式輸入 Azure 檔案儲存體資訊：** 如果您的 Azure 檔案儲存體資訊不在文字檔中，可以遵循以下畫面的指示，輸入必要的訂用帳戶、儲存體帳戶，及 Azure 檔案儲存體資訊：
 
 - 輸入 **n**。
 - 選取訂用帳戶名稱的索引，該訂用帳戶是在上一個步驟中建立 Azure 檔案儲存體的位置：

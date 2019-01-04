@@ -5,14 +5,14 @@ author: ponatara
 manager: abhemraj
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 11/27/2018
 ms.author: ponatara
-ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 68f12bb7335da0a996aeadd752f59db0aa360a8e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210307"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310506"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>設定多層式 Citrix XenApp 和 XenDesktop 部署的災害復原
 
@@ -130,8 +130,8 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
 
 1. 在復原計畫中加入 XenApp 元件虛擬機器。
 2. 按一下 [復原計畫] -> [+ 復原計畫]。 為復原計畫取個直覺式名稱。
-3. 對於 VMware 虛擬機器：選取 VMware 處理序伺服器做為來源，選取 Microsoft Azure 做為目標，並選取資源管理員做為部署模型，然後按一下 [選取項目]。
-4. 對於 Hyper-V 虛擬機器：選取 VMM 伺服器做為來源，選取 Microsoft Azure 做為目標，選取資源管理員做為部署模型，並按一下 [選取項目]，然後選取 XenApp 部署 VM。
+3. 針對 VMware 虛擬機器：選取 VMware 處理序伺服器做為來源，選取 Microsoft Azure 做為目標，並選取資源管理員做為部署模型，然後按一下 [選取項目]。
+4. 針對 Hyper-V 虛擬機器：選取 VMM 伺服器做為來源，選取 Microsoft Azure 做為目標，選取資源管理員做為部署模型，並按一下 [選取項目]，然後選取 XenApp 部署 VM。
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>將虛擬機器新增至容錯移轉群組
 
@@ -156,7 +156,8 @@ AD DNS 伺服器、SQL 資料庫伺服器、Citrix 傳遞控制站、StoreFront 
    >[!NOTE]     
    >包含手動或指令碼動作的步驟 4、6 和 7 僅適用於有 MCS/PV 目錄的內部部署 XenApp 環境。
 
-4. 群組 3 手動或指令碼動作：關閉主要 VDA VM。主要 VDA VM 在容錯移轉至 Azure 時將處於執行中狀態。 若要使用 Azure 裝載建立新的 MCS 目錄，主要 VDA VM 需要處於已停止 (已解除配置) 狀態。 從 Azure 入口網站關閉 VM。
+4. 群組 3 手動或指令碼動作：關閉主要 VDA VM。
+主要 VDA VM 在容錯移轉至 Azure 時將處於執行中狀態。 若要使用 Azure 裝載建立新的 MCS 目錄，主要 VDA VM 需要處於已停止 (已解除配置) 狀態。 從 Azure 入口網站關閉 VM。
 
 5. 容錯移轉群組 4：傳遞控制站和 StoreFront 伺服器 VM
 6. 群組 3 手動或指令碼動作 1：

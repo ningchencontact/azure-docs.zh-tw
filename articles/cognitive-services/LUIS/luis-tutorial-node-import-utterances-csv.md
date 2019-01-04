@@ -1,21 +1,22 @@
 ---
-title: 使用 Node.js 以程式設計方式建置 LUIS 應用程式 | Microsoft Docs
+title: 使用 Node.js 匯入語句
 titleSuffix: Azure
 description: 了解如何使用「LUIS 撰寫 API」，從 CSV 格式的既有資料，以程式設計方式建置 LUIS 應用程式。
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 02/21/2018
 ms.author: diberry
-ms.openlocfilehash: 42b9800c94171ecbd2dadf30bb2ce2f342063552
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: da638064b2ead1cd860f3b4f96ffa88026aab4ff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238500"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101164"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以程式設計方式建置 LUIS 應用程式
 
@@ -34,7 +35,7 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 
 開啟 `IoT.csv` 檔案。 它包含使用者對假設性家庭自動化服務的查詢記錄，其中包括查詢分類方式、使用者語句，以及一些含有從它們當中提取之實用資訊的資料行。 
 
-![CSV 檔案](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
+![預先存在資料的 CSV 檔案](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
 您會看到 **RequestType** 資料行可能為意圖，而 **Request** 資料行則顯示範例語句。 其他欄位如果有出現在語句中，則可能為實體。 由於有意圖、實體及範例語句，因此您需要一個簡單的範例應用程式。
 
@@ -106,9 +107,9 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 ### <a name="install-nodejs-dependencies"></a>安裝 Node.js 相依性
 在終端機/命令列中，從 NPM 安裝 Node.js 相依性。
 
-````
+```console
 > npm install
-````
+```
 
 ### <a name="change-configuration-settings"></a>變更組態設定
 若要使用此應用程式，您必須將 index.js 檔案中的值變更成自己的端點金鑰，然後提供想要讓應用程式擁有的名稱。 您也可以設定應用程式的文化特性，或變更版本號碼。
@@ -116,28 +117,31 @@ LUIS 提供一個具備 [LUIS](luis-reference-regions.md) 網站所有功能的�
 開啟 index.js 檔案，然後變更位於檔案頂端的這些值。
 
 
-````JavaScript
+```nodejs
 // Change these values
 const LUIS_programmaticKey = "YOUR_PROGRAMMATIC_KEY";
 const LUIS_appName = "Sample App";
 const LUIS_appCulture = "en-us"; 
 const LUIS_versionId = "0.1";
-````
+```
+
 ### <a name="run-the-script"></a>執行指令碼
 使用 Node.js 從終端機/命令列執行指令碼。
 
-````
+```console
 > node index.js
-````
+```
+
 或
-````
+
+```console
 > npm start
-````
+```
 
 ### <a name="application-progress"></a>應用程式進度
 當應用程式正在執行時，命令列會顯示進度。 命令列輸出會包含來自 LUIS 之回應的格式。
 
-````
+```console
 > node index.js
 intents: ["TurnOn","TurnOff","Dim","Other"]
 entities: ["Operation","Device","Room"]
@@ -157,7 +161,7 @@ retrying add examples...
 
 Results of add utterances = [{"response":[{"value":{"UtteranceText":"turn on the lights","ExampleId":-67649},"hasError":false},{"value":{"UtteranceText":"turn the heat on","ExampleId":-69067},"hasError":false},{"value":{"UtteranceText":"switch on the kitchen fan","ExampleId":-3395901},"hasError":false},{"value":{"UtteranceText":"turn off bedroom lights","ExampleId":-85402},"hasError":false},{"value":{"UtteranceText":"turn off air conditioning","ExampleId":-8991572},"hasError":false},{"value":{"UtteranceText":"kill the lights","ExampleId":-70124},"hasError":false},{"value":{"UtteranceText":"dim the lights","ExampleId":-174358},"hasError":false},{"value":{"UtteranceText":"hi how are you","ExampleId":-143722},"hasError":false},{"value":{"UtteranceText":"answer the phone","ExampleId":-69939},"hasError":false},{"value":{"UtteranceText":"are you there","ExampleId":-149588},"hasError":false},{"value":{"UtteranceText":"help","ExampleId":-81949},"hasError":false},{"value":{"UtteranceText":"testing the circuit","ExampleId":-11548708},"hasError":false}]}]
 upload done
-````
+```
 
 
 

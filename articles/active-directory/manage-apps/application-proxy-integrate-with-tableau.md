@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246400"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138665"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory 應用程式 Proxy 與 Tableau 
 
@@ -29,7 +29,7 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
 - 設定 [Tableau](https://onlinehelp.tableau.com/current/server/en-us/proxy.htm#azure) (英文)。 
 
-- 安裝[應用程式 Proxy 連接器](application-proxy-enable.md)。 
+- 安裝[應用程式 Proxy 連接器](application-proxy-add-on-premises-application.md)。 
 
  
 ## <a name="enabling-application-proxy-for-tableau"></a>為 Tableau 啟用應用程式 Proxy 
@@ -43,7 +43,7 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
 關於：
 
-- 如需步驟 1-8 的詳細，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-publish-azure-portal.md)。 
+- 如需步驟 1-8 的詳細，請參閱[使用 Azure AD 應用程式 Proxy 發佈應用程式](application-proxy-add-on-premises-application.md)。 
 - 如需尋找應用程式 Proxy 欄位 Tableau 值的相關資訊，請參閱 Tableau 文件。  
 
 **發佈應用程式**： 
@@ -59,9 +59,9 @@ Azure Active Directory 應用程式 Proxy 和 Tableau 已互相合作，可確�
 
 5. 使用新應用程式的相關資訊填寫必要的欄位。 使用下列指導方針設定︰ 
 
-    - **內部 URL**：此應用程式需含有即為真正 Tableau URL 的內部 URL。 例如： `https://adventure-works.tableau.com`。 
+    - **內部 URL**：此應用程式應該具有就是 Tableau URL 本身的內部 URL。 例如： `https://adventure-works.tableau.com`。 
 
-    - **預先驗證方法**︰Azure Active Directory (建議使用，但非必要)。 
+    - **預先驗證方法**：Azure Active Directory (建議使用但非必要)。 
 
 6. 在刀鋒視窗頂端選取 [新增]。 已新增您的應用程式，快速入門功能表隨即開啟。 
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f56e15e12bc176e6b6837e144494599ea4fb5403
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: a6c8a8aa954379036ce566a205b8cb4e97952727
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282527"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52887828"
 ---
 # <a name="add-a-popup-to-the-map"></a>在地圖上新增快顯
 
@@ -37,20 +37,32 @@ ms.locfileid: "52282527"
 
 最後一個程式碼區塊會建立由 `mouseover` 事件接聽程式所觸發的函式。 它會設定快顯的內容和屬性，並將快顯物件新增至地圖。
 
+## <a name="reusing-a-popup-with-multiple-points"></a>重複使用具有多個點的快顯
+
+當您有很多點，但只想要一次顯示一個快顯時，最好的方法是建立一個快顯，並重複使用它，而不是為每個點特徵建立快顯。 如果您這麼做，應用程式所建立的 DOM 元素數目就會大幅減少從而提升效能。 此範例會建立 3 個點特徵。 如果您對任何一個特徵按一下，便會顯示快顯，內有該點特徵的內容。
+
+<br/>
+
+<iframe height='500' scrolling='no' title='重複使用具有多個釘選的快顯' src='//codepen.io/azuremaps/embed/rQbjvK/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>查看 Pen <a href='https://codepen.io/azuremaps/pen/rQbjvK/'>重複使用具有多個釘選的快顯</a>，發佈者：Azure 地圖服務 (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)，發佈位置：<a href='https://codepen.io'>CodePen</a>。
+</iframe>
+
 ## <a name="next-steps"></a>後續步驟
 
 深入了解本文使用的類別和方法：
 
 > [!div class="nextstepaction"]
-> [地圖](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)
 
 請參閱下列推薦文章，了解完整程式碼範例：
 
 > [!div class="nextstepaction"]
-> [新增圖形](./map-add-shape.md)
+> [新增符號圖層](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
-> [新增自訂 HTML](./map-add-custom-html.md)
+> [新增 HTML 標記](./map-add-custom-html.md)
+
+> [!div class="nextstepaction"]
+> [新增圖形](./map-add-shape.md)

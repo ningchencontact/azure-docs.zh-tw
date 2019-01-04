@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d77e5265349db2fc433d2bb9a42140a6a4209ba1
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5de0c975b21131b50155a6e86f5710f741a3c7f7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317482"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53344137"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>在 Azure 資訊安全中心修復安全性設定
 Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易遭受攻擊的設定，每天分析虛擬機器和電腦的作業系統。 當您的 OS 設定不符合建議的安全性設定規則時，資訊安全中心會建議您解決這些弱點，並建議變更設定以解決這些弱點。
@@ -42,8 +42,8 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 
   儀表板上半部會顯示：
 
-  - **失敗的規則 (依嚴重性)**：規則總數，依 OS 設定在 VM 和電腦上發生故障的嚴重性。
-  - **失敗的規則 (依類型)**：規則總數，依 OS 設定在 VM 和電腦上發生故障的類型。
+  - **失敗的規則 (依嚴重性)**：規則總數，依 OS 設定在虛擬機器和電腦上發生故障的嚴重性。
+  - **失敗的規則 (依類型)**：規則總數，依 OS 設定在虛擬機器和電腦上發生故障的類型。
   - **失敗的 Windows 規則**：您的 Windows OS 設定失敗的規則總數。
   - **失敗的 Linux 規則**：您的 Linux OS 設定失敗的規則總數。
 
@@ -67,13 +67,13 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
    詳細檢視會顯示下列資訊：
 
    - **名稱**：規則的名稱。
-   - **CCEID**：規則的 CCE 唯一識別碼。
-   - **OS 版本** - VM 或電腦的 OS 版本。
+   - **CCIED**：規則的 CCE 唯一識別碼。
+   - **OS 版本**：虛擬機器或電腦的 OS 版本。
    - **規則嚴重性**：[嚴重]、[重要] 或 [警告] 的 CCE 值。
-   - **完整描述** : 規則的描述。
+   - **完整描述**：規則的描述。
    - **弱點**：不套用規則的弱點或風險說明。
    - **潛在影響**：套用規則時的業務影響。
-   - **對策**：修復步驟。
+   - **對策**：補救步驟。
    - **預期值**：資訊安全中心對照規則分析 VM OS 設定時的預期值。
    - **實際值**：對照規則分析 VM OS 設定後的傳回值。
    - **規則作業**：資訊安全中心對照規則分析 VM OS 設定時使用的規則作業。
@@ -101,7 +101,7 @@ Azure 資訊安全中心會針對可能讓虛擬機器 (VM) 和電腦更容易�
 若要深入了解資訊安全中心，請參閱下列資源：
 
 * 如需支援的 Windows 與 Linux VM 清單，請參閱 [Azure 資訊安全中心支援的平台](security-center-os-coverage.md)。
-* 如果要了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md)。
+* 如果要了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則，請參閱[在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md)。
 * 如果要了解建議如何協助保護您的 Azure 資源，請參閱[管理 Azure 資訊安全中心的安全性建議](security-center-recommendations.md)。
 * 如果要了解如何監視 Azure 資源的健康情況，請參閱 [Azure 資訊安全中心的安全性健康情況監視](security-center-monitoring.md)。
 * 如果要了解如何管理及回應安全性警示，請參閱[管理及回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)。

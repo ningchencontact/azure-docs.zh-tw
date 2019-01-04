@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 儲存體總管從 Blob 儲存體移入或移出資料 | Microsoft Docs
+title: 使用 Azure 儲存體總管移動 Blob 儲存體資料 - Team Data Science Process
 description: 使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 7d4fc17c466f9f7187ca28c847631254d6600ead
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 99c9a86d130989e8c62a948e440b35c928b42299
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446989"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134086"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azure-storage-explorer"></a>使用 Azure 儲存體總管從 Azure Blob 儲存體來回移動資料
 Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windows、MacOS 和 Linux 上使用 Azure 儲存體資料。 本主題說明如何使用它來於 Azure Blob 儲存體中上傳及下載資料。 您可以從 [Microsoft Azure 儲存體總管](http://storageexplorer.com/)下載此工具。
@@ -45,8 +45,8 @@ Azure 儲存體總管是 Microsoft 所提供的免費工具，可讓您在 Windo
 
 1. 啟動 Microsoft Azure 儲存體總管。
 2. 若要啟動 [登入您的帳戶...] 精靈，請選取 [Azure 帳戶設定] 圖示，然後選取 [新增帳戶] 並輸入您的認證。 ![新增 Azure 儲存體帳戶](./media/move-data-to-azure-blob-using-azure-storage-explorer/add-an-azure-store-account.png)
-3. 若要啟動 [連接到 Azure 儲存體] 精靈，請選取 [連接到 Azure 儲存體] 圖示。 ![連接到 Azure 儲存體](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
-4. 在 [連接到 Azure 儲存體] 精靈中輸入 Azure 儲存體帳戶的存取金鑰，然後選取 [下一步]。 ![連接到 Azure 儲存體](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
+3. 若要啟動 [連接到 Azure 儲存體] 精靈，請選取 [連接到 Azure 儲存體] 圖示。 ![按一下 [連線到 Azure 儲存體]](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-1.png)
+4. 在 [連接到 Azure 儲存體] 精靈中輸入 Azure 儲存體帳戶的存取金鑰，然後選取 [下一步]。 ![輸入 Azure 儲存體帳戶的存取金鑰](./media/move-data-to-azure-blob-using-azure-storage-explorer/connect-to-azure-storage-2.png)
 5. 在 [帳戶名稱] 方塊中輸入儲存體帳戶名稱，然後選取 [下一步]。 ![附加外部儲存體](./media/move-data-to-azure-blob-using-azure-storage-explorer/attach-external-storage.png)
 6. 現在應該會列出新增的儲存體帳戶。 若要在儲存體帳戶中建立 Blob 容器，請以滑鼠右鍵按一下該帳戶中的 [Blob 容器] 節點、選取 [建立 Blob 容器]，然後輸入名稱。
 7. 若要將資料上傳至容器，請選取目標容器，然後按一下 [上傳] 按鈕。![儲存體帳戶](./media/move-data-to-azure-blob-using-azure-storage-explorer/storage-accounts.png)

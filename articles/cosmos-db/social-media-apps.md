@@ -1,27 +1,25 @@
 ---
-title: Azure Cosmos DB 的設計模式：社交媒體應用程式 | Microsoft Docs
+title: Azure Cosmos DB 設計模式：社交媒體應用程式
 description: 了解具有 Azure Cosmos DB 與其他 Azure 服務之儲存體彈性的社交網路設計模式。
 keywords: 社交媒體應用程式
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c2911ac65b95ea0a705944fdd8fb9288af28498
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 669cfdc59fc0b2f509db704afa4867d8f55d86f8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165674"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083966"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 跨足社交
 
 在當今大幅互連的社會當中，您的生活或多或少都成為 **社交網路**的一部分。 您會使用社交網路與朋友、同事、家人保持連絡，有時候還可以跟擁有共同興趣的人交流這份愛好。
 
-身為工程師或開發人員，您可能會好奇這些網路如何儲存資料以及與其互連。 或者，您可能已針對特定利基市場，建立或建構新的社交網路。 此時就會出現這個重大問題︰如何儲存所有這些資料？
+身為工程師或開發人員，您可能會好奇這些網路如何儲存資料以及與其互連。 或者，您可能已針對特定利基市場，建立或建構新的社交網路。 此時就會出現這個重大問題︰如何將這些資料全部儲存起來？
 
 假設您要建立一個全新且亮眼的社交網路，讓使用者可以張貼含有圖片、影片或甚至音樂等相關媒體的文章。 使用者可以評論貼文，並給予評等的點數。 他們可以看到貼文摘要，並在主要的網站登陸頁面上進行互動。 乍聽之下，這個方法似乎不複雜，但為了簡潔起見，我們先就此打住。 (您可以深入探討受關聯性影響的自訂使用者摘要，但這已超出本文的目標範圍)。
 
@@ -49,14 +47,14 @@ ms.locfileid: "52165674"
         "date":"2016-01-01",
         "body":"this is an awesome post stored on NoSQL",
         "createdBy":User,
-        "images":["http://myfirstimage.png","http://mysecondimage.png"],
+        "images":["https://myfirstimage.png","https://mysecondimage.png"],
         "videos":[
-            {"url":"http://myfirstvideo.mp4", "title":"The first video"},
-            {"url":"http://mysecondvideo.mp4", "title":"The second video"}
+            {"url":"https://myfirstvideo.mp4", "title":"The first video"},
+            {"url":"https://mysecondvideo.mp4", "title":"The second video"}
         ],
         "audios":[
-            {"url":"http://myfirstaudio.mp3", "title":"The first audio"},
-            {"url":"http://mysecondaudio.mp3", "title":"The second audio"}
+            {"url":"https://myfirstaudio.mp3", "title":"The first audio"},
+            {"url":"https://mysecondaudio.mp3", "title":"The second audio"}
         ]
     }
 
@@ -102,7 +100,7 @@ Azure Cosmos DB 可利用自身的自動索引編製作業，確保所有屬性�
 
 您可以擁有依建立日期排序的「最新」貼文串流。 您也可以擁有過去 24 小時內獲得較多讚的「最熱門」貼文串流。 您甚至可以依據邏輯 (例如關注者與興趣) 為每位使用者實作自訂串流。 而這仍屬於文章清單。 關鍵在於如何建立這些清單，而且讀取效能不會受到影響。 在取得這其中一份清單之後，您便可以使用 [IN 運算子](how-to-sql-query.md#WhereClause)向 Cosmos DB 發出單一查詢，一次取得貼文的頁面。
 
-您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景處理序 [Webjobs](../app-service/web-sites-create-web-jobs.md) 來建置摘要串流。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。
+您可以使用 [Azure App Service](https://azure.microsoft.com/services/app-service/) 的背景程序來建置摘要串流：[Webjobs](../app-service/web-sites-create-web-jobs.md)。 建立貼文之後，即可使用 [Azure 儲存體](https://azure.microsoft.com/services/storage/)[佇列](../storage/queues/storage-dotnet-how-to-use-queues.md)來觸發背景處理，以及使用 [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 來觸發 WebJobs，其中會根據您自己的自訂邏輯，在串流內實作貼文傳播。
 
 您也可以使用相同的技術，以延後方式來處理貼文的點數和按讚數，建立最終一致的環境。
 
@@ -208,7 +206,7 @@ Azure 搜尋服務會實作[索引子](https://msdn.microsoft.com/library/azure/
 
 ## <a name="the-underlying-knowledge"></a>基礎知識
 
-儲存所有這些每天不斷成長的內容之後，您可能會考慮到：該怎麼運用所有這些來自使用者的資訊串流？
+儲存所有這些每天不斷成長的內容之後，您可能會考慮到：該如何處理所有這些來自使用者的資訊串流？
 
 答案很簡單：讓這些內容發揮效益，並從中學習。
 
@@ -216,7 +214,7 @@ Azure 搜尋服務會實作[索引子](https://msdn.microsoft.com/library/azure/
 
 現在，大家一定更感興趣了吧？您一定以為要有數學的博士學位，才能從簡單的資料庫和檔案中擷取這些模式和資訊，但您錯了。
 
-[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 是一項完全受控的雲端服務，隨附於 [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx)，可讓您透過簡單的拖放介面使用演算法來建立工作流程、以 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 撰寫自己的演算法程式碼，或使用一些內建和現成的 API，例如︰[文字分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、Content Moderator 或[建議](https://gallery.azure.ai/Solution/Recommendations-Solution)。
+[Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 是一項完全受控的雲端服務，隨附於 [Cortana Intelligence Suite](https://social.technet.microsoft.com/wiki/contents/articles/36688.introduction-to-cortana-intelligence-suite.aspx)，可讓您透過簡單的拖放介面使用演算法來建立工作流程、以 [R](https://en.wikipedia.org/wiki/R_\(programming_language\)) 撰寫自己的演算法程式碼，或使用一些內建和現成的 API，例如︰[文字分析](https://gallery.cortanaanalytics.com/MachineLearningAPI/Text-Analytics-2)、內容仲裁或[建議](https://gallery.azure.ai/Solution/Recommendations-Solution)。
 
 為了達成上述任一「機器學習服務」案例，您可以使用 [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) 來內嵌不同來源的資訊。 您也可以使用 [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) 來處理資訊並產生可由 Azure Machine Learning 處理的輸出。
 

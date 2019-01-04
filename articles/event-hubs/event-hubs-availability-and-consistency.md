@@ -1,5 +1,5 @@
 ---
-title: Azure 事件中樞的可用性和一致性 | Microsoft Docs
+title: 可用性和一致性 - Azure 事件中樞 | Microsoft Docs
 description: 如何使用分割區，以便透過 Azure 事件中樞提供最大數量的可用性和一致性。
 services: event-hubs
 documentationcenter: na
@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e5cad797b633d43bcc9ead657a60fca8aa6679bb
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145545"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090715"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>事件中樞的可用性和一致性
 

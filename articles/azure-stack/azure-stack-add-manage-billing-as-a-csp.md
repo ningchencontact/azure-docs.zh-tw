@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 209152b157ef2cfae872490bcff4f2a7100c3a4d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: e65f85d8349c4c8c69a50e93b093c04250e73a4e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339333"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961413"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>以雲端服務提供者身分管理 Azure Stack 的使用量和帳單 
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 本文會逐步引導您以雲端提供者 (CSP) 身分註冊 Azure Stack 及新增客戶。
 
@@ -33,7 +33,7 @@ ms.locfileid: "49339333"
 
 **以 CSP 身分新增使用量追蹤的步驟**
 
-[ ![以雲端服務提供者身分啟用使用方式和管理的流程](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png "以雲端服務提供者身分啟用使用方式和管理的流程") ](media\azure-stack-add-manage-billing-as-a-csp\process-add-useage-as-a-csp.png#lightbox)
+[ ![以雲端服務提供者身分啟用使用方式和管理的流程](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png "以雲端服務提供者身分啟用使用方式和管理的流程") ](media/azure-stack-add-manage-billing-as-a-csp/process-add-useage-as-a-csp.png#lightbox)
 
 ## <a name="create-a-csp-or-apss-subscription"></a>建立 CSP 或 APSS 訂用帳戶
 

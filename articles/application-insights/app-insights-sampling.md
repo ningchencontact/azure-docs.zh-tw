@@ -9,17 +9,16 @@ ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2017
+ms.date: 10/02/2018
 ms.reviewer: vitalyg
 ms.author: mbullwin
-ms.openlocfilehash: 893495a5c37495438d9620595719ca6e733df012
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 103f4b10d5fbb7fbcf9c3721a82fe4075abe0dc4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958113"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52877610"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights 中的取樣
 
@@ -35,7 +34,7 @@ ms.locfileid: "46958113"
 * 您也可以手動設定取樣 (不論是透過入口網站的 [使用量和估計成本] 頁面；或是在 ASP.NET SDK 的 .config 檔案中；或是在 Java SDK 的 ApplicationInsights.xml 檔案中)，以便同時降低網路流量。
 * 如果您有記錄自訂事件，而且想要確定某組事件已一起保留下來還是遭到捨棄，請確定它們有相同的 OperationId 值。
 * 每個記錄的 `itemCount` 屬性中都會回報取樣除數 *n*，此屬性在 [搜尋] 中會出現在「要求計數」或「事件計數」等易記名稱之下。 當取樣不在作業中，則 `itemCount==1`。
-* 如果您要撰寫分析查詢，請 [考慮到取樣](../log-analytics/query-language/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
+* 如果您要撰寫分析查詢，請 [考慮到取樣](../azure-monitor/log-query/aggregations.md)。 特別是，您應該使用 `summarize sum(itemCount)`，而非只計算記錄。
 
 ## <a name="types-of-sampling"></a>取樣類型
 有三個替代的取樣方法：
@@ -250,7 +249,7 @@ Application Insights SDK for ASP.NET v 2.0.0-beta3 及更新版本提供調適�
                 <!-- E.g. 50 (=100/2), 33.33 (=100/3), 25 (=100/4), 20, 1 (=100/100), 0.1 (=100/1000) -->
                 <Add name = "SamplingPercentage" value = "50" />
             </Processor>
-        </BuilrInProcessors>
+        </BuiltInProcessors>
     <TelemetryProcessors/>
 ```
 

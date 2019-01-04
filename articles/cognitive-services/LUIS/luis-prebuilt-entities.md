@@ -1,21 +1,22 @@
 ---
-title: Language Understanding (LUIS) 預先建置的實體
+title: 預先建置的實體
 titleSuffix: Azure Cognitive Services
 description: LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例如日期、時間、數字、計量及貨幣。 預先建置的實體支援會因 LUIS 應用程式的文化特性而異。
 services: cognitive-services
 author: diberry
+ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 0fe9dbed302fd2d61305167a3bda25b1b403b761
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50139969"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103926"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>預先建置的實體可辨識常見的資料類型
 
@@ -54,6 +55,12 @@ LUIS 包含一組預先建置的實體，用於辨識常見的資訊類型，例
 |取消 3 月 3 日的約會|LUIS 傳回的是過去時間中最接近的 3 月 3 日 (2018-03-03) 及未來的 3 月 3 日 (2019-03-03)，因為語句中並未指定年份。|
 |排定 10 點的會議|10:00:00|
 
+## <a name="marking-entities-containing-a-prebuilt-entity-token"></a>標示包含預先建置實體權杖的實體
+ 如果您有想要標示為自訂實體的文字，例如 `HH-1234`，_且_您已將[預先建置的數字](luis-reference-prebuilt-number.md)新增至模型，您將無法在 LUIS 入口網站中標示自訂實體。 您可以使用 API 來標示它。 
+
+ 若要標示這種類型的權杖，其中一部分已使用預先建置的實體進行標示，請從 LUIS 應用程式移除預先建置的實體。 您不需要定型應用程式。 然後使用您自己的自訂實體標示權杖。 然後將預先建置的實體新增回 LUIS 應用程式。
+
+ 針對其他案例，請將語句視為類別喜好設定的清單：`I want first year spanish, second year calculus, and fourth year english lit.` 如果 LUIS 應用程式已新增預先建置序數，`first`、`second` 及 `fourth` 就會以序數標示。 如果您想要擷取序數和類別，您可以建立複合實體，並將其包裝在預先建置序數和自訂實體作為類別名稱。
 
 ## <a name="next-steps"></a>後續步驟
 > [!div class="nextstepaction"]

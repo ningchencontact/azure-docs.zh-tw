@@ -5,18 +5,18 @@ services: azure maps
 author: jinzh-azureiot
 ms.service: azure-maps
 ms.topic: include
-ms.date: 05/07/2018
+ms.date: 11/29/2018
 ms.author: jinzh
 ms.custom: include file
-ms.openlocfilehash: fc96c66ce0cdda133d8776008874c5518cb80be6
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1124e265b533b5f44c3b430746c48654883e524b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755521"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52857115"
 ---
-以下是 Azure 地圖服務的使用限制。 如需成本的相關資訊，請參閱 [Azure 地圖服務定價詳細資料](https://azure.microsoft.com/pricing/details/azure-maps/)。 [請與我們連絡](https://azure.microsoft.com/overview/sales-number/)，以提高您訂用帳戶的最大要求速率。
+以下是 Azure 地圖服務 **S0 定價層**的使用量限制。 使用量限制取決於定價層。 如需 Azure 地圖服務定價層的詳細資訊，請參閱 [Azure Maps 定價詳細資料](https://azure.microsoft.com/pricing/details/azure-maps/)。
 
-| 資源                              | 限制 |
-|---------------------------------------|:-----:|
+| 資源                              | S0 定價層限制 |
+|---------------------------------------|:---------------------:|
 | 每一訂用帳戶的要求率上限 |   每秒 50 個要求  |

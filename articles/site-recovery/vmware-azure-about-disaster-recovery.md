@@ -4,14 +4,14 @@ description: 本文概述如何使用 Azure Site Recovery 進行 VMware VM 至 A
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 9368ff848c9be075a08d5a80a49ffc64f5392cad
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 22be5d7438fdb554d1550fd6675ee1884c638824
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214693"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52851055"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>關於 VMware VM 至 Azure 的災害復原
 

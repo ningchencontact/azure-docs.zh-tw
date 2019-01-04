@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: f4d8f4a927415426248860b07a40e7294c84de59
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: a4f84d6e61d3a100f952908883e6eb70d81f66b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406950"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998808"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure 安全性與合規性藍圖 - 適用於 NIST SP 800-171 的資料分析
 
@@ -69,14 +69,14 @@ SQL Database 通常會透過 SQL Server Management Studio 來管理。 執行 SS
 
 **Azure Functions**：[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 是無伺服器的計算服務，可視需要執行程式碼。 無需明確佈建或管理基礎結構。 使用 Azure Functions 執行指令碼或一段程式碼來回應各種事件。
 
-**Azure Machine Learning**：[Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
+**Azure Machine Learning 服務**：[Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/) 是一項資料科學技術，可讓電腦使用現有資料來預測未來的行為、結果和趨勢。
 
 **Azure 資料目錄**：[資料目錄](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog)能讓管理資料的使用者輕鬆地探索和了解資料來源。 您可以註冊、標記常用資料來源，並在其中搜尋資料。 資料會保留在現有的位置，但其中繼資料的複本會新增至資料目錄。 資料來源位置的參考也包含在內。 此中繼資料會編製索引，透過搜尋輕鬆找到每個資料來源。 編製索引也讓探索資料來源的使用者了解每個資料來源。
 
 ### <a name="virtual-network"></a>虛擬網路
 此參考架構會定義位址空間為 10.0.0.0/16 的私人虛擬網路。
 
-**網路安全性群組**：[網路安全性群組 (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 包含能允許或拒絕虛擬網路內流量的存取控制清單。 NSG 可用來保護子網路或個別虛擬機器層級的流量。 下列 NSG 已經存在:
+**網路安全性群組**：[網路安全性群組](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) 包含能允許或拒絕虛擬網路內流量的存取控制清單。 NSG 可用來保護子網路或個別虛擬機器層級的流量。 下列 NSG 已經存在:
   - 適用於 Active Directory 的 NSG
   - 工作負載的 NSG
 
@@ -84,7 +84,7 @@ SQL Database 通常會透過 SQL Server Management Studio 來管理。 執行 SS
   - 啟用[診斷記錄和事件](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)並儲存在儲存體帳戶
   - Log Analytics 會連線至 [NSG 的診斷](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
-**子網路**：確認每個子網路都與對應的 NSG 建立關聯。
+**子網路**：每個子網路都與其相對應的 NSG 關聯。
 
 ### <a name="data-in-transit"></a>資料傳輸中
 Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入口網站與儲存體進行的所有交易都會透過 HTTPS 發生。
@@ -115,7 +115,7 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 -   [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測可能影響您組織身分識別的潛在弱點。 其會為偵測到的組織身分識別相關可疑活動設定自動回應。 連接埠還會調查可疑事件以採取適當動作來解決它們。
 
 ### <a name="security"></a>安全性
-**祕密管理**：解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和祕密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
+**祕密管理**：此解決方案會使用 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 來管理金鑰和秘密。 Key Vault 可協助保護雲端應用程式和服務所使用的密碼編譯金鑰和祕密。 下列 Key Vault 功能可協助客戶保護資料：
 - 進階存取原則是視需要設定的。
 - Key Vault 存取原則是使用金鑰和祕密的最低必要權限所定義的。
 - Key Vault 中的所有金鑰和祕密都有到期日。
@@ -133,16 +133,16 @@ Azure 預設會加密與 Azure 資料中心的所有通訊。 透過 Azure 入�
 ### <a name="logging-and-auditing"></a>記錄與稽核
 
 Azure 服務會廣泛記錄系統、使用者活動及系統健康情況：
-- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動器、出現時間和狀態。
+- **活動記錄**：[活動記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)能讓您深入了解在訂用帳戶資源上執行的作業。 活動記錄可協助判斷作業的啟動者、發生時間和狀態。
 - **診斷記錄**：[診斷記錄](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)包含每個資源發出的所有記錄。 這些記錄包含 Windows 事件系統記錄、儲存體記錄、Key Vault 稽核記錄，以及 Azure 應用程式閘道存取和防火牆記錄。 所有診斷記錄都會寫入到集中且加密的 Azure 儲存體帳戶進行封存。 使用者可設定最多 730 天的保留期限，以符合其特定需求。
 
 **Log Analytics**：記錄會合併到 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) 以進行處理、儲存，並從儀表板顯示報告。 所收集的資料會針對 Log Analytics 工作區內的每種資料類型組織成個別的資料表。 如此一來，所有的資料都能一起分析 (不論其原始來源為何)。 資訊安全中心會與 Log Analytics 整合。 客戶可以使用 Log Analytics 查詢來存取其安全性事件資料，並將其與來自其他服務的資料合併。
 
 此架構包含下列 Log Analytics [管理解決方案](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions)：
--   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健全狀況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
+-   [Active Directory 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment)：Active Directory 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供依照優先順序排列的具體建議清單。
 - [SQL 評定](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment)：SQL 健康情況檢查方案可定期評估伺服器環境的風險和健康情況。 其能針對已部署的伺服器基礎結構提供客戶依照優先順序排列的具體建議清單。
 - [代理程式健全狀況](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth)：代理程式健全狀況解決方案會報告部署的代理程式數目和其地理分佈。 還會報告沒有回應的代理程式數目和提交作業資料的代理程式數目。
--   [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：「活動記錄分析」解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
+-   [活動記錄分析](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity)：活動記錄分析解決方案可協助您分析客戶所有 Azure 訂用帳戶的 Azure 活動記錄。
 
 **Azure 自動化**：[自動化](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)會儲存、執行和管理 Runbook。 在此解決方案中，Runbook 會協助從 SQL Database 中收集記錄。 客戶可以使用自動化[變更追蹤](https://docs.microsoft.com/azure/automation/automation-change-tracking)解決方案輕鬆地識別環境中的變更。
 

@@ -8,23 +8,21 @@ ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306199"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955865"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>如何使用 C++ 的 Blob 儲存體
 
-本指南會示範如何使用 Azure Blob 儲存體服務執行一般案例。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。 所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。  
+本指南會示範如何使用 Azure Blob 儲存體儲存體執行一般案例。 範例將說明如何上傳、列出、下載及刪除 Blob。 這些範例均以 C++ 撰寫，並使用 [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md)。   
+
+若要深入了解 Blob 儲存體，請參閱 [Azure Blob 儲存體簡介](storage-blobs-introduction.md)。
 
 > [!NOTE]
 > 本指南以 Azure Storage Client Library for C++ 1.0.0 版和更新版本為對象。 Microsoft 建議使用可透過 [NuGet](http://www.nuget.org/packages/wastorage) 或 [GitHub](https://github.com/Azure/azure-storage-cpp) 取得的 C++ 最新版儲存體用戶端程式庫。
-
-## <a name="what-is-blob-storage"></a>什麼是 Blob 儲存體？
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -121,7 +119,7 @@ container.upload_permissions(permissions);
 
 網際網路上的任何人都可以看到公用容器中的 Blob，但要有適當的存取金鑰，才能修改或刪除這些 Blob。  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>作法：將 Blob 上傳到容器中
+## <a name="how-to-upload-a-blob-into-a-container"></a>作法：將 Blob 上傳至容器
 Azure Blob 儲存體支援區塊 Blob 和頁面 Blob。 在大多數情況下，建議使用區塊 Blob 的類型。  
 
 若要將檔案上傳至區塊 Blob，請取得容器參照，並使用該參照來取得區塊 Blob 參照。 取得 Blob 參考後，即可藉由呼叫 **upload_from_stream** 方法，將任何資料流上傳至 Blob。 此操作會建立 Blob (如果其並不存在) 或覆寫 Blob (如果其已存在)。 下列範例顯示如何將 Blob 上傳到容器，並假設已建立該容器。  

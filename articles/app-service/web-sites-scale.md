@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中相應增加應用程式的規模 | Microsoft Docs
+title: 相應增加功能和容量 - Azure App Service | Microsoft Docs
 description: 了解如何在 Azure App Service 中相應增加應用程式的規模，以增加容量和功能。
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
-ms.openlocfilehash: 79450cdd0928304c3b98cf13f8aaca7a1bf11d33
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.custom: seodec18
+ms.openlocfilehash: 2fb1f5ad0c3b46623550cbcc1204761b57f6093b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43381930"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53251043"
 ---
 # <a name="scale-up-an-app-in-azure"></a>在 Azure 中相應增加應用程式的規模
 
@@ -29,8 +30,8 @@ ms.locfileid: "43381930"
 
 本文將說明如何在 Azure App Service 中相應增加應用程式的規模。 有兩個工作流程適合用來相應增加和相應放大規模，而本文說明相應增加工作流程。
 
-* [相應增加](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)︰取得更多的 CPU、記憶體、磁碟空間和額外的功能，例如專用虛擬機器 (VM)、自訂網域和憑證、預備位置，以及自動調整等等。 您可以藉由變更應用程式所屬的 App Service 方案定價層來相應增加。
-* [相應放大](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)︰增加執行您的應用程式的 VM 執行個體數目。
+* [相應增加](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：取得更多的 CPU、記憶體、磁碟空間和額外的功能，例如專用虛擬機器 (VM)、自訂網域和憑證、預備位置，以及自動調整等等。 您可以藉由變更應用程式所屬的 App Service 方案定價層來相應增加。
+* [相應放大](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：增加執行您的應用程式的 VM 執行個體數目。
   視您的定價層而定，最多可以相應放大至 20 個執行個體。 **隔離**層中的 [App Service 環境](environment/intro.md)，進一步將您的相應放大計數增加到 100 個執行個體。 如需相應放大的詳細資訊，請參閱[手動或自動調整執行個體計數](../monitoring-and-diagnostics/insights-how-to-scale.md)。 您可以在該文章中了解如何使用自動調整，也就是根據預先定義的規則與排程，自動調整執行個體計數。
 
 這些調整設定只需幾秒鐘便能套用，且影響範圍遍及 [App Service 方案](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)內的所有應用程式。
@@ -98,7 +99,7 @@ ms.locfileid: "43381930"
   
     [Microsoft Azure 的虛擬機器和雲端服務大小][vmsizes]
   
-* 如需 Azure App Service 最佳作法 (包括建置可調整且具彈性的架構) 的詳細資訊，請參閱 [最佳作法：Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/)。
+* 如需有關 Azure App Service 最佳做法 (包括建置可調整且具彈性的架構) 的詳細資訊，請參閱 [最佳做法：Azure App Service Web Apps](https://azure.microsoft.com/blog/best-practices-windows-azure-websites-waws/) \(英文\)。
 * 如需調整 App Service 應用程式的相關影片，請參閱下列資源：
   
   * [何時該調整 Azure 網站 - Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
@@ -107,7 +108,7 @@ ms.locfileid: "43381930"
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 

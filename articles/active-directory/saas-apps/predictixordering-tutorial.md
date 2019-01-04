@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 83a7f50120b5f34c4e4d74d8233fc51be9c0e579
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f805fde861413fe84f1ad15ade1ce2923a9531ce
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448375"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-ordering"></a>教學課程：Azure Active Directory 與 Predictix Ordering 整合
 
@@ -113,6 +113,7 @@ Predictix Ordering 與 Azure AD 整合提供下列優點：
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname-pricing>.ordering.predictix.com/sso/request`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： 
+    
     | |
     |--|
     | `https://<companyname-pricing>.dev.ordering.predictix.com` |

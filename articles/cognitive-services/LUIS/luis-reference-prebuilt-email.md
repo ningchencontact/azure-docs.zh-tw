@@ -5,25 +5,26 @@ description: 本文包含 Language Understanding (LUIS) 中預先建置的 email
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 6d05f62ad725a89b0a34b21b8a8d36bb8fa464b1
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1cb12bdc362955da907fb5a5ed64c2a1a43fdc32
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441006"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140858"
 ---
-# <a name="email-entity"></a>Email 實體
+# <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 應用程式的電子郵件預先建置實體
 擷取的電子郵件包含語句中的整個電子郵件地址。 因為此實體已經定型，所以您不需要將包含電子郵件的範例語句加入應用程式意圖。 只有 `en-us` 文化特色才支援 email 實體。 
 
 ## <a name="resolution-for-prebuilt-email"></a>解析預先建置的電子郵件
 下列範例顯示解析的 **builtin.email** 實體。
 
-```JSON
+```json
 {
   "query": "please send the information to patti.owens@microsoft.com",
   "topScoringIntent": {

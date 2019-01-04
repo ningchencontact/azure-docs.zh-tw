@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 93d4886d5c266555a5c61a121622943f218caa48
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 59078ae86adce861f9e4ad3d02e35b12fd345e60
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045460"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077676"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>使用 Azure Data Factory 從 MariaDB 複製資料 
 
@@ -30,7 +30,7 @@ ms.locfileid: "37045460"
 
 Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此連接器您不需要手動安裝任何驅動程式。
 
-此連接器目前支援版本早於 10.2 的 MariaDB。
+此連接器目前支援 10.0 到 10.2 版的 MariaDB。
 
 ## <a name="getting-started"></a>開始使用
 
@@ -44,8 +44,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | Type 屬性必須設定為：**MariaDB** | yes |
-| connectionString | 連線到 MariaDB 的 ODBC 連接字串。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | yes |
+| type | 類型屬性必須設定為：**MariaDB** | 是 |
+| connectionString | 連線到 MariaDB 的 ODBC 連接字串。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | connectVia | 用來連線到資料存放區的 [Integration Runtime](concepts-integration-runtime.md)。 您可以使用「自我裝載 Integration Runtime」或 Azure Integration Runtime (如果您的資料存放區是可公開存取的)。 如果未指定，就會使用預設的 Azure Integration Runtime。 |否 |
 
 **範例：**
@@ -85,7 +85,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "linkedServiceName": {
             "referenceName": "<MariaDB linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -94,14 +95,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 MariaDB 來源所支援的屬性清單。
 
-### <a name="mariadbsource-as-source"></a>將 MariaDBSource 作為來源
+### <a name="mariadb-as-source"></a>以 MariaDB 作為來源
 
 若要從 MariaDB 複製資料，請將複製活動中的來源類型設定為 **MariaDBSource**。 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**MariaDBSource** | yes |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如：`"SELECT * FROM MyTable"`。 | yes |
+| type | 複製活動來源的類型屬性必須設定為：**MariaDBSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM MyTable"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

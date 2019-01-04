@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2c4730b3ec84ca14bcc3e93ed82faf37b15970d7
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0d27b16690516becc586678f8cf3edea234feeea
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51010366"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383390"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>了解並解決 HDInsight 上從 WebHCat 收到的錯誤
 
@@ -22,18 +22,18 @@ ms.locfileid: "51010366"
 
 ## <a name="what-is-webhcat"></a>什麼是 WebHCat？
 
-[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 是適用於 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) 的 REST API，這是 Hadoop 的資料表和儲存體管理層。 WebHCat 預設會在 HDInsight 叢集上啟用，並由各種工具用來提交工作、取得工作狀態等，而不需登入叢集。
+[WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) 是適用於 [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) (Apache Hadoop 的資料表和儲存體管理層) 的 REST API。 WebHCat 預設會在 HDInsight 叢集上啟用，並由各種工具用來提交工作、取得工作狀態等，而不需登入叢集。
 
 ## <a name="modifying-configuration"></a>修改組態
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 因為已超過設定的上限，而發生本文件中所列的幾個錯誤。 當解決步驟提到您可以變更值時，您必須使用下列其中一項來執行變更：
 
 * 針對 **Windows** 叢集：使用指令碼動作在叢集建立期間設定此值。 如需詳細資訊，請參閱 [開發指令碼動作](hdinsight-hadoop-script-actions.md)。
 
-* 針對 **Linux** 叢集：使用 Ambari (Web 或 REST API) 來修改此值。 如需詳細資訊，請參閱 [使用 Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
+* 針對 **Linux** 叢集：使用 Ambari (Web 或 REST API) 來修改此值。 如需詳細資訊，請參閱[使用 Apache Ambari 管理 HDInsight](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ### <a name="default-configuration"></a>預設組態
@@ -62,7 +62,7 @@ ms.locfileid: "51010366"
 | --- | --- |
 | 此狀態碼通常發生於叢集的主要和次要 HeadNode 間的容錯移轉期間 |等候兩分鐘，然後重試作業 |
 
-## <a name="bad-request-content-could-not-find-job"></a>不正確的要求內容：找不到工作
+## <a name="bad-request-content-could-not-find-job"></a>不正確的要求內容：找不到作業
 
 **HTTP 狀態碼**：400
 

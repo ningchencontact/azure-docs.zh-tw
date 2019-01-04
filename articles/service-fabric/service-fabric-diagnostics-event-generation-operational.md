@@ -12,98 +12,103 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 10/23/2018
 ms.author: dekapur
-ms.openlocfilehash: 03dac03405588ba00a0f8ca5b127956c40853e36
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: a568fc6316211755fabc15ab3cf0227e3a87cb01
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48868508"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727335"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 事件清單 
 
-Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件](service-fabric-diagnostics-events.md)的方式向您通知叢集的狀態。 這些是以 Service Fabric 在您的節點和叢集上執行的動作，或以叢集擁有者/操作者所做的管理決定為基礎。 您可以透過查詢叢集中的 [EventStore](service-fabric-diagnostics-eventstore.md)，或透過操作通道存取這些事件。 在 Windows 電腦中，操作通道也會與 EventLog 連結，因此您可以在事件檢視器中看到 Service Fabric 事件。 
+Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件](service-fabric-diagnostics-events.md)的方式向您通知叢集的狀態。 這些是以 Service Fabric 在您的節點和叢集上執行的動作，或以叢集擁有者/操作者所做的管理決定為基礎。 以數種方式進行設定，即可存取這些事件，包括設定 [Log Analytics 與您的叢集](service-fabric-diagnostics-oms-setup.md)，或查詢 [EventStore](service-fabric-diagnostics-eventstore.md)。 在 Windows 電腦上，這些事件會饋送至 EventLog，因此您可以在事件檢視器中看到 Service Fabric 事件。 
 
->[!NOTE]
->如需低於 6.2 版叢集的 Service Fabric 事件清單，請參閱下一節。 
+以下是這些事件的一些特性
+* 每個事件都會繫結至叢集中的特定實體，例如應用程式、服務、節點、複本。
+* 每個事件都包含一組公用欄位：EventInstanceId、EventName 和 Category。
+* 每個事件都包含可將事件繫結回到其相關實體的欄位。 例如，ApplicationCreated 事件具有可識別所建立應用程式名稱的欄位。
+* 事件會以此方式予以結構化，可使用於各種不同的工具來進行進一步分析。 此外，事件的相關詳細資料會定義為不同的屬性，而不是很長的字串。 
+* 事件是由 Service Fabric 中不同的子系統所寫入並以下面的 Source(Task) 識別。 [Service Fabric 架構](service-fabric-architecture.md)和 [Service Fabric 技術概觀](service-fabric-technical-overview.md)提供有關這些子系統的詳細資訊。
 
-以下是平台中所有可用事件的清單，依它們所對應的實體排序。
+以下是依實體組織的 Service Fabric 事件清單。
 
 ## <a name="cluster-events"></a>叢集事件
 
 **叢集升級事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
-| --- | --- | --- | --- | --- | --- |
-| 29627 | ClusterUpgradeStarted | 已啟動叢集更新 | CM | 資訊 | 1 |
-| 29628 | ClusterUpgradeCompleted | 已完成叢集更新| CM | 資訊 | 1 |
-| 29629 | ClusterUpgradeRollbackStarted | 已開始復原叢集更新 | CM | 資訊 | 1 |
-| 29630 | ClusterUpgradeRollbackCompleted | 已完成復原叢集更新 | CM | 資訊 | 1 |
-| 29631 | ClusterUpgradeDomainCompleted | 已在叢集升級期間完成網域升級 | CM | 資訊 | 1 |
+您可以在[這裡](service-fabric-cluster-upgrade-windows-server.md)找到有關叢集升級的其他詳細資料。
+
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level | 
+| --- | --- | --- | --- | --- | --- | 
+| 29627 | ClusterUpgradeStarted | 升級 | 已啟動叢集更新 | CM | 資訊 |
+| 29628 | ClusterUpgradeCompleted | 升級 | 已完成叢集更新 | CM | 資訊 | 
+| 29629 | ClusterUpgradeRollbackStarted | 升級 | 已開始復原叢集更新  | CM | 警告 | 
+| 29630 | ClusterUpgradeRollbackCompleted | 升級 | 已完成復原叢集更新 | CM | 警告 | 
+| 29631 | ClusterUpgradeDomainCompleted | 升級 | 升級網域已在叢集升級期間完成升級 | CM | 資訊 | 
 
 ## <a name="node-events"></a>節點事件
 
 **節點生命週期事件** 
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
-| --- | --- | ---| --- | --- | --- |
-| 18602 | NodeDeactivateCompleted | 已完成停用節點 | FM | 資訊 | 1 |
-| 18603 | NodeUp | 叢集偵測到節點已啟動 | FM | 資訊 | 1 |
-| 18604 | NodeDown | 叢集偵測到節點已關閉 |  FM | 資訊 | 1 |
-| 18605 | NodeAddedToCluster | 已將新的節點新增至叢集 | FM | 資訊 | 1 |
-| 18606 | NodeRemovedFromCluster | 已從叢集中移除節點 | FM | 資訊 | 1 |
-| 18607 | NodeDeactivateStarted | 已啟動停用節點作業 | FM | 資訊 | 1 |
-| 25620 | NodeOpening | 節點正在啟動。 節點生命週期的第一個階段 | FabricNode | 資訊 | 1 |
-| 25621 | NodeOpenSucceeded | 節點已成功啟動 | FabricNode | 資訊 | 1 |
-| 25622 | NodeOpenFailed | 節點無法啟動 | FabricNode | 資訊 | 1 |
-| 25623 | NodeClosing | 節點正在關閉。 節點生命週期最後階段的開始 | FabricNode | 資訊 | 1 |
-| 25624 | NodeClosed | 已成功關閉節點 | FabricNode | 資訊 | 1 |
-| 25625 | NodeAborting | 正在開始強制關閉節點 | FabricNode | 資訊 | 1 |
-| 25626 | NodeAborted | 已強制關閉節點 | FabricNode | 資訊 | 1 |
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level |
+| --- | --- | ---| --- | --- | --- | 
+| 18602 | NodeDeactivateCompleted | StateTransition | 已完成停用節點 | FM | 資訊 | 
+| 18603 | NodeUp | StateTransition | 叢集偵測到節點已啟動 | FM | 資訊 | 
+| 18604 | NodeDown | StateTransition | 叢集偵測到節點已關閉。 在節點重新啟動期間，您會看到後面接著 NodeUp 事件的 NodeDown 事件 |  FM | Error | 
+| 18605 | NodeAddedToCluster | StateTransition |  叢集中新增了新節點，而 Service Fabric 可以將應用程式部署到這個節點 | FM | 資訊 | 
+| 18606 | NodeRemovedFromCluster | StateTransition |  已從叢集中移除節點。 Service Fabric 無法再將應用程式部署到這個節點 | FM | 資訊 | 
+| 18607 | NodeDeactivateStarted | StateTransition |  已啟動停用節點作業 | FM | 資訊 | 
+| 25621 | NodeOpenSucceeded | StateTransition |  節點已成功啟動 | FabricNode | 資訊 | 
+| 25622 | NodeOpenFailed | StateTransition |  節點無法啟動和加入環狀 | FabricNode | Error | 
+| 25624 | NodeClosed | StateTransition |  已成功關閉節點 | FabricNode | 資訊 | 
+| 25626 | NodeAborted | StateTransition |  已強制關閉節點 | FabricNode | Error | 
 
 ## <a name="application-events"></a>應用程式事件
 
 **應用程式生命週期事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
-| --- | --- | ---| --- | --- | --- |
-| 29620 | ApplicationCreated | 已建立新的應用程式 | CM | 資訊 | 1 |
-| 29625 | ApplicationDeleted | 已刪除現有的應用程式 | CM | 資訊 | 1 |
-| 23083 | ApplicationProcessExited | 已結束應用程式中的處理程序 | 裝載 | 資訊 | 1 |
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level | 
+| --- | --- | --- | --- | --- | --- | 
+| 29620 | ApplicationCreated | LifeCycle | 已建立新的應用程式 | CM | 資訊 | 
+| 29625 | ApplicationDeleted | LifeCycle | 已刪除現有的應用程式 | CM | 資訊 | 
+| 23083 | ApplicationProcessExited | LifeCycle | 已結束應用程式中的處理程序 | 裝載 | 資訊 | 
 
 **應用程式升級事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
-| --- | --- | ---| --- | --- | --- |
-| 29621 | ApplicationUpgradeStarted | 已啟動應用程式更新 | CM | 資訊 | 1 |
-| 29622 | ApplicationUpgradeCompleted | 已完成應用程式更新 | CM | 資訊 | 1 |
-| 29623 | ApplicationUpgradeRollbackStarted | 已開始復原應用程式更新 |CM | 資訊 | 1 |
-| 29624 | ApplicationUpgradeRollbackCompleted | 已完成復原應用程式更新 | CM | 資訊 | 1 |
-| 29626 | ApplicationUpgradeDomainCompleted | 已在應用程式升級期間完成網域升級 | CM | 資訊 | 1 |
+您可以在[這裡](service-fabric-application-upgrade.md)找到有關應用程式升級的其他詳細資料。
+
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level | 
+| --- | --- | ---| --- | --- | --- | 
+| 29621 | ApplicationUpgradeStarted | 升級 | 已啟動應用程式更新 | CM | 資訊 | 
+| 29622 | ApplicationUpgradeCompleted | 升級 | 已完成應用程式更新 | CM | 資訊 | 
+| 29623 | ApplicationUpgradeRollbackStarted | 升級 | 已開始復原應用程式更新 |CM | 警告 | 
+| 29624 | ApplicationUpgradeRollbackCompleted | 升級 | 已完成復原應用程式更新 | CM | 警告 | 
+| 29626 | ApplicationUpgradeDomainCompleted | 升級 | 升級網域已在應用程式升級期間完成升級 | CM | 資訊 | 
 
 ## <a name="service-events"></a>服務事件
 
 **服務生命週期事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18657 | ServiceCreated | 已建立新服務 | FM | 資訊 | 1 |
-| 18658 | ServiceDeleted | 已刪除現有服務 | FM | 資訊 | 1 |
+| 18657 | ServiceCreated | LifeCycle | 已建立新服務 | FM | 資訊 | 
+| 18658 | ServiceDeleted | LifeCycle | 已刪除現有服務 | FM | 資訊 | 
 
 ## <a name="partition-events"></a>分割事件
 
 **分割移動事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 類別 | 說明 |來源 (工作) | Level | 
 | --- | --- | ---| --- | --- | --- |
-| 18940 | PartitionReconfigured | 已完成重新設定分割 | RA | 資訊 | 1 |
+| 18940 | PartitionReconfigured | LifeCycle | 已完成重新設定分割 | RA | 資訊 | 
 
 ## <a name="container-events"></a>容器事件
 
 **容器生命週期事件** 
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 23074 | ContainerActivated | 容器已啟動 | 裝載 | 資訊 | 1 |
 | 23075 | ContainerDeactivated | 容器已停止 | 裝載 | 資訊 | 1 |
@@ -111,23 +116,29 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 ## <a name="health-reports"></a>健康狀態報告
 
+[Service Fabric 健康情況模型](service-fabric-health-introduction.md)可提供豐富、有彈性且可延伸的健康情況評估與報告。 從 Service Fabric 6.2 版起，健康情況資料當作平台事件寫入，以提供健康情況的歷程記錄。 為了保持較低的健康情況事件數量，我們只寫入下列 Service Fabric 事件：
+
+* 所有 `Error` 或 `Warning` 健康情況報告
+* 轉換期間的 `Ok` 健康情況報告
+* 當 `Error` 或 `Warning` 健康情況事件到期時。 這可用來判斷實體狀況不良持續多久
+
 **叢集健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | --- | --- | --- | --- |
 | 54428 | ClusterNewHealthReport | 有新的叢集健康情況報告可用 | HM | 資訊 | 1 |
 | 54437 | ClusterHealthReportExpired | 現有的叢集健康情況報告已過期 | HM | 資訊 | 1 |
 
 **節點健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54423 | NodeNewHealthReport | 有新的節點健康情況報告可用 | HM | 資訊 | 1 |
 | 54432 | NodeHealthReportExpired | 現有的節點健康情況報告已過期 | HM | 資訊 | 1 |
 
 **應用程式健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54425 | ApplicationNewHealthReport | 已建立新的應用程式健康情況報告。 這適用於已解除部署的應用程式。 | HM | 資訊 | 1 |
 | 54426 | DeployedApplicationNewHealthReport | 已建立新的已部署應用程式健康情況報告 | HM | 資訊 | 1 |
@@ -138,21 +149,21 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **服務健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54424 | ServiceNewHealthReport | 已建立新的服務健康情況報告 | HM | 資訊 | 1 |
 | 54433 | ServiceHealthReportExpired | 現有的服務健康情況報告已過期 | HM | 資訊 | 1 |
 
 **分割健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54422 | PartitionNewHealthReport | 已建立新的分割健康情況報告 | HM | 資訊 | 1 |
 | 54431 | PartitionHealthReportExpired | 現有的分割健康情況報告已過期 | HM | 資訊 | 1 |
 
 **複本健康情況報表事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 54429 | StatefulReplicaNewHealthReport | 已建立具狀態的複本健康情況報告 | HM | 資訊 | 1 |
 | 54430 | StatelessInstanceNewHealthReport | 已建立新的具狀態執行個體健康情況報告 | HM | 資訊 | 1 |
@@ -163,28 +174,28 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **混沌工作階段事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50021 | ChaosStarted | 已啟動混沌測試工作階段 | 可測試性 | 資訊 | 1 |
 | 50023 | ChaosStopped | 已停止混沌測試工作階段 | 可測試性 | 資訊 | 1 |
 
 **混沌節點事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50033 | ChaosNodeRestartScheduled | 已排定將節點重新啟動為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 | 50087 | ChaosNodeRestartCompleted | 已完成將節點重新啟動為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 
 **混沌應用程式事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50053 | ChaosCodePackageRestartScheduled | 已在混沌測試工作階段期間排定程式碼套件重新啟動 | 可測試性 | 資訊 | 1 |
 | 50101 | ChaosCodePackageRestartCompleted | 已在混沌測試工作階段期間完成程式碼套件重新啟動 | 可測試性 | 資訊 | 1 |
 
 **混沌分割事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50069 | ChaosPartitionPrimaryMoveScheduled | 已排定將主要磁碟分割移為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
 | 50077 | ChaosPartitionSecondaryMoveScheduled | 已排定將次要磁碟分割移為混沌測試工作階段的一部分 | 可測試性 | 資訊 | 1 |
@@ -192,7 +203,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **混沌複本事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 50047 | ChaosReplicaRestartScheduled | 已將複本重新啟動排定為混沌測試工作階段的一部份 | 可測試性 | 資訊 | 1 |
 | 50051 | ChaosReplicaRemovalScheduled | 已將複本移除排定為混沌測試工作階段的一部份 | 可測試性 | 資訊 | 1 |
@@ -202,7 +213,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 **相互關連事件**
 
-| EventId | 名稱 | 說明 |來源 (工作) | Level | 版本 |
+| EventId | Name | 說明 |來源 (工作) | Level | 版本 |
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | 已偵測到相互關聯 | 可測試性 | 資訊 | 1 |
 
@@ -210,7 +221,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 以下是 Service Fabric 6.2 版之前所提供事件的完整清單。
 
-| EventId | 名稱 | 來源 (工作) | 等級 |
+| EventId | Name | 來源 (工作) | 等級 |
 | --- | --- | --- | --- |
 | 25620 | NodeOpening | FabricNode | 資訊 |
 | 25621 | NodeOpenedSuccess | FabricNode | 資訊 |
@@ -238,6 +249,7 @@ Service Fabric 會公開一組主要的叢集事件，以 [Service Fabric 事件
 
 ## <a name="next-steps"></a>後續步驟
 
-* 深入了解 Service Fabric 中整個[平台層級的事件產生](service-fabric-diagnostics-event-generation-infra.md)
+* 取得 [Service Fabric 中的診斷](service-fabric-diagnostics-overview.md)概觀
+* 在 [Service Fabric Eventstore 概觀](service-fabric-diagnostics-eventstore.md)中深入了解 EventStore
 * 修改您的 [Azure 診斷](service-fabric-diagnostics-event-aggregation-wad.md)設定以收集更多記錄
 * [設定 Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) 以查看您的作業通道記錄

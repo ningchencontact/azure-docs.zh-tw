@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bc6e77643783e1e9f124bc98ea1eb910304a5f32
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394828"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52846465"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>成為雲端市集發行者
 
@@ -78,9 +78,9 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 我們的 Marketplace 上線小組會驗證您在步驟 3 提供的市集註冊詳細資料。 一旦核准之後，您會收到歡迎電子郵件帳戶，其中包含帳戶認證及登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)的指引。
 
 您將使用 [Cloud Partner 入口網站](https://cloudpartner.azure.com)來建立、發行及管理市集供應項目。 一旦收到核准的歡迎電子郵件時，即可立即使用您的 Microsoft 帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com)，以存取發行至市集及建立供應項目的其他技術資訊。 
-*   如需使用 Cloud Partner 入口網站的詳細資訊，[請瀏覽＜使用者入門＞一文中的＜學習＞區段](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal)。 您必須登入 Cloud Partner 入口網站，來存取這些詳細資料。
+*   如需使用 Cloud Partner 入口網站的詳細資訊，[請瀏覽＜使用者入門＞一文中的＜學習＞區段](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal)。 您必須登入 Cloud Partner 入口網站，來存取這些詳細資料。
 *   如果您有任何問題或想要安排電訪以了解上線概觀，請檢閱此發行者指南中的其他文章，或從 Cloud Partner 入口網站的 [問題類型] > [市集上線] 中開啟支援要求。
-*   如果您未收到歡迎電子郵件，請檢查垃圾郵件資料夾，查看是否有主旨為「歡迎使用 Microsoft Marketplace！」的電子郵件。 如果您的垃圾郵件資料夾中沒有任何電子郵件，[請連絡 Microsoft 支援服務](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)。 在支援頁面中，請選取：[問題類型] > [市集上線]。  我們的 Marketplace 發行者上線團隊十分樂意協助您解決問題。 
+*   如果您未收到歡迎電子郵件，請檢查垃圾郵件資料夾，查看是否有主旨為「歡迎使用 Microsoft Marketplace！」的電子郵件。 如果您的垃圾郵件資料夾中沒有任何電子郵件，[請連絡 Microsoft 支援服務](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820)。 在支援頁面上，請選取：[問題類型] > [Marketplace 上線]。  我們的 Marketplace 發行者上線團隊十分樂意協助您解決問題。 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5.在開發人員中心內註冊 (僅適用於交易發行選項) 
@@ -104,7 +104,7 @@ Microsoft 帳戶 (例如 @outlook.com或 @live.com) 可用來存取許多 Micros
 
 
 ## <a name="next-steps"></a>後續步驟
-* 深入了解市集店面：[比較 AppSource 和 Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+* 深入了解 Marketplace 店面：[比較 AppSource 和 Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
 *   [決定您解決方案的清單類型](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  

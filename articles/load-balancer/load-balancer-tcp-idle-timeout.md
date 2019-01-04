@@ -1,11 +1,11 @@
 ---
-title: 設定負載平衡器 TCP 閒置逾時 | Microsoft Docs
+title: 在 Azure 中設定 Load Balancer TCP 閒置逾時
+titlesuffix: Azure Load Balancer
 description: 設定負載平衡器 TCP 閒置逾時
 services: load-balancer
 documentationcenter: na
 author: kumudd
-manager: timlt
-ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: f19ac77f7c7f7d4ab8909d628f9dcce08c07c928
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24a7d2354693e362d7709b8817c438555caae0e3
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020903"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53256191"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>設定 Azure Load Balancer 的 TCP 閒置逾時設定
 
@@ -26,7 +26,7 @@ ms.locfileid: "23020903"
 
 在預設組態中，Azure Load Balancer 的閒置逾時設定是 4 分鐘。 如果閒置期間超過逾時值，即無法保證仍能維持用戶端與雲端服務之間的 TCP 或 HTTP 工作階段。
 
-當連線關閉時，用戶端應用程式可能會收到以下錯誤訊息：「基礎連線已關閉：應該保持運作的連接卻被伺服器關閉。」
+當連線關閉時，您的用戶端應用程式可能會收到下列錯誤訊息：「基礎連線已關閉：應該保持運作的連接卻被伺服器關閉。」
 
 常見作法是使用 TCP Keep-Alive。 此作法可讓連線保持長時間連線。 如需詳細資訊，請參閱這些 [.NET 文章](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)。 啟用 Keep-Alive 之後，就會在連線無活動期間傳送封包。 這些 Keep-Alive 封包可確保永遠不會達到閒置逾時值，因此可以長期維持連線。
 

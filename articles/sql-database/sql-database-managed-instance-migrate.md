@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3808511e588ba4284dee16cf7ca88bfd5a382c3a
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345300"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337473"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>將 SQL Server 遷移至 Azure SQL Database 受控執行個體
 
@@ -60,7 +60,7 @@ ms.locfileid: "49345300"
 若要了解如何建立 VNet 基礎結構和受控執行個體，請參閱[建立受控執行個體](sql-database-managed-instance-get-started.md)。
 
 > [!IMPORTANT]
-> 請務必讓您目的地 VNet 和子網路永遠符合[受控執行個體的 VNet 需求](sql-database-managed-instance-vnet-configuration.md#requirements)。 任何相容性問題都可能會讓您無法建立新的執行個體，或使用已經建立的執行個體。
+> 請務必讓您目的地 VNet 和子網路永遠符合[受控執行個體的 VNet 需求](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 任何相容性問題都可能會讓您無法建立新的執行個體，或使用已經建立的執行個體。 深入了解[建立新的 ](sql-database-managed-instance-create-vnet-subnet.md) 並[ 設定現有的 ](sql-database-managed-instance-configure-vnet-subnet.md) 網路。
 
 ## <a name="select-migration-method-and-migrate"></a>選取移轉方法並進行遷移
 
@@ -117,8 +117,7 @@ ms.locfileid: "49345300"
 
 若要減少移轉的風險，請只在進行效能監視後變更資料庫相容性層級。 在資料庫相容性層級變更之前和之後，請使用查詢資料存放區作為取得工作負載效能相關資訊的最佳工具，如[在升級到較新 SQL Server 版本期間保持效能穩定性](https://docs.microsoft.com/sql/relational-databases/performance/query-store-usage-scenarios#CEUpgrade)中所述。
 
-如果您已在完全受控的平台上，請充分運用屬於 SQL Database 服務的功能。 比方說，您不需要在受控執行個體上建立備份 (服務會自動為您執行備份)。 您無法再擔心如何排程、使用及管理備份。 受控執行個體使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原到此保留期限內的任何時間點。 公用預覽期間，保留期限固定為七天。
-此外，您不需要擔心如何設定為高可用性，因為[高可用性](sql-database-high-availability.md)已內建。
+如果您已在完全受控的平台上，請充分運用屬於 SQL Database 服務的功能。 比方說，您不需要在受控執行個體上建立備份 (服務會自動為您執行備份)。 您無法再擔心如何排程、使用及管理備份。 受控執行個體使用[時間點復原 (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore)，讓您能夠還原到此保留期限內的任何時間點。 此外，您不需要擔心如何設定為高可用性，因為[高可用性](sql-database-high-availability.md)已內建。
 
 若要加強安全性，請考量使用一些可用功能：
 

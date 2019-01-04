@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: juliako
-ms.openlocfilehash: 8124b399b859f812ec3bf9f7ea64b6643446a1b5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9de0d8bc389218d3102633b09073b3af323d2ceb
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249275"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011989"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Azure 媒體服務事件的 Azure 事件格線結構描述
 
@@ -28,7 +28,7 @@ ms.locfileid: "50249275"
 
 ### <a name="job-related-event-types"></a>作業相關的事件類型
 
-媒體服務會發出如下所述的 [作業] 相關事件類型。 [作業] 相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
+媒體服務會發出如下所述的 [作業] 相關事件類型。 **作業**相關事件有兩種類別：「監視工作狀態變更」和「監視作業輸出的狀態變更」。 
 
 您可以訂閱 JobStateChange 事件來註冊所有事件。 或者，您可以只訂閱特定事件 (例如，JobErrored、JobFinished 和 JobCanceled 等最終狀態)。 
 
@@ -112,9 +112,12 @@ ms.locfileid: "50249275"
 | 屬性 | 類型 | 說明 |
 | -------- | ---- | ----------- |
 | previousState | 字串 | 工作在該事件之前的狀態。 |
-| state | 字串 | 在此事件中，被通知的工作新狀態。 例如，「已排入佇列：作業正在等候資源」或「已排程：作業已準備好開始」。|
+| state | 字串 | 在此事件中，被通知的工作新狀態。 例如，「已排程：作業已可啟動」或「已完成：作業已完成」。|
 
-工作狀態可以是以下其中一個值：*已排入佇列*、*已排程*、*處理中*、*已完成*、*錯誤*、*已取消*、*取消中*
+作業狀態可能是以下其中一個值：已排入佇列、已排程、處理中、已完成、錯誤、已取消、取消中
+
+> [!NOTE]
+> 「已排入佇列」 只會存在於 **previousState** 屬性中，但是不會在 **state** 屬性中。
 
 ### <a name="jobscheduled-jobprocessing-jobcanceling"></a>JobScheduled、JobProcessing、JobCanceling
 

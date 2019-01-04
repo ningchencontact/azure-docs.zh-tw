@@ -1,20 +1,18 @@
 ---
-title: 在 Azure Cosmos DB SQL API 帳戶中使用地理空間資料 | Microsoft Docs
+title: 在 Azure Cosmos DB SQL API 帳戶中使用地理空間資料
 description: 了解如何使用 Azure Cosmos DB 和 SQL API 建立與查詢空間物件，以及為其編製索引。
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2017
 ms.author: sngun
-ms.openlocfilehash: 1de97ef34ab2db79ef7eaeca66cb8d0598ae9262
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 29bb495bbbd56ab39964b34db35fb4d222a60179
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284484"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074690"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>透過 Azure Cosmos DB SQL API 帳戶使用地理空間和 GeoJSON 位置資料
 
@@ -307,7 +305,7 @@ SQL .NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提供者�
 既然我們已經探討過如何使用 LINQ 和 SQL 查詢文件，現在來看一下如何針對空間編製索引設定 Azure Cosmos DB。
 
 ## <a name="indexing"></a>編製索引
-如我們在[使用 Azure Cosmos DB 進行無從驗證結構描述的編製索引 (英文)](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 文件中所述，我們設計的 Azure Cosmos DB 資料庫引擎真正是無從驗證結構描述的，並提供一流的 JSON 支援。 Azure Cosmos DB 的寫入最佳化資料庫引擎原生就能了解以 GeoJSON 標準表示的空間資料 (點、多邊形及線)。
+如我們在[使用 Azure Cosmos DB 進行無從驗證結構描述的編製索引 (英文)](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) 文件中所述，我們設計的 Azure Cosmos DB 資料庫引擎真正是無從驗證結構描述的，並提供一流的 JSON 支援。 Azure Cosmos DB 的寫入最佳化資料庫引擎原生就能了解以 GeoJSON 標準表示的空間資料 (點、多邊形及線)。
 
 簡單來說，大地座標的幾何會投影在 2D 平面上，然後使用 **quadtree**以漸進方式分成格子。 這些格子會根據 **希伯特空間填滿曲線**(Hilbert space filling curve) 內的格子位置對應至 1D，並保留點的位置。 此外，在為位置資料編製索引之後，會經過稱為**鑲嵌式**的處理程序，也就是會將位置上相交的所有格子識別為索引鍵並儲存在 Azure Cosmos DB 索引中。 在查詢時，點和多邊形之類的引數也會經過鑲嵌，以擷取相關的格子 ID 範圍，然後用來從索引擷取資料。
 
@@ -391,7 +389,7 @@ SQL .NET SDK 也是虛設常式方法 `Distance()` 和 `Within()` 的提供者�
 既然您已了解如何開始使用 Azure Cosmos DB 中的地理空間支援，您可以接著：
 
 * 使用 [GitHub 上的地理空間 .NET 程式碼範例](https://github.com/Azure/azure-documentdb-dotnet/blob/fcf23d134fc5019397dcf7ab97d8d6456cd94820/samples/code-samples/Geospatial/Program.cs)來開始轉寫程式碼
-* 在 [Azure Cosmos DB 查詢園地 (英文)](http://www.documentdb.com/sql/demo#geospatial) 中瞭解地理空間查詢
+* 在 [Azure Cosmos DB 查詢園地 (英文)](https://www.documentdb.com/sql/demo#geospatial) 中瞭解地理空間查詢
 * 深入了解 [Azure Cosmos DB 查詢](how-to-sql-query.md)
 * 深入了解 [Azure Cosmos DB 編製索引原則](index-policy.md)
 

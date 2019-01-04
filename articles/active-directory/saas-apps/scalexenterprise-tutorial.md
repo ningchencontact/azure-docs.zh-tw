@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 60beecc0895fbfb5d3af7817e8b76e0819c89a99
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448813"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52835381"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>教學課程：Azure Active Directory 與 ScaleX Enterprise 整合
 
@@ -123,7 +123,7 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
     在 [登入 URL] 文字方塊中，以下列模式輸入值：`https://platform.rescale.com/saml2/<company id>/sso/`
      
     > [!NOTE] 
-    > 這些不是真正的值。 使用實際的識別碼、回覆 URL 或登入 URL 來更新這些值。 請連絡 [ScaleX Enterprise 用戶端支援小組](http://info.rescale.com/contact_sales)以取得這些值。 
+    > 這些不是真正的值。 使用實際的識別碼、回覆 URL 或登入 URL 來更新這些值。 請連絡 [ScaleX Enterprise 用戶端支援小組](https://info.rescale.com/contact_sales)以取得這些值。 
 
 1. ScaleX 應用程式會預期要有特定格式的 SAML 判斷提示，需要您修改自訂屬性以對應到您的 SAML 權杖屬性設定。 按一下 [檢視和編輯所有其他使用者屬性] 核取方塊，以開啟自訂屬性的設定。
 
@@ -168,17 +168,17 @@ ScaleX Enterprise 與 Azure AD 整合提供下列優點：
     
     a. 選取 [建立可驗證 SSO 的任何使用者]。
 
-    b. **服務提供者 SAML**︰將 ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent*** 值貼上
+    b. **服務提供者 SAML**：將 ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent*** 值貼上
 
     c. **ACS 回應中的識別提供者電子郵件欄位的名稱**︰將 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` 值貼上
 
-    d. **識別提供者的 EntityDescriptor 實體識別碼︰** 將您從 Azure 入口網站複製的 **SAML 實體識別碼**值貼上。
+    d. **識別提供者的 EntityDescriptor 實體識別碼︰** 貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
-    e. **識別提供者 SingleSignOnService URL：** 從 Azure 入口網站將 **SAML 單一登入服務 URL** 貼上。
+    e. **識別提供者 SingleSignOnService URL：** 貼上您從 Azure 入口網站複製的 [SAML 實體識別碼] 值。
 
     f. **識別提供者公開 X509 憑證︰** 在記事本中，將您從 Azure下載的 X509 憑證開啟，並在此方塊中將內容貼上。 確定憑證內容中沒有任何分行符號。
     
-    g. 請勾選下列核取方塊︰[已啟用]、[加密 NameID] 和 [簽署 AuthnRequests]。
+    g. 請勾選下列核取方塊：請勾選下列核取方塊︰[已啟用]、[加密 NameID] 和 [簽署 AuthnRequests]。
 
     h. 按一下 [更新 SSO 設定] 將設定儲存。
 

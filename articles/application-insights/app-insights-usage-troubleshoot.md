@@ -8,21 +8,20 @@ manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: c1e5b420c4821732aa8cc19328b0955070100926
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 7da0717273892893bec03c164b9b297f28e5218d
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138491"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995533"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>針對 Application Insights 中的使用者行為分析工具進行疑難排解
-您有關於 [Application Insights 中的使用者行為分析工具](app-insights-usage-overview.md)：[使用者、工作階段、事件](app-insights-usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](app-insights-usage-flows.md)[保留期](app-insights-usage-retention.md)或同群使用者的問題嗎？ 以下是一些解答。
+您有關於 [Application Insights 中的使用者行為分析工具](app-insights-usage-overview.md)：[使用者、工作階段、事件](app-insights-usage-segmentation.md)、[漏斗圖](usage-funnels.md)、[使用者流程](app-insights-usage-flows.md)[保留期](app-insights-usage-retention.md)或世代的問題嗎？ 以下是一些解答。
 
 ## <a name="counting-users"></a>計算使用者
 **使用者行為分析工具顯示我的應用程式有一個使用者/工作階段，但我知道我的應用程式有許多使用者/工作階段。如何修正這些錯誤的計數？**
@@ -57,5 +56,5 @@ Application Insights 中的所有遙測事件都有[匿名使用者識別碼](ap
 * [使用者行為分析工具概觀](app-insights-usage-overview.md)
 
 ## <a name="get-help"></a>取得說明
-* [堆疊溢位](http://stackoverflow.com/questions/tagged/ms-application-insights)
+* [堆疊溢位](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

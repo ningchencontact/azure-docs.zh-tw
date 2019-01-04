@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 110005469d5ff42af10b29fcee97c2f130ecdc2d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390206"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52873815"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Azure Data Factory 支援的計算環境
 本文說明您可用來處理或轉換資料的各種計算環境。 其中還提供在設定將這些計算環境連結至 Azure Data Factory 的連結服務時，Data Factory 所支援的不同組態 (隨選與自備) 的詳細資料。
@@ -28,7 +28,7 @@ ms.locfileid: "39390206"
 | [隨選 HDInsight 叢集](#azure-hdinsight-on-demand-linked-service)或[您自己的 HDInsight 叢集](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md)、[Pig](transform-data-using-hadoop-pig.md)、[Spark](transform-data-using-spark.md)、[MapReduce](transform-data-using-hadoop-map-reduce.md)、[Hadoop 串流](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [自訂](transform-data-using-dotnet-custom-activity.md)     |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning 活動︰批次執行和更新資源](transform-data-using-machine-learning.md) |
-| [Azure 資料湖分析](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
+| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service)、[Azure SQL 資料倉儲](#azure-sql-data-warehouse-linked-service)、[SQL Server](#sql-server-linked-service) | [預存程序](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md)、[Jar](transform-data-databricks-jar.md)、[Python](transform-data-databricks-python.md) |
 
@@ -48,11 +48,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 * 您的 Azure 訂用帳戶下會建立隨選 HDInsight 叢集。 該叢集啟動並執行時，您能看到該叢集出現在您的 Azure 入口網站中。 
 * 在隨選 HDInsight 叢集上執行之工作的記錄檔會被複製到與 HDInsight 叢集相關聯的儲存體帳戶。 連結服務定義中定義的 clusterUserName、clusterPassword、clusterSshUserName、clusterSshPassword 可用來登入該叢集，以便在該叢集的生命週期中進行深入的疑難排解。 
 * 只會針對 HDInsight 叢集啟動並執行工作的時間來向您收取費用。
-* 您無法將指令碼動作與 Azure HDInsight 隨選連結服務搭配使用。 例如，如果您需要安裝其他相依性，請考慮使用 Azure 自動化，執行 PowerShell 指令碼來進行下列動作：  
-  a. 建立 HDInsight 叢集。  
-  b. 例如，執行指令碼動作來安裝其他相依性。  
-  c. 執行 Data Factory 管線。  
-  d. 刪除叢集。  
+* 指令碼動作現在支援與 Azure HDInsight 隨選連結服務搭配使用。  
 
 > [!IMPORTANT]
 > 通常會花費 **20 分鐘**或更久的時間來佈建隨選 Azure HDInsight 叢集。
@@ -113,7 +109,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 | clusterNamePrefix           | HDI 叢集名稱的前置詞，在叢集名稱的結尾會自動附加時間戳記| 否       |
 | sparkVersion                 | 如果叢集類型是「Spark」，則為 spark 的版本 | 否       |
 | additionalLinkedServiceNames | 指定 HDInsight 連結服務的其他儲存體帳戶，讓 Data Factory 服務代表您註冊它們。 這些儲存體帳戶與 HDInsight 叢集必須在相同區域，而建立此叢集的區域與 linkedServiceName 所指定之儲存體帳戶的區域相同。 | 否       |
-| osType                       | 作業系統的類型。 允許的值為：Linux 和 Windows (僅適用於 HDInsight 3.3)。 預設值為 Linux | 否       |
+| osType                       | 作業系統的類型。 允許的值包括：Linux 和 Windows (僅適用於 HDInsight 3.3)。 預設值為 Linux | 否       |
 | hcatalogLinkedServiceName    | 指向 HCatalog 資料庫的 Azure SQL 連結服務名稱。 會使用 Azure SQL 資料庫作為中繼存放區，建立隨選 HDInsight 叢集。 | 否       |
 | connectVia                   | 將活動分派到此 HDInsight 連結服務所用的整合執行階段。 對於隨選 HDInsight 連結服務，它只會支援 Azure 整合執行階段。 如果未指定，就會使用預設的 Azure Integration Runtime。 | 否       |
 | clusterUserName                   | 存取叢集的使用者名稱。 | 否       |
@@ -244,7 +240,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 "dataNodeSize": "Standard_D4",
 ```
 
-若您為這些屬性指定錯誤的值，可能會顯示下列 **錯誤：** 無法建立叢集。 例外狀況：無法完成叢集建立作業。 作業失敗，錯誤碼為 '400'。 叢集剩餘狀態：「錯誤」。 訊息：「PreClusterCreationValidationFailure」。 出現此錯誤時，請確定您是使用[虛擬機器的大小](../virtual-machines/linux/sizes.md)一文的表格中的 **CMDLET 與 API** 名稱。        
+若您為這些屬性指定錯誤的值，可能會顯示下列**錯誤：** 無法建立叢集。 例外狀況：無法完成叢集建立作業。 作業失敗，錯誤碼為 '400'。 叢集剩餘狀態：「錯誤」。 訊息：「PreClusterCreationValidationFailure」。 出現此錯誤時，請確定您是使用[虛擬機器的大小](../virtual-machines/linux/sizes.md)一文的表格中的 **CMDLET 與 API** 名稱。        
 
 ## <a name="bring-your-own-compute-environment"></a>自備計算環境
 在這種組態中，使用者可以將現有的運算環境註冊為 Data Factory 中的連結服務。 此運算環境是由使用者管理並由 Data Factory 服務用來執行活動。
@@ -383,7 +379,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 ### <a name="properties"></a>properties
 | 屬性               | 說明                              | 必要                                 |
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
-| 類型                   | type 屬性應設為： **AzureML**。 | 是                                      |
+| 類型                   | type 屬性應設為：**AzureML**。 | 是                                      |
 | mlEndpoint             | 批次評分 URL。                   | 是                                      |
 | apiKey                 | 已發佈的工作區模型的 API。     | 是                                      |
 | updateResourceEndpoint | Azure ML Web 服務端點 (用以藉由定型模型檔案更新預測性 Web 服務) 的更新資源 URL | 否                                       |
@@ -426,7 +422,7 @@ Azure Data Factory 服務可自動建立隨選 HDInsight 叢集來處理資料�
 
 | 屬性             | 說明                              | 必要                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                 | type 屬性應設為： **AzureDataLakeAnalytics**。 | 是                                      |
+| type                 | type 屬性應設為：**AzureDataLakeAnalytics**。 | 是                                      |
 | accountName          | Azure Data Lake Analytics 帳戶名稱。  | 是                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics URI。           | 否                                       |
 | subscriptionId       | Azure 訂用帳戶識別碼                    | 否                                       |

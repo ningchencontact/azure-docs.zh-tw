@@ -9,35 +9,35 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 4ea8ded6abcdee397511272c539f9be6cdd12c0e
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 14b849a46701ab19c76ee175717c3715cc89f411
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685526"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408896"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Hadoop 使用 Oozie 來定義並執行工作流程
+# <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在 Linux 型 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie 來定義並執行工作流程
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-了解如何在 Azure HDInsight 上搭配 Hadoop 使用 Apache Oozie。 Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
+了解如何在 Azure HDInsight 上搭配 Apache Hadoop 使用 Apache Oozie。 Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 Oozie 已與 Hadoop 堆疊整合，並支援下列作業：
 
-* Apache MapReduce
+* Apache Hadoop MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
 您也可以使用 Oozie 來排程系統的特定作業，例如 Java 程式或 Shell 指令碼。
 
-> [!NOTE]
-> 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Data Factory，請參閱[搭配 Data Factory 使用 Pig 和 Hive][azure-data-factory-pig-hive]。 若要在使用企業安全性套件的叢集上使用 Oozie，請參閱[在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)。
+> [!NOTE]  
+> 還有另一個選項可以定義與 HDInsight 搭配的工作流程，那就是 Azure Data Factory。 若要深入了解 Data Factory，請參閱 [將 Apache Pig 和 Apache Hive 與 Data Factory 搭配使用][azure-data-factory-pig-hive]。 若要在使用企業安全性套件的叢集上使用 Oozie，請參閱[在具有企業安全性套件的 HDInsight Hadoop 叢集中執行 Apache Oozie](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md)。
 
 
 ## <a name="prerequisites"></a>必要條件
 
-* **一般 HDInsight 叢集**：請參閱 [開始在 Linux 上使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **一般 HDInsight 叢集**：請參閱[開始在 Linux 上使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是 HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="example-workflow"></a>範例工作流程
@@ -54,9 +54,9 @@ ms.locfileid: "51685526"
 
     本文件中使用的 Hive 指令碼會計算每個平台 (例如 Android 或 iPhone) 的總瀏覽次數，並將計數儲存到新的 Hive 資料表。
 
-    如需 Hive 的詳細資訊，請參閱[在 HDInsight 上使用 Hive][hdinsight-use-hive]。
+    如需有關 Hive 的詳細資訊，請參閱[將 Apache Hive 與 HDInsight 搭配使用][hdinsight-use-hive]。
 
-2. Sqoop 動作會將新的 Hive 資料表內容匯出至 Azure SQL Database 中建立的資料表。 如需 Sqoop 的詳細資訊，請參閱[搭配 HDInsight 使用 Hadoop Sqoop][hdinsight-use-sqoop]。
+2. Sqoop 動作會將新的 Hive 資料表內容匯出至 Azure SQL Database 中建立的資料表。 如需 Sqoop 的詳細資訊，請參閱[將 Apache Sqoop 與 HDInsight 搭配使用][hdinsight-use-sqoop]。
 
 > [!NOTE]
 > 如需 HDInsight 叢集支援的 Oozie 版本，請參閱 [HDInsight 提供之 Hadoop 叢集版本中的新增功能][hdinsight-versions]。
@@ -90,7 +90,7 @@ Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 �
 
     將 `username` 取代為您的 SSH 使用者名稱。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 您可以忽略指出使用者已是 `users` 群組之成員的錯誤。
 
 ## <a name="add-a-database-driver"></a>新增資料庫驅動程式
@@ -101,7 +101,7 @@ Oozie 預計您會將作業所需的所有資源儲存在同一個目錄中。 �
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 您可能會收到指出檔案已存在的訊息。
 
 如果工作流程已使用其他資源，例如含有 MapReduce 應用程式的 jar，則您也必須新增這些資源。
@@ -232,7 +232,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
 ### <a name="create-the-table"></a>建立資料表
 
-> [!NOTE]
+> [!NOTE]  
 > 連接至 SQL Database 建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
 
 
@@ -300,7 +300,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 若 HDInsight 叢集使用 Azure 儲存體做為預設儲存體，`<value>` 元素內容的開頭將會是 `wasb://`。 若改為使用 Azure Data Lake Store，則其開頭將會是 `adl://`。
 
     儲存 `<value>` 元素的內容，因為在後續步驟將會用到它。
@@ -376,7 +376,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
    * 將 `wasb://mycontainer@mystorageaccount.blob.core.windows.net` 的所有執行個體取代為您之前收到的預設儲存體值。
 
-     > [!WARNING]
+     > [!WARNING]  
      > 若該路徑是 `wasb` 路徑，您必須使用完整路徑。 不要將它縮短為 `wasb:///`。
 
    * 將 `YourName` 取代為您的 HDInsight 叢集登入名稱。
@@ -384,7 +384,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
      此檔案中大部分的資訊都會用來填入 workflow.xml 或 ooziewf.hql 檔案中所使用的值 (例如 `${nameNode}`)。
 
-     > [!NOTE]
+     > [!NOTE]  
      > `oozie.wf.application.path` 項目會定義用來尋找 workflow.xml 檔案的位置。 此檔案包含此作業所執行的工作流程。
 
 5. 若要儲存檔案，請選取 Ctrl+X、輸入 `Y`，然後選取 **Enter**。
@@ -393,7 +393,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
 
 下列步驟使用 Oozie 命令提交及管理叢集上的 Oozie 工作流程。 Oozie 命令是 [Oozie REST API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)上的易記介面。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在使用 Oozie 命令時，您必須使用 HDInsight 前端節點的 FQDN。 只有從叢集才能存取此 FQDN，或者，如果叢集位於 Azure 虛擬網路，就必須從同一個網路中的其他電腦來存取。
 
 
@@ -435,7 +435,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     oozie job -info <JOBID>
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 將 `<JOBID>` 取代為上一個步驟中所傳回的 ID。
 
     這會傳回類似以下文字的資訊：
@@ -463,7 +463,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     oozie job -start JOBID
     ```
 
-    > [!NOTE]
+    > [!NOTE]  
     > 使用先前傳回的 ID 取代 `<JOBID>`。
 
     如果您在使用此命令後檢查狀態，會發現作業為執行中狀態，並傳回作業內的動作資訊。
@@ -492,7 +492,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
         Windows Phone   1791
         (6 rows affected)
 
-如需 Oozie 命令的詳細資訊，請參閱 [Oozie 命令列工具](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)。
+如需 Oozie 命令的詳細資訊，請參閱 [Apache Oozie 命令列工具](https://oozie.apache.org/docs/4.1.0/DG_CommandLineTool.html)。
 
 ## <a name="oozie-rest-api"></a>Oozie REST API
 
@@ -506,7 +506,7 @@ Oozie 工作流程定義是以 Hadoop 流程定義語言 (hPDL)，也就是 XML 
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
     ```
 
-如需如何使用 Oozie REST API 的詳細資訊，請參閱 [Oozie Web 服務 API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)。
+如需如何使用 Oozie REST API 的詳細資訊，請參閱 [Apache Oozie Web 服務 API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html)。
 
 ## <a name="oozie-web-ui"></a>Oozie Web UI
 
@@ -544,7 +544,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
        ![作業記錄](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **作業 DAG**：DAG 是將整個工作流程所採取的資料路徑予以圖形化的概觀。
+   * **Job DAG**：DAG 是將整個工作流程所採取的資料路徑予以圖形化的概觀。
 
        ![工作 DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
@@ -660,7 +660,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
     ![協調器作業資訊](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
-    > [!NOTE]
+    > [!NOTE]  
     > 此影像只會顯示作業的成功執行項目，而不是排程工作流程內的個別動作。 若要查看個別動作，請選取其中一個**動作**項目。
 
     ![動作資訊](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
@@ -685,7 +685,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：**job.xml** 檔案中使用的 Azure Blob 儲存體位址未包含儲存體容器或儲存體帳戶名稱。 Blob 儲存體位址的格式必須是 `wasb://containername@storageaccountname.blob.core.windows.net`。
 
-**解決方法**：變更作業所使用的 Blob 儲存體位址。
+**解決方案**：變更作業所使用的 Blob 儲存體位址。
 
 ### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002：不允許 Oozie 模擬 &lt;USER>
 
@@ -695,11 +695,11 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：目前的權限設定不允許 Oozie 模擬指定的使用者帳戶。
 
-**解決方法**：Oozie 可以模擬 **users** 群組中的使用者。 使用 `groups USERNAME` 查看使用者帳戶所屬的群組。 如果使用者不是 **users** 群組的成員，請使用以下命令將使用者新增至群組：
+**解決方案**：Oozie 可以模擬 **users** 群組中的使用者。 使用 `groups USERNAME` 查看使用者帳戶所屬的群組。 如果使用者不是 **users** 群組的成員，請使用以下命令將使用者新增至群組：
 
     sudo adduser USERNAME users
 
-> [!NOTE]
+> [!NOTE]  
 > 這可能需要幾分鐘，HDInsight 才能辨識出使用者已新增至該群組。
 
 ### <a name="launcher-error-sqoop"></a>啟動器錯誤 (Sqoop)
@@ -710,7 +710,7 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 **原因**：Sqoop 無法載入存取資料庫時所需的資料庫驅動程式。
 
-**解決方法**：當您從 Oozie 作業使用 Sqoop 時，您必須將資料庫驅動程式與作業所使用的其他資源 (例如 workflow.xml) 包含在一起。 此外，請從 workflow.xml 的 `<sqoop>...</sqoop>` 區段，參考含有資料庫驅動程式的封存。
+**解決方案**：當您從 Oozie 作業使用 Sqoop 時，您必須將資料庫驅動程式與作業所使用的其他資源 (例如 workflow.xml) 包含在一起。 此外，請從 workflow.xml 的 `<sqoop>...</sqoop>` 區段，參考含有資料庫驅動程式的封存。
 
 例如，您可以針對本文件中的工作使用下列步驟：
 
@@ -730,11 +730,11 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 
 在本教學課程中，您已了解如何定義 Oozie 工作流程，以及如何執行 Oozie 工作。 若要深入了解如何使用 HDInsight，請參閱下列文章：
 
-* [搭配 HDInsight 使用以時間為基礎的 Hadoop Oozie 協調器][hdinsight-oozie-coordinator-time]
-* [在 HDInsight 中上傳 Hadoop 作業的資料][hdinsight-upload-data]
-* [搭配使用 Sqoop 與 HDInsight 中的 Hadoop][hdinsight-use-sqoop]
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop][hdinsight-use-hive]
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop][hdinsight-use-pig]
+* [搭配 HDInsight 使用以時間為基礎的 Apache Oozie 協調器][hdinsight-oozie-coordinator-time]
+* [在 HDInsight 中上傳 Apache Hadoop 作業的資料][hdinsight-upload-data]
+* [在 HDInsight 中將 Apache Sqoop 與 Apache Hadoop 搭配使用][hdinsight-use-sqoop]
+* [在 HDInsight 上將 Apache Hive 與 Apache Hadoop 搭配使用][hdinsight-use-hive]
+* [在 HDInsight 上將 Apache Pig 與 Apache Hadoop 搭配使用][hdinsight-use-pig]
 * [開發 HDInsight 的 Java MapReduce 程式][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
@@ -761,13 +761,13 @@ Oozie Web UI 可讓您用網頁檢視叢集上 Oozie 作業的狀態。 透過 W
 [apache-oozie-400]: http://oozie.apache.org/docs/4.0.0/
 [apache-oozie-332]: http://oozie.apache.org/docs/3.3.2/
 
-[powershell-download]: http://azure.microsoft.com/downloads/
+[powershell-download]: https://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: https://technet.microsoft.com/library/ee176961.aspx
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png

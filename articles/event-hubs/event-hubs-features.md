@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞功能概觀 | Microsoft Docs
-description: Azure 事件中樞功能的概觀和詳細資料
+title: 功能概觀 - Azure 事件中樞 | Microsoft Docs
+description: 本文將詳細說明 Azure 事件中樞的相關功能與術語。
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -8,18 +8,19 @@ manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a3f7245d8a648249a4e7179cc02982eae8561037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 917a551b8a187db6645e523d0189533e333d5371
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280568"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075161"
 ---
-# <a name="event-hubs-features-overview"></a>事件中樞功能概觀
+# <a name="features-and-terminology-in-azure-event-hubs"></a>Azure 事件中樞的功能與術語
 
 事件中樞是可調整的事件處理服務，它會擷取和處理大量的事件和資料，具有低延遲和高可靠性。 如需高階概觀，請參閱[何謂事件中樞？](event-hubs-what-is-event-hubs.md)
 

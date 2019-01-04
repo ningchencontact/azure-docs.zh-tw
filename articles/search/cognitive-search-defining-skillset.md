@@ -1,5 +1,5 @@
 ---
-title: 在認知搜尋管線中建立技能集 (Azure 搜尋服務) | Microsoft Docs
+title: 在認知搜尋管線中建立技能集 - Azure 搜尋服務
 description: 定義資料擷取、自然語言處理或影像分析步驟，以從您的資料擴充及擷取在 Azure 搜尋服務中使用的結構化資訊。
 manager: pablocas
 author: luiscabrer
@@ -9,12 +9,13 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: luisca
-ms.openlocfilehash: 997b106f748a2f18e8141f77f3b9ff8bb6b9d971
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.custom: seodec2018
+ms.openlocfilehash: 091a165dacbf0e98532f343745e56c4acf765b84
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268020"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320790"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>如何在擴充管線中建立技能集
 
@@ -29,7 +30,7 @@ ms.locfileid: "36268020"
 
 + 每個索引子只能有一個技能集。
 + 一個技能集至少必須有一個技能。
-+ 您可以建立多個相同類型的技能 (例如，影像分析技能的變體)，但每個技能在相同的技能集內只能使用一次。
++ 您可以建立多個相同類型的技能 (例如，影像分析技能的變體)。
 
 ## <a name="begin-with-the-end-in-mind"></a>開始前請先預想結果
 

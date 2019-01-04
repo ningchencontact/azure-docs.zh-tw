@@ -9,16 +9,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 1092f5e21eab1e037c360408f17548b544a9e922
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: d24b2773aa056b33a4067d5d84677d186d25b195
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422791"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255069"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>準備備份 Azure VM
 
-此文章提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務備份保存庫中。
+本文提供的步驟可讓您備妥環境，以備份 Azure Resource Manager 部署的虛擬機器 (VM)。 程序中展示的步驟使用 Azure 入口網站。 當您備份虛擬機器時，備份資料或復原點會儲存在復原服務備份保存庫中。
 
 
 
@@ -30,11 +30,11 @@ ms.locfileid: "52422791"
 * 檢查網路連線能力。
 * 針對 Linux VM，如果您想要自訂應用程式一致備份的備份環境，請遵循[設定快照前與快照後指令碼的步驟](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent)。
 
-如果您的環境已經滿足這些條件，請繼續依[備份 VM](backup-azure-arm-vms.md) 一文中的指示進行。 如果您需要設定或檢查前述任何必要條件，此文章章會引導您逐步完成相關步驟。
+如果您的環境已經滿足這些條件，請繼續依[備份 VM](backup-azure-arm-vms.md) 一文中的指示進行。 如果您需要設定或檢查前述任何必要條件，本文章會引導您逐步完成相關步驟。
 
 ## <a name="supported-operating-systems-for-backup"></a>支援的備份作業系統
 
- * **Linux**：Azure 備份支援 [Azure 所背書的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 和 32 位元作業系統除外。 如需支援還原檔案的 Linux 作業系統清單，請參閱[從虛擬機器備份復原檔案](backup-azure-restore-files-from-vm.md#for-linux-os)。
+ * **Linux**：Azure 備份支援 [Azure 所認可的散發套件清單](../virtual-machines/linux/endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)，但 CoreOS Linux 和 32 位元作業系統除外。 如需支援還原檔案的 Linux 作業系統清單，請參閱[從虛擬機器備份復原檔案](backup-azure-restore-files-from-vm.md#for-linux-os)。
 
     > [!NOTE]
     > 只要虛擬機器上有 VM 代理程式並可支援 Python，其他「自備 Linux」散發套件即可運作。 不過，不支援這些散發套件。
@@ -55,7 +55,7 @@ ms.locfileid: "52422791"
 * 對於所選網路，在為儲存體帳戶設定防火牆和虛擬網路設定後，請選取 [允許信任的 Microsoft 服務存取此儲存體帳戶] 作為例外狀況，以啟用 Azure 備份服務來存取網路受限的儲存體帳戶。 網路受限的儲存體帳戶不支援項目層級復原。
 * 您可以在 Azure 的所有公開區域中備份虛擬機器。 (請參閱支援地區的[檢查清單](https://azure.microsoft.com/regions/#services)。)如果您尋找的區域目前不受支援，在建立保存庫期間，該區域就不會顯示在下拉式清單中。
 * 只有透過 PowerShell 才支援還原屬於多網域控制站 (DC) 組態的 DC VM。 若要深入了解，請參閱[還原多 DC 網域控制站](backup-azure-arm-restore-vms.md#restore-domain-controller-vms)。
-* 不支援已啟用寫入加速器的磁碟快照集。 此限制會封鎖「Azure 備份服務」對虛擬機器的所有磁碟執行應用程式一致快照的能力。
+* 不支援已啟用寫入加速器的磁碟快照集。 這項限制會封鎖「Azure 備份服務」對虛擬機器的所有磁碟執行應用程式一致快照的能力。
 * Azure 備份不支援基於日光節約變更自動調整時鐘以備份 Azure VM。 如有必要，請修改原則以便將日光節約時間變更納入考量。
 * 僅支援透過 PowerShell 還原具有以下特殊網路組態的虛擬機器。 完成還原作業之後，透過 UI 中還原工作流程所建立的 VM 將不會具有這些網路設定。 若要深入了解，請參閱 [還原具有特殊網路組態的 VM](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations)。
   * 負載平衡器組態下的虛擬機器 (內部與外部)
@@ -183,8 +183,8 @@ Azure [VM 代理程式](../virtual-machines/extensions/agent-windows.md)必須�
 
 | **作業** | **Windows** | **Linux** |
 | --- | --- | --- |
-| 安裝 VM 代理程式 |下載並安裝 [代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。 |<li> 安裝最新的 [Linux 代理程式](../virtual-machines/extensions/agent-linux.md)。 您需要有系統管理員權限，才能完成安裝。 我們建議您從散發機制安裝代理程式。 我們「不」建議您直接從 github 安裝 Linux VM 代理程式。  |
-| 更新 VM 代理程式 |更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。 <br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 我們建議您從散發機制更新代理程式。 我們「不」建議您直接從 github 更新 Linux VM 代理程式。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
+| 安裝 VM 代理程式 |下載並安裝 [代理程式 MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 您需要有系統管理員權限，才能完成安裝。 |<li> 安裝最新的 [Linux 代理程式](../virtual-machines/extensions/agent-linux.md)。 您需要有系統管理員權限，才能完成安裝。 我們建議您從散發機制安裝代理程式。 我們「不」建議您直接從 GitHub 安裝 Linux VM 代理程式。  |
+| 更新 VM 代理程式 |更新 VM 代理程式與重新安裝 [VM 代理程式二進位檔](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)一樣簡單。 <br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |請遵循[更新 Linux VM 代理程式](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)的指示。 我們建議您從散發機制更新代理程式。 我們「不」建議您直接從 GitHub 更新 Linux VM 代理程式。<br>確定在更新 VM 代理程式時，沒有任何執行中的備份作業。 |
 | 驗證 VM 代理程式安裝 |<li>瀏覽至 Azure VM 中的 C:\WindowsAzure\Packages 資料夾。 <li>您應該會發現 WaAppAgent.exe 檔案已存在。<li> 在該檔案上按一下滑鼠右鍵，前往 [屬性]，然後選取 [詳細資料] 索引標籤。[產品版本] 欄位應為 2.6.1198.718 或更高版本。 |N/A |
 
 ### <a name="backup-extension"></a>備份擴充功能

@@ -1,5 +1,5 @@
 ---
-title: 已淘汰的認知技能 (Azure 搜尋服務) | Microsoft Docs
+title: 已淘汰的認知技能 - Azure 搜尋服務
 description: 此頁面包含已淘汰的認知搜尋技能清單，且即將不再支援。
 services: search
 manager: pablocas
@@ -10,14 +10,15 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: 6bd364ea9923b1c8cdd7c96fc29cb91dff88ec95
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447540"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53311723"
 ---
-#    <a name="deprecated-cognitive-seach-skills"></a>已淘汰的認知搜尋技能
+#    <a name="deprecated-cognitive-search-skills"></a>已淘汰的認知搜尋技能
 
 本文件描述已淘汰的認知技能。 使用下列指南取得內容：
 
@@ -42,7 +43,7 @@ ms.locfileid: "52447540"
 
 若要遷移至[實體辨識技能](cognitive-search-skill-entity-recognition.md)，您必須對您的技能定義執行下列一或多項變更。 您可以使用 [Update Skillset API](https://docs.microsoft.com/rest/api/searchservice/update-skillset) (更新技能集 API) 來更新技能定義。
 
-注意：目前不支援信賴分數作為概念。 在不久的將來將會支援。 `minimumPrecision` 參數會存在於 `EntityRecognitionSkill` 以供日後使用，並提供回溯相容性。
+_注意_：目前不支援信賴分數作為概念。 在不久的將來將會支援。 `minimumPrecision` 參數會存在於 `EntityRecognitionSkill` 以供日後使用，並提供回溯相容性。
 
 1. 「(必要)」將 `@odata.type` 從 `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` 變更至 `"#Microsoft.Skills.Text.EntityRecognitionSkill"`。
 

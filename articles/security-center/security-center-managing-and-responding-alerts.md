@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 779efdd509460ac8175b3922097d701edf8b9b68
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 782e655edcb7cbac1965131bce4431dc5599328e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311223"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340619"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>管理及回應 Azure 資訊安全中心的安全性警示
 本文件可協助您使用 Azure 資訊安全中心來管理及回應安全性警示。
 
 > [!NOTE]
-> 若要啟用進階偵測，請升級至 Azure 資訊安全中心標準。 提供 60 天的免費試用。 若要升級，請選取[安全性原則](security-center-azure-policy.md)中的 [定價層]。 若要深入了解，請參閱 [Azure 資訊安全中心價格](security-center-pricing.md)。
+> 若要啟用進階偵測，請升級至 Azure 資訊安全中心標準。 有免費試用版可用。 若要升級，請選取[安全性原則](tutorial-security-policy.md)中的 [定價層]。 若要深入了解，請參閱 [Azure 資訊安全中心價格](security-center-pricing.md)。
 >
 >
 

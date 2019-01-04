@@ -10,16 +10,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.openlocfilehash: d7b29980321f04d1ad9325580bc48ab944f60d1c
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 73c68e6946b3715bfa67561141e6c18e32e20c18
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633711"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011754"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight 上的 Apache Hive 和 HiveQL 是什麼？
 
-[Apache Hive](http://hive.apache.org/) 是適用於 Apache Hadoop 的資料倉儲系統。 Hive 可執行資料摘要、查詢以及資料分析。 Hive 查詢是以 HiveQL 撰寫而成，這是類似 SQL 的查詢語言。
+[Apache Hive](https://hive.apache.org/) 是適用於 Apache Hadoop 的資料倉儲系統。 Hive 可執行資料摘要、查詢以及資料分析。 Hive 查詢是以 HiveQL 撰寫而成，這是類似 SQL 的查詢語言。
 
 Hive 可讓您將結構投影在大量非結構化資料上。 定義結構後，您不需具備 Jave 或 MapReduce 相關知識，即可使用 HiveQL來查詢資料。
 
@@ -27,7 +27,7 @@ HDInsight 提供數種已針對特定工作負載進行微調的叢集類型。 
 
 * __互動式查詢__︰提供[低延遲分析處理 (LLAP)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 功能的 Hadoop 叢集，可改善互動式查詢的回應時間。 如需詳細資訊，請參閱[開始使用 HDInsight 中的互動式查詢](../interactive-query/apache-interactive-query-get-started.md)文件。
 
-* __Hadoop__︰已針對批次處理工作負載進行微調的 Hadoop 叢集。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 Hadoop](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 文件。
+* __Hadoop__：已針對批次處理工作負載進行微調的 Hadoop 叢集。 如需詳細資訊，請參閱[開始使用 HDInsight 中的 Hadoop](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 文件。
 
 * __Spark__：Apache Spark 有可用於 Hive 的內建功能。 如需詳細資訊，請參閱[開始使用 HDInsight 上的 Spark](../spark/apache-spark-jupyter-spark-sql.md) 文件。
 
@@ -78,14 +78,14 @@ Hive 也支援自訂複雜或不規則結構化資料的 **序列化/反序列�
 
 您可以使用 Hive 建立兩種類型的資料表：
 
-* __內部__︰資料會儲存在 Hive 資料倉儲中。 資料倉儲位於叢集之預設儲存體上的 `/hive/warehouse/`。
+* __內部__：資料會儲存在 Hive 資料倉儲中。 資料倉儲位於叢集之預設儲存體上的 `/hive/warehouse/`。
 
     符合下列其中一項條件時，請使用內部資料表：
 
     * 資料是暫存的。
     * 您想要 Hive 管理資料表和資料的生命週期。
 
-* __外部__︰資料會儲存在資料倉儲之外。 資料可以儲存在叢集可存取的任何儲存體上。
+* __外部__：資料會儲存在資料倉儲之外。 資料可以儲存在叢集可存取的任何儲存體上。
 
     符合下列其中一項條件時，請使用外部資料表：
 
@@ -143,7 +143,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
     > [!NOTE]
     > 只有在使用以 Windows 為基礎的 HDInsight 叢集時，才需要此陳述式。 Tez 是以 Linux 為基礎的 HDInsight 預設的執行引擎。
 
-* `DROP TABLE`︰如果資料表已存在，請刪除資料表。
+* `DROP TABLE`：如果資料表已存在，請刪除資料表。
 
 * `CREATE EXTERNAL TABLE`：在 Hive 中建立新的**外部**資料表。 外部資料表只會將資料表定義儲存在 Hive 中。 資料會留在原來的位置，並保持原始格式。
 
@@ -180,7 +180,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 這些陳述式會執行下列動作：
 
-* `CREATE TABLE IF NOT EXISTS`︰如果資料表不存在，請建立資料表。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 資料表會儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。
+* `CREATE TABLE IF NOT EXISTS`：如果資料表不存在，請建立資料表。 因為未使用 **EXTERNAL** 關鍵字，這個陳述式會建立內部資料表。 資料表會儲存在 Hive 資料倉儲中，並完全受到 Hive 所管理。
 
 * `STORED AS ORC`：以最佳化資料列單欄式 (Optimized Row Columnar, ORC) 格式儲存資料。 ORC 是高度最佳化且有效率的 Hive 資料儲存格式。
 
@@ -193,7 +193,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](http://tez.apache.org) 是可讓資料高用量應用程式 (例如 Hive)，以大規模而更有效率方式執行作業的架構。 對於以 Linux 為基礎的 HDInsight 叢集，Tez 預設為開啟。
+[Apache Tez](https://tez.apache.org) 是可讓資料高用量應用程式 (例如 Hive)，以大規模而更有效率方式執行作業的架構。 對於以 Linux 為基礎的 HDInsight 叢集，Tez 預設為開啟。
 
 > [!NOTE]
 > 對於 Windows 型的 HDInsight 叢集，Tez 目前預設為關閉，因而必須啟用。 若要充分發揮 Tez 的效益，您必須設定 Hive 查詢的下列值：
@@ -246,18 +246,18 @@ Apache Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 如需�
 * [搭配 HDInsight 使用 Pig][hdinsight-use-pig]
 * [搭配 HDInsight 使用 MapReduce 作業][hdinsight-use-mapreduce]
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
-[hivetask]: http://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
-[connectionmanager]: http://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
-[ssispack]: http://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[hivetask]: https://msdn.microsoft.com/library/mt146771(v=sql.120).aspx
+[connectionmanager]: https://msdn.microsoft.com/library/mt146773(v=sql.120).aspx
+[ssispack]: https://msdn.microsoft.com/library/mt146770(v=sql.120).aspx
 
 [hdinsight-use-pig]: hdinsight-use-pig.md
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -272,7 +272,7 @@ Apache Oozie 是可管理 Hadoop 作業的工作流程和協調系統。 如需�
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx
 
 
-[cindygross-hive-tables]: http://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
+[cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx

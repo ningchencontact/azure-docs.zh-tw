@@ -1,6 +1,6 @@
 ---
-title: 鎖定 Azure App Service Environment 的輸出流量
-description: 描述如何與 Azure 防火牆整合來保護輸出流量
+title: 鎖定 App Service 環境的連出流量 - Azure
+description: 描述如何與 Azure 防火牆整合來保護連出流量
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,30 +13,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.custom: seodec18
+ms.openlocfilehash: 52051ea221a3d49d86cc6b95e020e1075ce8cba2
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251571"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275545"
 ---
 # <a name="locking-down-an-app-service-environment"></a>鎖定 App Service 環境
 
-App Service Environment (ASE) 有一些外部相依性，它需要能夠存取，才能正確運作。 ASE 位於客戶 Azure 虛擬網路 (VNet)。 客戶必須允許 ASE 相依性流量，這對於想要鎖定從其 VNet 所有輸出流量的客戶而言會是個問題。
+App Service 環境 (ASE) 有一些外部相依性，它需要能夠存取，才能正確運作。 ASE 位於客戶 Azure 虛擬網路 (VNet)。 客戶必須允許 ASE 相依性流量，這對於想要鎖定從其 VNet 所有輸出流量的客戶而言會是個問題。
 
-ASE 有一些輸入相依性。 輸入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址已知，且發佈在 [App Service Environment 管理位址](https://docs.microsoft.com/azure/app-service/environment/management-addresses)文件。 您可以建立具有該資訊的網路安全性群組規則，來保護輸入的流量。
+ASE 有一些輸入相依性。 連入的管理流量不能透過防火牆裝置傳送。 此流量的來源位址已知，且發佈在 [App Service 環境管理位址](https://docs.microsoft.com/azure/app-service/environment/management-addresses)文件。 您可以建立具有該資訊的網路安全性群組規則，來保護連入的流量。
 
-ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺乏靜態位址表示網路安全性群組 (NSG) 不能用來鎖定來自 ASE 的輸出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
+ASE 連出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位址。 缺乏靜態位址表示網路安全性群組 (NSG) 不能用來鎖定來自 ASE 的連出流量。 地址經常變更，使得無法根據目前的解析度來設定規則，以用來建立 NSG。 
 
-保護輸出位址的解決方案在於使用可以根據網域名稱控制輸出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量輸出。  
+保護連出位址的解決方案在於使用可以根據網域名稱控制連出流量的防火牆裝置。 Azure 防火牆可以依據目的地的 FQDN 限制 HTTP 和 HTTPS 流量連出。  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>使用 ASE 設定 Azure 防火牆 
 
 使用 Azure 防火牆來鎖定 ASE 輸出流量的步驟如下：
 
 1. 在您的 ASE 所在或將來所在的 VNet 中，建立 Azure 防火牆。 [Azure 防火牆文件](https://docs.microsoft.com/azure/firewall/)
-2. 從 Azure 防火牆 UI，選取 [App Service Environment FQDN] 標籤
-3. 建立路由表，其中具有來自 [App Service Environment 管理位址]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)的管理位址，以及網際網路的下一個躍點。 需要路由表項目，才能避免發生非對稱式路由問題。
+2. 從 Azure 防火牆 UI，選取 [App Service 環境 FQDN] 標籤
+3. 建立路由表，其中具有來自 [App Service 環境管理位址]( https://docs.microsoft.com/azure/app-service/environment/management-addresses)的管理位址，以及網際網路的下一個躍點。 需要路由表項目，才能避免發生非對稱式路由問題。
 4. 針對底下＜IP 位址相依性＞所註明的 IP 位址相依性，新增具有網際網路下一個躍點的路由。
 5. 在路由表中新增 0.0.0.0/0 的路由，並且以 Azure 防火牆作為下一個躍點。
 6. 將您的 ASE 子網路建立 Azure SQL 和 Azure 儲存體的服務端點。
@@ -58,7 +59,7 @@ ASE 輸出相依性幾乎完全使用 FQDN 定義，它背後並沒有靜態位�
 
 Azure App Service 有一些外部相依性。 它們可以按照分類細分成數個主要領域：
 
-- 如果您想要鎖住輸出網路流量的服務端點，應該設定支援服務端點的服務。
+- 如果您想要鎖住連出網路流量的服務端點，應該設定支援服務端點的服務。
 - IP 位址端點不會以網域名稱來定址。 這對於預期所有 HTTPS 流量都使用網域名稱的防火牆裝置而言，可能是個問題。 IP 位址端點應該新增至 ASE 子網路上設定的路由表。
 - FQDN HTTP/HTTPS 端點可以放在您的防火牆裝置。
 - 萬用字元 HTTP/HTTPS 端點是根據一些限定條件，可能隨著 ASE 而變的相依性。 

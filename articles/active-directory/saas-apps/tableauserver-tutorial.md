@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: 9986e7984f24e065886f6d0a8b2d06968f778702
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 84ea1d999a26ce0ce1d548da92549c6a718d5978
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582712"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>教學課程：Azure Active Directory 與 Tableau Server 整合
 
@@ -175,7 +175,7 @@ Tableau Server 與 Azure AD 整合提供下列優點：
    
     >[!NOTE] 
     >客戶必須在 [Tableau Server SAML SSO 設定] 中上傳任何憑證，系統將在 SSO 流程中忽略該憑證。
-    >如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](http://onlinehelp.tableau.com/current/server/en-us/config_saml.htm)。
+    >如果您需要在 Tableau Server 上設定 SAML 的協助，請參閱[設定 SAML](https://onlinehelp.tableau.com/current/server/en-us/config_saml.htm)。
 
 ### <a name="creating-an-azure-ad-test-user"></a>建立 Azure AD 測試使用者
 

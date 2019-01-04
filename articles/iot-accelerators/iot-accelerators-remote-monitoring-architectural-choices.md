@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94641796fa77e03efc7158bc3aaf4bde9385c899
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 20af014e5a59cb526d5b96e543b10d5b2b6d6937
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51824263"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679591"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>遠端監視架構選擇
 
@@ -25,7 +25,7 @@ Azure IoT 遠端監視解決方案加速器是開放原始碼、MIT 授權的解
 
 遠端監視解決方案會遵循建議的 [Azure IoT 參考架構](https://aka.ms/iotrefarchitecture)。
 
-本文說明在每個遠端監視子系統中所做的架構及技術選擇，以及所考量的替代方案。 不過，Microsoft 在遠端監視解決方案中所做的技術選擇，不是實作遠端監視 IoT 解決方案的唯一方式。 您應該將技術實作視為建置成功應用程式的基準，而且應該修改它以：
+本文說明在每個遠端監視子系統中所做的架構及技術選擇。 不過，Microsoft 在遠端監視解決方案中所做的技術選擇，不是實作遠端監視 IoT 解決方案的唯一方式。 您應該將技術實作視為建置成功應用程式的基準，而且應該修改它以：
 
 - 在您的組織中運用可用的技能與經驗。
 - 符合垂直應用程式的需求。
@@ -52,7 +52,8 @@ Azure IoT 中樞可作為遠端監視解決方案雲端閘道。 [IoT 中樞](ht
 對於 IoT 裝置連線，您可以使用：
 
 - [IoT 中樞裝置 SDK](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-device-sdks) 可為您的裝置實作原生用戶端應用程式。 此 SDK 會提供包裝 IoT 中樞 REST API 的包裝函式，並處理重試之類的案例。
-- 與解決方案加速器中的 Azure IoT Edge 整合，可部署及管理在您裝置上的容器中執行的自訂模組。
+- 與 Azure IoT Edge 整合，可部署及管理在您裝置上的容器中執行的自訂模組。
+- 與 IoT 中樞的自動裝置管理整合，以管理大量連線的裝置。
 
 ### <a name="stream-processing"></a>串流處理
 
@@ -62,7 +63,7 @@ Azure IoT 中樞可作為遠端監視解決方案雲端閘道。 [IoT 中樞](ht
 
 針對儲存體，遠端監視解決方案加速器會同時使用 Azure 時間序列深入解析和 Azure Cosmos DB。 Azure 時間序列深入解析會儲存來自您的已連線裝置並經由 IoT 中樞傳輸的訊息。 解決方案加速器會針對其他儲存體使用 Azure Cosmos DB，例如冷儲存體、規則定義、警示和組態設定。
 
-Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案，即使 Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於多個使用案例也一樣。 透過 Azure 時間序列深入解析，您可以識別趨勢和異常狀況來針對時間序列感應器資料獲得更深入的見解。 這項功能可讓您進行根本原因分析，並且避免代價高昂的停機時間。
+Azure Cosmos DB 是針對 IoT 應用程式所建議的一般用途暖儲存體解決方案。 不過，Azure 時間序列深入解析和 Azure Data Lake 等解決方案適用於許多使用案例。 透過 Azure 時間序列深入解析，您可以識別趨勢和異常狀況來針對時間序列感應器資料獲得更深入的見解。 這項功能可讓您進行根本原因分析，並且避免代價高昂的停機時間。
 
 > [!NOTE]
 > Azure China 雲端目前不提供時間序列見解。 Azure 中國雲端中的新遠端監視解決方案加速器部署將 Cosmos DB 使用於所有的儲存體。

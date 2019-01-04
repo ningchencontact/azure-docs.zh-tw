@@ -9,16 +9,15 @@ ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 25ee061f489df0a666d59871661478f987b28e3f
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 378516066e3b4a3436a2952616ea877d9a49d5d4
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344802"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255307"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>如何搭配 Azure Application Insights Java SDK 使用 Micrometer
 Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼的計量，並可讓您將資料匯出到您慣用的監視系統。 這篇文章會教導您如何搭配 Application Insights Spring Boot 和非 Spring Boot 應用程式使用 Micrometer。
@@ -229,7 +228,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
 
 若要深入了解計量，請參閱 [Micrometer 文件](https://micrometer.io/docs/)。
 
-您可以在[官方 Micrometer Github 存放庫](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples)找到有關如何建立不同類型度量的其他範例程式碼。
+您可以在[官方 Micrometer GitHub 存放庫](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples)找到有關如何建立不同類型度量的其他範例程式碼。
 
 ## <a name="how-to-bind-additional-metrics-collection"></a>如何繫結其他度量集合
 
@@ -243,7 +242,7 @@ Micrometer 應用程式監視會測量以 JVM 為基礎之應用程式程式碼�
         Return new GuavaCacheMetrics();
     }
 ```
-有數個計量是預設為不啟用的，但可以透過上述方式結合。 如需完整清單，請參閱[官方 Micrometer Github 存放庫](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder )。
+有數個計量是預設為不啟用的，但可以透過上述方式結合。 如需完整清單，請參閱[官方 Micrometer GitHub 存放庫](https://github.com/micrometer-metrics/micrometer/tree/master/micrometer-core/src/main/java/io/micrometer/core/instrument/binder )。
 
 ### <a name="non-spring-apps"></a>非 Spring 應用程式
 將下列繫結程式碼新增至組態檔：

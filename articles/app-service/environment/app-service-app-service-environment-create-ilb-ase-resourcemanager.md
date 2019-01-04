@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure Resource Manager 範本建立 ILB ASE | Microsoft Docs
+title: 使用 Azure Resource Manager 範本來建立 ILB ASE - App Service | Microsoft Docs
 description: 了解如何使用 Azure Resource Manager 範本建立內部負載平衡器 ASE
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: stefsch
-ms.openlocfilehash: 20531cb301cad23fbadb617bdf33e710a4481be4
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.custom: seodec18
+ms.openlocfilehash: d9d94a7ece4b3758792cc0df8e013d14ac40c027
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050029"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276349"
 ---
 # <a name="how-to-create-an-ilb-ase-using-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 範本建立 ILB ASE範本建立 ILB ASE
 
@@ -41,9 +42,9 @@ ms.locfileid: "44050029"
 
 「azuredeploy.parameters.json」  檔案中的大部分參數通用於建立 ILB ASE 以及繫結至公用 VIP 的 ASE。  建立 ILB ASE 時，以下清單會呼叫特殊附註或唯一的參數︰
 
-* interalLoadBalancingMode︰在大多數情況下，此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上的 FTP 服務所接聽的控制項/資料通道連接埠將會繫結至 ILB 配置的虛擬網路內部位址。  如果此屬性改為設定為 2，則只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址，而 HTTP/HTTPS 流量將保留在公用 VIP 上。
-* dnsSuffix︰這個參數會定義要指派給 ASE 的預設根網域。  在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net 。  不過，由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。  相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。  例如，假定的 Contoso Corporation 可能會將 internal-contoso.com  的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
-* ipSslAddressCount︰在 *azuredeploy.json* 檔案中，這個參數的值會自動預設為 0，因為 ILB ASE 只有單一 ILB 位址。  ILB ASE 沒有明確的 IP-SSL 位址，因此 ILB ASE 的 IP-SSL 位址集區必須設為零，否則會發生佈建錯誤。 
+* *interalLoadBalancingMode*：在大多數情況下，請將此屬性設定為 3，這表示連接埠 80/443 上的 HTTP/HTTPS 流量，以及 ASE 上 FTP 服務所接聽的控制/資料通道連接埠，都會繫結至已配置 ILB 的虛擬網路內部位址。  如果此屬性改為設定為 2，則只有 FTP 服務相關的連接埠 (控制和資料通道) 會繫結至 ILB 位址，而 HTTP/HTTPS 流量將保留在公用 VIP 上。
+* *dnsSuffix*：此參數定義將指派給 ASE 的預設根網域。  在 Azure App Service 的公用種變化中，所有 Web 應用程式的預設根網域皆為 azurewebsites.net 。  不過，由於 ILB ASE 位於客戶虛擬網路的內部，所以不適合使用公用服務的預設根網域。  相反地，ILB ASE 應具有適合在公司的內部虛擬網路內使用的預設根網域。  例如，假定的 Contoso Corporation 可能會將 internal-contoso.com  的預設根網域用於只能在 Contoso 虛擬網路內解析和存取的應用程式。 
+* *ipSslAddressCount*：在 *azuredeploy.json* 檔案中，此參數的值會自動預設為 0，因為 ILB ASE 只有單一 ILB 位址。  ILB ASE 沒有明確的 IP-SSL 位址，因此 ILB ASE 的 IP-SSL 位址集區必須設為零，否則會發生佈建錯誤。 
 
 一旦針對 ILB ASE 填入 azuredeploy.parameters.json  檔案，就可以使用下列 Powershell 程式碼片段建立 ILB ASE。  變更檔案 PATH，以符合 Azure Resource Manager 範本檔案位於您電腦上的位置。  也請記得提供您自己的 Azure Resource Manager 部署名稱和資源群組名稱的值。
 
@@ -59,8 +60,8 @@ ms.locfileid: "44050029"
 
 有各種不同的方式可取得有效的 SSL 憑證，包括內部 CA、向外部簽發者購買憑證，以及使用自我簽署的憑證。  無論 SSL 憑證的來源，都需要正確設定下列憑證屬性︰
 
-* *主體*︰  此屬性必須設為 **.your-root-domain-here.com*
-* *主體替代名稱*︰  此屬性必須同時包含 **.your-root-domain-here.com* 和 **.scm.your-root-domain-here.com*。  第二個項目的原因是將使用 *your-app-name.scm.your-root-domain-here.com*  形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
+* *主體*：此屬性必須設定為 **.your-root-domain-here.com*
+* *主體別名*：此屬性必須同時包含 **.your-root-domain-here.com* 和 **.scm.your-root-domain-here.com*。  第二個項目的原因是將使用 *your-app-name.scm.your-root-domain-here.com*  形式的位址，進行與每個應用程式相關聯的 SCM/Kudu 網站的 SSL 連線。
 
 備妥有效的 SSL 憑證，還需要兩個額外的準備步驟。  SSL 憑證必須能夠轉換/另存為 .pfx 檔案。  請記住，.pfx 檔案必須包含所有中繼和根憑證，而且也必須使用密碼保護。
 
@@ -84,17 +85,17 @@ ms.locfileid: "44050029"
 
 「azuredeploy.parameters.json」  檔案中的參數如下所列︰
 
-* appServiceEnvironmentName︰要設定之 ILB ASE 的名稱。
-* existingAseLocation︰包含 ILB ASE 部署所在的 Azure 區域的文字字串。  例如 "South Central US"。
-* pfxBlobString：.pfx 檔案的 based64 編碼字串表示法。  使用稍早所示的程式碼片段，您會複製 "exportedcert.pfx.b64" 中包含的字串並貼入做為 pfxBlobString 屬性的值。
-* password：用來保護 .pfx 檔案的密碼。
-* certificateThumbprint︰憑證的指紋。  如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint  )，您可以使用現況值。  不過，如果您從 Windows 憑證對話方塊複製此值，請記得去除多餘的空格。  CertificateThumbprint 應如下所示︰AF3143EB61D43F6727842115BB7F17BBCECAECAE
-* certificateName︰您自己選擇的好記字串識別碼，可用來識別憑證。  此名稱做為 Microsoft.Web/certificates  實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。  名稱**必須**以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。  入口網站會使用這個尾碼做為憑證要用於保護啟用 ILB 之 ASE 的指示器。
+* *appServiceEnvironmentName*：所要設定之 ILB ASE 的名稱。
+* *existingAseLocation*：包含已部署 ILB ASE 之 Azure 區域的文字字串。  例如︰"South Central US"。
+* *pfxBlobString*：.pfx 檔案的 based64 編碼字串表示法。  使用稍早所示的程式碼片段，您會複製 "exportedcert.pfx.b64" 中包含的字串並貼入做為 pfxBlobString 屬性的值。
+* *password*：用來保護 .pfx 檔案的密碼。
+* *certificateThumbprint*：憑證的指紋。  如果您從 Powershell 擷取此值 (例如先前程式碼片段中的 $certificate.Thumbprint  )，您可以使用現況值。  不過，如果您從 Windows 憑證對話方塊複製此值，請記得去除多餘的空格。  *certificateThumbprint* 應該看起來如下：AF3143EB61D43F6727842115BB7F17BBCECAECAE
+* *certificateName*：您自己選擇的好記字串識別碼，可用來識別憑證。  此名稱做為 Microsoft.Web/certificates  實體 (表示 SSL 憑證) 的唯一 Azure Resource Manager 識別碼的一部分。  名稱**必須**以下列尾碼結尾︰\_yourASENameHere_InternalLoadBalancingASE。  入口網站會使用這個尾碼做為憑證要用於保護啟用 ILB 之 ASE 的指示器。
 
 「azuredeploy.parameters.json」  的縮寫範例如下所示︰
 
     {
-         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json",
          "contentVersion": "1.0.0.0",
          "parameters": {
               "appServiceEnvironmentName": {
@@ -138,6 +139,6 @@ ms.locfileid: "44050029"
 
 <!-- LINKS -->
 [quickstartilbasecreate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-create/
-[examplebase64encoding]: http://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
+[examplebase64encoding]: https://powershellscripts.blogspot.com/2007/02/base64-encode-file.html 
 [configuringDefaultSSLCertificate]: https://azure.microsoft.com/documentation/templates/201-web-app-ase-ilb-configure-default-ssl/ 
 

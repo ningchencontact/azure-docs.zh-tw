@@ -4,9 +4,8 @@ description: 本文示範如何在 Azure Machine Learning Studio 中評估模型
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 5dc5348a-4488-4536-99eb-ff105be9b160
 ms.service: machine-learning
@@ -16,25 +15,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: de013f8deb5e64077aad96bd34d64135f981166d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 501a9834e598fc8b1c11a86ef0ae9db1c19a66a7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311481"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269935"
 ---
-# <a name="how-to-evaluate-model-performance-in-azure-machine-learning"></a>如何在 Azure Machine Learning 中評估模型效能
+# <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio"></a>如何在 Azure Machine Learning Studio 中評估模型效能
+
 本文示範如何在 Azure Machine Learning Studio 中評估模型的效能，並提供這項工作中可用度量的簡短說明。 提供三種常見的受監督的學習案例： 
 
 * 迴歸
 * 二進位分類 
 * 多元分類
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 評估模型的效能是資料科學流程中的核心階段之一。 它會指出定型模型如何成功地為資料集評分 (預測)。 
 
-Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評估模型：[評估模型][evaluate-model]和[交叉驗證模型][cross-validate-model]。 這些模組可讓您根據 Machine Learning 和統計資料中常用的一些度量，查看您模型的運作方式。
+Azure Machine Learning 支援透過兩個主要的機器學習模組來評估模型：[評估模型][evaluate-model]和[交叉驗證模型][cross-validate-model]。 這些模組可讓您根據 Machine Learning 和統計資料中常用的一些度量，查看您模型的運作方式。
 
 ## <a name="evaluation-vs-cross-validation"></a>評估與交叉驗證
 評估與交叉驗證是測量模型效能的標準方式。 它們都會產生您可以對照其他模型的度量檢查或比較的評估度量。
@@ -64,7 +64,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 圖 1. 評估迴歸模型。
 
 ### <a name="inspecting-the-evaluation-results"></a>檢查評估結果
-執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果。 適用於迴歸模型的評估度量包括：「平均絕對誤差」、「平均根絕對誤差」、「相對絕對誤差」、「相對平方誤差」和「決定係數」。
+執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果。 適用於迴歸模型的評估計量包括：「平均絕對誤差」、「根平均絕對誤差」、「相對絕對誤差」、「相對平方誤差」和「決定係數」。
 
 「誤差」一詞代表預測的值和真正的值之間的差異。 系統通常會計算這項差異的絕對值或平方來擷取所有案例中的總誤差大小，因為在某些情況下，預測的值和真正的值之間的差異可能是負數。 誤差度量會根據預測與真正的值之間的平均偏差，測量迴歸模型的預測性效能。 誤差值越低，表示進行預測的模型越精確。 整體誤差度量為零時，表示模型完全符合資料。
 
@@ -106,7 +106,7 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 圖 5. 評估二進位分類模型。
 
 ### <a name="inspecting-the-evaluation-results"></a>檢查評估結果
-執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果 (圖 7)。 可用於二元分類模型的評估度量包括：「正確性」、「精確度」、「回收」、「F1 分數」和 AUC。 此外，這個模組會輸出一個混淆矩陣，其中顯示真肯定、誤否定、誤肯定、真否定，以及 ROC、「精確度/回收和「升力」曲線的數目。
+執行實驗之後，您可以按一下[評估模型][evaluate-model]模組的輸出連接埠，然後選取 [視覺化] 以查看評估結果 (圖 7)。 適用於二元分類模型的評估計量包括：「準確度」、「精確度」、「召回率」、「F1 分數」及 *AUC*。 此外，這個模組會輸出一個混淆矩陣，其中顯示真肯定、誤否定、誤肯定、真否定，以及 ROC、「精確度/回收和「升力」曲線的數目。
 
 準確性只是正確分類的案例的比例。 它通常是評估分類器時，您看到的第一個度量。 不過，當測試資料處於不平衡狀態 (其中大部分的案例都屬於其中一個類別) 時，或者您對於其中一個類別的效能更有興趣時，準確性不一定會擷取分類器的效率。 在收入層級的分類案例中，假設您要測試的特定資料中，99% 的案例代表年收入少於或等於 5 萬元的人。 預測所有案例的類別 “<=50K”，可能會達到 0.99 準確性。 在此案例中，此分類器整體而言似乎做得不錯，但事實上，它無法正確分類任何高收入的個人 (1%)。
 
@@ -116,13 +116,13 @@ Azure Machine Learning 支援透過兩個主要的機器學習服務模組來評
 
 圖 6. 二進位分類混淆矩陣。
 
-回到收入分類問題，我們會想要提出幾個評估問題，幫助我們了解所使用的分類器的效能。 很自然的問題是：「在模型預測收入 5 萬元以上 (TP+FP) 的個人中，有多少人的分類正確 (TP)？ 」 透過查看模型的 **精確度** ，也就是正確分類的正數比例，可以回答這個問題：TP/(TP+FP)。 另一個常見問題是：「在收入高於 5 萬元 (TP+FN) 的高收入員工中，分類器正確分類的員工有多少 (TP)？ 」實際上，這是 **回收**，或真肯定比率：分類器的 TP/(TP+FN)。 您可能會注意到在精確度與回收之間有明顯的取捨。 例如，假設是相當對稱資料集，預測大部分是正案例的分類器會有高回收，但是因為許多負案例分類錯誤造成的精確度低會導致大量的誤肯定。 若要查看這兩個度量如何變化的繪圖，您可以按一下 [評估結果輸出] 頁面中的**精確度/回收**曲線 (圖 7 的左側部分)。
+回到收入分類問題，我們會想要提出幾個評估問題，幫助我們了解所使用的分類器的效能。 有個很自然的問題是：「在模型預測收入 5 萬元以上 (TP+FP) 的個人中，有多少人的分類正確 (TP)？」 透過查看模型的**精確度** (也就是正確分類的正數比例) 可回答此問題：TP/(TP+FP)。 另一個常見問題是：「在收入高於 5 萬元 (TP+FN) 的高收入員工中，分類器正確分類的員工有多少 (TP)？ 這實際上是**召回率** (或確判率)：分類器的 TP/(TP+FN)。 您可能會注意到在精確度與回收之間有明顯的取捨。 例如，假設是相當對稱資料集，預測大部分是正案例的分類器會有高回收，但是因為許多負案例分類錯誤造成的精確度低會導致大量的誤肯定。 若要查看這兩個度量如何變化的繪圖，您可以按一下 [評估結果輸出] 頁面中的**精確度/回收**曲線 (圖 7 的左側部分)。
 
 ![二元分類評估結果](./media/evaluate-model-performance/7.png)
 
 圖 7. 二進位分類評估結果。
 
-常用的另一個相關度量是 **F1 分數**，這會將精確度和回收同時列入考量。 這是這 2 個度量的調和平均數，其計算方式如下：F1 = 2 (精確度 x 回收) / (精確度 + 回收)。 F1 分數是總結單一數字評估很好的方式，但同時查看精確度與回收，以便更加了解分類器運作方式永遠是一個不錯的做法。
+常用的另一個相關度量是 **F1 分數**，這會將精確度和回收同時列入考量。 它是這 2 個計量的調和平均數，其計算方式如下：F1 = 2 (精確度 x 召回率) / (精確度 + 召回率)。 F1 分數是總結單一數字評估很好的方式，但同時查看精確度與回收，以便更加了解分類器運作方式永遠是一個不錯的做法。
 
 此外，您還可以在**受測者操作特徵 (ROC)** 曲線及對應的**曲線下面積 (AUC)** 值中，查看真肯定比率與誤肯定比率的比較。 此曲線越接近左上角，分類器的效能越好 (亦即，將真肯定比率提至最高，同時將誤肯定比率降至最低)。 接近繪圖對角線的曲線是因為分類器想要進行接近隨機猜測的預測所造成。
 

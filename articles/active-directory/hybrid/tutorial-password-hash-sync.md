@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4e8a39e16bd67169aac8dd7328338197b604e93f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426905"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164689"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>教學課程：使用密碼雜湊同步整合單一 AD 樹系 (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>教學課程：使用密碼雜湊同步處理整合單一 AD 樹系 (PHS)
 
 ![建立](media/tutorial-password-hash-sync/diagram.png)
 
@@ -38,7 +38,7 @@ ms.locfileid: "52426905"
 >
 >用來在安裝 Azure AD Connect 之前建立一般 Active Directory 環境的指令碼。  它們在所有指令碼中都通用。
 >
-> 您可以在 Github 上的[這裡](https://github.com/billmath/tutorial-phs)用於此教學課程中的 PowerShell 指令碼。
+> 您可以在 GitHub 上的[這裡](https://github.com/billmath/tutorial-phs)取得本教學課程中使用的 PowerShell 指令碼。
 
 ## <a name="create-a-virtual-machine"></a>建立虛擬機器
 我們需要做的第一件事，就是建立將用作內部部署 Active Directory 伺服器的虛擬機器，以便讓我們的混合式身分識別環境開始執行。  執行下列動作：
@@ -81,7 +81,7 @@ Set-VMFirmware -VMName $VMName -FirstBootDevice $DVDDrive
 5. 按一下 [立即安裝] 。
 6. 輸入您的授權金鑰，然後按一下 [下一步]。
 7. 選取 [我接受授權條款]，然後按一下 [下一步]。
-8. 選取 [自訂：只安裝 Windows (進階)]
+8. 選取**自訂：只安裝 Windows (進階)**
 9. 按一下 [下一步] 
 10. 安裝完成之後，請重新啟動虛擬機器、登入並執行 Windows 更新，以確保 VM 為最新。  安裝最新的更新。
 

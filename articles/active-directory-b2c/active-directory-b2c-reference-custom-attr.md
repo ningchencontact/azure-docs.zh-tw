@@ -7,21 +7,21 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d5ef77ab0bbf00d4ddbb05b7a38516e3c3e7d800
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8b32a1eccfc90731d4c3458a0696a8e5900691aa
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968769"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52727812"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中定義自訂屬性
 
  每個客戶面向的應用程式對於需要收集的資訊都有不同的需求。 您的 Azure Active Directory (Azure AD) B2C 租用戶隨附一組儲存在屬性中的內建資訊，例如名字、姓氏、城市及郵遞區號。 Azure AD B2C 可讓您擴充儲存在每個客戶帳戶上的屬性組合。 
  
- 您可以在 [Azure 入口網站](https://portal.azure.com/) 中建立自訂屬性，並在您的註冊原則、註冊或登入原則，或設定檔編輯原則中使用這些屬性。 您也可以使用 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)讀取和寫入這些屬性。 Azure AD B2C 中的自訂屬性會使用 [Azure AD Graph API 目錄結構描述擴充](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)。
+ 您可以在 [Azure 入口網站](https://portal.azure.com/) 中建立自訂屬性，並在您的註冊使用者流程、註冊或登入使用者流程，或設定檔編輯使用者流程中使用這些屬性。 您也可以使用 [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md)讀取和寫入這些屬性。 Azure AD B2C 中的自訂屬性會使用 [Azure AD Graph API 目錄結構描述擴充](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions)。
 
 ## <a name="create-a-custom-attribute"></a>建立自訂屬性
 
@@ -41,16 +41,15 @@ ms.locfileid: "38968769"
 7. 選擇性地輸入 [描述]，以供參考。 
 8. 按一下頁面底部的 [新增] 。
 
-[使用者屬性] 清單現已提供自訂屬性，您可用於原則中。 只有在第一次用於任何原則時才會建立自訂屬性，而不是在您將它加入 [使用者屬性] 清單時建立。
+[使用者屬性] 清單現已提供自訂屬性，您可用於使用者流程中。 只有在第一次用於任何使用者流程時才會建立自訂屬性，而不是在您將它加入 [使用者屬性] 清單時建立。
 
-## <a name="use-a-custom-attribute-in-your-policy"></a>在您的原則中使用自訂屬性
+## <a name="use-a-custom-attribute-in-your-user-flow"></a>在您的使用者流程中使用自訂屬性
 
-1. 在 Azure AD B2C 租用戶中，選取 [註冊或登入原則]。
+1. 在 Azure AD B2C 租用戶中，選取 [使用者流程]。
 2. 選取您的原則 (例如「B2C_1_SignupSignin」) 以開啟之。 
-3. 按一下 [編輯]。
-4. 選取 [註冊屬性]，然後選取自訂屬性 (例如「ShoeSize」)。 按一下 [確定]。
-5. 選取 [應用程式宣告]，然後選取自訂屬性。 按一下 [確定]。
+4. 選取 [使用者屬性]，然後選取自訂屬性 (例如 "ShoeSize")。 按一下 [檔案] 。
+5. 選取 [應用程式宣告]，然後選取自訂屬性。 
 6. 按一下 [檔案] 。
 
-您可以使用原則上的**立即執行**功能，以驗證客戶體驗。 現在您應該會在註冊期間收集的屬性清單中看到 **ShoeSize** ，其亦會在傳回至您應用程式的權杖中出現。
+您可以在使用者流程上使用 [執行使用者流程] 功能，以驗證客戶體驗。 現在您應該會在註冊期間收集的屬性清單中看到 **ShoeSize** ，其亦會在傳回至您應用程式的權杖中出現。
 

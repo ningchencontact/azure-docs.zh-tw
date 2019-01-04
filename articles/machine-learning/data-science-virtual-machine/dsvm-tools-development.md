@@ -1,11 +1,12 @@
 ---
 title: 資料科學虛擬機器開發工具 - Azure | Microsoft Docs
-description: 資料科學虛擬機器開發工具。
+description: 了解預先安裝在資料科學虛擬機器上的工具和整合式開發環境。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ee1e7003a9f1479db7311072e29132cf491cbc88
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237872"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53073749"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>資料科學虛擬機器的開發工具
 
@@ -30,9 +31,9 @@ ms.locfileid: "50237872"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 一般用途 IDE      |
-| 支援的 DSVM 版本      | Windows      |
+| 支援的 DSVM 版本      |  Windows      |
 | 典型的使用案例      | 軟體開發    |
-| 它是如何在 DSVM 上設定/安裝的？      | 資料科學工作負載 (Python 和 R 工具)、Azure 工作負載 (Hadoop、Data Lake)、Node.js、SQL Server 工具、[Visual Studio Tools for AI](https://github.com/Microsoft/vs-tools-for-ai)    |
+| 它是如何在 DSVM 上設定/安裝的？      | 資料科學工作負載 (Python 和 R 工具)、Azure 工作負載 (Hadoop、Data Lake)、Node.js、SQL Server 工具、[適用於 Visual Studio Code 的 Azure Machine Learning](https://github.com/Microsoft/vs-tools-for-ai)    |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\devenv.exe`)    |
 | DSVM 上的相關工具      |     Visual Studio Code、RStudio、Juno  |
 
@@ -87,7 +88,7 @@ ms.locfileid: "50237872"
 |    |           |
 | ------------- | ------------- |
 | 這是什麼？   | 互動式資料視覺效果和 BI 工具    |
-| 支援的 DSVM 版本      | Windows  |
+| 支援的 DSVM 版本      |  Windows  |
 | 典型的使用案例      |  資料視覺效果和建立儀表板   |
 | 如何使用/執行它？      | 桌面捷徑 (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | DSVM 上的相關工具      |   Visual Studio 2017、Visual Studio Code、Juno      |

@@ -1,23 +1,23 @@
 ---
 title: 在 Azure 中管理 Cloudyn 預算 | Microsoft Docs
-description: 本文可協助您在 Cloudyn 中建立和管理預算。
+description: 本文可協助您在 Cloudyn 中快速建立預算，並開始管理這些預算。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 9/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
-ms.custom: ''
-ms.openlocfilehash: 92236547e2100ab57f4ec6b4953f6c61ec87892d
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 44062670283a15f678da45e13a831e73a7738c39
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275499"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075483"
 ---
-# <a name="manage-budgets"></a>管理預算
+# <a name="manage-azure-budgets-with-cloudyn"></a>使用 Cloudyn 管理 Azure 預算
 
 設定預算及以預算為基礎的警示，有助於改善您雲端的控管和責任歸屬。 本文可協助您在 Cloudyn 中快速建立預算，並開始管理這些預算。
 
@@ -40,7 +40,7 @@ ms.locfileid: "52275499"
 3. 在預算的年份中，選取您要建立預算的年份。
 4. 針對每個月設定預算值。 完成後，按一下 [儲存]。
 在此範例中，2018 年 6 月的每月預算已設定為 $135,000。 年度總預算是 $1,615,000.00。
-![建立預算](./media/manage-budgets/set-budget.png)
+![建立用來設定各月份預算的預算頁面](./media/manage-budgets/set-budget.png)
 
 
 匯入檔案作為每年的預算：
@@ -64,11 +64,11 @@ ms.locfileid: "52275499"
 
 檢視報表的另一個方法是查看累積成本與您的預算。 若要查看累積成本，請在 [顯示/隱藏欄位] 下方選取 [累積成本] 和 [總預算]。 以下是從年初開始的累積成本範例。
 
-![累積預算](./media/manage-budgets/accumulated-budget.png)
+![顯示於下列報告中的範例累積成本和總預算：隨時間變化的成本和預算報告](./media/manage-budgets/accumulated-budget.png)
 
 未來中的某些時候，您的累積成本可能會超過預算。 若要更輕鬆地看到此狀況，您可以將圖表檢視變更為「折線」類型。
 
-![在折線圖中顯示的預算](./media/manage-budgets/budget-line.png)
+![以折線圖顯示於每月成本報告中的預算](./media/manage-budgets/budget-line.png)
 
 ## <a name="create-budget-alerts-for-a-filter"></a>針對篩選條件建立預算警示
 
@@ -81,7 +81,7 @@ ms.locfileid: "52275499"
 
 在「隨時間變化的成本和預算」中，按一下 [動作]，然後選取 [排程報表]。 在 [閾值] 索引標籤中，選取閾值計量。 例如，[成本百分比與預算]。 選取警示類型，並輸入預算的百分比值。 如果您只想要收到一次通知，選取 [連續警示的數目]，然後輸入 _1_。 按一下 [檔案] 。
 
-![預算警示](./media/manage-budgets/budget-alert.png)
+![在 [儲存或排程此報告] 方塊中建立預算警示](./media/manage-budgets/budget-alert.png)
 
 ## <a name="next-steps"></a>後續步驟
 

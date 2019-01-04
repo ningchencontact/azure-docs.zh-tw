@@ -5,9 +5,8 @@ keywords: 快速入門,r 語言,r 程式設計語言,r 程式設計教學課程
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 99a3a0fd-b359-481a-b236-66868deccd96
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
-ms.openlocfilehash: eea61419e76f4363a286f796e6df28a4e90a9ed7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ddd9c1fd8b51c6ae43878cf50ee16737511c82e9
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52317665"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53278656"
 ---
 # <a name="quickstart-tutorial-for-the-r-programming-language-for-azure-machine-learning-studio"></a>Azure Machine Learning Studio 適用之 R 程式設計語言的快速入門教學課程
 
@@ -33,7 +32,7 @@ ms.locfileid: "52317665"
 
 Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資料操作模組。 功能強大的 R 語言被描述為分析通用語言。 好消息是，在 Azure Machine Learning 中，分析和資料操作皆可藉由使用 R 來加以擴充。這個組合利用 R 的彈性和深入分析，讓 Azure Machine Learning 更具延展性且更易於部署。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ### <a name="forecasting-and-the-dataset"></a>預測和資料集
 預測是一個獲得廣泛採用且相當實用的分析方法。 常見的用法範圍可從預測季節性項目的銷售額、判斷最佳的庫存量，一直到預測總體經濟變數。 進行預測時通常是搭配時間序列模型。
@@ -42,7 +41,7 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 
 在本快速入門指南中，我們將使用加州乳製品產量和訂價資料。 此資料包含數項乳製品之產量及奶油 (基準商品) 價格的每月相關資訊。
 
-此文章中使用的資料以及 R 指令碼可[在此下載](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv)。 此資料原先是綜合自可從威斯康辛大學取得的資訊，網址為 https://dairymarkets.com。
+本文中使用的資料以及 R 指令碼可[在此下載](https://github.com/Azure-Samples/MachineLearningSamples-Notebooks/blob/master/studio-samples/cadairydata.csv)。 此資料原先是綜合自可從威斯康辛大學取得的資訊，網址為 https://dairymarkets.com。
 
 ### <a name="organization"></a>組織
 我們將循序進行數個步驟，讓您了解如何在 Azure Machine Learning 環境中建立、測試及執行分析和資料操作 R 程式碼。  
@@ -61,7 +60,7 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 ### <a name="the-execute-r-script-module"></a>執行 R 指令碼模組
 在 Machine Learning Studio 中，R 指令碼是在[執行 R 指令碼][execute-r-script]模組內執行。 圖 1 顯示 Machine Learning Studio 中[執行 R 指令碼][execute-r-script]模組的範例。
 
- ![R 程式設計語言：在 Machine Learning Studio 中選取的執行 R 指令碼模組。][1]
+ ![R 程式設計語言：在 Machine Learning Studio 中選取的執行 R 指令碼模組][1]
 
 *圖 1.顯示已選取 [執行 R 指令碼] 模組的 Machine Learning Studio 環境。*
 
@@ -71,7 +70,7 @@ Microsoft Azure Machine Learning 包含許多功能強大的機器學習和資�
 * 右窗格的上半部包含一個可檢視和編輯 R 指令碼的視窗。  
 * 右窗格的下半部顯示[執行 R 指令碼][execute-r-script]的一些屬性。 您可以按一下此窗格上適當的點來檢視錯誤和輸出記錄檔。
 
-當然，我們將會在此文件的其餘部分更詳細地討論[執行 R 指令碼][execute-r-script]。
+當然，我們將會在這份文件的其餘部分更詳細地討論[執行 R 指令碼][execute-r-script]。
 
 使用複雜的 R 函式時，建議您在 RStudio 中進行編輯、測試及偵錯。 與進行任何軟體開發相同，請以累加方式擴充您的程式碼，並在小型的簡單測試案例上進行測試。 然後，將您的函式剪下並貼到[執行 R 指令碼][execute-r-script]模組的 [R 指令碼] 視窗中。 這個方法既可讓您控制 RStudio 整合式開發環境 (IDE)，也可讓您控制 Azure Machine Learning 的強大功能。  
 
@@ -121,7 +120,7 @@ Azure Machine Learning 附有超過 350 個預先安裝的 R 語言封裝。 您
     data.set <- data.frame(installed.packages())
     maml.mapOutputPort("data.set")
 
-如果您目前對此程式碼的最後一行還不了解，請往下閱讀。 在此文件的其餘部分，我們將大量討論如何在 Azure Machine Learning 環境中使用 R。
+如果您目前對此程式碼的最後一行還不了解，請往下閱讀。 在本文件的其餘部分，我們將大量討論如何在 Azure Machine Learning 環境中使用 R。
 
 ### <a name="introduction-to-rstudio"></a>RStudio 簡介
 RStudio 是一個廣泛使用、適用於 R 的 IDE。我將使用 RStudio 對本快速入門指南中所用的 R 程式碼進行編輯、測試及偵錯。 測試並備妥 R 程式碼之後，您只要從 RStudio 編輯器剪下並貼到 Machine Learning Studio 的[執行 R 指令碼][execute-r-script]模組中即可。  
@@ -239,7 +238,7 @@ RStudio 的教學課程介紹位於 https://support.rstudio.com/hc/sections/2001
 *圖 5.使用已壓縮之 R 指令碼的實驗。*
 
 #### <a name="dataset1"></a>資料集1
-您可以使用 [資料集1] 輸入將矩形資料表傳遞給您的 R 程式碼。 在我們的簡單指令碼中， `maml.mapInputPort(1)` 函式會從連接埠 1 讀取資料。 此資料會接著被指派給您程式碼中的資料框架變數名稱。 在我們的簡單指令碼中，第一行程式碼會執行此指派。
+您可以使用 [資料集1] 輸入將矩形資料表傳遞給您的 R 程式碼。 在我們的簡單指令碼中， `maml.mapInputPort(1)` 函式會從連接埠 1 讀取資料。 此資料會接著被指派給您程式碼中的資料框架變數名稱。 在我們的簡單指令碼中，第一行程式碼會執行這項指派。
 
     cadairydata <- maml.mapInputPort(1)
 
@@ -645,7 +644,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
     [ModuleOutput] 
     [ModuleOutput]  $ Month.Count      : num  0 1 2 3 4 5 6 7 8 9 ...
 
- *14.[執行 R 指令碼] 模組中資料框架的摘要。*
+*14.[執行 R 指令碼] 模組中資料框架的摘要。*
 
 此資料的類型和格式皆如預期。 請注意，'Month' 資料行的類型是因素，並且具有預期的層級數目。
 
@@ -685,7 +684,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
     [ModuleOutput] 
     [ModuleOutput]  $ Time             : POSIXct, format: "1995-01-01" "1995-02-01" ...
 
- *15.含有時間序列物件之資料框架的摘要。*
+*15.含有時間序列物件之資料框架的摘要。*
 
 我們可以從摘要看出，新資料行的類別事實上是 POSIXct。
 
@@ -884,7 +883,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 ## <a id="seasonalforecasting"></a>時間序列範例：季節性預測
 我們的資料現在是適用於分析的形式，而我們已判斷出變數之間沒有重大的相互關聯。 讓我們繼續來建立時間序列預測模型。 我們將使用此模型預測 2013 年 12 個月的加州牛奶產量。
 
-我們的預測模型將會有兩個元件，亦即趨勢元件和季節性元件。 這兩個元件的乘積即是完整預測。 這種模型稱為乘法模型。 替代模型是加法模型。 我們已經將對數轉換套用到感興趣的變數，以便控制此分析。
+我們的預測模型將會有兩個元件，亦即趨勢元件和季節性元件。 這兩個元件的乘積即是完整預測。 這種模型稱為乘法模型。 替代模型是加法模型。 我們已經將對數轉換套用到感興趣的變數，以便控制這項分析。
 
 您稍早下載的 Zip 檔中有本節的完整 R 程式碼。
 
@@ -959,7 +958,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 *圖 22.加州乳製品產量和價格資料的時間序列圖。*
 
 ### <a name="a-trend-model"></a>趨勢模型
-建立時間序列物件並查看過資料之後，讓我們開始建構加州牛奶產量資料的趨勢模型。 我們可以使用時間序列迴歸來進行此操作。 不過，從圖中可以清楚看出，若要精確地為在訓練資料中所觀察到的趨勢建立模型，我們所需要的將不只是一個斜率和截距。
+建立時間序列物件並查看過資料之後，讓我們開始建構加州牛奶產量資料的趨勢模型。 我們可以使用時間序列迴歸來進行這項操作。 不過，從圖中可以清楚看出，若要精確地為在訓練資料中所觀察到的趨勢建立模型，我們所需要的將不只是一個斜率和截距。
 
 在資料規模較小的情況下，我會在 RStudio 中為趨勢建置模型，再將產生的模型剪下並貼到 Azure Machine Learning 中。 RStudio 針對這種互動式分析提供了互動式環境。
 
@@ -1133,7 +1132,7 @@ POSIXct 時間序列類別是常用且相對簡單的類別。 此時間序列�
 這些圖中有指出一些高影響力的點，但是不需要太過關注。 此外，我們可以從常態分佈 Q-Q 圖看出殘差接近常態分佈，這是線性模型的重要認定依據。
 
 ### <a name="forecasting-and-model-evaluation"></a>預測和模型評估
-距離完成我們的範例，只剩一件事情要做。 我們需要計算預測，並對照實際資料來測量誤差。 我們的預測將會針對 2013 年的 12 個月。 我們可以針對此不屬於我們訓練資料集之實際資料的預測，計算誤差衡量值。 此外，我們可以將 18 年訓練資料的相關表現與 12 個月的測試資料做比較。  
+距離完成我們的範例，只剩一件事情要做。 我們需要計算預測，並對照實際資料來測量誤差。 我們的預測將會針對 2013 年的 12 個月。 我們可以針對這項不屬於我們訓練資料集之實際資料的預測，計算誤差衡量值。 此外，我們可以將 18 年訓練資料的相關表現與 12 個月的測試資料做比較。  
 
 有一些衡量標準可用來衡量時間序列模型的表現。 在我們的案例中，我們將使用均方根 (RMS) 誤差。 下列函式會計算兩個數列間的 RMS 誤差。  
 
@@ -1218,7 +1217,7 @@ RStudio 已經有相當充分的說明，因此在本附錄中，我將提供一
    
    您可以使用 RStudio，以專案方式組織和管理您的 R 程式碼。 使用專案的文件可在 https://support.rstudio.com/hc/articles/200526207-Using-Projects 找到。
    
-   建議您依照這些指示，為此文件中的 R 程式碼範例建立專案。  
+   建議您依照這些指示，為本文件中的 R 程式碼範例建立專案。  
 2. 編輯和執行 R 程式碼
    
    RStudio 提供一個可編輯和執行 R 程式碼的整合式環境。 文件可在 https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code 找到。
@@ -1236,7 +1235,7 @@ RStudio 已經有相當充分的說明，因此在本附錄中，我將提供一
 
 有許多 R 的相關書籍可以協助您輕鬆上手。 以下是一些我認為實用的書籍：
 
-* Norman Matloff 所著的《The Art of R Programming: A Tour of Statistical Software Design》是一本使用 R 進行程式設計的出色簡介。  
+* Norman Matloff 所著的《Art of R Programming:A Tour of Statistical Software Design》是一本使用 R 進行程式設計的出色簡介。  
 * Paul Teetor 所著的《R Cookbook》提供關於使用 R 的問題與解決方法。  
 * Robert Kabacoff 所著的《R in Action》是另一本實用的簡介書籍。 指南 Quick R 網站是相當實用的資源，網址為 http://www.statmethods.net/。
 * Patrick Burns 所著的《R Inferno》是一本令人出乎意料的幽默書籍，當中處理一些使用 R 進行程式設計時，可能遇到的較具技巧性和困難度的主題。這本書提供免費下載，網址為 http://www.burns-stat.com/documents/books/the-r-inferno/。
@@ -1248,7 +1247,7 @@ Paul Cowpertwait 與 Andrew Metcalfe 所著的 《Introductory Time Series with 
 
 一些絕佳的網際網路資源：
 
-* DataCamp：DataCamp 利用視訊課程和程式碼撰寫練習在瀏覽器中輕鬆教導 R。 最新 R 技巧和封裝均有互動式教學課程。 在 https://www.datacamp.com/courses/introduction-to-r 取得免費的互動式 R 教學課程
+* DataCamp：DataCamp 透過影片單元和程式碼撰寫練習，在瀏覽器中輕鬆教導 R。 最新 R 技巧和封裝均有互動式教學課程。 在 https://www.datacamp.com/courses/introduction-to-r 取得免費的互動式 R 教學課程
 * Programiz 提供的 R 使用者入門指南： https://www.programiz.com/r-programming
 * Clarkson 大學 Kelly Black 提供的快速 R 教學課程： http://www.cyclismo.org/tutorial/R/
 * http://www.computerworld.com/article/2497464/business-intelligence-60-r-resources-to-improve-your-data-skills.html 列出了 60 種以上的 R 資源

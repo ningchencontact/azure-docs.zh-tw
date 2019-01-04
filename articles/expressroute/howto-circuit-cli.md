@@ -1,26 +1,18 @@
 ---
-title: 建立與修改 Azure ExpressRoute 線路：CLI | Microsoft Docs
+title: 建立和修改 ExpressRoute 線路：Azure CLI | Microsoft Docs
 description: 本文說明如何使用 CLI 建立、佈建、驗證、更新、刪除和取消佈建 ExpressRoute 線路。
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/19/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: a53fe43365100c6d71fcc2b9e0944a221adf188d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249229"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53084136"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 建立和修改 ExpressRoute 線路
 
@@ -44,7 +36,7 @@ ms.locfileid: "51249229"
 
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1.登入您的 Azure 帳戶並且選取您的訂用帳戶
 
-若要開始您的組態，請登入您的 Azure 帳戶。 使用下列範例來協助您連接：
+若要開始您的組態，請登入您的 Azure 帳戶。 如果您使用 CloudShell 的「試用」功能，將可自動登入。 使用下列範例來協助您連接：
 
 ```azurecli
 az login
@@ -52,13 +44,13 @@ az login
 
 檢查帳戶的訂用帳戶。
 
-```azurecli
+```azurecli-interactive
 az account list
 ```
 
 選取您想要建立 ExpressRoute 線路的訂用帳戶。
 
-```azurecli
+```azurecli-interactive
 az account set --subscription "<subscription ID>"
 ```
 
@@ -66,7 +58,7 @@ az account set --subscription "<subscription ID>"
 
 建立 ExpressRoute 線路之前，您需要有支援的連線提供者、位置和頻寬選項的清單。 CLI 命令 'az network express-route list-service-providers' 會傳回此資訊，您將在稍後的步驟中使用：
 
-```azurecli
+```azurecli-interactive
 az network express-route list-service-providers
 ```
 
@@ -125,7 +117,7 @@ az network express-route list-service-providers
 
 請檢查回應以查看是否列出您的連線提供者。 記下下列資訊，當您建立線路時將會用到：
 
-* 名稱
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
@@ -140,7 +132,7 @@ az network express-route list-service-providers
 
 若您還沒有資源群組，您必須在建立 ExpressRoute 線路之前建立一個。 您可以藉由使用下列命令來建立資源群組：
 
-```azurecli
+```azurecli-interactive
 az group create -n ExpressRouteResourceGroup -l "West US"
 ```
 
@@ -154,7 +146,7 @@ az group create -n ExpressRouteResourceGroup -l "West US"
 
 ExpressRoute 線路會從發出服務金鑰時開始收費。 下列是新服務金鑰的要求範例：
 
-```azurecli
+```azurecli-interactive
 az network express-route create --bandwidth 200 -n MyCircuit --peering-location "Silicon Valley" -g ExpressRouteResourceGroup --provider "Equinix" -l "West US" --sku-family MeteredData --sku-tier Standard
 ```
 
@@ -164,7 +156,7 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 若要取得您已建立之所有 ExpressRoute 線路的清單，請執行 'az network express-route list' 命令。 您隨時可以使用此命令來擷取此資訊。 若要列出所有線路，在不使用任何參數的情況下進行呼叫。
 
-```azurecli
+```azurecli-interactive
 az network express-route list
 ```
 
@@ -201,7 +193,7 @@ az network express-route list
 
 您可以藉由使用 '-h' 來執行命令，以取得所有參數的詳細描述。
 
-```azurecli
+```azurecli-interactive
 az network express-route list -h
 ```
 
@@ -211,21 +203,21 @@ az network express-route list -h
 
 當您建立新的 ExpressRoute 線路時，線路會是下列狀態：
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "NotProvisioned"
 "circuitProvisioningState": "Enabled"
 ```
 
 當連線提供者正在為您啟用線路時，線路會變更為下列狀態：
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioning"
 "circuitProvisioningState": "Enabled"
 ```
 
 若要能夠使用 ExpressRoute 線路，它必須處於下列狀態：
 
-```azurecli
+```azurecli-interactive
 "serviceProviderProvisioningState": "Provisioned"
 "circuitProvisioningState": "Enabled
 ```
@@ -234,7 +226,7 @@ az network express-route list -h
 
 檢查線路金鑰的情況和狀態將能讓您得知提供者是否已啟用您的線路。 設定線路之後，[ServiceProviderProvisioningState] 會顯示為 [Provisioned]，如下列範例所示：
 
-```azurecli
+```azurecli-interactive
 az network express-route show --resource-group ExpressRouteResourceGroup --name MyCircuit
 ```
 
@@ -297,7 +289,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 
 您可以使用下列命令，為現有的線路啟用 ExpressRoute 進階附加元件：
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Premium
 ```
 
@@ -318,7 +310,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 您可以使用下列範例，為現有的線路停用 ExpressRoute 進階附加元件：
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-tier Standard
 ```
 
@@ -334,7 +326,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 一旦決定需要的大小後，可以使用下列命令來重新調整線路大小：
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --bandwidth 1000
 ```
 
@@ -344,7 +336,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --band
 
 您可以使用下列範例來變更 ExpressRoute 線路的 SKU：
 
-```azurecli
+```azurecli-interactive
 az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-family UnlimitedData
 ```
 
@@ -362,7 +354,7 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 
 您可以執行下列命令來刪除 ExpressRoute 線路：
 
-```azurecli
+```azurecli-interactive
 az network express-route delete  -n MyCircuit -g ExpressRouteResourceGroup
 ```
 

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3a7701dacece515bb24567ff6117c183bfe2b526
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: d3dfcb74852f90615af90f9eab3711b1b235c53e
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638093"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341383"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Durable Functions 中的展開傳送/收合傳送情節 - 雲端備份範例
 
@@ -55,7 +55,7 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -67,9 +67,10 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 4. 等候所有上傳完成。
 5. 傳回已上傳到 Azure Blob 儲存體的位元組總數。
 
-請注意 `await Task.WhenAll(tasks);` (C#) 和 `yield context.df.Task.all(tasks);` (JS) 行。 呼叫 `E2_CopyFileToBlob` 函式時全部都「不會」等候。 這是為了平行執行而刻意設計。 將這一批工作傳給 `Task.WhenAll` 時，將會傳回一個「直到所有複製作業都完成」才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而 Durable Functions 擴充可確保端對端執行在處理序回收的情況下迅速恢復。
+請注意 `await Task.WhenAll(tasks);` (C#) 和 `yield context.df.Task.all(tasks);` (JavaScript) 等程式碼行。 對 `E2_CopyFileToBlob` 函式的個別呼叫全部都「不會」等候。 這是為了平行執行而刻意設計。 將這個工作陣列傳遞給 `Task.WhenAll` (C#) 或 `context.df.Task.all` (JavaScript) 時，即會傳回一個「直到所有複製作業都完成」才會完成的工作。 如果您熟悉 .NET 中的工作平行程式庫 (TPL) 或 JavaScript 中的 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)，則對此不會感到陌生。 差別在於，這些工作可以在多個虛擬機器上同時執行，而 Durable Functions 擴充可確保端對端執行在處理序回收的情況下迅速恢復。
 
-工作非常類似於承諾的 JavaScript 概念。 不過，`Promise.all` 與 `Task.WhenAll` 有些差異。 `Task.WhenAll` 的概念已成為 `durable-functions` JavaScript 模組的一部分且專屬於它。
+> [!NOTE]
+> 儘管工作在概念上類似於 JavaScript Promise，協調器函式還是應該使用 `context.df.Task.all` 和 `context.df.Task.any`，而不是使用 `Promise.all` 和 `Promise.race` 來管理工作平行處理。
 
 結束等候 `Task.WhenAll` (或暫止 `context.df.Task.all`) 之後，就可知道所有函式呼叫已完成，而值也已傳回給我們。 每次呼叫 `E2_CopyFileToBlob` 都會傳回已上傳的位元組數，因此，只要合計所有這些傳回值，就能算出位元組總數。
 
@@ -85,7 +86,7 @@ Durable Functions 方法提供上述所有優點，而且額外負荷極低。
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -104,7 +105,7 @@ C# 實作也相當直接。 碰巧用到 Azure Functions 繫結的一些進階�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 JavaScript 實作無法存取 Azure Functions 的 `Binder` 功能，所以 [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) 取代之。
 

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中還原應用程式
+title: 從備份還原 - Azure App Service 應用程式
 description: 了解如何從快照集還原應用程式。
 services: app-service
 documentationcenter: ''
@@ -13,12 +13,13 @@ ms.tgt_pltfrm: multiple
 ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
-ms.openlocfilehash: e1ae8fcc30323c865aa96937f43054515f293394
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.custom: seodec18
+ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766660"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53260033"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>在 Azure 中透過快照集還原應用程式
 本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中透過快照集還原應用程式。 您可以根據您的其中一個應用程式快照集，將應用程式還原為先前的狀態。 您不需要啟用快照集備份，平台會自動儲存所有應用程式的快照集以供進行資料復原。

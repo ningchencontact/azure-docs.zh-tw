@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: jeedes
-ms.openlocfilehash: c5422c9894c66348d571b757e50073d2a5501c7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f46cb8f0d0b04b0cff5d3118906f11a060a55f80
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440093"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>教學課程：Azure Active Directory 與 Attendance Management Services 整合
 
@@ -113,7 +113,7 @@ Attendance Management Services 與 Azure AD 整合提供下列優點：
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://id.obc.jp/<tenant information >/`
 
     > [!NOTE]
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Attendance Management Services 用戶端支援小組](http://www.obcnet.jp/)以取得這些值。
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Attendance Management Services 用戶端支援小組](https://www.obcnet.jp/)以取得這些值。
 
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -247,7 +247,7 @@ Attendance Management Services 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在存取面板中按一下 [Attendance Management Services] 圖格時，應該會自動登入您的 Attendance Management Services 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

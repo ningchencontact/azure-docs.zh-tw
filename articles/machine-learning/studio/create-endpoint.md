@@ -1,12 +1,11 @@
 ---
-title: 在機器學習中建立 Web 服務端點 - Azure Machine Learning Studio | Microsoft Docs
-description: 在 Azure Machine Learning 中建立 Web 服務端點
+title: 建立 Web 服務端點 - Azure Machine Learning Studio | Microsoft Docs
+description: 在 Azure Machine Learning 中建立 Web 服務端點。 Web 服務的每個端點都是個別定址、節流以及管理。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-ms.openlocfilehash: 266970bec1e61dca808bb6358f2b4580359ee70d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 58418357d6e96204485887cca5d7724c42183db7
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314008"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53275885"
 ---
-# <a name="creating-endpoints"></a>建立端點 
+# <a name="creating-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>針對已部署的 Azure Machine Learning Studio Web 服務建立端點
 > [!NOTE]
 >  此主題描述適用於**傳統** Machine Learning Web 服務的技巧。
 > 
@@ -33,7 +32,7 @@ ms.locfileid: "52314008"
 
 為了達到這個目的，Azure Machine Learning Studio 允許您為已部署的 Web 服務建立多個端點。 Web 服務的每個端點都是個別定址、節流以及管理。 每個端點是一個唯一 URL 和授權金鑰，您可散發給您的客戶。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="adding-endpoints-to-a-web-service"></a>將端點新增至 Web 服務
 有兩種方式可在 Web 服務中新增端點。

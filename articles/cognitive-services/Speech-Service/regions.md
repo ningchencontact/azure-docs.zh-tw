@@ -1,5 +1,5 @@
 ---
-title: 語音服務區域
+title: 區域 - 語音服務
 titlesuffix: Azure Cognitive Services
 description: 「語音服務」區域的參考。
 services: cognitive-services
@@ -8,14 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 12/06/2018
 ms.author: mahilleb
-ms.openlocfilehash: 8d36036332e939075ffac8763bec9c23d8e4a3f7
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712886"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091640"
 ---
 # <a name="speech-service-supported-regions"></a>語音服務支援的區域
 
@@ -45,7 +46,7 @@ ms.locfileid: "51712886"
 
 ### <a name="intent-recognition"></a>意圖辨識
 
-語音 SDK 的**意圖辨識**與 LUIS 支援的區域相同。 如需可用區域的完整清單，請參閱[發佈區域與端點](https://docs.microsoft.comazure/cognitive-services/luis/luis-reference-regions)。
+語音 SDK 的**意圖辨識**與 LUIS 支援的區域相同。 如需可用區域的完整清單，請參閱[發佈區域與端點](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)。
 
 可透過語音 SDK 用於**意圖辨識**的區域列在 [Language Understanding 服務區域頁面](/azure/cognitive-services/luis/luis-reference-regions)上。
 

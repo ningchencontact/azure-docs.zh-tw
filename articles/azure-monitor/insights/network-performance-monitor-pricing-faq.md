@@ -9,19 +9,17 @@ editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: ajaycode
-ms.component: ''
-ms.openlocfilehash: 9e9fdfce9dbb165227f88e9f72bc219dce8f3307
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: a4e5440a9b8b6ce36d8472463b35201f39d3ac5a
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430163"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53192782"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 網路效能監控的定價變更
 
@@ -39,8 +37,8 @@ ms.locfileid: "52430163"
 **效能監控使用量在舊的模型中如何計費？**
 
 NPM 的計費基礎是兩個元件的使用量和耗用量：
-* ：所有綜合交易都是來自於節點且結束於節點。 節點也稱為代理程式或 Microsoft Monitoring Agent。
-* ：各種網路測試的結果都會儲存在 Azure Log Analytics 存放庫中。
+* **節點**：所有綜合交易均來自於節點且結束於節點。 節點也稱為代理程式或 Microsoft Monitoring Agent。
+* **資料**：各種網路測試的結果均儲存於 Azure Log Analytics 存放庫中。
 
 在舊的模型中，帳單的計算方式是根據節點的數目和所產生的資料量。 
 
@@ -121,5 +119,5 @@ ExpressRoute 監控私人對等互連連線時，每個月產生的資料量如�
 
 ## <a name="references"></a>參考
 
-[Log Analytics 定價常見問題集](https://azure.microsoft.com/pricing/details/log-analytics/)：常見問題集區段包含關於免費層、每個節點定價和其他定價詳細資料。
+[Log Analytics 價格常見問題集](https://azure.microsoft.com/pricing/details/log-analytics/)：此常見問題集區段含有關於免費層、每個節點價格及其他價格詳細資料的資訊。
 

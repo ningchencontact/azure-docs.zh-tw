@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 492087f7eeca8628ac6ac9a9e42f355a9356f1ce
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584701"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53433418"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>將內部部署 Apache Hadoop 叢集移轉到 Azure HDInsight - 資料移轉最佳做法
 
-本文提供將資料移轉至 Azure HDInsight 的建議。 將內部部署 Apache Hadoop 系統移轉到 Azure HDInsight 有一系列的最佳做法，這是其中一部分。
+本文提供將資料移轉至 Azure HDInsight 的建議。 本文是系列文章中的一篇，提供有助於將內部部署 Apache Hadoop 系統移轉至 Azure HDInsight 的最佳做法。
 
-## <a name="migrate-data-from-on-premises-to-azure"></a>將資料從內部部署移轉到 Azure
+## <a name="migrate-on-premises-data-to-azure"></a>將內部部署的資料移轉到 Azure
 
 若要將資料從內部部署移轉到 Azure 環境，有兩個主要選項：
 
 1.  使用 TLS 透過網路傳輸資料
-    1. 透過網際網路 - 您可以使用其中一項工具 (例如 Azure 儲存體總管、AzCopy、Azure Powershell 和 Azure CLI) 來透過一般的網際網路連線，將資料傳輸到 Azure 儲存體。  如需詳細資訊，請參閱[移動資料進出 Azure 儲存體](../../storage/common/storage-moving-data.md)。
+    1. 透過網際網路 - 您可以使用以下其中一項工具來透過一般的網際網路連線，將資料傳輸到 Azure 儲存體：Azure 儲存體總管、AzCopy、Azure Powershell 和 Azure CLI。  如需詳細資訊，請參閱[移動資料進出 Azure 儲存體](../../storage/common/storage-moving-data.md)。
     2. ExpressRoute - Express Route 是一項 Azure 服務，可讓您在 Microsoft 資料中心和內部部署或共置設施中的基礎結構之間建立私人連線。 ExpressRoute 連線不會經過公用網際網路，相較於網際網路一般連線，它提供了更高的安全性、可靠性、速度以及更低的延遲。 如需詳細資訊，請參閱[建立和修改 ExpressRoute 線路](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)。
     1. Data Box 線上資料傳輸 - Data Box Edge 與 Data Box Gateway 是線上資料轉送產品，等同於在您的網站與 Azure 之間管理資料的網路儲存體閘道。 Data Box Edge 是內部部署網路裝置，與 Azure 來回轉送資料，並使用具備人工智慧 (AI) 的邊緣計算來處理資料。 Data Box Gateway 是具備儲存體閘道功能的虛擬設備。 如需詳細資訊，請參閱 [Azure 資料箱文件 - 線上傳輸](https://docs.microsoft.com/azure/databox-online/)。
 1.  離線寄送資料
@@ -47,9 +47,11 @@ ms.locfileid: "52584701"
 |1 PB|6 年|3 年|97 天|10 天|
 |2 PB|12 年|5 年|194 天|19 天|
 
-Azure 的原生工具 (例如 DistCp、Azure Data Factory 和 AzureCp) 可用於透過網路傳輸資料。 第三方工具 WANDisco 也可用於相同用途。 Kafka Mirrormaker 和 Sqoop 可用於持續從內部部署傳輸資料至 Azure 儲存體系統。
+Azure 的原生工具 (例如 Apache Hadoop DistCp、Azure Data Factory 和 AzureCp) 可用於透過網路傳輸資料。 第三方工具 WANDisco 也可用於相同用途。 Apache Kafka Mirrormaker 和 Apache Sqoop 可用於持續從內部部署將資料轉送至 Azure 儲存體系統。
 
-## <a name="performance-considerations-when-using-apache-distcp"></a>使用 Apache DistCp 時的效能考量
+
+## <a name="performance-considerations-when-using-apache-hadoop-distcp"></a>使用 Apache Hadoop DistCp 時的效能考量
+
 
 DistCp 是使用 MapReduce 對應作業的 Apache 專案，可以傳輸資料、處理錯誤，並從那些錯誤中復原。 它會將來源檔案清單指派給每個對應工作。 然後，對應工作會將其所有被指派的檔案複製到目的地。 有幾項技術可以改善 DistCp 的效能。
 
@@ -86,27 +88,27 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ## <a name="metadata-migration"></a>中繼資料移轉
 
-### <a name="hive"></a>Hive
+### <a name="apache-hive"></a>Apache Hive
 
 您可以使用指令碼或 DB 複寫來移轉 Hive 中繼存放區。
 
 #### <a name="hive-metastore-migration-using-scripts"></a>使用指令碼移轉 Hive 中繼存放區
 
-1. 從內部部署 Hive 中繼存放區產生 Hive DDL。 此步驟可使用[包裝函式 Bash 指令碼來完成] (https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)。
-1. 編輯產生的 DDL，使用 WASB/ADLS/ABFS URL 來取代 HDFS URL
-1. 從 HDInsight 叢集的中繼存放區上執行更新的 DDL
-1. 確定 Hive 中繼存放區版本在內部部署和雲端之間都相容
+1. 從內部部署 Hive 中繼存放區產生 Hive DDL。 此步驟可使用[包裝函式 Bash 指令碼](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md) \(英文\) 來完成。
+1. 編輯產生的 DDL，使用 WASB/ADLS/ABFS URL 來取代 HDFS URL。
+1. 從 HDInsight 叢集的中繼存放區上執行更新的 DDL。
+1. 確定 Hive 中繼存放區版本在內部部署和雲端之間都相容。
 
 #### <a name="hive-metastore-migration-using-db-replication"></a>使用 DB 複寫移轉 Hive 中繼存放區
 
-- 在內部部署 Hive 中繼存放區 DB 和 HDInsight 中繼存放區 DB 之間設定資料庫複寫
+- 在內部部署 Hive 中繼存放區 DB 和 HDInsight 中繼存放區 DB 之間設定資料庫複寫。
 - 使用 "Hive MetaTool" 將 HDFS URL 取代為 WASB/ADLS/ABFS URL，例如：
 
 ```bash
 ./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
 ```
 
-### <a name="ranger"></a>Ranger
+### <a name="apache-ranger"></a>Apache Ranger
 
 - 將內部部署 Ranger 原則匯出至 XML 檔案。
 - 使用如 XSLT 的工具，將內部部署專用的 HDFS 型路徑轉換為 WASB/ADLS。

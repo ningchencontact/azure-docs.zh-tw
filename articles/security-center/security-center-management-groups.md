@@ -3,23 +3,23 @@ title: 取得 Azure 資訊安全中心的全租用戶可見性 | Microsoft Docs
 description: 了解如何在 Azure 資訊安全中心取得全租用戶可見性。
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.author: rkarlin
+ms.openlocfilehash: cb70c99d56cb1d09e561a44a90fd6c007ea9b59f
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42441689"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52964112"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>取得 Azure 資訊安全中心的全租用戶可見性
 本文可協助您先執行數個可充分發揮 Azure Security Center 效用的動作，以著手使用。 執行這些動作可讓您檢視所有連結至 Azure Active Directory 租用戶的 Azure 訂用帳戶，並以彙總的方式跨多個訂用帳戶套用安全性原則，以有效而大規模地管理組織的安全性狀態。
@@ -93,13 +93,16 @@ Azure Active Directory 租用戶管理員並沒有 Azure 訂用帳戶的直接�
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>透過 Azure 入口網站將 RBAC 角色指派給使用者： 
 
 1. 登入 [Azure 入口網站](https://portal.azure.com)。 
-2. 若要檢視管理群組，請在 Azure 主功能表下選取 [所有服務]，然後選取 [管理群組]。
-3.  選取管理群組，然後按一下 [詳細資料]。
+1. 若要檢視管理群組，請在 Azure 主功能表下選取 [所有服務]，然後選取 [管理群組]。
+1.  選取管理群組，然後按一下 [詳細資料]。
 
     ![管理群組詳細資料螢幕擷取畫面](./media/security-center-management-groups/management-group-details.PNG)
  
-4. 按一下 [存取控制 (IAM)]，然後按一下 [新增]。
-5. 選取要指派的角色和使用者，然後按一下 [儲存]。  
+1. 依序按一下 [存取控制 (IAM)\] 和 [角色指派]。
+
+1. 按一下 [新增角色指派]。
+
+1. 選取要指派的角色和使用者，然後按一下 [儲存]。  
    
    ![新增安全性讀取者角色螢幕擷取畫面](./media/security-center-management-groups/asc-security-reader.png)
 

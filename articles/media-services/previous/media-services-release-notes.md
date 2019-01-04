@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 41376448095a5dd760fae594fdfe2d2b57e4440a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9370cdfc75995f36101804d2a9f7dc9cf275243c
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231646"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186305"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒體服務版本資訊
 Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已知問題。
@@ -39,7 +39,7 @@ Azure 媒體服務的這些版本資訊彙總了舊版發行後的變更和已�
 | 媒體服務節流機制會針對向服務發出過多要求的應用程式限制資源使用量。 服務可能會傳回「服務無法使用」503 HTTP 狀態碼。 |如需詳細資訊，請參閱[媒體服務錯誤碼](media-services-encoding-error-codes.md)中有關於 503 HTTP 狀態碼的說明。 |
 | 當您查詢實體時，一次最多只能傳回 1000 個實體，因為公用 REST 第 2 版有 1,000 個查詢結果數目的限制。 |請依照[此 .NET 範例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 範例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中的說明，使用 Skip 和 Take (.NET)/top (REST)。 |
 | 某些用戶端在 Smooth Streaming 資訊清單中可能會遇到重複標記問題。 |如需詳細資訊，請參閱[本節](media-services-deliver-content-overview.md#known-issues)。 |
-| 媒體服務 .NET SDK 物件無法序列化，因此無法與 Azure Redis 快取搭配運作。 |如果您嘗試序列化 SDK AssetCollection 物件以將其新增至 Azure Redis 快取，將會擲回例外狀況。 |
+| 媒體服務 .NET SDK 物件無法序列化，因此無法與 Redis 的 Azure 快取搭配運作。 |如果您嘗試將 SDK AssetCollection 物件序列化以將其新增至 Redis 的 Azure 快取，則會擲回例外狀況。 |
 
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本歷程記錄
@@ -86,7 +86,7 @@ Apple HLS (iOS 11 +) 的 CMAF 和 'cbcs' 加密支援和支援 CMAF 的 MPEG-DAS
     * 改善標準編碼器中使用的 H.264 解碼器，清除特定罕見構件。 
 
 #### <a name="media-analytics"></a>媒體分析
-Azure Media Redactor 的正式運作 - 此媒體處理器會透過將所選個人的臉部模糊化來執行視訊匿名，相當適合用於公共安全及新聞媒體案例。 
+Azure Media Redactor 正式運作：此媒體處理器會透過將所選個人的臉部模糊化來執行匿名，相當適合公共安全及新聞媒體案例用途。 
 
 如需此新處理器的概觀，請參閱[此部落格文章](https://azure.microsoft.com/blog/azure-media-redactor/)。 如需文件和設定的相關資訊，請參閱[使用 Azure 媒體分析修訂臉部](media-services-face-redaction.md)。
 
@@ -186,7 +186,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 * 以下[程式碼範例](http://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可協助您快速上手：
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 AES-128 動態加密和金鑰傳遞服務。 其內容以[使用 AES-128 動態加密和金鑰傳遞服務](media-services-protect-with-aes128.md)中說明的 .NET 範例為基礎。
   * **vodworkflow_aes.php**：此 PHP 檔案說明如何使用 PlayReady 動態加密和授權傳遞服務。 其內容以[使用 PlayReady 和/或 Widevine 動態一般加密](media-services-protect-with-playready-widevine.md)中說明的 .NET 範例為基礎。
-  * **scale_encoding_units.php**：此 PHP 檔案說明如何調整編碼保留單元大小。
+  * **scale_encoding_units.php**：PHP 檔案說明如何調整編碼保留單元大小。
 
 ## <a id="nov_changes_15"></a>2015 年 11 月版本
  現在，媒體服務可在雲端提供 Google Widevine 授權傳遞服務。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。 同時也參閱[本教學課程](media-services-protect-with-playready-widevine.md)和 [GitHub 存放庫](http://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)。 
@@ -194,10 +194,10 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 媒體服務所提供的 Widevine 授權傳遞服務為預覽功能。 如需詳細資訊，請參閱 [此部落格](https://azure.microsoft.com/blog/announcing-google-widevine-license-delivery-services-public-preview-in-azure-media-services/)。
 
 ## <a id="oct_changes_15"></a>2015 年 10 月版本
-媒體服務現在也在下列資料中心推出：巴西南部、印度西部、印度南部和印度中部。 您現在可以使用 Azure 入口網站來[建立媒體服務帳戶](media-services-portal-create-account.md)，以及執行[媒體服務文件網頁](https://azure.microsoft.com/documentation/services/media-services/)中說明的各種工作。 這些資料中心並不會啟用即時編碼。 此外，並非所有類型的編碼保留單元都可用於這些資料中心。
+媒體服務現在位於下列資料中心：巴西南部、印度西部、印度南部和印度中部。 您現在可以使用 Azure 入口網站來[建立媒體服務帳戶](media-services-portal-create-account.md)，以及執行[媒體服務文件網頁](https://azure.microsoft.com/documentation/services/media-services/)中說明的各種工作。 這些資料中心並不會啟用即時編碼。 此外，並非所有類型的編碼保留單元都可用於這些資料中心。
 
-* 巴西南部：只可以使用標準和基本編碼保留單元。
-* 印度西部、印度南部和印度中部：只可以使用基本編碼保留單元。
+* 巴西南部：                                        只可以使用標準和基本編碼保留單元。
+* 印度西部、印度南部和印度中部：           只可以使用基本編碼保留單元。
 
 ## <a id="september_changes_15"></a>2015 年 9 月版本
 媒體服務現在提供以 Widevine 模組 DRM 技術保護點播視訊和即時資料流的能力。 您可以使用下列傳遞服務合作夥伴來協助您傳遞 Widevine 授權：
@@ -270,7 +270,7 @@ Azure SDK 小組已發佈新版的 [Azure SDK for PHP](http://github.com/Azure/a
 ### <a name="media-services-net-sdk-updates"></a>媒體服務 .NET SDK 更新
 媒體服務 .NET SDK 的現行版本為 3.2.0.0。 已完成的更新如下：
 
-* 重大變更：TokenRestrictionTemplate.Issuer 和 TokenRestrictionTemplate.Audience 變更為字串類型。
+* 重大變更：TokenRestrictionTemplate.Issuer 和 TokenRestrictionTemplate.Audience 已變更為字串類型。
 * 完成了與建立自訂重試原則有關的更新。
 * 完成了與上傳和下載檔案有關的錯誤修正。
 * MediaServicesCredentials 類別現在接受以主要和次要存取控制端點作為驗證對象。
@@ -374,8 +374,8 @@ Media Services SDK for .NET 的現行版本為 3.0.0.7
 ## <a id="july_changes_14"></a>2014 年 7 月版本
 Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 
-* 當即時封存資產傳輸至 HLS 時，只會播放音訊：此問題已獲得修正，現在已會同時播放音訊和視訊。
-* 當資產封裝至 HLS 和 AES 128 位元信封加密時，封裝的串流不會在 Android 裝置上播放：此問題已獲得修正，封裝的串流已可在支援 HLS 的 Android 裝置上播放。
+* 將即時封存資產傳輸至 HLS 時，僅播放音訊：已修正此問題，現在可以播放音訊和視訊。
+* 將資產封裝至 HLS 和 AES 128 位元信封加密時，Android 裝置上不會播放已封裝的資料流：已修正此問題，支援 HLS 的 Android 裝置上會播放已封裝的資料流。
 
 ## <a id="may_changes_14"></a>2014 年 5 月版本
 ### <a id="may_14_changes"></a>一般媒體服務更新
@@ -414,7 +414,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
 3.0.0.3 版做了下列變更：
 
 * Azure 儲存體相依性已升級，而使用 3.0.3.0 版。
-* 已修正 3.0.*.* 版的回溯相容性問題。
+* 已修正 3.0.*.*  版的回溯相容性問題。
 
 ## <a id="december_changes_13"></a>2013 年 12 月版本
 ### <a name="dec_13_donnet_changes"></a>媒體服務 .NET SDK 3.0.0.0
@@ -476,7 +476,7 @@ Azure Media Services Packager 和 Encryptor 完成了下列錯誤修正：
     * StorageAccount 屬性
     * StorageAccountName 屬性
   
-    如需詳細資訊，請參閱[管理多個儲存體帳戶間的媒體服務資產](https://msdn.microsoft.com/library/azure/dn271889.aspx)。
+      如需詳細資訊，請參閱[管理多個儲存體帳戶間的媒體服務資產](https://msdn.microsoft.com/library/azure/dn271889.aspx)。
 * 通知相關的 API。 自 2.2.0.0 版起，您已能夠聽取 Azure 佇列儲存體通知。 如需詳細資訊，請參閱[處理媒體服務作業通知](https://msdn.microsoft.com/library/azure/dn261241.aspx)。
   
     * Microsoft.WindowsAzure.MediaServices.Client.IJob.JobNotificationSubscriptions 屬性

@@ -244,7 +244,7 @@ public static void CreateQueueMessages(
 * **CloudQueue** (用於直接使用 Azure 儲存體 API 手動建立訊息)
 
 ### <a name="use-webjobs-sdk-attributes-in-the-body-of-a-function"></a>在函式主體中使用 WebJobs SDK 屬性
-如果您需要先在函式中執行部分工作，然後再使用 WebJobs SDK 屬性，例如 **Queue****Blob** 或 **Table**，您可以使用 **IBinder** 介面。
+如果您需要先在函式中執行部分工作，然後再使用 WebJobs SDK 屬性，例如 **Queue** **Blob** 或 **Table**，您可以使用 **IBinder** 介面。
 
 下列範例會使用輸入佇列訊息，並在輸出佇列中建立含有相同內容的新訊息。 輸出佇列名稱會由函數主體中的程式碼設定。
 

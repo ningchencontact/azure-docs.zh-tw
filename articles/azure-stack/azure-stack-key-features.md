@@ -12,38 +12,38 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 21a6eeb4b0a83574be4c5c996e43d9867c3249d0
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49959021"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185727"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Azure Stack 的主要功能與概念
 如果您是 Microsoft Azure Stack 的新手，這些字詞與功能描述可能相當實用。
 
 ## <a name="personas"></a>角色
-Microsoft Azure Stack 有兩種不同的使用者，也就是雲端操作員 (提供者) 與租用戶 (消費者)。
+Microsoft Azure Stack 有兩種不同的使用者，也就是操作員與使用者。
 
-* **雲端操作員**可以設定 Azure Stack 及管理供應項目、方案、服務、配額及定價，為他們的租用戶提供資源。  雲端操作員也管理容量並會回應警示。  
-* **租用戶** (也稱為使用者) 將會使用雲端系統管理員所提供的服務。 租用戶可以佈建、監視及管理他們所訂閱的服務，例如 Web Apps、儲存體以及虛擬機器。
+* Azure Stack **操作員**可以設定 Azure Stack， 透過管理供應項目、方案、服務、配額及定價，為他們的租用戶提供資源。 操作員也管理容量並會回應警示。  
+* Azure Stack **使用者** (也稱為租用戶) 會使用操作員所提供的服務。 使用者可以佈建、監視及管理他們所訂閱的服務，例如 Web Apps、儲存體以及虛擬機器。
 
 ## <a name="portal"></a>入口網站
-與 Microsoft Azure Stack 互動的主要方法是系統管理員入口網站、使用者入口網站，以及 PowerShell。
+與 Microsoft Azure Stack 互動的主要方法是系統管理入口網站、使用者入口網站，以及 PowerShell。
 
-每個 Azure Stack 入口網站皆由 Azure Resource Manager 的個別執行個體支援。  雲端操作員會使用系統管理員入口網站來管理 Azure Stack，以及執行一些作業，例如建立租用戶供應項目。  使用者入口網站 (也稱為租用戶入口網站) 提供使用雲端資源的自助式服務體驗，像是虛擬機器、儲存體帳戶，以及 Web Apps。 如需詳細資訊，請參閱[使用 Azure Stack 中系統管理員和使用者的入口網站](azure-stack-manage-portals.md)。
+每個 Azure Stack 入口網站皆由 Azure Resource Manager 的個別執行個體支援。 操作員會使用系統管理入口網站來管理 Azure Stack，以及執行一些作業，例如建立租用戶供應項目。 使用者入口網站 (也稱為租用戶入口網站) 提供使用雲端資源的自助式服務體驗，像是虛擬機器、儲存體帳戶，以及 Web Apps。 如需詳細資訊，請參閱[使用 Azure Stack 中系統管理員和使用者的入口網站](azure-stack-manage-portals.md)。
 
 ## <a name="identity"></a>身分識別 
-Azure Stack 使用 Azure Active Directory (AAD) 或 Active Directory 同盟服務 (AD FS) 作為識別提供者。  
+Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 同盟服務 (AD FS) 作為識別提供者。  
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
-Azure Active Directory 是 Microsoft 的雲端式、多租用識別提供者。  大部分的混合式情節使用 Azure Active Directory 作為身分識別存放區。
+Azure AD 是 Microsoft 的雲端式、多租用識別提供者。 大部分的混合式情節使用 Azure AD 作為身分識別存放區。
 
 ### <a name="active-directory-federation-services"></a>Active Directory Federation Services
-您可以選擇使用 Active Directory 同盟服務 (AD FS) 作為中斷連線的 Azure Stack 部署。  Azure Stack、資源提供者和其他應用程式使用 AD FS 的方式，與使用 Azure Active Directory 的方式差不多。 Azure Stack 包含自己的 AD FS 和 Active Directory 執行個體，以及 Active Directory 圖形 API。 Azure Stack 開發套件支援下列 AD FS 情節：
+您可以選擇使用 Active Directory 同盟服務 (AD FS) 作為中斷連線的 Azure Stack 部署。 Azure Stack、資源提供者和其他應用程式使用 AD FS 的方式，與使用 Azure AD 的方式差不多。 Azure Stack 包含自己的 Active Directory 執行個體，以及 Active Directory 圖形 API。 Azure Stack 開發套件支援下列 AD FS 情節：
 
 - 使用 AD FS 登入部署。
 - 使用金鑰保存庫中的祕密建立虛擬機器
@@ -93,9 +93,9 @@ Azure Stack 區域是級別和管理的基本元素。 組織可能會有多重�
 透過使用 Azure Resource Manager，您能夠以範本為基礎、宣告式模型來使用基礎結構資源。   其提供單一介面，您可用來部署和管理解決方案的元件。 如需完整的資訊與指引，請參閱 [Azure Resource Manager 概觀](../azure-resource-manager/resource-group-overview.md)。
 
 ### <a name="resource-groups"></a>資源群組
-資源群組是資源、服務與應用程式的集合，而且每個資源各有類型，例如虛擬機器、虛擬網路、公用 IP、儲存體帳戶與網站。 每個資源都必須位於資源群組中，而資源群組有助於整理本機資源，例如依工作負載或位置。  在 Microsoft Azure Stack，像是方案與供應項目等資源，也會於資源群組中進行管理。
+資源群組是資源、服務與應用程式的集合，而且每個資源各有類型，例如虛擬機器、虛擬網路、公用 IP、儲存體帳戶與網站。 每個資源都必須位於資源群組中，而資源群組有助於整理本機資源，例如依工作負載或位置。 在 Azure Stack　中，像是方案與供應項目等資源，也會於資源群組中進行管理。
 
-不同於 [Azure](../azure-resource-manager/resource-group-move-resources.md)，您無法在資源群組間移動資源。 當您在 Azure Stack 管理入口網站中檢視資源或資源群組的屬性時，[移動] 按鈕會呈現灰色且無法使用。 
+不同於 [Azure](../azure-resource-manager/resource-group-move-resources.md)，您無法在資源群組間移動 Azure Stack 資源。 當您在 Azure Stack 管理入口網站中，檢視資源或資源群組的屬性時，[移動] 按鈕會呈現灰色且無法使用。 此外，不支援從資源群組，或資源群組項目屬性使用**變更資源群組**或是**變更訂用帳戶**動作。 所有嘗試移動作業將會失敗。
  
 ### <a name="azure-resource-manager-templates"></a>Azure 資源管理員範本
 利用 Azure Resource Manager，您可以建立可定義應用程式之部署和設定的範本 (以 JSON 格式)。 此範本就是所謂的 Azure 資源管理員範本，可提供定義部署的宣告方式。 藉由使用範本，您可以在整個應用程式週期重複部署應用程式，並確信您的資源會部署在一致的狀態中。
@@ -103,7 +103,7 @@ Azure Stack 區域是級別和管理的基本元素。 組織可能會有多重�
 ## <a name="resource-providers-rps"></a>資源提供者 (RP)
 資源提供者即是為 Azure 形式 IaaS 與 PaaS 服務形成基礎的 Web 服務。 Azure Resource Manager 仰賴不同的資源提供者來存取服務。
 
-有四個基本的資源提供者：網路、儲存體、計算和 KeyVault。 每個這些資源提供者，皆可協助您設定及控制其各自的資源。 服務管理員也可以加入新的自訂資源提供者。
+有四個基本 RPs：網路、 儲存體、 計算和 KeyVault。 每個這些資源提供者，皆可協助您設定及控制其各自的資源。 服務管理員也可以加入新的自訂資源提供者。
 
 ### <a name="compute-rp"></a>計算 RP
 Azure Stack 的租用戶可利用計算資源提供者 (CRP)，建立自己的虛擬機器。 CRP 也有功能可建立虛擬機器，以及虛擬機器擴充功能。 虛擬機器擴充功能服務有助於為 Windows 與 Linux 虛擬機器提供 IaaS 功能。  例如，您可以使用 CRP 來佈建 Linux 虛擬機器，並在部署期間執行 Bash 指令碼來設定虛擬機器。
@@ -129,7 +129,7 @@ Azure 佇列儲存體可提供應用程式元件之間的雲端傳訊。 設計�
 KeyVault RP 提供管理和稽核的祕密，例如密碼和憑證。 例如，租用戶可以使用 KeyVault RP 來在虛擬機器部署期間，提供系統管理員密碼或金鑰。
 
 ## <a name="high-availability-for-azure-stack"></a>Azure Stack 的高可用性
-*適用於：Azure Stack 1802 或更新版本*
+*適用範圍：Azure Stack 1802 或更新版本*
 
 為了達到 Azure 中多 VM 生產環境的高可用性，會將 VM 放在可用性設定組中，此設定組會將 VM 分散在多個容錯網域和更新網域中。 如此一來，[部署在可用性設定組中的 VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 便實體上在個別的伺服器機架上彼此隔離，而可提供失敗復原能力，如下圖所示：
 
@@ -150,7 +150,7 @@ KeyVault RP 提供管理和稽核的祕密，例如密碼和憑證。 例如，�
 ## <a name="role-based-access-control-rbac"></a>角色型存取控制 (RBAC)
 您可使用 RBAC 在訂用帳戶、資源群組或各個資源層級，為授權的使用者、群組與服務指派角色，即可為其授與系統存取權。 每個角色皆會定義使用者、群組或服務對於 Microsoft Azure Stack 資源所具有的存取層級。
 
-Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、參與者和讀者。 擁有者具有所有資源的完整存取權，包括將存取權委派給其他人的權限。 參與者可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。 讀者只能檢視現有的 Azure 資源。 Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，虛擬機器參與者角色可以建立和管理虛擬機器，但是無法管理虛擬網路或虛擬機器所連接的子網路。
+Azure RBAC 有適用於所有資源類型的三個基本角色：擁有者、 參與者和讀取器。 擁有者具有所有資源的完整存取權，包括將存取權委派給其他人的權限。 參與者可以建立和管理所有類型的 Azure 資源，但是不能將存取權授與其他人。 讀者只能檢視現有的 Azure 資源。 Azure 中其餘的 RBAC 角色可以管理特定 Azure 資源。 例如，虛擬機器參與者角色可以建立和管理虛擬機器，但是無法管理虛擬網路或虛擬機器所連接的子網路。
 
 ## <a name="usage-data"></a>使用狀況資料
 Microsoft Azure Stack 會從所有資源提供者收集彙總的使用方式資料，並將其傳輸至 Azure 以由 Azure 商務進行處理。 透過 REST API，您可以檢視 Azure Stack 上收集的使用方式資料。 同時有與 Azure 一致的租用戶 API 和提供者，以及委派的提供者 API，以取得所有租用戶訂用帳戶的使用量資料。 此資料可用於與外部工具或收費或退款服務相整合。 一旦使用方式經由 Azure 商務處理，其就可以在 Azure 計費入口網站中檢視。

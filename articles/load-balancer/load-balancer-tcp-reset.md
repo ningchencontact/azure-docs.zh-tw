@@ -1,26 +1,24 @@
 ---
-title: 負載平衡器閒置 TCP 重設 | Microsoft Docs
+title: Azure 中的 Load Balancer 閒置 TCP 重設
+titlesuffix: Azure Load Balancer
 description: 具有閒置逾時雙向 TCP RST 封包的 Load Balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/08/2018
+ms.date: 12/03/2018
 ms.author: kumud
-ms.openlocfilehash: 9aa3811eb03d38a4c6ab8203512f3e6699098122
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883630"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53257281"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>具有閒置 TCP 重設的負載平衡器 (公開預覽)
 
@@ -76,7 +74,17 @@ ms.locfileid: "48883630"
 | 區域 |
 |---|
 | 東南亞 |
+| 巴西南部 |
+| 加拿大中部 |
 | 西歐 |
+| 印度中部 |
+| 印度西部 |
+| 日本西部 |
+| 南韓中部 |
+| 南韓南部 |
+| 英國北部 |
+| 英國南部 2 |
+| 美國東部 |
 | 美國東部 2 |
 | 英國北部 |
 | 美國西部 |

@@ -4,598 +4,135 @@ description: 如何從 Azure IoT Central 應用程式匯出資料
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 09/18/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: cba0bad2e81ffddedfc4ca04e82e17e4286b389b
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962787"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312114"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>匯出 Azure IoT Central 中的資料
 
 *此主題適用於系統管理員。*
 
-此文章說明如何使用 Azure IoT Central 中的連續資料匯出功能定期將資料匯出到您的 Azure Blob 儲存體帳戶。 您能以 [Apache AVRO](https://avro.apache.org/docs/current/index.html) 格式的檔案匯出**量測**、**裝置**和**裝置範本**。 所匯出的資料可用來進行冷路徑分析 (例如，在 Azure Machine Learning 中為模型定型) 或在 Microsoft Power BI 中進行長期趨勢分析。
+本文說明如何使用 Azure IoT Central 中的連續資料匯出功能，將資料匯出到您自己的 **Azure Blob 儲存體**、**Azure 事件中樞**及 **Azure 服務匯流排**執行個體。 您可以將**度量**、**裝置**及**裝置範本**匯出到您自己的目的地，以進行暖路徑和冷路徑分析。 您可以將資料匯出至 Blob 儲存體，以在 Microsoft Power BI 中執行長期趨勢分析，或將資料匯出至「事件中樞」和「服務匯流排」，以使用 Azure Logic Apps 或 Azure Functions 以近乎即時的方式轉換及擴增資料。
 
 > [!Note]
 > 當您開啟「連續資料匯出」時，只會取得從該時刻的資料。 目前，無法擷取「連續資料匯出」時的資料。 若要保留更多歷史資料，請儘早開啟「連續資料匯出」。
 
 ## <a name="prerequisites"></a>必要條件
 
-- 預付型方案應用程式。
-- IoT Central 應用程式中的系統管理員，其具備：
-    - IoT Central 應用程式所在 Azure 訂用帳戶中的 Azure 帳戶
-    - 建立儲存體帳戶，或存取此 Azure 訂用帳戶中現有儲存體帳戶的權限
+- 您必須是 IoT Central 應用程式中的系統管理員
 
-## <a name="types-of-data-to-export"></a>要匯出的資料類型
+## <a name="export-to-blob-storage"></a>匯出至 Blob 儲存體
 
-### <a name="measurements"></a>量測
+度量、裝置及裝置範本資料會以每分鐘一次的頻率，匯出到您的儲存體帳戶，其中每個檔案都會包含自上次匯出檔案之後的一批變更。 匯出的資料會採用 [Apache AVRO](https://avro.apache.org/docs/current/index.html) 格式。
 
-裝置所傳送的量測每隔一分鐘就會匯出至您的儲存體帳戶。 該資料有 IoT Central 在該時段內從所有裝置接收的所有新訊息。 所匯出 AVRO 檔案的格式，會和 [IoT 中樞訊息路由](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c)匯出至 Blob 儲存體的訊息檔案格式相同。
+深入了解[匯出至 Azure Blob 儲存體](howto-export-data-blob-storage.md)。
 
-> [!NOTE]
-> 傳送量測的裝置會以裝置識別碼來表示 (請參閱以下各節)。 若要取得裝置名稱，請匯出裝置快照集。 請使用與裝置記錄之 **deviceId** 相符的 **connectionDeviceId** 來相互關聯每個訊息記錄。
+## <a name="export-to-event-hubs-and-service-bus"></a>匯出至事件中樞和服務匯流排
 
-下列範例顯示已解碼之 AVRO 檔案中的範例：
+度量、裝置及裝置範本資料會匯出至事件中樞或「服務匯流排」佇列或主題。 匯出的度量資料會以近乎即時的方式送達，且包含您裝置傳送給 IoT Central 的訊息整體，而不僅限於度量本身的值。 匯出的裝置資料會以每分鐘一次的方式分批送達，且包含對所有裝置之屬性與設定進行的變更，而匯出的裝置範本則包含對所有裝置範本進行的變更。
 
-```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
-}
-```
 
-### <a name="devices"></a>裝置
+深入了解[匯出至事件中樞和服務匯流排](howto-export-data-event-hubs-service-bus.md)。
 
-當第一次開啟「連續資料匯出」時，會匯出包含所有裝置的單一快照集。 每個裝置包含：
-- IoT Central 中裝置的 `id`
-- 裝置的 `name`
-- 來自[裝置佈建服務](https://aka.ms/iotcentraldocsdps) 的 `deviceId`
-- 裝置範本資訊
-- 屬性值
-- 設定值
+## <a name="set-up-export-destination"></a>設定匯出目的地
 
-系統每隔一分鐘就會寫入新的快照集。 快照集包括：
+如果您沒有現有的「儲存體」/「事件中樞」/「服務匯流排」可供作為匯出目的地，請依照下列步驟進行操作：
 
-- 自上一個快照集以來所新增的裝置。
-- 自上一個快照集以來屬性與設定值已變更的裝置。
+### <a name="create-storage-account"></a>建立儲存體帳戶
 
-> [!NOTE]
-> 自上一個快照集以來所刪除的裝置則不會匯出。 目前，快照集沒有已刪除之裝置的指標。
->
-> 每個裝置所屬的裝置範本會以裝置範本識別碼來表示。 若要取得裝置範本的名稱，請匯出裝置範本快照集。
+1. [在 Azure 入口網站中建立新儲存體帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 您可以透過 [Azure 儲存體文件](https://aka.ms/blobdocscreatestorageaccount)深入了解。
+2. 針對帳戶類型，請選擇 [一般用途] 或 [Blob 儲存體]。
+3. 選擇訂用帳戶。 
 
-已解碼 AVRO 檔案中的記錄看起來可能像這樣：
+    > [!Note] 
+    > 您現在可以將資料匯出至與預付型方案 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 
-```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
-    },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
-    }
-}
-```
+4. 在您的儲存體帳戶中建立容器。 移至您的儲存體帳戶。 在 [Blob 服務] 下，選取 [瀏覽 Blob]。 選取頂端的 [+ 容器] 以建立新的容器。
 
-### <a name="device-templates"></a>裝置範本
+### <a name="create-event-hubs-namespace"></a>建立事件中樞命名空間
 
-當第一次開啟「連續資料匯出」時，會匯出包含所有裝置範本的單一快照集。 每個裝置範本包含：
-- 裝置範本的 `id`
-- 裝置範本的 `name`
-- 裝置範本的 `version`
-- 量測資料類型和最小值/最大值。
-- 屬性資料類型和預設值。
-- 設定資料類型和預設值。
+1. [在 Azure 入口網站中建立新事件中樞命名空間](https://ms.portal.azure.com/#create/Microsoft.EventHub)。 您可以透過 [Azure 事件中樞文件](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)深入了解。
+2. 選擇訂用帳戶。 
 
-系統每隔一分鐘就會寫入新的快照集。 快照集包括：
+    > [!Note] 
+    > 您現在可以將資料匯出至與預付型方案 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
+3. 在「事件中樞」命名空間中建立一個事件中樞。 移至您的命名空間，然後選取頂端的 [+ 事件中樞] 以建立事件中樞執行個體。
 
-- 自上一個快照集以來所新增的新裝置範本。
-- 自上一個快照集以來量測、屬性與設定定義已變更的裝置範本。
+### <a name="create-service-bus-namespace"></a>建立服務匯流排命名空間
 
-> [!NOTE]
-> 自上一個快照集以來所刪除的裝置範本則不會匯出。 目前，快照集沒有已刪除之裝置範本的指標。
+1. [在 Azure 入口網站中建立新的服務匯流排命名空間](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)。 您可以透過 [Azure 服務匯流排文件](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal)深入了解。
+2. 選擇訂用帳戶。 
 
-已解碼 AVRO 檔案中的記錄看起來可能像這樣：
+    > [!Note] 
+    > 您現在可以將資料匯出至與預付型方案 IoT Central 應用程式之訂用帳戶**不同**的其他訂用帳戶。 在此情況下，您將使用連接字串來進行連線。
 
-```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
-    },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
-    }
-}
-```
+3. 移至您的「服務匯流排」命名空間，然後選取頂端的 [+ 佇列] 或 [+ 主題] 以建立要作為匯出目的地的佇列或主題。
 
 ## <a name="set-up-continuous-data-export"></a>設定連續資料匯出
 
-1. 如果您沒有 Azure 儲存體帳戶，請在 Azure 入口網站中[建立新儲存體帳戶](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)。 **在 IoT Central 應用程式所在的 Azure 訂用帳戶中**建立儲存體帳戶。
-    - 針對帳戶類型，請選擇 [一般用途] 或 [Blob 儲存體]。
-    - 選取 IoT Central 應用程式所在的訂用帳戶。 如果您沒有看到訂用帳戶，您可能需要登入不同 Azure 帳戶，或要求訂用帳戶的存取權。
-    - 選擇現有的資源群組或建立新群組。 了解[如何建立新的儲存體帳戶](https://aka.ms/blobdocscreatestorageaccount)。
+既然您已有可作為資料匯出目的地的「儲存體」/「事件中樞」/「服務匯流排」，現在即可依照下列步驟來設定連續資料匯出。 
 
-2. 在儲存體帳戶中建立容器以供存放匯出的 IoT Central 資料。 移至您的儲存體帳戶。 在 [Blob 服務] 下，選取 [瀏覽 Blob]。 選取 [容器] 以建立新的容器。
+1. 登入您的 IoT Central 應用程式。
 
-   ![建立容器](media/howto-export-data/createcontainer.png)
+2. 在左側功能表中，按一下 [連續資料匯出]。
 
-3. 使用相同的 Azure 帳戶登入 IoT Central 應用程式。
+    > [!Note]
+    > 如果在左側功能表中沒有看到 [連續資料匯出]，即表示您不是應用程式的系統管理員。 請連絡系統管理員來設定資料匯出。
 
-4. 在 [系統管理] 下，選取 [資料匯出]。
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_menu.PNG)
 
-5. 在 [儲存體帳戶] 下拉式清單方塊中，選取您的儲存體帳戶。 在 [容器] 下拉式清單方塊中，選取您的容器。 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
+3. 按一下右上方的 [+ 新增] 按鈕。 選擇 [Azure Blob 儲存體]、[Azure 事件中樞]或 [Azure 服務匯流排] 其中一個作為您的匯出目的地。 
 
-6. 若要開啟連續資料匯出，請將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
+    > [!NOTE] 
+    > 每一應用程式的匯出數目上限是 5。 
 
-  ![設定連續資料匯出](media/howto-export-data/continuousdataexport.PNG)
+    ![建立新的連續資料匯出](media/howto-export-data/export_new.PNG)
 
-7. 在幾分鐘之後，您的資料就會出現在您的儲存體帳戶中。 瀏覽您的儲存體帳戶。 選取 [瀏覽 Blob] > 您的容器。 您會看到用於匯出資料的三個資料夾。 具有匯出資料之 AVRO 檔案的預設路徑是：
-    - 訊息：{container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 裝置：{container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-    - 裝置範本：{container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+4. 在下拉式清單中，選取您的 [儲存體帳戶]/[事件中樞命名空間]/[服務匯流排命名空間]。 您也可以挑選清單中的最後一個選項，也就是 [輸入連接字串]。 
 
-## <a name="read-exported-avro-files"></a>讀取匯出的 AVRO 檔案
+    > [!NOTE] 
+    > 您只會看到**與 IoT Central 應用程式位於相同訂用帳戶中**的「儲存體帳戶」/「事件中樞命名空間」/「服務匯流排命名空間」。 如果您想要匯出到此訂用帳戶外的目的地，請選擇 [輸入連接字串]，然後參閱步驟 5。
 
-AVRO 是二進位格式，因此無法以原始狀態讀取檔案。 該檔案可解碼為 JSON 格式。 下列範例說明如何剖析量測、裝置和裝置範本 AVRO 檔案。 這些範例對應到上一節中所述的範例。
+    > [!NOTE] 
+    > 如果是 7 天試用版應用程式，則設定連續資料匯出的唯一方式是透過連接字串。 這是因為 7 天試用版應用程式並沒有相關聯的 Azure 訂用帳戶。
 
-### <a name="read-avro-files-by-using-python"></a>使用 Python 讀取 AVRO 檔案
+    ![建立新的 cde 事件中樞](media/howto-export-data/export_create.PNG)
 
-#### <a name="install-pandas-and-the-pandavro-package"></a>安裝 pandas 與 pandavro 套件
+5. (選擇性) 如果您選擇 [輸入連接字串]，就會顯示一個可供您貼上連接字串的新方塊。 取得下列項目的連接字串：
+    - 儲存體帳戶：在 Azure 入口網站中移至儲存體帳戶。
+        - 在 [設定] 底下，按一下 [存取金鑰]
+        - 複製 key1 連接字串或 key2 連接字串
+    - 事件中樞或服務匯流排：在 Azure 入口網站中移至命名空間。
+        - 在 [設定] 底下，按一下 [共用存取原則]
+        - 選擇預設的 [RootManageSharedAccessKey]，或建立新的原則
+        - 複製主要連接字串或次要連接字串
+ 
+6. 從下拉式清單方塊中選擇 [容器]/[事件中樞]/[佇列或主題]。
 
-```python
-pip install pandas
-pip install pandavro
-```
+7. 在 [要匯出的資料] 下，透過將類型設定為 [開啟] 以指定每種要匯出的資料類型。
 
-#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
+6. 若要開啟連續資料匯出，請務必將 [資料匯出] 設定為 [開啟]。 選取 [ **儲存**]。
 
-```python
-import json
-import pandavro as pdx
-import pandas as pd
+  ![設定連續資料匯出](media/howto-export-data/export_list.PNG)
 
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    measurements = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The SystemProperties column contains a dictionary
-    # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
-
-    # The Body column is a series of UTF-8 bytes that is stringified
-    # and parsed as JSON. This example pulls the humidity property
-    # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
-
-    # Finally, print the new DataFrame with our device IDs and humidities.
-    print(transformed)
-
-```
-
-#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
-
-```python
-import json
-import pandavro as pdx
-import pandas as pd
-
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    devices = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The device ID is available in the id column.
-    transformed["device_id"] = devices["deviceId"]
-
-    # The template ID and version are present in a dictionary under
-    # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
-
-    # The fanSpeed setting value is located in a nested dictionary
-    # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
-
-    # Finally, print the new DataFrame with our device and template
-    # information, along with the value of the fan speed.
-    print(transformed)
-
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
-
-```python
-import json
-import pandavro as pdx
-import pandas as pd
-
-def parse(filePath):
-    # Pandavro loads the AVRO file into a pandas DataFrame
-    # where each record is a single row.
-    templates = pdx.from_avro(filePath)
-
-    # This example creates a new DataFrame and loads a series
-    # for each column that's mapped into a column in our new DataFrame.
-    transformed = pd.DataFrame()
-
-    # The template and version are available in the id and version columns.
-    transformed["template_id"] = templates["id"]
-    transformed["template_version"] = templates["version"]
-
-    # The fanSpeed setting value is located in a nested dictionary
-    # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
-
-    # Finally, print the new DataFrame with our device and template
-    # information, along with the value of the fan speed.
-    print(transformed)
-```
-
-### <a name="read-avro-files-by-using-c"></a>使用 C# 讀取 AVRO 檔案
-
-#### <a name="install-the-microsofthadoopavro-package"></a>安裝 Microsoft.Hadoop.Avro 套件
-
-```csharp
-Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
-```
-
-#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-using Newtonsoft.Json;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    var systemProperties = record.GetField<IDictionary<string, object>>("SystemProperties");
-                    var deviceId = systemProperties["connectionDeviceId"] as string;
-                    Console.WriteLine("Device ID: {0}", deviceId);
-
-                    using (var stream = new MemoryStream(record.GetField<byte[]>("Body")))
-                    {
-                        using (var streamReader = new StreamReader(stream, Encoding.UTF8))
-                        {
-                            var body = JsonSerializer.Create().Deserialize(streamReader, typeof(IDictionary<string, dynamic>)) as IDictionary<string, dynamic>;
-                            var humidity = body["humidity"];
-                            Console.WriteLine("Humidity: {0}", humidity);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-```
-
-#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    // Get the field value directly. You can also yield return
-                    // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("deviceId");
-
-                    // The device template information is stored in a sub-record
-                    // under the deviceTemplate field.
-                    var deviceTemplateRecord = record.GetField<AvroRecord>("deviceTemplate");
-                    var templateId = deviceTemplateRecord.GetField<string>("id");
-                    var templateVersion = deviceTemplateRecord.GetField<string>("version");
-
-                    // The settings and properties are nested two levels deep.
-                    // The first level indicates settings or properties.
-                    // The second level indicates the type of setting or property.
-                    var settingsRecord = record.GetField<AvroRecord>("settings");
-                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
-                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
-                    
-                    Console.WriteLine(
-                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
-                        deviceId,
-                        templateId,
-                        templateVersion,
-                        fanSpeed
-                    );
-                }
-            }
-        }
-    }
-}
-
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
-
-```csharp
-using Microsoft.Hadoop.Avro;
-using Microsoft.Hadoop.Avro.Container;
-
-public static async Task Run(string filePath)
-{
-    using (var fileStream = File.OpenRead(filePath))
-    {
-        using (var reader = AvroContainer.CreateGenericReader(fileStream))
-        {
-            // For one AVRO container, where a container can contain multiple blocks,
-            // loop through each block in the container.
-            while (reader.MoveNext())
-            {
-                // Loop through the AVRO records in the block and extract the fields.
-                foreach (AvroRecord record in reader.Current.Objects)
-                {
-                    // Get the field value directly. You can also yield return
-                    // records and make the function IEnumerable<AvroRecord>.
-                    var id = record.GetField<string>("id");
-                    var version = record.GetField<string>("version");
-
-                    // The settings and properties are nested two levels deep.
-                    // The first level indicates settings or properties.
-                    // The second level indicates the type of setting or property.
-                    var settingsRecord = record.GetField<AvroRecord>("settings");
-                    var deviceSettingsRecord = settingsRecord.GetField<IDictionary<string, dynamic>>("device");
-                    var fanSpeed = deviceSettingsRecord["fanSpeed"];
-                    
-                    Console.WriteLine(
-                        "ID: {1}, Version: {2}, Fan Speed: {3}",
-                        id,
-                        version,
-                        fanSpeed
-                    );
-                }
-            }
-        }
-    }
-}
-```
-
-### <a name="read-avro-files-by-using-javascript"></a>使用 Javascript 讀取 AVRO 檔案
-
-#### <a name="install-the-avsc-package"></a>安裝 avsc 套件
-
-```javascript
-npm install avsc
-```
-
-#### <a name="parse-a-measurements-avro-file"></a>剖析量測 AVRO 檔案
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device ID and humidity from each record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the device ID from the system properties.
-        const deviceId = record.SystemProperties.connectionDeviceId;
-
-        // Convert the body from a buffer to a string and parse it.
-        const body = JSON.parse(record.Body.toString());
-
-        // Get the humidty property from the body.
-        const humidity = body.humidity;
-
-        // Log the retrieved device ID and humidity.
-        console.log(`Device ID: ${deviceId}`);
-        console.log(`Humidity: ${humidity}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
-
-#### <a name="parse-a-devices-avro-file"></a>剖析裝置 AVRO 檔案
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device and template identification
-// information and the fanSpeed setting for each device record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the device ID from the deviceId property.
-        const deviceId = record.deviceId;
-
-        // Fetch the template ID and version from the deviceTemplate property.
-        const deviceTemplateId = record.deviceTemplate.id;
-        const deviceTemplateVersion = record.deviceTemplate.version;
-
-        // Get the fanSpeed from the nested device settings property.
-        const fanSpeed = record.settings.device.fanSpeed;
-
-        // Log the retrieved device ID and humidity.
-        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
-
-#### <a name="parse-a-device-templates-avro-file"></a>剖析裝置範本 AVRO 檔案
-
-```javascript
-const avro = require('avsc');
-
-// Read the AVRO file. Parse the device and template identification
-// information and the fanSpeed setting for each device record.
-async function parse(filePath) {
-    const records = await load(filePath);
-    for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
-        const templateId = record.id;
-        const templateVersion = record.version;
-
-        // Get the fanSpeed from the nested device settings property.
-        const fanSpeed = record.settings.device.fanSpeed;
-
-        // Log the retrieved device id and humidity.
-        console.log(`Template ID: ${templateId}, Template Version: ${templateVersion}, Fan Speed: ${fanSpeed}`);
-    }
-}
-
-function load(filePath) {
-    return new Promise((resolve, reject) => {
-        // The file decoder emits each record as a data event on a stream.
-        // Collect the records into an array and return them at the end.
-        const records = [];
-        avro.createFileDecoder(filePath)
-            .on('data', record => { records.push(record); })
-            .on('end', () => resolve(records))
-            .on('error', reject);
-    });
-}
-```
+7. 幾分鐘後，您的資料就會出現在所選擇的目的地中。
 
 ## <a name="next-steps"></a>後續步驟
 
 現在您已經知道如何匯出資料，請繼續下一個步驟：
+
+> [!div class="nextstepaction"]
+> [將資料匯出至 Azure Blob 儲存體](howto-export-data-blob-storage.md)
+
+> [!div class="nextstepaction"]
+> [將資料匯出至 Azure 事件中樞和 Azure 服務匯流排](howto-export-data-event-hubs-service-bus.md)
 
 > [!div class="nextstepaction"]
 > [如何在 Power BI 中將資料視覺化](howto-connect-powerbi.md)

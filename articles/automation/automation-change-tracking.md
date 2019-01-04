@@ -10,12 +10,12 @@ ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 27bacb12c66ac57a0bf1aea88a447d395b6dde8c
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166996"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53408913"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>使用變更追蹤解決方案來追蹤環境中的變更
 
@@ -85,7 +85,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
 |使用 Sudo     | 此設定會決定在檢查項目時是否使用 sudo。         |
 |連結     | 此設定會決定在周遊目錄時處理符號連結的方式。<br> **忽略** - 忽略符號連結，而不包含參考的檔案/目錄。<br>**遵循** - 在遞迴期間遵循符號連結，並且包含參考的檔案/目錄。<br>**管理** - 遵循符號連結並允許變更傳回的內容。     |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
 
 > [!NOTE]
 > 不建議選擇「管理」連結選項。 不支援檔案內容擷取。
@@ -105,7 +105,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
 |輸入路徑     | 要檢查檔案的路徑，例如："c:\temp\\\*.txt"<br>您也可以使用環境變數，例如 "%winDir%\System32\\\*.*"       |
 |遞迴     | 決定在尋找所要追蹤的項目時是否使用遞迴。        |
-|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用的選項：**True** 或 **False**。|
+|上傳所有的檔案內容設定| 開啟或關閉追蹤變更上的檔案內容上傳。 可用選項：**True** 或 **False**。|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>萬用字元、遞迴和環境設定
 
@@ -135,7 +135,7 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 |已啟用     | 判斷是否已套用設定。        |
 |項目名稱     | 要追蹤之檔案的易記名稱。        |
 |群組     | 以邏輯方式分組檔案的群組名稱。        |
-|Windows 登錄機碼   | 要檢查檔案的路徑。 例如："HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 登錄機碼   | 要檢查檔案的路徑。 例如︰"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>限制
 
@@ -171,6 +171,17 @@ Windows 代理程式正式支援下列 Windows 作業系統版本：
 | Linux 精靈 | 5 分鐘 |
 | Windows 軟體 | 30 分鐘 |
 | Linux 軟體軟體 | 5 分鐘 |
+
+下表顯示對於變更追蹤所追蹤的每個機器項目限制。
+
+| **Resource** | **限制**| **注意事項** |
+|---|---|---|
+|檔案|500||
+|登錄|250||
+|Windows 軟體|250|不包含軟體更新|
+|Linux 套件|1250||
+|服務|250||
+|精靈|250||
 
 ### <a name="windows-service-tracking"></a>Windows 服務追蹤
 

@@ -10,21 +10,21 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: 2f0b2984bf2390a9af0b824495b84c71d04aeac2
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852838"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52682585"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 到 V3 的移轉
 
 > [!NOTE]
 > V2 已於 2018 年 4 月 30 日過時，並將於 2019 年 4 月 30 日中止。
 
-Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 此文件提供將應用程式變更為使用 V3 的資訊。 
+Microsoft Translator 團隊已發行第 3 版 (V3) 的翻譯工具文字 API。 本版包含對 Microsoft Translator 服務傳送和接收資料的新功能、汰用方法和新格式。 本文件提供將應用程式變更為使用 V3 的資訊。 
 
-此文件結尾處包含多個有用的連結，以供您深入了解。
+本文件結尾處包含多個有用的連結，以供您深入了解。
 
 ## <a name="summary-of-features"></a>功能摘要
 
@@ -105,11 +105,33 @@ Microsoft Translator V3 的定價方式與 V2 相同，即依字元計價，包�
 
 [字典/範例](reference/v3-0-dictionary-examples.md)
 
-## <a name="customization"></a>自訂
+## <a name="compatibility-and-customization"></a>相容性與自訂
 
-Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](customization.md)
+Microsoft Translator V3 依預設會使用類神經機器翻譯。 因此，無法搭配 Microsoft Translator Hub 使用。 Translator Hub 僅支援傳統統計機器翻譯。 類神經翻譯現在已可使用自訂翻譯工具進行自訂。 [深入了解如何自訂類神經機器翻譯](custom-translator/overview.md)
 
 使用 V3 文字 API 的類神經翻譯不支援使用標準類別 (SMT、語音、文字、generalnn)。
+
+| |端點|    GDPR 處理器合規性|  使用 Translator Hub| 使用自訂翻譯 (預覽)|
+|:-----|:-----|:-----|:-----|:-----|
+|Translator Text API 第 2 版| api.microsofttranslator.com|    否  |是    |否|
+|Translator Text API 第 3 版| api.cognitive.microsofttranslator.com|  是|    否| 是|
+
+**Translator Text API 第 3 版**
+* 已正式推出且提供完整支援。
+* GDPR 符合處理器規範，且滿足所有 ISO 20001 和 20018 以及 SOC 3 憑證需求。 
+* 允許您叫用您透過自訂翻譯 (預覽) (新的 Translator NMT 自訂功能) 所自訂的類神經網路翻譯系統。 
+* 無法用於存取使用 Microsoft Translator Hub 所建立的自訂翻譯系統。
+
+如果您使用 api.cognitive.microsofttranslator.com 端點，您會使用第 3 版的 Translator Text API。
+
+**Translator Text API 第 2 版**
+* 已被取代。 從 2019 年 4 月 30 日起中斷服務。 
+* 未滿足所有 20001、20018 ISO 和 SOC 3 認證需求。 
+* 不允許您叫用您透過 Translator 自訂功能所自訂的類神經網路翻譯系統。
+* 可供存取使用 Microsoft Translator Hub 所建立的自訂翻譯系統。
+* 如果您使用 api.microsofttranslator.com 端點，您會使用第 2 版的 Translator Text API。
+
+任何版本的 Translator API 都不會建立翻譯記錄。 您的翻譯永遠不會與任何人共用。 [Translator 無追蹤](http://www.aka.ms/NoTrace)網頁上有更多資訊。
 
 
 ## <a name="links"></a>連結

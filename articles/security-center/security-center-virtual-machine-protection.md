@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: d1e7046ed1fc87a85a08b21a48accaaf3b5087b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 454478fa02b8f4e71bc4efb61e1b8c194b927bc6
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316645"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53340822"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>保護 Azure 資訊安全中心內的機器和應用程式
 「Azure 資訊安全中心」會分析 Azure 資源的安全性狀態。 當資訊安全中心發現潛在的安全性弱點時，它會建立可引導您完成所需控制之設定程序的建議。 這些建議適用於下列 Azure 資源類型︰虛擬機器 (VM) 和電腦、應用程式、網路、SQL、身分識別與存取。
@@ -59,7 +59,7 @@ ms.locfileid: "52316645"
 ### 未受監視的 VM 和電腦<a name="unmonitored-vms-and-computers"></a>
 如果機器未執行 Microsoft Monitoring Agent 擴充功能，VM 或電腦就不會由資訊安全中心監視。 機器可能已安裝本機代理程式，例如 OMS 直接代理程式或 SCOM 代理程式。 具有這些代理程式的機器會識別為未受監視，因為資訊安全中心無法完整支援這些代理程式。 若要能完整享有資訊安全中心的所有功能，則需要 Microsoft Monitoring Agent 擴充功能。
 
-除了已安裝的本機代理程式，您還可以在未受監視的 VM 或電腦上安裝擴充功能。 以相同方式設定這兩種代理程式，並連線至相同工作區。 這可讓資訊安全中心與 Microsoft Monitoring Agent 擴充功能互動和收集資料。 請參閱[啟用 VM 擴充公能](../log-analytics/log-analytics-quick-collect-azurevm.md)，取得如何安裝 Microsoft Monitoring Agent 擴充功能的指示。
+除了已安裝的本機代理程式，您還可以在未受監視的 VM 或電腦上安裝擴充功能。 以相同方式設定這兩種代理程式，並連線至相同工作區。 這可讓資訊安全中心與 Microsoft Monitoring Agent 擴充功能互動和收集資料。 請參閱[啟用 VM 擴充公能](../azure-monitor/learn/quick-collect-azurevm.md)，取得如何安裝 Microsoft Monitoring Agent 擴充功能的指示。
 
 請參閱[監視代理程式健康情況問題](security-center-troubleshooting-guide.md#mon-agent)，深入了解資訊安全中心無法成功監視為了自動佈建而初始化之 VM 和電腦的原因。
 
@@ -75,8 +75,8 @@ ms.locfileid: "52316645"
 [套用系統更新] 有圖形格式的重大更新摘要 (一個適用於 Windows，一個適用於 Linux)。 第二部分有包含下列資訊的表格：
 
 - **名稱**：遺漏更新的名稱。
-- **VM 和電腦數目**：遺漏此更新的 VM 和電腦總數。
-- **更新嚴重性**：說明該特定建議的嚴重性：
+- **VM 及電腦數目**：遺漏此更新的 VM 和電腦總數。
+- **更新嚴重性**：描述該特定建議的嚴重性：
 
     - **重大**：某個有意義的資源 (應用程式、虛擬機器或網路安全性群組) 有弱點存在，並且需要注意。
     - **重要**：需要執行非關鍵性步驟或其他步驟才能完成程序或消除弱點。
@@ -87,7 +87,7 @@ ms.locfileid: "52316645"
 
     - **未處理**：建議尚未處理。
     - **進行中**：正在將建議套用到資源，且您不需要採取任何動作。
-    - **已解決**︰建議動作已完成  (若問題已解決，該項目會呈現暗灰色)。
+    - **已解決**：建議動作已完成。 (若問題已解決，該項目會呈現暗灰色)。
 
 若要檢視建議的詳細資料，請按一下清單中遺漏更新的名稱。
 
@@ -249,7 +249,7 @@ ms.locfileid: "52316645"
 
 如要深入了解資訊安全中心，請參閱下列主題：
 
-* [在 Azure 資訊安全中心設定安全性原則](security-center-azure-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
+* [在 Azure 資訊安全中心設定安全性原則](tutorial-security-policy.md) -- 了解如何為您的 Azure 訂用帳戶及資源群組設定安全性原則。
 * [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md) -- 了解如何管理與回應安全性警示。
 * [Azure 資訊安全中心常見問題集](security-center-faq.md) -- 尋找有關使用服務的常見問題。
 

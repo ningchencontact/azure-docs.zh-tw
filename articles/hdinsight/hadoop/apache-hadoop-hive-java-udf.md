@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 562320b49f92d9ebb0c74c06e27fab63681955be
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e31062e3965c9ed5a0b24e822f0ec14234cec1c
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634068"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435067"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>在 HDInsight 中搭配使用 Java UDF 和 Apache Hive
 
@@ -29,9 +29,9 @@ ms.locfileid: "51634068"
 
     本文件中的大部分步驟適用於以 Windows 和 Linux 為基礎的叢集。 不過，用來將編譯之 UDF 上傳到叢集並予以執行的步驟僅供以 Linux 為基礎的叢集專用。 對於適用於 Windows 型叢集的資訊，本文件備有相關連結。
 
-* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 或更新版本 (或同等功能版本，例如 OpenJDK)
+* [Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/) 8 或更新版本 (或同等功能版本，例如 OpenJDK)
 
-* [Apache Maven](http://maven.apache.org/)
+* [Apache Maven](https://maven.apache.org/)
 
 * 文字編輯器或 Java IDE
 
@@ -213,7 +213,7 @@ ms.locfileid: "51634068"
     ```
 
     > [!NOTE]
-    > 此範例假設 Azure 儲存體是叢集的預設儲存體。 如果您的叢集改為使用 Data Lake Store，請將 `wasb:///` 值變更為 `adl:///`。
+    > 此範例假設 Azure 儲存體是叢集的預設儲存體。 如果您的叢集改為使用 Data Lake Storage，請將 `wasb:///` 值變更為 `adl:///`。
 
 3. 使用 UDF 將從資料表擷取的值轉換成小寫字串。
 
@@ -240,6 +240,6 @@ ms.locfileid: "51634068"
 
 ## <a name="next-steps"></a>後續步驟
 
-如需 Hive 的其他操作方法，請參閱 [搭配 HDInsight 使用 Hive](hdinsight-use-hive.md)。
+如需 Hive 的其他操作方法，請參閱 [搭配 HDInsight 使用 Apache Hive](hdinsight-use-hive.md)。
 
-如需 Hive 使用者定義函式的詳細資訊，請造訪 apache.org 並參閱 Hive wiki 的 [Hive 運算子和使用者定義函式](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) 一節。
+如需 Hive 使用者定義函式的詳細資訊，請造訪 apache.org 並參閱 Hive wiki 的 [Apache Hive 運算子和使用者定義函式](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF)一節。

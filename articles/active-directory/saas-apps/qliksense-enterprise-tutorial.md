@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/06/2018
 ms.author: jeedes
-ms.openlocfilehash: a8816451b45171e0ba8cbd7acc937201c587c481
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 24353f89f7c833a16675841f741a4a81ac34597c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627945"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>教學課程：Azure Active Directory 與 Qlik Sense Enterprise 整合
 
@@ -47,7 +47,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 若要測試本教學課程中的步驟，您應該遵循這些建議：
 
 - 除非必要，否則請勿使用生產環境。
-- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用供應項目](https://azure.microsoft.com/pricing/free-trial/)。
+- 如果您沒有 Azure AD 試用環境，您可以在這裡取得一個月試用：[試用版供應項目](https://azure.microsoft.com/pricing/free-trial/)。
 
 ## <a name="scenario-description"></a>案例描述
 在本教學課程中，您會在測試環境中測試 Azure AD 單一登入。 本教學課程中說明的案例由二項主要的基本工作組成：
@@ -113,6 +113,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<Qlik Sense Fully Qualifed Hostname>:4443/azure/hub`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
@@ -283,7 +284,7 @@ Qlik Sense Enterprise 與 Azure AD 整合提供下列優點：
 
 ### <a name="create-a-qlik-sense-enterprise-test-user"></a>建立 Qlik Sense Enterprise 測試使用者
 
-在本節中，您要在 Qlik Sense Enterprise 中建立名為 Britta Simon 的使用者。 請與 [Qlik Sense Enterprise 用戶端支援小組](https://www.qlik.com/us/services/support)合作，以在 Qlik Sense Enterprise 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
+在本節中，您要在 Qlik Sense Enterprise 中建立名為 Britta Simon 的使用者。 請與  [Qlik Sense Enterprise 用戶端支援小組](https://www.qlik.com/us/services/support) 合作，以在 Qlik Sense Enterprise 平台中新增使用者。 您必須先建立和啟動使用者，然後才能使用單一登入。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

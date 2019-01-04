@@ -3,7 +3,7 @@ title: 在移轉後進行管理 - Azure SQL Database | Microsoft Docs
 description: 了解如何在移轉至 Azure SQL Database 之後管理資料庫。
 services: sql-database
 ms.service: sql-database
-ms.subservice: operations
+ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e4f70521fbd081f7e26f56f4175656cca61887d1
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870973"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890699"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>雲端中的新 DBA - 在 Azure SQL Database 中管理您的資料庫
 
@@ -57,7 +57,7 @@ ms.locfileid: "48870973"
 ### <a name="how-does-my-disaster-recovery-plan-change-from-on-premises-to-sql-database"></a>我的災害復原計劃如何從內部部署變更為 SQL Database？
 總而言之，傳統的內部部署 SQL Server 設定要求您使用容錯移轉叢集、資料庫鏡像、交易複寫、記錄傳送等之類功能來主動管理您的可用性，並維護和管理備份以確保業務持續性。 有了 SQL Database，平台會為您管理這些工作，讓您可以專注於開發和最佳化資料庫應用程式，而不必擔心災害管理。 您可以設定備份和災害復原計劃，且在 Azure 入口網站上按幾下滑鼠 (或使用 PowerShell API 上執行幾個命令) 即可運作。 
 
-若要深入了解災害復原，請參閱：[Azure SQL 資料庫災害復原 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
+若要深入了解災害復原，請參閱：[Azure SQL Db 災害復原 101](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/)
 
 ## <a name="security-and-compliance"></a>安全性與合規性
 SQL Database 謹慎對待安全性和隱私權。 SQL Database 於資料庫層級與平台層級提供安全性，而分成數個層時最易於了解。 您可以在每個層進行控制，並為應用程式提供最佳的安全性。 這些層為：
@@ -196,7 +196,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 ### <a name="how-do-i-monitor-the-performance-and-resource-utilization-in-sql-database"></a>如何在 SQL Database 中監視效能和資源使用率？
 
 在 SQL Database 中，您可以利用平台的智慧型觀點來監視效能並據以調整。 您可以在 SQL Database 中使用下列方法監視效能與資源使用率：
-- **Azure 入口網站**：選取資料庫，然後按一下 [概觀] 窗格中的圖表，Azure 入口網站即可顯示單一資料庫的使用率。 您可以修改此圖表來顯示多種計量，包括 CPU 百分比、DTU 百分比、資料 IO 百分比、工作階段百分比，以及資料庫大小百分比。
+- **Azure 入口網站**︰選取資料庫，然後按一下 [概觀] 窗格中的圖表，Azure 入口網站即可顯示單一資料庫的使用率。 您可以修改此圖表來顯示多種計量，包括 CPU 百分比、DTU 百分比、資料 IO 百分比、工作階段百分比，以及資料庫大小百分比。
 
    ![監視圖表](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -209,7 +209,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 
    ![查詢效能深入解析](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Log Analytics 中的 Azure SQL 分析 (預覽)**：[Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) 可讓您收集和視覺化主要的 Azure SQL Azure 效能計量，每個工作區最多支援 150,000 個 SQL Database 和 5,000 個彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
+- **Log Analytics 中的 Azure SQL 分析 (預覽)**：[Azure Log Analytics](../azure-monitor/insights/azure-sql.md) 可讓您收集和視覺化主要的 Azure SQL Azure 效能計量，每個工作區最多支援 150,000 個 SQL Database 和 5,000 個彈性集區。 您可以使用它來監視和收到通知。 您可以監視跨多個 Azure 訂用帳戶和彈性集區的 SQL Database 和彈性集區計量，並可用來識別應用程式堆疊的各層問題。
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>我注意到效能問題：我的 SQL Database 和 SQL Server 疑難排解方法有何不同？
 您用來診斷查詢和進行資料庫效能問題的疑難排解技術的主要部分維持不變。 畢竟雲端是使用相同的 SQL Server 引擎技術。 不過，平台 - Azure SQL DB 具有內建的「智慧」。 它可以協助您更輕鬆地進行疑難排解及診斷效能問題。 它也可以代表您執行其中某些修正動作，並且，在某些情況下，自動地、主動地修正。 
@@ -220,7 +220,7 @@ SQL Database 符合各種法規規範。 若要檢視已符合的最新一組規
 
 此外，如果您發現資料庫整體效能降低，您可以監視 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 和 [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 動態管理檢視，以便了解 CPU、IO 和記憶體耗用量。 您的效能可能受到影響，因為您的資料庫極需要資源。 您可能需要根據成長和縮減的工作負載需求來變更計算大小和/或服務層。 
 
-如需一組完整的調整效能問題相關建議，請參閱[調整資料庫](sql-database-performance-guidance.md#tune-your-database)。
+如需一組完整的調整效能問題相關建議，請參閱：[微調資料庫](sql-database-performance-guidance.md#tune-your-database)。
 
 ### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>如何確保我使用適當的服務層和計算大小？
 SQL Database 提供三個服務層：基本、標準和進階。 在每個服務層，您會獲得與該服務層保證連結的可預測效能。 根據您的工作負載，您的活動可能會激增，此時的資源使用量可能到達目前所在計算大小上限。 在這種情況下，先從評估進行任何調整 (例如，新增或改變索引等) 是否有幫助很有用。 如果您仍然遇到限制問題，請考慮移到較高的服務層或計算大小。 

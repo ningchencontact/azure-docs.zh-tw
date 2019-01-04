@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2018
+ms.date: 12/11/2018
 ms.author: rkarlin
-ms.openlocfilehash: 5129ea20dcf6c866d5391a6a3aad5c54a6fa81af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d0cdda4553808d1197d764d0a50e535515527443
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52313066"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336436"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>升級為 Azure 資訊安全中心標準層以增強安全性
 Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護，保護 Azure、內部部署和其他雲端中執行的工作負載。 其提供了針對混合式雲端工作負載的可見性和控制能力、可降低威脅曝露度的主動防禦措施、還有智慧型偵測可幫助您跟上網路攻擊快速發展的腳步。
@@ -28,13 +28,13 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 資訊安全中心提供兩個層級：
 
 - 所有 Azure 訂用帳戶都會自動啟用**免費**層，並提供安全性原則、持續的安全性評估，以及可操作的安全性建議，以幫助您保護 Azure 資源。
-- **標準**層將免費層的功能擴展到在私人雲端和其他公用雲端中執行的工作負載，為您的混合式雲端工作負載提供統一的安全性管理和威脅防護。 標準層也加入了進階威脅偵測功能，可使用內建的行為分析和機器學習來識別攻擊和零時差惡意探索、存取和應用程式控制，以減少曝露在網路攻擊和惡意軟體之下的程度等。 標準層的前 60 天免費。 資訊安全中心標準支援 Azure 資源，包括 VM、App Service 及 SQL 伺服器等。 如果您有 Azure 資訊安全中心標準，則可以根據資源類型選擇退出支援。 
+- **標準**層將免費層的功能擴展到在私人雲端和其他公用雲端中執行的工作負載，為您的混合式雲端工作負載提供統一的安全性管理和威脅防護。 標準層也加入了進階威脅偵測功能，可使用內建的行為分析和機器學習來識別攻擊和零時差惡意探索、存取和應用程式控制，以減少曝露在網路攻擊和惡意軟體之下的程度等。 您可以免費試用標準層。 資訊安全中心標準支援 Azure 資源，包括 VM、App Service 及 SQL 伺服器等。 如果您有 Azure 資訊安全中心標準，則可以根據資源類型選擇退出支援。 
 
 
 如需詳細資訊，請參閱資訊安全中心[價格頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
-## <a name="try-standard-free-for-60-days"></a>免費試用「標準」60 天
-標準層的前 60 天免費。 在 60 天結束時，如果您選擇繼續使用服務，我們將自動開始針對使用量計費。
+## <a name="try-standard-free-for-30-days"></a>免費試用「標準」30 天
+標準層的前 30 天免費。 在 30 天結束時，如果您選擇繼續使用服務，我們將自動開始根據使用量計費。
 
 您可以將整個 Azure 訂用帳戶升級至標準層，該層會繼承訂用帳戶中的所有資源。
 
@@ -62,7 +62,7 @@ Azure 資訊安全中心提供統一的安全性管理和進階的威脅防護�
 
 
 ## <a name="next-steps"></a>後續步驟
-在此文章中，已向您介紹資訊安全中心的價格。 若要深入了解標準層的增強式安全性和進階威脅防護，請參閱：
+在本文中，已向您介紹資訊安全中心的價格。 若要深入了解標準層的增強式安全性和進階威脅防護，請參閱：
 
 - [進階威脅偵測](security-center-threat-report.md)
 - [Just-In-Time VM 存取控制](security-center-just-in-time.md)

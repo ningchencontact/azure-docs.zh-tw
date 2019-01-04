@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞驗證和安全性模型概觀 | Microsoft Docs
-description: 事件中樞驗證和安全性模型概觀。
+title: 驗證和安全性模型 - Azure 事件中樞 | Microsoft Docs
+description: 本文描述 Azure 事件中樞的驗證和安全性模型。
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 484b5109678b04943e59b0e6bc516926f5d61838
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6f4abd9f826864914abee0b5d513d5b1c530d416
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003150"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104147"
 ---
-# <a name="event-hubs-authentication-and-security-model-overview"></a>事件中樞驗證和安全性模型概觀
+# <a name="azure-event-hubs---authentication-and-security-model"></a>Azure 事件中樞 - 驗證和安全性模型
 
 Azure 事件中樞安全性模型符合下列需求：
 

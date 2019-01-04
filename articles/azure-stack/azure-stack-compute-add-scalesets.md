@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: accd36c9e0d09da0073570301600b362fff85f6e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c615dd781b40c3ebb78ae291453c5b4b2d2ef4d
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647335"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971822"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>在 Azure Stack 中提供虛擬機器擴展集
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
   
 虛擬機器擴展集是 Azure Stack 計算資源。 您可以使用它們來部署和管理一組相同的虛擬機器。 由於所有虛擬機器都以相同方式設定，擴展集不需要預先佈建虛擬機器。 您可以更輕鬆地針對大量計算、巨量資料和容器化工作負載，建置大規模服務。
 
@@ -97,11 +97,11 @@ Azure Stack 上的虛擬機器擴展集類似 Azure 上的虛擬機器擴展集�
 
     如果您下載較新版本的映像 (它會變更可用版本)，則無法相應放大擴展集。 這是因為根據設計，擴展集範本中指定的映像版本必須可以使用。  
 
-如需詳細資訊，請參閱[作業系統磁碟和映像](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images)。  
+如需詳細資訊，請參閱[作業系統磁碟和映像](./user/azure-stack-compute-overview.md#operating-system-disks-and-images)。  
 
 ## <a name="scale-a-virtual-machine-scale-set"></a>調整虛擬機器擴展集
 
-您可以調整 *「虛擬機器擴展集」* 的大小，將它放大或縮小。  
+您可以調整「虛擬機器擴展集」的大小，將它放大或縮小。  
 
 1. 在入口網站中，選取您的擴展集，然後選取 [調整]。
 

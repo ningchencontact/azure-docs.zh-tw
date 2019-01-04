@@ -4,9 +4,9 @@ description: 詳細的逐步解說說明如何在 Azure Machine Learning 中為�
 keywords: 信用風險, 預測性分析解決方案, 風險評估
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
-ms.author: amlstudiodocs
+author: garyericson
+ms.custom: seodec18
+ms.author: garye
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93
 ms.service: machine-learning
 ms.component: studio
@@ -15,20 +15,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: a5dd8432ca79cca8de37f5d64027e0b9c498f3b9
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: fce8f03adfad348c9daddf3c2a225d6df29552d7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311937"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252493"
 ---
-# <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>逐步解說：在 Azure Machine Learning Studio 中為信用風險評估開發預測性分析解決方案
+# <a name="walkthrough-develop-predictive-solution-for-credit-risk-assessment-in-azure-machine-learning-studio"></a>逐步介紹：在 Azure Machine Learning Studio 中開發信用額定風險評量的預測解決方案
 
 在本逐步解說中，我們將進一步了解在 Machine Learning Studio 中開發預測性分析解決方案的程序。 我們會在 Machine Learning Studio 中開發一個簡單的模型，然後將它部署為 Azure Machine Learning Web 服務，其中模型將可使用新資料來進行預測。 
 
 本逐步解說會假設您之前已至少使用過一次 Machine Learning Studio，而且對機器學習服務概念有一些了解。 但不會假設您對上述任一方面有所專精。
 
-如果您未曾使用過 **Azure Machine Learning Studio**，您可以從[在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗](create-experiment.md)教學課程著手。 該教學課程會引導您完成第一次使用 Machine Learning Studio 的程序。 它會說明基本概念，讓您了解如何將模組拖放到您的實驗、將它們連接在一起、執行實驗及檢視結果。 另一個可協助您開始使用的工具是一張圖，此圖提供 Machine Learning Studio 的功能概觀。 您可以從這裡下載並列印它：[Azure Machine Learning Studio 功能的概觀圖](studio-overview-diagram.md)。
+如果您未曾使用過 **Azure Machine Learning Studio**，您可以從[在 Azure Machine Learning Studio 中建立您的第一個資料科學實驗](create-experiment.md)教學課程著手。 該教學課程會引導您完成第一次使用 Machine Learning Studio 的程序。 它會說明基本概念，讓您了解如何將模組拖放到您的實驗、將它們連接在一起、執行實驗及檢視結果。 另一個可協助您開始使用的工具是一張圖，此圖提供 Machine Learning Studio 的功能概觀。 您可以到這裡下載並列印：[Azure Machine Learning Studio 功能概觀圖](studio-overview-diagram.md)。
  
 如果您大致上算是機器學習服務的新手，有一系列影片可為您提供協助。 此系列稱為[適用於初學者的資料科學](data-science-for-beginners-the-5-questions-data-science-answers.md)，它可透過使用日常語言和概念，為您提供機器學習服務的絕佳簡介。
 

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a20dec67201cb7d8b7ccd3a7662438f2afabfe63
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446784"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53317435"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -30,19 +30,19 @@ ms.locfileid: "52446784"
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件 (1.x 版) 中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件 (1.x 版) 中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.Http) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
 ## <a name="packages---functions-2x"></a>套件 - Functions 2.x
 
-[Microsoft.Azure.WebJobs.Extensions.Http](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件 (3.x 版) 中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 套件 (3.x 版) 中提供 HTTP 繫結。 套件的原始程式碼位於 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 存放庫中。
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
 ## <a name="trigger"></a>觸發程序
 
-HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP 觸發程序來建置無伺服器 API 並回應 Webhook。 
+HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP 觸發程序來建置無伺服器 API 並回應 Webhook。
 
 根據預設，HTTP 觸發程序會在 Functions 1.x 中傳回「HTTP 200 正常」與空白主體，或在 Functions 1 2.x 中傳回「HTTP 204 沒有內容」與空白主體。 若要修改回應，請設定 [HTTP 輸出繫結](#output)。
 
@@ -53,8 +53,9 @@ HTTP 觸發程序可讓您透過 HTTP 要求叫用函式。 您可以使用 HTTP
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -276,6 +277,61 @@ module.exports = function(context, req) {
 };
 ```
 
+### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+
+下列範例示範 *function.json* 檔案中的觸發程序繫結，以及使用此繫結的 [Python 函式](functions-reference-python.md)。 函式會尋找 `name` 參數，其位於查詢字串或 HTTP 要求的主體。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,    
+    "bindings": [
+        {
+            "authLevel": "function",
+            "type": "httpTrigger",
+            "direction": "in",
+            "name": "req"
+        },
+        {
+            "type": "http",
+            "direction": "out",
+            "name": "res"
+        }
+    ]
+}
+```
+
+[設定](#trigger---configuration)章節會說明這些屬性。
+
+以下是 Python 程式碼：
+
+```python
+import logging
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
 下列範例示範 *function.json* 檔案中的觸發程序繫結，以及使用此繫結的 [Java 函式](functions-reference-java.md)。 此函式會傳回 HTTP 狀態碼 200 回應，以及會在觸發端要求本文前面加上 "Hello, " 問候語的要求本文。
@@ -307,7 +363,7 @@ module.exports = function(context, req) {
 ```java
 @FunctionName("hello")
 public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context) 
+                        final ExecutionContext context)
     {
         // default HTTP 200 response code
         return String.format("Hello, %s!", request);
@@ -352,12 +408,11 @@ public static HttpResponseMessage Run(
 
 對於 JavaScript 函式，Functions 執行階段提供要求主體而非要求物件。 如需詳細資訊，請參閱 [JavaScript 觸發程序範例](#trigger---javascript-example)。
 
-
 ### <a name="customize-the-http-endpoint"></a>自訂 HTTP 端點
 
 根據預設，當您為 HTTP 觸發程序建立函式時，將可透過下列形式的路由來定址該函式：
 
-    http://<yourapp>.azurewebsites.net/api/<funcname> 
+    http://<yourapp>.azurewebsites.net/api/<funcname>
 
 您可以在 HTTP 觸發程序的輸入繫結上使用選擇性的 `route` 屬性來自訂此路由。 舉例來說，下列 *function.json* 檔案定義了 HTTP 觸發程序的 `route` 屬性：
 
@@ -389,7 +444,7 @@ http://<yourapp>.azurewebsites.net/api/products/electronics/357
 這可讓該函式程式碼在位址中支援兩個參數，即 _category_ 和 _id_。您可以將任何 [Web API 路由條件約束](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)與您的參數搭配使用。 下列 C# 函式程式碼會同時利用這兩個參數。
 
 ```csharp
-public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id, 
+public static Task<HttpResponseMessage> Run(HttpRequestMessage req, string category, int? id,
                                                 ILogger log)
 {
     if (id == null)
@@ -421,7 +476,7 @@ module.exports = function (context, req) {
     }
 
     context.done();
-} 
+}
 ```
 
 所有函式路由預設前面都會加上 *api*。 您也可以在 [host.json](functions-host-json.md) 檔案中使用 `http.routePrefix` 屬性來自訂或移除前置詞。 下列範例會在 *host.json* 檔案中使用空字串作為前置詞來移除 *api* 路由前置詞。
@@ -440,7 +495,7 @@ module.exports = function (context, req) {
 
 您也可以從繫結資料來讀取這項資訊。 這項功能僅適用於 Functions 2.x 執行階段。 它目前也僅適用於 .NET 語言。
 
-在 .NET 語言中，這項資訊是以 [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0) 形式提供。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
+在 .NET 語言中，此資訊會以 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0) 形式提供。 ClaimsPrincipal 可作為要求內容的一部分提供，如下列範例所示：
 
 ```csharp
 using System.Net;
@@ -485,7 +540,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 金鑰類型有兩種：
 
-* **主機金鑰**：這些金鑰由函數應用程式中所有的函式共用。 當做為 API 金鑰使用時，這些金鑰會允許存取函數應用程式中的任何函式。
+* **主機金鑰**：這些金鑰會由函數應用程式中的所有函式共用。 當做為 API 金鑰使用時，這些金鑰會允許存取函數應用程式中的任何函式。
 * **函式金鑰**：這些金鑰僅適用於據以定義它們的特定函式。 當做為 API 金鑰使用時，這些金鑰僅允許存取該函式。
 
 每個金鑰均為具名以供參考，並且在函式和主機層級有一預設金鑰 (名稱為 "default")。 函式金鑰的優先順序高於主機金鑰。 當您使用相同的名稱來定義兩個金鑰時，一律會使用函式金鑰。
@@ -533,17 +588,15 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> Webhook 模式僅適用於 1.x 版 Functions 執行階段。
+> Webhook 模式僅適用於 1.x 版 Functions 執行階段。 此變更已完成，可在版本 2.x 中提升 HTTP 觸發程序的效能。
 
-Webhook 模式可為 Webhook 承載提供額外的驗證。 在 2.x 版中，基底 HTTP 觸發程序仍然可運作，並且對 Webhook 來說是建議採用的方法。
+在版本 1.x 中，Webhook 範本會提供 Webhook 承載的額外驗證。 在 2.x 版中，基底 HTTP 觸發程序仍然可運作，並且對 Webhook 來說是建議採用的方法。 
 
 #### <a name="github-webhooks"></a>GitHub Webhook
 
 若要回應 GitHub Webhook，請先建立含有 HTTP 觸發程序的函式，然後將 **webHookType** 屬性設定為 `github`。 接著將其 URL 和 API 金鑰複製到您 GitHub 存放庫的 [新增 Webhook] 頁面。 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-如需範例，請參閱[建立由 GitHub Webhook 所觸發的函式](functions-create-github-webhook-triggered-function.md)。
 
 #### <a name="slack-webhooks"></a>Slack Webhook
 
@@ -554,13 +607,13 @@ Slack webhook 會為您產生權杖，而不是由您指定，因此您必須使
 Webhook 授權是由 Webhook 接收器元件 (HTTP 觸發程序的一部分) 處理，處理機制則會以 Webhook 類型作為基礎而有所不同。 每個機制都依賴金鑰。 根據預設，將會使用名稱為 "default" 的函式金鑰。 如需使用不同的金鑰，請設定 Webhook 提供者以下列其中一種方式將金鑰名稱隨著要求一起傳送：
 
 * **查詢字串**：提供者會在 `clientid` 查詢字串參數中傳遞金鑰名稱，例如 `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`。
-* **要求標頭**︰提供者在 `x-functions-clientid` 標頭中傳遞金鑰名稱。
+* **要求標頭**：提供者會在 `x-functions-clientid` 標頭中傳遞金鑰名稱。
 
 ## <a name="trigger---limits"></a>觸發程序的 - 限制
 
 HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度的限制為 4 KB (4,096 個位元組)。 這些限制由執行階段 [Web.config 檔案](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)的 `httpRuntime` 元素所指定。
 
-如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#consumption-plan)。 
+如果使用 HTTP 觸發程序的函式未在約 2.5 分鐘內完成，閘道將會逾時並傳回 HTTP 502 錯誤。 函式會繼續執行，但無法傳回 HTTP 回應。 對於長時間執行的函式，建議您遵循非同步模式，並傳回可以偵測要求狀態的位置。 如需函式可以執行多久的相關資訊，請參閱[級別和裝載 - 使用情況方案](functions-scale.md#consumption-plan)。
 
 ## <a name="trigger---hostjson-properties"></a>觸發程序 - host.json 屬性
 
@@ -574,7 +627,7 @@ HTTP 要求長度的限制為 100 MB (104,857,600 個位元組)，而 URL 長度
 
 ## <a name="output---configuration"></a>輸出 - 設定
 
-下表說明您在 function.json 檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。 
+下表說明您在 function.json 檔案中設定的繫結設定屬性。 就 C# 類別程式庫而言，沒有任何屬性 (Attribute) 的屬性 (Property) 與這些 *function.json* 屬性 (Property) 對應。
 
 |屬性  |說明  |
 |---------|---------|

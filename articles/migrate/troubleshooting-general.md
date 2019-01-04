@@ -4,14 +4,14 @@ description: 概括介紹 Azure Migrate 服務的已知問題以及常見錯誤�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 0b2954ddfda0ab4c94ddf6176d76d8bcd937fa42
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4ebd6eb860a6b102d1a3b12642510c429c18baa7
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413328"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259149"
 ---
 # <a name="troubleshoot-azure-migrate"></a>為 Azure Migrate 疑難排解
 
@@ -19,7 +19,7 @@ ms.locfileid: "50413328"
 
 [Azure Migrate](migrate-overview.md) 會評估要移轉至 Azure 的內部部署工作負載。 本文可對 Azure Migrate 部署與使用方面的問題進行疑難排解。
 
-### <a name="i-am-using-the-continuous-discovery-ova-but-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>我使用連續探索 OVA，但我內部部署環境已刪除的 VM 仍顯示於入口網站中。
+### <a name="i-am-using-the-ova-that-continuously-discovers-my-on-premises-environment-but-the-vms-that-are-deleted-in-my-on-premises-environment-are-still-being-shown-in-the-portal"></a>我使用連續探索內部部署環境的 OVA，但我內部部署環境中已刪除的 VM 仍然顯示在入口網站中。
 
 連續探索設備只會持續收集效能資料，不會偵測內部部署環境中的任何組態變更 (也就是新增、刪除 VM 或新增磁碟等)。 如果內部部署環境中有組態變更，您可以執行下列動作，以在入口網站中反映變更：
 
@@ -35,15 +35,44 @@ ms.locfileid: "50413328"
 
 收到電子郵件邀請函後，請打開電子郵件並按一下電子郵件中的連結來接受邀請。 完成之後，您需要登出 Azure 入口網站，然後重新登入，只是重新整理瀏覽器並不會有任何作用。 然後您可以試著建立移轉專案。
 
+### <a name="i-am-unable-to-export-the-assessment-report"></a>我無法匯出評估報告
+
+如果您無法從入口網站匯出評估報告，請嘗試使用下列 REST API 取得評估報告的下載 URL。
+
+1. 在您的電腦上安裝 *armclient* (如果您還未安裝的話)：
+
+  a. 在系統管理員的命令提示字元視窗中，執行下列命令：```@powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"```
+
+  b. 在系統管理員的 Windows PowerShell 視窗中，執行下列命令：```choco install armclient```
+
+2.  使用 Azure Migrate REST API 取得評估報告的下載 URL
+
+  a.    在系統管理員的 Windows PowerShell 視窗中，執行下列命令：```armclient login```
+
+  這會開啟您需要登入 Azure 所在的 Azure 登入快顯視窗。
+
+  b.    在相同的 PowerShell 視窗中，執行下列命令以取得評估報告的下載 URL (將 URI 參數取代為適當的值，也就是下方的範例 API 要求)
+
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+
+       範例要求和輸出：
+
+       ```PS C:\WINDOWS\system32> armclient POST https://management.azure.com/subscriptions/8c3c936a-c09b-4de3-830b-3f5f244d72e9/r
+esourceGroups/ContosoDemo/providers/Microsoft.Migrate/projects/Demo/groups/contosopayroll/assessments/assessment_11_16_2
+018_12_16_21/downloadUrl?api-version=2018-02-02
+{
+  "assessmentReportUrl": "https://migsvcstoragewcus.blob.core.windows.net/4f7dddac-f33b-4368-8e6a-45afcbd9d4df/contosopayrollassessment_11_16_2018_12_16_21?sv=2016-05-31&sr=b&sig=litQmHuwi88WV%2FR%2BDZX0%2BIttlmPMzfVMS7r7dULK7Oc%3D&st=2018-11-20T16%3A09%3A30Z&se=2018-11-20T16%3A19%3A30Z&sp=r",
+  "expirationTime": "2018-11-20T22:09:30.5681954+05:30"```
+
+3. 從回應複製 URL，並在瀏覽器中加以開啟，以下載評估報告。
+
+4. 一旦報告下載之後，請使用 Excel 瀏覽至下載的資料夾，並在 Excel 中開啟檔案以檢視該檔案。
+
 ### <a name="performance-data-for-disks-and-networks-adapters-shows-as-zeros"></a>磁碟和網路介面卡的效能資料顯示為零
 
 如果 vCenter 伺服器上的統計資料設定層級設為小於 3，可能會發生這種情況。 在層級 3 以上，vCenter 會儲存運算、儲存體和網路的虛擬機器效能歷程記錄。 層級 3 以下的話，vCenter 不會儲存儲存體和網路資料，只會儲存 CPU 和記憶體資料。 在此情況下，Azure Migrate 的效能資料會顯示為零，而且 Azure Migrate 會根據從內部部署機器收集的中繼資料來建議磁碟和網路的規模大小。
 
 若要啟用磁碟和網路效能資料的收集功能，請將統計資料設定層級變更為 3。 然後，等待至少一天以探索並評估您的環境。
-
-### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>我已經安裝代理程式，並使用相依性視覺化建立群組。 現在，在容錯移轉後，機器會顯示「安裝代理程式」動作，而不是「檢視相依性」。
-* 在已規劃或未規劃的容錯移轉後，內部部署機器都會關閉，而且對等的機器會在 Azure 中啟動。 這些機器會取得不同的 MAC 位址。 根據使用者是否選擇保留內部部署 IP 位址，這些機器可能會取得不同的 IP 位址。 如果 MAC 及 IP 位址不同，Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
-* 在測試容錯移轉後，內部部署機器如預期保持開啟。 在 Azure 中啟動的對等機器會取得不同的 MAC 位址，而且可能會取得不同的 IP 位址。 除非使用者封鎖這些機器傳出的 Log Analytics 流量，否則 Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
 
 ### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>我在建立移轉專案時指定了某個 Azure 地理位置，要如何找出將儲存所探索到中繼資料的確切 Azure 區域？
 
@@ -53,7 +82,7 @@ ms.locfileid: "50413328"
 
 ## <a name="collector-errors"></a>收集器錯誤
 
-### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate 收集器的部署失敗，發生錯誤：提供的資訊清單檔案無效：無效的 OVF 資訊清單項目。
+### <a name="deployment-of-azure-migrate-collector-failed-with-the-error-the-provided-manifest-file-is-invalid-invalid-ovf-manifest-entry"></a>Azure Migrate 收集器的部署失敗，發生錯誤：提供的資訊清單檔案無效：OVF 資訊清單項目無效。
 
 1. 藉由檢查其雜湊值，驗證是否正確下載了 Azure Migrate 收集器 OVA 檔案。 請參閱[文章](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance)以驗證雜湊值。 如果雜湊值不相符，請再次下載 OVA 檔案並重試部署。
 2. 如果仍然失敗，且您使用 VMware vSphere 用戶端部署 OVF，請嘗試透過 vSphere Web 用戶端部署它。 如果仍然失敗，請嘗試使用不同的網頁瀏覽器。
@@ -107,7 +136,7 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 2. 移至目錄 C:\ProgramFiles\ProfilerService\VMWare\Scripts\
 3. 執行指令碼 InstallPowerCLI.ps1
 
-### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>發生 Error UnhandledException Internal 錯誤: System.IO.FileNotFoundException
+### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>發生 UnhandledException 內部錯誤：System.IO.FileNotFoundException
 
 如果 VMware PowerCLI 安裝發生問題，便可能發生此問題。 請依照下列步驟來解決問題：
 
@@ -117,7 +146,7 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 
 ### <a name="error-unabletoconnecttoserver"></a>Error UnableToConnectToServer
 
-無法連線到 vCenter Server "Servername.com:9443"，因為發生錯誤：沒有任何在 https://Servername.com:9443/sdk 上進行接聽的端點可以接受該訊息。
+發生下列錯誤，無法連線至 vCenter Server "Servername.com:9443"：沒有任何在 https://Servername.com:9443/sdk 上進行接聽的端點可以接受該訊息。
 
 檢查您是否正在執行最新版的收集器設備，如果不是，請將設備升級至[最新的版本](https://docs.microsoft.com/azure/migrate/concepts-collector#how-to-upgrade-collector)。
 
@@ -128,7 +157,11 @@ Azure Migrate 收集器會下載 PowerCLI，然後將它安裝到設備上。 Po
 3. 識別連線至 vCenter 的正確連接埠號碼。
 4. 最後，請檢查 vCenter 伺服器是否啟動且正在執行。
 
-## <a name="troubleshoot-dependency-visualization-issues"></a>針對相依性視覺效果問題進行疑難排解
+## <a name="dependency-visualization-issues"></a>相依性視覺效果問題
+
+### <a name="i-am-unable-to-find-the-dependency-visualization-functionality-for-azure-government-projects"></a>我找不到 Azure Government 專案的相依性視覺效果功能。
+
+Azure Migrate 相依於相依性視覺效果功能的服務對應，由於服務對應目前在 Azure Government 中無法使用，因此這項功能不適用於 Azure Government。
 
 ### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>我在內部部署 VM 上安裝了 Microsoft Monitoring Agent (MMA) 和相依性代理程式，但相依性未出現在 Azure Migrate 入口網站中。
 
@@ -159,7 +192,11 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>如果群組所含的 VM 超過 10 個，是否無法將其相依性視覺化？
 針對所含 VM 在 10 個以內的群組，您可以[將群組的相依性視覺化](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies)，如果您的群組所含 VM 超過 10 個，則建議您先將群組分割成較小的群組，再將相依性視覺化。
 
-## <a name="troubleshoot-readiness-issues"></a>整備問題的疑難排解
+### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>我已經安裝代理程式，並使用相依性視覺化建立群組。 現在，在容錯移轉後，機器會顯示「安裝代理程式」動作，而不是「檢視相依性」。
+* 在已規劃或未規劃的容錯移轉後，內部部署機器都會關閉，而且對等的機器會在 Azure 中啟動。 這些機器會取得不同的 MAC 位址。 根據使用者是否選擇保留內部部署 IP 位址，這些機器可能會取得不同的 IP 位址。 如果 MAC 及 IP 位址不同，Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
+* 在測試容錯移轉後，內部部署機器如預期保持開啟。 在 Azure 中啟動的對等機器會取得不同的 MAC 位址，而且可能會取得不同的 IP 位址。 除非使用者封鎖這些機器傳出的 Log Analytics 流量，否則 Azure Migrate 不會使內部部署機器與任何服務對應相依性資料產生關聯，而會要求使用者安裝代理程式，而不是檢視相依性。
+
+## <a name="troubleshoot-azure-readiness-issues"></a>Azure 整備問題的疑難排解
 
 **問題** | 修正
 --- | ---
@@ -173,7 +210,6 @@ Azure Migrate 可讓您將相依性視覺化的持續時間最多為一小時。
 需要 Visual Studio 訂用帳戶。 | 電腦中執行的 Windows 用戶端作業系統，僅在 Visual Studio 訂用帳戶中支援。
 找不到所需儲存體效能的虛擬機器。 | 機器需要的儲存體效能 (IOPS/輸送量) 超出 Azure VM 支援。 在移轉之前，降低機器的儲存體需求。
 找不到所需網路效能的虛擬機器。 | 機器需要的網路效能 (傳入/傳出) 超出 Azure VM 支援。 減少機器的網路需求。
-指定定價層中找不到虛擬機器。 | 如果定價層設定為「標準」，請考慮在移轉至 Azure 之前，先降級虛擬機器。 如果調整大小層為「基本」，請考慮將評估的定價層變更為「標準」。
 找不到指定位置的虛擬機器。 | 在移轉之前，使用不同的目標位置。
 一個或多個不適合的磁碟。 | 一或多個連結至 VM 的磁碟不符合 Azure 需求。 針對每個連結至 VM 的磁碟，請確保每個磁碟的大小小於 4 TB，如果不是，請先縮減磁碟大小，再移轉至 Azure。 請確保 Azure [受控虛擬機器磁碟](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)支援每個磁碟所需的效能 (IOPS/輸送量)。   
 一個或多個不適用的網路介面卡。 | 在移轉之前，從機器移除未使用的網路介面卡。

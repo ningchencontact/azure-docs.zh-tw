@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 9fb28d618a9375dec19e75d04ef0a6bc5de334b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4e4d01371733a2292c69174e4cb135e995e5e935
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242631"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189093"
 ---
 # <a name="create-content-keys-with-rest"></a>使用 REST 建立內容金鑰
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "51242631"
 
 媒體服務可讓您傳遞已加密的資產。 **ContentKey** 提供**資產**的安全存取。 
 
-當您建立新的資產時 (例如，[將檔案上傳](media-services-rest-upload-files.md)之前)，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
+當您建立新的資產 (例如，[上傳檔案](media-services-rest-upload-files.md)之前) 時，您可以指定下列加密選項：**StorageEncrypted**、**CommonEncryptionProtected** 或 **EnvelopeEncryptionProtected**。 
 
 當您將資產傳遞至您的用戶端時，您可以使用下列兩個加密的其中一個[設定動態加密的資產](media-services-rest-configure-asset-delivery-policy.md)：**DynamicEnvelopeEncryption** 或 **DynamicCommonEncryption**。
 
@@ -71,9 +71,9 @@ ms.locfileid: "51242631"
 
 本文不會示範如何產生 AES 金鑰、加密金鑰，以及計算總和檢查碼。 
 
->[!NOTE]
-
->在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
+> [!NOTE]
+> 
+> 在媒體服務中存取實體時，您必須在 HTTP 要求中設定特定的標頭欄位和值。 如需詳細資訊，請參閱 [媒體服務 REST API 開發設定](media-services-rest-how-to-use.md)。
 
 ## <a name="connect-to-media-services"></a>連線到媒體服務
 

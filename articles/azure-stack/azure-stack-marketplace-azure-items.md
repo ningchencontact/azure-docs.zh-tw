@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 68d5742f5da542d5146997390e470180cf8c5776
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: e4f15da8464c2103b5f6540d342cb7c741a67c5f
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620688"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52994850"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Stack 可用的 Azure Marketplace 項目
 
@@ -73,7 +73,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonUbuntuServer1604LTS) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + Canonical |
 | ![SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Standard](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017StandardonSLES12SP2?tab=Overview) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
 | ![免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonSLES12SP2?tab=Overview) | SQL Server 2017 免費開發人員版本，適用於交易、資料倉儲、商業智慧和分析工作負載。 | Microsoft + SUSE |
-| ![免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | 免費 Express 版本的 SQL Server 2017。 | Microsoft + SUSE |
+| ![免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免費授權：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonSLES12SP2) | 免費 Express 版本的 SQL Server 2017。 | Microsoft + SUSE |
 | ![SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017EnterpriseonSLES12SP2?tab=Overview) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
 | ![SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Web](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SQLServer2017WebonSLES12SP2) | 適用於智慧型、任務關鍵式應用程式的資料庫平台。 | Microsoft + SUSE |
 | ![Windows Server 2016 上的 Microsoft Machine Learning Server 9.3.0](media/azure-stack-marketplace-azure-items/microsoft.png) | [Windows Server 2016 上的 Microsoft Machine Learning Server 9.3.0](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.MicrosoftMachineLearningServer930onWindowsServer2016) | Windows Server 2016 上的 Microsoft Machine Learning Server 9.3.0。 | Microsoft |
@@ -88,7 +88,6 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![由 CoreOS 提供的 Container Linux](media/azure-stack-marketplace-azure-items/coreos.png) | [由 CoreOS 提供的 Container Linux](https://azuremarketplace.microsoft.com/marketplace/apps/CoreOS.CoreOS) | Container Linux 是最新最小的 Linux 發佈版本，提供簡單的方式來執行容器、管理叢集、順暢更新您的伺服器 — 所有元件都可進行倉儲規模的計算。 | CoreOS |
 | ![Ubuntu Server](media/azure-stack-marketplace-azure-items/ubuntu.png) | [Ubuntu Server](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer) | Ubuntu Server 是全世界最受歡迎的雲端 Linux 環境。 | Canonical |
 | ![Debian 8 "Jessie"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
-| ![Debian 9 "Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 "Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux 是最受歡迎其中一個 Linux 散發套件。 | credativ |
 | ![CentOS 型 6.9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
 | ![CentOS 型 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic)  |
 | ![CentOS 型 7.3](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS 型 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | 這個 Linux 的配送映像是以 CentOS 版為基礎，由 Rogue Wave Software 所提供。 | Rogue Wave Software (先前稱為 OpenLogic) |
@@ -139,7 +138,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![Hadoop](media/azure-stack-marketplace-azure-items/hadoop.png) | [Hadoop](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hadoop) | 用於可靠、可擴充及分散式運算的架構。 | Bitnami |
 | ![HHVM](media/azure-stack-marketplace-azure-items/hhvm.png) | [HHVM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hhvmstack) | 完全整合且隨時可執行的開發環境。 | Bitnami |
 | ![Horde Groupware Webmail](media/azure-stack-marketplace-azure-items/hordegroupwarewebmail.png) | [Horde Groupware Webmail](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.hordegroupwarewebmail) | 免費、適合企業使用、以瀏覽器為基礎的通訊套件。 | Bitnami |
-| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | 支援 SCM 工具 (CVS、Subversion 和 Git) 的整合伺服器。 | Bitnami |
+| ![Jenkins](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.jenkins) | 支援 SCM 工具的整合伺服器：CVS、Subversion 和 Git。 | Bitnami |
 | ![Jenkins 叢集](media/azure-stack-marketplace-azure-items/jenkins.png) | [Jenkins 叢集](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-jenkins) | Jenkins CI 是一種開放原始碼持續整合伺服器。  **這個解決方案範本還需要 Debian 8 和 Custom Script for Linux 2.0 Extension。** | Bitnami |
 | ![JFrog Artifactory](media/azure-stack-marketplace-azure-items/jfrogartifactory.png) | [JFrog Artifactory](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.artifactory) | 來自領導發行者的二進位存放庫軟體。 | Bitnami |
 | ![Joomla](media/azure-stack-marketplace-azure-items/joomla.png) | [Joomla!](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.joomla) | 方便使用的 CMS，可輕鬆建立網站。 | Bitnami |
@@ -229,14 +228,13 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![WordPress](media/azure-stack-marketplace-azure-items/wordpress.png) | [WordPress](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.wordpress) | 最熱門且隨時可開始的 CMS。 | Bitnami |
 | ![X2Engine Sales CRM](media/azure-stack-marketplace-azure-items/x2enginesalescrm.png) | [X2Engine Sales CRM](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.x2enginesalescrm) | 小型的行銷、銷售與客戶服務應用程式。 | Bitnami |
 | ![Xoops](media/azure-stack-marketplace-azure-items/xoops.png) | [Xoops](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.xoops) | 可建立動態網站的 CMS 和 Web 入口網站程式。 | Bitnami |
-| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 開放原始碼的 CRM 系統：具有行動性、社交性且已遊戲化。 | Bitnami |
+| ![Zurmo](media/azure-stack-marketplace-azure-items/zurmo.png) | [Zurmo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.zurmo) | 開放原始碼 CRM 系統：行動、社交及遊戲化。 | Bitnami |
 | ![Check Point vSEC Security Management](media/azure-stack-marketplace-azure-items/checkpoint.png) | [檢查點 vSEC 安全性管理](https://azuremarketplace.microsoft.com/marketplace/apps/checkpoint.vsec) | 檢查點 vSEC 提供進階、多層式威脅防護，可保護客戶 Azure 中的資產免於惡意程式碼和複雜威脅的攻擊。 **下載兩個 Check Point vSEC 市集項目。** | Check Point |
 | ![Chef Automate](media/azure-stack-marketplace-azure-items/chefautomate.png) | [Chef Automate](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate) | 使用 Chef Automate (連續自動化平台) 進行建置、部署及管理。 **下載兩個 Chef 市集項目**。 | Chef Software, Inc |
 | ![Commvault](media/azure-stack-marketplace-azure-items/commvault.png) | [Commvault](https://azuremarketplace.microsoft.com/marketplace/apps/commvault.commvault) | 這是一項全方位解決方案，可用於備份與復原、將應用程式和 VM 移轉至 Azure Stack，並以單一解決方案對 Azure Stack 環境進行災害復原。 | Commvault |
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | 輕鬆而有自信地控制、監視及加密 VM。 **下載所有 CloudLink SecureVM 項目。** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM 是一個完整的安全性平台，能提供進階安全性工具，具備可供稽核的合規性功能。 | EventTracker |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | 進階的負載平衡、GSLB、網路防火牆、DNS、WAF 和應用程式存取。 | F5 Networks |
-| ![FortiGate 新一代防火牆](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [FortiGate 新一代防火牆](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | 此防火牆技術提供完整的內容和網路保護，且包含一組綜合安全性功能。 應用程式控制、防毒、IPS、網站篩選功能和 VPN，與進階弱點管理等功能共同合作，以識別及減輕最新的複雜安全性威脅。 | Fortinet |
 | ![Hortonworks Data Platform (HDP) Sandbox](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) 沙箱](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | 由 HDP 2.5 所提供的 100% 開放原始碼平台，適用於 Hadoop、Spark、Storm、HBase、Kafka、Hive、Ambari。 | Hortonworks |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security](https://azuremarketplace.microsoft.com/marketplace/apps/kaspersky_lab.kaspersky_hybrid_cloud_security?tab=Overview) | Kaspersky Hybrid Cloud Security 可支援能夠順暢地協調且具彈性的網路安全性生態系統。 | Kaspersky 實驗室 |
 | ![KEMP LoadMaster 負載平衡器 ADC 內容切換](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster 負載平衡器 ADC 內容切換](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | 第 4-7 層應用程式傳遞控制器 (ADC) 負載平衡器、內容切換和流量管理員。 | KEMP Technologies Inc. |
@@ -245,7 +243,7 @@ Microsoft Azure Stack 支援下列 Azure Marketplace 虛擬機器和解決方案
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | 可用來監視、設定、佈建、自動化及治理任何工作負載或雲端的單一虛擬管理介面。 | NRI |
 | ![NooBaa Hybrid AWS S3 相容 - 社群版](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa Hybird AWS S3 相容 - 社群版](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | 橫跨公用和內部部署容量資源的 S3 相容存體服務。 | NooBaa |
 | ![NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](media/azure-stack-marketplace-azure-items/netfoundry.png) | [NetFoundry Gateway for Multipoint、Zero Trust Azure Stack Connections](https://azuremarketplace.microsoft.com/marketplace/apps/tata_communications.netfoundry_cloud_gateway) | 透過領先業界的「零信任」安全性、5 倍的 VPN 輸送量，和不限數目的並行使用者，在 Azure Stack 與任何位置之間，使用任何網路連線進行僅限軟體的多點連線。 | NetFoundry |
-| ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式允許清單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |
+| ![Palo Alto VM-Series Next Generation Firewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-Series Next Generation Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | VM-Series 新一代防火牆可讓客戶安全地將其應用程式和資料移轉至 Azure Stack，藉由應用程式白名單功能和威脅防護原則保護它們免於已知和未知的威脅。 **此映像必須要有範本才能部署；請參閱這篇[文章](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack)以取得重要資訊。**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall 會偵測已知和未知的漏洞，並防止 Web 應用程式上的攻擊。 **請同時下載兩個 PT Marketplace 項目。** | Positive Technologies |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise 可讓您將整個 Azure Stack 基礎結構的生命週期自動化。 **下載兩個 Puppet Marketplace 項目。** | Puppet |
 | ![Quest Rapid Recovery](media/azure-stack-marketplace-azure-items/quest.png) | [Quest Rapid Recovery Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Rapid Recovery 進階資料保護以一個易於使用的軟體解決方案來整合備份、複寫及復原。 | Quest Software |

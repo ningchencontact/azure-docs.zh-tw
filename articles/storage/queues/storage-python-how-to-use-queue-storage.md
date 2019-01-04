@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 1e52f199847b9e03eb31da71f1f0577df92d2b51
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 827d3ceac267c78be9740adba6c890460ca3f2e9
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230405"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53162982"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>如何使用 Python 的佇列儲存體
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -47,7 +47,7 @@ pip install azure-storage-queue
 > 
 > 
 
-如需替代安裝方法，請瀏覽 [Github 上的 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/)。
+如需替代安裝方法，請瀏覽 [GitHub 上的 Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python/) \(英文\)。
 
 ## <a name="how-to-create-a-queue"></a>作法：建立佇列
 **QueueService** 物件可讓您操作佇列。 下列程式碼將建立 **QueueService** 物件。 將下列內容新增至您想要在其中以程式設計方式存取 Azure 儲存體之任何 Python 檔案內的頂端附近：
@@ -64,14 +64,14 @@ queue_service = QueueService(account_name='myaccount', account_key='mykey')
 queue_service.create_queue('taskqueue')
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列中
+## <a name="how-to-insert-a-message-into-a-queue"></a>作法：將訊息插入佇列
 若要將訊息插入佇列，請使用 **put\_message** 方法建立新訊息，並將它新增至佇列。
 
 ```python
 queue_service.put_message('taskqueue', u'Hello World')
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>作法：預覽下一個訊息
+## <a name="how-to-peek-at-the-next-message"></a>作法：查看下一個訊息
 透過呼叫 **peek\_messages** 方法，您可以在佇列前面查看訊息，而無需將它從佇列中移除。 **peek\_messages** 預設會查看單一訊息。
 
 ```python
@@ -80,7 +80,7 @@ for message in messages:
     print(message.content)
 ```
 
-## <a name="how-to-dequeue-messages"></a>做法：清除佇列訊息
+## <a name="how-to-dequeue-messages"></a>作法：清除佇列訊息
 您的程式碼可以使用兩個步驟來將訊息從佇列中移除。 呼叫 **get\_messages** 時，您預設會取得佇列中的下一個訊息。 從 **get\_messages** 傳回的訊息，對於從此佇列讀取訊息的任何其他程式碼而言將會是不可見的。 依預設，此訊息會維持 30 秒的不可見狀態。 若要完成從佇列中移除訊息，您還必須呼叫 **delete\_message**。 這個移除訊息的兩步驟程序可確保您的程式碼因為硬體或軟體故障而無法處理訊息時，另一個程式碼的執行個體可以取得相同訊息並再試一次。 您的程式碼會在處理完訊息之後立即呼叫 **delete\_message**。
 
 ```python

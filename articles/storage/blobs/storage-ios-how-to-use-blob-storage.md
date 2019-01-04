@@ -6,23 +6,21 @@ author: michaelhauss
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 11/20/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 43e9acb79b363e8f2cb00f6a4676d450c097bf3e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261990"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52961921"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>如何使用 iOS 的 Blob 儲存體
 
 本文示範如何使用 Microsoft Azure Blob 儲存體執行一般案例。 這些範例均以 Objective-C 撰寫，並使用 [Azure Storage Client Library for iOS](https://github.com/Azure/azure-storage-ios)。 所涵蓋的案例包括「上傳、列出、下載」及「刪除」Blob。 如需 Blob 的詳細資訊，請參閱 [後續步驟](#next-steps) 一節。 您也可以下載 [範例應用程式](https://github.com/Azure/azure-storage-ios/tree/master/BlobSample) ，以快速查看在 iOS 應用程式中使用 Azure 儲存體的方法。
 
-## <a name="what-is-blob-storage"></a>什麼是 Blob 儲存體？
-
-[!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
+若要深入了解 Blob 儲存體，請參閱 [Azure Blob 儲存體簡介](storage-blobs-introduction.md)。
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -131,7 +129,7 @@ ms.locfileid: "51261990"
 ## <a name="set-container-permissions"></a>設定容器權限
 依預設會針對 [私人]  存取設定容器的權限。 不過，容器會提供幾個不同的容器存取選項：
 
-* **私人**：只有帳戶擁有者可以讀取容器和 Blob 資料。
+* **私用**：只有帳戶擁有者可以讀取容器和 Blob 資料。
 * **Blob**：您可以透過匿名要求讀取此容器內的 Blob 資料，但您無法使用容器資料。 用戶端無法透過匿名要求列舉容器內的 Blob。
 * **容器**：可以透過匿名要求讀取容器和 Blob 資料。 用戶端可以透過匿名要求列舉容器內的 Blob，但無法列舉儲存體帳戶內的容器。
 
@@ -219,9 +217,9 @@ ms.locfileid: "51261990"
 * **useFlatBlobListing** - 如 [命名與參考容器和 Blob](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 一節中所述，雖然 Blob 服務是一般儲存體配置，雖然您可以路徑資訊為 Blob 命名，以建立虛擬階層。 不過目前不支援非一般列出。 不久後將有此功能。 目前，此值應為 **YES**。
 * **blobListingDetails** - 您可以指定列出 Blob 時所要包含的項目
   * _AZSBlobListingDetailsNone_：僅列出已認可的 Blob，且不傳回 Blob 中繼資料。
-  * _AZSBlobListingDetailsSnapshots_︰列出已認可的 Blob 和 Blob 快照。
+  * _AZSBlobListingDetailsSnapshots_：列出已認可的 Blob 和 Blob 快照。
   * _AZSBlobListingDetailsMetadata_：為清單中傳回的每個 Blob 擷取 Blob 中繼資料。
-  * _AZSBlobListingDetailsUncommittedBlobs_︰列出已認可和未認可的 Blob。
+  * _AZSBlobListingDetailsUncommittedBlobs_：列出已認可及未認可的 Blob。
   * _AZSBlobListingDetailsCopy_：在清單中包含複製屬性。
   * _AZSBlobListingDetailsAll_：列出所有可用的已認可 Blob、未認可的 Blob 和快照，並傳回這些 Blob 的所有中繼資料和複製狀態。
 * **maxResults** - 要為此作業傳回的結果數目上限。 使用 -1 則不會設定限制。

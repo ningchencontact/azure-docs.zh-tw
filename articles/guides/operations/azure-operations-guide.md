@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 07faf5efd1c7eec3e209a5d971185655cc949bb9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4ced3aa9b7d37543b4942bbfa9a5605058a614d8
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250776"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014730"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Azure IT 操作員快速入門
 
@@ -107,7 +107,7 @@ Azure 在其雲端運算平台中提供許多服務。 這些服務包括下列�
 
 - Microsoft Azure StorSimple
 
-- Azure Redis 快取
+- Azure Cache for Redis
 
 ### <a name="application-services"></a>應用程式服務
 
@@ -303,7 +303,7 @@ Resource Manager 範本包含四個區段：
 
 - **擁有者**：擁有此角色的使用者可以管理所有項目，包括存取權。
 
-- **讀取者**：擁有此角色的使用者可以讀取所有類型的資源 (祕密除外)，但無法進行變更。
+- **讀者**：擁有此角色的使用者可以讀取所有類型的資源 (祕密除外)，但無法進行變更。
 
 - **虛擬機器參與者**：擁有此角色的使用者可以管理虛擬機器，但無法管理其連線的虛擬網路或 VHD 檔案所在的儲存體帳戶。
 
@@ -359,7 +359,7 @@ Azure 虛擬機器是 Azure 的其中一個中央 IaaS 服務。 Azure 虛擬機
 
 ## <a name="azure-storage"></a>Azure 儲存體
 
-Azure 儲存體是 Microsoft 管理的服務，可提供持久、可擴充和備援儲存體。 您可以使用任何資源部署方法，將 Azure 儲存體帳戶新增為任何資源群組的資源。 Azure 包括四種儲存體類型：Blob 儲存體、檔案儲存體、表格儲存體和佇列儲存體。 部署儲存體帳戶時，可用的帳戶類型有兩種：一般用途和 blob 儲存體。 一般用途儲存體帳戶可讓您存取所有四個儲存體類型。 Blob 儲存體帳戶類似於一般用途的帳戶，但含有包括經常性和非經常性存取層的特製化 Blob。 如需 Blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體](../../storage/blobs/storage-blob-storage-tiers.md)。
+Azure 儲存體是 Microsoft 管理的服務，可提供持久、可擴充和備援儲存體。 您可以使用任何資源部署方法，將 Azure 儲存體帳戶新增為任何資源群組的資源。 Azure 包含四種儲存體類型：Blob 儲存體、檔案儲存體、資料表儲存體和佇列儲存體。 部署儲存體帳戶時，可用的帳戶類型有兩種：一般用途和 blob 儲存體。 一般用途儲存體帳戶可讓您存取所有四個儲存體類型。 Blob 儲存體帳戶類似於一般用途的帳戶，但含有包括經常性和非經常性存取層的特製化 Blob。 如需 Blob 儲存體的詳細資訊，請參閱 [Azure Blob 儲存體](../../storage/blobs/storage-blob-storage-tiers.md)。
 
 Azure 儲存體帳戶可以設定不同層級的備援性：
 
@@ -481,7 +481,7 @@ Azure 儲存體帳戶可以透過許多不同的儲存體總管存取，例如 V
 
 - Azure Resource Manager 範本
 
->**使用時機**： 每當您在 Azure 中使用 VM 時，您就會使用虛擬網路。 這可允許將 VM 分割成公開面向和類似私人子網路的內部部署資料中心。
+>**使用時機**：每當您在 Azure 中使用 VM 時，您就會使用虛擬網路。 這可允許將 VM 分割成公開面向和類似私人子網路的內部部署資料中心。
 
 >**開始使用**：使用 Azure 入口網站部署 Azure 虛擬網路時，只需要有作用中的 Azure 訂用帳戶和網頁瀏覽器存取權。 您可以將新的虛擬網路部署到新的或現有的資源群組。 當您要從入口網站建立新的虛擬機器時，您可以選取現有的虛擬網路或建立一個新的。 開始使用並[使用 Azure 入口網站建立虛擬網路](../../virtual-network/quick-create-portal.md)。
 

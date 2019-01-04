@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: 32198387be680fd01558e900e4c438cde2cdc5b1
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: b2f106edf69b57410fd1990d0888cf9d3a71be56
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52266290"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52880177"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace ‎商業交易功能和考量
 
@@ -177,8 +177,9 @@ Microsoft 讓客戶能訂購、授權和使用發行者軟體，客戶必須遵�
 |付款計算日期 (每月第 15 日) | 2018 年 10 月 1 日 |
 |付款日期 | 2018 年 10 月 15 日 |
 
-如果客戶使用 Enterprise 合約購買：  
-|說明    |    日期  |
+如果客戶使用 Enterprise 合約購買：
+
+| 說明 |    日期  |
 |----------|----------|
 |訂單期間 | 2018 年 8 月 15 日 - 2018 年 8 月 30 日 |
 |期間結束 (季) | 2018 年 9 月 30 日 |

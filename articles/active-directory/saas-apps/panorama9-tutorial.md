@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 77e370e80e423446d17a074b9458e7002f8627dd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448341"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52850885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>教學課程：Azure Active Directory 與 Panorama9 整合
 
@@ -115,7 +115,7 @@ Panorama9 與 Azure AD 整合提供下列優點：
 
     a. 在 [登入 URL] 文字方塊中，將 URL 輸入為：`https://dashboard.panorama9.com/saml/access/3262`
 
-    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `http://www.panorama9.com/saml20/<tenant-name>`
+    b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL： `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
     > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Panorama9 客戶支援小組](https://support.panorama9.com)以取得這些值。 

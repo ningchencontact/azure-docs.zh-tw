@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 205ba822b1221de34f3ee1ae25974a406f2013cb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633320"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438093"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大規模擷取、轉換和載入 (ETL)
 
@@ -32,11 +32,11 @@ ETL 程序中的 HDInsight 使用可以由以下管線來摘要說明：
 
 若要在適當的時間執行適當的作業，則需要協調流程。
 
-### <a name="oozie"></a>Oozie
+### <a name="apache-oozie"></a>Apache Oozie
 
-Apache Oozie 是一個可管理 Hadoop 作業的工作流程協調系統。 Oozie 會在 HDInsight 叢集內執行，並與 Hadoop 堆疊整合。 Oozie 支援 Apache MapReduce、Apache Pig、Apache Hive 及 Apache Sqoop 的 Hadoop 作業。 Oozie 也可用來排定系統特定作業，例如 Java 程式或 Shell 指令碼。
+Apache Oozie 是一個可管理 Hadoop 作業的工作流程協調系統。 Oozie 會在 HDInsight 叢集內執行，並與 Hadoop 堆疊整合。 Oozie 支援 Apache Hadoop MapReduce、Apache Pig、Apache Hive 及 Apache Sqoop 的 Hadoop 作業。 Oozie 也可用來排定系統特定作業，例如 Java 程式或 Shell 指令碼。
 
-如需詳細資訊，請參閱[使用 Oozie 搭配 Hadoop 在 HDInsight 上定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)。若要深入探討如何使用 Oozie 來驅動端對端管線，請參閱[使用資料管線](../hdinsight-operationalize-data-pipeline.md)。 
+如需詳細資訊，請參閱[使用 Apache Oozie 搭配 Apache Hadoop 在 HDInsight 上定義和執行工作流程](../hdinsight-use-oozie-linux-mac.md)。若要深入探討如何使用 Oozie 來驅動端對端管線，請參閱[使用資料管線](../hdinsight-operationalize-data-pipeline.md)。 
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
@@ -52,7 +52,7 @@ Azure Data Factory 以平台即服務的形式提供協調流程功能。 這是
 
 ## <a name="ingest-file-storage-and-result-storage"></a>擷取檔案儲存體和結果儲存體
 
-來源資料檔通常會載入至 Azure 儲存體或 Azure Data Lake Store 中的位置。 檔案可以是任何格式，但通常會是像 CSV 的一般檔案。 
+來源資料檔通常會載入至 Azure 儲存體或 Azure Data Lake Storage 中的位置。 檔案可以是任何格式，但通常會是像 CSV 的一般檔案。 
 
 ### <a name="azure-storage"></a>Azure 儲存體 
 
@@ -66,11 +66,11 @@ Azure 儲存體也有一個用於 Blob 儲存體的 WebHDFS API 層。  HDInsigh
 
 通常會使用 PowerShell、Azure 儲存體 SDK 或 AZCopy 將資料擷取至 Azure 儲存體。
 
-### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+### <a name="azure-data-lake-storage"></a>Azure Data Lake 儲存體
 
-Azure Data Lake Store (ADLS) 是一個受管理的超大規模存放庫，適用於與 HDFS 相容的分析資料。  ADLS 使用一種類似於 HDFS 的設計典範，並在總容量及個別檔案大小方面提供無限的延展性。 ADLS 非常適合與大型檔案搭配運作，因為大型檔案可以跨多個節點儲存。  分割 ADLS 中的資料是在幕後執行的。  您會獲得大規模輸送量，而可以使用數千個並行執行程式來執行分析作業，有效率地讀取和寫入數百 TB 的資料。
+Azure Data Lake Storage (ADLS) 是一個受管理的超大規模存放庫，適用於與 HDFS 相容的分析資料。  ADLS 使用一種類似於 HDFS 的設計典範，並在總容量及個別檔案大小方面提供無限的延展性。 ADLS 非常適合與大型檔案搭配運作，因為大型檔案可以跨多個節點儲存。  分割 ADLS 中的資料是在幕後執行的。  您會獲得大規模輸送量，而可以使用數千個並行執行程式來執行分析作業，有效率地讀取和寫入數百 TB 的資料。
 
-通常會使用 Azure Data Factory、ADLS SDK、AdlCopy 服務、Apache DistCp 或 Apache Sqoop 將資料擷取至 ADLS。  要使用這當中的哪些服務大部分取決於資料的所在位置。  如果資料目前在現有的 Hadoop 叢集中，您可以使用 Apache DistCp、AdlCopy 服務或 Azure Data Factory。  如果資料在「Azure Blob 儲存體」中，則您可以使用 Azure Data Lake Store .NET SDK、Azure PowerShell 或 Azure Data Factory。
+通常會使用 Azure Data Factory、ADLS SDK、AdlCopy 服務、Apache DistCp 或 Apache Sqoop 將資料擷取至 ADLS。  要使用這當中的哪些服務大部分取決於資料的所在位置。  如果資料目前在現有的 Hadoop 叢集中，您可以使用 Apache DistCp、AdlCopy 服務或 Azure Data Factory。  如果資料在「Azure Blob 儲存體」中，則您可以使用 Azure Data Lake Storage .NET SDK、Azure PowerShell 或 Azure Data Factory。
 
 ADLS 還針對使用「Azure 事件中樞」或 Apache Storm 來執行的事件擷取進行了最佳化。
 
@@ -80,7 +80,7 @@ ADLS 還針對使用「Azure 事件中樞」或 Apache Storm 來執行的事件�
 
 * Azure ExpressRoute：Azure ExpressRoute 可讓您在 Azure 資料中心與內部部署的基礎結構之間建立私人連線。 這些連線為傳輸大量資料提供一個可靠的選項。 如需詳細資訊，請參閱 [Azure ExpressRoute 文件](../../expressroute/expressroute-introduction.md)。
 
-* 「離線」上傳資料。 您可以使用 [Azure 匯入/匯出服務](../../storage/common/storage-import-export-service.md)，將含有您資料的硬碟送到 Azure 資料中心。 您的資料會先上傳到 Azure 儲存體 Blob。 接下來，您可以使用 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 或 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) 工具，將資料從 Azure 儲存體 Blob 複製到 Data Lake Store。
+* 「離線」上傳資料。 您可以使用 [Azure 匯入/匯出服務](../../storage/common/storage-import-export-service.md)，將含有您資料的硬碟送到 Azure 資料中心。 您的資料會先上傳到 Azure 儲存體 Blob。 接下來，您可以使用 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) 或 [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) 工具，將資料從 Azure 儲存體 Blob 複製到 Data Lake Storage。
 
 ### <a name="azure-sql-data-warehouse"></a>Azure SQL 資料倉儲
 
@@ -88,7 +88,7 @@ Azure SQL DW 是一個儲存已清理且備妥之資料以供日後分析的絕�
 
 「Azure SQL 資料倉儲」(SQL DW) 是一個已針對分析工作負載最佳化的關聯式資料庫。  Azure SQL DW 會根據分割資料表調整規模。  資料表可以跨多個節點進行分割。  在建立 Azure SQL DW 節點時便會選取節點。  您可以在事後調整節點規模，但這是一個可能需要移動資料的作用中程序。 如需詳細資訊，請參閱 [SQL 資料倉儲 - 管理計算](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)。
 
-### <a name="hbase"></a>hbase
+### <a name="apache-hbase"></a>Apache HBase (英文)
 
 Apache HBase 是 Azure HDInsight 中提供的索引鍵/值存放區。  Apache HBase 是開放原始碼的 NoSQL 資料庫，其建置於 Hadoop 上並模仿 Google BigTable。 HBase 可針對無結構描述資料庫中依資料行系列組織的大量非結構化及半結構化資料，提供效能隨機存取功能和極高的一致性。
 
@@ -118,17 +118,17 @@ Azure Analysis Services (AAS) 是一個用於決策支援和業務分析的分�
 
 在資料存在於 Azure 中之後，您便可以使用許多服務來擷取它並載入至其他產品。  HDInsight 支援 Sqoop 和 Flume。 
 
-### <a name="sqoop"></a>Sqoop
+### <a name="apache-sqoop"></a>Apache Sqoop
 
 Apache Sqoop 是一個專為在結構化、半結構化及非結構化資料來源之間有效率地傳輸資料而設計的工具。 
 
 Sqoop 使用 MapReduce 來匯入和匯出資料，可提供平行作業和容錯功能。
 
-### <a name="flume"></a>Flume
+### <a name="apache-flume"></a>Apache Flume
 
 Apache Flume 是一個分散式、可靠且可用的服務，可有效率地收集、彙總及移動大量的記錄資料。 Flume 具有以串流資料流程為基礎的簡單彈性架構。 Flume 提供可微調的可靠性機制及許多容錯移轉與復原機制，既健全又能容錯。 Flume 使用已將線上分析應用程式納入考量的簡單可延伸資料模型。
 
-Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Store。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
+Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安裝可以使用 Flume，將資料傳送至 Azure 儲存體 Blob 或 Azure Data Lake Storage。  如需詳細資訊，請參閱[搭配 HDInsight 使用 Apache Flume](https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/) \(英文\)。
 
 ## <a name="transform"></a>轉換
 
@@ -136,5 +136,5 @@ Apache Flume 無法與 Azure HDInsight 搭配使用。  內部部署 Hadoop 安�
 
 ## <a name="next-steps"></a>後續步驟
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
 * [使用 Apache Hive 作為 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 

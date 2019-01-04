@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 12/14/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: f27ced5c67c5124d0792c5ce3884c88473fba056
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 1c61286a24c3562e32cb4c734ea081526d38837a
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604190"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413144"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>快速入門：透過 Azure Active Directory 條件式存取來要求特定應用程式必須使用 MFA 
 
@@ -85,17 +85,17 @@ ms.locfileid: "45604190"
 
     ![Azure Active Directory](./media/app-based-mfa/02.png)
 
-3. 在 [Azure Active Directory] 頁面的 [管理] 區段中，按一下 [條件式存取]。
+3. 在 [Azure Active Directory] 頁面的 [安全性] 區段中，按一下 [條件式存取]。
 
     ![條件式存取](./media/app-based-mfa/03.png)
  
-4. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增]。
+4. 在 [條件式存取] 頁面頂端的工具列中，按一下 [新增原則]。
 
     ![加](./media/app-based-mfa/04.png)
 
 5. 在 [新增] 頁面的 [名稱] 文字方塊中，鍵入「必須使用 MFA 才能存取 Azure 入口網站」。
 
-    ![名稱](./media/app-based-mfa/05.png)
+    ![Name](./media/app-based-mfa/05.png)
 
 6. 在 [指派] 區段中，按一下 [使用者和群組]。
 

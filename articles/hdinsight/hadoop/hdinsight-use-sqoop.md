@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.openlocfilehash: 1571480540baedd5910c4153caf23e0687d48922
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: e448b367e574b044762fb1ee7eaa30e1bb3e1f8b
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684972"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011727"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>在 HDInsight 上將 Sqoop 與 Hadoop 搭配使用
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -75,20 +75,20 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
    
 2. 輸入下列屬性：
 
-    - **訂用帳戶**：輸入您的 Azure 訂用帳戶。
+    - 訂用帳戶：輸入您的 Azure 訂用帳戶。
     - **資源群組**：建立新的 Azure 資源群組，或選取現有的資源群組。  資源群組是為了管理之用。  它是物件的容器。
     - **位置**：選取區域。
-    - **叢集名稱**：請輸入 Hadoop 叢集的名稱。
-    - 叢集登入名稱和密碼：預設登入名稱是 admin。
+    - **ClusterName**：輸入 Hadoop 叢集的名稱。
+    - **叢集登入名稱和密碼**：預設登入名稱為 admin。
     - **SSH 使用者名稱和密碼**。
     - **SQL Database 伺服器登入名稱和密碼**。
-    - **_artifacts 位置**︰除非您想要使用位於不同位置的自有 backpac 檔案，否則請使用預設值。
-    - **_artifacts 位置 SAS 權杖**︰保留為空白。
-    - **Bacpac 檔案名稱**︰除非您想要使用自有 backpac 檔案，否則請使用預設值。
+    - **_artifacts 位置**：除非您想要使用位於不同位置的自有 backpac 檔案，否則請使用預設值。
+    - **位置 SAS 權杖**：保留為空白。
+    - **Bacpac 檔案名稱**：除非您想要使用自有 backpac 檔案，否則請使用預設值。
      
         變數區段中的下列值為硬式編碼︰
         
-        |名稱|值|
+        |Name|值|
         |----|-----|
         | 預設儲存體帳戶名稱 | &lt;ClusterName>store |
         | Azure SQL Database 伺服器名稱 | &lt;ClusterName>dbserver |
@@ -99,7 +99,7 @@ HDInsight 叢集附有某些範例資料。 您將用到以下兩個範例：
 
 如果您選擇使用現有的 Azure SQL Database 或 Microsoft SQL Server
 
-* **Azure SQL Database**：您必須設定 Azure SQL Database 伺服器的防火牆規則，以允許從您的工作站存取。 如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。 
+* **Azure SQL 資料庫**：您必須設定 Azure SQL 資料庫伺服器的防火牆規則，以允許從您的工作站存取。 如需關於建立 Azure SQL Database 和設定防火牆的指示，請參閱[開始使用 Azure SQL Database][sqldatabase-get-started]。 
   
   > [!NOTE]
   > 根據預設，Azure SQL Database 接受來自 Azure 服務 (例如 Azure HDInsight) 的連線。 如果停用此防火牆設定，則您必須在 Azure 入口網站中加以啟用。 如需關於建立 Azure SQL Database 和設定防火牆規則的指示，請參閱[建立和設定 SQL Database][sqldatabase-create-configure]。
@@ -638,8 +638,8 @@ Get-AzureRmHDInsightJobOutput `
 [sqldatabase-get-started]: ../../sql-database/sql-database-get-started.md
 [sqldatabase-create-configure]: ../../sql-database/sql-database-get-started.md
 
-[powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
+[powershell-start]: https://technet.microsoft.com/library/hh847889.aspx
 [powershell-install]: /powershell/azureps-cmdlets-docs
-[powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
+[powershell-script]: https://technet.microsoft.com/library/ee176949.aspx
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

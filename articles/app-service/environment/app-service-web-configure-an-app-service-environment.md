@@ -1,5 +1,5 @@
 ---
-title: 如何設定 App Service 環境 v1
+title: 如何設定 App Service 環境 v1 - Azure
 description: 設定、管理和監視 App Service 環境 v1
 services: app-service
 documentationcenter: ''
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
-ms.openlocfilehash: 34fb3f15c03a3d3ef5f0a27081539bf0a6d19c5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: 85353b68673ea91711e0c3d93e68bec662f406df
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22987863"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53272128"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>設定 App Service 環境 v1
 
@@ -28,7 +29,7 @@ ms.locfileid: "22987863"
 > 
 
 ## <a name="overview"></a>概觀
-Azure App Service Environment 是由數個主要元件所組成：
+Azure App Service 環境是由數個主要元件所組成：
 
 * 在 Azure App Service 環境託管服務中執行的計算資源
 * 儲存體
@@ -44,7 +45,7 @@ Azure App Service Environment 是由數個主要元件所組成：
 但是您可以設定資源集區的數量和大小。 在 ASE 中，您有 4 個大小選項，標記為 P1 到 P4。 如需大小及其價格的詳細資訊，請參閱 [App Service 價格](https://azure.microsoft.com/pricing/details/app-service/)。
 變更數量或大小的作業稱為調整作業。  一次只能執行一項調整作業。
 
-**前端**：前端是您保留在 ASE 中之應用程式的 HTTP/HTTPS 端點。 請勿在前端中執行工作負載。
+**前端**：前端是您 ASE 中所裝載之應用程式的 HTTP/HTTPS 端點。 請勿在前端中執行工作負載。
 
 * ASE 是以兩個 P2 開始，這對於開發/測試工作負載及低階生產工作負載而言已經足夠。 強烈建議針對中度到重度生產工作流程使用 P3。
 * 對於中度到重度生產工作流程而言，建議至少有 4 個 P3 以確保在排定的維護工作開始執行時有足夠的前端在執行中。 排定的維護活動一次會關閉一個前端。 這會減少維護活動期間整體可用的前端容量。
@@ -68,7 +69,7 @@ Azure App Service Environment 是由數個主要元件所組成：
 * 將您需要較大大小之裝載應用程式的 App Service 方案重新指派至新設定的背景工作集區。 這是一項快速作業，應在一分鐘以內即可完成。  
 * 如果您不再需要那些未使用的執行個體，請相應減少第一個背景工作集區。 此作業需要幾分鐘才能完成。
 
-**自動調整**可協助您管理計算資源耗用狀況的其中一項工具。 您可以針對前端或背景工作集區執行自動調整。 您可以執行下列作業：早上增加任何集區類型的執行個體，而晚上減少執行個體。 或者，可以在背景工作集區中可用的背景工作數目低於特定臨界值時，新增執行個體。
+**自動調整**：自動調整是可協助您管理計算資源耗用狀況的其中一項工具。 您可以針對前端或背景工作集區執行自動調整。 您可以執行下列作業：早上增加任何集區類型的執行個體，而晚上減少執行個體。 或者，可以在背景工作集區中可用的背景工作數目低於特定臨界值時，新增執行個體。
 
 如果您想要設定自動調整規則計算資源集區的度量，請記住佈建需要的時間。 如需自動調整 App Service 環境的更多詳細資料，請參閱[如何在 App Service 環境中設定自動調整][ASEAutoscale]。
 
@@ -98,8 +99,8 @@ Azure App Service Environment 是由數個主要元件所組成：
 
 如果您的虛擬網路設定了 ExpressRoute VPN，則應留意 ASE 的某些路由需求。 某些使用者定義的路由 (UDR) 組態與 ASE 不相容。 如需關於在具有 ExpressRoute 的虛擬網路中執行 ASE 的詳細資訊，請參閱[在具有 ExpressRoute 的虛擬網路中執行 App Service 環境][ExpressRoute]。
 
-#### <a name="securing-inbound-traffic"></a>保護輸入流量
-有兩種主要方法可控制您的 ASE 的輸入流量。  您可以使用網路安全性 (NSG) 來控制哪些 IP 位址可以存取 ASE (請參閱 [如何在 App Service 環境中控制輸入流量](app-service-app-service-environment-control-inbound-traffic.md) )，您也可以使用內部負載平衡器 (ILB) 設定您的 ASE。  如果您要將使用 USG 的存取權限制為您的 ILB ASE，這些功能也可以一起使用。
+#### <a name="securing-inbound-traffic"></a>保護連入流量
+有兩種主要方法可控制您的 ASE 的連入流量。  您可以使用網路安全性 (NSG) 來控制哪些 IP 位址可以存取 ASE (請參閱 [如何在 App Service 環境中控制連入流量](app-service-app-service-environment-control-inbound-traffic.md) )，您也可以使用內部負載平衡器 (ILB) 設定您的 ASE。  如果您要將使用 USG 的存取權限制為您的 ILB ASE，這些功能也可以一起使用。
 
 當您建立 ASE 時，它會在您的 VNet 中建立 VIP。  VIP 類型有兩種：外部和內部。  當您使用外部 VIP 建立 ASE 時，可以透過網際網路可路由 IP 位址存取 ASE 中的應用程式。 如果您選取內部，您的 ASE 會使用 ILB 進行設定，將無法透過網際網路直接存取。  ILB ASE 仍需要外部 VIP，但它只用來進行 Azure 管理和維護。  
 
@@ -136,9 +137,9 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定]  區段：
 
 ![設定刀鋒視窗和屬性][4]
 
-**設定** > ：當您在 ASE 中建立 IP 安全通訊端層 (SSL) 應用程式時，您需要一個 IP SSL 位址。 若要取得該位址，您的 ASE 需要擁有一些可配置的 IP SSL 位址。 建立 ASE 後，它會有一個 IP SSL 可供此用途使用，但您可以新增更多位址。 額外的 IP SSL 位址需付費，如 [App Service 價格][AppServicePricing] (在 SSL 連線一節中) 所示。 額外的價格是 IP SSL 價格。
+[設定] > [IP 位址]：當您在 ASE 中建立 IP「安全通訊端層」(SSL) 應用程式時，需要一個 IP SSL 位址。 若要取得該位址，您的 ASE 需要擁有一些可配置的 IP SSL 位址。 建立 ASE 後，它會有一個 IP SSL 可供此用途使用，但您可以新增更多位址。 額外的 IP SSL 位址需付費，如 [App Service 價格][AppServicePricing] (在 SSL 連線一節中) 所示。 額外的價格是 IP SSL 價格。
 
-[設定] > [前端集區] / [背景工作集區]：這些資源集區刀鋒視窗每一個都可讓您檢視該資源集區的資訊，以及提供充分調整該資源集區所需的控制。  
+[設定] > [前端集區] / [背景工作集區]：這些資源集區刀鋒視窗除了提供可充分調整該資源集區的控制權之外，也可讓您僅查看該資源集區上的資訊。  
 
 每個資源集區的基準刀鋒視窗分別會提供一個圖表，內附該資源集區的計量。 就像 ASE 刀鋒視窗中的圖表，您可以進入圖表，並設定所需的警示。 從 ASE 刀鋒視窗為特定的資源集區設定警示，效果等同於從資源集區進行設定。 在背景工作集區的 [設定]  刀鋒視窗中，您可存取在此背景工作集區中執行的所有應用程式或 App Service 方案。
 
@@ -214,7 +215,7 @@ ASE 刀鋒視窗中有一個包含幾項重要功能的 [設定]  區段：
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
-[AppServicePricing]: http://azure.microsoft.com/pricing/details/app-service/
+[AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
 [ILBASE]: app-service-environment-with-internal-load-balancer.md

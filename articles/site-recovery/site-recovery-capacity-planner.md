@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: d53e8fe6588b7e1b068431a4cd530d0a80a603e6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8ba4fa1b5f5efd671c13ad2201b0cd34642d346
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261871"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52844935"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>規劃 Hyper-V VM 災害復原的容量 
 
@@ -72,7 +72,7 @@ Azure Site Recovery Capacity Planner 可協助您判斷使用 Azure Site Recover
    * **所需的標準儲存體帳戶數目**：保護 VM 所需的標準儲存體帳戶總數。 標準儲存體帳戶可對標準儲存體中的所有 VM 支援多達 20,000 個 IOPS。 每個磁碟最多支援 500 個 IOPS。
    * **所需的 Blob 磁碟數目**：在 Azure 儲存體上建立的磁碟數目。
    * **所需的進階帳戶數目**：保護 VM 所需的進階儲存體帳戶總數。 具有高 IOPS (超過 20,000) 的來源 VM 需要進階儲存體帳戶。 進階儲存體帳戶可以支援多達 80,000 個 IOPS。
-   * **進階儲存體上的 IOPS 總數**：根據進階儲存體帳戶總計上的 256K IOPS 單位大小計算的數目。 針對快速規劃，數目是根據來源 VM 磁碟和每日資料變更率計算。 針對詳細規劃，數目是根據對應到進階 Azure VM (DS 和 GS 系列) 的 VM 數，以及那些 VM 上的資料變更率計算。
+   * **進階儲存體上的 IOPS 總計**：根據進階儲存體帳戶總計上的 256K IOPS 單位大小計算的數目。 針對快速規劃，數目是根據來源 VM 磁碟和每日資料變更率計算。 針對詳細規劃，數目是根據對應到進階 Azure VM (DS 和 GS 系列) 的 VM 數，以及那些 VM 上的資料變更率計算。
    * **所需的組態伺服器數目**：顯示需要多少組態伺服器以進行部署。
    * **所需的額外處理序伺服器數目**：顯示除了預設在組態伺服器上執行的處理序伺服器，是否需要額外的處理序伺服器。
    * **來源上的 100% 其他儲存體**：顯示來源位置中是否需要其他儲存體。

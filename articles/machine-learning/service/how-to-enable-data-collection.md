@@ -1,5 +1,6 @@
 ---
-title: 在生產環境中啟用模型資料收集 - Azure Machine Learning
+title: 收集生產環境模型的相關資料
+titleSuffix: Azure Machine Learning service
 description: 了解如何在 Azure Blob 儲存體中收集 Azure Machine Learning 輸入模型資料。
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
-ms.openlocfilehash: f4340d1ef30bb4317e658c9a9a936f009054e784
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.custom: seodec18
+ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51710625"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271567"
 ---
 # <a name="collect-data-for-models-in-production"></a>在生產環境中收集模型資料
 
@@ -45,18 +47,16 @@ Blob 中輸出資料的路徑遵循此語法：
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
 # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
 ```
->[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.74 版進行測試
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 - 已安裝 Machine Learning services 工作區、包含您指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
 
-- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有該模型，請參閱[訓練影像分類模型](tutorial-train-models-with-aml.md)教學課程。
+- 要部署至 Azure Kubernetes Service (AKS) 的訓練過機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
-- [AKS 叢集](how-to-deploy-to-aks.md)。
+- Azure Kubernetes Service 叢集。 如需了解如何建立一個叢集並部署至該叢集，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。
 
 - [設定您的環境](how-to-configure-environment.md)並安裝[監視 SDK](https://aka.ms/aml-monitoring-sdk)。
 
@@ -81,7 +81,7 @@ Blob 中輸出資料的路徑遵循此語法：
     prediction_dc = ModelDataCollector("best_model", identifier="predictions", feature_names=["prediction1", "prediction2"])
     ```
 
-    CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料  (範例包含：LoanNumber、CustomerId 等等)。
+    CorrelationId 是選用參數，如果您的模型不需要它，則不需要設定。 備妥 correlationId 可協助您更輕鬆地對應其他資料  (範例包括：LoanNumber、CustomerId 等)。
     
     Identifier 稍後用於建置 Blob 中的資料夾結構，可用來劃分「原始」資料與「已處理」。
 
@@ -104,7 +104,7 @@ Blob 中輸出資料的路徑遵循此語法：
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. [建立新映像並部署服務。](how-to-deploy-to-aks.md) 
+5. 若要建立一個新映像並部署服務，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。
 
 
 如果您的現有服務已在**環境檔案**和**評分檔案**中安裝相依性，則請透過下列方式啟用資料收集：
@@ -136,7 +136,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
   1. 移至 [部署] -> [選取服務] -> [編輯]。
 
-    [![編輯服務](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+    [![[編輯] 選項](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. 在 [進階設定] 中，取消選取 [啟用模型資料收集]。 
 
@@ -172,7 +172,7 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ### <a name="analyzing-model-data-through-power-bi"></a>透過 Power BI 分析模型資料
 
-1. 下載並開啟 [PowerBi 桌面](http://www.powerbi.com)
+1. 下載並開啟 [PowerBi 桌面](https://www.powerbi.com)
 
 1. 選取 [取得資料]，然後按一下 [[Azure Blob 儲存體]](https://docs.microsoft.com/power-bi/desktop-data-sources)。
 
@@ -231,8 +231,6 @@ Blob 中輸出資料的路徑遵循此語法：
 
 ## <a name="example-notebook"></a>範例筆記本
 
-[00.Getting Started/12.enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/12.enable-data-collection-for-models-in-aks) Notebook 會示範本文中的概念。  
+[how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-data-collection-for-models-in-aks/enable-data-collection-for-models-in-aks.ipynb) Notebook 會示範本文中的概念。  
 
-請取得此筆記本：
- 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

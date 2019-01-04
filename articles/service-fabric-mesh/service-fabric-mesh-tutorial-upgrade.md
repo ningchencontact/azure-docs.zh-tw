@@ -12,19 +12,19 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/18/2018
+ms.date: 11/29/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7985c8e9e26126040d842ded998a953281daa2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 0f6ede488ae118f8df00febda3c53eabb73f2030
+ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953547"
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52890223"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>教學課程：了解如何使用 Visual Studio 升級 Service Fabric 應用程式
 
-本教學課程是系列中的第四部分，說明如何直接從 Visual Studio 升級 Azure Service Fabric Mesh 應用程式。 升級將包含程式碼更新和組態更新。 您將看到在 Visual Studio 中升級和發佈的步驟是相同的。
+本教學課程是系列中的第四部分，說明如何直接從 Visual Studio 升級 Azure Service Fabric Mesh 應用程式。 升級將包含程式碼更新和組態更新。 您會發現 Visual Studio 中的升級和發佈步驟是相同的。
 
 在本教學課程中，您將了解如何：
 > [!div class="checklist"]
@@ -48,22 +48,29 @@ ms.locfileid: "49953547"
 
 ## <a name="upgrade-a-service-fabric-mesh-service-by-using-visual-studio"></a>使用 Visual Studio 升級 Service Fabric Mesh 服務
 
-本文說明如何獨立升級應用程式內的微服務。  在此範例中，我們將修改 `WebFrontEnd` 服務以顯示工作類別。 然後，升級已部署的服務。
+本文說明如何升級應用程式內的微服務。 在此範例中，我們將修改 `WebFrontEnd` 服務以顯示工作類別，並增加其提供的 CPU 數量。 然後，升級已部署的服務。
 
 ## <a name="modify-the-config"></a>修改組態
 
-升級可能是因為程式碼變更、組態變更，或兩者同時影響。  若要引進組態變更，請開啟 `WebFrontEnd` 專案的 `service.yaml` 檔案 (位於**服務資源**節點下方)。
+當您建立 Service Fabric Mesh 應用程式時，Visual Studio 會為每個部署環境 (雲端和本機) 新增 **parameters.yaml** 檔案。 在這些檔案中，您可以定義參數和其值，然後從 Mesh 的 *.yaml 檔案 (例如，service.yaml 或 network.yaml) 來參照。  Visual Studio 會為您提供一些變數，例如，服務可以使用多少 CPU。
 
-在 `resources:` 區段中，將 `cpu:` 從 0.5 變更為 1.0，預計將會大量使用 Web 前端。 目前看起來應該如下所示：
+由於預期 **WebFrontEnd** 服務的使用量會變大，我們會更新 `WebFrontEnd_cpu` 參數以將 CPU 資源更新為 `1.5`。
 
-```xml
-              ...
-              resources:
-                requests:
-                  cpu: 1.0
-                  memoryInGB: 1
-              ...
-```
+1. 在 **todolistapp** 專案的 [環境] > [雲端] 底下，開啟 **parameters.yaml** 檔案。 將 `WebFrontEnd_cpu` 值修改為 `1.5`。 最好在參數名稱開頭加上服務名稱 `WebFrontEnd_`，以便此參數能與套用至不同服務的同名參數有所區別。
+
+    ```xml
+    WebFrontEnd_cpu: 1.5
+    ```
+
+2. 在 [WebFrontEnd] > [服務資源] 底下，開啟 **WebFrontEnd** 專案的 **service.yaml** 檔案。
+
+    請注意，在 `resources:` 區段中，`cpu:` 會設定為 `"[parameters('WebFrontEnd_cpu')]"`。 如果是針對雲端建置的專案，`'WebFrontEnd_cpu` 的值將會取自 [環境] > [雲端] > **parameters.yaml** 檔案，且此值為 `1.5`。 如果是為了在本機執行而建置的專案，此值會取自 [環境] > [本機] > **parameters.yaml** 檔案，且為 '0.5'。
+
+> [!Tip]
+> 根據預設，系統會使用 profile.yaml 檔案的對等參數檔案，來提供該 profile.yaml 檔案的值。
+> 例如，[環境] > [雲端] > parameters.yaml 會提供 [環境] > [雲端] > profile.yaml 的參數值。
+>
+> 若要覆寫此設定，請將下列內容新增至 profile.yaml 檔案：`parametersFilePath=”relative or full path to the parameters file”`例如，`parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` 或 `parametersFilePath=”..\CommonParameters.yaml”`。
 
 ## <a name="modify-the-model"></a>修改模型
 
@@ -125,28 +132,29 @@ public static ToDoItem Load(string description, int index, bool completed)
 
 ## <a name="upgrade-the-app-from-visual-studio"></a>從 Visual Studio 升級應用程式
 
-無論您是進行程式碼升級或組態升級 (在此案例中，我們兩者皆進行)，以升級 Azure 上的 Service Fabric Mesh 應用程式，請在 Visual Studio 中的 [todolistapp] 按一下滑鼠右鍵，然後選取 [發佈...]
+無論您是要升級程式碼，還是要升級組態 (在此案例中，我們兩者皆進行)，都請升級 Azure 上的 Service Fabric Mesh 應用程式，方法是在 Visual Studio 中的 [todolistapp] 按一下滑鼠右鍵，然後選取 [發佈...]
 
 接著，您將會看見 [發佈 Service Fabric 應用程式] 對話方塊。
 
-![Visual Studio 的 Service Fabric Mesh 發佈對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
+使用 [目標寫照] 下拉式清單來選取要用於此部署的 profile.yaml 檔案。 我們要升級雲端中的應用程式，因此我們在下拉式清單中選取 **cloud.yaml**，這會使用該檔案中定義的 `WebFrontEnd_cpu` 值 (即 1.0)。
 
-選取您的 Azure 帳戶和訂用帳戶。 請確認**位置**已設為最初將待辦事項應用程式發佈到 Azure 時，所使用的位置。 本文使用**美國東部**。
+![Visual Studio 的 Service Fabric Mesh 發行對話方塊](./media/service-fabric-mesh-tutorial-deploy-dotnetcore/visual-studio-publish-dialog.png)
 
-請確認**資源群組**已設為最初將待辦事項應用程式發佈至 Azure 時，所使用的資源群組。
+選取您的 Azure 帳戶和訂用帳戶。 將 [位置] 設定為最初將待辦事項應用程式發佈到 Azure 時所使用的位置。 本文使用**美國東部**。
 
-請確認 **Azure Container Registry** 已設為最初將待辦事項應用程式發佈至 Azure 時，所建立的 Azure Container Registry 名稱。
+將 [資源群組] 設定為最初將待辦事項應用程式發佈至 Azure 時所使用的資源群組。
+
+將 [Azure Container Registry] 設定為最初將待辦事項應用程式發佈至 Azure 時所建立的 Azure Container Registry 名稱。
 
 在 [發佈] 對話方塊中，按下 [發佈] 按鈕，以升級 Azure 上的待辦事項應用程式。
 
-您可以在 Visual Studio 的 [輸出] 視窗中，選取 [Service Fabric 工具] 窗格，藉以監視升級的進度。 一旦升級完成之後，**Service Fabric 工具**輸出將會以 URL 形式來顯示應用程式的 IP 位址和連接埠。
+在 Visual Studio 的 [輸出] 視窗中，選取 [Service Fabric 工具] 窗格，藉以監視升級的進度。 
+
+建立映像並推送至 Azure Container Registry 之後，[適用狀態] 連結會出現在輸出中，您只要按一下就能在 Azure 入口網站中監視部署。
+
+一旦升級完成之後，**Service Fabric 工具**輸出將會以 URL 形式來顯示應用程式的 IP 位址和連接埠。
 
 ```json
-Packaging Application...
-Building Images...
-Web1 -> C:\Code\ServiceFabricMeshApp\ToDoService\bin\Any CPU\Release\netcoreapp2.0\ToDoService.dll
-Uploading the images to Azure Container Registy...
-Deploying application to remote endpoint...
 The application was deployed successfully and it can be accessed at http://10.000.38.000:20000.
 ```
 

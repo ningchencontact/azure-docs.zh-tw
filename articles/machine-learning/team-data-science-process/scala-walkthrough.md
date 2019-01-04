@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上使用 Scala 與 Spark 的資料科學 | Microsoft Docs
+title: 在 Azure 上使用 Scala 和 Spark 的資料科學- Team Data Science Process
 description: 如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。
 services: machine-learning
 author: marktab
@@ -10,19 +10,19 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 836fdb5da13465d77c6e9e6ede4780f5d4048597
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52447158"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135142"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>在 Azure 上使用 Scala 與 Spark 的資料科學
-本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://aka.ms/datascienceprocess)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰
+本文章說明如何使用 Scala 搭配 Spark 可調整 MLlib 和 Azure HDInsight Spark 叢集上的 SparkML 封裝，處理受監督的機器學習工作。 它會引導您進行構成 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)的各項工作︰資料擷取和探索、視覺化、特徵設計、模型化和模型取用。 本文中的模型除了兩個常見受監督的機器學習工作之外，還包括羅吉斯和線性迴歸、隨機樹系和梯度推進樹 (GBT)︰
 
-* 迴歸問題︰計程車車程的小費金額 ($) 預測
-* 二進位分類︰計程車車程的小費或不給小費 (1/0) 預測
+* 迴歸問題：計程車車程的小費金額 ($) 預測
+* 二元分類：計程車車程的小費或無小費 (1/0) 預測
 
 模型化程序需要訓練和評估測試資料集和相關精確度計量。 在本文中，您會了解如何在 Azure Blob 儲存體中儲存這些模型，以及如何評分及評估模型的預測效能。 本文也涵蓋如何使用交叉驗證和超參數掃掠來最佳化模型等更進階的主題。 所使用的資料是 GitHub 上 2013 年紐約市計程車車程和費用資料集的抽樣樣本。
 
@@ -41,7 +41,7 @@ ms.locfileid: "52447158"
 
 ## <a name="prerequisites"></a>必要條件
 * 您必須擁有 Azure 訂用帳戶。 如果還沒有， [請取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
-* 您需要 Azure HDInsight 3.4 Spark 1.6 叢集來完成下列程序。 若要建立叢集，請參閱 [開始使用：在 Azure HDInsight 上建立 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)中的指示。 在 [選取叢集類型]  功能表上設定叢集類型和版本。
+* 您需要 Azure HDInsight 3.4 Spark 1.6 叢集來完成下列程序。 若要建立叢集，請參閱[開始使用：[Azure HDInsight 上的 Apache Spark](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) 的指示。 在 [選取叢集類型]  功能表上設定叢集類型和版本。
 
 ![HDInsight 叢集類型組態](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "52447158"
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>安裝程式︰預設的 Spark 和 Hive 內容、Spark Magic 和 Spark 程式庫
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>安裝程式：預設的 Spark 和 Hive 內容、Spark Magic 和 Spark 程式庫
 ### <a name="preset-spark-and-hive-contexts"></a>預設的 Spark 和 Hive 內容
     # SET THE START TIME
     import java.util.Calendar
@@ -532,7 +532,7 @@ MLlib 的模型化和預測函式需要先執行功能來分類要索引或編�
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>二進位分類模型：預測是否應支付小費
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>二元分類模型：預測是否應支付小費
 在本節中，您會建立三種類型的二進位分類模型來預測是否應支付小費：
 
 * 使用 Spark ML `LogisticRegression()` 函式的**羅吉斯迴歸模型**
@@ -723,7 +723,7 @@ MLlib 的模型化和預測函式需要先執行功能來分類要索引或編�
 
 **輸出：**
 
-ROC 曲線夏的領域 = 0.9846895479241554
+ROC 曲線下的區域：0.9846895479241554
 
 ## <a name="regression-model-predict-tip-amount"></a>迴歸模型：預測小費金額
 在本節中，您會建立兩種類型的迴歸模型來預測小費金額︰
@@ -848,7 +848,7 @@ ROC 曲線夏的領域 = 0.9846895479241554
 
 **輸出：**
 
-![小費金額︰實際與預測](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![小費金額：實際與預測](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>建立 GBT 迴歸模型
 使用 SparkML `GBTRegressor()` 函式建立 GBT 迴歸模型，然後對測試資料評估模型。
@@ -1100,7 +1100,7 @@ ROC 曲線夏的領域 = 0.9846895479241554
 執行資料格的時間︰61 秒。
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>透過 Scala 自動取用 Spark 建置的機器學習模型
-如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](https://aka.ms/datascienceprocess)。
+如需能引導您完成在 Azure 中構成資料科學程序之工作的主題概觀，請參閱 [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)。
 
 [Team Data Science Process 逐步解說](walkthroughs.md) 說明的其他端對端逐步解說示範 Team Data Science Process 針對特定案例的步驟。 這些逐步解說也示範如何將雲端和內部部署工具與服務組合成工作流程或管線，以建立智慧型應用程式。
 

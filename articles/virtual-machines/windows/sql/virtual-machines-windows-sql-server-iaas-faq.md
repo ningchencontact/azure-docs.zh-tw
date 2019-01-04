@@ -1,6 +1,6 @@
 ---
 title: Azure 中 Windows 虛擬機器上的 SQL Server 常見問題集 | Microsoft Docs
-description: 此文章章提供在 Azure VM 上執行 SQL Server 的常見問題解答。
+description: 本文章提供在 Azure VM 上執行 SQL Server 的常見問題解答。
 services: virtual-machines-windows
 documentationcenter: ''
 author: v-shysun
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: edfd2e9e03aefa4833c8472a43d4857f08b95780
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495484"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339394"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>在 Azure 中 Windows 虛擬機器上執行的 SQL Server 常見問題集
 
@@ -28,10 +28,10 @@ ms.locfileid: "52495484"
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-此文章提供一些最常見關於 [Azure 中 Windows 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 執行問題的解答。
+本文提供一些最常見關於 [Azure 中 Windows 虛擬機器上的 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) 執行問題的解答。
 
 > [!NOTE]
-> 此文章將重點放在 Windows VM 上 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
+> 本文將重點放在 Windows VM 上 SQL Server 的特定問題。 如果您在 Linux VM 上執行 SQL Server，請參閱 [Linux 常見問題集](../../linux/sql/sql-server-linux-faq.md)。
 
 [!INCLUDE [support-disclaimer](../../../../includes/support-disclaimer.md)]
 
@@ -102,17 +102,17 @@ ms.locfileid: "52495484"
  
    是。 所有客戶都能向新的 SQL VM 資源提供者註冊。 不過，只有具有軟體保證權益的客戶可以在 SQL Server VM 上啟用 [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (或 BYOL)。 
 
-1. *若 VM 資源被移動或捨棄，Microsoft.SqlVirtualMachine* 資源會發生什麼事？** 
+1. **若 VM 資源被移動或捨棄，\*Microsoft.SqlVirtualMachine\* 資源會發生什麼事？** 
 
    當 Microsoft.Compute/VirtualMachine 資源被捨棄或移動時，系統會通知關聯的 Microsoft.SqlVirtualMachine 資源，讓其以非同步方式複寫作業。
 
-1. **若  _* Microsoft.SqlVirtualMachine_*  資源被卸除，VM 會發生什麼事？**
+1. **若  _\*Microsoft.SqlVirtualMachine_\*  資源被卸除，VM 會發生什麼事？**
 
    當 Microsoft.SqlVirtualMachine 資源被卸除時，Microsoft.Compute/VirtualMachine 資源不會受影響。 不過，授權變更將會還原為預設的原始映像來源。 
 
 1. **是否可以向 SQL VM 資源提供者註冊自我部署 SQL Server VM？**
 
-   是。 若您從自己的媒體部署 SQL Server，您可以向資源提供者註冊您自己的 SQL VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為 PAYG。 
+   是。 若您從自己的媒體部署 SQL Server，而且已安裝 SQL IaaS 延伸模組，您可以向資源提供者註冊您自己的 SQL Server VM，以取得 SQL IaaS 延伸模組所提供的管理能力優點。 不過，您無法將自我部署 SQL VM 轉換為預付型方案。  
 
 ## <a name="administration"></a>系統管理
 
@@ -153,7 +153,7 @@ ms.locfileid: "52495484"
 
 1. **SQL VM 和 SQL Database 服務之間的差異為何？**
 
-   從概念上來說，在 Azure 虛擬機器上執行 SQL Server 與在遠端資料中心中執行 SQL Server 並沒什麼不同。 對比之下， [SQL Database](../../../sql-database/sql-database-technical-overview.md) 可提供資料庫即服務的功能。 使用 SQL Database 時，您無法存取主控資料庫的機器。 如需完整的比較，請參閱 [選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM 上的 SQL Server (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md)。
+   從概念上來說，在 Azure 虛擬機器上執行 SQL Server 與在遠端資料中心中執行 SQL Server 並沒什麼不同。 對比之下， [SQL Database](../../../sql-database/sql-database-technical-overview.md) 可提供資料庫即服務的功能。 使用 SQL Database 時，您無法存取主控資料庫的機器。 如需完整的比較，請參閱[選擇雲端 SQL Server 選項：Azure SQL (PaaS) Database 或 Azure VM (IaaS)](../../../sql-database/sql-database-paas-vs-sql-server-iaas.md) 上的 SQL Server。
 
 1. **如何在 Azure VM 上安裝 SQL 資料工具？**
 

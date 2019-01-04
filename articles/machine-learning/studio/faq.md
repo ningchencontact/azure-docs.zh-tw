@@ -5,7 +5,7 @@ keywords: 機器學習服務簡介,建立預測模型,什麼是機器學習服�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66
 ms.service: machine-learning
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/02/2017
-ms.openlocfilehash: c9c80da55737d0093813b84e33d3d90c5d7d4603
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 23de87bb566764540f1a7bf152d72bfdc0e3719f
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309135"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53091272"
 ---
-# <a name="azure-machine-learning-studio-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 常見問題集：計費、功能、限制及支援
+# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Azure Machine Learning Studio 常見問題集：計費、功能、限制和支援
 以下是有關 Azure Machine Learning 的一些常見問題和對應解答，而 Azure Machine Learning 是適合透過 Web 服務開發預測性模型和運作方案的雲端服務。 這個常見問題涵蓋如何使用服務的相關問題，包括計費模型、功能、限制及支援。
 
 **是否有您無法在這裡找到的問題？**
@@ -32,7 +32,7 @@ Azure Machine Learning 在 MSDN 上有一個論壇，資料科學社群的成員
 ## <a name="general-questions"></a>一般問題
 **什麼是 Machine Learning Studio？**
 
-Machine Learning Studio 是您利用網頁瀏覽器存取的工作區環境。 Machine Learning Studio 在視覺化結構介面中裝載一組模組，協助您以實驗的形式建置端對端資料科學工作流程。
+Machine Learning Studio 是您可使用網頁瀏覽器存取的拖放畫布環境。 Machine Learning Studio 在視覺化結構介面中裝載一組模組，協助您以實驗的形式建置端對端資料科學工作流程。
 
 如需 Machine Learning Studio 的詳細資訊，請參閱 [什麼是 Machine Learning Studio？](what-is-ml-studio.md)
 
@@ -55,8 +55,8 @@ Machine Learning Web 服務可在應用程式與機器學習服務工作流程�
 
 Azure Machine Learning 有兩種 Web 服務類型：
 
-* 要求-回應服務 (RRS)：這是一種低延遲、調整性高的服務，針對使用 Machine Learning Studio 建立和部署的無狀態模型提供介面。
-* 批次執行服務 (BES)：這是一種非同步的服務，為一批資料記錄進行計分。
+* 要求回應服務 (RRS)：一種低延遲、調整性高的服務，針對使用 Machine Learning Studio 建立和部署的無狀態模型提供介面。
+* 批次執行服務 (BES)：一種非同步的服務，可為一批資料記錄進行計分。
 
 有數種方法可以使用 REST API 和存取 Web 服務。 例如，您可以使用當您部署 Web 服務時為您產生的範例程式碼，在 C#、R 或 Python 中寫入應用程式。
 
@@ -96,7 +96,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 * Recommender 模組
 * 合成少數類過採樣技術 (SMOTE) 模組
-* 指令碼模組：R、Python SQL
+* 指令碼模組：R、Python、SQL
 * 輸出資料大小可以大於輸入資料大小的模組，例如聯結或功能雜湊
 * 當反覆運算數目非常大時的交叉驗證、微調模型超參數、序數迴歸和一對多的多類別
 
@@ -263,7 +263,7 @@ Machine Learning Studio 中的模組對常見使用案例支援最多 10 GB 的�
 
 * Recommender 模組
 * 合成少數類過採樣技術 (SMOTE) 模組
-* 指令碼模組：R、Python SQL
+* 指令碼模組：R、Python、SQL
 * 輸出資料大小可以大於輸入資料大小的模組，例如聯結或功能雜湊
 * 當反覆運算數目非常大時的交叉驗證、微調模型超參數、序數迴歸和一對多的多類別
 
@@ -483,8 +483,8 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 下列費用依訂用帳戶的每個工作區合計。
 
-* Machine Learning 工作區訂用帳戶：Machine Learning 工作區訂用帳戶是用於存取 Machine Learning Studio 工作區的月費。 要在 Studio 中執行實驗並使用生產 API 的話，就需要此訂用帳戶。
-* Studio 實驗時數：此計量彙總在 Machine Learning Studio 中執行實驗和在預備環境中執行生產 API 呼叫而產生的所有計算費用。
+* Machine Learning 工作區訂用帳戶：Machine Learning 工作區訂用帳戶為了提供 Machine Learning Studio 工作區的存取權而產生的月費。 要在 Studio 中執行實驗並使用生產 API 的話，就需要此訂用帳戶。
+* Studio 實驗時數：此計量會彙總在 Machine Learning Studio 中執行實驗和在預備環境中執行生產 API 呼叫而產生的所有計算費用。
 * 連接到在您的模型中執行 SQL Server 的內部部署伺服器以存取資料，供訓練和評分使用。
 * 傳統 Web 服務：
   * 生產 API 計算時數：此計量包含在生產環境中執行的 Web 服務所產生的計算費用。
@@ -494,9 +494,9 @@ Azure Machine Learning API 服務會根據它是傳統 Web 服務還是新型 (R
 
 * 標準 S1/S2/S3 API 方案 (單位)：此計量表示針對 Resource Manager 架構 Web 服務選取的執行個體類型。
 * 標準 S1/S2/S3 超額 API 計算時數：此計量包含現有執行個體中包含的數量用完後，在生產環境中執行的 Resource Manager 架構 Web 服務所產生的計算費用。 額外的使用量會以與 S1/S2/S3 方案層相關聯的超額費率收費。
-* 標準 S1/S2/S3 超額 API 交易 (在 1,000 秒內)：此計量包含現有執行個體中包含的數量用完後，對生產環境的 Resource Manager 架構 Web 服務所進行的每個呼叫所產生的費用。 額外的使用量會以與 S1/S2/S3 方案層相關聯的超額費率收費。
+* 標準 S1/S2/S3 超額 API 交易 (以 1,000 個為單位)：此計量包含現有執行個體中包含的數量用完後，對生產環境的 Resource Manager 架構 Web 服務所進行的每個呼叫所產生的費用。 額外的使用量會以與 S1/S2/S3 方案層相關聯的超額費率收費。
 * 包含的數量 API 計算時數：在 Resource Manager 架構 Web 服務中，此計量表示 API 計算時數的包含數量。
-* 包含的數量 API 交易 (在 1,000 秒內)：在 Resource Manager 架構 Web 服務中，此計量表示 API 交易的包含數量。
+* 包含的數量 API 交易 (以 1,000 個為單位)：在 Resource Manager 架構 Web 服務中，此計量表示 API 交易的包含數量。
 
 **如何註冊 Azure Machine Learning 免費層？**
 

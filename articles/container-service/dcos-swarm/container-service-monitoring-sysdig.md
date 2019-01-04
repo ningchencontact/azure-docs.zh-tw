@@ -1,5 +1,5 @@
 ---
-title: 使用 Sysdig 監視 Azure 容器服務叢集
+title: (已淘汰) 使用 Sysdig 監視 Azure Container Service 叢集
 description: 使用 Sysdig 監視 Azure 容器服務叢集。
 services: container-service
 author: sauryadas
@@ -9,18 +9,20 @@ ms.topic: article
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 0c0f4fd1f3a8242061e198d7b5447656f9008e96
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 3b6781a6b87f9f11b341cf3cf2bcf6668b640c2b
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162131"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52992187"
 ---
-# <a name="monitor-an-azure-container-service-cluster-with-sysdig"></a>使用 Sysdig 監視 Azure 容器服務叢集
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(已淘汰) 使用 Sysdig 監視 Azure Container Service 叢集
+
+[!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 本文中，我們會將 Sysdig 代理程式部署到 Azure 容器服務叢集中的所有代理程式節點。 您需要 Sysdig 帳戶以進行這項設定。 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 [部署](container-service-deployment.md)和[連接](../container-service-connect.md) Azure Container Service 所設定的叢集。 瀏覽 [Marathon UI](container-service-mesos-marathon-ui.md)。 移至 [http://app.sysdigcloud.com](http://app.sysdigcloud.com) 以設定 Sysdig 雲端帳戶。 
 
 ## <a name="sysdig"></a>Sysdig

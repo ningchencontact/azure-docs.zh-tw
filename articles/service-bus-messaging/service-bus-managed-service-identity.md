@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 5532c86271fa6a5f2b573e005993a68ac0a9e248
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 25d2db5dcf3979341fc104643f7178047c29483b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857069"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842827"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>搭配服務匯流排之 Azure 資源的受控識別 
 
@@ -53,10 +53,8 @@ ms.locfileid: "48857069"
 
 接下來，在具有 RBAC 之預覽支援的其中一個 Azure 區域中[建立服務匯流排傳訊命名空間](service-bus-create-namespace-portal.md)：**美國東部**、**美國東部 2** 或**西歐**。 
 
-瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。
+瀏覽至入口網站上的命名空間 [存取控制 (IAM)] 頁面，然後按一下 [新增角色指派] 以將受控識別新增至 [擁有者] 角色。 若要這樣做，請在 [新增權限] 面板 [選取] 欄位中搜尋 Web 應用程式的名稱，然後按一下項目。 然後按一下 [儲存] 。
 
-![](./media/service-bus-managed-service-identity/msi2.png)
- 
 Web 應用程式的受控識別現在具有服務匯流排命名空間的存取權，以及您先前建立之佇列的存取權。 
 
 ### <a name="run-the-app"></a>執行應用程式

@@ -4,9 +4,8 @@ description: 找出您在為 Azure Machine Learning Studio Web 服務重新訓�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 75cac53c-185c-437d-863a-5d66d871921e
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
-ms.openlocfilehash: 1105b81d0f8ba80bd76bcdf140fe79b9e8a7102d
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 0f12627e169af00f575347796d1f2e79fe1f6fa2
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307197"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252774"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>對 Azure Machine Learning Studio Classic Web 服務的重新訓練進行疑難排解
 ## <a name="retraining-overview"></a>重新訓練概觀
@@ -41,16 +40,16 @@ ms.locfileid: "52307197"
 
 準備好所有部分之後，為了重新訓練模型所必須採取的主要步驟如下︰
 
-1. 呼叫訓練 Web 服務︰呼叫的對象為批次執行服務 (BES)，而非求回應服務 (RRS)。 您可以使用 API 說明頁面中的範例 C# 程式碼來進行呼叫。 
-2. 尋找 *BaseLocation*、*RelativeLocation* 和 *SasBlobToken* 的值︰在您呼叫訓練 Web 服務的輸出中會傳回這些值。 
+1. 呼叫定型 Web 服務：呼叫的對象為批次執行服務 (BES)，而非要求回應服務 (RRS)。 您可以使用 API 說明頁面中的範例 C# 程式碼來進行呼叫。 
+2. 尋找 *BaseLocation*、*RelativeLocation* 及 *SasBlobToken* 的值：這些值會在您對定型 Web 服務的呼叫輸出中傳回。 
    ![顯示重新訓練範例的輸出和 BaseLocation、RelativeLocation 及 SasBlobToken 的值。][image6]
-3. 從評分 Web 服務使用訓練好的新模型更新加入的端點︰使用《以程式設計方式重新訓練機器學習服務模型》所提供的範例程式碼，從評分 Web 服務使用訓練好的新模型更新加入到評分模型的新端點。
+3. 使用已定型的新模型，從評分 Web 服務更新已新增的端點：使用＜以程式設計方式重新定型機器學習模型＞所提供的範例程式碼，從定型 Web 服務使用已定型的新模型來更新已新增到評分模型的新端點。
 
 ## <a name="common-obstacles"></a>常見障礙
 ### <a name="check-to-see-if-you-have-the-correct-patch-url"></a>檢查是否有正確的 PATCH URL
 所使用的 PATCH URL 必須是與加入到評分 Web 服務的新評分端點相關聯的 URL。 有幾個方法可取得 PATCH URL：
 
-**選項 1︰程式設計方式**
+**選項 1：程式設計方式**
 
 若要取得正確的 PATCH URL：
 
@@ -71,7 +70,7 @@ ms.locfileid: "52307197"
 7. 在 [修補程式] 之下，按一下 [API 說明] 以開啟修補說明頁面。
 
 > [!NOTE]
-> 如果您已將端點新增至訓練 Web 服務，而不是預測性 Web 服務，當您按一下 [更新資源] 連結，就會收到下列錯誤︰「很抱歉，但這項功能在此內容中不支援或不可使用。 此 Web 服務有沒有可更新的資源。 造成您的不便我們深感抱歉，並將致力於改善這個工作流程。」
+> 如果您已將端點新增至定型 Web 服務，而不是預測性 Web 服務，當您按一下 [更新資源] 連結時，將會收到下列錯誤：「很抱歉，但這項功能在此內容中不支援或不可使用。 此 Web 服務有沒有可更新的資源。 造成您的不便我們深感抱歉，並將致力於改善這個工作流程。」
 > 
 > 
 
@@ -80,8 +79,8 @@ PATCH 說明頁面包含必須使用的 PATCH URL，並提供可用來呼叫它�
 ![修補 URL。][image5]
 
 ### <a name="check-to-see-that-you-are-updating-the-correct-scoring-endpoint"></a>檢查正在更新的評分端點是否正確
-* 請勿修補訓練 Web 服務︰修補作業必須是對評分 Web 服務來執行。
-* 請勿修補 Web 服務上的預設端點︰修補作業必須是對您新增的評分 Web 服務端點來執行。
+* 請勿修補定型 Web 服務：修補作業必須在評分 Web 服務上執行。
+* 請勿修補 Web 服務上的預設端點：修補作業必須在您新增的新評分 Web 服務端點上執行。
 
 您可以造訪 Web 服務入口網站來確認端點位於哪個 Web 服務上。 
 

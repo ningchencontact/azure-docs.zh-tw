@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: bfa36cfeda514be0941481b0e4ed5ab9b3669b54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2da89e674b967287150b2e8f3a98fc25df2af81e
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238092"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52878256"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自訂 HDInsight 叢集
 
@@ -50,7 +50,7 @@ ms.locfileid: "51238092"
 * [使用指令碼動作來自訂 HDInsight 叢集| Azure (Linux)](hdinsight-hadoop-customize-cluster-linux.md)
 
 ## <a name="use-azure-powershell"></a>使用 Azure PowerShell
-下列 PowerShell 程式碼會自訂 Hive 組態：
+下列 PowerShell 程式碼會自訂 [Apache Hive](https://hive.apache.org/) 組態：
 
 ```powershell
 # hive-site.xml configuration
@@ -128,11 +128,11 @@ Resource Manager 範本中，您可以使用啟動程序︰
 ![HDInsight Hadoop 自訂叢集 Bootstrap Azure Resource Manager 範本](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## <a name="see-also"></a>另請參閱
-* [在 HDInsight 中建立 Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
+* [在 HDInsight 中建立 Apache Hadoop 叢集][hdinsight-provision-cluster]提供如何使用其他自訂選項建立 HDInsight 叢集的指示。
 * [開發 HDInsight 的指令碼動作指令碼][hdinsight-write-script]
-* [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]
-* [在 HDInsight 叢集上安裝及使用 Solr](hdinsight-hadoop-solr-install.md)。
-* [在 HDInsight 叢集上安裝及使用 Giraph](hdinsight-hadoop-giraph-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]
+* [在 HDInsight 叢集上安裝和使用 Apache Solr](hdinsight-hadoop-solr-install.md)。
+* [在 HDInsight 叢集上安裝和使用 Apache Giraph](hdinsight-hadoop-giraph-install.md)。
 
 [hdinsight-install-spark]: hdinsight-hadoop-spark-install.md
 [hdinsight-write-script]: hdinsight-hadoop-script-actions.md

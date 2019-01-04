@@ -1,20 +1,20 @@
 ---
-title: 使用 Python 從 Azure 事件中樞接收事件 | Microsoft Docs
-description: 開始使用 Python 從事件中樞接收事件
+title: 使用 Python 來接收事件 - Azure 事件中樞 | Microsoft Docs
+description: 本文將逐步解說如何建立一個會從「Azure 事件中樞」接收事件的 Python 應用程式。
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 11/26/2018
 ms.author: shvija
-ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: bc1cf07c5a74bc4d7182eea5281e75525fd04247
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286974"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103179"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>使用 Python 從事件中樞接收事件
 
@@ -30,11 +30,9 @@ Azure 事件中樞是可高度擴充的事件管理系統，每秒可以處理�
 
 若要完成本教學課程，您需要下列必要條件：
 
+- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前[建立免費帳戶](https://azure.microsoft.com/free/)。
 - Python 3.4 或更新版本。
 - 現有的事件中樞命名空間和事件中樞。 請依照[此文章](event-hubs-create.md)中的指示來建立這些實體。 
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
 
 ## <a name="install-python-package"></a>安裝 Python 套件
 

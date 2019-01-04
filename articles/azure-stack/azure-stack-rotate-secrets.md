@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8d84801aacfc60bb11aac4c9046a433378a59b79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 2b1dc0ad28a6608e3a46087d31a3d077e9291a3d
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314468"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52841671"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中輪替使用祕密
 
@@ -44,7 +44,7 @@ Azure Stack 會使用各種祕密來維護 Azure Stack 基礎結構資源和服�
 
    <sup>*</sup> 僅在環境的身分識別提供者是 Active Directory 同盟服務 (AD FS) 時適用。
 
-> [!NOTE]
+> [!NOTE]  
 > 其他所有安全金鑰和字串，包括 BMC 和交換器密碼，以及使用者和系統管理員帳戶密碼仍然由系統管理員手動更新。 
 
 為維持 Azure Stack 基礎結構的完整性，操作員必須可定期輪替其基礎結構的秘密，而輪替頻率需與其組織的安全性需求一致。
@@ -65,7 +65,7 @@ Azure Stack 支援在下列環境中使用新憑證授權單位 (CA) 的外部�
 |從公用<sup>*</sup>|到自我簽署|不支援||
 |從公用<sup>*</sup>|到公用<sup>*</sup>|支援|1803 或更新版本|
 
-<sup>*</sup> 此處的公用憑證授權單位都包含在 Windows 受信任的根憑證計劃之中。 您可以在 [Microsoft 受信任的根憑證計劃：參與者 (自 2017 年 6 月 27 日起)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca) 中找到完整清單。
+<sup>*</sup> 此處的公用憑證授權單位都包含在 Windows 受信任的根憑證計劃之中。 您可以找到完整清單 [Microsoft 受信任的根憑證計劃：參與者 (截至 2017 年 6 月 27 日為止)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
 ## <a name="alert-remediation"></a>警示補救
 
@@ -199,7 +199,7 @@ Remove-PSSession -Session $PEPSession
 
 1. 依照您的 OEM 指示，在 Azure Stack 的實體伺服器上更新 BMC。 您環境中每個 BMC 的密碼必須相同。
 2. 在 Azure Stack 工作階段中開啟具有特殊權限的端點。 如需相關指示，請參閱[使用 Azure Stack 中具有特殊權限的端點](azure-stack-privileged-endpoint.md)。
-3. 在您的 PowerShell 提示變更為 **[IP 位址或 ERCS VM 名稱]: PS>** 或變更為 **[azs-ercs01]: PS>** (取決於環境) 之後，藉由執行 `invoke-command` 來執行 `Set-BmcPassword`。 將具有特殊權限的端點工作階段變數當作參數傳送。 例如︰
+3. 在您的 PowerShell 提示變更為 **[IP 位址或 ERCS VM 名稱]:PS>** 或變更為 **[azs-ercs01]:PS>** (取決於環境) 之後，藉由執行 `invoke-command` 來執行 `Set-BmcPassword`。 將具有特殊權限的端點工作階段變數當作參數傳送。 例如︰
 
     ```powershell
     # Interactive Version

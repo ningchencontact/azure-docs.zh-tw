@@ -4,14 +4,16 @@ ms.service: container-service
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
-ms.openlocfilehash: f4acec3db7d74b969c55e725d9ec1c5f063b552c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: cc72fb39bf62915be10493a780538121f26ca835
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51628107"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002266"
 ---
-# <a name="securing-docker-containers-in-azure-container-service"></a>保護 Azure Container Service 中的 Docker 容器
+# <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(已淘汰) 保護 Azure Container Service 中的 Docker 容器
+
+[!INCLUDE [ACS deprecation](container-service-deprecation.md)]
 
 本文將介紹為部署在 Azure Container Service 中的 Docker 容器提供保護時的注意事項和建議。 其中的許多注意事項通常適用於 Azure 或其他環境中所部署的 Docker 容器。 
 
@@ -56,11 +58,11 @@ Azure Container Service 中提供的每個 Orchestrator 都有它自己的安全
 
 如需其他 Orchestrator 特有的安全性資訊，請參閱下列資源︰
 
-* **Kubernetes**：[Kubernetes 部署的安全性最佳做法](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
+* **Kubernetes**：[Kubernetes 部署的安全性最佳做法](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/) (英文)
 
-* **DC/OS**：[保護您的叢集](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
+* **DC/OS**：[保護您的叢集](https://dcos.io/docs/1.8/administration/securing-your-cluster/) (英文)
 
-* **Docker Swarm**：[Docker 安全性](https://www.docker.com/docker-security)
+* **Docker Swarm**：[Docker 安全性](https://www.docker.com/docker-security) (英文)
 
 ## <a name="next-steps"></a>後續步驟
 

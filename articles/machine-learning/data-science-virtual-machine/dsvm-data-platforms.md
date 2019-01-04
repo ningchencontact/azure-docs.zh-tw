@@ -1,11 +1,12 @@
 ---
 title: 資料科學虛擬機器的資料平台 - Azure | Microsoft Docs
-description: 資料科學虛擬機器的資料平台。
+description: 了解資料科學虛擬機器上支援的資料平台和工具。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,14 +16,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b3f340006801287383c2afb2924706affbd77a51
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31411024"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105542"
 ---
-# <a name="data-platforms"></a>資料平台
+# <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>資料科學虛擬機器上所支援的資料平台
 
 資料科學虛擬機器 (DSVM) 可讓您遵循各種不同的資料平台建立您的分析。 除了遠端資料平台的介面之外，DSVM 也提供快速開發和原型設計的本機執行個體。 
 
@@ -33,7 +34,7 @@ ms.locfileid: "31411024"
 | | |
 | ------------- | ------------- |
 | 這是什麼？   | 本機關聯式資料庫執行個體      |
-| 支援的 DSVM 版本      | Windows      |
+| 支援的 DSVM 版本      |  Windows      |
 | 典型的使用案例      | 在本機使用較小的資料集進行快速的開發 <br/> 執行資料庫內 R   |
 | 範例的連結      |    New York City 資料集的一個小型範例載入至 SQL 資料庫 `nyctaxi`。 <br/> 顯示 Microsoft R 和資料庫中內分析的 Jupyter 範例位於：<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`  |
 | DSVM 上的相關工具       | SQL Server Management Studio <br/> ODBC/JDBC 驅動程式<br/> pyodbc、RODBC<br />Apache 深入探詢      |
@@ -100,7 +101,7 @@ SQL Server 是以標準方式安裝的。 它位於 `C:\Program Files\Microsoft 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>它是如何在 DSVM 上設定/安裝的？ 
 |平台|安裝位置 ($SPARK_HOME)|
 |:--------|:--------|
-|Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
+| Windows | c:\dsvm\tools\spark-X.X.X-bin-hadoopX.X|
 |Linux   | /dsvm/tools/spark-X.X.X-bin-hadoopX.X|
 
 

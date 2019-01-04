@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7671a0a99e12463fcce5ff33fbcba7e8677dde05
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 91102b9fe57b2291ce1d1678b71b3a8b0b834864
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006189"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721964"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>可以在 Active Directory B2C 中使用的應用程式類型
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C 支援各種現代應用程式架構的驗
 * 可唯一識別應用程式的**應用程式識別碼**。
 * 可用來將回應導回應用程式的**回覆 URL**。
 
-每個傳送至 Azure AD B2C 的要求都指定一個 **原則**。 原則控制 Azure AD 的行為。 您也可以使用這些端點來建立一組可靈活自訂的使用者體驗。 常見的原則包括註冊、登入和設定檔編輯原則。 如果您不熟悉原則，在繼續之前，請參閱 Azure AD B2C 的 [可延伸原則架構](active-directory-b2c-reference-policies.md) 。
+每個傳送至 Azure AD B2C 的要求會指定**使用者流程**，這是一個可控制 Azure AD 行為的原則。 您也可以使用這些端點來建立一組可靈活自訂的使用者體驗。 我們提供一組使用者流程來協助您設定一般原則，包括註冊、登入和設定檔編輯原則。 但是您也可以建立自己的自訂原則。 如果您不熟悉原則，在繼續之前，請參閱 Azure AD B2C 的 [可延伸原則架構](active-directory-b2c-reference-policies.md) 。
 
 每個應用程式的互動都遵循類似的高階模式：
 
@@ -165,8 +165,8 @@ Web API 接收的權杖可以來自許多類型的用戶端，包括 Web 應用�
 
 當您建立行動/原生應用程式時，您會定義**重新導向 URI** 而不是**回覆 URL**。 選擇重新導向 URI 時，有兩個重要考量︰
 
-- **唯一**︰每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，使用者會看到 [選擇應用程式] 對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
-- **完成**︰重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 中沒有任何特殊字元，例如底線。
+- **唯一**：每個應用程式的重新導向 URI 的配置都應該是唯一。 在範例 `com.onmicrosoft.contoso.appname://redirect/path`中，`com.onmicrosoft.contoso.appname` 為配置。 應該遵循這個模式。 如果兩個應用程式共用相同配置，使用者會看到 [選擇應用程式] 對話方塊。 如果使用者選擇不正確的項目，則會登入失敗。
+- **完整**︰重新導向 URI 必須有配置和路徑。 路徑的網域後面必須至少包含一個正斜線。 例如，`//contoso/` 可正常運作，而 `//contoso` 會失敗。 確定重新導向 URI 中沒有任何特殊字元，例如底線。
 
 ### <a name="faulted-apps"></a>發生錯誤的應用程式
 

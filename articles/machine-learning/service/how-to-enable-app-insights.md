@@ -1,6 +1,7 @@
 ---
-title: 啟用 Azure Machine Learning 服務的 Application Insights
-description: 了解如何為透過 Azure Machine Learning 服務部署的服務設定 Application Insights
+title: 使用 Application Insights 來監視模型
+titleSuffix: Azure Machine Learning service
+description: 使用 Application Insights 來監視透過 Azure Machine Learning 服務部署的 Web 服務
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,12 +10,13 @@ ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 10/01/2018
-ms.openlocfilehash: 9e0f07e744aaf5f1c35666b40285937dce6dd4de
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 176d0f00774106bbf9ae8dade0fe3fd4062530bb
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275049"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53277167"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>使用 Application Insights 監視您的 Azure Machine Learning 模型
 
@@ -25,12 +27,11 @@ ms.locfileid: "52275049"
 
 [深入了解 Application Insights](../../application-insights/app-insights-overview.md)。 
 
->[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 0.1.74 版進行測試
-
 
 ## <a name="prerequisites"></a>必要條件
-* Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree)。
+
+* 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
+
 * 已安裝 Azure Machine Learning 工作區、包含指令碼的本機目錄，以及適用於 Python 的 Azure Machine Learning SDK。 若要了解如何取得這些必要條件，請參閱[如何設定開發環境](how-to-configure-environment.md)。
 * 要部署至 Azure Kubernetes Service (AKS) 或 Azure Container 執行個體 (ACI) 的已訓練機器學習模型。 如果您沒有模型，請參閱[將影像分類模型定型](tutorial-train-models-with-aml.md)教學課程。
 
@@ -51,7 +52,7 @@ ms.locfileid: "52275049"
     ```
 
 ### <a name="log-custom-traces-in-your-service"></a>記錄您服務中的自訂追蹤
-如果您想要記錄自訂追蹤，請遵循 [AKS](how-to-deploy-to-aks.md) 或 [ACI](how-to-deploy-to-aci.md) 的標準部署程序。 然後：
+如果您想要記錄自訂追蹤，請依循[部署方式及位置](how-to-deploy-and-where.md)文件中的 AKS 或 ACI 標準部署程序。 然後使用下列步驟：
 
 1. 新增 print 陳述式以更新評分檔案。
     
@@ -100,7 +101,7 @@ ms.locfileid: "52275049"
 1. 在 [Azure 入口網站](https://portal.azure.com)中，開啟您的工作區。
 1. 選取 [部署]，選取服務，然後選取 [編輯]。
 
-   [![[編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![使用 [編輯] 按鈕](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. 在 [進階設定] 中，清除 [啟用 AppInsights 診斷] 核取選項。 
 
@@ -130,7 +131,7 @@ ms.locfileid: "52275049"
 
 ## <a name="example-notebook"></a>範例筆記本
 
-[00.Getting Started/13.enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/13.enable-app-insights) Notebook 會示範本文中的概念。  請取得此筆記本：
+[how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) Notebook 會示範本文中的概念。 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

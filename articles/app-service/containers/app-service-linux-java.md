@@ -1,6 +1,6 @@
 ---
-title: Linux 上 Azure App Service 的 Java 語言支援 | Microsoft Docs
-description: 使用 Linux 上的 Azure App Service 部署 Java 應用程式開發人員指南。
+title: Linux 上 App Service 的 Java 開發人員指南 - Azure | Microsoft Docs
+description: 了解如何設定在 Linux 上 Azure App Service 中執行的 Java 應用程式。
 keywords: Azure App Service, Web 應用程式, Linux, OSS, Java
 services: app-service
 author: rloutlaw
@@ -10,14 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 12/10/2018
 ms.author: routlaw
-ms.openlocfilehash: 8d15aeb92911a26a9a42a0449a24e8c0fee4467b
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.custom: seodec18
+ms.openlocfilehash: 6a9f3fcb372606e7f608b5137fb1ed15376d72d9
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497340"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407332"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Linux 上 App Service 的 Java 開發人員指南
 
@@ -31,7 +32,7 @@ Linux 上的 Azure App Service 可讓 Java 開發人員在全受控 Linux 服務
 
 ## <a name="application-performance-monitoring"></a>應用程式效能監視
 
-請參閱 [Linux 上 Azure App Service 之 Java 應用程式的應用程式效能監視工具](how-to-java-apm-monitoring.md) (英文)，以瞭解如何在 Linux 上使用於應用程式服務上執行的 Java 應用程式，來設定 New Relic 與 AppDynamics。
+請參閱[與 Linux 之 Azure App Service 上的 Java 應用程式搭配使用的應用程式效能監視工具](how-to-java-apm-monitoring.md)，以了解如何在 Linux 上使用於應用程式服務上執行的 Java 應用程式來設定 New Relic 與 AppDynamics。
 
 ### <a name="ssh-console-access"></a>SSH 主控台存取 
 
@@ -53,7 +54,7 @@ az webapp log config --name ${WEBAPP_NAME} \
 az webapp log tail --name webappname --resource-group myResourceGroup
 ```
 
-如需詳細資訊，請參閱[使用 Azure CLI 串流處理記錄](/azure/app-service/web-sites-enable-diagnostic-log#streaming-with-azure-command-line-interface)。
+如需詳細資訊，請參閱[使用 Azure CLI 串流處理記錄](../web-sites-enable-diagnostic-log.md#streaming-with-azure-cli)。
 
 ### <a name="app-logging"></a>應用程式記錄
 
@@ -134,7 +135,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="authenticate-users"></a>驗證使用者
 
-使用 [驗證與授權] 選項，設定 Azure 入口網站中的應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication)，以及其他身分識別提供者的相關文章。
+使用 [驗證與授權] 選項，設定 Azure 入口網站中的應用程式驗證。 在這裡，您可以使用 Azure Active Directory 或社交登入 (例如 Facebook、Google 或 GitHub) 來啟用驗證。 只有在設定單一驗證提供者時，Azure 入口網站設定才會運作。  如需詳細資訊，請參閱[設定 App Service 應用程式使用 Azure Active Directory 登入](/azure/app-service/configure-authentication-provider-aad)，以及其他身分識別提供者的相關文章。
 
 如果您需要啟用多個登入提供者，請遵循[自訂 App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to)一文中的指示。
 
@@ -151,36 +152,47 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 >[!NOTE]
 > 如果您的應用程式使用 Spring Framework 或 Spring Boot，則可以設定 Spring Data JPA 的資料庫連線資訊作為環境變數 [在應用程式屬性檔案中]。 然後使用[應用程式設定](/azure/app-service/web-sites-configure#app-settings)，以在 Azure 入口網站或 CLI 中定義您應用程式的這些值。
 
-本節的範例設定程式碼片段使用 MySQL 資料庫。 如需詳細資訊，請參閱 [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) \(英文\)、[SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017) 及 [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html) \(英文\) 的設定文件。
+這些指示適用於所有資料庫連線。 您將必須在預留位置中填入您所選資料庫的驅動程式類別名稱和 JAR 檔案。 下表提供常見資料庫的類別名稱和驅動程式下載。
 
-若要使用 Java Database Connectivity (JDBC) 或 Java Persistence API (JPA) 設定 Tomcat 使用受控資料庫連線，請先自訂 Tomcat 在啟動時所讀入的 CATALINA_OPTS 環境變數。 透過 App Service Maven 外掛程式中的應用程式設定這些值：
+| 資料庫   | 驅動程式類別名稱                             | JDBC 驅動程式                                                                      |
+|------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
+| PostgreSQL | `org.postgresql.Drvier`                        | [下載](https://jdbc.postgresql.org/download.html)                                    |
+| MySQL      | `com.mysql.jdbc.Driver`                        | [下載](https://dev.mysql.com/downloads/connector/j/) (請選取 [Platform Independent] \(不受平台影響\)) |
+| SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [下載](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
+
+若要設定讓 Tomcat 使用「Java 資料庫連線」(JDBC) 或「Java 保存 API」(JPA)，請先自訂 Tomcat 在啟動時所讀入的 `CATALINA_OPTS` 環境變數。 請透過 [App Service Maven 外掛程式](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)中的應用程式設定來設定這些值：
 
 ```xml
 <appSettings> 
     <property> 
         <name>CATALINA_OPTS</name> 
-        <value>"$CATALINA_OPTS -Dmysqluser=${mysqluser} -Dmysqlpass=${mysqlpass} -DmysqlURL=${mysqlURL}"</value> 
+        <value>"$CATALINA_OPTS -Ddbuser=${DBUSER} -Ddbpassword=${DBPASSWORD} -DconnURL=${CONNURL}"</value> 
     </property> 
 </appSettings> 
 ```
 
-或者是 Azure 入口網站中的對等 App Service 設定。
+或是在 Azure 入口網站的 [應用程式設定] 刀鋒視窗中設定環境變數。
 
-接下來，判斷需要資料來源僅供 App Service 方案上執行的一個應用程式還是所有應用程式使用。
+>[!NOTE]
+> 如果您使用「適用於 Postgres 的 Azure 資料庫」，請將 JDBC 連接字串中的 `ssl=true` 取代成 `sslmode=require`。
 
-針對應用程式層級資料來源： 
+接著，決定資料來源應僅供在 Tomcat Servlet 上執行的一個應用程式還是所有應用程式使用。
 
-1. 請將 `context.xml` 檔案 (若不存在) 新增至 Web 應用程式，並在建置專案時於其中新增 WAR 檔案的 `META-INF` 目錄。
+#### <a name="for-application-level-data-sources"></a>針對應用程式層級資料來源： 
 
-2. 在此檔案中，新增 `Context` 路徑項目，以將資料來源連結至 JNDI 位址。
+1. 在您專案的 `META-INF/` 目錄中建立 `context.xml` 檔案。 建立 `META-INF/`目錄 (如果此目錄不存在)。
+
+2. 在 `context.xml` 中，新增 `Context` 元素以將資料來源連結至 JNDI 位址。 以上表中您驅動程式的類別名稱取代 `driverClassName` 預留位置。
 
     ```xml
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
     ```
@@ -189,38 +201,50 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-針對共用伺服器層級資源：
+#### <a name="for-shared-server-level-resources"></a>針對共用伺服器層級資源：
 
 1. 如果您尚未設定，則會使用 SSH 將 `/usr/local/tomcat/conf` 的內容複製至 App Service Linux 執行個體上的 `/home/tomcat/conf`。
+    ```
+    mkdir -p /home/tomcat
+    cp -a /usr/local/tomcat/conf /home/tomcat/conf
+    ```
 
-2. 將內容新增至 `server.xml`
+2. 在您 `server.xml` 的 `<Server>` 元素內新增 Context 元素。
 
     ```xml
+    <Server>
+    ...
     <Context>
         <Resource
-            name="jdbc/mysqldb" type="javax.sql.DataSource"
-            url="${mysqlURL}"
-            driverClassName="com.mysql.jdbc.Driver"
-            username="${mysqluser}" password="${mysqlpass}"
+            name="jdbc/dbconnection" 
+            type="javax.sql.DataSource"
+            url="${dbuser}"
+            driverClassName="<insert your driver class name>"
+            username="${dbpassword}" 
+            password="${connURL}"
         />
     </Context>
+    ...
+    </Server>
     ```
 
 3. 更新您應用程式的 `web.xml`，以使用您應用程式中的資料來源。
 
     ```xml
     <resource-env-ref>
-        <resource-env-ref-name>jdbc/mysqldb</resource-env-ref-name>
+        <resource-env-ref-name>jdbc/dbconnection</resource-env-ref-name>
         <resource-env-ref-type>javax.sql.DataSource</resource-env-ref-type>
     </resource-env-ref>
     ```
 
-4. 請確定 Tomcat classloader 可以使用 JDBC 驅動程式檔案，方法是將它們放在 `/home/tomcat/lib` 目錄中。 若要將這些檔案上傳至 App Service 執行個體，請執行下列步驟：  
+#### <a name="finally-place-the-driver-jars-in-the-tomcat-classpath-and-restart-your-app-service"></a>最後，將驅動程式 JAR 放在 Tomcat 類別路徑中，然後重新啟動您的 App Service： 
+
+1. 請確定 Tomcat classloader 可以使用 JDBC 驅動程式檔案，方法是將它們放在 `/home/tomcat/lib` 目錄中。 (如果此目錄尚未存在，請建立此目錄)。若要將這些檔案上傳至 App Service 執行個體，請執行下列步驟：  
     1. 安裝 Azure App Service webpp 延伸模組：
 
       ```azurecli-interactive
@@ -235,7 +259,9 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
     3. 使用您的 SFTP 用戶端來連線至本機通道連接埠，然後將檔案上傳至 `/home/tomcat/lib` 資料夾。
 
-5. 重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat/conf`，並使用已更新的設定和類別。
+    或著，您也可以使用 FTP 用戶端來上傳 JDBC 驅動程式。 請依照這些[指示來取得您的 FTP 認證](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials) \(英文\)。
+
+2. 如果您已建立伺服器層級的資料來源，請重新啟動 App Service Linux 應用程式。 Tomcat 會將 `CATALINA_HOME` 重設為 `/home/tomcat/conf`，並使用已更新的設定。
 
 ## <a name="docker-containers"></a>Docker 容器
 
@@ -245,7 +271,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 App Service for Linux 支援 Java Web 應用程式受控裝載的兩個執行階段：
 
-- [Tomcat servlet 容器](http://tomcat.apache.org/)，適用於執行封裝為 Web 封存 (WAR) 檔案的應用程式。 支援的版本是 8.5 和 9.0。
+- [Tomcat servlet 容器](https://tomcat.apache.org/)，適用於執行封裝為 Web 封存 (WAR) 檔案的應用程式。 支援的版本是 8.5 和 9.0。
 - Java SE 執行階段環境，適用於執行封裝為 Java 封存 (JAR) 檔案的應用程式。 唯一支援的主要版本是 Java 8。
 
 ## <a name="java-runtime-statement-of-support"></a>Java 執行階段支援聲明 

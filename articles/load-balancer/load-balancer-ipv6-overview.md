@@ -1,5 +1,6 @@
 ---
-title: Azure Load Balancer 的 IPv6 概觀 | Microsoft Docs
+title: Azure Load Balancer 的 IPv6 概觀
+titlesuffix: Azure Load Balancer
 description: 了解 Azure Load Balancer 和負載平衡 VM 的 IPv6 支援。
 services: load-balancer
 documentationcenter: na
@@ -8,16 +9,17 @@ keywords: ipv6, azure load balancer, 雙重堆疊, 公用 ip, 原生 ipv6, 行�
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: kumud
-ms.openlocfilehash: 379407c8d9e5c6a5a0476fd88ea2dda6e7994e0f
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 894a56c2e51e8fa8a2d72253563d218416ace4cb
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739323"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53161928"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer 的 IPv6 概觀
 

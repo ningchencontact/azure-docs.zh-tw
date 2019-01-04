@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 84c2faaf137e19d78e7e17527feb50baebf8041b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dbe234b3c6aaeed90f0b95e5118c1ff2f9e2bb24
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494569"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276871"
 ---
 # <a name="sfctl-service"></a>sfctl service
 建立、刪除與管理服務、服務類型和服務套件。
@@ -520,7 +520,7 @@ ms.locfileid: "39494569"
 | --- | --- |
 | --service-id [必要] | 服務的身分識別。 此識別碼通常是不含 'fabric\:' URI 配置的服務完整名稱。 從 6.0 版開始，階層的名稱會以 "\~" 字元分隔。 例如，如果服務名稱是 "fabric\:/myapp/app1/svc1"，則服務識別在 6.0+ 中會是 "myapp\~app1\~svc1"，而在舊版中會是 "myapp/app1/svc1"。 |
 | --partition-key-type | 資料分割的索引鍵類型。 如果服務的分割區配置是 Int64Range 或 Named，就必須設定此參數。 可能的值如下。 - None (1) - 指出未指定 PartitionKeyValue 參數。 這適用於分割區配置為 Singleton 的分割區。 這是預設值。 值為 1。 - Int64Range (2) - 指出 PartitionKeyValue 參數是 int64 分割區索引鍵。 這適用於分割區配置為 Int64Range 的分割區。 值為 2。 - Named (3) - 指出 PartitionKeyValue 參數是分割區名稱。 這適用於分割區配置為 Named 的分割區。 值為 3。 |
-| --partition-key-value | 資料分割索引鍵。 如果服務的分割區配置是 Int64Range 或 Named，就必須設定此項目。 |
+| --partition-key-value | 資料分割索引鍵。 如果服務的分割區配置是 Int64Range 或 Named，就必須設定此項目。 這不是分割區識別碼，而是整數金鑰值或分割區識別碼的名稱。 例如，如果您的服務使用從 0 到 10 的定界分割，它們的 PartitionKeyValue 就會是該範圍內的整數。 請查詢服務描述以查看範圍或名稱。 |
 | --previous-rsp-version | 先前所收到回應中 [版本] 欄位的值。 如果使用者知道先前取得的結果已過時，就必須設定此項目。 |
 | --timeout -t | 伺服器逾時 (秒)。  預設值\: 60。 |
 

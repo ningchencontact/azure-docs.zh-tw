@@ -1,5 +1,5 @@
 ---
-title: 從 Azure 儲存體在 Linux 上的 App Service 中提供內容
+title: 從 Linux 上的 Azure 儲存體提供內容 - App Service
 description: 如何從 Azure 儲存體設定，並在 Linux 上的 App Service 中提供內容。
 author: msangapu
 manager: jeconnoc
@@ -8,12 +8,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: msangapu
-ms.openlocfilehash: 8d4444aac7f84753f55c434d0a3f5ef0edcfb1c4
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.custom: seodec18
+ms.openlocfilehash: 855df2820db6bba2b47d543ab671bee2193d7d9b
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980160"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250907"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>從 Azure 儲存體在 Linux 上的 App Service 中提供內容
 
@@ -21,7 +22,7 @@ ms.locfileid: "50980160"
 
 ## <a name="prerequisites"></a>必要條件
 
-- 現有的 Web 應用程式 (Linux 上的 App Service 或適用於容器的 Web 應用程式)。
+- 現有的 Web 應用程式 (Linux 上的 App Service 或 用於容器的 Web App)。
 - [Azure CLI](/cli/azure/install-azure-cli) (2.0.46 或更新版本)。
 
 ## <a name="create-azure-storage"></a>建立 Azure 儲存體
@@ -67,7 +68,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 一旦儲存體容器連結至 Web 應用程式，您就可以執行以下命令來確認：
 
 ```azurecli
-az webapp conf storage-account list --resource-group <group_name> --name <app_name>
+az webapp config storage-account list --resource-group <group_name> --name <app_name>
 ```
 
 ## <a name="next-steps"></a>後續步驟

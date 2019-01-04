@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 11/26/2018
+ms.date: 12/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 58bec272733d0ad83665f4e06f37ae528eb2f8b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: d6696d9bdd69b085b9c9ac0804da68cd91612f35
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499647"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53386956"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>適用於 Azure 資源的內建角色
 [角色型存取控制 (RBAC)](overview.md) 具有數個內建角色定義，可供您指派給使用者、群組和服務主體。 角色指派是您控制 Azure 資源存取權的方式。 如果內建的角色無法滿足您組織的特定需求，您可以建立自己的[自訂角色](custom-roles.md)。
@@ -92,13 +92,13 @@ ms.locfileid: "52499647"
 | [受控身分識別操作員](#managed-identity-operator) | 讀取及指派使用者指派的身分識別 |
 | [管理群組參與者](#management-group-contributor) | 管理群組參與者角色 |
 | [管理群組讀者](#management-group-reader) | 管理群組讀者角色 |
-| [監視參與者](#monitoring-contributor) | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
+| [監視參與者](#monitoring-contributor) | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [監視計量發行者](#monitoring-metrics-publisher) | 針對 Azure 資源啟用發佈計量 |
-| [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
+| [監視讀取器](#monitoring-reader) | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 | [網路參與者](#network-contributor) | 可讓您管理網路，但無法存取它們。 |
 | [New Relic APM 帳戶參與者](#new-relic-apm-account-contributor) | 可讓您管理 New Relic Application Performance Management 帳戶及應用程式，但無法存取它們。 |
 | [讀取者及資料存取](#reader-and-data-access) | 可讓您檢視所有內容，但無法讓您刪除或建立儲存體帳戶或內含的資源。 也可透過存取儲存體帳戶金鑰，對儲存體帳戶中內含的所有資料進行讀取/寫入存取。 |
-| [Redis 快取參與者](#redis-cache-contributor) | 可讓您管理 Redis 快取，但無法存取它們。 |
+| [Azure Cache for Redis 參與者](#redis-cache-contributor) | 可讓您管理 Azure Cache for Redis，但無法加以存取。 |
 | [資源原則參與者 (預覽)](#resource-policy-contributor-preview) | (預覽) 從 EA 回填的使用者，有權建立/修改資源原則、建立支援票證及讀取資源/階層。 |
 | [排程器工作集合參與者](#scheduler-job-collections-contributor) | 可讓您管理「排程器」工作集合，但無法存取它們。 |
 | [搜尋服務參與者](#search-service-contributor) | 可讓您管理「搜尋」服務，但無法存取它們。 |
@@ -114,6 +114,7 @@ ms.locfileid: "52499647"
 | [儲存體帳戶參與者](#storage-account-contributor) | 可讓您管理儲存體帳戶，但無法存取它們。 |
 | [儲存體帳戶金鑰操作員服務角色](#storage-account-key-operator-service-role) | 「儲存體帳戶金鑰操作員」可以列出及重新產生「儲存體帳戶」的金鑰 |
 | [儲存體 Blob 資料參與者 (預覽)](#storage-blob-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
+| [儲存體 Blob 資料擁有者 (預覽)](#storage-blob-data-owner-preview) | 可讀取、寫入、刪除及 POSIX 超級使用者存取 Azure 儲存體 Blob 容器與資料 |
 | [儲存體 Blob 資料讀者 (預覽)](#storage-blob-data-reader-preview) | 可讀取 Azure 儲存體 Blob 容器與資料 |
 | [儲存體佇列資料參與者 (預覽)](#storage-queue-data-contributor-preview) | 可讀取、寫入及刪除 Azure 儲存體佇列與佇列訊息 |
 | [儲存體佇列資料讀者 (預覽)](#storage-queue-data-reader-preview) | 可讀取 Azure 儲存體佇列與佇列訊息 |
@@ -1193,7 +1194,7 @@ ms.locfileid: "52499647"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
+> | **說明** | 可以讀取所有監視資料並編輯監視設定。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 > | **Id** | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | **動作** |  |
 > | */read | 讀取密碼以外的所有類型的資源。 |
@@ -1237,7 +1238,7 @@ ms.locfileid: "52499647"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles)。 |
+> | **說明** | 可以讀取所有監視資料 (計量、記錄檔等等)。 請參閱[開始使用 Azure 監視器的角色、權限和安全性](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
 > | **Id** | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | **動作** |  |
 > | */read | 讀取密碼以外的所有類型的資源。 |
@@ -1284,15 +1285,15 @@ ms.locfileid: "52499647"
 > | Microsoft.Storage/storageAccounts/listKeys/action | 傳回指定儲存體帳戶的存取金鑰。 |
 > | Microsoft.Storage/storageAccounts/read | 傳回儲存體帳戶清單，或取得指定儲存體帳戶的屬性。 |
 
-## <a name="redis-cache-contributor"></a>Redis 快取參與者
+## <a name="azure-cache-for-redis-contributor"></a>Azure Cache for Redis 參與者
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **說明** | 可讓您管理 Redis 快取，但無法存取它們。 |
+> | **說明** | 可讓您管理 Azure Cache for Redis，但無法加以存取。 |
 > | **Id** | e0f68234-74aa-48ed-b826-c38b57376e17 |
 > | **動作** |  |
 > | Microsoft.Authorization/*/read | 讀取角色和角色指派 |
-> | Microsoft.Cache/redis/* | 建立和管理 Redis 快取 |
+> | Microsoft.Cache/redis/* | 建立和管理 Azure Cache for Redis |
 > | Microsoft.Insights/alertRules/* | 建立及管理警示規則 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 取得指定範圍中所有資源的可用性狀態 |
 > | Microsoft.Resources/deployments/* | 建立和管理資源群組部署 |
@@ -1687,6 +1688,21 @@ ms.locfileid: "52499647"
 > | --- | --- |
 > | **說明** | 可讀取、寫入及刪除 Azure 儲存體 Blob 容器與資料 |
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | **動作** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | 傳回放置或租用 Blob 容器的結果 |
+> | **DataActions** |  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | 傳回刪除 Blob 的結果 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | 傳回 Blob 或 Blob 清單 |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | 傳回寫入 Blob 的結果 |
+
+## <a name="storage-blob-data-owner-preview"></a>儲存體 Blob 資料擁有者 (預覽)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **說明** | 可讀取、寫入、刪除及 POSIX 超級使用者存取 Azure 儲存體 Blob 容器與資料 |
+> | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **動作** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | 傳回刪除容器的結果 |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/read | 傳回容器或容器清單 |

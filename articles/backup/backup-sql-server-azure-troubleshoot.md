@@ -3,7 +3,7 @@ title: 適用於 SQL Server VM 的 Azure 備份疑難排解指南 | Microsoft Do
 description: 關於將 SQL Server VM 備份至 Azure 的疑難排解資訊。
 services: backup
 documentationcenter: ''
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 editor: ''
 keywords: ''
@@ -11,17 +11,16 @@ ms.assetid: ''
 ms.service: backup
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: markgal;anuragm
+ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 1c87382c2aae70b022fb391f80f7c75b0a4e5fe6
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36296955"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339513"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>針對 Azure 上的 SQL Server 備份進行疑難排解
 
@@ -79,13 +78,13 @@ ms.locfileid: "36296955"
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | 資料來源的交易記錄已滿，所以無法擷取備份。 | 資料庫的交易記錄空間已滿。 | 若要修正這個問題，請參閱 [SQL 文件](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error)。 |
-| 此 SQL 資料庫不支援所要求的備份類型。 | Always On AG 次要複本不支援完整和差異備份。 | <ul><li>如果您已觸發臨機操作備份，則請觸發主要節點上的備份。</li><li>如果是透過原則來排程備份的話，請確定主要節點已註冊。 若要註冊節點，請[遵循步驟來探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。</li></ul> | 
+| 此 SQL 資料庫不支援所要求的備份類型。 | Always On AG 次要複本不支援完整和差異備份。 | <ul><li>如果您已觸發臨機操作備份，則請觸發主要節點上的備份。</li><li>如果是透過原則來排程備份的話，請確定主要節點已註冊。 若要註冊節點，請[遵循步驟來探索 SQL Server 資料庫](backup-azure-sql-database.md#discover-sql-server-databases)。</li></ul> |
 
 ## <a name="restore-failures"></a>還原失敗
 
 還原作業失敗時會顯示下列錯誤碼。
 
-### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite 
+### <a name="usererrorcannotrestoreexistingdbwithoutforceoverwrite"></a>UserErrorCannotRestoreExistingDBWithoutForceOverwrite
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
@@ -108,7 +107,7 @@ ms.locfileid: "36296955"
 
 下面是註冊失敗的錯誤碼。
 
-### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError 
+### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
@@ -125,6 +124,16 @@ ms.locfileid: "36296955"
 | 錯誤訊息 | 可能的原因 | 建議的動作 |
 |---|---|---|
 | Azure 備份服務使用 Azure VM 客體代理程式來執行備份，但目標伺服器上無法使用客體代理程式。 | 客體代理程式未啟用，或其狀況不良 | 手動[安裝 VM 客體代理程式](../virtual-machines/extensions/agent-windows.md)。 |
+
+## <a name="configure-backup-failures"></a>設定備份失敗
+
+下列是設定備份失敗的錯誤碼。
+
+### <a name="autoprotectioncancelledornotvalid"></a>AutoProtectionCancelledOrNotValid
+
+| 錯誤訊息 | 可能的原因 | 建議的動作 |
+|---|---|---|
+| 自動保護用途可能已移除或不再有效。 | 您對於 SQL 執行個體啟用自動保護時，**設定備份**作業便會執行該執行個體中的所有資料庫。 如果您停用自動保護，而工作正在執行，則**進行中**工作會取消，並出現此錯誤碼。 | 再次啟用自動保護可保護其他所有的資料庫。 |
 
 ## <a name="next-steps"></a>後續步驟
 

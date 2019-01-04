@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: crdun
-ms.openlocfilehash: f88e6a4037bcca54982359742cdc6021f020882d
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: 506c59ca24aeafbac59b1508bb78142051302765
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27594712"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001807"
 ---
 # <a name="enable-offline-sync-for-your-xamarinforms-mobile-app"></a>啟用 Xamarin.Forms 行動應用程式的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -40,8 +40,8 @@ ms.locfileid: "27594712"
         #define OFFLINE_SYNC_ENABLED
 3. (選擇性) 若要支援 Windows 裝置，請安裝下列其中一個 SQLite 執行階段封裝︰
 
-   * **Windows 8.1 執行階段：** 安裝[適用於 Windows 8.1 的 SQLite][3]。
-   * **Windows Phone 8.1：** 安裝[適用於 Windows Phone 8.1 的 SQLite][4]。
+   * **Windows 8.1 執行階段：** 安裝 [SQLite for Windows 8.1][3]。
+   * **Windows Phone 8.1：** 安裝 [SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台：** 安裝 [適用於通用 Windows 平台的 SQLite][5]。
 
      雖然快速入門中未包含通用 Windows 專案，使用 Xamarin Forms 可支援通用 Windows 平台。
@@ -157,9 +157,9 @@ ms.locfileid: "27594712"
 <!-- URLs. -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [2]: app-service-mobile-offline-data-sync.md
-[3]: http://go.microsoft.com/fwlink/p/?LinkID=716919
-[4]: http://go.microsoft.com/fwlink/p/?LinkID=716920
-[5]: http://sqlite.org/2016/sqlite-uwp-3120200.vsix
+[3]: https://go.microsoft.com/fwlink/p/?LinkID=716919
+[4]: https://go.microsoft.com/fwlink/p/?LinkID=716920
+[5]: https://sqlite.org/2016/sqlite-uwp-3120200.vsix
 [6]: https://www.getpostman.com/
-[7]: http://www.telerik.com/fiddler
+[7]: https://www.telerik.com/fiddler
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

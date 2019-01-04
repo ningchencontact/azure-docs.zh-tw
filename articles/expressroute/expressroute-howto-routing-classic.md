@@ -1,18 +1,19 @@
 ---
-title: 如何設定 ExpressRoute 線路的路由 (對等互連)：Azure：傳統 | Microsoft Docs
+title: 設定線路的對等互連 - ExpresssRoute：Azure：傳統 | Microsoft Docs
 description: 本文將逐步引導您為 ExpressRoute 線路建立和佈建私用、公用及 Microsoft 對等。 本文也示範如何檢查狀態、更新或刪除線路的對等。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 07/27/2018
-ms.author: cherylmc;ganesr
-ms.openlocfilehash: d4d53d2f365e06c58dcbbb70ea168128c364fbfd
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/11/2018
+ms.author: cherylmc
+ms.custom: seodec18
+ms.openlocfilehash: fbf97c984a00d6bdd7f79c26094ae36348e00236
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52165215"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53342029"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>建立和修改 ExpressRoute 線路的對等互連 (傳統)
 > [!div class="op_single_selector"]
@@ -25,7 +26,7 @@ ms.locfileid: "52165215"
 > * [PowerShell (傳統)](expressroute-howto-routing-classic.md)
 > 
 
-本文將逐步引導您使用 PowerShell 和傳統部署模型，以建立和管理 ExpressRoute 電路的路由組態。 下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等。 您可以為 ExpressRoute 線路設定一個、兩個或全部三個對等 (Azure 私用、Azure 公用和 Microsoft)。 您可以依自己選擇的任何順序設定對等。 不過，您必須確定一次只完成一個對等的設定。 
+本文將逐步引導您使用 PowerShell 和傳統部署模型，來建立及管理 ExpressRoute 線路的對等互連和路由設定。 下列步驟也會示範如何檢查狀態、更新或刪除和取消佈建 ExpressRoute 線路的對等。 您可以為 ExpressRoute 線路設定一個、兩個或全部三個對等 (Azure 私用、Azure 公用和 Microsoft)。 您可以依自己選擇的任何順序設定對等。 不過，您必須確定一次只完成一個對等的設定。 
 
 這些指示只適用於由提供第 2 層連線服務的服務提供者所建立的線路。 如果您使用的服務提供者提供受控第 3 層服務 (通常是 IPVPN，如 MPLS)，連線提供者會為您設定和管理路由。
 
@@ -328,7 +329,7 @@ Remove-AzureBGPPeering -AccessType Public -ServiceKey "*************************
    * 次要連結的 /30 子網路。 這必須是您所擁有且註冊在 RIR / IRR 中的有效公用 IPv4 首碼。
    * 供建立此對等的有效 VLAN ID。 確定線路中沒有其他對等使用相同的 VLAN ID。
    * 對等的 AS 編號。 您可以使用 2 位元組和 4 位元組 AS 編號。
-   * 公告的首碼：您必須提供一份您打算在 BGP 工作階段上公告的所有首碼的清單。 只接受公用 IP 位址首碼。 如果您打算傳送一組首碼，您可以傳送逗號分隔清單。 這些首碼必須在 RIR / IRR 中註冊給您。
+   * 公告的首碼：您必須提供一份您打算透過 BGP 工作階段公告的所有首碼清單。 只接受公用 IP 位址首碼。 如果您打算傳送一組首碼，您可以傳送逗號分隔清單。 這些首碼必須在 RIR / IRR 中註冊給您。
    * 客戶 ASN：如果您要公告的首碼未註冊給對等 AS 編號，您可以指定它們所註冊的 AS 編號。 **選擇性**。
    * 路由登錄名稱：您可以指定可供註冊 AS 編號和首碼的 RIR / IRR。
    * MD5 雜湊 (如果選擇使用)。 **選用。**

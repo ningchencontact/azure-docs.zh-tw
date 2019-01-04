@@ -1,12 +1,11 @@
 ---
-title: 如何準備您的模型以在 Azure Machine Learning Studio 中部署 | Microsoft Docs
+title: 準備模型進行部署 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何將 Machine Learning Studio 訓練實驗轉換為預測實驗，將其準備妥當進行部署，然後當做 Web 服務部署。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: eb943c45-541a-401d-844a-c3337de82da6
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 7849a21e2d005584030375e2193f74a99b3977bd
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: ef54281b91147060e9c00bcc6e45e0db0fb8933a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265231"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273097"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>如何準備您的模型以在 Azure Machine Learning Studio 中部署
 
@@ -29,11 +28,11 @@ Azure Machine Learning Studio 提供所需的工具，以讓您開發預測分�
 
 若要這樣做，您必須使用 Studio 建立一個稱為「訓練實驗」的實驗，以訓練、評分和編輯您的模型。 滿意之後，即備妥模型以進行部署，方法是將訓練實驗轉換成「預測實驗」，並將後者設定成給使用者資料評分。
 
-如需此程序的範例，請參閱[逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測分析解決方案](walkthrough-develop-predictive-solution.md)。
+您可以在[逐步解說：在 Azure Machine Learning 中為信用風險評估開發預測性分析解決方案](walkthrough-develop-predictive-solution.md)中查看此程序的範例。
 
 本文所深入探討的詳細資料是有關如何將訓練實驗轉換成預測實驗，以及預測實驗的部署方式。 了解這些詳細資料，即可了解如何設定您已部署的模型，以讓它更具效率。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>概觀 
 

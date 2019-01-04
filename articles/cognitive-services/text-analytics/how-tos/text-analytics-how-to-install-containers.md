@@ -1,25 +1,26 @@
 ---
 title: 安裝及執行容器
-titleSuffix: Text Analytics - Cognitive Services - Azure
+titleSuffix: Text Analytics -  Azure Cognitive Services
 description: 本逐步解說教學課程的內容包含如何下載、安裝及執行適用於文字分析的容器。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 99bdb42d9a0d86d0d2acc4a6272e0c802042e6b5
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 11798c3bfd4032ad10c738032a816a2a0488ce67
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51635079"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53090528"
 ---
 # <a name="install-and-run-containers"></a>安裝及執行容器
 
-容器化是散發軟體的方法，它將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性，都包含在容器映像中。 接著可以將容器映像部署在容器主機上，且只需要小幅修改或不修改。 容器之間彼此隔離，也與基礎作業系統隔離，磁碟使用量比虛擬機器更小。 容器可以從容器將映像具現化以進行短期工作，並於不再需要時移除。
+容器化是散發軟體的方法，它會將應用程式或服務封裝成容器映像。 應用程式或服務的設定和相依性都包含在容器映像中。 接著可以將容器映像部署在容器主機上，且只需要稍微修改或不修改。 容器之間彼此隔離，也與基礎作業系統隔離，且磁碟使用量比虛擬機器更小。 容器可以從容器將映像具現化以進行短期工作，並於不再需要時移除。
 
 文字分析提供下列 Docker 容器，每個都包含一個功能子集：
 
@@ -27,7 +28,7 @@ ms.locfileid: "51635079"
 |----------|-------------|
 |關鍵片語擷取 | 擷取關鍵片語來識別重點。 例如，若輸入文字為 "The food was delicious and there were wonderful staff"，API 即會傳回主要討論要點："food" 和 "wonderful staff"。 |
 |語言偵測 | 適用於超過 120 種語言，可偵測並回報輸入文字以何種語言撰寫。 容器會針對要求中包含的每一個文件回報單一語言代碼。 語言代碼各配有一個分數，表示分數的強度。 |
-|情感分析 | 分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型的。 針對[選取的語言](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
+|情感分析 | 分析原始文字以尋找正面或負面情感的線索。 此 API 會為每份文件傳回 0 到 1 之間的情感分數，1 代表最正面的情感。 分析模型是使用大量文字主體和 Microsoft 的自然語言技術預先定型。 針對[選取的語言](../language-support.md)，API 可對您所提供的任何原始文字進行分析及評分，並直接將結果傳回至呼叫端應用程式。 |
 
 如果您沒有 Azure 訂用帳戶，請在開始前建立 [免費帳戶](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 。
 
@@ -35,15 +36,15 @@ ms.locfileid: "51635079"
 
 使用文字分析容器之前，您必須符合下列必要條件：
 
-**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或至部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
+**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或是已部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) \(英文\) 叢集。 如需將 Kubernetes 部署至 Azure Stack 的詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
 
-Docker 必須設定為允許容器與 Azure 連線，以及傳送計費資料至 Azure。
+Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。
 
-**對 Microsoft Container Registry 和 Docker 的熟悉度**：您對登錄、存放庫、容器和容器映像等 Microsoft Container Registry 和 Docker 概念，以及基本 `docker` 命令的知識應有基本的了解。  
+**對 Microsoft Container Registry 和 Docker 的熟悉度**：您應具備對 Microsoft Container Registry 和 Docker 概念 (例如登錄、存放庫、容器和容器映像等) 的基本了解，以及基本 `docker` 命令的知識。  
 
-如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/)。
+如需 Docker 和容器基本概念的入門，請參閱 [Docker 概觀](https://docs.docker.com/engine/docker-overview/) \(英文\)。
 
-### <a name="server-requirements-and-recommendations"></a>伺服器需求和建議
+### <a name="container-requirements-and-recommendations"></a>容器的需求和建議
 
 下表說明針對每個文字分析容器配置的最低和建議 CPU 核心 (至少 2.6 GHz 或更快的版本) 與記憶體 (以 GB 為單位)。
 
@@ -51,7 +52,7 @@ Docker 必須設定為允許容器與 Azure 連線，以及傳送計費資料至
 |-----------|---------|-------------|
 |關鍵片語擷取 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
 |語言偵測 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
-|情感分析 | 1 核心，8 GB 記憶體 | 1 核心，8 GB 記憶體 |
+|情感分析 | 1 核心，2 GB 記憶體 | 1 核心，4 GB 記憶體 |
 
 ## <a name="download-container-images-from-microsoft-container-registry"></a>從 Microsoft Container Registry 下載容器映像
 
@@ -76,16 +77,16 @@ docker pull mcr.microsoft.com/azure-cognitive-services/keyphrase:latest
 * [情感分析](https://go.microsoft.com/fwlink/?linkid=2018654)
 
 > [!TIP]
-> 您可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來列出已下載的容器映像。 例如，下列命令會列出識別碼、存放庫和每個已下載的容器映像的標籤，並格式化為表格：
+> 您可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令來列出已下載的容器映像。 例如，下列命令會列出每個已下載之容器映像的識別碼、存放庫和標籤，並將它格式化為表格：
 >
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
 >
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>從已下載的映象將容器具現化
+## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>從已下載的容器映象將容器具現化
 
-使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 命令來從已下載的容器映像將容器具現化。 例如下列命令：
+使用 [docker run](https://docs.docker.com/engine/reference/commandline/run/) \(英文\) 命令來從已下載的容器映像將容器具現化。 例如下列命令：
 
 * 從情感分析容器映像將容器具現化
 * 配置一個 CPU 核心和 8 GB 的記憶體
@@ -149,11 +150,13 @@ POST http://localhost:5000/text/analytics/v2.0/keyPhrases
 在本文中，您已了解下載、安裝及執行文字分析容器的概念和工作流程。 摘要說明：
 
 * 文字分析提供三個適用於 Docker 的 Linux 容器，封裝了關鍵片語擷取、語言偵測和情感分析。
-* 容器映像是從 Azure 中的私人容器登錄下載。
+* 容器映像可從 Azure 中的 Microsoft Container Registry (MCR) 下載取得。
 * 容器映像是在 Docker 中執行。
 * 您可以指定容器的主機 URI，來使用 REST API 或 SDK 呼叫文字分析容器中的作業。
 * 將容器具現化時，您必須指定帳單資訊。
-* ** 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。  
+
+> [!IMPORTANT]
+> 認知服務容器在未連線至 Azure 以進行計量的情況下，將無法被授權以執行。 客戶必須啟用容器以持續與計量服務進行帳單資訊的通訊。 認知服務容器不會將客戶資料 (例如正在分析的影像或文字) 傳送至 Microsoft。
 
 ## <a name="next-steps"></a>後續步驟
 

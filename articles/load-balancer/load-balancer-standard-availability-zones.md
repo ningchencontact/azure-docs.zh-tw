@@ -1,12 +1,11 @@
 ---
-title: Azure 標準 Load Balancer 和可用性區域 | Microsoft Docs
+title: Azure Standard Load Balancer 和可用性區域
+titlesuffix: Azure Load Balancer
 description: 標準 Load Balancer 和可用性區域
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d157c331b633617bacfb5cc7254d188516f10ad7
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869052"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53187053"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>標準 Load Balancer 和可用性區域
 
-Azure Load Balancer 的標準 SKU 支援[可用性區域](../availability-zones/az-overview.md)案例。 Standard Load Balancer 有數個新概念，可讓您藉由對應資源與區域並將其分散到區域，來將端對端案例中的可用性最佳化。  請檢閱[可用性區域](../availability-zones/az-overview.md)的指導方針，以了解可用性區域是什麼，目前有哪些區域支援可用性區域，以及其他相關概念與產品。 可用性區域與 Standard Load Balancer 可組合成可擴充且具有彈性的功能集，用以建立許多不同的案例。  請檢閱本文以了解這些[概念](#concepts)，以及基本案例的[設計指導方針](#design)。
+Azure Load Balancer 的標準 SKU 支援[可用性區域](../availability-zones/az-overview.md)案例。 Standard Load Balancer 有數個新概念，可讓您藉由對應資源與區域並將其分散到區域，來將端對端案例中的可用性最佳化。  請檢閱[可用性區域](../availability-zones/az-overview.md)的指引，以了解可用性區域是什麼，目前有哪些區域支援可用性區域，以及其他相關概念與產品。 可用性區域與 Standard Load Balancer 可組合成可擴充且具有彈性的功能集，用以建立許多不同的案例。  請檢閱本文以了解這些[概念](#concepts)，以及基本案例的[設計指引](#design)。
 
 >[!NOTE]
 >如需其他相關主題，請檢閱[可用性區域](https://aka.ms/availabilityzones)。 

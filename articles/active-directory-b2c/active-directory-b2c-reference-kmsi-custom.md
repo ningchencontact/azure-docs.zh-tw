@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 12/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: fcc81c8eb3a34b0bda5d91a1a67dd2e04e052967
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248054"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52967754"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中啟用「讓我保持登入 (KMSI)」
 
@@ -29,7 +29,7 @@ ms.locfileid: "43248054"
 
 ## <a name="prerequisites"></a>必要條件
 
-已設定為允許本機帳戶註冊和登入的 Azure AD B2C 租用戶。 如果您還沒有租用戶，您可以使用[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)中的步驟建來立一個。
+已設定為允許本機帳戶註冊和登入的 Azure AD B2C 租用戶。 如果您還沒有租用戶，可以使用以下文件中的步驟來建立一個：[教學課程：建立 Azure Active Directory B2C 租用戶](tutorial-create-tenant.md)。
 
 ## <a name="add-a-content-definition-element"></a>新增內容定義元素 
 
@@ -152,7 +152,9 @@ ms.locfileid: "43248054"
 
     KMSI 會使用 **UserJourneyBehaviors** 元素來設定。 **KeepAliveInDays** 屬性會控制使用者保持登入的時間長度。 在下列範例中，KMSI 工作階段會在 `7` 天後自動到期，而不論使用者執行無訊息驗證的頻率為何。 將 **KeepAliveInDays** 值設定為 `0` 會關閉 KMSI 功能。 根據預設，此值為 `0`。 如果 **SessionExpiryType** 的值是 `Rolling`，那麼，每當使用者執行無訊息驗證，KMSI 工作階段即會延長 `7` 天。  如果選取 `Rolling`，您應該將天數保留為最小值。 
 
-    **SessionExpiryInSeconds** 的值代表 SSO 工作階段的到期時間。 這會由 Azure AD B2C 在內部使用，以檢查 KMSI 的工作階段是否已過期。 **KeepAliveInDays** 值會決定 Web 瀏覽器中 SSO cookie 的「到期時間」/「最大存留期」值。 不同於 **SessionExpiryInSeconds**，**KeepAliveInDays** 會用來防止在瀏覽器關閉時清除 cookie。 使用者只能在 SSO 工作階段的 cookie 存在時 (這會由 **KeepAliveInDays** 控制)，以及尚未過期時 (這會由 **SessionExpiryInSeconds** 控制)，才能進行無訊息登入。 我們建議您將 **SessionExpiryInSeconds** 的值設定為與 **KeepAliveInDays** 相同的時間 (以秒為單位)，如下列範例所示。
+    **SessionExpiryInSeconds** 的值代表 SSO 工作階段的到期時間。 這會由 Azure AD B2C 在內部使用，以檢查 KMSI 的工作階段是否已過期。 **KeepAliveInDays** 值會決定 Web 瀏覽器中 SSO cookie 的「到期時間」/「最大存留期」值。 不同於 **SessionExpiryInSeconds**，**KeepAliveInDays** 會用來防止在瀏覽器關閉時清除 cookie。 使用者只能在 SSO 工作階段的 cookie 存在時 (這會由 **KeepAliveInDays** 控制)，以及尚未過期時 (這會由 **SessionExpiryInSeconds** 控制)，才能進行無訊息登入。 
+    
+    如果使用者未在註冊和登入頁面上啟用**讓我保持登入**，則工作階段會在超過 **SessionExpiryInSeconds** 指定的時間之後過期，或在關閉瀏覽器之後過期。 如果使用者啟用**讓我保持登入**，**KeepAliveInDays** 的值會覆寫 **SessionExpiryInSeconds** 的值，並指定工作階段到期時間。 即使使用者關閉瀏覽器，然後再將其重新開啟，但只要仍在 **KeepAliveInDays** 的時間內，他們還是可以自動登入。 我們建議您將 **SessionExpiryInSeconds** 的值設為短時間 (1200 秒)，而 **KeepAliveInDays** 可以設為相對的長時間 (7 天)，如下列範例所示：
 
     ```XML
     <RelyingParty>
@@ -160,7 +162,7 @@ ms.locfileid: "43248054"
       <UserJourneyBehaviors>
         <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
         <SessionExpiryType>Absolute</SessionExpiryType>
-        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+        <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
       </UserJourneyBehaviors>
       <TechnicalProfile Id="PolicyProfile">
         <DisplayName>PolicyProfile</DisplayName>

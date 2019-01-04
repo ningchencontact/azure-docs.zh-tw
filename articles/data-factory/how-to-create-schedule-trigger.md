@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: c27c9c16e493dc596856288c4dbecff655e89396
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: f6b7764bf994079f7f3ef9e6243720da0d2f4a28
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976344"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868220"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>建立依排程執行管線的觸發程序
 本文提供有關排程觸發程序的資訊，以及建立、啟動和監視排程觸發程序的步驟。 如需了解其他類型的觸發程序，請參閱[管線執行和觸發程序](concepts-pipeline-execution-triggers.md)。
@@ -67,7 +67,7 @@ ms.locfileid: "51976344"
     ![監視觸發程序執行](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
-本節說明如何使用 Azure PowerShell 來建立、啟動及監視排程觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 Azure PowerShell 來建立資料處理站](quickstart-create-data-factory-powershell.md)。 然後，將下列程式碼新增至 main 方法中，以建立並啟動一個每隔 15 分鐘執行一次的排程觸發程序。 此觸發程序會與您在快速入門中所建立之名為 **Adfv2QuickStartPipeline** 的管線關聯。
+本節說明如何使用 Azure PowerShell 來建立、啟動及監視排程觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 .NET SDK 來建立資料處理站](quickstart-create-data-factory-powershell.md)。 然後，將下列程式碼新增至 main 方法中，以建立並啟動一個每隔 15 分鐘執行一次的排程觸發程序。 此觸發程序會與您在快速入門中所建立之名為 **Adfv2QuickStartPipeline** 的管線關聯。
 
 1. 在 C:\ADFv2QuickStartPSH\ 資料夾中，使用下列內容建立名為 **MyTrigger.json** 的 JSON 檔案：
 
@@ -143,7 +143,7 @@ ms.locfileid: "51976344"
 
 
 ## <a name="net-sdk"></a>.NET SDK
-本節說明如何使用 .NET SDK 來建立、啟動及監視觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 .NET SDK 來建立資料處理站](quickstart-create-data-factory-dot-net.md)。 然後，將下列程式碼新增至 main 方法中，以建立並啟動一個每隔 15 分鐘執行一次的排程觸發程序。 此觸發程序會與您在快速入門中所建立之名為 **Adfv2QuickStartPipeline** 的管線關聯。
+本節說明如何使用 .NET SDK 來建立、啟動及監視觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 .NET SDK 建立資料處理站](quickstart-create-data-factory-dot-net.md)。 然後，將下列程式碼新增至 main 方法中，以建立並啟動一個每隔 15 分鐘執行一次的排程觸發程序。 此觸發程序會與您在快速入門中所建立之名為 **Adfv2QuickStartPipeline** 的管線關聯。
 
 若要建立並啟動一個每隔 15 分鐘執行一次的排程觸發程序，請將下列程式碼新增至 main 方法中：
 
@@ -223,7 +223,7 @@ ms.locfileid: "51976344"
 
 
 ## <a name="python-sdk"></a>Python SDK
-本節說明如何使用 Python SDK 來建立、啟動及監視觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 Python SDK 來建立資料處理站](quickstart-create-data-factory-python.md)。 然後，將下列程式碼新增至 Python 指令碼中的 "monitor the pipeline run" 程式碼區塊之後。 此程式碼會建立一個在指定的開始和結束時間之間，每隔 15 分鐘執行一次的排程觸發程序。 請將 **start_time** 變數更新為目前的 UTC 時間，並將 **end_time**變數更新為目前 UTC 時間的一小時之後。
+本節說明如何使用 Python SDK 來建立、啟動及監視觸發程序。 若要查看此範例如何運作，請先完成[快速入門：使用 Python SDK 建立資料處理站](quickstart-create-data-factory-python.md)。 然後，將下列程式碼新增至 Python 指令碼中的 "monitor the pipeline run" 程式碼區塊之後。 此程式碼會建立一個在指定的開始和結束時間之間，每隔 15 分鐘執行一次的排程觸發程序。 請將 **start_time** 變數更新為目前的 UTC 時間，並將 **end_time**變數更新為目前 UTC 時間的一小時之後。
 
 ```python
     # Create a trigger
@@ -275,7 +275,7 @@ ms.locfileid: "51976344"
           "weekDays": : [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
-          "monthlyOccurences": [
+          "monthlyOccurrences": [
                {
                     "day": <<Monday-Sunday>>,
                     "occurrence": <<1-5>>
@@ -362,7 +362,7 @@ ms.locfileid: "51976344"
 | **minutes** | 一小時內觸發程序執行的分鐘數。 | <ul><li>整數 </li><li>一連串整數</li></ul>
 | **hours** | 一天內觸發程序執行的小時數。 | <ul><li>整數 </li><li>一連串整數</li></ul> |
 | **weekDays** | 觸發程序在一週中的執行日。 此值只能與 weekly 頻率搭配指定。 | <ul><li>Monday、Tuesday、Wednesday、Thursday、Friday、Saturday、Sunday</li><li>日期值陣列 (最大陣列大小為 7)</li><li>日值不區分大小寫</li></ul> |
-| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li>**monthlyOccurence** 物件的陣列︰`{ "day": day,  "occurrence": occurence }`。</li><li>**day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。</li><li>**occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。</li></ul> |
+| **monthlyOccurrences** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li>**monthlyOccurrence** 物件的陣列︰`{ "day": day,  "occurrence": occurrence }`。</li><li>**day** 屬性是觸發程序在一週中的執行日。 例如，**day** 值為 `{Sunday}` 的 **monthlyOccurrences** 屬性意謂著月份中的每個星期日。 **day** 屬性為必要屬性。</li><li>**occurrence** 屬性係指所指定的 **day** 在月份中出現的位置。 例如，**day** 和 **occurrence** 值為 `{Sunday, -1}` 的 **monthlyOccurrences** 屬性意謂著月份中的最後一個星期日。 **occurrence** 屬性為選用屬性。</li></ul> |
 | **monthDays** | 觸發程序在一個月中的執行日。 此值只能與 monthly 頻率搭配指定。 | <ul><li><= -1 和 >= -31 的任何值</li><li>>= 1 和 <= 31 任何值</li><li>值的陣列</li></ul> |
 
 

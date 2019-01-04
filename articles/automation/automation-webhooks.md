@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/04/2018
+ms.date: 10/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 381f8c5fb59379c0494dabcd22f4675be9535837
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304523"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016686"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>使用 Webhook 啟動 Azure 自動化 Runbook
 
@@ -29,9 +29,9 @@ ms.locfileid: "44304523"
 
 | 屬性 | 說明 |
 |:--- |:--- |
-| 名稱 |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
+| Name |您可以為 Webhook 提供任何想要的名稱，因為這並不會向用戶端公開。 該名稱僅供您用來識別 Azure 自動化中的 Runbook。 <br> 最佳做法是您給予 Webhook 的名稱應該與要使用它的用戶端相關。 |
 | URL |Webhook 的 URL 是一種唯一性的位址，即用戶端用來呼叫 HTTP POST 以啟動連結至 Webhook的 Runbook。 當您建立 Webhook 時其會自動產生。 您無法指定自訂 URL。 <br> <br> URL 包含可讓協力廠商系統不需進一步驗證即可叫用 Runbook 的安全性權杖。 基於這個原因，應該將其視為一種密碼。 基於安全性原因，您僅能於 Webhook 建立時在 Azure 入口網站中檢視 URL。 請在安全的位置記下 URL 以供日後使用。 |
-| 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日期可在 Webhook 建立後加以修改。 |
+| 到期日期 |例如憑證，每個 Webhook 都會有一個到期日期，到期後便無法再使用。 此到期日可在 Webhook 建立後進行修改，只要 Webhook尚未過期即可。 |
 | 已啟用 |建立 Runbook 時 Webhook 會預設為啟用。 如果您將其設定為 [停用]，則任何用戶端皆無法使用。 當您建立 Webhook 時或在建立後的任何時候，您可以設定 [ **啟用** ] 屬性。 |
 
 ### <a name="parameters"></a>參數
@@ -60,7 +60,7 @@ Webhook 可以定義由該 Webhook 啟動 Runbook 時所使用的 Runbook 參數
 
 針對下述 Runbook，如果您具有下列適用於 WebhookData 參數的屬性：
 
-* WebhookName: *MyWebhook*
+* WebhookName：*MyWebhook*
 * RequestBody: *[{'ResourceGroup': 'myResourceGroup','Name': 'vm01'},{'ResourceGroup': 'myResourceGroup','Name': 'vm02'}]*
 
 則您應在 UI 中針對 WebhookData 參數傳遞下列 JSON 值。 下列具有歸位字元與新行字元的範例會符合從 Webhook 傳入的格式。
@@ -122,6 +122,12 @@ http://<Webhook Server>/token?=<Token Value>
 
 用戶端無法從 Webhook 判斷 Runbook 的工作何時完成或完成狀態。 這項資訊可使用工作識別碼搭配其他方法 (例如 [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) 或 [Azure 自動化 API](/rest/api/automation/job)) 來判斷。
 
+## <a name="renew-webhook"></a>更新 Webhook
+
+Webhook 建立之後，會有為期一年的有效時間。 一年之後，Webhook 即會自動到期。 Webhook 在過期後即無法重新啟動，而必須先移除再重新建立。 Webhook 若尚未達到其到期時間，則可以延長。
+
+若要延長 Webhook，請瀏覽至包含 Webhook 的 Runbook。 在 [資源] 下方選取 [Webhook]。 按一下要延長的 Webhook，這會開啟 [Webhook] 頁面。  選擇新的到期日期和時間，然後按一下 [儲存]。
+
 ## <a name="sample-runbook"></a>範例 Runbook
 
 下列範例 Runbook 會接受 Webhook 資料，並啟動要求本文中指定的虛擬機器。 若要測試此 Runbook，請在您自動化帳戶的 [Runbook] 下，按一下 [+ 加入 Runbook]。 如果您不知道如何建立 Runbook，請參閱[建立 Runbook](automation-quickstart-create-runbook.md)。
@@ -133,8 +139,20 @@ param
     [object] $WebhookData
 )
 
+
+
 # If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+    # Check header for message to validate request
+    if ($WebhookData.RequestHeader.message -eq 'StartedbyContoso')
+    {
+        Write-Output "Header has required information"}
+    else
+    {
+        Write-Output "Header missing required information";
+        exit;
+    }
 
     # Retrieve VM's from Webhook request body
     $vms = (ConvertFrom-Json -InputObject $WebhookData.RequestBody)
@@ -143,7 +161,7 @@ if ($WebhookData) {
 
     Write-Output "Authenticating to Azure with service principal and certificate"
     $ConnectionAssetName = "AzureRunAsConnection"
-    Write-Output "Get connection asset: $ConnectionAssetName" 
+    Write-Output "Get connection asset: $ConnectionAssetName"
 
     $Conn = Get-AutomationConnection -Name $ConnectionAssetName
             if ($Conn -eq $null)
@@ -171,7 +189,7 @@ else {
 
 下列範例使用 Windows PowerShell 搭配 Webhook 來啟動 Runbook。 任何可發出 HTTP 要求的語言都可以使用 Webhook；Windows PowerShell 在這裡用來作為範例。
 
-Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。
+Runbook 預期在要求的主體中有 JSON 格式的虛擬機器清單。 Runbook 也會驗證標頭中包含明確定義的訊息可驗證 Webhook 呼叫端的有效性。
 
 ```azurepowershell-interactive
 $uri = "<webHook Uri>"
@@ -181,8 +199,8 @@ $vms  = @(
             @{ Name="vm02";ResourceGroup="vm02"}
         )
 $body = ConvertTo-Json -InputObject $vms
-
-$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body
+$header = @{ message="StartedbyContoso"}
+$response = Invoke-RestMethod -Method Post -Uri $uri -Body $body -Headers $header
 $jobid = (ConvertFrom-Json ($response.Content)).jobids[0]
 ```
 

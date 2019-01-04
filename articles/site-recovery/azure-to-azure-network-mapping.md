@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 683f8ef89b02679d1f3f1a66f867f0dde757ada1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564964"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840447"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>為 VNet 設定網路對應和 IP 位址
 
@@ -79,8 +79,8 @@ ms.locfileid: "51564964"
 
 **目標網路** | **詳細資料**
 --- | ---
-目標網路是容錯移轉 VNet | - 目標 IP 位址是靜態的，但與為容錯移轉保留的 IP 位址不同。<br/><br/>  - 指派的 IP 位址是從子網路範圍結尾開始的下一個可用位址。<br/><br/> 例如：如果來源 IP 位址為 10.0.0.19 且容錯移轉網路使用範圍 10.0.0.0/24，則指派給目標 VM 的下一個 IP 位址為 10.0.0.254。
-目標網路不是容錯移轉 VNet | - 目標 IP 位址將是靜態的，具有為容錯移轉保留的相同 IP 位址。<br/><br/>  - 如果已指派相同的 IP 位址，則 IP 位址是子網路範圍的下一個可用 IP 位址。<br/><br/> 例如：如果來源靜態 IP 位址為 10.0.0.19 且容錯移轉位於不是容錯移轉網路的網路上 (範圍為 10.0.0.0/24)，則目標靜態 IP 位址將為 10.0.0.0.19 (如果可用)，否則將是 10.0.0.254。
+目標網路是容錯移轉 VNet | - 目標 IP 位址是靜態的，但與為容錯移轉保留的 IP 位址不同。<br/><br/>  - 指派的 IP 位址是從子網路範圍結尾開始的下一個可用位址。<br/><br/> 例如︰如果來源 IP 位址為 10.0.0.19 且容錯移轉網路使用範圍 10.0.0.0/24，則指派給目標 VM 的下一個 IP 位址為 10.0.0.254。
+目標網路不是容錯移轉 VNet | - 目標 IP 位址將是靜態的，具有為容錯移轉保留的相同 IP 位址。<br/><br/>  - 如果已指派相同的 IP 位址，則 IP 位址是子網路範圍的下一個可用 IP 位址。<br/><br/> 例如︰如果來源靜態 IP 位址為 10.0.0.19 且容錯移轉位於不是容錯移轉網路的網路上 (範圍為 10.0.0.0/24)，則目標靜態 IP 位址將為 10.0.0.0.19 (如果可用)，否則將是 10.0.0.254。
 
 - 容錯移轉 VNet 是您在設定災害復原時選取的目標網路。
 - 我們建議您一律使用非實際執行網路進行測試容錯移轉。

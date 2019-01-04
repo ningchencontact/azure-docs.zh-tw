@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b2adb2e69475b79324cad2d11a420cbefdf8b059
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: a938e5d872d2c1602f7ce898f0d14e3e04feb759
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514480"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312556"
 ---
 # <a name="get-started-with-device-twins-java"></a>開始使用裝置對應項 (Java)
 
@@ -228,7 +228,7 @@ ms.locfileid: "51514480"
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.14.2</version>
     </dependency>
     ```
 
@@ -278,6 +278,17 @@ ms.locfileid: "51514480"
 
     此範例應用程式在具現化 **DeviceClient** 物件時使用 **protocol** 變數。 
 
+1. 將下列方法新增至 **App**類別，以列印有關對應項更新的資訊：
+
+    ```java
+    protected static class DeviceTwinStatusCallBack implements IotHubEventCallback {
+        @Override
+        public void execute(IotHubStatusCode status, Object context) {
+          System.out.println("IoT Hub responded to device twin operation with status " + status.name());
+        }
+      }
+    ```
+
 9. 將以下程式碼新增至 **Main** 方法，以：
     * 建立與 IoT 中樞通訊的裝置用戶端。
     * 建立**裝置**物件以儲存裝置對應項屬性。
@@ -310,7 +321,7 @@ ms.locfileid: "51514480"
     catch (Exception e) {
       System.out.println("On exception, shutting down \n" + " Cause: " + e.getCause() + " \n" + e.getMessage());
       dataCollector.clean();
-      client.close();
+      client.closeNow();
       System.out.println("Shutting down...");
     }
     ```
@@ -327,7 +338,13 @@ ms.locfileid: "51514480"
     client.close();
     ```
 
-12. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
+1. 修改 **main** 方法的簽章以新增如下所示的例外狀況：
+
+    ```java
+    public static void main(String[] args) throws URISyntaxException, IOException
+    ```
+
+1. 儲存並關閉 `simulated-device\src\main\java\com\mycompany\app\App.java` 檔案。
 
 13. 建置 **simulated-device** 應用程式，並更正所有錯誤。 在命令提示字元中，巡覽至 `simulated-device` 資料夾，並執行下列命令：
 

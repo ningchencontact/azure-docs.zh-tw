@@ -1,25 +1,22 @@
 ---
-title: Azure Cosmos DB 常見問題集 | Microsoft Docs
+title: 關於 Azure Cosmos DB 內不同 API 的常見問題集
 description: 取得關於 Azure Cosmos DB (一種全域散發的多模型資料庫服務) 之常見問題集的解答。 了解產能、效能層級和調整。
 keywords: 資料庫問題, 常見問題集, Database questions, frequently asked questions, documentdb, azure, Microsoft azure
 services: cosmos-db
 author: SnehaGunda
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 12/06/2018
 ms.author: sngun
-ms.openlocfilehash: 50d606486a6d80f00424685494eae28a95fe361a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec18
+ms.openlocfilehash: 70feaae718bc6ff8e3f956f0fbc6aa395ba27061
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164705"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53410392"
 ---
-# <a name="azure-cosmos-db-faq"></a>Azure Cosmos DB 常見問題集
-
-## <a name="azure-cosmos-db-fundamentals"></a>Azure Cosmos DB 基本概念
+# <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>關於 Azure Cosmos DB 內不同 API 的常見問題集
 
 ### <a name="what-happened-to-the-documentdb-api"></a>DocumentDB API 有何改變？
 
@@ -80,7 +77,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 若要詢問技術問題，您可以將問題張貼到下列兩個問答論壇之一：
 
 * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。
 
 若要要求新功能，請在 [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db) 上建立新的要求。
 
@@ -99,7 +96,7 @@ Azure Cosmos DB 不需要結構描述的索引引擎能夠自動建立所內嵌�
 * SQL、Gremlin API 和資料表帳戶的每個訂用帳戶一個容器。
 * MongoDB 帳戶的每個訂用帳戶最多 3 個集合。
 * 10 GB 儲存體容量。
-* 全域複寫適用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
+* 全域複寫試用於下列 [Azure 區域](https://azure.microsoft.com/regions/)：美國中部、北歐和東南亞
 * 輸送量上限 5K RU/s。
 * 訂用帳戶將於 24 小時之後到期，可以擴充到最多總時數 48 小時。
 * 無法為試用 Azure Cosmos DB 帳戶建立 Azure 支援票證，不過，會以現有支援計劃為訂閱者提供支援。
@@ -128,10 +125,6 @@ PreferredLocations 值可以設定為任何提供 Cosmos DB 的 Azure 區域。 
 
 容器和資料庫層級輸送量佈建是不同的供應項目，在其間切換需要將資料從來源移轉到目的地。 這表示您需要建立新資料庫或新集合，然後藉由使用[大量執行程式程式庫](bulk-executor-overview.md)或 [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) 來移轉資料。
 
-### <a name="how-do-i-create-fixed-collection-with-partition-key"></a>如何使用分割區索引鍵建立固定的集合
-
-目前，您可以使用 .Net SDK 的 [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) 方法或使用 [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create)，透過分割區索引鍵的輸送量來建立集合。 目前不支援使用 Azure 入口網站建立固定集合。
-
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支援時間序列分析？
 
 是的，Azure CosmosDB 支援時間序列分析，請參考這裡的[時間序列模式範例](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns)。 此範例會顯示如何使用變更摘要來建置經過一段時間的資料彙總檢視。 您可以使用 Spark 串流或其他串流資料處理器來延伸方法的使用範圍。
@@ -154,7 +147,7 @@ GitHub 上提供 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://gith
 
 ### <a name="does-the-sql-api-support-acid-transactions"></a>SQL API 支援 ACID 交易嗎？
 
-是，SQL API 支援以 JavaScript 預存程序和觸發程序表示的跨文件交易。 交易以每個容器的單一分割為範圍，且以 ACID 語意執行，也就是「全有或全無」，與其他並行執行的程式碼和使用者要求隔離。 如果伺服器端執行 JavaScript 應用程式碼期間擲回例外狀況，則會回復整個交易。 如需交易的詳細資訊，請參閱 [資料庫程式交易](programming.md#database-program-transactions)。
+是，SQL API 支援以 JavaScript 預存程序和觸發程序表示的跨文件交易。 交易以每個容器的單一分割為範圍，且以 ACID 語意執行，也就是「全有或全無」，與其他並行執行的程式碼和使用者要求隔離。 如果伺服器端執行 JavaScript 應用程式碼期間擲回例外狀況，則會回復整個交易。 
 
 ### <a name="what-is-a-container"></a>容器是什麼？
 
@@ -241,7 +234,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 | Error               | 代碼  | 說明  | 解決方法  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 取用的要求單位總數已超過針對集合佈建的要求單位率並已進行節流。 | 請考慮從 Azure 入口網站調整指派給容器或容器集的輸送量，或重試一次。 |
-| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+| ExceededMemoryLimit | 16501 | 做為多租用戶服務，作業已超出用戶端的記憶體配額。 | 透過更嚴格的查詢準則來縮小作業的範圍，或經由 [Azure 入口網站](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)連絡支援人員。 <br><br>範例：*&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:"Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>適用於 MongoDB 的 Simba 驅動程式是否支援與 Azure CosmosDB MongoDB API 搭配使用？
 
@@ -306,7 +299,7 @@ Azure Cosmos DB 會強制執行嚴格的安全性需求和標準。 Azure Cosmos
 
 * [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [MSDN 論壇](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
-* [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb)。 Stack Overflow 最適合用於詢問程式設計問題。 確保您的問題[契合主題](https://stackoverflow.com/help/on-topic)且[盡可能提供愈多的詳細資料，讓問題更加清楚並可得到答覆](https://stackoverflow.com/help/how-to-ask)。
 
 ### <a name="what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-table-api"></a>我需要哪一個連接字串，才能連接資料表 API？
 
@@ -402,11 +395,11 @@ Azure Cosmos DB 可在一致性、高可用性及延遲之間提供完全合乎�
 
 ### <a name="when-global-distribution-is-enabled-how-long-does-it-take-to-replicate-the-data"></a>啟用全域散發時，複寫資料需要多久的時間？
 
-Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即將資料推送到其他區域。 這項複寫操作只取決於資料中心的來回時間 (RTT)。 若要深入了解 Azure Cosmos DB 的全域散發能力，請參閱 [Azure Cosmos DB︰Azure 上分散在世界各地的資料庫服務](distribute-data-globally.md)。
+Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即將資料推送到其他區域。 這項複寫操作只取決於資料中心的來回時間 (RTT)。 若要深入了解 Azure Cosmos DB 的全域散發能力，請參閱[透過 Azure Cosmos DB 進行全域資料散發](distribute-data-globally.md)。
 
 ### <a name="can-the-read-request-consistency-level-be-changed"></a>可以變更讀取要求一致性層級嗎？
 
-有了 Azure Cosmos DB，您可以設定容器層級的一致性層級 (在資料表中)。 透過 .NET SDK，您可以在 app.config 檔案中提供 TableConsistencyLevel 索引鍵的值，藉以變更層級。 可能的值包括：強式、限定過期、工作階段、一致前置詞或最終。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。 主要概念在於，您無法將要求一致性層級設定為高於資料表設定的值。 例如，您無法將資料表的一致性層級設定為「最終」，而將要求一致性層級設定為「強式」。
+有了 Azure Cosmos DB，您可以設定容器層級的一致性層級 (在資料表中)。 透過 .NET SDK，您可以在 app.config 檔案中提供 TableConsistencyLevel 索引鍵的值，藉以變更層級。 可能的值包括：「強式」、「限定過期」、「工作階段」、「一致前置詞」或「最終」。 如需詳細資訊，請參閱 [Azure Cosmos DB 中的 Tunable 資料一致性層級](consistency-levels.md)。 主要概念在於，您無法將要求一致性層級設定為高於資料表設定的值。 例如，您無法將資料表的一致性層級設定為「最終」，而將要求一致性層級設定為「強式」。
 
 ### <a name="how-does-the-table-api-handle-failover-if-a-region-goes-down"></a>當區域發生服務中斷時，「資料表 API」如何處理容錯移轉？
 
@@ -420,11 +413,11 @@ Azure Cosmos DB 會在當地區域持久認可資料，並在幾毫秒內立即�
 
 ### <a name="does-the-table-api-index-all-attributes-of-an-entity-by-default"></a>資料表 API 預設會為實體的所有屬性編製索引嗎？
 
-是，根據預設，它會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](index-policy.md)。
+是，根據預設，它會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>這表示我不需要建立多個索引來滿足查詢嗎？
 
-是，Azure Cosmos DB 資料表 API 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](index-policy.md)。
+是，Azure Cosmos DB 資料表 API 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。
 
 ### <a name="can-i-change-the-indexing-policy"></a>我可以變更索引編制原則嗎？
 
@@ -527,7 +520,7 @@ Azure Cosmos DB 是 SLA 型系統，可提供延遲、輸送量、可用性及�
 
 ### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>若是使用 C#/.NET 開發，應該使用 Microsoft.Azure.Graphs 套件或 Gremlin.NET？
 
-Azure Cosmos DB Gremlin API 利用開放原始碼驅動程式作為服務的主要連接器。 因此，建議使用受 [ Apache Tinkerpop 支援的驅動程式](http://tinkerpop.apache.org/)。
+Azure Cosmos DB Gremlin API 利用開放原始碼驅動程式作為服務的主要連接器。 因此，建議使用受 [ Apache Tinkerpop 支援的驅動程式](https://tinkerpop.apache.org/)。
 
 ### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>在圖形資料庫中執行查詢時，每秒的 RU 如何計費？
 
@@ -541,7 +534,7 @@ Azure Cosmos DB 使用[水平資料分割](partition-data.md)，自動處理儲�
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>如何防止透過 Gremlin 驅動程式發動的資料隱碼攻擊？
 
-多數原生 Tinkerpop Gremlin 驅動程式均允許提供參數字典執行查詢。 這裡提供使用 [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 和 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 兩種方法的執行範例。
+多數原生 Tinkerpop Gremlin 驅動程式均允許提供參數字典執行查詢。 這裡提供使用 [Gremlin.Net](https://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) 和 [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js) 兩種方法的執行範例。
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>為什麼我會收到「Gremlin 查詢編譯錯誤：找不到任何方法」錯誤？
 
@@ -784,11 +777,11 @@ Azure Cosmos DB Cassandra API 會藉助 Azure Cosmos DB 的全域分散式平台
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API 預設會為實體的所有屬性編製索引嗎？
 
-是，Azure Cosmos DB 預設會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](index-policy.md)。 您可以透過一致的索引編製和一律永久認可仲裁的寫入，獲得保證具有效能的優勢。
+是，Azure Cosmos DB 預設會為實體的所有屬性編製索引。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。 您可以透過一致的索引編製和一律永久認可仲裁的寫入，獲得保證具有效能的優勢。
 
 ### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>這表示我不需要建立多個索引來滿足查詢嗎？
 
-是，Azure Cosmos DB 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB：索引編製原則](index-policy.md)。
+是，Azure Cosmos DB 會為所有屬性提供自動編製索引，而不需任何結構描述定義。 這項資訊能讓開發人員專注於應用程式，而不需擔心索引的建立和管理。 如需詳細資訊，請參閱 [Azure Cosmos DB中的編製索引原則](index-policy.md)。
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>我可以在本機搭配使用新的 Cassandra API SDK 與模擬器嗎？
 

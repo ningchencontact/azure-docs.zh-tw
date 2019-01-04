@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: fc8336a46f61a7c9ab7c174b5f24d907369f481c
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.date: 12/03/2018
+ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567565"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997689"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解決移轉至 SQL Database 期間的 Transact-SQL 差異
 
@@ -45,25 +45,37 @@ Microsoft SQL Server 和 Azure SQL Database 都支援應用程式使用的大部
 
 除了與 [Azure SQL Database 功能比較](sql-database-features.md)中所述不支援的功能相關之 Transact-SQL 陳述式以外，下列陳述式和陳述式群組也不受支援。 因此，如果要移轉的資料庫使用下列任何功能，請再造您的 T-SQL 以排除這些 T-SQL 功能和陳述式。
 
-- 系統物件的定序 - 相關連接：端點陳述式。 SQL Database 不支援 Windows 驗證，但支援類似的 Azure Active Directory 驗證。 某些驗證類型需要最新的 SSMS 版本。 如需詳細資訊，請參閱 [使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
-使用三個或四個組件名稱跨資料庫查詢。 (使用 [彈性資料庫查詢](sql-database-elastic-query-overview.md)可支援唯讀的跨資料庫查詢。) - 跨資料庫擁有權鏈結、 `TRUSTWORTHY` 設定 - `EXECUTE AS LOGIN` 改用 [以使用者身分執行]。
-- 除了可延伸金鑰管理之外還支援加密 - 事件服務：事件、事件通知、查詢通知 - 檔案放置：與資料庫檔案放置、大小及資料庫檔案 (由 Microsoft Azure 自動管理) 相關的語法。
+- 系統物件的定序
+- 相關的連線：端點狀態。 SQL Database 不支援 Windows 驗證，但支援類似的 Azure Active Directory 驗證。 某些驗證類型需要最新的 SSMS 版本。 如需詳細資訊，請參閱 [使用 Azure Active Directory 驗證連線到 SQL Database 或 SQL 資料倉儲](sql-database-aad-authentication.md)。
+- 使用三個或四個組件名稱跨資料庫查詢。 (使用[彈性資料庫查詢](sql-database-elastic-query-overview.md)支援跨資料庫唯讀查詢。)
+- 跨資料庫擁有權鏈結，`TRUSTWORTHY` 設定
+- `EXECUTE AS LOGIN` 請改用 'EXECUTE AS USER'。
+- 除了可延伸金鑰管理之外還支援加密
+- 事件服務：事件、事件通知、查詢通知
+- 檔案位置：與資料庫檔案位置、大小和資料庫檔案 (由 Microsoft Azure 自動管理) 相關的語法。
 - 高可用性：與透過 Microsoft Azure 帳戶管理的高可用性相關的語法。 這包括備份、還原、永遠開啟、資料庫鏡像、記錄傳送、修復模式的語法。
-- 記錄讀取器：依賴 SQL Database 上不適用之記錄讀取器的語法：發送複寫、異動資料擷取。 SQL Database 可以是推送複寫文章的訂閱者。
-- 函式： `fn_get_sql`、 `fn_virtualfilestats`、 `fn_virtualservernodes` - 硬體：與硬體相關伺服器設定相關的語法：例如記憶體、背景工作執行緒、CPU 親和性、追蹤旗標。 改為使用服務層和計算大小。
-- `KILL STATS JOB`
-- `OPENQUERY`、 `OPENROWSET`、 `OPENDATASOURCE` 及四個部分的名稱 - .NET Framework：CLR 與 SQL Server 整合 - 語意搜尋 - 伺服器認證：改用[資料庫範圍的認證](https://msdn.microsoft.com/library/mt270260.aspx)。
-- 伺服器層級項目：伺服器角色， `sys.login_token`。 雖然某些伺服器層級權限已由資料庫層級權限取代，但是無法使用伺服器層級權限的 `GRANT`、`REVOKE` 和 `DENY`。 一些有用的伺服器層級 DMV 有相同的資料庫層級 DMV。
-- `SET REMOTE_PROC_TRANSACTIONS`
-- `SHUTDOWN`
-- `sp_addmessage`
-- `sp_configure` 選項和 `RECONFIGURE`。 有些選項可透過 [變更資料庫範圍組態](https://msdn.microsoft.com/library/mt629158.aspx)來使用。
-- `sp_helpuser`
-- `sp_migrate_user_to_contained`
+- 記錄讀取器：依賴記錄讀取器 ( SQL Database 上不適用) 的語法：發送複寫、異動資料擷取。 SQL Database 可以是推送複寫文章的訂閱者。
+- 函式：`fn_get_sql`、`fn_virtualfilestats`、`fn_virtualservernodes`
+- 硬體：與硬體相關伺服器設定相關的語法：例如記憶體、背景工作執行緒、CPU 親和性、追蹤旗標。 改為使用服務層和計算大小。
+- `KILL STATS JOB`
+- `OPENQUERY`、`OPENROWSET`、`OPENDATASOURCE` 和四部分的名稱
+- .NET Framework：與 SQL Server 整合的 CLR
+- 語意搜尋
+- 伺服器認證：改用[資料庫範圍認證](https://msdn.microsoft.com/library/mt270260.aspx)。
+- 伺服器層級項目：伺服器角色、`sys.login_token`。 雖然某些伺服器層級權限已由資料庫層級權限取代，但是無法使用伺服器層級權限的 `GRANT`、`REVOKE` 和 `DENY`。 一些有用的伺服器層級 DMV 有相同的資料庫層級 DMV。
+- `SET REMOTE_PROC_TRANSACTIONS`
+- `SHUTDOWN`
+- `sp_addmessage`
+- `sp_configure` 選項和 `RECONFIGURE`。 有些選項可透過 [變更資料庫範圍組態](https://msdn.microsoft.com/library/mt629158.aspx)來使用。
+- `sp_helpuser`
+- `sp_migrate_user_to_contained`
 - SQL Server Agent：依賴 SQL Server Agent 或 MSDB 資料庫的語法︰警示、運算子、中央管理伺服器。 改用指令碼，例如 Azure PowerShell。
-- SQL Server Audit：請改用 SQL Database 稽核。
-- SQL Server 追蹤 - 追蹤旗標：有些追蹤旗標項目已移至相容性模式。
-- Transact-SQL 偵錯 - 觸發程序：伺服器範圍或登入觸發程序 - `USE` 陳述式：若要將資料庫內容變更為不同的資料庫，您必須建立與新資料庫的新連線。
+- SQL Server 稽核：改用 SQL Database 稽核。
+- SQL Server 追蹤
+- 追蹤旗標：某些追蹤旗標項目已移至相容性模式。
+- Transact-SQL 偵錯
+- 觸發程序：伺服器範圍或登入觸發程序
+- `USE` 陳述式：若要將資料庫內容變更為不同的資料庫，您必須建立與新資料庫的連接。
 
 ## <a name="full-transact-sql-reference"></a>完整 Transact-SQL 參考
 

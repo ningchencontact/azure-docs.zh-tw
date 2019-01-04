@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: 1a0b7932d8dced086370027e1f8eecaf81841ab3
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 55f388ed15167c5bc7262e194e09e4a92ba50af4
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300774"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52866061"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Service Fabric 容器網路模式
 
@@ -78,7 +78,7 @@ ms.locfileid: "51300774"
             ],
     ```
 
-2. 設定網路設定檔區段，以允許在叢集的每個節點上設定多個 IP 位址。 下列範例會針對 Windows/Linux Service Fabric 叢集的每個節點，設定五個 IP 位址。 您可以在每個節點的連接埠上接聽五個服務執行個體。
+2. 設定網路設定檔區段，以允許在叢集的每個節點上設定多個 IP 位址。 下列範例會針對 Windows/Linux Service Fabric 叢集的每個節點，設定五個 IP 位址。 您可以在每個節點的連接埠上接聽五個服務執行個體。 若要讓五個 IP 可從 Azure Load Balancer 存取，請在 Azure Load Balancer 後端位址集區註冊五個 IP，如下所示。
 
     ```json
     "variables": {
@@ -126,6 +126,11 @@ ms.locfileid: "51300774"
                           "name": "[concat(parameters('nicName'),'-', 1)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -135,6 +140,11 @@ ms.locfileid: "51300774"
                           "name": "[concat(parameters('nicName'),'-', 2)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -144,6 +154,11 @@ ms.locfileid: "51300774"
                           "name": "[concat(parameters('nicName'),'-', 3)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -153,6 +168,11 @@ ms.locfileid: "51300774"
                           "name": "[concat(parameters('nicName'),'-', 4)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -162,6 +182,11 @@ ms.locfileid: "51300774"
                           "name": "[concat(parameters('nicName'),'-', 5)]",
                           "properties": {
                             "primary": "false",
+                            "loadBalancerBackendAddressPools": [
+                              {
+                                "id": "[variables('lbPoolID0')]"
+                              }
+                            ],
                             "subnet": {
                               "id": "[variables('subnet0Ref')]"
                             }
@@ -180,11 +205,11 @@ ms.locfileid: "51300774"
    |設定 |值 | |
    | --- | --- | --- |
    |優先順序 |2000 | |
-   |名稱 |Custom_Dns  | |
+   |Name |Custom_Dns  | |
    |來源 |VirtualNetwork | |
    |目的地 | VirtualNetwork | |
    |服務 | DNS (UDP/53) | |
-   |動作 | 允許  | |
+   | 動作 | 允許  | |
    | | |
 
 4. 在每個服務的應用程式資訊清單中指定網路模式：`<NetworkConfig NetworkType="Open">`。 **Open** 網路模式會使服務取得專用 IP 位址。 如果未指定模式，服務會預設為 **nat** 模式。 在下列資訊清單範例中，`NodeContainerServicePackage1` 和 `NodeContainerServicePackage2` 服務可以分別在相同的連接埠上接聽 (這兩個服務都會在 `Endpoint1` 上接聽)。 指定 Open 網路模式之後，就無法指定 `PortBinding` 設定。

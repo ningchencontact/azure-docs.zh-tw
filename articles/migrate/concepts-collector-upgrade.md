@@ -4,15 +4,15 @@ description: 提供有關 Azure Migrate 收集器設備升級的資訊。
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/29/2018
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: cd48b824845a0195fc78814a88dd449507c99394
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 88077ac965b2abb69be145f29cbadca2ff1128d6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241458"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836639"
 ---
 # <a name="collector-update-release-history"></a>收集器更新版本歷程記錄
 
@@ -20,12 +20,18 @@ ms.locfileid: "50241458"
 
 「Azure Migrate 收集器」是一個輕量型設備，可用來探索內部部署 vCenter 環境，目的是要在移轉至 Azure 之前先進行評量。 [深入了解](concepts-collector.md)。
 
+## <a name="continuous-discovery-upgrade-versions"></a>連續探索：升級版本
 
-## <a name="one-time-discovery-upgrade-versions"></a>單次探索：升級版本
+目前針對連續探索設備尚未提供任何升級。
+
+## <a name="one-time-discovery-deprecated-now-previous-upgrade-versions"></a>單次探索 (現在已被取代)：先前的升級版本
+
+> [!NOTE]
+> 一次性探索設備現在已被取代，因為這個方法依賴 vCenter Server 的統計資料設定來取得效能資料點可用性，而且收集到的平均效能計數器會導致 VM 大小不足，而無法遷移至 Azure。
 
 ### <a name="version-10916-released-on-10292018"></a>1.0.9.16 版 (2018 年 10 月 29 日發行)
 
-包含設定設備時所面臨的 PowerCLI 問題修正。 
+包含設定設備時所面臨的 PowerCLI 問題修正。
 
 升級[套件 1.0.9.16](https://aka.ms/migrate/col/upgrade_9_16) 的雜湊值
 
@@ -55,29 +61,6 @@ MD5 | 739f588fe7fb95ce2a9b6b4d0bf9917e
 SHA1 | 9b3365acad038eb1c62ca2b2de1467cb8eed37f6
 SHA256 | 7a49fb8286595f39a29085534f29a623ec2edb12a3d76f90c9654b2f69eef87e
 
-### <a name="version-10911"></a>1.0.9.11 版
-
-升級[套件 1.0.9.11](https://aka.ms/migrate/col/upgrade_9_11) 的雜湊值
-
-**演算法** | **雜湊值**
---- | ---
-MD5 | 0e36129ac5383b204720df7a56b95a60
-SHA1 | aa422ef6aa6b6f8bc88f27727e80272241de1bdf
-SHA256 | 5f76dbbe40c5ccab3502cc1c5f074e4b4bcbf356d3721fd52fb7ff583ff2b68f
-
-### <a name="version-1097"></a>1.0.9.7 版
-
-升級[套件 1.0.9.7](https://aka.ms/migrate/col/upgrade_9_7) 的雜湊值
-
-**演算法** | **雜湊值**
---- | ---
-MD5 | 01ccd6bc0281f63f2a672952a2a25363
-SHA1 | 3e6c57523a30d5610acdaa14b833c070bffddbff
-SHA256 | e3ee031fb2d47b7881cc5b13750fc7df541028e0a1cc038c796789139aa8e1e6
-
-## <a name="continuous-discovery-upgrade-versions"></a>連續探索：升級版本
-
-目前針對連續探索設備尚未提供任何升級。
 
 ## <a name="run-an-upgrade"></a>執行升級
 

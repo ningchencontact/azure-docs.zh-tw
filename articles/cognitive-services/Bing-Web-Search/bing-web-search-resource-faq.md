@@ -1,7 +1,7 @@
 ---
 title: 常見問題集 (FAQ) - Bing Web 搜尋 API
 titleSuffix: Azure Cognitive Services
-description: 取得 Bing Web 搜尋 API 相關常見問題的解答。
+description: 使用 Bing Web 搜尋 API 取得相關常見問題的解答。
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +10,13 @@ ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: dbff161f96949100703451a64875079288574014
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.custom: seodec2018
+ms.openlocfilehash: 9098ddc780e6adefa8430fe601e3f4d06634972a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162386"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53252978"
 ---
 # <a name="frequently-asked-questions-faq"></a>常見問題集 (FAQ)
 
@@ -65,4 +66,4 @@ ms.locfileid: "52162386"
 
 ## <a name="see-also"></a>另請參閱
 
- [Stack Overflow：認知服務](http://stackoverflow.com/questions/tagged/bing-api)
+ Stack Overflow：認知服務](http://stackoverflow.com/questions/tagged/bing-api)

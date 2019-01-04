@@ -7,22 +7,24 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/19/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 30bc3e0f1a8230bdbcad653c8c2db7dc078629bb
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180343"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52842759"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 透過 OpenID Connect 設定註冊和登入
 
 >[!NOTE]
-> 此功能處於公開預覽狀態。 請勿在生產環境中使用此功能。
+> 這項功能處於公開預覽狀態。 請勿在生產環境中使用這項功能。
 
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) 是以 OAuth 2.0 為基礎的驗證通訊協定，可用於讓使用者安全地登入。 Azure AD B2C 支援使用此通訊協定的大部分識別提供者，例如[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md) 此文章說明如何將自訂 OpenID Connect 識別提供者新增至內建原則中。
+
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) 是以 OAuth 2.0 為基礎的驗證通訊協定，可用於讓使用者安全地登入。 Azure AD B2C 支援使用此通訊協定的大部分識別提供者，例如[Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md) 本文說明如何將自訂 OpenID Connect 識別提供者新增至使用者流程中。
+
 
 ## <a name="add-the-identity-provider"></a>新增識別提供者
 
@@ -39,13 +41,13 @@ ms.locfileid: "47180343"
 為允許使用者登入，識別提供者會要求開發人員在其服務中註冊應用程式。 此應用程式具有稱為**用戶端識別碼**的識別碼與**用戶端祕密**。 從識別提供者複製這些值，然後在對應的欄位中輸入這些值。
 
 > [!NOTE]
-> 用戶端祕密為選擇性項目。 不過，如果您想要使用[授權碼流程](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) (其使用祕密將程式碼換成權杖)，您必須輸入用戶端祕密。
+> 用戶端祕密為選擇性項目。 不過，如果您想要使用[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth) (其使用祕密將程式碼換成權杖)，您必須輸入用戶端祕密。
 
 範圍會定義您想要從自訂識別提供者蒐集的資訊與權限。 OpenID Connect 要求必須包含 `openid` 範圍值，以便接收來自識別提供者的識別碼權杖。 沒有識別碼權杖，使用者就無法使用自訂識別提供者來登入 Azure AD B2C。 您可以附加其他範圍 (以空格分隔)。 請參閱自訂識別提供者的文件，查看其他可用的範圍。
 
 回應類型會說明要在對自訂識別提供者進行的 `authorization_endpoint` 初始呼叫中傳回哪種資訊。 您可以使用下列回應類型：
 
-- `code`：依照[授權碼流程](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
+- `code`：依照[授權碼流程](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)，將授權碼傳回至 Azure AD B2C。 Azure AD B2C 會繼續呼叫 `token_endpoint` 來交換權杖的授權碼。
 - `token`：存取權杖會從自訂識別提供者傳回到 Azure AD B2C。
 - `id_token`：識別碼權杖會從自訂識別提供者傳回到 Azure AD B2C。
 

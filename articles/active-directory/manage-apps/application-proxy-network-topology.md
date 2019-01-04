@@ -15,12 +15,12 @@ ms.date: 07/28/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 2321ccf115e3b517bdc593c0c428c61d5dd90968
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 976118514dbcb4cee9675ae357d857e7b90e8c0c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367084"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140467"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>使用 Azure Active Directory 應用程式 Proxy 時的網路拓撲考量
 
@@ -40,7 +40,7 @@ ms.locfileid: "39367084"
 
 當您註冊 Azure AD 租用戶時，您租用戶的區域取決於您所指定的國家/地區。 當您啟用應用程式 Proxy 時，租用戶的應用程式 Proxy 服務執行個體會選取或建立在與 Azure AD 租用戶位於相同區域或最近的區域。
 
-例如，如果 Azure AD 租用戶的區域是歐盟 (EU)，則所有的應用程式 Proxy 連接器會使用歐盟 Azure 資料中心的服務執行個體。 當使用者存取發佈的應用程式時，其流量會通過這個位置的應用程式 Proxy 服務執行個體。
+比方說，如果您的 Azure AD 租用戶的國家或地區為英國，則所有您的應用程式 Proxy 連接器都會使用在歐洲資料中心的服務執行個體。 當使用者存取發佈的應用程式時，其流量會通過這個位置的應用程式 Proxy 服務執行個體。
 
 ## <a name="considerations-for-reducing-latency"></a>降低延遲的考量
 
@@ -85,9 +85,9 @@ ms.locfileid: "39367084"
 
 如果您的連接器需要能夠觀察網域控制站，此模式是有利的。 大部分的客戶會使用此模式，因為它非常適合大部分情節。 還可以將這個模式與模式 2 結合，以將服務與連接器之間的流量最佳化。
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-public-peering"></a>模式 2︰利用 ExpressRoute 與公用對等互連
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>模式 2:利用 ExpressRoute 搭配 Microsoft 對等互連
 
-如果 ExpressRoute 已設定公用對等互連，您可以對應用程式 Proxy 與連接器之間的流量利用更快速的 ExpressRoute 連線。 連接器仍在您的網路上，接近應用程式。
+如果 ExpressRoute 已設定 Microsoft 對等互連，您可以對應用程式 Proxy 與連接器之間的流量利用更快速的 ExpressRoute 連線。 連接器仍在您的網路上，接近應用程式。
 
 ### <a name="pattern-3-take-advantage-of-expressroute-with-private-peering"></a>模式 3︰利用具有私人對等互連的 ExpressRoute
 
@@ -117,9 +117,9 @@ ms.locfileid: "39367084"
 
 ### <a name="use-case-1"></a>使用案例 1
 
-**案例︰** 應用程式在美國組織的網路中，其使用者位於相同的區域中。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
+**情節：** 應用程式在美國組織的網路中，其使用者位於相同的區域中。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
 
-**建議︰** 遵循模式 1，如上一節所述。 如需改良的延遲，請視需要考慮使用 ExpressRoute。
+**建議：** 請遵循模式 1，如上一節所說明。 如需改良的延遲，請視需要考慮使用 ExpressRoute。
 
 這是簡單的模式。 將連接器放在應用程式附近，以最佳化躍點 3。 這是也很自然的選擇，因為連接器通常安裝在直視應用程式及資料中心以執行 KCD 作業。
 
@@ -127,9 +127,9 @@ ms.locfileid: "39367084"
 
 ### <a name="use-case-2"></a>使用案例 2
 
-**案例︰** 應用程式在美國組織的網路中，其使用者分散於全球各地。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
+**情節：** 應用程式在美國組織的網路中，其使用者分散於全球各地。 Azure 資料中心與公司網路之間沒有 ExpressRoute 或 VPN 存在。
 
-**建議︰** 遵循模式 1，如上一節所述。 
+**建議：** 請遵循模式 1，如上一節所說明。 
 
 同樣地，最常見的模式是最佳化躍點 3，您將連接器放在應用程式附近的位置。 躍點 3 通常不是高成本，如果全部都在相同區域內。 不過，躍點 1 可能會根據使用者所在的位置而更高成本，因為世界各地的使用者必須存取美國的應用程式 Proxy 執行個體。 值得注意的是，就散佈於全球的使用者而言，任何 Proxy 解決方案會有相似特性。
 
@@ -137,21 +137,21 @@ ms.locfileid: "39367084"
 
 ### <a name="use-case-3"></a>使用案例 3
 
-**案例︰** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與公用對等互連。
+**情節：** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在使用 Microsoft 對等互連的 ExpressRoute。
 
-**建議︰** 遵循模式 1 和 2，如上一節所述。
+**建議：** 請遵循模式 1 和 2，如上一節所說明。
 
 首先，盡可能將連接器放置接近應用程式。 然後，系統會自動使用躍點 2 的 ExpressRoute。 
 
-如果 ExpressRoute 連結使用公用互連，則 Proxy 與連接器之間的流量會流過該連結。 躍點 2 具有最佳化延遲。
+如果 ExpressRoute 連結使用 Microsoft 對等互連，則 Proxy 與連接器之間的流量會流過該連結。 躍點 2 具有最佳化延遲。
 
 ![圖表顯示 Proxy 與連接器之間的 ExpressRoute](./media/application-proxy-network-topology/application-proxy-pattern3.png)
 
 ### <a name="use-case-4"></a>使用案例 4
 
-**案例︰** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與私人對等互連。
+**情節：** 應用程式在美國組織的網路中。 Azure 與公司網路之間存在 ExpressRoute 與私人對等互連。
 
-**建議︰** 遵循模式 3，如上一節所述。
+**建議：** 請遵循模式 3，如上一節所說明。
 
 將連接器放置於透過 ExpressRoute 私人對等互連連線到公司網路的 Azure 資料中心。 
 
@@ -161,9 +161,9 @@ ms.locfileid: "39367084"
 
 ### <a name="use-case-5"></a>使用案例 5
 
-**案例︰** 用程式在歐盟組織的網路中，而應用程式 Proxy 執行個體與大部分使用者位於美國。
+**情節：** 應用程式所在的網路是某個組織在歐洲的網路，而應用程式 Proxy 執行個體與大部分使用者位於美國。
 
-**建議︰** 將連接器放置在應用程式附近。 因為美國使用者會存取剛好在相同區域中的應用程式 Proxy 執行個體，躍點 1 並不過於昂貴。 躍點 3 已最佳化。 請考慮使用 ExpressRoute 將躍點 2 最佳化。 
+**建議：** 將連接器放在應用程式附近。 因為美國使用者會存取剛好在相同區域中的應用程式 Proxy 執行個體，躍點 1 並不過於昂貴。 躍點 3 已最佳化。 請考慮使用 ExpressRoute 將躍點 2 最佳化。 
 
 ![圖表顯示使用者和 Proxy 在美國，而連接器與應用程式在歐盟](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 
@@ -173,7 +173,7 @@ ms.locfileid: "39367084"
 
 ## <a name="next-steps"></a>後續步驟
 
-- [啟用應用程式 Proxy](application-proxy-enable.md)
+- [啟用應用程式 Proxy](application-proxy-add-on-premises-application.md)
 - [啟用單一登入](application-proxy-configure-single-sign-on-with-kcd.md)
 - [啟用條件式存取](application-proxy-integrate-with-sharepoint-server.md)
 - [使用應用程式 Proxy 疑難排解您遇到的問題](application-proxy-troubleshoot.md)

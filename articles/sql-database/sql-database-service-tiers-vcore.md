@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
 ms.date: 11/27/2018
-ms.openlocfilehash: 4d71e54beac6e4816d8bcc9097219b2e7b7cabb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4aaaf2e7a918ab91aebd1e1f1f6d166d6cadf19a
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441854"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437056"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>V 核心服務層、Azure Hybrid Benefit 及移轉
 
@@ -40,10 +40,10 @@ V 核心模型還可讓您使用[適用於 SQL Server 的 Azure Hybrid Benefit](
 ||**一般用途**|**商務關鍵性**|**超大規模 (預覽)**|
 |---|---|---|---|
 |適用對象|大部分的商業工作負載。 提供以預算為導向、平衡且可調整規模的計算與儲存體選項。|高 IO 需求的商務應用程式。 使用數個分開的複本，針對失敗提供最高的復原能力。|具有可高度擴充的儲存體和讀取規模需求的多數商務工作負載|
-|計算|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|Gen4：1 到 24 個虛擬核心<br/>Gen5：1 到 80 個虛擬核心|
-|記憶體|Gen4：每個核心 7 GB<br>Gen5：每個核心 5.1 GB | Gen4：每個核心 7 GB<br>Gen5：每個核心 5.1 GB |Gen4：每個核心 7 GB<br>Gen5：每個核心 5.1 GB|
+|計算|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|第 4 代：1 到 24 個虛擬核心<br/>第 5 代：1 到 80 個虛擬核心|
+|記憶體|第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB | 第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB |第 4 代：每個核心 7 GB<br>第 5 代：每個核心 5.1 GB|
 |儲存體|使用[進階遠端儲存體](../virtual-machines/windows/premium-storage.md)：<br/>單一資料庫：5 GB – 4 TB<br/>受控執行個體：32 GB - 8 TB |使用本機 SSD 儲存體：<br/>單一資料庫：5 GB – 1 TB<br/>受控執行個體：32 GB - 4 TB |儲存體可依需求彈性地自動成長。 可支援多達 100 TB 以上的儲存體。 本機緩衝區集區快取和本機資料儲存可使用本機 SSD 儲存體。 以 Azure 遠端儲存體作為最終的長期資料存放區。 |
-|IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：取決於[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
+|IO 輸送量 (大約)|單一資料庫：每個虛擬核心 500 IOPS，且 IOPS 上限為 7000</br>受控執行個體：視[檔案大小](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)而定|每個虛擬核心 5000 IOPS，且 IOPS 上限為 200,000|TBD|
 |可用性|1 個複本、無讀取規模|3 個複本、1 個[讀取規模複本](sql-database-read-scale-out.md)、<br/>區域備援 HA|?|
 |備份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)、7-35 天 (預設為 7 天)|Azure 遠端儲存體中有以快照集為基礎的備份，還原時可使用這些快照集進行快速復原。 備份可迅速完成，且不會影響計算的 IO 效能。 還原速度非常快，而且不是資料作業的大小 (以分鐘而非小時或天來計算)。|
 |記憶體內|不支援|支援|不支援|

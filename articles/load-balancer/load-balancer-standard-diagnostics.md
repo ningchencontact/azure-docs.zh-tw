@@ -1,13 +1,11 @@
 ---
-title: Azure 標準 Load Balancer 診斷 | Microsoft Docs
+title: Azure Standard Load Balancer 診斷
+titlesuffix: Azure Load Balancer
 description: 使用可用的計量和健康情況資訊診斷 Azure 標準 Load Balancer。
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 258e093acd50946e95360416f89b2ceb96ee35d3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77c3c595994092ff2ca68f3cefa5eb3c8a54bcd6
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426463"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189042"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>標準 Load Balancer 的計量和健康情況診斷
 
 Azure Standard Load Balancer 公開 Azure Standard Load Balancer 會為資源提供下列診斷功能：
-* **多維度計量**：透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)提供新的多維度診斷功能，以供公用和內部負載平衡器組態使用。 您可以監視、管理您的負載平衡器資源，以及進行其疑難排解。
+* **多維度計量**：透過 [Azure 監視器](https://docs.microsoft.com/azure/azure-monitor/overview)提供新的多維度診斷功能，以供公用和內部負載平衡器設定使用。 您可以監視、管理您的負載平衡器資源，以及進行其疑難排解。
 
-* **資源健康狀態**：Azure 入口網站中的 [Load Balancer] 頁面以及 [監視器] 下的 [資源健康狀態] 頁面，會公開標準 Load Balancer 之公用負載平衡器組態的 [資源健康狀態] 區段。
+* **資源健康狀態**：Azure 入口網站中的 [Load Balancer] 頁面和 [資源健康狀態] 頁面 (在 [監視器] 底下) 會顯示用於 Standard Load Balancer 之公用負載平衡器設定的 [資源健康狀態] 區段。
 
 本文會簡要介紹這些功能，以及如何將這些功能使用於標準 Load Balancer。
 
@@ -59,7 +57,7 @@ Azure 入口網站會透過 [計量] (預覽) 頁面公開負載平衡器計量�
 
 ![標準 Load Balancer 的計量預覽](./media/load-balancer-standard-diagnostics/LBMetrics1.png)
 
-圖 - 標準 Load Balancer 的 DIP 可用性和健康情況探查狀態計量
+圖：Standard Load Balancer 的 DIP 可用性和健康情況探查狀態計量
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>透過 API 以程式設計方式擷取多維度計量
 
@@ -82,7 +80,7 @@ Azure 入口網站會透過 [計量] (預覽) 頁面公開負載平衡器計量�
 
 ![VIP 探查](./media/load-balancer-standard-diagnostics/LBMetrics-VIPProbing.png)
 
-圖 - Load Balancer VIP 探查詳細資料
+圖：Load Balancer VIP 探查詳細資料
 
 計量會由作用中的頻內測量所產生。 區域內的探查服務會產生此測量的流量。 此服務會在您使用公用前端建立部署時啟動，並繼續執行到您移除前端為止。 
 
@@ -109,7 +107,7 @@ VIP 可用性會因為下列原因而失敗：
 
 ![DIP 可用性](./media/load-balancer-standard-diagnostics/LBMetrics-DIPAvailability.png)
 
-圖 - Load Balancer VIP 可用性
+圖：Load Balancer VIP 可用性
 
 健康情況探查會因為下列原因而失敗：
 - 您可對未接聽、未回應或使用錯誤通訊協定的連接埠設定健康情況探查。 如果您的服務使用伺服器直接回傳 (DSR 或浮動 IP) 規則，請確定服務會接聽 NIC 之 IP 組態的 IP 位址，而且不只是接聽使用前端 IP 位址所設定的回送。
@@ -189,23 +187,23 @@ VIP 可用性目前僅適用於公用前端。
 >目前只有標準 Load Balancer 的公用組態能夠使用 Load Balancer 的資源健康狀態。 內部負載平衡器資源或 Load Balancer 資源的基本 SKU 不會公開資源健康狀態。
 
 若要檢視公用標準 Load Balancer 資源的健康情況：
-1. 選取 視器 > 服務健康狀態。
+1. 選取 [監視器] > [服務健康狀態]。
 
    ![監視器頁面](./media/load-balancer-standard-diagnostics/LBHealth1.png)
 
-   圖：Azure 監視器上的服務健康情況連結
+   圖：「Azure 監視器」上的 [服務健康狀態] 連結
 
 2. 選取 [資源健康狀態]，然後確定已選取 [訂用帳戶識別碼] 以及 [資源類型 = 負載平衡器]。
 
    ![資源健康情況狀態](./media/load-balancer-standard-diagnostics/LBHealth3.png)
 
-   圖：選取資源以檢視健康情況
+   圖：選取要檢視健康情況的資源
 
 3. 在清單中，選取 Load Balancer 資源，以檢視其過去的健康情況狀態。
 
     ![Load Balancer 健康情況狀態](./media/load-balancer-standard-diagnostics/LBHealth4.png)
 
-   圖：Load Balancer 資源的健康情況檢視
+   圖：Load Balancer 資源健康狀態檢視
  
 下表列出各種資源健康狀態及其說明： 
 

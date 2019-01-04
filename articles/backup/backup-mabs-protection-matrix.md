@@ -2,19 +2,19 @@
 title: Azure 備份伺服器可以備份哪些內容
 description: 本文提供支援矩陣，其中列出 Azure 備份伺服器保護的所有工作負載、資料類型和安裝。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 ms.service: backup
 keywords: ''
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.author: markgal
+ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: a48944beda52e134fcd02f6d12a35789a41aad31
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: e0ac5b318939ef576eae0d0caabc8a9c794b9641
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614730"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871242"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 備份伺服器保護矩陣
 

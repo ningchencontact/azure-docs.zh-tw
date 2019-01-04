@@ -9,31 +9,31 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 1c8c63e10e62af60e09af729b115cc675dae7205
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3500a29c1cdd8b1997f67a3cf1918090dc4ca812
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009397"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53383590"
 ---
-# <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Solr
+# <a name="install-and-use-apache-solr-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr
 
-了解如何使用指令碼動作，在 Azure HDInsight 上安裝 Solr。 Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。
+了解如何使用「指令碼動作」在 Azure HDInsight 上安裝 Apache Solr。 Solr 是強大的搜尋平台，可對 Hadoop 管理的資料執行企業級搜尋功能。
 
-> [!IMPORTANT]
-    > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> [!IMPORTANT]  
+> 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中使用的範例指令碼會以特定組態安裝 Solr 4.9。 如果您想要以不同的集合、分區、結構描述和複本等項目設定 Solr 叢集，則必須修改指令碼和 Solr 二進位檔。
 
 ## <a name="whatis"></a>什麼是 Solr
 
 [Apache Solr](http://lucene.apache.org/solr/features.html) 是可對資料執行強大全文搜尋作業的企業搜尋平台。 Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
 
-> [!WARNING]
+> [!WARNING]   
 > Microsoft 對隨 HDInsight 叢集提供的元件提供完整支援。
 >
-> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可供使用，例如：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight) \(英文\)、[http://stackoverflow.com](http://stackoverflow.com) \(英文\)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如 [Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Solr) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能無法解決自訂元件的問題。 您可能需要加入開放原始碼社群以取得協助。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
 
@@ -56,8 +56,8 @@ ms.locfileid: "51009397"
 
    * **名稱**：輸入指令碼動作的易記名稱。
    * **指令碼 URI**： https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
-   * **HEAD**：勾選此選項
-   * **WORKER**：勾選此選項
+   * **前端**：勾選此選項
+   * **背景工作**：勾選此選項
    * **ZOOKEEPER**：勾選此選項以在 Zookeeper 節點上安裝
    * **參數**：將此欄位保留空白
 
@@ -67,7 +67,7 @@ ms.locfileid: "51009397"
 
 ## <a name="usesolr"></a>如何在 HDInsight 中使用 Solr
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本節中的步驟示範基本的 Solr 功能。 如需有關使用 Solr 的詳細資訊，請參閱 [Apache Solr 網站](http://lucene.apache.org/solr/)。
 
 ### <a name="index-data"></a>索引資料
@@ -76,7 +76,7 @@ ms.locfileid: "51009397"
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
-    > [!NOTE]
+    > [!NOTE]  
     > 將 `sshuser` 取代為叢集的 SSH 使用者。 將 `clustername` 取代為叢集的名稱。
 
     ```bash
@@ -85,7 +85,7 @@ ms.locfileid: "51009397"
 
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-     > [!IMPORTANT]
+     > [!IMPORTANT]  
      > 本文件中稍後的步驟會使用 SSH 通道以連線至 Solr Web UI。 您必須先建立 SSH 通道，將您的瀏覽器設定為可以使用此通道，然後才能使用這些步驟。
      >
      > 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH 通道](hdinsight-linux-ambari-ssh-tunnel.md)文件。
@@ -316,11 +316,11 @@ sudo start solr
     hdfs dfs -put snapshot.20150806185338855.tgz /example/data
     ```
 
-如需有關使用 Solr 備份和還原的詳細資訊，請參閱 [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups)。
+如需有關使用 Apache Solr 備份和還原的詳細資訊，請參閱 [https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups](https://cwiki.apache.org/confluence/display/solr/Making+and+Restoring+Backups)。
 
 ## <a name="next-steps"></a>後續步驟
 
-* [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
+* [在 HDInsight 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝 Giraph。 Giraph 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。
 
 * [在 HDInsight 叢集上安裝 Hue](hdinsight-hadoop-hue-linux.md)。 在 HDInsight Hadoop 叢集上使用叢集自訂安裝色調。 色調是一組 Web 應用程式，用來與 Hadoop 叢集互動。
 

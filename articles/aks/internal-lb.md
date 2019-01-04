@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 042d2ee0f615ce5216fc11152f0f65518ff9bd5c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 5fe1739fa341a5e3bd2f4d26ef1e94d725b74a61
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376374"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53001228"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>搭配 Azure Kubernetes Service (AKS) 使用內部負載平衡器
 
 若要限制存取您在 Azure Kubernetes Service (AKS) 中的應用程式，您可以建立內部負載平衡器來使用。 內部負載平衡器讓 Kubernetes 服務僅供在與 Kubernetes 叢集相同之虛擬網路中執行的應用程式存取。 本文說明如何透過 Azure Kubernetes Service (AKS) 來建立和使用內部負載平衡器。
 
 > [!NOTE]
-> Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。 AKS 目前支援「基本」SKU。 如果您想要使用「標準」SKU，可以使用上游 [acs-engine][acs-engine]。
+> Azure Load Balancer 有兩種 SKU -「基本」和「標準」。 如需詳細資訊，請參閱 [Azure 負載平衡器 SKU 比較][azure-lb-comparison]。 AKS 目前支援「基本」SKU。 如果您想要使用「標準」SKU，可以使用上游 [aKs-engine][aks-engine]。
 
 ## <a name="create-an-internal-load-balancer"></a>建立內部負載平衡器
 
@@ -128,7 +128,7 @@ spec:
 
 <!-- LINKS - External -->
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[acs-engine]: https://github.com/Azure/acs-engine
+[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-advanced-networking.md

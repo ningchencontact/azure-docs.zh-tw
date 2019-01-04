@@ -1,5 +1,5 @@
 ---
-title: 關鍵片語擷取認知搜尋技能 (Azure 搜尋服務) | Microsoft Docs
+title: 關鍵片語擷取認知搜尋技能 - Azure 搜尋服務
 description: 評估非結構化的文字，並針對每一筆記錄，透過 Azure 搜尋服務擴充管線傳回關鍵片語清單。
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 694271115626c652523be34160ad6a07053f6387
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: seodec2018
+ms.openlocfilehash: 570aa0c9946910f70fe80ed2f7ebc064431d9643
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735793"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314630"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>關鍵片語擷取認知技能
 
@@ -24,7 +25,9 @@ ms.locfileid: "45735793"
 如果您需要快速識別記錄中的主要討論要點，此功能相當有用。 例如，假設輸入文字為「The food was delicious and there were wonderful staff」，服務會傳回「food」和「wonderful staff」。
 
 > [!NOTE]
-> 認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣布這些功能的定價。 
+> 從 2018 年 12 月 21 日開始，您可以將認知服務資源與 Azure 搜尋服務技能建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。
+>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 

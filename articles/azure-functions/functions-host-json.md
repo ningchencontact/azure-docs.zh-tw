@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b429f9dab0411dba599fd696dff3d424916007e0
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52635164"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413263"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>適用於 Azure Functions 2.x 的 host.json 參考  
 
-> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
+> [!div class="op_single_selector" title1="選擇您正在使用的Azure Functions運行時的版本: "]
 > * [第 1 版](functions-host-json-v1.md)
 > * [第 2 版](functions-host-json.md)
 
@@ -96,7 +96,23 @@ ms.locfileid: "52635164"
 
 此設定是 [logging](#logging) 的子系。
 
-[!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
+控制 [Application Insights 中的取樣功能](./functions-monitoring.md#configure-sampling)。
+
+```json
+{
+    "applicationInsights": {
+        "samplingSettings": {
+          "isEnabled": true,
+          "maxTelemetryItemsPerSecond" : 5
+        }
+    }
+}
+```
+
+|屬性  |預設值 | 說明 |
+|---------|---------|---------| 
+|isEnabled|true|啟用或停用取樣。| 
+|maxTelemetryItemsPerSecond|5|取樣的開始臨界值。| 
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -185,7 +201,28 @@ ms.locfileid: "52635164"
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|定義已啟用何種檔案記錄層級。  選項為 `never`、`always`、`debugOnly`。 |
 |logLevel|n/a|為應用程式中的函式定義記錄類別篩選的物件。 2.x 版會依循 ASP.NET Core 的記錄類別篩選配置。 這可讓您篩選特定函式的記錄。 如需詳細資訊，請參閱 ASP.NET Core 文件中的[記錄篩選](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)。 |
+|console|n/a| [主控台](#console)記錄設定。 |
 |applicationInsights|n/a| [applicationInsights](#applicationinsights) 設定。 |
+
+## <a name="console"></a>console
+
+此設定是 [logging](#logging) 的子系。 它會在非處於偵錯模式時控制主控台記錄。
+
+```json
+{
+    "logging": {
+    ...
+        "console": {
+          "isEnabled": "false"
+        },
+    ...
+    }
+}
+```
+
+|屬性  |預設值 | 說明 |
+|---------|---------|---------| 
+|isEnabled|false|啟用或停用主控台記錄。| 
 
 ## <a name="queues"></a>queues
 

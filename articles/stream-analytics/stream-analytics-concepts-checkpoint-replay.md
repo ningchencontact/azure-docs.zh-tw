@@ -2,25 +2,25 @@
 title: Azure 串流分析中的檢查點和重新執行作業復原概念
 description: 本文說明「Azure 串流分析」中的檢查點和重新執行作業復原概念。
 services: stream-analytics
-author: zhongc
-ms.author: zhongc
-manager: kfile
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 32970ff37d202cc73e7ab7aa1bf3d737dae895c1
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 9dcfbd4b5fcc8462c88b16f585424166ecd3d499
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36936712"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088232"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure 串流分析作業中的檢查點和重新執行概念
 本文說明「Azure 串流分析」中的內部檢查點和重新執行概念，以及這些概念對作業復原的影響。 每次「串流分析」作業執行時，都會在內部維護狀態資訊。 該狀態資訊會定期儲存在檢查點中。 在某些情況下，當發生作業失敗或升級時，會使用檢查點資訊來進行作業復原。 在其他情況下，則無法使用檢查點來進行復原，而是必須使用重新執行。
 
-## <a name="stateful-query-logic-in-temporal-elements"></a>時態性元素中的具狀態查詢邏輯
-Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理工作，如視窗型彙總、時態性聯結及時態性分析函式。 這當中的每個運算子都會保留作業執行時的狀態資訊。 這些查詢元素的時間範圍上限是七天。 
+## <a name="stateful-query-logicin-temporal-elements"></a>時態性元素中的具狀態查詢邏輯
+Azure 串流分析作業的其中一個獨特功能是執行具狀態的處理工作，如視窗型彙總、時態性聯結及時態性分析函式。 這當中的每個運算子都會保留作業執行時的狀態資訊。 這些查詢元素的時間範圍上限是七天。 
 
 時間範圍概念出現在數個「串流分析」查詢元素中：
 1. 視窗型彙總 (輪轉視窗、跳動視窗和滑動視窗的 GROUP BY)

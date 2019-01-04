@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: vainolo
+ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/25/2018
-ms.openlocfilehash: fc82fa592a513d735d4adc602bedaf8e492af13b
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e947c284843074cf36c2d85dd240df23a1958cd5
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50092946"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52971516"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>開始使用 SQL Database 稽核
 
@@ -39,8 +39,6 @@ ms.locfileid: "50092946"
 - **保留** 所選事件的稽核記錄。 您可以定義要稽核的資料庫動作類別。
 - **報告** 資料庫活動。 您可以使用預先設定的報告和儀表板，快速地開始使用活動和事件報告。
 - **分析** 報告。 您可以尋找可疑事件、異常活動及趨勢。
-
-您可以依照[設定資料庫的稽核](#subheading-2)一節中的說明，針對不同類型的事件類別設定稽核。
 
 > [!IMPORTANT]
 > 系統會將稽核記錄寫入 Azure 訂用帳戶中 Azure Blob 儲存體的**附加 Blob**。

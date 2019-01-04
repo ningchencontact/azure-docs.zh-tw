@@ -5,26 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 12/14/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: 957aa05efab68f9531fb6576de775aa9901ab44d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 9f701f0f6d00d2913eaf5b237435fd375b2030e0
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685798"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435271"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 智慧鎖定
 
-智慧鎖定會使用雲端智慧，鎖定嘗試猜測使用者密碼或使用暴力方法登入的不良執行者。 該智慧可以辨識來自有效使用者的登入，並將其視為不同於攻擊者和其他不明來源所進行的登入。 智慧鎖定可在鎖定攻擊者的同時，讓您的使用者仍可繼續存取其帳戶並保有生產力。
+智慧鎖定會協助鎖定嘗試猜測使用者密碼或使用暴力方法登入的不良執行者。 此外也會辨識來自有效使用者的登入，並將其視為不同於攻擊者和其他不明來源所進行的登入。 智慧鎖定可在鎖定攻擊者的同時，讓您的使用者仍可繼續存取其帳戶並保有生產力。
 
 根據預設，智慧鎖定會在 10 次失敗嘗試後鎖定帳戶，使其無法嘗試登入一分鐘。 在每次後續登入嘗試失敗之後，帳戶會再次鎖定，先鎖定一分鐘，後續嘗試鎖定時間會更長。
 
-* 智慧鎖定會追蹤最後三個不正確的密碼雜湊，以避免重複累計鎖定計數器。 如果有人多次輸入相同的錯誤密碼，此行為並不會導致帳戶鎖定。
-   * 這項功能不適用已啟用傳遞驗證的客戶。
+智慧鎖定會追蹤最後三個不正確的密碼雜湊，以避免重複累計鎖定計數器。 如果有人多次輸入相同的錯誤密碼，此行為並不會導致帳戶鎖定。
+
+ > [!NOTE]
+ > 雜湊追蹤功能不適用於傳遞驗證已啟用的客戶，因為驗證是發生在內部部署，而不是雲端。
 
 任何 Azure AD 客戶只要採用兼具適當安全性和可用性的預設設定，智慧鎖定就一律會啟用。 要使用組織的特定值自訂智慧鎖定設定，您的使用者必須具有 Azure AD Basic 或更高的授權。
 

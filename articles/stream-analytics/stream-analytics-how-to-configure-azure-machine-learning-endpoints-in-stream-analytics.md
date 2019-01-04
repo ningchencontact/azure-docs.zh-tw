@@ -4,17 +4,16 @@ description: 本文說明如何使用 Azure 串流分析中的機器語言使用
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
-manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/28/2017
-ms.openlocfilehash: 024d7094a9baa90eebd57b4c76db367f81bd0400
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 12/07/2018
+ms.openlocfilehash: cea810a5e57f4b10c170038108226c4e0f1320bc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700862"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53104914"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>在串流分析中整合機器學習服務
 串流分析支援對外呼叫 Azure Machine Learning 端點的使用者定義函式。 [串流分析 REST API 程式庫](https://msdn.microsoft.com/library/azure/dn835031.aspx)中會詳細說明此功能的 REST API 支援。 本文提供要在串流分析中成功實作這項功能所需的補充資訊。 您也可以在 [這裡](stream-analytics-machine-learning-integration-tutorial.md)取得已發佈的教學課程。
@@ -22,10 +21,10 @@ ms.locfileid: "43700862"
 ## <a name="overview-azure-machine-learning-terminology"></a>概觀：Azure Machine Learning 術語
 Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您依據資料來建置、測試及部署預測性分析解決方案。 此工具稱為 *Azure Machine Learning Studio*。 您可以利用此 Studio 來與機器學習服務資源互動，並輕鬆地建置、測試和反覆調整設計。 這些資源和其定義如下。
 
-* **工作區**： *工作區* 這個容器中會保有其他所有機器學習服務資源，以便集中管理和控制。
-* **實驗**：資料科學家會建立 *實驗* 來利用資料集和訓練機器學習服務模型。
-* **端點**： *端點* 是 Azure Machine Learning 物件，可供用來將功能做為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
-* **評分 Web 服務**： *評分 Web 服務* 是上述端點的集合。
+* **工作區**：「工作區」這個容器中會保有其他所有機器學習服務資源，以便集中管理和控制。
+* **實驗**：資料科學家會建立「實驗」來利用資料集和訓練機器學習服務模型。
+* **端點**：「端點」是 Azure Machine Learning 物件，可供用來將功能作為輸入、套用指定的機器學習服務模型，並傳回經過評分的輸出。
+* **評分 Web 服務**：「評分 Web 服務」是上述端點的集合。
 
 每個端點都有適用於批次執行和同步執行的 API。 串流分析使用同步執行。 該特定服務在 AzureML Studio 中的名稱為 [要求/回應服務](../machine-learning/studio/consume-web-services.md) 。
 
@@ -51,7 +50,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
 
 要求本文範例：  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -67,7 +66,7 @@ Microsoft Azure Machine Learning 提供可共同作業的拖放工具，供您�
             }
         }
     }
-````
+```
 
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>呼叫預設 UDF 的 RetrieveDefaultDefinition 端點
 一旦建立好基本架構 UDF，就需要 UDF 的完整定義。 RetreiveDefaultDefinition 端點可協助您取得繫結至 Azure Machine Learning 端點之純量函式的預設定義。 下列內容會要求您取得繫結至 Azure Machine Learning 端點之純量函式的預設 UDF 定義。 因為已在 PUT 要求期間提供，因此它不會指定實際的端點。 串流分析會呼叫要求中提供的端點 (如果已明確提供)。 否則，它會使用原本參考的端點。 UDF 在這邊會採用單一字串參數 (一個句子)，並傳回指出該句子的「情緒」標籤的單一類型字串輸出。
@@ -78,7 +77,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
 
 要求本文範例：  
 
-````
+```json
     {
         "bindingType": "Microsoft.MachineLearning/WebService",
         "bindingRetrievalProperties": {
@@ -86,11 +85,11 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
             "udfType": "Scalar"
         }
     }
-````
+```
 
 此項目的範例輸出會看起來像下面這樣。  
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -126,7 +125,7 @@ POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/
             }
         }
     }
-````
+```
 
 ## <a name="patch-udf-with-the-response"></a>使用回應修補 UDF
 現在必須使用先前的回應修補 UDF，如下所示。
@@ -137,7 +136,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
 
 要求本文 (RetrieveDefaultDefinition 的輸出)：
 
-````
+```json
     {
         "name": "newudf",
         "properties": {
@@ -173,12 +172,12 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
             }
         }
     }
-````
+```
 
 ## <a name="implement-stream-analytics-transformation-to-call-the-udf"></a>實作串流分析轉換來呼叫 UDF
 現在要查詢每一個輸入事件的 UDF (這裡稱為 scoreTweet)，並將該事件的回應寫入至輸出。  
 
-````
+```json
     {
         "name": "transformation",
         "properties": {
@@ -186,7 +185,7 @@ PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers
             "query": "select *,scoreTweet(Tweet) TweetSentiment into blobOutput from blobInput"
         }
     }
-````
+```
 
 
 ## <a name="get-help"></a>取得說明

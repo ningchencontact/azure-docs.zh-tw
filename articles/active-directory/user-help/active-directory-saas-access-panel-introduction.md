@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: d9ed140d404387b94428cea5d925911806b62552
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 129f77ec9ea4d4e2633e1ea0b02795bc0df26433
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705850"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834701"
 ---
 # <a name="what-is-the-myapps-portal"></a>什麼是 MyApps 入口網站？
 
@@ -41,11 +41,11 @@ MyApps 入口網站會與 Azure 入口網站分開。 您不需要具有 Azure �
 
 ## <a name="access-the-myapps-portal"></a>存取 MyApps 入口網站
 
-您可以前往 `http://myapps.microsoft.com` 存取 MyApps 入口網站。
+您可以前往 `https://myapps.microsoft.com` 存取 MyApps 入口網站。
 
-如果您已經為您的登入頁面設定自訂商標，就可將貴組織的網域附加到 URL (例如，`http://myapps.microsoft.com/<your domain>.com`)，以載入此商標。
+如果您已經為您的登入頁面設定自訂商標，就可將貴組織的網域附加到 URL (例如，`https://myapps.microsoft.com/<your domain>.com`)，以載入此商標。
 
-您可以使用已在 Azure 入口網站中設定的任何使用中或已驗證網域名稱，如下所示：![Wingtip Toys 網域名稱][2]  
+您可以使用已在 Azure 入口網站中設定的任何作用中或已驗證網域名稱，如下所示：![Wingtip Toys 網域名稱][2]  
 
 將 URL 散佈給要登入與 Azure AD 整合之應用程式的所有使用者。
 

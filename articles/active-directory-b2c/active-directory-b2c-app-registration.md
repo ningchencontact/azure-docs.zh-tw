@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 12/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: fcebada4ef10c3e0bb298e9308d66ecb37247832
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51013406"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999264"
 ---
 # <a name="register-an-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中註冊應用程式
 
@@ -82,7 +82,4 @@ ms.locfileid: "51013406"
 
 ## <a name="next-steps"></a>後續步驟
 
-您現已在 Azure AD B2C 註冊應用程式，只需完成其中一個[快速啟動教學課程](active-directory-b2c-overview.md)，即可開始操作和執行。
-
-> [!div class="nextstepaction"]
-> [透過註冊、登入和密碼重設來建立 ASP.NET Web 應用程式](active-directory-b2c-devquickstarts-web-dotnet-susi.md)
+在[要求存取權杖](active-directory-b2c-access-tokens.md)中，深入了解應用程式如何使用存取權杖授與 API 的權限

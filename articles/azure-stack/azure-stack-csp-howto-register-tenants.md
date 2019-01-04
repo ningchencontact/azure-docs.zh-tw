@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 6f93a72acdcc249720abeec3fe871b7108e2bb29
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498567"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52963737"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>將用於使用量與帳單的租用戶新增至 Azure Stack
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 本文說明必要步驟會將終端使用者新增至雲端服務提供者 (CSP) 所管理的 Azure Stack。 當新的租用戶使用資源時，Azure Stack 將會向其 CSP 訂用帳戶報告使用量。
 
@@ -36,7 +36,7 @@ CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提�
 
 **新增終端客戶的步驟**
 
-![設定雲端服務提供者以進行使用量追蹤，以及管理終端客戶帳戶](media\azure-stack-csp-enable-billing-usage-tracking\process-csp-enable-billing.png)
+![設定雲端服務提供者以進行使用量追蹤，以及管理終端客戶帳戶](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
 ## <a name="create-a-new-customer-in-partner-center"></a>在合作夥伴中心建立新的客戶
 
@@ -50,7 +50,7 @@ CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提�
 ## <a name="create-a-guest-user-in-the-end-customer-directory"></a>在終端客戶目錄中建立來賓使用者
 
 如果終端客戶會管理他們自己的帳戶，請在其目錄中建立來賓使用者，並將資訊傳送給他們。 接著，終端使用者會新增來賓，並將來賓權限提高為 Azure Stack CSP 帳戶的**擁有者**。
- 
+ 
 ## <a name="update-the-registration-with-the-end-customer-subscription"></a>使用終端客戶訂用帳戶更新註冊
 
 使用新客戶的訂用帳戶更新您的註冊。 Azure 會使用合作夥伴中心的客戶身分識別來報告客戶的使用量。 這個步驟可確保每個客戶的使用量都會報告在該客戶的個別 CSP 訂用帳戶底下。 這可讓您更輕鬆地追蹤使用者使用量與帳單。
@@ -86,10 +86,10 @@ CSP 通常會為其 Azure Stack 部署上的多位終端客戶 (租用戶) 提�
 
 ## <a name="create-a-local-resource-in-the-end-customer-tenant-in-azure-stack"></a>在 Azure Stack 的終端客戶租用戶中建立本機資源
 
-一旦您已將新客戶新增至 Azure Stack ，或是終端客戶租用戶已啟用您具有擁有者權限的來賓帳戶後，請確認您可以在其租用戶中建立資源。 例如，他們可以[使用 Azure Stack 入口網站建立 Windows 虛擬機器](user\azure-stack-quick-windows-portal.md)。
+一旦您已將新客戶新增至 Azure Stack ，或是終端客戶租用戶已啟用您具有擁有者權限的來賓帳戶後，請確認您可以在其租用戶中建立資源。 例如，他們可以[使用 Azure Stack 入口網站建立 Windows 虛擬機器](user/azure-stack-quick-windows-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
  - 如果錯誤訊息在您的註冊過程中觸發，且您要檢閱這些錯誤訊息，請參閱[租用戶註冊錯誤訊息](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)。
  - 若要深入了解如何取出 Azure Stack 的資源使用量資訊，請參閱 [Azure Stack 中的使用量與帳單](azure-stack-billing-and-chargeback.md)。
- - 若要檢閱終端客戶如何將身為 CSP 的您新增作為其 Azure Stack (租用戶) 的管理員，請參閱[讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶](user\azure-stack-csp-enable-billing-usage-tracking.md)。
+ - 若要檢閱終端客戶如何將身為 CSP 的您新增作為其 Azure Stack (租用戶) 的管理員，請參閱[讓雲端服務提供者能夠管理您的 Azure Stack 訂用帳戶](user/azure-stack-csp-enable-billing-usage-tracking.md)。

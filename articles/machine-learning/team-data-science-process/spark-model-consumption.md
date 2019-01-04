@@ -1,5 +1,5 @@
 ---
-title: 實作 Spark 建置機器學習模型 | Microsoft Docs
+title: 實作 Spark 建置機器學習模型 - Team Data Science Process
 description: 如何使用 Python 載入及評分儲存在 Azure Blob 儲存體 (WASB) 中的學習模型。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 6ffe1dd960b6fd09539d093d8a632efc99452c00
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442477"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135300"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>實作 Spark 建置機器學習模型
 
@@ -120,7 +120,7 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 ## <a name="ingest-data-and-create-a-cleaned-data-frame"></a>擷取資料並建立已清除的資料框架
 本節包含一系列工作的程式碼，為擷取要評分的資料所必需。 在聯結的 0.1% 取樣的計程車車程和費用檔案中讀取 (儲存為 .tsv 檔案)、格式化資料，然後建立清空的資料框架。
 
-已根據 [Team Data Science Process 實務：使用 HDInsight Hadoop 叢集](hive-walkthrough.md) 主題提供的程序來聯結計程車車程和費用檔案。
+加入的計程車車程和車資檔案根據下列程序提供：[Team Data Science Process 實務：使用 HDInsight Hadoop 叢集](hive-walkthrough.md)主題。
 
     # INGEST DATA AND CREATE A CLEANED DATA FRAME
 
@@ -511,20 +511,20 @@ PySpark 核心提供一些預先定義的「magic」，這是您可以使用 %% 
 
 **輸出：**
 
-logisticRegFileLoc: LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
+logisticRegFileLoc：logisticRegFileLoc： LogisticRegressionWithLBFGS_2016-05-0317_22_38.953814.txt
 
-linearRegFileLoc: LinearRegressionWithSGD_2016-05-0317_22_58.878949
+linearRegFileLoc：LinearRegressionWithSGD_2016-05-0317_22_58.878949
 
-randomForestClassificationFileLoc: RandomForestClassification_2016-05-0317_23_15.939247.txt
+randomForestClassificationFileLoc：RandomForestClassification_2016-05-0317_23_15.939247.txt
 
-randomForestRegFileLoc: RandomForestRegression_2016-05-0317_23_31.459140.txt
+randomForestRegFileLoc：RandomForestRegression_2016-05-0317_23_31.459140.txt
 
-BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
+BoostedTreeClassificationFileLoc：GradientBoostingTreeClassification_2016-05-0317_23_49.648334.txt
 
-BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
+BoostedTreeRegressionFileLoc：GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>透過 Web 介面使用 Spark 模型
-Spark 提供一個機制，透過 REST 介面 (包含稱為 Livy 的元件) 從遠端提交批次工作或互動式查詢。 Livy 預設在 HDInsight Spark 叢集上啟用。 如需 Livy 的詳細資訊，請參閱 [使用 Livy 遠端提交 Spark 作業](../../hdinsight/spark/apache-spark-livy-rest-interface.md)。 
+Spark 提供一個機制，透過 REST 介面 (包含稱為 Livy 的元件) 從遠端提交批次工作或互動式查詢。 Livy 預設在 HDInsight Spark 叢集上啟用。 如需有關 Livy 的詳細資訊，請參閱：[使用 Livy 從遠端提交 Spark 作業](../../hdinsight/spark/apache-spark-livy-rest-interface.md)。 
 
 您可以使用 Livy 從遠端提交作業，其批次批分儲存在 Azure blob 中的檔案，然後將結果寫入另一個 blob。 若要這樣做，需要將 Python 指令碼從   
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) 上傳至 Spark 叢集的 blob。 您可以使用類似 **Microsoft Azure 儲存體總管**或 **AzCopy** 的工具，將指令碼複製到叢集 blob。 在本例中，我們將指令碼上傳至 wasb:///example/python/ConsumeGBNYCReg.py。   
@@ -587,5 +587,5 @@ Spark 提供一個機制，透過 REST 介面 (包含稱為 Livy 的元件) 從�
 ![Logic Apps 設計工具](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>後續步驟
-**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠訓練模型的相關資訊，請參閱 [使用 Spark 進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)
+**交叉驗證和超參數掃掠**：如需如何使用交叉驗證和超參數掃掠訓練模型的相關資訊，請參閱[使用 Spark 進階資料探索和模型化](spark-advanced-data-exploration-modeling.md)。
 

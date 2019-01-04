@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 03eb5958e1c447ec1239289538906a0cb3e4b30d
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 6e0641f2d9427133f951ef63720b4efdac4defe5
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51634204"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409049"
 ---
 # <a name="use-apache-hive-with-apache-hadoop-on-hdinsight-with-remote-desktop"></a>利用遠端桌面搭配使用 Apache Hive 與 HDInsight 上的 Apache Hadoop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-在本文中，您將學習如何使用遠端桌面連接到 HDInsight 叢集，然後使用 Hive 命令列介面 (CLI) 執行 Hive 查詢。
+在本文中，您將學習如何使用遠端桌面連接到 HDInsight 叢集，然後使用 Hive 命令列介面 (CLI) 執行 Apache Hive 查詢。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 只有在使用 Windows 作為作業系統的 HDInsight 叢集上才能使用「遠端桌面」。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 >
-> 針對 HDInsight 3.4 或更新版本，請參閱[使用 Hive 搭配 HDInsight 和 Beeline](apache-hadoop-use-hive-beeline.md)，以了解如何從命令列直接在叢集上執行 Hive 查詢。
+> 針對 HDInsight 3.4 或更新版本，請參閱[使用 Apache Hive 搭配 HDInsight 和 Beeline](apache-hadoop-use-hive-beeline.md)，以了解如何從命令列直接在叢集上執行 Hive 查詢。
 
 ## <a id="prereq"></a>必要條件
 若要完成本文中的步驟，您需要下列項目：
@@ -55,18 +55,18 @@ ms.locfileid: "51634204"
 
     這些陳述式會執行下列動作：
 
-   * **DROP TABLE**：刪除資料表和資料檔 (如果資料表已存在)。
+   * **DROP TABLE**：刪除資料表和資料檔 (如果資料表已經存在)。
    * **CREATE EXTERNAL TABLE**：在 Hive 中建立新的「外部」資料表。 外部資料表只會在 Hive 中儲存資料表定義 (資料會保留在原始位置)。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 當您預期以外部來源更新基礎資料 (例如自動化資料上傳程序)，或以其他 MapReduce 作業更新基礎資料，但希望 Hive 查詢一律使用最新資料時，必須使用外部資料表。
      >
      > 捨棄外部資料表並 **不會** 刪除資料，只會刪除資料表定義。
      >
      >
-   * **ROW FORMAT**：告訴 Hive 如何格式化資料。 在此情況下，每個記錄中的欄位會以空格隔開。
-   * **STORED AS TEXTFILE LOCATION**：告訴 Hive 資料的儲存位置 (example/data 目錄) 且資料儲存為文字。
-   * **SELECT**：選擇其資料欄 **t4** 包含值 **[ERROR]** 的所有資料列計數。 這應該會傳回值 **3** ，因為有三個資料列包含此值。
+   * **ROW FORMAT**：告訴 Hive 如何設定資料格式。 在此情況下，每個記錄中的欄位會以空格隔開。
+   * **STORED AS TEXTFILE LOCATION**：將資料的儲存位置告訴 Hive (example/data 目錄)，且資料儲存為文字。
+   * **選取**：選取在資料行 **t4** 中包含 **[ERROR]** 值的所有資料列。 這應該會傳回值 **3** ，因為有三個資料列包含此值。
    * **INPUT__FILE__NAME LIKE '%.log'** - 告訴 Hive 我們只應該從檔名以 log 結尾的檔案中傳回資料。 這將限制包含此資料的 sample.log 檔案搜尋，對於不符合我們所定義結構描述的其他範例資料檔案，會防止其傳回資料。
 4. 使用下列陳述式來建立名為 **errorLogs**的新「內部」資料表：
 
@@ -75,9 +75,9 @@ ms.locfileid: "51634204"
 
     這些陳述式會執行下列動作：
 
-   * **CREATE TABLE IF NOT EXISTS**：建立資料表 (如果不存在)。 因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 來管理。
+   * **若不存在即建立**：建立資料表 (如果不存在)。 因為未使用 **EXTERNAL** 關鍵字，所以這是內部資料表，而內部資料表儲存在 Hive 資料倉儲中，並完全透過 Hive 來管理。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 與 **EXTERNAL** 資料表不同之處在於，捨棄內部資料表也會刪除基礎資料。
      >
      >
@@ -96,29 +96,29 @@ ms.locfileid: "51634204"
 ## <a id="nextsteps"></a>接續步驟
 如需 HDInsight 中 Hive 的一般資訊：
 
-* [搭配使用 Hive 與 HDInsight 上的 Hadoop](hdinsight-use-hive.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Hive](hdinsight-use-hive.md)
 
 如需您可以在 HDInsight 上使用 Hadoop 之其他方式的詳細資訊：
 
-* [搭配使用 Pig 與 HDInsight 上的 Hadoop](hdinsight-use-pig.md)
-* [搭配 HDInsight 上的 Hadoop 使用 MapReduce](hdinsight-use-mapreduce.md)
+* [在 HDInsight 上搭配 Apache Hadoop 使用 Apache Pig](hdinsight-use-pig.md)
+* [搭配 MapReduce 與 HDInsight 上的 Apache Hadoop](hdinsight-use-mapreduce.md)
 
 如果您搭配使用 Tez 和 Hive，請參閱下列文件所提供的偵錯資訊：
 
-* [在以 Windows 為基礎的 HDInsight 上使用 Tez UI](../hdinsight-debug-tez-ui.md)
-* [在以 Linux 為基礎的 HDInsight 上使用 Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
+* [在以 Windows 為基礎的 HDInsight 上使用 Apache Tez UI](../hdinsight-debug-tez-ui.md)
+* [在以 Linux 為基礎的 HDInsight 上使用 Apache Ambari Tez 檢視](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
 
-[azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
-[azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
-[azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
+[azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/
+[azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
-[apache-tez]: http://tez.apache.org
-[apache-hive]: http://hive.apache.org/
-[apache-log4j]: http://en.wikipedia.org/wiki/Log4j
+[apache-tez]: https://tez.apache.org
+[apache-hive]: https://hive.apache.org/
+[apache-log4j]: https://en.wikipedia.org/wiki/Log4j
 [hive-on-tez-wiki]: https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez
-[import-to-excel]: http://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
+[import-to-excel]: https://azure.microsoft.com/documentation/articles/hdinsight-connect-excel-power-query/
 
 
 [hdinsight-use-oozie]: hdinsight-use-oozie.md
@@ -134,4 +134,4 @@ ms.locfileid: "51634204"
 
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
-[powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
+[powershell-here-strings]: https://technet.microsoft.com/library/ee692792.aspx

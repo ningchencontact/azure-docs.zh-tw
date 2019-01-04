@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 3686a90cb088dae99d20df619c161251b5bdfd60
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a7b6122638636193b363d0ac57aae22a9c7da57a
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438938"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014747"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>教學課程：Azure Active Directory 與 Predictix Price Reporting 整合
 
@@ -113,13 +113,14 @@ Predictix Price Reporting 與 Azure AD 整合提供下列優點：
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname-pricing>.predictix.com/sso/request`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://<companyname-pricing>.predictix.com` |
     | `https://<companyname-pricing>.dev.predictix.com` |
 
     > [!NOTE] 
-    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Predictix Price Reporting 用戶端支援小組](http://www.infor.com/company/customer-center/)以取得這些值。 
+    > 這些都不是真正的值。 使用實際的「登入 URL」及「識別碼」來更新這些值。 請連絡 [Predictix Price Reporting 用戶端支援小組](https://www.infor.com/company/customer-center/)以取得這些值。 
  
 1. 在 [SAML 簽署憑證] 區段上，按一下 [憑證 (Base64)]，然後將憑證檔案儲存在您的電腦上。
 
@@ -133,7 +134,7 @@ Predictix Price Reporting 與 Azure AD 整合提供下列優點：
 
     ![Predictix Price Reporting 設定](./media/predictixpricereporting-tutorial/tutorial_predictixpricereporting_configure.png) 
 
-1. 若要在 **Predictix Price Reporting** 端設定單一登入，您必須將已下載的**憑證 (Base64)**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送至 [Predictix Price Reporting 支援小組](http://www.infor.com/company/customer-center/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
+1. 若要在 **Predictix Price Reporting** 端設定單一登入，您必須將已下載的**憑證 (Base64)**、**登出 URL、SAML 實體識別碼和 SAML 單一登入服務 URL** 傳送至 [Predictix Price Reporting 支援小組](https://www.infor.com/company/customer-center/)。 他們會進行此設定，讓兩端的 SAML SSO 連線都設定正確。
 
 > [!TIP]
 > 現在，當您設定此應用程式時，在 [Azure 入口網站](https://portal.azure.com)內即可閱讀這些指示的簡要版本！  從 [Active Directory] > [企業應用程式] 區段新增此應用程式之後，只要按一下 [單一登入] 索引標籤，即可透過底部的 [組態] 區段存取內嵌的文件。 您可以從以下連結閱讀更多有關內嵌文件功能的資訊：[Azure AD 內嵌文件]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +174,7 @@ Predictix Price Reporting 與 Azure AD 整合提供下列優點：
  
 ### <a name="create-a-predictix-price-reporting-test-user"></a>建立 Predictix Price Reporting 測試使用者
 
-在本節中，您要在 Predictix Price Reporting 中建立名為 Britta Simon 的使用者。 請與 [Predictix Price Reporting 支援小組](http://www.infor.com/company/customer-center/)合作，在 Predictix Price Reporting 平台新增使用者。
+在本節中，您要在 Predictix Price Reporting 中建立名為 Britta Simon 的使用者。 請與 [Predictix Price Reporting 支援小組](https://www.infor.com/company/customer-center/)合作，在 Predictix Price Reporting 平台新增使用者。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 

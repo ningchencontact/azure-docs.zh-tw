@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 56a36e61bb9938ceb7e3cdaf2676c24c037b1d16
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: a5f1e728f7a13f763367abc3f380fb9fbdb67b5c
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585656"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53326645"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>關於 Azure IaaS VM 磁碟及受控和非受控進階磁碟的常見問題集
 
@@ -86,8 +86,8 @@ ms.locfileid: "52585656"
 受控磁碟支援三個主要預設角色︰
 
 * 擁有者：可以管理所有項目，包括存取
-* 參與者：可以管理存取以外的所有項目
-* 讀取者：可以檢視所有項目，但是無法進行變更
+* 參與者：可以管理存取以外的所有內容
+* 讀取器：可以檢視所有項目，但是無法進行變更
 
 **是否有方法可以將受控磁碟複製或匯出至私人儲存體帳戶？**
 
@@ -137,9 +137,9 @@ Azure 受控磁碟目前只支援本地備援儲存體受控磁碟。
 
 就受控磁碟而言，您無法將其重新命名。 不過，針對非受控磁碟，只要該磁碟目前未連接至 VHD 或 VM，您便可以將其重新命名。
 
-**我可以在 Azure 磁碟上使用 GBT 分割嗎？**
+**我可以在 Azure 磁碟上使用 GPT 分割嗎？**
 
-GBT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
+GPT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS 磁碟必須使用 MBR 分割區樣式。
 
 ## <a name="standard-ssd-disks"></a>標準 SSD 磁碟
 
@@ -188,6 +188,10 @@ GBT 分割只能在資料磁碟上使用，無法在 OS 磁碟上使用。 OS �
 否，標準 SSD 沒有單一執行個體虛擬機器 SLA。 請針對單一執行個體虛擬機器 SLA 使用進階 SSD 磁碟。
 
 ## <a name="migrate-to-managed-disks"></a>移轉到受控磁碟
+
+**移轉對於受控磁碟的效能是否有任何影響？
+
+移轉涉及從一個儲存體位置將磁碟移動到另一個儲存體位置。 這會透過資料的背景副本進行協調，可能需要數小時才能完成，端視磁碟機中的資料量而定，一般不超過 24 小時。 在這段期間，應用程式可能出現比平常高的讀取延遲，因為某些讀取會重新導向至原始位置，因此可能需要較長的時間才能完成。 在這段期間，對於寫入延遲沒有任何影響。  
 
 **在移轉至受控磁碟前/後，預先存在的 Azure 備份服務設定需要哪些變更？**
 
@@ -312,10 +316,10 @@ Azure 支援的分頁 Blob 大小上限是 8 TiB (8,191 GiB)。 連結至 VM 作
 
 |Azure 工具      | 支援的版本                                |
 |-----------------|---------------------------------------------------|
-|Azure PowerShell | 版本號碼 4.1.0：2017 年 6 月發行或更新版本|
-|Azure CLI v1     | 版本號碼 0.10.13：2017 年 5 月發行或更新版本|
-|Azure CLI v2     | 版本號碼 2.0.12：2017 年 7 月發行或更新版本|
-|AzCopy           | 版本號碼 6.1.0：2017 年 6 月發行或更新版本|
+|Azure PowerShell | 版本號碼 4.1.0：2017 年 6 月版本或更新版本|
+|Azure CLI v1     | 版本號碼 0.10.13：2017 年 5 月版本或更新版本|
+|Azure CLI v2     | 版本號碼 2.0.12：2017 年 7 月版本或更新版本|
+|AzCopy           | 版本號碼 6.1.0：2017 年 6 月版本或更新版本|
 
 **針對非受控磁碟或分頁 Blob，是否支援 P4 和 P6 磁碟大小？**
 
@@ -339,7 +343,7 @@ Azure 備份和 Azure Site Recovery 服務支援的最大磁碟大小為 4 TiB�
 
 **針對大型磁碟大小 (大於 4 TiB) 的標準 SSD 和標準 HDD 磁碟，你們建議使用哪些 VM 大小，才能擁有最佳化的磁碟 IOPS 和頻寬？**
 
-若要達到標準 SSD 和標準 HDD 大型磁碟大小 (大於 4 TiB) 的 500 IOPS 和每秒 60 MiB 的磁碟輸送量，您應該使用下列其中一種 VM 大小，讓您的效能最佳化：B-series、DSv2-series、Dsv3-Series、ESv3-Series、Fs-series、Fsv2-series、M-series、GS-series、NCv2-series、NCv3-series 或 Ls-Series VM。
+若要使標準的 SSD 和 HDD 標準大型磁碟大小的磁碟輸送量 (> 4 TB) 達到 500 IOPS 和 60 MiB/s 以上，您應該使用下列其中一種 VM 大小最佳化效能：B 系列、DSv2 系列、Dsv3 系列、ESv3 系列、Fs 系列、Fsv2 系列、M 系列、GS 系列、NCv2 系列、NCv3 系列或 Ls 系列的 VM。
 
 **有哪些區域支援超過 4 TiB 的受控磁碟大小？**
 

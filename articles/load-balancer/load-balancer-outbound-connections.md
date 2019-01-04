@@ -1,22 +1,24 @@
 ---
-title: Azure 中的輸出連線 | Microsoft Docs
+title: Azure 中的輸出連線
+titlesuffix: Azure Load Balancer
 description: 本文說明如何 Azure 如何讓 VM 與公用網際網路服務進行通訊。
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: kumud
-ms.openlocfilehash: fdcc039eb71eaeea03aaae856a6d031d4c528669
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 09de0a3aa0303e169d0b90690016909b29dc4a9b
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687566"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190963"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的輸出連線
 
@@ -46,7 +48,7 @@ Azure 會使用來源網路位址轉譯 (SNAT) 執行這項功能。 當多個�
 
 如果您不想要讓 VM 與公用 IP 位址空間中的 Azure 外部端點進行通訊，您可以使用網路安全性群組 (NSG) 來視需要封鎖存取。 [防止輸出連線](#preventoutbound)一節中會更詳細探討 NSG。 有關設計、實作及管理沒有任何輸出存取之虛擬網路的指引，則不在本文的涵蓋範圍內。
 
-### <a name="ilpip"></a>案例 1：VM 與執行個體層級公用 IP 位址
+### <a name="ilpip"></a>案例 1：具有執行個體層級公用 IP 位址的 VM
 
 在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 就輸出連線而言，VM 是否負載平衡並不重要。 此案例的優先順序高於其他案例。 使用 ILPIP 時，VM 會針對所有輸出流程使用 ILPIP。  
 

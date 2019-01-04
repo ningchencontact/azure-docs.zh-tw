@@ -1,23 +1,24 @@
 ---
-title: 預先建立的定義域參考 - Azure| Microsoft Docs
+title: 預先建置的網域參考
 titleSuffix: Azure
 description: 預先建立的定義域參考是從 Language Understanding Intelligent Service (LUIS) 預先建立的意圖和實體集合。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 287a0986d921798bc7735e5a75d279f010712b16
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52335618"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140960"
 ---
-# <a name="prebuilt-domain-reference"></a>預先建置的網域參考
+# <a name="prebuilt-domain-reference-for-your-luis-app"></a>您 LUIS 應用程式預先建置的網域參考
 此參考提供[預先建立的定義域](luis-how-to-use-prebuilt-domains.md)相關資訊，這是 LUIS 提供之預先建立的意圖和實體集合。
 
 相反地，[自訂網域](luis-how-to-start-new-app.md)一開始沒有任何意圖和模型。 您可以將任何預先建立的定義域意圖和實體新增至自訂模型。
@@ -115,7 +116,7 @@ Communication 定義域提供與電子郵件、訊息和電話相關的意圖和
 | TurnForwardingOff| 撥打電話。|<br/><br/>|
 | Redial| 重撥或再次撥打某個號碼。|重撥。<br/>重撥我的上一通電話。|
 | 拒絕| 拒絕來電。|拒絕來電<br/>目前無法接聽<br/>目前無法接聽，稍後將回電。|
-| SendEmail| 傳送電子郵件。 此意圖適用於電子郵件，但不適用於文字簡訊。|傳送電子郵件給 Mike Waters：Mike，上週的晚餐很棒。<br/>傳送電子郵件給 Bob<br/>|
+| SendEmail| 傳送電子郵件。 此意圖適用於電子郵件，但不適用於文字簡訊。|傳送電子郵件至 Mike Waters：Mike，上週的晚餐很棒。<br/>傳送電子郵件給 Bob<br/>|
 | SendMessage| 傳送文字簡訊或立即訊息。|傳送簡訊給 Chris 和 Carol|
 | SetSpeedDial| 設定連絡人電話號碼的快速撥號快速鍵。|將 Carol 的快速撥號設定為 1。<br/>設定媽媽的快速撥號。|
 | ShowNext| 查看下一個項目，例如文字簡訊或電子郵件清單中的下一個項目。|顯示下一個。<br/>移至下一頁。|
@@ -178,7 +179,7 @@ Events 定義域提供與預約演唱會、慶典、運動賽事和喜劇表演�
 | 實體名稱 | 說明 | 範例 |
 | ---------------- |-----------------------|----|
 | 位址 | 活動位置或地址。 |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| 名稱 | 活動的標題。|公園莎士比亞表演|
+| Name | 活動的標題。|公園莎士比亞表演|
 | PlaceName| 活動位置名稱。|羅浮宮<br/>歌劇院<br/>百老匯|
 | PlaceType | 活動舉辦位置的類型。|咖啡廳<br/>劇院<br/>程式庫|
 | 類型 | 活動的類型。|演唱會<br/>運動賽事|
@@ -241,11 +242,12 @@ HomeAutomation 定義域提供與控制控制燈光與家電用品等智慧型�
 MovieTickets 定義域提供與預約電影院之電影票相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Book me two tickets for Captain Omar and the two Musketeers
-Cancel tickets
-When is Captain Omar showing?
-```
+
+|範例|
+|--|
+|我想要預約 Captain Omar 和 The Two Musketeers 兩張電影票|
+|取消電影票|
+|Captain Omar 何時放映？|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -266,11 +268,12 @@ When is Captain Omar showing?
 Music 定義域提供與在音樂播放程式上播放音樂相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-play Beethoven
-Increase track volume
-Skip to the next song
-```
+
+|範例|
+|--|
+|播放 Beethoven|
+|提高曲目音量|
+|跳到下一首歌|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -297,11 +300,12 @@ Skip to the next song
 Note 定義域提供與建立、編輯及尋找筆記相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Add to my groceries note lettuce tomato bread coffee
-Check off bananas from my grocery list
-Remove all items from my vacation list
-```
+
+|範例|
+|--|
+|將生菜、蕃茄、麵包和咖啡新增至我的雜貨筆記|
+|從我的雜貨清單中標記香蕉|
+|從我的假期清單中移除所有項目|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -330,11 +334,13 @@ Remove all items from my vacation list
 OnDevice 定義域提供與控制裝置相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Close video player
-Cancel playback
-Can you make the screen brighter?
-```
+
+|範例|
+|--|
+|關閉視訊播放程式|
+|取消播放|
+|您可以將螢幕變亮嗎？|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -381,11 +387,13 @@ Can you make the screen brighter?
 Places 定義域提供處理與公司、機構、餐廳、公共空間和地址等地點相關之查詢的意圖。
 
 ### <a name="examples"></a>範例
-```
-Save this location to my favorites
-How far away is Holiday Inn?
-At what time does Safeway close?
-```
+
+|範例|
+|--|
+|將此位置儲存至我的最愛|
+|Holiday Inn 有多遠？|
+|Safeway 何時打烊？|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -450,11 +458,13 @@ restart|
 Reminder 定義域提供建立、編輯及尋找提醒的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Change my interview to 9 am tomorrow
-Remind me to buy milk on my way back home
-Can you check if I have a reminder about Christine's birthday?
-```
+
+|範例|
+|--|
+|變更我在明天上午 9 點的面試|
+|提醒我在回家前買牛奶|
+|您可以檢查我是否有 Christine 的生日提醒嗎？|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -473,11 +483,12 @@ Can you check if I have a reminder about Christine's birthday?
 RestaurantReservation 定義域提供與管理餐廳預留相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Reserve at Zucca for two for tonight
-Book a table at BJ's for tomorrow
-Table for 3 in Palo Alto at 7
-```
+
+|範例|
+|--|
+|預約 Zucca 今晚兩人|
+|預約明天在 BJ 的座位|
+|預約 Palo Alto 7 點 3 人桌|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -502,11 +513,12 @@ Table for 3 in Palo Alto at 7
 Taxi 定義域提供建立及管理計程車預約的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Get me a cab at 3 pm
-How much longer do I have to wait for my taxi?
-Cancel my Uber
-```
+
+|範例|
+|--|
+|替我在下午 3 點叫計程車|
+|我還要等多久才能坐到計程車？|
+|取消我的 Uber|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -531,11 +543,13 @@ Cancel my Uber
 Translate 定義域提供與將文字翻譯成目標語言相關的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Translate to French
-Translate hello to German
-Translate this sentence to English
-```
+
+|範例|
+|--|
+|翻譯成法文|
+|將 hello 翻譯成德文|
+|將這一句翻譯成英文|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -554,11 +568,12 @@ Translate this sentence to English
 TV 定義域提供控制電視的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-Switch channel to BBC
-Show TV guide
-Watch National Geographic
-```
+
+|範例|
+|--|
+|將頻道切換至 BBC|
+|顯示電視指南|
+|收看國家地理頻道|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -576,11 +591,13 @@ Watch National Geographic
 Utilities 定義域提供許多工作通用的工作意圖，例如問候語、取消、確認、說明、重說、導航、開始和停止。
 
 ### <a name="examples"></a>範例
-```
-Go back to Twitter
-Please help
-Repeat last question please
-```
+
+|範例|
+|--|
+|返回 Twitter|
+|請說明|
+|請重複最後一個問題|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -600,11 +617,13 @@ Repeat last question please
 Weather 定義域提供取得天氣預報的意圖和實體。
 
 ### <a name="examples"></a>範例
-```
-weather in London in september
-What?s the 10 day forecast?
-What's the average temperature in India in september?
-```
+
+|範例|
+|--|
+|倫敦 9 月的天氣|
+|未來 10 天的預測為何？|
+|印度 9 月的平均溫度為何？|
+
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |
@@ -621,11 +640,12 @@ What's the average temperature in India in september?
 Web 定義域提供巡覽至網站的意圖。
 
 ### <a name="examples"></a>範例
-```
-Navigate to facebook.com
-Go to www.twitter.com
-Navigate to www.bing.com
-```
+
+|範例|
+|--|
+|巡覽至 facebook.com|
+|前往 www.twitter.com|
+|瀏覽至 www.bing.com|
 
 ### <a name="intents"></a>對應方式
 | 意圖名稱 | 說明 | 範例 |

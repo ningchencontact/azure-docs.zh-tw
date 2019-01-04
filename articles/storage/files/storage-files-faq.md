@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 1ed08562657eb0c50f05efb335c1790d35dcab01
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 761637a9c44cc490d6633aeb1a9b8d81f8885583
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976820"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52972077"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>關於 Azure 檔案服務的常見問題集 (FAQ)
 [Azure 檔案](storage-files-introduction.md)提供雲端中完全受控的檔案共用，可透過業界標準[伺服器訊息區 (SMB) 通訊協定](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)來存取。 您可以同時在 Windows、Linux 和 macOS 的雲端或內部部署上掛接 Azure 檔案共用。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在 Windows Server 電腦上快取 Azure 檔案共用。
@@ -45,7 +45,7 @@ ms.locfileid: "51976820"
 
     具體而言，Azure 檔案服務是一個檔案系統。 Azure 檔案服務具備您多年來熟知且喜愛用來與內部部署作業系統搭配使用的所有檔案摘要。 就像 Azure Blob 儲存體，Azure 檔案服務可提供 REST 介面和 REST 型用戶端程式庫。 不同於 Azure Blob 儲存體，Azure 檔案服務提供對 Azure 檔案共用的 SMB 存取。 藉由使用 SMB，您可以在內部部署或雲端 VM 中，直接將 Azure 檔案共用掛接在 Windows、Linux 或 macOS 上，而不需撰寫任何程式碼，或對檔案系統附加任何特殊的驅動程式。 您也可以使用 Azure 檔案同步，在接近使用資料之處進行快速存取，藉以在內部部署檔案伺服器上快取 Azure 檔案共用。 
    
-    如需 Azure 檔案服務和 Azure Blob 儲存體之間差異的更深入說明，請參閱[決定何時使用 Azure Blob 儲存體、Azure 檔案服務或 Azure 磁碟](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要深入了解 Azure Blob 儲存體，請參閱 [Blob 儲存體簡介](../blobs/storage-blobs-introduction.md)。
+    如需 Azure 檔案服務和 Azure Blob 儲存體之間差異的更深入說明，請參閱[決定何時使用 Azure Blob 儲存體、Azure 檔案服務或 Azure 磁碟](../common/storage-decide-blobs-files-disks.md)。 若要深入了解 Azure Blob 儲存體，請參閱 [Blob 儲存體簡介](../blobs/storage-blobs-introduction.md)。
 
 * <a id="files-versus-disks"></a>**為什麼我要使用 Azure 檔案共用，而不是 Azure 磁碟呢？**  
     Azure 磁碟中的磁碟就只是個磁碟。 若要從 Azure 磁碟取得值，您必須將磁碟連接至 Azure 中執行的虛擬機器。 Azure 磁碟適用於您要在內部部署伺服器上為其使用磁碟的所有項目。 您可以使用它作為 OS 系統磁碟、作為 OS 的交換空間，或者作為應用程式的專用儲存體。 Azure 磁碟的一個有趣用途是在雲端建立檔案伺服器，以便在您可能使用 Azure 檔案共用的相同位置中使用。 當您需要的部署選項 (例如，NFS 通訊協定支援或進階儲存體) 目前不受 Azure 檔案服務支援時，在 Azure 虛擬機器中部署檔案伺服器是在 Azure 中獲得檔案儲存體且具有極高效能的方式。 
@@ -54,7 +54,7 @@ ms.locfileid: "51976820"
 
     若要從 Azure 檔案服務和 Azure 虛擬機器中所裝載 (除了使用 Azure 磁碟作為後端儲存體) 的檔案伺服器獲取最大效益，其中一個方法是在雲端 VM 上所裝載的檔案伺服器上安裝 Azure 檔案同步。 如果 Azure 檔案共用位於和您檔案伺服器相同的區域，您可以啟用雲端分層，並將磁碟區可用空間百分比設定為最大值 (99%)。 這確保資料重複出現的機率最低。 您也可以使用任何您想要與檔案伺服器搭配使用的應用程式，例如，需要 NFS 通訊協定支援的應用程式。
 
-    如需在 Azure 中設定高效能和高可用性檔案伺服器的選項相關資訊，請參閱[在 Microsoft Azure 中部署 IaaS VM 客體叢集](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) \(英文\)。 如需 Azure 檔案服務和 Azure 磁碟之間差異的更深入說明，請參閱[決定何時使用 Azure Blob 儲存體、Azure 檔案服務或 Azure 磁碟](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。 若要深入了解 Azure 磁碟，請參閱 [Azure 受控磁碟概觀](../../virtual-machines/windows/managed-disks-overview.md)。
+    如需在 Azure 中設定高效能和高可用性檔案伺服器的選項相關資訊，請參閱[在 Microsoft Azure 中部署 IaaS VM 客體叢集](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure/) \(英文\)。 如需 Azure 檔案服務和 Azure 磁碟之間差異的更深入說明，請參閱[決定何時使用 Azure Blob 儲存體、Azure 檔案服務或 Azure 磁碟](../common/storage-decide-blobs-files-disks.md)。 若要深入了解 Azure 磁碟，請參閱 [Azure 受控磁碟概觀](../../virtual-machines/windows/managed-disks-overview.md)。
 
 * <a id="get-started"></a>
 **如何開始使用 Azure 檔案服務？**  
@@ -182,7 +182,7 @@ ms.locfileid: "51976820"
 * <a id="ad-support-regions"></a>
 **針對 Azure 檔案透過 SMB 進行 Azure AD 驗證的預覽版在所有 Azure 區域是否都能使用？**
 
-    預覽版適用於北歐以外的所有公用區域。
+    預覽版適用於所有公用區域，但不包括下列區域：北歐。
 
 * <a id="ad-support-on-premises"></a>
 **針對 Azure 檔案透過 SMB 進行 Azure AD 驗證是否支援使用來自內部部署機器的 Azure AD 進行？**

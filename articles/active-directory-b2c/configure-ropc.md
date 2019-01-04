@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2ea9356f1292669f115d2bb482419435320f644c
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978820"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52726282"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中設定資源擁有者密碼認證流程
 
@@ -35,14 +35,17 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 - **伺服器對伺服器**：身分識別保護系統必須要有從呼叫端 (原生用戶端) 收集到的可靠 IP 位址，以用於互動的過程中。 伺服器端的 API 呼叫只會使用伺服器的 IP 位址。 如果超出失敗驗證的動態閾值，身分識別保護系統可能會將重複的 IP 位址識別為攻擊者。
 - **機密用戶端流程**：會驗證應用程式用戶端識別碼，但不會驗證應用程式密碼。
 
-##  <a name="create-a-resource-owner-policy"></a>建立資源擁有者原則
+##  <a name="create-a-resource-owner-user-flow"></a>建立資源擁有者使用者流程
 
-1. 以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
-2. 若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
-3. 在 [原則] 下選取 [資源擁有者原則]。
-4. 提供原則的名稱 (例如 *ROPC_Auth*)，然後選取 [應用程式宣告]。
-5. 選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
-6. 選取 [確定]，然後選取 [建立]。
+1.  以 Azure AD B2C 租用戶的全域管理員身分登入 Azure 入口網站。
+2.  若要切換為您的 Azure AD B2C 租用戶，請選取入口網站右上角的 B2C 租用戶。
+3.  按一下 [使用者流程]，然後選取 [新增使用者流程]。
+4.  按一下 [所有] 索引標籤，然後選取 [資源擁有者]。
+5.  提供使用者流程的名稱，例如 *ROPC_Auth*。
+6.  在 [應用程式宣告] 底下，按一下 [顯示更多]。
+7.  選取您的應用程式所需的應用程式宣告，例如 [顯示名稱]、[電子郵件地址] 和 [身分識別提供者]。
+8.  選取 [確定]，然後選取 [建立]。
+9.  按一下 [執行使用者流程]。
 
    然後，您會看到類似於下列範例的端點：
 
@@ -57,9 +60,9 @@ Azure Active Directory (Azure AD) B2C 支援下列選項：
 4. 保留所有其他值，然後選取 [建立]。
 5. 選取新的應用程式，並記下應用程式識別碼供稍後使用。
 
-## <a name="test-the-policy"></a>測試原則
+## <a name="test-the-user-flow"></a>測試使用者流程
 
-使用您最慣用的 API 開發應用程式產生 API 呼叫，並檢視回應以對您的原則偵錯。 使用下表中的資訊作為 POST 要求的本文，以建構與此類似的呼叫：
+使用您最慣用的 API 開發應用程式產生 API 呼叫，並檢視回應以對您的使用者流程偵錯。 使用下表中的資訊作為 POST 要求的本文，以建構與此類似的呼叫：
 - 將 \<yourtenant.onmicrosoft.com> 取代為您的 B2C 租用戶名稱。
 - 將 \<B2C_1A_ROPC_Auth> 取代為資源擁有者密碼認證原則的完整名稱。
 - 將 \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> 取代為您註冊中的應用程式識別碼。

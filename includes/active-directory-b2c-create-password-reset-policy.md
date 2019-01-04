@@ -2,38 +2,42 @@
 author: PatAltimore
 ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 11/03/2016
+ms.date: 11/30/2018
 ms.author: patricka
-ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134409"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52742337"
 ---
-若要在您的應用程式上啟用更細緻的密碼重設，您可使用**密碼重設**原則。 請注意，[這裡](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)包含租用戶密碼重設的所有選項。 此原則描述客戶在密碼重設期間將經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
+若要在您的應用程式上啟用更細緻的密碼重設，您可使用**密碼重設**使用者流程。 請注意，[這裡](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md)包含租用戶密碼重設的所有選項。 此使用者流程描述客戶在密碼重設期間將經歷的體驗，以及成功完成時，應用程式將收到的權杖內容。
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
-在設定的原則區段中，選取 [密碼重設原則]，然後按一下 [+ 新增]。
+在 [管理] 底下，選取 [使用者流程]，並按一下 [+新增使用者流程]。
 
-![選取註冊或登入原則，然後按一下 [新增] 按鈕](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-policy.png)
+![選取新的使用者流程](media/active-directory-b2c-create-password-reset-policy/add-b2c-new-user-flow.png)
 
-輸入原則 [名稱]，以供您的應用程式參考。 例如，輸入 `SSPR`。
+在 [建議] 索引標籤上，選取 [密碼重設]。
 
-選取 [識別提供者]，並勾選 [使用電子郵件地址重設密碼]。 按一下 [確定]。
+輸入使用者流程 [名稱]，以供您的應用程式參考。 例如，輸入 `SSPR`。
 
-![以電子郵件地址作為識別提供者來選取重設密碼，然後按一下 [確定] 按鈕](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+在 [識別提供者] 底下，勾選 [使用電子郵件地址重設密碼]。
 
-選取 [應用程式宣告]。 選擇在成功進行密碼重設之後，您要在授權權杖中傳回給應用程式的宣告。 例如，選取 [使用者的物件識別碼]。
+![輸入名稱，並且以電子郵件地址作為識別提供者來選取重設密碼](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-identity-providers.png)
+
+在 [應用程式宣告] 底下，按一下 [顯示更多]，並選擇在成功進行密碼重設之後，您要在授權權杖中傳回給應用程式的宣告。 例如，選取 [使用者的物件識別碼]。
+
+按一下 [確定]。
 
 ![選取某些應用程式宣告，然後按一下 [確定] 按鈕](media/active-directory-b2c-create-password-reset-policy/add-b2c-password-reset-application-claims.png)
 
-按一下 [建立] 以新增原則。 此原則列示為 **B2C_1_SSPR**。 名稱會附加 **B2C_1_** 前置詞。
+按一下 [建立]  新增使用者流程。 使用者流程列示為 **B2C_1_SSPR**。 名稱會附加 **B2C_1_** 前置詞。
 
-選取 **B2C_1_SSPR** 以開啟原則。 驗證資料表中指定的設定，然後按一下 [立刻執行]。
+按一下 [執行使用者流程]。 驗證資料表中指定的設定，然後按一下 [執行使用者流程]。
 
-![選取原則並加以執行](media/active-directory-b2c-create-password-reset-policy/run-b2c-password-reset-policy.png)
+![選取並執行使用者流程](media/active-directory-b2c-create-password-reset-policy/add-b2c-sspr-run-user-flow.png)
 
 | 設定      | 值  |
 | ------------ | ------ |

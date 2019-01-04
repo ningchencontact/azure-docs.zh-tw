@@ -3,7 +3,7 @@ title: Azure Service Fabric Reliable Collections 中的交易和鎖定模式 | M
 description: Azure Service Fabric Reliable State Manager 和 Reliable Collections 交易和鎖定。
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
+author: tylermsft
 manager: timlt
 editor: masnider,rajak
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
@@ -13,21 +13,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
-ms.author: mcoskun
-ms.openlocfilehash: 79be861a70abb0331d971b00e753691e77642637
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: twhitney
+ms.openlocfilehash: a7e2bfba736e3b6cee738d5a2b5283f51f60d7c5
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207361"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53185387"
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Azure Service Fabric Reliable Collections 中的交易和鎖定模式
 
 ## <a name="transaction"></a>交易
 交易就是以單一工作邏輯單元執行的一連串作業。
-交易必須顯現下列 ACID 屬性。 (請參閱：https://technet.microsoft.com/library/ms190612)
+交易必須顯現下列 ACID 屬性。 (請參閱： https://technet.microsoft.com/library/ms190612)
 * **不可部分完成性**︰交易必須是不可部分完成的工作單位。 換句話說，執行其所有資料修改，或完全不執行。
-* **一致性**︰交易完成時，所有資料必須維持一致的狀態。 所有內部資料結構在交易結束時必須是正確的。
+* **一致性**：交易完成時，所有資料必須維持一致的狀態。 所有內部資料結構在交易結束時必須是正確的。
 * **隔離**︰並行交易所做的修改，必須與任何其他並行交易所做的修改隔離。 ITransaction 內的作業所用的隔離等級是由執行此作業的 IReliableState 所決定。
 * **耐久性**：交易完成之後，其作用會永久存在系統中。 即使發生系統失敗仍會保存修改。
 

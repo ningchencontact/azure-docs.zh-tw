@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure CLI 設定 Azure ExpressRoute Global Reach | Microsoft Docs
-description: 此文章可協助您將 ExpressRoute 線路連結在一起，在內部部署網路之間產生私人網路，並使觸角擴及全球。
-documentationcenter: na
+title: 設定 ExpressRoute Global Reach：Azure CLI | Microsoft Docs
+description: 本文可協助您將 ExpressRoute 線路連結在一起，在內部部署網路之間產生私人網路，並使觸角擴及全球。
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 12/12/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9d41ab26876d464187466f566bbfafc4861c799d
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.custom: seodec18
+ms.openlocfilehash: 9a8e0a5df9383d8e3d7159aa916b0e4fbfeea948
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333244"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384037"
 ---
 # <a name="configure-expressroute-global-reach-using-azure-cli-preview"></a>使用 Azure CLI 設定 ExpressRoute Global Reach (預覽)
 此文章可協助您使用 Azure CLI 設定 ExpressRoute Global Reach。 如需詳細資訊，請參閱 [ExpressRouteRoute Global Reach](expressroute-global-reach.md)。
@@ -32,7 +32,7 @@ ms.locfileid: "52333244"
 * 請確定 ExpressRoute 線路上已設定 Azure 私用對等互連。  
 
 ### <a name="log-into-your-azure-account"></a>登入 Azure 帳戶
-若要開始此設定，您必須登入 Azure 帳戶。 此命令將開啟您的預設瀏覽器，並提示您輸入 Azure 帳戶的登入認證。  
+若要開始這項設定，您必須登入 Azure 帳戶。 此命令將開啟您的預設瀏覽器，並提示您輸入 Azure 帳戶的登入認證。  
 
 ```azurecli
 az login
@@ -55,24 +55,22 @@ az account set --subscription <your subscription ID>
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>在內部部署網路之間啟用連線
 
-執行下列 CLI 以連接兩條 ExpressRoute 線路。
+執行命令來啟用連線時，請考量下列值：
 
-> [!NOTE]
-> *peer-circuit* 應該是完整的資源識別碼，例如
-> ```
-> */subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}*
-> ```
-> 
+* *peer-circuit* 應該是完整的資源識別碼。 例如︰ 
+
+  ```
+  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
+  ```
+* -AddressPrefix 必須是 /29 IPv4 子網路，例如"10.0.0.0/29"。 我們將使用此子網路中的 IP 位址在兩個 ExpressRoute 線路之間建立連線。 您不可在 Azure VNet 或內部部署網路中使用此子網路中的位址。
+
+執行下列 CLI 以連接兩條 ExpressRoute 線路。 使用下列範例命令：
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-> [!IMPORTANT]
-> -AddressPrefix 必須是 /29 IPv4 子網路，例如"10.0.0.0/29"。 我們將使用此子網路中的 IP 位址在兩個 ExpressRoute 線路之間建立連線。 您不可在 Azure VNet 或內部部署網路中使用此子網路中的位址。
-> 
-
-CLI 輸出看起來如下。
+CLI 輸出看起來會像下列範例：
 
 ```azurecli
 {

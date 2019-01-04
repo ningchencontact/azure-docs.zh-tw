@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.component: core
 ms.workload: data-services
 ms.topic: article
-ms.date: 12/6/2017
+ms.date: 12/06/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 84068376f35bc4df6672cffcc0ac3438b12edbb5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2d912f559af98045aaef8fe6fcaa1d83ab5f96bd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979670"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269357"
 ---
 # <a name="model-management-setup"></a>模型管理安裝
 
@@ -68,7 +68,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 ```
 
 ### <a name="configuring-docker-on-linux"></a>在 Linux 上設定 Docker
-若要在 Linux 上設定 Docker 以供非根使用者使用，請遵循下列指示進行：[適用於 Linux 的安裝後步驟\(Post-installation steps for Linux\)](https://docs.docker.com/engine/installation/linux/linux-postinstall/)
+若要在 Linux 上設定 Docker 以供非根使用者使用，請依循下列指示：[適用於 Linux 的安裝後步驟](https://docs.docker.com/engine/installation/linux/linux-postinstall/) \(英文\)
 
 >[!NOTE]
 > 在 Linux DSVM 上，您可以執行下列指令碼正確設定 Docker。 **執行指令碼後，務必登出再重新登入。**
@@ -85,7 +85,7 @@ pip install -r https://aka.ms/az-ml-o16n-cli-requirements-file
 
 完成環境設定時：
 - 系統會提示您登入 Azure。 若要登入，請使用網頁瀏覽器開啟頁面 https://aka.ms/devicelogin，並輸入所提供的代碼以進行驗證。
-- 在驗證過程中，會提示您用來驗證的帳戶。 重要：選取具有有效 Azure 訂用帳戶和有足夠權限可在帳戶中建立資源的帳戶。 完成登入後，即會顯示您的訂用帳戶資訊，且系統會提示您是否要繼續使用選取的帳戶。
+- 在驗證過程中，會提示您用來驗證的帳戶。 重要：選取具有有效 Azure 訂用帳戶且有足夠權限可在帳戶中建立資源的帳戶。 完成登入後，即會顯示您的訂用帳戶資訊，且系統會提示您是否要繼續使用選取的帳戶。
 
 ### <a name="environment-setup"></a>環境設定
 若要開始安裝程序，您必須輸入下列命令來註冊一些環境提供者：

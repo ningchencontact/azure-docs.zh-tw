@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c6a47448fc99c2f58b315898c1b6af65f894da8d
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047135"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53436682"
 ---
 # <a name="deep-dive---advanced-analytics"></a>深入探討 - 進階分析
 
@@ -56,14 +56,16 @@ HDInsight 提供可從大量結構化、非結構化及快速移動之資料取�
 
 HDInsight 有多個適用於進階分析工作流程的機器學習服務選項：
 
-* [機器學習服務和 Spark](#machine-learning-and-spark)
+* [機器學習服務和 Apache Spark](#machine-learning-and-spark)
 * [R 和 ML 服務](#r-and-r-server)
-* [Azure Machine Learning 和 Hive](#azure-machine-learning-and-hive)
-* [Spark 和深度學習](#spark-and-deep-learning)
+* [Azure Machine Learning 和 Apache Hive](#azure-machine-learning-and-hive)
+* [Apache Spark 和深度學習](#spark-and-deep-learning)
 
-### <a name="machine-learning-and-spark"></a>機器學習服務和 Spark
+### <a name="machine-learning-and-apache-spark"></a>機器學習服務和 Apache Spark
 
-[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Spark](http://spark.apache.org/) 供應項目方案，是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 
+
+[HDInsight Spark](../spark/apache-spark-overview.md) 是 Azure 代管的 [Apache Spark](https://spark.apache.org/) 供應項目，這是一個使用記憶體內處理來大幅提升巨量資料分析效能的統一、開放原始碼平行資料處理架構。 Spark 處理引擎是專為速度、易用性及精密分析打造的產品。 Spark 的記憶體內分散式計算功能，使其成為機器學習和圖表計算中所使用反覆演算法的絕佳選擇。 
+
 
 有三個可將演算法模型化功能導入此分散式環境的可調整機器學習服務程式庫：
 
@@ -75,11 +77,11 @@ HDInsight 有多個適用於進階分析工作流程的機器學習服務選項�
 
 ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集和模型搭配使用的 [ML 服務](../r-server/r-server-overview.md)來建立 HDInsight 叢集。 這個新功能可為資料科學家和統計人員提供一個熟悉的 R 介面，此介面可視需要透過 HDInsight 進行調整，而不會產生叢集設定和維護的額外負荷。
 
-### <a name="azure-machine-learning-and-hive"></a>Azure Machine Learning 和 Hive
+### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 和 Apache Hive
 
 [Azure Machine Learning Studio](https://studio.azureml.net/) 除了提供完全受管理的服務供您用來將預測性模型部署為可供取用的 Web 服務之外，也提供可建立預測性分析模型的工具。 Azure Machine Learning 提供可在雲端建立完整預測性分析解決方案的工具，可讓您快速建立、測試預測性模型、將預測性模型變成可操作的模型並對其進行管理。 您可以從大型演算法程式庫中選取、使用 Web 型工作室來建置模型，然後將模型輕鬆部署成 Web 服務。
 
-### <a name="spark-and-deep-learning"></a>Spark 和深度學習
+### <a name="apache-spark-and-deep-learning"></a>Apache Spark 和深度學習
 
 [深度學習](https://www.microsoft.com/research/group/dltc/)是機器學習服務的一個分支，使用以人類大腦的生物學程序為靈感來源的*深度類神經網路* (DNN)。 許多研究人員都將深度學習視為一個有前景的人工智慧方法。 深度學習的一些範例包括口語語言翻譯工具、影像辨識系統，以及機器推理。 為了協助推展自己在深度學習方面的工作，Microsoft 開發了免費、容易使用的開放原始碼 [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/)。 各種 Microsoft 產品、世界各地需要大規模部署深度學習的公司，以及對最新演算法和技術感興趣的學生，都廣泛使用此工具組。 
 
@@ -118,16 +120,16 @@ ML 服務為 HDInsight 的一部分，您可以使用現成可與大量資料集
 
 ## <a name="next-steps"></a>後續步驟
 
-Hive 和 Azure Machine Learning
+Apache Hive 和 Azure Machine Learning
 
-* [Hive 和 Azure Machine Learning (端對端)](../../machine-learning/team-data-science-process/hive-walkthrough.md)
+* [Apache Hive 和 Azure Machine Learning 端對端](../../machine-learning/team-data-science-process/hive-walkthrough.md)
 * [在 1 TB 資料集上使用 Azure HDInsight Hadoop 叢集](../../machine-learning/team-data-science-process/hive-criteo-walkthrough.md)
 
-Spark 和 MLlib
+Apache Spark 和 MLLib
 
-* [使用 HDInsight 上的 Spark 進行機器學習](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [使用 HDInsight 上的 Apache Spark 進行機器學習](../../machine-learning/team-data-science-process/spark-overview.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Apache Spark，利用 HVAC 資料來分析建築物溫度](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Apache Spark 來預測食品檢查結果](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 深度學習、Cognitive Toolkit 及其他方法
 

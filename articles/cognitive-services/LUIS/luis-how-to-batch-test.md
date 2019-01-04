@@ -1,21 +1,22 @@
 ---
-title: 使用 1000 個範例語句的批次測試
-titleSuffix: Azure Cognitive Services
+title: 批次測試
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用 Language Understanding (LUIS) 批次測試集，找出具有錯誤意圖和實體的語句。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 1560b8e574b0932e258353648c73f030ef19d314
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 9ad71c34bdf88023bcb0a4115fc02ddf3a8d7624
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333491"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53086393"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一組範例語句的批次測試
 

@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034332"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968727"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>從重大資料遺失的情況下復原
 
-適用於：Azure Stack 整合系統。
+*適用於：Azure Stack 整合式系統。*
 
 Azure Stack 會在您的資料中心內執行 Azure 服務。 Azure Stack 執行所在的環境，可以小到像是單一機架上所安裝的四個節點。 反之，Azure 則會在超過 40 個區域的多個資料中心內執行，每個區域內還有多個地區。 使用者資源可能會跨越多部伺服器、機架、資料中心和區域。 若使用 Azure Stack，您目前只能選擇將整個雲端部署到單一機架上。 這會讓您的雲端曝露在資料中心發生重大事件，或因為重大產品錯誤而失敗的風險下。 發生災害事件時，Azure Stack 執行個體將會離線。 所有資料都可能無法復原。
 
@@ -40,11 +40,11 @@ Azure Stack 會在您的資料中心內執行 Azure 服務。 Azure Stack 執行
 
 保護 Azure Start 的工作，從分別備份基礎結構和應用程式/租用戶資料開始。 本文件涵蓋如何保護基礎結構。 
 
-![Azure Stack 的初始部署](media\azure-stack-backup\azure-stack-backup-workflow1.png)
+![Azure Stack 的初始部署](media/azure-stack-backup/azure-stack-backup-workflow1.png)
 
 在遺失所有資料的最糟情況下，要復原 Azure Stack 需要還原該 Azure Stack 部署所獨有的基礎結構資料和所有使用者資料。 
 
-![重新部署 Azure Stack](media\azure-stack-backup\azure-stack-backup-workflow2.png)
+![重新部署 Azure Stack](media/azure-stack-backup/azure-stack-backup-workflow2.png)
 
 ## <a name="restore"></a>Restore
 

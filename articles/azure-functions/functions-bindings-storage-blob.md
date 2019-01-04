@@ -9,14 +9,14 @@ keywords: azure functions, 函數, 事件處理, 動態運算, 無伺服器架�
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 09/03/2018
+ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c9e6898d83e5bc1360bb5b1539b12bace8acdb3f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: efccea36dd94120934b1a9729f583e0596316bc7
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251034"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338561"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure Blob 儲存體繫結
 
@@ -29,11 +29,11 @@ ms.locfileid: "50251034"
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> 針對 Blob 儲存體帳戶，請使用「事件方格」觸發程序而不要使用 Blob 儲存體觸發程序，以提升延展性，或避免發生冷啟動延遲。 如需詳細資訊，請參閱[觸發程序](#trigger)一節。 
+> 在僅限 Blob 的儲存體帳戶上以 Event Grid 觸發程序取代 Blob 儲存體觸發程序，可獲得高延展性，也能減少延遲。 如需詳細資訊，請參閱[觸發程序](#trigger)一節。
 
 ## <a name="packages---functions-1x"></a>套件 - Functions 1.x
 
-[Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 2.x 版中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存放庫中。
+[Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet 套件 2.x 版中提供 Blob 儲存體繫結。 套件的原始程式碼位於 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Blob) GitHub 存放庫中。
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -55,7 +55,7 @@ ms.locfileid: "50251034"
 
 * Blob 儲存體帳戶
 * 高延展性
-* 縮短冷啟動延遲
+* 將延遲降至最低
 
 ### <a name="blob-storage-accounts"></a>Blob 儲存體帳戶
 
@@ -65,9 +65,9 @@ ms.locfileid: "50251034"
 
 可將高延展性寬鬆地定義為可容納超過 100,000 個 Blob 的容器，或每秒 Blob 更新超過 100 次的儲存體帳戶。
 
-### <a name="cold-start-delay"></a>冷啟動延遲
+### <a name="latency-issues"></a>延遲問題
 
-如果函式應用程式採用取用方案，當其進入閒置狀態，處理新 Blob 時最多會有 10 分鐘的延遲。 若要避免這樣的冷啟動延遲，您可以切換為 App Service 方案並啟用 Always On，或使用不同的觸發程序類型。
+如果函式應用程式採用取用方案，當其進入閒置狀態，處理新 Blob 時最多會有 10 分鐘的延遲。 若要避免這類延遲，可以切換到 App Service 方案並啟用 Always On。 您也可以透過 Blob 儲存體帳戶使用 [Event Grid 觸發程序](functions-bindings-event-grid.md)。 如需範例，請參閱[ Event Grid 教學課程](../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2Fazure%2Fazure-functions%2Ftoc.json)。 
 
 ### <a name="queue-storage-trigger"></a>佇列儲存體觸發程序
 
@@ -79,8 +79,9 @@ ms.locfileid: "50251034"
 
 * [C#](#trigger---c-example)
 * [C# 指令碼 (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
 * [Java](#trigger---java-example)
+* [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### <a name="trigger---c-example"></a>觸發程序 - C# 範例
 
@@ -100,7 +101,7 @@ Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建�
 
 ### <a name="trigger---c-script-example"></a>觸發程序 - C# 指令碼範例
 
-下列範例所示範的是使用繫結之 function.json 檔案和 [C# 指令碼 (.csx)](functions-reference-csharp.md) 中的 Blob 觸發程序繫結。 在 `samples-workitems` 容器中新增或更新 Blob 時，函數會寫入記錄。
+下列範例示範的是使用繫結的 *function.json* 檔案和 [Python 程式碼](functions-reference-python.md)中的 Blob 觸發程序繫結。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).中新增或更新 Blob 時，函數會寫入記錄。
 
 以下是 *function.json* 檔案中的繫結資料：
 
@@ -179,6 +180,42 @@ module.exports = function(context) {
 };
 ```
 
+### <a name="trigger---python-example"></a>觸發程序 - Python 範例
+
+下列範例示範的是使用繫結的 *function.json* 檔案和 [Python 程式碼](functions-reference-python.md)中的 Blob 觸發程序繫結。 在 `samples-workitems` [容器](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).中新增或更新 Blob 時，函數會寫入記錄。
+
+以下是 *function.json* 檔案：
+
+```json
+{
+    "scriptFile": "__init__.py",
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myblob",
+            "type": "blobTrigger",
+            "direction": "in",
+            "path": "samples-workitems/{name}",
+            "connection":"MyStorageAccountAppSetting"
+        }
+    ]
+}
+```
+
+Blob 觸發程序路徑 `samples-workitems/{name}` 中的字串 `{name}` 會建立[繫結運算式](functions-triggers-bindings.md#binding-expressions-and-patterns)，您可以在函式程式碼中用來存取觸發 Blob 的檔案名稱。 如需詳細資訊，請參閱本文稍後的 [Blob 名稱模式](#trigger---blob-name-patterns)。
+
+如需 *function.json* 檔案屬性的詳細資訊，請參閱[設定](#trigger---configuration)一節中這些屬性的說明。
+
+以下是 Python 程式碼：
+
+```python
+import logging
+import azure.functions as func
+
+def main(myblob: func.InputStream):
+    logging.info('Python Blob trigger function processed %s', myblob.name)
+```
+
 ### <a name="trigger---java-example"></a>觸發程序 - Java 範例
 
 下列範例示範的是使用繫結的 *function.json* 檔案和 [Java 程式碼](functions-reference-java.md)中的 Blob 觸發程序繫結。 在 `myblob` 容器中新增或更新 Blob 時，函數會寫入記錄。
@@ -228,7 +265,7 @@ public void run(
   ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image, 
+      [BlobTrigger("sample-images/{name}")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -240,7 +277,7 @@ public void run(
    ```csharp
   [FunctionName("ResizeImage")]
   public static void Run(
-      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image, 
+      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
       [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
   {
       ....
@@ -329,7 +366,7 @@ public void run(
 ```json
 "path": "input/original-{name}",
 ```
- 
+
 如果 Blob 名稱為 *original-Blob1.txt*，則函式程式碼中 `name` 變數的值為 `Blob1`。
 
 ### <a name="filter-on-file-type"></a>檔案類型上的篩選條件
@@ -348,7 +385,7 @@ public void run(
 "path": "images/{{20140101}}-{name}",
 ```
 
-如果 Blob 名稱為 *{20140101}-soundfile.mp3*，則函式程式碼中的 `name` 變數值為 *soundfile.mp3*。 
+如果 Blob 名稱為 *{20140101}-soundfile.mp3*，則函式程式碼中的 `name` 變數值為 *soundfile.mp3*。
 
 ## <a name="trigger---metadata"></a>觸發程序 - 中繼資料
 
@@ -393,7 +430,7 @@ Azure Functions 會將 blob 回條儲存在您函數應用程式 (`AzureWebJobsS
 
 ## <a name="trigger---poison-blobs"></a>觸發程序 - 有害的 Blob
 
-當指定 blob 的 blob 觸發程序函式失敗時，Azure Functions 預設一共會重試該函式 5 次。 
+當指定 blob 的 blob 觸發程序函式失敗時，Azure Functions 預設一共會重試該函式 5 次。
 
 如果 5 次嘗試全都失敗，Azure Functions 會將訊息新增至名為 *webjobs-blobtrigger-poison* 的儲存體佇列。 適用於有害 Blob 的佇列訊息是一個 JSON 物件，其中包含下列屬性：
 
@@ -425,8 +462,9 @@ JavaScript 函式會將整個 Blob 載入記憶體中，而 C# 函式則會在�
 
 * [C#](#input---c-example)
 * [C# 指令碼 (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
 * [Java](#input---java-example)
+* [JavaScript](#input---javascript-example)
+* [Python](#input---python-example)
 
 ### <a name="input---c-example"></a>輸入 - C# 範例
 
@@ -478,7 +516,7 @@ public static void Run(
   ],
   "disabled": false
 }
-``` 
+```
 
 [設定](#input---configuration)章節會說明這些屬性。
 
@@ -527,7 +565,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
   ],
   "disabled": false
 }
-``` 
+```
 
 [設定](#input---configuration)章節會說明這些屬性。
 
@@ -539,6 +577,57 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="input---python-example"></a>輸入 - Python 範例
+
+<!--Same example for input and output. -->
+
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+
+在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+[設定](#input---configuration)章節會說明這些屬性。
+
+以下是 Python 程式碼：
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.InputStream:
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    return inputblob
 ```
 
 ### <a name="input---java-example"></a>輸入 - Java 範例
@@ -555,7 +644,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
  }
  ```
 
-  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Blob 的參數使用 `@BlobInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。 
+  在 [Java 函式執行階段程式庫](/java/api/overview/azure/functions/runtime)中，對其值來自 Blob 的參數使用 `@BlobInput` 註釋。  此註釋可以搭配原生 Java 類型、POJO 或使用 `Optional<T>` 的可為 Null 值使用。
 
 
 ## <a name="input---attributes"></a>輸入 - 屬性
@@ -600,8 +689,8 @@ public static void Run(
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須設為 `in`。 例外狀況在[使用方式](#input---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。|
-|**路徑** |**BlobPath** | blob 的路徑。 | 
-|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
+|**路徑** |**BlobPath** | blob 的路徑。 |
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的[儲存體連接字串](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account)。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -639,18 +728,19 @@ public static void Run(
 
 * [C#](#output---c-example)
 * [C# 指令碼 (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
 * [Java](#output---java-example)
+* [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### <a name="output---c-example"></a>輸出 - C# 範例
 
-下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。 
+下列範例是使用一個 Blob 觸發程序和兩個輸出 Blob 繫結的 [C# 函式](functions-dotnet-class-library.md)。 此函式是藉由在 *sample-images* 容器中建立映像 Blob 而觸發。 它會建立映像 Blob 的小型及中型複本。
 
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
-    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
+    [Blob("sample-images-sm/{name}", FileAccess.Write)] Stream imageSmall,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageMedium)
 {
     var imageBuilder = ImageResizer.ImageBuilder.Current;
@@ -710,7 +800,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
   ],
   "disabled": false
 }
-``` 
+```
 
 [設定](#output---configuration)章節會說明這些屬性。
 
@@ -759,7 +849,7 @@ public static void Run(string myQueueItem, string myInputBlob, out string myOutp
   ],
   "disabled": false
 }
-``` 
+```
 
 [設定](#output---configuration)章節會說明這些屬性。
 
@@ -771,6 +861,58 @@ module.exports = function(context) {
     context.bindings.myOutputBlob = context.bindings.myInputBlob;
     context.done();
 };
+```
+
+### <a name="output---python-example"></a>輸出 - Python 範例
+
+<!--Same example for input and output. -->
+
+下列範例所示範的是使用繫結之 function.json 檔案，以及 [Python 指令碼](functions-reference-python.md)程式碼中的 Blob 輸入和輸出繫結。 此函式會建立 Blob 的複本。 此函式是由佇列訊息 (包含要複製的 Blob 名稱) 觸發。 新的 Blob 名稱為 *{originalblobname}-Copy*。
+
+在 *function.json* 檔案中，`queueTrigger` 中繼資料屬性用於指定 `path` 屬性中的 Blob 名稱：
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnectionAppSetting",
+      "name": "queuemsg",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "inputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "in"
+    },
+    {
+      "name": "outputblob",
+      "type": "blob",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "MyStorageConnectionAppSetting",
+      "direction": "out"
+    }
+  ],
+  "disabled": false,
+  "scriptFile": "__init__.py"
+}
+```
+
+[設定](#output---configuration)章節會說明這些屬性。
+
+以下是 Python 程式碼：
+
+```python
+import logging
+import azure.functions as func
+
+def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
+         outputblob: func.Out[func.InputStream]):
+    logging.info('Python Queue trigger function processed %s', inputblob.name)
+    outputblob.set(inputblob)
 ```
 
 ### <a name="output---java-example"></a>輸出 - Java 範例
@@ -800,7 +942,7 @@ public String blobCopy(
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
 {
     ...
@@ -812,7 +954,7 @@ public static void Run(
 ```csharp
 [FunctionName("ResizeImage")]
 public static void Run(
-    [BlobTrigger("sample-images/{name}")] Stream image, 
+    [BlobTrigger("sample-images/{name}")] Stream image,
     [Blob("sample-images-md/{name}", FileAccess.Write, Connection = "StorageConnectionAppSetting")] Stream imageSmall)
 {
     ...
@@ -832,8 +974,8 @@ public static void Run(
 |**type** | n/a | 必須設為 `blob`。 |
 |**direction** | n/a | 必須針對輸出繫結設定為 `out`。 例外狀況在[使用方式](#output---usage)一節中會加以說明。 |
 |**name** | n/a | 表示函式程式碼中 Blob 的變數名稱。  設為 `$return` 以參考函式傳回值。|
-|**路徑** |**BlobPath** | blob 的路徑。 | 
-|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須是用於一般用途的儲存體帳戶，而不是[Blob 儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
+|**路徑** |**BlobPath** | blobco 的路徑。 |
+|**連接** |**連接**| 應用程式設定的名稱包含要用於此繫結的儲存體連接字串。 如果應用程式設定名稱是以「AzureWebJobs」開頭，於此僅能指定名稱的其餘部分。 例如，如果您將 `connection` 設定為「MyStorage」，則函式執行階段會尋找名稱為「AzureWebJobsMyStorage」的應用程式設定。 如果您將 `connection` 保留空白，則函式執行階段會使用應用程式設定中名稱為 `AzureWebJobsStorage` 的預設儲存體連接字串。<br><br>連接字串必須為一般用途的儲存體帳戶，不可為[僅限 Blob 的儲存體帳戶](../storage/common/storage-account-overview.md#types-of-storage-accounts)。|
 |n/a | **Access** | 指出您是否將讀取或寫入。 |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]

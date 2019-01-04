@@ -1,6 +1,6 @@
 ---
 title: Azure 中的網路效能監控解決方案 | Microsoft Docs
-description: Azure 中的「網路效能監視器」可協助您近乎即時地監視網路的效能，以偵測和找出網路效能瓶頸。
+description: Azure 中的「網路效能監控」可協助您近乎即時地監視網路的效能，以偵測和找出網路效能瓶頸。
 services: log-analytics
 documentationcenter: ''
 author: abshamsft
@@ -10,38 +10,36 @@ ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.component: ''
-ms.openlocfilehash: 64daab1c5c6c372dc7b8808e2c5d3da75d0fffe6
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7f7fe545c10d80fc5a201923679b7d61623786fb
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52430213"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193785"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的網路效能監控解決方案
 
 ![網路效能監控符號](./media/network-performance-monitor/npm-symbol.png)
 
 
-網路效能監視器是雲端式的混合網路監視解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視服務和應用程式端點的網路連線能力，以及監視 Azure ExpressRoute 的效能。 
+網路效能監控是雲端式的混合網路監視解決方案，可協助您監視網路基礎結構中多個端點間的網路效能。 也可協助您監視服務和應用程式端點的網路連線能力，以及監視 Azure ExpressRoute 的效能。 
 
-網路效能監視器會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
+網路效能監控會偵測網路問題，例如流量黑洞、路由錯誤，以及傳統網路監視方法無法偵測的問題。 此解決方案會在違反網路連結的臨界值時產生警示並通知您。 它可確實而及時地偵測網路效能問題，並將問題的來源限縮於特定網路區段或裝置。 
 
-網路效能監視器提供三種廣泛功能： 
+網路效能監控提供三種廣泛功能： 
 
 * [效能監視器](network-performance-monitor-performance-monitor.md)：您可以監視雲端部署和內部部署位置、多個資料中心和分公司，以及任務關鍵性多層式應用程式或微服務之間的網路連線。 利用效能監視器，您可以在使用者提出抱怨之前偵測到網路問題。
 
-* [服務連線能力監視](network-performance-monitor-service-endpoint.md)：您可以監視從使用者到所關心服務的連線、判斷路徑中有哪些基礎結構，以及識別發生網路瓶頸之處。 您可以搶先在使用者之前得知中斷情況，並查看網路路徑上發生問題的確切位置。 
+* [服務連線能力監視](network-performance-monitor-service-endpoint.md)：您可以監視從使用者到所關心服務的連線，判斷路徑中有哪些基礎結構，以及識別發生網路瓶頸之處。 您可以搶先在使用者之前得知中斷情況，並查看網路路徑上發生問題的確切位置。 
 
     此功能可協助您執行以 HTTP、HTTPS、TCP 與 ICMP 為基礎的測試，以近乎即時或記錄的方式監視服務的可用性與回應時間。 您也可以監視因網路而造成封包遺失與延遲問題的比重。 透過網路拓撲地圖，您可以解析網速變慢的問題。 您可以利用每個躍點的延遲資料，識別從節點到服務的網路路徑沿途所發生的問題點。 透過內建測試，您完全不需任何預先設定，即可監視 Office365 和 Dynamics CRM 的網路連線。 使用此功能，您可以監視任何支援 TCP 端點的網路連線，例如網站、SaaS 應用程式、PaaS 應用程式和 SQL 資料庫。
 
-* [ExpressRoute 監視器](network-performance-monitor-expressroute.md)：透過 Azure ExpressRoute 監視分公司與 Azure 之間的端對端連線與效能。  
+* [ExpressRoute 監視](network-performance-monitor-expressroute.md)：透過 Azure ExpressRoute 監視分公司與 Azure 之間的端對端連線能力和效能。  
 
-您可以在線上深入了解[網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)所支援的各種功能。
+您可以在線上深入了解 [網路效能監視器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) 所支援的各種功能。
  
 ## <a name="supported-regions"></a>支援的區域
 NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地的網路和應用程式之間的連線情形：
@@ -54,14 +52,14 @@ NPM 可使用在下列其中一個區域裝載的工作區，監視世界各地�
 * 英國南部
 * 美國維吉尼亞州政府
 
-ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions)中。
+ExpressRoute 監視的支援區域清單提供於[文件](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117#regions)中。
 
 
 ## <a name="set-up-and-configure"></a>安裝及設定
 
 ### <a name="install-and-configure-agents"></a>安裝及設定代理程式 
 
-使用[將 Windows 電腦連接到 Azure Log Analytics](../../log-analytics/log-analytics-om-agents.md) 和[將 Operations Manager 連接到 Log Analytics](../../log-analytics/log-analytics-om-agents.md) 中的基本程序，進行代理程式安裝。
+使用[將 Windows 電腦連接到 Azure Log Analytics](../../azure-monitor/platform/om-agents.md) 和[將 Operations Manager 連接到 Log Analytics](../../azure-monitor/platform/om-agents.md) 中的基本程序，進行代理程式安裝。
 
 ### <a name="where-to-install-the-agents"></a>安裝代理程式的位置 
 
@@ -71,25 +69,25 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 * **服務連線能力監視**：在您想要的每個節點上安裝 Log Analytics 代理程式，監視它與服務端點之間的網路連線。 舉例來說，如果您想要監視辦公室網站 O1、O2 和 O3 對 Office 365 的網路連線。 請分別在 O1、O2 和 O3 中的至少一個節點上安裝 Log Analytics 代理程式。 
 
-* **ExpressRoute 監視器**：在您的 Azure 虛擬網路中安裝至少一個 Log Analytics 代理程式。 此外，也在透過 ExpressRoute 私人對等互連進行連線的內部部署子網路中至少安裝一個代理程式。  
+* **ExpressRoute 監視**：在您的 Azure 虛擬網路中安裝至少一個 Log Analytics 代理程式。 此外，也在透過 ExpressRoute 私人對等互連進行連線的內部部署子網路中至少安裝一個代理程式。  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>設定 Log Analytics 代理程式以進行監視 
 
-網路效能監視器會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務連線能力監視」功能中用於監視的通訊協定。 只有 TCP 可以當作 ExpressRoute 監視的監視通訊協定使用。 請確定防火牆允許 Log Analytics 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
+網路效能監控會使用綜合交易來監視來源與目的地代理程式之間的網路效能。 您可以從 TCP 和 ICMP 中擇一作為要在監視「效能監視器」和「服務連線能力監視」功能中用於監視的通訊協定。 只有 TCP 可以當作 ExpressRoute 監視的監視通訊協定使用。 請確定防火牆允許 Log Analytics 代理程式 (這些代理程式將用於在您選擇的通訊協定上進行監視) 之間的通訊。 
 
-* **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監視器」和「ExpressRoute 監視器」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
+* **TCP 通訊協定**：如果您選擇 TCP 作為用於監視的通訊協定，請在用於「網路效能監控」和「ExpressRoute 監視」的代理程式上開啟防火牆連接埠，以確保代理程式可以彼此連線。 若要開啟連接埠，請使用系統管理權限執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell 指令碼，而不在 PowerShell 視窗中使用任何參數。
 
     使指令碼會建立解決方案所需的登錄機碼。 此外也會建立 Windows 防火牆規則，以允許代理程式建立彼此的 TCP 連線。 此指令碼所建立的登錄機碼會指定是否要記錄偵錯記錄，以及記錄檔的路徑。 此指令碼也會定義用於通訊的代理程式 TCP 連接埠。 此指令碼會自動設定這些機碼的值。 請勿手動變更這些機碼。 預設開啟的連接埠是 8084。 您可以為指令碼提供 portNumber 參數來使用自訂連接埠。 請在指令碼執行所在的所有電腦上使用相同的連接埠。 
 
     >[!NOTE]
-    > 指令碼只會在本機設定 Windows 防火牆。 如果您有網路防火牆，請確定它允許傳至網路效能監視器所用 TCP 連接埠的流量。
+    > 指令碼只會在本機設定 Windows 防火牆。 如果您有網路防火牆，請確定它允許傳至網路效能監控所用 TCP 連接埠的流量。
 
     >[!NOTE]
     > 您不需要為「服務端點監視器」執行 [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell 指令碼。
 
     
 
-* **ICMP 通訊協定**：如果您選擇 ICMP 作為用於監視的通訊協定，請啟用下列防火牆規則以穩定使用 ICMP：
+* **ICMP 通訊協定**如果您選擇 ICMP 作為用於監視的通訊協定，請啟用下列防火牆規則以穩定使用 ICMP：
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -103,11 +101,11 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="configure-the-solution"></a>設定方案 
 
-1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監視器解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](../../azure-monitor/insights/solutions.md)中說明的程序。 
+1. 從 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) 將網路效能監控解決方案新增至您的 OMS 工作區。 您也可以使用[從方案庫新增 Log Analytics 解決方案](../../azure-monitor/insights/solutions.md)中說明的程序。 
 2. 開啟 Log Analytics 工作區，然後選取 [概觀] 圖格。 
-3. 選取含有 *「解決方案需要其他設定」* 訊息的 [網路效能監視器]  圖格。
+3. 選取含有 *「解決方案需要其他設定」* 訊息的 [網路效能監控]  圖格。
 
-   ![網路效能監視器圖格](media/network-performance-monitor/npm-config.png)
+   ![網路效能監控圖格](media/network-performance-monitor/npm-config.png)
 
 4. 您在 [設定] 頁面上看到的選項可安裝 Log Analytics 代理程式，以及設定代理程式以在 [一般設定] 檢視中進行監視。 如前所述，如果您安裝並設定了 Log Analytics 代理程式，請選取 [設定] 檢視以設定您要使用的功能。 
 
@@ -115,11 +113,11 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
    ![效能監視器檢視](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **服務連線能力監視**：此功能提供內建的預先設定測試，可從代理程式監視 Office 365 和 Dynamics 365 的網路連線。 請選取您要監視的 Office 365 和 Dynamics 365 服務旁邊的核取方塊，以選擇這些服務。 若要選擇您要用來監視的代理程式，請選取 [新增代理程式]。 如果您不想要使用此功能，或想要稍後再設定，請不要選擇任何項目，而直接選取 [儲存並繼續]。
+   **服務連線能力監視**：此功能提供內建的預先設定測試，可從代理程式監視 Office365 和 Dynamics 365 的網路連線。 請選取您要監視的 Office 365 和 Dynamics 365 服務旁邊的核取方塊，以選擇這些服務。 若要選擇您要用來監視的代理程式，請選取 [新增代理程式]。 如果您不想要使用此功能，或想要稍後再設定，請不要選擇任何項目，而直接選取 [儲存並繼續]。
 
    ![服務端點監視器檢視](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute 監視器**：選取 [立即探索]，以探索在與此 Log Analytics 工作區連結的 Azure 訂用帳戶中，連線到虛擬網路的所有 ExpressRoute 私人對等互連。 
+   **ExpressRoute 監視**：選取 [立即探索]，以探索在與此 Log Analytics 工作區連結的 Azure 訂用帳戶中，連線到虛擬網路的所有 ExpressRoute 私人對等互連。 
 
    >[!NOTE] 
    > 目前，解決方案只會探索 ExpressRoute 私人對等互連。 
@@ -131,11 +129,11 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
    完成探索之後，探索到的私人對等互連會列在表格中。 
 
-   ![網路效能監視器組態頁面](media/network-performance-monitor/npm-private-peerings.png)
+   ![網路效能監控組態頁面](media/network-performance-monitor/npm-private-peerings.png)
     
 這些對等互連的監視一開始會處於停用狀態。 請選取您要監視的每個對等互連，然後從右側的詳細資料檢視設定其監視。 選取 [儲存] 以儲存組態。 若要深入了解，請參閱「設定 ExpressRoute 監視」一文。 
 
-設定完成之後，需要 30 分鐘到一小時的時間來填入資料。 當解決方案從您的網路中彙總資料時，您會在網路效能監視器的 [概觀] 圖格上看到「解決方案需要其他設定」訊息。 在收集資料並編製索引之後，[概觀] 圖格會變更，並對您通知網路的健康情況摘要。 接著，您可以編輯 Log Analytics 代理程式安裝所在節點的監視，以及從環境中探索到的子網路監視。
+設定完成之後，需要 30 分鐘到一小時的時間來填入資料。 當解決方案從您的網路中彙總資料時，您會在網路效能監控的 [概觀] 圖格上看到「解決方案需要其他設定」訊息。 在收集資料並編製索引之後，[概觀] 圖格會變更，並對您通知網路的健康情況摘要。 接著，您可以編輯 Log Analytics 代理程式安裝所在節點的監視，以及從環境中探索到的子網路監視。
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>編輯子網路與節點的監視設定 
 
@@ -166,9 +164,9 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
  
 
 ## <a name="data-collection-details"></a>資料收集詳細資料
-為了收集遺失和延遲資訊，當您選擇 TCP 作為通訊協定時，網路效能監視器會使用 TCP SYN-SYNACK-ACK 交握封包。 當您選擇 ICMP 作為通訊協定時，網路效能監視器會使用 ICMP ECHO ICMP ECHO REPLY。 追蹤路由也可用來取得拓撲資訊。
+為了收集遺失和延遲資訊，當您選擇 TCP 作為通訊協定時，網路效能監控會使用 TCP SYN-SYNACK-ACK 交握封包。 當您選擇 ICMP 作為通訊協定時，網路效能監控會使用 ICMP ECHO ICMP ECHO REPLY。 追蹤路由也可用來取得拓撲資訊。
 
-下表顯示網路效能監視器的資料收集方法，以及有關如何收集資料的其他詳細資料。
+下表顯示網路效能監控的資料收集方法，以及有關如何收集資料的其他詳細資料。
 
 | 平台 | 直接代理程式 | System Center Operations Manager 代理程式 | Azure 儲存體 | 是否需要 Operations Manager？ | 透過管理群組傳送的 Operations Manager 代理程式資料 | 收集頻率 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -185,25 +183,25 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ## <a name="use-the-solution"></a>使用解決方案 
 
-### <a name="network-performance-monitor-overview-tile"></a>網路效能監視器概觀圖格 
+### <a name="network-performance-monitor-overview-tile"></a>網路效能監控概觀圖格 
 
-啟用網路效能監視器解決方案後，[概觀] 頁面上的解決方案圖格會提供網路健康情況的快速概觀。 
+啟用網路效能監控解決方案後，[概觀] 頁面上的解決方案圖格會提供網路健康情況的快速概觀。 
 
- ![網路效能監視器概觀圖格](media/network-performance-monitor/npm-overview-tile.png)
+ ![網路效能監控概觀圖格](media/network-performance-monitor/npm-overview-tile.png)
 
-### <a name="network-performance-monitor-dashboard"></a>網路效能監視器儀表板 
+### <a name="network-performance-monitor-dashboard"></a>網路效能監控儀表板 
 
 * **頂端網路健康情況事件**：此頁面會列出系統中最近的健康情況事件和警示，以及事件變成作用中的時間。 每當針對監視規則所選擇的計量值 (遺失、延遲、回應時間或頻寬使用率) 超過閾值時，就會產生健康情況事件或警示。 
 
-* **ExpressRoute 監視器**：此頁面會提供包含解決方案監視器之各種不同 ExpressRoute 對等互連連線的健康情況摘要。 [拓撲] 圖格會透過您的網路中受監視的 ExpressRoute 線路顯示網路路徑數目。 選取此圖格可移至 [拓撲] 檢視。
+* **ExpressRoute 監視**：此頁面會提供包含解決方案監視器之各種不同 ExpressRoute 對等互連連線的健康情況摘要。 [拓撲] 圖格會透過您的網路中受監視的 ExpressRoute 線路顯示網路路徑數目。 選取此圖格可移至 [拓撲] 檢視。
 
-* **服務連線能力監視**：此頁面會提供您所建立不同測試的健康情況摘要。 [拓撲] 圖格會顯示受監視的端點數目。 選取此圖格可移至 [拓撲] 檢視。
+* **服務連線能力監視**：此頁面會提供您所建立之不同測試的健康情況摘要。 [拓撲] 圖格會顯示受監視的端點數目。 選取此圖格可移至 [拓撲] 檢視。
 
 * **效能監視器**：此頁面會提供解決方案所監視的**網路**連結和**子網路**連結的健康情況摘要。 [拓撲] 圖格會顯示網路中受監視的網路路徑數目。 選取此圖格可移至 [拓撲] 檢視。 
 
 * **常用查詢**：此頁面包含一組搜尋查詢，可直接擷取原始的網路監視資料。 您可以使用這些查詢作為起點，建立自己的查詢以供自訂報告之用。 
 
-   ![網路效能監視器儀表板](media/network-performance-monitor/npm-dashboard.png)
+   ![網路效能監控儀表板](media/network-performance-monitor/npm-dashboard.png)
 
  
 
@@ -237,7 +235,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ### <a name="topology-map"></a>拓撲圖 
 
-網路效能監視器會在互動式拓撲圖上顯示來源與目的地端點之間路由的逐一躍點拓撲。 若要檢視拓撲圖，請選取方案儀表板上的 [拓撲] 圖格。 您也可以選取深入鑽研頁面上的 [檢視拓撲] 連結。 
+網路效能監控會在互動式拓撲圖上顯示來源與目的地端點之間路由的逐一躍點拓撲。 若要檢視拓撲圖，請選取方案儀表板上的 [拓撲] 圖格。 您也可以選取深入鑽研頁面上的 [檢視拓撲] 連結。 
 
 拓撲圖會顯示來源與目的地之間有多少個路由，以及資料封包所採用的路徑。 您也可看見每個網路躍點所產生的延遲。 路徑延遲總計超過閾值 (在對應監視規則中所設定) 的所有路徑都會顯示為紅色。 
 
@@ -251,7 +249,7 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ## <a name="log-analytics-search"></a>Log Analytics 搜尋 
 
-以圖形方式透過網路效能監視器儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](../../log-analytics/log-analytics-queries.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
+以圖形方式透過網路效能監控儀表板和深入鑽研頁面公開的所有資料，也都可以在 [Log Analytics 搜尋](../../azure-monitor/log-query/log-query-overview.md)中取得。 您可以對存放庫中的資料執行互動式分析，並且讓不同來源的資料相互關聯。 您也可以建立自訂警示和檢視，並將資料匯出至 Excel、Power BI 或可共用的連結。 儀表板中的  **[常用查詢]**  區域有一些實用的查詢，您可以使用這些查詢作為起點來建立自己的查詢和報告。 
 
 ## <a name="alerts"></a>警示
 
@@ -281,9 +279,9 @@ ExpressRoute 監視器的支援區域清單提供於[文件](https://docs.micros
 
 ## <a name="provide-feedback"></a>提供意見反應 
 
-* **UserVoice**：對於您希望我們改善的網路效能監視器功能，您可以張貼您的想法。 請瀏覽 [UserVoice 頁面](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)。 
+* **UserVoice：** 對於您希望我們改善的網路效能監控功能，您可以張貼您的想法。 請瀏覽 [UserVoice 頁面](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)。 
 
-* **加入我們的社群**：我們竭誠歡迎新客戶加入我們的社群。 加入其中，您就能夠及早存取新功能，並有機會協助我們改善網路效能監視器。 如果您想加入，請填妥這份 [快速問卷調查](https://aka.ms/npmcohort)。 
+* **加入我們的社群：** 我們竭誠歡迎新客戶加入我們的社群。 加入其中，您就能夠及早存取新功能，並有機會協助我們改善網路效能監控。 如果您想加入，請填妥這份 [快速問卷調查](https://aka.ms/npmcohort)。 
 
 ## <a name="next-steps"></a>後續步驟 
 深入了解[效能監視器](network-performance-monitor-performance-monitor.md)、[服務連線能力監視](network-performance-monitor-performance-monitor.md)與 [ExpressRoute 監視](network-performance-monitor-expressroute.md)。 

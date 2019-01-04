@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: eaccbc93fa1e78132527798dcef27babc8a2cc09
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213180"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52845020"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署規劃工具的成本估計報告 
 
@@ -50,9 +50,9 @@ Azure Site Recovery 部署規劃工具報告會在[建議](hyper-v-deployment-pl
 ### <a name="overall-dr-costs-by-components"></a>依元件的整體 DR 成本
 第一個區段顯示依元件的整體 DR 成本和依狀態的 DR 成本。 
 
-**計算**：針對 DR 需求在 Azure 上執行的 IaaS VM 的成本。 其中包括 Site Recovery 在 DR 演練 (測試容錯移轉) 期間建立的 VM。 此外也包括在 Azure 上執行的 VM，例如具有 Always On 可用性群組和網域控制站或網域名稱伺服器的 SQL Server。
+**計算**：針對 DR 需求在 Azure 上執行的 IaaS VM 成本。 其中包括 Site Recovery 在 DR 演練 (測試容錯移轉) 期間建立的 VM。 此外也包括在 Azure 上執行的 VM，例如具有 Always On 可用性群組和網域控制站或網域名稱伺服器的 SQL Server。
 
-**儲存體**：針對 DR 需求而使用 Azure 儲存體的成本。 其中包含針對複寫以及在 DR 演練期間的儲存體耗用量。
+**儲存體**：針對 DR 需求的 Azure 儲存體耗用量成本。 其中包含針對複寫以及在 DR 演練期間的儲存體耗用量。
 
 **網路**：針對 DR 需求的 ExpressRoute 和站對站 VPN 成本。 
 
@@ -167,7 +167,7 @@ eastus、eastus2、uswest、centralus、northcentralus、southcentralus、northe
 ## <a name="supported-currencies"></a>支援的貨幣
 Site Recovery 部署規劃工具可以使用下列任何貨幣來產生成本報告。
 
-|貨幣|名稱||貨幣|名稱||貨幣|名稱|
+|貨幣|Name||貨幣|Name||貨幣|Name|
 |---|---|---|---|---|---|---|---|
 |ARS 披索|阿根廷披索 ($)||澳幣|澳洲元 ($)||巴西里耳|巴西里耳 (R$)|
 |加拿大幣|加幣 ($)||瑞士法郎|瑞士法郎 (chf)||丹麥幣|丹麥克朗 (kr)|

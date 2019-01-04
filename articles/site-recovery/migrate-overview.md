@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 6f510ac394b939996defe0a7ed49317ec0aabe3b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9a5c45b66e775ce83625e1f6d9507aaf456c7c7b
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211990"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843983"
 ---
 # <a name="about-migration"></a>關於移轉
 
@@ -21,9 +21,9 @@ ms.locfileid: "50211990"
 
 以下是您可以使用 Site Recovery 移轉的項目：
 
-- **從內部部署移轉至 Azure**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器移轉至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
-- **在 Azure 中進行移轉**：在 Azure 區域之間移轉 Azure VM。 
-- **移轉 AWS**：將 AWS Windows 執行個體移轉至 Azure IaaS VM。 
+- **從內部部署遷移至 Azure**：將內部部署 Hyper-V VM、VMware VM 和實體伺服器遷移至 Azure。 移轉之後，內部部署機器上執行的工作負載將在 Azure VM 上執行。 
+- **在 Azure 內遷移**：在 Azure 區域之間遷移 Azure VM。 
+- **遷移 AWS**：將 AWS Windows 執行個體遷移到 Azure IaaS VM。 
 
 
 ## <a name="what-do-we-mean-by-migration"></a>移轉的意思為何？

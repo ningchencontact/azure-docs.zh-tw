@@ -1,6 +1,6 @@
 ---
-title: 註冊新的 Azure IoT Edge 裝置 (CLI) | Microsoft Docs
-description: 使用適用於 Azure CLI 的 IoT 擴充功能來註冊新的 IoT Edge 裝置
+title: 從命令列註冊新的裝置 - Azure IoT Edge | Microsoft Docs
+description: 使用 Azure CLI 的 IoT 擴充功能來註冊新的 IoT Edge 裝置並擷取連接字串
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 28f20157de603cf20cb33e9db569064f87922bf8
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51569245"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53081828"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>使用 Azure CLI 來註冊新的 Azure IoT Edge 裝置
 
@@ -39,11 +40,11 @@ ms.locfileid: "51569245"
    ```
 
 這個命令包含三個參數：
-* **device-id**：提供 IoT 中樞內獨一無二的描述性名稱。
+* **device-id**：提供 IoT 中樞內唯一的描述性名稱。
 * **hub-name**：提供 IoT 中樞的名稱。
-* **edge-enabled**：這個參數會宣告裝置是要 IoT Edge 搭配使用。
+* **edge-enabled**：此參數會宣告裝置是要 IoT Edge 搭配使用。
 
-   ![建立 IoT Edge 裝置](./media/how-to-register-device-cli/Create-edge-device.png)
+   ![az iot hub device-identity create 輸出](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## <a name="view-all-devices"></a>檢視所有裝置
 

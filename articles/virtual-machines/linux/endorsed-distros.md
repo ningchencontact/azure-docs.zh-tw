@@ -1,5 +1,5 @@
 ---
-title: Linux 的背書散發套件 | Microsoft Docs
+title: Azure 背書的散發套件 | Microsoft Docs
 description: 了解在 Azure 背書散發套件上的 Linux，包括 Ubuntu、CentOS、Oracle 和 SUSE 的準則。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: szark
-ms.openlocfilehash: b39ae6b5546e9504b9f37504c486c941ab034399
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3c904dadcb01dc889b159dff9ce1b9114db8103e
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249994"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52681801"
 ---
-# <a name="linux-on-distributions-endorsed-by-azure"></a>經 Azure 背書的 Linux 發佈
+# <a name="linux-distributions-endorsed-on-azure"></a>Azure 背書的散發套件
 合作夥伴會在 Azure Marketplace 中提供 Linux 映像。 我們與各個 Linux 社群合作，以便為經背書的發佈清單新增更多版本選項。 在此同時，針對 Marketplace 未提供的發佈，您一律可以將自己的 Linux 帶入，方法是遵循[建立和上傳包含 Linux 作業系統的虛擬硬碟](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic)中的指導方針。
 
 ## <a name="supported-distributions-and-versions"></a>支援的發佈和版本
@@ -35,14 +35,14 @@ Azure Linux 代理程式已預先安裝於 Azure Marketplace 映像上，而且�
   
 | 配送映像 | 版本 | 驅動程式 | 代理程式 |
 | --- | --- | --- | --- |
-| CentOS |CentOS 6.3+、7.0+ |CentOS 6.3：[LIS 下載](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4 +：在核心中 |封裝：在 [repo](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) 中，"WALinuxAgent" 的下方 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| CentOS |CentOS 6.3+、7.0+ |CentOS 6.3：[LIS 下載](https://www.microsoft.com/en-us/download/details.aspx?id=55106)<p>CentOS 6.4+：在核心中 |套件：在 "WALinuxAgent" 下的[存放庫](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/)中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |在核心中 |原始程式碼：[GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
-| Debian |Debian 7.9+、8.2+ |在核心中 |套件：在「waagent」下的儲存機制中  <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
-| Oracle Linux |6.4+、7.0+ |在核心中 |套件：在「WALinuxAgent」下的儲存機制中  <br/>原始程式碼：[GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6.7+、7.1+ |在核心中 |套件：在「WALinuxAgent」下的儲存機制中  <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| Debian |Debian 7.9+、8.2+ |在核心中 |套件：在 "waagent" 下的存放庫中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| Oracle Linux |6.4+、7.0+ |在核心中 |套件：在 "WALinuxAgent" 下的存放庫中 <br/>原始程式碼：[GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
+| Red Hat Enterprise Linux |RHEL 6.7+、7.1+ |在核心中 |套件：在 "WALinuxAgent" 下的存放庫中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES for SAP<br>11 SP4<br>12 SP1+<br>15|在核心中 |套件：<p> 適用於 11：在 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 儲存機制中<br>適用於 12：包含在 "Public Cloud" 模組中的 "python-azure-agent" 底下<br/>原始程式碼：[GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| openSUSE |openSUSE Leap 42.2+ |在核心中 |封裝：在 "python-azure-agent" 下的[雲端：工具](https://build.opensuse.org/project/show/Cloud:Tools)儲存機制中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
-| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在核心中 |套件：在「WALinuxAgent」下的儲存機制中  <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| openSUSE |openSUSE Leap 42.2+ |在核心中 |套件：在 "python-azure-agent" 下的 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 存放庫中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
+| Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在核心中 |套件：在 "walinuxagent" 下的存放庫中 <br/>原始程式碼：[GitHub](https://github.com/Azure/WALinuxAgent) |
 
   - **<sup>1</sup>** 如需了解 Azure 對 Ubuntu 12.04 的支援，請參閱 [EOL 注意事項](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/)。
 

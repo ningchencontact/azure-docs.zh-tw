@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f90fccd062826493b7add1a90406fa9244e00b2
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262364"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "53002057"
 ---
-# <a name="security-frame-sensitive-data--mitigations"></a>安全性架構︰敏感性資料 | 風險降低 
+# <a name="security-frame-sensitive-data--mitigations"></a>安全性架構：敏感性資料 | 風險降低 
 | 產品/服務 | 文章 |
 | --------------- | ------- |
 | **電腦信任邊界** | <ul><li>[確定包含敏感性資訊的二進位檔已經過模糊處理](#binaries-info)</li><li>[考慮使用加密檔案系統 (EFS) 來保護機密的使用者特定資料](#efs-user)</li><li>[確定應用程式儲存在檔案系統上的敏感性資料已加密](#filesystem)</li></ul> | 
@@ -130,7 +130,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | N/A  |
-| **參考**              | [作法：在 ASP.NET 2.0 中使用 DPAPI 加密組態區段](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保護的組態提供者](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 來保護應用程式的機密資訊](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
+| **參考**              | [操作說明：在 ASP.NET 2.0 中使用 DPAPI 加密組態區段](https://msdn.microsoft.com/library/ff647398.aspx)、[指定受保護的組態提供者](https://msdn.microsoft.com/library/68ze1hb2.aspx)、[使用 Azure Key Vault 來保護應用程式的機密資訊](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity-keyvault/) |
 | **步驟** | 組態檔 (例如 Web.config、appsettings.json) 常會用來敏感性資訊，包括使用者名稱、密碼、資料庫連接字串和加密金鑰。 如果您不保護這項資訊，您的應用程式會很容易受到攻擊者或惡意使用者攻擊，而被其取得敏感性資訊，例如帳戶使用者名稱和密碼、資料庫名稱和伺服器名稱。 請根據部署類型 (Azure/內部部署)，使用 DPAPI 或服務 (例如 Azure Key Vault) 加密組態檔的敏感性區段。 |
 
 ## <a id="autocomplete-input"></a>明確停用敏感性表單和輸入內的自動完成 HTML 屬性
@@ -193,7 +193,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型 |
 | **屬性**              | SQL 版本 - 全部 |
-| **參考**              | [加密 SQL Server 中的敏感性資料](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx)、[加密 SQL Server 中的一欄資料](https://msdn.microsoft.com/library/ms179331)、[以憑證加密](https://msdn.microsoft.com/library/ms188061) |
+| **參考**              | [對 SQL 伺服器中的敏感性資料加密](https://technet.microsoft.com/library/ff848751(v=sql.105).aspx)、[操作說明：加密 SQL Server 中的資料行](https://msdn.microsoft.com/library/ms179331)、[透過憑證來加密](https://msdn.microsoft.com/library/ms188061) |
 | **步驟** | 資料庫中的敏感性資料 (例如信用卡號碼) 必須加密。 您可以使用資料行層級加密或透過使用加密功能的應用程式函式來加密資料。 |
 
 ## <a id="tde-enabled"></a>確定已啟用資料庫層級加密 (TDE)
@@ -429,7 +429,7 @@ Allow screen capture
 | **SDL 階段**               | 建置 |  
 | **適用的技術** | 泛型、.NET Framework 3 |
 | **屬性**              | 安全性模式 - 傳輸、安全性模式 - 訊息 |
-| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.hpefod.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_security_not_enabled)、[WCF 安全性基礎概念 CoDe Magazine](http://www.codemag.com/article/0611051) |
+| **參考**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx)、[Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference)、[WCF 安全性基礎概念 CoDe Magazine](http://www.codemag.com/article/0611051) |
 | **步驟** | 尚未定義任何傳輸或訊息安全性。 傳輸訊息的應用程式若沒有傳輸或訊息安全性，就無法保證訊息的完整性或機密性。 當 WCF 安全性繫結設定為 [無] 時，會同時停用傳輸和訊息安全性。 |
 
 ### <a name="example"></a>範例

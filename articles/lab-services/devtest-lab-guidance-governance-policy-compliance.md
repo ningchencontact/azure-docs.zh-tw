@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 016daa7ed57650a42b224df4e4173c7593893eb7
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8165efaa10eb31410f00dfa9bfffb2c02d7396ae
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250810"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872319"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>治理 Azure DevTest Labs 基礎結構 - 公司原則和合規性
 此文章提供治理適用於 Azure DevTest Labs 基礎結構之公司原則和合規性的相關指導方針。 
@@ -42,10 +42,10 @@ ms.locfileid: "48250810"
 ### <a name="answer"></a>Answer
 作為貴組織整體治理和組態管理策略的一部分，我們建議您使用集中式存放庫。 當您使用多個存放庫時，它們可能會在經過一段時間之後成為非受控軟體的定址接收器。 使用中央存放庫，多個小組就能針對他們的專案，從此存放庫中取用成品。 它會強制執行標準化、安全性、簡化管理，並排除重複的工作。 在集中化過程中，下列動作為適用於長期管理和持續性的建議做法：
 
-- 將 Visual Studio Team Services 與 Azure 訂用帳戶用來進行驗證和授權的相同 Azure Active Directory 租用戶產生關聯。
+- 將 Azure Repos 與 Azure 訂用帳戶用來進行驗證和授權的相同 Azure Active Directory 租用戶產生關聯。
 - 在集中管理的 Azure Active Directory 中，建立名為**所有 DevTest Labs 開發人員**的群組。 任何有助於成品開發的開發人員都應該放置於此群組中。
-- 相同的 Azure Active Directory 群組可用來提供存取 Visual Studio Team Services 存放庫及實驗室。
-- 在 Visual Studio Team Services 中，應該使用分支或派生，將開發中的存放庫與主要生產環境存放庫分隔開來。 只會在適當的程式碼檢閱之後，使用 Pull 要求來將內容新增至主要分支。 當程式碼檢閱者核准變更之後，負責維護主要分支的首席開發人員就會合併更新的程式碼。 
+- 相同的 Azure Active Directory 群組可用來提供存取 Azure Repos 存放庫及實驗室。
+- 在 Azure Repos 中，應該使用分支或派生，將開發中的存放庫與主要生產環境存放庫分隔開來。 只會在適當的程式碼檢閱之後，使用 Pull 要求來將內容新增至主要分支。 當程式碼檢閱者核准變更之後，負責維護主要分支的首席開發人員就會合併更新的程式碼。 
 
 ## <a name="corporate-security-policies"></a>公司安全性原則
 

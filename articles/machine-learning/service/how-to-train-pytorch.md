@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Machine Learning 來將 PyTorch 模型定型
+title: 使用 PyTorch 將模型定型
+titleSuffix: Azure Machine Learning service
 description: 了解如何使用 PyTorch 估算器執行 PyTorch 的單一節點和分散式定型
 services: machine-learning
 ms.service: machine-learning
@@ -8,22 +9,23 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
-ms.openlocfilehash: 27d4ad03e4a7f911fe3c9981618337a2fff51317
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: a6401c6059d8f72f344021879828b01c9ce77169
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114612"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100540"
 ---
-# <a name="how-to-train-pytorch-models"></a>了解如何將 PyTorch 模型定型
+# <a name="train-pytorch-models-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務將 PyTorch 模型定型
 
 為了能使用 PyTorch 深度訓練類神經網路 (DNN)，Azure Machine Learning 提供了 `Estimator` 的自訂 `PyTorch` 類別。 Azure SDK 的 `PyTorch` 估算器可讓您輕鬆提交在 Azure 計算上執行的單一節點和分散式 PyTorch 定型工作。
 
 ## <a name="single-node-training"></a>單一節點定型
 使用 `PyTorch` 估算器來定型，類似於使用[基礎 `Estimator`](how-to-train-ml-models.md)，因此請先詳讀操作說明文章，並確定已了解文章中說明的概念。
   
-若要執行 PyTorch 作業，請將 `PyTorch` 物件具現化。 您應該已經建立[計算目標](how-to-set-up-training-targets.md#batch)物件 `compute_target` 與[資料存放區](how-to-access-data.md)物件 `ds`。
+若要執行 PyTorch 作業，請將 `PyTorch` 物件具現化。 您應該已經建立[計算目標](how-to-set-up-training-targets.md#amlcompute)物件 `compute_target` 與[資料存放區](how-to-access-data.md)物件 `ds`。
 
 ```Python
 from azureml.train.dnn import PyTorch
@@ -44,7 +46,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 --|--
 `source_directory` |  包含定型作業所需之所有程式碼的本機目錄。 此資料夾是從您的本機電腦複製到遠端計算
 `script_params` |  用於指定您的定型指令碼 `entry_script` 命令列引數的字典，格式為 <命令列引數, 值> 組
-`compute_target` |  您的定型指令碼將在其上執行的遠端計算，在此案例中是 [Batch AI](how-to-set-up-training-targets.md#batch) 叢集
+`compute_target` |  您的定型指令碼執行所在的遠端計算目標，在此案例中為 Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) 叢集
 `entry_script` |  要在遠端計算上執行之定型指令碼的檔案路徑 (相對於 `source_directory`)。 此檔案 (以及此檔案所相依的其他任何檔案) 都應位於此資料夾
 `conda_packages` |  要透過 Conda 安裝的 Python 套件清單 (其中包含您的定型指令碼所需的套件)。 建構函式有另一個名為 `pip_packages` 的參數，您可以視需要將此參數用於任何 pip 套件
 `use_gpu` |  請將此旗標設定為 `True`，以利用 GPU 進行定型。 預設為 `False`
@@ -100,13 +102,9 @@ run = exp.submit(pt_est)
 ```
 
 ## <a name="examples"></a>範例
-如需單一節點的 PyTorch 定型教學課程，請參閱：
-* [training/01.train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/01.train-hyperparameter-tune-deploy-with-pytorch)
 
-如需使用 Horovod 的分散式 PyTorch 教學課程，請參閱：
-* [training/02.distributed-pytorch-with-horovod](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/02.distributed-pytorch-with-horovod)
-
-取得這些 Notebook：
+如需有關分散式深入學習的 Notebook，請參閱：
+* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

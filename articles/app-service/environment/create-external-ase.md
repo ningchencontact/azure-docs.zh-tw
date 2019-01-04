@@ -1,5 +1,5 @@
 ---
-title: 建立外部 Azure App Service 環境
+title: 建立外部 App Service 環境 - Azure
 description: 說明如何在建立應用程式或獨立時建立 App Service 環境
 services: app-service
 documentationcenter: na
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 0ee2654b313f453f7485c89c789edc8efc068d7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.custom: seodec18
+ms.openlocfilehash: 98d534e20b8e4c6bf6bcc3f483f59b796dc85073
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442644"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274461"
 ---
 # <a name="create-an-external-app-service-environment"></a>建立外部 App Service 環境 #
 
-Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azure 虛擬網路 (VNet) 中子網路的一種部署。 部署 App Service Environment (ASE) 有二種方法：
+Azure App Service 環境 (ASE) 是將 Azure App Service 部署到客戶 Azure 虛擬網路 (VNet) 中子網路的一種部署。 部署 App Service 環境 (ASE) 有二種方法：
 
 - 使用外部 IP 位址上的 VIP，通常稱為「外部 ASE」。
 - 使用內部 IP 位址上的 VIP，通常稱為 ILB ASE，因為內部端點是內部負載平衡器 (ILB)。
 
-本文說明如何建立外部 ASE。 如需 ASE 的概述，請參閱 [App Service Environment 簡介][Intro]。 如需有關如何建立 ILB ASE 的資訊，請參閱[建立並使用 ILB ASE][MakeILBASE]。
+本文說明如何建立外部 ASE。 如需 ASE 的概述，請參閱 [App Service 環境簡介][Intro]。 如需有關如何建立 ILB ASE 的資訊，請參閱[建立並使用 ILB ASE][MakeILBASE]。
 
 ## <a name="before-you-create-your-ase"></a>建立 ASE 之前 ##
 
@@ -56,7 +57,7 @@ Azure App Service Environment (ASE) 是將 Azure App Service 部署到客戶 Azu
 
 ## <a name="create-an-ase-and-an-app-service-plan-together"></a>一起建立 ASE 和 App Service 方案 ##
 
-App Service 方案是應用程式的容器。 當您在 App Service 中建立應用程式時，要選擇或建立 App Service 方案。 App Service Environment 可保存 App Service 方案，而 App Service 方案可保存應用程式。
+App Service 方案是應用程式的容器。 當您在 App Service 中建立應用程式時，要選擇或建立 App Service 方案。 App Service 環境可保存 App Service 方案，而 App Service 方案可保存應用程式。
 
 若要在建立 App Service 方案時建立 ASE：
 
@@ -64,27 +65,27 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     ![建立 Web 應用程式][1]
 
-1. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
+2. 選取您的訂用帳戶。 會在相同的訂用帳戶中建立應用程式和 ASE。
 
-1. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
+3. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-1. 選取您的 OS (Windows、Linux 或 Docker)。 
+4. 選取您的 OS (Windows、Linux 或 Docker)。 
 
-1. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+5. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service 環境中。 
 
     ![新增 App Service 方案][2]
 
-1. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
+6. 在 [位置] 下拉式清單中，選取您需要建立 ASE 的區域。 如果您選取現有的 ASE，就不會建立新的 ASE。 會在您選取的 ASE 中建立 App Service 方案。 
 
-1. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
+7. 選取**定價層**，然後選擇其中一個**隔離的**定價 SKU。 如果您選擇**隔離** SKU 卡以及非 ASE 的位置，就會在該位置中建立新的 ASE。 若要啟動建立 ASE 的流程，請選取 [選取]。 **隔離** SKU 僅供與 ASE 搭配使用。 您也無法在 ASE 中使用**隔離**以外的其他任何定價 SKU。 
 
     ![定價層選取項目][3]
 
-1. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
+8. 輸入 ASE 的名稱。 此名稱是用於應用程式的可定址名稱。 如果 ASE 的名稱是 _appsvcenvdemo_，則網域名稱會是 .appsvcenvdemo.p.azurewebsites.net。 如果您建立名為 mytestapp 的應用程式，則可定址於 mytestapp.appsvcenvdemo.p.azurewebsites.net。 您無法在名稱中使用空白字元。 如果您使用大寫字元，則網域名稱會是該名稱的全小寫版本。
 
     ![新增 App Service 方案名稱][4]
 
-1. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
+9. 指定 Azure 虛擬網路詳細資料。 選取 [新建] 或 [選取現有]。 僅在選取的區域擁有 VNet 時，才可以使用選取現有 VNet 的選項。 如果您選取 [新建]，請輸入 VNet 的名稱。 會建立具有該名稱的 Resource Manager VNet。 它會使用選取區域中的位址空間 `192.168.250.0/23`。 如果您選取 [選取現有]，您需要：
 
     a. 如果您有多個位址區塊，請選取 VNet 位址區塊。
 
@@ -94,7 +95,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
     d. 選取子網路 IP 範圍。
 
-1. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
+10. 選取 [建立] 以建立 ASE。 此流程也會建立 App Service 方案和應用程式。 ASE、App Service 方案和應用程式會在相同的訂用帳戶底下，同時在相同的資源群組中。 如果您的 ASE 需要個別資源群組，或如果您需要 ILB ASE，請遵循步驟讓 ASE 自行建立。
 
 ## <a name="create-an-ase-and-a-linux-web-app-using-a-custom-docker-image-together"></a>使用自訂 Docker 映像一起建立 ASE 和 Linux Web 應用程式
 
@@ -106,7 +107,7 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 1. 選取或建立資源群組。 您可以使用資源群組來管理相關的一組 Azure 資源。 當您為應用程式建立角色型存取控制規則時，資源群組也十分實用。 如需詳細資訊，請參閱 [Azure Resource Manager 概觀][ARMOverview]。
 
-1. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service Environment 中。 
+1. 選取 App Service 方案，然後選取 [新建]。 Linux Web 應用程式和 Windows Web 應用程式不能在相同的 App Service 方案中，但可位於相同的 App Service 環境中。 
 
     ![新增 App Service 方案][8]
 
@@ -168,9 +169,9 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 
 ## <a name="app-service-environment-v1"></a>App Service 環境 v1 ##
 
-您仍然可以建立 App Service Environment (ASEv1) 的第一個版本執行個體。 若要啟動該流程，請在 Marketplace 搜尋 **App Service Environment v1**。 您要使用與建立獨立 ASE 的相同方式來建立 ASE。 完成後，您的 ASEv1 會有兩個「前端」和兩個「背景工作角色」。 使用 ASEv1 時，您必須管理「前端」和「背景工作角色」。 當您建立 App Service 方案時，它們不會自動新增。 前端可作為 HTTP/HTTPS 端點，將流量傳送到背景工作角色。 背景工作角色是裝載應用程式的角色。 建立 ASE 之後，您就可以調整「前端」和「背景工作角色」的數量。 
+您仍然可以建立 App Service 環境 (ASEv1) 的第一個版本執行個體。 若要啟動該流程，請在 Marketplace 搜尋 **App Service 環境 v1**。 您要使用與建立獨立 ASE 的相同方式來建立 ASE。 完成後，您的 ASEv1 會有兩個「前端」和兩個「背景工作角色」。 使用 ASEv1 時，您必須管理「前端」和「背景工作角色」。 當您建立 App Service 方案時，它們不會自動新增。 前端可作為 HTTP/HTTPS 端點，將流量傳送到背景工作角色。 背景工作角色是裝載應用程式的角色。 建立 ASE 之後，您就可以調整「前端」和「背景工作角色」的數量。 
 
-若要深入了解 ASEv1，請參閱 [App Service Environment v1 簡介][ASEv1Intro]。 如需更多關於調整、管理及監視 ASEv1 的資訊，請參閱[如何設定 App Service Environment][ConfigureASEv1]。
+若要深入了解 ASEv1，請參閱 [App Service 環境 v1 簡介][ASEv1Intro]。 如需更多關於調整、管理及監視 ASEv1 的資訊，請參閱[如何設定 App Service 環境][ConfigureASEv1]。
 
 <!--Image references-->
 [1]: ./media/how_to_create_an_external_app_service_environment/createexternalase-create.png
@@ -199,5 +200,5 @@ App Service 方案是應用程式的容器。 當您在 App Service 中建立應
 [webapps]: ../app-service-web-overview.md
 [mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
 [Functions]: ../../azure-functions/index.yml
-[Pricing]: http://azure.microsoft.com/pricing/details/app-service/
+[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md

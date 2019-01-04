@@ -1,6 +1,6 @@
 ---
-title: 建立 Hive 資料表，並從 Azure Blob 儲存體載入資料 | Microsoft Docs
-description: 建立 Hive 資料表，並將 Blob 中的資料載入 Hive 資料表
+title: 建立 Hive 資料表，並從 Blob 儲存體載入資料 - Team Data Science Process
+description: 使用 Hive 查詢建立 Hive 資料表，並從 Azure Blob 儲存體載入資料。 資料分割 Hive 資料表，以及使用最佳化單欄式資料列 (ORC) 格式來提升查詢效能。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 42911c347cd055f37f7fe8f31b6d22cc18a78662
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 5d88974fd1fb3d8784416ad3895fe139a3275e01
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442875"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53134942"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>建立 Hive 資料表，並從 Azure Blob 儲存體載入資料
 
@@ -65,14 +65,14 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>在 Hadoop 命令列中直接提交 Hive 查詢。
 您可以執行類似 `hive -e "<your hive query>;` 的命令，在 Hadoop 命令列中直接提交簡單的 Hive 查詢。 在下列範例中，紅色方塊框起來的是提交 Hive 查詢的命令，而綠色方塊框起來的則是 Hive 查詢的輸出。
 
-![建立工作區](./media/move-hive-tables/run-hive-queries-1.png)
+![使用 Hive 查詢輸出，提交 Hive 查詢的命令](./media/move-hive-tables/run-hive-queries-1.png)
 
 #### <a name="submit-hive-queries-in-hql-files"></a>提交 .hql 檔案中的 Hive 查詢。
 若 Hive 查詢更複雜且有多行，則在命令列或 Hive 命令主控台中編輯查詢並不實際。 替代方法是在 Hadoop 叢集的前端節點中使用文字編輯器，將 Hive 查詢儲存於前端節點本機目錄上的 .hql 檔案中。 然後可以使用 `-f` 引數提交 .hql 檔案中的 Hive 查詢，如下所示：
 
     hive -f "<path to the .hql file>"
 
-![建立工作區](./media/move-hive-tables/run-hive-queries-3.png)
+![.hql 檔案中的 Hive 查詢](./media/move-hive-tables/run-hive-queries-3.png)
 
 **隱藏 Hive 查詢的進度狀態畫面顯示**
 
@@ -84,7 +84,7 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>在 Hive 命令主控台中提交 Hive 查詢。
 您也可以在 Hadoop 命令列中執行 `hive` 命令，先進入 Hive 命令主控台，然後在 Hive 命令主控台中提交 Hive 查詢。 範例如下。 在此範例中，這兩個紅色方塊反白顯示的命令分別是用來進入 Hive 命令主控台，以及在 Hive 命令主控台中提交 Hive 查詢。 綠色方塊反白顯示的是 Hive 查詢的輸出。
 
-![建立工作區](./media/move-hive-tables/run-hive-queries-2.png)
+![開啟 Hive 命令主控台並輸入命令，檢視 Hive 查詢輸出](./media/move-hive-tables/run-hive-queries-2.png)
 
 上述範例會在螢幕上直接輸出 Hive 查詢結果。 您也可以將輸出寫入前端節點上的本機檔案，或寫入 Azure Blob。 接著，您可以使用其他工具，進一步分析 Hive 查詢的輸出。
 
@@ -93,9 +93,9 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 
     hive -e "<hive query>" > <local path in the head node>
 
-在下列範例中，Hive 查詢的輸出會寫入 `C:\apps\temp` 目錄中的 `hivequeryoutput.txt` 檔案。
+在下列範例中，Hive 查詢的輸出會寫入 `hivequeryoutput.txt` 目錄中的 `C:\apps\temp` 檔案。
 
-![建立工作區](./media/move-hive-tables/output-hive-results-1.png)
+![Hive 查詢的輸出](./media/move-hive-tables/output-hive-results-1.png)
 
 **將 Hive 查詢結果輸出到 Azure Blob**
 
@@ -105,11 +105,11 @@ Hive 查詢類似 SQL。 如果您熟悉 SQL，您可能會發現 [Hive for SQL 
 
 在下列範例中，Hive 查詢的輸出會寫入 Hadoop 叢集預設容器內的 Blob 目錄 `queryoutputdir` 。 在此處，您只需提供目錄名稱，而不需提供 Blob 名稱。 如果您同時提供目錄和 Blob 名稱 (例如 `wasb:///queryoutputdir/queryoutput.txt`)，則會擲回錯誤。
 
-![建立工作區](./media/move-hive-tables/output-hive-results-2.png)
+![Hive 查詢的輸出](./media/move-hive-tables/output-hive-results-2.png)
 
 如果您使用 Azure 儲存體總管開啟 Hadoop 叢集的預設容器，則可以看到如下圖所示的 Hive 查詢輸出。 您可以套用篩選條件 (以紅色方塊反白顯示)，只擷取名稱中具有指定字母的 Blob。
 
-![建立工作區](./media/move-hive-tables/output-hive-results-3.png)
+![Azure 儲存體總管顯示的 Hive 查詢輸出](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2.利用 Hive 編輯器提交 Hive 查詢
 您也可以在網頁瀏覽器中輸入*https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* 格式的 URL，以使用查詢主控台 (Hive 編輯器)。 您必須登入才能看到此主控台，因此您在這裡需要 Hadoop 叢集認證。
@@ -142,7 +142,7 @@ Hive 查詢會在 [GitHub 存放庫](https://github.com/Azure/Azure-MachineLearn
 * **<field separator>**：要上傳至 Hive 資料表的資料檔案中用來分隔欄位的分隔符號。
 * **<line separator>**：用來分隔資料檔案中各行的分隔符號。
 * **<storage location>**：用來儲存 Hive 資料表資料的 Azure 儲存體位置。 如果您未指定 *LOCATION <storage location>*，資料庫和資料表預設會儲存在 Hive 叢集之預設容器的 hive/warehouse/ 目錄中。 如果您想要指定儲存體位置，儲存體位置必須位於資料庫和資料表的預設容器內。 這個位置必須是叢集之預設容器的相對位置，其格式為 'wasb:///<directory 1>/' 或 'wasb:///<directory 1>/<directory 2>/' 等。執行查詢之後，系統會在預設容器內建立相對目錄。
-* **TBLPROPERTIES("skip.header.line.count"="1")**：如果資料檔有標頭行，您就必須在 create table 查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
+* **TBLPROPERTIES("skip.header.line.count"="1")**：如果資料檔案有標頭行，您就必須在*建立資料表*查詢的**結尾**處新增這個屬性。 否則，載入的標頭行會做為資料表的記錄。 如果資料檔不含標頭行，則可在查詢中省略此設定。
 
 ## <a name="load-data"></a>將資料載入至 Hive 資料表
 以下是將資料載入 Hive 資料表的 Hive 查詢。

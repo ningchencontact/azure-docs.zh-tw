@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 2f4bc578b567462c2591c28b270f863ba5756815
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53193904"
 ---
 # <a name="storsimple-security-and-data-protection"></a>StorSimple 安全性和資料保護
 
@@ -55,7 +55,7 @@ StorSimple 裝置是包含固態硬碟 (SSD) 和硬碟 (HDD) 的內部部署混�
 
 ![服務註冊金鑰](./media/storsimple-security/ServiceRegistrationKey.png)
 
-若要了解如何取得服務註冊金鑰，請移至 [步驟 2：取得服務註冊金鑰](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)。
+若要了解如何取得服務註冊金鑰，請移至[步驟 2：取得服務註冊金鑰](storsimple-8000-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key)。
 
 服務註冊金鑰是包含 100 個以上字元的長金鑰。 您可以複製金鑰並將它以文字檔方式儲存在安全的位置中，如有必要，您可以使用此金鑰來授權其他裝置。 如果您在註冊完第一個裝置之後遺失服務註冊金鑰，可以透過 StorSimple 裝置管理員服務產生新的金鑰。 這不會對現有裝置的作業有任何影響。
 
@@ -210,10 +210,10 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 實體和虛擬系列的 StorSimple 裝置管理員會收集下列主要執行個體中的個人資訊：
 
 - 警示使用者設定，其中會設定使用者的電子郵件地址。 系統管理員可以檢視與清除此資訊。 這同時適用於 StorSimple 8000 系列裝置與 StorSimple 虛擬陣列。
- * 若要檢視及清除 StorSimple 8000 系列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-8000-manage-alerts.md#configure-alert-settings)中的步驟
- * 若要檢視及清除 StorSimple 虛擬陣列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)中的步驟
+  * 若要檢視及清除 StorSimple 8000 系列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-8000-manage-alerts.md#configure-alert-settings)中的步驟
+  * 若要檢視及清除 StorSimple 虛擬陣列的設定，請遵循[檢視及管理 StorSimple 警示](storsimple-virtual-array-manage-alerts.md#configure-alert-settings)中的步驟
 - 可以存取位於共用上之資料的使用者。 顯示可存取共用資料之使用者的清單，並且可檢視。 刪除共用時，也會一併刪除此清單。 這僅適用於 StorSimple 虛擬陣列。
- * 若要檢視可存取或刪除共用之使用者的清單，請遵循[管理 StorSimple 虛擬陣列上的共用](storsimple-virtual-array-manage-shares.md)中的步驟
+  * 若要檢視可存取或刪除共用之使用者的清單，請遵循[管理 StorSimple 虛擬陣列上的共用](storsimple-virtual-array-manage-shares.md)中的步驟
 
 如需詳細資訊，請在[信任中心](https://www.microsoft.com/trustcenter)檢閱 Microsoft 隱私權原則。
 
@@ -236,7 +236,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 
 **問：** 我遺失服務資料加密金鑰。 該怎麼辦？
 
-**答：** 請連絡「Microsoft 支援服務」。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
+**答：** 連絡 Microsoft 支援服務。 他們可以登入您裝置上的支援工作階段，協助您擷取金鑰 (假設至少一部裝置在線)。 您取得服務資料加密金鑰之後，請立即變更，以確保只有您自己知道新的金鑰。 如需相關指示，請移至：
 
 * [變更服務資料加密金鑰](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
@@ -263,7 +263,7 @@ StorSimple 會使用下列加密演算法，來保護儲存在 StorSimple 解決
 * [變更 StorSimple Snapshot Manager 密碼](storsimple-8000-change-passwords.md#set-the-storsimple-snapshot-manager-password)
 * [驗證裝置](storsimple-snapshot-manager-manage-devices.md#authenticate-a-device)
 
-**問：** 裝置上用於遠端存取 Windows PowerShell for StorSimple 的憑證已變更。 如何更新遠端存取用戶端？
+**問：** 裝置上用於遠端存取適用於 StorSimple 的 Windows PowerShell 的憑證已變更。 如何更新遠端存取用戶端？
 
 **答：** 您可以從 StorSimple 裝置管理員服務下載新的憑證，然後將它安裝在遠端存取用戶端的憑證存放區。 如需相關指示，請移至：
 

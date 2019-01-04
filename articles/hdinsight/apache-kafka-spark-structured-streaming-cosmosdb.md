@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: b1a4354db23cdfdc6201decbb793a3f9a3ad8206
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496146"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014526"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -45,7 +45,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 1. 使用以下按鈕，在 Azure 入口網站中登入 Azure 並開啟範本。
     
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fhdinsight-spark-scala-kafka-cosmosdb%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
     </a>
 
     Azure Resource Manager 範本位於此專案的 GitHub 存放庫 ([https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka-cosmosdb)) 中。
@@ -70,15 +70,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    
     ![HDInsight 自訂部署](./media/apache-kafka-spark-structured-streaming-cosmosdb/parameters.png)
 
-    * **訂用帳戶**：選取您的 Azure 訂用帳戶。
+    * 訂用帳戶：選取 Azure 訂用帳戶。
    
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
-    * **位置**：選取在地理上靠近您的位置。
+    * **位置**：選取靠近您的地理位置。
 
     * **Cosmos DB 帳戶名稱**：此值是作為 Cosmos DB 帳戶的名稱使用。
 
-    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **myhdi** 以建立名為 __spark-myhdi__ 的 Spark 叢集，以及名為 **kafka-myhdi** 的 Kafka 叢集。
+    * **基底叢集名稱**︰此值會作為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **myhdi** 以建立名為 __spark-myhdi__ 的 Spark 叢集，以及名為 **kafka-myhdi** 的 Kafka 叢集。
 
     * **叢集版本**：HDInsight 叢集版本。
 
@@ -89,7 +89,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **叢集登入密碼**：Spark 和 Kafka 叢集的系統管理員使用者密碼。
 
-    * **SSH 使用者名稱**︰建立 Spark 和 Kafka 叢集的 SSH 使用者。
+    * **SSH 使用者名稱**：建立 Spark 和 Kafka 叢集的 SSH 使用者。
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 

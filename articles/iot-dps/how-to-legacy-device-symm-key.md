@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9553d1dd5dd8d8ff11ea480618b471b9898985e3
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456553"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53341230"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>如何使用對稱金鑰佈建繼承裝置
 
@@ -35,7 +35,7 @@ ms.locfileid: "49456553"
 
 將使用裝置佈建服務建立使用[對稱金鑰證明](concepts-symmetric-key-attestation.md)的註冊群組。 註冊群組將包含群組主要金鑰。 該主要金鑰將用於雜湊每個唯一的註冊識別碼，以便為每個裝置產生唯一的裝置金鑰。 裝置將搭配使用該衍生裝置金鑰及其唯一的註冊識別碼，以證明裝置佈建服務，並指派至 IoT 中樞。
 
-本文中示範的裝置程式碼將依照與[快速入門：使用對稱金鑰佈建模擬裝置](quick-create-simulated-device-symm-key.md)相同的模式。 該程式碼將使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中的範例來模擬裝置。 模擬裝置將證明註冊群組，而非個別註冊，如快速入門中所示。
+本文中示範的裝置程式碼將依循與[快速入門：使用對稱金鑰佈建模擬裝置](quick-create-simulated-device-symm-key.md)相同的模式。 該程式碼將使用 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) 中的範例來模擬裝置。 模擬裝置將證明註冊群組，而非個別註冊，如快速入門中所示。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -90,7 +90,7 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 4. 請執行下列命令，以建置您開發用戶端平台特有的 SDK 版本。 `cmake` 目錄中會產生模擬裝置的 Visual Studio 解決方案。 
 
     ```cmd
-    cmake -Dhsm_type_symm_key:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     ```
     
     如果 `cmake` 找不到 C++ 編譯，您在執行上述命令時，可能會收到建置錯誤。 如果發生這種情況，請嘗試在 [Visual Studio 命令提示字元](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs)中執行此命令。 
@@ -98,7 +98,7 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
     建置成功後，最後幾行輸出會類似於下列輸出：
 
     ```cmd/sh
-    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0
@@ -124,11 +124,11 @@ SDK 包含模擬裝置的範例程式碼。 這個模擬裝置將會嘗試在裝
 
     - **證明類型**：選取 [對稱金鑰]。
 
-    - **自動產生金鑰**︰選取此方塊。
+    - **自動產生金鑰**：核取此方塊。
 
-    - **選取要將裝置指派到中樞的方式**：選取 [靜態設定]，以指派給特定的中樞。
+    - **選取將裝置指派給中樞的方式**：選取 [靜態設定]，以便指派給特定的中樞。
 
-    - **選取可指派此群組的 IoT 中樞**：選取您的任何一個中樞。
+    - **選取可作為此群組之指派對象的 IoT 中樞**：選取您的其中一個中樞。
 
     ![為對稱金鑰證明新增註冊群組](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
@@ -239,22 +239,25 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
-
-7. 在 Visual Studio 的 [方案總管] 視窗中，瀏覽至 **hsm\_security\_client** 專案並將它展開。 展開 [原始程式檔]，然後開啟 **hsm\_client\_key.c**。 
-
-    尋找 `REGISTRATION_NAME` 與 `SYMMETRIC_KEY_VALUE` 常數的宣告。 對檔案進行下列變更並儲存檔案。
-
-    將 `REGISTRATION_NAME` 常數的值更新為**您裝置的唯一註冊識別碼**。
-    
-    將 `SYMMETRIC_KEY_VALUE` 常數的值更新為您的**衍生裝置金鑰**。
+6. 在 **prov\_dev\_client\_sample.c** 中尋找已標示為註解之 `prov_dev_set_symmetric_key_info()` 的呼叫。
 
     ```c
-    static const char* const REGISTRATION_NAME = "sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6";
-    static const char* const SYMMETRIC_KEY_VALUE = "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=";
+    // Set the symmetric key if using they auth type
+    //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-7. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
+    請將函式呼叫取消註解，並以您產生的裝置唯一註冊識別碼和衍生裝置金鑰取代預留位置值 (包括角括號)。
+
+    ```c
+    // Set the symmetric key if using they auth type
+    prov_dev_set_symmetric_key_info("sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6", "Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=");
+    ```
+   
+    儲存檔案。
+
+7. 以滑鼠右鍵按一下 **prov\_dev\_client\_sample** 專案，然後選取 [設定為起始專案]。 
+
+8. 在 Visual Studio 功能表中，選取 [偵錯] > [啟動但不偵錯] 以執行解決方案。 出現重新建置專案的提示時，按一下 [是]，以在執行前重新建置專案。
 
     下列輸出是模擬裝置成功開機，並連線到佈建服務執行個體以準備指派給 IoT 中樞的範例：
 
@@ -273,7 +276,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
     Press enter key to exit:
     ```
 
-8. 在入口網站中，瀏覽到獲指派您模擬裝置的 IoT 中樞，然後按一下 [IoT 裝置] 索引標籤。一旦模擬裝置成功佈建到中樞，其裝置識別碼會出現在 [IoT 裝置] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 您可能需要按一下頂端的 [重新整理] 按鈕。 
+9. 在入口網站中，瀏覽到獲指派您模擬裝置的 IoT 中樞，然後按一下 [IoT 裝置] 索引標籤。一旦模擬裝置成功佈建到中樞，其裝置識別碼會出現在 [IoT 裝置] 刀鋒視窗上，且 [狀態] 顯示為 [已啟用]。 您可能需要按一下頂端的 [重新整理] 按鈕。 
 
     ![已向 IoT 中樞註冊裝置](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
@@ -290,7 +293,7 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ## <a name="next-steps"></a>後續步驟
 
 * 若要深入了解如何重新佈建，請參閱 [IoT 中樞裝置重新佈建的概念](concepts-device-reprovision.md) 
-* [快速入門：使用對稱金鑰來佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
+* [快速入門：使用對稱金鑰佈建模擬的裝置](quick-create-simulated-device-symm-key.md)
 * 若要深入了解如何取消佈建，請參閱[如何取消佈建先前自動佈建的裝置](how-to-unprovision-devices.md) 
 
 

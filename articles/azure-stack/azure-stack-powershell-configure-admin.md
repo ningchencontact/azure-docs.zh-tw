@@ -11,55 +11,74 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 530b2a1909ec198ddff5abfe4fd5bb7c645f7582
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 1f9d5325522f8ec40af99059651a00f6cdc0e8e0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261577"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53089611"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>以操作員的身分使用 PowerShell 連線到 Azure Stack
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您可以將 Azure Stack 設定成使用 PowerShell 來管理資源，例如建立供應項目、方案、配額及警示。 本主題將協助您設定操作員環境。
 
 ## <a name="prerequisites"></a>必要條件
 
-從[開發套件](.\asdk\asdk-connect.md#connect-with-rdp)，或從 Windows 型外部用戶端 (如果您[透過 VPN 連線至 ASDK](.\asdk\asdk-connect.md#connect-with-vpn))，執行下列先決條件。 
+從[開發套件](./asdk/asdk-connect.md#connect-with-rdp)，或從 Windows 型外部用戶端 (如果您[透過 VPN 連線至 ASDK](./asdk/asdk-connect.md#connect-with-vpn))，執行下列先決條件。 
 
  - 安裝 [Azure Stack 相容的 Azure PowerShell 模組](azure-stack-powershell-install.md)。  
  - 下載[處理 Azure Stack 所需的工具](azure-stack-powershell-download.md)。  
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>設定操作員環境並登入 Azure Stack
+## <a name="connect-with-azure-ad"></a>與 Azure AD 連線
 
-使用 PowerShell 來設定 Azure Stack 操作員環境。 執行下列其中一個指令碼：請使用您自己的環境設定來取代 Azure AD tenantName、GraphAudience 端點及 ArmEndpoint 值。
+使用 PowerShell 來設定 Azure Stack 操作員環境。 執行下列其中一個指令碼：請將 Azure Active Directory (Azure AD) tenantName 和 Azure Resource Manager 端點值取代為您自己的環境設定。 <!-- GraphAudience endpoint -->
 
-````PowerShell  
-    # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external.
-    # To get this value for Azure Stack integrated systems, contact your service provider.
-    $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
-
+```PowerShell  
+    # Set your tenant name
     $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com"
     $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
-
-    $TenantID = Get-AzsDirectoryTenantId `
-      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
-      -EnvironmentName AzureStackAdmin
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
-````
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantId
+```
+
+## <a name="connect-with-ad-fs"></a>與 AD FS 連線
+
+使用 PowerShell 與 Azure Active Directory 同盟服務 (Azure AD FS) 連線至 Azure Stack 操作員環境。 針對 Azure Stack 開發套件，此 Azure Resource Manager 值會設定為 `https://adminmanagement.local.azurestack.external`。 若要取得 Azure Stack 整合式系統的 Azure Resource Manager 端點，請與您的服務提供者連絡。
+
+<!-- GraphAudience endpoint -->
+
+  ```PowerShell  
+  # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
+
+  $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+  $tenantId = (invoke-restmethod "$($AuthEndpoint)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+  # Sign in to your environment
+
+  $cred = get-credential
+
+  Login-AzureRmAccount `
+    -EnvironmentName "AzureStackAdmin" `
+    -TenantId $tenantId `
+    -Credential $cred
+  ```
+
+
 
 ## <a name="test-the-connectivity"></a>測試連線
 
 一切都已準備就緒，接下來請使用 PowerShell 在 Azure Stack 中建立資源。 例如，您可以建立應用程式的資源群組，並新增虛擬機器。 若要建立名為 **MyResourceGroup** 的資源群組，請使用下列命令。
 
-```powershell
+```PowerShell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

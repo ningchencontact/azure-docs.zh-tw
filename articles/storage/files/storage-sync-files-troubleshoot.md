@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0f6075bcbaae14fc60df6f33f4e65cd4abcec731
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014273"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409457"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>針對 Azure 檔案同步進行移難排解
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -38,9 +38,9 @@ StorageSyncAgent.msi /l*v AFSInstaller.log
 檢閱 installer.log 判斷安裝失敗的原因。
 
 <a id="agent-installation-on-DC"></a>**在 Active Directory 網域控制站上安裝代理程式失敗**  
-如果您嘗試在 PDC 角色擁有者執行 Windows Server 2008R2 或更低 OS 版本的 Active Directory 網域控制站上安裝同步代理程式，則可能會遇到無法安裝同步代理程式的問題。
+如果您嘗試在 PDC 角色擁有者執行 Windows Server 2008 R2 或更低 OS 版本的 Active Directory 網域控制站上安裝同步代理程式，則可能會遇到無法安裝同步代理程式的問題。
 
-若要解決此問題，請將 PDC 角色轉移到另一個執行 Windows Server 2012R2 或更新版本的網域控制站，然後安裝同步代理程式。
+若要解決此問題，請將 PDC 角色轉移到另一個執行 Windows Server 2012 R2 或更新版本的網域控制站，然後安裝同步代理程式。
 
 <a id="server-registration-missing"></a>**伺服器未列在 Azure 入口網站的 [已註冊的伺服器] 下**  
 如果伺服器未列在儲存體同步服務的 [已註冊的伺服器] 下：
@@ -96,15 +96,16 @@ Reset-StorageSyncServer
 判斷您的使用者帳戶角色是否具有所需的權限：  
 1. 在 Azure 入口網站中，按一下 [資源群組]。
 2. 選取儲存體帳戶所在的資源群組，然後選取 [存取控制 (IAM)]。
-3. 選取您的使用者帳戶的 [角色] \(例如，[擁有者]、[參與者])。
-4. 在 [資源提供者] 清單中，選取 [Microsoft 授權]。 
+3. 選取 [角色指派] 索引標籤。
+4. 選取您的使用者帳戶的 [角色] (例如，[擁有者]、[參與者])。
+5. 在 [資源提供者] 清單中，選取 [Microsoft 授權]。 
     * [角色指派] 應具有 [讀取] 和 [寫入] 權限。
     * [角色定義] 應具有 [讀取] 和 [寫入] 權限。
 
-<a id="server-endpoint-createjobfailed"></a>**伺服器端點建立失敗，並發生下列錯誤：「MgmtServerJobFailed」(錯誤碼：-2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**伺服器端點建立失敗，發生此錯誤："MgmtServerJobFailed" (錯誤碼：-2134375898)**  
 如果伺服器端點路徑位於系統磁碟區上，而且已啟用雲端階層處理，就會發生此問題。 系統磁碟區上不支援雲端階層。 若要在系統磁碟區上建立伺服器端點，請於建立伺服器端點時，停用雲端階層處理。
 
-<a id="server-endpoint-deletejobexpired"></a>**伺服器端點刪除失敗，並發生下列錯誤：「MgmtServerJobExpired」**                
+<a id="server-endpoint-deletejobexpired"></a>**伺服器端點刪除失敗，發生此錯誤："MgmtServerJobExpired"**                
 如果伺服器離線或沒有網路連線能力，就會發生此問題。 如果伺服器已無法再使用，請在入口網站中取消註冊伺服器，從而刪除伺服器端點。 若要刪除伺服器端點，請依照[向 Azure 檔案同步取消註冊伺服器](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service)中所述的步驟進行。
 
 <a id="server-endpoint-provisioningfailed"></a>**無法開啟伺服器端點屬性頁面，或更新雲端階層處理原則**  
@@ -131,7 +132,7 @@ Set-AzureRmStorageSyncServerEndpoint `
 
 若要解決此問題，請執行下列步驟：
 
-1. 在伺服器上開啟工作管理員，並確認儲存體同步監視器 (AzureStorageSyncMonitor.exe) 程序正在執行。 如果此程序未執行，先嘗試重新啟動伺服器。 如果重新啟動伺服器無法解決此問題，請將 Azure 檔案同步代理程式升級至 [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) 版 (如果目前未安裝)。
+1. 在伺服器上開啟工作管理員，並確認儲存體同步監視器 (AzureStorageSyncMonitor.exe) 程序正在執行。 如果此程序未執行，先嘗試重新啟動伺服器。 如果重新啟動伺服器無法解決此問題，請升級至最新版 Azure 檔案同步[代理程式版本](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes)。
 2. 確認防火牆和 Proxy 設定已正確設定：
     - 如果伺服器位於防火牆後方，請確認允許連接埠 443 輸出。 如果防火牆限制僅允許對特定網域的流量，請確認您可以存取防火牆[文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall)中列出的網域。
     - 如果伺服器位於 Proxy 後方，請依照 Proxy [文件](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy)中的步驟設定整部電腦或應用程式專屬的 Proxy 設定。
@@ -467,20 +468,17 @@ PerItemErrorCount: 1006.
 | **錯誤字串** | ECS_E_SERVER_CREDENTIAL_NEEDED |
 | **需要補救** | 是 |
 
-之所以發生此問題，常是因為伺服器時間不正確，或用於驗證的憑證已過期。 如果伺服器時間正確無誤，請執行下列步驟，以刪除過期的憑證 (如果已過期)，並重設伺服器註冊狀態：
+之所以發生此問題，常是因為伺服器時間不正確，或用於驗證的憑證已過期。 如果伺服器時間正確無誤，請執行下列步驟來更新過期的憑證：
 
 1. 開啟 [憑證 MMC 嵌入式管理單元]，選取 [電腦帳戶]，並瀏覽至 [憑證 (本機電腦)\個人\憑證]。
-2. 刪除已過期的用戶端驗證憑證，然後關閉 [憑證 MMC 嵌入式管理單元]。
-3. 開啟 Regedit，並刪除登錄中的 ServerSetting 機碼：HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. 在 Azure 入口網站中，瀏覽到儲存體同步服務的 [已註冊的伺服器] 區段。 以滑鼠右鍵按一下具有到期憑證的伺服器，然後按一下 [取消註冊伺服器]。
-5. 在伺服器上執行下列 PowerShell 命令：
+2. 檢查用戶端驗證憑證是否已過期。 如果憑證已過期，請關閉憑證 MMC 嵌入式管理單元，並繼續執行其餘的步驟。 
+3. 確認已安裝 Azure 檔案同步代理程式版本 4.0.1.0 或更新版本。
+4. 在伺服器上執行下列 PowerShell 命令：
 
     ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Reset-StorageSyncServer
+    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-6. 執行 ServerRegistration.exe (預設位置為 C:\Program Files\Azure\StorageSyncAgent) 以重新註冊伺服器。
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**伺服器端點所在的磁碟區沒有足夠的磁碟空間。**  
 | | |
@@ -705,8 +703,9 @@ if ($fileShare -eq $null) {
 
 <a id="troubleshoot-rbac"></a>**確定 Azure 檔案同步具有儲存體帳戶的存取權。**  
 # <a name="portaltabportal"></a>[入口網站](#tab/portal)
-1. 按一下位於目錄左側的 [存取控制 (IAM)]，以瀏覽至可存取您所屬儲存體帳戶的使用者和應用程式清單 (*服務主體*)。
-2. 確認 [混合式檔案同步服務] 連同 [讀取者及資料存取] 角色出現在清單中。 
+1. 按一下左側目錄的 [存取控制 (IAM)]。
+1. 按一下 [角色指派] 索引標籤，列出可存取儲存體帳戶的使用者和應用程式 (*服務主體*)。
+1. 確認 [混合式檔案同步服務] 連同 [讀取者及資料存取] 角色出現在清單中。 
 
     ![此螢幕擷取畫面顯示儲存體帳戶的存取控制索引標籤所包含的「混合式檔案同步服務」服務主體](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 

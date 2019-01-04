@@ -1,21 +1,22 @@
 ---
-title: LUIS 應用程式中的語句
-titleSuffix: Azure Cognitive Services
+title: 適當的範例語句
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 語句是應用程式需要解譯的使用者輸入。 收集您認為使用者會輸入的片語。 納入意義相同但以不同單字長度和單字位置建構的語句。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 12/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 4f6bb367e706771707b65445c91619d439257207
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638065"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53014832"
 ---
 # <a name="utterances-in-luis"></a>LUIS 中的語句
 
@@ -44,7 +45,7 @@ ms.locfileid: "49638065"
 |我想要取得電腦，如何著手呢？|
 |我何時可擁有電腦？| 
 
-這裡不變的核心字詞為「電腦」。 它們可稱為桌上型電腦、膝上型電腦、工作站，甚至只稱為機器。 LUIS 可運用智慧從上下文推斷出同義字，但當在建立用於定型的語句時，最好還是更改用字。
+此處不變的核心字詞為「電腦」。 它們可稱為桌上型電腦、膝上型電腦、工作站，甚至只稱為機器。 LUIS 可運用智慧從上下文推斷出同義字，但當在建立用於定型的語句時，最好還是更改用字。
 
 ## <a name="example-utterances-in-each-intent"></a>每個意圖的範例語句
 每個意圖都必須至少要有 10 到 15 個範例語句。 如果是沒有任何範例語句的意圖，則無法將 LUIS 定型。 如果是有一個或少數範例語句的意圖，LUIS 會無法準確地預測該意圖。 
@@ -55,6 +56,10 @@ ms.locfileid: "49638065"
 LUIS 會利用精挑細選的語句來建置有效的模型。 新增太多語句只會導致產生混淆，並沒有用。  
 
 最好從少量語句開始，然後[檢閱端點語句](luis-how-to-review-endoint-utt.md)，以正確地預測意圖和擷取實體。
+
+## <a name="punctuation-marks"></a>標點符號
+
+根據預設，LUIS 不會忽略標點符號，因為某些用戶端應用程式的這些標點可能有其重要性。 請確定您的範例語句應有使用標點符號和不使用標點符號兩種版本，讓這兩種樣式傳回相同的相對分數。 如果標點符號在您的用戶端應用程式中沒有特定意義，請考慮藉由使用模式[忽略標點符號](#ignoring-words-and-punctuation)。 
 
 ## <a name="ignoring-words-and-punctuation"></a>忽略單字和標點符號
 如果您想要忽略範例語句中的特定單字或標點符號，請搭配「忽略」語法使用[模式](luis-concept-patterns.md#pattern-syntax)。 

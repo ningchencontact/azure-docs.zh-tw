@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure 中的 App Service 方案 | Microsoft Docs
+title: 管理 App Service 方案 - Azure | Microsoft Docs
 description: 了解如何執行不同的工作來管理 App Service 方案。
 keywords: App Service, Azure App Service, 級別, App Service方案, 變更, 建立, 管理, 管控
 services: app-service
@@ -15,12 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.custom: seodec18
+ms.openlocfilehash: 8f8e5f3d184073a73ca30764542dc56e45974120
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166061"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53262124"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>在 Azure 建立管理 App Service 方案
 
@@ -35,7 +36,7 @@ ms.locfileid: "49166061"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取 [新增] > [Web + 行動]，然後選取 [Web 應用程式] 或其他 App Service 應用程式種類。
 
-1. 選取現有的 App Service 方案或為新應用程式建立方案。
+2. 選取現有的 App Service 方案或為新應用程式建立方案。
 
    ![在 Azure 入口網站中建立應用程式。][createWebApp]
 
@@ -58,7 +59,7 @@ ms.locfileid: "49166061"
 您也可以將應用程式移到另一個 App Service 方案，只要來源方案和目標方案位於「相同的資源群組和地理區域」即可。
 
 > [!NOTE]
-> Azure 會將每個新的 App Service 方案部署到部署單位 (在內部稱為網路空間)。 每個區域可以有許多網路空間，但您的應用程式只能在相同網路空間中建立的方案之間移動。 App Service 環境是隔離的網路空間，因此可以在相同 App Service Environment 中的方案之間移動應用程式，但無法在不同 App Service 環境中的方案之間移動。
+> Azure 會將每個新的 App Service 方案部署到部署單位 (在內部稱為網路空間)。 每個區域可以有許多網路空間，但您的應用程式只能在相同網路空間中建立的方案之間移動。 App Service 環境是隔離的網路空間，因此可以在相同 App Service 環境中的方案之間移動應用程式，但無法在不同 App Service 環境中的方案之間移動。
 >
 > 您無法在建立方案時指定您想要的網路空間，但這可確保方案建立於與現有方案相同的網路空間中。 簡單地說，所有使用相同資源群組和區域組合建立的方案都會部署到相同的網路空間中。 比方說，如果您在資源群組 A 和區域 B 中建立方案，則您後續在資源群組 A 和區域 B 中建立的方案都會部署到相同網路空間中。 請注意，方案建立之後便不能移動網路空間，所以您無法藉由將方案移至另一個資源群組，將其移到與另一個方案「相同的網路空間」中。
 > 

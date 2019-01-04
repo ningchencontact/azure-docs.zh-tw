@@ -1,23 +1,24 @@
 ---
-title: 使用 C# 的 LUIS Bot - Web 應用程式 Bot - Bot Framework SDK 3.0
-titleSuffix: Azure Cognitive Services
+title: Bot - C# - v3
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: 0ad95d5683ea10803c2f3986be97617051f191cf
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 74fec29c2e70f929b64a7a64bab2a525f4facbc6
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032269"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53438722"
 ---
-# <a name="luis-bot-in-c"></a>使用 C# 的 LUIS Bot
+# <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>C# 中使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 建置的 LUIS Bot
 
 使用 C#，建置與 Language Understanding (LUIS) 整合的聊天機器人。 此聊天機器人會使用預先建置的 HomeAutomation 領域來快速實作聊天機器人解決方案。 此 Bot 是使用 Bot Framework 3.x 和 Azure Web 應用程式 Bot 所建置的。
 
@@ -36,11 +37,11 @@ ms.locfileid: "47032269"
 
 1. 在 [Azure 入口網站](https://portal.azure.com)中，選取左上方功能表中的 [建立新資源]。
 
-    ![建立新資源](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
+    ![在 Azure 入口網站中建立新資源](./media/luis-tutorial-cscharp-web-bot/bot-service-creation.png)
 
 2. 在搜尋方塊中，搜尋 **Web 應用程式 Bot**。 
 
-    ![建立新資源](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
+    ![選取做為資源類型的 Web 應用程式 Bot](./media/luis-tutorial-cscharp-web-bot/bot-service-selection.png)
 
 3. 在 [Web 應用程式 Bot] 視窗中，按一下 [建立]。
 
@@ -167,10 +168,10 @@ Bot 會說出 "You have reached Greeting. You said: hello" 來作為回應。  �
 
 
 <!-- Links -->
-[Github-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
-[Github-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
-[Github-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
-[Github-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
+[GitHub-BotFramework-Emulator-Download]: https://aka.ms/bot-framework-emulator
+[GitHub-LUIS-Samples]: https://github.com/Microsoft/LUIS-Samples
+[GitHub-LUIS-Samples-cs-hotel-bot]: https://github.com/Microsoft/LUIS-Samples/tree/master/bot-integration-samples/hotel-finder/csharp
+[GitHub-LUIS-Samples-cs-hotel-bot-readme]: https://github.com/Microsoft/LUIS-Samples/blob/master/bot-integration-samples/hotel-finder/csharp/README.md
 [BFPortal]: https://dev.botframework.com/
 [RegisterInstructions]: https://docs.microsoft.com/bot-framework/portal-register-bot
 [BotFramework]: https://docs.microsoft.com/bot-framework/

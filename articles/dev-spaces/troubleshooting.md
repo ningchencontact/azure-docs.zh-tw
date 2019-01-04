@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: 在 Azure 上使用容器和微服務快速進行 Kubernetes 開發
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 容器
-ms.openlocfilehash: 36516030741678ec66b4211f49ede35cfdb98605
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 9973635593f7a8143ac1f3980b6e09caba44710b
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706444"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413603"
 ---
 # <a name="troubleshooting-guide"></a>疑難排解指南
 
@@ -75,6 +75,7 @@ azds up --verbose --output json
 
     ![工具選項對話方塊的螢幕擷取畫面](media/common/VerbositySetting.PNG)
     
+### <a name="multi-stage-dockerfiles"></a>多階段 Dockerfile：
 當您嘗試使用多階段 Dockerfile 時，會看到此錯誤。 verbose 輸出顯示如下：
 
 ```cmd
@@ -91,6 +92,21 @@ Service cannot be started.
 ```
 
 這是因為 AKS 節點執行的是較舊版 Docker，不支援多階段組建。 您必須重寫您的 Dockerfile，以避免多階段組建。
+
+### <a name="re-running-a-service-after-controller-re-creation"></a>在重新建立控制器之後重新執行服務
+在將與此叢集關聯的 Azure Dev Spaces 控制器移除並再予以重新建立之後，嘗試重新執行服務時，您可能會看到此錯誤。 verbose 輸出顯示如下：
+
+```cmd
+Installing Helm chart...
+Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
+Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
+```
+
+這是因為移除 Dev Spaces 控制器並不會移除該控制器先前所安裝的服務。 重新建立控制器後再嘗試使用新控制器來執行服務會失敗，因為舊服務仍在原位。
+
+若要解決此問題，請使用 `kubectl delete` 命令來手動從叢集中移除舊服務，然後重新執行 Dev Spaces 以安裝新服務。
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>與 Dev Spaces 服務相關聯的公用 URL 進行 DNS 名稱解析失敗
 
@@ -121,6 +137,18 @@ kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-in
 ### <a name="try"></a>請嘗試︰
 
 在已正確設定 PATH 環境變數的前提下，請從命令提示字元啟動 VS Code。
+
+## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>錯誤「建置 'projectname' 並對其進行偵錯所需的工具已過時。」
+
+如果您有適用於 Azure Dev Spaces 的新版 VS Code 延伸模組，但 Azure Dev Spaces CLI 為舊版，就會在 Visual Studio Code 中看到此錯誤。
+
+### <a name="try"></a>嘗試
+
+下載並安裝最新版的 Azure Dev Spaces CLI：
+
+* [Windows](http://aka.ms/get-azds-windows)
+* [Mac](http://aka.ms/get-azds-mac)
+* [Linux](https://aka.ms/get-azds-linux)
 
 ## <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>錯誤：'azds' 未辨識為內部或外部命令、可執行程式或批次檔
  
@@ -156,7 +184,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 ### <a name="try"></a>請嘗試︰
 1. 如果容器處於建置/部署程序，您可以等待 2-3 秒，然後再次嘗試存取服務。 
 1. 查看您的連接埠組態。 以下所有資產中的指定連接埠號碼都應該**相同**：
-    * **Dockerfile：** 由 `EXPOSE` 指示所指定。
+    * **Dockerfile：** 由 `EXPOSE` 指令所指定。
     * **[Helm 圖表](https://docs.helm.sh)：** 由服務的 `externalPort` 和 `internalPort` 值 (通常位於 `values.yml` 檔案) 所指定。
     * 在應用程式程式碼中開啟的任何連接埠，例如在 Node.js 中：`var server = app.listen(80, function () {...}`
 
@@ -171,7 +199,7 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 1. 將目前目錄變更為內含服務程式碼的根資料夾。 
 1. 如果您在程式碼資料夾中沒有 _azds.yaml_ 檔案，請執行 `azds prep` 以產生 Docker、Kubernetes 及 Azure Dev Spaces 資產。
 
-## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>錯誤：「管道程式 'azds' 非預期地結束，代碼 126」。
+## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Error:「管道程式 'azds' 意外結束，代碼為 126。」
 啟動 VS Code 偵錯工具有時候可能會導致這個錯誤。
 
 ### <a name="try"></a>請嘗試︰
@@ -195,6 +223,15 @@ Azure Dev Spaces 提供 C# 和 Node.js 的原生支援。 如果您在目錄中�
 
 ### <a name="try"></a>請嘗試︰
 安裝[適用於 Azure Dev Spaces 的 VS Code 擴充功能](get-started-netcore.md)。
+
+## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>偵錯錯誤「無效的 'cwd' 值 '/src'。 系統找不到指定的檔案。」 或「launch: program '/src/[專案二進位檔案路徑]' 不存在」
+執行 VS Code 偵錯工具回報 `Invalid 'cwd' value '/src'. The system cannot find the file specified.` 和/或 `launch: program '/src/[path to project executable]' does not exist` 錯誤
+
+### <a name="reason"></a>原因
+VS Code 延伸模組預設會使用 `src` 作為容器上專案的工作目錄。 如果您已將 `Dockerfile` 更新成指定不同的工作目錄，就可能看到此錯誤。
+
+### <a name="try"></a>請嘗試︰
+更新您專案資料夾之 `.vscode` 子目錄底下的 `launch.json` 檔案。 將 `configurations->cwd` 指示詞變更成指向與您專案之 `Dockerfile`.中所定義 `WORKDIR` 相同的目錄。 您可能也需要更新 `configurations->program` 指示詞。
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>找不到類型或命名空間名稱 'MyLibrary'
 
@@ -236,7 +273,7 @@ az provider register --namespace Microsoft.DevSpaces
 ### <a name="reason"></a>原因
 當您在 AKS 叢集中的命名空間上啟用 Dev Spaces 時，即會在每個於該命名空間內執行的 Pod 中額外安裝名為 _mindaro proxy_ 的容器。 此容器會攔截對 Pod 中之服務的呼叫，這對 Dev Spaces 小組開發功能而言是不可或缺的。
 
-可惜的是，它可能會干擾在那些 Pod 中執行的特定服務。 具體來說，它會干擾執行 Redis 快取的 Pod，並在主要/附屬通訊中導致連線錯誤和失敗。
+可惜的是，它可能會干擾在那些 Pod 中執行的特定服務。 具體來說，它會干擾執行「Azure Redis 快取」的 Pod，導致在主要/從屬通訊中發生連線錯誤和失敗。
 
 ### <a name="try"></a>請嘗試︰
 您可以將受影響的 Pod 移至叢集內「未」啟用 Dev Spaces 的命名空間，同時繼續在啟用 Dev Spaces 的命名空間內執行應用程式的其餘部分。 Dev Spaces 將不會在啟用非 Dev Spaces 的命名空間內安裝 _mindaro-proxy_ 容器。

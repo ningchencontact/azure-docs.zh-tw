@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中樞診斷記錄 | Microsoft Docs
-description: 了解如何為 Azure 中的事件中樞設定診斷記錄檔。
+title: 設定診斷記錄 - Azure 事件中樞 | Microsoft Docs
+description: 了解如何為 Azure 中的事件中樞設定活動記錄和診斷記錄。
 keywords: ''
 documentationcenter: ''
 services: event-hubs
@@ -13,21 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/02/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c0c8740648ad845b58ff0578607f4b5e9c235166
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985161"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53105473"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>為 Azure 事件中樞設定診斷記錄
 
 您可以檢視 Azure 事件中樞的兩種記錄檔類型：
 
-* **[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**：這些記錄包含對作業執行的操作相關資訊。 系統一律會啟用這些記錄。
-* **[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**：您可以設定診斷記錄，以深入檢視隨著作業發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
+* **[活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**：這些記錄包含對工作執行之操作的相關資訊。 系統一律會啟用這些記錄。
+* **[診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**：您可以設定診斷記錄，以更深入檢視與作業一起發生的所有事件。 診斷記錄涵蓋從建立工作到刪除工作期間的活動，包括工作執行時發生的更新與活動。
 
 ## <a name="enable-diagnostic-logs"></a>啟用診斷記錄
 
@@ -70,7 +71,7 @@ ms.locfileid: "49985161"
 
 封存記錄檔 JSON 字串包括下表所列的元素：
 
-名稱 | 描述
+Name | 描述
 ------- | -------
 TaskName | 失敗工作的描述。
 ActivityId | 用於追蹤的內部識別碼。
@@ -108,7 +109,7 @@ category | ArchiveLogs
 
 作業記錄 JSON 字串包括下表所列的元素：
 
-名稱 | 說明
+Name | 說明
 ------- | -------
 ActivityId | 用於追蹤目的的內部識別碼。
 EventName | 作業名稱。  

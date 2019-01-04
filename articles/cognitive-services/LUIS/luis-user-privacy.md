@@ -1,21 +1,22 @@
 ---
-title: 匯出和刪除客戶資料 - Language Understanding - LUIS
+title: 匯出及刪除資料
 titleSuffix: Azure Cognitive Services
 description: Language Understanding Intelligent Service (LUIS) 可保存客戶內容以執行此服務，但 LUIS 使用者具有檢視、匯出和刪除其資料的完整控制權。 此作業可透過 LUIS Web 入口網站或 LUIS 程式設計 API 來完成。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: bfd168d5c56bc800831c402a23bb1a506fa15221
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 0aba859fc0c5e2de64b2bbdb9c06f2434937f4e8
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883885"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140671"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在認知服務的 Language Understanding (LUIS) 中匯出和刪除客戶資料
 

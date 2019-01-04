@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: d7c207f89b9cb50f940f071fbbf6ee81b4d44976
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 8e265f2bed480f7b40476e09ab8f442aedcc9dd4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164315"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52999442"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>部署 vFXT 叢集
 
@@ -306,6 +306,15 @@ RESOURCE_GROUP=
 
 ![在接近結尾處顯示管理 IP 位址的指令碼命令列輸出](media/avere-vfxt-mgmt-ip.png)
 
+> [!IMPORTANT] 
+> 如果您已建立新的 Blob 容器，此容器可能會使用不是儲存在叢集外的預設金鑰來加密。 將資料儲存到容器之前，您必須下載金鑰復原檔案或建立您自己的加密金鑰，並將其復原檔案儲存在持續存在的位置。 
+> 
+> 如果您使用預設金鑰，但沒有下載復原檔案，就可能在 vFXT 叢集損毀或遺失時，喪失 Blob 核心篩選中加密資料的存取權。
+>
+> 如果您的指令碼顯示 `WARNING` 訊息 (類似下方螢幕擷取畫面中圈起來的部分)，請遵循[設定儲存體](avere-vfxt-add-storage.md)中的指示來下載金鑰檔，或為您的 Blob 容器建立新的金鑰。 使用叢集組態工具：Avere 控制台。
+
+![建立新加密金鑰時顯示警告訊息的指令碼命令列輸出](media/avere-vfxt-key-warning.png)
+
 ## <a name="next-step"></a>後續步驟
 
-既然叢集已處於執行狀態且您知道其管理 IP 位址，現在即可[連線到叢集設定工具](avere-vfxt-cluster-gui.md)，以視需要啟用支援及新增儲存體。
+線在，叢集已處於執行狀態且您知道其管理 IP 位址，您可以[連線到叢集設定工具](avere-vfxt-cluster-gui.md)來啟用支援、視需要新增儲存體，或是處理新Blob 儲存體上的預設加密金鑰。

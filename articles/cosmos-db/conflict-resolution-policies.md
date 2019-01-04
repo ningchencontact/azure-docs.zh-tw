@@ -7,49 +7,49 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
-ms.openlocfilehash: 1b2a122cc8a04d4f0044ecb0fe0341357bc29c0f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 5506b27ce56ca7a83ce16aab818767a392d77430
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514820"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52680289"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>衝突類型和解決原則
 
-如果您的 Cosmos 帳戶設定了多個寫入區域，就適用衝突和衝突解決原則。
+如果您的 Azure Cosmos DB 帳戶設定了多個寫入區域，就適用衝突和衝突解決原則。
 
-對於設定了多個區域的 Cosmos 帳戶，當多個寫入作業同時更新多個區域中的相同項目時，就可能發生更新衝突。 更新衝突分為下列三個類別：
+對於已設定多個寫入區域的 Azure Cosmos DB 帳戶，當寫入器同時更新多個區域中的相同項目時，就可能發生更新衝突。 更新衝突分為下列三個類別：
 
-1. **插入衝突：** 當應用程式從兩個或多個區域，同時插入唯一索引 (例如 ID 屬性) 相同的兩個或多個項目時，可能就會發生這類衝突。 在此情況下，寫入作業一開始在各自的當地區域可能會成功，但根據您所選的衝突解決原則，系統最後只會認可一個具有該原始識別碼的項目。
+* **插入衝突**：當應用程式從兩個或多個區域，同時插入唯一索引相同的兩個或多個項目時，可能發生此衝突。 例如，這項衝突可能會發生於 ID 屬性。 所有的寫入在其各自的當地區域最初可能都會成功。 但根據您所選擇的衝突解決原則，最後只會認可一個具有原始識別碼的項目。
 
-1. **取代衝突：** 當應用程式從兩個或多個區域同時更新單一項目時，可能就會發生這類衝突。
+* **取代衝突**：當應用程式從兩個或多個區域同時更新單一項目時，可能發生這類衝突。
 
-1. **刪除衝突：** 當應用程式同時從一個區域刪除某個項目，並從其他區域更新它時，可能就會發生這類衝突。
+* **刪除衝突**：當應用程式同時從一個區域刪除項目，且從任何其他區域更新它時，可能發生這類衝突。
 
 ## <a name="conflict-resolution-policies"></a>衝突解決原則
 
-Cosmos DB 提供彈性的原則導向機制來解決更新衝突。 您可以在 Cosmos 容器上選取下列兩個衝突解決原則：
+Azure Cosmos DB 提供彈性的原則導向機制來解決更新衝突。 您可以在 Azure Cosmos DB 容器上選取下列兩個衝突解決原則：
 
-- **Last-Write-Wins (LWW) (最後寫入者優先)：** 預設會使用系統定義的時間戳記屬性 (根據時間同步化時鐘通訊協定)。 或者，在使用 SQL API 時，Cosmos DB 允許您指定用於衝突解決的任何其他自訂數值屬性 (也稱為「衝突解決路徑」)。  
+- **最後寫入為準 (LWW)**： 此解決原則預設會使用系統定義的時間戳記屬性。 它是以時間同步化時鐘通訊協定為基礎。 如果您使用 Azure Cosmos DB SQL API，即可指定任何其他自訂數值屬性以用來解決衝突。 自訂數值屬性也稱為衝突解決路徑。 
 
-  如果兩個或多個項目在插入或取代作業發生衝突，則包含「衝突解決路徑」之最高值的項目成為「優先」項目。 如果多個項目的衝突解決路徑值都相同，則由系統決定「優先」版本。 所有區域保證都會彙整出單一優先項目，且認可項目的版本最後都會相同。 如果涉及刪除衝突，則不論衝突解決路徑的值為何，刪除的版本一律優先於插入或取代衝突。
+  如果兩個或更多項目在插入或取代作業時發生衝突，則包含衝突解決路徑最高值的項目會成為「優先」項目。 如果多個項目的衝突解決路徑值都相同，則由系統決定「優先」項目。 所有區域保證都會彙整出單一優先項目，且認可項目的版本最後都會相同。 如果涉及刪除衝突，則刪除的版本一律優先於插入或取代衝突。 無論衝突解決路徑的值為何，都會發生此結果。
 
   > [!NOTE]
-  > Last-Write-Wins 是預設的衝突解決原則，且適用於 SQL、資料表、MongoDB、Cassandra 和 Gremlin API 帳戶。
+  > 「最後寫入為準」是預設的衝突解決原則。 它適用於 SQL、Azure Cosmos DB 資料表、MongoDB、Cassandra 和 Gremlin API 帳戶。
 
   若要深入了解，請參閱[使用 LWW 衝突解決原則的範例](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)。
 
-- **自訂：** 此解決原則適用於應用程式定義的衝突調整語意。 在您的 Cosmos 容器上設定此原則時，您也需要註冊合併預存程序，當系統在伺服器上的資料庫交易底下偵測到更新衝突時，會自動叫用此預存程序。 系統只針對合併程序的執行提供一次保證 (為認可通訊協定的一部分)。  
+- **自訂**：此解決原則適用於應用程式定義的衝突調整語意。 當您在 Azure Cosmos DB 容器上設定此原則時，您也需要註冊合併預存程序。 在伺服器的資料庫交易之下偵測到衝突時，就會自動叫用此程序。 系統只針對合併程序的執行提供一次保證 (為認可通訊協定的一部分)。  
 
-  不過，如果您使用自訂解決選項設定您的容器，但在容器上註冊合併程序失敗，或合併程序在執行階段擲回例外狀況，則衝突會寫入衝突摘要。 然後您的應用程式將需要手動解決衝突摘要中的衝突。 若要深入了解，請參閱[使用自訂解決原則及如何使用衝突摘要的範例](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)。
+  如果您使用自訂解決選項設定您的容器，請記得兩個要點。 如果您無法在容器上註冊合併程序，或合併程序在執行階段擲回例外狀況，則衝突會寫入至衝突摘要。 然後您的應用程式需要手動解決衝突摘要中的衝突。 若要深入了解，請參閱[如何使用自訂解決原則及如何使用衝突摘要的範例](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)。
 
   > [!NOTE]
   > 自訂衝突解決原則只適用於 SQL API 帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 
-接下來，您可以閱讀下列文章，以了解如何設定衝突解決原則：
+了解如何設定衝突解決原則。 請參閱下列文章：
 
-* [如何使用 LWW 衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [如何使用自訂衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [如何使用衝突摘要](how-to-manage-conflicts.md#read-from-conflict-feed)
+* [使用 LWW 衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [使用自訂衝突解決原則](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [使用衝突摘要](how-to-manage-conflicts.md#read-from-conflict-feed)

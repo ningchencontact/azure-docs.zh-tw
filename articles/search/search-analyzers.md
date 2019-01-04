@@ -1,5 +1,5 @@
 ---
-title: Azure 搜尋服務中的分析器 | Microsoft Docs
+title: 語言和文字處理的分析器 - Azure 搜尋服務
 description: 將分析器指派給索引中的可搜尋文字欄位，可將預設的標準 Lucene 取代為自訂、預先定義或特定語言的替代項目。
 services: search
 ms.service: search
@@ -8,14 +8,15 @@ ms.date: 09/11/2017
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.openlocfilehash: 68ce4fa5536f21d6d66245a9383a4b58c42febff
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: seodec2018
+ms.openlocfilehash: 1de3743d6ec37d263e16b168d32d2b56b0a28295
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116365"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53310533"
 ---
-# <a name="analyzers-in-azure-search"></a>Azure 搜尋服務中的分析器
+# <a name="analyzers-for-text-processing-in-azure-search"></a>Azure 搜尋服務中用於文字處理的分析器
 
 *分析器*是一種[全文搜尋](search-lucene-query-architecture.md)元件，負責查詢字串和已編製索引文件中的文字處理。 在分析期間，會有下列典型轉換：
 
@@ -181,7 +182,7 @@ Azure 搜尋服務可讓您指定不同的分析器來編製索引，並透過�
 ~~~~
 
 <a name="Example3"></a>
-### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>範例 3：用來索引和搜尋作業的不同分析器
+### <a name="example-3-different-analyzers-for-indexing-and-search-operations"></a>範例 3：編製索引和搜尋作業的不同分析器
 
 API 包含其他的索引屬性，可針對索引和搜尋指定不同的分析器。 必須將 `searchAnalyzer` 和 `indexAnalyzer` 屬性指定為一組，從而取代單一 `analyzer` 屬性。
 

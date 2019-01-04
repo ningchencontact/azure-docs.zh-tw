@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 02/05/2016
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6a3f9928fa685c36a0495ba5d423c3be7bff2bea
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 3f382aab5a00030b922fb890e82110454e7f3839
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009154"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384491"
 ---
-# <a name="install-and-use-solr-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Solr
+# <a name="install-and-use-apache-solr-on-windows-based-hdinsight-clusters"></a>在 Windows 型 HDInsight 叢集上安裝和使用 Apache Solr
 
-了解如何使用指令碼動作來以 Solr 自訂 Windows 型 HDInsight 叢集，以及如何使用 Solr 搜尋資料。
+了解如何使用指令碼動作來以 Apache Solr 自訂 Windows 型 HDInsight 叢集，以及如何使用 Solr 搜尋資料。
 
-> [!IMPORTANT]
-> 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需搭配以 Linux 為基礎的叢集使用 Solr 的詳細資訊，請參閱 [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
+> [!IMPORTANT]  
+> 本文件的步驟只適用於 Windows HDInsight 叢集。 Windows 上的 HDInsight 只提供低於 HDInsight 3.4 的版本。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。 如需搭配以 Linux 為基礎的叢集使用 Solr 的詳細資訊，請參閱 [在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)。
 
 
 您也可以使用「指令碼動作」 ，在 Azure HDInsight 的任一類型的叢集 (Hadoop、Storm、HBase、Spark) 上安裝 Solr。 您可以從 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1) 的唯讀 Azure 儲存體 blob 中，取得用來在 HDInsight 叢集上安裝 Solr 的範例指令碼。
@@ -32,7 +32,7 @@ ms.locfileid: "51009154"
 
 **相關文章**
 
-* [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
 * [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 * [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]：關於使用指令碼動作來自訂 HDInsight 叢集的一般資訊。
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
@@ -41,14 +41,14 @@ ms.locfileid: "51009154"
 <a href="http://lucene.apache.org/solr/features.html" target="_blank">Apache Solr</a> 是可對資料執行強大全文搜尋作業的企業搜尋平台。 Hadoop 可儲存和管理大量資料，而 Apache Solr 則是提供搜尋功能以便快速擷取資料。
 
 ## <a name="install-solr-using-portal"></a>使用入口網站安裝 Solr
-1. 使用 [自訂建立] 選項，依[在 HDInsight 中建立 Hadoop 叢集](hdinsight-provision-clusters.md)中的描述開始建立叢集。
+1. 使用 [自訂建立] 選項，依[在 HDInsight 中建立 Apache Hadoop 叢集](hdinsight-provision-clusters.md)中的描述開始建立叢集。
 2. 在精靈的 [指令碼動作] 頁面上，按一下 [加入指令碼動作] 以提供有關指令碼動作的詳細資料，如下所示：
 
     ![使用指令碼動作以自訂叢集](./media/hdinsight-hadoop-solr-install/hdi-script-action-solr.png "使用指令碼動作以自訂叢集")
 
     <table border='1'>
         <tr><th>屬性</th><th>值</th></tr>
-        <tr><td>名稱</td>
+        <tr><td>Name</td>
             <td>指定指令碼動作的名稱。 例如，<b>安裝 Solr</b>。</td></tr>
         <tr><td>指令碼 URI</td>
             <td>指定為自訂叢集叫用的指令碼統一資源識別項 (URI)。 例如，<i>https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1</i></td></tr>
@@ -167,18 +167,18 @@ ms.locfileid: "51009154"
    此命令會將快照複製到與叢集相關聯之預設儲存體帳戶內的容器下的 /example/data/。
 
 ## <a name="install-solr-using-aure-powershell"></a>使用 Azure PowerShell 安裝 Solr
-請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。  此範例示範如何使用 Azure PowerShell 安裝 Apache Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
 
 ## <a name="install-solr-using-net-sdk"></a>使用 .NET SDK 安裝 Solr
-請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此範例示範如何使用 .NET SDK 安裝 Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
+請參閱[使用指令碼動作來自訂 HDInsight 叢集](hdinsight-hadoop-customize-cluster.md#call-scripts-using-azure-powershell)。 此範例示範如何使用 .NET SDK 安裝 Apache Spark。 您需要自訂指令碼以使用 [https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1](https://hdiconfigactions.blob.core.windows.net/solrconfigactionv01/solr-installer-v01.ps1)。
 
 ## <a name="see-also"></a>另請參閱
-* [在 HDInsight Hadoop 叢集上安裝和使用 Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
-* [在 HDInsight 叢集中建立 Hadoop](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
+* [在 HDInsight Hadoop 叢集上安裝和使用 Apache Solr (Linux)](hdinsight-hadoop-solr-install-linux.md)
+* [使用 Hadoop、Spark 及 Kafka 等在 HDInsight 中設定叢集](hdinsight-provision-clusters.md)：建立 HDInsight 叢集的一般資訊。
 * [使用指令碼動作來自訂 HDInsight 叢集][hdinsight-cluster-customize]：關於使用指令碼動作來自訂 HDInsight 叢集的一般資訊。
 * [開發 HDInsight 的指令碼動作指令碼](hdinsight-hadoop-script-actions.md)
-* [在 HDInsight 叢集上安裝和使用 Spark][hdinsight-install-spark]：關於安裝 Spark 的指令碼動作範例。
-* [在 HDInsight 叢集上安裝 Giraph](hdinsight-hadoop-giraph-install.md)：關於安裝 Giraph 的指令碼動作範例。
+* [在 HDInsight 叢集上安裝和使用 Apache Spark][hdinsight-install-spark]：關於安裝 Spark 的指令碼動作範例。
+* [在 HDInsight 叢集上安裝 Apache Giraph](hdinsight-hadoop-giraph-install.md)：關於安裝 Giraph 的指令碼動作範例。
 
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [hdinsight-provision]: hdinsight-provision-clusters.md

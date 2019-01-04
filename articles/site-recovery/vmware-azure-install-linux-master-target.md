@@ -4,14 +4,14 @@ description: 了解如何使用 Azure Site Recovery 在從 VMware VM 至 Azure �
 author: nsoneji
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 11/27/2018
 ms.author: nisoneji
-ms.openlocfilehash: 415b50b94052e7d428ddfa55d5288c8954a3ff1a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: e35a8cf720fffa3a3b4c7d9f1b83c2323041b1c4
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212364"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52833307"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>安裝 Linux 主要目標伺服器以便進行容錯回復
 您可以在將虛擬機器容錯移轉至 Azure 之後，將虛擬機器容錯回復至內部部署網站。 若要進行容錯回復，您需要在從 Azure 到內部部署網站的過程中重新保護虛擬機器。 針對此程序，您需要內部部署的主要目標伺服器以接收流量。 
@@ -41,7 +41,7 @@ ms.locfileid: "50212364"
 - **RAM**：6 GB 或更多
 - **OS 磁碟大小**：100 GB 或更多 (以安裝 OS)
 - **用於保留磁碟機的額外磁碟大小**：1 TB
-- **CPU 核心**：4 核心或更多
+- **CPU 核心**：4 個核心或更多
 
 支援下列受支援的 Ubuntu 核心。
 

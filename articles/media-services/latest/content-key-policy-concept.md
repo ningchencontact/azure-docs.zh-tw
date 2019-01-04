@@ -1,5 +1,5 @@
 ---
-title: Azure 媒體服務中的內容金鑰原則 | Microsoft Docs
+title: 媒體服務中的內容金鑰原則 - Azure | Microsoft Docs
 description: 本文解釋內容金鑰原則是什麼，以及 Azure 媒體服務用它們來做什麼。
 services: media-services
 documentationcenter: ''
@@ -9,14 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 12/08/2018
 ms.author: juliako
-ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.custom: seodec18
+ms.openlocfilehash: 541713677184d93eb78856e3c3373ab432d5f0cf
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085949"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53141521"
 ---
 # <a name="content-key-policies"></a>內容金鑰原則
 
@@ -28,7 +29,7 @@ Azure 媒體服務 v3 中，內容金鑰原則可讓您指定如何透過媒體�
 
 下表說明 ContentKeyPolicy 的屬性並提供其定義。
 
-|名稱|說明|
+|Name|說明|
 |---|---|
 |id|資源的完整資源識別碼。|
 |name|資源名稱。|
@@ -63,7 +64,7 @@ Azure 媒體服務 v3 中，內容金鑰原則可讓您指定如何透過媒體�
 
 下表說明這些選項可如何套用至 StreamingPolicy 屬性： 
 
-|名稱|Filter|順序|
+|Name|Filter|順序|
 |---|---|---|
 |id|||
 |name|Eq、ne、ge、le、gt、lt|遞增和遞減|

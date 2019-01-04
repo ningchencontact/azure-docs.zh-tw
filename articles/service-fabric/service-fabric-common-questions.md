@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a78405dc6293a7debd599e0e44754dc59d8af7e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51016687"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53164632"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 的常見問題
 
@@ -39,7 +39,7 @@ ms.locfileid: "51016687"
 
 核心的 Service Fabric 叢集技術可用來結合在世界各地執行的機器，只要它們彼此間有網路連線即可。 不過，建置和執行這類叢集的程序很複雜。
 
-如果您對於這個案例有興趣，建議您透過 [Service Fabric Github 問題清單](https://github.com/azure/service-fabric-issues)或透過您的支援代表來進行聯繫，以取得其他指引。 Service Fabric 小組正在針對這個案例著手提供其他清楚說明、指引和建議。 
+如果您對於這個案例有興趣，建議您透過 [Service Fabric GitHub 問題清單](https://github.com/azure/service-fabric-issues)或透過您的支援代表來進行聯繫，以取得其他指引。 Service Fabric 小組正在針對這個案例著手提供其他清楚說明、指引和建議。 
 
 需考量的事項： 
 

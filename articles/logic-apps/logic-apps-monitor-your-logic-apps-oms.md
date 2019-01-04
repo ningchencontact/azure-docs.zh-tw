@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: c65cc24f9b0083e9c873465008490bf00ea83852
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 70242de62e976b05e2708dfd4991915c854d4bb4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232371"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52995650"
 ---
 # <a name="monitor-logic-apps-with-azure-log-analytics"></a>使用 Azure Log Analytics 監視邏輯應用程式
 
@@ -23,11 +23,11 @@ ms.locfileid: "50232371"
 若要開啟現有邏輯應用程式的 Azure Log Analytics，請遵循下列步驟以[開啟診斷記錄，並將邏輯應用程式執行階段資料傳送至 Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)。
 
 > [!NOTE]
-> 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../log-analytics/log-analytics-oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
+> 以前，本頁面所描述的是如何使用 Microsoft Operations Management Suite (OMS) 來執行這些工作的步驟，但 OMS 將於 [2019 年 1 月淘汰](../azure-monitor/platform/oms-portal-transition.md)，請改為使用 Azure Log Analytics 來取代這些步驟。 
 
 ## <a name="prerequisites"></a>必要條件
 
-開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../log-analytics/log-analytics-quick-create-workspace.md)。 
+開始之前，您需要有 Log Analytics 工作區。 了解[如何建立 Log Analytics 工作區](../azure-monitor/learn/quick-create-workspace.md)。 
 
 ## <a name="turn-on-diagnostics-logging-when-creating-logic-apps"></a>建立 Logic Apps 時開啟診斷記錄
 
@@ -122,7 +122,7 @@ ms.locfileid: "50232371"
 
 1. 若要篩選這些結果，您可以執行用戶端和伺服器端篩選。
 
-   * **用戶端篩選**：針對每個資料行，選擇您想要的篩選條件，例如：
+   * **用戶端篩選：** 針對每個資料行，選擇您想要的篩選條件，例如：
 
      ![資料行篩選範例](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 

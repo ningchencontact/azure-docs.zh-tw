@@ -6,16 +6,16 @@ keywords: ''
 author: bandersmsft
 manager: vitavor
 ms.author: banders
-ms.date: 11/13/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
-ms.custom: ''
-ms.openlocfilehash: a41136837a56137ce92bd186cb4ee825e4f664c4
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: 9bb8d74b012b25ca959cdb87b8a3d5e4284b6497
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274954"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097211"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>新增 Azure 虛擬機器的擴充計量
 
@@ -35,7 +35,7 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 
 ## <a name="determine-whether-extended-metrics-are-enabled"></a>決定是否啟用擴充計量
 
-1. 在 http://portal.azure.com 登入 Azure 入口網站。
+1. 在 https://portal.azure.com 登入 Azure 入口網站。
 2. 在 [虛擬機器] 下選取 VM，然後在 [監視] 下選取 [計量]。 此時會顯示可用計量清單。
 3. 選取某些計量，隨即出現顯示資料的圖形。  
     ![計量範例 - 主機百分比 CPU](./media/azure-vm-extended-metrics/metric01.png)
@@ -55,18 +55,18 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 1. 在 [虛擬機器] 上，檢視您的 VM 清單，然後選取 VM。
 2. 在 [監視] 下方，選取 [診斷設定]。
 3. 在 [診斷設定] 頁面中，按一下 [啟用來賓層級監視]。  
-    ![啟用來賓層級監視](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
+    ![在 [概觀] 頁面上啟用來賓層級監視](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
 4. 幾分鐘後，Azure 診斷代理程式就會安裝在 VM 上。 此時會新增一組基本的計量。 重新整理頁面。 新增的效能計數器會出現在 [概觀] 索引標籤上。
 5. 在 [監視] 下方，選取 [計量]。
 6. 在計量圖表的 [計量命名空間] 下方，選取 [客體 (傳統)]。
 7. 在 [計量] 清單中，您可以檢視客體 VM 所有可用的效能計數器。  
-    ![擴充計量](./media/azure-vm-extended-metrics/extended-metrics.png)
+    ![範例擴充計量的清單](./media/azure-vm-extended-metrics/extended-metrics.png)
 
 ### <a name="enable-guest-level-monitoring-on-new-vms"></a>在新 VM 上啟用來賓層級監視
 
 當您建立新的 VM 時，請在 [管理] 索引標籤上針對 [OS 客體診斷] 選取 [開啟]。
 
-![啟用來賓 OS 診斷](./media/azure-vm-extended-metrics/new-enable-diag.png)
+![將客體 OS 診斷設為開啟](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 如需為 Azure 虛擬機器啟用擴充計量的詳細資訊，請參閱[了解與使用 Azure Linux 代理程式](../virtual-machines/extensions/agent-linux.md)和 [Azure 虛擬機器代理程式概觀](../virtual-machines/extensions/agent-windows.md)。
 
@@ -82,7 +82,7 @@ Cloudyn 會使用 Azure VM 的 Azure 計量資料來顯示其資源的詳細資�
 
 若要在 Cloudyn 入口網站中檢視 Azure 執行個體的效能計量，請瀏覽至 [資產] > [計算] > [執行個體總管]。 在 VM 執行個體清單中，展開執行個體，然後展開資源以檢視詳細資料。
 
-![執行個體總管](./media/azure-vm-extended-metrics/instance-explorer.png)
+![[執行個體總管] 中顯示的範例訊息](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>後續步驟
 

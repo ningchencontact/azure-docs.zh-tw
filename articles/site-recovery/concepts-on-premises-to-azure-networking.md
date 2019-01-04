@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/16/2018
+ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253273"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52836265"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>設定 IP 位址以在容錯移轉之後連線至 Azure VM
 
@@ -30,7 +30,7 @@ ms.locfileid: "51253273"
 
 規劃您的複寫和容錯移轉策略時，其中一個重要的問題，就是如何在容錯移轉之後連線至 Azure VM。 設計複本 Azure VM 的網路策略時，有兩種選擇：
 
-- **使用不同的 IP 位址**：您可以選擇針對複寫的 Azure VM 網路使用不同的 IP 位址範圍。 在此情況下，VM 會在容錯移轉之後取得新的 IP 位址，因此需要更新 DNS。
+- **使用不同的 IP 位址**：您可以選取針對複寫的 Azure VM 網路使用不同的 IP 位址範圍。 在此情況下，VM 會在容錯移轉之後取得新的 IP 位址，因此需要更新 DNS。
 - **保留相同的 IP 位址**：您可能會想要在容錯移轉之後，將與您主要內部部署站台中相同的 IP 位址範圍用於 Azure 網路。 保留相同的 IP 位址可在容錯移轉之後減少網路相關問題，藉以簡化復原。 不過，當您複寫到 Azure 時，將需要在容錯移轉後，以新的 IP 位址位置更新路由。
 
 ## <a name="retaining-ip-addresses"></a>保留 IP 位址

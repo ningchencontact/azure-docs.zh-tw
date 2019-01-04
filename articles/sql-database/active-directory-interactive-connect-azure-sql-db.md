@@ -12,12 +12,12 @@ ms.author: MirekS
 ms.reviewer: GeneMi
 ms.date: 04/06/2018
 manager: craigg
-ms.openlocfilehash: 80944e73f21d75943d4fa71c7ac9500e47bab250
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055521"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958812"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>使用 ActiveDirectoryInteractive 模式以連線到 Azure SQL Database
 
@@ -66,23 +66,23 @@ ms.locfileid: "47055521"
 
 1. Azure 入口網站 &gt; **Azure Active Directory** &gt; **應用程式註冊**
 
-    ![應用程式註冊](media\active-directory-interactive-connect-azure-sql-db\sshot-create-app-registration-b20.png)
+    ![應用程式註冊](media/active-directory-interactive-connect-azure-sql-db/sshot-create-app-registration-b20.png)
 
 2. 系統會產生及顯示**應用程式識別碼**值。
 
-    ![顯示的應用程式識別碼](media\active-directory-interactive-connect-azure-sql-db\sshot-application-id-app-regis-mk49.png)
+    ![顯示的應用程式識別碼](media/active-directory-interactive-connect-azure-sql-db/sshot-application-id-app-regis-mk49.png)
 
 3. **已註冊的應用程式** &gt; **設定** &gt; **必要權限** &gt; **新增**
 
-    ![已註冊應用程式的權限設定](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
+    ![已註冊應用程式的權限設定](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
 4. **必要權限** &gt; **新增 API 存取權** &gt; **選取 API** &gt; **Azure SQL Database**
 
-    ![將存取權新增至 Azure SQL Database 的 API](media\active-directory-interactive-connect-azure-sql-db\sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
+    ![將存取權新增至 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
 5. **API 存取權** &gt; **選取權限** &gt; **委派的權限**
 
-    ![將權限委派給 Azure SQL Database 的 API](media\active-directory-interactive-connect-azure-sql-db\sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
+    ![將權限委派給 Azure SQL Database 的 API](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. 在您的 SQL Database 伺服器上設定 Azure AD 管理員
@@ -124,13 +124,13 @@ C# 程式會依賴命名空間 **Microsoft.IdentityModel.Clients.ActiveDirectory
 
 C# 範例所依賴的一個命名空間是 **System.Data.SqlClient**。 特別引人興趣的是列舉 **SqlAuthenticationMethod**。 這個列舉具有下列值：
 
-- **SqlAuthenticationMethod.ActiveDirectory \*互動式**\*：&nbsp;  與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *互動式***:&nbsp;與 Azure AD 使用者名稱搭配使用，以達成多重要素驗證 MFA。
     - 這個值是目前文章的焦點。 它會透過顯示對話方塊來要求輸入使用者密碼，接著若強制對此使用者執行 MFA，則會要求進行 MFA 驗證，來產生互動式體驗。
     - 此值從 .NET Framework 4.7.2 版開始可供使用。
 
-- **SqlAuthenticationMethod.ActiveDirectory \*整合式**\*：&nbsp;  針對同盟帳戶使用此設定。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *整合***:&nbsp;針對「同盟」帳戶使用。 針對同盟帳戶，Windows 網域已知使用者名稱。 這個方法不支援 MFA。
 
-- **SqlAuthenticationMethod.ActiveDirectory \*密碼**\*：&nbsp;  針對需要 Azure AD 使用者和使用者密碼的驗證使用此設定。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
+- **SqlAuthenticationMethod.ActiveDirectory *密碼***:&nbsp;針對需要 Azure AD 使用者和使用者密碼的驗證使用。 Azure SQL Database 會執行驗證。 這個方法不支援 MFA。
 
 
 
@@ -183,11 +183,11 @@ C# 範例所依賴的一個命名空間是 **System.Data.SqlClient**。 特別�
 
 - **System.Data.SqlClient** 命名空間：
     - 搜尋：&nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - 直接：&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
+    - 直接：&nbsp;[System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
 
 - **Microsoft.IdentityModel.Clients.ActiveDirectory** 命名空間：
     - 搜尋：&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - 直接：&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - 直接：&nbsp;[Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>C# 原始程式碼，分成兩個部分

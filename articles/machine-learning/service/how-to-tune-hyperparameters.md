@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Machine Learning 為您的模型微調超參數
+title: 為您的模型微調超參數
+titleSuffix: Azure Machine Learning service
 description: 使用 Azure Machine Learning 服務有效率地為您的深度學習/機器學習模型微調超參數。 您將了解如何定義參數搜尋空間、指定要最佳化的主要計量，並提早終止效能不佳的執行。
 ms.author: swatig
 author: swatig007
@@ -8,15 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140801"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100730"
 ---
-# <a name="tune-hyperparameters-for-your-model"></a>為您的模型微調超參數
+# <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務為您的模型微調超參數
 
 使用 Azure Machine Learning 服務有效率地為您的模型微調超參數。  超參數微調包含下列步驟：
 
@@ -36,8 +38,6 @@ ms.locfileid: "50140801"
 
 Azure Machine Learning 可讓您以有效率的方式來自動化超參數探索作業，為您省下大量時間和資源。 您可以指定超參數值範圍及定型執行數目上限。 系統會接著自動啟動多個同時但具有不同參數設定的執行，並找到產生最佳效能的設定 (以您所選擇的計量來測量)。 效能不佳的定型執行會自動提早終止，以減少計算資源浪費情形。 這些資源會改用來探索其他超參數設定。
 
->[!NOTE]
-> 本文中的程式碼使用 Azure Machine Learning SDK 0.168 版進行測試 
 
 ## <a name="define-search-space"></a>定義搜尋空間
 
@@ -150,7 +150,7 @@ param_sampling = BayesianParameterSampling( {
 指定要讓超參數微調實驗最佳化的主要計量。 每個定型執行會針對此主要計量進行評估。 效能不佳的執行 (其主要計量不符合提早終止原則所設定的準則) 將會終止。 除了主要計量名稱，您也會指定最佳化的目標 (要最大化或最小化主要計量)。
 
 * `primary_metric_name`：要最佳化的主要計量名稱。 主要計量名稱必須與定型指令碼所記錄的計量名稱完全相符。 請參閱[記錄用於超參數微調的計量](#log-metrics-for-hyperparameter-tuning)。
-* `primary_metric_goal`：它可以是 `PrimaryMetricGoal.MAXIMIZE` 或 `PrimaryMetricGoal.MINIMIZE`，而且會在評估執行時，決定要最大化或最小化主要計量。 
+* `primary_metric_goal`：它可以是 `PrimaryMetricGoal.MAXIMIZE` 或 `PrimaryMetricGoal.MINIMIZE`，而且會在評估執行時，決定要將主要計量最大化或最小化。 
 
 ```Python
 primary_metric_name="accuracy",
@@ -255,7 +255,7 @@ policy=None
 
 指定定型執行數目的上限，可控制您超參數微調實驗的資源預算。  選擇性地指定超參數微調實驗的持續時間上限。
 
-* `max_total_runs`：要建立的定型執行總數上限。 上限 - 如果超參數空間有限並具有較少的樣本，可能會有較少的執行。 必須是介於 1 到 1000 的數字。
+* `max_total_runs`：要建立的定型回合總數上限。 上限 - 如果超參數空間有限並具有較少的樣本，可能會有較少的執行。 必須是介於 1 到 1000 的數字。
 * `max_duration_minutes`：超參數微調實驗的持續時間上限 (以分鐘為單位)。 這是選擇性參數，如果存在，在此持續時間之後執行的任何執行都會自動取消。
 
 >[!NOTE] 
@@ -311,7 +311,7 @@ hyperdrive_run = experiment.submit(hyperdrive_run_config)
 Azure Machine Learning SDK 提供 Notebook 小工具，可用來視覺化定型執行的進度。 您可以在 Jupyter Notebook 中使用下列程式碼片段，在同一個位置視覺化您所有的超參數微調執行：
 
 ```Python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(hyperdrive_run).show()
 ```
 
@@ -348,10 +348,9 @@ print('\n batch size:',parameter_values[7])
 ```
 
 ## <a name="sample-notebook"></a>範例 Notebook
-請參閱 
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow)，以取得 Tensorflow 模型的超參數微調教學課程。 
-
-請取得此筆記本：
+請參考這些 Notebook：
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) 
+* [how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

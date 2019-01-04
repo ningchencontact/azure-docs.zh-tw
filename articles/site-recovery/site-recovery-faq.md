@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: ff560715f9c6aff8f50d3b20db1f3e79f3527113
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: ef914318174ee3ce738769fcae910c82b35b21b4
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257294"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52998542"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常見問題集 (FAQ)
 本文包含有關 Azure Site Recovery 的常見問題集。 如果您在閱讀本文後有問題，請將問題張貼在 [Azure 復原服務論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr)。
@@ -23,7 +23,7 @@ ms.locfileid: "51257294"
 Site Recovery 可協調並自動執行區域、內部部署虛擬機器和實體伺服器之間至 Azure 的 Azure VM 複寫；協調並自動執行內部部署機器至次要資料中心的複寫，藉此保障您的商務持續性與災害復原 (BCDR) 策略。 [深入了解](site-recovery-overview.md)。
 
 ### <a name="what-can-site-recovery-protect"></a>Site Recovery 可以保護什麼？
-* **Azure VM**：Site Recovery 可複寫在支援的 Azure VM 上執行的任何工作負載。
+* **Azure VM**：Site Recovery 可複寫在支援的 Azure VM 上執行的任何工作負載
 * **Hyper-V 虛擬機器**：Site Recovery 可以保護 Hyper-V VM 上執行的任何工作負載。
 * **實體伺服器**：Site Recovery 可以保護執行 Windows 或 Linux 的實體伺服器。
 * **VMware 虛擬機器**：Site Recovery 可以保護 VMware VM 上執行的任何工作負載。
@@ -91,7 +91,7 @@ Site Recovery 已通過 ISO 27001:2013、27018、HIPAA、DPA 認證，並且正�
 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 複寫不是透過站對站 VPN。 您可以透過 Azure 虛擬網路建立站對站 VPN。 這並不會影響 Site Recovery 複寫。
 
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>可以使用 ExpressRoute 將虛擬機器複寫到 Azure 嗎？
-是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#azure-public-peering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoft-peering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#azure-private-peering)安裝來存取這些虛擬機器。 私用對等互連不支援複寫。
+是的，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 將內部部署虛擬機器複寫至 Azure。 Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體帳戶。 您必須設定[公用對等互連](../expressroute/expressroute-circuit-peerings.md#publicpeering)或 [Microsoft 對等互連](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)，以使用 Site Recovery 複寫的 ExpressRoute。 Microsoft 對等互連是建議用於複寫的路由網域。 在虛擬機器容錯移轉到 Azure 虛擬網路之後，您可以 Azure 虛擬網路使用[私人對等互連](../expressroute/expressroute-circuit-peerings.md#privatepeering)安裝來存取這些虛擬機器。 私用對等互連不支援複寫。
 
 ### <a name="are-there-any-prerequisites-for-replicating-virtual-machines-to-azure"></a>將虛擬機器複寫至 Azure 有任何先決條件嗎？
 您想要複寫至 Azure 的 [VMware VM](vmware-physical-azure-support-matrix.md#replicated-machines) 和 [Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 應該符合 Azure 需求。
@@ -115,8 +115,8 @@ Azure Site Recovery 會透過公用端點，將資料複製到 Azure 儲存體�
 您需要 LRS 或 GRS 儲存體帳戶。 我們建議使用 GRS，以便在發生區域性停電或無法復原主要區域時，能夠恢復資料。 此帳戶必須位於與復原服務保存庫相同的區域中。 當您在 Azure 入口網站部署 Site Recovery 時，進階儲存體支援 VMware VM、Hyper-V VM 和實體伺服器複寫。
 
 ### <a name="how-often-can-i-replicate-data"></a>我可以多久複寫一次資料？
-* **Hyper-V：** 可以每隔 30 秒、5 分鐘或 15 分鐘複寫一次 Hyper-V VM (進階儲存體除外)。 如果您已設定 SAN 複寫，則複寫會是同步的。
-* **VMware 與實體伺服器：** 複寫頻率在此處並不相關。 複寫是連續的。
+* **Hyper-V：** Hyper-V VM 可以每隔 30 秒 (進階儲存體除外)、5 分鐘或 15 分鐘複寫一次。 如果您已設定 SAN 複寫，則複寫會是同步的。
+* **Azure VM、VMware 和實體伺服器：** 複寫頻率在此處並不相關。 複寫是連續的。
 
 ### <a name="can-i-extend-replication-from-existing-recovery-site-to-another-tertiary-site"></a>我可以將複寫從現有的復原網站延伸到另一個第三網站嗎？
 不支援延伸的或鏈結的複寫。 請在 [意見反應論壇](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication)中提出這項功能的要求。

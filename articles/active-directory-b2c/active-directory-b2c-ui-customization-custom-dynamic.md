@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 11a14bc8b593e5e7d81e9bdbd4ac4ee3b2bbecaa
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582882"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834216"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C：使用自訂原則設定具有動態內容的 UI
 
@@ -193,7 +193,7 @@ ms.locfileid: "52582882"
 * 您的內容伺服器已啟用 CORS。
 
     >[!NOTE]
-    >若要確認您裝載內容的網站已啟用 CORS 並可測試 CORS 要求，請移至 [test-cors.org](http://test-cors.org/) 網站。 
+    >若要確認您裝載內容的網站已啟用 CORS 並可測試 CORS 要求，請移至 [test-cors.org](https://test-cors.org/) 網站。 
 
 * 您提供的內容是透過 **HTTPS** 保護。
 * 您會對所有連結、CSS 內容與影像使用「絕對 URL」，例如 https://yourdomain/content。

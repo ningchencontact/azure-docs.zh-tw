@@ -7,20 +7,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: 078f6bcd7aa48f2a63118e6dfb625d9b2c69fbb3
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: ebe039c37eb42b0044fa0acf9361edc7e8cbb828
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248018"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52879344"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支援
 
-[Azure IoT SDK](iot-hub-devguide-sdks.md) 是一組程式庫，可透過廣泛的語言與平台支援來與 IoT 中樞和裝置佈建服務進行互動。 這些 SDK 可在最常見的平台上執行，且開發人員可依照[移植指導方針](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)將 C SDK 移轉至特定平台。 
+[Azure IoT SDK](iot-hub-devguide-sdks.md) 是一組程式庫，可透過廣泛的語言與平台支援來與 IoT 中樞和裝置佈建服務進行互動。 這些 SDK 可在最常見的平台上執行，且開發人員可依照[移轉指引](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)將 C SDK 移轉至特定平台。 
 
-Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C SDK 來擴充。 其中有部分受到小組的正式支援，並分組為各層，代表使用者可預期的支援程度。 「完全支援的平台」意味著 Microsoft 會：
+Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C SDK 加以擴充。 其中有部分受到小組的正式支援，並分組為各層，代表使用者可預期的支援程度。 「完全支援的平台」意味著 Microsoft 會：
 
-    * 持續建置並執行對主機的端對端測試和 LTS 支援版本。
+    * 持續建置並執行對主機的端對端測試和 LTS 支援版本。  若要在不同版本之間提供測試涵蓋範圍，我們一般會針對最新的 LTS 版本與最受歡迎的版本來進行測試。  相同平台的其他版本或許可以透過平台版本相容性來提供支援。
     * 提供適用的安裝指導方針或套件。
     * 完全支援 GitHub 上的平台。
 
@@ -31,7 +31,6 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 * Windows CE 2013 (在 2018 年 10 月淘汰)
 * 使用 .NET Core 2.1 和 .NET Framework 4.7 的 .NET Standard 1.3
 * Xamarin iOS、Android、UWP
-* 使用 Java 的 Android
 
 ## <a name="supported-platforms"></a>支援的平台
 
@@ -83,6 +82,7 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 28 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>合作夥伴支援的平台
 
@@ -98,4 +98,4 @@ Microsoft 支援多種作業系統/平台/架構，並且可使用 Azure IoT C S
 ## <a name="next-steps"></a>後續步驟
 
 * [裝置與服務 SDK](iot-hub-devguide-sdks.md)
-* [移植指導方針](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [移轉指引](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

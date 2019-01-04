@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 27f972ce789ae5bccf173138fe93de33de0d3932
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7dedef2075ea9877a55a52a3f9a392f79c52300
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446451"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53016754"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-qualtrics"></a>教學課程：Azure Active Directory 與 Qualtrics 整合
 
@@ -113,6 +113,7 @@ ms.locfileid: "39446451"
     a. 在 [登入 URL] 文字方塊中，使用下列模式輸入 URL︰ `https://<companyname>.qualtrics.com`
 
     b. 在 [識別碼] 文字方塊中，使用下列模式輸入 URL：
+    
     | |
     |--|
     | `https://<companyname>.qualtrics.com/WRSAML/simplesaml/www/module.php/saml/sp/metadata.php/default-sp`|
@@ -208,7 +209,7 @@ ms.locfileid: "39446451"
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 Qualtrics 圖格時，應該會自動登入您的 Qualtrics 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

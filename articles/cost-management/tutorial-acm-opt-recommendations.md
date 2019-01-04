@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/21/2018
+ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
-ms.custom: ''
-ms.openlocfilehash: 4d9e47d6da45eaba19cbe089de3fdf053c36046a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.custom: seodec18
+ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47030672"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53077066"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>教學課程：透過建議最佳化成本
 
@@ -25,7 +25,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 
 > [!div class="checklist"]
 > * 檢視成本最佳化建議以檢視潛在的使用效率不足
-> * 針對建議採取行動，將虛擬機器的大小調整至更符合成本效益的選項
+> * 針對建議採取行動，將虛擬機器大小調整至更符合成本效益的選項
 > * 驗證動作，確保虛擬機器的大小已成功調整
 
 ## <a name="prerequisites"></a>必要條件
@@ -43,7 +43,7 @@ Azure 成本管理可搭配 Azure Advisor，提供成本最佳化建議。 Azure
 
 在 Azure 入口網站中，按一下服務清單中的 [成本管理與帳單]。 然後，在 [成本管理] 下方的清單中，選取 [Advisor 建議]。 隨即顯示 Advisor 成本建議。
 
-![Advisor 建議](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
+![顯示在 Azure 入口網站中的成本管理 Advisor 建議](./media/tutorial-acm-opt-recommendations/advisor-recommendations.png)
 
 建議清單會識別使用效率不足的情況，或是顯示能協助您節省額外成本的購買建議。 合計 [潛在每年節省成本] 會顯示關機或解除配置您所有符合建議規則的 VM 時，所能節省的總金額。 若您不想要將它們關機，建議您考慮將其大小調整至較不昂貴的 VM SKU。
 
@@ -59,20 +59,20 @@ Azure Advisor 可監視過去 14 天的虛擬機器使用量，並找出使用�
 
 在建議清單中，按一下 [調整大小或關閉使用量過低的虛擬機器] 建議。 在虛擬機器候選項目清單中，選擇要調整大小的虛擬機器，然後按一下虛擬機器。 隨即顯示虛擬機器的詳細資料，讓您可以確認使用量計量。 [潛在每年節省成本] 值是關機或移除 VM 時您所能節省的金額。 調整 VM 的大小可能可以節省成本，但是您將無法節省 [潛在每年節省成本] 的完整金額。
 
-![建議的詳細資料](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
+![建議詳細資料的範例](./media/tutorial-acm-opt-recommendations/recommendation-details.png)
 
 在 VM 詳細資料中，檢查虛擬機器的使用量，確認其為適合的調整大小候選項目。
 
-![VM 詳細資料](./media/tutorial-acm-opt-recommendations/vm-details.png)
+![顯示歷史使用率的範例 VM 詳細資料](./media/tutorial-acm-opt-recommendations/vm-details.png)
 
 請注意目前虛擬機器的大小。 在確認虛擬機器的大小應該進行調整之後，請關閉 VM 詳細資料，讓您可以查看虛擬機器清單。
 
 在要關機或調整大小的候選項目清單中，選取 [調整虛擬機器大小]。
-![調整虛擬機器大小](./media/tutorial-acm-opt-recommendations/resize-vm.png)
+![使用選項調整虛擬機器大小的範例建議](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 接下來，您會看到一份可用的調整大小選項清單。 選擇可為您帶來最佳效能，並且可讓案例最符合成本效益的選項。 在下列範例中，選擇的選項會將 **DS14\_V2** 大小調整至 **DS13\_V2**。 下列建議可每月節省美金 $551.30 元，或每年節省美金 $6,615.60 元。
 
-![選擇大小](./media/tutorial-acm-opt-recommendations/choose-size.png)
+![可供您選擇大小的可用 VM 大小範例清單](./media/tutorial-acm-opt-recommendations/choose-size.png)
 
 在您選擇適合的大小後，按一下 [選取] 以開始調整大小動作。
 
@@ -82,7 +82,7 @@ Azure Advisor 可監視過去 14 天的虛擬機器使用量，並找出使用�
 
 當 VM 成功完成調整大小之後，隨即顯示 Azure 通知。
 
-![調整大小完畢通知](./media/tutorial-acm-opt-recommendations/resized-notification.png)
+![已成功調整大小的虛擬機器通知](./media/tutorial-acm-opt-recommendations/resized-notification.png)
 
 ## <a name="next-steps"></a>後續步驟
 

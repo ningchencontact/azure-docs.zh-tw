@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: b310c06f508395635976009005dd2c4db2917abc
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 1b39de45d5046ce5a59dcaf0648b87aca2a5c6f5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218727"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868339"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>區域備援儲存體 (ZRS)：高可用性 Azure 儲存體應用程式
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -81,7 +81,7 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
     - **問題類型**：選取 [資料移轉]。
     - **類別**：選取 [移轉至區域內的 ZRS]。
     - **標題**：輸入描述性標題，例如 **ZRS 帳戶移轉**。
-    - **詳細資料**：在 [詳細資料] 方塊中輸入額外的詳細資料，例如：我想要從 ______ 區域中的 [LRS、GRS] 移轉至 ZRS。 
+    - **詳細資料**：在 [詳細資料] 方塊中輸入額外的詳細資料，例如：我想要從 \_\_ 區域中的 [LRS、GRS] 移轉至 ZRS。 
 5. 選取 [下一步] 。
 6. 確認 [連絡人資訊] 刀鋒視窗上的連絡人資訊正確。
 7. 選取 [建立] 。
@@ -90,7 +90,7 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>傳統 ZRS：適用於區塊 Blob 備援的舊版選項
 > [!NOTE]
-> Microsoft 會在 2021 年 3 月 31 日對傳統 ZRS 帳戶進行淘汰及移轉。 在淘汰之前，會對傳統 ZRS 客戶提供更多詳細資料。 
+> Microsoft 會在 2021 年 3 月 31 日將傳統 ZRS 帳戶除役並進行移轉。 在淘汰之前，會對傳統 ZRS 客戶提供更多詳細資料。 
 >
 > 在 ZRS 於某個區域中[正式運作](#support-coverage-and-regional-availability)之後，客戶便無法從該區域的入口網站建立傳統 ZRS 帳戶。 在傳統 ZRS 被淘汰之前，可選擇使用 Microsoft PowerShell 和 Azure CLI 來建立傳統 ZRS 帳戶。
 
@@ -98,7 +98,7 @@ Microsoft 強烈建議您執行手動移轉。 手動移轉比即時移轉更具
 
 傳統 ZRS 僅適用於一般用途 V1 (GPv1) 儲存體帳戶中的**區塊 Blob**。 如需有關儲存體帳戶的詳細資訊，請參閱 [Azure 儲存體帳戶概觀](storage-account-overview.md)。
 
-若要以 LRS、傳統 ZRS、GRS 或 RA-GRS 帳戶作為手動移轉 ZRS 帳戶資料時的目標或來源，請使用下列其中一種工具：AzCopy、「Azure 儲存體總管」、Azure PowerShell 或 Azure CLI。 您也可以使用其中一個 Azure 儲存體用戶端程式庫，自行建置移轉解決方案。
+若要以 LRS、傳統 ZRS、GRS 或 RA-GRS 帳戶作為手動移轉 ZRS 帳戶資料時的目標或來源，請使用下列其中一種工具：AzCopy、Azure 儲存體總管、Azure PowerShell 或 Azure CLI。 您也可以使用其中一個 Azure 儲存體用戶端程式庫，自行建置移轉解決方案。
 
 ## <a name="see-also"></a>另請參閱
 - [Azure 儲存體複寫](storage-redundancy.md)

@@ -1,6 +1,6 @@
 ---
-title: 如何取得 Azure Active Directory 支援 | Microsoft Docs
-description: 了解如何取得 Azure Active Directory 支援。
+title: 尋求協助及開立支援票證 - Azure Active Directory | Microsoft Docs
+description: 以下相關指示說明如何取得 Azure Active Directory 方面的協助及開立支援票證。
 services: active-directory
 documentationcenter: na
 author: eross-msft
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro
-ms.openlocfilehash: d7d499ed43ee2eab03e46e408104eca4af6a2945
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.custom: it-pro, seodec18
+ms.openlocfilehash: d67b53d80b74d0a6ad3c4264a55a5e277acffd20
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729376"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53083898"
 ---
-# <a name="how-to-get-support-for-azure-active-directory"></a>方法：取得 Azure Active Directory 支援
+# <a name="find-help-and-open-a-support-ticket-for-azure-active-directory"></a>尋求 Azure Active Directory 方面的協助及開立支援票證
 Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售前、帳單和訂用帳戶支援。 Microsoft Azure 付費訂用帳戶與試用訂用帳戶則提供線上和電話支援 。 電話支援和線上帳單支援已推出其他語言版本。 
 
 ## <a name="find-help-without-opening-a-support-ticket"></a>在不開啟支援票證的情況下尋找說明
@@ -68,9 +68,9 @@ Microsoft 對 Azure Active Directory (Azure AD) 提供全球性的技術、售�
 
 1. 使用具有 Enterprise Mobility + Security (EMS) 授權的帳戶，登入 [Office 365 系統管理中心](https://portal.office.com)。
 
-2. 在 [支援] 磚中，選取 [新增服務要求]：![Office 365 入口網站的螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/office-portal.png)
+2. 在 [支援] 圖格中，選取 [新增服務要求]：![Office 365 入口網站的螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/office-portal.png)
 
-3. 在 [支援概觀] 頁面上，選取 [身分識別管理] 或 [User and domain management] \(使用者和網域管理)：![Azure AD 支援類別螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/select-identity.png)
+3. 在 [支援概觀] 頁面上，選取 [身分識別管理] 或 [使用者和網域管理]：![Azure AD 支援類別的螢幕擷取畫面](./media/active-directory-troubleshooting-support-howto/select-identity.png)
 
 4. 對於 [功能]，選取您要支援的 Azure AD 功能。
 

@@ -1,31 +1,23 @@
 ---
-title: 將 ExpressRoute 關聯的虛擬網路從傳統移轉至 Resource Manager：Azure：PowerShell | Microsoft Docs
-description: 此頁面描述如何在移動線路之後將關聯的虛擬網路移轉至 Resource Manager。
-documentationcenter: na
+title: 將虛擬網路從傳統移轉至 Resource Manager - ExpressRoute：Azure：PowerShell | Microsoft Docs
+description: 此頁面描述如何在移動線路之後，將 ExpressRoute 相關虛擬網路移轉至 Resource Manager。
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/06/2017
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 336f68308f7d4b4dd3c7476a4fabd793939e9e85
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: seodec18
+ms.openlocfilehash: c9f013a6af0b6d232eff32a9827006ce3247db3c
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23013203"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53136390"
 ---
-# <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>將 ExpressRoute 關聯的虛擬網路從傳統移至 Resource Manager
+# <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>將 ExpressRoute 相關虛擬網路從傳統移轉至 Resource Manager
 
-此文章說明如何在移動您的 ExpressRoute 線路之後將 Azure ExpressRoute 關聯的虛擬網路從傳統部署模型移轉至 Azure Resource Manager 部署模型。 
-
+本文說明如何在移動您的 ExpressRoute 線路之後，將 ExpressRoute 相關虛擬網路從傳統部署模型移轉至 Azure Resource Manager 部署模型。 
 
 ## <a name="before-you-begin"></a>開始之前
 * 請確認您有最新版的 Azure PowerShell 模組。 如需詳細資訊，請參閱 [如何安裝及設定 Azure PowerShell](/powershell/azure/overview)。

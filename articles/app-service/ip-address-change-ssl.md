@@ -1,5 +1,5 @@
 ---
-title: 如何為 SSL IP 位址變更進行準備 - Azure
+title: 為 SSL IP 位址變更做準備 - Azure App Service
 description: 如果您的 SSL IP 位址即將變更，請了解該怎麼做，以讓您的應用程式可在變更後繼續運作。
 services: app-service\web
 author: cephalin
@@ -10,12 +10,13 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: cephalin
-ms.openlocfilehash: e8558b4c3c7dafca8d4fff7e2aae0597a66c031d
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.custom: seodec18
+ms.openlocfilehash: 4de20ba46d3c16d6cd7bde8e17efb0a6212bc771
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576537"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53270785"
 ---
 # <a name="how-to-prepare-for-an-ssl-ip-address-change"></a>如何為 SSL IP 位址變更進行準備
 
@@ -31,7 +32,7 @@ ms.locfileid: "39576537"
 
 4.  在 [設定] 標題底下，按一下左側導覽中的 [SSL 設定]。
 
-5. 在 [SSL 繫結] 區段，選取主機名稱列。 在開啟的編輯器中，從 [SSL 類型] 下拉式功能表中選擇 [SNI SSL]，然後按一下 [新增繫結]。 當您看到作業成功訊息時，現有的 IP 位址已發佈。
+1. 在 [SSL 繫結] 區段，選取主機名稱列。 在開啟的編輯器中，從 [SSL 類型] 下拉式功能表中選擇 [SNI SSL]，然後按一下 [新增繫結]。 當您看到作業成功訊息時，現有的 IP 位址已發佈。
 
 6.  在 [SSL 繫結] 區段中，再次選取具有憑證的同一主機名稱列。 在開啟的編輯器中，這次從 [SSL 類型] 下拉式功能表中選擇 [以 IP 為主的 SSL]，然後按一下 [新增繫結]。 當您看到作業成功訊息時，您已取得新的 IP 位址。
 

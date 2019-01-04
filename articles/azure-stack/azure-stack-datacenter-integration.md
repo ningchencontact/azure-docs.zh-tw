@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720441"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52962676"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Azure Stack 整合式系統的一般資料中心整合考量
 如果您對 Azure Stack 整合式系統有興趣，您應瞭解一些有關部署的重大規劃考量，及系統如何融入您的資料中心。 本文提供這些考量的高階概觀，協助您為 Azure Stack 多節點系統做出重要的基礎結構決策。 與您的 OEM 硬體廠商一起將 Azure Stack 部署到您的資料中心時，瞭解這些考量有所助益。  
@@ -57,7 +57,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 您的識別提供者選項與租用戶虛擬機器、識別系統、其使用的帳戶、它們是否能加入 Active Directory 網域等等無關。這是分開的。
 
-您可以在 [Azure Stack 整合式系統連線模型](.\azure-stack-connection-models.md) 一文中深入了解如何選擇識別提供者。
+您可以在 [Azure Stack 整合式系統連線模型](./azure-stack-connection-models.md) 一文中深入了解如何選擇識別提供者。
 
 ### <a name="ad-fs-and-graph-integration"></a>AD FS 和 Graph 整合
 如果您選擇將 AD FS 作為識別提供者來部署 Azure Stack，您必須透過同盟信任來整合 Azure Stack 上的 AD FS 執行個體與現有的 AD FS 執行個體。 這可讓現有 Active Directory 樹系中的身分識別來驗證 Azure Stack 中的資源。
@@ -87,7 +87,7 @@ Azure Stack 是密封的系統，已從權限和網路觀點鎖定基礎結構�
 
 下表摘要這些網域命名決策。
 
-| 名稱 | 說明 | 
+| Name | 說明 | 
 | -------- | ------------- | 
 |區域名稱 | 您的第一個 Azure Stack 區域名稱。 這個名稱會用於 Azure Stack 管理的公用虛擬 IP 位址 (VIP) 之 FQDN 的一部分。 一般而言，區域名稱會是資料中心位置之類的實體位置識別碼。<br><br>區域名稱必須包含字母和 0-9 之間的數字。 不允許特殊字元，例如「-」或「#」等等。| 
 | 外部網域名稱 | 含外部 VIP 之端點的網域名稱系統 (DNS) 區域名稱。 針對這些公用 VIP 在 FQDN 中使用。 | 
@@ -196,7 +196,7 @@ Azure Stack 不會備份租用戶應用程式和資料。 您必須針對 Azure 
 ## <a name="learn-more"></a>深入了解
 
 - 如需使用案例、購買、合作夥伴和 OEM 硬體廠商的詳細資訊，請參閱 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 產品頁面。
-- 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：Azure 的延伸模組](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
+- 如需 Azure Stack 整合系統的藍圖和地理可用性的詳細資訊，請參閱白皮書：[Azure Stack：Azure 的擴充](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/) \(英文\)。 
 
 ## <a name="next-steps"></a>後續步驟
 [Azure Stack 部署連線模型](azure-stack-connection-models.md)

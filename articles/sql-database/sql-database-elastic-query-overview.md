@@ -3,7 +3,7 @@ title: Azure SQL Database 彈性查詢概觀 | Microsoft Docs
 description: 彈性查詢可讓您執行跨多個資料庫的 Transact-SQL 查詢。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fb546c8ffd3c4f3cdd2024bf9d60ae96401b263f
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 777b0e6e98c0d8d726b69f0fc169f2d2752b4b6d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242206"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52865007"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 彈性查詢概觀 (預覽)
 
@@ -77,13 +77,13 @@ ms.locfileid: "50242206"
 
 **圖 2** 垂直資料分割 - 使用彈性查詢來查詢參考資料
 
-![垂直資料分割 - 使用彈性查詢來查詢參考資料][3]
+![ 垂直資料分割 - 使用彈性查詢來查詢參考資料][3]
 
 **跨資料庫查詢**：彈性查詢可促成需要跨多個 SQL Database 進行查詢的使用案例。 圖 3 顯示四個不同的資料庫：CRM、庫存、HR 和產品。 在其中一個資料庫中執行的查詢也需要存取另一個或其他所有資料庫。 利用彈性查詢，您可以在上述每個資料庫上執行一些簡單的 DDL 陳述式，針對此案例設定您的資料庫。 進行此一次性設定之後，存取遠端資料表就像從 T-SQL 查詢或從 BI 工具參考本機資料表一樣簡單。 如果遠端查詢未傳回大量結果，則建議使用這個方法。
 
 **圖 3** 垂直資料分割 - 使用彈性查詢來查詢各種資料庫
 
-![垂直資料分割 - 使用彈性查詢來查詢各種資料庫][4]
+![ 垂直資料分割 - 使用彈性查詢來查詢各種資料庫][4]
 
 下列步驟會針對垂直資料分割案例設定彈性資料庫查詢，這些案例需要存取位於遠端 SQL Database 上具有相同結構描述的資料表：
 
@@ -100,7 +100,7 @@ ms.locfileid: "50242206"
 
 **圖 4** 水平資料分割 - 使用彈性查詢來報告分區化資料層
 
-![水平資料分割 - 使用彈性查詢來報告分區化資料層][5]
+![ 水平資料分割 - 使用彈性查詢來報告分區化資料層][5]
 
 > [!NOTE]
 > 彈性查詢資料庫 (前端節點) 可以是個別的資料庫，或是裝載分區對應的相同資料庫。

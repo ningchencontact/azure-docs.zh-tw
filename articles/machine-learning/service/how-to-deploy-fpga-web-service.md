@@ -1,6 +1,7 @@
 ---
-title: 使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
-description: 了解如何使用 Azure Machine Learning 以 FPGA 上執行的模型來部署 Web 服務。
+title: 在 FPGA 上部署模型
+titleSuffix: Azure Machine Learning service
+description: 了解如何使用 Azure Machine Learning 服務以 FPGA 上執行的模型來部署 Web 服務，以提供超低延遲的推斷。
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,21 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/29/2018
-ms.openlocfilehash: c6bf3c50958085f45c52ec2fa3cbdfba8adbe35f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711713"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268235"
 ---
-# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning"></a>使用 Azure Machine Learning 在 FPGA 上將模型部署為 Web 服務
+# <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>使用 Azure Machine Learning 服務在 FPGA 上將模型部署為 Web 服務
 
 您可以將模型部署為[現場可程式化邏輯閘陣列 (FPGA)](concept-accelerate-with-fpgas.md) 上的 Web 服務。  使用 FPGA 時，即使是透過單一批次大小，也提供超低延遲推斷。   
 
 ## <a name="prerequisites"></a>必要條件
 
-- Azure 訂用帳戶。 如果您沒有 Azure 訂用帳戶，請在開始前建立[免費帳戶](https://aka.ms/AMLfree)。
+- 如果您沒有 Azure 訂用帳戶，請在開始前先建立一個免費帳戶。 立即試用[免費或付費版本的 Azure Machine Learning 服務](http://aka.ms/AMLFree)。
 
 - 已安裝 Azure Machine Learning services 工作區與適用於 Python 的 Azure Machine Learning SDK。 了解如何使用[如何設定開發環境](how-to-configure-environment.md)文件來取得這些必要條件。
  
@@ -165,14 +167,6 @@ registered_model.delete()
 
 在 FPGA 上執行的 Azure Machine Learning 模型提供 SSL 支援和金鑰型驗證。 這可讓您限制對服務的存取，並保護用戶端所提交的資料。 [了解如何保護 Web 服務](how-to-secure-web-service.md)。
 
-
-## <a name="sample-notebook"></a>範例 Notebook
-
-本文中的概念會在 [project-brainwave/project-brainwave-quickstart.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/project-brainwave/project-brainwave-quickstart.ipynb) Notebook 中示範。
-
-請取得此筆記本：
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>後續步驟
 

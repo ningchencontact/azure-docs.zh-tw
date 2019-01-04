@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 5c45167255ec91030f07e550de223a7ebed93168
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0971122ee7b9cde0664ee661454a8b7824f4b7d5
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345754"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093893"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL 資料倉儲或從該處複製資料 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -70,7 +70,7 @@ ms.locfileid: "51345754"
 
 - [SQL 驗證](#sql-authentication)
 - Azure AD 應用程式權杖驗證：[服務主體](#service-principal-authentication)
-- Azure AD 應用程式權杖驗證：[Azure 資源的受控識別](#managed-identity)
+- Azure AD 應用程式權杖驗證：[適用於 Azure 資源的受控識別](#managed-identity)
 
 >[!TIP]
 >如果您遇到錯誤，其錯誤碼為 "UserErrorFailedToConnectToSqlServer"，以及「資料庫的工作階段限制為 XXX 並已達到。」訊息，請將 `Pooling=false` 新增至您的連接字串並再試一次。
@@ -404,7 +404,7 @@ SQL 資料倉儲 PolyBase 直接支援 Azure Blob 和 Azure Data Lake Store。 �
 
    1. `fileName` 不包含萬用字元篩選條件。
    2. `rowDelimiter` 必須為 **\n**。
-   3. `nullValue` 是設定為**空字串** ("") 或保留預設值，且 `treatEmptyAsNull` 不是設定為 false。
+   3. `nullValue` 會設定為**空字串** ("") 或保留預設值，而 `treatEmptyAsNull` 則保留預設值或設定為 true。
    4. `encodingName` 會設定為 **utf-8**，也就是預設值。
    5. 未指定 `escapeChar`、`quoteChar` 與 `skipLineCount`。 PolyBase 支援略過標頭列，這在 ADF 中可設定為 `firstRowAsHeader`。
    6. `compression` 可以是「無壓縮」、**GZip** 或 **Deflate**。

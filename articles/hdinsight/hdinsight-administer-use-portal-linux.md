@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: hrasheed
-ms.openlocfilehash: 77f1d0f9d1f9ad07b977750e7701b660781d63e5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c615188e5f198cb8707b12643e0942e8d8821983
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499386"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52725177"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 入口網站管理 HDInsight 中的 Apache Hadoop 叢集
 
@@ -64,7 +64,7 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     1. 登入 [Azure 入口網站](https://portal.azure.com)。
     2. 按一下左側功能表的 [資源群組] 以列出資源群組。
     3. 按一下您要用來建立 HDInsight 叢集的資源群組。
-    4. 按一下 [存取控制 (IAM)]，然後確認您 (或是您所屬的群組) 至少具有資源群組的「參與者」存取權限。
+    4. 按一下 [存取控制 (IAM)] 和 [角色指派]，然後確認您 (或是您所屬的群組) 至少具有資源群組的「參與者」存取權限。
 
 如果您收到 NoRegisteredProviderFound 錯誤或 MissingSubscriptionRegistration 錯誤，請參閱[使用 Azure Resource Manager 針對常見的 Azure 部署錯誤進行疑難排解](../azure-resource-manager/resource-manager-common-deployment-errors.md)。
 
@@ -82,21 +82,21 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
     * **刪除**：刪除叢集。
 
 **左側功能表**：
-    * **活動記錄檔**︰顯示和查詢活動記錄檔。
-    * **存取控制 (IAM)**︰使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
+    * **活動記錄**︰顯示和查詢活動記錄。
+    * **存取控制 (IAM)**：使用角色指派。  請參閱[使用角色指派來管理 Azure 訂用帳戶資源的存取權](../role-based-access-control/role-assignments-portal.md)。
     * **標記**：可讓您設定索引鍵/值組，以定義自訂的雲端服務分類法。 例如，您可建立名為 **project**的索引鍵，然後使用與特定專案相關聯之所有服務的通用值。
-* **診斷並解決問題**︰顯示疑難排解資訊。
-    * **快速啟動**：顯示可協助您開始使用 HDInsight 的資訊。
+* **診斷並解決問題**：顯示疑難排解資訊。
+    * **快速入門**：顯示可協助您開始使用 HDInsight 的資訊。
     * **適用於 HDInsight 的工具**：HDInsight 相關工具的說明資訊。
 **設定**
 * **叢集大小**：檢查、增加和減少叢集背景工作角色節點的數目。 請參閱[調整叢集](hdinsight-administer-use-management-portal.md#scale-clusters)。
     * **配額限制**︰顯示訂用帳戶的已使用和可用核心。
-    * **SSH + 叢集登入**︰顯示使用安全殼層 (SSH) 連線來連線至叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
-* **Data Lake Store Gen1**：設定 Data Lake Store Gen1 的存取。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
-    * **儲存體帳戶**︰檢視儲存體帳戶和金鑰。 儲存體帳戶是在進行叢集建立程序時設定。
+    * **SSH + 叢集登入**：顯示使用安全殼層 (SSH) 連線連接到叢集的指示。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+* **Data Lake Store Gen1**：設定存取 Data Lake Store Gen1。  請參閱[快速入門：在 HDInsight 中設定叢集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+    * **儲存體帳戶**：檢視儲存體帳戶和金鑰。 儲存體帳戶是在進行叢集建立程序時設定。
     * **應用程式**：新增/移除 HDInsight 應用程式。  請參閱[安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)。
     * **指令碼動作**︰在叢集上執行 Bash 指令碼。 請參閱 [使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)。
-    * **HDInsight 合作夥伴**︰新增/移除目前的 HDInsight 合作夥伴。
+    * **HDInsight 夥伴**︰新增/移除目前的 HDInsight 夥伴。
     * **屬性**：檢視叢集屬性。
 * **鎖定**︰新增鎖定以防止叢集遭到修改或刪除。
     * **自動化指令碼**︰顯示和匯出叢集的 Azure Resource Manager 範本。 目前，您只能匯出相依的 Azure 儲存體帳戶。 請參閱[使用 Azure Resource Manager 範本在 HDInsight 中建立 Linux 型 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
@@ -104,9 +104,9 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
 * **警示**：管理警示和動作。
     * **計量**：監視 Azure Log Analytics 中的叢集計量。
 * **診斷設定**：設定在何處儲存**支援與疑難排解**的診斷計量
-    * **資源健康狀態**：請參閱 [Azure 資源健康狀態概觀](../service-health/resource-health-overview.md)。
+    * **資源健康情況**：請參閱 [Azure 資源健康情況概觀](../service-health/resource-health-overview.md)。
     * **新的支援要求**︰可讓您透過 Microsoft 支援服務建立支援票證。
-
+    
 6. 按一下 [屬性] ：
 
     屬性如下︰
@@ -120,9 +120,9 @@ HDInsight 可以與很多 Hadoop 元件搭配使用。 如需已驗證和所支�
    * **作業系統**：**Windows** 或 **Linux**。
    * **類型**：Hadoop、HBase、Storm、Spark。
    * **版本**。 請參閱 [HDInsight 版本](hdinsight-component-versioning.md)。
-   * **訂用帳戶**︰訂用帳戶名稱。
-   * **預設資料來源**︰預設叢集檔案系統。
-   * **背景工作節點大小**：背景工作節點的選取 VM 大小。
+   * 訂用帳戶：訂用帳戶名稱。
+   * **預設資料來源**：預設叢集檔案系統。
+   * **背景工作節點**：背景工作節點的選取 VM 大小。
    * **前端節點大小**：前端節點的選取 VM 大小。
    * **虛擬網路**：要部署叢集的虛擬網路名稱 (如果已在部署階段選取一個的話)。
 
@@ -278,7 +278,7 @@ Ambari 會變更叢集中所有節點上的密碼。
 
    | 欄位 | 值 |
    | --- | --- |
-   | 名稱 |變更 SSH 密碼 |
+   | Name |變更 SSH 密碼 |
    | Bash 指令碼 URI |changepassword.sh 檔案的 URI |
    | 節點 (前端、背景工作、Nimbus、監督員、Zookeeper 等) |✓ 針對列出的所有節點類型 |
    | 參數 |輸入 SSH 使用者名稱，然後輸入密碼。 使用者名稱和密碼之間應該有一個空格。 |

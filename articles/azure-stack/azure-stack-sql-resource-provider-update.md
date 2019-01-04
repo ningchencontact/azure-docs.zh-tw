@@ -11,28 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 12/04/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: ad1a89c69d34dbb48b87a75778e18c9a995f749a
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 8fc8be105c6c610e6b246fa0ec619fecc81b1dd9
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853552"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966240"
 ---
 # <a name="update-the-sql-resource-provider"></a>更新 SQL 資源提供者
 
-適用於：Azure Stack 整合系統。
+*適用於：Azure Stack 整合式系統。*
 
 當 Azure Stack 更新為新的組建時，可能會發行新的 SQL 資源提供者。 雖然現有配接器仍可正常運作，但建議您盡快更新至最新組建。
 
 > [!IMPORTANT]
-> 您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](.\azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單。
+> 您必須依照更新的發行順序來進行安裝。 不可略過版本。 請參閱[部署資源提供者先決條件](./azure-stack-sql-resource-provider-deploy.md#prerequisites)中的版本清單。
 
 ## <a name="overview"></a>概觀
 
-若要更新資源提供者，請使用 *UpdateSQLProvider.ps1* 指令碼。 此指令碼隨附於所下載的新 SQL 資源提供者中。 此更新程序類似於用來[部署資源提供者](.\azure-stack-sql-resource-provider-deploy.md)的程序。 更新指令碼會使用和 DeploySqlProvider.ps1 指令碼相同的引數，而且您必須提供憑證資訊。
+若要更新資源提供者，請使用 *UpdateSQLProvider.ps1* 指令碼。 此指令碼隨附於所下載的新 SQL 資源提供者中。 此更新程序類似於用來[部署資源提供者](./azure-stack-sql-resource-provider-deploy.md)的程序。 更新指令碼會使用和 DeploySqlProvider.ps1 指令碼相同的引數，而且您必須提供憑證資訊。
 
 ### <a name="update-script-processes"></a>更新指令碼程序
 
@@ -68,7 +68,7 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
 
-# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported values for the <environment name> parameter are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using. 
 $AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.

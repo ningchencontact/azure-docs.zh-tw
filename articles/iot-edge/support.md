@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 平台支援 | Microsoft Docs
-description: Azure IoT Edge 支援的平台
+title: 支援的作業系統、容器引擎 - Azure IoT Edge | Microsoft Docs
+description: 了解哪些作業系統可以執行 Azure IoT Edge 精靈和執行階段，以及針對您生產環境裝置支援的容器引擎
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,14 +8,16 @@ ms.date: 11/07/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 45c5c7245a2af3b0d0e328bfcc43112eaee406ee
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 3c75f50e40f83a4dc6765ae422fbb2458f40d770
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51564998"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100171"
 ---
-# <a name="azure-iot-edge-support"></a>Azure IoT Edge 支援
+# <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支援的系統
+
 有許多方式可尋求 Azure IoT Edge 產品的支援。
 
 **報告 Bug** – Azure IoT Edge 產品大部分的開發都是在 IoT Edge 開放原始碼專案中進行。 您可以在專案的[問題頁面](https://github.com/azure/iotedge/issues)上報告錯誤。 我們也會快速地從專案中找出修正方式，並加入產品更新中。

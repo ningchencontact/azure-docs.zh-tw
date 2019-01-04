@@ -1,7 +1,7 @@
 ---
-title: 如何逐頁瀏覽可用影像 - Bing 影像搜尋 API
+title: 逐頁瀏覽 Bing 影像搜尋 API 傳回的影像
 titleSuffix: Azure Cognitive Services
-description: 了解如何逐頁瀏覽 Bing 可傳回的所有影像。
+description: 在 Bing 影像搜尋 API 傳回的影像不同頁面之間移動。
 services: cognitive-services
 author: swhite-msft
 manager: cgonlun
@@ -11,14 +11,15 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0db8c62bbb4da1a6fa1230b439c5074325bbe9c3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.custom: seodec2018
+ms.openlocfilehash: 69829066e543e5ab3badc4d1d3f77ff3c1d16ffd
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739360"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53259744"
 ---
-# <a name="paging-results"></a>分頁結果
+# <a name="page-through-the-images-results"></a>逐頁瀏覽影像結果
 
 當您呼叫影像搜尋 API 時，Bing 會傳回結果清單。 此清單是查詢相關結果總數的子集。 若要取得可用結果的預估總數，請存取解答物件的 [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) 欄位。  
 

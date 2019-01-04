@@ -3,7 +3,7 @@ title: 對不同結構描述的雲端資料庫執行查詢 | Microsoft Docs
 description: 如何透過垂直資料分割設定跨資料庫查詢
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-scale
+ms.subservice: scale-out
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 5dbf6fb1b59999481348d3b4ad4775a77295b70d
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 75c021f7b2c2584580f2d9dbf30cbcdf11d3fdc5
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238891"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52875360"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>對不同結構描述的雲端資料庫執行查詢 (預覽)
 ![在不同資料庫中跨資料表查詢][1]

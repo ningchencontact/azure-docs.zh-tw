@@ -1,5 +1,5 @@
 ---
-title: 部署 Azure IoT Edge 模組 (VS Code) | Microsoft Docs
+title: 從 Visual Studio Code 部署模組 - Azure IoT Edge | Microsoft Docs
 description: 使用 Visual Studio Code 將模組部署到 IoT Edge 裝置
 author: kgremban
 manager: philmea
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a7f0fc0c3169aadac78609830dda55ae1ec7ea46
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.custom: seodec18
+ms.openlocfilehash: 212f103a356dc3663795a5e5453869c99da3fff9
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567838"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100815"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>從 Visual Studio Code 部署 Azure IoT Edge 模組
 
@@ -109,7 +110,7 @@ ms.locfileid: "51567838"
 
 2. 在總管底部，展開 [Azure IoT 中樞裝置] 區段。 
 
-   ![展開 Azure IoT 中樞裝置](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![展開 [Azure IoT 中樞裝置] 區段](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
 3. 按一下 [Azure IoT 中樞裝置] 區段標題中的 **...**。 若未看到省略符號，請將滑鼠暫留在標題上方。 
 

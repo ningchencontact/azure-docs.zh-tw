@@ -4,18 +4,18 @@ description: Azure Logic Apps 中邏輯應用程式定義的更新後結構描�
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: dd05543c2a727f010432ecb54c2dc3e77a245de4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ec6f98ca0f0260a0d7bed16538f557931cd2e33e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122772"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53080005"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps 的結構描述更新 - 2015 年 8 月 1 日預覽
 
@@ -72,12 +72,16 @@ Microsoft 會代表您管理某些 API，例如 Office 365、Salesforce、Twitte
 }
 ```
 
-`host` 物件是輸入的一部分且對 API 連線是唯一的，並包含這些部分：`api` 和 `connection`。 `api` 物件指定用來裝載該受控 API 的執行階段 URL。 您可以呼叫 `GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`，來查看所有可供使用的受控 API。
+`host` 物件是輸入的一部分且對 API 連線是唯一的，並包含這些部分：`api` 和 `connection`。 `api` 物件指定用來裝載該受控 API 的執行階段 URL。 您可以呼叫下列方法來查看所有可供使用的受控 API：
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 當您使用 API 時，該 API 不一定有定義任何*連接參數*。 因此，如果 API 並未定義這些參數，就不需要任何連線。 如果 API 定義了這些參數，您就必須使用指定的名稱建立連線。  
 您接著會在 `host` 物件內的 `connection` 物件中參考該名稱。 若要在資源群組中建立連線，請呼叫此方法：
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -99,8 +103,8 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ### <a name="deploy-managed-apis-in-an-azure-resource-manager-template"></a>在 Azure Resource Manager 範本中部署受控 API
 
-您可以在 Azure Resource Manager 範本中建立完整的應用程式，但前提是不需進行互動式登入。
-如果需要登入，您可以使用 Azure Resource Manager 範本來設定所有項目，但仍然必須造訪 Azure 入口網站來授權連線。 
+不需進行互動式登入時，您可以使用 Azure Resource Manager 範本來建立完整的應用程式。
+如果需要登入，您仍可使用 Resource Manager 範本，但必須透過 Azure 入口網站進行連線授權。 
 
 ``` json
 "resources": [ {
@@ -194,7 +198,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ### <a name="your-custom-web-apis"></a>您自訂的 Web API
 
-如果您使用自己的 API，不是 Microsoft 管理的 API，則應使用內建 **HTTP** 動作來呼叫它們。 為了獲得理想的體驗，您應該公開您 API 的 Swagger 端點。 這個端點可讓邏輯應用程式設計工具呈現您 API 的輸入和輸出。 如果沒有 Swagger，設計工具就只能將輸入和輸出顯示為不透明的 JSON 物件。
+如果您使用自己的 API，而不是 Microsoft 管理的 API，則應使用內建 **HTTP** 動作來呼叫 API。 在理想情況下，您應提供 API 的 Swagger 端點。 此端點可協助邏輯應用程式設計工具顯示 API 的輸入和輸出。 如果沒有 Swagger 端點，設計工具就只能將輸入和輸出顯示為不透明的 JSON 物件。
 
 下列範例顯示新的 `metadata.apiDefinitionUrl` 屬性：
 
@@ -259,7 +263,7 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 }
 ```
 
-現在，您可以建構如下列範例的同等 HTTP 動作，邏輯應用程式定義的 parameters 區段保持不變：
+現在，您可以建置類似的 HTTP 動作，並將邏輯應用程式定義的 `parameters` 區段保留為原狀，例如：
 
 ``` json
 "actions": {
@@ -407,15 +411,15 @@ PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceG
 
 ## <a name="native-http-listener"></a>原生 HTTP 接聽程式
 
-HTTP 接聽程式功能現在是內建的。 因此您不再需要部署 HTTP 接聽程式 API 應用程式。 請參閱 [這裡有關如何讓您的邏輯應用程式端點可供呼叫的完整詳細資料](../logic-apps/logic-apps-http-endpoint.md)。 
+現已內建 HTTP 接聽程式功能，因此您不再需要部署 HTTP 接聽程式 API 應用程式。 如需詳細資訊，請了解如何[讓您的邏輯應用程式端點可供呼叫](../logic-apps/logic-apps-http-endpoint.md)。 
 
-經過這些變更，我們已移除 `@accessKeys()` 函式，改為以 `@listCallbackURL()` 函式來取得端點 (如果需要)。 此外，您現在必須在邏輯應用程式中至少定義一個觸發程序。 如果您想要 `/run` 工作流程，您必須具備下列其中一個觸發程序：`manual`、`apiConnectionWebhook` 或 `httpWebhook`。
+透過這些變更，Logic Apps 已將 `@accessKeys()` 函式取代為 `@listCallbackURL()` 函式，而可在必要時取得端點。 此外，您現在必須在邏輯應用程式中定義至少一個觸發程序。 如果您想要 `/run` 工作流程，您必須使用下列其中一個觸發程序類型：`Manual`、`ApiConnectionWebhook` 或 `HttpWebhook`
 
 <a name="child-workflows"></a>
 
 ## <a name="call-child-workflows"></a>呼叫子工作流程
 
-在以前，呼叫子工作流程時必須移至該工作流程、取得存取權杖，然後將權杖貼到要呼叫該子工作流程的邏輯應用程式定義中。 在新的結構描述中，Logic Apps 引擎會在執行階段自動為子工作流程產生 SAS，因此您不需要將任何機密資料貼到定義中。 下列是一個範例：
+在以前，呼叫子工作流程時必須移至該工作流程、取得存取權杖，然後將權杖貼到要呼叫該子工作流程的邏輯應用程式定義中。 在這個結構描述中，Logic Apps 引擎會在執行階段自動為子工作流程產生 SAS，因此您不需要將任何秘密貼到定義中。 下列是一個範例：
 
 ``` json
 "myNestedWorkflow": {
@@ -441,9 +445,9 @@ HTTP 接聽程式功能現在是內建的。 因此您不再需要部署 HTTP �
 }
 ```
 
-第二個改進是我們允許子工作流程完整存取內送要求。 這表示您可以將參數傳入 queries 區段和 headers 物件中，而且您可以完整定義整個主體。
+此外，子工作流程可完整存取傳入的要求。 因此，您可以將參數傳入 `queries` 區段和 `headers` 物件中。 您也可以完整定義整個 `body` 區段。
 
-最後是必須對子工作流程進行的變更。 儘管您以前可能會直接呼叫子工作流程，但現在，您必須在工作流程中定義觸發程序端點，以供父工作流程呼叫。 一般而言，您需要新增具有 `manual` 類型的觸發程序，然後在父定義中使用該觸發程序。 請注意，`host` 屬性明確地具有 `triggerName`，因為您一律需指定要叫用的觸發程序。
+最後，子工作流程必須進行這些變更。 儘管您先前可能已直接呼叫子工作流程，但現在，您必須在工作流程中定義觸發程序端點，以供父工作流程呼叫。 一般而言，您需要新增具有 `Manual` 類型的觸發程序，然後在父定義中使用該觸發程序。 `host` 屬性明確地具有 `triggerName`，因為您一律需指定要呼叫的觸發程序。
 
 ## <a name="other-changes"></a>其他變更
 
@@ -453,8 +457,8 @@ HTTP 接聽程式功能現在是內建的。 因此您不再需要部署 HTTP �
 
 ### <a name="renamed-parse-function-to-json"></a>將 'parse()' 函式重新命名為 'json()'
 
-我們很快地將加入更多內容類型，因此已將 `parse()` 函式重新命名為 `json()`。
+針對未來的內容類型，`parse()` 函式現已重新命名為 `json()` 函式。
 
-## <a name="coming-soon-enterprise-integration-apis"></a>敬請期待：企業整合 API
+## <a name="enterprise-integration-apis"></a>企業整合 API
 
-我們還沒有企業整合 API 的受控版本，像是 AS2。 同時，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 
+此結構描述尚不支援企業整合 API 的受控版本，例如 AS2。 不過，您可以透過 HTTP 動作使用現有的已部署 BizTalk API。 如需詳細資訊，請參閱[整合藍圖](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/)中的「使用已部署的 API 應用程式」。 

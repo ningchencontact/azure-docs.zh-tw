@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: eeaa0e9a940f16c2416418959c98cd17e4816afc
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 1a9034d7cbc276f35c5f01b06f6973553222d1c4
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387628"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722372"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>在 Azure Service Fabric 中了解定期備份設定
 
@@ -54,7 +54,7 @@ ms.locfileid: "49387628"
         ```
 
     2. **以時間為基礎的備份排程**：如果需要在當天或當週的特定時間進行資料備份，就應該使用此排程類型。 排程頻率類型可以是每天或每週。
-        1. **每日以時間為基礎的備份排程**：如果需要在當天的特定時間進行資料備份，就應該使用此排程類型。 若要指定此類型，請將 `ScheduleFrequencyType` 設定為 [Daily]；並將 `RunTimes` 設定為一天當中所需的時間 (採用 ISO8601 格式) 清單，將會忽略與時間一起指定的日期。 例如，`0001-01-01T18:00:00` 代表每天「下午 6:00」，並忽略日期部份 0001-01-01。 下面的範例說明要在每天「上午 9:00」和「下午 6:00」觸發每日備份的組態。
+        1. **_每天_ 以時間為基礎的備份排程**：如果需要在當天的特定時間進行資料備份，就應該使用此排程類型。 若要指定此類型，請將 `ScheduleFrequencyType` 設定為 [Daily]；並將 `RunTimes` 設定為一天當中所需的時間 (採用 ISO8601 格式) 清單，將會忽略與時間一起指定的日期。 例如，`0001-01-01T18:00:00` 代表每天「下午 6:00」，並忽略日期部份 0001-01-01。 下面的範例說明要在每天「上午 9:00」和「下午 6:00」觸發每日備份的組態。
 
             ```json
             {
@@ -67,7 +67,7 @@ ms.locfileid: "49387628"
             }
             ```
 
-        2. **每週以時間為基礎的備份排程**：如果需要在當天的特定時間進行資料備份，就應該使用此排程類型。 若要指定此類型，請將 `ScheduleFrequencyType` 設定為 [Weekly]；並將 `RunDays` 設定為一週當中需要觸發備份的星期幾清單，以及將 `RunTimes` 設定為一天當中所需的時間 (採用 ISO8601 格式) 清單，將會忽略與時間一起指定的日期。 一周當中要觸發定期備份的星期幾清單。 下面的範例說明要在週一至週五期間「上午 9:00」和「下午 6:00」觸發每日備份的組態。
+        2. **_每週_ 以時間為基礎的備份排程**：如果需要在當天的特定時間進行資料備份，就應該使用此排程類型。 若要指定此類型，請將 `ScheduleFrequencyType` 設定為 [Weekly]；並將 `RunDays` 設定為一週當中需要觸發備份的星期幾清單，以及將 `RunTimes` 設定為一天當中所需的時間 (採用 ISO8601 格式) 清單，將會忽略與時間一起指定的日期。 一周當中要觸發定期備份的星期幾清單。 下面的範例說明要在週一至週五期間「上午 9:00」和「下午 6:00」觸發每日備份的組態。
 
             ```json
             {
@@ -110,6 +110,7 @@ ms.locfileid: "49387628"
             ```
 
         2. 使用使用者名稱和密碼保護檔案共用，可對特定使用者提供檔案共用的存取權。 檔案共用儲存體規格也可供指定次要使用者名稱和次要密碼，以在使用主要使用者名稱和主要密碼驗證失敗的情況下，提供後援認證。 在此情況下，設定下列欄位，以設定以「檔案共用」為基礎的備份儲存體。
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -125,6 +126,17 @@ ms.locfileid: "49387628"
 > [!NOTE]
 > 確保儲存體可靠性符合或超過備份資料的可靠性需求。
 >
+
+* **保留原則**：指定此原則以在設定的儲存體中保留備份。 僅支援基本保留原則。
+    1. **基本保留原則**：此保留原則能藉由移除不再需要的備份檔案，確保最佳的儲存體使用率。 指定 `RetentionDuration`，即可設定備份必須保留在儲存體中的時間範圍。 `MinimumNumberOfBackups` 是選用參數，加以指定即可確保一律保留指定的備份數目 (不論 `RetentionDuration` 為何)。 下列範例說明保留備份 _10_ 天，而且不允許備份數目低於 _20_ 的組態。
+
+        ```json
+        {
+            "RetentionPolicyType": "Basic",
+            "RetentionDuration" : "P10D",
+            "MinimumNumberOfBackups": 20
+        }
+        ```
 
 ## <a name="enable-periodic-backup"></a>啟用定期備份
 定義可滿足資料備份需求的備份原則之後，應該將該備份原則與應用程式、服務或分割區建立適當關聯。
@@ -178,6 +190,13 @@ ms.locfileid: "49387628"
 * 停用服務的備份原則會阻止所有的定期資料備份發生，這是因為此備份原則傳播到服務的分割區。
 
 * 停用分割區的備份原則會阻止所有的定期資料備份發生，這是由於備份原則屬於分割區範圍。
+
+* 停用 entity(application/service/partition) 的備份時，可將 `CleanBackup` 設定為 _true_，以刪除所設定儲存體中的所有備份。
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## <a name="suspend--resume-backup"></a>暫止與繼續備份
 有些情況可能會要求暫時擱置資料的定期備份。 在這種情況下，根據需求而定，可能會在應用程式、服務或分割區使用暫止備份 API。 定期備份擱置可從其套用點透過應用程式階層的樹狀子目錄轉移。 

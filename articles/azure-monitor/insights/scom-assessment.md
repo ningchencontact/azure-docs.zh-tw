@@ -8,19 +8,17 @@ manager: carmonm
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.component: ''
-ms.openlocfilehash: 1b6f157ce8a184885fcd1cd6bbde912516916db9
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: fc625192464dce174b4c2a6d8a2a98343519699f
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429723"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186118"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 健康情況檢查 (預覽) 解決方案進行環境最佳化
 
@@ -99,7 +97,7 @@ Log Analytics 會建立工作負載的管理套件以提供加值服務。 每�
 2. 在 [散發] 索引標籤上，按一下 [選取的電腦] 方塊的 [新增]，並新增要做為帳戶散發目標的管理伺服器。  按 [確定] 兩次以儲存變更。
 3. 在 [執行身分設定] 下，按一下 [設定檔]。
 4. 搜尋「SCOM 評定設定檔」。
-5. 設定檔名稱應該是︰「Microsoft System Center Advisor SCOM 評定執行身分設定檔」。
+5. 設定檔名稱應該是：Microsoft System Center Advisor SCOM 評定執行身分設定檔。
 6. 以滑鼠右鍵按一下其屬性並更新，然後新增您稍早建立的執行身分帳戶。
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>授與細微權限給執行身分帳戶的 SQL 指令碼
@@ -161,7 +159,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>針對特定的管理伺服器啟用此規則
 
 1. 在 Operations Manager Operations 主控台的 [撰寫] 工作區中，在 [規則] 窗格中搜尋規則「Microsoft System Center Advisor SCOM 評定執行評定規則」。
-2. 在搜尋結果中，選取包含文字「類型︰管理伺服器」的規則。
+2. 在搜尋結果中，選取包含下列文字的規則：類型: 管理伺服器。
 3. 以滑鼠右鍵按一下規則，然後按一下 [覆寫] > [針對以下類別的特定物件: 管理伺服器]。
 4.  在可用的管理伺服器清單中，選取應該執行此規則的管理伺服器。  這應該是您先前所設定，要將執行身分帳戶與其產生關聯的同一個管理伺服器。
 5.  針對 [已啟用] 參數值，務必將覆寫值變更為 [True]。<br><br> ![override parameter](./media/scom-assessment/rule.png)
@@ -173,7 +171,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
 依預設，評定會設為每 10,080 分鐘 (或 7 天) 執行一次。 您可以將值覆寫為最小值 1440 分鐘 (或一天)。 此值代表連續執行評定之間所需的最短時間間隔。 若要覆寫間隔，請使用下列步驟。
 
 1. 在 Operations Manager 主控台的 [撰寫] 工作區中，在 [規則] 區段中搜尋規則「Microsoft System Center Advisor SCOM 評定執行評定規則」。
-2. 在搜尋結果中，選取包含文字「類型︰管理伺服器」的規則。
+2. 在搜尋結果中，選取包含下列文字的規則：類型: 管理伺服器。
 3. 以滑鼠右鍵按一下規則，然後按一下 [覆寫規則] > [針對以下類別的所有物件: 管理伺服器]。
 4. 將 [間隔] 參數值變更為您想要的間隔值。 在下列範例中，此值設為 1440 分鐘 (一天)。<br><br> ![interval parameter](./media/scom-assessment/interval.png)<br>  
 
@@ -238,7 +236,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../../log-analytics/log-analytics-queries.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../../azure-monitor/log-query/log-query-overview.md)，則以上查詢會變更如下。
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -263,7 +261,7 @@ System Center Operations Manager 健康情況檢查解決方案的管理套件�
     ```
 
     >[!NOTE]
-    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../../log-analytics/log-analytics-queries.md)，則以上查詢會變更如下。
+    > 如果您的工作區已升級為[新的 Log Analytics 查詢語言](../../azure-monitor/log-query/log-query-overview.md)，則以上查詢會變更如下。
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -304,4 +302,4 @@ AdvisorAssessment.exe 程序在哪裡執行？ AdvisorAssessment.exe 會在啟�
 
 ## <a name="next-steps"></a>後續步驟
 
-- [搜尋記錄](../../log-analytics/log-analytics-queries.md)可讓您了解如何分析詳細的 System Center Operations Manager 健康情況檢查資料和建議。
+- [搜尋記錄](../../azure-monitor/log-query/log-query-overview.md)可讓您了解如何分析詳細的 System Center Operations Manager 健康情況檢查資料和建議。

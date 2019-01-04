@@ -1,21 +1,19 @@
 ---
-title: 資料庫安全性 - Azure Cosmos DB | Microsoft Docs
+title: 資料庫安全性 - Azure Cosmos DB
 description: 了解 Azure Cosmos DB 如何為您的資料提供資料庫保護和資料安全性。
 keywords: nosql 資料庫安全性, 資訊安全性, 資料安全性, 資料庫加密, 資料庫保護, 安全性原則, 安全性測試
 services: cosmos-db
 author: rafats
-manager: kfile
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rafats
-ms.openlocfilehash: 11e1a6d8c0a21c64c38ca1d9cb0583c75056dd08
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 0ffd07269570b26b527286f1a0b5a57a6b5c6018
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620501"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093415"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB 資料庫安全性
 
@@ -49,7 +47,7 @@ ms.locfileid: "52620501"
 - 實際保護受保護資料中心內的伺服器
 - 認證
 
-雖然看似明顯，但最新的[大規模資料庫缺口](http://thehackernews.com/2017/01/mongodb-database-security.html)提醒我們注意以下這些簡單但很重要的需求︰
+雖然看似明顯，但最新的[大規模資料庫缺口](https://thehackernews.com/2017/01/mongodb-database-security.html)提醒我們注意以下這些簡單但很重要的需求︰
 - 修補伺服器以保持最新狀態
 - 預設為 HTTPS/SSL 加密
 - 使用強式密碼的系統管理帳戶
@@ -77,10 +75,10 @@ ms.locfileid: "52620501"
 |異地隔離|Azure Cosmos DB 可確保主權區域 (例如，德國、中國、US Gov) 的資料控管。|
 |受保護的設施|Azure Cosmos DB 中的資料儲存在 Azure 受保護資料中心內的 SSD 上。<br><br>請參閱 [Microsoft 全球資料中心](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)以深入了解|
 |HTTPS/SSL/TLS 加密|用戶端對服務的所有 Azure Cosmos DB 互動都支援 SSL/TLS 1.2。 此外，資料中心內和跨資料中心的所有複寫也都強制使用 SSL/TLS 1.2。|
-|待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](.\database-encryption-at-rest.md)|
+|待用加密|所有儲存至 Azure Cosmos DB 的資料都會進行待用加密。 若要深入了解，請參閱 [Azure Cosmos DB 待用加密](./database-encryption-at-rest.md)|
 |修補的伺服器|Azure Cosmos DB 是受控資料庫，會自動替您管理和修補伺服器。|
 |使用強式密碼的系統管理帳戶|很難相信我們需要提到這個需求，但是與一些競爭者不同，Azure Cosmos DB 中的系統管理帳戶一定會有密碼。<br><br> 依預設已內建透過 SSL 和 HMAC 密碼型驗證的安全性。|
-|安全性和資料保護認證|如需最新的認證清單，請參閱整體 [Azure 合規性網站](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)以及最新的 [Azure 合規性文件](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，內含所有認證 (請搜尋 Cosmos)。 如需更深入的資訊，請閱讀 2018 年 4 月 25 日的貼文 [Azure #CosmosDB: Secure, private, compliant](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) (Azure #CosmosDB：安全、私密、符合規範)，其中包含 SOCS 1/2 Type 2、HITRUST, PCI DSS Level 1、ISO 27001、HIPAA、FedRAMP High 和其他許多資訊。
+|安全性和資料保護認證|如需最新的認證清單，請參閱整體 [Azure 合規性網站](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)以及最新的 [Azure 合規性文件](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)，內含所有認證 (請搜尋 Cosmos)。 如需更深入的資訊，請閱讀 2018 年 4 月 25 日的貼文 [Azure #CosmosDB：安全、私密、符合規範](https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/) \(英文\)，其中包含 SOCS 1/2 Type 2、HITRUST, PCI DSS Level 1、ISO 27001、HIPAA、FedRAMP High 和其他許多資訊。
 
 以下螢幕擷取畫面顯示在 Azure 入口網站中使用存取控制 (IAM) 的 Active directory 整合 (RBAC)：![Azure 入口網站中的存取控制 (IAM) - 示範資料庫安全性](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

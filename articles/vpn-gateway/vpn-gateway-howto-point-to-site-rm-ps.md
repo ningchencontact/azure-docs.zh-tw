@@ -5,16 +5,16 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/30/2018
 ms.author: cherylmc
-ms.openlocfilehash: ced92cd28c12443234b47353548a9c968cc175ac
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c579bb32fdd43c95f027e6c9f5a6ef656d059d60
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095581"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52847400"
 ---
-# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
+# <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>請使用原生 Azure 憑證驗證設定 VNet 的點對站連線：PowerShell
 
 本文可協助您將執行 Windows 或 Mac OS X 的個別用戶端安全地連線至 Azure VNet。 當您想要從遠端位置 (例如當您從住家或會議進行遠距工作) 連線到您的 VNet 時，點對站 VPN 連線很實用。 如果您只有少數用戶端必須連線至 VNet，您也可以使用 P2S，而不使用站對站 VPN。 點對站連線不需要 VPN 裝置或公眾對應 IP 位址。 P2S 會建立透過 SSTP (安全通訊端通道通訊協定) 或 IKEv2 的 VPN 連線。 如需點對站 VPN 的詳細資訊，請參閱[關於點對站 VPN](point-to-site-about.md)。
 
@@ -39,12 +39,12 @@ ms.locfileid: "50095581"
 
 您可以使用範例值來建立測試環境，或參考這些值來進一步了解本文中的範例。 本文的第 [1](#declare) 節會設定變數。 您可以使用這些步驟做為逐步解說並使用未經變更的值，或變更這些值以反映您的環境。
 
-* **名稱：VNet1**
+* **Name：VNet1**
 * **位址空間：192.168.0.0/16** 和 **10.254.0.0/16**<br>此範例使用一個以上的位址空間來說明此組態可以與多個位址空間搭配使用。 不過，此組態不需要多個位址空間。
-* **子網路名稱：FrontEnd**
-  * **子網路位址範圍：192.168.1.0/24**
-* **子網路名稱：BackEnd**
-  * **子網路位址範圍：10.254.1.0/24**
+* **子網路名稱：前端**
+  * **子網路位址範圍︰192.168.1.0/24**
+* **子網路名稱：後端**
+  * **子網路位址範圍︰10.254.1.0/24**
 * **子網路名稱：GatewaySubnet**<br>子網路名稱 *GatewaySubnet* 是 VPN 閘道能夠運作的必要項目。
   * **閘道子網路位址範圍：192.168.200.0/24** 
 * **VPN 用戶端位址集區：172.16.201.0/24**<br>使用這個點對站連線來連線到 VNet 的 VPN 用戶端，會收到來自 VPN 用戶端位址集區的 IP 位址。
@@ -60,22 +60,13 @@ ms.locfileid: "50095581"
 
 在此區段中，您可以登入並宣告用於此組態的值。 在範例指令碼中，會使用宣告的值。 請變更相關值以反映自己的環境。 或者，可以使用宣告的值並執行各步驟做為練習。
 
-1. 以提高的權限開啟 PowerShell 主控台並登入您的 Azure 帳戶。 此 Cmdlet 會提示您提供登入認證。 登入之後，它會下載您的帳戶設定以供 Azure PowerShell 使用。 如果您未在本機執行 PowerShell，而改為在瀏覽器中使用 Azure Cloud Shell 的 [試用]，則可跳到這一節的步驟 2。
+### <a name="sign-in"></a>登入
 
-  ```azurepowershell
-  Connect-AzureRmAccount
-  ```
-2. 取得您的 Azure 訂用帳戶清單。
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps login.md)]
 
-  ```azurepowershell-interactive
-  Get-AzureRmSubscription
-  ```
-3. 指定您要使用的訂用帳戶。
+### <a name="declare-variables"></a>宣告變數
 
-  ```azurepowershell-interactive
-  Select-AzureRmSubscription -SubscriptionName "Name of subscription"
-  ```
-4. 宣告您想要使用的變數。 使用以下範例，在需要時將該值替換為您自己的值。
+宣告您想要使用的變數。 使用以下範例，在需要時將該值替換為您自己的值。
 
   ```azurepowershell-interactive
   $VNetName  = "VNet1"
@@ -408,4 +399,4 @@ VPN 用戶端組態檔所包含的設定，可用來將裝置設定為透過 P2S
 ## <a name="next-steps"></a>後續步驟
 一旦完成您的連接，就可以將虛擬機器加入您的虛擬網路。 如需詳細資訊，請參閱[虛擬機器](https://docs.microsoft.com/azure/#pivot=services&panel=Compute)。 若要了解網路與虛擬機器的詳細資訊，請參閱 [Azure 與 Linux VM 網路概觀](../virtual-machines/linux/azure-vm-network-overview.md)。
 
-如需 P2S 疑難排解詳細資訊，請參閱[疑難排解：Azure 點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
+如需有關為 P2S 疑難排解的資訊，請參閱[疑難排解：Azure 點對站連線問題](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。

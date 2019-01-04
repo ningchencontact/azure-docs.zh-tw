@@ -1,27 +1,31 @@
 ---
-title: Media Encoder Standard 格式和轉碼器
+title: 媒體編碼器標準格式和轉碼器 - Azure
 description: 本主題提供媒體編碼器標準格式和轉碼器的概觀。
 services: media-services
 documentationcenter: ''
 author: juliako
 manager: femila
 editor: ''
-ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 12/12/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: fe1d681fa5f9ab49fec9112398ed03c87c975176
+ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255705"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53384729"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Media Encoder Standard 格式和轉碼器
+
+> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
+> * [第 2 版](media-services-media-encoder-standard-formats.md)
+> * [第 3 版](../latest/media-encoder-standard-formats.md)
+
 本文件包含您可以在 Media Encoder Standard 中使用的常見匯入和匯出檔案格式清單。
 
 ## <a name="input-containerfile-formats"></a>輸入容器/檔案格式
@@ -52,8 +56,6 @@ Media Encoder Standard 支援在輸入容器中帶有下列音訊格式：
 或
 
 * MXF、GXF 及 QuickTime 檔案，其中該音訊當做個別的 PCM 曲目攜帶，但可從檔案中繼資料推算通道對應 (立體聲或 5.1)
-
-將在不久的將來提供明確/使用者提供的通道對應支援。
 
 ## <a name="input-video-codecs"></a>輸入視訊轉碼器
 | 輸入視訊轉碼器 | 支援 |

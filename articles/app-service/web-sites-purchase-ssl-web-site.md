@@ -1,5 +1,5 @@
 ---
-title: 購買及設定 Azure App Service 的 SSL 憑證 | Microsoft Docs
+title: 購買及設定 Azure 的 SSL 憑證 - App Service | Microsoft Docs
 description: 了解如何購買 App Service 憑證並將它繫結至您的 App Service 應用程式
 services: app-service
 documentationcenter: .net
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: c775798591a3063fdfe6d399c8337aac2e2f207e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.custom: seodec18
+ms.openlocfilehash: ff2fd2c9b66cc9c80087ab5009ee65c0ba73714b
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351349"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268711"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>購買及設定 Azure App Service 的 SSL 憑證
 
@@ -48,7 +49,7 @@ ms.locfileid: "49351349"
 
 | 設定 | 說明 |
 |-|-|
-| 名稱 | App Service 憑證的易記名稱。 |
+| Name | App Service 憑證的易記名稱。 |
 | 裸網域主機名稱 | 這是購買程序的其中一個最重要的步驟。 使用您已對應至應用程式的根網域名稱。 請「勿」在網域名稱前面加上 `www`。 |
 | 訂用帳戶 | 裝載 Web 應用程式的資料中心。 |
 | 資源群組 | 包含憑證的資源群組。 您可以使用新的資源群組，或為您的 App Service 應用程式選取相同的資源群組。 |
@@ -69,7 +70,7 @@ ms.locfileid: "49351349"
 
 | 設定 | 說明 |
 |-|-|
-| 名稱 | 包含英數字元和虛線的唯一名稱。 |
+| Name | 包含英數字元和虛線的唯一名稱。 |
 | 資源群組 | 建議選取相同的資源群組作為您的 App Service 憑證。 |
 | 位置 | 選取與 App Service 應用程式相同的位置。 |
 | 定價層 | 如需詳細資訊，請參閱 [Azure Key Vault 定價詳細資料](https://azure.microsoft.com/pricing/details/key-vault/)。 |
@@ -114,7 +115,7 @@ ms.locfileid: "49351349"
 |-|-|
 | 主機名稱 | 要新增 SSL 繫結的網域名稱。 |
 | 私人憑證指紋 | 要繫結的憑證。 |
-| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](http://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
+| SSL 類型 | <ul><li>**SNI SSL** - 可能會新增多個以 SNI 為基礎的 SSL 繫結。 此選項可允許多個 SSL 憑證保護同一個 IP 位址上的多個網域。 大多數現代化的瀏覽器 (包括 Internet Explorer、Chrome、Firefox 和 Opera) 都支援 SNI (可在[伺服器名稱指示](https://wikipedia.org/wiki/Server_Name_Indication)找到更完整的瀏覽器支援資訊)。</li><li>**以 IP 為基礎的 SSL**：可能只會新增一個以 IP 為基礎的 SSL 繫結。 此選項只允許一個 SSL 憑證保護專用的公用 IP 位址。 設定繫結之後，請依照[為 IP SSL 重新對應 A 記錄](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl)中的步驟執行。 </li></ul> |
 
 ## <a name="verify-https-access"></a>驗證 HTTPS 存取
 
@@ -147,11 +148,11 @@ ms.locfileid: "49351349"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>其他資源
 

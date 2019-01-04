@@ -1,25 +1,23 @@
 ---
-title: Azure Cosmos DB：SQL Python API、SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB：SQL Python API、SDK 和資源
 description: 了解所有 SQL Python API 和 SDK 相關資訊，包括發行日期、停用日期及 Azure Cosmos DB Python SDK 每個版本之間所做的變更。
 services: cosmos-db
 author: rnagpal
-manager: kfile
-editor: cgronlun
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
-ms.date: 9/24/2018
+ms.date: 11/29/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bfe815b9664e499f7ae458dfc42b88199e0ecb4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cf796466d8d4156eb442e6b0d1b51cb70d0d30f3
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037927"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53337082"
 ---
-# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Python SDK for SQL API：版本資訊與資源
+# <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>適用於 SQL API 的 Azure Cosmos DB Python SDK：版本資訊和資源
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 變更摘要](sql-api-sdk-dotnet-changefeed.md)
@@ -30,7 +28,7 @@ ms.locfileid: "47037927"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -38,7 +36,7 @@ ms.locfileid: "47037927"
 
 <tr><td>**下載 SDK**</td><td>[PyPI](https://pypi.org/project/azure-cosmos)</td></tr>
 
-<tr><td>**API 文件**</td><td>[Python API 參考文件](https://docs.microsoft.com/python/api/azure-cosmos)</td></tr>
+<tr><td>**API 文件**</td><td>[Python API 參考文件](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python)</td></tr>
 
 <tr><td>**SDK 安裝指示**</td><td>[SDK 安裝指示](https://github.com/Azure/azure-cosmos-python)</td></tr>
 
@@ -51,10 +49,28 @@ ms.locfileid: "47037927"
 
 ## <a name="release-notes"></a>版本資訊
 
+### <a name="a-name302302"></a><a name="3.0.2"/>3.0.2
+* 新增對 MultiPolygon 資料類型的支援
+* 修正工作階段讀取重試原則中的錯誤 (bug)
+* 修正在 Base 64 字串解碼期間造成錯誤填補問題的錯誤 (bug)
+
+### <a name="a-name301301"></a><a name="3.0.1"/>3.0.1
+* 修正 LocationCache 中的錯誤 (bug)
+* 修正端點重試邏輯的錯誤 (bug)
+* 修正文件
+
 ### <a name="a-name300300"></a><a name="3.0.0"/>3.0.0
 * 多重區域寫入支援。
 * 命名空間已變更為 azure.cosmos。
 * 集合及文件概念已重新命名為容器及項目，document_client 已重新命名為 cosmos_client。 
+
+### <a name="a-name233233"></a><a name="2.3.3"/>2.3.3
+* 新增對 Proxy 的支援
+* 新增對讀取變更摘要的支援
+* 新增對集合配額標頭的支援
+* 修正造成大型工作階段權杖問題的錯誤 (bug)
+* 修正 ReadMedia API 的錯誤 (bug)
+* 修正分割區索引鍵範圍快取中的錯誤 (bug)
 
 ### <a name="a-name232232"></a><a name="2.3.2"/>2.3.2
 * 已新增對連線問題預設重試次數的支援。
@@ -145,6 +161,9 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [3.0.2](#3.0.2) |2018 年 11 月 15 日 |--- |
+| [3.0.1](#3.0.1) |2018 年 10 月 4 日 |--- |
+| [2.3.3](#2.3.3) |2018 年 9 月 8 日 |--- |
 | [2.3.2](#2.3.2) |2018 年 5 月 8 日 |--- |
 | [2.3.1](#2.3.1) |2017 年 12 月 21 日 |--- |
 | [2.3.0](#2.3.0) |2017 年 11 月 10 日 |--- |

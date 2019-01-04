@@ -12,18 +12,18 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/19/2018
-ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fb9332832f46dc5c39bf932ce91cd3d3f3d7354f
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470654"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269612"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database 邏輯伺服器與其管理方式
 
 ## <a name="what-is-an-azure-sql-logical-server"></a>什麼是 Azure SQL 邏輯伺服器
 
-邏輯伺服器可作為多個或單一[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)及[容錯移轉群組](sql-database-geo-replication-overview.md)的中央管理點。 邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。
+邏輯伺服器可作為多個或單一[集區](sql-database-elastic-pool.md)資料庫、[登入](sql-database-manage-logins.md)、[防火牆規則](sql-database-firewall-configure.md)、[稽核規則](sql-database-auditing.md)、[威脅偵測原則](sql-database-threat-detection.md)及[容錯移轉群組](sql-database-auto-failover-group.md)的中央管理點。邏輯伺服器可以位於與其資源群組不同的區域中。 邏輯伺服器必須先存在，才能建立 Azure SQL Database。 伺服器上所有的資料庫都會在與邏輯伺服器相同的區域內建立。
 
 邏輯伺服器是一個邏輯建構，不同於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。 具體來說，SQL Database 服務對於其邏輯伺服器相關之資料庫位置不提供任何保證，且不公開任何執行個體層級存取權或功能。 對比之下，「SQL Database 受控執行個體」中的伺服器則類似於您可能已熟悉運用在內部部署世界中的 SQL Server 執行個體。
 

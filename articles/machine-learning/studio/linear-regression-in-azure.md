@@ -5,9 +5,8 @@ metakeywords: ''
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 417ae6ab-de4f-4bdd-957a-d96133234656
 ms.service: machine-learning
@@ -17,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: d7ff9e157f776ebf683846652fe4788fc35e19af
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: c449e86e1ba33425212313103715b8fe48278496
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311053"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276668"
 ---
 # <a name="using-linear-regression-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中使用線性迴歸
 > *Kate Baroni* 和 *Ben Boatman* 是 Microsoft 的 Data Insights Center of Excellence 的企業解決方案架構設計人員。 在本文章中，他們將說明使用 Azure Machine Learning 將現有的迴歸分析套件移轉至雲端式解決方案的經驗。 
@@ -31,7 +30,7 @@ ms.locfileid: "52311053"
 
 &nbsp; 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="goal"></a>目標
 我們的專案開始時有兩個目標： 
@@ -74,7 +73,7 @@ ms.locfileid: "52311053"
 
 * 當您在 Machine Learning Studio 中使用[線性迴歸][linear-regression]模組時，我們提供兩種方法：
   * 線上梯度下降：可能比較適合較大規模的問題
-  * 一般最小平方：這是大多數人聽到線性迴歸時會想到的方法。 對於小型資料集，一般最小平方是較佳的選擇。
+  * 普通最小平方：這是大多數人聽到線性迴歸時會想到的方法。 對於小型資料集，一般最小平方是較佳的選擇。
 * 考慮調整 L2 正規化加權參數，以改善效能。 它預設設定為 0.001，但對我們的小型資料集，請將它設定為 0.005 以改善效能。 
 
 ### <a name="mystery-solved"></a>謎題解開了！
@@ -86,7 +85,7 @@ ms.locfileid: "52311053"
 | 學習模組 |Excel -> 資料分析 -> 迴歸 |線性迴歸。 |線性迴歸 |
 | 學習模組選項 |N/A |預設值 |普通最小平方<br />L2 = 0.005 |
 | 資料集 |26 個資料列，3 個功能，1 個標籤。 全部數值。 |相同 |相同 |
-| 分割：訓練 |Excel 會在前 18 個資料列上訓練，在最後 8 個資料列上測試。 |相同 |相同 |
+| 分割：定型 |Excel 會在前 18 個資料列上訓練，在最後 8 個資料列上測試。 |相同 |相同 |
 | 分割：測試 |Excel 迴歸公式會套用至最後 8 個資料列 |相同 |相同 |
 | **效能** | | | |
 | 調整 R 平方 |0.96 |N/A | |
@@ -145,7 +144,7 @@ ms.locfileid: "52311053"
 
 * Excel 中的迴歸。 如果您從未嘗試過使用 Excel 進行迴歸，此教學課程可讓您輕鬆地完成：[http://www.excel-easy.com/examples/regression.html](http://www.excel-easy.com/examples/regression.html)
 * 迴歸與預測。 Tyler Chessman 撰寫部落格文章，說明如何在 Excel 中執行時間序列預測，其中包含初學者適用的良好線性迴歸描述。 [http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts](http://sqlmag.com/sql-server-analysis-services/understanding-time-series-forecasting-concepts) 
-* 一般最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* 普通最小平方線性迴歸：缺點、問題和陷阱。 如需迴歸的簡介與討論：[http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](http://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 [1]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-1.png
 [2]: ./media/linear-regression-in-azure/machine-learning-linear-regression-in-azure-2.png

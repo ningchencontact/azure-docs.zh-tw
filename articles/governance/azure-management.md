@@ -5,51 +5,52 @@ author: DCtheGeek
 manager: carmonm
 ms.service: governance
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: 180b0cb9f52858d9b0f079ea711fd5ccab738ecf
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: f417338205b17c8b949156a6d5a60ef609458fc1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582268"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53088131"
 ---
 # <a name="management-in-azure"></a>在 Azure 中管理
 
-在 Azure 中治理是 Azure 管理的其中一個層面。 本文簡要說明部署和維護 Azure 中應用程式和資源所需的各種管理範圍，並提供快速入門文件的連結。
+在 Azure 中治理是 Azure 管理的其中一個層面。 本文說明在 Azure 中部署及維護資源的各種管理領域。
 
-管理是指維護商務應用程式與支援商務應用程式的資源所需的工作和流程。 Azure 具備多項服務和工具，可共同運作以完整管理在 Azure 中執行的應用程式，也能顧及其他雲端和內部部署中執行的應用程式。 若要設計完整的管理環境，首先必須了解各種可用的工具，以及如何依不同的管理案例搭配使用各項工具。
+管理是指維護商務應用程式與支援商務應用程式的資源所需的工作和流程。 Azure 有許多可搭配運作以提供完整管理能力的服務和工具。 這些服務不僅適用於 Azure 中的資源，也可在其他雲端和內部部署使用。 了解各種工具及其搭配運作的方式，是設計完整管理環境的首要步驟。
 
-下圖說明維護應用程式或資源所需的不同管理範圍。 您可將這些不同的範圍想像成生命週期，而在資源存留期間將需要這些持續連接的生命週期。 生命週期會從初始部署開始，經過持續的作業，最終遭到淘汰。
+下圖說明維護應用程式或資源所需的不同管理範圍。 您可以將這些不同的區域視為生命週期。 在資源的存留期間內，各個領域必須接續進行。 此一資源生命週期始於最初的部署，在經歷持續的作業後，因遭到淘汰而告終。
 
-![管理功能](../monitoring/media/management-overview/management-capabilities.png)
+![管理專業領域](../monitoring/media/management-overview/management-capabilities.png)
 
-沒有單一的 Azure 服務能完全符合特定管理範圍的需求，但搭配多項服務就能做到這點。 某些服務會提供具有針對性的功能，像是可用來監視 Web 應用程式的 Application Insights。 其他服務則會提供類似 Log Analytics 的通用功能，可以為其他服務儲存管理資料，讓您分析由不同服務所收集的不同類型資料。
+沒有單一 Azure 服務能完全符合特定管理領域的需求。 必須在多項服務的搭配運作下，才能符合這些需求。 某些服務可提供針對 Web 應用程式進行監視的功能，例如 Application Insights。 有些服務則可儲存其他服務的管理資料，例如 Log Analytics。 這項功能可讓您對不同服務所收集的不同資料類型進行分析。
 
 下列各節簡短描述不同的管理範圍，並針對處理管理範圍，提供主要 Azure 服務詳細內容的連結。
 
 ## <a name="monitor"></a>監視
 
-監視係指收集和分析資料來判斷您商務應用程式及其相依資源之效能、健康情況和可用性的行為。 有效的監視策略將可協助您了解應用程式不同元件的詳細作業，並主動通知您重大問題，讓您能夠在這些問題變成問題之前便將其解決，以提升正常運作時間。 [監視 Azure 應用程式和資源](../monitoring/monitoring-overview.md)提供了 Azure 中監視的概觀，可識別監視策略所使用的各種服務。
+監視係指經由收集和分析資料來稽核資源的效能、健康情況和可用性的行為。 有效的監視策略可協助您了解您元件的運作情形，並透過通知增加您的有效運作時間。 請經由[監視 Azure 應用程式和資源](../monitoring/monitoring-overview.md)參閱監視的概觀，以了解所使用的各種服務。
 
 ## <a name="configure"></a>設定
 
-設定是指應用程式及資源的初始部署和設定，以及透過修補程式和更新所持續進行的維護。 您可以透過指令碼和原則將這些工作自動化，以免於重複進行各項工作、將投注的時間及精力降至最低，並增加正確性和效率。 [Azure 自動化](..\automation\automation-intro.md)提供自動化設定工作的主要服務。 它除了讓流程自動化的 Runbook，還提供設定和更新管理，可協助您透過原則管理設定，以及協助識別和部署更新。
+設定是指資源的初始部署和設定，以及持續進行的維護。
+您可以將這些工作自動化，以免於重複進行各項工作、將投注的時間及精力降至最低，並增加正確性和效率。 [Azure 自動化](../automation/automation-intro.md)提供自動化設定工作的主要服務。 Runbook 可處理程序的自動化，而組態和更新管理則有助於您管理組態。
 
 ## <a name="govern"></a>治理
 
 治理提供多項機制和流程，以便維持控制 Azure 中的應用程式與資源。 它同時也涉及規劃您的新措施，以及設定策略層級的優先順序。
-在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](../azure-policy/azure-policy-introduction.md)可讓您建立、指派和管理會對資源強制執行不同規則和動作的原則定義，讓這些資源能符合公司標準和服務等級協定的規範。 針對您的 Azure 資源及包含 AWS 和 Google 在內的其他雲端服務提供者，[Cloudyn 的 Azure 成本管理](../cost-management/overview.md)可讓您追蹤雲端使用量和費用。
+在 Azure 中的治理主要是透過兩個服務進行實作。 [Azure 原則](./policy/overview.md)可讓您建立、指派和管理原則定義，以強制執行資源的規則。 此功能可確保這些資源能夠符合公司的標準規範。 針對您的 Azure 資源和其他雲端服務提供者，[Cloudyn 的 Azure 成本管理](../cost-management/overview.md)可讓您追蹤雲端使用量和費用。
 
 ## <a name="secure"></a>安全
 
-管理應用程式、資源與資料的安全性涉及多種動作的組合，其中包括評估威脅、收集並分析安全性資料，以及確保您的應用程式與資源是以安全方式來設計及設定的。 安全性監視和威脅分析是由 Azure 資訊安全中心所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 另請參閱 [Azure 安全性簡介](../security/azure-security.md)，了解 Azure 中更完整的安全性資訊，以及安全地設定 Azure 資源的指導方針。
+管理資源和資料的安全性。 安全性計畫包括評估威脅、收集和分析資料，以及確保應用程式和資源的合規性。 安全性監視和威脅分析由 [Azure 資訊安全中心](../security-center/security-center-intro.md)所提供，其中包含跨混合式雲端工作負載的整合式安全性管理和進階威脅保護。 請參閱 [Azure 安全性簡介](../security/azure-security.md)，以取得與保護 Azure 資源有關的完整資訊和指導方針。
 
 ## <a name="protect"></a>Protect
 
-保護是指即使發生了您無法控制的中斷意外，也能確保您的應用程式和資料永遠都可以使用。 Azure 中的保護是由兩個服務提供。 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性與立即復原，以確保應用程式的高可用性。
+保護是指即使發生了您無法控制的中斷狀況，也能確保應用程式和資料的可用性。 Azure 中的保護是由兩個服務提供。 [Azure 備份](../backup/backup-introduction-to-azure-backup.md)提供雲端或內部部署中資料的備份和復原。 [Azure Site Recovery](../site-recovery/site-recovery-overview.md) 可在災害發生時提供商務持續性和立即復原的能力。
 
 ## <a name="migrate"></a>移轉
 
 移轉是指將目前正在內部部署環境中執行的工作負載轉換至 Azure 雲端。
-[Azure Migrate](../migrate/migrate-overview.md) 是一項服務，可協助您評估移轉適用性，包括將內部部署虛擬機器移轉至 Azure 時，以效能為基礎的規模調整和成本預估。 Azure Site Recovery 可協助您[從內部部署](../site-recovery/migrate-tutorial-on-premises-azure.md)或[從 Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md) 實際移轉虛擬機器。 [Azure 資料庫移轉](../dms/dms-overview.md)會協助您將多個資料庫來源移轉至 Azure 資料平台。
+[Azure Migrate](../migrate/migrate-overview.md) 是一項服務，可協助您評估將內部部署虛擬機器移轉至 Azure 的移轉適用性。 Azure Site Recovery 可[從內部部署](../site-recovery/migrate-tutorial-on-premises-azure.md)或[從 Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md) 移轉虛擬機器。 [Azure 資料庫移轉](../dms/dms-overview.md)可協助您將資料庫來源移轉至 Azure 資料平台。

@@ -6,45 +6,86 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 10/29/2018
-ms.openlocfilehash: 1a8396f91f1e6f863d99be17dc8d00133a1bdd3a
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.date: 12/12/2018
+ms.openlocfilehash: 748f4e56b4b7fa52928f8f6507960ec35b5fe6e5
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52162527"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53314392"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>針對行動服務推送安裝問題進行疑難排解
 
-安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合必要條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因
+安裝行動服務是啟用複寫期間的關鍵步驟。 此步驟的成功與否僅取決於是否符合必要條件，以及使用支援的設定。 您在行動服務安裝期間最常面臨的失敗是因為以下原因：
 
 * 認證/權限錯誤
+* 登入失敗
 * 連線錯誤
 * 不支援的作業系統
 * VSS 安裝失敗
 
 當您啟用複寫時，Azure Site Recovery 會嘗試推送您虛擬機器上的安裝行動服務代理程式。 在這個過程中，組態伺服器會嘗試與虛擬機器連線，並複製代理程式。 若要啟用成功的安裝，請遵循下面所列的逐步疑難排解指引。
 
-## <a name="credentials-check-errorid-95107--95108"></a>認證檢查 (錯誤碼：95107 & 95108)
+## <a name="credentials-check-errorid-95107--95108"></a>認證檢查 (錯誤識別碼：95107 & 95108)
 
 * 確認啟用複寫期間所選擇的使用者帳戶是否**有效且精確**。
-* Azure Site Recovery 需要 [系統管理員權限] 才能執行推送安裝。
-  * 針對 Windows，請確認使用者帳戶是否具有來源機器上的系統管理存取權 (本機或網域)。
+* Azure Site Recovery 需要**根**帳戶或具備**系統管理員權限**的使用者帳戶，才能執行推送安裝。 否則，來源機器上將會封鎖推送安裝。
+  * 針對 Windows (**錯誤 95107**)，請確認使用者帳戶是否具有來源機器上的系統管理存取權 (本機或網域)。
   * 如果您未使用網域帳戶，必須停用本機電腦上的遠端使用者存取控制。
     * 若要停用遠端使用者存取控制，請在 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 登錄機碼之下，新增 DWORD：LocalAccountTokenFilterPolicy。 將值設定為 1。 若要執行此步驟，請從命令提示字元處執行下列命令：
 
          `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
-  * 針對 Linux，您必須選擇根帳戶，才能成功安裝行動代理程式。
+  * 針對 Linux (**錯誤 95108**)，您必須選擇根帳戶，才能成功安裝行動代理程式。 此外，SFTP 服務應執行。 在 sshd_config 檔案中啟用 SFTP 子系統與密碼驗證：
+    1. 以 root 的身分登入。
+    2. 前往 /etc/ssh/sshd_config 檔案，找到以 PasswordAuthentication 開頭這一行。
+    3. 取消該行的註解，並將值變更為 yes。
+    4. 找到以 Subsystem 開頭這一行，並取消其註解。
+    5. 重新啟動 sshd 服務。
 
 如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
 
-## <a name="connectivity-check-errorid-95117--97118"></a>**連線能力檢查 (錯誤碼：95117 & 97118)**
+## <a name="insufficient-privileges-failure-errorid-95517"></a>權限不足失敗 (錯誤識別碼：95517)
+
+如果選擇安裝行動代理程式的使用者沒有系統管理員權限，將不會允許設定伺服器/相應放大處理序伺服器將行動代理程式軟體複製到來源機器。 因此，此錯誤是存取遭拒失敗的結果。 請確定使用者帳戶具備系統管理員權限。
+
+如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
+
+## <a name="insufficient-privileges-failure-errorid-95518"></a>權限不足失敗 (錯誤識別碼：95518)
+
+在嘗試登入來源機器時，如果主要網域和工作站之間的網域信任關係建立失敗，行動代理程式安裝就會失敗，錯誤識別碼為 95518。 因此，請確定用來安裝行動代理程式的使用者帳戶具備系統管理權限，才能透過來源機器的主要網域登入。
+
+如果您想要修改所選使用者帳戶的認證，請遵循[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)所提供的指示。
+
+## <a name="login-failure-errorid-95519"></a>登入失敗 (錯誤識別碼：95519)
+
+啟用複寫期間選擇的使用者帳戶已經停用。 若要啟用使用者帳戶，請參閱[這篇文章](https://aka.ms/enable_login_user)，或使用實際的使用者名稱取代 *username* 以執行以下命令。
+`net user 'username' /active:yes`
+
+## <a name="login-failure-errorid-95520"></a>登入失敗 (錯誤識別碼：95520)
+
+多次重試存取機器失敗將會導致使用者帳戶遭到鎖定。 失敗原因可能是：
+
+* 在組態設定期間提供的認證不正確，或
+* 啟用複寫期間選擇的使用者帳戶是錯的
+
+因此，請依照[此處](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)提供的指示修改選擇的認證，然後在一段時間之後重試作業。
+
+## <a name="login-failure-errorid-95521"></a>登入失敗 (錯誤識別碼：95521)
+
+當來源機器上無法使用登入伺服器時，就會發生此錯誤。 無法使用登入伺服器會導致登入要求失敗，因此無法安裝行動代理程式。 若要成功登入，請確定來源機器上可以使用登入伺服器並啟動登入服務。 如需詳細指示，請按一下[此處](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available)。
+
+## <a name="login-failure-errorid-95522"></a>登入失敗 (錯誤識別碼：95522)
+
+來源機器上的登入服務未執行，導致登入要求失敗。 因此，無法安裝行動代理程式。 若要解決此問題，請確定來源機器上的登入服務在執行中，才能成功登入。 若要啟動登入服務，請從命令提示字元執行命令 "net start Logon"，或從工作管理員啟動 "NetLogon" 服務。
+
+## <a name="connectivity-failure-errorid-95117--97118"></a>**連線失敗 (錯誤識別碼：95117 & 97118)**
+
+設定伺服器/相應放大處理序伺服器會嘗試連線來源 VM 以安裝行動代理程式。 若因為網路連線問題而無法連線來源機器時，就會發生此錯誤。 解決方式：
 
 * 請確定您能夠從組態伺服器偵測來源機器。 如果您已選擇在啟用複寫期間相應放大處理序伺服器，請確保您能夠從處理序伺服器偵測您的來源機器。
   * 在來源伺服器機器的命令列中，如下所示使用 Telnet 來偵測搭配 https 連接埠 (135) 的組態伺服器/相應放大處理序伺服器，以查看是否有任何網路連線問題或防火牆連接埠封鎖問題。
 
      `telnet <CS/ scale-out PS IP address> <135>`
-  * 檢查服務狀態 **InMage Scout VX Agent-Sentinel/Outpost**。 如果服務不在執行中，請啟動服務。
 * 此外，對於 **Linux VM**，
   * 請檢查是否已安裝最新的 openssh、openssh-server 和 openssl 套件。
   * 請檢查並確定安全殼層 (SSH) 已啟用且正在連接埠 22 上執行。
@@ -55,11 +96,15 @@ ms.locfileid: "52162527"
     * 找到以 Subsystem 開頭這一行，並取消其註解
     * 重新啟動 sshd 服務。
 * 如果一段時間之後沒有適當的回應，連線嘗試可能會失敗，或是因為連線的主機無法回應，則建立的連線可能失敗。
-* 這可能是連線/網路/網域相關的問題。 也可能是由於 DNS 名稱解析問題或 TCP 連接埠耗盡的問題。 請檢查您的網域中是否有任何這類的已知問題。
+* 這可能是連線/網路/網域相關的問題。 也可能是由於 DNS 名稱解析問題或 TCP 連接埠耗盡的問題。 檢查您的網域中是否有任何這類的已知問題。
 
-## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>檔案及印表機共用服務檢查 (錯誤碼：95105 & 95106)
+## <a name="connectivity-failure-errorid-95523"></a>連線失敗 (錯誤識別碼：95523)
 
-完成連線檢查之後，請確認您的虛擬機器上已啟用 [檔案及印表機共用服務]。
+當找不到來源電腦所在的網路，或可能已被刪除或無法再使用時，就會發生此錯誤。 解決錯誤的唯一方法是確保網路存在。
+
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>檔案及印表機共用服務檢查 (錯誤識別碼：95105 & 95106)
+
+完成連線檢查之後，請確認您的虛擬機器上已啟用 [檔案及印表機共用服務]。 將行動代理程式複製到來源機器時，這些設定是必要的。
 
 針對 **Windows 2008 R2 和先前版本**，
 
@@ -68,16 +113,16 @@ ms.locfileid: "52162527"
   * 找出 [檔案及印表機共用] (NB-Session-In) 和 [檔案及印表機共用] (Smb-in) 的規則。 針對每個規則，以滑鼠右鍵按一下該規則，然後按一下 [啟用規則]。
 * 若要透過群組原則啟用檔案共用，
   * 移至 [開始]，輸入 gpmc.msc 並搜尋。
-  * 在 [導覽] 窗格中，開啟下列資料夾：本機電腦原則、使用者設定、系統管理範本、Windows 元件，以及網路共用。
+  * 在瀏覽窗格中，開啟下列資料夾：本機電腦原則、使用者設定、系統管理範本、Windows 元件，以及網路共用。
   * 在 [詳細資料] 窗格中，按兩下 [防止使用者共用其設定檔內的檔案]。 若要停用群組原則設定，並讓使用者能夠共用檔案，請按一下 [停用]。 按一下 [確定] 以儲存變更。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))。
 
 針對**新版本**，請依照[這裡](vmware-azure-install-mobility-service.md)提供的指示來啟用檔案及印表機共用。
 
-## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Windows Management Instrumentation (WMI) 設定檢查
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>Windows Management Instrumentation (WMI) 設定檢查 (錯誤識別碼：95103)
 
-完成檔案和印表機服務檢查之後，請啟用通過防火牆的 WMI 服務。
+完成檔案和印表機服務檢查之後，請為私人、公用和網域設定檔啟用通過防火牆的 WMI 服務。 若要在來源機器上完成遠端執行，這些設定是必要的。 若要啟用：
 
-* 在 [控制台] 中按一下 [安全性]，然後按一下 [Windows 防火牆]。
+* 移至 [控制台]，按一下 [安全性]，然後按一下 [Windows 防火牆]。
 * 按一下 [變更設定]，然後按一下 [例外狀況] 索引標籤。
 * 在 [例外狀況] 視窗中，選取 Windows Management Instrumentation (WMI) 的核取方塊，以啟用通過防火牆的 WMI 流量。 
 
@@ -93,6 +138,24 @@ ms.locfileid: "52162527"
 失敗的另一個最常見原因可能是由於不支援的作業系統。 請確定您在可成功安裝行動服務的受支援作業系統/核心版本上。
 
 若要深入了解 Azure Site Recovery 支援哪些作業系統，請參閱我們的[支援矩陣文件](vmware-physical-azure-support-matrix.md#replicated-machines)。
+
+## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>開機與系統磁碟分割/磁碟區不是同一個磁碟 (錯誤識別碼：95309)
+
+9.20 之前的版本不支援開機和系統磁碟分割/磁碟區位於不同磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>系統磁碟分割位於多個磁碟上 (錯誤識別碼：95313)
+
+9.20 之前的版本不支援開機磁碟分割或磁碟區位於多個磁碟的設定。 從 [9.20 版](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援這樣的設定。 請使用最新版本以取得此支援。
+
+## <a name="lvm-support-from-920-version"></a>從 9.20 版開始支援 LVM
+
+9.20 之前的版本只有資料磁碟支援 LVM。 /boot 應該位於磁碟分割區，而不是 LVM 磁碟區。
+
+從 [9.20 版本](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)開始支援 [LVM 上的 OS 磁碟](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)。 請使用最新版本以取得此支援。
+
+## <a name="insufficient-space-errorid-95524"></a>空間不足 (錯誤識別碼：95524)
+
+將行動代理程式複製到來源機器時，至少需要 100 MB 的可用空間。 因此，請確保來源機器具有必要的可用空間，然後重試作業。
 
 ## <a name="vss-installation-failures"></a>VSS 安裝失敗
 

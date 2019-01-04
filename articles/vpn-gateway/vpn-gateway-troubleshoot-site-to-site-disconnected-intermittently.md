@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 9d831f7f08af174dfc6ce429da4d0a0daaeda0e9
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2fdd82c2f0c96b3bd20231911bb88cf54c172931
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240013"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958009"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>疑難排解：Azure 站對站 VPN 間歇性中斷
 
@@ -36,7 +36,7 @@ ms.locfileid: "50240013"
 1. 移至 [Azure 入口網站 ](https://portal.azure.com)。
 2. 檢查虛擬網路閘道的 [概觀] 頁面來取得類型資訊。
     
-    ![閘道概觀](media\vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently\gatewayoverview.png)
+    ![閘道概觀](media/vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently/gatewayoverview.png)
 
 ### <a name="step-1-check-whether-the-on-premises-vpn-device-is-validated"></a>步驟 1：檢查內部部署 VPN 裝置是否經過驗證
 

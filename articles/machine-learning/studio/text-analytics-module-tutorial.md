@@ -1,12 +1,11 @@
 ---
-title: 在 Azure Machine Learning Studio 中建立文字分析模型 | Microsoft Docs
+title: 建立文字分析模型 - Azure Machine Learning Studio | Microsoft Docs
 description: 如何在 Azure Machine Learning Studio 使用文字前置處理、N-Gram 或特徵雜湊來建立文字分析模型
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=roastala, author=rastala)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: cgronlun
 editor: ''
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
-ms.openlocfilehash: 10b4f8a494a9effc04db731f05eeb010f4fb0b6a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 11f4ad4ff1e8e2eab688596d393e63009f7e5624
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52262477"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255477"
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>在 Azure Machine Learning Studio 中建立文字分析模型
 您可以使用 Azure Machine Learning 來建置和實行文字分析模型。 這些模型可協助您解決問題，例如，文件分類或情緒分析問題。
@@ -34,7 +33,7 @@ ms.locfileid: "52262477"
 4. 評分和驗證模型
 5. 模型部署到生產環境
 
-在此教學課程中，當我們使用「Amazon 書籍評論」資料集逐步解說情緒分析模型時，您會學到這些步驟 (請參閱研究報告 “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification”，作者：Association of Computational Linguistics (ACL) 的 John Blitzer、Mark Dredze 和 Fernando Pereira，2007 年)。此資料集是由評論分數 (1-2 或 4-5) 和自由格式文字所組成。 目標是要預測評論分數︰低 (1-2) 或高 (4-5)。
+在本教學課程中，您將了解我們使用 Amazon 書籍評論資料集逐步解說情感分析模型時的步驟 (請參閱此研究報告：“Biographies, Bollywood, Boom-boxes and Blenders:Domain Adaptation for Sentiment Classification”，作者：John Blitzer、Mark Dredze 和 Fernando Pereira；Association of Computational Linguistics (ACL)，2007)。此資料集是由評論分數 (1-2 或 4-5) 和自由格式文字所組成。 目標是要預測評論分數︰低 (1-2) 或高 (4-5)。
 
 您可以在 Azure AI 資源庫找到本教學課程中涵蓋的實驗︰
 
@@ -80,7 +79,7 @@ ms.locfileid: "52262477"
 
 在測試資料中的文字資料行轉換成數值特徵資料行之後，我們會排除先前階段 (例如在定型分支中) 中的字串資料行。 接著使用「評分模型」模組進行預測，並使用「評估模型」模組來評估精確度。
 
-## <a name="step-5-deploy-the-model-to-production"></a>步驟 5：將模型部署到生產環境
+## <a name="step-5-deploy-the-model-to-production"></a>步驟 5：模型部署到生產環境
 模型已幾乎可立即部署到生產環境。 部署為 Web 服務時，它會採用自由格式的文字字串做為輸入，並傳回「高」或「低」的預測。 它會使用學習到的 N-Gram 詞彙將文字轉換成特徵，並使用定型的羅吉斯迴歸模型，從這些特徵進行預測。 
 
 為設定預測性實驗，我們先儲存 N-Gram 詞彙做為資料集，並使用實驗的定型分支中的定型羅吉斯迴歸模型。 接著我們使用「另存新檔」儲存實驗，為預測性實驗建立實驗圖形。 我們從實驗中移除「分割資料」模組和定型分支。 我們再將先前儲存的 N-Gram 詞彙和模型分別連接到「擷取 N-Gram 特徵」和「評分模型」模組。 我們也會移除「評估模型」模組。

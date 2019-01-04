@@ -1,12 +1,11 @@
 ---
-title: 最佳化 Azure Machine Learning Studio 的演算法 | Microsoft Docs
+title: 將演算法最佳化 - Azure Machine Learning Studio | Microsoft Docs
 description: 說明如何為 Azure Machine Learning Studio中的演算法選擇最佳的參數設定。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=hshapiro, author=heatherbshapiro)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
 ms.service: machine-learning
@@ -16,34 +15,34 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: f4b7ba04f643fc823ca627e279faea31dee9d2a4
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 57561c9841297b7ea2991bda1e94065a854597cd
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314707"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53269408"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio"></a>選擇參數來最佳化 Azure Machine Learning Studio 中的演算法
 
 本主題說明如何為 Azure Machine Learning 中的演算法選擇正確的超參數 (hyperparameter) 集。 大部分的機器學習服務演算法都會有需要設定的參數。 當您訓練一個模型時，必須提供這些參數的值。 訓練過的模型效率會依據所選擇的模型參數而定。 找出最佳參數集的過程稱為*模型選擇*。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 有各種方法可用來進行模型選擇。 在機器學習中，交叉驗證是其中一種最廣泛使用的模型選擇方法，在 Azure Machine Learning 中是預設的模型選擇機制。 由於 Azure Machine Learning 支援 R 和 Python 兩者，因此您一律可以使用 R 或 Python 來實作其自己的模型選擇機制。
 
 找出最佳參數集的過程有四個步驟：
 
 1. **定義參數空間**：對於演算法，先決定您想要考慮的確切參數值。
-2. **定義交叉驗證設定**：決定如何選擇資料集的交叉驗證折數。
-3. **定義計量**：決定要使用哪一種計量來判斷最佳的參數集，例如正確度、均方根誤差、精確度、召回率或 f 分數。
-4. **訓練、評估和比較**：對於每個唯一的參數值組合，執行交叉驗證並根據您定義的錯誤計量。 評估和比較之後，您可以選擇最佳的模型。
+2. **定義交叉驗證設定**：決定如何選擇資料集的交叉驗證摺疊數目。
+3. **定義計量**：決定要使用哪一種計量來判斷最佳的參數集，例如準確度、均方根誤差、精確度、召回率或 F 分數。
+4. **定型、評估和比較**：對於每個唯一的參數值組合，根據您定義的誤差計量來執行交叉驗證。 評估和比較之後，您可以選擇最佳的模型。
 
 下列影像說明在 Azure Machine Learning 中如何達到這個目標。
 
 ![尋找最佳的參數集](./media/algorithm-parameters-optimize/fig1.png)
 
 ## <a name="define-the-parameter-space"></a>定義參數空間
-您可以在進行模型初始化步驟時定義參數集。 所有機器學習演算法的參數窗格都有兩種訓練模式：[單一參數] 和 [參數範圍]。 選擇 [參數範圍] 模式。 在參數範圍模式中，您可以針對每個參數輸入多個值。 您可以在文字方塊中輸入以逗號分隔的值。
+您可以在進行模型初始化步驟時定義參數集。 所有機器學習演算法的參數窗格都有兩種定型人員模式：*單一參數*和*參數範圍*。 選擇 [參數範圍] 模式。 在參數範圍模式中，您可以針對每個參數輸入多個值。 您可以在文字方塊中輸入以逗號分隔的值。
 
 ![二元促進式決策樹，單一參數](./media/algorithm-parameters-optimize/fig2.png)
 

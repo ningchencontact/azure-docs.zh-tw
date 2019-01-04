@@ -1,21 +1,22 @@
 ---
-title: 使用 Microsoft Azure 流量管理員增加 Language Understanding (LUIS) 中的端點配額
+title: 增加端點配額
 titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 28fc0d0061d1826f0e17c26325ea227e001dccda
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3f3dddca7944403ace6a9779be07b0d458fb3cd1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042171"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076758"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理員管理幾個金鑰之間的端點配額
 Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一金鑰的配額。 如果要這樣做，請在 [發佈] 頁面的 [資源和金鑰] 區段中，為 LUIS 建立多個金鑰，然後將它們加入 LUIS 應用程式。 
@@ -36,7 +37,7 @@ Language Understanding (LUIS) 可讓您增加端點要求配額而超過單一�
 
 使用 **[New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.2.0)** Cmdlet 建立資源群組：
 
-```PowerShell
+```powerShell
 New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 ```
 
@@ -69,7 +70,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     使用下列 Cmdlet 建立設定檔。 請務必變更 `appIdLuis` 和 `subscriptionKeyLuis`。 subscriptionKey 適用於美國東部 LUIS 金鑰。 如果路徑不正確 (包括 LUIS 應用程式識別碼和端點金鑰)，流量管理員輪詢會是 `degraded` 的狀態，因為流量管理員無法成功要求 LUIS 端點。 確定 `q` 的值是 `traffic-manager-east`，以便您可以在 LUIS 端點記錄中看到這個值。
 
-    ```PowerShell
+    ```powerShell
     $eastprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-eastus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-eastus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appID>?subscription-key=<subscriptionKey>&q=traffic-manager-east"
     ```
     
@@ -89,7 +90,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/add-azurermtrafficmanagerendpointconfig?view=azurermps-6.2.0)** Cmdlet 新增美國東部端點
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target eastus.api.cognitive.microsoft.com -EndpointLocation "eastus" -EndpointStatus Enabled
     ```
     下表說明 Cmdlet 中的每個變數：
@@ -105,7 +106,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     成功的回應看起來會像這樣：
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-eastus
     Name                             : luis-profile-eastus
     ResourceGroupName                : luis-traffic-manager
@@ -124,7 +125,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 3. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager/set-azurermtrafficmanagerprofile?view=azurermps-6.2.0)** Cmdlet 設定美國東部端點
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $eastprofile
     ```
 
@@ -137,7 +138,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     使用下列 Cmdlet 建立設定檔。 請務必變更 `appIdLuis` 和 `subscriptionKeyLuis`。 subscriptionKey 適用於美國東部 LUIS 金鑰。 如果路徑不正確 (包括 LUIS 應用程式識別碼和端點金鑰)，流量管理員輪詢會是 `degraded` 的狀態，因為流量管理員無法成功要求 LUIS 端點。 確定 `q` 的值是 `traffic-manager-west`，以便您可以在 LUIS 端點記錄中看到這個值。
 
-    ```PowerShell
+    ```powerShell
     $westprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-westus -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-westus -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west"
     ```
     
@@ -157,7 +158,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** Cmdlet 新增美國西部端點
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName luis-west-endpoint -TrafficManagerProfile $westprofile -Type ExternalEndpoints -Target westus.api.cognitive.microsoft.com -EndpointLocation "westus" -EndpointStatus Enabled
     ```
 
@@ -174,7 +175,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     成功的回應看起來會像這樣：
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-westus
     Name                             : luis-profile-westus
     ResourceGroupName                : luis-traffic-manager
@@ -193,7 +194,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 3. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 設定美國西部端點
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $westprofile
     ```
 
@@ -204,7 +205,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 1. 使用 **[New-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/New-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 建立父系設定檔
 
-    ```PowerShell
+    ```powerShell
     $parentprofile = New-AzureRmTrafficManagerProfile -Name luis-profile-parent -ResourceGroupName luis-traffic-manager -TrafficRoutingMethod Performance -RelativeDnsName luis-dns-parent -Ttl 30 -MonitorProtocol HTTPS -MonitorPort 443 -MonitorPath "/"
     ```
 
@@ -224,7 +225,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 2. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** 和 **NestedEndpoints** 類型，將美國東部子系設定檔新增至父系
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-useast -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $eastprofile.Id -EndpointStatus Enabled -EndpointLocation "eastus" -MinChildEndpoints 1
     ```
 
@@ -242,7 +243,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     成功的回應看起來會像下面這樣，而且包括新的 `child-endpoint-useast` 端點：    
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -261,7 +262,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 3. 使用 **[Add-AzureRmTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Add-AzureRmTrafficManagerEndpointConfig?view=azurermps-6.2.0)** Cmdlet 和 **NestedEndpoints** 類型，將美國西部子系設定檔新增至父系
 
-    ```PowerShell
+    ```powerShell
     Add-AzureRmTrafficManagerEndpointConfig -EndpointName child-endpoint-uswest -TrafficManagerProfile $parentprofile -Type NestedEndpoints -TargetResourceId $westprofile.Id -EndpointStatus Enabled -EndpointLocation "westus" -MinChildEndpoints 1
     ```
 
@@ -279,7 +280,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     成功的回應會像下面這樣，並且包含先前的 `child-endpoint-useast` 端點和新的 `child-endpoint-uswest` 端點兩者：
 
-    ```cmd
+    ```console
     Id                               : /subscriptions/<azure-subscription-id>/resourceGroups/luis-traffic-manager/providers/Microsoft.Network/trafficManagerProfiles/luis-profile-parent
     Name                             : luis-profile-parent
     ResourceGroupName                : luis-traffic-manager
@@ -298,7 +299,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 4. 使用 **[Set-AzureRmTrafficManagerProfile](https://docs.microsoft.com/powershell/module/AzureRM.TrafficManager/Set-AzureRmTrafficManagerProfile?view=azurermps-6.2.0)** Cmdlet 設定端點 
 
-    ```PowerShell
+    ```powerShell
     Set-AzureRmTrafficManagerProfile -TrafficManagerProfile $parentprofile
     ```
 
@@ -309,7 +310,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
 針對您需要的三個設定檔，將角括弧 `<>` 中的項目取代為正確值。 
 
-```PowerShell
+```powerShell
 $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -ResourceGroupName luis-traffic-manager
 ```
 
@@ -329,7 +330,7 @@ $<variable-name> = Get-AzureRmTrafficManagerProfile -Name <profile-name> -Resour
 ### <a name="validate-traffic-manager-polling-works"></a>驗證流量管理員輪詢可運作
 另一個驗證流量管理員輪詢可運作的方法是使用 LUIS 端點記錄。 在 [LUIS][LUIS] 網站的應用程式清單頁面上，匯出應用程式的端點記錄。 因為流量管理員會經常輪詢兩個端點，所以記錄中會有項目 (即使只存在幾分鐘的時間)。 請記得尋找查詢以 `traffic-manager-` 開始的項目。
 
-```text
+```console
 traffic-manager-west    6/7/2018 19:19  {"query":"traffic-manager-west","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents":[{"intent":"None","score":0.944767}],"entities":[]}
 ```
@@ -339,7 +340,7 @@ traffic-manager-east    6/7/2018 19:20  {"query":"traffic-manager-east","intents
 
 下列 Node.js 程式碼向父系設定檔提出要求，並傳回 LUIS 端點：
 
-```javascript
+```nodejs
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

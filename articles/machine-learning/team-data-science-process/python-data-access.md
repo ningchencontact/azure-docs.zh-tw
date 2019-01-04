@@ -1,5 +1,5 @@
 ---
-title: 使用 Machine Learning Python 用戶端程式庫存取資料集 | Microsoft Docs
+title: 使用 Python 用戶端程式庫存取資料集 - Team Data Science Process
 description: 安裝並使用 Python 用戶端程式庫，從本機 Python 環境存取和管理 Azure Machine Learning 資料。
 services: machine-learning
 author: marktab
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 43812b68b10f9e4f8510d24cb08c8bb368b3b8f8
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 630961954a235efd5f0cef92dd6a2525ae316838
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445750"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140025"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>使用 Azure Machine Learning Python 用戶端程式庫利用 Python 存取資料集
 Microsoft Azure Machine Learning Python 用戶端程式庫的預覽能夠從本機 Python 環境安全存取您的 Azure Machine Learning 資料集，並且可在工作區中建立和管理資料集。
@@ -61,7 +61,7 @@ Python 用戶端程式庫已在下列環境下經過測試：
 ## <a name="datasetAccess"></a>使用Studio 程式碼片段存取資料集
 Python 用戶端程式庫讓您以程式設計方式存取執行實驗所得的現有資料集。
 
-您可以從 Studio Web 介面，產生包含所有必要資訊的程式碼片段，以下載資料集並將其還原序列化為您位置電腦上的 pandas DataFrame 物件。
+您可以從 Studio Web 介面產生包含所有必要資訊的程式碼片段，以下載資料集並將其還原序列化為您本機電腦上的 pandas DataFrame 物件。
 
 ### <a name="security"></a>資料存取安全性
 Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段包括工作區識別碼與授權權杖。 這些項目可提供工作區的完整存取權，且務必加以保護，像是密碼。
@@ -92,10 +92,10 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
     ![資料集][datasets]
 4. 從出現的視窗中選取程式碼片段，然後複製到剪貼簿。
    
-    ![存取程式碼][dataset-access-code]
+    ![產生資料存取碼按鈕][dataset-access-code]
 5. 將程式碼貼入本機 Python 應用程式的筆記本。
    
-    ![筆記本][ipython-dataset]
+    ![將程式碼貼入筆記本][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>存取機器學習服務實驗中的中繼資料
 在 Machine Learning Studio 中進行實驗後，您能夠從模組的輸出節點存取中繼資料集。 中繼資料集是指當模型工具執行時為中繼步驟建立和使用的資料。
@@ -133,10 +133,10 @@ Studio 所提供可與 Python 用戶端程式碼搭配使用的程式碼片段�
     ![內容功能表][experiment]
 8. 選取程式碼片段，然後從出現的視窗中將它複製到剪貼簿。
    
-    ![存取程式碼][intermediate-dataset-access-code]
+    ![從內容功能表產生存取程式碼][intermediate-dataset-access-code]
 9. 將程式碼貼入筆記本。
    
-    ![筆記本][ipython-intermediate-dataset]
+    ![將程式碼貼入筆記本][ipython-intermediate-dataset]
 10. 您可以使用 matplotlib 將資料視覺化。 這樣會以長條圖顯示年齡欄：
     
     ![長條圖][ipython-histogram]

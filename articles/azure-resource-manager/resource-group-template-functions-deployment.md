@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 12/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 725bc41f96359d4bf0d9d570f73f91dba5da2cab
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d802af1d48405518f26f4b52ecc3023cbb15caff
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358229"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407349"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 範本的部署函式 
 
@@ -86,6 +86,8 @@ ms.locfileid: "34358229"
 }
 ```
 
+當您[部署到 Azure 訂用帳戶](deploy-to-subscription.md)而不是資源群組時，傳回的物件包含 `location` 屬性。 部署本機範本或外部範本時，包含 location 屬性。
+
 ### <a name="remarks"></a>備註
 
 您可以上層範本的 URI 作為基礎，使用部署() 連結至另一個範本。
@@ -150,6 +152,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
+如需使用部署函式的訂用帳戶層級範本，請參閱[訂用帳戶部署函式](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)。 它會使用 `az deployment create` 或 `New-AzureRmDeployment` 命令進行部署。
+
 <a id="parameters" />
 
 ## <a name="parameters"></a>parameters
@@ -161,7 +165,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| parameterName |yes |字串 |要傳回的參數名稱。 |
+| parameterName |是 |字串 |要傳回的參數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -277,7 +281,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 | 參數 | 必要 | 類型 | 說明 |
 |:--- |:--- |:--- |:--- |
-| variableName |yes |字串 |要傳回的變數名稱。 |
+| variableName |是 |字串 |要傳回的變數名稱。 |
 
 ### <a name="return-value"></a>傳回值
 
@@ -370,7 +374,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 
 ## <a name="next-steps"></a>後續步驟
 * 如需有關 Azure Resource Manager 範本中各區段的說明，請參閱[編寫 Azure Resource Manager 範本](resource-group-authoring-templates.md)。
-* 若要合併多個範本，請參閱[透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
+* 若要合併數個範本，請參閱[透過 Azure Resource Manager 使用連結的範本](resource-group-linked-templates.md)。
 * 若要依指定的次數重複建立資源類型，請參閱 [在 Azure 資源管理員中建立資源的多個執行個體](resource-group-create-multiple.md)。
 * 若要了解如何部署已建立的範本，請參閱[使用 Azure Resource Manager 範本部署應用程式](resource-group-template-deploy.md)。
 

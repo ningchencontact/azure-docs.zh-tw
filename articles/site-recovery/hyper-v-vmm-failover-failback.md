@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 11/27/2018
 ms.author: raynew
-ms.openlocfilehash: 80a26f7f2c97fdbc5342d8845277facd79f22a62
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 828f8e78f24380303f30260c39f837f0ba3524e6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210001"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52832357"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>將複寫的 Hyper-V VM 容錯移轉及容錯回至次要內部部署網站
 
@@ -58,7 +58,7 @@ ms.locfileid: "50210001"
 3. 驗證 VM 之後，請 [認可] 容錯移轉。 這會刪除所有可用的復原點。
 
 > [!WARNING]
-> **不要取消正在進行的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。  
+> **請勿取消正在進行中的容錯移轉**：在啟動容錯移轉之前，已停止 VM 複寫。 如果您取消正在進行的容錯移轉，容錯移轉會停止，但 VM 不會再次複寫。  
 
 
 ## <a name="reverse-replicate-and-failover"></a>反向複寫和容錯移轉

@@ -1,6 +1,6 @@
 ---
-title: 將資源部署至 Azure 訂用帳戶 | Microsoft Docs
-description: 說明如何建立 Azure Resource Manager 範本，以部署訂用帳戶範圍的資源。
+title: 在訂用時建立資源群組與資源 - Azure Resource Manager 範本
+description: 描述如何在 Azure Resource Manager 範本中建立資源群組。 此外也會說明如何將資源部署到 Azure 訂用帳戶範圍。
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -9,22 +9,36 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 12/14/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d281ebe80c6089c559cfaa77f4875a856566092
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079373"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53435288"
 ---
-# <a name="deploy-resources-to-an-azure-subscription"></a>將資源部署到 Azure 訂用帳戶
+# <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>為 Azure 訂用帳戶建立資源群組與資源
 
-您通常會將資源部署到 Azure 訂用帳戶中的資源群組。 不過，可以在 Azure 訂用帳戶層級部署某些資源。 這些資源適用於您的訂用帳戶。 [原則](../azure-policy/azure-policy-introduction.md)[角色型存取控制](../role-based-access-control/overview.md)及 [Azure 資訊安全中心](../security-center/security-center-intro.md)都是您可以在訂用帳戶層級 (而非資源群組層級) 套用的服務。
+您通常會將資源部署到 Azure 訂用帳戶中的資源群組。 不過您可以使用訂用帳戶層級的部署，建立套用到整個訂用帳戶的資源群組和資源。
 
-本文會使用 Azure CLI 和 PowerShell 來部署範本。
+若要在 Azure Resource Manager 範本中建立資源群組，請搭配資源群組的名稱和位置定義 **Microsoft.Resources/resourceGroups** 資源。 您可以建立資源群組，並將資源部署至相同範本中的該資源群組。
 
-## <a name="name-and-location-for-deployment"></a>部署的名稱和位置
+[原則](../azure-policy/azure-policy-introduction.md)[角色型存取控制](../role-based-access-control/overview.md)及 [Azure 資訊安全中心](../security-center/security-center-intro.md)都是您可以在訂用帳戶層級 (而非資源群組層級) 套用的服務。
+
+本文會說明建立資源群組的方式，以及如何建立套用到整個訂用帳戶上的資源。 本文會使用 Azure CLI 和 PowerShell 來部署範本。 您無法使用入口網站部署範本，因為入口網站介面也會部署至資源群組，而非 Azure 訂用帳戶。
+
+## <a name="schema-and-commands"></a>結構描述和命令
+
+您用在訂用帳戶層級部署上的結構描述與命令，和用於資源群組部署的不同。 
+
+對於結構描述，請使用 `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` (英文)。
+
+對於 Azure CLI 部署命令，請使用 [az deployment create](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create)。
+
+對於 PowerShell 部署命令，請使用 [New-AzureRmDeployment](/powershell/module/azurerm.resources/new-azurermdeployment)。
+
+## <a name="name-and-location"></a>名稱和位置
 
 部署到訂用帳戶時，您必須提供部署的位置。 您也可以提供部署的名稱。 如果您未指定部署的名稱，會使用範本名稱做為部署名稱。 例如，部署名為 **azuredeploy.json** 的範本會建立預設的部署名稱 **azuredeploy**。
 
@@ -37,6 +51,207 @@ ms.locfileid: "49079373"
 * **不**支援 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 函式。
 * 支援 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函式。 您可以使用它針對用於訂用帳戶層級部署的資源取得資源識別碼。 比方說，針對具有 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))` 的原則定義取得資源識別碼
 * 支援 [reference()](resource-group-template-functions-resource.md#reference) 和 [list()](resource-group-template-functions-resource.md#list) 函式。
+
+## <a name="create-resource-group"></a>建立資源群組
+
+下列範例會建立空的資源群組。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+若要使用 Azure CLI 部署此範本，請使用：
+
+```azurecli-interactive
+az deployment create \
+  -n demoEmptyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json \
+  --parameters rgName=demoRG rgLocation=northcentralus
+```
+
+若要使用 PowerShell 部署此範本，請使用：
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoEmptyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
+  -rgName demogroup `
+  -rgLocation northcentralus
+```
+
+## <a name="create-several-resource-groups"></a>建立數個資源群組
+
+搭配資源群組使用 [copy 元素](resource-group-create-multiple.md)來建立一個以上的資源群組。 
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgNamePrefix": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "instanceCount": {
+            "type": "int"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
+            "copy": {
+                "name": "rgCopy",
+                "count": "[parameters('instanceCount')]"
+            },
+            "properties": {}
+        }
+    ],
+    "outputs": {}
+}
+```
+
+若要透過 Azure CLI 部署此範本並建立三個資源群組，請使用：
+
+```azurecli-interactive
+az deployment create \
+  -n demoCopyRG \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json \
+  --parameters rgNamePrefix=demoRG rgLocation=northcentralus instanceCount=3
+```
+
+若要使用 PowerShell 部署此範本，請使用：
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoCopyRG `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/copyRG.json `
+  -rgNamePrefix demogroup `
+  -rgLocation northcentralus `
+  -instanceCount 3
+```
+
+## <a name="create-resource-group-and-deploy-resource"></a>建立資源群組並部署資源
+
+若要建立資源群組並對它部署資源，請使用巢狀範本。 巢狀範本能定義要部署至該資源群組的資源。 將巢狀範本設定為資源群組的相依項目，以確保該資源群組在部署資源之前確實存在。
+
+下列範例會建立資源群組，並將儲存體帳戶部署至該資源群組。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "rgName": {
+            "type": "string"
+        },
+        "rgLocation": {
+            "type": "string"
+        },
+        "storagePrefix": {
+            "type": "string",
+            "maxLength": 11
+        }
+    },
+    "variables": {
+        "storageName": "[concat(parameters('storagePrefix'), uniqueString(subscription().id, parameters('rgName')))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('rgLocation')]",
+            "name": "[parameters('rgName')]",
+            "properties": {}
+        },
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "storageDeployment",
+            "resourceGroup": "[parameters('rgName')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Resources/resourceGroups/', parameters('rgName'))]"
+            ],
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Storage/storageAccounts",
+                            "apiVersion": "2017-10-01",
+                            "name": "[variables('storageName')]",
+                            "location": "[parameters('rgLocation')]",
+                            "kind": "StorageV2",
+                            "sku": {
+                                "name": "Standard_LRS"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+若要使用 Azure CLI 部署此範本，請使用：
+
+```azurecli-interactive
+az deployment create \
+  -n demoRGStorage \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json \
+  --parameters rgName=rgStorage rgLocation=northcentralus storagePrefix=storage
+```
+
+若要使用 PowerShell 部署此範本，請使用：
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name demoRGStorage `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/newRGWithStorage.json `
+  -rgName rgStorage `
+  -rgLocation northcentralus `
+  -storagePrefix storage
+```
 
 ## <a name="assign-policy"></a>指派原則
 
@@ -257,7 +472,5 @@ New-AzureRmDeployment `
 
 ## <a name="next-steps"></a>後續步驟
 * 如需針對 Azure 資訊安全中心部署工作區設定的範例，請參閱 [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json)。
-* 若要建立資源群組，請參閱[在 Azure Resource Manager 範本中建立資源群組](create-resource-group-in-template.md)。
 * 若要了解如何建立 Azure 資源管理員範本，請參閱 [撰寫範本](resource-group-authoring-templates.md)。 
 * 如需在範本中可用函式的清單，請參閱 [範本函式](resource-group-template-functions.md)。
-

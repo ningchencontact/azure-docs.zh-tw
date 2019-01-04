@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cc4e128cab3cad235462e29e65fa58002a103bcd
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855896"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52834820"
 ---
 # <a name="register-in-dev-center"></a>在開發人員中心註冊  
 為了協助確認您尚未登入個人瀏覽器帳戶，請開啟新的 Internet Explorer InPrivate 或 Chrome Incognito 瀏覽工作階段。  
@@ -34,7 +34,7 @@ ms.locfileid: "48855896"
     ![國家/地區方塊的帳戶資訊](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >如果要在 Azure Marketplace 中銷售服務，請確認您的註冊實體是來自其中一個經過核准的「銷售來源」國家/地區。 基於支出和稅務理由，因此需要此位置限制。 
+    >如果要在 Azure Marketplace 中銷售服務，請確認您的註冊實體是來自其中一個經過核准的「銷售來源」國家/地區。 基於支出和稅務理由，因此需要這項位置限制。 
     >*   如需詳細資訊，請參閱 Azure Marketplace 參與原則網頁：[azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies)。  
 
 4.  針對「帳戶類型」，選取 `Company` 選項按鈕。  
@@ -85,7 +85,7 @@ ms.locfileid: "48855896"
 ---  
 
 ## <a name="get-help-with-dev-center-registration"></a>取得開發人員中心註冊的協助  
-如果您有開發人員中心註冊的問題，請依照下列步驟提交支援票證。  
+如果您有開發人員中心註冊的問題，請遵循下列步驟來提交支援票證。  
 1.  前往開發人員中心支援。  
     *   若要存取支援，請參閱 Windows 開發人員支援頁面：[developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support)。  
 2.  在 [與我們連絡] 區段中，按一下 [提交事件] 按鈕。 
@@ -143,7 +143,7 @@ ms.locfileid: "48855896"
 ## <a name="frequently-asked-questions"></a>常見問題集： 
 
 *   **哪些發行者必須進行開發人員中心帳戶註冊？** 
-> 以交易清單類型發佈的發行者：VM、Azure 應用程式、解決方案範本和受控應用程式。  
+> 以交易清單類型發佈的發行者：VM、Azure 應用程式：解決方案範本和受控應用程式。  
 
 *   **為何需要開發人員中心帳戶？**
 > 必須要有開發人員中心帳戶，Microsoft 才能代表發行者向客戶收取交易清單類型的費用。 開發人員中心帳戶註冊可讓 Microsoft 驗證公司的法律、稅務和銀行相關資訊。 若要深入了解，請按一下[這裡](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)。
@@ -171,7 +171,7 @@ ms.locfileid: "48855896"
 > 請移至 [您的程式] (https://developer.microsoft.com/dashboard/Account/Programs))，並登入開發人員中心帳戶。 如果您沒有看到 Azure 作為註冊的應用程式，請查看「為您建議的程式」底下，然後尋找，然後尋找 Azure 以選取 [開始使用]。
 
 *   **如何將我的開發人員中心帳戶連結到我的 Cloud Partner 入口網站發行者設定檔？**
-> 發嫌之前的最後一個步驟，勢將您的開發人員中心帳戶連結到您的 Cloud Partner 入口網站[設定檔](https://cloudpartner.azure.com/#profile)。 如果您的開發人員中心帳戶與您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)的帳戶不同，請在 Cloud Partner 入口網站中將您的開發人員中心帳戶新增為新的[使用者](https://cloudpartner.azure.com/#documentation/manage-users)。 使用您的開發人員中心帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)。 在 Web 瀏覽器右上方的功能表，選取 [發行者設定檔]。 選取 [連結開發人員中心帳戶]。
+> 發嫌之前的最後一個步驟，勢將您的開發人員中心帳戶連結到您的 Cloud Partner 入口網站[設定檔](https://cloudpartner.azure.com/#profile)。 如果您的開發人員中心帳戶與您在 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)的帳戶不同，請在 Cloud Partner 入口網站中將您的開發人員中心帳戶新增為新的[使用者](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-users)。 使用您的開發人員中心帳戶登入 [Cloud Partner 入口網站](https://cloudpartner.azure.com/#alloffers)。 在 Web 瀏覽器右上方的功能表，選取 [發行者設定檔]。 選取 [連結開發人員中心帳戶]。
 
 *   **為何我的開發人員中心應用程式遭到拒絕？**
 > 第三方調查公司 (Duns & Bradstreet) 無法透過您所提供的電話號碼與您連絡。 請經由 [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) 連絡支援人員，以重新啟動調查程序

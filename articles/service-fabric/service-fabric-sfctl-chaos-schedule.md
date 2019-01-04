@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 176b04b9bb16b5f183298c75f16bceb5e885e293
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 665fbbc8668e465c78d93b134f6a314d58791490
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492235"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53276446"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 取得並設定 chaos 排程。
@@ -29,7 +29,7 @@ ms.locfileid: "39492235"
 |命令|說明|
 | --- | --- |
 | get | 取得定義 Chaos 執行時間及執行方式的 Chaos 排程。 |
-| set | 設定 Chaos 所要使用的 Chaos 排程。 |
+| set | 設定 Chaos 使用的排程。 |
 
 ## <a name="sfctl-chaos-schedule-get"></a>sfctl chaos schedule get
 取得定義 Chaos 執行時間及執行方式的 Chaos 排程。
@@ -53,9 +53,9 @@ ms.locfileid: "39492235"
 | --verbose | 增加記錄詳細程度。 使用 --debug 取得完整偵錯記錄。 |
 
 ## <a name="sfctl-chaos-schedule-set"></a>sfctl chaos schedule set
-設定 Chaos 所要使用的 Chaos 排程。
+設定 Chaos 使用的排程。
 
-設定 Chaos 目前使用中的 Chaos 排程。 Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版本必須與伺服器上的 Chaos 排程版本相符。 如果所提供的版本與伺服器上的版本不符，就不會更新 Chaos 排程。 如果所提供的版本與伺服器上的版本相符，則會更新 Chaos 排程，而伺服器上的 Chaos 排程版本會增加 1，並在達到 2,147,483,647 之後歸 0。 如果 Chaos 在進行此呼叫時正在執行，此呼叫將會失敗。
+Chaos 會根據 Chaos 排程自動排定執行。 所提供的輸入排程中版本必須與伺服器上的 Chaos 排程版本相符。 如果所提供的版本與伺服器上的版本不符，就不會更新 Chaos 排程。 如果所提供的版本與伺服器上的版本相符，則會更新 Chaos 排程，而伺服器上的 Chaos 排程版本會增加 1，並在達到 2,147,483,647 之後歸 0。 如果 Chaos 在進行此呼叫時正在執行，此呼叫將會失敗。
 
 ### <a name="arguments"></a>引數
 
@@ -143,6 +143,7 @@ ms.locfileid: "39492235"
         ]
     }
     ]
+
 
 ## <a name="next-steps"></a>後續步驟
 - [設定](service-fabric-cli.md) Service Fabric CLI。

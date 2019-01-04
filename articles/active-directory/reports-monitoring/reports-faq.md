@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5cbf0895274672c053158cf07acb344908b37831
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 98a1dd3fb3fd733cc17ac9c6ccf9d0dfc77737e1
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623463"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868016"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>關於 Azure Active Directory 報告的常見問題集
 
@@ -94,7 +94,7 @@ ms.locfileid: "51623463"
 
 **問：我應該使用哪些 API 來取得 Office 365 活動記錄的相關資訊？**
 
-**答：** 請使用「Office 365 管理 API」來存取 [Office 365 活動記錄 (透過 API)](https://msdn.microsoft.com/office-365/office-365-managment-apis-overview)。
+**答：** 請使用「Office 365 管理 API」來存取 [Office 365 活動記錄 (透過 API)](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview)。
 
 ---
 

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1e052b656f12a9059a5ee9d3ea21d0fa20fc00c6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 75594bf77f9bde7549b14e3a154f18ba67ebac3d
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123057"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53103382"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>使用 Azure Data Factory 從 Zoho 複製資料 (預覽)
 
@@ -45,7 +45,7 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | type 屬性必須設定為：**Zoho** | 是 |
+| type | 類型屬性必須設定為：**Zoho** | 是 |
 | endpoint | Zoho 伺服器的端點 (`crm.zoho.com/crm/private`)。 | 是 |
 | accessToken | 用於 Zoho 驗證的存取權杖。 將此欄位標記為 SecureString，將它安全地儲存在 Data Factory 中，或[參考 Azure Key Vault 中儲存的祕密](store-credentials-in-key-vault.md)。 | 是 |
 | useEncryptedEndpoints | 指定是否使用 HTTPS 來加密資料來源端點。 預設值為 true。  | 否 |
@@ -74,7 +74,12 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義資料集的區段和屬性完整清單，請參閱[資料集](concepts-datasets-linked-services.md)一文。 本節提供 Zoho 資料集所支援的屬性清單。
 
-若要從 Zoho 複製資料，請將資料集的 type 屬性設定為 **ZohoObject**。 在此類型的資料集中，沒有任何其他類型特定的屬性。
+若要從 Zoho 複製資料，請將資料集的 type 屬性設定為 **ZohoObject**。 以下是支援的屬性：
+
+| 屬性 | 說明 | 必要 |
+|:--- |:--- |:--- |
+| type | 資料集的類型屬性必須設定為：**ZohoObject** | 是 |
+| tableName | 資料表的名稱。 | 否 (如果已指定活動來源中的「查詢」) |
 
 **範例**
 
@@ -86,7 +91,8 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
         "linkedServiceName": {
             "referenceName": "<Zoho linked service name>",
             "type": "LinkedServiceReference"
-        }
+        },
+        "typeProperties": {}
     }
 }
 ```
@@ -95,14 +101,14 @@ Azure Data Factory 提供的內建驅動程式可啟用連線，因此使用此�
 
 如需可用來定義活動的區段和屬性完整清單，請參閱[管線](concepts-pipelines-activities.md)一文。 本節提供 Zoho 來源所支援的屬性清單。
 
-### <a name="zohosource-as-source"></a>將 ZohoSource 作為來源
+### <a name="zoho-as-source"></a>Zoho 作為來源
 
 若要從 Zoho 複製資料，請將複製活動中的來源類型設定為 **ZohoSource**。 複製活動的 **source** 區段支援下列屬性：
 
 | 屬性 | 說明 | 必要 |
 |:--- |:--- |:--- |
-| type | 複製活動來源的 type 屬性必須設定為：**ZohoSource** | 是 |
-| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 是 |
+| type | 複製活動來源的類型屬性必須設定為：**ZohoSource** | 是 |
+| query | 使用自訂 SQL 查詢來讀取資料。 例如： `"SELECT * FROM Accounts"` 。 | 否 (如果已指定資料集中的 "tableName") |
 
 **範例：**
 

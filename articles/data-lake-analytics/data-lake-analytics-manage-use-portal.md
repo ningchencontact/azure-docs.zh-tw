@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 1d49403ec04b2ec35291869385c316cb5ab3b0da
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8b2f16f45be1d095e9be8042611de328af36f064
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044903"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52724055"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>使用 Azure 入口網站來管理 Azure Data Lake Analytics
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -33,8 +33,8 @@ ms.locfileid: "43044903"
 2. 按一下 [建立資源] > [智慧 + 分析] > [Data Lake Analytics]。
 3. 選取下列項目的值︰ 
    1. **名稱**：Data Lake Analytics 帳戶的名稱。
-   2. **訂用帳戶**：用於此帳戶的 Azure 訂用帳戶。
-   3. **資源群組**：在其中建立帳戶的 Azure 資源群組。 
+   2. 訂用帳戶：用於此帳戶的 Azure 訂用帳戶。
+   3. **資源群組**：要在其中建立帳戶的 Azure 資源群組。 
    4. **位置**：Data Lake Analytics 帳戶的 Azure 資料中心。 
    5. **Data Lake Store**：Data Lake Analytics 帳戶所要使用的預設存放區。 Azure Data Lake Store 帳戶和 Data Lake Analytics 帳戶必須位於相同位置。
 4. 按一下頁面底部的 [新增] 。 
@@ -111,7 +111,7 @@ Data Lake Analytics 支援下列資料來源：
 ### <a name="add-users-or-security-groups-to-a-data-lake-analytics-account"></a>將使用者或安全性群組新增到 Data Lake Analytics 帳戶
 
 1. 在 Azure 入口網站中，移至您的 Data Lake Analytics 帳戶。
-2. 按一下 [存取控制 (IAM)] > [新增]。
+2. 按一下 [存取控制 (IAM)] > [新增角色指派]。
 3. 選取角色。
 4. 新增使用者。
 5. 按一下 [確定]。
@@ -131,7 +131,7 @@ Data Lake Analytics 支援下列資料來源：
 
 2. 按一下 [ **新增工作**]。 對於每項作業，請設定：
 
-    1. **作業名稱**：作業名稱。
+    1. **作業名稱**：作業的名稱。
     2. **優先順序**：數字越小，優先順序越高。 如果有兩項作業排入佇列，優先順序值較小的作業會優先執行。
     3. **平行處理原則**：要為此作業保留的計算程序數目上限。
 

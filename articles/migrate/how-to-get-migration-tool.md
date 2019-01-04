@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 0b02ae4b75426b379ad7c124f5ddeb053c142ce6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 068b55e40afc96dbcfae26c8bf7da8a1b9ea349a
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730289"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53249766"
 ---
 # <a name="migrate-machines-after-assessment"></a>評量之後移轉機器
 
@@ -19,6 +19,9 @@ ms.locfileid: "45730289"
 [Azure Migrate](migrate-overview.md) 會評估內部部署機器，以確認機器是否適合移轉至 Azure，並提供在 Azure 中執行機器的大小調整建議和成本估計。 Azure Migrate 目前只會評估要移轉的機器。 系統目前是使用其他 Azure 服務來執行移轉作業本身。
 
 本文會說明如何在執行移轉評估之後，取得移轉工具的建議。
+
+> [!NOTE]
+> 在 Azure Government 中無法使用移轉工具建議。
 
 ## <a name="migration-tool-suggestion"></a>移轉工具的建議
 

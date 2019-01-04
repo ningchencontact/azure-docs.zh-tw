@@ -1,22 +1,24 @@
 ---
-title: Azure 中的輸出連線 (傳統) | Microsoft Docs
+title: Azure 中的輸出連線 (傳統)
+titlesuffix: Azure Load Balancer
 description: 本文說明 Azure 如何讓雲端服務與公用網際網路服務進行通訊。
 services: load-balancer
 documentationcenter: na
 author: KumudD
 ms.service: load-balancer
+ms.custom: seodec18
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/13/2018
 ms.author: kumud
-ms.openlocfilehash: 5cb0647148d2cd90ad4cce6e16de30b72fff8429
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 006d8e28413e0893cafe351577f8a018d13fd268
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219659"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53189994"
 ---
 # <a name="outbound-connections-classic"></a>輸出連線 (傳統)
 
@@ -54,7 +56,7 @@ Azure 提供三種不同的方法來達成輸出連線傳統部署。  並非所
 
 用於傳統部署之 PAT 的[預先配置暫時連接埠](#ephemeralports)的演算法，與用於 Azure Resource Manager 資源部署的演算法相同。
 
-### <a name="ilpip"></a>案例 1：VM 與執行個體層級公用 IP 位址
+### <a name="ilpip"></a>案例 1：VM 具有執行個體層級的公用 IP 位址
 
 在此案例中，VM 具有指派給它的執行個體層級公用 IP (ILPIP)。 就輸出連線而言，VM 是否有負載平衡的端點並不重要。 此案例的優先順序高於其他案例。 使用 ILPIP 時，VM 會針對所有輸出流程使用 ILPIP。  
 
@@ -160,7 +162,7 @@ SNAT 連接埠配置為 IP 傳輸通訊協定專屬 (TCP 和 UDP 會個別維護
 暫時連接埠有 4 分鐘的閒置逾時 (無法調整)。 如果重試太過積極，耗盡情況就沒有機會進行自我清理。 因此，考慮應用程式重試交易的方式和頻率，是設計的一個重要部分。
 
 #### <a name="assignilpip"></a>指派執行個體層級公用 IP 給每個 VM
-指派 ILPIP 會將您的案例變更為 [VM 的執行個體層級公用 IP](#ilpip)。 用於每個 VM 的所有公用 IP 暫時連接埠都可供 VM 使用。 (與公用 IP 暫時連接埠會與個別部署之所有相關 VM 共用的案例相反。)有一些要考慮的取捨，例如將大量的個別 IP 位址加入白名單的潛在影響。
+指派 ILPIP 會將您的案例變更為 [VM 的執行個體層級公用 IP](#ilpip)。 用於每個 VM 的所有公用 IP 暫時連接埠都可供 VM 使用。 (與公用 IP 暫時連接埠會與個別部署之所有相關 VM 共用的案例相反。)有一些要考慮的取捨，例如將大量的個別 IP 位址加入允許清單的潛在影響。
 
 >[!NOTE] 
 >此選項不適用於 Web 背景工作角色。

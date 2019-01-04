@@ -1,12 +1,11 @@
 ---
-title: 如何使用 Azure Machine Learning Studio Web 服務 | Microsoft Docs
+title: 取用 Web 服務 - Azure Machine Learning Studio | Microsoft Docs
 description: 從 Azure Machine Learning Studio 部署機器學習服務之後，就可以使用 RESTFul Web 服務作為即時要求-回應服務或批次執行服務。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 804f8211-9437-4982-98e9-ca841b7edf56
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
-ms.openlocfilehash: df837c64cf0e40f3bfc1c596b2950a9d23c74a90
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: d7a48dcb56d2bed0e84714087bb9fda3fae65fc1
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309101"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53273777"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>如何使用 Azure Machine Learning Studio Web 服務
 
@@ -33,7 +32,7 @@ ms.locfileid: "52309101"
 * 如需如何部署 Web 服務的詳細資訊，請參閱[部署 Machine Learning Web 服務](publish-a-machine-learning-web-service.md)。
 * 如需 Machine Learning 的一般詳細資訊，請參閱 [Machine Learning 文件中心](https://azure.microsoft.com/documentation/services/machine-learning/)。
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 ## <a name="overview"></a>概觀
 使用 Azure Machine Learning Web 服務，外部應用程式會即時與機器學習服務工作流程計分模型通訊。 機器學習 Web 服務呼叫會將預測結果傳回外部應用程式。 若要進行機器學習 Web 服務呼叫，您可以傳遞部署預測時所建立的 API 金鑰。 機器學習服務 Web 服務以 REST 為基礎，這是一種常見的 Web 程式設計專案架構。
@@ -102,13 +101,13 @@ Azure Machine Learning 有兩種類型的服務：
 
 **在 Visual Studio 中安裝 Microsoft.AspNet.WebApi.Client NuGet**
 
-1. 發佈 Download dataset from UCI: Adult 2 class dataset 的 Web 服務。
+1. 發佈「從 UCI：Adult 2 類別資料集下載資料集」Web 服務。
 2. 按一下 [工具] > [NuGet 套件管理員] > [套件管理員主控台]。
 3. 選擇 [ **Install-package Microsoft.AspNet.WebApi.Client**]。
 
 **執行程式碼範例**
 
-1. 發佈機器學習服務範例集合中的 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 實驗。
+1. 發佈「範例 1：從 UCI：Adult 2 類別資料集下載資料集」實驗，此為 Machine Learning 範例集合中的一部分。
 2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱前述的 **取得 Azure Machine Learning 授權金鑰** 。
 3. 使用要求 URI 指派 serviceUri。
 
@@ -204,7 +203,7 @@ namespace CallRequestResponseService
 
 **執行程式碼範例**
 
-1. 部署機器學習服務範例集合中的 "Sample 1: Download dataset from UCI: Adult 2 class dataset" 實驗。
+1. 部署「範例 1：從 UCI：Adult 2 類別資料集下載資料集」實驗，此為 Machine Learning 範例集合中的一部分。
 2. 使用來自 Web 服務的金鑰指派 apiKey。 請參閱本文章接近開始處的**取得 Azure Machine Learning 授權金鑰**。
 3. 使用要求 URI 指派 serviceUri。
 

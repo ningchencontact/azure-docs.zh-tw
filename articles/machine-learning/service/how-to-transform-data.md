@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure Machine Learning 資料準備 SDK 轉換資料 - Python
+title: 轉換：資料準備 Python SDK
+titleSuffix: Azure Machine Learning service
 description: 了解如何使用 Azure Machine Learning 資料準備 SDK 來轉換和清理資料。 用轉換方法可用來加入資料行、篩選不必要的資料列或資料行，以及插補遺漏的值。
 services: machine-learning
 ms.service: machine-learning
@@ -9,13 +10,14 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
-ms.openlocfilehash: 988301f24f710a3e29fad1254d405501166e8a4e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.date: 12/04/2018
+ms.custom: seodec18
+ms.openlocfilehash: d32244cd49ebd42192b2388215f79a64cacb3caa
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309788"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186135"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>使用 Azure Machine Learning 資料準備 SDK 來轉換資料
 
@@ -160,7 +162,7 @@ imputed_longitude = df_imputed.to_pandas_dataframe()['Longitude'][2]
 assert imputed_longitude == 42
 ```
 
-## <a name="derive-column-by-example"></a>衍生資料行實例化
+## <a name="derive-column-by-example"></a>依範例衍生資料行
 
 Azure Machine Learning 資料準備 SDK 的其中一個更為進階的工具，即是使用所需結果的範例衍生資料行的能力。 這可讓您提供一個範例給 SDK，因此 SDK 可以產生程式碼以達到所需的轉換。
 
@@ -216,16 +218,16 @@ builder.preview(skip=30)
 
 ||日期|date_timerange|
 |-----|-----|-----|
-|30|11/1/2015 22:54|Jan 1, 2015 10PM-12AM|
-|31|11/1/2015 23:54|Jan 1, 2015 10PM-12AM|
-|32|11/1/2015 23:59|Jan 1, 2015 10PM-12AM|
-|33|11/2/2015 0:54|Feb 1, 2015 12AM-2AM|
-|34|11/2/2015 1:00|Feb 1, 2015 12AM-2AM|
-|35|11/2/2015 1:54|Feb 1, 2015 12AM-2AM|
-|36|11/2/2015 2:54|Feb 1, 2015 2AM-4AM|
-|37|11/2/2015 3:54|Feb 1, 2015 2AM-4AM|
-|38|11/2/2015 4:00|Feb 1, 2015 4AM-6AM|
-|39|11/2/2015 4:54|Feb 1, 2015 4AM-6AM|
+|30|1/1/2015 22:54|Jan 1, 2015 10PM-12AM|
+|31|1/1/2015 23:54|Jan 1, 2015 10PM-12AM|
+|32|1/1/2015 23:59|Jan 1, 2015 10PM-12AM|
+|33|1/2/2015 0:54|Feb 1, 2015 12AM-2AM|
+|34|1/2/2015 1:00|Feb 1, 2015 12AM-2AM|
+|35|1/2/2015 1:54|Feb 1, 2015 12AM-2AM|
+|36|1/2/2015 2:54|Feb 1, 2015 2AM-4AM|
+|37|1/2/2015 3:54|Feb 1, 2015 2AM-4AM|
+|38|1/2/2015 4:00|Feb 1, 2015 4AM-6AM|
+|39|1/2/2015 4:54|Feb 1, 2015 4AM-6AM|
 
 在這裡可以發現產生的程式發生了問題。 衍生程式完全根據您之前提供的範例，選擇將日期剖析為「日/月/年」，但這不是您在這裡所要的結果。 若要修正此問題，請針對 `builder` 變數使用 `add_example()` 函式，提供另一個範例。
 

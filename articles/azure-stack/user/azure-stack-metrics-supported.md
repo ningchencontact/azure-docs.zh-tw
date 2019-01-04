@@ -11,22 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 12/06/2018
 ms.author: mabrigg
-ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7ebb9d683803a6c5a5a0fa25308b348eeea586c4
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958069"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53097891"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack 上 Azure 監視器的受支援計量
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合系統*
 
 您可以從與全域 Azure 相同 Azure Stack 上的 Azure 監視器，擷取您的計量。 您可以在入口網站中建立量值、從 REST API 取得它們，或是使用 PowerShell 或 CLI 來查詢它們。
 
-下表列出適用於 Azure Stack 上 Azure 監視器計量管線的計量。 若要查詢及存取這些計量，您需要 **2018-01-01** api-version 版本的 API 設定檔。 如需 API 設定檔和 Azure Stack 的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](azure-stack-version-profiles.md)。
+下表列出適用於 Azure Stack 上 Azure 監視器計量管線的計量。 若要查詢及存取這些計量，您需要使用 **2018-01-01** api-version 版本的 API 設定檔。 如需 API 設定檔和 Azure Stack 的詳細資訊，請參閱[管理 Azure Stack 中的 API 版本設定檔](azure-stack-version-profiles.md)。
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 

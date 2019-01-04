@@ -14,12 +14,12 @@ ms.date: 10/12/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 1e8f5728697e63737ec44fedd8ed336366241f66
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6a175fb888237e5e4de445df6331ffb370839b8c
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310737"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163016"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>設定群組設定的 Azure Active Directory Cmdlet
 本文包含使用 Azure Active Directory (Azure AD) PowerShell Cmdlet 以建立和更新群組的指示。 本內容僅適用於 Office 365 群組 (又稱為整合群組)。 
@@ -27,7 +27,7 @@ ms.locfileid: "49310737"
 > [!IMPORTANT]
 > 某些設定需要 Azure Active Directory Premium P1 授權。 如需詳細資訊，請參閱[範本設定](#template-settings)資料表。
 
-如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) 中所述來設定 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。 
+如需有關如何防止非系統管理員的使用者建立安全性群組的詳細資訊，請依照 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) \(英文\) 中所述的內容設定  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`。 
 
 Office 365 群組設定是使用 Settings 物件和 SettingsTemplate 物件所設定。 一開始，您在目錄中不會看到任何設定物件，因為已使用預設設定來設定您的目錄。 若要變更預設設定，您必須使用設定範本來建立新的設定物件。 設定範本是由 Microsoft 所定義。 有數個不同的設定範本。 若要設定目錄的 Office 365 群組設定，您要使用名為 "Group.Unified" 的範本。 若要在單一群組上設定 Office 365 群組設定，請使用名為 "Group.Unified.Guest" 的範本。 此範本是用來管理 Office 365 群組的來賓存取權。 
 
@@ -46,7 +46,7 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 1. 在 DirectorySettings Cmdlet 中，您必須指定需要使用的 SettingsTemplate 識別碼。 如果您不知道此識別碼，這個 Cmdlet 會傳回所有設定範本的清單：
   
   ```powershell
-  PS C:> Get-AzureADDirectorySettingTemplate
+  Get-AzureADDirectorySettingTemplate
   ```
   這個 Cmdlet 呼叫會傳回所有可用的範本︰
   
@@ -94,20 +94,20 @@ Cmdlet 是 Azure Active Directory PowerShell V2 模組的一部分。 如需有�
 
 | **設定** | **說明** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>類型：布林值<li>預設值︰True |此旗標指出是否允許非管理使用者在目錄中建立 Office 365 群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
-|  <ul><li>GroupCreationAllowedGroupId<li>類型：字串<li>預設值：“” |即使 EnableGroupCreation == false，仍允許成員建立 Office 365 群組之安全性群組的 GUID。 |
-|  <ul><li>UsageGuidelinesUrl<li>類型：字串<li>預設值：“” |群組使用方針的連結。 |
-|  <ul><li>ClassificationDescriptions<li>類型：字串<li>預設值：“” | 分類說明的以逗號分隔清單。 ClassificationDescriptions 的值只能採用下列格式：
+|  <ul><li>EnableGroupCreation<li>輸入：BOOLEAN<li>預設值：True |此旗標指出是否允許非管理使用者在目錄中建立 Office 365 群組。 此設定不需要 Azure Active Directory Premium P1 授權。|
+|  <ul><li>GroupCreationAllowedGroupId<li>輸入：字串<li>預設值：“” |即使 EnableGroupCreation == false，仍允許成員建立 Office 365 群組之安全性群組的 GUID。 |
+|  <ul><li>UsageGuidelinesUrl<li>輸入：字串<li>預設值：“” |群組使用方針的連結。 |
+|  <ul><li>ClassificationDescriptions<li>輸入：字串<li>預設值：“” | 分類說明的以逗號分隔清單。 ClassificationDescriptions 的值只能採用下列格式：
   $setting[“ClassificationDescriptions”] ="Classification:Description,Classification:Description"，其中 Classification 符合 ClassificationList 中的字串。|
-|  <ul><li>DefaultClassification<li>類型：字串<li>預設值：“” | 如果尚未指定，則是做為群組預設分類的分類。|
-|  <ul><li>PrefixSuffixNamingRequirement<li>類型：字串<li>預設值：“” | 長度上限為 64 個字元的字串，用以定義為 Office 365 群組設定的命名慣例。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
-| <ul><li>CustomBlockedWordsList<li>類型：字串<li>預設值：“” | 使用者在群組名稱或別名中不允許使用之片語的逗號分隔字串。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
-| <ul><li>EnableMSStandardBlockedWords<li>類型：布林值<li>預設值：“False” | 請勿使用
-|  <ul><li>AllowGuestsToBeGroupOwner<li>類型︰布林值<li>預設值︰False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
-|  <ul><li>AllowGuestsToAccessGroups<li>類型：布林值<li>預設值︰True | 用以指出來賓使用者是否可存取 Office 365 內容的布林值。  此設定不需要 Azure Active Directory Premium P1 授權。|
-|  <ul><li>GuestUsageGuidelinesUrl<li>類型：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
-|  <ul><li>AllowToAddGuests<li>類型：布林值<li>預設值︰True | 布林值表示是否允許將來賓新增至此目錄。|
-|  <ul><li>ClassificationList<li>類型：字串<li>預設值：“” |可套用至 Office 365 群組、以逗號分隔的有效分類值清單。 |
+|  <ul><li>DefaultClassification<li>輸入：字串<li>預設值：“” | 如果尚未指定，則是做為群組預設分類的分類。|
+|  <ul><li>PrefixSuffixNamingRequirement<li>輸入：字串<li>預設值：“” | 長度上限為 64 個字元的字串，用以定義為 Office 365 群組設定的命名慣例。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
+| <ul><li>CustomBlockedWordsList<li>輸入：字串<li>預設值：“” | 使用者在群組名稱或別名中不允許使用之片語的逗號分隔字串。 如需詳細資訊，請參閱[對 Office 365 群組強制執行命名原則 (預覽)](groups-naming-policy.md)。 |
+| <ul><li>EnableMSStandardBlockedWords<li>輸入：BOOLEAN<li>預設值：“False” | 請勿使用
+|  <ul><li>AllowGuestsToBeGroupOwner<li>輸入：BOOLEAN<li>預設值：False | 布林值，表示來賓使用者是否可以是群組的擁有者。 |
+|  <ul><li>AllowGuestsToAccessGroups<li>輸入：BOOLEAN<li>預設值：True | 用以指出來賓使用者是否可存取 Office 365 內容的布林值。  此設定不需要 Azure Active Directory Premium P1 授權。|
+|  <ul><li>GuestUsageGuidelinesUrl<li>輸入：字串<li>預設值：“” | 來賓使用指導方針的連結 url。 |
+|  <ul><li>AllowToAddGuests<li>輸入：BOOLEAN<li>預設值：True | 布林值表示是否允許將來賓新增至此目錄。|
+|  <ul><li>ClassificationList<li>輸入：字串<li>預設值：“” |可套用至 Office 365 群組、以逗號分隔的有效分類值清單。 |
 
 ## <a name="read-settings-at-the-directory-level"></a>讀取目錄層級的設定
 這些步驟會讀取目錄層級的設定，其會套用至目錄中的所有 Office 群組。

@@ -1,12 +1,11 @@
 ---
-title: Cortana Intelligence 競賽常見問題集 | Microsoft Docs
+title: Cortana Intelligence 競賽常見問題集 - Azure Machine Learning Studio | Microsoft Docs
 description: 關於 Microsoft Cortana Intelligence 競賽的常見問題集。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 8782af26056f8341ee68ed87f003bc585e0c4e69
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fe4da412aa779e9861446f8dcbb8a807c282c7c6
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52265096"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268898"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Microsoft Cortana Intelligence 競賽常見問題集
 **什麼是 Cortana Intelligence 競賽？**
@@ -70,7 +69,7 @@ Microsoft Cortana Intelligence 競賽透過共同解決一些全世界最複雜�
 
 競賽是免費參加。 不過，您需要有 Azure Machine Learning 工作區的存取權才能參加。 只要使用有效的 Microsoft 帳戶或 Office 365 帳戶登入，就可以建立免費的工作區，而不需要信用卡。 如果您已經是 Azure 或 Cortana Intelligence Suite 的客戶，您可以在相同的 Azure 訂用帳戶下建立並使用標準工作區。 如果您想購買 Azure 訂用帳戶，可以到 [Azure 定價](https://azure.microsoft.com/pricing)頁面。 請注意，使用標準工作區建構實驗時，將適用標準費率。 如需詳細資訊，請參閱 [Azure Machine Learning 定價資訊](https://azure.microsoft.com/pricing/details/machine-learning/)。 
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
+
 
 **什麼是公開分數和私人分數？**
 

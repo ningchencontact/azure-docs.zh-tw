@@ -1,23 +1,24 @@
 ---
-title: LUIS 應用程式中的實體類型 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 實體類型
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 在 Language Understanding Intelligent Service (LUIS) 應用程式中新增實體 (您應用程式定義域中的關鍵資料)。
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: f0e543263c7a9890abc485d0f0cd6bec88f16dd4
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085816"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53135187"
 ---
-# <a name="entities-in-luis"></a>LUIS 中的實體
+# <a name="entity-types-and-their-purposes-in-luis"></a>實體類型和其在 LUIS 中的目的
 
 實體是語句中作為您應用程式定義域關鍵資料的單字或片語。
 
@@ -68,10 +69,10 @@ ms.locfileid: "50085816"
 ## <a name="types-of-entities"></a>實體類型
 LUIS 提供許多類型的實體；預先建置的實體、自訂的機器學習實體及清單實體。
 
-| 名稱 | 可標記 | 說明 |
+| Name | 可標記 | 說明 |
 | -- |--|--|
 | **預先建置** <br/>[自訂](#prebuilt)| |  **定義**<br>代表常見概念的內建類型。 <br><br>**清單**<br/>關鍵片語號碼、序數、溫度、維度、金額、年齡、百分比、電子郵件、URL、電話號碼及關鍵片語。 <br><br>預先建置的實體名稱為保留名稱。 <br><br>所有已新增至應用程式的預先建置實體都會在[端點](luis-glossary.md#endpoint)查詢中傳回。 如需詳細資訊，請參閱[預先建置的實體](./luis-prebuilt-entities.md)。 <br/><br/>[實體的範例回應](luis-concept-data-extraction.md#prebuilt-entity-data)|
-|<!-- added week of 3/21/08 --> **規則運算式**<br/>[RegEx](#regex)||**定義**<br>已格式化原始語句文字的自訂規則運算式。 這會忽略大小寫並忽略文化特性變體。  <br><br>此實體適用於以任何一致的變化來一致地格式化的單字或片語。<br><br>在拼字檢查修改之後，才會套用規則運算式比對。 <br><br>如果規則運算式太複雜 (例如使用許多方括號)，您便無法將運算式新增到模型中。 <br><br>**範例**<br>`kb[0-9]{6,}` 會比對出 kb123456。<br/><br/>[快速入門](luis-quickstart-intents-regex-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md)|
+|<!-- added week of 3/21/08 --> **規則運算式**<br/>[RegEx](#regex)||**定義**<br>已格式化原始語句文字的自訂規則運算式。 這會忽略大小寫並忽略文化特性變體。  <br><br>此實體適用於以任何一致的變化來一致地格式化的單字或片語。<br><br>在字元等級而非權杖等級的拼字檢查修改之後，才會套用規則運算式比對。 使用組件，但不是整個 [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) 程式庫。<br><br>如果規則運算式太複雜 (例如使用許多方括號)，您便無法將運算式新增到模型中。 <br><br>**範例**<br>`kb[0-9]{6,}` 會比對出 kb123456。<br/><br/>[快速入門](luis-quickstart-intents-regex-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md)|
 | **簡單** <br/>[機器學習](#machine-learned) | ✔ | **定義**<br>簡單實體是描述單一概念並從機器學習內容學習到的一般實體。 內容包括單字選擇、單字位置及語句長度。<br/><br/>這適用於未以一致方式格式化但表示相同事物的單字或片語。 <br/><br/>[快速入門](luis-quickstart-primary-and-secondary-data.md)<br/>[實體的範例回應](luis-concept-data-extraction.md#simple-entity-data)|  
 | **清單** <br/>[完全相符](#exact-match)|| **定義**<br>清單實體代表系統中一組固定的封閉式相關單字及其同義字。 <br><br>每個清單實體可以有一或多種形式。 最適用於代表相同概念的一組已知變化。<br/><br/>LUIS 並不會探索清單實體的額外值。 使用**建議**功能，以根據目前的清單查看適用於新字組的建議。<br/><br>如果有多個清單實體具有相同的值，則在端點查詢中會傳回每個實體。 <br/><br/>[快速入門](luis-quickstart-intent-and-list-entity.md)<br>[實體的範例回應](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[混合](#mixed) | ✔|**定義**<br>Patterns.any 是僅用於模式範本語句的可變長度預留位置，用來標記實體開始及結束的位置。  <br><br>**範例**<br>根據標題說出語句來搜尋書籍時，pattern.any 會擷取完整的標題。 使用 pattern.any 的範本語句是 `Who wrote {BookTitle}[?]`。<br/><br/>[教學課程](luis-tutorial-pattern.md)<br>[實體的範例回應](luis-concept-data-extraction.md#composite-entity-data)|  

@@ -3,7 +3,7 @@ title: 調整彈性集區資源 - Azure SQL Database | Microsoft Docs
 description: 此頁面將針對 Azure SQL Database 中的彈性集區說明調整資源。
 services: sql-database
 ms.service: sql-database
-ms.subservice: elastic-pool
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: cd9886f11685397cbfb82f88bb0b37c8ccc41b67
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240166"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52868441"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL Database 中調整彈性集區
 

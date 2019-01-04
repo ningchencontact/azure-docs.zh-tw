@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 805270fa4cc051929ecb1362f2d3cd4455a17a60
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e68099609e5a4a27dfae7956fa43634d38311a22
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423376"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015767"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>操作說明：從 Azure 存取控制服務遷移
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>作法：從 Azure 存取控制服務移轉
 
 Microsoft Azure 存取控制服務 (ACS) 是 Azure Active Directory (Azure AD) 的一項服務，將於 2018 年 11 月 7 日淘汰。 目前使用存取控制的應用程式和服務，必須在淘汰前完全移轉到其他驗證機制。 本文說明給目前客戶的建議移轉選項，協助您規劃汰換存取控制的事宜。 如果您目前未使用存取控制，不需要採取任何動作。
 
@@ -115,7 +115,7 @@ https://<mynamespace>.accesscontrol.windows.net
 
 - **2017 年 11 月**：Azure 傳統入口網站中的 Azure AD 管理員體驗[已淘汰](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/)。 目前，可在以下新的專用 URL 進行「存取控制」的命名空間管理：`https://manage.windowsazure.com?restoreClassic=true`。 該 URL 可以用來檢視現有的命名空間、啟用和停用命名空間，若您有需要，也可以刪除命名空間。
 - **2018 年 4 月 2 日**：Azure 傳統入口網站已完全淘汰，這意謂著透過任何 URL 都無法進行「存取控制」命名空間管理。 屆時，您將無法停用或啟用、刪除或列舉存取控制命名空間。 不過，「存取控制」管理入口網站將會在 `https://\<namespace\>.accesscontrol.windows.net` 運作並提供完整功能。 存取控制的其他所有元件都將繼續正常運作。
-- **2018 年 11 月 7 日**：所有「存取控制」元件將永久關閉。 這包括存取控制管理入口網站、管理服務、STS 和權杖轉換規則引擎。 屆時，所有傳送給存取控制 (網指 \<namespace\>.accesscontrol.windows.net) 的要求都會失敗。 在那之前，請確實將所有現有的應用程式和服務移轉至其他技術。
+- **2018 年 11 月 7 日**：所有「存取控制」元件都將永久關閉。 這包括存取控制管理入口網站、管理服務、STS 和權杖轉換規則引擎。 屆時，所有傳送給存取控制 (網指 \<namespace\>.accesscontrol.windows.net) 的要求都會失敗。 在那之前，請確實將所有現有的應用程式和服務移轉至其他技術。
 
 > [!NOTE]
 > 原則會停用在一段期間內未要求權杖的命名空間。 自 2018 年 9 月起，這段期間目前為 14 天的非使用狀態，但在未來的幾週內，這將縮短成 7 天的非使用狀態。 如果您有目前停用的「存取控制」命名空間，您可以[下載並安裝 ACS PowerShell](#download-and-install-acs-powershell) 來重新啟用這些命名空間。
@@ -132,7 +132,7 @@ https://<mynamespace>.accesscontrol.windows.net
 | ------- | -------- |
 | Azure 服務匯流排 | [移轉至共用存取簽章](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure 服務匯流排轉送 | [移轉至共用存取簽章](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure 受控快取 | [移轉至 Azure Redis 快取](https://docs.microsoft.com/azure/redis-cache/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure 受控快取 | [移轉至 Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | Azure DataMarket | [移轉至認知服務 API](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | BizTalk 服務 | [移轉至 Azure App Service 的邏輯應用程式功能](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Azure 媒體服務 | [移轉至 Azure AD 驗證](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
@@ -162,7 +162,7 @@ SharePoint 2013、2016 和 SharePoint Online 客戶已長期使用 ACS 在雲端
 
 - 與 Windows Identity Foundation (WIF) 深入整合。
 - 與 Google、Facebook、Yahoo、Azure Active Directory、AD FS 帳戶及 Microsoft 帳戶建立同盟。
-- 支援下列驗證通訊協定：OAuth 2.0 Draft 13、WS-Trust 及 Web 服務同盟 (WS-同盟)。
+- 支援下列驗證通訊協定：OAuth 2.0 Draft 13、WS-Trust 和 Web 服務同盟 (WS-同盟)。
 - 支援下列權杖格式：JSON Web 權杖 (JWT)、SAML 1.1、SAML 2.0 和簡單 Web 權杖 (SWT)。
 - 整合至 WIF 的首頁領域探索體驗，可以讓使用者選擇用來登入的帳戶類型。 這項體驗由 Web 應用程式裝載並且可完全自訂。
 - 權杖轉換可以讓您對 Web 應用程式從存取控制收到的宣告進行多種自訂設定，包括：

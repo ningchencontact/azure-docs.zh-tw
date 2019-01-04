@@ -10,25 +10,23 @@ ms.component: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 283a042bb8ea32f8f6db9bebb211bc2762a3a4c1
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: be3e408b3f5f6393786a35108202d51ae871ea3b
+ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578041"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52679727"
 ---
 # <a name="api-reference"></a>API 參考
 
-Microsoft 臉部 API 是一種雲端式 API，提供最先進的臉部偵測和辨識演算法。
+「Azure 臉部 API」是一個雲端式 API，可提供臉部偵測和辨識演算法。 「臉部 API」涵蓋下列分類：
 
-臉部 API 涵蓋下列分類：
-
-- [Face Algorithm API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)：涵蓋核心函式，例如[偵測](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[尋找類似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)、[驗證](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)、[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)和[群組](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)。
-- [FaceList Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b)：用來管理 FaceList 以[尋找類似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
-- [LargePersonGroup Person Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adcba3a7b9412a4d53f40)：用來管理 LargePersonGroup Person Faces 以[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
-- [LargePersonGroup Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d)：用來管理 LargePersonGroup 資料集以[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
-- [LargeFaceList Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc)：用來管理 LargeFaceList 以[尋找類似項目](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
-- [PersonGroup Person Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)：用來管理 PersonGroup Person Faces 以[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
-- [PersonGroup Management API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244)：用來管理 PersonGroup 資料集以[識別](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
+- [Face Algorithm API](https://docs.microsoft.com/rest/api/cognitiveservices/face/face)：涵蓋核心函式，例如[偵測](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/detectwithstream)、[尋找類似項目](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar)、[驗證](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/verifyfacetoface)、[識別](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)和[群組](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/group)。
+- [FaceList 管理 API](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist)：用來管理 FaceList 以[尋找類似項目](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar)。
+- [LargePersonGroup Person Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroupperson)：用來管理 LargePersonGroup Person Faces 以[識別](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)。
+- [LargePersonGroup Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/largepersongroup)：用來管理 LargePersonGroup 資料集以[識別](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)。
+- [LargeFaceList Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist)：用來管理 LargeFaceList 以[尋找類似項目](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar)。
+- [PersonGroup Person Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson)：用來管理 PersonGroup Person Faces 以供[識別](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)。
+- [PersonGroup Person Management API](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup)：用來管理 PersonGroup 資料集以供[識別](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify)。
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

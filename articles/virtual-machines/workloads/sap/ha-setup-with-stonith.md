@@ -14,17 +14,17 @@ ms.workload: infrastructure
 ms.date: 11/21/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 982c6112a19654e268c9c50fec35d65fbc1766c2
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c6d4ec767b4c566e6a390f37b97266916819a40c
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37062015"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53015155"
 ---
 # <a name="high-availability-set-up-in-suse-using-the-stonith"></a>使用 STONITH 在 SUSE 中進行高可用性設定
 本文件提供使用 STONITH 裝置在 SUSE 作業系統上進行高可用性設定的詳細逐步指示。
 
-**免責聲明：***本指南為透過在可成功運作的 Microsoft HANA 大型執行個體環境中測試設定所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
+**免責聲明：***本指南係在 Microsoft HANA 大型執行個體環境中測試設定 (可成功運作) 後所衍生。由於 HANA 大型執行個體的 Microsoft 服務管理小組不支援作業系統，您可能需要連絡 SUSE 以針對作業系統層進行進一步疑難排解或釐清。Microsoft 服務管理小組會設定 STONITH 裝置並傾力支援，而且會參與對於 STONITH 裝置問題的疑難排解。*
 ## <a name="overview"></a>概觀
 若要使用 SUSE 叢集進行高可用性設定，必須符合下列先決條件。
 ### <a name="pre-requisites"></a>先決條件
@@ -37,7 +37,7 @@ ms.locfileid: "37062015"
 
 ### <a name="setup-details"></a>設定詳細資料
 本指南使用下列設定：
-- 作業系統：適用於 SAP 的 SLES 12 SP1
+- 作業系統：SLES 12 SP1 for SAP
 - HANA 大型執行個體：2xS192 (4 個插槽，2 TB)
 - HANA 版本：HANA 2.0 SP1
 - 伺服器名稱：sapprdhdb95 (node1) 和 sapprdhdb96 (node2)
@@ -76,7 +76,7 @@ Microsoft 服務管理小組會提供此字串。 修改這**兩個**節點上�
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 修改 */etc/iscsi/iscsid.conf*：設定 *node.session.timeo.replacement_timeout=5* 與 *node.startup = automatic*。 修改這**兩個**節點上的檔案。
+1.2 修改 */etc/iscsi/iscsid.conf*：設定 *node.session.timeo.replacement_timeout=5* 和 *node.startup = automatic*。 修改這**兩個**節點上的檔案。
 
 1.3 執行探索命令，它會顯示四個工作階段。 請在這兩個節點上執行。
 
@@ -93,7 +93,7 @@ iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 執行重新掃描指令碼：*rescan-scsi-bus.sh*。此指令碼會顯示為您建立的新磁碟。  請在這兩個節點上執行。 您應會看到大於零的 LUN (例如 1、2 等)。
+1.5 執行重新掃描指令碼：*rescan-scsi-bus.sh*。此指令碼會顯示為您建立的新磁碟。  請在這兩個節點上執行。 您應會看到大於零的 LUN (例如：1、2 等)。
 
 ```
 rescan-scsi-bus.sh
@@ -232,7 +232,7 @@ systemctl start pacemaker
 ```
 ![start-pacemaker.png](media/HowToHLI/HASetupWithStonith/start-pacemaker.png)
 
-如果 Pacemaker 服務*失敗*，請參閱「案例 5：Pacemaker 服務失敗」
+如果 Pacemaker 服務*失敗*，請參閱*案例 5：Pacemaker 服務失敗*
 
 ## <a name="5---joining-the-cluster"></a>5. 加入叢集
 本節說明如何將節點加入叢集。
@@ -242,7 +242,7 @@ systemctl start pacemaker
 ```
 ha-cluster-join
 ```
-如果您在加入叢集期間收到*錯誤*，請參閱「案例 6：節點 2 無法加入叢集」。
+如果您在加入叢集期間收到*錯誤*，請參閱*案例 6：節點 2 無法加入叢集*。
 
 ## <a name="6---validating-the-cluster"></a>6. 驗證叢集
 
@@ -297,8 +297,7 @@ crm configure load update crm-bs.txt
 # vi crm-sbd.txt
 # enter the following to crm-sbd.txt
 primitive stonith-sbd stonith:external/sbd \
-params pcmk_delay_max="15" \
-op monitor interval="15" timeout="15"
+params pcmk_delay_max="15"
 ```
 將設定新增至叢集。
 ```

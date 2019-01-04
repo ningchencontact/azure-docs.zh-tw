@@ -1,5 +1,5 @@
 ---
-title: SQL VM 到 Azure 搜尋服務的連線 | Microsoft Docs
+title: 搜尋索引的 Azure SQL 虛擬機器 VM 連線 - Azure 搜尋服務
 description: 啟用加密的連線並設定防火牆，以允許在 Azure 虛擬機器 (VM) 上從 Azure 搜尋服務的索引子連接到 SQL Server。
 author: HeidiSteen
 manager: cgronlun
@@ -8,17 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: heidist
-ms.openlocfilehash: 7800e83891cb336bb896299b8fd4d6b3ba590178
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.custom: seodec2018
+ms.openlocfilehash: 5f04c98e1337c2b65c9e0bc8401dd6045a84021e
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366455"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312016"
 ---
 # <a name="configure-a-connection-from-an-azure-search-indexer-to-sql-server-on-an-azure-vm"></a>在 Azure VM 上設定從 Azure 搜尋服務索引子到 SQL Server 的連線
 如[使用索引子將 Azure SQL Database 連接至 Azure 搜尋服務](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)中所述，Azure 搜尋服務支援針對 **Azure VM 上的 SQL Server** (或簡稱 **SQL Azure VM**) 建立索引子，但必須先處理幾個安全性相關的必要條件。 
 
-**工作持續時間︰** 約 30 分鐘，假設您已經在 VM 上安裝憑證。
+**任務持續時間：** 約 30 分鐘，假設您已經在 VM 上安裝憑證。
 
 ## <a name="enable-encrypted-connections"></a>啟用加密的連線
 Azure 搜尋服務會針對透過公用網際網路連接的所有索引子要求加密的通道。 本節列出執行這項工作的步驟。

@@ -1,11 +1,13 @@
 ---
-title: 在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學 | Microsoft Docs
+title: 了解如何使用 Linux 資料科學虛擬機器
+titleSuffix: Azure
 description: 如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
 editor: cgronlun
+ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 49956234c00129508254b96d7d63a4b30af3ad55
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: fafa680f877060f1e7d96c60f52e3033eeb38553
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037578"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53190630"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>在 Azure 上搭配 Linux 資料科學虛擬機器來運用資料科學
 本逐步解說示範如何使用 Linux 資料科學 VM 執行數個常見的資料科學工作。 Linux 資料科學虛擬機器 (DSVM) 是 Azure 提供的虛擬機器映像，其中預先安裝了一組常用於執行資料分析和機器學習服務的工具。 重要的軟體元件可在 [佈建 Linux 資料科學虛擬機器](linux-dsvm-intro.md) 主題中找到明細。 VM 映像可讓使用者輕鬆地在幾分鐘內開始執行資料科學，而不需要個別安裝和設定每個工具。 您可以在需要時輕鬆地相應增加 VM，並在不使用時加以停止。 因此，這項資源既有彈性，又符合成本效益。
@@ -316,19 +318,19 @@ DSVM 中的 Anaconda 散發套件隨附 Jupyter Notebook，此跨平台環境可
 
 > [!NOTE]
 > 若要從目前核心中的 Jupyter 筆記本使用 Python 套件管理員 (透過 `pip` 命令)，則可在程式碼單元中使用下列命令，例如：
-```python
+  ```python
    import sys
    ! {sys.executable} -m pip install numpy -y
-```
+  ```
 >
 >
 
 > [!NOTE]
 > 若要從目前核心中的 Jupyter 筆記本使用 Conda 安裝程式 (透過 `conda` 命令)，則可在程式碼單元中使用下列命令，例如：
-```python
+  ```python
    import sys
    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-```
+  ```
 >
 >
 
@@ -344,7 +346,7 @@ VM 上已安裝數個 Notebook 範例︰
 >
 
 ## <a name="rattle"></a>Rattle
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily) 是用於資料採礦的 R 圖形化工具。 其直覺式介面可讓您輕鬆地載入、瀏覽和轉換資料以及建置和評估模型。  [Rattle︰R 的資料採礦 GUI](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) 一文提供了逐步解說來示範其功能。
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (R Analytical Tool To Learn Easily) 是用於資料採礦的 R 圖形化工具。 其直覺式介面可讓您輕鬆地載入、瀏覽和轉換資料以及建置和評估模型。  [Rattle：R 的資料採礦 GUI](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) \(英文\) 一文提供了示範其功能的逐步解說。
 
 使用下列命令安裝並啟動 Rattle︰
 
@@ -357,7 +359,7 @@ VM 上已安裝數個 Notebook 範例︰
 >
 >
 
-Rattle 使用索引標籤式介面。 大部分索引標籤會對應至 [資料科學程序](https://azure.microsoft.com/documentation/learning-paths/data-science-process/)中的步驟，例如載入資料或瀏覽資料。 資料科學程序會由左到右經歷所有索引標籤。 但最後一個索引標籤包含 Rattle 所執行的 R 命令的記錄檔。
+Rattle 使用索引標籤式介面。 大部分索引標籤會對應至 [資料科學程序](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)中的步驟，例如載入資料或瀏覽資料。 資料科學程序會由左到右經歷所有索引標籤。 但最後一個索引標籤包含 Rattle 所執行的 R 命令的記錄檔。
 
 若要載入和設定資料集︰
 

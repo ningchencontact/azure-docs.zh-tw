@@ -1,5 +1,5 @@
 ---
-title: 在航太工業中使用 Azure - Cortana Intelligence 解決方案進行預測性維護的技術指南 | Microsoft Docs
+title: 航太工業的預測性維護指南 - Team Data Science Process
 description: 航太、公用事業和運輸中預測性維護的 Microsoft Cortana Intelligence 解決方案範本的技術指南。
 services: machine-learning
 author: marktab
@@ -10,15 +10,15 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
-ms.custom: (previous author=fboylu, ms.author=fboylu)
-ms.openlocfilehash: 904e9c22f23255f1bee7f532d7f577c7cd457778
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
+ms.openlocfilehash: d7acb24a6fef0435d59e5a07f5312f1e6368fe52
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443741"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140178"
 ---
-# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>航太與其他業務中預測性維護的 Cortana Intelligence 解決方案範本的技術指南
+# <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>航太工業中預測性維護之 Cortana Intelligence 解決方案範本的技術指南
 
 >[!Important]
 此文章已被取代。 關於航太工業中的預測性維護討論仍有相關，但請參閱[商務對象適用的解決方案概觀](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) (英文) 了解最新資訊。
@@ -143,7 +143,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 用於此解決方案範本的 [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) 實驗會提供飛機引擎的剩餘使用年限 (RUL)。 實驗會因取用的資料集而不同，因而需要特別針對帶入的資料進行修改或取代。
 
-如需如何建立 Azure Machine Learning 實驗的詳細資訊，請參閱 [預測性維護：步驟 3 之 1，資料準備和特徵設計](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)。
+如需如何建立 Azure Machine Learning 實驗的詳細資訊，請參閱[預測性維護：步驟 3 之 1，資料準備和特徵設計](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)。
 
 ## <a name="monitor-progress"></a>監視進度
 一旦資料產生器啟動，管線就會開始凍結，而且解決方案的不同元件會遵循 Data Factory 發出的命令開始動作。 有兩種方式可以監視管線。
@@ -162,7 +162,7 @@ Azure 串流分析查詢建構的相關資訊可在 MSDN 上的 [串流分析查
 ### <a name="set-up-the-cold-path-dashboard"></a>設定冷路徑儀表板
 在冷路徑資料管線中，目標是在飛機完成航班 (起降) 後取得每個飛機引擎的預測 RUL (剩餘使用年限)。 預測結果會每 3 個小時更新，用於預測在過去 3 小時內完成航班的飛機引擎。
 
-Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果的儲存位置。 附註：1) 在部署您的解決方案時，會在資料庫中顯示過去 3 小時內的預測。
+Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果的儲存位置。 注意：1) 在部署解決方案時，會在資料庫中顯示過去 3 小時內的預測。
 產生器下載隨附的 pbix 檔案包含一些種子資料，因此您可以立即建立 Power BI 儀表板。 2) 在此步驟中，必要條件就是下載並安裝免費版軟體 [Power BI 桌面版](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)。
 
 下列步驟會引導您將 pbix 檔案連接到 SQL Database，該資料庫會在部署包含視覺效果資料 (例如預測結果) 的解決方案時加快運轉。
@@ -197,7 +197,7 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
      <br/>
    * 若要排定重新整理資料，請將滑鼠移至 **PredictiveMaintenanceAerospace** 資料集上，按一下 ![Elipsis icon](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png)，然後選擇 [排程重新整理]。
      <br/>
-     **附註：** 如果您看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
+     **附註：** 如果看到警告訊息，請按一下 [編輯認證]，並確定您的資料庫認證與步驟 1 中所述相同。
      <br/>
      ![排程重新整理](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -210,7 +210,7 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
 
 1. 在 Azure 串流分析 (ASA) 中加入 Power BI 輸出。
    
-   * 您必須依照 [Azure 串流分析及 Power BI：適用於串流資料即時可見度的分析儀表板](../../stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
+   * 您必須遵照 [Azure 串流分析與 Power BI：適用於串流資料即時可見度的分析儀表板](../../stream-analytics/stream-analytics-power-bi-dashboard.md)中的指示，將 Azure 串流分析作業的輸出設定為 Power BI 儀表板。
    * ASA 查詢有三個輸出，分別是 **aircraftmonitor**、**aircraftalert** 和 **flightsbyhour**。 按一下 [查詢] 索引標籤，就可以檢視查詢。對應至每一個資料表，您必須將輸出新增到 ASA。 當您新增第一個輸出 (**aircraftmonitor**) 時，請確定**輸出別名**、**資料集名稱**和**資料表名稱**皆相同 (**aircraftmonitor**)。 重複這些步驟來新增 **aircraftalert** 和 **flightsbyhour** 的輸出。 新增所有三個輸出資料表並啟動 ASA 作業後，應該會出現確認訊息 (「啟動串流分析作業 maintenancesa02asapbi 成功」)。
 2. 登入 [Power BI 線上版](http://www.powerbi.com)
    
@@ -218,7 +218,7 @@ Power BI 會連接到 Azure SQL Database 做為其資料來源，即預測結果
    * 請確定 [視覺效果]  窗格開啟，並顯示在螢幕的右邊。
 3. 將資料傳送到 Power BI 之後，您就可以開始視覺化串流資料。 以下是具有釘選了一些最忙碌路徑視覺效果的範例儀表板。 您可以根據適當的資料集建立其他儀表板磚。 根據執行資料產生器的時間長度，在視覺效果上的數字可能會不同。
 
-    ![儀表板檢視](media\cortana-analytics-technical-guide-predictive-maintenance\dashboard-view.png)
+    ![儀表板檢視](media/cortana-analytics-technical-guide-predictive-maintenance/dashboard-view.png)
 
 1. 以下是一些用來建立上述其中一個圖格的步驟 -「感應器 11 與閾值 48.26 的機隊檢視」磚：
    

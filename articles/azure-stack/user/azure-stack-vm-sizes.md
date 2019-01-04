@@ -10,32 +10,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 12/01/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5127b748111f993f95f940f4add81c42a032e038
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087486"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722083"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Azure Stack 中支援的虛擬機器大小
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用範圍：Azure Stack 整合系統和 Azure Stack 開發套件*
 
 本文列出 Azure Stack 中可用的虛擬機器 (VM) 大小。
 
 ## <a name="general-purpose"></a>一般用途
 
-一般用途 VM 大小提供平衡的 CPU 與記憶體比例。 可用於測試和開發、小型至中型資料庫，以及低至中流量網頁伺服器。
+一般用途 VM 大小提供平衡的 CPU 與記憶體比例。 可用於測試和開發、小型至中型資料庫，以及低至中流量網頁伺服器。 除了基本 A 系列以外，每個資料磁碟的進階 VM 大小均為 2300 IOPS。 若為基本 A 系列，資料磁碟大小為 500 IOPS。
 
 ### <a name="basic-a"></a>基本 A
 
 > [!NOTE]
 > 透過入口網站[建立虛擬機器擴展集](../azure-stack-compute-add-scalesets.md) (VMSS) 時，無法再使用「基本 A」虛擬機器大小。 若要建立具有此大小的 VMSS，請使用 PowerShell 或範本。
 
-|大小 - 大小\名稱 |vCPU     |記憶體 | 暫存磁碟大小上限 | 最大 OS 磁碟輸送量︰(IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟輸送量 (IOPS) | 最大 NIC |    
+|大小 - 大小\名稱 |vCPU     |記憶體 | 暫存磁碟大小上限 | 最大 OS 磁碟輸送量：(IOPS) | 最大暫存儲存體輸送量 (IOPS) | 最大資料磁碟輸送量 (IOPS) | 最大 NIC |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
 |**A1\Basic_A1**  |1    |1.75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |

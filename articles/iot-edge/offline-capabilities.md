@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Edge 離線功能 |Microsoft Docs
-description: 了解 IoT Edge 裝置及模組針對延長之時間期間離線執行的方式，以及 IoT Edge 讓一般 IoT 裝置也能離線執行的方式。
+title: 離線操作裝置 - Azure IoT Edge | Microsoft Docs
+description: 了解 IoT Edge 裝置及模組針對延長時間期間無網際網路連線執行的方式，以及 IoT Edge 讓一般 IoT 裝置也能離線執行的方式。
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,13 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3ab775d57ba188930cc66b0fa1655307e9a78179
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.custom: seodec18
+ms.openlocfilehash: 4c4713bade487ba46f1abdc6d0a76db3e81e38b1
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284637"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53096939"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>了解 IoT Edge 裝置、模組及子裝置的延伸離線功能 (預覽)
 

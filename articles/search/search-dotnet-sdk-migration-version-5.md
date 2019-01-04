@@ -1,6 +1,6 @@
 ---
-title: 升級至 Azure 搜尋服務 .NET SDK 第 5 版 | Microsoft Docs
-description: 升級至 Azure 搜尋服務 .NET SDK 第 5 版
+title: 升級至 Azure 搜尋服務 .NET SDK 版本 5 - Azure 搜尋服務
+description: 從舊版將程式碼移轉至 Azure 搜尋服務.NET SDK 5 版。 了解新功能與必要的程式碼變更。
 author: brjohnstmsft
 manager: jlembicz
 services: search
@@ -9,12 +9,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: brjohnst
-ms.openlocfilehash: b08507d7685ce87a4c176385f750a72d6ae51ba3
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.custom: seodec2018
+ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35766559"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53316860"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>升級至 Azure 搜尋服務 .NET SDK 第 5 版
 如果您使用 4.0 預覽版或更舊版本的 [Azure 搜尋服務 .NET SDK](https://aka.ms/search-sdk)，本文會協助您將應用程式升級為使用第 5 版。

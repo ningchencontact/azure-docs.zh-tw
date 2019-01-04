@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 393b90395698c18fdbd4fc8ba4d8bc79bd6287be
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 15a528bfdc1f23c932d1206dbca4b05af8bd58ba
+ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495188"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53186696"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何取得 Azure Multi-Factor Authentication
 
@@ -87,17 +87,17 @@ Azure AD 租用戶中指派為全域管理員角色的使用者，可以為其 A
 
 1. **每個啟用的使用者** - 適用於想要為一群定期需要驗證之固定數量員工啟用雙步驟驗證的企業。 每個使用者會根據 Azure AD 租用戶和您 Azure MFA 伺服器中啟用的 MFA 使用者數目計費。 使用者如果在 Azure AD 與 Azure MFA Server 中啟用 MFA，並啟用網域同步處理 (Azure AD Connect)，則我們會計算較大的使用者組。 如果未啟用網域同步處理，則我們會計算在 Azure AD 與 Azure MFA Server 中啟用 MFA 的所有使用者總和。 計費是按比例計費，而每日回報給商務系統。
 
-  > [!NOTE]
-  > 計費範例 1︰今日有 5,000 個使用者啟用 MFA。 MFA 系統會將該數字除以 31，並報告那一天有 161.29 個使用者。 明天多啟用 15 個使用者，則 MFA 系統會報告那一天有 161.77 個使用者。 計費週期結束時，針對您的 Azure 訂用帳戶計費的使用者總數加起來大約為 5,000 個。
-  >
-  > 計費範例 2︰您有具有授權的使用者與不具有授權的使用者混合，因此您需要有每個使用者 Azure MFA 提供者來補足差距。 您的租用戶上有 4,500 個 Enterprise Mobility + Security 授權，但 5,000 個使用者啟用 MFA。 Azure 訂用帳戶會對 500 個使用者計費，按比例計費且每日報告為 16.13 個使用者。
-  >
+   > [!NOTE]
+   > 計費範例 1︰今日有 5,000 個使用者啟用 MFA。 MFA 系統會將該數字除以 31，並報告那一天有 161.29 個使用者。 明天多啟用 15 個使用者，則 MFA 系統會報告那一天有 161.77 個使用者。 計費週期結束時，針對您的 Azure 訂用帳戶計費的使用者總數加起來大約為 5,000 個。
+   >
+   > 計費範例 2︰您擁有具授權與不具授權的使用者混合，因此需要有每一使用者 Azure MFA 提供者來補足差距。 您的租用戶上有 4,500 個 Enterprise Mobility + Security 授權，但 5,000 個使用者啟用 MFA。 Azure 訂用帳戶會對 500 個使用者計費，按比例計費且每日報告為 16.13 個使用者。
+   >
 
 1. **每次驗證** - 適用於想要為大量不定期需要驗證之使用者啟用雙步驟驗證的企業。 計費是根據雙步驟驗證要求數目，不論這些驗證是否成功還是遭到拒絕。 這個計費會以 10 個驗證的組件出現在您的 Azure 使用量聲明中，並每日回報。
 
-  > [!NOTE]
-  > 計費範例 3：今日，Azure MFA 服務收到 3,105 個雙步驟驗證要求。 您的 Azure 訂用帳戶會以 310.5 個驗證組件計費。
-  >
+   > [!NOTE]
+   > 計費範例 3︰今日，Azure MFA 服務收到 3,105 個雙步驟驗證要求。 您的 Azure 訂用帳戶會以 310.5 個驗證組件計費。
+   >
 
 請務必注意，您可以有授權，但仍需支付以耗用量為基礎的組態。 如果您設定每次驗證 Azure MFA 提供者，需支付每個雙步驟驗證的要求，甚至包括具有授權的使用者。 如果在不連結至 Azure AD 租用戶的網域上設定每個使用者 Azure MFA 提供者，則會以每個啟用的使用者計費，即使您的使用者在 Azure AD 具有授權。
 

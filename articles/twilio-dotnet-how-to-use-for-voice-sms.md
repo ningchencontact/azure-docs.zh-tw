@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/24/2015
 ms.author: MicrosoftHelp@twilio.com
-ms.openlocfilehash: 087dcfd10b191dcd80ec4a70be8eb2e373e1d56b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 254128d212dec3e6f51a98dc4435894e08377eb0
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427534"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52955219"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-from-azure"></a>如何透過 Twilio 來使用 Azure 的語音和簡訊功能
 本指南示範如何在 Azure 上透過 Twilio API 服務執行常見的程式設計工作。 涵蓋的案例包括打電話和傳送簡訊 (SMS)。 如需有關如何在應用程式中使用 Twilio 語音和 SMS 的詳細資訊，請參閱[後續步驟](#NextSteps)一節。
@@ -113,9 +113,9 @@ Twilio 為 .NET 開發人員提供五套程式庫：
 3. 按一下 [管理 NuGet 套件...]
 4. 按一下 [線上]。
 5. 在搜尋線上方塊中，輸入 twilio。
-6. 在 Twilio 套件上按一下 [安裝]。
+6. 在 Twilio 套件上按一下 [安裝]  。
 
-## <a id="howto_make_call"></a>作法：撥出電話
+## <a id="howto_make_call"></a>操作說明：撥出電話
 以下顯示如何使用 **CallResource** 類別撥出電話。 此程式碼也使用 Twilio 提供的網站來傳回 Twilio 標記語言 (TwiML) 回應。 請將 **to** 和 **from** 電話號碼換成您的值，在執行程式碼之前，請記得先驗證 Twilio 帳戶的 **from** 電話號碼。
 
 ```csharp
@@ -143,9 +143,9 @@ var call = CallResource.Create(
 
 如需 **CallResource.Create** 方法中傳遞之參數的詳細資訊，請參閱 [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls]。
 
-如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。 您可以改用您自己的網站來提供 TwiML 回應。 如需詳細資訊，請參閱[如何：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)。
+如前所述，此程式碼使用 Twilio 提供的網站來傳回 TwiML 回應。 您可以改用您自己的網站來提供 TwiML 回應。 如需詳細資訊，請參閱[操作說明：從您自己的網站提供 TwiML 回應](#howto_provide_twiml_responses)。
 
-## <a id="howto_send_sms"></a>作法：傳送簡訊
+## <a id="howto_send_sms"></a>操作說明：傳送簡訊
 下列螢幕擷取畫面顯示如何使用 **MessageResource** 類別來傳送簡訊。 **from** 號碼由 Twilio 提供給試用帳戶來傳送簡訊。 執行程式碼之前，必須驗證 Twilio 帳戶的 **to** 號碼。
 
 ```csharp
@@ -172,8 +172,8 @@ catch (TwilioException ex)
 }
 ```
 
-## <a id="howto_provide_twiml_responses"></a>作法：從您自己的網站提供 TwiML 回應
-當您的應用程式呼叫 Twilio API 時 (例如透過 **CallResource.Create** 方法)，Twilio 會將您的要求傳送到應該傳送 TwiML 回應的 URL。 [作法：撥出電話](#howto_make_call)中的範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 傳回回應。
+## <a id="howto_provide_twiml_responses"></a>操作說明：從您自己的網站提供 TwiML 回應
+當您的應用程式呼叫 Twilio API 時 (例如透過 **CallResource.Create** 方法)，Twilio 會將您的要求傳送到應該傳送 TwiML 回應的 URL。 [操作說明：撥出電話](#howto_make_call)中的範例使用 Twilio 提供的 URL [https://twimlets.com/message][twimlet_message_url] 傳回回應。
 
 > [!NOTE]
 > 雖然 TwiML 是專供 Web 服務使用，但您也可以在瀏覽器中檢視 TwiML。 例如，按一下 [https://twimlets.com/message][twimlet_message_url] 可查看空白的 `<Response>` 元素。另一個範例中，按一下 [https://twimlets.com/message?Message%5B0%5D=Hello%20World](https://twimlets.com/message?Message%5B0%5D=Hello%20World) 可查看包含 &lt;Say&gt; 元素的 `<Response>` 元素。
@@ -277,7 +277,7 @@ var call = CallResource.Create(
 
 [twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
 
-[vs_project]:https://msdn.microsoft.com/library/windowsazure/ee405487.aspx
+[vs_project]:https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-azure-project-create
 [nuget]:https://nuget.org/
 [twilio_github_repo]:https://github.com/twilio/twilio-csharp
 

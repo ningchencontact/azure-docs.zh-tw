@@ -12,21 +12,26 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 526b6ac9c510b13461181d76c0032602d8f3f435
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377977"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872878"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>最多 100 TB 的超大規模服務層級 (預覽)
+
+Azure SQL Database 是以會針對雲端環境調整的 SQL Server 資料庫引擎架構為基礎，以確保 99.99% 的可用性 (即使在基礎結構失敗的情況下)。 Azure SQL Database 中使用三個架構模型：
+- 一般目的/標準 
+- 業務關鍵/進階
+- 超大規模
 
 Azure SQL Database 中的超大規模服務層是 V 核心形式購買模型中的最新服務層。 此服務層是可高度擴充的儲存體和計算效能層，可利用 Azure 架構以相應放大 Azure SQL Database 的儲存體和計算資源，而大幅超過一般用途和商務關鍵性服務層的可用限制。
 
 > [!IMPORTANT]
 > 超大規模服務層級目前為公開預覽版本，且僅在有限的 Azure 區域中提供。 如需完整的區域清單，請參閱[超大規模服務層級的可用區域](#available-regions)。 我們不建議在超大規模資料庫中執行任何生產環境工作負載。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層級。
 > [!NOTE]
-> 若要深入了解 V 核心形式購買模型中的一般用途與商務關鍵服務層級，請參閱[一般用途與商務關鍵服務層級](sql-database-service-tiers-general-purpose-business-critical.md)。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-service-tiers.md)。
+> 若要深入了解 V 核心形式購買模型中的一般用途與商務關鍵服務層級，請參閱[一般目的](sql-database-service-tier-general-purpose.md)與[業務關鍵](sql-database-service-tier-business-critical.md)服務層。 如需 V 核心形式購買模型與 DTU 形式購買模型的比較，請參閱 [Azure SQL Database 購買模型和資源](sql-database-service-tiers.md)。
 > [!IMPORTANT]
 > 超大規模服務層級目前處於公開預覽狀態。 我們不建議在超大規模資料庫中執行任何生產環境工作負載。 您無法將超大規模資料庫更新為其他服務層級。 基於測試目的，我們建議您建立目前資料庫的複本，並將該複本更新至超大規模服務層級。
 
@@ -159,6 +164,6 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 - 如需超大規模的常見問題集，請參閱[關於超大規模的常見問題集](sql-database-service-tier-hyperscale-faq.md)。
 - 如需服務層的資訊，請參閱[服務層](sql-database-service-tiers.md)
-- 如需伺服器或訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
+- 如需伺服器和訂用帳戶層級的限制資訊，請參閱[邏輯伺服器上的資源限制概觀](sql-database-resource-limits-logical-server.md)。
 - 如需單一資料庫的購買模型限制相關資訊，請參閱[適用於單一資料庫的 Azure SQL Database V 核心形式購買模型限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 如需功能與比較清單，請參閱 [SQL 的一般功能](sql-database-features.md)。

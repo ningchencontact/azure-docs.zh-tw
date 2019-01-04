@@ -1,11 +1,12 @@
 ---
 title: 資料科學虛擬機器的範例和逐步解說 - Azure | Microsoft Docs
-description: 資料科學虛擬機器的範例和逐步解說。
+description: 了解教導您如何使用「資料科學虛擬機器」來完成常見工作和案例的範例和逐步解說。
 keywords: 資料科學工具、資料科學虛擬機器、資料科學工具、linux 資料科學
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 74d5893a377fb67dbec7b185525e74ac248deede
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 64be6af340aa02c6c0b094013d2cbd286286aca7
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902751"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53101978"
 ---
 # <a name="samples-on-data-science-virtual-machines"></a>資料科學虛擬機器上的範例
 

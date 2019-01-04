@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e1a6b453bb92ca57a1c9be9bff958ac0780ea12e
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 47a634ca1c4e904cc1054db3a834483489ade0ec
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52498032"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093551"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安裝協力廠商 Apache Hadoop 應用程式
 
@@ -28,8 +28,8 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
 * **適用於 HDInsight 的 Cask CDAP**：提供第一個巨量資料統一整合平台，可減少資料應用程式與 Data Lake 80% 的產出時間。 此應用程式僅支援 Standard HBase 3.4 叢集。
 * **HDInsight 上的 DATAIKU DDS**可讓資料專業人員製作原型、建置及部署非常特定的服務，以將未經處理資料轉換成有影響力的商務預測。
 * **Datameer** 是可靈活調整規模的自助式平台，用來準備、探索及掌管供分析使用的資料，加速將複雜的多來源資料轉變為有價值的商務就緒資訊，更快提供更聰明的企業級深入解析。
-* **H2O Artificial Intelligence for HDInsight (Beta)** H2O Sparkling Water 支援下列分散式演算法：GLM、Naïve Bayes、分散式隨機樹系、梯度提升機、深度類神經網路、深度學習、k-means、PCA、Generalized Low Rank Model、異常偵測和 Autoencoders。
-* **Kyligence Analytics Platform**：Kyligence Analytics Platform (KAP) 是由 Apache Kylin 和 Apache Hadoop 支援之符合企業需求的資料倉儲，對大規模資料集的查詢延遲不到一秒，而且可簡化企業用戶和分析師的資料分析作業。 
+* **H2O Artificial Intelligence for HDInsight (Beta 版)** H2O Sparkling Water 支援下列分散式演算法：GLM、貝氏 (Naïve Bayes)、分散式隨機樹系 (Distributed Random Forest)、梯度提升機 (Gradient Boosting Machine)、深度類神經網路 (Deep Neural Networks)、深度學習、K-Means、PCA、一般化低秩模型 (Generalized Low Rank Model)、異常偵測及自動編碼器 (Autoencoder)。
+* **Kyligence Enterprise** 由 Apache Kylin 提供技術支援，可為商務使用者和資料分析人員提供有關大量資料集的即時深入解析。 它藉由頂尖的機器學習技術和智慧型資料模型化功能，大幅提升巨量資料分析的生產力。 
 * **Paxata 自助資料準備**
 * **Spark Job Server for KNIME Spark Executor**：Spark Job Server for KNIME Spark Executor 可用來將 KNIME Analytics Platform 連線到 HDInsight 叢集。
 * **Starburst Presto** 是快速且可靈活調整規模的分散式 SQL 查詢引擎。 Presto 專為分隔儲存體與計算所打造的架構，最適合用來查詢 Azure Data Lake Storage、Azure Blob 儲存體、SQL 與 NoSQL 資料庫以及其他資料來源中的資料。
@@ -81,9 +81,9 @@ HDInsight 應用程式是使用者可以在 HDInsight 叢集上安裝的應用�
    
    * 應用程式名稱：應用程式名稱。
    * 狀態︰應用程式狀態。 
-   * 網頁︰您已部署到邊緣節點之 Web 應用程式的 URL。 此認證與您針對叢集設定的 HTTP 使用者認證相同。
-   * HTTP 端點︰此認證與您針對叢集設定的 HTTP 使用者認證相同。 
-   * SSH 端點︰您可以使用 SSH 連接到邊緣節點。 SSH 認證與您針對叢集設定的 SSH 使用者認證相同。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
+   * 網頁：您已部署到邊緣節點之 Web 應用程式的 URL。 此認證與您針對叢集設定的 HTTP 使用者認證相同。
+   * HTTP 端點：此認證與您針對叢集設定的 HTTP 使用者認證相同。 
+   * SSH 端點：您可以使用 SSH 來連線到邊緣節點。 SSH 認證與您針對叢集設定的 SSH 使用者認證相同。 如需相關資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 6. 若要刪除應用程式，請以滑鼠右鍵按一下應用程式，然後按一下操作功能表中的 [刪除]。
 
 ## <a name="connect-to-the-edge-node"></a>連接到邊緣節點
@@ -96,8 +96,8 @@ HTTP 端點認證是您已針對 HDInsight 叢集設定的 HTTP 使用者認證�
 
 ## <a name="next-steps"></a>後續步驟
 * [安裝自訂 HDInsight 應用程式](hdinsight-apps-install-custom-applications.md)︰了解如何將未發佈的 HDInsight 應用程式部署到 HDInsight。
-* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)︰了解如何將自訂 HDInsight 應用程式發佈至 Azure Marketplace。
-* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)︰了解如何定義 HDInsight 應用程式。
+* [發佈 HDInsight 應用程式](hdinsight-apps-publish-applications.md)：了解如何將自訂 HDInsight 應用程式發佈到 Azure Marketplace。
+* [MSDN：安裝 HDInsight 應用程式](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何定義 HDInsight 應用程式。
 * [使用指令碼動作自訂以 Linux 為基礎的 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md)：了解如何使用指令碼動作來安裝其他應用程式。
 * [使用 Resource Manager 範本在 HDInsight 中建立以 Linux 為基礎的 Apache Hadoop 叢集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)︰了解如何呼叫 Resource Manager 範本來建立 HDInsight 叢集。
 * [在 HDInsight 中使用空白邊緣節點](hdinsight-apps-use-edge-node.md)︰了解如何使用空白邊緣節點來存取 HDInsight 叢集、測試 HDInsight 應用程式，以及裝載 HDInsight 應用程式。

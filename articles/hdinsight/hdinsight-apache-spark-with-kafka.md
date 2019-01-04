@@ -10,21 +10,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 110357a7a84aa8cc6bd7dcb5bbef9ca02879a9cb
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: c0687ec94af60d3683d3f129eff2bad8fb97d786
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52494275"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53165790"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>在 HDInsight 上使用 Apache Kafka 的 Apache Spark 串流 (DStream) 範例
 
 了解如何在 HDInsight 上使用 [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)，以 [Apache Spark](https://spark.apache.org/) 串流方式將資料送入或送出 [Apache Kafka](https://kafka.apache.org/)。 這個範例會使用在 Spark 叢集上執行的 [Jupyter Notebook](https://jupyter.org/)。
 
 > [!NOTE]
-> 此文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
+> 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 >
-> 當您完成此文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
+> 當您完成本文件中的步驟時，請記得刪除叢集，以避免產生過多的費用。
 
 > [!IMPORTANT]
 > 此範例會使用 DStreams，這是較舊的 Spark 串流技術。 如需使用較新 Spark 串流功能的範例，請參閱[使用 Kafka 的 Spark 結構化串流](hdinsight-apache-kafka-spark-structured-streaming.md)文件。
@@ -57,15 +57,15 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
    
     * **資源群組**：建立群組或選取現有的群組。 此群組包含 HDInsight 叢集。
 
-    * **位置**：選取在地理上靠近您的位置。
+    * **位置**：選取靠近您的地理位置。
 
-    * **基底叢集名稱**︰此值會做為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdistreaming** 可建立名為 __spark-hdistreaming__ 的 Spark 叢集，以及名為 **kafka-hdistreaming** 的 Kafka 叢集。
+    * **基底叢集名稱**︰此值會作為 Spark 和 Kafka 叢集的基底名稱。 例如，輸入 **hdistreaming** 可建立名為 __spark-hdistreaming__ 的 Spark 叢集，以及名為 **kafka-hdistreaming** 的 Kafka 叢集。
 
     * **叢集登入使用者名稱**：Spark 和 Kafka 叢集的系統管理員使用者名稱。
 
     * **叢集登入密碼**：Spark 和 Kafka 叢集的系統管理員使用者密碼。
 
-    * **SSH 使用者名稱**︰建立 Spark 和 Kafka 叢集的 SSH 使用者。
+    * **SSH 使用者名稱**：要為 Spark 和 Kafka 叢集建立的 SSH 使用者。
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
@@ -90,7 +90,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-因為此文件中的步驟會在相同的 Azure 資源群組中建立兩個叢集，您可以在 Azure 入口網站中刪除資源群組。 刪除群組，即可移除依循此文件建立的所有資源、Azure 虛擬網路，以及叢集所使用的儲存體帳戶。
+因為本文件中的步驟會在相同的 Azure 資源群組中建立兩個叢集，您可以在 Azure 入口網站中刪除資源群組。 刪除群組，即可移除依循本文件建立的所有資源、Azure 虛擬網路，以及叢集所使用的儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟
 

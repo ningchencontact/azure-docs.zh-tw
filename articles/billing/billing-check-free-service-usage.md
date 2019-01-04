@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: cwatson
-ms.openlocfilehash: cb3584101dea4dc8d8d888632175415480a6a1b3
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: b37626fe899bf7ee49bd71021631e21dc36b3963
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581523"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53315607"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>檢查 Azure 免費帳戶隨附的免費服務使用量 
 
@@ -27,7 +27,7 @@ ms.locfileid: "52581523"
 
 ## <a name="check-usage-on-the-azure-portal"></a>在 Azure 入口網站上檢查使用量
 
-1.  登入 [Azure 入口網站]( http://portal.azure.com)。
+1.  登入 [Azure 入口網站](https://portal.azure.com)。
 
 2.  在左側導覽區域中，選取 [所有服務]。
 
@@ -49,22 +49,21 @@ ms.locfileid: "52581523"
 
     ![顯示免費服務使用量的螢幕擷取畫面](./media/billing-check-usage-of-free-services/subscription-usage-free-services.png)
 
-    該表格包含下列資料行：
+    該表有下列資料行：
 
-* **計量名稱：** 識別耗用計量的量值單位。 若要了解服務與計量的對應，請參閱[了解免費服務與計量的對應](billing-understand-free-service-meter-mapping.md)。 
+* **計量名稱：** 識別耗用計量的量值單位。 若要了解服務與計量的對應，請參閱[了解免費服務與計量的對應](billing-understand-free-service-meter-mapping.md)。
 * **使用量/限制：** 目前月份的使用量和計量的限額。 您也可在狀態列中找到此資訊。
 * **狀態：** 計量的使用量狀態。 根據您的使用量模式而定，會出現下列其中一個狀態。
   * **不在使用中：** 您未使用計量，或計費的使用量未達到計費系統的標準。
   * **已在 \<Date> 超過：** 您在 \<Date> 超過計量的限額。
   * **不太可能超過：** 您不太可能超過計量的限額。
-  * **將在 \<Date> 超過：** 您可能在 \<Date> 超過計量的限額。
-
+  * **在 \<Date> 超過：** 您可能在 \<Date> 超過計量的限額。
 
 ## <a name="check-usage-through-the-usage-file"></a>透過使用量檔案查看使用量
 
-使用量檔案提供更細部的 Azure 訂用帳戶資訊。 您可以從 Azure 帳戶中心下載每月和每日使用量檔案。 若要了解如何下載使用量檔案，並了解必要的存取，請參閱[取得發票和使用量](billing-download-azure-invoice-daily-usage-date.md)。 若要了解使用量檔案中的資料行，請參閱[了解使用量的字詞](billing-understand-your-usage.md)。 
+使用量檔案提供更細部的 Azure 訂用帳戶資訊。 您可以從 Azure 帳戶中心下載每月和每日使用量檔案。 若要了解如何下載使用量檔案，並了解必要的存取，請參閱[取得發票和使用量](billing-download-azure-invoice-daily-usage-date.md)。 若要了解使用量檔案中的資料行，請參閱[了解使用量的字詞](billing-understand-your-usage.md)。
 
-使用量檔案包含免費和付費服務的使用量資訊。 免費服務計量的計量名稱結果會附加**免費**。 若要尋找免費計量，請在 Excel 中開啟該檔案，並篩選**計量類別資料行**找出包含文字的儲存格 **- 免費** (使用文字篩選條件&rarr;包含篩選條件&nbsp;)
+使用量檔案有免費和付費服務的使用量資訊。 免費服務計量的計量名稱結果會附加**免費**。 若要尋找免費計量，請在 Excel 中開啟該檔案，並篩選**計量類別資料行**找出有文字的儲存格 **- 免費** (使用文字篩選條件&rarr;包含篩選條件&nbsp;)
 
 ![顯示免費服務使用量的螢幕擷取畫面](./media/billing-check-usage-of-free-services/free-services-usage-csv.png)
 

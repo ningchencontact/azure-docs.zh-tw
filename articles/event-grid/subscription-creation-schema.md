@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 05/02/2018
 ms.author: babanisa
-ms.openlocfilehash: cfb4dabea12f2988108d24b025e324cf05afb325
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: cd599a45ef4d3bfd38789a71647847f55cc0b966
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301714"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53085887"
 ---
 # <a name="event-grid-subscription-schema"></a>事件格線訂用帳戶的結構描述
 
@@ -29,8 +29,8 @@ PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{reso
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-本文描述要求主體的屬性和結構描述。
- 
+「事件訂用帳戶」名稱必須長度為 3-64 個字元，且只能包含 a-z、A-Z、0-9 及 "-"。 本文描述要求主體的屬性和結構描述。
+ 
 ## <a name="event-subscription-properties"></a>事件訂用帳戶屬性
 
 | 屬性 | 類型 | 說明 |

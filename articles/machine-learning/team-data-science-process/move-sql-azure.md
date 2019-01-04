@@ -1,6 +1,6 @@
 ---
-title: 移動資料至 Azure 機器學習的 Azure SQL Database | Microsoft Docs
-description: 建立 SQL 資料表以及將資料載入 SQL 資料表
+title: 將資料移至 Azure SQL Database - Team Data Science Process
+description: 將一般檔案 (CSV 或 TSV 格式) 的資料或儲存在內部部署 SQL Server 中的資料移至 Azure SQL Database。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -8,15 +8,15 @@ editor: cgronlun
 ms.service: machine-learning
 ms.component: team-data-science-process
 ms.topic: article
-ms.date: 5/04/2018
+ms.date: 05/04/2018
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 1c65e2b622d9c70626411f470593730570de813b
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 680a47dae057b68957c58bbaab1ec35407d67952
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445340"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53268627"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>移動資料至 Azure 機器學習的 Azure SQL Database
 
@@ -39,7 +39,7 @@ ms.locfileid: "52445340"
 * 存取 **Azure SQL Database**。 如果您必須設定 Azure SQL Database， [開始使用 Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) 一文中提供如何佈建 Azure SQL Database 之新執行個體的相關資訊。
 * 已在本機上安裝和設定 **Azure PowerShell** 。 如需指示，請參閱 [如何安裝和設定 Azure PowerShell](/powershell/azure/overview)。
 
-**資料**：移轉程序會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/)進行示範。 在 Azure Blob 儲存體上，NYC 計程車資料集包含且提供有關車程資料與費用的相關資訊：[NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/)。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
+**資料**：移轉程序會使用 [NYC 計程車資料集](http://chriswhong.com/open-data/foil_nyc_taxi/) \(英文\) 進行示範。 在 Azure Blob 儲存體上，NYC 計程車資料集包含且提供有關車程資料與費用的相關資訊：[NYC 計程車資料](http://www.andresmh.com/nyctaxitrips/) \(英文\)。 這些檔案的範例和說明都會在 [NYC 計程車車程資料集說明](sql-walkthrough.md#dataset)中提供。
 
 您可以將上述程序調整為自己的資料集，或者遵循上述步驟使用 NYC 計程車資料集。 若要將 NYC 計程車資料集上傳至您的內部部署 SQL Server 資料庫，請遵循[大量匯入資料至 SQL Server 資料庫](sql-walkthrough.md#dbload)中概述的程序進行。 這些指示適用於 Azure 虛擬機器上的 SQL Server，但將資料上傳至內部部署 SQL Server 的程序是相同的。
 

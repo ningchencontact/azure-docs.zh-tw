@@ -1,23 +1,24 @@
 ---
-title: LUIS 中的資料變動概念 - Language Understanding
-titleSuffix: Azure Cognitive Services
+title: 資料變更
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: 了解如何在於 Language Understanding (LUIS) 中進行預測之前變更資料
 services: cognitive-services
 author: diberry
 manager: cgronlun
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6db7fd2474688608eb029fce1529ba1d3f00c5d3
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 6f3f1ba47ec4dbdd09f6c9e3962b2102fc366136
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637165"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099101"
 ---
-# <a name="data-alterations"></a>資料變更
+# <a name="alter-utterance-data-before-or-during-prediction"></a>預測之前或預測期間變更語句資料
 LUIS 提供可在預測之前或預測期間操作語句的方法。 這些包括修正拼字，以及修正重新建置 datetimeV2 的時區問題。 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>校正語句中的拼字錯誤
@@ -48,8 +49,8 @@ LUIS 使用 [Bing 拼字檢查 API V7](https://azure.microsoft.com/services/cogn
 }
 ```
  
-### <a name="whitelist-words"></a>將字組列入白名單
-LUIS 中使用的 Bing 拼字檢查 API 不支援要在拼字檢查變動期間忽略的字組白名單。 如果您需要將字組或縮寫列入白名單，請在將語句傳送至 LUIS 進行意圖預測之前，利用白名單處理用戶端應用程式中的語句。
+### <a name="whitelist-words"></a>將字組列入允許清單
+LUIS 中使用的 Bing 拼字檢查 API 不支援要在拼字檢查變動期間忽略的字組允許清單。 如果您需要將字組或縮寫列入允許清單，請在將語句傳送至 LUIS 進行意圖預測之前，利用允許清單處理用戶端應用程式中的語句。
 
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>變更預先建置 datetimeV2 實體的時區
 當 LUIS 應用程式使用預先建置的 datetimeV2 實體時，可以在預測回應中傳回日期時間值。 要求的時區會用來判斷要傳回的正確日期時間。 如果要求來自 Bot 或另一個集中式應用程式，請在其抵達 LUIS 之前，先更正 LUIS 使用的時區。 

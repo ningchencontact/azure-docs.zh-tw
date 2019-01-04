@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 2f415f1886c654f3bdd880cdccaadc7aa3e69892
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bc0afcf1ac7d9e7a777d850e1b6df7b915837f3a
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32156490"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52956869"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>啟用 iOS Mobile Apps 的離線同步處理
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -144,7 +144,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
   * MS_TableOperations：追蹤需要與伺服器同步的項目。
   * MS_TableOperationErrors：追蹤在離線同步處理期間發生的任何錯誤。
   * MS_TableConfig：追蹤所有提取作業的最後一次同步處理作業的上次更新時間。
-  * TodoItem：儲存 To-do 項目。 系統資料行 **createdAt**、**updatedAt** 和 **version** 為選擇性系統屬性。
+  * TodoItem：儲存代辦事項項目。 系統資料行 **createdAt**、**updatedAt** 和 **version** 為選擇性系統屬性。
 
 > [!NOTE]
 > Mobile Apps SDK 會保留以 "**``**" 為開頭的資料行名稱。 請不要將此前置詞用於系統資料行以外的項目。 否則，當您使用遠端後端時，系統會修改您的資料行名稱。
@@ -272,7 +272,7 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 
 ## <a name="additional-resources"></a>其他資源
 * [Mobile Apps 中的離線資料同步處理]
-* [雲端報導：Azure Mobile Services 中的離線同步處理] \(雖然影片是關於 Mobile Services，但 Mobile Apps 也是以類似的方式進行離線同步處理。\)
+* [雲端報導：Azure 行動服務中的離線同步處理] \(雖然影片是關於 Mobile Services，但 Mobile Apps 也是以類似的方式進行離線同步處理。\)
 
 <!-- URLs. -->
 
@@ -285,5 +285,5 @@ Mobile Apps 的離線資料同步處理功能可讓終端使用者在無法存�
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[雲端報導：Azure Mobile Services 中的離線同步處理]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
-[Azure Friday: Offline-enabled apps in Azure Mobile Services]: http://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
+[雲端報導：Azure 行動服務中的離線同步處理]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

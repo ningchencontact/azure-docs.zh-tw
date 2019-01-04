@@ -4,14 +4,14 @@ description: 說明如何在 Azure Migrate 服務中使用群組相依性對應�
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: d79513569b53d2b8958f44fbfac3839c91caaff8
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 9f01e94eb23083ab25dd2cbd41e8bad1297abb54
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634297"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53255256"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>使用群組相依性對應調整群組
 
@@ -25,6 +25,9 @@ ms.locfileid: "52634297"
 ## <a name="prepare-for-dependency-visualization"></a>為相依性視覺效果做準備
 Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈現機器的相依性視覺效果。
 
+> [!NOTE]
+> 在 Azure Government 中無法使用相依性視覺效果功能。
+
 ### <a name="associate-a-log-analytics-workspace"></a>與 Log Analytics 工作區建立關聯
 若要利用相依性視覺效果，您需要將新的或現有的 Log Analytics 工作區與 Azure Migrate 專案建立關聯。 您只能在建立移轉專案的相同訂用帳戶中，建立或連結工作區。
 
@@ -32,8 +35,9 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 
     ![與 Log Analytics 工作區建立關聯](./media/concepts-dependency-visualization/associate-workspace.png)
 
-- 建立新工作區時，您必須指定工作區的名稱。 接著，該工作區就會建立在與移轉專案相同的訂用帳戶中，以及在與移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中。
-- [使用現有的] 選項所列出的工作區僅限於在有提供「服務對應」的區域中建立的工作區。 如果您工作區所在的區域沒有提供「服務對應」，下拉式清單中就不會列出該工作區。
+- 與工作區建立關聯時，您可以選擇建立新的工作區，或連結現有的工作區：
+    - 建立新工作區時，您必須指定工作區的名稱。 然後會在和移轉專案相同之 [Azure 地理區](https://azure.microsoft.com/global-infrastructure/geographies/)的區域中建立工作區。
+    - 當您連結現有的工作區時，您能以和移轉專案相同的方式，從相同訂用帳戶中所有的可用工作區中挑選。 請注意，系統只會列出那些在[支援服務對應](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-configure#supported-azure-regions)的區域中建立的工作區。 若要能夠連結工作區，請確定您有該工作區的「讀取者」存取權。
 
 > [!NOTE]
 > 您無法變更與移轉專案相關聯的工作區。
@@ -63,7 +67,6 @@ Azure Migrate 運用 Log Analytics 中的「服務對應」解決方案，來呈
 2. 使用 --安裝引數安裝套件組合。
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
-
 
 ### <a name="install-the-dependency-agent"></a>安裝相依性代理程式
 1. 若要在 Windows 電腦上安裝相依性代理程式，請按兩下安裝檔案，並遵循精靈的指示。

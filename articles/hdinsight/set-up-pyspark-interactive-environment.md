@@ -9,12 +9,12 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: e57fd3747ef9cbd55d073e02bc14816ca949bcd6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82aebd780b7b821675a6ee891cc81e2b1c6fdafb
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046230"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437209"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>設定 Visual Studio Code 的 PySpark 互動式環境
 
@@ -95,14 +95,14 @@ ms.locfileid: "43046230"
 
 ### <a name="tools-and-extensions"></a>工具和擴充功能
 * [使用適用於 Visual Studio Code 的 Azure HDInsight 工具](hdinsight-for-vscode.md)
-* [使用適用於 IntelliJ 的 Azure 工具組中來建立和提交 Spark Scala 應用程式](spark/apache-spark-intellij-tool-plugin.md)
-* [使用適用於 IntelliJ 的 Azure 工具組透過 SSH 對 Spark 應用程式進行遠端偵錯](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [使用適用於 IntelliJ 的 Azure 工具組透過 VPN 對 Spark 應用程式進行遠端偵錯](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [使用適用於 Eclipse 的 Azure 工具組中的 HDInsight 工具建立 Spark 應用程式](spark/apache-spark-eclipse-tool-plugin.md)
+* [使用 Azure Toolkit for IntelliJ 來建立和提交 Apache Spark Scala 應用程式](spark/apache-spark-intellij-tool-plugin.md)
+* [使用 Azure Toolkit for IntelliJ 透過 SSH 遠端偵錯 Apache Spark 應用程式](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [使用 Azure Toolkit for IntelliJ 透過 VPN 遠端偵錯 Apache Spark 應用程式](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [使用 Azure Toolkit for Eclipse 中的 HDInsight 工具建立 Apache Spark 應用程式](spark/apache-spark-eclipse-tool-plugin.md)
 * [透過 Hortonworks 沙箱使用 HDInsight Tools for IntelliJ](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
-* [利用 HDInsight 上的 Spark 叢集來使用 Zeppelin Notebook](spark/apache-spark-zeppelin-notebook.md)
-* [HDInsight 的 Spark 叢集中 Jupyter Notebook 可用的核心](spark/apache-spark-jupyter-notebook-kernels.md)
+* [在 HDInsight 上搭配使用 Apache Zeppelin Notebook 和 Apache Spark 叢集](spark/apache-spark-zeppelin-notebook.md)
+* [HDInsight Apache Spark 叢集中 Jupyter Notebook 的可用核心](spark/apache-spark-jupyter-notebook-kernels.md)
 * [搭配 Jupyter Notebook 使用外部套件](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](spark/apache-spark-jupyter-notebook-install-locally.md)
-* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [使用 Zeppelin 在 Azure HDInsight 中執行 Hive 查詢](hdinsight-connect-hive-zeppelin.md)
+* [在 Azure HDInsight 中使用 Microsoft Power BI 將 Apache Hive 資料視覺化](hadoop/apache-hadoop-connect-hive-power-bi.md)
+* [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](hdinsight-connect-hive-zeppelin.md)

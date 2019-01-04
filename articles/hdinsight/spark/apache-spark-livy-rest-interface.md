@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 6a0a2dec6beeecca3779f4b047d3b5fe6295a1e6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 999b5ca1f229677b9e11068f4beaa6e2704afd3d
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495307"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53012567"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>使用 Apache Spark REST API 將遠端作業提交至 HDInsight Spark 叢集
 
@@ -26,7 +26,7 @@ ms.locfileid: "52495307"
 
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
 
-* [cURL](http://curl.haxx.se/)。 本文使用 cURL 示範如何對 HDInsight Spark 叢集進行 REST API 呼叫。
+* [cURL](https://curl.haxx.se/)。 本文使用 cURL 示範如何對 HDInsight Spark 叢集進行 REST API 呼叫。
 
 ## <a name="submit-an-apache-livy-spark-batch-job"></a>提交 Apache Livy Spark 批次作業
 在提交批次作業之前，您必須將應用程式 jar 上傳至與叢集相關聯的叢集儲存體。 您可以使用命令列公用程式 [**AzCopy**](../../storage/common/storage-use-azcopy.md) 來執行此動作。 此外也有各種用戶端可用來上傳資料。 [在 HDInsight 上將 Apache Hadoop 作業的資料上傳](../hdinsight-upload-data.md)中可找到其詳細資訊。
@@ -172,9 +172,9 @@ Livy 可為在叢集上執行的 Spark 作業提供高可用性。 以下是一�
 
 ### <a name="using-an-external-jar-from-the-additional-storage-is-not-supported"></a>不支援從其他儲存體使用外部 jar
 
-**問題︰** 如果您的 Livy Spark 作業是參考與叢集相關聯的其他儲存體帳戶之外部 jar，則作業將會失敗。
+**問題：** 如果您的 Livy Spark 作業是參考與叢集相關聯的其他儲存體帳戶之外部 jar，則作業將會失敗。
 
-**解決方式︰** 請確定您想要使用的 jar 位於與 HDInsight 叢集相關聯的預設儲存體中。
+**解決方案：** 請確定您想要使用的 jar 位於與 HDInsight 叢集相關聯的預設儲存體中。
 
 
 

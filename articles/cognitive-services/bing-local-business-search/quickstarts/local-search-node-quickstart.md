@@ -10,17 +10,17 @@ ms.component: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: d60f2aca912f279f84710863e5f6ce507de64cb0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52309169"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52968532"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>快速入門：使用 Node.js 向 Bing 當地商家搜尋 API 傳送查詢
 
 使用此快速入門開始向 Bing 當地商家搜尋 API 傳送要求，該 API 是 Azure 認知服務。 雖然此簡單應用程式是以 Node.js 撰寫，但 API 是一種與任何程式語言相容的 RESTful Web 服務，可產生 HTTP 要求，並剖析 JSON。
- 
+
 此範例應用程式會從 API 取得搜尋查詢 `hotel in Bellevue` 的當地回應資料。
 
 ## <a name="prerequisites"></a>必要條件
@@ -31,14 +31,15 @@ ms.locfileid: "52309169"
 
 您必須有具備 Bing API 的[認知服務 API 帳戶](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)。 [免費試用版](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)即足以供本快速入門使用。 使用免費試用所提供的存取金鑰。  另請參閱[認知服務定價 - Bing 搜尋 API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/)。
 
-##<a name="code-scenario"></a>程式碼案例
+## <a name="code-scenario"></a>程式碼案例
+
 下列程式碼取得定義，並傳送要求。 其實作的步驟如下：
 
 1. 宣告變數以依主機及路徑指定端點。
-2. 指定查詢，並新增查詢參數。 
+2. 指定查詢，並新增查詢參數。
 3. 建立回應的處理常式函式。
 4. 定義建立要求的搜尋函式，並新增 Ocp-Apim-Subscription-Key 標頭。
-5. 執行搜尋函式。 
+5. 執行搜尋函式。
 
 此示範的完整程式碼如下：
 
@@ -92,6 +93,7 @@ Search();
 ````
 
 ## <a name="next-steps"></a>後續步驟
-- [當地商家搜尋快速入門](local-quickstart.md)
-- [當地商家搜尋 Java 快速入門](local-search-java-quickstart.md)
-- [當地商家搜尋 Python 快速入門](local-search-python-quickstart.md)
+
+* [當地商家搜尋快速入門](local-quickstart.md)
+* [當地商家搜尋 Java 快速入門](local-search-java-quickstart.md)
+* [當地商家搜尋 Python 快速入門](local-search-python-quickstart.md)

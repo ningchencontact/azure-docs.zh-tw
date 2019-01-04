@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6afb54caca572988c566ab7c6325d511e77fbd3e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582083"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52970669"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
@@ -25,15 +25,15 @@ ms.locfileid: "52582083"
 
 * Azure 訂用帳戶。 請參閱[取得 Azure 免費試用](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)。
 * HDInsight 上的 Apache Spark 叢集。 如需指示，請參閱[在 Azure HDInsight 中建立 Apache Spark 叢集](apache-spark-jupyter-spark-sql.md)。
-* 您應該開始執行 Notebook， **[機器學習服務︰使用 MLLib 對食物檢查資料進行預測分析](apache-spark-machine-learning-mllib-ipython.md)**。 如需有關如何執行此 Notebook 的指示，請依照下列連結。  
+* 您應該已開始執行 Notebook：**[機器學習服務：使用 MLLib 對食物檢查資料進行預測分析](apache-spark-machine-learning-mllib-ipython.md)**。 如需有關如何執行此 Notebook 的指示，請依照下列連結。  
 
 ## <a name="track-an-application-in-the-yarn-ui"></a>追蹤 YARN UI 中的應用程式
-1. 啟動 YARN UI。 按一下 [叢集儀表板]，然後按一下 [YARN]。
+1. 啟動 YARN UI。 按一下 [叢集儀表板] 下方的 [Yarn]。
    
     ![啟動 YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
    > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。    
+   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。    
    > 
    > 
 2. 因為您使用 Jupyter Notebook 啟動 Spark 作業，應用程式具有名稱 **remotesparkmagics** (這是從 Notebook 啟動之所有應用程式的名稱)。 針對應用程式名稱按一下應用程式識別碼，取得作業的詳細資訊。 這會啟動應用程式檢視。
@@ -88,12 +88,12 @@ ms.locfileid: "52582083"
 ## <a name="find-information-about-completed-jobs-using-the-spark-history-server"></a>使用 Spark 歷程記錄伺服器尋找已完成作業的相關資訊
 完成作業後，作業的相關資訊會保存在 Spark 歷程記錄伺服器。
 
-1. 若要啟動 Spark 歷程記錄伺服器，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [Spark 歷程記錄伺服器]。
+1. 若要啟動 Spark 歷程記錄伺服器，請從 [概觀] 刀鋒視窗中按一下 [叢集儀表板] 下方的 [Spark 歷程記錄伺服器]。
    
     ![啟動 Spark 歷程記錄伺服器](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
    > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 Spark 歷程記錄伺服器 UI。 若要啟動 Ambari UI，請從叢集刀鋒視窗中按一下 [叢集儀表板]，然後按一下 [HDInsight 叢集儀表板]。 從 Ambari UI 中，依序按一下 [Spark]、[快速連結]和 [Spark 歷程記錄伺服器 UI]。
+   > 或者，您也可以從 Ambari UI 啟動 Spark 歷程記錄伺服器 UI。 若要從 [概觀] 刀鋒視窗中啟動 Ambari UI，請中按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [Spark]、[快速連結]和 [Spark 歷程記錄伺服器 UI]。
    > 
    > 
 2. 您會看到所有已完成應用程式列出。 按一下應用程式識別碼，向下鑽研至應用程式以取得其他資訊。
@@ -106,8 +106,8 @@ ms.locfileid: "52582083"
 
 ### <a name="for-data-analysts"></a>針對資料分析師
 
-* [Apache Spark 和機器學習服務：在 HDInsight 中利用 HVAC 資料使用 Spark 分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：在 HDInsight 中使用 Spark 預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](apache-spark-custom-library-website-log-analysis.md)
 * [在 HDInsight 中使用 Apache Spark 的 Application Insight 遙測資料分析](apache-spark-analyze-application-insight-logs.md)
 * [在 Azure HDInsight Spark 上使用 Caffe 進行分散式深入學習](apache-spark-deep-learning-caffe.md)
@@ -122,5 +122,3 @@ ms.locfileid: "52582083"
 * [HDInsight Apache Spark 叢集中 Jupyter Notebook 的可用核心](apache-spark-jupyter-notebook-kernels.md)
 * [搭配 Jupyter Notebook 使用外部套件](apache-spark-jupyter-notebook-use-external-packages.md)
 * [在電腦上安裝 Jupyter 並連接到 HDInsight Spark 叢集](apache-spark-jupyter-notebook-install-locally.md)
-
-

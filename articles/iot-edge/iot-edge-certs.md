@@ -1,6 +1,6 @@
 ---
-title: 了解 Azure IoT Edge 憑證 | Microsoft Docs
-description: 深入了解 Azure IoT Edge 憑證及其使用方式。
+title: 裝置安全性的憑證 - Azure IoT Edge | Microsoft Docs
+description: Azure IoT Edge 會使用憑證來驗證裝置、模組和分葉裝置，並建立它們之間的安全連線。
 author: stevebus
 manager: philmea
 ms.author: stevebus
@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ff85f2c9ef708c7cbac9be4933541f063a6c95b
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: 1cf1411e227363e7dc9d54f04d0c630341f55a6e
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568585"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53099875"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Azure IoT Edge 憑證使用方式詳細資料
 
@@ -51,7 +51,7 @@ IoT Edge 憑證用於各種模組和下游 IoT 裝置上，可驗證其連線到
 
 ### <a name="device-ca-certificate"></a>裝置 CA 憑證
 
-裝置 CA 憑證是流程內最終的中繼 CA 憑證所產生和簽署的憑證。 此憑證會安裝在 Edge 裝置上，最好是放置在安全儲存體中，例如硬體安全性模組 (HSM)。 此外，裝置 CA 憑證可唯一識別出 IoT Edge 裝置。 對於 IoT Edge，裝置 CA 憑證可核發其他憑證。 例如，裝置 CA 憑證會核發分葉裝置憑證，用來向 [Azure IoT 裝置佈建服務](..\iot-dps\about-iot-dps.md)驗證裝置。
+裝置 CA 憑證是流程內最終的中繼 CA 憑證所產生和簽署的憑證。 此憑證會安裝在 Edge 裝置上，最好是放置在安全儲存體中，例如硬體安全性模組 (HSM)。 此外，裝置 CA 憑證可唯一識別出 IoT Edge 裝置。 對於 IoT Edge，裝置 CA 憑證可核發其他憑證。 例如，裝置 CA 憑證會核發分葉裝置憑證，用來向 [Azure IoT 裝置佈建服務](../iot-dps/about-iot-dps.md)驗證裝置。
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge 工作負載 CA
 

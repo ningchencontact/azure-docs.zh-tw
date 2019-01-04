@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: a4f9fc31f411d36e63775a3665b6dfe27eec7710
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: e76464e294a3378bf3a275ec4fe7ccbd87c09475
+ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52318937"
+ms.lasthandoff: 12/07/2018
+ms.locfileid: "53011625"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure 資訊安全中心監控的 Azure 安全性原則
 本文提供可在資訊安全中心監控的 Azure 原則定義清單。
@@ -43,7 +43,7 @@ ms.locfileid: "52318937"
 |稽核 Service Fabric 中的 ClusterProtectionLevel 屬性設定為 EncryptAndSign|Service Fabric 使用主要叢集憑證，可為節點對節點的通訊提供三層保護 (None、Sign 及 EncryptAndSign)。 設定保護層級可確保所有節點對節點的訊息皆經過加密及數位簽署。| 
 |稽核 Service Fabric 中 Azure Active Directory 用於用戶端驗證的使用方式|稽核 Service Fabric 中僅透過 Azure Active Directory 的用戶端驗證使用方式| 
 |稽核搜尋服務的診斷記錄啟用情形|稽核記錄的啟用情形，並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。| 
-|稽核只允許對您 Redis Cache 的安全連線|稽核只允許透過 SSL 連線到 Redis Cache。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持| 
+|稽核只允許對 Azure Cache for Redis 進行安全連線|稽核只允許透過 SSL 對 Azure Cache for Redis 進行連線。 使用安全連線可確保伺服器與服務之間的驗證，避免傳輸中的資料遭受網路層的攻擊，例如中間人攻擊、竊聽及工作階段劫持| 
 |稽核 Logic Apps 中的診斷記錄的啟用情形|稽核記錄的啟用情形，並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。| 
 |稽核金鑰保存庫中診斷記錄的啟用情形|稽核記錄的啟用情形，並保留最多一年。 這可讓您在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。|
 |稽核事件中樞診斷記錄的啟用情形|稽核記錄的啟用情形，並保留最多一年。 這可以在發生安全性事件或網路遭到損害時，重新建立活動線索供調查之用。| 
@@ -73,7 +73,7 @@ ms.locfileid: "52318937"
 |[預覽]：在 Azure 資訊安全中心中監視未保護的網路端點|Azure 資訊安全中心會依建議監視不具新一代防火牆保護的網路端點。| 
 |[預覽]：監視 Azure 資訊安全中心內的 SQL 弱點評定結果|監視弱點評定掃描結果及如何補救資料庫弱點的建議。| 
 |[預覽]：稽核訂用帳戶的擁有者數上限|建議您最多指定 3 位訂用帳戶擁有者，以降低遭入侵擁有者導致資料外洩的可能。| 
-|[預覽]：稽核訂用帳戶的擁有者數下限|建議指定多位訂用帳戶擁有者，如此才能設定系統管理員存取備援。| 
+|[預覽]：稽核訂用帳戶的擁有者數上限|建議指定多位訂用帳戶擁有者，如此才能設定系統管理員存取備援。| 
 |[預覽]：稽核在訂用帳戶上具有擁有者權限，但未啟用 MFA 的帳戶|具備擁有者權限的所有訂用帳戶，均應啟用多重要素驗證 (MFA)，以避免發生帳戶或資源資料外洩。| 
 |[預覽]：稽核在訂用帳戶上具有寫入權限，但未啟用 MFA 的帳戶|具備寫入權限的所有訂用帳戶，均應啟用多重要素驗證 (MFA)，以避免發生帳戶或資源資料外洩。| 
 |[預覽]：稽核在訂用帳戶上具有讀取權限，但未啟用 MFA 的帳戶|具備讀取權限的所有訂用帳戶，均應啟用多重要素驗證 (MFA)，以避免發生帳戶或資源資料外洩。| 
@@ -89,11 +89,11 @@ ms.locfileid: "52318937"
 ## <a name="next-steps"></a>後續步驟
 在本文中，您了解到如何在資訊安全中心設定安全性原則。 如要深入了解資訊安全中心，請參閱下列文章：
 
-* [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)：了解如何規劃及了解 Azure 資訊安全中心的設計考量。
+* [Azure 資訊安全中心規劃和操作指南](security-center-planning-and-operations-guide.md)：了解如何規劃和了解 Azure 資訊安全中心的設計考量。
 * [Azure 資訊安全中心的安全性健全狀況監視](security-center-monitoring.md)：了解如何監視 Azure 資源的健全狀況。
-* [管理與回應 Azure 資訊安全中心的安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理與回應安全性警示。
-* [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀況。
-* [Azure 資訊安全中心常見問題集](security-center-faq.md)：取得使用服務常見問題的解答。
+* [在 Azure 資訊安全中心管理和回應安全性警示](security-center-managing-and-responding-alerts.md)：了解如何管理和回應安全性警示。
+* [使用 Azure 資訊安全中心監視合作夥伴解決方案](security-center-partner-solutions.md)：了解如何監視合作夥伴解決方案的健全狀態。
+* [Azure 資訊安全中心常見問題集](security-center-faq.md)：取得有關使用服務常見問題的答案。
 * [Azure 安全性部落格](http://blogs.msdn.com/b/azuresecurity/)：尋找有關 Azure 安全性與相容性的部落格文章。
 
 若要深入了解 Azure 原則，請參閱[什麼是 Azure 原則？](../azure-policy/azure-policy-introduction.md)

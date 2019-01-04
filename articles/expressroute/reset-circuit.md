@@ -1,26 +1,19 @@
 ---
-title: 重設失敗的 Azure ExpressRoute 線路︰PowerShell | Microsoft Docs
+title: 重設失敗的線路 - ExpressRoute：PowerShell：Azure | Microsoft Docs
 description: 本文可協助您重設處於失敗狀態的 ExpressRoute 電路。
-documentationcenter: na
 services: expressroute
 author: anzaman
-manager: ''
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2017
-ms.author: anzaman;cherylmc
-ms.openlocfilehash: 423bc1d6409e5b7fe02339a05d0775f4ff42de49
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.date: 11/28/2018
+ms.author: anzaman
+ms.custom: seodec18
+ms.openlocfilehash: 7b88ba6e00cbec05263fe5bc8e795cda95beee04
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31590678"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53093659"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>重設失敗的 ExpressRoute 電路
 
@@ -32,22 +25,22 @@ ms.locfileid: "31590678"
 
 2. 以提高的權限開啟 PowerShell 主控台並連線至您的帳戶。 使用下列範例來協助您連接：
 
-  ```powershell
+  ```azurepowershell-interactive
   Connect-AzureRmAccount
   ```
 3. 如果您有多個 Azure 訂用帳戶，請檢查帳戶的訂用帳戶。
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmSubscription
   ```
 4. 指定您要使用的訂用帳戶。
 
-  ```powershell
+  ```azurepowershell-interactive
   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
   ```
 5. 執行下列命令來重設處於失敗狀態的電路：
 
-  ```powershell
+  ```azurepowershell-interactive
   $ckt = Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 
   Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 61fb9904e69f5269c345b733ef2396294c6c790a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8c29d054f2e4e9ff4b57785a57e5c6ea512623a6
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448167"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52840653"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-perception-united-states-non-ultipro"></a>教學課程：Azure Active Directory 與 Perception United States (非 UltiPro) 整合
 
@@ -209,7 +209,7 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
   
 ### <a name="create-a-perception-united-states-non-ultipro-test-user"></a>建立 Perception United States (非 UltiPro) 測試使用者
 
-在本節中，您會於 Perception United States (非 UltiPro) 建立名為 Britta Simon 的使用者。 請與 [Perception United States (非 UltiPro) 支援小組](http://www.ultimatesoftware.com/Contact/ContactUs)合作，以在 Perception United States (非 UltiPro) 平台新增使用者。
+在本節中，您會於 Perception United States (非 UltiPro) 建立名為 Britta Simon 的使用者。 請與 [Perception United States (非 UltiPro) 支援小組](https://www.ultimatesoftware.com/Contact/ContactUs)合作，以在 Perception United States (非 UltiPro) 平台新增使用者。
 
 ### <a name="assign-the-azure-ad-test-user"></a>指派 Azure AD 測試使用者
 
@@ -246,7 +246,7 @@ Perception United States (非 UltiPro) 與 Azure AD 整合提供下列優點：
 在本節中，您會使用存取面板來測試您的 Azure AD 單一登入設定。
 
 當您在「存取面板」中按一下 [Perception United States (非 UltiPro)] 圖格時，應該會自動登入您的 Perception United States (非 UltiPro) 應用程式。
-如需「存取面板」的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
+如需存取面板的詳細資訊，請參閱[存取面板簡介](../user-help/active-directory-saas-access-panel-introduction.md)。 
 
 ## <a name="additional-resources"></a>其他資源
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 10/30/2018
+ms.date: 12/05/2018
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 936c9198eebfa229db6ac34426e435c9e6ed96e8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 46618b76f43247199e85c2023a5391c5566f3394
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50254597"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52978776"
 ---
 ## <a name="quickstarts-and-tutorials"></a>快速入門與教學課程
 
@@ -45,6 +45,7 @@ ms.locfileid: "50254597"
     |[建立連結的範本](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|將範本模組化，並從某個範本呼叫其他範本。 在本教學課程中，您會建立虛擬網路、虛擬機器及相依的資源。  連結的範本中會定義相依儲存體帳戶。 |
     |[部署虛擬機器延伸模組](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|使用延伸模組來執行部署後工作。 在本教學課程中，您會部署自訂指令碼延伸模組，以在虛擬機器上安裝 Web 伺服器。 |
     |[部署 SQL 延伸模組](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|使用延伸模組來執行部署後工作。 在本教學課程中，您會部署自訂指令碼延伸模組，以在虛擬機器上安裝 Web 伺服器。 |
+    |[保護成品](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|保護完成部署所需的成品。 在教學課程中，您將了解如何保護 Deploy SQL 擴充功能教學課程中使用的成品。 |
     |[使用安全部署做法](../articles/azure-resource-manager/deployment-manager-tutorial.md)|使用 Azure 部署管理員。 |
 
 您可以個別使用這些教學課程，或是當作一個用以學習主要 Resource Manager 範本開發概念的系列。

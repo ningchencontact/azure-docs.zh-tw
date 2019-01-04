@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 10ae943711fcd7516b0fdbe982fd5d9e09227bdc
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238621"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52864973"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署規劃考量
 在部署 Azure Stack 開發套件 (ASDK) 前，請確定您的開發套件主機電腦符合本文中所述的需求。
@@ -121,7 +121,7 @@ ms.locfileid: "51238621"
 請確定該網路上有可用的 DHCP 伺服器，供 NIC 與其連線。 如果無法使用 DHCP，則除了主機所使用的網路之外，您還必須準備其他靜態 IPv4 網路。 您必須提供該 IP 位址和閘道作為部署參數。
 
 ### <a name="internet-access"></a>網際網路存取
-Azure Stack 需要能夠直接或透過 Transparent Proxy 存取網際網路。 Azure Stack 不支援設定 Web Proxy 來啟用網際網路存取。 指派給 MAS-BGPNAT01 (透過 DHCP 或靜態 IP) 的主機 IP 和新 IP 都必須能夠存取網際網路。 連接埠 80 和 443 會用在 graph.windows.net 和 login.microsoftonline.com 網域下。
+Azure Stack 需要能夠直接或透過 Transparent Proxy 存取網際網路。 Azure Stack 不支援設定 Web Proxy 來啟用網際網路存取。 指派給 AzS-BGPNAT01 (透過 DHCP 或靜態 IP) 的主機 IP 和新 IP 都必須能夠存取網際網路。 連接埠 80 和 443 會用在 graph.windows.net 和 login.microsoftonline.com 網域下。
 
 
 ## <a name="next-steps"></a>後續步驟

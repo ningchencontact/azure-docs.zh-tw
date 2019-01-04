@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 201bf1e5d3580902934f139b70ca5363e7cc5930
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 72e0937e91a7287d240bbdb25996865f934d432d
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523010"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52876497"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>在 Azure 儲存體中要求使用安全傳輸
 
 「需要安全傳輸」選項透過只允許從安全連線對帳戶進行要求，來加強儲存體帳戶的安全性。 例如，呼叫 REST API 來存取儲存體帳戶時，您必須使用 HTTPS 連線。 「需要安全傳輸」會拒絕使用 HTTP 的要求。
 
-當您在啟用「需要安全傳輸」的情況下使用 Azure 檔案服務時，任何未加密的連線都會失敗。 這包括使用 SMB 2.1、無加密的 SMB 3.0 和某些 Linux SMB 用戶端版本的情況。 
+當您在啟用「需要安全傳輸」的情況下使用 Azure 檔案服務時，任何未加密的連線都會失敗。 這包括使用 SMB 2.1、無加密的 SMB 3.0 和某些 Linux SMB 用戶端版本的情況。 
 
-根據預設，[需要安全傳輸] 選項是停用的。
+根據預設，當您使用 SDK 建立儲存體帳戶時，[需要安全傳輸] 選項是停用的。 當您在 Azure 入口網站中建立儲存體帳戶時，則預設會啟用此選項。
 
 > [!NOTE]
 > 因為 Azure 儲存體針對自訂網域名稱並不支援 HTTPS，當您使用自訂網域名稱時，將不會套用此選項。 不支援傳統儲存體帳戶。

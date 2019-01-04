@@ -12,14 +12,14 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 93478e5d13ef649b86ebc047f4e53f1486e2ff68
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c2bb1c0147d38b4286e2cdfb2d161eaa0704e393
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493948"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53271482"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 查詢和管理任何服務的資料分割。
@@ -47,8 +47,9 @@ ms.locfileid: "39493948"
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 此 API 會引發所指定分割區的資料遺失。
 
-這會觸發對分割區 OnDataLossAsync API 的呼叫。  此 API 會引發所指定分割區的資料遺失。 這會觸發對分割區 OnDataLoss API 的呼叫。 實際的資料遺失將取決於指定的 DataLossMode。 <br> PartialDataLoss - 只會移除複本仲裁，並且會為分割區觸發 OnDataLoss，但實際資料遺失取決於是否有進行中的複寫存在。 <br>FullDataLoss - 將會移除所有複本，因此會遺失所有資料，並且會觸發 OnDataLoss。 <br>應該只使用具狀態服務作為目標來呼叫此 API。 不建議使用系統服務作為目標來呼叫此 API。 
-> [!NOTE]
+這會觸發對分割區 OnDataLossAsync API 的呼叫。  此 API 會引發所指定分割區的資料遺失。 這會觸發對分割區 OnDataLoss API 的呼叫。 實際的資料遺失將取決於指定的 DataLossMode。  <br> - PartialDataLoss - 只會移除複本仲裁，並且會為分割區觸發 OnDataLoss，但實際資料遺失取決於是否有進行中的複寫存在。  <br> - FullDataLoss - 將會移除所有複本，因此會遺失所有資料，並且會觸發 OnDataLoss。 應該只使用具狀態服務作為目標來呼叫此 API。 不建議使用系統服務作為目標來呼叫此 API。
+
+> [!NOTE] 
 > 一旦呼叫此 API，即無法回復。 呼叫 CancelOperation 只會停止執行並清除內部系統狀態。 如果命令已進展到足以造成資料遺失的地步，則它將不會還原資料。 您可以使用相同的 OperationId 來呼叫 GetDataLossProgress API，以傳回使用此 API 所啟動作業的相關資訊。
 
 ### <a name="arguments"></a>引數

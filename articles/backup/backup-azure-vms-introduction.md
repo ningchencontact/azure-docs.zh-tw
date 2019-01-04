@@ -2,22 +2,22 @@
 title: 在 Azure 中規劃 VM 備份基礎結構
 description: 在 Azure 中備份虛擬機器時的重要考量
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: 備份 VM, 備份虛擬機器
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/29/2018
-ms.author: markgal
-ms.openlocfilehash: ae02a1bcbf00a022cfd884b02141ce084f1fffa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: e38f245197f2b1bdb22a2866028ad10f4ec39ec1
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232455"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53343491"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>在 Azure 中規劃 VM 備份基礎結構
-本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。 
+本文提供效能和資源方面的建議，以協助您規劃 VM 備份基礎結構。 本文也會定義備份服務的重要層面；這些層面對於決定架構、容量規劃及排程來說相當重要。 如果您已經[準備好環境](backup-azure-arm-vms-prepare.md)，則規劃是您開始[備份 VM](backup-azure-arm-vms.md) 之前的下一個步驟。 如果您需要 Azure 虛擬機器的詳細資訊，請參閱 [虛擬機器文件](https://azure.microsoft.com/documentation/services/virtual-machines/)。
 
 > [!NOTE]
 > 本文適用於受控磁碟和非受控磁碟。 如果您使用非受控磁碟，則有一些儲存體帳戶建議。 如果您使用 [Azure 受控磁碟](../virtual-machines/windows/managed-disks-overview.md)，則不必擔心效能或資源使用率問題。 Azure 會為您最佳化儲存體使用率。
@@ -96,7 +96,19 @@ Azure 備份提供指令碼處理架構，可用來控制備份工作流程和�
 
 ### <a name="why-are-backup-times-longer-than-12-hours"></a>為何備份時間會超過 12 小時？
 
-備份包含兩個階段：擷取快照集，以及將快照集傳輸到保存庫。 備份服務會針對儲存體進行最佳化。 將快照集資料傳輸到保存庫時，服務只會傳輸自上一個快照集以來的累加變更。  為了判斷累加變更，服務會計算區塊的總和檢查碼。 如果區塊已變更，就會將該區塊識別為要傳送到保存庫的區塊。 接著，服務會深入探索每個已識別的區塊，尋找機會將要傳輸的資料降到最低。 在評估所有已變更的區塊之後，服務會聯合所做的變更，然後將它們傳送到保存庫。 對部分舊版應用程式來說，小型的分散式寫入並非最適合用於儲存體。 如果快照集包含許多小型分散式寫入，則服務會花更多時間來處理應用程式所寫入的資料。 對於在 VM 內執行的應用程式，建議的應用程式寫入區塊大小下限為 8 KB。 如果您的應用程式使用小於 8 KB 的區塊，則備份效能會受到影響。 如需調整您的應用程式以改善備份效能的說明，請參閱[使用 Azure 儲存體調整應用程式以取得最佳化效能](../virtual-machines/windows/premium-storage-performance.md)。 雖然這篇關於備份效能的文章使用的是進階儲存體範例，但指引適用於標準儲存體磁碟。
+備份包含兩個階段：擷取快照集，以及將快照集傳輸到保存庫。 備份服務會針對儲存體進行最佳化。 將快照集資料傳輸到保存庫時，服務只會傳輸自上一個快照集以來的累加變更。  為了判斷累加變更，服務會計算區塊的總和檢查碼。 如果區塊已變更，就會將該區塊識別為要傳送到保存庫的區塊。 接著，服務會深入探索每個已識別的區塊，尋找機會將要傳輸的資料降到最低。 在評估所有已變更的區塊之後，服務會聯合所做的變更，然後將它們傳送到保存庫。 對部分舊版應用程式來說，小型的分散式寫入並非最適合用於儲存體。 如果快照集包含許多小型分散式寫入，則服務會花更多時間來處理應用程式所寫入的資料。 對於在 VM 內執行的應用程式，建議的應用程式寫入區塊大小下限為 8 KB。 如果您的應用程式使用小於 8 KB 的區塊，則備份效能會受到影響。 如需調整您的應用程式以改善備份效能的說明，請參閱[使用 Azure 儲存體調整應用程式以取得最佳化效能](../virtual-machines/windows/premium-storage-performance.md)。 雖然這篇關於備份效能的文章使用的是進階儲存體範例，但指引適用於標準儲存體磁碟。<br>
+長備份時間的原因如下：
+  1. **磁碟新增至受保護的虛擬機器後進行第一次備份** <br>
+    如果虛擬機器已完成初始備份，而且正在執行增量備份。 依照新的磁碟大小而定，新增磁碟可能會損失 1 天的 SLA。
+  2. **分割** <br>
+    如果虛擬機器上執行的工作負載 (應用程式) 會執行少量的分散式寫入，可能會對於備份效能造成不良影響。 <br>
+  3. **儲存體帳戶多載** <br>
+      a. 如果排定在尖峰應用程式使用量期間進行備份。  
+      b. 如果同一個儲存體帳戶裝載超過 5 到 10 磁碟。<br>
+  4. **一致性檢查 (CC) 模式** <br>
+      對於大於 1 TB 的磁碟，會由於下列因素而在 CC 模式中進行備份：<br>
+        a. 受控磁碟在 VM 重新啟動時移動。<br>
+        b. 將快照集升階到基底 Blob。<br>
 
 ## <a name="total-restore-time"></a>總計還原時間
 

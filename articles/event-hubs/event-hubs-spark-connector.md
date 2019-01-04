@@ -1,5 +1,5 @@
 ---
-title: 整合 Apache Spark 與 Azure 事件中樞 | Microsoft Docs
+title: 與 Apache Spark 整合 - Azure 事件中樞 | Microsoft Docs
 description: 整合 Apache Spark 以啟用事件中樞的結構化串流
 services: event-hubs
 documentationcenter: na
@@ -11,14 +11,15 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.custom: seodec18
+ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 688daedf29bbd68c7451be66b47ac90e404d4093
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 194898f658c08a3a5a9d8c1d601ea53c817e7649
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746655"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076810"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>整合 Apache Spark 與 Azure 事件中樞
 

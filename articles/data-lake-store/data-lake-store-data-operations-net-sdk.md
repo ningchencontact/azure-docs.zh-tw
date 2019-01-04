@@ -1,5 +1,5 @@
 ---
-title: .NET SDK：Azure Data Lake Storage Gen1 的檔案系統作業 | Microsoft Docs
+title: .NET SDK：Azure Data Lake Storage Gen1 上的檔案系統作業 | Microsoft Docs
 description: 使用 Azure Data Lake Storage Gen1 的 .NET SDK 在 Data Lake Storage Gen1 上執行檔案系統作業，例如建立資料夾等。
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 57f4485e70bf91713539b3398fc93d6810c3c28e
+ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391482"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53163223"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 在 Azure Data Lake Storage Gen1 上進行檔案系統作業
 > [!div class="op_single_selector"]
@@ -49,7 +49,7 @@ ms.locfileid: "44391482"
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. 按一下 [確定]  以建立專案。
 
@@ -146,7 +146,7 @@ ms.locfileid: "44391482"
     var directoryEntry = client.GetDirectoryEntry(fileName);
     PrintDirectoryEntry(directoryEntry);
 
-`PrintDirectoryEntry` 方法的定義可隨著 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例一起提供。 
+`PrintDirectoryEntry` 方法的定義包含在 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例中。 
 
 ## <a name="rename-a-file"></a>重新命名檔案
 下列程式碼片段會重新命名 Data Lake Storage Gen1 帳戶中的現有檔案。
@@ -164,7 +164,7 @@ ms.locfileid: "44391482"
         PrintDirectoryEntry(entry);
     }
 
-`PrintDirectoryEntry` 方法的定義可隨著 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例一起提供。
+`PrintDirectoryEntry` 方法的定義包含在 [Github 上](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)的範例中。
 
 ## <a name="delete-directories-recursively"></a>以遞迴方式刪除目錄
 下列程式碼片段會以遞迴方式刪除目錄，以及其所有子目錄。
@@ -175,7 +175,7 @@ ms.locfileid: "44391482"
 ## <a name="samples"></a>範例
 以下是幾個有關如何使用 Data Lake Storage Gen1 Filesystem SDK 的範例。
 * [GitHub 上的基本範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
-* [Github 上的進階範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
+* [GitHub 上的進階範例](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>另請參閱
 * [使用.NET SDK 在 Data Lake Storage Gen1 上進行帳戶管理作業](data-lake-store-get-started-net-sdk.md)

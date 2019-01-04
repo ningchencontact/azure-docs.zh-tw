@@ -1,6 +1,6 @@
 ---
-title: 處理使用進階分析的 Azure Blob 資料 | Microsoft Docs
-description: 處理 Azure Blob 儲存體中的資料。
+title: 使用進階分析處理 Azure Blob 資料 - Team Data Science Process
+description: 使用進階分析來探索資料，並從 Azure Blob 儲存體中所儲存的資料產生特徵。
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -10,13 +10,13 @@ ms.component: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: ef5a3decec3ddd87bb73d513981bdfe081fadf74
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 36e3512caa8922f8bc1a65f13ea41d6873b51e5e
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442367"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53140521"
 ---
 # <a name="heading"></a>處理使用進階分析的 Azure Blob 資料
 本文件涵蓋探索資料以及從 Azure Blob 儲存體中儲存的資料產生功能的說明。 
@@ -130,7 +130,7 @@ ms.locfileid: "52442367"
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>將資料寫回 Azure Blob 並在 AzureMachine Learning 中取用
-在您探索資料和建立必要功能後，可以上傳資料 (取樣性或功能性) 至 Azure Blob，並在 Azure Machine Learning 中透過下列步驟取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他功能。 
+在您探索資料並建立所需的特徵之後，可以將資料 (取樣性或功能性) 上傳至 Azure Blob，並在 Azure Machine Learning 中使用下列步驟來取用資料：請注意，您也可以在 Azure Machine Learning Studio 中建立其他特徵。 
 
 1. 將資料框架寫入本機檔案中
    

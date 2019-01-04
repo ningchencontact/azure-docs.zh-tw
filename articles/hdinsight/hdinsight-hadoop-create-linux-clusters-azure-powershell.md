@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 76bef5fcae8e95a52b7a35fdbb657db5dde01bc3
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: af6915a522788f95aaac8ec1b690a7e53b31aac6
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035181"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52863426"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-azure-powershell"></a>使用 Azure PowerShell 在 HDInsight 中建立以 Linux 為基礎的叢集
 
@@ -90,16 +90,16 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 
 既然您已成功建立 HDInsight 叢集，請使用下列資源來了解如何使用您的叢集。
 
-### <a name="hadoop-clusters"></a>Hadoop 叢集
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 叢集
 
-* [〈搭配 HDInsight 使用 Hivet〉](hadoop/hdinsight-use-hive.md)
-* [搭配 HDInsight 使用 Pig](hadoop/hdinsight-use-pig.md)
-* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
+* [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
+* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 叢集
+### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 
-* [開始在 HDInsight 上使用 HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [在 HDInsight 上開發適用於 HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
+* [開始使用 HDInsight 上的 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [開發適用於 HDInsight 上 Apache HBase 的 Java 應用程式](hbase/apache-hbase-build-java-maven-linux.md)
 
 ### <a name="storm-clusters"></a>Storm 叢集
 
@@ -107,10 +107,10 @@ Azure PowerShell 是功能強大的指令碼環境，可讓您在 Microsoft Azur
 * [在 HDInsight 上的 Storm 中使用 Python 元件](storm/apache-storm-develop-python-topology.md)
 * [在 HDInsight 上使用 Storm 部署和監視拓撲](storm/apache-storm-deploy-monitor-topology-linux.md)
 
-### <a name="spark-clusters"></a>Spark 叢集
+### <a name="apache-spark-clusters"></a>Apache Spark 叢集
 
 * [使用 Scala 建立獨立應用程式](spark/apache-spark-create-standalone-application.md)
-* [利用 Livy 在 Spark 叢集上遠端執行工作](spark/apache-spark-livy-rest-interface.md)
-* [Spark 和 BI：搭配 BI 工具來使用 HDInsight 中的 Spark 以執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [利用 Apache Livy 在 Apache Spark 叢集上遠端執行作業](spark/apache-spark-livy-rest-interface.md)
+* [Apache Spark 搭配 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 搭配機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 具名實體辨識認知搜尋技能 (Azure 搜尋服務) | Microsoft Docs
+title: 具名實體辨識認知搜尋技能 - Azure 搜尋服務
 description: 從 Azure 搜尋服務認知搜尋管道的文字中，擷取人員、位置和組織的具名實體。
 services: search
 manager: pablocas
@@ -10,12 +10,13 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
-ms.openlocfilehash: f9ff3f66f3a73fbaf1a4c2ca280c85f4bde65444
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec2018
+ms.openlocfilehash: e63354152f8821c5ce975563639c8b87fb332bd4
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442024"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53313984"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>具名實體辨識認知技能
 
@@ -23,7 +24,9 @@ ms.locfileid: "52442024"
 
 > [!NOTE]
 > <ul>
-> <li>認知搜尋目前為公開預覽狀態。 技能集執行、映像擷取及正規化目前為免費提供。 我們將在不久後宣告這些功能的定價。 </li>
+> <li>
+> 從 2018 年 12 月 21 日開始，您可以在認知服務資源與 Azure 搜尋服務的技能集之間建立關聯。 這可讓我們開始收取執行技能集的費用。 自這個日期起，我們也會開始收取文件萃取階段的影像擷取費用。 從文件中擷取文字的功能則繼續免費提供。>
+> 內建技能的執行會依現行的[認知服務隨用隨附價格](https://azure.microsoft.com/pricing/details/cognitive-services/)收費。 影像擷取定價會依預覽定價收費，如 [Azure 搜尋服務定價頁面](https://go.microsoft.com/fwlink/?linkid=2042400)所述。 [深入](cognitive-search-attach-cognitive-services.md)了解。</li>
 > <li> 已淘汰具名實體辨識技能；從 2019 年 2 月 15 日起將不再正式支援。 請遵循<a href="cognitive-search-skill-deprecated.md">即將淘汰的認知搜尋技能</a>頁面中所列的建議，以移轉至支援的技能</li>
 
 ## <a name="odatatype"></a>@odata.type  

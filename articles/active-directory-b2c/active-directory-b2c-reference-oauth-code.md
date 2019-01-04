@@ -7,35 +7,35 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/16/2017
+ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d388242b4b0c882d60a83227a37af997b1ceb1f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c6d976869f2a068c393a643bb97cae2f7ac1a470
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51282640"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843184"
 ---
 # <a name="azure-active-directory-b2c-oauth-20-authorization-code-flow"></a>Azure Active Directory B2C：OAuth 2.0 授權碼流程
 在安裝於裝置上的應用程式中，您可以使用 OAuth 2.0 授權碼授與來存取受保護的資源，例如 Web API。 您可以使用 Azure Active Directory B2C (Azure AD B2C) 的 OAuth 2.0 實作，將註冊、登入及其他身分識別管理工作新增至行動及桌面應用程式。 這篇文章是與語言無關。 在本文中，我們將說明如何傳送及接收 HTTP 訊息，但不使用任何開放原始碼程式庫。
 
-如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](http://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖和重新整理權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。  一旦存取權杖到期 (通常在一小時後)，重新整理權杖即可讓用戶端取得新的存取 (和重新整理) 權杖。
+如需 OAuth 2.0 授權碼流程的說明，請參閱 [OAuth 2.0 規格的 4.1 節](https://tools.ietf.org/html/rfc6749)。 在大多數[應用程式類型](active-directory-b2c-apps.md) (包括 Web 應用程式和原生安裝的應用程式) 中，您都能利用它來執行驗證及授權作業。 您可以使用 OAuth 2.0 授權碼流程，安全地為您的應用程式取得存取權杖和重新整理權杖，而這些存取權杖可用來存取[授權伺服器](active-directory-b2c-reference-protocols.md)所保護的資源。  一旦存取權杖到期 (通常在一小時後)，重新整理權杖即可讓用戶端取得新的存取 (和重新整理) 權杖。
 
 本文著重在**公開用戶端** OAuth 2.0 授權碼流程。 公開用戶端是指不可信任會安全地維護密碼完整性的任何用戶端應用程式。 這包括行動應用程式、桌面應用程式，以及基本上任何在裝置上執行且需要取得存取權杖的應用程式。 
 
 > [!NOTE]
 > 若要使用 Azure AD B2C 將身分識別管理新增至 Web 應用程式，請使用 [OpenID Connect](active-directory-b2c-reference-oidc.md)，而不是 OAuth 2.0。
 
-Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。 它引進[原則參數](active-directory-b2c-reference-policies.md)。 透過內建原則，您可以利用 OAuth 2.0 來將使用者體驗新增至應用程式，例如註冊、登入和設定檔管理。 在本文中，我們將示範如何利用 OAuth 2.0 和原則，在您的原生應用程式中實作上述每一種體驗。 我們也會示範如何取得用來存取 Web API 的存取權杖。
+Azure AD B2C 擴充標準的 OAuth 2.0 流程，功能更強大，而不僅止於簡單的驗證和授權。 它引進[使用者流程參數](active-directory-b2c-reference-policies.md)。 透過使用者流程，您可以利用 OAuth 2.0 來將使用者體驗新增至應用程式，例如註冊、登入和設定檔管理。 在本文中，我們將示範如何利用 OAuth 2.0 和使用者流程，在您的原生應用程式中實作上述每一種體驗。 我們也會示範如何取得用來存取 Web API 的存取權杖。
 
-在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們的範例應用程式和原則。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
-了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和原則](#use-your-own-azure-ad-b2c-directory)。
+在本文的範例 HTTP 要求中，我們會使用範例 Azure AD B2C 目錄 **fabrikamb2c.onmicrosoft.com**。 此外，也會使用我們的範例應用程式和使用者流程。 您可以使用這些值來自行試驗要求，也可以將它們換成您自己的值。
+了解如何[取得您自己的 Azure AD B2C 目錄、應用程式和使用者流程](#use-your-own-azure-ad-b2c-directory)。
 
 ## <a name="1-get-an-authorization-code"></a>1.取得授權碼
-授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 這是使用者在流程中會採取動作的互動部分。 在此要求中，用戶端會在 `scope` 參數中指出必須向使用者索取的權限。 在 `p` 參數中，它會指出要執行的原則。 以下三個範例 (插入換行以提高可讀性) 各使用不同的原則。
+授權碼流程始於用戶端將使用者導向 `/authorize` 端點。 這是使用者在流程中會採取動作的互動部分。 在此要求中，用戶端會在 `scope` 參數中指出必須向使用者索取的權限。 在 `p` 參數中，它會指出要執行的使用者流程。 以下三個範例 (插入換行以提高可讀性) 各使用不同的使用者流程。
 
-### <a name="use-a-sign-in-policy"></a>使用登入原則
+### <a name="use-a-sign-in-user-flow"></a>使用登入使用者流程
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -47,7 +47,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_in
 ```
 
-### <a name="use-a-sign-up-policy"></a>使用註冊原則
+### <a name="use-a-sign-up-user-flow"></a>使用註冊使用者流程
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_sign_up
 ```
 
-### <a name="use-an-edit-profile-policy"></a>使用編輯設定檔原則
+### <a name="use-an-edit-profile-user-flow"></a>使用編輯設定檔使用者流程
 ```
 GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
@@ -78,13 +78,13 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | redirect_uri |必要 |應用程式的重新導向 URI，您的應用程式會在此處傳送及接收驗證回應。 除了必須是 URL 編碼，它必須與您在入口網站中註冊的其中一個重新導向 URI 完全相符。 |
 | scope |必要 |範圍的空格分隔清單。 單一範圍值向 Azure Active Directory (Azure AD) 指出正在要求的兩個權限。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。 您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
 | response_mode |建議 |用來將產生的授權碼傳回至應用程式的方法。 可以是 `query`、`form_post` 或 `fragment`。 |
-| state |建議 |包含在要求中的值，可以是您想要使用的任何內容字串。 通常會使用隨機產生的唯一值，以防止跨網站偽造要求攻擊。 在驗證要求出現之前，也會使用此狀態將應用程式中使用者狀態的相關資訊編碼。 例如，使用者所在的頁面，或正在執行的原則。 |
-| p |必要 |執行的原則。 這是在您的 Azure AD B2C 目錄中建立的原則名稱。 原則名稱值的開頭應該為**b2c\_1\_**。 若要深入了解原則，請參閱 [Azure AD B2C 內建原則](active-directory-b2c-reference-policies.md)。 |
+| state |建議 |包含在要求中的值，可以是您想要使用的任何內容字串。 通常會使用隨機產生的唯一值，以防止跨網站偽造要求攻擊。 在驗證要求出現之前，也會使用此狀態將應用程式中使用者狀態的相關資訊編碼。 例如，使用者所在的頁面，或正在執行的使用者流程。 |
+| p |必要 |執行的使用者流程。 這是在您的 Azure AD B2C 目錄中建立的使用者流程名稱。 使用者流程名稱值的開頭應該為 **b2c\_1\_**。 若要深入了解使用者流程，請參閱 [Azure AD B2C 使用者流程](active-directory-b2c-reference-policies.md)。 |
 | prompt |選用 |需要的使用者互動類型。 目前，唯一有效的值是 `login`，可強制使用者針對該要求輸入其認證。 單一登入將沒有作用。 |
 
-此時會要求使用者完成原則的工作流程。 這可能會牽涉到讓使用者輸入自己的使用者名稱及密碼、以社交身分識別登入、註冊目錄，或是其他任何數目的步驟。 使用者動作取決於原則的定義方式。
+此時會要求使用者完成使用者流程的工作流程。 這可能會牽涉到讓使用者輸入自己的使用者名稱及密碼、以社交身分識別登入、註冊目錄，或是其他任何數目的步驟。 使用者動作取決於使用者流程的定義方式。
 
-當使用者完成原則之後，Azure AD 會透過您用於 `redirect_uri` 的值，將回應傳回給您的應用程式。 它會使用 `response_mode` 參數中指定的方法。 對於每個使用者動作情節來說，回應完全相同，與已執行的原則無關。
+當使用者完成使用者流程之後，Azure AD 會透過您用於 `redirect_uri` 的值，將回應傳回給您的應用程式。 它會使用 `response_mode` 參數中指定的方法。 對於每個使用者動作情節來說，回應完全相同，與已執行的使用者流程無關。
 
 使用 `response_mode=query` 的成功回應如下所示：
 
@@ -128,7 +128,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
-| p |必要 |用來取得授權碼的原則。 您無法在此要求中使用不同的原則。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
+| p |必要 |用來取得授權碼的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
 | client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | grant_type |必要 |授與類型。 在授權碼流程中，授與類型必須的 `authorization_code`。 |
 | scope |建議 |範圍的空格分隔清單。 向 Azure AD 指出要求兩個權限的單一範圍值。 使用用戶端識別碼作為範圍時，表示您的應用程式需要可針對您自己的服務或 Web API 使用的存取權杖 (以相同的用戶端識別碼表示)。  `offline_access` 範圍表示您的應用程式需要重新整理權杖，才能長久存取資源。  您也可以使用 `openid` 範圍從 Azure AD B2C 要求識別碼權杖。 |
@@ -192,7 +192,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 | 參數 | 必要？ | 說明 |
 | --- | --- | --- |
-| p |必要 |用來取得原始重新整理權杖的原則。 您無法在此要求中使用不同的原則。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
+| p |必要 |用來取得原始重新整理權杖的使用者流程。 您無法在此要求中使用不同的使用者流程。 請注意，您要把這個參數新增到「查詢字串」 ，而不是 POST 主體中。 |
 | client_id |必要 |在 [Azure 入口網站](https://portal.azure.com)中指派給應用程式的應用程式識別碼。 |
 | client_secret |必要 |在 [Azure 入口網站](https://portal.azure.com)中與 client_id 相關聯的 client_secret。 |
 | grant_type |必要 |授與類型。 在授權碼流程的這個階段中，授與類型必須是 `refresh_token`。 |
@@ -240,5 +240,5 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 
 1. [建立 Azure AD B2C 目錄](active-directory-b2c-get-started.md)。 在要求中使用您的目錄名稱。
 2. [建立應用程式](active-directory-b2c-app-registration.md)來取得應用程式識別碼和重新導向 URI。 在您的應用程式中包含原生用戶端。
-3. [建立您的原則](active-directory-b2c-reference-policies.md) 來取得原則名稱。
+3. [建立您的使用者流程](active-directory-b2c-reference-policies.md)以取得您的使用者流程名稱。
 

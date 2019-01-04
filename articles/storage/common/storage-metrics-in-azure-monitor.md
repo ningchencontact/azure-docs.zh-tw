@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 72d324e0b5fe0c50dadc076306c9167c0492290a
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 27523a3746e3afe649df3fcf78975b501a922ff8
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625584"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52957294"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure 監視器中的 Azure 儲存體計量
 
@@ -156,7 +156,7 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
         var accessKey = "{AccessKey}";
 
         // Using metrics in Azure Monitor is currently free. However, if you use additional solutions ingesting metrics data, you may be billed by these solutions. For example, you are billed by Azure Storage if you archive metrics data to an Azure Storage account. Or you are billed by Operation Management Suite (OMS) if you stream metrics data to OMS for advanced analysis.
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
 
         foreach (var metricDefinition in metricDefinitions)
@@ -196,15 +196,15 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
 
         Response = await readOnlyClient.Metrics.ListAsync(
             resourceUri: resourceId,
             timespan: timeSpan,
             interval: System.TimeSpan.FromHours(1),
-            metric: "UsedCapacity",
+            metricnames: "UsedCapacity",
 
             aggregation: "Average",
             resultType: ResultType.Data,
@@ -244,12 +244,12 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
         var applicationId = "{ApplicationID}";
         var accessKey = "{AccessKey}";
 
-        MonitorClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
+        MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
 
         Microsoft.Azure.Management.Monitor.Models.Response Response;
 
-        string startDate = DateTime.Now.AddHours(-3).ToString("o");
-        string endDate = DateTime.Now.ToString("o");
+        string startDate = DateTime.Now.AddHours(-3).ToUniversalTime().ToString("o");
+        string endDate = DateTime.Now.ToUniversalTime().ToString("o");
         string timeSpan = startDate + "/" + endDate;
         // It's applicable to define meta data filter when a metric support dimension
         // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
@@ -260,7 +260,7 @@ Azure 監視器提供 [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.
                         resourceUri: resourceId,
                         timespan: timeSpan,
                         interval: System.TimeSpan.FromHours(1),
-                        metric: "BlobCapacity",
+                        metricnames: "BlobCapacity",
                         odataQuery: odataFilterMetrics,
                         aggregation: "Average",
                         resultType: ResultType.Data);
@@ -339,32 +339,32 @@ Azure 儲存體會提供下列 Azure 監視器容量計量。
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
 | BlobCapacity | 儲存體帳戶中所使用的 Blob 儲存體總計。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
-| ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
+| BlobCount    | 儲存體帳戶中所儲存的 Blob 物件數目。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 值範例：1024 <br/> 維度：BlobType ([定義](#metrics-dimensions)) |
+| ContainerCount    | 儲存體帳戶中的容器數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="table-storage"></a>表格儲存體
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| TableCapacity | 儲存體帳戶所使用的表格儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| TableCount   | 儲存體帳戶中的表格數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| TableEntityCount | 儲存體帳戶中的表格實體數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
+| TableCapacity | 儲存體帳戶所使用的表格儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| TableCount   | 儲存體帳戶中的表格數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| TableEntityCount | 儲存體帳戶中的表格實體數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="queue-storage"></a>佇列儲存體
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| QueueCapacity | 儲存體帳戶所使用的佇列儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| QueueCount   | 儲存體帳戶中的佇列數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| QueueMessageCount | 儲存體帳戶中未到期的佇列訊息數目。 <br/><br/>單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
+| QueueCapacity | 儲存體帳戶所使用的佇列儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| QueueCount   | 儲存體帳戶中的佇列數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| QueueMessageCount | 儲存體帳戶中未到期的佇列訊息數目。 <br/><br/>單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ### <a name="file-storage"></a>檔案儲存體
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| FileCapacity | 儲存體帳戶所使用的檔案儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| FileCount   | 儲存體帳戶中的檔案數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
-| FileShareCount | 儲存體帳戶中的檔案共用數目。 <br/><br/> 單位：計數 <br/> 彙總類型：平均 <br/> 值範例：1024 |
+| FileCapacity | 儲存體帳戶所使用的檔案儲存體數量。 <br/><br/> 單位：位元組 <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| FileCount   | 儲存體帳戶中的檔案數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
+| FileShareCount | 儲存體帳戶中的檔案共用數目。 <br/><br/> 單位：Count <br/> 彙總類型：平均值 <br/> 值範例：1024 |
 
 ## <a name="transaction-metrics"></a>交易度量
 
@@ -374,12 +374,12 @@ Azure 儲存體會提供下列 Azure 監視器交易計量。
 
 | 度量名稱 | 說明 |
 | ------------------- | ----------------- |
-| 交易 | 向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 <br/><br/> 單位：計數 <br/> 彙總類型：總計 <br/> 適用維度：ResponseType、GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions))<br/> 值範例：1024 |
+| 交易 | 向儲存體服務或所指定 API 作業傳送的要求數。 此數目包括成功與失敗的要求，以及產生錯誤的要求。 <br/><br/> 單位：Count <br/> 彙總類型：總計 <br/> 適用維度：ResponseType、GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions))<br/> 值範例：1024 |
 | 輸入 | 輸入資料量。 此數目包括從外部用戶端輸入到 Azure 儲存體與 Azure 內的輸入。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
 | 輸出 | 輸出資料量。 此數目包括從外部用戶端輸出到 Azure 儲存體與 Azure 內的輸出。 因此，此數目未反映可收費的輸出。 <br/><br/> 單位：位元組 <br/> 彙總類型：總計 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
-| SuccessServerLatency | Azure 儲存體用來處理成功要求的平均時間。 此值不包括在 SuccessE2ELatency 中指定的網路延遲。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
-| SuccessE2ELatency | 向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
-| 可用性 | 儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將可計費的要求值總計除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。 <br/><br/> 單位：百分比 <br/> 彙總類型：平均 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：99.99 |
+| SuccessServerLatency | Azure 儲存體用來處理成功要求的平均時間。 此值不包括在 SuccessE2ELatency 中指定的網路延遲。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均值 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
+| SuccessE2ELatency | 向儲存體服務或所指定 API 作業發出之成功要求的平均端對端延遲。 此值包括 Azure 儲存體內讀取要求、傳送回應及接收回應認可的必要處理時間。 <br/><br/> 單位：毫秒 <br/> 彙總類型：平均值 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：1024 |
+| 可用性 | 儲存體服務或所指定 API 作業的可用性百分比。 可用性的計算方式是將可計費的要求值總計除以適用要求數目，包括產生意外錯誤的要求。 所有意外錯誤都會導致儲存體或所指定 API 作業的可用性降低。 <br/><br/> 單位：百分比 <br/> 彙總類型：平均值 <br/> 適用維度：GeoType、ApiName 和 Authentication ([定義](#metrics-dimensions)) <br/> 值範例：99.99 |
 
 ## <a name="metrics-dimensions"></a>計量維度
 
@@ -388,7 +388,7 @@ Azure 儲存體支援下列 Azure 監視器計量維度。
 | 維度名稱 | 說明 |
 | ------------------- | ----------------- |
 | BlobType | 只適用於 Blob 計量的 Blob 類型。 支援的值有 **BlockBlob** 和 **PageBlob**。 附加 Blob 隨附於 BlockBlob。 |
-| ResponseType | 交易回應類型。 可用的值包括： <br/><br/> <li>ServerOtherError：描述項目之外的其他所有伺服器端錯誤 </li> <li> ServerBusyError：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li> ServerTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li> AuthorizationError：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li> NetworkError：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>    ClientThrottlingError：用戶端節流錯誤。 </li> <li> ClientTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li> ClientOtherError：描述項目之外的其他所有用戶端錯誤。 </li> <li> Success：成功的要求|
+| ResponseType | 交易回應類型。 可用的值包括： <br/><br/> <li>ServerOtherError：描述項目之外的其他所有伺服器端錯誤 </li> <li> ServerBusyError：傳回 HTTP 503 狀態碼的已驗證要求。 </li> <li> ServerTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 逾時是因為伺服器錯誤而發生。 </li> <li> AuthorizationError：由於未經授權存取資料或授權失敗，從而發生失敗的已驗證要求。 </li> <li> NetworkError：由於網路錯誤而失敗的已驗證要求。 當用戶端在逾時到期前就過早關閉連線時，最常會發生這個情況。 </li> <li>    ClientThrottlingError：用戶端節流錯誤。 </li> <li> ClientTimeoutError：已逾時並傳回 HTTP 500 狀態碼的已驗證要求。 如果用戶端的網路逾時或要求逾時設定為比儲存體服務預期的值還低，則此值是符合預期的逾時。 否則，它會回報為 ServerTimeoutError。 </li> <li> ClientOtherError：描述項目之外的其他所有用戶端錯誤。 </li> <li> 成功：成功的要求|
 | GeoType | 來自主要或次要叢集的交易。 可用的值包括 Primary 和 Secondary。 在從次要租用戶讀取物件時，此維度會套用到讀取權限異地備援儲存體 (RA-GRS)。 |
 | ApiName | 作業的名稱。 例如︰ <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> 如需所有的作業名稱，請參閱[文件](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages#logged-operations.md)。 |
 | 驗證 | 交易中所使用的驗證類型。 可用的值包括： <br/> <li>AccountKey：交易會使用儲存體帳戶金鑰進行驗證。</li> <li>SAS：交易會使用共用存取簽章進行驗證。</li> <li>OAuth：交易會使用 OAuth 存取權杖進行驗證。</li> <li>Anonymous：以匿名方式要求交易。 不包括預檢要求。</li> <li>AnonymousPreflight：交易是預檢要求。</li> |

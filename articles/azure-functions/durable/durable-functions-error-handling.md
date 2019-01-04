@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7a55e28f34f36cd02b67e56c6262b9e1f06dde8f
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637513"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53338187"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>在 Durable Functions (Azure Functions) 中處理錯誤
 
@@ -27,7 +27,7 @@ Durable Function 協調流程在程式碼中實作，而且可以使用程式設
 
 例如，假設有下列協調器函式會從一個帳戶轉帳到另一個帳戶：
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -38,16 +38,16 @@ public static async Task Run(DurableOrchestrationContext context)
 
     await context.CallActivityAsync("DebitAccount",
         new
-        { 
+        {
             Account = transferDetails.SourceAccount,
             Amount = transferDetails.Amount
         });
 
     try
     {
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.DestinationAccount,
                 Amount = transferDetails.Amount
             });
@@ -56,9 +56,9 @@ public static async Task Run(DurableOrchestrationContext context)
     {
         // Refund the source account.
         // Another try/catch could be used here based on the needs of the application.
-        await context.CallActivityAsync("CreditAccount",         
+        await context.CallActivityAsync("CreditAccount",
             new
-            { 
+            {
                 Account = transferDetails.SourceAccount,
                 Amount = transferDetails.Amount
             });
@@ -66,7 +66,7 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -108,7 +108,7 @@ module.exports = df.orchestrator(function*(context) {
 
 當您呼叫活動函式或子協調流程函式時，您可以指定自動重試原則。 下列範例會嘗試呼叫函式最多 3 次，並於每次重試之間等待 5 秒鐘：
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -118,41 +118,41 @@ public static async Task Run(DurableOrchestrationContext context)
         maxNumberOfAttempts: 3);
 
     await ctx.CallActivityWithRetryAsync("FlakyFunction", retryOptions, null);
-    
+
     // ...
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const retryOptions = new df.RetryOptions(5000, 3);
-    
+
     yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
 
     // ...
 });
 ```
 
-`CallActivityWithRetryAsync` (C#) 或 `callActivityWithRetry` (JS) API 會接受 `RetryOptions` 參數。 子協調流程呼叫如果使用 `CallSubOrchestratorWithRetryAsync` (C#) 或 `callSubOrchestratorWithRetry` (JS) API，便可使用這些相同的重試原則。
+`CallActivityWithRetryAsync` (.NET) 或 `callActivityWithRetry` (JavaScript) API 會接受 `RetryOptions` 參數。 子協調流程呼叫如果使用 `CallSubOrchestratorWithRetryAsync` (.NET) 或 `callSubOrchestratorWithRetry` (JavaScript) API，便可使用這些相同的重試原則。
 
 自訂自動重試原則有幾個選項。 其中包括：
 
-* **嘗試次數上限**：重試嘗試次數上限。
-* **第一次重試間隔**：第一次重試嘗試之前等候的時間量。
+* **重試次數上限**：重試嘗試的次數上限。
+* **第一次重試間隔**：第一次重試嘗試之前等候的時間長度。
 * **輪詢係數**：用來決定輪詢增加速率的係數。 預設值為 1。
-* **最大重試間隔**：重試嘗試之間等候的最大時間量。
-* **重試逾時**：花費在重試的最大時間量。 預設行為是無限期地重試。
+* **重試間隔上限**：重試嘗試之間等候的時間長度上限。
+* **重試逾時**：花費在重試的時間長度上限。 預設行為是無限期地重試。
 * **控制代碼**：您可以指定使用者定義的回呼，以決定是否應該重試函式呼叫。
 
 ## <a name="function-timeouts"></a>函式逾時
 
-如果協調器函式內的函式呼叫太久才會完成，您可以放棄此函式呼叫。 目前，適當的作法是使用 `context.CreateTimer` 搭配 `Task.WhenAny`來建立[永久性計時器](durable-functions-timers.md) ，如下列範例所示：
+如果協調器函式內的函式呼叫太久才會完成，您可以放棄此函式呼叫。 目前，適當的做法是使用 `context.CreateTimer` (.NET) 或 `context.df.createTimer` (JavaScript) 搭配 `Task.WhenAny` (.NET) 或 `context.df.Task.any` (JavaScript) 來建立[持久性計時器](durable-functions-timers.md)，如下列範例所示：
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -181,7 +181,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");

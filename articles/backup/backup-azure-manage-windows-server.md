@@ -2,18 +2,18 @@
 title: 管理 Azure 復原服務保存庫與伺服器
 description: 管理 Azure 復原服務保存庫中的作業和警示。
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/21/2018
-ms.author: markgal
-ms.openlocfilehash: c9b3b027a52a6847c566c385c304edc195f7fdda
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: raynew
+ms.openlocfilehash: 716ddcaf61c4d7db40821056dc759667f9376023
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51250691"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52871316"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>監視及管理復原服務保存庫
 
@@ -281,7 +281,7 @@ A3. 是。 在下列情況下，不會傳送通知。
 
 ## <a name="troubleshooting-monitoring-issues"></a>疑難排解監視問題
 
-**問題︰** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
+**問題：** 來自 Azure 備份代理程式的作業與警示未出現在入口網站中。
 
 **疑難排解步驟︰**```OBRecoveryServicesManagementAgent``` 程序會將作業和警示資料傳送至 Azure 備份服務。 此程序可能偶爾會卡住或關閉。
 

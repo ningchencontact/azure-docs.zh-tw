@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e0c612407047a51c4e3d4101a0ee192f55458afe
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
+ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496994"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53320653"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>設定 Azure Multi-Factor Authentication 設定
 
@@ -257,6 +257,9 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 
 受控或同盟租用戶的系統管理員會使用 Azure Multi-Factor Authentication 的_信任 IP_ 功能。 此功能會略過從公司內部網路登入之使用者的雙步驟驗證。 完整版 Azure Multi-Factor Authentication 提供此功能給管理員使用，免費版則不提供。 如需有關如何取得完整版 Azure Multi-Factor Authentication 的詳細資訊，請參閱[ Azure Multi-Factor Authentication](multi-factor-authentication.md)。
 
+> [!NOTE]
+> MFA 信任的 IP 和條件式存取具名位置僅適用於 IPV4 位址。
+
 如果您的組織部署 NPS 延伸模組以提供 MFA 給內部部署應用程式，請注意來源 IP 位址一律會顯示為驗證嘗試流經的 NPS 伺服器。
 
 | Azure AD 租用戶類型 | 信任的 IP 功能選項 |
@@ -312,11 +315,11 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 4. 在 [Multi-Factor Authentication] 下，選取 [服務設定]。
 5. 在 [服務設定] 頁面的 [信任的 IP] 下方，選擇下列兩個選項中的一或兩項：
 
-   * **適用於從我的內部網路上的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：
+   * **適用於從我的內部網路的同盟使用者提出的要求**：若要選擇此選項，請選取核取方塊。 所有從公司網路登入的同盟使用者都會使用 AD FS 所發行的宣告來略過雙步驟驗證。 請確定 AD FS 有規則可用於將內部網路宣告新增至適當的流量。 如果規則不存在，請在 AD FS 中建立下列規則：
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
-   * **適用於從特定範圍之 IP 位址子網路提出的要求**：若要選擇此選項，請在文字方塊中，使用 CIDR 表示法輸入 IP 位址。
+   * **適用於從特定 IP 位址子網路範圍提出的要求**：若要選擇此選項，請在文字方塊中，使用 CIDR 表示法輸入 IP 位址。
       * 對於範圍在 xxx.xxx.xxx.1 到 xxx.xxx.xxx.254 的 IP 位址，使用如 **xxx.xxx.xxx.0/24** 的標記法。
       * 針對單一 IP 位址，使用如 **xxx.xxx.xxx.xxx/32** 標記法。
       * 最多輸入 50 個 IP 位址範圍。 從這些 IP 位址登入的使用者會略過雙步驟驗證。
@@ -384,3 +387,7 @@ Azure AD 使用內部部署 Windows Server Active Directory Domain Services (AD 
 ### <a name="mark-a-device-as-trusted"></a>將裝置標示為受信任
 
 啟用 [記住 Multi-Factor Authentication] 功能之後，使用者可選取 [不要再詢問]，以在他們登入時將裝置標記為信任。
+
+## <a name="next-steps"></a>後續步驟
+
+[修改 Azure AD 登入頁面商標](../fundamentals/customize-branding.md)

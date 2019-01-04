@@ -1,11 +1,13 @@
 ---
-title: 地區人工智慧資料科學虛擬機器簡介 - Azure | Microsoft Docs
-description: 說明地區 AI 資料科學 VM 和元件。
+title: 地區人工智慧資料科學虛擬機器概觀
+titleSuffix: Azure
+description: 地區人工智慧資料科學虛擬機器提供使用地理資料所需的 ArcGIS Pro。 此外也提供使用機器學習和人工智慧所需的 Python、R 和資料科學工具組。
 keywords: 深度學習、AI、資料科學工具、資料科學虛擬機器、地理空間分析
 services: machine-learning
 documentationcenter: ''
 author: gopitk
 manager: cgronlun
+ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
 ms.component: data-science-vm
@@ -15,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 2fb49212b8480fa550558e14e890cbf7395406da
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: b0152056dcb8716a407e022d2b30c48e6b534b2a
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407447"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53074565"
 ---
 # <a name="introduction-to-the-geo-artificial-intelligence-data-science-virtual-machine"></a>地區人工智慧資料科學虛擬機器的簡介
 

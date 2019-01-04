@@ -4,15 +4,15 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/21/2018
 ms.author: wesmc
-ms.openlocfilehash: 1ddb81de479317a098f9de8aa5756cbaae59cb72
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: dd9700c9472e07daf294eca12b766e3dc4832955
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52330818"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53111941"
 ---
 ### <a name="cacheskuname"></a>cacheSKUName
-新的 Azure Redis 快取的定價層。
+新的 Azure Cache for Redis 的定價層。
 
     "cacheSKUName": {
       "type": "string",
@@ -22,7 +22,7 @@ ms.locfileid: "52330818"
       ],
       "defaultValue": "Basic",
       "metadata": {
-        "description": "The pricing tier of the new Azure Redis Cache."
+        "description": "The pricing tier of the new Azure Cache for Redis."
       }
     },
 
@@ -45,7 +45,7 @@ Sku 系列。
 
 
 ### <a name="cacheskucapacity"></a>cacheSKUCapacity
-新的 Azure Redis 快取執行個體的大小。 
+新 Azure Cache for Redis 執行個體的大小。 
 
     "cacheSKUCapacity": {
       "type": "int",
@@ -60,7 +60,7 @@ Sku 系列。
       ],
       "defaultValue": 0,
       "metadata": {
-        "description": "The size of the new Azure Redis Cache instance. "
+        "description": "The size of the new Azure Cache for Redis instance. "
       }
     }
 

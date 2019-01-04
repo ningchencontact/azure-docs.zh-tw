@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4020d754bd8c7728b43ef583aa7e7d8dbddcebec
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e6f85d327fff1ee32dca6dfb2231b28e6dc96c61
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669795"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52965628"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>什麼是 ADConnectivityTool PowerShell 模組？
 
@@ -40,7 +40,7 @@ ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使�
 每當發現上述的任何問題，都會在 AADConnect 精靈中顯示相關的錯誤訊息：
 
 
-![Error](media\how-to-connect-adconnectivitytools\error1.png)
+![Error](media/how-to-connect-adconnectivitytools/error1.png)
 
 例如，當我們嘗試在 [連線您的目錄] 畫面上新增目錄時，Azure AD Connect 需要加以驗證，並預期能夠透過連接埠 389 和網域控制站通訊。  如果不行，就會看到上述螢幕擷取畫面所示的錯誤。  
 
@@ -73,7 +73,7 @@ ADConnectivity 工具是 PowerShell 模組，可在下列其中一種情況使�
 
 
 ## <a name="next-steps"></a>後續步驟
-- [Azure AD Connect：帳戶與權限](reference-connect-accounts-permissions.md)
+- [Azure AD Connect：帳戶和權限](reference-connect-accounts-permissions.md)
 - [快速安裝](how-to-connect-install-express.md)
 - [自訂安裝](how-to-connect-install-custom.md)
 - [ADConnectivityTools 參考](reference-connect-adconnectivitytools.md)

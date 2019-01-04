@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 0a130613d6d2086fda55ca015b1c0ca77c909e3d
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: d6a1f2829352e8589c8d132a195a425edcbe62c3
+ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684608"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52872931"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>使用 Log Analytics 監視 SQL 資料同步 
 
@@ -97,7 +97,7 @@ ms.locfileid: "51684608"
 
     2.  同步群組資訊。
 
-    3.  Log Analytics 資訊。 在 Azure 入口網站 | 設定 | 連接的來源中，尋找這項資訊。 如需將資料傳送給 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (預覽)](../log-analytics/log-analytics-data-collector-api.md)。
+    3.  Log Analytics 資訊。 在 Azure 入口網站 | 設定 | 連接的來源中，尋找這項資訊。 如需將資料傳送給 Log Analytics 的詳細資訊，請參閱[使用 HTTP 資料收集器 API 將資料傳送給 Log Analytics (預覽)](../azure-monitor/platform/data-collector-api.md)。
 
 11. 在 [測試] 窗格中執行 Runbook。 檢查並確定已順利完成。
 

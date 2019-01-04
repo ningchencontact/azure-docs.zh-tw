@@ -1,19 +1,20 @@
 ---
-title: 準備 Azure IoT Edge 解決方案適用的生產環境 | Microsoft Docs
+title: 針對生產環境準備裝置和部署 - Azure IoT Edge | Microsoft Docs
 description: 了解如何將 Azure IoT Edge 解決方案從開發層面轉移到生產環境，包括使用適當憑證設定您的裝置，以及針對日後的程式碼更新來研擬部署計畫。
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 48fd774d6d887a12ed1c1ad9689ca34f5d866367
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.custom: seodec18
+ms.openlocfilehash: d39a271f33cb86bf870c3a7692c38d780093efa2
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52585410"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53100033"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>準備在生產環境中部署 IoT Edge 解決方案
 
@@ -139,7 +140,7 @@ timeToLiveSecs 參數的預設值是 7200 秒，也就是兩小時。
 
 如需標籤慣例的範例，請參閱[更新 IoT Edge 執行階段](how-to-update-iot-edge.md#understand-iot-edge-tags)，了解 IoT Edge 如何使用循環標籤 (rolling tag) 和特定標籤來追蹤版本。 
 
-## <a name="networking"></a>網路功能
+## <a name="networking"></a>網路
 
 * **實用**
     * 檢閱輸出/輸入設定

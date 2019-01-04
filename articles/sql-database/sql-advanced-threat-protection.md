@@ -2,19 +2,21 @@
 title: 進階威脅防護 - Azure SQL 資料庫 | Microsoft Docs
 description: 了解探索及分類敏感性資料、管理資料庫弱點，以及偵測可能表示對 Azure SQL 資料庫有威脅之異常活動的功能。
 services: sql-database
-author: ronitr
-manager: craigg
 ms.service: sql-database
+ms.subservice: security
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/17/2018
+author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
-ms.openlocfilehash: 350f43dcb15062b4d44fc537e664b257f77d8e88
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+manager: craigg
+ms.date: 12/05/2018
+ms.openlocfilehash: ea7b4def23f766e6cda1e1e8e1d4e8dc7be302fe
+ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497819"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52997598"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 資料庫的進階威脅防護
 
@@ -26,11 +28,11 @@ SQL 進階威脅防護 (ATP) 提供一組進階的 SQL 安全性功能，包括�
 
 - [資料探索與分類](sql-database-data-discovery-and-classification.md) (目前處於預覽階段) 提供內建於 Azure SQL Database 的功能，可用來探索、分類、標記和保護資料庫中的敏感性資料。 它可用來讓您檢視資料庫分類狀態、追蹤對資料庫內敏感性資料的存取，並具有其他多方面的用途。
 - [弱點評估](sql-vulnerability-assessment.md)是容易設定的服務，可探索、追蹤及協助您修復潛在的資料庫弱點。 它可讓您檢視安全性狀態，且包含解決安全性問題和增強資料庫防護性的可行步驟。
-- [威脅偵測](sql-database-threat-detection.md)可偵測異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 威脅偵測警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。
+- [威脅偵測](sql-database-threat-detection-overview.md)可偵測異常活動，指出有不尋常及可能有害的活動試圖存取或惡意探索您的資料庫。 它會持續監視您的資料庫是否有可疑的活動，並在發現潛在弱點、SQL 插入式攻擊和異常資料庫存取模式時提供即時安全性警示。 威脅偵測警示會提供可疑活動的詳細資料，以及如何調查與降低威脅的建議。
 
 只要啟用 SQL ATP，其中包含的所有功能即會一併啟用。 只要按一下按鍵，即可對您的整個資料庫伺服器啟用 ATP，套用至伺服器上所有的資料庫。 
 
-ATP 的定價與 Azure 資訊安全中心 標準層相同 (每一節點每月 15 美元)；每一個受保護的 SQL Database 伺服器計為一個節點。 啟用後的 60 天內視為免費試用期，不需付費。 如需詳細資訊，請參閱 [Azure 資訊安全中心定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
+ATP 的定價與 Azure 資訊安全中心標準層相同，每一個受保護的 SQL Database 伺服器計為一個節點。 新的受保護資源適用資訊安全中心標準層的免費試用。 如需詳細資訊，請參閱 [Azure 資訊安全中心定價頁面](https://azure.microsoft.com/pricing/details/security-center/)。
 
 
 ## <a name="getting-started-with-atp"></a>開始使用 ATP 
@@ -43,7 +45,7 @@ ATP 的定價與 Azure 資訊安全中心 標準層相同 (每一節點每月 15
 ![啟用 ATP](./media/sql-advanced-protection/enable_atp.png) 
 
 > [!NOTE]
-> ATP 的成本是每一節點每月 15 美元；節點是指整個 SQL 邏輯伺服器。 因此，您只需付費一次，即可使用 ATP 保護伺服器上的所有資料庫。 前 60 天視為免費試用期。
+> ATP 的費用與每個節點的 Azure 資訊安全中心標準層費用相同，其中一個節點代表一整個 SQL 邏輯伺服器。 因此，您只需付費一次，即可使用 ATP 保護伺服器上的所有資料庫。 您可以先以免費試用版試用 ATP。
 
 ## <a name="2-configure-vulnerability-assessment"></a>2.設定弱點評估
 

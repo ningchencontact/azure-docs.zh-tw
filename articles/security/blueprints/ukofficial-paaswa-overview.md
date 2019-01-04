@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1cef5f8f77a11dad605d9758296c9632f5d30ab8
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321983"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53409015"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure 安全性與合規性藍圖：適用於 UK OFFICIAL 工作負載的 PaaS Web 應用程式裝載
 
@@ -79,7 +79,7 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 - [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) 是 Microsoft 的多租用戶雲端式目錄和身分識別管理服務。 解決方案的所有使用者都是在 Azure Active Directory 中建立，包括存取 SQL Database 的使用者。
 - 使用 Azure AD 可執行操作者面向 Web 應用程式的驗證和 Azure 資源管理的存取。 如需詳細資訊，請參閱[整合應用程式與 Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)。
-- 資料庫資料行加密會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的敏感性資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
+- 資料庫資料行加密會使用 Azure AD 向 Azure SQL Database 驗證應用程式。 如需詳細資訊，請參閱 [Always Encrypted：保護 SQL Database 中的機密資料](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault)。
 - 公民面向 Web 應用程式會設定為公開存取。 若要允許透過 Active Directory 或社交網路身分識別提供者來建立及驗證帳戶，[Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) 可以視需要進行整合。
 - [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) 會偵測潛在弱點和有風險的帳戶，並提供相關建議，以增強貴組織身分識別的安全性狀態，並為偵測到的組織身分識別相關可疑活動設定自動回應，以及調查可疑事件並採取適當動作來解決這些可疑事件。
 - [Azure 角色型存取控制 (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 可以對 Azure 進行精確且專注的存取權管理。 可存取訂用帳戶的身分會限制為訂用帳戶系統管理員，而可存取 Azure Key Vault 的身分則是限制為需要金鑰管理權限的使用者。
@@ -104,14 +104,14 @@ Azure 藍圖是由指引文件和自動化範本所組成，可部署雲端式�
 
 Azure Web Apps 可為以 Java、PHP、Node.js Python、HTML 和 C# 開發的 Web 應用程式，提供完全受控的 Web 裝載環境，而不必管理基礎結構。 它提供自動調整及高度可用性，支援 Windows 和 Linux，並可從 [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/)或任何 Git 存放庫啟用自動部署。
 
-App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCenter/)並可使用 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) 或社交登入 ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication)、[Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication)、[Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) 和 [Microsoft 驗證](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication)來驗證使用者。
+App Service 符合 [ISO、SOC 和 PCI 規範](https://www.microsoft.com/TrustCenter/)並可使用 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) 或社交登入 ([Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)、[Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)、[Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter) 和 [Microsoft 驗證](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)來驗證使用者。
 
 基本、標準和進階方案適用於生產工作負載，並會在專用虛擬機器執行個體上執行。 每個執行個體均可支援多個應用程式和網域。 App services 也支援 [IP 位址限制](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)來保護受信任的 IP 位址流量 (如有需要)，也支援[Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)以便安全連線至其他 PaaS 服務，例如 [Key Vault](https://azure.microsoft.com/services/key-vault/) 和 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)。 如果需要額外的安全性，隔離式方案會在私人專用 Azure 環境中裝載您的應用程式，適合需要與內部部署網路安全連線或額外效能和規模的應用程式使用。
 
 此範本會部署下列 App Service 實體：
 
 - [標準](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview) App Service 方案層次
-- 多個 Web App [部署位置](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
+- 多個 Web 應用程式[部署位置](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing)：Dev、Preview、QA、UAT 以及 Production (預設位置)。
 - 以 [Azure 資源的受控識別](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity)連線到 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (這也可供存取 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - 與 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) 整合以監視效能
 - [診斷記錄檔](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
@@ -232,7 +232,7 @@ Crown Commercial Service (一所致力於改善政府相關商業和採購活動
 1.  將[這個](https://aka.ms/ukofficial-paaswa-repo) GitHub 存放庫複製或下載到您的本機工作站。
 2.  檢閱[方法 1：Azure CLI 2 (Express 版)](https://aka.ms/ukofficial-paaswa-repo/#method-1-azure-cli-2-express-version) 和執行所提供的命令。
 3.  檢閱[方法 1a：Azure CLI 2 (透過指令碼引數設定部署)](https://aka.ms/ukofficial-paaswa-repo/#method-1a-azure-cli-2-configuring-the-deployment-via-script-arguments) 和執行所提供的命令
-4.  檢閱[方法 2：Azure 入口網站開發程序](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process)和執行所列的命令
+4.  檢閱[方法 2：Azure 入口網站部署程序](https://aka.ms/ukofficial-paaswa-repo/#method-2-azure-portal-deployment-process)和執行所列的命令
 
 ## <a name="guidance-and-recommendations"></a>指引與建議
 

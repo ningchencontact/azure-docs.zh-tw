@@ -1,18 +1,19 @@
 ---
-title: 如何設定 Azure ExpressRoute Direct | Microsoft Docs
-description: 此頁面可協助您設定 ExpressRoute Direct (預覽)
+title: 設定 ExpressRoute Direct - Azure | Microsoft Docs
+description: 此頁面可協助您設定 ExpressRoute Direct (預覽)。
 services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: jaredro
-ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.custom: seodec18
+ms.openlocfilehash: 9dadd61c8c4c2d1cd2305aa852e4528bfb9a1421
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959660"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53076605"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>如何設定 ExpressRoute Direct (預覽)
 
@@ -228,7 +229,7 @@ ExpressRoute Direct 可讓您在策略性分散於世界各地的對等互連位
 
 根據預設，您可以在 ExpressRoute Direct 資源所在的訂用帳戶中建立 10 個線路。 支援人員可以增加此數目。 您則負責追蹤已佈建和已使用的頻寬。 已佈建的頻寬是 ExpressRoute Direct 資源上所有線路的頻寬總和，而已使用的頻寬則是基礎實體介面的實際使用量。
 
-ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 這些是：40Gbps 和 100Gbps。
+ExpressRoute Direct 上有只可用於支援以上所述案例的額外線路頻寬。 它們是：40Gbps 和 100Gbps。
 
 您可以建立標準或進階線路。 標準線路會納入成本中，而進階線路則是根據所選的頻寬計算成本。 只能依照計量建立線路，因為 ExpressRoute Direct 不支援無限量。
 

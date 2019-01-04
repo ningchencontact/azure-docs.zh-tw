@@ -1,25 +1,19 @@
 ---
-title: 取得 ARP 表格：Resource Manager：Azure ExpressRoute 疑難排解 | Microsoft Docs
+title: 取得 ARP 資料表- 疑難排解 - ExpressRoute：Azure | Microsoft Docs
 description: 此頁面提供相關指示，協助您取得適用於 ExpressRoute 線路的 ARP 表格
-documentationcenter: na
 services: expressroute
 author: ganesr
-manager: carolz
-editor: tysonn
-ms.assetid: 0a6bf1d5-6baf-44dd-87d3-1ebd2fd08bdc
 ms.service: expressroute
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/30/2017
 ms.author: ganesr
-ms.openlocfilehash: a65b1ba2998eae33b3e73bd2492fbbf025eb5946
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.custom: seodec18
+ms.openlocfilehash: a16b2dd61a1a04d8fc3362ce2e26c7d3c9433972
+ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "23013133"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53274459"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>在 Resource Manager 部署模型中取得 ARP 表格
 > [!div class="op_single_selector"]
@@ -28,7 +22,7 @@ ms.locfileid: "23013133"
 > 
 > 
 
-本文將逐步引導您了解適用於 ExpressRoute 線路的 ARP 表格。 
+本文將逐步引導您了解適用於 ExpressRoute 線路的 ARP 表格。
 
 > [!IMPORTANT]
 > 本文件旨在協助您診斷並修正簡單的問題。 它無法取代 Microsoft 支援服務。 如果無法使用如下所述的指引來解決問題，您必須向 [Microsoft 支援服務](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 開啟支援票證。

@@ -1,12 +1,11 @@
 ---
-title: 從一個實驗建立多個模型 - Azure Machine Learning Studio | Microsoft Docs
+title: 從一個 Studio 實驗建立多個模型 - Azure Machine Learning Studio | Microsoft Docs
 description: 使用 PowerShell 以相同演算法但不同的訓練資料集，建立多個機器學習服務模型和 Web 服務端點。
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=haining, author=hning86)
+ms.custom: seodec18
 ms.author: amlstudiodocs
-manager: mwinkle
 editor: cgronlun
 ms.assetid: 1076b8eb-5a0d-4ac5-8601-8654d9be229f
 ms.service: machine-learning
@@ -16,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: e1a6eb4f61869c3c6299011c46a5953f93cc7305
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: f54f9f9ff4b55ef1e2e68f61b709cef6635dc231
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316560"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53250258"
 ---
-# <a name="azure-machine-learning-studio-use-powershell-to-create-many-models-and-web-service-endpoints-from-one-experiment"></a>Azure Machine Learning Studio：使用 PowerShell，從一個實驗中建立許多模型和 Web 服務端點
+# <a name="use-powershell-to-create-studio-models-and-web-service-endpoints-from-one-experiment"></a>使用 PowerShell 從一個實驗建立 Studio 模型和 Web 服務端點
 
-以下是一個常見的機器學習服務問題︰您想要建立許多模型，這些模型具有相同的訓練工作流程，且使用相同的演算法。 但您想要以不同的訓練資料集作為輸入。 本文說明如何在 Azure Machine Learning Studio 中只使用單一實驗來大規模完成這項工作。
+以下是一個常見的機器學習問題：您想要建立許多模型，這些模型具有相同的定型工作流程且使用相同的演算法。 但您想要以不同的訓練資料集作為輸入。 本文說明如何在 Azure Machine Learning Studio 中只使用單一實驗來大規模完成這項工作。
 
 例如，假設您擁有一家全球性自行車出租加盟商。 您想要建立迴歸模型，根據歷史資料來預測出租需求。 您在世界各地有 1000 個租用地點，且您為每個地點收集了一個資料集。 其中包含多項重要功能，例如專屬於每個地點的日期、時間、天氣和流量。
 

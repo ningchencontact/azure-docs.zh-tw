@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ce930adc4cb2c635b54b3d41ea4a3ac272541698
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 5d2cf4d76ce6f44cb31f05d45f2ccbceccbe9c10
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52638233"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53339360"
 ---
 # <a name="checkpoints-and-replay-in-durable-functions-azure-functions"></a>長期函式中的檢查點和重新執行 (Azure Functions)
 
@@ -27,7 +27,7 @@ ms.locfileid: "52638233"
 
 假設您有下列協調器函式：
 
-#### <a name="c"></a>C#
+### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -45,7 +45,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-#### <a name="javascript-functions-v2-only"></a>JavaScript (僅限 Functions v2)
+### <a name="javascript-functions-2x-only"></a>JavaScript (僅限 Functions 2.x)
 
 ```javascript
 const df = require("durable-functions");
@@ -56,6 +56,7 @@ module.exports = df.orchestrator(function*(context) {
     output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
     output.push(yield context.df.callActivity("E1_SayHello", "London"));
 
+    // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return output;
 });
 ```
@@ -77,47 +78,48 @@ module.exports = df.orchestrator(function*(context) {
 
 完成時，稍早顯示的函式歷程記錄在 Azure 資料表儲存體中看起來如下所示 (針對示範目的縮寫)：
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | 輸入 | 名稱             | 結果                                                    | 狀態 | 
-|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------| 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     | 
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     | 
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     | 
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     | 
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     | 
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           | 
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     | 
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | 輸入 | Name             | 結果                                                    | 狀態 |
+|----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|---------------------|
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Completed           |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
 
 資料行值的一些附註：
+
 * **PartitionKey**：包含協調流程的執行個體識別碼。
 * **EventType**：代表事件的類型。 可以是下列其中一個類型：
-    * **OrchestrationStarted**：協調器函式會從等候繼續運作或是第一次執行。 `Timestamp` 資料行是用來填入 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的決定性值。
-    * **ExecutionStarted**：協調器函式第一次開始執行。 此事件也包含 `Input` 資料行中的函式輸入。
-    * **TaskScheduled**：活動函式已排程。 活動函式的名稱是在 `Name` 資料行中擷取。
-    * **TaskCompleted**：活動函式已完成。 函式的結果是在 `Result` 資料行中。
-    * **TimerCreated**：建立長期計時器。 `FireAt` 資料行包含計時器到期的已排程 UTC 時間。
-    * **TimerFired**：長期計時器已引發。
-    * **EventRaised**：外部事件傳送至協調流程執行個體。 `Name` 資料行會擷取事件的名稱，而 `Input` 資料行會擷取事件的裝載。
-    * **OrchestratorCompleted**：協調器函式已等候。
-    * **ContinueAsNew**：協調器函式已完成，並且以新的狀態自行重新啟動。 `Result` 資料行包含值，可作為重新啟動執行個體的輸入。
-    * **ExecutionCompleted**：協調器函式即將完成 (或失敗)。 函式或錯誤詳細資料的輸出會儲存在 `Result` 資料行。
+  * **OrchestrationStarted**：協調器函式會從等候繼續運作或是第一次執行。 `Timestamp` 資料行是用來填入 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API 的決定性值。
+  * **ExecutionStarted**：協調器函式第一次開始執行。 此事件也包含 `Input` 資料行中的函式輸入。
+  * **TaskScheduled**：活動函式已排程。 活動函式的名稱是在 `Name` 資料行中擷取。
+  * **TaskCompleted**：活動函式已完成。 函式的結果是在 `Result` 資料行中。
+  * **TimerCreated**：建立長期計時器。 `FireAt` 資料行包含計時器到期的已排程 UTC 時間。
+  * **TimerFired**：長期計時器已引發。
+  * **EventRaised**：外部事件傳送至協調流程執行個體。 `Name` 資料行會擷取事件的名稱，而 `Input` 資料行會擷取事件的裝載。
+  * **OrchestratorCompleted**：協調器函式已等候。
+  * **ContinueAsNew**：協調器函式已完成，並且以新的狀態自行重新啟動。 `Result` 資料行包含值，可作為重新啟動執行個體的輸入。
+  * **ExecutionCompleted**：協調器函式即將完成 (或失敗)。 函式或錯誤詳細資料的輸出會儲存在 `Result` 資料行。
 * **Timestamp**：歷程記錄事件的 UTC 時間戳記。
 * **Name**：被叫用之函式的名稱。
-* **Input**：函式的 JSON 格式輸入。
+* **輸入**：函式的 JSON 格式輸入。
 * **Result**：函式的輸出，也就是它的傳回值。
 
 > [!WARNING]
 > 它作為偵錯工具相當有用，請勿在此資料表上採用任何相依性。 當 Durable Functions 擴充功能進化時，此相依性可能會改變。
 
-每次函式從 `await` 繼續時，長期工作架構就會從頭重新執行協調器函式。 在每次重新執行時，它會查詢執行歷程記錄以判斷是否已發生目前的非同步作業。  如果作業已發生，架構會立即重新執行該作業的輸出，並且移至下一個 `await`。 此程序會繼續直到整個歷程記錄已重新執行，此時協調器函式中的所有本機變數會還原至其先前的值。
+每次函式從 `await` (C#) 或 `yield` (JavaScript) 繼續時，長期工作架構就會從頭重新執行協調器函式。 在每次重新執行時，它會查詢執行歷程記錄以判斷是否已發生目前的非同步作業。  如果作業已發生，架構會立即重新執行該作業的輸出，並且移至下一個 `await` (C#) 或 `yield` (JavaScript)。 此程序會繼續直到整個歷程記錄已重新執行，此時協調器函式中的所有本機變數會還原至其先前的值。
 
 ## <a name="orchestrator-code-constraints"></a>協調器程式碼條件約束
 
@@ -125,26 +127,36 @@ module.exports = df.orchestrator(function*(context) {
 
 * 協調器程式碼必須是**決定性**。 它會重新執行多次，每次都必須產生相同的結果。 例如，不直接呼叫以取得目前日期/時間、取得隨機數字、產生隨機 GUID，或呼叫遠端端點。
 
-  如果協調器程式碼需要取得目前日期/時間，則應該使用 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) API，它對於重新執行是安全的。
+  如果協調器程式碼需要取得目前日期/時間，則應該使用 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime) (.NET) 或 `currentUtcDateTime` (JavaScript) API，它對於重新執行是安全的。
 
-  如果協調器程式碼需要產生隨機 GUID，它應該使用 [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) API，這對於重新執行是安全的。
+  如果協調器程式碼需要產生隨機 GUID，它應該使用 [NewGuid](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_NewGuid) (.NET) API，這對於重新執行是安全的，或委派活動函式 (JavaScript) 的 GUID 產生，如下列範例所示：
+
+  ```javascript
+  const uuid = require("uuid/v1");
+
+  module.exports = async function(context) {
+    return uuid();
+  }
+  ```
 
   非決定性作業必須在活動函式中完成。 這包括與其他輸入或輸出繫結的任何互動。 這可確保任何非決定性值會在第一次執行時產生，並且儲存到執行歷程記錄。 然後，後續執行會自動使用儲存的值。
 
-* 協調器程式碼應該是**非封鎖**。 例如，這表示沒有 `Thread.Sleep` 或對等 API 的 I/O 和呼叫。
+* 協調器程式碼應該是**非封鎖**。 例如，這表示沒有 `Thread.Sleep` (.NET) 或對等 API 的 I/O 和呼叫。
 
-  如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) API。
+  如果協調器需要延遲，可以使用 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) (.NET) 或 `createTimer` (JavaScript) API。
 
-* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API。 例如，無 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync`。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。
+* 協調器程式碼必須**永不起始任何非同步作業**，除非使用 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) API 或 `context.df` 物件的 API。 例如，沒有 `Task.Run`、`Task.Delay` 或 `HttpClient.SendAsync` 在 .NET 中，或 `setTimeout()` 和 `setInterval()` 在 JavaScript 中。 長期工作架構會在單一執行緒上執行協調器程式碼，並且無法與可以由其他非同步 API 排程的任何其他執行緒進行互動。
 
-* 在協調器程式碼中**應該避免無限迴圈**。 由於長期工作架構會在協調流程函式進行時儲存執行歷程記錄，所以無限迴圈可能會造成協調器執行個體用盡記憶體。 在無限迴圈的案例中，使用例如 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) 的 API 以重新啟動函式執行，並捨棄先前的執行歷程記錄。
+* 在協調器程式碼中**應該避免無限迴圈**。 由於長期工作架構會在協調流程函式進行時儲存執行歷程記錄，所以無限迴圈可能會造成協調器執行個體用盡記憶體。 在無限迴圈的案例中，使用例如 [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) (.NET) 或 `continueAsNew` (JavaScript) 之類的 API 重新啟動函式執行，並捨棄先前的執行歷程記錄。
+
+* JavaScript 協調器函式不可以是 `async`。 這些必須宣告為同步的產生器函式。
 
 雖然這些條件約束乍看之下令人卻步，但是實際上遵循它們並不困難。 長期工作架構嘗試偵測上述規則的違規，並且擲回 `NonDeterministicOrchestrationException`。 不過，這個偵測行為是最佳方式，您不應該仰賴它。
 
 > [!NOTE]
 > 所有規則僅適用於 `orchestrationTrigger` 繫結所觸發的函式。 `activityTrigger` 繫結所觸發的活動函式，和使用 `orchestrationClient` 繫結的函式，沒有這類限制。
 
-## <a name="durable-tasks"></a>長期工作
+## <a name="durable-tasks-net"></a>長期工作 (.NET)
 
 > [!NOTE]
 > 本章節描述長期工作架構的內部實作詳細資料。 您不需要知道這項資訊就可以使用長期函式。 它只是用來協助您了解重新執行行為。

@@ -1,5 +1,6 @@
 ---
-title: ONNX 和 Azure Machine Learning | 建立及部署模型
+title: 建立與部署互通的 ONNX 模型
+titleSuffix: Azure Machine Learning service
 description: 深入了解 ONNX 以及如何使用 Azure Machine Learning 來建立及部署 ONNX 模型
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +10,15 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e5c0e479d5564a48048b9fa9c67ad8870122601
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.custom: seodec18
+ms.openlocfilehash: 15aa80c5291854c937bdc128a597ed5bebd608a2
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706053"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437414"
 ---
-# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 和 Azure Machine Learning：建立及部署可交互作用的 AI 模型
+# <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX 與 Azure Machine Learning：建立與部署互通的 AI 模型
 
 [開放神經網路交換](https://onnx.ai) (ONNX) 格式是代表機器學習模型的開放標準。 ONNX 受到[合作夥伴社群](https://onnx.ai/supported-tools)的支援，例如 Microsoft 建立了相容的架構和工具。 Microsoft 致力於開發開放且可交互作用的 AI，讓資料科學家和開發人員可以：
 
@@ -65,11 +67,11 @@ Microsoft 會讓其產品 (包括 Azure 和 Windows) 支援 ONNX，以協助您�
 
 使用 Azure Machine Learning 服務，您可以部署、管理及監視 ONNX 模型。 使用標準[部署工作流程](concept-model-management-and-deployment.md)和 ONNX Runtime，您可以建立裝載於雲端中的 REST 端點。 請參閱本文結尾的 Jupyter Notebook 完整範例，自行嘗試看看。 
 
-### <a name="install-and-configure-the-onnx-runtime"></a>安裝和設定 ONNX Runtime
+### <a name="install-and-configure-onnx-runtime"></a>安裝和設定 ONNX Runtime
 
-ONNX Runtime 是適用於 ONNX 模型的高效能推斷引擎。 其隨附 Python API，並提供 CPU 和 GPU 兩者的硬體加速。 目前支援 ONNX 1.2 模型，並且在 Ubuntu 16.04 Linux 上執行。 [CPU](https://pypi.org/project/onnxruntime) 和 [GPU](https://pypi.org/project/onnxruntime-gpu) 套件都可於 [PyPi.org](https://pypi.org) 上取得。
+ONNX Runtime 是適用於 ONNX 模型的開放原始碼高效能推斷引擎。 其可提升 CPU 與 GPU 硬體速度，具有可供 Python、C# 和 C. ONNX Runtime 使用的 API，且支援 ONNX 1.2+ 模型，並能在 Linux、Windows 和 Mac 上執行。 Python 套件位於 [PyPi.org](https://pypi.org) ([CPU](https://pypi.org/project/onnxruntime)[GPU](https://pypi.org/project/onnxruntime-gpu))，[C# 套件](https://www.nuget.org/packages/Microsoft.ML.OnnxRuntime/)位於 [Nuget.org](https://www.nuget.org)。請至 [GitHub](https://github.com/Microsoft/onnxruntime) 參閱專案的詳細資訊。 
 
-若要安裝 ONNX Runtime，請使用：
+若要安裝 Python 適用的 ONNX Runtime，請使用：
 ```python
 pip install onnxruntime
 ```
@@ -94,7 +96,7 @@ results = session.run(["output1", "output2"], {"input1": indata1, "input2": inda
 results = session.run([], {"input1": indata1, "input2": indata2})
 ```
 
-如需完整的 API 參考，請參閱 [ONNX Runtime 參考文件](https://aka.ms/onnxruntime-python)。
+如需完整的 Python API 參考，請參閱 [ONNX Runtime 參考文件](https://aka.ms/onnxruntime-python) (英文)。
 
 ### <a name="example-deployment-steps"></a>部署步驟範例
 
@@ -183,24 +185,12 @@ results = session.run([], {"input1": indata1, "input2": indata2})
     f.write(myenv.serialize_to_string())
    ```
 
-4. 將使用 Azure Machine Learning 的 ONNX 模型部署至：
-   + Azure 容器執行個體 (ACI)：[深入了解...](how-to-deploy-to-aci.md)
-
-   + Azure Kubernetes Service (AKS)：[深入了解...](how-to-deploy-to-aks.md)
+4. 若要部署模型，請參閱[部署方式及位置](how-to-deploy-and-where.md)文件。
 
 
 ## <a name="examples"></a>範例
  
-下列 Notebook 示範如何建立及部署使用 Azure Machine Learning 的 ONNX 模型： 
-+ [onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
-+ [onnx/onnx-convert-aml-deploy-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
-+ [onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
-
-下列 Notebook 示範如何部署使用 Azure Machine Learning 的現有 ONNX 模型： 
-+ [onnx/onnx-inference-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
-+ [onnx/onnx-inference-facial-expression-recognition-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
- 
-取得這些 Notebook：
+請參閱 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)，以取得建立與部署 ONNX 模型的範例筆記本。
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
@@ -210,3 +200,8 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 + [ONNX 專案網站](https://onnx.ai)
 
 + [GitHub 上的 ONNX 程式碼](https://github.com/onnx/onnx)
+
+深入了解 ONNX Runtime 或參與專案：
++ [ONNX Runtime GitHub 存放庫](https://github.com/Microsoft/onnxruntime)
+
+

@@ -1,5 +1,5 @@
 ---
-title: Azure 通知中樞：常見問題集 (FAQ) | Microsoft Docs
+title: Azure 通知中樞：常見問題集 | Microsoft Docs
 description: 在通知中樞上設計/實作解決方案的常見問題集
 services: notification-hubs
 documentationcenter: mobile
@@ -15,14 +15,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: cec57f2dafaddfa2ebc492f0cb92755b1f65607f
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 140994de4b1be61f16593e450d156b81727a9f52
+ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251017"
+ms.lasthandoff: 12/15/2018
+ms.locfileid: "53437828"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集 (FAQ)
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中樞推播通知：常見問題集
 ## <a name="general"></a>一般
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>通知中樞的資源結構為何？
 
@@ -40,7 +40,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 標準層級功能：
 * **豐富的遙測**：您可以使用每個訊息遙測的通知中樞，來追蹤任何推播要求和平台通知系統的意見反應以進行偵錯。
 * **多租用戶**：您可以在命名空間層級上使用平台通知系統認證。 此選項可讓您在相同的命名空間內輕鬆地將租用戶分割成多個中樞。
-* **排定推播**：您可以排定在任何時間傳送通知。
+* **已排程的推播**：您可以排定在任何時間傳送通知。
 
 ### <a name="what-is-the-notification-hubs-sla"></a>什麼是通知中樞 SLA？
 以基本和標準通知中樞層級來說，若應用程式已正確設定，則可傳送推播通知或執行註冊管理作業的時間至少有 99.9 %。 若要深入了解 SLA，請前往[通知中樞 SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 頁面。
@@ -51,7 +51,7 @@ Azure 通知中樞有兩個資源層級：中樞和命名空間。 中樞是單�
 ### <a name="which-customers-are-using-notification-hubs"></a>客戶如何使用通知中樞？
 許多客戶都使用通知中樞。 此處列出一些值得注意的︰
 
-* Sochi 2014︰兩周內有數百個感興趣的群組、3 百萬個以上的裝置和 1.5 億個以上的通知需進行分派。 [案例研究：Sochi]
+* Sochi 2014：兩周內有數百個感興趣的群組、3 百萬個以上的裝置和 1.5 億個以上的通知需進行分派。 [案例研究：Sochi]
 * Skanska：[案例研究：Skanska]
 * Seattle Times：[案例研究：Seattle Times]
 * Mural.ly：[案例研究：Mural.ly]
@@ -213,7 +213,7 @@ Azure 通知中樞提供數個功能以進行疑難排解，特別是在已捨�
 [通知中樞資訊安全模型]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [通知中樞安全推播教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [通知中樞疑難排解]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
-[通知中樞計量]: ../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnotificationhubsnamespacesnotificationhubs
+[通知中樞計量]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [通知中樞計量範例]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
 [註冊匯出/匯入]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure 入口網站]: https://portal.azure.com

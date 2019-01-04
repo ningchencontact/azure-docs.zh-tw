@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 206dddd70ae9063782b7dc8dfaf1214f53d5fac8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 62b7e293468a8b92f22ee1a5fd5b38cd15cfafbf
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955686"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53261529"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>使用 .NET SDK 向 Azure Data Lake Storage Gen1 進行使用者驗證
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "49955686"
    | --- | --- |
    | 類別 |範本/Visual C#/Windows |
    | 範本 |主控台應用程式 |
-   | 名稱 |CreateADLApplication |
+   | Name |CreateADLApplication |
 
 4. 按一下 [確定]  以建立專案。
 
@@ -104,7 +104,7 @@ ms.locfileid: "49955686"
 
 上面這個程式碼片段有幾項須知：
 
-* 前述程式碼片段會使用協助程式函式 `GetTokenCache` 與 `GetCreds_User_Popup`。 這些協助程式函式的程式碼也可在[這裡的 Github 上取得](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache)。
+* 前述程式碼片段會使用協助程式函式 `GetTokenCache` 與 `GetCreds_User_Popup`。 從 [GitHub](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#gettokencache) 即可取得這些協助程式函式的程式碼。
 * 為了協助您更快完成本教學課程，此程式碼片段使用所有 Azure 訂用帳戶預設可用的原生應用程式用戶端識別碼。 因此，您可以**在應用程式中原封不動地使用此程式碼片段**。
 * 但是，如果您想要使用自己的 Azure AD 網域和應用程式用戶端識別碼，您必須建立 Azure AD 原生應用程式，然後使用您所建立之應用程式的 Azure AD 租用戶識別碼、用戶端識別碼和重新導向 URI。 如需相關指示，請參閱[建立 Active Directory 應用程式以向 Data Lake Storage Gen1 進行使用者驗證](data-lake-store-end-user-authenticate-using-active-directory.md)。
 

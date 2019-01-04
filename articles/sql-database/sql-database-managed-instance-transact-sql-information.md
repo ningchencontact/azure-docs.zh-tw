@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: 31b09818f901ecf957364ae77fd8c6e636b04342
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.date: 12/03/2018
+ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712138"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52843201"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database 受控執行個體的 T-SQL 差異
 
@@ -145,7 +145,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="collation"></a>Collation
 
-伺服器定序是 `SQL_Latin1_General_CP1_CI_AS`，且無法變更。 請參閱[定序](https://docs.microsoft.com/sql/t-sql/statements/collations)。
+預設執行個體定序為 `SQL_Latin1_General_CP1_CI_AS`，而且可指定為建立參數。 請參閱[定序](https://docs.microsoft.com/sql/t-sql/statements/collations)。
 
 ### <a name="database-options"></a>資料庫選項
 
@@ -264,7 +264,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 在受控執行個體中，連結伺服器支援的目標數有限：
 
-- 支援的目標：SQL Server 及 SQL Database
+- 支援的目標：SQL Server 和 SQL Database
 - 不支援目標：檔案、Analysis Services 和其他 RDBMS。
 
 作業
@@ -277,7 +277,8 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="logins--users"></a>登入 / 使用者
 
 - 不支援 `FROM CERTIFICATE`、`FROM ASYMMETRIC KEY` 和 `FROM SID` 建立的 SQL 登入。 請參閱 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql)。
-- 不支援使用 `CREATE LOGIN ... FROM WINDOWS` 語法建立的 Windows 登入。
+- 支援使用 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 語法或 [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 語法建立的 Azure Active Directory (AAD) 登入 (**公開預覽**)。
+- 不支援使用 `CREATE LOGIN ... FROM WINDOWS` 語法建立的 Windows 登入。 使用 Azure Active Directory 登入和使用者。
 - 建立執行個體的 Azure Active Directory (Azure AD) 使用者具有[不受限制的系統管理員權限](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts)。
 - 您可以使用 `CREATE USER ... FROM EXTERNAL PROVIDER` 語法建立非系統管理員的 Azure Active Directory (Azure AD) 資料庫層級使用者。 請參閱 [CREATE USER ...FROM EXTERNAL PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
 
@@ -427,12 +428,12 @@ WITH PRIVATE KEY (<private_key_options>)
 
 每個「受控執行個體」最多會為「Azure 進階磁碟」空間保留 35 TB 的儲存體，且每個資料庫檔案都會放在個別的實體磁碟上。 磁碟大小可以是 128 GB、256 GB、512 GB、1 TB 或 4 TB。 針對磁碟上未使用的空間，並不收費，但「Azure 進階磁碟」大小的總和不可超過 35 TB。 在某些情況下，總計不需 8 TB 的「受控執行個體」可能會因內部分散的緣故而超過 35 TB 的 Azure 儲存體大小限制。
 
-例如，「受控執行個體」可能有一個大小為 1.2 TB 而放置在 4 TB 磁碟上的檔案，以及 248 個各為 1 GB 大小而放置在其他 128 GB 磁碟上的檔案。 在此範例中：
+例如，「受控執行個體」可能有一個大小為 1.2 TB 而放置在 4 TB 磁碟上的檔案，以及 248 個放置在其他 128 GB 磁碟上的檔案 (各為 1 GB 大小)。 在此範例中：
 
-- 磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。
+- 配置的磁碟儲存體大小總計為 1 x 4 TB + 248 x 128 GB = 35 TB。
 - 為執行個體上的資料庫保留的大小總計為 1 x 1.2 TB + 248 x 1 GB = 1.4 TB。
 
-這說明了在特性情況下，由於非常特定的檔案散發方式，「受控執行個體」可能在您未預期的情形下，達到為所連結「Azure 進階磁碟」保留的 35 TB。
+這說明了在特性情況下，由於特定的檔案散發方式，「受控執行個體」可能在您未預期的情形下，達到為所連結「Azure 進階磁碟」保留的 35 TB。
 
 在此範例中，現有資料庫會繼續運作，只要不新增檔案，就可正常成長而不會有任何問題。 不過，因為沒有足夠空間可供新的磁碟機使用，所以無法建立或還原新的資料庫，即使所有資料庫的大小總計未達到執行個體大小限制也是如此。 在該情況下所傳回的錯誤將不清楚。
 
@@ -443,7 +444,10 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="tooling"></a>工具
 
-SQL Server Management Studio 和 SQL Server Data Tools 在存取受控執行個體時可能會有一些問題。 所有工具問題將會在正式運作之前解決。
+SQL Server Management Studio (SSMS) 和 SQL Server Data Tools (SSDT) 在存取受控執行個體時可能會有一些問題。
+
+- 目前不支援使用 Azure AD 登入和使用者 (**公開預覽**) 搭配 SSDT。
+- SSMS 不支援 Azure AD 登入和使用者的指令碼 (**公開預覽**)。
 
 ### <a name="incorrect-database-names-in-some-views-logs-and-messages"></a>某些檢視、記錄與訊息中的不正確資料庫名稱
 
@@ -451,7 +455,7 @@ SQL Server Management Studio 和 SQL Server Data Tools 在存取受控執行個�
 
 ### <a name="database-mail-profile"></a>資料庫郵件 XP
 
-可能只有一個資料庫郵件設定檔，而且一定名為 `AzureManagedInstance_dbmail_profile`。 這是暫時性的限制，很快將會移除。
+可能只有一個資料庫郵件設定檔，而且一定名為 `AzureManagedInstance_dbmail_profile`。
 
 ### <a name="error-logs-are-not-persisted"></a>錯誤記錄檔不會在工作階段之間保存下來
 
@@ -496,7 +500,7 @@ using (var scope = new TransactionScope())
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR 模組與連結的伺服器有時候無法參考本機 IP 位址
 
-放置在受控執行個體中的 CLR 模組與參考目前執行個體的連結伺服器/分散式查詢有時無法解析本機執行個體的 IP。 這是暫時性錯誤。
+放置在受控執行個體中的 CLR 模組與參考目前執行個體的連結伺服器/分散式查詢有時無法解析本機執行個體的 IP。 此錯誤為暫時性問題。
 
 **因應措施**：可能的話，在 CLR 模組中使用內容連線。
 

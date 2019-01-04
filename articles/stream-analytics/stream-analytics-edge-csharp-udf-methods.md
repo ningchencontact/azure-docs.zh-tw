@@ -1,5 +1,5 @@
 ---
-title: 針對 Azure 串流分析 Edge 作業開發 .NET Standard 使用者定義的函式 (預覽)
+title: 針對 Azure 串流分析 Edge 作業開發 .NET Standard 函式 (預覽)
 description: 了解如何針對串流分析 Edge 作業撰寫 c# 使用者定義的函式。
 services: stream-analytics
 author: mamccrea
@@ -8,13 +8,14 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: f0da25410fe81a93501df940ffbb0e115456a9e8
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 5df4c9dfe18b02ade3a37717da9c68acbfcf1853
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247802"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53106595"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>針對 Azure 串流分析 Edge 作業開發 .NET Standard 使用者定義的函式 (預覽)
 
@@ -27,11 +28,11 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 * ASA 專案中的 CodeBehind 檔案
 * 本機檔案的 UDF
-* Azure 儲存體帳戶的現有套件
+* Azure 儲存體帳戶的現有封裝
 
-## <a name="package-path"></a>套件路徑
+## <a name="package-path"></a>封裝路徑
 
-任何 UDF 套件格式的路徑皆為 `/UserCustomCode/CLR/*`。 動態連結程式庫 (DLL) 與資源會複製到 `/UserCustomCode/CLR/*` 資料夾下方，這可幫助將使用者 DLL 與系統和 Azure 串流分析 DLL 隔離。 此套件路徑用於所有函式，而不論用來運用它們的方法為何。
+任何 UDF 封裝格式的路徑皆為 `/UserCustomCode/CLR/*`。 動態連結程式庫 (DLL) 與資源會複製到 `/UserCustomCode/CLR/*` 資料夾下方，這可幫助將使用者 DLL 與系統和 Azure 串流分析 DLL 隔離。 此套件路徑用於所有函式，而不論用來運用它們的方法為何。
 
 ## <a name="supported-types-and-mapping"></a>支援的型別與對應
 
@@ -47,7 +48,7 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 |dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
-您可以使用 **Script.asql** CodeBehind 撰寫使用者定義的函式。 Visual Studio 工具會自動將 CodeBehind 檔案編譯成組件檔。 組件會封裝為 zip 檔案，並在您將工作提交到 Azure 時上傳到您的儲存體帳戶。 您可以依照[針對 Azure 串流分析 Edge 作業撰寫 C# UDF](stream-analytics-edge-csharp-udf.md) 教學課程執行，了解如何使用 CodeBehind 撰寫 C# UDF。 
+您可以使用 **Script.asql** CodeBehind 撰寫使用者定義的函式。 Visual Studio 工具會自動將 CodeBehind 檔案編譯成組件檔。 組件會封裝為 zip 檔案，並在您將工作提交到 Azure 時上傳到您的儲存體帳戶。 您可以遵循 [針對 Azure 串流分析 Edge 作業撰寫 C# UDF](stream-analytics-edge-csharp-udf.md) 教學課程，了解如何使用 CodeBehind 撰寫 C# UDF。 
 
 ## <a name="local-project"></a>本機專案
 使用者定義的函式可在 Azure 串流分析查詢稍後參照的組件中撰寫。 對於需要 .NET Standard 語言完整功能 (例如程序邏輯或遞迴) 超出其運算式語言之外的複雜函式，建議使用此選項。 本機專案的 UDF 也可用於您必須在數個 Azure 串流分析查詢之間共用函式邏輯的時候。 將 UDF 新增至您的本機專案，讓您能夠使用 Visual Studio 在本機偵錯與測試您的函式。
@@ -82,15 +83,15 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
 4. 您應該會在 [方案總管] 中 [參照] 的下方看見 [UDFTest]。
 
-   ![在 Azure 串流分析 Edge 方案總管中檢視使用者定義的函式參照](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![在方案總管中檢視使用者定義的函式參照](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. 以滑鼠右鍵按一下 [函式] 資料夾，然後選擇 [新項目]。
 
-   ![在 Visual Studio 的 Azure 串流分析 Edge 解決方案中，將新項目新增至函式](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![在 Azure 串流分析 Edge 解決方案中將新項目新增至 Functions](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. 將 C# 函式 **SquareFunction.json** 新增至 Azure 串流分析專案。
 
-   ![在 Visual Studio 中，從 Azure 串流分析 Edge 項目清單中選取 C Sharp 函式](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![在 Visual Studio 中，從 Azure 串流分析 Edge 項目中選取 C Sharp 函式](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. 按兩下 [方案總管] 中的函式，以開啟設定對話方塊。
 
@@ -100,11 +101,11 @@ Azure 串流分析的 Visual Studio 工具可讓您輕鬆地撰寫 UDF、在本�
 
    ![串流分析 C sharp 函式設定](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
 
-## <a name="existing-packages"></a>現有套件
+## <a name="existing-packages"></a>現有封裝
 
-您可以在任何您選擇的 IDE 中撰寫 .NET Standard UDF，並從 Azure 串流分析查詢中叫用 UDF。 先編譯程式碼並封裝所有的 DLL。 套件格式的路徑為 `/UserCustomCode/CLR/*`。 接著，以您的 Azure 儲存體帳戶將 `UserCustomCode.zip` 上傳至容器的根目錄。
+您可以在任何您選擇的 IDE 中撰寫 .NET Standard UDF，並從 Azure 串流分析查詢中叫用 UDF。 先編譯程式碼並封裝所有的 DLL。 封裝格式的路徑為 `/UserCustomCode/CLR/*`。 接著，以您的 Azure 儲存體帳戶將 `UserCustomCode.zip` 上傳至容器的根目錄。
 
-當組件 zip 套件已上傳到您的 Azure 儲存體帳戶後，您可以使用 Azure 串流分析查詢中的函式。 您只需在串流分析 Edge 作業設定中加入儲存體資訊。 您無法使用此選項在本機上測試函式，因為 Visual Studio 工具不會下載您的套件。 系統會直接對服務剖析套件路徑。 
+當組件 zip 封裝已上傳到您的 Azure 儲存體帳戶後，您可以使用 Azure 串流分析查詢中的函式。 您只需在串流分析 Edge 作業設定中加入儲存體資訊。 您無法使用此選項在本機上測試函式，因為 Visual Studio 工具不會下載您的封裝。 系統會直接對服務剖析封裝路徑。 
 
 在工作設定檔 `JobConfig.json` 中設定組件路徑：
 

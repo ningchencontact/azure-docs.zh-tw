@@ -1,21 +1,20 @@
 ---
-title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源 | Microsoft Docs
+title: Azure Cosmos DB：.NET 變更摘要處理器 API、SDK 和資源
 description: 了解「變更摘要處理器 API 和 SDK」的所有相關資訊，包括發行日期、停用日期，以及「.NET 變更摘要處理器 SDK」每個版本之間的變更。
 services: cosmos-db
 author: ealsur
-manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 327873d228fe92a9da495f802c97eb73612caef9
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 7b6fefd575901648a99bb3a67a05e705622bb74a
+ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632478"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53407859"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 變更摘要處理器 SDK：下載和版本資訊
 > [!div class="op_single_selector"]
@@ -28,7 +27,7 @@ ms.locfileid: "52632478"
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 資源提供者](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
@@ -42,6 +41,10 @@ ms.locfileid: "52632478"
 ## <a name="release-notes"></a>版本資訊
 
 ### <a name="v2-builds"></a>v2 組建
+
+### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
+* 新增處理使用共用資料庫輸送量之分割集合的支援。
+  * 此版本會修正可能會在僅建立一個 (而非兩個) 子分割區索引鍵範圍之下，將結果分割為分割區重新平衡時，使用共用資料庫輸送量分割集合之期間發生的問題。 發生此情況時，變更摘要處理器可能會卡在刪除舊分割區索引鍵範圍的程序中，而無法建立新的租用。 此版本已經修正這個問題。
 
 ### <a name="a-name224224"></a><a name="2.2.4"/>2.2.4
 * 已新增 ChangeFeedProcessorOptions.StartContinuation 屬性，以支援從要求接續 Token 啟動變更摘要。 只有在租用集合是空的或租用未設定 ContinuationToken 時，才會使用此屬性。 如果租用集合中的租用已設定 ContinuationToken，則會使用 ContinuationToken 並忽略 ChangeFeedProcessorOptions.StartContinuation。
@@ -155,6 +158,10 @@ Microsoft 至少會在停用 SDK 的 **12 個月** 之前提供通知，以供�
 
 | 版本 | 發行日期 | 停用日期 |
 | --- | --- | --- |
+| [2.2.5](#2.2.5) |2018 年 12 月 13 日 |--- |
+| [2.2.4](#2.2.4) |2018 年 11 月 29 日 |--- |
+| [2.2.3](#2.2.3) |2018 年 11 月 19 日 |--- |
+| [2.2.2](#2.2.2) |2018 年 10 月 31 日 |--- |
 | [2.2.1](#2.2.1) |2018 年 10 月 24 日 |--- |
 | [1.3.3](#1.3.3) |2018 年 5 月 8 日 |--- |
 | [1.3.2](#1.3.2) |2018 年 4 月 18 日 |--- |

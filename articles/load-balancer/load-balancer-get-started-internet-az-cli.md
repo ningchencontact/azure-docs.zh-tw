@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard | Microsoft Docs
+title: 使用 Azure CLI 來建立具有區域備援前端 IP 的 Standard Load Balancer
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 Azure CLI 建立具有區域備援公用 IP 位址前端的公用 Load Balancer Standard
 services: load-balancer
 documentationcenter: na
@@ -7,18 +8,19 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
-ms.openlocfilehash: 169c440c8fb64923da537f391d2b5f64746162ce
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 8c396e72a8c8471be4214bf1b461210e2e61a805
+ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739119"
+ms.lasthandoff: 12/10/2018
+ms.locfileid: "53138905"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 建立具有區域備援前端的公用 Load Balancer Standard
+#  <a name="create-a-standard-load-balancer-with-zone-redundant-frontend-using-azure-cli"></a>使用 Azure CLI 來建立具有區域備援前端的 Standard Load Balancer
 
 本文會逐步說明如何使用 Public IP Standard 位址來建立具有區域備援前端的公用 [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard)。
 

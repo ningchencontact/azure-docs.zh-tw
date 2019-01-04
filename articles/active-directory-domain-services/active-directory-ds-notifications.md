@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: f5049d6092bfc6b3f70ebafdc501e02ad9fe7936
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6d827629850de88940f41febeeca61b812d692e
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432295"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52958520"
 ---
 # <a name="notification-settings-in-azure-ad-domain-services"></a>Azure AD Domain Services 中的通知設定
 
@@ -41,7 +41,7 @@ Azure AD Domain Services 的通知可讓您在系統於您的受控網域上偵�
 
 下圖是電子郵件通知的範例：
 
-![範例電子郵件通知](.\media\active-directory-domain-services-alerts\email-alert.png)
+![範例電子郵件通知](./media/active-directory-domain-services-alerts/email-alert.png)
 
 電子郵件會指定要顯示警示的受控網域，以及給予偵測時間和 Azure 入口網站中 Azure AD Domain Services 健康情況頁面的連結。
 
@@ -92,7 +92,7 @@ Azure AD Domain Services 不會針對廣告、更新或銷售用途將電子郵�
 
 #### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>即使我已經提供電子郵件地址，似乎還是無法接收電子郵件通知。 原因為何？
 
-請檢查通知是不是在電子郵件的垃圾郵件資料夾中，並確定將寄件者 (azure-noreply@microsoft.com) 列入白名單。
+請檢查通知是不是在電子郵件的垃圾郵件資料夾中，並確定將寄件者 (azure-noreply@microsoft.com) 列入允許清單。
 
 ## <a name="next-steps"></a>後續步驟
 - [解決受控網域上的警示](active-directory-ds-troubleshoot-alerts.md)

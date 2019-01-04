@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 12/07/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 7a6346e594c5a7cc4cf02f3ea658aac4977e641a
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 4e48956e42942761abec0143ba2849601dbb1cf4
+ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52637453"
+ms.lasthandoff: 12/13/2018
+ms.locfileid: "53336895"
 ---
 # <a name="task-hubs-in-durable-functions-azure-functions"></a>Durable Functions (Azure Functions) 中的工作中樞
 
@@ -27,7 +27,7 @@ ms.locfileid: "52637453"
 
 ## <a name="azure-storage-resources"></a>Azure 儲存體資源
 
-工作中樞由下列儲存體資源所組成： 
+工作中樞由下列儲存體資源所組成：
 
 * 一或多個控制佇列。
 * 一個工作項目佇列。
@@ -41,7 +41,8 @@ ms.locfileid: "52637453"
 
 工作中樞可透過 host.json 檔案中所宣告的名稱來加以識別，如下列範例所示：
 
-### <a name="hostjson-functions-v1"></a>host.json (Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -49,7 +50,9 @@ ms.locfileid: "52637453"
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -60,9 +63,11 @@ ms.locfileid: "52637453"
   }
 }
 ```
+
 工作中樞也可以使用應用程式設定來設定，如下列 *host.json* 範例檔案所示：
 
-### <a name="hostjson-functions-v1"></a>host.json (Functions v1)
+### <a name="hostjson-functions-1x"></a>host.json (Functions 1.x)
+
 ```json
 {
   "durableTask": {
@@ -70,7 +75,9 @@ ms.locfileid: "52637453"
   }
 }
 ```
-### <a name="hostjson-functions-v2"></a>host.json (Functions v2)
+
+### <a name="hostjson-functions-2x"></a>host.json (Functions 2.x)
+
 ```json
 {
   "version": "2.0",
@@ -81,14 +88,46 @@ ms.locfileid: "52637453"
   }
 }
 ```
+
 工作中樞名稱將設定為 `MyTaskHub` 應用程式設定的值。 下列 `local.settings.json` 示範如何將 `MyTaskHub` 設定定義為 `samplehubname`：
 
 ```json
 {
   "IsEncrypted": false,
   "Values": {
-    "MyTaskHub" :  "samplehubname" 
+    "MyTaskHub" : "samplehubname"
   }
+}
+```
+
+以下先行編譯的 C# 範例示範如何撰寫函式，使用 [OrchestrationClientBinding](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) \(英文\) 以搭配設定為應用程式設定的工作中樞來運作：
+
+```csharp
+[FunctionName("HttpStart")]
+public static async Task<HttpResponseMessage> Run(
+    [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}")] HttpRequestMessage req,
+    [OrchestrationClient(TaskHub = "%MyTaskHub%")] DurableOrchestrationClientBase starter,
+    string functionName,
+    ILogger log)
+{
+    // Function input comes from the request content.
+    dynamic eventData = await req.Content.ReadAsAsync<object>();
+    string instanceId = await starter.StartNewAsync(functionName, eventData);
+
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
+
+    return starter.CreateCheckStatusResponse(req, instanceId);
+}
+```
+
+以下為 JavaScript 所需的設定。 `function.json` 檔案中的工作中樞屬性會透過應用程式設定來設定：
+
+```json
+{
+    "name": "input",
+    "taskHub": "%MyTaskHub%",
+    "type": "orchestrationClient",
+    "direction": "in"
 }
 ```
 

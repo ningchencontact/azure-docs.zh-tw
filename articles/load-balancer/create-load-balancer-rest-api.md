@@ -1,5 +1,6 @@
 ---
-title: 使用 REST API 建立 Azure Load Balancer | Microsoft Docs
+title: 使用 REST API 建立 Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: 了解如何使用 REST API 建立 Azure Load Balancer。
 services: load-balancer
 documentationcenter: na
@@ -7,20 +8,21 @@ author: KumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: kumud
-ms.openlocfilehash: 2f5d3584a429ce35e6905b14bb412c3782fb0185
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 159fe9d6a891858d8d2cc2315e9544b79eb44cff
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416914"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53079716"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>使用 REST API 建立 Azure 基本負載平衡器
 
-Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 負載平衡器有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](load-balancer-overview.md#skus)。
+Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡器前端的新輸入流程，分送給各個後端集區執行個體。 Load Balancer 有兩種 SKU：基本和標準。 若要了解兩個 SKU 版本之間的差異，請參閱 [Load Balancer SKU 比較](load-balancer-overview.md#skus)。
  
 此操作說明示範如何使用 [Azure REST API](/rest/api/azure/) 建立 Azure 基本負載平衡器，協助在 Azure 虛擬網路內的多個 VM 間平衡連入要求的負載。 在 [Azure Load Balancer REST 參考](/rest/api/load-balancer/)中可取得完整參考文件和其他範例。
  
@@ -31,7 +33,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
   ```
 ### <a name="uri-parameters"></a>URI 參數
 
-|名稱  |在  |必要 |類型 |說明 |
+|Name  |在  |必要 |類型 |說明 |
 |---------|---------|---------|---------|--------|
 |subscriptionId   |  path       |  True       |   字串      |  可唯一識別 Microsoft Azure 訂用帳戶的訂用帳戶認證。 訂用帳戶識別碼會構成每個服務呼叫 URI 的一部分。      |
 |resourceGroupName     |     path    | True        |  字串       |   資源群組的名稱。     |
@@ -44,7 +46,7 @@ Azure Load Balancer 會根據規則和健康情況探查，將抵達負載平衡
 
 唯一必要的參數是 `location`。 如果您未定義 *SKU* 版本，預設會建立基本負載平衡器。  使用[選擇性參數](https://docs.microsoft.com/rest/api/load-balancer/loadbalancers/createorupdate#request-body)來自訂負載平衡器。
 
-| 名稱 | 類型 | 說明 |
+| Name | 類型 | 說明 |
 | :--- | :--- | :---------- |
 | location | 字串 | 資源位置。 使用 [List Locations](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 作業取得目前的位置清單。 |
 

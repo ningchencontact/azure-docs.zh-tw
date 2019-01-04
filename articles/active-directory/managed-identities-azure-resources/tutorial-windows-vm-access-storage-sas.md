@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: ca9f2fa249a3d9f4387d0fa45e3c5874eea26120
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2091fb75e07b9ed01394621af2d82c02f5598430
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625482"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52721318"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>教學課程：使用 Windows VM 系統指派的受控識別，透過 SAS 認證來存取 Azure 儲存體
 
@@ -68,7 +68,7 @@ Azure 儲存體原生並不支援 Azure AD 驗證。  不過，您可以使用�
 
 1. 巡覽回到您新建立的儲存體帳戶。   
 2. 按一下左側面板中的 [存取控制 (IAM)] 連結。  
-3. 按一下頁面頂端的 [+ 新增] 以新增 VM 的新角色指派
+3. 按一下頁面頂端的 [+ 新增角色指派]，以新增虛擬機器的新角色指派。
 4. 在頁面右側中，將 [角色] 設定為 [儲存體帳戶參與者]。  
 5. 在下一個下拉式清單中，將 [存取權指派對象為] 設定為資源 [虛擬機器]。  
 6. 接下來，請確保 [訂用帳戶] 下拉式清單中已列出適當的訂用帳戶，然後將 [資源群組] 設定為 [所有資源群組]。  

@@ -10,12 +10,12 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79f2aa9c3e73037aa25848b7d11c34a73bf35f64
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f212e2555b6097912628791635a539bc488d4979
+ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342393"
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53413153"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>以 JavaScript 開始使用語音辨識 API
 
@@ -34,10 +34,10 @@ Speech API 是「認知服務」的組件。 您可以從[認知服務訂用帳�
 
 ## <a name="get-started"></a>開始使用
 
-在本節中，我們將逐步引導您完成載入範例 HTML 頁面的必要步驟。 此範例位於我們的 [GitHub 存放庫](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)中。 您可以從存放庫**直接開啟範例**，或是**從存放庫的本機複本開啟範例**。 
+在本節中，我們將逐步引導您完成載入範例 HTML 頁面的必要步驟。 此範例位於我們的 [GitHub 存放庫](https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript)中。 您可以從存放庫**直接開啟範例**，或是**從存放庫的本機複本開啟範例**。
 
 > [!NOTE]
-> 有些瀏覽器會封鎖麥克風對不安全來源的存取。 因此，建議您將 'sample'/'your app' 裝載在 https 上，以便讓它能夠在所有支援的瀏覽器上運作。 
+> 有些瀏覽器會封鎖麥克風對不安全來源的存取。 因此，建議您將 'sample'/'your app' 裝載在 https 上，以便讓它能夠在所有支援的瀏覽器上運作。
 
 ### <a name="open-the-sample-directly"></a>直接開啟範例
 

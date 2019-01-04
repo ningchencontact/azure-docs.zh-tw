@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: cca5fe492032c74a9922780f197065e9c2b40ad3
+ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035096"
+ms.lasthandoff: 12/06/2018
+ms.locfileid: "52966110"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>基礎結構備份服務的最佳做法
 
-*適用於：Azure Stack 整合系統和 Azure Stack 開發套件*
+*適用於：Azure Stack 整合式系統和 Azure Stack 開發套件*
 
 您在資料中心內部署和管理 Azure Stack 時，可以遵照最佳做法，以利發生重大失敗時減少資料遺失。
 
@@ -36,7 +36,7 @@ ms.locfileid: "51035096"
 
 在部署每個 Azure Stack 雲端後，啟用基礎結構備份。 您可以使用 Azure Stack PowerShell，從任何可存取操作員管理 API 端點的用戶端/伺服器來排程備份。
 
-### <a name="networking"></a>網路功能
+### <a name="networking"></a>網路
 
 路徑的通用命名慣例 (UNC) 字串必須使用完整網域名稱 (FQDN)。 若無法進行名稱解析，也可以使用 IP 位址。 UNC 字串會指定資源的位置，例如共用的檔案或裝置。
 
@@ -46,7 +46,7 @@ ms.locfileid: "51035096"
 
 金鑰必須儲存在安全的位置 (例如，公用 Azure Key Vault 祕密中)。 在重新部署 Azure Stack 期間，必須使用此金鑰。 
 
-![請將金鑰儲存在安全的位置。](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+![請將金鑰儲存在安全的位置。](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## <a name="operational-best-practices"></a>作業的最佳作法
 

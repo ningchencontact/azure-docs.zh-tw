@@ -4,9 +4,8 @@ description: 機制的概觀，說明 Azure Machine Learning 模型如何從開�
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
-ms.custom: (previous ms.author=yahajiza, author=YasinMSFT)
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.author: amlstudiodocs
-manager: hjerez
 editor: cgronlun
 ms.assetid: 25e0c025-f8b0-44ab-beaf-d0f2d485eb91
 ms.service: machine-learning
@@ -16,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 1254f41d4961956acc8f7abc7d5490fedbb8c5d0
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 5cfa11042d269353cf33f99d1238265ff9657853
+ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310094"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53253862"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Machine Learning Studio 模型如何從實驗進展為實際運作的 Web 服務
 Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行、測試及反覆運算代表預測性分析模型的***實驗***。 有各種可用的模組可以︰
@@ -35,10 +34,10 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 一旦滿意實驗，您就可以將其部署為***傳統 Azure Machine Learning Web 服務***或***新式 Azure Machine Learning Web 服務***，讓使用者可以將新的資料傳送給它並接收結果。
 
-在此文章中我們將提供機制的概觀，說明 Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。
+在本文中我們將提供機制的概觀，說明 Machine Learning 模型如何從開發實驗進展為實際運作的 Web 服務。
 
 > [!NOTE]
-> 有其他方式可開發和部署機器學習模型，但此文章著重在如何使用 Machine Learning Studio。 例如，若要閱讀如何使用 R 來建立傳統預測性 Web 服務的說明，請參閱部落格文章[使用 RStudio 和 Azure ML 建置和部署預測性 Web Apps (英文)](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)。
+> 有其他方式可開發和部署機器學習模型，但本文著重在如何使用 Machine Learning Studio。 例如，若要閱讀如何使用 R 來建立傳統預測性 Web 服務的說明，請參閱部落格文章[使用 RStudio 和 Azure ML 建置和部署預測性 Web Apps (英文)](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx)。
 > 
 > 
 
@@ -57,7 +56,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 ### <a name="the-predictive-experiment"></a>預測性實驗
 當您在訓練實驗中產生定型模型之後，請在 Machine Learning Studio 中按一下 [設定 Web 服務]，並選取 [預測性 Web 服務]將訓練實驗轉換為***預測實驗***。 預測實驗的目的是要使用您的定型模型對新資料進行計分，以最終目標成為實際運作的 Azure Web 服務。
 
-會透過下列步驟為您完成此轉換：
+會透過下列步驟為您完成這項轉換：
 
 * 轉換用於定型成單一模組的模組集，並將它儲存為定型的模型
 * 排除與計分無關的任何多餘模組
@@ -68,7 +67,7 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 在此轉換程序中不會捨棄訓練實驗。 程序完成時您在 Studio 中將有兩個索引標籤：一個用於訓練實驗，而一個用於預測實驗。 以此方式，在部署您的 Web 服務之前，您可以對訓練實驗進行變更，並重建預測實驗。 或者您可以儲存一份訓練實驗，以開始另一行的實驗。
 
 > [!NOTE]
-> 按一下 [預測性 Web 服務] 時，就會開始自動化的程序，將訓練實驗轉換為預測實驗，而且這在大部分的情況下可正常運作。 如果訓練實驗很複雜 (例如，聯結在一起的訓練有多個路徑)，您可能會想要手動進行此轉換。 如需詳細資訊，請參閱[如何準備您的模型以在 Azure Machine Learning Studio 中部署](convert-training-experiment-to-scoring-experiment.md)。
+> 按一下 [預測性 Web 服務] 時，就會開始自動化的程序，將訓練實驗轉換為預測實驗，而且這在大部分的情況下可正常運作。 如果訓練實驗很複雜 (例如，聯結在一起的訓練有多個路徑)，您可能會想要手動進行這項轉換。 如需詳細資訊，請參閱[如何準備您的模型以在 Azure Machine Learning Studio 中部署](convert-training-experiment-to-scoring-experiment.md)。
 > 
 > 
 
@@ -95,13 +94,13 @@ Azure Machine Learning Studio 提供互動式畫布，可讓您開發、執行�
 
 如果您不變更模型，但只是要變更 Web 服務處理資料的方式，您可以編輯預測實驗，然後按一下 [部署 Web 服務]，再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]]。 將會停止 Web 服務、部署已更新的預測實驗，然後重新啟動 Web 服務。
 
-以下是範例：假設預測性實驗會傳回輸入資料的整個資料列與預測結果。 您可能決定您想要 Web 服務只傳回結果。 因此，您可以在預測性實驗中加入 **專案資料行** 模組，緊接在輸出連接埠之前，以便排除資料行而非結果。 當您按一下 [部署 Web 服務]，然後再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]] 時，Web 服務就會更新。
+範例如下：假設您的預測性實驗會傳回整列輸入資料與預測結果。 您可能決定您想要 Web 服務只傳回結果。 因此，您可以在預測性實驗中加入 **專案資料行** 模組，緊接在輸出連接埠之前，以便排除資料行而非結果。 當您按一下 [部署 Web 服務]，然後再次選取 [部署 Web 服務 [傳統]] 或 [部署 Web 服務 [新式]] 時，Web 服務就會更新。
 
 **您想要使用新資料重新定型模型**
 
 如果您想要保留您的機器學習模型，但您想要以新的資料重新定型，您有兩個選擇：
 
-1. **Web 服務執行時重新訓練模型** - 如果您想要在預測性 Web 服務執行時重新訓練模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新訓練 Web* 服務**。 如需如何執行此操作的指示，請參閱 [以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)。
+1. **Web 服務執行時重新訓練模型** - 如果您想要在預測性 Web 服務執行時重新訓練模型，您可以藉由對訓練實驗進行幾個修改，使它成為***重新訓練實驗***，然後可以將它部署為***重新訓練 Web* 服務**。 如需如何執行這項操作的指示，請參閱 [以程式設計方式重新定型機器學習服務模型](retrain-models-programmatically.md)。
 2. **返回原始訓練實驗並使用不同的訓練資料來開發您的模型** - 您的預測實驗連結至 Web 服務，但訓練實驗未以這種方式直接連結。 如果您修改原始的訓練實驗，並按一下 [設定 Web 服務]，它會建立「新的」預測實驗，部署時將會建立「新的」Web 服務。 它不只是更新原始的 Web 服務。
    
    如果您需要修改訓練實驗，請開啟它並按一下 [另存新檔] 以製作複本。 這將會原始的訓練實驗、預測實驗和 Web 服務維持不變。 您現在可以利用您的變更建立新的 Web 服務。 部署新的 Web 服務之後，可以再決定是否要停止先前的 Web 服務，或讓它隨著新的服務一起執行。

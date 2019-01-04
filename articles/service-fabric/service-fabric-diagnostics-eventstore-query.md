@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
+ms.date: 11/29/2018
 ms.author: dekapur
-ms.openlocfilehash: 5c184841602f269555ce2196ef660faba14dbf8a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 556b3375a0f5d138255ba4c46b034894b1037da0
+ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34204605"
+ms.lasthandoff: 12/01/2018
+ms.locfileid: "52722321"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>針對叢集事件查詢 EventStore API
 
 本文內容涵蓋如何查詢於 Service Fabric 6.2 版和更新版本中提供的 EventStore API。如果您想要深入了解 EventStore 服務，請參閱 [EventStore 服務概觀](service-fabric-diagnostics-eventstore.md)。 目前，EventStore 服務只能存取過去 7 天 (這是以您叢集的診斷資料保留原則為基礎) 的資料。
 
 >[!NOTE]
->截至 Service Fabric 6.2 版為止， EventStore API 目前為預覽版本，僅適用於在 Azure 上執行的 Windows 叢集。 我們正在將這個功能移植到 Linux 和我們的獨立叢集。
+>EventStore API 從 Service Fabric 6.4 版起正式推出，僅適用於在 Azure 上執行的 Windows 叢集。
 
 EventStore API 可以直接透過 REST 端點存取，或以程式設計方式存取。 視查詢而定，需要有幾個參數才能收集到正確資料。 這些參數通常包括：
 * `api-version`：您使用的 EventStore API 版本
@@ -36,7 +36,7 @@ EventStore API 可以直接透過 REST 端點存取，或以程式設計方式�
 除了這些參數之外，還有幾個選擇性參數可用，例如：
 * `timeout`：覆寫用於執行要求作業的預設 60 秒逾時
 * `eventstypesfilter`：這可以提供篩選特定事件類型的選項
-* `ExcludeAnalysisEvents`：不要傳回「分析」事件。 根據預設，EventStore 查詢會在可能的情況下傳回「分析」事件；分析事件為資訊較豐富的操作通道事件，其中包含比一般 Service Fabric 事件更廣泛的其他內容或資訊，並提供更深入的資訊。
+* `ExcludeAnalysisEvents`：不要傳回「分析」事件。 根據預設，EventStore 查詢會在可能的情況下傳回「分析」事件。 分析事件為資訊較豐富的操作通道事件，其中包含比一般 Service Fabric 事件更廣泛的其他內容或資訊，並提供更深入的資訊。
 * `SkipCorrelationLookup`：不查詢叢集中可能的相關聯事件。 根據預設，EventStore 將會嘗試在跨叢集事件之間建立關聯，並盡可能將您的事件連結在一起。 
 
 您可以對叢集中的每個實體查詢事件。 您也可以針對某一類型的所有實體查詢事件。 例如，您可以查詢特定節點的事件，或叢集中所有節點的事件。 目前您可以查詢事件的實體集合為 (包含查詢的結構方式)：
@@ -64,10 +64,10 @@ EventStore API 可以直接透過 REST 端點存取，或以程式設計方式�
 
 ```
 Method: GET 
-URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.2-preview&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
+URL: http://mycluster:19080/EventsStore/Cluster/Events?api-version=6.4&StartTimeUtc=2018-04-03T18:00:00Z&EndTimeUtc=2018-04-04T18:00:00Z
 ```
 
-這可能會在如果沒有事件可用的情況下傳回錯誤，或者如果查詢成功，您就會看到以 json 傳回的事件：
+這可能不會傳回任何事件，或以 json 格式傳回事件清單：
 
 ```json
 Response: 200
@@ -136,39 +136,77 @@ var clstrEvents = sfhttpClient.EventsStore.GetClusterEventListAsync(
     .ToList();
 ```
 
+以下是另一個範例，該範例會查詢叢集健康情況以及 2018 年 9 月的所有節點事件，並將其列印出來。
+
+```csharp
+  const int timeoutSecs = 60;
+  var clusterUrl = new Uri(@"http://localhost:19080"); // This example is for a Local cluster
+  var sfhttpClient = ServiceFabricClientFactory.Create(clusterUrl);
+
+  var clusterHealth = sfhttpClient.Cluster.GetClusterHealthAsync().GetAwaiter().GetResult();
+  Console.WriteLine("Cluster Health: {0}", clusterHealth.AggregatedHealthState.Value.ToString());
+
+  
+  Console.WriteLine("Querying for node events...");
+  var nodesEvents = sfhttpClient.EventsStore.GetNodesEventListAsync(
+      "2018-09-01T00:00:00Z",
+      "2018-09-30T23:59:59Z",
+      timeoutSecs,
+      "NodeDown,NodeUp")
+      .GetAwaiter()
+      .GetResult()
+      .ToList();
+  Console.WriteLine("Result Count: {0}", nodesEvents.Count());
+
+  foreach (var nodeEvent in nodesEvents)
+  {
+      Console.Write("Node event happened at {0}, Node name: {1} ", nodeEvent.TimeStamp, nodeEvent.NodeName);
+      if (nodeEvent is NodeDownEvent)
+      {
+          var nodeDownEvent = nodeEvent as NodeDownEvent;
+          Console.WriteLine("(Node is down, and it was last up at {0})", nodeDownEvent.LastNodeUpAt);
+      }
+      else if (nodeEvent is NodeUpEvent)
+      {
+          var nodeUpEvent = nodeEvent as NodeUpEvent;
+          Console.WriteLine("(Node is up, and it was last down at {0})", nodeUpEvent.LastNodeDownAt);
+      }
+  }
+```
+
 ## <a name="sample-scenarios-and-queries"></a>範例案例和查詢
 
 以下是幾個範例，說明您可以如何呼叫 Event Store REST API 以了解叢集狀態。
 
 *叢集升級：*
 
-若要查看您的叢集在上一週最後一次成功升級或嘗試升級的時間，您可以透過查詢 EventStore 中的 "ClusterUpgradeComplete" 事件，來查詢最近完成叢集升級的 API：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeComplete`
+若要查看您的叢集在上一週最後一次成功升級或嘗試升級的時間，您可以透過查詢 EventStore 中的 "ClusterUpgradeCompleted" 事件，來查詢最近完成叢集升級的 API：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
 *叢集升級問題：*
 
-同樣地，如果最近的叢集升級出現問題，您可以查詢叢集實體的所有事件。 您將會看到各種不同事件，包括升級的起始和升級成功完成的每個 UD。 您也將會看到復原開始時間點的事件和相對應的健康情況事件。 以下是用於完成此動作的查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+同樣地，如果最近的叢集升級出現問題，您可以查詢叢集實體的所有事件。 您將會看到各種不同事件，包括升級的起始和升級成功完成的每個 UD。 您也將會看到復原開始時間點的事件和相對應的健康情況事件。 以下是用於完成此動作的查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *節點狀態變更：*
 
-若要查看您節點狀態於過去幾天的變更，例如節點啟動或停止，或是被啟用或停用 (透過平台、混沌服務或使用者輸入)，請使用以下查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+若要查看您節點狀態於過去幾天的變更，例如節點啟動或停止，或是被啟用或停用 (透過平台、混沌服務或使用者輸入)，請使用以下查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *應用程式事件：*
 
-您也可以追蹤最近的應用程式部署和升級。 使用以下查詢來查看您叢集中的所有應用程式相關事件：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+您也可以追蹤最近的應用程式部署和升級。 使用以下查詢來查看您叢集中的所有應用程式事件：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
 *應用程式的健康情況歷程記錄：*
 
-除了單純查看應用程式生命週期事件之外，您也可以查看特定應用程式之健康情況的歷程記錄資料。 您可以透過指定要收集其資料的應用程式名稱來達到此目的。 使用此查詢來取得所有應用程式健康情況事件：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.2-preview&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ProcessApplicationReport`. 如果您想要包括可能已經過期 (超出其存留時間 (TTL)) 的健康狀態事件，請將 `,ExpiredDeployedApplicationEvent` 新增至查詢的結尾處，以篩選兩種類型的事件。
+除了單純查看應用程式生命週期事件之外，您也可以查看特定應用程式之健康情況的歷程記錄資料。 您可以透過指定要收集其資料的應用程式名稱來達到此目的。 使用此查詢來取得所有應用程式健康情況事件：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`. 如果您想要包括可能已經過期 (超出其存留時間 (TTL)) 的健康狀態事件，請將 `,ApplicationHealthReportExpired` 新增至查詢的結尾處，以篩選兩種類型的事件。
 
 *"myApp" 中所有服務的健康情況歷程記錄：*
 
-目前，服務的健康情況報表事件會在相對應應用程式實體底下顯示為 `DeployedServiceHealthReportCreated` 事件。 若要查看您的服務如何為 "App1" 執行作業，請使用以下查詢：`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServiceHealthReportCreated`
+目前，服務的健康情況報表事件會在相對應應用程式實體底下顯示為 `DeployedServicePackageNewHealthReport` 事件。 若要查看您的服務如何為 "App1" 執行作業，請使用以下查詢：`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *分割區重新設定：*
 
-若要查看您叢集中所發生的所有分割區移動，請查詢 `ReconfigurationCompleted` 事件。 這可以協助您在叢集中診斷問題時，找出有哪些工作負載於哪些特定時間在哪一個節點上執行。 以下是能夠達到上述目的的查詢範例：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.2-preview&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigurationCompleted`
+若要查看您叢集中所發生的所有分割區移動，請查詢 `PartitionReconfigured` 事件。 這可以協助您在叢集中診斷問題時，找出有哪些工作負載於哪些特定時間在哪一個節點上執行。 以下是能夠達到上述目的的查詢範例：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
 *混沌服務：*
 
-有一個能在混沌服務啟動或停止時，於叢集層級公開的事件。 若要查看近期使用混沌服務的資訊，請使用以下查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.2-preview&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+有一個能在混沌服務啟動或停止時，於叢集層級公開的事件。 若要查看近期使用混沌服務的資訊，請使用以下查詢：`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

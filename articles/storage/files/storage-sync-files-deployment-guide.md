@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: f32dd0fb1ffd1bbd2c58f187b2dbc310a48f65ff
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: ee0d46cd07de4e9b123357bcc4ee9d1e51926f49
+ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51011063"
+ms.lasthandoff: 12/12/2018
+ms.locfileid: "53312965"
 ---
 # <a name="deploy-azure-file-sync"></a>部署 Azure 檔案同步
 使用 Azure 檔案同步，將組織的檔案共用集中在 Azure 檔案服務中，同時保有內部部署檔案伺服器的彈性、效能及相容性。 Azure 檔案同步會將 Windows Server 轉換成 Azure 檔案共用的快速快取。 您可以使用 Windows Server 上可用的任何通訊協定來從本機存取資料，包括 SMB、NFS 和 FTPS。 您可以視需要存取多個散佈於世界各地的快取。
@@ -137,7 +137,7 @@ Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
 在開啟的窗格中，輸入下列資訊：
 
 - **名稱**：儲存體同步服務的唯一名稱 (每一訂用帳戶)。
-- **訂用帳戶**：您要在其中建立儲存體同步服務的訂用帳戶。 視您組織的設定策略而定，您可能具有一或多個訂用帳戶的存取權限。 Azure 訂用帳戶是針對每個雲端服務 (例如 Azure 檔案服務) 計費的最基本容器。
+- 訂用帳戶：您要在其中建立儲存體同步服務的訂用帳戶。 視您組織的設定策略而定，您可能具有一或多個訂用帳戶的存取權限。 Azure 訂用帳戶是針對每個雲端服務 (例如 Azure 檔案服務) 計費的最基本容器。
 - **資源群組**：資源群組是 Azure 資源的邏輯群組，例如儲存體帳戶或儲存體同步服務。 針對 Azure 檔案同步，您可以建立新的資源群組或使用現有的資源群組。(建議使用資源群組作為容器，來以邏輯方式為您的組織隔離資源，例如將 HR 資源或適用於特定專案的資源組成群組)。
 - **位置**：您要在其中部署 Azure 檔案同步的區域。只有支援的區域會列在此清單中。
 
@@ -201,7 +201,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
 Login-AzureRmStorageSync `
-    –SubscriptionId $subID `
+    -SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
     -Location $region
@@ -258,7 +258,7 @@ $registeredServer = Register-AzureRmStorageSyncServer -StorageSyncServiceName $s
 在開啟的窗格中，輸入下列資訊以建立具有雲端端點的同步群組：
 
 - **同步群組名稱**：要建立的同步群組名稱。 此名稱在儲存體同步服務中必須是唯一的，但可以是任何對您而言合理的名稱。
-- **訂用帳戶**：您在[部署儲存體同步服務](#deploy-the-storage-sync-service)中部署儲存體同步服務的訂用帳戶。
+- 訂用帳戶：您在[部署儲存體同步服務](#deploy-the-storage-sync-service)中部署儲存體同步服務的訂用帳戶。
 - **儲存體帳戶**：如果您選取 [選取儲存體帳戶]，則會顯示另一個窗格，您可在其中選取具有您想要同步之 Azure 檔案共用的儲存體帳戶。
 - **Azure 檔案共用**：您要同步處理的 Azure 檔案共用名稱。
 
@@ -303,7 +303,7 @@ if ($fileShare -eq $null) {
 New-AzureRmStorageSyncCloudEndpoint `
     -StorageSyncServiceName $storageSyncName `
     -SyncGroupName $syncGroupName ` 
-    -StorageAccountResourceId $storageAccount.Id
+    -StorageAccountResourceId $storageAccount.Id `
     -StorageAccountShareName $fileShare.Name
 ```
 

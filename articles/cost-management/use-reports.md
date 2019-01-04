@@ -1,23 +1,23 @@
 ---
 title: 使用 Azure 中的 Cloudyn 報告 | Microsoft Docs
-description: 本文說明如何使用 Cloudyn 入口網站中的各種報告。
+description: 本文說明 Cloudyn 入口網站中所含 Cloudyn 報告的用途，以協助您有效加以運用。
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 12/06/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
-ms.custom: ''
-ms.openlocfilehash: efb199a9e97a6e80cc24dfe32f6477b4c7abf89a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.custom: seodec18
+ms.openlocfilehash: fa322a0521b3b2c408bfe6d50411c62068b77229
+ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276018"
+ms.lasthandoff: 12/08/2018
+ms.locfileid: "53075860"
 ---
-# <a name="use-cloudyn-reports"></a>使用 Cloudyn 報告
+# <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 入口網站中的可用報告
 
 本文說明 Cloudyn 入口網站中所含 Cloudyn 報告的用途。 也會說明如何有效運用這些報告。 大部分為直覺式的報告，具有一致的外觀及操作方式。 在一份報告中所能執行的動作，大部分也能在其他報告中執行。 如需概略了解 Cloudyn 報告的使用方式 (包括如何自訂和儲存或排定報告)，請參閱[了解成本報告](understanding-cost-reports.md)。
 
@@ -59,7 +59,7 @@ Cloudy 中的儀表板可提供高階的報告檢視。 儀表板是由小工具
 
 ## <a name="budget-information-in-reports"></a>報告中的預算資訊
 
-許多 Cloudyn 報告在您手動建立報告之後都會顯示預算資訊。 因此必須先建立預算，報告才會顯示預算資訊。 如需詳細資訊，請參閱[預算設定](#budget-settings)。
+許多 Cloudyn 報告在您手動建立報告之後都會顯示預算資訊。 因此必須先建立預算，報告才會顯示預算資訊。 如需詳細資訊，請參閱[預算管理設定](#budget-management-settings)。
 
 ## <a name="reports-and-reporting-features"></a>報告和報告功能
 
@@ -208,7 +208,7 @@ _將費用指派給實體時，使用者無法變更費用。系統管理員新�
 
 您可以使用成本配置 360 建立自訂成本配置模型，將成本指派給已使用的雲端資源。 許多報告都會顯示您使用自訂成本模型建立的自訂成本模型之中的資訊。 而且，某些報告只會顯示您使用成本配置建立自訂成本模型之後的資訊。
 
-如需有關建立自訂成本模型的詳細資訊，請參閱[教學課程：使用 Cloudyn 來管理成本](tutorial-manage-costs.md)。
+如需關於建立自訂成本模型的詳細資訊，請參閱[教學課程：使用 Cloudyn 管理成本](tutorial-manage-costs.md)。
 
 ### <a name="cost-vs-budget-over-time-report"></a>隨時間變化的成本和預算報告
 
@@ -448,7 +448,7 @@ Cloudyn 會評估過去 30 天每部機器的執行時間。 如果在目前的�
 
 按一下圖表可向下切入並開啟「隨時間變化的執行個體 CPU」報告，以查看執行個體的細目。
 
-- 使用 [顯示/隱藏欄位] 新增或移除欄位：時間戳記、平均 CPU、最小 CPU、最大 CPU。
+- 使用 [顯示/隱藏欄位] 來新增或移除欄位：時間戳記、平均 CPU、最小 CPU、最大 CPU。
 - 使用 [日期範圍] 輸入日期或日期範圍，並向下切入到特定的執行個體識別碼。
 - 使用 [擴充篩選條件] 顯示所有或特定的執行個體識別碼
 - 按一下 [放大] 可開啟「CPU 使用率」報告

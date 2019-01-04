@@ -3,16 +3,15 @@ title: 針對 Azure Cosmos DB 帳戶設定虛擬網路和子網路型存取
 description: 本文件將說明設定 Azure Cosmos DB 虛擬網路服務端點所需的步驟。
 author: kanshiG
 ms.service: cosmos-db
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4e8891302346fa2655a4b1280b65fdd969f12909
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 73858cac4176c10ff8ce14347acb9b869471ebc2
+ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620586"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52838084"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>從虛擬網路存取 Azure Cosmos DB 資源
 
