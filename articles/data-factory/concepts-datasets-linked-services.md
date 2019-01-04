@@ -21,7 +21,7 @@ ms.lasthandoff: 07/11/2018
 ms.locfileid: "38581261"
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Azure Data Factory 中的資料集和已連結的服務 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-create-datasets.md)
 > * [目前的版本](concepts-datasets-linked-services.md)
 
