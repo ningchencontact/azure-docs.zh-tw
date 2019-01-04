@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 632393696274eaf6f876ea717b5fccf7d4fbea3f
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f1151c845797d74bbb9a5e50feeeb288a4ab349b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965388"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714843"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>教學課程：使用 Azure 和 Azure Stack 來建立異地分散應用程式解決方案
 
@@ -242,7 +242,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 
 ## <a name="part-2-update-web-app-options"></a>第 2 部分：更新 Web 應用程式選項
 
-[Azure Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) 提供可高度擴充、自我修復的 Web 主機服務。 
+[Azure App Service](https://docs.microsoft.com/azure/app-service/overview) 可提供可高度擴充、自我修復的 Web 主控服務。 
 
 ![替代文字](media/azure-stack-solution-geo-distributed/image27.png)
 
@@ -255,7 +255,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 > [!Note]  
 >  請對所有自訂 DNS 名稱使用 CNAME，但根網域除外 (例如 northwind.com)。
 
-若要將即時網站及其 DNS 網域名稱移轉至 App Service，請參閱[將作用中的 DNS 名稱移轉至 Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-custom-domain-name-migrate)。
+若要將即時網站及其 DNS 網域名稱移轉至 App Service，請參閱[將作用中的 DNS 名稱移轉至 Azure App Service](https://docs.microsoft.com/azure/app-service/manage-custom-dns-migrate-domain)。
 
 ### <a name="prerequisites"></a>必要條件
 
@@ -276,7 +276,7 @@ Azure DevOps 和 Azure DevOps Server 提供具有高度設定和管理能力的�
 例如，若要新增 DNS 項目 fornorthwindcloud.comandwww.northwindcloud.com，請設定 thenorthwindcloud.com 根網域的 DNS 設定。
 
 > [!Note]  
->  網域名稱可使用 [Azure 入口網站](https://docs.microsoft.com/azure/app-service/custom-dns-web-site-buydomains-web-app)來購買。  
+>  網域名稱可使用 [Azure 入口網站](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain)來購買。  
 > 若要將自訂 DNS 名稱對應至 Web 應用程式，Web 應用程式的 [App Service 方案](https://azure.microsoft.com/pricing/details/app-service/)必須是付費層 (**共用**、**基本**、**標準**或**進階**)。
 
 

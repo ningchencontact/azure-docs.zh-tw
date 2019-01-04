@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 962bc996a86340bb10a28b90ef6340a98c5d9275
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1c9161f6d31a3fcff8f8926c8bf188f1bdc14799
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430601"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725848"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企業推送架構指引
 當代的企業正逐漸朝著為使用者 (外部) 或員工 (內部) 建立行動應用程式的方向邁進。 他們擁有現成的後端系統 (無論是大型主機還是某些 LoB 應用程式)，而這些系統必須整合到行動應用程式架構中。 本指南會討論如何以最佳方式進行整合，並針對常見案例建議適用的可行方案。
@@ -264,6 +264,6 @@ ms.locfileid: "39430601"
 [Azure 行動服務]: http://azure.microsoft.com/documentation/services/mobile-services/
 [Azure Service Bus]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
 [服務匯流排發佈/訂用帳戶程式撰寫]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
-[Azure WebJob]: ../app-service/web-sites-create-web-jobs.md
+[Azure WebJob]: ../app-service/webjobs-create.md
 [通知中樞 - Windows Universal 教學課程]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Azure 入口網站]: https://portal.azure.com/

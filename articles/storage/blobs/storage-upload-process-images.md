@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: c55e63d813c462db8a6c404894b8754f4130d935
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 882a43a75fa720b13d931740818e5ee6e893bcab
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097942"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753331"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教學課程：使用 Azure 儲存體在雲端中上傳影像資料
 
 本教學課程是一個系列的第一部分。 本教學課程會示範如何部署 Web 應用程式，其使用 Azure 儲存體用戶端程式庫將映像上傳至儲存體帳戶。 完成後，您就有可儲存和顯示 Azure 儲存體映像資料的 Web 應用程式。
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![影像容器檢視](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
@@ -99,7 +99,7 @@ echo $blobStorageAccountKey
 
 ## <a name="create-an-app-service-plan"></a>建立應用程式服務方案
 
-[App Service 方案](../../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)會指定用來裝載應用程式的 Web 伺服器陣列位置、大小和功能。
+[App Service 方案](../../app-service/overview-hosting-plans.md)會指定用來裝載應用程式的 Web 伺服器陣列位置、大小和功能。
 
 使用 [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create) 命令來建立 App Service 方案。
 
@@ -111,7 +111,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>建立 Web 應用程式
 
-Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service/app-service-web-overview.md)。  
+Web 應用程式提供裝載範例應用程式程式碼的空間，此程式碼是從 GitHub 範例存放庫部署。 使用 [az webapp create](/cli/azure/webapp#az_webapp_create) 命令，在 `myAppServicePlan` App Service 方案中建立 [Web 應用程式](../../app-service/overview.md)。  
 
 在下列命令中，使用唯一的名稱取代 `<web_app>`。 有效字元是 `a-z`、`0-9` 和 `-`。 如果 `<web_app>` 不是唯一的，您會收到錯誤訊息：_具有指定名稱 `<web_app>` 的網站已經存在。_ Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。  
 
@@ -121,7 +121,7 @@ az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppS
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>從 GitHub 存放庫部署範例應用程式
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 應用程式服務支援數種將內容部署至 Web 應用程式的方法。 在本教學課程中，您會從[公用 GitHub 範例存放庫](https://github.com/Azure-Samples/storage-blob-upload-from-webapp)部署 Web 應用程式。 使用 [az webapp deployment source config](/cli/azure/webapp/deployment/source#az_webapp_deployment_source_config) 命令設定 Web 應用程式的 GitHub 部署。 以您在上一個步驟中建立的 Web 應用程式名稱取代 `<web_app>`。
 
@@ -159,7 +159,7 @@ AzureStorageConfig__AccountKey=<blob_storage_key>
 若要測試 Web 應用程式，請瀏覽至已發佈應用程式的 URL。 Web 應用程式的預設 URL 是 `https://<web_app>.azurewebsites.net`。
 選取 [上傳相片] 區域以選取並上傳檔案，或將檔案拖曳到區域。 如果上傳成功，影像就會消失。
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 
 ![ImageResizer 應用程式](media/storage-upload-process-images/figure1.png)
 
@@ -281,7 +281,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 巡覽回您的應用程式，確認可以看到上傳至 [縮圖] 容器的影像。
 
-# <a name="nettabnet"></a>[\.NET](#tab/net)
+# <a name="nettabdotnet"></a>[\.NET](#tab/dotnet)
 ![影像容器檢視](media/storage-upload-process-images/figure2.png)
 
 # <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)

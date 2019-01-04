@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 15dbdc0bb2a3b7ee5af544adb2672a97f839f694
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2dd209025db762f659510898e23cb371a31291b9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970190"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53544680"
 ---
 # <a name="what-is-azure-analysis-services"></a>什麼是 Azure Analysis Services？
 
@@ -215,7 +215,7 @@ Azure Analysis Services 受 [Microsoft Online Services 條款](https://www.micro
 
 ## <a name="monitoring-and-diagnostics"></a>監視和診斷
 
-Azure Analysis Services 會與 Azure 計量整合，以提供大量的資源特有計量，協助您監視伺服器的效能和健康情況。 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。 使用 [Azure 資源診斷記錄](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)來記錄計量。 監視記錄並將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是一項 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 服務)。 若要深入了解，請參閱[設定診斷記錄](analysis-services-logging.md)。
+Azure Analysis Services 會與 Azure 計量整合，以提供大量的資源特有計量，協助您監視伺服器的效能和健康情況。 若要深入了解，請參閱[監視伺服器計量](analysis-services-monitor.md)。 使用 [Azure 資源診斷記錄](../azure-monitor/platform/diagnostic-logs-overview.md)來記錄計量。 監視記錄並將記錄傳送至 [Azure 儲存體](https://azure.microsoft.com/services/storage/)、將記錄串流至 [Azure 事件中樞](https://azure.microsoft.com/services/event-hubs/)，並將記錄匯出至 [Log Analytics](https://azure.microsoft.com/services/log-analytics/) (這是一項 [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite) 服務)。 若要深入了解，請參閱[設定診斷記錄](analysis-services-logging.md)。
 
 Azure Analysis Services 也支援使用[動態管理檢視 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 根據 SQL 語法，DMV 介面結構描述資料列會傳回有關伺服器執行個體的中繼資料和監視資訊。
 

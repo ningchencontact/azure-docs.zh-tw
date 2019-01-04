@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 584d1d8ce3285f9f5fb986c9779d3c403ce13d1b
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: aaeb24b836b47f72d0be299738e6c90f599f8d1f
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314154"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53631886"
 ---
 # <a name="monitor-an-azure-search-service-in-azure-portal"></a>在 Azure 入口網站中監視 Azure 搜尋服務
 
@@ -70,7 +70,7 @@ Azure 搜尋服務 REST API 和 .NET SDK 都提供以程式設計方式存取服
 
 
 ### <a name="enabling-monitoring"></a>啟用監視
-在 [Azure 入口網站](http://portal.azure.com)的 [啟用監視] 選項下將您的 Azure 搜尋服務開啟。
+在 [Azure 入口網站](https://portal.azure.com)的 [啟用監視] 選項下將您的 Azure 搜尋服務開啟。
 
 選擇您想要匯出的資料：記錄、計量或兩者。 您可以將它複製到儲存體帳戶、將它傳送到事件中樞，或將它匯出成 Log Analytics。
 

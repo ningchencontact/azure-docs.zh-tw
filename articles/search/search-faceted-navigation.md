@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 3/10/2017
+ms.date: 03/10/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 337ee5259e980509c73099f0e3417bb31ec3276d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 67cc955e4a265a2b29893bd0484dd905f4f2c2b2
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313933"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632428"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>如何在 Azure 搜尋服務中實作多面向導覽
 多面向導覽是一個篩選機制，它在搜尋應用程式中提供自動導向的向下鑽研導覽。 「多面向導覽」一詞可能讓您感到陌生，但您可能早已使用過它。 如下列範例所示，多面向導覽其實就是用來篩選結果的類別。
@@ -34,7 +34,7 @@ ms.locfileid: "53313933"
 ## <a name="sample-code-and-demo"></a>程式碼範例和示範
 本文使用作業搜尋入口網站來作為範例。 此範例會實作為 ASP.NET MVC 應用程式。
 
--   請在 [Azure 搜尋服務作業入口網站示範](http://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
+-   請在 [Azure 搜尋服務作業入口網站示範](https://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
 
 -   從 [GitHub 上的 Azure 範例儲存機制](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)下載程式碼。
 
@@ -371,7 +371,7 @@ Azure Search 透過提供兩種方法進行範圍運算，來簡化範圍建構�
 ## <a name="try-the-demo"></a>試用示範
 Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
 
--   請在 [Azure 搜尋服務作業入口網站示範](http://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
+-   請在 [Azure 搜尋服務作業入口網站示範](https://azjobsdemo.azurewebsites.net/)參閱運作示範並進行線上測試。
 
 -   從 [GitHub 上的 Azure 範例儲存機制](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs)下載程式碼。
 
@@ -396,12 +396,12 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>深入了解
-觀賞[深入了解 Azure 搜尋服務](http://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)。 在 45:25 時有示範如何實作多面向。
+觀賞[深入了解 Azure 搜尋服務](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)。 在 45:25 時有示範如何實作多面向。
 
 如需多面向導覽設計原則的深入見解，推薦您下列連結：
 
 * [多面向搜尋的設計](http://www.uie.com/articles/faceted_search/)
-* [設計模式：多面向導覽](http://alistapart.com/article/design-patterns-faceted-navigation)
+* [設計模式：多面向導覽](https://alistapart.com/article/design-patterns-faceted-navigation)
 
 
 <!--Anchors-->
@@ -431,7 +431,7 @@ Azure 搜尋服務作業入口網站示範包含了本文所參考的範例。
 
 <!--Link references-->
 [Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: http://alistapart.com/article/design-patterns-faceted-navigation
+[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
 [Create your first application]: search-create-first-solution.md
 [OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
 [Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/

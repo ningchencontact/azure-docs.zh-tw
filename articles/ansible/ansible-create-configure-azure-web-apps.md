@@ -8,15 +8,15 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: a7e7c04b458575cdc9f2608d0c84f0df105bf202
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 4a772977130f5679da2d879cc12738b89be09f1d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53261750"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726726"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>使用 Ansible 建立 Azure App Service Web Apps
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (或簡稱 Web Apps) 可裝載 Web 應用程式、REST API 和行動後端。 您可以使用您慣用的語言進行開發&mdash;.NET、.NET Core、Java、Ruby、Node.js、PHP 或 Python 均可。
 
 Ansible 可讓您將環境中的資源部署和設定自動化。 本文說明如何使用 Ansible 和 Java 執行階段來建立 Web 應用程式。 
 
@@ -93,7 +93,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ## <a name="create-an-app-service-by-using-traffic-manager"></a>具有流量管理員建立 App Service
 您可以使用 [Azure 流量管理員](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager)，來控制如何將來自 Web 用戶端的要求分散至 Azure App Service 中的應用程式。 App Service 端點新增至 Azure 流量管理員設定檔後，流量管理員會追蹤您 App Service 應用程式的狀態。 這些狀態包括執行中、已停止和已刪除。 接著，流量管理員即可決定其中哪些端點應接收流量。
 
-在 App Service 中，應用程式會在 [App Service 方案](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
+在 App Service 中，應用程式會在 [App Service 方案](https://docs.microsoft.com/azure/app-service/overview-hosting-plans
 )中執行。 App Service 方案會針對要執行的 Web 應用程式定義一組計算資源。 您可以在不同的群組中管理 App Service 方案和 Web 應用程式。
 
 本節提供會定義下列資源的範例 Ansible 腳本：

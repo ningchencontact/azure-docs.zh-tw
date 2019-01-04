@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: crdun
-ms.openlocfilehash: 7fdbbee27f83a4583390158e456270324967b28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 17fbaa7efcdd9e0de675defb3958a61f29bbc3fe
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961598"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714316"
 ---
 # <a name="article-top"></a>將您現有的 Azure 行動服務移轉至 Azure App Service
 透過 [Azure App Service 的公開上市版]，Azure 行動服務網站將可輕易地就地移轉，以使用 Azure App Service 的所有功能。  本文件說明將您的網站從 Azure 行動服務移轉至 Azure App Service 時的情形。
@@ -376,25 +376,25 @@ Azure App Service 通常會停用 [診斷記錄]。  若要啟用診斷記錄：
 [App Service pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
 [自動調整]: ../app-service/web-sites-scale.md
-[Azure App Service]: ../app-service/app-service-web-overview.md
+[Azure App Service]: ../app-service/overview.md
 [Azure 傳統入口網站]: https://manage.windowsazure.com
 [Azure 入口網站]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/regions/
 [Azure 排程器方案]: ../scheduler/scheduler-plans-billing.md
-[連續部署]: ../app-service/app-service-continuous-deployment.md
+[連續部署]: ../app-service/deploy-continuous-deployment.md
 [轉換混合式命名空間]: https://azure.microsoft.com/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: https://curl.haxx.se/
 [自訂網域名稱]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: https://www.telerik.com/fiddler
 [Azure App Service 的公開上市版]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[記錄]: ../app-service/web-sites-enable-diagnostic-log.md
+[記錄]: ../app-service/troubleshoot-diagnostic-logs.md
 [Mobile Apps Node.js SDK]: https://github.com/azure/azure-mobile-apps-node
 [比較行動服務與App Service]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [通知中樞]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [效能監視]: ../app-service/web-sites-monitor.md
 [Postman]: https://www.getpostman.com/
-[預備位置]: ../app-service/web-sites-staged-publishing.md
+[預備位置]: ../app-service/deploy-staging-slots.md
 [VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [XDT 轉換範例]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Functions]: ../azure-functions/functions-overview.md

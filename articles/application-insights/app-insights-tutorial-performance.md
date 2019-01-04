@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 4ce4c9e2479c8d570766169ce5094dcc2b4bc511
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 669d5995b66322a2a6ad346643444d5a46c4b6f8
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42812866"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53744406"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷效能問題
 
@@ -35,7 +35,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助分�
 - 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
-- 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。
+- 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](../azure-monitor/app/asp-net.md)。
 - [啟用應用程式的 Application Insights Profiler](app-insights-profiler.md#installation)。
 
 ## <a name="log-in-to-azure"></a>登入 Azure

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: eee37f5a77331b78aa587ba2e3eb61132d7d6adc
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385562"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53722017"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>使用 Apache Ambari Web UI 管理 HDInsight 叢集
 
@@ -26,7 +26,7 @@ Apache Ambari 提供容易使用的 Web UI 和 REST API，可簡化 Apache Hadoo
 
 ## <a id="whatis"></a>什麼是 Apache Ambari？
 
-[Apache Ambari](http://ambari.apache.org) 提供方便使用的 Web UI，簡化 Hadoop 管理。 您可以使用 Ambari 來管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
+[Apache Ambari](https://ambari.apache.org) 提供方便使用的 Web UI，簡化 Hadoop 管理。 您可以使用 Ambari 來管理及監視 Hadoop 叢集。 開發人員可以使用 [Ambari REST API](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)將這些功能整合到應用程式。
 
 使用 Linux 作業系統的 HDInsight 叢集預設會提供 Ambari Web UI。
 
@@ -181,12 +181,12 @@ Ambari Web UI 位在 HDInsight 叢集的 HTTPS://CLUSTERNAME.azurehdinsight.net�
 
    * **解除委任** - 從叢集中移除主機。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 請勿在 HDInsight 叢集上使用此動作。
 
    * **重新委任** - 將先前已解除委任的主機加入到叢集中。
 
-     > [!NOTE]
+     > [!NOTE]  
      > 請勿在 HDInsight 叢集上使用此動作。
 
 ### <a id="service"></a>服務

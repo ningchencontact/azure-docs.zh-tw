@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 71be338aeb6d0234d22d412d6838e36a26797b20
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53002117"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726675"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>將您現有的 Node.js Azure 行動服務升級為 App Service
 App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的新方式。 若要深入了解，請參閱 [何謂 Mobile Apps？]
@@ -98,7 +98,7 @@ App Service Mobile 是一種使用 Microsoft Azure 建置行動應用程式的�
 2. 按一下 [+ 新增]  >  [Web + 行動]  >  [行動應用程式]，然後為您的行動應用程式後端提供名稱。
 3. 針對 [資源群組] ，選取現有的資源群組或建立新的群組 (使用與應用程式相同的名稱)。
 
-    您可以選取另一個 App Service 方案或建立新方案。 如需有關應用程式服務方案以及如何在不同的定價層和您所要的位置建立新方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+    您可以選取另一個 App Service 方案或建立新方案。 如需有關應用程式服務方案以及如何在不同的定價層和您所要的位置建立新方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../app-service/overview-hosting-plans.md)。
 4. 若為 **App Service 方案**，則會選取預設方案 (在 [標準層](https://azure.microsoft.com/pricing/details/app-service/))。 您也可以選取不同的方案，或[建立新的方案](../app-service/app-service-plan-manage.md#create-an-app-service-plan)。 App Service 方案的設定會決定與您應用程式相關聯的[位置、功能、成本和計算資源](https://azure.microsoft.com/pricing/details/app-service/)。
 
     在決定方案之後，按一下 [建立] 。 這會建立行動應用程式後端。
@@ -162,7 +162,7 @@ Azure Mobile Apps 可讓您在服務內設定 Azure Active Directory、Facebook�
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [App Service 定價]: https://azure.microsoft.com/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[驗證概念]: ../app-service/app-service-authentication-overview.md
+[驗證概念]: ../app-service/overview-authentication-authorization.md
 [驗證快速入門]: app-service-mobile-auth.md
 
 [Azure 入口網站]: https://portal.azure.com/

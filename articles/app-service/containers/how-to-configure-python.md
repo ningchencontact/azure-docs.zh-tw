@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 1d9b0e356f0f65be44a533fe098282084b900d89
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: f7e63fa75f473d5da911fbf845f0662d8eec5c70
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53249629"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53717393"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>針對 Linux 上的 Azure App Service 設定 Python 應用程式
 
@@ -132,4 +132,4 @@ gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 - **您在瀏覽器中看到「服務無法使用」訊息。** 瀏覽器在等候 App Service 的回應時逾時，這表示 App Service 已啟動 Gunicorn 伺服器，但用來指定應用程式程式碼的引數不正確。
   - 重新整理瀏覽器，如果您使用 App Service 方案中的最低定價層，更應該如此。 舉例來說，如果您使用免費層，應用程式可能需要更久的時間才能啟動，在您重新整理瀏覽器後，應用程式便會有回應。
   - 請檢查應用程式的結構是否符合 App Service 對 [Django](#django-app) 或 [Flask](#flask-app) 的預期，或者，您也可以使用[自訂啟動命令](#custom-startup-command)。
-  - 使用 SSH 或 Kudu 主控台連線到 App Service，然後檢查 LogFiles 資料夾中儲存的診斷記錄。 如需關於記錄的詳細資訊，請參閱[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄](../web-sites-enable-diagnostic-log.md)。
+  - 使用 SSH 或 Kudu 主控台連線到 App Service，然後檢查 LogFiles 資料夾中儲存的診斷記錄。 如需關於記錄的詳細資訊，請參閱[在 Azure App Service 中針對 Web 應用程式啟用診斷記錄](../troubleshoot-diagnostic-logs.md)。

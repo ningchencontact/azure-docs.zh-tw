@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0adc8ad651989d198fecabf00d38fbdeb7cf3cd1
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: a54c47c0f67052f2ce486a97e009293a118919d4
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407089"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994106"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上傳 Apache Hadoop 作業的資料
 
@@ -171,12 +171,10 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
-如需其他可用來處理檔案的 Hadoop 命令清單，請參閱 [http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](http://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+如需其他可用來處理檔案的 Hadoop 命令清單，請參閱 [https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/r2.7.0/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > 在 Apache HBase 叢集上，寫入資料時所使用的預設區塊大小是 256 KB。 雖然在使用 HBase API 或 REST API 時此大小可正常運作，但使用 `hadoop` 或 `hdfs dfs` 命令寫入大於 ~12 GB 的資料會導致錯誤。 如需詳細資訊，請參閱本文中[在 Blob 上寫入時的儲存體例外狀況](#storageexception)一節。
->
->
 
 ### <a name="graphical-clients"></a>圖形化用戶端
 其他還有數個應用程式也會提供可搭配 Azure 儲存體使用的圖形化介面。 以下資料表提供數個這類應用程式的清單：
@@ -184,17 +182,17 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 | 用戶端 | Linux | OS X |  Windows |
 | --- |:---:|:---:|:---:|
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
-| [Azure 儲存體總管](http://storageexplorer.com/) |✔ |✔ |✔ |
-| [Cloud Storage Studio 2](http://www.cerebrata.com/Products/CloudStorageStudio/) | | |✔ |
+| [Azure 儲存體總管](https://storageexplorer.com/) |✔ |✔ |✔ |
+| [Cloud Storage Studio 2](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
 | [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
-| [Azure Explorer](http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
+| [Azure Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
 #### <a name="visual-studio-tools-for-hdinsight"></a>Visual Studio Tools for HDInsight
 如需詳細資訊，請參閱 [瀏覽連結的資源](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources)。
 
 #### <a id="storageexplorer"></a>Azure 儲存體總管
-*Azure 儲存體總管* 是一種可在 Blob 中檢查和變更資料的實用工具。 它是免費開放原始碼工具，可從 [http://storageexplorer.com/](http://storageexplorer.com/) 下載。 原始碼亦可從此連結取得。
+*Azure 儲存體總管* 是一種可在 Blob 中檢查和變更資料的實用工具。 它是免費開放原始碼工具，可從 [https://storageexplorer.com/](https://storageexplorer.com/) 下載。 原始碼亦可從此連結取得。
 
 使用此工具之前，必須先知道您的 Azure 儲存體帳戶名稱和帳戶金鑰。 如需有關取得此資訊的指示，請參閱＜操作說明：檢視、複製及重新產生儲存體存取金鑰＞一節 (位於[建立、管理或刪除儲存體帳戶][azure-create-storage-account]中)。
 
@@ -315,7 +313,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 [sqldatabase-create-configure]: ../sql-database-create-configure.md
 
-[apache-sqoop-guide]: http://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
+[apache-sqoop-guide]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html
 
 [Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 

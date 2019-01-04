@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/18/2018
 ms.author: zhshang
-ms.openlocfilehash: 34cbb4d2c8a1e84499961802ca7bd07408375345
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0cd0dcaf200b1248204efc2d2c0011a94d3c41d3
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53409374"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720963"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>教學課程：使用 Azure Functions 進行 Azure SignalR 服務驗證
 
@@ -298,7 +298,7 @@ Web 應用程式也需要 HTTP API 以傳送聊天訊息。 您將建立名為 *
 
 ### <a name="configure-function-app-for-authentication"></a>進行函式應用程式的驗證設定
 
-到目前為止，聊天應用程式皆以匿名方式運作。 在 Azure 中，您將使用 [App Service 驗證](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)來驗證使用者。 已驗證的使用者所使用的使用者識別碼或使用者名稱可傳至 *SignalRConnectionInfo* 繫結，以產生驗證為使用者的連線資訊。
+到目前為止，聊天應用程式皆以匿名方式運作。 在 Azure 中，您將使用 [App Service 驗證](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)來驗證使用者。 已驗證的使用者所使用的使用者識別碼或使用者名稱可傳至 *SignalRConnectionInfo* 繫結，以產生驗證為使用者的連線資訊。
 
 在傳送訊息時，應用程式可以決定是要將其傳送給所有已連線的用戶端，還是只傳送給已對指定的使用者驗證的用戶端。
 

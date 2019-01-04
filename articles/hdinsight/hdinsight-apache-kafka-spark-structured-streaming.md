@@ -9,18 +9,18 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4ac341d780a3c348f9ba9f8fd0241c351bd5fdc5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162422"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53652859"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>教學課程：將 Apache Spark 結構化串流用於 HDInsight 上的 Apache Kafka
 
 本教學課程說明如何使用 [Apache Spark 結構化串流](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html)，對 Azure HDInsight 上的 [Apache Kafka](https://kafka.apache.org/) 讀取和寫入資料。
 
-Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 
+Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。  
 
 在本教學課程中，您了解如何：
 
@@ -41,7 +41,7 @@ Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允�
 
 * 熟悉如何建立 Kafka 主題。 如需詳細資訊，請參閱 [HDInsight 上的 Apache Kafka 快速入門](kafka/apache-kafka-get-started.md)文件。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在本文件的步驟中，Azure 資源群組必須包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
 > 
 > 為了方便您使用，本文件會連結至可建立所有必要 Azure 資源的範本。 
@@ -118,7 +118,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka 服務僅限於虛擬網路內的通訊。 叢集上的其他服務 (例如 SSH 和 Ambari) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
 
 若要建立 Azure 虛擬網路，然後在其中建立 Kafka 和 Spark 叢集，請使用下列步驟：
@@ -135,7 +135,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
     * HDInsight 3.6 叢集上的 Spark 2.2.0。
     * Azure 虛擬網路，其中包含 HDInsight 叢集。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 本教學課程中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark 2.2.0。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
 2. 使用下列資訊，填入 [自訂範本] 區段上的項目︰
@@ -158,7 +158,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，核取 [釘選到儀表板]，然後選取 [購買]。 
 
-> [!NOTE]
+> [!NOTE]  
 > 建立叢集可能需要 20 分鐘的時間。
 
 ## <a name="upload-the-notebook"></a>上傳 Notebook
@@ -198,7 +198,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 2. 找出要刪除的資源群組，然後以滑鼠右鍵按一下清單右側的 [更多] 按鈕 (...)。
 3. 選取 [刪除資源群組]，並加以確認。
 
-> [!WARNING]
+> [!WARNING]  
 > HDInsight 叢集的計費起自叢集建立時，終至叢集刪除時。 計費是以每分鐘按比例計算，因此不再使用時，請一律刪除您的叢集。
 > 
 > 刪除 HDInsight 叢集上的 Kafka，也會刪除 Kafka 中儲存的任何資料。

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 4ef312ebd6c329028a556778c24c5e0e41706056
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 776771c6d10bc184e1a1a077e2dbfed70a3e0358
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310992"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974704"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 公用雲端中的隔離
 ##  <a name="introduction"></a>簡介
@@ -121,7 +121,7 @@ Microsoft 與公認的稽核公司只會基於合法商業用途，定期驗證�
 
 如果您刪除任何資料，Microsoft Azure 即會刪除該資料，包括任何快取或備份的複本。 針對範圍內的服務，將在保留期間結束後 90 天內執行該項刪除 (範圍內的服務定義於 [Online Services 條款 (英文)](https://aka.ms/Online-Services-Terms) 的＜資料處理條款＞一節中)。
 
-如果用於儲存的磁碟機發生硬體故障，在 Microsoft 將它送回給製造商進行替換或修復之前，會先安全地[清除或終結 (英文)](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) 它。 磁碟機上的資料會加以覆寫，以確保無法透過任何方式復原資料。
+如果用於儲存的磁碟機發生硬體故障，在 Microsoft 將它送回給製造商進行替換或修復之前，會先安全地[清除或終結 (英文)](https://microsoft.com/trustcenter/privacy/you-own-your-data) 它。 磁碟機上的資料會加以覆寫，以確保無法透過任何方式復原資料。
 
 ## <a name="compute-isolation"></a>計算隔離
 Microsoft Azure 提供各種雲端式計算服務，其中包含各式各樣的計算執行個體和服務，可自動相應增加或縮小以符合您應用程式或企業的需求。 這些計算執行個體與服務會在多個層級上提供隔離，以保護資料而不會犧牲客戶所要求之組態中的彈性。
@@ -238,7 +238,7 @@ Azure 提供下列加密類型來保護資料：
 -   [用戶端加密](https://docs.microsoft.com/azure/storage/storage-security-guide#using-client-side-encryption-to-secure-data-that-you-send-to-storage)，以在將資料傳輸至儲存體之前加密資料，以及自儲存體傳出後解密資料。
 
 #### <a name="encryption-at-rest"></a>待用加密
-對許多組織來說， [待用資料加密](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
+對許多組織來說， [待用資料加密](https://docs.microsoft.com/azure/security/azure-isolation) 是達到資料隱私性、法規遵循及資料主權的必要步驟。 有三個 Azure 功能可提供「待用」資料的加密。
 
 -   [儲存體服務加密](https://docs.microsoft.com/azure/storage/storage-security-guide#encryption-at-rest) 可讓您要求儲存體服務在將資料寫入 Azure 儲存體時自動加密資料。
 

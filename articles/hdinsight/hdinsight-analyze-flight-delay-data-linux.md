@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,mvc
-ms.openlocfilehash: c0123008e5b15d6d3edce27245a7ed1fa6c431e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e5ee2f40526837fbe0251e1fdda6847db1c51288
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015036"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53634349"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-apache-hive-on-azure-hdinsight"></a>教學課程：使用 Azure HDInsight 上的 Apache Hive 來擷取、轉換和載入資料
 
-在本教學課程中，您會取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的 [Apache Hive](https://hive.apache.org/) 轉換資料。 資料轉換後，您會使用 [Apache Sqoop](http://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。 在本文中，您會使用可公開取用的航班資料。
+在本教學課程中，您會取用原始 CSV 資料檔、將其匯入 HDInsight 叢集儲存體中，然後使用 Azure HDInsight 上的 [Apache Hive](https://hive.apache.org/) 轉換資料。 資料轉換後，您會使用 [Apache Sqoop](https://sqoop.apache.org/) 將該資料載入 Azure SQL 資料庫中。 在本文中，您會使用可公開取用的航班資料。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是 Azure HDInsight 版本 3.4 或更新版本上唯一使用的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 本教學課程涵蓋下列工作： 
@@ -76,7 +76,7 @@ ms.locfileid: "53015036"
 
     以 .zip 檔案名稱取代 FILENAME。 以 HDInsight 叢集的 SSH 登入取代 *USERNAME* 。 將 *CLUSTERNAME* 取代為 HDInsight 叢集的名稱。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果您使用密碼來驗證您的 SSH 登入，系統會提示您輸入密碼。 如果您使用的是公用金鑰，您可能必須使用 `-i` 參數並指定對應的私密金鑰路徑。 例如： `scp -i ~/.ssh/id_rsa FILENAME.zip USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:`。
 
 2. 完成上傳之後，使用 SSH 連線至叢集。 在命令提示字元中輸入下列命令：
@@ -212,7 +212,7 @@ ms.locfileid: "53015036"
 
 ![取得 Azure SQL 伺服器詳細資料](./media/hdinsight-analyze-flight-delay-data-linux/get-azure-sql-server-details.png "取得 Azure SQL 伺服器詳細資料")
 
-> [!NOTE]
+> [!NOTE]  
 > 連接至 SQL Database 並建立資料表的方法有很多種。 下列步驟會從 HDInsight 叢集使用 [FreeTDS](http://www.freetds.org/) 。
 
 
@@ -330,7 +330,7 @@ ms.locfileid: "53015036"
 [azure-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 
 
-[rita-website]: http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
+[rita-website]: https://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
 [hdinsight-use-oozie]: hdinsight-use-oozie-linux-mac.md
@@ -346,4 +346,4 @@ ms.locfileid: "53015036"
 
 [hadoop-hiveql]: https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL
 
-[technetwiki-hive-error]: http://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
+[technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx
