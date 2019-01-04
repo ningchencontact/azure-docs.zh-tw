@@ -1,20 +1,17 @@
 ---
 title: 在 Azure 入口網站中設定適用於 PostgreSQL 的 Azure 資料庫的計量警示
 description: 本文描述如何從 Azure 入口網站，設定和存取「適用於 PostgreSQL 的 Azure 資料庫」的計量警示。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: b57827cb4e8c1105c88b6fab217e17d6cf4db056
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 26b7e92bf8fa6c42320f604643bc996794ed52ca
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271214"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540719"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>使用 Azure 入口網站來設定適用於 PostgreSQL 之 Azure 資料庫的計量警示 
 

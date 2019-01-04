@@ -1,20 +1,17 @@
 ---
 title: 以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫
 description: 本文說明如何使用 Azure 資料庫移轉服務，以最短的停機時間執行從 PostgreSQL 資料庫到「適用於 PostgreSQL 的 Azure 資料庫」的移轉。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 0c8c3443a19c26dade9699560e883969d3c074df
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010836"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543643"
 ---
 # <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>以最短停機時間移轉至適用於 PostgreSQL 的 Azure 資料庫
 您可以使用 [Azure 資料庫移轉服務](https://aka.ms/get-dms) (DMS) 新導入的**持續同步功能**，以最短的停機時間執行從 PostgreSQL 到「適用於 PostgreSQL 的 Azure 資料庫」的移轉。 這項功能可縮短應用程式所造成的停機時間。

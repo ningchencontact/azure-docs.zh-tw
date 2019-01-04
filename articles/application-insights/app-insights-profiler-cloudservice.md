@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5bb70bf56efac28029401b69ee4f87c2738c52e3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 28e21180fde50d19154830694cd4959795ae9d5c
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52721845"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789376"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 來分析即時 Azure 雲端服務
 
 您也可以在這些服務上部署 Application Insights Profiler：
-* [Azure Web Apps](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure App Service](app-insights-profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric 應用程式](app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [虛擬機器](app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
@@ -30,7 +30,7 @@ Application Insights Profiler 會與 Windows Azure 診斷 (WAD) 擴充功能一�
 
 ## <a name="enable-profiler-for-your-azure-cloud-service"></a>針對 Azure 雲端服務啟用 Profiler
 1. 確認您所使用的是 [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) 或更新版本。  確認 ServiceConfiguration.\*.cscfg 檔案的 `osFamily` 值為 "5" 以上即可。
-1. [將 Application Insights SDK 新增至雲端服務](app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json)。
+1. [將 Application Insights SDK 新增至雲端服務](../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json)。
 1. 使用 Application Insights 來追蹤要求：
 
     若為 ASP.Net Web 角色，Application Insights 可以自動追蹤要求。
@@ -63,7 +63,7 @@ Application Insights Profiler 會與 Windows Azure 診斷 (WAD) 擴充功能一�
       </WadCfg>
       ```
 
-    >   **注意：** 如果 diagnostics.wadcfgx 檔案也包含類型 `ApplicationInsights` 的另一個接收，則以下三個檢測金鑰全都必須符合：  
+    >   **注意：** 如果 diagnostics.wadcfgx* 檔案也包含類型 `ApplicationInsights` 的另一個接收，則以下三個檢測金鑰全都必須符合：  
     >  * 應用程式使用的金鑰。  
     >  * `ApplicationInsights` 接收使用的金鑰。  
     >  * `ApplicationInsightsProfiler` 接收使用的金鑰。  

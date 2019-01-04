@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: f19d584932be6b6706d6f7b03622303f68f08f91
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 23003859b9a75fb986fe65f5528004f3dd150f9b
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312182"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53633039"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>升級至最新的 Azure 搜尋服務 REST API 版本
 如果您正在使用舊版的 [Azure 搜尋服務 REST API](https://docs.microsoft.com/rest/api/searchservice/)，本文將協助您升級應用程式，以使用正式推出的最新 API 版本 2017-11-11。
@@ -59,7 +59,7 @@ REST API 的版本 2017-11-11 包含一些較早版本的變更。 這些是大�
 ## <a name="conclusion"></a>結論
 如果您需要使用 Azure 搜尋服務 REST API 的更多詳細資料，請參閱 MSDN 上最近更新的 [API 參考](https://docs.microsoft.com/rest/api/searchservice/)。
 
-歡迎您提供 Azure 搜尋服務的意見反應。 如果您遇到問題，歡迎在 [Azure 搜尋服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) 或 [StackOverflow](http://stackoverflow.com/)上尋求協助。 如果您要在 StackOverflow 上詢問 Azure 搜尋服務問題，請一定要將它標上 `azure-search`。
+歡迎您提供 Azure 搜尋服務的意見反應。 如果您遇到問題，歡迎在 [Azure 搜尋服務 MSDN 論壇](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch) 或 [StackOverflow](https://stackoverflow.com/)上尋求協助。 如果您要在 StackOverflow 上詢問 Azure 搜尋服務問題，請一定要將它標上 `azure-search`。
 
 感謝您使用 Azure 搜尋服務！
 

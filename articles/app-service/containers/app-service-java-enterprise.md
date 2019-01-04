@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 34506266ed4a2103f0d3bd7a8014b9a038b25491
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 408141650a11a81f0c6000c6e7927af8333e2afe
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338034"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548471"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>適用於 Linux 上 App Service 的 Java Enterprise 指南
 
@@ -49,7 +49,7 @@ Web 應用程式執行個體為無狀態，因此必須在啟動時設定每個�
 /opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli
 ```
 
-將啟動指令碼上傳至您 App Service 執行個體中的 `/home/site/deployments/tools`。 如需取得 FTP 認證的相關指示，請參閱[這份文件](/azure/app-service/app-service-deployment-credentials#userscope)。 
+將啟動指令碼上傳至您 App Service 執行個體中的 `/home/site/deployments/tools`。 如需取得 FTP 認證的相關指示，請參閱[這份文件](/azure/app-service/deploy-configure-credentials#userscope)。 
 
 將 Azure 入口網站中的 [啟動指令碼] 欄位設定為您啟動殼層指令碼的位置，例如 `/home/site/deployments/tools/your-startup-script.sh`。
 

@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: b667cfad6eb2a2a13e4b84dacaad0bcd3dfa91b9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: af604dbabe9df56322342230eaec70548f53c927
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53017128"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53794493"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>開始使用 HDInsight 中的 Apache HBase 範例
 
-了解如何使用 [Apache Hive](https://hive.apache.org/) 在 HDInsight 中建立 [Apache HBase](http://hbase.apache.org/) 叢集、建立 HBase 資料表，以及查詢資料表。  如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
+了解如何使用 [Apache Hive](https://hive.apache.org/) 在 HDInsight 中建立 [Apache HBase](https://hbase.apache.org/) 叢集、建立 HBase 資料表，以及查詢資料表。  如需一般 HBase 資訊，請參閱 [HDInsight HBase 概觀][hdinsight-hbase-overview]。
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -38,7 +38,7 @@ ms.locfileid: "53017128"
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. 從 [自訂部署] 刀鋒視窗，輸入下列值：
    
-   * **訂用帳戶**：選取用來建立叢集的 Azure 訂用帳戶。
+   * 訂用帳戶：選取用來建立叢集的 Azure 訂用帳戶。
    * **資源群組**：建立 Azure 資源管理群組，或使用現有的群組。
    * **位置**：指定資源群組的位置。 
    * **叢集名稱**：輸入 HBase 叢集的名稱。
@@ -50,13 +50,13 @@ ms.locfileid: "53017128"
      每個叢集都具備 Azure 儲存體帳戶相依性。 刪除叢集之後，資料會保留在儲存體帳戶中。 叢集預設儲存體帳戶名稱是附加 "store" 的叢集名稱。 它會硬式編碼在範本變數區段中。
 3. 選取 [我同意上方所述的條款及條件]，然後按一下 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-> [!NOTE]
+> [!NOTE]  
 > 刪除 HBase 叢集之後，您可以使用相同的預設 Blob 容器建立另一個 HBase 叢集。 這個新叢集會挑選您在原始叢集中建立的 HBase 資料表。 為了避免不一致，建議您在刪除叢集之前，先停用 HBase 資料表。
 > 
 > 
 
 ## <a name="create-tables-and-insert-data"></a>建立資料表和插入資料
-您可以使用 SSH 來連線到 HBase 叢集，然後使用 [Apache HBase Shell](http://hbase.apache.org/0.94/book/shell.html) 來建立 HBase 資料表、插入及查詢資料。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+您可以使用 SSH 來連線到 HBase 叢集，然後使用 [Apache HBase Shell](https://hbase.apache.org/0.94/book/shell.html) 來建立 HBase 資料表、插入及查詢資料。 如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 對大多數人而言，資料會以表格形式出現：
 
@@ -109,7 +109,7 @@ ms.locfileid: "53017128"
 
 **將資料大量載入連絡人 HBase 資料表中**
 
-HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請參閱 [大量載入](http://hbase.apache.org/book.html#arch.bulk.load)。
+HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請參閱 [大量載入](https://hbase.apache.org/book.html#arch.bulk.load)。
 
 您可以在公用 Blob 容器中找到資料檔案範例 (*wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*)。  資料檔案的內容：
 
@@ -126,9 +126,8 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
 
 您可以選擇性地建立文字檔，並將檔案上載至自己的儲存體帳戶。 如需指示，請參閱[在 HDInsight 中將 Apache Hadoop 作業的資料上傳][hdinsight-upload-data]。
 
-> [!NOTE]
+> [!NOTE]  
 > 此程序會使用您在上一個程序中建立的連絡人 HBase 資料表。
-> 
 
 1. 從 SSH，執行下列命令，將資料檔案轉換成 StoreFiles 並存放在 Dimporttsv.bulk.output 所指定的相對路徑。  如果您在 HBase Shell 中，請使用 exit 命令來結束。
 
@@ -224,7 +223,7 @@ HBase 包含數個將資料載入資料表的方法。  如需詳細資訊，請
 
 如需 HBase Rest 的詳細資訊，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_rest)。
 
-> [!NOTE]
+> [!NOTE]  
 > Thrift 不受 HDInsight 中的 HBase 所支援。
 >
 > 在使用 Curl 或與 WebHCat 進行任何其他 REST 通訊時，您必須提供 HDInsight 叢集系統管理員的使用者名稱和密碼來驗證要求。 您也必須在用來將要求傳送至伺服器的統一資源識別項 (URI) 中使用叢集名稱：
@@ -265,7 +264,7 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 在本文中，您已了解如何建立 Apache HBase 叢集，以及如何建立資料表，並從 HBase Shell 檢視這些資料表中的資料。 您同時也了解到如何使用 Hive 查詢 HBase 資料表中的資料，以及如何使用 HBase C# REST API 建立 HBase 資料表，並擷取其資料表中的資料。
@@ -277,9 +276,9 @@ HDInsight 中的 HBase 隨附於 Web UI，以供監視叢集。 使用 Web UI，
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-upload-data]: ../hdinsight-upload-data.md
-[hbase-reference]: http://hbase.apache.org/book.html#importtsv
+[hbase-reference]: https://hbase.apache.org/book.html#importtsv
 [hbase-schema]: http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf
-[hbase-quick-start]: http://hbase.apache.org/book.html#quickstart
+[hbase-quick-start]: https://hbase.apache.org/book.html#quickstart
 
 
 

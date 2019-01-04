@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8275965e84021c41a3d0b3d13a4fb71d22090757
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ddfee80c67c22c7c6016ed87dc17925c91637d21
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139906"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713993"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 入口網站中建立新的 LUIS 應用程式
 有好幾種方法可建立 LUIS 應用程式。 您可以在 [LUIS](https://www.luis.ai) 入口網站中建立 LUIS 應用程式，或透過 LUIS 撰寫 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)。
@@ -56,51 +56,7 @@ ms.locfileid: "53139906"
     > [!NOTE]
     > 建立應用程式之後便無法變更文化特性 (Culture)。 
 
-    
 
-<!--
-
-## Import new app
-You can set the name (50 char max), version (10 char max), and description of an app in the JSON file. Examples of application JSON files are available at [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/tree/master/documentation-samples/Examples-BookFlight).
-
-1. On **My Apps** page, select **Import new app**.
-2. In the **Import new app** dialog, select the JSON file defining the LUIS app.
-
-    ![Import a new app dialog](./media/luis-create-new-app/import-app.png)
-
-## Export app
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row.
-
-    [![Screenshot of pop-up dialog of per-app actions](media/luis-create-new-app/apps-list.png "Screenshot of pop-up dialog of per-app actions")](media/luis-create-new-app/three-dots.png#lightbox)
-
-2. Select **Export app** from the menu. 
-
-## Rename app
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Rename** from the menu.
-3. Enter the new name of the app and select **Done**.
-
-## Delete app
-
-> [!CAUTION]
-> You are deleting the app for all collaborators and the owner. [Export](#export-app) the app before deleting it. 
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Delete** from the menu.
-3. Select **Ok** in the confirmation window.
-
-## Export endpoint logs
-The logs contain the Query, UTC time, and LUIS JSON response.
-
-1. On **My Apps** page, select the ellipsis (***...***) at the end of the app row. 
-2. Select **Export endpoint logs** from the menu.
-
-```
-Query,UTC DateTime,Response
-text i'm driving and will be 30 minutes late to the meeting,02/13/2018 15:18:43,"{""query"":""text I'm driving and will be 30 minutes late to the meeting"",""intents"":[{""intent"":""None"",""score"":0.111048922},{""intent"":""SendMessage"",""score"":0.987501}],""entities"":[{""entity"":""i ' m driving and will be 30 minutes late to the meeting"",""type"":""Message"",""startIndex"":5,""endIndex"":58,""score"":0.162995353}]}"
-```
--->
 ## <a name="next-steps"></a>後續步驟
 
 您在應用程式中的第一項工作是[新增對應方式](luis-how-to-add-intents.md)。

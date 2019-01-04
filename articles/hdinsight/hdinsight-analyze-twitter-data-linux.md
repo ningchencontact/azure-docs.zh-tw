@@ -9,25 +9,25 @@ ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 01d1ef428804838df4257a4c28dfcddbdd8f156b
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a3687a4b8bb4e0d900ee96f52c40352db4e96df6
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53010989"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53635556"
 ---
 # <a name="analyze-twitter-data-using-apache-hive-and-apache-hadoop-on-hdinsight"></a>在 HDInsight 上使用 Apache Hive 與 Apache Hadoop 分析 Twitter 資料
 
 了解如何使用 [Apache Hive](https://hive.apache.org/) 來處理 Twitter 資料。 結果是一份傳送了最多包含特定文字之推文的 Twitter 使用者清單。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的步驟已在 HDInsight 3.6 上進行過測試。
 >
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="get-the-data"></a>取得資料
 
-Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript 物件標記法 (JSON)。 [OAuth](http://oauth.net) (英文)。
+Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript 物件標記法 (JSON)。 [OAuth](https://oauth.net) (英文)。
 
 ### <a name="create-a-twitter-application"></a>建立 Twitter 應用程式
 
@@ -41,7 +41,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
    |:--- |:--- |
    | Name |MyHDInsightApp |
    | 說明 |MyHDInsightApp |
-   | 網站 |http://www.myhdinsightapp.com |
+   | 網站 |https://www.myhdinsightapp.com |
 
 4. 核取 [是，我同意] 然後按一下 [建立 Twitter 應用程式]。
 
@@ -59,7 +59,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
 下列 Python 程式碼會從 Twitter 下載 10,000 則推文，並儲存到名為 **tweets.txt**的檔案。
 
-> [!NOTE]
+> [!NOTE]  
 > 由於已安裝 Python，下列步驟會在 HDInsight 叢集上執行。
 
 1. 使用 SSH 連線到 HDInsight 叢集
@@ -70,7 +70,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
     如需詳細資訊，請參閱[搭配 HDInsight 使用 SSH](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
-3. 使用下列命令來安裝 [Tweepy (英文)](http://www.tweepy.org/)、[Progressbar (英文)](https://pypi.python.org/pypi/progressbar/2.2) 和其他必要的套件：
+3. 使用下列命令來安裝 [Tweepy (英文)](https://www.tweepy.org/)、[Progressbar (英文)](https://pypi.python.org/pypi/progressbar/2.2) 和其他必要的套件：
 
    ```bash
    sudo apt install python-dev libffi-dev libssl-dev
@@ -145,7 +145,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
    twitterStream.filter(track=["azure","cloud","hdinsight"])
    ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 將下列項目的預留位置文字取代為您 twitter 應用程式中的資訊：
     >
     > * `consumer_secret`
@@ -153,7 +153,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
     > * `access_token`
     > * `access_token_secret`
 
-    > [!TIP]
+    > [!TIP]  
     > 調整最後一行上的主題篩選條件，以追蹤熱門關鍵字。 使用您執行指令碼當時熱門的關鍵字，可以更快擷取資料。
 
 6. 依序按 **Ctrl + X**，然後 **Y** 儲存檔案。
@@ -166,7 +166,7 @@ Twitter 可讓您透過 REST API 抓取每則推文資料，作為 JavaScript �
 
     進度指示器隨即出現。 隨著推文的下載，其進度會推進到 100%。
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果需要花費很長的時間來讓進度列往前移動，則您應該變更篩選來追蹤趨勢主題。 當您的篩選中有許多關於該主題的推文時，您就能快速取得所需的 10000 則推文。
 
 ### <a name="upload-the-data"></a>上傳資料
@@ -317,7 +317,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 
     這個查詢會傳回最多 10 則訊息內容中包含文字 **Azure** 的推文。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 如果您變更了 `gettweets.py` 指令碼中的篩選條件，請將 **Azure** 取代為您使用的其中一個篩選條件。
 
 ## <a name="next-steps"></a>後續步驟
@@ -327,7 +327,7 @@ hdfs dfs -put tweets.txt /tutorials/twitter/data/tweets.txt
 * [開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [使用 HDInsight 分析航班延誤資料](hdinsight-analyze-flight-delay-data-linux.md)
 
-[curl]: http://curl.haxx.se
+[curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html
 
 [apache-hive-tutorial]: https://cwiki.apache.org/confluence/display/Hive/Tutorial

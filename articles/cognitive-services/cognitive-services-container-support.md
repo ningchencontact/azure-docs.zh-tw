@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
-ms.openlocfilehash: 8d98e428d60c0981385b842bcb4dfc77bdbbcf22
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 4ee98c2d8170df5ef5878f5b534b545eb105667e
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413042"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53543902"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Azure 認知服務中的容器支援
 
@@ -33,8 +33,8 @@ Azure 認知服務中的容器支援可讓開發人員使用 Azure 中可用的�
 
 - **對資料的控制**：讓客戶選擇這些認知服務在哪裡處理他們的資料。 這對於無法將資料傳送到雲端，但需要存取認知服務技術的客戶來說，這是不可或缺的。 支援混合式環境中的一致性，橫跨資料、管理、身分識別及安全性。
 - **對模型更新的控制**：為客戶針對部署於其解決方案中的模型，提供版本控制和更新上的彈性。
-- **可攜式架構**：能建立可攜式的應用程式架構，並將它部署至 Azure、內部部署及邊緣。 您可以將容器直接部署至 [Azure Kubernetes Service](/azure/aks/)、[Azure 容器執行個體](/azure/container-instances/)，或是已部署至 [Azure Stack](/azure/azure-stack/) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)。
-- **高輸送量 / 低延遲**：透過讓認知服務在實體鄰近客戶應用程式邏輯和資料執行，為客戶提供針對高輸送量及低延遲需求進行調整的能力。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。
+- **可攜式架構**：能建立可攜式的應用程式架構，並將它部署至 Azure、內部部署及邊緣。 您可以將容器直接部署至 [Azure Kubernetes Service](../aks/index.yml)、[Azure 容器執行個體](../container-instances/index.yml)，或是已部署至 [Azure Stack](../azure-stack/index.yml) 的 [Kubernetes](https://kubernetes.io/) 叢集。 如需詳細資訊，請參閱[將 Kubernetes 部署至 Azure Stack](../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md)。
+- **高輸送量 / 低延遲**：透過讓認知服務在實體鄰近客戶應用程式邏輯和資料執行，為客戶提供針對高輸送量及低延遲需求進行調整的能力。 容器不會限制每秒交易 (TPS)，而且如果您提供必要的硬體資源，會相應增加和相應放大來處理要求。 
 
 
 ## <a name="containers-in-azure-cognitive-services"></a>Azure 認知服務中的容器
@@ -61,7 +61,7 @@ Azure 認知服務容器可透過您的 Azure 訂用帳戶公開取得，而 Doc
 
 您必須滿足下列必要條件才能使用 Azure 認知服務容器：
 
-**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](/azure/aks/) 或 [Azure 容器執行個體](/azure/container-instances/)。
+**Docker 引擎**：您必須在本機安裝 Docker 引擎。 Docker 提供可在 [macOS](https://docs.docker.com/docker-for-mac/) \(英文\)、[Linux](https://docs.docker.com/engine/installation/#supported-platforms) \(英文\) 和 [Windows](https://docs.docker.com/docker-for-windows/) \(英文\) 上設定 Docker 環境的套件。 在 Windows 上，必須將 Docker 設定為支援 Linux 容器。 您也可以將 Docker 容器直接部署至 [Azure Kubernetes Service](../aks/index.yml) 或 [Azure 容器執行個體](../container-instances/index.yml)。
 
 Docker 必須設定為允許容器與 Azure 連線，以及傳送帳單資料至 Azure。
 

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: e02492b3e80f71b4ae92066e5e4a2baf26818621
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 2b6cb711bf0cd2f0ec7f5633bbb36ebaeb203690
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316160"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605529"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>遠端監視解決方案加速器概觀
 
@@ -135,7 +135,7 @@ ASA 作業從連線裝置將遙測資料傳送到 Time Series Insights 進行儲
 
 ### <a name="authentication-and-authorization-microservice"></a>驗證和授權微服務
 
-[驗證和授權微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)可管理獲授權可存取解決方案加速器的使用者。 可以使用支援 [OpenId Connect](http://openid.net/connect/) 的任何識別服務提供者進行使用者管理。
+[驗證和授權微服務](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth)可管理獲授權可存取解決方案加速器的使用者。 可以使用支援 [OpenId Connect](https://openid.net/connect/) 的任何識別服務提供者進行使用者管理。
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 

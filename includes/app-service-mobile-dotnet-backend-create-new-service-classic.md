@@ -4,19 +4,19 @@ ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
-ms.openlocfilehash: 30b5ae499d29b8b78b5852074362841ac1ceb49f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: e087a1db008422aeec8fd4e073a7476eebe4d54b
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133759"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53729402"
 ---
 1. 登入 [Azure 入口網站]。
 2. 選取 [+ 新增] > [Web + 行動] > [行動應用程式]，然後為您的行動應用程式後端提供名稱。
 3. 針對 [資源群組]，選取現有的資源群組或建立新的資源群組 (使用與應用程式相同的名稱)。 
 4. 針對 **App Service 方案**，系統會選取預設方案 (在[標準層](https://azure.microsoft.com/pricing/details/app-service/)中)。 您也可以選取不同的方案，或[建立新的方案](../articles/app-service/app-service-plan-manage.md#create-an-app-service-plan)。 
 
-   App Service 方案的設定會決定與您應用程式相關聯的[位置、功能、成本和計算資源](https://azure.microsoft.com/pricing/details/app-service/)。 如需關於應用程式服務方案以及如何在不同的定價層和您所要的位置建立新方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)。
+   App Service 方案的設定會決定與您應用程式相關聯的[位置、功能、成本和計算資源](https://azure.microsoft.com/pricing/details/app-service/)。 如需關於應用程式服務方案以及如何在不同的定價層和您所要的位置建立新方案的詳細資訊，請參閱 [Azure App Service 方案深入概觀](../articles/app-service/overview-hosting-plans.md)。
    
 5. 選取 [建立] 。 此步驟會建立新的 Mobile Apps 後端。 
 6. 在新 Mobile Apps 後端的 [設定] 窗格中，選取 [快速啟動] > 您的用戶端應用程式平台 > [連接資料庫]。 

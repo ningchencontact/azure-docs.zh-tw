@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 3a106b0fe570fe44f96529d830271dfe4912437f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53336462"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584294"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure 監視器建立、檢視及管理計量警示
 
@@ -33,7 +33,7 @@ ms.locfileid: "53336462"
 
 3. 在載入的內容窗格中，按一下 [選取目標]，選取您要修改的目標資源。 使用 [訂用帳戶] 與 [資源類型] 下拉式清單尋找您要監視的資源。 您也可以使用搜尋列來尋找您的資源。
 
-4. 如果選取的資源有可對其建立警示的計量，位於右下方的 [可用訊號] 會包含計量。 您可以檢視此[文章](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)中的計量警示支援的完整資源類型清單
+4. 如果選取的資源有可對其建立警示的計量，位於右下方的 [可用訊號] 會包含計量。 您可以檢視此[文章](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中的計量警示支援的完整資源類型清單
 
 5. 選取目標資源之後，請按一下 [新增準則]
 
@@ -130,4 +130,4 @@ ms.locfileid: "53336462"
 
 - [使用 Azure Resource Manager 範本建立計量警示](../../azure-monitor/platform/alerts-enable-template.md)。
 - [了解計量警示的運作方式](alerts-metric-overview.md)。
-- [了解計量警示的 Webhook 結構描述](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#payload-schema)
+- [了解計量警示的 Webhook 結構描述](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)

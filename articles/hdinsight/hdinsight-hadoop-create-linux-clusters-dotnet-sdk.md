@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 06135ff77cb9c2a5b8fa2ae674206406469ed293
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 52f67d21c3a130df4d85c220baca9c6af8eb06c1
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870600"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793473"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>在 HDInsight 中使用 .NET SDK 建立以 Linux 為基礎的叢集
 
@@ -23,7 +23,7 @@ ms.locfileid: "52870600"
 
 了解如何使用 .NET SDK 在 Azure HDInsight 叢集中建立 [Apache Hadoop](https://hadoop.apache.org/) 叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文中的步驟會建立具有一個背景工作節點的叢集。 如果您在建立叢集時或在建立後調整叢集時規劃有 32 個以上的背景工作節點，您就必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -367,7 +367,7 @@ static void Main(string[] args)
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 既然您已成功建立 HDInsight 叢集，請使用下列內容來了解如何使用您的叢集。 
@@ -375,7 +375,7 @@ static void Main(string[] args)
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 叢集
 * [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 * [開始使用 HDInsight 上的 Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md)

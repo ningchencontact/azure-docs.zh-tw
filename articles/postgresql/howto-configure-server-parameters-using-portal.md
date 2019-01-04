@@ -1,25 +1,22 @@
 ---
 title: 透過 Azure 入口網站設定適用於 PostgreSQL 之 Azure 資料庫的伺服器參數
 description: 本文說明如何使用 Azure 入口網站，在適用於 PostgreSQL 的 Azure 資料庫中設定伺服器參數。
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 6d43cac79c19e117385549b1678a464dc5731bd7
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 0d0626c48ecebdead604aab93ab0602c698d0d77
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687861"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540532"
 ---
 # <a name="configure-server-parameters-in-azure-portal"></a>在 Azure 入口網站中設定伺服器參數
 您可以透過 Azure 入口網站列出、顯示、更新適用於 PostgreSQL 的 Azure 資料庫伺服器的設定參數。
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 為了逐步執行本作法指南，您需要︰
 - [適用於 PostgreSQL 的 Azure 資料庫伺服器](quickstart-create-server-database-portal.md)
 

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: b297be16110e24342b224f7f89c2a3c0c44229a9
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 5a09bd8db89f85c785d3d701a3b7180e4616e52c
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341401"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713226"
 ---
 # <a name="diagnostics-in-durable-functions-azure-functions"></a>長期函式中的診斷 (Azure Functions)
 
@@ -25,7 +25,7 @@ ms.locfileid: "53341401"
 
 [Application Insights](../../application-insights/app-insights-overview.md) 是在 Azure Functions 中診斷和監視的建議方式。 一樣適用於長期函式。 如需如何在您的函式應用程式中利用 Application Insights 的概觀，請參閱[監視 Azure Functions](../functions-monitoring.md)。
 
-Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追蹤協調流程的端對端執行。 可以使用 Azure 入口網站中的 [Application Insights Analytics](../../application-insights/app-insights-analytics.md) 工具尋找及查詢。
+Azure Functions 長期延伸模組也會發出「追蹤事件」，可讓您追蹤協調流程的端對端執行。 可以使用 Azure 入口網站中的 [Application Insights Analytics](../../azure-monitor/app/analytics.md) 工具尋找及查詢。
 
 ### <a name="tracking-data"></a>追蹤資料
 

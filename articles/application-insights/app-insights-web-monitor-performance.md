@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: e11c34b2587dcb7602161d36ba4deda1dca73c82
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 5e5a53027126f96c27a6a6f0abb8aeacb94d7c11
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52720961"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54000343"
 ---
 # <a name="monitor-performance-in-web-applications"></a>監視 Web 應用程式的效能
 
@@ -32,11 +32,11 @@ Application Insights 可以監視 Java 和 ASP.NET Web 應用程式與服務、W
 ## <a name="setup"></a>設定效能監視
 如果您尚未將 Application Insights 新增至專案中 (亦即專案沒有 ApplicationInsights.config)，請選擇以下任一種方法來開始使用：
 
-* [ASP.NET Web 應用程式](app-insights-asp-net.md)
-  * [加入例外狀況監視](app-insights-asp-net-exceptions.md)
-  * [加入相依性監視](app-insights-monitor-performance-live-website-now.md)
-* [J2EE Web 應用程式](app-insights-java-get-started.md)
-  * [加入相依性監視](app-insights-java-agent.md)
+* [ASP.NET Web 應用程式](../azure-monitor/app/asp-net.md)
+  * [加入例外狀況監視](../azure-monitor/app/asp-net-exceptions.md)
+  * [加入相依性監視](../azure-monitor/app/monitor-performance-live-website-now.md)
+* [J2EE Web 應用程式](../azure-monitor/app/java-get-started.md)
+  * [加入相依性監視](../azure-monitor/app/java-agent.md)
 
 ## <a name="view"></a>探索效能度量
 在 [Azure 入口網站](https://portal.azure.com)中，瀏覽至您為應用程式設定的 Application Insights 資源。 概觀刀鋒視窗會顯示基本的效能資料：
@@ -152,14 +152,14 @@ HTTP 要求包括分頁、資料及映像的所有 GET 或 POST 要求。
 
 <!--Link references-->
 
-[availability]: app-insights-monitor-web-app-availability.md
-[diagnostic]: app-insights-diagnostic-search.md
-[greenbrown]: app-insights-asp-net.md
+[availability]: ../azure-monitor/app/monitor-web-app-availability.md
+[diagnostic]: ../azure-monitor/app/diagnostic-search.md
+[greenbrown]: ../azure-monitor/app/asp-net.md
 [qna]: app-insights-troubleshoot-faq.md
-[redfield]: app-insights-monitor-performance-live-website-now.md
+[redfield]: ../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: app-insights-overview.md
 [usage]: app-insights-web-track-usage.md
-[livestream]: app-insights-live-stream.md
+[livestream]: ../azure-monitor/app/live-stream.md
 [snapshot]: app-insights-snapshot-debugger.md
 
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: cf037000a047b02f3874c3bccc9678f2ea18ecec
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 31e4f4a8cfe9a82cf5320cd364905c7c91de0959
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53011193"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653793"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>在 Azure 虛擬網路中的 HDInsight 上建立 Apache HBase 叢集
 了解如何在 [Azure 虛擬網路][1]中建立 Azure HDInsight Apache HBase 叢集。
@@ -34,7 +34,7 @@ ms.locfileid: "53011193"
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>在虛擬網路中建立 Apache HBase 叢集
 在本節中，您會使用 [Azure Resource Manager 範本](../../azure-resource-manager/resource-group-template-deploy.md)，在 Azure 虛擬網路中建立以 Linux 為基礎的 Apache HBase 叢集與相依的 Azure 儲存體帳戶。 如需其他叢集建立方法及了解各項設定，請參閱 [建立 HDInsight 叢集](../hdinsight-hadoop-provision-linux-clusters.md)。 如需有關使用範本在 HDInsight 中建立 Apache Hadoop 叢集的詳細資訊，請參閱 [使用 Azure Resource Manager 範本在 HDInsight 中建立 Apache Hadoop 叢集](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
-> [!NOTE]
+> [!NOTE]  
 > 某些屬性已以硬式編碼方式寫入範本。 例如︰
 >
 > * **位置**：美國東部 2
@@ -74,10 +74,8 @@ ms.locfileid: "53011193"
    * **虛擬網路**：&lt;叢集名稱>-vnet
    * **子網路**：subnet1
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > 將 &lt;叢集名稱> 取代為在上一個步驟中建立 HDInsight 叢集時使用的名稱。
-   >
-   >
 
    使用這些值會將虛擬機器放置在與 HDInsight 叢集相同的虛擬網路和子網路。 此組態可讓它們彼此直接通訊。 有一個使用空白邊緣節點建立 HDInsight 叢集的方法。 邊緣節點可用來管理叢集。  如需詳細資訊，請參閱 [Use empty edge nodes in HDInsight (在 HDInsight 中使用空白的邊緣節點)](../hdinsight-apps-use-edge-node.md)。
 
@@ -232,10 +230,8 @@ ms.locfileid: "53011193"
         <value>zookeeper0.<dns suffix>,zookeeper1.<dns suffix>,zookeeper2.<dns suffix></value>
     </property>
 
-> [!NOTE]
+> [!NOTE]  
 > 如需 Azure 虛擬網路中名稱解析的詳細資訊，包括如何使用您自己的 DNS 伺服器，請參閱[名稱解析 (DNS)](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
->
->
 
 ## <a name="next-steps"></a>後續步驟
 在本教學課程中，您已了解如何建立 Apache HBase 叢集。 若要深入了解，請參閱：

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/20/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 8c114ed137089e70899e601ebdc1d4d39f562601
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: ab3d4cbe8a200e91d02177e49446065cd9c228df
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43383034"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53609067"
 ---
 ## <a name="create-a-consumer-group"></a>建立取用者群組
 
@@ -41,7 +41,7 @@ ms.locfileid: "43383034"
 
 [Azure 時間序列深入解析](../articles/time-series-insights/time-series-insights-overview.md)是完全受管理的分析、儲存及視覺化服務，可讓您在雲端上管理 IoT 規模的時間序列資料。 若要建立新的時間序列深入解析環境：
 
-1. 登入 [Azure 入口網站](http://portal.azure.com/)。
+1. 登入 [Azure 入口網站](https://portal.azure.com/)。
 
 1. 選取 [建立資源] > [物聯網] > [時間序列深入解析]：
 

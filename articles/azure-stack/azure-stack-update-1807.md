@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7f87f93ebc739d75c796859c7091d4cf62a820a0
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260579"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714979"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 更新
 
-「適用於：Azure Stack 整合系統」
+*適用於：Azure Stack 整合式系統*
 
 本文將說明 1807 更新套件的內容。 此更新中包括此版 Azure Stack 的改良功能、修正及已知問題，以及可下載更新的位置。 已知問題分為直接與更新程序相關的問題，以及組建 (安裝後) 的相關問題。
 
@@ -162,9 +162,8 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 
 ### <a name="prerequisites"></a>必要條件
 
-- 請先安裝 Azure Stack [1805 更新](azure-stack-update-1805.md)，然後才套用 Azure Stack 1807 更新。  沒有 1806 更新。  
-
-- 安裝最新可用的 [1805 版更新或 Hotfix](azure-stack-update-1805.md#post-update-steps)。  
+- 請先安裝 Azure Stack [1805 更新](azure-stack-update-1805.md)，然後才套用 Azure Stack 1807 更新。 沒有 1806 更新。  
+ 
   > [!TIP]  
   > 訂閱下列 *RRS* 或 *Atom* 摘要，以掌握最新的 Azure Stack Hotfix：
   > - RRS： https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … 
@@ -244,16 +243,16 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 - 您可能會看到「健康情況控制器」元件出現具有下列詳細資料的警示：  
 
    警示 #1：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器活動訊號掃描器無法使用。 這可能會影響健康情況報告和計量。  
 
   警示 #2：
-   - NAME：基礎結構角色狀況不良
-   - SEVERITY：警告
-   - COMPONENT：健康情況控制器
-   - DESCRIPTION：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
+   - 名稱：基礎結構角色狀況不良
+   - 嚴重性：警告
+   - 元件：健康情況控制器
+   - 描述：健康情況控制器錯誤掃描器無法使用。 這可能會影響健康情況報告和計量。
 
   您可以放心地忽略這兩個警示，這兩個警示會在一段時間過後自動關閉。  
 
@@ -262,7 +261,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 - 您可能會看到具有下列詳細資料的**儲存體**元件警示：
 
    - 名稱：儲存體服務內部通訊錯誤  
-   - 嚴重性：嚴重  
+   - 嚴重性：重要  
    - 元件：儲存體  
    - 描述：將要求傳送至下列節點時，發生儲存體服務內部通訊錯誤。  
 
@@ -281,7 +280,7 @@ Azure Stack 使用 Windows Server 2016 的 Server Core 安裝來裝載關鍵基�
 - 在為虛擬機器部署選取虛擬機器大小時，某些 F 系列的 VM 大小不會在您建立 VM 時顯示在大小選取器中。 選取器中不會顯示下列 VM 大小：*F8s_v2*、*F16s_v2*、*F32s_v2* 和 *F64s_v2*。  
   因應措施是使用下列其中一個方法來部署虛擬機器。 在每個方法中，您需要指定想要使用的虛擬機器大小。
 
-  - **Azure Resource Manager 範本：** 當您使用範本時，請將範本中的 *vmSize* 設定為等於您想要使用的虛擬機器大小。 例如，使用以下項目來部署會使用 *F32s_v2* 大小的虛擬機器：  
+  - **Azure Resource Manager 範本：** 當您使用範本時，請將範本中的 vmSize 設定為您想要使用的虛擬機器大小。 例如，使用以下項目來部署會使用 *F32s_v2* 大小的虛擬機器：  
 
     ```
         "properties": {

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b8db52623eead2800b0a5d8154a222573808750
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192425"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53810265"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>儲存在 Log Analytics 和 Application Insights 中的個人資料指引
 
@@ -124,4 +124,4 @@ Log Analytics 是彈性的存放區，在指定資料結構描述的同時，允
 
 ## <a name="next-steps"></a>後續步驟
 - 若要深入了解 Log Analytics 資料的收集、處理和保護方式，請參閱 [Log Analytics 資料安全性](../../azure-monitor/platform/data-security.md)。
-- 若要深入了解 Application Insights 資料的收集、處理和保護方式，請參閱 [Application Insights 資料安全性](../../application-insights/app-insights-data-retention-privacy.md)。
+- 若要深入了解 Application Insights 資料的收集、處理和保護方式，請參閱 [Application Insights 資料安全性](../../azure-monitor/app/data-retention-privacy.md)。

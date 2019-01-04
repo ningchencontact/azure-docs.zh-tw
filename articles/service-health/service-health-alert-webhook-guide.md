@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 3/27/2018
 ms.author: shtabriz
-ms.openlocfilehash: 5d32c3539446482f2dcdaeb954bb704dc9b78c58
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 740adefbb8bfa53e96b5ed0e1c7181abf22f1490
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274916"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580261"
 ---
 # <a name="configure-health-notifications-for-existing-problem-management-systems-using-a-webhook"></a>使用 Webhook 設定現有問題管理系統的健康情況通知
 
@@ -119,5 +119,5 @@ Azure 服務健康狀態警示會通知您多個區域和服務的相關問題�
 
 ## <a name="next-steps"></a>後續步驟
 - 檢閱[活動記錄警示 Webhook 結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)。 
-- 深入了解[服務健康狀態通知](../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../azure-monitor/platform/service-notifications.md)。
 - 深入了解[動作群組](../azure-monitor/platform/action-groups.md)。

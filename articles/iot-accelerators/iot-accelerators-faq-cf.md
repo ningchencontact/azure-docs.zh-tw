@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: ef55f25657d1decb09e438d443e7c289823f7d9d
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353736"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605903"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>連線處理站解決方案加速器的常見問題集
 
@@ -27,7 +27,7 @@ ms.locfileid: "49353736"
 
 ### <a name="what-is-opc-ua"></a>什麼是 OPC UA？
 
-2008 年推出的 OPC 統一架構 (UA) 是各平台通用的服務導向互通性標準。 OPC UA 由各種工業系統和裝置使用，例如產業 PC、PLC 和感應器。 OPC UA 會將 OPC Classic 規格的功能整合成一個內建安全性的可延伸架構。 它是 OPC Foundation 所推動的一套標準。 [OPC Foundation](http://opcfoundation.org/) 是擁有 440 名以上成員的非營利組織。 組織的目標是透過以下方式，使用 OPC 規格來促進多廠商、多平台、安全且可靠的互通性：
+2008 年推出的 OPC 統一架構 (UA) 是各平台通用的服務導向互通性標準。 OPC UA 由各種工業系統和裝置使用，例如產業 PC、PLC 和感應器。 OPC UA 會將 OPC Classic 規格的功能整合成一個內建安全性的可延伸架構。 它是 OPC Foundation 所推動的一套標準。 [OPC Foundation](https://opcfoundation.org/) 是擁有 440 名以上成員的非營利組織。 組織的目標是透過以下方式，使用 OPC 規格來促進多廠商、多平台、安全且可靠的互通性：
 
 * 基礎結構
 * 規格
@@ -78,7 +78,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 1. 若要啟動所有模擬容器：
     * 匯出具有名稱 **IOTHUB_CONNECTIONSTRING** 的殼層變數。 使用 `<name of your deployment>.config.user` 檔案中的 **IotHubOwnerConnectionString** 設定值。 例如︰
 
-        ```
+        ```sh
         export IOTHUB_CONNECTIONSTRING="HostName={yourdeployment}.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey={your key}"
         ```
 
@@ -142,7 +142,7 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
 若要在連線的處理站解決方案中啟用互動式地圖，您必須具有 Azure 地圖服務帳戶。
 
-從 [www.azureiotsolutions.com](http://www.azureiotsolutions.com) 部署時，部署程序會將 Azure 地圖服務帳戶新增至包含解決方案加速器服務的資源群組。
+從 [www.azureiotsolutions.com](https://www.azureiotsolutions.com) 部署時，部署程序會將 Azure 地圖服務帳戶新增至包含解決方案加速器服務的資源群組。
 
 當您使用連線處理站 GitHub 存放庫中的 `build.ps1` 指令碼進行部署時，請將建置視窗中的 `$env:MapApiQueryKey` 環境變數設定為 [Azure 地圖服務帳戶的金鑰](../azure-maps/how-to-manage-account-keys.md)。 系統隨後會自動啟用互動式地圖。
 
@@ -174,15 +174,15 @@ Microsoft 選擇 OPC UA 的原因是它是一種開放式、非專屬、與平�
 
     ```json
     [
-      {
-        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
-        "DisplayName": "<name_of_the_datapoint>",
-        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
-        "Value": {
-          "Value": <datapoint_value>,
-          "SourceTimestamp": "<timestamp>"
-        }
-      }
+      {
+        "ApplicationUri": "<the_value_of_OpcUri_of_your_station",
+        "DisplayName": "<name_of_the_datapoint>",
+        "NodeId": "value_of_NodeId_of_your_datapoint_in_the_station",
+        "Value": {
+          "Value": <datapoint_value>,
+          "SourceTimestamp": "<timestamp>"
+        }
+      }
     ]
     ```
 

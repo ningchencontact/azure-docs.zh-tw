@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 3c9514e39e061067b7332570e0eb6273924529e0
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: be86e961d04b600f112a173c041b60cbe50ea00d
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339207"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53725045"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>使用 Azure 監視器來建立、檢視及管理記錄警示  
 
@@ -23,7 +23,7 @@ ms.locfileid: "53339207"
 - 準則：訊號中所示且會觸發動作的特定條件或邏輯
 - 動作：傳送至通知 (電子郵件、SMS、Webhook 等) 接收者的特定呼叫。
 
-使用**記錄警示**一詞來描述符合下列條件的警示：其訊號是以 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../application-insights/app-insights-analytics.md) 為基礎的自訂查詢。 閱讀[記錄警示 - 概觀](../../azure-monitor/platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
+使用**記錄警示**一詞來描述符合下列條件的警示：其訊號是以 [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 為基礎的自訂查詢。 閱讀[記錄警示 - 概觀](../../azure-monitor/platform/alerts-unified-log.md)以深入了解其功能、術語和類型。
 
 > [!NOTE]
 > [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 中常用的記錄資料現在也會在 Azure 監視器的計量平台上提供。 如需詳細資料檢視，請參閱[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -245,6 +245,6 @@ az group deployment create --resource-group myRG --template-file sampleScheduled
 
 * 了解 [Azure 警示中的記錄警示](../../azure-monitor/platform/alerts-unified-log.md)
 * 了解 [Webhook 動作記錄警示](../../azure-monitor/platform/alerts-log-webhook.md)
-* 深入了解 [Application Insights](../../application-insights/app-insights-analytics.md)
+* 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)
 * 深入了解 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)。 
 

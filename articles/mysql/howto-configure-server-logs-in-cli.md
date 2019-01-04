@@ -1,21 +1,18 @@
 ---
 title: 使用 Azure CLI 在適用於 MySQL 的 Azure 資料庫中存取伺服器記錄
 description: 本文說明如何使用 Azure CLI 命令列公用程式，在適用於 MySQL 的 Azure 資料庫中存取伺服器記錄。
-services: mysql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.devlang: azure-cli
-ms.topic: article
+ms.devlang: azurecli
+ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: e3940f07ab97eb2ad03c347c39bf2412a8497f5e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 207e9965f6600477e1df93845bc41bd33b5c028c
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978449"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547026"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 設定和存取伺服器記錄
 您可以使用 Azure CLI (Azure 的命令列公用程式) 來下載適用於 MySQL 的 Azure 資料庫的伺服器記錄檔。
@@ -28,7 +25,7 @@ ms.locfileid: "46978449"
 ## <a name="configure-logging-for-azure-database-for-mysql"></a>設定適用於 MySQL 的 Azure 資料庫的記錄
 您可以採取下列步驟，設定伺服器以存取 MySQL 慢速查詢記錄檔：
 1. 藉由將 **slow\_query\_log** 參數設為 ON 來開啟記錄功能。
-2. 調整其他參數，例如 **long\_query\_time** 和 **log\_slow\_admin\_statements**。
+2. 調整其他參數，例如 **long\_query\_time** 和 **log\_slow\_admin\_statements**。
 
 若要了解如何透過 Azure CLI 設定這些參數的值，請參閱[如何設定伺服器參數](howto-configure-server-parameters-using-cli.md)。 
 

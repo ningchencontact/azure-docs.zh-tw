@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.openlocfilehash: fe186966dbddb5aa743e465f897aa5a1a0e07db1
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 23cbdb4d72a6b88563d9d2c2bd0e4e3c8223377f
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840200"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53723666"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用適用於 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -30,7 +30,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
 - HDInsight 叢集。 若要建立叢集，請參閱[開始使用 HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)。
-- [Mono](http://www.mono-project.com/docs/getting-started/install/)。 Linux 和 macOS 才需要 Mono。
+- [Mono](https://www.mono-project.com/docs/getting-started/install/)。 Linux 和 macOS 才需要 Mono。
 
 ## <a name="install-the-hdinsight-tools"></a>安裝 HDInsight 工具
    
@@ -87,7 +87,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
     連線之後，您的 Azure 帳戶名稱會顯示在 VS Code 視窗左下角的狀態列上。 
 
-    > [!NOTE]
+    > [!NOTE]  
     > 因為已知的 Azure 驗證問題，所以您需要以私用模式或無痕模式開啟瀏覽器。 如果 Azure 帳戶已啟用雙因素驗證，建議使用電話驗證而不是 Pin 碼驗證。
   
 
@@ -113,7 +113,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
    
    ![連結叢集對話方塊](./media/hdinsight-for-vscode/link-cluster-process.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > 如果叢集已登入 Azure 訂用帳戶並連結叢集，則會使用連結的使用者名稱和密碼。 
    
 3. 您可以使用 **List Cluster** 命令來查看連結的叢集。 您現在可以將指令碼提交至此連結的叢集。
@@ -231,7 +231,7 @@ Azure HDInsight 工具可以安裝在 VSCode 支援的平台上，包括 Windows
 
    ![提交 Python 作業結果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 當您執行查詢時，提交狀態會顯示在底部狀態列的左邊。 當狀態為 [PySpark 核心 (忙碌)] 時，請勿提交其他查詢。 
 
->[!NOTE]
+>[!NOTE]  
 >叢集可以維護工作階段資訊。 已定義的變數、函式和對應值會保留在工作階段中，以便相同叢集的多個服務呼叫進行參考。 
 
 ### <a name="to-disable-environment-check"></a>停用環境檢查
@@ -406,9 +406,9 @@ HDInsight for VS Code 支援下列功能︰
 * [使用 Apache Zeppelin 在 Azure HDInsight 中執行 Apache Hive 查詢](./hdinsight-connect-hive-zeppelin.md)
 
 ### <a name="scenarios"></a>案例
-* [Apache Spark 與 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 和機器學習服務：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 和 BI：在 HDInsight 中搭配使用 Spark 和 BI 工具執行互動式資料分析](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark，利用 HVAC 資料來分析建築物溫度](spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 和 Machine Learning：使用 HDInsight 中的 Spark 來預測食品檢查結果](spark/apache-spark-machine-learning-mllib-ipython.md)
 * [在 HDInsight 中使用 Apache Spark 進行網站記錄分析](spark/apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-running-applications"></a>建立和執行應用程式

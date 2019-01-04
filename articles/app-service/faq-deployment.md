@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 833b655246035fa3eb9a820316a95b73eed5b2bd
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 07d233ba50f4253b4ea3097748b9c58142e08a91
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388297"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53549423"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 應用程式的部署常見問題集
 
@@ -36,7 +36,7 @@ ms.locfileid: "53388297"
 *   使用 Visual Studio 進行部署。 如果您有 Visual Studio 解決方案，以滑鼠右鍵按一下 Web 應用程式專案，然後選取 [發佈]。
 *   使用 FTP 用戶端進行部署。 在 Azure 入口網站中，下載您想要部署程式碼之 Web 應用程式的發行設定檔。 然後，使用相同的發行設定檔 FTP 認證將檔案上傳至 \site\wwwroot。
 
-如需詳細資訊，請參閱[將應用程式部署到 App Service](app-service-deploy-local-git.md)。
+如需詳細資訊，請參閱[將應用程式部署到 App Service](deploy-local-git.md)。
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>當我嘗試從 Visual Studio 部署時，我看到一則錯誤訊息。 如何解決這個問題？
 
@@ -51,7 +51,7 @@ ms.locfileid: "53388297"
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>不同類型的部署認證有哪些？
 
-App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署。 如需如何設定部署認證的詳細資訊，請參閱[設定 App Service 的部署認證](app-service-deployment-credentials.md)。
+App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署。 如需如何設定部署認證的詳細資訊，請參閱[設定 App Service 的部署認證](deploy-configure-credentials.md)。
 
 ## <a name="what-is-the-file-or-directory-structure-of-my-app-service-web-app"></a>我的 App Service Web 應用程式的檔案或目錄結構是什麼？
 
@@ -63,7 +63,7 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何為 App Service Web 應用程式設定持續部署？
 
-您可以從數個資源設定持續部署，包括 Azure DevOps、OneDrive、GitHub、Bitbucket、Dropbox 和其他 Git 存放庫。 這些選項可在入口網站中使用。 [持續部署至 App Service](app-service-continuous-deployment.md) 是很有幫助的教學課程，說明如何設定持續部署。
+您可以從數個資源設定持續部署，包括 Azure DevOps、OneDrive、GitHub、Bitbucket、Dropbox 和其他 Git 存放庫。 這些選項可在入口網站中使用。 [持續部署至 App Service](deploy-continuous-deployment.md) 是很有幫助的教學課程，說明如何設定持續部署。
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>如何針對從 GitHub 和 Bitbucket 持續部署的問題進行疑難排解？
 
@@ -100,4 +100,4 @@ App Service 支援兩種認證類型，用於本機 Git 部署和 FTP/S 部署�
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>如何使用 FTP 或 FTPS 將我的應用程式部署到 App Service？
 
-如需使用 FTP 或 FTPS 將 Web 應用程式部署到 App Service 的詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 App Service](app-service-deploy-ftp.md)。
+如需使用 FTP 或 FTPS 將 Web 應用程式部署到 App Service 的詳細資訊，請參閱[使用 FTP/S 將您的應用程式部署到 App Service](deploy-ftp.md)。

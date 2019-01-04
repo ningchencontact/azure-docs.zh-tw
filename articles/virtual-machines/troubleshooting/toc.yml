@@ -56,6 +56,12 @@ items:
   items:
   - name: SSH 疑難排解
     href: troubleshoot-ssh-connection.md
+  - name: 檔案系統錯誤系統錯誤
+    href: https://support.microsoft.com/help/3213321
+  - name: 核心相關開機問題疑難排解
+    href: https://support.microsoft.com/help/4091524
+  - name: fstab 錯誤疑難排解
+    href: https://support.microsoft.com/help/3206699
   - name: 詳細 SSH 疑難排解
     href: detailed-troubleshoot-ssh-connection.md
 - name: 常見的錯誤訊息
@@ -105,6 +111,8 @@ items:
   href: unexpected-reboots-attached-vhds.md
 - name: Windows 啟用問題
   href: troubleshoot-activation-problems.md
+- name: 啟用強制通道的問題
+  href: custom-routes-enable-kms-activation.md
 - name: 應用程式存取問題
   href: troubleshoot-app-connection.md
 - name: 新的 VM 部署
@@ -162,9 +170,9 @@ items:
   href: understand-vm-reboot.md
 - name: 遠端疑難排解工具
   href: remote-tools-troubleshoot-azure-vm-issues.md
-ms.openlocfilehash: af1f284108a326b3ce099ee49cb15a8f51cc61af
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: b745b9e42c700ea446d934df7d2e3201b555f075
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434847"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53976319"

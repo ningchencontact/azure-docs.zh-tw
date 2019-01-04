@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: cf315718377210e13a6634c0eaf8caab158bcc4d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342216"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580037"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解計量警示在 Azure 監視器中的運作方式
 
@@ -93,7 +93,7 @@ Azure 監視器中的計量警示也支援以一個規則監視多個維度值�
 
 ## <a name="supported-resource-types-for-metric-alerts"></a>計量警示支援的資源類型
 
-您可以在此[文章](../../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported)中找到所支援資源類型的完整清單。
+您可以在此[文章](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中找到所支援資源類型的完整清單。
 
 如果您目前使用傳統計量警示，並且正在查看計量警示是否支援您正在使用的所有資源類型，下表顯示了傳統計量警示支援的資源類型，以及它們現在是否受到計量警示的支援。
 

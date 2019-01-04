@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: d4a2daf10fd864f13982f4d327868ad62d1309b3
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 42958576a127fee5e0a275e53203edd4e4dee6f9
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321455"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53540247"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure 中 IaaS 工作負載的安全性最佳作法
 
@@ -137,7 +137,7 @@ Azure VM 就跟所有內部部署 VM 一樣，受控於使用者。 Azure 不會
 
 建議您使用 [Azure 監視器](../monitoring-and-diagnostics/monitoring-overview-metrics.md)來查看您的資源健康狀態。 Azure 監視器功能：
 
-- [資源診斷記錄檔](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)：監視 VM 資源，並找出可能影響效能和可用性的潛在問題。
+- [資源診斷記錄檔](../azure-monitor/platform/diagnostic-logs-overview.md)：監視 VM 資源，並找出可能影響效能和可用性的潛在問題。
 - [Azure 診斷延伸模組](../azure-monitor/platform/diagnostics-extension-overview.md)：在 Windows VM 上提供監視和診斷功能。 您可以將此擴充功能納入為 Azure Resource Manager [範本](../virtual-machines/windows/extensions-diagnostics-template.md)的一部分，藉以啟用這些功能。
 
 未監視 VM 效能的組織無法判斷效能模式中的特定變更為正常還是不正常。 若 VM 消耗的資源比平常還多，可能表示發生來自外部資源的攻擊，或是在此 VM 中執行的程序遭入侵。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 310a349aad4e6626033ca2f378e7c1b0ffa96560
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388261"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53584372"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>開始使用 Azure 監視器的角色、權限和安全性
 許多團隊需要嚴格規範對監視資料及設定的存取。 例如，如果您擁有專門從事監視 (技術支援工程師、devops 工程師) 的團隊成員，或如果您使用受控服務提供者，則您可能只要授與他們監視資料的存取權，同時限制他們建立、修改或刪除資源的能力。 本文說明如何在 Azure 中快速將內建的監視 RBAC 角色套用到使用者，或針對需要有限監視權限的使用者建置您自己的自訂角色。 接著會討論 Azure 監視器相關資源的安全性考量，以及如何限制對這些資源所包含的資料進行存取。
@@ -26,10 +26,10 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 
 * 在入口網站中檢視監視儀表板，並建立自己的私人監視儀表板。
 * 檢視 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)中定義的警示規則
-* 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](../../monitoring-and-diagnostics/insights-powershell-samples.md) 或[跨平台 CLI](../../azure-monitor/platform/cli-samples.md) 查詢度量。
+* 使用 [Azure 監視器 REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md) 或[跨平台 CLI](../../azure-monitor/platform/cli-samples.md) 查詢度量。
 * 使用入口網站、Azure 監視器 REST API、PowerShell Cmdlets 或跨平台 CLI 查詢活動記錄檔。
-* 檢視用於資源的 [診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) 。
-* 檢視用於訂用帳戶的 [記錄檔設定檔](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) 。
+* 檢視用於資源的 [診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) 。
+* 檢視用於訂用帳戶的 [記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) 。
 * 檢視自動調整設定。
 * 檢視警示活動和設定。
 * 存取 Application Insights 資料，並檢視 AI 分析中的資料。
@@ -49,8 +49,8 @@ Azure 監視器的內建角色是專為協助限制存取訂用帳戶中的資�
 受指派監視參與者角色的人員可以檢視訂用帳戶中所有的監視資料，並建立或修改監視設定，但無法修改任何其他資源。 此角色是監視讀取者角色的超集，且適用於組織的監視團隊成員或受控服務提供者，這些服務提供者除了上述的權限之外，也必須能夠︰
 
 * 將監視儀表板發佈為共用儀表板。
-* 設定用於資源的[診斷設定](../../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)。*
-* 設定用於訂用帳戶的[記錄檔設定檔](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile)。*
+* 設定用於資源的[診斷設定](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。*
+* 設定用於訂用帳戶的[記錄檔設定檔](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。*
 * 透過 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)設定警示規則活動和設定。
 * 建立 Application Insights web 測試和元件。
 * 列出 Log Analytics 工作區共用金鑰。

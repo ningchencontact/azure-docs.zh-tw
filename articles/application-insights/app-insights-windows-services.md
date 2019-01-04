@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 850ff2cfb02b5a968a40e0cd43b5c65d9d4e3490
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: b760780912642dac664f68c1f2b9d8d4ebf8cbde
+ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001732"
+ms.lasthandoff: 12/28/2018
+ms.locfileid: "53809891"
 ---
 # <a name="manually-configure-application-insights-for-net-applications"></a>為 .NET 應用程式手動設定 Application Insights
 
-您可以設定 [Application Insights](app-insights-overview.md) 以監視各種不同的應用程式或應用程式角色、元件或微服務。 對於 Web 應用程式和服務，Visual Studio 會提供[單步驟設定](app-insights-asp-net.md)。 對於其他類型的 .NET 應用程式 (例如後端伺服器角色或桌面應用程式)，您可以手動設定 Application Insights。
+您可以設定 [Application Insights](app-insights-overview.md) 以監視各種不同的應用程式或應用程式角色、元件或微服務。 對於 Web 應用程式和服務，Visual Studio 會提供[單步驟設定](../azure-monitor/app/asp-net.md)。 對於其他類型的 .NET 應用程式 (例如後端伺服器角色或桌面應用程式)，您可以手動設定 Application Insights。
 
 ![範例效能監視圖表](./media/app-insights-windows-services/10-perf.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "53001732"
 * 在程式碼中設定檢測金鑰，例如在 `main()`中： 
   
     `TelemetryConfiguration.Active.InstrumentationKey = "`您的金鑰 `";` 
-* [使用 API 撰寫自己的遙測](app-insights-api-custom-events-metrics.md#ikey)。
+* [使用 API 撰寫自己的遙測](../azure-monitor/app/api-custom-events-metrics.md#ikey)。
 
 **如果您安裝了其他 Application Insights 封裝** ，您可以視需要使用 .config 檔案來設定檢測金鑰︰
 
@@ -119,7 +119,7 @@ ms.locfileid: "53001732"
 
 ### <a name="no-data"></a>沒有資料？
 * 使用應用程式、開啟不同頁面，以產生一些遙測。
-* 開啟 [ [搜尋](app-insights-diagnostic-search.md) ] 磚來查看個別事件。 有時候，事件通過計量管線所需的時間較長。
+* 開啟 [ [搜尋](../azure-monitor/app/diagnostic-search.md) ] 磚來查看個別事件。 有時候，事件通過計量管線所需的時間較長。
 * 請稍等片刻，然後按一下 [重新整理 ]。 圖表會定期自行重新整理，但是如果您在等待一些要顯示的資料，您可以手動重新整理。
 * 請參閱 [疑難排解](app-insights-troubleshoot-faq.md)。
 
@@ -134,7 +134,7 @@ ms.locfileid: "53001732"
 請在您的伺服器防火牆中，開啟連出流量的連接埠。 請參閱[本頁](https://docs.microsoft.com/azure/application-insights/app-insights-ip-addresses)以取得必要位址清單 
 
 ### <a name="trouble-on-your-build-server"></a>組建伺服器發生問題？
-請參閱 [此疑難排解項目](app-insights-asp-net-troubleshoot-no-data.md#NuGetBuild)。
+請參閱 [此疑難排解項目](../azure-monitor/app/asp-net-troubleshoot-no-data.md#NuGetBuild)。
 
 > [!NOTE]
 > 如果您的應用程式會產生大量遙測，調適性取樣模型會自動藉由僅傳送事件代表性片段，減少傳送到入口網站的量。 不過，與同一個要求相關的事件會選取或取消選取為群組，讓您可以在相關事件之間瀏覽。 
@@ -147,5 +147,5 @@ ms.locfileid: "53001732"
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>後續步驟
-* [新增更多遙測](app-insights-asp-net-more.md) 可取得應用程式的完整 360 度檢視。
+* [新增更多遙測](../azure-monitor/app/asp-net-more.md) 可取得應用程式的完整 360 度檢視。
 

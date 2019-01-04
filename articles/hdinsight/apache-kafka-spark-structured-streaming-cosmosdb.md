@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: c35082d7aa1e9d669bc9c5b89948f190d3edd2f3
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014526"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53630155"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>搭配 Apache Kafka 和 Azure Cosmos DB 使用 Apache Spark 結構化串流
 
@@ -24,7 +24,7 @@ ms.locfileid: "53014526"
 
 Spark 結構化串流是建置在 Spark SQL 上的串流處理引擎。 它允許您進行與靜態資料批次計算相同的串流計算。 如需有關結構化串流的詳細資訊，請參閱 Apache.org 的[結構化串流程式設計手冊](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) \(英文\)。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此範例使用 HDInsight 3.6 上的 Spark 2.2。
 >
 > 本文件中的步驟建立 Azure 資源群組，其中包含 HDInsight 上的 Spark 和 HDInsight 叢集上的 Kafka。 這兩個叢集都位於 Azure 虛擬網路中，可讓 Spark 叢集直接與 Kafka 叢集通訊。
@@ -37,7 +37,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 ![Azure 虛擬網路中的 Spark 和 Kafka 叢集圖表](./media/hdinsight-apache-spark-with-kafka/spark-kafka-vnet.png)
 
-> [!NOTE]
+> [!NOTE]  
 > Kafka 服務僅限於虛擬網路內的通訊。 叢集上的其他服務 (例如 SSH 和 Ambari) 可以透過網際網路存取。 如需有關適用於 HDInsight 的公用連接埠詳細資訊，請參閱 [HDInsight 所使用的連接埠和 URI](hdinsight-hadoop-port-settings-for-services.md)。
 
 雖然您可以手動建立 Azure 虛擬網路、Kafka 和 Spark 叢集，但使用 Azure Resource Manager 範本更輕鬆。 使用下列步驟將 Azure 虛擬網路、Kafka 和 Spark 叢集部署到 Azure 訂用帳戶。
@@ -58,12 +58,12 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * Azure 虛擬網路，其中包含 HDInsight 叢集。
 
-        > [!NOTE]
+        > [!NOTE]  
         > 此範本建立的虛擬網路使用 10.0.0.0/16 位址空間。
 
     * Azure Cosmos DB SQL API 資料庫。
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 此範例中使用的結構化串流 Notebook 需要 HDInsight 3.6 上的 Spark。 如果您在 HDInsight 上使用較早版本的 Spark，當使用 Notebook 時會收到錯誤。
 
 2. 使用下列資訊來填入 [自訂部署] 區段上的項目︰
@@ -82,14 +82,14 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
     * **叢集版本**：HDInsight 叢集版本。
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > 此範例使用 HDInsight 3.6 進行測試，而且可能無法用於其他叢集類型。
 
     * **叢集登入使用者名稱**：Spark 和 Kafka 叢集的系統管理員使用者名稱。
 
     * **叢集登入密碼**：Spark 和 Kafka 叢集的系統管理員使用者密碼。
 
-    * **SSH 使用者名稱**：建立 Spark 和 Kafka 叢集的 SSH 使用者。
+    * **SSH 使用者名稱**：要為 Spark 和 Kafka 叢集建立的 SSH 使用者。
 
     * **SSH 密碼**：Spark 和 Kafka 叢集的 SSH 使用者密碼。
 
@@ -97,7 +97,7 @@ Apache Kafka on HDInsight 不提供透過公用網際網路存取 Kafka 訊息�
 
 4. 最後，選取 [購買]。 大約需要 20 分鐘的時間來建立叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 最多需要 45 分鐘才能建立叢集、虛擬網路與 Cosmos DB 帳戶。
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>建立 Cosmos DB 資料庫和集合
@@ -140,7 +140,7 @@ az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query p
 "YqPXw3RP7TsJoBF5imkYR0QNA02IrreNAlkrUMkL8EW94YHs41bktBhIgWq4pqj6HCGYijQKMRkCTsSaKUO2pw=="
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 儲存端點與索引鍵值，因為在 Jupyter Notebooks 中需要它們。
 
 ## <a name="get-the-apache-kafka-brokers"></a>取得 Apache Kafka 代理程式
@@ -158,7 +158,7 @@ $brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
 ($brokerHosts -join ":9092,") + ":9092"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > Bash 範例預期 `$CLUSTERNAME` 會包含 Kafka 叢集的名稱。
 >
 > 這個範例會使用 [jq](https://stedolan.github.io/jq/) 公用程式來剖析 JSON 文件中的資料。

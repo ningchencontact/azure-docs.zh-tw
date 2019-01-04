@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4b78675de2902736b90afa1df9ad66e2df2b0f77
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 8c63b97f9d4423bf57909da7716675915a5271ef
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386225"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994043"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>教學課程：了解如何呼叫認知搜尋 API (預覽)
 
@@ -59,7 +59,7 @@ Azure 搜尋服務的輸出是全文檢索的可搜尋索引。 您可以使用�
 
 1. 針對資源群組建立資源群組，以包含您在本教學課程中建立的所有資源。 這可讓您在完成教學課程後能夠更輕鬆地清除資源。
 
-1. 針對位置，請選擇其中一個[支援的區域](https://docs.microsoft.com/en-us/azure/search/cognitive-search-quickstart-blob#supported-regions)以進行認知搜尋。
+1. 針對位置，請選擇其中一個[支援的區域](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions)以進行認知搜尋。
 
 1. 針對 [定價層]，您可以建立 [免費] 服務以完成教學課程和快速入門。 若要使用您自己的資料進行深入調查，請建立[付費服務](https://azure.microsoft.com/pricing/details/search/)，例如**基本**或**標準**。 
 

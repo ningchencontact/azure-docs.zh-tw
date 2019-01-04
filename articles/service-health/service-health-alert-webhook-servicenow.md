@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: shtabriz
-ms.openlocfilehash: 6dc66e551c1bce94b473a356cf4648e5c2353a2b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3f8e0e94cf3b63b3ea409b46cb9eec3d5d97eb6f
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271295"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580316"
 ---
 # <a name="configure-service-health-alerts-with-servicenow"></a>使用 ServiceNow 設定服務健康情況警示
 
@@ -49,7 +49,7 @@ ms.locfileid: "53271295"
 1.  在 [指令碼] 區段中，加入下列 JavaScript 程式碼：
 
     >[!NOTE]
-    >您需要在下面的指令碼中更新 `<secret>`、`<group>`和 `<email>` 的值。
+    >您需要在下列指令碼中更新 `<secret>`、`<group>`和 `<email>` 的值。
     >* `<secret>` 應是隨機字串，就像 GUID
     >* `<group>` 應是您想要對其指派事件的 ServiceNow 群組
     >* `<email>` 應是您想要對其指派事件的人員 (選用)
@@ -202,5 +202,5 @@ ms.locfileid: "53271295"
 ## <a name="next-steps"></a>後續步驟
 - 了解如何[設定現有問題管理系統的 Webhook 通知](service-health-alert-webhook-guide.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](../azure-monitor/platform/activity-log-alerts-webhook.md)。 
-- 深入了解[服務健康狀態通知](../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../azure-monitor/platform/service-notifications.md)。
 - 深入了解[動作群組](../azure-monitor/platform/action-groups.md)。

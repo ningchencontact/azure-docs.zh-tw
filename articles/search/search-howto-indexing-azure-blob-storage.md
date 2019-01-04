@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: c73a802cd67c9ecb94482cfcd6aac51fc8bbc19e
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d90a4272f843cc9f2b66aa202ddefe54e7b1a361
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317469"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53632156"
 ---
 # <a name="indexing-documents-in-azure-blob-storage-with-azure-search"></a>使用 Azure 搜尋服務在 Azure Blob 儲存體中對文件編制索引
 本文說明如何使用 Azure 搜尋服務對儲存在 Azure Blob 儲存體的文件編製索引 (例如 PDF、Microsoft Office 文件和數種其他通用格式)。 首先，它會說明安裝和設定 blob 索引子的基本概念。 然後，它會提供可能會發生之行為和案例的更深入探索。
@@ -334,7 +334,7 @@ Azure 搜尋服務會限制編列索引的 Blob 大小。 這些限制記載於 
 
 您可能會想在索引中「組合」來自多個來源的文件。 例如，您可能會想要將來自 Blob 的文字與儲存在 Cosmos DB 中的其他中繼資料合併。 您甚至可以搭配各種索引子使用推送編製索引 API，以建立來自多個部分的搜尋文件。 
 
-若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：[結合文件與 Azure 搜尋服務中的其他資料](http://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) \(英文\)。
+若要達成此目的，所有索引子和其他元件都需要在文件索引鍵上達成協議。 如需詳細的逐步解說，請參閱這篇外部文章：[結合文件與 Azure 搜尋服務中的其他資料](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html) \(英文\)。
 
 <a name="IndexingPlainText"></a>
 ## <a name="indexing-plain-text"></a>編制純文字的索引 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/11/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5ef9c15d4edf62ef63b16765f16971a9be5ca58b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e2497233ec97ffc88bf13797f62d601d4da373a1
+ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970700"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53628488"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>使用 Azure Key Vault 中客戶管理的金鑰進行儲存體服務加密
 
@@ -32,6 +32,8 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 
 若要搭配 SSE 使用客戶管理的金鑰，您可以建立新的金鑰保存庫與金鑰，或是使用現有金鑰保存庫與金鑰。 儲存體帳戶與金鑰保存庫必須位於相同區域，但可位於不同的訂用帳戶中。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ### <a name="step-1-create-a-storage-account"></a>步驟 1：建立儲存體帳戶
 
 如果您還沒有儲存體帳戶，請先建立一個帳戶。 如需詳細資訊，請參閱[建立儲存體帳戶](storage-quickstart-create-account.md)。
@@ -45,7 +47,7 @@ Microsoft Azure 承諾協助您保護資料安全，以符合組織安全性和�
 若是搭配 SSE 使用客戶管理的金鑰，您必須為儲存體帳戶指派一個儲存體帳戶身分識別。 您可以執行下列 PowerShell 或 Azure CLI 命令來設定身分識別：
 
 ```powershell
-Set-AzureRmStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName \$resourceGroup -Name \$accountName -AssignIdentity
 ```
 
 ```azurecli-interactive
@@ -58,18 +60,18 @@ az storage account \
 您可以執行下列 PowerShell 或 Azure CLI 命令來啟用「虛刪除」和「不要清除」：
 
 ```powershell
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enableSoftDelete -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 
-($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName
+($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName
 $vaultName).ResourceId).Properties | Add-Member -MemberType NoteProperty -Name
 enablePurgeProtection -Value 'True'
 
-Set-AzureRmResource -resourceid $resource.ResourceId -Properties
+Set-AzResource -resourceid $resource.ResourceId -Properties
 $resource.Properties
 ```
 
@@ -121,11 +123,11 @@ SSE 預設會使用 Microsoft 管理的金鑰。 您可以使用 [Azure 入口�
 您可以使用下列 PowerShell 命令，讓上述索引鍵與現有儲存體帳戶產生關聯：
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
-$keyVault = Get-AzureRmKeyVault -VaultName "mykeyvault"
+$storageAccount = Get-AzStorageAccount -ResourceGroupName "myresourcegroup" -AccountName "mystorageaccount"
+$keyVault = Get-AzKeyVault -VaultName "mykeyvault"
 $key = Get-AzureKeyVaultKey -VaultName $keyVault.VaultName -Name "keytoencrypt"
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
-Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
+Set-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName -ObjectId $storageAccount.Identity.PrincipalId -PermissionsToKeys wrapkey,unwrapkey,get
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -AccountName $storageAccount.StorageAccountName -KeyvaultEncryption -KeyName $key.Name -KeyVersion $key.Version -KeyVaultUri $keyVault.VaultUri
 ```
 
 ### <a name="step-5-copy-data-to-storage-account"></a>步驟 5：將資料複製到儲存體帳戶
@@ -154,13 +156,13 @@ Set-AzureRmStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName -
 Azure 磁碟加密提供 OS 型解決方案 (例如 BitLocker 及 Dm-crypt) 與 Azure KeyVault 之間的整合。 儲存體服務加密可在虛擬機器下的 Azure 儲存體平台層提供原生加密。
 
 **是否可以撤銷加密金鑰的存取權？**
-是，您可以隨時撤銷存取權。 有幾種方法可以撤銷對金鑰的存取權。 如需詳細資訊，請參閱 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) \(英文\) 與 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) \(英文\)。 撤銷存取權將有效封鎖對儲存體帳戶中所有 Blob 的存取，因為「Azure 儲存體」無法存取帳戶加密金鑰。
+是，您可以隨時撤銷存取權。 有幾種方法可以撤銷對金鑰的存取權。 如需詳細資訊，請參閱 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault/) \(英文\) 與 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault) \(英文\)。 撤銷存取權將有效封鎖對儲存體帳戶中所有 Blob 的存取，因為「Azure 儲存體」無法存取帳戶加密金鑰。
 
 **是否可以在不同的區域建立儲存體帳戶和金鑰？**  
 否，儲存體帳戶與 Azure Key Vault 及金鑰必須位於相同區域中。
 
 **建立儲存體帳戶時，是否可以針對 SSE 啟用客戶管理的金鑰？**  
-否。 當您第一次建立儲存體帳戶時，只有 Microsoft 管理的金鑰可供 SSE 使用。 若要使用客戶管理的金鑰，您必須更新儲存體帳戶屬性。 您可以使用 REST 或其中一個儲存體用戶端程式庫來以程式設計方式更新儲存體帳戶，或在建立帳戶之後使用 Azure 入口網站更新儲存體帳戶屬性。
+沒有。 當您第一次建立儲存體帳戶時，只有 Microsoft 管理的金鑰可供 SSE 使用。 若要使用客戶管理的金鑰，您必須更新儲存體帳戶屬性。 您可以使用 REST 或其中一個儲存體用戶端程式庫來以程式設計方式更新儲存體帳戶，或在建立帳戶之後使用 Azure 入口網站更新儲存體帳戶屬性。
 
 **搭配 SSE 使用客戶管理的金鑰時，是否可以停用加密？**  
 否，您無法停用加密。 針對 Azure Blob 儲存體、Azure 檔案服務、Azure 佇列及 Azure 資料表儲存體，預設都會啟用加密。 您可以視需要從使用 Microsoft 管理的金鑰切換成使用客戶管理的金鑰，反之亦然。

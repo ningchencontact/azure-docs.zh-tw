@@ -2,18 +2,19 @@
 title: 計算作業和節點狀態的數目 - Azure Batch | Microsoft Docs
 description: 計算 Azure Batch 作業和計算節點狀態的數目，以利管理及監視 Batch 解決方案。
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: danlep
-ms.openlocfilehash: 5c65ee3ecc851b289c32a480ecad8f2df3aaad95
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.author: lahugh
+ms.custom: seodec18
+ms.openlocfilehash: c51fc9fd3faa1e3bd2210b5105339434ebe3235f
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913881"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53546481"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>依狀態計算作業和節點數目以監視 Batch 解決方案
 

@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: b9321241f174a97976b2f150a9bd6c3547f0dc20
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 45ee4a5310df699e37258996e654c87c88081266
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253149"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605138"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>在 Azure 中建立第一個 Java Web 應用程式
 
-[Azure Web Apps](app-service-web-overview.md) 提供可高度擴充、自我修復的 Web 主機服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
+[Azure App Service](overview.md) 可提供可高度擴充、自我修復的 Web 主控服務。 本快速入門示範如何使用 [Eclipse IDE for Java EE Developers](https://www.eclipse.org/) 將 Java Web 應用程式部署到 App Service。
 
 > [!NOTE]
 >

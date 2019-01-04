@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 2b3e8877713fde088be2147bbfa8969e351a3f06
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: aacfc98a9132a59c90a8f67d5a3877b75fa59dfe
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53325392"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605580"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure 監視器中的自訂計量
 
@@ -25,7 +25,7 @@ ms.locfileid: "53325392"
 - 使用 Application Insights SDK 檢測您的應用程式，並將自訂遙測傳送至 Azure 監視器。 
 - 將 Windows Azure 診斷 (WAD) 擴充功能安裝在 [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md)、[虛擬機器擴展集](collect-custom-metrics-guestos-resource-manager-vmss.md)、[傳統 VM](collect-custom-metrics-guestos-vm-classic.md) 或[傳統雲端服務](collect-custom-metrics-guestos-vm-cloud-service-classic.md)，並將效能計數器傳送至 Azure 監視器。 
 - 將 [InfluxData Telegraf 代理程式](collect-custom-metrics-linux-telegraf.md)安裝在 Azure Linux VM，並使用 Azure 監視器輸出外掛程式傳送計量。
-- 將自訂計量[直接傳送至 Azure 監視器 REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)，也就是 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`。
+- 將自訂計量[直接傳送至 Azure 監視器 REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)，也就是 `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`。
 
 當您將自訂計量傳送至 Azure 監視器時，報告的每個資料點或值都必須包含下列資訊。
 
@@ -193,6 +193,6 @@ Azure 監視器會對自訂計量加諸下列使用量限制：
  - [虛擬機器擴展集](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure 虛擬機器 (傳統)](collect-custom-metrics-guestos-vm-classic.md)
  - [使用 Telegraf 代理程式的 Linux 虛擬機器](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../monitoring-and-diagnostics/metrics-store-custom-rest-api.md)
+ - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
  - [傳統雲端服務](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  

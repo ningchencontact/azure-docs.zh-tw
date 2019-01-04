@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: magoedte
-ms.openlocfilehash: 8c601bdd7fbba536aa5b8a4d1965f4ef2bb906f9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 684fa85749bc131b21ef12070055841ff7d3d169
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187839"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726212"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Application Insights Connector 管理解決方案 (預覽)
 
@@ -161,8 +161,8 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 - 可用性
 - 例外狀況
 - Requests
-- 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../../application-insights/app-insights-api-custom-events-metrics.md#page-views)。
-- 自訂事件 – 為了讓工作區接收訂事件，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [TrackEvent](../../application-insights/app-insights-api-custom-events-metrics.md#trackevent)。
+- 頁面檢視 – 為了讓工作區接收頁面檢視，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [PageViews](../../azure-monitor/app/api-custom-events-metrics.md#page-views)。
+- 自訂事件 – 為了讓工作區接收訂事件，您必須設定您的應用程式來收集該資訊。 如需詳細資訊，請參閱 [TrackEvent](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)。
 
 資料可用時，是由 Log Analytics 從 Application Insights 接收。
 

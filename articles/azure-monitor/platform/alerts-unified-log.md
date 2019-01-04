@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 6a1b9c110c79e428ab0cc182d0da370e59bc4f30
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: b3949fefac1cc230a98687b3b5ff9c7a01c6a0e9
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386208"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789570"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure 監視器中的記錄警示
 此文章提供記錄警示的詳細資料，記錄警示是 [Azure 警示](../../azure-monitor/platform/alerts-overview.md) 內所支援的其中一種警示類型，可讓使用者使用 Azure 的分析平台來作為基礎警示。
 
-記錄警示包含針對 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 所建立的記錄搜尋規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](../../azure-monitor/platform/alerts-log.md)
+記錄警示包含針對 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 或 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events) 所建立的記錄搜尋規則。 若要深入了解其使用方式，請參閱[在 Azure 中建立記錄警示](../../azure-monitor/platform/alerts-log.md)
 
 > [!NOTE]
 > [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 中常用的記錄資料現在也會提供在 Azure 監視器的計量平台上。 如需詳細資料檢視，請參閱[記錄的計量警示](../../azure-monitor/platform/alerts-metric-logs.md)
@@ -38,7 +38,7 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 - **頻率**。  指定應執行查詢的頻率。 可以是介於 5 分鐘與 24 小時之間的任何值。 應等於或小於此時間週期。  如果值大於時間週期，則您可能有遺漏記錄的風險。<br>*例如，請考慮 30 分鐘的時間週期，以及 60 分鐘的頻率。如果在 1:00 執行查詢，它會傳回 12:30 到下午 1:00 之間的記錄。下一次執行查詢就是 2:00 時，它會傳回 1:30 至 2:00 之間的記錄。1:00 和 1:30 之間建立的任何記錄一律不會評估。*
 - **閾值**。  系統會評估記錄搜尋的結果，以判斷是否應該建立警示。  不同類型的記錄搜尋警示規則會有不同的閾值。
 
-不論是 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 還是 [Application Insights](../../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events) 的記錄搜尋規則都可以屬於兩個類型。 下列各節會詳細說明這兩個類型。
+不論是 [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) 還是 [Application Insights](../../azure-monitor/app/cloudservices.md#view-azure-diagnostic-events) 的記錄搜尋規則都可以屬於兩個類型。 下列各節會詳細說明這兩個類型。
 
 - **[結果數目](#number-of-results-alert-rules)**。 當記錄搜尋所傳回的數目記錄超過指定數目時，系統會建立單一警示。
 - **[計量測量](#metric-measurement-alert-rules)**。  針對記錄搜尋結果中的每個物件，若其值超過指定的閾值，系統就會為其建立警示。
@@ -121,5 +121,5 @@ Azure 警示會建立記錄搜尋規則，以自動定期執行指定的記錄�
 * 了解[在 Azure 警示中的記錄警示中建立](../../azure-monitor/platform/alerts-log.md)。
 * 了解 [Azure 中記錄警示中的 Webhook](alerts-log-webhook.md)。
 * 了解 [Azure 警示](../../azure-monitor/platform/alerts-overview.md)。
-* 深入了解 [Application Insights](../../application-insights/app-insights-analytics.md)。
+* 深入了解 [Application Insights](../../azure-monitor/app/analytics.md)。
 * 深入了解 [Log Analytics](../../azure-monitor/log-query/log-query-overview.md)。    

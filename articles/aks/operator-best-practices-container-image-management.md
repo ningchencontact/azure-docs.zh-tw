@@ -7,16 +7,14 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
-ms.openlocfilehash: 20d3d3d755a35927550064ddfdf3b983348f93d3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53110652"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53605546"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Services (AKS) 中的容器映像管理與安全性最佳做法
-
-當您在 Azure Kubernetes Service (AKS) 中開發和執行應用程式時，容器安全性是主要考量。 包含過期基底映像或應用程式執行階段的容器，易招致安全性風險和可能的攻擊媒介。 若要讓這些風險降至最低，您應該整合可掃描和修復容器中問題的工具。
 
 當您在 Azure Kubernetes Service (AKS) 中開發和執行應用程式時，容器與容器映像的安全性是主要考量。 包含過期基底映像或未修補的應用程式執行階段的容器，易招致安全性風險和可能的攻擊媒介。 若要讓這些風險降至最低，您應該整合可在建置時和在執行階段掃描和修復容器中問題的工具。 越早發現流程中的弱點或過期的基底映像，叢集就越安全。 在本文中，「容器」表示容器登錄中儲存的容器映像與執行中的容器。
 

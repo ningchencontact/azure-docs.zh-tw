@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: b6ec48085d5dd2ea31543e208e8d32b954cb0bca
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: fec87bf3af7f215b69a891c2d75cdd979a7b5a52
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872831"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53789206"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 建立 Apache Hadoop 叢集
 
@@ -24,10 +24,10 @@ ms.locfileid: "52872831"
 
 Azure REST API 可讓您對裝載於 Azure 平台的服務執行管理作業，包括建立新的資源，例如 HDInsight 叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
-> [!NOTE]
+> [!NOTE]  
 > 本文件的步驟是使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 公用程式來與 Azure REST API 進行通訊。
 
 ## <a name="create-a-template"></a>建立範本
@@ -211,7 +211,7 @@ Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例
 
 本文件中的步驟引用此範例。 使用您叢集的值來取代 **Parameters** 區段中的範例值。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本範本使用 HDInsight 叢集的背景工作節點預設數目 (4)。 如果您規劃 32 個以上的背景工作節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。
 >
 > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -222,7 +222,7 @@ Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例
 
 ## <a name="create-a-service-principal"></a>建立服務主體
 
-> [!NOTE]
+> [!NOTE]  
 > 以下步驟是[使用 Azure CLI 建立用來存取資源的服務主體](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)文件中*使用密碼建立服務主體*一節的簡易版。 這些步驟會建立用來驗證 Azure REST API 的服務主體。
 
 1. 從命令列中，使用下列命令列出您的 Azure 訂用帳戶。
@@ -241,7 +241,7 @@ Azure Resource Manager 範本是描述**資源群組**與其中所有資源 (例
 
     將 `--display-name`、`--homepage`、`--identifier-uris` 的值取代為您自己的值。 為新的 Active Directory 項目提供密碼。
 
-   > [!NOTE]
+   > [!NOTE]  
    > `--home-page` 和 `--identifier-uris` 值不需參考裝載於網際網路上的實際網頁。 它們必須是唯一的 URI。
 
    此命令傳回的值是新應用程式的 __App ID__。 儲存這個值。
@@ -323,14 +323,14 @@ curl -X "PUT" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 -d "{set your body string to the template and parameters}"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 如果您已將範本儲存到檔案，則可使用下列命令，而不是 `-d "{ template and parameters}"`：
 >
 > `--data-binary "@/path/to/file.json"`
 
 如果這個要求成功，您會收到 200 系列的回應，且回應主體會包含 JSON 文件，內含部署作業的相關資訊。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 部署已送出，但尚未完成。 部署通常需要大約 15 分鐘才會完成。
 
 ## <a name="check-the-status-of-a-deployment"></a>檢查部署的狀態
@@ -347,7 +347,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -357,7 +357,7 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 * [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 80f7d93037c0b900608301ebf6463f85be10f2de
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 84d8d3838740ec5d448b14b5c4539f7d78c96b5e
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311315"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714350"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 開發人員開始使用指南
 
@@ -56,7 +56,7 @@ Azure 提供可支援應用程式開發和裝載需求的服務。 Azure 提供�
 
 您可以建立 Web 應用程式、行動應用程式後端和 API 應用程式。
 
-因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/app-service-web-overview.md)。
+因為所有三種應用程式類型都共用 App Service 執行階段，所以您可以架設網站、支援行動用戶端，並在 Azure 中公開 API，而全部都是來自相同的專案或解決方案。 若要深入了解 App Service，請參閱[什麼是 Azure Web Apps](../../app-service/overview.md)。
 
 請注意，已使用 DevOps 設計 App Service。 它支援各種用於發佈和持續整合部署的工具，包括 GitHub Webhook、Jenkins、Azure DevOps、TeamCity 等。
 
@@ -168,7 +168,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
     >**使用時機**：當您想要使用 Azure AD 和 (或) 社交識別提供者在 App Service 應用程式中啟用驗證時。
 
-    >**開始使用**：若要深入了解 App Service 中的驗證，請參閱 [Azure App Service 中的驗證和授權](../../app-service/app-service-authentication-overview.md)。
+    >**開始使用**：若要深入了解 App Service 中的驗證，請參閱 [Azure App Service 中的驗證和授權](../../app-service/overview-authentication-authorization.md)。
 
 若要深入了解 Azure 中的安全性最佳做法，請參閱 [Azure 安全性最佳做法與模式](../../security/security-best-practices-and-patterns.md)。
 
@@ -190,7 +190,7 @@ Azure 提供數種方式，以在應用程式中使用容器。
 
 >**立即試用：**[試用數個 DevOps 整合](https://azure.microsoft.com/try/devops/)。
 
->**開始使用**：若要查看 App Service 應用程式的 DevOps 選項，請參閱[持續部署至 Azure App Service](../../app-service/app-service-continuous-deployment.md)。
+>**開始使用**：若要查看 App Service 應用程式的 DevOps 選項，請參閱[持續部署至 Azure App Service](../../app-service/deploy-continuous-deployment.md)。
 
 
 ## <a name="azure-regions"></a>Azure 區域

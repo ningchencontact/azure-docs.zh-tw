@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: de501b79107aafa61c489db607c37d086a5f4ed4
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 87bdfcc827155e5dd0a02ffb1640bf7e9cd4e479
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408012"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715778"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service 中行動裝置應用程式的驗證和授權
 
@@ -26,7 +26,7 @@ ms.locfileid: "53408012"
 
 本文著重於行動裝置應用程式開發。 如果想要為您的行動裝置應用程式快速開始使用 App Service 驗證和授權，請參閱下列其中一個教學課程：[將驗證新增至您的 iOS 應用程式][iOS] (或 [Android]、[Windows]、[Xamarin.iOS]、[Xamarin.Android]、[Xamarin.Forms] 或 [Cordova])。 
 
-如需 App Service 中驗證和授權運作方式的詳細資訊，請參閱 [Azure App Service 中的驗證和授權](../app-service/app-service-authentication-overview.md)。
+如需 App Service 中驗證和授權運作方式的詳細資訊，請參閱 [Azure App Service 中的驗證和授權](../app-service/overview-authentication-authorization.md)。
 
 ## <a name="authentication-with-provider-sdk"></a>使用提供者 SDK 的驗證
 
@@ -44,7 +44,7 @@ ms.locfileid: "53408012"
 
 取得提供者權杖之後，必須傳送給 App Service 進行驗證。 當 App Service 驗證權杖之後，App Service 會建立新的 App Service 權杖來傳回給用戶端。 Mobile Apps 用戶端 SDK 提供 Helper 方法來管理此交換，並自動將權杖附加至應用程式後端的所有要求。 開發人員也可以持續參考提供者權杖。
 
-如需驗證流程的詳細資訊，請參閱 [App Service 驗證流程](../app-service/app-service-authentication-overview.md#authentication-flow)。 
+如需驗證流程的詳細資訊，請參閱 [App Service 驗證流程](../app-service/overview-authentication-authorization.md#authentication-flow)。 
 
 ## <a name="authentication-without-provider-sdk"></a>不使用提供者 SDK 的驗證
 
@@ -52,10 +52,10 @@ ms.locfileid: "53408012"
 
 每個平台的驗證教學課程都包含啟動此流程的程式碼。 在流程結束時，用戶端 SDK 會擁有 App Service 權杖，而該權杖會自動附加至對應用程式後端的所有要求。
 
-如需驗證流程的詳細資訊，請參閱 [App Service 驗證流程](../app-service/app-service-authentication-overview.md#authentication-flow)。 
+如需驗證流程的詳細資訊，請參閱 [App Service 驗證流程](../app-service/overview-authentication-authorization.md#authentication-flow)。 
 ## <a name="more-resources"></a>其他資源
 
-下列教學課程示範如何使用[伺服器導向流程](../app-service/app-service-authentication-overview.md#authentication-flow)，將驗證新增至您的行動用戶端︰
+下列教學課程示範如何使用[伺服器導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，將驗證新增至您的行動用戶端︰
 
 * [將驗證新增至您的 iOS 應用程式][iOS]
 * [將驗證新增至 Android 應用程式][Android]
@@ -65,21 +65,21 @@ ms.locfileid: "53408012"
 * [將驗證新增至 Xamarin.Forms 應用程式][Xamarin.Forms]
 * [將驗證新增至您的 Cordova 應用程式][Cordova]
 
-如果您想要使用適用於 Azure Active Directory 的[用戶端導向流程](../app-service/app-service-authentication-overview.md#authentication-flow)，請使用下列資源︰
+如果您想要使用適用於 Azure Active Directory 的[用戶端導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，請使用下列資源︰
 
 * [使用 Active Directory Authentication Library for iOS][ADAL-iOS]
 * [使用 Active Directory Authentication Library for Android][ADAL-Android]
 * [使用 Active Directory Authentication Library for Windows 和 Xamarin][ADAL-dotnet]
 
-如果您想要使用適用於 Facebook 的[用戶端導向流程](../app-service/app-service-authentication-overview.md#authentication-flow)，請使用下列資源︰
+如果您想要使用適用於 Facebook 的[用戶端導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，請使用下列資源︰
 
 * [使用 Facebook SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
-如果您想要使用適用於 Twitter 的[用戶端導向流程](../app-service/app-service-authentication-overview.md#authentication-flow)，請使用下列資源︰
+如果您想要使用適用於 Twitter 的[用戶端導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，請使用下列資源︰
 
 * [使用 Twitter Fabric for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-如果您想要使用適用於 Google 的[用戶端導向流程](../app-service/app-service-authentication-overview.md#authentication-flow)，請使用下列資源︰
+如果您想要使用適用於 Google 的[用戶端導向流程](../app-service/overview-authentication-authorization.md#authentication-flow)，請使用下列資源︰
 
 * [使用 Google Sign-In SDK for iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

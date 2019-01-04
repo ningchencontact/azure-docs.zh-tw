@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: f82ac972e54dac6df5a913a8059417b701e2f7e0
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: c9b1f3570ae3f9b945c87c2ce316c3f72e32b4ad
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191575"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53792045"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>使用 Azure 傳統 CLI 建立 HDInsight 叢集
 
@@ -70,7 +70,7 @@ ms.locfileid: "53191575"
 
     * 以儲存體帳戶的唯一名稱取代 `storagename`。
 
-        > [!NOTE]
+        > [!NOTE]  
         > 如需有關此命令中所使用參數的詳細資訊，請使用 `azure storage account create -h` 來檢視此命令的說明。
 
 5. 擷取用來存取儲存體帳戶的金鑰。
@@ -90,7 +90,7 @@ ms.locfileid: "53191575"
 
     * 將 `Hadoop` 取代為您想要建立的叢集類型。 例如，`Hadoop`、`HBase`、`Kafka`、`Spark` 或 `Storm`。
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > HDInsight 叢集有各種不同類型，這些類型各自對應到叢集微調時所針對的工作負載或技術。 沒有任何支援方法可建立結合多個類型的叢集，例如在一個叢集上並存 Storm 和 HBase。
 
     * 以與前述步驟中使用的相同位置取代 `location`。
@@ -105,7 +105,7 @@ ms.locfileid: "53191575"
 
     * 以當您使用 SSH 存取叢集時所要使用的使用者名稱和密碼取代 `sshuser` 和 `sshuserpassword`。
 
-      > [!IMPORTANT]
+      > [!IMPORTANT]  
       > 此範例使用兩個背景工作角色節點建立叢集。 您也可以在叢集建立後執行調整規模作業，以變更背景工作角色節點數。 如果您規劃使用 32 個以上的背景工作角色節點，則必須選取具有至少 8 個核心和 14 GB RAM 的前端節點大小。 建立叢集期間，您可以使用 `--headNodeSize` 參數來設定前端節點大小。
       >
       > 如需節點大小和相關成本的詳細資訊，請參閱 [HDInsight 定價](https://azure.microsoft.com/pricing/details/hdinsight/)。
@@ -114,7 +114,7 @@ ms.locfileid: "53191575"
 
 ## <a name="troubleshoot"></a>疑難排解
 
-如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-administer-use-portal-linux.md#create-clusters)。
+如果您在建立 HDInsight 叢集時遇到問題，請參閱[存取控制需求](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="next-steps"></a>後續步驟
 
@@ -124,7 +124,7 @@ ms.locfileid: "53191575"
 
 * [搭配 HDInsight 使用 Apache Hive](hadoop/hdinsight-use-hive.md)
 * [搭配 HDInsight 使用 Apache Pig](hadoop/hdinsight-use-pig.md)
-* [搭配 HDInsight 使用 Apache Hadoop MapReduce](hadoop/hdinsight-use-mapreduce.md)
+* [〈搭配 HDInsight 使用 MapReduce〉](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 叢集
 

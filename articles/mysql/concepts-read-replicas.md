@@ -1,19 +1,17 @@
 ---
 title: 「適用於 MySQL 的 Azure 資料庫」中的讀取複本。
 description: 此文將說明「適用於 MySQL 的 Azure 資料庫」的讀取複本。
-services: mysql
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 82f80fc1342f0c76cb880b020dcd835a23635b0a
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1c05203de694cde882277bf269f3ff87438f9f26
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51632555"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53547723"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>讀取「適用於 MySQL 的 Azure 資料庫」中的複本
 

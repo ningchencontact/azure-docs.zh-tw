@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3a0b92e2c2a588fa8ef7edcddaa8c692780814f0
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 471bb1b3fb17adc9e06dba591663ee20dd9d8baf
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53388238"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53721558"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure Web 應用程式的應用程式效能常見問題集
 
@@ -163,7 +163,7 @@ ms.locfileid: "53388238"
 
 Azure Load Balancer 有預設四分鐘的閒置逾時設定。 這通常對於 Web 要求是合理的回應時間限制。 如果您的 Web 應用程式需要幕後處理，我們建議您使用 Azure WebJobs。 Azure Web 應用程式可以呼叫 WebJobs，並且在幕後處理完成時收到通知。 您可以從使用 WebJobs 的多個方法中選擇，包括佇列和觸發程序。
 
-WebJobs 是設計用來進行幕後處理。 您可以在 WebJob 中進行您想要的任意數量幕後處理。 如需 WebJobs 的詳細資訊，請參閱[使用 WebJobs 執行背景工作](web-sites-create-web-jobs.md)。
+WebJobs 是設計用來進行幕後處理。 您可以在 WebJob 中進行您想要的任意數量幕後處理。 如需 WebJobs 的詳細資訊，請參閱[使用 WebJobs 執行背景工作](webjobs-create.md)。
 
 ## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>裝載於 App Service 中的 ASP.NET Core 應用程式有時候會停止回應。 如何修正此問題？
 

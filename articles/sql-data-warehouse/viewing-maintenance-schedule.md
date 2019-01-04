@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 11/27/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 3c683d5819ded4eb3d286969b8c3fc3f0bd42865
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 6e4a4c01ee73bab3cb4e66a06c0ba0655e3066a0
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497504"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993241"
 ---
 # <a name="view-a-maintenance-schedule"></a>檢視維護排程 
 
@@ -34,7 +34,7 @@ ms.locfileid: "52497504"
 ## <a name="next-steps"></a>後續步驟
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-usage)如何使用 Azure 監視器來建立、檢視和管理警示。
 - [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)適用於記錄警示規則的 Webhook 動作。
-- [深入了解](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-action-groups)如何建立及管理動作群組。
+- [深入了解](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)如何建立及管理動作群組。
 - [深入了解](https://docs.microsoft.com/azure/service-health/service-health-overview) Azure 服務健康狀態。
 
 

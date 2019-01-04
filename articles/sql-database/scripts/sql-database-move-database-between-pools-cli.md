@@ -3,21 +3,21 @@ title: CLI 範例 - 移動 Azure SQL Database - SQL 彈性集區 | Microsoft Doc
 description: 移動 SQL 彈性集區中 SQL 資料庫的 Azure CLI 範例指令碼
 services: sql-database
 ms.service: sql-database
-ms.subservice: data-movement
+ms.subservice: elastic-pools
 ms.custom: ''
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 19c2b995ec1543c939495306dfaa21e1118bf6c0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 0d532f976304e164732be5184ff132421e13c6b4
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054008"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53649884"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 移動 SQL 彈性集區中的 Azure SQL Database
 

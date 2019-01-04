@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: aba3d9f33d179c09708464975fa2a929a8bb68d0
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: da676b5d1cb3c25adc72d04882915ee0440c2d98
+ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52876514"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "54002326"
 ---
 # <a name="monitor-azure-functions"></a>監視 Azure Functions
 
@@ -28,7 +28,7 @@ Functions 也有[未使用 Application Insights 的內建監視](#monitoring-wit
 
 ## <a name="application-insights-pricing-and-limits"></a>Application Insights 定價和限制
 
-您可以免費嘗試 Azure Application Insights 與 Function Apps 整合。 不過，還有可以免費處理多少資料的每日限制，而且您可能會在測試期間達到該限制。 當您趨近每日限制時，Azure 會提供入口網站及電子郵件通知。  但是，如果您錯過這些警示並達到該限制，Application Insights 查詢中就不會出現新記錄。 因此請留意限制，以避免不必要的疑難排解時間。 如需詳細資訊，請參閱[管理 Application Insights 中的價格和資料磁碟區](../application-insights/app-insights-pricing.md)。
+您可以免費嘗試 Azure Application Insights 與 Function Apps 整合。 不過，還有可以免費處理多少資料的每日限制，而且您可能會在測試期間達到該限制。 當您趨近每日限制時，Azure 會提供入口網站及電子郵件通知。  但是，如果您錯過這些警示並達到該限制，Application Insights 查詢中就不會出現新記錄。 因此請留意限制，以避免不必要的疑難排解時間。 如需詳細資訊，請參閱[管理 Application Insights 中的價格和資料磁碟區](../azure-monitor/app/pricing.md)。
 
 ## <a name="enable-app-insights-integration"></a>啟用 Application Insights 整合
 
@@ -85,7 +85,7 @@ Functions 也有[未使用 Application Insights 的內建監視](#monitoring-wit
 
 1. 定期選取 [重新整理]，直到函式引動過程清單出現為止。
 
-   由於遙測用戶端將資料分批傳輸到伺服器的方式，此清單可能需要 5 分鐘的時間才會出現。 (此延遲不適用於[即時計量資料流](../application-insights/app-insights-live-stream.md)。 當您載入頁面時，該服務會連線到函式主機，讓記錄直接串流處理至頁面。)
+   由於遙測用戶端將資料分批傳輸到伺服器的方式，此清單可能需要 5 分鐘的時間才會出現。 (此延遲不適用於[即時計量資料流](../azure-monitor/app/live-stream.md)。 當您載入頁面時，該服務會連線到函式主機，讓記錄直接串流處理至頁面。)
 
    ![引動過程清單](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
@@ -115,15 +115,15 @@ Functions 也有[未使用 Application Insights 的內建監視](#monitoring-wit
 
 如需如何使用 Application Insights 的相關資訊，請參閱 [Application Insights 文件](https://docs.microsoft.com/azure/application-insights/)。 本節示範一些如何在 Application Insights 中檢視資料的範例。 如果您已經熟悉 Application Insights，就可以直接前往[關於設定和自訂遙測資料的小節](#configure-categories-and-log-levels)。
 
-在[計量瀏覽器](../application-insights/app-insights-metrics-explorer.md)中，您可以根據計量 (例如函式引動過程的數量、執行時間及成功率) 建立圖表和警示。
+在[計量瀏覽器](../azure-monitor/app/metrics-explorer.md)中，您可以根據計量 (例如函式引動過程的數量、執行時間及成功率) 建立圖表和警示。
 
 ![計量瀏覽器](media/functions-monitoring/metrics-explorer.png)
 
-在 [[失敗](../application-insights/app-insights-asp-net-exceptions.md)] 索引標籤上，您可以根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 除非您實作[自訂遙測](#custom-telemetry-in-c-functions)來取得相依性，否則不會顯示相依性中的失敗。
+在 [[失敗](../azure-monitor/app/asp-net-exceptions.md)] 索引標籤上，您可以根據函式失敗和伺服器例外狀況建立圖表和警示。 **作業名稱**是函式名稱。 除非您實作[自訂遙測](#custom-telemetry-in-c-functions)來取得相依性，否則不會顯示相依性中的失敗。
 
 ![失敗](media/functions-monitoring/failures.png)
 
-在 [[效能](../application-insights/app-insights-performance-counters.md)] 索引標籤上，您可以分析效能問題。
+在 [[效能](../azure-monitor/app/performance-counters.md)] 索引標籤上，您可以分析效能問題。
 
 ![效能](media/functions-monitoring/performance.png)
 
@@ -131,13 +131,13 @@ Functions 也有[未使用 Application Insights 的內建監視](#monitoring-wit
 
 ![伺服器](media/functions-monitoring/servers.png)
 
-[[即時計量資料流](../application-insights/app-insights-live-stream.md)] 索引標籤會在即時建立時顯示計量資料。
+[[即時計量資料流](../azure-monitor/app/live-stream.md)] 索引標籤會在即時建立時顯示計量資料。
 
 ![即時資料流](media/functions-monitoring/live-stream.png)
 
 ## <a name="query-telemetry-data"></a>查詢遙測資料
 
-[Application Insights 分析](../application-insights/app-insights-analytics.md)可讓您存取資料庫中資料表形式的所有遙測資料。 分析會提供用於擷取、操作和視覺化資料的查詢語言。
+[Application Insights 分析](../azure-monitor/app/analytics.md)可讓您存取資料庫中資料表形式的所有遙測資料。 分析會提供用於擷取、操作和視覺化資料的查詢語言。
 
 ![選取 [分析]](media/functions-monitoring/select-analytics.png)
 
@@ -439,7 +439,7 @@ context.log.metric("TestMetric", 1234);
 
 ## <a name="custom-telemetry-in-c-functions"></a>C# 函式中的自訂遙測
 
-您可以使用 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) \(英文\) NuGet 封裝，將自訂遙測資料傳送至 Application Insights。 以下 C# 範例使用的是[自訂遙測 API](../application-insights/app-insights-api-custom-events-metrics.md)。 此範例適用於 .NET 類別庫，但 Application Insights 程式碼同樣適用於 C# 指令碼。
+您可以使用 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) \(英文\) NuGet 封裝，將自訂遙測資料傳送至 Application Insights。 以下 C# 範例使用的是[自訂遙測 API](../azure-monitor/app/api-custom-events-metrics.md)。 此範例適用於 .NET 類別庫，但 Application Insights 程式碼同樣適用於 C# 指令碼。
 
 ### <a name="version-2x"></a>2.x 版
 
@@ -671,7 +671,7 @@ PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-A
 PS C:\> Get-AzureWebSiteLog -Name <function app name> -Tail
 ```
 
-如需詳細資訊，請參閱[如何串流處理記錄檔](../app-service/web-sites-enable-diagnostic-log.md#streamlogs)。
+如需詳細資訊，請參閱[如何串流處理記錄檔](../app-service/troubleshoot-diagnostic-logs.md#streamlogs)。
 
 ### <a name="viewing-log-files-locally"></a>在本機檢視記錄檔
 

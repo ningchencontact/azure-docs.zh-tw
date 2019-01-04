@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 412ec0a7d2cd8574aadf6e9f104407792ddb29ed
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a09dcfbffb6daa2ae2514c608e88c8dc475c9676
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341520"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53581431"
 ---
 # <a name="alerts-on-activity-log"></a>活動記錄警示 
 
@@ -28,11 +28,11 @@ ms.locfileid: "53341520"
 * Azure 訂用帳戶中的資源發生特定操作時，通常會將範圍限定在特定資源群組或資源。 例如，在 myProductionResourceGroup 中的任何虛擬機器被刪除時，您可能需要收到通知。 或者，您需要在將任何新角色指派給訂用帳戶中的使用者時收到通知。
 * 隨即發生服務健康情況事件。 服務健康狀態事件包括適用於訂用帳戶中資源的事件 (incident) 和維護事件 (event) 通知。
 
-有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示。
+有一個簡單類比可用來了解哪些警示規則可在活動記錄上建立，就是透過 [Azure 入口網站中的活動記錄](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)探索或篩選事件。 在 Azure 監視器 - 活動記錄中，您可以篩選或尋找必要事件，然後透過使用 [新增活動記錄警示] 按鈕來建立警示。
 
 在任一情況下，活動記錄警示只會監視建立警示所在之訂用帳戶中的事件。
 
-您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱 [Azure 活動記錄概觀](./../../monitoring-and-diagnostics/monitoring-overview-activity-logs.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
+您可以針對活動記錄事件，以 JSON 物件中任何最上層屬性作為基礎設定活動記錄警示。 如需詳細資訊，請參閱 [Azure 活動記錄概觀](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)。 若要深入了解服務健康情況事件，請參閱[在服務通知上接收活動記錄警示](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
 
 活動記錄警示有幾個常見的選項：
 
@@ -64,5 +64,5 @@ ms.locfileid: "53341520"
 - 取得[警示概觀](../../azure-monitor/platform/alerts-overview.md)。
 - 深入了解[建立和修改活動記錄警示](../../azure-monitor/platform/alerts-activity-log.md)。
 - 檢閱[活動記錄警示 Webhook 結構描述](activity-log-alerts-webhook.md)。
-- 深入了解[服務健康狀態通知](../../monitoring-and-diagnostics/monitoring-service-notifications.md)。
+- 深入了解[服務健康狀態通知](../../azure-monitor/platform/service-notifications.md)。
 

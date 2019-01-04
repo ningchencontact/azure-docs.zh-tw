@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b22f79195a7246c87a8d5d5b4b5e012cc30a62dd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: c951d4f646fdaec9731ec4b6320e5f625ad91a42
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53274559"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993277"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>如何規劃混合式 Azure Active Directory Join 實作
 
@@ -146,9 +146,9 @@ ms.locfileid: "53274559"
 
 ## <a name="alternate-login-id-support-in-hybrid-azure-ad-join"></a>混合式 Azure AD Join 中的替代登入識別碼支援
 
-Windows 10 混合式 Azure AD Join 根據替代登入識別碼的類型、[驗證方法](https://docs.microsoft.com/en-us/azure/security/azure-ad-choose-authn)，網域類型和 Windows 10 版本，會針對[替代登入識別碼](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)提供有限的支援。 您的環境中可以存在兩種類型的替代登入識別碼。
+Windows 10 混合式 Azure AD Join 根據替代登入識別碼的類型、[驗證方法](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)，網域類型和 Windows 10 版本，會針對[替代登入識別碼](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)提供有限的支援。 您的環境中可以存在兩種類型的替代登入識別碼。
 
- - 可路由傳送的替代登入識別碼：可路由傳送的替代登入識別碼具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果主要網域為 contoso.com，則 contoso.org 和 contoso.co.uk 是 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain)的有效網域
+ - 可路由傳送的替代登入識別碼：可路由傳送的替代登入識別碼具有有效的已驗證網域，該網域已向網域註冊機構註冊。 例如，如果主要網域為 contoso.com，則 contoso.org 和 contoso.co.uk 是 Contoso 所擁有且[已在 Azure AD 中驗證](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)的有效網域
  
  - 非可路由傳送的替代登入識別碼：非可路由傳送的替代登入識別碼沒有已驗證的網域。 它僅適用於貴組織的私人網路內。 例如，如果主要網域為 contoso.com，則 contoso.local 不是網際網路中可驗證的網域，而是在 Contoso 的網路內使用。
  

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a75514013a1945d9ca5718be115184f6ba9950d9
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: a86a965a746ed659b73c359ee44fb9be250aae97
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015750"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53714278"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>將其他儲存體帳戶新增至 HDInsight
 
 了解如何使用指令碼動作，將其他 Azure 儲存體帳戶新增至 HDInsight。 這份文件中的步驟會在現有的 Linux 架構 HDInsight 叢集中新增儲存體帳戶。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 本文件中的資訊是有關如何在建立叢集之後，將其他儲存體新增至叢集。 如需在叢集建立期間新增儲存體帳戶的資訊，請參閱[使用 Apache Hadoop、Apache Spark、Apache Kafka 等在 HDInsight 中設定叢集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 ## <a name="how-it-works"></a>運作方式
@@ -45,7 +45,7 @@ ms.locfileid: "53015750"
 
 * 停止並重新啟動 [Apache Oozie](https://oozie.apache.org/)、[Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)、[Apache Hadoop MapReduce2](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)，以及 [Apache Hadoop HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsUserGuide.html) 服務。 停止並啟動這些服務可讓它們使用新的儲存體帳戶。
 
-> [!WARNING]
+> [!WARNING]  
 > 不支援在與 HDInsight 叢集不同的位置中使用儲存體帳戶。
 
 ## <a name="the-script"></a>指令碼
@@ -60,7 +60,7 @@ __需求__：
 
 您可以從 Azure 入口網站、Azure PowerShell 或 Azure 傳統 CLI 使用此指令碼。 如需詳細資訊，請參閱[使用指令碼動作自訂 Linux 型 HDInsight 叢集](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)文件。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 在使用自訂文件中提供的步驟時，請使用下列資訊來套用此指令碼：
 >
 > * 將所有的範例指令碼動作 URI 取代為此指令碼的 URI (https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh)。
@@ -85,14 +85,14 @@ $respObj = ConvertFrom-Json $resp.Content
 $respObj.items.configurations.properties."fs.azure.account.key.$storageAccountName.blob.core.windows.net"
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 將 `$clusterName` 設定為 HDInsight 叢集的名稱。 將 `$storageAccountName` 設定為儲存體帳戶的名稱。 出現提示時，輸入叢集登入 (admin) 和密碼。
 
 ```Bash
 curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.$STORAGEACCOUNTNAME.blob.core.windows.net"] | select(. != null)'
 ```
 
-> [!NOTE]
+> [!NOTE]  
 > 將 `$PASSWORD` 設定為叢集登入 (admin) 帳戶密碼。 將 `$CLUSTERNAME` 設定為 HDInsight 叢集的名稱。 將 `$STORAGEACCOUNTNAME` 設定為儲存體帳戶的名稱。
 >
 > 此範例會使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 和 [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) 來擷取及剖析 JSON 資料。
@@ -132,14 +132,14 @@ curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/cluster
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會遇到效能不佳。 存取不同區域中的資料會傳送 Azure 資料中心外部和跨越公用網際網路的網路流量，這可能會造成延遲。
 
-> [!WARNING]
+> [!WARNING]  
 > 不支援在 HDInsight 叢集以外的區域中使用儲存體帳戶。
 
 ### <a name="additional-charges"></a>額外費用
 
 如果儲存體帳戶位於與 HDInsight 叢集不同的區域中，您可能會發現 Azure 帳單上出現額外輸出費用。 當資料離開區域資料中心時，就會產生輸出費用。 即使流量的目的地是不同區域中的其他 Azure 資料中心，仍會產生此費用。
 
-> [!WARNING]
+> [!WARNING]  
 > 不支援在 HDInsight 叢集以外的區域中使用儲存體帳戶。
 
 ## <a name="next-steps"></a>後續步驟

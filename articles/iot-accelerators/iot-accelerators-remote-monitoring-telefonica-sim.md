@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
-ms.openlocfilehash: c453998eea2a747b2cb608482f0ef9c1ee197ee0
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185426"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53606777"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>在遠端監視解決方案中整合 SIM 資料
 
 IoT 裝置通常會使用 SIM 卡連線到雲端，讓裝置能從任何地方傳送資料流。 Azure IoT 遠端監視解決方案能夠整合 IoT 管理的連線資料，讓操作員也可透過 IoT SIM 提供的資料追蹤裝置的健康情況。
 
-遠端監視提供與 Telefónica IoT 連線的既有整合，讓客戶能夠使用它的 IoT 連線平台，將其裝置 SIM 連線資料同步處理到解決方案。 這個解決方案可透過 GitHub [存放庫](http://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)進行擴充，以支援其他 IoT 連線。
+遠端監視提供與 Telefónica IoT 連線的既有整合，讓客戶能夠使用它的 IoT 連線平台，將其裝置 SIM 連線資料同步處理到解決方案。 這個解決方案可透過 GitHub [存放庫](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)進行擴充，以支援其他 IoT 連線。
 
 在本教學課程中，您了解如何：
 

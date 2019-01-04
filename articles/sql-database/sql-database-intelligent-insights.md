@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: 573e0dd1bae584b12cfd3859fe63d7ca20bb7b52
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 6969744ff52e9aff9d486d2eab6fffc2c3ac8b74
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278129"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53607995"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights 使用 AI 來針對資料庫的效能進行監視和疑難排解
 
@@ -97,7 +97,7 @@ Azure SQL 分析解決方案提供圖形化使用者介面、資料庫效能的�
 
 ### <a name="set-up-with-event-hubs"></a>使用事件中樞設定
 
-若要使用 Intelligent Insights 搭配事件中樞，請將 Intelligent Insights 記錄資料設定為串流處理到事件中樞，請參閱[將 Azure 診斷記錄串流處理至事件中樞](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)。
+若要使用 Intelligent Insights 搭配事件中樞，請將 Intelligent Insights 記錄資料設定為串流處理到事件中樞，請參閱[將 Azure 診斷記錄串流處理至事件中樞](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)。
 
 若要使用事件中樞設定自訂監視和警示，請參閱[如何在事件中樞處理計量和診斷記錄](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。
 
@@ -180,4 +180,4 @@ Intelligent Insights 記錄會輸出發生錯誤之要求的計數。 它會指�
 - 了解如何[使用 Intelligent Insights 針對 SQL Database 效能問題進行疑難排解](sql-database-intelligent-insights-troubleshoot-performance.md)。
 - 使用 [Intelligent Insights SQL Database 效能診斷記錄](sql-database-intelligent-insights-use-diagnostics-log.md)。
 - 了解如何[使用 SQL 分析來監視 SQL Database](../azure-monitor/insights/azure-sql.md)。
-- 了解如何[收集並取用來自 Azure 資源的記錄資料](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)。
+- 了解如何[收集並取用來自 Azure 資源的記錄資料](../azure-monitor/platform/diagnostic-logs-overview.md)。

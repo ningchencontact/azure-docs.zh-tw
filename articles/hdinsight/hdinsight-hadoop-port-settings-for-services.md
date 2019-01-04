@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 22e15f58f3d4e7f4db3ac3bd519dbb286a36ef95
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: be264be41b198e95dae64730ef31f431ec06a2e7
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384134"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53715455"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>HDInsight 上 Apache Hadoop 服務所使用的連接埠
 
@@ -157,7 +157,7 @@ HDInsight 叢集中的所有節點都位於 Azure 虛擬網路中，無法直接
 
 | 服務 | 節點 | Port | 通訊協定 | 說明 |
 | --- | --- | --- | --- | --- |
-| Broker |背景工作節點 |9092 |[Kafka Wire Protocol (Kafka 有線通訊協定)](http://kafka.apache.org/protocol.html) |用於用戶端通訊 |
+| Broker |背景工作節點 |9092 |[Kafka Wire Protocol (Kafka 有線通訊協定)](https://kafka.apache.org/protocol.html) |用於用戶端通訊 |
 | &nbsp; |Zookeeper 節點 |2181 |&nbsp; |用戶端用於連接至 ZooKeeper 的連接埠 |
 
 ### <a name="spark-ports"></a>Spark 連接埠

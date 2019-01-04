@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 9c36920d2d1d201a874abaeeaac9eb965e0e641b
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 820f43a8caa5e0d6d9960985fd1d46271071b0fb
+ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084001"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53742825"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 尋找並診斷執行階段例外狀況
 
@@ -39,7 +39,7 @@ Azure Application Insights 會從您的應用程式收集遙測，以協助識�
     - Azure 開發
 - 下載並安裝 [Visual Studio 快照集偵錯工具](https://aka.ms/snapshotdebugger) \(英文\)。
 - 啟用 [Visual Studio 快照集偵錯工具](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
-- 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。 
+- 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](../azure-monitor/app/asp-net.md)。 
 - 本教學課程會追蹤您應用程式中的例外狀況識別情形，因此，請修改您開發或測試環境中的程式碼以產生例外狀況。 
 
 ## <a name="log-in-to-azure"></a>登入 Azure

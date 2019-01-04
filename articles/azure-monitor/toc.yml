@@ -87,7 +87,7 @@ items:
       - name: 個人記錄檔資料處理
         href: platform/personal-data-mgmt.md
       - name: 應用程式資料收集、保留和儲存
-        href: ../application-insights/app-insights-data-retention-privacy.md?toc=/azure/azure-monitor/toc.json
+        href: app/data-retention-privacy.md
   - name: 深入解析
     items:
     - name: Application Insights
@@ -95,9 +95,9 @@ items:
       - name: 概觀
         href: ../application-insights/app-insights-overview.md?toc=/azure/azure-monitor/toc.json
       - name: DevOps
-        href: ../application-insights/app-insights-detect-triage-diagnose.md?toc=/azure/azure-monitor/toc.json
+        href: app/detect-triage-diagnose.md
       - name: 分散式追蹤
-        href: ../application-insights/distributed-tracing.md?toc=/azure/azure-monitor/toc.json
+        href: app/distributed-tracing.md
       - name: 記錄檔型與預先彙總的計量
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: 容器
@@ -157,7 +157,7 @@ items:
       - name: '[應用程式]'
         href: ../application-insights/app-insights-resources-roles-access-control.md?toc=/azure/azure-monitor/toc.json
       - name: IP 位址
-        href: ../application-insights/app-insights-ip-addresses.md?toc=/azure/azure-monitor/toc.json
+        href: app/ip-addresses.md
     - name: 監視應用程式
       items:
       - name: 深入診斷 Web Apps 和服務
@@ -167,7 +167,7 @@ items:
       - name: 區分開發、測試及生產環境
         href: ../application-insights/app-insights-separate-resources.md?toc=/azure/azure-monitor/toc.json
       - name: 我如何在 Application Insights 中...？
-        href: ../application-insights/app-insights-how-do-i.md?toc=/azure/azure-monitor/toc.json
+        href: app/how-do-i.md
     - name: 管理工作區
       items:
       - name: 建立工作區
@@ -263,9 +263,9 @@ items:
       - name: Azure 應用程式
         items:
         - name: Azure Web Apps
-          href: ../application-insights/app-insights-azure-web-apps.md?toc=/azure/azure-monitor/toc.json
+          href: app/azure-web-apps.md
         - name: Azure 雲端服務
-          href: ../application-insights/app-insights-cloudservices.md?toc=/azure/azure-monitor/toc.json
+          href: app/cloudservices.md
         - name: 新增連續監視
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: 分析工具
@@ -293,54 +293,54 @@ items:
       - name: ASP.NET 應用程式
         items:
         - name: Web 應用程式
-          href: ../application-insights/app-insights-asp-net.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net.md
         - name: 狀態監視器
-          href: ../application-insights/app-insights-monitor-performance-live-website-now.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-performance-live-website-now.md
         - name: Windows 服務
           href: ../application-insights/app-insights-windows-services.md?toc=/azure/azure-monitor/toc.json
         - name: Windows 桌面
           href: ../application-insights/app-insights-windows-desktop.md?toc=/azure/azure-monitor/toc.json
         - name: ASP.NET Core
-          href: ../application-insights/app-insights-asp-net-core.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-core.md
           items:
           - name: Linux 應用程式服務的分析工具
             href: ../application-insights/app-insights-profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json
         - name: 主控台
-          href: ../application-insights/application-insights-console.md?toc=/azure/azure-monitor/toc.json
+          href: app/console.md
         - name: 應用程式儀表板
           href: ../application-insights/app-insights-overview-dashboard.md?toc=/azure/azure-monitor/toc.json
         - name: 收集更多的遙測
-          href: ../application-insights/app-insights-asp-net-more.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-more.md
         - name: 例外狀況
-          href: ../application-insights/app-insights-asp-net-exceptions.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-exceptions.md
         - name: 記錄追蹤
-          href: ../application-insights/app-insights-asp-net-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-trace-logs.md
         - name: 效能計數器
           href: ../application-insights/app-insights-performance-counters.md?toc=/azure/azure-monitor/toc.json
         - name: 相依性
-          href: ../application-insights/app-insights-asp-net-dependencies.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-dependencies.md
         - name: 版本註解
           href: app/annotations.md
         - name: ApplicationInsights.config
-          href: ../application-insights/app-insights-configuration-with-applicationinsights-config.md?toc=/azure/azure-monitor/toc.json
+          href: app/configuration-with-applicationinsights-config.md
         - name: 快照集偵錯工具
           href: ../application-insights/app-insights-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
       - name: Java 應用程式
         items:
         - name: Web 應用程式
-          href: ../application-insights/app-insights-java-get-started.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-get-started.md
         - name: Web Apps - 執行階段
-          href: ../application-insights/app-insights-java-live.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-live.md
         - name: Docker 應用程式
-          href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+          href: app/docker.md
         - name: 記錄追蹤
-          href: ../application-insights/app-insights-java-trace-logs.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-trace-logs.md
         - name: Unix 計量
-          href: ../application-insights/app-insights-java-collectd.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-collectd.md
         - name: 相依性
-          href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-agent.md
         - name: 篩選遙測
-          href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-filter-telemetry.md
         - name: Micrometer Metrics
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json
       - name: Node.js 應用程式
@@ -350,7 +350,7 @@ items:
       - name: 網頁
         items:
         - name: JavaScript
-          href: ../application-insights/app-insights-javascript.md?toc=/azure/azure-monitor/toc.json
+          href: app/javascript.md
       - name: 監視 Azure Functions
         href: ../azure-functions/functions-monitoring.md?toc=/azure/application-insights/toc.json
       - name: 分散式追蹤
@@ -393,13 +393,13 @@ items:
       - name: 疑難排解
         items:
         - name: 沒有 .NET 的資料
-          href: ../application-insights/app-insights-asp-net-troubleshoot-no-data.md?toc=/azure/azure-monitor/toc.json
+          href: app/asp-net-troubleshoot-no-data.md
         - name: 快照集偵錯工具
           href: ../application-insights/app-insights-troubleshoot-snapshot-debugger.md?toc=/azure/azure-monitor/toc.json
         - name: 分析
           href: app/analytics-troubleshooting.md
         - name: Java
-          href: ../application-insights/app-insights-java-troubleshoot.md?toc=/azure/azure-monitor/toc.json
+          href: app/java-troubleshoot.md
         - name: 流量分析
           href: ../application-insights/app-insights-usage-troubleshoot.md?toc=/azure/azure-monitor/toc.json
     - name: Azure 資源
@@ -417,7 +417,7 @@ items:
       - name: Azure PaaS 資源
         href: platform/collect-azurepass-posh.md
       - name: 將自訂資料來源相互關聯
-        href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-data-correlation.md
     - name: 收集自訂資料
       items:
       - name: Log Analytics 資料收集器 API
@@ -453,16 +453,16 @@ items:
       - name: 匯出應用程式資料
         items:
         - name: 連續匯出
-          href: ../application-insights/app-insights-export-telemetry.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-telemetry.md
           items:
           - name: 程式碼範例
             items:
             - name: 使用串流分析匯出至 SQL
-              href: ../application-insights/app-insights-code-sample-export-sql-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/code-sample-export-sql-stream-analytics.md
             - name: 匯出至串流分析簡介
-              href: ../application-insights/app-insights-export-stream-analytics.md?toc=/azure/azure-monitor/toc.json
+              href: app/export-stream-analytics.md
         - name: 匯出資料模型
-          href: ../application-insights/app-insights-export-data-model.md?toc=/azure/azure-monitor/toc.json
+          href: app/export-data-model.md
   - name: 取得見解
     items:
     - name: 監視應用程式
@@ -470,7 +470,7 @@ items:
       - name: Application Insights 入口網站
         items:
         - name: Search
-          href: ../application-insights/app-insights-diagnostic-search.md?toc=/azure/azure-monitor/toc.json
+          href: app/diagnostic-search.md
         - name: 度量
           href: ../application-insights/app-insights-metrics-explorer.md?toc=/azure/azure-monitor/toc.json
         - name: 即時資料流
@@ -480,7 +480,7 @@ items:
         - name: 交易診斷
           href: ../application-insights/app-insights-transaction-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: HockeyApp 資料
-          href: ../application-insights/app-insights-hockeyapp-bridge-app.md?toc=/azure/azure-monitor/toc.json
+          href: app/hockeyapp-bridge-app.md
       - name: Visual Studio
         items:
         - name: F5 深入解析
@@ -532,7 +532,7 @@ items:
       - name: Docker 和 Windows 容器監視
         href: insights/containers.md
       - name: 監視 Docker 應用程式
-        href: ../application-insights/app-insights-docker.md?toc=/azure/azure-monitor/toc.json
+        href: app/docker.md
     - name: 監視資源群組
       href: insights/resource-group-insights.md
     - name: 監視資料庫
@@ -762,7 +762,7 @@ items:
       - name: 使用應用程式警示
         items:
         - name: 可用性
-          href: ../application-insights/app-insights-monitor-web-app-availability.md?toc=/azure/azure-monitor/toc.json
+          href: app/monitor-web-app-availability.md
         - name: 度量警示
           href: app/alerts.md
       - name: 使用動作群組搭配警示
@@ -829,14 +829,10 @@ items:
     items:
     - name: 使用量和估計成本
       href: platform/usage-estimated-costs.md
-    - name: 應用程式資料磁碟區與保留期
+    - name: 應用程式使用量和成本
       href: ../application-insights/app-insights-pricing.md?toc=/azure/azure-monitor/toc.json
-    - name: 應用程式企業方案詳細資料
-      href: ../application-insights/app-insights-pricing-enterprise-details.md?toc=/azure/azure-monitor/toc.json
-    - name: 記錄資料磁碟區與保留期
+    - name: 記錄資料使用量和成本
       href: platform/manage-cost-storage.md
-    - name: 記錄資料監視使用量
-      href: platform/data-usage.md
   - name: 自動化
     items:
     - name: PowerShell
@@ -868,11 +864,11 @@ items:
     - name: '[應用程式]'
       items:
       - name: 透過 Microsoft Flow 進行自動化
-        href: ../application-insights/app-insights-automate-with-flow.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-flow.md
       - name: 透過 Azure Logic App 進行自動化
-        href: ../application-insights/automate-with-logic-apps.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-with-logic-apps.md
       - name: 自訂電子郵件報告
-        href: ../application-insights/automate-custom-reports.md?toc=/azure/azure-monitor/toc.json
+        href: app/automate-custom-reports.md
   - name: Extend
     items:
     - name: '[應用程式]'
@@ -880,7 +876,7 @@ items:
       - name: 自訂事件和度量的 API
         href: app/api-custom-events-metrics.md
       - name: 在 .NET SDK 之中追蹤自訂作業
-        href: ../application-insights/application-insights-custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json
+        href: app/custom-operations-tracking.md
       - name: 篩選及前置處理遙測
         href: app/api-filtering-sampling.md
       - name: 取樣
@@ -906,9 +902,9 @@ items:
   - name: Application Insights
     items:
     - name: 相依性自動收集
-      href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
+      href: app/auto-collect-dependencies.md
     - name: 遙測相互關聯
-      href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+      href: app/correlation.md
     - name: NuGet 套件
       href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
     - name: 平台支援
@@ -916,21 +912,21 @@ items:
   - name: Application Insights 資料模型
     items:
     - name: 概觀
-      href: ../application-insights/application-insights-data-model.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model.md
     - name: 要求
-      href: ../application-insights/application-insights-data-model-request-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-request-telemetry.md
     - name: 相依性
-      href: ../application-insights/application-insights-data-model-dependency-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-dependency-telemetry.md
     - name: 例外狀況
-      href: ../application-insights/application-insights-data-model-exception-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-exception-telemetry.md
     - name: 追蹤
-      href: ../application-insights/application-insights-data-model-trace-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-trace-telemetry.md
     - name: Event
-      href: ../application-insights/application-insights-data-model-event-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-event-telemetry.md
     - name: 計量
-      href: ../application-insights/application-insights-data-model-metric-telemetry.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-metric-telemetry.md
     - name: Context
-      href: ../application-insights/application-insights-data-model-context.md?toc=/azure/azure-monitor/toc.json
+      href: app/data-model-context.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure Functions
@@ -1008,9 +1004,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: 程式碼範例
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 819cce3f144c3073f5b831d78cb3d9fa1b0a0a8a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 1b80318e470995d060467f42aa61cdf6f4e8f34b
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726439"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53974568"

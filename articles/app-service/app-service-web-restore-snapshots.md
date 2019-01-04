@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 04/04/2018
 ms.author: aelnably;nicking
 ms.custom: seodec18
-ms.openlocfilehash: 174fbd8f3e4c652c25a78911185ef8a98a80bb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: ab1ae63352e66da557cad49bf5f320b577055877
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260033"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726556"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>在 Azure 中透過快照集還原應用程式
-本文說明如何在 [Azure App Service](../app-service/app-service-web-overview.md) 中透過快照集還原應用程式。 您可以根據您的其中一個應用程式快照集，將應用程式還原為先前的狀態。 您不需要啟用快照集備份，平台會自動儲存所有應用程式的快照集以供進行資料復原。
+本文說明如何在 [Azure App Service](../app-service/overview.md) 中透過快照集還原應用程式。 您可以根據您的其中一個應用程式快照集，將應用程式還原為先前的狀態。 您不需要啟用快照集備份，平台會自動儲存所有應用程式的快照集以供進行資料復原。
 
-快照集是累加的陰影複製，可提供數個比一般[備份](web-sites-backup.md)還要好的優點：
+快照集是累加的陰影複製，可提供數個比一般[備份](manage-backup.md)還要好的優點：
 - 不會因為檔案鎖定而產生任何檔案複製錯誤。
 - 沒有儲存體大小限制。
 - 不需要設定。
