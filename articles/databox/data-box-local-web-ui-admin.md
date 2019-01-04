@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/11/2018
+ms.date: 12/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 9dd519f8efc9700f7a747aa37a9c02414f3e1865
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: c0793cd4adc5359aaa2282eb2505c257315c056f
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093879"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "53793388"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>使用本機 Web UI 來管理您的資料箱
 
@@ -25,8 +25,7 @@ ms.locfileid: "49093879"
 
 - 產生支援套件
 - 關閉或重新啟動您的裝置
-- 安全地抹除裝置中的資料
-- 監視裝置的可用容量
+- 檢視裝置的可用容量
 - 跳過總和檢查碼驗證 
 
 ## <a name="generate-support-package"></a>產生支援套件

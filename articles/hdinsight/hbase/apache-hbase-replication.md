@@ -9,20 +9,20 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: b03cffe35337ee5720944dc4cfe88c17c3b5b748
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 933506e732926b0f3827f039a65e78acd3a6932b
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163822"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53653810"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>設定 Azure 虛擬網路中的 Apache HBase 叢集複寫
 
-了解如何在虛擬網路內或 Azure 中的兩個虛擬網路之間設定 [Apache HBase](http://hbase.apache.org/) 複寫。
+了解如何在虛擬網路內或 Azure 中的兩個虛擬網路之間設定 [Apache HBase](https://hbase.apache.org/) 複寫。
 
 叢集複寫會使用來源推入方法。 HBase 叢集可以是來源、目的地，或可同時滿足兩個角色。 複寫不是同步進行。 複寫的目標最終會一致。 如果來源在複寫啟用時接收到資料行系列的編輯，該編輯會傳播到所有目的地叢集。 當資料從一個叢集複寫到另一個時，會追蹤來源叢集和已取用資料的所有叢集，以避免複寫迴圈。
 
-在本教學課程中，您會設定來源與目的地之間的複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](http://hbase.apache.org/book.html#_cluster_replication)。
+在本教學課程中，您會設定來源與目的地之間的複寫。 若需其他叢集拓撲，請參閱 [Apache HBase 參考指南](https://hbase.apache.org/book.html#_cluster_replication)。
 
 以下是適用於單一虛擬網路的 HBase 複寫使用案例︰
 
@@ -121,7 +121,7 @@ ms.locfileid: "53163822"
 
     將 `sshuser` 取代為建立 DNS 虛擬機器時所指定的 SSH 使用者帳戶。
 
-    > [!NOTE]
+    > [!NOTE]  
     > 有多種方式可取得 `ssh` 公用程式。 在 Linux、Unix 及 macOS 上，它會提供作為作業系統的一部分。 如果您是使用 Windows，請考慮下列選項的其中之一：
     >
     > * [Azure Cloud Shell](../../cloud-shell/quickstart.md)
@@ -162,7 +162,7 @@ ms.locfileid: "53163822"
     };
     ```
     
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 將 `goodclients` 區段中的值取代為兩個虛擬網路的 IP 位址範圍。 本章節會定義此 DNS 伺服器接受要求的來源位址。
 
     若要編輯這個檔案，請使用下列命令：
@@ -197,7 +197,7 @@ ms.locfileid: "53163822"
     };
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 您必須將 `v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` 取代為其他虛擬網路的 DNS 尾碼。 轉寄站 IP 是 DNS 伺服器在其他虛擬網路的私人 IP 位址。
 
     若要編輯這個檔案，請使用下列命令：
@@ -221,7 +221,7 @@ ms.locfileid: "53163822"
     nslookup vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net
     ```
 
-    > [!IMPORTANT]
+    > [!IMPORTANT]  
     > 將 `vnet2dns.v5ant3az2hbe1edzthhvwwkcse.bx.internal.cloudapp.net` 取代為另一個網路中 DNS 虛擬機器的完整網域名稱 (FQDN)。
     >
     > 將 `10.2.0.4` 取代為另一個虛擬網路中自訂 DNS 伺服器的__內部 IP 位址__。
@@ -258,7 +258,7 @@ sudo service bind9 status
 
 ## <a name="create-apache-hbase-clusters"></a>建立 Apache HBase 叢集
 
-使用下列組態在兩個虛擬網路中各建立一個 [Apache HBase](http://hbase.apache.org/) 叢集：
+使用下列組態在兩個虛擬網路中各建立一個 [Apache HBase](https://hbase.apache.org/) 叢集：
 
 - **資源群組名稱**︰使用和您在虛擬網路中所建立的名稱相同的資源群組名稱。
 - **叢集類型**：hbase
@@ -289,14 +289,13 @@ sudo service bind9 status
 5. 選取或輸入下列資訊︰
 
   1. **名稱**：輸入**啟用複寫**。
-  2. **Bash 指令碼 URL**：輸入 **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
+  2. **Bash 指令碼 URL**：輸入 https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh**。
   3.  **前端**：請務必選取此項目。 清除其他節點類型。
   4. **參數**：下列範例參數會針對所有現有的資料表啟用複寫，然後將來源叢集的所有資料複製到目的地叢集：
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
     
-    >[!note]
-    >
+    > [!NOTE]
     > 針對來源與目的地叢集 DNS 名稱，使用主機名稱而非 FQDN。
 
 6. 選取 [建立] 。 指令碼執行需要花費一些時間，特別是在使用 **-copydata** 引數的情況下。

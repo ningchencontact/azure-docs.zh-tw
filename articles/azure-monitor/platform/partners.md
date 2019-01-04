@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 07127e8a15626c7eacad925381f92d0a7c94fc96
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 95e4140125f064d4e279c90f60b390c4762e8cf8
+ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53439625"
+ms.lasthandoff: 12/18/2018
+ms.locfileid: "53580207"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 監視器合作夥伴整合
 | 合作夥伴 |  |  |
@@ -166,8 +166,8 @@ Turbonomic 透過同時讓效能、成本及合規性即時達到最佳狀態，
 ## <a name="next-steps"></a>後續步驟
 * [深入了解 Azure 監視器](../../azure-monitor/overview.md)
 * [使用 REST API 存取計量](rest-api-walkthrough.md)
-* [將活動記錄串流至非 Microsoft 服務](../../monitoring-and-diagnostics/monitoring-stream-activity-logs-event-hubs.md)
-* [將診斷記錄串流至非 Microsoft 服務](../../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [將活動記錄串流至非 Microsoft 服務](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [將診斷記錄串流至非 Microsoft 服務](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"

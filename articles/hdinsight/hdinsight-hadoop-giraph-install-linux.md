@@ -9,23 +9,23 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6cedc269e279a9154e63bae241f02e766e06ec96
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 027f8ad854cfc4c412a56a293de3b02a425d6858
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383896"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53713823"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 叢集上安裝 Apache Giraph 並使用 Giraph 來處理大規模圖形
 
 了解如何在 HDInsight 叢集上安裝 Apache Giraph。 HDInsight 的指令碼動作功能可讓您執行 bash 指令碼來自訂叢集。 在叢集建立期間和之後，可利用指令碼來自訂叢集。
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > 此文件中的步驟需要使用 Linux 的 HDInsight 叢集。 Linux 是唯一使用於 HDInsight 3.4 版或更新版本的作業系統。 如需詳細資訊，請參閱 [Windows 上的 HDInsight 淘汰](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="whatis"></a>什麼是 Giraph
 
-[Apache Giraph](http://giraph.apache.org/) 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。 圖形可以為物件之間的關聯性建立模型。 例如，大型網路 (例如網際網路) 上各路由器之間的連線，或社交網路上的人際關係。 圖形處理可讓您分析圖形中物件之間的關聯，例如：
+[Apache Giraph](https://giraph.apache.org/) 可讓您利用 Hadoop 執行圖形處理，且可以搭配 Azure HDInsight 一起使用。 圖形可以為物件之間的關聯性建立模型。 例如，大型網路 (例如網際網路) 上各路由器之間的連線，或社交網路上的人際關係。 圖形處理可讓您分析圖形中物件之間的關聯，例如：
 
 * 根據目前的人際關係找出可能的朋友。
 
@@ -36,7 +36,7 @@ ms.locfileid: "53383896"
 > [!WARNING]  
 > 完全支援 HDInsight 叢集隨附的元件 - Microsoft 支援服務會協助釐清與解決這些元件的相關問題。
 >
-> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[http://stackoverflow.com](http://stackoverflow.com)。 此外，Apache 專案在 [http://apache.org](http://apache.org) 上也有專案網站，例如：[Hadoop](http://hadoop.apache.org/)。
+> 自訂元件 (例如 Giraph) 則獲得商務上合理的支援，協助您進一步對問題進行疑難排解。 Microsoft 支援服務可能有能力解決問題。 如果無法解決，則您必須諮詢開放原始碼社群，以尋求該項技術的深厚專業知識。 例如，有許多社群網站可供使用，像是：[MSDN 的 HDInsight 論壇](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hdinsight)、[https://stackoverflow.com](https://stackoverflow.com)。 此外，Apache 專案在 [https://apache.org](https://apache.org) 上也有專案網站，例如：[Hadoop](https://hadoop.apache.org/)。
 
 
 ## <a name="what-the-script-does"></a>指令碼會執行哪些作業
@@ -55,7 +55,7 @@ ms.locfileid: "53383896"
 
 本節提供有關如何在使用 Azure 入口網站建立叢集時使用範例指令碼的指示。
 
-> [!NOTE]
+> [!NOTE]  
 > 您可以使用下列任何方法套用指令碼動作︰
 > * Azure PowerShell
 > * Azure 傳統 CLI
@@ -86,7 +86,7 @@ ms.locfileid: "53383896"
 
 ## <a name="usegiraph"></a>如何在 HDInsight 中使用 Giraph？
 
-建立叢集之後，請使用下列步驟執行 Giraph 隨附的 SimpleShortestPathsComputation 範例。 此範例會使用基本 [Pregel](http://people.apache.org/~edwardyoon/documents/pregel.pdf) 實作，在圖表中找出物件之間的最短路徑。
+建立叢集之後，請使用下列步驟執行 Giraph 隨附的 SimpleShortestPathsComputation 範例。 此範例會使用基本 [Pregel](https://people.apache.org/~edwardyoon/documents/pregel.pdf) 實作，在圖表中找出物件之間的最短路徑。
 
 1. 使用 SSH 連線到 HDInsight 叢集
 
@@ -146,7 +146,7 @@ ms.locfileid: "53383896"
    | `-op` |輸出位置。 |
    | `-w 2` |要使用的背景工作角色數目。 在此範例中是 2。 |
 
-    如需這些項目以及與 Giraph 範例搭配使用之其他參數的詳細資訊，請參閱 [Giraph 快速入門](http://giraph.apache.org/quick_start.html)。
+    如需這些項目以及與 Giraph 範例搭配使用之其他參數的詳細資訊，請參閱 [Giraph 快速入門](https://giraph.apache.org/quick_start.html)。
 
 6. 一旦作業完成，結果會儲存在 **/example/out/shotestpaths** 目錄中。 輸出檔的名稱會以 **part-m-** 開頭，結束的數字表示是第一個、第二個檔案，依此類推。 使用下列命令來檢視輸出：
 

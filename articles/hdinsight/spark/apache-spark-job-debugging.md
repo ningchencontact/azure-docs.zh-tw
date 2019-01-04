@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5e00c52c17eac92edc3273e2d765d6c5fd76f59b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1601663266f59668918e6799b5c4a7ff606431c4
+ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970669"
+ms.lasthandoff: 12/19/2018
+ms.locfileid: "53600007"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>對 Azure HDInsight 上執行的 Apache Spark 作業進行偵錯
 
@@ -32,10 +32,9 @@ ms.locfileid: "52970669"
    
     ![啟動 YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
    
-   > [!TIP]
-   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。    
-   > 
-   > 
+   > [!TIP]  
+   > 或者，您也可以從 Ambari UI 啟動 YARN UI。 若要啟動 Ambari UI，請按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [YARN]、[快速連結]、作用中的 Resource Manager，以及 [Resource Manager UI]。 
+
 2. 因為您使用 Jupyter Notebook 啟動 Spark 作業，應用程式具有名稱 **remotesparkmagics** (這是從 Notebook 啟動之所有應用程式的名稱)。 針對應用程式名稱按一下應用程式識別碼，取得作業的詳細資訊。 這會啟動應用程式檢視。
    
     ![尋找 Spark 應用程式識別碼](./media/apache-spark-job-debugging/find-application-id.png)
@@ -72,10 +71,9 @@ ms.locfileid: "52970669"
    
     這會以時間軸的形式顯示 Spark 事件。 時間軸檢視有三個層級，跨作業、作業內以及階段內。 以上的映像擷取指定階段的時間軸檢視。
    
-   > [!TIP]
+   > [!TIP]  
    > 如果您選取 [啟用縮放功能] 核取方塊，您可以跨時間軸檢視左右捲動。
-   > 
-   > 
+
 6. Spark UI 中的其他索引標籤也提供 Spark 執行個體的實用資訊。
    
    * [儲存體] 索引標籤 - 如果您的應用程式建立 RDD，您可以在 [儲存體] 索引標籤中找到相關資訊。
@@ -92,10 +90,9 @@ ms.locfileid: "52970669"
    
     ![啟動 Spark 歷程記錄伺服器](./media/apache-spark-job-debugging/launch-spark-history-server.png)
    
-   > [!TIP]
+   > [!TIP]  
    > 或者，您也可以從 Ambari UI 啟動 Spark 歷程記錄伺服器 UI。 若要從 [概觀] 刀鋒視窗中啟動 Ambari UI，請中按一下 [叢集儀表板] 下方的 [Ambari 首頁]。 從 Ambari UI 中，依序按一下 [Spark]、[快速連結]和 [Spark 歷程記錄伺服器 UI]。
-   > 
-   > 
+
 2. 您會看到所有已完成應用程式列出。 按一下應用程式識別碼，向下鑽研至應用程式以取得其他資訊。
    
     ![啟動 Spark 歷程記錄伺服器](./media/apache-spark-job-debugging/view-completed-applications.png)

@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 來管理用於容器的 Web App - Azure App Service | Microsoft Docs
-description: 使用 Azure CLI 管理用於容器的 Web App。
+description: 使用 Azure CLI 管理 Web App for Containers。
 keywords: azure app service, web 應用程式, cli, linux, oss
 services: app-service
 documentationCenter: ''
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 0b125903493712dca3b8c8c3a9ce663f9e1b408c
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 21f6963fbaada4524f27602454d38e7252a5e8b9
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257636"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53720374"
 ---
-# <a name="manage-web-app-for-containers-using-azure-cli"></a>使用 Azure CLI 管理用於容器的 Web App
+# <a name="manage-web-app-for-containers-using-azure-cli"></a>使用 Azure CLI 管理 Web App for Containers
 
-使用此文章中的命令，即可使用 Azure CLI 建立和管理用於容器的 Web App。
+使用本文中的命令，即可使用 Azure CLI 建立和管理用於容器的 Web App。
 開始使用新版 CLI 的方式有兩種：
 
 * 在您的機器上[安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
@@ -55,7 +55,7 @@ az webapp create -n sname -g rgname -p pname -i elnably/dockerimagetest
 az webapp log config -n sname -g rgname --web-server-logging filesystem
 ```
 
-## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>變更現有用於容器的 Web App 應用程式的自訂 Docker 容器
+## <a name="change-the-custom-docker-container-for-an-existing-web-app-for-containers-app"></a>變更現有 Web App for Containers 應用程式的自訂 Docker 容器
 
 若要將先前建立的應用程式從目前的 Docker 映像變更為新的映像，您可以使用下列命令：
 
@@ -79,15 +79,15 @@ az webapp config container set -n sname1 -g rgname -c <container name> -r <serve
 az webapp deployment container config -n sname -g rgname -e true
 ```
 
-## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>使用任一個內建執行階段架構來建立用於容器的 Web App 應用程式
+## <a name="create-a-web-app-for-containers-app-using-one-of-our-built-in-runtime-frameworks"></a>使用任一個內建執行階段架構來建立 Web App for Containers 應用程式
 
-若要建立 PHP 5.6 用於容器的 Web App 應用程式，您可以使用下列命令。
+若要建立 PHP 5.6 Web App for Containers 應用程式，您可以使用下列命令。
 
 ```azurecli-interactive
 az webapp create -n sname -g rgname -p pname -r "php|5.6"
 ```
 
-## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>變更現有用於容器的 Web App 應用程式的架構版本
+## <a name="change-framework-version-for-an-existing-web-app-for-containers-app"></a>變更現有 Web App for Containers 應用程式的架構版本
 
 若要將先前建立的應用程式從目前的架構版本變更為 Node.js 6.11，您可以使用下列命令：
 
@@ -108,5 +108,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [何謂 Linux 上的 Azure App Service？](app-service-linux-intro.md)
 * [安裝 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (預覽)](../../cloud-shell/overview.md)
-* [在 Azure App Service 中設定預備環境](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [在 Azure App Service 中設定預備環境](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [使用用於容器的 Web 應用程式進行持續部署](app-service-linux-ci-cd.md)

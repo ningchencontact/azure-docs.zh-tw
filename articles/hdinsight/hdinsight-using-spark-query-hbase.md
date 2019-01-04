@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: f76dfc8499d294c2c682c4d9c4cf2cd2f858432f
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 547cc30bdf3dedff30c28165a7a76093a6512b83
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408849"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53993074"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 來讀取和寫入 Apache HBase 資料
 
@@ -126,7 +126,7 @@ Apache HBase 通常會使用其低階 API (scan、get、put) 或者使用 Apache
 1. 使用 SSH 連線到 Spark 叢集的前端節點。
 2. 啟動 Spark Shell，指定 Spark HBase Connector 套件：
 
-        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories http://repo.hortonworks.com/content/groups/public/
+        spark-shell --packages com.hortonworks:shc-core:1.1.0-2.1-s_2.11 --repositories https://repo.hortonworks.com/content/groups/public/
 
 3. 讓此 Spark Shell 執行個體保持開啟，並且繼續進行下一個步驟。
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 0b3c4a4c21bc9b124a98b1f204f85e6e78ff233e
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ac36499475ffe02ae4d5140f35507530e6cf089e
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099557"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994329"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 預覽版介紹
 
-Azure Data Lake Storage Gen2 預覽版是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](storage-blobs-introduction.md)。 Data Lake Storage Gen2 是融合我們現有的兩項儲存體服務 (Azure Blob 儲存體和 Azure Data Lake Storage Gen1) 功能的結果。 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/en-us/azure/data-lake-store/index) 的功能 (例如檔案系統語意、目錄及檔案層級安全性和級別) 結合了 [Azure Blob 儲存體](storage-blobs-introduction.md)的低成本、分層式儲存體、高可用性/災害復原功能。
+Azure Data Lake Storage Gen2 預覽版是一組巨量資料分析的專屬功能，內建於 [Azure Blob 儲存體](storage-blobs-introduction.md)。 Data Lake Storage Gen2 是融合我們現有的兩項儲存體服務 (Azure Blob 儲存體和 Azure Data Lake Storage Gen1) 功能的結果。 [Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/index) 的功能 (例如檔案系統語意、目錄及檔案層級安全性和級別) 結合了 [Azure Blob 儲存體](storage-blobs-introduction.md)的低成本、分層式儲存體、高可用性/災害復原功能。
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>針對企業巨量資料分析所設計
 

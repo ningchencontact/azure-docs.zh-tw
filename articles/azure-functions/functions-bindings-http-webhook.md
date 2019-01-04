@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: acd2d5a3448d805b8b3c741139fc5f9a79c40ed2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
+ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317435"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53726998"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 觸發程序和繫結
 
@@ -491,7 +491,7 @@ module.exports = function (context, req) {
 
 ### <a name="working-with-client-identities"></a>使用用戶端身分識別
 
-如果您的函式應用程式使用 [App Service 驗證/授權](../app-service/app-service-authentication-overview.md)，您可以透過程式碼來檢視已驗證的用戶端相關資訊。 這項資訊是以[由平台插入的要求標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)形式提供。 
+如果您的函式應用程式使用 [App Service 驗證/授權](../app-service/overview-authentication-authorization.md)，您可以透過程式碼來檢視已驗證的用戶端相關資訊。 這項資訊是以[由平台插入的要求標頭](../app-service/app-service-authentication-how-to.md#access-user-claims)形式提供。 
 
 您也可以從繫結資料來讀取這項資訊。 這項功能僅適用於 Functions 2.x 執行階段。 它目前也僅適用於 .NET 語言。
 
@@ -577,7 +577,7 @@ Functions 可讓您使用金鑰來提高開發期間存取 HTTP 函式端點的�
 
 若要在生產環境中完全保護您的函式端點，您應該考慮實作下列其中一個函數應用程式等級安全性選項：
 
-* 為您的函數應用程式開啟「App Service 驗證/授權」。 App Service 平台可讓您使用 Azure Active Directory (AAD) 和數個協力廠商身分識別提供者來驗證用戶端。 您可以使用此平台來為函式實作自訂授權規則，並可使用來自函式程式碼的使用者資訊。 若要深入了解，請參閱 [Azure App Service 中的驗證與授權](../app-service/app-service-authentication-overview.md)和[使用用戶端身分識別](#working-with-client-identities)。
+* 為您的函數應用程式開啟「App Service 驗證/授權」。 App Service 平台可讓您使用 Azure Active Directory (AAD) 和數個協力廠商身分識別提供者來驗證用戶端。 您可以使用此平台來為函式實作自訂授權規則，並可使用來自函式程式碼的使用者資訊。 若要深入了解，請參閱 [Azure App Service 中的驗證與授權](../app-service/overview-authentication-authorization.md)和[使用用戶端身分識別](#working-with-client-identities)。
 
 * 使用「Azure API 管理」(APIM) 來驗證要求。 APIM 為傳入要求提供多種 API 安全性選項。 若要深入了解，請參閱 [API 管理驗證原則](../api-management/api-management-authentication-policies.md)。 備妥 APIM 之後，您可以設定讓函數應用程式只接受來自您 APIM 執行個體 IP 位址的要求。 若要深入了解，請參閱 [IP 位址限制](ip-addresses.md#ip-address-restrictions)。
 

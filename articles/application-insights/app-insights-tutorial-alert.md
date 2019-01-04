@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 39e2f136e30ebb6dcfc003c435382f3384af1052
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4b608f9237b9f7f98173168e055b5e83635bc2d7
+ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 11/01/2017
-ms.locfileid: "23659341"
+ms.lasthandoff: 12/22/2018
+ms.locfileid: "53753756"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 監視應用程式健康情況並傳送警示
 
@@ -27,18 +27,18 @@ Azure Application Insights 可讓您監視您的應用程式，並在應用程�
 > * 使用邏輯應用程式，依排程傳送摘要的遙測。
 
 
-## <a name="prerequisites"></a>先決條件
+## <a name="prerequisites"></a>必要條件
 
 若要完成本教學課程：
 
 - 使用下列工作負載安裝 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 開發
     - Azure 開發
-    - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](app-insights-asp-net.md)。 
+    - 將 .NET 應用程式部署至 Azure，並[啟用 Application Insights SDK](../azure-monitor/app/asp-net.md)。 
 
 
 ## <a name="log-in-to-azure"></a>登入 Azure
-登入 Azure 入口網站，網址為 [https://portal.azure.com](https://portal.azure.com)。
+在 [https://portal.azure.com](https://portal.azure.com) 上登入 Azure 入口網站。
 
 ## <a name="create-availability-test"></a>建立可用性測試
 Application Insights 中的可用性測試，可讓您從世界各地的不同位置自動測試您的應用程式。   在本教學課程中，您會執行簡單的測試，以確定應用程式可以使用。  您也可以建立完整的檢測程序來測試詳細作業。 
@@ -88,7 +88,7 @@ Application Insights 中的可用性測試，可讓您從世界各地的不同�
 ## <a name="proactively-send-information"></a>主動傳送資訊
 建立警示可依據在您應用程式中發現的特定問題作回應，通常只會針對需要立即注意的重要問題傳送警示。  您可透過依排程自動執行的邏輯應用程式，主動接收關於應用程式的資訊。  例如，您可以每天傳送郵件給系統管理員，其中包含需進一步評估的摘要資訊。
 
-如需使用 Application Insights 建立邏輯應用程式的詳細資訊，請參閱[使用 Logic Apps 自動執行 Application Insights 程序](automate-with-logic-apps.md)
+如需使用 Application Insights 建立邏輯應用程式的詳細資訊，請參閱[使用 Logic Apps 自動執行 Application Insights 程序](../azure-monitor/app/automate-with-logic-apps.md)
 
 ## <a name="next-steps"></a>後續步驟
 由於您已學會如何針對問題傳送警示，請前進到下一個教學課程，了解如何分析使用者和您應用程式的互動方式。

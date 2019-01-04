@@ -3,17 +3,15 @@ title: 如何在適用於 MariaDB 的 Azure 資料庫中還原伺服器
 description: 此文章說明如何使用 Azure 入口網站，在適用於 MariaDB 的 Azure 資料庫中還原伺服器。
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 899f0bfa3075c92ac31e2b4f5fab9093a1dc6806
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999032"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53548746"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>如何使用 Azure 入口網站在適用於 MariaDB 的 Azure 資料庫中備份及還原伺服器
 
@@ -54,7 +52,7 @@ ms.locfileid: "46999032"
 ## <a name="point-in-time-restore"></a>還原時間點
 適用於 MariaDB 的 Azure 資料庫可讓您將伺服器還原至過去的時間點，並還原至新的伺服器複本。 您可以使用這個新的伺服器來復原資料，或將用戶端應用程式指向這個新的伺服器。
 
-例如，如果今天中午不小心卸除資料表，您可以還原至中午之前的時刻，然後從該新的伺服器複本擷取遺漏的資料表和資料。 時間點還原是在伺服器層級進行，不是在資料庫層級。
+比方說，如果今天中午不小心卸除資料表，您可以還原至中午之前的時刻，然後從該新的伺服器複本擷取遺漏的資料表和資料。 時間點還原是在伺服器層級進行，不是在資料庫層級。
 
 下列步驟會將範例伺服器還原至某個時間點︰
 1. 在 Azure 入口網站中，選取適用於 MariaDB 的 Azure 資料庫伺服器。 
@@ -81,7 +79,7 @@ ms.locfileid: "46999032"
 ## <a name="geo-restore"></a>異地還原
 如果您已將伺服器設定為使用異地備援備份，則可以從現有伺服器的備份建立新的伺服器。 您可以在任何可使用「適用於 MariaDB 的 Azure 資料庫」的區域中建立這個新伺服器。  
 
-1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。 在搜尋方塊中輸入**適用於 MariaDB 的 Azure 資料庫**，以尋找此服務。
+1. 選取入口網站左上角的 [建立資源] 按鈕 (+)。 在搜尋方塊中輸入 [適用於 MariaDB 的 Azure 資料庫]，以尋找此服務。
 
    ![[適用於 MariaDB 的 Azure 資料庫] 選項](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

@@ -80,5 +80,5 @@ ms.locfileid: "52580522"
 * 主機 (您的伺服器名稱)。
 * 連接埠。
 * 資料庫。
-* 使用者 (使用者名稱必須是 **fivetran@_server_name_**，其中 *server_name* 是您 Azure 主機 URI 的一部分：***server_name*.database.windows.net**)。
+* 使用者 (使用者名稱必須是 **fivetran@_server_name_**，其中 *server_name* 是您 Azure 主機 URI 的一部分：**server_name.database.windows.net**)。
 * 密碼。

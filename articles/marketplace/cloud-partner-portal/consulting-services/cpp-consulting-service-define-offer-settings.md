@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6ce51dc9bbcdc7b46593a4800c4fce07a42f3171
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 9cb52aea56e9c1183af9ca76201ab65c62a58f22
+ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344925"
+ms.lasthandoff: 01/02/2019
+ms.locfileid: "53972166"
 ---
 # <a name="offer-settings-tab"></a>供應項目設定索引標籤
 
@@ -42,9 +42,6 @@ ms.locfileid: "53344925"
 *名稱*
 
 此字串是將在 AppSource 或 Azure Marketplace 上顯示為供應項目名稱的字串。 [名稱] 欄位上限為 50 個字元。  檢閱者可能需要編輯您的標題，才能將持續時間和供應項目類型附加到供應項目名稱內。
-
->[!Note]
->重要事項：此處僅供輸入實際的服務名稱。 請勿包含持續時間和服務類型。
 
 Edgewater Fullscope 提供的下列範例顯示供應項目名稱的組合方式。 供應項目名稱會顯示為：
 

@@ -8,17 +8,17 @@ ms.subservice: migration
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: douglaslMS
+ms.author: douglasl
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: e87f8a0d168db02bf0e93216991767f5a9be584c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 89cf69ba8bc88a40582ea795b6a17fab4f286d64
+ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52863511"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53651975"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>將 SQL Server 資料庫移轉至 Azure SQL Database
 
@@ -35,7 +35,7 @@ ms.locfileid: "52863511"
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>方法 1︰在移轉期間會停機的移轉作業
 
- 如果您經得起一些停機時間，或是要執行生產環境資料庫的測試移轉以便稍後進行移轉，請使用此方法來移轉至單一或集區資料庫。 如需教學課程，請參閱[移轉 SQL Server Database](sql-database-migrate-your-sql-server-database.md)。
+ 如果您經得起一些停機時間，或是要執行生產環境資料庫的測試移轉以便稍後進行移轉，請使用此方法來移轉至單一或集區資料庫。 如需教學課程，請參閱[移轉 SQL Server Database](../dms/tutorial-sql-server-to-azure-sql.md)。
 
 下列清單包含使用此方法來進行 SQL Server 資料庫之單一或集區資料庫移轉時的一般工作流程。 如需移轉至「受控執行個體」，請參閱[移轉至受控執行個體](sql-database-managed-instance-migrate.md)。
 

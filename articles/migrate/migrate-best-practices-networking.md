@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 1493eb6978b00771aa8ed4d8cfc28c37a9dde5b6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c6a995c20beefb3a939aa1421eed537137037922
+ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139736"
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53994958"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>針對遷移至 Azure 的工作負載來設定網路的最佳做法
 
@@ -118,7 +118,7 @@ DEV-DB-EUS2 | 10.245.24.0/23 | 507 | 資料庫 VM
 
 **深入了解：**
 - [了解](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure)您在使用自有 DNS 伺服器時的名稱解析。
-- [了解](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS 命名規則和限制。
+- [了解](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fazure%2fvirtual-network%2ftoc.json#naming-subscriptions) DNS 命名規則和限制。
 
 
 ## <a name="best-practice-set-up-availability-zones"></a>最佳做法：設定可用性區域
@@ -336,7 +336,7 @@ Microsoft 與您須共同負責保護 VNet。 Microsoft 提供了許多網路功
 
 **深入了解：**
 
-- [了解](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) NSG。
+- [了解](https://docs.microsoft.com/azure/virtual-network/security-overview) NSG。
 - [檢閱](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) NSG 可用的服務標籤。
 
 
