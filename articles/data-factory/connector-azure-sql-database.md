@@ -21,7 +21,7 @@ ms.lasthandoff: 11/09/2018
 ms.locfileid: "51346695"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure Data Factory 將資料複製到 Azure SQL Database 或從該處複製資料
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-azure-sql-connector.md)
 > * [目前的版本](connector-azure-sql-database.md)
 
