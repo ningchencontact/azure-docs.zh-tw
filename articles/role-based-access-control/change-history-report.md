@@ -15,16 +15,16 @@ ms.date: 05/23/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c1ba7798fd8c1a18bc84aeb9ab8c4c2e0ff718cc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f8c3c770cb7e30bda16b4857d5b337923d2417d2
+ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
 ms.translationtype: HT
 ms.contentlocale: zh-TW
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967890"
+ms.lasthandoff: 12/17/2018
+ms.locfileid: "53541552"
 ---
 # <a name="view-activity-logs-for-rbac-changes"></a>檢視活動記錄檔中的各種 RBAC 變更
 
-有時，您會需要角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
+有時，您會需要角色型存取控制 (RBAC) 變更的相關資訊，例如用來進行稽核或疑難排解。 每當有人對您訂用帳戶內的角色指派或角色定義進行變更時，這些變更都會記錄在 [Azure 活動記錄](../azure-monitor/platform/activity-logs-overview.md)中。 您可以檢視活動記錄來查看過去 90 天的所有 RBAC 變更。
 
 ## <a name="operations-that-are-logged"></a>記錄的作業
 
@@ -125,7 +125,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 
    ![入口網站中的 [Log Analytics] 選項](./media/change-history-report/azure-log-analytics-option.png)
 
-1. 選擇性使用 [記錄搜尋][](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](../azure-monitor/log-query/get-started-portal.md)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../azure-monitor/log-query/portals.md)。
+1. 選擇性使用 [記錄搜尋](../log-analytics/log-analytics-log-search.md) 頁面或[進階分析入口網站](../azure-monitor/log-query/get-started-portal.md)來查詢和檢視記錄。 如需有關這兩個選項的詳細資訊，請參閱[記錄搜尋頁面或進階分析入口網站](../azure-monitor/log-query/portals.md)。
 
 以下查詢會傳回由目標資源提供者所組織的新角色指派：
 
