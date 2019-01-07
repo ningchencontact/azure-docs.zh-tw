@@ -21,7 +21,7 @@ ms.lasthandoff: 08/27/2018
 ms.locfileid: "43090491"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Azure Data Factory 簡介 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-introduction.md)
 > * [目前的版本](introduction.md)
 

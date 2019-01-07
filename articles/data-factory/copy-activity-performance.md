@@ -21,7 +21,7 @@ ms.lasthandoff: 12/08/2018
 ms.locfileid: "53084068"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>複製活動的效能及微調指南
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-copy-activity-performance.md)
 > * [目前的版本](copy-activity-performance.md)
 

@@ -21,7 +21,7 @@ ms.lasthandoff: 07/14/2018
 ms.locfileid: "39055010"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure Data Factory 中的運算式和函式
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+> [!div class="op_single_selector" title1="選擇您正在使用的 Data Factory 服務的版本:"]
 > * [第 1 版](v1/data-factory-functions-variables.md)
 > * [目前的版本](control-flow-expression-language-functions.md)
 
